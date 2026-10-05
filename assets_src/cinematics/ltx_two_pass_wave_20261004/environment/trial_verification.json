@@ -1,0 +1,149 @@
+{
+  "status": "PASS",
+  "checks": [
+    {
+      "artifact": "inputs/wave_guides.aseprite",
+      "native_roundtrip_frames": 8,
+      "status": "PASS"
+    },
+    {
+      "take": "ltx23_chunked",
+      "execution": "EXECUTION_FAIL",
+      "footage": "Absent; no fabricated output"
+    },
+    {
+      "artifact": "results/official_mid_strong/native_review.aseprite",
+      "native_roundtrip_frames": 41,
+      "status": "PASS"
+    },
+    {
+      "artifact": "results/official_mid_strong/on_twos.aseprite",
+      "native_roundtrip_frames": 21,
+      "status": "PASS"
+    },
+    {
+      "artifact": "results/official_mid_strong/stage1.aseprite",
+      "native_roundtrip_frames": 41,
+      "status": "PASS"
+    },
+    {
+      "artifact": "results/official_mid_strong/refined_native.aseprite",
+      "native_roundtrip_frames": 41,
+      "status": "PASS"
+    },
+    {
+      "artifact": "results/official_mid_strong/requested_canvas.aseprite",
+      "native_roundtrip_frames": 41,
+      "status": "PASS"
+    },
+    {
+      "artifact": "results/official_mid_strong/on_twos.mp4",
+      "frames": 21,
+      "dimensions": [
+        704,
+        1088
+      ],
+      "fps": "12/1",
+      "status": "PASS"
+    },
+    {
+      "artifact": "results/official_mid_strong/refined_native.mp4",
+      "frames": 41,
+      "dimensions": [
+        704,
+        1088
+      ],
+      "fps": "24/1",
+      "status": "PASS"
+    },
+    {
+      "artifact": "results/official_mid_strong/requested_canvas.mp4",
+      "frames": 41,
+      "dimensions": [
+        576,
+        832
+      ],
+      "fps": "24/1",
+      "status": "PASS"
+    },
+    {
+      "artifact": "results/official_mid_strong/stage1.mp4",
+      "frames": 41,
+      "dimensions": [
+        352,
+        544
+      ],
+      "fps": "24/1",
+      "status": "PASS"
+    },
+    {
+      "artifact": "results/official_standard/native_review.aseprite",
+      "native_roundtrip_frames": 41,
+      "status": "PASS"
+    },
+    {
+      "artifact": "results/official_standard/on_twos.aseprite",
+      "native_roundtrip_frames": 21,
+      "status": "PASS"
+    },
+    {
+      "artifact": "results/official_standard/stage1.aseprite",
+      "native_roundtrip_frames": 41,
+      "status": "PASS"
+    },
+    {
+      "artifact": "results/official_standard/refined_native.aseprite",
+      "native_roundtrip_frames": 41,
+      "status": "PASS"
+    },
+    {
+      "artifact": "results/official_standard/requested_canvas.aseprite",
+      "native_roundtrip_frames": 41,
+      "status": "PASS"
+    },
+    {
+      "artifact": "results/official_standard/on_twos.mp4",
+      "frames": 21,
+      "dimensions": [
+        704,
+        1088
+      ],
+      "fps": "12/1",
+      "status": "PASS"
+    },
+    {
+      "artifact": "results/official_standard/refined_native.mp4",
+      "frames": 41,
+      "dimensions": [
+        704,
+        1088
+      ],
+      "fps": "24/1",
+      "status": "PASS"
+    },
+    {
+      "artifact": "results/official_standard/requested_canvas.mp4",
+      "frames": 41,
+      "dimensions": [
+        576,
+        832
+      ],
+      "fps": "24/1",
+      "status": "PASS"
+    },
+    {
+      "artifact": "results/official_standard/stage1.mp4",
+      "frames": 41,
+      "dimensions": [
+        352,
+        544
+      ],
+      "fps": "24/1",
+      "status": "PASS"
+    }
+  ],
+  "qa_resolution": "Native pixels only; 1:1 contacts; output recipe normalization remains declared separately.",
+  "visual_quality_acceptance": false,
+  "runtime_device_child_owner_acceptance": false,
+  "reexport_directory_not_published": "H:\\MermaidReefTools\\LocalVideo\\verification\\7de365e5e7314802bfa3ae51ec70aed9"
+}

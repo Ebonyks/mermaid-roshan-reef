@@ -1,0 +1,9 @@
+COMMAND python -B tools/audit_document_authority.py
+DOCAUTH|INVENTORY=661|LEDGER=661|ACTIVE=64|RECORDS=67
+DOCAUTH|RESULT|ALL OK
+
+COMMAND python -B tools/audit_development.py --base auto
+AUDITDEV|BASE|8a2f30cb0df44ece3b1172ed2dbcb9a55fc5d622
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/cinematics/ltx_two_pass_wave_20261004/environment/project_gates.log
+AUDITDEV|RESULT|1 ISSUE(S)
+

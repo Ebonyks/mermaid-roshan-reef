@@ -29,6 +29,8 @@ Owner-commissioned [registered whole-figure wave study](../assets_src/cinematics
 
 Owner-prioritized [8 GB retake repair trial](../assets_src/cinematics/ltx_retake_repair_20261004/README.md) tests corrected complete-figure keys exported through Aseprite and temporal-span regeneration. Actual hardware execution, native artifacts, visual failures and caps are recorded separately; the trial grants no production, runtime, owner/device/child acceptance or finding closure.
 
+Owner-directed [two-pass refinement comparison](../assets_src/cinematics/ltx_two_pass_wave_20261004/README.md) tests the omitted installed 2B refine pass, complete-figure portrait guides, the missing lowering key and conditional 8 GB LTX-2.3 fallback. Native outputs and Aseprite cadence checks remain source-only evidence; recipe execution and visual acceptance are independent. No runtime finding or game-wide audit state changes.
+
 ### Next bounded planning work
 
 | Deliverable | Prerequisite | Next evidence |

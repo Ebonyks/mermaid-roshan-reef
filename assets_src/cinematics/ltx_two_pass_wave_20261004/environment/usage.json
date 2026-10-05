@@ -1,0 +1,46 @@
+{
+  "trial_id": "LTX-TWO-PASS-WAVE-20261004",
+  "generated_takes_completed": 2,
+  "queued_jobs_and_failed_model_submissions": 3,
+  "completed_backend_counts": {
+    "ltxv2b": 2,
+    "ltx23": 0
+  },
+  "queued_backend_counts": {
+    "ltxv2b": 2,
+    "ltx23": 1
+  },
+  "execution_failures": 1,
+  "setup_failures": 3,
+  "setup_failures_record": "environment/setup_events.json",
+  "imagegen_calls": 1,
+  "new_model_download_bytes": 505024432,
+  "paid_api_usd": 0,
+  "active_model_job_seconds": 746.288,
+  "takes": [
+    {
+      "name": "official_standard",
+      "status": "EXECUTION_PASS",
+      "seconds": 70.15
+    },
+    {
+      "name": "official_mid_strong",
+      "status": "EXECUTION_PASS",
+      "seconds": 37.57
+    },
+    {
+      "name": "ltx23_chunked",
+      "status": "EXECUTION_FAIL",
+      "seconds": 638.568
+    }
+  ],
+  "not_submitted": "ltx23_chunked_nag; stopped after baseline stalled. Dedicated NAG arithmetic verified onCPU, not GPU quality or performance.",
+  "ltx25_weights_downloaded": false,
+  "prior_costs_preserved": [
+    "assets_src/cinematics/ltx_registered_wave_20261004/briefs/job_card.json",
+    "assets_src/cinematics/ltx_retake_repair_20261004/environment/usage.json"
+  ],
+  "cap_compliance": "Within all currentbrief generation/modeldownload/paid caps; earlier7/6 overrun remains in prior trial.",
+  "automated_cleanup_metering": "Aseprite/export/verification subprocess durations captured separately where recorded; no fabricated estimate.",
+  "accepted_production_seconds": 0
+}

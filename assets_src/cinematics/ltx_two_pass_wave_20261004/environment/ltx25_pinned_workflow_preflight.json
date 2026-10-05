@@ -1,0 +1,321 @@
+{
+  "repository": "https://github.com/reventadirecta/LTX-2.5-I2V-8GB-VRAM",
+  "revision": "ab9b61ef01af3c5f43d8b530ded87a66337c5afe",
+  "inspected_artifacts": {
+    "README.md": {
+      "bytes": 4326,
+      "sha256": "c50258c126a90cd60a7b37151395b0fc5b98f01764c63a417cddf603983469e3",
+      "url": "https://github.com/reventadirecta/LTX-2.5-I2V-8GB-VRAM/blob/ab9b61ef01af3c5f43d8b530ded87a66337c5afe/README.md"
+    },
+    "docs/MODELS.md": {
+      "bytes": 2216,
+      "sha256": "63327084dd03899e7b31802ea2ccd5eaec1c082710d230acf9a3d4524401f7d1",
+      "url": "https://github.com/reventadirecta/LTX-2.5-I2V-8GB-VRAM/blob/ab9b61ef01af3c5f43d8b530ded87a66337c5afe/docs/MODELS.md"
+    },
+    "docs/INSTALLATION.md": {
+      "bytes": 1544,
+      "sha256": "52a0fd08385061cfc8cde04ded8f0e57d6d9f26ece4b2ee1416dd092736955bd",
+      "url": "https://github.com/reventadirecta/LTX-2.5-I2V-8GB-VRAM/blob/ab9b61ef01af3c5f43d8b530ded87a66337c5afe/docs/INSTALLATION.md"
+    },
+    "workflows/LTX_2.5_I2V_8GB_VRAM_BASELINE.json": {
+      "bytes": 232490,
+      "sha256": "74509a8675275143bd3fb0f5dd4f663ca2ce9fedfd98e01fbeccfb18a757d1f1",
+      "url": "https://github.com/reventadirecta/LTX-2.5-I2V-8GB-VRAM/blob/ab9b61ef01af3c5f43d8b530ded87a66337c5afe/workflows/LTX_2.5_I2V_8GB_VRAM_BASELINE.json"
+    }
+  },
+  "scope": "Community-reported 8GB RTX4060 Laptop, Comfy0.34.3, W4A8ConvRot, BF16DiffVAE, dynamic offload; not measured on this3060Ti.",
+  "workflow_node_types": [
+    "6e397a2b-68f7-48f6-8930-f3a5491a163c",
+    "BOOLEAN",
+    "CLIP",
+    "CLIPLoader",
+    "CLIPTextEncode",
+    "COMBO",
+    "CONDITIONING",
+    "ComfyMathExpression",
+    "ComfySwitchNode",
+    "CreateVideo",
+    "EmptyLTXVLatentVideo",
+    "FLOAT",
+    "GUIDER",
+    "IMAGE",
+    "IMAGE,MASK",
+    "INT",
+    "KSamplerSelect",
+    "LATENT",
+    "LATENT_UPSCALE_MODEL",
+    "LTXVAudioVAEDecode",
+    "LTXVConcatAVLatent",
+    "LTXVConditioning",
+    "LTXVDualCFGGuider",
+    "LTXVEmptyLatentAudio",
+    "LTXVImgToVideoInplace",
+    "LTXVLatentUpsampler",
+    "LTXVPreprocess",
+    "LTXVSeparateAVLatent",
+    "LatentUpscaleModelLoader",
+    "LoadImage",
+    "MODEL",
+    "ManualSigmas",
+    "MarkdownNote",
+    "NOISE",
+    "PreviewAny",
+    "PrimitiveBoolean",
+    "PrimitiveInt",
+    "PrimitiveStringMultiline",
+    "RandomNoise",
+    "ResizeImageMaskNode",
+    "ResolutionSelector",
+    "SAMPLER",
+    "SIGMAS",
+    "STRING",
+    "SamplerCustomAdvanced",
+    "SaveVideo",
+    "TextGenerateLTX2Prompt",
+    "UNETLoader",
+    "VAE",
+    "VAEDecodeTiled",
+    "VAELoader",
+    "VIDEO"
+  ],
+  "model_loaders": [],
+  "model_metadata": {
+    "Lightricks/LTX-2.5": {
+      "revision": "2356ce76915d6c48d313d7e8b25900e1dd3abaa8",
+      "gated": "auto",
+      "files": [
+        {
+          "name": "latent_upscale_models/ltx-2.5-latent-spatial-upscaler-x2-bf16-1.0.safetensors",
+          "bytes": 995778752,
+          "sha256": "eb5a71fe4068ee87ccdb1c3aa635e547ca76bd2d30ae20ae889f2c325c0677e8"
+        },
+        {
+          "name": "vae/ltx-2.5-video-vae-bf16.safetensors",
+          "bytes": 1472223346,
+          "sha256": "847e14ca7f3355debca0cea4eaa24ac0fbcdf0061da054ac89ca638a869ddba3"
+        }
+      ]
+    },
+    "Winnougan/ltx-2.5-w4a8-convrot-int4-convrot-Winnougan-Blessing": {
+      "revision": "d27e4b9248e93b982f5c92e713a8f5cbdde76a45",
+      "gated": false,
+      "files": [
+        {
+          "name": "diffusion_models/ltx-2.5-22b-dev-transformer-w4a8_convrot.safetensors",
+          "bytes": 12520292200,
+          "sha256": "1b36620d29d70c72b0101cf7d4fe7a0ee1c0b34f5ea1b10854a6c0baf52cdf1a"
+        },
+        {
+          "name": "diffusion_models/ltx-2.5-22b-distilled-transformer-w4a8_convrot.safetensors",
+          "bytes": 12520292200,
+          "sha256": "19ee13bf3a156f11b62ede47449fba8e02f775549d22598e1ffa9d874acf46a3"
+        },
+        {
+          "name": "text_encoders/gemma4-12b-with-proj-ltx-2.5-w4a8_convrot.safetensors",
+          "bytes": 10604323186,
+          "sha256": "720a028bed0b776a31ceacbdfcf52edb54a9a4ab203c9a3b148299d147d0b4d5"
+        }
+      ]
+    }
+  },
+  "model_loaders_and_schedules": [
+    {
+      "type": "CLIPLoader",
+      "widgets_values": [
+        "gemma4_e2b_it_int8_convrot.safetensors",
+        "ltxv",
+        "default"
+      ]
+    },
+    {
+      "type": "UNETLoader",
+      "widgets_values": [
+        "ltx-2.5-22b-distilled-transformer-comfy-int8-convrot.safetensors",
+        "default"
+      ]
+    },
+    {
+      "type": "VAELoader",
+      "widgets_values": [
+        "ltx-2.5-video-vae-bf16.safetensors"
+      ]
+    },
+    {
+      "type": "VAELoader",
+      "widgets_values": [
+        "ltx-2.5-audio-vae-bf16.safetensors"
+      ]
+    },
+    {
+      "type": "CLIPLoader",
+      "widgets_values": [
+        "gemma4-12b-with-proj-ltx-2.5-comfy-int8-convrot.safetensors",
+        "ltxv",
+        "default"
+      ]
+    },
+    {
+      "type": "KSamplerSelect",
+      "widgets_values": [
+        "euler_ancestral"
+      ]
+    },
+    {
+      "type": "ManualSigmas",
+      "widgets_values": [
+        "1.0, 0.99375, 0.9875, 0.98125, 0.975, 0.909375, 0.725, 0.421875, 0.0"
+      ]
+    },
+    {
+      "type": "LatentUpscaleModelLoader",
+      "widgets_values": [
+        "ltx-2.5-latent-spatial-upscaler-x2-bf16-1.0.safetensors"
+      ]
+    },
+    {
+      "type": "LTXVDualCFGGuider",
+      "widgets_values": [
+        1,
+        1
+      ]
+    },
+    {
+      "type": "SamplerCustomAdvanced",
+      "widgets_values": null
+    },
+    {
+      "type": "ManualSigmas",
+      "widgets_values": [
+        "0.85, 0.7250, 0.4219, 0.0"
+      ]
+    },
+    {
+      "type": "LTXVDualCFGGuider",
+      "widgets_values": [
+        1,
+        1
+      ]
+    },
+    {
+      "type": "KSamplerSelect",
+      "widgets_values": [
+        "euler_ancestral"
+      ]
+    },
+    {
+      "type": "SamplerCustomAdvanced",
+      "widgets_values": null
+    },
+    {
+      "type": "VAEDecodeTiled",
+      "widgets_values": [
+        512,
+        64,
+        64,
+        16
+      ]
+    },
+    {
+      "type": "LTXVAudioVAEDecode",
+      "widgets_values": null
+    }
+  ],
+  "exact_four_component_bytes": 25592617484,
+  "exact_four_component_gib": 23.835,
+  "official_access_probe": {
+    "latent_upscale_models/ltx-2.5-latent-spatial-upscaler-x2-bf16-1.0.safetensors": {
+      "http_status": 401,
+      "anonymous": true,
+      "body_bytes_downloaded": 0,
+      "reason": "GatedRepo"
+    },
+    "vae/ltx-2.5-video-vae-bf16.safetensors": {
+      "http_status": 401,
+      "anonymous": true,
+      "body_bytes_downloaded": 0,
+      "reason": "GatedRepo"
+    }
+  },
+  "nested_widgets_interpretation": "Inspected saved nested defaults, including disabled nodes; these are not the compiled active graph. Published model substitutions are W4A8 ConvRot in the four-component docs, not a proven GGUF baseline.",
+  "access_requirement": "Official VAE/upscaler returned401GatedRepo anonymously. Account access/terms must be resolved before their download; no private credentials accessed or model weights downloaded.",
+  "further_primary_source_check": {
+    "checked_at_utc": "2026-10-05T00:51:52.430064+00:00",
+    "sources": [
+      {
+        "url": "https://raw.githubusercontent.com/Lightricks/LTX-2/9ec55f9f22798a3198d9c923856824821bc3317e/packages/ltx-pipelines/docs/hdr.md",
+        "bytes": 5134,
+        "sha256": "8a9ab3ad2b7c0f750e5f9cc47f12d905adfa0c03448abd1eb3f791aee3b9f65a",
+        "repository_revision": "9ec55f9f22798a3198d9c923856824821bc3317e"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/Lightricks/LTX-2/9ec55f9f22798a3198d9c923856824821bc3317e/packages/ltx-pipelines/docs/conditioning.md",
+        "bytes": 3816,
+        "sha256": "36436d4ca534398b0e889788051ced8ee4c4b61cc24ef27b4300fa0875f3e60f",
+        "repository_revision": "9ec55f9f22798a3198d9c923856824821bc3317e"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/Lightricks/LTX-2/9ec55f9f22798a3198d9c923856824821bc3317e/packages/ltx-pipelines/src/ltx_pipelines/retake.py",
+        "bytes": 15845,
+        "sha256": "669a375c2f3915c8276e5579c3ad2c20d5a76c866cf6bff480b9ac4113d8882f",
+        "repository_revision": "9ec55f9f22798a3198d9c923856824821bc3317e"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/Lightricks/LTX-Desktop/68cd86c15e5fd25f56229ea63c0dbcb0338f7812/backend/runtime_config/ltx_capabilities.py",
+        "bytes": 6947,
+        "sha256": "9ac5ffdd746f391c0e3ea8803c895f88dde78955b2d7ff9d04c8d1af24cbded4",
+        "repository_revision": "68cd86c15e5fd25f56229ea63c0dbcb0338f7812"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/Lightricks/LTX-Desktop/68cd86c15e5fd25f56229ea63c0dbcb0338f7812/backend/tests/test_retake_extend_generation.py",
+        "bytes": 6589,
+        "sha256": "6797a7c1d052158afde4a8a73b6d8fef43f9e35907cc4c5d7c4877ae5da66787",
+        "repository_revision": "68cd86c15e5fd25f56229ea63c0dbcb0338f7812"
+      }
+    ],
+    "retake_framework": "Official LTX-2 pipeline docs explicitly use split 2.5 distilled components for a single-stage temporal retake. Source uses TemporalRegionMask and distilled schedule; no 8GB execution claim.",
+    "desktop_source_conflict": {
+      "release_url": "https://github.com/Lightricks/LTX-Desktop/releases/tag/v1.2.5",
+      "release_published_at": "2026-08-20T15:38:50Z",
+      "release_claim": "Local2.5 Retake/Extend supported",
+      "pinned_main_source": "2.5 retake=False, extend=False; routing tests assert rejection. App integration unresolved, not a model-wide ban."
+    },
+    "generated_keyframe_slots": "Official2.5 supports extra interior single-pixel-frame slots using one latent frame of tokens per slot; extra attention/memory cost. Not supplied guide locks, not implemented or tested in this Comfy graph."
+  },
+  "synthetic_w4a8_kernel_probe": {
+    "status": "PASS",
+    "gpu": "NVIDIA GeForce RTX 3060 Ti",
+    "sm": [
+      8,
+      6
+    ],
+    "torch": "2.13.0+cu130",
+    "backend": "comfy_kitchen.backends.cuda.w4a8_int8_linear",
+    "dtype": "bfloat16",
+    "weight_shape": [
+      256,
+      256
+    ],
+    "input_shape": [
+      32,
+      256
+    ],
+    "output_shape": [
+      32,
+      256
+    ],
+    "group_size": 16,
+    "convrot_groupsize": 256,
+    "torch_seed": 20261004,
+    "weight_scale": 0.05,
+    "relative_scale_dtype": "float8_e4m3fn",
+    "symmetric": true,
+    "codebook": true,
+    "all_finite": true,
+    "seconds": 0.451,
+    "allocated_peak_MiB": 8.5,
+    "int8_vs_dequantized_mean_abs": 0.005082047078758478,
+    "int8_vs_dequantized_max_abs": 0.03125,
+    "evidence": "Actual shell output a3289c in this continuing task; synthetic quantize->linear->dequantize/matmul comparison, no model weights or video job.",
+    "limitations": "Native operator compatibility only; no full-model load, peakVRAM, performance, fidelity or retake acceptance."
+  }
+}
