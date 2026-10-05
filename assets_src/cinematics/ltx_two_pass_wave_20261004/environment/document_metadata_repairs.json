@@ -1,0 +1,9 @@
+{
+  "initial_failures": [
+    "Two new Markdown docs lacked ledger rows.",
+    "Impact acceptance_gaps must be a nonempty string; lessons/owner_corrections require structured write-back fields.",
+    "The first saved gate log was new and not yet covered by the impact list."
+  ],
+  "repairs": "Addedexactledgerrows, convertedfields to required schema, refreshed actualfilecoverage; gate implementation unchanged.",
+  "meaning": "Metadata repair only, no fabricated gameplay finding or artistic acceptance."
+}

@@ -1,0 +1,194 @@
+INFO:alembic.runtime.plugins:setup plugin alembic.autogenerate.schemas
+[32m[INFO][0m setup plugin alembic.autogenerate.schemas
+INFO:alembic.runtime.plugins:setup plugin alembic.autogenerate.tables
+[32m[INFO][0m setup plugin alembic.autogenerate.tables
+INFO:alembic.runtime.plugins:setup plugin alembic.autogenerate.types
+[32m[INFO][0m setup plugin alembic.autogenerate.types
+INFO:alembic.runtime.plugins:setup plugin alembic.autogenerate.constraints
+[32m[INFO][0m setup plugin alembic.autogenerate.constraints
+INFO:alembic.runtime.plugins:setup plugin alembic.autogenerate.defaults
+[32m[INFO][0m setup plugin alembic.autogenerate.defaults
+INFO:alembic.runtime.plugins:setup plugin alembic.autogenerate.comments
+[32m[INFO][0m setup plugin alembic.autogenerate.comments
+INFO:alembic.runtime.plugins:setup plugin alembic.autogenerate.checkconstraint_byname
+[32m[INFO][0m setup plugin alembic.autogenerate.checkconstraint_byname
+INFO:root:Adding extra search path diffusion_models H:\MermaidReefTools\LocalVideo\models\diffusion_models
+[32m[INFO][0m Adding extra search path diffusion_models H:\MermaidReefTools\LocalVideo\models\diffusion_models
+INFO:root:Adding extra search path text_encoders H:\MermaidReefTools\LocalVideo\models\text_encoders
+[32m[INFO][0m Adding extra search path text_encoders H:\MermaidReefTools\LocalVideo\models\text_encoders
+INFO:root:Adding extra search path vae H:\MermaidReefTools\LocalVideo\models\vae
+[32m[INFO][0m Adding extra search path vae H:\MermaidReefTools\LocalVideo\models\vae
+INFO:root:Adding extra search path latent_upscale_models H:\MermaidReefTools\LocalVideo\models\latent_upscale_models
+[32m[INFO][0m Adding extra search path latent_upscale_models H:\MermaidReefTools\LocalVideo\models\latent_upscale_models
+INFO:root:Adding extra search path checkpoints C:\Users\Peter\AppData\Local\Programs\MermaidReefTools\AnimationBench\comfy_models\checkpoints
+[32m[INFO][0m Adding extra search path checkpoints C:\Users\Peter\AppData\Local\Programs\MermaidReefTools\AnimationBench\comfy_models\checkpoints
+INFO:root:Adding extra search path text_encoders C:\Users\Peter\AppData\Local\Programs\MermaidReefTools\AnimationBench\comfy_models\text_encoders
+[32m[INFO][0m Adding extra search path text_encoders C:\Users\Peter\AppData\Local\Programs\MermaidReefTools\AnimationBench\comfy_models\text_encoders
+INFO:root:Setting output directory to: H:\MermaidReefTools\LocalVideo\output
+[32m[INFO][0m Setting output directory to: H:\MermaidReefTools\LocalVideo\output
+INFO:root:Setting input directory to: H:\MermaidReefTools\LocalVideo\input
+[32m[INFO][0m Setting input directory to: H:\MermaidReefTools\LocalVideo\input
+INFO:root:Setting user directory to: H:\MermaidReefTools\LocalVideo\two_pass_user
+[32m[INFO][0m Setting user directory to: H:\MermaidReefTools\LocalVideo\two_pass_user
+WARNING:root:WARNING: Potential Error in code: Torch already imported, torch should never be imported before this point.
+[1m[33m[WARNING][0m WARNING: Potential Error in code: Torch already imported, torch should never be imported before this point.
+INFO:root:Python version: 3.13.14 (tags/v3.13.14:fd17997, Jun 10 2026, 13:03:48) [MSC v.1944 64 bit (AMD64)]
+[32m[INFO][0m Python version: 3.13.14 (tags/v3.13.14:fd17997, Jun 10 2026, 13:03:48) [MSC v.1944 64 bit (AMD64)]
+INFO:root:ComfyUI version: 0.34.0
+[32m[INFO][0m ComfyUI version: 0.34.0
+INFO:root:comfy-aimdo version: 0.4.15
+[32m[INFO][0m comfy-aimdo version: 0.4.15
+INFO:root:comfy-kitchen version: 0.2.31
+[32m[INFO][0m comfy-kitchen version: 0.2.31
+WARNING:root:Dynamic vram disabled with argument. If you have any issues with dynamic vram enabled please give us a detailed reports as this argument will be removed soon. If you use gguf we recommend keeping dynamic vram enabled and using native ComfyUI model formats instead. ComfyUI native formats like fp8 will be faster even if they are larger than your memory.
+[1m[33m[WARNING][0m Dynamic vram disabled with argument. If you have any issues with dynamic vram enabled please give us a detailed reports as this argument will be removed soon. If you use gguf we recommend keeping dynamic vram enabled and using native ComfyUI model formats instead. ComfyUI native formats like fp8 will be faster even if they are larger than your memory.
+INFO:root:Setting temp directory to: H:\MermaidReefTools\LocalVideo\two_pass_temp\temp
+[32m[INFO][0m Setting temp directory to: H:\MermaidReefTools\LocalVideo\two_pass_temp\temp
+INFO:root:comfyui-frontend-package version: 1.49.6
+[32m[INFO][0m comfyui-frontend-package version: 1.49.6
+INFO:root:comfyui-workflow-templates version: 0.11.48
+[32m[INFO][0m comfyui-workflow-templates version: 0.11.48
+INFO:root:comfyui-embedded-docs version: 0.5.10
+[32m[INFO][0m comfyui-embedded-docs version: 0.5.10
+INFO:root:comfy-kitchen version: 0.2.31
+[32m[INFO][0m comfy-kitchen version: 0.2.31
+INFO:root:comfy-aimdo version: 0.4.15
+[32m[INFO][0m comfy-aimdo version: 0.4.15
+INFO:root:[Prompt Server] web root: C:\Users\Peter\AppData\Local\Programs\MermaidReefTools\ComfyUI\0.34.0\ComfyUI_windows_portable\python_embeded\Lib\site-packages\comfyui_frontend_package\static
+[32m[INFO][0m [Prompt Server] web root: C:\Users\Peter\AppData\Local\Programs\MermaidReefTools\ComfyUI\0.34.0\ComfyUI_windows_portable\python_embeded\Lib\site-packages\comfyui_frontend_package\static
+INFO:root:Asset seeder disabled
+[32m[INFO][0m Asset seeder disabled
+INFO:OpenGL.acceleratesupport:No OpenGL_accelerate module loaded: No module named 'OpenGL_accelerate'
+[32m[INFO][0m No OpenGL_accelerate module loaded: No module named 'OpenGL_accelerate'
+INFO:root:ComfyUI-GGUF: Allowing full torch compile
+[32m[INFO][0m ComfyUI-GGUF: Allowing full torch compile
+INFO:root:Skipping websocket_image_save.py due to disable_all_custom_nodes and whitelist_custom_nodes
+[32m[INFO][0m Skipping websocket_image_save.py due to disable_all_custom_nodes and whitelist_custom_nodes
+INFO:root:
+Import times for custom nodes:
+[32m[INFO][0m 
+Import times for custom nodes:
+INFO:root:   0.1 seconds: C:\Users\Peter\AppData\Local\Programs\MermaidReefTools\ComfyUI\0.34.0\ComfyUI_windows_portable\ComfyUI\custom_nodes\ComfyUI-GGUF
+[32m[INFO][0m    0.1 seconds: C:\Users\Peter\AppData\Local\Programs\MermaidReefTools\ComfyUI\0.34.0\ComfyUI_windows_portable\ComfyUI\custom_nodes\ComfyUI-GGUF
+INFO:root:
+[32m[INFO][0m 
+INFO:alembic.runtime.migration:Context impl SQLiteImpl.
+[32m[INFO][0m Context impl SQLiteImpl.
+INFO:alembic.runtime.migration:Will assume non-transactional DDL.
+[32m[INFO][0m Will assume non-transactional DDL.
+INFO:alembic.runtime.migration:Context impl SQLiteImpl.
+[32m[INFO][0m Context impl SQLiteImpl.
+INFO:alembic.runtime.migration:Will assume non-transactional DDL.
+[32m[INFO][0m Will assume non-transactional DDL.
+INFO:alembic.runtime.migration:Running upgrade  -> 0001_assets, Initial assets schema
+Revision ID: 0001_assets
+Revises: None
+Create Date: 2025-12-10 00:00:00
+[32m[INFO][0m Running upgrade  -> 0001_assets, Initial assets schema
+Revision ID: 0001_assets
+Revises: None
+Create Date: 2025-12-10 00:00:00
+INFO:alembic.runtime.migration:Running upgrade 0001_assets -> 0002_merge_to_asset_references, Merge AssetInfo and AssetCacheState into unified asset_references table.
+[32m[INFO][0m Running upgrade 0001_assets -> 0002_merge_to_asset_references, Merge AssetInfo and AssetCacheState into unified asset_references table.
+INFO:alembic.runtime.migration:Running upgrade 0002_merge_to_asset_references -> 0003_add_metadata_job_id, Add system_metadata and job_id columns to asset_references.
+Change preview_id FK from assets.id to asset_references.id.
+[32m[INFO][0m Running upgrade 0002_merge_to_asset_references -> 0003_add_metadata_job_id, Add system_metadata and job_id columns to asset_references.
+Change preview_id FK from assets.id to asset_references.id.
+INFO:alembic.runtime.migration:Running upgrade 0003_add_metadata_job_id -> 0004_drop_tag_type, Drop the vestigial tags.tag_type column.
+[32m[INFO][0m Running upgrade 0003_add_metadata_job_id -> 0004_drop_tag_type, Drop the vestigial tags.tag_type column.
+INFO:alembic.runtime.migration:Running upgrade 0004_drop_tag_type -> 0005_allow_case_sensitive_tags, Allow case-sensitive tag names.
+[32m[INFO][0m Running upgrade 0004_drop_tag_type -> 0005_allow_case_sensitive_tags, Allow case-sensitive tag names.
+INFO:alembic.runtime.migration:Running upgrade 0005_allow_case_sensitive_tags -> 0006_add_loader_path, Add loader_path column to asset_references.
+[32m[INFO][0m Running upgrade 0005_allow_case_sensitive_tags -> 0006_add_loader_path, Add loader_path column to asset_references.
+INFO:root:Database upgraded from None to 0006_add_loader_path
+[32m[INFO][0m Database upgraded from None to 0006_add_loader_path
+INFO:root:Using RAM pressure cache.
+[32m[INFO][0m Using RAM pressure cache.
+INFO:root:Starting server
+
+[32m[INFO][0m Starting server
+
+INFO:root:To see the GUI go to: http://127.0.0.1:8192
+[32m[INFO][0m To see the GUI go to: http://127.0.0.1:8192
+INFO:root:got prompt
+[32m[INFO][0m got prompt
+INFO:root:model weight dtype torch.bfloat16, manual cast: None
+[32m[INFO][0m model weight dtype torch.bfloat16, manual cast: None
+INFO:root:model_type FLUX
+[32m[INFO][0m model_type FLUX
+INFO:root:VAE load device: cuda:0, offload device: cpu, dtype: torch.bfloat16
+[32m[INFO][0m VAE load device: cuda:0, offload device: cpu, dtype: torch.bfloat16
+WARNING:root:no CLIP/text encoder weights in checkpoint, the text encoder model will not be loaded.
+[1m[33m[WARNING][0m no CLIP/text encoder weights in checkpoint, the text encoder model will not be loaded.
+INFO:root:Requested to load MochiTEModel_
+[32m[INFO][0m Requested to load MochiTEModel_
+INFO:root:loaded completely;  4541.69 MB loaded, full load: True
+[32m[INFO][0m loaded completely;  4541.69 MB loaded, full load: True
+INFO:root:CLIP/text encoder model load device: cpu, offload device: cpu, current: cpu, dtype: torch.float16
+[32m[INFO][0m CLIP/text encoder model load device: cpu, offload device: cpu, current: cpu, dtype: torch.float16
+INFO:root:Requested to load VideoVAE
+[32m[INFO][0m Requested to load VideoVAE
+INFO:root:loaded completely; 5078.00 MB usable, 2378.23 MB loaded, full load: True
+[32m[INFO][0m loaded completely; 5078.00 MB usable, 2378.23 MB loaded, full load: True
+INFO:root:Requested to load LTXV
+[32m[INFO][0m Requested to load LTXV
+INFO:root:Unloaded partially: 1730.21 MB freed, 648.09 MB remains loaded, 216.00 MB buffer reserved, lowvram patches: 0
+[32m[INFO][0m Unloaded partially: 1730.21 MB freed, 648.09 MB remains loaded, 216.00 MB buffer reserved, lowvram patches: 0
+INFO:root:loaded completely; 4403.95 MB usable, 3667.90 MB loaded, full load: True
+[32m[INFO][0m loaded completely; 4403.95 MB usable, 3667.90 MB loaded, full load: True
+  0%|          | 0/7 [00:00<?, ?it/s] 14%|#4        | 1/7 [00:02<00:16,  2.81s/it] 29%|##8       | 2/7 [00:03<00:07,  1.45s/it] 43%|####2     | 3/7 [00:03<00:04,  1.01s/it] 57%|#####7    | 4/7 [00:04<00:02,  1.24it/s] 71%|#######1  | 5/7 [00:04<00:01,  1.44it/s] 86%|########5 | 6/7 [00:05<00:00,  1.60it/s]100%|##########| 7/7 [00:05<00:00,  1.71it/s]100%|##########| 7/7 [00:05<00:00,  1.21it/s]INFO:root:Unloaded partially: 1611.23 MB freed, 2057.37 MB remains loaded, 8.00 MB buffer reserved, lowvram patches: 0
+
+[32m[INFO][0m Unloaded partially: 1611.23 MB freed, 2057.37 MB remains loaded, 8.00 MB buffer reserved, lowvram patches: 0
+INFO:root:loaded completely; 2972.41 MB usable, 2378.23 MB loaded, full load: True
+[32m[INFO][0m loaded completely; 2972.41 MB usable, 2378.23 MB loaded, full load: True
+INFO:root:Requested to load LatentUpsampler
+[32m[INFO][0m Requested to load LatentUpsampler
+INFO:root:Unloaded partially: 16.01 MB freed, 2041.37 MB remains loaded, 8.00 MB buffer reserved, lowvram patches: 0
+[32m[INFO][0m Unloaded partially: 16.01 MB freed, 2041.37 MB remains loaded, 8.00 MB buffer reserved, lowvram patches: 0
+INFO:root:loaded completely; 589.10 MB usable, 240.80 MB loaded, full load: True
+[32m[INFO][0m loaded completely; 589.10 MB usable, 240.80 MB loaded, full load: True
+INFO:root:Unloaded partially: 8.00 MB freed, 2033.36 MB remains loaded, 8.00 MB buffer reserved, lowvram patches: 0
+[32m[INFO][0m Unloaded partially: 8.00 MB freed, 2033.36 MB remains loaded, 8.00 MB buffer reserved, lowvram patches: 0
+INFO:root:Unloaded partially: 48.02 MB freed, 1985.34 MB remains loaded, 8.00 MB buffer reserved, lowvram patches: 0
+[32m[INFO][0m Unloaded partially: 48.02 MB freed, 1985.34 MB remains loaded, 8.00 MB buffer reserved, lowvram patches: 0
+INFO:root:loaded completely; 4692.04 MB usable, 3667.90 MB loaded, full load: True
+[32m[INFO][0m loaded completely; 4692.04 MB usable, 3667.90 MB loaded, full load: True
+  0%|          | 0/3 [00:00<?, ?it/s] 33%|###3      | 1/3 [00:02<00:05,  2.68s/it] 67%|######6   | 2/3 [00:05<00:02,  2.59s/it]100%|##########| 3/3 [00:07<00:00,  2.56s/it]100%|##########| 3/3 [00:07<00:00,  2.58s/it]INFO:root:Requested to load VideoVAE
+
+[32m[INFO][0m Requested to load VideoVAE
+INFO:root:Unloaded partially: 1579.22 MB freed, 2089.39 MB remains loaded, 8.00 MB buffer reserved, lowvram patches: 0
+[32m[INFO][0m Unloaded partially: 1579.22 MB freed, 2089.39 MB remains loaded, 8.00 MB buffer reserved, lowvram patches: 0
+INFO:root:loaded completely; 2940.48 MB usable, 2378.23 MB loaded, full load: True
+[32m[INFO][0m loaded completely; 2940.48 MB usable, 2378.23 MB loaded, full load: True
+INFO:root:Prompt executed in 67.38 seconds
+[32m[INFO][0m [32mPrompt executed in 67.38 seconds[0m
+INFO:root:got prompt
+[32m[INFO][0m got prompt
+INFO:root:Unloaded partially: 1298.20 MB freed, 1080.10 MB remains loaded, 54.00 MB buffer reserved, lowvram patches: 0
+[32m[INFO][0m Unloaded partially: 1298.20 MB freed, 1080.10 MB remains loaded, 54.00 MB buffer reserved, lowvram patches: 0
+INFO:root:loaded completely; 3947.95 MB usable, 3667.90 MB loaded, full load: True
+[32m[INFO][0m loaded completely; 3947.95 MB usable, 3667.90 MB loaded, full load: True
+  0%|          | 0/7 [00:00<?, ?it/s] 14%|#4        | 1/7 [00:01<00:07,  1.33s/it] 29%|##8       | 2/7 [00:01<00:04,  1.14it/s] 43%|####2     | 3/7 [00:02<00:02,  1.37it/s] 57%|#####7    | 4/7 [00:03<00:02,  1.50it/s] 71%|#######1  | 5/7 [00:03<00:01,  1.59it/s] 86%|########5 | 6/7 [00:04<00:00,  1.66it/s]100%|##########| 7/7 [00:04<00:00,  1.70it/s]100%|##########| 7/7 [00:04<00:00,  1.50it/s]INFO:root:Unloaded partially: 1475.16 MB freed, 2193.44 MB remains loaded, 8.00 MB buffer reserved, lowvram patches: 0
+
+[32m[INFO][0m Unloaded partially: 1475.16 MB freed, 2193.44 MB remains loaded, 8.00 MB buffer reserved, lowvram patches: 0
+INFO:root:loaded completely; 2836.35 MB usable, 2378.23 MB loaded, full load: True
+[32m[INFO][0m loaded completely; 2836.35 MB usable, 2378.23 MB loaded, full load: True
+INFO:root:Requested to load LatentUpsampler
+[32m[INFO][0m Requested to load LatentUpsampler
+INFO:root:Unloaded partially: 160.08 MB freed, 2033.36 MB remains loaded, 8.00 MB buffer reserved, lowvram patches: 0
+[32m[INFO][0m Unloaded partially: 160.08 MB freed, 2033.36 MB remains loaded, 8.00 MB buffer reserved, lowvram patches: 0
+INFO:root:loaded completely; 591.96 MB usable, 240.80 MB loaded, full load: True
+[32m[INFO][0m loaded completely; 591.96 MB usable, 240.80 MB loaded, full load: True
+INFO:root:Unloaded partially: 40.02 MB freed, 1993.34 MB remains loaded, 8.00 MB buffer reserved, lowvram patches: 0
+[32m[INFO][0m Unloaded partially: 40.02 MB freed, 1993.34 MB remains loaded, 8.00 MB buffer reserved, lowvram patches: 0
+INFO:root:loaded completely; 4692.04 MB usable, 3667.90 MB loaded, full load: True
+[32m[INFO][0m loaded completely; 4692.04 MB usable, 3667.90 MB loaded, full load: True
+  0%|          | 0/3 [00:00<?, ?it/s] 33%|###3      | 1/3 [00:04<00:08,  4.24s/it] 67%|######6   | 2/3 [00:08<00:04,  4.14s/it]100%|##########| 3/3 [00:12<00:00,  4.11s/it]100%|##########| 3/3 [00:12<00:00,  4.13s/it]INFO:root:Requested to load VideoVAE
+
+[32m[INFO][0m Requested to load VideoVAE
+INFO:root:Unloaded partially: 1571.21 MB freed, 2097.39 MB remains loaded, 8.00 MB buffer reserved, lowvram patches: 0
+[32m[INFO][0m Unloaded partially: 1571.21 MB freed, 2097.39 MB remains loaded, 8.00 MB buffer reserved, lowvram patches: 0
+INFO:root:loaded completely; 2932.48 MB usable, 2378.23 MB loaded, full load: True
+[32m[INFO][0m loaded completely; 2932.48 MB usable, 2378.23 MB loaded, full load: True
+INFO:root:Prompt executed in 36.01 seconds
+[32m[INFO][0m [32mPrompt executed in 36.01 seconds[0m

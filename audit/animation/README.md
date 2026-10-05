@@ -91,6 +91,9 @@ Change/evidence: [2026-09-11 audit impact](../../design/audit_impacts/2026-09-11
 
 ## Branch history
 
+- 2026-10-04: [two-pass portrait wave comparison](../../assets_src/cinematics/ltx_two_pass_wave_20261004/README.md) verifies the installed 2B 7-step pass, learned latent upscale/AdaIN and 3-step refinement, with whole-figure Aseprite guides and conditional quantized 2.3 comparison. Native anatomy/timing failures remain visible; no runtime acceptance or finding closure.
+
+
 - 2026-10-04: owner prioritizes the [8 GB retake and whole-figure Aseprite repair trial](../../assets_src/cinematics/ltx_retake_repair_20261004/README.md). The [bounded protocol](../../design/animation/ANIMATION_PRODUCTION_PROTOCOL.md#iterative-repair-with-aseprite-and-temporal-retakes) preserves native frames, coherent body motion and separate hardware/quality acceptance; caps include failed attempts. No runtime finding is repaired.
 
 - 2026-10-03: owner permits final animation workflows with identity/motion/provenance/device checks and prefers Aseprite as the bridge. [Research](../../design/animation/WORKFLOW_OPTIONS_2026-10-03.md), [job card](../../design/templates/ANIMATION_JOB_CARD_V1.md) and [impact](../../design/audit_impacts/animation-workflow-policy-20261003.json) record 8 GB local limitations, API costs, method selection and bounded retries. Prior rejected/reference studies retain their scope; no runtime/device/child/owner acceptance or finding closure is claimed.

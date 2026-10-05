@@ -1,0 +1,16 @@
+[
+  {
+    "event": "Initial study adapter imported nodes before enabling CLI argument parsing; owned PID2808 listened on default8188 instead of8192.",
+    "effect": "No model jobs submitted; startup/user database initialized under default Comfy path. No pre-existing files deleted.",
+    "correction": "Enable ComfyCLI parsing before importing/registering local AdaIN node; owned process only stopped after command-line identity check."
+  },
+  {
+    "event": "Two owned startup attempts exited before readiness because this Comfy revision has no--normalvram CLI option.",
+    "processes": [
+      7752,
+      16188
+    ],
+    "effect": "No model inference or model submissions. Duplicate startup failure retained in accounting.",
+    "correction": "Omit unsupported switch; normal VRAM policy is the default. Keep the launch host alive for diagnostic visibility."
+  }
+]

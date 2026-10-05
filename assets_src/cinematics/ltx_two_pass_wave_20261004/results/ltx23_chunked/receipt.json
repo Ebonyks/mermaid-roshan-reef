@@ -1,0 +1,30 @@
+{
+  "take": "ltx23_chunked",
+  "backend": "ltx23",
+  "started_at_utc": "2026-10-05T00:06:09.697292+00:00",
+  "status": "EXECUTION_FAIL",
+  "native_canvas": [
+    352,
+    544
+  ],
+  "frames": 41,
+  "fps": 24,
+  "steps": 8,
+  "guidance": 1.0,
+  "dedicated_nag": false,
+  "nag_settings": null,
+  "chunk_tokens": 512,
+  "negative_conditioning_effective_claim": false,
+  "seed": 20261004,
+  "upscaler": false,
+  "source_only": true,
+  "workflow_sha256": "43d13227c1f68e462e17cf17be66ea9534f1d576469301725f6cccf2b9df3655",
+  "guide_bindings_sha256": "fe514d632b4d71828d035f38c35889f2624531a4734167fac7be87ac2d365eac",
+  "renderer_source_sha256": "dceb7e05095d0784231de389e0756ab6fdce93b3f31d0a8dd4964484fe18031f",
+  "prompt_id": "6a3f74ab-3498-449c-aac3-70dae2cc9ac2",
+  "error": "[['execution_cached', {'nodes': [], 'prompt_id': '6a3f74ab-3498-449c-aac3-70dae2cc9ac2', 'timestamp': 1791158769849}], ['execution_interrupted', {'prompt_id': '6a3f74ab-3498-449c-aac3-70dae2cc9ac2', 'node_id': '20', 'node_type': 'SamplerCustom', 'executed': ['2', '101', '30', '106', '3', '1', '34', '8', '104', '35', '100', '9', '7', '33', '102', '4', '103', '107', '105', '32', '5', '6', '10'], 'timestamp': 1791159407689}]]",
+  "elapsed_seconds": 638.568,
+  "observed_total_card_peak_mib": 7909,
+  "memory_sampling_interval_seconds": 5,
+  "operator_stop_reason": "638.568s wall time, firstsamplingstep uncompleted; adaptive stop after10min impractical profile. Second NAG GPU take not submitted."
+}

@@ -1,0 +1,25 @@
+{
+  "installed_source_sha256": {
+    "comfy/ldm/lightricks/model.py": "7569f4d3c121b7b50078e9f4a4bf46a941fc3f298d3de5879cd64c5989b4931d",
+    "comfy/ldm/lightricks/av_model.py": "378f29b6bae59d75973be51da7cd484a8a8f9ad5d9b6932468634fc34f72ba24",
+    "comfy_extras/nodes_lt.py": "0e816879ee426abc1db8e0075b93ac7d2f145c9ce10c59b419bc24a3e34febd0",
+    "comfy/supported_models.py": "23fe5b971f2f27c080f3fcd144e0a5d8de6a5d8d5af2b7584d80cb1dea4b6c1a",
+    "custom_nodes/ComfyUI-GGUF/loader.py": "ffff39d209ce22654e67378b80c6a3ca3d349cf8f00ec267085bd16e194730c2",
+    "custom_nodes/ComfyUI-GGUF/nodes.py": "16be3b08b13de6279fc432addc628320019fcb24963cbc6b52b248de8f06316e"
+  },
+  "core_2_5_support_symbols": {
+    "comfy/ldm/lightricks/model.py": [],
+    "comfy/ldm/lightricks/av_model.py": [],
+    "comfy_extras/nodes_lt.py": [],
+    "comfy/supported_models.py": [],
+    "custom_nodes/ComfyUI-GGUF/loader.py": [],
+    "custom_nodes/ComfyUI-GGUF/nodes.py": []
+  },
+  "sources": {
+    "model_card": "https://huggingface.co/Lightricks/LTX-2.5",
+    "desktop_features": "https://github.com/Lightricks/LTX-Desktop",
+    "community_8gb_workflow": "https://github.com/reventadirecta/LTX-2.5-I2V-8GB-VRAM"
+  },
+  "owner_question": "Why2.3 when2.5 available?",
+  "decision": "2.3 already-installed baseline;2.5 next quality candidate, not a drop-in transformer replacement; no new2.5 weights downloaded or extra job authorized by the question alone."
+}

@@ -1,0 +1,16 @@
+{
+  "status": "PASS",
+  "checks": [
+    {
+      "command": "python -B tools/audit_document_authority.py",
+      "exit_code": 0,
+      "result": "PASS"
+    },
+    {
+      "command": "python -B tools/audit_development.py --base auto",
+      "exit_code": 0,
+      "result": "PASS"
+    }
+  ],
+  "elapsed_seconds": 9.638
+}

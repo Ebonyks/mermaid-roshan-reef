@@ -1,0 +1,30 @@
+{
+  "method": "image_gen.imagegen built-in complete-figure edit",
+  "request_id": "exec-926024de-8376-4ec2-a0dc-da571ec5d482",
+  "native_path": "inputs/missing_lowering_native.png",
+  "native_sha256": "a52d4d7768f2107cd3e751dd0c8aedf85301522e2851fa7a582a8fde1c978f57",
+  "native_dimensions": [
+    1043,
+    1508
+  ],
+  "prompt": "briefs/missing_lowering_key_prompt.txt",
+  "prompt_sha256": "e1d45a384db91555bdc8730b1e5e912996f3d1d915e444bf8ad9cb06e59bcc37",
+  "transparent_background": true,
+  "calls": 1,
+  "named_gap": "Mid-lowering complete-figure pose aroundframe22; restframe3 reuses existing source.",
+  "references": [
+    {
+      "path": "assets/characters/roshan_25d/roshan_gesture_a.png",
+      "sha256": "e70139b23c9f84c0e8f0c1063145ca4e9e67ee32c57aa544bc08193326af9b9d"
+    },
+    {
+      "path": "assets_src/cinematics/ltx_two_pass_wave_20261004/inputs/portrait_key_02.png",
+      "sha256": "c98eb017f869fbdb8eebe235a65ce420ed45d87e70be617725aba5e66e724c2e"
+    },
+    {
+      "path": "assets_src/cinematics/ltx_two_pass_wave_20261004/inputs/portrait_key_03.png",
+      "sha256": "556eacfcfe495cb0d2a0067f8f0dd88fdcdd1336ae755db8d2a1a34a4800c9a5"
+    }
+  ],
+  "acceptance": "Candidate source-study guide only; owner identity/style not accepted."
+}

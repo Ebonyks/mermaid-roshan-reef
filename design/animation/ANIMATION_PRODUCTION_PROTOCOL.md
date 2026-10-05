@@ -117,6 +117,39 @@ and neighboring transitions. Export lossless frames and reopen the master.
 Neither a crisp key nor a pixel-check PASS proves acting, a loop or device
 performance.
 
+## Verify the model recipe before judging a take
+
+The [2026-10-04 two-pass wave trial](../../assets_src/cinematics/ltx_two_pass_wave_20261004/README.md)
+checks the omitted refinement in the installed LTX-Video 2B 0.9.8 recipe.
+Before submitting a multiscale job, record the actual first-pass dimensions,
+learned latent upscaler, latent-statistics normalization, second-pass sigmas
+and step count, guide bindings in both passes, and native decoded dimensions.
+A first-pass-only result cannot be reported as the two-pass recipe. Preserve
+both native outputs; whole-canvas output normalization is a declared production
+transform and does not replace native-resolution QA. A Comfy reproduction
+must state its differences from the publisher's executable pipeline.
+
+At CFG 1, ordinary negative conditioning is omitted by the sampler. An
+anti-blur phrase in the positive prompt can influence the request but cannot
+guarantee short exposure, sharp fingers or complete anatomy. To claim effective
+negative guidance, bind actual negative conditioning to a compatible dedicated
+implementation and retain evidence that its attention code executed. A generic
+NAG node whose hooks the model never calls supplies no such evidence.
+
+Timed image guides influence motion; they do not lock poses to exact frames.
+Inspect anticipation, the largest travel interval, every contact and the actual
+settle time. Refine may improve contours while retaining a first-pass timing
+failure. Place missing complete-figure keys before another bounded take;
+register the body without freezing shoulder, torso, cloth, hair or tail pixels.
+
+Sampling on twos is an authored cadence choice, not anatomy repair. Record
+selected source indices, timing and any changed holds. Select a crisper frame
+within a pair only if the full figure and neighboring action remain coherent.
+If both frames fail, retain the defect as a failed span for repaint or temporal
+retake; do not hold an unrelated clean pose over it. Review Aseprite exports
+at their native resolution, reopen the editable master and verify pixel/timing
+round trips before any production claim.
+
 ## Inventory and bind sources
 
 1. Find the current profile, exact scene, costume, prop and accepted source family.

@@ -988,3 +988,8 @@ release/device/child/owner authority retain precedence.
 | `assets_src/cinematics/ltx_registered_wave_20261004/README.md` | 🔵 | `SOURCE_PACKAGE_EVIDENCE`; owner-commissioned whole-figure Roshan wave study, native LTX-Video 2B blur failures, owner-rejected limb-only correction, root-registered inputs and full-frame Aseprite/editable master/hash receipts. Reference only; no runtime, production/device/child/owner acceptance or finding closure. |
 
 | `assets_src/cinematics/ltx_retake_repair_20261004/README.md` | 🔵 | `SOURCE_PACKAGE_EVIDENCE`; owner-commissioned bounded whole-figure Aseprite/keyframe and quantized LTX-2.3 temporal-retake hardware study on RTX 3060 Ti 8 GB. Native outputs, rejected candidates and execution/visual limits remain explicit; no runtime, production, device, child or owner acceptance. |
+
+| `assets_src/cinematics/ltx_two_pass_wave_20261004/README.md` | 🔵 | `SOURCE_PACKAGE_EVIDENCE`; owner-directed native two-pass 2B portrait refinement and conditional 8 GB LTX-2.3 comparison, complete-figure Aseprite guides, one missing lowering key, preserved failures and actual cost/execution receipts. No production/runtime/device/child/owner acceptance. |
+
+| `assets_src/cinematics/ltx_two_pass_wave_20261004/briefs/LTX25_PREFLIGHT.md` | 🔵 | `SOURCE_PACKAGE_EVIDENCE`; pinned next-candidate research and exact2.5 component/access preflight, no installation or measured2.5 footage. |
+| `assets_src/cinematics/ltx_two_pass_wave_20261004/comparison/README.md` | 🔵 | `SOURCE_PACKAGE_EVIDENCE`; native1:1 same-content comparison layout and failure limits, no production acceptance. |
