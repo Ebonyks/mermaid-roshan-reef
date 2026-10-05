@@ -104,7 +104,7 @@
   {
    "command": "Anonymous raw.githubusercontent.com fetch of every packet file at the pushed commit, compared by SHA-256 with MANIFEST.json",
    "result": "PASS",
-   "evidence": "Commit 7429f57d343797fb2479ceb2c7a327238d310e5e: 7 of 7 files (README, ANALYSIS, data, tool, MANIFEST, this impact record, the findings register) returned HTTP 200 anonymously and matched SHA-256 at 2026-10-05T00:35:33+00:00; receipt docs/handoffs/codex_roshan_motion_language_2026-10-04/REMOTE_VERIFICATION.json. Revision 2 is verified separately; see REMOTE_VERIFICATION.json revision 2."
+   "evidence": "Revision 1 at 7429f57d: 7 of 7 files HTTP 200 and SHA-256 match (2026-10-05T00:35:33Z). Revision 2 at 43151f4c: 14 of 14 files (10 packet files, MANIFEST, impact record, owner decision register, findings register) HTTP 200 and SHA-256 match (2026-10-05T01:03:01Z). Receipt: docs/handoffs/codex_roshan_motion_language_2026-10-04/REMOTE_VERIFICATION.json."
   },
   {
    "command": "Branch Probe Suite CI on the pushed head",

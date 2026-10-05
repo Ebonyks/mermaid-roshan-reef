@@ -1,68 +1,182 @@
 {
  "schema": "reef.remote-verification.v1",
  "handoff_id": "codex_roshan_motion_language_2026-10-04",
- "revision": 1,
  "repository": "Ebonyks/mermaid-roshan-reef",
  "branch": "claude/roshan-motion-language-20261004",
- "verified_commit": "7429f57d343797fb2479ceb2c7a327238d310e5e",
- "access_mode": "anonymous HTTPS GET from raw.githubusercontent.com (no credentials, no cookies)",
- "checked_utc": "2026-10-05T00:35:33+00:00",
- "entry_link": "https://github.com/Ebonyks/mermaid-roshan-reef/tree/7429f57d343797fb2479ceb2c7a327238d310e5e/docs/handoffs/codex_roshan_motion_language_2026-10-04",
- "manifest_link": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/7429f57d343797fb2479ceb2c7a327238d310e5e/docs/handoffs/codex_roshan_motion_language_2026-10-04/MANIFEST.json",
- "results": [
+ "current_revision": 2,
+ "revisions": [
   {
-   "path": "docs/handoffs/codex_roshan_motion_language_2026-10-04/README.md",
-   "http_status": 200,
-   "bytes": 9870,
-   "sha256": "8685add07df395fbf0c49ba283b1f7db72067fb84615ae5e27475233f521a60a",
-   "matches": true
+   "revision": 1,
+   "verified_commit": "7429f57d343797fb2479ceb2c7a327238d310e5e",
+   "access_mode": "anonymous HTTPS GET from raw.githubusercontent.com (no credentials, no cookies)",
+   "checked_utc": "2026-10-05T00:35:33+00:00",
+   "entry_link": "https://github.com/Ebonyks/mermaid-roshan-reef/tree/7429f57d343797fb2479ceb2c7a327238d310e5e/docs/handoffs/codex_roshan_motion_language_2026-10-04",
+   "manifest_link": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/7429f57d343797fb2479ceb2c7a327238d310e5e/docs/handoffs/codex_roshan_motion_language_2026-10-04/MANIFEST.json",
+   "results": [
+    {
+     "path": "docs/handoffs/codex_roshan_motion_language_2026-10-04/README.md",
+     "http_status": 200,
+     "bytes": 9870,
+     "sha256": "8685add07df395fbf0c49ba283b1f7db72067fb84615ae5e27475233f521a60a",
+     "matches": true
+    },
+    {
+     "path": "docs/handoffs/codex_roshan_motion_language_2026-10-04/ANALYSIS.md",
+     "http_status": 200,
+     "bytes": 31040,
+     "sha256": "e09c759394e4deaede54b7cea14b9ee06c514225872790a9a768f4e2b21311a4",
+     "matches": true
+    },
+    {
+     "path": "docs/handoffs/codex_roshan_motion_language_2026-10-04/data/motion_measurements.json",
+     "http_status": 200,
+     "bytes": 17379,
+     "sha256": "596259202680c2439ccb935d6984df90bd4c35a0cc383ddaf6baa6150311e41b",
+     "matches": true
+    },
+    {
+     "path": "docs/handoffs/codex_roshan_motion_language_2026-10-04/tools/measure_roshan_motion.py",
+     "http_status": 200,
+     "bytes": 11979,
+     "sha256": "fce24922bbb7544d56266f1f8461a75e6edfe88bc9f67f9f441c797d0b9badde",
+     "matches": true
+    },
+    {
+     "path": "docs/handoffs/codex_roshan_motion_language_2026-10-04/MANIFEST.json",
+     "http_status": 200,
+     "bytes": 1415,
+     "sha256": "eb047e7a11c0eb538d79f835957f3c56c515319e02d9461c800299caf30b836f",
+     "matches": true
+    },
+    {
+     "path": "design/audit_impacts/roshan-motion-language-20261004.json",
+     "http_status": 200,
+     "bytes": 8834,
+     "sha256": "af667d3c3fca32d1a3ebc8d4f3fcba54e7a17e10cd9025c2744450efeac2032a",
+     "matches": true
+    },
+    {
+     "path": "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
+     "http_status": 200,
+     "bytes": 225602,
+     "sha256": "3154c6a4fe7f415be0e00660d042256f0aa1eed879413f1d9569dcbcb800f8dd",
+     "matches": true
+    }
+   ],
+   "all_match": true
   },
   {
-   "path": "docs/handoffs/codex_roshan_motion_language_2026-10-04/ANALYSIS.md",
-   "http_status": 200,
-   "bytes": 31040,
-   "sha256": "e09c759394e4deaede54b7cea14b9ee06c514225872790a9a768f4e2b21311a4",
-   "matches": true
-  },
-  {
-   "path": "docs/handoffs/codex_roshan_motion_language_2026-10-04/data/motion_measurements.json",
-   "http_status": 200,
-   "bytes": 17379,
-   "sha256": "596259202680c2439ccb935d6984df90bd4c35a0cc383ddaf6baa6150311e41b",
-   "matches": true
-  },
-  {
-   "path": "docs/handoffs/codex_roshan_motion_language_2026-10-04/tools/measure_roshan_motion.py",
-   "http_status": 200,
-   "bytes": 11979,
-   "sha256": "fce24922bbb7544d56266f1f8461a75e6edfe88bc9f67f9f441c797d0b9badde",
-   "matches": true
-  },
-  {
-   "path": "docs/handoffs/codex_roshan_motion_language_2026-10-04/MANIFEST.json",
-   "http_status": 200,
-   "bytes": 1415,
-   "sha256": "eb047e7a11c0eb538d79f835957f3c56c515319e02d9461c800299caf30b836f",
-   "matches": true
-  },
-  {
-   "path": "design/audit_impacts/roshan-motion-language-20261004.json",
-   "http_status": 200,
-   "bytes": 8834,
-   "sha256": "af667d3c3fca32d1a3ebc8d4f3fcba54e7a17e10cd9025c2744450efeac2032a",
-   "matches": true
-  },
-  {
-   "path": "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
-   "http_status": 200,
-   "bytes": 225602,
-   "sha256": "3154c6a4fe7f415be0e00660d042256f0aa1eed879413f1d9569dcbcb800f8dd",
-   "matches": true
+   "revision": 2,
+   "verified_commit": "43151f4cbc838436211e95ba351d578509957f2c",
+   "access_mode": "anonymous HTTPS GET from raw.githubusercontent.com (no credentials, no cookies)",
+   "checked_utc": "2026-10-05T01:03:01+00:00",
+   "entry_link": "https://github.com/Ebonyks/mermaid-roshan-reef/tree/43151f4cbc838436211e95ba351d578509957f2c/docs/handoffs/codex_roshan_motion_language_2026-10-04",
+   "manifest_link": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/43151f4cbc838436211e95ba351d578509957f2c/docs/handoffs/codex_roshan_motion_language_2026-10-04/MANIFEST.json",
+   "results": [
+    {
+     "path": "docs/handoffs/codex_roshan_motion_language_2026-10-04/README.md",
+     "http_status": 200,
+     "bytes": 11335,
+     "sha256": "d3ee5aa602488bc65bf234314709650eafcdde0343d3d52d8eecabe356ef1b86",
+     "matches": true
+    },
+    {
+     "path": "docs/handoffs/codex_roshan_motion_language_2026-10-04/TEMPLATE.md",
+     "http_status": 200,
+     "bytes": 15462,
+     "sha256": "aca32994ebd3f1bf4d68a71f5666b5a96d2cddb03bfbe53eef88845ac0d82454",
+     "matches": true
+    },
+    {
+     "path": "docs/handoffs/codex_roshan_motion_language_2026-10-04/SHOT_CARD_AUDIT.md",
+     "http_status": 200,
+     "bytes": 5098,
+     "sha256": "7fb76d00693cf51573009b9a2247ae15e25bd67263182912bea5a0e899fc0ee5",
+     "matches": true
+    },
+    {
+     "path": "docs/handoffs/codex_roshan_motion_language_2026-10-04/ANALYSIS.md",
+     "http_status": 200,
+     "bytes": 32043,
+     "sha256": "36f3001f4696b93fa0fe5c96214c95883fa8817541e91e9aa32be67f1f586761",
+     "matches": true
+    },
+    {
+     "path": "docs/handoffs/codex_roshan_motion_language_2026-10-04/templates/ROSHAN_ANIMATION_CARD_V1.json",
+     "http_status": 200,
+     "bytes": 6060,
+     "sha256": "6702cd5b45cbf65438d1e3f457ed278e298d50431acd1add10734037481db72a",
+     "matches": true
+    },
+    {
+     "path": "docs/handoffs/codex_roshan_motion_language_2026-10-04/examples/RAC-WATER-SWIM-STANDARD.json",
+     "http_status": 200,
+     "bytes": 8396,
+     "sha256": "7fc057eef7c4d2c6e2bdc6c8e2365dafd1f114cccebd01257ec4a9ae0cd39d59",
+     "matches": true
+    },
+    {
+     "path": "docs/handoffs/codex_roshan_motion_language_2026-10-04/examples/RAC-SKY-LAGOON-SWIM-GENTLE.json",
+     "http_status": 200,
+     "bytes": 7618,
+     "sha256": "e96f85dfc36ed1cf18abfc5ff91c9f2eee44d8d65e6d2ba0507b66088f7b42ed",
+     "matches": true
+    },
+    {
+     "path": "docs/handoffs/codex_roshan_motion_language_2026-10-04/examples/RAC-POOL-SKIMMER-SCOOP.json",
+     "http_status": 200,
+     "bytes": 9283,
+     "sha256": "121e75961de7a3404c5f0b8caedc6af013be2628412559aecfefb4a05606d083",
+     "matches": true
+    },
+    {
+     "path": "docs/handoffs/codex_roshan_motion_language_2026-10-04/data/motion_measurements.json",
+     "http_status": 200,
+     "bytes": 17379,
+     "sha256": "596259202680c2439ccb935d6984df90bd4c35a0cc383ddaf6baa6150311e41b",
+     "matches": true
+    },
+    {
+     "path": "docs/handoffs/codex_roshan_motion_language_2026-10-04/tools/measure_roshan_motion.py",
+     "http_status": 200,
+     "bytes": 11979,
+     "sha256": "fce24922bbb7544d56266f1f8461a75e6edfe88bc9f67f9f441c797d0b9badde",
+     "matches": true
+    },
+    {
+     "path": "docs/handoffs/codex_roshan_motion_language_2026-10-04/MANIFEST.json",
+     "http_status": 200,
+     "bytes": 2883,
+     "sha256": "f79a96157e0f3ddb2c06524b6c7dda55ac33ad7915353744bb5cc8b8d26ab5ea",
+     "matches": true
+    },
+    {
+     "path": "design/audit_impacts/roshan-motion-language-20261004.json",
+     "http_status": 200,
+     "bytes": 14084,
+     "sha256": "072d8d614050dde3a5dcd96b31fe77c0e38e4d76303d8744c4a1214add114a24",
+     "matches": true
+    },
+    {
+     "path": "design/reference/owner_decisions.json",
+     "http_status": 200,
+     "bytes": 15254,
+     "sha256": "665be935ce7a7bd2f86573845e336cab0d62677ccd4bd93b95e411f73f755b9f",
+     "matches": true
+    },
+    {
+     "path": "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
+     "http_status": 200,
+     "bytes": 226234,
+     "sha256": "018d61dfe0cfaefa9e4ff28b8164f72aecb539d19b767edcf8ad713a5100ed2f",
+     "matches": true
+    }
+   ],
+   "all_match": true
   }
  ],
- "all_match": true,
  "claims": {
-  "ARCHIVE_COMPLETE": "true for the files above at the verified commit",
+  "ARCHIVE_COMPLETE": "true for each revision's files at its verified commit",
   "GENERATION_READY": "not applicable",
   "DELIVERY_ACCEPTED": false
  }
