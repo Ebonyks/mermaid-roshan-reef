@@ -215,6 +215,14 @@ reproduces all default pixels, but rejects two-step decoding for added grain and
 persistent defects. Keep that rejected evidence and publisher default; no blur-off
 claim or adapter quality/8 GB acceptance follows from successful decoding.
 
+The subsequent [Union structural-control trial](../../assets_src/cinematics/ltx25_union_trial_20261004/README.md)
+executes two complete41-frame,8+3-step W4A8 takes on this8GB card with actual
+GPU LoRA weight-application proof. Authored whole-figure Canny-like outlines are
+motion controls only; the approved opening supplies appearance. Native shape
+diagnostics improve, but fingers/focus and strict guide-root limits still fail.
+A weaker opening-image lock does not fix focus and adds texture. Preserve both
+results; do not infer temporal-detail adapter execution or production acceptance.
+
 ## Verify the model recipe before judging a take
 
 The [2026-10-04 two-pass wave trial](../../assets_src/cinematics/ltx_two_pass_wave_20261004/README.md)
