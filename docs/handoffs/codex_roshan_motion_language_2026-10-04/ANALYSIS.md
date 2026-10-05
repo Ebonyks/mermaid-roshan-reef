@@ -236,6 +236,7 @@ language asks for.
 | 2026-10-03/04 | Engine benchmark (`codex/animation-engine-benchmark-20261003`, unmerged) | Recommends Aseprite pose and socket preflight → LTX-Video 2B pose-guided → Aseprite isolation and export. Best Roshan take keeps one tail but changes body, head and hands; guides were not registered (crown centroid moved about 82 px between keys). |
 | 2026-10-04 | Registered wave (`dev`) | Owner asked for less motion blur, then rejected the sharp limb-only correction: the shoulder, torso, dress/bodice and hair must respond together. Whole-figure takes keep the figure coherent but smear the hand while lowering. |
 | 2026-10-04 | 8 GB retake repair (`dev`) | Temporal retake runs at 448×256 but ghosts the raised arm; rejected. |
+| 2026-10-04 (after revision 1) | Two-pass wave (`dev` `abbffecb`) | The installed 2B model's omitted refine pass restored (7-step first pass, learned 2× upscale, AdaIN, 3-step refine) on a portrait whole-figure canvas: 37.6–70.2 s per take; some contours sharper, but the shoulder tears and the lowering beat is missed. LTX 2.5 is named the next quality candidate. |
 
 Every study is the same 1.7–3.4 s wave from `roshan_gesture_a.png` row 0.
 Accepted production seconds: zero. What the studies proved is useful: the

@@ -71,7 +71,7 @@
     "name": "loop",
     "start_s": 0.0,
     "end_s": 1.667,
-    "description": "One phrase of 40 native frames at 24 fps (1.67 s, inside the movement language's 1.6-2.0 s Ribbon Glide phrase): a small unhurried stroke in the first quarter, then a long glide with a slight float; arms quiet near the chest. The 81-frame take holds two phrases; review picks the cleaner one."
+    "description": "One phrase of 40 native frames at 24 fps (1.67 s, inside the movement language's 1.6-2.0 s Ribbon Glide phrase): a small unhurried stroke in the first quarter, then a long glide with a slight float; arms quiet near the chest. The 41-frame take holds exactly one phrase."
    }
   ],
   "loop": {
@@ -115,14 +115,19 @@
  "generation": {
   "route": "ltx_local",
   "runner": "PENDING (README RM1)",
-  "model": "LTX-Video 2B 0.9.8 distilled",
+  "model": "LTX-Video 2B 0.9.8 distilled (LTX 2.5 after its preflight passes)",
+  "recipe": "two_pass_multiscale: first pass, learned 2x latent upscale, AdaIN, refine",
   "workflow": "PENDING",
-  "width": 896,
-  "height": 512,
+  "requested_canvas": [
+   832,
+   576
+  ],
+  "native_canvas": "TO_MEASURE (recipe flooring)",
+  "first_pass_steps": 7,
+  "refine_steps": 3,
   "fps": 24,
-  "frames": 81,
+  "frames": 41,
   "seed": 20261004,
-  "steps": 7,
   "guides": [
    {
     "frame_index": 0,
@@ -138,22 +143,12 @@
     "frame_index": 40,
     "key_role": "home",
     "strength": 1.0
-   },
-   {
-    "frame_index": 50,
-    "key_role": "breakdown",
-    "strength": 1.0
-   },
-   {
-    "frame_index": 80,
-    "key_role": "home",
-    "strength": 1.0
    }
   ],
   "registration_landmark": "waist and bodice tip on a fixed canvas",
   "extraction_background": "PENDING: same tested flat colour as the water swim",
   "prompt": "a cheerful young mermaid girl with brown wavy hair and a tied rainbow ponytail swims slowly to the right in side view through the air; one small unhurried tail stroke from hip to fin, then a long gentle glide; arms quiet near her chest; crisp painted edges, no motion blur, no effects.",
-  "negative": "fast strokes, splashing, legs, second tail, auburn hair, missing tiara, motion blur, camera movement",
+  "negative": "Not relied on: the sampler ignores negatives at CFG 1; the prompt and locks carry the constraints (fast strokes, splashing, legs, second tail, auburn hair, missing tiara, motion blur, camera movement)",
   "caps": {
    "takes_per_backend": 2,
    "wall_minutes": 60,
@@ -211,8 +206,7 @@
     "name": "gentle_swim_loop",
     "from": 0,
     "to": 39,
-    "direction": "forward",
-    "note": "the phrase chosen in review"
+    "direction": "forward"
    }
   ],
   "pivot": "waist landmark",

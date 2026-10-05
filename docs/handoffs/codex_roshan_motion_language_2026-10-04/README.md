@@ -9,8 +9,10 @@ future Roshan animations from the game and its context.
 **To:** Codex (every code change, image, board, capture, tool and Grok
 packet). **Owner:** answers the questions in section 3 and accepts motion.
 
-**Status:** `PROPOSED / CANDIDATE`, revision 2. Baseline: `dev`
-`8a2f30cb0df44ece3b1172ed2dbcb9a55fc5d622`. Finding:
+**Status:** `PROPOSED / CANDIDATE`, revision 3. Baseline: `dev`
+`8a2f30cb0df44ece3b1172ed2dbcb9a55fc5d622`; revision 3 merges `dev`
+`abbffecb` and aligns the template's routing and cards with Codex's two-pass
+LTX study (the installed model's refine pass; LTX 2.5 next). Finding:
 [`MA-ROSHAN-006`](../../../audit/findings/ACTIVE_FINDINGS_2026-08-13.md#ma-roshan-006)
 (P2, `CONFIRMED_OPEN`). This packet requests no generation and binds no
 image: `ARCHIVE_COMPLETE` after remote verification, `GENERATION_READY` not
@@ -85,7 +87,7 @@ a final reference.
 | Tool | Does | Done when |
 |---|---|---|
 | Card validator | Checks a card against the schema: required fields, hashes of existing files, right-facing orientation, home pose sides, every required prompt phrase present in the prompt, caps declared | Passes the three example cards once their keys exist; fails mutated copies |
-| General LTX runner | Reads a card's `generation` block and runs LTX locally in ComfyUI, keeping receipts, caps and native frames; replaces the per-study scripts (start from `assets_src/cinematics/ltx_registered_wave_20261004/scripts/render_take.py`) | Reproduces one existing study's receipt format from a card |
+| General LTX runner | Reads a card's `generation` block and runs LTX locally in ComfyUI with the declared recipe (today the two-pass multiscale 2B recipe; LTX 2.5 once its preflight passes), keeping receipts, caps and native frames; replaces the per-study scripts (start from `assets_src/cinematics/ltx_two_pass_wave_20261004/` and `assets_src/cinematics/ltx_registered_wave_20261004/scripts/render_take.py`) | Reproduces one existing study's receipt format from a card, with the recipe verified as the protocol requires |
 | Aseprite bridge | Turns native frames into a master with hidden native and visible clean layers, phase tags, pivot and socket tracks; exports a lossless atlas and timing JSON; reopens and compares | Round-trips byte-identical pixels on a test clip |
 
 ### RM2 — Runtime repairs now, with existing art

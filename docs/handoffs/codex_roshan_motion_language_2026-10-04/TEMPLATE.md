@@ -107,7 +107,7 @@ scenes that use it.
 
 | Decision | Model or tool | Run by | Input | Output |
 |---|---|---|---|---|
-| `GENERATE`, `VARIANT` | LTX locally in ComfyUI through Codex's runner script. Measured pilot settings: LTX-Video 2B 0.9.8 distilled, 896×512, 24 fps, 41 or 81 frames, registered whole-figure guide keys. LTX-2.3 temporal retake (448×256 measured on the 8 GB card) repairs a defective window | Codex | The card's `generation` and `locks` blocks; registered keys; prompt | Native frames and a receipt |
+| `GENERATE`, `VARIANT` | LTX locally in ComfyUI through Codex's runner script. Installed model: LTX-Video 2B 0.9.8 distilled run as its two-pass multiscale recipe (7-step first pass, learned 2× latent upscale, AdaIN, 3-step refine; 41 frames at 24 fps took 37.6–70.2 s per take on the 8 GB card). LTX 2.5 is the next quality candidate once its preflight passes. LTX-2.3 temporal retake (448×256 measured) repairs a defective window | Codex | The card's `generation` and `locks` blocks; registered whole-figure keys; prompt | Native frames and a receipt |
 | `KEYS_THEN_GENERATE` | ImageGen for the named missing keys only, bound to `roshan_base.png` (and prop art), then as above | Codex | The card's `keys` block | Key PNGs into the Aseprite master |
 | Every generated clip | Aseprite bridge | Codex | Native frames | Editable master, cleaned frames, tags, pivot, sockets, lossless atlas and JSON |
 | `CODE_FIX`, `REUSE` | Godot code | Codex | The card's `runtime` block | Code change and probes |
@@ -116,6 +116,14 @@ scenes that use it.
 
 Route by role, not by brand: a better local model replaces LTX-Video 2B by
 changing the runner's model entry, not the template.
+
+Before judging any take, follow the production protocol's "Verify the model
+recipe" section: record the actual first-pass and native sizes, the upscale and
+refine steps and the guide bindings. Frame the canvas around the whole figure
+with a motion margin (portrait for upright actions, landscape for horizontal
+swims). At CFG 1 the sampler ignores the negative prompt, so constraints go
+into the prompt and the card's locks. Timed guides steer motion; they do not
+lock poses to exact frames.
 
 ## 5. Step 4 — fill the card
 

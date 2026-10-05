@@ -155,14 +155,19 @@
  "generation": {
   "route": "ltx_local",
   "runner": "PENDING (README RM1)",
-  "model": "LTX-Video 2B 0.9.8 distilled",
+  "model": "LTX-Video 2B 0.9.8 distilled (LTX 2.5 after its preflight passes)",
+  "recipe": "two_pass_multiscale: first pass, learned 2x latent upscale, AdaIN, refine",
   "workflow": "PENDING",
-  "width": 896,
-  "height": 512,
+  "requested_canvas": [
+   832,
+   576
+  ],
+  "native_canvas": "TO_MEASURE (recipe flooring)",
+  "first_pass_steps": 7,
+  "refine_steps": 3,
   "fps": 24,
   "frames": 41,
   "seed": 20261004,
-  "steps": 7,
   "guides": [
    {
     "frame_index": 0,
@@ -188,7 +193,7 @@
   "registration_landmark": "waist and bodice tip on a fixed canvas; handle grip point tracked as hand_r",
   "extraction_background": "PENDING: same tested flat colour as the swims",
   "prompt": "a cheerful young mermaid girl with brown wavy hair and a tied rainbow ponytail, facing right, holds a pool skimmer with both hands, sweeps the net under floating trash, lifts it out of the water and looks at the clear water; her shoulders, torso and tail lean into the sweep; crisp painted edges, distinct fingers, no motion blur.",
-  "negative": "legs, second tail, extra hands, a second skimmer, the net leaving her hands, splashes covering the action, auburn hair, motion blur",
+  "negative": "Not relied on: the sampler ignores negatives at CFG 1; the prompt and locks carry the constraints (legs, second tail, extra hands, a second skimmer, the net leaving her hands, splashes covering the action, auburn hair, motion blur)",
   "caps": {
    "takes_per_backend": 2,
    "wall_minutes": 60,

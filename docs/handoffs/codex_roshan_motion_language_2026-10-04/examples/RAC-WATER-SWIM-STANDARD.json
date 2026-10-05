@@ -69,7 +69,7 @@
     "name": "loop",
     "start_s": 0.0,
     "end_s": 1.125,
-    "description": "One stroke of 27 native frames at 24 fps (1.125 s, inside the 0.8-1.2 s core-loop target): the tail rises and falls through one connected hip-to-fin wave, the fin tip trails, arms scull near the chest, shoulders and bodice answer, the ponytail streams and settles. The 81-frame take holds three strokes; review picks the cleanest as the loop."
+    "description": "One stroke of 27 native frames at 24 fps (1.125 s, inside the 0.8-1.2 s core-loop target): the tail rises and falls through one connected hip-to-fin wave, the fin tip trails, arms scull near the chest, shoulders and bodice answer, the ponytail streams and settles. The 41-frame take holds one and a half strokes; the loop is cut from a clean full stroke."
    }
   ],
   "loop": {
@@ -121,14 +121,19 @@
  "generation": {
   "route": "ltx_local",
   "runner": "PENDING (README RM1 general runner; until then the per-study runner pattern in assets_src/cinematics/ltx_registered_wave_20261004/scripts/render_take.py)",
-  "model": "LTX-Video 2B 0.9.8 distilled",
+  "model": "LTX-Video 2B 0.9.8 distilled (LTX 2.5 after its preflight passes)",
+  "recipe": "two_pass_multiscale: first pass, learned 2x latent upscale, AdaIN, refine",
   "workflow": "PENDING",
-  "width": 896,
-  "height": 512,
+  "requested_canvas": [
+   832,
+   576
+  ],
+  "native_canvas": "TO_MEASURE (recipe flooring)",
+  "first_pass_steps": 7,
+  "refine_steps": 3,
   "fps": 24,
-  "frames": 81,
+  "frames": 41,
   "seed": 20261004,
-  "steps": 7,
   "guides": [
    {
     "frame_index": 0,
@@ -149,27 +154,12 @@
     "frame_index": 40,
     "key_role": "breakdown",
     "strength": 1.0
-   },
-   {
-    "frame_index": 54,
-    "key_role": "home",
-    "strength": 1.0
-   },
-   {
-    "frame_index": 67,
-    "key_role": "breakdown",
-    "strength": 1.0
-   },
-   {
-    "frame_index": 80,
-    "key_role": "home",
-    "strength": 1.0
    }
   ],
   "registration_landmark": "waist and bodice tip on a fixed canvas (the wave study's method)",
   "extraction_background": "PENDING: one flat colour tested with the cleanup path",
   "prompt": "a cheerful young mermaid girl with brown wavy hair and a tied rainbow ponytail swims to the right in side view; one connected tail stroke from hip to fin, the fin tip trailing; arms sculling gently near her chest; shoulders, bodice and hair respond; crisp painted edges, no motion blur, no water effects.",
-  "negative": "legs, second tail, split fin, extra arms, auburn hair, missing tiara, motion blur, water splashes, sparkles, camera movement",
+  "negative": "Not relied on: the sampler ignores negatives at CFG 1; the prompt and locks carry the constraints (legs, second tail, split fin, extra arms, auburn hair, missing tiara, motion blur, water splashes, sparkles, camera movement)",
   "caps": {
    "takes_per_backend": 2,
    "wall_minutes": 60,
@@ -227,10 +217,10 @@
   "tags": [
    {
     "name": "swim_loop",
-    "from": 27,
-    "to": 53,
+    "from": 0,
+    "to": 26,
     "direction": "forward",
-    "note": "the stroke chosen in review; 27-53 shown as an example"
+    "note": "a clean full stroke chosen in review"
    }
   ],
   "pivot": "waist landmark",

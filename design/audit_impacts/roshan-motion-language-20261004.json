@@ -1,6 +1,6 @@
 {
  "id": "roshan-motion-language-20261004",
- "scope": "Owner request 2026-10-04: analyse the design language and artistic direction of Roshan's animations, decide how she should move and which animations make her consistent, and refine the Grok handoffs and Aseprite work. Claude wrote an analysis and a Codex handoff (docs/handoffs/codex_roshan_motion_language_2026-10-04/): runtime playback by location traced in code; fin side, ponytail side and frame-to-frame silhouette change measured from the committed atlases with a numbers-only tool; Grok and local-pipeline history with owner verdicts gathered from dev and five unmerged branches; ten proposed motion locks, a fourteen-clip canonical set, refinements for Grok, the local pipeline, runtime playback and governance, and owner questions Q1-Q6. New finding MA-ROSHAN-006 (P2) for runtime playback that shows key poses as broken motion. No game file, image, asset or other finding lifecycle changes. Revision 2 (same day): the owner answered the questions (sprites need left/right orientation only; a rich, comprehensive animation set instead of limited animation, built through test animations, workflow and style, then every room and game, then polish; the Sky Lagoon keeps a slower, more modest swim; production through LTX locally by a Codex script with Aseprite into the game, Grok packets as test documents) and set the goal of a template for all future Roshan animations. Claude added TEMPLATE.md (scene analysis, per-interaction decision, routing, card, style rules M1-M10 revision 2, production and review, the room-by-room pass), a card schema, three worked cards built from code facts, and SHOT_CARD_AUDIT.md (V2 better than V1; neither covers sprites); revised README (packages RM0-RM6, questions Q2, Q7, Q8) and ANALYSIS sections 9-12; recorded five owner decisions with tools/record_owner_decision.py.",
+ "scope": "Owner request 2026-10-04: analyse the design language and artistic direction of Roshan's animations, decide how she should move and which animations make her consistent, and refine the Grok handoffs and Aseprite work. Claude wrote an analysis and a Codex handoff (docs/handoffs/codex_roshan_motion_language_2026-10-04/): runtime playback by location traced in code; fin side, ponytail side and frame-to-frame silhouette change measured from the committed atlases with a numbers-only tool; Grok and local-pipeline history with owner verdicts gathered from dev and five unmerged branches; ten proposed motion locks, a fourteen-clip canonical set, refinements for Grok, the local pipeline, runtime playback and governance, and owner questions Q1-Q6. New finding MA-ROSHAN-006 (P2) for runtime playback that shows key poses as broken motion. No game file, image, asset or other finding lifecycle changes. Revision 2 (same day): the owner answered the questions (sprites need left/right orientation only; a rich, comprehensive animation set instead of limited animation, built through test animations, workflow and style, then every room and game, then polish; the Sky Lagoon keeps a slower, more modest swim; production through LTX locally by a Codex script with Aseprite into the game, Grok packets as test documents) and set the goal of a template for all future Roshan animations. Claude added TEMPLATE.md (scene analysis, per-interaction decision, routing, card, style rules M1-M10 revision 2, production and review, the room-by-room pass), a card schema, three worked cards built from code facts, and SHOT_CARD_AUDIT.md (V2 better than V1; neither covers sprites); revised README (packages RM0-RM6, questions Q2, Q7, Q8) and ANALYSIS sections 9-12; recorded five owner decisions with tools/record_owner_decision.py. Revision 3: merged dev abbffecb (Codex's two-pass LTX wave study) into the branch and aligned TEMPLATE.md routing, the card schema and the three example cards with it: two-pass multiscale recipe, whole-figure canvas framing, 41-frame takes, negative prompts not relied on at CFG 1, LTX 2.5 as the next candidate; ANALYSIS section 7 and README RM1 updated.",
  "baseline": "8a2f30cb0df44ece3b1172ed2dbcb9a55fc5d622",
  "rules": [
   "DL-AUTH-05",
@@ -87,19 +87,24 @@
    "evidence": "Example timings use 24 fps native frame counts (41 frames = 1.708 s; 27-frame stroke = 1.125 s; 40-frame phrase = 1.667 s); prop hash for assets/castle/day_one_pool/activities/pool_skimmer.png 308c8684...b9b3; V2 used by 47 Day One Handoff 2 shots, V1 by the Roshan auditions and three other packets."
   },
   {
+   "command": "Revision 3 merge of origin/dev abbffecb: conflicts in audit/animation/README.md and design/05_DOC_LEDGER.md resolved keeping both sides; template and cards re-read against assets_src/cinematics/ltx_two_pass_wave_20261004/README.md and the protocol's 'Verify the model recipe' section",
+   "result": "PASS",
+   "evidence": "Merge commit 740716eb; AUDITDEV --base auto (MERGE_HEAD) ALL OK before commit; card and example JSON parse; no 896x512 or 81-frame settings remain in the packet."
+  },
+  {
    "command": "python -B tools/audit_document_authority.py",
    "result": "PASS",
-   "evidence": "Revision 2 candidate: DOCAUTH|INVENTORY=662|LEDGER=662|ACTIVE=65|RECORDS=68, RESULT ALL OK; unittest test_audit_document_authority, test_audit_development and test_record_owner_decision: 63 tests OK; DOCAUTH|STRESS|6/6. (Revision 1: INVENTORY=660, ALL OK, 54 tests OK.)"
+   "evidence": "Revision 3 candidate: RESULT ALL OK (revision 2: INVENTORY=662, ALL OK; 63 unit tests OK)."
   },
   {
    "command": "python -B tools/audit_development.py --base auto",
    "result": "PASS",
-   "evidence": "Revision 2 candidate: AUDITDEV|BASE|8a2f30cb0df44ece3b1172ed2dbcb9a55fc5d622 ALL OK; --base c25f73a3fb03bea4f1be201c546c1db2b8f97bf9 (previous push) ALL OK."
+   "evidence": "Revision 3 candidate: AUDITDEV --base auto ALL OK and --base 85377765518376654ec28a7c84fe583c9c004743 (previous push) ALL OK; record_owner_decision --check --base origin/dev ALL OK."
   },
   {
    "command": "python -B tools/audit_game_2d.py --regression-gate",
    "result": "PASS",
-   "evidence": "Revision 2 candidate: NO_REGRESSION (exact shrinking baseline; migration debt remains UNSATISFIED). This record and the register name no engine 3D classes."
+   "evidence": "Revision 3 candidate: NO_REGRESSION (exact shrinking baseline; migration debt remains UNSATISFIED)."
   },
   {
    "command": "Anonymous raw.githubusercontent.com fetch of every packet file at the pushed commit, compared by SHA-256 with MANIFEST.json",
