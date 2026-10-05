@@ -138,6 +138,11 @@
       "evidence": "All gates pass, including audit_document_authority, audit_development --base auto, gold_star --check, the Godot baseline, parse and lint, typography, Roshan 2D and sprite clipping, probe parity, visual and castle audits, the castle frame-review binding and the import. Four checks are environment-bound and verified only by CI. The area-music check needs the recorded Python 3.13.14, numpy 2.5.1, scipy 1.18.0 and ffmpeg 8.1.2. The ui_tap re-encode depends on the ffmpeg build. The audio ledger hashes a CRLF checkout file, and this Linux checkout is LF. The 2D debt-regression gate refuses a shallow clone. No changed file touches audio, and the added lines and new files contain zero 3D tokens by the gate's own counter."
     },
     {
+      "command": "Merge of current dev 8a2f30cb (LTX animation-trial archive; no runtime, tool or workflow change) and gate rerun on the merged tree",
+      "result": "PASS",
+      "evidence": "Clean merge (8bb6b38d); audit_document_authority, audit_development --base auto, gold_star --check --strict, review_castle_interaction_frames_v4 check and tools.tests.test_gold_star all pass. The merged design/animation/ANIMATION_PRODUCTION_PROTOCOL.md changed a manifest reference hash, so both packet manifests were refreshed in the following commit."
+    },
+    {
       "command": "Anonymous remote verification of both packets (MANIFEST.json and every listed file and reference) from raw.githubusercontent.com at the pushed commit",
       "result": "PENDING",
       "evidence": "Performed after push; receipt recorded in a follow-up commit."
