@@ -1,26 +1,36 @@
 from pathlib import Path
-import json,hashlib,struct,subprocess,tempfile,ast
+import json,hashlib,struct,subprocess,tempfile,ast,argparse
 from PIL import Image
 p=Path(__file__).resolve().parents[1]
 a=r"C:\Program Files\Aseprite\Aseprite.exe"
 checks=[]
+parser=argparse.ArgumentParser();parser.add_argument('--take');selected=parser.parse_args().take
 def sha(f):
  with Path(f).open("rb") as s:return hashlib.file_digest(s,"sha256").hexdigest()
 for f in p.glob("scripts/*.py"):ast.parse(f.read_text(encoding="utf-8-sig"));checks.append("source syntax "+f.name)
 for t in sorted((p/"results").iterdir()):
+ if selected and t.name!=selected:continue
  if not (t/"receipt.json").exists():continue
  j=json.loads((t/"receipt.json").read_text());g=json.loads((t/"workflow.api.json").read_text());assert sha(t/"workflow.api.json")==j["workflow_sha256"]
- assert j["renderer_sha256"] in [sha(p/"scripts/render.py"),sha(p/"scripts/render_base_retake.py"),sha(p/'scripts/render_temporal48.py')]
+ assert j["renderer_sha256"] in [sha(p/"scripts/render.py"),sha(p/"scripts/render_base_retake.py"),sha(p/'scripts/render_temporal48.py'),sha(p/'scripts/render_scale_registered.py')]
  checks.append("immutable graph and generator source "+t.name)
  if j["status"]!="EXECUTION_PASS":continue
  if not j["model_job"]:continue
  assert [g[str(200+i)]["inputs"]["frame_idx"] for i in range(8)]==([0,6,14,34,44,54,72,80] if t.name=='temporal_48fps' else [0,3,7,17,22,27,36,40])
- expected=[288,416] if t.name in ["base_two_pass","anti_blur_nag","temporal_48fps"] else None
+ expected=[288,416] if t.name in ["base_two_pass","anti_blur_nag","temporal_48fps","scale_registered"] else None
  for folder,dims in [("refined_frames",[576,832])]+([("stage1_frames",expected)] if expected else []):
   files=sorted((t/folder).glob("*.png"));assert len(files)==j['frames']
   for f in files:
    with Image.open(f) as im:assert list(im.size)==dims
  checks.append("complete native frames and eight whole-figure guides "+t.name)
+ if t.name=='scale_registered':
+  assert sha(p/'scale_continuity/registered_preflight.json')==j['source_preflight_sha256']
+  for name,digest in j['guide_hashes'].items():assert sha(p/name)==digest
+  for start in [100,200]:
+   for i,index in enumerate([0,3,7,17,22,27,36,40]):
+    guide=g[str(start+i)]['inputs'];image=g[guide['image'][0]]['inputs']['image']
+    assert guide['frame_idx']==index and image==f'scale_registered/guide_{index:04d}.png'
+  checks.append('Actual sealed Aseprite source hashes and guide bindings in both sampling passes')
  if expected:
   assert len(g["11"]["inputs"]["sigmas"].split(','))==9 and len(g["26"]["inputs"]["sigmas"].split(','))==4
   assert g["25"]["class_type"]=="LTXVLatentUpsampler"
@@ -37,4 +47,4 @@ for t in sorted((p/"results").iterdir()):
 c=json.loads((p/'environment/runner_effective_configuration.json').read_text());assert c['dynamic_vram_effective'] and c['allocator']=='cudaMallocAsync' and c['async_offload_streams']==2 and c['bf16_vae_requested'];checks.append('actual dynamic offload/BF16/runtime configuration')
 r=json.loads((p/'environment/retake_preservation_check.json').read_text());assert r['outside_latent_mask_exact'];checks.append('retake mask preserved four of six video latent frames exactly; decoded pixel preservation NOT asserted')
 j={'status':'PASS','checks':checks,'assertions':len(checks),'visual_acceptance':False,'owner_device_child_acceptance':False}
-(p/'environment/trial_verification.json').write_text(json.dumps(j,indent=2)+'\n');print(json.dumps(j),flush=True)
+(p/f'environment/{"scale_trial_verification" if selected else "trial_verification"}.json').write_text(json.dumps(j,indent=2)+'\n');print(json.dumps(j),flush=True)

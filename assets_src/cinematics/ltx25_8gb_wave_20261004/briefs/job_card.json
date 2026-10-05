@@ -22,7 +22,7 @@
     "queued_jobs_and_failed_model_submissions": 6,
     "new_model_download_bytes": 28000000000,
     "runner_dependency_download_bytes": 500000000,
-    "imagegen_calls": 0,
+    "imagegen_calls": 1,
     "paid_api_usd": 0,
     "active_generation_seconds": 7200,
     "seconds_per_take": 1800,
@@ -81,6 +81,19 @@
       "additional_model_bytes_max": 1308787534,
       "no_new_imagegen": true,
       "no_paid_api": true
+    },
+    {
+      "owner_request": "2026-10-04: Roshan should remain a static size; Aseprite must filter continuity errors and use multiple anchors per redraw; continue.",
+      "new_named_brief": "SCALE-CONTINUITY-01",
+      "named_source_gap": "Original key22 silhouette is761px vs731px rest; anatomical crown/eyes/neck/waist fit still fails3% proportion tolerance. Preliminary11.43px sleeve/color-edge residual was an unsuitable proxy and was replaced before the final gate.",
+      "imagegen_calls_max": 1,
+      "new_model_download_bytes": 0,
+      "paid_api_usd": 0,
+      "generated_takes_if_inputs_pass": 1,
+      "total_model_takes_cap_retained": 5,
+      "prior_costs_retained": true,
+      "refine_details_status": "Separate adapter agreement pending. Total five model takes exhausted; any future adapter generation needs a new explicitly scoped brief and recorded budget, not an automatic retry.",
+      "actual_outcome": "One new whole-figure ImageGen key; eight source guides pass. Fifth take158.501s; Aseprite final gate passes32/41 frames and tags nine redraws. No full-loop acceptance."
     }
   ]
 }

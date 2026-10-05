@@ -91,7 +91,7 @@ Change/evidence: [2026-09-11 audit impact](../../design/audit_impacts/2026-09-11
 
 ## Branch history
 
-- 2026-10-04: [LTX-2.5 8 GB wave/blur study](../../assets_src/cinematics/ltx25_8gb_wave_20261004/README.md) proves local W4A8 two-pass/retake execution and active NAG.48fps improves one key; neighboring blur remains. Native Aseprite masters and failed takes retained; no production/runtime/finding acceptance.
+- 2026-10-04: [LTX-2.5 8 GB wave/blur study](../../assets_src/cinematics/ltx25_8gb_wave_20261004/README.md) records five actual W4A8 takes, active NAG/48fps limits and Aseprite multi-anchor scale filtering. All eight source guides pass;32/41 post-filter frames pass, nine need redraw and torn fingers remain. Native outputs/editable masters retained; no production/runtime/finding acceptance.
 
 
 - 2026-10-04: [two-pass portrait wave comparison](../../assets_src/cinematics/ltx_two_pass_wave_20261004/README.md) verifies the installed 2B 7-step pass, learned latent upscale/AdaIN and 3-step refinement, with whole-figure Aseprite guides and conditional quantized 2.3 comparison. Native anatomy/timing failures remain visible; no runtime acceptance or finding closure.

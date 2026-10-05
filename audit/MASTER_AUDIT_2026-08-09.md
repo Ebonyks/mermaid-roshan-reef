@@ -31,7 +31,7 @@ Owner-prioritized [8 GB retake repair trial](../assets_src/cinematics/ltx_retake
 
 Owner-directed [two-pass refinement comparison](../assets_src/cinematics/ltx_two_pass_wave_20261004/README.md) tests the omitted installed 2B refine pass, complete-figure portrait guides, the missing lowering key and conditional 8 GB LTX-2.3 fallback. Native outputs and Aseprite cadence checks remain source-only evidence; recipe execution and visual acceptance are independent. No runtime finding or game-wide audit state changes.
 
-Owner-directed [LTX-2.5 8 GB wave/blur comparison](../assets_src/cinematics/ltx25_8gb_wave_20261004/README.md) records actual matched W4A8 two-pass, temporal retake, active GPU NAG and higher temporal-density takes. Local execution passes; native finger/figure smear remains. Latent and decoded preservation are separate; official detail-adapter access/test pending. Source-only; no runtime finding or game-wide acceptance changes.
+Owner-directed [LTX-2.5 8 GB wave/blur comparison](../assets_src/cinematics/ltx25_8gb_wave_20261004/README.md) records five actual matched W4A8 takes, including Aseprite multi-anchor source/decoded scale filtering and one named whole-figure key redraw. Local execution and all eight source guides pass; nine decoded frames still fail geometry and torn fingers remain. Latent and decoded preservation are separate; official detail-adapter access/test pending. Source-only; no runtime finding or game-wide acceptance changes.
 
 ### Next bounded planning work
 

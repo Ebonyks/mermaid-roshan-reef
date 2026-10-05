@@ -1,6 +1,6 @@
 # LTX-2.5 Roshan wave on RTX 3060 Ti 8 GB
 
-Status: **REJECTED_REFERENCE_ONLY**. Four actual takes and native Aseprite masters
+Status: **REJECTED_REFERENCE_ONLY**. Five actual takes and native Aseprite masters
 are published for inspection. Execution passes; painted motion/anatomy fails.
 No runtime, owner, device or child acceptance.
 
@@ -18,12 +18,65 @@ difference; original 41/81-frame sequences remain in per-take folders.
 | [Temporal retake](results/temporal_retake/native.mp4) | 86.558 | 7197 | Same finger defect; frozen latents do not prove untouched decoded frames. |
 | [Active NAG](results/anti_blur_nag/native.mp4) | 157.856 | 7568 | Negative attention really executed 528 times; hand tearing persists. |
 | [48fps temporal-density test](results/temporal_48fps/native.mp4) | 173.680 | 7292 | Equivalent frame22 clearer; neighboring whole-figure smear remains. |
+| [Aseprite multi-anchor source correction](results/scale_registered/native.mp4) | 158.501 | 7406 | Registered source guides pass; native scale drift and torn fingers remain. Post-export filter passes32/41 frames; nine remain marked for redraw. |
 
 These are full job times, not sampler-only speed. Base and 48 fps include fresh
 process/model loads; later takes reuse some warm state. Memory samples every 5 s
 are whole-card observations, not exact allocator maxima. Generation total:
-576.702s; decoder-only preflight10.184s separate. Cleanup wall time was not fully
-metered. No paid API or new ImageGen job; prior costs remain in earlier packets.
+735.203s across five takes; decoder-only preflight10.184s separate. Cleanup wall
+time was not fully metered. No paid API job. One new named complete-figure
+ImageGen key22 redraw; its dollar/token usage is not exposed. Earlier costs
+remain in the preceding packets. Five-take and one-new-key limits are exhausted.
+
+## Constant figure size and Aseprite continuity filter
+
+Owner correction: “She should be a static size”; “Aesprite is meant to filter
+out these continuity errors, anchor the figure at multiples places per redraw
+for scaling.” This changes the source and output gates, not the accepted design.
+
+The original atlas-derived resting figure measures731px high, while the
+independently generated mid-lowering key measures761px by the same alpha-bound
+method. Silhouette height alone is not a scale test because poses change it.
+The old key also fails the distributed landmark proportions after a single
+whole-figure fit. Its waist pivot was Aseprite metadata, while LTX received only
+PNG pixels; neither the pivot nor “consistent scale” text locked the figure.
+
+Five corresponding landmarks now constrain the redraw: crown gem, both eyes,
+neckline and waist. The waist target is(184.5,453) in the576x832 canvas, with
+pose-specific head/neck targets preserving acting. Mid-lowering targets use
+neighboring pose coordinates, with no pixel blending. The preliminary upper
+bodice color-edge proxy was replaced by the neckline because a moving sleeve
+is unsuitable as a rigid size anchor; the original generator guide is retained.
+
+[Source Aseprite master](scale_continuity/registered_guides.aseprite) and
+[export preflight](scale_continuity/registered_preflight.json): all eight guides
+pass6px maximum anchor error,1px waist error and3% pair-distance tolerance.
+One named whole-figure ImageGen replacement is preserved at its native1043x1508.
+Aseprite normalizes its complete canvas, applies one aspect-preserving scale and
+translation, and rechecks exported pixels. Key22's maximum error is5.259px and
+waist error0.839px; this machine check does not accept its artistic identity.
+The [renderer](scripts/render_scale_registered.py) runs this gate before queue
+submission and records exact exported guide hashes in both sampling passes.
+
+[Three-column comparison](scale_continuity/scale_comparison.mp4): original base,
+new registered-input take, then Aseprite whole-figure registration review.
+Each column stays at native576x832 and all41 timestamps are retained. Six native
+new frames initially meet the absolute anchor gate. Thirty-three permit a
+uniform fit;32 pass the actual post-export gate. Nine are marked for redraw:
+8,12–15,22–24,29. Failed proportion fits retain their original native RGB pixels,
+with only opaque alpha added by Aseprite; no held frames, isolated limbs or
+nonuniform body warps conceal them. Frame8 fails the final raster check.
+The editable [output review](scale_continuity/decoded_filtered_review.aseprite)
+retains five anchor slices and per-frame pass/redraw tags.
+
+[Filter verification](scale_continuity/filter_verification.json) checks real
+exports, old-key rejection, zoom/root/torso-stretch defects and lossless Aseprite
+round trips. [Actual transforms](scale_continuity/decoded_registration_plan.json)
+disclose every frame. Scale filtering is working; this complete loop still
+fails geometry and visual gates. Finger tearing, blurred frames and the
+unreviewed seam/identity require coherent redraw or retake spans. Do not turn
+this review into runtime art. The five-take cap prevents another speculative
+model run under this brief.
 
 ## Actual recipe
 

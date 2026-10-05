@@ -117,6 +117,43 @@ and neighboring transitions. Export lossless frames and reopen the master.
 Neither a crisp key nor a pixel-check PASS proves acting, a loop or device
 performance.
 
+### Filter scale continuity through Aseprite
+
+Owner correction 2026-10-04: Roshan retains a constant world size. Use multiple
+corresponding anatomical landmarks for each whole-figure redraw, with Aseprite
+as the editable registration and continuity bridge. A single pivot or equal
+canvas dimensions cannot establish consistent figure scale. Slice/pivot metadata
+does not constrain a video model that receives only exported PNGs.
+
+Record a fixed root and pose-specific landmark targets before rendering. Use
+landmarks distributed across the figure: for the wave study, crown gem, both
+eyes, neckline and waist. Head/shoulder/cloth/hair/tail may move with the pose;
+distinguish that planned movement from a camera zoom or global size change.
+Do not measure scale from silhouette bounds alone, a moving sleeve edge or a
+hand travelling through the action. Review landmark confidence and record
+manual corrections when painted anatomy cannot be measured reliably.
+
+Fit one uniform scale and translation to the complete figure, preserving aspect
+ratio and fixing the declared root. Aseprite exports the transformed complete
+image; preserve its native source, editable master, target/observed anchors,
+actual raster transform and hashes. Check the exported pixels again because
+resampling and integer placement can shift measured landmarks. Reject clipping,
+nonuniform scaling, inconsistent inter-anchor proportions and low-confidence
+measurements. Do not warp separate body parts to force a numerical pass.
+
+Wire this preflight to the actual generation submission: any missing reference,
+changed hash or failed landmark tolerance blocks another take. Aseprite tags
+and review marks alone are insufficient. Inspect decoded native output with the
+same scale/root contract after generation, retain failed frames and identify
+the complete redraw/retake spans. Whole-figure registration can remove global
+size/position drift; it cannot repair torn anatomy, blur or internal stretching.
+Do not publish a corrected-loop claim while those defects or the loop seam fail.
+
+The [multi-anchor wave correction](../../assets_src/cinematics/ltx25_8gb_wave_20261004/README.md)
+retains the original inconsistent key, one named complete-figure redraw, native
+Aseprite registration measurements and a bounded follow-up. It is source evidence,
+not an accepted runtime atlas or a grant of human/device/child acceptance.
+
 ## Verify the model recipe before judging a take
 
 The [2026-10-04 two-pass wave trial](../../assets_src/cinematics/ltx_two_pass_wave_20261004/README.md)
