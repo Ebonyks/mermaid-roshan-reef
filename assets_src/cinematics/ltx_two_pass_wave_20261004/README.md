@@ -103,6 +103,11 @@ Laptop. Its 84.58 s small 512×256 result does not establish portrait performanc
 on this 3060Ti. The exact four components total 23.835 GiB; official decoder
 and upscaler HEAD requests returned 401 GatedRepo anonymously. No 2.5 weights
 were downloaded or access/contact-sharing terms accepted.
+A small native CUDA W4A8 probe now passes on this SM8.6 card, without proving
+full-model fit or speed. Official pipeline docs support 2.5 temporal retake;
+Desktop release claims conflict with its pinned capability flags/tests.
+Generated interior keyframe slots are a further2.5 temporal-detail experiment,
+with added token cost and no implementation or benchmark here.
 [Concrete next-test preflight](briefs/LTX25_PREFLIGHT.md),
 [pinned components/workflow/access probe](environment/ltx25_pinned_workflow_preflight.json).
 

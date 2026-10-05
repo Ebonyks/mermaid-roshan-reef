@@ -8,10 +8,23 @@ Lightricks reports improved distilled consistency, a new diffusion decoder
 and a matching custom Gemma 4 encoder. These are relevant to the current
 smear/detail problem, so 2.5 is the next quality candidate.
 [Official model card](https://huggingface.co/Lightricks/LTX-2.5).
-The official Desktop feature table offers local Retake/Extend with 2.3 but
-not its 2.5 integration. That app limitation does not establish a model-wide
-ban on Comfy temporal masking.
-[Official Desktop](https://github.com/Lightricks/LTX-Desktop).
+Lightricks' current pipeline docs explicitly show a single-stage 2.5 retake
+with matching split components. The Desktop sources conflict: release v1.2.5
+claims local 2.5 Retake/Extend, while current pinned capability flags and tests
+still reject both for 2.5. Treat the Desktop integration as unresolved; this
+is not a model-wide reason to prefer 2.3. The framework retake path and our
+quantized Comfy implementation still need an actual 8 GB execution test.
+[Official retake example](https://github.com/Lightricks/LTX-2/blob/9ec55f9f22798a3198d9c923856824821bc3317e/packages/ltx-pipelines/docs/hdr.md),
+[release claim](https://github.com/Lightricks/LTX-Desktop/releases/tag/v1.2.5),
+[pinned capability flags](https://github.com/Lightricks/LTX-Desktop/blob/68cd86c15e5fd25f56229ea63c0dbcb0338f7812/backend/runtime_config/ltx_capabilities.py).
+
+The 2.5 pipeline also offers generated interior keyframe slots, each allocating
+one latent frame of tokens to one pixel frame instead of eight. This is a
+relevant refinement experiment for fast hand travel after the base graph fits.
+It generates extra detail-bearing frames; it does not make supplied pose guides
+hard locks. Additional slots increase tokens/attention cost and are not yet
+implemented or benchmarked in this project's Comfy graph.
+[Official slot semantics](https://github.com/Lightricks/LTX-2/blob/9ec55f9f22798a3198d9c923856824821bc3317e/packages/ltx-pipelines/docs/conditioning.md).
 
 A community 8 GB baseline is now published, narrowing the earlier claim to
 "untested on this PC." It uses W4A8 ConvRot transformer and matching Gemma 4,
@@ -25,8 +38,10 @@ FP16 decode and disabled-offload configuration.
 The four exact files total 23.835 GiB. The two official decoder/upscaler
 HEAD requests returned 401 GatedRepo without authentication. No 2.5 weights
 were downloaded and no contact-sharing/access terms were accepted for the
-owner. Current Comfy has Gemma 4 code, but the workflow/runtime and
-RTX 3060 Ti W4A8 kernel compatibility still need validation.
+owner. Current Comfy has Gemma 4 code. A tiny synthetic W4A8 INT8-activation
+linear ran successfully through the installed native CUDA backend on this
+RTX 3060 Ti (SM 8.6); full model loading, memory, speed, motion and retake
+compatibility still need validation.
 The installed 2.3 Gemma 3 encoder and decoder cannot substitute for this pack.
 
 Next bounded test: resolve official access; pin a separate compatible runner

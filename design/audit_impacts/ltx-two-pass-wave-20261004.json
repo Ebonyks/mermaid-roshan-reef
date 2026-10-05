@@ -432,9 +432,14 @@
       "command": "python -X utf8 -u -B assets_src/cinematics/ltx_two_pass_wave_20261004/scripts/verify_remote.py 98942ab40ef843c5a0e5f592e2374042734152d7",
       "result": "PASS",
       "evidence": "assets_src/cinematics/ltx_two_pass_wave_20261004/remote_verification.json;399 anonymousHTTPS files,464664629bytes, exactimmutablepayload revision; receipt publication is a separate commit, not a payload selfhash."
+    },
+    {
+      "command": "Tiny installed ComfyKitchen W4A8 CUDA quantize/linear/dequantize probe; primary source capability recheck",
+      "result": "PASS",
+      "evidence": "assets_src/cinematics/ltx_two_pass_wave_20261004/environment/ltx25_pinned_workflow_preflight.json; synthetic SM8.6 native operator only, no full-model2.5 execution. Official pipeline2.5 retake docs and Desktop release/code conflict pinned."
     }
   ],
-  "acceptance_gaps": "All completed footage remains REJECTED_REFERENCE_ONLY; native review fails shoulder anatomy and lowering timing.; No GPU NAG run or2.5 quality/retake benchmark. Official2.5 decoder/upscaler returned401GatedRepo anonymously; matching pack and isolated runner compatibility need validation.; Automatedcleanup walltime not fully metered; no fabricated cleanup-budget PASS.; Source-only task; no runtime, production, owner, child or device acceptance and no finding closure.",
+  "acceptance_gaps": "All completed footage remains REJECTED_REFERENCE_ONLY; native review fails shoulder anatomy and lowering timing.; No GPU NAG run or2.5 quality/retake benchmark. Official2.5 decoder/upscaler returned401GatedRepo anonymously; matching pack and full isolated runner compatibility need validation; tiny native W4A8 kernel passed, Desktop integration sources conflict.; Automatedcleanup walltime not fully metered; no fabricated cleanup-budget PASS.; Source-only task; no runtime, production, owner, child or device acceptance and no finding closure.",
   "lessons": [
     {
       "lesson": "Both stages must be evidenced; omittedrefine was real, but completed3-step refinement didnot fix first-pass timing/anatomy.",
