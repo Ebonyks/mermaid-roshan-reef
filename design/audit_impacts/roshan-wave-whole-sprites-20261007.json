@@ -1,0 +1,111 @@
+{
+  "id": "roshan-wave-whole-sprites-20261007",
+  "scope": "Owner corrections 2026-10-07 on Roshan's wave: Claude revision 2 is marked OWNER_REJECTED ('roshan mutates in size still') and a game-wide sprite rule is recorded ('sprites need to be drawn whole, as a single unit, in this game'). Adds a numbers-only measurement of figure scale, head scale, waving-arm lengths and master layer count, measures all three wave candidates, and writes a Codex handoff with a measurable size and arm-proportion contract. No game file, image or runtime change.",
+  "baseline": "27fa7d075fccac79b36accb71f8a5d17dca52d68",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-MOT-10",
+    "DL-MOT-11",
+    "DL-MOT-12",
+    "DL-MOT-13",
+    "DL-MOT-14",
+    "DL-MOT-15",
+    "DL-MOT-16",
+    "DL-ASSET-01",
+    "DL-ASSET-02",
+    "DL-PERF-03"
+  ],
+  "findings": [
+    "MA-ROSHAN-006",
+    "MA-VIS-008"
+  ],
+  "files": [
+    "assets_src/cinematics/claude_whole_frame_wave_20261005/JOB_CARD.md",
+    "assets_src/cinematics/claude_whole_frame_wave_20261005/README.md",
+    "assets_src/cinematics/claude_whole_frame_wave_20261005/manifest.json",
+    "audit/MASTER_AUDIT_2026-08-09.md",
+    "audit/animation/README.md",
+    "audit/cycles/roshan-wave-20261007/owner_answers.json",
+    "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
+    "design/05_DOC_LEDGER.md",
+    "design/animation/ANIMATION_PRODUCTION_PROTOCOL.md",
+    "design/reference/OWNER_DECISIONS.md",
+    "design/reference/owner_decisions.json",
+    "docs/handoffs/codex_roshan_wave_whole_sprites_2026-10-07/MANIFEST.json",
+    "docs/handoffs/codex_roshan_wave_whole_sprites_2026-10-07/README.md",
+    "docs/handoffs/codex_roshan_wave_whole_sprites_2026-10-07/data/claude_rev1_cutout.json",
+    "docs/handoffs/codex_roshan_wave_whole_sprites_2026-10-07/data/claude_rev1_joints.json",
+    "docs/handoffs/codex_roshan_wave_whole_sprites_2026-10-07/data/claude_rev2_joints.json",
+    "docs/handoffs/codex_roshan_wave_whole_sprites_2026-10-07/data/claude_rev2_whole_frame.json",
+    "docs/handoffs/codex_roshan_wave_whole_sprites_2026-10-07/data/codex_ltx25_union_take1.json",
+    "docs/handoffs/codex_roshan_wave_whole_sprites_2026-10-07/tools/measure_wave.py"
+  ],
+  "validation": [
+    {
+      "command": "python -I docs/handoffs/codex_roshan_wave_whole_sprites_2026-10-07/tools/measure_wave.py on Claude revision 1, Claude revision 2 (with drawn arm joints and masters) and Codex LTX-2.5 Union take 1 native frames",
+      "result": "PASS",
+      "evidence": "docs/handoffs/codex_roshan_wave_whole_sprites_2026-10-07/data/*.json: revision 1 FAIL (head 2.61% p-p, upper arm -40.1%, 5 layers), revision 2 FAIL (head 2.71% p-p, upper arm -40.1%), Codex take 1 size PASS (figure 0.11%, head 0.34%); frame 0 measures exactly 0% in every clip. The tool's verdicts match the owner's review of revision 2."
+    },
+    {
+      "command": "python -B tools/record_owner_decision.py --check --base origin/dev",
+      "result": "PASS",
+      "evidence": "ODR-ROSHAN-CONSTANT-SIZE-20261007 and ODR-SPRITE-WHOLE-UNIT-20261007 appended; register ALL OK."
+    },
+    {
+      "command": "python -B tools/audit_document_authority.py",
+      "result": "PASS",
+      "evidence": "Run on the candidate before commit; see commit message."
+    },
+    {
+      "command": "python -B tools/audit_development.py --base auto",
+      "result": "PASS",
+      "evidence": "Run on the candidate before commit; see commit message."
+    },
+    {
+      "command": "Codex implementation of the handoff; owner review at normal speed on the tablet",
+      "result": "PENDING",
+      "evidence": "Not started; the handoff is published for Codex."
+    }
+  ],
+  "acceptance_gaps": "No new wave exists. The handoff's W1-W6 need Codex's implementation, the tool's report on its frames, and owner review on the tablet. MA-ROSHAN-006 and MA-VIS-008 lifecycles are unchanged; the whole-sprite rule now covers the castle swim cross-fade.",
+  "lessons": [
+    {
+      "lesson": "Measure part sizes (head, arm segments, hand) in the exported frames before owner review; a whole-figure scale fit passed both rejected waves while the head changed 2.7% and the upper arm 40%.",
+      "write_back": "docs/handoffs/codex_roshan_wave_whole_sprites_2026-10-07/tools/measure_wave.py",
+      "recurrence_key": "roshan-size-drift"
+    },
+    {
+      "lesson": "Approved keys that disagree in head size and limb foreshortening make any in-between method change Roshan's size; fix the key and guide family to one proportion contract before generating.",
+      "write_back": "design/animation/ANIMATION_PRODUCTION_PROTOCOL.md#preserve-crisp-contours-and-figure-wide-continuity",
+      "recurrence_key": "roshan-size-drift"
+    }
+  ],
+  "owner_corrections": [
+    {
+      "decision_id": "ODR-ROSHAN-CONSTANT-SIZE-20261007",
+      "evidence": "Owner, 2026-10-07, on Claude revision 2: \"This is worse than the previous results, roshan mutates in size still\".",
+      "write_back": "design/animation/ANIMATION_PRODUCTION_PROTOCOL.md#preserve-crisp-contours-and-figure-wide-continuity; docs/handoffs/codex_roshan_wave_whole_sprites_2026-10-07/README.md"
+    },
+    {
+      "decision_id": "ODR-SPRITE-WHOLE-UNIT-20261007",
+      "evidence": "Owner, 2026-10-07: \"There are also significant overdraw issues, sprites need to be drawn whole, as a single unit, in this game\".",
+      "write_back": "design/animation/ANIMATION_PRODUCTION_PROTOCOL.md#preserve-crisp-contours-and-figure-wide-continuity; audit/findings/ACTIVE_FINDINGS_2026-08-13.md#ma-roshan-006; audit/findings/ACTIVE_FINDINGS_2026-08-13.md#ma-vis-008"
+    }
+  ],
+  "references_used": [
+    {
+      "path": "assets_src/cinematics/claude_whole_frame_wave_20261005/README.md",
+      "purpose": "Rejected revision 2: frames, schedule and drawn arm joints measured."
+    },
+    {
+      "path": "assets_src/cinematics/claude_2d_deform_wave_20261005/README.md",
+      "purpose": "Rejected revision 1: frames, master and drawn arm joints measured."
+    },
+    {
+      "path": "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
+      "purpose": "MA-ROSHAN-006 cross-fade and MA-VIS-008 overdraw context for the whole-sprite rule."
+    }
+  ]
+}

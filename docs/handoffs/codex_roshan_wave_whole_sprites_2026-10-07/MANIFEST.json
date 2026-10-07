@@ -1,0 +1,66 @@
+{
+ "handoff_id": "codex_roshan_wave_whole_sprites_2026-10-07",
+ "recipient": "Codex",
+ "status": "PROPOSED / CANDIDATE",
+ "baseline": "27fa7d075fccac79b36accb71f8a5d17dca52d68",
+ "payload_sha256_method": "sha256 of sorted lines \"path<TAB>sha256\\n\" (MANIFEST.json excluded)",
+ "payload_sha256": "b2f836736d69fe5d96efe995c22c6082759f4e3b4a254dc48078be28954d4eac",
+ "files": [
+  {
+   "path": "README.md",
+   "bytes": 7389,
+   "sha256": "9988ec0e12f608784693eb0b787e13d83be8341c2f9c67845e5232a5c89ea994"
+  },
+  {
+   "path": "data/claude_rev1_cutout.json",
+   "bytes": 4630,
+   "sha256": "dac6d139bad6801f8c2cfed2433d12694a292984e8b8810d902b96a19744d66b"
+  },
+  {
+   "path": "data/claude_rev1_joints.json",
+   "bytes": 12150,
+   "sha256": "1ca7a2e84555ad6652735cb35a6483504b3cf043e03a72a6b96119931366c3be"
+  },
+  {
+   "path": "data/claude_rev2_joints.json",
+   "bytes": 11764,
+   "sha256": "402784c072702353685fcae81f379ba1784ff2afb0a5a92378678d5ab2a2858a"
+  },
+  {
+   "path": "data/claude_rev2_whole_frame.json",
+   "bytes": 4612,
+   "sha256": "267b75acd6766e75f2839fedf0f55a8c243e55138c1ae7f7ca36d1f37dfe2bfe"
+  },
+  {
+   "path": "data/codex_ltx25_union_take1.json",
+   "bytes": 1149,
+   "sha256": "29f2a9e1b21436e7c79525669566f300578714f7a21eea4efb1faa56c2b90d97"
+  },
+  {
+   "path": "tools/measure_wave.py",
+   "bytes": 8178,
+   "sha256": "35f4502adae14b546e8ab8450020162038434a1d6a8ee7d49aabc49f0b30e961"
+  }
+ ],
+ "references": [
+  {
+   "path": "assets/characters/roshan_25d/roshan_gesture_a.png",
+   "sha256": "e70139b23c9f84c0e8f0c1063145ca4e9e67ee32c57aa544bc08193326af9b9d",
+   "role": "approved wave keys, row 0"
+  },
+  {
+   "path": "assets_src/cinematics/ltx25_union_trial_20261004/take_1/refined_frames/",
+   "commit": "405cb1c6d4869c15edd032494c83f383d6e3e398",
+   "role": "Codex take measured (native frames, branch codex/ltx25-8gb-wave-20261004)"
+  },
+  {
+   "path": "assets_src/cinematics/claude_2d_deform_wave_20261005/",
+   "role": "rejected Claude revision 1 (measured)"
+  },
+  {
+   "path": "assets_src/cinematics/claude_whole_frame_wave_20261005/",
+   "role": "rejected Claude revision 2 (measured)"
+  }
+ ],
+ "images": "none; this handoff is written specification plus a numbers-only tool"
+}
