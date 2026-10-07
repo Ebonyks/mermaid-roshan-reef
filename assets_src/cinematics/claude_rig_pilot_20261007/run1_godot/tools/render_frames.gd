@@ -23,11 +23,21 @@ func _run() -> void:
 	var track := anim.find_track(NodePath("Skeleton/Root/Torso/UpperArm/Fore:rotation"), Animation.TYPE_VALUE)
 	var count := int(round(anim.length * 24.0))
 	var worst := 0.0
+	var skel: Node = scene.get_node("Skeleton")
+	var bones_out := []
 	for i in range(count):
 		ap.seek(i / 24.0, true)
 		await process_frame
 		await RenderingServer.frame_post_draw
 		worst = max(worst, absf(fore.rotation - float(anim.track_get_key_value(track, i))))
+		var row := {"index": i}
+		for b in skel.find_children("*", "Bone2D", true, false):
+			var xf: Transform2D = (scene as Node2D).global_transform.affine_inverse() * (b as Node2D).global_transform
+			row[b.name] = [xf.origin.x, xf.origin.y, xf.get_rotation()]
+		bones_out.append(row)
 		root.get_texture().get_image().save_png(out_dir.path_join("%04d.png" % i))
+	var fa := FileAccess.open(out_dir.path_join("../bones_godot.json"), FileAccess.WRITE)
+	fa.store_string(JSON.stringify({"note": "Bone2D global transforms per rendered frame, cell px and radians (Stage space)", "frames": bones_out}, " "))
+	fa.close()
 	print("RENDER_OK frames=%d max_key_error_rad=%.6f dir=%s" % [count, worst, out_dir])
 	quit(0)

@@ -8,14 +8,14 @@ Reference-only study, owner commissioned 2026-10-07. Template:
 
 | Field | Value |
 |---|---|
-| Identity | `claude-rig-pilot-20261007`, revision 1, Claude, 2026-10-07; Mermaid Roshan, [movement language v1](../../../design/animation/ROSHAN_MOVEMENT_LANGUAGE.md) |
+| Identity | `claude-rig-pilot-20261007`, revision 2 (run 1 acting/idle/blink after owner review), Claude, 2026-10-07; Mermaid Roshan, [movement language v1](../../../design/animation/ROSHAN_MOVEMENT_LANGUAGE.md) |
 | Output lane | Reference-only study: run 1 runtime-rig test (rules off), run 2 structural guides for the next LTX take |
 | Intention | Roshan gives the same gentle one-hand wave as the Union study, at one constant size |
 | Required action | Rest 0 to 3, rise, above head about 17, lower past face and chest, settle 36 to 40; one arm, left of image |
 | Fixed elements | Camera, neutral background, approved 2D identity; 256 px cell (run 1) and 640x896 canvas with waist at (216.5, 485) (run 2) |
 | Entry / exit | Frames 0 and 40 are the approved K0 cell pose; no prop or contact |
-| Reuse / gap | Approved `roshan_gesture_a.png` K0 and K2 hands; motion from existing Union take 1; no new art generated |
-| Method | LTX motion tracked and solved onto a fixed-length rig. Run 1: Godot 4.7.2 Skeleton2D with skinned Polygon2D and hand sprites (owner-permitted rules-off exception). Run 2: Union guide port with the rig arm at the W3 lengths and one master phase |
+| Reuse / gap | Approved `roshan_gesture_a.png` K0 and K2 hands; motion from existing Union take 1. Gap: no approved front-facing closed eyes, so the pilot blink is painted on K0's eyes (pending Codex/owner review) |
+| Method | LTX motion tracked and solved onto a fixed-length rig. Run 1: Godot 4.7.2 Skeleton2D with skinned Polygon2D and hand sprites (owner-permitted rules-off exception); revision 2 adds authored acting and idle on the LTX timing, a hair chain, a free-arm chain and a painted blink. Run 2: Union guide port with the rig arm at the W3 lengths and one master phase |
 | Runtime size | Run 1: 256 px cell art, rendered at 512 px (2x), 41 frames at 24 fps. Run 2: guides at 640x896, 320x448 and 160x224 |
 | Motion tolerances | W2 figure ≤ 1.0% and head ≤ 2.0% peak-to-peak; W3 arm segments ±5% of 25.5, 24.5 and 20.5 cell px; frames 0 and 40 identical |
 | Limits | 0 generated takes in this session; run 2 allows at most two takes, counting failures, within the 2026-10-07 wave handoff's brief; 0 ImageGen or paid calls |
@@ -37,9 +37,9 @@ Run 2 guides are position-only controls, excluded from runtime, `used_as_deliver
 
 | Lane | Result |
 |---|---|
-| Human identity / style | Pending owner review of `run1/review.mp4` and `run2/review.mp4` |
+| Human identity / style | Owner 2026-10-07 on revision 1: rough take, frozen body, frame artifacts (`ODR-RIG-PILOT-REV2-20261007`); revision 2 (`run1_rev2/review.mp4`) and `run2/review.mp4` pending |
 | Human motion / seam | Agent notes only, in README run 1 shortfalls; owner review pending |
-| Source / export machine | Run 1: rest composite equals K0 (0 px), frames 0 and 40 identical, Godot keys reproduced to 1e-6 rad, `measure_wave.py` PASS. Run 2: W3 0.0% on all frames |
+| Source / export machine | Run 1 revision 1: rest composite equals K0 (0 px), `measure_wave.py` PASS. Revision 2: rest composite differs from K0 in 40 contour/hem px, Godot keys exact, `measure_wave.py` PASS (figure 0.3%, head 0.67%), arm acceleration cut from 76 to 13 °/frame². Run 2: W3 0.0% on all frames |
 | Gameplay machine | Not applicable: no game file changed |
 | Device | Not run: Mobile renderer and target device untested |
 | Child / owner | Pending |

@@ -1,6 +1,7 @@
 extends SceneTree
-## Builds res://rig_wave.tscn from res://rig.json (rig parts, meshes, weights) and the solved
-## LTX motion in ../data/rig_pose.json. Rules-off pilot run 1 (2026-10-07); study only.
+## Builds res://rig_wave.tscn from res://rig.json (rig parts, meshes, weights) and the pose in
+## ../data/rig_pose_rev2.json (LTX arm path and timing, authored body acting, idle and blink).
+## Rules-off pilot run 1, revision 2 (2026-10-07); study only.
 ## godot --headless --path run1_godot -s res://tools/build_rig.gd
 
 const FPS := 24.0
@@ -21,7 +22,7 @@ func v2(a: Array) -> Vector2:
 
 func _initialize() -> void:
 	var rig: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://rig.json"))
-	var pose_path := ProjectSettings.globalize_path("res://").path_join("../data/rig_pose.json")
+	var pose_path := ProjectSettings.globalize_path("res://").path_join("../data/rig_pose_rev2.json")
 	var pose: Dictionary = JSON.parse_string(FileAccess.get_file_as_string(pose_path))
 	var stage := Node2D.new()
 	stage.name = "Stage"
@@ -83,7 +84,7 @@ func _initialize() -> void:
 			var k: float = s.scale
 			want = Transform2D(phi0, w0) * Transform2D(0.0, Vector2(k, k), 0.0, Vector2.ZERO) * Transform2D(-phi, Vector2.ZERO) * Transform2D(0.0, -w)
 		spr.transform = stage_xf(bone, stage).affine_inverse() * want
-		spr.visible = s.name != "HandOpen"
+		spr.visible = s.name in ["HandRest", "Sleeve"]
 	# Animation from the solved pose.
 	var anim := Animation.new()
 	anim.length = pose.frames.size() / FPS
@@ -98,30 +99,38 @@ func _initialize() -> void:
 		return i
 	var bp := func(n: String) -> String:
 		return str(stage.get_path_to(bones[n]))
-	var rot_tracks := ["Torso", "Head", "Hair", "UpperArm", "Fore", "Hand", "Tail1", "Tail2", "Fin"]
-	for n in rot_tracks:
+	var first: Dictionary = pose.frames[0]
+	for n in first.bone_delta_rad:
+		tracks[n] = add.call(bp.call(n) + ":rotation", false)
+	for n in ["UpperArm", "Fore", "Hand"]:
 		tracks[n] = add.call(bp.call(n) + ":rotation", false)
 	tracks["RootPos"] = add.call(bp.call("Root") + ":position", false)
 	tracks["ArmPos"] = add.call(bp.call("UpperArm") + ":position", false)
-	tracks["HandRest"] = add.call(bp.call("Hand") + "/HandRest:visible", true)
-	tracks["HandOpen"] = add.call(bp.call("Hand") + "/HandOpen:visible", true)
-	var delta_key := {"Torso": "torso", "Head": "head", "Hair": "hair", "Tail1": "tail1", "Tail2": "tail2", "Fin": "fin"}
+	var swaps := {"HandRest": "Hand", "HandOpen": "Hand", "EyesHalf": "Head", "EyesClosed": "Head"}
+	for n in swaps:
+		tracks[n] = add.call(bp.call(swaps[n]) + "/" + n + ":visible", true)
+	var A0: Array = first.arm_world_angles_rad
+	var R0: Array = first.arm_local_angles_rad
+	var torso_rest: float = bones["Root"].rest.get_rotation() + bones["Torso"].rest.get_rotation()
 	for f in pose.frames:
 		var t: float = f.index / FPS
-		var d: Dictionary = f.body_delta
-		for n in delta_key:
-			anim.track_insert_key(tracks[n], t, bones[n].rest.get_rotation() + float(d[delta_key[n]]))
-		anim.track_insert_key(tracks["RootPos"], t, bones["Root"].rest.origin + Vector2(d.root_dx, d.root_dy))
-		var torso_world: float = bones["Root"].rest.get_rotation() + bones["Torso"].rest.get_rotation() + float(d.torso)
+		var d: Dictionary = f.bone_delta_rad
+		for n in d:
+			anim.track_insert_key(tracks[n], t, bones[n].rest.get_rotation() + float(d[n]))
+		anim.track_insert_key(tracks["RootPos"], t, bones["Root"].rest.origin + v2(f.root_offset_cell))
+		var torso_world: float = bones["Root"].rest.get_rotation() + bones["Torso"].rest.get_rotation() + float(d.get("Torso", 0.0))
 		var A: Array = f.arm_world_angles_rad
 		var R: Array = f.arm_local_angles_rad
-		anim.track_insert_key(tracks["UpperArm"], t, float(A[0]) - torso_world)
-		anim.track_insert_key(tracks["Fore"], t, float(R[1]))
-		anim.track_insert_key(tracks["Hand"], t, float(R[2]))
-		var shrug := Vector2(f.shoulder_offset_cell[0], f.shoulder_offset_cell[1]).rotated(-torso_world)
+		# Arm keys are deltas from frame 0 (exact K0 rest), so the rig's own pivot/rest angles are kept.
+		anim.track_insert_key(tracks["UpperArm"], t, bones["UpperArm"].rest.get_rotation() + float(A[0]) - float(A0[0]) - (torso_world - torso_rest))
+		anim.track_insert_key(tracks["Fore"], t, bones["Fore"].rest.get_rotation() + float(R[1]) - float(R0[1]))
+		anim.track_insert_key(tracks["Hand"], t, bones["Hand"].rest.get_rotation() + float(R[2]) - float(R0[2]))
+		var shrug := v2(f.shoulder_offset_cell).rotated(-torso_world)
 		anim.track_insert_key(tracks["ArmPos"], t, bones["UpperArm"].rest.origin + shrug)
 		anim.track_insert_key(tracks["HandRest"], t, f.hand_drawing == "rest")
 		anim.track_insert_key(tracks["HandOpen"], t, f.hand_drawing == "open")
+		anim.track_insert_key(tracks["EyesHalf"], t, f.eyes == "half")
+		anim.track_insert_key(tracks["EyesClosed"], t, f.eyes == "closed")
 	var ap := AnimationPlayer.new()
 	ap.name = "AnimationPlayer"
 	stage.add_child(ap)
