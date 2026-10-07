@@ -1,6 +1,6 @@
 {
   "id": "fashion-walkthrough-20261007",
-  "scope": "Owner-requested illustrated process walkthrough of implemented Fashion Designer alpha; source-backed panels distinguish synthetic captures, missing natural-route action/contact/reload evidence and a separately labelled not-yet-playable redesign storyboard. No gameplay, save, art identity, protected-source or release changes.",
+  "scope": "Owner-requested illustrated process walkthrough of implemented Fashion Designer alpha; source-backed panels distinguish synthetic captures, missing natural-route action/contact/reload evidence and a separately labelled not-yet-playable redesign storyboard. No gameplay, save, art identity, protected-source or release changes. Publication repair preserves exact archived text bytes with a packet-local -text attribute, records the failed remote attempt, and binds historical no-runtime verification to checkpoint41786173 rather than a future engine worktree.",
   "baseline": "6238934447cf28834874396dfbaff65effafda46",
   "rules": [
     "DL-AUTH-05",
@@ -22,6 +22,7 @@
   ],
   "files": [
     "ASSET_LICENSES.md",
+    "assets_src/review/fashion_walkthrough_20261007/.gitattributes",
     "assets_src/review/fashion_walkthrough_20261007/README.md",
     "assets_src/review/fashion_walkthrough_20261007/annotations/01.png",
     "assets_src/review/fashion_walkthrough_20261007/annotations/02.png",
@@ -67,6 +68,7 @@
     "assets_src/review/fashion_walkthrough_20261007/evidence/natural_capture.log",
     "assets_src/review/fashion_walkthrough_20261007/evidence/original_capture_manifest.json",
     "assets_src/review/fashion_walkthrough_20261007/evidence/original_synthetic_capture.gd",
+    "assets_src/review/fashion_walkthrough_20261007/evidence/publication_first_attempt_failure.json",
     "assets_src/review/fashion_walkthrough_20261007/evidence/runtime_machine_verification.json",
     "assets_src/review/fashion_walkthrough_20261007/evidence/verification.json",
     "assets_src/review/fashion_walkthrough_20261007/evidence/voice_catalog.json",
@@ -131,6 +133,11 @@
       "command": "Target device / child / owner acceptance",
       "result": "PENDING",
       "evidence": "No session performed. Current alpha quality and action/contact gaps remain; redesign is not yet playable."
+    },
+    {
+      "command": "Unauthenticated public raw GitHub exact-revision verification of manifest and payload",
+      "result": "FAIL",
+      "evidence": "First publication41786173 rejected 13 Git-normalized text evidence files; evidence/publication_first_attempt_failure.json preserves failure. Exact-byte repair and re-verification pending."
     }
   ],
   "acceptance_gaps": "Natural wardrobe entry, embodied fitting/contact, disguise completion/reload and birthday-to-lawn transition captures are absent. Target device, child and owner acceptance remain outstanding. No finding lifecycle changes or quality score claimed.",

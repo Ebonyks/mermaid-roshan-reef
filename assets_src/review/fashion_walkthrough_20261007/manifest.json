@@ -3,12 +3,17 @@
   "runtime_source_commit": "6238934447cf28834874396dfbaff65effafda46",
   "status": "OWNER_REVIEW_WITH_EXPLICIT_COVERAGE_GAPS",
   "packet_scope": "Non-runtime process reference and proposed redesign; no art or game changes",
-  "payload_sha256": "74f78244698b24e0e08ab8a1a68b7c92d26a8f33919e28a2fc53ecbf6c4186e8",
+  "payload_sha256": "e3fc81e235e06fe9faf971b50c03e9e2dd1be50495e0bf36bcac615a14456449",
   "payload_algorithm": "SHA-256 of UTF-8 sorted relative-path TAB file-SHA256 LF records; manifest excludes itself",
   "native_capture_method": "Ten old synthetic captures, three new natural-input entry-only captures, nine source-asset references; annotated derivatives preserved separately",
   "steps": 25,
   "proposed_steps": 4,
   "files": [
+    {
+      "path": ".gitattributes",
+      "sha256": "f616daec9582855d48d96e971773de6f0e37983a51070833081c683f601d3797",
+      "bytes": 73
+    },
     {
       "path": "annotations/01.png",
       "sha256": "cbfa9b72069b414faa767350a13835118836e827d364d9fdd519f10d6e13402f",
@@ -495,8 +500,8 @@
     },
     {
       "path": "evidence/check_packet.py",
-      "sha256": "660b4009b6ce46fa59754ce4a62d2cf7535c6c8ff58b3f73e994586db7334341",
-      "bytes": 6526
+      "sha256": "aa37e457dfe47eebfd1d758760dfd2a6b145b22aea135f7327f5ef525acd8fab",
+      "bytes": 6713
     },
     {
       "path": "evidence/frame_binding_revalidation.json",
@@ -544,6 +549,11 @@
       "modification": "Byte-identical copy; source preserved"
     },
     {
+      "path": "evidence/publication_first_attempt_failure.json",
+      "sha256": "52bc88df586842b245a5aee57c713aa44c04042ac3e291522a4fe38089bab4be",
+      "bytes": 4457
+    },
+    {
       "path": "evidence/runtime_machine_verification.json",
       "sha256": "6b6237c76b29b7d61a786e855c98f5fbfbdc59a6f1be0d2b7c64b580f3816deb",
       "bytes": 29653,
@@ -554,8 +564,8 @@
     },
     {
       "path": "evidence/verification.json",
-      "sha256": "8a7d4aa7e9c01265c13f595080bbb886267af1ebfa3e76cc85fab66de8d4a858",
-      "bytes": 1506
+      "sha256": "7f52b47b719be5d44de3fbdb359a4992734fb430af6707d0f54213cda91aba08",
+      "bytes": 1601
     },
     {
       "path": "evidence/voice_catalog.json",

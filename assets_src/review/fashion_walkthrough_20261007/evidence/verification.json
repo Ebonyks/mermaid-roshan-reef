@@ -1,7 +1,8 @@
 {
   "schema": "reef.fashion_walkthrough_check/1",
-  "checked_at_utc": "2026-10-07T16:10:39.167681+00:00",
+  "checked_at_utc": "2026-10-07T18:11:29.344768+00:00",
   "runtime_baseline": "6238934447cf28834874396dfbaff65effafda46",
+  "historical_walkthrough_snapshot": "41786173",
   "checks": [
     {
       "check": "66 exact source bindings and preserved native copies; annotation sources match",
@@ -24,7 +25,7 @@
       "result": "PASS"
     },
     {
-      "check": "No runtime, protected-source, scene, save, tool or project configuration change from baseline",
+      "check": "Historical walkthrough snapshot 41786173 contains no runtime/protected-source change from 62389344; current engine is separately validated",
       "result": "PASS"
     }
   ],

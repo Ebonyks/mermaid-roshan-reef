@@ -1,0 +1,85 @@
+{
+  "status": "FAIL",
+  "commit": "41786173eb75282a4713fd46826df65fa60b2fb7",
+  "failure": "Unauthenticated remote verification rejected evidence/build_walkthrough.py; full blob inspection found 13 text normalization mismatches. Originals preserved; never delivered claim.",
+  "mismatches": [
+    {
+      "path": "evidence/build_walkthrough.py",
+      "expected_sha256": "0af6f85b9fb53b31a1d497b1eab3860385b5d20c2961cd16bda54e1305e191bd",
+      "published_blob_sha256": "6f20ba78ea92749c26ac3f769f6b43d96434c82727781d21533d91939a95eeb3",
+      "cause": "Git text normalization changed archived native bytes"
+    },
+    {
+      "path": "evidence/frame_binding_revalidation.json",
+      "expected_sha256": "d02e829d65eb82d75693f2aafbfdc7f46a95d7b92448ac1afd5674b656debb97",
+      "published_blob_sha256": "057d9082b9c8042237fd2027154930f70986af475718477011ce40b8a4495a2c",
+      "cause": "Git text normalization changed archived native bytes"
+    },
+    {
+      "path": "evidence/garment_provenance.json",
+      "expected_sha256": "967844026990804bedc1068478872e8fe26c3be5e9c6a8f3d6ae337cc1923a82",
+      "published_blob_sha256": "a092a57d21d7fb4719786fa62aea23f2196b294c667bae41cef3d3ca279580de",
+      "cause": "Git text normalization changed archived native bytes"
+    },
+    {
+      "path": "evidence/natural_capture.log",
+      "expected_sha256": "f5fc34208bc75afd55532184801f5289a1b15e008ee4ca08255ab8a1d31afead",
+      "published_blob_sha256": "e48ca9f0b85d9bb39bbb697d987f495fe903f9ca8734465ad6483a9bc66c0146",
+      "cause": "Git text normalization changed archived native bytes"
+    },
+    {
+      "path": "evidence/original_capture_manifest.json",
+      "expected_sha256": "759289698a10c8550711e0713ea02900c18f8c04ce9aaeb420a2fad21a41d086",
+      "published_blob_sha256": "921029d6e18164c8c14c8f0103356b5d7374cced6dca04bebfcd1ee010da7f37",
+      "cause": "Git text normalization changed archived native bytes"
+    },
+    {
+      "path": "evidence/original_synthetic_capture.gd",
+      "expected_sha256": "6fa65375d6c5d24f2f5692b07df4d26be8b5b9a0536a0d20764d201ec7fb3a4d",
+      "published_blob_sha256": "d39af314aab47064b21462c6ce00df5eb17038de5a97a8c9275faa2ad2788840",
+      "cause": "Git text normalization changed archived native bytes"
+    },
+    {
+      "path": "evidence/runtime_machine_verification.json",
+      "expected_sha256": "6b6237c76b29b7d61a786e855c98f5fbfbdc59a6f1be0d2b7c64b580f3816deb",
+      "published_blob_sha256": "da8f4e269ce927897a79013ccb8e7bdbffc447e57c1958a73a1c7cb57f76fa3a",
+      "cause": "Git text normalization changed archived native bytes"
+    },
+    {
+      "path": "evidence/verification.json",
+      "expected_sha256": "8a7d4aa7e9c01265c13f595080bbb886267af1ebfa3e76cc85fab66de8d4a858",
+      "published_blob_sha256": "dec6840af1247e37f18c16cf516b39500f84e20cb111992676d1dc746f54332e",
+      "cause": "Git text normalization changed archived native bytes"
+    },
+    {
+      "path": "evidence/voice_catalog.json",
+      "expected_sha256": "3d8481acf72a7f46642fdf9f33bfbfda7a50029548507c1f91af8af1164d0fd8",
+      "published_blob_sha256": "afafbcc4e685bf5a49d1dcd58269aea28243f4774500462a82fb80f0f622a63a",
+      "cause": "Git text normalization changed archived native bytes"
+    },
+    {
+      "path": "index.html",
+      "expected_sha256": "181e07f9ae45dece7236891903e119126571fc86e785a53b3e01de0cccf4f53e",
+      "published_blob_sha256": "1209fdeddc5c05ce0b8b6740f8e831bd6a98cd09c96fb09280386f8e3dd554a0",
+      "cause": "Git text normalization changed archived native bytes"
+    },
+    {
+      "path": "README.md",
+      "expected_sha256": "9615e370cb72be271e8da17c9d7b5a8ee34ebb65b62e0c18414f1ddeb99edc5d",
+      "published_blob_sha256": "cd3a726ff2895ba5738ab41d137007a5ede1bb1f900b65d5f6910028db191cfb",
+      "cause": "Git text normalization changed archived native bytes"
+    },
+    {
+      "path": "source_bindings.json",
+      "expected_sha256": "b6c6250ab4feb48f10fbe0340d8116c5d7cdfb749b0ccabebe7c10a5d3b81c7b",
+      "published_blob_sha256": "cc1af87919b49ddec6491da79b2cee7b43da1e9b9de716a19511b4ea7910cd4a",
+      "cause": "Git text normalization changed archived native bytes"
+    },
+    {
+      "path": "steps.json",
+      "expected_sha256": "043e45df6961e74eaccb57b61963670873c2f52ea047c49ae4c2245c4ba9e8cf",
+      "published_blob_sha256": "a4c70267475a59adc3d3f4b13b3ed0b6d559aca0ba136baaac075df0e30ab1dc",
+      "cause": "Git text normalization changed archived native bytes"
+    }
+  ]
+}

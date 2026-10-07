@@ -70,11 +70,12 @@ for forbidden in ['complete_disguise_phase','_skip_intro','_dismiss_menu','Fashi
     assert forbidden not in script,forbidden
 passed('Approved engine/renderer and single real UI entry event; no phase setters in bounded harness')
 baseline='6238934447cf28834874396dfbaff65effafda46'
-changed=subprocess.check_output(['git','diff','--name-only',baseline],cwd=root,text=True).splitlines()
+snapshot='41786173' # Historical alpha walkthrough checkpoint, not the developing engine.
+changed=subprocess.check_output(['git','diff','--name-only',baseline,snapshot],cwd=root,text=True).splitlines()
 assert all(not p.startswith(('scripts/','scenes/','assets/','tools/')) and p!='project.godot' for p in changed),changed
-passed('No runtime, protected-source, scene, save, tool or project configuration change from baseline')
+passed('Historical walkthrough snapshot 41786173 contains no runtime/protected-source change from 62389344; current engine is separately validated')
 report={'schema':'reef.fashion_walkthrough_check/1','checked_at_utc':datetime.now(timezone.utc).isoformat(),
-        'runtime_baseline':baseline,'checks':checks,'agent_visual_inspection':'Asset comparisons, original chooser, party-dress after and bow-stage annotations inspected at full frame. Text-only arrows/banners; no acceptance of art/acting claimed.',
+        'runtime_baseline':baseline,'historical_walkthrough_snapshot':snapshot,'checks':checks,'agent_visual_inspection':'Asset comparisons, original chooser, party-dress after and bow-stage annotations inspected at full frame. Text-only arrows/banners; no acceptance of art/acting claimed.',
         'natural_input_scope':'Fresh New Game and castle introduction only; all later route, action, completion and reload capture gaps retained.',
         'device_child_owner':'PENDING; none performed','redesign':'PROPOSED / NOT YET PLAYABLE'}
 (out/'evidence/verification.json').write_text(json.dumps(report,indent=2)+'\n')
