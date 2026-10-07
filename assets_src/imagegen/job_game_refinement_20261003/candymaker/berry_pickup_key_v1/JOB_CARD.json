@@ -1,0 +1,67 @@
+{
+  "id": "candymaker-birthday-berry-pickup-key-v1",
+  "lane": "interactive_gameplay_source_candidate_only",
+  "baseline": "cfcadc966bc2f3d9962243589d8a820c19ac2b0d",
+  "intent": "Roshan uses the existing gold tongs to grip one of the five candied Farmer strawberries; this is one missing contact key before final cake placement.",
+  "sources": [
+    {
+      "path": "assets/characters/roshan_25d/roshan_base.png",
+      "role": "primary_identity",
+      "scope": "approved identity source, no contact coverage"
+    },
+    {
+      "path": "assets/opera/worlds/actors/animation/roshan_candymaker_sheet_a.png",
+      "role": "existing_candy_costume_and_tongs",
+      "scope": "approved career family; work keys hold tongs aloft, no berry contact"
+    },
+    {
+      "path": "assets/chapter2/birthday/chapter2_candied_strawberries_tray.png",
+      "role": "berry_material_shape",
+      "scope": "five-berry final tray candidate; no pickup/placement temporal acting"
+    }
+  ],
+  "reuse_gap": "None of the 16 existing Candy atlas cells shows tong tips contacting a strawberry; Glaze draws remote procedural shine and Place translates berries. No birthday-contact source candidate found in source-path inventory. Existing ordinary WRAP commissioned studies excluded.",
+  "fixed_parts": [
+    "identity",
+    "costume",
+    "one tail/fin topology",
+    "exact strawberry appearance"
+  ],
+  "moving_parts": [
+    "right arm toward fruit",
+    "one tongs jaw grip",
+    "berry lifted by contact"
+  ],
+  "entry": "At actual workstation after arrival; berry remains tray-owned until validated grip.",
+  "exit": "This key ends in a held berry; additional approach/lift/placement/release/settle states needed.",
+  "tolerances": {
+    "anatomy": "one body, two attached arms/mittens, one continuous tail, one two-lobed fin",
+    "contact": "both tong tips meet opposite berry sides with zero visible gap",
+    "framing": "all appendages fully visible with transparent margins",
+    "sampling": "literal generated native dimensions and alpha bounds measured after return; no enlargement counted as native detail"
+  },
+  "method": "One built-in ImageGen missing-contact key from three role-bound approved/source references; no interpolation/compositing/cinematic delivery.",
+  "limits": {
+    "default_takes": 2,
+    "planned_takes": 1,
+    "generated_time_minutes": 10,
+    "cleanup_minutes": 15,
+    "task_minutes": 35,
+    "paid_external_jobs": 0
+  },
+  "attempts": [],
+  "cost": "Built-in tool included use; monetary amount/provider internals not exposed. No paid backend or new funded budget assumed.",
+  "geometry": "Exact pivot, hand/tong/berry landmarks measured only after return; may not assume contact sockets from canvas dimensions.",
+  "timing": "Single key only; no temporal timing, motion, loop seam or complete action accepted.",
+  "interruption": "Future binding preserves world input/save owner; exit before validated material placement cannot award progress; already committed berries remain placed.",
+  "provenance": "Native output and tool result/request metadata preserved separately; prompt/source/output hashes and any edits declared.",
+  "evidence": {
+    "human_source": "PENDING",
+    "runtime": "NOT_BOUND",
+    "device": "PENDING",
+    "child": "PENDING",
+    "owner": "PENDING",
+    "cinematic": "NOT_APPLICABLE"
+  },
+  "prompt": "Use case: illustration-story. Asset type: non-runtime RGBA gameplay contact-pose candidate, one single cutout, no scenery.\nInput roles: reference 1 is Roshan's primary face/body identity; reference 2 is only the Candy Maker costume and gold tongs reference (its 16 figures are NOT a request for a sheet); reference 3 is the exact candied strawberry material/shape reference.\nCreate ONE full-body Roshan in her established Candy Maker outfit: teal vest, cream puff sleeves, salmon apron, teal small cap, coral quilted oven mittens, rainbow forelock, one continuous iridescent mermaid tail and exactly one joined two-lobed tail fin. Preserve the youthful round face and proportions of reference 1, and the costume motifs and painted contours of reference 2. Polished hand-painted 2D storybook, plum/navy contours, gentle broad satin value bands, no photorealism.\nNamed missing action: the fifth candied strawberry pickup just before placement on the already-frosted birthday cake. Roshan leans attentively a little toward screen right and looks directly at the berry. Her right mitten (viewer-left arm) clearly wraps around the base of ONE pair of slender golden tongs extending toward screen right. The two tong tips CLOSE against opposite sides of ONE glossy red strawberry at its widest part; no gap between tips and fruit, no puncture, no extra prong. The berry has a green leafy cap and broad syrup highlights matching reference 3. It is lifted immediately beside Roshan's hand at upper-waist height; keep the whole berry and BOTH gripping tips unobscured. Her other mitten is open below it, calmly guiding without touching or hiding the contact.\nReadable silhouette and negative space between face, active arm, tongs and berry. Entire hat, hair, both arms, tail and fins visible with generous transparent padding. One figure and one berry only, no tray, table, cake, room, ground plate, text, labels, checker pattern, motion lines, magic sparkles, legs or detached anatomy. Genuine transparent background. This is a single contact key, not a temporal loop or cinematic frame."
+}

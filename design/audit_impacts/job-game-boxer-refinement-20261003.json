@@ -1,0 +1,224 @@
+{
+  "id": "job-game-boxer-refinement-20261003",
+  "scope": "Boxer-specific non-runtime illustrated source review, literal caller trace, native-density evidence and final-action binding/job-card plan. Shared runtime, assets, central licensing, ledger, finding lifecycle, branch and publication are owned by the artwork coordinator and remain frozen for this task.",
+  "baseline": "30d82725661044de63b682f5b13ba8f19101892b",
+  "rules": [
+    "DL-AUTH-01",
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-AGE-01",
+    "DL-AGE-02",
+    "DL-AGE-04",
+    "DL-MED-01",
+    "DL-VIS-06",
+    "DL-VIS-07",
+    "DL-READ-01",
+    "DL-READ-02",
+    "DL-READ-05",
+    "DL-LAY-07",
+    "DL-INT-02",
+    "DL-INT-04",
+    "DL-INT-09",
+    "DL-MOT-01",
+    "DL-MOT-02",
+    "DL-MOT-03",
+    "DL-MOT-07",
+    "DL-MOT-12",
+    "DL-ASSET-01",
+    "DL-ASSET-02",
+    "DL-ASSET-03",
+    "DL-ASSET-05",
+    "DL-ASSET-06",
+    "DL-PERF-01",
+    "DL-PERF-04",
+    "DL-SAVE-01",
+    "DL-SAVE-03",
+    "DL-QA-12",
+    "DL-UI-03",
+    "DL-UI-04",
+    "DL-INT-06",
+    "DL-VIS-01",
+    "DL-QA-03",
+    "DL-QA-06"
+  ],
+  "findings": [
+    "MA-OPERA-009",
+    "MA-DOC-007",
+    "MA-DOC-008",
+    "MA-VIS-006",
+    "MA-PLAY-004"
+  ],
+  "files": [
+    "assets_src/imagegen/job_game_refinement_20261003/boxer/final_action_job_card.json",
+    "audit/job_game_refinement_20261003/boxer/belt_contact_candidate.gd",
+    "audit/job_game_refinement_20261003/boxer/browser_checks.json",
+    "audit/job_game_refinement_20261003/boxer/build_review.py",
+    "audit/job_game_refinement_20261003/boxer/contact_browser.json",
+    "audit/job_game_refinement_20261003/boxer/contact_geometry.html",
+    "audit/job_game_refinement_20261003/boxer/contact_geometry.json",
+    "audit/job_game_refinement_20261003/boxer/contact_probe.gd",
+    "audit/job_game_refinement_20261003/boxer/contact_runtime.json",
+    "audit/job_game_refinement_20261003/boxer/contact_runtime.log",
+    "audit/job_game_refinement_20261003/boxer/contact_runtime_attempt01.json",
+    "audit/job_game_refinement_20261003/boxer/contact_runtime_attempt01.log",
+    "audit/job_game_refinement_20261003/boxer/contact_runtime_verbose.log",
+    "audit/job_game_refinement_20261003/boxer/contact_verification.json",
+    "audit/job_game_refinement_20261003/boxer/continuation_development_audit.log",
+    "audit/job_game_refinement_20261003/boxer/continuation_document_authority.log",
+    "audit/job_game_refinement_20261003/boxer/development_audit.log",
+    "audit/job_game_refinement_20261003/boxer/document_authority.log",
+    "audit/job_game_refinement_20261003/boxer/fold_terminal_matrix.py",
+    "audit/job_game_refinement_20261003/boxer/index.html",
+    "audit/job_game_refinement_20261003/boxer/measure_contact.py",
+    "audit/job_game_refinement_20261003/boxer/review.json",
+    "audit/job_game_refinement_20261003/boxer/terminal_matrix_addendum.html",
+    "audit/job_game_refinement_20261003/boxer/terminal_matrix_addendum.json",
+    "audit/job_game_refinement_20261003/boxer/terminal_matrix_browser.json",
+    "audit/job_game_refinement_20261003/boxer/terminal_matrix_browser_attempt01.json",
+    "audit/job_game_refinement_20261003/boxer/terminal_matrix_development_audit.log",
+    "audit/job_game_refinement_20261003/boxer/terminal_matrix_document_authority.log",
+    "audit/job_game_refinement_20261003/boxer/terminal_matrix_verification.json",
+    "audit/job_game_refinement_20261003/boxer/verification.json",
+    "audit/job_game_refinement_20261003/boxer/verify_contact.cjs",
+    "audit/job_game_refinement_20261003/boxer/verify_preview.cjs",
+    "audit/job_game_refinement_20261003/boxer/verify_terminal_matrix.cjs"
+  ],
+  "validation": [
+    {
+      "command": "python -B audit/job_game_refinement_20261003/boxer/build_review.py",
+      "result": "PASS",
+      "evidence": "audit/job_game_refinement_20261003/boxer/verification.json: 53/53 handover and coordinator source hashes match; 37 unique handed-over images; two supplemental current glove sources; 51 primary originals plus coordinator source snapshots unchanged; literal native dimensions and HTML links verified. No fresh mounted/action scores or generation."
+    },
+    {
+      "command": "node audit/job_game_refinement_20261003/boxer/verify_preview.cjs",
+      "result": "PASS",
+      "evidence": "audit/job_game_refinement_20261003/boxer/browser_checks.json: 53 total/24 priority rows; specialist filter 3 total/1 priority; no page errors or 390px horizontal overflow. Desktop, issue-queue and phone-width diagnostic screenshots visually reviewed; ignored tmp paths are recorded in the receipt, not game evidence."
+    },
+    {
+      "command": "python -B tools/audit_document_authority.py",
+      "result": "FAIL",
+      "evidence": "audit/job_game_refinement_20261003/boxer/document_authority.log: exit 1, 25 shared-workspace issues, including other tasks' missing Markdown ledger rows and missing audit/ROADMAP.md navigation. This task adds no Markdown and does not own those repairs."
+    },
+    {
+      "command": "python -B tools/audit_development.py --base auto",
+      "result": "FAIL",
+      "evidence": "audit/job_game_refinement_20261003/boxer/development_audit.log: exact full auto base 30d82725661044de63b682f5b13ba8f19101892b, exit 1, 67 shared-workspace issues involving other tasks' missing coverage/empty impact record/navigation. No Boxer-path error appears. The full diff was not narrowed; coordinator reconciliation is required before commit/push."
+    },
+    {
+      "command": "Godot 4.7.2 Mobile Boxer positive/passive/lifecycle probes and two-aspect runtime capture",
+      "result": "NOT_APPLICABLE",
+      "evidence": "This task changes no gameplay or runtime assets. Actual runtime replay is required for the proposed future binding repair and is not claimed by this review."
+    }
+  ],
+  "acceptance_gaps": "No new source, performance or runtime is accepted. Mounted-action scores stay null. Two-aspect exact-head capture, target device, child understanding and owner acceptance for MA-OPERA-009 remain outstanding. Shared coordinator controls consolidated publication; this local study is not an external handoff. Earlier permissive routed animation wording is superseded by the later routed human correction restoring strict full-frame cinematic delivery while confirming ordinary static and Canvas gameplay/atlas work. This static review starts no generation and grants no cinematic delivery claim.",
+  "supplementary_source_baseline": "cfcadc966bc2f3d9962243589d8a820c19ac2b0d",
+  "supplementary_source_scope": "Coordinator runtime source plus exact dirty-file hashes; all 53 handed-over image hashes match both checkouts. Current coordinator images already replace the older primary checkout's vector glove shapes. Those supplemental unchanged sources are embedded with provenance in the review; no new art is created.",
+  "completion_recheck": "Master planning/task index, repair section 9, applicable design rules, MA-OPERA-009 and ledger Boxer/protocol authority rechecked. No finding lifecycle or canonical fact is changed by this source-only review. Coordinator owns publication and integration; no release was requested.",
+  "continuation_baseline": "4cb14febc2c5f0074d5ad8386ce66f19f940c84d",
+  "continuation_scope": "Continue the existing unmeasured contact geometry item using exact source alpha bounds and current specialist equations. Produce a standalone illustrated geometry diagnostic and falsifiable contact/ownership checks without changing the initial report, saved receipts, runtime or original artwork. Preserve the older shared FAIL logs; new gate results are separate files. The guard is an isolated inherited specialist candidate in the audit directory, never an installed runtime repair. A fresh source-opacity negative case is reproduced using exact-engine input and a proposed target-radius guard is checked without altering production.",
+  "continuation_validation": [
+    {
+      "command": "python -B audit/job_game_refinement_20261003/boxer/measure_contact.py",
+      "result": "PASS",
+      "evidence": "contact_verification.json: 1280x720 and 1600x720 examples satisfy the current rectangle and >=0.62 forward fraction with zero sampled glove/belt alpha overlap. Existing source bytes and initial report receipts preserved. Semantic hand sockets stay unmeasured; source proof is not rendered acceptance."
+    },
+    {
+      "command": "python -B tools/resolve_godot.py; resolved official Godot 4.7.2 --headless --path C:/Users/Peter/.codex/worktrees/job-art-review-v2-20261001/mermaid-roshan-reef --script C:/Users/Peter/Documents/mermaid-roshan-reef/audit/job_game_refinement_20261003/boxer/contact_probe.gd -- C:/Users/Peter/Documents/mermaid-roshan-reef/audit/job_game_refinement_20261003/boxer/contact_runtime.json",
+      "result": "PASS",
+      "evidence": "contact_runtime.json/log: official 4.7.2-stable ed1daf0bf reproduces both transparent-space scores. Isolated candidate rejects both, accepts center/55px-nearby, passive earns zero and repeated drag samples pay once. Final cleanup log is clean; earlier diagnostic audio warnings remain in attempt01/verbose files. No render, device, child or owner acceptance."
+    },
+    {
+      "command": "python -m gdtoolkit.parser audit/job_game_refinement_20261003/boxer/contact_probe.gd audit/job_game_refinement_20261003/boxer/belt_contact_candidate.gd; python tools/lint_inference.py audit/job_game_refinement_20261003/boxer/contact_probe.gd audit/job_game_refinement_20261003/boxer/belt_contact_candidate.gd",
+      "result": "PASS",
+      "evidence": "Both commands returned exit 0; scripts are non-runtime diagnostic files and no shipping gate/probe was modified."
+    },
+    {
+      "command": "node audit/job_game_refinement_20261003/boxer/verify_contact.cjs",
+      "result": "PASS",
+      "evidence": "contact_browser.json: exact HTML hash, two illustrated sizes, no JS errors or 390px horizontal overflow. Inspection-only screenshots are under ignored tmp paths."
+    },
+    {
+      "command": "python -B tools/audit_document_authority.py",
+      "result": "PASS",
+      "evidence": "continuation_document_authority.log: ALL OK at the 4cb14feb primary continuation checkout. Earlier 25-issue FAIL evidence remains unchanged in document_authority.log."
+    },
+    {
+      "command": "python -B tools/audit_development.py --base auto",
+      "result": "FAIL",
+      "evidence": "continuation_development_audit.log: exact auto base 4cb14febc2c5f0074d5ad8386ce66f19f940c84d; seven uncovered Candy paths, no Boxer-path error. Full shared diff was not narrowed. Original 67-issue FAIL remains preserved. Commit/push stays with the coordinator pending shared coverage."
+    }
+  ],
+  "continuation_completion_recheck": "Current planning/task index, Boxer rule/finding and ledger authority reread. Coordinator confirms no duplicate Boxer study; shared production and primary staging remain prohibited. Non-runtime candidate is not integrated, Mobile-rendered, device-tested or accepted. All original 53-record artifacts, scores and source bytes are retained. No canonical finding lifecycle or master/ledger facts changed.",
+  "terminal_matrix_fold": {
+    "status": "SOURCE_BINDING_FOLD_COMPLETE_ACTION_ACCEPTANCE_OPEN",
+    "primary_baseline": "4cb14febc2c5f0074d5ad8386ce66f19f940c84d",
+    "input_path": "C:/Users/Peter/.codex/worktrees/job-art-review-v2-20261001/mermaid-roshan-reef/audit/job_geologist_rebuild_v2_20261003/source_review_parallel_v2/final_actor_terminal_gap_supplement_v1/MATRIX.json",
+    "expected_sha256": "c4fde855ca688e1ecf17dbf31825e8707e81f5d6a6d56b3724eb10334e9e8e5e",
+    "scope": "Fold the hash-verified Boxer terminal declaration and source route/actor/contact/settle anchors into an additive owned review. Keep the initial 53-cell report, contact diagnostic, candidate and all receipts byte-identical; do not restart contact studies, generation, runtime editing or shared staging/publication.",
+    "required_evidence": "Verify matrix/census/current-source hashes and literal caller conditions; distinguish ordinary terminal BELT from disabled initial tutorial, non-enabled Boxer two-act plan and unbound birthday/day claims. Recheck actor hiding, gesture ownership, completion reset, static belt drawing and curtain return in exact current source. Verify addendum links and browser rendering; run full authority/development gates separately.",
+    "related_finding_scope": "MA-OPERA-009 remains the Boxer-specific acceptance umbrella. MA-PLAY-004 applies to visible local actor/attached glove work; MA-VIS-006 applies to exact mounted-performance coverage. This declaration review changes none of their canonical lifecycle/history/closure facts.",
+    "preserved_prior_artifact_hashes": {
+      "assets_src/imagegen/job_game_refinement_20261003/boxer/final_action_job_card.json": "80c0113750c34876dc1c9f4154adc723381f8476c90664beeeede54674b98ab6",
+      "audit/job_game_refinement_20261003/boxer/belt_contact_candidate.gd": "3d4e0bb3f9be89d330db346b906abf6cc733cc8cf5b08796ddd258fb0dcf2f42",
+      "audit/job_game_refinement_20261003/boxer/browser_checks.json": "98bdc9421c5396b9cba9b4aa3bb79dc67a073a26f5979d735aa30ab6659ad9cc",
+      "audit/job_game_refinement_20261003/boxer/build_review.py": "c4c83c3d8c03900dd9072ce8d4e76095a02af2f8b53f7d5552e9990edc715e62",
+      "audit/job_game_refinement_20261003/boxer/contact_browser.json": "3064770a274a74077013854a0282af5db6e6e68b8c8b8f376bf37c4f44c5d048",
+      "audit/job_game_refinement_20261003/boxer/contact_geometry.html": "d49d28465472551efb5acb8231244582efce3e37861af914b4861c315ab4d8ba",
+      "audit/job_game_refinement_20261003/boxer/contact_geometry.json": "626a95e0c9a7fe46c3ea5164d28980725792338ae9d21ea8182739ba6b329bf3",
+      "audit/job_game_refinement_20261003/boxer/contact_probe.gd": "8045ca4d0389e428221b3ca90566a93a856d23a67cf06db0d3138df551f8dbf6",
+      "audit/job_game_refinement_20261003/boxer/contact_runtime.json": "78461af3aa86757be5bda1e60e0340e86c681a9c7d48bab96c5e3e8136d88302",
+      "audit/job_game_refinement_20261003/boxer/contact_runtime.log": "460ff29af53fa6cdb47c89e0edad53299cb7fd9b4ba07fc43b517bbf89f8a631",
+      "audit/job_game_refinement_20261003/boxer/contact_runtime_attempt01.json": "78461af3aa86757be5bda1e60e0340e86c681a9c7d48bab96c5e3e8136d88302",
+      "audit/job_game_refinement_20261003/boxer/contact_runtime_attempt01.log": "fa76a7779ee5b0290b6c54ee22336d950e25aa0203d916888ac017e21a89312e",
+      "audit/job_game_refinement_20261003/boxer/contact_runtime_verbose.log": "8b9b927e4b45b4fc37911de0b09f7820d1bbc0df78e30c8cce7136b0b7ce12bc",
+      "audit/job_game_refinement_20261003/boxer/contact_verification.json": "b100c09a9ea97a57285d4073b5807c333a0dd617474f385c834d93b20e9892a9",
+      "audit/job_game_refinement_20261003/boxer/continuation_development_audit.log": "07bfc6a4504095a05e5045bd4b18e8abe6fef358722a4771d2bb6a44288db347",
+      "audit/job_game_refinement_20261003/boxer/continuation_document_authority.log": "b937b4ae6619218fdde172650c5819bc19813591663a920bd6091d5980ca22fe",
+      "audit/job_game_refinement_20261003/boxer/development_audit.log": "1b0eaaeeb3e64bc5d5e94c93bada4653558a6f08e8122e33cdcc8baa98648912",
+      "audit/job_game_refinement_20261003/boxer/document_authority.log": "b08b8cb8ebc0f3cf92908d6b754343720274107e4f4a44e3f863a85da053d2cd",
+      "audit/job_game_refinement_20261003/boxer/index.html": "0485e6057db612cdcd2638f8c2d92fca71b0367a543ee017185edbcc6e654a68",
+      "audit/job_game_refinement_20261003/boxer/measure_contact.py": "dad3f73233a12115e26baa823a2fe2c2648e919ed5671a34cefca4c956386f8a",
+      "audit/job_game_refinement_20261003/boxer/review.json": "4b64780c193fb51b52f11cfb1d992812d7eae3a889c252afdc47dce1889d6df4",
+      "audit/job_game_refinement_20261003/boxer/verification.json": "8e32236e18993ee1a509d0e887e3f8aa74174c342fe24c21be54c7eaff61778b",
+      "audit/job_game_refinement_20261003/boxer/verify_contact.cjs": "38d66c9920a7071049601669d4518a3e26239e180e163ea253a4d0bb03d4ea3c",
+      "audit/job_game_refinement_20261003/boxer/verify_preview.cjs": "0f46a4a015091478a392a059e7d13b3f02e4b7a7648b6ff911e7cfdd29efa129"
+    },
+    "validation": [
+      {
+        "command": "python -B audit/job_game_refinement_20261003/boxer/fold_terminal_matrix.py",
+        "result": "PASS",
+        "evidence": "terminal_matrix_verification.json: exact supplied matrix c4fde855 hash; 14 current coordinator source/census/authority hashes match matrix; 25 literal anchors; all 24 prior Boxer artifacts preserved. Specialist hash unchanged; advanced world hash kept separate from earlier input proof. No grade, generation, game run or action acceptance."
+      },
+      {
+        "command": "node audit/job_game_refinement_20261003/boxer/verify_terminal_matrix.cjs",
+        "result": "PASS",
+        "evidence": "terminal_matrix_browser.json: 4 terminal review items, 2 unchanged source images loaded, exact anchor details open, all report links exist, no JS errors or horizontal overflow at 390px. Desktop and phone-width report screenshots inspected. Earlier table-wrapping FAIL preserved in terminal_matrix_browser_attempt01.json with immutable diagnostic copies; no game evidence."
+      },
+      {
+        "command": "python -B tools/audit_document_authority.py",
+        "result": "PASS",
+        "evidence": "terminal_matrix_document_authority.log: ALL OK. Historical first-pass and continuation receipts remain byte-identical."
+      },
+      {
+        "command": "python -B tools/audit_development.py --base auto",
+        "result": "FAIL",
+        "evidence": "terminal_matrix_development_audit.log: full auto base 4cb14febc2c5f0074d5ad8386ce66f19f940c84d; 7 uncovered Candy files, zero Boxer errors. No narrowed diff; coordinator must reconcile shared coverage before commit/push."
+      }
+    ],
+    "acceptance_gaps": "No new graphics scores, mounted-performance/game-engine runs, exact day route, production repair, device, child or owner acceptance. Current specialist may hide the room actor despite generic pose call. Source timing/FX do not prove supported belt reaction or glove attachment. Coordinator owns integration/publication.",
+    "completion_recheck": "Rechecked required master planning/task index, audit contract, defined rules, Boxer binding-domain ledger row and MA-OPERA-009 plus MA-PLAY-004/MA-VIS-006 acceptance criteria. Literal construction/dispatch, actor-hide/finale branches, punch predicate, completion reset, belt draw, hold/curtain calls and tutorial/two-act/birthday routes inspected at matrix source hashes. Generic poses or other phase visibility cannot grant BELT actor coverage. No canonical finding, master-index or ledger authority fact changed.",
+    "owned_file_count": 33,
+    "artifact_hashes": {
+      "fold_terminal_matrix.py": "afac2397ef6397cf7eb3076758d84f12a8ac9f900eb63d71cefb02bbb68a1145",
+      "terminal_matrix_addendum.json": "9614fceb7c0a614b281fb9763fc5bf5d052b8f5b2570c683c3efb0cb72079f9f",
+      "terminal_matrix_addendum.html": "958024da4e9ab6ef3857c9dad125856b2e27c9811b2b5dbdbf55f0d9497ea466",
+      "terminal_matrix_verification.json": "6aa6ff9c6b5b56615c19278ae3d647cee4b79b14383922580c24f45b64287620",
+      "verify_terminal_matrix.cjs": "402b7a140a81d267f1ac115514bf618b11f538cff5ba86a3a0b971b709c8a37e",
+      "terminal_matrix_browser.json": "d8c92dd15802c26046b4922d672aee547b7661538ff57195a09fe3b06efa808d",
+      "terminal_matrix_browser_attempt01.json": "ba7eed6ff284b15724adad2a0ca41d1beb5f9770b0b7cb3061f664c9b9e9c1db",
+      "terminal_matrix_document_authority.log": "b937b4ae6619218fdde172650c5819bc19813591663a920bd6091d5980ca22fe",
+      "terminal_matrix_development_audit.log": "07bfc6a4504095a05e5045bd4b18e8abe6fef358722a4771d2bb6a44288db347"
+    }
+  }
+}

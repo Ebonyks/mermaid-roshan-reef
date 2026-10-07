@@ -1,0 +1,107 @@
+{
+  "id": "boxer-visible-belt-finish-v1-20261003",
+  "status": "BINDING_PLAN_NOT_IMPLEMENTED",
+  "scope": "Interactive Canvas presentation of the existing final boxing_belt action. No cinematic delivery, no new footage, no gameplay rule change.",
+  "verb": "After the child's valid forward extension, Roshan visibly completes the same glove-to-belt contact, retracts, and leaves the earned belt readable before celebration.",
+  "source_candidates": [
+    {
+      "path": "assets/opera/worlds/actors/animation/roshan_boxer_sheet_a.png",
+      "sha256": "dbda6f6edd01e48b74095915f338fe3f6eb690ccd5f0f314d50e6940bb33c7c9",
+      "regions": [
+        [
+          0,
+          512,
+          256,
+          256
+        ],
+        [
+          256,
+          512,
+          256,
+          256
+        ],
+        [
+          512,
+          512,
+          256,
+          256
+        ],
+        [
+          768,
+          512,
+          256,
+          256
+        ]
+      ],
+      "scope": "Existing punching/return pose candidates, not a verified temporal belt-contact clip"
+    },
+    {
+      "path": "assets/opera/worlds/props/goal_boxer.png",
+      "sha256": "6d46c7423aa26591355199f86363184f5f9820ba4e4921caefc85e98aa101611",
+      "scope": "Existing readable belt; retain identity and current goal"
+    }
+  ],
+  "fixed_parts": [
+    "same room",
+    "belt display/support",
+    "Roshan face/hair/tail/costume",
+    "same two gloves/cuffs",
+    "back control and voice cue"
+  ],
+  "moving_parts": [
+    "one glove/arm tied to current touch owner",
+    "gaze and authored anticipation",
+    "bounded reciprocal contact",
+    "retraction and settle"
+  ],
+  "geometry": {
+    "current_stage": [
+      1280,
+      720
+    ],
+    "belt_side_at_720": 300,
+    "belt_medallion_vertical_fraction": 0.74,
+    "hand_sockets": "NOT_MEASURED; measure at native pose resolution before binding",
+    "prop_support": "Keep the current display and result ownership; support/contact review required",
+    "native_pose_subject_density": "256px cells; do not enlarge beyond audited native subject sampling without a justified higher-native source"
+  },
+  "entry": "One live Roshan is visible on arrival; opening work presentation keeps the same identity, position ownership and costume.",
+  "exit": "Actual contact then same glove retracts to a supported rest; earned belt remains visible. Cheer follows the readable finish.",
+  "tolerances": {
+    "extra_gloves_or_tails": 0,
+    "stale_rewards": 0,
+    "passive_completion": 0,
+    "socket_tolerance_px": null,
+    "tolerance_status": "Requires native socket measurement and owner/context review; no numeric pass invented"
+  },
+  "method": "Reuse existing authored RGBA gameplay states with measured Canvas anchors and the coordinator's runtime ownership. An Aseprite master can preserve RGBA detail/timing for this ordinary gameplay lane. Never simply show Roshan beside the independent first-person gloves, which would depict extra glove ownership. This does not authorize cinematic cutout/compositing delivery.",
+  "attempts": {
+    "generated": 0,
+    "rejected": 0,
+    "default_max_per_brief_backend": 2,
+    "stop_rule": "After two nonviable takes or the task cap, stop and diagnose/change inputs or method",
+    "generation_required_now": false
+  },
+  "budget": {
+    "paid_jobs_authorized": false,
+    "new_generation_cost": 0,
+    "planned_generated_takes_this_pass": 0,
+    "production_wall_minutes_cap_this_pass": 0,
+    "production_cleanup_minutes_cap_this_pass": 0,
+    "bounded_scope": "Source review and binding specification only; future production wall/cleanup cap must be set before a take"
+  },
+  "contact_owner": "OperaBoxingSurface validates the current finger, extension, target and latch; OperaCareerWorld2D owns progress/save/reward. Animation may report presentation events and cannot score by a timestamp or clip end.",
+  "interruption": "Cancel unfinished contact on exit/phase/focus; clear both touch claims. Preserve already earned progress and do not replay its payout.",
+  "required_verification": [
+    "same specialist for training and each confirmed in-world caller",
+    "native hand/prop sockets and reciprocal target reaction",
+    "all changed transitions full speed and frame step",
+    "loop/exit seam and support",
+    "one-finger/optional multitouch/wrong/passive/cancel/reentry/save checks",
+    "exact Godot 4.7.2 Mobile and two-aspect captures",
+    "Lenovo Tab M11 30fps/readability",
+    "observed child understanding",
+    "owner acceptance"
+  ],
+  "policy_history": "Earlier routed continuation described permissive October 3 animation methods. The later routed owner correction explicitly restores the strict full-frame cinematic rule and confirms ordinary static candidates and accepted Canvas gameplay/atlas work continue. Both messages are retained as history; no cinematic candidate or generated take is produced here."
+}
