@@ -1,0 +1,29 @@
+{
+  "status": "PASS",
+  "commands": [
+    {
+      "command": "python -B tools/audit_document_authority.py ",
+      "exit_code": 0,
+      "elapsed_seconds": 7.062972100000479,
+      "evidence": "audit_document_authority.log",
+      "result": "PASS"
+    },
+    {
+      "command": "python -B tools/audit_development.py --base auto",
+      "exit_code": 0,
+      "elapsed_seconds": 3.0754612000018824,
+      "evidence": "audit_development.log",
+      "result": "PASS"
+    },
+    {
+      "command": "python -B tools/record_owner_decision.py --check --base 09f05e529ccaae606eab89d0a9029b968f2137d1",
+      "exit_code": 0,
+      "elapsed_seconds": 0.3309965000007651,
+      "evidence": "record_owner_decision.log",
+      "result": "PASS"
+    }
+  ],
+  "own_python_sources_compile": "PASS",
+  "runtime_gd_changes": 0,
+  "full_runtime_ci": "Exact-head remote full CI required before dev integration; source-study checks do not establish runtime acceptance."
+}

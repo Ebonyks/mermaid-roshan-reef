@@ -1,0 +1,21 @@
+{
+  "status": "DECODE_EXECUTION_PASS",
+  "steps": 2,
+  "schedule": [
+    1.0,
+    0.5
+  ],
+  "default_schedule": [
+    1.0
+  ],
+  "decoder_class": "CausalDiffusionVAE",
+  "decoder_source_sha256": "86897d57d23cf59d0f86ab4ee388a5bee5902b82d5464d0cfb884238e00c41b9",
+  "noise_seed": 0,
+  "same_video_latent_unchanged": true,
+  "new_transformer_generation": false,
+  "elapsed_seconds": 16.6058329999978,
+  "peak_torch_allocated_bytes": 2403168038,
+  "experimental": true,
+  "publisher_recommended": false,
+  "quality_accepted": false
+}

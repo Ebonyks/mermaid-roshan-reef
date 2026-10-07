@@ -1,0 +1,221 @@
+{
+  "refine": {
+    "url": "https://huggingface.co/api/models/Lightricks/LTX-2.5-22b-IC-LoRA-Refine-Details?blobs=true",
+    "revision": "4912c478b35dd96b6cdcc5f7c7ff9d72c2c57929",
+    "files": [
+      {
+        "path": "ltx-2.5-22b-ic-lora-refine-details-1.0.safetensors",
+        "bytes": 1308787534,
+        "lfs": {
+          "sha256": "771a84f70e143af89867fc714ebbf7bd6edcaa4974c0360cba4a2d292a99f0e6",
+          "size": 1308787534,
+          "pointerSize": 135
+        }
+      }
+    ],
+    "commit_message": ""
+  },
+  "pixel": {
+    "url": "https://huggingface.co/api/models/Lightricks/LTX-2.5-22b-IC-LoRA-Pixel-Spatial-Upscaler?blobs=true",
+    "revision": "380e63e764cad353c47a8e7c9c7ad6095d25e814",
+    "files": [
+      {
+        "path": "ltx-2.5-22b-ic-lora-pixel-spatial-upscaler-x2-1.0.safetensors",
+        "bytes": 327322640,
+        "lfs": {
+          "sha256": "984851b769ea2bcb4c9e0a239a7676239e42c6a6001ddc69943b41ff0b283c1d",
+          "size": 327322640,
+          "pointerSize": 134
+        }
+      }
+    ],
+    "commit_message": ""
+  },
+  "nodes": {
+    "url": "https://api.github.com/repos/Lightricks/ComfyUI-LTXVideo/commits/master",
+    "revision": "3bf3ca62595f1764c47d01c35c8e5dfe47e1a88f",
+    "files": [],
+    "commit_message": "Merge pull request #574 from Lightricks/pr-2026-10-01"
+  },
+  "framework": {
+    "url": "https://api.github.com/repos/Lightricks/LTX-2/commits/main",
+    "revision": "9ec55f9f22798a3198d9c923856824821bc3317e",
+    "files": [],
+    "commit_message": "Automated PR - 2026-10-02"
+  },
+  "derope": {
+    "url": "https://api.github.com/repos/matlowai/ComfyUI-MAINodes/commits/generic-derope",
+    "revision": "91311b3db6f10cac399ba05c71ce1e6c81f28064",
+    "files": [],
+    "commit_message": "H3LatentSmear: hermite (Catmull-Rom through four tokens) and flow (bidirectional warp along a coarse-to-fine Lucas-Kanade latent flow, 24 channels as constraints, then blend) modes; per-token confidence (exact centre = 1, interpolated 1-2*min(w,1-w), hold transitions halved) and a regen_mask MASK output (1 - confidence per dilated frame) for H3V2VInit with time_varying on; exact-centre hits are exact tokens in the plan. Synthetic test: flow 0.013 vs lerp 0.042 error on a 3 px translating blob"
+  },
+  "installed_decoder": {
+    "diffusion_decoder_key_present": true,
+    "vae_metadata": {
+      "_class_name": "CausalDiffusionVAE",
+      "dims": 3,
+      "encoder": {
+        "_class_name": "Encoder",
+        "dims": 3,
+        "in_channels": 3,
+        "out_channels": 128,
+        "blocks": [
+          [
+            "res_x",
+            {
+              "num_layers": 4
+            }
+          ],
+          [
+            "compress_space_res",
+            {
+              "multiplier": 2
+            }
+          ],
+          [
+            "res_x",
+            {
+              "num_layers": 6
+            }
+          ],
+          [
+            "compress_time_res",
+            {
+              "multiplier": 2
+            }
+          ],
+          [
+            "res_x",
+            {
+              "num_layers": 4
+            }
+          ],
+          [
+            "compress_all_res",
+            {
+              "multiplier": 2
+            }
+          ],
+          [
+            "res_x",
+            {
+              "num_layers": 2
+            }
+          ],
+          [
+            "compress_all_res",
+            {
+              "multiplier": 1
+            }
+          ],
+          [
+            "res_x",
+            {
+              "num_layers": 2
+            }
+          ]
+        ],
+        "patch_size": 4,
+        "latent_log_var": "constant",
+        "latent_log_var_value": -7.824046010856292,
+        "norm_layer": "pixel_norm",
+        "base_channels": 128,
+        "spatial_padding_mode": "zeros"
+      },
+      "decoder": {
+        "_class_name": "NADiffusionDecoder",
+        "in_channels": 128,
+        "out_channels": 3,
+        "patch_size": 4,
+        "head_dim": 64,
+        "stage_channels": [
+          2048,
+          1024,
+          512,
+          512,
+          256
+        ],
+        "stage_depths": [
+          4,
+          6,
+          4,
+          2,
+          8
+        ],
+        "stage_kernels": [
+          [
+            3,
+            7,
+            7
+          ],
+          [
+            3,
+            7,
+            7
+          ],
+          [
+            3,
+            5,
+            5
+          ],
+          [
+            3,
+            5,
+            5
+          ],
+          [
+            11,
+            11,
+            11
+          ]
+        ],
+        "upsamples": [
+          [
+            [
+              1,
+              2,
+              2
+            ],
+            2
+          ],
+          [
+            [
+              2,
+              1,
+              1
+            ],
+            2
+          ],
+          [
+            [
+              2,
+              2,
+              2
+            ],
+            1
+          ],
+          [
+            [
+              2,
+              2,
+              2
+            ],
+            2
+          ]
+        ],
+        "spatial_padding_mode": "zeros",
+        "resampler_kind": "linear",
+        "stage5_kernel": [
+          11,
+          11,
+          11
+        ],
+        "timestep_scale_multiplier": 1000.0,
+        "default_num_inference_steps": 1
+      },
+      "model_output_type": "x0",
+      "spatial_padding_mode": "zeros"
+    },
+    "comfy_commit": "87465b8f1f64a27a46f16f22b13b410494dca66d"
+  }
+}

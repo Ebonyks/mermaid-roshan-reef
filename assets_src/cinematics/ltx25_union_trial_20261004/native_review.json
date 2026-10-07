@@ -1,0 +1,27 @@
+{
+  "status": "REJECTED_REFERENCE_ONLY",
+  "preferred_review_take": "take_1",
+  "take_1_inspected_indices": [
+    0,
+    13,
+    22,
+    40
+  ],
+  "take_2_inspected_indices": [
+    0,
+    22,
+    40
+  ],
+  "findings": [
+    "Whole-figure shape appears steadier in inspected poses; numerical internal distances support improvement but are not acceptance.",
+    "Raised/lowering fingers remain streaked/fused.",
+    "Opening is softer than later frames and loop detail does not match.",
+    "Weaker0.65 opening-image lock adds texture and does not remove focus changes.",
+    "Neither untouched native take clears strict1px guide-root limit for every frame."
+  ],
+  "full_speed_human_seam_acceptance": "PENDING",
+  "device_child_owner_acceptance": false,
+  "transformer_takes_used": 2,
+  "next": "Temporal detail candidate after geometry review and separate access/hardware checks; no third unconstrained/weak-lock repeat.",
+  "detail_observation": "Face-region edge variance grows almost monotonically across each native clip, with a soft opening and sharper ending. Diagnostic supports progressive detail growth, not a causal proof or automatic focus verdict."
+}

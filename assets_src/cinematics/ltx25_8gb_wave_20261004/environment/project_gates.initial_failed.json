@@ -1,0 +1,16 @@
+{
+  "status": "FAIL",
+  "checks": [
+    {
+      "command": "python -B tools/audit_document_authority.py",
+      "exit_code": 1,
+      "result": "FAIL"
+    },
+    {
+      "command": "python -B tools/audit_development.py --base auto",
+      "exit_code": 1,
+      "result": "FAIL"
+    }
+  ],
+  "elapsed_seconds": 11.339
+}

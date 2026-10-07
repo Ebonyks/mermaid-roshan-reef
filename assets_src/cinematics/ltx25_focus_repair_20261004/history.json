@@ -1,0 +1,538 @@
+{
+  "prompt": [
+    0,
+    "dab0ad12-39ba-4e32-88dd-d7afa21e19c9",
+    {
+      "1": {
+        "class_type": "VAELoader",
+        "inputs": {
+          "vae_name": "ltx-2.5-video-vae-bf16.safetensors"
+        }
+      },
+      "2": {
+        "class_type": "LoadLatent",
+        "inputs": {
+          "latent": "focus_registered_video.latent"
+        }
+      },
+      "3": {
+        "class_type": "FocusDecoderAblation",
+        "inputs": {
+          "samples": [
+            "2",
+            0
+          ],
+          "vae": [
+            "1",
+            0
+          ],
+          "steps": 1
+        }
+      },
+      "5": {
+        "class_type": "SaveImage",
+        "inputs": {
+          "images": [
+            "3",
+            0
+          ],
+          "filename_prefix": "focus_decoder_ablation/steps_1/frame"
+        }
+      },
+      "4": {
+        "class_type": "FocusDecoderAblation",
+        "inputs": {
+          "samples": [
+            "2",
+            0
+          ],
+          "vae": [
+            "1",
+            0
+          ],
+          "steps": 2
+        }
+      },
+      "6": {
+        "class_type": "SaveImage",
+        "inputs": {
+          "images": [
+            "4",
+            0
+          ],
+          "filename_prefix": "focus_decoder_ablation/steps_2/frame"
+        }
+      }
+    },
+    {
+      "client_id": "407dcbd1-ab9d-4e89-8d51-0b312e57c5dd",
+      "create_time": 1791173510362
+    },
+    [
+      "5",
+      "6"
+    ]
+  ],
+  "outputs": {
+    "5": {
+      "images": [
+        {
+          "filename": "frame_00001_.png",
+          "subfolder": "focus_decoder_ablation\\steps_1",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00002_.png",
+          "subfolder": "focus_decoder_ablation\\steps_1",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00003_.png",
+          "subfolder": "focus_decoder_ablation\\steps_1",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00004_.png",
+          "subfolder": "focus_decoder_ablation\\steps_1",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00005_.png",
+          "subfolder": "focus_decoder_ablation\\steps_1",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00006_.png",
+          "subfolder": "focus_decoder_ablation\\steps_1",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00007_.png",
+          "subfolder": "focus_decoder_ablation\\steps_1",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00008_.png",
+          "subfolder": "focus_decoder_ablation\\steps_1",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00009_.png",
+          "subfolder": "focus_decoder_ablation\\steps_1",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00010_.png",
+          "subfolder": "focus_decoder_ablation\\steps_1",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00011_.png",
+          "subfolder": "focus_decoder_ablation\\steps_1",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00012_.png",
+          "subfolder": "focus_decoder_ablation\\steps_1",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00013_.png",
+          "subfolder": "focus_decoder_ablation\\steps_1",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00014_.png",
+          "subfolder": "focus_decoder_ablation\\steps_1",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00015_.png",
+          "subfolder": "focus_decoder_ablation\\steps_1",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00016_.png",
+          "subfolder": "focus_decoder_ablation\\steps_1",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00017_.png",
+          "subfolder": "focus_decoder_ablation\\steps_1",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00018_.png",
+          "subfolder": "focus_decoder_ablation\\steps_1",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00019_.png",
+          "subfolder": "focus_decoder_ablation\\steps_1",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00020_.png",
+          "subfolder": "focus_decoder_ablation\\steps_1",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00021_.png",
+          "subfolder": "focus_decoder_ablation\\steps_1",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00022_.png",
+          "subfolder": "focus_decoder_ablation\\steps_1",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00023_.png",
+          "subfolder": "focus_decoder_ablation\\steps_1",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00024_.png",
+          "subfolder": "focus_decoder_ablation\\steps_1",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00025_.png",
+          "subfolder": "focus_decoder_ablation\\steps_1",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00026_.png",
+          "subfolder": "focus_decoder_ablation\\steps_1",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00027_.png",
+          "subfolder": "focus_decoder_ablation\\steps_1",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00028_.png",
+          "subfolder": "focus_decoder_ablation\\steps_1",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00029_.png",
+          "subfolder": "focus_decoder_ablation\\steps_1",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00030_.png",
+          "subfolder": "focus_decoder_ablation\\steps_1",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00031_.png",
+          "subfolder": "focus_decoder_ablation\\steps_1",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00032_.png",
+          "subfolder": "focus_decoder_ablation\\steps_1",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00033_.png",
+          "subfolder": "focus_decoder_ablation\\steps_1",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00034_.png",
+          "subfolder": "focus_decoder_ablation\\steps_1",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00035_.png",
+          "subfolder": "focus_decoder_ablation\\steps_1",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00036_.png",
+          "subfolder": "focus_decoder_ablation\\steps_1",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00037_.png",
+          "subfolder": "focus_decoder_ablation\\steps_1",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00038_.png",
+          "subfolder": "focus_decoder_ablation\\steps_1",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00039_.png",
+          "subfolder": "focus_decoder_ablation\\steps_1",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00040_.png",
+          "subfolder": "focus_decoder_ablation\\steps_1",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00041_.png",
+          "subfolder": "focus_decoder_ablation\\steps_1",
+          "type": "output"
+        }
+      ]
+    },
+    "6": {
+      "images": [
+        {
+          "filename": "frame_00001_.png",
+          "subfolder": "focus_decoder_ablation\\steps_2",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00002_.png",
+          "subfolder": "focus_decoder_ablation\\steps_2",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00003_.png",
+          "subfolder": "focus_decoder_ablation\\steps_2",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00004_.png",
+          "subfolder": "focus_decoder_ablation\\steps_2",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00005_.png",
+          "subfolder": "focus_decoder_ablation\\steps_2",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00006_.png",
+          "subfolder": "focus_decoder_ablation\\steps_2",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00007_.png",
+          "subfolder": "focus_decoder_ablation\\steps_2",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00008_.png",
+          "subfolder": "focus_decoder_ablation\\steps_2",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00009_.png",
+          "subfolder": "focus_decoder_ablation\\steps_2",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00010_.png",
+          "subfolder": "focus_decoder_ablation\\steps_2",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00011_.png",
+          "subfolder": "focus_decoder_ablation\\steps_2",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00012_.png",
+          "subfolder": "focus_decoder_ablation\\steps_2",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00013_.png",
+          "subfolder": "focus_decoder_ablation\\steps_2",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00014_.png",
+          "subfolder": "focus_decoder_ablation\\steps_2",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00015_.png",
+          "subfolder": "focus_decoder_ablation\\steps_2",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00016_.png",
+          "subfolder": "focus_decoder_ablation\\steps_2",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00017_.png",
+          "subfolder": "focus_decoder_ablation\\steps_2",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00018_.png",
+          "subfolder": "focus_decoder_ablation\\steps_2",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00019_.png",
+          "subfolder": "focus_decoder_ablation\\steps_2",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00020_.png",
+          "subfolder": "focus_decoder_ablation\\steps_2",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00021_.png",
+          "subfolder": "focus_decoder_ablation\\steps_2",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00022_.png",
+          "subfolder": "focus_decoder_ablation\\steps_2",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00023_.png",
+          "subfolder": "focus_decoder_ablation\\steps_2",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00024_.png",
+          "subfolder": "focus_decoder_ablation\\steps_2",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00025_.png",
+          "subfolder": "focus_decoder_ablation\\steps_2",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00026_.png",
+          "subfolder": "focus_decoder_ablation\\steps_2",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00027_.png",
+          "subfolder": "focus_decoder_ablation\\steps_2",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00028_.png",
+          "subfolder": "focus_decoder_ablation\\steps_2",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00029_.png",
+          "subfolder": "focus_decoder_ablation\\steps_2",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00030_.png",
+          "subfolder": "focus_decoder_ablation\\steps_2",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00031_.png",
+          "subfolder": "focus_decoder_ablation\\steps_2",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00032_.png",
+          "subfolder": "focus_decoder_ablation\\steps_2",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00033_.png",
+          "subfolder": "focus_decoder_ablation\\steps_2",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00034_.png",
+          "subfolder": "focus_decoder_ablation\\steps_2",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00035_.png",
+          "subfolder": "focus_decoder_ablation\\steps_2",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00036_.png",
+          "subfolder": "focus_decoder_ablation\\steps_2",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00037_.png",
+          "subfolder": "focus_decoder_ablation\\steps_2",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00038_.png",
+          "subfolder": "focus_decoder_ablation\\steps_2",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00039_.png",
+          "subfolder": "focus_decoder_ablation\\steps_2",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00040_.png",
+          "subfolder": "focus_decoder_ablation\\steps_2",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00041_.png",
+          "subfolder": "focus_decoder_ablation\\steps_2",
+          "type": "output"
+        }
+      ]
+    }
+  },
+  "status": {
+    "status_str": "success",
+    "completed": true,
+    "messages": [
+      [
+        "execution_start",
+        {
+          "prompt_id": "dab0ad12-39ba-4e32-88dd-d7afa21e19c9",
+          "timestamp": 1791173510363
+        }
+      ],
+      [
+        "execution_cached",
+        {
+          "nodes": [],
+          "prompt_id": "dab0ad12-39ba-4e32-88dd-d7afa21e19c9",
+          "timestamp": 1791173510401
+        }
+      ],
+      [
+        "execution_success",
+        {
+          "prompt_id": "dab0ad12-39ba-4e32-88dd-d7afa21e19c9",
+          "timestamp": 1791173545756
+        }
+      ]
+    ]
+  },
+  "meta": {
+    "5": {
+      "node_id": "5",
+      "display_node": "5",
+      "parent_node": null,
+      "real_node_id": "5"
+    },
+    "6": {
+      "node_id": "6",
+      "display_node": "6",
+      "parent_node": null,
+      "real_node_id": "6"
+    }
+  }
+}

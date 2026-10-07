@@ -1,0 +1,99 @@
+{
+  "id": "LTX25-8GB-WAVE-20261004",
+  "owner_direction": "Owner asks why2.3 instead of2.5, offers HuggingFace access setup and instructs Continue. Install matching2.5 pack and test on8GB RTX3060Ti; preserve prior baselines and published failures.",
+  "created_at_utc": "2026-10-05T00:59:47.401148+00:00",
+  "scope": "Isolated Comfy0.34.3 runner, matching W4A8 ConvRot transformer/Gemma4 and BF16 decoder/upscaler; whole-figure wave/Aseprite comparison and bounded temporal-retake feasibility. No runtime changes.",
+  "comparison_source_revision": "5b01fe6d4f32f24d8ac1f9829b5eb263c243efce",
+  "comparison_frames": 41,
+  "fps": 24,
+  "seed": 20261004,
+  "guide_indices": [
+    0,
+    3,
+    7,
+    17,
+    22,
+    27,
+    36,
+    40
+  ],
+  "caps": {
+    "generated_takes_per_brief_backend": 2,
+    "queued_jobs_and_failed_model_submissions": 6,
+    "new_model_download_bytes": 28000000000,
+    "runner_dependency_download_bytes": 500000000,
+    "imagegen_calls": 1,
+    "paid_api_usd": 0,
+    "active_generation_seconds": 7200,
+    "seconds_per_take": 1800,
+    "automated_cleanup_seconds": 1800,
+    "generated_takes_total": 5
+  },
+  "reason_for_new_download_cap": "Explicit owner continuation for2.5 local setup is a new model pack test, separate from completed1GB2B trial; previous actual spend retained.",
+  "model_bytes_expected": 25957484024,
+  "model_weights_redistributed": false,
+  "publication_destination": "Ebonyks/mermaid-roshan-reef, versioned nonruntime assets_src/cinematics/ltx25_8gb_wave_20261004",
+  "device_owner_child_acceptance": "Not granted; source-only quality/feasibility test.",
+  "audio_latent_configuration": "Matching2.5 audioVAE supplies latent configuration; no audio decode/export.",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-ASSET-01",
+    "DL-ASSET-02",
+    "DL-ASSET-03",
+    "DL-ASSET-04",
+    "DL-ASSET-05",
+    "DL-MOT-14",
+    "DL-MOT-15",
+    "DL-MOT-16",
+    "DL-CIN-03",
+    "DL-CIN-04",
+    "DL-CIN-05",
+    "DL-CIN-11"
+  ],
+  "findings": {
+    "related": [
+      "MA-ROSHAN-003",
+      "MA-ROSHAN-005"
+    ],
+    "closure_claim": false,
+    "reason": "Source-only complete-figure animation quality/feasibility test; no game integration or accepted replacement asset."
+  },
+  "required_evidence": [
+    "Pinned model/source hashes and exact runner flags",
+    "Native stage1/refined frames, graph/history and measured timing/VRAM",
+    "Aseprite full-figure masters with pixel roundtrip, frame/cadence and temporal boundary QA",
+    "GitHub immutable payload plus anonymous file hash verification",
+    "Machine execution and visual/device/owner/child acceptance reported separately"
+  ],
+  "additional_owner_direction": "2026-10-04: Is there a workflow to disable motion blur within LTX that can be enabled? try if so. Continue.",
+  "additional_brief": "One named anti-blur NAG variant on the same complete-figure wave, with actual-hook proof; preserve both prior takes and all previous costs. No new model/ImageGen/paid spend.",
+  "scope_extensions": [
+    {
+      "owner_request": "Check other resources for motion-blur avoidance; continue. 2026-10-04",
+      "new_named_brief": "BLUR-RESEARCH-02",
+      "takes": [
+        "temporal_48fps",
+        "refine_details_if_access_approved"
+      ],
+      "reason": "One unchanged-content temporal-density experiment, one official detail adapter test only if access is approved; prior costs retained.",
+      "additional_model_bytes_max": 1308787534,
+      "no_new_imagegen": true,
+      "no_paid_api": true
+    },
+    {
+      "owner_request": "2026-10-04: Roshan should remain a static size; Aseprite must filter continuity errors and use multiple anchors per redraw; continue.",
+      "new_named_brief": "SCALE-CONTINUITY-01",
+      "named_source_gap": "Original key22 silhouette is761px vs731px rest; anatomical crown/eyes/neck/waist fit still fails3% proportion tolerance. Preliminary11.43px sleeve/color-edge residual was an unsuitable proxy and was replaced before the final gate.",
+      "imagegen_calls_max": 1,
+      "new_model_download_bytes": 0,
+      "paid_api_usd": 0,
+      "generated_takes_if_inputs_pass": 1,
+      "total_model_takes_cap_retained": 5,
+      "prior_costs_retained": true,
+      "refine_details_status": "Separate adapter agreement pending. Total five model takes exhausted; any future adapter generation needs a new explicitly scoped brief and recorded budget, not an automatic retry.",
+      "actual_outcome": "One new whole-figure ImageGen key; eight source guides pass. Fifth take158.501s; Aseprite final gate passes32/41 frames and tags nine redraws. No full-loop acceptance."
+    }
+  ]
+}

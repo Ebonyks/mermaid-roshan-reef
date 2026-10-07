@@ -1,0 +1,42 @@
+{
+  "take": "anti_blur_nag",
+  "backend": "ltx25_w4a8",
+  "model_job": true,
+  "started_at_utc": "2026-10-05T01:30:03.766732+00:00",
+  "status": "EXECUTION_PASS",
+  "native_stage1": [
+    288,
+    416
+  ],
+  "native_refined": [
+    576,
+    832
+  ],
+  "frames": 41,
+  "fps": 24,
+  "seed": 20261004,
+  "guides": [
+    0,
+    3,
+    7,
+    17,
+    22,
+    27,
+    36,
+    40
+  ],
+  "negative_conditioning_effective": true,
+  "guidance_method": "LTX2_NAG5_alpha0.15_tau2.5",
+  "steps": [
+    8,
+    3
+  ],
+  "source_only": true,
+  "workflow_sha256": "5089fa3f6c344ac30966cd7a8740f26613c0bf5cb53f94a0e46487939a7e2809",
+  "renderer_sha256": "8d8532df66e2f379e76111bb43e8020152a754396ebcb0bb48afa144dcb7a092",
+  "retake_temporal_mask": null,
+  "prompt_id": "8240b020-7cbb-48c9-a7c0-20c5de4d12d5",
+  "elapsed_seconds": 157.856,
+  "observed_total_card_peak_mib": 7568,
+  "memory_sampling_interval_seconds": 5
+}

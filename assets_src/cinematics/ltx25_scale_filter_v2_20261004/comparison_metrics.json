@@ -1,0 +1,2731 @@
+{
+  "status": "MACHINE_COMPARISON_ONLY",
+  "lanes": [
+    {
+      "lane": "raw",
+      "maximum_root_error_px": 9.28559218478937,
+      "global_scale_range": [
+        0.976032325314306,
+        1.0055609176700948
+      ],
+      "max_global_scale_residual": 0.02396767468569405,
+      "eye_pair_proportion_ratio_range": [
+        0.9737343336412386,
+        1.014954558450806
+      ],
+      "frames": [
+        {
+          "index": 0,
+          "root_error_px": 1.4999999999999944,
+          "remaining_global_scale": 1.0052483035255722,
+          "anatomy_geometry_pass": true,
+          "pair_scale_ratios": {
+            "image_left_eye__image_right_eye": 1.0085860299135754,
+            "crown_gem__image_left_eye": 1.0061660811391004,
+            "crown_gem__image_right_eye": 1.0027938404226697,
+            "crown_gem__bodice_waist_tip": 1.0009418067818745,
+            "neck_base__bodice_waist_tip": 0.9961722963498109
+          }
+        },
+        {
+          "index": 1,
+          "root_error_px": 1.4999999999999944,
+          "remaining_global_scale": 1.005122412008552,
+          "anatomy_geometry_pass": true,
+          "pair_scale_ratios": {
+            "image_left_eye__image_right_eye": 1.0093705960115287,
+            "crown_gem__image_left_eye": 1.006260133749439,
+            "crown_gem__image_right_eye": 1.0020934939719788,
+            "crown_gem__bodice_waist_tip": 1.000868067926094,
+            "neck_base__bodice_waist_tip": 0.9961678938263018
+          }
+        },
+        {
+          "index": 2,
+          "root_error_px": 1.2243916644999266,
+          "remaining_global_scale": 1.005445651391081,
+          "anatomy_geometry_pass": true,
+          "pair_scale_ratios": {
+            "image_left_eye__image_right_eye": 1.0082013097887148,
+            "crown_gem__image_left_eye": 1.0064375184334178,
+            "crown_gem__image_right_eye": 1.005521997123751,
+            "crown_gem__bodice_waist_tip": 1.0011943928398326,
+            "neck_base__bodice_waist_tip": 0.9967888190939651
+          }
+        },
+        {
+          "index": 3,
+          "root_error_px": 0.48591265790374255,
+          "remaining_global_scale": 1.0043869643489627,
+          "anatomy_geometry_pass": true,
+          "pair_scale_ratios": {
+            "image_left_eye__image_right_eye": 0.9984729660127093,
+            "crown_gem__image_left_eye": 1.0076013304824332,
+            "crown_gem__image_right_eye": 1.0016947782428502,
+            "crown_gem__bodice_waist_tip": 1.001371602885837,
+            "neck_base__bodice_waist_tip": 0.9934194123820806
+          }
+        },
+        {
+          "index": 4,
+          "root_error_px": 1.8027756377319917,
+          "remaining_global_scale": 0.9951351169265596,
+          "anatomy_geometry_pass": true,
+          "pair_scale_ratios": {
+            "image_left_eye__image_right_eye": 0.9863802720432521,
+            "crown_gem__image_left_eye": 1.0007542768332371,
+            "crown_gem__image_right_eye": 0.9935408322625207,
+            "crown_gem__bodice_waist_tip": 0.999832990881277,
+            "neck_base__bodice_waist_tip": 0.9985321972679119
+          }
+        },
+        {
+          "index": 5,
+          "root_error_px": 3.889943033610355,
+          "remaining_global_scale": 0.9859755217431797,
+          "anatomy_geometry_pass": true,
+          "pair_scale_ratios": {
+            "image_left_eye__image_right_eye": 0.987870464351824,
+            "crown_gem__image_left_eye": 0.9901141368775019,
+            "crown_gem__image_right_eye": 0.9884598065179239,
+            "crown_gem__bodice_waist_tip": 0.9975018144364368,
+            "neck_base__bodice_waist_tip": 1.0099273681649685
+          }
+        },
+        {
+          "index": 6,
+          "root_error_px": 6.024913839787172,
+          "remaining_global_scale": 0.9803348547901285,
+          "anatomy_geometry_pass": true,
+          "pair_scale_ratios": {
+            "image_left_eye__image_right_eye": 0.9960566635743585,
+            "crown_gem__image_left_eye": 0.9827612283891298,
+            "crown_gem__image_right_eye": 0.9808785060273459,
+            "crown_gem__bodice_waist_tip": 0.9953456935365608,
+            "neck_base__bodice_waist_tip": 1.0173815093144005
+          }
+        },
+        {
+          "index": 7,
+          "root_error_px": 7.288423088097403,
+          "remaining_global_scale": 0.976032325314306,
+          "anatomy_geometry_pass": true,
+          "pair_scale_ratios": {
+            "image_left_eye__image_right_eye": 0.9950307287857671,
+            "crown_gem__image_left_eye": 0.9834414782553216,
+            "crown_gem__image_right_eye": 0.9821187158296717,
+            "crown_gem__bodice_waist_tip": 0.9952529299774818,
+            "neck_base__bodice_waist_tip": 1.0224324758516066
+          }
+        },
+        {
+          "index": 8,
+          "root_error_px": 7.666159403508405,
+          "remaining_global_scale": 0.976192562466662,
+          "anatomy_geometry_pass": true,
+          "pair_scale_ratios": {
+            "image_left_eye__image_right_eye": 0.9904414857506044,
+            "crown_gem__image_left_eye": 0.9803444132541798,
+            "crown_gem__image_right_eye": 0.9798258483821245,
+            "crown_gem__bodice_waist_tip": 0.9949470504763493,
+            "neck_base__bodice_waist_tip": 1.0197944792365516
+          }
+        },
+        {
+          "index": 9,
+          "root_error_px": 6.937107235016906,
+          "remaining_global_scale": 0.9784603230616459,
+          "anatomy_geometry_pass": true,
+          "pair_scale_ratios": {
+            "image_left_eye__image_right_eye": 0.9942412366910468,
+            "crown_gem__image_left_eye": 0.9817178183246188,
+            "crown_gem__image_right_eye": 0.9827355680922956,
+            "crown_gem__bodice_waist_tip": 0.9954967198818181,
+            "neck_base__bodice_waist_tip": 1.0160825639845708
+          }
+        },
+        {
+          "index": 10,
+          "root_error_px": 5.641556566571596,
+          "remaining_global_scale": 0.9832299136069287,
+          "anatomy_geometry_pass": true,
+          "pair_scale_ratios": {
+            "image_left_eye__image_right_eye": 0.9867174721380748,
+            "crown_gem__image_left_eye": 0.9917242046139979,
+            "crown_gem__image_right_eye": 0.9882980787988113,
+            "crown_gem__bodice_waist_tip": 0.997449295214536,
+            "neck_base__bodice_waist_tip": 1.012783911823227
+          }
+        },
+        {
+          "index": 11,
+          "root_error_px": 4.7356594670895955,
+          "remaining_global_scale": 0.9850836663753901,
+          "anatomy_geometry_pass": true,
+          "pair_scale_ratios": {
+            "image_left_eye__image_right_eye": 0.9845967799587658,
+            "crown_gem__image_left_eye": 0.9921340899043432,
+            "crown_gem__image_right_eye": 0.992126658106079,
+            "crown_gem__bodice_waist_tip": 0.9977775033101053,
+            "neck_base__bodice_waist_tip": 1.0144053844564525
+          }
+        },
+        {
+          "index": 12,
+          "root_error_px": 4.493081100734538,
+          "remaining_global_scale": 0.984658342455797,
+          "anatomy_geometry_pass": false,
+          "pair_scale_ratios": {
+            "image_left_eye__image_right_eye": 0.9838108159883522,
+            "crown_gem__image_left_eye": 0.9934946327873395,
+            "crown_gem__image_right_eye": 0.9936567412239252,
+            "crown_gem__bodice_waist_tip": 0.997608865912726,
+            "neck_base__bodice_waist_tip": 1.020630028750636
+          }
+        },
+        {
+          "index": 13,
+          "root_error_px": 4.3153735619980464,
+          "remaining_global_scale": 0.9847811418005399,
+          "anatomy_geometry_pass": false,
+          "pair_scale_ratios": {
+            "image_left_eye__image_right_eye": 0.9858553185959213,
+            "crown_gem__image_left_eye": 0.9928749240387803,
+            "crown_gem__image_right_eye": 0.9938348549373768,
+            "crown_gem__bodice_waist_tip": 0.9973569626375526,
+            "neck_base__bodice_waist_tip": 1.0217235958741984
+          }
+        },
+        {
+          "index": 14,
+          "root_error_px": 3.9980862769018555,
+          "remaining_global_scale": 0.9850196176415967,
+          "anatomy_geometry_pass": false,
+          "pair_scale_ratios": {
+            "image_left_eye__image_right_eye": 0.9737343336412386,
+            "crown_gem__image_left_eye": 0.9930670739285882,
+            "crown_gem__image_right_eye": 0.9989795757481393,
+            "crown_gem__bodice_waist_tip": 0.9981867310241727,
+            "neck_base__bodice_waist_tip": 1.0206700884946045
+          }
+        },
+        {
+          "index": 15,
+          "root_error_px": 4.045780912909916,
+          "remaining_global_scale": 0.985132867152155,
+          "anatomy_geometry_pass": false,
+          "pair_scale_ratios": {
+            "image_left_eye__image_right_eye": 0.9811057532471426,
+            "crown_gem__image_left_eye": 0.985050874697956,
+            "crown_gem__image_right_eye": 0.9911592417539737,
+            "crown_gem__bodice_waist_tip": 0.9966326075351092,
+            "neck_base__bodice_waist_tip": 1.0184234709564675
+          }
+        },
+        {
+          "index": 16,
+          "root_error_px": 3.333333333333303,
+          "remaining_global_scale": 0.9895628473765128,
+          "anatomy_geometry_pass": true,
+          "pair_scale_ratios": {
+            "image_left_eye__image_right_eye": 0.9886531432035182,
+            "crown_gem__image_left_eye": 0.9883932338766851,
+            "crown_gem__image_right_eye": 0.9927807944809466,
+            "crown_gem__bodice_waist_tip": 0.9974597743988861,
+            "neck_base__bodice_waist_tip": 1.0122341154885688
+          }
+        },
+        {
+          "index": 17,
+          "root_error_px": 2.8800077160390645,
+          "remaining_global_scale": 0.9929767952863804,
+          "anatomy_geometry_pass": true,
+          "pair_scale_ratios": {
+            "image_left_eye__image_right_eye": 0.9920579768510652,
+            "crown_gem__image_left_eye": 0.99201837309876,
+            "crown_gem__image_right_eye": 0.9937522672246242,
+            "crown_gem__bodice_waist_tip": 0.9989184658651118,
+            "neck_base__bodice_waist_tip": 0.997194136010994
+          }
+        },
+        {
+          "index": 18,
+          "root_error_px": 2.5101357035029004,
+          "remaining_global_scale": 0.9962907217495457,
+          "anatomy_geometry_pass": true,
+          "pair_scale_ratios": {
+            "image_left_eye__image_right_eye": 1.000476726446829,
+            "crown_gem__image_left_eye": 0.9954390101789118,
+            "crown_gem__image_right_eye": 0.9901538609492025,
+            "crown_gem__bodice_waist_tip": 0.9986743896806746,
+            "neck_base__bodice_waist_tip": 0.9976914464139525
+          }
+        },
+        {
+          "index": 19,
+          "root_error_px": 1.2313700456601537,
+          "remaining_global_scale": 1.0010362025468735,
+          "anatomy_geometry_pass": true,
+          "pair_scale_ratios": {
+            "image_left_eye__image_right_eye": 0.9970127756547801,
+            "crown_gem__image_left_eye": 0.9979438875199625,
+            "crown_gem__image_right_eye": 0.9903134329141262,
+            "crown_gem__bodice_waist_tip": 0.9990500134707696,
+            "neck_base__bodice_waist_tip": 0.9957282737069508
+          }
+        },
+        {
+          "index": 20,
+          "root_error_px": 0.6689774765995803,
+          "remaining_global_scale": 1.0018525973880026,
+          "anatomy_geometry_pass": true,
+          "pair_scale_ratios": {
+            "image_left_eye__image_right_eye": 1.0047191757201108,
+            "crown_gem__image_left_eye": 0.9975592161513588,
+            "crown_gem__image_right_eye": 0.9898002206615464,
+            "crown_gem__bodice_waist_tip": 0.9994882219131723,
+            "neck_base__bodice_waist_tip": 0.9832558925511787
+          }
+        },
+        {
+          "index": 21,
+          "root_error_px": 1.233533517287482,
+          "remaining_global_scale": 1.0030793481102247,
+          "anatomy_geometry_pass": true,
+          "pair_scale_ratios": {
+            "image_left_eye__image_right_eye": 1.014954558450806,
+            "crown_gem__image_left_eye": 0.9968660412026834,
+            "crown_gem__image_right_eye": 0.9878452546630069,
+            "crown_gem__bodice_waist_tip": 0.9990001559481679,
+            "neck_base__bodice_waist_tip": 0.9805283234245277
+          }
+        },
+        {
+          "index": 22,
+          "root_error_px": 2.2383767731354833,
+          "remaining_global_scale": 1.005228878584478,
+          "anatomy_geometry_pass": false,
+          "pair_scale_ratios": {
+            "image_left_eye__image_right_eye": 1.01396780842592,
+            "crown_gem__image_left_eye": 0.9962977019445411,
+            "crown_gem__image_right_eye": 0.9884528904927468,
+            "crown_gem__bodice_waist_tip": 0.9989589756301094,
+            "neck_base__bodice_waist_tip": 0.9784462626056124
+          }
+        },
+        {
+          "index": 23,
+          "root_error_px": 2.2383767731354833,
+          "remaining_global_scale": 1.0055609176700948,
+          "anatomy_geometry_pass": false,
+          "pair_scale_ratios": {
+            "image_left_eye__image_right_eye": 1.0112254800477893,
+            "crown_gem__image_left_eye": 0.9964472604901675,
+            "crown_gem__image_right_eye": 0.9945059310780617,
+            "crown_gem__bodice_waist_tip": 0.9993813074963211,
+            "neck_base__bodice_waist_tip": 0.9830651667335116
+          }
+        },
+        {
+          "index": 24,
+          "root_error_px": 1.479280772854922,
+          "remaining_global_scale": 1.0040160981289186,
+          "anatomy_geometry_pass": false,
+          "pair_scale_ratios": {
+            "image_left_eye__image_right_eye": 1.005833646412176,
+            "crown_gem__image_left_eye": 0.9919425328470407,
+            "crown_gem__image_right_eye": 1.0002680225395457,
+            "crown_gem__bodice_waist_tip": 0.9991042147957107,
+            "neck_base__bodice_waist_tip": 0.9935778916888888
+          }
+        },
+        {
+          "index": 25,
+          "root_error_px": 0.673145600891813,
+          "remaining_global_scale": 0.9998971287133358,
+          "anatomy_geometry_pass": true,
+          "pair_scale_ratios": {
+            "image_left_eye__image_right_eye": 1.000890532581077,
+            "crown_gem__image_left_eye": 0.9897850383467436,
+            "crown_gem__image_right_eye": 0.9970518522958601,
+            "crown_gem__bodice_waist_tip": 0.9983722453436917,
+            "neck_base__bodice_waist_tip": 1.001577695933267
+          }
+        },
+        {
+          "index": 26,
+          "root_error_px": 1.742160717885187,
+          "remaining_global_scale": 0.999035993793102,
+          "anatomy_geometry_pass": true,
+          "pair_scale_ratios": {
+            "image_left_eye__image_right_eye": 1.0006484782092078,
+            "crown_gem__image_left_eye": 0.9928927422782244,
+            "crown_gem__image_right_eye": 0.9981579137868614,
+            "crown_gem__bodice_waist_tip": 0.998538699735613,
+            "neck_base__bodice_waist_tip": 1.0070251224407225
+          }
+        },
+        {
+          "index": 27,
+          "root_error_px": 3.701773223740212,
+          "remaining_global_scale": 0.997359059470945,
+          "anatomy_geometry_pass": true,
+          "pair_scale_ratios": {
+            "image_left_eye__image_right_eye": 1.002197676068505,
+            "crown_gem__image_left_eye": 0.9992058941876373,
+            "crown_gem__image_right_eye": 0.998843449776195,
+            "crown_gem__bodice_waist_tip": 0.9986202218166584,
+            "neck_base__bodice_waist_tip": 1.0162211890432857
+          }
+        },
+        {
+          "index": 28,
+          "root_error_px": 6.061668677888432,
+          "remaining_global_scale": 0.9945389924792709,
+          "anatomy_geometry_pass": true,
+          "pair_scale_ratios": {
+            "image_left_eye__image_right_eye": 1.0051656998693868,
+            "crown_gem__image_left_eye": 0.995256123856037,
+            "crown_gem__image_right_eye": 1.0098095064805985,
+            "crown_gem__bodice_waist_tip": 0.9989186724647955,
+            "neck_base__bodice_waist_tip": 1.0193648728377898
+          }
+        },
+        {
+          "index": 29,
+          "root_error_px": 8.277777777777764,
+          "remaining_global_scale": 0.9959096477610087,
+          "anatomy_geometry_pass": true,
+          "pair_scale_ratios": {
+            "image_left_eye__image_right_eye": 1.0047382149644684,
+            "crown_gem__image_left_eye": 1.0020478694315247,
+            "crown_gem__image_right_eye": 1.010445802559271,
+            "crown_gem__bodice_waist_tip": 0.9995530356056089,
+            "neck_base__bodice_waist_tip": 1.0187558161462478
+          }
+        },
+        {
+          "index": 30,
+          "root_error_px": 9.105111818340806,
+          "remaining_global_scale": 0.9976230713945123,
+          "anatomy_geometry_pass": true,
+          "pair_scale_ratios": {
+            "image_left_eye__image_right_eye": 0.9951374371169204,
+            "crown_gem__image_left_eye": 1.0000998163380415,
+            "crown_gem__image_right_eye": 1.0113358218306088,
+            "crown_gem__bodice_waist_tip": 0.9997542336749695,
+            "neck_base__bodice_waist_tip": 1.0183328737012356
+          }
+        },
+        {
+          "index": 31,
+          "root_error_px": 9.28559218478937,
+          "remaining_global_scale": 0.9965548466057892,
+          "anatomy_geometry_pass": true,
+          "pair_scale_ratios": {
+            "image_left_eye__image_right_eye": 0.9902875528072076,
+            "crown_gem__image_left_eye": 0.9969149016904044,
+            "crown_gem__image_right_eye": 1.0080293054784897,
+            "crown_gem__bodice_waist_tip": 0.9993653381424316,
+            "neck_base__bodice_waist_tip": 1.0172157728300224
+          }
+        },
+        {
+          "index": 32,
+          "root_error_px": 8.471139479528878,
+          "remaining_global_scale": 0.9974103051233025,
+          "anatomy_geometry_pass": true,
+          "pair_scale_ratios": {
+            "image_left_eye__image_right_eye": 0.9925241787849073,
+            "crown_gem__image_left_eye": 0.9999569690581622,
+            "crown_gem__image_right_eye": 1.0073482384512094,
+            "crown_gem__bodice_waist_tip": 0.9995526258726086,
+            "neck_base__bodice_waist_tip": 1.018016063729304
+          }
+        },
+        {
+          "index": 33,
+          "root_error_px": 7.889233169326418,
+          "remaining_global_scale": 0.9973477789111707,
+          "anatomy_geometry_pass": true,
+          "pair_scale_ratios": {
+            "image_left_eye__image_right_eye": 0.9994424655650235,
+            "crown_gem__image_left_eye": 1.0013433944387171,
+            "crown_gem__image_right_eye": 1.0058521698522094,
+            "crown_gem__bodice_waist_tip": 0.9998880785568586,
+            "neck_base__bodice_waist_tip": 1.0112961374224274
+          }
+        },
+        {
+          "index": 34,
+          "root_error_px": 6.6370174024180395,
+          "remaining_global_scale": 0.9976353952504082,
+          "anatomy_geometry_pass": true,
+          "pair_scale_ratios": {
+            "image_left_eye__image_right_eye": 0.9985855212172638,
+            "crown_gem__image_left_eye": 1.0002382861273138,
+            "crown_gem__image_right_eye": 1.0034583221504862,
+            "crown_gem__bodice_waist_tip": 1.000014640282199,
+            "neck_base__bodice_waist_tip": 1.0052157123623149
+          }
+        },
+        {
+          "index": 35,
+          "root_error_px": 3.824853119407533,
+          "remaining_global_scale": 1.0004153736218027,
+          "anatomy_geometry_pass": true,
+          "pair_scale_ratios": {
+            "image_left_eye__image_right_eye": 1.0007465188962814,
+            "crown_gem__image_left_eye": 1.0020484721608194,
+            "crown_gem__image_right_eye": 1.0046082405150776,
+            "crown_gem__bodice_waist_tip": 1.0003468868964898,
+            "neck_base__bodice_waist_tip": 1.0033489434071825
+          }
+        },
+        {
+          "index": 36,
+          "root_error_px": 2.0442330808615945,
+          "remaining_global_scale": 0.9967146578021986,
+          "anatomy_geometry_pass": true,
+          "pair_scale_ratios": {
+            "image_left_eye__image_right_eye": 0.9934496812909276,
+            "crown_gem__image_left_eye": 0.9956814396495933,
+            "crown_gem__image_right_eye": 0.9930040134674334,
+            "crown_gem__bodice_waist_tip": 0.99858743248338,
+            "neck_base__bodice_waist_tip": 1.0058185295269235
+          }
+        },
+        {
+          "index": 37,
+          "root_error_px": 0.7778364775444918,
+          "remaining_global_scale": 0.9969190879670614,
+          "anatomy_geometry_pass": true,
+          "pair_scale_ratios": {
+            "image_left_eye__image_right_eye": 1.0044475583953996,
+            "crown_gem__image_left_eye": 0.9965069263885403,
+            "crown_gem__image_right_eye": 0.9909850261385734,
+            "crown_gem__bodice_waist_tip": 0.9988691446530996,
+            "neck_base__bodice_waist_tip": 0.9970117471110135
+          }
+        },
+        {
+          "index": 38,
+          "root_error_px": 0.7619570279200355,
+          "remaining_global_scale": 0.9968740318328386,
+          "anatomy_geometry_pass": true,
+          "pair_scale_ratios": {
+            "image_left_eye__image_right_eye": 1.0021979692276783,
+            "crown_gem__image_left_eye": 0.9969023134382833,
+            "crown_gem__image_right_eye": 0.992575673233301,
+            "crown_gem__bodice_waist_tip": 0.9993147420601699,
+            "neck_base__bodice_waist_tip": 0.9940631365991631
+          }
+        },
+        {
+          "index": 39,
+          "root_error_px": 0.8579691784155926,
+          "remaining_global_scale": 0.9985920014437757,
+          "anatomy_geometry_pass": true,
+          "pair_scale_ratios": {
+            "image_left_eye__image_right_eye": 1.0029288573638633,
+            "crown_gem__image_left_eye": 0.9983007055061728,
+            "crown_gem__image_right_eye": 0.9989589154104933,
+            "crown_gem__bodice_waist_tip": 0.9999534522662944,
+            "neck_base__bodice_waist_tip": 0.9954303083511313
+          }
+        },
+        {
+          "index": 40,
+          "root_error_px": 1.8255532389112206,
+          "remaining_global_scale": 0.9970850959855492,
+          "anatomy_geometry_pass": true,
+          "pair_scale_ratios": {
+            "image_left_eye__image_right_eye": 1.002845957333204,
+            "crown_gem__image_left_eye": 0.9971750963826996,
+            "crown_gem__image_right_eye": 0.9969993527199534,
+            "crown_gem__bodice_waist_tip": 0.9997603055651668,
+            "neck_base__bodice_waist_tip": 0.9938674733710249
+          }
+        }
+      ]
+    },
+    {
+      "lane": "v1",
+      "maximum_root_error_px": 8.277777777777764,
+      "global_scale_range": [
+        0.984658342455797,
+        1.0090076748331955
+      ],
+      "max_global_scale_residual": 0.015341657544203025,
+      "eye_pair_proportion_ratio_range": [
+        0.9737343336412386,
+        1.014954558450806
+      ],
+      "frames": [
+        {
+          "index": 0,
+          "root_error_px": 0.22360679774996628,
+          "remaining_global_scale": 1.0052483035255722,
+          "anatomy_geometry_pass": true,
+          "pair_scale_ratios": {
+            "image_left_eye__image_right_eye": 1.0085860299135754,
+            "crown_gem__image_left_eye": 1.0061660811391004,
+            "crown_gem__image_right_eye": 1.0027938404226697,
+            "crown_gem__bodice_waist_tip": 1.0009418067818745,
+            "neck_base__bodice_waist_tip": 0.9961722963498109
+          }
+        },
+        {
+          "index": 1,
+          "root_error_px": 0.22360679774996628,
+          "remaining_global_scale": 1.005122412008552,
+          "anatomy_geometry_pass": true,
+          "pair_scale_ratios": {
+            "image_left_eye__image_right_eye": 1.0093705960115287,
+            "crown_gem__image_left_eye": 1.006260133749439,
+            "crown_gem__image_right_eye": 1.0020934939719788,
+            "crown_gem__bodice_waist_tip": 1.000868067926094,
+            "neck_base__bodice_waist_tip": 0.9961678938263018
+          }
+        },
+        {
+          "index": 2,
+          "root_error_px": 0.513654388134501,
+          "remaining_global_scale": 1.005445651391081,
+          "anatomy_geometry_pass": true,
+          "pair_scale_ratios": {
+            "image_left_eye__image_right_eye": 1.0082013097887148,
+            "crown_gem__image_left_eye": 1.0064375184334178,
+            "crown_gem__image_right_eye": 1.005521997123751,
+            "crown_gem__bodice_waist_tip": 1.0011943928398326,
+            "neck_base__bodice_waist_tip": 0.9967888190939651
+          }
+        },
+        {
+          "index": 3,
+          "root_error_px": 0.48591265790374255,
+          "remaining_global_scale": 1.0043869643489627,
+          "anatomy_geometry_pass": true,
+          "pair_scale_ratios": {
+            "image_left_eye__image_right_eye": 0.9984729660127093,
+            "crown_gem__image_left_eye": 1.0076013304824332,
+            "crown_gem__image_right_eye": 1.0016947782428502,
+            "crown_gem__bodice_waist_tip": 1.001371602885837,
+            "neck_base__bodice_waist_tip": 0.9934194123820806
+          }
+        },
+        {
+          "index": 4,
+          "root_error_px": 0.4999999999999886,
+          "remaining_global_scale": 0.9951351169265596,
+          "anatomy_geometry_pass": true,
+          "pair_scale_ratios": {
+            "image_left_eye__image_right_eye": 0.9863802720432521,
+            "crown_gem__image_left_eye": 1.0007542768332371,
+            "crown_gem__image_right_eye": 0.9935408322625207,
+            "crown_gem__bodice_waist_tip": 0.999832990881277,
+            "neck_base__bodice_waist_tip": 0.9985321972679119
+          }
+        },
+        {
+          "index": 5,
+          "root_error_px": 0.6182486594879808,
+          "remaining_global_scale": 1.001930072451985,
+          "anatomy_geometry_pass": true,
+          "pair_scale_ratios": {
+            "image_left_eye__image_right_eye": 0.9881188260674922,
+            "crown_gem__image_left_eye": 0.9903055017595597,
+            "crown_gem__image_right_eye": 0.9880031987845902,
+            "crown_gem__bodice_waist_tip": 0.997811491227342,
+            "neck_base__bodice_waist_tip": 1.0046584571366084
+          }
+        },
+        {
+          "index": 6,
+          "root_error_px": 0.4192627457812106,
+          "remaining_global_scale": 0.9978728408299422,
+          "anatomy_geometry_pass": true,
+          "pair_scale_ratios": {
+            "image_left_eye__image_right_eye": 1.0009018488858095,
+            "crown_gem__image_left_eye": 0.9848724475305232,
+            "crown_gem__image_right_eye": 0.9834362461803245,
+            "crown_gem__bodice_waist_tip": 0.995792923234204,
+            "neck_base__bodice_waist_tip": 1.0160837206358424
+          }
+        },
+        {
+          "index": 7,
+          "root_error_px": 0.33333333333337123,
+          "remaining_global_scale": 1.0072119775420523,
+          "anatomy_geometry_pass": true,
+          "pair_scale_ratios": {
+            "image_left_eye__image_right_eye": 0.9953894804067895,
+            "crown_gem__image_left_eye": 0.9822548181338735,
+            "crown_gem__image_right_eye": 0.9802283344760339,
+            "crown_gem__bodice_waist_tip": 0.9952260942913471,
+            "neck_base__bodice_waist_tip": 1.0180498495278105
+          }
+        },
+        {
+          "index": 8,
+          "root_error_px": 0.4192627457812106,
+          "remaining_global_scale": 1.0090076748331955,
+          "anatomy_geometry_pass": true,
+          "pair_scale_ratios": {
+            "image_left_eye__image_right_eye": 0.9937285892819349,
+            "crown_gem__image_left_eye": 0.982076276959592,
+            "crown_gem__image_right_eye": 0.9819342572138863,
+            "crown_gem__bodice_waist_tip": 0.9952916108221027,
+            "neck_base__bodice_waist_tip": 1.0193339566319153
+          }
+        },
+        {
+          "index": 9,
+          "root_error_px": 0.4192627457812106,
+          "remaining_global_scale": 0.9936966329086945,
+          "anatomy_geometry_pass": true,
+          "pair_scale_ratios": {
+            "image_left_eye__image_right_eye": 0.9938923793528969,
+            "crown_gem__image_left_eye": 0.9813912529377885,
+            "crown_gem__image_right_eye": 0.982547909240872,
+            "crown_gem__bodice_waist_tip": 0.995412647683547,
+            "neck_base__bodice_waist_tip": 1.0168134172557552
+          }
+        },
+        {
+          "index": 10,
+          "root_error_px": 0.125,
+          "remaining_global_scale": 0.9978915069338123,
+          "anatomy_geometry_pass": true,
+          "pair_scale_ratios": {
+            "image_left_eye__image_right_eye": 0.9856054826481642,
+            "crown_gem__image_left_eye": 0.9915766497058717,
+            "crown_gem__image_right_eye": 0.9881112273253942,
+            "crown_gem__bodice_waist_tip": 0.9973380236628954,
+            "neck_base__bodice_waist_tip": 1.0142517595704494
+          }
+        },
+        {
+          "index": 11,
+          "root_error_px": 0.27116307227331404,
+          "remaining_global_scale": 0.9999154636817753,
+          "anatomy_geometry_pass": true,
+          "pair_scale_ratios": {
+            "image_left_eye__image_right_eye": 0.9855419140310385,
+            "crown_gem__image_left_eye": 0.9910965272018062,
+            "crown_gem__image_right_eye": 0.9921423389406505,
+            "crown_gem__bodice_waist_tip": 0.9975860358033863,
+            "neck_base__bodice_waist_tip": 1.0153199753762288
+          }
+        },
+        {
+          "index": 12,
+          "root_error_px": 4.493081100734538,
+          "remaining_global_scale": 0.984658342455797,
+          "anatomy_geometry_pass": false,
+          "pair_scale_ratios": {
+            "image_left_eye__image_right_eye": 0.9838108159883522,
+            "crown_gem__image_left_eye": 0.9934946327873395,
+            "crown_gem__image_right_eye": 0.9936567412239252,
+            "crown_gem__bodice_waist_tip": 0.997608865912726,
+            "neck_base__bodice_waist_tip": 1.020630028750636
+          }
+        },
+        {
+          "index": 13,
+          "root_error_px": 4.3153735619980464,
+          "remaining_global_scale": 0.9847811418005399,
+          "anatomy_geometry_pass": false,
+          "pair_scale_ratios": {
+            "image_left_eye__image_right_eye": 0.9858553185959213,
+            "crown_gem__image_left_eye": 0.9928749240387803,
+            "crown_gem__image_right_eye": 0.9938348549373768,
+            "crown_gem__bodice_waist_tip": 0.9973569626375526,
+            "neck_base__bodice_waist_tip": 1.0217235958741984
+          }
+        },
+        {
+          "index": 14,
+          "root_error_px": 3.9980862769018555,
+          "remaining_global_scale": 0.9850196176415967,
+          "anatomy_geometry_pass": false,
+          "pair_scale_ratios": {
+            "image_left_eye__image_right_eye": 0.9737343336412386,
+            "crown_gem__image_left_eye": 0.9930670739285882,
+            "crown_gem__image_right_eye": 0.9989795757481393,
+            "crown_gem__bodice_waist_tip": 0.9981867310241727,
+            "neck_base__bodice_waist_tip": 1.0206700884946045
+          }
+        },
+        {
+          "index": 15,
+          "root_error_px": 4.045780912909916,
+          "remaining_global_scale": 0.985132867152155,
+          "anatomy_geometry_pass": false,
+          "pair_scale_ratios": {
+            "image_left_eye__image_right_eye": 0.9811057532471426,
+            "crown_gem__image_left_eye": 0.985050874697956,
+            "crown_gem__image_right_eye": 0.9911592417539737,
+            "crown_gem__bodice_waist_tip": 0.9966326075351092,
+            "neck_base__bodice_waist_tip": 1.0184234709564675
+          }
+        },
+        {
+          "index": 16,
+          "root_error_px": 0.45681252823281043,
+          "remaining_global_scale": 1.005362438523426,
+          "anatomy_geometry_pass": true,
+          "pair_scale_ratios": {
+            "image_left_eye__image_right_eye": 0.9872403301089931,
+            "crown_gem__image_left_eye": 0.9883593152110193,
+            "crown_gem__image_right_eye": 0.9923156909140627,
+            "crown_gem__bodice_waist_tip": 0.9973673801314958,
+            "neck_base__bodice_waist_tip": 1.0132690328698564
+          }
+        },
+        {
+          "index": 17,
+          "root_error_px": 0.4013864859597416,
+          "remaining_global_scale": 0.9929767952863804,
+          "anatomy_geometry_pass": true,
+          "pair_scale_ratios": {
+            "image_left_eye__image_right_eye": 0.9920579768510652,
+            "crown_gem__image_left_eye": 0.99201837309876,
+            "crown_gem__image_right_eye": 0.9937522672246242,
+            "crown_gem__bodice_waist_tip": 0.9989184658651118,
+            "neck_base__bodice_waist_tip": 0.997194136010994
+          }
+        },
+        {
+          "index": 18,
+          "root_error_px": 0.4192627457812106,
+          "remaining_global_scale": 0.9962907217495457,
+          "anatomy_geometry_pass": true,
+          "pair_scale_ratios": {
+            "image_left_eye__image_right_eye": 1.000476726446829,
+            "crown_gem__image_left_eye": 0.9954390101789118,
+            "crown_gem__image_right_eye": 0.9901538609492025,
+            "crown_gem__bodice_waist_tip": 0.9986743896806746,
+            "neck_base__bodice_waist_tip": 0.9976914464139525
+          }
+        },
+        {
+          "index": 19,
+          "root_error_px": 0.3628454281560274,
+          "remaining_global_scale": 1.0010362025468735,
+          "anatomy_geometry_pass": true,
+          "pair_scale_ratios": {
+            "image_left_eye__image_right_eye": 0.9970127756547801,
+            "crown_gem__image_left_eye": 0.9979438875199625,
+            "crown_gem__image_right_eye": 0.9903134329141262,
+            "crown_gem__bodice_waist_tip": 0.9990500134707696,
+            "neck_base__bodice_waist_tip": 0.9957282737069508
+          }
+        },
+        {
+          "index": 20,
+          "root_error_px": 0.6689774765995803,
+          "remaining_global_scale": 1.0018525973880026,
+          "anatomy_geometry_pass": true,
+          "pair_scale_ratios": {
+            "image_left_eye__image_right_eye": 1.0047191757201108,
+            "crown_gem__image_left_eye": 0.9975592161513588,
+            "crown_gem__image_right_eye": 0.9898002206615464,
+            "crown_gem__bodice_waist_tip": 0.9994882219131723,
+            "neck_base__bodice_waist_tip": 0.9832558925511787
+          }
+        },
+        {
+          "index": 21,
+          "root_error_px": 0.2777777777777942,
+          "remaining_global_scale": 1.0030793481102247,
+          "anatomy_geometry_pass": true,
+          "pair_scale_ratios": {
+            "image_left_eye__image_right_eye": 1.014954558450806,
+            "crown_gem__image_left_eye": 0.9968660412026834,
+            "crown_gem__image_right_eye": 0.9878452546630069,
+            "crown_gem__bodice_waist_tip": 0.9990001559481679,
+            "neck_base__bodice_waist_tip": 0.9805283234245277
+          }
+        },
+        {
+          "index": 22,
+          "root_error_px": 2.2383767731354833,
+          "remaining_global_scale": 1.005228878584478,
+          "anatomy_geometry_pass": false,
+          "pair_scale_ratios": {
+            "image_left_eye__image_right_eye": 1.01396780842592,
+            "crown_gem__image_left_eye": 0.9962977019445411,
+            "crown_gem__image_right_eye": 0.9884528904927468,
+            "crown_gem__bodice_waist_tip": 0.9989589756301094,
+            "neck_base__bodice_waist_tip": 0.9784462626056124
+          }
+        },
+        {
+          "index": 23,
+          "root_error_px": 2.2383767731354833,
+          "remaining_global_scale": 1.0055609176700948,
+          "anatomy_geometry_pass": false,
+          "pair_scale_ratios": {
+            "image_left_eye__image_right_eye": 1.0112254800477893,
+            "crown_gem__image_left_eye": 0.9964472604901675,
+            "crown_gem__image_right_eye": 0.9945059310780617,
+            "crown_gem__bodice_waist_tip": 0.9993813074963211,
+            "neck_base__bodice_waist_tip": 0.9830651667335116
+          }
+        },
+        {
+          "index": 24,
+          "root_error_px": 1.479280772854922,
+          "remaining_global_scale": 1.0040160981289186,
+          "anatomy_geometry_pass": false,
+          "pair_scale_ratios": {
+            "image_left_eye__image_right_eye": 1.005833646412176,
+            "crown_gem__image_left_eye": 0.9919425328470407,
+            "crown_gem__image_right_eye": 1.0002680225395457,
+            "crown_gem__bodice_waist_tip": 0.9991042147957107,
+            "neck_base__bodice_waist_tip": 0.9935778916888888
+          }
+        },
+        {
+          "index": 25,
+          "root_error_px": 0.45069390943299864,
+          "remaining_global_scale": 0.9998971287133358,
+          "anatomy_geometry_pass": true,
+          "pair_scale_ratios": {
+            "image_left_eye__image_right_eye": 1.000890532581077,
+            "crown_gem__image_left_eye": 0.9897850383467436,
+            "crown_gem__image_right_eye": 0.9970518522958601,
+            "crown_gem__bodice_waist_tip": 0.9983722453436917,
+            "neck_base__bodice_waist_tip": 1.001577695933267
+          }
+        },
+        {
+          "index": 26,
+          "root_error_px": 0.35501134890484526,
+          "remaining_global_scale": 0.999035993793102,
+          "anatomy_geometry_pass": true,
+          "pair_scale_ratios": {
+            "image_left_eye__image_right_eye": 1.0006484782092078,
+            "crown_gem__image_left_eye": 0.9928927422782244,
+            "crown_gem__image_right_eye": 0.9981579137868614,
+            "crown_gem__bodice_waist_tip": 0.998538699735613,
+            "neck_base__bodice_waist_tip": 1.0070251224407225
+          }
+        },
+        {
+          "index": 27,
+          "root_error_px": 0.45069390943299864,
+          "remaining_global_scale": 0.997359059470945,
+          "anatomy_geometry_pass": true,
+          "pair_scale_ratios": {
+            "image_left_eye__image_right_eye": 1.002197676068505,
+            "crown_gem__image_left_eye": 0.9992058941876373,
+            "crown_gem__image_right_eye": 0.998843449776195,
+            "crown_gem__bodice_waist_tip": 0.9986202218166584,
+            "neck_base__bodice_waist_tip": 1.0162211890432857
+          }
+        },
+        {
+          "index": 28,
+          "root_error_px": 0.2777777777777942,
+          "remaining_global_scale": 0.9945389924792709,
+          "anatomy_geometry_pass": true,
+          "pair_scale_ratios": {
+            "image_left_eye__image_right_eye": 1.0051656998693868,
+            "crown_gem__image_left_eye": 0.995256123856037,
+            "crown_gem__image_right_eye": 1.0098095064805985,
+            "crown_gem__bodice_waist_tip": 0.9989186724647955,
+            "neck_base__bodice_waist_tip": 1.0193648728377898
+          }
+        },
+        {
+          "index": 29,
+          "root_error_px": 8.277777777777764,
+          "remaining_global_scale": 0.9959096477610087,
+          "anatomy_geometry_pass": true,
+          "pair_scale_ratios": {
+            "image_left_eye__image_right_eye": 1.0047382149644684,
+            "crown_gem__image_left_eye": 1.0020478694315247,
+            "crown_gem__image_right_eye": 1.010445802559271,
+            "crown_gem__bodice_waist_tip": 0.9995530356056089,
+            "neck_base__bodice_waist_tip": 1.0187558161462478
+          }
+        },
+        {
+          "index": 30,
+          "root_error_px": 0.4344830378784576,
+          "remaining_global_scale": 0.9976230713945123,
+          "anatomy_geometry_pass": true,
+          "pair_scale_ratios": {
+            "image_left_eye__image_right_eye": 0.9951374371169204,
+            "crown_gem__image_left_eye": 1.0000998163380415,
+            "crown_gem__image_right_eye": 1.0113358218306088,
+            "crown_gem__bodice_waist_tip": 0.9997542336749695,
+            "neck_base__bodice_waist_tip": 1.0183328737012356
+          }
+        },
+        {
+          "index": 31,
+          "root_error_px": 0.4714045207910451,
+          "remaining_global_scale": 0.9965548466057892,
+          "anatomy_geometry_pass": true,
+          "pair_scale_ratios": {
+            "image_left_eye__image_right_eye": 0.9902875528072076,
+            "crown_gem__image_left_eye": 0.9969149016904044,
+            "crown_gem__image_right_eye": 1.0080293054784897,
+            "crown_gem__bodice_waist_tip": 0.9993653381424316,
+            "neck_base__bodice_waist_tip": 1.0172157728300224
+          }
+        },
+        {
+          "index": 32,
+          "root_error_px": 0.5758755534498924,
+          "remaining_global_scale": 0.9974103051233025,
+          "anatomy_geometry_pass": true,
+          "pair_scale_ratios": {
+            "image_left_eye__image_right_eye": 0.9925241787849073,
+            "crown_gem__image_left_eye": 0.9999569690581622,
+            "crown_gem__image_right_eye": 1.0073482384512094,
+            "crown_gem__bodice_waist_tip": 0.9995526258726086,
+            "neck_base__bodice_waist_tip": 1.018016063729304
+          }
+        },
+        {
+          "index": 33,
+          "root_error_px": 0.19999999999998863,
+          "remaining_global_scale": 0.9973477789111707,
+          "anatomy_geometry_pass": true,
+          "pair_scale_ratios": {
+            "image_left_eye__image_right_eye": 0.9994424655650237,
+            "crown_gem__image_left_eye": 1.0013433944387173,
+            "crown_gem__image_right_eye": 1.0058521698522094,
+            "crown_gem__bodice_waist_tip": 0.9998880785568586,
+            "neck_base__bodice_waist_tip": 1.0112961374224274
+          }
+        },
+        {
+          "index": 34,
+          "root_error_px": 0.5000000000000113,
+          "remaining_global_scale": 0.9976353952504082,
+          "anatomy_geometry_pass": true,
+          "pair_scale_ratios": {
+            "image_left_eye__image_right_eye": 0.9985855212172638,
+            "crown_gem__image_left_eye": 1.0002382861273138,
+            "crown_gem__image_right_eye": 1.0034583221504862,
+            "crown_gem__bodice_waist_tip": 1.000014640282199,
+            "neck_base__bodice_waist_tip": 1.0052157123623149
+          }
+        },
+        {
+          "index": 35,
+          "root_error_px": 0.5109602062880954,
+          "remaining_global_scale": 1.0004153736218027,
+          "anatomy_geometry_pass": true,
+          "pair_scale_ratios": {
+            "image_left_eye__image_right_eye": 1.0007465188962814,
+            "crown_gem__image_left_eye": 1.0020484721608194,
+            "crown_gem__image_right_eye": 1.0046082405150776,
+            "crown_gem__bodice_waist_tip": 1.0003468868964898,
+            "neck_base__bodice_waist_tip": 1.0033489434071825
+          }
+        },
+        {
+          "index": 36,
+          "root_error_px": 0.213437474581105,
+          "remaining_global_scale": 0.9967146578021986,
+          "anatomy_geometry_pass": true,
+          "pair_scale_ratios": {
+            "image_left_eye__image_right_eye": 0.9934496812909276,
+            "crown_gem__image_left_eye": 0.9956814396495933,
+            "crown_gem__image_right_eye": 0.9930040134674334,
+            "crown_gem__bodice_waist_tip": 0.99858743248338,
+            "neck_base__bodice_waist_tip": 1.0058185295269235
+          }
+        },
+        {
+          "index": 37,
+          "root_error_px": 0.25800784355766315,
+          "remaining_global_scale": 0.9969190879670614,
+          "anatomy_geometry_pass": true,
+          "pair_scale_ratios": {
+            "image_left_eye__image_right_eye": 1.0044475583953996,
+            "crown_gem__image_left_eye": 0.9965069263885403,
+            "crown_gem__image_right_eye": 0.9909850261385734,
+            "crown_gem__bodice_waist_tip": 0.9988691446530996,
+            "neck_base__bodice_waist_tip": 0.9970117471110135
+          }
+        },
+        {
+          "index": 38,
+          "root_error_px": 0.35501134890484526,
+          "remaining_global_scale": 0.9968740318328386,
+          "anatomy_geometry_pass": true,
+          "pair_scale_ratios": {
+            "image_left_eye__image_right_eye": 1.0021979692276783,
+            "crown_gem__image_left_eye": 0.9969023134382833,
+            "crown_gem__image_right_eye": 0.992575673233301,
+            "crown_gem__bodice_waist_tip": 0.9993147420601699,
+            "neck_base__bodice_waist_tip": 0.9940631365991631
+          }
+        },
+        {
+          "index": 39,
+          "root_error_px": 0.4859126579037913,
+          "remaining_global_scale": 0.9985920014437757,
+          "anatomy_geometry_pass": true,
+          "pair_scale_ratios": {
+            "image_left_eye__image_right_eye": 1.0029288573638633,
+            "crown_gem__image_left_eye": 0.9983007055061728,
+            "crown_gem__image_right_eye": 0.9989589154104933,
+            "crown_gem__bodice_waist_tip": 0.9999534522662944,
+            "neck_base__bodice_waist_tip": 0.9954303083511313
+          }
+        },
+        {
+          "index": 40,
+          "root_error_px": 0.49166608301780307,
+          "remaining_global_scale": 0.9970850959855492,
+          "anatomy_geometry_pass": true,
+          "pair_scale_ratios": {
+            "image_left_eye__image_right_eye": 1.002845957333204,
+            "crown_gem__image_left_eye": 0.9971750963826996,
+            "crown_gem__image_right_eye": 0.9969993527199534,
+            "crown_gem__bodice_waist_tip": 0.9997603055651668,
+            "neck_base__bodice_waist_tip": 0.9938674733710249
+          }
+        }
+      ]
+    },
+    {
+      "lane": "v2",
+      "maximum_root_error_px": 0.7954345035153507,
+      "global_scale_range": [
+        0.9972094368915099,
+        1.0012798494384985
+      ],
+      "max_global_scale_residual": 0.0027905631084901295,
+      "eye_pair_proportion_ratio_range": [
+        0.9729115254676302,
+        1.0174107052566788
+      ],
+      "frames": [
+        {
+          "index": 0,
+          "sha256": "c47700df080d724e67831e02356cab2dd790067672a80135d0e1371e519913b3",
+          "observed_landmarks": {
+            "crown_gem": [
+              238.0824295010846,
+              81.31019522776572
+            ],
+            "image_left_eye": [
+              195.10488245931282,
+              196.17902350813745
+            ],
+            "image_right_eye": [
+              262.74198988195616,
+              197.5885328836425
+            ],
+            "neck_base": [
+              228.9234361706345,
+              307.0
+            ],
+            "bodice_waist_tip": [
+              208.70588235294116,
+              452.8235294117647
+            ]
+          },
+          "root_error_px": 0.27116307227331404,
+          "remaining_global_scale": 1.0005293053917457,
+          "registration_pass": true,
+          "anatomy_geometry_pass": true,
+          "max_anchor_residual_px": 1.5924920900458515,
+          "pair_scale_ratios": {
+            "image_left_eye__image_right_eye": 1.0100493372078747,
+            "crown_gem__image_left_eye": 1.0076024436938658,
+            "crown_gem__image_right_eye": 1.0029188767715422,
+            "crown_gem__bodice_waist_tip": 1.0009306769451483,
+            "neck_base__bodice_waist_tip": 0.9981691725975516
+          },
+          "manual_export_eye_roi_xyxy": null
+        },
+        {
+          "index": 1,
+          "sha256": "4eceff705e7f05416f08cd8feeec7f231cdef9bab39d19bec977fcbee669f8a8",
+          "observed_landmarks": {
+            "crown_gem": [
+              238.10239651416123,
+              81.37472766884531
+            ],
+            "image_left_eye": [
+              195.27240143369175,
+              196.21326164874552
+            ],
+            "image_right_eye": [
+              262.8487394957983,
+              197.5327731092437
+            ],
+            "neck_base": [
+              229.06057046474504,
+              307.0
+            ],
+            "bodice_waist_tip": [
+              208.70588235294116,
+              452.8235294117647
+            ]
+          },
+          "root_error_px": 0.27116307227331404,
+          "remaining_global_scale": 1.0005706118571738,
+          "registration_pass": true,
+          "anatomy_geometry_pass": true,
+          "max_anchor_residual_px": 1.4351346973562193,
+          "pair_scale_ratios": {
+            "image_left_eye__image_right_eye": 1.0091567752260806,
+            "crown_gem__image_left_eye": 1.0069866684847397,
+            "crown_gem__image_right_eye": 1.0021196996231931,
+            "crown_gem__bodice_waist_tip": 1.0008034396786314,
+            "neck_base__bodice_waist_tip": 0.9983385011254348
+          },
+          "manual_export_eye_roi_xyxy": null
+        },
+        {
+          "index": 2,
+          "sha256": "1ef9a33dd0c84583b7480c3d6c7b105d08428dd3d35e72a8ddc63223f6d561d6",
+          "observed_landmarks": {
+            "crown_gem": [
+              238.3154506437768,
+              81.34763948497854
+            ],
+            "image_left_eye": [
+              195.11213235294116,
+              195.98345588235293
+            ],
+            "image_right_eye": [
+              262.701724137931,
+              197.88103448275862
+            ],
+            "neck_base": [
+              228.9069282454361,
+              307.0
+            ],
+            "bodice_waist_tip": [
+              208.70588235294116,
+              452.8235294117647
+            ]
+          },
+          "root_error_px": 0.27116307227331404,
+          "remaining_global_scale": 1.0006455646663397,
+          "registration_pass": true,
+          "anatomy_geometry_pass": true,
+          "max_anchor_residual_px": 1.5557483324375245,
+          "pair_scale_ratios": {
+            "image_left_eye__image_right_eye": 1.009635597426723,
+            "crown_gem__image_left_eye": 1.0065793053972687,
+            "crown_gem__image_right_eye": 1.0046660913938557,
+            "crown_gem__bodice_waist_tip": 1.0009962547468465,
+            "neck_base__bodice_waist_tip": 0.9982697910347403
+          },
+          "manual_export_eye_roi_xyxy": null
+        },
+        {
+          "index": 3,
+          "sha256": "a119382e1c873ed09a47a305ad709d7a912bee0a5a06e7bef11b2b378699ccce",
+          "observed_landmarks": {
+            "crown_gem": [
+              238.76532769556025,
+              81.18393234672305
+            ],
+            "image_left_eye": [
+              195.07169811320756,
+              195.88490566037734
+            ],
+            "image_right_eye": [
+              261.9589743589744,
+              197.63931623931626
+            ],
+            "neck_base": [
+              228.51533623609097,
+              307.0
+            ],
+            "bodice_waist_tip": [
+              208.4,
+              452.8
+            ]
+          },
+          "root_error_px": 0.22360679774996628,
+          "remaining_global_scale": 1.0002468501815525,
+          "registration_pass": true,
+          "anatomy_geometry_pass": true,
+          "max_anchor_residual_px": 1.3686154639633932,
+          "pair_scale_ratios": {
+            "image_left_eye__image_right_eye": 0.9986964632155793,
+            "crown_gem__image_left_eye": 1.0081055312809297,
+            "crown_gem__image_right_eye": 1.001608224402917,
+            "crown_gem__bodice_waist_tip": 1.0011358158101622,
+            "neck_base__bodice_waist_tip": 0.9976344764370608
+          },
+          "manual_export_eye_roi_xyxy": null
+        },
+        {
+          "index": 4,
+          "sha256": "0c207ab5bc2581487d51ba269e9240dff3f7309a163946db5cb238931a633cc2",
+          "observed_landmarks": {
+            "crown_gem": [
+              239.80392156862746,
+              84.00653594771242
+            ],
+            "image_left_eye": [
+              195.84931506849315,
+              197.6829745596869
+            ],
+            "image_right_eye": [
+              261.5506756756757,
+              199.9037162162162
+            ],
+            "neck_base": [
+              228.6999953720844,
+              309.0
+            ],
+            "bodice_waist_tip": [
+              208.64285714285714,
+              452.7857142857143
+            ]
+          },
+          "root_error_px": 0.2575393768188609,
+          "remaining_global_scale": 1.0007363573979162,
+          "registration_pass": true,
+          "anatomy_geometry_pass": true,
+          "max_anchor_residual_px": 1.1993572006505275,
+          "pair_scale_ratios": {
+            "image_left_eye__image_right_eye": 0.9884523128801043,
+            "crown_gem__image_left_eye": 1.0000037616736939,
+            "crown_gem__image_right_eye": 0.993959253649276,
+            "crown_gem__bodice_waist_tip": 0.9997672160344987,
+            "neck_base__bodice_waist_tip": 0.9983450531807018
+          },
+          "manual_export_eye_roi_xyxy": null
+        },
+        {
+          "index": 5,
+          "sha256": "1cf18e75758b2ecd1aac9a48389b3f685cb6d8b7c32197aa25907c090c10c836",
+          "observed_landmarks": {
+            "crown_gem": [
+              239.5921658986175,
+              86.87327188940091
+            ],
+            "image_left_eye": [
+              195.03556485355648,
+              199.4037656903766
+            ],
+            "image_right_eye": [
+              260.2676056338028,
+              202.50704225352112
+            ],
+            "neck_base": [
+              227.65158524367965,
+              310.0
+            ],
+            "bodice_waist_tip": [
+              208.5,
+              452.875
+            ]
+          },
+          "root_error_px": 0.125,
+          "remaining_global_scale": 1.0008474737199822,
+          "registration_pass": true,
+          "anatomy_geometry_pass": true,
+          "max_anchor_residual_px": 1.681166573393263,
+          "pair_scale_ratios": {
+            "image_left_eye__image_right_eye": 0.9887570971986783,
+            "crown_gem__image_left_eye": 0.991596130542009,
+            "crown_gem__image_right_eye": 0.9888937651457326,
+            "crown_gem__bodice_waist_tip": 0.9979655108696034,
+            "neck_base__bodice_waist_tip": 1.0054212479679563
+          },
+          "manual_export_eye_roi_xyxy": null
+        },
+        {
+          "index": 6,
+          "sha256": "59a50d8458d2c631d66fc26177ceb71f8fe90502b9f820ed730101d458aecc65",
+          "observed_landmarks": {
+            "crown_gem": [
+              240.6745283018868,
+              89.87028301886792
+            ],
+            "image_left_eye": [
+              194.7741935483871,
+              200.89462365591396
+            ],
+            "image_right_eye": [
+              260.171322160149,
+              204.9534450651769
+            ],
+            "neck_base": [
+              227.47275785426802,
+              310.0
+            ],
+            "bodice_waist_tip": [
+              208.78571428571428,
+              452.7857142857143
+            ]
+          },
+          "root_error_px": 0.35714285714285554,
+          "remaining_global_scale": 1.0006457349605766,
+          "registration_pass": true,
+          "anatomy_geometry_pass": true,
+          "max_anchor_residual_px": 3.226665570354935,
+          "pair_scale_ratios": {
+            "image_left_eye__image_right_eye": 0.9985599596466089,
+            "crown_gem__image_left_eye": 0.9824715625326594,
+            "crown_gem__image_right_eye": 0.9809022111031686,
+            "crown_gem__bodice_waist_tip": 0.9951939936991878,
+            "neck_base__bodice_waist_tip": 1.018482582869811
+          },
+          "manual_export_eye_roi_xyxy": null
+        },
+        {
+          "index": 7,
+          "sha256": "fd7335f797d578efa3d6bba600e0afe940d73cffc9821799cbd05ad5f3873266",
+          "observed_landmarks": {
+            "crown_gem": [
+              241.61336515513128,
+              92.13126491646779
+            ],
+            "image_left_eye": [
+              195.5377969762419,
+              203.49892008639307
+            ],
+            "image_right_eye": [
+              260.4925093632959,
+              207.68164794007492
+            ],
+            "neck_base": [
+              228.0151531697689,
+              312.0
+            ],
+            "bodice_waist_tip": [
+              208.70588235294116,
+              452.8235294117647
+            ]
+          },
+          "root_error_px": 0.27116307227331404,
+          "remaining_global_scale": 1.0010950491909834,
+          "registration_pass": true,
+          "anatomy_geometry_pass": true,
+          "max_anchor_residual_px": 4.879968330034773,
+          "pair_scale_ratios": {
+            "image_left_eye__image_right_eye": 0.9990516387890361,
+            "crown_gem__image_left_eye": 0.9843673389283537,
+            "crown_gem__image_right_eye": 0.9826668458995047,
+            "crown_gem__bodice_waist_tip": 0.9954662968223352,
+            "neck_base__bodice_waist_tip": 1.0202018600708984
+          },
+          "manual_export_eye_roi_xyxy": null
+        },
+        {
+          "index": 8,
+          "sha256": "8e15fbd865b76cc469ceea87f119b0aa8eb3fb95a9ec4694d1d971e6bfd2a2d7",
+          "observed_landmarks": {
+            "crown_gem": [
+              243.41826923076923,
+              92.14663461538461
+            ],
+            "image_left_eye": [
+              196.82207207207207,
+              202.97297297297297
+            ],
+            "image_right_eye": [
+              261.20976491862564,
+              207.6473779385172
+            ],
+            "neck_base": [
+              229.01591849534884,
+              312.0
+            ],
+            "bodice_waist_tip": [
+              208.30769230769232,
+              452.8461538461538
+            ]
+          },
+          "root_error_px": 0.24627400913204425,
+          "remaining_global_scale": 1.0005270215625652,
+          "registration_pass": true,
+          "anatomy_geometry_pass": true,
+          "max_anchor_residual_px": 4.665980033207352,
+          "pair_scale_ratios": {
+            "image_left_eye__image_right_eye": 0.9900788862646817,
+            "crown_gem__image_left_eye": 0.9811525768722054,
+            "crown_gem__image_right_eye": 0.9810969763222451,
+            "crown_gem__bodice_waist_tip": 0.9952532913816816,
+            "neck_base__bodice_waist_tip": 1.018437744547265
+          },
+          "manual_export_eye_roi_xyxy": null
+        },
+        {
+          "index": 9,
+          "sha256": "c6ef2fac5e8272730392fb601c6b79ec5425ad112d6103c55513487c1f21c5c2",
+          "observed_landmarks": {
+            "crown_gem": [
+              245.82057416267943,
+              92.23205741626793
+            ],
+            "image_left_eye": [
+              198.21800947867297,
+              202.73222748815166
+            ],
+            "image_right_eye": [
+              262.8321554770318,
+              207.85159010600705
+            ],
+            "neck_base": [
+              230.52508247785238,
+              312.0
+            ],
+            "bodice_waist_tip": [
+              208.70588235294116,
+              452.8235294117647
+            ]
+          },
+          "root_error_px": 0.27116307227331404,
+          "remaining_global_scale": 1.000701668668474,
+          "registration_pass": true,
+          "anatomy_geometry_pass": true,
+          "max_anchor_residual_px": 4.72990918750238,
+          "pair_scale_ratios": {
+            "image_left_eye__image_right_eye": 0.9939874687846626,
+            "crown_gem__image_left_eye": 0.9818706567255486,
+            "crown_gem__image_right_eye": 0.982104853913164,
+            "crown_gem__bodice_waist_tip": 0.9954163073622456,
+            "neck_base__bodice_waist_tip": 1.0167635634333951
+          },
+          "manual_export_eye_roi_xyxy": null
+        },
+        {
+          "index": 10,
+          "sha256": "0ab8e6ecca20af40c16829abde2f8c9fb65cb5e2527a2d77ad0fa9c2b0f7d14c",
+          "observed_landmarks": {
+            "crown_gem": [
+              247.89208633093526,
+              91.87050359712231
+            ],
+            "image_left_eye": [
+              200.70905172413794,
+              203.64870689655174
+            ],
+            "image_right_eye": [
+              264.8385321100917,
+              207.9743119266055
+            ],
+            "neck_base": [
+              232.7737919171148,
+              312.0
+            ],
+            "bodice_waist_tip": [
+              208.33333333333331,
+              452.8666666666667
+            ]
+          },
+          "root_error_px": 0.213437474581105,
+          "remaining_global_scale": 1.0006070693134126,
+          "registration_pass": true,
+          "anatomy_geometry_pass": true,
+          "max_anchor_residual_px": 5.035688035111185,
+          "pair_scale_ratios": {
+            "image_left_eye__image_right_eye": 0.9853485662382928,
+            "crown_gem__image_left_eye": 0.9897993162761393,
+            "crown_gem__image_right_eye": 0.9867839201863763,
+            "crown_gem__bodice_waist_tip": 0.9968442221699688,
+            "neck_base__bodice_waist_tip": 1.016998649358488
+          },
+          "manual_export_eye_roi_xyxy": null
+        },
+        {
+          "index": 11,
+          "sha256": "fe5b44a32347ea7cff27cbda2daa35d37bebd7a7f31cf698bd313ba8fa35dbef",
+          "observed_landmarks": {
+            "crown_gem": [
+              249.95454545454547,
+              91.46172248803828
+            ],
+            "image_left_eye": [
+              202.7127659574468,
+              203.68510638297872
+            ],
+            "image_right_eye": [
+              266.8407871198569,
+              208.3202146690519
+            ],
+            "neck_base": [
+              234.77677653865186,
+              312.0
+            ],
+            "bodice_waist_tip": [
+              208.30769230769232,
+              453.6923076923077
+            ]
+          },
+          "root_error_px": 0.7185208343180379,
+          "remaining_global_scale": 0.9972094368915099,
+          "registration_pass": true,
+          "anatomy_geometry_pass": true,
+          "max_anchor_residual_px": 5.43031919927267,
+          "pair_scale_ratios": {
+            "image_left_eye__image_right_eye": 0.9820680088737002,
+            "crown_gem__image_left_eye": 0.9897243432564786,
+            "crown_gem__image_right_eye": 0.9904438518258548,
+            "crown_gem__bodice_waist_tip": 0.9971327542532286,
+            "neck_base__bodice_waist_tip": 1.0187261409857802
+          },
+          "manual_export_eye_roi_xyxy": null
+        },
+        {
+          "index": 12,
+          "sha256": "c52c05bb729a4af20775860c7e80a651828cfb94b72223134be98289da17eb92",
+          "observed_landmarks": {
+            "crown_gem": [
+              252.49403341288783,
+              91.76849642004774
+            ],
+            "image_left_eye": [
+              205.409381663113,
+              204.04264392324095
+            ],
+            "image_right_eye": [
+              269.7198515769944,
+              208.56771799628945
+            ],
+            "neck_base": [
+              237.5646166200537,
+              312.0
+            ],
+            "bodice_waist_tip": [
+              208.5,
+              452.875
+            ]
+          },
+          "root_error_px": 0.125,
+          "remaining_global_scale": 1.0005017149847544,
+          "registration_pass": true,
+          "anatomy_geometry_pass": false,
+          "max_anchor_residual_px": 6.325051707684992,
+          "pair_scale_ratios": {
+            "image_left_eye__image_right_eye": 0.9877355561839657,
+            "crown_gem__image_left_eye": 0.9926353831362618,
+            "crown_gem__image_right_eye": 0.9944552778270951,
+            "crown_gem__bodice_waist_tip": 0.9977714893960481,
+            "neck_base__bodice_waist_tip": 1.0167099390089418
+          },
+          "manual_export_eye_roi_xyxy": null
+        },
+        {
+          "index": 13,
+          "sha256": "175f117ac89d909691811b708f3910ab984c4d93701f6fdfff3fa4406f4c8e53",
+          "observed_landmarks": {
+            "crown_gem": [
+              255.03406326034064,
+              91.99270072992701
+            ],
+            "image_left_eye": [
+              207.96919917864477,
+              204.38603696098562
+            ],
+            "image_right_eye": [
+              272.29569892473114,
+              208.69175627240145
+            ],
+            "neck_base": [
+              240.13244905168796,
+              311.0
+            ],
+            "bodice_waist_tip": [
+              208.5,
+              452.875
+            ]
+          },
+          "root_error_px": 0.125,
+          "remaining_global_scale": 1.000069707244951,
+          "registration_pass": true,
+          "anatomy_geometry_pass": false,
+          "max_anchor_residual_px": 7.320555031173157,
+          "pair_scale_ratios": {
+            "image_left_eye__image_right_eye": 0.9870801538925421,
+            "crown_gem__image_left_eye": 0.992792134638354,
+            "crown_gem__image_right_eye": 0.9940529614398419,
+            "crown_gem__bodice_waist_tip": 0.9972220530792689,
+            "neck_base__bodice_waist_tip": 1.0236046377618875
+          },
+          "manual_export_eye_roi_xyxy": null
+        },
+        {
+          "index": 14,
+          "sha256": "1cb4880456feba6e5cab2144fc32014ac04a3bbe5eb59f62b119898eee1e9984",
+          "observed_landmarks": {
+            "crown_gem": [
+              256.7352941176471,
+              91.87254901960785
+            ],
+            "image_left_eye": [
+              209.90374331550802,
+              204.32798573975043
+            ],
+            "image_right_eye": [
+              273.27317880794703,
+              209.1158940397351
+            ],
+            "neck_base": [
+              241.58846106172751,
+              311.0
+            ],
+            "bodice_waist_tip": [
+              208.33333333333331,
+              452.8666666666667
+            ]
+          },
+          "root_error_px": 0.213437474581105,
+          "remaining_global_scale": 1.0002377614288263,
+          "registration_pass": true,
+          "anatomy_geometry_pass": false,
+          "max_anchor_residual_px": 7.775107103668168,
+          "pair_scale_ratios": {
+            "image_left_eye__image_right_eye": 0.9729115254676302,
+            "crown_gem__image_left_eye": 0.992438889629044,
+            "crown_gem__image_right_eye": 0.9987043219454428,
+            "crown_gem__bodice_waist_tip": 0.9979581867402068,
+            "neck_base__bodice_waist_tip": 1.022773536126848
+          },
+          "manual_export_eye_roi_xyxy": null
+        },
+        {
+          "index": 15,
+          "sha256": "f85b6b47c4d558ad447b8a26b9a3d5c1a582ee166491c746dec7bb1679c6616d",
+          "observed_landmarks": {
+            "crown_gem": [
+              258.14251781472683,
+              92.44655581947742
+            ],
+            "image_left_eye": [
+              210.8346153846154,
+              203.7326923076923
+            ],
+            "image_right_eye": [
+              274.7948717948718,
+              208.67521367521368
+            ],
+            "neck_base": [
+              242.8147435897436,
+              311.0
+            ],
+            "bodice_waist_tip": [
+              208.6,
+              452.8
+            ]
+          },
+          "root_error_px": 0.22360679774996628,
+          "remaining_global_scale": 1.0005406726330806,
+          "registration_pass": true,
+          "anatomy_geometry_pass": false,
+          "max_anchor_residual_px": 6.744249692187184,
+          "pair_scale_ratios": {
+            "image_left_eye__image_right_eye": 0.9821651213171634,
+            "crown_gem__image_left_eye": 0.9852028835864914,
+            "crown_gem__image_right_eye": 0.9914727111481331,
+            "crown_gem__bodice_waist_tip": 0.9965112271948023,
+            "neck_base__bodice_waist_tip": 1.0205886198640008
+          },
+          "manual_export_eye_roi_xyxy": null
+        },
+        {
+          "index": 16,
+          "sha256": "e86b054b4c959e694c4c6027ac6a59fad202db2f3a562688fe2db726af2f0851",
+          "observed_landmarks": {
+            "crown_gem": [
+              259.1857142857143,
+              92.08809523809524
+            ],
+            "image_left_eye": [
+              210.5979797979798,
+              203.44646464646465
+            ],
+            "image_right_eye": [
+              274.94310344827585,
+              208.4655172413793
+            ],
+            "neck_base": [
+              242.77054162312783,
+              312.0
+            ],
+            "bodice_waist_tip": [
+              208.125,
+              452.8125
+            ]
+          },
+          "root_error_px": 0.4192627457812106,
+          "remaining_global_scale": 1.0005422546595448,
+          "registration_pass": true,
+          "anatomy_geometry_pass": true,
+          "max_anchor_residual_px": 5.335738304376005,
+          "pair_scale_ratios": {
+            "image_left_eye__image_right_eye": 0.9878874778697403,
+            "crown_gem__image_left_eye": 0.9896034385818758,
+            "crown_gem__image_right_eye": 0.9924776981384381,
+            "crown_gem__bodice_waist_tip": 0.9976363687562209,
+            "neck_base__bodice_waist_tip": 1.0109182071213623
+          },
+          "manual_export_eye_roi_xyxy": null
+        },
+        {
+          "index": 17,
+          "sha256": "0964969a1612b8869c512c1ed7a844440993631546ccc72fcc8003b07487a74f",
+          "observed_landmarks": {
+            "crown_gem": [
+              259.13114754098365,
+              91.41217798594847
+            ],
+            "image_left_eye": [
+              209.57285429141717,
+              202.7125748502994
+            ],
+            "image_right_eye": [
+              274.1461794019933,
+              207.88205980066445
+            ],
+            "neck_base": [
+              241.85951684670525,
+              313.0
+            ],
+            "bodice_waist_tip": [
+              208.5,
+              452.875
+            ]
+          },
+          "root_error_px": 0.125,
+          "remaining_global_scale": 1.0003183527211037,
+          "registration_pass": true,
+          "anatomy_geometry_pass": true,
+          "max_anchor_residual_px": 2.4637542573261357,
+          "pair_scale_ratios": {
+            "image_left_eye__image_right_eye": 0.9910834490119926,
+            "crown_gem__image_left_eye": 0.9918647266828681,
+            "crown_gem__image_right_eye": 0.993006194151195,
+            "crown_gem__bodice_waist_tip": 0.9987653980243619,
+            "neck_base__bodice_waist_tip": 0.9984986395175156
+          },
+          "manual_export_eye_roi_xyxy": null
+        },
+        {
+          "index": 18,
+          "sha256": "07ea95188d78d528d3ba0e8ed85e625d3a09ba4ba7fb5f1b5da86995185b7c85",
+          "observed_landmarks": {
+            "crown_gem": [
+              258.46420323325634,
+              90.66050808314088
+            ],
+            "image_left_eye": [
+              207.9106029106029,
+              202.25363825363826
+            ],
+            "image_right_eye": [
+              272.952691680261,
+              207.1125611745514
+            ],
+            "neck_base": [
+              240.43164729543196,
+              313.0
+            ],
+            "bodice_waist_tip": [
+              208.70588235294116,
+              452.8235294117647
+            ]
+          },
+          "root_error_px": 0.27116307227331404,
+          "remaining_global_scale": 1.000797218141004,
+          "registration_pass": true,
+          "anatomy_geometry_pass": true,
+          "max_anchor_residual_px": 3.264344388183496,
+          "pair_scale_ratios": {
+            "image_left_eye__image_right_eye": 0.9994698936634333,
+            "crown_gem__image_left_eye": 0.9971570333905294,
+            "crown_gem__image_right_eye": 0.992508661381503,
+            "crown_gem__bodice_waist_tip": 0.9992657704609789,
+            "neck_base__bodice_waist_tip": 0.9951688456107701
+          },
+          "manual_export_eye_roi_xyxy": null
+        },
+        {
+          "index": 19,
+          "sha256": "1125b1952069ba0c3f273873eeec67fedfe0909ccf62fd034ec732215e6a31d0",
+          "observed_landmarks": {
+            "crown_gem": [
+              256.2685589519651,
+              89.75545851528383
+            ],
+            "image_left_eye": [
+              204.6847389558233,
+              201.19477911646587
+            ],
+            "image_right_eye": [
+              269.70440251572325,
+              206.07704402515725
+            ],
+            "neck_base": [
+              237.19457073577325,
+              312.0
+            ],
+            "bodice_waist_tip": [
+              208.70588235294116,
+              452.8235294117647
+            ]
+          },
+          "root_error_px": 0.27116307227331404,
+          "remaining_global_scale": 1.0004283946789647,
+          "registration_pass": true,
+          "anatomy_geometry_pass": true,
+          "max_anchor_residual_px": 2.769096089824855,
+          "pair_scale_ratios": {
+            "image_left_eye__image_right_eye": 0.9998863664150917,
+            "crown_gem__image_left_eye": 0.998440394250137,
+            "crown_gem__image_right_eye": 0.9897109249072492,
+            "crown_gem__bodice_waist_tip": 0.9989814897493252,
+            "neck_base__bodice_waist_tip": 0.9959080059327432
+          },
+          "manual_export_eye_roi_xyxy": null
+        },
+        {
+          "index": 20,
+          "sha256": "622d8dfdea1fc33107a34246015d53d3dfb55e28e01cc9716cf92521e2cf655e",
+          "observed_landmarks": {
+            "crown_gem": [
+              252.77405857740587,
+              88.5376569037657
+            ],
+            "image_left_eye": [
+              200.96204933586338,
+              200.0189753320683
+            ],
+            "image_right_eye": [
+              266.56955810147304,
+              204.9558101472995
+            ],
+            "neck_base": [
+              233.76580371866822,
+              313.0
+            ],
+            "bodice_waist_tip": [
+              208.27272727272725,
+              452.72727272727275
+            ]
+          },
+          "root_error_px": 0.35501134890484526,
+          "remaining_global_scale": 1.0006662210325425,
+          "registration_pass": true,
+          "anatomy_geometry_pass": true,
+          "max_anchor_residual_px": 2.950236087066991,
+          "pair_scale_ratios": {
+            "image_left_eye__image_right_eye": 1.0102651132284797,
+            "crown_gem__image_left_eye": 0.9990450770984178,
+            "crown_gem__image_right_eye": 0.9908193589897881,
+            "crown_gem__bodice_waist_tip": 0.9996147520633148,
+            "neck_base__bodice_waist_tip": 0.9837259058906268
+          },
+          "manual_export_eye_roi_xyxy": null
+        },
+        {
+          "index": 21,
+          "sha256": "ba4501eb0d754990cb80610d26223d03d26a40a4c4cf195e39b48acf284835c6",
+          "observed_landmarks": {
+            "crown_gem": [
+              248.28571428571428,
+              87.70204081632653
+            ],
+            "image_left_eye": [
+              196.9358490566038,
+              198.96603773584906
+            ],
+            "image_right_eye": [
+              262.8515007898894,
+              203.7693522906793
+            ],
+            "neck_base": [
+              229.8936749232466,
+              313.0
+            ],
+            "bodice_waist_tip": [
+              208.5,
+              452.8
+            ]
+          },
+          "root_error_px": 0.19999999999998863,
+          "remaining_global_scale": 1.0006735609832997,
+          "registration_pass": true,
+          "anatomy_geometry_pass": true,
+          "max_anchor_residual_px": 5.943556145980538,
+          "pair_scale_ratios": {
+            "image_left_eye__image_right_eye": 1.0159072916500527,
+            "crown_gem__image_left_eye": 0.9951295628279627,
+            "crown_gem__image_right_eye": 0.9883672909387707,
+            "crown_gem__bodice_waist_tip": 0.998994117400128,
+            "neck_base__bodice_waist_tip": 0.9784316478226699
+          },
+          "manual_export_eye_roi_xyxy": null
+        },
+        {
+          "index": 22,
+          "sha256": "ca4bc23ac9bc115261150ca8d69c4c2046e6fb932504638237e7c4a31c2c0883",
+          "observed_landmarks": {
+            "crown_gem": [
+              244.20164609053498,
+              86.51851851851852
+            ],
+            "image_left_eye": [
+              193.58646616541353,
+              198.5281954887218
+            ],
+            "image_right_eye": [
+              259.55828220858893,
+              202.6717791411043
+            ],
+            "neck_base": [
+              226.57237418700123,
+              313.0
+            ],
+            "bodice_waist_tip": [
+              208.72727272727275,
+              452.72727272727275
+            ]
+          },
+          "root_error_px": 0.35501134890484526,
+          "remaining_global_scale": 1.0009543068929878,
+          "registration_pass": true,
+          "anatomy_geometry_pass": false,
+          "max_anchor_residual_px": 8.193252887398408,
+          "pair_scale_ratios": {
+            "image_left_eye__image_right_eye": 1.0174107052566788,
+            "crown_gem__image_left_eye": 0.9976743180352626,
+            "crown_gem__image_right_eye": 0.989900515890638,
+            "crown_gem__bodice_waist_tip": 0.999447126858817,
+            "neck_base__bodice_waist_tip": 0.9736227763726337
+          },
+          "manual_export_eye_roi_xyxy": null
+        },
+        {
+          "index": 23,
+          "sha256": "83e1aafd60c3732bd790a78c6baed7aa18a52a323ada77406d79f21c8a0aa9a2",
+          "observed_landmarks": {
+            "crown_gem": [
+              240.41683366733466,
+              85.48496993987976
+            ],
+            "image_left_eye": [
+              191.95255474452554,
+              198.2007299270073
+            ],
+            "image_right_eye": [
+              257.86201550387597,
+              202.06356589147288
+            ],
+            "neck_base": [
+              224.90728512420077,
+              312.0
+            ],
+            "bodice_waist_tip": [
+              208.72727272727275,
+              452.72727272727275
+            ]
+          },
+          "root_error_px": 0.35501134890484526,
+          "remaining_global_scale": 1.0008022049001561,
+          "registration_pass": true,
+          "anatomy_geometry_pass": false,
+          "max_anchor_residual_px": 8.562464390032437,
+          "pair_scale_ratios": {
+            "image_left_eye__image_right_eye": 1.0170536020480148,
+            "crown_gem__image_left_eye": 0.994939882081445,
+            "crown_gem__image_right_eye": 0.9954356246284155,
+            "crown_gem__bodice_waist_tip": 0.9994998128761745,
+            "neck_base__bodice_waist_tip": 0.9776979389441129
+          },
+          "manual_export_eye_roi_xyxy": null
+        },
+        {
+          "index": 24,
+          "sha256": "f9498e063555bf51f877bd743c8144dd3abb8f750834230e814c172d50728f60",
+          "observed_landmarks": {
+            "crown_gem": [
+              238.14747474747475,
+              84.87070707070707
+            ],
+            "image_left_eye": [
+              192.07789855072463,
+              198.30797101449275
+            ],
+            "image_right_eye": [
+              257.4264036418816,
+              201.67678300455236
+            ],
+            "neck_base": [
+              224.75215109630312,
+              310.0
+            ],
+            "bodice_waist_tip": [
+              208.33333333333331,
+              452.77777777777777
+            ]
+          },
+          "root_error_px": 0.2777777777777942,
+          "remaining_global_scale": 1.0007790219036063,
+          "registration_pass": true,
+          "anatomy_geometry_pass": false,
+          "max_anchor_residual_px": 6.761224452676214,
+          "pair_scale_ratios": {
+            "image_left_eye__image_right_eye": 1.008966676312129,
+            "crown_gem__image_left_eye": 0.9920229769128682,
+            "crown_gem__image_right_eye": 0.9993672991337619,
+            "crown_gem__bodice_waist_tip": 0.9991756848010539,
+            "neck_base__bodice_waist_tip": 0.990579948959996
+          },
+          "manual_export_eye_roi_xyxy": null
+        },
+        {
+          "index": 25,
+          "sha256": "1fa66cbdace191d9182e0958b09ddd2894c79f83fe5905d5ef624462b57231fe",
+          "observed_landmarks": {
+            "crown_gem": [
+              238.551867219917,
+              84.51452282157676
+            ],
+            "image_left_eye": [
+              193.34870848708488,
+              197.84132841328415
+            ],
+            "image_right_eye": [
+              258.369465648855,
+              200.9770992366412
+            ],
+            "neck_base": [
+              225.85908706796994,
+              308.0
+            ],
+            "bodice_waist_tip": [
+              208.66666666666669,
+              452.77777777777777
+            ]
+          },
+          "root_error_px": 0.2777777777777942,
+          "remaining_global_scale": 1.0001994695312924,
+          "registration_pass": true,
+          "anatomy_geometry_pass": true,
+          "max_anchor_residual_px": 4.8300085294637976,
+          "pair_scale_ratios": {
+            "image_left_eye__image_right_eye": 1.0041116743334157,
+            "crown_gem__image_left_eye": 0.9871793370268058,
+            "crown_gem__image_right_eye": 0.9963189811652066,
+            "crown_gem__bodice_waist_tip": 0.9978818953077049,
+            "neck_base__bodice_waist_tip": 1.0028732363073543
+          },
+          "manual_export_eye_roi_xyxy": null
+        },
+        {
+          "index": 26,
+          "sha256": "9d19d7bf79bd0137ed049135dd088c4efc2ee16e0cfbd4b0328012feb4875882",
+          "observed_landmarks": {
+            "crown_gem": [
+              238.62939958592133,
+              83.79710144927536
+            ],
+            "image_left_eye": [
+              193.83270676691728,
+              197.843984962406
+            ],
+            "image_right_eye": [
+              258.64481707317077,
+              200.40548780487805
+            ],
+            "neck_base": [
+              226.23876192004403,
+              307.0
+            ],
+            "bodice_waist_tip": [
+              208.5,
+              452.66666666666663
+            ]
+          },
+          "root_error_px": 0.33333333333337123,
+          "remaining_global_scale": 1.000549809262116,
+          "registration_pass": true,
+          "anatomy_geometry_pass": true,
+          "max_anchor_residual_px": 3.004846263862413,
+          "pair_scale_ratios": {
+            "image_left_eye__image_right_eye": 1.0017830874854599,
+            "crown_gem__image_left_eye": 0.9908898769261028,
+            "crown_gem__image_right_eye": 0.997784535052364,
+            "crown_gem__bodice_waist_tip": 0.9982060823153163,
+            "neck_base__bodice_waist_tip": 1.0082275336056457
+          },
+          "manual_export_eye_roi_xyxy": null
+        },
+        {
+          "index": 27,
+          "sha256": "7ea6c08f89efed98db25080890f4dc52ab17b42e83c993b489a9111870690646",
+          "observed_landmarks": {
+            "crown_gem": [
+              238.0909090909091,
+              83.12554112554113
+            ],
+            "image_left_eye": [
+              193.07922912205566,
+              197.64025695931477
+            ],
+            "image_right_eye": [
+              258.13548387096773,
+              199.84516129032258
+            ],
+            "neck_base": [
+              225.6073564965117,
+              306.0
+            ],
+            "bodice_waist_tip": [
+              208.33333333333331,
+              452.77777777777777
+            ]
+          },
+          "root_error_px": 0.2777777777777942,
+          "remaining_global_scale": 1.0001584622106647,
+          "registration_pass": true,
+          "anatomy_geometry_pass": true,
+          "max_anchor_residual_px": 2.855478674725104,
+          "pair_scale_ratios": {
+            "image_left_eye__image_right_eye": 1.0058581726318296,
+            "crown_gem__image_left_eye": 0.9937910541851247,
+            "crown_gem__image_right_eye": 0.9979689484694141,
+            "crown_gem__bodice_waist_tip": 0.9981068174800469,
+            "neck_base__bodice_waist_tip": 1.0134292224695087
+          },
+          "manual_export_eye_roi_xyxy": null
+        },
+        {
+          "index": 28,
+          "sha256": "962574d4b90296a97a618b429fd39b68c21e18a84c749d68141c03adb7030da3",
+          "observed_landmarks": {
+            "crown_gem": [
+              237.51508620689654,
+              82.80172413793103
+            ],
+            "image_left_eye": [
+              192.29801324503313,
+              197.15673289183223
+            ],
+            "image_right_eye": [
+              257.50083472454094,
+              200.9816360601002
+            ],
+            "neck_base": [
+              224.89942398478703,
+              305.0
+            ],
+            "bodice_waist_tip": [
+              208.33333333333331,
+              452.77777777777777
+            ]
+          },
+          "root_error_px": 0.2777777777777942,
+          "remaining_global_scale": 1.0006350248420932,
+          "registration_pass": true,
+          "anatomy_geometry_pass": true,
+          "max_anchor_residual_px": 4.176060385773551,
+          "pair_scale_ratios": {
+            "image_left_eye__image_right_eye": 1.0058071072926962,
+            "crown_gem__image_left_eye": 0.9955093126639729,
+            "crown_gem__image_right_eye": 1.0106731072990298,
+            "crown_gem__bodice_waist_tip": 0.9990560525840433,
+            "neck_base__bodice_waist_tip": 1.0188561162542158
+          },
+          "manual_export_eye_roi_xyxy": null
+        },
+        {
+          "index": 29,
+          "sha256": "67b85d08b93dc833285997c6b8bd8e04cfc2e291794a935e0adbaafb7d7ffb53",
+          "observed_landmarks": {
+            "crown_gem": [
+              238.1896907216495,
+              82.43917525773196
+            ],
+            "image_left_eye": [
+              191.1710037174721,
+              196.6895910780669
+            ],
+            "image_right_eye": [
+              256.621875,
+              200.975
+            ],
+            "neck_base": [
+              223.89643935873605,
+              305.0
+            ],
+            "bodice_waist_tip": [
+              208.5,
+              452.8
+            ]
+          },
+          "root_error_px": 0.19999999999998863,
+          "remaining_global_scale": 1.0004514622196605,
+          "registration_pass": true,
+          "anatomy_geometry_pass": true,
+          "max_anchor_residual_px": 5.14749842247236,
+          "pair_scale_ratios": {
+            "image_left_eye__image_right_eye": 1.005936572145751,
+            "crown_gem__image_left_eye": 1.0018474244081856,
+            "crown_gem__image_right_eye": 1.0115083856004152,
+            "crown_gem__bodice_waist_tip": 0.9997409065728349,
+            "neck_base__bodice_waist_tip": 1.016643731653287
+          },
+          "manual_export_eye_roi_xyxy": [
+            175,
+            186,
+            211,
+            226
+          ]
+        },
+        {
+          "index": 30,
+          "sha256": "19ebd29cf0dcb0d7f9d7a37599a2eda273bfd7ff46231fcadb21956f8c94d1b9",
+          "observed_landmarks": {
+            "crown_gem": [
+              237.98347107438016,
+              82.38842975206612
+            ],
+            "image_left_eye": [
+              192.23880597014926,
+              196.71082089552237
+            ],
+            "image_right_eye": [
+              257.42566510172145,
+              200.63223787167448
+            ],
+            "neck_base": [
+              224.83223553593535,
+              305.0
+            ],
+            "bodice_waist_tip": [
+              208.66666666666669,
+              452.77777777777777
+            ]
+          },
+          "root_error_px": 0.2777777777777942,
+          "remaining_global_scale": 1.0008593595702193,
+          "registration_pass": true,
+          "anatomy_geometry_pass": true,
+          "max_anchor_residual_px": 4.662556374215489,
+          "pair_scale_ratios": {
+            "image_left_eye__image_right_eye": 0.9980625520092634,
+            "crown_gem__image_left_eye": 1.0007595387594461,
+            "crown_gem__image_right_eye": 1.0109725721983898,
+            "crown_gem__bodice_waist_tip": 0.9998727000442617,
+            "neck_base__bodice_waist_tip": 1.016150162048448
+          },
+          "manual_export_eye_roi_xyxy": null
+        },
+        {
+          "index": 31,
+          "sha256": "f3ec675fbc67d6cbce67253b33ee02268555a76aa8207a7afce445c6c6086697",
+          "observed_landmarks": {
+            "crown_gem": [
+              238.0040733197556,
+              82.10997963340122
+            ],
+            "image_left_eye": [
+              192.8351254480287,
+              196.58602150537635
+            ],
+            "image_right_eye": [
+              258.05496183206105,
+              200.25801526717555
+            ],
+            "neck_base": [
+              225.44504364004487,
+              306.0
+            ],
+            "bodice_waist_tip": [
+              208.25,
+              453.625
+            ]
+          },
+          "root_error_px": 0.673145600891813,
+          "remaining_global_scale": 0.9981244918133937,
+          "registration_pass": true,
+          "anatomy_geometry_pass": true,
+          "max_anchor_residual_px": 3.6580489920944914,
+          "pair_scale_ratios": {
+            "image_left_eye__image_right_eye": 0.9917640460656612,
+            "crown_gem__image_left_eye": 0.9993070560538582,
+            "crown_gem__image_right_eye": 1.008378742605349,
+            "crown_gem__bodice_waist_tip": 0.9999724570297678,
+            "neck_base__bodice_waist_tip": 1.0118150464908438
+          },
+          "manual_export_eye_roi_xyxy": null
+        },
+        {
+          "index": 32,
+          "sha256": "102e800f130742794008d31907842d836f80b5855470a72d7cd1fca26771d4d2",
+          "observed_landmarks": {
+            "crown_gem": [
+              238.96458333333334,
+              81.95625
+            ],
+            "image_left_eye": [
+              193.78237410071944,
+              196.51258992805754
+            ],
+            "image_right_eye": [
+              259.5799373040752,
+              200.08777429467085
+            ],
+            "neck_base": [
+              226.68115570239732,
+              306.0
+            ],
+            "bodice_waist_tip": [
+              208.33333333333331,
+              453.77777777777777
+            ]
+          },
+          "root_error_px": 0.7954345035153507,
+          "remaining_global_scale": 0.9975561874891553,
+          "registration_pass": true,
+          "anatomy_geometry_pass": true,
+          "max_anchor_residual_px": 2.9252457558249416,
+          "pair_scale_ratios": {
+            "image_left_eye__image_right_eye": 0.9960172232711049,
+            "crown_gem__image_left_eye": 1.00123661649466,
+            "crown_gem__image_right_eye": 1.008573943624502,
+            "crown_gem__bodice_waist_tip": 1.000139971137739,
+            "neck_base__bodice_waist_tip": 1.0118958075353612
+          },
+          "manual_export_eye_roi_xyxy": null
+        },
+        {
+          "index": 33,
+          "sha256": "f0924fac9995823794861bb4dbe53120efdbd5d69c8acb19489de598948d6f2a",
+          "observed_landmarks": {
+            "crown_gem": [
+              239.764192139738,
+              82.05676855895197
+            ],
+            "image_left_eye": [
+              194.67657992565057,
+              196.10223048327137
+            ],
+            "image_right_eye": [
+              260.7560975609756,
+              199.4552845528455
+            ],
+            "neck_base": [
+              227.7163387433131,
+              305.0
+            ],
+            "bodice_waist_tip": [
+              208.5,
+              452.8
+            ]
+          },
+          "root_error_px": 0.19999999999998863,
+          "remaining_global_scale": 1.0001488723487741,
+          "registration_pass": true,
+          "anatomy_geometry_pass": true,
+          "max_anchor_residual_px": 2.705267026575553,
+          "pair_scale_ratios": {
+            "image_left_eye__image_right_eye": 0.9988460266946572,
+            "crown_gem__image_left_eye": 1.0015369717395899,
+            "crown_gem__image_right_eye": 1.005743035299035,
+            "crown_gem__bodice_waist_tip": 0.9997198445639789,
+            "neck_base__bodice_waist_tip": 1.014105965960828
+          },
+          "manual_export_eye_roi_xyxy": null
+        },
+        {
+          "index": 34,
+          "sha256": "ae4b9b4af7f0f14b1f008f0a85dc3b1961e7bd47bff64582977cca24cb881978",
+          "observed_landmarks": {
+            "crown_gem": [
+              241.5124716553288,
+              82.19274376417233
+            ],
+            "image_left_eye": [
+              196.99423076923077,
+              196.04423076923075
+            ],
+            "image_right_eye": [
+              263.37966101694917,
+              199.0050847457627
+            ],
+            "neck_base": [
+              230.18694589308996,
+              307.0
+            ],
+            "bodice_waist_tip": [
+              208.72727272727275,
+              452.72727272727275
+            ]
+          },
+          "root_error_px": 0.35501134890484526,
+          "remaining_global_scale": 1.0011881610666498,
+          "registration_pass": true,
+          "anatomy_geometry_pass": true,
+          "max_anchor_residual_px": 2.288789349481506,
+          "pair_scale_ratios": {
+            "image_left_eye__image_right_eye": 1.0003777991359173,
+            "crown_gem__image_left_eye": 1.0012542673816205,
+            "crown_gem__image_right_eye": 1.0033141574596347,
+            "crown_gem__bodice_waist_tip": 1.0002787205310957,
+            "neck_base__bodice_waist_tip": 1.0019724024785437
+          },
+          "manual_export_eye_roi_xyxy": null
+        },
+        {
+          "index": 35,
+          "sha256": "d4d4918f6c66c14f53739db7dc9165611440c7551c1d5ba91d55a45e08f8f05e",
+          "observed_landmarks": {
+            "crown_gem": [
+              243.06976744186048,
+              82.1
+            ],
+            "image_left_eye": [
+              198.87128712871288,
+              195.95841584158416
+            ],
+            "image_right_eye": [
+              265.4327586206897,
+              199.05172413793105
+            ],
+            "neck_base": [
+              232.1520228747013,
+              308.0
+            ],
+            "bodice_waist_tip": [
+              208.5,
+              452.77777777777777
+            ]
+          },
+          "root_error_px": 0.22222222222222854,
+          "remaining_global_scale": 1.0012798494384985,
+          "registration_pass": true,
+          "anatomy_geometry_pass": true,
+          "max_anchor_residual_px": 4.186881525941411,
+          "pair_scale_ratios": {
+            "image_left_eye__image_right_eye": 0.9993843085513104,
+            "crown_gem__image_left_eye": 1.0023069783224454,
+            "crown_gem__image_right_eye": 1.0053857606129637,
+            "crown_gem__bodice_waist_tip": 1.0009152346913193,
+            "neck_base__bodice_waist_tip": 0.9966748821912994
+          },
+          "manual_export_eye_roi_xyxy": null
+        },
+        {
+          "index": 36,
+          "sha256": "f611968bc334b9a70f5bee276fd4ef3e049b29d9521313f56cc27eaa71a13041",
+          "observed_landmarks": {
+            "crown_gem": [
+              243.53333333333333,
+              82.6
+            ],
+            "image_left_eye": [
+              199.71694214876032,
+              195.77272727272725
+            ],
+            "image_right_eye": [
+              266.32241379310346,
+              198.13793103448276
+            ],
+            "neck_base": [
+              233.0196779709319,
+              307.0
+            ],
+            "bodice_waist_tip": [
+              208.5,
+              452.875
+            ]
+          },
+          "root_error_px": 0.125,
+          "remaining_global_scale": 1.0005356649595558,
+          "registration_pass": true,
+          "anatomy_geometry_pass": true,
+          "max_anchor_residual_px": 4.8044128210852595,
+          "pair_scale_ratios": {
+            "image_left_eye__image_right_eye": 0.9950607602323992,
+            "crown_gem__image_left_eye": 0.997037314763538,
+            "crown_gem__image_right_eye": 0.9936404146873608,
+            "crown_gem__bodice_waist_tip": 0.9989378949760731,
+            "neck_base__bodice_waist_tip": 1.002941926899278
+          },
+          "manual_export_eye_roi_xyxy": null
+        },
+        {
+          "index": 37,
+          "sha256": "94bde51db7e05871051941431b570741b33f9b965ff4699cefe1e794c0e400ba",
+          "observed_landmarks": {
+            "crown_gem": [
+              241.9433962264151,
+              82.31367924528303
+            ],
+            "image_left_eye": [
+              197.8742746615087,
+              195.43907156673114
+            ],
+            "image_right_eye": [
+              265.175652173913,
+              197.5878260869565
+            ],
+            "neck_base": [
+              231.52496341771086,
+              307.0
+            ],
+            "bodice_waist_tip": [
+              208.3846153846154,
+              452.7692307692308
+            ]
+          },
+          "root_error_px": 0.25800784355766315,
+          "remaining_global_scale": 1.0002590573645123,
+          "registration_pass": true,
+          "anatomy_geometry_pass": true,
+          "max_anchor_residual_px": 3.3326024144859914,
+          "pair_scale_ratios": {
+            "image_left_eye__image_right_eye": 1.0050580590060363,
+            "crown_gem__image_left_eye": 0.997150732498707,
+            "crown_gem__image_right_eye": 0.9919145740270555,
+            "crown_gem__bodice_waist_tip": 0.9987793883248729,
+            "neck_base__bodice_waist_tip": 1.000449226123775
+          },
+          "manual_export_eye_roi_xyxy": null
+        },
+        {
+          "index": 38,
+          "sha256": "4a71ca256765cea5dc0639c3d3efddb5060e56aa0401379f1b635196e261be7a",
+          "observed_landmarks": {
+            "crown_gem": [
+              239.1787330316742,
+              81.99321266968326
+            ],
+            "image_left_eye": [
+              195.37943925233645,
+              195.0728971962617
+            ],
+            "image_right_eye": [
+              262.3973509933775,
+              197.41390728476821
+            ],
+            "neck_base": [
+              228.88839512285696,
+              307.0
+            ],
+            "bodice_waist_tip": [
+              208.72727272727275,
+              452.72727272727275
+            ]
+          },
+          "root_error_px": 0.35501134890484526,
+          "remaining_global_scale": 1.0005829568258238,
+          "registration_pass": true,
+          "anatomy_geometry_pass": true,
+          "max_anchor_residual_px": 1.4783992493052789,
+          "pair_scale_ratios": {
+            "image_left_eye__image_right_eye": 1.0012493725196339,
+            "crown_gem__image_left_eye": 0.9963208581793387,
+            "crown_gem__image_right_eye": 0.9934252906628238,
+            "crown_gem__bodice_waist_tip": 0.9991299850289705,
+            "neck_base__bodice_waist_tip": 0.9975237017355434
+          },
+          "manual_export_eye_roi_xyxy": null
+        },
+        {
+          "index": 39,
+          "sha256": "a79f1940fb4e2c9b8dd96bfa3a3d1ef7aeb83e027f1b3d5133540626ed14ad87",
+          "observed_landmarks": {
+            "crown_gem": [
+              238.20131291028446,
+              81.61269146608315
+            ],
+            "image_left_eye": [
+              194.95970695970698,
+              195.24542124542126
+            ],
+            "image_right_eye": [
+              262.0242326332795,
+              197.61873990306947
+            ],
+            "neck_base": [
+              228.49196979649324,
+              308.0
+            ],
+            "bodice_waist_tip": [
+              208.5,
+              452.66666666666663
+            ]
+          },
+          "root_error_px": 0.33333333333337123,
+          "remaining_global_scale": 1.0012388483589443,
+          "registration_pass": true,
+          "anatomy_geometry_pass": true,
+          "max_anchor_residual_px": 1.8358327313522973,
+          "pair_scale_ratios": {
+            "image_left_eye__image_right_eye": 1.0026186775873036,
+            "crown_gem__image_left_eye": 0.9995753224236932,
+            "crown_gem__image_right_eye": 0.9999362308968623,
+            "crown_gem__bodice_waist_tip": 1.0004789919746433,
+            "neck_base__bodice_waist_tip": 0.9908919960084762
+          },
+          "manual_export_eye_roi_xyxy": null
+        },
+        {
+          "index": 40,
+          "sha256": "3459a5b4adfaffea36cabc6d700f40f1cf2dfb0d2831b2278904fc8058aa9096",
+          "observed_landmarks": {
+            "crown_gem": [
+              238.1038374717833,
+              81.74717832957111
+            ],
+            "image_left_eye": [
+              194.80036297640652,
+              195.25952813067153
+            ],
+            "image_right_eye": [
+              262.08631921824104,
+              197.43648208469057
+            ],
+            "neck_base": [
+              228.44334109732378,
+              308.0
+            ],
+            "bodice_waist_tip": [
+              208.72727272727275,
+              452.72727272727275
+            ]
+          },
+          "root_error_px": 0.35501134890484526,
+          "remaining_global_scale": 1.0011086538614944,
+          "registration_pass": true,
+          "anatomy_geometry_pass": true,
+          "max_anchor_residual_px": 2.0369842378107834,
+          "pair_scale_ratios": {
+            "image_left_eye__image_right_eye": 1.0056950085185146,
+            "crown_gem__image_left_eye": 0.9987017054741474,
+            "crown_gem__image_right_eye": 0.9974594978691733,
+            "crown_gem__bodice_waist_tip": 1.0000817142208414,
+            "neck_base__bodice_waist_tip": 0.9909160485380724
+          },
+          "manual_export_eye_roi_xyxy": null
+        }
+      ]
+    }
+  ],
+  "definition": "Root and whole-frame scale are separate from pose-specific internal geometry. Eye-pair ratio range does not prove complete-body anatomy.",
+  "comparison_columns": [
+    "Native fifth take",
+    "Faulty v1 filter",
+    "Continuous v2 filter"
+  ],
+  "v2_constant_layout_offset": [
+    24,
+    0
+  ],
+  "temporal_mapping": "Source index i remains index i in all41 output frames at24fps; no dropped/repeated action frames."
+}
