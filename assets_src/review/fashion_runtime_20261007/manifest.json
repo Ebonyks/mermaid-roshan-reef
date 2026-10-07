@@ -1,0 +1,128 @@
+{
+  "schema": "reef.fashion_mobile_review/1",
+  "baseline": "a5fe2368ea56a6b0c1a01e48f20282435b15aa1e",
+  "engine": "Godot 4.7.2-stable official ed1daf0bf",
+  "renderer": "Mobile / Vulkan 1.4.341 / NVIDIA GeForce RTX 3060 Ti",
+  "profile": "Isolated capture save; synthetic setup milestones and intentional outfit model calls; this is visual review, not device/child acceptance.",
+  "captures": [
+    {
+      "path": "assets_src/review/fashion_runtime_20261007/01-wardrobe-1280x720.png",
+      "sha256": "b10c63059d36b38647b5aeabed6f40deb0f5ab58cfd76d4e8f74cfe329d60f5f",
+      "role": "Desktop Mobile gameplay/UI review capture; not cinematic/generator pixels",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "modified": false
+    },
+    {
+      "path": "assets_src/review/fashion_runtime_20261007/02-rumi-1280x720.png",
+      "sha256": "f5c24840067aef5b831048863563b2d138a8d12ffe49bf5cfc93317976e91c09",
+      "role": "Desktop Mobile gameplay/UI review capture; not cinematic/generator pixels",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "modified": false
+    },
+    {
+      "path": "assets_src/review/fashion_runtime_20261007/03-locked-source-1280x720.png",
+      "sha256": "4619bc07854cbd0b0c08f4ac3388e5abbc72f7ad868a77d36fe336c16f7ae928",
+      "role": "Desktop Mobile gameplay/UI review capture; not cinematic/generator pixels",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "modified": false
+    },
+    {
+      "path": "assets_src/review/fashion_runtime_20261007/04-before-party-1280x720.png",
+      "sha256": "0aa1ac0904cdad8451ba353517f833bf0158ba46d15b0bdc02c2926902975bcc",
+      "role": "Desktop Mobile gameplay/UI review capture; not cinematic/generator pixels",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "modified": false
+    },
+    {
+      "path": "assets_src/review/fashion_runtime_20261007/05-dress-equipped-1280x720.png",
+      "sha256": "37775382d1b1777b5ed98f953d7a2c7e974222cfc8762bd81494aadf5a26e542",
+      "role": "Desktop Mobile gameplay/UI review capture; not cinematic/generator pixels",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "modified": false
+    },
+    {
+      "path": "assets_src/review/fashion_runtime_20261007/06-dress-in-castle-1280x720.png",
+      "sha256": "913405b3b4fdb6b97ec0d0dbd029c5f7f472ba284208d5e6c586e9d842fc7875",
+      "role": "Desktop Mobile gameplay/UI review capture; not cinematic/generator pixels",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "modified": false
+    },
+    {
+      "path": "assets_src/review/fashion_runtime_20261007/07-disguise-role-1280x720.png",
+      "sha256": "3f802089a5584967c55d1d1c8a692dd3dcc869995573eeb5a65209b0bda4483c",
+      "role": "Desktop Mobile gameplay/UI review capture; not cinematic/generator pixels",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "modified": false
+    },
+    {
+      "path": "assets_src/review/fashion_runtime_20261007/08-disguise-blend-1280x720.png",
+      "sha256": "fcc27d45727555896cf3008bfdcdb50d61211be2f1d2eea622565fa39ef69a22",
+      "role": "Desktop Mobile gameplay/UI review capture; not cinematic/generator pixels",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "modified": false
+    },
+    {
+      "path": "assets_src/review/fashion_runtime_20261007/09-disguise-bow-1280x720.png",
+      "sha256": "20c5e088788030ec5d3837d07b982716ee12f397f03b570cce5854ce2c55985c",
+      "role": "Desktop Mobile gameplay/UI review capture; not cinematic/generator pixels",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "modified": false
+    },
+    {
+      "path": "assets_src/review/fashion_runtime_20261007/10-wide-phone-1920x900.png",
+      "sha256": "a199d43afe53e1d972aab7f19d82301b8526b23792f973cc7476a215f85458c2",
+      "role": "Desktop Mobile gameplay/UI review capture; not cinematic/generator pixels",
+      "dimensions": [
+        1920,
+        900
+      ],
+      "modified": false
+    }
+  ],
+  "review": {
+    "status": "DESKTOP_VISUAL_REVIEW",
+    "findings": "Original oversized TextureRect bug caught and repaired; final cards fit their controls, titles fit, live castle actor wears selected party dress. No device performance, child readability or owner art acceptance claimed.",
+    "outstanding": [
+      "Lenovo Tab M11",
+      "older Android phone",
+      "child",
+      "owner art",
+      "human voice/mix review"
+    ]
+  },
+  "sources": {
+    "garment_provenance": "assets_src/fashion_designer/party_garment_v1/provenance.json",
+    "ui_code_sha256": "eb0ebddbae5cb4b13aa6d8ebefca7ea8af97db8fb1ef02ab9f086b27f33d7972",
+    "renderer_code_sha256": "0c78f7512df94427738aa429c063963ed2f747dc75e460654cebb021479fe724",
+    "post_capture_changes": "No runtime/UI source changes after final shell captures; machine gates remain separate from owner/device/child acceptance.",
+    "wardrobe_shell_sha256": "c347d851000a66a7069c262babf26658fe85b983d6179c6e1f33ac033acf1e29",
+    "desktop_budget": "assets_src/review/fashion_runtime_20261007/desktop_budget.json"
+  }
+}

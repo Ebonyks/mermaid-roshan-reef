@@ -444,7 +444,7 @@ func can_start_main_hall_party(room_id: String = "main_hall") -> bool:
 
 
 func start_main_hall_party(room_id: String = "main_hall") -> bool:
-	if not can_start_main_hall_party(room_id):
+	if not can_start_main_hall_party(room_id) or not FashionDesigner.party_dressed(m):
 		return false
 	party_started = true
 	party_event_phase = PARTY_EVENT_IGNITION

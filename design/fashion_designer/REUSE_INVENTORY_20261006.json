@@ -98,5 +98,11 @@
     "shared persistent wardrobe and renderer coverage"
   ],
   "claim": "SOURCE_FIT_INVENTORY_ONLY_NOT_RUNTIME_OR_OWNER_ACCEPTANCE",
-  "review_candidate": "assets_src/fashion_designer/party_dress_v1/provenance.json"
+  "review_candidate": "assets_src/fashion_designer/party_dress_v1/provenance.json",
+  "runtime_extension": {
+    "date": "2026-10-07",
+    "garment": "assets_src/fashion_designer/party_garment_v1/provenance.json",
+    "reuse": "55 new derivative paths keep 15 character source families untouched; generated clothing only, existing painted palette for accessories.",
+    "gap": "The earlier full-figure candidate changed face/tiara; runtime isolates the garment and keeps original identity pixels."
+  }
 }

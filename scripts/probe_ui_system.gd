@@ -731,6 +731,7 @@ func _init() -> void:
 		"picture games carry the shared Storybook shell header")
 	main._mg2d_close()
 
+	FashionDesignerTestCase.run(main, Callable(self, "_check"))
 	print("UI_SYSTEM|RESULT|", "FAIL" if failed else "ALL OK")
 	quit(1 if failed else 0)
 

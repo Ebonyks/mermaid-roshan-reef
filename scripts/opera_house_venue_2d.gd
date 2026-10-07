@@ -312,7 +312,7 @@ func _build_actor() -> void:
 	actor.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
 	actor.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
 	actor.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	actor.texture = load(ROSHAN_TEXTURE) as Texture2D
+	actor.texture = load(FashionOutfitRenderer.path(m, ROSHAN_TEXTURE)) as Texture2D
 	actor.z_index = 5
 	actor.set_meta("source_asset_role", "character")
 	add_child(actor)

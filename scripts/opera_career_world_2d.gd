@@ -926,7 +926,7 @@ func _build_chapter2_story_props() -> void:
 		if ResourceLoader.exists(rumi_path):
 			chapter2_rumi_scene = Sprite2D.new()
 			chapter2_rumi_scene.name = "Chapter2RumiSoundCheckPartner"
-			chapter2_rumi_scene.texture = load(rumi_path) as Texture2D
+			chapter2_rumi_scene.texture = load(FashionOutfitRenderer.path(m, rumi_path)) as Texture2D
 			chapter2_rumi_scene.hframes = 4
 			chapter2_rumi_scene.vframes = 2
 			chapter2_rumi_scene.frame = 0

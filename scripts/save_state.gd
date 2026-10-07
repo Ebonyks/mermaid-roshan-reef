@@ -208,6 +208,7 @@ func load_save() -> void:
 	m.skin_id = String(m.save_data.get("skin", "classic"))
 	# Fairy Roshan is the Butterfly World prize (grandfathered if already worn)
 	m.fairy_skin_unlocked = bool(m.save_data.get("fairyskin", false)) or m.skin_id == "fairy"
+	FashionDesigner.restore(m, m.save_data)
 	m._apply_skin()
 	var won_d: Dictionary = m.save_data.get("won", {})
 	var found_d: Dictionary = m.save_data.get("found", {})
@@ -243,6 +244,7 @@ func write_save() -> bool:
 	# Start with the loaded document so keys from later builds survive a round
 	# trip through this one. Known fields are then replaced by current state.
 	m.pearls_ever = maxi(m.pearls_ever, m.pearl_count)
+	FashionDesigner.refresh_unlocks(m)
 	var next_data: Dictionary = _normalise_save(m.save_data)
 	var day_one_state: Dictionary = m._day_one_ref().serialize_state()
 	for day_one_key: String in day_one_state:
@@ -267,6 +269,11 @@ func write_save() -> bool:
 	next_data["pearls_ever"] = maxi(m.pearls_ever, 0)
 	next_data["portal_unlocked"] = m.portal_unlocked
 	next_data["skin"] = m.skin_id
+	next_data["character_outfits"] = m.character_outfits.duplicate(true)
+	next_data["outfits_unlocked"] = m.outfits_unlocked.duplicate(true)
+	next_data["fashion_disguise_progress"] = m.fashion_disguise_progress.duplicate(true)
+	next_data["fashion_rewards_claimed"] = m.fashion_rewards_claimed.duplicate(true)
+	next_data["chapter2_party_dress_done"] = m.chapter2_party_dress_done
 	next_data["level2"] = m.level2_done_once
 	next_data["plays"] = maxi(m.plays, 0)
 	next_data["custom_fish"] = m.custom_fish
@@ -610,6 +617,7 @@ func _known_types_are_valid(data: Dictionary) -> bool:
 
 func _normalise_save(raw: Dictionary) -> Dictionary:
 	var data: Dictionary = raw.duplicate(true)
+	data.merge(FashionDesigner.normalise_save_patch(raw), true)
 	var day_one_state: Dictionary = DayOneDirector.normalise_save_patch(raw)
 	for day_one_key: String in day_one_state:
 		data[day_one_key] = day_one_state[day_one_key]

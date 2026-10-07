@@ -1079,9 +1079,41 @@ def loudness(path: Path) -> tuple[float | None, float | None, float | None]:
     return number(match.group(1)), number(match.group(2)), number(match.group(3))
 
 
+def validate_fashion_manifest(root: Path) -> list[str]:
+    directory = root / "assets/audio/fashion"
+    if not directory.is_dir():
+        return []
+    issues: list[str] = []
+    try:
+        manifest = json.loads((directory / "FASHION_VOICE_MANIFEST.json").read_text(encoding="utf-8"))
+        catalog = json.loads((directory / "VOICE_CATALOG.json").read_text(encoding="utf-8"))
+        entries = manifest["entries"]
+        expected = {row["cue_id"]: row["caption"] for row in catalog["rows"]}
+        actual = {row["key"]: row["text"] for row in entries}
+        if len(expected) != 11 or catalog.get("speaker") != "roshan" or catalog.get("allow_generic") is not False:
+            issues.append("fashion catalog must declare the eleven exact Roshan cues")
+        if actual != expected or len(entries) != len(expected):
+            issues.append("fashion exact cue/transcript inventory mismatch")
+        if {p.stem for p in directory.glob("*.ogg")} != set(expected):
+            issues.append("fashion OGG inventory mismatch")
+        for row in entries:
+            key = str(row["key"])
+            if not re.fullmatch(r"roshan_fashion_[a-z_]+", key) or row["character"] != "roshan":
+                issues.append("fashion cohort contains an invalid key or speaker")
+                continue
+            path = directory / (key + ".ogg")
+            if not path.is_file() or sha256(path) != row["final_ogg_sha256"]:
+                issues.append("fashion delivery hash mismatch: " + key)
+        validate_generation_evidence(root, manifest, entries, manifest["generation_run_provenance"], issues)
+    except (OSError, KeyError, TypeError, ValueError) as exc:
+        issues.append("fashion voice provenance is missing/malformed: " + str(exc))
+    return issues
+
+
 def category(rel: str) -> str:
     if rel.startswith("assets/audio/voices/") \
             or rel.startswith("assets/audio/teacher/") \
+            or rel.startswith("assets/audio/fashion/") \
             or rel.startswith("assets/audio/chapter2_lawn/") \
             or rel.startswith("assets/audio/arborist_tree_book/") \
             or rel == "assets/audio/voice_yay.mp3":
@@ -1259,7 +1291,8 @@ def main() -> int:
         summary(rows, filler_validation, protected_validation, teacher_validation),
         indent=2, sort_keys=True,
     ) + "\n"
-    blocking = (list(filler_validation.get("issues", []))
+    blocking = (validate_fashion_manifest(root)
+                + list(filler_validation.get("issues", []))
                 + list(teacher_validation.get("issues", []))
                 + list(protected_validation.get("issues", [])))
     if blocking:

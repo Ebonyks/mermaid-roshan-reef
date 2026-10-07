@@ -11,10 +11,37 @@ const WARDROBE_FEEDBACK_ELEMENTS := 14
 func _init(main: ReefMain) -> void:
 	m = main
 
-# ---------------- DRESS-UP WARDROBE (full-skin picker) ----------------
-func _open_wardrobe() -> void:
-	if m.wardrobe_layer != null:
+func _skin_def(id: String) -> Dictionary:
+	for s in m.SKINS:
+		if String(s["id"]) == id:
+			return s
+	return m.SKINS[0]
+
+func _apply_skin() -> void:
+	# swap Roshan's whole appearance to the chosen skin (classic = 2.5D atlas)
+	if m.player == null:
 		return
+	var s := _skin_def(m.skin_id)
+	m.skin_id = String(s["id"])   # normalise any stale/removed skin id back to a valid one
+	m.player.set_skin(m.skin_id, String(s["sprite"]))
+	m.player.classic_sprite_sheet = ""
+	if m._castle_rooms_25d != null and m._castle_rooms_25d.is_open():
+		m._castle_rooms_25d.refresh_player_skin()
+
+func skin_sprite_path() -> String:
+	# the flat art matching the wardrobe skin — used by the kart driver and
+	# the 2D minigame mermaid so the chosen look follows Roshan into every
+	# game, not just the ocean (the Dolls Canvas catcher uses this path too)
+	if m.skin_id == "huluu":
+		return "res://assets/characters/friends/huluu.png"
+	if m.skin_id == "fairy":
+		return "res://assets/characters/skins/fairy_mermaid.png"
+	return FashionOutfitRenderer.path(m, "res://assets/characters/roshan_25d/roshan_base.png")
+
+# ---------------- DRESS-UP WARDROBE (full-skin picker) ----------------
+func _open_wardrobe_shell() -> bool:
+	if m.wardrobe_layer != null:
+		return false
 	m._navigation_push("wardrobe", self,
 		Callable(self, "_close_wardrobe"))
 	m._set_world_controls_enabled(false, "wardrobe")
@@ -24,6 +51,12 @@ func _open_wardrobe() -> void:
 	var bg := ColorRect.new(); bg.color = StorybookUI.DIM; bg.set_anchors_preset(Control.PRESET_FULL_RECT); root.add_child(bg)
 	var stage := StorybookUI.add_stage(root, vp)
 	m.wd["stage"] = stage
+	return true
+
+func _open_wardrobe() -> void:
+	if not _open_wardrobe_shell():
+		return
+	var stage: Control = m.wd["stage"] as Control
 	var wardrobe_rect := Rect2(28, 18, 1224, 684)
 	var wardrobe_panel := StorybookUI.add_panel(stage, wardrobe_rect,
 		StorybookUI.PURPLE, Color(0.91, 0.96, 1.0, 0.99), 52)
@@ -68,7 +101,7 @@ func _open_wardrobe() -> void:
 		b.alignment = HORIZONTAL_ALIGNMENT_RIGHT
 		var portrait := TextureRect.new()
 		portrait.name = "WardrobeLookPreview_" + id
-		portrait.texture = load(String(entry["preview"]))
+		portrait.texture = FashionOutfitRenderer.portrait(m, "roshan") if id == "classic" else load(String(entry["preview"]))
 		portrait.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
 		portrait.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
 		portrait.position = Vector2(10, 8)
@@ -83,13 +116,32 @@ func _open_wardrobe() -> void:
 	done.position = Vector2(700, 548); done.custom_minimum_size = Vector2(330, 132)
 	StorybookUI.style_button(done, "primary", 38, 38)
 	done.pressed.connect(_wardrobe_done); stage.add_child(done)
+	var clothes := Button.new()
+	clothes.name = "FashionWardrobeButton"
+	clothes.text = ""
+	clothes.position = Vector2(1080, 548)
+	clothes.custom_minimum_size = Vector2(132, 132)
+	StorybookUI.style_button(clothes, "primary", 42, 42)
+	clothes.pressed.connect(func(): FashionWardrobe.new(m).open())
+	var clothing_picture := TextureRect.new()
+	clothing_picture.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+	clothing_picture.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+	clothing_picture.texture = load("res://assets/fashion/party_dress_garment.png") as Texture2D
+	clothing_picture.position = Vector2(10, 10)
+	clothing_picture.size = Vector2(112, 112)
+	clothing_picture.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	clothes.add_child(clothing_picture)
+	stage.add_child(clothes)
 	_wardrobe_refresh()
+
+func open_party_dress() -> void:
+	FashionWardrobe.new(m).open(true)
 
 func _wardrobe_refresh() -> void:
 	if m.wardrobe_layer == null:
 		return
 	if m.wd.has("preview"):
-		(m.wd["preview"] as TextureRect).texture = load(String(m._skin_def(m.skin_id)["preview"]))
+		(m.wd["preview"] as TextureRect).texture = FashionOutfitRenderer.portrait(m, "roshan") if m.skin_id == "classic" else load(String(m._skin_def(m.skin_id)["preview"]))
 	for entry in m.wd.get("btns", []):
 		var sel: bool = String(entry["id"]) == m.skin_id
 		var eid := String(entry["id"])
@@ -171,6 +223,7 @@ func _wardrobe_pick(id: String) -> void:
 		return
 	m.skin_id = id
 	m._apply_skin()
+	m._write_save()
 	_wardrobe_refresh()
 	if m.chime != null:
 		m.chime.pitch_scale = 1.3; m.chime.play()
@@ -261,6 +314,8 @@ func _wardrobe_done() -> void:
 	_close_wardrobe()
 
 func _close_wardrobe() -> void:
+	if m.wd.has(FashionWardrobe.PERSON):
+		m._audio_ref()._stop_active_speech()
 	m._navigation_remove("wardrobe")
 	var feedback_tween: Tween = m.wd.get("feedback_tween") as Tween
 	if feedback_tween != null and feedback_tween.is_valid():

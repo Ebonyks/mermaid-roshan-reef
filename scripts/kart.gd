@@ -1914,14 +1914,15 @@ func _vehicle_body(vkey: String, col: Color, sprite_path: String, racer_name: St
 	# driver sprite above the vehicle — normalised so every driver is ~3.2 units tall
 	if sprite_path != "" and ResourceLoader.exists(sprite_path):
 		var spr := Sprite3D.new()
-		var tex: Texture2D = load(sprite_path)
+		var tex: Texture2D = load(FashionOutfitRenderer.path(_main as ReefMain, sprite_path))
 		spr.texture = tex
 		spr.billboard = BaseMaterial3D.BILLBOARD_ENABLED
 		spr.pixel_size = 2.5 / maxf(float(tex.get_height()), 1.0)
 		spr.position = Vector3(0, top_h + 1.5, 0)
 		root.add_child(spr)
-		if sprite_path.ends_with("/roshan_25d/roshan_base.png"):
+		if sprite_path.ends_with("/roshan_25d/roshan_base.png") or sprite_path.begins_with("res://assets/fashion/outfits/roshan_base_"):
 			var animator := ROSHAN_SPRITE_LOOP.new()
+			animator.wardrobe_owner = _main as ReefMain
 			spr.add_child(animator)
 			animator.setup_sprite_3d(spr, true, root)
 		root.set_meta("driver_spr", spr)

@@ -1343,6 +1343,7 @@ func _build_stage() -> void:
 	m.castle_room_world_root.add_child(m.castle_room_player_sprite)
 	if m.skin_id == "classic":
 		var animator := ROSHAN_SPRITE_LOOP.new()
+		animator.wardrobe_owner = m
 		animator.name = "AlwaysAliveSpriteLoop"
 		m.castle_room_player_sprite.add_child(animator)
 		animator.setup_sprite_2d(
@@ -2078,7 +2079,7 @@ func _sync_day_one_persistent_rumi() -> void:
 	if _day_one_persistent_rumi != null \
 			and is_instance_valid(_day_one_persistent_rumi):
 		return
-	var pose_atlas: Texture2D = load(RUMI_POSE_ATLAS) as Texture2D
+	var pose_atlas: Texture2D = load(FashionOutfitRenderer.path(m, RUMI_POSE_ATLAS)) as Texture2D
 	if pose_atlas == null:
 		return
 	var frames := SpriteFrames.new()
@@ -4634,6 +4635,8 @@ func _player_texture_scale() -> float:
 	return desired_stage_height / maxf(1.0, frame_height)
 
 func refresh_player_skin() -> void:
+	_clear_day_one_persistent_rumi()
+	_sync_day_one_persistent_rumi()
 	# WardrobeUI changes the primary 2D player through ReefMain._apply_skin().
 	# The castle owns a separate Sprite2D standee, so refresh that same selected
 	# look in place without replacing the room actor or disturbing its position.
@@ -4652,6 +4655,7 @@ func refresh_player_skin() -> void:
 	sprite.texture = load(m.skin_sprite_path()) as Texture2D
 	if m.skin_id == "classic":
 		var animator: RoshanSpriteLoop = ROSHAN_SPRITE_LOOP.new()
+		animator.wardrobe_owner = m
 		animator.name = "AlwaysAliveSpriteLoop"
 		sprite.add_child(animator)
 		animator.setup_sprite_2d(sprite, false, sprite)
@@ -5048,11 +5052,13 @@ func sync_castle_companion_card() -> void:
 		m.castle_room_item_visual_layer.add_child(card)
 	var identity: String = String(card.get_meta("companion_id", ""))
 	var saved_colors: Array = card.get_meta("companion_colors", []) as Array
+	var saved_outfit: Variant = m.character_outfits.get("baby_eagle", "")
+	var eagle_outfit: String = saved_outfit if saved_outfit is String else ""
 	var current_colors: Array[Color] = m._companion_ref().colors()
 	var color_tokens: Array[String] = []
 	for color: Color in current_colors:
 		color_tokens.append(color.to_html(false))
-	if identity != m.companion_id or saved_colors != color_tokens:
+	if identity != m.companion_id or saved_colors != color_tokens or String(card.get_meta("fashion_outfit", "")) != eagle_outfit:
 		for child: Node in card.get_children():
 			child.free()
 		var asset_paths: Array[String] = []
@@ -5077,7 +5083,7 @@ func sync_castle_companion_card() -> void:
 						+ String(layer_names[draw_index]) + ".png")
 					tints.append(ordered_tints[asset_paths.size() - 1])
 		for index: int in range(asset_paths.size()):
-			var texture: Texture2D = load(asset_paths[index]) as Texture2D
+			var texture: Texture2D = load(FashionOutfitRenderer.path(m, asset_paths[index])) as Texture2D
 			if texture == null:
 				continue
 			var visual := TextureRect.new()
@@ -5091,6 +5097,7 @@ func sync_castle_companion_card() -> void:
 			visual.mouse_filter = Control.MOUSE_FILTER_IGNORE
 			card.add_child(visual)
 		card.set_meta("companion_id", m.companion_id)
+		card.set_meta("fashion_outfit", eagle_outfit)
 		card.set_meta("companion_colors", color_tokens)
 		card.set_meta("source_object_id", "castle:companion:" + m.companion_id)
 		card.set_meta("source_asset_paths", asset_paths)

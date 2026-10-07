@@ -465,7 +465,7 @@ func _friend_texture(friend: Dictionary) -> Texture2D:
 
 
 func _definition_texture(definition: Dictionary) -> Texture2D:
-	var source := load(String(definition["texture"])) as Texture2D
+	var source := load(FashionOutfitRenderer.path(m, String(definition["texture"]))) as Texture2D
 	if not definition.has("atlas_region"):
 		return source
 	var atlas := AtlasTexture.new()

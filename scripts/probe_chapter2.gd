@@ -389,6 +389,12 @@ func _audit_eight_career_sequence() -> void:
 	_check("party cannot start in unrelated rooms",
 		not chapter_two.start_main_hall_party("library")
 		and not chapter_two.trigger_ember_king_crash("main_hall"))
+	_check("party waits for an intentional special dress",
+		not chapter_two.start_main_hall_party("main_hall"))
+	FashionDesigner.refresh_unlocks(main)
+	_check("wearing the special dress records the pre-party milestone",
+		FashionDesigner.equip(main, "roshan", FashionDesigner.PARTY_DRESS, true)
+		and FashionDesigner.party_dressed(main))
 	_check("party ignition starts only after all eight milestones",
 		chapter_two.start_main_hall_party("main_hall")
 		and chapter_two.candle_lit

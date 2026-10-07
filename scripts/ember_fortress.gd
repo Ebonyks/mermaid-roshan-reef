@@ -866,6 +866,7 @@ func _build_avatar() -> void:
 		_avatar.add_child(cutout)
 		if _av_sprite != null:
 			var animator := ROSHAN_SPRITE_LOOP.new()
+			animator.wardrobe_owner = _main as ReefMain
 			_av_sprite.add_child(animator)
 			animator.setup_sprite_3d(_av_sprite, true, _avatar)
 	_trail_light = OmniLight3D.new()

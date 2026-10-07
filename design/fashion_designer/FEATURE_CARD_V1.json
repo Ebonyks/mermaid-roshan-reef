@@ -1,6 +1,6 @@
 {
   "schema": "fashion_designer_feature_card/1",
-  "status": "DESIGN_BRIEF_RUNTIME_NOT_IMPLEMENTED",
+  "status": "PLAYABLE_RUNTIME_ALPHA_ACCEPTANCE_PENDING",
   "baseline": "96274aab9cebd563b10846a4a48de5d017588563",
   "owner_direction_date": "2026-10-06",
   "brief": "design/FASHION_DESIGNER_ROSHAN_2026-10-06.md",
@@ -19,7 +19,7 @@
     "prerequisite": null,
     "story_purpose": null,
     "opera_bit_allocated": false,
-    "policy": "Special dress introduction is confirmed before the Chapter 2 party/Iko Iko/Ember scene. Exact dressing room, garment pixels and actual disguise story purpose remain unbound. Preserve the eight existing preparation career identities/mask; derive any new global Fashion Designer registration at the implementation head, allocating no bit in this planning change."
+    "policy": "Optional pictured practice unlocks in the wardrobe after Chapter 2 story completion. Its narrative mission remains unbound; no Opera bit added."
   },
   "candidate_characters": [
     "roshan",
@@ -29,7 +29,7 @@
     "rainbow_dust_bunny"
   ],
   "equipment": {
-    "first_format": "complete_outfits",
+    "first_format": "closed_outfit_ids_with_assembled_garment_or_accessory_variants",
     "mix_and_match": "candidate_extension_requires_compatible_pose_anchors",
     "equip": "one_intentional_tap_applies_and_saves",
     "exit": "navigation_keeps_equipped_choice",
@@ -47,7 +47,7 @@
       "id": "dress_for_the_part",
       "verb": "match_pictured_role",
       "cue": "fashion_role_pick",
-      "line": "Tap the clothes that match the picture!",
+      "line": "Tap the garden outfit in the picture!",
       "result": "chosen_compatible_outfit_equipped",
       "completion": "child_selects_outfit_with_required_role_traits"
     },
@@ -55,17 +55,17 @@
       "id": "blend_into_setting",
       "verb": "compare_and_try_disguise",
       "cue": "fashion_blend_pick",
-      "line": "Let's blend in! Tap a disguise for this place!",
-      "result": "chosen_disguise_visible_in_same_setting",
+      "line": "Let us blend in! Pick clothes like our garden friend!",
+      "result": "chosen_garden_motif_visible_beside_pictured_garden_friend",
       "completion": "child_selects_matching_silhouette_motif_and_context"
     },
     {
       "id": "finish_the_disguise",
-      "verb": "place_missing_piece",
+      "verb": "tap_missing_piece",
       "cue": "fashion_finish_piece",
-      "line": "Something is missing! Tap the piece to finish our disguise!",
+      "line": "Tap the bow to finish our disguise!",
       "result": "compatible_piece_visibly_finishes_disguise",
-      "completion": "child_places_required_piece"
+      "completion": "child_taps_bow_picture_to_apply_finished_disguise"
     }
   ],
   "planned_save_defaults": {
@@ -86,12 +86,13 @@
     "never_overwrite_everyday_choice_with_temporary_costume"
   ],
   "acceptance": {
-    "implementation": "NOT_IMPLEMENTED",
-    "machine": "PASS: document/decision contracts, source provenance and full baseline regression (82 trusted probes, exact Godot 4.7.2); no Fashion Designer runtime exists to verify",
-    "visual": "ONE_REVIEW_CANDIDATE; identity/tiara correction and all pose/runtime coverage pending",
+    "implementation": "PLAYABLE_RUNTIME_ALPHA: five-character persistent clothing, earned looks, intentional pre-party special-dress gate and three pictured disguise practice beats.",
+    "machine": "PASS: frozen runtime passed all 82 local scripts/ci.sh probes and static/asset gates on exact Godot 4.7.2. Source hashes and log receipts are in assets_src/review/fashion_runtime_20261007/machine_verification.json. Exact-head remote CI remains required before integration.",
+    "visual": "Desktop Mobile review at 1280x720 and 1920x900; original character source hashes retained. All-pose owner art and target-device acceptance pending.",
     "device": "PENDING",
     "child": "PENDING",
-    "owner_art": "PENDING"
+    "owner_art": "PENDING",
+    "human_voice": "PENDING"
   },
   "confirmed_party_introduction": {
     "chapter": 2,
@@ -100,17 +101,25 @@
       "party_start",
       "iko_iko_ember_king_scene"
     ],
-    "integration_candidate": "after party_is_ready(), before start_main_hall_party()",
+    "integration_candidate": "Main Hall lawn route opens dress page before launch; director checks milestone before ignition.",
     "cue": "fashion_party_dress",
     "line": "Let's get dressed for our party! Tap your special dress!",
     "completion": "intentional_child_equip_then_transactional_save",
     "permanent_unlock": true,
     "legacy_post_party": "grant_access_without_replay_or_auto_equip",
-    "runtime_status": "NOT_IMPLEMENTED"
+    "runtime_status": "IMPLEMENTED_INTENTIONAL_EQUIP_GATE"
   },
   "party_dress_review_candidate": {
     "manifest": "assets_src/fashion_designer/party_dress_v1/provenance.json",
     "image": "assets_src/fashion_designer/party_dress_v1/roshan_party_dress_candidate.png",
     "status": "REVIEW_CANDIDATE_NOT_RUNTIME_READY"
+  },
+  "runtime_baseline": "a5fe2368ea56a6b0c1a01e48f20282435b15aa1e",
+  "runtime_impact": "design/audit_impacts/fashion-designer-runtime-20261006.json",
+  "runtime_garment": {
+    "manifest": "assets_src/fashion_designer/party_garment_v1/provenance.json",
+    "source_master_preserved": true,
+    "runtime_variants": 55,
+    "owner_acceptance": "PENDING"
   }
 }

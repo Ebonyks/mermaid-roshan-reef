@@ -112,7 +112,7 @@ func _fit() -> void:
 func _picture(id: String, path: String, rect: Rect2) -> TextureRect:
 	var picture := TextureRect.new()
 	picture.name = id
-	picture.texture = load(path) as Texture2D
+	picture.texture = load(FashionOutfitRenderer.path(m, path)) as Texture2D
 	picture.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
 	picture.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
 	picture.position = rect.position
@@ -308,12 +308,12 @@ func _cancel_ignition() -> void:
 		return
 	_mode("story")
 	_state()["ignition_source"] = -1
-	(art["Roshan"] as TextureRect).texture = load(ROSHAN_BASE) as Texture2D
+	(art["Roshan"] as TextureRect).texture = load(FashionOutfitRenderer.path(m, ROSHAN_BASE)) as Texture2D
 	(art["Roshan"] as Control).z_index = 0
 	set_meta("ignition_hand_contact", false)
 
 func _ignition_pose(path: String, frame: int) -> void:
-	ignition_pose.atlas = load(path) as Texture2D
+	ignition_pose.atlas = load(FashionOutfitRenderer.path(m, path)) as Texture2D
 	ignition_pose.region = Rect2(float(frame % 4) * 256.0, float(frame / 4) * 256.0, 256.0, 256.0)
 	(art["Roshan"] as TextureRect).texture = ignition_pose
 
@@ -332,7 +332,7 @@ func _tick_ignition(delta: float) -> void:
 			_ignition_pose(ROSHAN_SWIM, int(elapsed * 12.0) % 16)
 			if actor.position.distance_to(target) < 0.1:
 				if returning:
-					actor.texture = load(ROSHAN_BASE) as Texture2D
+					actor.texture = load(FashionOutfitRenderer.path(m, ROSHAN_BASE)) as Texture2D
 					actor.z_index = 0
 					state["ignition_source"] = -1
 					_mode("story")

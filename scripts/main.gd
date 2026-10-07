@@ -713,6 +713,11 @@ const SKINS := [
 	{"id": "huluu", "label": "Princess Huluu", "preview": "res://assets/characters/friends/huluu.png", "sprite": "res://assets/characters/friends/huluu.png"}]
 const FAIRY_SKIN_PATH := "res://assets/characters/skins/fairy_mermaid.png"
 var skin_id := "classic"
+var character_outfits: Dictionary = {}
+var outfits_unlocked: Dictionary = {}
+var fashion_disguise_progress: Dictionary = {}
+var fashion_rewards_claimed: Dictionary = {}
+var chapter2_party_dress_done: bool = false
 var wardrobe_layer: CanvasLayer = null
 var wd: Dictionary = {}              # live references to dress-up UI controls
 var treasure_fr := {"fname": "Secret Cave", "game": "treasure", "won": true, "cool": 0.0}
@@ -3108,7 +3113,7 @@ func _flash_speaker_icon(who: String) -> void:
 	var key := _speaker_key(who)
 	var path := String(SPEAKER_PORTRAIT.get(key, SPEAKER_PORTRAIT["roshan"]))
 	if ResourceLoader.exists(path):
-		speech_portrait.texture = load(path)
+		speech_portrait.texture = load(FashionOutfitRenderer.path(self, path))
 	speech_layer.visible = true
 	speech_t = 4.0
 
@@ -4904,20 +4909,10 @@ func _near_ground(obj_pos: Vector3, ppos: Vector3, r: float, htol: float = 12.0)
 	return Vector2(obj_pos.x - ppos.x, obj_pos.z - ppos.z).length() < r and absf(obj_pos.y - ppos.y) < htol
 
 func _skin_def(id: String) -> Dictionary:
-	for s in SKINS:
-		if String(s["id"]) == id:
-			return s
-	return SKINS[0]
+	return _wardrobe_ref()._skin_def(id)
 
 func _apply_skin() -> void:
-	# swap Roshan's whole appearance to the chosen skin (classic = 2.5D atlas)
-	if player == null:
-		return
-	var s := _skin_def(skin_id)
-	skin_id = String(s["id"])   # normalise any stale/removed skin id back to a valid one
-	player.set_skin(skin_id, String(s["sprite"]))
-	if _castle_rooms_25d != null and _castle_rooms_25d.is_open():
-		_castle_rooms_25d.refresh_player_skin()
+	_wardrobe_ref()._apply_skin()
 
 func _enter_level2(from_castle: bool = false, from_north: bool = false,
 	at_ocean_gate_hub: bool = false) -> void:
@@ -6025,6 +6020,9 @@ func _start_chapter2_lawn() -> bool:
 	if not chapter2_party_is_ready() or not _chapter_two_live_castle_room("main_hall") \
 			or is_instance_valid(chapter2_lawn_view):
 		return false
+	if not chapter2_party_started and not FashionDesigner.party_dressed(self):
+		_wardrobe_ref().open_party_dress()
+		return true
 	chapter2_lawn_started = true
 	if chapter2_story_complete:
 		chapter2_lawn_beat = 8
@@ -7997,14 +7995,7 @@ func _tick_game(delta: float) -> void:
 		_tick_fairyshoot(delta, fr, ppos)
 
 func skin_sprite_path() -> String:
-	# the flat art matching the wardrobe skin — used by the kart driver and
-	# the 2D minigame mermaid so the chosen look follows Roshan into every
-	# game, not just the ocean (the Dolls Canvas catcher uses this path too)
-	if skin_id == "huluu":
-		return "res://assets/characters/friends/huluu.png"
-	if skin_id == "fairy":
-		return "res://assets/characters/skins/fairy_mermaid.png"
-	return "res://assets/characters/roshan_25d/roshan_base.png"   # classic
+	return _wardrobe_ref().skin_sprite_path()
 
 var _pad_prev_a := false
 var _pad_prev_b := false

@@ -133,6 +133,16 @@ func creature_for(d: Dictionary, c: Array[Color]) -> Node3D:
 func make_creature() -> Node3D:
 	return creature_for(active_def(), colors())
 
+func refresh_wardrobe() -> void:
+	# Repaint the existing follower only; its node, gait and spatial ownership stay unchanged.
+	if m.companion_node == null or not is_instance_valid(m.companion_node):
+		return
+	var definition: Dictionary = active_def()
+	var source: String = String(definition.get("sprite", ""))
+	var picture: Node = m.companion_node.get_node_or_null("StorybookBob/StorybookSprite")
+	if picture != null and FashionOutfitRenderer.character_for(source) != "":
+		picture.set("texture", load(FashionOutfitRenderer.path(m, source)))
+
 func _stuffie_cutout(d: Dictionary, c: Array[Color], target_height: float) -> Node3D:
 	# Stuffies are deliberately flat storybook cutouts. This replaces the
 	# retired GLB path for the follower, battle copy, and Studio display.
@@ -142,7 +152,7 @@ func _stuffie_cutout(d: Dictionary, c: Array[Color], target_height: float) -> No
 	anim.name = "StorybookBob"
 	root.add_child(anim)
 	if d.has("sprite"):
-		var direct_tex: Texture2D = load(String(d["sprite"]))
+		var direct_tex: Texture2D = load(FashionOutfitRenderer.path(m, String(d["sprite"])))
 		if direct_tex == null:
 			return null
 		var direct := Sprite3D.new()
@@ -916,7 +926,7 @@ func _add_creature_preview(parent: Control, d: Dictionary, box_pos: Vector2, box
 	parent.clip_contents = true
 	if d.has("sprite"):
 		var direct := TextureRect.new()
-		direct.texture = load(String(d["sprite"]))
+		direct.texture = load(FashionOutfitRenderer.path(m, String(d["sprite"])))
 		direct.position = box_pos
 		direct.size = box_size
 		direct.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
@@ -943,7 +953,7 @@ func _add_creature_preview(parent: Control, d: Dictionary, box_pos: Vector2, box
 	for li in range(3):
 		var probe_path := "res://assets/mg/" + String(layer_names[li]) + ".png"
 		if ResourceLoader.exists(probe_path):
-			ref_tex = load(probe_path)
+			ref_tex = load(FashionOutfitRenderer.path(m, probe_path))
 			break
 	if ref_tex == null:
 		return
@@ -956,7 +966,7 @@ func _add_creature_preview(parent: Control, d: Dictionary, box_pos: Vector2, box
 		if not ResourceLoader.exists(tex_path):
 			continue
 		var tr := TextureRect.new()
-		tr.texture = load(tex_path)
+		tr.texture = load(FashionOutfitRenderer.path(m, tex_path))
 		tr.position = origin
 		tr.scale = Vector2.ONE * fit
 		tr.modulate = tints[i]

@@ -97,7 +97,7 @@ func start(main: Node, finish_cb: Callable,
 	_build_tiles()
 	_walkway = _make_sprite("RainbowWalkway", WALKWAY_PATH)
 	_house = _make_sprite("ButterflyHouse", HOUSE_PATH)
-	_roshan = _make_sprite("RoshanHandoff", ROSHAN_PATH)
+	_roshan = _make_sprite("RoshanHandoff", FashionOutfitRenderer.path(_main as ReefMain, ROSHAN_PATH))
 	_pointer = _make_sprite("HandoffPointer", POINTER_PATH)
 	if _walkway != null:
 		_world.add_child(_walkway)

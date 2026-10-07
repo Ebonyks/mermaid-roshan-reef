@@ -199,6 +199,9 @@ func _voice_path(speaker: String, event: String = "", allow_generic: bool = true
 	if event_suffix.begins_with(speaker_prefix):
 		event_suffix = event_suffix.trim_prefix(speaker_prefix)
 	var key := speaker + ("_" + event_suffix if event_suffix != "" else "")
+	if speaker == "roshan" and event_suffix.begins_with("fashion_"):
+		var fashion_path := "res://assets/audio/fashion/" + key + ".ogg"
+		return fashion_path if ResourceLoader.exists(fashion_path) else ""
 	if speaker == "roshan" and event_suffix.begins_with("chapter2_lawn_"):
 		var lawn_path := "res://assets/audio/chapter2_lawn/" + key + ".ogg"
 		return lawn_path if ResourceLoader.exists(lawn_path) else ""
@@ -266,7 +269,7 @@ func _say(speaker: String, event: String = "", min_gap: float = 0.0) -> void:
 	if _flush_required_queue():
 		return
 	var exact_path := _voice_path(speaker, event_suffix, false)
-	if (event_suffix.begins_with("teacher_") or event_suffix.begins_with("chapter2_lawn_") or event_suffix.begins_with("arborist_tree_book_")) and exact_path.is_empty():
+	if (event_suffix.begins_with("fashion_") or event_suffix.begins_with("teacher_") or event_suffix.begins_with("chapter2_lawn_") or event_suffix.begins_with("arborist_tree_book_")) and exact_path.is_empty():
 		return
 	if required and exact_path == "":
 		# Missing exact audio is an explicit pending gap, never a generic fallback.

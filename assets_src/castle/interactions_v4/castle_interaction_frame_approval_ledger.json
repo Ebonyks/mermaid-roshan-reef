@@ -1,6 +1,6 @@
 {
   "schema_version": "castle_interaction_frame_approval_v2",
-  "candidate_payload_sha256": "910309d482f76c2109370d22d92fcc8c86984aa6517a1cc32285e3cb4a7ce69e",
+  "candidate_payload_sha256": "b315c2f0645871a7c8a7f1e2a445e7e4e436c63613ca16542021c326dc932b6c",
   "manifest_semantic_sha256": "47c94649d447c78d1415a895aec88fe183d5783eef46ce39d5a9d7cc39067e85",
   "metadata_revalidation": {
     "date": "2026-08-29",
@@ -302,6 +302,22 @@
     "manifest_semantic_sha256": "47c94649d447c78d1415a895aec88fe183d5783eef46ce39d5a9d7cc39067e85",
     "frame_hash_evidence": "All 96 candidate frame_review_sha256 values and every occlusion_relation exactly equal the existing reviewed ledger values; zero mismatches.",
     "candidate_binding_refresh": "Replacing only the current runtime-layout semantic hash with the prior hash reproduces the prior candidate payload hash exactly; existing deterministic frame approval remains applicable.",
+    "owner_acceptance": "pending"
+  },
+  "fashion_wardrobe_binding_revalidation": {
+    "date": "2026-10-07",
+    "baseline": "a5fe2368ea56a6b0c1a01e48f20282435b15aa1e",
+    "reason": "Fashion wardrobe changes only character texture lookup, initial wardrobe owner binding and recurring-character repaint hooks in the Castle script. No ROOM_LAYOUTS, V4 interaction atlases, fixture rigs, static-card placement, alpha ownership, background pixels or prop-frame render inputs changed.",
+    "prior_candidate_payload_sha256": "910309d482f76c2109370d22d92fcc8c86984aa6517a1cc32285e3cb4a7ce69e",
+    "candidate_payload_sha256": "b315c2f0645871a7c8a7f1e2a445e7e4e436c63613ca16542021c326dc932b6c",
+    "prior_runtime_layout_semantic_sha256": "c0df908d401ff8a3e000135b83c20780e104d284b11c795945710a349b96fa9f",
+    "runtime_layout_semantic_sha256": "40e065f5a8f279efe4ec56c60821a8634e057d11c6fdfa7b8ad967a5e7e70635",
+    "manifest_semantic_sha256": "47c94649d447c78d1415a895aec88fe183d5783eef46ce39d5a9d7cc39067e85",
+    "asset_count": 12,
+    "frame_count": 96,
+    "frame_mismatches": 0,
+    "occlusion_mismatches": 0,
+    "candidate_binding_refresh": "Replacing only the current runtime-layout text hash with its baseline hash reproduces the prior candidate payload hash exactly. All prior reviewed pixels/occlusions remain identical; existing prop frame review applies. Fashion character pixels have their separate provisional review.",
     "owner_acceptance": "pending"
   }
 }

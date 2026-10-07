@@ -1,15 +1,18 @@
 # Fashion Designer Roshan
 
-Status: `SUPPORTING_CURRENT` feature brief and one static outfit review candidate.
-The owner's persistent wardrobe,
-game-wide outfit unlocks and later disguise-job premise are binding within this
-scope. The special-dress introduction is confirmed before the Chapter 2 party.
-Activity examples, garment designs, character rollout, dressing room and the
-later disguise story purpose are proposed. This brief records design and a source
-candidate, not implemented runtime, approved outfit pixels, or product acceptance.
+Status: `SUPPORTING_CURRENT` feature brief and playable runtime alpha.
+The persistent wardrobe and pre-party dress checkpoint now have code, append-only
+save fields and separate clothing derivatives. Five recurring characters have
+original, ribbon, party and garden looks; Roshan also earns a garden disguise.
+Optional three-beat disguise practice opens from the wardrobe after the Chapter 2
+story. Its later narrative mission remains unbound. Runtime artwork, synthesized
+voice, target-device performance and child/owner acceptance remain provisional.
+The earlier full-figure dress candidate is source review only; runtime keeps the
+original character art and adds the separate garment.
 
 Baseline: `96274aab9cebd563b10846a4a48de5d017588563` (`origin/dev` at intake).
-[Audit impact](audit_impacts/fashion-designer-roshan-20261006.json) ·
+[Design impact](audit_impacts/fashion-designer-roshan-20261006.json) ·
+[Runtime impact](audit_impacts/fashion-designer-runtime-20261006.json) ·
 [Feature card](fashion_designer/FEATURE_CARD_V1.json) ·
 [Reuse inventory](fashion_designer/REUSE_INVENTORY_20261006.json).
 
@@ -300,3 +303,66 @@ Applicable rules include `DL-AUTH-05`–`07`, `DL-AGE-01`–`07`, `DL-UI-01`–`
 `DL-PERF-01`–`04`/`07`, `DL-QA-01`–`07`,
 `DL-SND-01`/`05`/`13`, `DL-CODE-01`/`03`/`05`/`08`/`10`, and `DL-PLAN-01`–`06`.
 Visual, device, child, owner and runtime evidence remain outstanding.
+
+
+## Runtime alpha — 2026-10-07
+
+The bedroom wardrobe retains its legacy three skin choices and adds a pictured
+clothes button. The clothes page selects Roshan, Rumi, Baby Eagle, Daddy or the
+rainbow friend. Each intentional clothing tap applies and writes immediately;
+Back and Finish retain it. Unknown future IDs/fields survive normalization and
+fall back visually. Starter ribbons are available; Farmer's earned strawberry
+milestone unlocks garden looks, and completed party preparation unlocks party
+looks. Rewards never automatically equip. Existing post-party saves gain access
+without replaying the dressing beat. Full-character legacy skins remain compatible.
+
+The Main Hall party route opens a one-choice dress page before lawn entry.
+The director independently rejects ignition before the special dress milestone.
+A dress tap records that milestone, saves, and resumes the lawn route. The eight
+career bits, mask and ordering are unchanged. The lawn's reach and swim poses
+continue to use their original frame regions and contact timing while dressed.
+
+The later practice presents a garden outfit picture, then Rumi wearing the same
+garden motif, then a missing bow. Matching intentional choices save each prefix;
+wrong or passive input cannot advance. A completed practice grants its persistent
+disguise once. This is a forgiving pictured introduction with no score, deadline
+or failure state; it does not establish a new disguise plot or global Opera bit.
+
+The renderer uses 55 separately assembled 2D PNG variants for all ten Roshan
+source families and five recurring-character source families. Original files are
+hashed and remain unchanged. Generated clothing comes from one transparent
+cutout; ribbons are project-authored 2D shapes. Small ribbon/party/garden variants
+on friends are accessory outfits on their existing clothing. Their source,
+placement, hashes and provisional status are in the [garment provenance](../assets_src/fashion_designer/party_garment_v1/provenance.json).
+The shared lookup covers the player, independent atlas loops, castle companions,
+persistent Rumi, family-play cards, lawn guests/poses, kart, speech portraits,
+Opera venue, intro replay pictures and the Conservatory handoff.
+Career-specific costumes and flattened owner-selected clips keep their scoped
+presentation. No new 3D resource or world logic was introduced.
+
+The 55 gameplay derivatives add 32,737,402 PNG bytes before export compression.
+They replace textures on existing character nodes and add no clothing draw layers.
+The wardrobe loads only its five character thumbnails, current preview and current
+three-card page; its existing 14-element feedback pool is bounded and torn down
+on exit. Actual APK growth, texture residency, 30 fps and touch/voice latency still
+require the target device. The [short desktop Speedy sample](../assets_src/review/fashion_runtime_20261007/desktop_budget.json)
+reports a 21.7 MiB peak texture increase over its game baseline, releases 13.7 MiB
+on close and retains 8 MiB with the selected looks. Its whole-viewport maximum
+is 105 draw calls. First entry costs 56.7 ms and the dress callback 40.7 ms in
+that sample; these are wall-clock operations, not Android touchscreen/FPS
+acceptance. The clothes page now shares only the overlay shell, avoiding a
+legacy picker build that would immediately be discarded. The unchanged castle
+prop frame review was rebound
+only after [all 96 frame and occlusion records matched](../assets_src/review/fashion_runtime_20261007/frame_binding_revalidation.json).
+
+Verification is recorded in the runtime impact rather than inferred from this
+brief. [Mobile review captures](../assets_src/review/fashion_runtime_20261007/manifest.json)
+cover 1280×720 and 1920×900. Desktop Mobile captures do not prove Lenovo/older-phone
+performance, human voice grades, child readability or owner art acceptance.
+
+The frozen runtime passed the complete local `scripts/ci.sh` suite on exact
+Godot `4.7.2.stable.official.ed1daf0bf`: all 82 trusted probes and static/asset
+gates pass. The [machine receipt](../assets_src/review/fashion_runtime_20261007/machine_verification.json)
+records all 98 unchanged runtime source hashes and exact log hashes. Remote CI
+on the runtime commit remains required before integration. This machine pass
+does not establish the outstanding visual/device/child/owner acceptance.

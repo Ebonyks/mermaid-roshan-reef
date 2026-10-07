@@ -1,0 +1,88 @@
+{
+  "engine": "4.7.2-stable (official)",
+  "gpu": "NVIDIA GeForce RTX 3060 Ti",
+  "measurements": [
+    {
+      "global_draw_calls_in_frame": 24,
+      "operation_wall_microseconds": 0,
+      "phase": "castle_before_wardrobe",
+      "raw_visible_draw_calls_counter": 4,
+      "texture_bytes": 216846336
+    },
+    {
+      "global_draw_calls_in_frame": 91,
+      "operation_wall_microseconds": 56746,
+      "phase": "wardrobe_first_page",
+      "raw_visible_draw_calls_counter": 0,
+      "texture_bytes": 227364864
+    },
+    {
+      "global_draw_calls_in_frame": 105,
+      "operation_wall_microseconds": 40720,
+      "phase": "special_dress_equipped",
+      "raw_visible_draw_calls_counter": 0,
+      "texture_bytes": 233656320
+    },
+    {
+      "global_draw_calls_in_frame": 90,
+      "operation_wall_microseconds": 20335,
+      "phase": "second_outfit_page",
+      "raw_visible_draw_calls_counter": 0,
+      "texture_bytes": 234901504
+    },
+    {
+      "global_draw_calls_in_frame": 105,
+      "operation_wall_microseconds": 54126,
+      "phase": "rumi_equipped",
+      "raw_visible_draw_calls_counter": 0,
+      "texture_bytes": 239620096
+    },
+    {
+      "global_draw_calls_in_frame": 105,
+      "operation_wall_microseconds": 41378,
+      "phase": "baby_eagle_equipped",
+      "raw_visible_draw_calls_counter": 0,
+      "texture_bytes": 234573824
+    },
+    {
+      "global_draw_calls_in_frame": 105,
+      "operation_wall_microseconds": 58926,
+      "phase": "daddy_mermaid_equipped",
+      "raw_visible_draw_calls_counter": 0,
+      "texture_bytes": 239357952
+    },
+    {
+      "global_draw_calls_in_frame": 104,
+      "operation_wall_microseconds": 45549,
+      "phase": "rainbow_dust_bunny_equipped",
+      "raw_visible_draw_calls_counter": 0,
+      "texture_bytes": 235425792
+    },
+    {
+      "global_draw_calls_in_frame": 20,
+      "operation_wall_microseconds": 0,
+      "phase": "wardrobe_closed",
+      "raw_visible_draw_calls_counter": 0,
+      "texture_bytes": 225234944
+    }
+  ],
+  "profile": "1280x720 desktop Mobile; isolated synthetic save; main game tick paused for repeatable UI/texture measurements. Not FPS, touchscreen, target-device or child acceptance.",
+  "quality_tier": "speedy",
+  "renderer": "mobile",
+  "probe": {
+    "path": "assets_src/review/fashion_runtime_20261007/desktop_budget_probe.gd",
+    "sha256": "82cab44525062e6fcd2fb9a73b2a0f4f2d5319ab20ff55dfd2f2ce00e1817538"
+  },
+  "limits": [
+    "Global texture memory includes baseline game, font and selected clothes, not just Fashion textures.",
+    "Visible-viewport draw counter is zero for Canvas phases; use the global draw-call counter, which includes Canvas.",
+    "Friend equip measurements combine select-person and equip callbacks; times are wall-clock operation costs, not touchscreen latency.",
+    "First entry remains a cold-load cost. This short desktop sample does not prove two-frame response or sustained 30 fps on Android."
+  ],
+  "summary": {
+    "peak_texture_delta_bytes": 22773760,
+    "retained_texture_delta_after_close_bytes": 8388608,
+    "released_texture_bytes_after_peak": 14385152,
+    "maximum_global_draw_calls": 105
+  }
+}
