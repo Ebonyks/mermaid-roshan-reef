@@ -186,8 +186,13 @@
     },
     {
       "command": "Anonymous immutable GitHub payload verification",
-      "result": "PENDING",
-      "evidence": "audit/job_candy_walkthrough_v1_20261007/REMOTE_VERIFICATION.json"
+      "result": "PASS",
+      "evidence": "audit/job_candy_walkthrough_v1_20261007/REMOTE_VERIFICATION.json; revisiona57e5d2e4cd350b16ee7a0adb8a58436316e8cf9;124 files incl manifest,86501329 bytes; unauthenticated HTTPS; exact SHA-256 and byte lengths; checked 2026-10-07T16:50:06.180191+00:00"
+    },
+    {
+      "command": "Anonymous GitHub rendered Markdown inspection",
+      "result": "PASS",
+      "evidence": "Immutable a57e5d2e revision:33 visible ordered headings exactly once; B01 approved1024x1024 PNG displays with SOURCE ONLY / NO NATIVE SCREENSHOT label. Native PNG originals render. SVG annotations remain available in local standalone browser. No runtime visual acceptance."
     }
   ],
   "acceptance_gaps": "Source-bound review documentation only. Captured 480 preview is from an unintegrated runtime candidate; current A319 has no new native/engine evidence. Continuous COAT/SORT/GLAZE, ordinary native, real preceding-story travel, native load/replay, exact fresh-runtime authority, M11/device/child/owner/contact/support acceptance remain open. No finding lifecycle or numeric score changes.",
@@ -229,8 +234,31 @@
       "remote_status": "PASS_ANONYMOUS_IMMUTABLE_REMOTE_BYTES",
       "receipt": "audit/job_candy_walkthrough_v1_20261007/gates/remote-initial-publication.json",
       "presentation": "Superseded by corrected GitHub raster fallback and once-only section filtering; original receipt preserved."
+    },
+    {
+      "payload_revision": "a57e5d2e4cd350b16ee7a0adb8a58436316e8cf9",
+      "payload_sha256": "ff74be89e5e2d60ee23ec30c5dad3ddc33177ef41dbd7e3096db06bb00ebc4fd",
+      "remote_status": "PASS_ANONYMOUS_IMMUTABLE_REMOTE_BYTES",
+      "receipt": "audit/job_candy_walkthrough_v1_20261007/REMOTE_VERIFICATION.json",
+      "verified_files": 124,
+      "verified_bytes": 86501329,
+      "utc": "2026-10-07T16:50:06.180191+00:00"
     }
   ],
   "presentation_correction": "GitHub blocked source-only SVG embeds; README uses approved PNG references with explicit no-native labels. Duplicate Markdown sections removed. Desktop HTML retained33 steps. New validator checks33 ordered headings exactly once and10 labeled gap panels.",
-  "whitespace_diagnostic": "Default git diff --check initially rejected preserved CRLF endings. git -c core.whitespace=cr-at-eol diff HEAD^ HEAD --check passed; source bytes were not normalized or altered."
+  "whitespace_diagnostic": "Default git diff --check initially rejected preserved CRLF endings. git -c core.whitespace=cr-at-eol diff HEAD^ HEAD --check passed; source bytes were not normalized or altered.",
+  "topic_ci": {
+    "initial_run": {
+      "id": 37654320591,
+      "head": "d0c9d4bf0d41ad6a14a4e42d4880e0638d2542d4",
+      "status": "cancelled by normal newer-revision concurrency; not a green run"
+    },
+    "corrected_payload_run": {
+      "id": 37655087245,
+      "head": "a57e5d2e4cd350b16ee7a0adb8a58436316e8cf9",
+      "status": "pending/in progress; final seal automatically receives a separate exact-head run"
+    },
+    "scope": "No topic-head green claim or dev/APK integration. Exact green baseline unchanged-runtime Probe evidence remains separate."
+  },
+  "receipt_seal": "REMOTE_VERIFICATION.json is excluded from payload self-hash; this metadata-only commit seals the successful immutable a57e5d2e payload verification without changing any payload bytes."
 }
