@@ -129,6 +129,11 @@ func setup(new_fixture_center: Vector2, new_fixture_size: Vector2,
 	queue_redraw()
 
 
+## The basket that stays in the room for the whole cleanup, if built.
+func room_basket() -> Sprite2D:
+	return _basket if _basket != null and is_instance_valid(_basket) else null
+
+
 ## The temporary Roshan cutout used while she tugs, if any.
 func identity_sprite() -> Sprite2D:
 	return _contact_action.identity_sprite() if _contact_action != null else null

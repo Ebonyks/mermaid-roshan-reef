@@ -187,6 +187,8 @@ func audit_snapshot() -> Dictionary:
 		"completed": _completed,
 		"skimmer_present": _skimmer != null and is_instance_valid(_skimmer),
 		"basket_present": _basket != null and is_instance_valid(_basket),
+		"basket_visible": _basket != null and is_instance_valid(_basket)
+			and _basket.visible,
 		"trash_sprite_count": _trash_sprites.size(),
 		"atlas_cell_size": TRASH_CELL_SIZE,
 		"catch_radius": CATCH_RADIUS,
@@ -214,6 +216,13 @@ func audit_snapshot() -> Dictionary:
 ## The approved Roshan cutout that holds the skimmer.
 func identity_sprite() -> Sprite2D:
 	return _roshan
+
+
+## Hide this activity's own basket when the room already shows the one cleanup
+## basket at BASKET_POSITION, so the same picture is never drawn twice (OD1).
+func set_basket_visible(shown: bool) -> void:
+	if _basket != null and is_instance_valid(_basket):
+		_basket.visible = shown
 
 
 func _count_bits(value: int) -> int:

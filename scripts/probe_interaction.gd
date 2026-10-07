@@ -185,6 +185,22 @@ func _init() -> void:
 		"castle_room_affordance") as Sprite2D
 	if castle_affordance == null:
 		_bad("castle shared affordance card missing")
+	elif main.castle_room_item_hotspot_layer != null:
+		# A suspended hotspot layer (a Day One cleanup owns the room) must also
+		# silence the touring halo; restoring the layer brings it back.
+		main.castle_room_item_hotspot_layer.visible = false
+		rooms._tick_item_affordances(0.1)
+		var silenced: bool = not castle_affordance.visible
+		main.castle_room_item_hotspot_layer.visible = true
+		# The halo fades at its tour-slot edges, so prove the restored tour by
+		# the prop it chose, not by a visibility that may sit at a zero envelope.
+		castle_affordance.set_meta("affordance_target", "")
+		rooms._tick_item_affordances(0.1)
+		var restored: bool = String(castle_affordance.get_meta(
+			"affordance_target", "")) != ""
+		if not silenced or not restored:
+			_bad("touring halo ignored a suspended hotspot layer (silenced=%s, restored=%s)"
+				% [silenced, restored])
 	var dream_routes: Array[Dictionary] = [
 		{"item": "gallery_dining_door", "child": "dining_room"},
 		{"item": "gallery_royal_bedroom_door", "child": "royal_bedroom"},

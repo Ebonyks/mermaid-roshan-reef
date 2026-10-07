@@ -27,6 +27,8 @@ var errors: int = 0
 var _images: Dictionary = {}
 var _script_info: Dictionary = {}
 var _preorder: int = 0
+# Self-test only: spawns a layer after the counter material is applied.
+var _selftest_spawn: Callable = Callable()
 
 
 func _init() -> void:
@@ -178,9 +180,27 @@ func _measure_pool() -> void:
 		_touch(seahorse, seahorse.fixture_center, true)
 		_touch(seahorse, seahorse.fixture_center, false)
 		await _wait(0.6)
-	# Rumi's reveal is measured before the room-completion story clip begins.
-	await _wait(0.4)
+	# The clean-pool reveal is measured during its reward beat, at real speed: on
+	# the probe's 4x clock the beat had already ended and the room-completion
+	# story clip covered the screen, so "finale" had measured the clip. Rumi
+	# rises once, in that clip (owner QP-1), so the room stages no Rumi here.
+	Engine.time_scale = 1.0
+	for _tick: int in range(600):
+		if bool(cleanup.audit_snapshot().get("finale_started", false)):
+			break
+		await process_frame
+	await _wait(0.6)
 	_emit("day_one_pool", "finale", await _snapshot_with_gpu())
+	# The room-completion clip plays between scenes over the room (DL-CIN-16). It
+	# is recorded, not budgeted as a play state (gold_star.json states_not_budgeted).
+	for _tick: int in range(600):
+		if main._day_one_story_clip != null and is_instance_valid(main._day_one_story_clip):
+			break
+		await process_frame
+	if main._day_one_story_clip != null and is_instance_valid(main._day_one_story_clip):
+		await _wait(0.3)
+		_emit("day_one_pool", "story_clip", await _snapshot_with_gpu())
+	Engine.time_scale = 4.0
 
 
 func _settle_story_clips(main: ReefMain) -> void:
@@ -316,6 +336,10 @@ func _describe(item: CanvasItem, layer: int) -> Array[Dictionary]:
 		"xf": item.get_global_transform_with_canvas(),
 	}
 	var info: Dictionary = _script(item)
+	if not bool(info.get("custom_draw", false)):
+		# A script-less layer can draw through a connected `draw` callback; judge
+		# the connected method of its owner script, or code shapes stay invisible.
+		info = _connected_draw(item, info)
 	if item is Sprite2D:
 		var sprite := item as Sprite2D
 		if sprite.texture != null:
@@ -577,6 +601,42 @@ func _script(item: CanvasItem) -> Dictionary:
 	return info
 
 
+func _connected_draw(item: CanvasItem, info: Dictionary) -> Dictionary:
+	for connection: Dictionary in item.get_signal_connection_list("draw"):
+		var callable: Callable = connection.get("callable", Callable()) as Callable
+		var owner: Object = callable.get_object()
+		if owner == null:
+			continue
+		var script: Script = owner.get_script() as Script
+		if script == null:
+			continue
+		var key: String = "%s::%s" % [script.resource_path, String(callable.get_method())]
+		if not _script_info.has(key):
+			var body: String = _method_body(script, String(callable.get_method()))
+			var shapes: bool = false
+			for call: String in SHAPE_CALLS:
+				if body.contains(call):
+					shapes = true
+			_script_info[key] = {"path": script.resource_path, "custom_draw": true,
+				"shapes": shapes, "connected_method": String(callable.get_method())}
+		var found: Dictionary = _script_info[key] as Dictionary
+		if bool(found.get("shapes", false)) or not bool(info.get("custom_draw", false)):
+			info = found
+	return info
+
+
+func _method_body(script: Script, method: String) -> String:
+	var current: Script = script
+	while current != null:
+		var source: String = current.source_code
+		var start: int = source.find("func %s(" % method)
+		if start >= 0:
+			var finish: int = source.find("\nfunc ", start + 1)
+			return source.substr(start, finish - start) if finish > start else source.substr(start)
+		current = current.get_base_script()
+	return ""
+
+
 func _effective_alpha(item: CanvasItem) -> float:
 	var alpha: float = item.self_modulate.a
 	var node: Node = item
@@ -673,12 +733,27 @@ func _gpu_counts(translucent_only: bool) -> Dictionary:
 				"use_parent": item.use_parent_material})
 			item.material = material
 			item.use_parent_material = false
+	# An effect spawned during the counted frames (a bubble, ring or star) would
+	# otherwise draw in its real colours and read as up to 255 layers; it counts
+	# exactly like everything else (proven by the self-test's late layer).
+	var on_added := func(node: Node) -> void:
+		if node is CanvasItem:
+			var late := node as CanvasItem
+			saved.append({"node": late, "material": late.material,
+				"use_parent": late.use_parent_material})
+			late.material = material
+			late.use_parent_material = false
+	node_added.connect(on_added)
+	if _selftest_spawn.is_valid():
+		_selftest_spawn.call()
+		_selftest_spawn = Callable()
 	var clear: Color = RenderingServer.get_default_clear_color()
 	RenderingServer.set_default_clear_color(Color.BLACK)
 	await RenderingServer.frame_post_draw
 	await RenderingServer.frame_post_draw
 	var image: Image = get_root().get_texture().get_image()
 	RenderingServer.set_default_clear_color(clear)
+	node_added.disconnect(on_added)
 	for record: Dictionary in saved:
 		# Effects may free themselves during the two counted frames.
 		var value: Variant = record["node"]
@@ -798,8 +873,37 @@ func _selftest() -> void:
 		_error("selftest: expected 6 layers and 1 translucent, got %s / %s" % [gpu, translucent])
 	if int((metrics["depth"] as Dictionary).get("p50", -1)) != 6:
 		_error("selftest: node meter expected 6 layers, got %s" % metrics["depth"])
+	# A white opaque layer added while the frame is being counted is one more
+	# layer, never its own colour (an unswapped white layer reads as 255).
+	var late := ColorRect.new()
+	late.name = "SelftestLateLayer"
+	late.color = Color.WHITE
+	late.size = CANVAS
+	_selftest_spawn = func() -> void: layer.add_child(late)
+	var late_metrics: Dictionary = await _snapshot_with_gpu()
+	_emit("selftest", "late_layer", late_metrics)
+	var late_gpu: Dictionary = late_metrics.get("gpu_layers", {}) as Dictionary
+	var late_translucent: Dictionary = late_metrics.get("gpu_translucent_layers", {}) as Dictionary
+	if _gpu_available() and (int(late_gpu.get("p50", -1)) != 7 or int(late_gpu.get("max", -1)) != 7 \
+			or int(late_metrics.get("gpu_peak_layers", -1)) != 7 or int(late_translucent.get("max", -1)) != 1):
+		_error("selftest: a layer added while counting must count once, got %s / %s" % [
+			late_gpu, late_translucent])
+	# A script-less layer drawing through a connected callback is code drawing.
+	var connected := Control.new()
+	connected.name = "SelftestConnectedDraw"
+	connected.size = Vector2(40.0, 40.0)
+	connected.draw.connect(_selftest_connected_draw.bind(connected))
+	layer.add_child(connected)
+	var connected_info: Dictionary = _connected_draw(connected, {})
+	if not bool(connected_info.get("custom_draw", false)) or not bool(connected_info.get("shapes", false)) \
+			or String(connected_info.get("connected_method", "")) != "_selftest_connected_draw":
+		_error("selftest: a connected draw callback was not seen as code drawing: %s" % connected_info)
 	layer.queue_free()
 	await _frames(2)
+
+
+func _selftest_connected_draw(target: Control) -> void:
+	target.draw_rect(Rect2(Vector2.ZERO, target.size), Color(1.0, 1.0, 1.0, 0.5))
 
 
 func _snapshot() -> Dictionary:

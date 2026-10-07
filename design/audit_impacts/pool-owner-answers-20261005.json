@@ -1,0 +1,162 @@
+{
+  "id": "pool-owner-answers-20261005",
+  "scope": "Owner answers to the Mermaid Pool five-star framework's questions QP-1 to QP-3 (2026-10-05, session chat), applied by Claude as revision 2 of the Pool five-star packet. QP-1 \"No, only one.\": Rumi rises once. The owner-selected d1_pool_clean clip cannot be altered (DL-CIN-16), so it keeps the rise; the room's own rise, rise ripple, wave and \"Hi, Rumi!\" greeting are removed. The clean-pool beat (light, rainbow waterfall, healthy fountain, \"The whole pool is shiny!\") now holds the room completion for at least 2.4 s from the finale's start, then until the voice lane is quiet, at most 5.6 s. The persistent Rumi still waits in the pool after the clip; its pose-atlas path moves into castle_rooms_25d.gd. QP-3 \"No.\": while a Day One story clip plays, main.gd hides the castle layer's children and the castle voice caption, restoring them when the clip ends, is skipped or is cancelled; the castle layer's own visibility, which game logic reads, is untouched. QP-2 is recorded verbatim; it can be read three ways, so no room's dirt look changes until the owner answers QP-2a. Three owner decisions enter the register. Codex P4 is withdrawn, P6 waits for QP-2a and P1's capture list follows the new finale. The overdraw of all 16 measured games is re-measured, the Pool is re-assessed (unchanged at 3/5, 21 of 24; the 'Rumi rises twice' defect is resolved), GS-21 is re-anchored, the castle frame-review binding is refreshed without new approval, and both packet manifests are refreshed. Also merges current dev (476ceda1) into the branch.",
+  "baseline": "356afeb94bef803f3d1d2268adfed3f1405143b7",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-CIN-16",
+    "DL-MOT-04",
+    "DL-AGE-07",
+    "DL-SND-04",
+    "DL-PERF-02",
+    "DL-PERF-03",
+    "DL-MED-05",
+    "DL-LAY-03",
+    "DL-SAVE-01",
+    "DL-ASSET-01",
+    "DL-QA-02",
+    "DL-QA-03",
+    "DL-QA-04",
+    "DL-QA-05",
+    "DL-QA-06",
+    "DL-QA-10",
+    "DL-CODE-06"
+  ],
+  "findings": [
+    "MA-VIS-009",
+    "MA-PLAY-006",
+    "MA-VIS-008",
+    "MA-PERF-001"
+  ],
+  "files": [
+    "scripts/games/day_one_pool_cleanup.gd",
+    "scripts/arena/castle_rooms_25d.gd",
+    "scripts/main.gd",
+    "scripts/probe_day_one_pool_cleanup.gd",
+    "scripts/probe_day_one_pool_shots.gd",
+    "scripts/probe_day_one_story_clips.gd",
+    "scripts/probe_castle_pool_life_2d.gd",
+    "scripts/probe_overdraw.gd",
+    "assets_src/castle/interactions_v4/castle_interaction_frame_approval_ledger.json",
+    "audit/cycles/pool-five-star-20261005/owner_answers.json",
+    "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
+    "audit/MASTER_AUDIT_2026-08-09.md",
+    "design/05_DOC_LEDGER.md",
+    "design/reference/GOLD_STAR.md",
+    "design/reference/games.json",
+    "design/reference/gold_star.json",
+    "design/reference/overdraw.json",
+    "design/reference/OWNER_DECISIONS.md",
+    "design/reference/owner_decisions.json",
+    "docs/handoffs/codex_pool_five_star_2026-10-04/FRAMEWORK.md",
+    "docs/handoffs/codex_pool_five_star_2026-10-04/README.md",
+    "docs/handoffs/codex_pool_five_star_2026-10-04/MANIFEST.json",
+    "docs/handoffs/codex_gold_star_2026-10-03/MANIFEST.json",
+    "design/audit_impacts/pool-owner-answers-20261005.json"
+  ],
+  "validation": [
+    {
+      "command": "Godot 4.7.2-stable official binary for this session (Linux x86_64), as verified in pool-five-star-framework-20261004; --version",
+      "result": "PASS",
+      "evidence": "4.7.2.stable.official.ed1daf0bf; headless import of the merged candidate exits 0 with no script errors."
+    },
+    {
+      "command": "godot --headless --check-only --script on every changed .gd file",
+      "result": "PASS",
+      "evidence": "main.gd, day_one_pool_cleanup.gd, castle_rooms_25d.gd and the five changed probes compile with the full analyzer."
+    },
+    {
+      "command": "probe_day_one_pool_cleanup, probe_day_one_story_clips and probe_castle_pool_life_2d, each run separately",
+      "result": "PASS",
+      "evidence": "DAY_ONE_POOL PASS checks_failed=0; DAY_ONE_STORY_CLIPS PASS failures=0; CASTLE_POOL_OVERLAY_ABSENCE PASS checks_failed=0. New checks: no in-room Rumi or rise ripple, d1_pool_clean owns the rise, the clean-pool beat holds then completes once, the finale source greets no Rumi; the castle and its caption stop drawing under a clip, stay the open surface for game logic, and return after a finished, skipped or cancelled clip."
+    },
+    {
+      "command": "Mutation runs against the new checks",
+      "result": "PASS",
+      "evidence": "Each mutation turned its probe red and was reverted: the cover call removed (2 FAIL), the uncover made a no-op (2 FAIL), a Rumi node re-added at the finale (2 FAIL), and the beat minimum cut to 0.2 s (2 FAIL)."
+    },
+    {
+      "command": "xvfb-run python -B tools/measure_overdraw.py (all 16 games; Mobile renderer on Mesa llvmpipe, 1920x1080)",
+      "result": "PASS",
+      "evidence": "design/reference/overdraw.json measured 2026-10-05T05:53Z on 356afeb9 plus these changes. Pool play states 1.16-1.41 mean layers with no duplicate, code drawing or translucent wash; finale 1.37 with 22 items; d1_pool_clean 2.02 mean with 3 items (from 3.39 and 21). No rating changed. Opera careers varied by up to +/-0.33 between runs with identical item lists; the Detective's task_open reads 2.51 (2.18 before); the cause is not isolated."
+    },
+    {
+      "command": "Castle frame-review binding: build_repository_candidate in memory (no contact sheet written) and validate_approval_ledger",
+      "result": "PASS",
+      "evidence": "Replacing only the runtime-layout hash c0df908d... with the prior 199b759d... reproduces the prior approved payload 869c21be... exactly; all 96 frame hashes and occlusion relations match; the refreshed ledger validates with zero problems. No frame is newly approved; owner acceptance pending."
+    },
+    {
+      "command": "python -B tools/gold_star.py --check --strict; python -B tools/record_owner_decision.py --check --base origin/dev",
+      "result": "PASS",
+      "evidence": "GOLDSTAR RESULT OK, 60 games, 0 errors, 0 stale after re-assessing day_one_pool and pearl_castle and re-anchoring GS-21 to _begin_finale; DECISIONS ALL OK, 29 decisions, append-only against dev."
+    },
+    {
+      "command": "Full trusted roster (82 probes, isolated user data, ci.sh flags and failure patterns)",
+      "result": "PASS",
+      "evidence": "82 of 82 PASS on 8cc85ae4 (the committed candidate), isolated user data, ci.sh failure and runtime-error patterns, touch-test modes as ci.sh."
+    },
+    {
+      "command": "python -B tools/audit_document_authority.py; python -B tools/audit_development.py --base auto; local copy of the CI static gates",
+      "result": "PASS",
+      "evidence": "DOCAUTH ALL OK (inventory 667, ledger 667); AUDITDEV ALL OK at base auto (476ceda1) and at the remote tip 0d04f18d that CI uses as its push base; the local copy of the CI static gates passes every step except four that need CI's environment. The 2D regression gate refuses a shallow clone (G2D403). Area music, the ui_tap re-encode and the CRLF audio ledger hashes are environment-bound. The castle frame-review check writes contact sheets, so it was replaced locally by the in-memory validation above. CI's static-gate step, which runs all of them, passed on 8cc85ae4."
+    },
+    {
+      "command": "Anonymous raw.githubusercontent.com fetch (no credentials) of both packet manifests and every listed file at 8cc85ae443048c39fbda24cc7147bb93ebda90b2",
+      "result": "PASS",
+      "evidence": "codex_pool_five_star_2026-10-04 revision 2: manifest sha256 1f9632461e46a12f2cd2555f751b09f400d29a556eb0b48c3c4f01ba436aa83e, 61 of 61 items match bytes and SHA-256 (checked 2026-10-05T06:17:59Z). codex_gold_star_2026-10-03 revision 6: manifest sha256 2d5fd263a7280160a2018153a78c24fbb636af3ed01a16c597038f1549f575eb, 25 of 25 items match (checked 2026-10-05T06:18:14Z). Later commits that change only this record leave every packet file unchanged."
+    },
+    {
+      "command": "Remote Probe Suite (graphics fork) run on the pushed branch head",
+      "result": "PENDING",
+      "evidence": "The run on 8cc85ae4 (37270424725) passed its static gates, including the 2D regression gate and the castle frame-review check, before a newer push cancelled it under the workflow's cancel-in-progress rule. The run on the head that carries this record is reported in the session report."
+    }
+  ],
+  "lessons": [
+    {
+      "lesson": "A visibility flag that game logic reads as state must not double as a render switch: castle_room_layer.visible means 'the castle is the surface' to a dozen checks, so a clip hides the layer's children instead and leaves the flag alone.",
+      "write_back": "scripts/main.gd",
+      "recurrence_key": "render-switch-vs-state-flag"
+    },
+    {
+      "lesson": "A measured state whose capture moment varies (a caption up or not, a cross-fade or a clip) gives different numbers on the same code. The Opera careers moved by up to 0.33 layers and the Pool's entry_transition alternated between the cross-fade (4.38) and the arrival clip (2.03). Compare the drawn item names before claiming a change, and name which composition the published run caught.",
+      "write_back": "docs/handoffs/codex_pool_five_star_2026-10-04/FRAMEWORK.md",
+      "recurrence_key": "overdraw-sample-timing"
+    },
+    {
+      "lesson": "An owner answer that fits more than one implementation is recorded verbatim and asked back with numbered readings and their consequences before code changes; the clear answers in the same reply are applied at once.",
+      "write_back": "docs/handoffs/codex_pool_five_star_2026-10-04/FRAMEWORK.md",
+      "recurrence_key": "ambiguous-owner-answer"
+    }
+  ],
+  "strengths_observed": [
+    {
+      "id": "S-11",
+      "evidence": "Hash-bound evidence failed exactly where the change touched: GS-21's anchor no longer resolved once _finish_rumi_reveal was removed, the Pool and Pearl Castle assessments went stale, every measurement went stale with the probe, and the castle frame-review binding refused the changed castle source until revalidated."
+    },
+    {
+      "id": "S-05",
+      "evidence": "The single rise keeps d1_pool_clean between scenes and the held clean-pool beat keeps the completion line whole (MA-PLAY-006)."
+    }
+  ],
+  "references_used": [
+    {
+      "path": "docs/handoffs/codex_pool_five_star_2026-10-04/FRAMEWORK.md",
+      "purpose": "QP-1 to QP-3 as asked, F1, G4 and the beat sequence"
+    },
+    {
+      "path": "assets_src/cinematics/day_one_story_clips_2026-09-23/CLIP_MANIFEST.json",
+      "purpose": "d1_pool_clean shows Rumi rising and hugging Roshan; clips cannot be altered"
+    },
+    {
+      "path": "design/reference/OWNER_DECISIONS.md",
+      "purpose": "Register the three answers append-only"
+    },
+    {
+      "path": "assets_src/castle/interactions_v4/castle_interaction_frame_approval_ledger.json",
+      "purpose": "Binding-refresh precedent for castle_rooms_25d.gd text changes"
+    }
+  ],
+  "acceptance_gaps": "Machine evidence only. The owner's QP-2 answer awaits QP-2a before any room's dirt look changes. The 2.4-5.6 s clean-pool beat, the single rise and the castle's absence under clips have not been watched on a phone. The OD2 look-alike review (Codex P1 captures), phone frame time, an observed child session and owner acceptance remain. MA-VIS-009 and MA-PLAY-006 stay FIXED_PENDING_VERIFICATION; MA-VIS-008 stays open. Layer counts come from a desktop software renderer, not phone frame time (MA-PERF-001)."
+}

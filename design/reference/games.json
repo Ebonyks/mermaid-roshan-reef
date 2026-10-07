@@ -23,7 +23,10 @@
     "scripts/day_one_director.gd",
     "scripts/arena/castle_rooms_25d.gd",
     "scripts/main.gd",
-    "scripts/day_one_flow.gd"
+    "scripts/day_one_flow.gd",
+    "scripts/arena/day_one_castle_dressing.gd",
+    "scripts/living_world.gd",
+    "scripts/games/day_one_dust_bunny_swimmer.gd"
    ],
    "probes": [
     "probe_day_one_pool_cleanup",
@@ -32,7 +35,9 @@
     "probe_day_one_voice"
    ],
    "findings": [
-    "MA-VIS-008"
+    "MA-VIS-009",
+    "MA-PLAY-006",
+    "MA-TOUCH-003"
    ],
    "scores": {
     "C1": {
@@ -45,7 +50,7 @@
     },
     "C3": {
      "score": 2,
-     "note": "An exact line per part: the skimmer names the leaf only for the leaf and otherwise uses object-neutral lines; the approved ghost hand points at the next piece, demonstrates the stroke on the next waterfall lane and taps the seahorse's trash; a quiet child hears the activity's other exact line, then its hint, twice at most. The voices are synthetic placeholders awaiting owner listening."
+     "note": "An exact line per part: the skimmer names the leaf only for the leaf and otherwise uses object-neutral lines; the approved ghost hand points at the next piece, demonstrates the stroke on the next waterfall lane and taps the seahorse's trash; a quiet child hears the activity's other exact line, then its hint, twice at most. Since 2026-10-04 the castle's touring touch halo no longer pulses over room props whose hotspots the cleanup suspends, so the only invitation on screen is the live job (MA-TOUCH-003). The voices are synthetic placeholders awaiting owner listening."
     },
     "C4": {
      "score": 2,
@@ -61,11 +66,11 @@
     },
     "C7": {
      "score": 1,
-     "note": "Approved art only in the Pool's own code (ghost hand, soap bubbles, clean rings, authored dirt wiped from the top), and Roshan's cutouts counter the room tint. But the shared castle dressing draws a 12% full-screen dirt wash in code over the room and Roshan, with code-drawn grime, drips and cracks; two identical cleanup baskets overlap during the skimmer; and a full-screen letterbox fill is drawn hidden under the room tiles (overdraw OD1, OD3, OD5, OD6; MA-VIS-008). Her work uses one approved directional cutout, not authored action frames (Codex art handoff GS2)."
+     "note": "Approved art only, and since 2026-10-04 the shared room layers are clean on the Pool's screen too (MA-VIS-009): no code-drawn wash, grime, drips or cracks (the room is listed as authoring its own dirt, GS-19), one cleanup basket, ambient code motifs paused while the cleanup is mounted (GS-20), the swimmer grounded by the approved project-original ripple atlas instead of code arcs, no generic star burst over the finale, and the castle letterbox fill cropped to its bands. Measured on the real route (Mobile renderer, corrected meter): every play state 1.16-1.41 mean layers, at most 2.5% of the screen with four or more, max 6, peak 6, no duplicate, no code drawing, no translucent wash. Since 2026-10-05 the castle and its voice caption stop drawing under the room's story clips (owner answer QP-3): d1_pool_clean measures 2.02 mean layers with three drawn items, down from 3.39 and 21. Roshan keeps her colours under the declared room tint (GS-17). Scored 1 only because the OD2 look-alike review at phone size with the HUD is not recorded yet (capture: Codex P1); her work still uses one approved directional cutout, not authored action frames (Codex P2)."
     },
     "C8": {
      "score": 2,
-     "note": "Every touch answers at once (queued taps pop bubbles, a retargeted lane moves Roshan); pieces fly to the basket with a clean ring; no spoken line names the wrong object; Rumi's reveal is earned by finishing."
+     "note": "Every touch answers at once (queued taps pop bubbles, a retargeted lane moves Roshan); pieces fly into the one basket with a clean ring; no spoken line names the wrong object; the clean-pool reveal is earned by finishing and plays out (light returns, rainbow waterfall, healthy fountain and the completion line; 2.4-5.6 s from the finale's start) before the room-completion clip takes the screen, so the clip no longer freezes a line mid-word (MA-PLAY-006, GS-21). Rumi rises once, in that clip (owner answer QP-1, 2026-10-05), and then waits in the pool as the persistent friend."
     },
     "C9": {
      "score": 2,
@@ -73,7 +78,7 @@
     },
     "C10": {
      "score": 2,
-     "note": "probe_day_one_pool_cleanup (132 checks) completes all three activities with real touches, strokes, taps and pulls, with thirty-second zero-input, retarget, queue, second-finger, focus-loss and teardown legs; two mutation tests show the new checks fail when the behaviour regresses."
+     "note": "probe_day_one_pool_cleanup completes all three activities with real touches, strokes, taps and pulls, with thirty-second zero-input, retarget, queue, second-finger, focus-loss and teardown legs, and since 2026-10-04 checks one room basket, the quiet ambient group, approved ripple art and the held reward beat, and since 2026-10-05 that the room stages no Rumi before the clip that owns her rise; probe_day_one_story_clips checks that the castle and its caption stop drawing under a clip and return after it; probe_day_one_castle_dressing, probe_castle_pool_life_2d, probe_living_world and probe_interaction guard the shared layers. Each new check was shown to fail under a mutation of its repair."
     }
    },
    "strengths": [
@@ -81,10 +86,13 @@
     "Hand-anchored tool measured on the art",
     "Save on every change; restored completion emits once",
     "Truthful spoken lines and idle re-prompts",
-    "Approved guide and effect art only"
+    "Approved guide and effect art only",
+    "Shared room layers kept off its screen: one basket, no code wash, quiet ambience",
+    "The reward beat finishes before the story clip"
    ],
    "defects": [
-    "Roshan's work uses one directional cutout, not authored action frames (Codex art GS2)",
+    "Roshan's work uses one directional cutout, not authored action frames (Codex P2, carries GS2-A)",
+    "Props keep product-render lighting and glow auras, toned down by runtime tints (Codex P3)",
     "Voices are synthetic placeholders awaiting owner listening"
    ],
    "acceptance": {
@@ -95,11 +103,11 @@
    "evidence": [
     {
      "path": "scripts/games/day_one_pool_cleanup.gd",
-     "sha256": "be9e78b4cd9d5c251747c1e97b96bd8928175ee3d58ba3a01718dd45ab6b9341"
+     "sha256": "b476ba553994c093cf32a6390f067e84c00b3fa26d2afca47d8a00df5fe91f44"
     },
     {
      "path": "scripts/games/pool_skimmer_activity.gd",
-     "sha256": "c52a610ee36d9e4c004d8a2bfe01ad8185ed57e9a6a14d73e233b8b1431eac7b"
+     "sha256": "41894d67693bb6d8e7d2a544f677083dea12b43a7f8d4e2ac0e6511d79461bce"
     },
     {
      "path": "scripts/games/pool_waterfall_activity.gd",
@@ -107,19 +115,45 @@
     },
     {
      "path": "scripts/games/pool_seahorse_rescue_activity.gd",
-     "sha256": "1db4f79e269e101a45b0fb5984afa6f396c044a135f2bae8d9ee059a2b898eca"
+     "sha256": "60a5540c943dc760f4b83cca68b4a649074ceaa91bd23de3d4ef4a42302476b0"
     },
     {
      "path": "scripts/day_one_contact_action_2d.gd",
      "sha256": "f85672d9a57a95689ddb302a3ca1da7f9b8de09027997e527790e230fb299dac"
+    },
+    {
+     "path": "scripts/living_world.gd",
+     "func": "_suspended",
+     "sha256": "9b960c1fd7aa049fb07d880c616efecef4cc7565b810041783f1ce3545a0cbc9"
+    },
+    {
+     "path": "scripts/arena/day_one_castle_dressing.gd",
+     "const": "AUTHORED_DIRT_ROOMS",
+     "sha256": "6cf79f29b6137b98786a11b605440fcea4215ca79ed1b0234faa043f2d1b9ed2"
+    },
+    {
+     "path": "scripts/arena/day_one_castle_dressing.gd",
+     "func": "_refresh_grime",
+     "sha256": "d42776e9f4291deff57992f3b015adf653e64f600817945a10e032de92244c9b"
+    },
+    {
+     "path": "scripts/games/day_one_dust_bunny_swimmer.gd",
+     "func": "_build_ripple",
+     "sha256": "6cc510df2a526119347fed2ba743fc3f92ffe90b12448cb7a9358aee84c6662a"
     }
    ],
    "reassessed": {
-    "on": "2026-10-03",
-    "after": "639847f7",
-    "reason": "Five-star implementation by Claude (docs/handoffs/codex_gold_star_2026-10-03/POOL_FIVE_STAR.md); the baseline at 87f99268 was 3/5, 17/24 (AUDIT.md section 4)."
+    "on": "2026-10-05",
+    "after": "356afeb9",
+    "reason": "Owner answers QP-1 and QP-3 applied by Claude (docs/handoffs/codex_pool_five_star_2026-10-04/FRAMEWORK.md section 11): Rumi rises once, in the d1_pool_clean clip, so the room's own rise, ripple, wave and greeting are removed and the clean-pool beat holds the completion; the castle and its voice caption stop drawing under story clips. Scores unchanged at 3/5 (21 of 24); the 'Rumi rises twice' defect is resolved. QP-2's scope awaits the owner (QP-2a)."
    },
-   "assessed_head": "f07c1a4820fb5222289802ad712db677b56400bc"
+   "assessed_head": "356afeb94bef803f3d1d2268adfed3f1405143b7",
+   "overdraw_review": {
+    "OD1": {
+     "result": "pass",
+     "evidence": "2026-10-04 source-art review by Claude of the eight V4 room tiles (assets/flats/castle/interactions_v4/background_tiles/room_mermaid_pool_background_r*_c*.png) under the live waterfall, seahorse fountain, flower and star float cards and the cleanup props: none paints a copy of a live object (the waterfall and seahorse sit over a shell plaque and an aquarium window; the water and rim carry no trash, basket or skimmer); the machine count found no duplicate texture pair in any measured state after the repair (design/reference/overdraw.json)."
+    }
+   }
   },
   {
    "id": "day_one_bathroom",
@@ -149,7 +183,8 @@
    ],
    "findings": [
     "MA-PLAY-004",
-    "MA-VIS-008"
+    "MA-VIS-008",
+    "MA-TOUCH-003"
    ],
    "scores": {
     "C1": {
@@ -162,7 +197,7 @@
     },
     "C3": {
      "score": 1,
-     "note": "First cue per step is exact with ghost hand, circle demo and arrows; idle re-prompts reuse a deduplicated cue and stay silent, and toilet re-prompt variants have no recording."
+     "note": "First cue per step is exact with ghost hand, circle demo and arrows; idle re-prompts reuse a deduplicated cue and stay silent, and toilet re-prompt variants have no recording. Since 2026-10-04 the castle's touring halo stays off the props whose hotspots the cleanup suspends (MA-TOUCH-003)."
     },
     "C4": {
      "score": 2,
@@ -178,7 +213,7 @@
     },
     "C7": {
      "score": 2,
-     "note": "Authored dirty, drained and clean room plates; clean fixtures cut from the approved clean room."
+     "note": "Authored dirty, drained and clean room plates; clean fixtures cut from the approved clean room. Since 2026-10-04 the shared swimming dust bunny sits on the approved project-original ripple atlas instead of code-drawn arcs; the room's shared code-drawn wash remains until the bathroom gains authored dirt (MA-VIS-008)."
     },
     "C8": {
      "score": 2,
@@ -222,13 +257,14 @@
     },
     {
      "path": "scripts/games/day_one_dust_bunny_swimmer.gd",
-     "sha256": "1f508b69f4e40ad7ccdca9234b5510b889841e1fe6a12f3b217d0c682dca6340"
+     "sha256": "2ff24ebee6b078f7d31fa53648e5c1b443f954760b3042d61ea0eb69f10e84c3"
     },
     {
      "path": "scripts/day_one_bathroom_movie_handoff.gd",
      "sha256": "975f3ee0800bcd6e7d6df2f485cd3dd4861fbee060eec9e85b911c9f2d30b3a9"
     }
-   ]
+   ],
+   "assessed_head": "a52f545f4c5e7cc720b0d1194b374801ece0e24e"
   },
   {
    "id": "day_one_playroom",
@@ -4093,7 +4129,8 @@
     "scripts/main.gd",
     "scripts/navigation_controller.gd",
     "scripts/arena/sky_lagoon.gd",
-    "scripts/arena/day_one_castle_dressing.gd"
+    "scripts/arena/day_one_castle_dressing.gd",
+    "scripts/arena/day_one_castle_grime.gd"
    ],
    "probes": [
     "probe_throne",
@@ -4105,7 +4142,8 @@
    ],
    "findings": [
     "MA-SAVE-001",
-    "MA-OPERA-012"
+    "MA-OPERA-012",
+    "MA-TOUCH-003"
    ],
    "scores": {
     "C1": {
@@ -4118,7 +4156,7 @@
     },
     "C3": {
      "score": 2,
-     "note": "Every castle objective has an exact recorded line and a live gold door cue."
+     "note": "Every castle objective has an exact recorded line and a live gold door cue; since 2026-10-04 the touring prop halo only marks props whose hotspots are visible in the tree, so a suspended room never shows an invitation it cannot answer (MA-TOUCH-003)."
     },
     "C4": {
      "score": 2,
@@ -4134,7 +4172,7 @@
     },
     "C7": {
      "score": 1,
-     "note": "roshan_base anchor and approved panorama; the hall pans one flat layer and foreground cards always draw over Roshan."
+     "note": "roshan_base anchor and approved panorama; the hall pans one flat layer and foreground cards always draw over Roshan. Since 2026-10-04 the safe-frame backdrop fills only the letterbox or pillarbox bands the fitted stage leaves, not a full-screen layer hidden under the room tiles."
     },
     "C8": {
      "score": 2,
@@ -4163,7 +4201,7 @@
    "evidence": [
     {
      "path": "scripts/arena/castle_rooms_25d.gd",
-     "sha256": "6846b13f4ab854c7a8003ce33ea72b4b7be036f9a12e711c3b23f4dcd5b95aab"
+     "sha256": "c0df908d401ff8a3e000135b83c20780e104d284b11c795945710a349b96fa9f"
     },
     {
      "path": "scripts/castle_door_language.gd",
@@ -4174,7 +4212,8 @@
      "sha256": "36fb7f194b8ad710284b7c5f5e9ef797a0d3c3c56bdc040f8b98d25bc455d79b"
     }
    ],
-   "august_rating": 3
+   "august_rating": 3,
+   "assessed_head": "356afeb94bef803f3d1d2268adfed3f1405143b7"
   },
   {
    "id": "sky_lagoon",

@@ -35,6 +35,7 @@ func _init() -> void:
 	director = main._living_world_ref()
 	director.setup()
 	_probe_inventory()
+	_probe_quiet_group()
 	await _probe_opera_sparse_stage_routing()
 	_probe_all_stage_runtime()
 	_probe_real_input_reset()
@@ -135,6 +136,22 @@ func _probe_inventory() -> void:
 		and EmberFortressLevel.ROOMS.size() == 6
 		and OperaHouse.ACTS.size() == 18
 		and OperaHouse.ACTIVE_ACT_COUNT == 15)
+
+
+func _probe_quiet_group() -> void:
+	# A focused activity that supplies its own authored motion (the Day One Pool
+	# cleanup) pauses the code-drawn ambient layer only while it is mounted.
+	var before: bool = director._suspended()
+	var quiet := Node.new()
+	quiet.name = "LivingWorldQuietProbe"
+	quiet.add_to_group(LivingWorldDirector.QUIET_GROUP)
+	main.add_child(quiet)
+	var during: bool = director._suspended()
+	main.remove_child(quiet)
+	quiet.free()
+	_check("a quiet-group activity pauses the ambient layer only while mounted",
+		during and director._suspended() == before,
+		"before=%s during=%s" % [before, during])
 
 
 func _probe_opera_sparse_stage_routing() -> void:

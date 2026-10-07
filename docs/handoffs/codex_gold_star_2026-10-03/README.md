@@ -64,6 +64,8 @@ The ownership change also helps every other generic-surface career.
 
 ### GS2. Pool art and voice
 
+> **Status, 2026-10-04 (revision 5):** GS2-A carries forward as P2, GS2-B is replaced by reuse of the approved water-ripple atlas (done in code) and GS2-C carries forward as P7 in the [Pool five-star packet](../codex_pool_five_star_2026-10-04/README.md).
+
 See [POOL_FIVE_STAR.md section 5](POOL_FIVE_STAR.md#5-codex-handoff-gs2-art-and-voice-for-the-pool):
 
 - **GS2-A:** Roshan's scoop, scrub and tug actions under the owner's 2026-10-03 animation workflow: one job card per action, an editable Aseprite master with per-frame hand sockets, at least four drawn keys each, from the `roshan_base` identity. Pilot the scoop first; the owner reviews it before scrub and tug are made.
@@ -92,6 +94,8 @@ The protected workflow `.github/workflows/probes.yml` does not. It is a high-ris
 - Record phone, child and owner results in the game's `acceptance` lanes. Never raise C12 without that evidence.
 
 ### GS5. Fix the measured overdraw ([`MA-VIS-008`](../../../audit/findings/ACTIVE_FINDINGS_2026-08-13.md#ma-vis-008))
+
+> **Status, 2026-10-04 (revision 5):** the Pool's items are done by Claude and carved out as [`MA-VIS-009`](../../../audit/findings/ACTIVE_FINDINGS_2026-08-13.md#ma-vis-009) (fixed pending verification). That covers items 1 and 3 for the Pool, item 2 and the Pool's ripple arcs; see the [framework](../codex_pool_five_star_2026-10-04/FRAMEWORK.md). Item 4 needs no repair: the "255-layer burst" was a meter artifact, now corrected in `scripts/probe_overdraw.gd`. Everything below still applies to the other Day One rooms and the Opera careers.
 
 The owner asked on 2026-10-04 for overdraw to be analysed specifically. The gold-star criteria now include six overdraw checks (OD1-OD6 under C7), measured on the real routes by `tools/measure_overdraw.py`. The method is GPU layer counts plus the live Canvas tree, numbers only. The [scorecard](../../../design/reference/GOLD_STAR.md) lists every result. `python -B tools/gold_star.py --compare GAME` ends with the ordered list for each game.
 

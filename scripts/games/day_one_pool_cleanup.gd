@@ -22,15 +22,6 @@ const WATERFALL_FALLBACK_CENTER := Vector2(461.875, 216.25)
 const WATERFALL_FALLBACK_SIZE := Vector2(162.5, 220.0)
 const SEAHORSE_FALLBACK_CENTER := Vector2(921.875, 245.625)
 const SEAHORSE_FALLBACK_SIZE := Vector2(208.75, 241.25)
-const RUMI_POOL_ATLAS := \
-	"res://assets/characters/rumi/rumi_pool_idle_swim_atlas.png"
-const RUMI_POSE_ATLAS := \
-	"res://assets/characters/rumi/rumi_eight_pose_runtime.png"
-const RUMI_POOL_CELL_SIZE := Vector2(256.0, 256.0)
-const RUMI_POSE_CELL_SIZE := Vector2(256.0, 384.0)
-const RUMI_SWIM_SCALE := 1.02
-const RUMI_UPRIGHT_START_SCALE := 0.83
-const RUMI_UPRIGHT_SCALE := 0.96
 const DINGY_ROOM_TINT := Color(0.78, 0.86, 0.76, 1.0)
 const SWIMMER_WATER_BOUNDS := Rect2(300.0, 285.0, 680.0, 235.0)
 const SWIMMER_START := Vector2(820.0, 455.0)
@@ -78,8 +69,17 @@ const IDLE_REPROMPT_LINES: Dictionary = {
 		["day1_pool_seahorse_hint", "Tap fast to pull the trash off the seahorse!"],
 	],
 }
-# Approved Day One effect art for Rumi's reveal; replaces a text glyph.
-const REVEAL_RING_PATH := "res://assets/castle/dirty_cleanup_2d/effects/fx_clean_ring.png"
+# Rumi rises once, in the room-completion story clip `d1_pool_clean` (owner
+# answer QP-1, 2026-10-05): the room's finale reveals the clean pool and leaves
+# her rise to the clip, so no in-room Rumi is staged before it.
+const RUMI_RISE_CLIP_ID := "d1_pool_clean"
+# The clean-pool reveal is the earned reward beat: the light returns, the
+# waterfall and fountain play their authored sequences and the completion line
+# plays out before the room completes, because completion starts the story
+# clip, which pauses the tree (freezing a line mid-word) and covers the room.
+# Both bounds count from the start of the finale.
+const REVEAL_BEAT_MIN_SECONDS := 2.4
+const REVEAL_BEAT_MAX_SECONDS := 5.6
 
 var m: ReefMain
 var skimmer_activity: PoolSkimmerActivity = null
@@ -91,7 +91,6 @@ var _finale_started: bool = false
 var _announcements_enabled: bool = true
 var _lighting_target: CanvasItem = null
 var _lighting_target_rest_modulate := Color.WHITE
-var _rumi: AnimatedSprite2D = null
 var _swimming_bunny: DayOneDustBunnySwimmer = null
 var _clean_waterfall: Sprite2D = null
 var _healthy_seahorse: Sprite2D = null
@@ -106,6 +105,9 @@ var _idle_reprompts: int = 0
 var _reprompt_log: Array[String] = []
 var _tint_ratio: float = 0.0
 var _counter_tinted: Array[Sprite2D] = []
+var _reveal_beat_active: bool = false
+var _reveal_beat_seconds: float = 0.0
+var _reveal_emitted: bool = false
 
 
 func setup(main: ReefMain, announcements_enabled: bool = true) -> void:
@@ -122,6 +124,9 @@ func setup(main: ReefMain, announcements_enabled: bool = true) -> void:
 	# interleave with Roshan and the foreground instead of becoming screen UI.
 	if m.castle_room_world_root != null and get_parent() != m.castle_room_world_root:
 		reparent(m.castle_room_world_root)
+	# The cleanup supplies the room's motion and guidance while it is mounted, so
+	# the living-world layer's code-drawn ambient motifs pause above it (OD3).
+	add_to_group(LivingWorldDirector.QUIET_GROUP)
 	_capture_interaction_layers()
 	_capture_room_lighting()
 	_capture_clean_waterfall()
@@ -202,16 +207,8 @@ func audit_snapshot() -> Dictionary:
 			if waterfall_activity != null else {},
 		"seahorse": seahorse_activity.audit_snapshot()
 			if seahorse_activity != null else {},
-		"rumi_present": _rumi != null and is_instance_valid(_rumi),
-		"rumi_approved_identity": _rumi != null and is_instance_valid(_rumi)
-			and bool(_rumi.get_meta("approved_private_canon", false)),
-		"rumi_authored_animation": _rumi != null and is_instance_valid(_rumi)
-			and _rumi.sprite_frames != null
-			and _rumi.sprite_frames.get_frame_count(&"idle") == 2
-			and _rumi.sprite_frames.get_frame_count(&"wave") == 2
-			and _rumi.sprite_frames.get_frame_count(&"swim") == 4,
-		"rumi_animation": String(_rumi.animation)
-			if _rumi != null and is_instance_valid(_rumi) else "",
+		"in_room_rumi_rise": false,
+		"rumi_rise_owner": RUMI_RISE_CLIP_ID,
 		"dust_bunny_count": 2,
 		"land_bunny_owner": "day_one_castle_dressing",
 		"swimming_bunny": _swimming_bunny.audit_snapshot()
@@ -224,6 +221,12 @@ func audit_snapshot() -> Dictionary:
 		"idle_seconds": _idle_seconds,
 		"tint_ratio": _tint_ratio,
 		"identity_color_preserved": identity_color_preserved(),
+		"reveal_beat_holding": _reveal_beat_active,
+		"reveal_completed": _reveal_emitted,
+		"one_room_basket": skimmer_activity != null and seahorse_activity != null
+			and not bool(skimmer_activity.audit_snapshot().get("basket_visible", true))
+			and seahorse_activity.room_basket() != null,
+		"living_world_quiet": is_in_group(LivingWorldDirector.QUIET_GROUP),
 	}
 
 
@@ -260,6 +263,9 @@ func identity_color_preserved() -> bool:
 
 
 func _process(delta: float) -> void:
+	if _reveal_beat_active:
+		_advance_reveal_beat(maxf(delta, 0.0))
+		return
 	# A quiet child hears the current activity's exact line again (twice at
 	# most); the guide hands keep pointing in the meantime. Never during a
 	# completion, the finale, or before the controller is live.
@@ -393,6 +399,12 @@ func _build_activities() -> void:
 	seahorse_activity.completed.connect(_on_seahorse_completed)
 	add_child(seahorse_activity)
 	seahorse_activity.bind_room_actor(m.castle_room_player_sprite, m.castle_room_player_shadow as Sprite2D, m.skin_id)
+	# The rescue's basket stays in the room through all three activities at the
+	# skimmer's landing point; show one basket, never two identical ones (OD1).
+	var room_basket: Sprite2D = seahorse_activity.room_basket()
+	if room_basket != null \
+			and room_basket.position.is_equal_approx(PoolSkimmerActivity.BASKET_POSITION):
+		skimmer_activity.set_basket_visible(false)
 
 
 func _build_swimming_dust_bunny() -> void:
@@ -696,123 +708,33 @@ func _begin_finale() -> void:
 	var rooms: CastleRooms25D = m._castle_rooms_ref() if m != null else null
 	if rooms != null:
 		rooms._activate_room_item("seahorse_fountain")
-	_spawn_rumi_rise()
+	# Hold the room completion until the clean-pool reveal and its line have
+	# played (bounded), so the story clip, which owns Rumi's one rise, follows
+	# the reward beat instead of cutting into it.
+	_reveal_beat_seconds = 0.0
+	_reveal_beat_active = true
 
 
-func _spawn_rumi_rise() -> void:
-	var pool_atlas: Texture2D = load(RUMI_POOL_ATLAS) as Texture2D
-	var pose_atlas: Texture2D = load(RUMI_POSE_ATLAS) as Texture2D
-	if pool_atlas == null or pose_atlas == null:
-		push_error("Missing approved Rumi animation atlases: %s / %s" % [
-			RUMI_POOL_ATLAS, RUMI_POSE_ATLAS])
-		_finish_rumi_reveal()
+func _advance_reveal_beat(delta: float) -> void:
+	_reveal_beat_seconds += delta
+	if _reveal_beat_seconds < REVEAL_BEAT_MIN_SECONDS:
 		return
-	_rumi = AnimatedSprite2D.new()
-	_rumi.name = "RumiVioletReveal"
-	_rumi.sprite_frames = _build_rumi_sprite_frames(pool_atlas, pose_atlas)
-	_rumi.animation_finished.connect(_on_rumi_animation_finished)
-	_rumi.position = Vector2(640.0, 610.0)
-	_rumi.scale = Vector2.ONE * RUMI_SWIM_SCALE * 0.72
-	_rumi.modulate.a = 0.0
-	_rumi.z_index = 18
-	_rumi.set_meta("approved_private_canon", true)
-	_rumi.set_meta("source_working_name", "Violet Tide")
-	add_child(_rumi)
-	_rumi.play(&"swim")
-	_spawn_reveal_ripple()
-	var rise_tween: Tween = _rumi.create_tween().set_parallel(true)
-	rise_tween.tween_property(
-		_rumi, "position", Vector2(650.0, 350.0), 1.15
-	).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
-	rise_tween.tween_property(
-		_rumi, "scale", Vector2.ONE * RUMI_SWIM_SCALE, 1.0
-	).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
-	rise_tween.tween_property(_rumi, "modulate:a", 1.0, 0.52)
-	rise_tween.chain().tween_callback(_finish_rumi_reveal)
-
-
-func _build_rumi_sprite_frames(
-		pool_atlas: Texture2D, pose_atlas: Texture2D) -> SpriteFrames:
-	var frames := SpriteFrames.new()
-	frames.remove_animation(&"default")
-	frames.add_animation(&"idle")
-	frames.set_animation_speed(&"idle", 1.5)
-	frames.set_animation_loop(&"idle", true)
-	for column: int in range(2):
-		frames.add_frame(&"idle", _rumi_atlas_frame(
-			pose_atlas, column, 0, RUMI_POSE_CELL_SIZE))
-	frames.add_animation(&"wave")
-	frames.set_animation_speed(&"wave", 2.0)
-	frames.set_animation_loop(&"wave", false)
-	for column: int in range(2, 4):
-		frames.add_frame(&"wave", _rumi_atlas_frame(
-			pose_atlas, column, 0, RUMI_POSE_CELL_SIZE))
-	frames.add_animation(&"swim")
-	frames.set_animation_speed(&"swim", 5.0)
-	frames.set_animation_loop(&"swim", true)
-	for column: int in range(4):
-		frames.add_frame(&"swim", _rumi_atlas_frame(
-			pool_atlas, column, 1, RUMI_POOL_CELL_SIZE))
-	return frames
-
-
-func _rumi_atlas_frame(atlas: Texture2D, column: int, row: int,
-		cell_size: Vector2) -> AtlasTexture:
-	var frame := AtlasTexture.new()
-	frame.atlas = atlas
-	frame.region = Rect2(
-		Vector2(float(column) * cell_size.x, float(row) * cell_size.y),
-		cell_size)
-	return frame
-
-
-func _on_rumi_animation_finished() -> void:
-	if _rumi != null and is_instance_valid(_rumi) \
-			and _rumi.animation == &"wave":
-		_rumi.play(&"idle")
-
-
-func _spawn_reveal_ripple() -> void:
-	# The approved clean ring, flattened onto the water where Rumi rises; no
-	# font-dependent glyph.
-	var texture: Texture2D = load(REVEAL_RING_PATH) as Texture2D
-	if texture == null:
+	if _reveal_beat_seconds < REVEAL_BEAT_MAX_SECONDS and _voice_lane_busy():
 		return
-	var ripple := Sprite2D.new()
-	ripple.name = "RumiRiseRipple"
-	ripple.texture = texture
-	ripple.position = Vector2(640.0, 525.0)
-	ripple.z_index = 17
-	var base: float = 300.0 / maxf(texture.get_width(), 1.0)
-	ripple.scale = Vector2(base * 0.22, base * 0.08)
-	add_child(ripple)
-	var ripple_tween: Tween = ripple.create_tween().set_parallel(true)
-	ripple_tween.tween_property(ripple, "scale", Vector2(base, base * 0.34), 1.0)
-	ripple_tween.tween_property(ripple, "modulate:a", 0.0, 1.0)
-	ripple_tween.chain().tween_callback(ripple.queue_free)
-
-
-func _finish_rumi_reveal() -> void:
-	_busy = false
-	if _rumi != null and is_instance_valid(_rumi):
-		_rumi.scale = Vector2.ONE * RUMI_UPRIGHT_START_SCALE
-		_rumi.play(&"wave")
-		var settle_tween: Tween = _rumi.create_tween()
-		settle_tween.tween_property(
-			_rumi, "scale", Vector2.ONE * RUMI_UPRIGHT_SCALE, 0.35
-		).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
-		var idle_tween: Tween = _rumi.create_tween().set_loops()
-		idle_tween.tween_property(
-			_rumi, "position:y", _rumi.position.y - 7.0, 1.15
-		).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
-		idle_tween.tween_property(
-			_rumi, "position:y", _rumi.position.y + 7.0, 1.15
-		).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
-	if m != null:
-		_say_context("day1_pool_rumi_reply",
-			"We saved the pool and the seahorse! Hi, Rumi!",
-			"day_one")
+	_reveal_beat_active = false
+	if _reveal_emitted:
+		return
+	_reveal_emitted = true
 	reveal_completed.emit()
+
+
+func _voice_lane_busy() -> bool:
+	if m == null:
+		return false
+	for player: AudioStreamPlayer in m.voice_pool:
+		if player != null and is_instance_valid(player) and player.playing:
+			return true
+	return false
 
 
 func _announce_progress_from_save() -> void:

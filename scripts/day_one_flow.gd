@@ -430,6 +430,7 @@ func _day_one_cancel_story_clips() -> void:
 		# Release its pause synchronously before another scene acquires it. The
 		# detached callback cannot advance an abandoned room or boss route.
 		previous.skip()
+	m._day_one_uncover_castle_after_story_clip()
 
 
 func _day_one_suspend_boss_for_lifecycle() -> void:

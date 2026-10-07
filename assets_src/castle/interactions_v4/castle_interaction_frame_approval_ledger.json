@@ -1,6 +1,6 @@
 {
   "schema_version": "castle_interaction_frame_approval_v2",
-  "candidate_payload_sha256": "b613a78030fb10efcf6ff799bd85b6d9679faccecea014d3c05303be300e1368",
+  "candidate_payload_sha256": "910309d482f76c2109370d22d92fcc8c86984aa6517a1cc32285e3cb4a7ce69e",
   "manifest_semantic_sha256": "47c94649d447c78d1415a895aec88fe183d5783eef46ce39d5a9d7cc39067e85",
   "metadata_revalidation": {
     "date": "2026-08-29",
@@ -279,6 +279,29 @@
     "prior_candidate_payload_sha256": "d37e4eeb2fad107b10ac66b95586e904c218a3ea2f1bf35c329beb0f8c1d68d8",
     "reason": "Whole-file Castle source hash changed for Eagle, movie aperture, pointer and caption repairs. Restoring only the baseline runtime_layout semantic hash reconstructs the exact prior approved candidate payload; every other candidate field, all 96 frame hashes, V4 assets, underlays, placement and occlusion relations are identical. Existing review is preserved, not newly asserted.",
     "baseline": "6a38bc8caa1c153e8ebb05a15f7ab6696bb4d1f4",
+    "owner_acceptance": "pending"
+  },
+  "pool_five_star_binding_revalidation": {
+    "date": "2026-10-04",
+    "reason": "The Mermaid Pool five-star round crops the castle letterbox backdrop to its safe bands, lets the touring touch halo mark only hotspots visible in the tree, and drops the generic star burst from the Pool finale. These runtime changes do not alter ROOM_LAYOUTS card records, V4 manifest data, fixture z routing, room tiles, atlas pixels, alpha ownership, z order, or reviewed interaction-frame pixels. The frame-review builder hashes the complete runtime-layout text, so the candidate input binding legitimately changed.",
+    "prior_candidate_payload_sha256": "b613a78030fb10efcf6ff799bd85b6d9679faccecea014d3c05303be300e1368",
+    "prior_runtime_layout_semantic_sha256": "6846b13f4ab854c7a8003ce33ea72b4b7be036f9a12e711c3b23f4dcd5b95aab",
+    "runtime_layout_semantic_sha256": "199b759d759f415e3e5a168d1ffb23abd897ce851eff64470952dc8037516828",
+    "manifest_semantic_sha256": "47c94649d447c78d1415a895aec88fe183d5783eef46ce39d5a9d7cc39067e85",
+    "frame_hash_evidence": "All 96 candidate frame_review_sha256 values and every occlusion_relation exactly equal the existing reviewed ledger values; zero mismatches.",
+    "candidate_binding_refresh": "Replacing only the current runtime-layout semantic hash with the prior hash reproduces the prior candidate payload hash exactly; existing deterministic frame approval remains applicable.",
+    "owner_acceptance": "pending"
+  },
+  "pool_owner_answers_binding_revalidation": {
+    "date": "2026-10-05",
+    "reason": "The Mermaid Pool owner answers (QP-1) move the persistent Rumi's pose-atlas path into castle_rooms_25d.gd as a constant and reword the Pool finale comment. These changes do not alter ROOM_LAYOUTS card records, V4 manifest data, fixture z routing, room tiles, atlas pixels, alpha ownership, z order, or reviewed interaction-frame pixels. The frame-review builder hashes the complete runtime-layout text, so the candidate input binding legitimately changed.",
+    "baseline": "356afeb94bef803f3d1d2268adfed3f1405143b7",
+    "prior_candidate_payload_sha256": "869c21beb096c1ac0319c6d3ff79c1a593d74fe0a7c8968afaf4df51eb05990d",
+    "prior_runtime_layout_semantic_sha256": "199b759d759f415e3e5a168d1ffb23abd897ce851eff64470952dc8037516828",
+    "runtime_layout_semantic_sha256": "c0df908d401ff8a3e000135b83c20780e104d284b11c795945710a349b96fa9f",
+    "manifest_semantic_sha256": "47c94649d447c78d1415a895aec88fe183d5783eef46ce39d5a9d7cc39067e85",
+    "frame_hash_evidence": "All 96 candidate frame_review_sha256 values and every occlusion_relation exactly equal the existing reviewed ledger values; zero mismatches.",
+    "candidate_binding_refresh": "Replacing only the current runtime-layout semantic hash with the prior hash reproduces the prior candidate payload hash exactly; existing deterministic frame approval remains applicable.",
     "owner_acceptance": "pending"
   }
 }
