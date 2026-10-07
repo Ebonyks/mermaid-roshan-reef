@@ -1,0 +1,22 @@
+{
+  "time_utc": "2026-10-07T17:58:27.309534+00:00",
+  "baseline": "c4c23ee3dfbb5fdf4d96149b908569c2b6fc4e38",
+  "before_sha256": "cb96c6821ca258dd79f2d932fe570874bb7203433c8e65ecaa1d4eda5eab82c6",
+  "before_bytes": 13222337,
+  "after_sha256": "0ce2ca9efec4ca7e72227922b58a18b3532e9a36cec1eea3d988c371cf545c38",
+  "after_bytes": 52525,
+  "before_scan_coverage_debt": true,
+  "after_scan_coverage_debt": false,
+  "known_model_signature": false,
+  "linked_images": 22,
+  "unchanged_pngs": 48,
+  "strict_detector_changed": false,
+  "runtime_changed": false,
+  "paused_candidate_patch_unchanged": true,
+  "status": "VERIFIED_DOCUMENTATION_REPAIR_FULL_TOPIC_CI_PENDING",
+  "repository_regression_gate": "NO_REGRESSION; zero model and scan-coverage files; existing production/probe 3D debt remains UNSATISFIED",
+  "acceptance": "No native gameplay, 4.6, device, child or owner acceptance granted.",
+  "current_html_sha256": "45453ba0ad7110dbb0ab460311c67c2d7befa962078b5bbaa67f54d48b53ef6c",
+  "current_html_bytes": 52527,
+  "documentation_gates": "Authority/coverage ALL OK; 54 tests and 6/6 stress; desktop/mobile 22 images, no overflow/errors"
+}

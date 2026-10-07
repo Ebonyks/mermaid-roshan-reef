@@ -1,6 +1,6 @@
 {
   "algorithm": "sha256",
-  "payload_sha256": "c518c5f0649bf5646644fa8f6f63a8197b75202ad7f701330c2d16bcf3fd2445",
+  "payload_sha256": "190de5b73b1d7923f916c8b719c1d9b01b1f3ef11c79f6fed232f4274a0e9faf",
   "self_excluded": "FILES.json",
   "files": [
     {
@@ -115,13 +115,18 @@
     },
     {
       "path": "BUILD_METHOD.py.txt",
-      "sha256": "a712e3a3664c128908d8e95daa78dcdaf1737a5c52d8aea3034a83a991b001ed",
-      "bytes": 50791
+      "sha256": "998d044dc09b0715ef15701b04794ae2668b64c057ce3718bd0505118b73ffaa",
+      "bytes": 50723
     },
     {
       "path": "evidence/authority_stress.log",
       "sha256": "f6dae08cdab672a16e9630b84cfc9cfbb91c9ce905958c736a197b38d21dcf29",
       "bytes": 20
+    },
+    {
+      "path": "evidence/ci_37653015378_failure.log",
+      "sha256": "78a4b7a81640f05e49980d49871f4325b0f8963ab813fa16a984305f96448ba9",
+      "bytes": 1095915
     },
     {
       "path": "evidence/development.log",
@@ -165,8 +170,38 @@
     },
     {
       "path": "evidence/HTML_RENDER_QA.json",
-      "sha256": "1617f25db6429c5c06fc34205b226d7a4be7d62fcbd41d40321818863b147524",
+      "sha256": "a095dc0c19eaee88209e7c94e7e7ed57535a6eca4978407d5766e893f9ea0bdf",
       "bytes": 329
+    },
+    {
+      "path": "evidence/html_repair_authority.log",
+      "sha256": "7d5b94927c43be51956fdc4350a0c408a7a0cf833670fb0248f6d730a63bf1bb",
+      "bytes": 78
+    },
+    {
+      "path": "evidence/html_repair_development.log",
+      "sha256": "17618ed3e8b43d1ba6115b6c5d6da93992398bbb8a9d734d394cc92f7aa8353a",
+      "bytes": 80
+    },
+    {
+      "path": "evidence/html_repair_document_tests.log",
+      "sha256": "650ad247692abfd2a05363d0c4f0613b89a2e663f18b73a5d703fbdf4fb3e94e",
+      "bytes": 179
+    },
+    {
+      "path": "evidence/html_repair_game2d.log",
+      "sha256": "763e51b38ed1cefc7a506b7148b9d6822c3a647d2fb45e1b64c8f22cb194e0ac",
+      "bytes": 414
+    },
+    {
+      "path": "evidence/HTML_SCAN_REPAIR.json",
+      "sha256": "8f3db2c9bf1feba2d2fb540a16fd9d7ad53edc47f24bd76a3735e0244baf9b1f",
+      "bytes": 1164
+    },
+    {
+      "path": "evidence/HTML_SCAN_REPAIR_START.json",
+      "sha256": "70ac8ec45fbfea7d7291a6fb3610130e6b626c2bba1a073d1ebb6694a9a12458",
+      "bytes": 1852
     },
     {
       "path": "evidence/import_baseline_hcache.json",
@@ -185,23 +220,23 @@
     },
     {
       "path": "evidence/qa_magician_walkthrough.py.txt",
-      "sha256": "c948abe204729e556c23f4ccef3873069e4c6c2e4bc936b4c713cd2b0493c787",
-      "bytes": 3987
+      "sha256": "7cfebce176302e7996657d74bdf13ed67f2602208b9ee4d9f34fc7d4822669dd",
+      "bytes": 4200
     },
     {
       "path": "evidence/render_magician_walkthrough.cjs.txt",
-      "sha256": "ff987651a081d018959401d3a7fc6c9497badbef84d5bb21fd74af36831110e1",
-      "bytes": 1945
+      "sha256": "e34b8be1b78913d6a2aa9079c8010da981207cbe064e80471e02a334ea1643af",
+      "bytes": 2135
     },
     {
       "path": "evidence/WALKTHROUGH_QA.json",
-      "sha256": "48cd445e357fca97f135cafff471a2486c47a2b60edb3c69563452599073e4c4",
-      "bytes": 3436
+      "sha256": "a8b47bdde567ca6108acd09e9b9b6aa358c57270e096ae85c4fb10c298ccb52c",
+      "bytes": 3478
     },
     {
       "path": "index.html",
-      "sha256": "cb96c6821ca258dd79f2d932fe570874bb7203433c8e65ecaa1d4eda5eab82c6",
-      "bytes": 13222337
+      "sha256": "45453ba0ad7110dbb0ab460311c67c2d7befa962078b5bbaa67f54d48b53ef6c",
+      "bytes": 52527
     },
     {
       "path": "KEY_SEQUENCE.png",
@@ -320,13 +355,13 @@
     },
     {
       "path": "README.md",
-      "sha256": "2f9eb8ca9c312b4c87bb1187212364f150ac9d72aa1b3fd0e6b1144d8bec12ba",
-      "bytes": 19723
+      "sha256": "7f1bd9d1d4a30d5e220788935bb8e0f311e20463fcf735b1a757575f8fc914f0",
+      "bytes": 20406
     },
     {
       "path": "SOURCE_SNAPSHOT.json",
-      "sha256": "915ecb21463d96cda04c86f383a3d84217564f335593707c92c2a20c04c770cf",
-      "bytes": 43430
+      "sha256": "dd4cdf20392e6aa41bef086296013b7ce7f4aea4a679c9b780159291061074ff",
+      "bytes": 43898
     },
     {
       "path": "source_snapshots/opera_career_world_2d.gd.txt",

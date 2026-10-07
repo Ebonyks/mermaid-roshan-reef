@@ -1,0 +1,46 @@
+{
+  "time_utc": "2026-10-07T17:53:59.599816+00:00",
+  "baseline": "c4c23ee3dfbb5fdf4d96149b908569c2b6fc4e38",
+  "scope": "Independent documentation-only HTML scan-coverage repair; main development/art goal remains paused. Replace embedded image data with exact packaged PNG references. Preserve all image bytes, source snapshots, strict detector, historical failures and paused 60-file candidate.",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-MED-03",
+    "DL-MED-09",
+    "DL-QA-03",
+    "DL-QA-11"
+  ],
+  "related_findings": [
+    "MA-VIS-006",
+    "MA-PLAY-004",
+    "MA-PLAY-005"
+  ],
+  "new_finding": "None: published HTML exceeded the existing text scan cap; no model or runtime feature added.",
+  "required_evidence": [
+    "Failing CI log and direct coverage reproduction",
+    "Current HTML fully scanned and not model content",
+    "Strict repository regression gate, authority and coverage gates",
+    "22 unchanged image hashes; 22 loaded desktop/mobile images",
+    "Documentation-only commit and exact anonymous publication verification; full remote CI remains separate"
+  ],
+  "failing_ci": {
+    "run": 37653015378,
+    "url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/37653015378",
+    "failure": "G2D101 HTML model signature scan-coverage debt",
+    "godot_import": "Completed on Godot 4.7.2.stable.official.ed1daf0bf"
+  },
+  "reproduction": {
+    "html_bytes": 13222337,
+    "scan_cap_bytes": 4194304,
+    "coverage_debt": true,
+    "known_model_signature": false
+  },
+  "paused_candidate_patch_sha256": "301bb8b38ba7a03e30b65dc991721b32382490edddd07dd4cec7d291b0711637",
+  "storage": {
+    "c_free_bytes": 1052514291712,
+    "h_free_bytes": 15599480832,
+    "package_cap_bytes": 41943040,
+    "heavy_import_or_capture_batches": 0
+  }
+}

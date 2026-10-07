@@ -1,16 +1,18 @@
 {
   "id": "magician-visual-walkthrough-20261007",
-  "scope": "Owner-requested self-contained illustrated current-source Magician walkthrough, source/provenance/step mapping, separate annotation copies and explicit native/route/contact/finish/save gaps. Documentation only; preserve existing paused input candidate and owner art decisions.",
+  "scope": "Owner-requested self-contained illustrated current-source Magician walkthrough, source/provenance/step mapping, separate annotation copies and explicit native/route/contact/finish/save gaps. Documentation only; preserve existing paused input candidate and owner art decisions. Follow-up: preserve the failed exact CI evidence and replace embedded image HTML with a portable PNG-linked review folder to remain completely scannable under the unchanged strict 2D detector.",
   "baseline": "96274aab9cebd563b10846a4a48de5d017588563",
   "rules": [
+    "DL-ASSET-01",
+    "DL-ASSET-03",
     "DL-AUTH-05",
     "DL-AUTH-06",
     "DL-AUTH-07",
-    "DL-ASSET-01",
-    "DL-ASSET-03",
     "DL-INT-02",
     "DL-INT-04",
     "DL-INT-06",
+    "DL-MED-03",
+    "DL-MED-09",
     "DL-QA-03",
     "DL-QA-07",
     "DL-QA-11"
@@ -60,12 +62,19 @@
     "assets_src/review/magician_walkthrough_20261007/evidence/HTML_DESKTOP.png",
     "assets_src/review/magician_walkthrough_20261007/evidence/HTML_MOBILE.png",
     "assets_src/review/magician_walkthrough_20261007/evidence/HTML_RENDER_QA.json",
+    "assets_src/review/magician_walkthrough_20261007/evidence/HTML_SCAN_REPAIR.json",
+    "assets_src/review/magician_walkthrough_20261007/evidence/HTML_SCAN_REPAIR_START.json",
     "assets_src/review/magician_walkthrough_20261007/evidence/IMPORT_RECOVERY.json",
     "assets_src/review/magician_walkthrough_20261007/evidence/WALKTHROUGH_QA.json",
     "assets_src/review/magician_walkthrough_20261007/evidence/authority_stress.log",
+    "assets_src/review/magician_walkthrough_20261007/evidence/ci_37653015378_failure.log",
     "assets_src/review/magician_walkthrough_20261007/evidence/development.log",
     "assets_src/review/magician_walkthrough_20261007/evidence/document_authority.log",
     "assets_src/review/magician_walkthrough_20261007/evidence/document_tests.log",
+    "assets_src/review/magician_walkthrough_20261007/evidence/html_repair_authority.log",
+    "assets_src/review/magician_walkthrough_20261007/evidence/html_repair_development.log",
+    "assets_src/review/magician_walkthrough_20261007/evidence/html_repair_document_tests.log",
+    "assets_src/review/magician_walkthrough_20261007/evidence/html_repair_game2d.log",
     "assets_src/review/magician_walkthrough_20261007/evidence/import_baseline_hcache.json",
     "assets_src/review/magician_walkthrough_20261007/evidence/import_baseline_verbose.json",
     "assets_src/review/magician_walkthrough_20261007/evidence/qa_magician_walkthrough.py.txt",
@@ -123,6 +132,26 @@
       "command": "Public anonymous exact-revision GitHub byte verification",
       "result": "PASS",
       "evidence": "audit/magician_walkthrough_delivery_20261007.json: anonymous exact-revision 320f044acf578e037be02d380b311ddc166f75b2, 74/74 files and SHA-256 verified; the receipt follow-up changes only this delivery record and audit-impact metadata, with the walkthrough payload unchanged."
+    },
+    {
+      "command": "Exact topic CI run 37653015378",
+      "result": "FAIL",
+      "evidence": "assets_src/review/magician_walkthrough_20261007/evidence/ci_37653015378_failure.log; Godot 4.7.2 import completed, then G2D101 rejected the 13 MB HTML for scan coverage."
+    },
+    {
+      "command": "Direct unchanged tools.audit_game_2d HTML scan before/after",
+      "result": "PASS",
+      "evidence": "assets_src/review/magician_walkthrough_20261007/evidence/HTML_SCAN_REPAIR_START.json and HTML_SCAN_REPAIR.json; coverage debt true to false, no model signature, 22 exact PNG references and all 48 PNGs unchanged before rerender."
+    },
+    {
+      "command": "python -B tools/audit_game_2d.py --regression-gate; current documentation/browser gates",
+      "result": "PASS",
+      "evidence": "assets_src/review/magician_walkthrough_20261007/evidence/html_repair_game2d.log: NO_REGRESSION with zero models/coverage; authority/development ALL OK; 54 tests/6 stress and browser QA. Full current-topic CI remains separately pending."
+    },
+    {
+      "command": "New exact-revision publication and full remote CI",
+      "result": "PENDING",
+      "evidence": "Required for repaired review revision; old anonymous receipt retains its original scope."
     }
   ],
   "acceptance_gaps": "All new panels are asset-backed illustrations with native capture gaps. No current natural-route/input/contact/action/finish/return/save proof, no independent4.6 re-review or device/child/owner session. Existing art and storage questions/development pause remain; generation0. No finding lifecycle changes.",
@@ -134,6 +163,12 @@
     {
       "path": "design/animation/ANIMATION_PRODUCTION_PROTOCOL.md",
       "purpose": "Whole-figure and constant-size requirements; no new animation commissioned"
+    }
+  ],
+  "lessons": [
+    {
+      "lesson": "Embed no large image blobs in review HTML: keep the self-contained folder portable through relative PNG references so the unchanged model scanner can read all markup under its 4 MiB cap.",
+      "write_back": "assets_src/review/magician_walkthrough_20261007/BUILD_METHOD.py.txt and README.md"
     }
   ]
 }

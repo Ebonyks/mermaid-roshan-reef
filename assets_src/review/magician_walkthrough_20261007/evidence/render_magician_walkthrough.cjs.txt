@@ -7,12 +7,14 @@ const root = 'C:/Users/Peter/.codex/worktrees/magician-clearance-20261006/mermai
   const errors=[];page.on('pageerror',e=>errors.push(e.message));
   await page.goto('file:///'+root+'/index.html');
   await page.locator('article').last().waitFor();
+  await page.waitForFunction(()=>[...document.images].every(x=>x.complete&&x.naturalWidth>0));
   const desktop = await page.evaluate(() => ({articles:document.querySelectorAll('article').length,images:[...document.images].filter(x=>x.complete&&x.naturalWidth>0).length,overflow:document.documentElement.scrollWidth>innerWidth}));
   await page.screenshot({path:root+'/evidence/HTML_DESKTOP.png'});
   await page.locator('#s13').scrollIntoViewIfNeeded();
   await page.screenshot({path:root+'/evidence/HTML_CABINET.png'});
   await page.setViewportSize({width:390,height:844});
   await page.goto('file:///'+root+'/index.html');
+  await page.waitForFunction(()=>[...document.images].every(x=>x.complete&&x.naturalWidth>0));
   const mobile = await page.evaluate(() => ({articles:document.querySelectorAll('article').length,images:[...document.images].filter(x=>x.complete&&x.naturalWidth>0).length,overflow:document.documentElement.scrollWidth>innerWidth}));
   await page.screenshot({path:root+'/evidence/HTML_MOBILE.png'});
   const receipt={time_utc:new Date().toISOString(),desktop,mobile,errors,status:!errors.length&&!desktop.overflow&&!mobile.overflow&&desktop.images===22&&mobile.images===22?'PASS':'FAIL',scope:'Browser render of documentation only; no gameplay renderer/input evidence.'};

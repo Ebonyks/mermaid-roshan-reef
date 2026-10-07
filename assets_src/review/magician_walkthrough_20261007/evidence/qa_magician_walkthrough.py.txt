@@ -1,7 +1,7 @@
 from pathlib import Path
 from PIL import Image
 from html.parser import HTMLParser
-import json, hashlib, base64, importlib.util, datetime, subprocess
+import json, hashlib, base64, importlib.util, datetime, subprocess, sys
 
 BUILDER=Path(__file__).with_name('build_magician_walkthrough.py')
 spec=importlib.util.spec_from_file_location('builder', BUILDER)
@@ -36,7 +36,11 @@ for i,s in enumerate(manifest['steps']):
     assert Image.open(raw).size==Image.open(annotated).size==(1280,720)
     assert b.sha(annotated.read_bytes())==s['image_sha256']
     assert b.sha(raw.read_bytes())==s['unannotated_sha256']
-    assert b.sha(base64.b64decode(p.imgs[i].split(',',1)[1]))==s['image_sha256']
+    if p.imgs[i].startswith('data:'):
+        assert b.sha(base64.b64decode(p.imgs[i].split(',',1)[1]))==s['image_sha256']
+    else:
+        assert p.imgs[i]==s['annotated_panel']
+        assert b.sha((out/p.imgs[i]).read_bytes())==s['image_sha256']
     assert s['coverage_gap'] and s['input'] and s['voice'] and s['action']
     assert s['evidence_class']=='ASSET_BACKED_ILLUSTRATION / NATIVE_CAPTURE_GAP'
     for a in s['source_anchors']:
@@ -58,6 +62,6 @@ snapshot['source_files']=manifest['sources']
 (out/'WALKTHROUGH_MANIFEST.json').write_text(json.dumps(manifest,indent=2)+'\n',encoding='utf-8')
 receipt={'time_utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'status':'PASS','checks':checks,'source_files_unchanged':len(manifest['sources']),'html_images':len(p.imgs),'valid_links':len(p.links),'unresolved_anchors':0,'native_gameplay_captures':0,'new_generation':0,'review':'All 22 panels visually inspected in full contact sheet; five gesture boards and entry/stage/variant panels reviewed. Source-art review only; separate native/device/child/owner gates remain pending.'}
 (out/'evidence/WALKTHROUGH_QA.json').write_text(json.dumps(receipt,indent=2)+'\n',encoding='utf-8')
-b.refresh()
+if '--preserve-impact' not in sys.argv:b.refresh()
 assert sum(f.stat().st_size for f in out.rglob('*') if f.is_file())<40*1024*1024
 print(json.dumps(receipt))

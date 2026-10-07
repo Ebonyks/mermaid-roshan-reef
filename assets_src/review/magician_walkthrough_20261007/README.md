@@ -2,7 +2,7 @@
 
 Status: **SOURCE_BACKED_REVIEW / NATIVE_CAPTURE_GAPS**. This package illustrates the current owned Magician source; it is not accepted runtime evidence, 4.6/5 clearance or a gameplay change. The development goal remains paused for its pending owner answers.
 
-Browse the self-contained [walkthrough](index.html) locally, or inspect this ordered GitHub version. [Full contact sheet](KEY_SEQUENCE.png) · [step-to-image manifest](WALKTHROUGH_MANIFEST.json) · [source snapshot](SOURCE_SNAPSHOT.json) · [packet hashes](FILES.json).
+Browse the portable [walkthrough](index.html) locally, or inspect this ordered GitHub version. [Full contact sheet](KEY_SEQUENCE.png) · [step-to-image manifest](WALKTHROUGH_MANIFEST.json) · [source snapshot](SOURCE_SNAPSHOT.json) · [packet hashes](FILES.json).
 
 The normal sequence is three practice activities, then five stage activities. In-world entry uses the Castle Opera Hall. The temporary elevator variant repeats the same engine with no durable rewards; the current eight-career birthday roster excludes Magician.
 
@@ -367,3 +367,7 @@ Every PNG is a review derivative. Source originals, voices and saves remain unch
 Inherited runtime baseline `96274aab9cebd563b10846a4a48de5d017588563` has [green probe run 37564552946](https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/37564552946). This does not verify the staged candidate or these illustrations as gameplay. Full candidate/world verification, current natural-route captures, independent visual review and device/child/owner acceptance remain pending. No new generation or paid job occurred; prior rejected art attempts remain counted.
 
 The audit impact is [magician-visual-walkthrough-20261007.json](../../../design/audit_impacts/magician-visual-walkthrough-20261007.json). Public GitHub publication must be verified at its exact immutable revision before claiming delivery.
+
+## HTML packaging repair — October 7, 2026
+
+Exact CI run [37653015378](https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/37653015378) completed import under Godot 4.7.2 but rejected the original 13 MB embedded-image HTML under the strict 4 MB JSON/XML scan-coverage cap. The HTML now references its accompanying PNG files. Keep the entire review folder together for offline browsing; every panel remains included at full size. The strict detector, shrinking manifest, runtime source, image pixels and pending acceptance remain unchanged. The failed original is retained at commits `320f044a` and `c4c23ee3`; its exact CI log and reproduction are preserved in this folder.
