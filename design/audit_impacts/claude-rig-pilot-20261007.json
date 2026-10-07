@@ -1,6 +1,6 @@
 {
   "id": "claude-rig-pilot-20261007",
-  "scope": "Owner-commissioned deterministic-rig pilot for Roshan's wave with LTX animation as the motion guide, run as two tests at the owner's request. LTX Union take 1 is tracked (numbers only) and solved onto one fixed-length rig. Run 1 deliberately ignores the whole-frame, whole-sprite, no-Roshan-rig and written-handoff rules (owner-permitted test): a standalone Godot 4.7.2 Skeleton2D rig with skinned approved parts, rendered and measured. Run 2 restores the rules: proportion-locked structural guides (W3 lengths, one master phase) for the next whole-frame LTX take, plus an untested controlled-comparison runner. No game file, runtime path or finding lifecycle changes.",
+  "scope": "Owner-commissioned deterministic-rig pilot for Roshan's wave with LTX animation as the motion guide, run as two tests at the owner's request. LTX Union take 1 is tracked (numbers only) and solved onto one fixed-length rig. Run 1 deliberately ignores the whole-frame, whole-sprite, no-Roshan-rig and written-handoff rules (owner-permitted test): a standalone Godot 4.7.2 Skeleton2D rig with skinned approved parts, rendered and measured. Run 2 restores the rules: proportion-locked structural guides (W3 lengths, one master phase) for the next whole-frame LTX take, plus an untested controlled-comparison runner. No game file, runtime path or finding lifecycle changes. Revision 2 of run 1 (owner review 2026-10-07, ODR-RIG-PILOT-REV2-20261007): the LTX arm path is smoothed, whole-body acting, underwater idle, hair flow and a pilot-only painted blink are authored on the LTX timing, and rig edge artifacts are repaired.",
   "baseline": "6238934447cf28834874396dfbaff65effafda46",
   "rules": [
     "DL-AUTH-05",
@@ -32,8 +32,11 @@
     "assets_src/cinematics/claude_rig_pilot_20261007/JOB_CARD.md",
     "assets_src/cinematics/claude_rig_pilot_20261007/README.md",
     "assets_src/cinematics/claude_rig_pilot_20261007/data/rig_pose.json",
+    "assets_src/cinematics/claude_rig_pilot_20261007/data/rig_pose_rev2.json",
     "assets_src/cinematics/claude_rig_pilot_20261007/data/run1_joints.json",
     "assets_src/cinematics/claude_rig_pilot_20261007/data/run1_measure.json",
+    "assets_src/cinematics/claude_rig_pilot_20261007/data/run1_rev2_joints.json",
+    "assets_src/cinematics/claude_rig_pilot_20261007/data/run1_rev2_measure.json",
     "assets_src/cinematics/claude_rig_pilot_20261007/data/run2_joints.json",
     "assets_src/cinematics/claude_rig_pilot_20261007/data/run2_measure.json",
     "assets_src/cinematics/claude_rig_pilot_20261007/data/take1_tracks.json",
@@ -82,6 +85,8 @@
     "assets_src/cinematics/claude_rig_pilot_20261007/run1/review.mp4",
     "assets_src/cinematics/claude_rig_pilot_20261007/run1_godot/parts/arm.png",
     "assets_src/cinematics/claude_rig_pilot_20261007/run1_godot/parts/body.png",
+    "assets_src/cinematics/claude_rig_pilot_20261007/run1_godot/parts/eyes_closed.png",
+    "assets_src/cinematics/claude_rig_pilot_20261007/run1_godot/parts/eyes_half.png",
     "assets_src/cinematics/claude_rig_pilot_20261007/run1_godot/parts/hand_open.png",
     "assets_src/cinematics/claude_rig_pilot_20261007/run1_godot/parts/hand_rest.png",
     "assets_src/cinematics/claude_rig_pilot_20261007/run1_godot/parts/sleeve.png",
@@ -90,6 +95,49 @@
     "assets_src/cinematics/claude_rig_pilot_20261007/run1_godot/rig_wave.tscn",
     "assets_src/cinematics/claude_rig_pilot_20261007/run1_godot/tools/build_rig.gd",
     "assets_src/cinematics/claude_rig_pilot_20261007/run1_godot/tools/render_frames.gd",
+    "assets_src/cinematics/claude_rig_pilot_20261007/run1_rev2/bones_godot.json",
+    "assets_src/cinematics/claude_rig_pilot_20261007/run1_rev2/frames/0000.png",
+    "assets_src/cinematics/claude_rig_pilot_20261007/run1_rev2/frames/0001.png",
+    "assets_src/cinematics/claude_rig_pilot_20261007/run1_rev2/frames/0002.png",
+    "assets_src/cinematics/claude_rig_pilot_20261007/run1_rev2/frames/0003.png",
+    "assets_src/cinematics/claude_rig_pilot_20261007/run1_rev2/frames/0004.png",
+    "assets_src/cinematics/claude_rig_pilot_20261007/run1_rev2/frames/0005.png",
+    "assets_src/cinematics/claude_rig_pilot_20261007/run1_rev2/frames/0006.png",
+    "assets_src/cinematics/claude_rig_pilot_20261007/run1_rev2/frames/0007.png",
+    "assets_src/cinematics/claude_rig_pilot_20261007/run1_rev2/frames/0008.png",
+    "assets_src/cinematics/claude_rig_pilot_20261007/run1_rev2/frames/0009.png",
+    "assets_src/cinematics/claude_rig_pilot_20261007/run1_rev2/frames/0010.png",
+    "assets_src/cinematics/claude_rig_pilot_20261007/run1_rev2/frames/0011.png",
+    "assets_src/cinematics/claude_rig_pilot_20261007/run1_rev2/frames/0012.png",
+    "assets_src/cinematics/claude_rig_pilot_20261007/run1_rev2/frames/0013.png",
+    "assets_src/cinematics/claude_rig_pilot_20261007/run1_rev2/frames/0014.png",
+    "assets_src/cinematics/claude_rig_pilot_20261007/run1_rev2/frames/0015.png",
+    "assets_src/cinematics/claude_rig_pilot_20261007/run1_rev2/frames/0016.png",
+    "assets_src/cinematics/claude_rig_pilot_20261007/run1_rev2/frames/0017.png",
+    "assets_src/cinematics/claude_rig_pilot_20261007/run1_rev2/frames/0018.png",
+    "assets_src/cinematics/claude_rig_pilot_20261007/run1_rev2/frames/0019.png",
+    "assets_src/cinematics/claude_rig_pilot_20261007/run1_rev2/frames/0020.png",
+    "assets_src/cinematics/claude_rig_pilot_20261007/run1_rev2/frames/0021.png",
+    "assets_src/cinematics/claude_rig_pilot_20261007/run1_rev2/frames/0022.png",
+    "assets_src/cinematics/claude_rig_pilot_20261007/run1_rev2/frames/0023.png",
+    "assets_src/cinematics/claude_rig_pilot_20261007/run1_rev2/frames/0024.png",
+    "assets_src/cinematics/claude_rig_pilot_20261007/run1_rev2/frames/0025.png",
+    "assets_src/cinematics/claude_rig_pilot_20261007/run1_rev2/frames/0026.png",
+    "assets_src/cinematics/claude_rig_pilot_20261007/run1_rev2/frames/0027.png",
+    "assets_src/cinematics/claude_rig_pilot_20261007/run1_rev2/frames/0028.png",
+    "assets_src/cinematics/claude_rig_pilot_20261007/run1_rev2/frames/0029.png",
+    "assets_src/cinematics/claude_rig_pilot_20261007/run1_rev2/frames/0030.png",
+    "assets_src/cinematics/claude_rig_pilot_20261007/run1_rev2/frames/0031.png",
+    "assets_src/cinematics/claude_rig_pilot_20261007/run1_rev2/frames/0032.png",
+    "assets_src/cinematics/claude_rig_pilot_20261007/run1_rev2/frames/0033.png",
+    "assets_src/cinematics/claude_rig_pilot_20261007/run1_rev2/frames/0034.png",
+    "assets_src/cinematics/claude_rig_pilot_20261007/run1_rev2/frames/0035.png",
+    "assets_src/cinematics/claude_rig_pilot_20261007/run1_rev2/frames/0036.png",
+    "assets_src/cinematics/claude_rig_pilot_20261007/run1_rev2/frames/0037.png",
+    "assets_src/cinematics/claude_rig_pilot_20261007/run1_rev2/frames/0038.png",
+    "assets_src/cinematics/claude_rig_pilot_20261007/run1_rev2/frames/0039.png",
+    "assets_src/cinematics/claude_rig_pilot_20261007/run1_rev2/frames/0040.png",
+    "assets_src/cinematics/claude_rig_pilot_20261007/run1_rev2/review.mp4",
     "assets_src/cinematics/claude_rig_pilot_20261007/run2/guide_full/0000.png",
     "assets_src/cinematics/claude_rig_pilot_20261007/run2/guide_full/0001.png",
     "assets_src/cinematics/claude_rig_pilot_20261007/run2/guide_full/0002.png",
@@ -216,6 +264,7 @@
     "assets_src/cinematics/claude_rig_pilot_20261007/run2/guide_quarter/0040.png",
     "assets_src/cinematics/claude_rig_pilot_20261007/run2/prompt.txt",
     "assets_src/cinematics/claude_rig_pilot_20261007/run2/review.mp4",
+    "assets_src/cinematics/claude_rig_pilot_20261007/scripts/animate_rev2.py",
     "assets_src/cinematics/claude_rig_pilot_20261007/scripts/build_parts.py",
     "assets_src/cinematics/claude_rig_pilot_20261007/scripts/comfy_rig_pilot_nodes.py",
     "assets_src/cinematics/claude_rig_pilot_20261007/scripts/manifest.py",
@@ -269,6 +318,21 @@
       "evidence": "Run on the candidate before commit; see commit message."
     },
     {
+      "command": "python -I scripts/animate_rev2.py; Godot 4.7.2 build_rig.gd and render_frames.gd (revision 2)",
+      "result": "PASS",
+      "evidence": "RIG_BUILD_OK bones=15 meshes=2 sprites=5 frames=41; RENDER_OK frames=41 max_key_error_rad=0.000000; arm max acceleration 6.9/13.0/8.9 deg/frame^2 (revision 1: 31.2/76.1/38.7)."
+    },
+    {
+      "command": "python -I docs/handoffs/codex_roshan_wave_whole_sprites_2026-10-07/tools/measure_wave.py on run1_rev2/frames with joints from the Godot bone export",
+      "result": "PASS",
+      "evidence": "data/run1_rev2_measure.json: figure 0.3% p-p, head 0.67% p-p, arm upper -3.9%, forearm +4.1%, hand 0.0%."
+    },
+    {
+      "command": "Rest composite of revision-2 parts vs approved K0",
+      "result": "PASS",
+      "evidence": "40 px differ, all from the closed bodice contour and sleeve hem drawn in K0's outline colour; no other pixel changes."
+    },
+    {
       "command": "scripts/run_take.py take_1 on the RTX 3060 Ti (LTX-2.5 Union, rig guides, seed 20261004)",
       "result": "PENDING",
       "evidence": "Not run: the cloud session has no GPU or ComfyUI; runner and node file are untested."
@@ -279,7 +343,7 @@
       "evidence": "Not started."
     }
   ],
-  "acceptance_gaps": "Run 1 is a rules-off test and is not eligible for production under ODR-SPRITE-WHOLE-UNIT-20261007 and ODR-ROSHAN-WHOLE-FRAME-20261005 unless the owner changes those rules. Run 2's LTX take, its measure_wave report, owner review, Mobile renderer, device, child and runtime gates are all outstanding. MA-ROSHAN-006 and MA-VIS-008 lifecycles are unchanged.",
+  "acceptance_gaps": "Run 1 is a rules-off test and is not eligible for production under ODR-SPRITE-WHOLE-UNIT-20261007 and ODR-ROSHAN-WHOLE-FRAME-20261005 unless the owner changes those rules. The revision-2 blink overlays are pilot-only painted art pending Codex/owner review. Run 2's LTX take, its measure_wave report, owner review, Mobile renderer, device, child and runtime gates are all outstanding. MA-ROSHAN-006 and MA-VIS-008 lifecycles are unchanged.",
   "lessons": [
     {
       "lesson": "A fixed-length rig solved from LTX footage holds Roshan's size exactly (figure 0.05%, head 0.16%) and is cheap, but as runtime art it reintroduces part layers and an arm that moves alone; use it to author proportion-locked guides, not as the delivered sprite.",
@@ -295,9 +359,25 @@
       "lesson": "When rendering Godot animations frame by frame, set the AnimationPlayer to manual callback mode before seeking; a paused player still advances during the frame and shifts every capture.",
       "write_back": "assets_src/cinematics/claude_rig_pilot_20261007/run1_godot/tools/render_frames.gd",
       "recurrence_key": "godot-frame-capture"
+    },
+    {
+      "lesson": "Do not copy noise-level body motion or per-frame solves from generated footage onto a rig: smooth the LTX path (weighted by fit confidence) and author secondary motion on its timing, or the rig reads as frozen and jittery at once.",
+      "write_back": "assets_src/cinematics/claude_rig_pilot_20261007/scripts/animate_rev2.py",
+      "recurrence_key": "rig-motion-quality"
+    },
+    {
+      "lesson": "Overlay parts cut from one drawing must exclude neighbouring materials (hair in a sleeve overlay) and joint pivots must sit inside the covering part, or skinned motion exposes cuts and blobs.",
+      "write_back": "assets_src/cinematics/claude_rig_pilot_20261007/scripts/build_parts.py",
+      "recurrence_key": "rig-motion-quality"
     }
   ],
-  "owner_corrections": [],
+  "owner_corrections": [
+    {
+      "decision_id": "ODR-RIG-PILOT-REV2-20261007",
+      "evidence": "Owner, 2026-10-07, on run 1: \"This is acceptable as a rough take, but mermaid roshan is frozen otherwise. Give her a full body natural movement that accompanies the hand raise, have her blink, make her hair flow slightly in the water. It's progress\"; \"There are also a lot of frame-by-frame artifacts present currently\".",
+      "write_back": "assets_src/cinematics/claude_rig_pilot_20261007/README.md#run-1-revision-2-whole-body-blink-hair-owner-review-2026-10-07"
+    }
+  ],
   "references_used": [
     {
       "path": "assets_src/cinematics/ltx25_union_trial_20261004/README.md",

@@ -6,6 +6,9 @@
   data/run2_measure.json  W3 arm lengths of the run-2 guides vs the Union take-1 guides and the take itself
   run1/review.mp4         take 1 (registered to the same cell scale) | run 1 Godot render, 24 fps
   run2/review.mp4         Union guide | rig guide | take 1, 24 fps
+  data/run1_rev2_joints.json, data/run1_rev2_measure.json, run1_rev2/review.mp4
+                          revision 2: joints read from the Godot bone transforms of the actual render;
+                          review columns LTX take 1 | revision 1 | revision 2
 The MP4s are H.264 viewing copies; the PNG frames are authoritative.
 
     python -I scripts/review.py
@@ -34,6 +37,25 @@ def run1_joints(pose, rig):
         T = W + hl[f['hand_drawing']] * np.array([math.cos(A[2]), math.sin(A[2])])
         out.append({'index': f['index'], **{k: (R1 * p).tolist() for k, p in zip(('shoulder', 'elbow', 'wrist', 'tip'), (S, E, W, T))},
                     'hand_open': f['hand_drawing'] == 'open'})
+    return out
+
+
+def rev2_joints(rig):
+    """Arm joints from the Bone2D transforms Godot exported while rendering revision 2."""
+    B = {b['name']: b for b in rig['bones']}; ua = B['UpperArm']
+    a0 = ang(ua['head'], ua['tail']); v = np.subtract(K0_ARM['shoulder'], ua['head'])
+    local = np.array([math.cos(-a0) * v[0] - math.sin(-a0) * v[1], math.sin(-a0) * v[0] + math.cos(-a0) * v[1]])
+    pose = {f['index']: f for f in load_json(PILOT / 'data/rig_pose_rev2.json')['frames']}
+    out = []
+    for row in load_json(PILOT / 'run1_rev2/bones_godot.json')['frames']:
+        ox, oy, r = row['UpperArm']; c, s_ = math.cos(r), math.sin(r)
+        S = np.array([ox + c * local[0] - s_ * local[1], oy + s_ * local[0] + c * local[1]])
+        E = np.array(row['Fore'][:2]); W = np.array(row['Hand'][:2]); hr = row['Hand'][2]
+        op = pose[row['index']]['hand_drawing'] == 'open'
+        hl = CONTRACT['hand'] if op else dist(K0_ARM['wrist'], K0_ARM['tip'])
+        T = W + hl * np.array([math.cos(hr), math.sin(hr)])
+        out.append({'index': row['index'], **{k: (R1 * p).tolist() for k, p in zip(('shoulder', 'elbow', 'wrist', 'tip'), (S, E, W, T))},
+                    'hand_open': op})
     return out
 
 
@@ -108,6 +130,22 @@ def main():
         lab = lambda im, s: cv2.putText(im.copy(), s, (6, 18), cv2.FONT_HERSHEY_SIMPLEX, .45, (200, 200, 200), 1, cv2.LINE_AA)
         v2.append(np.concatenate([lab(u, f'Union guide {i:02d}'), lab(g, f'Rig guide (run 2) {i:02d}'), label(t, f'LTX take 1 {i:02d}')], 1))
     video(v2, PILOT / 'run2/review.mp4')
+    # Revision 2 of run 1.
+    J2 = rev2_joints(rig)
+    save_json(PILOT / 'data/run1_rev2_joints.json', {'note': 'run-1 revision-2 arm joints from the Godot render, 512 px canvas', 'frames': J2})
+    r = subprocess.run([sys.executable, '-I', str(MEASURE), '--frames', str(PILOT / 'run1_rev2/frames/%04d.png'), '--count', '41',
+                        '--cell-scale', str(R1), '--offset', '0', '0', '--joints', str(PILOT / 'data/run1_rev2_joints.json'),
+                        '--label', 'Claude rig pilot run 1 revision 2: authored acting, idle, hair flow and blink on the LTX arm path',
+                        '--out', str(PILOT / 'data/run1_rev2_measure.json')], capture_output=True, text=True)
+    print('run 1 revision 2 measure_wave:\n' + r.stdout)
+    v3 = []
+    for i in range(FRAMES):
+        t = np.array(Image.open(str(TAKE1) % i).convert('RGB'))
+        t = cv2.warpAffine(t, M, (512, 512), flags=cv2.INTER_AREA, borderValue=(238, 238, 238))
+        a = np.array(Image.open(PILOT / f'run1/frames/{i:04d}.png').convert('RGB'))
+        b = np.array(Image.open(PILOT / f'run1_rev2/frames/{i:04d}.png').convert('RGB'))
+        v3.append(np.concatenate([label(t, f'LTX take 1  {i:02d}'), label(a, f'Run 1 rev 1  {i:02d}'), label(b, f'Run 1 rev 2  {i:02d}')], 1))
+    video(v3, PILOT / 'run1_rev2/review.mp4')
     print('videos written')
 
 
