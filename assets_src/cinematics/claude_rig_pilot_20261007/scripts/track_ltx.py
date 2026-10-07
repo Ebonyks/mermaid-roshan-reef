@@ -8,7 +8,8 @@ arm skin mask; the result is joints, angles, segment scales and the hand drawing
 step then re-poses the fixed-length rig onto these joints by two-bone IK.
 Elbow and wrist joint limits keep the solve anatomically plausible on smeared frames.
 
-    python -I scripts/track_ltx.py
+    python -I scripts/track_ltx.py [--frames <pattern %04d>] [--seed-guide union|run2] [--out data/<name>.json]
+Defaults reproduce the Union take-1 track; run-2 takes seed the arm search from the rig guide joints.
 """
 import importlib.util, math, sys
 import numpy as np, cv2
@@ -22,8 +23,11 @@ mw = importlib.util.module_from_spec(spec); spec.loader.exec_module(mw)
 EXTRA = {'hair': (190.0, 75.0), 'fin': (205.0, 200.0)}   # K0 cell points inside the rainbow hair and fin
 
 
+SRC = str(TAKE1)        # frames pattern; set from --frames
+
+
 def rgb(i):
-    return np.array(Image.open(str(TAKE1) % i).convert('RGB'))
+    return np.array(Image.open(SRC % i).convert('RGB'))
 
 
 def skin_mask(a):
@@ -45,10 +49,10 @@ def arm_component(m, neck_x):
 def track_extra(count):
     s, off = CELL_SCALE, OFFSET
     half, search = 26, 60; pad = half + search + 2
-    g0 = np.pad(mw.gray(str(TAKE1) % 0), pad, constant_values=128); rows = []
+    g0 = np.pad(mw.gray(SRC % 0), pad, constant_values=128); rows = []
     pts0 = {k: to_canvas(v) for k, v in EXTRA.items()}
     for f in range(count):
-        g = np.pad(mw.gray(str(TAKE1) % f), pad, constant_values=128); found = {}
+        g = np.pad(mw.gray(SRC % f), pad, constant_values=128); found = {}
         for k, (x, y) in pts0.items():
             cx, cy = int(round(x)) + pad, int(round(y)) + pad
             T = g0[cy - half:cy + half + 1, cx - half:cx + half + 1]
@@ -136,12 +140,17 @@ class RigArmFit:
 
 
 def main():
-    pts0, rows = mw.track(str(TAKE1), FRAMES, CELL_SCALE, OFFSET)
+    global SRC
+    import argparse
+    ap = argparse.ArgumentParser(); ap.add_argument('--frames', default=str(TAKE1)); ap.add_argument('--out', default='data/take1_tracks.json')
+    ap.add_argument('--seed-guide', choices=['union', 'run2'], default='union'); a = ap.parse_args(); SRC = a.frames
+    rig_guide = load_json(PILOT / 'data/run2_joints.json')['frames'] if a.seed_guide == 'run2' else None
+    pts0, rows = mw.track(SRC, FRAMES, CELL_SCALE, OFFSET)
     extra = track_extra(FRAMES)
     for f in range(FRAMES):
         rows[f].update(extra[f])
     base = rows[0]
-    out = {'source': 'assets_src/cinematics/ltx25_union_trial_20261004/take_1/refined_frames',
+    out = {'source': str(Path(SRC).parent.resolve().relative_to(ROOT)).replace('\\', '/'), 'seed_guide': a.seed_guide,
            'canvas': [640, 896], 'cell_scale': CELL_SCALE, 'offset': OFFSET, 'frames': []}
     K = {k: to_canvas(v) for k, v in K0_ARM.items()}
     m0 = arm_component(skin_mask(rgb(0)), base['neck'][0])
@@ -158,7 +167,7 @@ def main():
             return (r['waist'][0] + dx * c - dy * s, r['waist'][1] + dx * s + dy * c)
         S = torso(K['shoulder'])
         mask = arm_component(skin_mask(rgb(f)), r['neck'][0])
-        g = guide_arm_joints(f)
+        g = rig_guide[f] if rig_guide else guide_arm_joints(f)
         gseed = [ang(g['shoulder'], g['elbow']), ang(g['elbow'], g['wrist']), ang(g['wrist'], g['tip']), 0, 0,
                  dist(S, g['elbow']) / fitter.L[0], dist(g['elbow'], g['wrist']) / fitter.L[1]]
         kseed = [ang(K['shoulder'], K['elbow']), ang(K['elbow'], K['wrist']), ang(K['wrist'], K['tip']), 0, 0, 1, 1]
@@ -189,7 +198,7 @@ def main():
         print('frame %2d iou %.3f hand %-4s angles %s  seg %.2f %.2f' % (
             f, iou, hand, ' '.join('%+7.1f' % math.degrees(v) for v in x[:3]), x[5], x[6]), flush=True)
     out['arm_width_canvas'] = fitter.w
-    save_json(PILOT / 'data/take1_tracks.json', out)
+    save_json(PILOT / a.out, out)
 
 
 if __name__ == '__main__':

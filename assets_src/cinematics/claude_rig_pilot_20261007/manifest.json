@@ -1,10 +1,11 @@
 {
  "packet": "assets_src/cinematics/claude_rig_pilot_20261007",
  "status": {
-  "run1": "EXECUTION_PASS / RULES_OFF_TEST_ONLY",
-  "run2": "GUIDES_READY / TAKE_NOT_RUN",
+  "run1": "EXECUTION_PASS / OWNER_REJECTED",
+  "run2": "TAKES_QUEUED_ON_PC",
+  "cosmetics_on_clips": "PIPELINE_PASS / OWNER_REVIEW_PENDING",
   "ARCHIVE_COMPLETE": false,
-  "GENERATION_READY": "run2 guides and runner prepared; runner untested",
+  "GENERATION_READY": "run2 guides, jobs and PC runner prepared",
   "DELIVERY_ACCEPTED": false
  },
  "files": [
@@ -19,14 +20,274 @@
    "sha256": "705fd4d6451a31d36b3df7de96f83f30ac976c9b4a6d1e51671d8e2f33e2d0da"
   },
   {
+   "path": ".gitignore",
+   "bytes": 19,
+   "sha256": "938af4588434b489cfe7770c717d09c1a595ea43f24a2465577cfda5b84e6ed4"
+  },
+  {
    "path": "JOB_CARD.md",
-   "bytes": 4174,
-   "sha256": "5b9721c402d55f36d16086068b1baf2d513d15a4d35c8e869b5568851e13467d"
+   "bytes": 4894,
+   "sha256": "f583d14f238c9d95f6e274b5da1e64295a481e7dd2fc9b3b54fc3bc44d543662"
   },
   {
    "path": "README.md",
-   "bytes": 14104,
-   "sha256": "96614a8414c2e0582ffc7a374dd5653e6e9f70152e2db0914a5b2f3a2e38f326"
+   "bytes": 19340,
+   "sha256": "59030047abf7067becb40cb0788a6f0dfdf9fa76799cc5af623d2afda316a71c"
+  },
+  {
+   "path": "cosmetics/union_take1/atlas.png",
+   "bytes": 1799259,
+   "sha256": "2ed8d398485fdd9b4894f8eced5c15dd4775dc75bbcb40b1da26118c96a84b13"
+  },
+  {
+   "path": "cosmetics/union_take1/cells/0000.png",
+   "bytes": 49012,
+   "sha256": "4b3410de3e891ba37a8b5ab5b8a939544f9efee7c4de769447ff4690a4848448"
+  },
+  {
+   "path": "cosmetics/union_take1/cells/0001.png",
+   "bytes": 49589,
+   "sha256": "2ddb0ece7f032254f29219c3425e9f2c61e994e133c30b01b6ac1b5bbe2a46a1"
+  },
+  {
+   "path": "cosmetics/union_take1/cells/0002.png",
+   "bytes": 49901,
+   "sha256": "6c81b0301699f414475164486936f00d2c9583217b1bae51103ed87879339b9a"
+  },
+  {
+   "path": "cosmetics/union_take1/cells/0003.png",
+   "bytes": 50075,
+   "sha256": "c2119021d4bce025eaabd9314027d9346e2592b04d78825eb7e11bd30550aeec"
+  },
+  {
+   "path": "cosmetics/union_take1/cells/0004.png",
+   "bytes": 50321,
+   "sha256": "7457e34930464e5a7900049ca5d77f631a41012f22975731e30bcbcefafd5108"
+  },
+  {
+   "path": "cosmetics/union_take1/cells/0005.png",
+   "bytes": 49705,
+   "sha256": "e82dfd497f8c2caf82758328b0e5cd2a9b8296b8c63881b4ad6de3bb39ddc6c3"
+  },
+  {
+   "path": "cosmetics/union_take1/cells/0006.png",
+   "bytes": 49908,
+   "sha256": "bacd8498cd25cc859514c46874774338e87f292d7c73de4f0f590e8452928db1"
+  },
+  {
+   "path": "cosmetics/union_take1/cells/0007.png",
+   "bytes": 49713,
+   "sha256": "23f23cadd9fb4ab540153cf06700d3fea20a2110acf9a7e238f791052639dfd7"
+  },
+  {
+   "path": "cosmetics/union_take1/cells/0008.png",
+   "bytes": 49487,
+   "sha256": "7fb4f894d92c7ac9cdfa71e27086b77ee7533e9da808d24a8332efdbc8f7b2f2"
+  },
+  {
+   "path": "cosmetics/union_take1/cells/0009.png",
+   "bytes": 49420,
+   "sha256": "c92cb6cad74397e9d30a1cc89efa4cde14ee91694bf4a837163a81c58694203a"
+  },
+  {
+   "path": "cosmetics/union_take1/cells/0010.png",
+   "bytes": 49445,
+   "sha256": "97a5f0d0291e747c085ea65614e939f457ec11020109879e66770a363c21af40"
+  },
+  {
+   "path": "cosmetics/union_take1/cells/0011.png",
+   "bytes": 49583,
+   "sha256": "52913500082d61af5dcf5bbc6c8c3171ad26606ac8a90c6693a3c89bc579952a"
+  },
+  {
+   "path": "cosmetics/union_take1/cells/0012.png",
+   "bytes": 49730,
+   "sha256": "0fd321e7d396f33c1bc7777e554d06bd18f815adde26e3c6fc9cf40fb52a20ef"
+  },
+  {
+   "path": "cosmetics/union_take1/cells/0013.png",
+   "bytes": 49885,
+   "sha256": "c1c0596705bc92cdbc7e3c8a7bbebaec34c403372455db3d5cdf48d82544d94a"
+  },
+  {
+   "path": "cosmetics/union_take1/cells/0014.png",
+   "bytes": 50005,
+   "sha256": "31e543acf2559f03d74a53c20e27abba4aaec091fa951869f081ed599fb2c12e"
+  },
+  {
+   "path": "cosmetics/union_take1/cells/0015.png",
+   "bytes": 50248,
+   "sha256": "fd6c308e088a92da48d87ef4ae5e2788b844fcf4e44d2d8bd8f82412f0bd5142"
+  },
+  {
+   "path": "cosmetics/union_take1/cells/0016.png",
+   "bytes": 50298,
+   "sha256": "90ee56c7ec1f84dddc9065785e73790a2e75ad83e8dc20752260921fab6a1f20"
+  },
+  {
+   "path": "cosmetics/union_take1/cells/0017.png",
+   "bytes": 50315,
+   "sha256": "010b967cc212e13deceed428b979053b61dc365fd325016fa486c55b137d8e5b"
+  },
+  {
+   "path": "cosmetics/union_take1/cells/0018.png",
+   "bytes": 50144,
+   "sha256": "fe0ccf7e7fc097fe42d7873e266c1df1382ad56aeced3d83b1cd1d668ff556f5"
+  },
+  {
+   "path": "cosmetics/union_take1/cells/0019.png",
+   "bytes": 49969,
+   "sha256": "3b245335650e99a4db54e1ffe728f67c461d7b7c4d1e540348dfc6d2e237260d"
+  },
+  {
+   "path": "cosmetics/union_take1/cells/0020.png",
+   "bytes": 50039,
+   "sha256": "c362238a7c133c759e31d0be8bf34a4ae6d20408d5fd92d8cdfbc6627174d5dd"
+  },
+  {
+   "path": "cosmetics/union_take1/cells/0021.png",
+   "bytes": 50128,
+   "sha256": "04daf6a885fc234076a972ea95ed0427b3e2c28887055348ca3be2142a86b655"
+  },
+  {
+   "path": "cosmetics/union_take1/cells/0022.png",
+   "bytes": 49892,
+   "sha256": "fc17f6f87ee5d33e728ae0263e18820657a09265140e7989a17f77c0d98e6b76"
+  },
+  {
+   "path": "cosmetics/union_take1/cells/0023.png",
+   "bytes": 49767,
+   "sha256": "320d7a3ae2b18d760206f0031e0edce4e9335500dc338c96865faba332aa3c03"
+  },
+  {
+   "path": "cosmetics/union_take1/cells/0024.png",
+   "bytes": 49607,
+   "sha256": "2de5ccc8a430bedc06dc6998705eb58a788893abc57375f79047c5528595d1d5"
+  },
+  {
+   "path": "cosmetics/union_take1/cells/0025.png",
+   "bytes": 49921,
+   "sha256": "84e17668708bc42e81d7c8501d1f5c3e26da1899f5d4d8648d5bebfbc62acc93"
+  },
+  {
+   "path": "cosmetics/union_take1/cells/0026.png",
+   "bytes": 50293,
+   "sha256": "6ba7cb07d1c684c0d95e2cf1c8e8a0be0f018d79ac5dbee6a22ee03619ab2904"
+  },
+  {
+   "path": "cosmetics/union_take1/cells/0027.png",
+   "bytes": 50307,
+   "sha256": "a193fbfdc826606bbaccf8617a5b0dbaddefbcc645d994786c56056c9902613e"
+  },
+  {
+   "path": "cosmetics/union_take1/cells/0028.png",
+   "bytes": 50188,
+   "sha256": "e68c511c913bfa483a9781a4954b20549a8d4206e4e6a30c9e78b1f42daedfd3"
+  },
+  {
+   "path": "cosmetics/union_take1/cells/0029.png",
+   "bytes": 50221,
+   "sha256": "0f1f76ed0d77479fc2ee7b4a61874ffa65d9c2abfe25b655358d1b46202a6389"
+  },
+  {
+   "path": "cosmetics/union_take1/cells/0030.png",
+   "bytes": 50181,
+   "sha256": "c8059c9ab9a30ba0f9207dcea696c0e32d9a1474009d3eab1c70157ef5a7d992"
+  },
+  {
+   "path": "cosmetics/union_take1/cells/0031.png",
+   "bytes": 50498,
+   "sha256": "a378261de69771313bd7bbf124d2a87edcae58992c7144a1a9a694be9a5d3444"
+  },
+  {
+   "path": "cosmetics/union_take1/cells/0032.png",
+   "bytes": 50723,
+   "sha256": "2eacfd646ffbbf13c43689314de634a13751c46ee612a990074b4e63b4763f5f"
+  },
+  {
+   "path": "cosmetics/union_take1/cells/0033.png",
+   "bytes": 50599,
+   "sha256": "6526ce01f43f28683ba8d3fd49dafc8a8b496077c10c2a7945a1e72767d6adc7"
+  },
+  {
+   "path": "cosmetics/union_take1/cells/0034.png",
+   "bytes": 50704,
+   "sha256": "d4698e6821cd1415fcce13c23a00bc4533d8609b9fa2516ce79c6a41aabe3feb"
+  },
+  {
+   "path": "cosmetics/union_take1/cells/0035.png",
+   "bytes": 50771,
+   "sha256": "743cfac85b0e48b3764dd5b56f9b2df7813af5549466ae07ff4ce1d97be4ac1e"
+  },
+  {
+   "path": "cosmetics/union_take1/cells/0036.png",
+   "bytes": 50712,
+   "sha256": "caa8cb265b17e7c2ed4ca738c409aac176e5be002ceeb382a12ed0f1cba76576"
+  },
+  {
+   "path": "cosmetics/union_take1/cells/0037.png",
+   "bytes": 50669,
+   "sha256": "aa569f5b385941812edb8964b3dd7e2e6410e4024aee0048beea4253bec03bdf"
+  },
+  {
+   "path": "cosmetics/union_take1/cells/0038.png",
+   "bytes": 50682,
+   "sha256": "652c552546fc9238217ef4b71ddd4d3b2930ec9442be595e90b3530a0dadae18"
+  },
+  {
+   "path": "cosmetics/union_take1/cells/0039.png",
+   "bytes": 50742,
+   "sha256": "fae07d0a239c5021e8b621aacce0ada0e8831d65c5aecb18e8f74a47a151a7d7"
+  },
+  {
+   "path": "cosmetics/union_take1/cells/0040.png",
+   "bytes": 50691,
+   "sha256": "da837109a59aa57fd82535a4b5cafe1fc23f1e49e21c316539a767af7957965e"
+  },
+  {
+   "path": "cosmetics/union_take1/cells_report.json",
+   "bytes": 1840,
+   "sha256": "957e566c8c5d8063d09f256263f39d24576ecab1f1cb4e748d125ed8bbe38eba"
+  },
+  {
+   "path": "cosmetics/union_take1/cosmetics_report.json",
+   "bytes": 2246,
+   "sha256": "3e892291f5aad6f089d2126b32884d044a7aa7795f8dc005690c573510b40997"
+  },
+  {
+   "path": "cosmetics/union_take1/cosmetics_review.mp4",
+   "bytes": 726769,
+   "sha256": "1c734a9cc1da2614a0353aa19c7e657cfd8e436cb27e8410c913efe2cf587d1e"
+  },
+  {
+   "path": "cosmetics/union_take1/outfits/roshan_wave_union_take1_disguise.png",
+   "bytes": 1779346,
+   "sha256": "e3c27ae488e2b09cc5cbe29fe2eb32894c3fef23500a18f127dc36e80cc4dd33"
+  },
+  {
+   "path": "cosmetics/union_take1/outfits/roshan_wave_union_take1_garden.png",
+   "bytes": 1791769,
+   "sha256": "6810e9aa29595e59c38ab397d4c3e5e0a49a6d9b3329b38cbb52ae4feb0a9e40"
+  },
+  {
+   "path": "cosmetics/union_take1/outfits/roshan_wave_union_take1_party.png",
+   "bytes": 1748935,
+   "sha256": "d4737872d5872751ecc26ad0272f057c4bd87ea3634a5037314896577ebcd1fb"
+  },
+  {
+   "path": "cosmetics/union_take1/outfits/roshan_wave_union_take1_ribbon.png",
+   "bytes": 1796618,
+   "sha256": "c9307f868e9b17c703f2e76ff3720819b6feb3a04f1561add0b1fd4711f2a5eb"
+  },
+  {
+   "path": "cosmetics/union_take1/pose_fit_clip.json",
+   "bytes": 2625,
+   "sha256": "7d43ca1b54bdf7f3f45b27264ee6895323ae70faf4d744d15d1e4154c4ac7359"
+  },
+  {
+   "path": "cosmetics/union_take1/pose_fit_report.json",
+   "bytes": 2765,
+   "sha256": "12c9b6e191a37349011c8411058cd5225a3a1bfae73e77523900038c4cc330b1"
   },
   {
    "path": "data/rig_pose.json",
@@ -72,6 +333,31 @@
    "path": "data/take1_tracks.json",
    "bytes": 119911,
    "sha256": "a4cb750c57b4d785b42cc27e5818c01644ac77f7de7f47799532395a02008789"
+  },
+  {
+   "path": "jobs/a1_rigguides.json",
+   "bytes": 32595,
+   "sha256": "f7b4d70602930174e1ceeeb4bd3b382d0e39ebd64a960bf96042468c8339bc9b"
+  },
+  {
+   "path": "jobs/a2_endlock.json",
+   "bytes": 33659,
+   "sha256": "5b78740e6118b921a6685ad92800468d1c34f0b72db5af6f04179a46531524b9"
+  },
+  {
+   "path": "pc_runner/mermaid_rig_pilot/__init__.py",
+   "bytes": 1668,
+   "sha256": "5ebb333c50cacddfe6e6c783c6e2e86f46688c1bc56734990ba5454cc0ab1cd8"
+  },
+  {
+   "path": "pc_runner/rig_pilot_runner.py",
+   "bytes": 14624,
+   "sha256": "bad62192304690860d3a5e8a195b98f4c976219e4b1976f28f0050ac77895c4b"
+  },
+  {
+   "path": "pc_runner/start_rig_pilot_runner.bat",
+   "bytes": 625,
+   "sha256": "7e84bff00e3c4187e5db77de1dfebee6f3c99d6e6fb267fcba1ec6dd96d367c3"
   },
   {
    "path": "run1/frames/0000.png",
@@ -1194,24 +1480,54 @@
    "sha256": "6dbdc7bc7a49428e245a1bb6991f22e8033b6fe1b2ef5c2144384e853e69dc39"
   },
   {
+   "path": "scripts/bake_clip_outfits.sh",
+   "bytes": 1162,
+   "sha256": "a18151ce5055b1bf0306c8ef176b54f111ad975292c6f1d37727fdd5a1c2dacb"
+  },
+  {
    "path": "scripts/build_parts.py",
    "bytes": 14869,
    "sha256": "abeab978e5da05301b71cba7a594835b752a8b5dcc369e61237807d3261bcea2"
   },
   {
-   "path": "scripts/comfy_rig_pilot_nodes.py",
-   "bytes": 1290,
-   "sha256": "2a83116eb8281d922b4a520088baf8672b683cd619a274eac29318c64d0dfa06"
+   "path": "scripts/clip_cells.py",
+   "bytes": 4870,
+   "sha256": "1f2ae86a72a6cfdd1a2839b78a2c03a6edd01ee829530fd697afbe8a129a25c5"
+  },
+  {
+   "path": "scripts/clip_pose_fit.py",
+   "bytes": 5179,
+   "sha256": "bd9868fde166e7769ef6bcae9db9aa3b0d7b5286b18b5ab294274562fa9c4f09"
+  },
+  {
+   "path": "scripts/cosmetics_review.py",
+   "bytes": 3776,
+   "sha256": "94fd37dbc84d4765e4e98752504bd3b8b93dee4a5ba82ae2205280f08a8eab74"
+  },
+  {
+   "path": "scripts/license_rows.py",
+   "bytes": 2905,
+   "sha256": "6b68181c9c4b9a6d098cea39636729ed8e1d507c0751549bca11b3490aebb251"
+  },
+  {
+   "path": "scripts/make_jobs.py",
+   "bytes": 7851,
+   "sha256": "66fbf270d3c27072762a63278cf544e20cc34fbdff49601b3b429d7aab69d912"
   },
   {
    "path": "scripts/manifest.py",
-   "bytes": 1534,
-   "sha256": "78e73a3e2521e7d61188963b9f2be48a6816939ca85c0c3610a5e9b51f2dea81"
+   "bytes": 1814,
+   "sha256": "7ea63dd3ad62fa6a59efd8e794507f9ed46c52f2e6e22db2d437e593deef0dc5"
   },
   {
    "path": "scripts/pilot_common.py",
    "bytes": 5044,
    "sha256": "f34550c3a7b2c2e9449c5039385ce5fa687ba8aa98c6149b9e144348f53f3a63"
+  },
+  {
+   "path": "scripts/process_take.py",
+   "bytes": 6407,
+   "sha256": "d778a3cbf7a709e9a5f366c93c0e33de94364c78025ea213a948cc0e393c5432"
   },
   {
    "path": "scripts/render_guides.py",
@@ -1224,19 +1540,14 @@
    "sha256": "3e4290927818f22bb32147748fbbd151cab19567b7bcfde74430790fe0bcf08c"
   },
   {
-   "path": "scripts/run_take.py",
-   "bytes": 10879,
-   "sha256": "e9bbbfc5cb9e11ede95b94dcb06a8992a9559495633a1a20616d5ba079f77600"
-  },
-  {
    "path": "scripts/solve.py",
    "bytes": 7610,
    "sha256": "74a2fbbb4ac88953438610a1efb1466ac862733583191a8415948fce9ea2beac"
   },
   {
    "path": "scripts/track_ltx.py",
-   "bytes": 11239,
-   "sha256": "7c9ae9fd4a9dd672475b3ae7c602d1196dd520e250429f8adc8aaa39ece4420b"
+   "bytes": 11889,
+   "sha256": "7d401cd14004914a8c56d25f63eae85bc46063d81167d74f24dbcae2026aee07"
   }
  ],
  "sources": [
@@ -1249,6 +1560,21 @@
    "path": "docs/handoffs/codex_roshan_wave_whole_sprites_2026-10-07/tools/measure_wave.py",
    "bytes": 8178,
    "sha256": "35f4502adae14b546e8ab8450020162038434a1d6a8ee7d49aabc49f0b30e961"
+  },
+  {
+   "path": "tools/build_fashion_outfits.gd",
+   "bytes": 6975,
+   "sha256": "7354a6478cd68daec20eb94ea5f2425b635798b715f9c9763395c7b9ddfcb76e"
+  },
+  {
+   "path": "assets_src/fashion_designer/party_garment_v1/pose_fit.json",
+   "bytes": 12489,
+   "sha256": "942a34f5026abf8ecef66ad50da136c2c3a3cc917c902b576f581e527effd6df"
+  },
+  {
+   "path": "assets_src/fashion_designer/party_garment_v1/native.png",
+   "bytes": 931619,
+   "sha256": "b99743e3bd74a63fa04a02ab12fc1816ccc10ca9e662147f70c5e7ffc2a1427b"
   },
   {
    "path": "assets_src/cinematics/ltx25_union_trial_20261004/scripts/guide.lua",

@@ -1,6 +1,7 @@
 # Roshan deterministic-rig pilot: LTX motion onto a fixed rig, two runs (2026-10-07)
 
-**Run 1 revision 2 `EXECUTION_PASS / RULES_OFF_TEST_ONLY`. Run 2 `GUIDES_READY / TAKE_NOT_RUN`.**
+**Run 1 revision 2 `EXECUTION_PASS / OWNER_REJECTED`. Run 2 `GUIDES_READY / TAKES_QUEUED_ON_PC`.
+Cosmetics on clips `PIPELINE_PASS / OWNER_REVIEW_PENDING`.**
 Both runs take their motion from LTX-2.5 Union take 1 and put it on one deterministic rig
 whose bone lengths never change. Run 1 ignores the owner rules for testing, as the owner asked.
 Its analysis found shortfalls, so run 2 brings the rules back. Nothing here is runtime,
@@ -14,6 +15,9 @@ delivery, device, child or owner acceptance. No finding lifecycle changes.
 | 2026-10-07 | "Yes, render them": Claude may render this pilot's guide images and preview (one-time exception to the 2026-09-30 written-handoff rule). | `ODR-RIG-PILOT-IMAGE-EXCEPTION-20261007` |
 | 2026-10-07 | "Trial two test runs, one that completely ignores these rules for purposes of testing, and then if there are problems or shortfalls with the drafts that are analyzed, introduce these rules back again. The game was previously incapable of animating in this way, I suspect that it may be, but permit claude to trial using a different approach." | `ODR-RIG-PILOT-RULES-OFF-TEST-20261007` |
 | 2026-10-07 | On run 1: "This is acceptable as a rough take, but mermaid roshan is frozen otherwise. Give her a full body natural movement that accompanies the hand raise, have her blink, make her hair flow slightly in the water. It's progress" and "There are also a lot of frame-by-frame artifacts present currently". | `ODR-RIG-PILOT-REV2-20261007` |
+| 2026-10-07 | On revision 2: "No, these are failures. there are overdraw errors, the figure doesn't move as a whole, there are some rough crop issues as well. analyze potential solutions, including the old protocols" | `ODR-RIG-PILOT-REV2-REJECTED-20261007` |
+| 2026-10-07 | "Continue, trial methods until satisfied" | `ODR-RIG-PILOT-TRIALS-20261007` |
+| 2026-10-07 | "Also, in this process, Insure that cosmetics, like new clothes, will still work with the animation process, this is critical" | `ODR-RIG-PILOT-COSMETICS-20261007` |
 
 The rules set aside for run 1 only: `ODR-ROSHAN-WHOLE-FRAME-20261005`, `ODR-SPRITE-WHOLE-UNIT-20261007`,
 the CLAUDE.md rule that Roshan has no rig or skeleton, and the written-handoff rule. They stay
@@ -26,6 +30,7 @@ binding for production and for run 2.
 | 1, rules off, revision 2 | [LTX take 1 / revision 1 / revision 2, same scale](run1_rev2/review.mp4) | [run1_rev2/frames](run1_rev2/frames) (512 px = 2 x cell) |
 | 1, rules off, revision 1 | [LTX take 1 / Godot rig, same scale](run1/review.mp4) | [run1/frames](run1/frames) |
 | 2, rules back | [Union guide / rig guide / LTX take 1](run2/review.mp4) | [run2/guide_full](run2/guide_full), [half](run2/guide_half), [quarter](run2/guide_quarter) |
+| Cosmetics on a clip (Union take 1) | [base / ribbon / party / garden / disguise](cosmetics/union_take1/cosmetics_review.mp4) | [outfit atlases](cosmetics/union_take1/outfits), [base atlas](cosmetics/union_take1/atlas.png) |
 
 Both videos are 41 frames at 24 fps (1708 ms). H.264 copies are lossy; PNGs are authoritative.
 
@@ -162,6 +167,11 @@ The blink is pending Codex and owner review as production art.
 The run-1 shortfalls about rule conflicts still stand: part layers and a hand swap. Revision 1
 frames remain as evidence; reproduce them from commit `e9eb0e87`.
 
+**Owner review: rejected** (`ODR-RIG-PILOT-REV2-REJECTED-20261007`): overdraw errors, the figure
+does not move as a whole, and rough crops. These are structural to a cut-out rig: parts overlap
+where they meet, each part turns about its own pivot, and moving the arm uncovers body pixels the
+drawing never had. Run 1 is closed as evidence; the rig now only authors guides (run 2).
+
 ## Run 2: rules back, rig drives the guides
 
 [`render_guides.py`](scripts/render_guides.py) ports the Union `guide.lua`: the same contours,
@@ -181,18 +191,76 @@ Catmull-Rom spans, 1 px lines and full, half and quarter grids. Two things chang
 The guides are structural controls only (`used_as_delivery_pixels: false`, see
 [guide_plan.json](run2/guide_plan.json)).
 
-**Next step, not run here.** The cloud session has no GPU, so the take still has to run on the
-RTX 3060 Ti. [`run_take.py`](scripts/run_take.py) is the Union `render.py` recipe with the same
-seed (20261004), adapter, identity opening and two stages. Only two things change: the guides,
-and one prompt sentence on constant arm length ([prompt](run2/prompt.txt)). Its result is
-therefore a controlled comparison with Union take 1. To run it:
-1. Copy [`comfy_rig_pilot_nodes.py`](scripts/comfy_rig_pilot_nodes.py) into `ComfyUI/custom_nodes`
-   and restart the server.
-2. Run `python run_take.py take_1`.
+### Running the takes on the RTX 3060 Ti
 
-The script is untested. Its cap is two takes, counting failures (`DL-MOT-16`). The takes count
-against the 2026-10-07 wave handoff's brief, not a new budget. Measure the result with
-`measure_wave.py` (W2, plus W3 on annotated joints) before owner review.
+The cloud session has no GPU and cannot type into terminals on the PC. Instead, the owner starts
+[`start_rig_pilot_runner.bat`](pc_runner/start_rig_pilot_runner.bat) once, and Claude passes job
+files through the connected `ltx25` folder. [`rig_pilot_runner.py`](pc_runner/rig_pilot_runner.py)
+works as follows:
+- It starts the isolated ComfyUI core (port 8194, the Union trial's arguments plus the
+  [`mermaid_rig_pilot`](pc_runner/mermaid_rig_pilot/__init__.py) guide loader).
+- It checks the SHA-256 of every input.
+- It accepts only allow-listed node classes and save paths.
+- It copies frames and latents back with a receipt.
+
+The runner stops at 8 takes, counting failures (`ODR-RIG-PILOT-TRIALS-20261007`, bounded under
+`DL-MOT-16`). It unloads the models after 30 idle minutes. It runs ComfyUI graphs only.
+
+[`make_jobs.py`](scripts/make_jobs.py) writes the [jobs](jobs). Each keeps the Union take-1 recipe:
+seed 20261004, adapter, identity opening, both stages.
+
+| Job | Change from Union take 1 | Purpose |
+|---|---|---|
+| `a1_rigguides` | Rig guides, plus one arm-length sentence ([prompt](run2/prompt.txt)) | Controlled test: do proportion-locked guides stop the size and arm changes? |
+| `a2_endlock` | a1, plus the opening image locked again at frame 40, plus a finger-separation sentence in place of "Clean connected fingers" | Loop closure (W5) and hand smear |
+
+[`process_take.py`](scripts/process_take.py) brings a finished take home and takes these steps:
+- It checks the receipt hashes.
+- It tracks the arm, seeded from the rig guide, and runs `measure_wave.py` for W2 and W3.
+- It compares the end frames with K0.
+- It runs the cosmetics pipeline below and writes `run2/<job>/review.mp4`.
+
+## Cosmetics: the game outfits on an animation clip
+
+The owner made this critical (`ODR-RIG-PILOT-COSMETICS-20261007`). The game dresses Roshan by
+baking each outfit (ribbon, party, garden, disguise) into a copy of every atlas. The builder is
+[`tools/build_fashion_outfits.gd`](../../../tools/build_fashion_outfits.gd), and it reads one
+bodice box per 256 px cell from
+[`pose_fit.json`](../../fashion_designer/party_garment_v1/pose_fit.json). The swim cycles already
+work this way. A whole-frame animation clip is one more atlas, so outfits reach every animation
+frame through three steps:
+1. **Game cells.** [`clip_cells.py`](scripts/clip_cells.py) mattes each whole take frame and maps
+   it back to the approved 256 px cell. One uniform 2.5 px edge erosion removes the opening
+   image's upscale spread. Frame 0 matches K0's silhouette at IoU 0.975, up from 0.935.
+2. **Clothing fit per frame.** [`clip_pose_fit.py`](scripts/clip_pose_fit.py) keeps K0's bodice box
+   size on every frame and moves the box with the tracked neck and waist. This way the dress
+   never changes size. Per-cell measured boxes, as the static atlases use, would make it breathe.
+3. **The production builder.** It has one new option, `-- --fit=<json> --out=<dir>`. With that
+   option it bakes the same outfits onto any clip atlas and leaves the game outputs untouched.
+   [`bake_clip_outfits.sh`](scripts/bake_clip_outfits.sh) runs it in a throwaway project.
+   Without the option, the builder's 56 game outputs are byte-identical to the unmodified builder
+   (Godot 4.7.2, same machine).
+
+Test on real generated frames, Union take 1
+([review](cosmetics/union_take1/cosmetics_review.mp4): base | ribbon | party | garden | disguise;
+[report](cosmetics/union_take1/cosmetics_report.json)):
+
+| Outfit | Frames dressed | Clothing area spread | Drift on the bodice |
+|---|---|---|---|
+| Ribbon | 41/41 | 0.0% | 0.00 px |
+| Party dress | 41/41 | 0.3% | 0.05 px |
+| Garden | 41/41 | 2.3% | 0.35 px |
+| Disguise | 41/41 | 0.8% | 0.18 px |
+
+The wave's arm and hands stay in front of the dress, because the builder restores skin over the
+garment. Take 1's body barely moves: the bodice travels 0.28 px and turns 0.5°. The rig-guided
+takes lean and bob, so they test the fit harder.
+
+Two limits remain. The garment snaps to whole pixels, so up to 0.5 px of slip is reported per
+frame. The garment also does not turn with the torso. If a take leans more than about 2°, the
+next step is an optional angle in the fit, still in the same builder.
+
+None of these outfit clips are runtime assets.
 
 ## Reproduce
 
@@ -206,6 +274,12 @@ godot --headless --path run1_godot -s res://tools/build_rig.gd
 xvfb-run godot --path run1_godot --rendering-method gl_compatibility -s res://tools/render_frames.gd -- <abs>/run1_rev2/frames
 python -I scripts/render_guides.py  # run 2 guides
 python -I scripts/review.py         # measurements and review videos
+python -I scripts/make_jobs.py      # run 2 job files -> jobs/ (copied to the PC runner's queue)
+python -I scripts/process_take.py <job> <staged results/rig_pilot/<job>> --godot <4.7.2>
+python -I scripts/clip_cells.py ../ltx25_union_trial_20261004/take_1/refined_frames/%04d.png cosmetics/union_take1
+python -I scripts/clip_pose_fit.py cosmetics/union_take1 roshan_wave_union_take1
+GODOT=<4.7.2> scripts/bake_clip_outfits.sh assets_src/cinematics/claude_rig_pilot_20261007/cosmetics/union_take1
+python -I scripts/cosmetics_review.py cosmetics/union_take1 roshan_wave_union_take1
 ```
 
 The [manifest](manifest.json) lists every packet file with its SHA-256. The

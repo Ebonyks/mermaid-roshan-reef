@@ -1,6 +1,6 @@
 {
   "id": "claude-rig-pilot-20261007",
-  "scope": "Owner-commissioned deterministic-rig pilot for Roshan's wave with LTX animation as the motion guide, run as two tests at the owner's request. LTX Union take 1 is tracked (numbers only) and solved onto one fixed-length rig. Run 1 deliberately ignores the whole-frame, whole-sprite, no-Roshan-rig and written-handoff rules (owner-permitted test): a standalone Godot 4.7.2 Skeleton2D rig with skinned approved parts, rendered and measured. Run 2 restores the rules: proportion-locked structural guides (W3 lengths, one master phase) for the next whole-frame LTX take, plus an untested controlled-comparison runner. No game file, runtime path or finding lifecycle changes. Revision 2 of run 1 (owner review 2026-10-07, ODR-RIG-PILOT-REV2-20261007): the LTX arm path is smoothed, whole-body acting, underwater idle, hair flow and a pilot-only painted blink are authored on the LTX timing, and rig edge artifacts are repaired.",
+  "scope": "Owner-commissioned deterministic-rig pilot for Roshan's wave with LTX animation as the motion guide, run as two tests at the owner's request. LTX Union take 1 is tracked (numbers only) and solved onto one fixed-length rig. Run 1 deliberately ignores the whole-frame, whole-sprite, no-Roshan-rig and written-handoff rules (owner-permitted test): a standalone Godot 4.7.2 Skeleton2D rig with skinned approved parts, rendered and measured. Run 2 restores the rules: proportion-locked structural guides (W3 lengths, one master phase) for the next whole-frame LTX take, plus an untested controlled-comparison runner. No game file, runtime path or finding lifecycle changes. Revision 2 of run 1 (owner review 2026-10-07, ODR-RIG-PILOT-REV2-20261007): the LTX arm path is smoothed, whole-body acting, underwater idle, hair flow and a pilot-only painted blink are authored on the LTX timing, and rig edge artifacts are repaired. Revision 3 (owner rejected revision 2: overdraw, figure not moving as a whole, rough crops; ODR-RIG-PILOT-REV2-REJECTED-20261007): run 1 is closed as evidence. Under \"Continue, trial methods until satisfied\" (ODR-RIG-PILOT-TRIALS-20261007) the run-2 takes run on the owner's RTX 3060 Ti through a PC job runner (ComfyUI graphs only, input hashes, node allow-list, 8-take cap counting failures) fed through the connected folder; jobs a1 (rig guides only) and a2 (plus frame-40 lock and finger sentence) are queued. Because the owner made outfit compatibility critical (ODR-RIG-PILOT-COSMETICS-20261007), whole-frame clips now flow into the game's outfit system: clip_cells.py maps take frames to 256 px cells, clip_pose_fit.py writes a constant-size, bodice-tracked pose fit, and tools/build_fashion_outfits.gd gains an opt-in --fit/--out mode that bakes ribbon, party, garden and disguise onto any clip atlas (default game outputs byte-identical). Proven on Union take 1 frames.",
   "baseline": "6238934447cf28834874396dfbaff65effafda46",
   "rules": [
     "DL-AUTH-05",
@@ -19,7 +19,11 @@
     "DL-CIN-11",
     "DL-ASSET-01",
     "DL-ASSET-02",
-    "DL-PERF-03"
+    "DL-PERF-03",
+    "DL-CODE-05",
+    "DL-QA-01",
+    "DL-ASSET-03",
+    "DL-ASSET-04"
   ],
   "findings": [
     "MA-ROSHAN-006",
@@ -29,8 +33,60 @@
     "ASSET_LICENSES.md",
     "assets_src/cinematics/claude_rig_pilot_20261007/.gdignore",
     "assets_src/cinematics/claude_rig_pilot_20261007/.gitattributes",
+    "assets_src/cinematics/claude_rig_pilot_20261007/.gitignore",
     "assets_src/cinematics/claude_rig_pilot_20261007/JOB_CARD.md",
     "assets_src/cinematics/claude_rig_pilot_20261007/README.md",
+    "assets_src/cinematics/claude_rig_pilot_20261007/cosmetics/union_take1/atlas.png",
+    "assets_src/cinematics/claude_rig_pilot_20261007/cosmetics/union_take1/cells/0000.png",
+    "assets_src/cinematics/claude_rig_pilot_20261007/cosmetics/union_take1/cells/0001.png",
+    "assets_src/cinematics/claude_rig_pilot_20261007/cosmetics/union_take1/cells/0002.png",
+    "assets_src/cinematics/claude_rig_pilot_20261007/cosmetics/union_take1/cells/0003.png",
+    "assets_src/cinematics/claude_rig_pilot_20261007/cosmetics/union_take1/cells/0004.png",
+    "assets_src/cinematics/claude_rig_pilot_20261007/cosmetics/union_take1/cells/0005.png",
+    "assets_src/cinematics/claude_rig_pilot_20261007/cosmetics/union_take1/cells/0006.png",
+    "assets_src/cinematics/claude_rig_pilot_20261007/cosmetics/union_take1/cells/0007.png",
+    "assets_src/cinematics/claude_rig_pilot_20261007/cosmetics/union_take1/cells/0008.png",
+    "assets_src/cinematics/claude_rig_pilot_20261007/cosmetics/union_take1/cells/0009.png",
+    "assets_src/cinematics/claude_rig_pilot_20261007/cosmetics/union_take1/cells/0010.png",
+    "assets_src/cinematics/claude_rig_pilot_20261007/cosmetics/union_take1/cells/0011.png",
+    "assets_src/cinematics/claude_rig_pilot_20261007/cosmetics/union_take1/cells/0012.png",
+    "assets_src/cinematics/claude_rig_pilot_20261007/cosmetics/union_take1/cells/0013.png",
+    "assets_src/cinematics/claude_rig_pilot_20261007/cosmetics/union_take1/cells/0014.png",
+    "assets_src/cinematics/claude_rig_pilot_20261007/cosmetics/union_take1/cells/0015.png",
+    "assets_src/cinematics/claude_rig_pilot_20261007/cosmetics/union_take1/cells/0016.png",
+    "assets_src/cinematics/claude_rig_pilot_20261007/cosmetics/union_take1/cells/0017.png",
+    "assets_src/cinematics/claude_rig_pilot_20261007/cosmetics/union_take1/cells/0018.png",
+    "assets_src/cinematics/claude_rig_pilot_20261007/cosmetics/union_take1/cells/0019.png",
+    "assets_src/cinematics/claude_rig_pilot_20261007/cosmetics/union_take1/cells/0020.png",
+    "assets_src/cinematics/claude_rig_pilot_20261007/cosmetics/union_take1/cells/0021.png",
+    "assets_src/cinematics/claude_rig_pilot_20261007/cosmetics/union_take1/cells/0022.png",
+    "assets_src/cinematics/claude_rig_pilot_20261007/cosmetics/union_take1/cells/0023.png",
+    "assets_src/cinematics/claude_rig_pilot_20261007/cosmetics/union_take1/cells/0024.png",
+    "assets_src/cinematics/claude_rig_pilot_20261007/cosmetics/union_take1/cells/0025.png",
+    "assets_src/cinematics/claude_rig_pilot_20261007/cosmetics/union_take1/cells/0026.png",
+    "assets_src/cinematics/claude_rig_pilot_20261007/cosmetics/union_take1/cells/0027.png",
+    "assets_src/cinematics/claude_rig_pilot_20261007/cosmetics/union_take1/cells/0028.png",
+    "assets_src/cinematics/claude_rig_pilot_20261007/cosmetics/union_take1/cells/0029.png",
+    "assets_src/cinematics/claude_rig_pilot_20261007/cosmetics/union_take1/cells/0030.png",
+    "assets_src/cinematics/claude_rig_pilot_20261007/cosmetics/union_take1/cells/0031.png",
+    "assets_src/cinematics/claude_rig_pilot_20261007/cosmetics/union_take1/cells/0032.png",
+    "assets_src/cinematics/claude_rig_pilot_20261007/cosmetics/union_take1/cells/0033.png",
+    "assets_src/cinematics/claude_rig_pilot_20261007/cosmetics/union_take1/cells/0034.png",
+    "assets_src/cinematics/claude_rig_pilot_20261007/cosmetics/union_take1/cells/0035.png",
+    "assets_src/cinematics/claude_rig_pilot_20261007/cosmetics/union_take1/cells/0036.png",
+    "assets_src/cinematics/claude_rig_pilot_20261007/cosmetics/union_take1/cells/0037.png",
+    "assets_src/cinematics/claude_rig_pilot_20261007/cosmetics/union_take1/cells/0038.png",
+    "assets_src/cinematics/claude_rig_pilot_20261007/cosmetics/union_take1/cells/0039.png",
+    "assets_src/cinematics/claude_rig_pilot_20261007/cosmetics/union_take1/cells/0040.png",
+    "assets_src/cinematics/claude_rig_pilot_20261007/cosmetics/union_take1/cells_report.json",
+    "assets_src/cinematics/claude_rig_pilot_20261007/cosmetics/union_take1/cosmetics_report.json",
+    "assets_src/cinematics/claude_rig_pilot_20261007/cosmetics/union_take1/cosmetics_review.mp4",
+    "assets_src/cinematics/claude_rig_pilot_20261007/cosmetics/union_take1/outfits/roshan_wave_union_take1_disguise.png",
+    "assets_src/cinematics/claude_rig_pilot_20261007/cosmetics/union_take1/outfits/roshan_wave_union_take1_garden.png",
+    "assets_src/cinematics/claude_rig_pilot_20261007/cosmetics/union_take1/outfits/roshan_wave_union_take1_party.png",
+    "assets_src/cinematics/claude_rig_pilot_20261007/cosmetics/union_take1/outfits/roshan_wave_union_take1_ribbon.png",
+    "assets_src/cinematics/claude_rig_pilot_20261007/cosmetics/union_take1/pose_fit_clip.json",
+    "assets_src/cinematics/claude_rig_pilot_20261007/cosmetics/union_take1/pose_fit_report.json",
     "assets_src/cinematics/claude_rig_pilot_20261007/data/rig_pose.json",
     "assets_src/cinematics/claude_rig_pilot_20261007/data/rig_pose_rev2.json",
     "assets_src/cinematics/claude_rig_pilot_20261007/data/run1_joints.json",
@@ -40,7 +96,12 @@
     "assets_src/cinematics/claude_rig_pilot_20261007/data/run2_joints.json",
     "assets_src/cinematics/claude_rig_pilot_20261007/data/run2_measure.json",
     "assets_src/cinematics/claude_rig_pilot_20261007/data/take1_tracks.json",
+    "assets_src/cinematics/claude_rig_pilot_20261007/jobs/a1_rigguides.json",
+    "assets_src/cinematics/claude_rig_pilot_20261007/jobs/a2_endlock.json",
     "assets_src/cinematics/claude_rig_pilot_20261007/manifest.json",
+    "assets_src/cinematics/claude_rig_pilot_20261007/pc_runner/mermaid_rig_pilot/__init__.py",
+    "assets_src/cinematics/claude_rig_pilot_20261007/pc_runner/rig_pilot_runner.py",
+    "assets_src/cinematics/claude_rig_pilot_20261007/pc_runner/start_rig_pilot_runner.bat",
     "assets_src/cinematics/claude_rig_pilot_20261007/run1/frames/0000.png",
     "assets_src/cinematics/claude_rig_pilot_20261007/run1/frames/0001.png",
     "assets_src/cinematics/claude_rig_pilot_20261007/run1/frames/0002.png",
@@ -265,10 +326,17 @@
     "assets_src/cinematics/claude_rig_pilot_20261007/run2/prompt.txt",
     "assets_src/cinematics/claude_rig_pilot_20261007/run2/review.mp4",
     "assets_src/cinematics/claude_rig_pilot_20261007/scripts/animate_rev2.py",
+    "assets_src/cinematics/claude_rig_pilot_20261007/scripts/bake_clip_outfits.sh",
     "assets_src/cinematics/claude_rig_pilot_20261007/scripts/build_parts.py",
+    "assets_src/cinematics/claude_rig_pilot_20261007/scripts/clip_cells.py",
+    "assets_src/cinematics/claude_rig_pilot_20261007/scripts/clip_pose_fit.py",
     "assets_src/cinematics/claude_rig_pilot_20261007/scripts/comfy_rig_pilot_nodes.py",
+    "assets_src/cinematics/claude_rig_pilot_20261007/scripts/cosmetics_review.py",
+    "assets_src/cinematics/claude_rig_pilot_20261007/scripts/license_rows.py",
+    "assets_src/cinematics/claude_rig_pilot_20261007/scripts/make_jobs.py",
     "assets_src/cinematics/claude_rig_pilot_20261007/scripts/manifest.py",
     "assets_src/cinematics/claude_rig_pilot_20261007/scripts/pilot_common.py",
+    "assets_src/cinematics/claude_rig_pilot_20261007/scripts/process_take.py",
     "assets_src/cinematics/claude_rig_pilot_20261007/scripts/render_guides.py",
     "assets_src/cinematics/claude_rig_pilot_20261007/scripts/review.py",
     "assets_src/cinematics/claude_rig_pilot_20261007/scripts/run_take.py",
@@ -279,7 +347,8 @@
     "audit/cycles/rig-pilot-20261007/owner_answers.json",
     "design/05_DOC_LEDGER.md",
     "design/reference/OWNER_DECISIONS.md",
-    "design/reference/owner_decisions.json"
+    "design/reference/owner_decisions.json",
+    "tools/build_fashion_outfits.gd"
   ],
   "validation": [
     {
@@ -333,17 +402,32 @@
       "evidence": "40 px differ, all from the closed bodice contour and sleeve hem drawn in K0's outline colour; no other pixel changes."
     },
     {
-      "command": "scripts/run_take.py take_1 on the RTX 3060 Ti (LTX-2.5 Union, rig guides, seed 20261004)",
-      "result": "PENDING",
-      "evidence": "Not run: the cloud session has no GPU or ComfyUI; runner and node file are untested."
+      "command": "Godot 4.7.2 (SHA-512 matches tools/godot_baseline.json) --headless -s tools/build_fashion_outfits.gd in a scratch project, unmodified vs modified builder, default arguments",
+      "result": "PASS",
+      "evidence": "All 56 default outputs (55 outfit atlases + party_dress_garment.png) byte-identical between the HEAD builder and the --fit/--out builder. Against the committed game files 55/56 are identical and roshan_play_b_party.png differs by one level at one pixel (Lanczos rounding across machines; pre-existing, not caused by this change)."
     },
     {
-      "command": "Owner review of run1/review.mp4 and run2/review.mp4 at normal speed; Mobile renderer and tablet check of run1_godot",
+      "command": "python -I scripts/track_ltx.py --out <tmp> (refactored tracker, defaults)",
+      "result": "PASS",
+      "evidence": "Output equal to the committed data/take1_tracks.json apart from the new seed_guide field."
+    },
+    {
+      "command": "python -I scripts/clip_cells.py, clip_pose_fit.py, bake_clip_outfits.sh, cosmetics_review.py on Union take 1 refined frames",
+      "result": "PASS",
+      "evidence": "cosmetics/union_take1: frame-0 silhouette IoU vs K0 0.9749; all four outfits on 41/41 frames; clothing area spread ribbon 0.0%, party 0.3%, garden 2.3%, disguise 0.8%; drift on the bodice <= 0.35 px (cosmetics_report.json)."
+    },
+    {
+      "command": "Rig-pilot jobs a1_rigguides and a2_endlock on the RTX 3060 Ti via pc_runner/rig_pilot_runner.py, then scripts/process_take.py",
       "result": "PENDING",
-      "evidence": "Not started."
+      "evidence": "Job files, guides, loader, runner and launcher copied to H:\\MermaidReefTools\\LocalVideo\\ltx25 through the connected folder; the owner has to start start_rig_pilot_runner.bat once. Runner untested until then."
+    },
+    {
+      "command": "Owner review of the run-2 takes and the outfit clips at normal speed; Mobile renderer and tablet check",
+      "result": "PENDING",
+      "evidence": "Not started. Revision 2 of run 1 was rejected by the owner (ODR-RIG-PILOT-REV2-REJECTED-20261007)."
     }
   ],
-  "acceptance_gaps": "Run 1 is a rules-off test and is not eligible for production under ODR-SPRITE-WHOLE-UNIT-20261007 and ODR-ROSHAN-WHOLE-FRAME-20261005 unless the owner changes those rules. The revision-2 blink overlays are pilot-only painted art pending Codex/owner review. Run 2's LTX take, its measure_wave report, owner review, Mobile renderer, device, child and runtime gates are all outstanding. MA-ROSHAN-006 and MA-VIS-008 lifecycles are unchanged.",
+  "acceptance_gaps": "Run 1 is closed: the owner rejected revision 2 (overdraw, figure not moving as a whole, rough crops), and as a rules-off test it was never eligible for production under ODR-SPRITE-WHOLE-UNIT-20261007 and ODR-ROSHAN-WHOLE-FRAME-20261005. Run 2's LTX takes, their measure_wave reports and owner review are outstanding; the PC runner is untested until the owner starts it. The outfit clips are reference-only (no runtime atlas, FashionDesigner.SOURCES entry or pose_fit.json change); owner art review of outfits in motion, the garment's whole-pixel slip (<= 0.5 px) and non-rotation are open. Mobile renderer, device, child and runtime gates are outstanding. MA-ROSHAN-006 and MA-VIS-008 lifecycles are unchanged.",
   "lessons": [
     {
       "lesson": "A fixed-length rig solved from LTX footage holds Roshan's size exactly (figure 0.05%, head 0.16%) and is cheap, but as runtime art it reintroduces part layers and an arm that moves alone; use it to author proportion-locked guides, not as the delivered sprite.",
@@ -369,12 +453,27 @@
       "lesson": "Overlay parts cut from one drawing must exclude neighbouring materials (hair in a sleeve overlay) and joint pivots must sit inside the covering part, or skinned motion exposes cuts and blobs.",
       "write_back": "assets_src/cinematics/claude_rig_pilot_20261007/scripts/build_parts.py",
       "recurrence_key": "rig-motion-quality"
+    },
+    {
+      "lesson": "A cut-out or skinned rig cannot meet whole-sprite acting: overlapping parts overdraw, each part turns about its own pivot, and moving a limb uncovers pixels the drawing never had. Keep rigs for guides and measurement.",
+      "write_back": "assets_src/cinematics/claude_rig_pilot_20261007/README.md#run-1-revision-2-whole-body-blink-hair-owner-review-2026-10-07",
+      "recurrence_key": "rig-motion-quality"
+    },
+    {
+      "lesson": "Animation clips get outfits through the same per-cell builder as static atlases, but the bodice box must keep one size and only move with the tracked bodice; per-cell measured boxes would make clothing breathe.",
+      "write_back": "assets_src/cinematics/claude_rig_pilot_20261007/README.md#cosmetics-the-game-outfits-on-an-animation-clip",
+      "recurrence_key": "outfits-on-animation"
     }
   ],
   "owner_corrections": [
     {
       "decision_id": "ODR-RIG-PILOT-REV2-20261007",
       "evidence": "Owner, 2026-10-07, on run 1: \"This is acceptable as a rough take, but mermaid roshan is frozen otherwise. Give her a full body natural movement that accompanies the hand raise, have her blink, make her hair flow slightly in the water. It's progress\"; \"There are also a lot of frame-by-frame artifacts present currently\".",
+      "write_back": "assets_src/cinematics/claude_rig_pilot_20261007/README.md#run-1-revision-2-whole-body-blink-hair-owner-review-2026-10-07"
+    },
+    {
+      "decision_id": "ODR-RIG-PILOT-REV2-REJECTED-20261007",
+      "evidence": "Owner, 2026-10-07, on revision 2: \"No, these are failures. there are overdraw errors, the figure doesn't move as a whole, there are some rough crop issues as well. analyze potential solutions, including the old protocols\".",
       "write_back": "assets_src/cinematics/claude_rig_pilot_20261007/README.md#run-1-revision-2-whole-body-blink-hair-owner-review-2026-10-07"
     }
   ],
@@ -390,6 +489,14 @@
     {
       "path": "design/animation/ANIMATION_PRODUCTION_PROTOCOL.md",
       "purpose": "Whole-frame, constant-size and whole-sprite owner corrections that run 1 suspends and run 2 restores."
+    },
+    {
+      "path": "tools/build_fashion_outfits.gd",
+      "purpose": "Production outfit builder reused for clip atlases."
+    },
+    {
+      "path": "assets_src/fashion_designer/party_garment_v1/pose_fit.json",
+      "purpose": "K0 bodice box and the per-cell fit schema."
     }
   ]
 }

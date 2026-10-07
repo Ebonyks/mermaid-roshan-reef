@@ -46,5 +46,41 @@
     "question": "Review of rig pilot run 1 (rules-off Godot rig, revision 1).",
     "decision": "\"This is acceptable as a rough take, but mermaid roshan is frozen otherwise. Give her a full body natural movement that accompanies the hand raise, have her blink, make her hair flow slightly in the water. It's progress\" and \"There are also a lot of frame-by-frame artifacts present currently\". Scope: the rig pilot's run 1 (revision 2).",
     "cycle": "rig-pilot-20261007"
+  },
+  {
+    "date": "2026-10-07",
+    "authority": "recorded_owner",
+    "source": "assets_src/cinematics/claude_rig_pilot_20261007/README.md#owner-answers",
+    "checks": [],
+    "checkable": false,
+    "id": "ODR-RIG-PILOT-REV2-REJECTED-20261007",
+    "subject": "Rig pilot run 1 revision 2 rejected",
+    "question": "Review of rig pilot run 1 revision 2 (rules-off Godot rig with authored acting, idle, hair flow and blink).",
+    "decision": "\"No, these are failures. there are overdraw errors, the figure doesn't move as a whole, there are some rough crop issues as well. analyze potential solutions, including the old protocols\". Scope: run 1 (the cut-out/skinned runtime rig) is closed as evidence; the rig is used only to author run-2 guides.",
+    "cycle": "rig-pilot-20261007"
+  },
+  {
+    "date": "2026-10-07",
+    "authority": "recorded_owner",
+    "source": "assets_src/cinematics/claude_rig_pilot_20261007/README.md#owner-answers",
+    "checks": [],
+    "checkable": false,
+    "id": "ODR-RIG-PILOT-TRIALS-20261007",
+    "subject": "Rig pilot: keep trialling methods until satisfied",
+    "question": "After the method analysis, how far should the pilot go?",
+    "decision": "\"Continue, trial methods until satisfied\". Recorded scope: local RTX 3060 Ti takes for this pilot with the owner rules back on; Claude bounds it at 8 generated takes counting failures, diagnosed between batches, no paid or API calls, no new budget, no runtime or delivery acceptance.",
+    "cycle": "rig-pilot-20261007"
+  },
+  {
+    "date": "2026-10-07",
+    "authority": "recorded_owner",
+    "source": "assets_src/cinematics/claude_rig_pilot_20261007/README.md#owner-answers",
+    "checks": [],
+    "checkable": false,
+    "id": "ODR-RIG-PILOT-COSMETICS-20261007",
+    "subject": "Outfits must keep working with the animation process",
+    "question": "Requirement on the animation workflow being trialled.",
+    "decision": "\"Also, in this process, Insure that cosmetics, like new clothes, will still work with the animation process, this is critical\". Scope: any animation route chosen must carry the game outfits (ribbon, party, garden, disguise and future clothes) onto every animation frame.",
+    "cycle": "rig-pilot-20261007"
   }
 ]

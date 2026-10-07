@@ -15,16 +15,27 @@ const OTHER := {
 }
 
 func _initialize() -> void:
-	DirAccess.make_dir_recursive_absolute(ProjectSettings.globalize_path(OUT))
-	var fit: Dictionary = JSON.parse_string(FileAccess.get_file_as_string(FIT)) as Dictionary
+	# Optional `-- --fit=<pose_fit.json> --out=<dir/>` bakes the same four outfits onto other
+	# 256 px cell atlases (animation clips) without touching the game outputs below.
+	var fit_path: String = FIT
+	var out_dir: String = OUT
+	for arg: String in OS.get_cmdline_user_args():
+		if arg.begins_with("--fit="):
+			fit_path = arg.trim_prefix("--fit=")
+		elif arg.begins_with("--out="):
+			out_dir = arg.trim_prefix("--out=")
+	var game_outputs: bool = fit_path == FIT and out_dir == OUT
+	DirAccess.make_dir_recursive_absolute(ProjectSettings.globalize_path(out_dir))
+	var fit: Dictionary = JSON.parse_string(FileAccess.get_file_as_string(fit_path)) as Dictionary
 	var garment: Image = Image.load_from_file(GARMENT)
 	garment.convert(Image.FORMAT_RGBA8)
 	garment = garment.get_region(garment.get_used_rect())
-	var export := garment.duplicate() as Image
-	export.resize(384, 448, Image.INTERPOLATE_LANCZOS)
-	var padded := Image.create(512, 512, false, Image.FORMAT_RGBA8)
-	padded.blit_rect(export, Rect2i(0, 0, 384, 448), Vector2i(64, 32))
-	padded.save_png("res://assets/fashion/party_dress_garment.png")
+	if game_outputs:
+		var export := garment.duplicate() as Image
+		export.resize(384, 448, Image.INTERPOLATE_LANCZOS)
+		var padded := Image.create(512, 512, false, Image.FORMAT_RGBA8)
+		padded.blit_rect(export, Rect2i(0, 0, 384, 448), Vector2i(64, 32))
+		padded.save_png("res://assets/fashion/party_dress_garment.png")
 	for base: String in fit["sources"]:
 		var spec: Dictionary = fit["sources"][base]
 		var source: Image = Image.load_from_file("res://" + String(spec["source"]))
@@ -62,7 +73,11 @@ func _initialize() -> void:
 					var bow := _bow(kind)
 					bow.resize(26 if kind != "disguise" else 38, 16 if kind != "disguise" else 23, Image.INTERPOLATE_LANCZOS)
 					output.blend_rect(bow, Rect2i(Vector2i.ZERO, bow.get_size()), origin + Vector2i(box.get_center().x - bow.get_width() / 2, box.position.y + 3))
-			output.save_png(OUT + base + "_" + kind + ".png")
+			output.save_png(out_dir + base + "_" + kind + ".png")
+	if not game_outputs:
+		print("FASHION_ASSETS|OK|%d clip sources x 4 outfits -> %s" % [fit["sources"].size(), out_dir])
+		quit()
+		return
 	for base: String in OTHER:
 		var spec: Array = OTHER[base]
 		var source: Image = Image.load_from_file(String(spec[0]))
