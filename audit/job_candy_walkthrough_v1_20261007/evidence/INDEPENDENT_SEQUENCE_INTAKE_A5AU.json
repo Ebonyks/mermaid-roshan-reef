@@ -1,0 +1,121 @@
+{
+  "utc": "2026-10-07T08:56:07.534933+00:00",
+  "status": "READ_ONLY_REVIEW_INTAKE_WITH_OWNERSHIP_QUALIFICATION",
+  "review_entry": "C:\\Users\\Peter\\.codex\\worktrees\\job-art-runtime-sync-20261004\\mermaid-roshan-reef\\audit\\job_candy_sequence_review_v2_20261007\\index.html",
+  "review_raw_sha256_at_intake": "76608d453c4ca71bb8f45afc647d504e9b142dde6b69d420c75df72785419cf1",
+  "review_gates_at_intake": "FAIL",
+  "review_scope": "Frozen480d83/b7076c/d19 source only; all113 sparse samples board-reviewed640x360 and38distinct directnative originals.92motion originals board-only.22sequence roles below4.6. CurrentA319 source ungraded.",
+  "review_being_sealed_by_owner_chat": true,
+  "review_claim_requiring_qualification": [
+    {
+      "id": "CQ-011",
+      "item": "Unfinished cake state",
+      "local_visual_sequence_score": 3.1,
+      "priority": true,
+      "evaluation": "The initial cake already has a large strawberry ring before placing begins, weakening the child-visible purpose of adding berries.",
+      "scope": "Exact historical480d83 sequence facet only; no complete-action pass or transfer to newerWorlda319."
+    },
+    {
+      "id": "CQ-012",
+      "item": "Cake image/result continuity",
+      "local_visual_sequence_score": 3.2,
+      "priority": true,
+      "evaluation": "The earned state swaps the ring-decorated image for a taller five-tier-berry result without a shown physical transition.",
+      "scope": "Exact historical480d83 sequence facet only; no complete-action pass or transfer to newerWorlda319."
+    }
+  ],
+  "implementing_agent_primary_observation": "Native0000 shows five candied strawberries in a tray directly under the plain frosted cake; they appear attached in the composition. Native0025 hides that tray during work and shows a bare frosted cake with cream pearl trim. Thus the opening ring-like appearance is a separate-tray staging/ownership ambiguity, not evidence that strawberries are baked into the frosting source bitmap. Source asset and rendering ownership support this distinction. No numeric independent score is changed.",
+  "direct_original_observation_indices": [
+    0,
+    25
+  ],
+  "native072_scope": "Hash/state verified only this intake; previous review by root covers its image.",
+  "original_proofs": [
+    {
+      "index": 0,
+      "original": "audit/candymaker_clearance_20261006/candidate_a5ad_1280/native_frames/candidate_a5ad_1280_0000.png",
+      "sha256": "b6ab426de3317c32721740d4511f40723259fc7b93dcf9b30f95ca38e2dfa0b6",
+      "state": {
+        "cake_mask": 63,
+        "persistent_cake_visible": true,
+        "persistent_tray_visible": true,
+        "target_placed": [
+          false,
+          false,
+          false,
+          false,
+          false
+        ],
+        "phase": 3,
+        "milestone": "place_candied_strawberries"
+      }
+    },
+    {
+      "index": 25,
+      "original": "audit/candymaker_clearance_20261006/candidate_a5ad_1280/native_frames/candidate_a5ad_1280_0025.png",
+      "sha256": "ea6c6b3d519ca53759095aec0a42f28a9fe468718036c18257685ba5fbaa49b7",
+      "state": {
+        "cake_mask": 63,
+        "persistent_cake_visible": true,
+        "persistent_tray_visible": false,
+        "target_placed": [
+          true,
+          false,
+          false,
+          false,
+          false
+        ],
+        "phase": 3,
+        "milestone": "place_candied_strawberries"
+      }
+    },
+    {
+      "index": 72,
+      "original": "audit/candymaker_clearance_20261006/candidate_a5ad_1280/native_frames/candidate_a5ad_1280_0072.png",
+      "sha256": "221652ac7c360abf113734ed7cc61c7af9f679e870b253ed7f03d837d4bacd4e",
+      "state": {
+        "cake_mask": 127,
+        "persistent_cake_visible": true,
+        "persistent_tray_visible": false,
+        "target_placed": [
+          true,
+          true,
+          true,
+          true,
+          true
+        ],
+        "phase": 4,
+        "milestone": ""
+      }
+    }
+  ],
+  "source_assets": {
+    "assets/chapter2/birthday/chapter2_chef_frosted_rainbow_cake.png": "6937204494c98147552cb463b65c11104ffc43c85d9ca7bc907865601f2efc46",
+    "assets/chapter2/birthday/chapter2_candied_strawberries_tray.png": "67caf1c52179a25407344905bdd5d83936721bdcfdc3b5bd274cf18663136839"
+  },
+  "source_ownership_references": [
+    "scripts/chapter_two_giant_cake_2d.gd::_sync_approved_sprite_visibility assigns frosted stage and separate candied_tray_sprite",
+    "scripts/opera_career_world_2d.gd::_refresh_chapter2_cake_scene hides separate tray only while story Candy task_open"
+  ],
+  "current_production_raw_sha256": {
+    "scripts/opera_career_world_2d.gd": "a319c9155529e8dbc1355dd79c1e8e169917fb6703137e53a103dd7a113c3ab6",
+    "scripts/opera_candy_story_surface.gd": "b7076cb11e238a95eef97c239a75274a1af2b87485b7503039d954df1c01f509",
+    "scripts/chapter_two_career_scene_adapter.gd": "d19b57fe01e6ce7a4a8c3ad417e1616a9ffec5609197b546d231fcd241d046b9"
+  },
+  "actual_engine_genuine_input_on_currentA319": "MISSING; prior native source480 remains sealed, not transferred",
+  "new_capture_plan": "Not started: shared lease/current-engine evidence absent, preparation675/600wallFAIL retained, cake/tool owner answers pending. Existing native/gen/task costs and caps not reset.",
+  "routing_human_evidence_read": [
+    "01a11475-0dad-7353-a5cb-d7a92bd2fbf6: setup independent goal threads",
+    "01a11477-bedf-7fa3-8f76-fe66509ead78: continue, ask about unclear/artistic decisions, Fast off"
+  ],
+  "message_authorization": "These already-known human continuation messages do not supply new explicit authorization to send Candy results to Audit job-game artwork; earlier auto-review rejection remains, no retry/bypass.",
+  "goal_status": "BLOCKED retained",
+  "usage_known_remaining_percent": 82,
+  "usage_unknown_secondary": true,
+  "new_source_edits": 0,
+  "new_engine_or_capture_runs": 0,
+  "new_generation_calls": 0,
+  "owner_answer_holds_and_wallcap_stop_retained": true,
+  "publication_integration_eligible": false,
+  "machine_visual_device_child_owner_acceptance": "Prior static machine gates preserved; sequence and complete acting fail; current runtime/native and device/child/owner remain missing."
+}

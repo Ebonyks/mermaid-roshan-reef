@@ -1,0 +1,82 @@
+{
+  "utc": "2026-10-07T06:35:59.467957+00:00",
+  "status": "PASS_HEADLESS_EARNED_VALID_ENTRY_AND_SEPARATE_PROCESS_LOAD_REPLAY",
+  "birthday_earned_route": "headless_a5q_birthday_1280/STATE_headless_a5q_birthday_1280.json",
+  "ordinary_earned_route": "headless_a5u_ordinary_1280/STATE_headless_a5u_ordinary_1280.json",
+  "fresh_engine_restarts": {
+    "birthday": {
+      "artifact": "audit/candymaker_clearance_20261006/restart_a5z_birthday.json",
+      "sha256": "d35014e53ab76ba92ad571c60cec6c2f8a829fd2780169132e6cd16f7256b4d6",
+      "production_load": {
+        "boss_defeated": true,
+        "cake_mask": 127,
+        "chapter2_active": true,
+        "event": "SEPARATE_PROCESS_READY_PRODUCTION_LOAD",
+        "opera_stars": 0,
+        "original_keys_retained": 113,
+        "party_mask": 73,
+        "quality": "speedy",
+        "save_generation": 8,
+        "source_earned_sha256": "7bed83911aa503839e3ef7ae68d9c2ef27cf29efb105b53c8d1e02744785932a"
+      },
+      "headless_intro_input": {
+        "event": "HEADLESS_ONLY_INTRO_REAL_GUI_TAPS",
+        "qualification": "Historical headless READY intro is completed with actual input before explicitly mounting displaymenu. Native displayREADY does not build this intro; no native bootstrap claim.",
+        "taps": 4
+      },
+      "return_room_route": {
+        "cake_mask": 127,
+        "card_disabled": true,
+        "completed_pearl": true,
+        "event": "REOPENED_KITCHEN_CANDY_REWARD_ROUTE",
+        "opera_stars": 0,
+        "ordinary_real_card_replay_started": false,
+        "party_mask": 73,
+        "qualification": "ActualCastleinterior explicitlymounted afterrealContinue andKitchenreopened; no gatewalk proof. Birthdaycompletedjob is correctlyblocked,ordinaryreplay realcardtouch starts its unchanged generic surface.",
+        "story": true
+      },
+      "source_unchanged": true,
+      "earned_original_unchanged": true
+    },
+    "ordinary": {
+      "artifact": "audit/candymaker_clearance_20261006/restart_a5z_ordinary.json",
+      "sha256": "e241554e28463563ed023858a27e98b7a4f04c35b541274a92d41dca6b904adf",
+      "production_load": {
+        "boss_defeated": true,
+        "cake_mask": 127,
+        "chapter2_active": true,
+        "event": "SEPARATE_PROCESS_READY_PRODUCTION_LOAD",
+        "opera_stars": 8,
+        "original_keys_retained": 113,
+        "party_mask": 11343,
+        "quality": "speedy",
+        "save_generation": 2,
+        "source_earned_sha256": "49ed7617e1ee1e6e755d4066469a7b3da0e3bd9e5fcb8c9a256f2519a6b01f28"
+      },
+      "headless_intro_input": {
+        "event": "HEADLESS_ONLY_INTRO_REAL_GUI_TAPS",
+        "qualification": "Historical headless READY intro is completed with actual input before explicitly mounting displaymenu. Native displayREADY does not build this intro; no native bootstrap claim.",
+        "taps": 4
+      },
+      "return_room_route": {
+        "cake_mask": 127,
+        "card_disabled": false,
+        "completed_pearl": true,
+        "event": "REOPENED_KITCHEN_CANDY_REWARD_ROUTE",
+        "opera_stars": 8,
+        "ordinary_real_card_replay_started": true,
+        "party_mask": 11343,
+        "qualification": "ActualCastleinterior explicitlymounted afterrealContinue andKitchenreopened; no gatewalk proof. Birthdaycompletedjob is correctlyblocked,ordinaryreplay realcardtouch starts its unchanged generic surface.",
+        "story": false
+      },
+      "source_unchanged": true,
+      "earned_original_unchanged": true
+    }
+  },
+  "source_hashes_raw": {
+    "scripts/opera_career_world_2d.gd": "480d83ab0b79bed7679bea17838e8b915f4189f9992741e7580d061894980446",
+    "scripts/opera_candy_story_surface.gd": "b7076cb11e238a95eef97c239a75274a1af2b87485b7503039d954df1c01f509",
+    "scripts/chapter_two_career_scene_adapter.gd": "d19b57fe01e6ce7a4a8c3ad417e1616a9ffec5609197b546d231fcd241d046b9"
+  },
+  "qualification": "Valid prior-story save prerequisites loaded before Main READY; birthday Candy phase0 at entry and allfour earned, ordinary complete previous story prerequisites and operaStars0 then allfour newly earn star. Explicit castle/Kitchen entry fixtures. Fresh engine byteclone load, actual headless-intro taps, actual Continue, explicit Castle/Kitchen: birthday completed card correct, ordinary real card replay starts unchanged generic surface. No preceding story travel, native display bootstrap, current-source pixels, natural pacing/30fps, full CI, M11/child/owner acceptance. All previous fixture/diagnostic failures preserved."
+}

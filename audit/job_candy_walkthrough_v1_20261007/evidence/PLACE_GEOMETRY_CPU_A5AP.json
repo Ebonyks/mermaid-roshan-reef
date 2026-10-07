@@ -1,0 +1,56 @@
+{
+  "utc": "2026-10-07T08:33:24.530709+00:00",
+  "result": "PASS_STATIC_MATH_ONLY",
+  "source_sha256": "a319c9155529e8dbc1355dd79c1e8e169917fb6703137e53a103dd7a113c3ab6",
+  "affine_roundtrip_cases": 240,
+  "max_pixel_error": 2.3437142008433856e-13,
+  "cases": "Four common viewport transforms, three independent panel transforms, four independently positioned/scaled/rotated cake transforms and allfive source sockets. Not actual engine/aspect rendering.",
+  "opaque_existing_frosting_socket_pixels": [
+    {
+      "native_socket": [
+        383.0,
+        150.0
+      ],
+      "alpha": 255
+    },
+    {
+      "native_socket": [
+        679.0,
+        291.0
+      ],
+      "alpha": 255
+    },
+    {
+      "native_socket": [
+        326.0,
+        421.0
+      ],
+      "alpha": 255
+    },
+    {
+      "native_socket": [
+        709.0,
+        557.0
+      ],
+      "alpha": 255
+    },
+    {
+      "native_socket": [
+        304.0,
+        701.0
+      ],
+      "alpha": 255
+    }
+  ],
+  "fullsize_source_texture": [
+    1024,
+    1024
+  ],
+  "source_scale_footprint_at_current_cake": [
+    12.0,
+    13.92
+  ],
+  "qualification": "Verifies static socket membership and algebra only; fruit legibility, action/contact, support, source-frame transition and Canvas draw behavior remain pending new engine evidence. Existing immediate state snaps are unchanged.",
+  "engine_runs": 0,
+  "pixel_edits": 0
+}

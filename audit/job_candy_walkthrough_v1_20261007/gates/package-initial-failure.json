@@ -1,0 +1,7 @@
+{
+  "status": "FAIL_PRESERVED",
+  "error": "Package check saw only3 Git diff paths because repository /audit/* ignore excludes unstaged review packet",
+  "authority_error": "DOC008 ledger row points to absent Markdown",
+  "resolution": "Explicitly stage only this owned review packet, then re-run actual inventory and change-coverage gates",
+  "initial_coverage_pass_limit": "Before force-staging, coverage PASS applied only to the3 visible documentation metadata paths; it did not validate the ignored packet."
+}

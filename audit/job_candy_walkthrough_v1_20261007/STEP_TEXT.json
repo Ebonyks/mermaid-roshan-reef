@@ -1,0 +1,747 @@
+{
+  "steps": [
+    {
+      "id": "B01",
+      "group": "birthday",
+      "title": "Reach the Kitchen after Farmer and Chef",
+      "image": null,
+      "gesture": "Follow the active pictured room route to the Kitchen. The birthday foyer may guide to this same room.",
+      "see": "Farmer supplies five strawberries; Chef finishes the six-tier frosting. Candy is the next story job.",
+      "roshan": "Roshan must travel through the normal story route; the captures begin from an explicit Kitchen fixture.",
+      "result": "Cake begins frosted, with no mounted fruit or candle (0x1F).",
+      "next": "Tap the Candy Maker picture card.",
+      "voice": "",
+      "spoken": "",
+      "gap": "Normal preceding-story and foyer travel are not captured. MA-PLAY-005 remains open; no fresh-save reachability claim.",
+      "overlay": [],
+      "reference": "frosted"
+    },
+    {
+      "id": "B02",
+      "group": "birthday",
+      "title": "Tap the Candy Maker picture card",
+      "image": "native/view-00.png",
+      "gesture": "Tap the right picture card at the top (recorded point 728,95).",
+      "see": "Chef is the left card; Candy Maker is the right card. The pale pearl is the completion cue.",
+      "roshan": "Roshan is in the Kitchen beside the rainbow dust bunny.",
+      "result": "The real card opens the Candy workshop; no Candy phase is awarded by entry.",
+      "next": "Find the first glowing station.",
+      "voice": "",
+      "spoken": "",
+      "gap": "The Kitchen screenshot displays a generic room hint. A voiced, Candy-specific entry cue is not established here.",
+      "overlay": [
+        {
+          "type": "tap",
+          "x": 728,
+          "y": 95,
+          "label": "Tap Candy card"
+        }
+      ],
+      "reference": null
+    },
+    {
+      "id": "B03",
+      "group": "birthday",
+      "title": "Open COAT at the first glowing station",
+      "image": "native/view-01.png",
+      "gesture": "Tap the large glowing circle on the left machine (374.47,252).",
+      "see": "Five supplied berries will be coated; the bare frosting cake is on the right.",
+      "roshan": "Roshan starts at the left, then approaches the selected station.",
+      "result": "Arrival opens the action panel without earning coating.",
+      "next": "Touch and hold the pictured pour control.",
+      "voice": "Tip the shiny coat over the strawberries!",
+      "spoken": "Tip the shiny coat over the strawberries!",
+      "gap": "",
+      "overlay": [
+        {
+          "type": "tap",
+          "x": 374.47,
+          "y": 252,
+          "label": "Open COAT"
+        }
+      ],
+      "reference": null
+    },
+    {
+      "id": "B04",
+      "group": "birthday",
+      "title": "Hold the coating pour control",
+      "image": "native/view-02.png",
+      "gesture": "Press and hold the purple control in the right panel (958.96,407.16); release to stop.",
+      "see": "Five strawberries and the purple control appear beside the unchanged cake.",
+      "roshan": "Roshan has approached the station and holds her existing costume tools; continuous hand-to-control contact is unverified.",
+      "result": "Deliberate holding increases coating fill. Holding the pour control is the intended verb.",
+      "next": "Continue until all five coating marks are filled.",
+      "voice": "Tip the shiny coat over the strawberries!",
+      "spoken": "Tip the shiny coat over the strawberries!",
+      "gap": "No saved native mid-pour image or continuous pour sequence. Tool/stream contact remains a visual gap.",
+      "overlay": [
+        {
+          "type": "tap",
+          "x": 958.96,
+          "y": 407.16,
+          "label": "Hold to coat"
+        }
+      ],
+      "reference": null
+    },
+    {
+      "id": "B05",
+      "group": "birthday",
+      "title": "Finish coating all five",
+      "image": "native/view-03.png",
+      "gesture": "Release after the coating completes; no extra tap is needed to advance.",
+      "see": "Yellow coating arcs surround all five berries and the bottom progress pearls fill.",
+      "roshan": "Roshan opens her arms in feedback; this does not prove a physically authored pour.",
+      "result": "COAT reaches 5/5. The persistent cake remains 0x1F and Candy phase 0 is saved.",
+      "next": "SORT becomes the next invitation.",
+      "voice": "Tip the shiny coat over the strawberries!",
+      "spoken": "Tip the shiny coat over the strawberries!",
+      "gap": "",
+      "overlay": [
+        {
+          "type": "tap",
+          "x": 1066,
+          "y": 416,
+          "label": "Five coating marks"
+        }
+      ],
+      "reference": null
+    },
+    {
+      "id": "B06",
+      "group": "birthday",
+      "title": "Open SORT at the centre machine",
+      "image": "native/view-04.png",
+      "gesture": "Tap the glowing centre station (555.82,410.4).",
+      "see": "The next station is marked by the large yellow-white invitation circle.",
+      "roshan": "Roshan approaches the new station.",
+      "result": "SORT opens with five unsorted strawberries; arrival gives no sorting credit.",
+      "next": "Drag one berry at a time into its matching colored lane.",
+      "voice": "Sort the same strawberries by their matching color!",
+      "spoken": "Sort the strawberries by their matching color!",
+      "gap": "",
+      "overlay": [
+        {
+          "type": "tap",
+          "x": 555.82,
+          "y": 410.4,
+          "label": "Open SORT"
+        }
+      ],
+      "reference": null
+    },
+    {
+      "id": "B07",
+      "group": "birthday",
+      "title": "Drag matching strawberry colors",
+      "image": "native/view-05.png",
+      "gesture": "Drag each berry with one finger into its matching pink, yellow or aqua lane; release inside the lane.",
+      "see": "The five identical berry artworks have colored rings: pink/yellow/aqua/pink/yellow.",
+      "roshan": "Roshan stands at the centre-right work position, holding tools. The fruit move in a separate panel at the left.",
+      "result": "A real drag of at least 24 px into the matching lane accepts that distinct berry. Wrong-bin or stationary releases reset it without awarding progress.",
+      "next": "Repeat for the remaining berries.",
+      "voice": "Sort the same strawberries by their matching color!",
+      "spoken": "Sort the strawberries by their matching color!",
+      "gap": "No native SORT midpoint/contact image. Arrows explain source/input anchors over the start image; they do not prove an intervening pose.",
+      "overlay": [
+        {
+          "type": "drag",
+          "x": 102,
+          "y": 395.6,
+          "x2": 120,
+          "y2": 449.6,
+          "label": "Drag pink"
+        },
+        {
+          "type": "drag",
+          "x": 167,
+          "y": 395.6,
+          "x2": 232,
+          "y2": 449.6,
+          "label": "Drag yellow"
+        },
+        {
+          "type": "drag",
+          "x": 232,
+          "y": 395.6,
+          "x2": 344,
+          "y2": 449.6,
+          "label": "Drag aqua"
+        }
+      ],
+      "reference": null
+    },
+    {
+      "id": "B08",
+      "group": "birthday",
+      "title": "Finish five sorted strawberries",
+      "image": "native/view-06.png",
+      "gesture": "Drop the fourth pink and fifth yellow berries into their matching lanes.",
+      "see": "The sorted panel shows two pink, two yellow and one aqua strawberry.",
+      "roshan": "Roshan gives a cheerful open-arm response; carrying/drop contact remains unverified.",
+      "result": "SORT reaches 5/5; the persistent cake is still 0x1F.",
+      "next": "GLAZE is invited.",
+      "voice": "Sort the same strawberries by their matching color!",
+      "spoken": "Sort the strawberries by their matching color!",
+      "gap": "",
+      "overlay": [
+        {
+          "type": "tap",
+          "x": 232,
+          "y": 480,
+          "label": "All five sorted"
+        }
+      ],
+      "reference": null
+    },
+    {
+      "id": "B09",
+      "group": "birthday",
+      "title": "Open GLAZE by the crank station",
+      "image": "native/view-07.png",
+      "gesture": "Tap the glowing right-centre station (763.07,410.4).",
+      "see": "The invitation is beside Roshan, before the action panel opens.",
+      "roshan": "Roshan moves to the glaze work position.",
+      "result": "The panel opens without glaze credit.",
+      "next": "Trace around the purple crank.",
+      "voice": "Twist the glaze around each strawberry!",
+      "spoken": "Twist the glaze around each strawberry!",
+      "gap": "",
+      "overlay": [
+        {
+          "type": "tap",
+          "x": 763.07,
+          "y": 410.4,
+          "label": "Open GLAZE"
+        }
+      ],
+      "reference": null
+    },
+    {
+      "id": "B10",
+      "group": "birthday",
+      "title": "Trace circles around the crank",
+      "image": "native/view-08.png",
+      "gesture": "Keep one finger down and trace circles around the purple crank centre (232,520.4). The captured test radius was 40 px.",
+      "see": "Five strawberries wait in the purple strip above the crank.",
+      "roshan": "Roshan holds gold tongs at the work position. The crank remains separated from her hands.",
+      "result": "Angular finger movement earns glaze progress; stationary taps or elapsed time alone do not.",
+      "next": "Keep circling toward two full turns.",
+      "voice": "Twist the glaze around each strawberry!",
+      "spoken": "Twist the glaze around each strawberry!",
+      "gap": "Gold tongs versus mittened-hand contact remains an unanswered owner decision.",
+      "overlay": [
+        {
+          "type": "circle",
+          "x": 232,
+          "y": 520.4,
+          "label": "Trace around crank"
+        }
+      ],
+      "reference": null
+    },
+    {
+      "id": "B11",
+      "group": "birthday",
+      "title": "See glaze build at half a turn",
+      "image": "native/view-09.png",
+      "gesture": "Continue tracing; lifting your finger pauses earned progress.",
+      "see": "At roughly 0.5 of the 2-turn goal, yellow shine arcs appear on the early berries.",
+      "roshan": "Roshan remains in her tongs-holding pose; matching crank contact is not demonstrated.",
+      "result": "The real trace recorded a mid-action release and re-press without passive gain.",
+      "next": "Resume circles from the same control.",
+      "voice": "Twist the glaze around each strawberry!",
+      "spoken": "Twist the glaze around each strawberry!",
+      "gap": "",
+      "overlay": [
+        {
+          "type": "circle",
+          "x": 232,
+          "y": 520.4,
+          "label": "Lift pauses; resume"
+        }
+      ],
+      "reference": null
+    },
+    {
+      "id": "B12",
+      "group": "birthday",
+      "title": "Continue after nearly one turn",
+      "image": "native/view-10.png",
+      "gesture": "Continue circling with one finger until the 2-turn goal completes.",
+      "see": "More strawberries show glaze shine; this checkpoint records progress 0.96875 of 2.",
+      "roshan": "The actor pose changes, but the tongs do not demonstrate berry contact.",
+      "result": "Progress continues only with traced rotation.",
+      "next": "Complete glazing all five.",
+      "voice": "Twist the glaze around each strawberry!",
+      "spoken": "Twist the glaze around each strawberry!",
+      "gap": "",
+      "overlay": [
+        {
+          "type": "circle",
+          "x": 232,
+          "y": 520.4,
+          "label": "Keep circling"
+        }
+      ],
+      "reference": null
+    },
+    {
+      "id": "B13",
+      "group": "birthday",
+      "title": "Finish glazing",
+      "image": "native/view-11.png",
+      "gesture": "Release once the glaze goal has completed.",
+      "see": "All five berries show shine arcs; the bottom progress pearls are full.",
+      "roshan": "Roshan celebrates with open arms.",
+      "result": "The milestone then adds cake bit 5:0x1F becomes 0x3F. No fruit is mounted on the cake yet.",
+      "next": "Look for the separate candied tray and PLACE station.",
+      "voice": "Twist the glaze around each strawberry!",
+      "spoken": "Twist the glaze around each strawberry!",
+      "gap": "",
+      "overlay": [
+        {
+          "type": "tap",
+          "x": 232,
+          "y": 438,
+          "label": "Five glossy berries"
+        }
+      ],
+      "reference": null
+    },
+    {
+      "id": "B14",
+      "group": "birthday",
+      "title": "Invite PLACE with the separate tray",
+      "image": "native/view-12.png",
+      "gesture": "Tap the glowing cart-side station (1053.24,489.6).",
+      "see": "Exactly five candied berries sit on a separate tray directly below the bare frosted cake.",
+      "roshan": "Roshan approaches the right-side work position.",
+      "result": "PLACE opens with 0/5 accepted berries.",
+      "next": "Tap each distinct berry in the placement panel.",
+      "voice": "Place the five candied strawberries on the actual cake!",
+      "spoken": "Place the five candied strawberries on the cake!",
+      "gap": "The separate tray visually resembles a fruit ring already attached to the cake. It is a separate sprite, not baked fruit in the frosting bitmap. Cake support/staging remains undecided.",
+      "overlay": [
+        {
+          "type": "tap",
+          "x": 1053.24,
+          "y": 489.6,
+          "label": "Open PLACE"
+        },
+        {
+          "type": "tap",
+          "x": 969,
+          "y": 383,
+          "label": "Separate tray"
+        }
+      ],
+      "reference": null
+    },
+    {
+      "id": "B15",
+      "group": "birthday",
+      "title": "Tap each of the five tray berries",
+      "image": "native/view-13.png",
+      "gesture": "Tap the five distinct berries at (108,401.2),(170,401.2),(232,401.2),(138,475.2),(202,475.2).",
+      "see": "The task tray is at the left; Roshan and the large cake are at the right.",
+      "roshan": "Roshan holds tongs; the purple helper stands between her and the detached tray.",
+      "result": "Each unique berry tap earns one placement. Repeating a filled slot does not consume a neighbour.",
+      "next": "Watch the first accepted berry.",
+      "voice": "Place the five candied strawberries on the actual cake!",
+      "spoken": "Place the five candied strawberries on the cake!",
+      "gap": "This native image is the older 480 placement drawing. Current A319 drawing is uncaptured; contact/action is not accepted.",
+      "overlay": [
+        {
+          "type": "tap",
+          "x": 108,
+          "y": 401.2,
+          "label": "1"
+        },
+        {
+          "type": "tap",
+          "x": 170,
+          "y": 401.2,
+          "label": "2"
+        },
+        {
+          "type": "tap",
+          "x": 232,
+          "y": 401.2,
+          "label": "3"
+        },
+        {
+          "type": "tap",
+          "x": 138,
+          "y": 475.2,
+          "label": "4"
+        },
+        {
+          "type": "tap",
+          "x": 202,
+          "y": 475.2,
+          "label": "5"
+        }
+      ],
+      "reference": null
+    },
+    {
+      "id": "B16",
+      "group": "birthday",
+      "title": "Accept berry 1 of 5",
+      "image": "native/frame-0025.png",
+      "gesture": "Tap distinct berry 1 at (108, 401.2); do not re-tap used berries.",
+      "see": "The tray loses the accepted berry. In captured 480, accepted berries form a column beside the stairs.",
+      "roshan": "Roshan changes feedback pose at the right. No berry is carried by her tongs; placing contact, release and settle are missing.",
+      "result": "Accepted count 1/5. Cake mask stays 0x3F during the active phase.",
+      "next": "Tap the next unused berry.",
+      "voice": "Place the five candied strawberries on the actual cake!",
+      "spoken": "Place the five candied strawberries on the cake!",
+      "gap": "Frozen 480 visible defect: fruit appear remotely beside the stairs instead of on the cake. A319 changes destination drawing only; no native proof yet.",
+      "overlay": [
+        {
+          "type": "tap",
+          "x": 355,
+          "y": 440,
+          "label": "Captured wrong endpoint"
+        }
+      ],
+      "reference": null
+    },
+    {
+      "id": "B17",
+      "group": "birthday",
+      "title": "Accept berry 2 of 5",
+      "image": "native/frame-0033.png",
+      "gesture": "Tap distinct berry 2 at (170, 401.2); do not re-tap used berries.",
+      "see": "The tray loses the accepted berry. In captured 480, accepted berries form a column beside the stairs.",
+      "roshan": "Roshan changes feedback pose at the right. No berry is carried by her tongs; placing contact, release and settle are missing.",
+      "result": "Accepted count 2/5. Cake mask stays 0x3F during the active phase.",
+      "next": "Tap the next unused berry.",
+      "voice": "Place the five candied strawberries on the actual cake!",
+      "spoken": "Place the five candied strawberries on the cake!",
+      "gap": "Frozen 480 visible defect: fruit appear remotely beside the stairs instead of on the cake. A319 changes destination drawing only; no native proof yet.",
+      "overlay": [
+        {
+          "type": "tap",
+          "x": 355,
+          "y": 440,
+          "label": "Captured wrong endpoint"
+        }
+      ],
+      "reference": null
+    },
+    {
+      "id": "B18",
+      "group": "birthday",
+      "title": "Accept berry 3 of 5",
+      "image": "native/frame-0041.png",
+      "gesture": "Tap distinct berry 3 at (232, 401.2); do not re-tap used berries.",
+      "see": "The tray loses the accepted berry. In captured 480, accepted berries form a column beside the stairs.",
+      "roshan": "Roshan changes feedback pose at the right. No berry is carried by her tongs; placing contact, release and settle are missing.",
+      "result": "Accepted count 3/5. Cake mask stays 0x3F during the active phase.",
+      "next": "Tap the next unused berry.",
+      "voice": "Place the five candied strawberries on the actual cake!",
+      "spoken": "Place the five candied strawberries on the cake!",
+      "gap": "Frozen 480 visible defect: fruit appear remotely beside the stairs instead of on the cake. A319 changes destination drawing only; no native proof yet.",
+      "overlay": [
+        {
+          "type": "tap",
+          "x": 355,
+          "y": 440,
+          "label": "Captured wrong endpoint"
+        }
+      ],
+      "reference": null
+    },
+    {
+      "id": "B19",
+      "group": "birthday",
+      "title": "Accept berry 4 of 5",
+      "image": "native/frame-0049.png",
+      "gesture": "Tap distinct berry 4 at (138, 475.2); do not re-tap used berries.",
+      "see": "The tray loses the accepted berry. In captured 480, accepted berries form a column beside the stairs.",
+      "roshan": "Roshan changes feedback pose at the right. No berry is carried by her tongs; placing contact, release and settle are missing.",
+      "result": "Accepted count 4/5. Cake mask stays 0x3F during the active phase.",
+      "next": "Tap the next unused berry.",
+      "voice": "Place the five candied strawberries on the actual cake!",
+      "spoken": "Place the five candied strawberries on the cake!",
+      "gap": "Frozen 480 visible defect: fruit appear remotely beside the stairs instead of on the cake. A319 changes destination drawing only; no native proof yet.",
+      "overlay": [
+        {
+          "type": "tap",
+          "x": 355,
+          "y": 440,
+          "label": "Captured wrong endpoint"
+        }
+      ],
+      "reference": null
+    },
+    {
+      "id": "B20",
+      "group": "birthday",
+      "title": "Accept berry 5 of 5",
+      "image": "native/frame-0057.png",
+      "gesture": "Tap distinct berry 5 at (202, 475.2); do not re-tap used berries.",
+      "see": "The tray loses the accepted berry. In captured 480, accepted berries form a column beside the stairs.",
+      "roshan": "Roshan changes feedback pose at the right. No berry is carried by her tongs; placing contact, release and settle are missing.",
+      "result": "Accepted count 5/5. Cake mask stays 0x3F during the active phase.",
+      "next": "Let the earned phase close and show the saved cake.",
+      "voice": "Place the five candied strawberries on the actual cake!",
+      "spoken": "Place the five candied strawberries on the cake!",
+      "gap": "Frozen 480 visible defect: fruit appear remotely beside the stairs instead of on the cake. A319 changes destination drawing only; no native proof yet.",
+      "overlay": [
+        {
+          "type": "tap",
+          "x": 355,
+          "y": 440,
+          "label": "Captured wrong endpoint"
+        }
+      ],
+      "reference": null
+    },
+    {
+      "id": "B21",
+      "group": "birthday",
+      "title": "Show the final saved cake",
+      "image": "native/view-15.png",
+      "gesture": "Wait through the earned result hold; repeated taps are unnecessary.",
+      "see": "The task panel disappears and the five-strawberry grand cake replaces the frosting-stage image. There is no candle.",
+      "roshan": "Roshan celebrates beside the cake; the helper may overlap the scene.",
+      "result": "Cake mask 0x7F and Candy phase mask 0x0F are earned and saved. The designed result hold is 2.2 seconds.",
+      "next": "Watch the final feedback and stage celebration.",
+      "voice": "",
+      "spoken": "",
+      "gap": "The final image swap does not prove the missing last-placement/release/settle action. The cake floats above its support.",
+      "overlay": [
+        {
+          "type": "tap",
+          "x": 970,
+          "y": 268,
+          "label": "Saved five-fruit cake"
+        }
+      ],
+      "reference": null
+    },
+    {
+      "id": "B22",
+      "group": "birthday",
+      "title": "See the celebration pose",
+      "image": "native/frame-0087.png",
+      "gesture": "No gesture is required; let the reward sequence play.",
+      "see": "Roshan raises her hand beside the completed cake.",
+      "roshan": "A wave/open-hand pose supplies celebration feedback, not a placing action.",
+      "result": "The cake remains 0x7F during feedback.",
+      "next": "The scene moves to the reward stage.",
+      "voice": "",
+      "spoken": "",
+      "gap": "Sparse stills are not full-speed or frame-step coverage of every transition.",
+      "overlay": [
+        {
+          "type": "tap",
+          "x": 948,
+          "y": 361,
+          "label": "Celebration pose"
+        }
+      ],
+      "reference": null
+    },
+    {
+      "id": "B23",
+      "group": "birthday",
+      "title": "Receive the birthday-job reward",
+      "image": "native/frame-0088.png",
+      "gesture": "Let the short stage celebration finish.",
+      "see": "Confetti, the helper and Roshan appear on the reward stage. The visible message says: Roshan finished the next birthday-party job! STANDING OVATION for Mermaid Roshan!",
+      "roshan": "Roshan claps while the helper bows.",
+      "result": "The birthday route advances the party job; it does not earn an ordinary Opera star.",
+      "next": "Return automatically to the Kitchen.",
+      "voice": "",
+      "spoken": "",
+      "gap": "No audio recording or device pacing is available; the visible reward caption is genuine.",
+      "overlay": [
+        {
+          "type": "tap",
+          "x": 640,
+          "y": 641,
+          "label": "Birthday-job reward"
+        }
+      ],
+      "reference": null
+    },
+    {
+      "id": "B24",
+      "group": "birthday",
+      "title": "Return to the Kitchen",
+      "image": "native/view-16.png",
+      "gesture": "The earned return is automatic. Use the pictured Back/room routes to continue the party.",
+      "see": "The Candy card now has a gold completed pearl. The visible caption says: This birthday job is ready! Back to our party!",
+      "roshan": "Roshan and the rainbow dust bunny are back in the Kitchen.",
+      "result": "Saved cake 127/party 73/Candy-phase 15 remain intact. The birthday Candy card is completed/disabled.",
+      "next": "Move on to the next story job, Painter.",
+      "voice": "",
+      "spoken": "",
+      "gap": "Next normal story travel and Painter are outside this Candy capture. No full-party or fresh-save route acceptance.",
+      "overlay": [
+        {
+          "type": "tap",
+          "x": 782,
+          "y": 38,
+          "label": "Completed pearl"
+        },
+        {
+          "type": "tap",
+          "x": 74,
+          "y": 74,
+          "label": "Back to room route"
+        }
+      ],
+      "reference": null
+    },
+    {
+      "id": "L01",
+      "group": "lifecycle",
+      "title": "Leave after a completed phase and resume",
+      "image": null,
+      "gesture": "Use Back after completing COAT, then re-open the same Candy card.",
+      "see": "A completed coating phase is stored; the next task invitation is SORT.",
+      "roshan": "Roshan returns to the Kitchen, then approaches the next station on re-entry.",
+      "result": "A separate real-input test earned phase 0, tapped Back, reopened the card and resumed SORT at zero sorting progress.",
+      "next": "Continue from B06.",
+      "reference": "berry",
+      "voice": "",
+      "spoken": "",
+      "gap": "Machine evidence only. No native leave/re-entry panels; no fresh-process partial-phase or partial-gesture retention claim.",
+      "overlay": []
+    },
+    {
+      "id": "L02",
+      "group": "lifecycle",
+      "title": "Reload a completed birthday job",
+      "image": null,
+      "gesture": "Choose Continue, reopen the Kitchen and inspect the completed Candy card.",
+      "see": "The birthday cake and completed pearl are retained.",
+      "roshan": "Roshan returns via production Continue in the headless test; the Kitchen is explicitly mounted.",
+      "result": "Separate-engine restore retained 113 existing keys, cake 127 and party 73. The completed birthday card stays disabled.",
+      "next": "Continue the remaining party jobs; ordinary play is a later route.",
+      "reference": "final-cake",
+      "voice": "",
+      "spoken": "",
+      "gap": "Native Continue/restore/travel images are missing. Headless fixture entry does not establish normal-route travel.",
+      "overlay": []
+    },
+    {
+      "id": "R01",
+      "group": "current",
+      "title": "Current placement change has no screenshot yet",
+      "image": null,
+      "gesture": "The held current preview still accepts one tap per distinct tray berry; input rules are unchanged.",
+      "see": "The current A319 source draws accepted berries at five upper-tier frosting sockets, with the next cue on that same cake transform.",
+      "roshan": "The change adds no holding/contact/release/settle animation and chooses no cake support.",
+      "result": "240 CPU coordinate cases plus parser/lint/static gates passed. No current-source engine/native evidence. The earlier 600 s preparation cap overran to 675.034207 s and remains FAIL.",
+      "next": "Wait for dependent owner decisions and a new authorized verification basis.",
+      "reference": "frosted",
+      "voice": "",
+      "spoken": "",
+      "gap": "UNCAPTURED CURRENT SOURCE A319. This reference drawing is not an engine screenshot or acceptance. Cart versus prep table and tongs versus mittened hand remain pending.",
+      "overlay": []
+    },
+    {
+      "id": "O01",
+      "group": "ordinary",
+      "title": "Enter ordinary play after the birthday story",
+      "image": null,
+      "gesture": "After Chapter 2 story prerequisites, use the enabled Candy Maker Kitchen card. Opera foyer guidance leads to this same Kitchen activity.",
+      "see": "Ordinary Candy uses syrup/sort/wrap/share rather than five story strawberries.",
+      "roshan": "Roshan enters the same career world and approaches each active station.",
+      "result": "The ordinary test started with declared completed-story prerequisites and zero stars, then genuinely earned a new Candy star.",
+      "next": "Open SYRUP.",
+      "reference": "goal",
+      "voice": "",
+      "spoken": "",
+      "gap": "All ordinary native entry/action/reward images are missing. Completed story is a normalized prerequisite fixture, not a newly played whole story.",
+      "overlay": []
+    },
+    {
+      "id": "O02",
+      "group": "ordinary",
+      "title": "Pour syrup into the mold",
+      "image": null,
+      "gesture": "Open the pictured pour station, then hold its syrup/ladle control; release to stop.",
+      "see": "The approved copper ladle is a reused widget reference. Exact ordinary placement is uncaptured.",
+      "roshan": "Roshan approaches the station; actual ladle-to-mold contact is not visually verified.",
+      "result": "Intentional pour reaches goal 5; the existing generic candy surface handles the pour.",
+      "next": "Open SORT.",
+      "reference": "ladle",
+      "voice": "Tip the syrup into the candy mold!",
+      "spoken": "Tip the syrup into the candy mold!",
+      "gap": "ASSET-BACKED ILLUSTRATION ONLY. Native before/mid-pour/after and real voice playback are missing.",
+      "overlay": []
+    },
+    {
+      "id": "O03",
+      "group": "ordinary",
+      "title": "Sort six candies by matching shape",
+      "image": null,
+      "gesture": "Drag each candy token to its matching shape box and release, using one finger at a time.",
+      "see": "The coral-flower candy token is one approved piece reference. The full bin layout is not shown here.",
+      "roshan": "Roshan works at the sorting station; carrying/drop contact is unverified.",
+      "result": "Six correct generic-surface drops earn SORT.",
+      "next": "Open WRAP.",
+      "reference": "candy",
+      "voice": "Drag each candy into its matching shape box!",
+      "spoken": "Drag each candy into its matching shape box!",
+      "gap": "ASSET-BACKED ILLUSTRATION ONLY. Different from the birthday five-berry color lanes; native six-piece states are missing.",
+      "overlay": []
+    },
+    {
+      "id": "O04",
+      "group": "ordinary",
+      "title": "Twist the wrappers",
+      "image": null,
+      "gesture": "Trace circles on the wrapping control until the 1.8-turn goal completes.",
+      "see": "The approved finished-candy goal artwork is a source reference, not a screenshot.",
+      "roshan": "Roshan approaches the wrapping station; fingers/wrapper contact is unverified.",
+      "result": "Deliberate circles earn wrapping through the existing generic surface.",
+      "next": "Open SHARE.",
+      "reference": "goal",
+      "voice": "Twist the finished wrappers in circles!",
+      "spoken": "Twist the finished wrappers in circles!",
+      "gap": "ASSET-BACKED ILLUSTRATION ONLY. Native wrapper deformation, midpoints, finish and voice playback are missing.",
+      "overlay": []
+    },
+    {
+      "id": "O05",
+      "group": "ordinary",
+      "title": "Share six finished candies",
+      "image": null,
+      "gesture": "Tap each distinct sharing target once. The instruction identifies them as waving friends.",
+      "see": "The approved mover is a source reference; the full friend arrangement is uncaptured.",
+      "roshan": "Roshan is at the sharing station. Hand-to-friend exchange and complete acting are unverified.",
+      "result": "Six genuine target taps earn SHARE and the ordinary Candy star (bit 3:0→8).",
+      "next": "Receive the ordinary finale, then return to the Kitchen.",
+      "reference": "share",
+      "voice": "Give one finished candy to every waving friend!",
+      "spoken": "Give one finished candy to every waving friend!",
+      "gap": "ASSET-BACKED ILLUSTRATION ONLY. Native friends, exchange/contact, finale, star award and return are missing.",
+      "overlay": []
+    },
+    {
+      "id": "O06",
+      "group": "ordinary",
+      "title": "Continue and replay ordinary Candy",
+      "image": null,
+      "gesture": "Choose Continue, return to the Kitchen and tap the completed Candy card again.",
+      "see": "Ordinary completion retains a completed pearl while leaving the card enabled for replay.",
+      "roshan": "The headless restart reached the actual Continue menu and real card touch; normal travel was explicitly mounted.",
+      "result": "The saved Candy star mask is 8 (0x08); cake 127 and story prerequisites persist. Re-tapping the ordinary card starts SYRUP without deleting story progress.",
+      "next": "Replay O02–O05.",
+      "reference": "goal",
+      "voice": "",
+      "spoken": "",
+      "gap": "Machine-backed diagram only. Native Continue/reward/return/replay and device/child/owner acceptance remain open.",
+      "overlay": []
+    }
+  ]
+}

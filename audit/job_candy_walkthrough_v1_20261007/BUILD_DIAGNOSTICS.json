@@ -1,0 +1,17 @@
+{
+  "preserved_failures": [
+    {
+      "action": "First combined generator-save command",
+      "status": "FAIL_BEFORE_PROCESS_CREATION",
+      "error": "Windows os error206: filename or extension too long",
+      "resolution": "Save through file patch tool and smaller structured data commands; no runtime changes"
+    },
+    {
+      "action": "First builder run",
+      "status": "FAIL_PRE_SOURCE_RECONSTRUCTION",
+      "error": "ValueError: no exact argument-free PLACE signature",
+      "resolution": "Use observed typed-argument signature and next-function boundary. Raw preserved body reconstructs exact480 hash; no newline normalization."
+    }
+  ],
+  "scope": "Documentation build failures only; originals and runtime worktree preserved"
+}

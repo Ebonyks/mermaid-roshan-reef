@@ -1,0 +1,201 @@
+{
+	"events": [
+		{
+			"entry_document_sha256": "00bbfc85b79f60131a0d8eef26bdf5d16dc2192151fd20bad627fa41f5a403e8",
+			"event": "EXPLICIT_ISOLATED_ENTRY_SAVE_FIXTURE",
+			"qualification": "Prior DayOne/Farmer/Chef prerequisites seeded in a valid document beforeMainREADY; Candy phase/result iszeroatentry andearnedthroughactualinput. Ordinary uses normalized complete prior-story prerequisites with operaStars0 beforeREADY; all four freeplay phases earn the new star. Both lanes use an explicit interior/Kitchen entry fixture. No fullprecedingstorytravel proof.",
+			"story_prerequisites": {
+				"chapter2_cake_piece_mask": 31,
+				"chapter2_job_phase_masks": [
+					15,
+					31,
+					0,
+					0,
+					0,
+					0,
+					0,
+					0
+				],
+				"chapter2_party_piece_mask": 65,
+				"chapter2_strawberry_mask": 31,
+				"day_one_active": false,
+				"day_one_completed_rooms": [
+					"bathroom",
+					"pool",
+					"stuffie",
+					"art"
+				],
+				"day_one_giant_dust_bunny_boss_defeated": true,
+				"day_one_giant_dust_bunny_boss_triggered": true,
+				"quality": "speedy"
+			}
+		},
+		{
+			"after": {
+				"actor_atlas": "res://assets/opera/worlds/actors/animation/roshan_candymaker_sheet_a.png",
+				"actor_atlas_region": "[P: (0.0, 768.0), S: (256.0, 256.0)]",
+				"actor_position": "(271.9987, 288.0447)",
+				"actor_size": "(250.0, 250.0003)",
+				"actor_texture": "",
+				"actor_visible": true,
+				"advance_pending": true,
+				"cake_mask": 31,
+				"cake_rect": "[P: (790.0, 200.0), S: (360.0, 220.0)]",
+				"candy_position": "(66.0, 60.0)",
+				"candy_sorted": 0,
+				"candy_type": 0,
+				"completion_accepted": true,
+				"context": "pour_candymaker",
+				"crank_rotation": 0.0,
+				"draw_route": "",
+				"held": false,
+				"milestone": "coat_strawberries",
+				"mode": "pourt",
+				"panel_visible": true,
+				"party_mask": 65,
+				"persistent_cake_visible": true,
+				"persistent_tray_visible": false,
+				"phase": 0,
+				"phase_goal": 5.0,
+				"phase_name": "COAT STRAWBERRIES",
+				"phase_progress": 5.0,
+				"pilot": false,
+				"pointer": "(106.96, 100.36)",
+				"pour_level": 1.0,
+				"pour_reserve": 0.000000000000000544703171456717,
+				"pour_tilt": 0.80952380952381,
+				"save_fixture_path": "res://audit/candymaker_clearance_20261006/partial_a5ab_birthday_1280/fixture_save.json",
+				"surface_modulate": "(1.0, 1.0, 1.0, 0.0)",
+				"surface_position": "(12.0, 12.0)",
+				"surface_script": "res://scripts/opera_candy_story_surface.gd",
+				"surface_size": "(392.0, 232.0)",
+				"target_placed": [],
+				"task_open": true,
+				"visible_story_action": "pitcher_stream_coats_five_berries",
+				"visible_story_berry_count": 5,
+				"widget_fill": 1.0
+			},
+			"event": "intentional_phase_completed",
+			"initial": {
+				"actor_atlas": "res://assets/opera/worlds/actors/animation/roshan_candymaker_sheet_a.png",
+				"actor_atlas_region": "[P: (512.0, 512.0), S: (256.0, 256.0)]",
+				"actor_position": "(271.9987, 288.05)",
+				"actor_size": "(250.0, 250.0)",
+				"actor_texture": "",
+				"actor_visible": true,
+				"advance_pending": false,
+				"cake_mask": 31,
+				"cake_rect": "[P: (790.0, 200.0), S: (360.0, 220.0)]",
+				"candy_position": "(66.0, 60.0)",
+				"candy_sorted": 0,
+				"candy_type": 0,
+				"completion_accepted": false,
+				"context": "pour_candymaker",
+				"crank_rotation": 0.0,
+				"draw_route": "",
+				"held": false,
+				"milestone": "coat_strawberries",
+				"mode": "pourt",
+				"panel_visible": true,
+				"party_mask": 65,
+				"persistent_cake_visible": true,
+				"persistent_tray_visible": false,
+				"phase": 0,
+				"phase_goal": 5.0,
+				"phase_name": "COAT STRAWBERRIES",
+				"phase_progress": 0.0,
+				"pilot": false,
+				"pointer": "(0.0, 0.0)",
+				"pour_level": 0.0,
+				"pour_reserve": 1.2,
+				"pour_tilt": 0.0,
+				"save_fixture_path": "res://audit/candymaker_clearance_20261006/partial_a5ab_birthday_1280/fixture_save.json",
+				"surface_modulate": "(1.0, 1.0, 1.0, 0.0)",
+				"surface_position": "(12.0, 12.0)",
+				"surface_script": "res://scripts/opera_candy_story_surface.gd",
+				"surface_size": "(392.0, 232.0)",
+				"target_placed": [],
+				"task_open": true,
+				"visible_story_action": "pitcher_stream_coats_five_berries",
+				"visible_story_berry_count": 5,
+				"widget_fill": 0.0
+			},
+			"mode": "pourt",
+			"phase": 0
+		},
+		{
+			"event": "ACTUAL_COATING_PHASE_EARNED_AND_DURABLE_BEFORE_LEAVE",
+			"phase_mask": 1,
+			"save_sha256": "88a9de68e9c2910ca7ebf0313210bf31f301685ba698c6cc0c20ae2f477e2a70"
+		},
+		{
+			"cake_mask": 31,
+			"event": "REAL_BACK_RETURNS_TO_KITCHEN_PARTIAL_JOB",
+			"phase_mask": 1
+		},
+		{
+			"event": "REAL_CARD_REOPENS_FIRST_UNFINISHED_SORT",
+			"phase_index": 1,
+			"phase_mask": 1,
+			"surface_script": "res://scripts/opera_candy_story_surface.gd"
+		}
+	],
+	"inherited_probe_sha256": "bbdeb0822fdaf0f9e099d3df6071b40cd7f91eb76097d420a4674fb7703b0f8d",
+	"input_events": [
+		{
+			"at": "(728.0, 95.0)",
+			"kind": "down",
+			"time_msec": 8350
+		},
+		{
+			"at": "(728.0, 95.0)",
+			"kind": "up",
+			"time_msec": 8412
+		},
+		{
+			"at": "(374.4666, 252.0)",
+			"kind": "down",
+			"time_msec": 9112
+		},
+		{
+			"at": "(374.4666, 252.0)",
+			"kind": "up",
+			"time_msec": 9189
+		},
+		{
+			"at": "(958.96, 407.16)",
+			"kind": "down",
+			"time_msec": 10782
+		},
+		{
+			"at": "(958.96, 407.16)",
+			"kind": "up",
+			"time_msec": 14354
+		},
+		{
+			"at": "(74.0, 74.0)",
+			"kind": "down",
+			"time_msec": 16625
+		},
+		{
+			"at": "(74.0, 74.0)",
+			"kind": "up",
+			"time_msec": 16704
+		},
+		{
+			"at": "(728.0, 95.0)",
+			"kind": "down",
+			"time_msec": 17143
+		},
+		{
+			"at": "(728.0, 95.0)",
+			"kind": "up",
+			"time_msec": 17204
+		}
+	],
+	"qualification": "Valid prior DayOne/Farmer/Chef entryfixture; Candy zero at entry, first coating phase earned through actual input. Real global Back and Kitchen card input resumes first unfinished SORT in same process. No full preceding story travel, partial gesture checkpoint, native/device/child/owner proof; separateprocess phase resume remains separate.",
+	"rendered_pixels": false,
+	"save_path": "res://audit/candymaker_clearance_20261006/partial_a5ab_birthday_1280/fixture_save.json",
+	"save_sha256": "88a9de68e9c2910ca7ebf0313210bf31f301685ba698c6cc0c20ae2f477e2a70",
+	"status": "HEADLESS_ACTUAL_COAT_BACK_KITCHEN_CARD_RESUME_PASS"
+}

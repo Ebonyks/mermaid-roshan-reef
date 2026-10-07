@@ -1,0 +1,140 @@
+extends OperaGestureSurface
+## Birthday Candy uses the five drawn strawberries. Ordinary candy retains its
+## authored generic surface. This keeps input anchors in the same panel space.
+
+signal display_changed
+
+const SORT_LANE_COLOURS: Array[Color] = [
+	Color("#ffb4cf"), Color("#ffd66f"), Color("#8fe3dc"),
+]
+
+const SORT_START_POINTS: Array[Vector2] = [
+	Vector2(78,72), Vector2(143,72), Vector2(208,72),
+	Vector2(273,72), Vector2(338,72),
+]
+const SORT_TARGET_POINTS: Array[Vector2] = [
+	Vector2(96,126), Vector2(208,126), Vector2(320,126),
+	Vector2(96,188), Vector2(208,188),
+]
+const PLACE_POINTS: Array[Vector2] = [
+	Vector2(84,92), Vector2(146,92), Vector2(208,92),
+	Vector2(114,166), Vector2(178,166),
+]
+const GLAZE_PIVOT := Vector2(208,204)
+const SORT_DRAG_MINIMUM := 24.0
+var sort_drag_travel := 0.0
+
+func _candy_spawn_point() -> Vector2:
+	return SORT_START_POINTS[clampi(candy_piece_index,0,4)] - position
+
+func _candy_bin_rect(bin: int) -> Rect2:
+	return Rect2(Vector2(54.0+float(clampi(bin,0,2))*112.0,48.0)-position,Vector2(84,168))
+
+func _candy_reset_piece(advance: bool) -> void:
+	super._candy_reset_piece(advance)
+	candy_type = candy_piece_index % 3
+	sort_drag_travel = 0.0
+	display_changed.emit()
+
+func _candy_tick(delta: float) -> void:
+	# These fruit wait for the child's finger; they do not ride an invisible
+	# generic conveyor. Keep the inherited feedback clock and redraw cadence.
+	candy_glow = maxf(0.0,candy_glow-delta)
+	candy_redraw += delta
+	if candy_redraw >= 0.05:
+		candy_redraw = 0.0
+		queue_redraw()
+		display_changed.emit()
+
+func _candy_press(at: Vector2) -> void:
+	if candy_complete or completion_accepted:
+		return
+	var slop := maxf(0.0, (110.0 - _candy_piece_rect().size.x) * 0.5)
+	if _candy_piece_rect().grow(slop).has_point(at):
+		candy_dragging = true
+		candy_drag_offset = candy_position - at
+		sort_drag_travel = 0.0
+
+func _candy_drag(at: Vector2) -> void:
+	var before := candy_position
+	super._candy_drag(at)
+	if candy_dragging:
+		sort_drag_travel += before.distance_to(candy_position)
+		display_changed.emit()
+
+func _candy_release(at: Vector2) -> void:
+	if candy_dragging and sort_drag_travel < SORT_DRAG_MINIMUM:
+		_candy_reset_piece(false)
+		demo_active = true
+		demo_t = 0.0
+		gesture.emit(mode,0.0,0.4)
+		return
+	super._candy_release(at)
+	if candy_sorted >= 5:
+		candy_complete = true
+		candy_position = _candy_bin_rect(candy_last_bin).get_center()
+	display_changed.emit()
+
+func _circle_pivot() -> Vector2:
+	if mode == "circle":
+		return GLAZE_PIVOT - position
+	return super._circle_pivot()
+
+func _circle_min_radius() -> float:
+	if mode == "circle":
+		return 18.0
+	return super._circle_min_radius()
+
+func _target_anchor_count() -> int:
+	return PLACE_POINTS.size() if mode == "tap" else super._target_anchor_count()
+
+func _target_anchor_point(index: int) -> Vector2:
+	if mode == "tap":
+		return PLACE_POINTS[clampi(index,0,PLACE_POINTS.size()-1)] - position
+	return super._target_anchor_point(index)
+
+func cancel_story_input() -> void:
+	held = false
+	active_touch_index = -1
+	have_angle = false
+	_last_spin = 0.0
+	pour_hold = false
+	if candy_dragging:
+		_candy_reset_piece(false)
+	display_changed.emit()
+
+func _gui_input(event: InputEvent) -> void:
+	if event is InputEventScreenTouch and (event as InputEventScreenTouch).canceled:
+		if (event as InputEventScreenTouch).index == active_touch_index:
+			cancel_story_input()
+		accept_event()
+		return
+	super._gui_input(event)
+
+func _notification(what: int) -> void:
+	if what in [NOTIFICATION_WM_WINDOW_FOCUS_OUT,
+			NOTIFICATION_APPLICATION_FOCUS_OUT, NOTIFICATION_PAUSED]:
+		cancel_story_input()
+
+func _target_press(at: Vector2) -> void:
+	if completion_accepted:
+		return
+	# Choose the closest visible slot before testing whether it is already
+	# filled. A forgiving hit region must not turn a repeat into a neighbor.
+	var nearest := -1
+	var nearest_distance := 55.0
+	for index in range(target_placed.size()):
+		var distance := at.distance_to(_target_anchor_point(index))
+		if distance <= nearest_distance:
+			nearest_distance = distance
+			nearest = index
+	if nearest < 0 or target_placed[nearest]:
+		_target_rehint(at)
+		return
+	target_placed[nearest] = true
+	target_piece_anim[nearest] = 0.42
+	tap_marks.append(_target_anchor_point(nearest))
+	feedback_positive = true
+	feedback_t = 0.30
+	feedback_anchor = _target_anchor_point(nearest)
+	gesture.emit("tap", 1.0, 1.0)

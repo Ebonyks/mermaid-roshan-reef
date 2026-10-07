@@ -1,0 +1,116 @@
+{
+  "utc": "2026-10-07T07:36:03.665782+00:00",
+  "status": "PASS_EXISTING_NATIVE_ARTIFACTS_ONLY_ORIGINAL_SUPERVISOR_FAIL_PRESERVED",
+  "native_capture_repeated": false,
+  "allocation": "candy-current-speedy-1280-20261007-v1",
+  "original_supervisor_failure": "NATIVE_TERMINAL_A5AH.json",
+  "original_supervisor_failure_sha256": "3b0856b6093d91e1f2dd76fdd465d62d74e92d2cdc29250cca13e0765567cbfe",
+  "diagnosis": "CPU verifier wrongly expected STATE*.json. Unchanged capture helper line407declares CAPTURE_%s_%d.json. Original engine and runner exit0/PASS; supplemental verification reads declared existing file only. Original failure is not overwritten.",
+  "native_runner_receipt": "gates/candidate_a5ad_1280.receipt.json",
+  "native_runner_receipt_sha256": "de08697c9c4d0134af3d6d8ff8ddbceee3109ee9223a66827cded15f54967344",
+  "manifest": "audit/candymaker_clearance_20261006/candidate_a5ad_1280/CAPTURE_candidate_a5ad_1280.json",
+  "manifest_sha256": "0eed51183104c6488caf9cfa9e5ef59b49a5fc976dc3afa4518b770edf80e98c",
+  "png_index": "audit/candymaker_clearance_20261006/NATIVE_PNG_INDEX_A5AI.json",
+  "png_index_sha256": "01ae6e57f3c9e260fa4ab2d974ab9ed018ce8bacd1e07f84d590978be4a01553",
+  "views": 17,
+  "motion_frames": 113,
+  "total_png": 130,
+  "all_png_bytes_hash_dimensions_verified": true,
+  "actual_profile": {
+    "actual_renderer": "mobile",
+    "engine": {
+      "build": "official",
+      "hash": "ed1daf0bf001b61586d9930840f2f1394092c079",
+      "hex": 263938,
+      "major": 4,
+      "minor": 7,
+      "patch": 2,
+      "status": "stable",
+      "string": "4.7.2-stable (official)",
+      "timestamp": 0
+    },
+    "event": "PRE_ACTION_ACTUAL_SPEEDY_MOBILE_PROFILE",
+    "main_quality": "speedy",
+    "project_renderer": "mobile",
+    "qualification": "Actual loaded native profile asserted before any Candy card/action; no physicalM11 or30fps acceptance.",
+    "save_data_quality": "speedy"
+  },
+  "input_events": 173,
+  "earned_phases": [
+    {
+      "phase": 0,
+      "mode": "pourt",
+      "after": {
+        "phase_progress": 5.0,
+        "cake_mask": 31,
+        "party_mask": 65,
+        "completion_accepted": true
+      }
+    },
+    {
+      "phase": 1,
+      "mode": "candy_sort",
+      "after": {
+        "phase_progress": 5.0,
+        "cake_mask": 31,
+        "party_mask": 65,
+        "completion_accepted": true
+      }
+    },
+    {
+      "phase": 2,
+      "mode": "circle",
+      "after": {
+        "phase_progress": 2.03124981825691,
+        "cake_mask": 31,
+        "party_mask": 65,
+        "completion_accepted": true
+      }
+    },
+    {
+      "phase": 3,
+      "mode": "tap",
+      "after": {
+        "phase_progress": 5.0,
+        "cake_mask": 63,
+        "party_mask": 65,
+        "completion_accepted": true
+      }
+    }
+  ],
+  "motion_first_last_msec": [
+    49585,
+    90721
+  ],
+  "motion_max_gap_msec": 751,
+  "motion_min_gap_msec": 303,
+  "disk_save_sha256": "7bed83911aa503839e3ef7ae68d9c2ef27cf29efb105b53c8d1e02744785932a",
+  "disk_save_quality": "speedy",
+  "saved_candy_phase_mask": 15,
+  "production_restore_event": {
+    "event": "EARNED_DISK_SAVE_AND_PRODUCTION_RESTORE",
+    "generation": 8.0,
+    "path": "res://audit/candymaker_clearance_20261006/candidate_a5ad_1280/fixture_save.json",
+    "qualification": "Production save candidate selection and chapter restore on a fresh main; full process restart/reentry remains separate.",
+    "restored_cake_mask": 127,
+    "restored_chapter2_active": true,
+    "restored_party_mask": 73,
+    "saved_opera_stars": 0,
+    "saved_quality": "speedy",
+    "sha256": "7bed83911aa503839e3ef7ae68d9c2ef27cf29efb105b53c8d1e02744785932a"
+  },
+  "action_fullness": "All4 phases genuinely earned.130whole native PNG,17stills+113motionPNG. Continuous sampled visual span onlyPLACE/finale/return; prior3phases have stills/input evidence. Measured sample cadence is not30fps/device performance.",
+  "current_source_hashes": {
+    "audit/candymaker_clearance_20261006/capture_birthday.gd": "9895eed3c2679c733395af2d2ada99a983e2c7d49521304da7916e621d9b8b0c",
+    "audit\\candymaker_clearance_20261006\\capture_birthday.gd": "9895eed3c2679c733395af2d2ada99a983e2c7d49521304da7916e621d9b8b0c",
+    "audit\\candymaker_clearance_20261006\\run_evidence.py": "46b264ca7e47784d3de7461b8b3a4dbc0de65817b32aee5a519822df8be2a67d",
+    "audit\\candymaker_clearance_20261006\\windows_owned_process_guard.py": "55c67a0bc6ce006b498c66dca39b161ccddd36ce04ff990852dc0cc52237b574",
+    "scripts/chapter_two_career_scene_adapter.gd": "d19b57fe01e6ce7a4a8c3ad417e1616a9ffec5609197b546d231fcd241d046b9",
+    "scripts/chapter_two_giant_cake_2d.gd": "79909f7dc44cc9c89ad6f506a2173ab2d80d4c05be8abf74118db86c5fca4128",
+    "scripts/opera_candy_story_surface.gd": "b7076cb11e238a95eef97c239a75274a1af2b87485b7503039d954df1c01f509",
+    "scripts/opera_career_world_2d.gd": "480d83ab0b79bed7679bea17838e8b915f4189f9992741e7580d061894980446",
+    "scripts/opera_gesture_surface.gd": "34f3f264f17edef42990712f6c3f7e0106cf9afecd3969f8348848e0eda56017"
+  },
+  "limits_and_release": "Original native runner/supervisor receipts retain actual memory/time/positivebytes/owned-release measurements; supervisor statusFAIL remains literal. No allowance reset or automatic retry.",
+  "acceptance": "No current independent/artistic4.6/device/child/owner/fullCI/fullpriorstorytravel proof."
+}

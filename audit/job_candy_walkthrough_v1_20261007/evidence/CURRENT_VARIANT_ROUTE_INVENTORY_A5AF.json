@@ -1,0 +1,107 @@
+{
+  "utc": "2026-10-07T07:19:46.501773+00:00",
+  "status": "CURRENT_SOURCE_STATIC_VARIANT_ROUTE_INVENTORY",
+  "baseline": "96274aab9cebd563b10846a4a48de5d017588563",
+  "source_sha256": {
+    "scripts/opera_career_world_2d.gd": "480d83ab0b79bed7679bea17838e8b915f4189f9992741e7580d061894980446",
+    "scripts/opera_candy_story_surface.gd": "b7076cb11e238a95eef97c239a75274a1af2b87485b7503039d954df1c01f509",
+    "scripts/chapter_two_career_scene_adapter.gd": "d19b57fe01e6ce7a4a8c3ad417e1616a9ffec5609197b546d231fcd241d046b9",
+    "scripts/opera_performance_plan.gd": "25517580638edcc8f63375ec6b14fd0de89287ed08af00111fec1d467cce6da3",
+    "scripts/opera_house_venue_2d.gd": "69f7251f96ec5234fd733fc2d8ad56211d7cbe386122c9a93d76912c4cc8fac1",
+    "scripts/castle_career_routes.gd": "c5de38d8126c96aae9e999780113edafff05601a22934443e67053edcd8e18d8",
+    "scripts/chapter_two_party_plan.gd": "c8fa0ff7f2f16d54085e920e3ad5ebc5c5a4e6c4d4afc85d98c702c900886dfa",
+    "scripts/chapter_two_director.gd": "789ee737eec9477c8b1d6a89b60b6747accc14a6568b2dfa924fa3e5fca42d8d"
+  },
+  "variants": [
+    {
+      "id": "birthday_kitchen",
+      "applicable": true,
+      "phases": [
+        "COAT STRAWBERRIES",
+        "SORT STRAWBERRIES",
+        "GLAZE STRAWBERRIES",
+        "PLACE ON CAKE"
+      ],
+      "source_references": [
+        "scripts/chapter_two_career_scene_adapter.gd:38",
+        "scripts/chapter_two_party_plan.gd:11",
+        "scripts/castle_career_routes.gd:376"
+      ],
+      "machine_evidence": [
+        "VALID_DOCUMENT_ROUTE_CHECKPOINT_A5Q.json",
+        "CURRENT_MACHINE_VARIANTS_A5AA.json",
+        "partial_a5ab_birthday_1280/PARTIAL_COAT_BACK_RESUME.json"
+      ],
+      "limits": "Prior DayOne/Farmer/Chef entry document is a declared fixture. Actual Kitchen card, hotspot, four phases, completed-phase Back/reopen, finale, return, disk save and separate-process completed state tested. Preceding full story travel, current native visual/action/audio/device/child/owner not proved."
+    },
+    {
+      "id": "ordinary_post_story_kitchen",
+      "applicable": true,
+      "phases": [
+        "SYRUP",
+        "SORT",
+        "WRAP",
+        "SHARE"
+      ],
+      "source_references": [
+        "scripts/opera_career_world_2d.gd:288",
+        "scripts/opera_career_world_2d.gd:721",
+        "scripts/castle_career_routes.gd:21"
+      ],
+      "machine_evidence": [
+        "VALID_POST_STORY_ORDINARY_CHECKPOINT_A5U.json",
+        "CURRENT_MACHINE_VARIANTS_A5AA.json"
+      ],
+      "limits": "Complete prior story is a declared normalized fixture, not a newly played story. New ordinary star0->8 is genuinely earned; fresh-process actual Continue/completed card/replay tested. Existing generic input surface unchanged. Native visual/complete actions/midrun partial gesture/device/child/owner remain open."
+    },
+    {
+      "id": "chapter2_opera_foyer_guide",
+      "applicable": "ENTRY_ROUTE_TO_SAME_BIRTHDAY_KITCHEN",
+      "source_references": [
+        "scripts/opera_house_venue_2d.gd:230",
+        "scripts/castle_career_routes.gd:401",
+        "scripts/castle_career_routes.gd:421",
+        "scripts/chapter_two_party_plan.gd:11"
+      ],
+      "machine_evidence": [],
+      "limits": "Static source: birthday foyer can display act3, then callback guides to actual Kitchen room/card; not a separate Candy mechanic/scene. This entry route itself has not been exercised in Candy evidence; retain travel/entry coverage gap."
+    },
+    {
+      "id": "standalone_initial_training",
+      "applicable": false,
+      "reason": "Current director INITIAL_TUTORIAL_ACTS empty, tutorial_phase_is_active returnsfalse, normal story overrides chapter2_tutorial false. Legacy forced config can truncate to one phase but does not prove a naturally reachable training route.",
+      "source_references": [
+        "scripts/chapter_two_director.gd:24",
+        "scripts/chapter_two_director.gd:232",
+        "scripts/chapter_two_director.gd:613",
+        "scripts/opera_career_world_2d.gd:722"
+      ],
+      "limits": "Static ordinary/story caller scope. No forced-config pass or invented new training rollout."
+    },
+    {
+      "id": "ordinary_two_act_practice_performance",
+      "applicable": false,
+      "reason": "OperaPerformancePlan.ENABLED contains ballerina/magician/popstar only. Candy PRACTICE_COUNTS=2 is explicitly a later rollout recommendation; enabled() excludes Candy.",
+      "source_references": [
+        "scripts/opera_performance_plan.gd:6",
+        "scripts/opera_performance_plan.gd:8",
+        "scripts/opera_performance_plan.gd:16",
+        "scripts/opera_career_world_2d.gd:727"
+      ],
+      "limits": "No nonexistent Candy performance grade or runtime rollout."
+    },
+    {
+      "id": "legacy_six_phase_combat",
+      "applicable": false,
+      "reason": "LEGACY_PHASES remains a historical declaration. Production .gd rg inventory found one declaration and no other symbol reference; setup uses current PHASES/ChapterTwo adapter.",
+      "source_references": [
+        "scripts/opera_career_world_2d.gd:119",
+        "scripts/opera_career_world_2d.gd:710",
+        "scripts/opera_career_world_2d.gd:721"
+      ],
+      "limits": "Static symbol inventory excludes text outside production scripts; no hidden natural route assumed or legacy revival."
+    }
+  ],
+  "score_policy": "No numeric grade or clearance. Natural entry and visual evidence must be tested separately; keep all relevant reachable states and unanswered prerequisites open.",
+  "overall_clearance": "NOT_ESTABLISHED"
+}

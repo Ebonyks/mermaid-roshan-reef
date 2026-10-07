@@ -1,0 +1,411 @@
+extends SceneTree
+## Day Two baseline only. Explicit Farmer/Chef entry fixture; Candy phases earned through real touch.
+## Actual Kitchen card, inherited input/progress and earned phases/return.
+## Story prerequisites are an explicit isolated restored-save fixture; no phase forcing.
+var OUT := "res://audit/candymaker_clearance_20261006/"
+var run_label := ""
+var pilot := false
+var save_fixture_path := ""
+var main: ReefMain
+var world: OperaCareerWorld2D
+var width_now := 1280
+var story := true
+var lane := "training"
+var recording := false
+var motion_frames: Array[Dictionary] = []
+var views: Array[Dictionary] = []
+var events: Array[Dictionary] = []
+var input_events: Array[Dictionary] = []
+var checkpoint_index := 0
+
+func _initialize() -> void:
+	_run.call_deferred()
+
+func _wait(count: int) -> void:
+	for _i: int in range(count):
+		await process_frame
+		if recording:
+			await RenderingServer.frame_post_draw
+			_capture_motion()
+
+func _state() -> Dictionary:
+	if not is_instance_valid(world) or not is_instance_valid(world.surface):
+		return {"context":"outside_candy_world","game":main.game if is_instance_valid(main) else "", "cake_mask":main.chapter2_cake_piece_mask if is_instance_valid(main) else 0}
+	var s := world.surface as OperaGestureSurface
+	var current: Dictionary = world.phases[world.phase_index] as Dictionary if world.phase_index >= 0 and world.phase_index < world.phases.size() else {}
+	return {"phase":world.phase_index,"phase_name":current.get("name",""),
+		"milestone":current.get("milestone",""),"phase_goal":current.get("goal",0),"mode":s.mode,"context":s.visual_context,
+		"task_open":world.task_open,"phase_progress":world.phase_progress,"advance_pending":world.phase_advance_pending,
+		"widget_fill":s.widget_fill,"crank_rotation":s.crank_rotation,"pour_tilt":s.pour_tilt,
+		"pour_level":s.pour_level,"pour_reserve":s.pour_reserve,"held":s.held,"pointer":s.pointer_pos,
+		"candy_sorted":s.candy_sorted,"candy_position":s.candy_position,"candy_type":s.candy_type,
+		"target_placed":s.target_placed.duplicate(),"completion_accepted":s.completion_accepted,
+		"draw_route":s.last_contextual_draw_route,"save_fixture_path":save_fixture_path,"pilot":false,"actor_visible":world.player_actor.visible,
+		"actor_position":world.player_actor.position,"actor_size":world.player_actor.size,"actor_texture":world.player_actor.texture.resource_path,"actor_atlas":(world.player_actor.texture as AtlasTexture).atlas.resource_path if world.player_actor.texture is AtlasTexture else "","actor_atlas_region":(world.player_actor.texture as AtlasTexture).region if world.player_actor.texture is AtlasTexture else Rect2(),
+		"surface_script":s.get_script().resource_path,"surface_position":s.position,"surface_size":s.size,"surface_modulate":s.modulate,
+		"cake_mask":main.chapter2_cake_piece_mask,"persistent_cake_visible":is_instance_valid(world.chapter2_cake_scene) and world.chapter2_cake_scene.visible,"persistent_tray_visible":is_instance_valid(world.chapter2_cake_scene) and world.chapter2_cake_scene.candied_tray_sprite.visible,"panel_visible":world.action_panel.visible,"cake_rect":world.chapter2_cake_scene.get_global_rect() if is_instance_valid(world.chapter2_cake_scene) else Rect2(),"party_mask":main.chapter2_party_piece_mask,
+		"visible_story_action":world.action_panel.get_meta("chapter2_candy_visible_action",""),
+		"visible_story_berry_count":world.action_panel.get_meta("chapter2_candy_visible_berry_count",0)}
+
+func _checkpoint() -> void:
+	checkpoint_index += 1
+	# Alternating flushed traces preserve the previous completed slot on ENOSPC.
+	var path := OUT + "TRACE_%d.json" % (checkpoint_index % 2)
+	var file := FileAccess.open(path, FileAccess.WRITE)
+	assert(file != null, "Capture checkpoint open failed")
+	file.store_string(JSON.stringify({"status":"PARTIAL_CHECKPOINT_REVIEW_PENDING","sequence":checkpoint_index,"time_msec":Time.get_ticks_msec(),"state":_state(),"motion_frames":motion_frames,"views":views,"events":events,"input_events":input_events},"\t"))
+	file.flush()
+	assert(file.get_error() == OK, "Capture checkpoint write failed")
+	file.close()
+
+func _event(value: Dictionary) -> void:
+	events.append(value)
+	_checkpoint()
+
+func _input_event(value: Dictionary) -> void:
+	input_events.append(value)
+	_checkpoint()
+
+func _capture_motion() -> void:
+	var index := motion_frames.size()
+	assert(index < 400, "Declared native-frame storage cap reached")
+	var path := OUT+"native_frames/%s_%d_%04d.png" % [lane,width_now,index]
+	var im := root.get_texture().get_image()
+	assert(im.get_size() == Vector2i(width_now,720))
+	assert(im.save_png(path)==OK)
+	motion_frames.append({"path":path.trim_prefix("res://"),"sha256":FileAccess.get_sha256(path),"index":index,
+		"width":width_now,"lane":lane,"time_msec":Time.get_ticks_msec(),"state":_state(),"direct_review":false,"scores":{},"owner_acceptance":null})
+	if index % 12 == 0:
+		_checkpoint()
+
+func _view(tag: String) -> void:
+	await RenderingServer.frame_post_draw
+	var path := OUT+"native_views/%s_%d_%02d_%s.png" % [lane,width_now,views.size(),tag]
+	var im := root.get_texture().get_image()
+	assert(im.get_size() == Vector2i(width_now,720))
+	assert(im.save_png(path)==OK)
+	views.append({"path":path.trim_prefix("res://"),"sha256":FileAccess.get_sha256(path),"tag":tag,"width":width_now,
+		"lane":lane,"state":_state() if is_instance_valid(world) and world.surface!=null else {},"direct_review":false,"scores":{}})
+	_checkpoint()
+
+func _touch(at: Vector2, pressed: bool) -> void:
+	var e := InputEventScreenTouch.new()
+	e.index=0
+	e.position=at
+	e.pressed=pressed
+	Input.parse_input_event(e)
+	_input_event({"kind":"down" if pressed else "up","at":at,"time_msec":Time.get_ticks_msec()})
+	await _wait(2)
+
+func _surface_touch(at: Vector2, pressed: bool) -> void:
+	await _touch(world.surface.get_global_transform_with_canvas()*at,pressed)
+
+func _drag(at: Vector2) -> void:
+	var e := InputEventScreenDrag.new()
+	e.index=0
+	e.position=world.surface.get_global_transform_with_canvas()*at
+	Input.parse_input_event(e)
+	_input_event({"kind":"drag","at":e.position,"time_msec":Time.get_ticks_msec()})
+	await _wait(2)
+
+func _tap(c: Control) -> void:
+	var at := c.get_global_transform_with_canvas()*(c.size*0.5)
+	await _touch(at,true)
+	await _touch(at,false)
+
+func _open() -> void:
+	for _i: int in range(400):
+		var h := world._active_hotspot()
+		if h!=null and h.visible:
+			break
+		await _wait(1)
+	var h := world._active_hotspot()
+	assert(h!=null and h.visible and not world.task_open)
+	await _view("phase%d_invitation" % world.phase_index)
+	await _tap(h.touch_button)
+	for _i: int in range(400):
+		if world.task_open:
+			break
+		await _wait(1)
+	assert(world.task_open)
+	await _wait(8)
+	await _view("phase%d_task_open" % world.phase_index)
+
+func _work() -> void:
+	var phase := world.phase_index
+	var s := world.surface as OperaGestureSurface
+	var mode := s.mode
+	var initial := _state()
+	match mode:
+		"bop":
+			for _i: int in range(160):
+				if world.phase_advance_pending or world.phase_index!=phase:
+					break
+				var target: Control = null
+				for imp: Dictionary in world.combat_imps:
+					if not bool(imp.get("popped",false)) and is_instance_valid(imp.get("node")):
+						target=imp["node"] as Control
+						break
+				if target!=null:
+					await _tap(target)
+				else:
+					await _wait(2)
+		"pourt":
+			await _surface_touch(s._pour_pitcher_hit_rect().get_center(),true)
+			for _i: int in range(500):
+				if world.phase_advance_pending or world.phase_index!=phase:
+					break
+				await _wait(1)
+			await _surface_touch(s.pointer_pos,false)
+		"choice":
+			for _i: int in range(40):
+				if world.phase_advance_pending or world.phase_index!=phase:
+					break
+				var at := Vector2((float(s.target_choice)+0.5)*s.size.x/float(s.choice_count),s.size.y*0.5)
+				await _surface_touch(at,true)
+				await _surface_touch(at,false)
+		"circle":
+			var centre := s._circle_pivot()
+			var radius: float = 40.0 if story else minf(s.size.x,s.size.y)*0.35
+			var before_passive := world.phase_progress
+			await _wait(12)
+			assert(is_equal_approx(world.phase_progress, before_passive))
+			for _j: int in range(2):
+				await _surface_touch(centre + Vector2(radius,0), true)
+				await _wait(4)
+				assert(is_equal_approx(world.phase_progress, before_passive))
+				await _surface_touch(centre + Vector2(radius,0), false)
+				await _wait(4)
+				assert(is_equal_approx(world.phase_progress, before_passive))
+			assert(not s.held)
+			_event({"event":"PASSIVE_STATIONARY_REPEAT_AND_RELEASE_NO_PROGRESS", "progress":before_passive, "mode":s.mode})
+			await _surface_touch(centre+Vector2(radius,0),true)
+			for step: int in range(400):
+				if world.phase_advance_pending or world.phase_index!=phase:
+					break
+				await _drag(centre+Vector2.from_angle(float(step+1)*TAU/32.0)*radius)
+				if step == 16:
+					var before_release := world.phase_progress
+					await _surface_touch(s.pointer_pos, false)
+					await _wait(12)
+					assert(not s.held and is_equal_approx(world.phase_progress, before_release))
+					_event({"event":"MID_ACTION_RELEASE_FREEZES_PROGRESS", "progress":before_release})
+					await _surface_touch(centre + Vector2.from_angle(float(step+1)*TAU/32.0)*radius,true)
+				if step==16 or step==32:
+					await _view("phase%d_circle_step%d" % [phase,step])
+			await _surface_touch(s.pointer_pos,false)
+		"candy_sort":
+			var no_input_progress := world.phase_progress
+			await _wait(12)
+			assert(is_equal_approx(world.phase_progress,no_input_progress))
+			for repeated: int in range(2):
+				await _surface_touch(s.candy_position,true)
+				await _surface_touch(s.candy_position,false)
+				assert(is_equal_approx(world.phase_progress,no_input_progress))
+			var wrong_start := s.candy_position
+			var wrong_bin := s._candy_bin_rect((s.candy_type+1)%3).get_center()
+			await _surface_touch(wrong_start,true)
+			for step: int in range(1,11):
+				await _drag(wrong_start.lerp(wrong_bin,float(step)/10.0))
+			await _surface_touch(wrong_bin,false)
+			assert(is_equal_approx(world.phase_progress,no_input_progress) and s.candy_sorted == 0)
+			_event({"event":"SORT_PASSIVE_REPEATED_STATIONARY_AND_WRONG_BIN_NO_PROGRESS","progress":no_input_progress,"count":s.candy_sorted,"qualification":"Production finger0 input at actual surface anchors; visible-vs-hit geometry acceptance remains separate."})
+			for piece: int in range(16):
+				if world.phase_advance_pending or world.phase_index!=phase:
+					break
+				var before_drop := s.candy_sorted
+				var at := s.candy_position
+				var to := s._candy_bin_rect(s.candy_type).get_center()
+				await _surface_touch(at,true)
+				for step: int in range(1,11):
+					await _drag(at.lerp(to,float(step)/10.0))
+				await _surface_touch(to,false)
+				await _wait(6)
+				assert(s.candy_sorted-before_drop in [0,1])
+				_event({"event":"SORT_DISTINCT_DROP_ATTEMPT","attempt":piece,"before_count":before_drop,"after_count":s.candy_sorted,"progress":world.phase_progress,"accepted":s.candy_sorted>before_drop})
+		"tap":
+			for _i: int in range(16):
+				if world.phase_advance_pending or world.phase_index!=phase:
+					break
+				var target := s._target_next_unplaced()
+				var at := s._target_anchor_point(target) if target>=0 else s.size*0.5
+				await _surface_touch(at,true)
+				await _surface_touch(at,false)
+				await _wait(4)
+		_:
+			push_error("Unimplemented current mode "+mode)
+			quit(3)
+			return
+	if not (world.phase_advance_pending or world.phase_index!=phase):
+		var failure_file := FileAccess.open(OUT+"FAILED_LIVE_STATE.json",FileAccess.WRITE)
+		failure_file.store_string(JSON.stringify({"state":_state(),"events":events,"input_events":input_events,"window_size":root.size,"final_transform":root.get_final_transform()},"\t"))
+		failure_file.close()
+	assert(world.phase_advance_pending or world.phase_index!=phase)
+	await _view("phase%d_earned_completion" % phase)
+	_event({"event":"intentional_phase_completed","phase":phase,"mode":mode,"initial":initial,"after":_state()})
+
+func _run() -> void:
+	Engine.max_fps=30
+	assert(DisplayServer.get_name()!="headless")
+	for a: String in OS.get_cmdline_user_args():
+		if a.begins_with("--run="):
+			run_label=a.trim_prefix("--run=")
+		if a.begins_with("--width="):
+			width_now=a.trim_prefix("--width=").to_int()
+		if a=="--story":
+			story=true
+		if a=="--ordinary":
+			story=false
+		if a=="--pilot":
+			pilot=true
+	assert(not pilot, "Actual production drawings only")
+	assert(not run_label.is_empty())
+	lane=run_label
+	OUT += "%s_%d/" % [lane,width_now]
+	assert(not DirAccess.dir_exists_absolute(OUT))
+	save_fixture_path=OUT+"fixture_save.json"
+	assert(not FileAccess.file_exists(save_fixture_path))
+	DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
+	root.size=Vector2i(width_now,720)
+	DisplayServer.window_set_size(root.size)
+	assert(DirAccess.make_dir_recursive_absolute(OUT+"native_views/")==OK)
+	assert(DirAccess.make_dir_recursive_absolute(OUT+"native_frames/")==OK)
+	var fixture := {"day_one_active":false,"day_one_completed_rooms":["bathroom","pool","stuffie","art"],
+		"day_one_giant_dust_bunny_boss_triggered":true,"day_one_giant_dust_bunny_boss_defeated":true,"quality":"speedy","chapter2_party_piece_mask":65,
+		"chapter2_strawberry_mask":31,"chapter2_cake_piece_mask":31,"chapter2_job_phase_masks":[15,31,0,0,0,0,0,0]}
+	var entry_document_sha := ""
+	if not story:
+		fixture.merge({"chapter2_party_piece_mask":ChapterTwoPartyPlan.ALL_PARTY_MASK,
+			"chapter2_job_phase_masks":ChapterTwoDirector.JOB_PHASE_MASK_LIMITS.duplicate(),
+			"chapter2_ember_king_crashed":true,"chapter2_lawn_started":true,
+			"chapter2_lawn_beat":8,"opera_stars":0},true)
+	if true:
+		# Prior story state is one causally valid save document for each lane.
+		# Production READY loads every owner; no Candy progress is seeded.
+		var fixture_main := ReefMain.new()
+		var fixture_save := SaveState.new(fixture_main,save_fixture_path)
+		var entry_document: Dictionary = fixture_save._normalise_save(fixture)
+		assert(bool(entry_document.get("day_one_giant_dust_bunny_boss_defeated",false)))
+		assert(bool(entry_document.get("chapter2_active",false)))
+		if story:
+			assert(int(entry_document.get("chapter2_cake_piece_mask",0)) == 31)
+			assert(int((entry_document.get("chapter2_job_phase_masks",[]) as Array)[2]) == 0)
+		else:
+			assert(bool(entry_document.get("chapter2_story_complete",false)))
+			assert(int(entry_document.get("opera_stars",-1)) == 0)
+		var entry_file := FileAccess.open(save_fixture_path,FileAccess.WRITE)
+		assert(entry_file != null)
+		entry_file.store_string(JSON.stringify(entry_document,"\t"))
+		entry_file.close()
+		entry_document_sha = FileAccess.get_sha256(save_fixture_path)
+		fixture_main.free()
+	main=(load("res://scenes/main.tscn") as PackedScene).instantiate() as ReefMain
+	main._save_state=SaveState.new(main,save_fixture_path)
+	root.add_child(main)
+	await _wait(5)
+	main.day_one_active=false
+	main._skip_intro()
+	main._start_menu_ref()._dismiss_menu()
+	main.game="level2"
+	main.g["t"]=0.0
+	main._enter_castle_interior_now(false)
+	await _wait(20)
+	if story:
+		assert(main.day_one_giant_dust_bunny_boss_defeated and main.chapter2_active)
+		assert(main.chapter2_job_phase_masks[2] == 0 and main.chapter2_cake_piece_mask == 31)
+	else:
+		assert(main.day_one_giant_dust_bunny_boss_defeated and main.chapter2_story_complete)
+		assert(not main.chapter2_is_active() and main.opera_stars == 0 and not main.day_one_jobs_locked())
+	assert(main.quality == "speedy")
+	assert(String(main.save_data.get("quality","")) == "speedy")
+	assert(String(ProjectSettings.get_setting("rendering/renderer/rendering_method","")) == "mobile")
+	assert(RenderingServer.get_current_rendering_method() == "mobile")
+	_event({"event":"PRE_ACTION_ACTUAL_SPEEDY_MOBILE_PROFILE","main_quality":main.quality,"save_data_quality":main.save_data.get("quality",""),"actual_renderer":RenderingServer.get_current_rendering_method(),"project_renderer":ProjectSettings.get_setting("rendering/renderer/rendering_method",""),"engine":Engine.get_version_info(),"qualification":"Actual loaded native profile asserted before any Candy card/action; no physicalM11 or30fps acceptance."})
+	print("CANDY_NATIVE_PROFILE|ACTUAL_SPEEDY_MOBILE|PASS")
+	_event({"event":"EXPLICIT_ISOLATED_ENTRY_SAVE_FIXTURE","story_prerequisites":fixture,"entry_document_sha256":entry_document_sha,"qualification":"Prior DayOne/Farmer/Chef prerequisites seeded in a valid document beforeMainREADY; Candy phase/result iszeroatentry andearnedthroughactualinput. Ordinary uses normalized complete prior-story prerequisites with operaStars0 beforeREADY; all four freeplay phases earn the new star. Both lanes use an explicit interior/Kitchen entry fixture. No fullprecedingstorytravel proof."})
+	var rooms := main._castle_rooms_ref()
+	rooms.show_room("kitchen",false)
+	await _wait(12)
+	var routes := main._castle_career_routes_ref()
+	routes.sync()
+	assert(CastleCareerRoutes.room_for_act(3)=="kitchen")
+	var card := routes.button_for_act(3)
+	assert(card!=null and card.is_visible_in_tree() and not card.disabled)
+	await _view("actual_kitchen_card")
+	await _tap(card)
+	for _i: int in range(900):
+		if main.opera_game!=null and main.opera_game.act!=null:
+			break
+		await _wait(1)
+	assert(main.opera_game!=null and main.opera_game.act!=null)
+	world=main.opera_game.act.career_world_2d
+	assert(world!=null and world.phase_index==0 and not world.two_act_enabled)
+	assert(world.using_chapter_two_phases==story)
+	assert(world.phases.size()==4)
+	for _i: int in range(180):
+		if main.fade_rect==null or main.fade_rect.modulate.a<=0.02:
+			break
+		await _wait(1)
+	await _wait(8)
+
+	for phase: int in range(world.phases.size()):
+		assert(world.phase_index==phase)
+		var full_action := phase==3
+		if full_action:
+			recording=true
+		await _open()
+		await _work()
+		if phase<world.phases.size()-1:
+			for _i: int in range(400):
+				if world.phase_index==phase+1:
+					break
+				await _wait(1)
+			assert(world.phase_index==phase+1)
+		else:
+			var result_hold_recorded := false
+			for _i: int in range(600):
+				if is_instance_valid(world) and bool(world.get_meta("chapter2_final_result_hold_active", false)) and not result_hold_recorded:
+					result_hold_recorded = true
+					assert(main.chapter2_cake_piece_mask == 127)
+					await _view("actual_saved_final_cake_result_hold")
+					_event({"event":"SAVED_FINAL_CAKE_HOLD_CAPTURED", "cake_mask":main.chapter2_cake_piece_mask,"persistent_cake_visible":is_instance_valid(world.chapter2_cake_scene) and world.chapter2_cake_scene.visible,"persistent_tray_visible":is_instance_valid(world.chapter2_cake_scene) and world.chapter2_cake_scene.candied_tray_sprite.visible,"panel_visible":world.action_panel.visible,"cake_rect":world.chapter2_cake_scene.get_global_rect() if is_instance_valid(world.chapter2_cake_scene) else Rect2(),"party_mask":main.chapter2_party_piece_mask})
+				if main.opera_game==null:
+					break
+				await _wait(1)
+		if full_action:
+			recording=false
+			_event({"event":"complete_place_sequence_recorded" if story else "complete_share_sequence_recorded","phase":phase,"frames":motion_frames.size()})
+	assert(main.opera_game==null and main.game=="level2" and main.castle_room_id=="kitchen")
+	await _wait(12)
+	await _view("actual_earned_kitchen_return")
+	_event({"event":"actual_earned_career_return","stars":main.opera_stars,"party_mask":main.chapter2_party_piece_mask,"cake_mask":main.chapter2_cake_piece_mask})
+	if story:
+		assert(main.chapter2_cake_piece_mask==127 and (main.chapter2_party_piece_mask&8)!=0)
+	# Verify earned disk bytes through the production save/read owners, without forcing a write.
+	assert(FileAccess.file_exists(save_fixture_path))
+	var saved_text := FileAccess.get_file_as_string(save_fixture_path)
+	var saved: Dictionary = JSON.parse_string(saved_text)
+	if story:
+		assert(int(saved.get("chapter2_cake_piece_mask",0)) == 127)
+		assert((int(saved.get("chapter2_party_piece_mask",0)) & 8) != 0)
+	else:
+		assert((int(saved.get("opera_stars",0)) & 8) != 0)
+	var restored := ReefMain.new()
+	var restored_save := SaveState.new(restored,save_fixture_path)
+	var selected: Dictionary = restored_save._select_load_candidate()
+	assert(bool(selected.get("valid",false)))
+	var read_data: Dictionary = selected.get("data",{})
+	restored._chapter_two_ref().restore_state(read_data)
+	if story:
+		assert(restored.chapter2_active)
+		assert(restored.chapter2_cake_piece_mask == 127)
+		assert((restored.chapter2_party_piece_mask & 8) != 0)
+	else:
+		assert((int(read_data.get("opera_stars",0)) & 8) != 0)
+	_event({"event":"EARNED_DISK_SAVE_AND_PRODUCTION_RESTORE","path":save_fixture_path,"sha256":FileAccess.get_sha256(save_fixture_path),"generation":saved.get("save_generation",0),"restored_cake_mask":restored.chapter2_cake_piece_mask,"restored_party_mask":restored.chapter2_party_piece_mask,"restored_chapter2_active":restored.chapter2_active,"saved_quality":read_data.get("quality",""),"saved_opera_stars":read_data.get("opera_stars",0),"qualification":"Production save candidate selection and chapter restore on a fresh main; full process restart/reentry remains separate."})
+	restored.free()
+	var file := FileAccess.open(OUT+"CAPTURE_%s_%d.json" % [lane,width_now],FileAccess.WRITE)
+	file.store_string(JSON.stringify({"status":"CANDY_EARNED_INPUT_RETURN_CAPTURE_REVIEW_PENDING","story":story,"lane":lane,"width":width_now,"motion_frames":motion_frames,"views":views,"events":events,"input_events":input_events,"qualification":"Current-source Candy rendering and input. Birthday has causallyvalid priorDayOne/Farmer/Chef savefixture loadedbeforeREADY atSpeedy. Ordinary uses complete prior-story prerequisites and operaStars0 beforeREADY; all four freeplay phases earn a new star, while prior birthday completion is an explicit prerequisite. All Candy phases earned through actual touch. No preceding-story traversal, native artwork improvement, natural timing, device/child/owner acceptance or cinematic delivery. Isolated save assigned before Main ready; isolated user-data guard checked before launch."},"\t"))
+	file.close()
+	print("CANDY_CLEARANCE|",lane,"|",width_now,"|ALL_PHASES_EARNED_RETURN_AND_ACTION_CAPTURE|PASS_REVIEW_PENDING")
+	quit(0)

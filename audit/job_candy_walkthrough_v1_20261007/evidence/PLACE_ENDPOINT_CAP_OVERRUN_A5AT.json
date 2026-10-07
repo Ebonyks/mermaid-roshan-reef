@@ -1,0 +1,15 @@
+{
+  "utc": "2026-10-07T08:38:48.381429+00:00",
+  "status": "FAIL_PRESERVED_SAFE_CHECKPOINT_ONLY",
+  "scope": "Self-declared600second bounded CPU/static endpoint preparation phase, including operator/wall time",
+  "observed_plan_to_checkpoint_wall_seconds": 675.034207,
+  "limit_seconds": 600,
+  "enforcement_limit": "Final accounting detected675.034207seconds; no continuously enforced deadline is claimed. CPUcommand times alone cannot excuse total wall overrun.",
+  "checks_preserved": "Parser/lint/static240geometry/catalogue/authority/coverage individual PASS; wall-budget phase FAIL remains separate.",
+  "source_checkpoint": "audit/candymaker_clearance_20261006/CURRENT_ENDPOINT_REPAIR_CHECKPOINT_A5AS.json",
+  "development_stopped": true,
+  "generation_or_engine_runs": 0,
+  "owner_answer_holds_preserved": true,
+  "caps_reset": false,
+  "after_detection_actions": "Only this additive failure receipt and impact validation checkpoint; no new source changes, tests, capture/import, generation or integration."
+}

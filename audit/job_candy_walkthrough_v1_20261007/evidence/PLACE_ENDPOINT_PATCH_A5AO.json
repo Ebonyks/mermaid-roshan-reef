@@ -1,0 +1,42 @@
+{
+  "utc": "2026-10-07T08:27:53.214646+00:00",
+  "status": "IMPLEMENTED_STATIC_PENDING_RUNTIME",
+  "before_sha256": "480d83ab0b79bed7679bea17838e8b915f4189f9992741e7580d061894980446",
+  "after_sha256": "a319c9155529e8dbc1355dd79c1e8e169917fb6703137e53a103dd7a113c3ab6",
+  "single_function_replacement": true,
+  "all_bytes_outside_function_unchanged": true,
+  "source_canvas_socket_points": [
+    [
+      383,
+      150
+    ],
+    [
+      679,
+      291
+    ],
+    [
+      326,
+      421
+    ],
+    [
+      709,
+      557
+    ],
+    [
+      304,
+      701
+    ]
+  ],
+  "coordinate_rule": "panelCanvas^-1 * cakeSpriteCanvas; sprite get_rect origin + native texture socket. Temporary drawing matrix reset to identity after every fruit.",
+  "completed_state": "Accepted one-use fruit is drawn on the existing cake, at cake source scale; next arrow points to the next actual tier.",
+  "unchanged_hard_failures": [
+    "Immediate flag transition still lacks whole-figure placing/contact/settle",
+    "Cake support/staging and holding-tool choice pending",
+    "No new runtime/visual/device/child/owner clearance"
+  ],
+  "new_engine_runs": 0,
+  "new_asset_pixels": 0,
+  "generation_calls": 0,
+  "monetary_cost": 0,
+  "source_patch_seconds": 0.02312919998075813
+}

@@ -1,0 +1,68 @@
+{
+  "allocation": "candy-current-speedy-1280-20261007-v1",
+  "started_utc": "2026-10-07T07:32:02.051819+00:00",
+  "finished_utc": "2026-10-07T07:34:00.487276+00:00",
+  "status": "FAIL_PRESERVED",
+  "exit_code": 0,
+  "aggregate_elapsed_seconds": 118.433,
+  "errors": [
+    "FINAL_NATIVE_VERIFICATION: AssertionError: "
+  ],
+  "runner_receipt": "audit/candymaker_clearance_20261006/gates/candidate_a5ad_1280.receipt.json",
+  "runner_receipt_sha256": "de08697c9c4d0134af3d6d8ff8ddbceee3109ee9223a66827cded15f54967344",
+  "actual_profile": {},
+  "actual_project_user_data_dir_preflight": "C:/Users/Peter/.codex/worktrees/candymaker-clearance-20261006/mermaid-roshan-reef/audit/candymaker_clearance_20261006/session_candidate_a5ad_1280/appdata/Godot/app_userdata/Mermaid Roshan Reef of Light",
+  "isolation_qualification": "Actual OS user data directory checked in same-core/project/env preflight, before native process. Native explicit save override assigned before Main READY. No native OS path instrumentation added.",
+  "parent_environment_preserved": true,
+  "source_freeze_sha256": "c7dd6ce13eeb41494aa51ee54b62cd54c755af0d63093e70d3f8e724db8211cf",
+  "all_bound_source_unchanged": true,
+  "engine_sha256": "ab1824f85bfd8e0e4128182c000c4003a3e042245b2967848d089b2a04b22424",
+  "supervisor_sha256": "8f72708a2105efc5243e4fc63d01104317f7b5c7bd48f111434556a6e0637ce8",
+  "owned_tree_includes": "Python executor plus observed Godot/save-guard/console descendants via stable birth/ancestry handles; no shared/GPU pages or device performance claim",
+  "process_identities": [
+    {
+      "pid": 60552,
+      "parent_pid": null,
+      "birth": 134358319307659345,
+      "executable_name": "python.exe"
+    },
+    {
+      "pid": 45568,
+      "parent_pid": 60552,
+      "birth": 134358319307747113,
+      "executable_name": "conhost.exe"
+    },
+    {
+      "pid": 51852,
+      "parent_pid": 60552,
+      "birth": 134358319369519830,
+      "executable_name": "Godot_v4.7.2-stable_win64.exe"
+    }
+  ],
+  "sample_count": 454,
+  "target_sample_seconds": 0.1,
+  "maximum_actual_sample_gap_seconds": 4.919383900007233,
+  "peak_owned_tree_working_set_bytes": 1006243840,
+  "peak_owned_tree_private_commit_bytes": 1661509632,
+  "maximum_owned_tree_memory_bytes": 4294967296,
+  "minimum_physical_available_bytes": 12869271552,
+  "minimum_drive_free_bytes": 1016378515456,
+  "reserve_bytes": 3221225472,
+  "positive_added_bytes_observed": 184151300,
+  "maximum_positive_added_bytes": 629145600,
+  "known_owned_survivor": false,
+  "termination_handles_used": [],
+  "all_owned_release_observed": true,
+  "views": 0,
+  "motion_frames": 0,
+  "input_events": 0,
+  "earned_phase_events": 0,
+  "input_first_last_msec": [],
+  "motion_first_last_msec": [],
+  "action_fullness": "Genuine input/allfour phases plus sampled PLACE/finale/return motion. Prior COAT/SORT/GLAZE have still checkpoints and input trace only, not continuous visual coverage; PNG cadence is measured sample cadence, not30fps or device acceptance.",
+  "all_png_hash_dimensions_verified": false,
+  "png_index": null,
+  "scope": "Specific new-source native verification allowance only; no score/2K/M11/child/owner/artistic acceptance, old history/caps unchanged.",
+  "positive_added_bytes_after_terminal_and_impact": 184155017,
+  "aggregate_elapsed_after_terminal_and_impact_seconds": 124.071
+}

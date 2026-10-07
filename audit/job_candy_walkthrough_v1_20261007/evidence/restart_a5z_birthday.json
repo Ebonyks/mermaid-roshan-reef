@@ -1,0 +1,40 @@
+{
+	"evidence": [
+		{
+			"boss_defeated": true,
+			"cake_mask": 127,
+			"chapter2_active": true,
+			"event": "SEPARATE_PROCESS_READY_PRODUCTION_LOAD",
+			"opera_stars": 0,
+			"original_keys_retained": 113,
+			"party_mask": 73,
+			"quality": "speedy",
+			"save_generation": 8,
+			"source_earned_sha256": "7bed83911aa503839e3ef7ae68d9c2ef27cf29efb105b53c8d1e02744785932a"
+		},
+		{
+			"event": "HEADLESS_ONLY_INTRO_REAL_GUI_TAPS",
+			"qualification": "Historical headless READY intro is completed with actual input before explicitly mounting displaymenu. Native displayREADY does not build this intro; no native bootstrap claim.",
+			"taps": 4
+		},
+		{
+			"event": "REAL_GUI_PRODUCTION_CONTINUE",
+			"game": "level2",
+			"qualification": "Exact displaymenu explicitly mounted in headlessbootstrap; not native displayboot orphysicalphone."
+		},
+		{
+			"cake_mask": 127,
+			"card_disabled": true,
+			"completed_pearl": true,
+			"event": "REOPENED_KITCHEN_CANDY_REWARD_ROUTE",
+			"opera_stars": 0,
+			"ordinary_real_card_replay_started": false,
+			"party_mask": 73,
+			"qualification": "ActualCastleinterior explicitlymounted afterrealContinue andKitchenreopened; no gatewalk proof. Birthdaycompletedjob is correctlyblocked,ordinaryreplay realcardtouch starts its unchanged generic surface.",
+			"story": true
+		}
+	],
+	"rendered_pixels": false,
+	"status": "HEADLESS_SEPARATE_PROCESS_LOAD_CONTINUE_ROOM_ROUTE_PASS",
+	"story": true
+}
