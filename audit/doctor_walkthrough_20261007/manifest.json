@@ -1,0 +1,853 @@
+{
+  "schema_version": 1,
+  "status": "SOURCE_BACKED_ILLUSTRATED_WALKTHROUGH_WITH_EXPLICIT_CAPTURE_GAPS",
+  "recorded_utc": "2026-10-07T16:05:57.641457+00:00",
+  "game": "Doctor / The Stuffie Surgeon Relay",
+  "entry": "index.html",
+  "baseline_commit": "96274aab9cebd563b10846a4a48de5d017588563",
+  "owned_branch": "codex/doctor-clearance-20261006",
+  "capture_source_dirty_tree": {
+    "capture_wash.gd": "2a889d61971be3c09dd9675570297ead44ffd9ea937a4f635d2fe29f6bd1d933",
+    "scripts/opera_career_world_2d.gd": "caaf0ed7be7cdec7e1ef920eba772d2afb0db596c47997e9c80ef54c40f013d1",
+    "scripts/opera_gesture_surface.gd": "34f3f264f17edef42990712f6c3f7e0106cf9afecd3969f8348848e0eda56017"
+  },
+  "capture_engine": {
+    "build": "official",
+    "hash": "ed1daf0bf001b61586d9930840f2f1394092c079",
+    "hex": 263938,
+    "major": 4,
+    "minor": 7,
+    "patch": 2,
+    "status": "stable",
+    "string": "4.7.2-stable (official)",
+    "timestamp": 0
+  },
+  "renderer": "mobile",
+  "capture_width": 1280,
+  "capture_height": 720,
+  "save_isolation": "Fresh SaveState injected before Main.ready; initial Main/Castle fixture then real card/hotspot/touch/hold/Back events. No personal save, forced phases/completion, patched callbacks or fabricated reward.",
+  "capture_events": [
+    {
+      "event": "actual_playroom_card_production_entry",
+      "phase_names": [
+        "WASH",
+        "FIND",
+        "X-RAY",
+        "CAST",
+        "BANDAGE"
+      ],
+      "two_act": false
+    },
+    {
+      "actor_position": [
+        204.362426757813,
+        229.799987792969
+      ],
+      "event": "partial_release_requested",
+      "frame": 104,
+      "widget_fill": 0.384559444444445
+    },
+    {
+      "event": "midwash_release_pauses_earned_progress",
+      "frame": 123,
+      "progress": 1.384414
+    },
+    {
+      "event": "wash_completed_by_real_hold",
+      "progress": 3.61489433333333
+    },
+    {
+      "event": "actual_partial_career_back",
+      "full_career_completion": false,
+      "stars_unchanged": true
+    }
+  ],
+  "steps": [
+    {
+      "number": 1,
+      "id": "step-01",
+      "title": "Reach the Stuffie Playroom",
+      "phase": "ENTRY",
+      "child_sees": "Castle room doors and, after the relevant story gates, the Stuffie Playroom career pictures.",
+      "gesture": "Touch the Stuffie Playroom picture door.",
+      "configured_instruction": "Locked route text: \u201cThe castle jobs are locked until our cleaning adventure is done!\u201d (generic hint audio).",
+      "embodied_action_and_contact": "Roshan must enter the room before its Doctor card can own the launch. This approach was not captured from a fresh save.",
+      "before_action_after": "Before: Castle route. Action: room-door selection. After: Stuffie Playroom; first usable card availability is unproven from a fresh save.",
+      "next": "Choose the Doctor picture in step 2.",
+      "evidence_status": "COVERAGE_GAP_FRESH_SAVE_ROUTE",
+      "source_refs": [
+        "scripts/main.gd:2669",
+        "scripts/castle_career_routes.gd:111"
+      ],
+      "panel": "illustrations/step-01.svg",
+      "public_baseline_refs": [
+        "https://github.com/Ebonyks/mermaid-roshan-reef/blob/96274aab9cebd563b10846a4a48de5d017588563/scripts/main.gd#L2669",
+        "https://github.com/Ebonyks/mermaid-roshan-reef/blob/96274aab9cebd563b10846a4a48de5d017588563/scripts/castle_career_routes.gd#L111"
+      ]
+    },
+    {
+      "number": 2,
+      "id": "step-02",
+      "title": "Choose Doctor Roshan",
+      "phase": "ENTRY",
+      "child_sees": "The left of the two career picture cards above the stuffies: Roshan in her doctor coat, with a stethoscope crest.",
+      "gesture": "Tap the Doctor picture at approximately 550,85 in this 1280\u00d7720 capture.",
+      "configured_instruction": "Entry config: \u201cStuffie Surgeon Roshan and the surgeon imp each have a plushy-care station. Find each ouch, check the X-ray and wrap every soft cast with care!\u201d",
+      "embodied_action_and_contact": "The real picture-card callback suspends this room and starts act 5; this is actual touch input after fixture setup.",
+      "before_action_after": "Before: room/card. Action: tap. After: the clinic invitation.",
+      "next": "Follow the pulsing clinic object in step 3.",
+      "evidence_status": "NATIVE_FIXTURE_ROUTE_CAPTURE",
+      "source_refs": [
+        "scripts/castle_career_routes.gd:229",
+        "scripts/castle_career_routes.gd:376",
+        "scripts/main.gd:2669",
+        "scripts/opera_house.gd:57"
+      ],
+      "native": "native/doctor_1280_normal_playroom_card.png",
+      "panel": "annotations/step-02.svg",
+      "capture_view_label": "normal_playroom_card",
+      "native_sha256": "d637757d944c7307372128a3fb6d78d1aef25ff8b18275edcb39712770d6cb9b",
+      "public_baseline_refs": [
+        "https://github.com/Ebonyks/mermaid-roshan-reef/blob/96274aab9cebd563b10846a4a48de5d017588563/scripts/castle_career_routes.gd#L229",
+        "https://github.com/Ebonyks/mermaid-roshan-reef/blob/96274aab9cebd563b10846a4a48de5d017588563/scripts/castle_career_routes.gd#L376",
+        "https://github.com/Ebonyks/mermaid-roshan-reef/blob/96274aab9cebd563b10846a4a48de5d017588563/scripts/main.gd#L2669",
+        "https://github.com/Ebonyks/mermaid-roshan-reef/blob/96274aab9cebd563b10846a4a48de5d017588563/scripts/opera_house.gd#L57"
+      ]
+    },
+    {
+      "number": 3,
+      "id": "step-03",
+      "title": "Approach the lit clinic object",
+      "phase": "WASH",
+      "child_sees": "A blue pulsing ring around the stethoscope clinic at upper left. Roshan waits beside the painted walkway.",
+      "gesture": "Tap the lit stethoscope object; let Roshan reach it.",
+      "configured_instruction": "\u201cHold the bubbly basin to wash Doctor Roshan\u2019s hands!\u201d Key: op_doctor_wash_stage.",
+      "embodied_action_and_contact": "The production hotspot routes Roshan to the station before opening the wash surface. Arrival itself grants no wash progress.",
+      "before_action_after": "Before: invitation ring and closed task. Action: hotspot tap/approach. After: the basin activity appears.",
+      "next": "Hold the basin in step 4.",
+      "evidence_status": "NATIVE_INVITATION_AND_REAL_INPUT",
+      "source_refs": [
+        "scripts/opera_career_world_2d.gd:414",
+        "scripts/opera_career_world_2d.gd:2415"
+      ],
+      "native": "native/doctor_1280_normal_doctor_invitation.png",
+      "panel": "annotations/step-03.svg",
+      "capture_view_label": "normal_doctor_invitation",
+      "native_sha256": "e44aafda4fddb65db3ca12cc0ed17c019d760407b0da70050e2c09b2a197839a",
+      "public_baseline_refs": [
+        "https://github.com/Ebonyks/mermaid-roshan-reef/blob/96274aab9cebd563b10846a4a48de5d017588563/scripts/opera_career_world_2d.gd#L414",
+        "https://github.com/Ebonyks/mermaid-roshan-reef/blob/96274aab9cebd563b10846a4a48de5d017588563/scripts/opera_career_world_2d.gd#L2415"
+      ]
+    },
+    {
+      "number": 4,
+      "id": "step-04",
+      "title": "Start washing",
+      "phase": "WASH",
+      "child_sees": "The basin appears at the right; the fingertip cue sits over the wash surface.",
+      "gesture": "Keep one finger down over the basin, around 1040,384 in the shown canvas.",
+      "configured_instruction": "\u201cHold the bubbly basin to wash Doctor Roshan\u2019s hands!\u201d Key: op_doctor_wash_stage.",
+      "embodied_action_and_contact": "Roshan changes task pose at the left. The procedural hands are detached at the right: truthful hand/sink contact still fails.",
+      "before_action_after": "Before: ready basin. Action: sustained hold; water/bubbles and widget fill advance. After: partial wash, with no career star.",
+      "next": "Continue holding, or lift to pause as in step 6.",
+      "evidence_status": "NATIVE_BEFORE_AND_HOLD",
+      "source_refs": [
+        "scripts/opera_gesture_surface.gd:1041",
+        "scripts/opera_career_world_2d.gd:294"
+      ],
+      "native": "native/doctor_1280_wash_ready.png",
+      "panel": "annotations/step-04.svg",
+      "capture_view_label": "wash_ready",
+      "native_sha256": "9b43a8247a5def905a61ef31ed33ef3a7ee9a6cad6d47da4a138ae191385d981",
+      "public_baseline_refs": [
+        "https://github.com/Ebonyks/mermaid-roshan-reef/blob/96274aab9cebd563b10846a4a48de5d017588563/scripts/opera_gesture_surface.gd#L1041",
+        "https://github.com/Ebonyks/mermaid-roshan-reef/blob/96274aab9cebd563b10846a4a48de5d017588563/scripts/opera_career_world_2d.gd#L294"
+      ]
+    },
+    {
+      "number": 5,
+      "id": "step-05",
+      "title": "Watch the wash in progress",
+      "phase": "WASH",
+      "child_sees": "Bubbles and the hand shapes accumulate in the basin while Doctor Roshan remains at the left.",
+      "gesture": "Continue the same stationary hold.",
+      "configured_instruction": "Same WASH prompt; capture audio used Dummy, so exact spoken playback was not auditioned.",
+      "embodied_action_and_contact": "The saved native midpoint exposes the owner\u2019s contact defect: Roshan\u2019s own wrists/arms do not join the working hands; stream/palm/rim interaction is not accepted.",
+      "before_action_after": "Before: ready basin surface. Action: held work builds the visible wash. After: partially filled/bubbly state. This is not a separate authored rinse action.",
+      "next": "Release to pause or continue to earn this phase.",
+      "evidence_status": "NATIVE_ACTION_MIDPOINT_CONTACT_FAIL",
+      "source_refs": [
+        "scripts/opera_career_world_2d.gd:3423",
+        "scripts/opera_career_world_2d.gd:3544",
+        "scripts/opera_gesture_surface.gd:1041"
+      ],
+      "native": "native/doctor_1280_partial_hold.png",
+      "panel": "annotations/step-05.svg",
+      "capture_view_label": "partial_hold",
+      "native_sha256": "1c32bd012586fc6ec4d457750b18c4c71539d204462331dda97f990df3f3c105",
+      "public_baseline_refs": [
+        "https://github.com/Ebonyks/mermaid-roshan-reef/blob/96274aab9cebd563b10846a4a48de5d017588563/scripts/opera_career_world_2d.gd#L3423",
+        "https://github.com/Ebonyks/mermaid-roshan-reef/blob/96274aab9cebd563b10846a4a48de5d017588563/scripts/opera_career_world_2d.gd#L3533",
+        "https://github.com/Ebonyks/mermaid-roshan-reef/blob/96274aab9cebd563b10846a4a48de5d017588563/scripts/opera_gesture_surface.gd#L1041"
+      ]
+    },
+    {
+      "number": 6,
+      "id": "step-06",
+      "title": "Lift to pause, hold again to continue",
+      "phase": "WASH",
+      "child_sees": "The partial basin remains; the wash is not complete.",
+      "gesture": "Lift one finger. To resume, press and hold the basin again.",
+      "configured_instruction": "Same WASH instruction; no distinct configured pause line.",
+      "embodied_action_and_contact": "The current candidate keeps Roshan at her wash work point instead of applying the generic release hop. Contact artwork remains defective.",
+      "before_action_after": "Before: 1.384414 earned wash units. Action: release for 20 frames. After: unchanged in-run progress; resume adds earned hold time. This does not prove app-kill checkpoint persistence.",
+      "next": "Complete enough real hold to reach 3.6 wash units.",
+      "evidence_status": "NATIVE_PAUSE_AND_RESUME_INPUT",
+      "source_refs": [
+        "scripts/opera_career_world_2d.gd:3457",
+        "scripts/opera_gesture_surface.gd:1243"
+      ],
+      "native": "native/doctor_1280_wash_paused.png",
+      "panel": "annotations/step-06.svg",
+      "capture_view_label": "wash_paused",
+      "native_sha256": "761736a103277ca8ec814c97b036ee40fd32862c95a11c7cd1f19eab424aed4e",
+      "public_baseline_refs": [
+        "https://github.com/Ebonyks/mermaid-roshan-reef/blob/96274aab9cebd563b10846a4a48de5d017588563/scripts/opera_career_world_2d.gd#L3450",
+        "https://github.com/Ebonyks/mermaid-roshan-reef/blob/96274aab9cebd563b10846a4a48de5d017588563/scripts/opera_gesture_surface.gd#L1243"
+      ]
+    },
+    {
+      "number": 7,
+      "id": "step-07",
+      "title": "See the finished wash",
+      "phase": "WASH RESULT",
+      "child_sees": "The completed wash picture and celebration are held before the next station is armed.",
+      "gesture": "Let the completion picture settle; a valid touch can advance the phase hold.",
+      "configured_instruction": "The next configured prompt will be FIND; this completed WASH alone earns no Doctor career star.",
+      "embodied_action_and_contact": "Roshan cheers. The actor-position repair is machine/capture verified only; connected scrubbing/rinsing, valve grip and runoff remain unresolved.",
+      "before_action_after": "Before: partial basin. Action: enough real sustained hold. After: accepted first-phase state; the real run reached 3.61489433333333 units.",
+      "next": "The starfish triage invitation appears in step 8.",
+      "evidence_status": "NATIVE_EARNED_FIRST_PHASE_RESULT",
+      "source_refs": [
+        "scripts/opera_career_world_2d.gd:3570",
+        "scripts/opera_career_world_2d.gd:3601"
+      ],
+      "native": "native/doctor_1280_earned_clean_result.png",
+      "panel": "annotations/step-07.svg",
+      "capture_view_label": "earned_clean_result",
+      "native_sha256": "422a5c090d7653e751304cfd80e45c14c897af0cec1ee4aab8186386248f53eb",
+      "public_baseline_refs": [
+        "https://github.com/Ebonyks/mermaid-roshan-reef/blob/96274aab9cebd563b10846a4a48de5d017588563/scripts/opera_career_world_2d.gd#L3559",
+        "https://github.com/Ebonyks/mermaid-roshan-reef/blob/96274aab9cebd563b10846a4a48de5d017588563/scripts/opera_career_world_2d.gd#L3590"
+      ]
+    },
+    {
+      "number": 8,
+      "id": "step-08",
+      "title": "Go to the glowing patient station",
+      "phase": "FIND INVITATION",
+      "child_sees": "A blue ring highlights the left starfish triage alcove. Roshan returns to the room approach point.",
+      "gesture": "Tap the lit starfish triage object and let Roshan arrive.",
+      "configured_instruction": "\u201cChoose the plushy with the glowing ouch!\u201d Key: op_doctor_find_stage.",
+      "embodied_action_and_contact": "The invitation itself is captured. The campaign exits before opening and completing FIND.",
+      "before_action_after": "Before: finished WASH. Action: normal phase advance restores the room. After: FIND invitation; patient choices are still closed.",
+      "next": "Open FIND, then follow the glowing patient in step 9.",
+      "evidence_status": "NATIVE_NEXT_PHASE_INVITATION_ONLY",
+      "source_refs": [
+        "scripts/opera_career_world_2d.gd:295",
+        "scripts/opera_career_world_2d.gd:414",
+        "scripts/opera_career_world_2d.gd:2415"
+      ],
+      "native": "native/doctor_1280_next_find_invitation_actor_restored.png",
+      "panel": "annotations/step-08.svg",
+      "capture_view_label": "next_find_invitation_actor_restored",
+      "native_sha256": "aa18cb6f3a59bca81b8bdc5a525ef66860cd6564b5d58ae9fa53c15c0b513468",
+      "public_baseline_refs": [
+        "https://github.com/Ebonyks/mermaid-roshan-reef/blob/96274aab9cebd563b10846a4a48de5d017588563/scripts/opera_career_world_2d.gd#L295",
+        "https://github.com/Ebonyks/mermaid-roshan-reef/blob/96274aab9cebd563b10846a4a48de5d017588563/scripts/opera_career_world_2d.gd#L414",
+        "https://github.com/Ebonyks/mermaid-roshan-reef/blob/96274aab9cebd563b10846a4a48de5d017588563/scripts/opera_career_world_2d.gd#L2415"
+      ]
+    },
+    {
+      "number": 9,
+      "id": "step-09",
+      "title": "Choose the plushy with the glowing ouch",
+      "phase": "FIND",
+      "child_sees": "The configured lanes_doctor choice surface flashes the current target among three lanes. Exact rendered before/action/after screens are missing.",
+      "gesture": "Tap the glowing patient; the target shifts after each correct choice.",
+      "configured_instruction": "\u201cChoose the plushy with the glowing ouch!\u201d Key: op_doctor_find_stage.",
+      "embodied_action_and_contact": "The shared surface accepts patient-lane taps and plays Roshan\u2019s task pose/bounce. Direct examining contact is not verified.",
+      "before_action_after": "Before: one highlighted choice. Action: correct choices add 1; wrong picks reflash the same answer. After: progress reaches 4 and the result holds.",
+      "next": "Approach the exam booth for X-RAY.",
+      "evidence_status": "COVERAGE_GAP_SOURCE_BACKED",
+      "source_refs": [
+        "scripts/opera_career_world_2d.gd:295",
+        "scripts/opera_career_world_2d.gd:3547",
+        "scripts/opera_gesture_surface.gd:959"
+      ],
+      "panel": "illustrations/step-09.svg",
+      "public_baseline_refs": [
+        "https://github.com/Ebonyks/mermaid-roshan-reef/blob/96274aab9cebd563b10846a4a48de5d017588563/scripts/opera_career_world_2d.gd#L295",
+        "https://github.com/Ebonyks/mermaid-roshan-reef/blob/96274aab9cebd563b10846a4a48de5d017588563/scripts/opera_career_world_2d.gd#L3536",
+        "https://github.com/Ebonyks/mermaid-roshan-reef/blob/96274aab9cebd563b10846a4a48de5d017588563/scripts/opera_gesture_surface.gd#L959"
+      ]
+    },
+    {
+      "number": 10,
+      "id": "step-10",
+      "title": "Scan the two sore spots",
+      "phase": "X-RAY",
+      "child_sees": "The exam-booth task uses the scanner/device and a moving finger demo. Exact native task screen/contact is uncaptured.",
+      "gesture": "Drag across the plushy: follow the scanner to the first indicated spot, then the second.",
+      "configured_instruction": "\u201cSlide the scanner over the plushy to find the sore spots!\u201d Key: op_doctor_x_ray_stage.",
+      "embodied_action_and_contact": "Scanner motion follows one finger; travel of at least 3 surface pixels must cross the current target. Roshan/tool attachment is not visually proven.",
+      "before_action_after": "Before: 0 found. Action: sweep target centers at normalized (0.65,0.50), then (0.48,0.40). After: 2 discovered spots glow and the phase completes.",
+      "next": "The same exam booth arms CAST.",
+      "evidence_status": "COVERAGE_GAP_SOURCE_BACKED",
+      "source_refs": [
+        "scripts/opera_career_world_2d.gd:296",
+        "scripts/opera_gesture_surface.gd:142",
+        "scripts/opera_gesture_surface.gd:4282",
+        "scripts/opera_gesture_surface.gd:4335"
+      ],
+      "panel": "illustrations/step-10.svg",
+      "public_baseline_refs": [
+        "https://github.com/Ebonyks/mermaid-roshan-reef/blob/96274aab9cebd563b10846a4a48de5d017588563/scripts/opera_career_world_2d.gd#L296",
+        "https://github.com/Ebonyks/mermaid-roshan-reef/blob/96274aab9cebd563b10846a4a48de5d017588563/scripts/opera_gesture_surface.gd#L142",
+        "https://github.com/Ebonyks/mermaid-roshan-reef/blob/96274aab9cebd563b10846a4a48de5d017588563/scripts/opera_gesture_surface.gd#L4282",
+        "https://github.com/Ebonyks/mermaid-roshan-reef/blob/96274aab9cebd563b10846a4a48de5d017588563/scripts/opera_gesture_surface.gd#L4335"
+      ]
+    },
+    {
+      "number": 11,
+      "id": "step-11",
+      "title": "Wrap the soft cast",
+      "phase": "CAST",
+      "child_sees": "The cast surface displays a starfish patient in a clamshell examination berth; the bandage roll rides the growing wrap edge.",
+      "gesture": "Draw gentle circles around the demonstrated pivot with one finger.",
+      "configured_instruction": "\u201cDraw gentle circles to wrap the soft cast!\u201d Key: op_doctor_cast_stage.",
+      "embodied_action_and_contact": "Source draws the roll at the wrap edge while cream strips grow across the lower-left arm/body. Roshan\u2019s hand/roll/patient contact is unreviewed.",
+      "before_action_after": "Before: unwrapped arm. Action: qualifying circles accumulate 1.8 units. After: the cast strips reach their finished extent and the result holds.",
+      "next": "Approach the recovery bed for BANDAGE.",
+      "evidence_status": "COVERAGE_GAP_SOURCE_BACKED",
+      "source_refs": [
+        "scripts/opera_career_world_2d.gd:297",
+        "scripts/opera_gesture_surface.gd:2076",
+        "scripts/opera_gesture_surface.gd:2361"
+      ],
+      "panel": "illustrations/step-11.svg",
+      "public_baseline_refs": [
+        "https://github.com/Ebonyks/mermaid-roshan-reef/blob/96274aab9cebd563b10846a4a48de5d017588563/scripts/opera_career_world_2d.gd#L297",
+        "https://github.com/Ebonyks/mermaid-roshan-reef/blob/96274aab9cebd563b10846a4a48de5d017588563/scripts/opera_gesture_surface.gd#L2076",
+        "https://github.com/Ebonyks/mermaid-roshan-reef/blob/96274aab9cebd563b10846a4a48de5d017588563/scripts/opera_gesture_surface.gd#L2361"
+      ]
+    },
+    {
+      "number": 12,
+      "id": "step-12",
+      "title": "Trace the stretchy bandage",
+      "phase": "BANDAGE",
+      "child_sees": "The trace_doctor surface draws a teddy-shaped patient and a cream bandage roll. The exact rendered screen is missing.",
+      "gesture": "Start at the shown roll and swipe along the diagonal curved guide from upper-left toward lower-right.",
+      "configured_instruction": "\u201cSwipe the stretchy bandage around the plushy!\u201d Key: op_doctor_bandage_stage.",
+      "embodied_action_and_contact": "The trace is procedural and patient identity changes from CAST\u2019s starfish to a teddy-shaped figure in source. Continuity and Roshan\u2019s contact require native review.",
+      "before_action_after": "Before: an untraced corridor. Action: qualifying motion along the guide advances the visible bandage. After: a complete trace pays the 5-unit goal. A stationary tap cannot replace the swipe.",
+      "next": "Let the final care result and curtain call finish.",
+      "evidence_status": "COVERAGE_GAP_SOURCE_BACKED",
+      "source_refs": [
+        "scripts/opera_career_world_2d.gd:298",
+        "scripts/opera_career_world_2d.gd:3528",
+        "scripts/opera_gesture_surface.gd:1692",
+        "scripts/opera_gesture_surface.gd:1927"
+      ],
+      "panel": "illustrations/step-12.svg",
+      "public_baseline_refs": [
+        "https://github.com/Ebonyks/mermaid-roshan-reef/blob/96274aab9cebd563b10846a4a48de5d017588563/scripts/opera_career_world_2d.gd#L298",
+        "https://github.com/Ebonyks/mermaid-roshan-reef/blob/96274aab9cebd563b10846a4a48de5d017588563/scripts/opera_career_world_2d.gd#L3518",
+        "https://github.com/Ebonyks/mermaid-roshan-reef/blob/96274aab9cebd563b10846a4a48de5d017588563/scripts/opera_gesture_surface.gd#L1692",
+        "https://github.com/Ebonyks/mermaid-roshan-reef/blob/96274aab9cebd563b10846a4a48de5d017588563/scripts/opera_gesture_surface.gd#L1927"
+      ]
+    },
+    {
+      "number": 13,
+      "id": "step-13",
+      "title": "See the healed-care result and cheer",
+      "phase": "EARNED COMPLETION",
+      "child_sees": "The final phase result is held, then the shared curtain call restores Doctor Roshan and the surgeon imp, shows the goal prop and confetti.",
+      "gesture": "Finish the real bandage trace, then watch the result settle.",
+      "configured_instruction": "Configured win line: \u201cEvery stuffie is wiggling again \u2014 Roshan wins the surgeon relay!\u201d plus the competition cheer. Voice key win is generic, not an auditioned exact transcript.",
+      "embodied_action_and_contact": "Roshan cheers and the rival bows. The complete action, patient result and actor/contact continuity have no captured finishing sequence.",
+      "before_action_after": "Before: incomplete bandage. Action: real final completion; 2.2-second phase result then 3.2-second act win display. After: completion callback becomes eligible.",
+      "next": "The completion callback awards and saves, then returns to the source room.",
+      "evidence_status": "COVERAGE_GAP_SOURCE_BACKED",
+      "source_refs": [
+        "scripts/opera_career_world_2d.gd:3570",
+        "scripts/opera_career_world_2d.gd:3830",
+        "scripts/opera_act.gd:116",
+        "scripts/opera_house.gd:61"
+      ],
+      "panel": "illustrations/step-13.svg",
+      "public_baseline_refs": [
+        "https://github.com/Ebonyks/mermaid-roshan-reef/blob/96274aab9cebd563b10846a4a48de5d017588563/scripts/opera_career_world_2d.gd#L3559",
+        "https://github.com/Ebonyks/mermaid-roshan-reef/blob/96274aab9cebd563b10846a4a48de5d017588563/scripts/opera_career_world_2d.gd#L3819",
+        "https://github.com/Ebonyks/mermaid-roshan-reef/blob/96274aab9cebd563b10846a4a48de5d017588563/scripts/opera_act.gd#L116",
+        "https://github.com/Ebonyks/mermaid-roshan-reef/blob/96274aab9cebd563b10846a4a48de5d017588563/scripts/opera_house.gd#L61"
+      ]
+    },
+    {
+      "number": 14,
+      "id": "step-14",
+      "title": "Earn the star and return to the Playroom",
+      "phase": "REWARD AND RETURN",
+      "child_sees": "The restored Stuffie Playroom card should show its completed pearl/marker; the reward HUD updates. No earned-return screenshot exists.",
+      "gesture": "Wait for the earned return; the Back button is the normal exit affordance.",
+      "configured_instruction": "No separate Doctor reward instruction is configured at this save seam.",
+      "embodied_action_and_contact": "The real act callback writes Doctor star bit 5, updates rewards and returns to the exact source room. It was not called or forged by the capture harness.",
+      "before_action_after": "First completion: opera_stars bit 5 plus 3 pearls; replay: the existing star remains and adds 1 pearl. The existing all-live-stars bonus can also apply on the final missing career. Save is written before return.",
+      "next": "Re-enter the Doctor picture to replay without losing the saved star.",
+      "evidence_status": "COVERAGE_GAP_SOURCE_BACKED",
+      "source_refs": [
+        "scripts/opera_house.gd:267",
+        "scripts/castle_career_routes.gd:293",
+        "scripts/main.gd:2791"
+      ],
+      "panel": "illustrations/step-14.svg",
+      "public_baseline_refs": [
+        "https://github.com/Ebonyks/mermaid-roshan-reef/blob/96274aab9cebd563b10846a4a48de5d017588563/scripts/opera_house.gd#L267",
+        "https://github.com/Ebonyks/mermaid-roshan-reef/blob/96274aab9cebd563b10846a4a48de5d017588563/scripts/castle_career_routes.gd#L293",
+        "https://github.com/Ebonyks/mermaid-roshan-reef/blob/96274aab9cebd563b10846a4a48de5d017588563/scripts/main.gd#L2791"
+      ]
+    },
+    {
+      "number": 15,
+      "id": "step-15",
+      "title": "Replay with the saved star",
+      "phase": "SAVED REPLAY",
+      "child_sees": "The Doctor picture stays available outside the active Chapter 2 story roster, with its saved completion marker. Exact reload/replay screens are absent.",
+      "gesture": "Tap the same Doctor picture again after return or a genuine reload.",
+      "configured_instruction": "The five current phase instructions repeat on replay.",
+      "embodied_action_and_contact": "A new normal Doctor world starts at phase 0. This career has no enabled two-act mastery/checkpoint flow in current source; partial WASH persistence across app kill is not established.",
+      "before_action_after": "Before: saved Doctor star. Action: real reload/re-entry. After: retained star and a new WASH\u2192FIND\u2192X-RAY\u2192CAST\u2192BANDAGE run; this must still be captured and tested naturally.",
+      "next": "Finish another kind care session, or leave safely.",
+      "evidence_status": "COVERAGE_GAP_SOURCE_BACKED",
+      "source_refs": [
+        "scripts/castle_career_routes.gd:293",
+        "scripts/opera_career_world_2d.gd:735",
+        "scripts/opera_performance_plan.gd:7",
+        "scripts/opera_house.gd:291"
+      ],
+      "panel": "illustrations/step-15.svg",
+      "public_baseline_refs": [
+        "https://github.com/Ebonyks/mermaid-roshan-reef/blob/96274aab9cebd563b10846a4a48de5d017588563/scripts/castle_career_routes.gd#L293",
+        "https://github.com/Ebonyks/mermaid-roshan-reef/blob/96274aab9cebd563b10846a4a48de5d017588563/scripts/opera_career_world_2d.gd#L735",
+        "https://github.com/Ebonyks/mermaid-roshan-reef/blob/96274aab9cebd563b10846a4a48de5d017588563/scripts/opera_performance_plan.gd#L7",
+        "https://github.com/Ebonyks/mermaid-roshan-reef/blob/96274aab9cebd563b10846a4a48de5d017588563/scripts/opera_house.gd#L291"
+      ]
+    },
+    {
+      "number": 16,
+      "id": "step-16",
+      "title": "Optional early exit",
+      "phase": "SAFE EXIT BRANCH",
+      "child_sees": "The top-left Back arrow returns to the same Stuffie Playroom. This exact return is captured after WASH and the FIND invitation.",
+      "gesture": "Tap Back at about 75,75.",
+      "configured_instruction": "No new task instruction is needed to leave; the room\u2019s existing navigation returns.",
+      "embodied_action_and_contact": "The career controller cancels the still-playing act and restores the room. No remaining phases or completion callback are forced.",
+      "before_action_after": "Before: only WASH earned. Action: actual Back touch. After: playroom restored and opera_stars unchanged. This early-exit image is not an earned-completion/reward screenshot.",
+      "next": "Tap Doctor again when ready; saved partial-care resumption remains unverified.",
+      "evidence_status": "NATIVE_EARLY_EXIT_NO_UNEARNED_STAR",
+      "source_refs": [
+        "scripts/opera_house.gd:309",
+        "scripts/main.gd:2791"
+      ],
+      "native": "native/doctor_1280_actual_back_to_playroom_no_unearned_star.png",
+      "panel": "annotations/step-16.svg",
+      "capture_view_label": "actual_back_to_playroom_no_unearned_star",
+      "native_sha256": "b2f51cde0cd038e169ca0860d79b1e4d4d14c479adb8a58d5ea9506422a06f67",
+      "public_baseline_refs": [
+        "https://github.com/Ebonyks/mermaid-roshan-reef/blob/96274aab9cebd563b10846a4a48de5d017588563/scripts/opera_house.gd#L309",
+        "https://github.com/Ebonyks/mermaid-roshan-reef/blob/96274aab9cebd563b10846a4a48de5d017588563/scripts/main.gd#L2791"
+      ]
+    }
+  ],
+  "variants": [
+    {
+      "name": "Castle in-world Doctor / normal Opera career",
+      "status": "IMPLEMENTED_SHARED_ROUTE",
+      "steps": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "detail": "Owned by Stuffie Playroom act 5. The clinic is the shared current five-phase career world; not an all-career Opera Hall lobby. Full fresh-save route and later action/finish/replay coverage remain gaps."
+    },
+    {
+      "name": "Separate practice then Opera stage",
+      "status": "NOT_ENABLED_FOR_DOCTOR",
+      "steps": [],
+      "detail": "OperaPerformancePlan.ENABLED contains Ballerina, Magician and Popstar only. Doctor uses its five phases once, with the surgeon-rival finale starting at CAST; no invented second Doctor recital."
+    },
+    {
+      "name": "Chapter 2 birthday/story Doctor",
+      "status": "NOT_APPLICABLE_IN_CURRENT_SOURCE",
+      "steps": [],
+      "detail": "The eight-career ChapterTwoPartyPlan excludes act 5. Active Chapter 2 room filtering removes non-party Doctor. The Stuffie Room party activity is Ballerina. MA-PLAY-005 remains an open route dependency; no story/save forcing used."
+    },
+    {
+      "name": "After completion / saved replay",
+      "status": "IMPLEMENTED_SOURCE_ONLY_CAPTURE_GAP",
+      "steps": [
+        14,
+        15
+      ],
+      "detail": "Star bit 5 persists; first completion +3 pearls and replay +1. Reload, earned return and replay are not captured."
+    },
+    {
+      "name": "Early exit / hold interruption",
+      "status": "CAPTURED_FIXTURE_BRANCH",
+      "steps": [
+        6,
+        16
+      ],
+      "detail": "Release pauses within this run; normal Back restores the exact playroom without an unearned star. No app-kill partial-resume claim."
+    }
+  ],
+  "sources": [
+    {
+      "original_path": "scripts/opera_career_world_2d.gd",
+      "captured_sha256": "caaf0ed7be7cdec7e1ef920eba772d2afb0db596c47997e9c80ef54c40f013d1",
+      "public_baseline_url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/96274aab9cebd563b10846a4a48de5d017588563/scripts/opera_career_world_2d.gd",
+      "public_baseline_sha256": "89c3280d15ed1a5e737910b69bd099aebff3b1834d0b255a7488f600703fdb7b",
+      "captured_bytes_match_public_baseline": false
+    },
+    {
+      "original_path": "scripts/opera_gesture_surface.gd",
+      "captured_sha256": "34f3f264f17edef42990712f6c3f7e0106cf9afecd3969f8348848e0eda56017",
+      "public_baseline_url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/96274aab9cebd563b10846a4a48de5d017588563/scripts/opera_gesture_surface.gd",
+      "public_baseline_sha256": "458d3afb7e231f8f5da6e21c64f27b699e7bf66bc5e6eb43fd9e331eaad6b07b",
+      "captured_bytes_match_public_baseline": false
+    },
+    {
+      "original_path": "scripts/opera_house.gd",
+      "captured_sha256": "09a70ca5f9abd836f66a2327e62553b8d603f9318845c404d7d3527fee953910",
+      "public_baseline_url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/96274aab9cebd563b10846a4a48de5d017588563/scripts/opera_house.gd",
+      "public_baseline_sha256": "6d6aeead33ff8cc451daa09da215185171359fd218693371184f38ecadac2d7f",
+      "captured_bytes_match_public_baseline": false
+    },
+    {
+      "original_path": "scripts/opera_act.gd",
+      "captured_sha256": "eddaa34b8dccd17f41f744176a1ceef6c38c788b200a66995438d42c74a78a63",
+      "public_baseline_url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/96274aab9cebd563b10846a4a48de5d017588563/scripts/opera_act.gd",
+      "public_baseline_sha256": "7a8db71dfd827efabeee50a348d7849ea646d2693c2ec2b6930c80938d2517b0",
+      "captured_bytes_match_public_baseline": false
+    },
+    {
+      "original_path": "scripts/castle_career_routes.gd",
+      "captured_sha256": "c5de38d8126c96aae9e999780113edafff05601a22934443e67053edcd8e18d8",
+      "public_baseline_url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/96274aab9cebd563b10846a4a48de5d017588563/scripts/castle_career_routes.gd",
+      "public_baseline_sha256": "d2e9f24b10bf6b25bc7fd71c76630a6e88b8d8f3134db9b01139203fba925bb5",
+      "captured_bytes_match_public_baseline": false
+    },
+    {
+      "original_path": "scripts/main.gd",
+      "captured_sha256": "4f8787e5e788f100e6fd44f646435f6afeaee4a58965b5292630d2410de7f6f5",
+      "public_baseline_url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/96274aab9cebd563b10846a4a48de5d017588563/scripts/main.gd",
+      "public_baseline_sha256": "e3ac6c15ce8e49fa55f5731fdcffd7642b36d0fd78e889c0598e3c0a06f15f57",
+      "captured_bytes_match_public_baseline": false
+    },
+    {
+      "original_path": "scripts/chapter_two_party_plan.gd",
+      "captured_sha256": "c8fa0ff7f2f16d54085e920e3ad5ebc5c5a4e6c4d4afc85d98c702c900886dfa",
+      "public_baseline_url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/96274aab9cebd563b10846a4a48de5d017588563/scripts/chapter_two_party_plan.gd",
+      "public_baseline_sha256": "50ffb004ac24a4827caed4e4899e999f7d37c7713c88eb3d1c778a766c54ec61",
+      "captured_bytes_match_public_baseline": false
+    },
+    {
+      "original_path": "scripts/opera_performance_plan.gd",
+      "captured_sha256": "25517580638edcc8f63375ec6b14fd0de89287ed08af00111fec1d467cce6da3",
+      "public_baseline_url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/96274aab9cebd563b10846a4a48de5d017588563/scripts/opera_performance_plan.gd",
+      "public_baseline_sha256": "6b5ff197b0d88663af260217dc673a39d2d681e081b313c1c4b49c0a359d8366",
+      "captured_bytes_match_public_baseline": false
+    },
+    {
+      "original_path": "scripts/chapter_two_director.gd",
+      "captured_sha256": "789ee737eec9477c8b1d6a89b60b6747accc14a6568b2dfa924fa3e5fca42d8d",
+      "public_baseline_url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/96274aab9cebd563b10846a4a48de5d017588563/scripts/chapter_two_director.gd",
+      "public_baseline_sha256": "eb3e820217b08b87cab8a8ea8758a8da16736fdbd57db896ab016af2173c69b5",
+      "captured_bytes_match_public_baseline": false
+    },
+    {
+      "original_path": "scripts/audio_director.gd",
+      "captured_sha256": "9de96599bd4b303a732e9ca5127547874ff35247771aee1d3fe4e0bcfbba59ba",
+      "public_baseline_url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/96274aab9cebd563b10846a4a48de5d017588563/scripts/audio_director.gd",
+      "public_baseline_sha256": "e2d2e2eceb63980797db2cf4e072563654d53d3816aea4c6abd67ec393aed5e4",
+      "captured_bytes_match_public_baseline": false
+    }
+  ],
+  "voice_sources": [
+    {
+      "configured_key": "op_doctor_wash_stage",
+      "existing_asset": "assets/audio/voices/filler_v1/roshan_op_doctor_wash_stage.ogg",
+      "sha256": "9eec70712986f535ea73bfd421ab274c1392cdbeab7f7d3887a2b5ba04d7a3b6",
+      "audio_copied": false,
+      "acceptance": "Configured file exists. Dummy-audio capture; spoken transcript/pronunciation/listening and device acceptance not performed."
+    },
+    {
+      "configured_key": "op_doctor_find_stage",
+      "existing_asset": "assets/audio/voices/filler_v1/roshan_op_doctor_find_stage.ogg",
+      "sha256": "f07ec5e1c5ebb1b5fadb186f1d5079b6bc87e19e31fbbe1a2ba07e4e18b402f6",
+      "audio_copied": false,
+      "acceptance": "Configured file exists. Dummy-audio capture; spoken transcript/pronunciation/listening and device acceptance not performed."
+    },
+    {
+      "configured_key": "op_doctor_x_ray_stage",
+      "existing_asset": "assets/audio/voices/filler_v1/roshan_op_doctor_x_ray_stage.ogg",
+      "sha256": "4e7f0b851c52dbf5425d07ea8bd39645a0d04832d2316fc0a64f2437c6b2bed2",
+      "audio_copied": false,
+      "acceptance": "Configured file exists. Dummy-audio capture; spoken transcript/pronunciation/listening and device acceptance not performed."
+    },
+    {
+      "configured_key": "op_doctor_cast_stage",
+      "existing_asset": "assets/audio/voices/filler_v1/roshan_op_doctor_cast_stage.ogg",
+      "sha256": "f73385e9689de0eb19a30fb6149d10760e94817fd62d6d57a73e499cf85b38fe",
+      "audio_copied": false,
+      "acceptance": "Configured file exists. Dummy-audio capture; spoken transcript/pronunciation/listening and device acceptance not performed."
+    },
+    {
+      "configured_key": "op_doctor_bandage_stage",
+      "existing_asset": "assets/audio/voices/filler_v1/roshan_op_doctor_bandage_stage.ogg",
+      "sha256": "2ee1588f1264559f29e82127a888f2753eae515e6c8410f366c4621b19ba1b82",
+      "audio_copied": false,
+      "acceptance": "Configured file exists. Dummy-audio capture; spoken transcript/pronunciation/listening and device acceptance not performed."
+    }
+  ],
+  "media": [
+    {
+      "path": "illustrations/step-01.svg",
+      "source_path": "source-backed report layout",
+      "source_sha256": null,
+      "role": "coverage_gap_panel",
+      "modifications": "Authored report typography/layout; no gameplay pixels invented. Existing asset included only when declared."
+    },
+    {
+      "path": "native/doctor_1280_normal_playroom_card.png",
+      "source_path": "audit/doctor_clearance_goal_20261006/review/after1280/doctor_1280_normal_playroom_card.png",
+      "source_sha256": "d637757d944c7307372128a3fb6d78d1aef25ff8b18275edcb39712770d6cb9b",
+      "role": "unmodified_native_capture",
+      "modifications": "None; byte-identical complete 1280x720 PNG. Isolated fixture campaign, not a fresh-save playthrough."
+    },
+    {
+      "path": "annotations/step-02.svg",
+      "source_path": "native/doctor_1280_normal_playroom_card.png",
+      "source_sha256": "d637757d944c7307372128a3fb6d78d1aef25ff8b18275edcb39712770d6cb9b",
+      "role": "separate_annotation_copy",
+      "modifications": "Native PNG embedded without pixel editing; review-only label/circle/arrow at 550,90. Not a game screen or accepted QA evidence."
+    },
+    {
+      "path": "native/doctor_1280_normal_doctor_invitation.png",
+      "source_path": "audit/doctor_clearance_goal_20261006/review/after1280/doctor_1280_normal_doctor_invitation.png",
+      "source_sha256": "e44aafda4fddb65db3ca12cc0ed17c019d760407b0da70050e2c09b2a197839a",
+      "role": "unmodified_native_capture",
+      "modifications": "None; byte-identical complete 1280x720 PNG. Isolated fixture campaign, not a fresh-save playthrough."
+    },
+    {
+      "path": "annotations/step-03.svg",
+      "source_path": "native/doctor_1280_normal_doctor_invitation.png",
+      "source_sha256": "e44aafda4fddb65db3ca12cc0ed17c019d760407b0da70050e2c09b2a197839a",
+      "role": "separate_annotation_copy",
+      "modifications": "Native PNG embedded without pixel editing; review-only label/circle/arrow at 334,216. Not a game screen or accepted QA evidence."
+    },
+    {
+      "path": "native/doctor_1280_wash_ready.png",
+      "source_path": "audit/doctor_clearance_goal_20261006/review/after1280/doctor_1280_wash_ready.png",
+      "source_sha256": "9b43a8247a5def905a61ef31ed33ef3a7ee9a6cad6d47da4a138ae191385d981",
+      "role": "unmodified_native_capture",
+      "modifications": "None; byte-identical complete 1280x720 PNG. Isolated fixture campaign, not a fresh-save playthrough."
+    },
+    {
+      "path": "annotations/step-04.svg",
+      "source_path": "native/doctor_1280_wash_ready.png",
+      "source_sha256": "9b43a8247a5def905a61ef31ed33ef3a7ee9a6cad6d47da4a138ae191385d981",
+      "role": "separate_annotation_copy",
+      "modifications": "Native PNG embedded without pixel editing; review-only label/circle/arrow at 1040,384. Not a game screen or accepted QA evidence."
+    },
+    {
+      "path": "native/doctor_1280_partial_hold.png",
+      "source_path": "audit/doctor_clearance_goal_20261006/review/after1280/doctor_1280_partial_hold.png",
+      "source_sha256": "1c32bd012586fc6ec4d457750b18c4c71539d204462331dda97f990df3f3c105",
+      "role": "unmodified_native_capture",
+      "modifications": "None; byte-identical complete 1280x720 PNG. Isolated fixture campaign, not a fresh-save playthrough."
+    },
+    {
+      "path": "annotations/step-05.svg",
+      "source_path": "native/doctor_1280_partial_hold.png",
+      "source_sha256": "1c32bd012586fc6ec4d457750b18c4c71539d204462331dda97f990df3f3c105",
+      "role": "separate_annotation_copy",
+      "modifications": "Native PNG embedded without pixel editing; review-only label/circle/arrow at 1035,388. Not a game screen or accepted QA evidence."
+    },
+    {
+      "path": "native/doctor_1280_wash_paused.png",
+      "source_path": "audit/doctor_clearance_goal_20261006/review/after1280/doctor_1280_wash_paused.png",
+      "source_sha256": "761736a103277ca8ec814c97b036ee40fd32862c95a11c7cd1f19eab424aed4e",
+      "role": "unmodified_native_capture",
+      "modifications": "None; byte-identical complete 1280x720 PNG. Isolated fixture campaign, not a fresh-save playthrough."
+    },
+    {
+      "path": "annotations/step-06.svg",
+      "source_path": "native/doctor_1280_wash_paused.png",
+      "source_sha256": "761736a103277ca8ec814c97b036ee40fd32862c95a11c7cd1f19eab424aed4e",
+      "role": "separate_annotation_copy",
+      "modifications": "Native PNG embedded without pixel editing; review-only label/circle/arrow at 1040,385. Not a game screen or accepted QA evidence."
+    },
+    {
+      "path": "native/doctor_1280_earned_clean_result.png",
+      "source_path": "audit/doctor_clearance_goal_20261006/review/after1280/doctor_1280_earned_clean_result.png",
+      "source_sha256": "422a5c090d7653e751304cfd80e45c14c897af0cec1ee4aab8186386248f53eb",
+      "role": "unmodified_native_capture",
+      "modifications": "None; byte-identical complete 1280x720 PNG. Isolated fixture campaign, not a fresh-save playthrough."
+    },
+    {
+      "path": "annotations/step-07.svg",
+      "source_path": "native/doctor_1280_earned_clean_result.png",
+      "source_sha256": "422a5c090d7653e751304cfd80e45c14c897af0cec1ee4aab8186386248f53eb",
+      "role": "separate_annotation_copy",
+      "modifications": "Native PNG embedded without pixel editing; review-only label/circle/arrow at 1040,385. Not a game screen or accepted QA evidence."
+    },
+    {
+      "path": "native/doctor_1280_next_find_invitation_actor_restored.png",
+      "source_path": "audit/doctor_clearance_goal_20261006/review/after1280/doctor_1280_next_find_invitation_actor_restored.png",
+      "source_sha256": "aa18cb6f3a59bca81b8bdc5a525ef66860cd6564b5d58ae9fa53c15c0b513468",
+      "role": "unmodified_native_capture",
+      "modifications": "None; byte-identical complete 1280x720 PNG. Isolated fixture campaign, not a fresh-save playthrough."
+    },
+    {
+      "path": "annotations/step-08.svg",
+      "source_path": "native/doctor_1280_next_find_invitation_actor_restored.png",
+      "source_sha256": "aa18cb6f3a59bca81b8bdc5a525ef66860cd6564b5d58ae9fa53c15c0b513468",
+      "role": "separate_annotation_copy",
+      "modifications": "Native PNG embedded without pixel editing; review-only label/circle/arrow at 191,362. Not a game screen or accepted QA evidence."
+    },
+    {
+      "path": "illustrations/widget_lanes_doctor.png",
+      "source_path": "assets/opera/worlds/widgets/widget_lanes_doctor.png",
+      "source_sha256": "d7045deb1274f117246ce00deed8d2511cde2c6cf3ffe816c93d8cddf5c11352",
+      "role": "existing_asset_reference_not_gameplay",
+      "modifications": "Byte-identical project asset for a labelled illustration. No new scene or current screen claimed."
+    },
+    {
+      "path": "illustrations/step-09.svg",
+      "source_path": "assets/opera/worlds/widgets/widget_lanes_doctor.png",
+      "source_sha256": "d7045deb1274f117246ce00deed8d2511cde2c6cf3ffe816c93d8cddf5c11352",
+      "role": "coverage_gap_panel",
+      "modifications": "Authored report typography/layout; no gameplay pixels invented. Existing asset included only when declared."
+    },
+    {
+      "path": "illustrations/widget_target_doctor_mover.png",
+      "source_path": "assets/opera/worlds/widgets/widget_target_doctor_mover.png",
+      "source_sha256": "b11eed914519ad9c0db6d4548e49eec2b0c09aa2b9a95c9452cce6028f44dbe0",
+      "role": "existing_asset_reference_not_gameplay",
+      "modifications": "Byte-identical project asset for a labelled illustration. No new scene or current screen claimed."
+    },
+    {
+      "path": "illustrations/step-10.svg",
+      "source_path": "assets/opera/worlds/widgets/widget_target_doctor_mover.png",
+      "source_sha256": "b11eed914519ad9c0db6d4548e49eec2b0c09aa2b9a95c9452cce6028f44dbe0",
+      "role": "coverage_gap_panel",
+      "modifications": "Authored report typography/layout; no gameplay pixels invented. Existing asset included only when declared."
+    },
+    {
+      "path": "illustrations/widget_crank_doctor_patient.png",
+      "source_path": "assets/opera/worlds/widgets/widget_crank_doctor_patient.png",
+      "source_sha256": "ecf354fd812decbae250078cc2dc7bce8b8bb5c403afe5016bdabedbe0c8ffc9",
+      "role": "existing_asset_reference_not_gameplay",
+      "modifications": "Byte-identical project asset for a labelled illustration. No new scene or current screen claimed."
+    },
+    {
+      "path": "illustrations/step-11.svg",
+      "source_path": "assets/opera/worlds/widgets/widget_crank_doctor_patient.png",
+      "source_sha256": "ecf354fd812decbae250078cc2dc7bce8b8bb5c403afe5016bdabedbe0c8ffc9",
+      "role": "coverage_gap_panel",
+      "modifications": "Authored report typography/layout; no gameplay pixels invented. Existing asset included only when declared."
+    },
+    {
+      "path": "illustrations/step-12.svg",
+      "source_path": "source-backed report layout",
+      "source_sha256": null,
+      "role": "coverage_gap_panel",
+      "modifications": "Authored report typography/layout; no gameplay pixels invented. Existing asset included only when declared."
+    },
+    {
+      "path": "illustrations/step-13.svg",
+      "source_path": "source-backed report layout",
+      "source_sha256": null,
+      "role": "coverage_gap_panel",
+      "modifications": "Authored report typography/layout; no gameplay pixels invented. Existing asset included only when declared."
+    },
+    {
+      "path": "illustrations/step-14.svg",
+      "source_path": "source-backed report layout",
+      "source_sha256": null,
+      "role": "coverage_gap_panel",
+      "modifications": "Authored report typography/layout; no gameplay pixels invented. Existing asset included only when declared."
+    },
+    {
+      "path": "illustrations/step-15.svg",
+      "source_path": "source-backed report layout",
+      "source_sha256": null,
+      "role": "coverage_gap_panel",
+      "modifications": "Authored report typography/layout; no gameplay pixels invented. Existing asset included only when declared."
+    },
+    {
+      "path": "native/doctor_1280_actual_back_to_playroom_no_unearned_star.png",
+      "source_path": "audit/doctor_clearance_goal_20261006/review/after1280/doctor_1280_actual_back_to_playroom_no_unearned_star.png",
+      "source_sha256": "b2f51cde0cd038e169ca0860d79b1e4d4d14c479adb8a58d5ea9506422a06f67",
+      "role": "unmodified_native_capture",
+      "modifications": "None; byte-identical complete 1280x720 PNG. Isolated fixture campaign, not a fresh-save playthrough."
+    },
+    {
+      "path": "annotations/step-16.svg",
+      "source_path": "native/doctor_1280_actual_back_to_playroom_no_unearned_star.png",
+      "source_sha256": "b2f51cde0cd038e169ca0860d79b1e4d4d14c479adb8a58d5ea9506422a06f67",
+      "role": "separate_annotation_copy",
+      "modifications": "Native PNG embedded without pixel editing; review-only label/circle/arrow at 75,75. Not a game screen or accepted QA evidence."
+    },
+    {
+      "path": "native/wash_full_action.webp",
+      "source_path": "audit/doctor_clearance_goal_20261006/review/after1280/native_pixels_1280.webp",
+      "source_sha256": "eb948af04922c00471dcfd0a6867a64e7fde987fd252554d536e95cc0e40fd52",
+      "role": "lossless_native_action_sequence",
+      "modifications": "None; 248 complete 1280x720 canvases. Original receipt verifies every decoded RGB canvas against native PNG. Capture-clock timing, not device performance."
+    },
+    {
+      "path": "overview.png",
+      "source_path": "manifest.json numbered native step images",
+      "source_sha256": null,
+      "role": "review_contact_sheet",
+      "modifications": "Native screenshots scaled within labelled report contact sheet; absent actions are explicit gap cards. Native masters unchanged."
+    }
+  ],
+  "goal": "Development goal remains paused; this independent documentation commission does not resume it.",
+  "artistic_decisions": "Above-water clinic disposition MA-OPERA-007 and whole-figure hand/sink contact unresolved. No proposed replacement scene or generated art.",
+  "acceptance": {
+    "machine": "PASS package hashes/links/248 decoded canvases; actual browser render/toggle/disclosure/variants. Publication gates recorded separately; exact baseline greenCI only, staged runtime candidate unverified by full suite.",
+    "visual": "Diagnostic report; hand/sink contact still fails. Later native action/finish/replay missing.",
+    "device": "Not performed. Desktop Mobile/Dummy audio only.",
+    "child": "Not performed.",
+    "owner": "Not accepted. Setting/art/contact questions retained.",
+    "DL_QA_11": "No authoritative same-process visual PASS or 4.6 claim."
+  },
+  "publication": "Reduced public illustrated review package; no copied internal source, private checkpoint tree or source-production scripts. Documentation only; exact remote commit verification recorded separately after push.",
+  "source_publication_limit": "No copied script or capture harness is included. Already-public immutable baseline links were verified anonymously. Captured world has a local, unintegrated hop-suppression change; its recorded hash and retained local evidence are not runtime publication or acceptance."
+}

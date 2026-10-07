@@ -1,0 +1,27 @@
+{
+  "status": "PASS_PREPARED_DOCUMENTATION_SCOPE",
+  "baseline": "96274aab9cebd563b10846a4a48de5d017588563",
+  "publication_allowlist": [
+    "audit/doctor_walkthrough_20261007/",
+    "design/audit_impacts/doctor-walkthrough-20261007.json",
+    "ASSET_LICENSES.md"
+  ],
+  "runtime_unchanged_paths": [
+    "scripts",
+    "scenes",
+    "assets",
+    "project.godot",
+    ".github/workflows",
+    "tools"
+  ],
+  "baseline_tree_ids": {
+    "scripts": "79d6da8848cff128affd3faf282b6b4108cf424c",
+    "scenes": "c609d0fff2c5c64d1bbd5013542fc3c08adaeee7",
+    "assets": "c742c92e29bd1bd5ae85caa8d75c557b589b1864",
+    "project.godot": "2351cb32085bcefe893ee220ed1b9ec88c4d2875",
+    ".github/workflows": "4c07958787905c80774ce4fe93e73c86a1b7bb28",
+    "tools": "273c1b228a70a6e331644fb99ad5fd58247651a4"
+  },
+  "validation_policy": "Exact existing all-OK trusted CI run37564552946 covers the unchanged runtime trees. New documentation gets package/source/browser/authority/development gates; current runtime repair remains excluded and unaccepted. Final prepared tree equality is checked again before commit/push.",
+  "excluded_paused_checkpoint": "Gameplay repair remains local, paused, unverified by the full suite and absent from this review publication."
+}

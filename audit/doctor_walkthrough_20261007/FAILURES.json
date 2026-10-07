@@ -1,0 +1,28 @@
+{
+  "failures": [
+    {
+      "operation": "Initial large shell write of walkthrough builder",
+      "result": "FAILED_BEFORE_PROCESS_CREATION",
+      "reason": "Windows OS error206: filename/extension too long. No files changed by rejected command.",
+      "repair": "Saved builder with file patch and ran bounded short shell command."
+    },
+    {
+      "operation": "Browser Playwright role button for native details summary",
+      "result": "SELECTOR_NO_MATCH",
+      "repair": "Fresh accessibility observation located native disclosure button448; native click opened motion;1280x720 media loaded."
+    },
+    {
+      "operation": "Initial documentation diff --check before commit",
+      "result": "FAIL; commit not attempted",
+      "reason": "Lossless copied CRLF was reported as trailing whitespace; source harness also retains one original tab-only line.",
+      "repair": "Check authored review material with cr-at-eol and exclude byte-identical source snapshots from formatting repair. Source hashes remain enforced. No Git attributes/global configuration/original source edited."
+    },
+    {
+      "operation": "Original public topic push",
+      "result": "AUTOMATIC_APPROVAL_REJECTED; no push executed",
+      "reason": "Copied internal source and potentially sensitive project details exceeded walkthrough publication authorization.",
+      "resolution": "Remove copied source/harness, private checkpoint details and production builder from public payload. Retain complete originals locally; use anonymously verified already-public immutable source links. No visibility change or original rejected payload retry."
+    }
+  ],
+  "preserved_historical_capture_failures": "Source campaign failures remain in original Doctor evidence lane; not converted to PASS."
+}

@@ -1,0 +1,39 @@
+{
+  "status": "PASS",
+  "checked_utc": "2026-10-07T16:22:53.822494+00:00",
+  "scope": "Document structure, authority and whole-diff coverage. Exact green baseline runtime is unchanged in the prepared publication; paused runtime repair excluded.",
+  "gates": [
+    {
+      "command": "python -Xutf8 -B tools/audit_document_authority.py",
+      "exit_code": 0,
+      "stdout": "DOCAUTH|INVENTORY=678|LEDGER=678|ACTIVE=68|RECORDS=71\nDOCAUTH|RESULT|ALL OK\n",
+      "stderr": "",
+      "result": "PASS"
+    },
+    {
+      "command": "python -Xutf8 -B tools/audit_development.py --base auto",
+      "exit_code": 0,
+      "stdout": "AUDITDEV|BASE|96274aab9cebd563b10846a4a48de5d017588563\nAUDITDEV|RESULT|ALL OK\n",
+      "stderr": "",
+      "result": "PASS"
+    },
+    {
+      "command": "Python compile() of build_walkthrough.py and verify_walkthrough.py",
+      "result": "PASS",
+      "scope": "Syntax only; no runtime scripts changed in publication"
+    },
+    {
+      "command": "git -c core.whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol diff --check 96274aab9cebd563b10846a4a48de5d017588563 a1896c4e89a89f98cfc92992b9d7a3f0faee5e10 -- . :(exclude)audit/doctor_walkthrough_20261007/source/**",
+      "result": "PASS",
+      "scope": "Authored review files and license rows. Retained CRLF accepted; byte-identical source snapshots excluded from formatting repair and independently SHA-256 checked."
+    }
+  ],
+  "runtime_gates": {
+    "result": "PASS_REUSED_UNCHANGED_BASELINE",
+    "receipt": "BASELINE_CI.json",
+    "exact_head": "96274aab9cebd563b10846a4a48de5d017588563",
+    "run": 37564552946,
+    "candidate_runtime_result": "PENDING; not covered and not published"
+  },
+  "public_payload": "Reduced illustration/metadata-only review, no source snapshots or harness/builder. Ten existing public baseline sources verified anonymously."
+}
