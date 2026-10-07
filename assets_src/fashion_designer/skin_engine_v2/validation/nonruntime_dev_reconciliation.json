@@ -1,0 +1,27 @@
+{
+  "schema": "reef.fashion_skin_nonruntime_reconciliation/1",
+  "status": "LOCAL_SOURCE_EQUIVALENCE_PASS_REMOTE_HEAD_PENDING",
+  "checked_at_utc": "2026-10-07T19:58:33.839569+00:00",
+  "engine_parent": "febbc7013288e5801aaa3b70a092eb8ff1e54196",
+  "incoming_dev": "ce32f9e0a364d06285f819b1c4d62e487161d060",
+  "incoming_file_count": 206,
+  "incoming_scope": "Previously integrated non-runtime Roshan rig pilot under assets_src/.gdignore plus its license/audit/owner records; no production gameplay or clothing source changes. Existing acceptance scopes retained.",
+  "conflict_resolution": {
+    "ASSET_LICENSES.md": "Keep both independent appended asset-license sections in full.",
+    "design/reference/OWNER_DECISIONS.md": "Keep fashion engine row and all three incoming scoped rig-pilot owner rows."
+  },
+  "frozen_manifest": {
+    "path": "assets_src/fashion_designer/skin_engine_v2/frozen_reconciliation.json",
+    "sha256": "47738a7e5bd26ac6c486dc9700f209870621e8dec730adeaa8ee665231f0a82d",
+    "source_files": 385,
+    "incoming_overlap": [],
+    "current_hash_mismatches": []
+  },
+  "reused_runtime_evidence": {
+    "receipt": "assets_src/fashion_designer/skin_engine_v2/validation/reconciliation_verification.json",
+    "full_log_sha256": "4a124e4df8cf5f279fa38b131e3156ee7c7f11ba7816577383103c36f2c172fa",
+    "all82_local_probes": "PASS on engine8e0a947f plus dev131e7094; all385 tested files byte-identical after this non-runtime merge. No redundant unchanged local full-suite run."
+  },
+  "final_remote_head": "PENDING; exact published-head CI must pass before dev integration",
+  "acceptance": "All-pose motion/art, provisional voice, target-device, child, owner and global master audit remain separately pending."
+}

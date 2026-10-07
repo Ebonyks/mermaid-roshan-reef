@@ -1,0 +1,38 @@
+[
+  {
+    "date": "2026-10-07",
+    "authority": "recorded_owner",
+    "source": "assets_src/cinematics/claude_rig_pilot_20261007/README.md#owner-answers",
+    "checks": [],
+    "checkable": false,
+    "id": "ODR-RIG-PILOT-GUIDES-20261007",
+    "subject": "Roshan rig pilot: the rig drives the LTX guides",
+    "question": "Which deterministic-rig pilot to build, given the 2026-10-05 and 2026-10-07 whole-frame, whole-sprite and constant-size rules?",
+    "decision": "Chose \"Rig drives the guides\": track the LTX take, solve it onto a fixed-length rig, and use the rig's poses as proportion-locked guides for the next whole-frame LTX take.",
+    "cycle": "rig-pilot-20261007"
+  },
+  {
+    "date": "2026-10-07",
+    "authority": "recorded_owner",
+    "source": "assets_src/cinematics/claude_rig_pilot_20261007/README.md#owner-answers",
+    "checks": [],
+    "checkable": false,
+    "id": "ODR-RIG-PILOT-IMAGE-EXCEPTION-20261007",
+    "subject": "Claude may render this pilot's guides and preview",
+    "question": "For this pilot, may Claude render the rig's guide images itself instead of writing them up for Codex?",
+    "decision": "\"Yes, render them\": a one-time exception to the 2026-09-30 written-handoff rule, covering only the rig pilot's guide images and previews.",
+    "cycle": "rig-pilot-20261007"
+  },
+  {
+    "date": "2026-10-07",
+    "authority": "recorded_owner",
+    "source": "assets_src/cinematics/claude_rig_pilot_20261007/README.md#owner-answers",
+    "checks": [],
+    "checkable": false,
+    "id": "ODR-RIG-PILOT-RULES-OFF-TEST-20261007",
+    "subject": "Rig pilot: one rules-off test run, then rules back",
+    "question": "How to trial the deterministic rig against the existing Roshan animation rules?",
+    "decision": "\"Trial two test runs, one that completely ignores these rules for purposes of testing, and then if there are problems or shortfalls with the drafts that are analyzed, introduce these rules back again. The game was previously incapable of animating in this way, I suspect that it may be, but permit claude to trial using a different approach.\" Scope: the rig pilot's run 1 only; the whole-frame, whole-sprite, no-Roshan-rig and written-handoff rules remain binding for production and run 2.",
+    "cycle": "rig-pilot-20261007"
+  }
+]

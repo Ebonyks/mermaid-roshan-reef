@@ -1,6 +1,6 @@
 {
   "id": "fashion-engine-20261007",
-  "scope": "Owner correction 2026-10-07: build shared Godot wardrobe/skin engine with persistent recurring-character outfits and immediate live updates, preserve authored identity/animation designs, provide dress-up games for Mermaid Roshan, Daddy Mermaid and Rumi, and replace flat/vector costume graphics with polished painted assets congruent with existing UI. Existing walkthrough stays a historical alpha reference. Inventory approved assets before built-in ImageGen for named garment/UI gaps. Reconcile concurrent dev131e7094 Sky Lagoon boundary repair without changing original skin-engine sources; validate the combined runtime before dev integration.",
+  "scope": "Owner correction 2026-10-07: build shared Godot wardrobe/skin engine with persistent recurring-character outfits and immediate live updates, preserve authored identity/animation designs, provide dress-up games for Mermaid Roshan, Daddy Mermaid and Rumi, and replace flat/vector costume graphics with polished painted assets congruent with existing UI. Existing walkthrough stays a historical alpha reference. Inventory approved assets before built-in ImageGen for named garment/UI gaps. Reconcile concurrent dev131e7094 Sky Lagoon boundary repair without changing original skin-engine sources; validate the combined runtime before dev integration. Reconcile later non-runtime devce32f9e0 rig-pilot records by retaining both independent license and owner-decision additions; all385 frozen production files remain identical.",
   "baseline": "6238934447cf28834874396dfbaff65effafda46",
   "rules": [
     "DL-AUTH-05",
@@ -177,7 +177,8 @@
     "scripts/save_state.gd",
     "tools/audit_fashion_skin_engine.py",
     "tools/build_fashion_skin_engine.gd",
-    "tools/capture_fashion_skin_review.gd"
+    "tools/capture_fashion_skin_review.gd",
+    "assets_src/fashion_designer/skin_engine_v2/validation/nonruntime_dev_reconciliation.json"
   ],
   "validation": [
     {
@@ -219,6 +220,11 @@
       "command": "Exact Godot4.7.2 full scripts/ci.sh on merged engine8e0a947f + dev131e7094",
       "result": "PASS",
       "evidence": "assets_src/fashion_designer/skin_engine_v2/validation/reconciliation_verification.json: all82 local probes exit0 and all385 frozen source files unchanged; initial engine PR37669389096 SUCCESS checks actual merge8e0a947f into131e7094. Final reconciled published head requires its own green CI before dev integration."
+    },
+    {
+      "command": "Exact frozen385-source equivalence after non-runtime devce32f9e0 merge; document authority/development gates",
+      "result": "PASS",
+      "evidence": "assets_src/fashion_designer/skin_engine_v2/validation/nonruntime_dev_reconciliation.json: incoming206 files have zero overlap with tested source corpus; all current hashes match. Reuse passing local82 runtime result, then require new exact published-head remote CI before integration."
     }
   ],
   "acceptance_gaps": "Generated garment candidates need exact identity/style/fit review across every authored frame. Target device, child and owner acceptance remain independent; no game-wide finding closure granted.",
