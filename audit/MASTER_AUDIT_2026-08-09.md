@@ -40,6 +40,8 @@ Owner-directed [size/focus corrective analysis](../assets_src/cinematics/ltx25_f
 
 Owner-commissioned [Union structural-control trial](../assets_src/cinematics/ltx25_union_trial_20261004/README.md) subsequently executes two41-frame LTX-2.5 W4A8 takes with authored whole-figure Aseprite contours and actual480-patch GPU application.173s/7152MiB and71s/7470MiB prove this route fits8GB; cache states differ. Internal size diagnostics improve in inspected poses, but fingers/focus/strict guide-root remain rejected. Temporal-detail adapter and runtime/device/child/owner acceptance remain pending; [impact](../design/audit_impacts/ltx25-union-trial-20261004.json) preserves finding lifecycles.
 
+Owner-reported Sky Lagoon animal floor/bush failures at integration `62389344` are repaired in the [2026-10-07 boundary impact](../design/audit_impacts/sky-lagoon-animal-boundaries-20261007.json): unchanged source art, explicit visible-ground envelopes, per-cell footing and bounded startle routes. Implementation and exact new machine/runtime verification are separate; device/child/owner acceptance remains open under `MA-VIS-002` and game-wide geometry under `MA-PLAY-003`. See `CHG-033` in the [repair changelog](MASTER_AUDIT_CHANGELOG_ROLLBACK_2026-08-10.md#sky-lagoon-animal-boundaries-chg-033).
+
 ### Next bounded planning work
 
 | Deliverable | Prerequisite | Next evidence |

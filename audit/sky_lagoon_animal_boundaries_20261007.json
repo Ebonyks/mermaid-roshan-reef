@@ -1,0 +1,1481 @@
+{
+  "id": "sky-lagoon-animal-boundaries-20261007",
+  "baseline": "6238934447cf28834874396dfbaff65effafda46",
+  "check_time_utc": "2026-10-07T16:23:52.014946+00:00",
+  "candidate_revision": "uncommitted working tree; source hashes identify the candidate",
+  "source_sha256_lf": {
+    "scripts/arena/sky_lagoon_promenade.gd": "a6c72599809ddace2e94e02ba10db518483008ace62655e9059a76d3eacd2dfa",
+    "scripts/probe_sky_lagoon_animals.gd": "fcde9f8ec2a518776a94ca2d116dbf12f00ef02f6d7a7be1f32de27495c5966a",
+    "scripts/arena/sky_lagoon_layout.json": "680173a909a4fddfadbc89f45d891159067bf5e776936f56f47e2295a2c338fe"
+  },
+  "godot_version": "4.7.2-stable (official)",
+  "renderer": "mobile",
+  "quality": "speedy",
+  "viewport": [
+    1280,
+    720
+  ],
+  "capture_manifest_sha256": "4e6ffdd418f1684bbf8ac46eed439aef707df656e0c20c00564534556e4257f0",
+  "captures": [
+    {
+      "atlas_frame": 2,
+      "floor_master": [
+        902.465515136719,
+        1471.34252929688
+      ],
+      "habitat": "arrival_shore",
+      "id": "otter",
+      "label": "day_otter",
+      "lighting": "day",
+      "master_height": 420.0,
+      "modulate": [
+        0.920000016689301,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "screen_point": [
+        317.273040771484,
+        490.448486328125
+      ],
+      "shadow_modulate": [
+        0.200000002980232,
+        0.280000001192093,
+        0.419999986886978,
+        0.300000011920929
+      ],
+      "with": "day_otter_with.png",
+      "with_sha256": "568479384905f2a1a618e7118e7e09a9eef48a9e5772f1d948105c860dfb5585",
+      "without": "day_otter_without.png",
+      "without_sha256": "92c3f29d3eb424f72759a24d235fd85cbc6dae45fb6f8cb782de70e23d0b96b7"
+    },
+    {
+      "atlas_frame": 2,
+      "floor_master": [
+        852.291931152344,
+        1431.18920898438
+      ],
+      "habitat": "arrival_shore",
+      "id": "frog",
+      "label": "day_frog",
+      "lighting": "day",
+      "master_height": 322.0,
+      "modulate": [
+        0.959999978542328,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "screen_point": [
+        299.633880615234,
+        476.841583251953
+      ],
+      "shadow_modulate": [
+        0.200000002980232,
+        0.280000001192093,
+        0.419999986886978,
+        0.300000011920929
+      ],
+      "with": "day_frog_with.png",
+      "with_sha256": "f165b5e2b1009c15a09d1dba86f44e1e3be6d9c1297647954a2f8936bd6497e3",
+      "without": "day_frog_without.png",
+      "without_sha256": "7440b2b4cb460159d9e49f6852a03ba660eb7593d3db6208ec7a5a7640d2ef89"
+    },
+    {
+      "atlas_frame": 2,
+      "floor_master": [
+        2880.6591796875,
+        1776.61169433594
+      ],
+      "habitat": "west_meadow_edge",
+      "id": "hare",
+      "label": "day_hare",
+      "lighting": "day",
+      "master_height": 245.0,
+      "modulate": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "screen_point": [
+        773.825500488281,
+        595.486572265625
+      ],
+      "shadow_modulate": [
+        0.200000002980232,
+        0.280000001192093,
+        0.419999986886978,
+        0.300000011920929
+      ],
+      "with": "day_hare_with.png",
+      "with_sha256": "e7e1e3839f884512f8d31400a043af4b5e9d08d547733dbc38af611bba78f7e9",
+      "without": "day_hare_without.png",
+      "without_sha256": "ed9f9f78aa9617f9d2e75b1a5a8b53d210f240e5b731f8d0d1461031673b8e8a"
+    },
+    {
+      "atlas_frame": 2,
+      "floor_master": [
+        2914.09790039063,
+        1773.16760253906
+      ],
+      "habitat": "west_meadow_edge",
+      "id": "squirrel",
+      "label": "day_squirrel",
+      "lighting": "day",
+      "master_height": 290.0,
+      "modulate": [
+        0.899999976158142,
+        0.980000019073486,
+        1.0,
+        1.0
+      ],
+      "screen_point": [
+        785.581298828125,
+        595.302307128906
+      ],
+      "shadow_modulate": [
+        0.200000002980232,
+        0.280000001192093,
+        0.419999986886978,
+        0.300000011920929
+      ],
+      "with": "day_squirrel_with.png",
+      "with_sha256": "f71417178cf5621900dc35bedce2c93f82cb7db3f1e4b6c38f33c3a7b6159d38",
+      "without": "day_squirrel_without.png",
+      "without_sha256": "144e1380098f4024c5c8f480cc1d43bd01db936fa93f92164b8240506edc32e5"
+    },
+    {
+      "atlas_frame": 2,
+      "floor_master": [
+        5105.51025390625,
+        1875.91833496094
+      ],
+      "habitat": "castle_shrub_edge",
+      "id": "raccoon",
+      "label": "day_raccoon",
+      "lighting": "day",
+      "master_height": 290.0,
+      "modulate": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "screen_point": [
+        914.905944824219,
+        634.21337890625
+      ],
+      "shadow_modulate": [
+        0.200000002980232,
+        0.280000001192093,
+        0.419999986886978,
+        0.300000011920929
+      ],
+      "with": "day_raccoon_with.png",
+      "with_sha256": "67f05ef52fca7fc6f9746af099c118e4c44ea5ec93b268305713a2c9a57a99b8",
+      "without": "day_raccoon_without.png",
+      "without_sha256": "ac9158676a1f0fe6753f8d08fcf22d79c02a735db0da3bb68ede56f0191a7c10"
+    },
+    {
+      "atlas_frame": 0,
+      "floor_master": [
+        870.0,
+        1480.0
+      ],
+      "habitat": "arrival_shore",
+      "id": "otter",
+      "label": "ground_otter_0",
+      "lighting": "day",
+      "master_height": 420.0,
+      "modulate": [
+        0.920000016689301,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "screen_point": [
+        305.859375,
+        479.072570800781
+      ],
+      "shadow_modulate": [
+        0.200000002980232,
+        0.280000001192093,
+        0.419999986886978,
+        0.300000011920929
+      ],
+      "with": "ground_otter_0_with.png",
+      "with_sha256": "9599ec7d7fa1c76d69c238af446230519f6f0a32305bcebe17146e508b51751c",
+      "without": "ground_otter_0_without.png",
+      "without_sha256": "ac96c02fcac83130ef756e60d6ae37736d04d7c1d7efe829ee605465c5fb8c6b"
+    },
+    {
+      "atlas_frame": 1,
+      "floor_master": [
+        945.0,
+        1460.0
+      ],
+      "habitat": "arrival_shore",
+      "id": "otter",
+      "label": "ground_otter_1",
+      "lighting": "day",
+      "master_height": 420.0,
+      "modulate": [
+        0.920000016689301,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "screen_point": [
+        332.2265625,
+        468.580627441406
+      ],
+      "shadow_modulate": [
+        0.200000002980232,
+        0.280000001192093,
+        0.419999986886978,
+        0.300000011920929
+      ],
+      "with": "ground_otter_1_with.png",
+      "with_sha256": "5068c77ab9be53d8423fe617ddf583d4f9aa6ef9af098a5f8409c10320f2af6e",
+      "without": "ground_otter_1_without.png",
+      "without_sha256": "ac96c02fcac83130ef756e60d6ae37736d04d7c1d7efe829ee605465c5fb8c6b"
+    },
+    {
+      "atlas_frame": 2,
+      "floor_master": [
+        1030.0,
+        1480.0
+      ],
+      "habitat": "arrival_shore",
+      "id": "otter",
+      "label": "ground_otter_2",
+      "lighting": "day",
+      "master_height": 420.0,
+      "modulate": [
+        0.920000016689301,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "screen_point": [
+        362.109375,
+        493.492126464844
+      ],
+      "shadow_modulate": [
+        0.200000002980232,
+        0.280000001192093,
+        0.419999986886978,
+        0.300000011920929
+      ],
+      "with": "ground_otter_2_with.png",
+      "with_sha256": "28fcd97b6c01e08100dfc0aae1efde56e1193ef081e0af5128860e4ed08c04bb",
+      "without": "ground_otter_2_without.png",
+      "without_sha256": "ac96c02fcac83130ef756e60d6ae37736d04d7c1d7efe829ee605465c5fb8c6b"
+    },
+    {
+      "atlas_frame": 0,
+      "floor_master": [
+        1030.0,
+        1480.0
+      ],
+      "habitat": "arrival_shore",
+      "id": "otter",
+      "label": "startle_otter_0",
+      "lighting": "day",
+      "master_height": 420.0,
+      "modulate": [
+        0.920000016689301,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "screen_point": [
+        362.109375,
+        476.765441894531
+      ],
+      "shadow_modulate": [
+        0.200000002980232,
+        0.280000001192093,
+        0.419999986886978,
+        0.300000011920929
+      ],
+      "with": "startle_otter_0_with.png",
+      "with_sha256": "252d0127bb6dc4d0d783e8e80db4ddc0cacb521554a3c7d3d18fb328dc5865ce",
+      "without": "startle_otter_0_without.png",
+      "without_sha256": "ac96c02fcac83130ef756e60d6ae37736d04d7c1d7efe829ee605465c5fb8c6b"
+    },
+    {
+      "atlas_frame": 1,
+      "floor_master": [
+        1030.0,
+        1480.0
+      ],
+      "habitat": "arrival_shore",
+      "id": "otter",
+      "label": "startle_otter_1",
+      "lighting": "day",
+      "master_height": 420.0,
+      "modulate": [
+        0.920000016689301,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "screen_point": [
+        362.109375,
+        475.035095214844
+      ],
+      "shadow_modulate": [
+        0.200000002980232,
+        0.280000001192093,
+        0.419999986886978,
+        0.300000011920929
+      ],
+      "with": "startle_otter_1_with.png",
+      "with_sha256": "31ee02750039bef312e2d8c7550c2d528df1ce6f92ff71bf3f11525062d88a69",
+      "without": "startle_otter_1_without.png",
+      "without_sha256": "ac96c02fcac83130ef756e60d6ae37736d04d7c1d7efe829ee605465c5fb8c6b"
+    },
+    {
+      "atlas_frame": 2,
+      "floor_master": [
+        981.718505859375,
+        1468.6396484375
+      ],
+      "habitat": "arrival_shore",
+      "id": "otter",
+      "label": "startle_otter_2",
+      "lighting": "day",
+      "master_height": 420.0,
+      "modulate": [
+        0.920000016689301,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "screen_point": [
+        345.135406494141,
+        494.496429443359
+      ],
+      "shadow_modulate": [
+        0.200000002980232,
+        0.280000001192093,
+        0.419999986886978,
+        0.300000011920929
+      ],
+      "with": "startle_otter_2_with.png",
+      "with_sha256": "83d3b85ee464bfc39e259af2230a5434b036629c40f3758aa44ed04d4c5f650f",
+      "without": "startle_otter_2_without.png",
+      "without_sha256": "ac96c02fcac83130ef756e60d6ae37736d04d7c1d7efe829ee605465c5fb8c6b"
+    },
+    {
+      "atlas_frame": 3,
+      "floor_master": [
+        870.0,
+        1480.0
+      ],
+      "habitat": "arrival_shore",
+      "id": "otter",
+      "label": "startle_otter_3",
+      "lighting": "day",
+      "master_height": 420.0,
+      "modulate": [
+        0.920000016689301,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "screen_point": [
+        305.859375,
+        505.604553222656
+      ],
+      "shadow_modulate": [
+        0.200000002980232,
+        0.280000001192093,
+        0.419999986886978,
+        0.300000011920929
+      ],
+      "with": "startle_otter_3_with.png",
+      "with_sha256": "3e1b970c2d173dd490501878b02b2eed13c54ecdaaad28d899c73d9b0ddad0d4",
+      "without": "startle_otter_3_without.png",
+      "without_sha256": "ac96c02fcac83130ef756e60d6ae37736d04d7c1d7efe829ee605465c5fb8c6b"
+    },
+    {
+      "atlas_frame": 0,
+      "floor_master": [
+        810.0,
+        1440.0
+      ],
+      "habitat": "arrival_shore",
+      "id": "frog",
+      "label": "ground_frog_0",
+      "lighting": "day",
+      "master_height": 322.0,
+      "modulate": [
+        0.959999978542328,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "screen_point": [
+        284.765625,
+        468.884124755859
+      ],
+      "shadow_modulate": [
+        0.200000002980232,
+        0.280000001192093,
+        0.419999986886978,
+        0.300000011920929
+      ],
+      "with": "ground_frog_0_with.png",
+      "with_sha256": "25a4a39c8efdad8b6df087c813f7606f73316ffc05685cc82548e5f85bc0de21",
+      "without": "ground_frog_0_without.png",
+      "without_sha256": "ac96c02fcac83130ef756e60d6ae37736d04d7c1d7efe829ee605465c5fb8c6b"
+    },
+    {
+      "atlas_frame": 1,
+      "floor_master": [
+        930.0,
+        1415.0
+      ],
+      "habitat": "arrival_shore",
+      "id": "frog",
+      "label": "ground_frog_1",
+      "lighting": "day",
+      "master_height": 322.0,
+      "modulate": [
+        0.959999978542328,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "screen_point": [
+        326.953125,
+        458.768463134766
+      ],
+      "shadow_modulate": [
+        0.200000002980232,
+        0.280000001192093,
+        0.419999986886978,
+        0.300000011920929
+      ],
+      "with": "ground_frog_1_with.png",
+      "with_sha256": "b2e749d4d8311beec453debd7c9f72dc040b2a6a11e4fe75a16b40d5c080d2e7",
+      "without": "ground_frog_1_without.png",
+      "without_sha256": "ac96c02fcac83130ef756e60d6ae37736d04d7c1d7efe829ee605465c5fb8c6b"
+    },
+    {
+      "atlas_frame": 2,
+      "floor_master": [
+        1050.0,
+        1450.0
+      ],
+      "habitat": "arrival_shore",
+      "id": "frog",
+      "label": "ground_frog_2",
+      "lighting": "day",
+      "master_height": 322.0,
+      "modulate": [
+        0.959999978542328,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "screen_point": [
+        369.140625,
+        483.454742431641
+      ],
+      "shadow_modulate": [
+        0.200000002980232,
+        0.280000001192093,
+        0.419999986886978,
+        0.300000011920929
+      ],
+      "with": "ground_frog_2_with.png",
+      "with_sha256": "e251b5ade3fab289b3daa29aa5665de565624edce09f46df8ff99835372bcdb4",
+      "without": "ground_frog_2_without.png",
+      "without_sha256": "ac96c02fcac83130ef756e60d6ae37736d04d7c1d7efe829ee605465c5fb8c6b"
+    },
+    {
+      "atlas_frame": 0,
+      "floor_master": [
+        1050.0,
+        1450.0
+      ],
+      "habitat": "arrival_shore",
+      "id": "frog",
+      "label": "startle_frog_0",
+      "lighting": "day",
+      "master_height": 322.0,
+      "modulate": [
+        0.959999978542328,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "screen_point": [
+        369.140625,
+        471.957550048828
+      ],
+      "shadow_modulate": [
+        0.200000002980232,
+        0.280000001192093,
+        0.419999986886978,
+        0.300000011920929
+      ],
+      "with": "startle_frog_0_with.png",
+      "with_sha256": "0b9e3d4bdbcc25f8372fec9384d00c0b80065fae76aac4e003104690c068c85f",
+      "without": "startle_frog_0_without.png",
+      "without_sha256": "ac96c02fcac83130ef756e60d6ae37736d04d7c1d7efe829ee605465c5fb8c6b"
+    },
+    {
+      "atlas_frame": 1,
+      "floor_master": [
+        1050.0,
+        1450.0
+      ],
+      "habitat": "arrival_shore",
+      "id": "frog",
+      "label": "startle_frog_1",
+      "lighting": "day",
+      "master_height": 322.0,
+      "modulate": [
+        0.959999978542328,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "screen_point": [
+        369.140625,
+        471.957550048828
+      ],
+      "shadow_modulate": [
+        0.200000002980232,
+        0.280000001192093,
+        0.419999986886978,
+        0.300000011920929
+      ],
+      "with": "startle_frog_1_with.png",
+      "with_sha256": "7e191668a7e46e9ae209f9f5571d61e02859279c95df787b63e3ba7568cc6225",
+      "without": "startle_frog_1_without.png",
+      "without_sha256": "ac96c02fcac83130ef756e60d6ae37736d04d7c1d7efe829ee605465c5fb8c6b"
+    },
+    {
+      "atlas_frame": 2,
+      "floor_master": [
+        1005.45599365234,
+        1437.00805664063
+      ],
+      "habitat": "arrival_shore",
+      "id": "frog",
+      "label": "startle_frog_2",
+      "lighting": "day",
+      "master_height": 322.0,
+      "modulate": [
+        0.959999978542328,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "screen_point": [
+        353.480621337891,
+        473.907104492188
+      ],
+      "shadow_modulate": [
+        0.200000002980232,
+        0.280000001192093,
+        0.419999986886978,
+        0.300000011920929
+      ],
+      "with": "startle_frog_2_with.png",
+      "with_sha256": "1373066b7182dc270bb5dde9add9bc87fe6b07c1ce05607c9986ae69e701ed2c",
+      "without": "startle_frog_2_without.png",
+      "without_sha256": "ac96c02fcac83130ef756e60d6ae37736d04d7c1d7efe829ee605465c5fb8c6b"
+    },
+    {
+      "atlas_frame": 3,
+      "floor_master": [
+        893.386108398438,
+        1422.6279296875
+      ],
+      "habitat": "arrival_shore",
+      "id": "frog",
+      "label": "startle_frog_3",
+      "lighting": "day",
+      "master_height": 322.0,
+      "modulate": [
+        0.959999978542328,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "screen_point": [
+        314.0810546875,
+        472.505157470703
+      ],
+      "shadow_modulate": [
+        0.200000002980232,
+        0.280000001192093,
+        0.419999986886978,
+        0.300000011920929
+      ],
+      "with": "startle_frog_3_with.png",
+      "with_sha256": "40b4e7e10f9c3953a20cf16267357890281a96225dbeae5562fa9fa63549188c",
+      "without": "startle_frog_3_without.png",
+      "without_sha256": "ac96c02fcac83130ef756e60d6ae37736d04d7c1d7efe829ee605465c5fb8c6b"
+    },
+    {
+      "atlas_frame": 0,
+      "floor_master": [
+        2840.0,
+        1780.0
+      ],
+      "habitat": "west_meadow_edge",
+      "id": "hare",
+      "label": "ground_hare_0",
+      "lighting": "day",
+      "master_height": 245.0,
+      "modulate": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "screen_point": [
+        759.53125,
+        591.630920410156
+      ],
+      "shadow_modulate": [
+        0.200000002980232,
+        0.280000001192093,
+        0.419999986886978,
+        0.300000011920929
+      ],
+      "with": "ground_hare_0_with.png",
+      "with_sha256": "cf0a09e69dcea16dddbaff00a96ea07061f95ff405a575302f344ac3a21a4db2",
+      "without": "ground_hare_0_without.png",
+      "without_sha256": "fb6d6c50a3990fc64ff620bc3cbb3ffdd80008116749aef3780a8b9cb002079f"
+    },
+    {
+      "atlas_frame": 1,
+      "floor_master": [
+        3020.0,
+        1765.0
+      ],
+      "habitat": "west_meadow_edge",
+      "id": "hare",
+      "label": "ground_hare_1",
+      "lighting": "day",
+      "master_height": 245.0,
+      "modulate": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "screen_point": [
+        822.8125,
+        586.693969726563
+      ],
+      "shadow_modulate": [
+        0.200000002980232,
+        0.280000001192093,
+        0.419999986886978,
+        0.300000011920929
+      ],
+      "with": "ground_hare_1_with.png",
+      "with_sha256": "dc4ca9fc68d58a78b12cda73b66c80bc659205f2decb160b8fbff6faef1f645c",
+      "without": "ground_hare_1_without.png",
+      "without_sha256": "fb6d6c50a3990fc64ff620bc3cbb3ffdd80008116749aef3780a8b9cb002079f"
+    },
+    {
+      "atlas_frame": 2,
+      "floor_master": [
+        3200.0,
+        1785.0
+      ],
+      "habitat": "west_meadow_edge",
+      "id": "hare",
+      "label": "ground_hare_2",
+      "lighting": "day",
+      "master_height": 245.0,
+      "modulate": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "screen_point": [
+        886.09375,
+        598.435607910156
+      ],
+      "shadow_modulate": [
+        0.200000002980232,
+        0.280000001192093,
+        0.419999986886978,
+        0.300000011920929
+      ],
+      "with": "ground_hare_2_with.png",
+      "with_sha256": "4db18a49ae145ff9ff11058016c92cf1d6fa3f5927d7b260dd0a77339f12d8e9",
+      "without": "ground_hare_2_without.png",
+      "without_sha256": "fb6d6c50a3990fc64ff620bc3cbb3ffdd80008116749aef3780a8b9cb002079f"
+    },
+    {
+      "atlas_frame": 0,
+      "floor_master": [
+        3200.0,
+        1785.0
+      ],
+      "habitat": "west_meadow_edge",
+      "id": "hare",
+      "label": "startle_hare_0",
+      "lighting": "day",
+      "master_height": 245.0,
+      "modulate": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "screen_point": [
+        886.09375,
+        594.734558105469
+      ],
+      "shadow_modulate": [
+        0.200000002980232,
+        0.280000001192093,
+        0.419999986886978,
+        0.300000011920929
+      ],
+      "with": "startle_hare_0_with.png",
+      "with_sha256": "e1bdf455be3a5a0165edd1cb3a83383f00cf726367a587ea5dffc4a49b505348",
+      "without": "startle_hare_0_without.png",
+      "without_sha256": "fb6d6c50a3990fc64ff620bc3cbb3ffdd80008116749aef3780a8b9cb002079f"
+    },
+    {
+      "atlas_frame": 1,
+      "floor_master": [
+        3200.0,
+        1785.0
+      ],
+      "habitat": "west_meadow_edge",
+      "id": "hare",
+      "label": "startle_hare_1",
+      "lighting": "day",
+      "master_height": 245.0,
+      "modulate": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "screen_point": [
+        886.09375,
+        595.743957519531
+      ],
+      "shadow_modulate": [
+        0.200000002980232,
+        0.280000001192093,
+        0.419999986886978,
+        0.300000011920929
+      ],
+      "with": "startle_hare_1_with.png",
+      "with_sha256": "e53b25bf26868a6c8e694545bb0eaa46dc16d7bb2738f92e5dc49f85b72e30f2",
+      "without": "startle_hare_1_without.png",
+      "without_sha256": "fb6d6c50a3990fc64ff620bc3cbb3ffdd80008116749aef3780a8b9cb002079f"
+    },
+    {
+      "atlas_frame": 2,
+      "floor_master": [
+        3147.52294921875,
+        1779.16918945313
+      ],
+      "habitat": "west_meadow_edge",
+      "id": "hare",
+      "label": "startle_hare_2",
+      "lighting": "day",
+      "master_height": 245.0,
+      "modulate": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "screen_point": [
+        867.644775390625,
+        599.124816894531
+      ],
+      "shadow_modulate": [
+        0.200000002980232,
+        0.280000001192093,
+        0.419999986886978,
+        0.300000011920929
+      ],
+      "with": "startle_hare_2_with.png",
+      "with_sha256": "ba8457b75c4bb0d1848aa677b0ee1e40c789375e8382eba79193e97571538e45",
+      "without": "startle_hare_2_without.png",
+      "without_sha256": "fb6d6c50a3990fc64ff620bc3cbb3ffdd80008116749aef3780a8b9cb002079f"
+    },
+    {
+      "atlas_frame": 3,
+      "floor_master": [
+        3016.32055664063,
+        1765.306640625
+      ],
+      "habitat": "west_meadow_edge",
+      "id": "hare",
+      "label": "startle_hare_3",
+      "lighting": "day",
+      "master_height": 245.0,
+      "modulate": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "screen_point": [
+        821.518920898438,
+        603.961059570313
+      ],
+      "shadow_modulate": [
+        0.200000002980232,
+        0.280000001192093,
+        0.419999986886978,
+        0.300000011920929
+      ],
+      "with": "startle_hare_3_with.png",
+      "with_sha256": "8e75a5a55a54f6d7a84e725180cbad7fde042410102d60932b1bf209d815566b",
+      "without": "startle_hare_3_without.png",
+      "without_sha256": "fb6d6c50a3990fc64ff620bc3cbb3ffdd80008116749aef3780a8b9cb002079f"
+    },
+    {
+      "atlas_frame": 0,
+      "floor_master": [
+        2865.0,
+        1770.0
+      ],
+      "habitat": "west_meadow_edge",
+      "id": "squirrel",
+      "label": "ground_squirrel_0",
+      "lighting": "day",
+      "master_height": 290.0,
+      "modulate": [
+        0.899999976158142,
+        0.980000019073486,
+        1.0,
+        1.0
+      ],
+      "screen_point": [
+        768.3203125,
+        584.630615234375
+      ],
+      "shadow_modulate": [
+        0.200000002980232,
+        0.280000001192093,
+        0.419999986886978,
+        0.300000011920929
+      ],
+      "with": "ground_squirrel_0_with.png",
+      "with_sha256": "6458affd959eca1e9d2129ee1aa709c65b7050f00821605c7ff96284e0fccb60",
+      "without": "ground_squirrel_0_without.png",
+      "without_sha256": "fb6d6c50a3990fc64ff620bc3cbb3ffdd80008116749aef3780a8b9cb002079f"
+    },
+    {
+      "atlas_frame": 1,
+      "floor_master": [
+        3020.0,
+        1780.0
+      ],
+      "habitat": "west_meadow_edge",
+      "id": "squirrel",
+      "label": "ground_squirrel_1",
+      "lighting": "day",
+      "master_height": 290.0,
+      "modulate": [
+        0.899999976158142,
+        0.980000019073486,
+        1.0,
+        1.0
+      ],
+      "screen_point": [
+        822.8125,
+        586.55322265625
+      ],
+      "shadow_modulate": [
+        0.200000002980232,
+        0.280000001192093,
+        0.419999986886978,
+        0.300000011920929
+      ],
+      "with": "ground_squirrel_1_with.png",
+      "with_sha256": "b6cfc22739309988b6b0cdb9c545c2bcc3b86429a4e80f19860afa95b78825e4",
+      "without": "ground_squirrel_1_without.png",
+      "without_sha256": "fb6d6c50a3990fc64ff620bc3cbb3ffdd80008116749aef3780a8b9cb002079f"
+    },
+    {
+      "atlas_frame": 2,
+      "floor_master": [
+        3180.0,
+        1765.0
+      ],
+      "habitat": "west_meadow_edge",
+      "id": "squirrel",
+      "label": "ground_squirrel_2",
+      "lighting": "day",
+      "master_height": 290.0,
+      "modulate": [
+        0.899999976158142,
+        0.980000019073486,
+        1.0,
+        1.0
+      ],
+      "screen_point": [
+        879.0625,
+        592.430908203125
+      ],
+      "shadow_modulate": [
+        0.200000002980232,
+        0.280000001192093,
+        0.419999986886978,
+        0.300000011920929
+      ],
+      "with": "ground_squirrel_2_with.png",
+      "with_sha256": "bd9bebac2a02e7ffb77db21aa80cbbdcbb449f8cc002908ae9d49456cd8fcd1b",
+      "without": "ground_squirrel_2_without.png",
+      "without_sha256": "fb6d6c50a3990fc64ff620bc3cbb3ffdd80008116749aef3780a8b9cb002079f"
+    },
+    {
+      "atlas_frame": 0,
+      "floor_master": [
+        3180.0,
+        1765.0
+      ],
+      "habitat": "west_meadow_edge",
+      "id": "squirrel",
+      "label": "startle_squirrel_0",
+      "lighting": "day",
+      "master_height": 290.0,
+      "modulate": [
+        0.899999976158142,
+        0.980000019073486,
+        1.0,
+        1.0
+      ],
+      "screen_point": [
+        879.0625,
+        582.474487304688
+      ],
+      "shadow_modulate": [
+        0.200000002980232,
+        0.280000001192093,
+        0.419999986886978,
+        0.300000011920929
+      ],
+      "with": "startle_squirrel_0_with.png",
+      "with_sha256": "17b9d86c475a88000900891955910ec047cebf333658a11f371ebdaa026a4fc0",
+      "without": "startle_squirrel_0_without.png",
+      "without_sha256": "fb6d6c50a3990fc64ff620bc3cbb3ffdd80008116749aef3780a8b9cb002079f"
+    },
+    {
+      "atlas_frame": 1,
+      "floor_master": [
+        3180.0,
+        1765.0
+      ],
+      "habitat": "west_meadow_edge",
+      "id": "squirrel",
+      "label": "startle_squirrel_1",
+      "lighting": "day",
+      "master_height": 290.0,
+      "modulate": [
+        0.899999976158142,
+        0.980000019073486,
+        1.0,
+        1.0
+      ],
+      "screen_point": [
+        879.0625,
+        580.483276367188
+      ],
+      "shadow_modulate": [
+        0.200000002980232,
+        0.280000001192093,
+        0.419999986886978,
+        0.300000011920929
+      ],
+      "with": "startle_squirrel_1_with.png",
+      "with_sha256": "caa3cc3b1c82174e6a9cd99aba6195678214db196abd4014c30999e7c35bf1bf",
+      "without": "startle_squirrel_1_without.png",
+      "without_sha256": "fb6d6c50a3990fc64ff620bc3cbb3ffdd80008116749aef3780a8b9cb002079f"
+    },
+    {
+      "atlas_frame": 2,
+      "floor_master": [
+        3125.041015625,
+        1770.15246582031
+      ],
+      "habitat": "west_meadow_edge",
+      "id": "squirrel",
+      "label": "startle_squirrel_2",
+      "lighting": "day",
+      "master_height": 290.0,
+      "modulate": [
+        0.899999976158142,
+        0.980000019073486,
+        1.0,
+        1.0
+      ],
+      "screen_point": [
+        859.740966796875,
+        593.774780273438
+      ],
+      "shadow_modulate": [
+        0.200000002980232,
+        0.280000001192093,
+        0.419999986886978,
+        0.300000011920929
+      ],
+      "with": "startle_squirrel_2_with.png",
+      "with_sha256": "3d73b6f5f23f3dcaedc2b2cfe540e2d2089905d7d0c1bddf394bc21990f04fbe",
+      "without": "startle_squirrel_2_without.png",
+      "without_sha256": "fb6d6c50a3990fc64ff620bc3cbb3ffdd80008116749aef3780a8b9cb002079f"
+    },
+    {
+      "atlas_frame": 3,
+      "floor_master": [
+        2987.56909179688,
+        1777.90771484375
+      ],
+      "habitat": "west_meadow_edge",
+      "id": "squirrel",
+      "label": "startle_squirrel_3",
+      "lighting": "day",
+      "master_height": 290.0,
+      "modulate": [
+        0.899999976158142,
+        0.980000019073486,
+        1.0,
+        1.0
+      ],
+      "screen_point": [
+        811.411010742188,
+        604.535583496094
+      ],
+      "shadow_modulate": [
+        0.200000002980232,
+        0.280000001192093,
+        0.419999986886978,
+        0.300000011920929
+      ],
+      "with": "startle_squirrel_3_with.png",
+      "with_sha256": "fab67811c9948e3b8c333dfc4298eb5df4b63d01d6fd90bb410d92f12e55538c",
+      "without": "startle_squirrel_3_without.png",
+      "without_sha256": "fb6d6c50a3990fc64ff620bc3cbb3ffdd80008116749aef3780a8b9cb002079f"
+    },
+    {
+      "atlas_frame": 0,
+      "floor_master": [
+        5070.0,
+        1870.0
+      ],
+      "habitat": "castle_shrub_edge",
+      "id": "raccoon",
+      "label": "ground_raccoon_0",
+      "lighting": "day",
+      "master_height": 290.0,
+      "modulate": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "screen_point": [
+        902.421813964844,
+        620.981567382813
+      ],
+      "shadow_modulate": [
+        0.200000002980232,
+        0.280000001192093,
+        0.419999986886978,
+        0.300000011920929
+      ],
+      "with": "ground_raccoon_0_with.png",
+      "with_sha256": "ef32a612445fea4d427845a1d0109acdffce075cc05d0b325decd39669d32b24",
+      "without": "ground_raccoon_0_without.png",
+      "without_sha256": "a01331ca31f351dfb609203a3ea264f067a3925fc8f92c3f226776f3f33e3666"
+    },
+    {
+      "atlas_frame": 1,
+      "floor_master": [
+        5130.0,
+        1880.0
+      ],
+      "habitat": "castle_shrub_edge",
+      "id": "raccoon",
+      "label": "ground_raccoon_1",
+      "lighting": "day",
+      "master_height": 290.0,
+      "modulate": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "screen_point": [
+        923.515563964844,
+        624.497192382813
+      ],
+      "shadow_modulate": [
+        0.200000002980232,
+        0.280000001192093,
+        0.419999986886978,
+        0.300000011920929
+      ],
+      "with": "ground_raccoon_1_with.png",
+      "with_sha256": "3c9e87bf444d322aef4b98b940276077d1d743b9519731defd66dd1c9cae2320",
+      "without": "ground_raccoon_1_without.png",
+      "without_sha256": "a01331ca31f351dfb609203a3ea264f067a3925fc8f92c3f226776f3f33e3666"
+    },
+    {
+      "atlas_frame": 2,
+      "floor_master": [
+        5200.0,
+        1895.0
+      ],
+      "habitat": "castle_shrub_edge",
+      "id": "raccoon",
+      "label": "ground_raccoon_2",
+      "lighting": "day",
+      "master_height": 290.0,
+      "modulate": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "screen_point": [
+        948.124938964844,
+        640.921752929688
+      ],
+      "shadow_modulate": [
+        0.200000002980232,
+        0.280000001192093,
+        0.419999986886978,
+        0.300000011920929
+      ],
+      "with": "ground_raccoon_2_with.png",
+      "with_sha256": "5968fe1c59902e3a96f8e3a1aa4ddda1edbaf1fa88b83e80eecfd6795f96eec7",
+      "without": "ground_raccoon_2_without.png",
+      "without_sha256": "a01331ca31f351dfb609203a3ea264f067a3925fc8f92c3f226776f3f33e3666"
+    },
+    {
+      "atlas_frame": 0,
+      "floor_master": [
+        5200.0,
+        1895.0
+      ],
+      "habitat": "castle_shrub_edge",
+      "id": "raccoon",
+      "label": "startle_raccoon_0",
+      "lighting": "day",
+      "master_height": 290.0,
+      "modulate": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "screen_point": [
+        948.124938964844,
+        630.567138671875
+      ],
+      "shadow_modulate": [
+        0.200000002980232,
+        0.280000001192093,
+        0.419999986886978,
+        0.300000011920929
+      ],
+      "with": "startle_raccoon_0_with.png",
+      "with_sha256": "b1212714e83d1cf480f7648857a904b8b30bbc7aaa3dba8f0417c1459934784b",
+      "without": "startle_raccoon_0_without.png",
+      "without_sha256": "a01331ca31f351dfb609203a3ea264f067a3925fc8f92c3f226776f3f33e3666"
+    },
+    {
+      "atlas_frame": 1,
+      "floor_master": [
+        5200.0,
+        1895.0
+      ],
+      "habitat": "castle_shrub_edge",
+      "id": "raccoon",
+      "label": "startle_raccoon_1",
+      "lighting": "day",
+      "master_height": 290.0,
+      "modulate": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "screen_point": [
+        948.124938964844,
+        630.567138671875
+      ],
+      "shadow_modulate": [
+        0.200000002980232,
+        0.280000001192093,
+        0.419999986886978,
+        0.300000011920929
+      ],
+      "with": "startle_raccoon_1_with.png",
+      "with_sha256": "b3481d82994d687bc449fcfae1cd5d810ac8b0d55467ac18a2ddaafb78926ebd",
+      "without": "startle_raccoon_1_without.png",
+      "without_sha256": "a01331ca31f351dfb609203a3ea264f067a3925fc8f92c3f226776f3f33e3666"
+    },
+    {
+      "atlas_frame": 2,
+      "floor_master": [
+        5149.9365234375,
+        1884.27209472656
+      ],
+      "habitat": "castle_shrub_edge",
+      "id": "raccoon",
+      "label": "startle_raccoon_2",
+      "lighting": "day",
+      "master_height": 290.0,
+      "modulate": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "screen_point": [
+        930.524475097656,
+        640.665283203125
+      ],
+      "shadow_modulate": [
+        0.200000002980232,
+        0.280000001192093,
+        0.419999986886978,
+        0.300000011920929
+      ],
+      "with": "startle_raccoon_2_with.png",
+      "with_sha256": "b2da155f4926a1dab8b14da9338013ff317096ab9f0de09d35d847d9a5b26a70",
+      "without": "startle_raccoon_2_without.png",
+      "without_sha256": "a01331ca31f351dfb609203a3ea264f067a3925fc8f92c3f226776f3f33e3666"
+    },
+    {
+      "atlas_frame": 3,
+      "floor_master": [
+        5070.0,
+        1870.0
+      ],
+      "habitat": "castle_shrub_edge",
+      "id": "raccoon",
+      "label": "startle_raccoon_3",
+      "lighting": "day",
+      "master_height": 290.0,
+      "modulate": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "screen_point": [
+        902.421813964844,
+        642.089111328125
+      ],
+      "shadow_modulate": [
+        0.200000002980232,
+        0.280000001192093,
+        0.419999986886978,
+        0.300000011920929
+      ],
+      "with": "startle_raccoon_3_with.png",
+      "with_sha256": "8285e7f64b4be1e746de81d710a1619b273145065f810d9fb06093c6f6647410",
+      "without": "startle_raccoon_3_without.png",
+      "without_sha256": "a01331ca31f351dfb609203a3ea264f067a3925fc8f92c3f226776f3f33e3666"
+    },
+    {
+      "atlas_frame": 0,
+      "floor_master": [
+        870.0,
+        1480.0
+      ],
+      "habitat": "arrival_shore",
+      "id": "otter",
+      "label": "night_otter",
+      "lighting": "night",
+      "master_height": 420.0,
+      "modulate": [
+        0.670000016689301,
+        0.790000021457672,
+        1.0,
+        1.0
+      ],
+      "screen_point": [
+        305.859375,
+        479.072570800781
+      ],
+      "shadow_modulate": [
+        0.200000002980232,
+        0.280000001192093,
+        0.419999986886978,
+        0.300000011920929
+      ],
+      "with": "night_otter_with.png",
+      "with_sha256": "a95f1908ea079f701d3b96c1fda81cb60eddc268da52b328ef3e2548b7f47d5f",
+      "without": "night_otter_without.png",
+      "without_sha256": "ddc2340af6938f64877db8c843ca125ae9a6385611ca12baa207e2b155d4419d"
+    },
+    {
+      "atlas_frame": 0,
+      "floor_master": [
+        810.0,
+        1440.0
+      ],
+      "habitat": "arrival_shore",
+      "id": "frog",
+      "label": "night_frog",
+      "lighting": "night",
+      "master_height": 322.0,
+      "modulate": [
+        0.689999997615814,
+        0.860000014305115,
+        0.980000019073486,
+        1.0
+      ],
+      "screen_point": [
+        284.765625,
+        468.884124755859
+      ],
+      "shadow_modulate": [
+        0.200000002980232,
+        0.280000001192093,
+        0.419999986886978,
+        0.300000011920929
+      ],
+      "with": "night_frog_with.png",
+      "with_sha256": "46970344f31859ea01235b4455352e78d4308860744688671978a26f3c7238ee",
+      "without": "night_frog_without.png",
+      "without_sha256": "f0637165bcda6d6b608f04302291ffdb594fbb5a86e173164764a7232b42c8a2"
+    },
+    {
+      "atlas_frame": 0,
+      "floor_master": [
+        2840.0,
+        1780.0
+      ],
+      "habitat": "west_meadow_edge",
+      "id": "hare",
+      "label": "night_hare",
+      "lighting": "night",
+      "master_height": 245.0,
+      "modulate": [
+        0.680000007152557,
+        0.769999980926514,
+        0.990000009536743,
+        1.0
+      ],
+      "screen_point": [
+        759.53125,
+        591.630920410156
+      ],
+      "shadow_modulate": [
+        0.200000002980232,
+        0.280000001192093,
+        0.419999986886978,
+        0.300000011920929
+      ],
+      "with": "night_hare_with.png",
+      "with_sha256": "fd176a61c5f1fd6facf5c718d57d6218f9039f882fb78d155726f1c584a3640d",
+      "without": "night_hare_without.png",
+      "without_sha256": "3de187ad442d6de6a1311e8a74ffb5e1a5cc5f9662d774f818cfef32dacbde94"
+    },
+    {
+      "atlas_frame": 0,
+      "floor_master": [
+        2865.0,
+        1770.0
+      ],
+      "habitat": "west_meadow_edge",
+      "id": "squirrel",
+      "label": "night_squirrel",
+      "lighting": "night",
+      "master_height": 290.0,
+      "modulate": [
+        0.600000023841858,
+        0.740000009536743,
+        0.959999978542328,
+        1.0
+      ],
+      "screen_point": [
+        768.3203125,
+        584.630615234375
+      ],
+      "shadow_modulate": [
+        0.200000002980232,
+        0.280000001192093,
+        0.419999986886978,
+        0.300000011920929
+      ],
+      "with": "night_squirrel_with.png",
+      "with_sha256": "ce5129245486c0c301bd3402175229bffec0d3303f04ed000132543a76369f95",
+      "without": "night_squirrel_without.png",
+      "without_sha256": "56eb69e651e8ec0f62e9dc335175092c7d887d1ad00be937f5b5404aa953a3e5"
+    },
+    {
+      "atlas_frame": 0,
+      "floor_master": [
+        5070.0,
+        1870.0
+      ],
+      "habitat": "castle_shrub_edge",
+      "id": "raccoon",
+      "label": "night_raccoon",
+      "lighting": "night",
+      "master_height": 290.0,
+      "modulate": [
+        0.759999990463257,
+        0.839999973773956,
+        1.0,
+        1.0
+      ],
+      "screen_point": [
+        902.421813964844,
+        620.981567382813
+      ],
+      "shadow_modulate": [
+        0.200000002980232,
+        0.280000001192093,
+        0.419999986886978,
+        0.300000011920929
+      ],
+      "with": "night_raccoon_with.png",
+      "with_sha256": "472c632bae69facc91f2521c95d3a18d215bf49d81d69fb80db026895439f69f",
+      "without": "night_raccoon_without.png",
+      "without_sha256": "8f37b509eae73cb414d1da2bf6e86be374d74437783ce41959014f70baf17d5a"
+    }
+  ],
+  "review": {
+    "reviewer": "Codex agent",
+    "scope": "45 day/night, ground endpoint/corner, and startle case crops over the real production stage; all captured paired bytes verified",
+    "result": "ground-placement candidate reviewed; no art identity redesign",
+    "limits": "Desktop RTX3060Ti; device/child/owner acceptance remains missing. Brief authored startle hop stays relative to ground. Existing source art is unchanged."
+  },
+  "full_ci": {
+    "result": "PASS",
+    "command": "C:/Program Files/Git/bin/bash.exe scripts/ci.sh (exact approved resolver)",
+    "check_time_utc": "2026-10-07T17:11:46.995400+00:00",
+    "godot_version": "4.7.2.stable.official.ed1daf0bf",
+    "exit_code": 0,
+    "expected_trusted_probes": 82,
+    "completed_trusted_probes": 82,
+    "trusted_exit_failures": [],
+    "trusted_script_or_failure_errors": 0,
+    "log": "tmp/animal-boundaries/full-ci.log",
+    "log_sha256": "f7b015dc78265e6c5fb1bec4cf2cf8ab2ef6de71423404f1764eb949bcc46211",
+    "limits": "Existing advisory whole-game visual findings remain UNSATISFIED; this is regression evidence, not device/child/owner acceptance."
+  }
+}
