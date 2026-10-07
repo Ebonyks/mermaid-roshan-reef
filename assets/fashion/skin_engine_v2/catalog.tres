@@ -1,0 +1,1405 @@
+[gd_resource type="Resource" script_class="FashionSkinCatalog" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/fashion_skin_catalog.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+data = {
+	"dressing_characters": [
+		"roshan",
+		"rumi",
+		"daddy_mermaid"
+	],
+	"families": {
+		"baby_eagle": {
+			"boxes": [
+				[
+					130,
+					207,
+					180,
+					244
+				]
+			],
+			"cell": [
+				290,
+				512
+			],
+			"character": "baby_eagle",
+			"dimensions": [
+				290,
+				512
+			],
+			"source": "assets/characters/companions/baby_eagle.png",
+			"source_sha256": "7d6f10afbd8cd157436a05eaadab7eb4cc07c3a3d242ad2291111fc6b4f3ed2f",
+			"variants": {
+				"garden": "res://assets/fashion/skin_engine_v2/atlases/baby_eagle_garden.png",
+				"party": "res://assets/fashion/skin_engine_v2/atlases/baby_eagle_party.png",
+				"ribbon": "res://assets/fashion/skin_engine_v2/atlases/baby_eagle_ribbon.png"
+			}
+		},
+		"daddy": {
+			"boxes": [
+				[
+					295,
+					212,
+					481,
+					458
+				]
+			],
+			"cell": [
+				727,
+				1024
+			],
+			"character": "daddy_mermaid",
+			"cloth_polygon": [
+				[
+					340,
+					212
+				],
+				[
+					419,
+					212
+				],
+				[
+					458,
+					257
+				],
+				[
+					480,
+					405
+				],
+				[
+					422,
+					458
+				],
+				[
+					301,
+					441
+				],
+				[
+					295,
+					280
+				]
+			],
+			"dimensions": [
+				727,
+				1024
+			],
+			"master_source": "assets_src/daddy_master.png",
+			"pixel_source": "res://assets/fashion/skin_engine_v2/atlases/daddy_original.png",
+			"protected_boxes": [
+				[
+					275,
+					413,
+					345,
+					510
+				]
+			],
+			"source": "assets/characters/friends/daddy.webp",
+			"source_sha256": "9031736498f05662716988b6c9a8091dc148edf92ae1e8422fb5e4f2fd17c089",
+			"variants": {
+				"garden": "res://assets/fashion/skin_engine_v2/atlases/daddy_garden.png",
+				"original": "res://assets/fashion/skin_engine_v2/atlases/daddy_original.png",
+				"party": "res://assets/fashion/skin_engine_v2/atlases/daddy_party.png",
+				"ribbon": "res://assets/fashion/skin_engine_v2/atlases/daddy_ribbon.png"
+			}
+		},
+		"rainbow_friend": {
+			"boxes": [
+				[
+					214,
+					370,
+					290,
+					425
+				]
+			],
+			"cell": [
+				512,
+				512
+			],
+			"character": "rainbow_dust_bunny",
+			"dimensions": [
+				512,
+				512
+			],
+			"source": "assets/sprites/dust_bunnies/rainbow_friend.png",
+			"source_sha256": "1cff185278d662b2fc049ffd1460848ca76aa7a57933dbc06279ae0a07747580",
+			"variants": {
+				"garden": "res://assets/fashion/skin_engine_v2/atlases/rainbow_friend_garden.png",
+				"party": "res://assets/fashion/skin_engine_v2/atlases/rainbow_friend_party.png",
+				"ribbon": "res://assets/fashion/skin_engine_v2/atlases/rainbow_friend_ribbon.png"
+			}
+		},
+		"roshan_base": {
+			"boxes": [
+				[
+					138.0,
+					85.0,
+					167.0,
+					136.0
+				]
+			],
+			"cell": [
+				256,
+				256
+			],
+			"character": "roshan",
+			"dimensions": [
+				256,
+				256
+			],
+			"source": "assets/characters/roshan_25d/roshan_base.png",
+			"source_sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab",
+			"variants": {
+				"disguise": "res://assets/fashion/skin_engine_v2/atlases/roshan_base_disguise.png",
+				"garden": "res://assets/fashion/skin_engine_v2/atlases/roshan_base_garden.png",
+				"party": "res://assets/fashion/skin_engine_v2/atlases/roshan_base_party.png",
+				"ribbon": "res://assets/fashion/skin_engine_v2/atlases/roshan_base_ribbon.png"
+			}
+		},
+		"roshan_directional": {
+			"boxes": [
+				[
+					138.0,
+					85.0,
+					167.0,
+					136.0
+				],
+				[
+					124.0,
+					83.0,
+					158.0,
+					137.0
+				],
+				[
+					100.0,
+					97.0,
+					118.0,
+					135.0
+				],
+				[
+					115.0,
+					93.0,
+					145.0,
+					135.0
+				],
+				[
+					125.0,
+					89.0,
+					156.0,
+					134.0
+				],
+				[
+					118.0,
+					90.0,
+					150.0,
+					133.0
+				],
+				[
+					100.0,
+					87.0,
+					117.0,
+					129.0
+				],
+				[
+					68.0,
+					77.0,
+					101.0,
+					131.0
+				]
+			],
+			"cell": [
+				256,
+				256
+			],
+			"character": "roshan",
+			"dimensions": [
+				1024,
+				512
+			],
+			"source": "assets/characters/roshan_25d/roshan_directional.png",
+			"source_sha256": "2bcc6212dddaddedb5823ba095caff1cbecdb762d5bbdc76726d3d5b0e3ee85a",
+			"variants": {
+				"disguise": "res://assets/fashion/skin_engine_v2/atlases/roshan_directional_disguise.png",
+				"garden": "res://assets/fashion/skin_engine_v2/atlases/roshan_directional_garden.png",
+				"party": "res://assets/fashion/skin_engine_v2/atlases/roshan_directional_party.png",
+				"ribbon": "res://assets/fashion/skin_engine_v2/atlases/roshan_directional_ribbon.png"
+			}
+		},
+		"roshan_gesture_a": {
+			"boxes": [
+				[
+					126.0,
+					90.0,
+					158.0,
+					142.0
+				],
+				[
+					118.0,
+					93.0,
+					150.0,
+					143.0
+				],
+				[
+					95.0,
+					93.0,
+					132.0,
+					140.0
+				],
+				[
+					82.0,
+					96.0,
+					114.0,
+					144.0
+				],
+				[
+					120.0,
+					106.0,
+					145.0,
+					136.0
+				],
+				[
+					113.0,
+					87.0,
+					147.0,
+					132.0
+				],
+				[
+					93.0,
+					86.0,
+					127.0,
+					132.0
+				],
+				[
+					69.0,
+					91.0,
+					103.0,
+					138.0
+				],
+				[
+					125.0,
+					96.0,
+					155.0,
+					143.0
+				],
+				[
+					112.0,
+					98.0,
+					135.0,
+					141.0
+				],
+				[
+					89.0,
+					92.0,
+					123.0,
+					144.0
+				],
+				[
+					70.0,
+					99.0,
+					100.0,
+					142.0
+				],
+				[
+					118.0,
+					78.0,
+					150.0,
+					128.0
+				],
+				[
+					98.0,
+					75.0,
+					131.0,
+					118.0
+				],
+				[
+					87.0,
+					76.0,
+					122.0,
+					115.0
+				],
+				[
+					70.0,
+					80.0,
+					102.0,
+					126.0
+				]
+			],
+			"cell": [
+				256,
+				256
+			],
+			"character": "roshan",
+			"dimensions": [
+				1024,
+				1024
+			],
+			"source": "assets/characters/roshan_25d/roshan_gesture_a.png",
+			"source_sha256": "e70139b23c9f84c0e8f0c1063145ca4e9e67ee32c57aa544bc08193326af9b9d",
+			"variants": {
+				"disguise": "res://assets/fashion/skin_engine_v2/atlases/roshan_gesture_a_disguise.png",
+				"garden": "res://assets/fashion/skin_engine_v2/atlases/roshan_gesture_a_garden.png",
+				"party": "res://assets/fashion/skin_engine_v2/atlases/roshan_gesture_a_party.png",
+				"ribbon": "res://assets/fashion/skin_engine_v2/atlases/roshan_gesture_a_ribbon.png"
+			}
+		},
+		"roshan_gesture_b": {
+			"boxes": [
+				[
+					129.0,
+					96.0,
+					164.0,
+					153.0
+				],
+				[
+					127.0,
+					96.0,
+					159.0,
+					151.0
+				],
+				[
+					98.0,
+					100.0,
+					122.0,
+					147.0
+				],
+				[
+					76.0,
+					96.0,
+					118.0,
+					151.0
+				],
+				[
+					111.0,
+					92.0,
+					154.0,
+					148.0
+				],
+				[
+					106.0,
+					99.0,
+					130.0,
+					145.0
+				],
+				[
+					97.0,
+					99.0,
+					128.0,
+					145.0
+				],
+				[
+					78.0,
+					91.0,
+					108.0,
+					146.0
+				],
+				[
+					118.0,
+					92.0,
+					151.0,
+					146.0
+				],
+				[
+					131.0,
+					96.0,
+					151.0,
+					131.0
+				],
+				[
+					130.0,
+					112.0,
+					157.0,
+					137.0
+				],
+				[
+					97.0,
+					106.0,
+					117.0,
+					130.0
+				],
+				[
+					110.0,
+					82.0,
+					143.0,
+					131.0
+				],
+				[
+					98.0,
+					84.0,
+					134.0,
+					131.0
+				],
+				[
+					96.0,
+					81.0,
+					133.0,
+					131.0
+				],
+				[
+					78.0,
+					85.0,
+					112.0,
+					134.0
+				]
+			],
+			"cell": [
+				256,
+				256
+			],
+			"character": "roshan",
+			"dimensions": [
+				1024,
+				1024
+			],
+			"source": "assets/characters/roshan_25d/roshan_gesture_b.png",
+			"source_sha256": "59daf2a2efdbabba1a28bedfed5312805b4351627f0882704b11c4b6ca488ead",
+			"variants": {
+				"disguise": "res://assets/fashion/skin_engine_v2/atlases/roshan_gesture_b_disguise.png",
+				"garden": "res://assets/fashion/skin_engine_v2/atlases/roshan_gesture_b_garden.png",
+				"party": "res://assets/fashion/skin_engine_v2/atlases/roshan_gesture_b_party.png",
+				"ribbon": "res://assets/fashion/skin_engine_v2/atlases/roshan_gesture_b_ribbon.png"
+			}
+		},
+		"roshan_gesture_c": {
+			"boxes": [
+				[
+					117.0,
+					87.0,
+					152.0,
+					139.0
+				],
+				[
+					103.0,
+					90.0,
+					149.0,
+					139.0
+				],
+				[
+					88.0,
+					88.0,
+					133.0,
+					140.0
+				],
+				[
+					82.0,
+					110.0,
+					103.0,
+					142.0
+				],
+				[
+					118.0,
+					90.0,
+					152.0,
+					142.0
+				],
+				[
+					117.0,
+					107.0,
+					151.0,
+					148.0
+				],
+				[
+					87.0,
+					82.0,
+					126.0,
+					138.0
+				],
+				[
+					65.0,
+					88.0,
+					109.0,
+					142.0
+				],
+				[
+					114.0,
+					85.0,
+					148.0,
+					134.0
+				],
+				[
+					104.0,
+					85.0,
+					137.0,
+					136.0
+				],
+				[
+					95.0,
+					88.0,
+					128.0,
+					135.0
+				],
+				[
+					72.0,
+					86.0,
+					111.0,
+					136.0
+				],
+				[
+					112.0,
+					81.0,
+					137.0,
+					125.0
+				],
+				[
+					100.0,
+					96.0,
+					124.0,
+					124.0
+				],
+				[
+					89.0,
+					77.0,
+					119.0,
+					123.0
+				],
+				[
+					76.0,
+					81.0,
+					100.0,
+					126.0
+				]
+			],
+			"cell": [
+				256,
+				256
+			],
+			"character": "roshan",
+			"dimensions": [
+				1024,
+				1024
+			],
+			"source": "assets/characters/roshan_25d/roshan_gesture_c.png",
+			"source_sha256": "43ebe0e42cd9db5cf612bfaa4acbc9f14a3ad99f49909535b5508707fad15a0e",
+			"variants": {
+				"disguise": "res://assets/fashion/skin_engine_v2/atlases/roshan_gesture_c_disguise.png",
+				"garden": "res://assets/fashion/skin_engine_v2/atlases/roshan_gesture_c_garden.png",
+				"party": "res://assets/fashion/skin_engine_v2/atlases/roshan_gesture_c_party.png",
+				"ribbon": "res://assets/fashion/skin_engine_v2/atlases/roshan_gesture_c_ribbon.png"
+			}
+		},
+		"roshan_gesture_d": {
+			"boxes": [
+				[
+					125.0,
+					92.0,
+					156.0,
+					145.0
+				],
+				[
+					115.0,
+					107.0,
+					152.0,
+					145.0
+				],
+				[
+					74.0,
+					133.0,
+					114.0,
+					172.0
+				],
+				[
+					106.0,
+					106.0,
+					145.0,
+					149.0
+				],
+				[
+					130.0,
+					88.0,
+					162.0,
+					131.0
+				],
+				[
+					107.0,
+					91.0,
+					138.0,
+					141.0
+				],
+				[
+					100.0,
+					90.0,
+					133.0,
+					139.0
+				],
+				[
+					79.0,
+					90.0,
+					112.0,
+					138.0
+				]
+			],
+			"cell": [
+				256,
+				256
+			],
+			"character": "roshan",
+			"dimensions": [
+				1024,
+				512
+			],
+			"source": "assets/characters/roshan_25d/roshan_gesture_d.png",
+			"source_sha256": "03cbc5931806ddc17675fb741f9dafcff66e8b16e08feb6795bda94aa1165abc",
+			"variants": {
+				"disguise": "res://assets/fashion/skin_engine_v2/atlases/roshan_gesture_d_disguise.png",
+				"garden": "res://assets/fashion/skin_engine_v2/atlases/roshan_gesture_d_garden.png",
+				"party": "res://assets/fashion/skin_engine_v2/atlases/roshan_gesture_d_party.png",
+				"ribbon": "res://assets/fashion/skin_engine_v2/atlases/roshan_gesture_d_ribbon.png"
+			}
+		},
+		"roshan_play_a": {
+			"boxes": [
+				[
+					128.0,
+					100.0,
+					162.0,
+					136.0
+				],
+				[
+					117.0,
+					102.0,
+					150.0,
+					136.0
+				],
+				[
+					90.0,
+					100.0,
+					125.0,
+					145.0
+				],
+				[
+					83.0,
+					104.0,
+					118.0,
+					142.0
+				],
+				[
+					113.0,
+					97.0,
+					153.0,
+					124.0
+				],
+				[
+					108.0,
+					69.0,
+					135.0,
+					106.0
+				],
+				[
+					83.0,
+					67.0,
+					115.0,
+					114.0
+				],
+				[
+					85.0,
+					97.0,
+					119.0,
+					135.0
+				],
+				[
+					114.0,
+					112.0,
+					151.0,
+					151.0
+				],
+				[
+					97.0,
+					113.0,
+					135.0,
+					146.0
+				],
+				[
+					85.0,
+					86.0,
+					117.0,
+					127.0
+				],
+				[
+					74.0,
+					94.0,
+					104.0,
+					137.0
+				],
+				[
+					108.0,
+					70.0,
+					140.0,
+					111.0
+				],
+				[
+					102.0,
+					69.0,
+					136.0,
+					111.0
+				],
+				[
+					87.0,
+					76.0,
+					115.0,
+					106.0
+				],
+				[
+					74.0,
+					71.0,
+					107.0,
+					115.0
+				]
+			],
+			"cell": [
+				256,
+				256
+			],
+			"character": "roshan",
+			"dimensions": [
+				1024,
+				1024
+			],
+			"source": "assets/characters/roshan_25d/roshan_play_a.png",
+			"source_sha256": "31eb7efc2da0bfe33305f13097b59e959b2ed02637dc8d36116a47b3e2804a08",
+			"variants": {
+				"disguise": "res://assets/fashion/skin_engine_v2/atlases/roshan_play_a_disguise.png",
+				"garden": "res://assets/fashion/skin_engine_v2/atlases/roshan_play_a_garden.png",
+				"party": "res://assets/fashion/skin_engine_v2/atlases/roshan_play_a_party.png",
+				"ribbon": "res://assets/fashion/skin_engine_v2/atlases/roshan_play_a_ribbon.png"
+			}
+		},
+		"roshan_play_b": {
+			"boxes": [
+				[
+					113.0,
+					95.0,
+					147.0,
+					143.0
+				],
+				[
+					82.0,
+					92.0,
+					129.0,
+					146.0
+				],
+				[
+					94.0,
+					111.0,
+					140.0,
+					155.0
+				],
+				[
+					70.0,
+					93.0,
+					113.0,
+					145.0
+				],
+				[
+					139.0,
+					95.0,
+					173.0,
+					140.0
+				],
+				[
+					114.0,
+					98.0,
+					166.0,
+					141.0
+				],
+				[
+					110.0,
+					115.0,
+					167.0,
+					150.0
+				],
+				[
+					93.0,
+					90.0,
+					138.0,
+					141.0
+				],
+				[
+					106.0,
+					93.0,
+					139.0,
+					141.0
+				],
+				[
+					98.0,
+					95.0,
+					132.0,
+					144.0
+				],
+				[
+					75.0,
+					113.0,
+					108.0,
+					157.0
+				],
+				[
+					69.0,
+					93.0,
+					103.0,
+					142.0
+				],
+				[
+					97.0,
+					84.0,
+					130.0,
+					130.0
+				],
+				[
+					77.0,
+					72.0,
+					122.0,
+					121.0
+				],
+				[
+					54.0,
+					76.0,
+					92.0,
+					130.0
+				],
+				[
+					51.0,
+					80.0,
+					83.0,
+					131.0
+				]
+			],
+			"cell": [
+				256,
+				256
+			],
+			"character": "roshan",
+			"dimensions": [
+				1024,
+				1024
+			],
+			"source": "assets/characters/roshan_25d/roshan_play_b.png",
+			"source_sha256": "c72ba5279562b85f98d904a08e4d3e8953f11c698005b87d5b8068b790c27895",
+			"variants": {
+				"disguise": "res://assets/fashion/skin_engine_v2/atlases/roshan_play_b_disguise.png",
+				"garden": "res://assets/fashion/skin_engine_v2/atlases/roshan_play_b_garden.png",
+				"party": "res://assets/fashion/skin_engine_v2/atlases/roshan_play_b_party.png",
+				"ribbon": "res://assets/fashion/skin_engine_v2/atlases/roshan_play_b_ribbon.png"
+			}
+		},
+		"roshan_swim_back": {
+			"boxes": [
+				[
+					116.0,
+					85.0,
+					146.0,
+					125.0
+				],
+				[
+					108.0,
+					85.0,
+					144.0,
+					125.0
+				],
+				[
+					117.0,
+					87.0,
+					152.0,
+					126.0
+				],
+				[
+					106.0,
+					86.0,
+					140.0,
+					125.0
+				],
+				[
+					125.0,
+					79.0,
+					158.0,
+					116.0
+				],
+				[
+					125.0,
+					77.0,
+					158.0,
+					115.0
+				],
+				[
+					135.0,
+					79.0,
+					169.0,
+					116.0
+				],
+				[
+					127.0,
+					81.0,
+					162.0,
+					121.0
+				],
+				[
+					119.0,
+					85.0,
+					155.0,
+					125.0
+				],
+				[
+					112.0,
+					85.0,
+					147.0,
+					123.0
+				],
+				[
+					120.0,
+					85.0,
+					156.0,
+					122.0
+				],
+				[
+					107.0,
+					86.0,
+					141.0,
+					121.0
+				],
+				[
+					111.0,
+					69.0,
+					146.0,
+					109.0
+				],
+				[
+					114.0,
+					71.0,
+					149.0,
+					109.0
+				],
+				[
+					125.0,
+					70.0,
+					159.0,
+					109.0
+				],
+				[
+					117.0,
+					69.0,
+					149.0,
+					108.0
+				]
+			],
+			"cell": [
+				256,
+				256
+			],
+			"character": "roshan",
+			"dimensions": [
+				1024,
+				1024
+			],
+			"source": "assets/characters/roshan_25d/roshan_swim_back.png",
+			"source_sha256": "4e76c3c269039cf05a6a8b58bbaf70273746f520006d0af68128f863bdb99337",
+			"variants": {
+				"disguise": "res://assets/fashion/skin_engine_v2/atlases/roshan_swim_back_disguise.png",
+				"garden": "res://assets/fashion/skin_engine_v2/atlases/roshan_swim_back_garden.png",
+				"party": "res://assets/fashion/skin_engine_v2/atlases/roshan_swim_back_party.png",
+				"ribbon": "res://assets/fashion/skin_engine_v2/atlases/roshan_swim_back_ribbon.png"
+			}
+		},
+		"roshan_swim_front": {
+			"boxes": [
+				[
+					122.0,
+					92.0,
+					153.0,
+					142.0
+				],
+				[
+					107.0,
+					86.0,
+					149.0,
+					139.0
+				],
+				[
+					118.0,
+					107.0,
+					149.0,
+					142.0
+				],
+				[
+					109.0,
+					106.0,
+					143.0,
+					143.0
+				],
+				[
+					126.0,
+					84.0,
+					160.0,
+					130.0
+				],
+				[
+					118.0,
+					75.0,
+					153.0,
+					128.0
+				],
+				[
+					111.0,
+					74.0,
+					146.0,
+					126.0
+				],
+				[
+					101.0,
+					77.0,
+					143.0,
+					130.0
+				],
+				[
+					130.0,
+					89.0,
+					165.0,
+					137.0
+				],
+				[
+					121.0,
+					85.0,
+					162.0,
+					136.0
+				],
+				[
+					111.0,
+					87.0,
+					147.0,
+					138.0
+				],
+				[
+					94.0,
+					85.0,
+					129.0,
+					136.0
+				],
+				[
+					121.0,
+					66.0,
+					153.0,
+					117.0
+				],
+				[
+					117.0,
+					80.0,
+					149.0,
+					115.0
+				],
+				[
+					120.0,
+					79.0,
+					152.0,
+					115.0
+				],
+				[
+					110.0,
+					78.0,
+					143.0,
+					116.0
+				]
+			],
+			"cell": [
+				256,
+				256
+			],
+			"character": "roshan",
+			"dimensions": [
+				1024,
+				1024
+			],
+			"source": "assets/characters/roshan_25d/roshan_swim_front.png",
+			"source_sha256": "a62c8aee70f13d6c8d660652052e1170c516f355207df4c3488f952430cbde01",
+			"variants": {
+				"disguise": "res://assets/fashion/skin_engine_v2/atlases/roshan_swim_front_disguise.png",
+				"garden": "res://assets/fashion/skin_engine_v2/atlases/roshan_swim_front_garden.png",
+				"party": "res://assets/fashion/skin_engine_v2/atlases/roshan_swim_front_party.png",
+				"ribbon": "res://assets/fashion/skin_engine_v2/atlases/roshan_swim_front_ribbon.png"
+			}
+		},
+		"rumi_eight_pose_runtime": {
+			"boxes": [
+				[
+					133,
+					106,
+					191,
+					175
+				],
+				[
+					102,
+					105,
+					159,
+					177
+				],
+				[
+					94,
+					110,
+					153,
+					181
+				],
+				[
+					91,
+					111,
+					150,
+					183
+				],
+				[
+					161,
+					105,
+					217,
+					179
+				],
+				[
+					147,
+					107,
+					204,
+					178
+				],
+				[
+					153,
+					99,
+					210,
+					171
+				],
+				[
+					154,
+					103,
+					211,
+					174
+				]
+			],
+			"cell": [
+				256,
+				384
+			],
+			"character": "rumi",
+			"dimensions": [
+				1024,
+				768
+			],
+			"source": "assets/characters/rumi/rumi_eight_pose_runtime.png",
+			"source_sha256": "44120bbb2b1e60a9ec94e0cf3db7e46e33f564671af986bb42357b8bd59c14d5",
+			"variants": {
+				"garden": "res://assets/fashion/skin_engine_v2/atlases/rumi_eight_pose_runtime_garden.png",
+				"party": "res://assets/fashion/skin_engine_v2/atlases/rumi_eight_pose_runtime_party.png",
+				"ribbon": "res://assets/fashion/skin_engine_v2/atlases/rumi_eight_pose_runtime_ribbon.png"
+			}
+		},
+		"rumi_pool_idle_swim_atlas": {
+			"boxes": [
+				[
+					111,
+					61,
+					149,
+					111
+				],
+				[
+					111,
+					61,
+					149,
+					111
+				],
+				[
+					112,
+					61,
+					150,
+					111
+				],
+				[
+					112,
+					61,
+					150,
+					111
+				],
+				[
+					157,
+					64,
+					196,
+					112
+				],
+				[
+					164,
+					64,
+					203,
+					112
+				],
+				[
+					163,
+					63,
+					202,
+					111
+				],
+				[
+					165,
+					65,
+					204,
+					113
+				]
+			],
+			"cell": [
+				256,
+				256
+			],
+			"character": "rumi",
+			"dimensions": [
+				1024,
+				512
+			],
+			"source": "assets/characters/rumi/rumi_pool_idle_swim_atlas.png",
+			"source_sha256": "9068a5f6c56e90d57ae9c3219096d6f12bba97a2f6c6ed09175c1bc63f59cb41",
+			"variants": {
+				"garden": "res://assets/fashion/skin_engine_v2/atlases/rumi_pool_idle_swim_atlas_garden.png",
+				"party": "res://assets/fashion/skin_engine_v2/atlases/rumi_pool_idle_swim_atlas_party.png",
+				"ribbon": "res://assets/fashion/skin_engine_v2/atlases/rumi_pool_idle_swim_atlas_ribbon.png"
+			}
+		}
+	},
+	"identity_contract": "Source dimensions/cell regions/alpha/animation timing and pixels outside declared clothing ROIs remain unchanged",
+	"outfits": [
+		{
+			"character": "roshan",
+			"garment": "",
+			"id": "roshan_original",
+			"kind": "original",
+			"label": "Original"
+		},
+		{
+			"character": "roshan",
+			"garment": "res://assets/fashion/skin_engine_v2/garments/ribbon.png",
+			"id": "roshan_ribbon_v1",
+			"kind": "ribbon",
+			"label": "Ribbon"
+		},
+		{
+			"character": "roshan",
+			"garment": "res://assets/fashion/skin_engine_v2/garments/party.png",
+			"id": "roshan_party_dress_v1",
+			"kind": "party",
+			"label": "Party"
+		},
+		{
+			"character": "roshan",
+			"garment": "res://assets/fashion/skin_engine_v2/garments/garden.png",
+			"id": "roshan_garden_v1",
+			"kind": "garden",
+			"label": "Garden"
+		},
+		{
+			"character": "roshan",
+			"garment": "res://assets/fashion/skin_engine_v2/garments/garden.png",
+			"id": "roshan_garden_disguise_v1",
+			"kind": "disguise",
+			"label": "Garden disguise"
+		},
+		{
+			"character": "rumi",
+			"garment": "",
+			"id": "rumi_original",
+			"kind": "original",
+			"label": "Original"
+		},
+		{
+			"character": "rumi",
+			"garment": "res://assets/fashion/skin_engine_v2/garments/ribbon.png",
+			"id": "rumi_ribbon_v1",
+			"kind": "ribbon",
+			"label": "Ribbon"
+		},
+		{
+			"character": "rumi",
+			"garment": "res://assets/fashion/skin_engine_v2/garments/rumi_party.png",
+			"id": "rumi_party_v1",
+			"kind": "party",
+			"label": "Party"
+		},
+		{
+			"character": "rumi",
+			"garment": "res://assets/fashion/skin_engine_v2/garments/garden.png",
+			"id": "rumi_garden_v1",
+			"kind": "garden",
+			"label": "Garden"
+		},
+		{
+			"character": "baby_eagle",
+			"garment": "",
+			"id": "baby_eagle_original",
+			"kind": "original",
+			"label": "Original"
+		},
+		{
+			"character": "baby_eagle",
+			"garment": "res://assets/fashion/skin_engine_v2/garments/ribbon.png",
+			"id": "baby_eagle_ribbon_v1",
+			"kind": "ribbon",
+			"label": "Ribbon"
+		},
+		{
+			"character": "baby_eagle",
+			"garment": "res://assets/fashion/skin_engine_v2/garments/party.png",
+			"id": "baby_eagle_party_v1",
+			"kind": "party",
+			"label": "Party"
+		},
+		{
+			"character": "baby_eagle",
+			"garment": "res://assets/fashion/skin_engine_v2/garments/garden.png",
+			"id": "baby_eagle_garden_v1",
+			"kind": "garden",
+			"label": "Garden"
+		},
+		{
+			"character": "daddy_mermaid",
+			"garment": "",
+			"id": "daddy_mermaid_original",
+			"kind": "original",
+			"label": "Original"
+		},
+		{
+			"character": "daddy_mermaid",
+			"garment": "res://assets/fashion/skin_engine_v2/garments/ribbon.png",
+			"id": "daddy_mermaid_ribbon_v1",
+			"kind": "ribbon",
+			"label": "Ribbon"
+		},
+		{
+			"character": "daddy_mermaid",
+			"garment": "res://assets/fashion/skin_engine_v2/garments/daddy_party.png",
+			"id": "daddy_mermaid_party_v1",
+			"kind": "party",
+			"label": "Party"
+		},
+		{
+			"character": "daddy_mermaid",
+			"garment": "res://assets/fashion/skin_engine_v2/garments/daddy_garden.png",
+			"id": "daddy_mermaid_garden_v1",
+			"kind": "garden",
+			"label": "Garden"
+		},
+		{
+			"character": "rainbow_dust_bunny",
+			"garment": "",
+			"id": "rainbow_dust_bunny_original",
+			"kind": "original",
+			"label": "Original"
+		},
+		{
+			"character": "rainbow_dust_bunny",
+			"garment": "res://assets/fashion/skin_engine_v2/garments/ribbon.png",
+			"id": "rainbow_dust_bunny_ribbon_v1",
+			"kind": "ribbon",
+			"label": "Ribbon"
+		},
+		{
+			"character": "rainbow_dust_bunny",
+			"garment": "res://assets/fashion/skin_engine_v2/garments/party.png",
+			"id": "rainbow_dust_bunny_party_v1",
+			"kind": "party",
+			"label": "Party"
+		},
+		{
+			"character": "rainbow_dust_bunny",
+			"garment": "res://assets/fashion/skin_engine_v2/garments/garden.png",
+			"id": "rainbow_dust_bunny_garden_v1",
+			"kind": "garden",
+			"label": "Garden"
+		}
+	],
+	"schema": 2
+}

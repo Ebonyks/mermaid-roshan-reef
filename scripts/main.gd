@@ -716,6 +716,7 @@ var skin_id := "classic"
 var character_outfits: Dictionary = {}
 var outfits_unlocked: Dictionary = {}
 var fashion_disguise_progress: Dictionary = {}
+var fashion_dressing_progress: Dictionary = {}
 var fashion_rewards_claimed: Dictionary = {}
 var chapter2_party_dress_done: bool = false
 var wardrobe_layer: CanvasLayer = null

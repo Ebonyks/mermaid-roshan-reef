@@ -1,6 +1,7 @@
 # Fashion Designer Roshan
 
-Status: `SUPPORTING_CURRENT` feature brief and playable runtime alpha.
+Status: `SUPPORTING_CURRENT` feature brief; shared skin-engine candidate implemented and locally machine-verified.
+The integrated alpha remains historical evidence at `62389344`.
 The persistent wardrobe and pre-party dress checkpoint now have code, append-only
 save fields and separate clothing derivatives. Five recurring characters have
 original, ribbon, party and garden looks; Roshan also earns a garden disguise.
@@ -370,3 +371,71 @@ records all 98 unchanged runtime source hashes and exact log hashes. The exact r
 The [step-by-step illustrated walkthrough](../assets_src/review/fashion_walkthrough_20261007/README.md) shows current wardrobe, five-character clothing, unlocks, pre-party dress, three-phase practice and saved replay limits. The existing ten captures are synthetic/model-call visual references; a bounded real-input fresh-profile check reaches the castle introduction only. Natural wardrobe entry, fitting/contact, disguise completion, birthday transition and reload images remain gaps.
 
 The separately marked **PROPOSED / NOT YET PLAYABLE** section records the response to the owner’s quality challenge: friend-focused garment/pattern/accessory choices, a personalised birthday dressing ritual, role acting, gentle camouflage play, fitting a missing piece onto a friend and a shared pretend-show finish. These are design proposals with missing sources/actions, not implemented gameplay or a bound later disguise mission. No 4.6/5 acceptance score is asserted. Scope and evidence are in the [walkthrough impact](audit_impacts/fashion-walkthrough-20261007.json).
+
+## Owner correction — shared skin engine — 2026-10-07
+
+The owner identifies the alpha's central oversight: clothing must be a Godot
+engine service with lasting character changes, not only an isolated minigame.
+Roshan, Daddy Mermaid and Rumi need dress-up play now. Preserve their existing
+designs and animations; use painted graphics congruent with the game and its UI.
+The owner explicitly requests ImageGen for this visual work.
+
+The revision has an authored `FashionSkinCatalog` resource and a shared
+`FashionSkinEngine` texture adapter. Stable outfit IDs remain the save authority;
+resource paths come exclusively from the catalog. Each family declares its
+original dimensions, frame cells, source hashes and per-pose clothing regions.
+The engine swaps baked whole-frame textures on existing nodes. It adds no live
+clothing layer, new anatomy, model, animation action or extra frame.
+
+New scene consumers use `texture()`/`path()`. AnimatedSprite2D consumers bind
+`animation_frames()` before assigning and playing their private SpriteFrames.
+Live wardrobe changes edit only the frame textures in that owned resource.
+Godot's resource setter stops playback, so the equip path never calls it.
+Names, frame counts, regions, margins, durations, FPS, looping, frame/progress,
+playing/paused state, custom speed and transforms remain unchanged. The persistent
+castle Rumi uses this binding. Unregistered animation resources are left alone;
+future actors must use the binding API before their first play.
+
+The pictured wardrobe offers repeatable dress-up for Roshan, Rumi and Daddy.
+A card tap applies clothes immediately; optional one-finger dragging places the
+painted garment onto a generous target attached to the preview's torso. Outside
+drops, an extra finger, focus loss, Back or closing mid-gesture are neutral.
+The three characters have independent saved outfit choices and additive
+`fashion_dressing_progress` journals. Dressing preserves unknown future journal
+fields, writes transactionally, and is remembered through reload and scene return.
+No ranking, clock, failure state or dress-up completion lock is introduced.
+Existing pre-party dress and later pictured disguise practice use this engine;
+the richer acting/disguise proposals remain proposals.
+
+Seven painted clothing/UI assets were generated and preserved separately:
+Garden bodice, Rumi festival waistcoat, Daddy festival and Garden waistcoats,
+pearl bow, paper wardrobe panel and tactile card. Roshan's existing painted
+party garment is reused. An eighth bounded call attempted Daddy matte extraction;
+its RGB and matte are excluded from runtime because its edges were unsuitable.
+The original Daddy WEBP has visible colored edge strips/blocks. A separate
+727×1024 original-look derivative uses the approved PNG master, predictable
+whole-canvas scaling and local white-matte extraction. The master and protected
+WEBP remain unchanged. This source cleanup changes transparency relative to the
+corrupt WEBP; clothing identity checks compare Daddy's variants to the clean
+registered derivative and all other families to their unchanged runtime source.
+This exception needs exact visual review; it is not silent original-alpha evidence.
+
+The panel/cards use painted textures with shared Storybook typography, touch
+floors, navigation and bounded feedback. Garments are authored textures rather
+than flat vector fills. Variant pose fit, device/child/owner art acceptance and
+provisional voice acceptance remain distinct from machine checks. Evidence and
+all changed-file coverage belong to the [engine impact](audit_impacts/fashion-engine-20261007.json).
+
+One early UI run mistakenly used the default desktop save profile. Its post-run
+save/backup were preserved in ignored forensic staging; there is no pre-run
+snapshot proving exact restoration. Subsequent checks use isolated profiles.
+This desktop evidence limitation is retained; Android saves were not accessed.
+
+Local engine verification uses exact Godot4.7.2-stable: the complete82-probe
+suite exits0, all55 atlas comparisons pass, and real GUI tests cover tap/drag,
+neutral drops, pointer ownership, cancellation and disk reload. The
+[machine receipt](../assets_src/fashion_designer/skin_engine_v2/validation/machine_verification.json)
+binds the frozen source and literal logs. Exact published-head CI is recorded
+separately in the PR. These checks do not accept all-pose art/motion, provisional
+voice, target-device, child or owner quality. The owner is unsure whether the
+default desktop profile held actual play; its post-run save/backup remain intact.

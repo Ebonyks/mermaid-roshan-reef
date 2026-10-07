@@ -13,6 +13,7 @@ static func run(main: ReefMain, check: Callable) -> void:
 	var old_outfits: Dictionary = main.character_outfits.duplicate(true)
 	var old_unlocked: Dictionary = main.outfits_unlocked.duplicate(true)
 	var old_progress: Dictionary = main.fashion_disguise_progress.duplicate(true)
+	var old_dressing: Dictionary = main.fashion_dressing_progress.duplicate(true)
 	var old_rewards: Dictionary = main.fashion_rewards_claimed.duplicate(true)
 	var old_dress: bool = main.chapter2_party_dress_done
 	var old_complete: bool = main.chapter2_story_complete
@@ -20,6 +21,7 @@ static func run(main: ReefMain, check: Callable) -> void:
 	main.character_outfits = {}
 	main.outfits_unlocked = {}
 	main.fashion_disguise_progress = {}
+	main.fashion_dressing_progress = {}
 	main.fashion_rewards_claimed = {}
 	main.chapter2_party_dress_done = false
 	var patch: Dictionary = FashionDesigner.normalise_save_patch({
@@ -112,6 +114,7 @@ static func run(main: ReefMain, check: Callable) -> void:
 	main.character_outfits = old_outfits
 	main.outfits_unlocked = old_unlocked
 	main.fashion_disguise_progress = old_progress
+	main.fashion_dressing_progress = old_dressing
 	main.fashion_rewards_claimed = old_rewards
 	main.chapter2_party_dress_done = old_dress
 	main.chapter2_story_complete = old_complete

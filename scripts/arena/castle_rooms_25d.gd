@@ -2095,7 +2095,7 @@ func _sync_day_one_persistent_rumi() -> void:
 		frames.add_frame(&"idle", frame)
 	_day_one_persistent_rumi = AnimatedSprite2D.new()
 	_day_one_persistent_rumi.name = "DayOnePersistentRumi"
-	_day_one_persistent_rumi.sprite_frames = frames
+	_day_one_persistent_rumi.sprite_frames = FashionSkinEngine.animation_frames(m,frames)
 	_day_one_persistent_rumi.animation = &"idle"
 	_day_one_persistent_rumi.position = RUMI_IDLE_POSITION
 	_day_one_persistent_rumi.scale = Vector2.ONE * RUMI_IDLE_SCALE

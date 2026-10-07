@@ -1,6 +1,6 @@
 {
   "schema_version": "castle_interaction_frame_approval_v2",
-  "candidate_payload_sha256": "b315c2f0645871a7c8a7f1e2a445e7e4e436c63613ca16542021c326dc932b6c",
+  "candidate_payload_sha256": "dd3f81565827c629563df9cf84bb82da80857985392426abe89faa622e3996d9",
   "manifest_semantic_sha256": "47c94649d447c78d1415a895aec88fe183d5783eef46ce39d5a9d7cc39067e85",
   "metadata_revalidation": {
     "date": "2026-08-29",
@@ -319,5 +319,14 @@
     "occlusion_mismatches": 0,
     "candidate_binding_refresh": "Replacing only the current runtime-layout text hash with its baseline hash reproduces the prior candidate payload hash exactly. All prior reviewed pixels/occlusions remain identical; existing prop frame review applies. Fashion character pixels have their separate provisional review.",
     "owner_acceptance": "pending"
+  },
+  "fashion_skin_engine_binding_revalidation": {
+    "date": "2026-10-07",
+    "prior_candidate_payload_sha256": "b315c2f0645871a7c8a7f1e2a445e7e4e436c63613ca16542021c326dc932b6c",
+    "candidate_payload_sha256": "dd3f81565827c629563df9cf84bb82da80857985392426abe89faa622e3996d9",
+    "reason": "Rumi binds private SpriteFrames; prop sources, cells, contact, geometry and occlusion remain identical. No new clothing pixels accepted by this prop review.",
+    "evidence": "assets_src/fashion_designer/skin_engine_v2/prop_binding_revalidation.json",
+    "owner_acceptance": "pending",
+    "review_scope": "Existing 96 prop frames only; no new clothing/image/device acceptance"
   }
 }

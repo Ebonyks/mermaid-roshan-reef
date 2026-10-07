@@ -1,6 +1,6 @@
 {
   "schema": "fashion_designer_feature_card/1",
-  "status": "PLAYABLE_RUNTIME_ALPHA_ACCEPTANCE_PENDING",
+  "status": "LOCAL_MACHINE_VERIFIED_SHARED_SKIN_ENGINE_CANDIDATE",
   "baseline": "96274aab9cebd563b10846a4a48de5d017588563",
   "owner_direction_date": "2026-10-06",
   "brief": "design/FASHION_DESIGNER_ROSHAN_2026-10-06.md",
@@ -11,7 +11,11 @@
     "outfits_unlock_throughout_game": true,
     "mermaid_outfits": true,
     "disguise_dress_up_job_later": true,
-    "special_dress_before_party_and_iko_iko_ember_scene": true
+    "special_dress_before_party_and_iko_iko_ember_scene": true,
+    "shared_godot_skin_engine": true,
+    "preserve_existing_animation_and_identity": true,
+    "dress_up_roshan_daddy_rumi_now": true,
+    "painted_graphics_imagegen": true
   },
   "later_disguise_story_binding": {
     "chapter": null,
@@ -73,7 +77,8 @@
     "outfits_unlocked": {},
     "fashion_disguise_progress": {},
     "fashion_rewards_claimed": {},
-    "chapter2_party_dress_done": false
+    "chapter2_party_dress_done": false,
+    "fashion_dressing_progress": {}
   },
   "save_contract": [
     "append_only",
@@ -86,8 +91,8 @@
     "never_overwrite_everyday_choice_with_temporary_costume"
   ],
   "acceptance": {
-    "implementation": "PLAYABLE_RUNTIME_ALPHA: five-character persistent clothing, earned looks, intentional pre-party special-dress gate and three pictured disguise practice beats.",
-    "machine": "PASS: frozen runtime passed all 82 local scripts/ci.sh probes and static/asset gates on exact Godot 4.7.2. Source hashes and log receipts are in assets_src/review/fashion_runtime_20261007/machine_verification.json. Exact-head remote CI remains required before integration.",
+    "implementation": "Shared catalog/texture engine, live updates and three repeatable dress-up rooms implemented.",
+    "machine": "Engine candidate passed exact Godot4.7.2 local full82 suite,55 atlas identity checks and actual GUI tap/drag/cancellation/touch/save tests. Durable receipt: assets_src/fashion_designer/skin_engine_v2/validation/machine_verification.json. Exact published-head CI is tracked separately in the PR.",
     "visual": "Desktop Mobile review at 1280x720 and 1920x900; original character source hashes retained. All-pose owner art and target-device acceptance pending.",
     "device": "PENDING",
     "child": "PENDING",
@@ -121,5 +126,18 @@
     "source_master_preserved": true,
     "runtime_variants": 55,
     "owner_acceptance": "PENDING"
+  },
+  "skin_engine": {
+    "catalog": "assets/fashion/skin_engine_v2/catalog.tres",
+    "implementation": "scripts/fashion_skin_engine.gd",
+    "impact": "design/audit_impacts/fashion-engine-20261007.json",
+    "dressing_characters": [
+      "roshan",
+      "rumi",
+      "daddy_mermaid"
+    ],
+    "input": "Tap or optional one-finger garment placement; neutral cancellation",
+    "animation_binding": "Private SpriteFrames bound before first playback; live set_frame retains timing/state",
+    "source_cleanup_exception": "Daddy original look derived separately from approved PNG master; protected WEBP unchanged"
   }
 }

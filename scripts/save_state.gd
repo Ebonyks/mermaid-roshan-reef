@@ -272,6 +272,7 @@ func write_save() -> bool:
 	next_data["character_outfits"] = m.character_outfits.duplicate(true)
 	next_data["outfits_unlocked"] = m.outfits_unlocked.duplicate(true)
 	next_data["fashion_disguise_progress"] = m.fashion_disguise_progress.duplicate(true)
+	next_data["fashion_dressing_progress"] = m.fashion_dressing_progress.duplicate(true)
 	next_data["fashion_rewards_claimed"] = m.fashion_rewards_claimed.duplicate(true)
 	next_data["chapter2_party_dress_done"] = m.chapter2_party_dress_done
 	next_data["level2"] = m.level2_done_once

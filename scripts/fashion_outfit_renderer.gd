@@ -11,25 +11,10 @@ static func character_for(source: String) -> String:
 	return ""
 
 static func path(main: ReefMain, source: String, preview_id: String = "") -> String:
-	if main == null:
-		return source
-	var person: String = character_for(source)
-	if person.is_empty():
-		return source
-	var id: String = preview_id if not preview_id.is_empty() else FashionDesigner.selected(main, person)
-	var definition: Dictionary = FashionDesigner.outfit(id)
-	if String(definition.get("character", "")) != person:
-		return source
-	var kind: String = String(definition.get("kind", "original"))
-	if kind == "original":
-		return source
-	var variant: String = ROOT + source.get_file().get_basename() + "_" + kind + ".png"
-	return variant if ResourceLoader.exists(variant) else source
+	return FashionSkinEngine.path(main, source, preview_id)
 
 static func texture(main: ReefMain, source: Texture2D) -> Texture2D:
-	if source == null:
-		return null
-	return load(path(main, source.resource_path)) as Texture2D
+	return FashionSkinEngine.texture(main, source)
 
 static func portrait(main: ReefMain, person: String, outfit_id: String = "") -> Texture2D:
 	var entry: Dictionary = FashionDesigner.character(person)

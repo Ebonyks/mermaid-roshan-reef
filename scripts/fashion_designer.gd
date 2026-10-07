@@ -20,7 +20,7 @@ const SOURCES := {
 }
 const SAVE_DICTIONARIES: Array[String] = [
 	"character_outfits", "outfits_unlocked",
-	"fashion_disguise_progress", "fashion_rewards_claimed"]
+	"fashion_disguise_progress", "fashion_rewards_claimed", "fashion_dressing_progress"]
 const ORIGINAL_IDS := {
 	"roshan": "roshan_original", "rumi": "rumi_original",
 	"baby_eagle": "baby_eagle_original", "daddy_mermaid": "daddy_mermaid_original",
@@ -34,29 +34,10 @@ static func character(id: String) -> Dictionary:
 	return {}
 
 static func outfits(character_id: String) -> Array[Dictionary]:
-	if character(character_id).is_empty():
-		return []
-	var result: Array[Dictionary] = [
-		{"id": ORIGINAL_IDS[character_id], "character": character_id,
-			"kind": "original", "label": "My look"},
-		{"id": character_id + "_ribbon_v1", "character": character_id,
-			"kind": "ribbon", "label": "Ribbon"},
-		{"id": PARTY_DRESS if character_id == "roshan" else character_id + "_party_v1",
-			"character": character_id, "kind": "party", "label": "Party"},
-		{"id": character_id + "_garden_v1", "character": character_id,
-			"kind": "garden", "label": "Garden"},
-	]
-	if character_id == "roshan":
-		result.append({"id": "roshan_garden_disguise_v1", "character": "roshan",
-			"kind": "disguise", "label": "Garden disguise"})
-	return result
+	return FashionSkinEngine.outfits(character_id)
 
 static func outfit(id: String) -> Dictionary:
-	for person: Dictionary in CHARACTERS:
-		for entry: Dictionary in outfits(String(person["id"])):
-			if String(entry["id"]) == id:
-				return entry
-	return {}
+	return FashionSkinEngine.outfit(id)
 
 static func _flag(values: Dictionary, key: String) -> bool:
 	var value: Variant = values.get(key, false)
@@ -77,6 +58,7 @@ static func restore(main: ReefMain, raw: Dictionary) -> void:
 	main.character_outfits = patch["character_outfits"]
 	main.outfits_unlocked = patch["outfits_unlocked"]
 	main.fashion_disguise_progress = patch["fashion_disguise_progress"]
+	main.fashion_dressing_progress = patch["fashion_dressing_progress"]
 	main.fashion_rewards_claimed = patch["fashion_rewards_claimed"]
 	main.chapter2_party_dress_done = bool(patch["chapter2_party_dress_done"])
 	refresh_unlocks(main)
@@ -129,12 +111,21 @@ static func equip(main: ReefMain, character_id: String, id: String,
 		return false
 	var changed: bool = main.character_outfits.get(character_id, "") != id
 	main.character_outfits[character_id] = id
+	if character_id in ["roshan", "rumi", "daddy_mermaid"]:
+		var raw: Variant = main.fashion_dressing_progress.get(character_id, {})
+		var fitted: Dictionary = (raw as Dictionary).duplicate(true) if raw is Dictionary else {}
+		fitted["dressed"] = true
+		fitted["outfit_id"] = id
+		main.fashion_dressing_progress[character_id] = fitted
+	var legacy_skin: bool = main.skin_id != "classic"
 	if character_id == "roshan":
 		main.skin_id = "classic"
 		if id == PARTY_DRESS and main._chapter_two_ref().party_is_ready() \
 				and not main.chapter2_party_started:
 			main.chapter2_party_dress_done = true
-	main._apply_skin()
+	if character_id == "roshan" and legacy_skin:
+		main._apply_skin()
+	FashionSkinEngine.refresh(main, character_id)
 	main._companion_ref().refresh_wardrobe()
 	main._write_save()
 	return changed

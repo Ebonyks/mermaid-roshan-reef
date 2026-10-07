@@ -1,0 +1,99 @@
+{
+  "schema": "reef.fashion_skin_art_briefs/1",
+  "owner_direction": "2026-10-07: persistent Godot skin engine; Roshan, Daddy and Rumi dress-up; painted graphics; use ImageGen liberally",
+  "method": "Built-in image_gen; transparent RGBA garments; max two attempts per brief; provider revision and monetary usage not exposed. Existing party garment reused. No model/rig/identity redesign.",
+  "briefs": {
+    "garden": "Use case: identity-preserve. Asset type: transparent 2D painted clothing sprite for Mermaid Roshan in a polished children's storybook Godot game. Input image: EDIT TARGET is the existing isolated pink pearl petal bodice, with no character present. Produce a Garden version of this same garment only: emerald and mint softly shaded leaf-petal fabric, fine warm gold embroidery and a small cream flower at the belt. Preserve the exact garment silhouette, open neckline, shoulder and waist proportions, orientation, centered framing, painted contours and transparent background. Rich authored fabric highlights and brush texture congruent with the original image; no vector shapes, flat color, pixel art, plastic 3D rendering, text or body parts. This goes over the original mermaid's unchanged torso; do not add head, hands, tail, skeleton or a person. One complete garment, uncropped, actual RGBA transparency.",
+    "rumi": "Use case: illustration-story. Asset type: one transparent RGBA painted costume component for Rumi, a purple-haired mermaid in a polished 2D storybook Godot game. Image 1 is Rumi's approved eight-pose atlas, IDENTITY/STYLE/PROPORTION reference only, never redraw the character. Image 2 is the painted pearl petal garment, MATERIAL/QUALITY reference only. Draw only one small sleeveless lavender and violet festival waistcoat/bodice that fits over Rumi's existing white shirt at the torso. Front view, narrow V neckline, violet satin with gold embroidered seashell scrollwork, pearly center clasp, scalloped hip hem, rich painted fabric folds and antialiased contours. The arms, existing sleeves, face, braid, anatomy, turquoise-pink tail and every animation pose remain untouched in the engine; do not include them here. No figure, mannequin, hangers, text, background, legs, flat vector fills, pixel art or 3D. Isolated single garment, actual transparent background, uncropped with margin; waistcoat should be noticeably distinct clothing rather than a ribbon badge.",
+    "daddy": "Use case: illustration-story. Asset type: one transparent painted 2D wardrobe component for Daddy Mermaid in a polished family storybook Godot game. Image 1 is Daddy's approved portrait, identity/proportion/painted-style reference only. Image 2 is an existing polished pearl garment, clothing-material quality reference only. Create ONLY the FRONT TORSO PANEL of a royal festival waistcoat, no person: long narrow men's shape, upright neckline, deep navy-blue and teal silk, softly shaded folds, finely embroidered warm-gold seashell vines and pearl fastenings, a graceful curved waist hem. It will cover the front of the existing coat while keeping Daddy's head, glasses, crown, ears, long hair, sleeves, hands, cape, rainbow tail and pose completely unchanged. No detached body parts, human/mannequin, sleeves, cape or tail. Exact painted 2D storybook appearance, rich fabric texture and antialiased edges, not vector-flat, not pixel art, no 3D model. Single complete front garment on actual transparent RGBA background, centered uncropped with generous margin. Match the regal gold-scroll visual language of the original coat rather than inventing a new character design.",
+    "panel": "Use case: illustration-story. Asset type: painted 2D wardrobe UI panel/frame for a touch-first 1280x720 children's storybook Godot game. Image 1 is the approved shell wardrobe prop, STYLE and material reference. Create a single landscape rectangular cream pearl-paper surface surrounded by a slim softly painted violet/lilac frame, warm gold trim, small restrained pearl corner details and ONE small scallop shell centered on the top edge. Spacious almost blank lightly textured cream interior for character portraits and clothing choices; no internal boxes, no characters, no outfit drawings, no buttons, no lettering, no labels, no scenery. The edge must be broad enough to read at phone size but restrained; preserve about 90% clear usable interior. Gently rounded rectangle, exact coherent 2D painted children's book materials, no vector flat-color shapes, no 3D/plastic bevels, no grid or mockup. A real usable UI asset, not a screenshot. Entire panel isolated with actual transparent RGBA outside the rounded corners, front view, landscape aspect about 16:9, uncropped. Violet/navy hierarchy and paper/shell grammar congruent with the reference.",
+    "card": "Use case: illustration-story. Asset type: single painted 2D touch-button/card surface for a children's storybook Godot wardrobe UI. Image 1 is the approved purple/gold shell wardrobe: STYLE/MATERIAL reference. Draw a simple softly rounded near-square ivory paper card with a slim painted violet frame, very restrained warm gold edge and four tiny pearl corner highlights. Interior almost blank warm pearl paper with subtle hand-painted grain, enough space for separate outfit art/icons. No shell sticking above the frame, no text, no numbers, no character, no outfit, no internal panels. Front view, near-square with generous straight edge sections for nine-slice scaling into both tall outfit cards and large touch buttons. Hand-painted 2D storybook texture and gentle pigment variation, not a flat vector fill, not shiny 3D plastic. Whole card isolated on actual transparent RGBA outside rounded corners, uncropped with small margin. Match the violet/navy-paper-shell interface protocol; this is an actual reusable UI surface, not a UI screenshot.",
+    "bow": "Use case: illustration-story. Asset type: one transparent 2D painted accessory sprite for the recurring Mermaid Roshan characters. Image 1 is the polished pink pearl-petal clothing, STYLE and material reference. Create one soft lilac silk ribbon bow with a small luminous pearl and warm-gold scallop-shell clasp at the center, short elegant ribbon tails. Rich gently painted fabric folds, shaded dimensional weave and highlight detail congruent with the reference, restrained lovely storybook finish. One single complete accessory, front view, centered, actual RGBA transparency. No character, face, hands, text, scenery, flat vector triangles, pixel art, 3D plastic or harsh outlines. Small details must remain clear at thumbnail size; overall silhouette simple and generous for touch dressing. No other objects.",
+    "daddy_garden": "Use case: identity-preserve. Asset type: a Garden palette variant of the same transparent painted Daddy Mermaid waistcoat. EDIT TARGET is the isolated navy and teal waistcoat, no character. Change only the navy silk panels to deep forest-green and pale sage silk with subtly embroidered leaves among the existing gold seashell scrolls. Preserve the exact collar, shape, waist, open neckline, buttons, gold trim, pearl chains, panel boundaries, front view, framing and transparent background. Rich painted fabric shading and texture, no flat/vector colors, no 3D, no text, no person or extra objects. One complete uncut garment with actual transparent RGBA. It will use the same measured attachment and all original character animation frames; do not redesign its silhouette.",
+    "daddy_matte": "Use case: identity-preserve. Exact local cleanup of the attached approved Daddy Mermaid source master for a Godot wardrobe. Remove ONLY the white paper background, including the enclosed white hole inside the curled rainbow tail, and return the EXACT SAME whole painted figure on transparent RGBA. Preserve the pose, silhouette, framing, proportions, face, smile, glasses, crown, long hair, navy embroidered coat, turquoise cape, hands and rainbow tail. Do not redraw, improve, replace or reinterpret any painted character pixel. Clean antialiased cutout edges without white halo; no sticker border, drop shadow, chroma backdrop, vector art, flat fill, pixel art or 3D. Keep the full uncropped figure and its original vertical composition. This is matte extraction from existing approved artwork, not new character design. The result supplies an alpha matte only; final engine RGB will be sampled from this original source master."
+  },
+  "native_outputs": [
+    {
+      "path": "assets_src/fashion_designer/skin_engine_v2/native/daddy_festival.png",
+      "sha256": "d7d6849f61620dfe05d078ca227e4a1fb2407b372256110717b875f10a41293a",
+      "attempts": 1,
+      "provider": "Built-in image_gen",
+      "provider_revision": "Not exposed",
+      "reported_cost": "Not exposed",
+      "acceptance": "CANDIDATE / owner and device gates pending"
+    },
+    {
+      "path": "assets_src/fashion_designer/skin_engine_v2/native/daddy_garden.png",
+      "sha256": "e279d986bd8985e55a5fa848fe8379c9c71ca4e4c28d3247d9f602a1c160052d",
+      "attempts": 1,
+      "provider": "Built-in image_gen",
+      "provider_revision": "Not exposed",
+      "reported_cost": "Not exposed",
+      "acceptance": "CANDIDATE / owner and device gates pending"
+    },
+    {
+      "path": "assets_src/fashion_designer/skin_engine_v2/native/daddy_matte_candidate.png",
+      "sha256": "3338f5a0075ba65abda4ca1093f7b03e668312706f5d639d4f0dbca25f2b6ef2",
+      "attempts": 1,
+      "provider": "Built-in image_gen",
+      "provider_revision": "Not exposed",
+      "reported_cost": "Not exposed",
+      "acceptance": "REJECTED / no runtime pixels"
+    },
+    {
+      "path": "assets_src/fashion_designer/skin_engine_v2/native/pearl_bow.png",
+      "sha256": "f6b5d7fdd0580131e48ead1ab1b1c603da33ed9209d5e95831c638a45b7cc685",
+      "attempts": 1,
+      "provider": "Built-in image_gen",
+      "provider_revision": "Not exposed",
+      "reported_cost": "Not exposed",
+      "acceptance": "CANDIDATE / owner and device gates pending"
+    },
+    {
+      "path": "assets_src/fashion_designer/skin_engine_v2/native/roshan_garden.png",
+      "sha256": "e448b58a07f25c071a9bad839ffcbe7267dded391b64f9e4218709ae7b1439cc",
+      "attempts": 1,
+      "provider": "Built-in image_gen",
+      "provider_revision": "Not exposed",
+      "reported_cost": "Not exposed",
+      "acceptance": "CANDIDATE / owner and device gates pending"
+    },
+    {
+      "path": "assets_src/fashion_designer/skin_engine_v2/native/rumi_festival.png",
+      "sha256": "3fc0282f246a74ef628f935886cbe25e1ac0e8dd19e0852e11dd2c66116c6b81",
+      "attempts": 1,
+      "provider": "Built-in image_gen",
+      "provider_revision": "Not exposed",
+      "reported_cost": "Not exposed",
+      "acceptance": "CANDIDATE / owner and device gates pending"
+    },
+    {
+      "path": "assets_src/fashion_designer/skin_engine_v2/native/wardrobe_card.png",
+      "sha256": "9848c5b057285cd86e74ed16748cc124ad81e52b7d83105b0241585dda40ef88",
+      "attempts": 1,
+      "provider": "Built-in image_gen",
+      "provider_revision": "Not exposed",
+      "reported_cost": "Not exposed",
+      "acceptance": "CANDIDATE / owner and device gates pending"
+    },
+    {
+      "path": "assets_src/fashion_designer/skin_engine_v2/native/wardrobe_panel.png",
+      "sha256": "c25dd53475668208eb662944964b0198a44afbf8e392d8255d30c7fb70f7375c",
+      "attempts": 1,
+      "provider": "Built-in image_gen",
+      "provider_revision": "Not exposed",
+      "reported_cost": "Not exposed",
+      "acceptance": "CANDIDATE / owner and device gates pending"
+    }
+  ],
+  "total_generation_calls": 8,
+  "daddy_cleanup": {
+    "source": "assets_src/daddy_master.png",
+    "source_sha256": "2eda6f76760b85984692dd35bf9ce69b631f6d9db4c8b7b8c013bb92cb632b77",
+    "protected_original": "assets/characters/friends/daddy.webp",
+    "protected_sha256": "9031736498f05662716988b6c9a8091dc148edf92ae1e8422fb5e4f2fd17c089",
+    "method": "Bounded ImageGen matte candidate excluded for unsuitable edges. Godot offline whole-canvas Lanczos scaling to original727x1024 and white-pixel alpha extraction on original PNG source. No generated character RGB/alpha enters runtime; source design/pose retained.",
+    "source_alpha_exception": "Clean registered derivative is the Daddy pixel/alpha baseline. Protected corrupt WEBP remains unchanged.",
+    "master_export": "assets/fashion/skin_engine_v2/atlases/daddy_original.png"
+  }
+}
