@@ -43,6 +43,7 @@
     "audit/nursery_walkthrough_20261007/PLAN.json",
     "audit/nursery_walkthrough_20261007/PUBLIC_PAYLOAD_SCOPE.json",
     "audit/nursery_walkthrough_20261007/README.md",
+    "audit/nursery_walkthrough_20261007/REMOTE_VERIFICATION.json",
     "audit/nursery_walkthrough_20261007/REVIEW.json",
     "audit/nursery_walkthrough_20261007/SOURCE_BINDINGS.json",
     "audit/nursery_walkthrough_20261007/STEPS.json",
@@ -144,6 +145,11 @@
       "command": "Frozen publication authority/development/artifact verification",
       "result": "PASS",
       "evidence": "audit/nursery_walkthrough_20261007/candidate_authority.receipt.json; candidate_development.receipt.json; candidate_artifact.receipt.json. Remote verification/new-head CI separate pending lanes."
+    },
+    {
+      "command": "Anonymous exact-commit manifest/payload SHA256 readback and GitHub panel display",
+      "result": "PASS",
+      "evidence": "audit/nursery_walkthrough_20261007/REMOTE_VERIFICATION.json; c3f3fec1cda8803890e2e2256e7ea59a99d63a2e;88files/34143190bytes,24rendered SVGpanels. No family audio/source snapshot upload."
     }
   ],
   "acceptance_gaps": "Current native natural route/acting/contact/finish/reward/return/save, independent per-item 4.6, fresh-save prerequisite, Dolls exact voice, listening, device/child/owner and clean full candidate gates remain open. Publication verification pending. Public recordings/source snapshots intentionally omitted after auto-review rejection; full owner-local viewer preserved. No sensitive upload approval inferred."
