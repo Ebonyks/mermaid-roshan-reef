@@ -1,0 +1,102 @@
+{
+  "schema": "fashion_reuse_inventory/1",
+  "baseline": "96274aab9cebd563b10846a4a48de5d017588563",
+  "review_date": "2026-10-06",
+  "assets": [
+    {
+      "path": "assets/characters/roshan_25d/roshan_base.png",
+      "sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab",
+      "dimensions": [
+        256,
+        256
+      ],
+      "role": "base-world identity; visually inspected",
+      "modified": false,
+      "reuse_limit": "Source reference; wardrobe compatibility and every live appearance still require review."
+    },
+    {
+      "path": "assets/characters/roshan_25d/roshan_directional.png",
+      "sha256": "2bcc6212dddaddedb5823ba095caff1cbecdb762d5bbdc76726d3d5b0e3ee85a",
+      "dimensions": [
+        1024,
+        512
+      ],
+      "role": "directional pose/anchor reference; inventory only",
+      "modified": false,
+      "reuse_limit": "Source reference; wardrobe compatibility and every live appearance still require review."
+    },
+    {
+      "path": "assets/characters/rumi/rumi_eight_pose_runtime.png",
+      "sha256": "44120bbb2b1e60a9ec94e0cf3db7e46e33f564671af986bb42357b8bd59c14d5",
+      "dimensions": [
+        1024,
+        768
+      ],
+      "role": "recurring Rumi identity/pose authority; visually inspected",
+      "modified": false,
+      "reuse_limit": "Source reference; wardrobe compatibility and every live appearance still require review."
+    },
+    {
+      "path": "assets/characters/companions/baby_eagle.png",
+      "sha256": "7d6f10afbd8cd157436a05eaadab7eb4cc07c3a3d242ad2291111fc6b4f3ed2f",
+      "dimensions": [
+        290,
+        512
+      ],
+      "role": "Baby Eagle identity isolate; inventory only",
+      "modified": false,
+      "reuse_limit": "Source reference; wardrobe compatibility and every live appearance still require review."
+    },
+    {
+      "path": "assets/opera/worlds/actors/animation/roshan_detective_sheet_a.png",
+      "sha256": "fb0a7d8b718d797484f1d0da22c330a7e01d0e0bb192f9296f3f288a30cf7e7c",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "role": "role/disguise and atlas-layout reference; visually inspected; not base-world outfit acceptance",
+      "modified": false,
+      "reuse_limit": "Source reference; wardrobe compatibility and every live appearance still require review."
+    },
+    {
+      "path": "assets/opera/worlds/actors/animation/roshan_ballerina_sheet_a.png",
+      "sha256": "c829784d4085e9cd9765cf0114a0f65bfe3f662ed8acc423223b726a0f003995",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "role": "IMAGE_2 petal-gown garment design only",
+      "modified": false,
+      "reuse_limit": "No permission to copy its tail palette, poses or headpiece into a base-world outfit."
+    },
+    {
+      "path": "assets_src/concepts/opera_jobs_flat_2026-07-21/cards/opera_job_pop_star_outfit_hero_front_three_quarter.png",
+      "sha256": "41d15de897b97d4901fc9cccb253c7f89a3a2f3cf5ce32bfc542f2434a60a256",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "role": "Existing costume family visually inspected; not selected for party",
+      "modified": false,
+      "reuse_limit": "Career prop/pose/color reference, not a compatible base-world standing outfit."
+    }
+  ],
+  "existing_runtime_sources": [
+    "scripts/wardrobe_ui.gd",
+    "scripts/save_state.gd",
+    "scripts/roshan_sprite_loop.gd",
+    "scripts/arena/castle_rooms_25d.gd",
+    "scripts/comfy_games.gd"
+  ],
+  "named_gaps": [
+    "special pre-party mermaid dress compatible with approved base-world Roshan identity and required poses",
+    "alternate clothes for each enabled recurring character",
+    "per-pose garment/accessory anchors",
+    "wardrobe thumbnails",
+    "pictured disguise contexts",
+    "exact objective and locked-source voices",
+    "shared persistent wardrobe and renderer coverage"
+  ],
+  "claim": "SOURCE_FIT_INVENTORY_ONLY_NOT_RUNTIME_OR_OWNER_ACCEPTANCE",
+  "review_candidate": "assets_src/fashion_designer/party_dress_v1/provenance.json"
+}

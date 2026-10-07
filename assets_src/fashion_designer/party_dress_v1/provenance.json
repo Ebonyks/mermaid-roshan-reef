@@ -1,0 +1,97 @@
+{
+  "schema": "reef.fashion_outfit_review_candidate/1",
+  "status": "REVIEW_CANDIDATE_NOT_RUNTIME_READY",
+  "baseline": "96274aab9cebd563b10846a4a48de5d017588563",
+  "owner_direction_date": "2026-10-06",
+  "recorded_at_utc": "2026-10-07T05:35:50.643725+00:00",
+  "candidate_outfit_id": "roshan_party_dress_v1",
+  "purpose": "Special mermaid dress before the Chapter 2 party/Iko Iko/Ember King scene; a future permanent wardrobe choice.",
+  "generation_gap": "The existing petal gown has career-specific poses, tail palette and headpiece. Fit its garment design to the base-world standing pose while preserving base Roshan identity; no suitable ready base-pose party outfit was found in the inspected shortlist.",
+  "source_references": [
+    {
+      "path": "assets/characters/roshan_25d/roshan_base.png",
+      "sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab",
+      "dimensions": [
+        256,
+        256
+      ],
+      "role": "IMAGE_1 identity and pose edit target",
+      "modified": false,
+      "reuse_limit": "Original preserved; generated candidate is not pixel-identical."
+    },
+    {
+      "path": "assets/opera/worlds/actors/animation/roshan_ballerina_sheet_a.png",
+      "sha256": "c829784d4085e9cd9765cf0114a0f65bfe3f662ed8acc423223b726a0f003995",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "role": "IMAGE_2 petal-gown garment design only",
+      "modified": false,
+      "reuse_limit": "No permission to copy its tail palette, poses or headpiece into a base-world outfit."
+    }
+  ],
+  "generation": {
+    "provider": "OpenAI built-in image_gen",
+    "method": "identity-preserve static reference edit",
+    "model": null,
+    "seed": null,
+    "provider_request_id": null,
+    "unavailable_metadata": "Built-in tool did not expose model/version, seed or provider request ID.",
+    "attempt": 1,
+    "prompt_path": "assets_src/fashion_designer/party_dress_v1/prompt.txt",
+    "prompt_sha256": "79e6d810e56366897a9b589579ecaaefd113bba253ef600e0e3ef196208e4c0e",
+    "transparent_background_requested": true,
+    "native_output_preserved": true,
+    "post_generation_pixel_edits": [],
+    "submitted_prompt_sha256": "2598f6a3150626b0875ac5bb3a8947217505d6cc4558f4223de1fe517e713f65",
+    "prompt_file_format": "UTF-8; one terminal file newline excluded from the submitted image_gen prompt string"
+  },
+  "output": {
+    "path": "assets_src/fashion_designer/party_dress_v1/roshan_party_dress_candidate.png",
+    "sha256": "53f79246e32c9465f7975e0e35ccf242cdf22dd4dd95c2a64b198a01883f3f9b",
+    "dimensions": [
+      1254,
+      1254
+    ],
+    "mode": "RGBA",
+    "alpha_bbox": [
+      97,
+      63,
+      1214,
+      1254
+    ],
+    "fully_transparent_pixels": 1218228,
+    "fully_opaque_pixels": 825,
+    "runtime_reference_count": 0,
+    "runtime_import_block": "assets_src/fashion_designer/.gdignore",
+    "alpha_32_bbox": [
+      230,
+      65,
+      1015,
+      1117
+    ],
+    "bottom_border_max_alpha": 1
+  },
+  "source_review": {
+    "reviewer": "Codex visual inspection; not owner/human acceptance",
+    "observations": [
+      "One complete mermaid figure; no legs, tools or duplicate tail.",
+      "Coral petal clothing, brown/rainbow hair, violet-blue tail and left-curving multicolor fin are readable.",
+      "Face/rendering and the tiara jewel are regenerated rather than exact source pixels; jewel appears heart-shaped."
+    ],
+    "identity": "PENDING_EXACT_FAMILY_AND_TIARA_CORRECTION",
+    "garment_design": "PENDING_OWNER_REVIEW",
+    "pose_coverage": "ONE_STANDING_CANDIDATE_ONLY",
+    "runtime": "NOT_IMPLEMENTED",
+    "device": "PENDING",
+    "child": "PENDING"
+  },
+  "required_next": [
+    "Preserve exact approved identity and tiara before art acceptance.",
+    "Bind complete authored pose coverage and anchors for every enabled appearance.",
+    "Create runtime-compliant exports only after source review; native 1254px image remains a non-runtime source. Remove faint alpha-1 border noise in a separately preserved derivative before runtime.",
+    "Implement and verify persistent wardrobe, unlock and party-boundary consumers."
+  ],
+  "provenance_license": "Project-original AI-generated derivative of project-owned references; see ASSET_LICENSES.md. Originals remain unchanged."
+}
