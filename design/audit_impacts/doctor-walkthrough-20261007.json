@@ -33,6 +33,7 @@
     "audit/doctor_walkthrough_20261007/LICENSE_ROWS.txt",
     "audit/doctor_walkthrough_20261007/PUBLICATION_TREE_PROOF.json",
     "audit/doctor_walkthrough_20261007/PUBLIC_SOURCE_LINKS.json",
+    "audit/doctor_walkthrough_20261007/REMOTE_VERIFICATION.json",
     "audit/doctor_walkthrough_20261007/SOURCE_CAPTURE_RECEIPT.json",
     "audit/doctor_walkthrough_20261007/START_SCOPE.json",
     "audit/doctor_walkthrough_20261007/VERIFICATION.json",
@@ -96,6 +97,11 @@
       "command": "python -B tools/audit_document_authority.py and python -B tools/audit_development.py --base auto",
       "result": "PASS",
       "evidence": "audit/doctor_walkthrough_20261007/GATES.json; authority and full working-diff coverage ALL OK. No new Markdown authority; existing canonical findings not changed by this document task."
+    },
+    {
+      "command": "Anonymous raw GitHub exact-revision SHA-256 and byte comparison",
+      "result": "PASS",
+      "evidence": "audit/doctor_walkthrough_20261007/REMOTE_VERIFICATION.json;45files verified at 42baa9c80a5db49d193407567a460f19d43ec97e. Verification receipt itself is published as a subsequent documentation-only commit."
     }
   ],
   "acceptance_gaps": "No4.6 clearance. Fresh-save route, FIND action, X-RAY, CAST, BANDAGE, earned curtain/reward/return and saved replay not natively captured in the retained campaign. Contact still fails; setting question pending; device/child/owner and DL-QA-11 accepted evidence absent. Staged runtime candidate stays outside documentation publication; its full82-probe gates/integration remain pending.",
