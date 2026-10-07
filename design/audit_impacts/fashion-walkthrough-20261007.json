@@ -1,0 +1,147 @@
+{
+  "id": "fashion-walkthrough-20261007",
+  "scope": "Owner-requested illustrated process walkthrough of implemented Fashion Designer alpha; source-backed panels distinguish synthetic captures, missing natural-route action/contact/reload evidence and a separately labelled not-yet-playable redesign storyboard. No gameplay, save, art identity, protected-source or release changes.",
+  "baseline": "6238934447cf28834874396dfbaff65effafda46",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-QA-03",
+    "DL-QA-07",
+    "DL-QA-06",
+    "DL-INT-02",
+    "DL-INT-04",
+    "DL-AGE-01",
+    "DL-AGE-03",
+    "DL-SAVE-04"
+  ],
+  "findings": [
+    "MA-VIS-006",
+    "MA-PLAY-004",
+    "MA-PLAY-005"
+  ],
+  "files": [
+    "ASSET_LICENSES.md",
+    "assets_src/review/fashion_walkthrough_20261007/README.md",
+    "assets_src/review/fashion_walkthrough_20261007/annotations/01.png",
+    "assets_src/review/fashion_walkthrough_20261007/annotations/02.png",
+    "assets_src/review/fashion_walkthrough_20261007/annotations/03.png",
+    "assets_src/review/fashion_walkthrough_20261007/annotations/04.png",
+    "assets_src/review/fashion_walkthrough_20261007/annotations/05.png",
+    "assets_src/review/fashion_walkthrough_20261007/annotations/06.png",
+    "assets_src/review/fashion_walkthrough_20261007/annotations/07.png",
+    "assets_src/review/fashion_walkthrough_20261007/annotations/08.png",
+    "assets_src/review/fashion_walkthrough_20261007/annotations/09.png",
+    "assets_src/review/fashion_walkthrough_20261007/annotations/10.png",
+    "assets_src/review/fashion_walkthrough_20261007/annotations/11.png",
+    "assets_src/review/fashion_walkthrough_20261007/annotations/12.png",
+    "assets_src/review/fashion_walkthrough_20261007/annotations/13.png",
+    "assets_src/review/fashion_walkthrough_20261007/annotations/14.png",
+    "assets_src/review/fashion_walkthrough_20261007/annotations/15.png",
+    "assets_src/review/fashion_walkthrough_20261007/annotations/16.png",
+    "assets_src/review/fashion_walkthrough_20261007/annotations/17.png",
+    "assets_src/review/fashion_walkthrough_20261007/annotations/18.png",
+    "assets_src/review/fashion_walkthrough_20261007/annotations/19.png",
+    "assets_src/review/fashion_walkthrough_20261007/annotations/20.png",
+    "assets_src/review/fashion_walkthrough_20261007/annotations/21.png",
+    "assets_src/review/fashion_walkthrough_20261007/annotations/P1.png",
+    "assets_src/review/fashion_walkthrough_20261007/annotations/P2.png",
+    "assets_src/review/fashion_walkthrough_20261007/annotations/P3.png",
+    "assets_src/review/fashion_walkthrough_20261007/annotations/P4.png",
+    "assets_src/review/fashion_walkthrough_20261007/audio/roshan_fashion_blend_pick.ogg",
+    "assets_src/review/fashion_walkthrough_20261007/audio/roshan_fashion_changed.ogg",
+    "assets_src/review/fashion_walkthrough_20261007/audio/roshan_fashion_choose.ogg",
+    "assets_src/review/fashion_walkthrough_20261007/audio/roshan_fashion_done.ogg",
+    "assets_src/review/fashion_walkthrough_20261007/audio/roshan_fashion_finish_piece.ogg",
+    "assets_src/review/fashion_walkthrough_20261007/audio/roshan_fashion_help.ogg",
+    "assets_src/review/fashion_walkthrough_20261007/audio/roshan_fashion_locked_disguise.ogg",
+    "assets_src/review/fashion_walkthrough_20261007/audio/roshan_fashion_locked_garden.ogg",
+    "assets_src/review/fashion_walkthrough_20261007/audio/roshan_fashion_locked_party.ogg",
+    "assets_src/review/fashion_walkthrough_20261007/audio/roshan_fashion_party_dress.ogg",
+    "assets_src/review/fashion_walkthrough_20261007/audio/roshan_fashion_role_pick.ogg",
+    "assets_src/review/fashion_walkthrough_20261007/evidence/build_walkthrough.py",
+    "assets_src/review/fashion_walkthrough_20261007/evidence/capture_natural.gd",
+    "assets_src/review/fashion_walkthrough_20261007/evidence/check_packet.py",
+    "assets_src/review/fashion_walkthrough_20261007/evidence/frame_binding_revalidation.json",
+    "assets_src/review/fashion_walkthrough_20261007/evidence/garment_provenance.json",
+    "assets_src/review/fashion_walkthrough_20261007/evidence/natural_capture.log",
+    "assets_src/review/fashion_walkthrough_20261007/evidence/original_capture_manifest.json",
+    "assets_src/review/fashion_walkthrough_20261007/evidence/original_synthetic_capture.gd",
+    "assets_src/review/fashion_walkthrough_20261007/evidence/runtime_machine_verification.json",
+    "assets_src/review/fashion_walkthrough_20261007/evidence/verification.json",
+    "assets_src/review/fashion_walkthrough_20261007/evidence/voice_catalog.json",
+    "assets_src/review/fashion_walkthrough_20261007/index.html",
+    "assets_src/review/fashion_walkthrough_20261007/manifest.json",
+    "assets_src/review/fashion_walkthrough_20261007/native/01-wardrobe-1280x720.png",
+    "assets_src/review/fashion_walkthrough_20261007/native/02-rumi-1280x720.png",
+    "assets_src/review/fashion_walkthrough_20261007/native/03-locked-source-1280x720.png",
+    "assets_src/review/fashion_walkthrough_20261007/native/04-before-party-1280x720.png",
+    "assets_src/review/fashion_walkthrough_20261007/native/05-dress-equipped-1280x720.png",
+    "assets_src/review/fashion_walkthrough_20261007/native/06-dress-in-castle-1280x720.png",
+    "assets_src/review/fashion_walkthrough_20261007/native/07-disguise-role-1280x720.png",
+    "assets_src/review/fashion_walkthrough_20261007/native/08-disguise-blend-1280x720.png",
+    "assets_src/review/fashion_walkthrough_20261007/native/09-disguise-bow-1280x720.png",
+    "assets_src/review/fashion_walkthrough_20261007/native/10-wide-phone-1920x900.png",
+    "assets_src/review/fashion_walkthrough_20261007/native/11-fresh-launch.png",
+    "assets_src/review/fashion_walkthrough_20261007/native/12-new-game-input.png",
+    "assets_src/review/fashion_walkthrough_20261007/native/13-after-opening.png",
+    "assets_src/review/fashion_walkthrough_20261007/native/asset-daddy.png",
+    "assets_src/review/fashion_walkthrough_20261007/native/asset-disguise.png",
+    "assets_src/review/fashion_walkthrough_20261007/native/asset-eagle.png",
+    "assets_src/review/fashion_walkthrough_20261007/native/asset-garden.png",
+    "assets_src/review/fashion_walkthrough_20261007/native/asset-rainbow.png",
+    "assets_src/review/fashion_walkthrough_20261007/native/asset-ribbon.png",
+    "assets_src/review/fashion_walkthrough_20261007/native/asset-roshan.png",
+    "assets_src/review/fashion_walkthrough_20261007/native/asset-table.png",
+    "assets_src/review/fashion_walkthrough_20261007/native/asset-wardrobe.png",
+    "assets_src/review/fashion_walkthrough_20261007/native/natural_input_observation.json",
+    "assets_src/review/fashion_walkthrough_20261007/source_bindings.json",
+    "assets_src/review/fashion_walkthrough_20261007/steps.json",
+    "audit/MASTER_AUDIT_2026-08-09.md",
+    "design/05_DOC_LEDGER.md",
+    "design/FASHION_DESIGNER_ROSHAN_2026-10-06.md"
+  ],
+  "validation": [
+    {
+      "command": "Exact Godot 4.7.2-stable / Mobile bounded fresh profile via evidence/capture_natural.gd",
+      "result": "PASS",
+      "evidence": "natural_capture.log: three native captures, one InputEventMouseMotion + MouseButton press/release of New Game, isolated user_data_dir. Entry only; no wardrobe/Chapter 2 phases or saves manufactured."
+    },
+    {
+      "command": "Frozen runtime source and existing full regression baseline",
+      "result": "PASS",
+      "evidence": "Runtime 6238934447cf28834874396dfbaff65effafda46 unchanged by this packet. 82 local probes all exit 0; log SHA 8e0650a0d814c88d053cfe3709879f7b9ccfc9b35c8182e4515547922e967826. Exact-head topic 37603992197, PR 37604042115 and dev 37609978581 remote Probe Suites succeeded. No claim that a new packet commit ran this historical runtime suite."
+    },
+    {
+      "command": "Review packet source binding, local links, phase classification and visual annotation inspection",
+      "result": "PASS",
+      "evidence": "evidence/verification.json: six checks, 25 annotations, exact native/source hashes and local image/audio/navigation links. Capture and acting gaps retained."
+    },
+    {
+      "command": "python -B tools/audit_document_authority.py; python -B tools/audit_development.py --base auto; document gate unit tests",
+      "result": "PASS",
+      "evidence": "Local DOCAUTH ALL OK (680 inventory / 680 ledger); AUDITDEV ALL OK at base 62389344. Authority/development unit suites passed; natural non-runtime harness parser/inference passed. No runtime changes: exact full suite baseline reused."
+    },
+    {
+      "command": "Public unauthenticated GitHub publication byte/SHA-256 verification",
+      "result": "PENDING",
+      "evidence": "Verify manifest and every packet payload file at the immutable published topic revision; record receipt in PR and final response."
+    },
+    {
+      "command": "Target device / child / owner acceptance",
+      "result": "PENDING",
+      "evidence": "No session performed. Current alpha quality and action/contact gaps remain; redesign is not yet playable."
+    }
+  ],
+  "acceptance_gaps": "Natural wardrobe entry, embodied fitting/contact, disguise completion/reload and birthday-to-lawn transition captures are absent. Target device, child and owner acceptance remain outstanding. No finding lifecycle changes or quality score claimed.",
+  "references_used": [
+    {
+      "path": "design/FASHION_DESIGNER_ROSHAN_2026-10-06.md",
+      "purpose": "Current feature scope and owner story placement; richer redesign is a proposal only."
+    },
+    {
+      "path": "assets_src/review/fashion_runtime_20261007/manifest.json",
+      "purpose": "Preserve diagnostic capture provenance without promoting it to natural input evidence."
+    }
+  ]
+}

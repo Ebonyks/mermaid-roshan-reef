@@ -363,6 +363,10 @@ performance, human voice grades, child readability or owner art acceptance.
 The frozen runtime passed the complete local `scripts/ci.sh` suite on exact
 Godot `4.7.2.stable.official.ed1daf0bf`: all 82 trusted probes and static/asset
 gates pass. The [machine receipt](../assets_src/review/fashion_runtime_20261007/machine_verification.json)
-records all 98 unchanged runtime source hashes and exact log hashes. Remote CI
-on the runtime commit remains required before integration. This machine pass
-does not establish the outstanding visual/device/child/owner acceptance.
+records all 98 unchanged runtime source hashes and exact log hashes. The exact runtime commit `62389344` is integrated on dev after successful topic, PR and dev Probe Suite runs (37603992197, 37604042115 and 37609978581). This machine pass does not establish the outstanding visual/device/child/owner acceptance.
+
+## Illustrated process review — 2026-10-07
+
+The [step-by-step illustrated walkthrough](../assets_src/review/fashion_walkthrough_20261007/README.md) shows current wardrobe, five-character clothing, unlocks, pre-party dress, three-phase practice and saved replay limits. The existing ten captures are synthetic/model-call visual references; a bounded real-input fresh-profile check reaches the castle introduction only. Natural wardrobe entry, fitting/contact, disguise completion, birthday transition and reload images remain gaps.
+
+The separately marked **PROPOSED / NOT YET PLAYABLE** section records the response to the owner’s quality challenge: friend-focused garment/pattern/accessory choices, a personalised birthday dressing ritual, role acting, gentle camouflage play, fitting a missing piece onto a friend and a shared pretend-show finish. These are design proposals with missing sources/actions, not implemented gameplay or a bound later disguise mission. No 4.6/5 acceptance score is asserted. Scope and evidence are in the [walkthrough impact](audit_impacts/fashion-walkthrough-20261007.json).

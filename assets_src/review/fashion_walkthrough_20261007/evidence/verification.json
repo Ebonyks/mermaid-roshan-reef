@@ -1,0 +1,35 @@
+{
+  "schema": "reef.fashion_walkthrough_check/1",
+  "checked_at_utc": "2026-10-07T16:10:39.167681+00:00",
+  "runtime_baseline": "6238934447cf28834874396dfbaff65effafda46",
+  "checks": [
+    {
+      "check": "66 exact source bindings and preserved native copies; annotation sources match",
+      "result": "PASS"
+    },
+    {
+      "check": "All ten historical synthetic capture hashes and dimensions match original manifest",
+      "result": "PASS"
+    },
+    {
+      "check": "All local HTML, full-size image, voice, navigation and Markdown links resolve",
+      "result": "PASS"
+    },
+    {
+      "check": "21 current process panels / 4 proposed panels, required captions and gap classifications",
+      "result": "PASS"
+    },
+    {
+      "check": "Approved engine/renderer and single real UI entry event; no phase setters in bounded harness",
+      "result": "PASS"
+    },
+    {
+      "check": "No runtime, protected-source, scene, save, tool or project configuration change from baseline",
+      "result": "PASS"
+    }
+  ],
+  "agent_visual_inspection": "Asset comparisons, original chooser, party-dress after and bow-stage annotations inspected at full frame. Text-only arrows/banners; no acceptance of art/acting claimed.",
+  "natural_input_scope": "Fresh New Game and castle introduction only; all later route, action, completion and reload capture gaps retained.",
+  "device_child_owner": "PENDING; none performed",
+  "redesign": "PROPOSED / NOT YET PLAYABLE"
+}

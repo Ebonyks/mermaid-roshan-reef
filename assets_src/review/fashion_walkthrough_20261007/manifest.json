@@ -1,0 +1,888 @@
+{
+  "schema": "reef.fashion_walkthrough_packet/1",
+  "runtime_source_commit": "6238934447cf28834874396dfbaff65effafda46",
+  "status": "OWNER_REVIEW_WITH_EXPLICIT_COVERAGE_GAPS",
+  "packet_scope": "Non-runtime process reference and proposed redesign; no art or game changes",
+  "payload_sha256": "74f78244698b24e0e08ab8a1a68b7c92d26a8f33919e28a2fc53ecbf6c4186e8",
+  "payload_algorithm": "SHA-256 of UTF-8 sorted relative-path TAB file-SHA256 LF records; manifest excludes itself",
+  "native_capture_method": "Ten old synthetic captures, three new natural-input entry-only captures, nine source-asset references; annotated derivatives preserved separately",
+  "steps": 25,
+  "proposed_steps": 4,
+  "files": [
+    {
+      "path": "annotations/01.png",
+      "sha256": "cbfa9b72069b414faa767350a13835118836e827d364d9fdd519f10d6e13402f",
+      "bytes": 1429286,
+      "dimensions": [
+        1280,
+        880
+      ],
+      "source_path": "native/11-fresh-launch.png",
+      "source_sha256": "5d28d823c242c5e65f4f566b34ae767e673aa0661bd890c9b6c387fc603941e6",
+      "role": "REVIEW_ANNOTATION_NOT_RUNTIME_PIXELS",
+      "modification": "Lossless separate board: fitted source image, status/title/footer; outlined source UI target where applicable. No character or scene painting."
+    },
+    {
+      "path": "annotations/02.png",
+      "sha256": "7e11d5e2d7fd1cc653daf7c80df84c2845440f6604bf5b96299224ae4a709b51",
+      "bytes": 1767196,
+      "dimensions": [
+        1280,
+        880
+      ],
+      "source_path": "native/13-after-opening.png",
+      "source_sha256": "b709d8ca9a0b43cac7fd0f67bb8ab9e6f8d77ec0f41900a2f6deba8136aa8492",
+      "role": "REVIEW_ANNOTATION_NOT_RUNTIME_PIXELS",
+      "modification": "Lossless separate board: fitted source image, status/title/footer; outlined source UI target where applicable. No character or scene painting."
+    },
+    {
+      "path": "annotations/03.png",
+      "sha256": "0f55b54448a8e01fde51463ef3fc2d25ccf2162287d0f407e21ac335229dbcf0",
+      "bytes": 99516,
+      "dimensions": [
+        1280,
+        880
+      ],
+      "source_path": "native/asset-wardrobe.png",
+      "source_sha256": "a6b3c4c13aa86f92300f7f732be18626a8ffbd3a88bce705d578d1249b03ecc1",
+      "role": "REVIEW_ANNOTATION_NOT_RUNTIME_PIXELS",
+      "modification": "Lossless separate board: fitted source image, status/title/footer; outlined source UI target where applicable. No character or scene painting.",
+      "annotation_only_alpha_trim": [
+        24,
+        10,
+        201,
+        263
+      ]
+    },
+    {
+      "path": "annotations/04.png",
+      "sha256": "914dc2ded8384f2966808ba71b9df416a40f635776cd755c30bf7de4b6069e42",
+      "bytes": 559795,
+      "dimensions": [
+        1280,
+        880
+      ],
+      "source_path": "native/01-wardrobe-1280x720.png",
+      "source_sha256": "b10c63059d36b38647b5aeabed6f40deb0f5ab58cfd76d4e8f74cfe329d60f5f",
+      "role": "REVIEW_ANNOTATION_NOT_RUNTIME_PIXELS",
+      "modification": "Lossless separate board: fitted source image, status/title/footer; outlined source UI target where applicable. No character or scene painting."
+    },
+    {
+      "path": "annotations/05.png",
+      "sha256": "80d999d73d4f942c4c2554b7685c9032237495c6a55b366ca094ec6f206970d4",
+      "bytes": 252957,
+      "dimensions": [
+        1280,
+        880
+      ],
+      "source_path": "native/02-rumi-1280x720.png",
+      "source_sha256": "f5c24840067aef5b831048863563b2d138a8d12ffe49bf5cfc93317976e91c09",
+      "role": "REVIEW_ANNOTATION_NOT_RUNTIME_PIXELS",
+      "modification": "Lossless separate board: fitted source image, status/title/footer; outlined source UI target where applicable. No character or scene painting."
+    },
+    {
+      "path": "annotations/06.png",
+      "sha256": "239d6d11efb80b509bf047cea2fb4b0bbf2726f3e89701cf54fe27c25bef6ac0",
+      "bytes": 69631,
+      "dimensions": [
+        1280,
+        880
+      ],
+      "source_path": "native/asset-ribbon.png",
+      "source_sha256": "f9c4f27eb1c340adf1278569f44072798e5db95741b0c10b628aa228f729461e",
+      "role": "REVIEW_ANNOTATION_NOT_RUNTIME_PIXELS",
+      "modification": "Lossless separate board: fitted source image, status/title/footer; outlined source UI target where applicable. No character or scene painting.",
+      "annotation_only_alpha_trim": [
+        44,
+        12,
+        215,
+        231
+      ],
+      "comparison_source": "native/asset-roshan.png",
+      "comparison_sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab"
+    },
+    {
+      "path": "annotations/07.png",
+      "sha256": "5d5f4752682b1e92a8942890de75496554e2635154b7e8d33250a0787ee15956",
+      "bytes": 145657,
+      "dimensions": [
+        1280,
+        880
+      ],
+      "source_path": "native/asset-eagle.png",
+      "source_sha256": "e9dcf4ad973fd5240df7ebebd73c00d8475df0ffb25af0f9e704057d8defb10d",
+      "role": "REVIEW_ANNOTATION_NOT_RUNTIME_PIXELS",
+      "modification": "Lossless separate board: fitted source image, status/title/footer; outlined source UI target where applicable. No character or scene painting.",
+      "annotation_only_alpha_trim": [
+        0,
+        0,
+        290,
+        479
+      ]
+    },
+    {
+      "path": "annotations/08.png",
+      "sha256": "9141c3584ccaee3479f8a00641aae1c94056d5c1bf9a72a0ce2dded079ab4b8d",
+      "bytes": 225449,
+      "dimensions": [
+        1280,
+        880
+      ],
+      "source_path": "native/asset-daddy.png",
+      "source_sha256": "790d7bbd2ed80351083d73ac56c90669531b1cf6d7d5a659f2c5b6edd5861ee4",
+      "role": "REVIEW_ANNOTATION_NOT_RUNTIME_PIXELS",
+      "modification": "Lossless separate board: fitted source image, status/title/footer; outlined source UI target where applicable. No character or scene painting.",
+      "annotation_only_alpha_trim": [
+        1,
+        1,
+        727,
+        1024
+      ]
+    },
+    {
+      "path": "annotations/09.png",
+      "sha256": "671bd5c26d5a59a21cb128599ccbf2545971a7700b9e2f83d5b879ff16fdeb3e",
+      "bytes": 297065,
+      "dimensions": [
+        1280,
+        880
+      ],
+      "source_path": "native/asset-rainbow.png",
+      "source_sha256": "c178a181a415fa61f1f8f436e22b9941ede9d4790be78bc289472277eccc48f6",
+      "role": "REVIEW_ANNOTATION_NOT_RUNTIME_PIXELS",
+      "modification": "Lossless separate board: fitted source image, status/title/footer; outlined source UI target where applicable. No character or scene painting.",
+      "annotation_only_alpha_trim": [
+        24,
+        4,
+        487,
+        508
+      ]
+    },
+    {
+      "path": "annotations/10.png",
+      "sha256": "d0b7abc8e94327bc133ed3550fb0eb86f9caa34fb737caa9d5a8c51a7b1e3029",
+      "bytes": 253954,
+      "dimensions": [
+        1280,
+        880
+      ],
+      "source_path": "native/03-locked-source-1280x720.png",
+      "source_sha256": "4619bc07854cbd0b0c08f4ac3388e5abbc72f7ad868a77d36fe336c16f7ae928",
+      "role": "REVIEW_ANNOTATION_NOT_RUNTIME_PIXELS",
+      "modification": "Lossless separate board: fitted source image, status/title/footer; outlined source UI target where applicable. No character or scene painting."
+    },
+    {
+      "path": "annotations/11.png",
+      "sha256": "33f2d7be7ec9416bb4ed25dcd05a8b7ca7ef386fe655b0ecdd9f252c3a46dd19",
+      "bytes": 880421,
+      "dimensions": [
+        1280,
+        880
+      ],
+      "source_path": "native/06-dress-in-castle-1280x720.png",
+      "source_sha256": "913405b3b4fdb6b97ec0d0dbd029c5f7f472ba284208d5e6c586e9d842fc7875",
+      "role": "REVIEW_ANNOTATION_NOT_RUNTIME_PIXELS",
+      "modification": "Lossless separate board: fitted source image, status/title/footer; outlined source UI target where applicable. No character or scene painting."
+    },
+    {
+      "path": "annotations/12.png",
+      "sha256": "da43ee11d940629b91442c86af9051ed01347b9e0a6e955a08f318b18ae34227",
+      "bytes": 97946,
+      "dimensions": [
+        1280,
+        880
+      ],
+      "source_path": "native/asset-table.png",
+      "source_sha256": "18c2c6a4ad7cb40de2ac85bf73aedbb5111c0aaf22a7e741d21bb7796625c57b",
+      "role": "REVIEW_ANNOTATION_NOT_RUNTIME_PIXELS",
+      "modification": "Lossless separate board: fitted source image, status/title/footer; outlined source UI target where applicable. No character or scene painting.",
+      "annotation_only_alpha_trim": [
+        8,
+        27,
+        288,
+        200
+      ]
+    },
+    {
+      "path": "annotations/13.png",
+      "sha256": "a5a8fa00acb901ba4b37298154e7fcae6f94a028ac01867b48d6c68b9cc51ac6",
+      "bytes": 192096,
+      "dimensions": [
+        1280,
+        880
+      ],
+      "source_path": "native/04-before-party-1280x720.png",
+      "source_sha256": "0aa1ac0904cdad8451ba353517f833bf0158ba46d15b0bdc02c2926902975bcc",
+      "role": "REVIEW_ANNOTATION_NOT_RUNTIME_PIXELS",
+      "modification": "Lossless separate board: fitted source image, status/title/footer; outlined source UI target where applicable. No character or scene painting."
+    },
+    {
+      "path": "annotations/14.png",
+      "sha256": "bcf694a927db02a62ab879c742dd502c1dc0ffa36316bf8bc9620fd0fd12617a",
+      "bytes": 194142,
+      "dimensions": [
+        1280,
+        880
+      ],
+      "source_path": "native/05-dress-equipped-1280x720.png",
+      "source_sha256": "37775382d1b1777b5ed98f953d7a2c7e974222cfc8762bd81494aadf5a26e542",
+      "role": "REVIEW_ANNOTATION_NOT_RUNTIME_PIXELS",
+      "modification": "Lossless separate board: fitted source image, status/title/footer; outlined source UI target where applicable. No character or scene painting."
+    },
+    {
+      "path": "annotations/15.png",
+      "sha256": "57acd9d0a529fc019d90b27c9cb532d7084d948a9221defa29f1869579f909b1",
+      "bytes": 340726,
+      "dimensions": [
+        1280,
+        880
+      ],
+      "source_path": "native/10-wide-phone-1920x900.png",
+      "source_sha256": "a199d43afe53e1d972aab7f19d82301b8526b23792f973cc7476a215f85458c2",
+      "role": "REVIEW_ANNOTATION_NOT_RUNTIME_PIXELS",
+      "modification": "Lossless separate board: fitted source image, status/title/footer; outlined source UI target where applicable. No character or scene painting."
+    },
+    {
+      "path": "annotations/16.png",
+      "sha256": "8ad0075611a4a7b5afd7b9e608c66cea87c0c137f888134b58dc529f59adadab",
+      "bytes": 218528,
+      "dimensions": [
+        1280,
+        880
+      ],
+      "source_path": "native/07-disguise-role-1280x720.png",
+      "source_sha256": "3f802089a5584967c55d1d1c8a692dd3dcc869995573eeb5a65209b0bda4483c",
+      "role": "REVIEW_ANNOTATION_NOT_RUNTIME_PIXELS",
+      "modification": "Lossless separate board: fitted source image, status/title/footer; outlined source UI target where applicable. No character or scene painting."
+    },
+    {
+      "path": "annotations/17.png",
+      "sha256": "4e4bbedf8b07002e90e719a3390daf5cc110f6b96fc1675b4ecb25a31aa35b8a",
+      "bytes": 215139,
+      "dimensions": [
+        1280,
+        880
+      ],
+      "source_path": "native/08-disguise-blend-1280x720.png",
+      "source_sha256": "fcc27d45727555896cf3008bfdcdb50d61211be2f1d2eea622565fa39ef69a22",
+      "role": "REVIEW_ANNOTATION_NOT_RUNTIME_PIXELS",
+      "modification": "Lossless separate board: fitted source image, status/title/footer; outlined source UI target where applicable. No character or scene painting."
+    },
+    {
+      "path": "annotations/18.png",
+      "sha256": "b6eae529b058665a285ab696c592ef31a576ef178239d7d5346277067d42637e",
+      "bytes": 210415,
+      "dimensions": [
+        1280,
+        880
+      ],
+      "source_path": "native/09-disguise-bow-1280x720.png",
+      "source_sha256": "20c5e088788030ec5d3837d07b982716ee12f397f03b570cce5854ce2c55985c",
+      "role": "REVIEW_ANNOTATION_NOT_RUNTIME_PIXELS",
+      "modification": "Lossless separate board: fitted source image, status/title/footer; outlined source UI target where applicable. No character or scene painting."
+    },
+    {
+      "path": "annotations/19.png",
+      "sha256": "bac2deeb95e1aba1ab439692c43d973f1061a821cf94e0ea0b5eb6bb539ce912",
+      "bytes": 70283,
+      "dimensions": [
+        1280,
+        880
+      ],
+      "source_path": "native/asset-disguise.png",
+      "source_sha256": "7a9183be66ac44a54a1058a0b64766d395c319787720df9cd404f84d676a9d6e",
+      "role": "REVIEW_ANNOTATION_NOT_RUNTIME_PIXELS",
+      "modification": "Lossless separate board: fitted source image, status/title/footer; outlined source UI target where applicable. No character or scene painting.",
+      "annotation_only_alpha_trim": [
+        44,
+        12,
+        215,
+        231
+      ],
+      "comparison_source": "native/asset-garden.png",
+      "comparison_sha256": "6a1d0897e1e6d116862f758ed641776382ca64b494e28ff4d49a548ed527a46a"
+    },
+    {
+      "path": "annotations/20.png",
+      "sha256": "bebbf3acd389f84fc1027016fd1fcc900c873ee241ebf7f8114079d3e68738bd",
+      "bytes": 340079,
+      "dimensions": [
+        1280,
+        880
+      ],
+      "source_path": "native/10-wide-phone-1920x900.png",
+      "source_sha256": "a199d43afe53e1d972aab7f19d82301b8526b23792f973cc7476a215f85458c2",
+      "role": "REVIEW_ANNOTATION_NOT_RUNTIME_PIXELS",
+      "modification": "Lossless separate board: fitted source image, status/title/footer; outlined source UI target where applicable. No character or scene painting."
+    },
+    {
+      "path": "annotations/21.png",
+      "sha256": "68c14d91559d10a6997c68efd994cf00dc970a9d706603923389524686e6dd6b",
+      "bytes": 880486,
+      "dimensions": [
+        1280,
+        880
+      ],
+      "source_path": "native/06-dress-in-castle-1280x720.png",
+      "source_sha256": "913405b3b4fdb6b97ec0d0dbd029c5f7f472ba284208d5e6c586e9d842fc7875",
+      "role": "REVIEW_ANNOTATION_NOT_RUNTIME_PIXELS",
+      "modification": "Lossless separate board: fitted source image, status/title/footer; outlined source UI target where applicable. No character or scene painting."
+    },
+    {
+      "path": "annotations/P1.png",
+      "sha256": "71024aef7341236d260dd1f776e3aa1f62c9ccc52b64926932109a4ccd18db79",
+      "bytes": 251748,
+      "dimensions": [
+        1280,
+        880
+      ],
+      "source_path": "native/02-rumi-1280x720.png",
+      "source_sha256": "f5c24840067aef5b831048863563b2d138a8d12ffe49bf5cfc93317976e91c09",
+      "role": "REVIEW_ANNOTATION_NOT_RUNTIME_PIXELS",
+      "modification": "Lossless separate board: fitted source image, status/title/footer; outlined source UI target where applicable. No character or scene painting."
+    },
+    {
+      "path": "annotations/P2.png",
+      "sha256": "c18251fa78da033d6f2781dff5b0062d8c8ffc0d2e518992e85f3d6a63f63568",
+      "bytes": 194758,
+      "dimensions": [
+        1280,
+        880
+      ],
+      "source_path": "native/04-before-party-1280x720.png",
+      "source_sha256": "0aa1ac0904cdad8451ba353517f833bf0158ba46d15b0bdc02c2926902975bcc",
+      "role": "REVIEW_ANNOTATION_NOT_RUNTIME_PIXELS",
+      "modification": "Lossless separate board: fitted source image, status/title/footer; outlined source UI target where applicable. No character or scene painting."
+    },
+    {
+      "path": "annotations/P3.png",
+      "sha256": "cae3c7d53ef445c3251bac177db6f621124b3b901ef389af9966f70285476455",
+      "bytes": 218101,
+      "dimensions": [
+        1280,
+        880
+      ],
+      "source_path": "native/07-disguise-role-1280x720.png",
+      "source_sha256": "3f802089a5584967c55d1d1c8a692dd3dcc869995573eeb5a65209b0bda4483c",
+      "role": "REVIEW_ANNOTATION_NOT_RUNTIME_PIXELS",
+      "modification": "Lossless separate board: fitted source image, status/title/footer; outlined source UI target where applicable. No character or scene painting."
+    },
+    {
+      "path": "annotations/P4.png",
+      "sha256": "7956a930206504b25a63f231d64a3cecda0b2cf0de9b4ff4b16a55dae2c68bd3",
+      "bytes": 215483,
+      "dimensions": [
+        1280,
+        880
+      ],
+      "source_path": "native/08-disguise-blend-1280x720.png",
+      "source_sha256": "fcc27d45727555896cf3008bfdcdb50d61211be2f1d2eea622565fa39ef69a22",
+      "role": "REVIEW_ANNOTATION_NOT_RUNTIME_PIXELS",
+      "modification": "Lossless separate board: fitted source image, status/title/footer; outlined source UI target where applicable. No character or scene painting."
+    },
+    {
+      "path": "audio/roshan_fashion_blend_pick.ogg",
+      "sha256": "bea37b75076f91c42f3c525a49a391f4a86590b9ed4869e14e6123e9d824dc48",
+      "bytes": 34652,
+      "source_path": "assets/audio/fashion/roshan_fashion_blend_pick.ogg",
+      "source_sha256": "bea37b75076f91c42f3c525a49a391f4a86590b9ed4869e14e6123e9d824dc48",
+      "role": "EXACT_PROVISIONAL_RUNTIME_CUE",
+      "modification": "Byte-identical copy; source preserved"
+    },
+    {
+      "path": "audio/roshan_fashion_changed.ogg",
+      "sha256": "da81a55539ba736a4bd2ab0af7a91ac164289026f16df18a77bf3316db7de45d",
+      "bytes": 17284,
+      "source_path": "assets/audio/fashion/roshan_fashion_changed.ogg",
+      "source_sha256": "da81a55539ba736a4bd2ab0af7a91ac164289026f16df18a77bf3316db7de45d",
+      "role": "EXACT_PROVISIONAL_RUNTIME_CUE",
+      "modification": "Byte-identical copy; source preserved"
+    },
+    {
+      "path": "audio/roshan_fashion_choose.ogg",
+      "sha256": "79059e4e2dc8c42fa61b9ec95bde27884444a71c5c7289358095a9cc2dbae1b2",
+      "bytes": 29192,
+      "source_path": "assets/audio/fashion/roshan_fashion_choose.ogg",
+      "source_sha256": "79059e4e2dc8c42fa61b9ec95bde27884444a71c5c7289358095a9cc2dbae1b2",
+      "role": "EXACT_PROVISIONAL_RUNTIME_CUE",
+      "modification": "Byte-identical copy; source preserved"
+    },
+    {
+      "path": "audio/roshan_fashion_done.ogg",
+      "sha256": "55454bb0860e7bb01d6a158850f69724ffc440ce7e54b198cda8421829107379",
+      "bytes": 19800,
+      "source_path": "assets/audio/fashion/roshan_fashion_done.ogg",
+      "source_sha256": "55454bb0860e7bb01d6a158850f69724ffc440ce7e54b198cda8421829107379",
+      "role": "EXACT_PROVISIONAL_RUNTIME_CUE",
+      "modification": "Byte-identical copy; source preserved"
+    },
+    {
+      "path": "audio/roshan_fashion_finish_piece.ogg",
+      "sha256": "39c2122e37d4cec265553ee4bf1d5cd5c840df08774eda2a7b94e9cbb73f1ca2",
+      "bytes": 29234,
+      "source_path": "assets/audio/fashion/roshan_fashion_finish_piece.ogg",
+      "source_sha256": "39c2122e37d4cec265553ee4bf1d5cd5c840df08774eda2a7b94e9cbb73f1ca2",
+      "role": "EXACT_PROVISIONAL_RUNTIME_CUE",
+      "modification": "Byte-identical copy; source preserved"
+    },
+    {
+      "path": "audio/roshan_fashion_help.ogg",
+      "sha256": "1ae89f7ae0e24c1f6b7901ed7b6dc575ad7de1f648db0cc078d58a81668f1175",
+      "bytes": 30867,
+      "source_path": "assets/audio/fashion/roshan_fashion_help.ogg",
+      "source_sha256": "1ae89f7ae0e24c1f6b7901ed7b6dc575ad7de1f648db0cc078d58a81668f1175",
+      "role": "EXACT_PROVISIONAL_RUNTIME_CUE",
+      "modification": "Byte-identical copy; source preserved"
+    },
+    {
+      "path": "audio/roshan_fashion_locked_disguise.ogg",
+      "sha256": "79724a3ead449e004ccad31ccba536179d510aab3abcd2353eb666a7c173e746",
+      "bytes": 33966,
+      "source_path": "assets/audio/fashion/roshan_fashion_locked_disguise.ogg",
+      "source_sha256": "79724a3ead449e004ccad31ccba536179d510aab3abcd2353eb666a7c173e746",
+      "role": "EXACT_PROVISIONAL_RUNTIME_CUE",
+      "modification": "Byte-identical copy; source preserved"
+    },
+    {
+      "path": "audio/roshan_fashion_locked_garden.ogg",
+      "sha256": "433c586c503608bbc9436b93ecf9024ccf7d4d1121d5cc8ff5899377ee1a55ac",
+      "bytes": 31566,
+      "source_path": "assets/audio/fashion/roshan_fashion_locked_garden.ogg",
+      "source_sha256": "433c586c503608bbc9436b93ecf9024ccf7d4d1121d5cc8ff5899377ee1a55ac",
+      "role": "EXACT_PROVISIONAL_RUNTIME_CUE",
+      "modification": "Byte-identical copy; source preserved"
+    },
+    {
+      "path": "audio/roshan_fashion_locked_party.ogg",
+      "sha256": "747532ca15ccde107fbaeee0ea3e0bf50fa0edc59fc949a6f0d476eaae7e4d55",
+      "bytes": 28776,
+      "source_path": "assets/audio/fashion/roshan_fashion_locked_party.ogg",
+      "source_sha256": "747532ca15ccde107fbaeee0ea3e0bf50fa0edc59fc949a6f0d476eaae7e4d55",
+      "role": "EXACT_PROVISIONAL_RUNTIME_CUE",
+      "modification": "Byte-identical copy; source preserved"
+    },
+    {
+      "path": "audio/roshan_fashion_party_dress.ogg",
+      "sha256": "4f40043ead3185973afecfcd9ba6cc12bd3ad610bd2a53ae6c896588e0a2f3fb",
+      "bytes": 37605,
+      "source_path": "assets/audio/fashion/roshan_fashion_party_dress.ogg",
+      "source_sha256": "4f40043ead3185973afecfcd9ba6cc12bd3ad610bd2a53ae6c896588e0a2f3fb",
+      "role": "EXACT_PROVISIONAL_RUNTIME_CUE",
+      "modification": "Byte-identical copy; source preserved"
+    },
+    {
+      "path": "audio/roshan_fashion_role_pick.ogg",
+      "sha256": "75dd122b83992fbf5360112392cf0745ae23104e657b6ba37d879268f7b92e2d",
+      "bytes": 27932,
+      "source_path": "assets/audio/fashion/roshan_fashion_role_pick.ogg",
+      "source_sha256": "75dd122b83992fbf5360112392cf0745ae23104e657b6ba37d879268f7b92e2d",
+      "role": "EXACT_PROVISIONAL_RUNTIME_CUE",
+      "modification": "Byte-identical copy; source preserved"
+    },
+    {
+      "path": "evidence/build_walkthrough.py",
+      "sha256": "0af6f85b9fb53b31a1d497b1eab3860385b5d20c2961cd16bda54e1305e191bd",
+      "bytes": 33616
+    },
+    {
+      "path": "evidence/capture_natural.gd",
+      "sha256": "90c0624f3d4d0e85147c376b50132945c63b9180be84aa4253a2b76e68cbd9ee",
+      "bytes": 2652,
+      "source_path": "tmp/capture_fashion_natural.gd",
+      "source_sha256": "90c0624f3d4d0e85147c376b50132945c63b9180be84aa4253a2b76e68cbd9ee",
+      "role": "PROVENANCE_NOT_PLAYER_ROUTE_PROOF",
+      "modification": "Byte-identical copy; source preserved"
+    },
+    {
+      "path": "evidence/check_packet.py",
+      "sha256": "660b4009b6ce46fa59754ce4a62d2cf7535c6c8ff58b3f73e994586db7334341",
+      "bytes": 6526
+    },
+    {
+      "path": "evidence/frame_binding_revalidation.json",
+      "sha256": "d02e829d65eb82d75693f2aafbfdc7f46a95d7b92448ac1afd5674b656debb97",
+      "bytes": 1374,
+      "source_path": "assets_src/review/fashion_runtime_20261007/frame_binding_revalidation.json",
+      "source_sha256": "d02e829d65eb82d75693f2aafbfdc7f46a95d7b92448ac1afd5674b656debb97",
+      "role": "PROVENANCE_NOT_PLAYER_ROUTE_PROOF",
+      "modification": "Byte-identical copy; source preserved"
+    },
+    {
+      "path": "evidence/garment_provenance.json",
+      "sha256": "967844026990804bedc1068478872e8fe26c3be5e9c6a8f3d6ae337cc1923a82",
+      "bytes": 41346,
+      "source_path": "assets_src/fashion_designer/party_garment_v1/provenance.json",
+      "source_sha256": "967844026990804bedc1068478872e8fe26c3be5e9c6a8f3d6ae337cc1923a82",
+      "role": "PROVENANCE_NOT_PLAYER_ROUTE_PROOF",
+      "modification": "Byte-identical copy; source preserved"
+    },
+    {
+      "path": "evidence/natural_capture.log",
+      "sha256": "f5fc34208bc75afd55532184801f5289a1b15e008ee4ca08255ab8a1d31afead",
+      "bytes": 333,
+      "source_path": "tmp/fashion-natural-capture.log",
+      "source_sha256": "f5fc34208bc75afd55532184801f5289a1b15e008ee4ca08255ab8a1d31afead",
+      "role": "PROVENANCE_NOT_PLAYER_ROUTE_PROOF",
+      "modification": "Byte-identical copy; source preserved"
+    },
+    {
+      "path": "evidence/original_capture_manifest.json",
+      "sha256": "759289698a10c8550711e0713ea02900c18f8c04ce9aaeb420a2fad21a41d086",
+      "bytes": 5181,
+      "source_path": "assets_src/review/fashion_runtime_20261007/manifest.json",
+      "source_sha256": "759289698a10c8550711e0713ea02900c18f8c04ce9aaeb420a2fad21a41d086",
+      "role": "PROVENANCE_NOT_PLAYER_ROUTE_PROOF",
+      "modification": "Byte-identical copy; source preserved"
+    },
+    {
+      "path": "evidence/original_synthetic_capture.gd",
+      "sha256": "6fa65375d6c5d24f2f5692b07df4d26be8b5b9a0536a0d20764d201ec7fb3a4d",
+      "bytes": 2298,
+      "source_path": "tmp/capture_fashion.gd",
+      "source_sha256": "6fa65375d6c5d24f2f5692b07df4d26be8b5b9a0536a0d20764d201ec7fb3a4d",
+      "role": "PROVENANCE_NOT_PLAYER_ROUTE_PROOF",
+      "modification": "Byte-identical copy; source preserved"
+    },
+    {
+      "path": "evidence/runtime_machine_verification.json",
+      "sha256": "6b6237c76b29b7d61a786e855c98f5fbfbdc59a6f1be0d2b7c64b580f3816deb",
+      "bytes": 29653,
+      "source_path": "assets_src/review/fashion_runtime_20261007/machine_verification.json",
+      "source_sha256": "6b6237c76b29b7d61a786e855c98f5fbfbdc59a6f1be0d2b7c64b580f3816deb",
+      "role": "PROVENANCE_NOT_PLAYER_ROUTE_PROOF",
+      "modification": "Byte-identical copy; source preserved"
+    },
+    {
+      "path": "evidence/verification.json",
+      "sha256": "8a7d4aa7e9c01265c13f595080bbb886267af1ebfa3e76cc85fab66de8d4a858",
+      "bytes": 1506
+    },
+    {
+      "path": "evidence/voice_catalog.json",
+      "sha256": "3d8481acf72a7f46642fdf9f33bfbfda7a50029548507c1f91af8af1164d0fd8",
+      "bytes": 5096,
+      "source_path": "assets/audio/fashion/VOICE_CATALOG.json",
+      "source_sha256": "3d8481acf72a7f46642fdf9f33bfbfda7a50029548507c1f91af8af1164d0fd8",
+      "role": "PROVENANCE_NOT_PLAYER_ROUTE_PROOF",
+      "modification": "Byte-identical copy; source preserved"
+    },
+    {
+      "path": "index.html",
+      "sha256": "181e07f9ae45dece7236891903e119126571fc86e785a53b3e01de0cccf4f53e",
+      "bytes": 35672
+    },
+    {
+      "path": "native/01-wardrobe-1280x720.png",
+      "sha256": "b10c63059d36b38647b5aeabed6f40deb0f5ab58cfd76d4e8f74cfe329d60f5f",
+      "bytes": 553084,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_path": "assets_src/review/fashion_runtime_20261007/01-wardrobe-1280x720.png",
+      "source_sha256": "b10c63059d36b38647b5aeabed6f40deb0f5ab58cfd76d4e8f74cfe329d60f5f",
+      "role": "SYNTHETIC_RUNTIME_REFERENCE",
+      "modification": "Byte-identical copy; source preserved"
+    },
+    {
+      "path": "native/02-rumi-1280x720.png",
+      "sha256": "f5c24840067aef5b831048863563b2d138a8d12ffe49bf5cfc93317976e91c09",
+      "bytes": 235459,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_path": "assets_src/review/fashion_runtime_20261007/02-rumi-1280x720.png",
+      "source_sha256": "f5c24840067aef5b831048863563b2d138a8d12ffe49bf5cfc93317976e91c09",
+      "role": "SYNTHETIC_RUNTIME_REFERENCE",
+      "modification": "Byte-identical copy; source preserved"
+    },
+    {
+      "path": "native/03-locked-source-1280x720.png",
+      "sha256": "4619bc07854cbd0b0c08f4ac3388e5abbc72f7ad868a77d36fe336c16f7ae928",
+      "bytes": 237225,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_path": "assets_src/review/fashion_runtime_20261007/03-locked-source-1280x720.png",
+      "source_sha256": "4619bc07854cbd0b0c08f4ac3388e5abbc72f7ad868a77d36fe336c16f7ae928",
+      "role": "SYNTHETIC_RUNTIME_REFERENCE",
+      "modification": "Byte-identical copy; source preserved"
+    },
+    {
+      "path": "native/04-before-party-1280x720.png",
+      "sha256": "0aa1ac0904cdad8451ba353517f833bf0158ba46d15b0bdc02c2926902975bcc",
+      "bytes": 177642,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_path": "assets_src/review/fashion_runtime_20261007/04-before-party-1280x720.png",
+      "source_sha256": "0aa1ac0904cdad8451ba353517f833bf0158ba46d15b0bdc02c2926902975bcc",
+      "role": "SYNTHETIC_RUNTIME_REFERENCE",
+      "modification": "Byte-identical copy; source preserved"
+    },
+    {
+      "path": "native/05-dress-equipped-1280x720.png",
+      "sha256": "37775382d1b1777b5ed98f953d7a2c7e974222cfc8762bd81494aadf5a26e542",
+      "bytes": 178784,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_path": "assets_src/review/fashion_runtime_20261007/05-dress-equipped-1280x720.png",
+      "source_sha256": "37775382d1b1777b5ed98f953d7a2c7e974222cfc8762bd81494aadf5a26e542",
+      "role": "SYNTHETIC_RUNTIME_REFERENCE",
+      "modification": "Byte-identical copy; source preserved"
+    },
+    {
+      "path": "native/06-dress-in-castle-1280x720.png",
+      "sha256": "913405b3b4fdb6b97ec0d0dbd029c5f7f472ba284208d5e6c586e9d842fc7875",
+      "bytes": 857438,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_path": "assets_src/review/fashion_runtime_20261007/06-dress-in-castle-1280x720.png",
+      "source_sha256": "913405b3b4fdb6b97ec0d0dbd029c5f7f472ba284208d5e6c586e9d842fc7875",
+      "role": "SYNTHETIC_RUNTIME_REFERENCE",
+      "modification": "Byte-identical copy; source preserved"
+    },
+    {
+      "path": "native/07-disguise-role-1280x720.png",
+      "sha256": "3f802089a5584967c55d1d1c8a692dd3dcc869995573eeb5a65209b0bda4483c",
+      "bytes": 203321,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_path": "assets_src/review/fashion_runtime_20261007/07-disguise-role-1280x720.png",
+      "source_sha256": "3f802089a5584967c55d1d1c8a692dd3dcc869995573eeb5a65209b0bda4483c",
+      "role": "SYNTHETIC_RUNTIME_REFERENCE",
+      "modification": "Byte-identical copy; source preserved"
+    },
+    {
+      "path": "native/08-disguise-blend-1280x720.png",
+      "sha256": "fcc27d45727555896cf3008bfdcdb50d61211be2f1d2eea622565fa39ef69a22",
+      "bytes": 198900,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_path": "assets_src/review/fashion_runtime_20261007/08-disguise-blend-1280x720.png",
+      "source_sha256": "fcc27d45727555896cf3008bfdcdb50d61211be2f1d2eea622565fa39ef69a22",
+      "role": "SYNTHETIC_RUNTIME_REFERENCE",
+      "modification": "Byte-identical copy; source preserved"
+    },
+    {
+      "path": "native/09-disguise-bow-1280x720.png",
+      "sha256": "20c5e088788030ec5d3837d07b982716ee12f397f03b570cce5854ce2c55985c",
+      "bytes": 194304,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_path": "assets_src/review/fashion_runtime_20261007/09-disguise-bow-1280x720.png",
+      "source_sha256": "20c5e088788030ec5d3837d07b982716ee12f397f03b570cce5854ce2c55985c",
+      "role": "SYNTHETIC_RUNTIME_REFERENCE",
+      "modification": "Byte-identical copy; source preserved"
+    },
+    {
+      "path": "native/10-wide-phone-1920x900.png",
+      "sha256": "a199d43afe53e1d972aab7f19d82301b8526b23792f973cc7476a215f85458c2",
+      "bytes": 447418,
+      "dimensions": [
+        1920,
+        900
+      ],
+      "source_path": "assets_src/review/fashion_runtime_20261007/10-wide-phone-1920x900.png",
+      "source_sha256": "a199d43afe53e1d972aab7f19d82301b8526b23792f973cc7476a215f85458c2",
+      "role": "SYNTHETIC_RUNTIME_REFERENCE",
+      "modification": "Byte-identical copy; source preserved"
+    },
+    {
+      "path": "native/11-fresh-launch.png",
+      "sha256": "5d28d823c242c5e65f4f566b34ae767e673aa0661bd890c9b6c387fc603941e6",
+      "bytes": 1385098,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_path": "Fresh-profile native output of evidence/capture_natural.gd",
+      "source_sha256": "5d28d823c242c5e65f4f566b34ae767e673aa0661bd890c9b6c387fc603941e6",
+      "role": "NATURAL_INPUT_ENTRY_CAPTURE",
+      "modification": "Native capture; no edits"
+    },
+    {
+      "path": "native/12-new-game-input.png",
+      "sha256": "2b2bbb555a8b2ec5a1570cd97c92874c47673208c705729de8e059efa93e94f6",
+      "bytes": 780839,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_path": "Fresh-profile native output of evidence/capture_natural.gd",
+      "source_sha256": "2b2bbb555a8b2ec5a1570cd97c92874c47673208c705729de8e059efa93e94f6",
+      "role": "NATURAL_INPUT_ENTRY_CAPTURE",
+      "modification": "Native capture; no edits"
+    },
+    {
+      "path": "native/13-after-opening.png",
+      "sha256": "b709d8ca9a0b43cac7fd0f67bb8ab9e6f8d77ec0f41900a2f6deba8136aa8492",
+      "bytes": 1708719,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "source_path": "Fresh-profile native output of evidence/capture_natural.gd",
+      "source_sha256": "b709d8ca9a0b43cac7fd0f67bb8ab9e6f8d77ec0f41900a2f6deba8136aa8492",
+      "role": "NATURAL_INPUT_ENTRY_CAPTURE",
+      "modification": "Native capture; no edits"
+    },
+    {
+      "path": "native/asset-daddy.png",
+      "sha256": "790d7bbd2ed80351083d73ac56c90669531b1cf6d7d5a659f2c5b6edd5861ee4",
+      "bytes": 793067,
+      "dimensions": [
+        727,
+        1024
+      ],
+      "source_path": "assets/fashion/outfits/daddy_party.png",
+      "source_sha256": "790d7bbd2ed80351083d73ac56c90669531b1cf6d7d5a659f2c5b6edd5861ee4",
+      "role": "ASSET_BACKED_REFERENCE",
+      "modification": "Byte-identical copy; source preserved"
+    },
+    {
+      "path": "native/asset-disguise.png",
+      "sha256": "7a9183be66ac44a54a1058a0b64766d395c319787720df9cd404f84d676a9d6e",
+      "bytes": 50638,
+      "dimensions": [
+        256,
+        256
+      ],
+      "source_path": "assets/fashion/outfits/roshan_base_disguise.png",
+      "source_sha256": "7a9183be66ac44a54a1058a0b64766d395c319787720df9cd404f84d676a9d6e",
+      "role": "ASSET_BACKED_REFERENCE",
+      "modification": "Byte-identical copy; source preserved"
+    },
+    {
+      "path": "native/asset-eagle.png",
+      "sha256": "e9dcf4ad973fd5240df7ebebd73c00d8475df0ffb25af0f9e704057d8defb10d",
+      "bytes": 140374,
+      "dimensions": [
+        290,
+        512
+      ],
+      "source_path": "assets/fashion/outfits/baby_eagle_party.png",
+      "source_sha256": "e9dcf4ad973fd5240df7ebebd73c00d8475df0ffb25af0f9e704057d8defb10d",
+      "role": "ASSET_BACKED_REFERENCE",
+      "modification": "Byte-identical copy; source preserved"
+    },
+    {
+      "path": "native/asset-garden.png",
+      "sha256": "6a1d0897e1e6d116862f758ed641776382ca64b494e28ff4d49a548ed527a46a",
+      "bytes": 50763,
+      "dimensions": [
+        256,
+        256
+      ],
+      "source_path": "assets/fashion/outfits/roshan_base_garden.png",
+      "source_sha256": "6a1d0897e1e6d116862f758ed641776382ca64b494e28ff4d49a548ed527a46a",
+      "role": "ASSET_BACKED_REFERENCE",
+      "modification": "Byte-identical copy; source preserved"
+    },
+    {
+      "path": "native/asset-rainbow.png",
+      "sha256": "c178a181a415fa61f1f8f436e22b9941ede9d4790be78bc289472277eccc48f6",
+      "bytes": 295676,
+      "dimensions": [
+        512,
+        512
+      ],
+      "source_path": "assets/fashion/outfits/rainbow_friend_party.png",
+      "source_sha256": "c178a181a415fa61f1f8f436e22b9941ede9d4790be78bc289472277eccc48f6",
+      "role": "ASSET_BACKED_REFERENCE",
+      "modification": "Byte-identical copy; source preserved"
+    },
+    {
+      "path": "native/asset-ribbon.png",
+      "sha256": "f9c4f27eb1c340adf1278569f44072798e5db95741b0c10b628aa228f729461e",
+      "bytes": 50864,
+      "dimensions": [
+        256,
+        256
+      ],
+      "source_path": "assets/fashion/outfits/roshan_base_ribbon.png",
+      "source_sha256": "f9c4f27eb1c340adf1278569f44072798e5db95741b0c10b628aa228f729461e",
+      "role": "ASSET_BACKED_REFERENCE",
+      "modification": "Byte-identical copy; source preserved"
+    },
+    {
+      "path": "native/asset-roshan.png",
+      "sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab",
+      "bytes": 50051,
+      "dimensions": [
+        256,
+        256
+      ],
+      "source_path": "assets/characters/roshan_25d/roshan_base.png",
+      "source_sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab",
+      "role": "ASSET_BACKED_REFERENCE",
+      "modification": "Byte-identical copy; source preserved"
+    },
+    {
+      "path": "native/asset-table.png",
+      "sha256": "18c2c6a4ad7cb40de2ac85bf73aedbb5111c0aaf22a7e741d21bb7796625c57b",
+      "bytes": 77329,
+      "dimensions": [
+        292,
+        223
+      ],
+      "source_path": "assets/flats/castle/dream_house/dining_table.png",
+      "source_sha256": "18c2c6a4ad7cb40de2ac85bf73aedbb5111c0aaf22a7e741d21bb7796625c57b",
+      "role": "ASSET_BACKED_REFERENCE",
+      "modification": "Byte-identical copy; source preserved"
+    },
+    {
+      "path": "native/asset-wardrobe.png",
+      "sha256": "a6b3c4c13aa86f92300f7f732be18626a8ffbd3a88bce705d578d1249b03ecc1",
+      "bytes": 82384,
+      "dimensions": [
+        227,
+        273
+      ],
+      "source_path": "assets/flats/castle/dream_house/shell_wardrobe.png",
+      "source_sha256": "a6b3c4c13aa86f92300f7f732be18626a8ffbd3a88bce705d578d1249b03ecc1",
+      "role": "ASSET_BACKED_REFERENCE",
+      "modification": "Byte-identical copy; source preserved"
+    },
+    {
+      "path": "native/natural_input_observation.json",
+      "sha256": "9c62800938c95bf573805d57e37aa962c419f4d19851486adfb2886f23ab5d04",
+      "bytes": 871
+    },
+    {
+      "path": "README.md",
+      "sha256": "9615e370cb72be271e8da17c9d7b5a8ee34ebb65b62e0c18414f1ddeb99edc5d",
+      "bytes": 25563
+    },
+    {
+      "path": "source_bindings.json",
+      "sha256": "b6c6250ab4feb48f10fbe0340d8116c5d7cdfb749b0ccabebe7c10a5d3b81c7b",
+      "bytes": 23916
+    },
+    {
+      "path": "steps.json",
+      "sha256": "043e45df6961e74eaccb57b61963670873c2f52ea047c49ae4c2245c4ba9e8cf",
+      "bytes": 27949
+    }
+  ],
+  "acceptance_gaps": [
+    "Natural wardrobe entry and state transitions",
+    "Embodied dressing/garment contact acting",
+    "Natural disguise completion/reload",
+    "Birthday-to-lawn handoff",
+    "Device/child/owner acceptance"
+  ]
+}
