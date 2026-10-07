@@ -1,7 +1,8 @@
 # Chapter 2 Eight-Career Production Spine
 
 Status: current implementation authority for Chapter 2 birthday preparation.
-Owner direction incorporated through 2026-08-30.
+Owner direction incorporated through 2026-08-30, plus the scoped pre-party
+special-dress direction of 2026-10-06 below (runtime integration pending).
 Supersedes the sequence, tutorial prelude, thirteen-career checklist, generic
 Candy Maker result, and early-Detective assumptions in the two earlier Chapter
 2 planning documents. Those files remain option/history records only.
@@ -38,6 +39,15 @@ eight-job sequence independently of later global career additions.
 | 8 | 1 | Detective | Royal Library | final missing unlit rainbow candle revealed in the magic storybook |
 
 Canonical sequence array: `[6, 0, 3, 10, 2, 13, 11, 1]`.
+
+Owner direction 2026-10-06 adds a special dress for Roshan before the party,
+therefore before the Iko Iko/Ember King scene. The
+[Fashion Designer brief](FASHION_DESIGNER_ROSHAN_2026-10-06.md#confirmed-story-introduction--the-special-party-dress)
+records the persistent wardrobe and this additional dressing beat. It sits
+after the eight contributions and before party start, preserving their sequence
+and mask. Global Fashion Designer registration and garment production remain
+implementation work. Runtime/save/art integration and visual/device/child/owner
+acceptance remain pending.
 
 The first visible/unlocked wave is Farmer, Chef, Candy Maker, and Painter
 (`0x0449`). Finishing Painter reveals the second wave: Ballerina, Pop Star,

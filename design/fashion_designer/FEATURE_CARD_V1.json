@@ -1,0 +1,116 @@
+{
+  "schema": "fashion_designer_feature_card/1",
+  "status": "DESIGN_BRIEF_RUNTIME_NOT_IMPLEMENTED",
+  "baseline": "96274aab9cebd563b10846a4a48de5d017588563",
+  "owner_direction_date": "2026-10-06",
+  "brief": "design/FASHION_DESIGNER_ROSHAN_2026-10-06.md",
+  "premise": "Redress recurring characters; chosen outfits persist across live-game appearances and sessions, with new outfits unlocked throughout play. A later Fashion Designer job teaches purposeful disguise through dress-up games.",
+  "owner_requirements": {
+    "persistent_character_outfits": true,
+    "recurring_characters_can_be_redressed": true,
+    "outfits_unlock_throughout_game": true,
+    "mermaid_outfits": true,
+    "disguise_dress_up_job_later": true,
+    "special_dress_before_party_and_iko_iko_ember_scene": true
+  },
+  "later_disguise_story_binding": {
+    "chapter": null,
+    "home": null,
+    "prerequisite": null,
+    "story_purpose": null,
+    "opera_bit_allocated": false,
+    "policy": "Special dress introduction is confirmed before the Chapter 2 party/Iko Iko/Ember scene. Exact dressing room, garment pixels and actual disguise story purpose remain unbound. Preserve the eight existing preparation career identities/mask; derive any new global Fashion Designer registration at the implementation head, allocating no bit in this planning change."
+  },
+  "candidate_characters": [
+    "roshan",
+    "rumi",
+    "baby_eagle",
+    "daddy_mermaid",
+    "rainbow_dust_bunny"
+  ],
+  "equipment": {
+    "first_format": "complete_outfits",
+    "mix_and_match": "candidate_extension_requires_compatible_pose_anchors",
+    "equip": "one_intentional_tap_applies_and_saves",
+    "exit": "navigation_keeps_equipped_choice",
+    "unlock": "idempotent_grant_never_auto_equips",
+    "identity": "clothing_changes; character_identity_and_voice_stay_the_same",
+    "appearance_precedence": [
+      "scoped_temporary_story_or_job_costume",
+      "saved_everyday_outfit",
+      "original_character_appearance"
+    ],
+    "fixed_footage_limit": "Owner-selected flattened clips cannot dynamically show arbitrary saved outfits."
+  },
+  "candidate_activities": [
+    {
+      "id": "dress_for_the_part",
+      "verb": "match_pictured_role",
+      "cue": "fashion_role_pick",
+      "line": "Tap the clothes that match the picture!",
+      "result": "chosen_compatible_outfit_equipped",
+      "completion": "child_selects_outfit_with_required_role_traits"
+    },
+    {
+      "id": "blend_into_setting",
+      "verb": "compare_and_try_disguise",
+      "cue": "fashion_blend_pick",
+      "line": "Let's blend in! Tap a disguise for this place!",
+      "result": "chosen_disguise_visible_in_same_setting",
+      "completion": "child_selects_matching_silhouette_motif_and_context"
+    },
+    {
+      "id": "finish_the_disguise",
+      "verb": "place_missing_piece",
+      "cue": "fashion_finish_piece",
+      "line": "Something is missing! Tap the piece to finish our disguise!",
+      "result": "compatible_piece_visibly_finishes_disguise",
+      "completion": "child_places_required_piece"
+    }
+  ],
+  "planned_save_defaults": {
+    "character_outfits": {},
+    "outfits_unlocked": {},
+    "fashion_disguise_progress": {},
+    "fashion_rewards_claimed": {},
+    "chapter2_party_dress_done": false
+  },
+  "save_contract": [
+    "append_only",
+    "preserve_legacy_keys",
+    "retain_unknown_future_ids",
+    "trusted_catalog_asset_paths_only",
+    "validate_character_compatibility",
+    "transactional_write_and_backup",
+    "keep_future_schema_read_only",
+    "never_overwrite_everyday_choice_with_temporary_costume"
+  ],
+  "acceptance": {
+    "implementation": "NOT_IMPLEMENTED",
+    "machine": "PASS: document/decision contracts, source provenance and full baseline regression (82 trusted probes, exact Godot 4.7.2); no Fashion Designer runtime exists to verify",
+    "visual": "ONE_REVIEW_CANDIDATE; identity/tiara correction and all pose/runtime coverage pending",
+    "device": "PENDING",
+    "child": "PENDING",
+    "owner_art": "PENDING"
+  },
+  "confirmed_party_introduction": {
+    "chapter": 2,
+    "outfit_id": "roshan_party_dress_v1",
+    "before": [
+      "party_start",
+      "iko_iko_ember_king_scene"
+    ],
+    "integration_candidate": "after party_is_ready(), before start_main_hall_party()",
+    "cue": "fashion_party_dress",
+    "line": "Let's get dressed for our party! Tap your special dress!",
+    "completion": "intentional_child_equip_then_transactional_save",
+    "permanent_unlock": true,
+    "legacy_post_party": "grant_access_without_replay_or_auto_equip",
+    "runtime_status": "NOT_IMPLEMENTED"
+  },
+  "party_dress_review_candidate": {
+    "manifest": "assets_src/fashion_designer/party_dress_v1/provenance.json",
+    "image": "assets_src/fashion_designer/party_dress_v1/roshan_party_dress_candidate.png",
+    "status": "REVIEW_CANDIDATE_NOT_RUNTIME_READY"
+  }
+}
