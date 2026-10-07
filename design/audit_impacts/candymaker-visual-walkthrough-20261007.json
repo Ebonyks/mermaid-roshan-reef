@@ -187,12 +187,22 @@
     {
       "command": "Anonymous immutable GitHub payload verification",
       "result": "PASS",
-      "evidence": "audit/job_candy_walkthrough_v1_20261007/REMOTE_VERIFICATION.json; revisiona57e5d2e4cd350b16ee7a0adb8a58436316e8cf9;124 files incl manifest,86501329 bytes; unauthenticated HTTPS; exact SHA-256 and byte lengths; checked 2026-10-07T16:50:06.180191+00:00"
+      "evidence": "Historical corrected-payload verification at a57e5d2e4cd350b16ee7a0adb8a58436316e8cf9: https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/229ab6ff4ed97287d28585454d0cddde8838aa0a/audit/job_candy_walkthrough_v1_20261007/REMOTE_VERIFICATION.json ; receipt SHA25606e1393c70eea16ae86abca78c68cc6d31ff260c1020d5cd395e2c08575e2a25;124 files incl manifest,86501329 bytes, anonymous HTTPS, checked2026-10-07T16:50:06.180191+00:00. New exact-revision verification is recorded separately below."
     },
     {
       "command": "Anonymous GitHub rendered Markdown inspection",
       "result": "PASS",
       "evidence": "Immutable a57e5d2e revision:33 visible ordered headings exactly once; B01 approved1024x1024 PNG displays with SOURCE ONLY / NO NATIVE SCREENSHOT label. Native PNG originals render. SVG annotations remain available in local standalone browser. No runtime visual acceptance."
+    },
+    {
+      "command": "Anonymous full packet re-verification at published receipt checkpoint229ab6ff4ed97287d28585454d0cddde8838aa0a",
+      "result": "PASS",
+      "evidence": "audit/job_candy_walkthrough_v1_20261007/REMOTE_VERIFICATION.json;124 files incl manifest;86501329 bytes; payload SHA256ff74be89e5e2d60ee23ec30c5dad3ddc33177ef41dbd7e3096db06bb00ebc4fd; exact public byte lengths and SHA256; checked2026-10-07T19:06:11.207268+00:00"
+    },
+    {
+      "command": "Exact-head trusted Probe suite for walkthrough payload a57e5d2e4cd350b16ee7a0adb8a58436316e8cf9",
+      "result": "PASS",
+      "evidence": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/37655087245 ; completed success2026-10-07T17:40:09Z; import, full analyzer, trusted probes and area-music provenance verified success. Metadata seal receives a separate run; this is not visual/device/child/owner or currentA319 acceptance."
     }
   ],
   "acceptance_gaps": "Source-bound review documentation only. Captured 480 preview is from an unintegrated runtime candidate; current A319 has no new native/engine evidence. Continuous COAT/SORT/GLAZE, ordinary native, real preceding-story travel, native load/replay, exact fresh-runtime authority, M11/device/child/owner/contact/support acceptance remain open. No finding lifecycle or numeric score changes.",
@@ -227,7 +237,7 @@
     "clearance_goal_status": "BLOCKED retained",
     "no_fast_or_model_changes": true
   },
-  "completion_recheck": "Same master planning/index/section9, DL rules, findings and canonical Chapter2 spine/cake/animation sources; new source-only ledger row only. Findings and master task routes retain original facts/lifecycles.",
+  "completion_recheck": "Same master planning/index/section9, DL rules, findings and canonical Chapter2 spine/cake/animation sources; new source-only ledger row only. Findings and master task routes retain original facts/lifecycles. 2026-10-07 receipt recovery: same master planning/index/section9, DL rules/findings and ledger classification rechecked; no runtime, finding lifecycle, scores, source artwork or authority facts changed.",
   "publication_history": [
     {
       "payload_revision": "d0c9d4bf0d41ad6a14a4e42d4880e0638d2542d4",
@@ -243,6 +253,15 @@
       "verified_files": 124,
       "verified_bytes": 86501329,
       "utc": "2026-10-07T16:50:06.180191+00:00"
+    },
+    {
+      "payload_revision": "229ab6ff4ed97287d28585454d0cddde8838aa0a",
+      "payload_sha256": "ff74be89e5e2d60ee23ec30c5dad3ddc33177ef41dbd7e3096db06bb00ebc4fd",
+      "remote_status": "PASS_ANONYMOUS_IMMUTABLE_REMOTE_BYTES",
+      "receipt": "audit/job_candy_walkthrough_v1_20261007/REMOTE_VERIFICATION.json",
+      "verified_files": 124,
+      "verified_bytes": 86501329,
+      "utc": "2026-10-07T19:06:11.207268+00:00"
     }
   ],
   "presentation_correction": "GitHub blocked source-only SVG embeds; README uses approved PNG references with explicit no-native labels. Duplicate Markdown sections removed. Desktop HTML retained33 steps. New validator checks33 ordered headings exactly once and10 labeled gap panels.",
@@ -258,11 +277,12 @@
       "head": "a57e5d2e4cd350b16ee7a0adb8a58436316e8cf9",
       "status": "pending/in progress; final seal automatically receives a separate exact-head run"
     },
-    "scope": "No topic-head green claim or dev/APK integration. Exact green baseline unchanged-runtime Probe evidence remains separate."
+    "scope": "No topic-head green claim or dev/APK integration. Exact green baseline unchanged-runtime Probe evidence remains separate.",
+    "historical_snapshot_sealed_by": "39c41b031d59fb42208860734644969c65588386; earlier pending/cancelled statuses retained as history"
   },
-  "receipt_seal": "REMOTE_VERIFICATION.json is excluded from payload self-hash; this metadata-only commit seals the successful immutable a57e5d2e payload verification without changing any payload bytes.",
+  "receipt_seal": "REMOTE_VERIFICATION.json is excluded from payload self-hash; this metadata-only change seals the successful immutable229ab6ff packet verification without changing any payload bytes. Receipt publication is verified separately after this seal is pushed.",
   "transport_blocker": {
-    "status": "HANDOFF_BLOCKED_RECEIPT_SEAL_PUBLICATION",
+    "status": "RESOLVED_RECEIPT_SEAL_PUBLISHED",
     "published_payload_revision": "a57e5d2e4cd350b16ee7a0adb8a58436316e8cf9",
     "unpublished_receipt_commit": "39c41b031d59fb42208860734644969c65588386",
     "git_failures": [
@@ -285,7 +305,35 @@
       "scope": "First metadata blob only; no tree/commit/ref mutation succeeded; no permission change attempted"
     },
     "public_status": "https://www.githubstatus.com reported operational with earlier incident resolved16:25 UTC, before these later failures; it does not establish recovery of this repository publication",
-    "next_step": "Require meaningful repository-write recovery or a working existing authorized write route before retrying. Do not repeat unchanged failures or widen permissions. Preserve local commits/receipt; no release/dev/APK work.",
-    "runtime_eligibility": "NONE; clearance repair remains blocked on existing owner decisions/current-source native and separate acceptance gaps"
+    "next_step": "Transport blocker resolved by normal authorized git route. Preserve the failed receive-pack/REST/integration attempts as history. Gameplay remains blocked on existing owner decisions and acceptance evidence; no dev/APK/release authority inferred.",
+    "runtime_eligibility": "NONE; clearance repair remains blocked on existing owner decisions/current-source native and separate acceptance gaps",
+    "prior_status": "HANDOFF_BLOCKED_RECEIPT_SEAL_PUBLICATION",
+    "resolution": {
+      "published_revision": "229ab6ff4ed97287d28585454d0cddde8838aa0a",
+      "route": "Normal non-force git push to existing authorized public topic branch",
+      "new_basis": "Between18:00 and19:03 checks, repository dev advanced from6238934447cf28834874396dfbaff65effafda46 to131e7094b680c2c1d1938f81f70e43035389b118, demonstrating new repository writes after the prior failures",
+      "published_receipt_bytes": 48092,
+      "published_receipt_sha256": "06e1393c70eea16ae86abca78c68cc6d31ff260c1020d5cd395e2c08575e2a25",
+      "published_receipt_url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/229ab6ff4ed97287d28585454d0cddde8838aa0a/audit/job_candy_walkthrough_v1_20261007/REMOTE_VERIFICATION.json",
+      "anonymous_receipt_bytes_match": true,
+      "full_packet_reverified": "2026-10-07T19:06:11.207268+00:00",
+      "permissions_changed": false,
+      "runtime_resumed": false
+    }
+  },
+  "topic_ci_completion": {
+    "id": 37655087245,
+    "head": "a57e5d2e4cd350b16ee7a0adb8a58436316e8cf9",
+    "status": "completed",
+    "conclusion": "success",
+    "updated_at": "2026-10-07T17:40:09Z",
+    "url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/37655087245",
+    "successful_steps": [
+      "Import (deadlock-guarded)",
+      "Compile-check every script (real analyzer, catches what parse-only cannot)",
+      "Run trusted probes",
+      "Verify deterministic area-music delivery"
+    ],
+    "scope": "Exact corrected review-payload head only; subsequent metadata publication has separate exact-head CI. No gameplay/4.6 acceptance."
   }
 }
