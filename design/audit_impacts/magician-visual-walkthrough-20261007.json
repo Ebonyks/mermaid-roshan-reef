@@ -105,6 +105,7 @@
     "assets_src/review/magician_walkthrough_20261007/source_snapshots/opera_career_world_2d.gd.txt",
     "assets_src/review/magician_walkthrough_20261007/source_snapshots/opera_gesture_surface.gd.txt",
     "audit/magician_walkthrough_delivery_20261007.json",
+    "audit/magician_walkthrough_html_repair_delivery_20261007.json",
     "design/05_DOC_LEDGER.md"
   ],
   "validation": [
@@ -149,9 +150,14 @@
       "evidence": "assets_src/review/magician_walkthrough_20261007/evidence/html_repair_game2d.log: NO_REGRESSION with zero models/coverage; authority/development ALL OK; 54 tests/6 stress and browser QA. Full current-topic CI remains separately pending."
     },
     {
-      "command": "New exact-revision publication and full remote CI",
+      "command": "New exact-revision GitHub publication byte verification",
+      "result": "PASS",
+      "evidence": "audit/magician_walkthrough_html_repair_delivery_20261007.json: public anonymous a4af5c520dd0c7b7bd9fd7869121e82a45da14c3, 81/81 literal bytes/SHA-256 verified; historical receipt remains unchanged."
+    },
+    {
+      "command": "Repaired packet full remote CI run 37665566638 and receipt follow-up CI",
       "result": "PENDING",
-      "evidence": "Required for repaired review revision; old anonymous receipt retains its original scope."
+      "evidence": "Run 37665566638 in progress at publication; follow-up current-head CI also required. Native/device/child/owner and 4.6 acceptance remain pending; main goal paused."
     }
   ],
   "acceptance_gaps": "All new panels are asset-backed illustrations with native capture gaps. No current natural-route/input/contact/action/finish/return/save proof, no independent4.6 re-review or device/child/owner session. Existing art and storage questions/development pause remain; generation0. No finding lifecycle changes.",
