@@ -1,0 +1,308 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+UI_SYSTEM|OK|main.gd uses a shared Storybook HUD surface
+UI_SYSTEM|OK|combat_arena.gd uses a shared Storybook HUD surface
+UI_SYSTEM|OK|stuffie_battle.gd uses a shared Storybook HUD surface
+UI_SYSTEM|OK|dungeon_level.gd uses a shared Storybook HUD surface
+UI_SYSTEM|OK|dungeon_puzzle_room.gd uses a shared Storybook HUD surface
+UI_SYSTEM|OK|galaxy.gd uses a shared Storybook HUD surface
+UI_SYSTEM|OK|ember_fortress.gd uses a shared Storybook HUD surface
+UI_SYSTEM|OK|medal_system.gd uses a shared Storybook HUD surface
+UI_SYSTEM|OK|menu census covers all 15 child-facing systems
+UI_SYSTEM|OK|16th interactive system gives parent Developer Mode Storybook styling
+UI_SYSTEM|OK|intro menu uses the audited Storybook contract
+UI_SYSTEM|OK|pause menu uses the audited Storybook contract
+UI_SYSTEM|OK|craft menu uses the audited Storybook contract
+UI_SYSTEM|OK|castle_logo menu uses the audited Storybook contract
+UI_SYSTEM|OK|wardrobe menu uses the audited Storybook contract
+UI_SYSTEM|OK|stickers menu uses the audited Storybook contract
+UI_SYSTEM|OK|critters menu uses the audited Storybook contract
+UI_SYSTEM|OK|stuffie_care menu uses the audited Storybook contract
+UI_SYSTEM|OK|stuffie_picker menu uses the audited Storybook contract
+UI_SYSTEM|OK|castle_rooms menu uses the audited Storybook contract
+UI_SYSTEM|OK|kitchen menu uses the audited Storybook contract
+UI_SYSTEM|OK|picture_games menu uses the audited Storybook contract
+UI_SYSTEM|OK|dance menu uses the audited Storybook contract
+UI_SYSTEM|OK|kart_garage menu uses the audited Storybook contract
+UI_SYSTEM|OK|castle_careers menu uses the audited Storybook contract
+UI_SYSTEM|OK|former flat picture choices share physical button states
+UI_SYSTEM|OK|wardrobe try-on feedback stays on its storybook stage
+UI_SYSTEM|OK|kart garage exposes direct ride and paint choices
+UI_SYSTEM|OK|Pause removes obsolete touch choices and retired-world copy
+UI_SYSTEM|OK|point-to-interact keeps the movement pad renderer hidden
+UI_SYSTEM|OK|retired player-facing Reef copy stays absent: Back to the reef
+UI_SYSTEM|OK|retired player-facing Reef copy stays absent: Reef Celebration
+UI_SYSTEM|OK|retired player-facing Reef copy stays absent: Reef Garden
+UI_SYSTEM|OK|retired player-facing Reef copy stays absent: REEF BAKE-OFF
+UI_SYSTEM|OK|retired player-facing Reef copy stays absent: Queen of the Reef
+UI_SYSTEM|OK|retired player-facing Reef copy stays absent: Caribbean reef
+UI_SYSTEM|OK|legacy duplicate Stuffie launcher and care panel stay removed
+UI_SYSTEM|OK|comfy demos use tappable world friends without overlay badges
+UI_SYSTEM|OK|story clips use the single global Back control without a local skip overlay
+UI_SYSTEM|OK|Chapter 2 room plots use painted props without an ability overlay
+UI_SYSTEM|OK|Opera venue keeps direct painted doors and no local lift or Back controls
+UI_SYSTEM|OK|castle rooms use physical doors without elevator or room-action overlays
+UI_SYSTEM|OK|Dust Boss uses direct world touch without an overlay control or button-dependent voice
+UI_SYSTEM|OK|partner combat has no overlay control or unreachable bubble lesson
+UI_SYSTEM|OK|child prompts describe direct world taps, not removed overlay buttons
+UI_SYSTEM|OK|typography authority and eight named roles are explicit
+UI_SYSTEM|OK|typography role token is complete: display
+UI_SYSTEM|OK|typography role mutation stays isolated: display
+UI_SYSTEM|OK|typography role token is complete: title
+UI_SYSTEM|OK|typography role mutation stays isolated: title
+UI_SYSTEM|OK|typography role token is complete: child_control
+UI_SYSTEM|OK|typography role mutation stays isolated: child_control
+UI_SYSTEM|OK|typography role token is complete: body
+UI_SYSTEM|OK|typography role mutation stays isolated: body
+UI_SYSTEM|OK|typography role token is complete: adult_caption
+UI_SYSTEM|OK|typography role mutation stays isolated: adult_caption
+UI_SYSTEM|OK|typography role token is complete: status
+UI_SYSTEM|OK|typography role mutation stays isolated: status
+UI_SYSTEM|OK|typography role token is complete: numeric_progress
+UI_SYSTEM|OK|typography role mutation stays isolated: numeric_progress
+UI_SYSTEM|OK|typography role token is complete: decorative_glyph
+UI_SYSTEM|OK|typography role mutation stays isolated: decorative_glyph
+UI_SYSTEM|OK|picture button has child-size typography, outline, focus, and disabled surfaces
+UI_SYSTEM|OK|picture button covers hover, focus, pressed, and disabled text colors
+UI_SYSTEM|OK|picture button owns all six state styleboxes locally
+UI_SYSTEM|OK|text button owns all six state colors and styleboxes locally
+UI_SYSTEM|OK|picture button records its role and font authority
+UI_SYSTEM|OK|label helper delegates role wrap and bounded caption typography
+UI_SYSTEM|OK|child control and status roles keep the 28px minimum
+UI_SYSTEM|OK|TYPE-C child layout contract: res://scripts/craft_studio.gd has style_button(button, "locked" if locked else "secondary", 24, 28)
+UI_SYSTEM|OK|TYPE-C child layout contract: res://scripts/craft_studio.gd has style_label(m.craft_status, 21
+UI_SYSTEM|OK|TYPE-C child layout contract: res://scripts/craft_studio.gd has known sub-floor child surface
+UI_SYSTEM|OK|TYPE-C child layout contract: res://scripts/wardrobe_ui.gd has ROLE_CHILD_CONTROL, 28)
+UI_SYSTEM|OK|TYPE-C child layout contract: res://scripts/wardrobe_ui.gd has b.alignment = HORIZONTAL_ALIGNMENT_RIGHT
+UI_SYSTEM|OK|TYPE-C child layout contract: res://scripts/wardrobe_ui.gd has bt.alignment = HORIZONTAL_ALIGNMENT_RIGHT
+UI_SYSTEM|OK|TYPE-C child layout contract: res://scripts/wardrobe_ui.gd has font_size", 20 if earned else 15
+UI_SYSTEM|OK|TYPE-C child layout contract: res://scripts/wardrobe_ui.gd has reserves only 72px
+UI_SYSTEM|OK|TYPE-C child layout contract: res://scripts/collection_system.gd has habitat, 28
+UI_SYSTEM|OK|TYPE-C child layout contract: res://scripts/collection_system.gd has ROLE_STATUS
+UI_SYSTEM|OK|TYPE-C child layout contract: res://scripts/collection_system.gd has habitat.max_lines_visible = 2
+UI_SYSTEM|OK|TYPE-C child layout contract: res://scripts/companion.gd has style_button(card, "selected" if id == m.companion_pick_id else "secondary", 24, 24)
+UI_SYSTEM|OK|TYPE-C child layout contract: res://scripts/companion.gd has style_label(nm, 26
+UI_SYSTEM|OK|TYPE-C child layout contract: res://scripts/companion.gd has style_label(atk, 24
+UI_SYSTEM|OK|TYPE-C child layout contract: res://scripts/companion.gd has style_label(asis, 27
+UI_SYSTEM|OK|TYPE-C child layout contract: res://scripts/games/dance_engine.gd has magic_label, 28
+UI_SYSTEM|OK|TYPE-C child layout contract: res://scripts/games/dance_engine.gd has ROLE_STATUS
+UI_SYSTEM|OK|TYPE-C child layout contract: res://scripts/games/dance_engine.gd has magic_label.max_lines_visible = 1
+UI_SYSTEM|OK|TYPE-C child layout contract: res://scripts/main.gd has hint, 24
+UI_SYSTEM|OK|TYPE-C child layout contract: res://scripts/main.gd has hint.mouse_filter = Control.MOUSE_FILTER_IGNORE
+UI_SYSTEM|OK|TYPE-C rejects sub-floor child call: m.craft_status, 30
+UI_SYSTEM|OK|TYPE-C rejects sub-floor child call: StorybookUI.style_button(button, "locked" if locked else "secondary", 30,
+UI_SYSTEM|OK|TYPE-C rejects sub-floor child call: font_size", 20)
+UI_SYSTEM|OK|TYPE-C rejects sub-floor child call: font_size", 15)
+UI_SYSTEM|OK|TYPE-C rejects sub-floor child call: habitat, 22
+UI_SYSTEM|OK|TYPE-C rejects sub-floor child call: card, "selected" if id == m.companion_pick_id else "secondary", 30
+UI_SYSTEM|OK|TYPE-C rejects sub-floor child call: style_label(atk, 28
+UI_SYSTEM|OK|TYPE-C rejects sub-floor child call: style_label(nm, 30
+UI_SYSTEM|OK|TYPE-C rejects sub-floor child call: style_label(asis, 30
+UI_SYSTEM|OK|TYPE-C rejects sub-floor child call: magic_label, 24
+UI_SYSTEM|OK|TYPE-C rejects sub-floor child call: style_hud_label(hint, 28
+UI_SYSTEM|OK|TYPE-C adult-caption exception is explicit: ROLE_ADULT_CAPTION
+UI_SYSTEM|OK|TYPE-C adult-caption exception is explicit: adult_caption_voice_picture_redundant
+UI_SYSTEM|OK|TYPE-C adult-caption exception is explicit: m.intro_text.max_lines_visible = 3
+UI_SYSTEM|OK|TYPE-C adult-caption exception is explicit: ROLE_STATUS
+UI_SYSTEM|OK|TYPE-C adult-caption exception is explicit: This warning protects the child's saved progress
+UI_SYSTEM|OK|TYPE-C adult-caption exception is explicit: note.max_lines_visible = 3
+UI_SYSTEM|OK|save warning is not misclassified as adult caption
+UI_SYSTEM|OK|comfy evening defaults safely with its future reward locked and unverified
+UI_SYSTEM|OK|completed hide-and-seek saves migrate into the resumable family evening
+UI_SYSTEM|OK|dinner, movie, and tuck-in completion unlock the saved future reward placeholder
+UI_SYSTEM|OK|comfy evening uses castle-world targets with voice-backed resumable saves
+UI_SYSTEM|OK|picture intro has one obvious next action
+UI_SYSTEM|OK|intro next is a 150px-class target
+UI_SYSTEM|OK|intro narration repeat is thumb-sized
+UI_SYSTEM|OK|intro skip is thumb-sized
+UI_SYSTEM|OK|intro skip requires a deliberate hold
+UI_SYSTEM|OK|intro has four non-reading page pips
+UI_SYSTEM|OK|picture intro uses the recovered shell crest
+UI_SYSTEM|OK|free roam hides irrelevant persistent totals
+UI_SYSTEM|OK|free roam hides the legacy sentence objective
+UI_SYSTEM|OK|global navigation owns one 112px target
+UI_SYSTEM|OK|global navigation is the single upper-left Menu control at the root
+UI_SYSTEM|OK|Sky Lagoon root has exactly one visible Button game-wide
+UI_SYSTEM|OK|the persistent Pause corner is removed
+UI_SYSTEM|OK|the fixed jump/action bubble is removed
+UI_SYSTEM|OK|Menu is Sky Lagoon-root-only and Back has a game-wide activity fallback
+UI_SYSTEM|OK|retired Reef is absent from the navigation stack
+UI_SYSTEM|OK|Menu sheet stays below the sole navigation control and transition fade
+UI_SYSTEM|OK|resume is the dominant 300x140 action
+UI_SYSTEM|OK|sticker tile is thumb-sized
+UI_SYSTEM|OK|Critter Book is reachable from Menu
+UI_SYSTEM|OK|Stuffie care is reachable from Menu
+UI_SYSTEM|OK|Menu omits secondary settings and developer controls
+UI_SYSTEM|OK|Menu sheet carries the storybook panel
+UI_SYSTEM|OK|pause sheet has no movement-mode decision
+UI_SYSTEM|OK|movement pad stays off-screen in point-to-interact play
+UI_SYSTEM|OK|activity exit uses neutral-back semantics
+UI_SYSTEM|OK|bare Sky Lagoon Pause fallback never advertises the retired Reef
+UI_SYSTEM|OK|Sky Lagoon local activity Pause closes locally before leaving
+UI_SYSTEM|OK|resume restores normal overlay order
+UI_SYSTEM|OK|craft uses only global Back
+UI_SYSTEM|OK|craft finish is a 150px-class primary action
+UI_SYSTEM|OK|craft exposes three picture part selectors
+UI_SYSTEM|OK|craft shows one nine-choice palette row
+UI_SYSTEM|OK|craft studio carries the shared shell crest
+UI_SYSTEM|OK|craft swatch is at least 110x110
+UI_SYSTEM|OK|craft swatch is at least 110x110
+UI_SYSTEM|OK|craft swatch is at least 110x110
+UI_SYSTEM|OK|craft swatch is at least 110x110
+UI_SYSTEM|OK|craft swatch is at least 110x110
+UI_SYSTEM|OK|craft swatch is at least 110x110
+UI_SYSTEM|OK|craft swatch is at least 110x110
+UI_SYSTEM|OK|craft swatch is at least 110x110
+UI_SYSTEM|OK|the same upper-left control becomes Back inside craft
+UI_SYSTEM|OK|global Back closes craft through its existing safe teardown
+UI_SYSTEM|OK|castle logo uses only global Back
+UI_SYSTEM|OK|castle logo finish is a 150px-class primary action
+UI_SYSTEM|OK|castle logo offers five solid paints plus rainbow
+UI_SYSTEM|OK|castle logo offers eight child-readable picture marks
+UI_SYSTEM|OK|castle logo has a live emblem preview in the shared shell frame
+UI_SYSTEM|OK|castle logo paint is at least 110x110
+UI_SYSTEM|OK|castle logo paint is at least 110x110
+UI_SYSTEM|OK|castle logo paint is at least 110x110
+UI_SYSTEM|OK|castle logo paint is at least 110x110
+UI_SYSTEM|OK|castle logo paint is at least 110x110
+UI_SYSTEM|OK|castle logo paint is at least 110x110
+UI_SYSTEM|OK|wardrobe uses only global Back
+UI_SYSTEM|OK|wardrobe finish is thumb-sized
+UI_SYSTEM|OK|wardrobe carries the shared shell-and-pearl frame
+UI_SYSTEM|OK|wardrobe choices are backed by three existing character previews
+UI_SYSTEM|OK|real look pick refreshes the preview, selection, skin, and twirl
+UI_SYSTEM|OK|look pick shows one 14-element burst centred on the preview
+UI_SYSTEM|OK|look pick adds no off-overlay particle request
+UI_SYSTEM|OK|rapid look pick replaces the prior burst without overdraw growth
+UI_SYSTEM|OK|wardrobe close frees feedback nodes and stops its tween
+UI_SYSTEM|OK|wardrobe re-entry starts with a clean feedback layer
+UI_SYSTEM|OK|sticker book uses only global Back
+UI_SYSTEM|OK|sticker book carries the shared shell crest
+UI_SYSTEM|OK|Critter Book uses only global Back
+UI_SYSTEM|OK|critter book carries the shared shell crest
+UI_SYSTEM|OK|stuffie picker uses only global Back
+UI_SYSTEM|OK|stuffie picker has three picture part selectors
+UI_SYSTEM|OK|stuffie picker shows one palette at a time
+UI_SYSTEM|OK|stuffie swatch is at least 110x110
+UI_SYSTEM|OK|stuffie swatch is at least 110x110
+UI_SYSTEM|OK|stuffie swatch is at least 110x110
+UI_SYSTEM|OK|stuffie swatch is at least 110x110
+UI_SYSTEM|OK|stuffie swatch is at least 110x110
+UI_SYSTEM|OK|stuffie swatch is at least 110x110
+UI_SYSTEM|OK|stuffie swatch is at least 110x110
+UI_SYSTEM|OK|stuffie swatch is at least 110x110
+UI_SYSTEM|OK|stuffie care has no persistent launcher
+UI_SYSTEM|OK|Critter Book has no persistent launcher
+UI_SYSTEM|OK|care sheet uses only global Back
+UI_SYSTEM|OK|Tamagotchi sheet has a thumb-sized friend switch
+UI_SYSTEM|OK|Tamagotchi sheet carries the shared shell-and-pearl treatment
+UI_SYSTEM|OK|Tamagotchi sheet shows hearts toward the next growth star
+UI_SYSTEM|OK|Tamagotchi sheet exposes five picture care actions
+UI_SYSTEM|OK|Tamagotchi care action is at least 110x110
+UI_SYSTEM|OK|Tamagotchi care action is at least 110x110
+UI_SYSTEM|OK|Tamagotchi care action is at least 110x110
+UI_SYSTEM|OK|Tamagotchi care action is at least 110x110
+UI_SYSTEM|OK|Tamagotchi care action is at least 110x110
+UI_SYSTEM|OK|picture game uses only global Back
+UI_SYSTEM|OK|picture games carry the shared Storybook shell header
+UI_SYSTEM|OK|Fashion ships all eleven exact provisional instructions
+UI_SYSTEM|OK|Fashion exact audio hash and route: fashion_choose
+UI_SYSTEM|OK|Fashion exact audio hash and route: fashion_party_dress
+UI_SYSTEM|OK|Fashion exact audio hash and route: fashion_locked_party
+UI_SYSTEM|OK|Fashion exact audio hash and route: fashion_locked_garden
+UI_SYSTEM|OK|Fashion exact audio hash and route: fashion_changed
+UI_SYSTEM|OK|Fashion exact audio hash and route: fashion_role_pick
+UI_SYSTEM|OK|Fashion exact audio hash and route: fashion_blend_pick
+UI_SYSTEM|OK|Fashion exact audio hash and route: fashion_finish_piece
+UI_SYSTEM|OK|Fashion exact audio hash and route: fashion_done
+UI_SYSTEM|OK|Fashion exact audio hash and route: fashion_help
+UI_SYSTEM|OK|Fashion exact audio hash and route: fashion_locked_disguise
+UI_SYSTEM|OK|Fashion save defaults preserve future IDs and reject malformed containers
+UI_SYSTEM|OK|Unknown outfit presents original without erasing future selection
+UI_SYSTEM|OK|Passive and locked choices cannot equip or advance
+UI_SYSTEM|OK|Outfit rewards are permanent and idempotent without auto equip
+UI_SYSTEM|OK|A legacy full-character skin cannot bypass wearing the special party dress
+UI_SYSTEM|OK|Two recurring characters keep independent intentional choices
+UI_SYSTEM|OK|Outfit choices reach the transactional save immediately
+UI_SYSTEM|OK|Already spawned companion receives a changed outfit immediately
+UI_SYSTEM|OK|Fashion wardrobe exposes the three mermaids with pictured selectors
+UI_SYSTEM|OK|Fashion picture targets remain thumb sized: FashionCharacter_roshan
+UI_SYSTEM|OK|Fashion picture targets remain thumb sized: FashionCharacter_rumi
+UI_SYSTEM|OK|Fashion picture targets remain thumb sized: FashionCharacter_daddy_mermaid
+UI_SYSTEM|OK|Fashion picture targets remain thumb sized: FashionSlot_head
+UI_SYSTEM|OK|Fashion picture targets remain thumb sized: FashionSlot_body
+UI_SYSTEM|OK|Fashion picture targets remain thumb sized: FashionSlot_tail
+UI_SYSTEM|OK|Fashion picture targets remain thumb sized: FashionOutfit_roshan_original
+UI_SYSTEM|OK|Fashion picture targets remain thumb sized: FashionOutfit_roshan_ribbon_v1
+UI_SYSTEM|OK|Fashion picture targets remain thumb sized: FashionOutfit_roshan_party_dress_v1
+UI_SYSTEM|OK|Fashion picture targets remain thumb sized: FashionPreviousPage
+UI_SYSTEM|OK|Fashion picture targets remain thumb sized: FashionNextPage
+UI_SYSTEM|OK|Fashion picture targets remain thumb sized: FashionFinish
+UI_SYSTEM|OK|Global Back retains applied outfits
+UI_SYSTEM|OK|Disguise play needs a matching intentional choice
+UI_SYSTEM|OK|Disguise partial progress saves after first pictured role
+UI_SYSTEM|OK|Save restore keeps two independent character outfits
+UI_SYSTEM|OK|Disguise re-entry restores the next unfinished phase
+UI_SYSTEM|OK|JSON numeric progress preserves future high bits while completing a known beat
+UI_SYSTEM|OK|Disguise reward happens once after three intentional beats
+UI_SYSTEM|OK|Recurring Baby Eagle uses its saved wardrobe texture
+UI_SYSTEM|OK|Scene builders carry saved clothes before the actor enters the tree
+UI_SYSTEM|OK|Skin swap preserves active/paused/zero-speed animation state { "paused": false, "speed": 1.3, "custom": -0.75 }
+UI_SYSTEM|OK|Skin swap preserves atlas sampling and authored timing
+UI_SYSTEM|OK|Skin swap leaves the shared original resource untouched
+UI_SYSTEM|OK|Skin swap preserves active/paused/zero-speed animation state { "paused": true, "speed": 0.8, "custom": 2.0 }
+UI_SYSTEM|OK|Skin swap preserves atlas sampling and authored timing
+UI_SYSTEM|OK|Skin swap leaves the shared original resource untouched
+UI_SYSTEM|OK|Skin swap preserves active/paused/zero-speed animation state { "paused": false, "speed": 0.0, "custom": 0.6 }
+UI_SYSTEM|OK|Skin swap preserves atlas sampling and authored timing
+UI_SYSTEM|OK|Skin swap leaves the shared original resource untouched
+UI_SYSTEM|OK|Opening dress-up never equips passively
+UI_SYSTEM|OK|Real pointer tap dresses and remembers roshan
+UI_SYSTEM|OK|Real pointer garment placement dresses roshan
+UI_SYSTEM|OK|Outside drop is neutral for roshan
+UI_SYSTEM|OK|Real pointer tap dresses and remembers rumi
+UI_SYSTEM|OK|Real pointer garment placement dresses rumi
+UI_SYSTEM|OK|Outside drop is neutral for rumi
+UI_SYSTEM|OK|Real pointer tap dresses and remembers daddy_mermaid
+UI_SYSTEM|OK|Real pointer garment placement dresses daddy_mermaid
+UI_SYSTEM|OK|Outside drop is neutral for daddy_mermaid
+UI_SYSTEM|OK|Focus cancellation consumes stale release and removes ghost
+UI_SYSTEM|OK|Extra finger cannot steal or complete a garment gesture
+UI_SYSTEM|OK|Owning finger can finish after unrelated finger release
+UI_SYSTEM|OK|Close during gesture cannot equip after leaving
+UI_SYSTEM|OK|Engine dressing memory uses transactional save
+UI_SYSTEM|OK|Disk save/reload retains dressing journal and future fields
+UI_SYSTEM|OK|Wardrobe has exactly three pictured slots and no ambiguous question mark
+UI_SYSTEM|OK|Selecting a slot never equips: roshan
+UI_SYSTEM|OK|Real GUI head/body/tail choices stay independent: roshan
+UI_SYSTEM|OK|One clean preview and untinted character selector: roshan
+UI_SYSTEM|OK|Shared Godot composite reaches the portrait: roshan
+UI_SYSTEM|OK|Selecting a slot never equips: rumi
+UI_SYSTEM|OK|Real GUI head/body/tail choices stay independent: rumi
+UI_SYSTEM|OK|One clean preview and untinted character selector: rumi
+UI_SYSTEM|OK|Shared Godot composite reaches the portrait: rumi
+UI_SYSTEM|OK|Selecting a slot never equips: daddy_mermaid
+UI_SYSTEM|OK|Real GUI head/body/tail choices stay independent: daddy_mermaid
+UI_SYSTEM|OK|One clean preview and untinted character selector: daddy_mermaid
+UI_SYSTEM|OK|Shared Godot composite reaches the portrait: daddy_mermaid
+UI_SYSTEM|OK|Independent slot preserves real animation state: head_pearl_v1{ "paused": false, "speed": 1.3, "custom": -0.75 }
+UI_SYSTEM|OK|Independent slot preserves real animation state: body_star_v1{ "paused": false, "speed": 1.3, "custom": -0.75 }
+UI_SYSTEM|OK|Independent slot preserves real animation state: tail_blossom_v1{ "paused": false, "speed": 1.3, "custom": -0.75 }
+UI_SYSTEM|OK|Independent slot preserves real animation state: head_pearl_v1{ "paused": true, "speed": 0.8, "custom": 2.0 }
+UI_SYSTEM|OK|Independent slot preserves real animation state: body_star_v1{ "paused": true, "speed": 0.8, "custom": 2.0 }
+UI_SYSTEM|OK|Independent slot preserves real animation state: tail_blossom_v1{ "paused": true, "speed": 0.8, "custom": 2.0 }
+UI_SYSTEM|OK|Independent slot preserves real animation state: head_pearl_v1{ "paused": false, "speed": 0.0, "custom": 0.6 }
+UI_SYSTEM|OK|Independent slot preserves real animation state: body_star_v1{ "paused": false, "speed": 0.0, "custom": 0.6 }
+UI_SYSTEM|OK|Independent slot preserves real animation state: tail_blossom_v1{ "paused": false, "speed": 0.0, "custom": 0.6 }
+UI_SYSTEM|OK|Mixed slots never mutate original animation resources
+UI_SYSTEM|OK|Identical goal preview never steals the live mixed texture path
+UI_SYSTEM|OK|Repeated sampling reuses one composed texture
+UI_SYSTEM|OK|Mix cache is bounded by source families, never outfit combinations
+UI_SYSTEM|OK|Disk reload preserves independent pieces, future IDs, fields and characters
+UI_SYSTEM|OK|Leaving, reloading and reopening retains a mixed outfit
+UI_SYSTEM|OK|Practice goal respects its layout bounds after texture assignment
+UI_SYSTEM|OK|Wrong disguise body is kind and awards no phase
+UI_SYSTEM|OK|Real GUI practice fits its pictured body
+UI_SYSTEM|OK|Wrong disguise tail preserves the unfinished phase
+UI_SYSTEM|OK|Real GUI disguise practice completes body/tail/head with a persistent mixed outfit
+UI_SYSTEM|RESULT|ALL OK

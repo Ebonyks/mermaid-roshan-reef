@@ -9,7 +9,7 @@ static func outfit(id: String) -> Dictionary:
 	for raw: Variant in entries:
 		if raw is Dictionary and String(raw.get("id", "")) == id:
 			return (raw as Dictionary).duplicate(true)
-	return {}
+	return FashionParts.definition(id)
 
 static func outfits(person: String) -> Array[Dictionary]:
 	var result: Array[Dictionary] = []
@@ -23,12 +23,16 @@ static func family(source: String) -> Dictionary:
 	var entries: Dictionary = CATALOG.data.get("families", {}) as Dictionary
 	for key: String in entries:
 		var entry: Dictionary = entries[key] as Dictionary
-		if "res://" + String(entry.get("source", "")) == source:
-			return entry
+		if "res://" + String(entry.get("source", "")) == source or source.begins_with("res://assets/fashion/slots_v1/cache/" + key + "/"):
+			var bound: Dictionary = entry.duplicate(true)
+			bound["family_id"] = key
+			return bound
 		var variants: Dictionary = entry.get("variants", {}) as Dictionary
 		for kind: String in variants:
 			if String(variants[kind]) == source:
-				return entry
+				var bound: Dictionary = entry.duplicate(true)
+				bound["family_id"] = key
+				return bound
 	return {}
 
 static func path(main: ReefMain, source: String, preview_id: String = "") -> String:
@@ -39,6 +43,8 @@ static func path(main: ReefMain, source: String, preview_id: String = "") -> Str
 		return source
 	var base: String = String((spec.get("variants", {}) as Dictionary).get("original","res://" + String(spec["source"])))
 	var person: String = String(spec["character"])
+	if person in FashionParts.PEOPLE:
+		return FashionParts.composed_path(main, spec, base, preview_id)
 	var id: String = preview_id if not preview_id.is_empty() else FashionDesigner.selected(main, person)
 	var outfit: Dictionary = FashionDesigner.outfit(id)
 	if String(outfit.get("character", "")) != person:
@@ -77,13 +83,15 @@ static func garment(id: String) -> Texture2D:
 	var source: String = String(definition.get("garment", ""))
 	return load(source) as Texture2D if not source.is_empty() and ResourceLoader.exists(source) else null
 
-static func fit_rect(person: String, preview: TextureRect) -> Rect2:
+static func fit_rect(person: String, preview: TextureRect, slot: String = "body") -> Rect2:
 	var character: Dictionary = FashionDesigner.character(person)
 	var spec: Dictionary = family(String(character.get("source", "")))
 	if spec.is_empty() or preview.texture == null:
 		return Rect2(preview.position,preview.size)
 	var boxes: Array = spec["boxes"] as Array
 	var b: Array = boxes[0] as Array
+	var fits: Dictionary = (FashionParts.CATALOG.data.get("fits", {}) as Dictionary).get(String(spec.get("family_id", "")), {}) as Dictionary
+	if fits.has(slot): b = (fits[slot] as Array)[0] as Array
 	var dimensions: Vector2 = preview.texture.get_size()
 	var scale: float = minf(preview.size.x / dimensions.x,preview.size.y / dimensions.y)
 	var offset: Vector2 = preview.position + (preview.size - dimensions * scale) * 0.5

@@ -1,0 +1,62 @@
+{
+  "schema": 1,
+  "baseline": "c3b39155d8ab03e09224c0796456c35d1ec410bd",
+  "sources": [
+    {
+      "path": "assets/fashion/skin_engine_v2/garments/garden.png",
+      "sha256": "ff1669df8a01f570ba81a3dfc768109cd480c55245a5025dabe5d0d449ed1952",
+      "role": "existing painted clothing reuse"
+    },
+    {
+      "path": "assets/fashion/skin_engine_v2/garments/party.png",
+      "sha256": "064bc733d96309a9e08469bd2fb684f72a2329d13246a94cd36e040ffc1038e3",
+      "role": "existing painted clothing reuse"
+    },
+    {
+      "path": "assets/fashion/skin_engine_v2/garments/ribbon.png",
+      "sha256": "8db1ec00bdcd4efa18ec270631e15da7f2c8c1b237a0bbcdcc3cc419c49f2ab0",
+      "role": "existing painted clothing reuse"
+    },
+    {
+      "path": "assets/opera/worlds/ui/crests/opera_crest_chef.png",
+      "sha256": "55ab3093ca9f7e9df0bfb5011980727b140648ce0f10974c6ee8392928f77288",
+      "role": "repo theme/style reference; does not grant acceptance to new garments"
+    },
+    {
+      "path": "assets/opera/worlds/ui/crests/opera_crest_painter.png",
+      "sha256": "5e60ba5490ba69ac3b6aa398ecc7057047863bd9d7ac64e233054116917d020b",
+      "role": "repo theme/style reference; does not grant acceptance to new garments"
+    },
+    {
+      "path": "assets/opera/worlds/ui/crests/opera_crest_ballerina.png",
+      "sha256": "d3d0c73d798688a21459b14f8a5ee3f8985578286b7a7e03e9b6ac68e917d2c3",
+      "role": "repo theme/style reference; does not grant acceptance to new garments"
+    },
+    {
+      "path": "assets/chapter2/birthday/sky_lagoon_strawberry_single.png",
+      "sha256": "3bef406012e9a5ec90e18d3709b361f0ad0f9926f0961e05aac67e3e0c454c5f",
+      "role": "repo theme/style reference; does not grant acceptance to new garments"
+    },
+    {
+      "path": "assets/flats/castle/logo_studio_v2/castle_banner_motif_crown.png",
+      "sha256": "ac6c2f1a9f02acd50783cfc0cdc96d3c093c7affe6c76a754af6f7a4a318939c",
+      "role": "repo theme/style reference; does not grant acceptance to new garments"
+    },
+    {
+      "path": "assets/fairy/sprites/helpful_flower_gate.png",
+      "sha256": "f06308db600940e32db09b64184ad469f59fa99d05c5a4c2d1b377df221ea7dd",
+      "role": "repo theme/style reference; does not grant acceptance to new garments"
+    },
+    {
+      "path": "assets/opera/worlds/props/fx_dizzy_stars.png",
+      "sha256": "81bd48fc49666a365c84792fabc6a0313cfa78d8e431bcec1024a4b14d81c7a2",
+      "role": "repo theme/style reference; does not grant acceptance to new garments"
+    }
+  ],
+  "reuse": [
+    "painted wardrobe panel/card",
+    "party/garden bodices and pearl bow",
+    "royal crown motif"
+  ],
+  "gaps": "No independent head/body/tail catalogue or reusable strawberry, chef, painter, star, blossom and winter garment families. Generate only named isolated garments, preserving all character sources and animations."
+}

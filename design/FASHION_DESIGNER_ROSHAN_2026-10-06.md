@@ -439,3 +439,82 @@ binds the frozen source and literal logs. Exact published-head CI is recorded
 separately in the PR. These checks do not accept all-pose art/motion, provisional
 voice, target-device, child or owner quality. The owner is unsure whether the
 default desktop profile held actual play; its post-run save/backup remain intact.
+
+
+## Owner correction: independent clothing slots - 2026-10-07
+
+The owner rejects the menu structure and asks for three independently selectable
+items: head, body and tail. The question-mark control is unclear, the Roshan
+icon on the left overbakes the image, and many more themed pieces should draw
+from repository artwork in the established painted style. This is a new menu
+and shared-engine correction, not acceptance of the earlier candidate.
+
+The revised wardrobe presents Roshan, Rumi and Daddy with cropped, untinted face
+selectors and one clean current-look preview. Three pictured slot tabs choose
+which catalogue is shown. The redundant question-mark cue repeater is removed;
+the optional later disguise practice keeps its separate pictured entry. Clothing
+is applied immediately by one tap, with optional forgiving drag-to-part input.
+Original restores only the active part. Selected frames do not multiply-tint
+character pixels, and picture padding keeps art inside its paper card.
+
+The slot layer catalogue adds eighteen generated garments in six repository-led
+themes: strawberry, chef, painter, star, blossom and winter. Royal crown and pearl
+bow reuse existing artwork. A nineteenth generated image supplies the otherwise
+missing painted restore-to-original UI picture; tiny source-pixel crops failed
+runtime readability and are excluded from this revised menu. Native images,
+exact prompts and references remain in
+`assets_src/fashion_designer/slots_v1/generation_briefs.json`; the prior v2 artwork
+and character sources remain unchanged. Winter follows the existing snowman/
+winter activity vocabulary and uses the wardrobe's violet/pearl fabric reference.
+These are cosmetic themes, not additional careers or story commissions.
+
+`character_clothing_parts` adds independent known slots to each mermaid's saved
+choices. Legacy `character_outfits` and all earlier keys remain; old saves present
+their previous outfit as the body with original head and tail. Unknown characters,
+slot names, item IDs and nested journal fields survive. Deliberately changing one
+slot preserves the other two. The pre-party gate checks the special body dress,
+so accessories cannot bypass it. Baby Eagle and Rainbow Friend's previous outfit
+IDs, unlocks and persistent rendering remain supported; this menu focuses on the
+three mermaids requested for present dress-up play. No Opera bit or mask changes.
+
+One current composite is retained per requested source family, rather than baking
+or caching every possible combination. Imported textures are decompressed through
+Godot's Image API before C++ image blending and GPU upload; no AI runs on device.
+New painted layers use declared per-pose cap, material and upper-tail wrap regions,
+with hand exclusions and exact opaque-interior masks. Headpieces keep their aspect
+and stay above faces; original hair/face anatomy, source frame dimensions, fin
+silhouettes, atlas sampling and animation timing remain. The saved head choice is
+a scoped intentional alternative to the original tiara; Original returns the
+approved authored look. Temporary job costumes and fixed owner-selected footage
+retain their precedence and authored appearance.
+
+Verification belongs to [the slot impact](audit_impacts/fashion-slots-20261007.json):
+all 260 layers/2,920 cell checks and real GUI slot/animation/reload fixtures are
+separate from final full-suite and published-head CI receipts. Runtime captures
+are explicit synthetic unlock fixtures under Godot4.7.2 Mobile, not proof of a
+natural chapter route or physical touch on the phone. Full-pose visual/motion,
+voice suitability, device latency/memory/readability, child and owner acceptance
+remain pending; master-audit satisfaction stays UNSATISFIED.
+
+
+The optional disguise practice now fits the Garden body, matches the pictured
+friend's strawberry tail wrap, then adds the pearl head bow. Old completed-mask
+bits and the Garden-disguise reward ID retain their meaning and future high bits;
+completed legacy practice is not replayed or reset. The new route keeps the chosen
+Garden body and tail when its head bow is fitted. Goal previews are transient
+composites and never equip or save the pictured friend's clothes. The three
+existing exact role/blend/bow voice cues are reused; phone-size comprehension and
+voice suitability still require review. New earned Chef/Painter choices show their
+matching crest and reuse the existing chapter route cue, avoiding an incorrect
+strawberry-unlock instruction.
+
+The slot candidate passes the exact Godot4.7.2 full82 trusted-probe suite on
+725 frozen source/runtime files, with zero script/resource errors. The
+[committed machine receipt](../assets_src/fashion_designer/slots_v1/machine_verification.json)
+binds its log and geometry evidence and records the unchanged test-only native
+scene-reload diagnostic separately. All15 final desktop Mobile captures were
+inspected; these are synthetic-unlock primary portraits, with exact GUI inputs.
+Published-head CI is recorded separately in the PR. Full-pose fit/motion,
+Daddy headpiece phone-size legibility, device performance/readability, spoken
+cues, child and owner acceptance remain pending. No master promotion or
+master-audit satisfaction is claimed.
