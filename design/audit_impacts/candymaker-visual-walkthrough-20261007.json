@@ -260,5 +260,32 @@
     },
     "scope": "No topic-head green claim or dev/APK integration. Exact green baseline unchanged-runtime Probe evidence remains separate."
   },
-  "receipt_seal": "REMOTE_VERIFICATION.json is excluded from payload self-hash; this metadata-only commit seals the successful immutable a57e5d2e payload verification without changing any payload bytes."
+  "receipt_seal": "REMOTE_VERIFICATION.json is excluded from payload self-hash; this metadata-only commit seals the successful immutable a57e5d2e payload verification without changing any payload bytes.",
+  "transport_blocker": {
+    "status": "HANDOFF_BLOCKED_RECEIPT_SEAL_PUBLICATION",
+    "published_payload_revision": "a57e5d2e4cd350b16ee7a0adb8a58436316e8cf9",
+    "unpublished_receipt_commit": "39c41b031d59fb42208860734644969c65588386",
+    "git_failures": [
+      {
+        "utc": "2026-10-07T16:53:13Z",
+        "request_id": "D67D:5F4EF:1182D7:1D003C:6AC678F7",
+        "error": "remote Internal Server Error; receive-pack rejected"
+      },
+      {
+        "utc": "2026-10-07T16:53:42Z",
+        "request_id": "FD86:21BD5D:114D51:1CC1D2:6AC67913",
+        "error": "remote Internal Server Error; receive-pack rejected after fresh ref check"
+      }
+    ],
+    "remote_ref_after_failures": "a57e5d2e4cd350b16ee7a0adb8a58436316e8cf9",
+    "rest_cli_trials": "Both structured stdin and file --input failed with unexpected end of JSON input before a blob SHA was returned; no ref update attempted",
+    "connector_trial": {
+      "tool": "github_create_blob",
+      "result": "403 FORBIDDEN: Resource not accessible by integration",
+      "scope": "First metadata blob only; no tree/commit/ref mutation succeeded; no permission change attempted"
+    },
+    "public_status": "https://www.githubstatus.com reported operational with earlier incident resolved16:25 UTC, before these later failures; it does not establish recovery of this repository publication",
+    "next_step": "Require meaningful repository-write recovery or a working existing authorized write route before retrying. Do not repeat unchanged failures or widen permissions. Preserve local commits/receipt; no release/dev/APK work.",
+    "runtime_eligibility": "NONE; clearance repair remains blocked on existing owner decisions/current-source native and separate acceptance gaps"
+  }
 }
