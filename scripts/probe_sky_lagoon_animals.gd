@@ -7,11 +7,11 @@ const EXPECTED_IDS: Array[String] = [
 ]
 const PAGE_CENTERS: Array[float] = [1024.0, 3072.0, 5120.0]
 const REVIEW_ROUTE_X := {
-	"otter": 610.0,
-	"frog": 610.0,
-	"hare": 2300.0,
-	"squirrel": 2300.0,
-	"raccoon": 4510.0,
+	"otter": 1350.0,
+	"frog": 1350.0,
+	"hare": 2500.0,
+	"squirrel": 2500.0,
+	"raccoon": 4800.0,
 }
 
 var failures := 0
@@ -152,6 +152,12 @@ func _capture_pair(label: String, actor: Dictionary,
 	var out_dir := OS.get_environment("LAGOON_ANIMAL_SHOT_OUT")
 	if out_dir == "":
 		return
+	var stage_visible: bool = main._day_one_story_clip == null \
+		and not main.start_menu_active and not paused and promenade.root().visible \
+		and not main.hud_msg.visible
+	_check("capture_%s_uncovered_gameplay" % label, stage_visible)
+	if not stage_visible:
+		return
 	DirAccess.make_dir_recursive_absolute(out_dir)
 	var node: Sprite2D = actor.get("node") as Sprite2D
 	var shadow: Sprite2D = node.get_meta("contact_shadow") as Sprite2D \
@@ -176,14 +182,21 @@ func _capture_pair(label: String, actor: Dictionary,
 	if shadow != null:
 		shadow.visible = true
 	main.process_mode = old_mode
+	_check("capture_%s_contains_live_animal_pixels" % label,
+		image_with.get_data() != image_without.get_data())
 	var screen_point: Vector2 = node.get_global_transform_with_canvas().origin
 	capture_manifest.append({
+		"label": label,
 		"id": String(definition["id"]),
 		"habitat": String(definition["habitat"]),
 		"lighting": "night" if main.is_night else "day",
 		"with": with_path.get_file(),
 		"without": without_path.get_file(),
 		"screen_point": [screen_point.x, screen_point.y],
+		"floor_master": [node.get_meta("route_contact_master").x, node.get_meta("route_contact_master").y],
+		"atlas_frame": _atlas_frame(node),
+		"with_sha256": FileAccess.get_sha256(with_path),
+		"without_sha256": FileAccess.get_sha256(without_path),
 		"master_height": float(definition["height"]),
 		"modulate": _color_values(node.modulate),
 		"shadow_modulate": _color_values(shadow.modulate) if shadow != null else [],
@@ -198,7 +211,21 @@ func _write_capture_manifest() -> void:
 		out_dir.path_join("capture_manifest.json"), FileAccess.WRITE)
 	_check("capture_manifest_open", file != null)
 	if file != null:
-		file.store_string(JSON.stringify({"captures": capture_manifest}, "\t") + "\n")
+		file.store_string(JSON.stringify({
+			"godot_version": Engine.get_version_info()["string"],
+			"rendering_method": RenderingServer.get_current_rendering_method(),
+			"probe_sha256": FileAccess.get_sha256("res://scripts/probe_sky_lagoon_animals.gd"),
+			"layout_sha256": FileAccess.get_sha256(SkyLagoonPromenade.LAYOUT_PATH),
+			"captures": capture_manifest,
+		}, "\t") + "\n")
+
+func _wait_for_capture_caption() -> void:
+	if OS.get_environment("LAGOON_ANIMAL_SHOT_OUT") == "":
+		return
+	# Preserve the production HUD and allow its transient arrival caption to
+	# expire normally; it otherwise covers the lower grass/stone habitats.
+	await create_timer(maxf(main.msg_timer + 0.2, 0.2)).timeout
+	await _frames(2)
 
 
 func _validate_roster() -> void:
@@ -289,6 +316,95 @@ func _validate_day_actor() -> void:
 			alert_frame == 0 and squash_frame == 1 and hop_frame == 2 \
 			and String(actor.get("state", "")) == "startle")
 
+func _contact_stays_on_ground(actor: Dictionary, clip: String) -> bool:
+	var node: Sprite2D = actor["node"] as Sprite2D
+	var definition: Dictionary = actor["definition"] as Dictionary
+	var ground: Dictionary = promenade._animal_ground_contract(definition)
+	var values: Array = ground["bounds"] as Array
+	var bounds := Rect2(float(values[0]), float(values[1]), float(values[2]), float(values[3]))
+	var contact: Vector2 = actor["route_position"] as Vector2
+	var clearance := Vector2(float(definition["height"]) * 0.5 + 8.0, 12.0)
+	if not bounds.encloses(Rect2(contact - clearance, clearance * 2.0)):
+		return false
+	var nearest_distance: float = INF
+	var path: Array = definition["path"] as Array
+	for index: int in range(1, path.size()):
+		nearest_distance = minf(nearest_distance, contact.distance_to(
+			Geometry2D.get_closest_point_to_segment(contact, path[index - 1] as Vector2, path[index] as Vector2)))
+	if nearest_distance > 0.01:
+		return false
+	var anchors: Array = ground[clip + "_feet_y"] as Array
+	var rendered_foot: Vector2 = node.position + Vector2(0.0, (float(anchors[_atlas_frame(node)]) - 128.0) * node.scale.y)
+	var hop: float = contact.y - rendered_foot.y
+	var shadow: Sprite2D = node.get_meta("contact_shadow") as Sprite2D
+	return absf(rendered_foot.x - contact.x) <= 0.01 \
+		and hop >= -0.01 and hop <= (12.01 if clip == "startle" else 0.01) \
+		and shadow != null and shadow.position.distance_to(contact) <= 0.01
+
+func _validate_ground_boundaries() -> void:
+	var bad: Dictionary = SkyLagoonPromenade.ANIMAL_DEFS[0].duplicate(true)
+	bad["path"] = [Vector2(180, 1240), Vector2(330, 1225), Vector2(470, 1242)]
+	_check("reject_old_rope_water_and_air_route", not promenade._animal_path_is_safe(bad))
+	bad = SkyLagoonPromenade.ANIMAL_DEFS[2].duplicate(true)
+	bad["path"] = [Vector2(2055, 1125), Vector2(2125, 1105), Vector2(2195, 1128)]
+	_check("reject_old_shrub_canopy_route", not promenade._animal_path_is_safe(bad))
+	bad = SkyLagoonPromenade.ANIMAL_DEFS[0].duplicate(true)
+	bad["path"] = [Vector2(650, 1480), Vector2(945, 1460)]
+	_check("reject_feet_inside_but_body_over_ground_edge", not promenade._animal_path_is_safe(bad))
+	bad["id"] = "unknown"
+	_check("undeclared_habitat_fails_closed", not promenade._animal_path_is_safe(bad))
+	# Both waypoints can be valid while the segment crosses an obstacle. This
+	# mutation must fail, then leave the real source-bound contract intact.
+	var blocked: Array = (promenade.layout_contract()["animal_ground"] as Dictionary)["blocked_rects"] as Array
+	blocked.append([918.0, 1440.0, 8.0, 60.0])
+	_check("reject_obstacle_between_safe_waypoints", not promenade._animal_path_is_safe(SkyLagoonPromenade.ANIMAL_DEFS[0]))
+	blocked.pop_back()
+	var pearls_before: int = main.pearl_count
+	for definition: Dictionary in SkyLagoonPromenade.ANIMAL_DEFS:
+		var animal_id := String(definition["id"])
+		var ground: Dictionary = promenade._animal_ground_contract(definition)
+		for clip: String in ["idle", "startle"]:
+			var image: Image = Image.load_from_file(String(definition[clip]))
+			var anchors: Array = ground[clip + "_feet_y"] as Array
+			var anchors_ok: bool = FileAccess.get_sha256(String(definition[clip])) == String(ground[clip + "_sha256"])
+			for frame: int in range(4):
+				var bottom: int = -1
+				for y: int in range(256):
+					for x: int in range(256):
+						if image.get_pixel((frame % 2) * 256 + x, (frame / 2) * 256 + y).a >= 0.10:
+							bottom = y
+				anchors_ok = anchors_ok and is_equal_approx(float(anchors[frame]), float(bottom) + 0.5)
+			_check("%s_%s_exact_source_cell_contacts" % [animal_id, clip], anchors_ok)
+		promenade._bind_animal_id(animal_id)
+		var actor: Dictionary = main.g["lagoon_animal_actor"] as Dictionary
+		var patrol_ok := true
+		for _step: int in range(900):
+			promenade._tick_animal_idle(actor, 0.05)
+			patrol_ok = patrol_ok and _contact_stays_on_ground(actor, "idle")
+		_check("%s_complete_patrol_stays_on_floor" % animal_id, patrol_ok)
+		# Exercise escape from both traversal directions, each segment, and a
+		# large delta that would otherwise shortcut a corner or overshoot bounds.
+		var escape_ok := true
+		var path: Array = definition["path"] as Array
+		for direction: int in [-1, 1]:
+			for index: int in range(1, path.size()):
+				for step_delta: float in [0.05, 1.5]:
+					promenade._bind_animal_id(animal_id)
+					actor["route_position"] = (path[index - 1] as Vector2).lerp(path[index] as Vector2, 0.63)
+					actor["path_direction"] = direction
+					actor["path_index"] = index if direction > 0 else index - 1
+					promenade._startle_animal(actor)
+					for _step: int in range(160):
+						promenade._tick_animal_startle(actor, step_delta)
+						escape_ok = escape_ok and _contact_stays_on_ground(actor, "startle")
+						if String(actor["state"]) == "hidden":
+							break
+					escape_ok = escape_ok and String(actor["state"]) == "hidden" \
+						and (actor["route_position"] as Vector2).is_equal_approx(path[0] as Vector2)
+		_check("%s_all_startles_follow_ground_to_endpoint" % animal_id, escape_ok)
+	_check("ambient_patrol_and_taps_award_nothing", main.pearl_count == pearls_before)
+	main.g["lagoon_animal_cycles"] = {0: 0, 1: 0, 2: 0}
+
 
 func _validate_continuity() -> void:
 	await _move_to_page(0)
@@ -343,6 +459,30 @@ func _validate_night() -> void:
 				== "canvas_day_night_tint")
 		await _capture_pair("night_%s" % String(definition["id"]), actor, definition)
 
+func _capture_ground_states() -> void:
+	if OS.get_environment("LAGOON_ANIMAL_BOUNDARY_SHOTS") != "1":
+		return
+	var prior_mode: Node.ProcessMode = main.process_mode
+	main.process_mode = Node.PROCESS_MODE_DISABLED
+	for definition: Dictionary in SkyLagoonPromenade.ANIMAL_DEFS:
+		var animal_id := String(definition["id"])
+		promenade.set_master_route_x(float(REVIEW_ROUTE_X[animal_id]))
+		await _frames(4)
+		promenade._bind_animal_id(animal_id)
+		var actor: Dictionary = main.g["lagoon_animal_actor"] as Dictionary
+		var path: Array = definition["path"] as Array
+		for index: int in range(path.size()):
+			actor["route_position"] = path[index] as Vector2
+			promenade._place_animal_frame(actor, "idle", index % 4)
+			await _capture_pair("ground_%s_%d" % [animal_id, index], actor, definition)
+		actor["path_index"] = path.size() - 1
+		actor["path_direction"] = 1
+		promenade._startle_animal(actor)
+		for step: int in range(4):
+			promenade._tick_animal_startle(actor, 0.10 if step == 0 else 0.20)
+			await _capture_pair("startle_%s_%d" % [animal_id, step], actor, definition)
+	main.process_mode = prior_mode
+
 
 func _initialize() -> void:
 	call_deferred("_run")
@@ -352,24 +492,41 @@ func _run() -> void:
 	get_root().size = Vector2i(1280, 720)
 	var packed: PackedScene = load("res://scenes/main.tscn") as PackedScene
 	main = packed.instantiate() as ReefMain
+	main._save_state = SaveState.new(main, "user://probe_sky_lagoon_animals.json")
 	get_root().add_child(main)
 	await _frames(2)
+	# Use Continue through the real launch seam. The new-save opening clip can
+	# otherwise hide the live stage while geometry/metadata assertions pass.
+	if main.start_menu_active:
+		main._start_menu_ref()._dismiss_menu()
+	main._launch_from_start_menu(false)
 	if main.intro_active:
 		main._skip_intro()
+	for _skip: int in range(8):
+		if main._day_one_story_clip == null:
+			break
+		main._day_one_story_clip.skip()
+		await _frames(2)
+	_check("launch_menu_and_story_clip_cleared", not main.start_menu_active \
+		and main._day_one_story_clip == null and not paused)
 	main._apply_quality("speedy")
 	main._set_night(false)
 	main.save_data["lagoon_plane_departed"] = true
 	main._enter_level2_now(true, false, false)
 	await _frames(24)
+	await _wait_for_capture_caption()
 	promenade = main._lagoon_promenade_ref()
 	_validate_roster()
+	_validate_ground_boundaries()
 	await _validate_day_actor()
 	await _validate_continuity()
+	await _capture_ground_states()
 	main._exit_level2_now()
 	await _frames(5)
 	main.is_night = true
 	main._enter_level2_now(true, false, false)
 	await _frames(24)
+	await _wait_for_capture_caption()
 	promenade = main._lagoon_promenade_ref()
 	await _validate_night()
 	_write_capture_manifest()

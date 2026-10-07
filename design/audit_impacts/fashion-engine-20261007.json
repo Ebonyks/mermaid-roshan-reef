@@ -1,6 +1,6 @@
 {
   "id": "fashion-engine-20261007",
-  "scope": "Owner correction 2026-10-07: build shared Godot wardrobe/skin engine with persistent recurring-character outfits and immediate live updates, preserve authored identity/animation designs, provide dress-up games for Mermaid Roshan, Daddy Mermaid and Rumi, and replace flat/vector costume graphics with polished painted assets congruent with existing UI. Existing walkthrough stays a historical alpha reference. Inventory approved assets before built-in ImageGen for named garment/UI gaps.",
+  "scope": "Owner correction 2026-10-07: build shared Godot wardrobe/skin engine with persistent recurring-character outfits and immediate live updates, preserve authored identity/animation designs, provide dress-up games for Mermaid Roshan, Daddy Mermaid and Rumi, and replace flat/vector costume graphics with polished painted assets congruent with existing UI. Existing walkthrough stays a historical alpha reference. Inventory approved assets before built-in ImageGen for named garment/UI gaps. Reconcile concurrent dev131e7094 Sky Lagoon boundary repair without changing original skin-engine sources; validate the combined runtime before dev integration.",
   "baseline": "6238934447cf28834874396dfbaff65effafda46",
   "rules": [
     "DL-AUTH-05",
@@ -127,6 +127,7 @@
     "assets_src/castle/interactions_v4/castle_interaction_frame_approval_ledger.json",
     "assets_src/fashion_designer/skin_engine_v2/.gitattributes",
     "assets_src/fashion_designer/skin_engine_v2/derivations.json",
+    "assets_src/fashion_designer/skin_engine_v2/frozen_reconciliation.json",
     "assets_src/fashion_designer/skin_engine_v2/frozen_sources.json",
     "assets_src/fashion_designer/skin_engine_v2/generation_briefs.json",
     "assets_src/fashion_designer/skin_engine_v2/identity_geometry_check.json",
@@ -154,6 +155,8 @@
     "assets_src/fashion_designer/skin_engine_v2/validation/full-suite-ui-extract.log",
     "assets_src/fashion_designer/skin_engine_v2/validation/machine_verification.json",
     "assets_src/fashion_designer/skin_engine_v2/validation/mobile-review.log",
+    "assets_src/fashion_designer/skin_engine_v2/validation/reconciled-full-ci.log",
+    "assets_src/fashion_designer/skin_engine_v2/validation/reconciliation_verification.json",
     "assets_src/fashion_designer/skin_engine_v2/validation/walkthrough-publication-receipt.json",
     "audit/MASTER_AUDIT_2026-08-09.md",
     "design/05_DOC_LEDGER.md",
@@ -180,17 +183,17 @@
     {
       "command": "Approved asset inventory and named gap inspection",
       "result": "PASS",
-      "evidence": "Inspected Roshan 256\u00d7256 base, Rumi 1024\u00d7768 eight-pose atlas, protected Daddy 727\u00d71024 portrait and existing 1206\u00d71305 painted party garment. Roshan party garment is reusable; missing painted Garden bodice, Rumi tailored clothing, Daddy tailored clothing and painted wardrobe surfaces will use built-in ImageGen. Existing procedural ribbons retained as historical legacy source only."
+      "evidence": "Inspected Roshan 256×256 base, Rumi 1024×768 eight-pose atlas, protected Daddy 727×1024 portrait and existing 1206×1305 painted party garment. Roshan party garment is reusable; missing painted Garden bodice, Rumi tailored clothing, Daddy tailored clothing and painted wardrobe surfaces will use built-in ImageGen. Existing procedural ribbons retained as historical legacy source only."
     },
     {
       "command": "Skin-engine catalog/frame binding, real input dress-up, save/reload/live consumer and passive probes",
-      "result": "PENDING",
-      "evidence": "Maintain animation frames, regions, durations, transforms and identity pixels; additive IDs/progress with unknown future fields preserved."
+      "result": "PASS",
+      "evidence": "validation/focused-ui-v5.log, validation/full-suite-ui-extract.log and validation/reconciliation_verification.json: actual touch events, durable additive independent dressing journals, live texture bindings, animation frame/region/duration/playback invariants and passive behavior pass; unknown future fields retained."
     },
     {
-      "command": "Exact Godot 4.7.2 Mobile import/analyzer, full CI, document authority and development coverage",
-      "result": "PENDING",
-      "evidence": "Freeze final runtime before full validation and publish/integrate only after exact-head green CI."
+      "command": "Exact Godot4.7.2 local Mobile import/analyzer/full CI, document authority/development coverage, and initial8e0a947f PR CI",
+      "result": "PASS",
+      "evidence": "validation/machine_verification.json and validation/reconciliation_verification.json: local all82 trusted probes pass before and after merging dev131e7094; initial engine PR37669389096 SUCCESS tested same combined runtime. Final reconciled-head remote CI remains required before dev integration."
     },
     {
       "command": "python -B tools/audit_fashion_skin_engine.py --record",
@@ -211,6 +214,11 @@
       "command": "build_repository_candidate; exact compare with prior candidate bound to committed approval ledger",
       "result": "PASS",
       "evidence": "assets_src/fashion_designer/skin_engine_v2/prop_binding_revalidation.json: all96 asset/frame records identical; replacing only new Castle runtime script hash reproduces old payload exactly. Existing prop review rebound; fashion art remains separately pending."
+    },
+    {
+      "command": "Exact Godot4.7.2 full scripts/ci.sh on merged engine8e0a947f + dev131e7094",
+      "result": "PASS",
+      "evidence": "assets_src/fashion_designer/skin_engine_v2/validation/reconciliation_verification.json: all82 local probes exit0 and all385 frozen source files unchanged; initial engine PR37669389096 SUCCESS checks actual merge8e0a947f into131e7094. Final reconciled published head requires its own green CI before dev integration."
     }
   ],
   "acceptance_gaps": "Generated garment candidates need exact identity/style/fit review across every authored frame. Target device, child and owner acceptance remain independent; no game-wide finding closure granted.",

@@ -79,15 +79,15 @@ const ROUTE_MASTER: Array[Vector2] = [
 	Vector2(CASTLE_DOOR_MASTER_X, 1584.0),
 ]
 
-# One pooled actor represents the page's ecological roster. Paths are master
-# pixels, clear of the route/equipment and intentionally larger than the old
-# too-small frog/otter presentation.
+# One pooled actor represents the page's ecological roster. Path coordinates
+# are FLOOR contacts, within the source-painted ground envelopes in the layout
+# contract. Render centres are derived from each unchanged atlas cell's feet.
 const ANIMAL_DEFS: Array[Dictionary] = [
 	{
 		"id": "otter", "page": 0, "habitat": "arrival_shore",
 		"idle": "res://assets/sprites/sky_lagoon/animals/otter_idle_atlas.png",
 		"startle": "res://assets/sprites/sky_lagoon/animals/otter_startle_atlas.png",
-		"path": [Vector2(180, 1240), Vector2(330, 1225), Vector2(470, 1242)],
+		"path": [Vector2(870, 1480), Vector2(945, 1460), Vector2(1030, 1480)],
 		"height": 420.0, "speed": 56.0, "exit_speed": 620.0,
 		"frame_s": 0.26, "dwell_s": 1.4, "bob": 3.0,
 		"requires_plane_departed": true,
@@ -97,7 +97,7 @@ const ANIMAL_DEFS: Array[Dictionary] = [
 		"id": "frog", "page": 0, "habitat": "arrival_shore",
 		"idle": "res://assets/sprites/sky_lagoon/animals/frog_idle_atlas.png",
 		"startle": "res://assets/sprites/sky_lagoon/animals/frog_startle_atlas.png",
-		"path": [Vector2(145, 1280), Vector2(285, 1260), Vector2(425, 1278)],
+		"path": [Vector2(810, 1440), Vector2(930, 1415), Vector2(1050, 1450)],
 		"height": 322.0, "speed": 72.0, "exit_speed": 580.0,
 		"frame_s": 0.30, "dwell_s": 1.7, "bob": 8.0,
 		"requires_plane_departed": true,
@@ -107,7 +107,7 @@ const ANIMAL_DEFS: Array[Dictionary] = [
 		"id": "hare", "page": 1, "habitat": "west_meadow_edge",
 		"idle": "res://assets/sprites/sky_lagoon/animals/hare_idle_atlas.png",
 		"startle": "res://assets/sprites/sky_lagoon/animals/hare_startle_atlas.png",
-		"path": [Vector2(2055, 1125), Vector2(2125, 1105), Vector2(2195, 1128)],
+		"path": [Vector2(2840, 1780), Vector2(3020, 1765), Vector2(3200, 1785)],
 		"height": 245.0, "speed": 68.0, "exit_speed": 660.0,
 		"frame_s": 0.28, "dwell_s": 1.6, "bob": 6.0,
 		"day_tint": Color.WHITE, "night_tint": Color(0.68, 0.77, 0.99),
@@ -116,7 +116,7 @@ const ANIMAL_DEFS: Array[Dictionary] = [
 		"id": "squirrel", "page": 1, "habitat": "west_meadow_edge",
 		"idle": "res://assets/sprites/sky_lagoon/animals/squirrel_idle_atlas.png",
 		"startle": "res://assets/sprites/sky_lagoon/animals/squirrel_startle_atlas.png",
-		"path": [Vector2(2065, 1015), Vector2(2140, 995), Vector2(2210, 1020)],
+		"path": [Vector2(2865, 1770), Vector2(3020, 1780), Vector2(3180, 1765)],
 		"height": 290.0, "speed": 82.0, "exit_speed": 690.0,
 		"frame_s": 0.22, "dwell_s": 1.25, "bob": 4.0,
 		"day_tint": Color(0.9, 0.98, 1.0), "night_tint": Color(0.60, 0.74, 0.96),
@@ -125,7 +125,7 @@ const ANIMAL_DEFS: Array[Dictionary] = [
 		"id": "raccoon", "page": 2, "habitat": "castle_shrub_edge",
 		"idle": "res://assets/sprites/sky_lagoon/animals/raccoon_idle_atlas.png",
 		"startle": "res://assets/sprites/sky_lagoon/animals/raccoon_startle_atlas.png",
-		"path": [Vector2(4360, 1160), Vector2(4510, 1145), Vector2(4660, 1170)],
+		"path": [Vector2(5070, 1870), Vector2(5130, 1880), Vector2(5200, 1895)],
 		"height": 290.0, "speed": 60.0, "exit_speed": 640.0,
 		"frame_s": 0.29, "dwell_s": 1.8, "bob": 3.0,
 		"day_tint": Color.WHITE, "night_tint": Color(0.76, 0.84, 1.0),
@@ -705,7 +705,10 @@ func _sync_contact_shadow(sprite: Sprite2D) -> void:
 		if sprite.has_meta("route_contact_master"):
 			shadow.position = sprite.get_meta("route_contact_master") as Vector2
 			return
-	shadow.position = Vector2(sprite.position.x, sprite.position.y + _sprite_draw_height(sprite) * 0.5)
+	if sprite.has_meta("route_contact_master"):
+		shadow.position = sprite.get_meta("route_contact_master") as Vector2
+	else:
+		shadow.position = Vector2(sprite.position.x, sprite.position.y + _sprite_draw_height(sprite) * 0.5)
 	shadow.visible = sprite.visible
 
 func _register_target(id: String, node: Node2D, kind: String, payload: String,
@@ -1207,11 +1210,66 @@ func _animal_path_is_safe(definition: Dictionary) -> bool:
 	var path: Array = definition.get("path", []) as Array
 	if path.size() < 2 or float(definition.get("height", 0.0)) <= 0.0:
 		return false
-	for value: Variant in path:
-		var point: Vector2 = value as Vector2
-		if _closest_route_point(point).distance_to(point) < 115.0:
+	var ground: Dictionary = _animal_ground_contract(definition)
+	var values: Array = ground.get("bounds", []) as Array
+	if values.size() != 4:
+		return false
+	var bounds := Rect2(float(values[0]), float(values[1]), float(values[2]), float(values[3]))
+	# These conservative rectangles are wholly on visible stone/grass. The
+	# complete footprint sweep of each straight segment stays within a convex
+	# floor envelope when both endpoint footprints fit; a midpoint-only test
+	# would permit shortcuts across a bush or water gap.
+	var clearance := Vector2(float(definition["height"]) * 0.5 + 8.0, 12.0)
+	for clip: String in ["idle", "startle"]:
+		var feet: Array = ground.get(clip + "_feet_y", []) as Array
+		if feet.size() != 4:
 			return false
+		for value: Variant in feet:
+			if float(value) < 0.0 or float(value) >= 256.0:
+				return false
+	for value: Variant in path:
+		if not value is Vector2:
+			return false
+		var point: Vector2 = value as Vector2
+		if not point.is_finite() or not bounds.encloses(Rect2(point - clearance, clearance * 2.0)):
+			return false
+	for index: int in range(1, path.size()):
+		var first: Vector2 = path[index - 1] as Vector2
+		var second: Vector2 = path[index] as Vector2
+		var sweep := Rect2(first - clearance, clearance * 2.0).expand(second - clearance).expand(second + clearance)
+		for blocked_value: Variant in (layout_contract().get("animal_ground", {}) as Dictionary).get("blocked_rects", []) as Array:
+			var blocked: Array = blocked_value as Array
+			if blocked.size() != 4 or sweep.intersects(Rect2(float(blocked[0]), float(blocked[1]), float(blocked[2]), float(blocked[3]))):
+				return false
+		for route_index: int in range(1, ROUTE_MASTER.size()):
+			var route_first: Vector2 = ROUTE_MASTER[route_index - 1]
+			var route_second: Vector2 = ROUTE_MASTER[route_index]
+			if Geometry2D.segment_intersects_segment(first, second, route_first, route_second) != null:
+				return false
+			var distance: float = minf(
+				first.distance_to(Geometry2D.get_closest_point_to_segment(first, route_first, route_second)),
+				second.distance_to(Geometry2D.get_closest_point_to_segment(second, route_first, route_second)))
+			distance = minf(distance, minf(
+				route_first.distance_to(Geometry2D.get_closest_point_to_segment(route_first, first, second)),
+				route_second.distance_to(Geometry2D.get_closest_point_to_segment(route_second, first, second))))
+			if distance < 115.0:
+				return false
 	return true
+
+func _animal_ground_contract(definition: Dictionary) -> Dictionary:
+	var ground: Dictionary = layout_contract().get("animal_ground", {}) as Dictionary
+	return (ground.get("species", {}) as Dictionary).get(String(definition.get("id", "")), {}) as Dictionary
+
+func _place_animal_frame(actor: Dictionary, clip: String, frame: int, hop: float = 0.0) -> void:
+	var node: Sprite2D = actor.get("node") as Sprite2D
+	var definition: Dictionary = actor["definition"] as Dictionary
+	var ground: Dictionary = _animal_ground_contract(definition)
+	var feet: Array = ground[clip + "_feet_y"] as Array
+	var contact: Vector2 = actor["route_position"] as Vector2
+	node.region_rect = Rect2(Vector2(float(frame % 2), float(frame / 2)) * 256.0, Vector2(256, 256))
+	node.position = contact - Vector2(0.0, (float(feet[frame]) - 128.0) * node.scale.y + hop)
+	node.set_meta("route_contact_master", contact)
+	_sync_contact_shadow(node)
 
 func _bind_next_animal(page: int) -> bool:
 	var definitions: Array[Dictionary] = _animal_definitions_for_page(page)
@@ -1238,7 +1296,6 @@ func _bind_animal(definition: Dictionary) -> bool:
 	node.texture = load(String(definition["idle"])) as Texture2D
 	node.region_enabled = true
 	node.region_rect = Rect2(Vector2.ZERO, Vector2(256, 256))
-	node.position = path[0] as Vector2
 	node.scale = Vector2.ONE * (float(definition["height"]) / 256.0)
 	node.modulate = definition["night_tint"] as Color if m.is_night else definition["day_tint"] as Color
 	node.visible = true
@@ -1247,9 +1304,11 @@ func _bind_animal(definition: Dictionary) -> bool:
 	actor["page"] = int(definition["page"])
 	actor["state"] = "idle"
 	actor["state_t"] = 0.0
-	actor["route_position"] = node.position
+	actor["route_position"] = path[0] as Vector2
 	actor["path_index"] = 1
-	_sync_contact_shadow(node)
+	actor["path_direction"] = 1
+	node.flip_h = false
+	_place_animal_frame(actor, "idle", 0)
 	return true
 
 func _hide_animal(actor: Dictionary, delay: float, advance_roster: bool) -> void:
@@ -1291,21 +1350,21 @@ func _tick_animal_idle(actor: Dictionary, delta: float) -> void:
 	var path: Array = definition["path"] as Array
 	var index: int = int(actor.get("path_index", 1))
 	var target: Vector2 = path[index] as Vector2
-	var old_x: float = node.position.x
-	node.position = node.position.move_toward(target, float(definition["speed"]) * delta)
-	if node.position.distance_to(target) < 1.0:
+	var previous: Vector2 = actor["route_position"] as Vector2
+	var contact: Vector2 = previous.move_toward(target, float(definition["speed"]) * delta)
+	actor["route_position"] = contact
+	if contact.is_equal_approx(target):
 		var direction: int = int(actor.get("path_direction", 1))
 		if index >= path.size() - 1 or index <= 0:
 			direction *= -1
 		actor["path_direction"] = direction
 		actor["path_index"] = clampi(index + direction, 0, path.size() - 1)
-	node.flip_h = node.position.x < old_x
+	if not contact.is_equal_approx(previous):
+		node.flip_h = contact.x < previous.x
 	var timer: float = float(actor.get("state_t", 0.0)) + delta
 	actor["state_t"] = timer
 	var frame: int = int(floor(timer / float(definition["frame_s"]))) % 4
-	node.region_rect = Rect2(Vector2(float(frame % 2), float(frame / 2)) * 256.0, Vector2(256, 256))
-	actor["route_position"] = node.position
-	_sync_contact_shadow(node)
+	_place_animal_frame(actor, "idle", frame)
 
 func _startle_animal(actor: Dictionary) -> void:
 	var node: Sprite2D = actor.get("node") as Sprite2D
@@ -1314,7 +1373,12 @@ func _startle_animal(actor: Dictionary) -> void:
 		return
 	actor["state"] = "startle"
 	actor["state_t"] = 0.0
+	# Run back through the same authored corners to the habitat's west endpoint.
+	# Camera position never chooses an unbounded direction through scenery.
+	var index: int = int(actor.get("path_index", 1))
+	actor["path_index"] = maxi(0, index - 1) if int(actor.get("path_direction", 1)) > 0 else index
 	node.texture = load(String(definition["startle"])) as Texture2D
+	_place_animal_frame(actor, "startle", 0)
 
 func _tick_animal_startle(actor: Dictionary, delta: float) -> void:
 	var node: Sprite2D = actor.get("node") as Sprite2D
@@ -1328,12 +1392,28 @@ func _tick_animal_startle(actor: Dictionary, delta: float) -> void:
 	var hop_end: float = squash_end + ANIMAL_STARTLE_HOP_S
 	var frame: int = 0 if timer < alert_end else 1 if timer < squash_end else 2 if timer < hop_end else 3
 	node.region_rect = Rect2(Vector2(float(frame % 2), float(frame / 2)) * 256.0, Vector2(256, 256))
-	if timer >= squash_end:
-		node.position.x += float(definition["exit_speed"]) * delta * (-1.0 if node.position.x < float(m.g.get("lagoon_camera_x", 0.0)) else 1.0)
-		node.position.y -= sin(clampf((timer - squash_end) / ANIMAL_STARTLE_HOP_S, 0.0, 1.0) * PI) * 3.0
-	if timer >= hop_end + 0.45:
+	var contact: Vector2 = actor["route_position"] as Vector2
+	var path: Array = definition["path"] as Array
+	var index: int = int(actor["path_index"])
+	var travel: float = float(definition["exit_speed"]) * maxf(0.0, timer - maxf(squash_end, timer - delta))
+	while travel > 0.0:
+		var target: Vector2 = path[index] as Vector2
+		var distance: float = contact.distance_to(target)
+		var step: float = minf(distance, travel)
+		contact = contact.move_toward(target, step)
+		travel -= step
+		if step < distance or index == 0:
+			break
+		index -= 1
+	actor["path_index"] = index
+	actor["route_position"] = contact
+	node.flip_h = true
+	# A brief authored surprise hop is relative to the floor, never integrated
+	# into position on successive ticks; the shadow stays on that floor.
+	var hop: float = sin(clampf((timer - squash_end) / ANIMAL_STARTLE_HOP_S, 0.0, 1.0) * PI) * 12.0
+	_place_animal_frame(actor, "startle", frame, hop)
+	if timer >= hop_end + 0.45 and contact.is_equal_approx(path[0] as Vector2):
 		_hide_animal(actor, ANIMAL_RESPAWN_S, true)
-	_sync_contact_shadow(node)
 
 func _animal_at(screen_pos: Vector2) -> Dictionary:
 	var actor: Dictionary = m.g.get("lagoon_animal_actor", {}) as Dictionary
