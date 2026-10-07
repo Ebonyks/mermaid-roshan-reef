@@ -80,7 +80,7 @@ report={'schema':'reef.fashion_walkthrough_check/1','checked_at_utc':datetime.no
         'device_child_owner':'PENDING; none performed','redesign':'PROPOSED / NOT YET PLAYABLE'}
 (out/'evidence/verification.json').write_text(json.dumps(report,indent=2)+'\n')
 entries=[]
-for p in sorted(out.rglob('*')):
+for p in sorted(out.rglob('*'), key=lambda item: item.relative_to(out).as_posix()):
     if not p.is_file() or p.name=='manifest.json':continue
     rel=p.relative_to(out).as_posix()
     e={'path':rel,'sha256':digest(p),'bytes':p.stat().st_size}
@@ -90,7 +90,7 @@ for p in sorted(out.rglob('*')):
 payload=''.join(e['path']+'\t'+e['sha256']+'\n' for e in entries).encode()
 manifest={'schema':'reef.fashion_walkthrough_packet/1','runtime_source_commit':baseline,
           'status':'OWNER_REVIEW_WITH_EXPLICIT_COVERAGE_GAPS','packet_scope':'Non-runtime process reference and proposed redesign; no art or game changes',
-          'payload_sha256':sha256(payload).hexdigest(),'payload_algorithm':'SHA-256 of UTF-8 sorted relative-path TAB file-SHA256 LF records; manifest excludes itself',
+          'payload_sha256':sha256(payload).hexdigest(),'payload_algorithm':'SHA-256 of UTF-8 ordinal/code-point sorted relative-path TAB file-SHA256 LF records; manifest excludes itself',
           'native_capture_method':'Ten old synthetic captures, three new natural-input entry-only captures, nine source-asset references; annotated derivatives preserved separately',
           'steps':25,'proposed_steps':4,'files':entries,
           'acceptance_gaps':['Natural wardrobe entry and state transitions','Embodied dressing/garment contact acting','Natural disguise completion/reload','Birthday-to-lawn handoff','Device/child/owner acceptance']}

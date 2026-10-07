@@ -1,6 +1,6 @@
 {
   "id": "fashion-walkthrough-20261007",
-  "scope": "Owner-requested illustrated process walkthrough of implemented Fashion Designer alpha; source-backed panels distinguish synthetic captures, missing natural-route action/contact/reload evidence and a separately labelled not-yet-playable redesign storyboard. No gameplay, save, art identity, protected-source or release changes. Publication repair preserves exact archived text bytes with a packet-local -text attribute, records the failed remote attempt, and binds historical no-runtime verification to checkpoint41786173 rather than a future engine worktree.",
+  "scope": "Owner-requested illustrated process walkthrough of implemented Fashion Designer alpha; source-backed panels distinguish synthetic captures, missing natural-route action/contact/reload evidence and a separately labelled not-yet-playable redesign storyboard. No gameplay, save, art identity, protected-source or release changes. Publication repair preserves exact archived text bytes with a packet-local -text attribute, records the failed remote attempt, and binds historical no-runtime verification to checkpoint41786173 rather than a future engine worktree. Cross-platform payload production now explicitly sorts ordinal relative paths; diagnostic43318c30 retains the all76 exact-byte matches and aggregate ordering discrepancy.",
   "baseline": "6238934447cf28834874396dfbaff65effafda46",
   "rules": [
     "DL-AUTH-05",
@@ -69,6 +69,7 @@
     "assets_src/review/fashion_walkthrough_20261007/evidence/original_capture_manifest.json",
     "assets_src/review/fashion_walkthrough_20261007/evidence/original_synthetic_capture.gd",
     "assets_src/review/fashion_walkthrough_20261007/evidence/publication_first_attempt_failure.json",
+    "assets_src/review/fashion_walkthrough_20261007/evidence/publication_ordering_diagnostic.json",
     "assets_src/review/fashion_walkthrough_20261007/evidence/runtime_machine_verification.json",
     "assets_src/review/fashion_walkthrough_20261007/evidence/verification.json",
     "assets_src/review/fashion_walkthrough_20261007/evidence/voice_catalog.json",
@@ -149,6 +150,12 @@
     {
       "path": "assets_src/review/fashion_runtime_20261007/manifest.json",
       "purpose": "Preserve diagnostic capture provenance without promoting it to natural input evidence."
+    }
+  ],
+  "lessons": [
+    {
+      "lesson": "Sort manifest payloads explicitly by ordinal relative paths; Windows pathlib ordering is case-insensitive and can differ from other hosts. Individual byte matching and aggregate matching are separate checks.",
+      "write_back": "assets_src/review/fashion_walkthrough_20261007/evidence/check_packet.py explicit relative-path sort"
     }
   ]
 }

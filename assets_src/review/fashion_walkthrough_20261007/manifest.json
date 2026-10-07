@@ -3,8 +3,8 @@
   "runtime_source_commit": "6238934447cf28834874396dfbaff65effafda46",
   "status": "OWNER_REVIEW_WITH_EXPLICIT_COVERAGE_GAPS",
   "packet_scope": "Non-runtime process reference and proposed redesign; no art or game changes",
-  "payload_sha256": "e3fc81e235e06fe9faf971b50c03e9e2dd1be50495e0bf36bcac615a14456449",
-  "payload_algorithm": "SHA-256 of UTF-8 sorted relative-path TAB file-SHA256 LF records; manifest excludes itself",
+  "payload_sha256": "897d4b85d2f566dafc2858afd7f02e4a1417dfe9b7b8623d016cdcba50f96d11",
+  "payload_algorithm": "SHA-256 of UTF-8 ordinal/code-point sorted relative-path TAB file-SHA256 LF records; manifest excludes itself",
   "native_capture_method": "Ten old synthetic captures, three new natural-input entry-only captures, nine source-asset references; annotated derivatives preserved separately",
   "steps": 25,
   "proposed_steps": 4,
@@ -13,6 +13,11 @@
       "path": ".gitattributes",
       "sha256": "f616daec9582855d48d96e971773de6f0e37983a51070833081c683f601d3797",
       "bytes": 73
+    },
+    {
+      "path": "README.md",
+      "sha256": "9615e370cb72be271e8da17c9d7b5a8ee34ebb65b62e0c18414f1ddeb99edc5d",
+      "bytes": 25563
     },
     {
       "path": "annotations/01.png",
@@ -500,8 +505,8 @@
     },
     {
       "path": "evidence/check_packet.py",
-      "sha256": "aa37e457dfe47eebfd1d758760dfd2a6b145b22aea135f7327f5ef525acd8fab",
-      "bytes": 6713
+      "sha256": "737ae0b259a76d1f888244f68b727ace43130c6e30639331eac57db531f3bd17",
+      "bytes": 6783
     },
     {
       "path": "evidence/frame_binding_revalidation.json",
@@ -554,6 +559,11 @@
       "bytes": 4457
     },
     {
+      "path": "evidence/publication_ordering_diagnostic.json",
+      "sha256": "5b90b243d863acd4423d7b61b744aeaf9c231e929e2d560c053c15c311b4c144",
+      "bytes": 15587
+    },
+    {
       "path": "evidence/runtime_machine_verification.json",
       "sha256": "6b6237c76b29b7d61a786e855c98f5fbfbdc59a6f1be0d2b7c64b580f3816deb",
       "bytes": 29653,
@@ -564,7 +574,7 @@
     },
     {
       "path": "evidence/verification.json",
-      "sha256": "7f52b47b719be5d44de3fbdb359a4992734fb430af6707d0f54213cda91aba08",
+      "sha256": "80da702878faa60d94fd93df4bbc08dec5bf536c5ad3a61ecdd48034ba99559b",
       "bytes": 1601
     },
     {
@@ -871,11 +881,6 @@
       "path": "native/natural_input_observation.json",
       "sha256": "9c62800938c95bf573805d57e37aa962c419f4d19851486adfb2886f23ab5d04",
       "bytes": 871
-    },
-    {
-      "path": "README.md",
-      "sha256": "9615e370cb72be271e8da17c9d7b5a8ee34ebb65b62e0c18414f1ddeb99edc5d",
-      "bytes": 25563
     },
     {
       "path": "source_bindings.json",
