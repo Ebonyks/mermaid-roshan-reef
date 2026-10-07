@@ -82,7 +82,13 @@ def check_link(url):
     assert target.is_relative_to(P),url
     assert target.exists(),url
 for url in page.links:check_link(url)
-for url in re.findall(r'\]\(([^)]+)\)',(P/'README.md').read_text(encoding='utf-8')):check_link(url)
+readme=(P/'README.md').read_text(encoding='utf-8')
+for url in re.findall(r'\]\(([^)]+)\)',readme):check_link(url)
+readme_steps=re.findall(r'^### ([BLOR]\d{2}) — ',readme,re.M)
+assert readme_steps==[s['id'] for s in steps], 'README must include each ordered step exactly once'
+readme_images=re.findall(r'^!\[[^\n]*\]\(([^)]+)\)',readme,re.M)
+assert readme_images==[s['image'] or 'references/'+s['reference']+'.png' for s in steps]
+assert readme.count('**SOURCE ONLY · NO NATIVE SCREENSHOT.**')==sum(not s['image'] for s in steps)
 for name in ['NATIVE_TERMINAL_A5AH.json','PLACE_ENDPOINT_CAP_OVERRUN_A5AT.json']:
     original=json.loads((P/'evidence'/name).read_text(encoding='utf-8'))
     assert original['status'].startswith('FAIL'),name
@@ -92,7 +98,7 @@ out=dict(utc=datetime.datetime.now(datetime.timezone.utc).isoformat(),status='PA
     steps=33,native_originals=25,asset_provenance_rows=len(assets),native_size=[1280,720],
     exact_original_hashes=True,embedded_original_bytes=True,source_reconstruction=True,
     voices_match_snapshot_source=True,placement_counts_match_capture=True,
-    links_resolve=True,original_failures_preserved=True,runtime_diff='NONE',
+    links_resolve=True,readme_steps_once=True,github_image_fallbacks=True,original_failures_preserved=True,runtime_diff='NONE',
     runtime_validation='Exact green baseline Probe suite37609978581 with unchanged runtime bytes; no new engine/import/capture run',
     browser_review='Desktop1280x720 hero, sorting arrows, raw-toggle and ordinary source-only card inspected; responsive/physical-device acceptance not claimed',
     visual_acceptance='NOT_ESTABLISHED; no numeric grading or fresh-runtime/device/child/owner acceptance')

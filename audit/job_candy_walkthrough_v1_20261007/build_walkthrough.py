@@ -138,7 +138,7 @@ for s in steps:
 save_json(PKG/'STEPS.json', dict(steps=steps, annotation_coordinate_space='Observed1280x720 input trace anchors; diagram overlays are review instructions only', native_selected_count=len(bindings), unscored=True))
 save_json(PKG/'ASSET_PROVENANCE.json', dict(assets=assets, protected_originals_modified=False, new_generation_calls=0, no_character_or_scene_redraw=True))
 
-intro = 'This walkthrough shows Candy Maker’s recorded birthday preview, plus ordinary play and save/resume steps. Native images are preserved; source-only panels identify missing screenshots. The unpublished recorded preview predates a held placement drawing change. This packet documents preview behavior; it does not certify the shipping build or establish 4.6/5 clearance.'
+intro = 'This walkthrough shows Candy Maker’s recorded birthday preview, plus ordinary play and save/resume steps. Native images are preserved; source-only panels identify missing screenshots. The recorded preview comes from an unintegrated runtime candidate and predates a held placement drawing change. This packet documents preview behavior; it does not certify the shipping build or establish 4.6/5 clearance.'
 limits = 'Godot 4.7.2-stable · Mobile renderer · Speedy · Desktop 1280×720. Prior story used an isolated prerequisite fixture; Candy itself was earned with 173 real touch/drag events. Ordinary and reload results have headless evidence only. Sparse PLACE/reward frames are not full-speed or 30 fps coverage. Action audio is scripted, not recorded.'
 status = 'Machine logic and capture checks are separate from visual/contact, device, child and owner acceptance. No scores or findings change. Cake support and tool choice remain pending. The original native-supervisor filename failure and the later 600 s preparation-cap failure are preserved.'
 sections = {
@@ -168,7 +168,13 @@ md = ['# Candy Maker — step-by-step visual walkthrough','',intro,'',limits,'',
 for g,(title,desc) in sections.items():
     md += ['## '+title,'',desc,'']
     for s in steps:
-        md += ['### '+s['id']+' — '+s['title'],'',f'![{s["status"]}: {s["title"]}]({s["image"] or s["annotation"]})','',f'[Separate annotation / full reference]({s["annotation"]})'+(f' · [Full-size native original]({s["image"]})' if s['image'] else ''),'',f'**See:** {s["see"]}','',f'**Touch:** {s["gesture"]}','']
+        if s['group'] != g:
+            continue
+        md += ['### '+s['id']+' — '+s['title'],'']
+        if not s['image']:
+            md += ['**SOURCE ONLY · NO NATIVE SCREENSHOT.** Approved artwork reference; this is not a gameplay frame.','']
+        md_image = s['image'] or 'references/'+s['reference']+'.png'
+        md += [f'![{s["status"]}: {s["title"]}]({md_image})','',f'[Separate annotation / full reference]({s["annotation"]})'+(f' · [Full-size native original]({s["image"]})' if s['image'] else ''),'',f'**See:** {s["see"]}','',f'**Touch:** {s["gesture"]}','']
         if s['voice']:
             caption_kind = 'Voice-catalog caption' if s['group']=='birthday' else 'Scripted voice cue from phase source'
             md += [f'**Scripted instruction:** “{s["voice"]}” {caption_kind}: “{s.get("spoken",s["voice"])}” (audio not recorded).','']

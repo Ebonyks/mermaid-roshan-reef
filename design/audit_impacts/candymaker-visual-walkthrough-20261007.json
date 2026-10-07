@@ -95,7 +95,9 @@
     "audit/job_candy_walkthrough_v1_20261007/gates/document-tests.receipt.json",
     "audit/job_candy_walkthrough_v1_20261007/gates/document-tests.stderr.log",
     "audit/job_candy_walkthrough_v1_20261007/gates/document-tests.stdout.log",
+    "audit/job_candy_walkthrough_v1_20261007/gates/github-presentation-correction.json",
     "audit/job_candy_walkthrough_v1_20261007/gates/package-initial-failure.json",
+    "audit/job_candy_walkthrough_v1_20261007/gates/remote-initial-publication.json",
     "audit/job_candy_walkthrough_v1_20261007/index.html",
     "audit/job_candy_walkthrough_v1_20261007/native/frame-0025.png",
     "audit/job_candy_walkthrough_v1_20261007/native/frame-0033.png",
@@ -188,7 +190,7 @@
       "evidence": "audit/job_candy_walkthrough_v1_20261007/REMOTE_VERIFICATION.json"
     }
   ],
-  "acceptance_gaps": "Source-bound review documentation only. Captured 480 preview is unpublished; current A319 has no new native/engine evidence. Continuous COAT/SORT/GLAZE, ordinary native, real preceding-story travel, native load/replay, exact fresh-runtime authority, M11/device/child/owner/contact/support acceptance remain open. No finding lifecycle or numeric score changes.",
+  "acceptance_gaps": "Source-bound review documentation only. Captured 480 preview is from an unintegrated runtime candidate; current A319 has no new native/engine evidence. Continuous COAT/SORT/GLAZE, ordinary native, real preceding-story travel, native load/replay, exact fresh-runtime authority, M11/device/child/owner/contact/support acceptance remain open. No finding lifecycle or numeric score changes.",
   "read_sources": [
     "AGENTS.md",
     "audit/MASTER_AUDIT_2026-08-09.md#0-planning-entry",
@@ -220,5 +222,15 @@
     "clearance_goal_status": "BLOCKED retained",
     "no_fast_or_model_changes": true
   },
-  "completion_recheck": "Same master planning/index/section9, DL rules, findings and canonical Chapter2 spine/cake/animation sources; new source-only ledger row only. Findings and master task routes retain original facts/lifecycles."
+  "completion_recheck": "Same master planning/index/section9, DL rules, findings and canonical Chapter2 spine/cake/animation sources; new source-only ledger row only. Findings and master task routes retain original facts/lifecycles.",
+  "publication_history": [
+    {
+      "payload_revision": "d0c9d4bf0d41ad6a14a4e42d4880e0638d2542d4",
+      "remote_status": "PASS_ANONYMOUS_IMMUTABLE_REMOTE_BYTES",
+      "receipt": "audit/job_candy_walkthrough_v1_20261007/gates/remote-initial-publication.json",
+      "presentation": "Superseded by corrected GitHub raster fallback and once-only section filtering; original receipt preserved."
+    }
+  ],
+  "presentation_correction": "GitHub blocked source-only SVG embeds; README uses approved PNG references with explicit no-native labels. Duplicate Markdown sections removed. Desktop HTML retained33 steps. New validator checks33 ordered headings exactly once and10 labeled gap panels.",
+  "whitespace_diagnostic": "Default git diff --check initially rejected preserved CRLF endings. git -c core.whitespace=cr-at-eol diff HEAD^ HEAD --check passed; source bytes were not normalized or altered."
 }
