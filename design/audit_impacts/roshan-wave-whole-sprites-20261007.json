@@ -35,6 +35,7 @@
     "design/reference/owner_decisions.json",
     "docs/handoffs/codex_roshan_wave_whole_sprites_2026-10-07/MANIFEST.json",
     "docs/handoffs/codex_roshan_wave_whole_sprites_2026-10-07/README.md",
+    "docs/handoffs/codex_roshan_wave_whole_sprites_2026-10-07/REMOTE_VERIFICATION.json",
     "docs/handoffs/codex_roshan_wave_whole_sprites_2026-10-07/data/claude_rev1_cutout.json",
     "docs/handoffs/codex_roshan_wave_whole_sprites_2026-10-07/data/claude_rev1_joints.json",
     "docs/handoffs/codex_roshan_wave_whole_sprites_2026-10-07/data/claude_rev2_joints.json",
@@ -52,6 +53,11 @@
       "command": "python -B tools/record_owner_decision.py --check --base origin/dev",
       "result": "PASS",
       "evidence": "ODR-ROSHAN-CONSTANT-SIZE-20261007 and ODR-SPRITE-WHOLE-UNIT-20261007 appended; register ALL OK."
+    },
+    {
+      "command": "Anonymous HTTPS fetch of every handoff file at ce45bb13",
+      "result": "PASS",
+      "evidence": "docs/handoffs/codex_roshan_wave_whole_sprites_2026-10-07/REMOTE_VERIFICATION.json: 9/9 files match the manifest and local bytes, including the approved atlas."
     },
     {
       "command": "python -B tools/audit_document_authority.py",
