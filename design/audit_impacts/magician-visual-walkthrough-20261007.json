@@ -23,6 +23,8 @@
   ],
   "finding_scope": "Related evidence/reachability gaps only; no runtime repair or finding lifecycle change.",
   "files": [
+    ".gitattributes",
+    "ASSET_LICENSES.md",
     "assets_src/review/magician_walkthrough_20261007/BUILD_METHOD.py.txt",
     "assets_src/review/magician_walkthrough_20261007/FILES.json",
     "assets_src/review/magician_walkthrough_20261007/KEY_SEQUENCE.png",
@@ -93,9 +95,8 @@
     "assets_src/review/magician_walkthrough_20261007/panels/P1_asset_board.png",
     "assets_src/review/magician_walkthrough_20261007/source_snapshots/opera_career_world_2d.gd.txt",
     "assets_src/review/magician_walkthrough_20261007/source_snapshots/opera_gesture_surface.gd.txt",
-    "ASSET_LICENSES.md",
-    "design/05_DOC_LEDGER.md",
-    ".gitattributes"
+    "audit/magician_walkthrough_delivery_20261007.json",
+    "design/05_DOC_LEDGER.md"
   ],
   "validation": [
     {
@@ -120,8 +121,8 @@
     },
     {
       "command": "Public anonymous exact-revision GitHub byte verification",
-      "result": "PENDING",
-      "evidence": "Publication receipt to follow"
+      "result": "PASS",
+      "evidence": "audit/magician_walkthrough_delivery_20261007.json: anonymous exact-revision 320f044acf578e037be02d380b311ddc166f75b2, 74/74 files and SHA-256 verified; the receipt follow-up changes only this delivery record and audit-impact metadata, with the walkthrough payload unchanged."
     }
   ],
   "acceptance_gaps": "All new panels are asset-backed illustrations with native capture gaps. No current natural-route/input/contact/action/finish/return/save proof, no independent4.6 re-review or device/child/owner session. Existing art and storage questions/development pause remain; generation0. No finding lifecycle changes.",
