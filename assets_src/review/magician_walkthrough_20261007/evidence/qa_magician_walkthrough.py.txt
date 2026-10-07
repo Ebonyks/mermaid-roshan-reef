@@ -1,0 +1,63 @@
+from pathlib import Path
+from PIL import Image
+from html.parser import HTMLParser
+import json, hashlib, base64, importlib.util, datetime, subprocess
+
+BUILDER=Path(__file__).with_name('build_magician_walkthrough.py')
+spec=importlib.util.spec_from_file_location('builder', BUILDER)
+b=importlib.util.module_from_spec(spec);spec.loader.exec_module(b)
+root=b.ROOT;out=b.OUT
+manifest=json.loads((out/'WALKTHROUGH_MANIFEST.json').read_text())
+doc=(out/'index.html').read_text(encoding='utf-8')
+for step in manifest['steps']:
+    for a in step['source_anchors']:
+        if not a['line']:
+            old=a['symbol'];a['symbol']='PATHS' if old=='ROOM_PATHS' else old
+            temp={'source_anchors':[a['path']+':'+a['symbol']]};b.resolve_anchors(temp)
+            n=temp['source_anchors'][0];assert n['line'],n
+            doc=doc.replace('<code>'+a['path']+'</code>','<code>'+a['path']+':'+str(n['line'])+'</code>')
+            a.update(n)
+(out/'WALKTHROUGH_MANIFEST.json').write_text(json.dumps(manifest,indent=2)+'\n',encoding='utf-8')
+(out/'index.html').write_text(doc,encoding='utf-8')
+(out/'BUILD_METHOD.py.txt').write_bytes(BUILDER.read_bytes())
+
+class Parser(HTMLParser):
+    def __init__(self):super().__init__();self.links=[];self.imgs=[];self.ids=[]
+    def handle_starttag(self,tag,attrs):
+        a=dict(attrs)
+        if 'id' in a:self.ids.append(a['id'])
+        if tag=='a':self.links.append(a.get('href',''))
+        if tag=='img':self.imgs.append(a['src'])
+p=Parser();p.feed(doc)
+assert len(p.imgs)==22 and len(manifest['steps'])==22
+checks=[]
+for i,s in enumerate(manifest['steps']):
+    raw=out/s['raw_panel'];annotated=out/s['annotated_panel']
+    assert Image.open(raw).size==Image.open(annotated).size==(1280,720)
+    assert b.sha(annotated.read_bytes())==s['image_sha256']
+    assert b.sha(raw.read_bytes())==s['unannotated_sha256']
+    assert b.sha(base64.b64decode(p.imgs[i].split(',',1)[1]))==s['image_sha256']
+    assert s['coverage_gap'] and s['input'] and s['voice'] and s['action']
+    assert s['evidence_class']=='ASSET_BACKED_ILLUSTRATION / NATIVE_CAPTURE_GAP'
+    for a in s['source_anchors']:
+        assert a['line'] and b.sha((root/a['path']).read_bytes())==a['source_sha256']
+    checks.append({'step':s['id'],'image_hashes':'PASS','source_anchors':'PASS','capture_claim':'GAP'})
+for href in p.links:
+    if href.startswith('#'):assert href[1:] in p.ids
+    elif not href.startswith(('https:','http:')):assert (out/href).is_file(),href
+for s in manifest['sources']:
+    if s['path']=='design/05_DOC_LEDGER.md':
+        s['hash_scope']='Task-start authority bytes, before this walkthrough added its own scoped ledger row.'
+        s['post_document_edit_sha256']=b.sha((root/s['path']).read_bytes())
+    else:assert b.sha((root/s['path']).read_bytes())==s['sha256'],s['path']
+    if 'dirty_source_snapshot' in s:assert b.sha((out/s['dirty_source_snapshot']).read_bytes())==s['sha256']
+assert Image.open(out/'KEY_SEQUENCE.png').size==(1600,2460)
+snapshot=json.loads((out/'SOURCE_SNAPSHOT.json').read_text())
+snapshot['source_files']=manifest['sources']
+(out/'SOURCE_SNAPSHOT.json').write_text(json.dumps(snapshot,indent=2)+'\n',encoding='utf-8')
+(out/'WALKTHROUGH_MANIFEST.json').write_text(json.dumps(manifest,indent=2)+'\n',encoding='utf-8')
+receipt={'time_utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'status':'PASS','checks':checks,'source_files_unchanged':len(manifest['sources']),'html_images':len(p.imgs),'valid_links':len(p.links),'unresolved_anchors':0,'native_gameplay_captures':0,'new_generation':0,'review':'All 22 panels visually inspected in full contact sheet; five gesture boards and entry/stage/variant panels reviewed. Source-art review only; separate native/device/child/owner gates remain pending.'}
+(out/'evidence/WALKTHROUGH_QA.json').write_text(json.dumps(receipt,indent=2)+'\n',encoding='utf-8')
+b.refresh()
+assert sum(f.stat().st_size for f in out.rglob('*') if f.is_file())<40*1024*1024
+print(json.dumps(receipt))

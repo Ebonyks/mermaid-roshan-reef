@@ -1,0 +1,25 @@
+{
+  "result": "FAIL",
+  "engine_result": "UNKNOWN",
+  "engine_exit_code": "UNKNOWN",
+  "time_utc": "2026-10-07T04:56:41.301060+00:00",
+  "failed_wrapper": "run_magician_native.py import_baseline --timeout720",
+  "failure": "OSError: [Errno28] No space left on device while writing the receipt. Engine completion metadata was not preserved.",
+  "preserved": [
+    {
+      "path": "audit\\magician_clearance_20261006\\import_baseline.log",
+      "bytes": 779,
+      "sha256": "eaa5e8a487fe32ccd7b4078f6a227fc690946d9bac95afcd8c946f3fbb51b502"
+    },
+    {
+      "path": "audit\\magician_clearance_20261006\\import_baseline.json",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "later_attempts": [
+    "import_baseline_hcache.json",
+    "import_baseline_verbose.json"
+  ],
+  "interruption_check": "Verbose retry had already exited before the own-PID stop command; no successful termination or resource-coordination cancellation is claimed."
+}

@@ -1,0 +1,298 @@
+from pathlib import Path
+from PIL import Image, ImageDraw, ImageFont
+import base64, hashlib, html, json, math, re, subprocess, datetime, textwrap
+
+ROOT = Path(r'C:/Users/Peter/.codex/worktrees/magician-clearance-20261006/mermaid-roshan-reef')
+OUT = ROOT / 'assets_src/review/magician_walkthrough_20261007'
+BASE = '96274aab9cebd563b10846a4a48de5d017588563'
+REPO = 'https://github.com/Ebonyks/mermaid-roshan-reef'
+BRANCH = 'codex/magician-clearance-20261006'
+IMPACT = ROOT / 'design/audit_impacts/magician-visual-walkthrough-20261007.json'
+F = lambda n: ImageFont.truetype('C:/Windows/Fonts/arial.ttf', n)
+FB = lambda n: ImageFont.truetype('C:/Windows/Fonts/arialbd.ttf', n)
+sha = lambda b: hashlib.sha256(b).hexdigest()
+sources = {}
+used = set()
+
+def source(path):
+    p = ROOT / path
+    if path not in sources:
+        b = p.read_bytes()
+        try:
+            baseline = subprocess.check_output(['git','show',f'{BASE}:{path}'], cwd=ROOT)
+            same = sha(b) == sha(baseline)
+        except subprocess.CalledProcessError:
+            same = False
+        sources[path] = dict(path=path, sha256=sha(b), bytes=len(b), equals_baseline=same,
+                             immutable_baseline_url=f'{REPO}/blob/{BASE}/{path}')
+        if p.suffix.lower() == '.png':
+            im = Image.open(p)
+            sources[path].update(dimensions=list(im.size), mode=im.mode,
+                license_provenance='Existing project runtime artwork; original ASSET_LICENSES.md remains authoritative. Review reuse grants no new acceptance.')
+    used.add(path)
+    return p
+
+def asset(name):
+    return Image.open(source('assets/opera/worlds/' + name)).convert('RGBA')
+
+def paste(im, art, box):
+    x,y,w,h = box
+    a = art.copy()
+    a.thumbnail((int(w), int(h)), Image.Resampling.LANCZOS)
+    im.alpha_composite(a, (int(x + (w-a.width)/2), int(y + (h-a.height)/2)))
+
+def actor(cell):
+    a = asset('actors/animation/roshan_magician_sheet_a.png')
+    x,y = (cell%4)*256, (cell//4)*256
+    return a.crop((x,y,x+256,y+256))
+
+def tiled(template, cols, rows, w=1280, h=720):
+    im = Image.new('RGBA',(w,h))
+    for y in range(rows):
+        for x in range(cols):
+            p = source(template.format(x=x,y=y))
+            a = Image.open(p).convert('RGBA').resize((w//cols,h//rows),Image.Resampling.LANCZOS)
+            im.alpha_composite(a,(x*w//cols,y*h//rows))
+    return im
+
+def context(kind):
+    if kind == 'venue':
+        return tiled('assets/flats/castle/opera_house_venue_2d/background_tiles/room_opera_house_venue_background_r{y}_c{x}.png',4,2)
+    if kind == 'hall':
+        return tiled('assets/flats/castle/rooms/background_tiles/room_opera_hall_background_r{y}_c{x}.png',4,2)
+    return tiled('assets/opera/worlds/backdrops/'+kind+'_magician_c{x}r{y}.png',2,2)
+
+def board():
+    im=Image.new('RGBA',(1280,720),'#eee8f5')
+    d=ImageDraw.Draw(im)
+    for x in [24,444,864]:
+        d.rounded_rectangle((x,140,x+392,592),radius=26,fill='#fbf9fd',outline='#d8cce6',width=2)
+    return im
+
+def line(d,points,color='#12b6a1',width=9):
+    d.line(points,fill=color,width=width,joint='curve')
+    if len(points)>1:
+        x,y=points[-1];a=math.atan2(y-points[-2][1],x-points[-2][0])
+        d.polygon([(x,y),(x-25*math.cos(a-.55),y-25*math.sin(a-.55)),(x-25*math.cos(a+.55),y-25*math.sin(a+.55))],fill=color)
+
+def ring(d,x,y,r=38):
+    d.ellipse((x-r,y-r,x+r,y+r),outline='#12b6a1',width=8)
+    d.ellipse((x-7,y-7,x+7,y+7),fill='#12b6a1')
+
+def wrap(d,text,xy,font,width,fill,spacing=5):
+    x,y=xy; words=text.split(); rows=[]; row=''
+    for word in words:
+        s=(row+' '+word).strip()
+        if d.textlength(s,font=font)>width and row: rows.append(row);row=word
+        else:row=s
+    if row:rows.append(row)
+    for row in rows:
+        d.text((x,y),row,font=font,fill=fill);y+=font.size+spacing
+    return y
+
+def triad(kind):
+    im=board(); boxes=[(42,191,355,355),(462,191,355,355),(882,191,355,355)]
+    if kind=='vanish':
+        paste(im,asset('widgets/widget_magic_vanish_reveal.png'),boxes[0])
+        paste(im,asset('widgets/widget_magic_vanish_wand.png'),boxes[1])
+        paste(im,asset('widgets/widget_magic_vanish_hat.png'),boxes[2])
+    elif kind=='track':
+        hats=asset('widgets/widget_lanes_magician_lit.png')
+        for box in boxes:
+            for i in range(3):paste(im,hats.crop((i*256,0,(i+1)*256,256)),(box[0]+i*118,285,112,145))
+    elif kind=='rope':
+        paste(im,asset('hotspots/magician_rope.png'),boxes[0])
+        # The curve is the current trace corridor, not a replacement rope drawing.
+        d=ImageDraw.Draw(im)
+        for box,amount in [(boxes[1],.52),(boxes[2],1.0)]:
+            pts=[(box[0]+box[2]*(.16+.68*t),box[1]+box[3]*(.27+(1-(2*t-1)**2)*.42)) for t in [j/80*amount for j in range(81)]]
+            d.line(pts,fill='#f2c873',width=11,joint='curve')
+    elif kind=='cabinet':
+        for i in [0,1]:paste(im,asset('widgets/widget_magic_cabinet_closed.png'),boxes[i])
+        paste(im,asset('widgets/widget_magic_cabinet_reveal.png'),boxes[2])
+    elif kind=='portal':
+        for box in boxes:paste(im,asset('widgets/widget_portal_magician_mover.png'),box)
+        # Code-derived fallback aperture rings. Architectural cutout stays upright.
+        d=ImageDraw.Draw(im)
+        for i,box in enumerate(boxes):
+            cx=box[0]+box[2]/2;cy=box[1]+box[3]/2
+            for rr in [28,47,66]:d.arc((cx-rr,cy-rr,cx+rr,cy+rr),30 if i<2 else 0,340 if i<2 else 360,fill='#f6d177',width=6)
+    return im
+
+def refs(*values): return list(values)
+
+steps=[]
+def step(n,title,part,kind,see,input,voice,action,change,next_,gap,anchors,labels=None):
+    steps.append(dict(id=n,title=title,part=part,kind=kind,see=see,input=input,voice=voice,
+                      action=action,change=change,next=next_,coverage_gap=gap,source_anchors=anchors,
+                      labels=labels or ['Before','Child action','After'],evidence_class='ASSET_BACKED_ILLUSTRATION / NATIVE_CAPTURE_GAP'))
+
+W='scripts/opera_career_world_2d.gd';G='scripts/opera_gesture_surface.gd'
+step('01','Reach the Opera Hall','Entry','hall','The Castle Opera Hall, after the cleaning/story route allows Opera.','Enter the Hall and select its stage-star entrance. The exact star and approach require a current route capture.','When the venue opens: “The grand foyer is open! Tap a glowing show door!” (home).','The room route opens the 2D venue; this is entry, not earned magic progress.','The Castle room gives way to the painted Opera House.','Select the Magician door in step 02.','Normal fresh-save journey and stage-star screen/input have not been captured. MA-PLAY-005 remains a separate story-route blocker; this review does not repair it.',refs('scripts/main.gd:_start_opera','scripts/castle_career_routes.gd:open_opera_venue'))
+step('02','Choose the Magician door','Entry','venue','The purple door on the middle balcony: act 8, The Grand Illusion Duel.','Tap its painted door region: x900–1026, y236–396 on the 1280×720 source canvas.','Entry configuration: “Abracadabra! Face the magician imp in a whole illusion duel: hide and track the bunny-fish, melt the rope, open the cabinet and charge the giant star portal!”','The venue actor moves toward the selected doorway for 0.55s before the launch callback.','The career room opens at the first practice activity, or a valid saved checkpoint.','Find the wand invitation in step 03.','Painting reconstruction and measured hit region are source-backed; no current native launch screenshot or audible entry recording is verified.',refs('scripts/opera_house_venue_2d.gd:_choose_career','scripts/opera_house.gd:ACTS','scripts/main.gd:_start_opera_now'))
+step('03','Approach the wand','Practice','world_wand','The wand invitation at the violet shell stage on the left.','Tap the active invitation; Roshan follows the approved route to its approach point.','“Hold the wand to hide Lamba under a hat!” — op_magician_vanish_stage.','The travel atlas is selected during the route. Arrival and the hotspot opening finish before the task opens.','The activity reveals from its room object; walking alone earns no VANISH progress.','Keep one finger on the wand in step 04.','Roshan’s entire approach/arrival/hand contact needs a native input capture. The static illustration does not establish embodied acting.',refs(W+':_on_hotspot_pressed',W+':_open_task','scripts/opera_stage_paths.gd:PATHS'))
+step('04','Hold the wand: VANISH','Practice','vanish','Lamba, the purple hat and pearl-tipped wand.','Press the wand’s generous hit region and keep one finger down for about 3.8 active seconds. Releasing stops the hold.','“Hold the wand to hide Lamba under a hat!” — op_magician_vanish_stage.','The wand moves/rotates, a separate hat moves across, and the Lamba reveal cutout fades. Roshan uses the reviewed work-row cell 0 (atlas cell 8).','The reveal cutout becomes hidden by 72% fill; the hat and star finish are held after earned completion.','After the 2.2s finished-picture hold, select the hat invitation (step 05).','The current cutout includes hat pixels: this is the exact source asset, not an isolated-Lamba repair. Whole-figure wand/hand contact, timing and finish occlusion remain uncaptured.',refs(W+':PHASES',W+':_process',G+':_draw_magic_vanish_scene',G+':_magic_vanish_wand_hit_rect'))
+step('05','Approach the hats','Practice','world_hats','The hat invitation beside the pearl tide pool in the left foreground.','Tap the active hat; allow Roshan to travel and the invitation to open.','“Follow the glowing hat through the shuffle!” — op_magician_track.','The actor travels to the pool station, then changes to the reviewed presenting pose.','The hat activity appears; the shuffle is about to show the answer.','Watch and choose in step 06.','No current travel/contact transition capture for this station.',refs(W+':_on_hotspot_pressed',W+':_open_task','scripts/opera_hotspot_catalog.gd:SPECS'))
+step('06','Watch and tap: TRACK','Practice','track','Three differently banded hats and a moving answer glow.','Follow the glowing hat through the 1.5s glide, then tap its lane. Repeat the visible shuffles.','“Follow the glowing hat through the shuffle!” — op_magician_track.','The answer glow glides from the flashed lane to the target lane; a decoy arc crosses it. Roshan stays in reviewed idle cell 2. The code does not shuffle the three painted hats themselves.','A correct choice pays one unit, selects a new target and starts another shuffle; goal is 5 units. A wrong pick re-flashes the same answer and uses mercy credit.','After the earned finish hold, open the rope invitation in step 07.','The illustrated arrow names glow travel, not physical hat relocation. Current native answer visibility, wrong-choice feedback and acting are missing.',refs(G+':start_shuffle',G+':_press',W+':_on_gesture',W+':REVIEWED_HALL_POSES'))
+step('07','Approach the rope','Practice','world_rope','The rope invitation at the centre teal shell stage.','Tap the active rope; Roshan follows the station route before the activity opens.','“Swipe the knotted rope into one long ribbon!” — op_magician_rope_stage.','Her travel sequence reaches the teal station; reviewed idle cell 3 presents the activity.','The ordered rope trace becomes available.','Trace left to right in step 08.','Current approach/arrival, exact visible rope/corridor alignment and hand contact need native captures.',refs(W+':PHASE_STATIONS',W+':_on_hotspot_pressed','scripts/opera_hotspot_catalog.gd:SPECS'))
+step('08','Trace the curve: ROPE','Practice','rope','The authored rope source and a curved route between two knots.','Start at the left/current earned point and trace down through the middle, then up to the right. Small corrections and a lifted finger can resume.','“Swipe the knotted rope into one long ribbon!” — op_magician_rope_stage.','Accepted forward travel follows the broad corridor; reverse scrubbing, a large shortcut or off-path travel earns nothing. Roshan presents in idle cell 3.','The earned traced line extends to the endpoint. The code draws a curved path, not a newly authored straightening-rope animation.','After the finish hold, the stage performance begins (step 09).','The illustrated gold curve follows the source formula; it is not a game screenshot. Whole-rope transformation and Roshan’s truthful contact are unverified.',refs(G+':_trace_demo_point',G+':_authored_trace_drag',G+':_draw_trace_magician_subject',W+':_on_gesture'))
+step('09','Begin the stage performance','Performance','stage','The proscenium, Roshan at left and the magician imp at right.','Perform the same five job verbs on the centre activity. The three practice verbs repeat on stage before the two finale verbs.','The VANISH instruction starts again: “Hold the wand to hide Lamba under a hat!”','Stage setup places a 300px actor at (48,264), a 220px rival at (974,294), and a 476×340 activity at (402,216).','Room invitation walking ends; stage phases open directly. Competition timing begins only with accepted real stage input.','Stage VANISH → TRACK → ROPE (steps 10–12).','The composition is an asset-board layout from code, with no runtime HUD/timing capture. Rival timing and local actor/tool contact remain open.',refs('scripts/opera_performance_plan.gd:build',W+':_performance_stage_layout',W+':_performance_input'))
+step('10','Stage VANISH','Performance','vanish','The same hat, Lamba reveal and wand, now centre stage.','Repeat the wand hold from step 04; practice progress does not fill this new stage activity.','“Hold the wand to hide Lamba under a hat!” — op_magician_vanish_stage.','The same object-state motion runs beside the rival performance; Roshan’s reviewed work pose remains the same.','A newly earned hidden-Lamba endpoint counts toward the stage performance.','Finish hold, then stage TRACK (step 11).','Shared object art/gesture is illustrated again to show ordered stage coverage. No earned native replay has been captured.',refs(W+':_performance_stage_layout','scripts/opera_performance_plan.gd:build',G+':_draw_magic_vanish_scene'))
+step('11','Stage TRACK','Performance','track','The three hat lanes in the stage activity.','Follow each newly moving answer glow and tap its current lane, as in step 06.','“Follow the glowing hat through the shuffle!” — op_magician_track.','The presenting pose and live glow/decoy repeat; stage input additionally records performance misses and progress quarters.','Five units of this stage’s earned work complete the phase.','Finish hold, then stage ROPE (step 12).','Stage target sequence depends on phase index and rival step. No invented fixed answer order is shown.',refs(W+':_open_task',W+':_on_gesture',W+':_performance_record_progress'))
+step('12','Stage ROPE','Performance','rope','The same two knots and broad curved trace, centre stage.','Repeat the ordered left-to-right trace from step 08.','“Swipe the knotted rope into one long ribbon!” — op_magician_rope_stage.','The path fills from genuine forward motion; the presenting actor pose does not itself prove rope contact.','Reaching the earned endpoint completes this stage phase and banks the checkpoint.','Finish hold, then CABINET (step 13).','There is no native midpoint/contact or earned endpoint capture for this stage repeat.',refs(G+':_authored_trace_drag',W+':_performance_bank_current',W+':_advance_completed_phase'))
+step('13','Pull down: CABINET','Performance','cabinet','The closed coral-and-teal cabinet with a visible gold handle.','Press the central handle and pull mainly downward. At this stage size, about 95.2px effective downward displacement commits the opening.','“Swipe down to open the magic cabinet!” — op_magician_cabinet_stage.','The handle follows the pull. A full pull commits the reveal, then opening time continues toward its endpoint; Roshan stays in reviewed idle cell 3.','The closed cutout fades and the Lamba reveal fades in. A partial released/cancelled pull resets and re-hints; the committed opening remains earned.','Finish hold, then the star portal in step 14.','The current implementation crossfades two full cabinet images; this board does not prove physical door articulation or hand/handle contact.',refs(G+':_cabinet_press',G+':_cabinet_drag',G+':_draw_magic_cabinet',W+':PHASES'))
+step('14','Draw circles: PORTAL','Performance','portal','The upright curtained doorway and glowing aperture rings.','Trace around the visible aperture ring with one finger, continuing roughly two accepted full turns. Centre jitter and reversal scrubbing do not substitute.','“Draw circles to open the star portal!” — op_magician_portal_stage.','The aperture rotates and fills; columns, curtains and threshold remain upright. The doorway eases/fades in. Roshan uses reviewed idle cell 3.','The aperture closes its gaps and gains a finish glow when its goal reaches 2 units.','The earned final picture holds (step 15), then the curtain call.','Ring geometry matches the staged input candidate, which passed 59 component checks; current native acting/contact, full-speed finish and device playback remain missing.',refs(G+':_draw_magician_portal',G+':_portal_gesture_radius',W+':PHASES'))
+step('15','See the earned finish','Finish','finish','The completed portal picture, Roshan’s cheer and the shared completion puff.','No extra gesture is required. A later gesture may advance an already earned completed phase.','The phase instruction is not evidence of a distinct spoken finish line; the staged act uses a success yay at curtain call.','The world accepts completion, selects cheer, emits the shared puff and holds the picture for 2.2s.','Only then does phase advance finish the whole act.','The medal/result curtain call follows in step 16.','The puff/actor may obscure the portal: that known review risk is illustrated as source constituents, not accepted finish playback.',refs(W+':_on_gesture',W+':_advance_completed_phase','scripts/opera_act.gd:_win'))
+step('16','Curtain call and rewards','Finish','reward','The proscenium, both cast members, goal prop, medal and Encore-token result.','Watch the result. The game leaves the curtain call after about 3.2s; leaving after an earned win commits it safely.','The two-act branch plays the existing success yay; it does not speak the configured “Roshan’s star portal wins…” line on this path.','The activity is hidden, the cast is restaged, Roshan cheers and the goal prop returns. The result overlay shows tier and token change/balance.','A completed performance earns at least bronze. Only improvements to the best tier add Encore tokens (bronze 1, silver +2, gold +3).','The normal route saves its star/pearls and returns to the Hall (step 17).','The medal sketch is a documentation key derived from the overlay’s code, not a screenshot. No current earned result or audible yay has been captured.',refs(W+':celebrate','scripts/opera_act.gd:_win','scripts/opera_mastery.gd:apply_result','scripts/opera_performance_overlay.gd:show_result'))
+step('17','Return with the saved star','Return','venue','The Opera Hall route restored after the finished act.','Use the normal return; Back may then unwind the venue to the room.','The exact route-return voice must be observed; no new instruction is invented here.','The act cleans up its nodes, callbacks, music and input before restoring the route.','Normal completion keeps Magician’s bit 8, pays 3 pearls first time or 1 on replay, and removes its finished performance checkpoint.','Choose the Magician again, or resume an unfinished run (step 18).','Actual reward-before-return and restored Hall controls need current native/save evidence.',refs('scripts/opera_house.gd:_act_won','scripts/main.gd:_restore_opera_route_state','scripts/opera_act.gd:_cleanup_world'))
+step('18','Saved resume and replay','Replay','resume','An interrupted run’s reconstructed phase, or a fresh replay after completion.','Re-enter through the normal Magician door. Earned partial fill is reconstructed; an incomplete room activity still requires its invitation.','The resumed phase requests its own exact instruction again.','The checkpoint binds practice/stage identity, source phase, mode and earned progress. The staged repair cancels transient input on focus loss without erasing fill.','The best medal stays monotonic. Same/lower-tier replays do not mint more Encore tokens; normal completed replays retain the 1-pearl reward.','Continue that phase or complete another performance.','No new save was created or edited for this walkthrough. Exact close/reload/resume/input evidence remains pending.',refs(W+':_performance_restore',W+':_performance_apply_current_restore',W+':_performance_checkpoint','scripts/opera_mastery.gd:apply_result'))
+step('D1','Temporary elevator playtest','Playtest variant','elevator','The painted left brass elevator in the Opera venue, then the Job playtesting picture menu.','Tap x178–314, y390–524 to open the menu; select Magician / act 8.','The menu has picture buttons and tooltips; no voiced Magician menu instruction is established by this source.','The owner-requested temporary launcher uses the shipping engine in a fresh dev_playtest context.','It runs the same 3-practice + 5-stage sequence shown in steps 03–16.','After completion or Back, the job menu reopens (D2).','Elevator/menu/career-selection native panels are missing; this illustration marks the source hit region and selected costume.',refs('scripts/opera_house_venue_2d.gd:_build_playtest_elevator','scripts/opera_job_playtest_menu.gd:launch_job'))
+step('D2','Playtest return and fresh replay','Playtest variant','resume','The playtest menu returns over the restored venue.','Choose Magician again for a fresh run; Back unwinds menu, then venue, then Castle room.','No extra completion voice is commissioned; the normal stage yay may still play.','The result shows its normal evaluated tier, but token change and balance are shown as zero.','This context skips durable stars, pearls, mastery writes and performance checkpoints. It is deliberately not a saved child replay.','Return to normal play for persistent rewards.','The source policy is verified by reading; no runtime before/after save-byte comparison is claimed.',refs('scripts/opera_job_playtest_menu.gd:_job_finished','scripts/opera_house.gd:_act_won',W+':_is_dev_playtest','scripts/opera_act.gd:_win'))
+step('B1','Birthday/story applicability','Birthday variant','birthday','The current eight-career birthday-preparation roster.','There is no Magician birthday job to select in this roster. After the story is complete, normal free play can expose Magician.','No Magician birthday instruction is implemented in the authoritative eight-career spine.','Farmer → Chef → Candy Maker → Painter → Ballerina → Pop Star → Astronaut → Detective own the party work.','Magician act 8 is outside the party mask 0x2C4F. An older venue comment about a Magician party contribution is not current flow authority.','Use the normal Hall route or the explicit temporary playtest variant.','Birthday Magician is NOT_APPLICABLE by roster, not a fabricated missing task. Fresh-save reachability is separately unverified under MA-PLAY-005.',refs('design/CHAPTER2_EIGHT_CAREER_PRODUCTION_SPINE_2026-08-30.md:Locked roster, bits, and order','scripts/chapter_two_party_plan.gd:GUIDE_ORDER','scripts/opera_house_venue_2d.gd:_configure_portals'))
+step('P1','Pending art decisions','Pending / not yet playable','pending','The existing approved Magician whole-figure atlas poses and pearl-tipped wand.','Owner answers are still needed for the costume wand’s source/material and a bounded whole-figure casting brief.','These are review questions, not new child instructions.','A future casting action must move as one coordinated whole drawing, retaining constant head/arm/hand/body size and truthful contact.','The earlier limb-only/cuff and finish studies remain rejected. This request generates no keys, changes no pose and resets no attempt cap.','Keep dependent artistic work paused until the owner answers.','No proposed replacement gameplay flow or new artwork is being presented as implemented.',refs('design/animation/ANIMATION_PRODUCTION_PROTOCOL.md:Preserve crisp contours and figure-wide continuity','audit/magician_clearance_20261006/FINAL_CHECKPOINT.json'))
+
+def raw(s):
+    k=s['kind']
+    if k in ['vanish','track','rope','cabinet','portal']:return triad(k)
+    if k=='hall':return context('hall')
+    if k in ['venue','elevator']:return context('venue')
+    if k.startswith('world_'):
+        im=context('world');paste(im,actor(4),(100,400,240,240));return im
+    if k=='stage':
+        im=context('stage');paste(im,actor(3),(48,264,300,300));paste(im,asset('actors/rival_magician.png'),(974,294,220,220));return im
+    im=board()
+    if k in ['finish','reward']:
+        paste(im,actor(12),(35,200,345,345))
+        paste(im,asset('widgets/widget_portal_magician_mover.png') if k=='finish' else asset('props/goal_magician.png'),(465,190,345,345))
+        paste(im,asset('props/fx_bop_puff.png') if k=='finish' else asset('actors/rival_magician.png'),(885,190,345,345))
+    elif k=='resume':
+        paste(im,asset('widgets/widget_magic_vanish_hat.png'),(35,225,345,280));paste(im,actor(3),(465,180,345,365));paste(im,asset('ui/crests/opera_crest_magician.png'),(920,250,260,260))
+    elif k=='birthday':
+        careers=['farmer','chef','candymaker','painter','ballerina','popstar','astronaut','detective']
+        for i,c in enumerate(careers):
+            sheet=Image.open(source(f'assets/opera/worlds/actors/animation/roshan_{c}_sheet_a.png')).convert('RGBA')
+            paste(im,sheet.crop((0,0,256,256)),(35+i*154,233,145,215))
+    else:
+        for i,cell in enumerate([8,3,12]):paste(im,actor(cell),(35+i*420,185,345,375))
+    return im
+
+def annotated(s,im):
+    im=im.copy();d=ImageDraw.Draw(im,'RGBA')
+    d.rectangle((0,0,1280,118),fill=(31,20,57,240))
+    d.text((30,16),s['part'].upper()+' · SOURCE-BACKED REVIEW',font=FB(16),fill='#dfc67f')
+    wrap(d,s['id']+'  '+s['title'],(30,44),FB(36),1220,'#fff8e8',2)
+    d.rectangle((0,606,1280,720),fill=(31,20,57,245))
+    d.text((30,624),'ASSET-BACKED ILLUSTRATION · CURRENT NATIVE CAPTURE MISSING',font=FB(18),fill='#ffcfa1')
+    wrap(d,s['input'],(30,654),F(19),1200,'#fff8e8',4)
+    k=s['kind']
+    if k in ['vanish','track','rope','cabinet','portal']:
+        for i,label in enumerate(s['labels']):d.text((48+i*420,157),label.upper(),font=FB(17),fill='#513870')
+    if k=='venue':
+        d.rounded_rectangle((894,230,1032,402),radius=12,outline='#17d4bb',width=9);line(d,[(760,196),(916,253)])
+    elif k=='elevator':d.rounded_rectangle((172,384,320,530),radius=12,outline='#17d4bb',width=9);line(d,[(400,342),(260,421)])
+    elif k.startswith('world_'):
+        point={'world_wand':(.154,.43),'world_hats':(.324,.78),'world_rope':(.508,.43)}[k]
+        p=(point[0]*1280,point[1]*720);ring(d,*p,54);line(d,[(300,460),p])
+        wrap(d,'Selected invitation: actual source coordinates. Travel/contact capture gap.',(690,140),FB(20),520,'#fff8e8')
+    elif k=='vanish':ring(d,665,361,62)
+    elif k=='track':
+        line(d,[(502,245),(630,216),(765,248)]);ring(d,1060,366,60)
+        wrap(d,'Moving answer glow',(484,452),FB(19),310,'#513870')
+    elif k=='rope':
+        pts=[(462+355*(.16+.68*t),191+355*(.27+(1-(2*t-1)**2)*.42)) for t in [j/40 for j in range(41)]];line(d,pts);ring(d,*pts[0],20)
+    elif k=='cabinet':line(d,[(640,350),(640,461)]);ring(d,640,348,29)
+    elif k=='portal':
+        pts=[(640+77*math.cos(t),369+77*math.sin(t)) for t in [j/44*math.tau for j in range(43)]];line(d,pts)
+        wrap(d,'Fixed doorway / turning aperture',(463,542),FB(18),355,'#513870')
+    elif k=='stage':
+        d.rectangle((402,216,878,556),outline='#17d4bb',width=7)
+        wrap(d,'Activity bounds only; live widget/HUD capture missing',(410,225),FB(19),452,'#fff8e8')
+    elif k=='finish':
+        for i,t in enumerate(['Roshan cheer','Completed portal','Shared finish puff']):d.text((45+i*420,157),t,font=FB(18),fill='#513870')
+        wrap(d,'Shown separately: actual overlap/occlusion needs runtime capture.',(43,554),F(20),1170,'#513870')
+    elif k=='reward':
+        for i,t in enumerate(['Cheer pose','Returned goal prop','Rival cast']):d.text((45+i*420,157),t,font=FB(18),fill='#513870')
+        for i,color in enumerate(['#bf8552','#b5becb','#edc85c']):d.ellipse((540+i*66,538,586+i*66,584),fill=color,outline='#39284c',width=3)
+    elif k=='resume':
+        for i,t in enumerate(['Restore earned phase','Keep best medal','Choose fresh replay']):d.text((45+i*420,157),t,font=FB(18),fill='#513870')
+    elif k=='birthday':
+        for i,t in enumerate(['Farmer','Chef','Candy','Painter','Ballet','Pop Star','Astronaut','Detective']):d.text((44+i*154,463),t,font=FB(18),fill='#513870')
+        wrap(d,'Birthday roster excludes Magician (act 8).',(40,190),FB(26),1160,'#513870')
+    elif k=='pending':
+        for i,t in enumerate(['Current work pose','Current portal pose','Current cheer pose']):d.text((45+i*420,157),t,font=FB(18),fill='#513870')
+    return im.convert('RGB')
+
+def resolve_anchors(s):
+    out=[]
+    for v in s['source_anchors']:
+        path,_,symbol=v.partition(':');p=source(path);ls=p.read_text(encoding='utf-8').splitlines()
+        matches=[i+1 for i,l in enumerate(ls) if symbol and (l.startswith('func '+symbol+'(') or l.startswith('static func '+symbol+'(') or re.match(r'const '+re.escape(symbol)+r'(?:\s|:|=)',l))]
+        if not matches and path.endswith('.json'):matches=[1]
+        out.append(dict(path=path,symbol=symbol,line=matches[0] if matches else None,source_sha256=sources[path]['sha256']))
+    s['source_anchors']=out
+
+def main():
+    if OUT.exists():raise SystemExit('Existing version preserved. Make an explicit new revision instead.')
+    OUT.mkdir(parents=True);(OUT/'panels').mkdir();(OUT/'annotations').mkdir();(OUT/'source_snapshots').mkdir();(OUT/'evidence').mkdir()
+    before=subprocess.check_output(['git','diff','--cached','--binary'],cwd=ROOT)
+    (OUT/'TASK_START.json').write_text(json.dumps(dict(time_utc=datetime.datetime.now(datetime.timezone.utc).isoformat(),scope='Owner-readable visual walkthrough only; development goal remains paused.',baseline=BASE,branch=BRANCH,preexisting_staged_patch_sha256=sha(before),rules=['DL-AUTH-05','DL-AUTH-06','DL-AUTH-07','DL-ASSET-01','DL-ASSET-03','DL-INT-02','DL-INT-04','DL-INT-06','DL-QA-03','DL-QA-07','DL-QA-11'],findings=['MA-VIS-006','MA-PLAY-004','MA-PLAY-005','MA-OPERA-004'],required_evidence='Source/step/image hashes; explicit missing native input/contact/finish/save evidence; document/development gates; immutable public GitHub bytes; no new acceptance.',storage_budget_bytes=40*1024*1024,new_captures=0,new_generations=0,publication_destination=dict(repository=REPO,branch=BRANCH,path=str(OUT.relative_to(ROOT)).replace('\\','/'),access_mode='Public anonymous GitHub; verify exact publication revision.')),indent=2)+'\n',encoding='utf-8')
+    for rel in ['audit/MASTER_AUDIT_2026-08-09.md','design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md','audit/findings/ACTIVE_FINDINGS_2026-08-13.md','design/05_DOC_LEDGER.md','design/AUDIT_DEVELOPMENT_CONTRACT.md','design/animation/ANIMATION_PRODUCTION_PROTOCOL.md','design/CHAPTER2_EIGHT_CAREER_PRODUCTION_SPINE_2026-08-30.md','scripts/opera_performance_plan.gd','scripts/opera_roshan_actor.gd','scripts/audio_director.gd','scripts/opera_mastery.gd','scripts/opera_competition.gd','scripts/arena/castle_rooms_25d.gd']:
+        source(rel)
+    all_images=[]
+    for s in steps:
+        used.clear();resolve_anchors(s);im=raw(s)
+        p='panels/'+s['id']+'_asset_board.png';a='annotations/'+s['id']+'.png'
+        im.convert('RGB').save(OUT/p);annotated(s,im).save(OUT/a)
+        s.update(raw_panel=p,annotated_panel=a,image_sha256=sha((OUT/a).read_bytes()),unannotated_sha256=sha((OUT/p).read_bytes()),source_paths=sorted(used),modifications='Review-only tile reconstruction, whole-source/cell crops, uniform fitting and code-derived explanatory geometry. Annotation copy adds step labels and gesture arrows. No source master overwritten; no native screenshot claimed.')
+        all_images.append(OUT/a)
+    for rel in [W,G]:
+        b=source(rel).read_bytes();dest='source_snapshots/'+Path(rel).name+'.txt';(OUT/dest).write_bytes(b);sources[rel]['dirty_source_snapshot']=dest
+    for name in ['FINAL_CHECKPOINT.json','import_baseline_hcache.json','import_baseline_verbose.json','IMPORT_RECOVERY.json']:
+        rel='audit/magician_clearance_20261006/'+name;p=source(rel);(OUT/'evidence'/name).write_bytes(p.read_bytes())
+    source_rows=[dict(v) for v in sources.values()]
+    snapshot=dict(branch=BRANCH,baseline_commit=BASE,head_at_start=subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT,text=True).strip(),current_source_basis='Baseline plus staged Magician input cancellation/portal geometry candidate; candidate source bytes preserved separately. Not a clean accepted build.',latest_origin_dev_at_start=subprocess.check_output(['git','rev-parse','origin/dev'],cwd=ROOT,text=True).strip(),source_files=source_rows,full_runtime_closure='NOT_ESTABLISHED',renderer='No new renderer/capture run. Requested native evidence must use exact Godot 4.7.2/Mobile/Speedy.',input_provenance='No new gameplay input events, callbacks or save edits used. All panels are asset-backed review illustrations.',prior_runtime_gate=dict(headSha=BASE,run_id=37564552946,conclusion='success',url=REPO+'/actions/runs/37564552946'),acceptance=dict(machine='Prior baseline CI green; staged candidate 59 component checks only; walkthrough checks to follow.',visual='Source illustration reviewed; native route/action/contact/finish gap remains.',device='PENDING',child='PENDING',owner='PENDING',clearance_4_6='NOT_ESTABLISHED'),generation=dict(new_requests=0,prior_rejected_cuff_requests=2,pending_owner_answers=['Wand source/material','Bounded whole-figure casting brief','Storage-coordinator messaging authorization']))
+    (OUT/'SOURCE_SNAPSHOT.json').write_text(json.dumps(snapshot,indent=2)+'\n',encoding='utf-8')
+    manifest=dict(version=1,title='Magician — illustrated current-source walkthrough',status='SOURCE_BACKED_REVIEW / NATIVE_CAPTURE_GAPS',primary_sequence=[s['id'] for s in steps if s['part'] not in ['Playtest variant','Birthday variant','Pending / not yet playable']],variant_coverage={'practice':'Three separate activities, steps 03–08','Opera stage':'Five activities, steps 09–16','in_world':'Same normal Castle Opera Hall route, steps 01–02 and 17–18','temporary_playtest':'D1–D2, same eight activity phases, fresh/no durable rewards','birthday_story':'B1: NOT_APPLICABLE to exact eight-career roster; fresh-save route not demonstrated','proposed_art':'P1 pending decisions only; no proposed game redesign'},steps=steps,sources=source_rows,claim='Illustrations never establish DL-QA-11, 4.6/5 or device/child/owner acceptance.',archive_payload_hash_method='sha256 of sorted relative-path + space + per-file sha256 lines, UTF-8 LF; FILES.json itself excluded.')
+    (OUT/'WALKTHROUGH_MANIFEST.json').write_text(json.dumps(manifest,indent=2)+'\n',encoding='utf-8')
+    contact=Image.new('RGB',(1600,410*((len(steps)+3)//4)),'#1f1439');d=ImageDraw.Draw(contact)
+    for i,(s,p) in enumerate(zip(steps,all_images)):
+        im=Image.open(p).resize((390,219),Image.Resampling.LANCZOS);x=(i%4)*400+5;y=(i//4)*410+8;contact.paste(im,(x,y));wrap(d,s['id']+' · '+s['title'],(x,y+234),FB(20),386,'#fff8e8');wrap(d,s['input'],(x,y+294),F(17),386,'#dfcee9')
+    contact.save(OUT/'KEY_SEQUENCE.png')
+    cards=[]
+    for s in steps:
+        img=base64.b64encode((OUT/s['annotated_panel']).read_bytes()).decode()
+        fields=''.join('<div><h4>'+label+'</h4><p>'+html.escape(s[key])+'</p></div>' for label,key in [('What the child sees','see'),('One-finger input','input'),('Instruction / voice key','voice'),('Roshan and moving parts','action'),('Before → after','change'),('Next step','next')])
+        anchors=' · '.join('<code>'+html.escape(a['path'])+((':'+str(a['line'])) if a['line'] else '')+'</code>' for a in s['source_anchors'])
+        cards.append(f'<article id="s{s["id"]}" data-part="{html.escape(s["part"])}"><header><span class="num">{s["id"]}</span><div><small>{html.escape(s["part"])}</small><h2>{html.escape(s["title"])}</h2></div><span class="gapbadge">Native capture gap</span></header><a class="image" href="{s["annotated_panel"]}" target="_blank"><img src="data:image/png;base64,{img}" alt="{html.escape(s["title"])} — labelled source-art illustration, not a gameplay screenshot"></a><div class="fields">{fields}</div><aside><b>Evidence gap</b><p>{html.escape(s["coverage_gap"])}</p></aside><details><summary>Full-size images and source provenance</summary><p><a href="{s["annotated_panel"]}">Annotated 1280×720 PNG</a> · <a href="{s["raw_panel"]}">Unannotated asset board</a></p><p>{anchors}</p><p class="hash">PNG SHA-256: {s["image_sha256"]}</p><p>{html.escape(s["modifications"])}</p></details></article>')
+    nav=''.join('<a href="#s'+s['id']+'">'+s['id']+' '+html.escape(s['title'])+'</a>' for s in steps)
+    doc='''<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Magician — step-by-step visual walkthrough</title><style>
+    :root{--ink:#251747;--paper:#f8f4ed;--accent:#76549c;--gold:#e9c66b}*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font:17px/1.55 system-ui,sans-serif}a{color:#60408c}main{max-width:1160px;margin:auto;padding:30px 24px 80px}.hero{background:#251747;color:#fff7e9;padding:46px 30px;border-radius:26px;margin-bottom:20px}.hero small{letter-spacing:.12em;color:#e9c66b}h1{font:700 clamp(32px,5vw,58px)/1.07 Georgia,serif;max-width:750px;margin:16px 0}h2{font:700 29px/1.2 Georgia,serif;margin:5px 0}h3{margin:10px 0}p{margin:.5em 0 1em}.hero p{max-width:790px;color:#e1d5ec}.notice{padding:20px 24px;background:#fff2d9;border:1px solid #e2c58c;border-radius:16px;margin:20px 0}.flow{display:flex;gap:10px;flex-wrap:wrap;margin:22px 0}.flow span{color:var(--ink);padding:8px 13px;background:#ede3f4;border-radius:9px;font-weight:600}.jump{max-height:140px;overflow:auto;display:flex;gap:6px;flex-wrap:wrap;padding:13px;background:white;border-radius:14px}.jump a{font-size:13px;padding:5px 9px;background:#f4edf9;text-decoration:none;border-radius:7px}article{scroll-margin-top:24px;background:#fff;margin:32px 0;border:1px solid #e0d5e8;border-radius:22px;overflow:hidden;box-shadow:0 8px 26px #2517470a}article header{display:flex;align-items:center;gap:18px;padding:25px 26px}.num{font:700 32px Georgia;background:#eee4f5;color:#513870;border-radius:15px;padding:13px 16px;min-width:78px;text-align:center}small{font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase}.gapbadge{margin-left:auto;font-size:12px;border:1px solid #e8c598;background:#fff1dc;padding:6px 10px;border-radius:20px;white-space:nowrap}.image{display:block;background:#eee8f5}.image img{width:100%;height:auto;display:block}.fields{display:grid;grid-template-columns:1fr 1fr;gap:4px 32px;padding:24px 28px}.fields h4{font-size:13px;color:#76549c;text-transform:uppercase;letter-spacing:.06em;margin:0}.fields p{font-size:16px;margin:7px 0 19px}aside{margin:0 27px 22px;background:#fff3e7;border-left:4px solid #dba668;padding:15px 18px}aside p{font-size:15px;margin:.4em 0}details{padding:18px 28px;border-top:1px solid #ece4f1;font-size:13px}summary{cursor:pointer;font-weight:600}.hash{overflow-wrap:anywhere}code{font-size:12px;overflow-wrap:anywhere}.accept{width:100%;border-collapse:collapse}td,th{text-align:left;border-bottom:1px solid #e0d5e8;padding:10px}footer{font-size:13px;color:#6f627e;margin-top:40px}.overview{width:100%;border-radius:16px}@media(max-width:700px){main{padding:14px 12px}.hero{padding:28px 20px}.fields{grid-template-columns:1fr;padding:22px}.gapbadge{display:none}article header{padding:19px 16px;gap:12px}.num{min-width:55px;padding:10px;font-size:25px}h2{font-size:24px}}@media print{.jump{display:none}article{break-inside:avoid;box-shadow:none}.hero{color:#251747;background:#eee4f5}}
+    </style><main><section class="hero"><small>Mermaid Roshan · Owner review · October 7, 2026</small><h1>The Grand Illusion Duel</h1><p>A visual guide through the implemented Magician sequence: find the invitation, practise three tricks, perform five on stage, see the earned result and return with saved progress.</p><div class="flow"><span>Hold the wand</span><span>Follow the glow</span><span>Trace the rope</span><span>Pull the cabinet</span><span>Circle the portal</span></div></section><section class="notice"><b>Source-backed review, with native capture gaps</b><p>All numbered panels below are separate annotated copies of existing runtime artwork or code-derived explanatory diagrams. They are not current gameplay screenshots. Failed imports and missing route/action/contact/finish/save capture coverage remain explicit. No new gameplay inputs, saves, artwork generation or redesign were used.</p><p>The development goal remains paused for the existing owner answers. This walkthrough does not award 4.6/5 clearance or visual/device/child/owner acceptance.</p></section><h3>Choose a step</h3><nav class="jump">'''+nav+'''</nav><p>Normal flow: <b>3 practice activities → 5 stage activities → earned curtain call → saved return/replay.</b> The temporary elevator variant uses fresh runs without durable rewards. Magician is outside the current eight-job birthday roster.</p>'''+''.join(cards)+'''<section class="notice"><h3>Acceptance kept separate</h3><table class="accept"><tr><th>Lane</th><th>Status</th></tr><tr><td>Implemented current source</td><td>Eight activity phases traced at the named owned checkout; staged input repair is separately frozen.</td></tr><tr><td>Machine</td><td>Inherited runtime baseline has green CI. Candidate input component has 59/59 checks. Full candidate import/world/route verification remains pending.</td></tr><tr><td>Visual / contact / native input</td><td>Asset-backed walkthrough only; current native screenshots and full-speed/frame-step action/finish/save evidence missing.</td></tr><tr><td>Device, child and owner</td><td>Pending; no session invented.</td></tr><tr><td>4.6/5 clearance</td><td>Not established; no new scores.</td></tr></table><p><a href="WALKTHROUGH_MANIFEST.json">Step-to-image manifest</a> · <a href="SOURCE_SNAPSHOT.json">Source hashes and limitations</a> · <a href="KEY_SEQUENCE.png">Full contact sheet</a> · <a href="FILES.json">Packet checksums</a></p></section><footer>Source baseline '''+BASE+''' · Owned branch '''+BRANCH+''' · No runtime artwork changed. Each panel preserves original source authority and is excluded from game imports by assets_src/.gdignore. Open this self-contained HTML locally to browse; PNG links and provenance sidecars travel with the review folder.</footer></main></html>'''
+    (OUT/'index.html').write_text(doc,encoding='utf-8')
+    readme='# Magician visual walkthrough — October 7, 2026\n\nStatus: **SOURCE_BACKED_REVIEW / NATIVE_CAPTURE_GAPS**. This package illustrates the current owned Magician source; it is not accepted runtime evidence, 4.6/5 clearance or a gameplay change. The development goal remains paused for its pending owner answers.\n\nBrowse the self-contained [walkthrough](index.html) locally, or inspect this ordered GitHub version. [Full contact sheet](KEY_SEQUENCE.png) · [step-to-image manifest](WALKTHROUGH_MANIFEST.json) · [source snapshot](SOURCE_SNAPSHOT.json) · [packet hashes](FILES.json).\n\nThe normal sequence is three practice activities, then five stage activities. In-world entry uses the Castle Opera Hall. The temporary elevator variant repeats the same engine with no durable rewards; the current eight-career birthday roster excludes Magician.\n\n![Numbered key sequence](KEY_SEQUENCE.png)\n\n'
+    for s in steps:
+        readme+='## '+s['id']+' — '+s['title']+'\n\n![Asset-backed illustration, not a native screenshot]('+s['annotated_panel']+')\n\n'+s['input']+'\n\n**Cue:** '+s['voice']+'\n\n**Roshan / moving parts:** '+s['action']+'\n\n**Before → after:** '+s['change']+'\n\n**Next:** '+s['next']+'\n\n**Coverage gap:** '+s['coverage_gap']+'\n\n'
+    readme+='## Evidence and publication\n\nEvery PNG is a review derivative. Source originals, voices and saves remain unchanged. The manifest records source paths, exact hashes, dimensions, edits, input provenance and per-step gaps. The two dirty source scripts are frozen as text snapshots, separately from the inherited baseline. Source illustrations and prior diagnostics never establish DL-QA-11.\n\nInherited runtime baseline `'+BASE+'` has [green probe run 37564552946]('+REPO+'/actions/runs/37564552946). This does not verify the staged candidate or these illustrations as gameplay. Full candidate/world verification, current natural-route captures, independent visual review and device/child/owner acceptance remain pending. No new generation or paid job occurred; prior rejected art attempts remain counted.\n\nThe audit impact is [magician-visual-walkthrough-20261007.json](../../../design/audit_impacts/magician-visual-walkthrough-20261007.json). Public GitHub publication must be verified at its exact immutable revision before claiming delivery.\n'
+    (OUT/'README.md').write_text(readme,encoding='utf-8')
+    (OUT/'BUILD_METHOD.py.txt').write_bytes(Path(__file__).read_bytes())
+    # Add a narrowly scoped ledger row; retain the already staged candidate rows.
+    ledger=ROOT/'design/05_DOC_LEDGER.md';row='| `assets_src/review/magician_walkthrough_20261007/README.md` | 🔵 | `SOURCE_BACKED_REVIEW`; owner-requested illustrated Magician walkthrough at baseline 96274aab plus frozen staged input candidate: 3 practice and 5 stage activities, normal Hall entry/finish/return/resume, temporary no-save elevator variant and birthday non-applicability. Annotated asset boards carry source hashes and native capture/contact/save gaps; no runtime, 4.6, device, child, owner or finding closure. |'
+    t=ledger.read_text(encoding='utf-8');assert row not in t;anchor='| `design/FAIRY_RESTORATION_PROTOTYPE_2026-09-30.md`';assert anchor in t;t=t.replace(anchor,row+'\n'+anchor,1);ledger.write_text(t,encoding='utf-8')
+    licenses=ROOT/'ASSET_LICENSES.md';t=licenses.read_text(encoding='utf-8');new_assets=sorted(p.relative_to(ROOT).as_posix() for p in OUT.rglob('*.png'))
+    marker='\n## Magician walkthrough review derivatives — 2026-10-07\n\n| Path | Source | License | URL | Modifications |\n|---|---|---|---|---|\n'
+    for rel in new_assets:trow=f'| {rel} | Existing project runtime artwork and source code; exact per-panel source paths/SHA-256 in WALKTHROUGH_MANIFEST.json | Same source licenses as existing ASSET_LICENSES.md entries; project review derivative | assets_src/review/magician_walkthrough_20261007/WALKTHROUGH_MANIFEST.json | Non-runtime source-art board or separate annotation/contact-sheet copy; no generation, source overwrite or gameplay screenshot/acceptance claim |\n';marker+=trow
+    assert '## Magician walkthrough review derivatives' not in t;licenses.write_text(t+marker,encoding='utf-8')
+    refresh()
+    print(json.dumps(dict(directory=str(OUT),panels=len(steps),pngs=len(new_assets),bytes=sum(p.stat().st_size for p in OUT.rglob('*') if p.is_file()),claim='SOURCE_BACKED_REVIEW / NATIVE_CAPTURE_GAPS')))
+
+def refresh():
+    files=[]
+    for p in sorted(OUT.rglob('*')):
+        if p.is_file() and p.name!='FILES.json':files.append(dict(path=p.relative_to(OUT).as_posix(),sha256=sha(p.read_bytes()),bytes=p.stat().st_size))
+    payload=''.join(v['path']+' '+v['sha256']+'\n' for v in files).encode()
+    (OUT/'FILES.json').write_text(json.dumps(dict(algorithm='sha256',payload_sha256=sha(payload),self_excluded='FILES.json',files=files),indent=2)+'\n',encoding='utf-8')
+    paths=sorted(p.relative_to(ROOT).as_posix() for p in OUT.rglob('*') if p.is_file())+['ASSET_LICENSES.md','design/05_DOC_LEDGER.md','.gitattributes']
+    impact=dict(id='magician-visual-walkthrough-20261007',scope='Owner-requested self-contained illustrated current-source Magician walkthrough, source/provenance/step mapping, separate annotation copies and explicit native/route/contact/finish/save gaps. Documentation only; preserve existing paused input candidate and owner art decisions.',baseline=BASE,rules=['DL-AUTH-05','DL-AUTH-06','DL-AUTH-07','DL-ASSET-01','DL-ASSET-03','DL-INT-02','DL-INT-04','DL-INT-06','DL-QA-03','DL-QA-07','DL-QA-11'],findings=['MA-VIS-006','MA-PLAY-004','MA-PLAY-005','MA-OPERA-004'],finding_scope='Related evidence/reachability gaps only; no runtime repair or finding lifecycle change.',files=paths,validation=[dict(command='Review source phase table + PerformancePlan.build and current route/reward owners',result='PASS',evidence='assets_src/review/magician_walkthrough_20261007/SOURCE_SNAPSHOT.json and WALKTHROUGH_MANIFEST.json; exact source hashes, 3+5 sequence and birthday exclusions'),dict(command='Walkthrough image/link/hash/source-preservation QA',result='PENDING',evidence='Package QA receipt to follow'),dict(command='python -B tools/audit_document_authority.py; python -B tools/audit_development.py --base auto',result='PENDING',evidence='Package gate logs to follow'),dict(command='Full required runtime probes',result='PASS',evidence='Unchanged inherited runtime96274aab9cebd563b10846a4a48de5d017588563: GitHub run37564552946 success. Documentation commit must prove unchanged runtime tree; this does not verify staged production repair.'),dict(command='Public anonymous exact-revision GitHub byte verification',result='PENDING',evidence='Publication receipt to follow')],acceptance_gaps='All new panels are asset-backed illustrations with native capture gaps. No current natural-route/input/contact/action/finish/return/save proof, no independent4.6 re-review or device/child/owner session. Existing art and storage questions/development pause remain; generation0. No finding lifecycle changes.',references_used=[dict(path='design/CHAPTER2_EIGHT_CAREER_PRODUCTION_SPINE_2026-08-30.md',purpose='Birthday applicability; Magician is outside exact eight-career roster'),dict(path='design/animation/ANIMATION_PRODUCTION_PROTOCOL.md',purpose='Whole-figure and constant-size requirements; no new animation commissioned')])
+    IMPACT.write_text(json.dumps(impact,indent=2)+'\n',encoding='utf-8')
+
+if __name__=='__main__':main()

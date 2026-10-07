@@ -1,0 +1,58 @@
+{
+  "time_utc": "2026-10-07T05:05:35.516555+00:00",
+  "baseline": "96274aab9cebd563b10846a4a48de5d017588563",
+  "state": "UNCOMMITTED_SOURCE_CANDIDATE; FULL_VERIFICATION_PENDING; NOT_INTEGRATION_ELIGIBLE",
+  "previous_snapshot": "CHECKPOINT.json retains its dated52-check source/evidence snapshot; no historical receipt rewritten.",
+  "surface_component": {
+    "result": "PASS",
+    "checks": 59,
+    "receipt": "magician_surface_checkpoint_59.json",
+    "scope": "Production GUI handlers/notifications with explicit component fixtures; no world, normal-route, physical-input, saved-progress, rendered or device acceptance."
+  },
+  "retained_baselines": [
+    "magician_surface_baseline.json",
+    "magician_invalid_wand_baseline.json",
+    "magician_empty_cabinet_baseline.json",
+    "magician_track_context_baseline.json"
+  ],
+  "caller_contexts": {
+    "VANISH": "magic_vanish",
+    "TRACK": "lanes_magician",
+    "ROPE": "trace_magician",
+    "CABINET": "mode magic_cabinet, visual context empty",
+    "PORTAL": "crank_magician",
+    "source": "OperaCareerWorld2D stage phase table, _widget_template and _bind_widget"
+  },
+  "trusted_gate": "probe_opera_gesture_quality.gd calls run(self) with required world coverage; only the diagnostic launcher can request surface-only. CI rosters are unchanged.",
+  "source_scripts": [
+    {
+      "path": "scripts/opera_gesture_surface.gd",
+      "sha256": "7e8ab9fc11ce21af64205dbf80bd92aed3556cd759124bc6b52ea9772a6019dd"
+    },
+    {
+      "path": "scripts/opera_career_world_2d.gd",
+      "sha256": "ff0b727579bd4d2789dbd5bfc7d1f4795effacef9ec9b279d0a916a2fa32d875"
+    },
+    {
+      "path": "scripts/probe_opera_gesture_quality.gd",
+      "sha256": "6144e6f97ba7401872bb33391d68453f8d3b68ea15584dc0d9fa8747857cb158"
+    },
+    {
+      "path": "scripts/magician_input_test_checks.gd",
+      "sha256": "1e1fe2281ee81f04b48914ed330f996ae4f193d1c62365a67ab1b021ec30a9b2"
+    },
+    {
+      "path": "scripts/probe_magician_input.gd",
+      "sha256": "168d00483c27be005b96b770a3d5e384d2f172bcabd459fdabcc257e48e86991"
+    }
+  ],
+  "pending": [
+    "world fixture/import/analyzer/full trusted regression and exact-head remote CI",
+    "current normal-route Mobile/action/finish/return/save captures and independent review",
+    "wand source/material and whole-figure brief owner answers",
+    "human authorization for storage coordinator messages and then an available import slot",
+    "actual device/child/owner evidence; per-item4.6 clearance"
+  ],
+  "generation": "New0; prior cuff two requests remain exhausted/rejected.",
+  "goal_handling": "Owner-required unanswered decisions remain; preserve safe work, no automatic resume across an owner-answer pause."
+}

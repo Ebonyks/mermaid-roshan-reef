@@ -1,0 +1,36 @@
+{
+  "time_utc": "2026-10-07T16:10:24.631137+00:00",
+  "scope": "Owner-readable visual walkthrough only; development goal remains paused.",
+  "baseline": "96274aab9cebd563b10846a4a48de5d017588563",
+  "branch": "codex/magician-clearance-20261006",
+  "preexisting_staged_patch_sha256": "07c10f4a16e5526c375353ee96941b2a64c602e9219e658bdf653eb2881be488",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-ASSET-01",
+    "DL-ASSET-03",
+    "DL-INT-02",
+    "DL-INT-04",
+    "DL-INT-06",
+    "DL-QA-03",
+    "DL-QA-07",
+    "DL-QA-11"
+  ],
+  "findings": [
+    "MA-VIS-006",
+    "MA-PLAY-004",
+    "MA-PLAY-005",
+    "MA-OPERA-004"
+  ],
+  "required_evidence": "Source/step/image hashes; explicit missing native input/contact/finish/save evidence; document/development gates; immutable public GitHub bytes; no new acceptance.",
+  "storage_budget_bytes": 41943040,
+  "new_captures": 0,
+  "new_generations": 0,
+  "publication_destination": {
+    "repository": "https://github.com/Ebonyks/mermaid-roshan-reef",
+    "branch": "codex/magician-clearance-20261006",
+    "path": "assets_src/review/magician_walkthrough_20261007",
+    "access_mode": "Public anonymous GitHub; verify exact publication revision."
+  }
+}

@@ -1,0 +1,138 @@
+{
+  "id": "magician-visual-walkthrough-20261007",
+  "scope": "Owner-requested self-contained illustrated current-source Magician walkthrough, source/provenance/step mapping, separate annotation copies and explicit native/route/contact/finish/save gaps. Documentation only; preserve existing paused input candidate and owner art decisions.",
+  "baseline": "96274aab9cebd563b10846a4a48de5d017588563",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-ASSET-01",
+    "DL-ASSET-03",
+    "DL-INT-02",
+    "DL-INT-04",
+    "DL-INT-06",
+    "DL-QA-03",
+    "DL-QA-07",
+    "DL-QA-11"
+  ],
+  "findings": [
+    "MA-VIS-006",
+    "MA-PLAY-004",
+    "MA-PLAY-005",
+    "MA-OPERA-004"
+  ],
+  "finding_scope": "Related evidence/reachability gaps only; no runtime repair or finding lifecycle change.",
+  "files": [
+    "assets_src/review/magician_walkthrough_20261007/BUILD_METHOD.py.txt",
+    "assets_src/review/magician_walkthrough_20261007/FILES.json",
+    "assets_src/review/magician_walkthrough_20261007/KEY_SEQUENCE.png",
+    "assets_src/review/magician_walkthrough_20261007/README.md",
+    "assets_src/review/magician_walkthrough_20261007/SOURCE_SNAPSHOT.json",
+    "assets_src/review/magician_walkthrough_20261007/TASK_START.json",
+    "assets_src/review/magician_walkthrough_20261007/WALKTHROUGH_MANIFEST.json",
+    "assets_src/review/magician_walkthrough_20261007/annotations/01.png",
+    "assets_src/review/magician_walkthrough_20261007/annotations/02.png",
+    "assets_src/review/magician_walkthrough_20261007/annotations/03.png",
+    "assets_src/review/magician_walkthrough_20261007/annotations/04.png",
+    "assets_src/review/magician_walkthrough_20261007/annotations/05.png",
+    "assets_src/review/magician_walkthrough_20261007/annotations/06.png",
+    "assets_src/review/magician_walkthrough_20261007/annotations/07.png",
+    "assets_src/review/magician_walkthrough_20261007/annotations/08.png",
+    "assets_src/review/magician_walkthrough_20261007/annotations/09.png",
+    "assets_src/review/magician_walkthrough_20261007/annotations/10.png",
+    "assets_src/review/magician_walkthrough_20261007/annotations/11.png",
+    "assets_src/review/magician_walkthrough_20261007/annotations/12.png",
+    "assets_src/review/magician_walkthrough_20261007/annotations/13.png",
+    "assets_src/review/magician_walkthrough_20261007/annotations/14.png",
+    "assets_src/review/magician_walkthrough_20261007/annotations/15.png",
+    "assets_src/review/magician_walkthrough_20261007/annotations/16.png",
+    "assets_src/review/magician_walkthrough_20261007/annotations/17.png",
+    "assets_src/review/magician_walkthrough_20261007/annotations/18.png",
+    "assets_src/review/magician_walkthrough_20261007/annotations/B1.png",
+    "assets_src/review/magician_walkthrough_20261007/annotations/D1.png",
+    "assets_src/review/magician_walkthrough_20261007/annotations/D2.png",
+    "assets_src/review/magician_walkthrough_20261007/annotations/P1.png",
+    "assets_src/review/magician_walkthrough_20261007/evidence/DOCUMENT_ONLY_TREE.json",
+    "assets_src/review/magician_walkthrough_20261007/evidence/FINAL_CHECKPOINT.json",
+    "assets_src/review/magician_walkthrough_20261007/evidence/HTML_CABINET.png",
+    "assets_src/review/magician_walkthrough_20261007/evidence/HTML_DESKTOP.png",
+    "assets_src/review/magician_walkthrough_20261007/evidence/HTML_MOBILE.png",
+    "assets_src/review/magician_walkthrough_20261007/evidence/HTML_RENDER_QA.json",
+    "assets_src/review/magician_walkthrough_20261007/evidence/IMPORT_RECOVERY.json",
+    "assets_src/review/magician_walkthrough_20261007/evidence/WALKTHROUGH_QA.json",
+    "assets_src/review/magician_walkthrough_20261007/evidence/authority_stress.log",
+    "assets_src/review/magician_walkthrough_20261007/evidence/development.log",
+    "assets_src/review/magician_walkthrough_20261007/evidence/document_authority.log",
+    "assets_src/review/magician_walkthrough_20261007/evidence/document_tests.log",
+    "assets_src/review/magician_walkthrough_20261007/evidence/import_baseline_hcache.json",
+    "assets_src/review/magician_walkthrough_20261007/evidence/import_baseline_verbose.json",
+    "assets_src/review/magician_walkthrough_20261007/evidence/qa_magician_walkthrough.py.txt",
+    "assets_src/review/magician_walkthrough_20261007/evidence/render_magician_walkthrough.cjs.txt",
+    "assets_src/review/magician_walkthrough_20261007/index.html",
+    "assets_src/review/magician_walkthrough_20261007/panels/01_asset_board.png",
+    "assets_src/review/magician_walkthrough_20261007/panels/02_asset_board.png",
+    "assets_src/review/magician_walkthrough_20261007/panels/03_asset_board.png",
+    "assets_src/review/magician_walkthrough_20261007/panels/04_asset_board.png",
+    "assets_src/review/magician_walkthrough_20261007/panels/05_asset_board.png",
+    "assets_src/review/magician_walkthrough_20261007/panels/06_asset_board.png",
+    "assets_src/review/magician_walkthrough_20261007/panels/07_asset_board.png",
+    "assets_src/review/magician_walkthrough_20261007/panels/08_asset_board.png",
+    "assets_src/review/magician_walkthrough_20261007/panels/09_asset_board.png",
+    "assets_src/review/magician_walkthrough_20261007/panels/10_asset_board.png",
+    "assets_src/review/magician_walkthrough_20261007/panels/11_asset_board.png",
+    "assets_src/review/magician_walkthrough_20261007/panels/12_asset_board.png",
+    "assets_src/review/magician_walkthrough_20261007/panels/13_asset_board.png",
+    "assets_src/review/magician_walkthrough_20261007/panels/14_asset_board.png",
+    "assets_src/review/magician_walkthrough_20261007/panels/15_asset_board.png",
+    "assets_src/review/magician_walkthrough_20261007/panels/16_asset_board.png",
+    "assets_src/review/magician_walkthrough_20261007/panels/17_asset_board.png",
+    "assets_src/review/magician_walkthrough_20261007/panels/18_asset_board.png",
+    "assets_src/review/magician_walkthrough_20261007/panels/B1_asset_board.png",
+    "assets_src/review/magician_walkthrough_20261007/panels/D1_asset_board.png",
+    "assets_src/review/magician_walkthrough_20261007/panels/D2_asset_board.png",
+    "assets_src/review/magician_walkthrough_20261007/panels/P1_asset_board.png",
+    "assets_src/review/magician_walkthrough_20261007/source_snapshots/opera_career_world_2d.gd.txt",
+    "assets_src/review/magician_walkthrough_20261007/source_snapshots/opera_gesture_surface.gd.txt",
+    "ASSET_LICENSES.md",
+    "design/05_DOC_LEDGER.md",
+    ".gitattributes"
+  ],
+  "validation": [
+    {
+      "command": "Review source phase table + PerformancePlan.build and current route/reward owners",
+      "result": "PASS",
+      "evidence": "assets_src/review/magician_walkthrough_20261007/SOURCE_SNAPSHOT.json and WALKTHROUGH_MANIFEST.json; exact source hashes, 3+5 sequence and birthday exclusions"
+    },
+    {
+      "command": "Walkthrough image/link/hash/source-preservation QA",
+      "result": "PASS",
+      "evidence": "assets_src/review/magician_walkthrough_20261007/evidence/WALKTHROUGH_QA.json and HTML_RENDER_QA.json: 22 steps/images, 92 links, zero missing anchors, desktop/mobile no overflow; source artwork and staged candidate unchanged."
+    },
+    {
+      "command": "python -B tools/audit_document_authority.py; python -B tools/audit_development.py --base auto",
+      "result": "PASS",
+      "evidence": "assets_src/review/magician_walkthrough_20261007/evidence/document_authority.log, development.log, document_tests.log and authority_stress.log: ALL OK, 54 existing tests, 6/6 stress."
+    },
+    {
+      "command": "Full required runtime probes",
+      "result": "PASS",
+      "evidence": "Inherited exact runtime 96274aab9cebd563b10846a4a48de5d017588563 has Probe Suite run 37564552946 success. DOCUMENT_ONLY_TREE.json proves the publication tree changes only non-runtime review files, license rows and one scoped ledger row; staged production repair remains outside the commit."
+    },
+    {
+      "command": "Public anonymous exact-revision GitHub byte verification",
+      "result": "PENDING",
+      "evidence": "Publication receipt to follow"
+    }
+  ],
+  "acceptance_gaps": "All new panels are asset-backed illustrations with native capture gaps. No current natural-route/input/contact/action/finish/return/save proof, no independent4.6 re-review or device/child/owner session. Existing art and storage questions/development pause remain; generation0. No finding lifecycle changes.",
+  "references_used": [
+    {
+      "path": "design/CHAPTER2_EIGHT_CAREER_PRODUCTION_SPINE_2026-08-30.md",
+      "purpose": "Birthday applicability; Magician is outside exact eight-career roster"
+    },
+    {
+      "path": "design/animation/ANIMATION_PRODUCTION_PROTOCOL.md",
+      "purpose": "Whole-figure and constant-size requirements; no new animation commissioned"
+    }
+  ]
+}

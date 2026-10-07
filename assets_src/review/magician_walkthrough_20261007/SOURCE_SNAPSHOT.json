@@ -1,0 +1,827 @@
+{
+  "branch": "codex/magician-clearance-20261006",
+  "baseline_commit": "96274aab9cebd563b10846a4a48de5d017588563",
+  "head_at_start": "96274aab9cebd563b10846a4a48de5d017588563",
+  "current_source_basis": "Baseline plus staged Magician input cancellation/portal geometry candidate; candidate source bytes preserved separately. Not a clean accepted build.",
+  "latest_origin_dev_at_start": "6238934447cf28834874396dfbaff65effafda46",
+  "source_files": [
+    {
+      "path": "audit/MASTER_AUDIT_2026-08-09.md",
+      "sha256": "320037140ffe0b04d9b0dfb42119948a926c8ff9a58648da9e1d2b0226c06e1d",
+      "bytes": 290313,
+      "equals_baseline": false,
+      "immutable_baseline_url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/96274aab9cebd563b10846a4a48de5d017588563/audit/MASTER_AUDIT_2026-08-09.md"
+    },
+    {
+      "path": "design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md",
+      "sha256": "6c73d8ffc89ffa99b8dbf2972365a190003914a60fc6807df166c0056cbff6b8",
+      "bytes": 106390,
+      "equals_baseline": false,
+      "immutable_baseline_url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/96274aab9cebd563b10846a4a48de5d017588563/design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md"
+    },
+    {
+      "path": "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
+      "sha256": "fbe5006154aa4d0a729a17d5d4e23273300236f9a42d796a0bcef4804a71ab6f",
+      "bytes": 242015,
+      "equals_baseline": false,
+      "immutable_baseline_url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/96274aab9cebd563b10846a4a48de5d017588563/audit/findings/ACTIVE_FINDINGS_2026-08-13.md"
+    },
+    {
+      "path": "design/05_DOC_LEDGER.md",
+      "sha256": "291f0bfbd7c9fe7443b2061efb56544444c4461ae74cf49f767aef73aa0e8f08",
+      "bytes": 201482,
+      "equals_baseline": false,
+      "immutable_baseline_url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/96274aab9cebd563b10846a4a48de5d017588563/design/05_DOC_LEDGER.md",
+      "hash_scope": "Task-start authority bytes, before this walkthrough added its own scoped ledger row.",
+      "post_document_edit_sha256": "f65852d9103cffece92b4f3c53cbd2ba75579e323fab3aada68d14e041537172"
+    },
+    {
+      "path": "design/AUDIT_DEVELOPMENT_CONTRACT.md",
+      "sha256": "e2e97157a029efb6abfd123f9cf438f6dd5e777c6bcfac7ea4912aad64fcbd13",
+      "bytes": 7730,
+      "equals_baseline": false,
+      "immutable_baseline_url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/96274aab9cebd563b10846a4a48de5d017588563/design/AUDIT_DEVELOPMENT_CONTRACT.md"
+    },
+    {
+      "path": "design/animation/ANIMATION_PRODUCTION_PROTOCOL.md",
+      "sha256": "0b1a6784ea8c2a0287f99988cba27a36cc786a638733b2b74e07996405f651b7",
+      "bytes": 37863,
+      "equals_baseline": false,
+      "immutable_baseline_url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/96274aab9cebd563b10846a4a48de5d017588563/design/animation/ANIMATION_PRODUCTION_PROTOCOL.md"
+    },
+    {
+      "path": "design/CHAPTER2_EIGHT_CAREER_PRODUCTION_SPINE_2026-08-30.md",
+      "sha256": "6415353b4bf286d3da28f5d7596a15fecaa6ba7d875c5159b7639ac85859c912",
+      "bytes": 6986,
+      "equals_baseline": false,
+      "immutable_baseline_url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/96274aab9cebd563b10846a4a48de5d017588563/design/CHAPTER2_EIGHT_CAREER_PRODUCTION_SPINE_2026-08-30.md"
+    },
+    {
+      "path": "scripts/opera_performance_plan.gd",
+      "sha256": "25517580638edcc8f63375ec6b14fd0de89287ed08af00111fec1d467cce6da3",
+      "bytes": 1567,
+      "equals_baseline": false,
+      "immutable_baseline_url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/96274aab9cebd563b10846a4a48de5d017588563/scripts/opera_performance_plan.gd"
+    },
+    {
+      "path": "scripts/opera_roshan_actor.gd",
+      "sha256": "7c0f334fd73b39685b5a1ef4e3e9214b974cbd90db3d291dc172ebc5b13a6b66",
+      "bytes": 7124,
+      "equals_baseline": false,
+      "immutable_baseline_url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/96274aab9cebd563b10846a4a48de5d017588563/scripts/opera_roshan_actor.gd"
+    },
+    {
+      "path": "scripts/audio_director.gd",
+      "sha256": "9de96599bd4b303a732e9ca5127547874ff35247771aee1d3fe4e0bcfbba59ba",
+      "bytes": 29188,
+      "equals_baseline": false,
+      "immutable_baseline_url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/96274aab9cebd563b10846a4a48de5d017588563/scripts/audio_director.gd"
+    },
+    {
+      "path": "scripts/opera_mastery.gd",
+      "sha256": "5dbc2687e47488e9335e4d3079bb3189f2cd6b454102eae6bed7b34de7dd8809",
+      "bytes": 8109,
+      "equals_baseline": false,
+      "immutable_baseline_url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/96274aab9cebd563b10846a4a48de5d017588563/scripts/opera_mastery.gd"
+    },
+    {
+      "path": "scripts/opera_competition.gd",
+      "sha256": "f69b4922f734272e8e0682d0c5e302f34538cc4cf9792dac474454bd96efb1b8",
+      "bytes": 9110,
+      "equals_baseline": false,
+      "immutable_baseline_url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/96274aab9cebd563b10846a4a48de5d017588563/scripts/opera_competition.gd"
+    },
+    {
+      "path": "scripts/arena/castle_rooms_25d.gd",
+      "sha256": "c56ad1da104050a07370c7115c06cb66c29a61c33a7b4280501772e0b13e3f84",
+      "bytes": 247843,
+      "equals_baseline": false,
+      "immutable_baseline_url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/96274aab9cebd563b10846a4a48de5d017588563/scripts/arena/castle_rooms_25d.gd"
+    },
+    {
+      "path": "scripts/main.gd",
+      "sha256": "4f8787e5e788f100e6fd44f646435f6afeaee4a58965b5292630d2410de7f6f5",
+      "bytes": 379919,
+      "equals_baseline": false,
+      "immutable_baseline_url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/96274aab9cebd563b10846a4a48de5d017588563/scripts/main.gd"
+    },
+    {
+      "path": "scripts/castle_career_routes.gd",
+      "sha256": "c5de38d8126c96aae9e999780113edafff05601a22934443e67053edcd8e18d8",
+      "bytes": 15425,
+      "equals_baseline": false,
+      "immutable_baseline_url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/96274aab9cebd563b10846a4a48de5d017588563/scripts/castle_career_routes.gd"
+    },
+    {
+      "path": "assets/flats/castle/rooms/background_tiles/room_opera_hall_background_r0_c0.png",
+      "sha256": "a18cd59488570b1d5316f5583d7dee778e2dd5395b5aeeff0ef92967a76ed0a4",
+      "bytes": 810462,
+      "equals_baseline": true,
+      "immutable_baseline_url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/96274aab9cebd563b10846a4a48de5d017588563/assets/flats/castle/rooms/background_tiles/room_opera_hall_background_r0_c0.png",
+      "dimensions": [
+        910,
+        1024
+      ],
+      "mode": "RGB",
+      "license_provenance": "Existing project runtime artwork; original ASSET_LICENSES.md remains authoritative. Review reuse grants no new acceptance."
+    },
+    {
+      "path": "assets/flats/castle/rooms/background_tiles/room_opera_hall_background_r0_c1.png",
+      "sha256": "d6a48b9e9171f0f4aa1163e8925b9c57e77afca8567adefd4af9fb67af9cc1e3",
+      "bytes": 737504,
+      "equals_baseline": true,
+      "immutable_baseline_url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/96274aab9cebd563b10846a4a48de5d017588563/assets/flats/castle/rooms/background_tiles/room_opera_hall_background_r0_c1.png",
+      "dimensions": [
+        910,
+        1024
+      ],
+      "mode": "RGB",
+      "license_provenance": "Existing project runtime artwork; original ASSET_LICENSES.md remains authoritative. Review reuse grants no new acceptance."
+    },
+    {
+      "path": "assets/flats/castle/rooms/background_tiles/room_opera_hall_background_r0_c2.png",
+      "sha256": "63a66a417833a9764c5b6f4bc742b0c043e3cb99edd9616941dd53b8ab807773",
+      "bytes": 731693,
+      "equals_baseline": true,
+      "immutable_baseline_url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/96274aab9cebd563b10846a4a48de5d017588563/assets/flats/castle/rooms/background_tiles/room_opera_hall_background_r0_c2.png",
+      "dimensions": [
+        910,
+        1024
+      ],
+      "mode": "RGB",
+      "license_provenance": "Existing project runtime artwork; original ASSET_LICENSES.md remains authoritative. Review reuse grants no new acceptance."
+    },
+    {
+      "path": "assets/flats/castle/rooms/background_tiles/room_opera_hall_background_r0_c3.png",
+      "sha256": "642ab06337bb726b1fb736ffa10c6b94aadf01550ca1f12ba30421d6a0a4dd86",
+      "bytes": 800864,
+      "equals_baseline": true,
+      "immutable_baseline_url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/96274aab9cebd563b10846a4a48de5d017588563/assets/flats/castle/rooms/background_tiles/room_opera_hall_background_r0_c3.png",
+      "dimensions": [
+        910,
+        1024
+      ],
+      "mode": "RGB",
+      "license_provenance": "Existing project runtime artwork; original ASSET_LICENSES.md remains authoritative. Review reuse grants no new acceptance."
+    },
+    {
+      "path": "assets/flats/castle/rooms/background_tiles/room_opera_hall_background_r1_c0.png",
+      "sha256": "422727d745628b237acba5135660f27d8989556abd19168f90bcec869d079a08",
+      "bytes": 733967,
+      "equals_baseline": true,
+      "immutable_baseline_url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/96274aab9cebd563b10846a4a48de5d017588563/assets/flats/castle/rooms/background_tiles/room_opera_hall_background_r1_c0.png",
+      "dimensions": [
+        910,
+        1024
+      ],
+      "mode": "RGB",
+      "license_provenance": "Existing project runtime artwork; original ASSET_LICENSES.md remains authoritative. Review reuse grants no new acceptance."
+    },
+    {
+      "path": "assets/flats/castle/rooms/background_tiles/room_opera_hall_background_r1_c1.png",
+      "sha256": "1c75abdeb9b718c55d320b30fb6d5050bca09ff7e01a500156e567d9e9590004",
+      "bytes": 574173,
+      "equals_baseline": true,
+      "immutable_baseline_url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/96274aab9cebd563b10846a4a48de5d017588563/assets/flats/castle/rooms/background_tiles/room_opera_hall_background_r1_c1.png",
+      "dimensions": [
+        910,
+        1024
+      ],
+      "mode": "RGB",
+      "license_provenance": "Existing project runtime artwork; original ASSET_LICENSES.md remains authoritative. Review reuse grants no new acceptance."
+    },
+    {
+      "path": "assets/flats/castle/rooms/background_tiles/room_opera_hall_background_r1_c2.png",
+      "sha256": "bdc4d61551082d74e530eb39b46639904b7c372a39daec5255a038da44dc49db",
+      "bytes": 581759,
+      "equals_baseline": true,
+      "immutable_baseline_url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/96274aab9cebd563b10846a4a48de5d017588563/assets/flats/castle/rooms/background_tiles/room_opera_hall_background_r1_c2.png",
+      "dimensions": [
+        910,
+        1024
+      ],
+      "mode": "RGB",
+      "license_provenance": "Existing project runtime artwork; original ASSET_LICENSES.md remains authoritative. Review reuse grants no new acceptance."
+    },
+    {
+      "path": "assets/flats/castle/rooms/background_tiles/room_opera_hall_background_r1_c3.png",
+      "sha256": "afb10ec7e107b1f2c1d0c6be9ab5244997401d12f41c589365a50d58e481215f",
+      "bytes": 748179,
+      "equals_baseline": true,
+      "immutable_baseline_url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/96274aab9cebd563b10846a4a48de5d017588563/assets/flats/castle/rooms/background_tiles/room_opera_hall_background_r1_c3.png",
+      "dimensions": [
+        910,
+        1024
+      ],
+      "mode": "RGB",
+      "license_provenance": "Existing project runtime artwork; original ASSET_LICENSES.md remains authoritative. Review reuse grants no new acceptance."
+    },
+    {
+      "path": "scripts/opera_house_venue_2d.gd",
+      "sha256": "69f7251f96ec5234fd733fc2d8ad56211d7cbe386122c9a93d76912c4cc8fac1",
+      "bytes": 18852,
+      "equals_baseline": false,
+      "immutable_baseline_url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/96274aab9cebd563b10846a4a48de5d017588563/scripts/opera_house_venue_2d.gd"
+    },
+    {
+      "path": "scripts/opera_house.gd",
+      "sha256": "09a70ca5f9abd836f66a2327e62553b8d603f9318845c404d7d3527fee953910",
+      "bytes": 17395,
+      "equals_baseline": false,
+      "immutable_baseline_url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/96274aab9cebd563b10846a4a48de5d017588563/scripts/opera_house.gd"
+    },
+    {
+      "path": "assets/flats/castle/opera_house_venue_2d/background_tiles/room_opera_house_venue_background_r0_c0.png",
+      "sha256": "4033aee34bc754a09f7a6f7ee458254a29e324d279c24ed0281d7f9554c9cc66",
+      "bytes": 810527,
+      "equals_baseline": true,
+      "immutable_baseline_url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/96274aab9cebd563b10846a4a48de5d017588563/assets/flats/castle/opera_house_venue_2d/background_tiles/room_opera_house_venue_background_r0_c0.png",
+      "dimensions": [
+        910,
+        1024
+      ],
+      "mode": "RGB",
+      "license_provenance": "Existing project runtime artwork; original ASSET_LICENSES.md remains authoritative. Review reuse grants no new acceptance."
+    },
+    {
+      "path": "assets/flats/castle/opera_house_venue_2d/background_tiles/room_opera_house_venue_background_r0_c1.png",
+      "sha256": "de71e10cda26a3f5833e450d7559a262e97218b994a1cba42bb2d3444daa208e",
+      "bytes": 803533,
+      "equals_baseline": true,
+      "immutable_baseline_url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/96274aab9cebd563b10846a4a48de5d017588563/assets/flats/castle/opera_house_venue_2d/background_tiles/room_opera_house_venue_background_r0_c1.png",
+      "dimensions": [
+        910,
+        1024
+      ],
+      "mode": "RGB",
+      "license_provenance": "Existing project runtime artwork; original ASSET_LICENSES.md remains authoritative. Review reuse grants no new acceptance."
+    },
+    {
+      "path": "assets/flats/castle/opera_house_venue_2d/background_tiles/room_opera_house_venue_background_r0_c2.png",
+      "sha256": "f74cd2ada8d3c796916e1009a9c0d9fda15a915ab097ebb34f7b5f994e9df684",
+      "bytes": 806018,
+      "equals_baseline": true,
+      "immutable_baseline_url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/96274aab9cebd563b10846a4a48de5d017588563/assets/flats/castle/opera_house_venue_2d/background_tiles/room_opera_house_venue_background_r0_c2.png",
+      "dimensions": [
+        910,
+        1024
+      ],
+      "mode": "RGB",
+      "license_provenance": "Existing project runtime artwork; original ASSET_LICENSES.md remains authoritative. Review reuse grants no new acceptance."
+    },
+    {
+      "path": "assets/flats/castle/opera_house_venue_2d/background_tiles/room_opera_house_venue_background_r0_c3.png",
+      "sha256": "229206b066610908e3f2bd23a7b07e823b2490755d567f73277d54e2a5d57ee9",
+      "bytes": 800754,
+      "equals_baseline": true,
+      "immutable_baseline_url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/96274aab9cebd563b10846a4a48de5d017588563/assets/flats/castle/opera_house_venue_2d/background_tiles/room_opera_house_venue_background_r0_c3.png",
+      "dimensions": [
+        910,
+        1024
+      ],
+      "mode": "RGB",
+      "license_provenance": "Existing project runtime artwork; original ASSET_LICENSES.md remains authoritative. Review reuse grants no new acceptance."
+    },
+    {
+      "path": "assets/flats/castle/opera_house_venue_2d/background_tiles/room_opera_house_venue_background_r1_c0.png",
+      "sha256": "4551b82106bc09c8df186d1f02b2c34125aed239182dd567b34f0fbf55bea42c",
+      "bytes": 1085067,
+      "equals_baseline": true,
+      "immutable_baseline_url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/96274aab9cebd563b10846a4a48de5d017588563/assets/flats/castle/opera_house_venue_2d/background_tiles/room_opera_house_venue_background_r1_c0.png",
+      "dimensions": [
+        910,
+        1024
+      ],
+      "mode": "RGB",
+      "license_provenance": "Existing project runtime artwork; original ASSET_LICENSES.md remains authoritative. Review reuse grants no new acceptance."
+    },
+    {
+      "path": "assets/flats/castle/opera_house_venue_2d/background_tiles/room_opera_house_venue_background_r1_c1.png",
+      "sha256": "376690e68c355c92a39678f0a049a7dcf08fd96adcd77bc754fe3e52857fd7e8",
+      "bytes": 930625,
+      "equals_baseline": true,
+      "immutable_baseline_url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/96274aab9cebd563b10846a4a48de5d017588563/assets/flats/castle/opera_house_venue_2d/background_tiles/room_opera_house_venue_background_r1_c1.png",
+      "dimensions": [
+        910,
+        1024
+      ],
+      "mode": "RGB",
+      "license_provenance": "Existing project runtime artwork; original ASSET_LICENSES.md remains authoritative. Review reuse grants no new acceptance."
+    },
+    {
+      "path": "assets/flats/castle/opera_house_venue_2d/background_tiles/room_opera_house_venue_background_r1_c2.png",
+      "sha256": "ff8ee50d01722ab63488263735cf346439196c224fdaf6f5e6341d623f6b871a",
+      "bytes": 935302,
+      "equals_baseline": true,
+      "immutable_baseline_url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/96274aab9cebd563b10846a4a48de5d017588563/assets/flats/castle/opera_house_venue_2d/background_tiles/room_opera_house_venue_background_r1_c2.png",
+      "dimensions": [
+        910,
+        1024
+      ],
+      "mode": "RGB",
+      "license_provenance": "Existing project runtime artwork; original ASSET_LICENSES.md remains authoritative. Review reuse grants no new acceptance."
+    },
+    {
+      "path": "assets/flats/castle/opera_house_venue_2d/background_tiles/room_opera_house_venue_background_r1_c3.png",
+      "sha256": "534ad3861872663ff7fb9fd02ff5664a96cd51020e73072efbde7eb9441717ed",
+      "bytes": 1031242,
+      "equals_baseline": true,
+      "immutable_baseline_url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/96274aab9cebd563b10846a4a48de5d017588563/assets/flats/castle/opera_house_venue_2d/background_tiles/room_opera_house_venue_background_r1_c3.png",
+      "dimensions": [
+        910,
+        1024
+      ],
+      "mode": "RGB",
+      "license_provenance": "Existing project runtime artwork; original ASSET_LICENSES.md remains authoritative. Review reuse grants no new acceptance."
+    },
+    {
+      "path": "scripts/opera_career_world_2d.gd",
+      "sha256": "ff0b727579bd4d2789dbd5bfc7d1f4795effacef9ec9b279d0a916a2fa32d875",
+      "bytes": 240509,
+      "equals_baseline": false,
+      "immutable_baseline_url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/96274aab9cebd563b10846a4a48de5d017588563/scripts/opera_career_world_2d.gd",
+      "dirty_source_snapshot": "source_snapshots/opera_career_world_2d.gd.txt"
+    },
+    {
+      "path": "scripts/opera_stage_paths.gd",
+      "sha256": "b69af8573cea9d573ecf6b245e99e1b6dc9359bf9f13f5b8d22c4b44a496d64b",
+      "bytes": 49394,
+      "equals_baseline": false,
+      "immutable_baseline_url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/96274aab9cebd563b10846a4a48de5d017588563/scripts/opera_stage_paths.gd"
+    },
+    {
+      "path": "assets/opera/worlds/backdrops/world_magician_c0r0.png",
+      "sha256": "27a0ded093913fff76a1edca5867bd6d3832e1a74b41cc6ec75368c114142c08",
+      "bytes": 932616,
+      "equals_baseline": true,
+      "immutable_baseline_url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/96274aab9cebd563b10846a4a48de5d017588563/assets/opera/worlds/backdrops/world_magician_c0r0.png",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "license_provenance": "Existing project runtime artwork; original ASSET_LICENSES.md remains authoritative. Review reuse grants no new acceptance."
+    },
+    {
+      "path": "assets/opera/worlds/backdrops/world_magician_c1r0.png",
+      "sha256": "5f767669bd177c08f644f85996b380e89e9925077e230ae99fa8d3ad7c807693",
+      "bytes": 912371,
+      "equals_baseline": true,
+      "immutable_baseline_url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/96274aab9cebd563b10846a4a48de5d017588563/assets/opera/worlds/backdrops/world_magician_c1r0.png",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "license_provenance": "Existing project runtime artwork; original ASSET_LICENSES.md remains authoritative. Review reuse grants no new acceptance."
+    },
+    {
+      "path": "assets/opera/worlds/backdrops/world_magician_c0r1.png",
+      "sha256": "4eecebacf18fac24546039581f88c1f76ff60794e82a629e7f67523a94c8b37b",
+      "bytes": 946619,
+      "equals_baseline": true,
+      "immutable_baseline_url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/96274aab9cebd563b10846a4a48de5d017588563/assets/opera/worlds/backdrops/world_magician_c0r1.png",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "license_provenance": "Existing project runtime artwork; original ASSET_LICENSES.md remains authoritative. Review reuse grants no new acceptance."
+    },
+    {
+      "path": "assets/opera/worlds/backdrops/world_magician_c1r1.png",
+      "sha256": "29891eef1c26febc2ccad61397e519326c86170eef5ffe38019099b379ea3f1c",
+      "bytes": 918735,
+      "equals_baseline": true,
+      "immutable_baseline_url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/96274aab9cebd563b10846a4a48de5d017588563/assets/opera/worlds/backdrops/world_magician_c1r1.png",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "license_provenance": "Existing project runtime artwork; original ASSET_LICENSES.md remains authoritative. Review reuse grants no new acceptance."
+    },
+    {
+      "path": "assets/opera/worlds/actors/animation/roshan_magician_sheet_a.png",
+      "sha256": "768e6980fa8f4ca9cc3281a2fb1f23f0fcdeac8f2d524e6135b3be03eafc13cb",
+      "bytes": 984016,
+      "equals_baseline": true,
+      "immutable_baseline_url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/96274aab9cebd563b10846a4a48de5d017588563/assets/opera/worlds/actors/animation/roshan_magician_sheet_a.png",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "license_provenance": "Existing project runtime artwork; original ASSET_LICENSES.md remains authoritative. Review reuse grants no new acceptance."
+    },
+    {
+      "path": "scripts/opera_gesture_surface.gd",
+      "sha256": "7e8ab9fc11ce21af64205dbf80bd92aed3556cd759124bc6b52ea9772a6019dd",
+      "bytes": 249225,
+      "equals_baseline": false,
+      "immutable_baseline_url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/96274aab9cebd563b10846a4a48de5d017588563/scripts/opera_gesture_surface.gd",
+      "dirty_source_snapshot": "source_snapshots/opera_gesture_surface.gd.txt"
+    },
+    {
+      "path": "assets/opera/worlds/widgets/widget_magic_vanish_reveal.png",
+      "sha256": "6de26751d387d8d811adc911cae430f8b637bfcef228f4c77ebf4d07a6317124",
+      "bytes": 180147,
+      "equals_baseline": true,
+      "immutable_baseline_url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/96274aab9cebd563b10846a4a48de5d017588563/assets/opera/worlds/widgets/widget_magic_vanish_reveal.png",
+      "dimensions": [
+        512,
+        512
+      ],
+      "mode": "RGBA",
+      "license_provenance": "Existing project runtime artwork; original ASSET_LICENSES.md remains authoritative. Review reuse grants no new acceptance."
+    },
+    {
+      "path": "assets/opera/worlds/widgets/widget_magic_vanish_wand.png",
+      "sha256": "6d5dc285df51e32c937034d0afa4c8d9f6e070fbe1e8d293ec869b2e7906318c",
+      "bytes": 67480,
+      "equals_baseline": true,
+      "immutable_baseline_url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/96274aab9cebd563b10846a4a48de5d017588563/assets/opera/worlds/widgets/widget_magic_vanish_wand.png",
+      "dimensions": [
+        512,
+        512
+      ],
+      "mode": "RGBA",
+      "license_provenance": "Existing project runtime artwork; original ASSET_LICENSES.md remains authoritative. Review reuse grants no new acceptance."
+    },
+    {
+      "path": "assets/opera/worlds/widgets/widget_magic_vanish_hat.png",
+      "sha256": "489b47f7ad9f534cbc243b1d8b67a35a33c7d14b4c67b1fe9fb5f154144e4316",
+      "bytes": 146532,
+      "equals_baseline": true,
+      "immutable_baseline_url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/96274aab9cebd563b10846a4a48de5d017588563/assets/opera/worlds/widgets/widget_magic_vanish_hat.png",
+      "dimensions": [
+        512,
+        512
+      ],
+      "mode": "RGBA",
+      "license_provenance": "Existing project runtime artwork; original ASSET_LICENSES.md remains authoritative. Review reuse grants no new acceptance."
+    },
+    {
+      "path": "scripts/opera_hotspot_catalog.gd",
+      "sha256": "ad76445088eaaaa223f9374b2e7a098370350da7ebc5c419584453ff1da2ee5b",
+      "bytes": 26305,
+      "equals_baseline": false,
+      "immutable_baseline_url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/96274aab9cebd563b10846a4a48de5d017588563/scripts/opera_hotspot_catalog.gd"
+    },
+    {
+      "path": "assets/opera/worlds/widgets/widget_lanes_magician_lit.png",
+      "sha256": "d19c4bbf676670e37b34876082d457ae244394bab69867a1bc487d5718f72c8b",
+      "bytes": 158085,
+      "equals_baseline": true,
+      "immutable_baseline_url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/96274aab9cebd563b10846a4a48de5d017588563/assets/opera/worlds/widgets/widget_lanes_magician_lit.png",
+      "dimensions": [
+        768,
+        256
+      ],
+      "mode": "RGBA",
+      "license_provenance": "Existing project runtime artwork; original ASSET_LICENSES.md remains authoritative. Review reuse grants no new acceptance."
+    },
+    {
+      "path": "assets/opera/worlds/hotspots/magician_rope.png",
+      "sha256": "f38205f3e00ab8de0b1dd176a52c7535abcfa369eafa1fe1032eacb003fc9843",
+      "bytes": 55596,
+      "equals_baseline": true,
+      "immutable_baseline_url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/96274aab9cebd563b10846a4a48de5d017588563/assets/opera/worlds/hotspots/magician_rope.png",
+      "dimensions": [
+        512,
+        128
+      ],
+      "mode": "RGBA",
+      "license_provenance": "Existing project runtime artwork; original ASSET_LICENSES.md remains authoritative. Review reuse grants no new acceptance."
+    },
+    {
+      "path": "assets/opera/worlds/backdrops/stage_magician_c0r0.png",
+      "sha256": "84e4ee759f240675c9d355356b373e7463f12496166308cdcd998fff5dffef9e",
+      "bytes": 821787,
+      "equals_baseline": true,
+      "immutable_baseline_url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/96274aab9cebd563b10846a4a48de5d017588563/assets/opera/worlds/backdrops/stage_magician_c0r0.png",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "license_provenance": "Existing project runtime artwork; original ASSET_LICENSES.md remains authoritative. Review reuse grants no new acceptance."
+    },
+    {
+      "path": "assets/opera/worlds/backdrops/stage_magician_c1r0.png",
+      "sha256": "2946fd63a195ef972ec9628a4ff346dfe0beb8f067bf47065cbc50de00f2a010",
+      "bytes": 846780,
+      "equals_baseline": true,
+      "immutable_baseline_url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/96274aab9cebd563b10846a4a48de5d017588563/assets/opera/worlds/backdrops/stage_magician_c1r0.png",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "license_provenance": "Existing project runtime artwork; original ASSET_LICENSES.md remains authoritative. Review reuse grants no new acceptance."
+    },
+    {
+      "path": "assets/opera/worlds/backdrops/stage_magician_c0r1.png",
+      "sha256": "11230a06b81d60ae09a5c17e66c3a5a0e6c81d158fa67a4914c6345d461ed151",
+      "bytes": 859745,
+      "equals_baseline": true,
+      "immutable_baseline_url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/96274aab9cebd563b10846a4a48de5d017588563/assets/opera/worlds/backdrops/stage_magician_c0r1.png",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "license_provenance": "Existing project runtime artwork; original ASSET_LICENSES.md remains authoritative. Review reuse grants no new acceptance."
+    },
+    {
+      "path": "assets/opera/worlds/backdrops/stage_magician_c1r1.png",
+      "sha256": "e045779fe8fafd60effbe23bd131dee7f7e258d37a0218135b599c91a0599c43",
+      "bytes": 880014,
+      "equals_baseline": true,
+      "immutable_baseline_url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/96274aab9cebd563b10846a4a48de5d017588563/assets/opera/worlds/backdrops/stage_magician_c1r1.png",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "license_provenance": "Existing project runtime artwork; original ASSET_LICENSES.md remains authoritative. Review reuse grants no new acceptance."
+    },
+    {
+      "path": "assets/opera/worlds/actors/rival_magician.png",
+      "sha256": "516b8cf100df6502f3be269d302464ad6081e971ed50742f827527ee73f8965e",
+      "bytes": 243066,
+      "equals_baseline": true,
+      "immutable_baseline_url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/96274aab9cebd563b10846a4a48de5d017588563/assets/opera/worlds/actors/rival_magician.png",
+      "dimensions": [
+        512,
+        512
+      ],
+      "mode": "RGBA",
+      "license_provenance": "Existing project runtime artwork; original ASSET_LICENSES.md remains authoritative. Review reuse grants no new acceptance."
+    },
+    {
+      "path": "assets/opera/worlds/widgets/widget_magic_cabinet_closed.png",
+      "sha256": "f0829a82157b1e1671fdca165dac68a8385645d648ec77604287e95a59796fcf",
+      "bytes": 181241,
+      "equals_baseline": true,
+      "immutable_baseline_url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/96274aab9cebd563b10846a4a48de5d017588563/assets/opera/worlds/widgets/widget_magic_cabinet_closed.png",
+      "dimensions": [
+        512,
+        512
+      ],
+      "mode": "RGBA",
+      "license_provenance": "Existing project runtime artwork; original ASSET_LICENSES.md remains authoritative. Review reuse grants no new acceptance."
+    },
+    {
+      "path": "assets/opera/worlds/widgets/widget_magic_cabinet_reveal.png",
+      "sha256": "6e8764bc8031f9d09c360ba749f2c8fea89bf08b9316ad8b131ec255545cc2d9",
+      "bytes": 180874,
+      "equals_baseline": true,
+      "immutable_baseline_url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/96274aab9cebd563b10846a4a48de5d017588563/assets/opera/worlds/widgets/widget_magic_cabinet_reveal.png",
+      "dimensions": [
+        512,
+        512
+      ],
+      "mode": "RGBA",
+      "license_provenance": "Existing project runtime artwork; original ASSET_LICENSES.md remains authoritative. Review reuse grants no new acceptance."
+    },
+    {
+      "path": "assets/opera/worlds/widgets/widget_portal_magician_mover.png",
+      "sha256": "a39c8b805ab0f8c771798921900011f7b09b7ba1ddee4d7d2849dd752a5330a0",
+      "bytes": 82576,
+      "equals_baseline": true,
+      "immutable_baseline_url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/96274aab9cebd563b10846a4a48de5d017588563/assets/opera/worlds/widgets/widget_portal_magician_mover.png",
+      "dimensions": [
+        256,
+        256
+      ],
+      "mode": "RGBA",
+      "license_provenance": "Existing project runtime artwork; original ASSET_LICENSES.md remains authoritative. Review reuse grants no new acceptance."
+    },
+    {
+      "path": "scripts/opera_act.gd",
+      "sha256": "eddaa34b8dccd17f41f744176a1ceef6c38c788b200a66995438d42c74a78a63",
+      "bytes": 7672,
+      "equals_baseline": false,
+      "immutable_baseline_url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/96274aab9cebd563b10846a4a48de5d017588563/scripts/opera_act.gd"
+    },
+    {
+      "path": "assets/opera/worlds/props/fx_bop_puff.png",
+      "sha256": "4e64dfa88aa9a6105a61cdac0f978d207eb581b822ce854ac806a88e2a1c4e5c",
+      "bytes": 198185,
+      "equals_baseline": true,
+      "immutable_baseline_url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/96274aab9cebd563b10846a4a48de5d017588563/assets/opera/worlds/props/fx_bop_puff.png",
+      "dimensions": [
+        512,
+        512
+      ],
+      "mode": "RGBA",
+      "license_provenance": "Existing project runtime artwork; original ASSET_LICENSES.md remains authoritative. Review reuse grants no new acceptance."
+    },
+    {
+      "path": "scripts/opera_performance_overlay.gd",
+      "sha256": "1d41aa693d6d2fde851b4c612c2af210c79ae328e517f84c85f639edaf4c1e38",
+      "bytes": 7911,
+      "equals_baseline": false,
+      "immutable_baseline_url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/96274aab9cebd563b10846a4a48de5d017588563/scripts/opera_performance_overlay.gd"
+    },
+    {
+      "path": "assets/opera/worlds/props/goal_magician.png",
+      "sha256": "843e7c371c5d08d0f41f0629922778f416e3638c220fe558f5db8407d6495f8a",
+      "bytes": 209488,
+      "equals_baseline": true,
+      "immutable_baseline_url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/96274aab9cebd563b10846a4a48de5d017588563/assets/opera/worlds/props/goal_magician.png",
+      "dimensions": [
+        512,
+        512
+      ],
+      "mode": "RGBA",
+      "license_provenance": "Existing project runtime artwork; original ASSET_LICENSES.md remains authoritative. Review reuse grants no new acceptance."
+    },
+    {
+      "path": "assets/opera/worlds/ui/crests/opera_crest_magician.png",
+      "sha256": "2907ff717d532d0b1e757fd6ec56f1434ee1f787e443c18567fc6edef06cbf26",
+      "bytes": 87906,
+      "equals_baseline": true,
+      "immutable_baseline_url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/96274aab9cebd563b10846a4a48de5d017588563/assets/opera/worlds/ui/crests/opera_crest_magician.png",
+      "dimensions": [
+        256,
+        256
+      ],
+      "mode": "RGBA",
+      "license_provenance": "Existing project runtime artwork; original ASSET_LICENSES.md remains authoritative. Review reuse grants no new acceptance."
+    },
+    {
+      "path": "scripts/opera_job_playtest_menu.gd",
+      "sha256": "836d71b493cea9e63c4e398234752adb0e59a1c7c6f791c88c68dfccb5ee2a3b",
+      "bytes": 6526,
+      "equals_baseline": false,
+      "immutable_baseline_url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/96274aab9cebd563b10846a4a48de5d017588563/scripts/opera_job_playtest_menu.gd"
+    },
+    {
+      "path": "scripts/chapter_two_party_plan.gd",
+      "sha256": "c8fa0ff7f2f16d54085e920e3ad5ebc5c5a4e6c4d4afc85d98c702c900886dfa",
+      "bytes": 2929,
+      "equals_baseline": false,
+      "immutable_baseline_url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/96274aab9cebd563b10846a4a48de5d017588563/scripts/chapter_two_party_plan.gd"
+    },
+    {
+      "path": "assets/opera/worlds/actors/animation/roshan_farmer_sheet_a.png",
+      "sha256": "f0c9947b093c489145945467af62e50ce748b56b344c55942b7532742bc64bc5",
+      "bytes": 928607,
+      "equals_baseline": true,
+      "immutable_baseline_url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/96274aab9cebd563b10846a4a48de5d017588563/assets/opera/worlds/actors/animation/roshan_farmer_sheet_a.png",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "license_provenance": "Existing project runtime artwork; original ASSET_LICENSES.md remains authoritative. Review reuse grants no new acceptance."
+    },
+    {
+      "path": "assets/opera/worlds/actors/animation/roshan_chef_sheet_a.png",
+      "sha256": "78c666d2e87cc1cdcd2cde311c20e75a83ca86dae1366fe4aa9cacbee3e30566",
+      "bytes": 885972,
+      "equals_baseline": true,
+      "immutable_baseline_url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/96274aab9cebd563b10846a4a48de5d017588563/assets/opera/worlds/actors/animation/roshan_chef_sheet_a.png",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "license_provenance": "Existing project runtime artwork; original ASSET_LICENSES.md remains authoritative. Review reuse grants no new acceptance."
+    },
+    {
+      "path": "assets/opera/worlds/actors/animation/roshan_candymaker_sheet_a.png",
+      "sha256": "b858c07f52d4f67679a39dd039afc7123199646442c067368425f8f46deec179",
+      "bytes": 958648,
+      "equals_baseline": true,
+      "immutable_baseline_url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/96274aab9cebd563b10846a4a48de5d017588563/assets/opera/worlds/actors/animation/roshan_candymaker_sheet_a.png",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "license_provenance": "Existing project runtime artwork; original ASSET_LICENSES.md remains authoritative. Review reuse grants no new acceptance."
+    },
+    {
+      "path": "assets/opera/worlds/actors/animation/roshan_painter_sheet_a.png",
+      "sha256": "016dbac4a6c2342679410c19aa782d999557b92f4fc34f99f58d23dd714ea638",
+      "bytes": 772659,
+      "equals_baseline": true,
+      "immutable_baseline_url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/96274aab9cebd563b10846a4a48de5d017588563/assets/opera/worlds/actors/animation/roshan_painter_sheet_a.png",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "license_provenance": "Existing project runtime artwork; original ASSET_LICENSES.md remains authoritative. Review reuse grants no new acceptance."
+    },
+    {
+      "path": "assets/opera/worlds/actors/animation/roshan_ballerina_sheet_a.png",
+      "sha256": "c829784d4085e9cd9765cf0114a0f65bfe3f662ed8acc423223b726a0f003995",
+      "bytes": 922607,
+      "equals_baseline": true,
+      "immutable_baseline_url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/96274aab9cebd563b10846a4a48de5d017588563/assets/opera/worlds/actors/animation/roshan_ballerina_sheet_a.png",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "license_provenance": "Existing project runtime artwork; original ASSET_LICENSES.md remains authoritative. Review reuse grants no new acceptance."
+    },
+    {
+      "path": "assets/opera/worlds/actors/animation/roshan_popstar_sheet_a.png",
+      "sha256": "0084e74b73042832f248c26f6688e484b7376ea6418caee09b2e4beeebfb0ee9",
+      "bytes": 1028924,
+      "equals_baseline": true,
+      "immutable_baseline_url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/96274aab9cebd563b10846a4a48de5d017588563/assets/opera/worlds/actors/animation/roshan_popstar_sheet_a.png",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "license_provenance": "Existing project runtime artwork; original ASSET_LICENSES.md remains authoritative. Review reuse grants no new acceptance."
+    },
+    {
+      "path": "assets/opera/worlds/actors/animation/roshan_astronaut_sheet_a.png",
+      "sha256": "ccfb8e7af3a033e31e05af40fa62dc23b676aec6204ba8810e8cf79cbfc4d6fa",
+      "bytes": 897042,
+      "equals_baseline": true,
+      "immutable_baseline_url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/96274aab9cebd563b10846a4a48de5d017588563/assets/opera/worlds/actors/animation/roshan_astronaut_sheet_a.png",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "license_provenance": "Existing project runtime artwork; original ASSET_LICENSES.md remains authoritative. Review reuse grants no new acceptance."
+    },
+    {
+      "path": "assets/opera/worlds/actors/animation/roshan_detective_sheet_a.png",
+      "sha256": "fb0a7d8b718d797484f1d0da22c330a7e01d0e0bb192f9296f3f288a30cf7e7c",
+      "bytes": 895783,
+      "equals_baseline": true,
+      "immutable_baseline_url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/96274aab9cebd563b10846a4a48de5d017588563/assets/opera/worlds/actors/animation/roshan_detective_sheet_a.png",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "license_provenance": "Existing project runtime artwork; original ASSET_LICENSES.md remains authoritative. Review reuse grants no new acceptance."
+    },
+    {
+      "path": "audit/magician_clearance_20261006/FINAL_CHECKPOINT.json",
+      "sha256": "b3ba79fc3e8ce9d32d29fc2f6b63cddd74abc6dd388ca0316f3b069ca64f7fbb",
+      "bytes": 2766,
+      "equals_baseline": false,
+      "immutable_baseline_url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/96274aab9cebd563b10846a4a48de5d017588563/audit/magician_clearance_20261006/FINAL_CHECKPOINT.json"
+    },
+    {
+      "path": "audit/magician_clearance_20261006/import_baseline_hcache.json",
+      "sha256": "07ff1fa73471ae6f1a444899b2b1ca3179ad1d9218a470c7afc13062fc5bd621",
+      "bytes": 1034,
+      "equals_baseline": false,
+      "immutable_baseline_url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/96274aab9cebd563b10846a4a48de5d017588563/audit/magician_clearance_20261006/import_baseline_hcache.json"
+    },
+    {
+      "path": "audit/magician_clearance_20261006/import_baseline_verbose.json",
+      "sha256": "a66f9b1c8c39748940ddd71d806bfccd6c952fe210531af6926a5d29401c1819",
+      "bytes": 1119,
+      "equals_baseline": false,
+      "immutable_baseline_url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/96274aab9cebd563b10846a4a48de5d017588563/audit/magician_clearance_20261006/import_baseline_verbose.json"
+    },
+    {
+      "path": "audit/magician_clearance_20261006/IMPORT_RECOVERY.json",
+      "sha256": "612677b56bbd860894df85187fa676c21d0465ae1cf0a5f56a8b286939c74d55",
+      "bytes": 1032,
+      "equals_baseline": false,
+      "immutable_baseline_url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/96274aab9cebd563b10846a4a48de5d017588563/audit/magician_clearance_20261006/IMPORT_RECOVERY.json"
+    }
+  ],
+  "full_runtime_closure": "NOT_ESTABLISHED",
+  "renderer": "No new renderer/capture run. Requested native evidence must use exact Godot 4.7.2/Mobile/Speedy.",
+  "input_provenance": "No new gameplay input events, callbacks or save edits used. All panels are asset-backed review illustrations.",
+  "prior_runtime_gate": {
+    "headSha": "96274aab9cebd563b10846a4a48de5d017588563",
+    "run_id": 37564552946,
+    "conclusion": "success",
+    "url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/37564552946"
+  },
+  "acceptance": {
+    "machine": "Prior baseline CI green; staged candidate 59 component checks only; walkthrough checks to follow.",
+    "visual": "Source illustration reviewed; native route/action/contact/finish gap remains.",
+    "device": "PENDING",
+    "child": "PENDING",
+    "owner": "PENDING",
+    "clearance_4_6": "NOT_ESTABLISHED"
+  },
+  "generation": {
+    "new_requests": 0,
+    "prior_rejected_cuff_requests": 2,
+    "pending_owner_answers": [
+      "Wand source/material",
+      "Bounded whole-figure casting brief",
+      "Storage-coordinator messaging authorization"
+    ]
+  }
+}
