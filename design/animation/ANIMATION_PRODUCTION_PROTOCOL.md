@@ -96,6 +96,17 @@ figure; arm, shoulders, head, hair, torso and tail move together. The
 and the [whole-frame revision](../../assets_src/cinematics/claude_whole_frame_wave_20261005/README.md)
 record the difference; neither is accepted output.
 
+Owner corrections 2026-10-07 (`ODR-ROSHAN-CONSTANT-SIZE-20261007`,
+`ODR-SPRITE-WHOLE-UNIT-20261007`): "roshan mutates in size still" and "sprites
+need to be drawn whole, as a single unit, in this game". Size covers the head,
+arms and hands, not only the overall figure: measure part sizes in the exported
+frames before owner review, not only the guides. Every sprite frame is one whole
+drawing in one layer; part layers, separately warped pieces, stacked copies and
+cross-fades are overdraw. Bending the four approved wave keys failed both rules,
+because the keys themselves differ in head size and arm length. The
+[wave handoff](../../docs/handoffs/codex_roshan_wave_whole_sprites_2026-10-07/README.md)
+sets the measurable contract and its numbers-only check.
+
 Inspect decoded native frames before encoding to distinguish generated smear
 from matte spill and export artifacts. Small character/object footage must
 retain clear painted hands, fingers and prop edges. Review moving edges at the

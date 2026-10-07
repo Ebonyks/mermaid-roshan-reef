@@ -2,6 +2,8 @@
 
 Template: [Animation job card V1](../../../design/templates/ANIMATION_JOB_CARD_V1.md).
 This is a reference-only study with no runtime, production, device, child or owner acceptance.
+**OWNER_REJECTED 2026-10-07:** "roshan mutates in size still"; "sprites need to be drawn whole, as a
+single unit". See the [Codex handoff](../../../docs/handoffs/codex_roshan_wave_whole_sprites_2026-10-07/README.md).
 
 ## Brief and limits
 

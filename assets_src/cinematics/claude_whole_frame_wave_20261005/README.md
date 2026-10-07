@@ -1,6 +1,13 @@
 # Roshan wave: whole-frame drawings (revision 2)
 
-Status: `REFERENCE_ONLY`, owner-commissioned 2026-10-05. Baseline `e174a52dafb83e13df249ba040339554ca364ecf`.
+> **OWNER_REJECTED 2026-10-07.** The owner's verdicts: "This is worse than the previous results,
+> roshan mutates in size still" and "There are also significant overdraw issues, sprites need to
+> be drawn whole, as a single unit, in this game." Measured afterwards: the head is 2.0–2.9%
+> smaller from frame 6 to 31, the upper arm runs from 40% short to 36% stretched, and every frame
+> is built from separately warped pieces of one drawing. Kept as evidence only. See the
+> [Codex handoff](../../../docs/handoffs/codex_roshan_wave_whole_sprites_2026-10-07/README.md).
+
+Status: `REFERENCE_ONLY` / `OWNER_REJECTED`, owner-commissioned 2026-10-05. Baseline `e174a52dafb83e13df249ba040339554ca364ecf`.
 This packet makes no runtime change, accepts no production asset, and closes no finding.
 
 ![Roshan waving: 41 frames at 24 fps](review/wave.gif)

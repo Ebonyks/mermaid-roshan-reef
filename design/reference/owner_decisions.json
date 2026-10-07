@@ -340,6 +340,30 @@
       "question": "Review of the 2D-deformation wave (revision 1), where a cut-out arm moved over a body taken from another drawing with per-part delays.",
       "decision": "Rejected: \"No arm moves as a single figure, the whole body moves at once, drawn as a whole frame.\" No limb moves as a separate piece; every frame is one whole drawing of the figure and the whole body moves together.",
       "cycle": "roshan-wave-20261005"
+    },
+    {
+      "date": "2026-10-07",
+      "authority": "recorded_owner",
+      "source": "docs/handoffs/codex_roshan_wave_whole_sprites_2026-10-07/README.md#owner-corrections",
+      "checks": [],
+      "checkable": false,
+      "id": "ODR-ROSHAN-CONSTANT-SIZE-20261007",
+      "subject": "Roshan animation: one constant size",
+      "question": "Review of the whole-frame bending wave (Claude revision 2, assets_src/cinematics/claude_whole_frame_wave_20261005).",
+      "decision": "Rejected: \"This is worse than the previous results, roshan mutates in size still.\" Roshan keeps one size through an animation, including her head, arms and hands, not only her overall figure.",
+      "cycle": "roshan-wave-20261007"
+    },
+    {
+      "date": "2026-10-07",
+      "authority": "recorded_owner",
+      "source": "docs/handoffs/codex_roshan_wave_whole_sprites_2026-10-07/README.md#owner-corrections",
+      "checks": [],
+      "checkable": false,
+      "id": "ODR-SPRITE-WHOLE-UNIT-20261007",
+      "subject": "Sprites drawn whole, as a single unit (game-wide)",
+      "question": "Review of the wave studies, whose frames were built from stacked or separately warped pieces.",
+      "decision": "\"There are also significant overdraw issues, sprites need to be drawn whole, as a single unit, in this game.\" Each sprite frame is one whole drawing; no part layers, stacked copies or cross-fades.",
+      "cycle": "roshan-wave-20261007"
     }
   ]
 }
