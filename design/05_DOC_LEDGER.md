@@ -1035,3 +1035,5 @@ release/device/child/owner authority retain precedence.
 | `assets_src/cinematics/ltx25_union_trial_20261004/README.md` | 🔵 | `SOURCE_PACKAGE_EVIDENCE`; actual two-take Union IC-LoRA structural-control study on LTX-2.5 W4A8/8GB. GPU patch application and complete two-pass outputs verified; shape stability improves in inspected native poses, but hands/focus/strict guide-root remain rejected. No runtime/device/child/owner acceptance or finding closure. |
 
 | `assets_src/cinematics/ltx25_union_trial_20261004/JOB_CARD.md` | 🔵 | `SOURCE_PACKAGE_EVIDENCE`; bounded owner-commissioned structural-control job, schematic whole-figure Aseprite guide provenance/limits, exact pins, stage geometry and separate execution/quality gates; no artwork/runtime acceptance. |
+
+| `audit/nursery_walkthrough_20261007/README.md` | 🔵 | `SUPPORTING_CURRENT` only for owner-requested 24-step Nursery/Dolls source walkthrough, explicitly historical native fixtures and labelled uncaptured views. No4.6/runtime/device/child/owner acceptance or goal resumption. |

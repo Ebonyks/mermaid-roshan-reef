@@ -1,0 +1,7189 @@
+{
+	"checks": [
+		{
+			"label": "fresh process automatically loads earned Nursery star",
+			"passed": true,
+			"state": {
+				"checkpoint": {},
+				"game": "",
+				"living_stage": "intro.storybook",
+				"msec": 6196,
+				"pearls": 3,
+				"room": "main_hall",
+				"stars": 32768
+			}
+		},
+		{
+			"label": "fresh process preserves unknown save field",
+			"passed": true,
+			"state": {
+				"checkpoint": {},
+				"game": "",
+				"living_stage": "intro.storybook",
+				"msec": 6196,
+				"pearls": 3,
+				"room": "main_hall",
+				"stars": 32768
+			}
+		},
+		{
+			"label": "completed care checkpoint absent on automatic load",
+			"passed": true,
+			"state": {
+				"checkpoint": {},
+				"game": "",
+				"living_stage": "intro.storybook",
+				"msec": 6196,
+				"pearls": 3,
+				"room": "main_hall",
+				"stars": 32768
+			}
+		},
+		{
+			"label": "hall has actual visible Bubble Bath door",
+			"passed": true,
+			"state": {
+				"checkpoint": {},
+				"game": "level2",
+				"living_stage": "castle.room.main_hall",
+				"msec": 13136,
+				"pearls": 3,
+				"room": "main_hall",
+				"stars": 32768
+			}
+		},
+		{
+			"label": "Bubble Bath exposes actual Nursery card",
+			"passed": true,
+			"state": {
+				"checkpoint": {},
+				"game": "level2",
+				"living_stage": "castle.room.bubble_bath",
+				"msec": 14164,
+				"pearls": 3,
+				"room": "bubble_bath",
+				"stars": 32768
+			}
+		},
+		{
+			"label": "normal freeplay Nursery policy",
+			"passed": true,
+			"state": {
+				"act_state": "play",
+				"armed_station": 0,
+				"checkpoint": {},
+				"game": "opera",
+				"living_stage": "opera.act.15",
+				"msec": 14439,
+				"pearls": 3,
+				"phase": 0,
+				"progress": 0.0,
+				"room": "bubble_bath",
+				"stars": 32768,
+				"task_open": false
+			}
+		},
+		{
+			"label": "expected phase is naturally armed 0",
+			"passed": true,
+			"state": {
+				"act_state": "play",
+				"armed_station": 0,
+				"checkpoint": {},
+				"game": "opera",
+				"living_stage": "opera.act.15",
+				"msec": 14440,
+				"pearls": 3,
+				"phase": 0,
+				"progress": 0.0,
+				"room": "bubble_bath",
+				"stars": 32768,
+				"task_open": false
+			}
+		},
+		{
+			"label": "passive opened care does not progress or award",
+			"passed": true,
+			"state": {
+				"act_state": "play",
+				"armed_station": 0,
+				"checkpoint": {},
+				"game": "opera",
+				"living_stage": "opera.act.15",
+				"msec": 18444,
+				"pearls": 3,
+				"phase": 0,
+				"progress": 0.0,
+				"room": "bubble_bath",
+				"stars": 32768,
+				"task_open": true
+			}
+		},
+		{
+			"label": "held touch earns phase 0",
+			"passed": true,
+			"state": {
+				"act_state": "play",
+				"armed_station": 0,
+				"checkpoint": {
+					"nursery": {
+						"care_version": 1,
+						"current": {
+							"missed": 0,
+							"progress": 0.0,
+							"settled": [],
+							"spawned": 0
+						},
+						"layout": [
+							"WASH HANDS|hold|3.4",
+							"CATCH BABIES|catch|5.0",
+							"FEED|hold|4.0",
+							"BURP|tap|4.0",
+							"BEDTIME|swipe|3.0"
+						],
+						"phase_index": 1
+					}
+				},
+				"game": "opera",
+				"living_stage": "opera.act.15",
+				"msec": 21890,
+				"pearls": 3,
+				"phase": 0,
+				"progress": 3.41571233333333,
+				"room": "bubble_bath",
+				"stars": 32768,
+				"task_open": true
+			}
+		},
+		{
+			"label": "earned phase advances automatically 0",
+			"passed": true,
+			"state": {
+				"act_state": "play",
+				"armed_station": 1,
+				"checkpoint": {
+					"nursery": {
+						"care_version": 1,
+						"current": {
+							"missed": 0,
+							"progress": 0.0,
+							"settled": [],
+							"spawned": 0
+						},
+						"layout": [
+							"WASH HANDS|hold|3.4",
+							"CATCH BABIES|catch|5.0",
+							"FEED|hold|4.0",
+							"BURP|tap|4.0",
+							"BEDTIME|swipe|3.0"
+						],
+						"phase_index": 1
+					}
+				},
+				"game": "opera",
+				"living_stage": "opera.act.15",
+				"msec": 24075,
+				"pearls": 3,
+				"phase": 1,
+				"progress": 0.0,
+				"room": "bubble_bath",
+				"stars": 32768,
+				"task_open": false
+			}
+		},
+		{
+			"label": "expected phase is naturally armed 1",
+			"passed": true,
+			"state": {
+				"act_state": "play",
+				"armed_station": 1,
+				"checkpoint": {
+					"nursery": {
+						"care_version": 1,
+						"current": {
+							"missed": 0,
+							"progress": 0.0,
+							"settled": [],
+							"spawned": 0
+						},
+						"layout": [
+							"WASH HANDS|hold|3.4",
+							"CATCH BABIES|catch|5.0",
+							"FEED|hold|4.0",
+							"BURP|tap|4.0",
+							"BEDTIME|swipe|3.0"
+						],
+						"phase_index": 1
+					}
+				},
+				"game": "opera",
+				"living_stage": "opera.act.15",
+				"msec": 24075,
+				"pearls": 3,
+				"phase": 1,
+				"progress": 0.0,
+				"room": "bubble_bath",
+				"stars": 32768,
+				"task_open": false
+			}
+		},
+		{
+			"label": "actual pillow steering catches all five",
+			"passed": true,
+			"state": {
+				"act_state": "play",
+				"armed_station": 1,
+				"checkpoint": {
+					"nursery": {
+						"care_version": 1,
+						"current": {
+							"progress": 0.0
+						},
+						"layout": [
+							"WASH HANDS|hold|3.4",
+							"CATCH BABIES|catch|5.0",
+							"FEED|hold|4.0",
+							"BURP|tap|4.0",
+							"BEDTIME|swipe|3.0"
+						],
+						"phase_index": 2
+					}
+				},
+				"game": "opera",
+				"living_stage": "opera.act.15",
+				"msec": 43323,
+				"pearls": 3,
+				"phase": 1,
+				"progress": 5.0,
+				"room": "bubble_bath",
+				"stars": 32768,
+				"task_open": true
+			}
+		},
+		{
+			"label": "earned phase advances automatically 1",
+			"passed": true,
+			"state": {
+				"act_state": "play",
+				"armed_station": 2,
+				"checkpoint": {
+					"nursery": {
+						"care_version": 1,
+						"current": {
+							"progress": 0.0
+						},
+						"layout": [
+							"WASH HANDS|hold|3.4",
+							"CATCH BABIES|catch|5.0",
+							"FEED|hold|4.0",
+							"BURP|tap|4.0",
+							"BEDTIME|swipe|3.0"
+						],
+						"phase_index": 2
+					}
+				},
+				"game": "opera",
+				"living_stage": "opera.act.15",
+				"msec": 44090,
+				"pearls": 3,
+				"phase": 2,
+				"progress": 0.0,
+				"room": "bubble_bath",
+				"stars": 32768,
+				"task_open": false
+			}
+		},
+		{
+			"label": "expected phase is naturally armed 2",
+			"passed": true,
+			"state": {
+				"act_state": "play",
+				"armed_station": 2,
+				"checkpoint": {
+					"nursery": {
+						"care_version": 1,
+						"current": {
+							"progress": 0.0
+						},
+						"layout": [
+							"WASH HANDS|hold|3.4",
+							"CATCH BABIES|catch|5.0",
+							"FEED|hold|4.0",
+							"BURP|tap|4.0",
+							"BEDTIME|swipe|3.0"
+						],
+						"phase_index": 2
+					}
+				},
+				"game": "opera",
+				"living_stage": "opera.act.15",
+				"msec": 44090,
+				"pearls": 3,
+				"phase": 2,
+				"progress": 0.0,
+				"room": "bubble_bath",
+				"stars": 32768,
+				"task_open": false
+			}
+		},
+		{
+			"label": "held touch earns phase 2",
+			"passed": true,
+			"state": {
+				"act_state": "play",
+				"armed_station": 2,
+				"checkpoint": {
+					"nursery": {
+						"care_version": 1,
+						"current": {
+							"progress": 0.0
+						},
+						"layout": [
+							"WASH HANDS|hold|3.4",
+							"CATCH BABIES|catch|5.0",
+							"FEED|hold|4.0",
+							"BURP|tap|4.0",
+							"BEDTIME|swipe|3.0"
+						],
+						"phase_index": 3
+					}
+				},
+				"game": "opera",
+				"living_stage": "opera.act.15",
+				"msec": 49405,
+				"pearls": 3,
+				"phase": 2,
+				"progress": 4.00865899999999,
+				"room": "bubble_bath",
+				"stars": 32768,
+				"task_open": true
+			}
+		},
+		{
+			"label": "earned phase advances automatically 2",
+			"passed": true,
+			"state": {
+				"act_state": "play",
+				"armed_station": 1,
+				"checkpoint": {
+					"nursery": {
+						"care_version": 1,
+						"current": {
+							"progress": 0.0
+						},
+						"layout": [
+							"WASH HANDS|hold|3.4",
+							"CATCH BABIES|catch|5.0",
+							"FEED|hold|4.0",
+							"BURP|tap|4.0",
+							"BEDTIME|swipe|3.0"
+						],
+						"phase_index": 3
+					}
+				},
+				"game": "opera",
+				"living_stage": "opera.act.15",
+				"msec": 51591,
+				"pearls": 3,
+				"phase": 3,
+				"progress": 0.0,
+				"room": "bubble_bath",
+				"stars": 32768,
+				"task_open": false
+			}
+		},
+		{
+			"label": "expected phase is naturally armed 3",
+			"passed": true,
+			"state": {
+				"act_state": "play",
+				"armed_station": 1,
+				"checkpoint": {
+					"nursery": {
+						"care_version": 1,
+						"current": {
+							"progress": 0.0
+						},
+						"layout": [
+							"WASH HANDS|hold|3.4",
+							"CATCH BABIES|catch|5.0",
+							"FEED|hold|4.0",
+							"BURP|tap|4.0",
+							"BEDTIME|swipe|3.0"
+						],
+						"phase_index": 3
+					}
+				},
+				"game": "opera",
+				"living_stage": "opera.act.15",
+				"msec": 51591,
+				"pearls": 3,
+				"phase": 3,
+				"progress": 0.0,
+				"room": "bubble_bath",
+				"stars": 32768,
+				"task_open": false
+			}
+		},
+		{
+			"label": "earned phase advances automatically 3",
+			"passed": true,
+			"state": {
+				"act_state": "play",
+				"armed_station": 3,
+				"checkpoint": {
+					"nursery": {
+						"care_version": 1,
+						"current": {
+							"progress": 0.0,
+							"tucks": [
+								false,
+								false,
+								false
+							]
+						},
+						"layout": [
+							"WASH HANDS|hold|3.4",
+							"CATCH BABIES|catch|5.0",
+							"FEED|hold|4.0",
+							"BURP|tap|4.0",
+							"BEDTIME|swipe|3.0"
+						],
+						"phase_index": 4
+					}
+				},
+				"game": "opera",
+				"living_stage": "opera.act.15",
+				"msec": 57096,
+				"pearls": 3,
+				"phase": 4,
+				"progress": 0.0,
+				"room": "bubble_bath",
+				"stars": 32768,
+				"task_open": false
+			}
+		},
+		{
+			"label": "expected phase is naturally armed 4",
+			"passed": true,
+			"state": {
+				"act_state": "play",
+				"armed_station": 3,
+				"checkpoint": {
+					"nursery": {
+						"care_version": 1,
+						"current": {
+							"progress": 0.0,
+							"tucks": [
+								false,
+								false,
+								false
+							]
+						},
+						"layout": [
+							"WASH HANDS|hold|3.4",
+							"CATCH BABIES|catch|5.0",
+							"FEED|hold|4.0",
+							"BURP|tap|4.0",
+							"BEDTIME|swipe|3.0"
+						],
+						"phase_index": 4
+					}
+				},
+				"game": "opera",
+				"living_stage": "opera.act.15",
+				"msec": 57096,
+				"pearls": 3,
+				"phase": 4,
+				"progress": 0.0,
+				"room": "bubble_bath",
+				"stars": 32768,
+				"task_open": false
+			}
+		},
+		{
+			"label": "earned phase advances automatically 4",
+			"passed": true,
+			"state": {
+				"act_state": "won",
+				"armed_station": -1,
+				"checkpoint": {
+					"nursery": {
+						"care_version": 1,
+						"current": {},
+						"layout": [
+							"WASH HANDS|hold|3.4",
+							"CATCH BABIES|catch|5.0",
+							"FEED|hold|4.0",
+							"BURP|tap|4.0",
+							"BEDTIME|swipe|3.0"
+						],
+						"phase_index": 5
+					}
+				},
+				"game": "opera",
+				"living_stage": "opera.act.15",
+				"msec": 61928,
+				"pearls": 3,
+				"phase": 5,
+				"progress": 3.0,
+				"room": "bubble_bath",
+				"stars": 32768,
+				"task_open": false
+			}
+		},
+		{
+			"label": "five actual care phases earn normal won state",
+			"passed": true,
+			"state": {
+				"act_state": "won",
+				"armed_station": -1,
+				"checkpoint": {
+					"nursery": {
+						"care_version": 1,
+						"current": {},
+						"layout": [
+							"WASH HANDS|hold|3.4",
+							"CATCH BABIES|catch|5.0",
+							"FEED|hold|4.0",
+							"BURP|tap|4.0",
+							"BEDTIME|swipe|3.0"
+						],
+						"phase_index": 5
+					}
+				},
+				"game": "opera",
+				"living_stage": "opera.act.15",
+				"msec": 61928,
+				"pearls": 3,
+				"phase": 5,
+				"progress": 3.0,
+				"room": "bubble_bath",
+				"stars": 32768,
+				"task_open": false
+			}
+		},
+		{
+			"label": "automatic finish returns exact Bubble Bath route",
+			"passed": true,
+			"state": {
+				"checkpoint": {},
+				"game": "level2",
+				"living_stage": "castle.room.bubble_bath",
+				"msec": 65210,
+				"pearls": 4,
+				"room": "bubble_bath",
+				"stars": 32768
+			}
+		},
+		{
+			"label": "earned reward matches first/replay policy",
+			"passed": true,
+			"state": {
+				"checkpoint": {},
+				"game": "level2",
+				"living_stage": "castle.room.bubble_bath",
+				"msec": 65210,
+				"pearls": 4,
+				"room": "bubble_bath",
+				"stars": 32768
+			}
+		},
+		{
+			"label": "Nursery star earned without unrelated stars",
+			"passed": true,
+			"state": {
+				"checkpoint": {},
+				"game": "level2",
+				"living_stage": "castle.room.bubble_bath",
+				"msec": 65210,
+				"pearls": 4,
+				"room": "bubble_bath",
+				"stars": 32768
+			}
+		},
+		{
+			"label": "earned completion removes only Nursery care checkpoint",
+			"passed": true,
+			"state": {
+				"checkpoint": {},
+				"game": "level2",
+				"living_stage": "castle.room.bubble_bath",
+				"msec": 65210,
+				"pearls": 4,
+				"room": "bubble_bath",
+				"stars": 32768
+			}
+		},
+		{
+			"label": "unknown field survives earned finish",
+			"passed": true,
+			"state": {
+				"checkpoint": {},
+				"game": "level2",
+				"living_stage": "castle.room.bubble_bath",
+				"msec": 65210,
+				"pearls": 4,
+				"room": "bubble_bath",
+				"stars": 32768
+			}
+		},
+		{
+			"label": "normal completion writes disk save",
+			"passed": true,
+			"state": {
+				"checkpoint": {},
+				"game": "level2",
+				"living_stage": "castle.room.bubble_bath",
+				"msec": 65211,
+				"pearls": 4,
+				"room": "bubble_bath",
+				"stars": 32768
+			}
+		},
+		{
+			"label": "disk reward and star equal earned in-memory result",
+			"passed": true,
+			"state": {
+				"checkpoint": {},
+				"game": "level2",
+				"living_stage": "castle.room.bubble_bath",
+				"msec": 65211,
+				"pearls": 4,
+				"room": "bubble_bath",
+				"stars": 32768
+			}
+		},
+		{
+			"label": "disk retains unknown fields and clears completed care",
+			"passed": true,
+			"state": {
+				"checkpoint": {},
+				"game": "level2",
+				"living_stage": "castle.room.bubble_bath",
+				"msec": 65211,
+				"pearls": 4,
+				"room": "bubble_bath",
+				"stars": 32768
+			}
+		}
+	],
+	"engine": {
+		"build": "official",
+		"hash": "ed1daf0bf001b61586d9930840f2f1394092c079",
+		"hex": 263938,
+		"major": 4,
+		"minor": 7,
+		"patch": 2,
+		"status": "stable",
+		"string": "4.7.2-stable (official)",
+		"timestamp": 0
+	},
+	"events": [
+		{
+			"event": "startup_fixture_end",
+			"initial_pearls": 3,
+			"initial_stars": 32768,
+			"loaded_save": {
+				"animals": {},
+				"attack_color": "45dbeb",
+				"attack_effect": "bubbles",
+				"bwdone": false,
+				"care_points": 0,
+				"castle_logo_color": "rainbow",
+				"castle_logo_symbol": "rainbow",
+				"chapter2_active": false,
+				"chapter2_active_objective": "",
+				"chapter2_cake_piece_mask": 0,
+				"chapter2_candle_lit": false,
+				"chapter2_candle_taken": false,
+				"chapter2_candy_cake_finished": false,
+				"chapter2_chef_cake_baked": false,
+				"chapter2_ember_king_crashed": false,
+				"chapter2_ember_scout_seen": false,
+				"chapter2_ember_son_seen": false,
+				"chapter2_farmer_strawberries_ready": false,
+				"chapter2_job_phase_masks": [
+					0,
+					0,
+					0,
+					0,
+					0,
+					0,
+					0,
+					0
+				],
+				"chapter2_lawn_beat": 0,
+				"chapter2_lawn_started": false,
+				"chapter2_party_event_phase": 0,
+				"chapter2_party_piece_mask": 0,
+				"chapter2_party_started": false,
+				"chapter2_protection_bumps": 0,
+				"chapter2_protection_misses": 0,
+				"chapter2_protection_rounds": 0,
+				"chapter2_rainbow_candle_found": false,
+				"chapter2_skill_mask": 0,
+				"chapter2_story_complete": false,
+				"chapter2_strawberry_mask": 0,
+				"chapter2_stuffie_ballet_done": false,
+				"chapter2_unlocked_opera_mask": 1097,
+				"chapter3_fairy_door_opened": false,
+				"chapter3_fairy_door_revealed": false,
+				"chapter3_fairy_mission_started": false,
+				"combat_fire": false,
+				"combat_ice": false,
+				"combat_tutorial": false,
+				"comfy_games": {
+					"day2_castle_hide_and_seek": {
+						"accepted": false,
+						"completed": false,
+						"found": {
+							"baby_eagle": false,
+							"daddy_mermaid": false,
+							"rumi": false
+						}
+					},
+					"day2_family_comfy_evening": {
+						"accepted": false,
+						"bedtime": {
+							"completed": false,
+							"tucked_in": {
+								"baby_eagle": false,
+								"daddy_mermaid": false,
+								"roshan": false,
+								"rumi": false
+							}
+						},
+						"completed": false,
+						"dinner": {
+							"completed": false,
+							"ingredients": {
+								"apple": false,
+								"carrot": false,
+								"strawberry": false
+							},
+							"pot_stirred": false
+						},
+						"movie": {
+							"completed": false,
+							"scenes_watched": 0
+						},
+						"reward": {
+							"id": "comfy_evening_mystery_reward",
+							"introduced": false,
+							"unlocked": false,
+							"verified": false
+						}
+					},
+					"version": 2
+				},
+				"companion": "",
+				"companion_bruises": 0,
+				"companion_colors": [],
+				"companion_resting": false,
+				"crafts": {},
+				"critters": {},
+				"custom_fish": [],
+				"custom_friends": [],
+				"day_one_active": false,
+				"day_one_arrival_plane_media_seen": false,
+				"day_one_art_cleaned_grime": {},
+				"day_one_art_collected_materials": {},
+				"day_one_art_customization_completed": false,
+				"day_one_art_desk_unlocked": false,
+				"day_one_bathroom_cleanup_step": 0,
+				"day_one_bathroom_supply_hunt_step": 0,
+				"day_one_bathroom_toilet_cleaned": false,
+				"day_one_bathroom_tools_authorized": false,
+				"day_one_bathroom_tub_drained": false,
+				"day_one_boss_door_glow": false,
+				"day_one_cleaned_rooms": [],
+				"day_one_completed_rooms": [],
+				"day_one_current_room": "",
+				"day_one_dirty_castle_discovered": false,
+				"day_one_giant_dust_bunny_boss_defeated": false,
+				"day_one_giant_dust_bunny_boss_triggered": false,
+				"day_one_grok_video_2_seen": false,
+				"day_one_jobs_locked": false,
+				"day_one_opera_enabled": true,
+				"day_one_pool_cleanup_step": 0,
+				"day_one_pool_rumi_met": false,
+				"day_one_pool_seahorse_tugs": 0,
+				"day_one_pool_skimmer_mask": 0,
+				"day_one_pool_waterfall_mask": 0,
+				"day_one_story_clips_seen": {},
+				"dungeon_done": false,
+				"dungeon_progress": 0,
+				"ember_done": false,
+				"ember_found": false,
+				"ember_progress": 0,
+				"fairyskin": false,
+				"finale": false,
+				"fish_tokens": 0,
+				"found": {
+					"Daddy Mermaid": false,
+					"Evie and Lamb-a'": false,
+					"Faron": false,
+					"Harper and Fiona": false,
+					"Wacky and Chuck": false
+				},
+				"galaxy": false,
+				"haptics": true,
+				"lagoon_plane_departed": false,
+				"level2": false,
+				"medals": {},
+				"mic": true,
+				"music": true,
+				"opera_done": false,
+				"opera_geology_checkpoint": {},
+				"opera_mastery": {
+					"best_tiers": {
+						"astronaut": 0,
+						"ballerina": 0,
+						"boxer": 0,
+						"candymaker": 0,
+						"chef": 0,
+						"detective": 0,
+						"doctor": 0,
+						"farmer": 0,
+						"geologist": 0,
+						"magician": 0,
+						"nursery": 0,
+						"painter": 0,
+						"popstar": 0,
+						"racer": 0,
+						"teacher": 0
+					},
+					"encore_tokens": {
+						"balance": 0,
+						"total_earned": 0,
+						"total_spent": 0
+					},
+					"version": 1
+				},
+				"opera_pantry": {},
+				"opera_performance_checkpoints": {},
+				"opera_progress": 1,
+				"opera_stars": 32768,
+				"owned": {},
+				"owner_unknown": {
+					"keep": 73.0
+				},
+				"pearls": 3,
+				"pearls_ever": 3,
+				"plays": 1,
+				"portal_unlocked": false,
+				"quality": "speedy",
+				"save_generation": 19,
+				"schema_version": 1,
+				"skin": "classic",
+				"stickers": {},
+				"stuffie_wins": {},
+				"teacher_learning_progress": {
+					"kinds": {
+						"add": {
+							"clean_successes": 0,
+							"rounds": 0,
+							"tier": 0
+						},
+						"count": {
+							"clean_successes": 0,
+							"rounds": 0,
+							"tier": 0
+						},
+						"match": {
+							"clean_successes": 0,
+							"rounds": 0,
+							"tier": 0
+						},
+						"pattern": {
+							"clean_successes": 0,
+							"rounds": 0,
+							"tier": 0
+						}
+					},
+					"version": 1
+				},
+				"teacher_lesson_checkpoint": {},
+				"touch_mode": "classic",
+				"won": {
+					"Daddy Mermaid": false,
+					"Evie and Lamb-a'": false,
+					"Faron": false,
+					"Harper and Fiona": false,
+					"Wacky and Chuck": false
+				}
+			},
+			"run": "replay",
+			"state": {
+				"checkpoint": {},
+				"game": "level2",
+				"living_stage": "intro.storybook",
+				"msec": 6714,
+				"pearls": 3,
+				"room": "main_hall",
+				"stars": 32768
+			},
+			"width": 1600
+		},
+		{
+			"event": "hall_floor_0_press",
+			"msec": 7083,
+			"position": [
+				1350.0,
+				555.0
+			],
+			"pressed": true,
+			"target": "/root/Main/@CanvasLayer@339/CastleRooms25D/StorybookStage",
+			"touch_index": 90
+		},
+		{
+			"event": "hall_floor_0_release",
+			"msec": 7098,
+			"position": [
+				1350.0,
+				555.0
+			],
+			"pressed": false,
+			"target": "/root/Main/@CanvasLayer@339/CastleRooms25D/StorybookStage",
+			"touch_index": 90
+		},
+		{
+			"event": "hall_floor_1_press",
+			"msec": 10105,
+			"position": [
+				1350.0,
+				555.0
+			],
+			"pressed": true,
+			"target": "/root/Main/@CanvasLayer@339/CastleRooms25D/StorybookStage",
+			"touch_index": 90
+		},
+		{
+			"event": "hall_floor_1_release",
+			"msec": 10119,
+			"position": [
+				1350.0,
+				555.0
+			],
+			"pressed": false,
+			"target": "/root/Main/@CanvasLayer@339/CastleRooms25D/StorybookStage",
+			"touch_index": 90
+		},
+		{
+			"event": "hall_door_press",
+			"msec": 13136,
+			"position": [
+				1066.44519042969,
+				346.411499023438
+			],
+			"pressed": true,
+			"target": "/root/Main/@CanvasLayer@339/CastleRooms25D/StorybookStage/MainHallDoorHotspots/HallDoor_bubble_bath",
+			"touch_index": 90
+		},
+		{
+			"event": "hall_door_release",
+			"msec": 13150,
+			"position": [
+				1066.44519042969,
+				346.411499023438
+			],
+			"pressed": false,
+			"target": "/root/Main/@CanvasLayer@339/CastleRooms25D/StorybookStage/MainHallDoorHotspots/HallDoor_bubble_bath",
+			"touch_index": 90
+		},
+		{
+			"event": "nursery_card_press",
+			"msec": 14164,
+			"position": [
+				800.0,
+				95.0
+			],
+			"pressed": true,
+			"target": "/root/Main/@CanvasLayer@339/CastleRooms25D/StorybookStage/CastleCareerRoutes/RoomCareer_15",
+			"touch_index": 90
+		},
+		{
+			"event": "nursery_card_release",
+			"msec": 14165,
+			"position": [
+				800.0,
+				95.0
+			],
+			"pressed": false,
+			"target": "/root/Main/@CanvasLayer@339/CastleRooms25D/StorybookStage/CastleCareerRoutes/RoomCareer_15",
+			"touch_index": 90
+		},
+		{
+			"event": "nursery_reward_baseline",
+			"hall_reward_delta": 0,
+			"pearls": 3,
+			"state": {
+				"act_state": "play",
+				"armed_station": 0,
+				"checkpoint": {},
+				"game": "opera",
+				"living_stage": "opera.act.15",
+				"msec": 14439,
+				"pearls": 3,
+				"phase": 0,
+				"progress": 0.0,
+				"room": "bubble_bath",
+				"stars": 32768,
+				"task_open": false
+			}
+		},
+		{
+			"event": "phase_station_0_press",
+			"msec": 14440,
+			"position": [
+				468.531219482422,
+				396.0
+			],
+			"pressed": true,
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/ActivityHotspot_wash_basin/ObjectTouchTarget",
+			"touch_index": 90
+		},
+		{
+			"event": "phase_station_0_release",
+			"msec": 14455,
+			"position": [
+				468.531219482422,
+				396.0
+			],
+			"pressed": false,
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/ActivityHotspot_wash_basin/ObjectTouchTarget",
+			"touch_index": 90
+		},
+		{
+			"definition": {
+				"goal": 3.4,
+				"mode": "hold",
+				"name": "WASH HANDS",
+				"visual_context": "nursery_wash",
+				"vo": "op_nursery_wash_stage",
+				"voice": "Hold the bubbly basin to wash your hands first!",
+				"widget": ""
+			},
+			"event": "phase_open",
+			"phase": 0,
+			"state": {
+				"act_state": "play",
+				"armed_station": 0,
+				"checkpoint": {},
+				"game": "opera",
+				"living_stage": "opera.act.15",
+				"msec": 16419,
+				"pearls": 3,
+				"phase": 0,
+				"progress": 0.0,
+				"room": "bubble_bath",
+				"stars": 32768,
+				"task_open": true
+			},
+			"voice": {
+				"playing": true,
+				"stream": "res://assets/audio/voices/filler_v1/roshan_op_nursery_wash_stage.ogg",
+				"voice_i": 3
+			}
+		},
+		{
+			"event": "care_hold_start",
+			"msec": 18444,
+			"position": [
+				1208.0,
+				408.400024414063
+			],
+			"pressed": true,
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/CareerGestureSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "care_hold_release",
+			"msec": 21889,
+			"position": [
+				1208.0,
+				408.400024414063
+			],
+			"pressed": false,
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/CareerGestureSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "phase_earned",
+			"phase": 0,
+			"state": {
+				"act_state": "play",
+				"armed_station": 1,
+				"checkpoint": {
+					"nursery": {
+						"care_version": 1,
+						"current": {
+							"missed": 0,
+							"progress": 0.0,
+							"settled": [],
+							"spawned": 0
+						},
+						"layout": [
+							"WASH HANDS|hold|3.4",
+							"CATCH BABIES|catch|5.0",
+							"FEED|hold|4.0",
+							"BURP|tap|4.0",
+							"BEDTIME|swipe|3.0"
+						],
+						"phase_index": 1
+					}
+				},
+				"game": "opera",
+				"living_stage": "opera.act.15",
+				"msec": 24075,
+				"pearls": 3,
+				"phase": 1,
+				"progress": 0.0,
+				"room": "bubble_bath",
+				"stars": 32768,
+				"task_open": false
+			}
+		},
+		{
+			"event": "phase_station_1_press",
+			"msec": 24076,
+			"position": [
+				728.691223144531,
+				434.399993896484
+			],
+			"pressed": true,
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/ActivityHotspot_cuddle_cushions/ObjectTouchTarget",
+			"touch_index": 90
+		},
+		{
+			"event": "phase_station_1_release",
+			"msec": 24100,
+			"position": [
+				728.691223144531,
+				434.399993896484
+			],
+			"pressed": false,
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/ActivityHotspot_cuddle_cushions/ObjectTouchTarget",
+			"touch_index": 90
+		},
+		{
+			"definition": {
+				"goal": 5.0,
+				"mode": "catch",
+				"name": "CATCH BABIES",
+				"speaker": "Faron",
+				"vo": "op_nursery_catch",
+				"voice": "Slide the soft cradle under five babies. Pillows keep every miss safe!"
+			},
+			"event": "phase_open",
+			"phase": 1,
+			"state": {
+				"act_state": "play",
+				"armed_station": 1,
+				"checkpoint": {
+					"nursery": {
+						"care_version": 1,
+						"current": {
+							"missed": 0,
+							"progress": 0.0,
+							"settled": [],
+							"spawned": 0
+						},
+						"layout": [
+							"WASH HANDS|hold|3.4",
+							"CATCH BABIES|catch|5.0",
+							"FEED|hold|4.0",
+							"BURP|tap|4.0",
+							"BEDTIME|swipe|3.0"
+						],
+						"phase_index": 1
+					}
+				},
+				"game": "opera",
+				"living_stage": "opera.act.15",
+				"msec": 26690,
+				"pearls": 3,
+				"phase": 1,
+				"progress": 0.0,
+				"room": "bubble_bath",
+				"stars": 32768,
+				"task_open": true
+			},
+			"voice": {
+				"playing": true,
+				"stream": "res://assets/audio/voices/faron_op_nursery_catch.ogg",
+				"voice_i": 4
+			}
+		},
+		{
+			"event": "catch_hold_start",
+			"msec": 26690,
+			"position": [
+				392.0,
+				408.400024414063
+			],
+			"pressed": true,
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 26690,
+			"position": [
+				268.239501953125,
+				408.400024414063
+			],
+			"relative": [
+				-123.760498046875,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 26752,
+			"position": [
+				268.676940917969,
+				408.400024414063
+			],
+			"relative": [
+				0.43743896484375,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 26799,
+			"position": [
+				269.041442871094,
+				408.400024414063
+			],
+			"relative": [
+				0.364501953125,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 26847,
+			"position": [
+				269.328582763672,
+				408.400024414063
+			],
+			"relative": [
+				0.287139892578125,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 26895,
+			"position": [
+				269.534851074219,
+				408.400024414063
+			],
+			"relative": [
+				0.206268310546875,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 26942,
+			"position": [
+				269.657775878906,
+				408.400024414063
+			],
+			"relative": [
+				0.1229248046875,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 26990,
+			"position": [
+				269.695861816406,
+				408.400024414063
+			],
+			"relative": [
+				0.0380859375,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 27052,
+			"position": [
+				269.648681640625,
+				408.400024414063
+			],
+			"relative": [
+				-0.04718017578125,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 27099,
+			"position": [
+				269.516784667969,
+				408.400024414063
+			],
+			"relative": [
+				-0.13189697265625,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 27146,
+			"position": [
+				269.301727294922,
+				408.400024414063
+			],
+			"relative": [
+				-0.215057373046875,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 27193,
+			"position": [
+				269.006164550781,
+				408.400024414063
+			],
+			"relative": [
+				-0.295562744140625,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 27240,
+			"position": [
+				268.633666992188,
+				408.400024414063
+			],
+			"relative": [
+				-0.37249755859375,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 27303,
+			"position": [
+				268.188690185547,
+				408.400024414063
+			],
+			"relative": [
+				-0.444976806640625,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 27350,
+			"position": [
+				267.676666259766,
+				408.400024414063
+			],
+			"relative": [
+				-0.51202392578125,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 27397,
+			"position": [
+				267.103729248047,
+				408.400024414063
+			],
+			"relative": [
+				-0.57293701171875,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 27444,
+			"position": [
+				266.476867675781,
+				408.400024414063
+			],
+			"relative": [
+				-0.626861572265625,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 27490,
+			"position": [
+				265.803588867188,
+				408.400024414063
+			],
+			"relative": [
+				-0.67327880859375,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 27553,
+			"position": [
+				265.092102050781,
+				408.400024414063
+			],
+			"relative": [
+				-0.71148681640625,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 27599,
+			"position": [
+				264.350952148438,
+				408.400024414063
+			],
+			"relative": [
+				-0.74114990234375,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 27645,
+			"position": [
+				263.589141845703,
+				408.400024414063
+			],
+			"relative": [
+				-0.761810302734375,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 27691,
+			"position": [
+				262.815856933594,
+				408.400024414063
+			],
+			"relative": [
+				-0.773284912109375,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 27754,
+			"position": [
+				262.040435791016,
+				408.400024414063
+			],
+			"relative": [
+				-0.775421142578125,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 27800,
+			"position": [
+				261.272277832031,
+				408.400024414063
+			],
+			"relative": [
+				-0.768157958984375,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 27847,
+			"position": [
+				260.520629882813,
+				408.400024414063
+			],
+			"relative": [
+				-0.75164794921875,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 27894,
+			"position": [
+				259.794616699219,
+				408.400024414063
+			],
+			"relative": [
+				-0.72601318359375,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 27942,
+			"position": [
+				259.102996826172,
+				408.400024414063
+			],
+			"relative": [
+				-0.691619873046875,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 27990,
+			"position": [
+				258.454132080078,
+				408.400024414063
+			],
+			"relative": [
+				-0.64886474609375,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 28051,
+			"position": [
+				257.855834960938,
+				408.400024414063
+			],
+			"relative": [
+				-0.598297119140625,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 28097,
+			"position": [
+				257.315399169922,
+				408.400024414063
+			],
+			"relative": [
+				-0.540435791015625,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 28144,
+			"position": [
+				256.839324951172,
+				408.400024414063
+			],
+			"relative": [
+				-0.47607421875,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 28191,
+			"position": [
+				256.433349609375,
+				408.400024414063
+			],
+			"relative": [
+				-0.405975341796875,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 28254,
+			"position": [
+				256.102416992188,
+				408.400024414063
+			],
+			"relative": [
+				-0.3309326171875,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 28302,
+			"position": [
+				255.850509643555,
+				408.400024414063
+			],
+			"relative": [
+				-0.251907348632813,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 28347,
+			"position": [
+				255.6806640625,
+				408.400024414063
+			],
+			"relative": [
+				-0.169845581054688,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 28394,
+			"position": [
+				255.594955444336,
+				408.400024414063
+			],
+			"relative": [
+				-0.0857086181640625,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 28441,
+			"position": [
+				255.594390869141,
+				408.400024414063
+			],
+			"relative": [
+				-0.0005645751953125,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 28503,
+			"position": [
+				255.679000854492,
+				408.400024414063
+			],
+			"relative": [
+				0.0846099853515625,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 28549,
+			"position": [
+				255.847747802734,
+				408.400024414063
+			],
+			"relative": [
+				0.168746948242188,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 28596,
+			"position": [
+				256.098602294922,
+				408.400024414063
+			],
+			"relative": [
+				0.2508544921875,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 28644,
+			"position": [
+				256.428527832031,
+				408.400024414063
+			],
+			"relative": [
+				0.329925537109375,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 28691,
+			"position": [
+				256.833526611328,
+				408.400024414063
+			],
+			"relative": [
+				0.404998779296875,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 28740,
+			"position": [
+				257.308715820313,
+				408.400024414063
+			],
+			"relative": [
+				0.475189208984375,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 28801,
+			"position": [
+				257.848358154297,
+				408.400024414063
+			],
+			"relative": [
+				0.539642333984375,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 28849,
+			"position": [
+				258.445922851563,
+				408.400024414063
+			],
+			"relative": [
+				0.597564697265625,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 28897,
+			"position": [
+				259.094177246094,
+				408.400024414063
+			],
+			"relative": [
+				0.64825439453125,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 28945,
+			"position": [
+				259.785278320313,
+				408.400024414063
+			],
+			"relative": [
+				0.69110107421875,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 28990,
+			"position": [
+				260.510925292969,
+				408.400024414063
+			],
+			"relative": [
+				0.72564697265625,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 29054,
+			"position": [
+				261.262268066406,
+				408.400024414063
+			],
+			"relative": [
+				0.7513427734375,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 29101,
+			"position": [
+				262.0302734375,
+				408.400024414063
+			],
+			"relative": [
+				0.76800537109375,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 29148,
+			"position": [
+				262.8056640625,
+				408.400024414063
+			],
+			"relative": [
+				0.775390625,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 29195,
+			"position": [
+				263.579040527344,
+				408.400024414063
+			],
+			"relative": [
+				0.77337646484375,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 29241,
+			"position": [
+				264.341064453125,
+				408.400024414063
+			],
+			"relative": [
+				0.76202392578125,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 29289,
+			"position": [
+				265.082550048828,
+				408.400024414063
+			],
+			"relative": [
+				0.741485595703125,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 29353,
+			"position": [
+				265.794494628906,
+				408.400024414063
+			],
+			"relative": [
+				0.711944580078125,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 29400,
+			"position": [
+				266.468292236328,
+				408.400024414063
+			],
+			"relative": [
+				0.673797607421875,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 29446,
+			"position": [
+				267.095825195313,
+				408.400024414063
+			],
+			"relative": [
+				0.627532958984375,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 29493,
+			"position": [
+				267.669494628906,
+				408.400024414063
+			],
+			"relative": [
+				0.57366943359375,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 29540,
+			"position": [
+				268.182373046875,
+				408.400024414063
+			],
+			"relative": [
+				0.51287841796875,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 29603,
+			"position": [
+				268.628265380859,
+				408.400024414063
+			],
+			"relative": [
+				0.445892333984375,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 29649,
+			"position": [
+				269.001770019531,
+				408.400024414063
+			],
+			"relative": [
+				0.373504638671875,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 29696,
+			"position": [
+				269.298370361328,
+				408.400024414063
+			],
+			"relative": [
+				0.296600341796875,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 29742,
+			"position": [
+				269.514495849609,
+				408.400024414063
+			],
+			"relative": [
+				0.21612548828125,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 29790,
+			"position": [
+				269.647491455078,
+				408.400024414063
+			],
+			"relative": [
+				0.13299560546875,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 29853,
+			"position": [
+				269.69580078125,
+				408.400024414063
+			],
+			"relative": [
+				0.048309326171875,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 29901,
+			"position": [
+				269.658843994141,
+				408.400024414063
+			],
+			"relative": [
+				-0.036956787109375,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 29948,
+			"position": [
+				269.537017822266,
+				408.400024414063
+			],
+			"relative": [
+				-0.121826171875,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 29994,
+			"position": [
+				269.331817626953,
+				408.400024414063
+			],
+			"relative": [
+				-0.2052001953125,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 30042,
+			"position": [
+				269.045745849609,
+				408.400024414063
+			],
+			"relative": [
+				-0.28607177734375,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 30104,
+			"position": [
+				268.682220458984,
+				408.400024414063
+			],
+			"relative": [
+				-0.363525390625,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 30150,
+			"position": [
+				268.245666503906,
+				408.400024414063
+			],
+			"relative": [
+				-0.436553955078125,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 30195,
+			"position": [
+				267.741363525391,
+				408.400024414063
+			],
+			"relative": [
+				-0.504302978515625,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 30242,
+			"position": [
+				267.175415039063,
+				408.400024414063
+			],
+			"relative": [
+				-0.565948486328125,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 30289,
+			"position": [
+				266.554595947266,
+				408.400024414063
+			],
+			"relative": [
+				-0.620819091796875,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 30353,
+			"position": [
+				265.886474609375,
+				408.400024414063
+			],
+			"relative": [
+				-0.668121337890625,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 30399,
+			"position": [
+				265.179138183594,
+				408.400024414063
+			],
+			"relative": [
+				-0.70733642578125,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 30446,
+			"position": [
+				264.441070556641,
+				408.400024414063
+			],
+			"relative": [
+				-0.738067626953125,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 30494,
+			"position": [
+				263.681274414063,
+				408.400024414063
+			],
+			"relative": [
+				-0.759796142578125,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 30541,
+			"position": [
+				262.908843994141,
+				408.400024414063
+			],
+			"relative": [
+				-0.772430419921875,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 30590,
+			"position": [
+				262.133178710938,
+				408.400024414063
+			],
+			"relative": [
+				-0.775665283203125,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 30687,
+			"position": [
+				-196.0,
+				408.400024414063
+			],
+			"relative": [
+				-458.133178710938,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"caught": 1,
+			"event": "baby_caught",
+			"missed": 0,
+			"settled": [
+				0
+			],
+			"state": {
+				"act_state": "play",
+				"armed_station": 1,
+				"checkpoint": {
+					"nursery": {
+						"care_version": 1,
+						"current": {
+							"missed": 0,
+							"progress": 1.0,
+							"settled": [
+								0
+							],
+							"spawned": 1
+						},
+						"layout": [
+							"WASH HANDS|hold|3.4",
+							"CATCH BABIES|catch|5.0",
+							"FEED|hold|4.0",
+							"BURP|tap|4.0",
+							"BEDTIME|swipe|3.0"
+						],
+						"phase_index": 1
+					}
+				},
+				"game": "opera",
+				"living_stage": "opera.act.15",
+				"msec": 30687,
+				"pearls": 3,
+				"phase": 1,
+				"progress": 1.0,
+				"room": "bubble_bath",
+				"stars": 32768,
+				"task_open": true
+			}
+		},
+		{
+			"event": "catch_steer",
+			"msec": 30688,
+			"position": [
+				382.666320800781,
+				408.400024414063
+			],
+			"relative": [
+				578.666320800781,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 30745,
+			"position": [
+				383.172119140625,
+				408.400024414063
+			],
+			"relative": [
+				0.50579833984375,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 30793,
+			"position": [
+				383.78466796875,
+				408.400024414063
+			],
+			"relative": [
+				0.612548828125,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 30839,
+			"position": [
+				384.496520996094,
+				408.400024414063
+			],
+			"relative": [
+				0.71185302734375,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 30901,
+			"position": [
+				385.299041748047,
+				408.400024414063
+			],
+			"relative": [
+				0.802520751953125,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 30948,
+			"position": [
+				386.182586669922,
+				408.400024414063
+			],
+			"relative": [
+				0.883544921875,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 30994,
+			"position": [
+				387.136444091797,
+				408.400024414063
+			],
+			"relative": [
+				0.953857421875,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 31040,
+			"position": [
+				388.149108886719,
+				408.400024414063
+			],
+			"relative": [
+				1.01266479492188,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 31088,
+			"position": [
+				389.208282470703,
+				408.400024414063
+			],
+			"relative": [
+				1.05917358398438,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 31149,
+			"position": [
+				390.301208496094,
+				408.400024414063
+			],
+			"relative": [
+				1.09292602539063,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 31195,
+			"position": [
+				391.414703369141,
+				408.400024414063
+			],
+			"relative": [
+				1.11349487304688,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 31242,
+			"position": [
+				392.535247802734,
+				408.400024414063
+			],
+			"relative": [
+				1.12054443359375,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 31288,
+			"position": [
+				393.649353027344,
+				408.400024414063
+			],
+			"relative": [
+				1.11410522460938,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 31349,
+			"position": [
+				394.743469238281,
+				408.400024414063
+			],
+			"relative": [
+				1.0941162109375,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 31396,
+			"position": [
+				395.804443359375,
+				408.400024414063
+			],
+			"relative": [
+				1.06097412109375,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 31443,
+			"position": [
+				396.819458007813,
+				408.400024414063
+			],
+			"relative": [
+				1.0150146484375,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 31489,
+			"position": [
+				397.776184082031,
+				408.400024414063
+			],
+			"relative": [
+				0.95672607421875,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 31551,
+			"position": [
+				398.663116455078,
+				408.400024414063
+			],
+			"relative": [
+				0.886932373046875,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 31599,
+			"position": [
+				399.469482421875,
+				408.400024414063
+			],
+			"relative": [
+				0.806365966796875,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 31646,
+			"position": [
+				400.185546875,
+				408.400024414063
+			],
+			"relative": [
+				0.716064453125,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 31694,
+			"position": [
+				400.802703857422,
+				408.400024414063
+			],
+			"relative": [
+				0.617156982421875,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 31740,
+			"position": [
+				401.313446044922,
+				408.400024414063
+			],
+			"relative": [
+				0.5107421875,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 31788,
+			"position": [
+				401.711608886719,
+				408.400024414063
+			],
+			"relative": [
+				0.398162841796875,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 31849,
+			"position": [
+				401.992370605469,
+				408.400024414063
+			],
+			"relative": [
+				0.28076171875,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 31897,
+			"position": [
+				402.15234375,
+				408.400024414063
+			],
+			"relative": [
+				0.15997314453125,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 31943,
+			"position": [
+				402.189575195313,
+				408.400024414063
+			],
+			"relative": [
+				0.0372314453125,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 31991,
+			"position": [
+				402.103698730469,
+				408.400024414063
+			],
+			"relative": [
+				-0.08587646484375,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 32038,
+			"position": [
+				401.895629882813,
+				408.400024414063
+			],
+			"relative": [
+				-0.20806884765625,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 32101,
+			"position": [
+				401.567993164063,
+				408.400024414063
+			],
+			"relative": [
+				-0.32763671875,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 32148,
+			"position": [
+				401.124664306641,
+				408.400024414063
+			],
+			"relative": [
+				-0.443328857421875,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 32194,
+			"position": [
+				400.571044921875,
+				408.400024414063
+			],
+			"relative": [
+				-0.553619384765625,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 32241,
+			"position": [
+				399.913818359375,
+				408.400024414063
+			],
+			"relative": [
+				-0.6572265625,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 32288,
+			"position": [
+				399.160949707031,
+				408.400024414063
+			],
+			"relative": [
+				-0.75286865234375,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 32349,
+			"position": [
+				398.321502685547,
+				408.400024414063
+			],
+			"relative": [
+				-0.839447021484375,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 32396,
+			"position": [
+				397.405639648438,
+				408.400024414063
+			],
+			"relative": [
+				-0.915863037109375,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 32443,
+			"position": [
+				396.424438476563,
+				408.400024414063
+			],
+			"relative": [
+				-0.981201171875,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 32490,
+			"position": [
+				395.389770507813,
+				408.400024414063
+			],
+			"relative": [
+				-1.03466796875,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 32546,
+			"position": [
+				394.314147949219,
+				408.400024414063
+			],
+			"relative": [
+				-1.07562255859375,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 32600,
+			"position": [
+				393.210510253906,
+				408.400024414063
+			],
+			"relative": [
+				-1.1036376953125,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 32646,
+			"position": [
+				392.092254638672,
+				408.400024414063
+			],
+			"relative": [
+				-1.11825561523438,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 32692,
+			"position": [
+				390.972900390625,
+				408.400024414063
+			],
+			"relative": [
+				-1.11935424804688,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 32738,
+			"position": [
+				389.865905761719,
+				408.400024414063
+			],
+			"relative": [
+				-1.10699462890625,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 32788,
+			"position": [
+				388.784759521484,
+				408.400024414063
+			],
+			"relative": [
+				-1.08114624023438,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 32849,
+			"position": [
+				387.742462158203,
+				408.400024414063
+			],
+			"relative": [
+				-1.04229736328125,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 32896,
+			"position": [
+				386.751647949219,
+				408.400024414063
+			],
+			"relative": [
+				-0.990814208984375,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 32943,
+			"position": [
+				385.824249267578,
+				408.400024414063
+			],
+			"relative": [
+				-0.927398681640625,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 32990,
+			"position": [
+				384.971496582031,
+				408.400024414063
+			],
+			"relative": [
+				-0.852752685546875,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 33052,
+			"position": [
+				384.203735351563,
+				408.400024414063
+			],
+			"relative": [
+				-0.76776123046875,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 33098,
+			"position": [
+				383.530181884766,
+				408.400024414063
+			],
+			"relative": [
+				-0.673553466796875,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 33144,
+			"position": [
+				382.959045410156,
+				408.400024414063
+			],
+			"relative": [
+				-0.571136474609375,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 33191,
+			"position": [
+				382.497161865234,
+				408.400024414063
+			],
+			"relative": [
+				-0.461883544921875,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 33238,
+			"position": [
+				382.150146484375,
+				408.400024414063
+			],
+			"relative": [
+				-0.347015380859375,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 33301,
+			"position": [
+				381.922210693359,
+				408.400024414063
+			],
+			"relative": [
+				-0.227935791015625,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 33347,
+			"position": [
+				381.816101074219,
+				408.400024414063
+			],
+			"relative": [
+				-0.106109619140625,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 33394,
+			"position": [
+				381.833068847656,
+				408.400024414063
+			],
+			"relative": [
+				0.0169677734375,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 33442,
+			"position": [
+				381.972961425781,
+				408.400024414063
+			],
+			"relative": [
+				0.139892578125,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 33489,
+			"position": [
+				382.234008789063,
+				408.400024414063
+			],
+			"relative": [
+				0.26104736328125,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 33538,
+			"position": [
+				382.613159179688,
+				408.400024414063
+			],
+			"relative": [
+				0.379150390625,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 33600,
+			"position": [
+				383.105743408203,
+				408.400024414063
+			],
+			"relative": [
+				0.492584228515625,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 33647,
+			"position": [
+				383.705871582031,
+				408.400024414063
+			],
+			"relative": [
+				0.600128173828125,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 33693,
+			"position": [
+				384.406219482422,
+				408.400024414063
+			],
+			"relative": [
+				0.700347900390625,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 33739,
+			"position": [
+				385.198364257813,
+				408.400024414063
+			],
+			"relative": [
+				0.792144775390625,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 33801,
+			"position": [
+				386.07275390625,
+				408.400024414063
+			],
+			"relative": [
+				0.8743896484375,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 33849,
+			"position": [
+				387.018768310547,
+				408.400024414063
+			],
+			"relative": [
+				0.946014404296875,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 33895,
+			"position": [
+				388.025024414063,
+				408.400024414063
+			],
+			"relative": [
+				1.00625610351563,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 33941,
+			"position": [
+				389.079284667969,
+				408.400024414063
+			],
+			"relative": [
+				1.05426025390625,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 33989,
+			"position": [
+				390.168884277344,
+				408.400024414063
+			],
+			"relative": [
+				1.089599609375,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 34051,
+			"position": [
+				391.280578613281,
+				408.400024414063
+			],
+			"relative": [
+				1.1116943359375,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 34100,
+			"position": [
+				392.401000976563,
+				408.400024414063
+			],
+			"relative": [
+				1.12042236328125,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 34146,
+			"position": [
+				393.5166015625,
+				408.400024414063
+			],
+			"relative": [
+				1.1156005859375,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 34194,
+			"position": [
+				394.613830566406,
+				408.400024414063
+			],
+			"relative": [
+				1.09722900390625,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 34242,
+			"position": [
+				395.679443359375,
+				408.400024414063
+			],
+			"relative": [
+				1.06561279296875,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 34289,
+			"position": [
+				396.700622558594,
+				408.400024414063
+			],
+			"relative": [
+				1.02117919921875,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 34351,
+			"position": [
+				397.664978027344,
+				408.400024414063
+			],
+			"relative": [
+				0.96435546875,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 34397,
+			"position": [
+				398.560852050781,
+				408.400024414063
+			],
+			"relative": [
+				0.8958740234375,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 34444,
+			"position": [
+				399.377410888672,
+				408.400024414063
+			],
+			"relative": [
+				0.816558837890625,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 34493,
+			"position": [
+				400.104797363281,
+				408.400024414063
+			],
+			"relative": [
+				0.727386474609375,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 34539,
+			"position": [
+				400.734191894531,
+				408.400024414063
+			],
+			"relative": [
+				0.62939453125,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 34601,
+			"position": [
+				401.258056640625,
+				408.400024414063
+			],
+			"relative": [
+				0.52386474609375,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 34647,
+			"position": [
+				401.669982910156,
+				408.400024414063
+			],
+			"relative": [
+				0.41192626953125,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 34695,
+			"position": [
+				401.965026855469,
+				408.400024414063
+			],
+			"relative": [
+				0.2950439453125,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 34742,
+			"position": [
+				402.139587402344,
+				408.400024414063
+			],
+			"relative": [
+				0.174560546875,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 34788,
+			"position": [
+				402.191619873047,
+				408.400024414063
+			],
+			"relative": [
+				0.052032470703125,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 34837,
+			"position": [
+				402.120452880859,
+				408.400024414063
+			],
+			"relative": [
+				-0.0711669921875,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 34895,
+			"position": [
+				516.572814941406,
+				408.400024414063
+			],
+			"relative": [
+				114.452362060547,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"caught": 2,
+			"event": "baby_caught",
+			"missed": 0,
+			"settled": [
+				0,
+				1
+			],
+			"state": {
+				"act_state": "play",
+				"armed_station": 1,
+				"checkpoint": {
+					"nursery": {
+						"care_version": 1,
+						"current": {
+							"missed": 0,
+							"progress": 2.0,
+							"settled": [
+								0,
+								1
+							],
+							"spawned": 2
+						},
+						"layout": [
+							"WASH HANDS|hold|3.4",
+							"CATCH BABIES|catch|5.0",
+							"FEED|hold|4.0",
+							"BURP|tap|4.0",
+							"BEDTIME|swipe|3.0"
+						],
+						"phase_index": 1
+					}
+				},
+				"game": "opera",
+				"living_stage": "opera.act.15",
+				"msec": 34895,
+				"pearls": 3,
+				"phase": 1,
+				"progress": 2.0,
+				"room": "bubble_bath",
+				"stars": 32768,
+				"task_open": true
+			}
+		},
+		{
+			"event": "catch_steer",
+			"msec": 34929,
+			"position": [
+				515.236267089844,
+				408.400024414063
+			],
+			"relative": [
+				-1.3365478515625,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 34991,
+			"position": [
+				513.906066894531,
+				408.400024414063
+			],
+			"relative": [
+				-1.3302001953125,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 35039,
+			"position": [
+				512.6787109375,
+				408.400024414063
+			],
+			"relative": [
+				-1.22735595703125,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 35086,
+			"position": [
+				511.593231201172,
+				408.400024414063
+			],
+			"relative": [
+				-1.08547973632813,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 35133,
+			"position": [
+				510.61669921875,
+				408.400024414063
+			],
+			"relative": [
+				-0.976531982421875,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 35180,
+			"position": [
+				509.815734863281,
+				408.400024414063
+			],
+			"relative": [
+				-0.80096435546875,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 35242,
+			"position": [
+				509.154296875,
+				408.400024414063
+			],
+			"relative": [
+				-0.66143798828125,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 35290,
+			"position": [
+				508.640411376953,
+				408.400024414063
+			],
+			"relative": [
+				-0.513885498046875,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 35337,
+			"position": [
+				508.2802734375,
+				408.400024414063
+			],
+			"relative": [
+				-0.360137939453125,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 35385,
+			"position": [
+				508.078216552734,
+				408.400024414063
+			],
+			"relative": [
+				-0.202056884765625,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 35432,
+			"position": [
+				508.036743164063,
+				408.400024414063
+			],
+			"relative": [
+				-0.041473388671875,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 35479,
+			"position": [
+				508.156311035156,
+				408.400024414063
+			],
+			"relative": [
+				0.11956787109375,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 35542,
+			"position": [
+				508.435485839844,
+				408.400024414063
+			],
+			"relative": [
+				0.2791748046875,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 35589,
+			"position": [
+				508.870880126953,
+				408.400024414063
+			],
+			"relative": [
+				0.435394287109375,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 35636,
+			"position": [
+				509.457214355469,
+				408.400024414063
+			],
+			"relative": [
+				0.586334228515625,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 35683,
+			"position": [
+				510.187469482422,
+				408.400024414063
+			],
+			"relative": [
+				0.730255126953125,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 35730,
+			"position": [
+				511.052764892578,
+				408.400024414063
+			],
+			"relative": [
+				0.86529541015625,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 35779,
+			"position": [
+				512.042602539063,
+				408.400024414063
+			],
+			"relative": [
+				0.989837646484375,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 35841,
+			"position": [
+				513.145141601563,
+				408.400024414063
+			],
+			"relative": [
+				1.1025390625,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 35888,
+			"position": [
+				514.346923828125,
+				408.400024414063
+			],
+			"relative": [
+				1.2017822265625,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 35934,
+			"position": [
+				515.633544921875,
+				408.400024414063
+			],
+			"relative": [
+				1.28662109375,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 35981,
+			"position": [
+				516.989379882813,
+				408.400024414063
+			],
+			"relative": [
+				1.3558349609375,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 36042,
+			"position": [
+				518.39794921875,
+				408.400024414063
+			],
+			"relative": [
+				1.4085693359375,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 36090,
+			"position": [
+				519.842407226563,
+				408.400024414063
+			],
+			"relative": [
+				1.4444580078125,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 36139,
+			"position": [
+				521.30517578125,
+				408.400024414063
+			],
+			"relative": [
+				1.4627685546875,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 36185,
+			"position": [
+				522.768676757813,
+				408.400024414063
+			],
+			"relative": [
+				1.4635009765625,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 36232,
+			"position": [
+				524.215087890625,
+				408.400024414063
+			],
+			"relative": [
+				1.4464111328125,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 36279,
+			"position": [
+				525.626953125,
+				408.400024414063
+			],
+			"relative": [
+				1.411865234375,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 36328,
+			"position": [
+				526.9873046875,
+				408.400024414063
+			],
+			"relative": [
+				1.3603515625,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 36390,
+			"position": [
+				528.279602050781,
+				408.400024414063
+			],
+			"relative": [
+				1.29229736328125,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 36436,
+			"position": [
+				529.48828125,
+				408.400024414063
+			],
+			"relative": [
+				1.20867919921875,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 36482,
+			"position": [
+				530.5986328125,
+				408.400024414063
+			],
+			"relative": [
+				1.1103515625,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 36530,
+			"position": [
+				531.597412109375,
+				408.400024414063
+			],
+			"relative": [
+				0.998779296875,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 36592,
+			"position": [
+				532.472412109375,
+				408.400024414063
+			],
+			"relative": [
+				0.875,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 36640,
+			"position": [
+				533.213012695313,
+				408.400024414063
+			],
+			"relative": [
+				0.7406005859375,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 36687,
+			"position": [
+				533.810424804688,
+				408.400024414063
+			],
+			"relative": [
+				0.597412109375,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 36733,
+			"position": [
+				534.25732421875,
+				408.400024414063
+			],
+			"relative": [
+				0.4468994140625,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 36780,
+			"position": [
+				534.54833984375,
+				408.400024414063
+			],
+			"relative": [
+				0.291015625,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 36842,
+			"position": [
+				534.679870605469,
+				408.400024414063
+			],
+			"relative": [
+				0.13153076171875,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 36889,
+			"position": [
+				534.650451660156,
+				408.400024414063
+			],
+			"relative": [
+				-0.0294189453125,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 36936,
+			"position": [
+				534.460327148438,
+				408.400024414063
+			],
+			"relative": [
+				-0.19012451171875,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 36983,
+			"position": [
+				534.111938476563,
+				408.400024414063
+			],
+			"relative": [
+				-0.348388671875,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 37031,
+			"position": [
+				533.609313964844,
+				408.400024414063
+			],
+			"relative": [
+				-0.50262451171875,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 37079,
+			"position": [
+				532.958618164063,
+				408.400024414063
+			],
+			"relative": [
+				-0.65069580078125,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 37140,
+			"position": [
+				532.167846679688,
+				408.400024414063
+			],
+			"relative": [
+				-0.790771484375,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 37187,
+			"position": [
+				531.246337890625,
+				408.400024414063
+			],
+			"relative": [
+				-0.9215087890625,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 37234,
+			"position": [
+				530.205322265625,
+				408.400024414063
+			],
+			"relative": [
+				-1.041015625,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 37282,
+			"position": [
+				529.057373046875,
+				408.400024414063
+			],
+			"relative": [
+				-1.14794921875,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 37329,
+			"position": [
+				527.81640625,
+				408.400024414063
+			],
+			"relative": [
+				-1.240966796875,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 37392,
+			"position": [
+				526.497436523438,
+				408.400024414063
+			],
+			"relative": [
+				-1.3189697265625,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 37438,
+			"position": [
+				525.116271972656,
+				408.400024414063
+			],
+			"relative": [
+				-1.38116455078125,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 37485,
+			"position": [
+				523.689758300781,
+				408.400024414063
+			],
+			"relative": [
+				-1.426513671875,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 37531,
+			"position": [
+				522.235107421875,
+				408.400024414063
+			],
+			"relative": [
+				-1.45465087890625,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 37593,
+			"position": [
+				520.769836425781,
+				408.400024414063
+			],
+			"relative": [
+				-1.46527099609375,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 37641,
+			"position": [
+				519.311706542969,
+				408.400024414063
+			],
+			"relative": [
+				-1.4581298828125,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 37688,
+			"position": [
+				517.878295898438,
+				408.400024414063
+			],
+			"relative": [
+				-1.43341064453125,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 37736,
+			"position": [
+				516.487060546875,
+				408.400024414063
+			],
+			"relative": [
+				-1.3912353515625,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 37783,
+			"position": [
+				515.154663085938,
+				408.400024414063
+			],
+			"relative": [
+				-1.3323974609375,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 37831,
+			"position": [
+				513.897338867188,
+				408.400024414063
+			],
+			"relative": [
+				-1.25732421875,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 37879,
+			"position": [
+				512.730163574219,
+				408.400024414063
+			],
+			"relative": [
+				-1.16717529296875,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 37939,
+			"position": [
+				511.667327880859,
+				408.400024414063
+			],
+			"relative": [
+				-1.06283569335938,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 37986,
+			"position": [
+				510.721649169922,
+				408.400024414063
+			],
+			"relative": [
+				-0.9456787109375,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 38033,
+			"position": [
+				509.904541015625,
+				408.400024414063
+			],
+			"relative": [
+				-0.817108154296875,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 38079,
+			"position": [
+				509.225952148438,
+				408.400024414063
+			],
+			"relative": [
+				-0.6785888671875,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 38143,
+			"position": [
+				508.694000244141,
+				408.400024414063
+			],
+			"relative": [
+				-0.531951904296875,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 38190,
+			"position": [
+				508.315155029297,
+				408.400024414063
+			],
+			"relative": [
+				-0.37884521484375,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 38236,
+			"position": [
+				508.094024658203,
+				408.400024414063
+			],
+			"relative": [
+				-0.22113037109375,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 38283,
+			"position": [
+				508.033203125,
+				408.400024414063
+			],
+			"relative": [
+				-0.060821533203125,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 38331,
+			"position": [
+				508.133514404297,
+				408.400024414063
+			],
+			"relative": [
+				0.100311279296875,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 38379,
+			"position": [
+				508.393676757813,
+				408.400024414063
+			],
+			"relative": [
+				0.260162353515625,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 38439,
+			"position": [
+				508.810607910156,
+				408.400024414063
+			],
+			"relative": [
+				0.41693115234375,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 38486,
+			"position": [
+				509.379211425781,
+				408.400024414063
+			],
+			"relative": [
+				0.568603515625,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 38532,
+			"position": [
+				510.092620849609,
+				408.400024414063
+			],
+			"relative": [
+				0.713409423828125,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 38579,
+			"position": [
+				510.942260742188,
+				408.400024414063
+			],
+			"relative": [
+				0.849639892578125,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 38642,
+			"position": [
+				511.917785644531,
+				408.400024414063
+			],
+			"relative": [
+				0.97552490234375,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 38689,
+			"position": [
+				513.007446289063,
+				408.400024414063
+			],
+			"relative": [
+				1.08966064453125,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 38735,
+			"position": [
+				514.198120117188,
+				408.400024414063
+			],
+			"relative": [
+				1.190673828125,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 38783,
+			"position": [
+				515.475341796875,
+				408.400024414063
+			],
+			"relative": [
+				1.2772216796875,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 38831,
+			"position": [
+				516.82373046875,
+				408.400024414063
+			],
+			"relative": [
+				1.348388671875,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 38879,
+			"position": [
+				518.226928710938,
+				408.400024414063
+			],
+			"relative": [
+				1.4031982421875,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 38940,
+			"position": [
+				519.66796875,
+				408.400024414063
+			],
+			"relative": [
+				1.4410400390625,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 38985,
+			"position": [
+				521.129516601563,
+				408.400024414063
+			],
+			"relative": [
+				1.4615478515625,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 39032,
+			"position": [
+				522.59375,
+				408.400024414063
+			],
+			"relative": [
+				1.4642333984375,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 39079,
+			"position": [
+				328.087585449219,
+				408.400024414063
+			],
+			"relative": [
+				-194.506164550781,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"caught": 3,
+			"event": "baby_caught",
+			"missed": 0,
+			"settled": [
+				0,
+				1,
+				2
+			],
+			"state": {
+				"act_state": "play",
+				"armed_station": 1,
+				"checkpoint": {
+					"nursery": {
+						"care_version": 1,
+						"current": {
+							"missed": 0,
+							"progress": 3.0,
+							"settled": [
+								0,
+								1,
+								2
+							],
+							"spawned": 4
+						},
+						"layout": [
+							"WASH HANDS|hold|3.4",
+							"CATCH BABIES|catch|5.0",
+							"FEED|hold|4.0",
+							"BURP|tap|4.0",
+							"BEDTIME|swipe|3.0"
+						],
+						"phase_index": 1
+					}
+				},
+				"game": "opera",
+				"living_stage": "opera.act.15",
+				"msec": 39079,
+				"pearls": 3,
+				"phase": 1,
+				"progress": 3.0,
+				"room": "bubble_bath",
+				"stars": 32768,
+				"task_open": true
+			}
+		},
+		{
+			"event": "catch_steer",
+			"msec": 39141,
+			"position": [
+				327.787689208984,
+				408.400024414063
+			],
+			"relative": [
+				-0.299896240234375,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 39188,
+			"position": [
+				327.411071777344,
+				408.400024414063
+			],
+			"relative": [
+				-0.376617431640625,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 39235,
+			"position": [
+				326.962280273438,
+				408.400024414063
+			],
+			"relative": [
+				-0.44879150390625,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 39282,
+			"position": [
+				326.446716308594,
+				408.400024414063
+			],
+			"relative": [
+				-0.51556396484375,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 39329,
+			"position": [
+				325.870666503906,
+				408.400024414063
+			],
+			"relative": [
+				-0.5760498046875,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 39392,
+			"position": [
+				325.241027832031,
+				408.400024414063
+			],
+			"relative": [
+				-0.629638671875,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 39440,
+			"position": [
+				324.565490722656,
+				408.400024414063
+			],
+			"relative": [
+				-0.675537109375,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 39486,
+			"position": [
+				323.852111816406,
+				408.400024414063
+			],
+			"relative": [
+				-0.71337890625,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 39533,
+			"position": [
+				323.109619140625,
+				408.400024414063
+			],
+			"relative": [
+				-0.74249267578125,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 39580,
+			"position": [
+				322.346923828125,
+				408.400024414063
+			],
+			"relative": [
+				-0.7626953125,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 39643,
+			"position": [
+				321.573272705078,
+				408.400024414063
+			],
+			"relative": [
+				-0.773651123046875,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 39690,
+			"position": [
+				320.798034667969,
+				408.400024414063
+			],
+			"relative": [
+				-0.775238037109375,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 39737,
+			"position": [
+				320.030517578125,
+				408.400024414063
+			],
+			"relative": [
+				-0.76751708984375,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 39783,
+			"position": [
+				319.280059814453,
+				408.400024414063
+			],
+			"relative": [
+				-0.750457763671875,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 39831,
+			"position": [
+				318.555694580078,
+				408.400024414063
+			],
+			"relative": [
+				-0.724365234375,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 39879,
+			"position": [
+				317.8662109375,
+				408.400024414063
+			],
+			"relative": [
+				-0.689483642578125,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 39942,
+			"position": [
+				317.219909667969,
+				408.400024414063
+			],
+			"relative": [
+				-0.64630126953125,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 40021,
+			"position": [
+				456.147521972656,
+				408.400024414063
+			],
+			"relative": [
+				138.927612304688,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"caught": 4,
+			"event": "baby_caught",
+			"missed": 0,
+			"settled": [
+				0,
+				1,
+				2,
+				0
+			],
+			"state": {
+				"act_state": "play",
+				"armed_station": 1,
+				"checkpoint": {
+					"nursery": {
+						"care_version": 1,
+						"current": {
+							"missed": 0,
+							"progress": 4.0,
+							"settled": [
+								0,
+								1,
+								2,
+								0
+							],
+							"spawned": 5
+						},
+						"layout": [
+							"WASH HANDS|hold|3.4",
+							"CATCH BABIES|catch|5.0",
+							"FEED|hold|4.0",
+							"BURP|tap|4.0",
+							"BEDTIME|swipe|3.0"
+						],
+						"phase_index": 1
+					}
+				},
+				"game": "opera",
+				"living_stage": "opera.act.15",
+				"msec": 40021,
+				"pearls": 3,
+				"phase": 1,
+				"progress": 4.0,
+				"room": "bubble_bath",
+				"stars": 32768,
+				"task_open": true
+			}
+		},
+		{
+			"event": "catch_steer",
+			"msec": 40051,
+			"position": [
+				456.909912109375,
+				408.400024414063
+			],
+			"relative": [
+				0.76239013671875,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 40099,
+			"position": [
+				457.875274658203,
+				408.400024414063
+			],
+			"relative": [
+				0.965362548828125,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 40146,
+			"position": [
+				458.897247314453,
+				408.400024414063
+			],
+			"relative": [
+				1.02197265625,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 40193,
+			"position": [
+				459.963500976563,
+				408.400024414063
+			],
+			"relative": [
+				1.06625366210938,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 40239,
+			"position": [
+				461.061126708984,
+				408.400024414063
+			],
+			"relative": [
+				1.09762573242188,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 40288,
+			"position": [
+				462.176879882813,
+				408.400024414063
+			],
+			"relative": [
+				1.11575317382813,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 40349,
+			"position": [
+				463.297271728516,
+				408.400024414063
+			],
+			"relative": [
+				1.12039184570313,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 40396,
+			"position": [
+				464.408752441406,
+				408.400024414063
+			],
+			"relative": [
+				1.11148071289063,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 40443,
+			"position": [
+				465.497863769531,
+				408.400024414063
+			],
+			"relative": [
+				1.089111328125,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 40491,
+			"position": [
+				466.551483154297,
+				408.400024414063
+			],
+			"relative": [
+				1.05361938476563,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 40538,
+			"position": [
+				467.556854248047,
+				408.400024414063
+			],
+			"relative": [
+				1.00537109375,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 40600,
+			"position": [
+				468.501831054688,
+				408.400024414063
+			],
+			"relative": [
+				0.944976806640625,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 40645,
+			"position": [
+				469.374969482422,
+				408.400024414063
+			],
+			"relative": [
+				0.873138427734375,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 40691,
+			"position": [
+				470.165710449219,
+				408.400024414063
+			],
+			"relative": [
+				0.790740966796875,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 40752,
+			"position": [
+				470.864532470703,
+				408.400024414063
+			],
+			"relative": [
+				0.698822021484375,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 40799,
+			"position": [
+				471.462982177734,
+				408.400024414063
+			],
+			"relative": [
+				0.59844970703125,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 40847,
+			"position": [
+				471.953826904297,
+				408.400024414063
+			],
+			"relative": [
+				0.4908447265625,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 40892,
+			"position": [
+				472.331085205078,
+				408.400024414063
+			],
+			"relative": [
+				0.37725830078125,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 40939,
+			"position": [
+				472.590240478516,
+				408.400024414063
+			],
+			"relative": [
+				0.2591552734375,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 40999,
+			"position": [
+				472.728179931641,
+				408.400024414063
+			],
+			"relative": [
+				0.137939453125,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 41045,
+			"position": [
+				472.743194580078,
+				408.400024414063
+			],
+			"relative": [
+				0.0150146484375,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 41093,
+			"position": [
+				472.635101318359,
+				408.400024414063
+			],
+			"relative": [
+				-0.10809326171875,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 41139,
+			"position": [
+				472.405212402344,
+				408.400024414063
+			],
+			"relative": [
+				-0.229888916015625,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 41202,
+			"position": [
+				472.056335449219,
+				408.400024414063
+			],
+			"relative": [
+				-0.348876953125,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 41249,
+			"position": [
+				471.592681884766,
+				408.400024414063
+			],
+			"relative": [
+				-0.463653564453125,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 41295,
+			"position": [
+				471.019836425781,
+				408.400024414063
+			],
+			"relative": [
+				-0.572845458984375,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 41342,
+			"position": [
+				470.3447265625,
+				408.400024414063
+			],
+			"relative": [
+				-0.67510986328125,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 41388,
+			"position": [
+				469.575500488281,
+				408.400024414063
+			],
+			"relative": [
+				-0.76922607421875,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 41449,
+			"position": [
+				468.721496582031,
+				408.400024414063
+			],
+			"relative": [
+				-0.85400390625,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 41495,
+			"position": [
+				467.792999267578,
+				408.400024414063
+			],
+			"relative": [
+				-0.928497314453125,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 41542,
+			"position": [
+				466.801239013672,
+				408.400024414063
+			],
+			"relative": [
+				-0.99176025390625,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 41602,
+			"position": [
+				465.758239746094,
+				408.400024414063
+			],
+			"relative": [
+				-1.04299926757813,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 41648,
+			"position": [
+				464.676544189453,
+				408.400024414063
+			],
+			"relative": [
+				-1.08169555664063,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 41695,
+			"position": [
+				463.569305419922,
+				408.400024414063
+			],
+			"relative": [
+				-1.10723876953125,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 41742,
+			"position": [
+				462.449829101563,
+				408.400024414063
+			],
+			"relative": [
+				-1.11947631835938,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 41790,
+			"position": [
+				461.331695556641,
+				408.400024414063
+			],
+			"relative": [
+				-1.11813354492188,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 41852,
+			"position": [
+				460.228424072266,
+				408.400024414063
+			],
+			"relative": [
+				-1.103271484375,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 41898,
+			"position": [
+				459.1533203125,
+				408.400024414063
+			],
+			"relative": [
+				-1.07510375976563,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 41946,
+			"position": [
+				458.119415283203,
+				408.400024414063
+			],
+			"relative": [
+				-1.03390502929688,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 41993,
+			"position": [
+				457.13916015625,
+				408.400024414063
+			],
+			"relative": [
+				-0.980255126953125,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 42041,
+			"position": [
+				456.224456787109,
+				408.400024414063
+			],
+			"relative": [
+				-0.914703369140625,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 42102,
+			"position": [
+				455.386322021484,
+				408.400024414063
+			],
+			"relative": [
+				-0.838134765625,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 42148,
+			"position": [
+				454.634887695313,
+				408.400024414063
+			],
+			"relative": [
+				-0.751434326171875,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 42195,
+			"position": [
+				453.979278564453,
+				408.400024414063
+			],
+			"relative": [
+				-0.655609130859375,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 42242,
+			"position": [
+				453.427368164063,
+				408.400024414063
+			],
+			"relative": [
+				-0.551910400390625,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 42289,
+			"position": [
+				452.985870361328,
+				408.400024414063
+			],
+			"relative": [
+				-0.441497802734375,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 42350,
+			"position": [
+				452.660095214844,
+				408.400024414063
+			],
+			"relative": [
+				-0.325775146484375,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 42397,
+			"position": [
+				452.453979492188,
+				408.400024414063
+			],
+			"relative": [
+				-0.20611572265625,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 42444,
+			"position": [
+				452.370025634766,
+				408.400024414063
+			],
+			"relative": [
+				-0.083953857421875,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 42491,
+			"position": [
+				452.409271240234,
+				408.400024414063
+			],
+			"relative": [
+				0.03924560546875,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 42539,
+			"position": [
+				452.571197509766,
+				408.400024414063
+			],
+			"relative": [
+				0.16192626953125,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 42601,
+			"position": [
+				452.853851318359,
+				408.400024414063
+			],
+			"relative": [
+				0.28265380859375,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 42648,
+			"position": [
+				453.253845214844,
+				408.400024414063
+			],
+			"relative": [
+				0.399993896484375,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 42694,
+			"position": [
+				453.766326904297,
+				408.400024414063
+			],
+			"relative": [
+				0.512481689453125,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 42742,
+			"position": [
+				454.385131835938,
+				408.400024414063
+			],
+			"relative": [
+				0.618804931640625,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 42789,
+			"position": [
+				455.102722167969,
+				408.400024414063
+			],
+			"relative": [
+				0.71759033203125,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 42851,
+			"position": [
+				455.910461425781,
+				408.400024414063
+			],
+			"relative": [
+				0.8077392578125,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 42898,
+			"position": [
+				456.798583984375,
+				408.400024414063
+			],
+			"relative": [
+				0.88812255859375,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 42943,
+			"position": [
+				457.75634765625,
+				408.400024414063
+			],
+			"relative": [
+				0.957763671875,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 42990,
+			"position": [
+				458.772155761719,
+				408.400024414063
+			],
+			"relative": [
+				1.01580810546875,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 43038,
+			"position": [
+				459.833770751953,
+				408.400024414063
+			],
+			"relative": [
+				1.06161499023438,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 43098,
+			"position": [
+				460.928344726563,
+				408.400024414063
+			],
+			"relative": [
+				1.09457397460938,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 43145,
+			"position": [
+				462.042633056641,
+				408.400024414063
+			],
+			"relative": [
+				1.11428833007813,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 43192,
+			"position": [
+				463.163177490234,
+				408.400024414063
+			],
+			"relative": [
+				1.12054443359375,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_steer",
+			"msec": 43239,
+			"position": [
+				464.276428222656,
+				408.400024414063
+			],
+			"relative": [
+				1.11325073242188,
+				0.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "catch_release",
+			"msec": 43323,
+			"position": [
+				464.276428222656,
+				408.400024414063
+			],
+			"pressed": false,
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/NurseryCatchSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "phase_earned",
+			"phase": 1,
+			"state": {
+				"act_state": "play",
+				"armed_station": 2,
+				"checkpoint": {
+					"nursery": {
+						"care_version": 1,
+						"current": {
+							"progress": 0.0
+						},
+						"layout": [
+							"WASH HANDS|hold|3.4",
+							"CATCH BABIES|catch|5.0",
+							"FEED|hold|4.0",
+							"BURP|tap|4.0",
+							"BEDTIME|swipe|3.0"
+						],
+						"phase_index": 2
+					}
+				},
+				"game": "opera",
+				"living_stage": "opera.act.15",
+				"msec": 44090,
+				"pearls": 3,
+				"phase": 2,
+				"progress": 0.0,
+				"room": "bubble_bath",
+				"stars": 32768,
+				"task_open": false
+			}
+		},
+		{
+			"event": "phase_station_2_press",
+			"msec": 44090,
+			"position": [
+				968.038452148438,
+				331.200012207031
+			],
+			"pressed": true,
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/ActivityHotspot_bottle_nook/ObjectTouchTarget",
+			"touch_index": 90
+		},
+		{
+			"event": "phase_station_2_release",
+			"msec": 44105,
+			"position": [
+				968.038452148438,
+				331.200012207031
+			],
+			"pressed": false,
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/ActivityHotspot_bottle_nook/ObjectTouchTarget",
+			"touch_index": 90
+		},
+		{
+			"definition": {
+				"goal": 4.0,
+				"mode": "hold",
+				"name": "FEED",
+				"speaker": "Faron",
+				"visual_context": "nursery_feed",
+				"vo": "op_nursery_feed",
+				"voice": "Hold the warm bottle while Roshan and Faron feed each baby!",
+				"widget": ""
+			},
+			"event": "phase_open",
+			"phase": 2,
+			"state": {
+				"act_state": "play",
+				"armed_station": 2,
+				"checkpoint": {
+					"nursery": {
+						"care_version": 1,
+						"current": {
+							"progress": 0.0
+						},
+						"layout": [
+							"WASH HANDS|hold|3.4",
+							"CATCH BABIES|catch|5.0",
+							"FEED|hold|4.0",
+							"BURP|tap|4.0",
+							"BEDTIME|swipe|3.0"
+						],
+						"phase_index": 2
+					}
+				},
+				"game": "opera",
+				"living_stage": "opera.act.15",
+				"msec": 45368,
+				"pearls": 3,
+				"phase": 2,
+				"progress": 0.0,
+				"room": "bubble_bath",
+				"stars": 32768,
+				"task_open": true
+			},
+			"voice": {
+				"playing": true,
+				"stream": "res://assets/audio/voices/faron_op_nursery_feed.ogg",
+				"voice_i": 5
+			}
+		},
+		{
+			"event": "care_hold_start",
+			"msec": 45368,
+			"position": [
+				392.0,
+				408.400024414063
+			],
+			"pressed": true,
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/CareerGestureSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "care_hold_release",
+			"msec": 49405,
+			"position": [
+				392.0,
+				408.400024414063
+			],
+			"pressed": false,
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/CareerGestureSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "phase_earned",
+			"phase": 2,
+			"state": {
+				"act_state": "play",
+				"armed_station": 1,
+				"checkpoint": {
+					"nursery": {
+						"care_version": 1,
+						"current": {
+							"progress": 0.0
+						},
+						"layout": [
+							"WASH HANDS|hold|3.4",
+							"CATCH BABIES|catch|5.0",
+							"FEED|hold|4.0",
+							"BURP|tap|4.0",
+							"BEDTIME|swipe|3.0"
+						],
+						"phase_index": 3
+					}
+				},
+				"game": "opera",
+				"living_stage": "opera.act.15",
+				"msec": 51591,
+				"pearls": 3,
+				"phase": 3,
+				"progress": 0.0,
+				"room": "bubble_bath",
+				"stars": 32768,
+				"task_open": false
+			}
+		},
+		{
+			"event": "phase_station_3_press",
+			"msec": 51592,
+			"position": [
+				728.691223144531,
+				432.399993896484
+			],
+			"pressed": true,
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/ActivityHotspot_cuddle_cushions/ObjectTouchTarget",
+			"touch_index": 90
+		},
+		{
+			"event": "phase_station_3_release",
+			"msec": 51608,
+			"position": [
+				728.691223144531,
+				432.399993896484
+			],
+			"pressed": false,
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/ActivityHotspot_cuddle_cushions/ObjectTouchTarget",
+			"touch_index": 90
+		},
+		{
+			"definition": {
+				"goal": 4.0,
+				"mode": "tap",
+				"name": "BURP",
+				"pace": 0.55,
+				"visual_context": "nursery_burp",
+				"vo": "op_nursery_burp_stage",
+				"voice": "Pat the baby's back gently and slowly: pat, pat, pat!",
+				"widget": ""
+			},
+			"event": "phase_open",
+			"phase": 3,
+			"state": {
+				"act_state": "play",
+				"armed_station": 1,
+				"checkpoint": {
+					"nursery": {
+						"care_version": 1,
+						"current": {
+							"progress": 0.0
+						},
+						"layout": [
+							"WASH HANDS|hold|3.4",
+							"CATCH BABIES|catch|5.0",
+							"FEED|hold|4.0",
+							"BURP|tap|4.0",
+							"BEDTIME|swipe|3.0"
+						],
+						"phase_index": 3
+					}
+				},
+				"game": "opera",
+				"living_stage": "opera.act.15",
+				"msec": 52861,
+				"pearls": 3,
+				"phase": 3,
+				"progress": 0.0,
+				"room": "bubble_bath",
+				"stars": 32768,
+				"task_open": true
+			},
+			"voice": {
+				"playing": true,
+				"stream": "res://assets/audio/voices/filler_v1/roshan_op_nursery_burp_stage.ogg",
+				"voice_i": 6
+			}
+		},
+		{
+			"event": "gentle_pat_0_press",
+			"msec": 52861,
+			"position": [
+				392.0,
+				408.400024414063
+			],
+			"pressed": true,
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/CareerGestureSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "gentle_pat_0_release",
+			"msec": 52893,
+			"position": [
+				392.0,
+				408.400024414063
+			],
+			"pressed": false,
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/CareerGestureSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "gentle_pat_1_press",
+			"msec": 53531,
+			"position": [
+				392.0,
+				408.400024414063
+			],
+			"pressed": true,
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/CareerGestureSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "gentle_pat_1_release",
+			"msec": 53562,
+			"position": [
+				392.0,
+				408.400024414063
+			],
+			"pressed": false,
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/CareerGestureSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "gentle_pat_2_press",
+			"msec": 54201,
+			"position": [
+				392.0,
+				408.400024414063
+			],
+			"pressed": true,
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/CareerGestureSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "gentle_pat_2_release",
+			"msec": 54229,
+			"position": [
+				392.0,
+				408.400024414063
+			],
+			"pressed": false,
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/CareerGestureSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "gentle_pat_3_press",
+			"msec": 54888,
+			"position": [
+				392.0,
+				408.400024414063
+			],
+			"pressed": true,
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/CareerGestureSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "gentle_pat_3_release",
+			"msec": 54916,
+			"position": [
+				392.0,
+				408.400024414063
+			],
+			"pressed": false,
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/CareerGestureSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "phase_earned",
+			"phase": 3,
+			"state": {
+				"act_state": "play",
+				"armed_station": 3,
+				"checkpoint": {
+					"nursery": {
+						"care_version": 1,
+						"current": {
+							"progress": 0.0,
+							"tucks": [
+								false,
+								false,
+								false
+							]
+						},
+						"layout": [
+							"WASH HANDS|hold|3.4",
+							"CATCH BABIES|catch|5.0",
+							"FEED|hold|4.0",
+							"BURP|tap|4.0",
+							"BEDTIME|swipe|3.0"
+						],
+						"phase_index": 4
+					}
+				},
+				"game": "opera",
+				"living_stage": "opera.act.15",
+				"msec": 57096,
+				"pearls": 3,
+				"phase": 4,
+				"progress": 0.0,
+				"room": "bubble_bath",
+				"stars": 32768,
+				"task_open": false
+			}
+		},
+		{
+			"event": "phase_station_4_press",
+			"msec": 57096,
+			"position": [
+				1176.16650390625,
+				309.600006103516
+			],
+			"pressed": true,
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/ActivityHotspot_moon_bed/ObjectTouchTarget",
+			"touch_index": 90
+		},
+		{
+			"event": "phase_station_4_release",
+			"msec": 57099,
+			"position": [
+				1176.16650390625,
+				309.600006103516
+			],
+			"pressed": false,
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/ActivityHotspot_moon_bed/ObjectTouchTarget",
+			"touch_index": 90
+		},
+		{
+			"definition": {
+				"dir": "down",
+				"goal": 3.0,
+				"mode": "swipe",
+				"name": "BEDTIME",
+				"speaker": "Faron",
+				"visual_context": "nursery_bedtime",
+				"vo": "op_nursery_bedtime",
+				"voice": "Swipe each blanket down and tuck every baby into bed!",
+				"widget": ""
+			},
+			"event": "phase_open",
+			"phase": 4,
+			"state": {
+				"act_state": "play",
+				"armed_station": 3,
+				"checkpoint": {
+					"nursery": {
+						"care_version": 1,
+						"current": {
+							"progress": 0.0,
+							"tucks": [
+								false,
+								false,
+								false
+							]
+						},
+						"layout": [
+							"WASH HANDS|hold|3.4",
+							"CATCH BABIES|catch|5.0",
+							"FEED|hold|4.0",
+							"BURP|tap|4.0",
+							"BEDTIME|swipe|3.0"
+						],
+						"phase_index": 4
+					}
+				},
+				"game": "opera",
+				"living_stage": "opera.act.15",
+				"msec": 58887,
+				"pearls": 3,
+				"phase": 4,
+				"progress": 0.0,
+				"room": "bubble_bath",
+				"stars": 32768,
+				"task_open": true
+			},
+			"voice": {
+				"playing": true,
+				"stream": "res://assets/audio/voices/faron_op_nursery_bedtime.ogg",
+				"voice_i": 7
+			}
+		},
+		{
+			"event": "blanket_0_press",
+			"msec": 58887,
+			"position": [
+				286.160003662109,
+				418.359985351563
+			],
+			"pressed": true,
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/CareerGestureSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "blanket_0_drag",
+			"msec": 58902,
+			"position": [
+				286.160003662109,
+				425.359985351563
+			],
+			"relative": [
+				0.0,
+				7.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/CareerGestureSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "blanket_0_drag",
+			"msec": 58917,
+			"position": [
+				286.160003662109,
+				432.359985351563
+			],
+			"relative": [
+				0.0,
+				7.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/CareerGestureSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "blanket_0_drag",
+			"msec": 58933,
+			"position": [
+				286.160003662109,
+				439.359985351563
+			],
+			"relative": [
+				0.0,
+				7.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/CareerGestureSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "blanket_0_drag",
+			"msec": 58949,
+			"position": [
+				286.160003662109,
+				446.359985351563
+			],
+			"relative": [
+				0.0,
+				7.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/CareerGestureSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "blanket_0_drag",
+			"msec": 58965,
+			"position": [
+				286.160003662109,
+				453.359985351563
+			],
+			"relative": [
+				0.0,
+				7.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/CareerGestureSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "blanket_0_drag",
+			"msec": 58995,
+			"position": [
+				286.160003662109,
+				460.359985351563
+			],
+			"relative": [
+				0.0,
+				7.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/CareerGestureSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "blanket_0_drag",
+			"msec": 59012,
+			"position": [
+				286.160003662109,
+				467.359985351563
+			],
+			"relative": [
+				0.0,
+				7.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/CareerGestureSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "blanket_0_drag",
+			"msec": 59041,
+			"position": [
+				286.160003662109,
+				474.359985351563
+			],
+			"relative": [
+				0.0,
+				7.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/CareerGestureSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "blanket_0_release",
+			"msec": 59042,
+			"position": [
+				286.160003662109,
+				474.359985351563
+			],
+			"pressed": false,
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/CareerGestureSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "blanket_1_press",
+			"msec": 59247,
+			"position": [
+				392.0,
+				418.359985351563
+			],
+			"pressed": true,
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/CareerGestureSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "blanket_1_drag",
+			"msec": 59262,
+			"position": [
+				392.0,
+				425.359985351563
+			],
+			"relative": [
+				0.0,
+				7.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/CareerGestureSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "blanket_1_drag",
+			"msec": 59278,
+			"position": [
+				392.0,
+				432.359985351563
+			],
+			"relative": [
+				0.0,
+				7.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/CareerGestureSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "blanket_1_drag",
+			"msec": 59293,
+			"position": [
+				392.0,
+				439.359985351563
+			],
+			"relative": [
+				0.0,
+				7.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/CareerGestureSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "blanket_1_drag",
+			"msec": 59309,
+			"position": [
+				392.0,
+				446.359985351563
+			],
+			"relative": [
+				0.0,
+				7.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/CareerGestureSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "blanket_1_drag",
+			"msec": 59325,
+			"position": [
+				392.0,
+				453.359985351563
+			],
+			"relative": [
+				0.0,
+				7.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/CareerGestureSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "blanket_1_drag",
+			"msec": 59341,
+			"position": [
+				392.0,
+				460.359985351563
+			],
+			"relative": [
+				0.0,
+				7.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/CareerGestureSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "blanket_1_drag",
+			"msec": 59358,
+			"position": [
+				392.0,
+				467.359985351563
+			],
+			"relative": [
+				0.0,
+				7.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/CareerGestureSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "blanket_1_drag",
+			"msec": 59387,
+			"position": [
+				392.0,
+				474.359985351563
+			],
+			"relative": [
+				0.0,
+				7.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/CareerGestureSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "blanket_1_release",
+			"msec": 59404,
+			"position": [
+				392.0,
+				474.359985351563
+			],
+			"pressed": false,
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/CareerGestureSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "blanket_2_press",
+			"msec": 59622,
+			"position": [
+				497.839996337891,
+				418.359985351563
+			],
+			"pressed": true,
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/CareerGestureSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "blanket_2_drag",
+			"msec": 59637,
+			"position": [
+				497.839996337891,
+				425.359985351563
+			],
+			"relative": [
+				0.0,
+				7.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/CareerGestureSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "blanket_2_drag",
+			"msec": 59652,
+			"position": [
+				497.839996337891,
+				432.359985351563
+			],
+			"relative": [
+				0.0,
+				7.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/CareerGestureSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "blanket_2_drag",
+			"msec": 59668,
+			"position": [
+				497.839996337891,
+				439.359985351563
+			],
+			"relative": [
+				0.0,
+				7.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/CareerGestureSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "blanket_2_drag",
+			"msec": 59684,
+			"position": [
+				497.839996337891,
+				446.359985351563
+			],
+			"relative": [
+				0.0,
+				7.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/CareerGestureSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "blanket_2_drag",
+			"msec": 59699,
+			"position": [
+				497.839996337891,
+				453.359985351563
+			],
+			"relative": [
+				0.0,
+				7.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/CareerGestureSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "blanket_2_drag",
+			"msec": 59714,
+			"position": [
+				497.839996337891,
+				460.359985351563
+			],
+			"relative": [
+				0.0,
+				7.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/CareerGestureSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "blanket_2_drag",
+			"msec": 59731,
+			"position": [
+				497.839996337891,
+				467.359985351563
+			],
+			"relative": [
+				0.0,
+				7.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/CareerGestureSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "blanket_2_drag",
+			"msec": 59759,
+			"position": [
+				497.839996337891,
+				474.359985351563
+			],
+			"relative": [
+				0.0,
+				7.0
+			],
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/CareerGestureSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "blanket_2_release",
+			"msec": 59759,
+			"position": [
+				497.839996337891,
+				474.359985351563
+			],
+			"pressed": false,
+			"target": "/root/Main/@Node@342/@Node@343/@CanvasLayer@344/OperaCareerWorld2D/@ColorRect@351/CareerGestureSurface",
+			"touch_index": 90
+		},
+		{
+			"event": "phase_earned",
+			"phase": 4,
+			"state": {
+				"act_state": "won",
+				"armed_station": -1,
+				"checkpoint": {
+					"nursery": {
+						"care_version": 1,
+						"current": {},
+						"layout": [
+							"WASH HANDS|hold|3.4",
+							"CATCH BABIES|catch|5.0",
+							"FEED|hold|4.0",
+							"BURP|tap|4.0",
+							"BEDTIME|swipe|3.0"
+						],
+						"phase_index": 5
+					}
+				},
+				"game": "opera",
+				"living_stage": "opera.act.15",
+				"msec": 61928,
+				"pearls": 3,
+				"phase": 5,
+				"progress": 3.0,
+				"room": "bubble_bath",
+				"stars": 32768,
+				"task_open": false
+			}
+		},
+		{
+			"disk_save": {
+				"animals": {},
+				"attack_color": "45dbeb",
+				"attack_effect": "bubbles",
+				"bwdone": false,
+				"care_points": 0.0,
+				"castle_logo_color": "rainbow",
+				"castle_logo_symbol": "rainbow",
+				"chapter2_active": false,
+				"chapter2_active_objective": "",
+				"chapter2_cake_piece_mask": 0.0,
+				"chapter2_candle_lit": false,
+				"chapter2_candle_taken": false,
+				"chapter2_candy_cake_finished": false,
+				"chapter2_chef_cake_baked": false,
+				"chapter2_ember_king_crashed": false,
+				"chapter2_ember_scout_seen": false,
+				"chapter2_ember_son_seen": false,
+				"chapter2_farmer_strawberries_ready": false,
+				"chapter2_job_phase_masks": [
+					0.0,
+					0.0,
+					0.0,
+					0.0,
+					0.0,
+					0.0,
+					0.0,
+					0.0
+				],
+				"chapter2_lawn_beat": 0.0,
+				"chapter2_lawn_started": false,
+				"chapter2_party_event_phase": 0.0,
+				"chapter2_party_piece_mask": 0.0,
+				"chapter2_party_started": false,
+				"chapter2_protection_bumps": 0.0,
+				"chapter2_protection_misses": 0.0,
+				"chapter2_protection_rounds": 0.0,
+				"chapter2_rainbow_candle_found": false,
+				"chapter2_skill_mask": 0.0,
+				"chapter2_story_complete": false,
+				"chapter2_strawberry_mask": 0.0,
+				"chapter2_stuffie_ballet_done": false,
+				"chapter2_unlocked_opera_mask": 1097.0,
+				"chapter3_fairy_door_opened": false,
+				"chapter3_fairy_door_revealed": false,
+				"chapter3_fairy_mission_started": false,
+				"combat_fire": false,
+				"combat_ice": false,
+				"combat_tutorial": false,
+				"comfy_games": {
+					"day2_castle_hide_and_seek": {
+						"accepted": false,
+						"completed": false,
+						"found": {
+							"baby_eagle": false,
+							"daddy_mermaid": false,
+							"rumi": false
+						}
+					},
+					"day2_family_comfy_evening": {
+						"accepted": false,
+						"bedtime": {
+							"completed": false,
+							"tucked_in": {
+								"baby_eagle": false,
+								"daddy_mermaid": false,
+								"roshan": false,
+								"rumi": false
+							}
+						},
+						"completed": false,
+						"dinner": {
+							"completed": false,
+							"ingredients": {
+								"apple": false,
+								"carrot": false,
+								"strawberry": false
+							},
+							"pot_stirred": false
+						},
+						"movie": {
+							"completed": false,
+							"scenes_watched": 0.0
+						},
+						"reward": {
+							"id": "comfy_evening_mystery_reward",
+							"introduced": false,
+							"unlocked": false,
+							"verified": false
+						}
+					},
+					"version": 2.0
+				},
+				"companion": "",
+				"companion_bruises": 0.0,
+				"companion_colors": [],
+				"companion_resting": false,
+				"crafts": {},
+				"critters": {},
+				"custom_fish": [],
+				"custom_friends": [],
+				"day_one_active": false,
+				"day_one_arrival_plane_media_seen": false,
+				"day_one_art_cleaned_grime": {},
+				"day_one_art_collected_materials": {},
+				"day_one_art_customization_completed": false,
+				"day_one_art_desk_unlocked": false,
+				"day_one_bathroom_cleanup_step": 0.0,
+				"day_one_bathroom_supply_hunt_step": 0.0,
+				"day_one_bathroom_toilet_cleaned": false,
+				"day_one_bathroom_tools_authorized": false,
+				"day_one_bathroom_tub_drained": false,
+				"day_one_boss_door_glow": false,
+				"day_one_cleaned_rooms": [],
+				"day_one_completed_rooms": [],
+				"day_one_current_room": "",
+				"day_one_dirty_castle_discovered": false,
+				"day_one_giant_dust_bunny_boss_defeated": false,
+				"day_one_giant_dust_bunny_boss_triggered": false,
+				"day_one_grok_video_2_seen": false,
+				"day_one_jobs_locked": false,
+				"day_one_opera_enabled": true,
+				"day_one_pool_cleanup_step": 0.0,
+				"day_one_pool_rumi_met": false,
+				"day_one_pool_seahorse_tugs": 0.0,
+				"day_one_pool_skimmer_mask": 0.0,
+				"day_one_pool_waterfall_mask": 0.0,
+				"day_one_story_clips_seen": {},
+				"dungeon_done": false,
+				"dungeon_progress": 0.0,
+				"ember_done": false,
+				"ember_found": false,
+				"ember_progress": 0.0,
+				"fairyskin": false,
+				"finale": false,
+				"fish_tokens": 0.0,
+				"found": {
+					"Daddy Mermaid": false,
+					"Evie and Lamb-a'": false,
+					"Faron": false,
+					"Harper and Fiona": false,
+					"Wacky and Chuck": false
+				},
+				"galaxy": false,
+				"haptics": true,
+				"lagoon_plane_departed": false,
+				"level2": false,
+				"medals": {},
+				"mic": true,
+				"music": true,
+				"opera_done": false,
+				"opera_geology_checkpoint": {},
+				"opera_mastery": {
+					"best_tiers": {
+						"astronaut": 0.0,
+						"ballerina": 0.0,
+						"boxer": 0.0,
+						"candymaker": 0.0,
+						"chef": 0.0,
+						"detective": 0.0,
+						"doctor": 0.0,
+						"farmer": 0.0,
+						"geologist": 0.0,
+						"magician": 0.0,
+						"nursery": 0.0,
+						"painter": 0.0,
+						"popstar": 0.0,
+						"racer": 0.0,
+						"teacher": 0.0
+					},
+					"encore_tokens": {
+						"balance": 0.0,
+						"total_earned": 0.0,
+						"total_spent": 0.0
+					},
+					"version": 1.0
+				},
+				"opera_pantry": {},
+				"opera_performance_checkpoints": {},
+				"opera_progress": 1.0,
+				"opera_stars": 32768.0,
+				"owned": {},
+				"owner_unknown": {
+					"keep": 73.0
+				},
+				"pearls": 4.0,
+				"pearls_ever": 4.0,
+				"plays": 2.0,
+				"portal_unlocked": false,
+				"quality": "speedy",
+				"save_generation": 38.0,
+				"schema_version": 1.0,
+				"skin": "classic",
+				"stickers": {},
+				"stuffie_wins": {},
+				"teacher_learning_progress": {
+					"kinds": {
+						"add": {
+							"clean_successes": 0.0,
+							"rounds": 0.0,
+							"tier": 0.0
+						},
+						"count": {
+							"clean_successes": 0.0,
+							"rounds": 0.0,
+							"tier": 0.0
+						},
+						"match": {
+							"clean_successes": 0.0,
+							"rounds": 0.0,
+							"tier": 0.0
+						},
+						"pattern": {
+							"clean_successes": 0.0,
+							"rounds": 0.0,
+							"tier": 0.0
+						}
+					},
+					"version": 1.0
+				},
+				"teacher_lesson_checkpoint": {},
+				"touch_mode": "classic",
+				"won": {
+					"Daddy Mermaid": false,
+					"Evie and Lamb-a'": false,
+					"Faron": false,
+					"Harper and Fiona": false,
+					"Wacky and Chuck": false
+				}
+			},
+			"event": "earned_return_disk",
+			"state": {
+				"checkpoint": {},
+				"game": "level2",
+				"living_stage": "castle.room.bubble_bath",
+				"msec": 65211,
+				"pearls": 4,
+				"room": "bubble_bath",
+				"stars": 32768
+			}
+		}
+	],
+	"final": {
+		"checkpoint": {},
+		"game": "level2",
+		"living_stage": "castle.room.bubble_bath",
+		"msec": 65212,
+		"pearls": 4,
+		"room": "bubble_bath",
+		"stars": 32768
+	},
+	"fixture": "Declared Castle freeplay startup, then automatic ticks/raw viewport touch only. Headless evidence, not native visual/device/child/owner acceptance or fresh-save story unlock proof.",
+	"result": "PASS",
+	"run": "replay",
+	"schema": 1,
+	"width": 1600
+}

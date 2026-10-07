@@ -1,0 +1,187 @@
+{
+  "schema": 1,
+  "status": "SCOPED_INTERMEDIATE_CARE_TOUCH_SAVE_LOAD_PASS; GOAL_REMAINS_ACTIVE",
+  "baseline": "96274aab9cebd563b10846a4a48de5d017588563",
+  "revision": 2,
+  "checks": 108,
+  "sessions": [
+    {
+      "run": "checkpoint0",
+      "width": 1280,
+      "checks": 11,
+      "events": 17,
+      "seconds": 17.649,
+      "result": "PASS",
+      "checkpoint": {
+        "care_version": 1.0,
+        "current": {
+          "progress": 0.850000000000001
+        },
+        "layout": [
+          "WASH HANDS|hold|3.4",
+          "CATCH BABIES|catch|5.0",
+          "FEED|hold|4.0",
+          "BURP|tap|4.0",
+          "BEDTIME|swipe|3.0"
+        ],
+        "phase_index": 0.0
+      },
+      "pearls": 0,
+      "stars": 0,
+      "route": "castle.room.bubble_bath"
+    },
+    {
+      "run": "resume0",
+      "width": 1600,
+      "checks": 21,
+      "events": 185,
+      "seconds": 34.083,
+      "result": "PASS",
+      "checkpoint": {
+        "care_version": 1.0,
+        "current": {
+          "missed": 0.0,
+          "progress": 2.0,
+          "settled": [
+            0.0,
+            1.0
+          ],
+          "spawned": 2.0
+        },
+        "layout": [
+          "WASH HANDS|hold|3.4",
+          "CATCH BABIES|catch|5.0",
+          "FEED|hold|4.0",
+          "BURP|tap|4.0",
+          "BEDTIME|swipe|3.0"
+        ],
+        "phase_index": 1.0
+      },
+      "pearls": 0,
+      "stars": 0,
+      "route": "castle.room.bubble_bath"
+    },
+    {
+      "run": "resume1",
+      "width": 1600,
+      "checks": 20,
+      "events": 148,
+      "seconds": 28.698,
+      "result": "PASS",
+      "checkpoint": {
+        "care_version": 1.0,
+        "current": {
+          "progress": 1.0
+        },
+        "layout": [
+          "WASH HANDS|hold|3.4",
+          "CATCH BABIES|catch|5.0",
+          "FEED|hold|4.0",
+          "BURP|tap|4.0",
+          "BEDTIME|swipe|3.0"
+        ],
+        "phase_index": 2.0
+      },
+      "pearls": 0,
+      "stars": 0,
+      "route": "castle.room.bubble_bath"
+    },
+    {
+      "run": "resume2",
+      "width": 1600,
+      "checks": 20,
+      "events": 24,
+      "seconds": 27.211,
+      "result": "PASS",
+      "checkpoint": {
+        "care_version": 1.0,
+        "current": {
+          "progress": 2.0
+        },
+        "layout": [
+          "WASH HANDS|hold|3.4",
+          "CATCH BABIES|catch|5.0",
+          "FEED|hold|4.0",
+          "BURP|tap|4.0",
+          "BEDTIME|swipe|3.0"
+        ],
+        "phase_index": 3.0
+      },
+      "pearls": 0,
+      "stars": 0,
+      "route": "castle.room.bubble_bath"
+    },
+    {
+      "run": "resume3",
+      "width": 1600,
+      "checks": 20,
+      "events": 42,
+      "seconds": 24.403,
+      "result": "PASS",
+      "checkpoint": {
+        "care_version": 1.0,
+        "current": {
+          "progress": 1.0,
+          "tucks": [
+            true,
+            false,
+            false
+          ]
+        },
+        "layout": [
+          "WASH HANDS|hold|3.4",
+          "CATCH BABIES|catch|5.0",
+          "FEED|hold|4.0",
+          "BURP|tap|4.0",
+          "BEDTIME|swipe|3.0"
+        ],
+        "phase_index": 4.0
+      },
+      "pearls": 0,
+      "stars": 0,
+      "route": "castle.room.bubble_bath"
+    },
+    {
+      "run": "resume4",
+      "width": 1600,
+      "checks": 16,
+      "events": 33,
+      "seconds": 25.725,
+      "result": "PASS",
+      "checkpoint": null,
+      "pearls": 3,
+      "stars": 32768,
+      "route": "castle.room.bubble_bath"
+    }
+  ],
+  "implementation": "Diagnostic drivers/evidence and scoped canonical history only; production, art, voice and save-schema changes: none.",
+  "save_chain": "SAVE_CHAIN.json",
+  "driver_review": "DRIVER_REVIEW.json",
+  "source_bindings": "SOURCE_BINDINGS.json",
+  "preserved_fixture_failure": "NUMERIC_IDENTITY_CORRECTION.json",
+  "independent_visual_score": null,
+  "game_wide_satisfaction": "UNSATISFIED",
+  "voice_listening": "UNVERIFIED",
+  "full_suite": "PENDING; no combination of historical scoped passes is a new full-suite run",
+  "canonical_lifecycles": {
+    "MA-PLAY-004": "IN_PROGRESS",
+    "MA-OPERA-003": "CONFIRMED_OPEN",
+    "MA-OPERA-006": "CONFIRMED_OPEN"
+  },
+  "outstanding": "Attached whole-figure identity/contact and native room coverage; current nativeQA11/independent per-item4.6/OD1-6; listening; fresh-save Chapter1/2 unlock; full unchanged suite/CI/integration; device/child/owner remain open. Related lifecycles unchanged.",
+  "machine_gates": {
+    "parser": "PASS",
+    "inference": "PASS",
+    "analyzer": "PASS",
+    "checkpoint0": "PASS",
+    "resume0": "PASS",
+    "resume1": "PASS",
+    "resume2": "PASS",
+    "resume3": "PASS",
+    "resume4": "PASS",
+    "authority": "PASS",
+    "development": "PASS",
+    "doc_tests": "PASS"
+  },
+  "document_contract_tests": 54
+}

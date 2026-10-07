@@ -1,0 +1,65 @@
+{
+  "schema": 1,
+  "links": [
+    {
+      "from": "v2_checkpoint0",
+      "to": "v2_resume0",
+      "raw_previous_disk_sha256": "e1e74527dec9566379dfd937a97f41a13dc9165e4d781151d9bac376aaf4a530",
+      "all_previous_disk_fields_equal_fresh_automatic_load": true
+    },
+    {
+      "from": "v2_resume0",
+      "to": "v2_resume1",
+      "raw_previous_disk_sha256": "e02334308f23648afacfc350aabc2ba6a4da1c80b436ab54211e25bdc9e53dc4",
+      "all_previous_disk_fields_equal_fresh_automatic_load": true
+    },
+    {
+      "from": "v2_resume1",
+      "to": "v2_resume2",
+      "raw_previous_disk_sha256": "8924d2de3265d9c33f073256fa02844cce427854bad3d377f544ed348281a6f4",
+      "all_previous_disk_fields_equal_fresh_automatic_load": true
+    },
+    {
+      "from": "v2_resume2",
+      "to": "v2_resume3",
+      "raw_previous_disk_sha256": "44c6711a17add9bdb26a67e488c1a7abfc0100477cd255acad8ea25d81c16f83",
+      "all_previous_disk_fields_equal_fresh_automatic_load": true
+    },
+    {
+      "from": "v2_resume3",
+      "to": "v2_resume4",
+      "raw_previous_disk_sha256": "6f878e02ca84724f95064747d61495752ff7f69d547255f60ba224ff0d802584",
+      "all_previous_disk_fields_equal_fresh_automatic_load": true
+    }
+  ],
+  "profile": "C:\\Users\\Peter\\.codex\\worktrees\\nursery-clearance-20261006\\mermaid-roshan-reef\\tmp\\nursery-r11-isolated-profile\\session_v2",
+  "all_six_share_only_declared_fresh_session_v2_profile": true,
+  "raw_disk_files": [
+    {
+      "run": "v2_checkpoint0",
+      "sha256": "e1e74527dec9566379dfd937a97f41a13dc9165e4d781151d9bac376aaf4a530"
+    },
+    {
+      "run": "v2_resume0",
+      "sha256": "e02334308f23648afacfc350aabc2ba6a4da1c80b436ab54211e25bdc9e53dc4"
+    },
+    {
+      "run": "v2_resume1",
+      "sha256": "8924d2de3265d9c33f073256fa02844cce427854bad3d377f544ed348281a6f4"
+    },
+    {
+      "run": "v2_resume2",
+      "sha256": "44c6711a17add9bdb26a67e488c1a7abfc0100477cd255acad8ea25d81c16f83"
+    },
+    {
+      "run": "v2_resume3",
+      "sha256": "6f878e02ca84724f95064747d61495752ff7f69d547255f60ba224ff0d802584"
+    },
+    {
+      "run": "v2_resume4",
+      "sha256": "00c9ec02d2055ef576d5dd059829a190b3f47f146a89ab788904c768f4fbe7a8"
+    }
+  ],
+  "provenance": "Each running native driver copies FileAccess.get_file_as_bytes(main.SAVE_PATH) unchanged after actual Back/earned return; the following process uses automatic SaveState load. No save payload is synthesized by the driver.",
+  "limit": "Actual Back before process exit; not a mid-hold forced Android process kill or fresh-save story unlock."
+}
