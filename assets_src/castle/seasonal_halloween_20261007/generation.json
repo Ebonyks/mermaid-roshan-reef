@@ -1,0 +1,76 @@
+{
+  "id": "halloween-castle-concept-20261007-v1",
+  "status": "CONCEPT_CANDIDATE_ONLY",
+  "owner_request": "Let's make a concept drawing for the halloween castle, add seasonal decorations. We're going to have several holiday castle decorations, so making it a trope could be helpful",
+  "date_local": "2026-10-07",
+  "baseline": "92c9fe70319ef46bfaa8f61348a6f51512141ec3",
+  "workflow": "OpenAI built-in image_gen.imagegen, source-bound still-image edit; one call, no CLI fallback",
+  "provider_model_revision": "Not exposed by built-in tool",
+  "request_id": "Not exposed by built-in tool; native output filename exec-b5c2bd01-7034-4c94-8611-6462c9df676a.png is an artifact identifier, not a provider request ID",
+  "seed": "Not exposed",
+  "started_at_utc": "2026-10-08T03:50:20Z",
+  "completed_at_utc": "2026-10-08T03:51:13Z",
+  "attempts": 1,
+  "reported_cost": null,
+  "reported_token_usage": null,
+  "budget_accounting": "One built-in generation call; no separately purchased API job or backend switch",
+  "prompt_path": "assets_src/castle/seasonal_halloween_20261007/prompt.txt",
+  "prompt_lf_sha256": "02dc26e5717afcf2845d3f60015c73c58e47250d1fe9dc3886996c9de2c49879",
+  "prompt_hash_policy": "SHA-256 of UTF-8 prompt text with LF line endings and one terminal LF; recorded by verification receipt",
+  "input": {
+    "path": "assets/sprites/sky_lagoon/sky_lagoon_castle_four_tower_v4.png",
+    "role": "edit_target_and_approved_architecture_style_reference",
+    "dimensions": [1022, 1024],
+    "sha256": "08e3b8503520f3657e7f788bc74c967b76692f5dd292e0971495677f0e695a42",
+    "license_provenance": "Existing project-owned/OpenAI-derived approved castle family; inherits exact source ASSET_LICENSES.md entry",
+    "acceptance_scope": "Existing castle source identity and architecture; not proof of final runtime visual acceptance",
+    "modification_status": "Original untouched"
+  },
+  "reuse_inventory": {
+    "reviewed": [
+      "assets/sprites/sky_lagoon/sky_lagoon_castle_four_tower_v4.png",
+      "assets/flats/castle/rooms/room_main_hall.png",
+      "Existing winter ornaments and ordinary story lanterns",
+      "assets_src/concepts/opera_jobs_flat_2026-07-21/cards/opera_job_farmer_gameplay_pumpkin.png (historical concept, not a Halloween lantern family)"
+    ],
+    "named_gap": "No existing Halloween castle dressing or coordinated smiling pumpkin lantern, cloth-ghost pennant and paper-bat garland family found in relevant filename and design/source inventory",
+    "generation_scope": "One seasonal overlay concept based on the existing castle; no new castle design, character or landscape commission"
+  },
+  "output": {
+    "path": "assets_src/castle/seasonal_halloween_20261007/halloween_castle_concept_v1.png",
+    "sha256": "7f0cc7655cdd3e45032ff5a467ce2e7925ff7a173813096b21d4bc0215a7f416",
+    "dimensions": [1254, 1254],
+    "mode": "RGB",
+    "transparent_background": false,
+    "native_output_preserved": true,
+    "postprocessing": "Byte-identical copy from built-in generated_images storage; no resize, crop, recolor, recompression or pixel edits",
+    "runtime_eligible": false,
+    "runtime_exclusion": "Source review under inherited assets_src/.gdignore. Native 1254-square NPOT opaque composite is not a runtime texture or a separated decoration atlas.",
+    "license": "OpenAI-generated output with existing project-reference source terms retained",
+    "license_url": "https://openai.com/policies/terms-of-use/"
+  },
+  "seasonal_trope_proposal": {
+    "name": "The castle dresses for the occasion",
+    "status": "PROPOSED_FROM_OWNER_REQUEST; not a newly binding design rule",
+    "constant": "Familiar lavender four-tower shell castle, turquoise windows, gold trim, central stained-glass Roshan, door and bridge",
+    "attachment_slots": [
+      {"id": "facade_garland", "location": "Between existing facade supports, below stained glass", "halloween": "Orange/plum swags with rounded paper bats"},
+      {"id": "outer_tower_pennants", "location": "Existing outer-tower ledges", "halloween": "Two friendly white cloth ghost decorations"},
+      {"id": "door_wreath", "location": "Around door knocker, preserving the door opening", "halloween": "Autumn leaves, seashells and a plum bow"},
+      {"id": "bridge_rail_dressing", "location": "Existing gold posts outside the walk surface", "halloween": "Orange/plum fabric swags and bows"},
+      {"id": "base_clusters", "location": "Tower bases beside the entrance and beside the bridge", "halloween": "Smiling pumpkin lanterns, leaves and reused shell motifs"}
+    ],
+    "future_use": "Swap motifs, accent colors and small prop clusters on the same slots for other owner-requested holidays; preserve architecture and clear routes",
+    "future_runtime_boundary": "Any gameplay use needs independently owned decoration cards, approved original castle pixels, sensible layer order, source provenance and Mobile/device checks; decorative objects do not acquire tap affordances without real behavior"
+  },
+  "visual_review": {
+    "reviewer": "Codex visual inspection of generated image against the inspected source",
+    "result": "CONCEPT_REVIEW_ONLY",
+    "observations": "Recognizable four-tower shell castle, cool lavender/aqua hierarchy, readable friendly holiday ornaments, central door and bridge route remain visible. No required text, threatening figures or new story characters.",
+    "limits": "The generator restated the scene. Masonry, trim and stained-glass drawing details are not byte-identical to the approved source; bunting slightly overlaps its lower border. This output cannot replace the approved castle or serve as pixel-locked production art. Future production should retain original castle pixels and isolate approved seasonal additions separately.",
+    "owner_acceptance": "PENDING",
+    "device_child_runtime_acceptance": "Not performed; no runtime change"
+  },
+  "canonical_effect": "No finding lifecycle, authority, story canon, save, release or game-wide audit state changed",
+  "audit_impact": "design/audit_impacts/halloween-castle-concept-20261007.json"
+}
