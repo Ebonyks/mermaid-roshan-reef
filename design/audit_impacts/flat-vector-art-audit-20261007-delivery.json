@@ -1,6 +1,6 @@
 {
   "id": "flat-vector-art-audit-20261007-delivery",
-  "scope": "Receipt-only publication follow-up for the immutable initial flat-vector source/context audit; verifies actual anonymous owner/dot GitHub delivery without any runtime or packet-payload change.",
+  "scope": "Receipt-only publication follow-up for the immutable initial flat-vector source/context audit; verifies actual anonymous owner/dot GitHub delivery without any runtime or packet-payload change. Owner sequencing clarification in the receipt requires completion/publication of the full current visual weakness inventory before new replacement pixels; it adds no approval checkpoint.",
   "baseline": "3a7b6cc1ac7d32160f5db6556c7960980f374132",
   "rules": [
     "DL-AUTH-05",
@@ -18,7 +18,7 @@
     {
       "command": "publish_verification.py --verify 3a7b6cc1ac7d32160f5db6556c7960980f374132 --write-receipt",
       "result": "PASS",
-      "evidence": "docs/handoffs/codex_flat_vector_art_2026-10-07/REMOTE_VERIFICATION.json; exact published SHA, 63 payload/60 supporting source/12 required instruction and license files HTTP 200 with matching bytes/SHA-256; owner Ebonyks pull access confirmed."
+      "evidence": "docs/handoffs/codex_flat_vector_art_2026-10-07/REMOTE_VERIFICATION.json; exact published SHA, 63 payload/60 supporting source/12 required instruction and license files HTTP 200 with matching bytes/SHA-256; owner Ebonyks pull access confirmed. Receipt task-sequencing addendum is independently byte-verified after its material publication revision."
     },
     {
       "command": "Approved Godot 4.7.2 scripts/ci.sh",
