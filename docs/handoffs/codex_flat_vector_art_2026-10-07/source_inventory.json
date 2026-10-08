@@ -1,0 +1,3446 @@
+{
+  "schema": "reef.flat_vector_audit/1",
+  "baseline": "92c9fe70319ef46bfaa8f61348a6f51512141ec3",
+  "scripts": [
+    {
+      "path": "scripts/arena/castle_fixture_rigs.gd",
+      "source_sha256_lf": "118af0b72b82d0bde5ab6ea701303fd8469a40b24f4fc2db607a109a5cddd6af",
+      "lines": 1232,
+      "class_name": "CastleFixtureRigs",
+      "reachability": "POTENTIALLY_MAIN_REFERENCED",
+      "primitive_sites": 0,
+      "source_scope_ids": [],
+      "script_dependencies": [
+        "scripts/main.gd"
+      ],
+      "visual_review": "NOT_CURRENTLY_CAPTURED"
+    },
+    {
+      "path": "scripts/arena/castle_rooms_25d.gd",
+      "source_sha256_lf": "50c723043680c987cc959d9bfbbcad94cfb62162f24d305d3f058c0d2de05176",
+      "lines": 5806,
+      "class_name": "CastleRooms25D",
+      "reachability": "POTENTIALLY_MAIN_REFERENCED",
+      "primitive_sites": 4,
+      "source_scope_ids": [
+        "FVF-34483F3B30AC",
+        "FVF-471B59681C27",
+        "FVF-28BCE5A5B95D",
+        "FVF-5C66A00E0BD8"
+      ],
+      "script_dependencies": [
+        "scripts/arena/castle_fixture_rigs.gd",
+        "scripts/castle_door_cue.gd",
+        "scripts/castle_door_language.gd",
+        "scripts/chapter_two_director.gd",
+        "scripts/combat_tutorial.gd",
+        "scripts/fashion_outfit_renderer.gd",
+        "scripts/fashion_skin_engine.gd",
+        "scripts/games/day_one_dust_bunny_swimmer.gd",
+        "scripts/games/day_one_pool_cleanup.gd",
+        "scripts/hit_engine.gd",
+        "scripts/interaction_affordance.gd",
+        "scripts/main.gd",
+        "scripts/opera_act.gd",
+        "scripts/opera_house.gd",
+        "scripts/partner_assist.gd",
+        "scripts/roshan_sprite_loop.gd",
+        "scripts/sprite_transition_2d.gd",
+        "scripts/stage_navigation_2d.gd",
+        "scripts/storybook_ui.gd",
+        "scripts/wardrobe_ui.gd"
+      ],
+      "visual_review": "NOT_CURRENTLY_CAPTURED"
+    },
+    {
+      "path": "scripts/arena/courtyard_train.gd",
+      "source_sha256_lf": "329efa196bb5eb3c74cb4b44d0e4dfac6069071e6066daab206bca35a9abe364",
+      "lines": 726,
+      "class_name": "CourtyardTrain",
+      "reachability": "POTENTIALLY_MAIN_REFERENCED",
+      "primitive_sites": 6,
+      "source_scope_ids": [
+        "FVF-E4F5C5103D46",
+        "FVF-E4718DA975B5",
+        "FVF-7C49BFA30E20",
+        "FVF-1F286B08B087",
+        "FVF-B1367F760191",
+        "FVF-FC223BA6A807"
+      ],
+      "script_dependencies": [
+        "scripts/main.gd"
+      ],
+      "visual_review": "NOT_CURRENTLY_CAPTURED"
+    },
+    {
+      "path": "scripts/arena/day_one_castle_dressing.gd",
+      "source_sha256_lf": "b2898e247748381c86c022c158da6220fb300a45545a1e47de59f9d432c8a8a5",
+      "lines": 307,
+      "class_name": "DayOneCastleDressing",
+      "reachability": "POTENTIALLY_MAIN_REFERENCED",
+      "primitive_sites": 0,
+      "source_scope_ids": [],
+      "script_dependencies": [
+        "scripts/arena/castle_rooms_25d.gd",
+        "scripts/arena/day_one_castle_grime.gd"
+      ],
+      "visual_review": "NOT_CURRENTLY_CAPTURED"
+    },
+    {
+      "path": "scripts/arena/day_one_castle_grime.gd",
+      "source_sha256_lf": "b354780fb5e3648eba9962b2996a49bbcb563314874d840b3e8603a39c2ee6f8",
+      "lines": 60,
+      "class_name": "DayOneCastleGrime",
+      "reachability": "POTENTIALLY_MAIN_REFERENCED",
+      "primitive_sites": 9,
+      "source_scope_ids": [
+        "FVF-75BC5E4A044A",
+        "FVF-ED707002BD3B"
+      ],
+      "script_dependencies": [
+        "scripts/arena/day_one_castle_dressing.gd"
+      ],
+      "visual_review": "NOT_CURRENTLY_CAPTURED"
+    },
+    {
+      "path": "scripts/arena/fairy_conservatory_door_2d.gd",
+      "source_sha256_lf": "ae6e1ad07979c97bd7c474c546a64a12ccd4c944719ec886fdd76f7fae165089",
+      "lines": 300,
+      "class_name": "FairyConservatoryDoor2D",
+      "reachability": "POTENTIALLY_MAIN_REFERENCED",
+      "primitive_sites": 0,
+      "source_scope_ids": [],
+      "script_dependencies": [
+        "scripts/arena/castle_rooms_25d.gd",
+        "scripts/castle_door_cue.gd",
+        "scripts/castle_door_language.gd",
+        "scripts/main.gd",
+        "scripts/storybook_ui.gd"
+      ],
+      "visual_review": "NOT_CURRENTLY_CAPTURED"
+    },
+    {
+      "path": "scripts/arena/fairy_conservatory_handoff_2d.gd",
+      "source_sha256_lf": "5bf165f546860121beb6c19369dce9833d8b665274e0edff75bc2d00b7ccbd34",
+      "lines": 431,
+      "class_name": "FairyConservatoryHandoff2D",
+      "reachability": "POTENTIALLY_MAIN_REFERENCED",
+      "primitive_sites": 1,
+      "source_scope_ids": [
+        "FVF-BA78F4367AF9"
+      ],
+      "script_dependencies": [
+        "scripts/fashion_outfit_renderer.gd",
+        "scripts/main.gd"
+      ],
+      "visual_review": "NOT_CURRENTLY_CAPTURED"
+    },
+    {
+      "path": "scripts/arena/northern_kingdom.gd",
+      "source_sha256_lf": "513f2f4d726f3b7b05187d1ee78f12cbb745849f09da212f2ec0f10c0dfad97a",
+      "lines": 1799,
+      "class_name": "NorthernKingdom",
+      "reachability": "POTENTIALLY_MAIN_REFERENCED",
+      "primitive_sites": 26,
+      "source_scope_ids": [
+        "FVF-9EFC9EC801D2",
+        "FVF-A794AFA72772",
+        "FVF-735E9D55BAB0",
+        "FVF-BAD684EBC6DD",
+        "FVF-D8FB74A3374D",
+        "FVF-0A730372E8CC",
+        "FVF-95057A5A1393",
+        "FVF-EFFCE4DB7928"
+      ],
+      "script_dependencies": [
+        "scripts/main.gd"
+      ],
+      "visual_review": "NOT_CURRENTLY_CAPTURED"
+    },
+    {
+      "path": "scripts/arena/sky_lagoon.gd",
+      "source_sha256_lf": "c3b81b4d6b2cb500c8d4e1f6ff2e4064a8b9c7ca4c8b0010c20236ccbb2e0395",
+      "lines": 2966,
+      "class_name": "SkyLagoon",
+      "reachability": "POTENTIALLY_MAIN_REFERENCED",
+      "primitive_sites": 25,
+      "source_scope_ids": [
+        "FVF-A83656E6EEE2",
+        "FVF-75C8EA1349D8",
+        "FVF-61736A69EB21",
+        "FVF-FB65CC5BA590",
+        "FVF-56F65380EC43",
+        "FVF-753CAA167810",
+        "FVF-A22F4C1E34B1",
+        "FVF-17D034AF1669",
+        "FVF-01113C762405",
+        "FVF-5A2DE3BE2B6E",
+        "FVF-D4D6F37BBFFE",
+        "FVF-59FC1E3E549E",
+        "FVF-B0E383F816A3"
+      ],
+      "script_dependencies": [
+        "scripts/landmark_art.gd",
+        "scripts/main.gd",
+        "scripts/reef_districts.gd"
+      ],
+      "visual_review": "NOT_CURRENTLY_CAPTURED"
+    },
+    {
+      "path": "scripts/arena/sky_lagoon_promenade.gd",
+      "source_sha256_lf": "a6c72599809ddace2e94e02ba10db518483008ace62655e9059a76d3eacd2dfa",
+      "lines": 1677,
+      "class_name": "SkyLagoonPromenade",
+      "reachability": "POTENTIALLY_MAIN_REFERENCED",
+      "primitive_sites": 3,
+      "source_scope_ids": [
+        "FVF-3D0E22645108",
+        "FVF-CE72B2B6035D"
+      ],
+      "script_dependencies": [
+        "scripts/interaction_affordance.gd",
+        "scripts/main.gd",
+        "scripts/roshan_sprite_frames.gd"
+      ],
+      "visual_review": "NOT_CURRENTLY_CAPTURED"
+    },
+    {
+      "path": "scripts/attack_customizer.gd",
+      "source_sha256_lf": "b47bbfc164cc8508354bece86096245a2152fe627f5dbfed8440ec54db5198e0",
+      "lines": 317,
+      "class_name": "AttackCustomizer",
+      "reachability": "POTENTIALLY_MAIN_REFERENCED",
+      "primitive_sites": 4,
+      "source_scope_ids": [
+        "FVF-338855F9AA24",
+        "FVF-21C2EF4E66F7"
+      ],
+      "script_dependencies": [
+        "scripts/main.gd",
+        "scripts/storybook_ui.gd"
+      ],
+      "visual_review": "NOT_CURRENTLY_CAPTURED"
+    },
+    {
+      "path": "scripts/audio_director.gd",
+      "source_sha256_lf": "982ae2bcbeabdb7a76c1c193aa391319bf255a3cd046108f6361dacc655eb666",
+      "lines": 720,
+      "class_name": "AudioDirector",
+      "reachability": "POTENTIALLY_MAIN_REFERENCED",
+      "primitive_sites": 0,
+      "source_scope_ids": [],
+      "script_dependencies": [
+        "scripts/day_one_contextual_voice_catalog.gd",
+        "scripts/main.gd"
+      ],
+      "visual_review": "NOT_CURRENTLY_CAPTURED"
+    },
+    {
+      "path": "scripts/boot_splash_overlay.gd",
+      "source_sha256_lf": "d90b8692f1632eedcd957a6ca46539aa3ad85b87d3abe93c20cd9cfc0dc64b0d",
+      "lines": 38,
+      "class_name": "BootSplashOverlay",
+      "reachability": "POTENTIALLY_MAIN_REFERENCED",
+      "primitive_sites": 1,
+      "source_scope_ids": [
+        "FVF-9BB355A42019"
+      ],
+      "script_dependencies": [
+        "scripts/main.gd"
+      ],
+      "visual_review": "NOT_CURRENTLY_CAPTURED"
+    },
+    {
+      "path": "scripts/boss_encounter_2d.gd",
+      "source_sha256_lf": "371f260c9547f0665a41f290b2b1502c5ab22172b3d448f108d1b4e427bf9d55",
+      "lines": 117,
+      "class_name": "BossEncounter2D",
+      "reachability": "POTENTIALLY_MAIN_REFERENCED",
+      "primitive_sites": 0,
+      "source_scope_ids": [],
+      "script_dependencies": [
+        "scripts/encounter_patterns_2d.gd",
+        "scripts/encounter_profile_2d.gd"
+      ],
+      "visual_review": "NOT_CURRENTLY_CAPTURED"
+    },
+    {
+      "path": "scripts/boss_splash_2d.gd",
+      "source_sha256_lf": "5ce5cf49ae82c414bbd1f3123ec770b91622b46a71d8f9ee67a41546c166fab2",
+      "lines": 281,
+      "class_name": "BossSplash2D",
+      "reachability": "POTENTIALLY_MAIN_REFERENCED",
+      "primitive_sites": 4,
+      "source_scope_ids": [
+        "FVF-1A231B561B3C",
+        "FVF-10707A1BA6D9"
+      ],
+      "script_dependencies": [
+        "scripts/storybook_ui.gd"
+      ],
+      "visual_review": "NOT_CURRENTLY_CAPTURED"
+    },
+    {
+      "path": "scripts/camera_kit.gd",
+      "source_sha256_lf": "ec980456ed35789e273ea7b28964e63959277ecc61eb8438251bfe012bb0927b",
+      "lines": 211,
+      "class_name": "CameraKit",
+      "reachability": "POTENTIALLY_MAIN_REFERENCED",
+      "primitive_sites": 0,
+      "source_scope_ids": [],
+      "script_dependencies": [],
+      "visual_review": "NOT_CURRENTLY_CAPTURED"
+    },
+    {
+      "path": "scripts/castle_career_routes.gd",
+      "source_sha256_lf": "d2e9f24b10bf6b25bc7fd71c76630a6e88b8d8f3134db9b01139203fba925bb5",
+      "lines": 425,
+      "class_name": "CastleCareerRoutes",
+      "reachability": "POTENTIALLY_MAIN_REFERENCED",
+      "primitive_sites": 0,
+      "source_scope_ids": [],
+      "script_dependencies": [
+        "scripts/chapter_two_director.gd",
+        "scripts/chapter_two_party_plan.gd",
+        "scripts/main.gd",
+        "scripts/opera_house.gd",
+        "scripts/opera_house_venue_2d.gd",
+        "scripts/opera_roshan_actor.gd",
+        "scripts/storybook_ui.gd"
+      ],
+      "visual_review": "NOT_CURRENTLY_CAPTURED"
+    },
+    {
+      "path": "scripts/castle_door_cue.gd",
+      "source_sha256_lf": "0932feb34209b3dbd3e2738b32a7dddf0ee99ab607251356bb4fbac9cc7f895d",
+      "lines": 174,
+      "class_name": "CastleDoorCue",
+      "reachability": "POTENTIALLY_MAIN_REFERENCED",
+      "primitive_sites": 9,
+      "source_scope_ids": [
+        "FVF-32F730C36701",
+        "FVF-E0D2EDCBE231",
+        "FVF-599EBE72196A"
+      ],
+      "script_dependencies": [
+        "scripts/castle_door_language.gd"
+      ],
+      "visual_review": "NOT_CURRENTLY_CAPTURED"
+    },
+    {
+      "path": "scripts/castle_door_language.gd",
+      "source_sha256_lf": "54d6cb97a34ffd0cd8ca8b916312d39c157856860db2fa2d1592f9b042ea3b5f",
+      "lines": 99,
+      "class_name": "CastleDoorLanguage",
+      "reachability": "POTENTIALLY_MAIN_REFERENCED",
+      "primitive_sites": 0,
+      "source_scope_ids": [],
+      "script_dependencies": [
+        "scripts/day_one_director.gd"
+      ],
+      "visual_review": "NOT_CURRENTLY_CAPTURED"
+    },
+    {
+      "path": "scripts/castle_logo_studio.gd",
+      "source_sha256_lf": "5afe612eb11261818b760b0f04b6b6a995000a23b27e31aa228c0a04e63dc52a",
+      "lines": 500,
+      "class_name": "CastleLogoStudio",
+      "reachability": "POTENTIALLY_MAIN_REFERENCED",
+      "primitive_sites": 6,
+      "source_scope_ids": [
+        "FVF-C0BEBF640F83",
+        "FVF-407F9E157C11",
+        "FVF-0F7C86F20C97"
+      ],
+      "script_dependencies": [
+        "scripts/main.gd",
+        "scripts/storybook_ui.gd"
+      ],
+      "visual_review": "NOT_CURRENTLY_CAPTURED"
+    },
+    {
+      "path": "scripts/chapter_two_career_scene_adapter.gd",
+      "source_sha256_lf": "7397beeabc10e20ea3cdf38f2918d672711ac06dedb539d536a4eb1c1c656e2f",
+      "lines": 156,
+      "class_name": "ChapterTwoCareerSceneAdapter",
+      "reachability": "POTENTIALLY_MAIN_REFERENCED",
+      "primitive_sites": 0,
+      "source_scope_ids": [],
+      "script_dependencies": [],
+      "visual_review": "NOT_CURRENTLY_CAPTURED"
+    },
+    {
+      "path": "scripts/chapter_two_director.gd",
+      "source_sha256_lf": "b87490ac66083cee44ba3f469c9c8cbfa158930167614169e0f63759f8b3f70b",
+      "lines": 1098,
+      "class_name": "ChapterTwoDirector",
+      "reachability": "POTENTIALLY_MAIN_REFERENCED",
+      "primitive_sites": 0,
+      "source_scope_ids": [],
+      "script_dependencies": [
+        "scripts/chapter_two_ember_encounter.gd",
+        "scripts/chapter_two_party_plan.gd",
+        "scripts/fashion_designer.gd",
+        "scripts/main.gd",
+        "scripts/opera_house.gd"
+      ],
+      "visual_review": "NOT_CURRENTLY_CAPTURED"
+    },
+    {
+      "path": "scripts/chapter_two_ember_encounter.gd",
+      "source_sha256_lf": "964356fb569fc6fe8b8de90b4003284bc99cc58a4074b4cc2245a8be168b7a42",
+      "lines": 104,
+      "class_name": "ChapterTwoEmberEncounter",
+      "reachability": "POTENTIALLY_MAIN_REFERENCED",
+      "primitive_sites": 0,
+      "source_scope_ids": [],
+      "script_dependencies": [
+        "scripts/boss_encounter_2d.gd",
+        "scripts/encounter_attack_2d.gd",
+        "scripts/encounter_phase_2d.gd",
+        "scripts/encounter_profile_2d.gd",
+        "scripts/main.gd"
+      ],
+      "visual_review": "NOT_CURRENTLY_CAPTURED"
+    },
+    {
+      "path": "scripts/chapter_two_giant_cake_2d.gd",
+      "source_sha256_lf": "85dd504a6a2e76d17b398b9a3d0e65ba15a5a1d1e1cd73ebf6ee9da93cda2813",
+      "lines": 923,
+      "class_name": "ChapterTwoGiantCake2D",
+      "reachability": "POTENTIALLY_MAIN_REFERENCED",
+      "primitive_sites": 18,
+      "source_scope_ids": [
+        "FVF-4EF2E5CC1E75",
+        "FVF-8EAEA12A4155",
+        "FVF-3E20C991CB8B",
+        "FVF-08946A304E4A",
+        "FVF-652B5CA94F04",
+        "FVF-EC1994C368CD",
+        "FVF-5BFC6173B52D"
+      ],
+      "script_dependencies": [
+        "scripts/chapter_two_party_table_2d.gd"
+      ],
+      "visual_review": "NOT_CURRENTLY_CAPTURED"
+    },
+    {
+      "path": "scripts/chapter_two_lawn_finale_2d.gd",
+      "source_sha256_lf": "e4c07fb5e9404dd247d3aa10186b69f3df9f8f0fc5cd5679b8bf2f625f400797",
+      "lines": 632,
+      "class_name": "ChapterTwoLawnFinale2D",
+      "reachability": "POTENTIALLY_MAIN_REFERENCED",
+      "primitive_sites": 15,
+      "source_scope_ids": [
+        "FVF-75ACAEBD6400",
+        "FVF-E4104B31E6E2",
+        "FVF-0B5883F9D21B"
+      ],
+      "script_dependencies": [
+        "scripts/boss_encounter_2d.gd",
+        "scripts/chapter_two_ember_encounter.gd",
+        "scripts/chapter_two_giant_cake_2d.gd",
+        "scripts/chapter_two_party_plan.gd",
+        "scripts/chapter_two_party_table_2d.gd",
+        "scripts/chapter_two_rainbow_candle_2d.gd",
+        "scripts/fashion_outfit_renderer.gd",
+        "scripts/main.gd",
+        "scripts/opera_ballet_surface.gd",
+        "scripts/opera_career_world_2d.gd",
+        "scripts/storybook_ui.gd"
+      ],
+      "visual_review": "NOT_CURRENTLY_CAPTURED"
+    },
+    {
+      "path": "scripts/chapter_two_party_plan.gd",
+      "source_sha256_lf": "50ffb004ac24a4827caed4e4899e999f7d37c7713c88eb3d1c778a766c54ec61",
+      "lines": 42,
+      "class_name": "ChapterTwoPartyPlan",
+      "reachability": "POTENTIALLY_MAIN_REFERENCED",
+      "primitive_sites": 0,
+      "source_scope_ids": [],
+      "script_dependencies": [],
+      "visual_review": "NOT_CURRENTLY_CAPTURED"
+    },
+    {
+      "path": "scripts/chapter_two_party_table_2d.gd",
+      "source_sha256_lf": "761014dc77166dea11e4fa0e963cdb72c5aa2dea3e53b05f3540306950e89f87",
+      "lines": 578,
+      "class_name": "ChapterTwoPartyTable2D",
+      "reachability": "POTENTIALLY_MAIN_REFERENCED",
+      "primitive_sites": 2,
+      "source_scope_ids": [
+        "FVF-C12F7F35E107",
+        "FVF-3041DEC31C24"
+      ],
+      "script_dependencies": [
+        "scripts/chapter_two_director.gd",
+        "scripts/chapter_two_giant_cake_2d.gd",
+        "scripts/chapter_two_party_plan.gd",
+        "scripts/chapter_two_rainbow_candle_2d.gd",
+        "scripts/chapter_two_room_plot.gd",
+        "scripts/main.gd",
+        "scripts/storybook_ui.gd"
+      ],
+      "visual_review": "NOT_CURRENTLY_CAPTURED"
+    },
+    {
+      "path": "scripts/chapter_two_rainbow_candle_2d.gd",
+      "source_sha256_lf": "12e1a75500e2cb4a535c075e3a32c54987a570f7d4bb5ffbdb64c3e35da3e62f",
+      "lines": 169,
+      "class_name": "ChapterTwoRainbowCandle2D",
+      "reachability": "POTENTIALLY_MAIN_REFERENCED",
+      "primitive_sites": 17,
+      "source_scope_ids": [
+        "FVF-8CB75EC1713E",
+        "FVF-DC4CBF8B245E",
+        "FVF-A6AE1D449137",
+        "FVF-EF537049C7A5"
+      ],
+      "script_dependencies": [],
+      "visual_review": "NOT_CURRENTLY_CAPTURED"
+    },
+    {
+      "path": "scripts/chapter_two_room_plot.gd",
+      "source_sha256_lf": "9eef1ece57be88ac9d01d85a5181ad1c258e6ff00f6b9a6cb3d7a86393d6e10d",
+      "lines": 133,
+      "class_name": "ChapterTwoRoomPlot",
+      "reachability": "POTENTIALLY_MAIN_REFERENCED",
+      "primitive_sites": 0,
+      "source_scope_ids": [],
+      "script_dependencies": [
+        "scripts/arena/castle_rooms_25d.gd",
+        "scripts/chapter_two_director.gd",
+        "scripts/chapter_two_party_table_2d.gd",
+        "scripts/chapter_two_rainbow_candle_2d.gd",
+        "scripts/main.gd",
+        "scripts/storybook_ui.gd"
+      ],
+      "visual_review": "NOT_CURRENTLY_CAPTURED"
+    },
+    {
+      "path": "scripts/chapter_two_voice_catalog.gd",
+      "source_sha256_lf": "878cdebb43c777741d0462369f11da32369bb2efa08b5fae2adbfa64fbacfe96",
+      "lines": 32,
+      "class_name": "ChapterTwoVoiceCatalog",
+      "reachability": "POTENTIALLY_MAIN_REFERENCED",
+      "primitive_sites": 0,
+      "source_scope_ids": [],
+      "script_dependencies": [],
+      "visual_review": "NOT_CURRENTLY_CAPTURED"
+    },
+    {
+      "path": "scripts/collection_system.gd",
+      "source_sha256_lf": "876bb4901406034dfa6a3bf4d319383261e04a45fbedfe120d97c8eb2d24eb3a",
+      "lines": 390,
+      "class_name": "CollectionSystem",
+      "reachability": "POTENTIALLY_MAIN_REFERENCED",
+      "primitive_sites": 1,
+      "source_scope_ids": [
+        "FVF-5C6573F04EF1"
+      ],
+      "script_dependencies": [
+        "scripts/main.gd",
+        "scripts/storybook_ui.gd"
+      ],
+      "visual_review": "NOT_CURRENTLY_CAPTURED"
+    },
+    {
+      "path": "scripts/combat_arena.gd",
+      "source_sha256_lf": "fa2b2f537ee83689b414b64d95ba19e18663f7dbfa10a88301932013c20f5de8",
+      "lines": 1167,
+      "class_name": "CombatArena",
+      "reachability": "POTENTIALLY_MAIN_REFERENCED",
+      "primitive_sites": 1,
+      "source_scope_ids": [
+        "FVF-823C89495627"
+      ],
+      "script_dependencies": [
+        "scripts/boss_encounter_2d.gd",
+        "scripts/dungeon_art.gd",
+        "scripts/dust_bunny_ai.gd",
+        "scripts/dust_bunny_sprite.gd",
+        "scripts/encounter_profile_2d.gd",
+        "scripts/encounter_telegraph_2d.gd",
+        "scripts/hit_engine.gd",
+        "scripts/imp_ai.gd",
+        "scripts/main.gd",
+        "scripts/mic_input.gd",
+        "scripts/partner_assist.gd",
+        "scripts/roshan_sprite_loop.gd",
+        "scripts/storybook_ui.gd"
+      ],
+      "visual_review": "NOT_CURRENTLY_CAPTURED"
+    },
+    {
+      "path": "scripts/combat_tutorial.gd",
+      "source_sha256_lf": "2f1dc422c6bd9ee9e4d4cfc08d9863146d8a04afb60a943f8116cf6dc9861327",
+      "lines": 350,
+      "class_name": "CombatTutorial",
+      "reachability": "POTENTIALLY_MAIN_REFERENCED",
+      "primitive_sites": 0,
+      "source_scope_ids": [],
+      "script_dependencies": [
+        "scripts/dust_bunny_sprite.gd",
+        "scripts/encounter_gesture_guide_2d.gd",
+        "scripts/hit_engine.gd",
+        "scripts/main.gd",
+        "scripts/roshan_sprite_loop.gd",
+        "scripts/storybook_ui.gd"
+      ],
+      "visual_review": "NOT_CURRENTLY_CAPTURED"
+    },
+    {
+      "path": "scripts/comfy_games.gd",
+      "source_sha256_lf": "bcd36dcb3f25c0bbb3586c8d20fc7a5524792b56d7b0577644a0d2645931a0be",
+      "lines": 721,
+      "class_name": "ComfyGames",
+      "reachability": "POTENTIALLY_MAIN_REFERENCED",
+      "primitive_sites": 0,
+      "source_scope_ids": [],
+      "script_dependencies": [
+        "scripts/fashion_outfit_renderer.gd",
+        "scripts/main.gd"
+      ],
+      "visual_review": "NOT_CURRENTLY_CAPTURED"
+    },
+    {
+      "path": "scripts/companion.gd",
+      "source_sha256_lf": "0baeb7256a209b5266ebdf48cdccb7af6497b30fd0666021c597eced6e04d269",
+      "lines": 1529,
+      "class_name": "CompanionSystem",
+      "reachability": "POTENTIALLY_MAIN_REFERENCED",
+      "primitive_sites": 5,
+      "source_scope_ids": [
+        "FVF-E475DBF6CB3F",
+        "FVF-924080075B36",
+        "FVF-382416C04F57",
+        "FVF-BA1EBD21F938"
+      ],
+      "script_dependencies": [
+        "scripts/fashion_outfit_renderer.gd",
+        "scripts/main.gd",
+        "scripts/storybook_ui.gd"
+      ],
+      "visual_review": "NOT_CURRENTLY_CAPTURED"
+    },
+    {
+      "path": "scripts/craft_studio.gd",
+      "source_sha256_lf": "fd97af6efaeaf4b3949b94f921a71064b753c383d5adcf6e49395a487018de57",
+      "lines": 323,
+      "class_name": "CraftStudio",
+      "reachability": "POTENTIALLY_MAIN_REFERENCED",
+      "primitive_sites": 2,
+      "source_scope_ids": [
+        "FVF-3F1F73EDCAD1",
+        "FVF-3F9F842B7BA3"
+      ],
+      "script_dependencies": [
+        "scripts/main.gd",
+        "scripts/storybook_ui.gd"
+      ],
+      "visual_review": "NOT_CURRENTLY_CAPTURED"
+    },
+    {
+      "path": "scripts/day_one_art_studio.gd",
+      "source_sha256_lf": "8ebdbccbae4e1a4994a891ac9706bc5fb22dce4ac8e9a9c75dd02123fc9f621a",
+      "lines": 562,
+      "class_name": "DayOneArtStudio",
+      "reachability": "POTENTIALLY_MAIN_REFERENCED",
+      "primitive_sites": 1,
+      "source_scope_ids": [
+        "FVF-36CB2903AAA2"
+      ],
+      "script_dependencies": [
+        "scripts/day_one_contact_action_2d.gd",
+        "scripts/main.gd",
+        "scripts/storybook_ui.gd"
+      ],
+      "visual_review": "NOT_CURRENTLY_CAPTURED"
+    },
+    {
+      "path": "scripts/day_one_bathroom_movie_handoff.gd",
+      "source_sha256_lf": "975f3ee0800bcd6e7d6df2f485cd3dd4861fbee060eec9e85b911c9f2d30b3a9",
+      "lines": 217,
+      "class_name": "DayOneBathroomMovieHandoff",
+      "reachability": "POTENTIALLY_MAIN_REFERENCED",
+      "primitive_sites": 0,
+      "source_scope_ids": [],
+      "script_dependencies": [
+        "scripts/day_one_director.gd",
+        "scripts/main.gd"
+      ],
+      "visual_review": "NOT_CURRENTLY_CAPTURED"
+    },
+    {
+      "path": "scripts/day_one_contact_action_2d.gd",
+      "source_sha256_lf": "f85672d9a57a95689ddb302a3ca1da7f9b8de09027997e527790e230fb299dac",
+      "lines": 145,
+      "class_name": "DayOneContactAction2D",
+      "reachability": "POTENTIALLY_MAIN_REFERENCED",
+      "primitive_sites": 0,
+      "source_scope_ids": [],
+      "script_dependencies": [
+        "scripts/main.gd"
+      ],
+      "visual_review": "NOT_CURRENTLY_CAPTURED"
+    },
+    {
+      "path": "scripts/day_one_contextual_voice_catalog.gd",
+      "source_sha256_lf": "c14e8403fb36e82b2a3c6eb20eb0d5839424707046c64c3ded52893918ada75b",
+      "lines": 146,
+      "class_name": "DayOneContextualVoiceCatalog",
+      "reachability": "POTENTIALLY_MAIN_REFERENCED",
+      "primitive_sites": 0,
+      "source_scope_ids": [],
+      "script_dependencies": [],
+      "visual_review": "NOT_CURRENTLY_CAPTURED"
+    },
+    {
+      "path": "scripts/day_one_director.gd",
+      "source_sha256_lf": "33235c3ff99454fd9b6b8ec3724cc246457abdef5dcb1cdd9d0401b438c35cbf",
+      "lines": 836,
+      "class_name": "DayOneDirector",
+      "reachability": "POTENTIALLY_MAIN_REFERENCED",
+      "primitive_sites": 0,
+      "source_scope_ids": [],
+      "script_dependencies": [
+        "scripts/main.gd",
+        "scripts/save_state.gd"
+      ],
+      "visual_review": "NOT_CURRENTLY_CAPTURED"
+    },
+    {
+      "path": "scripts/day_one_flow.gd",
+      "source_sha256_lf": "913cfc362e1a2a9cc3a73ed0e1d3e491b73731d335c51af3f2f3753bb98a10e1",
+      "lines": 481,
+      "class_name": "DayOneFlow",
+      "reachability": "POTENTIALLY_MAIN_REFERENCED",
+      "primitive_sites": 0,
+      "source_scope_ids": [],
+      "script_dependencies": [
+        "scripts/arena/day_one_castle_dressing.gd",
+        "scripts/day_one_art_studio.gd",
+        "scripts/day_one_director.gd",
+        "scripts/day_one_story_clips.gd",
+        "scripts/main.gd"
+      ],
+      "visual_review": "NOT_CURRENTLY_CAPTURED"
+    },
+    {
+      "path": "scripts/day_one_story_clips.gd",
+      "source_sha256_lf": "ca199cc8efe6c203717c2faca4541ee4a262ae7587627975a166e7e3f955c82a",
+      "lines": 247,
+      "class_name": "DayOneStoryClips",
+      "reachability": "POTENTIALLY_MAIN_REFERENCED",
+      "primitive_sites": 1,
+      "source_scope_ids": [
+        "FVF-E7C5B12DDC26"
+      ],
+      "script_dependencies": [],
+      "visual_review": "NOT_CURRENTLY_CAPTURED"
+    },
+    {
+      "path": "scripts/day_two_transition_2d.gd",
+      "source_sha256_lf": "671548eb20ea115e9e21b0b019122c55cf39ab39760feec517a8504d9670026d",
+      "lines": 484,
+      "class_name": "DayTwoTransition2D",
+      "reachability": "POTENTIALLY_MAIN_REFERENCED",
+      "primitive_sites": 5,
+      "source_scope_ids": [
+        "FVF-082EB90749E1",
+        "FVF-E638A59C1A16",
+        "FVF-2D1D22BE46FF",
+        "FVF-418F14B3C8F2",
+        "FVF-FFBB8BEF1C10"
+      ],
+      "script_dependencies": [
+        "scripts/storybook_ui.gd"
+      ],
+      "visual_review": "NOT_CURRENTLY_CAPTURED"
+    },
+    {
+      "path": "scripts/dev_mode.gd",
+      "source_sha256_lf": "ff65b0693736fad7123a0ee54c48b4ca2e9c96a7c83c157c7da88ae29e016a5c",
+      "lines": 1185,
+      "class_name": null,
+      "reachability": "POTENTIALLY_MAIN_REFERENCED",
+      "primitive_sites": 1,
+      "source_scope_ids": [
+        "FVF-5D1140E021D7"
+      ],
+      "script_dependencies": [
+        "scripts/games/side_scroll.gd",
+        "scripts/storybook_ui.gd"
+      ],
+      "visual_review": "NOT_CURRENTLY_CAPTURED"
+    },
+    {
+      "path": "scripts/dungeon_art.gd",
+      "source_sha256_lf": "14d4d835962ebf2a389383376fbc42a55704a58642624bbb22b56afe1cd13941",
+      "lines": 220,
+      "class_name": "DungeonArt",
+      "reachability": "POTENTIALLY_MAIN_REFERENCED",
+      "primitive_sites": 0,
+      "source_scope_ids": [],
+      "script_dependencies": [
+        "scripts/story_art.gd"
+      ],
+      "visual_review": "NOT_CURRENTLY_CAPTURED"
+    },
+    {
+      "path": "scripts/dungeon_level.gd",
+      "source_sha256_lf": "2c5e69c04cab123a42810ecb99e943a4e3f5d362f754236177db3569d222f8ab",
+      "lines": 194,
+      "class_name": "DungeonLevel",
+      "reachability": "POTENTIALLY_MAIN_REFERENCED",
+      "primitive_sites": 0,
+      "source_scope_ids": [],
+      "script_dependencies": [
+        "scripts/combat_arena.gd",
+        "scripts/dungeon_puzzle_room.gd",
+        "scripts/main.gd",
+        "scripts/storybook_ui.gd"
+      ],
+      "visual_review": "NOT_CURRENTLY_CAPTURED"
+    },
+    {
+      "path": "scripts/dungeon_puzzle_room.gd",
+      "source_sha256_lf": "d29527c4a8e23f4aaab430fe67d2b3cf6e54d7a99126f3fc23606cf7e77e3e33",
+      "lines": 604,
+      "class_name": "DungeonPuzzleRoom",
+      "reachability": "POTENTIALLY_MAIN_REFERENCED",
+      "primitive_sites": 3,
+      "source_scope_ids": [
+        "FVF-789E16C44FEC",
+        "FVF-29E8C54145BC",
+        "FVF-55460C0F83D1"
+      ],
+      "script_dependencies": [
+        "scripts/dungeon_art.gd",
+        "scripts/main.gd",
+        "scripts/roshan_sprite_loop.gd",
+        "scripts/storybook_ui.gd"
+      ],
+      "visual_review": "NOT_CURRENTLY_CAPTURED"
+    },
+    {
+      "path": "scripts/dust_boss_lesson_2d.gd",
+      "source_sha256_lf": "7a445184e36eaaed6d29886ae2197c0f0deef10362706c233c889af8df42fbd4",
+      "lines": 120,
+      "class_name": "DustBossLesson2D",
+      "reachability": "POTENTIALLY_MAIN_REFERENCED",
+      "primitive_sites": 0,
+      "source_scope_ids": [],
+      "script_dependencies": [],
+      "visual_review": "NOT_CURRENTLY_CAPTURED"
+    },
+    {
+      "path": "scripts/dust_boss_telegraph_2d.gd",
+      "source_sha256_lf": "ce1713cadd0eae48ae42c86ee5367193fdf5cb490097dbf54a10ad94f72b2982",
+      "lines": 234,
+      "class_name": "DustBossTelegraph2D",
+      "reachability": "POTENTIALLY_MAIN_REFERENCED",
+      "primitive_sites": 9,
+      "source_scope_ids": [
+        "FVF-0FFC36F9B011",
+        "FVF-4174A62E8C82",
+        "FVF-E67A61B15405",
+        "FVF-9446E14B745A",
+        "FVF-329E84B175D9"
+      ],
+      "script_dependencies": [
+        "scripts/encounter_telegraph_2d.gd",
+        "scripts/encounter_warning_cue_2d.gd"
+      ],
+      "visual_review": "NOT_CURRENTLY_CAPTURED"
+    },
+    {
+      "path": "scripts/dust_bunny_ai.gd",
+      "source_sha256_lf": "129f1fb65b4854b6fbd481932883a5240c9dc289aa985cb2ba258d3e3025c55b",
+      "lines": 106,
+      "class_name": "DustBunnyAI",
+      "reachability": "POTENTIALLY_MAIN_REFERENCED",
+      "primitive_sites": 0,
+      "source_scope_ids": [],
+      "script_dependencies": [],
+      "visual_review": "NOT_CURRENTLY_CAPTURED"
+    },
+    {
+      "path": "scripts/dust_bunny_boss_sprite.gd",
+      "source_sha256_lf": "106bedcba3881d2b9c6d105947aa14e89a06b21caf8b59e078290cacaac93739",
+      "lines": 426,
+      "class_name": "DustBunnyBossSprite",
+      "reachability": "POTENTIALLY_MAIN_REFERENCED",
+      "primitive_sites": 0,
+      "source_scope_ids": [],
+      "script_dependencies": [],
+      "visual_review": "NOT_CURRENTLY_CAPTURED"
+    },
+    {
+      "path": "scripts/dust_bunny_sprite.gd",
+      "source_sha256_lf": "4880c9090d6e8f70b7ed6fb9e251a4bcb5d86e0ce8d325c4c30c57f4969fa837",
+      "lines": 149,
+      "class_name": "DustBunnySprite",
+      "reachability": "POTENTIALLY_MAIN_REFERENCED",
+      "primitive_sites": 0,
+      "source_scope_ids": [],
+      "script_dependencies": [],
+      "visual_review": "NOT_CURRENTLY_CAPTURED"
+    },
+    {
+      "path": "scripts/ember_fortress.gd",
+      "source_sha256_lf": "dbaec3f196f1b2bd3bab68db44555ea75c35cd756b21fd26e0897fb92f41a2a9",
+      "lines": 1223,
+      "class_name": "EmberFortressLevel",
+      "reachability": "POTENTIALLY_MAIN_REFERENCED",
+      "primitive_sites": 4,
+      "source_scope_ids": [
+        "FVF-8F0C9A014AF7",
+        "FVF-70E1CFB3F5C3",
+        "FVF-68523F7E785E"
+      ],
+      "script_dependencies": [
+        "scripts/combat_arena.gd",
+        "scripts/dungeon_art.gd",
+        "scripts/dungeon_level.gd",
+        "scripts/dungeon_puzzle_room.gd",
+        "scripts/galaxy.gd",
+        "scripts/main.gd",
+        "scripts/roshan_sprite_loop.gd",
+        "scripts/story_art.gd",
+        "scripts/storybook_ui.gd"
+      ],
+      "visual_review": "NOT_CURRENTLY_CAPTURED"
+    },
+    {
+      "path": "scripts/encounter_attack_2d.gd",
+      "source_sha256_lf": "f427ccd622a7bde0308998976bba7141a7b6b8bdc21e4fa562537af014617bed",
+      "lines": 23,
+      "class_name": "EncounterAttack2D",
+      "reachability": "POTENTIALLY_MAIN_REFERENCED",
+      "primitive_sites": 0,
+      "source_scope_ids": [],
+      "script_dependencies": [],
+      "visual_review": "NOT_CURRENTLY_CAPTURED"
+    },
+    {
+      "path": "scripts/encounter_contract_checks.gd",
+      "source_sha256_lf": "910c876867420ddf2b1e9249512910c0838894285e3d07af755ce82195aae639",
+      "lines": 209,
+      "class_name": "EncounterContractChecks",
+      "reachability": "STANDALONE_OR_UNPROVED",
+      "primitive_sites": 0,
+      "source_scope_ids": [],
+      "script_dependencies": [
+        "scripts/boss_encounter_2d.gd",
+        "scripts/encounter_attack_2d.gd",
+        "scripts/encounter_patterns_2d.gd",
+        "scripts/encounter_phase_2d.gd",
+        "scripts/encounter_profile_2d.gd"
+      ],
+      "visual_review": "NOT_CURRENTLY_CAPTURED"
+    },
+    {
+      "path": "scripts/encounter_gesture_guide_2d.gd",
+      "source_sha256_lf": "5a0481f8edda1874ccf7fb3bc95aa669e1aa0ce30e1b9b8ed9304901b2c2508f",
+      "lines": 80,
+      "class_name": "EncounterGestureGuide2D",
+      "reachability": "POTENTIALLY_MAIN_REFERENCED",
+      "primitive_sites": 4,
+      "source_scope_ids": [
+        "FVF-855E9DCC3834"
+      ],
+      "script_dependencies": [
+        "scripts/hit_engine.gd"
+      ],
+      "visual_review": "NOT_CURRENTLY_CAPTURED"
+    },
+    {
+      "path": "scripts/encounter_navigation_2d.gd",
+      "source_sha256_lf": "e8d0fc1913b781fe0494a11dc2e642b7088c27d3f12077e81c950171e0819e71",
+      "lines": 90,
+      "class_name": "EncounterNavigation2D",
+      "reachability": "POTENTIALLY_MAIN_REFERENCED",
+      "primitive_sites": 0,
+      "source_scope_ids": [],
+      "script_dependencies": [],
+      "visual_review": "NOT_CURRENTLY_CAPTURED"
+    },
+    {
+      "path": "scripts/encounter_patterns_2d.gd",
+      "source_sha256_lf": "d2feafa7dd1081fe5bf350f836421bbe2c4a545dfc6f22ec22c2aa7798ac5efe",
+      "lines": 189,
+      "class_name": "EncounterPatterns2D",
+      "reachability": "POTENTIALLY_MAIN_REFERENCED",
+      "primitive_sites": 0,
+      "source_scope_ids": [],
+      "script_dependencies": [
+        "scripts/encounter_attack_2d.gd",
+        "scripts/encounter_profile_2d.gd"
+      ],
+      "visual_review": "NOT_CURRENTLY_CAPTURED"
+    },
+    {
+      "path": "scripts/encounter_phase_2d.gd",
+      "source_sha256_lf": "b78240e2844a33dc55d021286ef612b344ee8022701de7324f0732d53c36ddda",
+      "lines": 11,
+      "class_name": "EncounterPhase2D",
+      "reachability": "POTENTIALLY_MAIN_REFERENCED",
+      "primitive_sites": 0,
+      "source_scope_ids": [],
+      "script_dependencies": [
+        "scripts/encounter_attack_2d.gd"
+      ],
+      "visual_review": "NOT_CURRENTLY_CAPTURED"
+    },
+    {
+      "path": "scripts/encounter_profile_2d.gd",
+      "source_sha256_lf": "80ced9bb58afde098f12c8e017f86f953b64c0ca764759abf32144e82a50c971",
+      "lines": 49,
+      "class_name": "EncounterProfile2D",
+      "reachability": "POTENTIALLY_MAIN_REFERENCED",
+      "primitive_sites": 0,
+      "source_scope_ids": [],
+      "script_dependencies": [
+        "scripts/encounter_attack_2d.gd",
+        "scripts/encounter_phase_2d.gd"
+      ],
+      "visual_review": "NOT_CURRENTLY_CAPTURED"
+    },
+    {
+      "path": "scripts/encounter_telegraph_2d.gd",
+      "source_sha256_lf": "f31b0ba990a8e1d70a8688460b810bb8c43ed91f42f7eaa0241f5cddc87abb29",
+      "lines": 178,
+      "class_name": "EncounterTelegraph2D",
+      "reachability": "POTENTIALLY_MAIN_REFERENCED",
+      "primitive_sites": 11,
+      "source_scope_ids": [
+        "FVF-593530FE4F4D",
+        "FVF-95499492E6D1",
+        "FVF-F96E9510E144"
+      ],
+      "script_dependencies": [],
+      "visual_review": "NOT_CURRENTLY_CAPTURED"
+    },
+    {
+      "path": "scripts/encounter_warning_cue_2d.gd",
+      "source_sha256_lf": "750a09cad16bd8517551aab6b091d37f2d76bcb0b517b4d51ce0c553e2b2fb59",
+      "lines": 29,
+      "class_name": "EncounterWarningCue2D",
+      "reachability": "POTENTIALLY_MAIN_REFERENCED",
+      "primitive_sites": 0,
+      "source_scope_ids": [],
+      "script_dependencies": [],
+      "visual_review": "NOT_CURRENTLY_CAPTURED"
+    },
+    {
+      "path": "scripts/fairy_restoration_prototype.gd",
+      "source_sha256_lf": "75a80350f45bb59b822d1084a05b8b0e7899d59df32a00c1e07d4ea8a9ec09fe",
+      "lines": 533,
+      "class_name": "FairyRestorationPrototype",
+      "reachability": "STANDALONE_OR_UNPROVED",
+      "primitive_sites": 11,
+      "source_scope_ids": [
+        "FVF-CC7811B61EAA",
+        "FVF-72A7567DE348"
+      ],
+      "script_dependencies": [],
+      "visual_review": "NOT_CURRENTLY_CAPTURED"
+    },
+    {
+      "path": "scripts/fashion_designer.gd",
+      "source_sha256_lf": "f3c6165baa08f6e99f21d4d02782d1b1f1658ad348aae0e79a4f79740442165d",
+      "lines": 196,
+      "class_name": "FashionDesigner",
+      "reachability": "POTENTIALLY_MAIN_REFERENCED",
+      "primitive_sites": 0,
+      "source_scope_ids": [],
+      "script_dependencies": [
+        "scripts/chapter_two_director.gd",
+        "scripts/fashion_parts.gd",
+        "scripts/fashion_skin_engine.gd",
+        "scripts/main.gd"
+      ],
+      "visual_review": "NOT_CURRENTLY_CAPTURED"
+    },
+    {
+      "path": "scripts/fashion_dressing_input.gd",
+      "source_sha256_lf": "45d02a87cf842a5deb427f15269f776cb4c430b0272ceea7add8d037df7ceadf",
+      "lines": 118,
+      "class_name": "FashionDressingInput",
+      "reachability": "POTENTIALLY_MAIN_REFERENCED",
+      "primitive_sites": 0,
+      "source_scope_ids": [],
+      "script_dependencies": [
+        "scripts/fashion_designer.gd",
+        "scripts/fashion_skin_engine.gd",
+        "scripts/fashion_wardrobe.gd",
+        "scripts/main.gd"
+      ],
+      "visual_review": "NOT_CURRENTLY_CAPTURED"
+    },
+    {
+      "path": "scripts/fashion_outfit_renderer.gd",
+      "source_sha256_lf": "cb37b3ed5df0ccba26b54f146021ddcad1f9f6693fb32b48b9bbda6a3ca96b93",
+      "lines": 29,
+      "class_name": "FashionOutfitRenderer",
+      "reachability": "POTENTIALLY_MAIN_REFERENCED",
+      "primitive_sites": 0,
+      "source_scope_ids": [],
+      "script_dependencies": [
+        "scripts/fashion_designer.gd",
+        "scripts/fashion_skin_engine.gd",
+        "scripts/main.gd"
+      ],
+      "visual_review": "NOT_CURRENTLY_CAPTURED"
+    },
+    {
+      "path": "scripts/fashion_parts.gd",
+      "source_sha256_lf": "d5b440608b63510446196233ef5fb559c006b0a90c5dcee74516e84dba5e1cfc",
+      "lines": 129,
+      "class_name": "FashionParts",
+      "reachability": "POTENTIALLY_MAIN_REFERENCED",
+      "primitive_sites": 0,
+      "source_scope_ids": [],
+      "script_dependencies": [
+        "scripts/chapter_two_director.gd",
+        "scripts/fashion_designer.gd",
+        "scripts/fashion_outfit_renderer.gd",
+        "scripts/fashion_skin_catalog.gd",
+        "scripts/fashion_skin_engine.gd",
+        "scripts/main.gd"
+      ],
+      "visual_review": "NOT_CURRENTLY_CAPTURED"
+    },
+    {
+      "path": "scripts/fashion_skin_catalog.gd",
+      "source_sha256_lf": "c71d558cff766d25cd7835657f7e0e10ebe268d8e74a7b4c2e083b8b28adf548",
+      "lines": 4,
+      "class_name": "FashionSkinCatalog",
+      "reachability": "POTENTIALLY_MAIN_REFERENCED",
+      "primitive_sites": 0,
+      "source_scope_ids": [],
+      "script_dependencies": [
+        "scripts/main.gd"
+      ],
+      "visual_review": "NOT_CURRENTLY_CAPTURED"
+    },
+    {
+      "path": "scripts/fashion_skin_engine.gd",
+      "source_sha256_lf": "e94b42966c75092835dc134b0dc4b1eb59f432655b266a0dc1aa82580d9f95ad",
+      "lines": 150,
+      "class_name": "FashionSkinEngine",
+      "reachability": "POTENTIALLY_MAIN_REFERENCED",
+      "primitive_sites": 0,
+      "source_scope_ids": [],
+      "script_dependencies": [
+        "scripts/fashion_designer.gd",
+        "scripts/fashion_parts.gd",
+        "scripts/fashion_skin_catalog.gd",
+        "scripts/main.gd"
+      ],
+      "visual_review": "NOT_CURRENTLY_CAPTURED"
+    },
+    {
+      "path": "scripts/fashion_wardrobe.gd",
+      "source_sha256_lf": "fbdedcca120066389563d5b678da30de83012737b1a14958cbe0306118c0cd59",
+      "lines": 296,
+      "class_name": "FashionWardrobe",
+      "reachability": "POTENTIALLY_MAIN_REFERENCED",
+      "primitive_sites": 0,
+      "source_scope_ids": [],
+      "script_dependencies": [
+        "scripts/chapter_two_giant_cake_2d.gd",
+        "scripts/fashion_designer.gd",
+        "scripts/fashion_dressing_input.gd",
+        "scripts/fashion_outfit_renderer.gd",
+        "scripts/fashion_parts.gd",
+        "scripts/fashion_skin_engine.gd",
+        "scripts/main.gd",
+        "scripts/storybook_ui.gd"
+      ],
+      "visual_review": "NOT_CURRENTLY_CAPTURED"
+    },
+    {
+      "path": "scripts/fx_water.gd",
+      "source_sha256_lf": "e33ff31788951f89715cc926cbbfc9a05bb8e6324b76c9e0137ce2b658f5d4c0",
+      "lines": 294,
+      "class_name": "FxWater",
+      "reachability": "POTENTIALLY_MAIN_REFERENCED",
+      "primitive_sites": 1,
+      "source_scope_ids": [
+        "FVF-D26C058CBF46"
+      ],
+      "script_dependencies": [
+        "scripts/main.gd"
+      ],
+      "visual_review": "NOT_CURRENTLY_CAPTURED"
+    },
+    {
+      "path": "scripts/galaxy.gd",
+      "source_sha256_lf": "54278a504f031e001e1e2eb2f13082040da6b6967f02522f5f73cc46ed664f59",
+      "lines": 1763,
+      "class_name": "GalaxyLevel",
+      "reachability": "POTENTIALLY_MAIN_REFERENCED",
+      "primitive_sites": 19,
+      "source_scope_ids": [
+        "FVF-6B25EBA843D7",
+        "FVF-296080391BCF",
+        "FVF-27D7CD28B443",
+        "FVF-809497C1CF25",
+        "FVF-BA550B0E0898"
+      ],
+      "script_dependencies": [
+        "scripts/kart.gd",
+        "scripts/landmark_art.gd",
+        "scripts/main.gd",
+        "scripts/roshan_sprite_loop.gd",
+        "scripts/story_art.gd",
+        "scripts/storybook_ui.gd"
+      ],
+      "visual_review": "NOT_CURRENTLY_CAPTURED"
+    },
+    {
+      "path": "scripts/games/brawl.gd",
+      "source_sha256_lf": "0780ad5b708cde10bbf3a1a37a1c06f7210e8d04a44172633605760c22dac8d7",
+      "lines": 538,
+      "class_name": "BrawlGame",
+      "reachability": "POTENTIALLY_MAIN_REFERENCED",
+      "primitive_sites": 5,
+      "source_scope_ids": [
+        "FVF-2BCFD951331D"
+      ],
+      "script_dependencies": [
+        "scripts/dungeon_art.gd",
+        "scripts/games/side_scroll.gd",
+        "scripts/imp_ai.gd",
+        "scripts/main.gd"
+      ],
+      "visual_review": "NOT_CURRENTLY_CAPTURED"
+    },
+    {
+      "path": "scripts/games/dance_engine.gd",
+      "source_sha256_lf": "d8af408dbc2b8fe54a0b88b16e978b2bf9e6aab36e3a2eed3a15a1bdfe52511e",
+      "lines": 511,
+      "class_name": "DanceEngine",
+      "reachability": "POTENTIALLY_MAIN_REFERENCED",
+      "primitive_sites": 4,
+      "source_scope_ids": [
+        "FVF-7A903A491B20"
+      ],
+      "script_dependencies": [
+        "scripts/main.gd",
+        "scripts/storybook_ui.gd"
+      ],
+      "visual_review": "NOT_CURRENTLY_CAPTURED"
+    },
+    {
+      "path": "scripts/games/day_one_bathroom_cleaning.gd",
+      "source_sha256_lf": "b6422a46d529b033dac36a14bba9b9695d2351f15ea6f850348380dc7be200b0",
+      "lines": 1055,
+      "class_name": "DayOneBathroomCleaning",
+      "reachability": "POTENTIALLY_MAIN_REFERENCED",
+      "primitive_sites": 8,
+      "source_scope_ids": [
+        "FVF-B7CAAACA8D68",
+        "FVF-2B18E2ED7A23"
+      ],
+      "script_dependencies": [
+        "scripts/games/day_one_bathroom_toilet.gd",
+        "scripts/games/day_one_dust_bunny_swimmer.gd",
+        "scripts/main.gd",
+        "scripts/storybook_ui.gd"
+      ],
+      "visual_review": "NOT_CURRENTLY_CAPTURED"
+    },
+    {
+      "path": "scripts/games/day_one_bathroom_cleanup.gd",
+      "source_sha256_lf": "c13d7ecf1536dc682eaa29312c1aa8d45210985196608dfb830e26fa4b543a5e",
+      "lines": 945,
+      "class_name": "DayOneBathroomCleanup",
+      "reachability": "POTENTIALLY_MAIN_REFERENCED",
+      "primitive_sites": 1,
+      "source_scope_ids": [
+        "FVF-A8BBC99C5C9E"
+      ],
+      "script_dependencies": [
+        "scripts/games/day_one_bathroom_cleaning.gd",
+        "scripts/games/day_one_dust_bunny_swimmer.gd",
+        "scripts/games/day_one_fixture_scrub.gd",
+        "scripts/main.gd",
+        "scripts/storybook_ui.gd"
+      ],
+      "visual_review": "NOT_CURRENTLY_CAPTURED"
+    },
+    {
+      "path": "scripts/games/day_one_bathroom_toilet.gd",
+      "source_sha256_lf": "28413b931406d85afaaa45ab5e50133aa1df042d2aa29edb932096a0a752ed36",
+      "lines": 238,
+      "class_name": "DayOneBathroomToilet",
+      "reachability": "POTENTIALLY_MAIN_REFERENCED",
+      "primitive_sites": 1,
+      "source_scope_ids": [
+        "FVF-42EB0B5D3907"
+      ],
+      "script_dependencies": [
+        "scripts/main.gd",
+        "scripts/storybook_ui.gd"
+      ],
+      "visual_review": "NOT_CURRENTLY_CAPTURED"
+    },
+    {
+      "path": "scripts/games/day_one_dust_bunny_swimmer.gd",
+      "source_sha256_lf": "2ff24ebee6b078f7d31fa53648e5c1b443f954760b3042d61ea0eb69f10e84c3",
+      "lines": 260,
+      "class_name": "DayOneDustBunnySwimmer",
+      "reachability": "POTENTIALLY_MAIN_REFERENCED",
+      "primitive_sites": 0,
+      "source_scope_ids": [],
+      "script_dependencies": [],
+      "visual_review": "NOT_CURRENTLY_CAPTURED"
+    },
+    {
+      "path": "scripts/games/day_one_fixture_scrub.gd",
+      "source_sha256_lf": "b5aba569698ba641809a5bf216f4236443edca206f97a7e4d6010bd775389980",
+      "lines": 110,
+      "class_name": "DayOneFixtureScrub",
+      "reachability": "POTENTIALLY_MAIN_REFERENCED",
+      "primitive_sites": 1,
+      "source_scope_ids": [
+        "FVF-F23CFD596774"
+      ],
+      "script_dependencies": [],
+      "visual_review": "NOT_CURRENTLY_CAPTURED"
+    },
+    {
+      "path": "scripts/games/day_one_pool_cleanup.gd",
+      "source_sha256_lf": "b476ba553994c093cf32a6390f067e84c00b3fa26d2afca47d8a00df5fe91f44",
+      "lines": 764,
+      "class_name": "DayOnePoolCleanup",
+      "reachability": "POTENTIALLY_MAIN_REFERENCED",
+      "primitive_sites": 0,
+      "source_scope_ids": [],
+      "script_dependencies": [
+        "scripts/arena/castle_rooms_25d.gd",
+        "scripts/day_one_contextual_voice_catalog.gd",
+        "scripts/games/day_one_dust_bunny_swimmer.gd",
+        "scripts/games/pool_seahorse_rescue_activity.gd",
+        "scripts/games/pool_skimmer_activity.gd",
+        "scripts/games/pool_waterfall_activity.gd",
+        "scripts/living_world.gd",
+        "scripts/main.gd",
+        "scripts/storybook_ui.gd"
+      ],
+      "visual_review": "NOT_CURRENTLY_CAPTURED"
+    },
+    {
+      "path": "scripts/games/dolls.gd",
+      "source_sha256_lf": "a3cf7ffd6f6a7bcf1072fa1a753e465f742190f46d9809830589a2242c77c7e0",
+      "lines": 344,
+      "class_name": "DollsGame",
+      "reachability": "POTENTIALLY_MAIN_REFERENCED",
+      "primitive_sites": 14,
+      "source_scope_ids": [
+        "FVF-4B2840DD2509",
+        "FVF-23D30F694F3A",
+        "FVF-DABC1D5253A1"
+      ],
+      "script_dependencies": [
+        "scripts/main.gd",
+        "scripts/opera_nursery_catch.gd",
+        "scripts/opera_world_backdrop_2d.gd"
+      ],
+      "visual_review": "NOT_CURRENTLY_CAPTURED"
+    },
+    {
+      "path": "scripts/games/dust_boss.gd",
+      "source_sha256_lf": "05f9174e05c0c00ee09cf21c8e70e251c3afbed8e35b9f9526e200de65869a0d",
+      "lines": 1070,
+      "class_name": "DustBossGame",
+      "reachability": "POTENTIALLY_MAIN_REFERENCED",
+      "primitive_sites": 0,
+      "source_scope_ids": [],
+      "script_dependencies": [
+        "scripts/boss_encounter_2d.gd",
+        "scripts/boss_splash_2d.gd",
+        "scripts/day_one_story_clips.gd",
+        "scripts/dust_boss_lesson_2d.gd",
+        "scripts/dust_boss_telegraph_2d.gd",
+        "scripts/dust_bunny_boss_sprite.gd",
+        "scripts/encounter_navigation_2d.gd",
+        "scripts/encounter_patterns_2d.gd",
+        "scripts/encounter_profile_2d.gd",
+        "scripts/encounter_warning_cue_2d.gd",
+        "scripts/games/octagon_stage.gd",
+        "scripts/hit_engine.gd",
+        "scripts/main.gd"
+      ],
+      "visual_review": "NOT_CURRENTLY_CAPTURED"
+    },
+    {
+      "path": "scripts/games/dust_boss_patterns.gd",
+      "source_sha256_lf": "530c25b906a3c88a336f1492517dc94b67fd7835b93aaac4afbcd437a727360c",
+      "lines": 7,
+      "class_name": "DustBossPatterns",
+      "reachability": "STANDALONE_OR_UNPROVED",
+      "primitive_sites": 0,
+      "source_scope_ids": [],
+      "script_dependencies": [
+        "scripts/encounter_patterns_2d.gd",
+        "scripts/encounter_profile_2d.gd"
+      ],
+      "visual_review": "NOT_CURRENTLY_CAPTURED"
+    },
+    {
+      "path": "scripts/games/fairy.gd",
+      "source_sha256_lf": "8bf4e48249c63441b4e3c89de0930ae14668b2cd8c1577189ff7b41f1b77d679",
+      "lines": 655,
+      "class_name": "FairyGame",
+      "reachability": "POTENTIALLY_MAIN_REFERENCED",
+      "primitive_sites": 0,
+      "source_scope_ids": [],
+      "script_dependencies": [
+        "scripts/main.gd"
+      ],
+      "visual_review": "NOT_CURRENTLY_CAPTURED"
+    },
+    {
+      "path": "scripts/games/fetch.gd",
+      "source_sha256_lf": "d1cd79931637e376cbdcff3fa88871f63d673c82987ec20fa2dffb150fb1b805",
+      "lines": 325,
+      "class_name": "FetchGame",
+      "reachability": "POTENTIALLY_MAIN_REFERENCED",
+      "primitive_sites": 8,
+      "source_scope_ids": [
+        "FVF-921B44E597DA"
+      ],
+      "script_dependencies": [
+        "scripts/main.gd"
+      ],
+      "visual_review": "NOT_CURRENTLY_CAPTURED"
+    },
+    {
+      "path": "scripts/games/melody.gd",
+      "source_sha256_lf": "a2477bc6fd21454c69480b290ccc13892e6938e4d1abf534051380dd84e5712e",
+      "lines": 1295,
+      "class_name": "MelodyGame",
+      "reachability": "POTENTIALLY_MAIN_REFERENCED",
+      "primitive_sites": 43,
+      "source_scope_ids": [
+        "FVF-DA74517277FC",
+        "FVF-5BBAA81CE305",
+        "FVF-57B3D0268873",
+        "FVF-6ECD16CBB03A",
+        "FVF-7E146BFC2271",
+        "FVF-C14E910D3911",
+        "FVF-50ED9D649692",
+        "FVF-131F475F9E4C",
+        "FVF-A58918EEE602",
+        "FVF-3142D1CF2762",
+        "FVF-5C7199B078E3",
+        "FVF-C33D763412A1",
+        "FVF-CFB3F02098DE",
+        "FVF-4F8C4D874C00"
+      ],
+      "script_dependencies": [
+        "scripts/main.gd"
+      ],
+      "visual_review": "NOT_CURRENTLY_CAPTURED"
+    },
+    {
+      "path": "scripts/games/octagon_stage.gd",
+      "source_sha256_lf": "828efb4077edc8a0e770ac74735298447d7d7cc4ac49ed5774276ce9811d3513",
+      "lines": 372,
+      "class_name": "OctagonStage",
+      "reachability": "POTENTIALLY_MAIN_REFERENCED",
+      "primitive_sites": 5,
+      "source_scope_ids": [
+        "FVF-E3F1271C241C",
+        "FVF-14B3035DEE84"
+      ],
+      "script_dependencies": [
+        "scripts/encounter_navigation_2d.gd",
+        "scripts/games/side_scroll.gd",
+        "scripts/main.gd"
+      ],
+      "visual_review": "NOT_CURRENTLY_CAPTURED"
+    },
+    {
+      "path": "scripts/games/picture_games.gd",
+      "source_sha256_lf": "5d7202ac46b0ca26752b74b959eb052f2889369932d697b8b8727ad368abc8f0",
+      "lines": 797,
+      "class_name": "PictureGames",
+      "reachability": "POTENTIALLY_MAIN_REFERENCED",
+      "primitive_sites": 5,
+      "source_scope_ids": [
+        "FVF-8A1564966D4B",
+        "FVF-535EDBF3F803",
+        "FVF-F5F7A8DE4736",
+        "FVF-355A4498233C"
+      ],
+      "script_dependencies": [
+        "scripts/main.gd",
+        "scripts/storybook_ui.gd"
+      ],
+      "visual_review": "NOT_CURRENTLY_CAPTURED"
+    },
+    {
+      "path": "scripts/games/pool_seahorse_rescue_activity.gd",
+      "source_sha256_lf": "60a5540c943dc760f4b83cca68b4a649074ceaa91bd23de3d4ef4a42302476b0",
+      "lines": 631,
+      "class_name": "PoolSeahorseRescueActivity",
+      "reachability": "POTENTIALLY_MAIN_REFERENCED",
+      "primitive_sites": 0,
+      "source_scope_ids": [],
+      "script_dependencies": [
+        "scripts/day_one_contact_action_2d.gd"
+      ],
+      "visual_review": "NOT_CURRENTLY_CAPTURED"
+    },
+    {
+      "path": "scripts/games/pool_skimmer_activity.gd",
+      "source_sha256_lf": "41894d67693bb6d8e7d2a544f677083dea12b43a7f8d4e2ac0e6511d79461bce",
+      "lines": 649,
+      "class_name": "PoolSkimmerActivity",
+      "reachability": "POTENTIALLY_MAIN_REFERENCED",
+      "primitive_sites": 0,
+      "source_scope_ids": [],
+      "script_dependencies": [],
+      "visual_review": "NOT_CURRENTLY_CAPTURED"
+    },
+    {
+      "path": "scripts/games/pool_waterfall_activity.gd",
+      "source_sha256_lf": "036e5cb7f64f9231e0f9781680cf005df4170f9e3055c5d353df7e6ddd4bf3da",
+      "lines": 601,
+      "class_name": "PoolWaterfallActivity",
+      "reachability": "POTENTIALLY_MAIN_REFERENCED",
+      "primitive_sites": 0,
+      "source_scope_ids": [],
+      "script_dependencies": [
+        "scripts/day_one_contact_action_2d.gd"
+      ],
+      "visual_review": "NOT_CURRENTLY_CAPTURED"
+    },
+    {
+      "path": "scripts/games/seek.gd",
+      "source_sha256_lf": "d559447c82c29a33ddb319ef191cf9542d55304f62cae649e39cb2f9d9079741",
+      "lines": 693,
+      "class_name": "SeekGame",
+      "reachability": "POTENTIALLY_MAIN_REFERENCED",
+      "primitive_sites": 8,
+      "source_scope_ids": [
+        "FVF-B32B3AE43EBE"
+      ],
+      "script_dependencies": [
+        "scripts/main.gd",
+        "scripts/roshan_sprite_frames.gd"
+      ],
+      "visual_review": "NOT_CURRENTLY_CAPTURED"
+    },
+    {
+      "path": "scripts/games/shop.gd",
+      "source_sha256_lf": "62ce2b2bf2a8319b7f0e86a7856436b5072f662be1c0477d6d7a79b0e45f7585",
+      "lines": 434,
+      "class_name": "ShopGame",
+      "reachability": "POTENTIALLY_MAIN_REFERENCED",
+      "primitive_sites": 4,
+      "source_scope_ids": [
+        "FVF-F9E294BAD54B"
+      ],
+      "script_dependencies": [
+        "scripts/main.gd",
+        "scripts/physics.gd"
+      ],
+      "visual_review": "NOT_CURRENTLY_CAPTURED"
+    },
+    {
+      "path": "scripts/games/side_scroll.gd",
+      "source_sha256_lf": "e094f4efef2ee295ebad159e82e49ccd2bb8db26c38049c5f7135bd86114b0a7",
+      "lines": 930,
+      "class_name": "SideScrollStage",
+      "reachability": "POTENTIALLY_MAIN_REFERENCED",
+      "primitive_sites": 1,
+      "source_scope_ids": [
+        "FVF-06343BC77AE9"
+      ],
+      "script_dependencies": [
+        "scripts/main.gd"
+      ],
+      "visual_review": "NOT_CURRENTLY_CAPTURED"
+    },
+    {
+      "path": "scripts/games/slide_race.gd",
+      "source_sha256_lf": "2293c08bd2a056b2e5819f2406fc9ca42f5cc734e700552eab29642555f44b8f",
+      "lines": 1724,
+      "class_name": "SlideRaceGame",
+      "reachability": "POTENTIALLY_MAIN_REFERENCED",
+      "primitive_sites": 17,
+      "source_scope_ids": [
+        "FVF-4022D9117E84",
+        "FVF-3C2B06F21E1A",
+        "FVF-1AB8F1319A6B",
+        "FVF-F30D4EC47CD6",
+        "FVF-29D38140A24C",
+        "FVF-BB082F001AB3"
+      ],
+      "script_dependencies": [
+        "scripts/main.gd",
+        "scripts/medal_system.gd"
+      ],
+      "visual_review": "NOT_CURRENTLY_CAPTURED"
+    },
+    {
+      "path": "scripts/games/treasure.gd",
+      "source_sha256_lf": "f228a13ad65977517f3486e42be6e79fb20546d633d747e6353d859a6ec7540c",
+      "lines": 112,
+      "class_name": "TreasureGame",
+      "reachability": "POTENTIALLY_MAIN_REFERENCED",
+      "primitive_sites": 3,
+      "source_scope_ids": [
+        "FVF-5525E0DEF737"
+      ],
+      "script_dependencies": [
+        "scripts/main.gd"
+      ],
+      "visual_review": "NOT_CURRENTLY_CAPTURED"
+    },
+    {
+      "path": "scripts/hit_engine.gd",
+      "source_sha256_lf": "9a9fc4df1598737937b7c37d2f68675ca4e257f8260cf72a0396a8dfea9a789c",
+      "lines": 839,
+      "class_name": "HitEngine",
+      "reachability": "POTENTIALLY_MAIN_REFERENCED",
+      "primitive_sites": 2,
+      "source_scope_ids": [
+        "FVF-D00630994912",
+        "FVF-0E9C306AB16C"
+      ],
+      "script_dependencies": [
+        "scripts/combat_arena.gd",
+        "scripts/dungeon_art.gd",
+        "scripts/games/brawl.gd",
+        "scripts/interaction_director.gd",
+        "scripts/juice.gd",
+        "scripts/main.gd",
+        "scripts/partner_assist.gd",
+        "scripts/storybook_ui.gd",
+        "scripts/stuffie_battle.gd"
+      ],
+      "visual_review": "NOT_CURRENTLY_CAPTURED"
+    },
+    {
+      "path": "scripts/imp_ai.gd",
+      "source_sha256_lf": "b07ba584b88dbaa9ed5712d28784dfa9192d1b03016589237c84a3ad5cda148e",
+      "lines": 523,
+      "class_name": "ImpAI",
+      "reachability": "POTENTIALLY_MAIN_REFERENCED",
+      "primitive_sites": 0,
+      "source_scope_ids": [],
+      "script_dependencies": [],
+      "visual_review": "NOT_CURRENTLY_CAPTURED"
+    },
+    {
+      "path": "scripts/interaction_affordance.gd",
+      "source_sha256_lf": "3c01ea0dc292bbccde681e7eba71efcaeb3c68c7e0a2e84a6ea4c2a66a8b5644",
+      "lines": 132,
+      "class_name": "InteractionAffordance",
+      "reachability": "POTENTIALLY_MAIN_REFERENCED",
+      "primitive_sites": 2,
+      "source_scope_ids": [
+        "FVF-417EABC70FE9",
+        "FVF-ADB2528E81D1"
+      ],
+      "script_dependencies": [],
+      "visual_review": "NOT_CURRENTLY_CAPTURED"
+    },
+    {
+      "path": "scripts/interaction_director.gd",
+      "source_sha256_lf": "22d206cc7e278b9e46557f20d358e0fd80b3dec26fae61bf6d2f51aedd86c5ab",
+      "lines": 231,
+      "class_name": "InteractionDirector",
+      "reachability": "POTENTIALLY_MAIN_REFERENCED",
+      "primitive_sites": 0,
+      "source_scope_ids": [],
+      "script_dependencies": [
+        "scripts/interaction_affordance.gd",
+        "scripts/main.gd",
+        "scripts/tap_move_director.gd"
+      ],
+      "visual_review": "NOT_CURRENTLY_CAPTURED"
+    },
+    {
+      "path": "scripts/intro_overlay.gd",
+      "source_sha256_lf": "d39288491fd4e37024905faa11c66eee0e3a98d7de1cb340ca703c8a907ff2eb",
+      "lines": 188,
+      "class_name": "IntroOverlay",
+      "reachability": "POTENTIALLY_MAIN_REFERENCED",
+      "primitive_sites": 2,
+      "source_scope_ids": [
+        "FVF-359A9649BFD9"
+      ],
+      "script_dependencies": [
+        "scripts/fashion_outfit_renderer.gd",
+        "scripts/main.gd",
+        "scripts/storybook_ui.gd"
+      ],
+      "visual_review": "NOT_CURRENTLY_CAPTURED"
+    },
+    {
+      "path": "scripts/juice.gd",
+      "source_sha256_lf": "a356054344800d52edddb531108cd50f6d941582ea44d123b8397d5663de0fb4",
+      "lines": 90,
+      "class_name": "Juice",
+      "reachability": "POTENTIALLY_MAIN_REFERENCED",
+      "primitive_sites": 0,
+      "source_scope_ids": [],
+      "script_dependencies": [
+        "scripts/hit_engine.gd"
+      ],
+      "visual_review": "NOT_CURRENTLY_CAPTURED"
+    },
+    {
+      "path": "scripts/kart.gd",
+      "source_sha256_lf": "621bf52117af06641285b25a046fe0462c581889fcb53b899c0fb101be88f2bf",
+      "lines": 3231,
+      "class_name": "KartGame",
+      "reachability": "POTENTIALLY_MAIN_REFERENCED",
+      "primitive_sites": 26,
+      "source_scope_ids": [
+        "FVF-2844CA0EE11C",
+        "FVF-346C36EE2B6E",
+        "FVF-20D4B2902D89",
+        "FVF-0917231A8F50",
+        "FVF-EA2732BC4B44",
+        "FVF-5F0D7359291F",
+        "FVF-1D575DF2E286",
+        "FVF-F5F6A70B9FF2",
+        "FVF-F8A07665F96A",
+        "FVF-FA3DEE7F1264",
+        "FVF-5475744B5E8B",
+        "FVF-1E89206132E5",
+        "FVF-F21D83801C10",
+        "FVF-CE7103D11E2D",
+        "FVF-DC528A81B338"
+      ],
+      "script_dependencies": [
+        "scripts/fashion_outfit_renderer.gd",
+        "scripts/kart_driving.gd",
+        "scripts/landmark_art.gd",
+        "scripts/main.gd",
+        "scripts/roshan_sprite_loop.gd",
+        "scripts/story_art.gd",
+        "scripts/storybook_ui.gd",
+        "scripts/touch_ui.gd"
+      ],
+      "visual_review": "NOT_CURRENTLY_CAPTURED"
+    },
+    {
+      "path": "scripts/kart_driving.gd",
+      "source_sha256_lf": "a87c53f06301f79d45ef3b73877686103af70196a41e7df059399f39014cf5e8",
+      "lines": 141,
+      "class_name": "KartDriving",
+      "reachability": "POTENTIALLY_MAIN_REFERENCED",
+      "primitive_sites": 0,
+      "source_scope_ids": [],
+      "script_dependencies": [
+        "scripts/kart.gd"
+      ],
+      "visual_review": "NOT_CURRENTLY_CAPTURED"
+    },
+    {
+      "path": "scripts/landmark_art.gd",
+      "source_sha256_lf": "01e8e9bb7332ab76decfa093a98ed6b1940e8d9b424221fd8b27a9591ea300e0",
+      "lines": 241,
+      "class_name": null,
+      "reachability": "POTENTIALLY_MAIN_REFERENCED",
+      "primitive_sites": 4,
+      "source_scope_ids": [
+        "FVF-B62444E6A9AF",
+        "FVF-DF10F50896C4",
+        "FVF-2B580C44D4D8"
+      ],
+      "script_dependencies": [],
+      "visual_review": "NOT_CURRENTLY_CAPTURED"
+    },
+    {
+      "path": "scripts/light_rig.gd",
+      "source_sha256_lf": "09e97441be4aa77a390e813298d1848a5d5f5c291d2efbcbf706cf10e3611551",
+      "lines": 154,
+      "class_name": "LightRig",
+      "reachability": "POTENTIALLY_MAIN_REFERENCED",
+      "primitive_sites": 0,
+      "source_scope_ids": [],
+      "script_dependencies": [
+        "scripts/main.gd"
+      ],
+      "visual_review": "NOT_CURRENTLY_CAPTURED"
+    },
+    {
+      "path": "scripts/living_world.gd",
+      "source_sha256_lf": "97c0e9dd7d6d660ec5b6386179233714c6772b06fe7b3b6dcd26262852c071fe",
+      "lines": 449,
+      "class_name": "LivingWorldDirector",
+      "reachability": "POTENTIALLY_MAIN_REFERENCED",
+      "primitive_sites": 0,
+      "source_scope_ids": [],
+      "script_dependencies": [
+        "scripts/arena/castle_rooms_25d.gd",
+        "scripts/living_world_canvas.gd",
+        "scripts/living_world_catalog.gd",
+        "scripts/main.gd",
+        "scripts/opera_house.gd",
+        "scripts/reef_districts.gd"
+      ],
+      "visual_review": "NOT_CURRENTLY_CAPTURED"
+    },
+    {
+      "path": "scripts/living_world_canvas.gd",
+      "source_sha256_lf": "f18a8324cd3eb43eac0dae0ae09efbbb86f6bd3af65e7e74e44d8c197f351e6e",
+      "lines": 355,
+      "class_name": "LivingWorldCanvas",
+      "reachability": "POTENTIALLY_MAIN_REFERENCED",
+      "primitive_sites": 97,
+      "source_scope_ids": [
+        "FVF-37CDA41448D6",
+        "FVF-AAD73618A42C"
+      ],
+      "script_dependencies": [
+        "scripts/main.gd"
+      ],
+      "visual_review": "NOT_CURRENTLY_CAPTURED"
+    },
+    {
+      "path": "scripts/living_world_catalog.gd",
+      "source_sha256_lf": "2db85ea403333cd6b71fca87195b927a44b282d0233d79051b8bf0314f53ae2e",
+      "lines": 544,
+      "class_name": "LivingWorldCatalog",
+      "reachability": "POTENTIALLY_MAIN_REFERENCED",
+      "primitive_sites": 0,
+      "source_scope_ids": [],
+      "script_dependencies": [
+        "scripts/main.gd"
+      ],
+      "visual_review": "NOT_CURRENTLY_CAPTURED"
+    },
+    {
+      "path": "scripts/main.gd",
+      "source_sha256_lf": "b6e905824a4b60461181deda525c816fc790613479e9321d12ae7f71df666a33",
+      "lines": 8864,
+      "class_name": "ReefMain",
+      "reachability": "POTENTIALLY_MAIN_REFERENCED",
+      "primitive_sites": 21,
+      "source_scope_ids": [
+        "FVF-E4A578649F73",
+        "FVF-05ADC3EF32A1",
+        "FVF-05809FB0996C",
+        "FVF-C8AD888B7576",
+        "FVF-0099722F6BB5",
+        "FVF-8252193CA415",
+        "FVF-C8A0BAF33B80",
+        "FVF-928FFA97F277",
+        "FVF-6A62965157C0",
+        "FVF-8F65C6073086",
+        "FVF-152B0091C3C5",
+        "FVF-F2DE4463E022",
+        "FVF-631504E5ECE6",
+        "FVF-9F013538FFA6",
+        "FVF-A64E332E9278",
+        "FVF-7B531450B61A",
+        "FVF-25E7FC19DFA6",
+        "FVF-7A2B1E54D9A2",
+        "FVF-955D5DA4BDE7"
+      ],
+      "script_dependencies": [
+        "scripts/arena/castle_rooms_25d.gd",
+        "scripts/arena/courtyard_train.gd",
+        "scripts/arena/day_one_castle_dressing.gd",
+        "scripts/arena/fairy_conservatory_door_2d.gd",
+        "scripts/arena/fairy_conservatory_handoff_2d.gd",
+        "scripts/arena/northern_kingdom.gd",
+        "scripts/arena/sky_lagoon.gd",
+        "scripts/arena/sky_lagoon_promenade.gd",
+        "scripts/attack_customizer.gd",
+        "scripts/audio_director.gd",
+        "scripts/boot_splash_overlay.gd",
+        "scripts/camera_kit.gd",
+        "scripts/castle_career_routes.gd",
+        "scripts/castle_logo_studio.gd",
+        "scripts/chapter_two_director.gd",
+        "scripts/chapter_two_lawn_finale_2d.gd",
+        "scripts/chapter_two_party_plan.gd",
+        "scripts/chapter_two_room_plot.gd",
+        "scripts/chapter_two_voice_catalog.gd",
+        "scripts/collection_system.gd",
+        "scripts/combat_arena.gd",
+        "scripts/combat_tutorial.gd",
+        "scripts/comfy_games.gd",
+        "scripts/companion.gd",
+        "scripts/craft_studio.gd",
+        "scripts/day_one_art_studio.gd",
+        "scripts/day_one_bathroom_movie_handoff.gd",
+        "scripts/day_one_director.gd",
+        "scripts/day_one_flow.gd",
+        "scripts/day_one_story_clips.gd",
+        "scripts/day_two_transition_2d.gd",
+        "scripts/dev_mode.gd",
+        "scripts/dungeon_level.gd",
+        "scripts/ember_fortress.gd",
+        "scripts/fashion_designer.gd",
+        "scripts/fashion_outfit_renderer.gd",
+        "scripts/fx_water.gd",
+        "scripts/galaxy.gd",
+        "scripts/games/brawl.gd",
+        "scripts/games/dance_engine.gd",
+        "scripts/games/day_one_bathroom_cleanup.gd",
+        "scripts/games/dolls.gd",
+        "scripts/games/dust_boss.gd",
+        "scripts/games/fairy.gd",
+        "scripts/games/fetch.gd",
+        "scripts/games/melody.gd",
+        "scripts/games/picture_games.gd",
+        "scripts/games/seek.gd",
+        "scripts/games/shop.gd",
+        "scripts/games/side_scroll.gd",
+        "scripts/games/slide_race.gd",
+        "scripts/games/treasure.gd",
+        "scripts/hit_engine.gd",
+        "scripts/interaction_affordance.gd",
+        "scripts/interaction_director.gd",
+        "scripts/intro_overlay.gd",
+        "scripts/kart.gd",
+        "scripts/landmark_art.gd",
+        "scripts/light_rig.gd",
+        "scripts/living_world.gd",
+        "scripts/living_world_canvas.gd",
+        "scripts/medal_system.gd",
+        "scripts/mic_input.gd",
+        "scripts/navigation_controller.gd",
+        "scripts/opera_act.gd",
+        "scripts/opera_house.gd",
+        "scripts/partner_assist.gd",
+        "scripts/pause_menu.gd",
+        "scripts/physics.gd",
+        "scripts/player.gd",
+        "scripts/rainbow_friend_follower.gd",
+        "scripts/reef_districts.gd",
+        "scripts/save_state.gd",
+        "scripts/start_menu.gd",
+        "scripts/story_art.gd",
+        "scripts/storybook_ui.gd",
+        "scripts/stuffie_battle.gd",
+        "scripts/tap_move_director.gd",
+        "scripts/touch_ui.gd",
+        "scripts/wardrobe_ui.gd"
+      ],
+      "visual_review": "NOT_CURRENTLY_CAPTURED"
+    },
+    {
+      "path": "scripts/medal_system.gd",
+      "source_sha256_lf": "585959372cbe4bf2e98d0830097b3b98c9519b52645516857a61ce22b489d36d",
+      "lines": 296,
+      "class_name": "MedalSystem",
+      "reachability": "POTENTIALLY_MAIN_REFERENCED",
+      "primitive_sites": 1,
+      "source_scope_ids": [
+        "FVF-B6D63EC4F8E0"
+      ],
+      "script_dependencies": [
+        "scripts/collection_system.gd",
+        "scripts/main.gd",
+        "scripts/storybook_ui.gd"
+      ],
+      "visual_review": "NOT_CURRENTLY_CAPTURED"
+    },
+    {
+      "path": "scripts/mic_input.gd",
+      "source_sha256_lf": "02d0af4179486e1a1b43d197917b1eb015caa7ca355cdea9783b281c22810532",
+      "lines": 715,
+      "class_name": "MicInput",
+      "reachability": "POTENTIALLY_MAIN_REFERENCED",
+      "primitive_sites": 0,
+      "source_scope_ids": [],
+      "script_dependencies": [
+        "scripts/main.gd",
+        "scripts/save_state.gd",
+        "scripts/storybook_ui.gd"
+      ],
+      "visual_review": "NOT_CURRENTLY_CAPTURED"
+    },
+    {
+      "path": "scripts/navigation_controller.gd",
+      "source_sha256_lf": "8a7c805f6b0d73840d62316dc349390d8125299fd8bdf0c146c6699ca725a873",
+      "lines": 121,
+      "class_name": "NavigationController",
+      "reachability": "POTENTIALLY_MAIN_REFERENCED",
+      "primitive_sites": 0,
+      "source_scope_ids": [],
+      "script_dependencies": [
+        "scripts/main.gd",
+        "scripts/storybook_ui.gd"
+      ],
+      "visual_review": "NOT_CURRENTLY_CAPTURED"
+    },
+    {
+      "path": "scripts/opera_act.gd",
+      "source_sha256_lf": "7a8db71dfd827efabeee50a348d7849ea646d2693c2ec2b6930c80938d2517b0",
+      "lines": 225,
+      "class_name": "OperaAct",
+      "reachability": "POTENTIALLY_MAIN_REFERENCED",
+      "primitive_sites": 0,
+      "source_scope_ids": [],
+      "script_dependencies": [
+        "scripts/main.gd",
+        "scripts/opera_career_world_2d.gd",
+        "scripts/opera_competition.gd",
+        "scripts/opera_mastery.gd"
+      ],
+      "visual_review": "NOT_CURRENTLY_CAPTURED"
+    },
+    {
+      "path": "scripts/opera_ballet_surface.gd",
+      "source_sha256_lf": "76a648de7fd0d52eadf1974257bfaaf3f17bb6b73a0bd96029b35133c33cb70b",
+      "lines": 774,
+      "class_name": "OperaBalletSurface",
+      "reachability": "POTENTIALLY_MAIN_REFERENCED",
+      "primitive_sites": 40,
+      "source_scope_ids": [
+        "FVF-3AC2A1700425",
+        "FVF-6F60137D00DA",
+        "FVF-A67F4C619FDE",
+        "FVF-2622FDF20E5B",
+        "FVF-88C36E9C91A3",
+        "FVF-F5ECBA58A5F2",
+        "FVF-AD9B72AF4CD5",
+        "FVF-CEAD9700B93C",
+        "FVF-9B54D99DA473"
+      ],
+      "script_dependencies": [
+        "scripts/opera_gesture_surface.gd"
+      ],
+      "visual_review": "NOT_CURRENTLY_CAPTURED"
+    },
+    {
+      "path": "scripts/opera_boxing_surface.gd",
+      "source_sha256_lf": "321da2219887b07f3efcd142c3015bfcf027ef21a5eb1755e877dc2ff5a71170",
+      "lines": 861,
+      "class_name": "OperaBoxingSurface",
+      "reachability": "POTENTIALLY_MAIN_REFERENCED",
+      "primitive_sites": 41,
+      "source_scope_ids": [
+        "FVF-27BCF880AA58",
+        "FVF-2DB59ECA72BC",
+        "FVF-7D6DB92F10D7",
+        "FVF-811A9F9DF089",
+        "FVF-E49DA37A34E0",
+        "FVF-B0774B47AE35",
+        "FVF-2F271F7F1C94",
+        "FVF-B22C7F8B81BF",
+        "FVF-A4545208A3F3",
+        "FVF-22152D4FD26C",
+        "FVF-71C9405C480D"
+      ],
+      "script_dependencies": [
+        "scripts/opera_career_world_2d.gd",
+        "scripts/opera_gesture_surface.gd"
+      ],
+      "visual_review": "NOT_CURRENTLY_CAPTURED"
+    },
+    {
+      "path": "scripts/opera_career_world_2d.gd",
+      "source_sha256_lf": "2195e137800fd840e4a813a83e6ac9b393a9e7851fd80ca84ca51fb964232702",
+      "lines": 5289,
+      "class_name": "OperaCareerWorld2D",
+      "reachability": "POTENTIALLY_MAIN_REFERENCED",
+      "primitive_sites": 69,
+      "source_scope_ids": [
+        "FVF-06B52701084D",
+        "FVF-E48199E6C31D",
+        "FVF-D185BBC489B2",
+        "FVF-7E1BF6FD77E4",
+        "FVF-7B8C62BB0A1E",
+        "FVF-D92D2EA8BF7B",
+        "FVF-238C7F8A9946",
+        "FVF-7825DC1E1ECF",
+        "FVF-4075DB747DA4",
+        "FVF-75F3998FA09C",
+        "FVF-9237D4609D28",
+        "FVF-28AFCE4D629B",
+        "FVF-39D1D618CE49",
+        "FVF-B3C0E4C41D59",
+        "FVF-98144452E3F6",
+        "FVF-FEA0EA187A03"
+      ],
+      "script_dependencies": [
+        "scripts/audio_director.gd",
+        "scripts/chapter_two_career_scene_adapter.gd",
+        "scripts/chapter_two_giant_cake_2d.gd",
+        "scripts/chapter_two_rainbow_candle_2d.gd",
+        "scripts/fashion_outfit_renderer.gd",
+        "scripts/imp_ai.gd",
+        "scripts/kart_driving.gd",
+        "scripts/main.gd",
+        "scripts/opera_ballet_surface.gd",
+        "scripts/opera_boxing_surface.gd",
+        "scripts/opera_chef_surface.gd",
+        "scripts/opera_competition.gd",
+        "scripts/opera_geology_surface.gd",
+        "scripts/opera_gesture_surface.gd",
+        "scripts/opera_hotspot_catalog.gd",
+        "scripts/opera_imp_clips.gd",
+        "scripts/opera_mastery.gd",
+        "scripts/opera_nursery_catch.gd",
+        "scripts/opera_performance_overlay.gd",
+        "scripts/opera_performance_plan.gd",
+        "scripts/opera_racer_surface.gd",
+        "scripts/opera_roshan_actor.gd",
+        "scripts/opera_stage_paths.gd",
+        "scripts/opera_teacher_surface.gd",
+        "scripts/opera_world_backdrop_2d.gd",
+        "scripts/opera_world_hotspot_2d.gd",
+        "scripts/stage_navigation_2d.gd",
+        "scripts/storybook_ui.gd",
+        "scripts/teacher_lesson_plan.gd"
+      ],
+      "visual_review": "NOT_CURRENTLY_CAPTURED"
+    },
+    {
+      "path": "scripts/opera_chef_surface.gd",
+      "source_sha256_lf": "fe6cc1756d66df11a8c27906610d415b9739f21f8bae982e22611baf7e0a4dbb",
+      "lines": 318,
+      "class_name": "OperaChefSurface",
+      "reachability": "POTENTIALLY_MAIN_REFERENCED",
+      "primitive_sites": 8,
+      "source_scope_ids": [
+        "FVF-50AD177A9FC0",
+        "FVF-59AD02ED912E",
+        "FVF-C89CDBEC0E9B",
+        "FVF-C740B0F81E0F"
+      ],
+      "script_dependencies": [
+        "scripts/chapter_two_giant_cake_2d.gd",
+        "scripts/opera_gesture_surface.gd"
+      ],
+      "visual_review": "NOT_CURRENTLY_CAPTURED"
+    },
+    {
+      "path": "scripts/opera_competition.gd",
+      "source_sha256_lf": "2449c21807e83f9c5d0f5994b37663b9e5ae4f56aa418690151eac081d03ec57",
+      "lines": 309,
+      "class_name": "OperaCompetition",
+      "reachability": "POTENTIALLY_MAIN_REFERENCED",
+      "primitive_sites": 0,
+      "source_scope_ids": [],
+      "script_dependencies": [],
+      "visual_review": "NOT_CURRENTLY_CAPTURED"
+    },
+    {
+      "path": "scripts/opera_geology_surface.gd",
+      "source_sha256_lf": "da96f3b7c07b2ecac796cbe21410499c4439937a21d4096fd918a611e02ba8be",
+      "lines": 977,
+      "class_name": "OperaGeologySurface",
+      "reachability": "POTENTIALLY_MAIN_REFERENCED",
+      "primitive_sites": 49,
+      "source_scope_ids": [
+        "FVF-8D84B7D480FD",
+        "FVF-D0C553B4CB80",
+        "FVF-BBC5342936D4",
+        "FVF-E531E9D9DFEB",
+        "FVF-49D72CC862D4",
+        "FVF-B52370FC2DD9",
+        "FVF-BF52A4600A44",
+        "FVF-FAD33ED5C4F6",
+        "FVF-3A3579DADB2B",
+        "FVF-46A34DBD24B3",
+        "FVF-B50ED539080E",
+        "FVF-D66A8B90F329"
+      ],
+      "script_dependencies": [
+        "scripts/opera_gesture_surface.gd"
+      ],
+      "visual_review": "NOT_CURRENTLY_CAPTURED"
+    },
+    {
+      "path": "scripts/opera_gesture_surface.gd",
+      "source_sha256_lf": "458d3afb7e231f8f5da6e21c64f27b699e7bf66bc5e6eb43fd9e331eaad6b07b",
+      "lines": 6258,
+      "class_name": "OperaGestureSurface",
+      "reachability": "POTENTIALLY_MAIN_REFERENCED",
+      "primitive_sites": 437,
+      "source_scope_ids": [
+        "FVF-5618D8B18F2C",
+        "FVF-5D25DA49238C",
+        "FVF-BE12A13AB9E9",
+        "FVF-09A429A5AE0C",
+        "FVF-99864D94156E",
+        "FVF-C437DC4E2882",
+        "FVF-DEF801D488C6",
+        "FVF-9BB7845A7037",
+        "FVF-12EEFDD7B481",
+        "FVF-2426696FEFAE",
+        "FVF-DC131B8562BE",
+        "FVF-1914DB5366F9",
+        "FVF-5CE0EDB2EF29",
+        "FVF-F9D7BC4C849D",
+        "FVF-C317F97CAEDC",
+        "FVF-CD825044CC0A",
+        "FVF-A201CC90CE85",
+        "FVF-78CB8FB8C718",
+        "FVF-4D6BFEEFE475",
+        "FVF-BEE94609E91F",
+        "FVF-435FA77B37FB",
+        "FVF-66B6BE0529DE",
+        "FVF-9BB309C1C4C4",
+        "FVF-9BC2CFC463C1",
+        "FVF-BE033F7959EE",
+        "FVF-64BD6A099C40",
+        "FVF-B417DB601D82",
+        "FVF-85C3D9093B1C",
+        "FVF-5764597B0460",
+        "FVF-938D8CDC7E77",
+        "FVF-65F57E5641E3",
+        "FVF-AED0F80FC2C0",
+        "FVF-68983A9E1F0C",
+        "FVF-AAB17EC04589",
+        "FVF-D43CD8B8D3DB",
+        "FVF-8E2FC737EA3E",
+        "FVF-A98A419C7293",
+        "FVF-D87B81078986",
+        "FVF-6CF7C85C1B16",
+        "FVF-37BD08344B34",
+        "FVF-12D3362E4819",
+        "FVF-5C0CEE8A75BC",
+        "FVF-940D94ECC2F9",
+        "FVF-DBBAB87C241E",
+        "FVF-D717C43C6A5A",
+        "FVF-CB7CC1514E09",
+        "FVF-546AAF993DD4",
+        "FVF-801FDD87A751",
+        "FVF-B032854FB12F",
+        "FVF-0673A98741C4",
+        "FVF-54FBD2DABE20",
+        "FVF-9CA96CC69610",
+        "FVF-B28648D78D2B",
+        "FVF-EDDAA7167954",
+        "FVF-B54B0A89B730",
+        "FVF-5D48AF991700",
+        "FVF-3C085F2584F9",
+        "FVF-0EF88335BF84",
+        "FVF-435230B3EA4A",
+        "FVF-1EC9627740DD"
+      ],
+      "script_dependencies": [],
+      "visual_review": "NOT_CURRENTLY_CAPTURED"
+    },
+    {
+      "path": "scripts/opera_hotspot_catalog.gd",
+      "source_sha256_lf": "713a43c5e2245f5dd4496a1a1909a5ba7c3bbd6961ebe4a8dd3db34e89b57222",
+      "lines": 374,
+      "class_name": "OperaHotspotCatalog",
+      "reachability": "POTENTIALLY_MAIN_REFERENCED",
+      "primitive_sites": 0,
+      "source_scope_ids": [],
+      "script_dependencies": [],
+      "visual_review": "NOT_CURRENTLY_CAPTURED"
+    },
+    {
+      "path": "scripts/opera_house.gd",
+      "source_sha256_lf": "6d6aeead33ff8cc451daa09da215185171359fd218693371184f38ecadac2d7f",
+      "lines": 339,
+      "class_name": "OperaHouse",
+      "reachability": "POTENTIALLY_MAIN_REFERENCED",
+      "primitive_sites": 0,
+      "source_scope_ids": [],
+      "script_dependencies": [
+        "scripts/chapter_two_career_scene_adapter.gd",
+        "scripts/main.gd",
+        "scripts/opera_act.gd"
+      ],
+      "visual_review": "NOT_CURRENTLY_CAPTURED"
+    },
+    {
+      "path": "scripts/opera_house_venue_2d.gd",
+      "source_sha256_lf": "cdb1c43991cd3a63cddb2a063be105435a343e469f84e4b49da93c10c45f1243",
+      "lines": 522,
+      "class_name": "OperaHouseVenue2D",
+      "reachability": "POTENTIALLY_MAIN_REFERENCED",
+      "primitive_sites": 2,
+      "source_scope_ids": [
+        "FVF-207913E744AB",
+        "FVF-C0A9DB89D09B"
+      ],
+      "script_dependencies": [
+        "scripts/chapter_two_director.gd",
+        "scripts/chapter_two_party_plan.gd",
+        "scripts/fashion_outfit_renderer.gd",
+        "scripts/main.gd",
+        "scripts/opera_house.gd",
+        "scripts/opera_job_playtest_menu.gd",
+        "scripts/opera_tree_book_test.gd",
+        "scripts/storybook_ui.gd"
+      ],
+      "visual_review": "NOT_CURRENTLY_CAPTURED"
+    },
+    {
+      "path": "scripts/opera_imp_clips.gd",
+      "source_sha256_lf": "e061de84be9831d4e9662c11d3440461078c505b4b1484d499fdf1fa37df0797",
+      "lines": 94,
+      "class_name": "OperaImpClips",
+      "reachability": "POTENTIALLY_MAIN_REFERENCED",
+      "primitive_sites": 0,
+      "source_scope_ids": [],
+      "script_dependencies": [],
+      "visual_review": "NOT_CURRENTLY_CAPTURED"
+    },
+    {
+      "path": "scripts/opera_job_playtest_menu.gd",
+      "source_sha256_lf": "e77790fb2b9bd2ff35d7c9b5856d77a7af1d8c9a5cc228cf8b8d363ec3884375",
+      "lines": 195,
+      "class_name": "OperaJobPlaytestMenu",
+      "reachability": "POTENTIALLY_MAIN_REFERENCED",
+      "primitive_sites": 1,
+      "source_scope_ids": [
+        "FVF-005A7A818172"
+      ],
+      "script_dependencies": [
+        "scripts/castle_career_routes.gd",
+        "scripts/main.gd",
+        "scripts/opera_house.gd",
+        "scripts/opera_house_venue_2d.gd",
+        "scripts/opera_route_presentation.gd",
+        "scripts/storybook_ui.gd"
+      ],
+      "visual_review": "NOT_CURRENTLY_CAPTURED"
+    },
+    {
+      "path": "scripts/opera_mastery.gd",
+      "source_sha256_lf": "1a5c6f89f2cd0effea2b22e85a29c3dcfcebb0298fb6d582b81a9bb427518bf3",
+      "lines": 176,
+      "class_name": "OperaMastery",
+      "reachability": "POTENTIALLY_MAIN_REFERENCED",
+      "primitive_sites": 0,
+      "source_scope_ids": [],
+      "script_dependencies": [],
+      "visual_review": "NOT_CURRENTLY_CAPTURED"
+    },
+    {
+      "path": "scripts/opera_nursery_catch.gd",
+      "source_sha256_lf": "b997e83c4032be14f187260a6fda1a99bcb5f3b61a7e07adebf5a99479dda431",
+      "lines": 292,
+      "class_name": "OperaNurseryCatch",
+      "reachability": "POTENTIALLY_MAIN_REFERENCED",
+      "primitive_sites": 10,
+      "source_scope_ids": [
+        "FVF-B1F135F4FF88",
+        "FVF-D89C924A4117"
+      ],
+      "script_dependencies": [],
+      "visual_review": "NOT_CURRENTLY_CAPTURED"
+    },
+    {
+      "path": "scripts/opera_performance_overlay.gd",
+      "source_sha256_lf": "16c7a17ed901750764481e7077ac2e60d4cf5bfc1a3b41970066e4a633545ddb",
+      "lines": 215,
+      "class_name": "OperaPerformanceOverlay",
+      "reachability": "POTENTIALLY_MAIN_REFERENCED",
+      "primitive_sites": 23,
+      "source_scope_ids": [
+        "FVF-1DC554B80F96",
+        "FVF-494FF55010ED",
+        "FVF-E3D92E92ABF0",
+        "FVF-8D59E2DD7297",
+        "FVF-D1ACC1876450",
+        "FVF-186002E3DEC8",
+        "FVF-AA4CA644939B"
+      ],
+      "script_dependencies": [
+        "scripts/storybook_ui.gd"
+      ],
+      "visual_review": "NOT_CURRENTLY_CAPTURED"
+    },
+    {
+      "path": "scripts/opera_performance_plan.gd",
+      "source_sha256_lf": "6b5ff197b0d88663af260217dc673a39d2d681e081b313c1c4b49c0a359d8366",
+      "lines": 34,
+      "class_name": "OperaPerformancePlan",
+      "reachability": "POTENTIALLY_MAIN_REFERENCED",
+      "primitive_sites": 0,
+      "source_scope_ids": [],
+      "script_dependencies": [],
+      "visual_review": "NOT_CURRENTLY_CAPTURED"
+    },
+    {
+      "path": "scripts/opera_racer_surface.gd",
+      "source_sha256_lf": "09b292073f3d4fcfc2605a22bf79b039f00047787edf2d25dde37798b3db4cba",
+      "lines": 476,
+      "class_name": "OperaRacerSurface",
+      "reachability": "POTENTIALLY_MAIN_REFERENCED",
+      "primitive_sites": 29,
+      "source_scope_ids": [
+        "FVF-F8B3E69B60A0",
+        "FVF-7505925888AE",
+        "FVF-5F6D9CB8D6B2",
+        "FVF-5336AE096A29"
+      ],
+      "script_dependencies": [
+        "scripts/kart.gd",
+        "scripts/kart_driving.gd",
+        "scripts/opera_gesture_surface.gd"
+      ],
+      "visual_review": "NOT_CURRENTLY_CAPTURED"
+    },
+    {
+      "path": "scripts/opera_roshan_actor.gd",
+      "source_sha256_lf": "556301bbaeefcc55f7a5c28744170872e488563719aee54856ad4c65c4e9cb6d",
+      "lines": 248,
+      "class_name": "OperaRoshanActor",
+      "reachability": "POTENTIALLY_MAIN_REFERENCED",
+      "primitive_sites": 0,
+      "source_scope_ids": [],
+      "script_dependencies": [],
+      "visual_review": "NOT_CURRENTLY_CAPTURED"
+    },
+    {
+      "path": "scripts/opera_route_presentation.gd",
+      "source_sha256_lf": "dd353ac7377557900f15d3b98a317f8ad5da33a5f6d4d0b4635f8b50740ecad4",
+      "lines": 24,
+      "class_name": "OperaRoutePresentation",
+      "reachability": "POTENTIALLY_MAIN_REFERENCED",
+      "primitive_sites": 0,
+      "source_scope_ids": [],
+      "script_dependencies": [
+        "scripts/main.gd"
+      ],
+      "visual_review": "NOT_CURRENTLY_CAPTURED"
+    },
+    {
+      "path": "scripts/opera_stage_paths.gd",
+      "source_sha256_lf": "63fc873b1b2bb3b7a4a10211c447a0812bba5bdd96131c1b1c72e1eadcf8419f",
+      "lines": 1018,
+      "class_name": "OperaStagePaths",
+      "reachability": "POTENTIALLY_MAIN_REFERENCED",
+      "primitive_sites": 0,
+      "source_scope_ids": [],
+      "script_dependencies": [],
+      "visual_review": "NOT_CURRENTLY_CAPTURED"
+    },
+    {
+      "path": "scripts/opera_teacher_surface.gd",
+      "source_sha256_lf": "cab2eee9f0bf1297296fef0a8650df7794214cfcb58fc379e44954f6153ec2ed",
+      "lines": 420,
+      "class_name": "OperaTeacherSurface",
+      "reachability": "POTENTIALLY_MAIN_REFERENCED",
+      "primitive_sites": 32,
+      "source_scope_ids": [
+        "FVF-4192A7FF106E",
+        "FVF-63483F5EEB2A",
+        "FVF-F0BAA57D7D85",
+        "FVF-B895A740F869",
+        "FVF-F76FBB3A933E",
+        "FVF-81F32823E2D0",
+        "FVF-B09A6204B303"
+      ],
+      "script_dependencies": [
+        "scripts/opera_gesture_surface.gd",
+        "scripts/storybook_ui.gd",
+        "scripts/teacher_lesson_plan.gd"
+      ],
+      "visual_review": "NOT_CURRENTLY_CAPTURED"
+    },
+    {
+      "path": "scripts/opera_tree_book_test.gd",
+      "source_sha256_lf": "20b33a534ca912b84e25f80342bfd7c17f0cd6f284e375f627d1e7b89e7caea1",
+      "lines": 408,
+      "class_name": "OperaTreeBookTest",
+      "reachability": "POTENTIALLY_MAIN_REFERENCED",
+      "primitive_sites": 13,
+      "source_scope_ids": [
+        "FVF-2BB366CA6FB9",
+        "FVF-1AEBA38572AF"
+      ],
+      "script_dependencies": [
+        "scripts/main.gd",
+        "scripts/storybook_ui.gd"
+      ],
+      "visual_review": "NOT_CURRENTLY_CAPTURED"
+    },
+    {
+      "path": "scripts/opera_world_backdrop_2d.gd",
+      "source_sha256_lf": "49a927c8183ed253b82d9893849dbdaf4af27f5ece52392588b3b287cf4932b4",
+      "lines": 606,
+      "class_name": "OperaWorldBackdrop2D",
+      "reachability": "POTENTIALLY_MAIN_REFERENCED",
+      "primitive_sites": 120,
+      "source_scope_ids": [
+        "FVF-754A9BE61039",
+        "FVF-E469C0312D76",
+        "FVF-55C37C0BF839",
+        "FVF-1480FB7C2AC4",
+        "FVF-EEE2298DA44D",
+        "FVF-C87ECA6D7042",
+        "FVF-B22E07D88190",
+        "FVF-4F04F05D1A5F",
+        "FVF-FDC1010B6C54",
+        "FVF-3AA1D6795D25",
+        "FVF-9BF1C111CB61",
+        "FVF-1568905BBBF8",
+        "FVF-3F26206E69DE",
+        "FVF-6091D00EBC7F",
+        "FVF-C99E5D2677C1",
+        "FVF-DB41C335B41C",
+        "FVF-532B60408974",
+        "FVF-49B330C0E118"
+      ],
+      "script_dependencies": [],
+      "visual_review": "NOT_CURRENTLY_CAPTURED"
+    },
+    {
+      "path": "scripts/opera_world_hotspot_2d.gd",
+      "source_sha256_lf": "4f36f8f00a94c4d668a8283d5d6a5f3701206c83883e7f12bac6f2cde0993800",
+      "lines": 432,
+      "class_name": "OperaWorldHotspot2D",
+      "reachability": "POTENTIALLY_MAIN_REFERENCED",
+      "primitive_sites": 13,
+      "source_scope_ids": [
+        "FVF-0A3A9FA2352B",
+        "FVF-73EF9AF65DA2",
+        "FVF-CAA2BC741C72",
+        "FVF-9E1E6D104A35",
+        "FVF-7DDF9E89D9EA"
+      ],
+      "script_dependencies": [
+        "scripts/interaction_affordance.gd"
+      ],
+      "visual_review": "NOT_CURRENTLY_CAPTURED"
+    },
+    {
+      "path": "scripts/painter/painter_document.gd",
+      "source_sha256_lf": "a08227e81e5100d1743d5707708eea6e2ff9f366129982280ec579b6490af4ff",
+      "lines": 221,
+      "class_name": "PainterDocument",
+      "reachability": "STANDALONE_OR_UNPROVED",
+      "primitive_sites": 2,
+      "source_scope_ids": [
+        "FVF-92E1157B2101",
+        "FVF-01252A33433B"
+      ],
+      "script_dependencies": [],
+      "visual_review": "NOT_CURRENTLY_CAPTURED"
+    },
+    {
+      "path": "scripts/painter/painter_guided_probe.gd",
+      "source_sha256_lf": "356738628280b63dcb6885726538f85033267386f123bb1c7f0672188e3bb5a0",
+      "lines": 122,
+      "class_name": null,
+      "reachability": "STANDALONE_OR_UNPROVED",
+      "primitive_sites": 0,
+      "source_scope_ids": [],
+      "script_dependencies": [
+        "scripts/painter/painter_document.gd",
+        "scripts/painter/painter_studio.gd",
+        "scripts/painter/painter_template.gd"
+      ],
+      "visual_review": "NOT_CURRENTLY_CAPTURED"
+    },
+    {
+      "path": "scripts/painter/painter_probe.gd",
+      "source_sha256_lf": "288ce1900225597006e16c2ddc23ddf8990df131ad9d5b5b4162daea5f8aee9c",
+      "lines": 223,
+      "class_name": null,
+      "reachability": "STANDALONE_OR_UNPROVED",
+      "primitive_sites": 1,
+      "source_scope_ids": [
+        "FVF-53719A6E73F2"
+      ],
+      "script_dependencies": [
+        "scripts/painter/painter_document.gd",
+        "scripts/painter/painter_guided_probe.gd",
+        "scripts/painter/painter_studio.gd"
+      ],
+      "visual_review": "NOT_CURRENTLY_CAPTURED"
+    },
+    {
+      "path": "scripts/painter/painter_studio.gd",
+      "source_sha256_lf": "19e5f6e21d116f17926b5ab666836db382dea8d0060b43e957460af7b637314a",
+      "lines": 534,
+      "class_name": "PainterStudio",
+      "reachability": "STANDALONE_OR_UNPROVED",
+      "primitive_sites": 19,
+      "source_scope_ids": [
+        "FVF-444BA48ADBDB"
+      ],
+      "script_dependencies": [
+        "scripts/opera_roshan_actor.gd",
+        "scripts/painter/painter_document.gd",
+        "scripts/painter/painter_template.gd",
+        "scripts/storybook_ui.gd"
+      ],
+      "visual_review": "NOT_CURRENTLY_CAPTURED"
+    },
+    {
+      "path": "scripts/painter/painter_template.gd",
+      "source_sha256_lf": "0f48f9885a2b1e1cb3ab3a0b828df8cf06bdcb8162f37e80e1b8fa258be2a746",
+      "lines": 101,
+      "class_name": "PainterTemplate",
+      "reachability": "STANDALONE_OR_UNPROVED",
+      "primitive_sites": 2,
+      "source_scope_ids": [
+        "FVF-1530050429C4"
+      ],
+      "script_dependencies": [
+        "scripts/painter/painter_document.gd"
+      ],
+      "visual_review": "NOT_CURRENTLY_CAPTURED"
+    },
+    {
+      "path": "scripts/partner_assist.gd",
+      "source_sha256_lf": "b2450228b9f22d2c6d652b43c6dc577dad8863293a9b2270a4a8d9da76a9dbad",
+      "lines": 105,
+      "class_name": "PartnerAssist",
+      "reachability": "POTENTIALLY_MAIN_REFERENCED",
+      "primitive_sites": 0,
+      "source_scope_ids": [],
+      "script_dependencies": [
+        "scripts/juice.gd",
+        "scripts/main.gd"
+      ],
+      "visual_review": "NOT_CURRENTLY_CAPTURED"
+    },
+    {
+      "path": "scripts/pause_menu.gd",
+      "source_sha256_lf": "2afc6103f8a750c437c1aa23c94419191a0b303cdec54aabd9345b560a5646b0",
+      "lines": 348,
+      "class_name": "PauseMenu",
+      "reachability": "POTENTIALLY_MAIN_REFERENCED",
+      "primitive_sites": 1,
+      "source_scope_ids": [
+        "FVF-D58DD87E55ED"
+      ],
+      "script_dependencies": [
+        "scripts/ember_fortress.gd",
+        "scripts/galaxy.gd",
+        "scripts/games/dance_engine.gd",
+        "scripts/games/melody.gd",
+        "scripts/games/slide_race.gd",
+        "scripts/main.gd",
+        "scripts/opera_house.gd",
+        "scripts/save_state.gd",
+        "scripts/storybook_ui.gd"
+      ],
+      "visual_review": "NOT_CURRENTLY_CAPTURED"
+    },
+    {
+      "path": "scripts/physics.gd",
+      "source_sha256_lf": "39a8a3ecf72e79ff797d2f6eb067ad3d186626a282d044af6f8ce64a57a78cce",
+      "lines": 363,
+      "class_name": "ReefPhysics",
+      "reachability": "POTENTIALLY_MAIN_REFERENCED",
+      "primitive_sites": 0,
+      "source_scope_ids": [],
+      "script_dependencies": [],
+      "visual_review": "NOT_CURRENTLY_CAPTURED"
+    },
+    {
+      "path": "scripts/player.gd",
+      "source_sha256_lf": "91ae8a4e9dccc090c7e1ce86bbec387ff8c761951e794e9d93b3c753be7c49b8",
+      "lines": 1110,
+      "class_name": null,
+      "reachability": "POTENTIALLY_MAIN_REFERENCED",
+      "primitive_sites": 4,
+      "source_scope_ids": [
+        "FVF-A14EA16A6D06"
+      ],
+      "script_dependencies": [
+        "scripts/arena/sky_lagoon.gd",
+        "scripts/camera_kit.gd",
+        "scripts/fashion_designer.gd",
+        "scripts/fashion_outfit_renderer.gd",
+        "scripts/physics.gd",
+        "scripts/roshan_sprite_anchors.gd",
+        "scripts/roshan_sprite_frames.gd"
+      ],
+      "visual_review": "NOT_CURRENTLY_CAPTURED"
+    },
+    {
+      "path": "scripts/rainbow_friend_follower.gd",
+      "source_sha256_lf": "745c323c562a51628c0d8b268e07dd640fe7d6b0e22aedd975bd4a7ccd1f72cb",
+      "lines": 67,
+      "class_name": "RainbowFriendFollower",
+      "reachability": "POTENTIALLY_MAIN_REFERENCED",
+      "primitive_sites": 0,
+      "source_scope_ids": [],
+      "script_dependencies": [
+        "scripts/arena/castle_rooms_25d.gd",
+        "scripts/fashion_outfit_renderer.gd",
+        "scripts/main.gd"
+      ],
+      "visual_review": "NOT_CURRENTLY_CAPTURED"
+    },
+    {
+      "path": "scripts/reef_districts.gd",
+      "source_sha256_lf": "79371c2799a0430107c91a43d4705f8a5bb7939d3d2b33c2df1e3cb608058d3b",
+      "lines": 396,
+      "class_name": "ReefDistricts",
+      "reachability": "POTENTIALLY_MAIN_REFERENCED",
+      "primitive_sites": 0,
+      "source_scope_ids": [],
+      "script_dependencies": [
+        "scripts/main.gd"
+      ],
+      "visual_review": "NOT_CURRENTLY_CAPTURED"
+    },
+    {
+      "path": "scripts/roshan_sprite_anchors.gd",
+      "source_sha256_lf": "a4d1b54324bb8faa959ec88d82ccf728efeec9cdb4134fac761b119cfac731a5",
+      "lines": 65,
+      "class_name": "RoshanSpriteAnchors",
+      "reachability": "POTENTIALLY_MAIN_REFERENCED",
+      "primitive_sites": 0,
+      "source_scope_ids": [],
+      "script_dependencies": [],
+      "visual_review": "NOT_CURRENTLY_CAPTURED"
+    },
+    {
+      "path": "scripts/roshan_sprite_frames.gd",
+      "source_sha256_lf": "41860fcd11e0ee071cc1c7c8bacc8242160b209b73c3a5d4bc1d2eda4a908d81",
+      "lines": 218,
+      "class_name": "RoshanSpriteFrames",
+      "reachability": "POTENTIALLY_MAIN_REFERENCED",
+      "primitive_sites": 0,
+      "source_scope_ids": [],
+      "script_dependencies": [
+        "scripts/arena/castle_rooms_25d.gd",
+        "scripts/roshan_sprite_anchors.gd"
+      ],
+      "visual_review": "NOT_CURRENTLY_CAPTURED"
+    },
+    {
+      "path": "scripts/roshan_sprite_loop.gd",
+      "source_sha256_lf": "73663a09ec2bf6f3f87d37596a7bcd1818346d744492deb109cac4a31e65362e",
+      "lines": 296,
+      "class_name": "RoshanSpriteLoop",
+      "reachability": "POTENTIALLY_MAIN_REFERENCED",
+      "primitive_sites": 0,
+      "source_scope_ids": [],
+      "script_dependencies": [
+        "scripts/fashion_designer.gd",
+        "scripts/fashion_outfit_renderer.gd",
+        "scripts/main.gd",
+        "scripts/roshan_sprite_anchors.gd",
+        "scripts/roshan_sprite_frames.gd",
+        "scripts/sprite_transition_2d.gd"
+      ],
+      "visual_review": "NOT_CURRENTLY_CAPTURED"
+    },
+    {
+      "path": "scripts/save_state.gd",
+      "source_sha256_lf": "de380b088c8dcdd4623804d44a8fe35be5bfe7f8095cdcff1ca40c24e2c9c9b9",
+      "lines": 964,
+      "class_name": "SaveState",
+      "reachability": "POTENTIALLY_MAIN_REFERENCED",
+      "primitive_sites": 0,
+      "source_scope_ids": [],
+      "script_dependencies": [
+        "scripts/castle_logo_studio.gd",
+        "scripts/chapter_two_director.gd",
+        "scripts/comfy_games.gd",
+        "scripts/day_one_director.gd",
+        "scripts/fashion_designer.gd",
+        "scripts/juice.gd",
+        "scripts/main.gd",
+        "scripts/opera_mastery.gd",
+        "scripts/teacher_lesson_plan.gd"
+      ],
+      "visual_review": "NOT_CURRENTLY_CAPTURED"
+    },
+    {
+      "path": "scripts/shell_ornament.gd",
+      "source_sha256_lf": "b55765cfd7926b755563f9017891c955fc23ae5c050c3d7141b7b2f2b1cdbc08",
+      "lines": 43,
+      "class_name": "ShellOrnament",
+      "reachability": "POTENTIALLY_MAIN_REFERENCED",
+      "primitive_sites": 8,
+      "source_scope_ids": [
+        "FVF-BB9F5E118B2D"
+      ],
+      "script_dependencies": [],
+      "visual_review": "NOT_CURRENTLY_CAPTURED"
+    },
+    {
+      "path": "scripts/sprite_transition_2d.gd",
+      "source_sha256_lf": "0a5c87ff8c4eb812bc2b352382f069c82771f1f39860e9adece4b35a04bf4bd5",
+      "lines": 255,
+      "class_name": "SpriteTransition2D",
+      "reachability": "POTENTIALLY_MAIN_REFERENCED",
+      "primitive_sites": 0,
+      "source_scope_ids": [],
+      "script_dependencies": [],
+      "visual_review": "NOT_CURRENTLY_CAPTURED"
+    },
+    {
+      "path": "scripts/stage_navigation_2d.gd",
+      "source_sha256_lf": "36fb7f194b8ad710284b7c5f5e9ef797a0d3c3c56bdc040f8b98d25bc455d79b",
+      "lines": 74,
+      "class_name": "StageNavigation2D",
+      "reachability": "POTENTIALLY_MAIN_REFERENCED",
+      "primitive_sites": 0,
+      "source_scope_ids": [],
+      "script_dependencies": [],
+      "visual_review": "NOT_CURRENTLY_CAPTURED"
+    },
+    {
+      "path": "scripts/start_menu.gd",
+      "source_sha256_lf": "2eb3a55dba1db6e223de967df6465e137d7bfcfa5309cd770a36ff7a3833f771",
+      "lines": 466,
+      "class_name": "StartMenu",
+      "reachability": "POTENTIALLY_MAIN_REFERENCED",
+      "primitive_sites": 5,
+      "source_scope_ids": [
+        "FVF-FD9D96A751DC",
+        "FVF-ED05296B9B54",
+        "FVF-BDFC46FA2ABE"
+      ],
+      "script_dependencies": [
+        "scripts/main.gd",
+        "scripts/storybook_ui.gd"
+      ],
+      "visual_review": "NOT_CURRENTLY_CAPTURED"
+    },
+    {
+      "path": "scripts/story_art.gd",
+      "source_sha256_lf": "3ff0367f3be0801e4a40f233d42cf66baef8a952948b373c2a33ffab6f176f8b",
+      "lines": 151,
+      "class_name": null,
+      "reachability": "POTENTIALLY_MAIN_REFERENCED",
+      "primitive_sites": 1,
+      "source_scope_ids": [
+        "FVF-E5DCDEFE93B2"
+      ],
+      "script_dependencies": [],
+      "visual_review": "NOT_CURRENTLY_CAPTURED"
+    },
+    {
+      "path": "scripts/storybook_ui.gd",
+      "source_sha256_lf": "839e53d6893347808341523d4e4b58e3727cc4fd4cd698726c92d494edce0fa7",
+      "lines": 346,
+      "class_name": "StorybookUI",
+      "reachability": "POTENTIALLY_MAIN_REFERENCED",
+      "primitive_sites": 3,
+      "source_scope_ids": [
+        "FVF-90C03A06AE1C",
+        "FVF-B6E969B4EB0F",
+        "FVF-DAE474F7FDB5"
+      ],
+      "script_dependencies": [
+        "scripts/shell_ornament.gd"
+      ],
+      "visual_review": "NOT_CURRENTLY_CAPTURED"
+    },
+    {
+      "path": "scripts/stuffie_battle.gd",
+      "source_sha256_lf": "9fa3246eb07d249ac223a82df8cd6b68ca572e0b28e918f594c420a49f9384a4",
+      "lines": 663,
+      "class_name": "StuffieBattle",
+      "reachability": "POTENTIALLY_MAIN_REFERENCED",
+      "primitive_sites": 2,
+      "source_scope_ids": [
+        "FVF-C1D720FBA41B",
+        "FVF-7EFFA2527F96"
+      ],
+      "script_dependencies": [
+        "scripts/combat_arena.gd",
+        "scripts/dungeon_art.gd",
+        "scripts/imp_ai.gd",
+        "scripts/main.gd",
+        "scripts/storybook_ui.gd"
+      ],
+      "visual_review": "NOT_CURRENTLY_CAPTURED"
+    },
+    {
+      "path": "scripts/tap_move_director.gd",
+      "source_sha256_lf": "dbe2d50e6b0dfb40b0f24f7cc9a73065c267209cd6a399e3fde601af4ce2a263",
+      "lines": 154,
+      "class_name": "TapMoveDirector",
+      "reachability": "POTENTIALLY_MAIN_REFERENCED",
+      "primitive_sites": 0,
+      "source_scope_ids": [],
+      "script_dependencies": [
+        "scripts/interaction_director.gd",
+        "scripts/main.gd"
+      ],
+      "visual_review": "NOT_CURRENTLY_CAPTURED"
+    },
+    {
+      "path": "scripts/teacher_lesson_plan.gd",
+      "source_sha256_lf": "d82e5b7a817335b4da2d0d7b55706a5cde1ff1954c2b33d8ba34d891dac5778e",
+      "lines": 201,
+      "class_name": "TeacherLessonPlan",
+      "reachability": "POTENTIALLY_MAIN_REFERENCED",
+      "primitive_sites": 0,
+      "source_scope_ids": [],
+      "script_dependencies": [],
+      "visual_review": "NOT_CURRENTLY_CAPTURED"
+    },
+    {
+      "path": "scripts/touch_ui.gd",
+      "source_sha256_lf": "a6f45679ff9738d6079078ba9cf5c623618a50a740e4fde2387385352029868d",
+      "lines": 1003,
+      "class_name": null,
+      "reachability": "POTENTIALLY_MAIN_REFERENCED",
+      "primitive_sites": 1,
+      "source_scope_ids": [
+        "FVF-0B4D71B1533A"
+      ],
+      "script_dependencies": [
+        "scripts/main.gd",
+        "scripts/storybook_ui.gd"
+      ],
+      "visual_review": "NOT_CURRENTLY_CAPTURED"
+    },
+    {
+      "path": "scripts/wardrobe_ui.gd",
+      "source_sha256_lf": "0d7f4c5241f141ca4bbb9464f21aa5bd46545e1817b8b2638fea1caadf9f6573",
+      "lines": 328,
+      "class_name": "WardrobeUI",
+      "reachability": "POTENTIALLY_MAIN_REFERENCED",
+      "primitive_sites": 3,
+      "source_scope_ids": [
+        "FVF-7AC498FF9C39",
+        "FVF-8C02E5F13D1D",
+        "FVF-82AEBA1EFC66"
+      ],
+      "script_dependencies": [
+        "scripts/fashion_outfit_renderer.gd",
+        "scripts/fashion_wardrobe.gd",
+        "scripts/main.gd",
+        "scripts/storybook_ui.gd"
+      ],
+      "visual_review": "NOT_CURRENTLY_CAPTURED"
+    }
+  ],
+  "scene_visual_nodes": [],
+  "art_producer_candidates": [
+    {
+      "path": "tools/audit_castle_card_alpha.py",
+      "sha256_lf": "f51e744873c7aa823495b83f087bb1f767a9a86085b0d8bca9a59e9e95ff5f37",
+      "role": "generator_or_validator_candidate",
+      "art_production_proved": false,
+      "note": "Retire any obsolete output generator only after its callers and accepted alternative are verified. A validator referencing SVG is not automatically a producer."
+    },
+    {
+      "path": "tools/audit_castle_hall_dressing.py",
+      "sha256_lf": "58e20708d28ed28eb8cc8ad8140f43eef4dbe15c09bf34aa0c63714b3eb60e72",
+      "role": "generator_or_validator_candidate",
+      "art_production_proved": false,
+      "note": "Retire any obsolete output generator only after its callers and accepted alternative are verified. A validator referencing SVG is not automatically a producer."
+    },
+    {
+      "path": "tools/audit_castle_hall_max_cells.py",
+      "sha256_lf": "a7648ede1a5ad38e151783d8d4e951f276468eb309496a84df1c1e2eb1dc788a",
+      "role": "generator_or_validator_candidate",
+      "art_production_proved": false,
+      "note": "Retire any obsolete output generator only after its callers and accepted alternative are verified. A validator referencing SVG is not automatically a producer."
+    },
+    {
+      "path": "tools/audit_castle_interactions_v2.py",
+      "sha256_lf": "017709b397650963fa3cf7f74c1edd0fa213455739384e684872b4d31db7421a",
+      "role": "generator_or_validator_candidate",
+      "art_production_proved": false,
+      "note": "Retire any obsolete output generator only after its callers and accepted alternative are verified. A validator referencing SVG is not automatically a producer."
+    },
+    {
+      "path": "tools/audit_castle_item_style.py",
+      "sha256_lf": "72ec2409412bdc1b30cfa0283f1df4be8caccd566233db64c7dcb54a4160db1c",
+      "role": "generator_or_validator_candidate",
+      "art_production_proved": false,
+      "note": "Retire any obsolete output generator only after its callers and accepted alternative are verified. A validator referencing SVG is not automatically a producer."
+    },
+    {
+      "path": "tools/audit_castle_main_hall_render.py",
+      "sha256_lf": "900783b75c0f35716724998a8e39cb2c6981a2994e55a605ab3b68be32f531f5",
+      "role": "generator_or_validator_candidate",
+      "art_production_proved": false,
+      "note": "Retire any obsolete output generator only after its callers and accepted alternative are verified. A validator referencing SVG is not automatically a producer."
+    },
+    {
+      "path": "tools/audit_castle_native_interactions.py",
+      "sha256_lf": "e221d618a239da0069fb5899f2fa10ffdecce2b5c4a1db7db99205892694f89f",
+      "role": "generator_or_validator_candidate",
+      "art_production_proved": false,
+      "note": "Retire any obsolete output generator only after its callers and accepted alternative are verified. A validator referencing SVG is not automatically a producer."
+    },
+    {
+      "path": "tools/audit_castle_static_depth_cards.py",
+      "sha256_lf": "3b4f1810fecb048c4ee74d3563809f9830272297d1469aad6cdd79090d5932df",
+      "role": "generator_or_validator_candidate",
+      "art_production_proved": false,
+      "note": "Retire any obsolete output generator only after its callers and accepted alternative are verified. A validator referencing SVG is not automatically a producer."
+    },
+    {
+      "path": "tools/audit_castle_tile_tone.py",
+      "sha256_lf": "af20d8a47809e4538a207b84c2ca8f6ee92f3fcbbaf73169f64d979723a8c393",
+      "role": "generator_or_validator_candidate",
+      "art_production_proved": false,
+      "note": "Retire any obsolete output generator only after its callers and accepted alternative are verified. A validator referencing SVG is not automatically a producer."
+    },
+    {
+      "path": "tools/audit_fairy_art_v2.py",
+      "sha256_lf": "7c089beceaedfcc26761f784cc8b94d14061033553bfa33539ee263498187c96",
+      "role": "generator_or_validator_candidate",
+      "art_production_proved": false,
+      "note": "Retire any obsolete output generator only after its callers and accepted alternative are verified. A validator referencing SVG is not automatically a producer."
+    },
+    {
+      "path": "tools/audit_opera_capture.py",
+      "sha256_lf": "b76ca31636ae770175dd5f79d9294210b1a1a320ac48a11ad870b6940935031e",
+      "role": "generator_or_validator_candidate",
+      "art_production_proved": false,
+      "note": "Retire any obsolete output generator only after its callers and accepted alternative are verified. A validator referencing SVG is not automatically a producer."
+    },
+    {
+      "path": "tools/audit_sky_lagoon_animal_lighting.py",
+      "sha256_lf": "61235a60ec4541ab640c6607c25ea31e5f328c4cc5fa2d449acd288ba3dcb955",
+      "role": "generator_or_validator_candidate",
+      "art_production_proved": false,
+      "note": "Retire any obsolete output generator only after its callers and accepted alternative are verified. A validator referencing SVG is not automatically a producer."
+    },
+    {
+      "path": "tools/audit_sky_lagoon_animal_realism.py",
+      "sha256_lf": "8bc03317f521991747b92a32c80f718199f683420d94e80ca2d833a750ac0cba",
+      "role": "generator_or_validator_candidate",
+      "art_production_proved": false,
+      "note": "Retire any obsolete output generator only after its callers and accepted alternative are verified. A validator referencing SVG is not automatically a producer."
+    },
+    {
+      "path": "tools/audit_sky_lagoon_hd_grid.py",
+      "sha256_lf": "38d40448a7455bbb5db724f0642ad13fe02409af27660d4c595ee87ce20e289c",
+      "role": "generator_or_validator_candidate",
+      "art_production_proved": false,
+      "note": "Retire any obsolete output generator only after its callers and accepted alternative are verified. A validator referencing SVG is not automatically a producer."
+    },
+    {
+      "path": "tools/audit_visual_design.py",
+      "sha256_lf": "0930b67c1a6913af7ddeab52cfc6b579a263de226a24348525567ed70def1305",
+      "role": "generator_or_validator_candidate",
+      "art_production_proved": false,
+      "note": "Retire any obsolete output generator only after its callers and accepted alternative are verified. A validator referencing SVG is not automatically a producer."
+    },
+    {
+      "path": "tools/build_art35_contact_sheets.py",
+      "sha256_lf": "e7ecb0673d8fa75117adf0ea8d8f0d11ceb432f6031152fea8d3641e42dcdb5a",
+      "role": "generator_or_validator_candidate",
+      "art_production_proved": false,
+      "note": "Retire any obsolete output generator only after its callers and accepted alternative are verified. A validator referencing SVG is not automatically a producer."
+    },
+    {
+      "path": "tools/build_art_inventory.py",
+      "sha256_lf": "e7707ba290bddf4da329f32a9c0048cae7df46ffb01a5004b506d301f307ccb3",
+      "role": "generator_or_validator_candidate",
+      "art_production_proved": false,
+      "note": "Retire any obsolete output generator only after its callers and accepted alternative are verified. A validator referencing SVG is not automatically a producer."
+    },
+    {
+      "path": "tools/build_audit_castle_main_hall_redraw_2k.py",
+      "sha256_lf": "17071e20e84de97f1d9b2e29a684d3f47e5114f5201de08ebd8590b559833d26",
+      "role": "generator_or_validator_candidate",
+      "art_production_proved": false,
+      "note": "Retire any obsolete output generator only after its callers and accepted alternative are verified. A validator referencing SVG is not automatically a producer."
+    },
+    {
+      "path": "tools/build_castle_dream_house_rooms.py",
+      "sha256_lf": "1dd0416788e354758199035b488b9b39a548cc16321829470ba3ae9118dec1f5",
+      "role": "generator_or_validator_candidate",
+      "art_production_proved": false,
+      "note": "Retire any obsolete output generator only after its callers and accepted alternative are verified. A validator referencing SVG is not automatically a producer."
+    },
+    {
+      "path": "tools/build_castle_elevator_picture_icons.py",
+      "sha256_lf": "b30609c8b9bcec8f6db9ae408957f7b7f1b6bfc47a4821bd7017721c2d150c46",
+      "role": "generator_or_validator_candidate",
+      "art_production_proved": false,
+      "note": "Retire any obsolete output generator only after its callers and accepted alternative are verified. A validator referencing SVG is not automatically a producer."
+    },
+    {
+      "path": "tools/build_castle_hall_alignment.py",
+      "sha256_lf": "79ba3ab4bdc1945ded3e2dfbfde7a37844ad2ed8ec0f05b29e60c615fe80e83e",
+      "role": "generator_or_validator_candidate",
+      "art_production_proved": false,
+      "note": "Retire any obsolete output generator only after its callers and accepted alternative are verified. A validator referencing SVG is not automatically a producer."
+    },
+    {
+      "path": "tools/build_castle_hall_polish_interactions.py",
+      "sha256_lf": "f5d565ff9384ea6490a56f8a1887525fea781d94b8cf9f0ceb45d4b4ee4495b7",
+      "role": "generator_or_validator_candidate",
+      "art_production_proved": false,
+      "note": "Retire any obsolete output generator only after its callers and accepted alternative are verified. A validator referencing SVG is not automatically a producer."
+    },
+    {
+      "path": "tools/build_castle_hall_runtime_registration.py",
+      "sha256_lf": "fa63b61feffb1094570aeac7785a3332c54e33fcaccea5f5b798611c21898119",
+      "role": "generator_or_validator_candidate",
+      "art_production_proved": false,
+      "note": "Retire any obsolete output generator only after its callers and accepted alternative are verified. A validator referencing SVG is not automatically a producer."
+    },
+    {
+      "path": "tools/build_castle_interaction_atlases.py",
+      "sha256_lf": "da0326b611ffd2dbafde7da24c5243b0fee3e090c4184b3ee2ae83a31abd812a",
+      "role": "generator_or_validator_candidate",
+      "art_production_proved": false,
+      "note": "Retire any obsolete output generator only after its callers and accepted alternative are verified. A validator referencing SVG is not automatically a producer."
+    },
+    {
+      "path": "tools/build_castle_interaction_v4_delivery.py",
+      "sha256_lf": "00cc2522d960513aaa35583d18b877f140964b90ccff0965f7aec571fbaf520d",
+      "role": "generator_or_validator_candidate",
+      "art_production_proved": false,
+      "note": "Retire any obsolete output generator only after its callers and accepted alternative are verified. A validator referencing SVG is not automatically a producer."
+    },
+    {
+      "path": "tools/build_castle_item_style_replacements.py",
+      "sha256_lf": "901f53976e8de19529e117356790ad9327381ea01bac6d284ce16b6d16c7bf24",
+      "role": "generator_or_validator_candidate",
+      "art_production_proved": false,
+      "note": "Retire any obsolete output generator only after its callers and accepted alternative are verified. A validator referencing SVG is not automatically a producer."
+    },
+    {
+      "path": "tools/build_castle_lighting_assets.py",
+      "sha256_lf": "cc752ca32fc57539cf1bcb8544860896ee071f5208ce0e7384a3c9eb5425c2ae",
+      "role": "generator_or_validator_candidate",
+      "art_production_proved": false,
+      "note": "Retire any obsolete output generator only after its callers and accepted alternative are verified. A validator referencing SVG is not automatically a producer."
+    },
+    {
+      "path": "tools/build_castle_native_interactions_v4.py",
+      "sha256_lf": "2172f3d4f0597b07e27dc22993e5e4460c5a471d611c46f5ff7fca2f2a49655a",
+      "role": "generator_or_validator_candidate",
+      "art_production_proved": false,
+      "note": "Retire any obsolete output generator only after its callers and accepted alternative are verified. A validator referencing SVG is not automatically a producer."
+    },
+    {
+      "path": "tools/build_castle_room_2k_tiles.py",
+      "sha256_lf": "59d3e89bab8ee98b1a7ef16ae1f7e403226cb01c86d037a4ac0d949784e0e9e1",
+      "role": "generator_or_validator_candidate",
+      "art_production_proved": false,
+      "note": "Retire any obsolete output generator only after its callers and accepted alternative are verified. A validator referencing SVG is not automatically a producer."
+    },
+    {
+      "path": "tools/build_castle_room_layers.py",
+      "sha256_lf": "2a5511bfcde4d6a5543985545ba2ca2ce953e80587d8c27b78d31cb43d60a7b3",
+      "role": "generator_or_validator_candidate",
+      "art_production_proved": false,
+      "note": "Retire any obsolete output generator only after its callers and accepted alternative are verified. A validator referencing SVG is not automatically a producer."
+    },
+    {
+      "path": "tools/build_castle_room_led_native_masters.py",
+      "sha256_lf": "1cece6cf614b6970a4f96d8424f23be05fec102250d67da2ce60634335e7cadc",
+      "role": "generator_or_validator_candidate",
+      "art_production_proved": false,
+      "note": "Retire any obsolete output generator only after its callers and accepted alternative are verified. A validator referencing SVG is not automatically a producer."
+    },
+    {
+      "path": "tools/build_castle_room_led_reference_board.py",
+      "sha256_lf": "805a08effae319018c9297a375756a979acd6b70b4071194cf522daf1e000c7e",
+      "role": "generator_or_validator_candidate",
+      "art_production_proved": false,
+      "note": "Retire any obsolete output generator only after its callers and accepted alternative are verified. A validator referencing SVG is not automatically a producer."
+    },
+    {
+      "path": "tools/build_day2_art_library.py",
+      "sha256_lf": "aa132670235af51d257ae00b86cd929692534983c2d8bd0b93cddf5561ce185b",
+      "role": "generator_or_validator_candidate",
+      "art_production_proved": false,
+      "note": "Retire any obsolete output generator only after its callers and accepted alternative are verified. A validator referencing SVG is not automatically a producer."
+    },
+    {
+      "path": "tools/build_fairy_conservatory_door_art.py",
+      "sha256_lf": "1644d37c6c9d0d03b2abbf7104fb3e00871a0a0f29f4477a8c29438fc1062c56",
+      "role": "generator_or_validator_candidate",
+      "art_production_proved": false,
+      "note": "Retire any obsolete output generator only after its callers and accepted alternative are verified. A validator referencing SVG is not automatically a producer."
+    },
+    {
+      "path": "tools/build_fairy_conservatory_gate_art.py",
+      "sha256_lf": "6b5dc3a9e08d60d745852af656ca0608e52071172a952047d6edb905f33bb4e5",
+      "role": "generator_or_validator_candidate",
+      "art_production_proved": false,
+      "note": "Retire any obsolete output generator only after its callers and accepted alternative are verified. A validator referencing SVG is not automatically a producer."
+    },
+    {
+      "path": "tools/build_fashion_outfits.gd",
+      "sha256_lf": "bba2cd8d87e763e4380f697c0014e68f9049d5b01e8ab2c0d9790c66c9358587",
+      "role": "generator_or_validator_candidate",
+      "art_production_proved": false,
+      "note": "Retire any obsolete output generator only after its callers and accepted alternative are verified. A validator referencing SVG is not automatically a producer."
+    },
+    {
+      "path": "tools/build_fashion_skin_engine.gd",
+      "sha256_lf": "5a3d0daa5936fde692fec439d73799e301da41f8bf9abc95eb3a22700852ae85",
+      "role": "generator_or_validator_candidate",
+      "art_production_proved": false,
+      "note": "Retire any obsolete output generator only after its callers and accepted alternative are verified. A validator referencing SVG is not automatically a producer."
+    },
+    {
+      "path": "tools/build_fashion_slots.gd",
+      "sha256_lf": "ac519c4e2f0ca898b3533a38e5fc3acc35e2e38a9f03ab4a84a921ba0e85bf8e",
+      "role": "generator_or_validator_candidate",
+      "art_production_proved": false,
+      "note": "Retire any obsolete output generator only after its callers and accepted alternative are verified. A validator referencing SVG is not automatically a producer."
+    },
+    {
+      "path": "tools/build_full_regen_galleries.py",
+      "sha256_lf": "e33c828ddc8fcdd1c8f56bfa9e03f82488943872de6c19e8c83f506bb2ec75de",
+      "role": "generator_or_validator_candidate",
+      "art_production_proved": false,
+      "note": "Retire any obsolete output generator only after its callers and accepted alternative are verified. A validator referencing SVG is not automatically a producer."
+    },
+    {
+      "path": "tools/build_interactive_background_ownership.py",
+      "sha256_lf": "9b6ae7e26bab5c2e34de4ff0d10cf5026667a0dc0dcce6f24bdff807f64c8f0a",
+      "role": "generator_or_validator_candidate",
+      "art_production_proved": false,
+      "note": "Retire any obsolete output generator only after its callers and accepted alternative are verified. A validator referencing SVG is not automatically a producer."
+    },
+    {
+      "path": "tools/build_opera_codex_art.py",
+      "sha256_lf": "bcf95af4e2ac6f0a5a6572f78d6c44cbcd4090bd183a296968620cbacca865ec",
+      "role": "generator_or_validator_candidate",
+      "art_production_proved": false,
+      "note": "Retire any obsolete output generator only after its callers and accepted alternative are verified. A validator referencing SVG is not automatically a producer."
+    },
+    {
+      "path": "tools/build_opera_regeneration_evidence.py",
+      "sha256_lf": "468c3fdda09a903ae7a4b9227ce817085fc41087e271df3a5c9022c9c06d9d28",
+      "role": "generator_or_validator_candidate",
+      "art_production_proved": false,
+      "note": "Retire any obsolete output generator only after its callers and accepted alternative are verified. A validator referencing SVG is not automatically a producer."
+    },
+    {
+      "path": "tools/build_pnw_woody_contact_sheets.py",
+      "sha256_lf": "b3d2e72fe752dc8ab5096cc22ffda16385dc250d33c1d4a754adaf845a54011f",
+      "role": "generator_or_validator_candidate",
+      "art_production_proved": false,
+      "note": "Retire any obsolete output generator only after its callers and accepted alternative are verified. A validator referencing SVG is not automatically a producer."
+    },
+    {
+      "path": "tools/build_sky_lagoon_kit.py",
+      "sha256_lf": "28d7558b5942ae1a9d5533742b28876d6acf24334878be64a9f6c56a79c4582a",
+      "role": "generator_or_validator_candidate",
+      "art_production_proved": false,
+      "note": "Retire any obsolete output generator only after its callers and accepted alternative are verified. A validator referencing SVG is not automatically a producer."
+    },
+    {
+      "path": "tools/create_cinematic_position_guides.py",
+      "sha256_lf": "eed69798fad525a403d23d1d55e3196b741d98bd35e538804492ae3ce5e311f8",
+      "role": "generator_or_validator_candidate",
+      "art_production_proved": false,
+      "note": "Retire any obsolete output generator only after its callers and accepted alternative are verified. A validator referencing SVG is not automatically a producer."
+    },
+    {
+      "path": "tools/extract_castle_hall_signs.py",
+      "sha256_lf": "9bb94e6ba700ac186e9d129b9fa20ffe48a92e8977ed904c509898919aa8412e",
+      "role": "generator_or_validator_candidate",
+      "art_production_proved": false,
+      "note": "Retire any obsolete output generator only after its callers and accepted alternative are verified. A validator referencing SVG is not automatically a producer."
+    },
+    {
+      "path": "tools/polish_sprite.py",
+      "sha256_lf": "209f4b752dafab1e3bc9314bc15a71451876e363cb029e25838dd5df2ec382f6",
+      "role": "generator_or_validator_candidate",
+      "art_production_proved": false,
+      "note": "Retire any obsolete output generator only after its callers and accepted alternative are verified. A validator referencing SVG is not automatically a producer."
+    },
+    {
+      "path": "tools/prepare_imp_animation_sprite.py",
+      "sha256_lf": "b81042aa75da325a1e8a68b6f10df9f31d91c78f27942be81bf5a56d86b6d80f",
+      "role": "generator_or_validator_candidate",
+      "art_production_proved": false,
+      "note": "Retire any obsolete output generator only after its callers and accepted alternative are verified. A validator referencing SVG is not automatically a producer."
+    },
+    {
+      "path": "tools/prepare_imp_fx_sprite.py",
+      "sha256_lf": "c64c01d4fee956bda362f291dacf5818d5b5481b5cc4e08353e5a7a37ea4b301",
+      "role": "generator_or_validator_candidate",
+      "art_production_proved": false,
+      "note": "Retire any obsolete output generator only after its callers and accepted alternative are verified. A validator referencing SVG is not automatically a producer."
+    },
+    {
+      "path": "tools/prepare_opera_2d_props.py",
+      "sha256_lf": "f47b78467876358289cfadc556bd299170d48f85a0fac51d53868292b16e3c0c",
+      "role": "generator_or_validator_candidate",
+      "art_production_proved": false,
+      "note": "Retire any obsolete output generator only after its callers and accepted alternative are verified. A validator referencing SVG is not automatically a producer."
+    },
+    {
+      "path": "tools/prepare_opera_minigame_art.py",
+      "sha256_lf": "e48836a1646f6997997990591dd0bdb8602922ae6e316b2c2653cd50a532be3f",
+      "role": "generator_or_validator_candidate",
+      "art_production_proved": false,
+      "note": "Retire any obsolete output generator only after its callers and accepted alternative are verified. A validator referencing SVG is not automatically a producer."
+    },
+    {
+      "path": "tools/prepare_sky_lagoon_castle_symmetry.py",
+      "sha256_lf": "f9668521237ef9f7437e208721da2b765be8b6de426c01db0b324090acccfaff",
+      "role": "generator_or_validator_candidate",
+      "art_production_proved": false,
+      "note": "Retire any obsolete output generator only after its callers and accepted alternative are verified. A validator referencing SVG is not automatically a producer."
+    },
+    {
+      "path": "tools/prepare_sky_lagoon_congruency_assets.py",
+      "sha256_lf": "e151666377b3b41d76c55743d8d099d5515202e005680321f01ab1fc94bb7f6c",
+      "role": "generator_or_validator_candidate",
+      "art_production_proved": false,
+      "note": "Retire any obsolete output generator only after its callers and accepted alternative are verified. A validator referencing SVG is not automatically a producer."
+    },
+    {
+      "path": "tools/prepare_sky_lagoon_reductive_grid.py",
+      "sha256_lf": "492eb309f297dd8a2dbca38d33f1cdf0e5f2b1048f682d44281608a3a4cad7aa",
+      "role": "generator_or_validator_candidate",
+      "art_production_proved": false,
+      "note": "Retire any obsolete output generator only after its callers and accepted alternative are verified. A validator referencing SVG is not automatically a producer."
+    },
+    {
+      "path": "tools/refine_castle_depth_cards.py",
+      "sha256_lf": "7713b27eba1ee757cf8170898a811ccdfe2d5f80353d2e6a455b6e3e757ccbd7",
+      "role": "generator_or_validator_candidate",
+      "art_production_proved": false,
+      "note": "Retire any obsolete output generator only after its callers and accepted alternative are verified. A validator referencing SVG is not automatically a producer."
+    },
+    {
+      "path": "tools/regenerate_opening_cinematic.py",
+      "sha256_lf": "16b6602f062f0ee16cdbce9c8d70fd786f482f942fcc624f62a2483d359a31f7",
+      "role": "generator_or_validator_candidate",
+      "art_production_proved": false,
+      "note": "Retire any obsolete output generator only after its callers and accepted alternative are verified. A validator referencing SVG is not automatically a producer."
+    },
+    {
+      "path": "tools/repair_castle_room_native_backgrounds.py",
+      "sha256_lf": "34032530ddc20d099d2f0a62052238289120b9ca42d938260fad5f3f577dcc2d",
+      "role": "generator_or_validator_candidate",
+      "art_production_proved": false,
+      "note": "Retire any obsolete output generator only after its callers and accepted alternative are verified. A validator referencing SVG is not automatically a producer."
+    },
+    {
+      "path": "tools/repair_kitchen_kettle.py",
+      "sha256_lf": "7976b1842f2b57391066db9ba4c903f9728b185ae27a43aec89d84ff22386b9f",
+      "role": "generator_or_validator_candidate",
+      "art_production_proved": false,
+      "note": "Retire any obsolete output generator only after its callers and accepted alternative are verified. A validator referencing SVG is not automatically a producer."
+    },
+    {
+      "path": "tools/review_castle_interaction_frames_v4.py",
+      "sha256_lf": "a1b369a38578594e32ca3db28b368c65cb92c4ccee861ab9fa87533bf7cde14d",
+      "role": "generator_or_validator_candidate",
+      "art_production_proved": false,
+      "note": "Retire any obsolete output generator only after its callers and accepted alternative are verified. A validator referencing SVG is not automatically a producer."
+    },
+    {
+      "path": "tools/slice_castle_hall_2x4.py",
+      "sha256_lf": "b21d5bfa1c2406c4e04807490ecbcb89bf813add6a5889d334577b842f1c14e0",
+      "role": "generator_or_validator_candidate",
+      "art_production_proved": false,
+      "note": "Retire any obsolete output generator only after its callers and accepted alternative are verified. A validator referencing SVG is not automatically a producer."
+    },
+    {
+      "path": "tools/test_refine_castle_depth_cards.py",
+      "sha256_lf": "deff2bf8ce713be75a9a3e851d1e4901a6b0da12e8e1678404449f4a2ba2236f",
+      "role": "generator_or_validator_candidate",
+      "art_production_proved": false,
+      "note": "Retire any obsolete output generator only after its callers and accepted alternative are verified. A validator referencing SVG is not automatically a producer."
+    },
+    {
+      "path": "tools/test_repair_castle_room_native_backgrounds.py",
+      "sha256_lf": "5644c7024e7a135a86eb422748266ecf728f75c8a1b88787317fe343dbcf174f",
+      "role": "generator_or_validator_candidate",
+      "art_production_proved": false,
+      "note": "Retire any obsolete output generator only after its callers and accepted alternative are verified. A validator referencing SVG is not automatically a producer."
+    }
+  ],
+  "coverage_limit": "All Git-declared script and image paths at baseline. Ignored/import/export-only local artifacts are not in this Git inventory; supplied baseline scan is checked separately. Static class/type mentions overapproximate reachability; dynamic resource bindings remain open.",
+  "image_shards": [
+    {
+      "path": "source_images_00.json",
+      "image_records": 500
+    },
+    {
+      "path": "source_images_01.json",
+      "image_records": 500
+    },
+    {
+      "path": "source_images_02.json",
+      "image_records": 500
+    },
+    {
+      "path": "source_images_03.json",
+      "image_records": 500
+    },
+    {
+      "path": "source_images_04.json",
+      "image_records": 500
+    },
+    {
+      "path": "source_images_05.json",
+      "image_records": 500
+    },
+    {
+      "path": "source_images_06.json",
+      "image_records": 500
+    },
+    {
+      "path": "source_images_07.json",
+      "image_records": 500
+    },
+    {
+      "path": "source_images_08.json",
+      "image_records": 500
+    },
+    {
+      "path": "source_images_09.json",
+      "image_records": 500
+    },
+    {
+      "path": "source_images_10.json",
+      "image_records": 500
+    },
+    {
+      "path": "source_images_11.json",
+      "image_records": 500
+    },
+    {
+      "path": "source_images_12.json",
+      "image_records": 500
+    },
+    {
+      "path": "source_images_13.json",
+      "image_records": 500
+    },
+    {
+      "path": "source_images_14.json",
+      "image_records": 500
+    },
+    {
+      "path": "source_images_15.json",
+      "image_records": 500
+    },
+    {
+      "path": "source_images_16.json",
+      "image_records": 500
+    },
+    {
+      "path": "source_images_17.json",
+      "image_records": 500
+    },
+    {
+      "path": "source_images_18.json",
+      "image_records": 500
+    },
+    {
+      "path": "source_images_19.json",
+      "image_records": 500
+    },
+    {
+      "path": "source_images_20.json",
+      "image_records": 46
+    }
+  ],
+  "image_count": 10046
+}
