@@ -2,3 +2,4 @@
 review/*.svg whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
 # Preserve literal native diagnostic logs without treating line endings as source edits.
 live_v2/*.log -diff
+live_v3/**/*.log -diff

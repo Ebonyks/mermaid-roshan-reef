@@ -48,7 +48,7 @@
   "runtime_verified": 0,
   "accepted_removed": 0,
   "remaining_named_design_records": 224,
-  "remaining_source_scopes_to_disposition": 369,
+  "remaining_source_scopes_to_disposition": 367,
   "regression_count": null,
   "regression_evidence": "Initial audit baseline; no replacement or runtime change. A zero regression claim awaits repeat census at unchanged/updated candidate.",
   "zero_acceptance_criteria": [
@@ -65,18 +65,19 @@
   "remaining_named_definition": "Named candidates still unresolved or requiring removal. Accepted removal and source/runtime-proved non-flat artwork, non-art functional geometry or inactive archive dispositions are separately resolved; they are never counted as replacements. A quality score cannot exempt flat-vector ART.",
   "source_register_frozen": true,
   "current_context": {
-    "evidence": "live_v2/README.md",
-    "source_revision": "44a36776ab3db0d9078aacf09eca144fde342330",
-    "exact_capture_count": 192,
+    "evidence": "live_v3/README.md",
+    "source_revision": "fab9043e3e5f0b317424d89e234d6865a9605c11",
+    "exact_capture_count": 292,
     "live_free_play_careers": 15,
     "live_open_phases": 70,
-    "partial_overlapping_entries": 24,
+    "partial_overlapping_entries": 30,
     "complete_entries": 0,
-    "entries_without_current_slice": 152,
-    "partial_drawing_scopes": 18,
-    "fully_dispositioned_scopes": 0,
+    "entries_without_current_slice": 146,
+    "partial_drawing_scopes": 22,
+    "fully_dispositioned_scopes": 2,
     "source_closure_files": 6427,
-    "natural_play_device_child_owner": null
+    "natural_play_device_child_owner": null,
+    "r3_exact_capture_count": 100
   },
-  "unreviewed_current_route_entries_note": "176 declared entries still lack full current state/variant review;24 now have a partial static slice. Frozen R1 scene_coverage gap count remains preserved separately from live_v2/coverage.json."
+  "unreviewed_current_route_entries_note": "All176 remain incomplete;30 have partial current context. R1/R2 evidence retains its historical scope;live_v3/coverage.json owns current combined coverage."
 }

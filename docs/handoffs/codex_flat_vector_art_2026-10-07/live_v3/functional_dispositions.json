@@ -1,0 +1,97 @@
+{
+  "schema": 1,
+  "reviewer": "Codex /root source + current static desktop Mobile review",
+  "reviewed_at_utc": "2026-10-08T08:10:26.603550+00:00",
+  "scope": "Inventory classification only; no artistic acceptance, removal, replacement or game change",
+  "scopes": [
+    {
+      "scope_id": "FVF-A8BBC99C5C9E",
+      "source": {
+        "id": "FVF-A8BBC99C5C9E",
+        "path": "scripts/games/day_one_bathroom_cleanup.gd",
+        "scope": "_add_fixture_cutout",
+        "start_line": 489,
+        "end_line": 523,
+        "primitive_site_ids": [
+          "FVS-E86C42C83B19"
+        ],
+        "source_sha256_lf": "c13d7ecf1536dc682eaa29312c1aa8d45210985196608dfb830e26fa4b543a5e",
+        "reachability": "POTENTIALLY_MAIN_REFERENCED",
+        "status": "NEEDS_CONTEXT_REVIEW",
+        "count_unit": "source_function_scope_not_art_piece",
+        "individual_piece_count": null,
+        "screen_coverage": null,
+        "required_action": "Trace guard and actual caller, enumerate named visual objects/states in phone-size current Mobile captures; split loops/helper scopes before accepting a piece total."
+      },
+      "classification": "FUNCTIONAL_TEXTURE_REVEAL_NO_FLAT_ART_RGB",
+      "named_objects": [
+        "CleanSinkCutout",
+        "CleanTubCutout",
+        "CleanToiletCutout"
+      ],
+      "art_texture": "assets/flats/castle/rooms/room_bubble_bath.png",
+      "guards": [
+        "All caller names enumerated at cleanup476-486; single constant painted texture assigned at515",
+        "Vertex RGB is white; edge alpha is0, interior alpha1",
+        "setup_scrub clean branch removes material; dirty branch creates L8 mask whose shader changes COLOR.a only"
+      ],
+      "evidence": [
+        "bathroom/1280x720/00_dirty_basket_prompt.png",
+        "bathroom/1280x720/02b_sink_touch_removes_dirt.png",
+        "bathroom/1280x720/03_sink_clean_sponge_returns.png",
+        "bathroom/1280x720/07b_tub_touch_removes_dirt.png",
+        "bathroom/1280x720/08_whole_room_sparkle.png",
+        "bathroom/1600x720/00_dirty_basket_prompt.png",
+        "bathroom/1600x720/02b_sink_touch_removes_dirt.png",
+        "bathroom/1600x720/03_sink_clean_sponge_returns.png",
+        "bathroom/1600x720/07b_tub_touch_removes_dirt.png",
+        "bathroom/1600x720/08_whole_room_sparkle.png"
+      ],
+      "invalidating_change": "Any new untextured/color-art branch, RGB-generating shader or new caller invalidates this classification."
+    },
+    {
+      "scope_id": "FVF-F23CFD596774",
+      "source": {
+        "id": "FVF-F23CFD596774",
+        "path": "scripts/games/day_one_fixture_scrub.gd",
+        "scope": "setup_scrub",
+        "start_line": 28,
+        "end_line": 45,
+        "primitive_site_ids": [
+          "FVS-83B99B8B92AE"
+        ],
+        "source_sha256_lf": "b5aba569698ba641809a5bf216f4236443edca206f97a7e4d6010bd775389980",
+        "reachability": "POTENTIALLY_MAIN_REFERENCED",
+        "status": "NEEDS_CONTEXT_REVIEW",
+        "count_unit": "source_function_scope_not_art_piece",
+        "individual_piece_count": null,
+        "screen_coverage": null,
+        "required_action": "Trace guard and actual caller, enumerate named visual objects/states in phone-size current Mobile captures; split loops/helper scopes before accepting a piece total."
+      },
+      "classification": "FUNCTIONAL_TEXTURE_REVEAL_NO_FLAT_ART_RGB",
+      "named_objects": [
+        "CleanSinkCutout scrub mask",
+        "CleanTubCutout scrub mask"
+      ],
+      "art_texture": "assets/flats/castle/rooms/room_bubble_bath.png",
+      "guards": [
+        "All caller names enumerated at cleanup476-486; single constant painted texture assigned at515",
+        "Vertex RGB is white; edge alpha is0, interior alpha1",
+        "setup_scrub clean branch removes material; dirty branch creates L8 mask whose shader changes COLOR.a only"
+      ],
+      "evidence": [
+        "bathroom/1280x720/00_dirty_basket_prompt.png",
+        "bathroom/1280x720/02b_sink_touch_removes_dirt.png",
+        "bathroom/1280x720/03_sink_clean_sponge_returns.png",
+        "bathroom/1280x720/07b_tub_touch_removes_dirt.png",
+        "bathroom/1280x720/08_whole_room_sparkle.png",
+        "bathroom/1600x720/00_dirty_basket_prompt.png",
+        "bathroom/1600x720/02b_sink_touch_removes_dirt.png",
+        "bathroom/1600x720/03_sink_clean_sponge_returns.png",
+        "bathroom/1600x720/07b_tub_touch_removes_dirt.png",
+        "bathroom/1600x720/08_whole_room_sparkle.png"
+      ],
+      "invalidating_change": "Any new untextured/color-art branch, RGB-generating shader or new caller invalidates this classification."
+    }
+  ]
+}

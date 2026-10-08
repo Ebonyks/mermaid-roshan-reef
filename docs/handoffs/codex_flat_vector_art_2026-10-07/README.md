@@ -1,5 +1,7 @@
 # Flat-vector art audit and running-tally handoff
 
+R3 adds [100 current Castle/Day One Mobile/Speedy frames](live_v3/README.md), bringing the current evidence to292 frames. Thirty of176 overlapping entries have partial context; zero is complete. Two exact painted-texture/alpha-mask scopes are functionally dispositioned, leaving367 unresolved and22 with partial current context. The individual-art denominator remains unknown; zero replacements or accepted removals. Full current inventory publication/remote verification still precedes new replacement pixels.
+
 Current-evidence revision **R2** adds [192 current Castle/Opera Mobile/Speedy captures and contextual review](live_v2/README.md): all15 free-play careers and70 actual open phases at two aspects. Twenty-four of176 overlapping stage/route entries have a partial static slice; zero is complete and all369 scopes still require full disposition. The frozen R1 source/register counts below remain a lower bound. New replacement pixels wait until the full current inventory is completed, published and remotely verified; this is sequencing, not a new approval checkpoint.
 
 Owner commission: **2026-10-07**. Status: **Phase 1 source/context audit candidate; replacement mission ACTIVE**. Source baseline: `92c9fe70319ef46bfaa8f61348a6f51512141ec3` (`origin/dev`, fetched at task start). No runtime code/art, protected original, save or selected Day One clip was changed. No new artwork was generated.
@@ -8,7 +10,7 @@ The goal remains zero flat-vector **art** in reachable gameplay and UI, includin
 
 The audit records **224 named design/state families across 29 context families**. This is a lower bound, not an exhaustive count of confirmed weak individual objects. The complete source census also records **165 production/standalone scripts, 369 unresolved drawing scopes, 1,451 broader primitive construction sites, 348 glyph candidate rows and 10,046 Git-declared images**. A complementary narrower source scan records 1,246 call sites in 61 scripts. Different primitive sets explain the difference; neither call count is an art count.
 
-**176 overlapping route entries** cover the 100-row living-stage register, game catalogue, overlays and four scene entries. Current source has **15 live Opera careers and 61 phase rows**, plus Fashion Designer. Stage/game/UI entries overlap and are not distinct screens. Every entry still has `COVERAGE_GAP` for current Mobile evidence. Source inspection and the labelled historical contact sheets do not establish exhaustive current visual review, reachability, device, child or owner acceptance.
+**176 overlapping route entries** cover the 100-row living-stage register, game catalogue, overlays and four scene entries. Current source has **15 live Opera careers and 61 phase rows**, plus Fashion Designer. Stage/game/UI entries overlap and are not distinct screens. The frozen R1 source-only matrix retains `COVERAGE_GAP`; current overlays record partial evidence without claiming complete coverage. Source inspection and the labelled historical contact sheets do not establish exhaustive current visual review, reachability, device, child or owner acceptance.
 
 - [Full audit and evidence limits](AUDIT.md)
 - [Context-bound production order and named register](PRODUCTION_BACKLOG.md)

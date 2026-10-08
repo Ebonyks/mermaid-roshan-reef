@@ -1,0 +1,993 @@
+extends SceneTree
+## Non-runtime current Castle/Day One capture derivative.
+## Fresh synthetic profile and unchanged normal-save fingerprints. Real Windows
+## Mobile/Speedy pixels; direct fixture routes are not natural-child acceptance.
+
+const GODOT_BASELINE_PATH := "res://tools/godot_baseline.json"
+const READY_FRAME_LIMIT := 240
+const SINK_CENTER := Vector2(642.0, 280.0)
+const TUB_CENTER := Vector2(310.0, 349.0)
+const ROOM_IDS: Array[String] = ["main_hall", "opera_hall", "library", "playroom", "craft_room", "mermaid_pool", "bubble_bath", "kitchen", "family_gallery", "dining_room", "royal_bedroom", "sleepover_bedroom", "movie_lounge"]
+const SOURCE_FIXED_FILES: Array[String] = [
+	"project.godot",
+	"tools/audit_opera_capture.py",
+	"tools/audit_godot_baseline.py",
+	"tools/godot_baseline.json",
+]
+const SOURCE_TREE_ROOTS: Array[String] = [
+	"assets", "scenes", "scripts", "shaders",
+]
+const SOURCE_TREE_SUFFIXES := {
+	"assets": [
+		".bmp", ".dds", ".exr", ".gdshader", ".hdr", ".import", ".jpeg",
+		".jpg", ".json", ".ktx", ".mp3", ".ogg", ".png", ".svg", ".tga",
+		".uid", ".wav", ".webp",
+	],
+	"scenes": [".res", ".tres", ".tscn", ".uid"],
+	"scripts": [".gd", ".uid"],
+	"shaders": [".gdshader", ".uid"],
+}
+
+const EXPECTED_IDS := {
+	"castle": [
+		"rest_main_hall",
+		"rest_opera_hall",
+		"rest_library",
+		"rest_playroom",
+		"rest_craft_room",
+		"rest_mermaid_pool",
+		"rest_bubble_bath",
+		"rest_kitchen",
+		"rest_family_gallery",
+		"rest_dining_room",
+		"rest_royal_bedroom",
+		"rest_sleepover_bedroom",
+		"rest_movie_lounge",
+		"opera_hall_sconce_rest",
+		"opera_hall_sconce_active",
+		"opera_hall_sconce_restored",
+		"hall_traverse_00_left",
+		"hall_traverse_01",
+		"hall_traverse_02",
+		"hall_traverse_03",
+		"hall_traverse_04",
+		"hall_traverse_05_right",
+		"bubble_bath_bathtub_active_early",
+		"bubble_bath_bathtub_active_late"
+	],
+	"bathroom": [
+		"00_dirty_basket_prompt",
+		"01_sponge_travels_to_sink",
+		"02_sink_circle_guide",
+		"02b_sink_touch_removes_dirt",
+		"03_sink_clean_sponge_returns",
+		"04_brush_travels_to_tub",
+		"05_tub_drain_prompt",
+		"06_bunny_no_spin",
+		"07_tub_arrow_guide",
+		"07b_tub_touch_removes_dirt",
+		"08a_toilet_circle_prompt",
+		"08b_toilet_scrubbing",
+		"08_whole_room_sparkle",
+		"09_clean_pool_route",
+		"10_hall_glowing_pool_door"
+	],
+	"pool": [
+		"00_dirty_arrival",
+		"00a_roshan_approaching_trash",
+		"00b_roshan_scooping_trash",
+		"01_skimmer_catch",
+		"02_pool_clear_waterfall_dirty",
+		"03_waterfall_scrub",
+		"04_waterfall_clear_static",
+		"05_seahorse_tug_midway",
+		"06_seahorse_trash_release",
+		"07_rainbow_reveal_active",
+		"08_clean_pool_reveal"
+	]
+}
+
+var failures: int = 0
+var capture_root: String = ""
+var aspect_size := Vector2i.ZERO
+var run_case := ""
+var capture_main: ReefMain
+var isolated_save := ""
+var states: Array[Dictionary] = []
+var checks: Array[Dictionary] = []
+var capture_source_signature: Dictionary = {}
+var source_after: Dictionary = {}
+var normal_save_before: Dictionary = {}
+var normal_save_after: Dictionary = {}
+var global_failures: Array[Dictionary] = []
+
+func _init() -> void:
+	call_deferred("_run")
+
+func _check(label: String, ok: bool, detail: String = "") -> void:
+	checks.append({"label": label, "pass": ok, "detail": detail})
+	if not ok:
+		failures += 1
+	print("LIVE3|%s|%s|%s|%s" % [run_case, "PASS" if ok else "FAIL", label, detail])
+
+func _fail(code: String, detail: String) -> void:
+	global_failures.append({"code": code, "detail": detail})
+	_check(code, false, detail)
+
+func _frames(count: int) -> void:
+	for _index: int in range(count):
+		await process_frame
+
+func _configure_main(main: ReefMain) -> void:
+	capture_main = main
+	main._save_state = SaveState.new(main, isolated_save)
+
+func _apply_main_contract(main: ReefMain) -> void:
+	_check("isolated save override retained", main._save_state.save_path == isolated_save)
+	main._apply_quality("speedy")
+
+func _snapshot() -> Dictionary:
+	var s: Dictionary = {
+		"castle_room_id": capture_main.castle_room_id,
+		"game": capture_main.game,
+		"start_menu_active": capture_main.start_menu_active,
+		"tree_paused": paused,
+		"main_can_process": capture_main.can_process(),
+		"story_clip_present": is_instance_valid(capture_main._day_one_story_clip),
+		"castle_layer_visible": is_instance_valid(capture_main.castle_room_layer) and capture_main.castle_room_layer.visible,
+		"castle_stage_visible": is_instance_valid(capture_main.castle_room_stage) and capture_main.castle_room_stage.is_visible_in_tree(),
+		"fade_alpha": capture_main.fade_rect.color.a if is_instance_valid(capture_main.fade_rect) and capture_main.fade_rect.visible else 0.0,
+		"intro_active": capture_main.intro_active,
+		"day_one_active": capture_main.day_one_active,
+		"day_one_current_room": capture_main.day_one_current_room_id,
+		"day_one_completed_rooms": capture_main.day_one_completed_rooms.duplicate(),
+		"day_one_bathroom_cleanup_step": capture_main.day_one_bathroom_cleanup_step,
+		"day_one_bathroom_toilet_cleaned": capture_main.day_one_bathroom_toilet_cleaned,
+		"day_one_pool_cleanup_step": capture_main.day_one_pool_cleanup_step,
+		"day_one_pool_skimmer_mask": capture_main.day_one_pool_skimmer_mask,
+		"day_one_pool_waterfall_mask": capture_main.day_one_pool_waterfall_mask,
+		"day_one_pool_seahorse_tugs": capture_main.day_one_pool_seahorse_tugs,
+		"save_path": capture_main._save_state.save_path,
+	}
+	if is_instance_valid(capture_main._day_one_bathroom_cleanup):
+		var bath: DayOneBathroomCleanup = capture_main._day_one_bathroom_cleanup
+		s["bathroom"] = bath.audit_snapshot()
+		s["bathroom_cleaning"] = bath.cleaning_audit_snapshot()
+		s["bathroom_plate"] = bath.day_one_bathroom_plate_snapshot()
+	var rooms: CastleRooms25D = capture_main._castle_rooms_ref()
+	if rooms != null and is_instance_valid(rooms.day_one_pool_cleanup):
+		s["pool"] = rooms.day_one_pool_cleanup.audit_snapshot()
+	var rendered: Array[Dictionary] = []
+	_collect_visible(capture_main, rendered)
+	s["visible_canvas"] = rendered
+	return s
+
+func _collect_visible(node: Node, rows: Array[Dictionary]) -> void:
+	if node is CanvasItem and (node as CanvasItem).is_visible_in_tree():
+		var item: CanvasItem = node as CanvasItem
+		var row: Dictionary = {"path": String(capture_main.get_path_to(node)), "class": String(node.get_class()), "modulate": item.modulate, "self_modulate": item.self_modulate, "z_index": item.z_index}
+		var script: Script = node.get_script() as Script
+		if script != null:
+			row["script"] = script.resource_path
+		if node is Sprite2D:
+			var sprite: Sprite2D = node as Sprite2D
+			row["frame"] = sprite.frame
+			row["position"] = sprite.global_position
+			row["scale"] = sprite.global_scale
+			row["busy"] = sprite.get_meta("busy", false)
+			row["source_object_id"] = sprite.get_meta("source_object_id", "")
+			if sprite.texture != null:
+				row["texture"] = sprite.texture.resource_path
+				row["texture_size"] = sprite.texture.get_size()
+		if node is Polygon2D:
+			var polygon: Polygon2D = node as Polygon2D
+			row["polygon_vertices"] = polygon.polygon.size()
+			row["textured_polygon"] = polygon.texture != null
+			if polygon.texture != null:
+				row["texture"] = polygon.texture.resource_path
+		if item.material is ShaderMaterial:
+			var mat: ShaderMaterial = item.material as ShaderMaterial
+			if mat.shader != null:
+				row["shader"] = mat.shader.resource_path
+				row["shader_code_sha256"] = mat.shader.code.sha256_text()
+		if node is TextureRect:
+			var texture_rect: TextureRect = node as TextureRect
+			if texture_rect.texture != null:
+				row["texture"] = texture_rect.texture.resource_path
+		if node is Control:
+			row["rect"] = (node as Control).get_global_rect()
+		if node is Label:
+			row["text"] = (node as Label).text
+		if node is Button:
+			row["text"] = (node as Button).text
+			row["disabled"] = (node as Button).disabled
+		rows.append(row)
+	for child: Node in node.get_children():
+		_collect_visible(child, rows)
+
+func _capture(name: String) -> void:
+	await _frames(3)
+	await RenderingServer.frame_post_draw
+	var actual: Dictionary = _snapshot()
+	var expected_room := ""
+	if run_case == "castle":
+		expected_room = name.trim_prefix("rest_") if name.begins_with("rest_") else ("opera_hall" if name.begins_with("opera_hall") else ("main_hall" if name.begins_with("hall_") else "bubble_bath"))
+	elif run_case == "bathroom":
+		expected_room = "main_hall" if name.begins_with("10_") else "bubble_bath"
+	else:
+		expected_room = "mermaid_pool"
+	var valid := String(actual["castle_room_id"]) == expected_room and String(actual["save_path"]) == isolated_save
+	valid = valid and not bool(actual["start_menu_active"]) and not bool(actual["intro_active"]) and not bool(actual["tree_paused"]) and not bool(actual["story_clip_present"]) and bool(actual["castle_layer_visible"]) and bool(actual["castle_stage_visible"]) and float(actual["fade_alpha"]) <= 0.001
+	if run_case != "castle":
+		valid = valid and bool(actual["day_one_active"])
+	var image: Image = root.get_viewport().get_texture().get_image()
+	var path := capture_root.path_join(name + ".png")
+	_check("capture path fresh " + name, not FileAccess.file_exists(path))
+	var save_error := image.save_png(path)
+	valid = valid and not image.is_empty() and image.get_size() == aspect_size and save_error == OK
+	_check("capture state/image " + name, valid, "room=%s dimensions=%s" % [expected_room, image.get_size()])
+	var f := FileAccess.open(path, FileAccess.READ)
+	states.append({"id": name, "sequence": states.size(), "status": "PASS" if valid else "FAIL", "expected_room": expected_room, "actual": actual, "image": {"file": name + ".png", "width": image.get_width(), "height": image.get_height(), "bytes": f.get_length() if f != null else -1, "sha256": FileAccess.get_sha256(path)}})
+	if f != null:
+		f.close()
+
+func _run() -> void:
+	run_case = OS.get_environment("LIVE3_CASE")
+	capture_root = OS.get_environment("LIVE3_OUT")
+	var aspect := OS.get_environment("LIVE3_ASPECT").split("x")
+	if aspect.size() != 2 or capture_root.is_empty() or run_case not in ["castle", "bathroom", "pool"]:
+		print("LIVE3|FAIL|invalid explicit launch parameters")
+		quit(1)
+		return
+	aspect_size = Vector2i(int(aspect[0]), int(aspect[1]))
+	if aspect_size not in [Vector2i(1280, 720), Vector2i(1600, 720)] or not _exact_engine() or DisplayServer.get_name() == "headless" or RenderingServer.get_current_rendering_method() != "mobile":
+		print("LIVE3|FAIL|engine/viewport/renderer contract")
+		quit(1)
+		return
+	if DirAccess.dir_exists_absolute(capture_root) and (not DirAccess.get_files_at(capture_root).is_empty() or not DirAccess.get_directories_at(capture_root).is_empty()):
+		print("LIVE3|FAIL|stale output")
+		quit(1)
+		return
+	DirAccess.make_dir_recursive_absolute(capture_root)
+	var profile_dir := capture_root.get_base_dir().path_join("profiles").path_join(capture_root.get_file())
+	DirAccess.make_dir_recursive_absolute(profile_dir)
+	isolated_save = profile_dir.path_join("reef_save.json")
+	if FileAccess.file_exists(isolated_save):
+		print("LIVE3|FAIL|stale profile")
+		quit(1)
+		return
+	Engine.max_fps = 60
+	normal_save_before = _normal_save_fingerprints()
+	capture_source_signature = _source_signature()
+	_check("source closure has no missing files", (capture_source_signature["missing"] as Array).is_empty())
+	_check("requested client/backing size", await _set_aspect(aspect_size))
+	if run_case == "castle":
+		await _run_castle()
+	elif run_case == "bathroom":
+		await _run_bathroom()
+	else:
+		await _run_pool()
+	await _frames(4)
+	normal_save_after = _normal_save_fingerprints()
+	source_after = _source_signature()
+	_check("normal child save/backups unchanged", normal_save_before == normal_save_after)
+	_check("source closure unchanged during capture", capture_source_signature["sha256"] == source_after["sha256"])
+	var actual_ids: Array[String] = []
+	for row: Dictionary in states:
+		actual_ids.append(String(row["id"]))
+	_check("complete exact ordered capture matrix", actual_ids == (EXPECTED_IDS[run_case] as Array))
+	var manifest: Dictionary = {"schema": "reef.flat_vector.live_castle_dayone.v1", "source_revision": OS.get_environment("GITHUB_SHA"), "run_case": run_case, "engine": _engine_contract(), "renderer": RenderingServer.get_current_rendering_method(), "display_server": DisplayServer.get_name(), "quality": "speedy", "aspect": [aspect_size.x, aspect_size.y], "harness_sha256": FileAccess.get_sha256(get_script().resource_path), "source_signature": capture_source_signature, "source_unchanged": capture_source_signature["sha256"] == source_after["sha256"], "save_isolation": {"before": normal_save_before, "after": normal_save_after, "unchanged": normal_save_before == normal_save_after, "fresh_fixture_save": isolated_save, "normal_save_file": ProjectSettings.globalize_path("user://reef_save.json")}, "checks": checks, "expected_ids": EXPECTED_IDS[run_case], "states": states, "failures": failures, "result": "PASS" if failures == 0 else "FAIL", "scope": "Synthetic entry/checkpoints with original real interaction probes; static current review only; story clips suppressed in fixture; no natural child/device/owner acceptance."}
+	var out_file := FileAccess.open(capture_root.path_join("capture_manifest.json"), FileAccess.WRITE)
+	out_file.store_string(JSON.stringify(manifest, "\t", true) + "\n")
+	out_file.close()
+	print("LIVE3|RESULT|%s|states=%d|case=%s|aspect=%s" % [manifest["result"], states.size(), run_case, aspect_size])
+	quit(0 if failures == 0 else 1)
+
+func _settle(frames: int) -> void:
+	for _frame: int in range(frames):
+		await process_frame
+
+
+func _set_aspect(size: Vector2i) -> bool:
+	get_root().mode = Window.MODE_WINDOWED
+	DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
+	await process_frame
+	for _frame: int in range(READY_FRAME_LIMIT):
+		# Windows applies a maximized-to-windowed transition asynchronously.
+		# Reassert the requested client size after that transition instead of
+		# accepting the monitor-sized backing texture as capture evidence.
+		DisplayServer.window_set_position(Vector2i(-2400, 0))
+		get_root().size = size
+		DisplayServer.window_set_size(size)
+		await process_frame
+		var image: Image = get_root().get_viewport().get_texture().get_image()
+		if image != null and image.get_size() == size:
+			return true
+	return false
+
+
+func _engine_contract() -> Dictionary:
+	var version := Engine.get_version_info()
+	return {
+		"major": int(version.get("major", -1)),
+		"minor": int(version.get("minor", -1)),
+		"patch": int(version.get("patch", -1)),
+		"status": String(version.get("status", "")),
+		"build": String(version.get("build", "")),
+		"version_string": String(version.get("string", "")),
+	}
+
+
+func _exact_engine() -> bool:
+	var engine := _engine_contract()
+	if not FileAccess.file_exists(GODOT_BASELINE_PATH):
+		return false
+	var parsed: Variant = JSON.parse_string(FileAccess.get_file_as_string(GODOT_BASELINE_PATH))
+	if not parsed is Dictionary:
+		return false
+	var baseline: Dictionary = parsed
+	var parts: PackedStringArray = String(baseline.get("version", "")).split(".")
+	if parts.size() != 3:
+		return false
+	for part: String in parts:
+		if not part.is_valid_int():
+			return false
+	var status: String = String(baseline.get("status", ""))
+	var release: String = String(baseline.get("release", ""))
+	if status != "stable" or release != "%s-%s" % [String(baseline.get("version", "")), status]:
+		return false
+	return int(engine["major"]) == int(parts[0]) and int(engine["minor"]) == int(parts[1]) \
+		and int(engine["patch"]) == int(parts[2]) and String(engine["status"]) == status \
+		and String(engine["build"]) == "official" \
+		and String(engine["version_string"]) == "%s (official)" % release
+
+
+func _source_suffixes(root_name: String) -> Array[String]:
+	var suffixes: Array[String] = []
+	var raw_suffixes: Array = SOURCE_TREE_SUFFIXES.get(root_name, []) as Array
+	for value: Variant in raw_suffixes:
+		suffixes.append(String(value))
+	return suffixes
+
+
+func _source_file_matches(file_name: String, suffixes: Array[String]) -> bool:
+	var lower_name := file_name.to_lower()
+	for suffix: String in suffixes:
+		if lower_name.ends_with(suffix):
+			return true
+	return false
+
+
+func _collect_source_tree(relative_dir: String, suffixes: Array[String],
+		paths: Array[String], missing: Array[String]) -> void:
+	var resource_dir := "res://" + relative_dir
+	if not DirAccess.dir_exists_absolute(resource_dir):
+		missing.append(relative_dir + "/")
+		return
+	var file_names := DirAccess.get_files_at(resource_dir)
+	file_names.sort()
+	for file_name: String in file_names:
+		if _source_file_matches(file_name, suffixes):
+			paths.append(relative_dir + "/" + file_name)
+	var directory_names := DirAccess.get_directories_at(resource_dir)
+	directory_names.sort()
+	for directory_name: String in directory_names:
+		_collect_source_tree(
+			relative_dir + "/" + directory_name, suffixes, paths, missing)
+
+
+func _source_path_contract() -> Dictionary:
+	var paths: Array[String] = SOURCE_FIXED_FILES.duplicate()
+	var missing: Array[String] = []
+	var tree_rules: Array[Dictionary] = []
+	for root_name: String in SOURCE_TREE_ROOTS:
+		var suffixes := _source_suffixes(root_name)
+		tree_rules.append({"root": root_name, "suffixes": suffixes})
+		_collect_source_tree(root_name, suffixes, paths, missing)
+	paths.sort()
+	missing.sort()
+	return {
+		"paths": paths,
+		"missing": missing,
+		"tree_rules": tree_rules,
+	}
+
+
+func _source_signature() -> Dictionary:
+	var contract := _source_path_contract()
+	var source_paths: Array = contract.get("paths", []) as Array
+	var file_hashes: Dictionary = {}
+	var missing: Array = contract.get("missing", []) as Array
+	var entries: Array[String] = []
+	for relative_value: Variant in source_paths:
+		var relative := String(relative_value)
+		var resource_path := "res://" + relative
+		var digest := ""
+		if FileAccess.file_exists(resource_path):
+			digest = FileAccess.get_sha256(resource_path)
+		if digest.is_empty():
+			missing.append(relative)
+		else:
+			file_hashes[relative] = digest
+		entries.append("%s:%s" % [relative, digest])
+	missing.sort()
+	return {
+		"algorithm": "sha256_opera_capture_source_closure_v2",
+		"tree_rules": contract.get("tree_rules", []),
+		"paths": source_paths,
+		"files": file_hashes,
+		"missing": missing,
+		"sha256": "\n".join(entries).sha256_text(),
+	}
+
+
+func _normal_save_fingerprints() -> Dictionary:
+	var values: Dictionary = {}
+	var normal := ProjectSettings.globalize_path("user://reef_save.json")
+	for suffix: String in ["", ".tmp0", ".tmp1", ".tmp", ".old", ".bak", ".bak.tmp", ".bak.old"]:
+		var path := normal + suffix
+		values[suffix] = FileAccess.get_sha256(path) if FileAccess.file_exists(path) else "absent"
+	return values
+
+func _run_castle() -> void:
+	_check("real Mobile viewport is available",
+		DisplayServer.get_name() != "headless", DisplayServer.get_name())
+	if failures > 0:
+
+		return
+	var dir_error: Error = DirAccess.make_dir_recursive_absolute(capture_root)
+	_check("capture directory is ready", dir_error == OK, capture_root)
+
+	var scene: PackedScene = load("res://scenes/main.tscn") as PackedScene
+	var main: ReefMain = scene.instantiate() as ReefMain
+	_configure_main(main)
+	root.add_child(main)
+	_apply_main_contract(main)
+	await _frames(2)
+	if main.start_menu_active:
+		main._start_menu_ref()._dismiss_menu()
+		await _frames(2)
+	if main.intro_active:
+		main._skip_intro()
+	await _frames(2)
+	main.day_one_active = false
+	main.chapter2_active = false
+	main._day_one_cancel_story_clips()
+	main.set("pearl_count", 10)
+	for friend_value: Variant in main.get("friends") as Array:
+		var friend: Dictionary = friend_value as Dictionary
+		friend["found"] = true
+		friend["won"] = true
+	main.set("trophies", 5)
+	main.set("level2_done_once", true)
+	main.call("_enter_level2_now", true, false, false)
+	await _frames(12)
+	main.call("_enter_castle_interior_now", false)
+	await _frames(18)
+	var rooms: RefCounted = main.call("_castle_rooms_ref") as RefCounted
+	_check("castle room controller opened", rooms != null)
+	if rooms == null:
+
+		return
+	_check("main hall source crops stay exact and non-overlapping",
+		_hall_source_crops_are_exact_and_non_overlapping(main))
+	rooms.call("show_room", "main_hall", false)
+	await _frames(8)
+	_check("main hall does not compose legacy front cards",
+		_hall_has_no_legacy_front_cards(main))
+	_check("main hall tiles have unmodified Canvas state",
+		_hall_tiles_have_unmodified_canvas_state(main))
+	for room_id: String in ROOM_IDS:
+		rooms.call("show_room", room_id, false)
+		await _frames(8)
+		await _capture("rest_" + room_id)
+
+	# Capture a live authored V4 sconce at stable action/rest states rather than
+	# the retired Main Hall V2 sconces now baked into that panorama. This exposes
+	# Canvas bloom washout and frame readability on an actual runtime fixture.
+	rooms.call("show_room", "opera_hall", false)
+	await _frames(8)
+	var opera_items: Dictionary = main.get(
+		"castle_room_item_sprites") as Dictionary
+	var sconce_record: Dictionary = opera_items.get(
+		"pearl_sconce_left", {}) as Dictionary
+	var sconce_sprite: Sprite2D = sconce_record.get("sprite") as Sprite2D
+	_check("sconce capture target is registered",
+		sconce_sprite != null and is_instance_valid(sconce_sprite),
+		"keys=%s" % [opera_items.keys()])
+	await _capture("opera_hall_sconce_rest")
+	rooms.call("_activate_room_item", "pearl_sconce_left")
+	await _frames(4)
+	await _capture("opera_hall_sconce_active")
+	await _frames(70)
+	await _capture("opera_hall_sconce_restored")
+
+	# Move at the controller's maximum child-friendly duration. Four samples plus
+	# the two end states make panorama culling/draw-in review reproducible.
+	rooms.call("show_room", "main_hall", false)
+	await _frames(8)
+	rooms.call("_position_hall_player_at_foot", Vector2(380.0, 835.0), false)
+	await _frames(24)
+	await _capture("hall_traverse_00_left")
+	rooms.call("_position_hall_player_at_foot", Vector2(2960.0, 835.0), true)
+	for sample_index: int in range(1, 5):
+		await _frames(16)
+		await _capture("hall_traverse_%02d" % sample_index)
+	await _frames(24)
+	await _capture("hall_traverse_05_right")
+
+	# The bathtub combines an authored atlas action, analytic spring motion, and
+	# bounded Canvas water, so one mid-action frame covers the highest-risk
+	# shader/animation integration without manufacturing test-only visuals.
+	rooms.call("show_room", "bubble_bath", false)
+	await _frames(8)
+	var bath_items: Dictionary = main.get("castle_room_item_sprites") as Dictionary
+	var bath_record: Dictionary = bath_items.get("bathtub", {}) as Dictionary
+	var bath_rig: Dictionary = bath_record.get("fixture_rig", {}) as Dictionary
+	var bath_water: Array = bath_rig.get("water", []) as Array
+	var bath_roles := PackedStringArray()
+	var bath_alpha := 1.0
+	for water_value: Variant in bath_water:
+		var water_record: Dictionary = water_value as Dictionary
+		bath_roles.append(String(water_record.get("role", "")))
+		if String(water_record.get("role", "")) == "fill":
+			var bath_material: ShaderMaterial = water_record.get(
+				"material") as ShaderMaterial
+			if bath_material != null:
+				bath_alpha = float(bath_material.get_shader_parameter("alpha_base"))
+	_check("bathtub water remains one soft basin layer before action",
+		bath_water.size() == 1 and bath_roles.has("fill")
+		and not bath_roles.has("stream") and bath_alpha <= 0.24,
+		"roles=%s alpha=%.3f" % [bath_roles, bath_alpha])
+	rooms.call("_activate_room_item", "bathtub")
+	await _frames(18)
+	await _capture("bubble_bath_bathtub_active_early")
+	await _frames(18)
+	await _capture("bubble_bath_bathtub_active_late")
+
+	main.queue_free()
+	await _frames(5)
+	print("CASTLE_MOBILE|done failures=%d output=%s" % [
+		failures, capture_root])
+
+func _hall_source_crops_are_exact_and_non_overlapping(main: Node) -> bool:
+	var tiles: Array = main.get("castle_room_background_tiles") as Array
+	if tiles.size() != 16:
+		return false
+	for index: int in range(tiles.size()):
+		var value: Variant = tiles[index]
+		var tile: Sprite2D = value as Sprite2D
+		if tile == null:
+			return false
+		var row: int = index / 8
+		var column: int = index % 8
+		var expected_master_x := float(column) * 910.0
+		var source_rect: Rect2 = tile.get_meta(
+			"source_art_rect", Rect2()) as Rect2
+		var master_rect: Rect2 = tile.get_meta(
+			"source_master_rect", Rect2()) as Rect2
+		var native_size: Vector2 = tile.get_meta(
+			"native_texture_size", Vector2.ZERO) as Vector2
+		var native_to_logical: Vector2 = tile.get_meta(
+			"native_to_logical_scale", Vector2.ZERO) as Vector2
+		if not source_rect.has_area() or not master_rect.has_area() \
+			or native_size != Vector2(910.0, 1024.0) \
+				or master_rect.position != Vector2(expected_master_x,
+					float(row) * 1024.0) \
+				or master_rect.size != native_size \
+				or source_rect.position != Vector2(
+					expected_master_x * native_to_logical.x,
+					float(row) * 1024.0 * native_to_logical.y) \
+				or source_rect.size != native_size * native_to_logical \
+				or tile.get_meta("runtime_seam_bleed_pixels", Vector2i(-1, -1)) \
+						!= Vector2i.ZERO:
+			return false
+	return true
+
+
+
+func _hall_has_no_legacy_front_cards(main: Node) -> bool:
+	var front_layer: Node2D = main.get("castle_room_front_layer") as Node2D
+	if front_layer == null:
+		return false
+	for child: Node in front_layer.get_children():
+		if child is Sprite2D and String(child.get_meta("source_texture", "")) \
+				in ["room_main_hall_front_left.png", "room_main_hall_front_right.png"]:
+			return false
+	return front_layer.get_child_count() == 0
+
+
+
+func _hall_tiles_have_unmodified_canvas_state(main: Node) -> bool:
+	var tiles: Array = main.get("castle_room_background_tiles") as Array
+	if tiles.size() != 16:
+		return false
+	for value: Variant in tiles:
+		var tile: Sprite2D = value as Sprite2D
+		if tile == null or tile.texture == null \
+		or Vector2i(tile.texture.get_size()) != Vector2i(910, 1024) \
+				or tile.modulate != Color.WHITE \
+				or tile.self_modulate != Color.WHITE \
+				or tile.material != null \
+				or tile.texture_filter != 0:
+			return false
+	return true
+
+
+
+func _run_bathroom() -> void:
+	_check("real Mobile viewport is available",
+		DisplayServer.get_name() != "headless", DisplayServer.get_name())
+	if failures > 0:
+
+		return
+	root.size = aspect_size
+	await _frames(4)
+	_check("capture directory",
+		DirAccess.make_dir_recursive_absolute(capture_root) == OK,
+		capture_root)
+
+	var scene: PackedScene = load("res://scenes/main.tscn") as PackedScene
+	var main: ReefMain = scene.instantiate() as ReefMain
+	_configure_main(main)
+	root.add_child(main)
+	_apply_main_contract(main)
+	await _frames(3)
+	if main.start_menu_active:
+		main._start_menu_ref()._dismiss_menu()
+		main._launch_from_start_menu(false)
+	else:
+		main._skip_intro()
+	await _frames(3)
+	# New Game resets the once-only movie save fields. This capture job reviews
+	# gameplay at an unfinished checkpoint after those story seams were seen.
+	main._day_one_cancel_story_clips()
+	main.day_one_story_clips_seen = {}
+	for clip_id: String in ["d1_intro", "d1_bath_arrival", "d1_bath_clean", "d1_pool_arrival", "d1_pool_clean", "d1_art_arrival", "d1_art_clean", "d1_playroom_arrival", "d1_playroom_clean", "d1_kitchen_arrival", "d1_kitchen_clean", "d1_library_arrival", "d1_library_clean"]:
+		main.day_one_story_clips_seen[clip_id] = true
+
+	main.day_one_story_clips_seen = {
+		"d1_intro": true, "d1_bath_arrival": true, "d1_bath_clean": true,
+	}
+	main._day_one_ref().restore_state({
+		"day_one_active": true,
+		"day_one_current_room": "bathroom",
+		"day_one_completed_rooms": [],
+		"day_one_bathroom_cleanup_step": 0,
+		"day_one_bathroom_supply_hunt_step": 0,
+		"day_one_bathroom_tools_authorized": false,
+	})
+	main.pearl_count = main.PEARL_TOTAL
+	main.level2_done_once = true
+	main._enter_level2_now(true, false, false)
+	await _frames(12)
+	main._enter_castle_interior_now(false)
+	await _frames(18)
+	main._castle_rooms_ref().show_room("bubble_bath", false)
+	await _frames(8)
+	main._day_one_cancel_story_clips()
+	main._sync_day_one_bathroom_cleanup()
+	var entry_deadline: int = Time.get_ticks_msec() + 15000
+	while main._day_one_bathroom_cleanup == null and Time.get_ticks_msec() < entry_deadline:
+		await process_frame
+		main._sync_day_one_bathroom_cleanup()
+	# Let the staged travel caption expire through its ordinary runtime timer.
+	# Freezing main earlier would leave it covering the sink for every capture.
+	await create_timer(5.0).timeout
+	main.set_process(false)
+
+	var cleanup: DayOneBathroomCleanup = main._day_one_bathroom_cleanup
+	_check("unfinished bathroom mounts dirty rescue", cleanup != null,
+		"active=%s room=%s stage=%s pending=%s clean=%s clip=%s" % [main.day_one_is_active(),
+		main.castle_room_id, main.castle_room_stage != null,
+		main._day_one_bathroom_movie_handoff_pending,
+		main.day_one_castle_room_is_clean("bubble_bath"),
+		main._day_one_story_clip.movie_id if is_instance_valid(main._day_one_story_clip) else "none"])
+	if cleanup == null:
+		main.queue_free()
+
+		return
+	var entry: Dictionary = cleanup.audit_snapshot()
+	_check("entry is dirty with one basket target",
+		bool(entry.get("sink_grime_visible", false))
+		and bool(entry.get("tub_grime_visible", false))
+		and int(entry.get("active_target_count", 0)) == 1
+		and bool(entry.get("localized_fixture_grime", false))
+		and bool(entry.get("basket_clear_of_action_zone", false)))
+	var dirty_plate_entry: Dictionary = \
+		cleanup.day_one_bathroom_plate_snapshot()
+	_check("entry uses the separate full dirty 2D room plate",
+		bool(dirty_plate_entry.get("dirty_plate_visible", false))
+		and bool(dirty_plate_entry.get("true_2d", false))
+		and not bool(dirty_plate_entry.get("contains_tub_swimmer", true))
+		and bool(dirty_plate_entry.get("separate_animated_bunny", false))
+		and bool(dirty_plate_entry.get("bunny_depth_occluded", false))
+		and bool(dirty_plate_entry.get("clean_fixture_pixels_occluded", false))
+		and not bool(dirty_plate_entry.get(
+			"clean_fixture_layer_visible", true))
+		and dirty_plate_entry.get("texture_size", Vector2i.ZERO)
+			== Vector2i(1024, 576))
+	_check("entry bath visibly contains one depth-occluded mermaid bunny",
+		bool(dirty_plate_entry.get("dirty_plate_visible", false))
+		and bool(dirty_plate_entry.get("separate_animated_bunny", false))
+		and bool(dirty_plate_entry.get("bunny_depth_occluded", false)))
+	var elevator: Control = main.castle_room_stage.get_node_or_null(
+		"ElevatorButton") as Control
+	var elevator_pointer: Control = main.castle_room_stage.get_node_or_null(
+		"ElevatorPointer") as Control
+	_check("rescue has no retired lower-corner overlay controls",
+		main.castle_room_action_button == null
+		and elevator == null and elevator_pointer == null)
+	await _capture("00_dirty_basket_prompt")
+
+	_check("basket tap starts real handoff", cleanup.probe_tap_basket())
+	await create_timer(0.16).timeout
+	await _capture("01_sponge_travels_to_sink")
+	await create_timer(0.28).timeout
+	_check("circle guide is live",
+		bool(cleanup.cleaning_audit_snapshot().get(
+			"circle_demo_visible", false)))
+	await _capture("02_sink_circle_guide")
+	var cleaning: DayOneBathroomCleaning = cleanup._cleaning_stage
+	var touch := InputEventScreenTouch.new()
+	touch.index = 0
+	touch.pressed = true
+	touch.position = SINK_CENTER + Vector2(-20, 0)
+	cleaning._on_gesture_input(touch)
+	var drag := InputEventScreenDrag.new()
+	drag.index = 0
+	drag.position = SINK_CENTER + Vector2(30, -8)
+	cleaning._on_gesture_input(drag)
+	_check("sink touch reveals a local clean patch before completion",
+		bool(cleanup.day_one_bathroom_plate_snapshot().get("sink_scrub_marks", false))
+		and main.day_one_bathroom_cleanup_step == 0)
+	await _capture("02b_sink_touch_removes_dirt")
+	touch.pressed = false
+	touch.position = drag.position
+	cleaning._on_gesture_input(touch)
+
+	var sink_points: Array[Vector2] = []
+	for index: int in range(49):
+		var angle: float = float(index) / 48.0 * TAU * 1.2
+		sink_points.append(SINK_CENTER
+			+ Vector2(cos(angle), sin(angle)) * 120.0)
+	_check("live sink gesture completes",
+		cleanup.probe_cleaning_sink_circle(sink_points))
+	_check("sink completion replaces the painted dirty basin",
+		bool(cleanup.day_one_bathroom_plate_snapshot().get("sink_clean_pixels", false)))
+	await _capture("03_sink_clean_sponge_returns")
+	await create_timer(0.48).timeout
+	await _capture("04_brush_travels_to_tub")
+	await create_timer(0.30).timeout
+	_check("tub drain tap is live before brush arrows",
+		bool(cleanup.cleaning_audit_snapshot().get("tub_drain_ready", false))
+		and bool(cleanup.cleaning_audit_snapshot().get(
+			"one_tap_drain_target_visible", false))
+		and bool(cleanup.cleaning_audit_snapshot().get(
+			"brush_parked_on_tub_rim", false))
+		and not bool(cleanup.cleaning_audit_snapshot().get(
+			"back_and_forth_arrows_visible", true)))
+	await _capture("05_tub_drain_prompt")
+	_check("tub tap starts the bunny's comic reaction", cleanup.probe_tap_tub())
+	await create_timer(0.16).timeout
+	_check("comic No and one spin are visible",
+		int(cleanup.cleaning_audit_snapshot().get(
+			"drain_reaction_count", 0)) == 1
+		and String(cleanup.cleaning_audit_snapshot().get(
+			"comic_shout", "")) == "NO!")
+	await _capture("06_bunny_no_spin")
+	await create_timer(0.92).timeout
+	_check("tub arrows are live",
+		bool(cleanup.cleaning_audit_snapshot().get(
+			"back_and_forth_arrows_visible", false))
+		and bool(cleanup.cleaning_audit_snapshot().get("tub_drained", false)))
+	await _capture("07_tub_arrow_guide")
+	touch.pressed = true
+	touch.position = TUB_CENTER + Vector2(-100, 0)
+	cleaning._on_gesture_input(touch)
+	drag.position = TUB_CENTER + Vector2(20, 0)
+	cleaning._on_gesture_input(drag)
+	_check("tub touch reveals a local clean patch before completion",
+		bool(cleanup.day_one_bathroom_plate_snapshot().get("tub_scrub_marks", false))
+		and main.day_one_bathroom_cleanup_step == 1)
+	await _capture("07b_tub_touch_removes_dirt")
+	touch.pressed = false
+	touch.position = drag.position
+	cleaning._on_gesture_input(touch)
+
+	var tub_points: Array[Vector2] = [
+		TUB_CENTER + Vector2(-210.0, 0.0),
+		TUB_CENTER + Vector2(210.0, 0.0),
+		TUB_CENTER + Vector2(-210.0, 0.0),
+		TUB_CENTER + Vector2(210.0, 0.0),
+		TUB_CENTER + Vector2(-210.0, 0.0),
+	]
+	_check("three forgiving tub reversals complete",
+		cleaning != null and cleaning.probe_tub_strokes(tub_points, 0.75))
+	var toilet: DayOneBathroomToilet = cleaning._toilet_stage
+	var toilet_deadline: int = Time.get_ticks_msec() + 8000
+	while toilet != null and not bool(toilet.audit_snapshot().get("arrived", false)) and Time.get_ticks_msec() < toilet_deadline:
+		await process_frame
+	_check("toilet actor reached the actual cleaning contact before prompt capture", toilet != null and bool(toilet.audit_snapshot().get("arrived", false)) and not bool(toilet.audit_snapshot().get("suspended", true)))
+	await _capture("08a_toilet_circle_prompt")
+	var toilet_center := DayOneBathroomToilet.CENTER
+	_check("actual toilet gesture starts", toilet.begin_gesture(toilet_center + Vector2(65, 0)))
+	await create_timer(1.4).timeout
+	for i: int in range(1, 18):
+		var angle: float = float(i) / 32.0 * TAU
+		toilet.move_gesture(toilet_center + Vector2(cos(angle), sin(angle)) * 65.0, 0.06)
+	await _capture("08b_toilet_scrubbing")
+	for i: int in range(18, 48):
+		var angle: float = float(i) / 32.0 * TAU
+		toilet.move_gesture(toilet_center + Vector2(cos(angle), sin(angle)) * 65.0, 0.06)
+	_check("toilet cleaning completes before the room celebration", main.day_one_bathroom_toilet_cleaned)
+	await create_timer(0.12).timeout
+	var clean_plate_finale: Dictionary = cleanup.day_one_bathroom_plate_snapshot()
+	_check("completion permanently reveals the distinct clean room state",
+		not bool(clean_plate_finale.get("dirty_plate_visible", true))
+		and bool(clean_plate_finale.get(
+			"clean_fixture_layer_visible", false)))
+	await _capture("08_whole_room_sparkle")
+	await create_timer(0.96).timeout
+	_check("finale preserves neutral global Back",
+		main.global_navigation_button != null
+		and main.global_navigation_button.visible
+		and String(main.global_navigation_button.get_meta(
+			"global_navigation_mode", "")) == "back"
+		and main.global_navigation_button.anchor_left == 0.0
+		and main.global_navigation_button.offset_left == 18.0
+		and main._day_one_room_handoff_target == "mermaid_pool")
+	_check("no picture card covers the clean room",
+		main.castle_room_stage.get_node_or_null("DayOneRouteCard") == null)
+	_check("no forward cue decorates or repurposes Back",
+		main.global_navigation_button.get_node_or_null("DayOneRouteGhostHand") == null
+		and main.global_navigation_button.get_node_or_null("DayOneArrowGlow") == null
+		and not main.global_navigation_button.has_meta("day_one_route_target"))
+	_check("pool route does not revive retired overlay controls",
+		main.castle_room_action_button == null
+		and elevator == null and elevator_pointer == null)
+	await _capture("09_clean_pool_route")
+	main.set_process(true)
+	main._navigation_ref().press()
+	await _frames(18)
+	main.set_process(false)
+	var pool_door: Button = main.castle_room_buttons.get("mermaid_pool") as Button
+	_check("Back returns to hall with the painted pool door available",
+		main.castle_room_id == "main_hall"
+		and main._castle_rooms_ref().active_door_highlight_id() == "mermaid_pool"
+		and pool_door != null and pool_door.visible)
+	await _capture("10_hall_glowing_pool_door")
+
+	main.queue_free()
+	await _frames(4)
+	print("DAY_ONE_BATHROOM_SHOTS|RESULT: %s failures=%d output=%s" % [
+		"PASS" if failures == 0 else "FAIL", failures, capture_root])
+
+func _run_pool() -> void:
+	Engine.max_fps = 60
+	var dir_error: Error = DirAccess.make_dir_recursive_absolute(capture_root)
+	_check("capture directory", dir_error == OK, capture_root)
+	var scene: PackedScene = load("res://scenes/main.tscn") as PackedScene
+	var main: ReefMain = scene.instantiate() as ReefMain
+	_configure_main(main)
+	root.add_child(main)
+	_apply_main_contract(main)
+	await _frames(3)
+	if main.start_menu_active:
+		main._start_menu_ref()._dismiss_menu()
+		main._launch_from_start_menu(false)
+	else:
+		main._skip_intro()
+	await _frames(3)
+	main._day_one_cancel_story_clips()
+	main.day_one_story_clips_seen = {}
+	for clip_id: String in ["d1_intro", "d1_bath_arrival", "d1_bath_clean", "d1_pool_arrival", "d1_pool_clean", "d1_art_arrival", "d1_art_clean", "d1_playroom_arrival", "d1_playroom_clean", "d1_kitchen_arrival", "d1_kitchen_clean", "d1_library_arrival", "d1_library_clean"]:
+		main.day_one_story_clips_seen[clip_id] = true
+	main._day_one_ref().restore_state({
+		"day_one_active": true,
+		"day_one_completed_rooms": ["bathroom"],
+		"day_one_pool_cleanup_step": 0,
+		"day_one_pool_skimmer_mask": 0,
+		"day_one_pool_waterfall_mask": 0,
+		"day_one_pool_seahorse_tugs": 0,
+	})
+	main.pearl_count = 10
+	main.level2_done_once = true
+	main._enter_level2_now(true, false, false)
+	await _frames(12)
+	main._enter_castle_interior_now(false)
+	await _frames(18)
+	var rooms: CastleRooms25D = main._castle_rooms_ref()
+	rooms.show_room("mermaid_pool", false)
+	await _frames(12)
+	var cleanup: DayOnePoolCleanup = rooms.day_one_pool_cleanup
+	_check("dirty pool mounted", cleanup != null)
+	if cleanup == null:
+		main.queue_free()
+
+		return
+	var waterfall_record: Dictionary = main.castle_room_item_sprites.get(
+		"waterfall", {}) as Dictionary
+	var clean_waterfall: Sprite2D = waterfall_record.get("sprite") as Sprite2D
+	_check("dirty state fully hides clean rainbow waterfall",
+		clean_waterfall != null and not clean_waterfall.visible)
+	await _capture("00_dirty_arrival")
+
+	var skimmer: PoolSkimmerActivity = cleanup.skimmer_activity
+	var touch := InputEventScreenTouch.new()
+	touch.index = 0
+	touch.pressed = true
+	touch.position = PoolSkimmerActivity.TRASH_POSITIONS[0]
+	skimmer._gui_input(touch)
+	touch.pressed = false
+	skimmer._gui_input(touch)
+	await create_timer(0.22).timeout
+	_check("approach cannot collect remotely", int(skimmer.audit_snapshot()["mask"]) == 0)
+	await _capture("00a_roshan_approaching_trash")
+	var scoop_deadline: int = Time.get_ticks_msec() + 8000
+	while Time.get_ticks_msec() < scoop_deadline:
+		await process_frame
+		if float(skimmer.audit_snapshot()["scoop_time"]) > 0.08:
+			break
+	_check("Roshan reaches the visible scoop", float(skimmer.audit_snapshot()["scoop_time"]) > 0.0)
+	skimmer.set_process(false)
+	await _capture("00b_roshan_scooping_trash")
+	skimmer.set_process(true)
+	var catch_deadline: int = Time.get_ticks_msec() + 4000
+	while Time.get_ticks_msec() < catch_deadline:
+		await process_frame
+		if int(skimmer.audit_snapshot()["mask"]) == 1:
+			break
+	_check("skimmer first catch after travel and scoop", int(skimmer.audit_snapshot()["mask"]) == 1)
+	await _frames(2)
+	await _capture("01_skimmer_catch")
+	for _trash_index: int in range(5):
+		_check("skimmer remaining catch", cleanup.skimmer_activity.probe_collect_next())
+	await _frames(40)
+	_check("waterfall unlocked after pool clear",
+		String(cleanup.audit_snapshot().get("current_activity", "")) == "waterfall")
+	await _capture("02_pool_clear_waterfall_dirty")
+
+	_check("waterfall first scrub lane",
+		cleanup.waterfall_activity.probe_clear_next_lane())
+	await _frames(4)
+	await _capture("03_waterfall_scrub")
+	_check("waterfall second scrub lane",
+		cleanup.waterfall_activity.probe_clear_next_lane())
+	_check("waterfall final scrub lane",
+		cleanup.waterfall_activity.probe_clear_next_lane())
+	await _frames(34)
+	_check("seahorse unlocked after waterfall clear",
+		String(cleanup.audit_snapshot().get("current_activity", "")) == "seahorse")
+	_check("rainbow flow remains stopped during rescue",
+		clean_waterfall != null and clean_waterfall.visible)
+	await _capture("04_waterfall_clear_static")
+
+	for _tug_index: int in range(4):
+		_check("seahorse opening tug", cleanup.seahorse_activity.probe_tap())
+	await _frames(3)
+	await _capture("05_seahorse_tug_midway")
+	for _tug_index: int in range(4):
+		_check("seahorse release tug", cleanup.seahorse_activity.probe_tap())
+	await _frames(5)
+	await _capture("06_seahorse_trash_release")
+	var reveal_deadline: int = Time.get_ticks_msec() + 8000
+	while Time.get_ticks_msec() < reveal_deadline:
+		await process_frame
+		if bool(cleanup.audit_snapshot().get("finale_started", false)) \
+				and float(cleanup.audit_snapshot().get("tint_ratio", 1.0)) <= 0.05:
+			break
+	_check("the clean-pool light has returned",
+		float(cleanup.audit_snapshot().get("tint_ratio", 1.0)) <= 0.05)
+	await _capture("07_rainbow_reveal_active")
+	await create_timer(0.3).timeout
+	# Rumi rises once, in the room-completion clip (owner QP-1), so the room's
+	# reveal frame shows the clean pool without her.
+	_check("reveal capture precedes next-room overlay",
+		bool(cleanup.audit_snapshot().get("reveal_beat_holding", false))
+		and not bool(cleanup.audit_snapshot().get("in_room_rumi_rise", true)))
+	await _capture("08_clean_pool_reveal")
+	main.queue_free()
+	await _frames(4)
+	print("DAY_ONE_POOL_SHOTS|RESULT: %s failures=%d output=%s" % [
+		"PASS" if failures == 0 else "FAIL", failures, capture_root])
