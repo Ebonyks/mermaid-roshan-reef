@@ -1,0 +1,232 @@
+{
+  "schema": "reef.whole-sprite-pipeline.v1",
+  "job_id": "pink_key_samples",
+  "catalog_sha256": "e64db30dee8bd5ab4121fba956a98b949348fece3710e7f5e3eb1617a787d212",
+  "frame_hashes": [
+    "432f8283ee8d9cd7f53a36b1f12bb1b82a865e048a03c3bd7cbd3a103ff2e789",
+    "bea9b82317185d6d0d9df2ba350a3d5991318432c118d6897264e4b98a1c5b95",
+    "f8c5237fb54e866de14be3b06c80963952ab2a6552d2355f1272105ca7f1a34e",
+    "432f8283ee8d9cd7f53a36b1f12bb1b82a865e048a03c3bd7cbd3a103ff2e789"
+  ],
+  "checks": {
+    "landmark_coverage": {
+      "status": "PENDING",
+      "evidence": {
+        "missing_indices": [
+          1,
+          2
+        ]
+      }
+    },
+    "figure_scale": {
+      "status": "PENDING",
+      "evidence": {
+        "peak_to_peak_pct": null,
+        "limit_pct": 1.0,
+        "per_frame_pct": [
+          0.0,
+          null,
+          null,
+          0.0
+        ]
+      }
+    },
+    "head_scale": {
+      "status": "PENDING",
+      "evidence": {
+        "peak_to_peak_pct": null,
+        "limit_pct": 2.0,
+        "per_frame_pct": [
+          -0.17060637474060059,
+          null,
+          null,
+          -0.17060637474060059
+        ]
+      }
+    },
+    "single_layer": {
+      "status": "PASS",
+      "evidence": {
+        "layers": 1
+      }
+    },
+    "canvas": {
+      "status": "PASS",
+      "evidence": [
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ]
+      ]
+    },
+    "sprite_alpha": {
+      "status": "PASS",
+      "evidence": {
+        "opaque_indices": [],
+        "scope": "export/matte defect; not a request to redraw every frame"
+      }
+    },
+    "border": {
+      "status": "FAIL",
+      "evidence": {
+        "failed_indices": [
+          1,
+          2
+        ]
+      }
+    },
+    "alpha_islands": {
+      "status": "FAIL",
+      "evidence": [
+        {
+          "index": 0,
+          "status": "PASS",
+          "evidence": {
+            "detached": [],
+            "minimum_area": 4,
+            "scope": "Disconnected alpha islands are diagnostic; no pixels are deleted"
+          }
+        },
+        {
+          "index": 1,
+          "status": "FAIL",
+          "evidence": {
+            "detached": [
+              {
+                "box": [
+                  162,
+                  7,
+                  3,
+                  3
+                ],
+                "area": 7
+              },
+              {
+                "box": [
+                  104,
+                  242,
+                  3,
+                  3
+                ],
+                "area": 6
+              }
+            ],
+            "minimum_area": 4,
+            "scope": "Disconnected alpha islands are diagnostic; no pixels are deleted"
+          }
+        },
+        {
+          "index": 2,
+          "status": "PASS",
+          "evidence": {
+            "detached": [],
+            "minimum_area": 4,
+            "scope": "Disconnected alpha islands are diagnostic; no pixels are deleted"
+          }
+        },
+        {
+          "index": 3,
+          "status": "PASS",
+          "evidence": {
+            "detached": [],
+            "minimum_area": 4,
+            "scope": "Disconnected alpha islands are diagnostic; no pixels are deleted"
+          }
+        }
+      ]
+    },
+    "endpoints": {
+      "status": "PASS",
+      "evidence": [
+        {
+          "index": 0,
+          "source_id": "K0",
+          "source_binding": "@rest",
+          "decoded_rgba_byte_exact": true
+        },
+        {
+          "index": 3,
+          "source_id": "K0",
+          "source_binding": "@rest",
+          "decoded_rgba_byte_exact": true
+        }
+      ]
+    },
+    "whole_frame_provenance": {
+      "status": "PASS",
+      "evidence": {
+        "failed_indices": [],
+        "scope": "Pinned declaration/ancestry check; method and pixels still require human review"
+      }
+    },
+    "proportions": {
+      "status": "PENDING",
+      "evidence": {
+        "missing_indices": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "lengths": []
+      }
+    },
+    "human_frame_review": {
+      "status": "PENDING",
+      "evidence": "Exact-hash identity/outfit/topology/motion review by a declared human on every frame required; model observations may block but cannot accept"
+    },
+    "full_speed_review": {
+      "status": "PENDING",
+      "evidence": "Declared human review of exact sequence and repaired boundaries at normal speed; static/model observations do not fill this lane"
+    }
+  },
+  "defects": [
+    {
+      "index": 1,
+      "category": "border_or_matte",
+      "source": "measurement"
+    },
+    {
+      "index": 2,
+      "category": "border_or_matte",
+      "source": "measurement"
+    }
+  ],
+  "repair_spans": [],
+  "durations_ms": [
+    42,
+    41,
+    42,
+    42
+  ],
+  "candidate_ready": false,
+  "blockers": [
+    "landmark_coverage",
+    "figure_scale",
+    "head_scale",
+    "border",
+    "alpha_islands",
+    "proportions",
+    "human_frame_review",
+    "full_speed_review"
+  ],
+  "claims": {
+    "ARCHIVE_COMPLETE": "PENDING_REMOTE_VERIFICATION",
+    "GENERATION_READY": "PENDING_KEY_REVIEW",
+    "DELIVERY_ACCEPTED": false,
+    "runtime": "NOT_INTEGRATED",
+    "device_child_owner": "PENDING"
+  }
+}
