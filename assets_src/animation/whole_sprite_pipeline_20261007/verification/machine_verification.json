@@ -1,10 +1,10 @@
 {
-  "checked_utc": "2026-10-08T06:10:24.499428+00:00",
+  "checked_utc": "2026-10-08T06:21:19.701711+00:00",
   "baseline": "92c9fe70319ef46bfaa8f61348a6f51512141ec3",
   "tool_snapshot": [
     {
       "path": "tools/sprite_pipeline.py",
-      "sha256": "1f1856afbcb0fda614c44a0021ee7eaeed284c341d97156a8dec194949f3a302"
+      "sha256": "34f0539f53960f13aff42ffcf8965ed41514a752472319ce71274fa7595cfafd"
     },
     {
       "path": "tools/sprite_pipeline_bridge.lua",
@@ -12,7 +12,7 @@
     },
     {
       "path": "tools/tests/test_sprite_pipeline.py",
-      "sha256": "d52f9a65e6db5a307b49cd547df0b47adb67277a6ab344d8a0d1f604747758a5"
+      "sha256": "07e8bc1ede2c8be6d0c4f110c5477899c69321a4a48e2498f03d891016fa5a15"
     }
   ],
   "dependencies": {
@@ -25,9 +25,9 @@
   },
   "focused_contract_tests": {
     "result": "PASS",
-    "count": 23,
-    "Python310": "All23 executed, including alpha-island test",
-    "Python313": "23 tests, one optional OpenCV-dependent skip"
+    "count": 24,
+    "Python310": "All24 executed, including alpha-island test",
+    "Python313": "24 tests, one optional OpenCV-dependent skip"
   },
   "full_local_regression": {
     "command": "Git Bash scripts/ci.sh with exact resolver-selected Godot4.7.2 stable",
@@ -179,12 +179,12 @@
     {
       "path": "assets_src/animation/whole_sprite_pipeline_20261007/verification/engine_python310.log",
       "source_path": "tmp/whole_sprite_pipeline/engine_python310.log",
-      "sha256": "947c713286bd6e06ecc6c67388d1be9839e34d4aaf43e7b3a2a95a25c24226d4"
+      "sha256": "f62845c556f6110b16f89ca25afea09e07b5a524993f427a488db631e61018c0"
     },
     {
       "path": "assets_src/animation/whole_sprite_pipeline_20261007/verification/engine_default.log",
       "source_path": "tmp/whole_sprite_pipeline/engine_default.log",
-      "sha256": "b21223d0b655fd8da4a3c82ad66abd8bd1e7a4e7998edab177e28d4a797fe39e"
+      "sha256": "c200a49cf41485f7cc58288be38787694cba9102b643f0c6204b73dfc8acd8b7"
     },
     {
       "path": "assets_src/animation/whole_sprite_pipeline_20261007/verification/authority.log",

@@ -35,7 +35,7 @@ def write_json(path: Path, data: dict) -> None:
     encoded = json.dumps(data, indent=2, allow_nan=False) + "\n"
     staging = path.with_name(path.name + ".next")
     try:
-        staging.write_text(encoded, encoding="utf-8")
+        staging.write_bytes(encoded.encode("utf-8"))
         staging.replace(path)
     finally:
         staging.unlink(missing_ok=True)
@@ -80,7 +80,16 @@ def inside(root: Path, value: str, output: bool = False) -> Path:
 
 def pinned(root: Path, entry: dict) -> Path:
     path = inside(root, entry["path"])
-    if not path.is_file() or sha(path) != entry["sha256"]:
+    actual = None
+    if path.is_file():
+        mode = entry.get("hash_normalization")
+        if mode is None:
+            actual = sha(path)
+        elif mode == "git_text_lf" and path.suffix.lower() in {".json", ".md", ".txt", ".log", ".py", ".lua"}:
+            actual = hashlib.sha256(path.read_bytes().replace(b"\r\n", b"\n")).hexdigest()
+        else:
+            raise ValueError("Unsupported metadata hash normalization; image/native binary hashes stay byte-exact")
+    if actual != entry["sha256"]:
         raise ValueError(f"Missing or changed pinned source: {entry['path']}")
     return path
 
@@ -489,7 +498,7 @@ def record_key(root: Path, job: dict, plan: dict, key_id: str, image_path: Path 
         total_cleanup = sum(a.get("cleanup_minutes", 0) for i, a in enumerate(ledger["attempts"]) if i != slot) + receipt["cleanup_minutes"]
         attempt["time_cap_exceeded"] = receipt["elapsed_seconds"] > ledger["limits"]["wall_minutes_max"] * 60 or total_cleanup > ledger["limits"]["cleanup_minutes_max"]
         write_json(output / "receipt.json", attempt)
-        (output / "prompt.txt").write_text(request["prompt"], encoding="utf-8")
+        (output / "prompt.txt").write_bytes(request["prompt"].encode("utf-8"))
         ledger["attempts"][slot] = attempt
         write_json(job["ledger_path"], ledger)
     return attempt

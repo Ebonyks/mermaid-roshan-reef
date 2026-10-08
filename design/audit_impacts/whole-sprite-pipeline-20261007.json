@@ -27,6 +27,7 @@
   "files": [
     "ASSET_LICENSES.md",
     "assets_src/animation/whole_sprite_pipeline_20261007/.gdignore",
+    "assets_src/animation/whole_sprite_pipeline_20261007/.gitattributes",
     "assets_src/animation/whole_sprite_pipeline_20261007/JOB_CARD.md",
     "assets_src/animation/whole_sprite_pipeline_20261007/README.md",
     "assets_src/animation/whole_sprite_pipeline_20261007/aseprite_key_samples/aseprite.log",
@@ -189,7 +190,7 @@
     {
       "command": "python -B -m unittest tools.tests.test_sprite_pipeline; py -3.10 -B -m unittest tools.tests.test_sprite_pipeline",
       "result": "PASS",
-      "evidence": "verification/engine_python310.log and engine_default.log, hashes in verification/machine_verification.json:23 contract tests; Python3.10 executes all, Python3.13 skips the unavailable OpenCV component test"
+      "evidence": "verification/engine_python310.log and engine_default.log, hashes in verification/machine_verification.json:24 contract tests; Python3.10 executes all, Python3.13 skips the unavailable OpenCV component test"
     },
     {
       "command": "py -3.10 -B tools/sprite_pipeline.py inspect catalog.json --job pink_wave_native; same engine with --job pink_key_samples",
@@ -222,7 +223,7 @@
       "evidence": "After local gates; dev integration only after green exact work-branch probes"
     }
   ],
-  "acceptance_gaps": "Reusable preparation/repair engine implemented,23 contract tests and actual one-layer native export pass. Native study and both generated keys remain rejected; normalized framing/alpha and missing joint/tracking/full-speed evidence block final guides. Local LTX runner remains a recipe reference, not generalized/executed here. Runtime/device/child/owner acceptance, findings and UNSATISFIED remain unchanged.",
+  "acceptance_gaps": "Reusable preparation/repair engine implemented,24 contract tests and actual one-layer native export pass. Native study and both generated keys remain rejected; normalized framing/alpha and missing joint/tracking/full-speed evidence block final guides. Local LTX runner remains a recipe reference, not generalized/executed here. Runtime/device/child/owner acceptance, findings and UNSATISFIED remain unchanged.",
   "limits": {
     "imagegen_calls_max": 2,
     "generated_video_takes_max": 0,

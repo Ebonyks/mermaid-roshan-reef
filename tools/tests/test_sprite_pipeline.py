@@ -144,6 +144,19 @@ class PipelineTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "changed pinned"):
             self.job()
 
+    def test_declared_metadata_line_endings_are_portable(self):
+        import hashlib
+        path = self.packet / "receipt.json"
+        canonical = b'{"provider": "test"}\n'
+        path.write_bytes(canonical.replace(b"\n", b"\r\n"))
+        entry = {"path": "assets_src/test/receipt.json", "sha256": hashlib.sha256(canonical).hexdigest(), "hash_normalization": "git_text_lf"}
+        self.assertEqual(engine.pinned(self.root, entry), path)
+        path.write_bytes(canonical)
+        self.assertEqual(engine.pinned(self.root, entry), path)
+        path.write_bytes(canonical + b"changed")
+        with self.assertRaisesRegex(ValueError, "changed pinned"):
+            engine.pinned(self.root, entry)
+
     def test_duplicate_frame_inventory_rejected(self):
         frames = engine.read_json(self.packet / "frames.json")
         frames[1]["index"] = 0
