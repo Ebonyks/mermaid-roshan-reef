@@ -1,0 +1,2976 @@
+{
+  "schema": "reef.whole-sprite-archive.v1",
+  "repository": "https://github.com/Ebonyks/mermaid-roshan-reef",
+  "branch": "codex/whole-sprite-adaptation-20261007",
+  "path": "assets_src/animation/whole_sprite_pipeline_20261007",
+  "baseline": "92c9fe70319ef46bfaa8f61348a6f51512141ec3",
+  "recipient_access_mode": "Anonymous HTTPS raw GitHub at immutable commit; public repository",
+  "created_utc": "2026-10-08T06:10:30.296767+00:00",
+  "payload_algorithm": "SHA256 of sorted UTF8 path + NUL + lowercase file SHA256 + LF; manifest and remote receipt excluded to avoid hash cycles",
+  "packet_payload_sha256": "5c2bc907daec77da6f5f3b9cb1568470854b988e9d0e06ce4161ab239944e26b",
+  "claims": {
+    "ARCHIVE_COMPLETE": "PENDING_REMOTE_VERIFICATION",
+    "GENERATION_READY": false,
+    "DELIVERY_ACCEPTED": false
+  },
+  "files": [
+    {
+      "path": "ASSET_LICENSES.md",
+      "sha256": "793b840ac2e168a62d0d8931a85016a2faec1ee80d6c10c5bf8e1e80479a06fb",
+      "bytes": 3649701,
+      "dimensions": null,
+      "source_paths": [
+        "ASSET_LICENSES.md"
+      ],
+      "role": "engine_dependency",
+      "license_provenance": "ASSET_LICENSES.md and source_inventory.json / per-frame derivation / generation receipts",
+      "modification_status": "New authored tooling/evidence or declared whole-frame derivative; see exact source paths and derivation. No protected originals changed."
+    },
+    {
+      "path": "assets/characters/roshan_25d/roshan_gesture_a.png",
+      "sha256": "e70139b23c9f84c0e8f0c1063145ca4e9e67ee32c57aa544bc08193326af9b9d",
+      "bytes": 890060,
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "source_paths": [
+        "assets/characters/roshan_25d/roshan_gesture_a.png"
+      ],
+      "role": "rejected_or_source_candidate_pixels",
+      "license_provenance": "ASSET_LICENSES.md and source_inventory.json / per-frame derivation / generation receipts",
+      "modification_status": "Unchanged baseline dependency"
+    },
+    {
+      "path": "assets_src/animation/whole_sprite_pipeline_20261007/.gdignore",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "dimensions": null,
+      "source_paths": [
+        "assets_src/animation/whole_sprite_pipeline_20261007/.gdignore"
+      ],
+      "role": "source_archive_evidence",
+      "license_provenance": "ASSET_LICENSES.md and source_inventory.json / per-frame derivation / generation receipts",
+      "modification_status": "New authored tooling/evidence or declared whole-frame derivative; see exact source paths and derivation. No protected originals changed."
+    },
+    {
+      "path": "assets_src/animation/whole_sprite_pipeline_20261007/JOB_CARD.md",
+      "sha256": "279a19028469be849a83a91d9897b99b949f1550f4a46dcb3bb0545ed6ed2854",
+      "bytes": 4836,
+      "dimensions": null,
+      "source_paths": [
+        "assets_src/animation/whole_sprite_pipeline_20261007/JOB_CARD.md"
+      ],
+      "role": "source_archive_evidence",
+      "license_provenance": "ASSET_LICENSES.md and source_inventory.json / per-frame derivation / generation receipts",
+      "modification_status": "New authored tooling/evidence or declared whole-frame derivative; see exact source paths and derivation. No protected originals changed."
+    },
+    {
+      "path": "assets_src/animation/whole_sprite_pipeline_20261007/README.md",
+      "sha256": "05d7101403d48fcbee1408a11f3997b91bed5a8c95098c8a207f72f4f6c0f7ce",
+      "bytes": 5686,
+      "dimensions": null,
+      "source_paths": [
+        "assets_src/animation/whole_sprite_pipeline_20261007/README.md"
+      ],
+      "role": "source_archive_evidence",
+      "license_provenance": "ASSET_LICENSES.md and source_inventory.json / per-frame derivation / generation receipts",
+      "modification_status": "New authored tooling/evidence or declared whole-frame derivative; see exact source paths and derivation. No protected originals changed."
+    },
+    {
+      "path": "assets_src/animation/whole_sprite_pipeline_20261007/aseprite_key_samples/aseprite.log",
+      "sha256": "113235dbef000247bf66d2a731036e797d32e4e2286a21ea0079b823b22c4cab",
+      "bytes": 42,
+      "dimensions": null,
+      "source_paths": [
+        "assets_src/animation/whole_sprite_pipeline_20261007/aseprite_key_samples/aseprite.log"
+      ],
+      "role": "source_archive_evidence",
+      "license_provenance": "ASSET_LICENSES.md and source_inventory.json / per-frame derivation / generation receipts",
+      "modification_status": "New authored tooling/evidence or declared whole-frame derivative; see exact source paths and derivation. No protected originals changed."
+    },
+    {
+      "path": "assets_src/animation/whole_sprite_pipeline_20261007/aseprite_key_samples/bridge_input.json",
+      "sha256": "caaf42c6baf617b8b946ad6950f745e9faa72fcda3b15a7fb1ea7e426afb7391",
+      "bytes": 1264,
+      "dimensions": null,
+      "source_paths": [
+        "assets_src/animation/whole_sprite_pipeline_20261007/aseprite_key_samples/bridge_input.json"
+      ],
+      "role": "source_archive_evidence",
+      "license_provenance": "ASSET_LICENSES.md and source_inventory.json / per-frame derivation / generation receipts",
+      "modification_status": "New authored tooling/evidence or declared whole-frame derivative; see exact source paths and derivation. No protected originals changed."
+    },
+    {
+      "path": "assets_src/animation/whole_sprite_pipeline_20261007/aseprite_key_samples/export_report.json",
+      "sha256": "53cb17aa6f455c9f5bd0c0ca543fda6acbfc67c40ffddf00875114d30fca84f7",
+      "bytes": 478,
+      "dimensions": null,
+      "source_paths": [
+        "assets_src/animation/whole_sprite_pipeline_20261007/aseprite_key_samples/export_report.json"
+      ],
+      "role": "source_archive_evidence",
+      "license_provenance": "ASSET_LICENSES.md and source_inventory.json / per-frame derivation / generation receipts",
+      "modification_status": "New authored tooling/evidence or declared whole-frame derivative; see exact source paths and derivation. No protected originals changed."
+    },
+    {
+      "path": "assets_src/animation/whole_sprite_pipeline_20261007/aseprite_key_samples/frames/0000.png",
+      "sha256": "432f8283ee8d9cd7f53a36b1f12bb1b82a865e048a03c3bd7cbd3a103ff2e789",
+      "bytes": 55208,
+      "dimensions": [
+        256,
+        256
+      ],
+      "source_paths": [
+        "assets_src/animation/whole_sprite_pipeline_20261007/references/approved_K0.png"
+      ],
+      "role": "rejected_or_source_candidate_pixels",
+      "license_provenance": "ASSET_LICENSES.md and source_inventory.json / per-frame derivation / generation receipts",
+      "modification_status": "New authored tooling/evidence or declared whole-frame derivative; see exact source paths and derivation. No protected originals changed."
+    },
+    {
+      "path": "assets_src/animation/whole_sprite_pipeline_20261007/aseprite_key_samples/frames/0001.png",
+      "sha256": "bea9b82317185d6d0d9df2ba350a3d5991318432c118d6897264e4b98a1c5b95",
+      "bytes": 50104,
+      "dimensions": [
+        256,
+        256
+      ],
+      "source_paths": [
+        "assets_src/animation/whole_sprite_pipeline_20261007/keys/raise_attempt_1/normalized/frames/0000.png"
+      ],
+      "role": "rejected_or_source_candidate_pixels",
+      "license_provenance": "ASSET_LICENSES.md and source_inventory.json / per-frame derivation / generation receipts",
+      "modification_status": "New authored tooling/evidence or declared whole-frame derivative; see exact source paths and derivation. No protected originals changed."
+    },
+    {
+      "path": "assets_src/animation/whole_sprite_pipeline_20261007/aseprite_key_samples/frames/0002.png",
+      "sha256": "f8c5237fb54e866de14be3b06c80963952ab2a6552d2355f1272105ca7f1a34e",
+      "bytes": 45159,
+      "dimensions": [
+        256,
+        256
+      ],
+      "source_paths": [
+        "assets_src/animation/whole_sprite_pipeline_20261007/keys/lower_attempt_1/normalized/frames/0000.png"
+      ],
+      "role": "rejected_or_source_candidate_pixels",
+      "license_provenance": "ASSET_LICENSES.md and source_inventory.json / per-frame derivation / generation receipts",
+      "modification_status": "New authored tooling/evidence or declared whole-frame derivative; see exact source paths and derivation. No protected originals changed."
+    },
+    {
+      "path": "assets_src/animation/whole_sprite_pipeline_20261007/aseprite_key_samples/frames/0003.png",
+      "sha256": "432f8283ee8d9cd7f53a36b1f12bb1b82a865e048a03c3bd7cbd3a103ff2e789",
+      "bytes": 55208,
+      "dimensions": [
+        256,
+        256
+      ],
+      "source_paths": [
+        "assets_src/animation/whole_sprite_pipeline_20261007/references/approved_K0.png"
+      ],
+      "role": "rejected_or_source_candidate_pixels",
+      "license_provenance": "ASSET_LICENSES.md and source_inventory.json / per-frame derivation / generation receipts",
+      "modification_status": "New authored tooling/evidence or declared whole-frame derivative; see exact source paths and derivation. No protected originals changed."
+    },
+    {
+      "path": "assets_src/animation/whole_sprite_pipeline_20261007/aseprite_key_samples/master_proof.json",
+      "sha256": "4bb5819b474804455d7e88e12a9fb06bcd4239b1d62d9f0a9802a22c32bd8de7",
+      "bytes": 59,
+      "dimensions": null,
+      "source_paths": [
+        "assets_src/animation/whole_sprite_pipeline_20261007/aseprite_key_samples/master_proof.json"
+      ],
+      "role": "source_archive_evidence",
+      "license_provenance": "ASSET_LICENSES.md and source_inventory.json / per-frame derivation / generation receipts",
+      "modification_status": "New authored tooling/evidence or declared whole-frame derivative; see exact source paths and derivation. No protected originals changed."
+    },
+    {
+      "path": "assets_src/animation/whole_sprite_pipeline_20261007/aseprite_key_samples/whole_sprite.aseprite",
+      "sha256": "7f59698f27e0be873c4446fe3aff6a2209dc9ab3ca6469af99981db1af1ae5f2",
+      "bytes": 227354,
+      "dimensions": null,
+      "source_paths": [
+        "assets_src/animation/whole_sprite_pipeline_20261007/references/approved_K0.png",
+        "assets_src/animation/whole_sprite_pipeline_20261007/keys/raise_attempt_1/normalized/frames/0000.png",
+        "assets_src/animation/whole_sprite_pipeline_20261007/keys/lower_attempt_1/normalized/frames/0000.png",
+        "assets_src/animation/whole_sprite_pipeline_20261007/references/approved_K0.png"
+      ],
+      "role": "source_archive_evidence",
+      "license_provenance": "ASSET_LICENSES.md and source_inventory.json / per-frame derivation / generation receipts",
+      "modification_status": "New authored tooling/evidence or declared whole-frame derivative; see exact source paths and derivation. No protected originals changed."
+    },
+    {
+      "path": "assets_src/animation/whole_sprite_pipeline_20261007/aseprite_review/aseprite.log",
+      "sha256": "113235dbef000247bf66d2a731036e797d32e4e2286a21ea0079b823b22c4cab",
+      "bytes": 42,
+      "dimensions": null,
+      "source_paths": [
+        "assets_src/animation/whole_sprite_pipeline_20261007/aseprite_review/aseprite.log"
+      ],
+      "role": "source_archive_evidence",
+      "license_provenance": "ASSET_LICENSES.md and source_inventory.json / per-frame derivation / generation receipts",
+      "modification_status": "New authored tooling/evidence or declared whole-frame derivative; see exact source paths and derivation. No protected originals changed."
+    },
+    {
+      "path": "assets_src/animation/whole_sprite_pipeline_20261007/aseprite_review/bridge_input.json",
+      "sha256": "11c7a41cc774fe0f8a6706f08ff84be71568fb280fbb5d114c640a9c330b38d5",
+      "bytes": 8537,
+      "dimensions": null,
+      "source_paths": [
+        "assets_src/animation/whole_sprite_pipeline_20261007/aseprite_review/bridge_input.json"
+      ],
+      "role": "source_archive_evidence",
+      "license_provenance": "ASSET_LICENSES.md and source_inventory.json / per-frame derivation / generation receipts",
+      "modification_status": "New authored tooling/evidence or declared whole-frame derivative; see exact source paths and derivation. No protected originals changed."
+    },
+    {
+      "path": "assets_src/animation/whole_sprite_pipeline_20261007/aseprite_review/export_report.json",
+      "sha256": "1bb296e4516473f6ef2c451c682e1b68fd9c5f2cbe45af5f0c98403409a023f1",
+      "bytes": 480,
+      "dimensions": null,
+      "source_paths": [
+        "assets_src/animation/whole_sprite_pipeline_20261007/aseprite_review/export_report.json"
+      ],
+      "role": "source_archive_evidence",
+      "license_provenance": "ASSET_LICENSES.md and source_inventory.json / per-frame derivation / generation receipts",
+      "modification_status": "New authored tooling/evidence or declared whole-frame derivative; see exact source paths and derivation. No protected originals changed."
+    },
+    {
+      "path": "assets_src/animation/whole_sprite_pipeline_20261007/aseprite_review/frames/0000.png",
+      "sha256": "d5e4dfad29dc911702f22dd6c042f3690b660904328aabe42102e6ab8627cae7",
+      "bytes": 500006,
+      "dimensions": [
+        640,
+        896
+      ],
+      "source_paths": [
+        "assets_src/animation/whole_sprite_pipeline_20261007/native_context/0000.png"
+      ],
+      "role": "rejected_or_source_candidate_pixels",
+      "license_provenance": "ASSET_LICENSES.md and source_inventory.json / per-frame derivation / generation receipts",
+      "modification_status": "New authored tooling/evidence or declared whole-frame derivative; see exact source paths and derivation. No protected originals changed."
+    },
+    {
+      "path": "assets_src/animation/whole_sprite_pipeline_20261007/aseprite_review/frames/0001.png",
+      "sha256": "9a1d4ed90822ba0bf65f3b86b01666659707766a3c7a27cd49703627889d3b35",
+      "bytes": 509381,
+      "dimensions": [
+        640,
+        896
+      ],
+      "source_paths": [
+        "assets_src/animation/whole_sprite_pipeline_20261007/native_context/0001.png"
+      ],
+      "role": "rejected_or_source_candidate_pixels",
+      "license_provenance": "ASSET_LICENSES.md and source_inventory.json / per-frame derivation / generation receipts",
+      "modification_status": "New authored tooling/evidence or declared whole-frame derivative; see exact source paths and derivation. No protected originals changed."
+    },
+    {
+      "path": "assets_src/animation/whole_sprite_pipeline_20261007/aseprite_review/frames/0002.png",
+      "sha256": "d1f74a4a2b3b6b778a85c63e39c4373260d58812d9bb12922cc303fd3922bea0",
+      "bytes": 515585,
+      "dimensions": [
+        640,
+        896
+      ],
+      "source_paths": [
+        "assets_src/animation/whole_sprite_pipeline_20261007/native_context/0002.png"
+      ],
+      "role": "rejected_or_source_candidate_pixels",
+      "license_provenance": "ASSET_LICENSES.md and source_inventory.json / per-frame derivation / generation receipts",
+      "modification_status": "New authored tooling/evidence or declared whole-frame derivative; see exact source paths and derivation. No protected originals changed."
+    },
+    {
+      "path": "assets_src/animation/whole_sprite_pipeline_20261007/aseprite_review/frames/0003.png",
+      "sha256": "cad7004654578cbaff42a9ae35a43d9cdb09915e136d9eb2cef148a808d955ac",
+      "bytes": 522915,
+      "dimensions": [
+        640,
+        896
+      ],
+      "source_paths": [
+        "assets_src/animation/whole_sprite_pipeline_20261007/native_context/0003.png"
+      ],
+      "role": "rejected_or_source_candidate_pixels",
+      "license_provenance": "ASSET_LICENSES.md and source_inventory.json / per-frame derivation / generation receipts",
+      "modification_status": "New authored tooling/evidence or declared whole-frame derivative; see exact source paths and derivation. No protected originals changed."
+    },
+    {
+      "path": "assets_src/animation/whole_sprite_pipeline_20261007/aseprite_review/frames/0004.png",
+      "sha256": "759b60119877321374876c08e8e93db7c25cad64864dd3d64386da693633c53b",
+      "bytes": 525406,
+      "dimensions": [
+        640,
+        896
+      ],
+      "source_paths": [
+        "assets_src/animation/whole_sprite_pipeline_20261007/native_context/0004.png"
+      ],
+      "role": "rejected_or_source_candidate_pixels",
+      "license_provenance": "ASSET_LICENSES.md and source_inventory.json / per-frame derivation / generation receipts",
+      "modification_status": "New authored tooling/evidence or declared whole-frame derivative; see exact source paths and derivation. No protected originals changed."
+    },
+    {
+      "path": "assets_src/animation/whole_sprite_pipeline_20261007/aseprite_review/frames/0005.png",
+      "sha256": "0e194b2bfcb3fd591c8b18bed61e4d7adc1c14d569f97a6554e75ea387e74a4c",
+      "bytes": 526512,
+      "dimensions": [
+        640,
+        896
+      ],
+      "source_paths": [
+        "assets_src/animation/whole_sprite_pipeline_20261007/native_context/0005.png"
+      ],
+      "role": "rejected_or_source_candidate_pixels",
+      "license_provenance": "ASSET_LICENSES.md and source_inventory.json / per-frame derivation / generation receipts",
+      "modification_status": "New authored tooling/evidence or declared whole-frame derivative; see exact source paths and derivation. No protected originals changed."
+    },
+    {
+      "path": "assets_src/animation/whole_sprite_pipeline_20261007/aseprite_review/frames/0006.png",
+      "sha256": "d1c20f94d3cf9d2618107601142aeed29f786d2d96a05172e8790e6f7f454dfe",
+      "bytes": 529368,
+      "dimensions": [
+        640,
+        896
+      ],
+      "source_paths": [
+        "assets_src/animation/whole_sprite_pipeline_20261007/native_context/0006.png"
+      ],
+      "role": "rejected_or_source_candidate_pixels",
+      "license_provenance": "ASSET_LICENSES.md and source_inventory.json / per-frame derivation / generation receipts",
+      "modification_status": "New authored tooling/evidence or declared whole-frame derivative; see exact source paths and derivation. No protected originals changed."
+    },
+    {
+      "path": "assets_src/animation/whole_sprite_pipeline_20261007/aseprite_review/frames/0007.png",
+      "sha256": "96c7b676ffb4756463a4aa7aebec378c39b62442ed8927e3882a0f32d9079250",
+      "bytes": 532077,
+      "dimensions": [
+        640,
+        896
+      ],
+      "source_paths": [
+        "assets_src/animation/whole_sprite_pipeline_20261007/native_context/0007.png"
+      ],
+      "role": "rejected_or_source_candidate_pixels",
+      "license_provenance": "ASSET_LICENSES.md and source_inventory.json / per-frame derivation / generation receipts",
+      "modification_status": "New authored tooling/evidence or declared whole-frame derivative; see exact source paths and derivation. No protected originals changed."
+    },
+    {
+      "path": "assets_src/animation/whole_sprite_pipeline_20261007/aseprite_review/frames/0008.png",
+      "sha256": "7e4d6ed9cca0ab4c0f2b149ffe919cdfc2309b1196c3025f40a4722215cffbcf",
+      "bytes": 529261,
+      "dimensions": [
+        640,
+        896
+      ],
+      "source_paths": [
+        "assets_src/animation/whole_sprite_pipeline_20261007/native_context/0008.png"
+      ],
+      "role": "rejected_or_source_candidate_pixels",
+      "license_provenance": "ASSET_LICENSES.md and source_inventory.json / per-frame derivation / generation receipts",
+      "modification_status": "New authored tooling/evidence or declared whole-frame derivative; see exact source paths and derivation. No protected originals changed."
+    },
+    {
+      "path": "assets_src/animation/whole_sprite_pipeline_20261007/aseprite_review/frames/0009.png",
+      "sha256": "1b786cc12ccb3061bcf5f689b1c55a5c50b8fbf39f5d99f731daf53bb33a5177",
+      "bytes": 530174,
+      "dimensions": [
+        640,
+        896
+      ],
+      "source_paths": [
+        "assets_src/animation/whole_sprite_pipeline_20261007/native_context/0009.png"
+      ],
+      "role": "rejected_or_source_candidate_pixels",
+      "license_provenance": "ASSET_LICENSES.md and source_inventory.json / per-frame derivation / generation receipts",
+      "modification_status": "New authored tooling/evidence or declared whole-frame derivative; see exact source paths and derivation. No protected originals changed."
+    },
+    {
+      "path": "assets_src/animation/whole_sprite_pipeline_20261007/aseprite_review/frames/0010.png",
+      "sha256": "599b90ba35c19159282a0f0f972b57109be2f6d8f6253f07c6f45132be90e561",
+      "bytes": 527717,
+      "dimensions": [
+        640,
+        896
+      ],
+      "source_paths": [
+        "assets_src/animation/whole_sprite_pipeline_20261007/native_context/0010.png"
+      ],
+      "role": "rejected_or_source_candidate_pixels",
+      "license_provenance": "ASSET_LICENSES.md and source_inventory.json / per-frame derivation / generation receipts",
+      "modification_status": "New authored tooling/evidence or declared whole-frame derivative; see exact source paths and derivation. No protected originals changed."
+    },
+    {
+      "path": "assets_src/animation/whole_sprite_pipeline_20261007/aseprite_review/frames/0011.png",
+      "sha256": "faa48d25689e1e08fd8b5b5efcc3cf43e1517978d344fea8ff2e56ff6b2c6a77",
+      "bytes": 529816,
+      "dimensions": [
+        640,
+        896
+      ],
+      "source_paths": [
+        "assets_src/animation/whole_sprite_pipeline_20261007/native_context/0011.png"
+      ],
+      "role": "rejected_or_source_candidate_pixels",
+      "license_provenance": "ASSET_LICENSES.md and source_inventory.json / per-frame derivation / generation receipts",
+      "modification_status": "New authored tooling/evidence or declared whole-frame derivative; see exact source paths and derivation. No protected originals changed."
+    },
+    {
+      "path": "assets_src/animation/whole_sprite_pipeline_20261007/aseprite_review/frames/0012.png",
+      "sha256": "a36d49ae58d38bc79896098212d0247223d9c16288d4e50bc88b6104c0a275fb",
+      "bytes": 527419,
+      "dimensions": [
+        640,
+        896
+      ],
+      "source_paths": [
+        "assets_src/animation/whole_sprite_pipeline_20261007/native_context/0012.png"
+      ],
+      "role": "rejected_or_source_candidate_pixels",
+      "license_provenance": "ASSET_LICENSES.md and source_inventory.json / per-frame derivation / generation receipts",
+      "modification_status": "New authored tooling/evidence or declared whole-frame derivative; see exact source paths and derivation. No protected originals changed."
+    },
+    {
+      "path": "assets_src/animation/whole_sprite_pipeline_20261007/aseprite_review/frames/0013.png",
+      "sha256": "a77f7040903f4e1d5a890c62dd8fd811c2768e2907d77b26839f789aa80ad9e9",
+      "bytes": 530167,
+      "dimensions": [
+        640,
+        896
+      ],
+      "source_paths": [
+        "assets_src/animation/whole_sprite_pipeline_20261007/native_context/0013.png"
+      ],
+      "role": "rejected_or_source_candidate_pixels",
+      "license_provenance": "ASSET_LICENSES.md and source_inventory.json / per-frame derivation / generation receipts",
+      "modification_status": "New authored tooling/evidence or declared whole-frame derivative; see exact source paths and derivation. No protected originals changed."
+    },
+    {
+      "path": "assets_src/animation/whole_sprite_pipeline_20261007/aseprite_review/frames/0014.png",
+      "sha256": "33b555c4886b550a80a9f7b27907b3e2f39e9d734ef622ea22479697279e5a1f",
+      "bytes": 528775,
+      "dimensions": [
+        640,
+        896
+      ],
+      "source_paths": [
+        "assets_src/animation/whole_sprite_pipeline_20261007/native_context/0014.png"
+      ],
+      "role": "rejected_or_source_candidate_pixels",
+      "license_provenance": "ASSET_LICENSES.md and source_inventory.json / per-frame derivation / generation receipts",
+      "modification_status": "New authored tooling/evidence or declared whole-frame derivative; see exact source paths and derivation. No protected originals changed."
+    },
+    {
+      "path": "assets_src/animation/whole_sprite_pipeline_20261007/aseprite_review/frames/0015.png",
+      "sha256": "6175eea15727ce2a307abdb32be19b03a655e9141af64ce93f1af1f533377c79",
+      "bytes": 530560,
+      "dimensions": [
+        640,
+        896
+      ],
+      "source_paths": [
+        "assets_src/animation/whole_sprite_pipeline_20261007/native_context/0015.png"
+      ],
+      "role": "rejected_or_source_candidate_pixels",
+      "license_provenance": "ASSET_LICENSES.md and source_inventory.json / per-frame derivation / generation receipts",
+      "modification_status": "New authored tooling/evidence or declared whole-frame derivative; see exact source paths and derivation. No protected originals changed."
+    },
+    {
+      "path": "assets_src/animation/whole_sprite_pipeline_20261007/aseprite_review/frames/0016.png",
+      "sha256": "5c755824a6148acfb772b9b124af968377564bf51e6bc497c2882bee7c35c8cc",
+      "bytes": 528609,
+      "dimensions": [
+        640,
+        896
+      ],
+      "source_paths": [
+        "assets_src/animation/whole_sprite_pipeline_20261007/native_context/0016.png"
+      ],
+      "role": "rejected_or_source_candidate_pixels",
+      "license_provenance": "ASSET_LICENSES.md and source_inventory.json / per-frame derivation / generation receipts",
+      "modification_status": "New authored tooling/evidence or declared whole-frame derivative; see exact source paths and derivation. No protected originals changed."
+    },
+    {
+      "path": "assets_src/animation/whole_sprite_pipeline_20261007/aseprite_review/frames/0017.png",
+      "sha256": "cf03e643ce5e1de6338b0a2f8a7f333a64e7f497485fe1b95ecde453c3865722",
+      "bytes": 530616,
+      "dimensions": [
+        640,
+        896
+      ],
+      "source_paths": [
+        "assets_src/animation/whole_sprite_pipeline_20261007/native_context/0017.png"
+      ],
+      "role": "rejected_or_source_candidate_pixels",
+      "license_provenance": "ASSET_LICENSES.md and source_inventory.json / per-frame derivation / generation receipts",
+      "modification_status": "New authored tooling/evidence or declared whole-frame derivative; see exact source paths and derivation. No protected originals changed."
+    },
+    {
+      "path": "assets_src/animation/whole_sprite_pipeline_20261007/aseprite_review/frames/0018.png",
+      "sha256": "54782499d1305757c0f1684325854d558c1a02a6bab421f80fb22816658f28d2",
+      "bytes": 527842,
+      "dimensions": [
+        640,
+        896
+      ],
+      "source_paths": [
+        "assets_src/animation/whole_sprite_pipeline_20261007/native_context/0018.png"
+      ],
+      "role": "rejected_or_source_candidate_pixels",
+      "license_provenance": "ASSET_LICENSES.md and source_inventory.json / per-frame derivation / generation receipts",
+      "modification_status": "New authored tooling/evidence or declared whole-frame derivative; see exact source paths and derivation. No protected originals changed."
+    },
+    {
+      "path": "assets_src/animation/whole_sprite_pipeline_20261007/aseprite_review/frames/0019.png",
+      "sha256": "26658f38750b8e7cc5fb432374d94bd433787f69d81e329cc5fe4f0799a7b482",
+      "bytes": 527689,
+      "dimensions": [
+        640,
+        896
+      ],
+      "source_paths": [
+        "assets_src/animation/whole_sprite_pipeline_20261007/native_context/0019.png"
+      ],
+      "role": "rejected_or_source_candidate_pixels",
+      "license_provenance": "ASSET_LICENSES.md and source_inventory.json / per-frame derivation / generation receipts",
+      "modification_status": "New authored tooling/evidence or declared whole-frame derivative; see exact source paths and derivation. No protected originals changed."
+    },
+    {
+      "path": "assets_src/animation/whole_sprite_pipeline_20261007/aseprite_review/frames/0020.png",
+      "sha256": "3ccd4e69fb5ff5fbfdbc76efa45bf6273d966d67dc6460df5ef5e51273f28e1b",
+      "bytes": 525393,
+      "dimensions": [
+        640,
+        896
+      ],
+      "source_paths": [
+        "assets_src/animation/whole_sprite_pipeline_20261007/native_context/0020.png"
+      ],
+      "role": "rejected_or_source_candidate_pixels",
+      "license_provenance": "ASSET_LICENSES.md and source_inventory.json / per-frame derivation / generation receipts",
+      "modification_status": "New authored tooling/evidence or declared whole-frame derivative; see exact source paths and derivation. No protected originals changed."
+    },
+    {
+      "path": "assets_src/animation/whole_sprite_pipeline_20261007/aseprite_review/frames/0021.png",
+      "sha256": "2782385c28f458e62b91e2ef1d307dab4182788a60aa6adc97a6603c576223eb",
+      "bytes": 526101,
+      "dimensions": [
+        640,
+        896
+      ],
+      "source_paths": [
+        "assets_src/animation/whole_sprite_pipeline_20261007/native_context/0021.png"
+      ],
+      "role": "rejected_or_source_candidate_pixels",
+      "license_provenance": "ASSET_LICENSES.md and source_inventory.json / per-frame derivation / generation receipts",
+      "modification_status": "New authored tooling/evidence or declared whole-frame derivative; see exact source paths and derivation. No protected originals changed."
+    },
+    {
+      "path": "assets_src/animation/whole_sprite_pipeline_20261007/aseprite_review/frames/0022.png",
+      "sha256": "419c145b8fc1a1c14930dde975fa2ea28e14670ce2e01be0cb51ab0ae50fa6b9",
+      "bytes": 522502,
+      "dimensions": [
+        640,
+        896
+      ],
+      "source_paths": [
+        "assets_src/animation/whole_sprite_pipeline_20261007/native_context/0022.png"
+      ],
+      "role": "rejected_or_source_candidate_pixels",
+      "license_provenance": "ASSET_LICENSES.md and source_inventory.json / per-frame derivation / generation receipts",
+      "modification_status": "New authored tooling/evidence or declared whole-frame derivative; see exact source paths and derivation. No protected originals changed."
+    },
+    {
+      "path": "assets_src/animation/whole_sprite_pipeline_20261007/aseprite_review/frames/0023.png",
+      "sha256": "b7f02b28ead75260514471faf8a7e99bb592fe5245983e1b2fb1cd777649feec",
+      "bytes": 524126,
+      "dimensions": [
+        640,
+        896
+      ],
+      "source_paths": [
+        "assets_src/animation/whole_sprite_pipeline_20261007/native_context/0023.png"
+      ],
+      "role": "rejected_or_source_candidate_pixels",
+      "license_provenance": "ASSET_LICENSES.md and source_inventory.json / per-frame derivation / generation receipts",
+      "modification_status": "New authored tooling/evidence or declared whole-frame derivative; see exact source paths and derivation. No protected originals changed."
+    },
+    {
+      "path": "assets_src/animation/whole_sprite_pipeline_20261007/aseprite_review/frames/0024.png",
+      "sha256": "7b4e7281018b9aa06c41e1536807e5f055914daaa5ee797958bdf559b04dd49a",
+      "bytes": 521426,
+      "dimensions": [
+        640,
+        896
+      ],
+      "source_paths": [
+        "assets_src/animation/whole_sprite_pipeline_20261007/native_context/0024.png"
+      ],
+      "role": "rejected_or_source_candidate_pixels",
+      "license_provenance": "ASSET_LICENSES.md and source_inventory.json / per-frame derivation / generation receipts",
+      "modification_status": "New authored tooling/evidence or declared whole-frame derivative; see exact source paths and derivation. No protected originals changed."
+    },
+    {
+      "path": "assets_src/animation/whole_sprite_pipeline_20261007/aseprite_review/frames/0025.png",
+      "sha256": "7c1ec2779e6bcc0e1bc6041eb9cd92aae798e9654c797231db61fea226c025b0",
+      "bytes": 526704,
+      "dimensions": [
+        640,
+        896
+      ],
+      "source_paths": [
+        "assets_src/animation/whole_sprite_pipeline_20261007/native_context/0025.png"
+      ],
+      "role": "rejected_or_source_candidate_pixels",
+      "license_provenance": "ASSET_LICENSES.md and source_inventory.json / per-frame derivation / generation receipts",
+      "modification_status": "New authored tooling/evidence or declared whole-frame derivative; see exact source paths and derivation. No protected originals changed."
+    },
+    {
+      "path": "assets_src/animation/whole_sprite_pipeline_20261007/aseprite_review/frames/0026.png",
+      "sha256": "3092a216a07d79a918d26027e29cacf5c111561b105b1db56d613fdbb819031b",
+      "bytes": 526959,
+      "dimensions": [
+        640,
+        896
+      ],
+      "source_paths": [
+        "assets_src/animation/whole_sprite_pipeline_20261007/native_context/0026.png"
+      ],
+      "role": "rejected_or_source_candidate_pixels",
+      "license_provenance": "ASSET_LICENSES.md and source_inventory.json / per-frame derivation / generation receipts",
+      "modification_status": "New authored tooling/evidence or declared whole-frame derivative; see exact source paths and derivation. No protected originals changed."
+    },
+    {
+      "path": "assets_src/animation/whole_sprite_pipeline_20261007/aseprite_review/frames/0027.png",
+      "sha256": "b57a5b648c9e2468eeb456aeb6b95eb6b560d42dde1c5f6ee81a2baca1c75f31",
+      "bytes": 530851,
+      "dimensions": [
+        640,
+        896
+      ],
+      "source_paths": [
+        "assets_src/animation/whole_sprite_pipeline_20261007/native_context/0027.png"
+      ],
+      "role": "rejected_or_source_candidate_pixels",
+      "license_provenance": "ASSET_LICENSES.md and source_inventory.json / per-frame derivation / generation receipts",
+      "modification_status": "New authored tooling/evidence or declared whole-frame derivative; see exact source paths and derivation. No protected originals changed."
+    },
+    {
+      "path": "assets_src/animation/whole_sprite_pipeline_20261007/aseprite_review/frames/0028.png",
+      "sha256": "c416d8b6ead32495cc5d98a6ba45ffb3e19ffa6b0058c70335052ec1ffaece6e",
+      "bytes": 529528,
+      "dimensions": [
+        640,
+        896
+      ],
+      "source_paths": [
+        "assets_src/animation/whole_sprite_pipeline_20261007/native_context/0028.png"
+      ],
+      "role": "rejected_or_source_candidate_pixels",
+      "license_provenance": "ASSET_LICENSES.md and source_inventory.json / per-frame derivation / generation receipts",
+      "modification_status": "New authored tooling/evidence or declared whole-frame derivative; see exact source paths and derivation. No protected originals changed."
+    },
+    {
+      "path": "assets_src/animation/whole_sprite_pipeline_20261007/aseprite_review/frames/0029.png",
+      "sha256": "b9af4537b5e4d5d3b73e1e1df7b417c9e67f9bc25bdbc38fc4a224f28f9996f5",
+      "bytes": 531550,
+      "dimensions": [
+        640,
+        896
+      ],
+      "source_paths": [
+        "assets_src/animation/whole_sprite_pipeline_20261007/native_context/0029.png"
+      ],
+      "role": "rejected_or_source_candidate_pixels",
+      "license_provenance": "ASSET_LICENSES.md and source_inventory.json / per-frame derivation / generation receipts",
+      "modification_status": "New authored tooling/evidence or declared whole-frame derivative; see exact source paths and derivation. No protected originals changed."
+    },
+    {
+      "path": "assets_src/animation/whole_sprite_pipeline_20261007/aseprite_review/frames/0030.png",
+      "sha256": "458b35c0a523475fe80fb66e335e043ee1d93bc5ec4253b1d28b21e290119bc5",
+      "bytes": 531059,
+      "dimensions": [
+        640,
+        896
+      ],
+      "source_paths": [
+        "assets_src/animation/whole_sprite_pipeline_20261007/native_context/0030.png"
+      ],
+      "role": "rejected_or_source_candidate_pixels",
+      "license_provenance": "ASSET_LICENSES.md and source_inventory.json / per-frame derivation / generation receipts",
+      "modification_status": "New authored tooling/evidence or declared whole-frame derivative; see exact source paths and derivation. No protected originals changed."
+    },
+    {
+      "path": "assets_src/animation/whole_sprite_pipeline_20261007/aseprite_review/frames/0031.png",
+      "sha256": "dae5dcf8cab6de0c4e72f959f7084866d579e74a4a19a3524d61b4e9455fa0fd",
+      "bytes": 534736,
+      "dimensions": [
+        640,
+        896
+      ],
+      "source_paths": [
+        "assets_src/animation/whole_sprite_pipeline_20261007/native_context/0031.png"
+      ],
+      "role": "rejected_or_source_candidate_pixels",
+      "license_provenance": "ASSET_LICENSES.md and source_inventory.json / per-frame derivation / generation receipts",
+      "modification_status": "New authored tooling/evidence or declared whole-frame derivative; see exact source paths and derivation. No protected originals changed."
+    },
+    {
+      "path": "assets_src/animation/whole_sprite_pipeline_20261007/aseprite_review/frames/0032.png",
+      "sha256": "a5d3bb6b9f355319f8643db81e227252ab5f6486d6e63cf538105a8e4b0ec05b",
+      "bytes": 535178,
+      "dimensions": [
+        640,
+        896
+      ],
+      "source_paths": [
+        "assets_src/animation/whole_sprite_pipeline_20261007/native_context/0032.png"
+      ],
+      "role": "rejected_or_source_candidate_pixels",
+      "license_provenance": "ASSET_LICENSES.md and source_inventory.json / per-frame derivation / generation receipts",
+      "modification_status": "New authored tooling/evidence or declared whole-frame derivative; see exact source paths and derivation. No protected originals changed."
+    },
+    {
+      "path": "assets_src/animation/whole_sprite_pipeline_20261007/aseprite_review/frames/0033.png",
+      "sha256": "f92e68f9a6289eecd4932f59253157a45003b3d2b42f96b815d017a2dafb36ce",
+      "bytes": 538896,
+      "dimensions": [
+        640,
+        896
+      ],
+      "source_paths": [
+        "assets_src/animation/whole_sprite_pipeline_20261007/native_context/0033.png"
+      ],
+      "role": "rejected_or_source_candidate_pixels",
+      "license_provenance": "ASSET_LICENSES.md and source_inventory.json / per-frame derivation / generation receipts",
+      "modification_status": "New authored tooling/evidence or declared whole-frame derivative; see exact source paths and derivation. No protected originals changed."
+    },
+    {
+      "path": "assets_src/animation/whole_sprite_pipeline_20261007/aseprite_review/frames/0034.png",
+      "sha256": "7cec881dd0435b16ef10aa82c3f437691693421eef56646f1b45759f386f5ccf",
+      "bytes": 538011,
+      "dimensions": [
+        640,
+        896
+      ],
+      "source_paths": [
+        "assets_src/animation/whole_sprite_pipeline_20261007/native_context/0034.png"
+      ],
+      "role": "rejected_or_source_candidate_pixels",
+      "license_provenance": "ASSET_LICENSES.md and source_inventory.json / per-frame derivation / generation receipts",
+      "modification_status": "New authored tooling/evidence or declared whole-frame derivative; see exact source paths and derivation. No protected originals changed."
+    },
+    {
+      "path": "assets_src/animation/whole_sprite_pipeline_20261007/aseprite_review/frames/0035.png",
+      "sha256": "7b225952fbfdf646d6bbc3ac35bca1d96f8fa7d1d14503f7fdba4e4b380767cc",
+      "bytes": 540643,
+      "dimensions": [
+        640,
+        896
+      ],
+      "source_paths": [
+        "assets_src/animation/whole_sprite_pipeline_20261007/native_context/0035.png"
+      ],
+      "role": "rejected_or_source_candidate_pixels",
+      "license_provenance": "ASSET_LICENSES.md and source_inventory.json / per-frame derivation / generation receipts",
+      "modification_status": "New authored tooling/evidence or declared whole-frame derivative; see exact source paths and derivation. No protected originals changed."
+    },
+    {
+      "path": "assets_src/animation/whole_sprite_pipeline_20261007/aseprite_review/frames/0036.png",
+      "sha256": "c9804fb7580238d6d10704964ca66d2d7562599ea965dde829ffc0e719f10fed",
+      "bytes": 537942,
+      "dimensions": [
+        640,
+        896
+      ],
+      "source_paths": [
+        "assets_src/animation/whole_sprite_pipeline_20261007/native_context/0036.png"
+      ],
+      "role": "rejected_or_source_candidate_pixels",
+      "license_provenance": "ASSET_LICENSES.md and source_inventory.json / per-frame derivation / generation receipts",
+      "modification_status": "New authored tooling/evidence or declared whole-frame derivative; see exact source paths and derivation. No protected originals changed."
+    },
+    {
+      "path": "assets_src/animation/whole_sprite_pipeline_20261007/aseprite_review/frames/0037.png",
+      "sha256": "a2966caaf52c0b37faaa6525a33e085f4b24dd6c9de98ccde190947743fbb28d",
+      "bytes": 538175,
+      "dimensions": [
+        640,
+        896
+      ],
+      "source_paths": [
+        "assets_src/animation/whole_sprite_pipeline_20261007/native_context/0037.png"
+      ],
+      "role": "rejected_or_source_candidate_pixels",
+      "license_provenance": "ASSET_LICENSES.md and source_inventory.json / per-frame derivation / generation receipts",
+      "modification_status": "New authored tooling/evidence or declared whole-frame derivative; see exact source paths and derivation. No protected originals changed."
+    },
+    {
+      "path": "assets_src/animation/whole_sprite_pipeline_20261007/aseprite_review/frames/0038.png",
+      "sha256": "47207fa5f520489a557560c13205700ad3ac759a758fe842025fbaaedc5965bd",
+      "bytes": 536608,
+      "dimensions": [
+        640,
+        896
+      ],
+      "source_paths": [
+        "assets_src/animation/whole_sprite_pipeline_20261007/native_context/0038.png"
+      ],
+      "role": "rejected_or_source_candidate_pixels",
+      "license_provenance": "ASSET_LICENSES.md and source_inventory.json / per-frame derivation / generation receipts",
+      "modification_status": "New authored tooling/evidence or declared whole-frame derivative; see exact source paths and derivation. No protected originals changed."
+    },
+    {
+      "path": "assets_src/animation/whole_sprite_pipeline_20261007/aseprite_review/frames/0039.png",
+      "sha256": "2603c4d1072d87b663b93f4a21458515d675b903863db3344e69ac7b6cdbb808",
+      "bytes": 539059,
+      "dimensions": [
+        640,
+        896
+      ],
+      "source_paths": [
+        "assets_src/animation/whole_sprite_pipeline_20261007/native_context/0039.png"
+      ],
+      "role": "rejected_or_source_candidate_pixels",
+      "license_provenance": "ASSET_LICENSES.md and source_inventory.json / per-frame derivation / generation receipts",
+      "modification_status": "New authored tooling/evidence or declared whole-frame derivative; see exact source paths and derivation. No protected originals changed."
+    },
+    {
+      "path": "assets_src/animation/whole_sprite_pipeline_20261007/aseprite_review/frames/0040.png",
+      "sha256": "afa3127f52ada2a4e647e7984357512e3acc2770cb8fbd028375fbbff853dd20",
+      "bytes": 538957,
+      "dimensions": [
+        640,
+        896
+      ],
+      "source_paths": [
+        "assets_src/animation/whole_sprite_pipeline_20261007/native_context/0040.png"
+      ],
+      "role": "rejected_or_source_candidate_pixels",
+      "license_provenance": "ASSET_LICENSES.md and source_inventory.json / per-frame derivation / generation receipts",
+      "modification_status": "New authored tooling/evidence or declared whole-frame derivative; see exact source paths and derivation. No protected originals changed."
+    },
+    {
+      "path": "assets_src/animation/whole_sprite_pipeline_20261007/aseprite_review/master_proof.json",
+      "sha256": "c11ae42062800d142037618215ea69408e94cc98cfca556f05c261506592f1db",
+      "bytes": 208,
+      "dimensions": null,
+      "source_paths": [
+        "assets_src/animation/whole_sprite_pipeline_20261007/aseprite_review/master_proof.json"
+      ],
+      "role": "source_archive_evidence",
+      "license_provenance": "ASSET_LICENSES.md and source_inventory.json / per-frame derivation / generation receipts",
+      "modification_status": "New authored tooling/evidence or declared whole-frame derivative; see exact source paths and derivation. No protected originals changed."
+    },
+    {
+      "path": "assets_src/animation/whole_sprite_pipeline_20261007/aseprite_review/whole_sprite.aseprite",
+      "sha256": "2c16efd0b330c034014612d2b02312f81e4174c3c7910c2f7b07dfa7e739ac7d",
+      "bytes": 28185616,
+      "dimensions": null,
+      "source_paths": [
+        "assets_src/animation/whole_sprite_pipeline_20261007/native_context/0000.png",
+        "assets_src/animation/whole_sprite_pipeline_20261007/native_context/0001.png",
+        "assets_src/animation/whole_sprite_pipeline_20261007/native_context/0002.png",
+        "assets_src/animation/whole_sprite_pipeline_20261007/native_context/0003.png",
+        "assets_src/animation/whole_sprite_pipeline_20261007/native_context/0004.png",
+        "assets_src/animation/whole_sprite_pipeline_20261007/native_context/0005.png",
+        "assets_src/animation/whole_sprite_pipeline_20261007/native_context/0006.png",
+        "assets_src/animation/whole_sprite_pipeline_20261007/native_context/0007.png",
+        "assets_src/animation/whole_sprite_pipeline_20261007/native_context/0008.png",
+        "assets_src/animation/whole_sprite_pipeline_20261007/native_context/0009.png",
+        "assets_src/animation/whole_sprite_pipeline_20261007/native_context/0010.png",
+        "assets_src/animation/whole_sprite_pipeline_20261007/native_context/0011.png",
+        "assets_src/animation/whole_sprite_pipeline_20261007/native_context/0012.png",
+        "assets_src/animation/whole_sprite_pipeline_20261007/native_context/0013.png",
+        "assets_src/animation/whole_sprite_pipeline_20261007/native_context/0014.png",
+        "assets_src/animation/whole_sprite_pipeline_20261007/native_context/0015.png",
+        "assets_src/animation/whole_sprite_pipeline_20261007/native_context/0016.png",
+        "assets_src/animation/whole_sprite_pipeline_20261007/native_context/0017.png",
+        "assets_src/animation/whole_sprite_pipeline_20261007/native_context/0018.png",
+        "assets_src/animation/whole_sprite_pipeline_20261007/native_context/0019.png",
+        "assets_src/animation/whole_sprite_pipeline_20261007/native_context/0020.png",
+        "assets_src/animation/whole_sprite_pipeline_20261007/native_context/0021.png",
+        "assets_src/animation/whole_sprite_pipeline_20261007/native_context/0022.png",
+        "assets_src/animation/whole_sprite_pipeline_20261007/native_context/0023.png",
+        "assets_src/animation/whole_sprite_pipeline_20261007/native_context/0024.png",
+        "assets_src/animation/whole_sprite_pipeline_20261007/native_context/0025.png",
+        "assets_src/animation/whole_sprite_pipeline_20261007/native_context/0026.png",
+        "assets_src/animation/whole_sprite_pipeline_20261007/native_context/0027.png",
+        "assets_src/animation/whole_sprite_pipeline_20261007/native_context/0028.png",
+        "assets_src/animation/whole_sprite_pipeline_20261007/native_context/0029.png",
+        "assets_src/animation/whole_sprite_pipeline_20261007/native_context/0030.png",
+        "assets_src/animation/whole_sprite_pipeline_20261007/native_context/0031.png",
+        "assets_src/animation/whole_sprite_pipeline_20261007/native_context/0032.png",
+        "assets_src/animation/whole_sprite_pipeline_20261007/native_context/0033.png",
+        "assets_src/animation/whole_sprite_pipeline_20261007/native_context/0034.png",
+        "assets_src/animation/whole_sprite_pipeline_20261007/native_context/0035.png",
+        "assets_src/animation/whole_sprite_pipeline_20261007/native_context/0036.png",
+        "assets_src/animation/whole_sprite_pipeline_20261007/native_context/0037.png",
+        "assets_src/animation/whole_sprite_pipeline_20261007/native_context/0038.png",
+        "assets_src/animation/whole_sprite_pipeline_20261007/native_context/0039.png",
+        "assets_src/animation/whole_sprite_pipeline_20261007/native_context/0040.png"
+      ],
+      "role": "source_archive_evidence",
+      "license_provenance": "ASSET_LICENSES.md and source_inventory.json / per-frame derivation / generation receipts",
+      "modification_status": "New authored tooling/evidence or declared whole-frame derivative; see exact source paths and derivation. No protected originals changed."
+    },
+    {
+      "path": "assets_src/animation/whole_sprite_pipeline_20261007/attempts.json",
+      "sha256": "40f6e0475f8a4ccf52c1b05550b001dc230e975e6f24bd4e603b4681fd6cc7c2",
+      "bytes": 6491,
+      "dimensions": null,
+      "source_paths": [
+        "assets_src/animation/whole_sprite_pipeline_20261007/attempts.json"
+      ],
+      "role": "source_archive_evidence",
+      "license_provenance": "ASSET_LICENSES.md and source_inventory.json / per-frame derivation / generation receipts",
+      "modification_status": "New authored tooling/evidence or declared whole-frame derivative; see exact source paths and derivation. No protected originals changed."
+    },
+    {
+      "path": "assets_src/animation/whole_sprite_pipeline_20261007/catalog.json",
+      "sha256": "fa2a62e1d35b8165462fc7c5385ec4be60623b6d443ae1d51edd8e968a21b3b6",
+      "bytes": 12417,
+      "dimensions": null,
+      "source_paths": [
+        "assets_src/animation/whole_sprite_pipeline_20261007/catalog.json"
+      ],
+      "role": "source_archive_evidence",
+      "license_provenance": "ASSET_LICENSES.md and source_inventory.json / per-frame derivation / generation receipts",
+      "modification_status": "New authored tooling/evidence or declared whole-frame derivative; see exact source paths and derivation. No protected originals changed."
+    },
+    {
+      "path": "assets_src/animation/whole_sprite_pipeline_20261007/catalog_generation_revision_1.json",
+      "sha256": "927c57b7bb89fb0b5b8a687c69364e1f8d2e8d12e208223f2657084e5a9ee862",
+      "bytes": 9168,
+      "dimensions": null,
+      "source_paths": [
+        "assets_src/animation/whole_sprite_pipeline_20261007/catalog_generation_revision_1.json"
+      ],
+      "role": "source_archive_evidence",
+      "license_provenance": "ASSET_LICENSES.md and source_inventory.json / per-frame derivation / generation receipts",
+      "modification_status": "New authored tooling/evidence or declared whole-frame derivative; see exact source paths and derivation. No protected originals changed."
+    },
+    {
+      "path": "assets_src/animation/whole_sprite_pipeline_20261007/diagnostic_boards/native_review_00.png",
+      "sha256": "151bb5251c277fa1b821f91a410cdc606778c8a460d511bb665486e7ff58d9b7",
+      "bytes": 1002810,
+      "dimensions": [
+        1280,
+        1160
+      ],
+      "source_paths": [
+        "assets_src/animation/whole_sprite_pipeline_20261007/native_context/0000.png",
+        "assets_src/animation/whole_sprite_pipeline_20261007/native_context/0001.png",
+        "assets_src/animation/whole_sprite_pipeline_20261007/native_context/0002.png",
+        "assets_src/animation/whole_sprite_pipeline_20261007/native_context/0003.png",
+        "assets_src/animation/whole_sprite_pipeline_20261007/native_context/0004.png",
+        "assets_src/animation/whole_sprite_pipeline_20261007/native_context/0005.png",
+        "assets_src/animation/whole_sprite_pipeline_20261007/native_context/0006.png",
+        "assets_src/animation/whole_sprite_pipeline_20261007/native_context/0007.png",
+        "assets_src/animation/whole_sprite_pipeline_20261007/native_context/0008.png",
+        "assets_src/animation/whole_sprite_pipeline_20261007/native_context/0009.png",
+        "assets_src/animation/whole_sprite_pipeline_20261007/native_context/0010.png",
+        "assets_src/animation/whole_sprite_pipeline_20261007/native_context/0011.png"
+      ],
+      "role": "diagnostic_board_only",
+      "license_provenance": "ASSET_LICENSES.md and source_inventory.json / per-frame derivation / generation receipts",
+      "modification_status": "New authored tooling/evidence or declared whole-frame derivative; see exact source paths and derivation. No protected originals changed."
+    },
+    {
+      "path": "assets_src/animation/whole_sprite_pipeline_20261007/diagnostic_boards/native_review_12.png",
+      "sha256": "23307b825b8d7a259dc542b9aa6fa1c12c223879635c748f46f8960df0537f01",
+      "bytes": 994308,
+      "dimensions": [
+        1280,
+        1160
+      ],
+      "source_paths": [
+        "assets_src/animation/whole_sprite_pipeline_20261007/native_context/0012.png",
+        "assets_src/animation/whole_sprite_pipeline_20261007/native_context/0013.png",
+        "assets_src/animation/whole_sprite_pipeline_20261007/native_context/0014.png",
+        "assets_src/animation/whole_sprite_pipeline_20261007/native_context/0015.png",
+        "assets_src/animation/whole_sprite_pipeline_20261007/native_context/0016.png",
+        "assets_src/animation/whole_sprite_pipeline_20261007/native_context/0017.png",
+        "assets_src/animation/whole_sprite_pipeline_20261007/native_context/0018.png",
+        "assets_src/animation/whole_sprite_pipeline_20261007/native_context/0019.png",
+        "assets_src/animation/whole_sprite_pipeline_20261007/native_context/0020.png",
+        "assets_src/animation/whole_sprite_pipeline_20261007/native_context/0021.png",
+        "assets_src/animation/whole_sprite_pipeline_20261007/native_context/0022.png",
+        "assets_src/animation/whole_sprite_pipeline_20261007/native_context/0023.png"
+      ],
+      "role": "diagnostic_board_only",
+      "license_provenance": "ASSET_LICENSES.md and source_inventory.json / per-frame derivation / generation receipts",
+      "modification_status": "New authored tooling/evidence or declared whole-frame derivative; see exact source paths and derivation. No protected originals changed."
+    },
+    {
+      "path": "assets_src/animation/whole_sprite_pipeline_20261007/diagnostic_boards/native_review_24.png",
+      "sha256": "b1b850bbf01c16eec4668b93cfe8ca5f6bbf8efc2c88276a4826c3e379e4fa86",
+      "bytes": 992220,
+      "dimensions": [
+        1280,
+        1160
+      ],
+      "source_paths": [
+        "assets_src/animation/whole_sprite_pipeline_20261007/native_context/0024.png",
+        "assets_src/animation/whole_sprite_pipeline_20261007/native_context/0025.png",
+        "assets_src/animation/whole_sprite_pipeline_20261007/native_context/0026.png",
+        "assets_src/animation/whole_sprite_pipeline_20261007/native_context/0027.png",
+        "assets_src/animation/whole_sprite_pipeline_20261007/native_context/0028.png",
+        "assets_src/animation/whole_sprite_pipeline_20261007/native_context/0029.png",
+        "assets_src/animation/whole_sprite_pipeline_20261007/native_context/0030.png",
+        "assets_src/animation/whole_sprite_pipeline_20261007/native_context/0031.png",
+        "assets_src/animation/whole_sprite_pipeline_20261007/native_context/0032.png",
+        "assets_src/animation/whole_sprite_pipeline_20261007/native_context/0033.png",
+        "assets_src/animation/whole_sprite_pipeline_20261007/native_context/0034.png",
+        "assets_src/animation/whole_sprite_pipeline_20261007/native_context/0035.png"
+      ],
+      "role": "diagnostic_board_only",
+      "license_provenance": "ASSET_LICENSES.md and source_inventory.json / per-frame derivation / generation receipts",
+      "modification_status": "New authored tooling/evidence or declared whole-frame derivative; see exact source paths and derivation. No protected originals changed."
+    },
+    {
+      "path": "assets_src/animation/whole_sprite_pipeline_20261007/diagnostic_boards/native_review_36.png",
+      "sha256": "cca4341aae96d90e53bef9ca90bca32b3a055826484131589279063092add7d4",
+      "bytes": 421589,
+      "dimensions": [
+        1280,
+        1160
+      ],
+      "source_paths": [
+        "assets_src/animation/whole_sprite_pipeline_20261007/native_context/0036.png",
+        "assets_src/animation/whole_sprite_pipeline_20261007/native_context/0037.png",
+        "assets_src/animation/whole_sprite_pipeline_20261007/native_context/0038.png",
+        "assets_src/animation/whole_sprite_pipeline_20261007/native_context/0039.png",
+        "assets_src/animation/whole_sprite_pipeline_20261007/native_context/0040.png"
+      ],
+      "role": "diagnostic_board_only",
+      "license_provenance": "ASSET_LICENSES.md and source_inventory.json / per-frame derivation / generation receipts",
+      "modification_status": "New authored tooling/evidence or declared whole-frame derivative; see exact source paths and derivation. No protected originals changed."
+    },
+    {
+      "path": "assets_src/animation/whole_sprite_pipeline_20261007/diagnostic_boards/provenance.json",
+      "sha256": "c09a87644fe7b2671b6bc002033c2d8a35f46bac66999fac19117ea4571fb65c",
+      "bytes": 23561,
+      "dimensions": null,
+      "source_paths": [
+        "assets_src/animation/whole_sprite_pipeline_20261007/diagnostic_boards/provenance.json"
+      ],
+      "role": "source_archive_evidence",
+      "license_provenance": "ASSET_LICENSES.md and source_inventory.json / per-frame derivation / generation receipts",
+      "modification_status": "New authored tooling/evidence or declared whole-frame derivative; see exact source paths and derivation. No protected originals changed."
+    },
+    {
+      "path": "assets_src/animation/whole_sprite_pipeline_20261007/frame_review.json",
+      "sha256": "9c1d6f7c3521155990e5e90b09aec681f575fc1177052f32d2e7db7e5b41a115",
+      "bytes": 30665,
+      "dimensions": null,
+      "source_paths": [
+        "assets_src/animation/whole_sprite_pipeline_20261007/frame_review.json"
+      ],
+      "role": "source_archive_evidence",
+      "license_provenance": "ASSET_LICENSES.md and source_inventory.json / per-frame derivation / generation receipts",
+      "modification_status": "New authored tooling/evidence or declared whole-frame derivative; see exact source paths and derivation. No protected originals changed."
+    },
+    {
+      "path": "assets_src/animation/whole_sprite_pipeline_20261007/inspection.json",
+      "sha256": "b5bbbf8d1d290fa224d490db75f79f1ba3e40c52350bf96ca908062eca7a796f",
+      "bytes": 40132,
+      "dimensions": null,
+      "source_paths": [
+        "assets_src/animation/whole_sprite_pipeline_20261007/inspection.json"
+      ],
+      "role": "source_archive_evidence",
+      "license_provenance": "ASSET_LICENSES.md and source_inventory.json / per-frame derivation / generation receipts",
+      "modification_status": "New authored tooling/evidence or declared whole-frame derivative; see exact source paths and derivation. No protected originals changed."
+    },
+    {
+      "path": "assets_src/animation/whole_sprite_pipeline_20261007/key_derivation.json",
+      "sha256": "63121a05802078e2dab0bd1bba95e4c9b5db30867f89045eb882c7eb7333f7f6",
+      "bytes": 3259,
+      "dimensions": null,
+      "source_paths": [
+        "assets_src/animation/whole_sprite_pipeline_20261007/key_derivation.json"
+      ],
+      "role": "source_archive_evidence",
+      "license_provenance": "ASSET_LICENSES.md and source_inventory.json / per-frame derivation / generation receipts",
+      "modification_status": "New authored tooling/evidence or declared whole-frame derivative; see exact source paths and derivation. No protected originals changed."
+    },
+    {
+      "path": "assets_src/animation/whole_sprite_pipeline_20261007/key_inspection.json",
+      "sha256": "67c36bed5a5c1097a0081ca7c722a1bb2e30b966c71166a435127855e9ead017",
+      "bytes": 5545,
+      "dimensions": null,
+      "source_paths": [
+        "assets_src/animation/whole_sprite_pipeline_20261007/key_inspection.json"
+      ],
+      "role": "source_archive_evidence",
+      "license_provenance": "ASSET_LICENSES.md and source_inventory.json / per-frame derivation / generation receipts",
+      "modification_status": "New authored tooling/evidence or declared whole-frame derivative; see exact source paths and derivation. No protected originals changed."
+    },
+    {
+      "path": "assets_src/animation/whole_sprite_pipeline_20261007/key_samples.json",
+      "sha256": "a8cbcd506e895124bcf8b60ab1fff1572f3fdf717f5366021f736c82755e1066",
+      "bytes": 1197,
+      "dimensions": null,
+      "source_paths": [
+        "assets_src/animation/whole_sprite_pipeline_20261007/key_samples.json"
+      ],
+      "role": "source_archive_evidence",
+      "license_provenance": "ASSET_LICENSES.md and source_inventory.json / per-frame derivation / generation receipts",
+      "modification_status": "New authored tooling/evidence or declared whole-frame derivative; see exact source paths and derivation. No protected originals changed."
+    },
+    {
+      "path": "assets_src/animation/whole_sprite_pipeline_20261007/key_samples_review.json",
+      "sha256": "5bbe9bd530ed9c031fddaffd2bbca9e6053068f3661f74e7a50ca3447527ac90",
+      "bytes": 2385,
+      "dimensions": null,
+      "source_paths": [
+        "assets_src/animation/whole_sprite_pipeline_20261007/key_samples_review.json"
+      ],
+      "role": "source_archive_evidence",
+      "license_provenance": "ASSET_LICENSES.md and source_inventory.json / per-frame derivation / generation receipts",
+      "modification_status": "New authored tooling/evidence or declared whole-frame derivative; see exact source paths and derivation. No protected originals changed."
+    },
+    {
+      "path": "assets_src/animation/whole_sprite_pipeline_20261007/keys/lower_attempt_1/native.png",
+      "sha256": "1f2dd7ea34ab20daf89d57d009ee853fbcc6ff810aa37bdc9d89cc63a57ec0ab",
+      "bytes": 734736,
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "source_paths": [
+        "assets_src/animation/whole_sprite_pipeline_20261007/references/approved_K0.png",
+        "assets_src/animation/whole_sprite_pipeline_20261007/references/approved_K2.png",
+        "assets_src/animation/whole_sprite_pipeline_20261007/keys/lower_attempt_1/prompt.txt"
+      ],
+      "role": "rejected_or_source_candidate_pixels",
+      "license_provenance": "ASSET_LICENSES.md and source_inventory.json / per-frame derivation / generation receipts",
+      "modification_status": "New authored tooling/evidence or declared whole-frame derivative; see exact source paths and derivation. No protected originals changed."
+    },
+    {
+      "path": "assets_src/animation/whole_sprite_pipeline_20261007/keys/lower_attempt_1/normalized/aseprite.log",
+      "sha256": "113235dbef000247bf66d2a731036e797d32e4e2286a21ea0079b823b22c4cab",
+      "bytes": 42,
+      "dimensions": null,
+      "source_paths": [
+        "assets_src/animation/whole_sprite_pipeline_20261007/keys/lower_attempt_1/normalized/aseprite.log"
+      ],
+      "role": "source_archive_evidence",
+      "license_provenance": "ASSET_LICENSES.md and source_inventory.json / per-frame derivation / generation receipts",
+      "modification_status": "New authored tooling/evidence or declared whole-frame derivative; see exact source paths and derivation. No protected originals changed."
+    },
+    {
+      "path": "assets_src/animation/whole_sprite_pipeline_20261007/keys/lower_attempt_1/normalized/bridge_input.json",
+      "sha256": "e49457ead39296e8c730ec39c50348b6bbfc805c7949ae924d197c5c6daa3c9d",
+      "bytes": 540,
+      "dimensions": null,
+      "source_paths": [
+        "assets_src/animation/whole_sprite_pipeline_20261007/keys/lower_attempt_1/normalized/bridge_input.json"
+      ],
+      "role": "source_archive_evidence",
+      "license_provenance": "ASSET_LICENSES.md and source_inventory.json / per-frame derivation / generation receipts",
+      "modification_status": "New authored tooling/evidence or declared whole-frame derivative; see exact source paths and derivation. No protected originals changed."
+    },
+    {
+      "path": "assets_src/animation/whole_sprite_pipeline_20261007/keys/lower_attempt_1/normalized/frames/0000.png",
+      "sha256": "f8c5237fb54e866de14be3b06c80963952ab2a6552d2355f1272105ca7f1a34e",
+      "bytes": 45159,
+      "dimensions": [
+        256,
+        256
+      ],
+      "source_paths": [
+        "assets_src/animation/whole_sprite_pipeline_20261007/keys/lower_attempt_1/native.png"
+      ],
+      "role": "rejected_or_source_candidate_pixels",
+      "license_provenance": "ASSET_LICENSES.md and source_inventory.json / per-frame derivation / generation receipts",
+      "modification_status": "New authored tooling/evidence or declared whole-frame derivative; see exact source paths and derivation. No protected originals changed."
+    },
+    {
+      "path": "assets_src/animation/whole_sprite_pipeline_20261007/keys/lower_attempt_1/normalized/master_proof.json",
+      "sha256": "718f285285985c3569f5f956e163c390f7f69e52a8a124de8278f84b22174d80",
+      "bytes": 47,
+      "dimensions": null,
+      "source_paths": [
+        "assets_src/animation/whole_sprite_pipeline_20261007/keys/lower_attempt_1/normalized/master_proof.json"
+      ],
+      "role": "source_archive_evidence",
+      "license_provenance": "ASSET_LICENSES.md and source_inventory.json / per-frame derivation / generation receipts",
+      "modification_status": "New authored tooling/evidence or declared whole-frame derivative; see exact source paths and derivation. No protected originals changed."
+    },
+    {
+      "path": "assets_src/animation/whole_sprite_pipeline_20261007/keys/lower_attempt_1/normalized/normalization.json",
+      "sha256": "6c7fe0881ffe1d00fe81a3c1dfc41acda2ba31bff702c9a523ff6f27a52c1155",
+      "bytes": 1063,
+      "dimensions": null,
+      "source_paths": [
+        "assets_src/animation/whole_sprite_pipeline_20261007/keys/lower_attempt_1/normalized/normalization.json"
+      ],
+      "role": "source_archive_evidence",
+      "license_provenance": "ASSET_LICENSES.md and source_inventory.json / per-frame derivation / generation receipts",
+      "modification_status": "New authored tooling/evidence or declared whole-frame derivative; see exact source paths and derivation. No protected originals changed."
+    },
+    {
+      "path": "assets_src/animation/whole_sprite_pipeline_20261007/keys/lower_attempt_1/normalized/whole_sprite.aseprite",
+      "sha256": "047ce5869994501d631d8643578f2f77975ca98c56bbe0d7d1916f994e576209",
+      "bytes": 50518,
+      "dimensions": null,
+      "source_paths": [
+        "assets_src/animation/whole_sprite_pipeline_20261007/keys/lower_attempt_1/native.png"
+      ],
+      "role": "source_archive_evidence",
+      "license_provenance": "ASSET_LICENSES.md and source_inventory.json / per-frame derivation / generation receipts",
+      "modification_status": "New authored tooling/evidence or declared whole-frame derivative; see exact source paths and derivation. No protected originals changed."
+    },
+    {
+      "path": "assets_src/animation/whole_sprite_pipeline_20261007/keys/lower_attempt_1/prompt.txt",
+      "sha256": "f3e8f6237744aed1ca85ebd218f33433b7d2ae7856f768a7ea53e10525aae4b1",
+      "bytes": 1880,
+      "dimensions": null,
+      "source_paths": [
+        "assets_src/animation/whole_sprite_pipeline_20261007/keys/lower_attempt_1/prompt.txt"
+      ],
+      "role": "source_archive_evidence",
+      "license_provenance": "ASSET_LICENSES.md and source_inventory.json / per-frame derivation / generation receipts",
+      "modification_status": "New authored tooling/evidence or declared whole-frame derivative; see exact source paths and derivation. No protected originals changed."
+    },
+    {
+      "path": "assets_src/animation/whole_sprite_pipeline_20261007/keys/lower_attempt_1/receipt.json",
+      "sha256": "92a991dcd02401662616383e8e0a1b4acd2142ac0d27592333345a098f4da098",
+      "bytes": 2362,
+      "dimensions": null,
+      "source_paths": [
+        "assets_src/animation/whole_sprite_pipeline_20261007/keys/lower_attempt_1/receipt.json"
+      ],
+      "role": "source_archive_evidence",
+      "license_provenance": "ASSET_LICENSES.md and source_inventory.json / per-frame derivation / generation receipts",
+      "modification_status": "New authored tooling/evidence or declared whole-frame derivative; see exact source paths and derivation. No protected originals changed."
+    },
+    {
+      "path": "assets_src/animation/whole_sprite_pipeline_20261007/keys/raise_attempt_1/native.png",
+      "sha256": "6280c70173971c67e00e791cfb51eee63a958f1e1bcbb5f860a8f8c790462817",
+      "bytes": 820744,
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "source_paths": [
+        "assets_src/animation/whole_sprite_pipeline_20261007/references/approved_K0.png",
+        "assets_src/animation/whole_sprite_pipeline_20261007/references/approved_K2.png",
+        "assets_src/animation/whole_sprite_pipeline_20261007/keys/raise_attempt_1/prompt.txt"
+      ],
+      "role": "rejected_or_source_candidate_pixels",
+      "license_provenance": "ASSET_LICENSES.md and source_inventory.json / per-frame derivation / generation receipts",
+      "modification_status": "New authored tooling/evidence or declared whole-frame derivative; see exact source paths and derivation. No protected originals changed."
+    },
+    {
+      "path": "assets_src/animation/whole_sprite_pipeline_20261007/keys/raise_attempt_1/normalized/aseprite.log",
+      "sha256": "113235dbef000247bf66d2a731036e797d32e4e2286a21ea0079b823b22c4cab",
+      "bytes": 42,
+      "dimensions": null,
+      "source_paths": [
+        "assets_src/animation/whole_sprite_pipeline_20261007/keys/raise_attempt_1/normalized/aseprite.log"
+      ],
+      "role": "source_archive_evidence",
+      "license_provenance": "ASSET_LICENSES.md and source_inventory.json / per-frame derivation / generation receipts",
+      "modification_status": "New authored tooling/evidence or declared whole-frame derivative; see exact source paths and derivation. No protected originals changed."
+    },
+    {
+      "path": "assets_src/animation/whole_sprite_pipeline_20261007/keys/raise_attempt_1/normalized/bridge_input.json",
+      "sha256": "d6270c3e10c9b8500b781b127bb939ac3c5d3b6a8572e1e529df558e193a2569",
+      "bytes": 540,
+      "dimensions": null,
+      "source_paths": [
+        "assets_src/animation/whole_sprite_pipeline_20261007/keys/raise_attempt_1/normalized/bridge_input.json"
+      ],
+      "role": "source_archive_evidence",
+      "license_provenance": "ASSET_LICENSES.md and source_inventory.json / per-frame derivation / generation receipts",
+      "modification_status": "New authored tooling/evidence or declared whole-frame derivative; see exact source paths and derivation. No protected originals changed."
+    },
+    {
+      "path": "assets_src/animation/whole_sprite_pipeline_20261007/keys/raise_attempt_1/normalized/frames/0000.png",
+      "sha256": "bea9b82317185d6d0d9df2ba350a3d5991318432c118d6897264e4b98a1c5b95",
+      "bytes": 50104,
+      "dimensions": [
+        256,
+        256
+      ],
+      "source_paths": [
+        "assets_src/animation/whole_sprite_pipeline_20261007/keys/raise_attempt_1/native.png"
+      ],
+      "role": "rejected_or_source_candidate_pixels",
+      "license_provenance": "ASSET_LICENSES.md and source_inventory.json / per-frame derivation / generation receipts",
+      "modification_status": "New authored tooling/evidence or declared whole-frame derivative; see exact source paths and derivation. No protected originals changed."
+    },
+    {
+      "path": "assets_src/animation/whole_sprite_pipeline_20261007/keys/raise_attempt_1/normalized/master_proof.json",
+      "sha256": "718f285285985c3569f5f956e163c390f7f69e52a8a124de8278f84b22174d80",
+      "bytes": 47,
+      "dimensions": null,
+      "source_paths": [
+        "assets_src/animation/whole_sprite_pipeline_20261007/keys/raise_attempt_1/normalized/master_proof.json"
+      ],
+      "role": "source_archive_evidence",
+      "license_provenance": "ASSET_LICENSES.md and source_inventory.json / per-frame derivation / generation receipts",
+      "modification_status": "New authored tooling/evidence or declared whole-frame derivative; see exact source paths and derivation. No protected originals changed."
+    },
+    {
+      "path": "assets_src/animation/whole_sprite_pipeline_20261007/keys/raise_attempt_1/normalized/normalization.json",
+      "sha256": "eb7234358f72d94a82c6c812b0365e237570994eee0d00c634543e62457e1199",
+      "bytes": 1358,
+      "dimensions": null,
+      "source_paths": [
+        "assets_src/animation/whole_sprite_pipeline_20261007/keys/raise_attempt_1/normalized/normalization.json"
+      ],
+      "role": "source_archive_evidence",
+      "license_provenance": "ASSET_LICENSES.md and source_inventory.json / per-frame derivation / generation receipts",
+      "modification_status": "New authored tooling/evidence or declared whole-frame derivative; see exact source paths and derivation. No protected originals changed."
+    },
+    {
+      "path": "assets_src/animation/whole_sprite_pipeline_20261007/keys/raise_attempt_1/normalized/whole_sprite.aseprite",
+      "sha256": "3b8452d7b9bc6661cc4dcc0a8c58754f4a2221c0d586855f63ec00ce498a3273",
+      "bytes": 55378,
+      "dimensions": null,
+      "source_paths": [
+        "assets_src/animation/whole_sprite_pipeline_20261007/keys/raise_attempt_1/native.png"
+      ],
+      "role": "source_archive_evidence",
+      "license_provenance": "ASSET_LICENSES.md and source_inventory.json / per-frame derivation / generation receipts",
+      "modification_status": "New authored tooling/evidence or declared whole-frame derivative; see exact source paths and derivation. No protected originals changed."
+    },
+    {
+      "path": "assets_src/animation/whole_sprite_pipeline_20261007/keys/raise_attempt_1/prompt.txt",
+      "sha256": "c494eaf6e7500f952cbff578427b7b43735504fb28b78913c648342564a274d0",
+      "bytes": 1746,
+      "dimensions": null,
+      "source_paths": [
+        "assets_src/animation/whole_sprite_pipeline_20261007/keys/raise_attempt_1/prompt.txt"
+      ],
+      "role": "source_archive_evidence",
+      "license_provenance": "ASSET_LICENSES.md and source_inventory.json / per-frame derivation / generation receipts",
+      "modification_status": "New authored tooling/evidence or declared whole-frame derivative; see exact source paths and derivation. No protected originals changed."
+    },
+    {
+      "path": "assets_src/animation/whole_sprite_pipeline_20261007/keys/raise_attempt_1/receipt.json",
+      "sha256": "4e0617f55e19d4a39e9c96bdde3cdf0c9033ae83fff64937e390e676395ef6d5",
+      "bytes": 2664,
+      "dimensions": null,
+      "source_paths": [
+        "assets_src/animation/whole_sprite_pipeline_20261007/keys/raise_attempt_1/receipt.json"
+      ],
+      "role": "source_archive_evidence",
+      "license_provenance": "ASSET_LICENSES.md and source_inventory.json / per-frame derivation / generation receipts",
+      "modification_status": "New authored tooling/evidence or declared whole-frame derivative; see exact source paths and derivation. No protected originals changed."
+    },
+    {
+      "path": "assets_src/animation/whole_sprite_pipeline_20261007/lower_provider_receipt.json",
+      "sha256": "c3fe9289aaec6be3c931625ecf9ed85fd076c733e61eb5c2af007213671a6e27",
+      "bytes": 1159,
+      "dimensions": null,
+      "source_paths": [
+        "assets_src/animation/whole_sprite_pipeline_20261007/lower_provider_receipt.json"
+      ],
+      "role": "source_archive_evidence",
+      "license_provenance": "ASSET_LICENSES.md and source_inventory.json / per-frame derivation / generation receipts",
+      "modification_status": "New authored tooling/evidence or declared whole-frame derivative; see exact source paths and derivation. No protected originals changed."
+    },
+    {
+      "path": "assets_src/animation/whole_sprite_pipeline_20261007/lower_reservation.json",
+      "sha256": "c7760c23213a996c04923061df2122fadf6fd623bf29a973eac7ec242e41c815",
+      "bytes": 530,
+      "dimensions": null,
+      "source_paths": [
+        "assets_src/animation/whole_sprite_pipeline_20261007/lower_reservation.json"
+      ],
+      "role": "source_archive_evidence",
+      "license_provenance": "ASSET_LICENSES.md and source_inventory.json / per-frame derivation / generation receipts",
+      "modification_status": "New authored tooling/evidence or declared whole-frame derivative; see exact source paths and derivation. No protected originals changed."
+    },
+    {
+      "path": "assets_src/animation/whole_sprite_pipeline_20261007/native_context/0000.png",
+      "sha256": "be7db98c4d0444ea1e8ee019f10011f2db5dfc1ceaacb58f16b6af2c3d4efa5a",
+      "bytes": 476771,
+      "dimensions": [
+        640,
+        896
+      ],
+      "source_paths": [
+        "assets_src/cinematics/ltx25_union_trial_20261004/take_1/refined_frames/0000.png"
+      ],
+      "role": "rejected_or_source_candidate_pixels",
+      "license_provenance": "ASSET_LICENSES.md and source_inventory.json / per-frame derivation / generation receipts",
+      "modification_status": "New authored tooling/evidence or declared whole-frame derivative; see exact source paths and derivation. No protected originals changed."
+    },
+    {
+      "path": "assets_src/animation/whole_sprite_pipeline_20261007/native_context/0001.png",
+      "sha256": "4fc804a541b0bd4167ae577814bda2ed1c3c5e752f8952335bfc31fb5a3aab54",
+      "bytes": 484932,
+      "dimensions": [
+        640,
+        896
+      ],
+      "source_paths": [
+        "assets_src/cinematics/ltx25_union_trial_20261004/take_1/refined_frames/0001.png"
+      ],
+      "role": "rejected_or_source_candidate_pixels",
+      "license_provenance": "ASSET_LICENSES.md and source_inventory.json / per-frame derivation / generation receipts",
+      "modification_status": "New authored tooling/evidence or declared whole-frame derivative; see exact source paths and derivation. No protected originals changed."
+    },
+    {
+      "path": "assets_src/animation/whole_sprite_pipeline_20261007/native_context/0002.png",
+      "sha256": "5c90220ec6ac44ab6832f596fb2f1443ec94e2f063d6729f2649238013ef665e",
+      "bytes": 490690,
+      "dimensions": [
+        640,
+        896
+      ],
+      "source_paths": [
+        "assets_src/cinematics/ltx25_union_trial_20261004/take_1/refined_frames/0002.png"
+      ],
+      "role": "rejected_or_source_candidate_pixels",
+      "license_provenance": "ASSET_LICENSES.md and source_inventory.json / per-frame derivation / generation receipts",
+      "modification_status": "New authored tooling/evidence or declared whole-frame derivative; see exact source paths and derivation. No protected originals changed."
+    },
+    {
+      "path": "assets_src/animation/whole_sprite_pipeline_20261007/native_context/0003.png",
+      "sha256": "7c7dc371a1405658fa9573cea723c8e884f4fd9f76f6061abdd66ab534791895",
+      "bytes": 496719,
+      "dimensions": [
+        640,
+        896
+      ],
+      "source_paths": [
+        "assets_src/cinematics/ltx25_union_trial_20261004/take_1/refined_frames/0003.png"
+      ],
+      "role": "rejected_or_source_candidate_pixels",
+      "license_provenance": "ASSET_LICENSES.md and source_inventory.json / per-frame derivation / generation receipts",
+      "modification_status": "New authored tooling/evidence or declared whole-frame derivative; see exact source paths and derivation. No protected originals changed."
+    },
+    {
+      "path": "assets_src/animation/whole_sprite_pipeline_20261007/native_context/0004.png",
+      "sha256": "f86eb33c81de973909a11c7614bca017ac0839730a1c60e61cf88fbceea312a3",
+      "bytes": 499983,
+      "dimensions": [
+        640,
+        896
+      ],
+      "source_paths": [
+        "assets_src/cinematics/ltx25_union_trial_20261004/take_1/refined_frames/0004.png"
+      ],
+      "role": "rejected_or_source_candidate_pixels",
+      "license_provenance": "ASSET_LICENSES.md and source_inventory.json / per-frame derivation / generation receipts",
+      "modification_status": "New authored tooling/evidence or declared whole-frame derivative; see exact source paths and derivation. No protected originals changed."
+    },
+    {
+      "path": "assets_src/animation/whole_sprite_pipeline_20261007/native_context/0005.png",
+      "sha256": "0d15a81898dacf319b8dc2f2e99f1c5e31e64e97f1c73b6db173e63e72296bee",
+      "bytes": 501775,
+      "dimensions": [
+        640,
+        896
+      ],
+      "source_paths": [
+        "assets_src/cinematics/ltx25_union_trial_20261004/take_1/refined_frames/0005.png"
+      ],
+      "role": "rejected_or_source_candidate_pixels",
+      "license_provenance": "ASSET_LICENSES.md and source_inventory.json / per-frame derivation / generation receipts",
+      "modification_status": "New authored tooling/evidence or declared whole-frame derivative; see exact source paths and derivation. No protected originals changed."
+    },
+    {
+      "path": "assets_src/animation/whole_sprite_pipeline_20261007/native_context/0006.png",
+      "sha256": "8e5ac4a911738502659b02cf94d0b971f53dc3d10e368fb28aed77547795eea8",
+      "bytes": 503764,
+      "dimensions": [
+        640,
+        896
+      ],
+      "source_paths": [
+        "assets_src/cinematics/ltx25_union_trial_20261004/take_1/refined_frames/0006.png"
+      ],
+      "role": "rejected_or_source_candidate_pixels",
+      "license_provenance": "ASSET_LICENSES.md and source_inventory.json / per-frame derivation / generation receipts",
+      "modification_status": "New authored tooling/evidence or declared whole-frame derivative; see exact source paths and derivation. No protected originals changed."
+    },
+    {
+      "path": "assets_src/animation/whole_sprite_pipeline_20261007/native_context/0007.png",
+      "sha256": "5fd03df917ac112dafcef70ae7eb9e5abd3586d8dc4f8477096b14bd689e47d7",
+      "bytes": 506577,
+      "dimensions": [
+        640,
+        896
+      ],
+      "source_paths": [
+        "assets_src/cinematics/ltx25_union_trial_20261004/take_1/refined_frames/0007.png"
+      ],
+      "role": "rejected_or_source_candidate_pixels",
+      "license_provenance": "ASSET_LICENSES.md and source_inventory.json / per-frame derivation / generation receipts",
+      "modification_status": "New authored tooling/evidence or declared whole-frame derivative; see exact source paths and derivation. No protected originals changed."
+    },
+    {
+      "path": "assets_src/animation/whole_sprite_pipeline_20261007/native_context/0008.png",
+      "sha256": "c76777576372b826cc8052c48ee7b865ef59857f07f853dd387bf9288400338e",
+      "bytes": 504290,
+      "dimensions": [
+        640,
+        896
+      ],
+      "source_paths": [
+        "assets_src/cinematics/ltx25_union_trial_20261004/take_1/refined_frames/0008.png"
+      ],
+      "role": "rejected_or_source_candidate_pixels",
+      "license_provenance": "ASSET_LICENSES.md and source_inventory.json / per-frame derivation / generation receipts",
+      "modification_status": "New authored tooling/evidence or declared whole-frame derivative; see exact source paths and derivation. No protected originals changed."
+    },
+    {
+      "path": "assets_src/animation/whole_sprite_pipeline_20261007/native_context/0009.png",
+      "sha256": "94bccc30d1532e5ede7c9c141cd237b3c9e4b48079e0956e21dd22f368e2597c",
+      "bytes": 504935,
+      "dimensions": [
+        640,
+        896
+      ],
+      "source_paths": [
+        "assets_src/cinematics/ltx25_union_trial_20261004/take_1/refined_frames/0009.png"
+      ],
+      "role": "rejected_or_source_candidate_pixels",
+      "license_provenance": "ASSET_LICENSES.md and source_inventory.json / per-frame derivation / generation receipts",
+      "modification_status": "New authored tooling/evidence or declared whole-frame derivative; see exact source paths and derivation. No protected originals changed."
+    },
+    {
+      "path": "assets_src/animation/whole_sprite_pipeline_20261007/native_context/0010.png",
+      "sha256": "d72fd33420f9c6ef35addff51f6f173d8004c5c0d80e2e9ad54149b4ae08070a",
+      "bytes": 502558,
+      "dimensions": [
+        640,
+        896
+      ],
+      "source_paths": [
+        "assets_src/cinematics/ltx25_union_trial_20261004/take_1/refined_frames/0010.png"
+      ],
+      "role": "rejected_or_source_candidate_pixels",
+      "license_provenance": "ASSET_LICENSES.md and source_inventory.json / per-frame derivation / generation receipts",
+      "modification_status": "New authored tooling/evidence or declared whole-frame derivative; see exact source paths and derivation. No protected originals changed."
+    },
+    {
+      "path": "assets_src/animation/whole_sprite_pipeline_20261007/native_context/0011.png",
+      "sha256": "7f76d454a2afd8a1b7f6c66c1b2508b6141a934a1183b59fcbe7256adfe858bf",
+      "bytes": 504292,
+      "dimensions": [
+        640,
+        896
+      ],
+      "source_paths": [
+        "assets_src/cinematics/ltx25_union_trial_20261004/take_1/refined_frames/0011.png"
+      ],
+      "role": "rejected_or_source_candidate_pixels",
+      "license_provenance": "ASSET_LICENSES.md and source_inventory.json / per-frame derivation / generation receipts",
+      "modification_status": "New authored tooling/evidence or declared whole-frame derivative; see exact source paths and derivation. No protected originals changed."
+    },
+    {
+      "path": "assets_src/animation/whole_sprite_pipeline_20261007/native_context/0012.png",
+      "sha256": "4135716c362ab4375f9bbaa3c2cb07d1702817ed1c4c46e7652bd0860800e6ca",
+      "bytes": 501816,
+      "dimensions": [
+        640,
+        896
+      ],
+      "source_paths": [
+        "assets_src/cinematics/ltx25_union_trial_20261004/take_1/refined_frames/0012.png"
+      ],
+      "role": "rejected_or_source_candidate_pixels",
+      "license_provenance": "ASSET_LICENSES.md and source_inventory.json / per-frame derivation / generation receipts",
+      "modification_status": "New authored tooling/evidence or declared whole-frame derivative; see exact source paths and derivation. No protected originals changed."
+    },
+    {
+      "path": "assets_src/animation/whole_sprite_pipeline_20261007/native_context/0013.png",
+      "sha256": "fd4b2bcb3a0f6ffd4cc00b63a0c176efc3cc2b79c745d13240f38b23edb43a76",
+      "bytes": 504363,
+      "dimensions": [
+        640,
+        896
+      ],
+      "source_paths": [
+        "assets_src/cinematics/ltx25_union_trial_20261004/take_1/refined_frames/0013.png"
+      ],
+      "role": "rejected_or_source_candidate_pixels",
+      "license_provenance": "ASSET_LICENSES.md and source_inventory.json / per-frame derivation / generation receipts",
+      "modification_status": "New authored tooling/evidence or declared whole-frame derivative; see exact source paths and derivation. No protected originals changed."
+    },
+    {
+      "path": "assets_src/animation/whole_sprite_pipeline_20261007/native_context/0014.png",
+      "sha256": "13578de25464c45dca49730ffd17add550a904463672df74b3df71ec85224796",
+      "bytes": 503142,
+      "dimensions": [
+        640,
+        896
+      ],
+      "source_paths": [
+        "assets_src/cinematics/ltx25_union_trial_20261004/take_1/refined_frames/0014.png"
+      ],
+      "role": "rejected_or_source_candidate_pixels",
+      "license_provenance": "ASSET_LICENSES.md and source_inventory.json / per-frame derivation / generation receipts",
+      "modification_status": "New authored tooling/evidence or declared whole-frame derivative; see exact source paths and derivation. No protected originals changed."
+    },
+    {
+      "path": "assets_src/animation/whole_sprite_pipeline_20261007/native_context/0015.png",
+      "sha256": "9b3db1ad17e2222ef34cbbb12266b1b69d49b7fea5090315601b311e9f778d00",
+      "bytes": 504670,
+      "dimensions": [
+        640,
+        896
+      ],
+      "source_paths": [
+        "assets_src/cinematics/ltx25_union_trial_20261004/take_1/refined_frames/0015.png"
+      ],
+      "role": "rejected_or_source_candidate_pixels",
+      "license_provenance": "ASSET_LICENSES.md and source_inventory.json / per-frame derivation / generation receipts",
+      "modification_status": "New authored tooling/evidence or declared whole-frame derivative; see exact source paths and derivation. No protected originals changed."
+    },
+    {
+      "path": "assets_src/animation/whole_sprite_pipeline_20261007/native_context/0016.png",
+      "sha256": "796cfadb13638b5ebaa314fbbdd5a42544d301aaf473c0e21bfd714f24cab053",
+      "bytes": 503373,
+      "dimensions": [
+        640,
+        896
+      ],
+      "source_paths": [
+        "assets_src/cinematics/ltx25_union_trial_20261004/take_1/refined_frames/0016.png"
+      ],
+      "role": "rejected_or_source_candidate_pixels",
+      "license_provenance": "ASSET_LICENSES.md and source_inventory.json / per-frame derivation / generation receipts",
+      "modification_status": "New authored tooling/evidence or declared whole-frame derivative; see exact source paths and derivation. No protected originals changed."
+    },
+    {
+      "path": "assets_src/animation/whole_sprite_pipeline_20261007/native_context/0017.png",
+      "sha256": "58ff638bce2e4c65d4377bb8f489c1f4012901ac9825d80ce4595688dcd29628",
+      "bytes": 504733,
+      "dimensions": [
+        640,
+        896
+      ],
+      "source_paths": [
+        "assets_src/cinematics/ltx25_union_trial_20261004/take_1/refined_frames/0017.png"
+      ],
+      "role": "rejected_or_source_candidate_pixels",
+      "license_provenance": "ASSET_LICENSES.md and source_inventory.json / per-frame derivation / generation receipts",
+      "modification_status": "New authored tooling/evidence or declared whole-frame derivative; see exact source paths and derivation. No protected originals changed."
+    },
+    {
+      "path": "assets_src/animation/whole_sprite_pipeline_20261007/native_context/0018.png",
+      "sha256": "939e50acebc60107da6c07d19452ada29834a929151ed9fa779aede82bcbd82b",
+      "bytes": 502218,
+      "dimensions": [
+        640,
+        896
+      ],
+      "source_paths": [
+        "assets_src/cinematics/ltx25_union_trial_20261004/take_1/refined_frames/0018.png"
+      ],
+      "role": "rejected_or_source_candidate_pixels",
+      "license_provenance": "ASSET_LICENSES.md and source_inventory.json / per-frame derivation / generation receipts",
+      "modification_status": "New authored tooling/evidence or declared whole-frame derivative; see exact source paths and derivation. No protected originals changed."
+    },
+    {
+      "path": "assets_src/animation/whole_sprite_pipeline_20261007/native_context/0019.png",
+      "sha256": "89b1c813ef52c74e1016aace311817537eeac9e306844de7638c77aecb7c3ecd",
+      "bytes": 502065,
+      "dimensions": [
+        640,
+        896
+      ],
+      "source_paths": [
+        "assets_src/cinematics/ltx25_union_trial_20261004/take_1/refined_frames/0019.png"
+      ],
+      "role": "rejected_or_source_candidate_pixels",
+      "license_provenance": "ASSET_LICENSES.md and source_inventory.json / per-frame derivation / generation receipts",
+      "modification_status": "New authored tooling/evidence or declared whole-frame derivative; see exact source paths and derivation. No protected originals changed."
+    },
+    {
+      "path": "assets_src/animation/whole_sprite_pipeline_20261007/native_context/0020.png",
+      "sha256": "19a79a179d265bb7aa54c854705ff9e41ef4a9d2959052c921d34801742b4896",
+      "bytes": 499260,
+      "dimensions": [
+        640,
+        896
+      ],
+      "source_paths": [
+        "assets_src/cinematics/ltx25_union_trial_20261004/take_1/refined_frames/0020.png"
+      ],
+      "role": "rejected_or_source_candidate_pixels",
+      "license_provenance": "ASSET_LICENSES.md and source_inventory.json / per-frame derivation / generation receipts",
+      "modification_status": "New authored tooling/evidence or declared whole-frame derivative; see exact source paths and derivation. No protected originals changed."
+    },
+    {
+      "path": "assets_src/animation/whole_sprite_pipeline_20261007/native_context/0021.png",
+      "sha256": "e89bddef71082a5541cbab7d6a602dddb399c83ad90be9232cbebe72a1b2797d",
+      "bytes": 500259,
+      "dimensions": [
+        640,
+        896
+      ],
+      "source_paths": [
+        "assets_src/cinematics/ltx25_union_trial_20261004/take_1/refined_frames/0021.png"
+      ],
+      "role": "rejected_or_source_candidate_pixels",
+      "license_provenance": "ASSET_LICENSES.md and source_inventory.json / per-frame derivation / generation receipts",
+      "modification_status": "New authored tooling/evidence or declared whole-frame derivative; see exact source paths and derivation. No protected originals changed."
+    },
+    {
+      "path": "assets_src/animation/whole_sprite_pipeline_20261007/native_context/0022.png",
+      "sha256": "39b0cb5ed77e946d64c89b9535c75ea0696ae58e8927c659d2e1435f2aa32a89",
+      "bytes": 496501,
+      "dimensions": [
+        640,
+        896
+      ],
+      "source_paths": [
+        "assets_src/cinematics/ltx25_union_trial_20261004/take_1/refined_frames/0022.png"
+      ],
+      "role": "rejected_or_source_candidate_pixels",
+      "license_provenance": "ASSET_LICENSES.md and source_inventory.json / per-frame derivation / generation receipts",
+      "modification_status": "New authored tooling/evidence or declared whole-frame derivative; see exact source paths and derivation. No protected originals changed."
+    },
+    {
+      "path": "assets_src/animation/whole_sprite_pipeline_20261007/native_context/0023.png",
+      "sha256": "5a9ed1665b3b198e4e720eb0d0ffdc62991e836a636675fe685e6fe5fe28b6bd",
+      "bytes": 498078,
+      "dimensions": [
+        640,
+        896
+      ],
+      "source_paths": [
+        "assets_src/cinematics/ltx25_union_trial_20261004/take_1/refined_frames/0023.png"
+      ],
+      "role": "rejected_or_source_candidate_pixels",
+      "license_provenance": "ASSET_LICENSES.md and source_inventory.json / per-frame derivation / generation receipts",
+      "modification_status": "New authored tooling/evidence or declared whole-frame derivative; see exact source paths and derivation. No protected originals changed."
+    },
+    {
+      "path": "assets_src/animation/whole_sprite_pipeline_20261007/native_context/0024.png",
+      "sha256": "263623ce817cf67ce3a7a9b19d6a8c68ffc2e2bc1c5ae46b03fe745f6c34822c",
+      "bytes": 495548,
+      "dimensions": [
+        640,
+        896
+      ],
+      "source_paths": [
+        "assets_src/cinematics/ltx25_union_trial_20261004/take_1/refined_frames/0024.png"
+      ],
+      "role": "rejected_or_source_candidate_pixels",
+      "license_provenance": "ASSET_LICENSES.md and source_inventory.json / per-frame derivation / generation receipts",
+      "modification_status": "New authored tooling/evidence or declared whole-frame derivative; see exact source paths and derivation. No protected originals changed."
+    },
+    {
+      "path": "assets_src/animation/whole_sprite_pipeline_20261007/native_context/0025.png",
+      "sha256": "3db2b42f8078a8466d3286602e41f949e61caae6e78acda4b06f3b9325028deb",
+      "bytes": 500341,
+      "dimensions": [
+        640,
+        896
+      ],
+      "source_paths": [
+        "assets_src/cinematics/ltx25_union_trial_20261004/take_1/refined_frames/0025.png"
+      ],
+      "role": "rejected_or_source_candidate_pixels",
+      "license_provenance": "ASSET_LICENSES.md and source_inventory.json / per-frame derivation / generation receipts",
+      "modification_status": "New authored tooling/evidence or declared whole-frame derivative; see exact source paths and derivation. No protected originals changed."
+    },
+    {
+      "path": "assets_src/animation/whole_sprite_pipeline_20261007/native_context/0026.png",
+      "sha256": "4554918b42b2429d5a3cfce6fab053078da4036ce30dbfcefc9cd0860d180e6f",
+      "bytes": 500441,
+      "dimensions": [
+        640,
+        896
+      ],
+      "source_paths": [
+        "assets_src/cinematics/ltx25_union_trial_20261004/take_1/refined_frames/0026.png"
+      ],
+      "role": "rejected_or_source_candidate_pixels",
+      "license_provenance": "ASSET_LICENSES.md and source_inventory.json / per-frame derivation / generation receipts",
+      "modification_status": "New authored tooling/evidence or declared whole-frame derivative; see exact source paths and derivation. No protected originals changed."
+    },
+    {
+      "path": "assets_src/animation/whole_sprite_pipeline_20261007/native_context/0027.png",
+      "sha256": "e5bec1edc6c06ee6b52b6423b538af5ee6973c1712602294e55ce2c80b0cdd3a",
+      "bytes": 504269,
+      "dimensions": [
+        640,
+        896
+      ],
+      "source_paths": [
+        "assets_src/cinematics/ltx25_union_trial_20261004/take_1/refined_frames/0027.png"
+      ],
+      "role": "rejected_or_source_candidate_pixels",
+      "license_provenance": "ASSET_LICENSES.md and source_inventory.json / per-frame derivation / generation receipts",
+      "modification_status": "New authored tooling/evidence or declared whole-frame derivative; see exact source paths and derivation. No protected originals changed."
+    },
+    {
+      "path": "assets_src/animation/whole_sprite_pipeline_20261007/native_context/0028.png",
+      "sha256": "e37fb0accf112987d03e96e9faabdbbf98edcc319474f3c949f4c83bbea599f1",
+      "bytes": 502739,
+      "dimensions": [
+        640,
+        896
+      ],
+      "source_paths": [
+        "assets_src/cinematics/ltx25_union_trial_20261004/take_1/refined_frames/0028.png"
+      ],
+      "role": "rejected_or_source_candidate_pixels",
+      "license_provenance": "ASSET_LICENSES.md and source_inventory.json / per-frame derivation / generation receipts",
+      "modification_status": "New authored tooling/evidence or declared whole-frame derivative; see exact source paths and derivation. No protected originals changed."
+    },
+    {
+      "path": "assets_src/animation/whole_sprite_pipeline_20261007/native_context/0029.png",
+      "sha256": "7c2fb8e2f3660be30a79a1e4343b193e20072f0d20a426ee83ad322a9059ba85",
+      "bytes": 505031,
+      "dimensions": [
+        640,
+        896
+      ],
+      "source_paths": [
+        "assets_src/cinematics/ltx25_union_trial_20261004/take_1/refined_frames/0029.png"
+      ],
+      "role": "rejected_or_source_candidate_pixels",
+      "license_provenance": "ASSET_LICENSES.md and source_inventory.json / per-frame derivation / generation receipts",
+      "modification_status": "New authored tooling/evidence or declared whole-frame derivative; see exact source paths and derivation. No protected originals changed."
+    },
+    {
+      "path": "assets_src/animation/whole_sprite_pipeline_20261007/native_context/0030.png",
+      "sha256": "c5db3e621eab3aabeb8337c66359e27b92e15b40de7862be5f813e839ed62c07",
+      "bytes": 503979,
+      "dimensions": [
+        640,
+        896
+      ],
+      "source_paths": [
+        "assets_src/cinematics/ltx25_union_trial_20261004/take_1/refined_frames/0030.png"
+      ],
+      "role": "rejected_or_source_candidate_pixels",
+      "license_provenance": "ASSET_LICENSES.md and source_inventory.json / per-frame derivation / generation receipts",
+      "modification_status": "New authored tooling/evidence or declared whole-frame derivative; see exact source paths and derivation. No protected originals changed."
+    },
+    {
+      "path": "assets_src/animation/whole_sprite_pipeline_20261007/native_context/0031.png",
+      "sha256": "c959013929562a20882fdfbc934f5675545b3124b087528462d30d6410bd2e27",
+      "bytes": 506516,
+      "dimensions": [
+        640,
+        896
+      ],
+      "source_paths": [
+        "assets_src/cinematics/ltx25_union_trial_20261004/take_1/refined_frames/0031.png"
+      ],
+      "role": "rejected_or_source_candidate_pixels",
+      "license_provenance": "ASSET_LICENSES.md and source_inventory.json / per-frame derivation / generation receipts",
+      "modification_status": "New authored tooling/evidence or declared whole-frame derivative; see exact source paths and derivation. No protected originals changed."
+    },
+    {
+      "path": "assets_src/animation/whole_sprite_pipeline_20261007/native_context/0032.png",
+      "sha256": "7c7507b5773eb6387e8cbaa59fe6df94014b68027780e549410ec383c91d51bc",
+      "bytes": 506787,
+      "dimensions": [
+        640,
+        896
+      ],
+      "source_paths": [
+        "assets_src/cinematics/ltx25_union_trial_20261004/take_1/refined_frames/0032.png"
+      ],
+      "role": "rejected_or_source_candidate_pixels",
+      "license_provenance": "ASSET_LICENSES.md and source_inventory.json / per-frame derivation / generation receipts",
+      "modification_status": "New authored tooling/evidence or declared whole-frame derivative; see exact source paths and derivation. No protected originals changed."
+    },
+    {
+      "path": "assets_src/animation/whole_sprite_pipeline_20261007/native_context/0033.png",
+      "sha256": "fc95acba23454c5d0e896361fbb51838af0f9fe6a391d59ff7f52111d4ff8f55",
+      "bytes": 510454,
+      "dimensions": [
+        640,
+        896
+      ],
+      "source_paths": [
+        "assets_src/cinematics/ltx25_union_trial_20261004/take_1/refined_frames/0033.png"
+      ],
+      "role": "rejected_or_source_candidate_pixels",
+      "license_provenance": "ASSET_LICENSES.md and source_inventory.json / per-frame derivation / generation receipts",
+      "modification_status": "New authored tooling/evidence or declared whole-frame derivative; see exact source paths and derivation. No protected originals changed."
+    },
+    {
+      "path": "assets_src/animation/whole_sprite_pipeline_20261007/native_context/0034.png",
+      "sha256": "98d6978e20e951d5947c3953a75b710e6b00be49212bc4f7e770b85571b06f56",
+      "bytes": 509831,
+      "dimensions": [
+        640,
+        896
+      ],
+      "source_paths": [
+        "assets_src/cinematics/ltx25_union_trial_20261004/take_1/refined_frames/0034.png"
+      ],
+      "role": "rejected_or_source_candidate_pixels",
+      "license_provenance": "ASSET_LICENSES.md and source_inventory.json / per-frame derivation / generation receipts",
+      "modification_status": "New authored tooling/evidence or declared whole-frame derivative; see exact source paths and derivation. No protected originals changed."
+    },
+    {
+      "path": "assets_src/animation/whole_sprite_pipeline_20261007/native_context/0035.png",
+      "sha256": "b2d214201a157f3aa7597525ba49ca59cec0463781394334c56fe67b3e1046f6",
+      "bytes": 512176,
+      "dimensions": [
+        640,
+        896
+      ],
+      "source_paths": [
+        "assets_src/cinematics/ltx25_union_trial_20261004/take_1/refined_frames/0035.png"
+      ],
+      "role": "rejected_or_source_candidate_pixels",
+      "license_provenance": "ASSET_LICENSES.md and source_inventory.json / per-frame derivation / generation receipts",
+      "modification_status": "New authored tooling/evidence or declared whole-frame derivative; see exact source paths and derivation. No protected originals changed."
+    },
+    {
+      "path": "assets_src/animation/whole_sprite_pipeline_20261007/native_context/0036.png",
+      "sha256": "5930035b52b186d0ae40ebbbcf840d2170c232c685973787f011af23f21a7118",
+      "bytes": 509636,
+      "dimensions": [
+        640,
+        896
+      ],
+      "source_paths": [
+        "assets_src/cinematics/ltx25_union_trial_20261004/take_1/refined_frames/0036.png"
+      ],
+      "role": "rejected_or_source_candidate_pixels",
+      "license_provenance": "ASSET_LICENSES.md and source_inventory.json / per-frame derivation / generation receipts",
+      "modification_status": "New authored tooling/evidence or declared whole-frame derivative; see exact source paths and derivation. No protected originals changed."
+    },
+    {
+      "path": "assets_src/animation/whole_sprite_pipeline_20261007/native_context/0037.png",
+      "sha256": "71d3fa35df318c865eed871c87418a6188ebac13329777d814489c25f5dc8756",
+      "bytes": 510475,
+      "dimensions": [
+        640,
+        896
+      ],
+      "source_paths": [
+        "assets_src/cinematics/ltx25_union_trial_20261004/take_1/refined_frames/0037.png"
+      ],
+      "role": "rejected_or_source_candidate_pixels",
+      "license_provenance": "ASSET_LICENSES.md and source_inventory.json / per-frame derivation / generation receipts",
+      "modification_status": "New authored tooling/evidence or declared whole-frame derivative; see exact source paths and derivation. No protected originals changed."
+    },
+    {
+      "path": "assets_src/animation/whole_sprite_pipeline_20261007/native_context/0038.png",
+      "sha256": "9b32439f691656c0556d22ef470c3e282d8f1198d5b570ea5c3494a1c36073c6",
+      "bytes": 508442,
+      "dimensions": [
+        640,
+        896
+      ],
+      "source_paths": [
+        "assets_src/cinematics/ltx25_union_trial_20261004/take_1/refined_frames/0038.png"
+      ],
+      "role": "rejected_or_source_candidate_pixels",
+      "license_provenance": "ASSET_LICENSES.md and source_inventory.json / per-frame derivation / generation receipts",
+      "modification_status": "New authored tooling/evidence or declared whole-frame derivative; see exact source paths and derivation. No protected originals changed."
+    },
+    {
+      "path": "assets_src/animation/whole_sprite_pipeline_20261007/native_context/0039.png",
+      "sha256": "232eb7be0604789df6dcdd19667f8d7d7a418c50d1aa65fd7d2affdaa04d4d66",
+      "bytes": 511110,
+      "dimensions": [
+        640,
+        896
+      ],
+      "source_paths": [
+        "assets_src/cinematics/ltx25_union_trial_20261004/take_1/refined_frames/0039.png"
+      ],
+      "role": "rejected_or_source_candidate_pixels",
+      "license_provenance": "ASSET_LICENSES.md and source_inventory.json / per-frame derivation / generation receipts",
+      "modification_status": "New authored tooling/evidence or declared whole-frame derivative; see exact source paths and derivation. No protected originals changed."
+    },
+    {
+      "path": "assets_src/animation/whole_sprite_pipeline_20261007/native_context/0040.png",
+      "sha256": "c17e1d492fae6af000279b28ec17e91e0f067820a04cd3dc0368e8d2101a167c",
+      "bytes": 510768,
+      "dimensions": [
+        640,
+        896
+      ],
+      "source_paths": [
+        "assets_src/cinematics/ltx25_union_trial_20261004/take_1/refined_frames/0040.png"
+      ],
+      "role": "rejected_or_source_candidate_pixels",
+      "license_provenance": "ASSET_LICENSES.md and source_inventory.json / per-frame derivation / generation receipts",
+      "modification_status": "New authored tooling/evidence or declared whole-frame derivative; see exact source paths and derivation. No protected originals changed."
+    },
+    {
+      "path": "assets_src/animation/whole_sprite_pipeline_20261007/native_derivation.json",
+      "sha256": "efd99b265b7b2e33b13f0b4c1dfba38339f90f44aeb77882827c2c40fbc43cfb",
+      "bytes": 33471,
+      "dimensions": null,
+      "source_paths": [
+        "assets_src/animation/whole_sprite_pipeline_20261007/native_derivation.json"
+      ],
+      "role": "source_archive_evidence",
+      "license_provenance": "ASSET_LICENSES.md and source_inventory.json / per-frame derivation / generation receipts",
+      "modification_status": "New authored tooling/evidence or declared whole-frame derivative; see exact source paths and derivation. No protected originals changed."
+    },
+    {
+      "path": "assets_src/animation/whole_sprite_pipeline_20261007/raise_provider_receipt.json",
+      "sha256": "41f4fa9e2f71a8814ea020eb72ddaff2ab26df127020364a74379aca2995a819",
+      "bytes": 1155,
+      "dimensions": null,
+      "source_paths": [
+        "assets_src/animation/whole_sprite_pipeline_20261007/raise_provider_receipt.json"
+      ],
+      "role": "source_archive_evidence",
+      "license_provenance": "ASSET_LICENSES.md and source_inventory.json / per-frame derivation / generation receipts",
+      "modification_status": "New authored tooling/evidence or declared whole-frame derivative; see exact source paths and derivation. No protected originals changed."
+    },
+    {
+      "path": "assets_src/animation/whole_sprite_pipeline_20261007/raise_reservation.json",
+      "sha256": "bb2331f7701b87bdf49eed7b008230761447a582bc7ddd2b9f95281aa58fa356",
+      "bytes": 529,
+      "dimensions": null,
+      "source_paths": [
+        "assets_src/animation/whole_sprite_pipeline_20261007/raise_reservation.json"
+      ],
+      "role": "source_archive_evidence",
+      "license_provenance": "ASSET_LICENSES.md and source_inventory.json / per-frame derivation / generation receipts",
+      "modification_status": "New authored tooling/evidence or declared whole-frame derivative; see exact source paths and derivation. No protected originals changed."
+    },
+    {
+      "path": "assets_src/animation/whole_sprite_pipeline_20261007/references/approved_K0.png",
+      "sha256": "432f8283ee8d9cd7f53a36b1f12bb1b82a865e048a03c3bd7cbd3a103ff2e789",
+      "bytes": 55208,
+      "dimensions": [
+        256,
+        256
+      ],
+      "source_paths": [
+        "assets/characters/roshan_25d/roshan_gesture_a.png"
+      ],
+      "role": "approved_appearance_reference",
+      "license_provenance": "ASSET_LICENSES.md and source_inventory.json / per-frame derivation / generation receipts",
+      "modification_status": "New authored tooling/evidence or declared whole-frame derivative; see exact source paths and derivation. No protected originals changed."
+    },
+    {
+      "path": "assets_src/animation/whole_sprite_pipeline_20261007/references/approved_K2.png",
+      "sha256": "a46c318a627a4904dbf1115b1c764d8842de6f9281fe21a4803d31b65add4bbb",
+      "bytes": 56597,
+      "dimensions": [
+        256,
+        256
+      ],
+      "source_paths": [
+        "assets/characters/roshan_25d/roshan_gesture_a.png"
+      ],
+      "role": "approved_appearance_reference",
+      "license_provenance": "ASSET_LICENSES.md and source_inventory.json / per-frame derivation / generation receipts",
+      "modification_status": "New authored tooling/evidence or declared whole-frame derivative; see exact source paths and derivation. No protected originals changed."
+    },
+    {
+      "path": "assets_src/animation/whole_sprite_pipeline_20261007/repair_plan.json",
+      "sha256": "78c8c637121c8650344ee91baa8cb50c377584a30f139222e93a5233d64d30d4",
+      "bytes": 11729,
+      "dimensions": null,
+      "source_paths": [
+        "assets_src/animation/whole_sprite_pipeline_20261007/repair_plan.json"
+      ],
+      "role": "source_archive_evidence",
+      "license_provenance": "ASSET_LICENSES.md and source_inventory.json / per-frame derivation / generation receipts",
+      "modification_status": "New authored tooling/evidence or declared whole-frame derivative; see exact source paths and derivation. No protected originals changed."
+    },
+    {
+      "path": "assets_src/animation/whole_sprite_pipeline_20261007/repair_plan_after_cap.json",
+      "sha256": "cc8e0bdd97d25f09dfd87cee652d986284e77692c421bfea232a165b17a51e11",
+      "bytes": 11730,
+      "dimensions": null,
+      "source_paths": [
+        "assets_src/animation/whole_sprite_pipeline_20261007/repair_plan_after_cap.json"
+      ],
+      "role": "source_archive_evidence",
+      "license_provenance": "ASSET_LICENSES.md and source_inventory.json / per-frame derivation / generation receipts",
+      "modification_status": "New authored tooling/evidence or declared whole-frame derivative; see exact source paths and derivation. No protected originals changed."
+    },
+    {
+      "path": "assets_src/animation/whole_sprite_pipeline_20261007/repair_plan_initial.json",
+      "sha256": "d00a9a86f23011b603011e3641c1bf5f3eb99b384453eefa1bf9ab7fc7dd2a52",
+      "bytes": 11438,
+      "dimensions": null,
+      "source_paths": [
+        "assets_src/animation/whole_sprite_pipeline_20261007/repair_plan_initial.json"
+      ],
+      "role": "source_archive_evidence",
+      "license_provenance": "ASSET_LICENSES.md and source_inventory.json / per-frame derivation / generation receipts",
+      "modification_status": "New authored tooling/evidence or declared whole-frame derivative; see exact source paths and derivation. No protected originals changed."
+    },
+    {
+      "path": "assets_src/animation/whole_sprite_pipeline_20261007/source_frames.json",
+      "sha256": "8a97ea6bb21ba363f743225ca2552fe7f45f428fbbf0acbb0595c560f5f4b4a2",
+      "bytes": 18158,
+      "dimensions": null,
+      "source_paths": [
+        "assets_src/animation/whole_sprite_pipeline_20261007/source_frames.json"
+      ],
+      "role": "source_archive_evidence",
+      "license_provenance": "ASSET_LICENSES.md and source_inventory.json / per-frame derivation / generation receipts",
+      "modification_status": "New authored tooling/evidence or declared whole-frame derivative; see exact source paths and derivation. No protected originals changed."
+    },
+    {
+      "path": "assets_src/animation/whole_sprite_pipeline_20261007/source_inventory.json",
+      "sha256": "91e3e663bdcecf3827b3769edde088163f3599779f7d78e936609b7b7765db41",
+      "bytes": 21859,
+      "dimensions": null,
+      "source_paths": [
+        "assets_src/animation/whole_sprite_pipeline_20261007/source_inventory.json"
+      ],
+      "role": "source_archive_evidence",
+      "license_provenance": "ASSET_LICENSES.md and source_inventory.json / per-frame derivation / generation receipts",
+      "modification_status": "New authored tooling/evidence or declared whole-frame derivative; see exact source paths and derivation. No protected originals changed."
+    },
+    {
+      "path": "assets_src/animation/whole_sprite_pipeline_20261007/verification/authority.log",
+      "sha256": "3d02458d3dd188c8e3e62316c6494b37c45cc14795f714c8bdcd5ef33837c6ca",
+      "bytes": 78,
+      "dimensions": null,
+      "source_paths": [
+        "assets_src/animation/whole_sprite_pipeline_20261007/verification/authority.log"
+      ],
+      "role": "source_archive_evidence",
+      "license_provenance": "ASSET_LICENSES.md and source_inventory.json / per-frame derivation / generation receipts",
+      "modification_status": "New authored tooling/evidence or declared whole-frame derivative; see exact source paths and derivation. No protected originals changed."
+    },
+    {
+      "path": "assets_src/animation/whole_sprite_pipeline_20261007/verification/authority_tests.log",
+      "sha256": "9e93ca5436d0cdd230a2f0b8ac425183da70a29b69952df08629b85575a8ce60",
+      "bytes": 179,
+      "dimensions": null,
+      "source_paths": [
+        "assets_src/animation/whole_sprite_pipeline_20261007/verification/authority_tests.log"
+      ],
+      "role": "source_archive_evidence",
+      "license_provenance": "ASSET_LICENSES.md and source_inventory.json / per-frame derivation / generation receipts",
+      "modification_status": "New authored tooling/evidence or declared whole-frame derivative; see exact source paths and derivation. No protected originals changed."
+    },
+    {
+      "path": "assets_src/animation/whole_sprite_pipeline_20261007/verification/development.log",
+      "sha256": "cf762b18f136ab84113946d2904e0ce996b5eab9d0ed8c96f564504ada8a1aec",
+      "bytes": 80,
+      "dimensions": null,
+      "source_paths": [
+        "assets_src/animation/whole_sprite_pipeline_20261007/verification/development.log"
+      ],
+      "role": "source_archive_evidence",
+      "license_provenance": "ASSET_LICENSES.md and source_inventory.json / per-frame derivation / generation receipts",
+      "modification_status": "New authored tooling/evidence or declared whole-frame derivative; see exact source paths and derivation. No protected originals changed."
+    },
+    {
+      "path": "assets_src/animation/whole_sprite_pipeline_20261007/verification/engine_default.log",
+      "sha256": "b21223d0b655fd8da4a3c82ad66abd8bd1e7a4e7998edab177e28d4a797fe39e",
+      "bytes": 139,
+      "dimensions": null,
+      "source_paths": [
+        "assets_src/animation/whole_sprite_pipeline_20261007/verification/engine_default.log"
+      ],
+      "role": "source_archive_evidence",
+      "license_provenance": "ASSET_LICENSES.md and source_inventory.json / per-frame derivation / generation receipts",
+      "modification_status": "New authored tooling/evidence or declared whole-frame derivative; see exact source paths and derivation. No protected originals changed."
+    },
+    {
+      "path": "assets_src/animation/whole_sprite_pipeline_20261007/verification/engine_python310.log",
+      "sha256": "947c713286bd6e06ecc6c67388d1be9839e34d4aaf43e7b3a2a95a25c24226d4",
+      "bytes": 127,
+      "dimensions": null,
+      "source_paths": [
+        "assets_src/animation/whole_sprite_pipeline_20261007/verification/engine_python310.log"
+      ],
+      "role": "source_archive_evidence",
+      "license_provenance": "ASSET_LICENSES.md and source_inventory.json / per-frame derivation / generation receipts",
+      "modification_status": "New authored tooling/evidence or declared whole-frame derivative; see exact source paths and derivation. No protected originals changed."
+    },
+    {
+      "path": "assets_src/animation/whole_sprite_pipeline_20261007/verification/full_ci.log",
+      "sha256": "2221b6859bd2291612c88502acb9cc4be4e7bb8cedce275fb1da410c931657f6",
+      "bytes": 1147304,
+      "dimensions": null,
+      "source_paths": [
+        "assets_src/animation/whole_sprite_pipeline_20261007/verification/full_ci.log"
+      ],
+      "role": "source_archive_evidence",
+      "license_provenance": "ASSET_LICENSES.md and source_inventory.json / per-frame derivation / generation receipts",
+      "modification_status": "New authored tooling/evidence or declared whole-frame derivative; see exact source paths and derivation. No protected originals changed."
+    },
+    {
+      "path": "assets_src/animation/whole_sprite_pipeline_20261007/verification/machine_verification.json",
+      "sha256": "e1b5f10afaa7e519dd5f3d2b3f04729d1d73c40a421909d9cfaf870c4d41ba66",
+      "bytes": 7574,
+      "dimensions": null,
+      "source_paths": [
+        "assets_src/animation/whole_sprite_pipeline_20261007/verification/machine_verification.json"
+      ],
+      "role": "source_archive_evidence",
+      "license_provenance": "ASSET_LICENSES.md and source_inventory.json / per-frame derivation / generation receipts",
+      "modification_status": "New authored tooling/evidence or declared whole-frame derivative; see exact source paths and derivation. No protected originals changed."
+    },
+    {
+      "path": "assets_src/cinematics/ltx25_union_trial_20261004/native_review.json",
+      "sha256": "cbf92c42eb97ff9aae457a54f5ab327cde99a6493f80ea2f55eca910dc5e13c8",
+      "bytes": 1190,
+      "dimensions": null,
+      "source_paths": [
+        "assets_src/cinematics/ltx25_union_trial_20261004/native_review.json"
+      ],
+      "role": "engine_dependency",
+      "license_provenance": "ASSET_LICENSES.md and source_inventory.json / per-frame derivation / generation receipts",
+      "modification_status": "Unchanged baseline dependency"
+    },
+    {
+      "path": "assets_src/cinematics/ltx25_union_trial_20261004/take_1/native_review.aseprite",
+      "sha256": "041a01f5e166be6b6eeae39297512937aaae915840f035464c8d39e3bff80807",
+      "bytes": 28185446,
+      "dimensions": null,
+      "source_paths": [
+        "assets_src/cinematics/ltx25_union_trial_20261004/take_1/native_review.aseprite"
+      ],
+      "role": "engine_dependency",
+      "license_provenance": "ASSET_LICENSES.md and source_inventory.json / per-frame derivation / generation receipts",
+      "modification_status": "Unchanged baseline dependency"
+    },
+    {
+      "path": "assets_src/cinematics/ltx25_union_trial_20261004/take_1/receipt.json",
+      "sha256": "7be379296e29d7d9c0eb51f2ac7fe258d2ca4467e1f52c9d9387539273aa3708",
+      "bytes": 8965,
+      "dimensions": null,
+      "source_paths": [
+        "assets_src/cinematics/ltx25_union_trial_20261004/take_1/receipt.json"
+      ],
+      "role": "engine_dependency",
+      "license_provenance": "ASSET_LICENSES.md and source_inventory.json / per-frame derivation / generation receipts",
+      "modification_status": "Unchanged baseline dependency"
+    },
+    {
+      "path": "assets_src/cinematics/ltx25_union_trial_20261004/take_1/refined_frames/0000.png",
+      "sha256": "be7db98c4d0444ea1e8ee019f10011f2db5dfc1ceaacb58f16b6af2c3d4efa5a",
+      "bytes": 476771,
+      "dimensions": [
+        640,
+        896
+      ],
+      "source_paths": [
+        "assets_src/cinematics/ltx25_union_trial_20261004/take_1/refined_frames/0000.png"
+      ],
+      "role": "rejected_or_source_candidate_pixels",
+      "license_provenance": "ASSET_LICENSES.md and source_inventory.json / per-frame derivation / generation receipts",
+      "modification_status": "Unchanged baseline dependency"
+    },
+    {
+      "path": "assets_src/cinematics/ltx25_union_trial_20261004/take_1/refined_frames/0001.png",
+      "sha256": "4fc804a541b0bd4167ae577814bda2ed1c3c5e752f8952335bfc31fb5a3aab54",
+      "bytes": 484932,
+      "dimensions": [
+        640,
+        896
+      ],
+      "source_paths": [
+        "assets_src/cinematics/ltx25_union_trial_20261004/take_1/refined_frames/0001.png"
+      ],
+      "role": "rejected_or_source_candidate_pixels",
+      "license_provenance": "ASSET_LICENSES.md and source_inventory.json / per-frame derivation / generation receipts",
+      "modification_status": "Unchanged baseline dependency"
+    },
+    {
+      "path": "assets_src/cinematics/ltx25_union_trial_20261004/take_1/refined_frames/0002.png",
+      "sha256": "5c90220ec6ac44ab6832f596fb2f1443ec94e2f063d6729f2649238013ef665e",
+      "bytes": 490690,
+      "dimensions": [
+        640,
+        896
+      ],
+      "source_paths": [
+        "assets_src/cinematics/ltx25_union_trial_20261004/take_1/refined_frames/0002.png"
+      ],
+      "role": "rejected_or_source_candidate_pixels",
+      "license_provenance": "ASSET_LICENSES.md and source_inventory.json / per-frame derivation / generation receipts",
+      "modification_status": "Unchanged baseline dependency"
+    },
+    {
+      "path": "assets_src/cinematics/ltx25_union_trial_20261004/take_1/refined_frames/0003.png",
+      "sha256": "7c7dc371a1405658fa9573cea723c8e884f4fd9f76f6061abdd66ab534791895",
+      "bytes": 496719,
+      "dimensions": [
+        640,
+        896
+      ],
+      "source_paths": [
+        "assets_src/cinematics/ltx25_union_trial_20261004/take_1/refined_frames/0003.png"
+      ],
+      "role": "rejected_or_source_candidate_pixels",
+      "license_provenance": "ASSET_LICENSES.md and source_inventory.json / per-frame derivation / generation receipts",
+      "modification_status": "Unchanged baseline dependency"
+    },
+    {
+      "path": "assets_src/cinematics/ltx25_union_trial_20261004/take_1/refined_frames/0004.png",
+      "sha256": "f86eb33c81de973909a11c7614bca017ac0839730a1c60e61cf88fbceea312a3",
+      "bytes": 499983,
+      "dimensions": [
+        640,
+        896
+      ],
+      "source_paths": [
+        "assets_src/cinematics/ltx25_union_trial_20261004/take_1/refined_frames/0004.png"
+      ],
+      "role": "rejected_or_source_candidate_pixels",
+      "license_provenance": "ASSET_LICENSES.md and source_inventory.json / per-frame derivation / generation receipts",
+      "modification_status": "Unchanged baseline dependency"
+    },
+    {
+      "path": "assets_src/cinematics/ltx25_union_trial_20261004/take_1/refined_frames/0005.png",
+      "sha256": "0d15a81898dacf319b8dc2f2e99f1c5e31e64e97f1c73b6db173e63e72296bee",
+      "bytes": 501775,
+      "dimensions": [
+        640,
+        896
+      ],
+      "source_paths": [
+        "assets_src/cinematics/ltx25_union_trial_20261004/take_1/refined_frames/0005.png"
+      ],
+      "role": "rejected_or_source_candidate_pixels",
+      "license_provenance": "ASSET_LICENSES.md and source_inventory.json / per-frame derivation / generation receipts",
+      "modification_status": "Unchanged baseline dependency"
+    },
+    {
+      "path": "assets_src/cinematics/ltx25_union_trial_20261004/take_1/refined_frames/0006.png",
+      "sha256": "8e5ac4a911738502659b02cf94d0b971f53dc3d10e368fb28aed77547795eea8",
+      "bytes": 503764,
+      "dimensions": [
+        640,
+        896
+      ],
+      "source_paths": [
+        "assets_src/cinematics/ltx25_union_trial_20261004/take_1/refined_frames/0006.png"
+      ],
+      "role": "rejected_or_source_candidate_pixels",
+      "license_provenance": "ASSET_LICENSES.md and source_inventory.json / per-frame derivation / generation receipts",
+      "modification_status": "Unchanged baseline dependency"
+    },
+    {
+      "path": "assets_src/cinematics/ltx25_union_trial_20261004/take_1/refined_frames/0007.png",
+      "sha256": "5fd03df917ac112dafcef70ae7eb9e5abd3586d8dc4f8477096b14bd689e47d7",
+      "bytes": 506577,
+      "dimensions": [
+        640,
+        896
+      ],
+      "source_paths": [
+        "assets_src/cinematics/ltx25_union_trial_20261004/take_1/refined_frames/0007.png"
+      ],
+      "role": "rejected_or_source_candidate_pixels",
+      "license_provenance": "ASSET_LICENSES.md and source_inventory.json / per-frame derivation / generation receipts",
+      "modification_status": "Unchanged baseline dependency"
+    },
+    {
+      "path": "assets_src/cinematics/ltx25_union_trial_20261004/take_1/refined_frames/0008.png",
+      "sha256": "c76777576372b826cc8052c48ee7b865ef59857f07f853dd387bf9288400338e",
+      "bytes": 504290,
+      "dimensions": [
+        640,
+        896
+      ],
+      "source_paths": [
+        "assets_src/cinematics/ltx25_union_trial_20261004/take_1/refined_frames/0008.png"
+      ],
+      "role": "rejected_or_source_candidate_pixels",
+      "license_provenance": "ASSET_LICENSES.md and source_inventory.json / per-frame derivation / generation receipts",
+      "modification_status": "Unchanged baseline dependency"
+    },
+    {
+      "path": "assets_src/cinematics/ltx25_union_trial_20261004/take_1/refined_frames/0009.png",
+      "sha256": "94bccc30d1532e5ede7c9c141cd237b3c9e4b48079e0956e21dd22f368e2597c",
+      "bytes": 504935,
+      "dimensions": [
+        640,
+        896
+      ],
+      "source_paths": [
+        "assets_src/cinematics/ltx25_union_trial_20261004/take_1/refined_frames/0009.png"
+      ],
+      "role": "rejected_or_source_candidate_pixels",
+      "license_provenance": "ASSET_LICENSES.md and source_inventory.json / per-frame derivation / generation receipts",
+      "modification_status": "Unchanged baseline dependency"
+    },
+    {
+      "path": "assets_src/cinematics/ltx25_union_trial_20261004/take_1/refined_frames/0010.png",
+      "sha256": "d72fd33420f9c6ef35addff51f6f173d8004c5c0d80e2e9ad54149b4ae08070a",
+      "bytes": 502558,
+      "dimensions": [
+        640,
+        896
+      ],
+      "source_paths": [
+        "assets_src/cinematics/ltx25_union_trial_20261004/take_1/refined_frames/0010.png"
+      ],
+      "role": "rejected_or_source_candidate_pixels",
+      "license_provenance": "ASSET_LICENSES.md and source_inventory.json / per-frame derivation / generation receipts",
+      "modification_status": "Unchanged baseline dependency"
+    },
+    {
+      "path": "assets_src/cinematics/ltx25_union_trial_20261004/take_1/refined_frames/0011.png",
+      "sha256": "7f76d454a2afd8a1b7f6c66c1b2508b6141a934a1183b59fcbe7256adfe858bf",
+      "bytes": 504292,
+      "dimensions": [
+        640,
+        896
+      ],
+      "source_paths": [
+        "assets_src/cinematics/ltx25_union_trial_20261004/take_1/refined_frames/0011.png"
+      ],
+      "role": "rejected_or_source_candidate_pixels",
+      "license_provenance": "ASSET_LICENSES.md and source_inventory.json / per-frame derivation / generation receipts",
+      "modification_status": "Unchanged baseline dependency"
+    },
+    {
+      "path": "assets_src/cinematics/ltx25_union_trial_20261004/take_1/refined_frames/0012.png",
+      "sha256": "4135716c362ab4375f9bbaa3c2cb07d1702817ed1c4c46e7652bd0860800e6ca",
+      "bytes": 501816,
+      "dimensions": [
+        640,
+        896
+      ],
+      "source_paths": [
+        "assets_src/cinematics/ltx25_union_trial_20261004/take_1/refined_frames/0012.png"
+      ],
+      "role": "rejected_or_source_candidate_pixels",
+      "license_provenance": "ASSET_LICENSES.md and source_inventory.json / per-frame derivation / generation receipts",
+      "modification_status": "Unchanged baseline dependency"
+    },
+    {
+      "path": "assets_src/cinematics/ltx25_union_trial_20261004/take_1/refined_frames/0013.png",
+      "sha256": "fd4b2bcb3a0f6ffd4cc00b63a0c176efc3cc2b79c745d13240f38b23edb43a76",
+      "bytes": 504363,
+      "dimensions": [
+        640,
+        896
+      ],
+      "source_paths": [
+        "assets_src/cinematics/ltx25_union_trial_20261004/take_1/refined_frames/0013.png"
+      ],
+      "role": "rejected_or_source_candidate_pixels",
+      "license_provenance": "ASSET_LICENSES.md and source_inventory.json / per-frame derivation / generation receipts",
+      "modification_status": "Unchanged baseline dependency"
+    },
+    {
+      "path": "assets_src/cinematics/ltx25_union_trial_20261004/take_1/refined_frames/0014.png",
+      "sha256": "13578de25464c45dca49730ffd17add550a904463672df74b3df71ec85224796",
+      "bytes": 503142,
+      "dimensions": [
+        640,
+        896
+      ],
+      "source_paths": [
+        "assets_src/cinematics/ltx25_union_trial_20261004/take_1/refined_frames/0014.png"
+      ],
+      "role": "rejected_or_source_candidate_pixels",
+      "license_provenance": "ASSET_LICENSES.md and source_inventory.json / per-frame derivation / generation receipts",
+      "modification_status": "Unchanged baseline dependency"
+    },
+    {
+      "path": "assets_src/cinematics/ltx25_union_trial_20261004/take_1/refined_frames/0015.png",
+      "sha256": "9b3db1ad17e2222ef34cbbb12266b1b69d49b7fea5090315601b311e9f778d00",
+      "bytes": 504670,
+      "dimensions": [
+        640,
+        896
+      ],
+      "source_paths": [
+        "assets_src/cinematics/ltx25_union_trial_20261004/take_1/refined_frames/0015.png"
+      ],
+      "role": "rejected_or_source_candidate_pixels",
+      "license_provenance": "ASSET_LICENSES.md and source_inventory.json / per-frame derivation / generation receipts",
+      "modification_status": "Unchanged baseline dependency"
+    },
+    {
+      "path": "assets_src/cinematics/ltx25_union_trial_20261004/take_1/refined_frames/0016.png",
+      "sha256": "796cfadb13638b5ebaa314fbbdd5a42544d301aaf473c0e21bfd714f24cab053",
+      "bytes": 503373,
+      "dimensions": [
+        640,
+        896
+      ],
+      "source_paths": [
+        "assets_src/cinematics/ltx25_union_trial_20261004/take_1/refined_frames/0016.png"
+      ],
+      "role": "rejected_or_source_candidate_pixels",
+      "license_provenance": "ASSET_LICENSES.md and source_inventory.json / per-frame derivation / generation receipts",
+      "modification_status": "Unchanged baseline dependency"
+    },
+    {
+      "path": "assets_src/cinematics/ltx25_union_trial_20261004/take_1/refined_frames/0017.png",
+      "sha256": "58ff638bce2e4c65d4377bb8f489c1f4012901ac9825d80ce4595688dcd29628",
+      "bytes": 504733,
+      "dimensions": [
+        640,
+        896
+      ],
+      "source_paths": [
+        "assets_src/cinematics/ltx25_union_trial_20261004/take_1/refined_frames/0017.png"
+      ],
+      "role": "rejected_or_source_candidate_pixels",
+      "license_provenance": "ASSET_LICENSES.md and source_inventory.json / per-frame derivation / generation receipts",
+      "modification_status": "Unchanged baseline dependency"
+    },
+    {
+      "path": "assets_src/cinematics/ltx25_union_trial_20261004/take_1/refined_frames/0018.png",
+      "sha256": "939e50acebc60107da6c07d19452ada29834a929151ed9fa779aede82bcbd82b",
+      "bytes": 502218,
+      "dimensions": [
+        640,
+        896
+      ],
+      "source_paths": [
+        "assets_src/cinematics/ltx25_union_trial_20261004/take_1/refined_frames/0018.png"
+      ],
+      "role": "rejected_or_source_candidate_pixels",
+      "license_provenance": "ASSET_LICENSES.md and source_inventory.json / per-frame derivation / generation receipts",
+      "modification_status": "Unchanged baseline dependency"
+    },
+    {
+      "path": "assets_src/cinematics/ltx25_union_trial_20261004/take_1/refined_frames/0019.png",
+      "sha256": "89b1c813ef52c74e1016aace311817537eeac9e306844de7638c77aecb7c3ecd",
+      "bytes": 502065,
+      "dimensions": [
+        640,
+        896
+      ],
+      "source_paths": [
+        "assets_src/cinematics/ltx25_union_trial_20261004/take_1/refined_frames/0019.png"
+      ],
+      "role": "rejected_or_source_candidate_pixels",
+      "license_provenance": "ASSET_LICENSES.md and source_inventory.json / per-frame derivation / generation receipts",
+      "modification_status": "Unchanged baseline dependency"
+    },
+    {
+      "path": "assets_src/cinematics/ltx25_union_trial_20261004/take_1/refined_frames/0020.png",
+      "sha256": "19a79a179d265bb7aa54c854705ff9e41ef4a9d2959052c921d34801742b4896",
+      "bytes": 499260,
+      "dimensions": [
+        640,
+        896
+      ],
+      "source_paths": [
+        "assets_src/cinematics/ltx25_union_trial_20261004/take_1/refined_frames/0020.png"
+      ],
+      "role": "rejected_or_source_candidate_pixels",
+      "license_provenance": "ASSET_LICENSES.md and source_inventory.json / per-frame derivation / generation receipts",
+      "modification_status": "Unchanged baseline dependency"
+    },
+    {
+      "path": "assets_src/cinematics/ltx25_union_trial_20261004/take_1/refined_frames/0021.png",
+      "sha256": "e89bddef71082a5541cbab7d6a602dddb399c83ad90be9232cbebe72a1b2797d",
+      "bytes": 500259,
+      "dimensions": [
+        640,
+        896
+      ],
+      "source_paths": [
+        "assets_src/cinematics/ltx25_union_trial_20261004/take_1/refined_frames/0021.png"
+      ],
+      "role": "rejected_or_source_candidate_pixels",
+      "license_provenance": "ASSET_LICENSES.md and source_inventory.json / per-frame derivation / generation receipts",
+      "modification_status": "Unchanged baseline dependency"
+    },
+    {
+      "path": "assets_src/cinematics/ltx25_union_trial_20261004/take_1/refined_frames/0022.png",
+      "sha256": "39b0cb5ed77e946d64c89b9535c75ea0696ae58e8927c659d2e1435f2aa32a89",
+      "bytes": 496501,
+      "dimensions": [
+        640,
+        896
+      ],
+      "source_paths": [
+        "assets_src/cinematics/ltx25_union_trial_20261004/take_1/refined_frames/0022.png"
+      ],
+      "role": "rejected_or_source_candidate_pixels",
+      "license_provenance": "ASSET_LICENSES.md and source_inventory.json / per-frame derivation / generation receipts",
+      "modification_status": "Unchanged baseline dependency"
+    },
+    {
+      "path": "assets_src/cinematics/ltx25_union_trial_20261004/take_1/refined_frames/0023.png",
+      "sha256": "5a9ed1665b3b198e4e720eb0d0ffdc62991e836a636675fe685e6fe5fe28b6bd",
+      "bytes": 498078,
+      "dimensions": [
+        640,
+        896
+      ],
+      "source_paths": [
+        "assets_src/cinematics/ltx25_union_trial_20261004/take_1/refined_frames/0023.png"
+      ],
+      "role": "rejected_or_source_candidate_pixels",
+      "license_provenance": "ASSET_LICENSES.md and source_inventory.json / per-frame derivation / generation receipts",
+      "modification_status": "Unchanged baseline dependency"
+    },
+    {
+      "path": "assets_src/cinematics/ltx25_union_trial_20261004/take_1/refined_frames/0024.png",
+      "sha256": "263623ce817cf67ce3a7a9b19d6a8c68ffc2e2bc1c5ae46b03fe745f6c34822c",
+      "bytes": 495548,
+      "dimensions": [
+        640,
+        896
+      ],
+      "source_paths": [
+        "assets_src/cinematics/ltx25_union_trial_20261004/take_1/refined_frames/0024.png"
+      ],
+      "role": "rejected_or_source_candidate_pixels",
+      "license_provenance": "ASSET_LICENSES.md and source_inventory.json / per-frame derivation / generation receipts",
+      "modification_status": "Unchanged baseline dependency"
+    },
+    {
+      "path": "assets_src/cinematics/ltx25_union_trial_20261004/take_1/refined_frames/0025.png",
+      "sha256": "3db2b42f8078a8466d3286602e41f949e61caae6e78acda4b06f3b9325028deb",
+      "bytes": 500341,
+      "dimensions": [
+        640,
+        896
+      ],
+      "source_paths": [
+        "assets_src/cinematics/ltx25_union_trial_20261004/take_1/refined_frames/0025.png"
+      ],
+      "role": "rejected_or_source_candidate_pixels",
+      "license_provenance": "ASSET_LICENSES.md and source_inventory.json / per-frame derivation / generation receipts",
+      "modification_status": "Unchanged baseline dependency"
+    },
+    {
+      "path": "assets_src/cinematics/ltx25_union_trial_20261004/take_1/refined_frames/0026.png",
+      "sha256": "4554918b42b2429d5a3cfce6fab053078da4036ce30dbfcefc9cd0860d180e6f",
+      "bytes": 500441,
+      "dimensions": [
+        640,
+        896
+      ],
+      "source_paths": [
+        "assets_src/cinematics/ltx25_union_trial_20261004/take_1/refined_frames/0026.png"
+      ],
+      "role": "rejected_or_source_candidate_pixels",
+      "license_provenance": "ASSET_LICENSES.md and source_inventory.json / per-frame derivation / generation receipts",
+      "modification_status": "Unchanged baseline dependency"
+    },
+    {
+      "path": "assets_src/cinematics/ltx25_union_trial_20261004/take_1/refined_frames/0027.png",
+      "sha256": "e5bec1edc6c06ee6b52b6423b538af5ee6973c1712602294e55ce2c80b0cdd3a",
+      "bytes": 504269,
+      "dimensions": [
+        640,
+        896
+      ],
+      "source_paths": [
+        "assets_src/cinematics/ltx25_union_trial_20261004/take_1/refined_frames/0027.png"
+      ],
+      "role": "rejected_or_source_candidate_pixels",
+      "license_provenance": "ASSET_LICENSES.md and source_inventory.json / per-frame derivation / generation receipts",
+      "modification_status": "Unchanged baseline dependency"
+    },
+    {
+      "path": "assets_src/cinematics/ltx25_union_trial_20261004/take_1/refined_frames/0028.png",
+      "sha256": "e37fb0accf112987d03e96e9faabdbbf98edcc319474f3c949f4c83bbea599f1",
+      "bytes": 502739,
+      "dimensions": [
+        640,
+        896
+      ],
+      "source_paths": [
+        "assets_src/cinematics/ltx25_union_trial_20261004/take_1/refined_frames/0028.png"
+      ],
+      "role": "rejected_or_source_candidate_pixels",
+      "license_provenance": "ASSET_LICENSES.md and source_inventory.json / per-frame derivation / generation receipts",
+      "modification_status": "Unchanged baseline dependency"
+    },
+    {
+      "path": "assets_src/cinematics/ltx25_union_trial_20261004/take_1/refined_frames/0029.png",
+      "sha256": "7c2fb8e2f3660be30a79a1e4343b193e20072f0d20a426ee83ad322a9059ba85",
+      "bytes": 505031,
+      "dimensions": [
+        640,
+        896
+      ],
+      "source_paths": [
+        "assets_src/cinematics/ltx25_union_trial_20261004/take_1/refined_frames/0029.png"
+      ],
+      "role": "rejected_or_source_candidate_pixels",
+      "license_provenance": "ASSET_LICENSES.md and source_inventory.json / per-frame derivation / generation receipts",
+      "modification_status": "Unchanged baseline dependency"
+    },
+    {
+      "path": "assets_src/cinematics/ltx25_union_trial_20261004/take_1/refined_frames/0030.png",
+      "sha256": "c5db3e621eab3aabeb8337c66359e27b92e15b40de7862be5f813e839ed62c07",
+      "bytes": 503979,
+      "dimensions": [
+        640,
+        896
+      ],
+      "source_paths": [
+        "assets_src/cinematics/ltx25_union_trial_20261004/take_1/refined_frames/0030.png"
+      ],
+      "role": "rejected_or_source_candidate_pixels",
+      "license_provenance": "ASSET_LICENSES.md and source_inventory.json / per-frame derivation / generation receipts",
+      "modification_status": "Unchanged baseline dependency"
+    },
+    {
+      "path": "assets_src/cinematics/ltx25_union_trial_20261004/take_1/refined_frames/0031.png",
+      "sha256": "c959013929562a20882fdfbc934f5675545b3124b087528462d30d6410bd2e27",
+      "bytes": 506516,
+      "dimensions": [
+        640,
+        896
+      ],
+      "source_paths": [
+        "assets_src/cinematics/ltx25_union_trial_20261004/take_1/refined_frames/0031.png"
+      ],
+      "role": "rejected_or_source_candidate_pixels",
+      "license_provenance": "ASSET_LICENSES.md and source_inventory.json / per-frame derivation / generation receipts",
+      "modification_status": "Unchanged baseline dependency"
+    },
+    {
+      "path": "assets_src/cinematics/ltx25_union_trial_20261004/take_1/refined_frames/0032.png",
+      "sha256": "7c7507b5773eb6387e8cbaa59fe6df94014b68027780e549410ec383c91d51bc",
+      "bytes": 506787,
+      "dimensions": [
+        640,
+        896
+      ],
+      "source_paths": [
+        "assets_src/cinematics/ltx25_union_trial_20261004/take_1/refined_frames/0032.png"
+      ],
+      "role": "rejected_or_source_candidate_pixels",
+      "license_provenance": "ASSET_LICENSES.md and source_inventory.json / per-frame derivation / generation receipts",
+      "modification_status": "Unchanged baseline dependency"
+    },
+    {
+      "path": "assets_src/cinematics/ltx25_union_trial_20261004/take_1/refined_frames/0033.png",
+      "sha256": "fc95acba23454c5d0e896361fbb51838af0f9fe6a391d59ff7f52111d4ff8f55",
+      "bytes": 510454,
+      "dimensions": [
+        640,
+        896
+      ],
+      "source_paths": [
+        "assets_src/cinematics/ltx25_union_trial_20261004/take_1/refined_frames/0033.png"
+      ],
+      "role": "rejected_or_source_candidate_pixels",
+      "license_provenance": "ASSET_LICENSES.md and source_inventory.json / per-frame derivation / generation receipts",
+      "modification_status": "Unchanged baseline dependency"
+    },
+    {
+      "path": "assets_src/cinematics/ltx25_union_trial_20261004/take_1/refined_frames/0034.png",
+      "sha256": "98d6978e20e951d5947c3953a75b710e6b00be49212bc4f7e770b85571b06f56",
+      "bytes": 509831,
+      "dimensions": [
+        640,
+        896
+      ],
+      "source_paths": [
+        "assets_src/cinematics/ltx25_union_trial_20261004/take_1/refined_frames/0034.png"
+      ],
+      "role": "rejected_or_source_candidate_pixels",
+      "license_provenance": "ASSET_LICENSES.md and source_inventory.json / per-frame derivation / generation receipts",
+      "modification_status": "Unchanged baseline dependency"
+    },
+    {
+      "path": "assets_src/cinematics/ltx25_union_trial_20261004/take_1/refined_frames/0035.png",
+      "sha256": "b2d214201a157f3aa7597525ba49ca59cec0463781394334c56fe67b3e1046f6",
+      "bytes": 512176,
+      "dimensions": [
+        640,
+        896
+      ],
+      "source_paths": [
+        "assets_src/cinematics/ltx25_union_trial_20261004/take_1/refined_frames/0035.png"
+      ],
+      "role": "rejected_or_source_candidate_pixels",
+      "license_provenance": "ASSET_LICENSES.md and source_inventory.json / per-frame derivation / generation receipts",
+      "modification_status": "Unchanged baseline dependency"
+    },
+    {
+      "path": "assets_src/cinematics/ltx25_union_trial_20261004/take_1/refined_frames/0036.png",
+      "sha256": "5930035b52b186d0ae40ebbbcf840d2170c232c685973787f011af23f21a7118",
+      "bytes": 509636,
+      "dimensions": [
+        640,
+        896
+      ],
+      "source_paths": [
+        "assets_src/cinematics/ltx25_union_trial_20261004/take_1/refined_frames/0036.png"
+      ],
+      "role": "rejected_or_source_candidate_pixels",
+      "license_provenance": "ASSET_LICENSES.md and source_inventory.json / per-frame derivation / generation receipts",
+      "modification_status": "Unchanged baseline dependency"
+    },
+    {
+      "path": "assets_src/cinematics/ltx25_union_trial_20261004/take_1/refined_frames/0037.png",
+      "sha256": "71d3fa35df318c865eed871c87418a6188ebac13329777d814489c25f5dc8756",
+      "bytes": 510475,
+      "dimensions": [
+        640,
+        896
+      ],
+      "source_paths": [
+        "assets_src/cinematics/ltx25_union_trial_20261004/take_1/refined_frames/0037.png"
+      ],
+      "role": "rejected_or_source_candidate_pixels",
+      "license_provenance": "ASSET_LICENSES.md and source_inventory.json / per-frame derivation / generation receipts",
+      "modification_status": "Unchanged baseline dependency"
+    },
+    {
+      "path": "assets_src/cinematics/ltx25_union_trial_20261004/take_1/refined_frames/0038.png",
+      "sha256": "9b32439f691656c0556d22ef470c3e282d8f1198d5b570ea5c3494a1c36073c6",
+      "bytes": 508442,
+      "dimensions": [
+        640,
+        896
+      ],
+      "source_paths": [
+        "assets_src/cinematics/ltx25_union_trial_20261004/take_1/refined_frames/0038.png"
+      ],
+      "role": "rejected_or_source_candidate_pixels",
+      "license_provenance": "ASSET_LICENSES.md and source_inventory.json / per-frame derivation / generation receipts",
+      "modification_status": "Unchanged baseline dependency"
+    },
+    {
+      "path": "assets_src/cinematics/ltx25_union_trial_20261004/take_1/refined_frames/0039.png",
+      "sha256": "232eb7be0604789df6dcdd19667f8d7d7a418c50d1aa65fd7d2affdaa04d4d66",
+      "bytes": 511110,
+      "dimensions": [
+        640,
+        896
+      ],
+      "source_paths": [
+        "assets_src/cinematics/ltx25_union_trial_20261004/take_1/refined_frames/0039.png"
+      ],
+      "role": "rejected_or_source_candidate_pixels",
+      "license_provenance": "ASSET_LICENSES.md and source_inventory.json / per-frame derivation / generation receipts",
+      "modification_status": "Unchanged baseline dependency"
+    },
+    {
+      "path": "assets_src/cinematics/ltx25_union_trial_20261004/take_1/refined_frames/0040.png",
+      "sha256": "c17e1d492fae6af000279b28ec17e91e0f067820a04cd3dc0368e8d2101a167c",
+      "bytes": 510768,
+      "dimensions": [
+        640,
+        896
+      ],
+      "source_paths": [
+        "assets_src/cinematics/ltx25_union_trial_20261004/take_1/refined_frames/0040.png"
+      ],
+      "role": "rejected_or_source_candidate_pixels",
+      "license_provenance": "ASSET_LICENSES.md and source_inventory.json / per-frame derivation / generation receipts",
+      "modification_status": "Unchanged baseline dependency"
+    },
+    {
+      "path": "assets_src/cinematics/ltx25_union_trial_20261004/take_1/workflow.api.json",
+      "sha256": "c027567040d2588cad8ef1c2fac9946de1f917c49af8a977fe72ef3bc8858cba",
+      "bytes": 9952,
+      "dimensions": null,
+      "source_paths": [
+        "assets_src/cinematics/ltx25_union_trial_20261004/take_1/workflow.api.json"
+      ],
+      "role": "engine_dependency",
+      "license_provenance": "ASSET_LICENSES.md and source_inventory.json / per-frame derivation / generation receipts",
+      "modification_status": "Unchanged baseline dependency"
+    },
+    {
+      "path": "design/animation/ANIMATION_PRODUCTION_PROTOCOL.md",
+      "sha256": "0b1a6784ea8c2a0287f99988cba27a36cc786a638733b2b74e07996405f651b7",
+      "bytes": 37863,
+      "dimensions": null,
+      "source_paths": [
+        "design/animation/ANIMATION_PRODUCTION_PROTOCOL.md"
+      ],
+      "role": "engine_dependency",
+      "license_provenance": "ASSET_LICENSES.md and source_inventory.json / per-frame derivation / generation receipts",
+      "modification_status": "Unchanged baseline dependency"
+    },
+    {
+      "path": "docs/animation/WHOLE_SPRITE_PIPELINE_V1.md",
+      "sha256": "d454b5a9a512c6168e92b1d008e8e69aca9a21d970d469a60e250ebeeb818b8c",
+      "bytes": 10904,
+      "dimensions": null,
+      "source_paths": [
+        "docs/animation/WHOLE_SPRITE_PIPELINE_V1.md"
+      ],
+      "role": "engine_dependency",
+      "license_provenance": "ASSET_LICENSES.md and source_inventory.json / per-frame derivation / generation receipts",
+      "modification_status": "New authored tooling/evidence or declared whole-frame derivative; see exact source paths and derivation. No protected originals changed."
+    },
+    {
+      "path": "docs/handoffs/codex_roshan_motion_language_2026-10-04/TEMPLATE.md",
+      "sha256": "82c393776b566e6a14abf824bcf08e0ec6111b7a7196fa435f742d53a933ba63",
+      "bytes": 16332,
+      "dimensions": null,
+      "source_paths": [
+        "docs/handoffs/codex_roshan_motion_language_2026-10-04/TEMPLATE.md"
+      ],
+      "role": "engine_dependency",
+      "license_provenance": "ASSET_LICENSES.md and source_inventory.json / per-frame derivation / generation receipts",
+      "modification_status": "Unchanged baseline dependency"
+    },
+    {
+      "path": "docs/handoffs/codex_roshan_wave_whole_sprites_2026-10-07/README.md",
+      "sha256": "515c297884a50b565cf24281730a7a636eabdd04897b0e41014393fa0091b23c",
+      "bytes": 7495,
+      "dimensions": null,
+      "source_paths": [
+        "docs/handoffs/codex_roshan_wave_whole_sprites_2026-10-07/README.md"
+      ],
+      "role": "engine_dependency",
+      "license_provenance": "ASSET_LICENSES.md and source_inventory.json / per-frame derivation / generation receipts",
+      "modification_status": "Unchanged baseline dependency"
+    },
+    {
+      "path": "docs/handoffs/codex_roshan_wave_whole_sprites_2026-10-07/tools/measure_wave.py",
+      "sha256": "e78e36d8726fa7542c5a6eb1029ff3c599f5906187fdf3105dbebfd75d6ea554",
+      "bytes": 8319,
+      "dimensions": null,
+      "source_paths": [
+        "docs/handoffs/codex_roshan_wave_whole_sprites_2026-10-07/tools/measure_wave.py"
+      ],
+      "role": "engine_dependency",
+      "license_provenance": "ASSET_LICENSES.md and source_inventory.json / per-frame derivation / generation receipts",
+      "modification_status": "Unchanged baseline dependency"
+    },
+    {
+      "path": "tools/sprite_pipeline.py",
+      "sha256": "1f1856afbcb0fda614c44a0021ee7eaeed284c341d97156a8dec194949f3a302",
+      "bytes": 37351,
+      "dimensions": null,
+      "source_paths": [
+        "tools/sprite_pipeline.py"
+      ],
+      "role": "engine_dependency",
+      "license_provenance": "ASSET_LICENSES.md and source_inventory.json / per-frame derivation / generation receipts",
+      "modification_status": "New authored tooling/evidence or declared whole-frame derivative; see exact source paths and derivation. No protected originals changed."
+    },
+    {
+      "path": "tools/sprite_pipeline_bridge.lua",
+      "sha256": "89fe9c5f26845c66acbf999fd3163555956512430042ddf6d869bb00f0306661",
+      "bytes": 1687,
+      "dimensions": null,
+      "source_paths": [
+        "tools/sprite_pipeline_bridge.lua"
+      ],
+      "role": "engine_dependency",
+      "license_provenance": "ASSET_LICENSES.md and source_inventory.json / per-frame derivation / generation receipts",
+      "modification_status": "New authored tooling/evidence or declared whole-frame derivative; see exact source paths and derivation. No protected originals changed."
+    },
+    {
+      "path": "tools/tests/test_sprite_pipeline.py",
+      "sha256": "d52f9a65e6db5a307b49cd547df0b47adb67277a6ab344d8a0d1f604747758a5",
+      "bytes": 15701,
+      "dimensions": null,
+      "source_paths": [
+        "tools/tests/test_sprite_pipeline.py"
+      ],
+      "role": "engine_dependency",
+      "license_provenance": "ASSET_LICENSES.md and source_inventory.json / per-frame derivation / generation receipts",
+      "modification_status": "New authored tooling/evidence or declared whole-frame derivative; see exact source paths and derivation. No protected originals changed."
+    }
+  ]
+}
