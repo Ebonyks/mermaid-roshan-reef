@@ -1,0 +1,26 @@
+{
+  "provider": "Codex built-in imagegen",
+  "request_id": "exec-0aef2fe3-da5f-4d50-9982-e0ac0b3a4c61",
+  "provider_revision": "Hidden hosted model revision; not exposed by tool",
+  "elapsed_seconds": 35,
+  "cleanup_minutes": 0,
+  "usage": {
+    "calls": 1,
+    "tokens_or_billing": "Not exposed"
+  },
+  "disposition": "REJECTED",
+  "prompt_sha256": "dcd853e7943b0bbc6cc544e4ecc85d0c03670e254316da2b934e9c888d91afa1",
+  "binding_hashes": [
+    "432f8283ee8d9cd7f53a36b1f12bb1b82a865e048a03c3bd7cbd3a103ff2e789",
+    "a46c318a627a4904dbf1115b1c764d8842de6f9281fe21a4803d31b65add4bbb"
+  ],
+  "reason": "Complete figure and crisper palm produced, but output1280x1280 differs from planned 1024 canvas; visible detached colored/matte flecks and changed framing. No exact proportion, transition or owner acceptance.",
+  "request_id_kind": "Codex tool execution/output identifier; provider API request ID not exposed",
+  "provider_request_id": null,
+  "settings": {
+    "transparent_background": true,
+    "model_revision": "Not exposed",
+    "seed": "Not exposed",
+    "size": "Prompt requested1024x1024; actual native1254x1254"
+  }
+}
