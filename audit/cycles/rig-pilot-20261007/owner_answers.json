@@ -82,5 +82,29 @@
     "question": "Requirement on the animation workflow being trialled.",
     "decision": "\"Also, in this process, Insure that cosmetics, like new clothes, will still work with the animation process, this is critical\". Scope: any animation route chosen must carry the game outfits (ribbon, party, garden, disguise and future clothes) onto every animation frame.",
     "cycle": "rig-pilot-20261007"
+  },
+  {
+    "date": "2026-10-07",
+    "authority": "recorded_owner",
+    "source": "docs/handoffs/codex_roshan_wave_g1_repair_and_outfits_2026-10-07/README.md#owner-direction",
+    "checks": [],
+    "checkable": false,
+    "id": "ODR-OUTFIT-ART-REDRAW-20261007",
+    "subject": "Outfit art: inconsistent and not sized to the sprite; redraw",
+    "question": "Review of the four game outfits baked onto the rig pilot's run-2 animation clips (and the game's outfit atlases they reuse).",
+    "decision": "\"These are better for the initial animations, the skinning looks awful though. The objects themselves are inconsistent, and they're not sized properly to the sprite. Maybe they need to be redrawn?\" followed by \"Make a full codex handoff\". Scope: the current clothing art (stretched single party garment, procedural bows, recolour outfits) is not accepted; the redraw is specified for Codex in the handoff's Part D, pilot first. No runtime file changes until that redraw is reviewed.",
+    "cycle": "rig-pilot-20261007"
+  },
+  {
+    "date": "2026-10-07",
+    "authority": "recorded_owner",
+    "source": "docs/handoffs/codex_roshan_wave_g1_repair_and_outfits_2026-10-07/README.md#owner-direction",
+    "checks": [],
+    "checkable": false,
+    "id": "ODR-RIG-PILOT-G1-REPAIR-20261007",
+    "subject": "g1 is the best wave draft; regenerate its weak frames as LTX keyframes with an after-completion self-audit",
+    "question": "How to finish the rig pilot's best wave take (g1) and what to hand to Codex.",
+    "decision": "\"Make a full codex handoff, giving comprehensive instructions for the process that has generated the work that we have so far as well, g1 is currently the best draft, but there are still artifacts that need to be fixed and redrawn. These surely can be identified and redrawn with imagegen\", then \"or, even better, weak frames are regenerated as keyframes in ltx so they can be edited into the aesprite animation. This can be done through after completion self audit\". Scope: Codex repairs g1 by regenerating its weak frames in LTX as keyframes edited into an Aseprite master, driven by a self-audit after each completed take; ImageGen supplies named keys and residual local repairs. Caps and acceptance gates are in the handoff; no acceptance is granted.",
+    "cycle": "rig-pilot-20261007"
   }
 ]

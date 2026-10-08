@@ -18,6 +18,8 @@ delivery, device, child or owner acceptance. No finding lifecycle changes.
 | 2026-10-07 | On revision 2: "No, these are failures. there are overdraw errors, the figure doesn't move as a whole, there are some rough crop issues as well. analyze potential solutions, including the old protocols" | `ODR-RIG-PILOT-REV2-REJECTED-20261007` |
 | 2026-10-07 | "Continue, trial methods until satisfied" | `ODR-RIG-PILOT-TRIALS-20261007` |
 | 2026-10-07 | "Also, in this process, Insure that cosmetics, like new clothes, will still work with the animation process, this is critical" | `ODR-RIG-PILOT-COSMETICS-20261007` |
+| 2026-10-07 | On the run-2 takes and the outfit clips: "These are better for the initial animations, the skinning looks awful though. The objects themselves are inconsistent, and they're not sized properly to the sprite. Maybe they need to be redrawn?" | `ODR-OUTFIT-ART-REDRAW-20261007` |
+| 2026-10-07 | "Make a full codex handoff, giving comprehensive instructions for the process that has generated the work that we have so far as well, g1 is currently the best draft, but there are still artifacts that need to be fixed and redrawn. These surely can be identified and redrawn with imagegen", then "or, even better, weak frames are regenerated as keyframes in ltx so they can be edited into the aesprite animation. This can be done through after completion self audit" | `ODR-RIG-PILOT-G1-REPAIR-20261007` |
 
 The rules set aside for run 1 only: `ODR-ROSHAN-WHOLE-FRAME-20261005`, `ODR-SPRITE-WHOLE-UNIT-20261007`,
 the CLAUDE.md rule that Roshan has no rig or skeleton, and the written-handoff rule. They stay
@@ -271,7 +273,7 @@ measurement. "Eyes" lists the frames where the lids cover most of the iris.
 | d1 | run4 | **1.03%** / 0.82% | −12.4% to +15.5% | **closed 25 to 35** | Smudged 26 to 30 | Moves as a whole |
 | e1 | run5 | 0.52% / 0.46% | −9.6% to +22.7% | **closed 12 to 37** | Crisp at the top; smudged where it passes the hair, about 8 to 11 and 27 to 31 | Moves as a whole |
 | f1 | run6 | 0.65% / 0.69% | −26.1% to +18.9% | open | Crisp through both waves (13 to 25); soft in the fastest frames, about 9 to 11 and 28 to 30 | Moves as a whole |
-| **g1** | run7 | 0.63% / 0.74% | −1.9% to +22.0% | open | Crisp through the wave (12 to 24); still a soft grey blob in about 8 to 11 and 25 to 31 | Moves as a whole; bodice turns 1.76° |
+| **g1** | run7 | 0.63% / 0.74% | −1.9% to +22.0% | open | Crisp through the wave (14 to 24); soft or smudged in 5 to 12 and 25 to 33, marginal at 13 (full review in the [Codex handoff](../../../docs/handoffs/codex_roshan_wave_g1_repair_and_outfits_2026-10-07/data/g1_frames.json)) | Moves as a whole; bodice turns 1.76° |
 
 What the takes show:
 - **Size holds.** Every take keeps W2 except d1, which misses the figure limit by 0.03%. The rig guides
@@ -294,14 +296,20 @@ What the takes show:
 **g1 is the best candidate** (game cells at [run2/g1_slowwave/clip](run2/g1_slowwave/clip)): constant
 size, the whole body moving, eyes open, a crisp wave, frames 0 and 40 back at K0's silhouette
 (IoU 0.97). It is not deliverable as it stands, for two reasons:
-- **Hand.** About 11 frames show a soft grey hand on the way up and down.
+- **Hand.** The hand is soft or smudged in frames 5 to 12 and 25 to 33 (17 frames), and marginal
+  at 13. Every one of these frames has a guide fingertip speed of 10.7 to 15.1 cell px per frame;
+  every good frame has 4.4 or less.
 - **Blink.** The owner asked for a blink, and g1 has none.
 
-The 8-take budget is spent; further takes need the owner. Candidate next methods, untested:
-- A plain mitten outline for the moving hand in the guides.
-- A longer clip (more frames for the rise).
-- An owner-approved closed-eye K0 drawing from Codex, used as a keyframe at the blink.
-- The gated Refine Details IC-LoRA, which needs the owner's HuggingFace access.
+The 8-take budget is spent. The owner named g1 the best draft and directed its repair: "weak frames
+are regenerated as keyframes in ltx so they can be edited into the aesprite animation. This can be
+done through after completion self audit" (`ODR-RIG-PILOT-G1-REPAIR-20261007`). The owner also asked
+for the outfits to be redrawn (`ODR-OUTFIT-ART-REDRAW-20261007`). Both are specified for Codex in the
+[g1 repair and outfit handoff](../../../docs/handoffs/codex_roshan_wave_g1_repair_and_outfits_2026-10-07/README.md):
+- a four-times-slower keyframe retake of each weak span, locked to g1's clean frames;
+- an after-completion self-audit loop;
+- an eyes-only blink from approved keys;
+- per-view outfit art fitted by anchors.
 
 ## Cosmetics: the game outfits on an animation clip
 

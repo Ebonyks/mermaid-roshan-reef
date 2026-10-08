@@ -1,0 +1,151 @@
+{
+  "id": "codex-wave-g1-repair-outfits-handoff-20261007",
+  "scope": "Owner-directed Claude-to-Codex written handoff after review of the rig pilot's run-2 takes. The owner named take g1 the best wave draft and asked for its artifacts to be fixed, preferably by regenerating weak frames as LTX keyframes edited into the Aseprite animation through an after-completion self-audit (ODR-RIG-PILOT-G1-REPAIR-20261007). The owner also found the outfit art inconsistent and not sized to the sprite (ODR-OUTFIT-ART-REDRAW-20261007). The handoff documents how g1 was made (sources, guides, the exact ComfyUI recipe, the PC runner, take processing, outfits on clips, lessons). It gives a per-frame defect inventory with joints, mask boxes and hashes, and specifies the repair: a four-times-slower LTX keyframe retake of each weak span locked to g1's clean frames, ImageGen only for named keys and residual local repairs painted into the flattened frame, an eyes-only blink from owner-approved keys, frames 0 and 40 set to K0, and an Aseprite master. It specifies the self-audit checks, their calibration on g1 and the loop, plus per-view outfit art fitted by anchors with a three-view pilot, caps and gates. Claude also corrected its earlier g1 hand-frame count (about 11) to the verified inventory (17 frames, 5-12 and 25-33) in the pilot records, and added a pointer to the fashion brief. No image, runtime file or finding lifecycle changes. The outfit art has no active finding: the fashion runtime alpha already records its art as provisional pending owner review, and this review is recorded as an owner decision with the redraw specified.",
+  "baseline": "131f2932bddad240a54cae17dc0cc95309da2527",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-MED-01",
+    "DL-MED-02",
+    "DL-MED-05",
+    "DL-MOT-10",
+    "DL-MOT-11",
+    "DL-MOT-12",
+    "DL-MOT-13",
+    "DL-MOT-14",
+    "DL-MOT-15",
+    "DL-MOT-16",
+    "DL-CIN-11",
+    "DL-ASSET-01",
+    "DL-ASSET-02",
+    "DL-ASSET-03",
+    "DL-ASSET-04",
+    "DL-ASSET-05",
+    "DL-ASSET-06",
+    "DL-PERF-03",
+    "DL-QA-01",
+    "DL-CODE-05"
+  ],
+  "findings": [
+    "MA-ROSHAN-006",
+    "MA-VIS-008"
+  ],
+  "files": [
+    "assets_src/cinematics/claude_rig_pilot_20261007/JOB_CARD.md",
+    "assets_src/cinematics/claude_rig_pilot_20261007/README.md",
+    "assets_src/cinematics/claude_rig_pilot_20261007/manifest.json",
+    "audit/MASTER_AUDIT_2026-08-09.md",
+    "audit/animation/README.md",
+    "audit/cycles/rig-pilot-20261007/owner_answers.json",
+    "design/05_DOC_LEDGER.md",
+    "design/FASHION_DESIGNER_ROSHAN_2026-10-06.md",
+    "design/reference/OWNER_DECISIONS.md",
+    "design/reference/owner_decisions.json",
+    "docs/handoffs/codex_roshan_wave_g1_repair_and_outfits_2026-10-07/MANIFEST.json",
+    "docs/handoffs/codex_roshan_wave_g1_repair_and_outfits_2026-10-07/README.md",
+    "docs/handoffs/codex_roshan_wave_g1_repair_and_outfits_2026-10-07/REMOTE_VERIFICATION.json",
+    "docs/handoffs/codex_roshan_wave_g1_repair_and_outfits_2026-10-07/data/g1_frames.json",
+    "docs/handoffs/codex_roshan_wave_g1_repair_and_outfits_2026-10-07/data/g1_sources.json",
+    "docs/handoffs/codex_roshan_wave_g1_repair_and_outfits_2026-10-07/data/outfit_measurements.json",
+    "docs/handoffs/codex_roshan_wave_g1_repair_and_outfits_2026-10-07/tools/build_handoff_data.py"
+  ],
+  "validation": [
+    {
+      "command": "python -I docs/handoffs/codex_roshan_wave_g1_repair_and_outfits_2026-10-07/tools/build_handoff_data.py",
+      "result": "PASS",
+      "evidence": "Wrote data/g1_frames.json (41 frame records), data/g1_sources.json (227 bound files with SHA-256) and data/outfit_measurements.json (129 Roshan cells; party garment shrunk 15.9-26.8x and stretched 0.55-2.21x; bows 9.0-18.5% of figure height). Numbers only; no images written."
+    },
+    {
+      "command": "Claude frame-by-frame review of g1 native frames 0-40 (640x896)",
+      "result": "PASS",
+      "evidence": "Agent review only: hand soft or smudged in frames 5-12 and 25-33, marginal at 13, good elsewhere; detached specks in frames 6 (3 px) and 26 (33 px); recorded per frame in data/g1_frames.json."
+    },
+    {
+      "command": "Guide fingertip speed (data/rig_pose_run7.json, centred) against the review labels",
+      "result": "PASS",
+      "evidence": "Every weak or marginal frame 10.7-15.1 cell px per frame; every good frame <= 4.4, including the crisp wave frames 14-24. Basis for the four-times-slower retake (max 3.8 per generated frame)."
+    },
+    {
+      "command": "Simple hand-box measures on g1 (skin share, grey share, Laplacian edge density, high-frequency energy)",
+      "result": "FAIL",
+      "evidence": "None separated the labelled weak frames from the good frames; the handoff makes Codex frame review (V1) decisive for hands until a reference-based machine check reproduces the labels."
+    },
+    {
+      "command": "python -B tools/record_owner_decision.py --answers <2 answers> --cycle rig-pilot-20261007 --answered-on 2026-10-07; --check --base HEAD",
+      "result": "PASS",
+      "evidence": "ODR-OUTFIT-ART-REDRAW-20261007 and ODR-RIG-PILOT-G1-REPAIR-20261007 appended; DECISIONS|COUNT|48; ALL OK."
+    },
+    {
+      "command": "python -B tools/audit_document_authority.py; python -B tools/audit_development.py --base auto",
+      "result": "PASS",
+      "evidence": "Run on the candidate before commit; see commit message."
+    },
+    {
+      "command": "GitHub publication and anonymous remote verification of the handoff packet",
+      "result": "PENDING",
+      "evidence": "Recorded in docs/handoffs/codex_roshan_wave_g1_repair_and_outfits_2026-10-07/REMOTE_VERIFICATION.json after push."
+    },
+    {
+      "command": "Codex execution of Parts B, C and D; owner review of boards and the repaired wave on the tablet",
+      "result": "PENDING",
+      "evidence": "Not started. No acceptance is granted by this handoff."
+    }
+  ],
+  "acceptance_gaps": "Everything the handoff specifies is unexecuted: the g1 keyframe retakes, ImageGen keys and repairs, the self-audit tool, the Aseprite master, the blink, the outfit redraw and builder change. The defect inventory and the speed finding are agent review and numbers, not owner review. Owner approval of the blink keys, outfit pilot, bow size and disguise design, Mobile, device, child and owner acceptance, runtime integration of the wave and its texture budget remain outstanding. MA-ROSHAN-006 and MA-VIS-008 lifecycles are unchanged.",
+  "lessons": [
+    {
+      "lesson": "In LTX-2.5 takes, hand smear tracks fingertip speed inside the 8-frame latent blocks: on g1 every smeared frame moves 10.7-15.1 cell px per frame and every crisp frame 4.4 or less. Keep generated fingertip speed under about 5 cell px per frame, for example by regenerating fast spans in slow motion and keeping every fourth frame.",
+      "write_back": "docs/handoffs/codex_roshan_wave_g1_repair_and_outfits_2026-10-07/README.md#a5-what-the-eight-takes-taught-keep-these",
+      "recurrence_key": "ltx-hand-smear"
+    },
+    {
+      "lesson": "A self-audit for hand quality must be calibrated on labelled frames before it can clear anything; simple colour and sharpness measures did not separate smeared from crisp hands on g1.",
+      "write_back": "docs/handoffs/codex_roshan_wave_g1_repair_and_outfits_2026-10-07/README.md#c2-calibrate-on-g1-before-trusting-it",
+      "recurrence_key": "self-audit-calibration"
+    },
+    {
+      "lesson": "One garment drawing resized per cell cannot dress a multi-view character: it distorts proportions, loses detail below a pixel and puts the front of the dress on back views. Draw clothing per view and place it by anchors at one scale per view.",
+      "write_back": "docs/handoffs/codex_roshan_wave_g1_repair_and_outfits_2026-10-07/README.md#part-d-redraw-the-outfits",
+      "recurrence_key": "outfits-on-animation"
+    }
+  ],
+  "owner_corrections": [
+    {
+      "decision_id": "ODR-RIG-PILOT-G1-REPAIR-20261007",
+      "evidence": "Owner, 2026-10-07: \"g1 is currently the best draft, but there are still artifacts that need to be fixed and redrawn\"; \"or, even better, weak frames are regenerated as keyframes in ltx so they can be edited into the aesprite animation. This can be done through after completion self audit\".",
+      "write_back": "docs/handoffs/codex_roshan_wave_g1_repair_and_outfits_2026-10-07/README.md#part-b-repair-g1"
+    },
+    {
+      "decision_id": "ODR-OUTFIT-ART-REDRAW-20261007",
+      "evidence": "Owner, 2026-10-07: \"the skinning looks awful though. The objects themselves are inconsistent, and they're not sized properly to the sprite. Maybe they need to be redrawn?\"",
+      "write_back": "design/FASHION_DESIGNER_ROSHAN_2026-10-06.md#owner-art-review-of-the-clothing-2026-10-07"
+    }
+  ],
+  "references_used": [
+    {
+      "path": "assets_src/cinematics/claude_rig_pilot_20261007/README.md",
+      "purpose": "Pilot record: how g1 and the other takes were made and measured."
+    },
+    {
+      "path": "docs/handoffs/codex_roshan_wave_whole_sprites_2026-10-07/README.md",
+      "purpose": "W1-W6 wave contract and measure_wave.py."
+    },
+    {
+      "path": "design/animation/ANIMATION_PRODUCTION_PROTOCOL.md",
+      "purpose": "Iterative repair with Aseprite and temporal retakes; evidence rules."
+    },
+    {
+      "path": "assets_src/cinematics/ltx_retake_repair_20261004/README.md",
+      "purpose": "Earlier 8 GB retake study: latent-masked retake ghosting and the keyframe repair structure."
+    },
+    {
+      "path": "design/FASHION_DESIGNER_ROSHAN_2026-10-06.md",
+      "purpose": "Wardrobe rules, characters and the provisional runtime clothing art."
+    },
+    {
+      "path": "tools/build_fashion_outfits.gd",
+      "purpose": "Current outfit builder measured in data/outfit_measurements.json."
+    }
+  ]
+}

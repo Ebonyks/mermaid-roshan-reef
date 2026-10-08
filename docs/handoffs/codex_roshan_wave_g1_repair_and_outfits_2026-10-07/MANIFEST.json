@@ -1,0 +1,68 @@
+{
+ "handoff_id": "codex_roshan_wave_g1_repair_and_outfits_2026-10-07",
+ "recipient": "Codex",
+ "status": "PROPOSED / CANDIDATE",
+ "baseline": "131f2932bddad240a54cae17dc0cc95309da2527",
+ "baseline_branch": "claude/rig-pilot-20261007",
+ "payload_sha256_method": "sha256 of sorted lines \"path<TAB>sha256\\n\" (MANIFEST.json and REMOTE_VERIFICATION.json excluded)",
+ "payload_sha256": "c5138e1bbe66731ad70dc6b541ae536c425c7e9347e2cd0694d1268c681edab5",
+ "references": [
+  {
+   "path": "assets/characters/roshan_25d/roshan_gesture_a.png",
+   "sha256": "e70139b23c9f84c0e8f0c1063145ca4e9e67ee32c57aa544bc08193326af9b9d",
+   "role": "approved wave keys K0-K3 (row 0); K0 cell, K2 open hand, K0 rest hand"
+  },
+  {
+   "path": "assets_src/cinematics/claude_rig_pilot_20261007/run2/g1_slowwave/",
+   "role": "best draft g1: every bound file hashed in data/g1_sources.json"
+  },
+  {
+   "path": "assets_src/cinematics/claude_rig_pilot_20261007/jobs/g1_slowwave.json",
+   "sha256": "ae2cdc61b521969d95f4255be64fd100ce720025ac962fde0d3f640eeb705f37",
+   "role": "exact g1 ComfyUI graph, prompt and input hashes"
+  },
+  {
+   "path": "assets_src/fashion_designer/party_garment_v1/native.png",
+   "sha256": "b99743e3bd74a63fa04a02ab12fc1816ccc10ca9e662147f70c5e7ffc2a1427b",
+   "role": "current party garment (design reference only)"
+  },
+  {
+   "path": "tools/build_fashion_outfits.gd",
+   "sha256": "7354a6478cd68daec20eb94ea5f2425b635798b715f9c9763395c7b9ddfcb76e",
+   "role": "current outfit builder measured in data/outfit_measurements.json"
+  },
+  {
+   "path": "docs/handoffs/codex_roshan_wave_whole_sprites_2026-10-07/tools/measure_wave.py",
+   "sha256": "35f4502adae14b546e8ab8450020162038434a1d6a8ee7d49aabc49f0b30e961",
+   "role": "W2/W3 measurement"
+  }
+ ],
+ "images": "none; written specification plus numbers. Codex builds every board and image.",
+ "files": [
+  {
+   "path": "README.md",
+   "bytes": 33365,
+   "sha256": "bb22fa29ac161461978b22c5a6cd79c2ff12b7337042d7103738ef5ac091356e"
+  },
+  {
+   "path": "data/g1_frames.json",
+   "bytes": 47722,
+   "sha256": "7f6d7e7e4cb3c1a3965bd1a6d2114600aa977b412a3ea461e0b76a7862decb95"
+  },
+  {
+   "path": "data/g1_sources.json",
+   "bytes": 46450,
+   "sha256": "d426a7f7a638efe036c43d1c8dddc06addcba6503f7b4f0178cfbf53cde60d33"
+  },
+  {
+   "path": "data/outfit_measurements.json",
+   "bytes": 36641,
+   "sha256": "6b035ab3ad570dc93a2fb95d19a8407c90437a902449f26e0b30355cf16e34a8"
+  },
+  {
+   "path": "tools/build_handoff_data.py",
+   "bytes": 12662,
+   "sha256": "20df9ab3244650210a9700ed1e8e82e78b3cfdda917352d52487746640b2c326"
+  }
+ ]
+}

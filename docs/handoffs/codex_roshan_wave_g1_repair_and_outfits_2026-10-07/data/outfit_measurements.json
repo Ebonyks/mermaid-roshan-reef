@@ -1,0 +1,2281 @@
+{
+ "builder": {
+  "path": "tools/build_fashion_outfits.gd",
+  "sha256": "7354a6478cd68daec20eb94ea5f2425b635798b715f9c9763395c7b9ddfcb76e"
+ },
+ "party_garment": {
+  "path": "assets_src/fashion_designer/party_garment_v1/native.png",
+  "sha256": "b99743e3bd74a63fa04a02ab12fc1816ccc10ca9e662147f70c5e7ffc2a1427b",
+  "cropped_px": [
+   1128,
+   1284
+  ],
+  "aspect": 0.88,
+  "views_drawn": [
+   "front"
+  ],
+  "placement_rule": "width = max(28, 1.7 x bodice box width), height = max(48, 1.42 x box height); Lanczos resize; one front drawing for every cell, including back and side views"
+ },
+ "party_on_roshan_cells": {
+  "count": 129,
+  "aspect_vs_native_min": 0.55,
+  "aspect_vs_native_max": 2.21,
+  "downscale_min": 15.9,
+  "downscale_max": 26.8,
+  "back_view_cells": [
+   "roshan_directional 3, 4, 5",
+   "roshan_swim_back 0-15"
+  ],
+  "side_view_cells": [
+   "roshan_directional 2, 6"
+  ],
+  "cells": [
+   {
+    "atlas": "roshan_base",
+    "cell": 0,
+    "bodice_box": [
+     138,
+     85,
+     167,
+     136
+    ],
+    "garment_px": [
+     49,
+     72
+    ],
+    "garment_aspect": 0.68,
+    "aspect_vs_native": 0.77,
+    "downscale_from_native": 17.8
+   },
+   {
+    "atlas": "roshan_directional",
+    "cell": 0,
+    "bodice_box": [
+     138,
+     85,
+     167,
+     136
+    ],
+    "garment_px": [
+     49,
+     72
+    ],
+    "garment_aspect": 0.68,
+    "aspect_vs_native": 0.77,
+    "downscale_from_native": 17.8
+   },
+   {
+    "atlas": "roshan_directional",
+    "cell": 1,
+    "bodice_box": [
+     124,
+     83,
+     158,
+     137
+    ],
+    "garment_px": [
+     58,
+     77
+    ],
+    "garment_aspect": 0.75,
+    "aspect_vs_native": 0.86,
+    "downscale_from_native": 16.7
+   },
+   {
+    "atlas": "roshan_directional",
+    "cell": 2,
+    "bodice_box": [
+     100,
+     97,
+     118,
+     135
+    ],
+    "garment_px": [
+     31,
+     54
+    ],
+    "garment_aspect": 0.57,
+    "aspect_vs_native": 0.65,
+    "downscale_from_native": 23.8
+   },
+   {
+    "atlas": "roshan_directional",
+    "cell": 3,
+    "bodice_box": [
+     115,
+     93,
+     145,
+     135
+    ],
+    "garment_px": [
+     51,
+     60
+    ],
+    "garment_aspect": 0.85,
+    "aspect_vs_native": 0.97,
+    "downscale_from_native": 21.4
+   },
+   {
+    "atlas": "roshan_directional",
+    "cell": 4,
+    "bodice_box": [
+     125,
+     89,
+     156,
+     134
+    ],
+    "garment_px": [
+     53,
+     64
+    ],
+    "garment_aspect": 0.83,
+    "aspect_vs_native": 0.94,
+    "downscale_from_native": 20.1
+   },
+   {
+    "atlas": "roshan_directional",
+    "cell": 5,
+    "bodice_box": [
+     118,
+     90,
+     150,
+     133
+    ],
+    "garment_px": [
+     54,
+     61
+    ],
+    "garment_aspect": 0.89,
+    "aspect_vs_native": 1.01,
+    "downscale_from_native": 21.0
+   },
+   {
+    "atlas": "roshan_directional",
+    "cell": 6,
+    "bodice_box": [
+     100,
+     87,
+     117,
+     129
+    ],
+    "garment_px": [
+     29,
+     60
+    ],
+    "garment_aspect": 0.48,
+    "aspect_vs_native": 0.55,
+    "downscale_from_native": 21.4
+   },
+   {
+    "atlas": "roshan_directional",
+    "cell": 7,
+    "bodice_box": [
+     68,
+     77,
+     101,
+     131
+    ],
+    "garment_px": [
+     56,
+     77
+    ],
+    "garment_aspect": 0.73,
+    "aspect_vs_native": 0.83,
+    "downscale_from_native": 16.7
+   },
+   {
+    "atlas": "roshan_gesture_a",
+    "cell": 0,
+    "bodice_box": [
+     126,
+     90,
+     158,
+     142
+    ],
+    "garment_px": [
+     54,
+     74
+    ],
+    "garment_aspect": 0.73,
+    "aspect_vs_native": 0.83,
+    "downscale_from_native": 17.4
+   },
+   {
+    "atlas": "roshan_gesture_a",
+    "cell": 1,
+    "bodice_box": [
+     118,
+     93,
+     150,
+     143
+    ],
+    "garment_px": [
+     54,
+     71
+    ],
+    "garment_aspect": 0.76,
+    "aspect_vs_native": 0.87,
+    "downscale_from_native": 18.1
+   },
+   {
+    "atlas": "roshan_gesture_a",
+    "cell": 2,
+    "bodice_box": [
+     95,
+     93,
+     132,
+     140
+    ],
+    "garment_px": [
+     63,
+     67
+    ],
+    "garment_aspect": 0.94,
+    "aspect_vs_native": 1.07,
+    "downscale_from_native": 19.2
+   },
+   {
+    "atlas": "roshan_gesture_a",
+    "cell": 3,
+    "bodice_box": [
+     82,
+     96,
+     114,
+     144
+    ],
+    "garment_px": [
+     54,
+     68
+    ],
+    "garment_aspect": 0.79,
+    "aspect_vs_native": 0.9,
+    "downscale_from_native": 18.9
+   },
+   {
+    "atlas": "roshan_gesture_a",
+    "cell": 4,
+    "bodice_box": [
+     120,
+     106,
+     145,
+     136
+    ],
+    "garment_px": [
+     42,
+     48
+    ],
+    "garment_aspect": 0.88,
+    "aspect_vs_native": 1.0,
+    "downscale_from_native": 26.8
+   },
+   {
+    "atlas": "roshan_gesture_a",
+    "cell": 5,
+    "bodice_box": [
+     113,
+     87,
+     147,
+     132
+    ],
+    "garment_px": [
+     58,
+     64
+    ],
+    "garment_aspect": 0.91,
+    "aspect_vs_native": 1.03,
+    "downscale_from_native": 20.1
+   },
+   {
+    "atlas": "roshan_gesture_a",
+    "cell": 6,
+    "bodice_box": [
+     93,
+     86,
+     127,
+     132
+    ],
+    "garment_px": [
+     58,
+     65
+    ],
+    "garment_aspect": 0.89,
+    "aspect_vs_native": 1.02,
+    "downscale_from_native": 19.8
+   },
+   {
+    "atlas": "roshan_gesture_a",
+    "cell": 7,
+    "bodice_box": [
+     69,
+     91,
+     103,
+     138
+    ],
+    "garment_px": [
+     58,
+     67
+    ],
+    "garment_aspect": 0.87,
+    "aspect_vs_native": 0.99,
+    "downscale_from_native": 19.2
+   },
+   {
+    "atlas": "roshan_gesture_a",
+    "cell": 8,
+    "bodice_box": [
+     125,
+     96,
+     155,
+     143
+    ],
+    "garment_px": [
+     51,
+     67
+    ],
+    "garment_aspect": 0.76,
+    "aspect_vs_native": 0.87,
+    "downscale_from_native": 19.2
+   },
+   {
+    "atlas": "roshan_gesture_a",
+    "cell": 9,
+    "bodice_box": [
+     112,
+     98,
+     135,
+     141
+    ],
+    "garment_px": [
+     39,
+     61
+    ],
+    "garment_aspect": 0.64,
+    "aspect_vs_native": 0.73,
+    "downscale_from_native": 21.0
+   },
+   {
+    "atlas": "roshan_gesture_a",
+    "cell": 10,
+    "bodice_box": [
+     89,
+     92,
+     123,
+     144
+    ],
+    "garment_px": [
+     58,
+     74
+    ],
+    "garment_aspect": 0.78,
+    "aspect_vs_native": 0.89,
+    "downscale_from_native": 17.4
+   },
+   {
+    "atlas": "roshan_gesture_a",
+    "cell": 11,
+    "bodice_box": [
+     70,
+     99,
+     100,
+     142
+    ],
+    "garment_px": [
+     51,
+     61
+    ],
+    "garment_aspect": 0.84,
+    "aspect_vs_native": 0.95,
+    "downscale_from_native": 21.0
+   },
+   {
+    "atlas": "roshan_gesture_a",
+    "cell": 12,
+    "bodice_box": [
+     118,
+     78,
+     150,
+     128
+    ],
+    "garment_px": [
+     54,
+     71
+    ],
+    "garment_aspect": 0.76,
+    "aspect_vs_native": 0.87,
+    "downscale_from_native": 18.1
+   },
+   {
+    "atlas": "roshan_gesture_a",
+    "cell": 13,
+    "bodice_box": [
+     98,
+     75,
+     131,
+     118
+    ],
+    "garment_px": [
+     56,
+     61
+    ],
+    "garment_aspect": 0.92,
+    "aspect_vs_native": 1.04,
+    "downscale_from_native": 21.0
+   },
+   {
+    "atlas": "roshan_gesture_a",
+    "cell": 14,
+    "bodice_box": [
+     87,
+     76,
+     122,
+     115
+    ],
+    "garment_px": [
+     60,
+     55
+    ],
+    "garment_aspect": 1.09,
+    "aspect_vs_native": 1.24,
+    "downscale_from_native": 23.3
+   },
+   {
+    "atlas": "roshan_gesture_a",
+    "cell": 15,
+    "bodice_box": [
+     70,
+     80,
+     102,
+     126
+    ],
+    "garment_px": [
+     54,
+     65
+    ],
+    "garment_aspect": 0.83,
+    "aspect_vs_native": 0.95,
+    "downscale_from_native": 19.8
+   },
+   {
+    "atlas": "roshan_gesture_b",
+    "cell": 0,
+    "bodice_box": [
+     129,
+     96,
+     164,
+     153
+    ],
+    "garment_px": [
+     60,
+     81
+    ],
+    "garment_aspect": 0.74,
+    "aspect_vs_native": 0.84,
+    "downscale_from_native": 15.9
+   },
+   {
+    "atlas": "roshan_gesture_b",
+    "cell": 1,
+    "bodice_box": [
+     127,
+     96,
+     159,
+     151
+    ],
+    "garment_px": [
+     54,
+     78
+    ],
+    "garment_aspect": 0.69,
+    "aspect_vs_native": 0.79,
+    "downscale_from_native": 16.5
+   },
+   {
+    "atlas": "roshan_gesture_b",
+    "cell": 2,
+    "bodice_box": [
+     98,
+     100,
+     122,
+     147
+    ],
+    "garment_px": [
+     41,
+     67
+    ],
+    "garment_aspect": 0.61,
+    "aspect_vs_native": 0.7,
+    "downscale_from_native": 19.2
+   },
+   {
+    "atlas": "roshan_gesture_b",
+    "cell": 3,
+    "bodice_box": [
+     76,
+     96,
+     118,
+     151
+    ],
+    "garment_px": [
+     71,
+     78
+    ],
+    "garment_aspect": 0.91,
+    "aspect_vs_native": 1.04,
+    "downscale_from_native": 16.5
+   },
+   {
+    "atlas": "roshan_gesture_b",
+    "cell": 4,
+    "bodice_box": [
+     111,
+     92,
+     154,
+     148
+    ],
+    "garment_px": [
+     73,
+     80
+    ],
+    "garment_aspect": 0.91,
+    "aspect_vs_native": 1.04,
+    "downscale_from_native": 16.1
+   },
+   {
+    "atlas": "roshan_gesture_b",
+    "cell": 5,
+    "bodice_box": [
+     106,
+     99,
+     130,
+     145
+    ],
+    "garment_px": [
+     41,
+     65
+    ],
+    "garment_aspect": 0.63,
+    "aspect_vs_native": 0.72,
+    "downscale_from_native": 19.8
+   },
+   {
+    "atlas": "roshan_gesture_b",
+    "cell": 6,
+    "bodice_box": [
+     97,
+     99,
+     128,
+     145
+    ],
+    "garment_px": [
+     53,
+     65
+    ],
+    "garment_aspect": 0.82,
+    "aspect_vs_native": 0.93,
+    "downscale_from_native": 19.8
+   },
+   {
+    "atlas": "roshan_gesture_b",
+    "cell": 7,
+    "bodice_box": [
+     78,
+     91,
+     108,
+     146
+    ],
+    "garment_px": [
+     51,
+     78
+    ],
+    "garment_aspect": 0.65,
+    "aspect_vs_native": 0.74,
+    "downscale_from_native": 16.5
+   },
+   {
+    "atlas": "roshan_gesture_b",
+    "cell": 8,
+    "bodice_box": [
+     118,
+     92,
+     151,
+     146
+    ],
+    "garment_px": [
+     56,
+     77
+    ],
+    "garment_aspect": 0.73,
+    "aspect_vs_native": 0.83,
+    "downscale_from_native": 16.7
+   },
+   {
+    "atlas": "roshan_gesture_b",
+    "cell": 9,
+    "bodice_box": [
+     131,
+     96,
+     151,
+     131
+    ],
+    "garment_px": [
+     34,
+     50
+    ],
+    "garment_aspect": 0.68,
+    "aspect_vs_native": 0.77,
+    "downscale_from_native": 25.7
+   },
+   {
+    "atlas": "roshan_gesture_b",
+    "cell": 10,
+    "bodice_box": [
+     130,
+     112,
+     157,
+     137
+    ],
+    "garment_px": [
+     46,
+     48
+    ],
+    "garment_aspect": 0.96,
+    "aspect_vs_native": 1.09,
+    "downscale_from_native": 26.8
+   },
+   {
+    "atlas": "roshan_gesture_b",
+    "cell": 11,
+    "bodice_box": [
+     97,
+     106,
+     117,
+     130
+    ],
+    "garment_px": [
+     34,
+     48
+    ],
+    "garment_aspect": 0.71,
+    "aspect_vs_native": 0.81,
+    "downscale_from_native": 26.8
+   },
+   {
+    "atlas": "roshan_gesture_b",
+    "cell": 12,
+    "bodice_box": [
+     110,
+     82,
+     143,
+     131
+    ],
+    "garment_px": [
+     56,
+     70
+    ],
+    "garment_aspect": 0.8,
+    "aspect_vs_native": 0.91,
+    "downscale_from_native": 18.3
+   },
+   {
+    "atlas": "roshan_gesture_b",
+    "cell": 13,
+    "bodice_box": [
+     98,
+     84,
+     134,
+     131
+    ],
+    "garment_px": [
+     61,
+     67
+    ],
+    "garment_aspect": 0.91,
+    "aspect_vs_native": 1.04,
+    "downscale_from_native": 19.2
+   },
+   {
+    "atlas": "roshan_gesture_b",
+    "cell": 14,
+    "bodice_box": [
+     96,
+     81,
+     133,
+     131
+    ],
+    "garment_px": [
+     63,
+     71
+    ],
+    "garment_aspect": 0.89,
+    "aspect_vs_native": 1.01,
+    "downscale_from_native": 18.1
+   },
+   {
+    "atlas": "roshan_gesture_b",
+    "cell": 15,
+    "bodice_box": [
+     78,
+     85,
+     112,
+     134
+    ],
+    "garment_px": [
+     58,
+     70
+    ],
+    "garment_aspect": 0.83,
+    "aspect_vs_native": 0.94,
+    "downscale_from_native": 18.3
+   },
+   {
+    "atlas": "roshan_gesture_c",
+    "cell": 0,
+    "bodice_box": [
+     117,
+     87,
+     152,
+     139
+    ],
+    "garment_px": [
+     60,
+     74
+    ],
+    "garment_aspect": 0.81,
+    "aspect_vs_native": 0.92,
+    "downscale_from_native": 17.4
+   },
+   {
+    "atlas": "roshan_gesture_c",
+    "cell": 1,
+    "bodice_box": [
+     103,
+     90,
+     149,
+     139
+    ],
+    "garment_px": [
+     78,
+     70
+    ],
+    "garment_aspect": 1.11,
+    "aspect_vs_native": 1.27,
+    "downscale_from_native": 18.3
+   },
+   {
+    "atlas": "roshan_gesture_c",
+    "cell": 2,
+    "bodice_box": [
+     88,
+     88,
+     133,
+     140
+    ],
+    "garment_px": [
+     76,
+     74
+    ],
+    "garment_aspect": 1.03,
+    "aspect_vs_native": 1.17,
+    "downscale_from_native": 17.4
+   },
+   {
+    "atlas": "roshan_gesture_c",
+    "cell": 3,
+    "bodice_box": [
+     82,
+     110,
+     103,
+     142
+    ],
+    "garment_px": [
+     36,
+     48
+    ],
+    "garment_aspect": 0.75,
+    "aspect_vs_native": 0.85,
+    "downscale_from_native": 26.8
+   },
+   {
+    "atlas": "roshan_gesture_c",
+    "cell": 4,
+    "bodice_box": [
+     118,
+     90,
+     152,
+     142
+    ],
+    "garment_px": [
+     58,
+     74
+    ],
+    "garment_aspect": 0.78,
+    "aspect_vs_native": 0.89,
+    "downscale_from_native": 17.4
+   },
+   {
+    "atlas": "roshan_gesture_c",
+    "cell": 5,
+    "bodice_box": [
+     117,
+     107,
+     151,
+     148
+    ],
+    "garment_px": [
+     58,
+     58
+    ],
+    "garment_aspect": 1.0,
+    "aspect_vs_native": 1.14,
+    "downscale_from_native": 22.1
+   },
+   {
+    "atlas": "roshan_gesture_c",
+    "cell": 6,
+    "bodice_box": [
+     87,
+     82,
+     126,
+     138
+    ],
+    "garment_px": [
+     66,
+     80
+    ],
+    "garment_aspect": 0.82,
+    "aspect_vs_native": 0.94,
+    "downscale_from_native": 16.1
+   },
+   {
+    "atlas": "roshan_gesture_c",
+    "cell": 7,
+    "bodice_box": [
+     65,
+     88,
+     109,
+     142
+    ],
+    "garment_px": [
+     75,
+     77
+    ],
+    "garment_aspect": 0.97,
+    "aspect_vs_native": 1.11,
+    "downscale_from_native": 16.7
+   },
+   {
+    "atlas": "roshan_gesture_c",
+    "cell": 8,
+    "bodice_box": [
+     114,
+     85,
+     148,
+     134
+    ],
+    "garment_px": [
+     58,
+     70
+    ],
+    "garment_aspect": 0.83,
+    "aspect_vs_native": 0.94,
+    "downscale_from_native": 18.3
+   },
+   {
+    "atlas": "roshan_gesture_c",
+    "cell": 9,
+    "bodice_box": [
+     104,
+     85,
+     137,
+     136
+    ],
+    "garment_px": [
+     56,
+     72
+    ],
+    "garment_aspect": 0.78,
+    "aspect_vs_native": 0.89,
+    "downscale_from_native": 17.8
+   },
+   {
+    "atlas": "roshan_gesture_c",
+    "cell": 10,
+    "bodice_box": [
+     95,
+     88,
+     128,
+     135
+    ],
+    "garment_px": [
+     56,
+     67
+    ],
+    "garment_aspect": 0.84,
+    "aspect_vs_native": 0.95,
+    "downscale_from_native": 19.2
+   },
+   {
+    "atlas": "roshan_gesture_c",
+    "cell": 11,
+    "bodice_box": [
+     72,
+     86,
+     111,
+     136
+    ],
+    "garment_px": [
+     66,
+     71
+    ],
+    "garment_aspect": 0.93,
+    "aspect_vs_native": 1.06,
+    "downscale_from_native": 18.1
+   },
+   {
+    "atlas": "roshan_gesture_c",
+    "cell": 12,
+    "bodice_box": [
+     112,
+     81,
+     137,
+     125
+    ],
+    "garment_px": [
+     42,
+     62
+    ],
+    "garment_aspect": 0.68,
+    "aspect_vs_native": 0.77,
+    "downscale_from_native": 20.7
+   },
+   {
+    "atlas": "roshan_gesture_c",
+    "cell": 13,
+    "bodice_box": [
+     100,
+     96,
+     124,
+     124
+    ],
+    "garment_px": [
+     41,
+     48
+    ],
+    "garment_aspect": 0.85,
+    "aspect_vs_native": 0.97,
+    "downscale_from_native": 26.8
+   },
+   {
+    "atlas": "roshan_gesture_c",
+    "cell": 14,
+    "bodice_box": [
+     89,
+     77,
+     119,
+     123
+    ],
+    "garment_px": [
+     51,
+     65
+    ],
+    "garment_aspect": 0.78,
+    "aspect_vs_native": 0.89,
+    "downscale_from_native": 19.8
+   },
+   {
+    "atlas": "roshan_gesture_c",
+    "cell": 15,
+    "bodice_box": [
+     76,
+     81,
+     100,
+     126
+    ],
+    "garment_px": [
+     41,
+     64
+    ],
+    "garment_aspect": 0.64,
+    "aspect_vs_native": 0.73,
+    "downscale_from_native": 20.1
+   },
+   {
+    "atlas": "roshan_gesture_d",
+    "cell": 0,
+    "bodice_box": [
+     125,
+     92,
+     156,
+     145
+    ],
+    "garment_px": [
+     53,
+     75
+    ],
+    "garment_aspect": 0.71,
+    "aspect_vs_native": 0.8,
+    "downscale_from_native": 17.1
+   },
+   {
+    "atlas": "roshan_gesture_d",
+    "cell": 1,
+    "bodice_box": [
+     115,
+     107,
+     152,
+     145
+    ],
+    "garment_px": [
+     63,
+     54
+    ],
+    "garment_aspect": 1.17,
+    "aspect_vs_native": 1.33,
+    "downscale_from_native": 23.8
+   },
+   {
+    "atlas": "roshan_gesture_d",
+    "cell": 2,
+    "bodice_box": [
+     74,
+     133,
+     114,
+     172
+    ],
+    "garment_px": [
+     68,
+     55
+    ],
+    "garment_aspect": 1.24,
+    "aspect_vs_native": 1.41,
+    "downscale_from_native": 23.3
+   },
+   {
+    "atlas": "roshan_gesture_d",
+    "cell": 3,
+    "bodice_box": [
+     106,
+     106,
+     145,
+     149
+    ],
+    "garment_px": [
+     66,
+     61
+    ],
+    "garment_aspect": 1.08,
+    "aspect_vs_native": 1.23,
+    "downscale_from_native": 21.0
+   },
+   {
+    "atlas": "roshan_gesture_d",
+    "cell": 4,
+    "bodice_box": [
+     130,
+     88,
+     162,
+     131
+    ],
+    "garment_px": [
+     54,
+     61
+    ],
+    "garment_aspect": 0.89,
+    "aspect_vs_native": 1.01,
+    "downscale_from_native": 21.0
+   },
+   {
+    "atlas": "roshan_gesture_d",
+    "cell": 5,
+    "bodice_box": [
+     107,
+     91,
+     138,
+     141
+    ],
+    "garment_px": [
+     53,
+     71
+    ],
+    "garment_aspect": 0.75,
+    "aspect_vs_native": 0.85,
+    "downscale_from_native": 18.1
+   },
+   {
+    "atlas": "roshan_gesture_d",
+    "cell": 6,
+    "bodice_box": [
+     100,
+     90,
+     133,
+     139
+    ],
+    "garment_px": [
+     56,
+     70
+    ],
+    "garment_aspect": 0.8,
+    "aspect_vs_native": 0.91,
+    "downscale_from_native": 18.3
+   },
+   {
+    "atlas": "roshan_gesture_d",
+    "cell": 7,
+    "bodice_box": [
+     79,
+     90,
+     112,
+     138
+    ],
+    "garment_px": [
+     56,
+     68
+    ],
+    "garment_aspect": 0.82,
+    "aspect_vs_native": 0.94,
+    "downscale_from_native": 18.9
+   },
+   {
+    "atlas": "roshan_play_a",
+    "cell": 0,
+    "bodice_box": [
+     128,
+     100,
+     162,
+     136
+    ],
+    "garment_px": [
+     58,
+     51
+    ],
+    "garment_aspect": 1.14,
+    "aspect_vs_native": 1.29,
+    "downscale_from_native": 25.2
+   },
+   {
+    "atlas": "roshan_play_a",
+    "cell": 1,
+    "bodice_box": [
+     117,
+     102,
+     150,
+     136
+    ],
+    "garment_px": [
+     56,
+     48
+    ],
+    "garment_aspect": 1.17,
+    "aspect_vs_native": 1.33,
+    "downscale_from_native": 26.8
+   },
+   {
+    "atlas": "roshan_play_a",
+    "cell": 2,
+    "bodice_box": [
+     90,
+     100,
+     125,
+     145
+    ],
+    "garment_px": [
+     60,
+     64
+    ],
+    "garment_aspect": 0.94,
+    "aspect_vs_native": 1.07,
+    "downscale_from_native": 20.1
+   },
+   {
+    "atlas": "roshan_play_a",
+    "cell": 3,
+    "bodice_box": [
+     83,
+     104,
+     118,
+     142
+    ],
+    "garment_px": [
+     60,
+     54
+    ],
+    "garment_aspect": 1.11,
+    "aspect_vs_native": 1.26,
+    "downscale_from_native": 23.8
+   },
+   {
+    "atlas": "roshan_play_a",
+    "cell": 4,
+    "bodice_box": [
+     113,
+     97,
+     153,
+     124
+    ],
+    "garment_px": [
+     68,
+     48
+    ],
+    "garment_aspect": 1.42,
+    "aspect_vs_native": 1.61,
+    "downscale_from_native": 26.8
+   },
+   {
+    "atlas": "roshan_play_a",
+    "cell": 5,
+    "bodice_box": [
+     108,
+     69,
+     135,
+     106
+    ],
+    "garment_px": [
+     46,
+     53
+    ],
+    "garment_aspect": 0.87,
+    "aspect_vs_native": 0.99,
+    "downscale_from_native": 24.2
+   },
+   {
+    "atlas": "roshan_play_a",
+    "cell": 6,
+    "bodice_box": [
+     83,
+     67,
+     115,
+     114
+    ],
+    "garment_px": [
+     54,
+     67
+    ],
+    "garment_aspect": 0.81,
+    "aspect_vs_native": 0.92,
+    "downscale_from_native": 19.2
+   },
+   {
+    "atlas": "roshan_play_a",
+    "cell": 7,
+    "bodice_box": [
+     85,
+     97,
+     119,
+     135
+    ],
+    "garment_px": [
+     58,
+     54
+    ],
+    "garment_aspect": 1.07,
+    "aspect_vs_native": 1.22,
+    "downscale_from_native": 23.8
+   },
+   {
+    "atlas": "roshan_play_a",
+    "cell": 8,
+    "bodice_box": [
+     114,
+     112,
+     151,
+     151
+    ],
+    "garment_px": [
+     63,
+     55
+    ],
+    "garment_aspect": 1.15,
+    "aspect_vs_native": 1.3,
+    "downscale_from_native": 23.3
+   },
+   {
+    "atlas": "roshan_play_a",
+    "cell": 9,
+    "bodice_box": [
+     97,
+     113,
+     135,
+     146
+    ],
+    "garment_px": [
+     65,
+     48
+    ],
+    "garment_aspect": 1.35,
+    "aspect_vs_native": 1.54,
+    "downscale_from_native": 26.8
+   },
+   {
+    "atlas": "roshan_play_a",
+    "cell": 10,
+    "bodice_box": [
+     85,
+     86,
+     117,
+     127
+    ],
+    "garment_px": [
+     54,
+     58
+    ],
+    "garment_aspect": 0.93,
+    "aspect_vs_native": 1.06,
+    "downscale_from_native": 22.1
+   },
+   {
+    "atlas": "roshan_play_a",
+    "cell": 11,
+    "bodice_box": [
+     74,
+     94,
+     104,
+     137
+    ],
+    "garment_px": [
+     51,
+     61
+    ],
+    "garment_aspect": 0.84,
+    "aspect_vs_native": 0.95,
+    "downscale_from_native": 21.0
+   },
+   {
+    "atlas": "roshan_play_a",
+    "cell": 12,
+    "bodice_box": [
+     108,
+     70,
+     140,
+     111
+    ],
+    "garment_px": [
+     54,
+     58
+    ],
+    "garment_aspect": 0.93,
+    "aspect_vs_native": 1.06,
+    "downscale_from_native": 22.1
+   },
+   {
+    "atlas": "roshan_play_a",
+    "cell": 13,
+    "bodice_box": [
+     102,
+     69,
+     136,
+     111
+    ],
+    "garment_px": [
+     58,
+     60
+    ],
+    "garment_aspect": 0.97,
+    "aspect_vs_native": 1.1,
+    "downscale_from_native": 21.4
+   },
+   {
+    "atlas": "roshan_play_a",
+    "cell": 14,
+    "bodice_box": [
+     87,
+     76,
+     115,
+     106
+    ],
+    "garment_px": [
+     48,
+     48
+    ],
+    "garment_aspect": 1.0,
+    "aspect_vs_native": 1.14,
+    "downscale_from_native": 26.8
+   },
+   {
+    "atlas": "roshan_play_a",
+    "cell": 15,
+    "bodice_box": [
+     74,
+     71,
+     107,
+     115
+    ],
+    "garment_px": [
+     56,
+     62
+    ],
+    "garment_aspect": 0.9,
+    "aspect_vs_native": 1.03,
+    "downscale_from_native": 20.7
+   },
+   {
+    "atlas": "roshan_play_b",
+    "cell": 0,
+    "bodice_box": [
+     113,
+     95,
+     147,
+     143
+    ],
+    "garment_px": [
+     58,
+     68
+    ],
+    "garment_aspect": 0.85,
+    "aspect_vs_native": 0.97,
+    "downscale_from_native": 18.9
+   },
+   {
+    "atlas": "roshan_play_b",
+    "cell": 1,
+    "bodice_box": [
+     82,
+     92,
+     129,
+     146
+    ],
+    "garment_px": [
+     80,
+     77
+    ],
+    "garment_aspect": 1.04,
+    "aspect_vs_native": 1.18,
+    "downscale_from_native": 16.7
+   },
+   {
+    "atlas": "roshan_play_b",
+    "cell": 2,
+    "bodice_box": [
+     94,
+     111,
+     140,
+     155
+    ],
+    "garment_px": [
+     78,
+     62
+    ],
+    "garment_aspect": 1.26,
+    "aspect_vs_native": 1.43,
+    "downscale_from_native": 20.7
+   },
+   {
+    "atlas": "roshan_play_b",
+    "cell": 3,
+    "bodice_box": [
+     70,
+     93,
+     113,
+     145
+    ],
+    "garment_px": [
+     73,
+     74
+    ],
+    "garment_aspect": 0.99,
+    "aspect_vs_native": 1.12,
+    "downscale_from_native": 17.4
+   },
+   {
+    "atlas": "roshan_play_b",
+    "cell": 4,
+    "bodice_box": [
+     139,
+     95,
+     173,
+     140
+    ],
+    "garment_px": [
+     58,
+     64
+    ],
+    "garment_aspect": 0.91,
+    "aspect_vs_native": 1.03,
+    "downscale_from_native": 20.1
+   },
+   {
+    "atlas": "roshan_play_b",
+    "cell": 5,
+    "bodice_box": [
+     114,
+     98,
+     166,
+     141
+    ],
+    "garment_px": [
+     88,
+     61
+    ],
+    "garment_aspect": 1.44,
+    "aspect_vs_native": 1.64,
+    "downscale_from_native": 21.0
+   },
+   {
+    "atlas": "roshan_play_b",
+    "cell": 6,
+    "bodice_box": [
+     110,
+     115,
+     167,
+     150
+    ],
+    "garment_px": [
+     97,
+     50
+    ],
+    "garment_aspect": 1.94,
+    "aspect_vs_native": 2.21,
+    "downscale_from_native": 25.7
+   },
+   {
+    "atlas": "roshan_play_b",
+    "cell": 7,
+    "bodice_box": [
+     93,
+     90,
+     138,
+     141
+    ],
+    "garment_px": [
+     76,
+     72
+    ],
+    "garment_aspect": 1.06,
+    "aspect_vs_native": 1.2,
+    "downscale_from_native": 17.8
+   },
+   {
+    "atlas": "roshan_play_b",
+    "cell": 8,
+    "bodice_box": [
+     106,
+     93,
+     139,
+     141
+    ],
+    "garment_px": [
+     56,
+     68
+    ],
+    "garment_aspect": 0.82,
+    "aspect_vs_native": 0.94,
+    "downscale_from_native": 18.9
+   },
+   {
+    "atlas": "roshan_play_b",
+    "cell": 9,
+    "bodice_box": [
+     98,
+     95,
+     132,
+     144
+    ],
+    "garment_px": [
+     58,
+     70
+    ],
+    "garment_aspect": 0.83,
+    "aspect_vs_native": 0.94,
+    "downscale_from_native": 18.3
+   },
+   {
+    "atlas": "roshan_play_b",
+    "cell": 10,
+    "bodice_box": [
+     75,
+     113,
+     108,
+     157
+    ],
+    "garment_px": [
+     56,
+     62
+    ],
+    "garment_aspect": 0.9,
+    "aspect_vs_native": 1.03,
+    "downscale_from_native": 20.7
+   },
+   {
+    "atlas": "roshan_play_b",
+    "cell": 11,
+    "bodice_box": [
+     69,
+     93,
+     103,
+     142
+    ],
+    "garment_px": [
+     58,
+     70
+    ],
+    "garment_aspect": 0.83,
+    "aspect_vs_native": 0.94,
+    "downscale_from_native": 18.3
+   },
+   {
+    "atlas": "roshan_play_b",
+    "cell": 12,
+    "bodice_box": [
+     97,
+     84,
+     130,
+     130
+    ],
+    "garment_px": [
+     56,
+     65
+    ],
+    "garment_aspect": 0.86,
+    "aspect_vs_native": 0.98,
+    "downscale_from_native": 19.8
+   },
+   {
+    "atlas": "roshan_play_b",
+    "cell": 13,
+    "bodice_box": [
+     77,
+     72,
+     122,
+     121
+    ],
+    "garment_px": [
+     76,
+     70
+    ],
+    "garment_aspect": 1.09,
+    "aspect_vs_native": 1.24,
+    "downscale_from_native": 18.3
+   },
+   {
+    "atlas": "roshan_play_b",
+    "cell": 14,
+    "bodice_box": [
+     54,
+     76,
+     92,
+     130
+    ],
+    "garment_px": [
+     65,
+     77
+    ],
+    "garment_aspect": 0.84,
+    "aspect_vs_native": 0.96,
+    "downscale_from_native": 16.7
+   },
+   {
+    "atlas": "roshan_play_b",
+    "cell": 15,
+    "bodice_box": [
+     51,
+     80,
+     83,
+     131
+    ],
+    "garment_px": [
+     54,
+     72
+    ],
+    "garment_aspect": 0.75,
+    "aspect_vs_native": 0.85,
+    "downscale_from_native": 17.8
+   },
+   {
+    "atlas": "roshan_swim_back",
+    "cell": 0,
+    "bodice_box": [
+     116,
+     85,
+     146,
+     125
+    ],
+    "garment_px": [
+     51,
+     57
+    ],
+    "garment_aspect": 0.89,
+    "aspect_vs_native": 1.02,
+    "downscale_from_native": 22.5
+   },
+   {
+    "atlas": "roshan_swim_back",
+    "cell": 1,
+    "bodice_box": [
+     108,
+     85,
+     144,
+     125
+    ],
+    "garment_px": [
+     61,
+     57
+    ],
+    "garment_aspect": 1.07,
+    "aspect_vs_native": 1.22,
+    "downscale_from_native": 22.5
+   },
+   {
+    "atlas": "roshan_swim_back",
+    "cell": 2,
+    "bodice_box": [
+     117,
+     87,
+     152,
+     126
+    ],
+    "garment_px": [
+     60,
+     55
+    ],
+    "garment_aspect": 1.09,
+    "aspect_vs_native": 1.24,
+    "downscale_from_native": 23.3
+   },
+   {
+    "atlas": "roshan_swim_back",
+    "cell": 3,
+    "bodice_box": [
+     106,
+     86,
+     140,
+     125
+    ],
+    "garment_px": [
+     58,
+     55
+    ],
+    "garment_aspect": 1.05,
+    "aspect_vs_native": 1.2,
+    "downscale_from_native": 23.3
+   },
+   {
+    "atlas": "roshan_swim_back",
+    "cell": 4,
+    "bodice_box": [
+     125,
+     79,
+     158,
+     116
+    ],
+    "garment_px": [
+     56,
+     53
+    ],
+    "garment_aspect": 1.06,
+    "aspect_vs_native": 1.2,
+    "downscale_from_native": 24.2
+   },
+   {
+    "atlas": "roshan_swim_back",
+    "cell": 5,
+    "bodice_box": [
+     125,
+     77,
+     158,
+     115
+    ],
+    "garment_px": [
+     56,
+     54
+    ],
+    "garment_aspect": 1.04,
+    "aspect_vs_native": 1.18,
+    "downscale_from_native": 23.8
+   },
+   {
+    "atlas": "roshan_swim_back",
+    "cell": 6,
+    "bodice_box": [
+     135,
+     79,
+     169,
+     116
+    ],
+    "garment_px": [
+     58,
+     53
+    ],
+    "garment_aspect": 1.09,
+    "aspect_vs_native": 1.25,
+    "downscale_from_native": 24.2
+   },
+   {
+    "atlas": "roshan_swim_back",
+    "cell": 7,
+    "bodice_box": [
+     127,
+     81,
+     162,
+     121
+    ],
+    "garment_px": [
+     60,
+     57
+    ],
+    "garment_aspect": 1.05,
+    "aspect_vs_native": 1.2,
+    "downscale_from_native": 22.5
+   },
+   {
+    "atlas": "roshan_swim_back",
+    "cell": 8,
+    "bodice_box": [
+     119,
+     85,
+     155,
+     125
+    ],
+    "garment_px": [
+     61,
+     57
+    ],
+    "garment_aspect": 1.07,
+    "aspect_vs_native": 1.22,
+    "downscale_from_native": 22.5
+   },
+   {
+    "atlas": "roshan_swim_back",
+    "cell": 9,
+    "bodice_box": [
+     112,
+     85,
+     147,
+     123
+    ],
+    "garment_px": [
+     60,
+     54
+    ],
+    "garment_aspect": 1.11,
+    "aspect_vs_native": 1.26,
+    "downscale_from_native": 23.8
+   },
+   {
+    "atlas": "roshan_swim_back",
+    "cell": 10,
+    "bodice_box": [
+     120,
+     85,
+     156,
+     122
+    ],
+    "garment_px": [
+     61,
+     53
+    ],
+    "garment_aspect": 1.15,
+    "aspect_vs_native": 1.31,
+    "downscale_from_native": 24.2
+   },
+   {
+    "atlas": "roshan_swim_back",
+    "cell": 11,
+    "bodice_box": [
+     107,
+     86,
+     141,
+     121
+    ],
+    "garment_px": [
+     58,
+     50
+    ],
+    "garment_aspect": 1.16,
+    "aspect_vs_native": 1.32,
+    "downscale_from_native": 25.7
+   },
+   {
+    "atlas": "roshan_swim_back",
+    "cell": 12,
+    "bodice_box": [
+     111,
+     69,
+     146,
+     109
+    ],
+    "garment_px": [
+     60,
+     57
+    ],
+    "garment_aspect": 1.05,
+    "aspect_vs_native": 1.2,
+    "downscale_from_native": 22.5
+   },
+   {
+    "atlas": "roshan_swim_back",
+    "cell": 13,
+    "bodice_box": [
+     114,
+     71,
+     149,
+     109
+    ],
+    "garment_px": [
+     60,
+     54
+    ],
+    "garment_aspect": 1.11,
+    "aspect_vs_native": 1.26,
+    "downscale_from_native": 23.8
+   },
+   {
+    "atlas": "roshan_swim_back",
+    "cell": 14,
+    "bodice_box": [
+     125,
+     70,
+     159,
+     109
+    ],
+    "garment_px": [
+     58,
+     55
+    ],
+    "garment_aspect": 1.05,
+    "aspect_vs_native": 1.2,
+    "downscale_from_native": 23.3
+   },
+   {
+    "atlas": "roshan_swim_back",
+    "cell": 15,
+    "bodice_box": [
+     117,
+     69,
+     149,
+     108
+    ],
+    "garment_px": [
+     54,
+     55
+    ],
+    "garment_aspect": 0.98,
+    "aspect_vs_native": 1.12,
+    "downscale_from_native": 23.3
+   },
+   {
+    "atlas": "roshan_swim_front",
+    "cell": 0,
+    "bodice_box": [
+     122,
+     92,
+     153,
+     142
+    ],
+    "garment_px": [
+     53,
+     71
+    ],
+    "garment_aspect": 0.75,
+    "aspect_vs_native": 0.85,
+    "downscale_from_native": 18.1
+   },
+   {
+    "atlas": "roshan_swim_front",
+    "cell": 1,
+    "bodice_box": [
+     107,
+     86,
+     149,
+     139
+    ],
+    "garment_px": [
+     71,
+     75
+    ],
+    "garment_aspect": 0.95,
+    "aspect_vs_native": 1.08,
+    "downscale_from_native": 17.1
+   },
+   {
+    "atlas": "roshan_swim_front",
+    "cell": 2,
+    "bodice_box": [
+     118,
+     107,
+     149,
+     142
+    ],
+    "garment_px": [
+     53,
+     50
+    ],
+    "garment_aspect": 1.06,
+    "aspect_vs_native": 1.21,
+    "downscale_from_native": 25.7
+   },
+   {
+    "atlas": "roshan_swim_front",
+    "cell": 3,
+    "bodice_box": [
+     109,
+     106,
+     143,
+     143
+    ],
+    "garment_px": [
+     58,
+     53
+    ],
+    "garment_aspect": 1.09,
+    "aspect_vs_native": 1.25,
+    "downscale_from_native": 24.2
+   },
+   {
+    "atlas": "roshan_swim_front",
+    "cell": 4,
+    "bodice_box": [
+     126,
+     84,
+     160,
+     130
+    ],
+    "garment_px": [
+     58,
+     65
+    ],
+    "garment_aspect": 0.89,
+    "aspect_vs_native": 1.02,
+    "downscale_from_native": 19.8
+   },
+   {
+    "atlas": "roshan_swim_front",
+    "cell": 5,
+    "bodice_box": [
+     118,
+     75,
+     153,
+     128
+    ],
+    "garment_px": [
+     60,
+     75
+    ],
+    "garment_aspect": 0.8,
+    "aspect_vs_native": 0.91,
+    "downscale_from_native": 17.1
+   },
+   {
+    "atlas": "roshan_swim_front",
+    "cell": 6,
+    "bodice_box": [
+     111,
+     74,
+     146,
+     126
+    ],
+    "garment_px": [
+     60,
+     74
+    ],
+    "garment_aspect": 0.81,
+    "aspect_vs_native": 0.92,
+    "downscale_from_native": 17.4
+   },
+   {
+    "atlas": "roshan_swim_front",
+    "cell": 7,
+    "bodice_box": [
+     101,
+     77,
+     143,
+     130
+    ],
+    "garment_px": [
+     71,
+     75
+    ],
+    "garment_aspect": 0.95,
+    "aspect_vs_native": 1.08,
+    "downscale_from_native": 17.1
+   },
+   {
+    "atlas": "roshan_swim_front",
+    "cell": 8,
+    "bodice_box": [
+     130,
+     89,
+     165,
+     137
+    ],
+    "garment_px": [
+     60,
+     68
+    ],
+    "garment_aspect": 0.88,
+    "aspect_vs_native": 1.0,
+    "downscale_from_native": 18.9
+   },
+   {
+    "atlas": "roshan_swim_front",
+    "cell": 9,
+    "bodice_box": [
+     121,
+     85,
+     162,
+     136
+    ],
+    "garment_px": [
+     70,
+     72
+    ],
+    "garment_aspect": 0.97,
+    "aspect_vs_native": 1.11,
+    "downscale_from_native": 17.8
+   },
+   {
+    "atlas": "roshan_swim_front",
+    "cell": 10,
+    "bodice_box": [
+     111,
+     87,
+     147,
+     138
+    ],
+    "garment_px": [
+     61,
+     72
+    ],
+    "garment_aspect": 0.85,
+    "aspect_vs_native": 0.96,
+    "downscale_from_native": 17.8
+   },
+   {
+    "atlas": "roshan_swim_front",
+    "cell": 11,
+    "bodice_box": [
+     94,
+     85,
+     129,
+     136
+    ],
+    "garment_px": [
+     60,
+     72
+    ],
+    "garment_aspect": 0.83,
+    "aspect_vs_native": 0.95,
+    "downscale_from_native": 17.8
+   },
+   {
+    "atlas": "roshan_swim_front",
+    "cell": 12,
+    "bodice_box": [
+     121,
+     66,
+     153,
+     117
+    ],
+    "garment_px": [
+     54,
+     72
+    ],
+    "garment_aspect": 0.75,
+    "aspect_vs_native": 0.85,
+    "downscale_from_native": 17.8
+   },
+   {
+    "atlas": "roshan_swim_front",
+    "cell": 13,
+    "bodice_box": [
+     117,
+     80,
+     149,
+     115
+    ],
+    "garment_px": [
+     54,
+     50
+    ],
+    "garment_aspect": 1.08,
+    "aspect_vs_native": 1.23,
+    "downscale_from_native": 25.7
+   },
+   {
+    "atlas": "roshan_swim_front",
+    "cell": 14,
+    "bodice_box": [
+     120,
+     79,
+     152,
+     115
+    ],
+    "garment_px": [
+     54,
+     51
+    ],
+    "garment_aspect": 1.06,
+    "aspect_vs_native": 1.21,
+    "downscale_from_native": 25.2
+   },
+   {
+    "atlas": "roshan_swim_front",
+    "cell": 15,
+    "bodice_box": [
+     110,
+     78,
+     143,
+     116
+    ],
+    "garment_px": [
+     56,
+     54
+    ],
+    "garment_aspect": 1.04,
+    "aspect_vs_native": 1.18,
+    "downscale_from_native": 23.8
+   }
+  ]
+ },
+ "garden_and_disguise": "Recolour of the source bodice pixels (r > 0.54, b > 0.49, b > 1.11 g, r > 0.99 b) to green, plus a procedural bow; disguise uses the same recolour with a larger green bow",
+ "bows": {
+  "method": "procedural: two triangles and an ellipse knot, flat fill, navy ink, no painting",
+  "per_character": {
+   "rumi_eight_pose_runtime": {
+    "source": "assets/characters/rumi/rumi_eight_pose_runtime.png",
+    "sha256": "44120bbb2b1e60a9ec94e0cf3db7e46e33f564671af986bb42357b8bd59c14d5",
+    "first_cell_figure_height_px": 306,
+    "bow_width_px": 34,
+    "bow_width_pct_of_figure_height": 11.1
+   },
+   "rumi_pool_idle_swim_atlas": {
+    "source": "assets/characters/rumi/rumi_pool_idle_swim_atlas.png",
+    "sha256": "9068a5f6c56e90d57ae9c3219096d6f12bba97a2f6c6ed09175c1bc63f59cb41",
+    "first_cell_figure_height_px": 229,
+    "bow_width_px": 34,
+    "bow_width_pct_of_figure_height": 14.8
+   },
+   "baby_eagle": {
+    "source": "assets/characters/companions/baby_eagle.png",
+    "sha256": "7d6f10afbd8cd157436a05eaadab7eb4cc07c3a3d242ad2291111fc6b4f3ed2f",
+    "first_cell_figure_height_px": 477,
+    "bow_width_px": 44,
+    "bow_width_pct_of_figure_height": 9.2
+   },
+   "daddy": {
+    "source": "assets/characters/friends/daddy.webp",
+    "sha256": "9031736498f05662716988b6c9a8091dc148edf92ae1e8422fb5e4f2fd17c089",
+    "first_cell_figure_height_px": 1017,
+    "bow_width_px": 92,
+    "bow_width_pct_of_figure_height": 9.0
+   },
+   "rainbow_friend": {
+    "source": "assets/sprites/dust_bunnies/rainbow_friend.png",
+    "sha256": "1cff185278d662b2fc049ffd1460848ca76aa7a57933dbc06279ae0a07747580",
+    "first_cell_figure_height_px": 497,
+    "bow_width_px": 92,
+    "bow_width_pct_of_figure_height": 18.5
+   },
+   "roshan_gesture_a (K0)": {
+    "source": "assets/characters/roshan_25d/roshan_gesture_a.png",
+    "sha256": "e70139b23c9f84c0e8f0c1063145ca4e9e67ee32c57aa544bc08193326af9b9d",
+    "first_cell_figure_height_px": 228,
+    "bow_width_px": 26,
+    "bow_width_pct_of_figure_height": 11.4
+   }
+  }
+ },
+ "pose_fit": {
+  "path": "assets_src/fashion_designer/party_garment_v1/pose_fit.json",
+  "sha256": "942a34f5026abf8ecef66ad50da136c2c3a3cc917c902b576f581e527effd6df",
+  "status": "PROVISIONAL_POSE_FIT_REQUIRES_VISUAL_REVIEW"
+ }
+}

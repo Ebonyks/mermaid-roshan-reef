@@ -366,3 +366,21 @@ gates pass. The [machine receipt](../assets_src/review/fashion_runtime_20261007/
 records all 98 unchanged runtime source hashes and exact log hashes. Remote CI
 on the runtime commit remains required before integration. This machine pass
 does not establish the outstanding visual/device/child/owner acceptance.
+
+## Owner art review of the clothing, 2026-10-07
+
+After seeing the four outfits baked onto the rig pilot's animation clips, the owner
+wrote: "the skinning looks awful though. The objects themselves are inconsistent, and
+they're not sized properly to the sprite. Maybe they need to be redrawn?"
+(`ODR-OUTFIT-ART-REDRAW-20261007`). The measured causes:
+- one front-view party garment is stretched onto every pose, including back and side
+  views;
+- the bows are procedural shapes at hand-set sizes;
+- the garden and disguise outfits are bodice recolours.
+
+The [Codex redraw handoff](../docs/handoffs/codex_roshan_wave_g1_repair_and_outfits_2026-10-07/README.md#part-d-redraw-the-outfits)
+specifies the replacement: per-view painted garments in Roshan's style, fitted by anchors
+at one size per view, painted accessories sized from each character's head height, and
+a party-dress pilot on three views before expansion. The current clothing art stays the
+provisional runtime alpha until that redraw is reviewed; this section changes no runtime
+file.
