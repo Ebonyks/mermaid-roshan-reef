@@ -36,13 +36,14 @@
     "assets_src/castle/seasonal_halloween_whole_castle_20261008/halloween_whole_castle_concept_v2.png",
     "assets_src/castle/seasonal_halloween_whole_castle_20261008/prompt.txt",
     "assets_src/castle/seasonal_halloween_whole_castle_20261008/generation.json",
+    "assets_src/castle/seasonal_halloween_whole_castle_20261008/references/seven_room_architecture_reference.png",
     "assets_src/castle/seasonal_halloween_whole_castle_20261008/verification/full_ci.log",
     "ASSET_LICENSES.md"
   ],
   "references_used": [
     {
       "path": "audit/castle_sprite3d/castle_room_2k_upscale_contact.png",
-      "purpose": "Actual bound input 3: seven original room architecture references in one existing contact sheet. Excluded fixture masks are not design/pixels to reproduce; known original fixture identities were separately inspected. This still-concept reference grants no cinematic-generation or runtime acceptance."
+      "purpose": "Actual local bound input 3, found ignored during remote verification. Preserve unchanged bytes in assets_src/castle/seasonal_halloween_whole_castle_20261008/references/seven_room_architecture_reference.png for reproducible provenance. Excluded fixture masks are not design/pixels to reproduce; known original fixture identities were separately inspected. This still-concept reference grants no cinematic-generation or runtime acceptance."
     },
     {
       "path": "assets/sprites/sky_lagoon/sky_lagoon_castle_four_tower_v4.png",
@@ -114,6 +115,11 @@
       "command": "Git Bash scripts/ci.sh with resolver-selected exact Godot 4.7.2-stable",
       "result": "PASS",
       "evidence": "Working source-review candidate from a0219865061cb4ac8a88d30924f33f24e934a3ae: full local suite exit 0 and 82 distinct trusted probes, each process exit 0, using exact 4.7.2.stable.official.ed1daf0bf. Existing source/provenance/audio/music/import/2D-regression and visual-contract gates passed in their scopes. Log assets_src/castle/seasonal_halloween_whole_castle_20261008/verification/full_ci.log, SHA-256 of LF-canonical bytes 78b4fa4816ad31768d9d33dfe3ac289bf8ddd068414cb1148a92412c3a16d9ee. Visual-contract tests 95/95; stress 18/18. Actual concept acceptance and future runtime/device/child evidence remain separate; game-wide master remains UNSATISFIED."
+    },
+    {
+      "command": "Remote source-reference resolution; byte-exact reference archival",
+      "result": "PASS",
+      "evidence": "At published 6f8f72af, input 3 original path was ignored and absent from Git. Added unchanged snapshot, SHA-256 e9d22270ea6084539a18b49f8c2ec50bd43af703fae08f3a34c04f3ad5c1a24a; recorded original generation path and durable archive path separately. Drawing/prompt/source-reference bytes and all runtime files unchanged. Source-only correction passed document authority 685/685, active 68/records 71, change coverage at a0219865061cb4ac8a88d30924f33f24e934a3ae and exact Godot 4.7.2-stable headless import exit 0. Existing full local evidence retained for the unchanged runtime; exact new-head GitHub CI required before integration."
     }
   ],
   "acceptance_gaps": "Static concept candidate only. Owner creative acceptance pending. No runtime change; future production needs original-pixel preservation/owned decorations, actual Canvas integration, Mobile phone readability/performance and owner/device/child evidence. Existing global master audit UNSATISFIED and finding lifecycles unchanged. This is not a picture-book adaptation, cinematic/external handoff, or release."

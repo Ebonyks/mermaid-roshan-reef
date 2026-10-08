@@ -55,7 +55,7 @@
       "mode": "RGB"
     },
     {
-      "path": "audit/castle_sprite3d/castle_room_2k_upscale_contact.png",
+      "path": "assets_src/castle/seasonal_halloween_whole_castle_20261008/references/seven_room_architecture_reference.png",
       "role": "existing_seven_room_architecture_contact_sheet_only_blurred_fixture_masks_excluded",
       "sha256": "e9d22270ea6084539a18b49f8c2ec50bd43af703fae08f3a34c04f3ad5c1a24a",
       "dimensions": [
@@ -65,7 +65,9 @@
       "modification_status": "Original untouched",
       "acceptance_scope": "Source reference only; does not establish owner acceptance of generated seasonal concept",
       "license_provenance": "Retain exact existing project source provenance and ASSET_LICENSES.md terms",
-      "mode": "RGB"
+      "mode": "RGB",
+      "original_local_path_used_at_generation": "audit/castle_sprite3d/castle_room_2k_upscale_contact.png",
+      "source_tracking": "Local ignored architecture-reference sheet; exact unchanged snapshot archived after remote verification found the original path absent from Git. Generated image and bound bytes unchanged."
     },
     {
       "path": "assets_src/imagegen/castle_dream_house_2d_repair_2026-08-02/furnishing_family_sheet_alpha.png",
@@ -188,6 +190,7 @@
     "all_probe_process_exits_zero": true,
     "completed_at_utc": "2026-10-08T14:39:24.516193+00:00",
     "log_lf_sha256": "78b4fa4816ad31768d9d33dfe3ac289bf8ddd068414cb1148a92412c3a16d9ee",
-    "log_normalization": "UTF-8 evidence with CRLF normalized to LF; native console trailing whitespace preserved; raw log retained in ignored tmp"
+    "log_normalization": "UTF-8 evidence with CRLF normalized to LF; native console trailing whitespace preserved; raw log retained in ignored tmp",
+    "source_archive_followup": "Added byte-identical snapshot of local input 3; no generation, prompt, output or runtime change. Existing full local evidence retained for unchanged runtime; document/change/import gates rechecked and published-head CI required."
   }
 }
