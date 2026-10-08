@@ -1,5 +1,7 @@
 # Context-bound replacement backlog
 
+R2 current evidence: [Castle/Opera visual review](live_v2/README.md) adds192 current captures, all15 free-play careers and70 live open phases; 24/176 partial entries, zero complete, all369 scopes unresolved. Historical source-only gaps below remain scoped to R1; current full-game coverage is still incomplete. New replacement pixel production remains sequenced after completion/publication of the full current inventory.
+
 Status: `PROPOSED / CANDIDATE` production backlog within the owner-commissioned replacement mission, frozen at source `92c9fe70319ef46bfaa8f61348a6f51512141ec3`. No runtime/pixel work in Phase 1. [Audit](AUDIT.md) and [per-piece briefs](per_piece_briefs.json) retain all current context/identity/device/child/owner gaps. The named count is a lower bound; source scopes and dynamic/raster/shader families must be split further.
 
 ## Production sequence

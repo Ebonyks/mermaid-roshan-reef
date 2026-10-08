@@ -1,0 +1,142 @@
+{
+  "schema": "reef.flat_vector.live_review_machine.v1",
+  "runtime_git_revision": "44a36776ab3db0d9078aacf09eca144fde342330",
+  "runtime_baseline": "92c9fe70319ef46bfaa8f61348a6f51512141ec3",
+  "production_inputs_unchanged": "git diff --quiet 92c9fe70319ef46bfaa8f61348a6f51512141ec3 HEAD -- scripts scenes assets shaders project.godot; checked at capture completion",
+  "source_closure_files": 6427,
+  "capture_method": "same-process actual Windows Vulkan Mobile renderer, offscreen window",
+  "gpu": "NVIDIA GeForce RTX 3060 Ti; desktop only",
+  "engine": "4.7.2-stable official.ed1daf0bf",
+  "quality": "speedy",
+  "aspects": {
+    "1280x720": 96,
+    "1600x720": 96
+  },
+  "phase_catalogue": {
+    "static_base": 61,
+    "live_free_play": 70,
+    "expansion": {
+      "ballerina": 6,
+      "magician": 8,
+      "popstar": 7
+    },
+    "static_comparison_is_not_route_completeness": true
+  },
+  "successful_attempt": "Fresh profile per run/aspect; exact 96-row matrix, all image and state checks pass; normal save/backup hashes unchanged.",
+  "earlier_trials": [
+    "Route trial: 52 written images, 10 stale-expectation failures; retained log is diagnostic history only, trial image paths are non-delivered staging references.",
+    "Phase trial: 192 written images, all rows pass but aggregate expected list had 87 instead of96; profiles were isolated from child but reused from route trial. Retained log only; no final capture claims use that trial."
+  ],
+  "sources": [
+    {
+      "path": "scripts/probe_opera_art.gd",
+      "revision": "44a36776ab3db0d9078aacf09eca144fde342330",
+      "git_blob_sha256": "77ca60f8c50fb60836f5f6445ccd52ebb03445fdc9d948fa2c21002dd05947e0",
+      "worktree_sha256": "d6c23429c70ff6c845f0702c1895011ee13c25d5643862a55be4df310dc9fe8c"
+    },
+    {
+      "path": "scripts/opera_performance_plan.gd",
+      "revision": "44a36776ab3db0d9078aacf09eca144fde342330",
+      "git_blob_sha256": "6b5ff197b0d88663af260217dc673a39d2d681e081b313c1c4b49c0a359d8366",
+      "worktree_sha256": "25517580638edcc8f63375ec6b14fd0de89287ed08af00111fec1d467cce6da3"
+    },
+    {
+      "path": "scripts/opera_house.gd",
+      "revision": "44a36776ab3db0d9078aacf09eca144fde342330",
+      "git_blob_sha256": "6d6aeead33ff8cc451daa09da215185171359fd218693371184f38ecadac2d7f",
+      "worktree_sha256": "09a70ca5f9abd836f66a2327e62553b8d603f9318845c404d7d3527fee953910"
+    },
+    {
+      "path": "scripts/opera_career_world_2d.gd",
+      "revision": "44a36776ab3db0d9078aacf09eca144fde342330",
+      "git_blob_sha256": "2195e137800fd840e4a813a83e6ac9b393a9e7851fd80ca84ca51fb964232702",
+      "worktree_sha256": "bef433ce6869d268bae3ee07948b37ba8b2d93bed8a9d82005a031e817db0edf"
+    },
+    {
+      "path": "scripts/castle_career_routes.gd",
+      "revision": "44a36776ab3db0d9078aacf09eca144fde342330",
+      "git_blob_sha256": "d2e9f24b10bf6b25bc7fd71c76630a6e88b8d8f3134db9b01139203fba925bb5",
+      "worktree_sha256": "c5de38d8126c96aae9e999780113edafff05601a22934443e67053edcd8e18d8"
+    },
+    {
+      "path": "scripts/opera_house_venue_2d.gd",
+      "revision": "44a36776ab3db0d9078aacf09eca144fde342330",
+      "git_blob_sha256": "cdb1c43991cd3a63cddb2a063be105435a343e469f84e4b49da93c10c45f1243",
+      "worktree_sha256": "d53f37314ef459d0ec886566ad092c415fe54a1058aef3d637440a743fb51a63"
+    },
+    {
+      "path": "scripts/opera_gesture_surface.gd",
+      "revision": "44a36776ab3db0d9078aacf09eca144fde342330",
+      "git_blob_sha256": "458d3afb7e231f8f5da6e21c64f27b699e7bf66bc5e6eb43fd9e331eaad6b07b",
+      "worktree_sha256": "34f3f264f17edef42990712f6c3f7e0106cf9afecd3969f8348848e0eda56017"
+    },
+    {
+      "path": "scripts/opera_teacher_surface.gd",
+      "revision": "44a36776ab3db0d9078aacf09eca144fde342330",
+      "git_blob_sha256": "cab2eee9f0bf1297296fef0a8650df7794214cfcb58fc379e44954f6153ec2ed",
+      "worktree_sha256": "b4893e222e45096cb539ad8025fdf7ba1a395cf6a921d7dc0205cff57acaa667"
+    },
+    {
+      "path": "scripts/opera_geology_surface.gd",
+      "revision": "44a36776ab3db0d9078aacf09eca144fde342330",
+      "git_blob_sha256": "da96f3b7c07b2ecac796cbe21410499c4439937a21d4096fd918a611e02ba8be",
+      "worktree_sha256": "14226227f7a961511057318173737ec7340b2fc80fdb644e5670f5bd399989a6"
+    },
+    {
+      "path": "scripts/opera_boxing_surface.gd",
+      "revision": "44a36776ab3db0d9078aacf09eca144fde342330",
+      "git_blob_sha256": "321da2219887b07f3efcd142c3015bfcf027ef21a5eb1755e877dc2ff5a71170",
+      "worktree_sha256": "32ec41c72dc8c23fc3d7667eb8f69a77c34eaca9c1b6aad45635e85317b07489"
+    },
+    {
+      "path": "scripts/opera_ballet_surface.gd",
+      "revision": "44a36776ab3db0d9078aacf09eca144fde342330",
+      "git_blob_sha256": "76a648de7fd0d52eadf1974257bfaaf3f17bb6b73a0bd96029b35133c33cb70b",
+      "worktree_sha256": "0603f780b841b0c4833ae863d797345f7e20bb731bafb294159d64beab4b4dd9"
+    },
+    {
+      "path": "scripts/opera_nursery_catch.gd",
+      "revision": "44a36776ab3db0d9078aacf09eca144fde342330",
+      "git_blob_sha256": "b997e83c4032be14f187260a6fda1a99bcb5f3b61a7e07adebf5a99479dda431",
+      "worktree_sha256": "bd053fecc162306c05a9c6f806c7c121d92cd220f5f6366cc19180c2a7dcc5e5"
+    },
+    {
+      "path": "scripts/opera_racer_surface.gd",
+      "revision": "44a36776ab3db0d9078aacf09eca144fde342330",
+      "git_blob_sha256": "09b292073f3d4fcfc2605a22bf79b039f00047787edf2d25dde37798b3db4cba",
+      "worktree_sha256": "5c95c6e09338f6acf6fc5630a7c2e2f7c29e5f311a1def618de8c9595cc597e2"
+    },
+    {
+      "path": "scripts/opera_performance_overlay.gd",
+      "revision": "44a36776ab3db0d9078aacf09eca144fde342330",
+      "git_blob_sha256": "16c7a17ed901750764481e7077ac2e60d4cf5bfc1a3b41970066e4a633545ddb",
+      "worktree_sha256": "1d41aa693d6d2fde851b4c612c2af210c79ae328e517f84c85f639edaf4c1e38"
+    },
+    {
+      "path": "scripts/opera_world_hotspot_2d.gd",
+      "revision": "44a36776ab3db0d9078aacf09eca144fde342330",
+      "git_blob_sha256": "4f36f8f00a94c4d668a8283d5d6a5f3701206c83883e7f12bac6f2cde0993800",
+      "worktree_sha256": "3544b48ee8e6f60edd54af26aff3fe3a4798fa0458ff69633fef38e4ec76955f"
+    },
+    {
+      "path": "scripts/opera_world_backdrop_2d.gd",
+      "revision": "44a36776ab3db0d9078aacf09eca144fde342330",
+      "git_blob_sha256": "49a927c8183ed253b82d9893849dbdaf4af27f5ece52392588b3b287cf4932b4",
+      "worktree_sha256": "82ba08a1f9d396fd38879b28e44411868d67b024aefd6aa2570113aaa964dc02"
+    },
+    {
+      "path": "scripts/save_state.gd",
+      "revision": "44a36776ab3db0d9078aacf09eca144fde342330",
+      "git_blob_sha256": "de380b088c8dcdd4623804d44a8fe35be5bfe7f8095cdcff1ca40c24e2c9c9b9",
+      "worktree_sha256": "34ed8239321ee3f2362b3718d4d0e6f9467e7c500e54b7dec78333ccbf90c884"
+    }
+  ],
+  "focused_validation": [
+    "gdtoolkit.parser",
+    "tools/lint_inference.py",
+    "Godot 4.7.2 --check-only for capture harness",
+    "Actual fresh 192-state Mobile capture run"
+  ],
+  "inherited_regression": "Prior frozen-production 82/82 full local CI evidence in ../MACHINE_VERIFICATION.json; no new full-regression run is claimed.",
+  "acceptance": "PARTIAL_CURRENT_STATIC_VISUAL_REVIEW; full current inventory, natural interaction/progress/random/save variants, device/child/owner and all-art replacement remain open."
+}

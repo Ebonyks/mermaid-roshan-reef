@@ -1,5 +1,7 @@
 # Flat-vector art audit and running-tally handoff
 
+Current-evidence revision **R2** adds [192 current Castle/Opera Mobile/Speedy captures and contextual review](live_v2/README.md): all15 free-play careers and70 actual open phases at two aspects. Twenty-four of176 overlapping stage/route entries have a partial static slice; zero is complete and all369 scopes still require full disposition. The frozen R1 source/register counts below remain a lower bound. New replacement pixels wait until the full current inventory is completed, published and remotely verified; this is sequencing, not a new approval checkpoint.
+
 Owner commission: **2026-10-07**. Status: **Phase 1 source/context audit candidate; replacement mission ACTIVE**. Source baseline: `92c9fe70319ef46bfaa8f61348a6f51512141ec3` (`origin/dev`, fetched at task start). No runtime code/art, protected original, save or selected Day One clip was changed. No new artwork was generated.
 
 The goal remains zero flat-vector **art** in reachable gameplay and UI, including procedural illustrations and raster lookalikes. Renaming SVGs, rasterizing the same weakness, replacing only file-extension matches, or hiding a placeholder behind another sticker cannot satisfy it. The owner commissioned the overall replacement mission; audit-first sequencing creates no additional permission checkpoint.

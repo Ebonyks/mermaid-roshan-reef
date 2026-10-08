@@ -1,5 +1,7 @@
 # Full-game flat-vector weakness audit — 2026-10-07
 
+R2 current evidence: [Castle/Opera visual review](live_v2/README.md) adds192 current captures, all15 free-play careers and70 live open phases; 24/176 partial entries, zero complete, all369 scopes unresolved. Historical source-only gaps below remain scoped to R1; current full-game coverage is still incomplete. New replacement pixel production remains sequenced after completion/publication of the full current inventory.
+
 Status: `SUPPORTING_CURRENT` source/context audit at `92c9fe70319ef46bfaa8f61348a6f51512141ec3`. It is comprehensive for the declared source inventory and review coverage, **not an exhaustive accepted visual inspection of today's game**. See [the handoff](README.md), [individual register](per_piece.json), [source scopes](source_scopes.json) and [coverage matrix](scene_coverage.json). The actual whole-game flat-vector-art piece count is unknown while current capture/dynamic-state gaps remain. No runtime art or code changes occur in this phase.
 
 ## What is weak, and what remains uncertain

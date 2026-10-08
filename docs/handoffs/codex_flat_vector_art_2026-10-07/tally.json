@@ -1,7 +1,7 @@
 {
   "schema": "reef.flat_vector_tally/1",
   "baseline": "92c9fe70319ef46bfaa8f61348a6f51512141ec3",
-  "revision": "FV-AUDIT-20261007-R1",
+  "revision": "FV-AUDIT-20261007-R2",
   "status_lanes": [
     "NEEDS_CONTEXT_REVIEW",
     "IDENTIFIED",
@@ -20,7 +20,7 @@
     "INACTIVE_ARCHIVE"
   ],
   "mission_status": "ACTIVE; zero-vector removal NOT achieved",
-  "phase": "PHASE_1_SOURCE_CONTEXT_AUDIT; delivery and exact-head CI states are recorded in separate receipts",
+  "phase": "PHASE_1_CURRENT_CONTEXT_PARTIAL; full current inventory precedes replacement pixel production",
   "named_piece_records": 224,
   "named_family_count": 29,
   "named_status_counts": {
@@ -42,7 +42,7 @@
   "route_entries": 176,
   "unreviewed_current_route_entries": 176,
   "current_distinct_screen_total": null,
-  "source_or_historical_review_only": true,
+  "source_or_historical_review_only": false,
   "replaced": 0,
   "integrated": 0,
   "runtime_verified": 0,
@@ -62,5 +62,21 @@
     "All source scopes resolved; unknown actual totals/coverage gaps reduced to zero before completion"
   ],
   "named_resolved_without_replacement": 0,
-  "remaining_named_definition": "Named candidates still unresolved or requiring removal. Accepted removal and source/runtime-proved non-flat artwork, non-art functional geometry or inactive archive dispositions are separately resolved; they are never counted as replacements. A quality score cannot exempt flat-vector ART."
+  "remaining_named_definition": "Named candidates still unresolved or requiring removal. Accepted removal and source/runtime-proved non-flat artwork, non-art functional geometry or inactive archive dispositions are separately resolved; they are never counted as replacements. A quality score cannot exempt flat-vector ART.",
+  "source_register_frozen": true,
+  "current_context": {
+    "evidence": "live_v2/README.md",
+    "source_revision": "44a36776ab3db0d9078aacf09eca144fde342330",
+    "exact_capture_count": 192,
+    "live_free_play_careers": 15,
+    "live_open_phases": 70,
+    "partial_overlapping_entries": 24,
+    "complete_entries": 0,
+    "entries_without_current_slice": 152,
+    "partial_drawing_scopes": 18,
+    "fully_dispositioned_scopes": 0,
+    "source_closure_files": 6427,
+    "natural_play_device_child_owner": null
+  },
+  "unreviewed_current_route_entries_note": "176 declared entries still lack full current state/variant review;24 now have a partial static slice. Frozen R1 scene_coverage gap count remains preserved separately from live_v2/coverage.json."
 }
