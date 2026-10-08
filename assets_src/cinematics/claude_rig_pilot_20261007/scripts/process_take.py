@@ -7,12 +7,13 @@
      W2 figure/head scale, W3 upper arm and forearm (the fit holds the hand at the contract length,
      so the hand row is not a measurement);
   3. end frames: frames 0, 1, 39 and 40 against the approved K0 cell (silhouette IoU, colour error);
+     eyes: frames where the lids cover most of the iris (eye_openness.py);
   4. whole-frame game cells (clip_cells.py), clip clothing fit (clip_pose_fit.py), the four game outfits
      baked by the production builder (bake_clip_outfits.sh) and their consistency (cosmetics_review.py);
   5. run2/<job>/review.mp4: rig guide | this take | Union take 1, 24 fps (viewing copy).
 Writes run2/<job>/summary.json.
 
-    python -I scripts/process_take.py <job_id> <staged results dir> [--godot PATH]
+    python -I scripts/process_take.py <job_id> <staged results dir> [--godot PATH] [--guide-set run2|...|run7] [--grade]
 """
 import argparse, hashlib, json, os, shutil, subprocess, sys, tempfile
 from pathlib import Path
@@ -37,6 +38,8 @@ def run(*cmd, **kw):
 
 def main():
     ap = argparse.ArgumentParser(); ap.add_argument('job'); ap.add_argument('staged'); ap.add_argument('--godot', default='godot')
+    ap.add_argument('--guide-set', default='run2', choices=['run2', 'run3', 'run4', 'run4s', 'run5', 'run6', 'run7'])
+    ap.add_argument('--grade', action='store_true', help='clip_cells.py --grade-to-k0 (one whole-clip colour match to K0)')
     v = ap.parse_args(); src = Path(v.staged); out = PILOT / 'run2' / v.job
     receipt = json.loads((src / 'receipt.json').read_text())
     assert receipt['status'] == 'EXECUTION_PASS', receipt.get('error')
@@ -50,7 +53,7 @@ def main():
     pat = str(frames / '%04d.png')
     # 2. track + measure
     tracks = f'data/{v.job}_tracks.json'
-    run(sys.executable, '-I', S / 'track_ltx.py', '--frames', pat, '--seed-guide', 'run2', '--out', tracks)
+    run(sys.executable, '-I', S / 'track_ltx.py', '--frames', pat, '--seed-guide', v.guide_set, '--out', tracks)
     T = load_json(PILOT / tracks)
     joints = [{'index': f['index'], **f['arm_canvas'], 'hand_open': f['rig_arm_fit']['hand_drawing'] == 'open'} for f in T['frames']]
     save_json(out / 'arm_joints.json', {'note': 'arm joints fitted to the take (canvas px); hand held at contract length', 'frames': joints})
@@ -60,9 +63,11 @@ def main():
     arm = M['arm_length_vs_contract_pct']
     w3 = {k: max((abs(r[k]) for r in arm if k in r), default=None) for k in ('upper_arm', 'forearm')}
     ious = [f['rig_arm_fit']['iou_vs_take_arm_mask'] for f in T['frames']]
+    total = [100 * ((f['rig_arm_fit']['segment_scale_vs_contract'][0] * CONTRACT['upper_arm'] + f['rig_arm_fit']['segment_scale_vs_contract'][1]
+                     * CONTRACT['forearm']) / (CONTRACT['upper_arm'] + CONTRACT['forearm']) - 1) for f in T['frames']]
     # 4. cells, clothing fit, outfits
     clip = out / 'clip'
-    run(sys.executable, '-I', S / 'clip_cells.py', pat, clip)
+    run(sys.executable, '-I', S / 'clip_cells.py', pat, clip, *(['--grade-to-k0'] if v.grade else []))
     name = f'roshan_wave_{v.job}'
     run(sys.executable, '-I', S / 'clip_pose_fit.py', clip, name)
     env = dict(os.environ, GODOT=v.godot)
@@ -79,7 +84,7 @@ def main():
     # 5. review video
     with tempfile.TemporaryDirectory() as t:
         for i in range(FRAMES):
-            g = cv2.resize(np.array(Image.open(PILOT / f'run2/guide_half/{i:04d}.png').convert('RGB')), (640, 896), interpolation=cv2.INTER_NEAREST)
+            g = cv2.resize(np.array(Image.open(PILOT / f'{v.guide_set}/guide_half/{i:04d}.png').convert('RGB')), (640, 896), interpolation=cv2.INTER_NEAREST)
             x = np.array(Image.open(pat % i).convert('RGB')); u = np.array(Image.open(str(TAKE1) % i).convert('RGB'))
             row = []
             for im, s in ((g, 'rig guide'), (x, v.job), (u, 'Union take 1')):
@@ -88,12 +93,18 @@ def main():
         subprocess.run(['ffmpeg', '-y', '-loglevel', 'error', '-framerate', '24', '-i', f'{t}/%04d.png', '-c:v', 'libx264', '-crf', '15',
                         '-pix_fmt', 'yuv420p', '-movflags', '+faststart', str(out / 'review.mp4')], check=True)
     cos = load_json(clip / 'cosmetics_report.json'); fit = load_json(clip / 'pose_fit_report.json')
+    import eye_openness
+    eyes = eye_openness.report(clip / 'cells')
     summary = {'job': v.job, 'receipt': {k: receipt.get(k) for k in ('status', 'prompt_id', 'elapsed_seconds', 'sampled_card_peak_mib',
                                                                        'workflow_sha256', 'take_number')},
                'W2': {k: M['checks'][k] for k in ('figure_scale_pp_pct', 'head_scale_pp_pct')},
                'W3_worst_abs_pct': w3, 'W3_pass_5pct': all(x is not None and x <= 5 for x in w3.values()),
+               'arm_total_length_pct': {'min': round(min(total), 1), 'max': round(max(total), 1),
+                                        'per_frame': [round(x, 1) for x in total],
+                                        'note': 'upper arm + forearm from the silhouette fit; robust where the split at the elbow is not'},
                'arm_fit_iou': {'min': round(min(ious), 3), 'median': round(float(np.median(ious)), 3)},
-               'end_frames_vs_K0': ends,
+               'cells_graded_to_K0': v.grade, 'end_frames_vs_K0': ends,
+               'eyes_mostly_closed_frames': eyes['mostly_closed_frames'],
                'cosmetics': {k: {x: r[x] for x in ('frames_with_clothing', 'changed_px_spread_pct', 'centroid_vs_box_drift_px')}
                              for k, r in cos['outfits'].items()},
                'bodice_travel_px': fit['bodice_travel_px'], 'bodice_rotation_range_deg': fit['rotation_range_deg'],

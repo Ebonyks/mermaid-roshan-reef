@@ -1,0 +1,1198 @@
+{
+  "job_id": "d1_act_occl",
+  "note": "c1 with the waving arm drawn in front (occlusion-aware acting guides) and a one-frame blink",
+  "recipe": {
+    "guide_set": "run4",
+    "end_lock": true,
+    "fingers": true,
+    "acting": true,
+    "quick_blink": true,
+    "seed": 20261004,
+    "note": "c1 with the waving arm drawn in front (occlusion-aware acting guides) and a one-frame blink"
+  },
+  "prompt": "A polished painted 2D storybook mermaid girl matching the provided approved opening image, pink bodice, lavender iridescent tail, rainbow hair and gold tiara. Fixed camera, fixed neutral light-gray background and flat painted lighting. One gentle connected wave: rest at frames0-3, raise her left hand near face at7, above head at17, lower through face height at22 and chest at27, settle to the same rest at36-40. Her whole body moves with the wave as one piece: she lifts slightly and leans away from the raised arm, tilts her head toward her hand, her free arm and tail sway in counter-motion, her rainbow hair flows gently in the water, and she blinks once, quickly, as she settles: her eyes are shut only at frame34 and open in every other frame. Follow the frame-aligned outline video as structural motion control; preserve the opening artwork appearance. Constant world size and head-to-body proportions, the waist stays within a few pixels of (216.5,485) in the640x896 canvas. Five clearly separated fingers on the open hand and crisp hands in every frame, without motion blur, smearing or fused fingers, consistent crisp painted contours and facial detail throughout the action and settle. The waving arm keeps one constant length and the open hand one constant size in every frame; the arm bends at the elbow in the picture plane and never points toward the viewer.",
+  "timeout_s": 1800,
+  "inputs": [
+    {
+      "path": "rig_pilot/identity_first_frame.png",
+      "sha256": "c98252aa4077e93d325951171d1485d8d416e1f6a5b4970c5ee418d2c1c8d764",
+      "source": "assets_src/cinematics/ltx25_union_trial_20261004/identity_first_frame.png",
+      "source_sha256": "2337740e27a4bd1da5d91f61a612048a53bb19a2c1a659a54904318d4ddc1203",
+      "pixel_identical_to_source": true
+    },
+    {
+      "path": "rig_pilot/run4/guide_half/0000.png",
+      "sha256": "9afa5585ff59ca30c8fb30217c01e77734348ab3bc732eb7d5e2ce0d4904bdb7",
+      "source": "assets_src/cinematics/claude_rig_pilot_20261007/run4/guide_half/0000.png",
+      "source_sha256": "d1eb2b556653021cdcd2ee1e5a32c3b0249c466761be5cf85ae3c89a58158ff3",
+      "pixel_identical_to_source": true
+    },
+    {
+      "path": "rig_pilot/run4/guide_half/0001.png",
+      "sha256": "bbf5caf61a0295f8fc42e80fe86c6edbdf60f7bff7913ccb8a59d790af75c887",
+      "source": "assets_src/cinematics/claude_rig_pilot_20261007/run4/guide_half/0001.png",
+      "source_sha256": "3c29167aa40b2cf7c26a9de050b3a1a797d484ac4379798aa98145dd2d1d898b",
+      "pixel_identical_to_source": true
+    },
+    {
+      "path": "rig_pilot/run4/guide_half/0002.png",
+      "sha256": "fba7271ea727b7a03abde643bdd5f45f98f25f65973f7efd8ba1928735e1d2ba",
+      "source": "assets_src/cinematics/claude_rig_pilot_20261007/run4/guide_half/0002.png",
+      "source_sha256": "10911176511bda9cee9a5f2166b919ccce937ea43daf59a6d7880bb7b2ca56b6",
+      "pixel_identical_to_source": true
+    },
+    {
+      "path": "rig_pilot/run4/guide_half/0003.png",
+      "sha256": "34fbfaaa20cf82fc0fa51f0cd4dd25798246e290509e7d983139438e12a0ee19",
+      "source": "assets_src/cinematics/claude_rig_pilot_20261007/run4/guide_half/0003.png",
+      "source_sha256": "b725393500aec661774157b896ab17bd3d3c549238fcfa69a30bd8dcb497758f",
+      "pixel_identical_to_source": true
+    },
+    {
+      "path": "rig_pilot/run4/guide_half/0004.png",
+      "sha256": "b75e825ef530ae70e5f9bc777af5e2a2a590c8c73b4be46651effd0945c1c429",
+      "source": "assets_src/cinematics/claude_rig_pilot_20261007/run4/guide_half/0004.png",
+      "source_sha256": "703831b5814679525cc4f915afede9a68f3679db47baaf6460a9016905fbce98",
+      "pixel_identical_to_source": true
+    },
+    {
+      "path": "rig_pilot/run4/guide_half/0005.png",
+      "sha256": "6e17822d918edcc8547e18deb35b0ed76422854bb8e35764c1a903ec52f28db5",
+      "source": "assets_src/cinematics/claude_rig_pilot_20261007/run4/guide_half/0005.png",
+      "source_sha256": "c9dce68cd184636db4501a900ac5da4829046bc7bb0172ad4b4096c65d973c3c",
+      "pixel_identical_to_source": true
+    },
+    {
+      "path": "rig_pilot/run4/guide_half/0006.png",
+      "sha256": "4487ecb61fa2cd0eec59be5cb5798fe2d9b7a0770e08180972c62a37547a48cb",
+      "source": "assets_src/cinematics/claude_rig_pilot_20261007/run4/guide_half/0006.png",
+      "source_sha256": "6d766a5926ebbebcc1771ce043dd8a5cba5c6294a8d6372bf774322c2576ca1b",
+      "pixel_identical_to_source": true
+    },
+    {
+      "path": "rig_pilot/run4/guide_half/0007.png",
+      "sha256": "f8be8e49e2ac5335398332e306641d15abdcd790ee3740e868fa2b9e6b2ca46e",
+      "source": "assets_src/cinematics/claude_rig_pilot_20261007/run4/guide_half/0007.png",
+      "source_sha256": "9b4b4d39e7e09266a4c9addf289393145853ef431a19f10228ba3e40b7fe166f",
+      "pixel_identical_to_source": true
+    },
+    {
+      "path": "rig_pilot/run4/guide_half/0008.png",
+      "sha256": "fc6998152bd4e7573ab2f78026f4a4375b407452a223c886bbf8f82a5364d16a",
+      "source": "assets_src/cinematics/claude_rig_pilot_20261007/run4/guide_half/0008.png",
+      "source_sha256": "7a0545f04469b68ac7aa0699fffef5929c0366671151221fdcd7658763c1eca1",
+      "pixel_identical_to_source": true
+    },
+    {
+      "path": "rig_pilot/run4/guide_half/0009.png",
+      "sha256": "30a2dceb65cd39af4072ae91c817ba3bedc75d1e4639bfc81ec3b927d372fc12",
+      "source": "assets_src/cinematics/claude_rig_pilot_20261007/run4/guide_half/0009.png",
+      "source_sha256": "111be35d291d7004d7729e203d0f739ab97240e51aa36a25aec9b665f81af2ae",
+      "pixel_identical_to_source": true
+    },
+    {
+      "path": "rig_pilot/run4/guide_half/0010.png",
+      "sha256": "77a61c63377f1962ac921fe5ce5152dd0a65a22b40f2ea6f333fc28ac0765feb",
+      "source": "assets_src/cinematics/claude_rig_pilot_20261007/run4/guide_half/0010.png",
+      "source_sha256": "d3faceb694e744501701b66f1c846af46de802252c60478bba80ec5106bab163",
+      "pixel_identical_to_source": true
+    },
+    {
+      "path": "rig_pilot/run4/guide_half/0011.png",
+      "sha256": "1ab9dde005e6098d0b5f89110da2a9012d3fcd5195a60039506623f8e29491f7",
+      "source": "assets_src/cinematics/claude_rig_pilot_20261007/run4/guide_half/0011.png",
+      "source_sha256": "1daf1bfc59b7d214107ffe41e48e180623614f87cc2b7e26acac60aa02be68d1",
+      "pixel_identical_to_source": true
+    },
+    {
+      "path": "rig_pilot/run4/guide_half/0012.png",
+      "sha256": "2606b453af54253906743a2794f9ed4ea243480317d8be581967d943955ede8c",
+      "source": "assets_src/cinematics/claude_rig_pilot_20261007/run4/guide_half/0012.png",
+      "source_sha256": "5d54b6c1c45610f74162668844fb5cd0c3a556cb50384d50be7e5f047a8436e1",
+      "pixel_identical_to_source": true
+    },
+    {
+      "path": "rig_pilot/run4/guide_half/0013.png",
+      "sha256": "4842f9cd9a0b75d7fc787581a3191e9ad70515d6288de527f3ce1103277e9288",
+      "source": "assets_src/cinematics/claude_rig_pilot_20261007/run4/guide_half/0013.png",
+      "source_sha256": "468225c02466b3baf9adecf8a43e8a0adffe3960b0d3cd46b19e389a9fbfd273",
+      "pixel_identical_to_source": true
+    },
+    {
+      "path": "rig_pilot/run4/guide_half/0014.png",
+      "sha256": "b09cc3e904e17c40b75028329ed08bac689b4567309daaf39b0ec13580a8d741",
+      "source": "assets_src/cinematics/claude_rig_pilot_20261007/run4/guide_half/0014.png",
+      "source_sha256": "e80082fc3d1b1ecdc50f30c67540c2adc6385e3c37d9fe703e37a4e089391cd8",
+      "pixel_identical_to_source": true
+    },
+    {
+      "path": "rig_pilot/run4/guide_half/0015.png",
+      "sha256": "8d68f66ab1b45492e806cee50bf0e17bcc868e4393774cf0969c8f3c64126477",
+      "source": "assets_src/cinematics/claude_rig_pilot_20261007/run4/guide_half/0015.png",
+      "source_sha256": "4721b114fafe96ddd1f7b47a3f5f20d6c930c355011492f1c82dd646bdf3f7aa",
+      "pixel_identical_to_source": true
+    },
+    {
+      "path": "rig_pilot/run4/guide_half/0016.png",
+      "sha256": "2711b70084bc4395046bf53d2eac9b7562752cc1aaca9a351ab630e8bb7fd632",
+      "source": "assets_src/cinematics/claude_rig_pilot_20261007/run4/guide_half/0016.png",
+      "source_sha256": "8966742b6892fd48fca739948bb30b2d39e2e26e674120a19f22fa530e8ef746",
+      "pixel_identical_to_source": true
+    },
+    {
+      "path": "rig_pilot/run4/guide_half/0017.png",
+      "sha256": "2f0bea78dca68fc1fa3e5641add168811f28aa2e4f18e563b5dd9dcdc8bd4074",
+      "source": "assets_src/cinematics/claude_rig_pilot_20261007/run4/guide_half/0017.png",
+      "source_sha256": "f9b57e96ff92e8ffd9b76db2c6f9a38a95439b330bce6b5c2db4ae2cf7f07c2e",
+      "pixel_identical_to_source": true
+    },
+    {
+      "path": "rig_pilot/run4/guide_half/0018.png",
+      "sha256": "2dd775d4ab31555d38a2882d43ccd49ef7a255cfd1b6df97b4cac23000aa9918",
+      "source": "assets_src/cinematics/claude_rig_pilot_20261007/run4/guide_half/0018.png",
+      "source_sha256": "b81bb987af907a72c0e196427c54c91d476f091afc45a29205b0df901df9379c",
+      "pixel_identical_to_source": true
+    },
+    {
+      "path": "rig_pilot/run4/guide_half/0019.png",
+      "sha256": "3c1df6332bd66c8ec744bb90022924cf391f38242357144bae7ae54647a7a667",
+      "source": "assets_src/cinematics/claude_rig_pilot_20261007/run4/guide_half/0019.png",
+      "source_sha256": "0c849ca297a817ef04b4116628a24cab6687f8b66554a82beb52a4834cd01d25",
+      "pixel_identical_to_source": true
+    },
+    {
+      "path": "rig_pilot/run4/guide_half/0020.png",
+      "sha256": "53d7490626b08ff179274a388a619b95f4540ea7d7ae93cd2824111e8f128500",
+      "source": "assets_src/cinematics/claude_rig_pilot_20261007/run4/guide_half/0020.png",
+      "source_sha256": "dd818159ad433623df59beab2d16905616703e3054dcfd30cc725f1d12ef2563",
+      "pixel_identical_to_source": true
+    },
+    {
+      "path": "rig_pilot/run4/guide_half/0021.png",
+      "sha256": "ed4b5cd9e3c6da87c6b92175d33dd4c5258f52146e376ae33ac74a63da1c55ab",
+      "source": "assets_src/cinematics/claude_rig_pilot_20261007/run4/guide_half/0021.png",
+      "source_sha256": "aeb4a5d821fd21afb933bc18b3cd8acb6f73c927ba6c1fec93af9fcb32893fc1",
+      "pixel_identical_to_source": true
+    },
+    {
+      "path": "rig_pilot/run4/guide_half/0022.png",
+      "sha256": "6e2fe6a18b205a9274f4139a3a1701176e073a3fec31d27b0210dd981f7f694f",
+      "source": "assets_src/cinematics/claude_rig_pilot_20261007/run4/guide_half/0022.png",
+      "source_sha256": "d0f3e0ce2de79c108cc71cbec71e895c5023dba21a6b0ea7ee291b6d7c0163ec",
+      "pixel_identical_to_source": true
+    },
+    {
+      "path": "rig_pilot/run4/guide_half/0023.png",
+      "sha256": "b6298005d0195ec6e0c294f5a1933f1fcb9316bad5a90ccc0a2925a6de48d9cf",
+      "source": "assets_src/cinematics/claude_rig_pilot_20261007/run4/guide_half/0023.png",
+      "source_sha256": "26caaee97f8771a0b9e799d328e2c0eade8a4c5cecedb0d952b451ab6e88e4a7",
+      "pixel_identical_to_source": true
+    },
+    {
+      "path": "rig_pilot/run4/guide_half/0024.png",
+      "sha256": "722fb3491a36068bf7b91dc864369170bdf1e26f6164ecdf6d58519d4b7e9b5a",
+      "source": "assets_src/cinematics/claude_rig_pilot_20261007/run4/guide_half/0024.png",
+      "source_sha256": "f376c497337c0b85d5cf9b151f60f743920546a18e284488931d1e05199901f6",
+      "pixel_identical_to_source": true
+    },
+    {
+      "path": "rig_pilot/run4/guide_half/0025.png",
+      "sha256": "fe2d7f24584bbd7596ea3a9a05efd32bd4eed3575374028b6e79b4bd445884cd",
+      "source": "assets_src/cinematics/claude_rig_pilot_20261007/run4/guide_half/0025.png",
+      "source_sha256": "5b320089b540554bec4a583daac9fc33c9fb2b91c0cd42aaf83a0de8774b28ea",
+      "pixel_identical_to_source": true
+    },
+    {
+      "path": "rig_pilot/run4/guide_half/0026.png",
+      "sha256": "7c82882a05c856872b717f44b6a59cd38e989913b2b7539a81f0b93ea667010c",
+      "source": "assets_src/cinematics/claude_rig_pilot_20261007/run4/guide_half/0026.png",
+      "source_sha256": "1373b4453ac2c6aeb652926015b0f375b8273c003b9504cf286283930b8e8c5b",
+      "pixel_identical_to_source": true
+    },
+    {
+      "path": "rig_pilot/run4/guide_half/0027.png",
+      "sha256": "2376a4d90a84a7e12361fbdbfa15af5b772777da86ec0642083d8973ffc4f55b",
+      "source": "assets_src/cinematics/claude_rig_pilot_20261007/run4/guide_half/0027.png",
+      "source_sha256": "7534d0793a17571062ef28b52f14e5c143bac876425fdbaf45ffff08db7f10c6",
+      "pixel_identical_to_source": true
+    },
+    {
+      "path": "rig_pilot/run4/guide_half/0028.png",
+      "sha256": "af450c0c7a17c54711dee95f961631da6608b8cebe86c20f6694ac1dbe6f79a2",
+      "source": "assets_src/cinematics/claude_rig_pilot_20261007/run4/guide_half/0028.png",
+      "source_sha256": "3847dce0acef54feb2e771b54a4d8ea4cc059f8d5e06bdb8435a019773a9d971",
+      "pixel_identical_to_source": true
+    },
+    {
+      "path": "rig_pilot/run4/guide_half/0029.png",
+      "sha256": "f1c38bc437deb6249969c390993e11b1d5ad01645bbb8d5bcb886231816d63af",
+      "source": "assets_src/cinematics/claude_rig_pilot_20261007/run4/guide_half/0029.png",
+      "source_sha256": "d51a126ea1e408c4a2fed7d304acd058a380e2589afa99ac84bb19a633f8947d",
+      "pixel_identical_to_source": true
+    },
+    {
+      "path": "rig_pilot/run4/guide_half/0030.png",
+      "sha256": "d345db97888271f241a4e608d26072207e5112fcb805a13e61a250945dfa407a",
+      "source": "assets_src/cinematics/claude_rig_pilot_20261007/run4/guide_half/0030.png",
+      "source_sha256": "24d9181a596d0b16e6df23567cb89125fd9aa638f2b66328002a938dcbccc17a",
+      "pixel_identical_to_source": true
+    },
+    {
+      "path": "rig_pilot/run4/guide_half/0031.png",
+      "sha256": "7bc6fa7e24dba5dc037c0f3a091e5fcd613b48d42a4fd1d2c65ff654d6fb4c0e",
+      "source": "assets_src/cinematics/claude_rig_pilot_20261007/run4/guide_half/0031.png",
+      "source_sha256": "38d171c62719fc1828e182d668b3b195c1484f2bc84224495e32e4d987bb80e3",
+      "pixel_identical_to_source": true
+    },
+    {
+      "path": "rig_pilot/run4/guide_half/0032.png",
+      "sha256": "752f81c7158527a6c4b6c3a6b1acce8b5d27dd4e65ff6106315a97e084c9531a",
+      "source": "assets_src/cinematics/claude_rig_pilot_20261007/run4/guide_half/0032.png",
+      "source_sha256": "2eee3eac32508f1172ee25b6ec341ac3160f8e7cdfd90052afbb59edcc9abe7c",
+      "pixel_identical_to_source": true
+    },
+    {
+      "path": "rig_pilot/run4/guide_half/0033.png",
+      "sha256": "e4c157e616fc2be14b778664b0156d188659313d30b64d5b173f474daa7752b4",
+      "source": "assets_src/cinematics/claude_rig_pilot_20261007/run4/guide_half/0033.png",
+      "source_sha256": "14a8edd732003fd4559ae9617e421dae10a2f505a8d557d8d8064d3f01f1a56e",
+      "pixel_identical_to_source": true
+    },
+    {
+      "path": "rig_pilot/run4/guide_half/0034.png",
+      "sha256": "e8ce4f53e09c31b6a35667dbec3745bef20c4ea2c74790b75d8c9b7197adc057",
+      "source": "assets_src/cinematics/claude_rig_pilot_20261007/run4/guide_half/0034.png",
+      "source_sha256": "d1bf9d460b14fd494b43cdf897f857654ce44ffb2918299c3969b8c2d93bd496",
+      "pixel_identical_to_source": true
+    },
+    {
+      "path": "rig_pilot/run4/guide_half/0035.png",
+      "sha256": "1643cc4b5d35c44b9293b641f1aa09257426980f1e0c84dc9fd7332c6c3e4f84",
+      "source": "assets_src/cinematics/claude_rig_pilot_20261007/run4/guide_half/0035.png",
+      "source_sha256": "052965a71f92066092188cea9bfbb2b5be2d4d5f4a3fdd464ef97ead3342b1a3",
+      "pixel_identical_to_source": true
+    },
+    {
+      "path": "rig_pilot/run4/guide_half/0036.png",
+      "sha256": "c6f6da010c21b87905c51d2611545e47386d0a92cb613074601a395d650d3b80",
+      "source": "assets_src/cinematics/claude_rig_pilot_20261007/run4/guide_half/0036.png",
+      "source_sha256": "e58c17213e66880c4b321c96da699199e1f6b460942e8565a6014cb0aff9c950",
+      "pixel_identical_to_source": true
+    },
+    {
+      "path": "rig_pilot/run4/guide_half/0037.png",
+      "sha256": "0a6e3f1bd79d3596fc459442213901400bd8ea6357ef57244f45a0529a88bf8e",
+      "source": "assets_src/cinematics/claude_rig_pilot_20261007/run4/guide_half/0037.png",
+      "source_sha256": "a0882f14ced2aa7af7d3213cb6c70b620c6430e13b101020c67a8d94f6cd83c5",
+      "pixel_identical_to_source": true
+    },
+    {
+      "path": "rig_pilot/run4/guide_half/0038.png",
+      "sha256": "677835644f9f4a65f8f783939e774394cee8037a93f601690e91fc255fa39eab",
+      "source": "assets_src/cinematics/claude_rig_pilot_20261007/run4/guide_half/0038.png",
+      "source_sha256": "ada319acd39b6becc9f430f39e252b439ba9bb82bd0e619532223f7e8559c430",
+      "pixel_identical_to_source": true
+    },
+    {
+      "path": "rig_pilot/run4/guide_half/0039.png",
+      "sha256": "14d54c9e143ab6eeef1a766af7c91b9571d98e925d633a43fb088f30b00bf5c5",
+      "source": "assets_src/cinematics/claude_rig_pilot_20261007/run4/guide_half/0039.png",
+      "source_sha256": "1622e9a8f688386a8c657081afaefe48f001b8e846eb915630fb09da7b0f2458",
+      "pixel_identical_to_source": true
+    },
+    {
+      "path": "rig_pilot/run4/guide_half/0040.png",
+      "sha256": "aa3660768f6d4c8f8ef7c454a5b75bbd0b9d156be953f9b364adb86394f6c7b5",
+      "source": "assets_src/cinematics/claude_rig_pilot_20261007/run4/guide_half/0040.png",
+      "source_sha256": "76ab36f899d952426e2ee853736ed032a2ab6c82efbb1406cc355f48c7ea3343",
+      "pixel_identical_to_source": true
+    },
+    {
+      "path": "rig_pilot/run4/guide_quarter/0000.png",
+      "sha256": "44770e4c9304fc604eae51b7e569836a07427eed90add66b74e6ee29f189c565",
+      "source": "assets_src/cinematics/claude_rig_pilot_20261007/run4/guide_quarter/0000.png",
+      "source_sha256": "fbbcd51190c1333707cbac2f1892e82f27ec5eabd18663d9ef533b9efae851a5",
+      "pixel_identical_to_source": true
+    },
+    {
+      "path": "rig_pilot/run4/guide_quarter/0001.png",
+      "sha256": "4192cb0227b7ed539ab004a81b0c31fbd5d89e78e8fa36d11b5cceb351f315d4",
+      "source": "assets_src/cinematics/claude_rig_pilot_20261007/run4/guide_quarter/0001.png",
+      "source_sha256": "a3be93ad1174ee028916ea19b73f2ef4fbe4dfefa83d77641ab28229b2f623cc",
+      "pixel_identical_to_source": true
+    },
+    {
+      "path": "rig_pilot/run4/guide_quarter/0002.png",
+      "sha256": "2f7ca5798e9dfa71369a692903285cd6eb523a1fac036818cefd929759527a75",
+      "source": "assets_src/cinematics/claude_rig_pilot_20261007/run4/guide_quarter/0002.png",
+      "source_sha256": "520f7068f0d9148a0a252cb8507f2af97d70dda6caabbd1b501f226496937c23",
+      "pixel_identical_to_source": true
+    },
+    {
+      "path": "rig_pilot/run4/guide_quarter/0003.png",
+      "sha256": "2c72068e6de8ae637ddb21d1d150b23586893b781ad3ce7daf8b24e5688eddb1",
+      "source": "assets_src/cinematics/claude_rig_pilot_20261007/run4/guide_quarter/0003.png",
+      "source_sha256": "13313eb1d0aa4f235b40ec4143b41308cd96ce9757e799080efa379c89c67ff2",
+      "pixel_identical_to_source": true
+    },
+    {
+      "path": "rig_pilot/run4/guide_quarter/0004.png",
+      "sha256": "3bd5a56fc49dcc7527ef3eb1da81a97faa6f0db05b084cedd24c604129b52d3f",
+      "source": "assets_src/cinematics/claude_rig_pilot_20261007/run4/guide_quarter/0004.png",
+      "source_sha256": "2abbb66b49488e2acf08a7cb84d15bb536b09d5955bfe12ac1e777c5d5041fd6",
+      "pixel_identical_to_source": true
+    },
+    {
+      "path": "rig_pilot/run4/guide_quarter/0005.png",
+      "sha256": "fc2be789697af3d9341616648e1588a9fb8e46307ff44d74cd359b3c9e4568cb",
+      "source": "assets_src/cinematics/claude_rig_pilot_20261007/run4/guide_quarter/0005.png",
+      "source_sha256": "e1ebf878f38cb569e41ce976df3a6659acdb05314da1a30c7d7597ebd46e5b59",
+      "pixel_identical_to_source": true
+    },
+    {
+      "path": "rig_pilot/run4/guide_quarter/0006.png",
+      "sha256": "dbf3cd0ac8aeeac40ab7c191a42936c538d47d220d0ba7718d86b6a40cbe5c61",
+      "source": "assets_src/cinematics/claude_rig_pilot_20261007/run4/guide_quarter/0006.png",
+      "source_sha256": "3fd754da41affa35bf873580e2158adef0eaf189568b0bda1c094666d8fccad9",
+      "pixel_identical_to_source": true
+    },
+    {
+      "path": "rig_pilot/run4/guide_quarter/0007.png",
+      "sha256": "7e31f6ea44b8cfca920ecbd201ed135c36df52f51e171c6e0c732a3df2493f70",
+      "source": "assets_src/cinematics/claude_rig_pilot_20261007/run4/guide_quarter/0007.png",
+      "source_sha256": "c8b4910759a89af89732b08ef2e7d46ed8fa19e7bb0e217fdd69542b84d79ab4",
+      "pixel_identical_to_source": true
+    },
+    {
+      "path": "rig_pilot/run4/guide_quarter/0008.png",
+      "sha256": "2eed13f5c05ab8c0697a795a151c86b653297888d0126b1a59fc2d3e5374e6f8",
+      "source": "assets_src/cinematics/claude_rig_pilot_20261007/run4/guide_quarter/0008.png",
+      "source_sha256": "4f90a543f2c67b1124d1e366d0b654cdac1a6d9645cdf90c5591b6af771278d7",
+      "pixel_identical_to_source": true
+    },
+    {
+      "path": "rig_pilot/run4/guide_quarter/0009.png",
+      "sha256": "31f0096b22cc76bc092cea01a3713304ca6a6ce9c42fe083271f914a00ab126d",
+      "source": "assets_src/cinematics/claude_rig_pilot_20261007/run4/guide_quarter/0009.png",
+      "source_sha256": "022bddef4521c82242660fa5f9c9c25c738c6902437b358511ce047170afef85",
+      "pixel_identical_to_source": true
+    },
+    {
+      "path": "rig_pilot/run4/guide_quarter/0010.png",
+      "sha256": "c5c1c44704a7f4c3be8ac020548bdc8574966eb40b7b301c72a088acdfd3cd36",
+      "source": "assets_src/cinematics/claude_rig_pilot_20261007/run4/guide_quarter/0010.png",
+      "source_sha256": "6e2b67f2c10216413162d8ca62cbead9ae92b2dd02859655b0c79d128a40758b",
+      "pixel_identical_to_source": true
+    },
+    {
+      "path": "rig_pilot/run4/guide_quarter/0011.png",
+      "sha256": "0dec90022f4947c34724e7e5db2d93912c19f0a809f31ccb1deb14602010f88d",
+      "source": "assets_src/cinematics/claude_rig_pilot_20261007/run4/guide_quarter/0011.png",
+      "source_sha256": "febb40a9273f140058199f106de22961e289e1f00f73713c25ee34f7b8b3b468",
+      "pixel_identical_to_source": true
+    },
+    {
+      "path": "rig_pilot/run4/guide_quarter/0012.png",
+      "sha256": "76474499135021858435f4fea818fc13c211fc05c288b00ab4f7731270cbbe70",
+      "source": "assets_src/cinematics/claude_rig_pilot_20261007/run4/guide_quarter/0012.png",
+      "source_sha256": "bdd217012b4c3dd4f816c49f010405f0ce8d14ed2ce43763e947e2571c12e5c8",
+      "pixel_identical_to_source": true
+    },
+    {
+      "path": "rig_pilot/run4/guide_quarter/0013.png",
+      "sha256": "7dd96272d01c014a15947e0915b6f87253897070909ac6510a61210a6913d7f1",
+      "source": "assets_src/cinematics/claude_rig_pilot_20261007/run4/guide_quarter/0013.png",
+      "source_sha256": "7a9ba9c42eccb949b816844c661bc5a786e36f2d112c733d371899bf2d7ce114",
+      "pixel_identical_to_source": true
+    },
+    {
+      "path": "rig_pilot/run4/guide_quarter/0014.png",
+      "sha256": "b9bdb66def9768ac3f418e05920a566d9f8aa21fa9b7c49a7221c2bae7b3abed",
+      "source": "assets_src/cinematics/claude_rig_pilot_20261007/run4/guide_quarter/0014.png",
+      "source_sha256": "6fe7b0ace065b75616b319bdda5e8190d49e5c9dc8b198cd1c93acbcf7b912f9",
+      "pixel_identical_to_source": true
+    },
+    {
+      "path": "rig_pilot/run4/guide_quarter/0015.png",
+      "sha256": "e1113fe729118487b19ed43763e3d098ab48b7f958d8fdf82e032014cdd7e13a",
+      "source": "assets_src/cinematics/claude_rig_pilot_20261007/run4/guide_quarter/0015.png",
+      "source_sha256": "0b769a4c8c70ca05039389d552a0392dad384feb5d8c892d59722096fe62ae12",
+      "pixel_identical_to_source": true
+    },
+    {
+      "path": "rig_pilot/run4/guide_quarter/0016.png",
+      "sha256": "e6c655c49bc65099a888c244dacc41bc1d3672df0c87ecc0984f36ea6aa2a92e",
+      "source": "assets_src/cinematics/claude_rig_pilot_20261007/run4/guide_quarter/0016.png",
+      "source_sha256": "c8f4096ed771132137126df9b34ff62ca7668a194b4615f2603dd949648949ce",
+      "pixel_identical_to_source": true
+    },
+    {
+      "path": "rig_pilot/run4/guide_quarter/0017.png",
+      "sha256": "ab924b9cd538943e32b4f9725cbcc3ee65e7cd074afa1e665d0cb5617a1c9fad",
+      "source": "assets_src/cinematics/claude_rig_pilot_20261007/run4/guide_quarter/0017.png",
+      "source_sha256": "ffd68b5915401051590294d46551a7067c03f965c2679e467f868696b85d3b71",
+      "pixel_identical_to_source": true
+    },
+    {
+      "path": "rig_pilot/run4/guide_quarter/0018.png",
+      "sha256": "d5d4ea82d9e937b8ff0d92e9f59904097322ff45413e5dde0a79cfb4ffd4a9aa",
+      "source": "assets_src/cinematics/claude_rig_pilot_20261007/run4/guide_quarter/0018.png",
+      "source_sha256": "61f4b9812725654f4750d5967e8a39c856538b4348deaf920d1bea62e45a7926",
+      "pixel_identical_to_source": true
+    },
+    {
+      "path": "rig_pilot/run4/guide_quarter/0019.png",
+      "sha256": "a747d877212d453fe9fef5e0d6934f3784c183de2e009d02574d8ec2782bd640",
+      "source": "assets_src/cinematics/claude_rig_pilot_20261007/run4/guide_quarter/0019.png",
+      "source_sha256": "6fadeff5c753cc4d00d78f50db5d79077f0943ef8d55a216764d8d1aba97f9a8",
+      "pixel_identical_to_source": true
+    },
+    {
+      "path": "rig_pilot/run4/guide_quarter/0020.png",
+      "sha256": "3cc645cddf5b2c5ce1f505a96851ed1748d0e8e3829bc54576996bd0a51323b4",
+      "source": "assets_src/cinematics/claude_rig_pilot_20261007/run4/guide_quarter/0020.png",
+      "source_sha256": "5e4cb206356ee17021366d6f59cc967749844e45dfbae2ed3ddc4f68e21d49e5",
+      "pixel_identical_to_source": true
+    },
+    {
+      "path": "rig_pilot/run4/guide_quarter/0021.png",
+      "sha256": "b169a6954512bc4a2769596af5deb156726e1555595e5ce68f605bf682ed5f88",
+      "source": "assets_src/cinematics/claude_rig_pilot_20261007/run4/guide_quarter/0021.png",
+      "source_sha256": "f6a89c3a87b117ecc2079c192678ab7352dc994e5acad58105b62e58c73c7bd9",
+      "pixel_identical_to_source": true
+    },
+    {
+      "path": "rig_pilot/run4/guide_quarter/0022.png",
+      "sha256": "4d8a9e96352d4507a31ca8c3fae4fcc02a16bf277a12b0cf42589772bac044e7",
+      "source": "assets_src/cinematics/claude_rig_pilot_20261007/run4/guide_quarter/0022.png",
+      "source_sha256": "cd1efbbf30cf6515b3d72351859b2fda47b15bbddaf2633d74237eeb48a94a8a",
+      "pixel_identical_to_source": true
+    },
+    {
+      "path": "rig_pilot/run4/guide_quarter/0023.png",
+      "sha256": "16a81499fef6ceaa57aaec33002fa8d5631f0eea08a78dc0d5a12629cc5a2895",
+      "source": "assets_src/cinematics/claude_rig_pilot_20261007/run4/guide_quarter/0023.png",
+      "source_sha256": "a5283c3da7137919ec325be6bc5a6b76864d0d2d45cdfbae3f279cf02a7a5524",
+      "pixel_identical_to_source": true
+    },
+    {
+      "path": "rig_pilot/run4/guide_quarter/0024.png",
+      "sha256": "81f380ad50daa840b625f383db93449e01d6583561deedd4653b8876d3759017",
+      "source": "assets_src/cinematics/claude_rig_pilot_20261007/run4/guide_quarter/0024.png",
+      "source_sha256": "2e0382fe24ba993c4e5695f8b076d41b67cecef8c131c87814b2cd704eedd4e7",
+      "pixel_identical_to_source": true
+    },
+    {
+      "path": "rig_pilot/run4/guide_quarter/0025.png",
+      "sha256": "e1ecf367e9f72550f0630d5dd01646b12015776a35d52e2d1d1a1b43f3bee5a3",
+      "source": "assets_src/cinematics/claude_rig_pilot_20261007/run4/guide_quarter/0025.png",
+      "source_sha256": "955453a99939e313a54ef5a6a692455132f78981e66c5ca81f7f10896d30f8f3",
+      "pixel_identical_to_source": true
+    },
+    {
+      "path": "rig_pilot/run4/guide_quarter/0026.png",
+      "sha256": "a865ef84f36b0a53bd7e55d8e6989ba67b0a6b4a4b7402a9c2eade0f3d2e63ff",
+      "source": "assets_src/cinematics/claude_rig_pilot_20261007/run4/guide_quarter/0026.png",
+      "source_sha256": "ac35cf9ed014d1c6c041ba17e9f40d201209a540c19580b44f49480c0ef84f16",
+      "pixel_identical_to_source": true
+    },
+    {
+      "path": "rig_pilot/run4/guide_quarter/0027.png",
+      "sha256": "013a35cd048b4d37092fa5b8cb8b6570bde5420dedeb011fdbfd85ea72e33cc7",
+      "source": "assets_src/cinematics/claude_rig_pilot_20261007/run4/guide_quarter/0027.png",
+      "source_sha256": "f4aa837f98ae67c82709f1e30d377b8e5bf5746bdf89a112e8af8d82a576be65",
+      "pixel_identical_to_source": true
+    },
+    {
+      "path": "rig_pilot/run4/guide_quarter/0028.png",
+      "sha256": "1ba0ac5e74ffa1d09154a50258482b7264750fa8828a11a98a20544f64104b9a",
+      "source": "assets_src/cinematics/claude_rig_pilot_20261007/run4/guide_quarter/0028.png",
+      "source_sha256": "81567b217aad8af22339073189f0aa7de1df426e6c621264e0e9a3f57d4c971b",
+      "pixel_identical_to_source": true
+    },
+    {
+      "path": "rig_pilot/run4/guide_quarter/0029.png",
+      "sha256": "9a4352ef1c54f0a4db24dca3f067f7a2730671bb16c8acfb47e13c863cdd094d",
+      "source": "assets_src/cinematics/claude_rig_pilot_20261007/run4/guide_quarter/0029.png",
+      "source_sha256": "a812646413f7bd4a58f166c3bca6c7492c8edde6009ee8614e320ddacbabc058",
+      "pixel_identical_to_source": true
+    },
+    {
+      "path": "rig_pilot/run4/guide_quarter/0030.png",
+      "sha256": "b99b7ae981f3ff0d4f8773f6e35ebae64a392739aa197f2e66961594b9c7d779",
+      "source": "assets_src/cinematics/claude_rig_pilot_20261007/run4/guide_quarter/0030.png",
+      "source_sha256": "4c3fd3c823ff5a673c2d12e6ab26c1b5bc2a5eff0c99c8572bf84cf508dce0fc",
+      "pixel_identical_to_source": true
+    },
+    {
+      "path": "rig_pilot/run4/guide_quarter/0031.png",
+      "sha256": "567a8c9b64a091d5e27fba9942fb94fb4bf5bd83c61cdc0b5bcff62b9f1d6544",
+      "source": "assets_src/cinematics/claude_rig_pilot_20261007/run4/guide_quarter/0031.png",
+      "source_sha256": "efa0aee3a4e3b17c8199870525c2e9be3d25c7d5a761e15f23bd20894d1f25a5",
+      "pixel_identical_to_source": true
+    },
+    {
+      "path": "rig_pilot/run4/guide_quarter/0032.png",
+      "sha256": "573300175953d83b53985b326f5d1edba37fd3d7fcdb08e55624800ef50629a7",
+      "source": "assets_src/cinematics/claude_rig_pilot_20261007/run4/guide_quarter/0032.png",
+      "source_sha256": "59c1da1a67d024aeb14a3c5f3a8853a00d1ca9af7f2549b2b5e57138fc9bdc28",
+      "pixel_identical_to_source": true
+    },
+    {
+      "path": "rig_pilot/run4/guide_quarter/0033.png",
+      "sha256": "ff8d62bb07978966de4473826fd7fe31b62e602fe40a56dab6fcf278e441d7c0",
+      "source": "assets_src/cinematics/claude_rig_pilot_20261007/run4/guide_quarter/0033.png",
+      "source_sha256": "972b3704a93b0a4c934965f60bd8d26bd728f90218e571fdf19dad5a474cc310",
+      "pixel_identical_to_source": true
+    },
+    {
+      "path": "rig_pilot/run4/guide_quarter/0034.png",
+      "sha256": "42ecae2a648d558666cad5cad49c84a370b711e08282a32f591f75bcfb80fc67",
+      "source": "assets_src/cinematics/claude_rig_pilot_20261007/run4/guide_quarter/0034.png",
+      "source_sha256": "89721a2ee70b682170e55b8b2c27a8b36859f6ff7744a2ec0be769e5a4e316bc",
+      "pixel_identical_to_source": true
+    },
+    {
+      "path": "rig_pilot/run4/guide_quarter/0035.png",
+      "sha256": "604009aa1e762c6a776524d0b96d5b20fc39fec12c1adec803ed7e730ee01cae",
+      "source": "assets_src/cinematics/claude_rig_pilot_20261007/run4/guide_quarter/0035.png",
+      "source_sha256": "73576080a57033d25be1897d12febd422cfae733036aab9f0bf350fa4d61e987",
+      "pixel_identical_to_source": true
+    },
+    {
+      "path": "rig_pilot/run4/guide_quarter/0036.png",
+      "sha256": "03dec959731d87acbc81ade878242b0bfe76436846946f6ddd3b99d70d3b6a2e",
+      "source": "assets_src/cinematics/claude_rig_pilot_20261007/run4/guide_quarter/0036.png",
+      "source_sha256": "fc49d8d4d72d0c770934ac712de943c148086c6d57e70ef327d59ac38b3a481a",
+      "pixel_identical_to_source": true
+    },
+    {
+      "path": "rig_pilot/run4/guide_quarter/0037.png",
+      "sha256": "c7f3f0a568ed42e4ba324985fe6cf26c3b3b6f5a6199c884f38014ecb25bdcea",
+      "source": "assets_src/cinematics/claude_rig_pilot_20261007/run4/guide_quarter/0037.png",
+      "source_sha256": "7a313575094b4d6fe015129c5e24abf591ebc546288d2463a6b231ef710decb6",
+      "pixel_identical_to_source": true
+    },
+    {
+      "path": "rig_pilot/run4/guide_quarter/0038.png",
+      "sha256": "cd6895dbd1dddb405df31bdb82425348d542fada796f27ca016899ef77563d9a",
+      "source": "assets_src/cinematics/claude_rig_pilot_20261007/run4/guide_quarter/0038.png",
+      "source_sha256": "b6fadc75c85e662b0a88fde60ef96ef0163fd4f9b4d80ae0d9d1554e8d722d73",
+      "pixel_identical_to_source": true
+    },
+    {
+      "path": "rig_pilot/run4/guide_quarter/0039.png",
+      "sha256": "67c006ed3c7c2c3d2632c94ec82e883b1af3d4ff33fa9a9ad1825061f7e58719",
+      "source": "assets_src/cinematics/claude_rig_pilot_20261007/run4/guide_quarter/0039.png",
+      "source_sha256": "1e664ef70373e46928b5bb290a6a4afbdb530ff6c7b7d8f511a101c494de55d9",
+      "pixel_identical_to_source": true
+    },
+    {
+      "path": "rig_pilot/run4/guide_quarter/0040.png",
+      "sha256": "722177718b652d6577cb2707f4977378f045f324f9f1281505a197277506018a",
+      "source": "assets_src/cinematics/claude_rig_pilot_20261007/run4/guide_quarter/0040.png",
+      "source_sha256": "e59f31f5fddd0bbea9a9ee5bd3a7e8653048f2c3b6716bad081d644a1146959b",
+      "pixel_identical_to_source": true
+    }
+  ],
+  "graph": {
+    "1": {
+      "class_type": "UNETLoader",
+      "inputs": {
+        "unet_name": "ltx-2.5-22b-distilled-transformer-w4a8_convrot.safetensors",
+        "weight_dtype": "default"
+      }
+    },
+    "2": {
+      "class_type": "CLIPLoader",
+      "inputs": {
+        "clip_name": "gemma4-12b-with-proj-ltx-2.5-w4a8_convrot.safetensors",
+        "type": "ltxv",
+        "device": "default"
+      }
+    },
+    "3": {
+      "class_type": "VAELoader",
+      "inputs": {
+        "vae_name": "ltx-2.5-video-vae-bf16.safetensors"
+      }
+    },
+    "4": {
+      "class_type": "VAELoader",
+      "inputs": {
+        "vae_name": "ltx-2.5-audio-vae-bf16.safetensors"
+      }
+    },
+    "80": {
+      "class_type": "LTXICLoRALoaderModelOnly",
+      "inputs": {
+        "model": [
+          "1",
+          0
+        ],
+        "lora_name": "ltx-2.3-22b-ic-lora-union-control-ref0.5.safetensors",
+        "strength_model": 1.0
+      }
+    },
+    "81": {
+      "class_type": "UnionModelProof",
+      "inputs": {
+        "model": [
+          "80",
+          0
+        ],
+        "downscale": [
+          "80",
+          1
+        ]
+      }
+    },
+    "5": {
+      "class_type": "CLIPTextEncode",
+      "inputs": {
+        "clip": [
+          "2",
+          0
+        ],
+        "text": "A polished painted 2D storybook mermaid girl matching the provided approved opening image, pink bodice, lavender iridescent tail, rainbow hair and gold tiara. Fixed camera, fixed neutral light-gray background and flat painted lighting. One gentle connected wave: rest at frames0-3, raise her left hand near face at7, above head at17, lower through face height at22 and chest at27, settle to the same rest at36-40. Her whole body moves with the wave as one piece: she lifts slightly and leans away from the raised arm, tilts her head toward her hand, her free arm and tail sway in counter-motion, her rainbow hair flows gently in the water, and she blinks once, quickly, as she settles: her eyes are shut only at frame34 and open in every other frame. Follow the frame-aligned outline video as structural motion control; preserve the opening artwork appearance. Constant world size and head-to-body proportions, the waist stays within a few pixels of (216.5,485) in the640x896 canvas. Five clearly separated fingers on the open hand and crisp hands in every frame, without motion blur, smearing or fused fingers, consistent crisp painted contours and facial detail throughout the action and settle. The waving arm keeps one constant length and the open hand one constant size in every frame; the arm bends at the elbow in the picture plane and never points toward the viewer."
+      }
+    },
+    "6": {
+      "class_type": "ConditioningZeroOut",
+      "inputs": {
+        "conditioning": [
+          "5",
+          0
+        ]
+      }
+    },
+    "7": {
+      "class_type": "LTXVConditioning",
+      "inputs": {
+        "positive": [
+          "5",
+          0
+        ],
+        "negative": [
+          "6",
+          0
+        ],
+        "frame_rate": 24
+      }
+    },
+    "8": {
+      "class_type": "EmptyLTXVLatentVideo",
+      "inputs": {
+        "width": 320,
+        "height": 448,
+        "length": 41,
+        "batch_size": 1
+      }
+    },
+    "9": {
+      "class_type": "LTXVEmptyLatentAudio",
+      "inputs": {
+        "frames_number": 41,
+        "frame_rate": 24,
+        "batch_size": 1,
+        "audio_vae": [
+          "4",
+          0
+        ]
+      }
+    },
+    "10": {
+      "class_type": "KSamplerSelect",
+      "inputs": {
+        "sampler_name": "euler_ancestral"
+      }
+    },
+    "11": {
+      "class_type": "ManualSigmas",
+      "inputs": {
+        "sigmas": "1.0,0.99375,0.9875,0.98125,0.975,0.909375,0.725,0.421875,0.0"
+      }
+    },
+    "12": {
+      "class_type": "LoadImage",
+      "inputs": {
+        "image": "rig_pilot/identity_first_frame.png"
+      }
+    },
+    "13": {
+      "class_type": "LTXVAddGuide",
+      "inputs": {
+        "positive": [
+          "7",
+          0
+        ],
+        "negative": [
+          "7",
+          1
+        ],
+        "vae": [
+          "3",
+          0
+        ],
+        "latent": [
+          "8",
+          0
+        ],
+        "image": [
+          "12",
+          0
+        ],
+        "frame_idx": 0,
+        "strength": 1.0
+      }
+    },
+    "113": {
+      "class_type": "LTXVAddGuide",
+      "inputs": {
+        "positive": [
+          "13",
+          0
+        ],
+        "negative": [
+          "13",
+          1
+        ],
+        "vae": [
+          "3",
+          0
+        ],
+        "latent": [
+          "13",
+          2
+        ],
+        "image": [
+          "12",
+          0
+        ],
+        "frame_idx": 40,
+        "strength": 1.0
+      }
+    },
+    "14": {
+      "class_type": "RigPilotGuideBatch",
+      "inputs": {
+        "guide_set": "run4",
+        "lane": "quarter",
+        "frames": 41
+      }
+    },
+    "15": {
+      "class_type": "LTXAddVideoICLoRAGuide",
+      "inputs": {
+        "positive": [
+          "113",
+          0
+        ],
+        "negative": [
+          "113",
+          1
+        ],
+        "vae": [
+          "3",
+          0
+        ],
+        "latent": [
+          "113",
+          2
+        ],
+        "image": [
+          "14",
+          0
+        ],
+        "frame_idx": 0,
+        "strength": 1.0,
+        "latent_downscale_factor": [
+          "80",
+          1
+        ],
+        "crop": "disabled",
+        "use_tiled_encode": true,
+        "tile_size": 256,
+        "tile_overlap": 64,
+        "use_streaming": false,
+        "tile_frames": 41
+      }
+    },
+    "16": {
+      "class_type": "LTXVConcatAVLatent",
+      "inputs": {
+        "video_latent": [
+          "15",
+          2
+        ],
+        "audio_latent": [
+          "9",
+          0
+        ]
+      }
+    },
+    "17": {
+      "class_type": "SamplerCustom",
+      "inputs": {
+        "model": [
+          "81",
+          0
+        ],
+        "add_noise": true,
+        "noise_seed": 20261004,
+        "cfg": 1.0,
+        "positive": [
+          "15",
+          0
+        ],
+        "negative": [
+          "15",
+          1
+        ],
+        "sampler": [
+          "10",
+          0
+        ],
+        "sigmas": [
+          "11",
+          0
+        ],
+        "latent_image": [
+          "16",
+          0
+        ]
+      }
+    },
+    "18": {
+      "class_type": "LTXVSeparateAVLatent",
+      "inputs": {
+        "av_latent": [
+          "17",
+          0
+        ]
+      }
+    },
+    "19": {
+      "class_type": "LTXVCropGuides",
+      "inputs": {
+        "positive": [
+          "15",
+          0
+        ],
+        "negative": [
+          "15",
+          1
+        ],
+        "latent": [
+          "18",
+          0
+        ]
+      }
+    },
+    "20": {
+      "class_type": "SaveLatent",
+      "inputs": {
+        "samples": [
+          "19",
+          2
+        ],
+        "filename_prefix": "rig_pilot/d1_act_occl/stage1_video"
+      }
+    },
+    "21": {
+      "class_type": "LatentUpscaleModelLoader",
+      "inputs": {
+        "model_name": "ltx-2.5-latent-spatial-upscaler-x2-bf16-1.0.safetensors"
+      }
+    },
+    "22": {
+      "class_type": "LTXVLatentUpsampler",
+      "inputs": {
+        "samples": [
+          "19",
+          2
+        ],
+        "upscale_model": [
+          "21",
+          0
+        ],
+        "vae": [
+          "3",
+          0
+        ]
+      }
+    },
+    "23": {
+      "class_type": "LTXVAddGuide",
+      "inputs": {
+        "positive": [
+          "7",
+          0
+        ],
+        "negative": [
+          "7",
+          1
+        ],
+        "vae": [
+          "3",
+          0
+        ],
+        "latent": [
+          "22",
+          0
+        ],
+        "image": [
+          "12",
+          0
+        ],
+        "frame_idx": 0,
+        "strength": 1.0
+      }
+    },
+    "123": {
+      "class_type": "LTXVAddGuide",
+      "inputs": {
+        "positive": [
+          "23",
+          0
+        ],
+        "negative": [
+          "23",
+          1
+        ],
+        "vae": [
+          "3",
+          0
+        ],
+        "latent": [
+          "23",
+          2
+        ],
+        "image": [
+          "12",
+          0
+        ],
+        "frame_idx": 40,
+        "strength": 1.0
+      }
+    },
+    "24": {
+      "class_type": "RigPilotGuideBatch",
+      "inputs": {
+        "guide_set": "run4",
+        "lane": "half",
+        "frames": 41
+      }
+    },
+    "25": {
+      "class_type": "LTXAddVideoICLoRAGuide",
+      "inputs": {
+        "positive": [
+          "123",
+          0
+        ],
+        "negative": [
+          "123",
+          1
+        ],
+        "vae": [
+          "3",
+          0
+        ],
+        "latent": [
+          "123",
+          2
+        ],
+        "image": [
+          "24",
+          0
+        ],
+        "frame_idx": 0,
+        "strength": 1.0,
+        "latent_downscale_factor": [
+          "80",
+          1
+        ],
+        "crop": "disabled",
+        "use_tiled_encode": true,
+        "tile_size": 256,
+        "tile_overlap": 64,
+        "use_streaming": false,
+        "tile_frames": 41
+      }
+    },
+    "26": {
+      "class_type": "LTXVConcatAVLatent",
+      "inputs": {
+        "video_latent": [
+          "25",
+          2
+        ],
+        "audio_latent": [
+          "18",
+          1
+        ]
+      }
+    },
+    "27": {
+      "class_type": "ManualSigmas",
+      "inputs": {
+        "sigmas": "0.85,0.7250,0.4219,0.0"
+      }
+    },
+    "28": {
+      "class_type": "SamplerCustom",
+      "inputs": {
+        "model": [
+          "81",
+          0
+        ],
+        "add_noise": true,
+        "noise_seed": 20261004,
+        "cfg": 1.0,
+        "positive": [
+          "25",
+          0
+        ],
+        "negative": [
+          "25",
+          1
+        ],
+        "sampler": [
+          "10",
+          0
+        ],
+        "sigmas": [
+          "27",
+          0
+        ],
+        "latent_image": [
+          "26",
+          0
+        ]
+      }
+    },
+    "29": {
+      "class_type": "LTXVSeparateAVLatent",
+      "inputs": {
+        "av_latent": [
+          "28",
+          0
+        ]
+      }
+    },
+    "30": {
+      "class_type": "LTXVCropGuides",
+      "inputs": {
+        "positive": [
+          "25",
+          0
+        ],
+        "negative": [
+          "25",
+          1
+        ],
+        "latent": [
+          "29",
+          0
+        ]
+      }
+    },
+    "31": {
+      "class_type": "SaveLatent",
+      "inputs": {
+        "samples": [
+          "30",
+          2
+        ],
+        "filename_prefix": "rig_pilot/d1_act_occl/refined_video"
+      }
+    },
+    "40": {
+      "class_type": "VAEDecodeTiled",
+      "inputs": {
+        "samples": [
+          "19",
+          2
+        ],
+        "vae": [
+          "3",
+          0
+        ],
+        "tile_size": 256,
+        "overlap": 64,
+        "temporal_size": 64,
+        "temporal_overlap": 8
+      }
+    },
+    "41": {
+      "class_type": "StudyFiniteImages",
+      "inputs": {
+        "images": [
+          "40",
+          0
+        ]
+      }
+    },
+    "42": {
+      "class_type": "SaveImage",
+      "inputs": {
+        "images": [
+          "41",
+          0
+        ],
+        "filename_prefix": "rig_pilot/d1_act_occl/stage1/frame"
+      }
+    },
+    "50": {
+      "class_type": "VAEDecodeTiled",
+      "inputs": {
+        "samples": [
+          "30",
+          2
+        ],
+        "vae": [
+          "3",
+          0
+        ],
+        "tile_size": 256,
+        "overlap": 64,
+        "temporal_size": 64,
+        "temporal_overlap": 8
+      }
+    },
+    "51": {
+      "class_type": "UnionOutputProof",
+      "inputs": {
+        "images": [
+          "50",
+          0
+        ]
+      }
+    },
+    "52": {
+      "class_type": "SaveImage",
+      "inputs": {
+        "images": [
+          "51",
+          0
+        ],
+        "filename_prefix": "rig_pilot/d1_act_occl/refined/frame"
+      }
+    },
+    "90": {
+      "class_type": "StudyRuntimeReceipt",
+      "inputs": {
+        "label": "d1_act_occl"
+      }
+    }
+  },
+  "outputs": {
+    "42": "stage1_frames",
+    "52": "refined_frames",
+    "20": "stage1_latent",
+    "31": "refined_latent"
+  },
+  "controlled_baseline": "assets_src/cinematics/ltx25_union_trial_20261004/take_1 (workflow c027567040d2588c)",
+  "used_as_delivery_pixels": false
+}

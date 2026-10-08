@@ -18,6 +18,10 @@ FRAMES, FPS = 41, 24
 
 # Mapping measured on take 1 in the 2026-10-07 wave handoff (measure_wave.py --cell-scale/--offset).
 CELL_SCALE, OFFSET = 3.2025, (-216.95, 33.85)
+# Run 5 moves the figure 40 canvas px right (whole opening image and guides shifted) so the outward arm
+# swing stays inside the canvas; scripts working on a shifted take run with PILOT_CANVAS_SHIFT_X=40.
+CANVAS_SHIFT_X = float(__import__('os').environ.get('PILOT_CANVAS_SHIFT_X', '0'))
+OFFSET = (OFFSET[0] + CANVAS_SHIFT_X, OFFSET[1])
 # W3 proportion contract, 256 px cell (docs/handoffs/codex_roshan_wave_whole_sprites_2026-10-07).
 CONTRACT = {'upper_arm': 25.5, 'forearm': 24.5, 'hand': 20.5}
 # Approved K0 waving-arm joints, 256 px cell (same annotation as the handoff data).

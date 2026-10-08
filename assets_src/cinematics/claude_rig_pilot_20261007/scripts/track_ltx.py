@@ -8,7 +8,7 @@ arm skin mask; the result is joints, angles, segment scales and the hand drawing
 step then re-poses the fixed-length rig onto these joints by two-bone IK.
 Elbow and wrist joint limits keep the solve anatomically plausible on smeared frames.
 
-    python -I scripts/track_ltx.py [--frames <pattern %04d>] [--seed-guide union|run2] [--out data/<name>.json]
+    python -I scripts/track_ltx.py [--frames <pattern %04d>] [--seed-guide union|run2|run3|run4|run4s] [--out data/<name>.json]
 Defaults reproduce the Union take-1 track; run-2 takes seed the arm search from the rig guide joints.
 """
 import importlib.util, math, sys
@@ -143,8 +143,8 @@ def main():
     global SRC
     import argparse
     ap = argparse.ArgumentParser(); ap.add_argument('--frames', default=str(TAKE1)); ap.add_argument('--out', default='data/take1_tracks.json')
-    ap.add_argument('--seed-guide', choices=['union', 'run2'], default='union'); a = ap.parse_args(); SRC = a.frames
-    rig_guide = load_json(PILOT / 'data/run2_joints.json')['frames'] if a.seed_guide == 'run2' else None
+    ap.add_argument('--seed-guide', choices=['union', 'run2', 'run3', 'run4', 'run4s', 'run5', 'run6', 'run7'], default='union'); a = ap.parse_args(); SRC = a.frames
+    rig_guide = load_json(PILOT / f'data/{a.seed_guide}_joints.json')['frames'] if a.seed_guide != 'union' else None
     pts0, rows = mw.track(SRC, FRAMES, CELL_SCALE, OFFSET)
     extra = track_extra(FRAMES)
     for f in range(FRAMES):

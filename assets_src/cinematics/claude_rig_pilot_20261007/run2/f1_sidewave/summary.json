@@ -1,0 +1,130 @@
+{
+ "job": "f1_sidewave",
+ "receipt": {
+  "status": "EXECUTION_PASS",
+  "prompt_id": "e8795ebc-8011-4e0c-b3e3-1db2064c64b2",
+  "elapsed_seconds": 358.1,
+  "sampled_card_peak_mib": 7251,
+  "workflow_sha256": "5ee9dad158ecfcb1f91137164c22678c59991bee60c5569221026dc37c997805",
+  "take_number": 7
+ },
+ "W2": {
+  "figure_scale_pp_pct": {
+   "value": 0.65,
+   "pass": true
+  },
+  "head_scale_pp_pct": {
+   "value": 0.69,
+   "pass": true
+  }
+ },
+ "W3_worst_abs_pct": {
+  "upper_arm": 25.8,
+  "forearm": 37.6
+ },
+ "W3_pass_5pct": false,
+ "arm_total_length_pct": {
+  "min": -26.1,
+  "max": 18.9,
+  "per_frame": [
+   0.4,
+   5.6,
+   3.6,
+   4.8,
+   6.1,
+   7.4,
+   4.0,
+   -1.1,
+   0.1,
+   -5.0,
+   -2.3,
+   9.0,
+   3.1,
+   0.1,
+   1.1,
+   1.7,
+   2.7,
+   2.1,
+   3.6,
+   4.9,
+   3.8,
+   4.4,
+   5.1,
+   12.6,
+   8.2,
+   2.8,
+   6.8,
+   -3.0,
+   -26.1,
+   6.7,
+   18.9,
+   7.6,
+   10.7,
+   7.9,
+   2.6,
+   1.8,
+   0.6,
+   0.1,
+   -3.3,
+   -6.1,
+   -3.9
+  ],
+  "note": "upper arm + forearm from the silhouette fit; robust where the split at the elbow is not"
+ },
+ "arm_fit_iou": {
+  "min": 0.519,
+  "median": 0.654
+ },
+ "end_frames_vs_K0": {
+  "0": {
+   "silhouette_iou_vs_K0": 0.9697,
+   "rgb_mean_abs_error_vs_K0": 16.19
+  },
+  "1": {
+   "silhouette_iou_vs_K0": 0.9685,
+   "rgb_mean_abs_error_vs_K0": 16.56
+  },
+  "39": {
+   "silhouette_iou_vs_K0": 0.9681,
+   "rgb_mean_abs_error_vs_K0": 17.74
+  },
+  "40": {
+   "silhouette_iou_vs_K0": 0.9683,
+   "rgb_mean_abs_error_vs_K0": 17.35
+  }
+ },
+ "eyes_mostly_closed_frames": [],
+ "cosmetics": {
+  "ribbon": {
+   "frames_with_clothing": 41,
+   "changed_px_spread_pct": 0.0,
+   "centroid_vs_box_drift_px": 0.0
+  },
+  "party": {
+   "frames_with_clothing": 41,
+   "changed_px_spread_pct": 0.5,
+   "centroid_vs_box_drift_px": 0.08
+  },
+  "garden": {
+   "frames_with_clothing": 41,
+   "changed_px_spread_pct": 3.3,
+   "centroid_vs_box_drift_px": 0.57
+  },
+  "disguise": {
+   "frames_with_clothing": 41,
+   "changed_px_spread_pct": 1.8,
+   "centroid_vs_box_drift_px": 0.52
+  }
+ },
+ "bodice_travel_px": {
+  "x": 1.95,
+  "y": 3.16
+ },
+ "bodice_rotation_range_deg": 1.85,
+ "clothing_slip_px": {
+  "max": 0.6,
+  "mean": 0.36,
+  "note": "distance between the tracked bodice and the whole-pixel garment position"
+ },
+ "used_as_delivery_pixels": false
+}

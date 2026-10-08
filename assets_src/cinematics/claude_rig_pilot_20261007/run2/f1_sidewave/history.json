@@ -1,0 +1,1115 @@
+{
+  "prompt": [
+    6,
+    "e8795ebc-8011-4e0c-b3e3-1db2064c64b2",
+    {
+      "1": {
+        "class_type": "UNETLoader",
+        "inputs": {
+          "unet_name": "ltx-2.5-22b-distilled-transformer-w4a8_convrot.safetensors",
+          "weight_dtype": "default"
+        }
+      },
+      "2": {
+        "class_type": "CLIPLoader",
+        "inputs": {
+          "clip_name": "gemma4-12b-with-proj-ltx-2.5-w4a8_convrot.safetensors",
+          "type": "ltxv",
+          "device": "default"
+        }
+      },
+      "3": {
+        "class_type": "VAELoader",
+        "inputs": {
+          "vae_name": "ltx-2.5-video-vae-bf16.safetensors"
+        }
+      },
+      "4": {
+        "class_type": "VAELoader",
+        "inputs": {
+          "vae_name": "ltx-2.5-audio-vae-bf16.safetensors"
+        }
+      },
+      "80": {
+        "class_type": "LTXICLoRALoaderModelOnly",
+        "inputs": {
+          "model": [
+            "1",
+            0
+          ],
+          "lora_name": "ltx-2.3-22b-ic-lora-union-control-ref0.5.safetensors",
+          "strength_model": 1.0
+        }
+      },
+      "81": {
+        "class_type": "UnionModelProof",
+        "inputs": {
+          "model": [
+            "80",
+            0
+          ],
+          "downscale": [
+            "80",
+            1
+          ]
+        }
+      },
+      "5": {
+        "class_type": "CLIPTextEncode",
+        "inputs": {
+          "clip": [
+            "2",
+            0
+          ],
+          "text": "A polished painted 2D storybook mermaid girl matching the provided approved opening image, pink bodice, lavender iridescent tail, rainbow hair and gold tiara. Fixed camera, fixed neutral light-gray background and flat painted lighting. One gentle wave: rest at frames0-3, lift her left hand out at her side and up beside her head by frame13, the open hand always out beside her hair, never in front of her hair, face or body; wave it gently side to side twice at frames13-25, lower it back down the same way at her side by frame35, rest at35-40. Her whole body moves with the wave as one piece: she lifts slightly and leans away from the raised arm, tilts her head toward her hand, her free arm and tail sway in counter-motion, her rainbow hair flows gently in the water, and her eyes stay open, looking at the viewer, in every frame. Follow the frame-aligned outline video as structural motion control; preserve the opening artwork appearance. Constant world size and head-to-body proportions, the waist stays within a few pixels of (256.5,485) in the640x896 canvas. Five clearly separated fingers on the open hand and crisp hands in every frame, without motion blur, smearing or fused fingers, consistent crisp painted contours and facial detail throughout the action and settle. The waving arm keeps one constant length and the open hand one constant size in every frame; the arm bends at the elbow in the picture plane and never points toward the viewer."
+        }
+      },
+      "6": {
+        "class_type": "ConditioningZeroOut",
+        "inputs": {
+          "conditioning": [
+            "5",
+            0
+          ]
+        }
+      },
+      "7": {
+        "class_type": "LTXVConditioning",
+        "inputs": {
+          "positive": [
+            "5",
+            0
+          ],
+          "negative": [
+            "6",
+            0
+          ],
+          "frame_rate": 24.0
+        }
+      },
+      "8": {
+        "class_type": "EmptyLTXVLatentVideo",
+        "inputs": {
+          "width": 320,
+          "height": 448,
+          "length": 41,
+          "batch_size": 1
+        }
+      },
+      "9": {
+        "class_type": "LTXVEmptyLatentAudio",
+        "inputs": {
+          "frames_number": 41,
+          "frame_rate": 24,
+          "batch_size": 1,
+          "audio_vae": [
+            "4",
+            0
+          ]
+        }
+      },
+      "10": {
+        "class_type": "KSamplerSelect",
+        "inputs": {
+          "sampler_name": "euler_ancestral"
+        }
+      },
+      "11": {
+        "class_type": "ManualSigmas",
+        "inputs": {
+          "sigmas": "1.0,0.99375,0.9875,0.98125,0.975,0.909375,0.725,0.421875,0.0"
+        }
+      },
+      "12": {
+        "class_type": "LoadImage",
+        "inputs": {
+          "image": "rig_pilot/identity_shift40.png"
+        }
+      },
+      "13": {
+        "class_type": "LTXVAddGuide",
+        "inputs": {
+          "positive": [
+            "7",
+            0
+          ],
+          "negative": [
+            "7",
+            1
+          ],
+          "vae": [
+            "3",
+            0
+          ],
+          "latent": [
+            "8",
+            0
+          ],
+          "image": [
+            "12",
+            0
+          ],
+          "frame_idx": 0,
+          "strength": 1.0
+        }
+      },
+      "113": {
+        "class_type": "LTXVAddGuide",
+        "inputs": {
+          "positive": [
+            "13",
+            0
+          ],
+          "negative": [
+            "13",
+            1
+          ],
+          "vae": [
+            "3",
+            0
+          ],
+          "latent": [
+            "13",
+            2
+          ],
+          "image": [
+            "12",
+            0
+          ],
+          "frame_idx": 40,
+          "strength": 1.0
+        }
+      },
+      "14": {
+        "class_type": "RigPilotGuideBatch",
+        "inputs": {
+          "guide_set": "run6",
+          "lane": "quarter",
+          "frames": 41
+        }
+      },
+      "15": {
+        "class_type": "LTXAddVideoICLoRAGuide",
+        "inputs": {
+          "positive": [
+            "113",
+            0
+          ],
+          "negative": [
+            "113",
+            1
+          ],
+          "vae": [
+            "3",
+            0
+          ],
+          "latent": [
+            "113",
+            2
+          ],
+          "image": [
+            "14",
+            0
+          ],
+          "frame_idx": 0,
+          "strength": 1.0,
+          "latent_downscale_factor": [
+            "80",
+            1
+          ],
+          "crop": "disabled",
+          "use_tiled_encode": true,
+          "tile_size": 256,
+          "tile_overlap": 64,
+          "use_streaming": false,
+          "tile_frames": 41
+        }
+      },
+      "16": {
+        "class_type": "LTXVConcatAVLatent",
+        "inputs": {
+          "video_latent": [
+            "15",
+            2
+          ],
+          "audio_latent": [
+            "9",
+            0
+          ]
+        }
+      },
+      "17": {
+        "class_type": "SamplerCustom",
+        "inputs": {
+          "model": [
+            "81",
+            0
+          ],
+          "add_noise": true,
+          "noise_seed": 20261004,
+          "cfg": 1.0,
+          "positive": [
+            "15",
+            0
+          ],
+          "negative": [
+            "15",
+            1
+          ],
+          "sampler": [
+            "10",
+            0
+          ],
+          "sigmas": [
+            "11",
+            0
+          ],
+          "latent_image": [
+            "16",
+            0
+          ]
+        }
+      },
+      "18": {
+        "class_type": "LTXVSeparateAVLatent",
+        "inputs": {
+          "av_latent": [
+            "17",
+            0
+          ]
+        }
+      },
+      "19": {
+        "class_type": "LTXVCropGuides",
+        "inputs": {
+          "positive": [
+            "15",
+            0
+          ],
+          "negative": [
+            "15",
+            1
+          ],
+          "latent": [
+            "18",
+            0
+          ]
+        }
+      },
+      "20": {
+        "class_type": "SaveLatent",
+        "inputs": {
+          "samples": [
+            "19",
+            2
+          ],
+          "filename_prefix": "rig_pilot/f1_sidewave/stage1_video"
+        }
+      },
+      "21": {
+        "class_type": "LatentUpscaleModelLoader",
+        "inputs": {
+          "model_name": "ltx-2.5-latent-spatial-upscaler-x2-bf16-1.0.safetensors"
+        }
+      },
+      "22": {
+        "class_type": "LTXVLatentUpsampler",
+        "inputs": {
+          "samples": [
+            "19",
+            2
+          ],
+          "upscale_model": [
+            "21",
+            0
+          ],
+          "vae": [
+            "3",
+            0
+          ]
+        }
+      },
+      "23": {
+        "class_type": "LTXVAddGuide",
+        "inputs": {
+          "positive": [
+            "7",
+            0
+          ],
+          "negative": [
+            "7",
+            1
+          ],
+          "vae": [
+            "3",
+            0
+          ],
+          "latent": [
+            "22",
+            0
+          ],
+          "image": [
+            "12",
+            0
+          ],
+          "frame_idx": 0,
+          "strength": 1.0
+        }
+      },
+      "123": {
+        "class_type": "LTXVAddGuide",
+        "inputs": {
+          "positive": [
+            "23",
+            0
+          ],
+          "negative": [
+            "23",
+            1
+          ],
+          "vae": [
+            "3",
+            0
+          ],
+          "latent": [
+            "23",
+            2
+          ],
+          "image": [
+            "12",
+            0
+          ],
+          "frame_idx": 40,
+          "strength": 1.0
+        }
+      },
+      "24": {
+        "class_type": "RigPilotGuideBatch",
+        "inputs": {
+          "guide_set": "run6",
+          "lane": "half",
+          "frames": 41
+        }
+      },
+      "25": {
+        "class_type": "LTXAddVideoICLoRAGuide",
+        "inputs": {
+          "positive": [
+            "123",
+            0
+          ],
+          "negative": [
+            "123",
+            1
+          ],
+          "vae": [
+            "3",
+            0
+          ],
+          "latent": [
+            "123",
+            2
+          ],
+          "image": [
+            "24",
+            0
+          ],
+          "frame_idx": 0,
+          "strength": 1.0,
+          "latent_downscale_factor": [
+            "80",
+            1
+          ],
+          "crop": "disabled",
+          "use_tiled_encode": true,
+          "tile_size": 256,
+          "tile_overlap": 64,
+          "use_streaming": false,
+          "tile_frames": 41
+        }
+      },
+      "26": {
+        "class_type": "LTXVConcatAVLatent",
+        "inputs": {
+          "video_latent": [
+            "25",
+            2
+          ],
+          "audio_latent": [
+            "18",
+            1
+          ]
+        }
+      },
+      "27": {
+        "class_type": "ManualSigmas",
+        "inputs": {
+          "sigmas": "0.85,0.7250,0.4219,0.0"
+        }
+      },
+      "28": {
+        "class_type": "SamplerCustom",
+        "inputs": {
+          "model": [
+            "81",
+            0
+          ],
+          "add_noise": true,
+          "noise_seed": 20261004,
+          "cfg": 1.0,
+          "positive": [
+            "25",
+            0
+          ],
+          "negative": [
+            "25",
+            1
+          ],
+          "sampler": [
+            "10",
+            0
+          ],
+          "sigmas": [
+            "27",
+            0
+          ],
+          "latent_image": [
+            "26",
+            0
+          ]
+        }
+      },
+      "29": {
+        "class_type": "LTXVSeparateAVLatent",
+        "inputs": {
+          "av_latent": [
+            "28",
+            0
+          ]
+        }
+      },
+      "30": {
+        "class_type": "LTXVCropGuides",
+        "inputs": {
+          "positive": [
+            "25",
+            0
+          ],
+          "negative": [
+            "25",
+            1
+          ],
+          "latent": [
+            "29",
+            0
+          ]
+        }
+      },
+      "31": {
+        "class_type": "SaveLatent",
+        "inputs": {
+          "samples": [
+            "30",
+            2
+          ],
+          "filename_prefix": "rig_pilot/f1_sidewave/refined_video"
+        }
+      },
+      "40": {
+        "class_type": "VAEDecodeTiled",
+        "inputs": {
+          "samples": [
+            "19",
+            2
+          ],
+          "vae": [
+            "3",
+            0
+          ],
+          "tile_size": 256,
+          "overlap": 64,
+          "temporal_size": 64,
+          "temporal_overlap": 8
+        }
+      },
+      "41": {
+        "class_type": "StudyFiniteImages",
+        "inputs": {
+          "images": [
+            "40",
+            0
+          ]
+        }
+      },
+      "42": {
+        "class_type": "SaveImage",
+        "inputs": {
+          "images": [
+            "41",
+            0
+          ],
+          "filename_prefix": "rig_pilot/f1_sidewave/stage1/frame"
+        }
+      },
+      "50": {
+        "class_type": "VAEDecodeTiled",
+        "inputs": {
+          "samples": [
+            "30",
+            2
+          ],
+          "vae": [
+            "3",
+            0
+          ],
+          "tile_size": 256,
+          "overlap": 64,
+          "temporal_size": 64,
+          "temporal_overlap": 8
+        }
+      },
+      "51": {
+        "class_type": "UnionOutputProof",
+        "inputs": {
+          "images": [
+            "50",
+            0
+          ]
+        }
+      },
+      "52": {
+        "class_type": "SaveImage",
+        "inputs": {
+          "images": [
+            "51",
+            0
+          ],
+          "filename_prefix": "rig_pilot/f1_sidewave/refined/frame"
+        }
+      },
+      "90": {
+        "class_type": "StudyRuntimeReceipt",
+        "inputs": {
+          "label": "f1_sidewave"
+        }
+      }
+    },
+    {
+      "client_id": "ea938fea-0dfd-49a5-a2a8-838f68fb7405",
+      "create_time": 1791420122648
+    },
+    [
+      "31",
+      "20",
+      "42",
+      "90",
+      "52"
+    ]
+  ],
+  "outputs": {
+    "20": {
+      "latents": [
+        {
+          "filename": "stage1_video_00001_.latent",
+          "subfolder": "rig_pilot\\f1_sidewave",
+          "type": "output"
+        }
+      ]
+    },
+    "42": {
+      "images": [
+        {
+          "filename": "frame_00001_.png",
+          "subfolder": "rig_pilot\\f1_sidewave\\stage1",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00002_.png",
+          "subfolder": "rig_pilot\\f1_sidewave\\stage1",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00003_.png",
+          "subfolder": "rig_pilot\\f1_sidewave\\stage1",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00004_.png",
+          "subfolder": "rig_pilot\\f1_sidewave\\stage1",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00005_.png",
+          "subfolder": "rig_pilot\\f1_sidewave\\stage1",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00006_.png",
+          "subfolder": "rig_pilot\\f1_sidewave\\stage1",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00007_.png",
+          "subfolder": "rig_pilot\\f1_sidewave\\stage1",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00008_.png",
+          "subfolder": "rig_pilot\\f1_sidewave\\stage1",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00009_.png",
+          "subfolder": "rig_pilot\\f1_sidewave\\stage1",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00010_.png",
+          "subfolder": "rig_pilot\\f1_sidewave\\stage1",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00011_.png",
+          "subfolder": "rig_pilot\\f1_sidewave\\stage1",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00012_.png",
+          "subfolder": "rig_pilot\\f1_sidewave\\stage1",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00013_.png",
+          "subfolder": "rig_pilot\\f1_sidewave\\stage1",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00014_.png",
+          "subfolder": "rig_pilot\\f1_sidewave\\stage1",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00015_.png",
+          "subfolder": "rig_pilot\\f1_sidewave\\stage1",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00016_.png",
+          "subfolder": "rig_pilot\\f1_sidewave\\stage1",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00017_.png",
+          "subfolder": "rig_pilot\\f1_sidewave\\stage1",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00018_.png",
+          "subfolder": "rig_pilot\\f1_sidewave\\stage1",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00019_.png",
+          "subfolder": "rig_pilot\\f1_sidewave\\stage1",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00020_.png",
+          "subfolder": "rig_pilot\\f1_sidewave\\stage1",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00021_.png",
+          "subfolder": "rig_pilot\\f1_sidewave\\stage1",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00022_.png",
+          "subfolder": "rig_pilot\\f1_sidewave\\stage1",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00023_.png",
+          "subfolder": "rig_pilot\\f1_sidewave\\stage1",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00024_.png",
+          "subfolder": "rig_pilot\\f1_sidewave\\stage1",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00025_.png",
+          "subfolder": "rig_pilot\\f1_sidewave\\stage1",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00026_.png",
+          "subfolder": "rig_pilot\\f1_sidewave\\stage1",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00027_.png",
+          "subfolder": "rig_pilot\\f1_sidewave\\stage1",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00028_.png",
+          "subfolder": "rig_pilot\\f1_sidewave\\stage1",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00029_.png",
+          "subfolder": "rig_pilot\\f1_sidewave\\stage1",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00030_.png",
+          "subfolder": "rig_pilot\\f1_sidewave\\stage1",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00031_.png",
+          "subfolder": "rig_pilot\\f1_sidewave\\stage1",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00032_.png",
+          "subfolder": "rig_pilot\\f1_sidewave\\stage1",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00033_.png",
+          "subfolder": "rig_pilot\\f1_sidewave\\stage1",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00034_.png",
+          "subfolder": "rig_pilot\\f1_sidewave\\stage1",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00035_.png",
+          "subfolder": "rig_pilot\\f1_sidewave\\stage1",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00036_.png",
+          "subfolder": "rig_pilot\\f1_sidewave\\stage1",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00037_.png",
+          "subfolder": "rig_pilot\\f1_sidewave\\stage1",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00038_.png",
+          "subfolder": "rig_pilot\\f1_sidewave\\stage1",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00039_.png",
+          "subfolder": "rig_pilot\\f1_sidewave\\stage1",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00040_.png",
+          "subfolder": "rig_pilot\\f1_sidewave\\stage1",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00041_.png",
+          "subfolder": "rig_pilot\\f1_sidewave\\stage1",
+          "type": "output"
+        }
+      ]
+    },
+    "31": {
+      "latents": [
+        {
+          "filename": "refined_video_00001_.latent",
+          "subfolder": "rig_pilot\\f1_sidewave",
+          "type": "output"
+        }
+      ]
+    },
+    "52": {
+      "images": [
+        {
+          "filename": "frame_00001_.png",
+          "subfolder": "rig_pilot\\f1_sidewave\\refined",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00002_.png",
+          "subfolder": "rig_pilot\\f1_sidewave\\refined",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00003_.png",
+          "subfolder": "rig_pilot\\f1_sidewave\\refined",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00004_.png",
+          "subfolder": "rig_pilot\\f1_sidewave\\refined",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00005_.png",
+          "subfolder": "rig_pilot\\f1_sidewave\\refined",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00006_.png",
+          "subfolder": "rig_pilot\\f1_sidewave\\refined",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00007_.png",
+          "subfolder": "rig_pilot\\f1_sidewave\\refined",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00008_.png",
+          "subfolder": "rig_pilot\\f1_sidewave\\refined",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00009_.png",
+          "subfolder": "rig_pilot\\f1_sidewave\\refined",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00010_.png",
+          "subfolder": "rig_pilot\\f1_sidewave\\refined",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00011_.png",
+          "subfolder": "rig_pilot\\f1_sidewave\\refined",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00012_.png",
+          "subfolder": "rig_pilot\\f1_sidewave\\refined",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00013_.png",
+          "subfolder": "rig_pilot\\f1_sidewave\\refined",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00014_.png",
+          "subfolder": "rig_pilot\\f1_sidewave\\refined",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00015_.png",
+          "subfolder": "rig_pilot\\f1_sidewave\\refined",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00016_.png",
+          "subfolder": "rig_pilot\\f1_sidewave\\refined",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00017_.png",
+          "subfolder": "rig_pilot\\f1_sidewave\\refined",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00018_.png",
+          "subfolder": "rig_pilot\\f1_sidewave\\refined",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00019_.png",
+          "subfolder": "rig_pilot\\f1_sidewave\\refined",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00020_.png",
+          "subfolder": "rig_pilot\\f1_sidewave\\refined",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00021_.png",
+          "subfolder": "rig_pilot\\f1_sidewave\\refined",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00022_.png",
+          "subfolder": "rig_pilot\\f1_sidewave\\refined",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00023_.png",
+          "subfolder": "rig_pilot\\f1_sidewave\\refined",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00024_.png",
+          "subfolder": "rig_pilot\\f1_sidewave\\refined",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00025_.png",
+          "subfolder": "rig_pilot\\f1_sidewave\\refined",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00026_.png",
+          "subfolder": "rig_pilot\\f1_sidewave\\refined",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00027_.png",
+          "subfolder": "rig_pilot\\f1_sidewave\\refined",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00028_.png",
+          "subfolder": "rig_pilot\\f1_sidewave\\refined",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00029_.png",
+          "subfolder": "rig_pilot\\f1_sidewave\\refined",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00030_.png",
+          "subfolder": "rig_pilot\\f1_sidewave\\refined",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00031_.png",
+          "subfolder": "rig_pilot\\f1_sidewave\\refined",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00032_.png",
+          "subfolder": "rig_pilot\\f1_sidewave\\refined",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00033_.png",
+          "subfolder": "rig_pilot\\f1_sidewave\\refined",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00034_.png",
+          "subfolder": "rig_pilot\\f1_sidewave\\refined",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00035_.png",
+          "subfolder": "rig_pilot\\f1_sidewave\\refined",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00036_.png",
+          "subfolder": "rig_pilot\\f1_sidewave\\refined",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00037_.png",
+          "subfolder": "rig_pilot\\f1_sidewave\\refined",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00038_.png",
+          "subfolder": "rig_pilot\\f1_sidewave\\refined",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00039_.png",
+          "subfolder": "rig_pilot\\f1_sidewave\\refined",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00040_.png",
+          "subfolder": "rig_pilot\\f1_sidewave\\refined",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00041_.png",
+          "subfolder": "rig_pilot\\f1_sidewave\\refined",
+          "type": "output"
+        }
+      ]
+    }
+  },
+  "status": {
+    "status_str": "success",
+    "completed": true,
+    "messages": [
+      [
+        "execution_start",
+        {
+          "prompt_id": "e8795ebc-8011-4e0c-b3e3-1db2064c64b2",
+          "timestamp": 1791420122653
+        }
+      ],
+      [
+        "execution_cached",
+        {
+          "nodes": [
+            "1",
+            "2",
+            "3",
+            "4",
+            "80",
+            "81",
+            "8",
+            "9",
+            "10",
+            "11",
+            "12",
+            "21",
+            "27"
+          ],
+          "prompt_id": "e8795ebc-8011-4e0c-b3e3-1db2064c64b2",
+          "timestamp": 1791420122680
+        }
+      ],
+      [
+        "execution_success",
+        {
+          "prompt_id": "e8795ebc-8011-4e0c-b3e3-1db2064c64b2",
+          "timestamp": 1791420477534
+        }
+      ]
+    ]
+  },
+  "meta": {
+    "20": {
+      "node_id": "20",
+      "display_node": "20",
+      "parent_node": null,
+      "real_node_id": "20"
+    },
+    "42": {
+      "node_id": "42",
+      "display_node": "42",
+      "parent_node": null,
+      "real_node_id": "42"
+    },
+    "31": {
+      "node_id": "31",
+      "display_node": "31",
+      "parent_node": null,
+      "real_node_id": "31"
+    },
+    "52": {
+      "node_id": "52",
+      "display_node": "52",
+      "parent_node": null,
+      "real_node_id": "52"
+    }
+  }
+}

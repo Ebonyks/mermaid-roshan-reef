@@ -1,0 +1,374 @@
+{
+ "label": "Claude rig pilot run 2 d1_act_occl",
+ "frames": 41,
+ "limits": {
+  "figure_scale_pp_pct": 1.0,
+  "head_scale_pp_pct": 2.0,
+  "arm_length_pct": 5.0,
+  "master_layers": 1
+ },
+ "contract_cell_px": {
+  "upper_arm": 25.5,
+  "forearm": 24.5,
+  "hand": 20.5
+ },
+ "checks": {
+  "figure_scale_pp_pct": {
+   "value": 1.03,
+   "pass": false
+  },
+  "head_scale_pp_pct": {
+   "value": 0.82,
+   "pass": true
+  },
+  "arm_length_pct": {
+   "value": {
+    "upper_arm": {
+     "frame": 2,
+     "pct": -31.0
+    },
+    "forearm": {
+     "frame": 18,
+     "pct": -35.0
+    },
+    "hand": {
+     "frame": 7,
+     "pct": -0.0
+    }
+   },
+   "pass": false
+  }
+ },
+ "figure_scale_pct": [
+  0.0,
+  -0.02,
+  0.04,
+  0.07,
+  -0.09,
+  0.02,
+  0.15,
+  0.18,
+  0.2,
+  0.3,
+  0.38,
+  0.36,
+  0.4,
+  0.53,
+  0.55,
+  0.57,
+  0.57,
+  0.6,
+  0.65,
+  0.67,
+  0.68,
+  0.7,
+  0.73,
+  0.74,
+  0.75,
+  0.7,
+  -0.28,
+  0.01,
+  0.03,
+  0.03,
+  0.08,
+  0.04,
+  -0.01,
+  0.17,
+  -0.23,
+  -0.12,
+  -0.28,
+  -0.02,
+  -0.01,
+  0.02,
+  -0.03
+ ],
+ "head_scale_pct": [
+  -0.01,
+  0.01,
+  0.04,
+  0.17,
+  0.28,
+  0.11,
+  0.18,
+  0.21,
+  0.19,
+  0.32,
+  0.4,
+  0.45,
+  0.54,
+  0.81,
+  0.78,
+  0.71,
+  0.72,
+  0.7,
+  0.7,
+  0.68,
+  0.72,
+  0.79,
+  0.74,
+  0.72,
+  0.69,
+  0.79,
+  0.77,
+  0.8,
+  0.79,
+  0.68,
+  0.66,
+  0.55,
+  0.49,
+  0.38,
+  0.25,
+  0.27,
+  0.18,
+  0.03,
+  0.28,
+  0.09,
+  0.03
+ ],
+ "arm_length_vs_contract_pct": [
+  {
+   "frame": 0,
+   "upper_arm": -16.0,
+   "forearm": 17.4
+  },
+  {
+   "frame": 1,
+   "upper_arm": -21.9,
+   "forearm": 22.8
+  },
+  {
+   "frame": 2,
+   "upper_arm": -31.0,
+   "forearm": 30.1
+  },
+  {
+   "frame": 3,
+   "upper_arm": -25.4,
+   "forearm": 23.8,
+   "hand": -0.0
+  },
+  {
+   "frame": 4,
+   "upper_arm": -5.2,
+   "forearm": 30.1,
+   "hand": -0.0
+  },
+  {
+   "frame": 5,
+   "upper_arm": -8.0,
+   "forearm": 7.5,
+   "hand": 0.0
+  },
+  {
+   "frame": 6,
+   "upper_arm": -5.5,
+   "forearm": 27.8,
+   "hand": 0.0
+  },
+  {
+   "frame": 7,
+   "upper_arm": -7.2,
+   "forearm": 10.5,
+   "hand": -0.0
+  },
+  {
+   "frame": 8,
+   "upper_arm": 0.8,
+   "forearm": 26.1,
+   "hand": -0.0
+  },
+  {
+   "frame": 9,
+   "upper_arm": 2.3,
+   "forearm": 29.2,
+   "hand": 0.0
+  },
+  {
+   "frame": 10,
+   "upper_arm": 4.7,
+   "forearm": 23.2,
+   "hand": -0.0
+  },
+  {
+   "frame": 11,
+   "upper_arm": -0.5,
+   "forearm": 16.6,
+   "hand": 0.0
+  },
+  {
+   "frame": 12,
+   "upper_arm": 2.6,
+   "forearm": -7.8,
+   "hand": -0.0
+  },
+  {
+   "frame": 13,
+   "upper_arm": 9.2,
+   "forearm": -15.6,
+   "hand": 0.0
+  },
+  {
+   "frame": 14,
+   "upper_arm": 0.1,
+   "forearm": -8.9,
+   "hand": 0.0
+  },
+  {
+   "frame": 15,
+   "upper_arm": 8.4,
+   "forearm": -16.3,
+   "hand": 0.0
+  },
+  {
+   "frame": 16,
+   "upper_arm": 14.8,
+   "forearm": -22.1,
+   "hand": -0.0
+  },
+  {
+   "frame": 17,
+   "upper_arm": 17.2,
+   "forearm": -28.1,
+   "hand": 0.0
+  },
+  {
+   "frame": 18,
+   "upper_arm": 28.5,
+   "forearm": -35.0,
+   "hand": 0.0
+  },
+  {
+   "frame": 19,
+   "upper_arm": 25.8,
+   "forearm": -34.1,
+   "hand": 0.0
+  },
+  {
+   "frame": 20,
+   "upper_arm": 24.2,
+   "forearm": -28.0,
+   "hand": -0.0
+  },
+  {
+   "frame": 21,
+   "upper_arm": 9.9,
+   "forearm": -16.8,
+   "hand": -0.0
+  },
+  {
+   "frame": 22,
+   "upper_arm": 2.6,
+   "forearm": 12.9,
+   "hand": -0.0
+  },
+  {
+   "frame": 23,
+   "upper_arm": -4.7,
+   "forearm": 5.4,
+   "hand": 0.0
+  },
+  {
+   "frame": 24,
+   "upper_arm": -1.2,
+   "forearm": 15.1,
+   "hand": -0.0
+  },
+  {
+   "frame": 25,
+   "upper_arm": 2.3,
+   "forearm": 22.4,
+   "hand": -0.0
+  },
+  {
+   "frame": 26,
+   "upper_arm": 9.0,
+   "forearm": 7.6,
+   "hand": 0.0
+  },
+  {
+   "frame": 27,
+   "upper_arm": 8.1,
+   "forearm": 0.3,
+   "hand": -0.0
+  },
+  {
+   "frame": 28,
+   "upper_arm": 6.0,
+   "forearm": -7.3,
+   "hand": 0.0
+  },
+  {
+   "frame": 29,
+   "upper_arm": 4.7,
+   "forearm": -10.9,
+   "hand": 0.0
+  },
+  {
+   "frame": 30,
+   "upper_arm": 1.1,
+   "forearm": -11.9,
+   "hand": 0.0
+  },
+  {
+   "frame": 31,
+   "upper_arm": 10.0,
+   "forearm": -25.7,
+   "hand": -0.0
+  },
+  {
+   "frame": 32,
+   "upper_arm": 18.0,
+   "forearm": -31.5,
+   "hand": 0.0
+  },
+  {
+   "frame": 33,
+   "upper_arm": 10.8,
+   "forearm": -23.8,
+   "hand": 0.0
+  },
+  {
+   "frame": 34,
+   "upper_arm": 13.4,
+   "forearm": -27.9,
+   "hand": -0.0
+  },
+  {
+   "frame": 35,
+   "upper_arm": 6.1,
+   "forearm": -31.5,
+   "hand": 0.0
+  },
+  {
+   "frame": 36,
+   "upper_arm": -7.6,
+   "forearm": 5.0,
+   "hand": 0.0
+  },
+  {
+   "frame": 37,
+   "upper_arm": -21.7,
+   "forearm": 17.2,
+   "hand": 0.0
+  },
+  {
+   "frame": 38,
+   "upper_arm": -22.7,
+   "forearm": 13.0,
+   "hand": -0.0
+  },
+  {
+   "frame": 39,
+   "upper_arm": -18.2,
+   "forearm": 12.7,
+   "hand": 0.0
+  },
+  {
+   "frame": 40,
+   "upper_arm": -14.4,
+   "forearm": 9.6,
+   "hand": -0.0
+  }
+ ],
+ "all_pass": false
+}

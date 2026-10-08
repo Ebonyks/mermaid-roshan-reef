@@ -7,7 +7,7 @@ import hashlib, sys
 sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parent))
 from pilot_common import *
 
-RUN2_STATUS = 'TAKES_QUEUED_ON_PC'
+RUN2_STATUS = 'EXECUTION_PASS (8 of 8 local takes) / OWNER_REVIEW_PENDING; best candidate g1_slowwave'
 SKIP = {'.godot', '__pycache__', 'staging'}
 
 
@@ -24,8 +24,8 @@ def main():
     save_json(PILOT / 'manifest.json', {
         'packet': 'assets_src/cinematics/claude_rig_pilot_20261007', 'status': {
             'run1': 'EXECUTION_PASS / OWNER_REJECTED', 'run2': RUN2_STATUS,
-            'cosmetics_on_clips': 'PIPELINE_PASS / OWNER_REVIEW_PENDING',
-            'ARCHIVE_COMPLETE': False, 'GENERATION_READY': 'run2 guides, jobs and PC runner prepared',
+            'cosmetics_on_clips': 'PIPELINE_PASS (Union take 1 and all 8 run-2 takes) / OWNER_REVIEW_PENDING',
+            'ARCHIVE_COMPLETE': False, 'GENERATION_READY': 'run2 guides, jobs and PC runner prepared; take budget spent (8 of 8)',
             'DELIVERY_ACCEPTED': False},
         'files': [{'path': p.relative_to(PILOT).as_posix(), 'bytes': p.stat().st_size, 'sha256': sha(p)} for p in files],
         'sources': [{'path': p.relative_to(ROOT).as_posix(), 'bytes': p.stat().st_size, 'sha256': sha(p)} for p in sources]})

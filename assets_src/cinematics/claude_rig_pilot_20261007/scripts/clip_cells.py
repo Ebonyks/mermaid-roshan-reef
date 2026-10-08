@@ -9,11 +9,14 @@ For each 640x896 frame on the flat light-grey stage:
     one uniform 2.5 px erosion of the whole silhouette removes the opening image's upscale spread;
   * the whole frame is mapped back to the approved 256 px cell (cell = (canvas - OFFSET) / CELL_SCALE)
     with a premultiplied Gaussian pre-filter (sigma 0.45 x scale) and bilinear resampling.
+  * --grade-to-k0: one per-channel gain and offset for the whole clip, fitted so the opaque interior of
+    frames 0 and 40 matches the approved K0 cell, then applied identically to every cell (LTX renders
+    the figure about 6 levels darker than K0, which pops when the game swaps the still sprite for the clip).
 Every operation applies to the whole frame; nothing is cut, pasted or redrawn.
 Writes <out>/cells/NNNN.png, <out>/atlas.png (8 columns of 256 px cells) and <out>/cells_report.json
 with the frame-0 silhouette IoU against the approved K0 cell.
 
-    python -I scripts/clip_cells.py <frames pattern %04d> <out dir> [--count 41]
+    python -I scripts/clip_cells.py <frames pattern %04d> <out dir> [--count 41] [--grade-to-k0]
 """
 import argparse, json, sys
 from pathlib import Path
@@ -64,13 +67,28 @@ def to_cell(fg, a):
 
 def main():
     ap = argparse.ArgumentParser(); ap.add_argument('frames'); ap.add_argument('out'); ap.add_argument('--count', type=int, default=41)
+    ap.add_argument('--grade-to-k0', action='store_true')
     v = ap.parse_args(); out = Path(v.out); (out / 'cells').mkdir(parents=True, exist_ok=True)
     rows = (v.count + COLS - 1) // COLS
     atlas = np.zeros((rows * 256, COLS * 256, 4), np.uint8); bgs = []
+    cells = []
     for i in range(v.count):
         rgb = np.array(Image.open(v.frames % i).convert('RGB'), np.float32)
         fg, a, bg = matte(rgb); bgs.append([round(float(x), 2) for x in bg])
-        cell = to_cell(fg, a)
+        cells.append(to_cell(fg, a))
+    k0rgba = np.array(Image.open(ATLAS).convert('RGBA'))[0:256, 0:256].astype(np.float32)
+    grade = None
+    if v.grade_to_k0:
+        A, B = [], []
+        for c in (cells[0], cells[-1]):
+            m = (k0rgba[..., 3] > 250) & (c[..., 3] > 250)
+            A.append(c[m, :3].astype(np.float32)); B.append(k0rgba[m, :3])
+        A, B = np.concatenate(A), np.concatenate(B)
+        grade = [np.polyfit(A[:, k], B[:, k], 1) for k in range(3)]
+        for c in cells:
+            g = np.stack([np.polyval(grade[k], c[..., k].astype(np.float32)) for k in range(3)], -1)
+            c[..., :3] = np.where(c[..., 3:] > 0, np.clip(g, 0, 255).round(), 0).astype(np.uint8)
+    for i, cell in enumerate(cells):
         Image.fromarray(cell).save(out / 'cells' / f'{i:04d}.png')
         atlas[(i // COLS) * 256:(i // COLS + 1) * 256, (i % COLS) * 256:(i % COLS + 1) * 256] = cell
     Image.fromarray(atlas).save(out / 'atlas.png')
@@ -79,6 +97,7 @@ def main():
     iou = float((k0 & f0).sum() / (k0 | f0).sum())
     save_json(out / 'cells_report.json', {'frames': v.count, 'source': v.frames, 'cell_scale': CELL_SCALE, 'offset': OFFSET,
                                           'atlas_columns': COLS, 'frame0_vs_K0_silhouette_iou': round(iou, 4),
+                                          'grade_to_k0_gain_offset_rgb': [[round(float(x), 4) for x in g] for g in grade] if grade else None,
                                           'background_rgb_per_frame': bgs, 'used_as_delivery_pixels': False})
     print('cells', v.count, 'frame-0 silhouette IoU vs K0', round(iou, 4))
 

@@ -1,7 +1,7 @@
 # Roshan deterministic-rig pilot: LTX motion onto a fixed rig, two runs (2026-10-07)
 
-**Run 1 revision 2 `EXECUTION_PASS / OWNER_REJECTED`. Run 2 `GUIDES_READY / TAKES_QUEUED_ON_PC`.
-Cosmetics on clips `PIPELINE_PASS / OWNER_REVIEW_PENDING`.**
+**Run 1 revision 2 `EXECUTION_PASS / OWNER_REJECTED`. Run 2 `EXECUTION_PASS (8 of 8 takes) / OWNER_REVIEW_PENDING`;
+best candidate `g1_slowwave`. Cosmetics on clips `PIPELINE_PASS (all 8 takes) / OWNER_REVIEW_PENDING`.**
 Both runs take their motion from LTX-2.5 Union take 1 and put it on one deterministic rig
 whose bone lengths never change. Run 1 ignores the owner rules for testing, as the owner asked.
 Its analysis found shortfalls, so run 2 brings the rules back. Nothing here is runtime,
@@ -31,8 +31,11 @@ binding for production and for run 2.
 | 1, rules off, revision 1 | [LTX take 1 / Godot rig, same scale](run1/review.mp4) | [run1/frames](run1/frames) |
 | 2, rules back | [Union guide / rig guide / LTX take 1](run2/review.mp4) | [run2/guide_full](run2/guide_full), [half](run2/guide_half), [quarter](run2/guide_quarter) |
 | Cosmetics on a clip (Union take 1) | [base / ribbon / party / garden / disguise](cosmetics/union_take1/cosmetics_review.mp4) | [outfit atlases](cosmetics/union_take1/outfits), [base atlas](cosmetics/union_take1/atlas.png) |
+| **2, takes: start here** | [a2 / e1 / f1 / g1 / g1 in the party dress, game cells at 2x](run2/comparison.mp4) | each take's `clip/cells` and `clip/atlas.png` |
+| 2, best candidate g1 | [guide / take / Union take 1](run2/g1_slowwave/review.mp4); [outfits](run2/g1_slowwave/clip/cosmetics_review.mp4) | [native frames](run2/g1_slowwave/refined_frames), [game cells](run2/g1_slowwave/clip/cells), [outfit atlases](run2/g1_slowwave/clip/outfits) |
+| 2, other takes | `run2/<take>/review.mp4` and `run2/<take>/clip/cosmetics_review.mp4` for a1, a2, c1, d1, d2, e1, f1 | `run2/<take>/refined_frames`, `run2/<take>/clip` |
 
-Both videos are 41 frames at 24 fps (1708 ms). H.264 copies are lossy; PNGs are authoritative.
+All videos are 41 frames at 24 fps (1708 ms). H.264 copies are lossy; PNGs are authoritative.
 
 ## Shared motion pipeline (numbers only)
 
@@ -204,7 +207,11 @@ works as follows:
 - It copies frames and latents back with a receipt.
 
 The runner stops at 8 takes, counting failures (`ODR-RIG-PILOT-TRIALS-20261007`, bounded under
-`DL-MOT-16`). It unloads the models after 30 idle minutes. It runs ComfyUI graphs only.
+`DL-MOT-16`). It unloads the models after 30 idle minutes. It runs ComfyUI graphs only. All 8 takes
+are now spent. The first submission of a1 and a2 was refused before any GPU work: the connected-folder
+copy adds a C2PA content-credentials chunk to PNGs, so the bytes on the PC differ while the pixels match.
+Those refusals are not takes. Jobs now carry the hash of the copy actually on the PC, after a pixel check
+against the source (`make_jobs.py --device-copies`).
 
 [`make_jobs.py`](scripts/make_jobs.py) writes the [jobs](jobs). Each keeps the Union take-1 recipe:
 seed 20261004, adapter, identity opening, both stages.
@@ -213,12 +220,88 @@ seed 20261004, adapter, identity opening, both stages.
 |---|---|---|
 | `a1_rigguides` | Rig guides, plus one arm-length sentence ([prompt](run2/prompt.txt)) | Controlled test: do proportion-locked guides stop the size and arm changes? |
 | `a2_endlock` | a1, plus the opening image locked again at frame 40, plus a finger-separation sentence in place of "Clean connected fingers" | Loop closure (W5) and hand smear |
+| `c1_acting` | a2 on run-3 guides: whole-body acting on the wave's timing (lift, lean, head tilt, counter-swings, hair wave, bob), smoothed arm, blink; an acting sentence | Owner: the figure must move as a whole, blink, hair flow |
+| `d2_occlude` | a2 on run-4s guides: the waving arm drawn in front (hair, face and body lines under it removed), body still | Does occlusion stop the hand smear? |
+| `d1_act_occl` | c1 on run-4 guides: acting plus occlusion, one closed-eye frame | c1's long blink |
+| `e1_outward` | Run-5 guides on an opening image moved 40 px right: the hand goes out and up at her side, waves twice at the top, returns the same way | Keep the fast hand off the face |
+| `f1_sidewave` | Run-6 guides: a side wave whose hand never crosses her hair, face or body; eyes open, no blink request | e1 still crossed the hair; blink requests shut the eyes |
+| `g1_slowwave` | f1 on run-7 guides: same path, a third less peak hand speed, one wave at the top | f1's fastest frames still smeared |
 
 [`process_take.py`](scripts/process_take.py) brings a finished take home and takes these steps:
 - It checks the receipt hashes.
 - It tracks the arm, seeded from the rig guide, and runs `measure_wave.py` for W2 and W3.
 - It compares the end frames with K0.
 - It runs the cosmetics pipeline below and writes `run2/<job>/review.mp4`.
+- It counts the frames where the lids cover most of the iris ([`eye_openness.py`](scripts/eye_openness.py)).
+- With `--grade` it matches the clip's colour to K0 once for the whole clip (below).
+
+### Guides for runs 3 to 7
+
+[`render_guides_acting.py`](scripts/render_guides_acting.py) keeps run 2's contours and the rig arm at
+the W3 lengths. It moves the whole outline by rigid region turns: lift, lean about the waist, head tilt,
+shoulder lift, free-arm and tail counter-swings, a wave through the hair, a buoyant bob. Frames 0 and
+40 stay exactly the K0 guide. `--occlude` removes every line inside the waving arm's outline, so the
+arm reads as in front. The arm paths:
+
+| Guides | Arm path | Script |
+|---|---|---|
+| run3, run4, run4s | The revision-2 path: the hand passes in front of the hair and face on the way down | `render_guides_acting.py` (run4s: `--still`) |
+| run5 | The revision-2 rise played forward and back, two waves at the top; figure 40 px right | [`animate_run5.py`](scripts/animate_run5.py) |
+| run6 | A side wave: rise in front-left with the elbow out to a top pose beside the head, two waves, back the same way. The forearm and hand stay at least 5 cell px outside the K0 head, hair and body in every frame (6.6 px measured), fingertip at canvas x ≥ 45 | [`animate_run6.py`](scripts/animate_run6.py) |
+| run7 | run6's path, rise 3 to 15 and lowering 23 to 35 at constant speed with 3-frame ramps; peak fingertip speed 15.1 instead of 20.1 cell px per frame; one wave | `animate_run6.py --run7` |
+
+Runs 5 to 7 shift the opening image and guides 40 canvas px right
+([`run5/identity_shift40.png`](run5/identity_shift40.png)); scripts that read those takes run with
+`PILOT_CANVAS_SHIFT_X=40`, so the cells map back to the same 256 px cell.
+Re-rendering all six guide sets with the commands under Reproduce gives byte-identical files (738 of 738).
+
+### Run 2 results
+
+Eight takes, 6 to 19 minutes each, peak 7,808 MiB sampled on the 8 GB card. Game cells and measurements per take are
+in `run2/<take>/summary.json`. "Arm" is upper arm plus forearm from the silhouette fit against the
+contract's 50 cell px; the fit is loose on blurred frames, so read it as a range, not a per-frame
+measurement. "Eyes" lists the frames where the lids cover most of the iris.
+
+| Take | Guides | W2 figure / head (limit 1.0% / 2.0%) | Arm | Eyes | Hand (Claude's frame review) | Body |
+|---|---|---|---|---|---|---|
+| a1 | run2 | 0.13% / 0.31% | −31.9% to +10.8% | open | Smudged where it crosses the hair and face, about 8 to 10 and 24 to 29 | Nearly still |
+| a2 | run2 + end lock | 0.05% / 0.26% | −9.5% to +13.7% | open | The same crossings, 24 to 27 the worst; least texture boil | Nearly still |
+| c1 | run3 | 0.97% / 0.88% | −8.8% to +20.6% | **closed 25 to 36** | Smudged 24 to 30 | Moves as a whole; bodice turns 1.75° |
+| d2 | run4s | 0.00% / 0.12% | −31.3% to +11.7% | open | Occlusion alone did not stop the smudge | Still (by design) |
+| d1 | run4 | **1.03%** / 0.82% | −12.4% to +15.5% | **closed 25 to 35** | Smudged 26 to 30 | Moves as a whole |
+| e1 | run5 | 0.52% / 0.46% | −9.6% to +22.7% | **closed 12 to 37** | Crisp at the top; smudged where it passes the hair, about 8 to 11 and 27 to 31 | Moves as a whole |
+| f1 | run6 | 0.65% / 0.69% | −26.1% to +18.9% | open | Crisp through both waves (13 to 25); soft in the fastest frames, about 9 to 11 and 28 to 30 | Moves as a whole |
+| **g1** | run7 | 0.63% / 0.74% | −1.9% to +22.0% | open | Crisp through the wave (12 to 24); still a soft grey blob in about 8 to 11 and 25 to 31 | Moves as a whole; bodice turns 1.76° |
+
+What the takes show:
+- **Size holds.** Every take keeps W2 except d1, which misses the figure limit by 0.03%. The rig guides
+  hold the arm far better than Union take 1's guides (−52% to +27%), but no take proves W3 per segment.
+- **Hands smear when they move fast over detail.** LTX-2.5 packs 8 frames into each latent frame, and
+  at 320x448 the hand is about one latent token. A hand moving across the hair or face inside one
+  group comes out as a smudge (a1 to e1). Keeping the hand outside the hair and face (f1, g1) makes the
+  wave itself crisp. The remaining soft frames are the fastest rise and lowering frames, and cutting
+  the peak speed by a quarter (g1) did not remove them.
+- **Blink requests close the eyes for too long.** Every take that asked for a blink (c1, d1, e1) shut
+  her eyes for 11 to 26 frames, even with a one-frame request. The takes that did not ask kept them
+  open. There is still no approved front-facing closed-eye drawing to lock as a keyframe.
+- **The whole body moves together** once the guides move it (c1 onward): lean, head tilt, hair and
+  tail on one timing, with no part layers.
+- **Colour.** LTX renders the figure about 6 levels darker than K0. `--grade` fits one per-channel
+  gain and offset to the opaque interior of frames 0 and 40 and applies it to every cell, so the clip
+  does not pop when the game swaps the still sprite for it. g1's cells are graded: frame-0 colour
+  error 16.2 to 15.0 levels (the round trip of K0 alone through the opening image is 9.6).
+
+**g1 is the best candidate** (game cells at [run2/g1_slowwave/clip](run2/g1_slowwave/clip)): constant
+size, the whole body moving, eyes open, a crisp wave, frames 0 and 40 back at K0's silhouette
+(IoU 0.97). It is not deliverable as it stands, for two reasons:
+- **Hand.** About 11 frames show a soft grey hand on the way up and down.
+- **Blink.** The owner asked for a blink, and g1 has none.
+
+The 8-take budget is spent; further takes need the owner. Candidate next methods, untested:
+- A plain mitten outline for the moving hand in the guides.
+- A longer clip (more frames for the rise).
+- An owner-approved closed-eye K0 drawing from Codex, used as a keyframe at the blink.
+- The gated Refine Details IC-LoRA, which needs the owner's HuggingFace access.
 
 ## Cosmetics: the game outfits on an animation clip
 
@@ -256,6 +339,17 @@ The wave's arm and hands stay in front of the dress, because the builder restore
 garment. Take 1's body barely moves: the bodice travels 0.28 px and turns 0.5°. The rig-guided
 takes lean and bob, so they test the fit harder.
 
+The same pipeline ran on all eight run-2 takes, including the five whose whole body leans and bobs
+([summaries](run2), `cosmetics` and `bodice_*` keys):
+
+| Takes | Frames dressed (each outfit) | Clothing area spread | Drift on the bodice | Bodice travel / turn | Slip |
+|---|---|---|---|---|---|
+| a1, a2, d2 (body nearly still) | 41/41 | ≤ 2.6% | ≤ 0.44 px | ≤ 0.3 px / ≤ 0.46° | ≤ 0.3 px |
+| c1, d1, e1, f1, g1 (whole body moves) | 41/41 | ≤ 3.5% | ≤ 0.88 px | ≤ 3.2 px / ≤ 1.85° | ≤ 0.66 px |
+
+In g1's party-dress atlas the dress stays on the bodice through the lean and bob, and the waving arm
+stays in front of it.
+
 Two limits remain. The garment snaps to whole pixels, so up to 0.5 px of slip is reported per
 frame. The garment also does not turn with the torso. If a take leans more than about 2°, the
 next step is an optional angle in the fit, still in the same builder.
@@ -274,8 +368,13 @@ godot --headless --path run1_godot -s res://tools/build_rig.gd
 xvfb-run godot --path run1_godot --rendering-method gl_compatibility -s res://tools/render_frames.gd -- <abs>/run1_rev2/frames
 python -I scripts/render_guides.py  # run 2 guides
 python -I scripts/review.py         # measurements and review videos
-python -I scripts/make_jobs.py      # run 2 job files -> jobs/ (copied to the PC runner's queue)
-python -I scripts/process_take.py <job> <staged results/rig_pilot/<job>> --godot <4.7.2>
+python -I scripts/render_guides_acting.py --out run3   # run4: --occlude --blink quick; run4s: --occlude --still
+PILOT_CANVAS_SHIFT_X=40 python -I scripts/animate_run5.py          # run-5 pose
+PILOT_CANVAS_SHIFT_X=40 python -I scripts/animate_run6.py [--run7] # run-6 / run-7 pose
+PILOT_CANVAS_SHIFT_X=40 python -I scripts/render_guides_acting.py --occlude --pose data/rig_pose_run7.json --out run7  # same for run5, run6
+python -I scripts/make_jobs.py <job> --device-copies <ltx25/input staged back from the PC>
+[PILOT_CANVAS_SHIFT_X=40] python -I scripts/process_take.py <job> <staged results/rig_pilot/<job>> --guide-set <runN> [--grade] --godot <4.7.2>
+python -I scripts/compare_takes.py  # run2/comparison.mp4
 python -I scripts/clip_cells.py ../ltx25_union_trial_20261004/take_1/refined_frames/%04d.png cosmetics/union_take1
 python -I scripts/clip_pose_fit.py cosmetics/union_take1 roshan_wave_union_take1
 GODOT=<4.7.2> scripts/bake_clip_outfits.sh assets_src/cinematics/claude_rig_pilot_20261007/cosmetics/union_take1
