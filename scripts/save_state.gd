@@ -270,6 +270,7 @@ func write_save() -> bool:
 	next_data["portal_unlocked"] = m.portal_unlocked
 	next_data["skin"] = m.skin_id
 	next_data["character_outfits"] = m.character_outfits.duplicate(true)
+	next_data["character_clothing_parts"] = m.character_clothing_parts.duplicate(true)
 	next_data["outfits_unlocked"] = m.outfits_unlocked.duplicate(true)
 	next_data["fashion_disguise_progress"] = m.fashion_disguise_progress.duplicate(true)
 	next_data["fashion_dressing_progress"] = m.fashion_dressing_progress.duplicate(true)

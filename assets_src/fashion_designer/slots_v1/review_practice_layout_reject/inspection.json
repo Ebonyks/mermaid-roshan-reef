@@ -1,0 +1,9 @@
+{
+  "status": "REJECTED_PRACTICE_LAYOUT_DIAGNOSTIC",
+  "source_binding": "Unbound desktop fixture; no accepted art/runtime claim",
+  "defects": [
+    "Native goal image clamped TextureRect before expand mode; oversized goal overlaps cards",
+    "Practice button art was too small"
+  ],
+  "fix": "Set expand mode before texture/size; enforce actual goal size in trusted UI test; adapt short-button picture padding"
+}

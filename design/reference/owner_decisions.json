@@ -541,6 +541,20 @@
       "question": "Review of rig pilot run 1 (rules-off Godot rig, revision 1).",
       "decision": "\"This is acceptable as a rough take, but mermaid roshan is frozen otherwise. Give her a full body natural movement that accompanies the hand raise, have her blink, make her hair flow slightly in the water. It's progress\" and \"There are also a lot of frame-by-frame artifacts present currently\". Scope: the rig pilot's run 1 (revision 2).",
       "cycle": "rig-pilot-20261007"
+    },
+    {
+      "id": "ODR-FASHION-SLOTS-20261007",
+      "date": "2026-10-07",
+      "authority": "recorded_owner",
+      "subject": "Independent head/body/tail wardrobe and more painted themed clothing",
+      "question": "Owner review of the current clothing menu.",
+      "decision": "Provide three selectable, independently changeable clothing items: head, body and tail. Clarify the question-mark menu, fix the overbaked Roshan icon on the left, and make many more themed clothing items from repository motifs in the same painted styles. This commissions implementation and review, not art/device/child acceptance.",
+      "source": "design/FASHION_DESIGNER_ROSHAN_2026-10-06.md#owner-correction-independent-clothing-slots---2026-10-07",
+      "checks": [
+        "scripts/fashion_parts_test_case.gd",
+        "tools/audit_fashion_slots.py"
+      ],
+      "checkable": true
     }
   ]
 }

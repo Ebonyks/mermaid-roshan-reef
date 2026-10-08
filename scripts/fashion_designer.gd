@@ -19,7 +19,7 @@ const SOURCES := {
 	"rainbow_dust_bunny": ["rainbow_friend"],
 }
 const SAVE_DICTIONARIES: Array[String] = [
-	"character_outfits", "outfits_unlocked",
+	"character_outfits", "character_clothing_parts", "outfits_unlocked",
 	"fashion_disguise_progress", "fashion_rewards_claimed", "fashion_dressing_progress"]
 const ORIGINAL_IDS := {
 	"roshan": "roshan_original", "rumi": "rumi_original",
@@ -56,6 +56,8 @@ static func normalise_save_patch(raw: Dictionary) -> Dictionary:
 static func restore(main: ReefMain, raw: Dictionary) -> void:
 	var patch: Dictionary = normalise_save_patch(raw)
 	main.character_outfits = patch["character_outfits"]
+	main.character_clothing_parts = patch["character_clothing_parts"]
+	main.fashion_composed_textures.clear()
 	main.outfits_unlocked = patch["outfits_unlocked"]
 	main.fashion_disguise_progress = patch["fashion_disguise_progress"]
 	main.fashion_dressing_progress = patch["fashion_dressing_progress"]
@@ -66,6 +68,8 @@ static func restore(main: ReefMain, raw: Dictionary) -> void:
 static func selected(main: ReefMain, character_id: String) -> String:
 	if main == null or not ORIGINAL_IDS.has(character_id):
 		return ""
+	if character_id in FashionParts.PEOPLE:
+		return FashionParts.selected(main, character_id, "body")
 	var value: Variant = main.character_outfits.get(character_id, ORIGINAL_IDS[character_id])
 	# Unknown future IDs stay in the save; presentation falls back without erasure.
 	if value is String:
@@ -79,7 +83,7 @@ static func owned(main: ReefMain, id: String) -> bool:
 	var definition: Dictionary = outfit(id)
 	if main == null or definition.is_empty():
 		return false
-	return String(definition["kind"]) in ["original", "ribbon"] \
+	return bool(definition.get("starter", false)) or String(definition["kind"]) in ["original", "ribbon"] \
 		or _flag(main.outfits_unlocked, id)
 
 static func grant(main: ReefMain, id: String) -> bool:
@@ -100,27 +104,38 @@ static func refresh_unlocks(main: ReefMain) -> void:
 			grant(main, PARTY_DRESS if id == "roshan" else id + "_party_v1")
 		if garden_ready:
 			grant(main, id + "_garden_v1")
+	FashionParts.refresh_unlocks(main)
 	if next_disguise_phase(main) >= 3:
 		grant(main, "roshan_garden_disguise_v1")
 
 static func equip(main: ReefMain, character_id: String, id: String,
 		intentional: bool = false) -> bool:
 	var definition: Dictionary = outfit(id)
-	if not intentional or String(definition.get("character", "")) != character_id \
+	if not intentional or not FashionParts.fits(definition, character_id) \
 			or not owned(main, id):
 		return false
-	var changed: bool = main.character_outfits.get(character_id, "") != id
-	main.character_outfits[character_id] = id
+	var slot: String = String(definition.get("slot", "body"))
+	var changed: bool = FashionParts.selected(main, character_id, slot) != id if character_id in FashionParts.PEOPLE else main.character_outfits.get(character_id, "") != id
+	if character_id in FashionParts.PEOPLE:
+		var parts: Dictionary = FashionParts.raw_parts(main, character_id)
+		parts[slot] = id
+		main.character_clothing_parts[character_id] = parts
+	if slot == "body":
+		main.character_outfits[character_id] = id
 	if character_id in ["roshan", "rumi", "daddy_mermaid"]:
 		var raw: Variant = main.fashion_dressing_progress.get(character_id, {})
 		var fitted: Dictionary = (raw as Dictionary).duplicate(true) if raw is Dictionary else {}
 		fitted["dressed"] = true
-		fitted["outfit_id"] = id
+		fitted["outfit_id"] = selected(main, character_id)
+		var old_parts: Variant = fitted.get("parts", {})
+		var journal: Dictionary = (old_parts as Dictionary).duplicate(true) if old_parts is Dictionary else {}
+		journal.merge(FashionParts.selections(main, character_id), true)
+		fitted["parts"] = journal
 		main.fashion_dressing_progress[character_id] = fitted
 	var legacy_skin: bool = main.skin_id != "classic"
 	if character_id == "roshan":
 		main.skin_id = "classic"
-		if id == PARTY_DRESS and main._chapter_two_ref().party_is_ready() \
+		if slot == "body" and id == PARTY_DRESS and main._chapter_two_ref().party_is_ready() \
 				and not main.chapter2_party_started:
 			main.chapter2_party_dress_done = true
 	if character_id == "roshan" and legacy_skin:
@@ -159,17 +174,17 @@ static func complete_disguise_phase(main: ReefMain, phase: int, choice: String,
 	if not intentional or not practice_available(main) \
 			or phase != next_disguise_phase(main) or phase >= 3:
 		return false
-	var expected: String = "finish_bow" if phase == 2 else "roshan_garden_v1"
-	if choice != expected or not owned(main, "roshan_garden_v1"):
+	var expected: String = ["roshan_garden_v1","tail_strawberry_v1","finish_bow"][phase]
+	if choice != expected or not owned(main, "roshan_garden_v1") or (phase == 1 and not owned(main,"tail_strawberry_v1")):
 		return false
 	var old_mask: Variant = main.fashion_disguise_progress.get("completed_mask", 0)
 	main.fashion_disguise_progress["completed_mask"] = _disguise_mask(old_mask) | ((1 << (phase + 1)) - 1)
 	if phase < 2:
-		equip(main, "roshan", "roshan_garden_v1", true)
+		equip(main, "roshan", expected, true)
 	else:
 		grant(main, "roshan_garden_disguise_v1")
 		main.fashion_rewards_claimed["garden_disguise_v1"] = true
-		equip(main, "roshan", "roshan_garden_disguise_v1", true)
+		equip(main, "roshan", "head_pearl_v1", true)
 	return true
 
 static func main_for(node: Node) -> ReefMain:

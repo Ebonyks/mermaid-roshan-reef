@@ -1,6 +1,6 @@
 {
   "schema": "fashion_designer_feature_card/1",
-  "status": "LOCAL_MACHINE_VERIFIED_SHARED_SKIN_ENGINE_CANDIDATE",
+  "status": "IMPLEMENTED_INDEPENDENT_SLOTS_PENDING_ACCEPTANCE",
   "baseline": "96274aab9cebd563b10846a4a48de5d017588563",
   "owner_direction_date": "2026-10-06",
   "brief": "design/FASHION_DESIGNER_ROSHAN_2026-10-06.md",
@@ -15,7 +15,8 @@
     "shared_godot_skin_engine": true,
     "preserve_existing_animation_and_identity": true,
     "dress_up_roshan_daddy_rumi_now": true,
-    "painted_graphics_imagegen": true
+    "painted_graphics_imagegen": true,
+    "independent_head_body_tail": true
   },
   "later_disguise_story_binding": {
     "chapter": null,
@@ -34,7 +35,7 @@
   ],
   "equipment": {
     "first_format": "closed_outfit_ids_with_assembled_garment_or_accessory_variants",
-    "mix_and_match": "candidate_extension_requires_compatible_pose_anchors",
+    "mix_and_match": "independent_head_body_tail_with_per_pose_painted_layers_and_one_current_mix_per_family",
     "equip": "one_intentional_tap_applies_and_saves",
     "exit": "navigation_keeps_equipped_choice",
     "unlock": "idempotent_grant_never_auto_equips",
@@ -44,7 +45,8 @@
       "saved_everyday_outfit",
       "original_character_appearance"
     ],
-    "fixed_footage_limit": "Owner-selected flattened clips cannot dynamically show arbitrary saved outfits."
+    "fixed_footage_limit": "Owner-selected flattened clips cannot dynamically show arbitrary saved outfits.",
+    "save_schema": "additive_character_clothing_parts_preserves_legacy_outfits_and_future_fields"
   },
   "candidate_activities": [
     {
@@ -52,24 +54,24 @@
       "verb": "match_pictured_role",
       "cue": "fashion_role_pick",
       "line": "Tap the garden outfit in the picture!",
-      "result": "chosen_compatible_outfit_equipped",
-      "completion": "child_selects_outfit_with_required_role_traits"
+      "result": "garden_body_equipped_without_replacing_other_slots",
+      "completion": "intentional_body_match"
     },
     {
       "id": "blend_into_setting",
       "verb": "compare_and_try_disguise",
       "cue": "fashion_blend_pick",
       "line": "Let us blend in! Pick clothes like our garden friend!",
-      "result": "chosen_garden_motif_visible_beside_pictured_garden_friend",
-      "completion": "child_selects_matching_silhouette_motif_and_context"
+      "result": "strawberry_tail_piece_matches_pictured_garden_friend",
+      "completion": "intentional_matching_tail_piece"
     },
     {
       "id": "finish_the_disguise",
       "verb": "tap_missing_piece",
       "cue": "fashion_finish_piece",
       "line": "Tap the bow to finish our disguise!",
-      "result": "compatible_piece_visibly_finishes_disguise",
-      "completion": "child_taps_bow_picture_to_apply_finished_disguise"
+      "result": "pearl_head_bow_completes_three_independent_slots",
+      "completion": "intentional_head_bow_then_compatible_legacy_reward"
     }
   ],
   "planned_save_defaults": {
@@ -78,7 +80,8 @@
     "fashion_disguise_progress": {},
     "fashion_rewards_claimed": {},
     "chapter2_party_dress_done": false,
-    "fashion_dressing_progress": {}
+    "fashion_dressing_progress": {},
+    "character_clothing_parts": {}
   },
   "save_contract": [
     "append_only",
@@ -91,9 +94,9 @@
     "never_overwrite_everyday_choice_with_temporary_costume"
   ],
   "acceptance": {
-    "implementation": "Shared catalog/texture engine, live updates and three repeatable dress-up rooms implemented.",
-    "machine": "Engine candidate passed exact Godot4.7.2 local full82 suite,55 atlas identity checks and actual GUI tap/drag/cancellation/touch/save tests. Durable receipt: assets_src/fashion_designer/skin_engine_v2/validation/machine_verification.json. Exact published-head CI is tracked separately in the PR.",
-    "visual": "Desktop Mobile review at 1280x720 and 1920x900; original character source hashes retained. All-pose owner art and target-device acceptance pending.",
+    "implementation": "Shared Godot skin engine with independent head/body/tail, persistent mixes for three mermaids, optional three-beat disguise practice, and the pre-party body dress gate.",
+    "machine": "Independent-slot candidate passes exact Godot4.7.2 full82 suite, actual GUI/animation-state/cache/disguise/transactional-reload checks, 260 layers / 2920 slot-cell geometry checks, and existing55 atlas comparisons. Receipt: assets_src/fashion_designer/slots_v1/machine_verification.json records the unchanged test-only native scene-reload diagnostic separately. Exact published-head CI tracked in the PR.",
+    "visual": "15 source-bound real Mobile desktop captures inspected at1280x720 and1920x900. Primary portrait poses only; full-pose fit/motion, phone and owner art acceptance remain pending.",
     "device": "PENDING",
     "child": "PENDING",
     "owner_art": "PENDING",
@@ -139,5 +142,18 @@
     "input": "Tap or optional one-finger garment placement; neutral cancellation",
     "animation_binding": "Private SpriteFrames bound before first playback; live set_frame retains timing/state",
     "source_cleanup_exception": "Daddy original look derived separately from approved PNG master; protected WEBP unchanged"
+  },
+  "current_dress_up_menu_characters": [
+    "roshan",
+    "rumi",
+    "daddy_mermaid"
+  ],
+  "slot_revision": {
+    "impact": "design/audit_impacts/fashion-slots-20261007.json",
+    "native_and_prompts": "assets_src/fashion_designer/slots_v1/generation_briefs.json",
+    "new_painted_garments": 18,
+    "reused_headpieces": 2,
+    "new_restore_picture": 1,
+    "art_device_child_owner": "PENDING"
   }
 }

@@ -32,10 +32,12 @@ static func _touch(main: ReefMain, point: Vector2, index: int, down: bool) -> vo
 static func run(main: ReefMain, check: Callable) -> void:
 	var old_skin: String = main.skin_id
 	var old_outfits: Dictionary = main.character_outfits.duplicate(true)
+	var old_parts: Dictionary = main.character_clothing_parts.duplicate(true)
 	var old_dressing: Dictionary = main.fashion_dressing_progress.duplicate(true)
 	main._start_menu_ref()._dismiss_menu() # Explicit focused-fixture setup.
 	await main.get_tree().process_frame
 	main.character_outfits = {}
+	main.character_clothing_parts = {}
 	main.fashion_dressing_progress = {"future_person":{"future":9}}
 	main.skin_id = "classic"
 	var source: Texture2D = load("res://assets/characters/roshan_25d/roshan_directional.png") as Texture2D
@@ -74,6 +76,7 @@ static func run(main: ReefMain, check: Callable) -> void:
 		FashionDesigner.equip(main,"roshan","roshan_original",true)
 	actor.queue_free()
 	main.character_outfits = {}
+	main.character_clothing_parts = {}
 	var wardrobe := FashionWardrobe.new(main)
 	wardrobe.open()
 	await main.get_tree().process_frame
@@ -147,12 +150,16 @@ static func run(main: ReefMain, check: Callable) -> void:
 	check.call(main._write_save(),"Engine dressing memory uses transactional save")
 	var saved: Dictionary = JSON.parse_string(FileAccess.get_file_as_string(ReefMain.SAVE_PATH)) as Dictionary
 	main.character_outfits = {}
+	main.character_clothing_parts = {}
 	main.fashion_dressing_progress = {}
 	FashionDesigner.restore(main,saved)
 	check.call(main.character_outfits.get("future_person") == "future_outfit" and (main.fashion_dressing_progress["rumi"] as Dictionary).get("future_field") == 17 and (main.fashion_dressing_progress["future_person"] as Dictionary).get("future") == 9,
 		"Disk save/reload retains dressing journal and future fields")
 	main.skin_id = old_skin
 	main.character_outfits = old_outfits
+	main.character_clothing_parts = old_parts
 	main.fashion_dressing_progress = old_dressing
 	FashionSkinEngine.refresh(main)
 	main._write_save()
+
+	await FashionPartsTestCase.run(main,check)

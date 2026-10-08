@@ -1,0 +1,4 @@
+* -text whitespace=cr-at-eol
+
+# Preserve native probe logs byte-for-byte, including authored trailing spaces.
+*.log -text -whitespace
