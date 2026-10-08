@@ -1,0 +1,120 @@
+{
+  "id": "whole-castle-halloween-concept-20261008",
+  "scope": "Owner correction 'the whole castle': extend the exterior-only Halloween concept to one source-review board covering the complete exterior and all 13 current castle rooms. Propose a shared holiday dressing trope using existing room architecture/furniture; do not integrate runtime artwork or invent castle topology.",
+  "baseline": "a0219865061cb4ac8a88d30924f33f24e934a3ae",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-AGE-08",
+    "DL-MED-01",
+    "DL-MED-05",
+    "DL-VIS-01",
+    "DL-VIS-02",
+    "DL-VIS-03",
+    "DL-VIS-04",
+    "DL-VIS-05",
+    "DL-VIS-10",
+    "DL-READ-01",
+    "DL-READ-03",
+    "DL-READ-04",
+    "DL-PERF-03",
+    "DL-ASSET-01",
+    "DL-ASSET-02",
+    "DL-ASSET-03",
+    "DL-ASSET-04",
+    "DL-ASSET-05",
+    "DL-ASSET-06"
+  ],
+  "findings": [
+    "MA-DOC-008",
+    "MA-VIS-008",
+    "MA-VIS-002"
+  ],
+  "finding_scope": "Context only. Exact source exemplars address the reference gap for this task, while quiet dressing respects the open castle overdraw finding. No runtime repair, finding closure, game-wide acceptance or source-approval claim.",
+  "files": [
+    "assets_src/castle/seasonal_halloween_whole_castle_20261008/halloween_whole_castle_concept_v2.png",
+    "assets_src/castle/seasonal_halloween_whole_castle_20261008/prompt.txt",
+    "assets_src/castle/seasonal_halloween_whole_castle_20261008/generation.json",
+    "assets_src/castle/seasonal_halloween_whole_castle_20261008/verification/full_ci.log",
+    "ASSET_LICENSES.md"
+  ],
+  "references_used": [
+    {
+      "path": "audit/castle_sprite3d/castle_room_2k_upscale_contact.png",
+      "purpose": "Actual bound input 3: seven original room architecture references in one existing contact sheet. Excluded fixture masks are not design/pixels to reproduce; known original fixture identities were separately inspected. This still-concept reference grants no cinematic-generation or runtime acceptance."
+    },
+    {
+      "path": "assets/sprites/sky_lagoon/sky_lagoon_castle_four_tower_v4.png",
+      "purpose": "Inspected original reference 1; unchanged source identity, room architecture or family-wing fixture authority"
+    },
+    {
+      "path": "assets_src/imagegen/castle_main_hall_redraw_2026-08-03/main_hall_production_master_7280x2048.png",
+      "purpose": "Inspected original reference 2; unchanged source identity, room architecture or family-wing fixture authority"
+    },
+    {
+      "path": "assets/flats/castle/rooms/room_opera_hall.png",
+      "purpose": "Inspected original reference 3; unchanged source identity, room architecture or family-wing fixture authority"
+    },
+    {
+      "path": "assets/flats/castle/rooms/room_kitchen.png",
+      "purpose": "Inspected original reference 4; unchanged source identity, room architecture or family-wing fixture authority"
+    },
+    {
+      "path": "assets/flats/castle/rooms/room_library.png",
+      "purpose": "Inspected original reference 5; unchanged source identity, room architecture or family-wing fixture authority"
+    },
+    {
+      "path": "assets/flats/castle/rooms/room_playroom.png",
+      "purpose": "Inspected original reference 6; unchanged source identity, room architecture or family-wing fixture authority"
+    },
+    {
+      "path": "assets/flats/castle/rooms/room_craft_room.png",
+      "purpose": "Inspected original reference 7; unchanged source identity, room architecture or family-wing fixture authority"
+    },
+    {
+      "path": "assets/flats/castle/rooms/room_mermaid_pool.png",
+      "purpose": "Inspected original reference 8; unchanged source identity, room architecture or family-wing fixture authority"
+    },
+    {
+      "path": "assets/flats/castle/rooms/room_bubble_bath.png",
+      "purpose": "Inspected original reference 9; unchanged source identity, room architecture or family-wing fixture authority"
+    },
+    {
+      "path": "assets_src/imagegen/castle_dream_house_2d_repair_2026-08-02/furnishing_family_sheet_alpha.png",
+      "purpose": "Inspected original reference 10; unchanged source identity, room architecture or family-wing fixture authority"
+    },
+    {
+      "path": "assets_src/imagegen/castle_dream_house_2d_repair_2026-08-02/door_family_sheet_alpha.png",
+      "purpose": "Inspected original reference 11; unchanged source identity, room architecture or family-wing fixture authority"
+    }
+  ],
+  "validation": [
+    {
+      "command": "Existing castle room/source inventory and review",
+      "result": "PASS",
+      "evidence": "Current scripts/arena/castle_rooms_25d.gd registry has 13 rooms. Inspected exterior, accepted long hall master, seven room composites, five family-wing background plates and the original furnishing/door sheets. Previous exterior-only concept cannot cover the owner-corrected scope. Named gap is one coordinated Halloween dressing overview throughout every existing room; no new environment design is commissioned."
+    },
+    {
+      "command": "Generated concept, exact source hash and scope review",
+      "result": "PASS",
+      "evidence": "Directly inspected the native 1536x1024 RGB board: all 14 labelled scenes present (exterior plus all 13 rooms), including every family-wing room. Native output SHA-256 54294f7270cf2ce3f78ca83c15b7024737c6c98e8c4c73c28a197f50d2ef415e; LF prompt SHA-256 1a03bb01b2ea605db23a211f18a2a31fae01a19c59bcce3be45ac012762b8859. Byte-identical native PNG copy; all 11 pre-recorded source hashes unchanged. generation.json records five actual bound sources, validation rejection, one completed generation and interpretive geometry/fixture/landscape limits. Concept review is not exact identity or runtime acceptance."
+    },
+    {
+      "command": "python -B tools/audit_document_authority.py; python -B tools/audit_development.py --base auto",
+      "result": "PASS",
+      "evidence": "Working source-review candidate from a0219865061cb4ac8a88d30924f33f24e934a3ae: DOCAUTH inventory/ledger 685/685, active 68/records 71, ALL OK; AUDITDEV BASE a0219865061cb4ac8a88d30924f33f24e934a3ae, ALL OK. New paths covered; no new Markdown authority. Existing finding lifecycle and navigation facts unchanged."
+    },
+    {
+      "command": "git diff --exit-code a0219865061cb4ac8a88d30924f33f24e934a3ae -- assets scripts scenes project.godot tools; inherited .gdignore and native/source hash checks",
+      "result": "PASS",
+      "evidence": "Exit 0: runtime art, scripts, scenes, configuration and source tools unchanged. Only this source-review board, prompt/provenance/CI evidence, license row and impact record added/changed. assets_src/.gdignore present; original exterior-only concept preserved."
+    },
+    {
+      "command": "Git Bash scripts/ci.sh with resolver-selected exact Godot 4.7.2-stable",
+      "result": "PASS",
+      "evidence": "Working source-review candidate from a0219865061cb4ac8a88d30924f33f24e934a3ae: full local suite exit 0 and 82 distinct trusted probes, each process exit 0, using exact 4.7.2.stable.official.ed1daf0bf. Existing source/provenance/audio/music/import/2D-regression and visual-contract gates passed in their scopes. Log assets_src/castle/seasonal_halloween_whole_castle_20261008/verification/full_ci.log, SHA-256 of LF-canonical bytes 78b4fa4816ad31768d9d33dfe3ac289bf8ddd068414cb1148a92412c3a16d9ee. Visual-contract tests 95/95; stress 18/18. Actual concept acceptance and future runtime/device/child evidence remain separate; game-wide master remains UNSATISFIED."
+    }
+  ],
+  "acceptance_gaps": "Static concept candidate only. Owner creative acceptance pending. No runtime change; future production needs original-pixel preservation/owned decorations, actual Canvas integration, Mobile phone readability/performance and owner/device/child evidence. Existing global master audit UNSATISFIED and finding lifecycles unchanged. This is not a picture-book adaptation, cinematic/external handoff, or release."
+}

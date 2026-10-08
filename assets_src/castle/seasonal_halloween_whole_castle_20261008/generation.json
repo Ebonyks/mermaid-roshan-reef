@@ -1,0 +1,193 @@
+{
+  "id": "halloween-whole-castle-concept-20261008-v2",
+  "status": "CONCEPT_CANDIDATE_ONLY",
+  "owner_request": "Let's make a concept drawing for the halloween castle, add seasonal decorations. We're going to have several holiday castle decorations, so making it a trope could be helpful",
+  "scope_clarification": "the *whole* castle",
+  "date_local": "2026-10-08",
+  "baseline": "a0219865061cb4ac8a88d30924f33f24e934a3ae",
+  "previous_concept": {
+    "path": "assets_src/castle/seasonal_halloween_20261007/halloween_castle_concept_v1.png",
+    "status": "EXTERIOR_ONLY_PREVIOUS_SCOPE; preserved as provenance, not complete coverage of owner-corrected scope"
+  },
+  "workflow": "OpenAI built-in image_gen.imagegen; one source-bound whole-castle concept board; no CLI fallback",
+  "provider_model_revision": "Not exposed by built-in tool",
+  "request_id": "Not exposed; exec-b14be090-c2a0-4348-845f-6024a96858c2.png is the native artifact filename, not a provider request ID",
+  "seed": "Not exposed",
+  "started_at_utc": "2026-10-08T13:51:25Z",
+  "completed_at_utc": "2026-10-08T13:52:37Z",
+  "generated_attempts": 1,
+  "pre_generation_validation_rejections": [
+    {
+      "reason": "referenced_image_paths supports at most 5 paths; initial 11-reference request rejected before generation",
+      "resolution": "Use existing architectural room contact sheet plus original hall, exterior, furnishing and doorway family references"
+    }
+  ],
+  "reported_cost": null,
+  "reported_token_usage": null,
+  "budget_accounting": "One completed built-in image generation; one immediately rejected argument-validation request; no separately purchased API job or backend switch.",
+  "prompt_path": "assets_src/castle/seasonal_halloween_whole_castle_20261008/prompt.txt",
+  "prompt_lf_sha256": "1a03bb01b2ea605db23a211f18a2a31fae01a19c59bcce3be45ac012762b8859",
+  "inputs": [
+    {
+      "path": "assets/sprites/sky_lagoon/sky_lagoon_castle_four_tower_v4.png",
+      "role": "approved_exterior_identity_style_reference",
+      "sha256": "08e3b8503520f3657e7f788bc74c967b76692f5dd292e0971495677f0e695a42",
+      "dimensions": [
+        1022,
+        1024
+      ],
+      "modification_status": "Original untouched",
+      "acceptance_scope": "Source reference only; does not establish owner acceptance of generated seasonal concept",
+      "license_provenance": "Retain exact existing project source provenance and ASSET_LICENSES.md terms",
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets_src/imagegen/castle_main_hall_redraw_2026-08-03/main_hall_production_master_7280x2048.png",
+      "role": "accepted_long_main_hall_architecture_reference",
+      "sha256": "297cd6d181288ef6cc364a71a89fdb4da168f688249ca910995e71f6f769a9dd",
+      "dimensions": [
+        7280,
+        2048
+      ],
+      "modification_status": "Original untouched",
+      "acceptance_scope": "Source reference only; does not establish owner acceptance of generated seasonal concept",
+      "license_provenance": "Retain exact existing project source provenance and ASSET_LICENSES.md terms",
+      "mode": "RGB"
+    },
+    {
+      "path": "audit/castle_sprite3d/castle_room_2k_upscale_contact.png",
+      "role": "existing_seven_room_architecture_contact_sheet_only_blurred_fixture_masks_excluded",
+      "sha256": "e9d22270ea6084539a18b49f8c2ec50bd43af703fae08f3a34c04f3ad5c1a24a",
+      "dimensions": [
+        1024,
+        1368
+      ],
+      "modification_status": "Original untouched",
+      "acceptance_scope": "Source reference only; does not establish owner acceptance of generated seasonal concept",
+      "license_provenance": "Retain exact existing project source provenance and ASSET_LICENSES.md terms",
+      "mode": "RGB"
+    },
+    {
+      "path": "assets_src/imagegen/castle_dream_house_2d_repair_2026-08-02/furnishing_family_sheet_alpha.png",
+      "role": "existing_family_wing_furnishing_identity_reference",
+      "sha256": "c188a7e07e04f71e401fc9337815b58fe817472a92b271440c4ab864ca12f631",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "modification_status": "Original untouched",
+      "acceptance_scope": "Source reference only; does not establish owner acceptance of generated seasonal concept",
+      "license_provenance": "Retain exact existing project source provenance and ASSET_LICENSES.md terms",
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets_src/imagegen/castle_dream_house_2d_repair_2026-08-02/door_family_sheet_alpha.png",
+      "role": "existing_family_wing_door_identity_reference",
+      "sha256": "36c4b4176f5038e25217eee78b7a6ac1480a11fe22a11ab949ad61d5fccb349d",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "modification_status": "Original untouched",
+      "acceptance_scope": "Source reference only; does not establish owner acceptance of generated seasonal concept",
+      "license_provenance": "Retain exact existing project source provenance and ASSET_LICENSES.md terms",
+      "mode": "RGBA"
+    }
+  ],
+  "inspected_source_inventory": [
+    "assets/sprites/sky_lagoon/sky_lagoon_castle_four_tower_v4.png",
+    "assets_src/imagegen/castle_main_hall_redraw_2026-08-03/main_hall_production_master_7280x2048.png",
+    "assets/flats/castle/rooms/room_opera_hall.png",
+    "assets/flats/castle/rooms/room_kitchen.png",
+    "assets/flats/castle/rooms/room_library.png",
+    "assets/flats/castle/rooms/room_playroom.png",
+    "assets/flats/castle/rooms/room_craft_room.png",
+    "assets/flats/castle/rooms/room_mermaid_pool.png",
+    "assets/flats/castle/rooms/room_bubble_bath.png",
+    "assets_src/imagegen/castle_dream_house_2d_repair_2026-08-02/furnishing_family_sheet_alpha.png",
+    "assets_src/imagegen/castle_dream_house_2d_repair_2026-08-02/door_family_sheet_alpha.png"
+  ],
+  "reuse_inventory": {
+    "room_registry": "scripts/arena/castle_rooms_25d.gd",
+    "room_count": 13,
+    "additional_sources": "Inspected five family-wing room background plates and old main-hall composite/clean plate; use accepted long hall master instead of obsolete hall architecture. Do not bind old HUD/backpack runtime contact captures.",
+    "named_gap": "The existing exterior-only Halloween concept does not dress or show all castle interiors. No existing coordinated whole-castle Halloween concept found.",
+    "generation_scope": "One review-only seasonal overview, preserving recognizable source room families; no replacement architecture, new gameplay, characters or story scenes commissioned."
+  },
+  "output": {
+    "path": "assets_src/castle/seasonal_halloween_whole_castle_20261008/halloween_whole_castle_concept_v2.png",
+    "sha256": "54294f7270cf2ce3f78ca83c15b7024737c6c98e8c4c73c28a197f50d2ef415e",
+    "dimensions": [
+      1536,
+      1024
+    ],
+    "mode": "RGB",
+    "transparent_background": false,
+    "native_output_preserved": true,
+    "postprocessing": "Byte-identical copy of native generated PNG; no image resize, crop, recolor, compositing, recompression or pixel editing",
+    "runtime_eligible": false,
+    "runtime_exclusion": "Non-runtime source-review folder under inherited assets_src/.gdignore; adult labelled concept overview is not a background, atlas, fixture or pixel-locked production source",
+    "license": "OpenAI-generated output with existing project reference source terms retained",
+    "license_url": "https://openai.com/policies/terms-of-use/"
+  },
+  "coverage": {
+    "arrangement": "Top: exterior and main hall. Below: 3 rows of 4 destination-room scenes. Illustrated overview; no spatial adjacency, room-size or floor-plan claim.",
+    "scenes": [
+      "Pearl Castle Exterior",
+      "Main Hall",
+      "Opera Hall",
+      "Royal Kitchen",
+      "Royal Library",
+      "Stuffie Playroom",
+      "Craft Room",
+      "Mermaid Pool",
+      "Bubble Bath",
+      "Family Dining Room",
+      "Royal Bedroom",
+      "Sleepover Bedroom",
+      "Cloud Movie Lounge",
+      "Dream House Wing"
+    ],
+    "scene_count": 14,
+    "interior_room_count": 13
+  },
+  "seasonal_trope_proposal": {
+    "name": "The castle dresses for the occasion",
+    "status": "PROPOSED_FROM_OWNER_REQUEST; not a new binding design rule",
+    "constant": "Familiar shell castle architecture, existing room identity/fixtures, physical door routes, unobstructed action surfaces and walking lanes",
+    "shared_slots": [
+      "Upper cornices, door surrounds and balcony/bridge rails: ribbon/paper garlands",
+      "Quiet side/base clusters: seasonal lamps or props",
+      "Existing textiles: small cushion, towel, canopy or napkin accents",
+      "Room-specific display surfaces: one centerpiece, craft display or shelf ornament"
+    ],
+    "halloween": "Orange/plum ribbons, rounded paper bats, friendly white cloth ghosts, smiling pumpkins and shell/leaf accents",
+    "room_variation": "The same theme adapts to cooking, reading, crafts, toys, performance, water, dining, sleeping and watching movies rather than copying one generic arrangement everywhere.",
+    "future_use": "Swap seasonal motifs on the same known dressing locations for future owner-requested holidays, preserving room identity.",
+    "future_runtime_boundary": "Production should retain approved original pixels and preserve child-authored banner/logo copies. Existing whole-sprite/owned-alpha and overdraw rules remain binding. Determine each complete decoration's draw ownership, avoid painted-copy duplicates, then review actual Canvas/phone states; this board authorizes no new runtime layers."
+  },
+  "visual_review": {
+    "reviewer": "Codex direct inspection of generated board against inspected source art",
+    "result": "CONCEPT_REVIEW_ONLY",
+    "observations": "All 14 labelled panels visible: exterior plus all 13 registry rooms, including every family-wing room. Bright lavender/aqua shell world, coherent orange/plum seasonal accents; recognizable kitchen, reading, stage, craft, pool, bath, dining, sleeping and movie fixtures. Pool retains rainbow waterfall and recognizable seahorse fountain; sleepover shows three distinct beds. No HUD or new human character.",
+    "limits": "Generated details and fixture placement are interpretive, not pixel-locked. Exterior invents surrounding landscape and compresses architectural proportions; Main Hall compresses its long door run and cannot establish route completeness; Stuffie Playroom furnishings/plush arrangement and other room details drift. Labels are adult-board annotations only. Do not copy invented surroundings, shifted fixture geometry or compressed door counts into runtime. The board proposes holiday dressing only; exact fixture/portrait/banner identity and performance need later owner/source review.",
+    "owner_acceptance": "PENDING",
+    "device_child_runtime_acceptance": "Not performed; no runtime change"
+  },
+  "canonical_effect": "No story canon, finding lifecycle, document authority, save, runtime, release or game-wide audit state changed",
+  "audit_impact": "design/audit_impacts/whole-castle-halloween-concept-20261008.json",
+  "verification": {
+    "command": "Git Bash scripts/ci.sh with resolver-selected Godot 4.7.2-stable",
+    "result": "PASS",
+    "baseline": "a0219865061cb4ac8a88d30924f33f24e934a3ae",
+    "log_path": "assets_src/castle/seasonal_halloween_whole_castle_20261008/verification/full_ci.log",
+    "acceptance_limit": "Source-review artifact regression evidence only. Creative acceptance and future runtime/device/child checks remain separate.",
+    "exit_code": 0,
+    "engine": "4.7.2.stable.official.ed1daf0bf",
+    "trusted_probes": 82,
+    "all_probe_process_exits_zero": true,
+    "completed_at_utc": "2026-10-08T14:39:24.516193+00:00",
+    "log_lf_sha256": "78b4fa4816ad31768d9d33dfe3ac289bf8ddd068414cb1148a92412c3a16d9ee",
+    "log_normalization": "UTF-8 evidence with CRLF normalized to LF; native console trailing whitespace preserved; raw log retained in ignored tmp"
+  }
+}
