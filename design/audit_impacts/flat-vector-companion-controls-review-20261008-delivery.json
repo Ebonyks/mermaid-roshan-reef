@@ -1,0 +1,41 @@
+{
+  "id": "flat-vector-companion-controls-review-20261008-delivery",
+  "scope": "Publish R4 exact-remote verification receipt and immutable CHG-034 publication history. Receipt-only follow-up;frozen543-file R4 payload/manifest and runtime art/source remain unchanged. Preserve full inventory before new pixel production and unresolved global/device/child/owner scope.",
+  "baseline": "5e5140fb0f0b636825354b6db8d28da0e9c07446",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-ASSET-01",
+    "DL-ASSET-02",
+    "DL-ASSET-03",
+    "DL-QA-10",
+    "DL-QA-11",
+    "DL-QA-14"
+  ],
+  "findings": [
+    "MA-DOC-008"
+  ],
+  "files": [
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/REMOTE_VERIFICATION.json",
+    "audit/MASTER_AUDIT_CHANGELOG_ROLLBACK_2026-08-10.md",
+    "design/audit_impacts/flat-vector-companion-controls-review-20261008-delivery.json"
+  ],
+  "validation": [
+    {
+      "command": "Anonymous immutable remote manifest/payload/supporting-source/requiredprojectfile byte/SHA fetch plus connected intendedownerpublicaccess check",
+      "result": "PASS",
+      "evidence": "REMOTE_VERIFICATION.json for payload5e5140fb0f0b636825354b6db8d28da0e9c07446;857payloadfiles,467supportingsourcefiles,16requiredprojectfiles;680657594payloadbytes;manifestSHA25693e98cde4d55c8140619275fdfe4b8d69ec08042537c9e877635b67c78da2dcf;payloaddigest45093cd20af746a56683c054e7d017b5887d166939df01ebd3d6fad90603d2c7;checked2026-10-08T10:18:47.155377+00:00.EveryrequiredbyteandHTTP200verified. Public/ownerEbonyksaccess only;noGrok/creativeacceptanceclaim."
+    },
+    {
+      "command": "Receipt-only authority/development/whitespace then exactremote receipt revision and frozenmanifest literal bytes",
+      "result": "PENDING",
+      "evidence": "Runbeforecommit/push;independentfinalreceiptpublicationcheck follows exactnewcommithash. Thispendingrecord reflectspre-publicationtime andwillnotbe rewrittenrecursively."
+    }
+  ],
+  "acceptance_gaps": "R5isremoteverifiedpartialinventory:604frames;43/176partial,zero complete;6/369scopesclassified,363unresolved;23newnamededitorartinstancesrequire replacement. Fullweaknessinventorynotcomplete;zero newreplacementpixels/removals andnoDL-QA-11/device/child/owner/strictzeroacceptance.",
+  "task": "Publish and remotely verify the R5 companion/editor audit payload and its receipt; preserve full game-wide goal and pending evidence.",
+  "capture_source_revision": "6c2f3fb6b47ac247521cb4bd029d258c4f060693",
+  "remote_payload_revision": "5e5140fb0f0b636825354b6db8d28da0e9c07446",
+  "receipt_sha256": "177947bd74e2ecdf273c640d055cab00e74f599b6acaf86bf6c0dcc4d92d4d77"
+}
