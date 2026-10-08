@@ -357,6 +357,8 @@ LINES = {
     "roshan_op_painter_sketch_stage": ("roshan", "Paint across the cloudy canvas to reveal the sunrise!"),
     "roshan_op_painter_splat_stage": ("roshan", "Add any five bright finishing stamps!"),
     "roshan_op_painter_reveal_stage": ("roshan", "Choose the glowing frame and hang your sunrise!"),
+    "roshan_op_astronaut_gears": ("roshan", "Fit each gear into its matching space. Make the machine turn!"),
+    "roshan_op_astronaut_pressure": ("roshan", "Slide each valve up or down. Put the needles in the green!"),
     "roshan_op_astronaut_pipes_stage": ("roshan", "Connect the fuel tank to the rocket through three pipe boards!"),
     "roshan_op_astronaut_patch_stage": ("roshan", "Patch every sparkling leak on the rocket!"),
     "roshan_op_astronaut_launch_stage": ("roshan", "Hold through the countdown and launch!"),

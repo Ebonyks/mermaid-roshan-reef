@@ -1,0 +1,441 @@
+{
+  "result": "PRIMARY_ACTION_AND_ROUTE_GAPS_REVIEW",
+  "checked_utc": "2026-10-07T22:33:57.141831+00:00",
+  "previous_goal_turn": "PROGRESS: correctedOpera1385/boss12completefocusedverdicts and currentdocumentgates; originalone-commandfullCIFAILretained.",
+  "baseline": "96274aab9cebd563b10846a4a48de5d017588563",
+  "reviewer": "Primaryimplementer; no independent reviewer claim",
+  "sources": [
+    {
+      "path": "scripts/opera_astronaut_surface.gd",
+      "sha256": "21857d8e719c2fc355d68381abf927b58f86037a7100ba0aead0735a87146eb7"
+    },
+    {
+      "path": "scripts/opera_career_world_2d.gd",
+      "sha256": "b567bb47894a25f26cb94e70b24ec3eda55e7e2ee6ab45247d46a2a13e8642cf"
+    },
+    {
+      "path": "scripts/chapter_two_director.gd",
+      "sha256": "789ee737eec9477c8b1d6a89b60b6747accc14a6568b2dfa924fa3e5fca42d8d"
+    },
+    {
+      "path": "scripts/chapter_two_career_scene_adapter.gd",
+      "sha256": "ffdcd602711a6acc42a5c6352ad8cbb701316f94c21233356fb56071f85ad40a"
+    },
+    {
+      "path": "scripts/main.gd",
+      "sha256": "4f8787e5e788f100e6fd44f646435f6afeaee4a58965b5292630d2410de7f6f5"
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/capture_birthday_native_v9.gd",
+      "sha256": "4f121b2481205912dde5cb07e94df4029c0895f82379b87cd6d0e75bc4a6746a"
+    },
+    {
+      "path": "design/CHAPTER2_EIGHT_CAREER_PRODUCTION_SPINE_2026-08-30.md",
+      "sha256": "6415353b4bf286d3da28f5d7596a15fecaa6ba7d875c5159b7639ac85859c912"
+    },
+    {
+      "path": "design/animation/ROSHAN_MOVEMENT_LANGUAGE.md",
+      "sha256": "cbe26bef2bef2228ba9abde1765d7872945eadde45ae146581b643d991cfc716"
+    },
+    {
+      "path": "design/reference/gold_star.json",
+      "sha256": "5a8ede7c0e1e386ce90e43d28d8ed8635527d5c070dedadf0f707f995dee88d8"
+    },
+    {
+      "path": "design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md",
+      "sha256": "6c73d8ffc89ffa99b8dbf2972365a190003914a60fc6807df166c0056cbff6b8"
+    },
+    {
+      "path": "design/05_DOC_LEDGER.md",
+      "sha256": "0cb6ba9d732a6a1a532d61560929aa0f98127ec2bfb64a8da0d8fc00eba425d0"
+    },
+    {
+      "path": "audit/MASTER_AUDIT_2026-08-09.md",
+      "sha256": "942d13e2ffe29c226383bb1e8bc7729137246495140156a880fe395d29b2891d"
+    },
+    {
+      "path": "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
+      "sha256": "ad8e7588160c3787ae5e5bc7270c16776e5e08aca45165089d20b37fd214b6a1"
+    }
+  ],
+  "native_manifest_bindings": [
+    {
+      "path": "NATIVE_BIRTHDAY_CAPTURE_V9_1280_MANIFEST.json",
+      "sha256": "b19c9783739d79769a83fc7520c74c746cb88c9b13bee2eaf7f54f12bafce081",
+      "frames_rehashed": 140
+    },
+    {
+      "path": "NATIVE_BIRTHDAY_CAPTURE_V9_1600_MANIFEST.json",
+      "sha256": "cd1b866f1fcac619946f9aa669993291c29820873859dd4786c41ae92f4f5fd9",
+      "frames_rehashed": 140
+    }
+  ],
+  "newly_inspected_original_frames": [
+    {
+      "label": "phase1_patch_wait_reveal",
+      "path": "tmp/astronaut_native_birthday_capture_v9_20261007/1280x720/frames/0046_phase1_patch_wait_reveal.png",
+      "sha256": "75541df189c6bd0c7158ab447812cdedb0eaae459e89da35efb669a059ba8bc9",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "monotonic_msec": 49000,
+      "process_frame": 3203,
+      "rendered_frame": 3203
+    },
+    {
+      "label": "phase1_patch_contact_a",
+      "path": "tmp/astronaut_native_birthday_capture_v9_20261007/1280x720/frames/0052_phase1_patch_contact_a.png",
+      "sha256": "d78178ad87aa29f6a26f840c99c9c0b5c5e1940fc91f44b058645dd65e6f55a5",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "monotonic_msec": 50922,
+      "process_frame": 3209,
+      "rendered_frame": 3209
+    },
+    {
+      "label": "phase1_patch_contact_b",
+      "path": "tmp/astronaut_native_birthday_capture_v9_20261007/1280x720/frames/0054_phase1_patch_contact_b.png",
+      "sha256": "68e27df1ed66bd1844fdd0d7085d58c9c73f5146f08b04e485c93d6bf340a4e5",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "monotonic_msec": 51535,
+      "process_frame": 3211,
+      "rendered_frame": 3211
+    },
+    {
+      "label": "phase1_patch_release",
+      "path": "tmp/astronaut_native_birthday_capture_v9_20261007/1280x720/frames/0056_phase1_patch_release.png",
+      "sha256": "d36effadf8447c5eb004996850c996e93465b2dcf523e2be59ea7df5b952e18a",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "monotonic_msec": 52179,
+      "process_frame": 3213,
+      "rendered_frame": 3213
+    },
+    {
+      "label": "phase2_valve_anticipation",
+      "path": "tmp/astronaut_native_birthday_capture_v9_20261007/1280x720/frames/0080_phase2_valve_anticipation.png",
+      "sha256": "09e0e10706efd4920587be22f868a7a8c32c719a4c59e241f17aaf306a881fa4",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "monotonic_msec": 72255,
+      "process_frame": 4937,
+      "rendered_frame": 4937
+    },
+    {
+      "label": "phase2_valve_release",
+      "path": "tmp/astronaut_native_birthday_capture_v9_20261007/1280x720/frames/0114_phase2_valve_release.png",
+      "sha256": "0a0952d391dedeb236999ea3a0eaef035bd791fcf48c592d4417721bd954f9d0",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "monotonic_msec": 90208,
+      "process_frame": 5907,
+      "rendered_frame": 5907
+    },
+    {
+      "label": "phase3_open",
+      "path": "tmp/astronaut_native_birthday_capture_v9_20261007/1280x720/frames/0117_phase3_open.png",
+      "sha256": "9bab320c79c66b69605ad215274bf17e68de749900312c8121652126390adead",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "monotonic_msec": 94774,
+      "process_frame": 6419,
+      "rendered_frame": 6419
+    },
+    {
+      "label": "phase3_completed",
+      "path": "tmp/astronaut_native_birthday_capture_v9_20261007/1280x720/frames/0138_phase3_completed.png",
+      "sha256": "ed6f6b606012d9a64f517b562ddab8e996f705adf43e53f7bdde1514b9753a4f",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "monotonic_msec": 108453,
+      "process_frame": 7411,
+      "rendered_frame": 7411
+    }
+  ],
+  "edits_to_source_or_pixels": [],
+  "new_engine_or_generation_calls": 0,
+  "sampled_geometry": [
+    {
+      "aspect": 1280,
+      "phase": 0,
+      "frame_count": 41,
+      "actor_scale_count": 1,
+      "sampled_actor_region_count": 9,
+      "actor_size_min": [
+        249.999908447266,
+        250.000091552734
+      ],
+      "actor_size_max": [
+        250.000610351563,
+        250.000213623047
+      ],
+      "crank_rotation_range": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "aspect": 1280,
+      "phase": 1,
+      "frame_count": 34,
+      "actor_scale_count": 1,
+      "sampled_actor_region_count": 8,
+      "actor_size_min": [
+        250.000183105469,
+        249.999694824219
+      ],
+      "actor_size_max": [
+        250.000671386719,
+        250.000915527344
+      ],
+      "crank_rotation_range": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "aspect": 1280,
+      "phase": 2,
+      "frame_count": 41,
+      "actor_scale_count": 1,
+      "sampled_actor_region_count": 8,
+      "actor_size_min": [
+        250.000457763672,
+        250.000305175781
+      ],
+      "actor_size_max": [
+        250.000946044922,
+        250.000427246094
+      ],
+      "crank_rotation_range": [
+        0.0,
+        11.3216225539087
+      ]
+    },
+    {
+      "aspect": 1280,
+      "phase": 3,
+      "frame_count": 22,
+      "actor_scale_count": 1,
+      "sampled_actor_region_count": 5,
+      "actor_size_min": [
+        250.000610351563,
+        250.000381469727
+      ],
+      "actor_size_max": [
+        250.001037597656,
+        250.000457763672
+      ],
+      "crank_rotation_range": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "aspect": 1600,
+      "phase": 0,
+      "frame_count": 41,
+      "actor_scale_count": 1,
+      "sampled_actor_region_count": 9,
+      "actor_size_min": [
+        249.999816894531,
+        249.999847412109
+      ],
+      "actor_size_max": [
+        250.000305175781,
+        250.000381469727
+      ],
+      "crank_rotation_range": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "aspect": 1600,
+      "phase": 1,
+      "frame_count": 34,
+      "actor_scale_count": 1,
+      "sampled_actor_region_count": 8,
+      "actor_size_min": [
+        250.000396728516,
+        250.000061035156
+      ],
+      "actor_size_max": [
+        250.000549316406,
+        250.000244140625
+      ],
+      "crank_rotation_range": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "aspect": 1600,
+      "phase": 2,
+      "frame_count": 41,
+      "actor_scale_count": 1,
+      "sampled_actor_region_count": 8,
+      "actor_size_min": [
+        250.00048828125,
+        250.000061035156
+      ],
+      "actor_size_max": [
+        250.000610351563,
+        250.000549316406
+      ],
+      "crank_rotation_range": [
+        0.0,
+        11.31296466446
+      ]
+    },
+    {
+      "aspect": 1600,
+      "phase": 3,
+      "frame_count": 22,
+      "actor_scale_count": 1,
+      "sampled_actor_region_count": 5,
+      "actor_size_min": [
+        250.000549316406,
+        250.000350952148
+      ],
+      "actor_size_max": [
+        250.000610351563,
+        250.000396728516
+      ],
+      "crank_rotation_range": [
+        0.0,
+        0.0
+      ]
+    }
+  ],
+  "observations": [
+    {
+      "phase": "PATCH",
+      "evidence_labels": [
+        "phase1_patch_wait_reveal",
+        "phase1_patch_contact_a",
+        "phase1_patch_contact_b",
+        "phase1_patch_release"
+      ],
+      "observation": "Travel/wait uses a complete horizontal swimming figure; contactA/B use attached hands andwrench beside leftrocketnose leak region. Release reveals pinkrepair feedback. No visiblefigurecropping intheseeightstate samples. This supports localstaging; complete temporalacting/contact acceptance remainsunproven."
+    },
+    {
+      "phase": "VALVE",
+      "evidence_labels": [
+        "phase2_valve_anticipation",
+        "phase2_valve_release"
+      ],
+      "observation": "Anticipation/release place the full figure beside wheel andwrench nearhub; releasefeedback partlyoverlaps thelower hand/workregion. Manifest has8sampledactorregions and nonzero crankrotation. No wholemotion judgement from twoimages."
+    },
+    {
+      "phase": "READY PARK",
+      "evidence_labels": [
+        "phase3_open",
+        "phase3_completed"
+      ],
+      "observation": "Entry/complete retain Roshan attherightworkfixture while the smallrocket moves left-to-centerleft. The sampledwrenchpose supplies no visiblepush/support/contact with the movingrocket. Previously identified wholefigurepush/pose decision remainsblocking; no replacement art invented."
+    }
+  ],
+  "cadence": {
+    "1280": {
+      "interval_count": 139,
+      "min_interval_msec": 292,
+      "max_interval_msec": 5921
+    },
+    "1600": {
+      "interval_count": 139,
+      "min_interval_msec": 283,
+      "max_interval_msec": 5788
+    }
+  },
+  "cadence_limit": "283/292ms minimum and5788/5921ms maximum spacing are captured diagnostic intervals under readback; not gameplay FPS evidence or complete30fps/frame-step/fullspeed proof. Do not retime/re-encode these into accepted motion evidence.",
+  "route": {
+    "fixture_source": "capture_birthday_native_v9.gd lines211-243",
+    "fixture_facts": [
+      "DayOne completedrooms/bossdefeated seeded",
+      "chapter2_party_piece_mask0x244D seeded",
+      "ordinaryAstronautcheckpoint carriedfromsource save",
+      "Continue/button/card/actions use Input.parse_input_event",
+      "_skip_intro invoked after Continue"
+    ],
+    "proves": "Scoped touch/action/contact/pause/save/reentry/finish/return after explicitpriorstoryfixture, not freshnaturalfirstsixbirthdaycareercompletion.",
+    "missing": "A naturallyearned current-source route fromactualallowedentry through sixprerequisites, Astronaut andtheorderednextstep; no skippedstory/internal progress writes.",
+    "standalone_tutorial": "NOT_APPLICABLE_RETIRED: directorINITIAL_TUTORIAL_ACTSempty andtutorial_phase_is_activefalse; currentbinding spine says no duplicatefourgameprelude. Firstverbteaching insideactualbirthday career remainsapplicable.",
+    "canon": "Birthdayrocketstaysparkedunlaunched throughcareer; candlefoundlateDetective andignitionatparty only. OrdinaryLAUNCH ownerchoicepending remains distinct."
+  },
+  "target_device": {
+    "method": "adb devices -l usingexistingPATHorstandardSDK executable",
+    "result": "NO_CONNECTED_ADB_DEVICES",
+    "device_count": 0,
+    "serials_recorded": false,
+    "limits": "No targetdevice touch/performance/playback evidence. Doesnotexclude an unpairedphysical device."
+  },
+  "background_native_inventory": {
+    "source_review": "BACKGROUND_SOURCE_REVIEW_V1.json",
+    "source_review_sha256": "455d0ca0047eccdedaf017d207e989f9dca14aaf919914cbaf3a2df3ab1c3cef",
+    "masters": "Two2048x2048authoredmasters; eight1024x1024runtimecards. Existingmastercoveragepresent; do notinvent a resolutiongap from carddimensions. Primaryhistorical4.3sourcegrades remain scoped/unpromoted."
+  },
+  "completion_audit": [
+    {
+      "requirement": "Everyapplicableasset/interaction/wholeaction>=4.6 withoutaveraging",
+      "status": "INCOMPLETE",
+      "proof_needed": "Exactcurrent per-item andcompleteaction review abovefloor; no newnumericgrades fromsnapshot review."
+    },
+    {
+      "requirement": "Wholefigure/identity/constant size/contact",
+      "status": "PARTIAL",
+      "evidence": "All280capturehashesmatch; perphaseactor scaleconstant andsampledrect~250x250. Eightadditionaloriginalframes preservewholefigure locally; PARKpush absent. Actorrectgeometry doesnotaccept topology orwholeacting."
+    },
+    {
+      "requirement": "Ordinary,inworld,birthday andfirstverbteaching throughnaturalroutes",
+      "status": "INCOMPLETE",
+      "evidence": "Sourceauthority/currentfixture trace. Ordinarysave71historical pluslaterbindingcheck remains scoped; V9birthday skipsprerequisites."
+    },
+    {
+      "requirement": "Current-source genuineinput,completion/return/save",
+      "status": "PARTIAL",
+      "evidence": "V9touchfixture127x2/currentproductionhashes; 310sourcebindingsunchangedexceptprobe-onlyrevisionfromcapturetime. StrictQA11fresh-runtimecleanGit/challenge/closure/visiblehiddenrestorednotrun."
+    },
+    {
+      "requirement": "Required machine gates",
+      "status": "PARTIAL",
+      "evidence": "82exitcoveragecomposite+authoritycoveragePASS, originalsinglefullCIV3FAIL; no newonecommandallOK claim."
+    },
+    {
+      "requirement": "Separateindependentvisualreview,targetdevice,child,owner",
+      "status": "MISSING",
+      "evidence": "Primaryauthor only; noADBdevices; no observedchild/owneracceptance."
+    },
+    {
+      "requirement": "NormalgreenbranchCI/reconcileddevintegration,noreleasepromotion",
+      "status": "INCOMPLETE",
+      "evidence": "Topicstagedonly; no commit/push/CI/devmerge/promotion."
+    }
+  ],
+  "next_actions": {
+    "dependent_paused": [
+      "PIPEelbowgeneration awaits existingboundedcorrectivebriefanswer; earlier600sfamilyexhausted",
+      "PARKwholefigurepush artwork/acting awaits previouslyaskedcreativechoice",
+      "OrdinaryLAUNCH awaits previouslyaskedbutton/valvechoice"
+    ],
+    "subsequent_verification": "Afterapprovedartandimplementation: exactcandidateonecommandfullCI, cleanQA11/nativewholeactioncapture atbothaspects, completeordinaryandnaturalbirthdayinput/save/return, separateindependentreview andactualdevice/child/owneracceptance. Existing sparseframe datacannot filltheseproof gaps."
+  },
+  "acceptance": "NOT_ACHIEVED; no scoreincrease/newcreativeacceptance; whole-game2DmasterauditUNSATISFIED preserved.",
+  "scope": "Evidence-only primary review; no externalhandoff or newbudget authorization."
+}

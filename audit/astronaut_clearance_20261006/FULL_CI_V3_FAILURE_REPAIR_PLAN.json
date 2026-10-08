@@ -1,0 +1,23 @@
+{
+  "status": "PLANNED_AFTER_FROZEN_CI_TERMINATES",
+  "created_utc": "2026-10-07T21:33:18.504505+00:00",
+  "failed_source": "scripts/probe_opera_2d.gd",
+  "failed_source_sha256": "440ca7095d1800bbc641e05ff727ad47f403a2ad253f398fb570a86af6f598f0",
+  "actual_failed_assertions": [
+    "astronaut PATCH places pieces on authored surface anchors",
+    "astronaut widgets remain input-causal with owner-gated completion"
+  ],
+  "diagnosis": "The isolated target-surface test blocks signals and expects target_placed immediately after press/release. Astronaut PATCH now queues genuine input, and the production world commits only after whole-figure contact. Other careers retain immediate target semantics.",
+  "authorized_behavior_change": "Standing owner Astronaut whole-action goal and existing PATCH embodied-contact repair (MA-PLAY-004); this is the intentional delayed commitment being verified, not a changed gameplay expectation to hide a regression.",
+  "proposed_test": "Retain existing anchor/causality assertion; additionally require no immediate target or phase progress, exactly one queued request, rejected stale/out-of-order owner acknowledgments, one valid surface API acknowledgment at the original anchor, and no repeated commit. Signals stay blocked; explicitly label this surface API test, not physical world-contact proof. Existing genuine-input native 127+127 action/lifecycle proof remains separately scoped.",
+  "production_changes": "None planned. Test must continue to fail on queue/anchor/causality regressions.",
+  "second_failure": {
+    "probe": "probe_day_one_bathroom_cleanup",
+    "exit_code": 127,
+    "output": "Only exact Godot engine header; no assertions or terminal result",
+    "cause": "UNRESOLVED",
+    "next": "Preserve failure; one isolated standard-mode focused rerun only after full run terminates; do not assume transient or alter unrelated bathroom behavior."
+  },
+  "verification": "Changed-probe parser/lint/exact-engine analyzer, targeted standard isolated probes, document authority/coverage. All82 trusted per-probe results must resolve on matching production sources; unaltered fullCI parent remains FAIL. No full-suite/4.6 acceptance manufactured.",
+  "budget": "Retain V1/V2 cost and measured V3 run; use only remaining original3600s CI allowance, no reset."
+}

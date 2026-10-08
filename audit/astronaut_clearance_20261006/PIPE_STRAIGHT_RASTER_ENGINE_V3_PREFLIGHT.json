@@ -1,0 +1,107 @@
+{
+  "started_utc": "2026-10-07T19:45:19.247897+00:00",
+  "engine": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64.exe",
+  "engine_version": "4.7.2.stable.official.ed1daf0bf",
+  "source_bindings": [
+    {
+      "path": "project.godot",
+      "sha256": "8d942b12dfa87ed9fb39cf7f6cfbb1d3f64cc4461097c527f266a28e9428697f"
+    },
+    {
+      "path": "scripts/opera_astronaut_surface.gd",
+      "sha256": "21857d8e719c2fc355d68381abf927b58f86037a7100ba0aead0735a87146eb7"
+    },
+    {
+      "path": "scripts/opera_gesture_surface.gd",
+      "sha256": "34f3f264f17edef42990712f6c3f7e0106cf9afecd3969f8348848e0eda56017"
+    },
+    {
+      "path": "scripts/opera_career_world_2d.gd",
+      "sha256": "b567bb47894a25f26cb94e70b24ec3eda55e7e2ee6ab45247d46a2a13e8642cf"
+    },
+    {
+      "path": "scripts/opera_astronaut_pipe_work.gd",
+      "sha256": "f6cd174b379139796aafa9c505ddc2ea27fd82ae309d66556b16b105d3f54600"
+    },
+    {
+      "path": "scripts/opera_astronaut_patch_work.gd",
+      "sha256": "60a11bf59152e4784d2208d69fbe3590488935ed6ae13f61a05fe03c7619c0d4"
+    },
+    {
+      "path": "scripts/opera_astronaut_valve_work.gd",
+      "sha256": "50ac3cd2cfc9df7f24fca5cc1de0a2b57f3e6b47b179b6010b9eab581a0fb0db"
+    },
+    {
+      "path": "scripts/save_state.gd",
+      "sha256": "13b77592028653cdcac67e54264f049bbab01c6566b4fad1ea9bdf89a37a07c8"
+    },
+    {
+      "path": "assets/opera/worlds/widgets/astronaut_pipe_straight_candidate_v1.png",
+      "sha256": "6d6e487b5d0d4dd700c2781c23a201d414fe3911f77fd3770b69c9ac052a62ad"
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/verify_birthday_straight_raster_v1.gd",
+      "sha256": "8a5f0d30ff050af7e95e85463b5b306a08218757b3884e84aec1aaf414527799"
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/verify_straight_raster_negative_v1.gd",
+      "sha256": "f94442e1fd230e7fd7dc16f04bc37fd3760bbf15779c0e47c8ce3634d3961824"
+    }
+  ],
+  "cap_seconds": 100.97312,
+  "output_cap_bytes": 67108864,
+  "cache_growth_cap_bytes": 67108864,
+  "resources_before": {
+    "physical_available_bytes": 12277825536,
+    "C_free_bytes": 1053230235648
+  },
+  "queue_snapshot_utc": "2026-10-07T19:10:15.295343+00:00",
+  "occupied": [],
+  "commands": [
+    [
+      "import",
+      [
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\.codex\\worktrees\\astronaut-goal-20261006\\mermaid-roshan-reef",
+        "--import"
+      ]
+    ],
+    [
+      "surface analyzer",
+      [
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\.codex\\worktrees\\astronaut-goal-20261006\\mermaid-roshan-reef",
+        "--script",
+        "res://scripts/opera_astronaut_surface.gd",
+        "--check-only"
+      ]
+    ],
+    [
+      "birthday144",
+      [
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\.codex\\worktrees\\astronaut-goal-20261006\\mermaid-roshan-reef",
+        "--script",
+        "res://audit/astronaut_clearance_20261006/verify_birthday_straight_raster_v1.gd"
+      ]
+    ],
+    [
+      "negative17",
+      [
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\.codex\\worktrees\\astronaut-goal-20261006\\mermaid-roshan-reef",
+        "--script",
+        "res://audit/astronaut_clearance_20261006/verify_straight_raster_negative_v1.gd"
+      ]
+    ]
+  ],
+  "scope": "Owned one-engine focused import/analyzer/headless diagnostics; no exclusivegrant or strictQA11/fulltrusted/native acceptance claimed."
+}

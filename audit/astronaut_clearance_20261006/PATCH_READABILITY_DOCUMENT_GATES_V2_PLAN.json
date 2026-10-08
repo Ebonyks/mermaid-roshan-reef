@@ -1,0 +1,35 @@
+{
+  "created_utc": "2026-10-07T15:25:47.390546+00:00",
+  "baseline": "96274aab9cebd563b10846a4a48de5d017588563",
+  "branch": "codex/astronaut-clearance-20261006",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-QA-02",
+    "DL-QA-03",
+    "DL-QA-11"
+  ],
+  "findings": [
+    "MA-PLAY-004",
+    "MA-PLAY-005",
+    "MA-SAVE-002",
+    "MA-VIS-006"
+  ],
+  "failure_receipt": "audit/astronaut_clearance_20261006/PATCH_READABILITY_DOCUMENT_GATES_V1_RECEIPT.json",
+  "failure_sha256": "31e4fa7ede642601257a77c8ec7fa8597fb4ae93119fce2b11b8ee2dd57d947e",
+  "diagnosis": "V1 exhausted its120second combined cap during the2D inventory stage. The checker is terminal, with no inventory result and no postflight source-binding receipt. Root cause is unresolved; no code or auditor change inferred. Observed earlier source gates were slower than prior scope, but resource contention is unproven.",
+  "correction": "One new full8gate attempt with a180second cap and read-only30second faulthandler stack snapshots around the unchanged2D auditor. Write complete initial source bindings and a terminal FAIL receipt on any command timeout. Preserve failedV1; no automatic retries or engine/capture/import/art/install/outgoing message.",
+  "caps": {
+    "new_document_seconds": 180,
+    "previous_exhausted_v1_cap_seconds": 120,
+    "combined_declared_document_caps_seconds": 300,
+    "output_bytes": 16777216,
+    "engine_processes": 0,
+    "no_automatic_retry": true,
+    "previous_patch_document_seconds": 69.653,
+    "previous_valve_document_seconds": 86.111
+  },
+  "authority": "Active improvement goal and mandatory routine development gates authorize this diagnosed corrective verification. No new artistic choice or approval checkpoint. Original native monitoringFAIL/secondexitUNRECORDED/continuousresourcesUNVERIFIED remain explicit.",
+  "required_evidence": "All8commands must return0 at unchanged source; full source and both runtime logs/pixels bound; original native and document parents remainFAIL. Stack snapshots diagnose delay only, never substitute for an inventory result."
+}

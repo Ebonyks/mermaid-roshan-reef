@@ -1,0 +1,167 @@
+{
+  "result": "PASS",
+  "status": "TERMINAL",
+  "started_utc": "2026-10-07T08:38:21.870724+00:00",
+  "finished_utc": "2026-10-07T08:38:43.512288+00:00",
+  "steps": [
+    {
+      "label": "Contact diagnostic parser",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-B",
+        "-m",
+        "gdtoolkit.parser",
+        "audit/astronaut_clearance_20261006/verify_birthday_contact_v1.gd"
+      ],
+      "owned_pid": 60940,
+      "exit_code": 0,
+      "timed_out": false
+    },
+    {
+      "label": "Contact diagnostic inference",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-B",
+        "tools/lint_inference.py",
+        "audit/astronaut_clearance_20261006/verify_birthday_contact_v1.gd"
+      ],
+      "owned_pid": 56064,
+      "exit_code": 0,
+      "timed_out": false
+    },
+    {
+      "label": "Document authority",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-B",
+        "tools/audit_document_authority.py"
+      ],
+      "owned_pid": 63240,
+      "exit_code": 0,
+      "timed_out": false
+    },
+    {
+      "label": "Authority/development unit",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-B",
+        "-m",
+        "unittest",
+        "tools.tests.test_audit_document_authority",
+        "tools.tests.test_audit_development"
+      ],
+      "owned_pid": 62340,
+      "exit_code": 0,
+      "timed_out": false
+    },
+    {
+      "label": "Authority stress",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-B",
+        "tools/audit_document_authority.py",
+        "--stress"
+      ],
+      "owned_pid": 66964,
+      "exit_code": 0,
+      "timed_out": false
+    },
+    {
+      "label": "Audit impact coverage",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-B",
+        "tools/audit_development.py",
+        "--base",
+        "auto"
+      ],
+      "owned_pid": 40948,
+      "exit_code": 0,
+      "timed_out": false
+    },
+    {
+      "label": "Whitespace",
+      "command": [
+        "git",
+        "diff",
+        "--check",
+        "HEAD"
+      ],
+      "owned_pid": 42100,
+      "exit_code": 0,
+      "timed_out": false
+    }
+  ],
+  "elapsed_seconds": 21.64,
+  "sources": [
+    {
+      "path": "audit/MASTER_AUDIT_2026-08-09.md",
+      "sha256": "ffbc7435803987d5407ca0412eda1fe965524365debdf3a06d87e841a5a258a6"
+    },
+    {
+      "path": "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
+      "sha256": "07fcba946deeaadcd1b23bed05f37f1159a9c718ae4e8c0fa68468d4933d3a14"
+    },
+    {
+      "path": "design/05_DOC_LEDGER.md",
+      "sha256": "64995cd7fb55c5d27f2a6e96113f5bd72082e68b7e6b2fbccf724a91a968f66d"
+    },
+    {
+      "path": "design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md",
+      "sha256": "6c73d8ffc89ffa99b8dbf2972365a190003914a60fc6807df166c0056cbff6b8"
+    },
+    {
+      "path": "design/animation/ANIMATION_PRODUCTION_PROTOCOL.md",
+      "sha256": "0b1a6784ea8c2a0287f99988cba27a36cc786a638733b2b74e07996405f651b7"
+    },
+    {
+      "path": "scripts/opera_astronaut_surface.gd",
+      "sha256": "ec9d84437989e22e826ee5b2be1ccde8bb302f2e60f172e512b75de7c249cebc"
+    },
+    {
+      "path": "scripts/opera_career_world_2d.gd",
+      "sha256": "dad92d6c2f174597c4cd590ef3a06f2ffcd48f961616e302317362a1ef1d02c7"
+    },
+    {
+      "path": "scripts/opera_roshan_actor.gd",
+      "sha256": "7c0f334fd73b39685b5a1ef4e3e9214b974cbd90db3d291dc172ebc5b13a6b66"
+    },
+    {
+      "path": "scripts/opera_gesture_surface.gd",
+      "sha256": "34f3f264f17edef42990712f6c3f7e0106cf9afecd3969f8348848e0eda56017"
+    },
+    {
+      "path": "scripts/probe_opera_gesture_quality.gd",
+      "sha256": "da8af209c9d0bffae1350e75097462f13934f6227465fcac744355495cee9a10"
+    },
+    {
+      "path": "scripts/save_state.gd",
+      "sha256": "13b77592028653cdcac67e54264f049bbab01c6566b4fad1ea9bdf89a37a07c8"
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/verify_birthday_contact_v1.gd",
+      "sha256": "026349786063eb241280c98bc4a0c525af41786d72e8704b97daafa2b85bc3fd"
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/run_birthday_contact_v1.py",
+      "sha256": "d4edef03d4767d2c51acdf0c7cb624ee8c588fada62c94dfbf705d493760a4f4"
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/run_contact_document_gates.py",
+      "sha256": "2534b4d85af17012f419b09dc69a8d0ce7c5fb66038fe5b528e1865d81debe7c"
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/CONTACT_BASELINE_REVIEW.json",
+      "sha256": "f06d8436176cff561cde12f057dd59f7dfe98472fa75fa9c4b633b6cd7e5d266"
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/ASTRONAUT_PARK_ACTION_PILOT_BRIEF.json",
+      "sha256": "b8ec6b146a52f7ce4b9ab089d771116317383be755a242b170bc1db05f92022f"
+    }
+  ],
+  "source_bindings_still_match": true,
+  "errors": [],
+  "log_path": "audit/astronaut_clearance_20261006/CONTACT_DOCUMENT_GATES_LOG.txt",
+  "log_sha256": "557b21cc6627854c490f55649f0f399a2aa665966fcf3e4775c387e15dff2f9b",
+  "meaning": "Diagnostic source and canonical document traceability only. The separate actual contact baseline FAIL remains mandatory repair evidence; these structural passes never grant contact/visual/fullsuite/device/child/owner acceptance."
+}

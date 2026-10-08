@@ -1,0 +1,14 @@
+{
+  "created_utc": "2026-10-07T19:04:27.098898+00:00",
+  "scope": "Technical-only diagnosis of the failed alpha255export. Synthetic constant-alpha images exist only in Aseprite memory; no synthetic image saved, delivered or used as appearance/reference/positionguide.",
+  "cap_seconds": 20,
+  "cases": [
+    "Opaque8square\u21925bilinear",
+    "Alpha1288square\u21925bilinear",
+    "Opaque1254square\u21921024bilinear",
+    "Opaque8square\u21925nearest"
+  ],
+  "method": "Compare actualImagealpha beforeSpriteSize, celimage afterSpriteSize and renderedImage(sprite) to localize attenuation.",
+  "family_art_campaign": "STOPPED; no pixelrepair, secondImageGen, sourcePNG/export regeneration or capreset. Original consumedwall929.05s andonecall retained.",
+  "interpretation": "An observed constant-input attenuation is only technical evidence of this Asepritealgorithm/version; it supplies no finalart or runtimeacceptance."
+}

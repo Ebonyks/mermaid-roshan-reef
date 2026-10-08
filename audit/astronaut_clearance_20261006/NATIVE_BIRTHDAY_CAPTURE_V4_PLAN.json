@@ -1,0 +1,80 @@
+{
+  "created_utc": "2026-10-07T11:47:20.745938+00:00",
+  "baseline": "96274aab9cebd563b10846a4a48de5d017588563",
+  "candidate_branch": "codex/astronaut-clearance-20261006",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-INT-02",
+    "DL-INT-04",
+    "DL-MOT-07",
+    "DL-MOT-10",
+    "DL-MOT-11",
+    "DL-MOT-12",
+    "DL-MOT-13",
+    "DL-SAVE-01",
+    "DL-SAVE-02",
+    "DL-SAVE-03",
+    "DL-SAVE-04",
+    "DL-QA-02",
+    "DL-QA-06",
+    "DL-QA-11",
+    "DL-QA-12"
+  ],
+  "findings": [
+    "MA-PLAY-004",
+    "MA-PLAY-005",
+    "MA-SAVE-002",
+    "MA-VIS-006"
+  ],
+  "scope": "NativeV4after release ownership guard: all103original birthday assertions +4native/menu +10live release position/tween assertions. Read-only observer caps24/8/16/16, verify actual fade clears before settled return image. No art or save changes.",
+  "reference_driver": {
+    "path": "audit/astronaut_clearance_20261006/verify_birthday_save_v5.gd",
+    "sha256": "441497892b19484e70cff759dfc6e7ca1ea55fa1a8dff4d10e597c6d98e12188",
+    "prior_receipt": "BIRTHDAY_SAVE_V5_RECEIPT.json",
+    "prior_sha256": "7d39db45b11383b06ffef127cc89fa60345328e00b2e280dd06883e03577ccb7"
+  },
+  "capture": "RenderingServer.frame_post_draw then own root texture.get_image().save_png, immutable wholeviewportPNG, actual monotonic timestamps/rendered frame indices and live actor/surface/phase/geometry. Sample active action at<=30framespersecond underperphase caps; key states and room-return separately recorded. No cropped/composited/edited/drawn substitute pixels.",
+  "budget": {
+    "combined_analyzer_native_seconds": 180,
+    "max_owned_native_processes": 1,
+    "output_cap_bytes": 536870912,
+    "cache_growth_cap_bytes": 67108864,
+    "minimum_C_free_bytes": 3221225472,
+    "minimum_available_physical_bytes": 3221225472,
+    "dense_frame_caps": {
+      "0": 24,
+      "1": 8,
+      "2": 16,
+      "3": 16
+    },
+    "no_automatic_retry": true,
+    "previous_headless_seconds": [
+      141.03,
+      159.35,
+      58.378
+    ],
+    "prior_native_seconds": 180.544
+  },
+  "source_binding": "Deterministic full runtime source-tree signature plus fixture/runner/nativeplan; baseline and dirtycandidate stated, compare before/after; official engine/version/hash and Mobile/native backend bound. Existing canonical capture source inventory rules are reference, not a strict visual PASS adapter.",
+  "output_root": "tmp/astronaut_native_birthday_capture_v4_20261007",
+  "required_evidence": [
+    "Exact native backend and nonempty expected-dimension PNGs",
+    "All original103behavior/save/return/canon assertions preserved",
+    "Allfour actual phase views and before/during/after pipe states, native return image",
+    "Current source/rawlog/pixel SHA/dimensions/timestamp/instance/atlas bindings",
+    "Direct source-context image/action review with individual grades and failure evidence",
+    "Fullordinary/birthday twoaspect action/finish/return matrix remains required after the technical pilot"
+  ],
+  "acceptance": "Diagnostic pilot cannot grant>=4.6, clean-current strictDL-QA-11PASS, fullfreshchapter/fulltrusted, independent/device/child/owner/integration/release. Parkingpose/ordinarylaunch choices and further outgoing metadata permissions still pending.",
+  "predecessor": {
+    "receipt": "NATIVE_BIRTHDAY_CAPTURE_V2_RECEIPT.json",
+    "sha256": "eed59e72b19898f00ab2664c6c8afc92313b145e9ba603e319943140d82967c8",
+    "result": "FAIL",
+    "cause": "Runner cloning did not replace capture_birthday_native_v1.gd literal. Actual commands and rawlog prove V1fixture launched again; corrected Continue fixture never executed. Its old ignored output and V1manifest were overwritten. V2receipt correctly recorded0frames and failure because expected V2manifest was absent at receipt time."
+  },
+  "approval": "Standing local native-verification goal authorizes this corrective fixture. No new art, paid call, outgoing message, release or coordinator grant.",
+  "repair_plan": "PIPE_RELEASE_OWNERSHIP_PLAN.json",
+  "repair_plan_sha256": "bddf91eee8970aeb67b28ca4e055802bd7e400acbac5f1e1859b1c7a020f89ae"
+}

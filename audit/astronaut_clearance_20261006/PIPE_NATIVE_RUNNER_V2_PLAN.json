@@ -1,0 +1,46 @@
+{
+  "created_utc": "2026-10-07T18:28:19.493179+00:00",
+  "baseline": "96274aab9cebd563b10846a4a48de5d017588563",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-QA-02",
+    "DL-QA-03",
+    "DL-QA-07",
+    "DL-PERF-01"
+  ],
+  "findings": [
+    "MA-PLAY-004",
+    "MA-SAVE-002",
+    "MA-VIS-006"
+  ],
+  "scope": "Repair only the unexecuted native-capture runner. Preserve V1 literally and all older receipts. No production source, fixture, art, input, save or motion change.",
+  "before": {
+    "path": "audit/astronaut_clearance_20261006/run_pipe_material_native_v1.py",
+    "sha256": "5eedc572dc27cfee3e9256c439179c03300ec447119d608ff1b87054f1e861ad"
+  },
+  "observed_defects": [
+    "V1 targets existing V8 manifest paths, so its preservation assertion prevents its V9 fixture from launching.",
+    "V1 occupancy detects only one executable name; actual approved alternate godot.exe/godot_console.exe processes are running and must also prevent a conflicting launch."
+  ],
+  "implementation": [
+    "Create V2 with matching V9 manifest paths and V2-specific log/receipt/preflight names; leave unused unique V9 output/save leaves unchanged.",
+    "Check all Godot runtime/editor executable names, excluding the godot-ai MCP service; record PID, creation time and executable only.",
+    "Turn a pre-command occupancy collision into a retained abort receipt rather than an unhandled assertion.",
+    "Retain the original capture fixture and every127assertion, resource floors, sampled-output/cache limits and native300s allowance. Keep required native-driver analyzer; already-passed pipe/negative analyzers need no repeat."
+  ],
+  "source_review_cap_seconds": 60,
+  "native_attempts_so_far": 0,
+  "native_300_second_allowance_reset": false,
+  "native_launch_authorized_by_this_plan": false,
+  "required_evidence": [
+    "Python compilation and isolated source-definition review of output paths, preservation guards, command roster and occupancy filter without executing Godot or creating runtime outputs.",
+    "Verify V1 hash and all runtime/fixture hashes remain unchanged; record actual collision state separately."
+  ],
+  "limits": [
+    "Source readiness is not native capture, visual grade, full-suite, strict QA11, independent/device/child/owner or integration evidence.",
+    "The existing successful 540-path seal remains historical at its exact recorded bytes after this impact metadata update.",
+    "No other process is terminated; no queue reservation or coordinator grant is invented."
+  ]
+}

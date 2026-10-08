@@ -1,0 +1,33 @@
+{
+  "meaning": "Corrective review preserves original receipts. Original error filter missed resource-load errors; no full runtime/visual acceptance is claimed.",
+  "rows": [
+    {
+      "attempt": "BASELINE_FOCUS",
+      "original_receipt_sha256": "5924f6f6c7fc8ef9c28e967e54ad726d0b0afa64e0c3144def4a5dc2806886f9",
+      "resource_errors": [
+        "ERROR: Unable to open file: res://.godot/imported/widget_charge_astronaut_glow.png-6a3367ce2deed42de02d5de2b8babbda.s3tc.ctex.",
+        "ERROR: Failed loading resource: res://.godot/imported/widget_charge_astronaut_glow.png-6a3367ce2deed42de02d5de2b8babbda.s3tc.ctex.",
+        "ERROR: Failed loading resource: res://assets/opera/worlds/widgets/widget_charge_astronaut_glow.png.",
+        "ERROR: Unable to open file: res://.godot/imported/goal_astronaut.png-99a883c005e02d50b9d2c0ef7d7f4365.s3tc.ctex.",
+        "ERROR: Failed loading resource: res://.godot/imported/goal_astronaut.png-99a883c005e02d50b9d2c0ef7d7f4365.s3tc.ctex.",
+        "ERROR: Failed loading resource: res://assets/opera/worlds/props/goal_astronaut.png."
+      ],
+      "input_assertions": "baseline focus defect reproduced",
+      "machine_gate": "FAIL: incomplete import/missing texture cache; input diagnostics do not establish a full runtime or visual pass"
+    },
+    {
+      "attempt": "REPAIR_INPUT",
+      "original_receipt_sha256": "31580f099185072c87bcc0012786a721b7e55b54e7422751a2ce686fed846fe0",
+      "resource_errors": [
+        "ERROR: Unable to open file: res://.godot/imported/widget_charge_astronaut_glow.png-6a3367ce2deed42de02d5de2b8babbda.s3tc.ctex.",
+        "ERROR: Failed loading resource: res://.godot/imported/widget_charge_astronaut_glow.png-6a3367ce2deed42de02d5de2b8babbda.s3tc.ctex.",
+        "ERROR: Failed loading resource: res://assets/opera/worlds/widgets/widget_charge_astronaut_glow.png.",
+        "ERROR: Unable to open file: res://.godot/imported/goal_astronaut.png-99a883c005e02d50b9d2c0ef7d7f4365.s3tc.ctex.",
+        "ERROR: Failed loading resource: res://.godot/imported/goal_astronaut.png-99a883c005e02d50b9d2c0ef7d7f4365.s3tc.ctex.",
+        "ERROR: Failed loading resource: res://assets/opera/worlds/props/goal_astronaut.png."
+      ],
+      "input_assertions": "15 input lifecycle assertions pass",
+      "machine_gate": "FAIL: incomplete import/missing texture cache; input diagnostics do not establish a full runtime or visual pass"
+    }
+  ]
+}

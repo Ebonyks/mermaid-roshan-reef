@@ -1,0 +1,109 @@
+{
+  "created_utc": "2026-10-07T12:51:36.306307+00:00",
+  "baseline": "96274aab9cebd563b10846a4a48de5d017588563",
+  "origin_dev": "6238934447cf28834874396dfbaff65effafda46",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-AGE-01",
+    "DL-AGE-02",
+    "DL-AGE-07",
+    "DL-INT-01",
+    "DL-INT-02",
+    "DL-INT-04",
+    "DL-INT-06",
+    "DL-MOT-01",
+    "DL-MOT-03",
+    "DL-MOT-05",
+    "DL-MOT-07",
+    "DL-MOT-10",
+    "DL-MOT-11",
+    "DL-MOT-12",
+    "DL-MOT-13",
+    "DL-MOT-16",
+    "DL-SAVE-01",
+    "DL-SAVE-03",
+    "DL-SAVE-04",
+    "DL-QA-02",
+    "DL-QA-03",
+    "DL-QA-06",
+    "DL-QA-11",
+    "DL-QA-12"
+  ],
+  "findings": [
+    "MA-PLAY-004",
+    "MA-SAVE-002",
+    "MA-VIS-006"
+  ],
+  "scope": "Embodied Astronaut VALVE circle candidate only. Add a whole-figure presentation owner which approaches the existing semantic valve hub at constant entry size, holds accepted wrench0/1 contact keys, and releases/returns after actual completion. Buffer only genuine same-sign small circle arcs using unchanged primitive filters; apply their signed rotation/amount gradually through live world contact validation. Early normal release keeps requested arcs; pause/focus/exit/configuration cancel pending arcs without changing committed progress. No new pixels, limb split, pose redraw, input goal/rule/canon/save schema changes. Other careers and standalone primitive tests preserve old behavior.",
+  "sources_before": [
+    {
+      "path": "scripts/opera_career_world_2d.gd",
+      "sha256": "6f61646adc21cc2392fa18d3b3624f7c5f2bb4de050a6b858a7705980f5d2590",
+      "literal_snapshot": "audit/astronaut_clearance_20261006/VALVE_BEFORE_WORLD_SOURCE.txt"
+    },
+    {
+      "path": "scripts/opera_astronaut_surface.gd",
+      "sha256": "84b0806ee388e1d0150629c872318c92fd3f614e949385a26f97eac0c0d82809",
+      "literal_snapshot": "audit/astronaut_clearance_20261006/VALVE_BEFORE_SURFACE_SOURCE.txt"
+    }
+  ],
+  "reused_art": [
+    {
+      "path": "assets/opera/worlds/actors/animation/roshan_astronaut_sheet_a.png",
+      "sha256": "ccfb8e7af3a033e31e05af40fa62dc23b676aec6204ba8810e8cf79cbfc4d6fa",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "modification": "None; intact runtime reuse",
+      "license": "Existing project-owned Opera art, ASSET_LICENSES.md; actor source-only4.6 does not accept action."
+    },
+    {
+      "path": "assets/opera/worlds/widgets/widget_crank_astronaut_mover.png",
+      "sha256": "317c5463708b797df38d8a56b32d5cf2d067c33607e02424ab6f759e681ba7b5",
+      "dimensions": [
+        256,
+        256
+      ],
+      "modification": "None; intact runtime reuse",
+      "license": "Existing project-owned Opera art, ASSET_LICENSES.md; actor source-only4.6 does not accept action."
+    }
+  ],
+  "baseline_failure": {
+    "native_receipt": "PIPE_TRAVEL_V1_RECEIPT.json",
+    "sha256": "63e7c07ef21d75aac89042d9aad0c58013e89e999e6158b71ef4d6d8157cad3a",
+    "native_view": "tmp/astronaut_native_birthday_capture_v5_20261007/1600x720/frames/0049_phase2_input_held.png",
+    "finding": "Valve turns at left while Roshan holds distant generic wrench pose at right; primary complete action2.5/5."
+  },
+  "clip_contract": {
+    "id": "astronaut.valve.v1",
+    "intent": "Roshan approaches the actual valve, grips with her whole-figure wrench keys, applies child-requested twists at that hub, withdraws and returns. Calm concentrated register.",
+    "source_cells": "travel row1 four existing keys8fps; work2anticipation/release; work0/1contact only; idle0rest. Work2/3 never loop as valve contact.",
+    "direction": "Existing left-authored travel mapping; chosen work facing under12pxlogicalviewport fit. No actor scale/size change.",
+    "socket": "Existing measured candidate jaw A(43,92) and B(43,93) in256px cells; actual _circle_pivot transformed through same Canvas chain. Both jaw/contact<=4viewportpx and exact work row0/1 sampled.",
+    "timing": "Wait for actual reveal; approach clamp .18-.60 at700px/s; work2anticipation .12; first contact age .18; apply only queued requested arcs at<=4rad/s and alternate intact contact keys per.35rad; completion work2release .16 then .18-.60 return. No passive motion/progress.",
+    "events": "Surface arc queue owns authentic intent. World owns token/phase/geometry/pose validation and gesture awards; helper cannot fabricate amount. No timer/clip-end reward. Queuebounded512segments, no paid/generation work.",
+    "interruptions": "Normal touch release retains already-requested uncredited arcs for local execution. Pause/focus/closed/configure clears queue/owners; helper restores entry transform; fresh valid input remains possible; committed saved angle/progress never roll back.",
+    "limits": "This is an existing-pose candidate; native semantic turning/contact/occlusion/timing must pass human review before any >=4.6 claim."
+  },
+  "required_evidence": [
+    "Current-source genuine birthday four-mechanic lifecycle/save/finish/return preserving original103assertions, plus meaningful valve far/wrongpose/directsignal/passive/pause/cancel/earlyreleasedarc controls.",
+    "Two serial current native aspects preserving previous121assertions, live valve input/commit geometry, actual original viewport captures and whole-figure visual review.",
+    "Existing applicable parser/inference/analyzer/authority/coverage/unit/stress/2D/literal evidence gates; preserve old receipts as historical after source change. Full trusted/ordinary/fullvariants/independent/device/child/owner/integration remain required."
+  ],
+  "caps": {
+    "headless_engine_seconds": 200,
+    "native_engine_seconds": 300,
+    "document_gate_seconds": 120,
+    "native_output_bytes": 536870912,
+    "cache_growth_bytes": 67108864,
+    "owned_engine_processes": 1,
+    "no_automatic_retry": true,
+    "prior_direction_engine_seconds": 213.086,
+    "prior_release_slice_engine_seconds": 595.844,
+    "prior_native_and_analyzer_seconds": 276.448
+  },
+  "authorization": "Existing game goal authorizes this local reuse/contact repair and bounded tests. Pending substantial art/parking/ordinaryLAUNCH choices remain dependent on human answers. No new outbound message/paid generation/install/release."
+}

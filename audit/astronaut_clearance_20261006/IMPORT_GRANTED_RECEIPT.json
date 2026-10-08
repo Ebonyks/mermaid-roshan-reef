@@ -1,0 +1,132 @@
+{
+  "started_utc": "2026-10-07T05:18:01.151414+00:00",
+  "finished_utc": "2026-10-07T05:20:20.038437+00:00",
+  "command": [
+    "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64.exe",
+    "--headless",
+    "--path",
+    "C:\\Users\\Peter\\.codex\\worktrees\\astronaut-goal-20261006\\mermaid-roshan-reef",
+    "--import",
+    "--verbose",
+    "--debug-server",
+    "tcp://127.0.0.1:6207",
+    "--lsp-port",
+    "6208",
+    "--dap-port",
+    "6209"
+  ],
+  "engine_version": "4.7.2.stable.official.ed1daf0bf",
+  "engine_sha256": "ab1824f85bfd8e0e4128182c000c4003a3e042245b2967848d089b2a04b22424",
+  "owned_pid": 56364,
+  "exit_code": 0,
+  "result": "PASS",
+  "stop_reason": null,
+  "time_cap_seconds": 720,
+  "elapsed_seconds": 139.07,
+  "additional_C_cap_bytes": 1610612736,
+  "minimum_reserve_bytes": 3221225472,
+  "initial_cache_bytes": 420967647,
+  "final_cache_bytes": 960233748,
+  "cache_growth_bytes": 539266101,
+  "C_free_bytes": 315806248960,
+  "H_free_bytes": 15599480832,
+  "samples": [
+    {
+      "elapsed_seconds": 0.01,
+      "owned_pid": 56364,
+      "cache_bytes": 420967647,
+      "attributed_growth_bytes": 1240,
+      "C_free_bytes": 319019810816,
+      "remaining_estimate_bytes": 1610611496,
+      "stop_reason": null
+    },
+    {
+      "elapsed_seconds": 34.56,
+      "owned_pid": 56364,
+      "cache_bytes": 420967647,
+      "attributed_growth_bytes": 37547,
+      "C_free_bytes": 318322384896,
+      "remaining_estimate_bytes": 1610575189,
+      "stop_reason": null
+    },
+    {
+      "elapsed_seconds": 67.96,
+      "owned_pid": 56364,
+      "cache_bytes": 420967647,
+      "attributed_growth_bytes": 173068,
+      "C_free_bytes": 317582540800,
+      "remaining_estimate_bytes": 1610439668,
+      "stop_reason": null
+    },
+    {
+      "elapsed_seconds": 102.19,
+      "owned_pid": 56364,
+      "cache_bytes": 550305231,
+      "attributed_growth_bytes": 129761720,
+      "C_free_bytes": 316651991040,
+      "remaining_estimate_bytes": 1480851016,
+      "stop_reason": null
+    }
+  ],
+  "errors": [],
+  "log_path": "audit/astronaut_clearance_20261006/IMPORT_GRANTED_LOG.txt",
+  "log_sha256": "4710e78dbe79d9c2ed2eb41f02efcaf2091afbbf3b9da3404e7e0856499d2fc8",
+  "preflight_sha256": "fca0827fb2ba62b0bb736a946c2270aaadce38d3819b7a83e8cccb917dc627df",
+  "runner_sha256": "e6cb1e8e6895e8f0544379f436281070590cbf6585cd4278e2a2fc281f59f11f",
+  "sources": [
+    {
+      "path": "scripts/opera_gesture_surface.gd",
+      "sha256": "34f3f264f17edef42990712f6c3f7e0106cf9afecd3969f8348848e0eda56017"
+    },
+    {
+      "path": "scripts/opera_astronaut_surface.gd",
+      "sha256": "142777a177cc4732e94b1c7b68ad4d4000efbcb7f7b4b68906206e9bb453c2e9"
+    },
+    {
+      "path": "scripts/opera_career_world_2d.gd",
+      "sha256": "2eed1b973513449f4432ac408ec678d5f84d9963200362610c09b8a796890ca7"
+    },
+    {
+      "path": "scripts/probe_opera_gesture_quality.gd",
+      "sha256": "d6ebc13d2ad83353102c95eb819afa637545b4fc41e349074475a07e40fcd8c3"
+    },
+    {
+      "path": "project.godot",
+      "sha256": "8d942b12dfa87ed9fb39cf7f6cfbb1d3f64cc4461097c527f266a28e9428697f"
+    },
+    {
+      "path": "tools/godot_baseline.json",
+      "sha256": "9616e50b3ed535e038dc04c6e389140066b3354f79b4b437b60c0e2571e4676b"
+    }
+  ],
+  "source_bindings_still_match": true,
+  "previous4failedattempts_preserved": [
+    {
+      "path": "audit/astronaut_clearance_20261006/IMPORT_RECEIPT.json",
+      "sha256": "30fca4752571a67d3ffeec85a52e24268b5b08f24e781bcbe73a74510c76bc7d",
+      "exit_code": 4294967295,
+      "result": "FAIL"
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/IMPORT_ISOLATED_RECEIPT.json",
+      "sha256": "1b998eb2cd4df7519629336702bb52874b7181db0533779df1a4a32164cf1d7e",
+      "exit_code": 4294967295,
+      "result": "FAIL"
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/IMPORT_RECOVERY_RECEIPT.json",
+      "sha256": "4fdb0298a1f2c7de545ad68cea30846f575a55c96bbc7c7ba793e58878fbadd3",
+      "exit_code": 4294967295,
+      "result": "FAIL"
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/IMPORT_DIRECT_RECEIPT.json",
+      "sha256": "65ef3369a87125af92db6cf7f5078dc348596a27d8e060ce20d22a082818fd9a",
+      "exit_code": 4294967295,
+      "result": "FAIL"
+    }
+  ],
+  "slot": "RELEASED_TERMINAL",
+  "no_automatic_next_heavy_job": true,
+  "meaning": "Single granted import result only; no full trusted suite, visual/action4.6, device, child or owner acceptance."
+}

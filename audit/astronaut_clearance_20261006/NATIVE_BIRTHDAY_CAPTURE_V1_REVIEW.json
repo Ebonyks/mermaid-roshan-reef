@@ -1,0 +1,23 @@
+{
+  "created_utc": "2026-10-07T11:25:20.070352+00:00",
+  "result": "FAIL",
+  "receipt": "NATIVE_BIRTHDAY_CAPTURE_V1_RECEIPT.json",
+  "receipt_sha256": "312408bb0b0e60c3329ea3077ad18932644dbb277a9a08e132f919a79c45395b",
+  "pixels_inspected": [
+    {
+      "path": "tmp/astronaut_native_birthday_capture_v1_20261007/frames/0000_room_return.png",
+      "sha256": "f72e059dbd06fa5edbf2df343b941b126a1d7be7ba62fd8fac92eb88f051afb5"
+    }
+  ],
+  "observed": "Untouched1280x720 native screenshot shows actual title menu with Continue/New Game/Options over the room. Existing headless fixture skips storybook intro but does not dismiss native-only start menu. Career card under it reports visible but actual touch is intercepted. No Astronaut action pixel evidence exists in this attempt.",
+  "machine": "Windows/Mobile/Vulkan/exactGodot PASS; original route entry FAIL after deadline;6checks/1failure/1PNG,0engineerrors;23.342seconds used,source bytes unchanged,resource limits PASS.",
+  "room_return_label_limit": "Observer label room_return was based on opera_game==null and room state; pixels show title overlay, so it is not accepted visible return proof.",
+  "scope": "Native fixture setup defect; correct by pressing actual visible Continue control via input and awaiting production closure, preserve all original103behavior assertions and failed native artifacts. No production change or focus spoofing.",
+  "action_grades": "NOT_REVIEWABLE",
+  "independent_device_child_owner": "PENDING",
+  "later_artifact_loss": {
+    "record": "NATIVE_BIRTHDAY_CAPTURE_V2_REVIEW.json",
+    "sha256": "5c4b00e4b73e19a03f313e20d9bb697dbad205890fffdaaaca38dc987347d21a",
+    "current_png_and_manifest_bindings": "INVALIDATED_BY_MISROUTED_V2_FIXTURE; original bytes unavailable; original log/receipt unchanged"
+  }
+}

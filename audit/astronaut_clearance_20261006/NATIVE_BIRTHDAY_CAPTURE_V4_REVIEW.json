@@ -1,0 +1,214 @@
+{
+  "created_utc": "2026-10-07T11:56:14.968863+00:00",
+  "result": "TECHNICAL_PASS_VISUAL_BELOW_TARGET",
+  "baseline": "96274aab9cebd563b10846a4a48de5d017588563",
+  "receipt": "NATIVE_BIRTHDAY_CAPTURE_V4_RECEIPT.json",
+  "receipt_sha256": "b5bde136d45de7d26d99dada9bc68d669fa54efdcfa2809eb8af060faa4924ce",
+  "manifest_sha256": "cc1221f4d5377e6e6af58c2558597b175b4092345fb2edb13bc69c09bfc8d5f9",
+  "current_world_sha256": "6f61646adc21cc2392fa18d3b3624f7c5f2bb4de050a6b858a7705980f5d2590",
+  "before_world_snapshot_sha256": "d39bbed5c738535167ce9c526596fee32b4cfc369a5a2d376f1a7cf58e841d44",
+  "original103birthday_assertions_preserved": true,
+  "total_native_checks": 117,
+  "added_release_owner_assertions": 10,
+  "native_pixels_verified": 84,
+  "release_geometry_pass": true,
+  "settled_return_pass": true,
+  "directly_inspected_images": [
+    {
+      "label": "phase0_pipe_contact_b",
+      "path": "tmp/astronaut_native_birthday_capture_v4_20261007/frames/0015_phase0_pipe_contact_b.png",
+      "sha256": "6f1a73f10fc2d5d2c82e902b37787e70700c5eba2264d84c39e19ae883f047ab",
+      "dimensions": [
+        1280,
+        720
+      ]
+    },
+    {
+      "label": "phase0_pipe_release",
+      "path": "tmp/astronaut_native_birthday_capture_v4_20261007/frames/0017_phase0_pipe_release.png",
+      "sha256": "7a4f47aeab59b001cd15d98d733c4185ca3ddca6c57945ab2a71f7125a4c74f5",
+      "dimensions": [
+        1280,
+        720
+      ]
+    },
+    {
+      "label": "phase0_pipe_return",
+      "path": "tmp/astronaut_native_birthday_capture_v4_20261007/frames/0019_phase0_pipe_return.png",
+      "sha256": "05c3ad8e68dc8414b59b1877398aecaef34b258461784a41ec49c80baa9de0cc",
+      "dimensions": [
+        1280,
+        720
+      ]
+    },
+    {
+      "label": "phase0_completed",
+      "path": "tmp/astronaut_native_birthday_capture_v4_20261007/frames/0033_phase0_completed.png",
+      "sha256": "3e731ded2a5f6398b611f5c76a8ffd8e8c60e33115e22678cc80763428d1cbfc",
+      "dimensions": [
+        1280,
+        720
+      ]
+    },
+    {
+      "label": "phase1_open",
+      "path": "tmp/astronaut_native_birthday_capture_v4_20261007/frames/0034_phase1_open.png",
+      "sha256": "ebdfdb75e0b9ccba3102edfa95fe72b256b48da85016d226cd89bc85e7691688",
+      "dimensions": [
+        1280,
+        720
+      ]
+    },
+    {
+      "label": "phase1_completed",
+      "path": "tmp/astronaut_native_birthday_capture_v4_20261007/frames/0044_phase1_completed.png",
+      "sha256": "2b27b41e3800a280a7b0da6cb99e3f33fc50596f33ae4053c0ce0f5b1334040e",
+      "dimensions": [
+        1280,
+        720
+      ]
+    },
+    {
+      "label": "phase2_input_held",
+      "path": "tmp/astronaut_native_birthday_capture_v4_20261007/frames/0049_phase2_input_held.png",
+      "sha256": "a6c51180e156bf189ceeeb5fafc406323539d3dcb0bed82cf25e416f03551d4c",
+      "dimensions": [
+        1280,
+        720
+      ]
+    },
+    {
+      "label": "phase3_input_held",
+      "path": "tmp/astronaut_native_birthday_capture_v4_20261007/frames/0068_phase3_input_held.png",
+      "sha256": "e8b746a2a548fc0654a581d3330c1c12f8a376d3a6b6131dd04c1a692d0b4b7d",
+      "dimensions": [
+        1280,
+        720
+      ]
+    },
+    {
+      "label": "phase3_completed",
+      "path": "tmp/astronaut_native_birthday_capture_v4_20261007/frames/0082_phase3_completed.png",
+      "sha256": "a254bae603eec094f5ba3cd2ddd02c4c43a4e8af015c3c715dad3639c08a6895",
+      "dimensions": [
+        1280,
+        720
+      ]
+    },
+    {
+      "label": "room_return",
+      "path": "tmp/astronaut_native_birthday_capture_v4_20261007/frames/0083_room_return.png",
+      "sha256": "a3edfbfea9ae39d45a7bd0e6f3fb0e0f6415c15f632fc65dee2a1e88058c0170",
+      "dimensions": [
+        1280,
+        720
+      ]
+    }
+  ],
+  "actual_release": {
+    "phase0_pipe_contact_b": {
+      "actor_position": [
+        782.4130859375,
+        241.023162841797
+      ],
+      "pipe_work_position": [
+        782.4130859375,
+        241.023162841797
+      ],
+      "actor_scale": [
+        0.990349888801575,
+        0.990349888801575
+      ],
+      "actor_atlas_region": [
+        256.0,
+        512.0,
+        256.0,
+        256.0
+      ],
+      "pipe_work_state": "contact_b",
+      "generic_player_tween_owned": false
+    },
+    "phase0_pipe_release": {
+      "actor_position": [
+        782.4130859375,
+        241.023162841797
+      ],
+      "pipe_work_position": [
+        782.4130859375,
+        241.023162841797
+      ],
+      "actor_scale": [
+        0.990349888801575,
+        0.990349888801575
+      ],
+      "actor_atlas_region": [
+        512.0,
+        512.0,
+        256.0,
+        256.0
+      ],
+      "pipe_work_state": "release",
+      "generic_player_tween_owned": false
+    },
+    "phase0_pipe_return": {
+      "actor_position": [
+        782.4130859375,
+        241.023162841797
+      ],
+      "pipe_work_position": [
+        782.4130859375,
+        241.023162841797
+      ],
+      "actor_scale": [
+        0.990349888801575,
+        0.990349888801575
+      ],
+      "actor_atlas_region": [
+        0.0,
+        256.0,
+        256.0,
+        256.0
+      ],
+      "pipe_work_state": "return",
+      "generic_player_tween_owned": false
+    }
+  },
+  "primary_findings": [
+    {
+      "item": "PIPE action",
+      "provisional_primary_score": 4.0,
+      "resolved": "Release remains at work_position782.413,241.023 under work2, no generic player tween; return begins from that same point rather than snapping toward rest.10placements independently assert release ownership before return.",
+      "still_open": "Travel pose faces away from intended travel direction in sampled return frame (wholefigure default looks left, fliptruelooks right for leftward return); atlas keys/semantic socket contact/complete temporal cadence not accepted. Brown square vector tile/IMP silhouettes remain low visual fit. No4.6complete action."
+    },
+    {
+      "item": "PATCH action",
+      "provisional_primary_score": 2.4,
+      "still_open": "Actual native tap result appears on left rocket with flat patch overlays while Roshan remains center. No target contact; previously identified source4.2/4.4/4.5/4.2issues unchanged."
+    },
+    {
+      "item": "VALVE action",
+      "provisional_primary_score": 2.5,
+      "still_open": "Interactive valve remains left of Roshan at a distant widget; generic wrench motion cannot represent connected valve turning."
+    },
+    {
+      "item": "READY PARK action",
+      "provisional_primary_score": 2.3,
+      "still_open": "Rocket moves on left floor lane while Roshan remains right; no push contact/whole-figure bracing. Owner pose choice pending. Other painted rocket on background remains misleading."
+    },
+    {
+      "item": "Mermaid Pool finish/return view",
+      "provisional_primary_score": null,
+      "resolved": "Actual room-return image shows unobscured Mermaid Pool, fadealpha0, exact recorded room and preserved story result.",
+      "still_open": "One settled frame does not establish full end-to-end transition/cadence, allotheraspects/variants or independent review."
+    }
+  ],
+  "limits": "Primary diagnostic only, per-item scores provisional and never averaged; original source appearance grades not runtime action grades. Dirty-local explicit-prerequisite test and capture readback overhead preclude strictDL-QA11/normalperformance/clean-current/fullmatrix/independent/device/child/owner acceptance. No art modified or generated. No complete action cleared.",
+  "resources": {
+    "native_seconds": 95.904,
+    "cumulative_native_seconds": 276.448,
+    "artifact_bytes": 120515444,
+    "cache_growth_bytes": 0
+  },
+  "currency": "Current release-guard source; priorV3native107/221 and former headless receipts now historical where world byte binding changed. Preserve oldlogs/source snapshot and priorV1pixel-loss disclosure. Current regression refresh running separately.",
+  "next_work": "Correct travel-facing using approved wholefigure direction semantics, improve pipe object art using existing sources where suitable, then connect each remaining action to its actual target without awarding from a detached presentation. Native fullmatrix/independent review remains required."
+}

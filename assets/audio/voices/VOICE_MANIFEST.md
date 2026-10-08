@@ -130,3 +130,17 @@ loudness, true peak, protection, provenance class, and routing evidence. Human
 voice identity, pronunciation, intelligibility, child-safety, mono, mix, and
 target-device grades remain open until the listening matrix in `DL-SND-15` and
 `DL-SND-16` is completed.
+
+## Astronaut engineering cues (2026-10-07)
+
+The owner-approved gear-fitting and pressure-tuning tasks resolve their two exact
+Roshan cues in `astronaut_engineering_v1/`, with no generic fallback. This is an
+additive provisional synthetic Joy cohort; existing filler, family and Faron
+recordings remain untouched. Its own schema-3 `FILLER_MANIFEST.json` preserves
+all five generated takes, selected/rejected semantic and identity evidence,
+generation-time source hashes and deterministic 48 kHz mono Vorbis mastering.
+Native WAVs, generation and selection records, exact prompts and tool snapshots
+are preserved in `assets_src/audio/astronaut_engineering_devices_20261007/`.
+Both new cues pass the same strict manifest validator and all-audio ledger.
+Machine screening does not grant human audition, target-device, child or owner
+acceptance. Those listening and comprehension gates remain open.

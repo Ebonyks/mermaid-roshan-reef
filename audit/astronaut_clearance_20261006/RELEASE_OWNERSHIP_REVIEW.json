@@ -1,0 +1,80 @@
+{
+  "created_utc": "2026-10-07T12:08:29.215417+00:00",
+  "implementation": "Generic player success bounce and animation refuse to compete with busy Astronaut pipe action. Other actors/careers and existing gameplay/save/contact owners unchanged.",
+  "runtime_world_sha256": "6f61646adc21cc2392fa18d3b3624f7c5f2bb4de050a6b858a7705980f5d2590",
+  "preserved_before_source": "PIPE_RELEASE_BEFORE_SOURCE.txt",
+  "preserved_before_sha256": "d39bbed5c738535167ce9c526596fee32b4cfc369a5a2d376f1a7cf58e841d44",
+  "native_current": {
+    "receipt": "NATIVE_BIRTHDAY_CAPTURE_V4_RECEIPT.json",
+    "sha256": "b5bde136d45de7d26d99dada9bc68d669fa54efdcfa2809eb8af060faa4924ce",
+    "result": "PASS",
+    "checks": 117,
+    "original_behavior_checks": 103,
+    "release_owner_checks": 10,
+    "pixels": 84,
+    "review": "NATIVE_BIRTHDAY_CAPTURE_V4_REVIEW.json",
+    "review_sha256": "375d94a3eae8fa6b1f629921d8f911e6eb83e5714f354c844f2b590733f0acaf",
+    "release_and_settled_return_pass": true
+  },
+  "headless_current": {
+    "original_passing_subruns": {
+      "receipt": "RELEASE_OWNERSHIP_REGRESSION_V1_RECEIPT.json",
+      "sha256": "929e1d9bbe8f30684695f688c2ec71f0d6d852b01c6226f2007e22cb7fea4331",
+      "parent_result": "FAIL_RETAINED",
+      "accepted_subruns": [
+        {
+          "label": "Pipe contact73",
+          "checks": 73,
+          "failures": 0
+        },
+        {
+          "label": "Contact negatives17",
+          "checks": 17,
+          "failures": 0
+        }
+      ],
+      "limits": "Parent failed Correction1280 save-directory setup and timed out; never promoted to PASS."
+    },
+    "corrective_remaining": {
+      "receipt": "RELEASE_OWNERSHIP_REGRESSION_V2_RECEIPT.json",
+      "sha256": "33eb71608f6d5be2f1f76e0b6f0153def2877c6a09b504a7a288d660d6e2915f",
+      "result": "PASS",
+      "checks": 205,
+      "subruns": [
+        {
+          "label": "Correction1280",
+          "checks": 57,
+          "failures": 0
+        },
+        {
+          "label": "Correction1600",
+          "checks": 57,
+          "failures": 0
+        },
+        {
+          "label": "Ordinary allmechanics91",
+          "checks": 91,
+          "failures": 0
+        }
+      ],
+      "errors": []
+    }
+  },
+  "prior_world_binding": "Previous73/17/91/103/57+57 and native107/221 receipts/logs remain literal historical evidence; oldworldd39bytes preserved in before-source snapshot. Source art/helper unchanged. OriginalV1nativepixel-loss disclosure remains unchanged.",
+  "costs": {
+    "failed_regression_v1_seconds": 361.86,
+    "corrective_v2_seconds": 138.08,
+    "fresh_native_v4_seconds": 95.904,
+    "current_slice_engine_seconds": 595.844,
+    "earlier_native_seconds": 180.544,
+    "earlier_headless_seconds": [
+      141.03,
+      159.35,
+      58.378
+    ],
+    "cache_growth_bytes": 0
+  },
+  "visual": "Primary pipe complete-action score4.0 remains provisional/below4.6; backward-facing travel and coarse tiles remain. PATCH2.4/VALVE2.5/READY PARK2.3 remain detached from actual targets. No individual action accepted or averaged. Settled room return pixels verified, not fullmatrix/strict transition acceptance.",
+  "outstanding": "Travel-direction repair, pipe/object/patch source quality, physical other3actions, owner parking/ordinary-launch choices, all naturally reachable variants/twoaspect native/fulltrusted/cleanfresh-runtime/independent/device/child/owner/integration. No release promotion.",
+  "learning": "An action helper must own both transform and pose until release/return finish; a generic reward tween can silently invalidate presentation even with green progress probes. Diagnostic save-parent setup must match actual aspect leaf path, and engine errors must stop an owned run promptly."
+}

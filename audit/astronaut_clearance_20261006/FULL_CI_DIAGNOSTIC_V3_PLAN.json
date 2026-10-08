@@ -1,0 +1,21 @@
+{
+  "created_utc": "2026-10-07T22:09:11.273037+00:00",
+  "baseline": "96274aab9cebd563b10846a4a48de5d017588563",
+  "scope": "One diagnostic execution of corrected Opera2D; assertions/source unchanged, --verbose for startup resource localization and owned PID counters. Original CI V3 remains FAIL. No native art capture or generation.",
+  "reason": "Direct native exits 0xffffffff before Opera assertions; previous caps did not fire; Application1000/1001/1026 and System2004 queries returned no matching events. Cause unresolved. Additional diagnostic output can locate last startup stage; resource counters cannot identify a caller that kills a process.",
+  "source_bindings": "FULL_CI_RECOVERY_V1_SOURCE_BINDINGS.json",
+  "diagnostic_seconds_ceiling": 130,
+  "owned_probe_timeout_seconds": 120,
+  "preparation_reserve_seconds": 60,
+  "document_reserve_seconds": 25,
+  "original_CI_seconds": 3600,
+  "previous_charged_seconds": 3147.281,
+  "remaining_before_this_attempt_seconds": 452.719,
+  "maximum_reserved_this_attempt_seconds": 215,
+  "no_reset": true,
+  "temporary_root": "C:/Users/Peter/AppData/Local/Temp/astronaut_full_ci_diagnostic_v3_20261007_2215",
+  "logging": "Raw stdout/stderr plus stdlib ctypes Win32 counters of only owned engine handle every2s: RSS/peakRSS/privatebytes, kernel/user CPU, handles. No added dependency or performance acceptance.",
+  "safety": "Abort on actual other Godot at entry; CREATE_NO_WINDOW; only own Popen process may be killed on120s cap/32MiB log/6GiB RSS. No others terminated. Fresh per-probe saves outsideGit.",
+  "required_result": "Exit0 plus unaltered final result and zero failure-policy lines; premature exit is FAIL even if partial checks pass. Preserve prior costs/results.",
+  "acceptance": "Machine gate only; no art score/device/child/owner/independent clearance."
+}

@@ -1,0 +1,64 @@
+{
+  "result": "PASS",
+  "checked_utc": "2026-10-07T19:02:13.068466+00:00",
+  "steps": [
+    {
+      "label": "authority",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-X",
+        "utf8",
+        "-B",
+        "tools/audit_document_authority.py"
+      ],
+      "exit_code": 0,
+      "seconds": 10.92
+    },
+    {
+      "label": "development",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-X",
+        "utf8",
+        "-B",
+        "tools/audit_development.py",
+        "--base",
+        "auto"
+      ],
+      "exit_code": 0,
+      "seconds": 5.389
+    },
+    {
+      "label": "post-record development",
+      "exit_code": 0,
+      "seconds": 5.362
+    }
+  ],
+  "failure": null,
+  "elapsed_seconds": 22.428,
+  "cap_seconds": 40,
+  "current_game_control_bindings_unchanged": true,
+  "paths": [
+    "ASSET_LICENSES.md",
+    "assets_src/imagegen/astronaut_pipe_raster_repair_20261007/PLAN.json",
+    "assets_src/imagegen/astronaut_pipe_raster_repair_20261007/PROMPT.txt",
+    "assets_src/imagegen/astronaut_pipe_raster_repair_20261007/RASTER_SOURCE_FINAL_GATES_LOG.txt",
+    "assets_src/imagegen/astronaut_pipe_raster_repair_20261007/RASTER_SOURCE_FINAL_GATES_RECEIPT.json",
+    "assets_src/imagegen/astronaut_pipe_raster_repair_20261007/RAW_TAKE_01.png",
+    "assets_src/imagegen/astronaut_pipe_raster_repair_20261007/RESOURCE_PREFLIGHT.json",
+    "assets_src/imagegen/astronaut_pipe_raster_repair_20261007/STRAIGHT_CLEANUP_V1_ASEPRITE_RECEIPT.json",
+    "assets_src/imagegen/astronaut_pipe_raster_repair_20261007/STRAIGHT_CLEANUP_V1_PLAN.json",
+    "assets_src/imagegen/astronaut_pipe_raster_repair_20261007/STRAIGHT_CLEANUP_V1_VERIFY.json",
+    "assets_src/imagegen/astronaut_pipe_raster_repair_20261007/STRAIGHT_CLEAN_NATIVE.png",
+    "assets_src/imagegen/astronaut_pipe_raster_repair_20261007/STRAIGHT_EDITABLE_NATIVE.aseprite",
+    "assets_src/imagegen/astronaut_pipe_raster_repair_20261007/STRAIGHT_RUNTIME_CANDIDATE_1024.png",
+    "assets_src/imagegen/astronaut_pipe_raster_repair_20261007/TAKE_01_RECEIPT.json",
+    "assets_src/imagegen/astronaut_pipe_raster_repair_20261007/cleanup_straight.lua",
+    "audit/astronaut_clearance_20261006/STATUS.json",
+    "design/audit_impacts/astronaut-clearance-20261006.json"
+  ],
+  "image_generation_calls": 1,
+  "native_runs": 0,
+  "runtime_adopted": false,
+  "meaning": "Document traceability only. Original runtime-exportFAIL, familycap overrun and all acceptance gaps remain explicit."
+}

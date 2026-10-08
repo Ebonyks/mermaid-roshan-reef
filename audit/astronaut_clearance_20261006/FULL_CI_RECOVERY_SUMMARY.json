@@ -1,0 +1,62 @@
+{
+  "result": "CURRENT_FOCUSED_RUNTIME_RECOVERIES_PASS",
+  "checked_utc": "2026-10-07T22:19:05.110823+00:00",
+  "baseline": "96274aab9cebd563b10846a4a48de5d017588563",
+  "current_production_surface_sha256": "21857d8e719c2fc355d68381abf927b58f86037a7100ba0aead0735a87146eb7",
+  "full_ci_v3": {
+    "receipt": "FULL_CI_V3_RECEIPT.json",
+    "exit": 1,
+    "probes_attempted": 82,
+    "zero_exits": 79,
+    "failures": [
+      "Opera2D old immediate PATCH expectation:2failedassertions",
+      "bathroomcleanup:127 headeronly",
+      "dustbalance:127 sixpositivecases, missingfinal"
+    ]
+  },
+  "implemented_test_correction": "23lineAstronaut-only blocked-signal surfaceAPI branch; originalanchor/causalcheckretained, fournew queue/stale/outoforder/single/repeat guards. No productionchange.",
+  "verification": {
+    "changed_probe_parser_lint": "PASS",
+    "changed_probe_exact_engine_analyzer": "PASS exit0",
+    "corrected_probe_runtime": "PASS exit0/1385checks/final undercurrentbindings; diagnosticV3",
+    "bathroomcleanup_focused_native": "PASS 16.48s/exit0/finalresult",
+    "dustbalance_focused_native": "PASS exit0/all12cases+final undercurrentbindings; diagnosticV4"
+  },
+  "cause": "UNRESOLVED. Verbose runs pass with steady resources, but neither Windowsfailure queries nor owned counter snapshots identify the cause of prior0xffffffff exits. No attribution to other agents or declaration of fixed engine defect.",
+  "remaining_probe_evidence": [],
+  "budget": {
+    "original_CI_seconds": 3600,
+    "previous_conservative_charges": 360,
+    "V3_measured": 2526,
+    "recovery_preparation_reserved": 14,
+    "native_recovery_V1": 18.686,
+    "native_recovery_V2": 209.326,
+    "sum_recorded": 3128.012,
+    "unused_recorded_allowance": 471.98799999999994,
+    "no_automatic_retry_or_reset": true
+  },
+  "source_scope": "310 script/straight-art/importbindings unchanged except correctedprobe. No fullnaturalChapter2/nativeindependent/device/child/owner or4.6clearance; retiredstandalonetutorialN/A.",
+  "publication": "NOT_PUSHED; localandremotefullgatesmustgreenbeforecommit/integration; walkthroughpublicationpending, nohandoffclaim.",
+  "previous_summary": {
+    "path": "FULL_CI_RECOVERY_SUMMARY_BEFORE_DIAGNOSTIC_V1.json",
+    "sha256": "23acbdd09f7b9d50637e9fc701ea8d44650659eb989576e4541de34e3ce990bc"
+  },
+  "current_diagnostic_review": {
+    "path": "FULL_CI_DIAGNOSTIC_REVIEW_V1.json",
+    "sha256": "fb3f5b3b9caf53a0a6cea6b743a92e1aae536a2b79a96e0b0ed2e66bdf8bcde4"
+  },
+  "remaining_machine_gate": "A single current-source scripts/ci.sh allOK invocation remains absent; originalV3FAIL and focused recoveries/composite kept distinct.",
+  "current_budget": {
+    "original_CI_seconds": 3600,
+    "charged_before_post_diagnostic_closure": 3487.743,
+    "remaining_before_closure": 112.257,
+    "closure_preparation_reserve": 15,
+    "document_gates_seconds_ceiling": 25,
+    "reserve_total": 40,
+    "no_reset": true,
+    "conservative_charge_after_closure": 3527.743,
+    "conservative_unused_after_closure": 72.257,
+    "closure_reserve_charged": 40,
+    "record": "FULL_CI_POST_DIAGNOSTIC_DOCUMENT_RECEIPT.json; full25seconds conservativelycharged independent of actual shorterelapsed. No capreset."
+  }
+}

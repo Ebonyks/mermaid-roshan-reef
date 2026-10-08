@@ -1,0 +1,70 @@
+{
+  "created_utc": "2026-10-07T11:14:46.218962+00:00",
+  "baseline": "96274aab9cebd563b10846a4a48de5d017588563",
+  "candidate_branch": "codex/astronaut-clearance-20261006",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-INT-02",
+    "DL-INT-04",
+    "DL-MOT-07",
+    "DL-MOT-10",
+    "DL-MOT-11",
+    "DL-MOT-12",
+    "DL-MOT-13",
+    "DL-SAVE-01",
+    "DL-SAVE-02",
+    "DL-SAVE-03",
+    "DL-SAVE-04",
+    "DL-QA-02",
+    "DL-QA-06",
+    "DL-QA-11",
+    "DL-QA-12"
+  ],
+  "findings": [
+    "MA-PLAY-004",
+    "MA-PLAY-005",
+    "MA-SAVE-002",
+    "MA-VIS-006"
+  ],
+  "scope": "Technical native Mobile birthday pilot at1280x720, allfour mechanics and actual room-return; prerequisite fixture remains explicit. Original103checkdriver preserved, native backend assertions and independent read-only viewport observer added. No gameplay state/art changes.",
+  "reference_driver": {
+    "path": "audit/astronaut_clearance_20261006/verify_birthday_save_v5.gd",
+    "sha256": "441497892b19484e70cff759dfc6e7ca1ea55fa1a8dff4d10e597c6d98e12188",
+    "prior_receipt": "BIRTHDAY_SAVE_V5_RECEIPT.json",
+    "prior_sha256": "7d39db45b11383b06ffef127cc89fa60345328e00b2e280dd06883e03577ccb7"
+  },
+  "capture": "RenderingServer.frame_post_draw then own root texture.get_image().save_png, immutable wholeviewportPNG, actual monotonic timestamps/rendered frame indices and live actor/surface/phase/geometry. Sample active action at<=30framespersecond underperphase caps; key states and room-return separately recorded. No cropped/composited/edited/drawn substitute pixels.",
+  "budget": {
+    "combined_analyzer_native_seconds": 180,
+    "max_owned_native_processes": 1,
+    "output_cap_bytes": 536870912,
+    "cache_growth_cap_bytes": 67108864,
+    "minimum_C_free_bytes": 3221225472,
+    "minimum_available_physical_bytes": 3221225472,
+    "dense_frame_caps": {
+      "0": 64,
+      "1": 40,
+      "2": 64,
+      "3": 48
+    },
+    "no_automatic_retry": true,
+    "previous_headless_seconds": [
+      141.03,
+      159.35,
+      58.378
+    ]
+  },
+  "source_binding": "Deterministic full runtime source-tree signature plus fixture/runner/nativeplan; baseline and dirtycandidate stated, compare before/after; official engine/version/hash and Mobile/native backend bound. Existing canonical capture source inventory rules are reference, not a strict visual PASS adapter.",
+  "output_root": "tmp/astronaut_native_birthday_capture_v1_20261007; rawPNGs/save are ignoredlocal diagnostic staging, not a delivered handoff. Packetmanifest/receipts record their exact bytes and paths. Promote needed pixel evidence to durableGit delivery before external handoff.",
+  "required_evidence": [
+    "Exact native backend and nonempty expected-dimension PNGs",
+    "All original103behavior/save/return/canon assertions preserved",
+    "Allfour actual phase views and before/during/after pipe states, native return image",
+    "Current source/rawlog/pixel SHA/dimensions/timestamp/instance/atlas bindings",
+    "Direct source-context image/action review with individual grades and failure evidence",
+    "Fullordinary/birthday twoaspect action/finish/return matrix remains required after the technical pilot"
+  ],
+  "acceptance": "Diagnostic pilot cannot grant>=4.6, clean-current strictDL-QA-11PASS, fullfreshchapter/fulltrusted, independent/device/child/owner/integration/release. Parkingpose/ordinarylaunch choices and further outgoing metadata permissions still pending."
+}

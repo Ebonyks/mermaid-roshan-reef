@@ -1,0 +1,48 @@
+{
+  "result": "PASS",
+  "started_utc": "2026-10-07T17:03:31.855879+00:00",
+  "finished_utc": "2026-10-07T17:03:33.064834+00:00",
+  "elapsed_seconds": 1.209,
+  "steps": [
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-X",
+        "utf8",
+        "-B",
+        "-m",
+        "gdtoolkit.parser",
+        "C:\\Users\\Peter\\.codex\\worktrees\\astronaut-goal-20261006\\mermaid-roshan-reef\\scripts\\opera_astronaut_surface.gd"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 0.98
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-X",
+        "utf8",
+        "-B",
+        "C:\\Users\\Peter\\.codex\\worktrees\\astronaut-goal-20261006\\mermaid-roshan-reef\\tools\\lint_inference.py",
+        "C:\\Users\\Peter\\.codex\\worktrees\\astronaut-goal-20261006\\mermaid-roshan-reef\\scripts\\opera_astronaut_surface.gd"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 0.129
+    },
+    {
+      "command": [
+        "git",
+        "diff",
+        "--check",
+        "--",
+        "scripts/opera_astronaut_surface.gd"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 0.099
+    }
+  ],
+  "surface_sha256": "856b491556e2ed66b80991acfc930058a0bc4850611198beb93ed500b109f888",
+  "log_path": "audit/astronaut_clearance_20261006/PIPE_MATERIAL_SOURCE_GATES_V1_LOG.txt",
+  "log_sha256": "91423bf09969ceaa5770ef4882766bc00a324a9c6727b65a5cded49def473182",
+  "meaning": "Parser, inference and source whitespace only. No native visual score or gameplay acceptance."
+}

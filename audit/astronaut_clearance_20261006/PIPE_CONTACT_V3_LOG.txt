@@ -1,0 +1,15 @@
+
+STEP Godot analyzer
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+
+STEP Birthday pipe-contact touch test
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+ASTRO_PIPE_CHECK|explicit prior-six-jobs fixture makes Astronaut next|PASS
+ASTRO_PIPE_CHECK|actual birthday card is visible|PASS
+ASTRO_CARD_DIAGNOSTIC|{"fade_alpha":0.0,"fade_filter":2,"game":"level2","rect":"[P: (563.0, 298.0), S: (154.0, 154.0)]","stage":"castle.room.mermaid_pool"}
+ASTRO_PIPE_CHECK|room fade permits real card input|PASS
+ASTRO_CARD_DIAGNOSTIC|{"act":false,"fade_alpha":0.0,"game":"level2","house":false,"stage":"castle.room.mermaid_pool","surface":"absent"}
+ASTRO_PIPE_CHECK|birthday route enters within deadline|FAIL
+ASTRO_PIPE_RESULT|{"checks":4,"contacts":[],"failures":1,"rows":[{"label":"explicit prior-six-jobs fixture makes Astronaut next","pass":true},{"label":"actual birthday card is visible","pass":true},{"label":"room fade permits real card input","pass":true},{"label":"birthday route enters within deadline","pass":false}],"scope":"Current source genuine birthday card/object/pipe input after explicit prior-six-jobs fixture. Candidate authored jaw geometry, deferred placement, interruption and conservation only; native visual/full-route/device/child/owner/fullCI acceptance pending."}

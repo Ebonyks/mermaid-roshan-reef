@@ -1,0 +1,84 @@
+{
+  "status": "OWNER_ART_SCOPE_QUESTION_PENDING_NO_GENERATION",
+  "id": "astronaut_ready_park_contact_pilot_v1",
+  "created_utc": "2026-10-07T08:35:52.738431+00:00",
+  "baseline": "96274aab9cebd563b10846a4a48de5d017588563",
+  "lane": "Interactive2Dgameplay source pilot; no cinematic or current visual acceptance",
+  "intent": "Roshan braces and pushes the repaired toy rocket to its parking mark using the child's existing rightward swipe, then lets go. It stays unlaunched and the candle stays unlit.",
+  "purpose": "Replace the generic wrench work pose that cannot demonstrate parking contact; solve the bound560px remote-action gap together with actual actor/object staging. No source-only frame can close that gap without implemented local contact.",
+  "scene": "Existing Astronaut birthday READY PARK at MermaidPool/MainHall rocket station; approved room painting and rocket identity remain. No new cast, scene, costume, prop, camera move, story fact or sound.",
+  "sources": [
+    {
+      "path": "assets/opera/worlds/actors/animation/roshan_astronaut_sheet_a.png",
+      "sha256": "ccfb8e7af3a033e31e05af40fa62dc23b676aec6204ba8810e8cf79cbfc4d6fa",
+      "role": "Approved complete-figure identity/costume/palette; exact native source inspected, not a parking action",
+      "modification": "none; original preserved"
+    },
+    {
+      "path": "assets/opera/worlds/props/goal_astronaut.png",
+      "sha256": "910f531303ec813a522f98b8ac2f97adeb5ed24bd0b438ecef9f136e19d77845",
+      "role": "Actual complete rocket identity, material, scale and silhouette",
+      "modification": "none; original preserved"
+    },
+    {
+      "path": "design/animation/ROSHAN_MOVEMENT_LANGUAGE.md",
+      "sha256": "cbe26bef2bef2228ba9abde1765d7872945eadde45ae146581b643d991cfc716",
+      "role": "Binding acting direction, no prior clip acceptance",
+      "modification": "none; original preserved"
+    },
+    {
+      "path": "design/animation/ANIMATION_PRODUCTION_PROTOCOL.md",
+      "sha256": "0b1a6784ea8c2a0287f99988cba27a36cc786a638733b2b74e07996405f651b7",
+      "role": "Whole-drawing/unit, constant anatomical size, contact/interrupt/verification controls",
+      "modification": "none; original preserved"
+    }
+  ],
+  "reuse_gap": "No parking push/contact/settle source demonstrated in inventory; travel keys are swimming and work keys hold/raise a wrench. Existing source must first earn suitability; no moving limb crop, frozen-body deformation or duplicate figure overlay.",
+  "proposed_output": "One bounded locally authored/Aseprite source pilot containing four complete whole-figure drawings at new non-runtime paths. No paid call, install, global rewrite, atlas replacement or production export authorized by this brief. If local authoring cannot achieve quality, stop and record gap before an alternative workflow.",
+  "keys": [
+    {
+      "id": "brace",
+      "intent": "Quarter-right facing, both empty hands prepared to meet the left side of the rocket; helmet/head/hair/shoulders/torso/tail remain one complete drawing."
+    },
+    {
+      "id": "push_contact_a",
+      "intent": "Whole body leans into a short push; both palms remain against the same rocket contact patch; tail balances the lean."
+    },
+    {
+      "id": "push_contact_b",
+      "intent": "Whole figure provides a second coherent push key with stable anatomical size and continuous torso/hair/tail response; no independently animated part."
+    },
+    {
+      "id": "park_settle",
+      "intent": "Release both hands after the intentional parking commit; settle beside the unlaunched rocket. No wrench, launch gesture, flames or candle light."
+    }
+  ],
+  "entry_exit": {
+    "entry": "Navigate to the real rocket before paid work; face right at its left side, exact source pose/root measured before integration. Re-entry begins safe and unheld at committed journey.",
+    "exit": "Rocket remains at the floor mark; Roshan releases locally; normal completion/return and Detective-next logic remain authoritative."
+  },
+  "geometry": {
+    "reference": "Fixed approved actor height and complete rocket dimensions; one whole drawing and one uniform render transform, with source anatomical landmarks measured across every key.",
+    "sockets": "Native hand/contact/root landmarks must be measured on the actual exported pixels before use; no guessed or interpolated accepted sockets.",
+    "staging": "Keep both complete sprites visible; shared stage-to-viewport transform for rocket art, input region, actor trajectory and contact measurement. Existing392x232focus is inadequate for current560px separation.",
+    "draw_order": "One whole actor node, one actual complete rocket; no duplicate actor, split limb or appearance-bearing guide pixels. Sparse parking cue only."
+  },
+  "timeline": {
+    "approach": "Responsive visible cue within2renderedframes; movement to actual target under existing route protocol; no progress until local readiness.",
+    "action": "Whole-figure push keys advance only with genuine rightward journey; any loop/boundary must be authored and native-reviewed, not an assumed4frame7fps loop.",
+    "contact": "Semantic contact interval and at-most-once gameplay commit require live scene/request/target, measured hand/object contact and intended child input.",
+    "settle": "Unlaunched parked hold followed by normal world-owned2.2second handoff; no fake intermediate credits."
+  },
+  "translation_owner": "Existing career world owns whole-actor approach and trajectory, actual surface owns normalized intentional rocket journey; they must use one transform and validated local contact before committing intentional progress.",
+  "events": "Existing phase/save/story owners alone commit progress, rewards and return. Pose indices or final animation frame never independently award. No new audio; existing ready_park line and cue remain.",
+  "interruptions": "Cancel pending requests/input/delayed work on pause/focus/back/teardown; no late credit. Preserve committed work and old saved push_racer context/signature; reload never restores a held owner or replays a reward.",
+  "readability": "Native Mobile/Speedy at1280x720andsecondsupportedaspect, whole silhouettes/face/hands/rocket visible at actual phone scale; no generic overlay/halo or hidden-child-act substitution.",
+  "verification": [
+    "Native whole-figure export identities, dimensions, root and head/arm/hand/torso/tail size checks with declared source-based tolerances",
+    "Aseprite source/export roundtrip and actual atlas sampling/state/timing tests, every transition including seam/entry/exit",
+    "Real card/object input then approach/contact/commit/release/pause/save/re-entry/finish/return; all71ordinary/83birthday/schema/trustedprobe regression after source change",
+    "Current clean-source native before/during/after at2supportedaspects plus independent per-item/action>=4.6 re-review",
+    "Full exactcandidate trusted suite, topicCI/normaldevintegration; device/child/owner acceptance remains separate"
+  ],
+  "owner_question": "Choose missing whole-figure parking keys at new paths vs restricting repair to existing approved poses. The goal explicitly reserves substantial artistic choices for the human. Ordinary launch choice remains a separate pending question."
+}

@@ -1,0 +1,82 @@
+{
+  "created_utc": "2026-10-07T11:47:20.745938+00:00",
+  "baseline": "96274aab9cebd563b10846a4a48de5d017588563",
+  "branch": "codex/astronaut-clearance-20261006",
+  "origin_dev": "6238934447cf28834874396dfbaff65effafda46",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-INT-04",
+    "DL-MOT-07",
+    "DL-MOT-10",
+    "DL-MOT-11",
+    "DL-MOT-12",
+    "DL-MOT-13",
+    "DL-SAVE-01",
+    "DL-SAVE-03",
+    "DL-SAVE-04",
+    "DL-QA-06",
+    "DL-QA-11",
+    "DL-QA-12"
+  ],
+  "findings": [
+    "MA-PLAY-004",
+    "MA-SAVE-002",
+    "MA-VIS-006"
+  ],
+  "scope": "Two scoped ownership guards in shared world methods: generic player bounce and animation do not compete with a busy Astronaut pipe helper; all other actors and careers preserve existing behavior. No surface/award/save/art/identity change.",
+  "intention": "Roshan reaches the released pipe piece, works with her intact wrench poses, withdraws at that same work position, then glides back under the action owner. The pipe result appears only through the existing eligible contact callback.",
+  "source_before": {
+    "path": "scripts/opera_career_world_2d.gd",
+    "sha256": "d39bbed5c738535167ce9c526596fee32b4cfc369a5a2d376f1a7cf58e841d44",
+    "literal_snapshot": "audit/astronaut_clearance_20261006/PIPE_RELEASE_BEFORE_SOURCE.txt",
+    "snapshot_sha256": "d39bbed5c738535167ce9c526596fee32b4cfc369a5a2d376f1a7cf58e841d44"
+  },
+  "native_failure": {
+    "receipt": "NATIVE_BIRTHDAY_CAPTURE_V3_RECEIPT.json",
+    "sha256": "d50f16638bbaf9e6adddc8ef3d4b34b859cb9e7c7d2eb33f5f991fef2513fb79",
+    "review": "NATIVE_BIRTHDAY_CAPTURE_V3_REVIEW.json",
+    "sha256_review": "6ca4997c60e461180a7c1a0f84fe4505f9a31efbe36ba7eccb034a1f99b788ca",
+    "measured_release_position_jump_from": [
+      782.413024902344,
+      241.023300170898
+    ],
+    "to": [
+      416.137786865234,
+      233.880004882813
+    ]
+  },
+  "clip_contract": {
+    "owner": "OperaAstronautPipeWork",
+    "whole_figure_source": "assets/opera/worlds/actors/animation/roshan_astronaut_sheet_a.png",
+    "source_sha256": "ccfb8e7af3a033e31e05af40fa62dc23b676aec6204ba8810e8cf79cbfc4d6fa",
+    "preserved_sequence": "travel4keys8fps -> work2anticipation.12 -> work0contact.16 -> work1contact.18 -> work2release.16 -> travel return -> idle0",
+    "direction": "whole-figure horizontal flip under existing measured viewport fit",
+    "contact": "existing live work1 jaw <=4viewportpixels before world callback; unchanged gameplay authority",
+    "ownership": "busy helper exclusively owns player position/scale/rotation/pose; generic rival/prop feedback unaffected",
+    "interruptions": "existing token cancellation/pause/focus/save rollback unchanged; fresh genuine input can supersede previous action under existing cancellation contract"
+  },
+  "required_evidence": [
+    "Original73pipe/17negative/57+57correction/91ordinary checks preserved and refreshed on new source",
+    "Native birthday original103behavior +4backend/menu +10live release ownership checks; actual source/log/pixel hashes",
+    "Native release actor position ==work_position, no competing generic player tween; real return path and settled Mermaid Pool fade-free pixels",
+    "Current parser/inference/authority/development/2D/literal staging gates; historical source bindings explicitly historical"
+  ],
+  "budget": {
+    "headless_combined_seconds": 360,
+    "native_analyzer_seconds": 180,
+    "native_output_bytes": 536870912,
+    "headless_output_bytes": 67108864,
+    "cache_growth_bytes": 67108864,
+    "owned_engine_processes": 1,
+    "previous_native_analyzer_seconds": 180.544,
+    "previous_headless_seconds": [
+      141.03,
+      159.35,
+      58.378
+    ],
+    "no_automatic_retry": true
+  },
+  "limits": "Technical/primary review only; pipe fallback art/contact semantic/wholefigure anatomy/actual cadence, other3mechanics, allvariants/twoaspect native/fulltrusted/independent/device/child/owner/integration remain open. No release promotion or outbound coordination."
+}

@@ -1,0 +1,50 @@
+{
+  "result": "FAIL",
+  "failure_kind": "OPERATOR_RECORDED_NON_ENGINE_GATE_TIMEOUT",
+  "started_utc": "2026-10-07T15:17:34.784464+00:00",
+  "terminal_recorded_utc": "2026-10-07T15:25:47.390546+00:00",
+  "initial_receipt_sha256": "69e018b2d1fb0e554cb0b80a7a3b3a2bf7b10c0e74b160cb235262d04dccb58b",
+  "initial_receipt_literal_utf8": "{\r\n  \"result\": \"RUNNING\",\r\n  \"started_utc\": \"2026-10-07T15:17:34.784464+00:00\",\r\n  \"scope\": \"Non-engine source/document gates; no import/capture/fullCI.\"\r\n}\r\n",
+  "runner_path": "audit/astronaut_clearance_20261006/run_patch_readability_document_gates_v1.py",
+  "runner_sha256": "7bf9fb30edb10f28ac2ccf88f5dd592fe99b257a7cb2aae01048f3d787b4c2ed",
+  "log_path": "audit/astronaut_clearance_20261006/PATCH_READABILITY_DOCUMENT_GATES_V1_LOG.txt",
+  "log_sha256": "c9b8661ab5e9f27c8eefb50b5f7badd049ecee16e5bb6b1756d734093fc93570",
+  "known_completed_steps": [
+    {
+      "label": "Changed GDScript parser",
+      "exit_code": 0,
+      "elapsed_seconds": 5.873
+    },
+    {
+      "label": "Changed GDScript inference",
+      "exit_code": 0,
+      "elapsed_seconds": 0.244
+    },
+    {
+      "label": "Document authority",
+      "exit_code": 0,
+      "elapsed_seconds": 13.6
+    },
+    {
+      "label": "Authority/development units",
+      "exit_code": 0,
+      "elapsed_seconds": 10.229
+    },
+    {
+      "label": "Authority stress",
+      "exit_code": 0,
+      "elapsed_seconds": 0.296
+    }
+  ],
+  "timed_out_step": "Shrinking 2D regression",
+  "subprocess_timeout_seconds": 89.75623249998898,
+  "declared_combined_cap_seconds": 120,
+  "declared_cap_exhausted": true,
+  "unexecuted_steps": [
+    "Development coverage",
+    "Staged whitespace"
+  ],
+  "process_terminal_evidence": "exec session54087 exit1 with subprocess.TimeoutExpired; subsequent Win32Process observation found no remaining audit_game_2d or associated Git checker process.",
+  "source_binding_limit": "V1 wrote only RUNNING/start/scope before failure; its intended full postflight source bindings were never written. No reconstructed binding or8gate PASS claimed.",
+  "meaning": "Operator-recorded terminal timeout of this non-engine command runner. Raw command log and original RUNNING bytes preserved. First5 tool-reported exits retained;2D/development/whitespace remain unverified. No reset/refund, automatic rerun, native/visual/fullsuite acceptance."
+}

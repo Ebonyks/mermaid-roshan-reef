@@ -1,0 +1,44 @@
+{
+  "result": "PASS",
+  "checked_utc": "2026-10-07T22:20:30.452160+00:00",
+  "seconds_ceiling": 25,
+  "elapsed_seconds": 20.643,
+  "steps": [
+    {
+      "command": [
+        "C:/Users/Peter/AppData/Local/Python/bin/python.exe",
+        "-X",
+        "utf8",
+        "-B",
+        "tools/audit_document_authority.py"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 7.534
+    },
+    {
+      "command": [
+        "C:/Users/Peter/AppData/Local/Python/bin/python.exe",
+        "-X",
+        "utf8",
+        "-B",
+        "tools/audit_development.py",
+        "--base",
+        "auto"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 3.842
+    },
+    {
+      "command": "post-record audit_development.py --base auto",
+      "exit_code": 0,
+      "elapsed_seconds": 3.828
+    },
+    {
+      "command": "final status checksum metadata coverage recheck",
+      "exit_code": 0,
+      "elapsed_seconds": 4.976
+    }
+  ],
+  "scope": "Document authority/development coverage only. FocusedOpera1385/boss12 PASS. OriginalfullCIV3FAIL, no newsinglefullCI/nativeart/4.6/independent/device/child/ownerclaim.",
+  "log_sha256": "de72c2dcd42def957055741c0126bb3ffa429828d95d4bcc2bd116a83c4cd08c"
+}

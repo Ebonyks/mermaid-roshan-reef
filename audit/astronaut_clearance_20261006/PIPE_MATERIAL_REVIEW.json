@@ -1,0 +1,100 @@
+{
+  "checked_utc": "2026-10-07T17:15:58.924721+00:00",
+  "state": "IMPLEMENTED_SOURCE_CHECKS_PASS_ENGINE_NATIVE_PENDING",
+  "baseline": "96274aab9cebd563b10846a4a48de5d017588563",
+  "branch": "codex/astronaut-clearance-20261006",
+  "surface_sha256": "856b491556e2ed66b80991acfc930058a0bc4850611198beb93ed500b109f888",
+  "world_sha256": "b567bb47894a25f26cb94e70b24ec3eda55e7e2ee6ab45247d46a2a13e8642cf",
+  "plan_sha256": "db2923f0eac9fb7af2e2aaa7f8043394e74d379f1e7726f60802dd98c22ea99c",
+  "implementation_start_sha256": "1f84c9cd268e956d26457861a0dea7a3e5ea59a6f44145ccd11f6409c086e5cb",
+  "implementation": "Astronaut-only cached cardinal straight/quarter-bend Canvas pipes: navy contours, broad silver/blue bands, narrow earned aqua fuel, calmer rounded cell/tray guides, matched tank/intake connectors. Authored textures retain priority. No input, mouth directions, stock, routing, hit regions, timers, actors, contact owners or save functions changed.",
+  "source_gate": {
+    "path": "audit/astronaut_clearance_20261006/PIPE_MATERIAL_SOURCE_GATES_V1_RECEIPT.json",
+    "sha256": "d67fc0f22a052cf537db369880b9d7205901d62abd0b3ee776ca5286b393da53",
+    "result": "PASS",
+    "elapsed_seconds": 1.209
+  },
+  "preparation_gate": {
+    "path": "audit/astronaut_clearance_20261006/PIPE_MATERIAL_PREPARATION_V1_RECEIPT.json",
+    "sha256": "cacc46d3ffaa2ffee938cc92079e50bac4a03721f856b22ebd524f2267499a78",
+    "result": "PASS",
+    "elapsed_seconds": 1.153
+  },
+  "function_preservation": [
+    "_drag",
+    "_draw_anchored_targets",
+    "_draw_long_push",
+    "_draw_patch_leak",
+    "_gui_input",
+    "_notification",
+    "_pipe_press",
+    "_pipe_release",
+    "_pipe_tick",
+    "_process",
+    "_release",
+    "_request_pipe_work",
+    "_restore_pipe_progress",
+    "_target_press",
+    "_uses_rocket_park_context",
+    "cancel_input",
+    "close_input",
+    "commit_patch_work",
+    "commit_pipe_work",
+    "commit_valve_motion",
+    "input_suspended",
+    "progress_snapshot",
+    "restore_progress"
+  ],
+  "prepared_evidence": "Unique143birthday/17negative headless fixtures; V9 keeps all127original assertions peraspect, adds8later-board committed snapshots and3successful/pause/restored partial PARK snapshots. Nothing executed yet.",
+  "resource_queue_snapshot": {
+    "path": "C:\\Users\\Peter\\.codex\\worktrees\\job-art-runtime-sync-20261004\\mermaid-roshan-reef\\audit\\job_game_clearance_coordination_v1_20261006\\RESOURCE_QUEUE_V15.json",
+    "sha256": "ca461df68187944426701bc790cfd2b599c6c6c439925335a0800be0947cbccb",
+    "utc": "2026-10-07T17:12:44.553867+00:00",
+    "heavy_lease": {
+      "id": "ballerina-matrix-native-20261007-v3",
+      "game": "ballerina",
+      "thread": "01a10271-f284-77e3-866d-4989f542a5f9",
+      "state": "GRANTED_NOT_STARTED",
+      "grant": "BALLET_NATIVE_GRANT_V21.json",
+      "grant_sha256": "f0aa86d4da54c6118a31e867f4e4b73f38fb7367e56ce3c29054b7e184c00914",
+      "additional_seconds": 300,
+      "combined_seconds": 412.344,
+      "native_cores": 3,
+      "exclusive_heavy": true,
+      "independent_existing_headless_nonimport_CPU_lane_allowed": true,
+      "no_retry": true
+    },
+    "full_cpu_lease": null,
+    "short_cpu_lease": null,
+    "meaning": "Read-only snapshot; Chef heavy lease is reserved. No Astronaut exclusive allocation or release inferred."
+  },
+  "execution": {
+    "headless": "NOT_RUN",
+    "native": "NOT_RUN",
+    "reason": "Actual approved engine activity and another task heavy reservation observed. No competing engine started."
+  },
+  "current_pipe_score": null,
+  "previous_pipe_score": 4.0,
+  "previous_action_scores": {
+    "PATCH": 4.0,
+    "VALVE": 3.8,
+    "PARK": 2.3
+  },
+  "score_currency": "Historical V8 inspection at surface5685/worldb567. No score is assigned to the new renderer before exact native review; no complete action cleared.",
+  "walkthrough": {
+    "path": "audit/astronaut_walkthrough_20261007/README.md",
+    "sealed_manifest_sha256": "03e5dfd1a1be9e220b126255f36b82542543f73c17996d93efee9e0979ebbd04",
+    "currency": "29steps/35native images remain a preserved V8 snapshot at surface5685; historical after surface856b drawing edit. No current-native acceptance transfers."
+  },
+  "remaining": [
+    "Exact4.7.2 analyzer and143+17engine checks",
+    "New1280/1600Mobile native material/contact review",
+    "Normal-cadence complete action review",
+    "Ordinary and complete natural birthday route coverage",
+    "Full trusted suite and source/revision gates",
+    "Independent/device/child/owner acceptance",
+    "Whole-figure PARK/ordinaryLAUNCH human choices",
+    "Green integration and required GitHub publication"
+  ],
+  "prior_costs_and_failures": "All earlier receipts, failed native parent/missing second exit/resource continuity, exhausted document cap, pixel loss disclosure and exact original costs remain unchanged. No retry or reset."
+}

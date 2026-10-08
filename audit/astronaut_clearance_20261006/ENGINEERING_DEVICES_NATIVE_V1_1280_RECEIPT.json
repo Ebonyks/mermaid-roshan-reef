@@ -1,0 +1,44 @@
+{
+  "result": "FAIL",
+  "utc": "2026-10-08T00:24:11.067057+00:00",
+  "elapsed_seconds": 123.63102729996899,
+  "exit_code": 4294967295,
+  "checks": null,
+  "source_bindings": {
+    "scripts/opera_astronaut_surface.gd": "9ae8b4327efba8fd0b8abfc64cb251d4887dd1c0ff41f55b000f583702fc47e1",
+    "scripts/opera_astronaut_devices.gd": "c7bc86b567655be2bb3550d9a27eabb4944342bcfadec90dde1e09854728cf7c",
+    "scripts/opera_astronaut_pipe_work.gd": "0766a4e92235c74548006c6ae6b55c3578f2d0b5bd04f978fdb99aefcdf6819c",
+    "scripts/opera_career_world_2d.gd": "170d6ad87e3d4117c5c7de92026e5e5c0fb42a55ed4238b60a88ee6c8fac5a7b",
+    "scripts/chapter_two_career_scene_adapter.gd": "ffdcd602711a6acc42a5c6352ad8cbb701316f94c21233356fb56071f85ad40a",
+    "scripts/save_state.gd": "13b77592028653cdcac67e54264f049bbab01c6566b4fad1ea9bdf89a37a07c8",
+    "assets/opera/worlds/widgets/astronaut_radioactive_fluid_v1.png": "895a90c44c5feb69afeb8d73a264304cb6a1282ade1a18a21a56417ec029b2bd",
+    "assets/opera/worlds/widgets/astronaut_gear_v1.png": "8d25f70bb5594633eb2e0f817dfbb90c99fe923d02688b17a00a561eddf2f1e7",
+    "audit/astronaut_clearance_20261006/capture_engineering_devices_v1.gd": "4024f7701ca83ddbff0728ad45bf65ea2777328033300396e61865ed216d113a"
+  },
+  "source_changes": [],
+  "failure_lines": [
+    "ERROR: GENERAL - Message Id Number: 0 | Message Id Name: Loader Message",
+    "SCRIPT ERROR: Invalid call. Nonexistent function 'home' in base 'Nil'."
+  ],
+  "report": null,
+  "argv": [
+    "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64.exe",
+    "--verbose",
+    "--path",
+    "C:\\Users\\Peter\\.codex\\worktrees\\astronaut-goal-20261006\\mermaid-roshan-reef",
+    "--audio-driver",
+    "Dummy",
+    "--rendering-method",
+    "mobile",
+    "--rendering-driver",
+    "vulkan",
+    "--resolution",
+    "1280x720",
+    "--max-fps",
+    "30",
+    "-s",
+    "audit/astronaut_clearance_20261006/capture_engineering_devices_v1.gd"
+  ],
+  "log_sha256": "134777b92fd424cb7ceda5aca8d528519d6fc2e94a2b315b2f00b605db858d10",
+  "limits": "Native diagnostic, prior story seeded; no full-speed/device/independent/child/owner acceptance."
+}

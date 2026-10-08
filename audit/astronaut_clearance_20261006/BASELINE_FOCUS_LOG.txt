@@ -1,0 +1,42 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+ERROR: Unable to open file: res://.godot/imported/widget_charge_astronaut_glow.png-6a3367ce2deed42de02d5de2b8babbda.s3tc.ctex.
+   at: _load_data (scene/resources/compressed_texture.cpp:45)
+   GDScript backtrace (most recent call first):
+       [0] _load_widget_texture (res://scripts/opera_gesture_surface.gd:744)
+       [1] _load_widget_set (res://scripts/opera_gesture_surface.gd:789)
+       [2] configure (res://scripts/opera_gesture_surface.gd:450)
+       [3] _run (res://audit/astronaut_clearance_20261006/reproduce_focus.gd:17)
+ERROR: Failed loading resource: res://.godot/imported/widget_charge_astronaut_glow.png-6a3367ce2deed42de02d5de2b8babbda.s3tc.ctex.
+   at: _load (core/io/resource_loader.cpp:317)
+   GDScript backtrace (most recent call first):
+       [0] _load_widget_texture (res://scripts/opera_gesture_surface.gd:744)
+       [1] _load_widget_set (res://scripts/opera_gesture_surface.gd:789)
+       [2] configure (res://scripts/opera_gesture_surface.gd:450)
+       [3] _run (res://audit/astronaut_clearance_20261006/reproduce_focus.gd:17)
+ERROR: Failed loading resource: res://assets/opera/worlds/widgets/widget_charge_astronaut_glow.png.
+   at: _load (core/io/resource_loader.cpp:317)
+   GDScript backtrace (most recent call first):
+       [0] _load_widget_texture (res://scripts/opera_gesture_surface.gd:744)
+       [1] _load_widget_set (res://scripts/opera_gesture_surface.gd:789)
+       [2] configure (res://scripts/opera_gesture_surface.gd:450)
+       [3] _run (res://audit/astronaut_clearance_20261006/reproduce_focus.gd:17)
+ERROR: Unable to open file: res://.godot/imported/goal_astronaut.png-99a883c005e02d50b9d2c0ef7d7f4365.s3tc.ctex.
+   at: _load_data (scene/resources/compressed_texture.cpp:45)
+   GDScript backtrace (most recent call first):
+       [0] _load_widget_texture (res://scripts/opera_gesture_surface.gd:744)
+       [1] configure (res://scripts/opera_gesture_surface.gd:454)
+       [2] _run (res://audit/astronaut_clearance_20261006/reproduce_focus.gd:17)
+ERROR: Failed loading resource: res://.godot/imported/goal_astronaut.png-99a883c005e02d50b9d2c0ef7d7f4365.s3tc.ctex.
+   at: _load (core/io/resource_loader.cpp:317)
+   GDScript backtrace (most recent call first):
+       [0] _load_widget_texture (res://scripts/opera_gesture_surface.gd:744)
+       [1] configure (res://scripts/opera_gesture_surface.gd:454)
+       [2] _run (res://audit/astronaut_clearance_20261006/reproduce_focus.gd:17)
+ERROR: Failed loading resource: res://assets/opera/worlds/props/goal_astronaut.png.
+   at: _load (core/io/resource_loader.cpp:317)
+   GDScript backtrace (most recent call first):
+       [0] _load_widget_texture (res://scripts/opera_gesture_surface.gd:744)
+       [1] configure (res://scripts/opera_gesture_surface.gd:454)
+       [2] _run (res://audit/astronaut_clearance_20261006/reproduce_focus.gd:17)
+ASTRO_FOCUS_EVIDENCE|{"failures":1,"focus_boundary":"Node.notification(APPLICATION_FOCUS_OUT), not real-device evidence","input":"Input.parse_input_event -> viewport GUI dispatch","rows":[{"check":"genuine viewport touch arms launch hold","held":true,"owner":7,"pass":true},{"check":"focus loss clears held launch input","held":true,"owner":7,"pass":false}],"scope":"Surface cancellation reproduction; whole-world action/score/capture acceptance absent"}

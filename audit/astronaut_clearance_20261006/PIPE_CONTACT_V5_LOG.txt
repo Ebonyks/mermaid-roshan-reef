@@ -1,0 +1,85 @@
+
+STEP Godot analyzer
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+
+STEP Birthday pipe-contact touch test
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+ASTRO_PIPE_CHECK|explicit prior-six-jobs fixture makes Astronaut next|PASS
+ASTRO_PIPE_CHECK|actual birthday card is visible|PASS
+ASTRO_CARD_DIAGNOSTIC|{"fade_alpha":0.0,"fade_filter":2,"game":"level2","rect":"[P: (563.0, 18.0), S: (154.0, 154.0)]","stage":"castle.room.mermaid_pool"}
+ASTRO_PIPE_CHECK|room fade permits real card input|PASS
+ASTRO_PIPE_CHECK|production world requires pipe contact|PASS
+ASTRO_PIPE_CHECK|actual object touch opens pipe after room approach|PASS
+ASTRO_PIPE_CHECK|passive time grants no placement or board|PASS
+ASTRO_PIPE_CHECK|real released tile remains pending before work|PASS
+ASTRO_PIPE_CHECK|second finger cannot stack pending work|PASS
+ASTRO_PIPE_CHECK|pending world commit is rejected|PASS
+ASTRO_PIPE_CHECK|save before contact conserves source tile|PASS
+ASTRO_PIPE_CHECK|actual saved pending tile restores source not target|PASS
+ASTRO_PIPE_CHECK|focus loss cancels unearned approach|PASS
+ASTRO_PIPE_CHECK|canceled work cannot commit later|PASS
+ASTRO_PIPE_CHECK|new intent after focus can request again|PASS
+ASTRO_PIPE_CHECK|actual tree pause cancels unearned work|PASS
+ASTRO_PIPE_CHECK|pending close fixture is real input|PASS
+ASTRO_PIPE_CHECK|production close retires owned unearned work|PASS
+ASTRO_PIPE_CHECK|actual birthday card is visible|PASS
+ASTRO_CARD_DIAGNOSTIC|{"fade_alpha":0.0,"fade_filter":2,"game":"level2","rect":"[P: (563.0, 18.0), S: (154.0, 154.0)]","stage":"castle.room.mermaid_pool"}
+ASTRO_PIPE_CHECK|room fade permits real card input|PASS
+ASTRO_PIPE_CHECK|production world requires pipe contact|PASS
+ASTRO_PIPE_CHECK|actual object touch opens pipe after room approach|PASS
+ASTRO_PIPE_CHECK|reload of canceled placement conserves both pipes|PASS
+ASTRO_PIPE_CHECK|early world commit is rejected at5|PASS
+ASTRO_PIPE_CHECK|actual full-figure contact geometry and size at5|PASS
+ASTRO_PIPE_CHECK|repeated same commit is rejected at5|PASS
+ASTRO_PIPE_CHECK|genuine local board1 placement H at5|PASS
+ASTRO_PIPE_CHECK|early world commit is rejected at6|PASS
+ASTRO_PIPE_CHECK|actual full-figure contact geometry and size at6|PASS
+ASTRO_PIPE_CHECK|repeated same commit is rejected at6|PASS
+ASTRO_PIPE_CHECK|genuine local board1 placement H at6|PASS
+ASTRO_PIPE_CHECK|normal engine earns board1 once|PASS
+ASTRO_PIPE_CHECK|early world commit is rejected at0|PASS
+ASTRO_PIPE_CHECK|actual full-figure contact geometry and size at0|PASS
+ASTRO_PIPE_CHECK|repeated same commit is rejected at0|PASS
+ASTRO_PIPE_CHECK|board2 first piece earns actual local contact|PASS
+ASTRO_PIPE_CHECK|committed piece can be saved|PASS
+ASTRO_PIPE_CHECK|actual birthday card is visible|PASS
+ASTRO_CARD_DIAGNOSTIC|{"fade_alpha":0.0,"fade_filter":2,"game":"level2","rect":"[P: (563.0, 18.0), S: (154.0, 154.0)]","stage":"castle.room.mermaid_pool"}
+ASTRO_PIPE_CHECK|room fade permits real card input|PASS
+ASTRO_PIPE_CHECK|production world requires pipe contact|PASS
+ASTRO_PIPE_CHECK|actual object touch opens pipe after room approach|PASS
+ASTRO_PIPE_CHECK|real save/load retains board credit and committed piece|PASS
+ASTRO_PIPE_CHECK|restored genuine placed SE is not earned twice|PASS
+ASTRO_PIPE_CHECK|early world commit is rejected at1|PASS
+ASTRO_PIPE_CHECK|actual full-figure contact geometry and size at1|PASS
+ASTRO_PIPE_CHECK|repeated same commit is rejected at1|PASS
+ASTRO_PIPE_CHECK|genuine local board2 placement H at1|PASS
+ASTRO_PIPE_CHECK|early world commit is rejected at2|PASS
+ASTRO_PIPE_CHECK|actual full-figure contact geometry and size at2|PASS
+ASTRO_PIPE_CHECK|repeated same commit is rejected at2|PASS
+ASTRO_PIPE_CHECK|genuine local board2 placement SW at2|PASS
+ASTRO_PIPE_CHECK|early world commit is rejected at6|PASS
+ASTRO_PIPE_CHECK|actual full-figure contact geometry and size at6|PASS
+ASTRO_PIPE_CHECK|repeated same commit is rejected at6|PASS
+ASTRO_PIPE_CHECK|genuine local board2 placement NE at6|PASS
+ASTRO_PIPE_CHECK|normal engine earns board2 once|PASS
+ASTRO_PIPE_CHECK|early world commit is rejected at5|PASS
+ASTRO_PIPE_CHECK|actual full-figure contact geometry and size at5|PASS
+ASTRO_PIPE_CHECK|repeated same commit is rejected at5|PASS
+ASTRO_PIPE_CHECK|genuine local board3 placement NW at5|PASS
+ASTRO_PIPE_CHECK|early world commit is rejected at1|PASS
+ASTRO_PIPE_CHECK|actual full-figure contact geometry and size at1|PASS
+ASTRO_PIPE_CHECK|repeated same commit is rejected at1|PASS
+ASTRO_PIPE_CHECK|genuine local board3 placement SE at1|PASS
+ASTRO_PIPE_CHECK|early world commit is rejected at2|PASS
+ASTRO_PIPE_CHECK|actual full-figure contact geometry and size at2|PASS
+ASTRO_PIPE_CHECK|repeated same commit is rejected at2|PASS
+ASTRO_PIPE_CHECK|genuine local board3 placement H at2|PASS
+ASTRO_PIPE_CHECK|early world commit is rejected at3|PASS
+ASTRO_PIPE_CHECK|actual full-figure contact geometry and size at3|PASS
+ASTRO_PIPE_CHECK|repeated same commit is rejected at3|PASS
+ASTRO_PIPE_CHECK|genuine local board3 placement NW at3|PASS
+ASTRO_PIPE_CHECK|normal engine earns board3 once|PASS
+ASTRO_PIPE_CHECK|earned pipe action keeps birthday rocket unlit|PASS
+ASTRO_PIPE_RESULT|{"checks":73,"contacts":[{"atlas_region":[256.0,512.0,256.0,256.0],"cell":5,"distance":0.96710205078125,"jaw_viewport":[824.0,330.967102050781],"request_id":3,"round":0,"scale":[0.990349888801575,0.990349888801575],"target_viewport":[824.0,330.0]},{"atlas_region":[256.0,512.0,256.0,256.0],"cell":6,"distance":0.9671630859375,"jaw_viewport":[936.0,330.967163085938],"request_id":4,"round":0,"scale":[0.990349888801575,0.990349888801575],"target_viewport":[936.0,330.0]},{"atlas_region":[256.0,512.0,256.0,256.0],"cell":0,"distance":0.967147827148438,"jaw_viewport":[712.0,218.967147827148],"request_id":5,"round":1,"scale":[0.990349888801575,0.990349888801575],"target_viewport":[712.0,218.0]},{"atlas_region":[256.0,512.0,256.0,256.0],"cell":1,"distance":0.967147827148438,"jaw_viewport":[824.0,218.967147827148],"request_id":3,"round":1,"scale":[0.990349888801575,0.990349888801575],"target_viewport":[824.0,218.0]},{"atlas_region":[256.0,512.0,256.0,256.0],"cell":2,"distance":0.967147827148438,"jaw_viewport":[936.0,218.967147827148],"request_id":4,"round":1,"scale":[0.990349888801575,0.990349888801575],"target_viewport":[936.0,218.0]},{"atlas_region":[256.0,512.0,256.0,256.0],"cell":6,"distance":0.9671630859375,"jaw_viewport":[936.000061035156,330.967163085938],"request_id":5,"round":1,"scale":[0.990349888801575,0.990349888801575],"target_viewport":[936.0,330.0]},{"atlas_region":[256.0,512.0,256.0,256.0],"cell":5,"distance":0.96722412109375,"jaw_viewport":[824.0,330.967224121094],"request_id":6,"round":2,"scale":[0.990349888801575,0.990349888801575],"target_viewport":[824.0,330.0]},{"atlas_region":[256.0,512.0,256.0,256.0],"cell":1,"distance":0.96710205078125,"jaw_viewport":[824.0,218.967102050781],"request_id":7,"round":2,"scale":[0.990349888801575,0.990349888801575],"target_viewport":[824.0,218.0]},{"atlas_region":[256.0,512.0,256.0,256.0],"cell":2,"distance":0.967132568359375,"jaw_viewport":[936.0,218.967132568359],"request_id":8,"round":2,"scale":[0.990349888801575,0.990349888801575],"target_viewport":[936.0,218.0]},{"atlas_region":[256.0,512.0,256.0,256.0],"cell":3,"distance":0.9671630859375,"jaw_viewport":[1048.0,218.967163085938],"request_id":9,"round":2,"scale":[0.990349888801575,0.990349888801575],"target_viewport":[1048.0,218.0]}],"failures":0,"rows":[{"label":"explicit prior-six-jobs fixture makes Astronaut next","pass":true},{"label":"actual birthday card is visible","pass":true},{"label":"room fade permits real card input","pass":true},{"label":"production world requires pipe contact","pass":true},{"label":"actual object touch opens pipe after room approach","pass":true},{"label":"passive time grants no placement or board","pass":true},{"label":"real released tile remains pending before work","pass":true},{"label":"second finger cannot stack pending work","pass":true},{"label":"pending world commit is rejected","pass":true},{"label":"save before contact conserves source tile","pass":true},{"label":"actual saved pending tile restores source not target","pass":true},{"label":"focus loss cancels unearned approach","pass":true},{"label":"canceled work cannot commit later","pass":true},{"label":"new intent after focus can request again","pass":true},{"label":"actual tree pause cancels unearned work","pass":true},{"label":"pending close fixture is real input","pass":true},{"label":"production close retires owned unearned work","pass":true},{"label":"actual birthday card is visible","pass":true},{"label":"room fade permits real card input","pass":true},{"label":"production world requires pipe contact","pass":true},{"label":"actual object touch opens pipe after room approach","pass":true},{"label":"reload of canceled placement conserves both pipes","pass":true},{"label":"early world commit is rejected at5","pass":true},{"label":"actual full-figure contact geometry and size at5","pass":true},{"label":"repeated same commit is rejected at5","pass":true},{"label":"genuine local board1 placement H at5","pass":true},{"label":"early world commit is rejected at6","pass":true},{"label":"actual full-figure contact geometry and size at6","pass":true},{"label":"repeated same commit is rejected at6","pass":true},{"label":"genuine local board1 placement H at6","pass":true},{"label":"normal engine earns board1 once","pass":true},{"label":"early world commit is rejected at0","pass":true},{"label":"actual full-figure contact geometry and size at0","pass":true},{"label":"repeated same commit is rejected at0","pass":true},{"label":"board2 first piece earns actual local contact","pass":true},{"label":"committed piece can be saved","pass":true},{"label":"actual birthday card is visible","pass":true},{"label":"room fade permits real card input","pass":true},{"label":"production world requires pipe contact","pass":true},{"label":"actual object touch opens pipe after room approach","pass":true},{"label":"real save/load retains board credit and committed piece","pass":true},{"label":"restored genuine placed SE is not earned twice","pass":true},{"label":"early world commit is rejected at1","pass":true},{"label":"actual full-figure contact geometry and size at1","pass":true},{"label":"repeated same commit is rejected at1","pass":true},{"label":"genuine local board2 placement H at1","pass":true},{"label":"early world commit is rejected at2","pass":true},{"label":"actual full-figure contact geometry and size at2","pass":true},{"label":"repeated same commit is rejected at2","pass":true},{"label":"genuine local board2 placement SW at2","pass":true},{"label":"early world commit is rejected at6","pass":true},{"label":"actual full-figure contact geometry and size at6","pass":true},{"label":"repeated same commit is rejected at6","pass":true},{"label":"genuine local board2 placement NE at6","pass":true},{"label":"normal engine earns board2 once","pass":true},{"label":"early world commit is rejected at5","pass":true},{"label":"actual full-figure contact geometry and size at5","pass":true},{"label":"repeated same commit is rejected at5","pass":true},{"label":"genuine local board3 placement NW at5","pass":true},{"label":"early world commit is rejected at1","pass":true},{"label":"actual full-figure contact geometry and size at1","pass":true},{"label":"repeated same commit is rejected at1","pass":true},{"label":"genuine local board3 placement SE at1","pass":true},{"label":"early world commit is rejected at2","pass":true},{"label":"actual full-figure contact geometry and size at2","pass":true},{"label":"repeated same commit is rejected at2","pass":true},{"label":"genuine local board3 placement H at2","pass":true},{"label":"early world commit is rejected at3","pass":true},{"label":"actual full-figure contact geometry and size at3","pass":true},{"label":"repeated same commit is rejected at3","pass":true},{"label":"genuine local board3 placement NW at3","pass":true},{"label":"normal engine earns board3 once","pass":true},{"label":"earned pipe action keeps birthday rocket unlit","pass":true}],"scope":"Current source genuine birthday card/object/pipe input after explicit prior-six-jobs fixture. Candidate authored jaw geometry, deferred placement, interruption and conservation only; native visual/full-route/device/child/owner/fullCI acceptance pending."}

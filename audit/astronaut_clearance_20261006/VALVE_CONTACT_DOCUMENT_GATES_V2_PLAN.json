@@ -1,0 +1,16 @@
+{
+  "created_utc": "2026-10-07T13:32:13.365791+00:00",
+  "result": "CORRECTIVE_GATE_PLAN",
+  "failure": "V1document authority DOC049: one section5routing row lost seven canonical links because the update selected findings mentioned anywhere in a row. Exact routing row restored byte-for-byte from prior staged master; only3first-column target finding rows retain the valve update. A correction-script prewrite assertion initially expected seven rows, identified the one routing row, and was corrected before any file write or gate rerun.",
+  "failed_receipt": "VALVE_CONTACT_DOCUMENT_GATES_V1_RECEIPT.json",
+  "failed_receipt_sha256": "26e0fb178252147c1a08ae63ec16d227327d3e07c8f75ea56f951c74728fc6c9",
+  "restored_rows": [
+    "Play, access, touch, and combat"
+  ],
+  "master_after_sha256": "ece1fda29aa2563bac86d6939deb6bb8a21ca238dc3cbe717f1a575f7f31b484",
+  "runtime_or_capture_changes": false,
+  "prior_gate_seconds": 16.058,
+  "original_combined_cap_seconds": 120,
+  "remaining_gate_cap_seconds": 103.942,
+  "retry": "One documented corrective non-engine gate execution; original failed receipt/log/runner preserved. No engine launch or acceptance relaxation."
+}

@@ -1,0 +1,109 @@
+{
+  "checked_utc": "2026-10-07T18:35:26.199855+00:00",
+  "source_hash": "856b491556e2ed66b80991acfc930058a0bc4850611198beb93ed500b109f888",
+  "raster_candidates": [
+    {
+      "path": "assets_src/concepts/opera_jobs_flat_2026-07-21/cards/opera_job_astronaut_engineer_gameplay_straight_pipe.png",
+      "sha256": "0236da6ad35cf15eb6a486550da54769f6c75c621180197e6240baa876aa75e1",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "mode": "RGB",
+      "runtime_acceptance": "NOT_GRANTED_BY_THIS_INVENTORY",
+      "viewed_original": true
+    },
+    {
+      "path": "assets_src/concepts/opera_jobs_flat_2026-07-21/cards/opera_job_astronaut_engineer_gameplay_elbow_pipe.png",
+      "sha256": "44ff44aaed63d0f2164f5d015d298889a883795db60e26ee2dc0e9b70f645647",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "mode": "RGB",
+      "runtime_acceptance": "NOT_GRANTED_BY_THIS_INVENTORY",
+      "viewed_original": true
+    },
+    {
+      "path": "assets_src/concepts/opera_jobs_flat_2026-07-21/cards/opera_job_astronaut_engineer_gameplay_ring_pipe.png",
+      "sha256": "c0228faf6063962b7d93926eeb92e57cbba5dff9f52d5bedc55157befdcebdb5",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "mode": "RGB",
+      "runtime_acceptance": "NOT_GRANTED_BY_THIS_INVENTORY",
+      "viewed_original": false
+    },
+    {
+      "path": "assets_src/concepts/opera_jobs_flat_2026-07-21/cards/opera_job_astronaut_engineer_stage_states_pipe_wall.png",
+      "sha256": "eb347b753789e9200349843188b0fbe1542bc1ad6f8fa033fff346afe0273050",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "mode": "RGB",
+      "runtime_acceptance": "NOT_GRANTED_BY_THIS_INVENTORY",
+      "viewed_original": false
+    },
+    {
+      "path": "assets/opera/worlds/widgets/widget_crank_astronaut.png",
+      "sha256": "d87238e8012e2166c929ed81fad317fbbe14665d0ce6026e9e6781b064ba0b54",
+      "dimensions": [
+        1024,
+        608
+      ],
+      "mode": "RGBA",
+      "runtime_acceptance": "NOT_GRANTED_BY_THIS_INVENTORY",
+      "viewed_original": false
+    },
+    {
+      "path": "assets/opera/worlds/widgets/widget_charge_astronaut.png",
+      "sha256": "8e2e2546a4bd65639ed15bb52292fb6331bcbcc7cf82b4f0ffd381ef9163410e",
+      "dimensions": [
+        1024,
+        608
+      ],
+      "mode": "RGBA",
+      "runtime_acceptance": "NOT_GRANTED_BY_THIS_INVENTORY",
+      "viewed_original": true
+    },
+    {
+      "path": "assets_src/concepts/opera_house_flat/cards/opera_floor3_pipe_trio.png",
+      "sha256": "a9f50445e652bf50031a0a88723c55e982b239c0df90dbc30d93837dcefaad15",
+      "dimensions": [
+        256,
+        256
+      ],
+      "mode": "RGB",
+      "runtime_acceptance": "NOT_GRANTED_BY_THIS_INVENTORY",
+      "viewed_original": false
+    }
+  ],
+  "missing_runtime_sources": [
+    "assets/opera/worlds/widgets/widget_pipe_tile_h.png",
+    "assets/opera/worlds/widgets/widget_pipe_tile_v.png",
+    "assets/opera/worlds/widgets/widget_pipe_elbow_ne.png",
+    "assets/opera/worlds/widgets/widget_pipe_elbow_nw.png",
+    "assets/opera/worlds/widgets/widget_pipe_elbow_se.png",
+    "assets/opera/worlds/widgets/widget_pipe_elbow_sw.png",
+    "assets/opera/worlds/widgets/widget_pipe_tank.png",
+    "assets/opera/worlds/widgets/widget_pipe_intake.png"
+  ],
+  "visible_replacement_roles": [
+    "sixcardinal mouth-pair pipefaces in112px cells and84px tray",
+    "tank/intake and consistent endpoint connectors",
+    "board/tray/selected/invitation visual guides",
+    "fuel travel/wait/success raster effects",
+    "existing napping-imp obstacle appearance; approved identity reuse before newart"
+  ],
+  "call_sites": [
+    "scripts/opera_gesture_surface.gd: configure pipe loads and _draw_pipe_tile",
+    "scripts/opera_astronaut_surface.gd: _draw_pipe_tile/_draw_pipe_connector/_draw_pipe_endpoint/_draw_pipe"
+  ],
+  "review": "Viewed straight/elbow originals are painted teal with cream/gold collars on opaque navy cards. They supply material identity, but current crop/perspective/background do not directly satisfy six matching cardinal runtime ports. Runtime charge widget contains a painted rocket within flat frame/bars, so whole-widget reuse would retain prohibited vector appearance. No approved compliant complete tile family was located in this bounded shortlist.",
+  "reuse_options": "Reuse existing painted pipe identity through a separately preserved ImageGen isolation/view correction if approved scope is verified; preserve originals. Do not rasterize current code shapes or include code-native appearance as final generation reference.",
+  "source_acceptance_or_licence_gaps": "Specific concept card rows were not located by the exact filename ASSET_LICENSES search. Source approval/provenance must be checked before adoption. Existing runtime widget rows describe composite provenance, not blanket pixel acceptance.",
+  "output": "No bitmap edits, derivatives, generation, runtime adoption, original changes or native evidence created.",
+  "runtime_name_check": "Exact configure mapping inspected: H=tile_h,V=tile_v,NE/NW/SE/SW=elbow suffixes; tank/intake unchanged. Corrected initial descriptive straight_h/straight_v inventory labels before adoption or final checks."
+}

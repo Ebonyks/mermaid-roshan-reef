@@ -199,6 +199,9 @@ func _voice_path(speaker: String, event: String = "", allow_generic: bool = true
 	if event_suffix.begins_with(speaker_prefix):
 		event_suffix = event_suffix.trim_prefix(speaker_prefix)
 	var key := speaker + ("_" + event_suffix if event_suffix != "" else "")
+	if speaker == "roshan" and event_suffix in ["op_astronaut_gears", "op_astronaut_pressure"]:
+		var engineering_path := "res://assets/audio/voices/astronaut_engineering_v1/" + key + ".ogg"
+		return engineering_path if ResourceLoader.exists(engineering_path) else ""
 	if speaker == "roshan" and event_suffix.begins_with("chapter2_lawn_"):
 		var lawn_path := "res://assets/audio/chapter2_lawn/" + key + ".ogg"
 		return lawn_path if ResourceLoader.exists(lawn_path) else ""

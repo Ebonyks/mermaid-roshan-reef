@@ -1,0 +1,57 @@
+{
+  "result": "FAIL",
+  "checked_utc": "2026-10-07T21:40:32.577133+00:00",
+  "elapsed_seconds": 18.686,
+  "steps": [
+    {
+      "step": "analyzer",
+      "pid": 38076,
+      "argv": [
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\.codex\\worktrees\\astronaut-goal-20261006\\mermaid-roshan-reef",
+        "--check-only",
+        "-s",
+        "scripts/probe_opera_2d.gd"
+      ],
+      "save_profile": "C:\\Users\\Peter\\AppData\\Local\\Temp\\astronaut_full_ci_recovery_v1_20261007_2138\\analyzer",
+      "log": "FULL_CI_RECOVERY_V1_analyzer_LOG.txt",
+      "start_utc": "2026-10-07T21:40:13.907014+00:00",
+      "status": "PASS",
+      "exit_code": 0,
+      "elapsed_seconds": 9.049,
+      "log_sha256": "83cf0b082206af2aa236c83064fbcfa76be1e00a4aa3558574b2f65965d9481c",
+      "failure_lines": [],
+      "nonempty": true,
+      "final_result_seen": true
+    },
+    {
+      "step": "probe_opera_2d",
+      "pid": 54972,
+      "argv": [
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\.codex\\worktrees\\astronaut-goal-20261006\\mermaid-roshan-reef",
+        "-s",
+        "scripts/probe_opera_2d.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "save_profile": "C:\\Users\\Peter\\AppData\\Local\\Temp\\astronaut_full_ci_recovery_v1_20261007_2138\\probe_opera_2d",
+      "log": "FULL_CI_RECOVERY_V1_probe_opera_2d_LOG.txt",
+      "start_utc": "2026-10-07T21:40:23.252459+00:00",
+      "status": "FAIL",
+      "exit_code": 4294967295,
+      "elapsed_seconds": 9.096,
+      "log_sha256": "83cf0b082206af2aa236c83064fbcfa76be1e00a4aa3558574b2f65965d9481c",
+      "failure_lines": [],
+      "nonempty": true,
+      "final_result_seen": false
+    }
+  ],
+  "source_binding_changes": [],
+  "scope": "Direct-native focused recovery only; full CI V3 retains FAIL. All82 source-bound per-probe reconciliation and metadata closure not inferred."
+}

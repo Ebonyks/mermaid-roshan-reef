@@ -1,0 +1,133 @@
+{
+  "started_utc": "2026-10-07T09:22:31.958228+00:00",
+  "finished_utc": "2026-10-07T09:22:32.712793+00:00",
+  "engine_version": "4.7.2.stable.official.ed1daf0bf",
+  "engine_sha256": "ab1824f85bfd8e0e4128182c000c4003a3e042245b2967848d089b2a04b22424",
+  "steps": [
+    {
+      "label": "Godot analyzer",
+      "command": [
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\.codex\\worktrees\\astronaut-goal-20261006\\mermaid-roshan-reef",
+        "--script",
+        "res://audit/astronaut_clearance_20261006/verify_pipe_contact_v1.gd",
+        "--check-only"
+      ],
+      "owned_pid": 29112,
+      "exit_code": 1,
+      "timed_out": false
+    }
+  ],
+  "elapsed_seconds": 0.92,
+  "time_cap_seconds": 150,
+  "errors": [
+    "SCRIPT ERROR: Parse Error: Cannot infer the type of \"valid\" variable because the value doesn't have a set type.",
+    "ERROR: Failed to load script \"res://audit/astronaut_clearance_20261006/verify_pipe_contact_v1.gd\" with error \"Parse error\"."
+  ],
+  "result": "FAIL",
+  "evidence": [],
+  "sources": [
+    {
+      "path": "audit/astronaut_clearance_20261006/verify_pipe_contact_v1.gd",
+      "sha256": "f8d139d93f21b9d7233853a150f60321419ea019f6c3f5d8c20789fc0a9bf6da"
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/run_pipe_contact_v1.py",
+      "sha256": "ae7597b63cdae1834100baad3fdfb3156a2280fddaea6ec7edbbbee6cb333205"
+    },
+    {
+      "path": "scripts/main.gd",
+      "sha256": "4f8787e5e788f100e6fd44f646435f6afeaee4a58965b5292630d2410de7f6f5"
+    },
+    {
+      "path": "scripts/save_state.gd",
+      "sha256": "13b77592028653cdcac67e54264f049bbab01c6566b4fad1ea9bdf89a37a07c8"
+    },
+    {
+      "path": "scripts/opera_house.gd",
+      "sha256": "09a70ca5f9abd836f66a2327e62553b8d603f9318845c404d7d3527fee953910"
+    },
+    {
+      "path": "scripts/opera_act.gd",
+      "sha256": "eddaa34b8dccd17f41f744176a1ceef6c38c788b200a66995438d42c74a78a63"
+    },
+    {
+      "path": "scripts/opera_career_world_2d.gd",
+      "sha256": "d39bbed5c738535167ce9c526596fee32b4cfc369a5a2d376f1a7cf58e841d44"
+    },
+    {
+      "path": "scripts/opera_astronaut_surface.gd",
+      "sha256": "84b0806ee388e1d0150629c872318c92fd3f614e949385a26f97eac0c0d82809"
+    },
+    {
+      "path": "scripts/opera_astronaut_pipe_work.gd",
+      "sha256": "14af330e8e1359a002374734665ad3e639f384eff9af1d376964161cfa91497a"
+    },
+    {
+      "path": "scripts/opera_gesture_surface.gd",
+      "sha256": "34f3f264f17edef42990712f6c3f7e0106cf9afecd3969f8348848e0eda56017"
+    },
+    {
+      "path": "scripts/castle_career_routes.gd",
+      "sha256": "c5de38d8126c96aae9e999780113edafff05601a22934443e67053edcd8e18d8"
+    },
+    {
+      "path": "scripts/opera_world_hotspot_2d.gd",
+      "sha256": "3544b48ee8e6f60edd54af26aff3fe3a4798fa0458ff69633fef38e4ec76955f"
+    },
+    {
+      "path": "scripts/day_one_director.gd",
+      "sha256": "1f26f9136d1b9eca6699dd91ffd17c0d36c04797d29ec9f858b1476f8aa87804"
+    },
+    {
+      "path": "scripts/chapter_two_director.gd",
+      "sha256": "789ee737eec9477c8b1d6a89b60b6747accc14a6568b2dfa924fa3e5fca42d8d"
+    },
+    {
+      "path": "scripts/chapter_two_career_scene_adapter.gd",
+      "sha256": "ffdcd602711a6acc42a5c6352ad8cbb701316f94c21233356fb56071f85ad40a"
+    },
+    {
+      "path": "scripts/chapter_two_party_plan.gd",
+      "sha256": "c8fa0ff7f2f16d54085e920e3ad5ebc5c5a4e6c4d4afc85d98c702c900886dfa"
+    },
+    {
+      "path": "scripts/opera_roshan_actor.gd",
+      "sha256": "7c0f334fd73b39685b5a1ef4e3e9214b974cbd90db3d291dc172ebc5b13a6b66"
+    },
+    {
+      "path": "assets/opera/worlds/actors/animation/roshan_astronaut_sheet_a.png",
+      "sha256": "ccfb8e7af3a033e31e05af40fa62dc23b676aec6204ba8810e8cf79cbfc4d6fa"
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/PIPE_CONTACT_IMPLEMENTATION_PLAN.json",
+      "sha256": "94097e969aef78f77ddde3c2597fd797c174c18be02abc81c6adc27c55f1dfd9"
+    },
+    {
+      "path": "assets/opera/worlds/props/goal_astronaut.png",
+      "sha256": "910f531303ec813a522f98b8ac2f97adeb5ed24bd0b438ecef9f136e19d77845"
+    },
+    {
+      "path": "project.godot",
+      "sha256": "8d942b12dfa87ed9fb39cf7f6cfbb1d3f64cc4461097c527f266a28e9428697f"
+    },
+    {
+      "path": "design/CHAPTER2_EIGHT_CAREER_PRODUCTION_SPINE_2026-08-30.md",
+      "sha256": "6415353b4bf286d3da28f5d7596a15fecaa6ba7d875c5159b7639ac85859c912"
+    },
+    {
+      "path": "scripts/opera_roshan_actor.gd",
+      "sha256": "7c0f334fd73b39685b5a1ef4e3e9214b974cbd90db3d291dc172ebc5b13a6b66"
+    }
+  ],
+  "source_bindings_still_match": true,
+  "preflight_path": "audit/astronaut_clearance_20261006/PIPE_CONTACT_V1_PREFLIGHT.json",
+  "preflight_sha256": "429767770cce2c0dd05aeecdf5f3c9025a24373dbbafe855300e72e33f04343f",
+  "log_path": "audit/astronaut_clearance_20261006/PIPE_CONTACT_V1_LOG.txt",
+  "log_sha256": "ac3b3d0f559b59c13fa442d8c88c60c7c32e9a5d4ef328823506145965a642bc",
+  "isolated_save_files": [],
+  "contacts": [],
+  "meaning": "Genuine birthday pipe placement after room-object approach, deferred whole-figure work/contact, repeated/early commit rejection, focus/tree-pause cancellation and tile conservation. Manual source-jaw geometry is candidate only; native motion, remaining phases, save/reload/full route, fullCI and independent/device/child/owner review pending."
+}

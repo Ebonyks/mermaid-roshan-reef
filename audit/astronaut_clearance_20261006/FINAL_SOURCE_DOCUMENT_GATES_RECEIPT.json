@@ -1,0 +1,192 @@
+{
+  "status": "TERMINAL",
+  "purpose": "Final canonical-state and complete staged coverage verification before any commit/push; no full suite claim.",
+  "started_utc": "2026-10-07T07:23:30.120008+00:00",
+  "sources": [
+    {
+      "path": "scripts/opera_astronaut_surface.gd",
+      "sha256": "69d53c911ea8b855a21512d6705bad62e79c3ced80fa705c77270aac6927cb8d"
+    },
+    {
+      "path": "scripts/opera_career_world_2d.gd",
+      "sha256": "dad92d6c2f174597c4cd590ef3a06f2ffcd48f961616e302317362a1ef1d02c7"
+    },
+    {
+      "path": "scripts/save_state.gd",
+      "sha256": "13b77592028653cdcac67e54264f049bbab01c6566b4fad1ea9bdf89a37a07c8"
+    },
+    {
+      "path": "scripts/probe_opera_gesture_quality.gd",
+      "sha256": "d6ebc13d2ad83353102c95eb819afa637545b4fc41e349074475a07e40fcd8c3"
+    },
+    {
+      "path": "audit/MASTER_AUDIT_2026-08-09.md",
+      "sha256": "0b305824635dcdfd75d1d8eca5fc6f82aadc65a1130186cb811e1bcf54ae86fe"
+    },
+    {
+      "path": "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
+      "sha256": "0ab99b58832d432dd542c84ab63e5a2de1f10a5c3cc941906c632fdd6f0dd5b6"
+    },
+    {
+      "path": "design/05_DOC_LEDGER.md",
+      "sha256": "00c1efc4d0b33312c2a8d50571edc67196392ffa5d4dd5519e86e964a30ffe3e"
+    }
+  ],
+  "changed_gd_count": 19,
+  "results": [
+    {
+      "command": [
+        "C:/Users/Peter/AppData/Local/Python/bin/python.exe",
+        "-X",
+        "utf8",
+        "-B",
+        "-m",
+        "gdtoolkit.parser",
+        "audit/astronaut_clearance_20261006/reproduce_focus.gd",
+        "audit/astronaut_clearance_20261006/reproduce_partial_save.gd",
+        "audit/astronaut_clearance_20261006/verify_birthday_save.gd",
+        "audit/astronaut_clearance_20261006/verify_birthday_save_v2.gd",
+        "audit/astronaut_clearance_20261006/verify_birthday_save_v3.gd",
+        "audit/astronaut_clearance_20261006/verify_checkpoint_schema.gd",
+        "audit/astronaut_clearance_20261006/verify_checkpoint_schema_v2.gd",
+        "audit/astronaut_clearance_20261006/verify_checkpoint_schema_v3.gd",
+        "audit/astronaut_clearance_20261006/verify_input.gd",
+        "audit/astronaut_clearance_20261006/verify_partial_save.gd",
+        "audit/astronaut_clearance_20261006/verify_pipe.gd",
+        "audit/astronaut_clearance_20261006/verify_save_lifecycle.gd",
+        "audit/astronaut_clearance_20261006/verify_save_lifecycle_v3.gd",
+        "audit/astronaut_clearance_20261006/verify_save_lifecycle_v4.gd",
+        "audit/astronaut_clearance_20261006/verify_save_lifecycle_v5.gd",
+        "scripts/opera_astronaut_surface.gd",
+        "scripts/opera_career_world_2d.gd",
+        "scripts/probe_opera_gesture_quality.gd",
+        "scripts/save_state.gd"
+      ],
+      "exit_code": 0,
+      "result": "PASS",
+      "summary": []
+    },
+    {
+      "command": [
+        "C:/Users/Peter/AppData/Local/Python/bin/python.exe",
+        "-X",
+        "utf8",
+        "-B",
+        "tools/lint_inference.py",
+        "audit/astronaut_clearance_20261006/reproduce_focus.gd",
+        "audit/astronaut_clearance_20261006/reproduce_partial_save.gd",
+        "audit/astronaut_clearance_20261006/verify_birthday_save.gd",
+        "audit/astronaut_clearance_20261006/verify_birthday_save_v2.gd",
+        "audit/astronaut_clearance_20261006/verify_birthday_save_v3.gd",
+        "audit/astronaut_clearance_20261006/verify_checkpoint_schema.gd",
+        "audit/astronaut_clearance_20261006/verify_checkpoint_schema_v2.gd",
+        "audit/astronaut_clearance_20261006/verify_checkpoint_schema_v3.gd",
+        "audit/astronaut_clearance_20261006/verify_input.gd",
+        "audit/astronaut_clearance_20261006/verify_partial_save.gd",
+        "audit/astronaut_clearance_20261006/verify_pipe.gd",
+        "audit/astronaut_clearance_20261006/verify_save_lifecycle.gd",
+        "audit/astronaut_clearance_20261006/verify_save_lifecycle_v3.gd",
+        "audit/astronaut_clearance_20261006/verify_save_lifecycle_v4.gd",
+        "audit/astronaut_clearance_20261006/verify_save_lifecycle_v5.gd",
+        "scripts/opera_astronaut_surface.gd",
+        "scripts/opera_career_world_2d.gd",
+        "scripts/probe_opera_gesture_quality.gd",
+        "scripts/save_state.gd"
+      ],
+      "exit_code": 0,
+      "result": "PASS",
+      "summary": []
+    },
+    {
+      "command": [
+        "C:/Users/Peter/AppData/Local/Python/bin/python.exe",
+        "-X",
+        "utf8",
+        "-B",
+        "tools/audit_document_authority.py"
+      ],
+      "exit_code": 1,
+      "result": "FAIL",
+      "summary": [
+        "DOCAUTH|INVENTORY=678|LEDGER=678|ACTIVE=69|RECORDS=72",
+        "DOCAUTH|FAIL|DOC071|audit\\MASTER_AUDIT_2026-08-09.md|line 1543: table width 6 does not match 5",
+        "DOCAUTH|RESULT|1 ISSUE(S)"
+      ]
+    },
+    {
+      "command": [
+        "C:/Users/Peter/AppData/Local/Python/bin/python.exe",
+        "-X",
+        "utf8",
+        "-B",
+        "-m",
+        "unittest",
+        "tools.tests.test_audit_document_authority",
+        "tools.tests.test_audit_development"
+      ],
+      "exit_code": 0,
+      "result": "PASS",
+      "summary": [
+        "DOCAUTH|STRESS|6/6",
+        "......................................................",
+        "----------------------------------------------------------------------",
+        "Ran 54 tests in 8.287s",
+        "",
+        "OK"
+      ]
+    },
+    {
+      "command": [
+        "C:/Users/Peter/AppData/Local/Python/bin/python.exe",
+        "-X",
+        "utf8",
+        "-B",
+        "tools/audit_document_authority_stress.py"
+      ],
+      "exit_code": 2,
+      "result": "FAIL",
+      "summary": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe: can't open file 'C:\\\\Users\\\\Peter\\\\.codex\\\\worktrees\\\\astronaut-goal-20261006\\\\mermaid-roshan-reef\\\\tools\\\\audit_document_authority_stress.py': [Errno 2] No such file or directory"
+      ]
+    },
+    {
+      "command": [
+        "C:/Users/Peter/AppData/Local/Python/bin/python.exe",
+        "-X",
+        "utf8",
+        "-B",
+        "tools/audit_game_2d.py",
+        "--regression-gate"
+      ],
+      "exit_code": 0,
+      "result": "PASS",
+      "summary": [
+        "GAME2D| DEBT| model_files=0| model_scan_coverage_files=0| active_export_model_files=0| model_import_sidecars=0| active_untracked_model_import_sidecars=0| model_archive_files=0| production_3d_files=52| probe_3d_files=61| scene_3d_files=1| configuration_3d_files=1| archive_now_model_files=0",
+        "GAME2D| STATUS| UNSATISFIED",
+        "GAME2D| RESULT| NO_REGRESSION - exact shrinking baseline; migration debt remains UNSATISFIED"
+      ]
+    },
+    {
+      "command": [
+        "C:/Users/Peter/AppData/Local/Python/bin/python.exe",
+        "-X",
+        "utf8",
+        "-B",
+        "tools/audit_development.py",
+        "--base",
+        "auto"
+      ],
+      "exit_code": 0,
+      "result": "PASS",
+      "summary": [
+        "AUDITDEV|BASE|96274aab9cebd563b10846a4a48de5d017588563",
+        "AUDITDEV|RESULT|ALL OK"
+      ]
+    }
+  ],
+  "finished_utc": "2026-10-07T07:25:46.637303+00:00",
+  "result": "FAIL",
+  "source_bindings_match": true,
+  "log_sha256": "a15156f68eb322befca9108c13cd4a22a544bfb196afc41de2069b27ce44f5b9",
+  "scope": "Final source/parser/inference, canonical facts,54unit,6stress,shrinking2D and exact staged coverage. Full scripts/ci.sh and native/device/child/owner acceptance remain pending."
+}

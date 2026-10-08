@@ -1,0 +1,121 @@
+{
+  "reviewed_utc": "2026-10-07T09:38:53.593885+00:00",
+  "baseline": "96274aab9cebd563b10846a4a48de5d017588563",
+  "finding": "MA-PLAY-004",
+  "lifecycle": "IN_PROGRESS",
+  "implementation": "A released pipe tile waits for one world-bound approach/whole-figure wrench/contact request. Actual sampled work1, current request/phase/target, unchanged actor scale and candidate jaw gap validate before original surface placement/flow/checkpoint. Entry/work/exit remains in existing activity canvas; source atlas/costume/camera unchanged. Focus/tree pause/close/configure cancel pending tile to source and preserve committed tiles.",
+  "machine_evidence": [
+    {
+      "path": "PIPE_CONTACT_V1_RECEIPT.json",
+      "sha256": "da847162c1898329a87e7e6ee724628d8774c3527babb0429030dd9c0dc25e15",
+      "result": "FAIL",
+      "checks": 0,
+      "elapsed_seconds": 0.92,
+      "production_sources_match_now": false,
+      "all_bindings_match_now": false
+    },
+    {
+      "path": "PIPE_CONTACT_V2_RECEIPT.json",
+      "sha256": "1aea94eabcbb15dc9dba7e4732755eec0441f4f6b847e65efc9f40d3d31f7edd",
+      "result": "FAIL",
+      "checks": 3,
+      "elapsed_seconds": 19.98,
+      "production_sources_match_now": false,
+      "all_bindings_match_now": false
+    },
+    {
+      "path": "PIPE_CONTACT_V3_RECEIPT.json",
+      "sha256": "7ce39dc5d6453840df2643c2f91f1926478b7e41058ead5986bcddba47e6dbf4",
+      "result": "FAIL",
+      "checks": 4,
+      "elapsed_seconds": 21.14,
+      "production_sources_match_now": false,
+      "all_bindings_match_now": false
+    },
+    {
+      "path": "PIPE_CONTACT_V4_RECEIPT.json",
+      "sha256": "d441100ab3bbb8c3744d6f5a22504fb34cd490398240a53c244d046122467052",
+      "result": "PASS",
+      "checks": 58,
+      "elapsed_seconds": 37.72,
+      "production_sources_match_now": false,
+      "all_bindings_match_now": false
+    },
+    {
+      "path": "PIPE_CONTACT_V5_RECEIPT.json",
+      "sha256": "1edfe94b84a7a010a84490d5e25617fe3b5b52b696048aa7c1256204c029717a",
+      "result": "PASS",
+      "checks": 73,
+      "elapsed_seconds": 41.56,
+      "production_sources_match_now": true,
+      "all_bindings_match_now": true
+    },
+    {
+      "path": "PIPE_CONTACT_NEGATIVE_V1_RECEIPT.json",
+      "sha256": "dea7fdcda060c20038df9b12f62e299e8b9d603cb923cdbd492d294c68a66485",
+      "result": "PASS",
+      "checks": 17,
+      "elapsed_seconds": 19.71,
+      "production_sources_match_now": true,
+      "all_bindings_match_now": true
+    }
+  ],
+  "current_positive_checks": 73,
+  "current_negative_checks": 17,
+  "actual_contacts": 10,
+  "candidate_gap_viewport_px": {
+    "minimum": 0.96710205078125,
+    "maximum": 0.96722412109375,
+    "declared_maximum": 4.0
+  },
+  "whole_figure_states": [
+    "travel",
+    "work2 anticipation",
+    "work0 contact",
+    "work1 contact",
+    "work2 release",
+    "travel",
+    "idle0"
+  ],
+  "source_landmarks": {
+    "plan": "PIPE_CONTACT_IMPLEMENTATION_PLAN.json",
+    "sha256": "94097e969aef78f77ddde3c2597fd797c174c18be02abc81c6adc27c55f1dfd9",
+    "status": "CANDIDATE_ONLY",
+    "appearance_and_internal_proportion_acceptance": "PENDING"
+  },
+  "source_bindings": [
+    {
+      "path": "scripts/opera_astronaut_surface.gd",
+      "sha256": "84b0806ee388e1d0150629c872318c92fd3f614e949385a26f97eac0c0d82809"
+    },
+    {
+      "path": "scripts/opera_astronaut_pipe_work.gd",
+      "sha256": "654504436f9ba3040edfd3cbdf277aed2337a7799f9de5b8d5573369bdacdc39"
+    },
+    {
+      "path": "scripts/opera_career_world_2d.gd",
+      "sha256": "d39bbed5c738535167ce9c526596fee32b4cfc369a5a2d376f1a7cf58e841d44"
+    },
+    {
+      "path": "scripts/opera_roshan_actor.gd",
+      "sha256": "7c0f334fd73b39685b5a1ef4e3e9214b974cbd90db3d291dc172ebc5b13a6b66"
+    },
+    {
+      "path": "assets/opera/worlds/actors/animation/roshan_astronaut_sheet_a.png",
+      "sha256": "ccfb8e7af3a033e31e05af40fa62dc23b676aec6204ba8810e8cf79cbfc4d6fa"
+    }
+  ],
+  "baseline_preserved": {
+    "contact_baseline": "BIRTHDAY_CONTACT_V1_RECEIPT.json",
+    "all4_envelope_failures_retained": true,
+    "old_full_route_results": "71ordinary/83birthday/12schema/320gesture receipts are historical before the pipe-contact code change; no current full-route pass is inferred."
+  },
+  "limits": [
+    "Headless checks prove timing, sampled source, candidate coordinate consistency, cancellation and saved state; no rendered pixels, full-speed acting, internal anatomy or>=4.6 score.",
+    "The original pipe envelope baseline sampled after water-board credit; new proof samples each placement before commit. Different time scopes are explicit, no old failure relabeled as pass.",
+    "Only birthday pipe uses real route after explicit prior-six-jobs fixture. Ordinary/full birthday completion, other three actions and left-side/wrong-plan/correction/native2aspect review remain required.",
+    "No source art generation, image editing, protected-original change, import, native capture, full suite, independent review, CI/integration or release in this slice.",
+    "Three failed fixture versions retained. V4 helper snapshot preserves its exact pre-lifetime-guard binding. V5 and negative bindings match current source.",
+    "Measured aggregate analyzer/gameplay elapsed141.03seconds, metadata/version/setup time separate; no retry or heavy allocation is available from unused time."
+  ]
+}

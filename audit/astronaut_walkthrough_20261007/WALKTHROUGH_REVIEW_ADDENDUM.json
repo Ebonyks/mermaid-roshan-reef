@@ -1,0 +1,39 @@
+{
+  "created_utc": "2026-10-07T16:25:16.693890+00:00",
+  "scope": "Correct two instructional PATCH overlay locations after original-resolution inspection; preserve initial draft/seal/receipt literally. Record browser local-file policy rejection and artifact-only document gates. No native PNG/runtime/input/canon/source changes.",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-QA-03",
+    "DL-QA-11",
+    "DL-VIS-06",
+    "DL-INT-06",
+    "DL-ASSET-01",
+    "DL-ASSET-02",
+    "DL-ASSET-03"
+  ],
+  "findings": [
+    "MA-VIS-006",
+    "MA-PLAY-004",
+    "MA-PLAY-005",
+    "MA-SAVE-002"
+  ],
+  "files": [
+    "WALKTHROUGH_REVIEW_ADDENDUM.json",
+    "REVIEW_CORRECTIONS.json",
+    "history/INITIAL_MANIFEST.json",
+    "history/INITIAL_VERIFY_RECEIPT.json",
+    "history/INITIAL_VERIFY_LOG.txt",
+    "history/INITIAL_STEPS.json",
+    "history/INITIAL_BUILDER.txt",
+    "history/INITIAL_INDEX.txt",
+    "history/INITIAL_README.txt",
+    "run_document_gates_v1.py",
+    "DOCUMENT_GATES_V1_LOG.txt",
+    "DOCUMENT_GATES_V1_RECEIPT.json"
+  ],
+  "review_evidence": "Direct original1280 views0034/0046 show target0/jaw near(157,366), not(288,215). Caption/state check confirms0017release grid cell5=H and0063/0066maskTTFFF.",
+  "browser_preview": "BLOCKED_LOCAL_FILE_URL_POLICY: only http/https allowed; no alternate-surface, local-serving or browser-command workaround attempted. Actual gallery layout/toggle/full-size UI remains unverified.",
+  "publication": "NOT_DELIVERED; exact-candidate full trusted suite and normal branch gates still required."
+}

@@ -1,0 +1,40 @@
+{
+  "created_utc": "2026-10-07T19:51:57.710922+00:00",
+  "result": "FAIL_WALL_CAP",
+  "receipt": "PIPE_STRAIGHT_RASTER_ENGINE_V3_RECEIPT.json",
+  "receipt_sha256": "bde38ee1155a4887d03b2bc7f290d3b16caf546282b4b22d717d6cb71f43d9f4",
+  "source_sha256": "21857d8e719c2fc355d68381abf927b58f86037a7100ba0aead0735a87146eb7",
+  "source_bindings_match": true,
+  "import": "PASS_EXIT0_22.262s",
+  "surface_analyzer": "PASS_EXIT0_2.428s",
+  "birthday_fixture": {
+    "expected": 144,
+    "observed_pass_rows": 118,
+    "observed_fail_rows": 0,
+    "final_result": "MISSING_TERMINATED_AT_CAP",
+    "completed": false
+  },
+  "negative17": "NOT_RUN",
+  "accounting": {
+    "original_cap_seconds": 110,
+    "previous_charge_seconds": 9.02688,
+    "attempt_cap_seconds": 100.97312,
+    "actual_attempt_seconds": 102.504,
+    "charged_total_seconds": 111.53088,
+    "overrun_seconds": 1.53088,
+    "remaining_seconds": 0
+  },
+  "retained_failures": [
+    "PIPE_STRAIGHT_RASTER_PRELAUNCH_V1_ABORT.json",
+    "PIPE_STRAIGHT_RASTER_ENGINE_V2_RECEIPT.json",
+    "PIPE_STRAIGHT_RASTER_ENGINE_V3_RECEIPT.json"
+  ],
+  "actual_original_tiles": {
+    "H_widget_pipe_tile_h_exists": false,
+    "V_widget_pipe_tile_v_exists": false,
+    "all_four_elbows_exist": false
+  },
+  "draw_selection": "With repository H/V widget_tile files absent and successfully loaded straightTexture, the H/V fallback selects newwhole-raster helper; no published nativepixels yet.",
+  "engine_errors": [],
+  "scope": "Import/analyzer evidence only plus118partial positive assertions; not a completedbirthday/negative/fulltrusted/visual clearance. No unchanged headless retry/cap reset."
+}

@@ -1,0 +1,81 @@
+{
+  "started_utc": "2026-10-07T05:54:40.493034+00:00",
+  "finished_utc": "2026-10-07T05:54:40.810102+00:00",
+  "command": [
+    "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64.exe",
+    "--headless",
+    "--path",
+    "C:\\Users\\Peter\\.codex\\worktrees\\astronaut-goal-20261006\\mermaid-roshan-reef",
+    "--script",
+    "res://audit/astronaut_clearance_20261006/verify_save_lifecycle_v2.gd"
+  ],
+  "engine_version": "4.7.2.stable.official.ed1daf0bf",
+  "engine_sha256": "ab1824f85bfd8e0e4128182c000c4003a3e042245b2967848d089b2a04b22424",
+  "owned_pid": 59364,
+  "exit_code": 1,
+  "elapsed_seconds": 0.48,
+  "timed_out": false,
+  "time_cap_seconds": 150,
+  "errors": [
+    "SCRIPT ERROR: Parse Error: Expected statement, found \"elif\" instead.",
+    "ERROR: Failed to load script \"res://audit/astronaut_clearance_20261006/verify_save_lifecycle_v2.gd\" with error \"Parse error\"."
+  ],
+  "execution_result": "FAIL",
+  "save_acceptance_result": "FAIL",
+  "evidence": [],
+  "sources": [
+    {
+      "path": "audit/astronaut_clearance_20261006/verify_save_lifecycle_v2.gd",
+      "sha256": "30b017b8172a57ec1352e8b679df4090ef5cc50ec807b031879649c6e9977933"
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/run_save_lifecycle_v2.py",
+      "sha256": "52e11a4e79948d36430dbefad851f290be01c4307b1cc0812edfb522ee7c9189"
+    },
+    {
+      "path": "scripts/main.gd",
+      "sha256": "4f8787e5e788f100e6fd44f646435f6afeaee4a58965b5292630d2410de7f6f5"
+    },
+    {
+      "path": "scripts/save_state.gd",
+      "sha256": "720a05ae3f2e1efcb6ef6972a6b48244990de2ab5c6bd7b2fb552aaa02ea921f"
+    },
+    {
+      "path": "scripts/opera_house.gd",
+      "sha256": "09a70ca5f9abd836f66a2327e62553b8d603f9318845c404d7d3527fee953910"
+    },
+    {
+      "path": "scripts/opera_act.gd",
+      "sha256": "eddaa34b8dccd17f41f744176a1ceef6c38c788b200a66995438d42c74a78a63"
+    },
+    {
+      "path": "scripts/opera_career_world_2d.gd",
+      "sha256": "3f742f156cb6602d65d297c400590c7c271bff50e72d1aeff303bf208b69494f"
+    },
+    {
+      "path": "scripts/opera_astronaut_surface.gd",
+      "sha256": "69d53c911ea8b855a21512d6705bad62e79c3ced80fa705c77270aac6927cb8d"
+    },
+    {
+      "path": "scripts/opera_gesture_surface.gd",
+      "sha256": "34f3f264f17edef42990712f6c3f7e0106cf9afecd3969f8348848e0eda56017"
+    },
+    {
+      "path": "scripts/castle_career_routes.gd",
+      "sha256": "c5de38d8126c96aae9e999780113edafff05601a22934443e67053edcd8e18d8"
+    },
+    {
+      "path": "scripts/opera_world_hotspot_2d.gd",
+      "sha256": "3544b48ee8e6f60edd54af26aff3fe3a4798fa0458ff69633fef38e4ec76955f"
+    },
+    {
+      "path": "project.godot",
+      "sha256": "8d942b12dfa87ed9fb39cf7f6cfbb1d3f64cc4461097c527f266a28e9428697f"
+    }
+  ],
+  "source_bindings_still_match": true,
+  "log_path": "audit/astronaut_clearance_20261006/SAVE_LIFECYCLE_V2_LOG.txt",
+  "log_sha256": "ae7e07641a222955df94c80044a368d05c16bd5bcc1ad677d4b1a6390e5b0fea",
+  "isolated_save_files": [],
+  "meaning": "Current-source genuine-input partial-save repair check; no visual/current-native/whole-action/device/child/owner acceptance; no original save read/write; fixture story prerequisites and production cancel callback explicitly scoped."
+}

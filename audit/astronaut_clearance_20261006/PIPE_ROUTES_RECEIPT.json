@@ -1,0 +1,65 @@
+{
+  "started_utc": "2026-10-07T04:49:07.657374+00:00",
+  "finished_utc": "2026-10-07T04:49:19.698614+00:00",
+  "command": [
+    "C:/Users/Peter/Documents/mermaid-roshan-reef/tmp/godot-4.7.2/editor/Godot_v4.7.2-stable_win64.exe",
+    "--headless",
+    "--path",
+    "C:\\Users\\Peter\\.codex\\worktrees\\astronaut-goal-20261006\\mermaid-roshan-reef",
+    "--script",
+    "C:\\Users\\Peter\\.codex\\worktrees\\astronaut-goal-20261006\\mermaid-roshan-reef\\audit\\astronaut_clearance_20261006\\verify_pipe.gd"
+  ],
+  "engine_version": "4.7.2.stable.official.ed1daf0bf",
+  "engine_sha256": "ab1824f85bfd8e0e4128182c000c4003a3e042245b2967848d089b2a04b22424",
+  "exit_code": 0,
+  "timed_out": false,
+  "result": "PASS",
+  "errors": [],
+  "log_path": "audit/astronaut_clearance_20261006/PIPE_ROUTES_LOG.txt",
+  "log_sha256": "3dd458ad74d9ec538ea82f92cf01a22f4d532bfb87bc30c848a0bb738a26ff2f",
+  "evidence": [
+    {
+      "checks": 15,
+      "clock": "normal engine processing; no direct tick or progress injection",
+      "completion": "fixture acknowledges third earned award; whole-world caller unverified",
+      "failed": 0,
+      "input": "genuine Input.parse_input_event viewport press/drag/release",
+      "scope": "three authored pipe routes only; not visual, return or save clearance"
+    }
+  ],
+  "sources": [
+    {
+      "path": "scripts/opera_gesture_surface.gd",
+      "sha256": "34f3f264f17edef42990712f6c3f7e0106cf9afecd3969f8348848e0eda56017"
+    },
+    {
+      "path": "scripts/opera_career_world_2d.gd",
+      "sha256": "2eed1b973513449f4432ac408ec678d5f84d9963200362610c09b8a796890ca7"
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/reproduce_focus.gd",
+      "sha256": "a9228b6357ba3aea2087b30c6c4fa1edcdf609b253583a92db022b6138dfb344"
+    },
+    {
+      "path": "scripts/opera_astronaut_surface.gd",
+      "sha256": "142777a177cc4732e94b1c7b68ad4d4000efbcb7f7b4b68906206e9bb453c2e9"
+    },
+    {
+      "path": "scripts/probe_opera_gesture_quality.gd",
+      "sha256": "d6ebc13d2ad83353102c95eb819afa637545b4fc41e349074475a07e40fcd8c3"
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/verify_input.gd",
+      "sha256": "3a2b22223ae9f4c675b88dfbbf4306976b3d42b803edf836b5120fce0b4e90ba"
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/verify_pipe.gd",
+      "sha256": "dc9959c8452c21de68a3ec08257a0387b954b63ee4100cf3872895a4d6e6f842"
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/run_reproduction.py",
+      "sha256": "7db28d263ae16f40576b828d4b361f737ff7450448d8f824a2455ce6391fc034"
+    }
+  ],
+  "meaning": "Retained exact-engine result. Import failure is not an input reproduction. No visual/device/child/owner acceptance."
+}

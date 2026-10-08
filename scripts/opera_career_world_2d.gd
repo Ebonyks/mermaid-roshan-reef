@@ -31,6 +31,11 @@ const GestureSurface := preload("res://scripts/opera_gesture_surface.gd")
 const ChefSurface := preload("res://scripts/opera_chef_surface.gd")
 const BoxingSurface := preload("res://scripts/opera_boxing_surface.gd")
 const RacerSurface := preload("res://scripts/opera_racer_surface.gd")
+const EngineerDeviceTargets := [0.35, 0.60, 0.80]
+const AstronautSurface := preload("res://scripts/opera_astronaut_surface.gd")
+const AstronautPipeWork := preload("res://scripts/opera_astronaut_pipe_work.gd")
+const AstronautValveWork := preload("res://scripts/opera_astronaut_valve_work.gd")
+const AstronautPatchWork := preload("res://scripts/opera_astronaut_patch_work.gd")
 const BalletSurface := preload("res://scripts/opera_ballet_surface.gd")
 const TeacherSurface := preload("res://scripts/opera_teacher_surface.gd")
 const TeacherLessons := preload("res://scripts/teacher_lesson_plan.gd")
@@ -416,7 +421,7 @@ const PHASE_STATIONS := {
 	"boxer": {"GLOVE GUIDE": "glove_wall_shelf", "JAB PRACTICE": "purple_sparring_mat", "SOFT GUARD": "teal_heavy_bag", "TITLE IMP": "shell_pavilion_stage", "BELT": "shell_pavilion_stage"},
 	"magician": {"VANISH": "violet_shell_stage", "TRACK": "pearl_tide_pool", "ROPE": "teal_shell_stage", "CABINET": "rose_shell_stage", "PORTAL": "rose_shell_stage"},
 	"painter": {"PAINT": "gazebo_easel", "STAMPS": "rainbow_brush", "GALLERY": "arch_easel"},
-	"astronaut": {"PIPES": "coolant_tank_pad", "PATCH": "pipe_arch_planter", "VALVE": "periscope_elbow", "LAUNCH": "rocket_launch_dais"},
+	"astronaut": {"PIPES": "coolant_tank_pad", "BUILD ROCKET": "coolant_tank_pad", "PATCH": "pipe_arch_planter", "GEARS": "pipe_arch_planter", "VALVE": "periscope_elbow", "PRESSURE": "periscope_elbow", "LAUNCH": "rocket_launch_dais", "READY PARK": "rocket_launch_dais"},
 	"racer": {"TUNE": "pearl_dome_pavilion", "TO THE LINE": "pearl_start_arch", "RACE": "ribbon_finish_arch"},
 	"nursery": {"WASH HANDS": "wash_basin", "CATCH BABIES": "cuddle_cushions", "FEED": "bottle_nook", "BURP": "cuddle_cushions", "BEDTIME": "moon_bed"},
 	"popstar": {"SOUND CHECK": "mic_gazebo", "DANCE": "record_dais", "RHYTHM": "shell_stage", "ENCORE": "shell_stage"},
@@ -428,6 +433,12 @@ const PHASE_STATIONS := {
 ## lets the new ballet/boxing surfaces enter through the room's physical
 ## objects without duplicating or silently dropping the diegetic hotspot.
 const HOTSPOT_PHASE_ALIASES := {
+	"astronaut": {
+		"BUILD ROCKET": "PIPES",
+		"GEARS": "PATCH",
+		"PRESSURE": "VALVE",
+		"READY PARK": "LAUNCH",
+	},
 	"ballerina": {
 		"PEARL MIRROR": "POSE",
 		"RIBBON TRAIL": "RIBBON",
@@ -618,6 +629,15 @@ var run_context: Dictionary = {}
 var geology_restoring := false
 var geology_save_pending := false
 var geology_save_cool := 0.0
+var astronaut_restoring := false
+var astronaut_save_pending := false
+var astronaut_save_cool := 0.0
+var astronaut_phase_signature := ""
+var astronaut_legacy_signature := ""
+var astronaut_legacy_phases: Array = []
+var astronaut_pipe_work: AstronautPipeWork
+var astronaut_valve_work: AstronautValveWork
+var astronaut_patch_work: AstronautPatchWork
 var scene_adapter: Dictionary = {}
 var adapter_callbacks: Dictionary = {}
 var using_chapter_two_phases := false
@@ -663,8 +683,10 @@ func setup(main: ReefMain, act_config: Dictionary, director: OperaCompetition,
 	if run_context.is_empty() and config.get("run_context", {}) is Dictionary:
 		run_context = (config.get("run_context", {}) as Dictionary).duplicate(false)
 	var override_config: Dictionary = {}
-	if config.get("phase_overrides", []) is Array:
-		override_config["phase_overrides"] = config.get("phase_overrides", [])
+	# An absent override uses the adapter's authored defaults. Explicit empty
+	# or malformed overrides still reach the validator and remain invalid.
+	if config.has("phase_overrides"):
+		override_config["phase_overrides"] = config["phase_overrides"]
 	if config.get("finale_start", null) != null:
 		override_config["finale_start"] = int(config.get("finale_start", 0))
 	var requested_adapter: Dictionary = scene_adapter_config.duplicate(true)
@@ -723,6 +745,10 @@ func setup(main: ReefMain, act_config: Dictionary, director: OperaCompetition,
 		# The complete Ballerina number therefore first occurs later with the
 		# stuffed-animal cast in the Stuffie Room, as the story requests.
 		phases = [(phases[0] as Dictionary).duplicate(true)]
+	if career_id == "astronaut":
+		astronaut_legacy_phases = phases.duplicate(true)
+		astronaut_legacy_signature = JSON.stringify(phases).sha256_text()
+		_apply_astronaut_engineering_devices()
 	two_act_enabled = not using_chapter_two_phases and PerformancePlan.enabled(career_id, config)
 	if two_act_enabled:
 		var plan := PerformancePlan.build(career_id, phases)
@@ -754,6 +780,10 @@ func setup(main: ReefMain, act_config: Dictionary, director: OperaCompetition,
 		# teaches the real surface verb, but never starts a rival clock or curtain
 		# call before the short lesson returns to the Castle.
 		chapter2_last_mirror_beat = -1
+	if career_id == "astronaut" and not _is_dev_playtest():
+		astronaut_phase_signature = JSON.stringify(phases).sha256_text()
+		var saved: Dictionary = _astronaut_saved_checkpoint()
+		phase_index = maxi(phase_index, int(saved.get("phase_index", phase_index)))
 	steal_index = -1
 	for index in range(phases.size()):
 		var phase := phases[index] as Dictionary
@@ -1301,6 +1331,8 @@ func _build_world() -> void:
 	elif career_id == "geologist":
 		surface = GeologySurface.new() as OperaGestureSurface
 		(surface as OperaGeologySurface).progress_changed.connect(_on_geology_progress_changed)
+	elif career_id == "astronaut":
+		surface = AstronautSurface.new() as OperaGestureSurface
 	elif career_id == "racer":
 		surface = RacerSurface.new() as OperaGestureSurface
 		(surface as OperaRacerSurface).race_event.connect(_on_race_event)
@@ -1315,6 +1347,18 @@ func _build_world() -> void:
 	surface.position = Vector2(24, 78)
 	surface.size = Vector2(372, 266)
 	surface.gesture.connect(_on_gesture)
+	if surface is AstronautSurface:
+		(surface as AstronautSurface).progress_changed.connect(_on_astronaut_progress_changed)
+		astronaut_pipe_work = AstronautPipeWork.new(self)
+		(surface as AstronautSurface).pipe_contact_required = true
+		(surface as AstronautSurface).pipe_work_requested.connect(astronaut_pipe_work.request)
+		(surface as AstronautSurface).pipe_work_canceled.connect(astronaut_pipe_work.cancel)
+		astronaut_valve_work = AstronautValveWork.new(self)
+		(surface as AstronautSurface).valve_contact_required = true
+		(surface as AstronautSurface).valve_work_canceled.connect(astronaut_valve_work.cancel)
+		astronaut_patch_work = AstronautPatchWork.new(self)
+		(surface as AstronautSurface).patch_contact_required = true
+		(surface as AstronautSurface).patch_work_canceled.connect(astronaut_patch_work.cancel)
 	# The scuffle crews wear the career's special imp costume (the accepted
 	# costume-sheet slices). Co-op careers keep the dedicated mischief-imp
 	# sprites (the partner is not an imp); placeholders are the last fallback.
@@ -2318,6 +2362,9 @@ func _finish_player_glide() -> void:
 
 
 func _play_roshan_animation(animation: String) -> void:
+	# Local Astronaut work owns approach, contact, release and return.
+	if _astronaut_work_busy():
+		return
 	if player_animator == null or not is_instance_valid(player_animator):
 		return
 	if player_animator.current_animation != animation:
@@ -2325,6 +2372,17 @@ func _play_roshan_animation(animation: String) -> void:
 
 
 func _play_roshan_task_pose(phase: Dictionary) -> void:
+	if surface is AstronautSurface and String(phase.get("mode", "")) == "tap":
+		if astronaut_patch_work == null or not astronaut_patch_work.busy():
+			player_animator.show_pose("idle", 0)
+		return
+	if surface is AstronautSurface and String(phase.get("mode", "")) == "circle" \
+			and astronaut_valve_work != null and astronaut_valve_work.busy():
+		return
+	if surface is AstronautSurface and String(phase.get("mode", "")) in ["pipe", "gears", "pressure"]:
+		if astronaut_pipe_work == null or not astronaut_pipe_work.busy():
+			player_animator.show_pose("idle", 0)
+		return
 	if surface is OperaChefSurface and is_instance_valid(player_animator):
 		# The generic work strip already holds a second mixing bowl. The
 		# approved empty-hand presenting pose keeps one room-owned work object.
@@ -2413,6 +2471,12 @@ func _show_phase() -> void:
 
 
 func _arm_phase() -> void:
+	if astronaut_patch_work != null and astronaut_patch_work.busy() \
+			and surface is AstronautSurface:
+		(surface as AstronautSurface).cancel_input()
+	if astronaut_valve_work != null and astronaut_valve_work.busy() \
+			and surface is AstronautSurface:
+		(surface as AstronautSurface).cancel_input()
 	if career_id == "geologist" and backdrop_node != null:
 		backdrop_node.set_meta("geology_work_open", false)
 		backdrop_node.queue_redraw()
@@ -2453,6 +2517,7 @@ func _arm_phase() -> void:
 	wander_feet = room_return_feet if room_return_feet.is_finite() \
 		else (_hero_feet() if player_actor != null else Vector2.ZERO)
 	if phase_index >= phases.size():
+		_checkpoint_astronaut(true)
 		active = false
 		if win_callback.is_valid():
 			win_callback.call()
@@ -2575,7 +2640,10 @@ func _bind_widget(phase: Dictionary, mode_name: String, accent: Color, armed := 
 				cake_accessory_path)
 	teacher_restoring = career_id == "teacher"
 	geology_restoring = career_id == "geologist"
+	astronaut_restoring = career_id == "astronaut"
 	surface.configure(mode_name, accent, choice_target, context)
+	if surface is AstronautSurface:
+		(surface as AstronautSurface).one_pipe_board = true
 	if surface is TeacherSurface:
 		var kind := mode_name.trim_prefix("teacher_")
 		(surface as TeacherSurface).set_lesson(TeacherLessons.make_lesson(kind, _teacher_learning_progress()))
@@ -2596,6 +2664,8 @@ func _bind_widget(phase: Dictionary, mode_name: String, accent: Color, armed := 
 	# while she is still wandering, the bound widget shows but its clocks
 	# (oven heat, pipe fuel, echo song) hold still until she arrives
 	surface.armed_only = armed
+	_restore_astronaut_widget()
+	astronaut_restoring = false
 	if surface is OperaChefSurface:
 		_refresh_chapter2_cake_scene()
 
@@ -2711,7 +2781,8 @@ func _open_task() -> void:
 		if wander_layer != null:
 			wander_layer.visible = true
 			wander_layer.mouse_filter = Control.MOUSE_FILTER_STOP
-	surface.set_fill(0.0)
+	surface.set_fill(phase_progress / maxf(0.1, float(phase.get("goal", 1.0))) \
+		if career_id == "astronaut" else 0.0)
 	match String(phase.get("dir", "")):
 		"down":
 			surface.swipe_dir = Vector2.DOWN
@@ -2719,7 +2790,8 @@ func _open_task() -> void:
 		"up":
 			surface.swipe_dir = Vector2.UP
 			surface.swipe_require_dir = true
-	phase_fill.value = 0.0
+	phase_fill.value = phase_progress / maxf(0.1, float(phase.get("goal", 1.0))) * 100.0 \
+		if career_id == "astronaut" else 0.0
 	_performance_apply_current_restore(phase)
 	if _is_chapter2_strawberry_pick_phase():
 		phase_fill.value = phase_progress / maxf(0.1, float(phase.get("goal", 5.0))) * 100.0
@@ -2852,8 +2924,8 @@ func _apply_panel_layout(phase: Dictionary) -> void:
 		action_panel.visible = false
 		return
 	action_panel.visible = true
-	if mode == "pipe":
-		# The pipe board remains large, but the ornate outer card is gone.
+	if mode in ["pipe", "gears", "pressure"]:
+		# The engineering devices remain large, but the ornate outer card is gone.
 		action_panel.size = Vector2(736, 608)
 		var left_pipe := Rect2(Vector2(24, 36), action_panel.size)
 		var right_pipe := Rect2(Vector2(520, 36), action_panel.size)
@@ -3478,8 +3550,29 @@ func _on_gesture(_kind: String, amount: float, quality: float) -> void:
 			return
 	var phase := phases[phase_index] as Dictionary
 	var mode := String(phase.get("mode", ""))
+	if surface is AstronautSurface and mode in ["gears", "pressure"] and _kind != "probe":
+		var device_surface := surface as AstronautSurface
+		if _kind != mode or not device_surface.device_commit_active \
+				or astronaut_pipe_work == null \
+				or not astronaut_pipe_work.contact_eligible(device_surface.pipe_work_request_id,
+					phase_index, device_surface.devices.pending_contact_index):
+			return
 	if career_id == "geologist" and _kind not in [mode, "probe"]:
 		return
+	if surface is AstronautSurface and mode == "tap" and _kind != "probe" and amount > 0.0:
+		var patch_surface := surface as AstronautSurface
+		if _kind != "tap" or patch_surface.patch_commit_target < 0 \
+				or astronaut_patch_work == null \
+				or not astronaut_patch_work.contact_eligible(patch_surface.patch_generation,
+					phase_index, patch_surface.patch_commit_target):
+			return
+	if surface is AstronautSurface and mode == "circle" and _kind != "probe":
+		var valve_surface := surface as AstronautSurface
+		if _kind != "circle" or not valve_surface.valve_commit_active \
+				or astronaut_valve_work == null \
+				or not astronaut_valve_work.contact_eligible(
+					valve_surface.valve_input_generation, phase_index, -1):
+			return
 	if mode == "kart_race" and _kind not in ["kart_race", "probe"]:
 		return
 	_play_roshan_task_pose(phase)
@@ -3575,6 +3668,7 @@ func _on_gesture(_kind: String, amount: float, quality: float) -> void:
 			_checkpoint_teacher(true)
 		if career_id == "geologist":
 			_checkpoint_geology(true)
+	_checkpoint_astronaut(phase_advance_pending)
 
 
 func _uses_authored_completion_picture(mode: String) -> bool:
@@ -3615,6 +3709,7 @@ func _advance_completed_phase() -> void:
 	# no forced gap here: the wander window IS the breath between tasks —
 	# the world stays hers until she walks up to the next lit station
 	_arm_phase()
+	_checkpoint_astronaut(true)
 
 
 func _finish_chapter2_final_result_hold() -> void:
@@ -3702,6 +3797,9 @@ func _on_nursery_baby_missed() -> void:
 
 
 func _bounce_actor(actor: Control, height: float, duration: float = 0.30) -> void:
+	# Generic result feedback must not pull her away during local owned work.
+	if actor == player_actor and _astronaut_work_busy():
+		return
 	if actor == null:
 		return
 	var key := _actor_key(actor)
@@ -4577,11 +4675,20 @@ func _draw_lens_layer() -> void:
 
 
 func _process(delta: float) -> void:
+	if astronaut_patch_work != null:
+		astronaut_patch_work.tick(delta)
+	if astronaut_pipe_work != null:
+		astronaut_pipe_work.tick(delta)
+	if astronaut_valve_work != null:
+		astronaut_valve_work.tick(delta)
 	_performance_tick(delta)
 	_tick_teacher_voice()
 	teacher_save_cool = maxf(0.0, teacher_save_cool - delta)
 	if teacher_save_pending and teacher_save_cool <= 0.0:
 		_checkpoint_teacher(true)
+	astronaut_save_cool = maxf(0.0, astronaut_save_cool - delta)
+	if astronaut_save_pending and astronaut_save_cool <= 0.0:
+		_checkpoint_astronaut(true)
 	geology_save_cool = maxf(0.0, geology_save_cool - delta)
 	if geology_save_pending and geology_save_cool <= 0.0:
 		_checkpoint_geology(true)
@@ -4693,6 +4800,9 @@ func _process(delta: float) -> void:
 
 
 func close() -> void:
+	if surface is AstronautSurface:
+		(surface as AstronautSurface).close_input()
+	_checkpoint_astronaut(true)
 	_performance_checkpoint(true)
 	teacher_voice_queue.clear()
 	if career_id == "teacher":
@@ -4991,11 +5101,152 @@ func _checkpoint_geology(flush: bool) -> void:
 		geology_save_cool = 1.0
 
 
+func _astronaut_save_context() -> String:
+	if _is_tutorial_run():
+		return "tutorial"
+	if using_chapter_two_phases:
+		return "chapter2:" + String(scene_adapter.get("id", ""))
+	return "ordinary"
+
+
+func _astronaut_saved_checkpoint() -> Dictionary:
+	if _is_dev_playtest() or career_id != "astronaut" or m == null:
+		return {}
+	var records: Variant = m.save_data.get("opera_astronaut_checkpoints", {})
+	if not records is Dictionary:
+		return {}
+	var saved: Variant = records.get(_astronaut_save_context(), {})
+	if not saved is Dictionary or saved.get("version", 0) != 1:
+		return {}
+	if saved.get("phase_signature", "") != astronaut_phase_signature:
+		if saved.get("phase_signature", "") != astronaut_legacy_signature:
+			return {}
+		saved = _migrate_astronaut_checkpoint(saved as Dictionary)
+		if (saved as Dictionary).is_empty():
+			return {}
+	var index: Variant = saved.get("phase_index", null)
+	var progress: Variant = saved.get("progress", null)
+	var complete: Variant = saved.get("complete", null)
+	if not AstronautSurface._valid_saved_number(index) \
+			or float(index) != floorf(float(index)) or int(index) < 0 or int(index) >= phases.size() \
+			or not AstronautSurface._valid_saved_number(progress) or not complete is bool:
+		return {}
+	var goal := float((phases[int(index)] as Dictionary).get("goal", 1.0))
+	if float(progress) < 0.0 or float(progress) > goal \
+			or bool(complete) != is_equal_approx(float(progress), goal):
+		return {}
+	return saved as Dictionary
+
+
+func _restore_astronaut_widget() -> void:
+	if not surface is AstronautSurface:
+		return
+	var saved := _astronaut_saved_checkpoint()
+	var mechanic: Variant = saved.get("mechanic", {})
+	if int(saved.get("phase_index", -1)) != phase_index or not mechanic is Dictionary:
+		return
+	var goal := float((phases[phase_index] as Dictionary).get("goal", 1.0))
+	var progress := float(saved.get("progress", 0.0))
+	if String((phases[phase_index] as Dictionary).get("mode", "")) != "pipe" \
+			or not bool(saved.get("legacy_earned_pipe", false)):
+		if not (surface as AstronautSurface).restore_progress(mechanic as Dictionary, progress, goal):
+			return
+	else:
+		surface.set_fill(progress / goal)
+	phase_progress = progress
+	phase_fill.value = progress / goal * 100.0
+	if bool(saved.get("complete", false)):
+		# The earned phase still passes through the normal story callback and
+		# completion hold. Never skip a birthday phase bit or issue a reward here.
+		surface.accept_completion()
+		phase_advance_pending = true
+		phase_complete_t = 2.2
+
+
+func _commit_astronaut_pipe_work(request_id: int, requested_phase: int, cell: int) -> bool:
+	if not active or not task_open or career_id != "astronaut" \
+			or requested_phase != phase_index or phase_index >= phases.size() \
+			or not surface is AstronautSurface:
+		return false
+	var pipe_surface := surface as AstronautSurface
+	var work_mode := String((phases[phase_index] as Dictionary).get("mode", ""))
+	if work_mode not in ["pipe", "gears", "pressure"] \
+			or pipe_surface.pipe_work_cell != cell \
+			or pipe_surface.pipe_work_request_id != request_id \
+			or astronaut_pipe_work == null \
+			or not astronaut_pipe_work.contact_eligible(request_id, requested_phase, cell):
+		return false
+	return pipe_surface.commit_device_work(request_id) if work_mode in ["gears", "pressure"] \
+		else pipe_surface.commit_pipe_work(request_id)
+
+
+func _astronaut_work_busy() -> bool:
+	return (astronaut_pipe_work != null and astronaut_pipe_work.busy()) \
+		or (astronaut_valve_work != null and astronaut_valve_work.busy()) \
+		or (astronaut_patch_work != null and astronaut_patch_work.busy())
+
+
+func _commit_astronaut_patch_work(generation: int, requested_phase: int, target: int) -> bool:
+	if not active or not task_open or phase_advance_pending or career_id != "astronaut" \
+			or requested_phase != phase_index or not surface is AstronautSurface \
+			or astronaut_patch_work == null \
+			or not astronaut_patch_work.contact_eligible(generation, requested_phase, target):
+		return false
+	return (surface as AstronautSurface).commit_patch_work(generation, target)
+
+
+func _commit_astronaut_valve_motion(generation: int, requested_phase: int, maximum_arc: float) -> float:
+	if not active or not task_open or phase_advance_pending or career_id != "astronaut" \
+			or requested_phase != phase_index or not surface is AstronautSurface \
+			or astronaut_valve_work == null \
+			or not astronaut_valve_work.contact_eligible(generation, requested_phase, -1):
+		return 0.0
+	return (surface as AstronautSurface).commit_valve_motion(generation, maximum_arc)
+
+
+func _on_astronaut_progress_changed() -> void:
+	if astronaut_restoring or not task_open or not active:
+		return
+	_checkpoint_astronaut(false)
+
+
+func _checkpoint_astronaut(flush: bool) -> void:
+	if _is_dev_playtest() or astronaut_restoring or career_id != "astronaut" or m == null \
+			or not surface is AstronautSurface:
+		return
+	var raw: Variant = m.save_data.get("opera_astronaut_checkpoints", {})
+	var records: Dictionary = (raw as Dictionary).duplicate(true) if raw is Dictionary else {}
+	var context := _astronaut_save_context()
+	var existing: Variant = records.get(context, {})
+	if existing is Dictionary:
+		var version: Variant = existing.get("version", 0)
+		if AstronautSurface._valid_saved_number(version) and float(version) > 1.0:
+			return
+	if phase_index >= phases.size():
+		records.erase(context)
+	else:
+		var saved: Dictionary = (existing as Dictionary).duplicate(true) if existing is Dictionary else {}
+		var prior: Variant = saved.get("mechanic", {})
+		var mechanic: Dictionary = (prior as Dictionary).duplicate(true) if prior is Dictionary else {}
+		mechanic.merge((surface as AstronautSurface).progress_snapshot(), true)
+		saved.merge({"version": 1, "phase_signature": astronaut_phase_signature,
+			"phase_index": phase_index, "progress": minf(phase_progress,
+				float((phases[phase_index] as Dictionary).get("goal", 1.0))),
+			"complete": phase_advance_pending, "mechanic": mechanic}, true)
+		records[context] = saved
+	m.save_data["opera_astronaut_checkpoints"] = records
+	astronaut_save_pending = true
+	if flush:
+		astronaut_save_pending = not m._write_save()
+		astronaut_save_cool = 1.0
+
+
 func _notification(what: int) -> void:
 	if what in [NOTIFICATION_PAUSED, NOTIFICATION_APPLICATION_PAUSED,
 			NOTIFICATION_APPLICATION_FOCUS_OUT, NOTIFICATION_WM_CLOSE_REQUEST]:
 		_checkpoint_teacher(true)
 		_checkpoint_geology(true)
+		_checkpoint_astronaut(true)
 		_performance_checkpoint(true)
 		if two_act_enabled:
 			competition.pause()
@@ -5287,3 +5538,78 @@ func _performance_restore() -> void:
 		performance_stats["actions"] = int(performance_stats["actions"]) + int(amount)
 	competition.elapsed = float(performance_stats["active_seconds"])
 	competition.round_elapsed = competition.elapsed
+
+
+func _apply_astronaut_engineering_devices() -> void:
+	# Preserve the pre-correction dictionaries above as a signature-bound save
+	# migration authority. The room now exposes three different engineering verbs.
+	for raw: Dictionary in phases:
+		match String(raw.get("mode", "")):
+			"pipe":
+				raw["goal"] = 1.0
+				raw["vo"] = "op_astronaut_pipes"
+				raw["voice"] = "Connect the bubble pipes from the fuel tank all the way to the rocket!"
+			"tap":
+				if String(raw.get("name", "")) == "PATCH":
+					raw.merge({"name": "GEARS", "mode": "gears", "widget": "", "goal": 3.0,
+						"vo": "op_astronaut_gears", "voice": "Fit each gear into its matching space. Make the machine turn!"}, true)
+			"circle":
+				if String(raw.get("name", "")) == "VALVE":
+					raw.merge({"name": "PRESSURE", "mode": "pressure", "widget": "", "goal": 3.0,
+						"vo": "op_astronaut_pressure", "voice": "Slide each valve up or down. Put the needles in the green!"}, true)
+
+
+func _migrate_astronaut_checkpoint(original: Dictionary) -> Dictionary:
+	var raw_index: Variant = original.get("phase_index", null)
+	var raw_progress: Variant = original.get("progress", null)
+	var raw_complete: Variant = original.get("complete", null)
+	if not AstronautSurface._valid_saved_number(raw_index) \
+			or float(raw_index) != floorf(float(raw_index)) \
+			or int(raw_index) < 0 or int(raw_index) >= astronaut_legacy_phases.size() \
+			or not AstronautSurface._valid_saved_number(raw_progress) or not raw_complete is bool:
+		return {}
+	var index := int(raw_index)
+	var old_phase: Dictionary = astronaut_legacy_phases[index]
+	var old_goal := float(old_phase.get("goal", 1.0))
+	var earned := float(raw_progress)
+	if earned < 0.0 or earned > old_goal or bool(raw_complete) != is_equal_approx(earned, old_goal):
+		return {}
+	var raw_mechanic: Variant = original.get("mechanic", null)
+	if not raw_mechanic is Dictionary:
+		return {}
+	var old_mode := String(old_phase.get("mode", ""))
+	var old_family := _widget_template(old_phase)
+	var old_context := old_family + "_astronaut" if not old_family.is_empty() else ""
+	var validator := AstronautSurface.new()
+	validator.size = Vector2(712, 560)
+	validator.configure(old_mode, Color.WHITE, 1, old_context)
+	var valid_mechanic := validator.restore_progress(raw_mechanic as Dictionary, earned, old_goal)
+	validator.free()
+	if not valid_mechanic:
+		return {}
+	var saved := original.duplicate(true)
+	saved["legacy_checkpoint_before_engineering"] = original.duplicate(true)
+	saved["phase_signature"] = astronaut_phase_signature
+	var next_mode := String((phases[index] as Dictionary).get("mode", ""))
+	if next_mode == "pipe":
+		saved["progress"] = minf(earned, 1.0)
+		saved["complete"] = earned >= 1.0
+		saved["legacy_earned_pipe"] = earned >= 1.0
+	elif next_mode in ["gears", "pressure"]:
+		# Round earned legacy work upward to a whole device consequence. Preserve
+		# the exact original checkpoint too; never ask the child to redo it.
+		var credited := mini(3, ceili(earned / old_goal * 3.0))
+		var installed: Array[bool] = [false, false, false]
+		var tuned: Array[bool] = [false, false, false]
+		var values: Array[float] = [0.12, 0.88, 0.12]
+		for item in range(credited):
+			if next_mode == "gears":
+				installed[item] = true
+			else:
+				tuned[item] = true
+				values[item] = float(EngineerDeviceTargets[item])
+		saved["progress"] = float(credited)
+		saved["complete"] = credited == 3
+		saved["mechanic"] = {"version": 1, "mode": next_mode, "context": "",
+			"devices": {"fitted": installed, "tuned": tuned, "values": values}}
+	return saved

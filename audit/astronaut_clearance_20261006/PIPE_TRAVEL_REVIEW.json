@@ -1,0 +1,209 @@
+{
+  "reviewed_utc": "2026-10-07T12:36:05.713074+00:00",
+  "reviewer": "Primary implementing Codex agent; independent re-review outstanding",
+  "baseline": "96274aab9cebd563b10846a4a48de5d017588563",
+  "origin_dev": "6238934447cf28834874396dfbaff65effafda46",
+  "source_state": "Owned dirty local candidate, not current integrated dev or strict clean-runtime acceptance",
+  "sources": [
+    {
+      "path": "scripts/opera_astronaut_pipe_work.gd",
+      "sha256": "f6cd174b379139796aafa9c505ddc2ea27fd82ae309d66556b16b105d3f54600"
+    },
+    {
+      "path": "scripts/opera_career_world_2d.gd",
+      "sha256": "6f61646adc21cc2392fa18d3b3624f7c5f2bb4de050a6b858a7705980f5d2590"
+    },
+    {
+      "path": "scripts/opera_astronaut_surface.gd",
+      "sha256": "84b0806ee388e1d0150629c872318c92fd3f614e949385a26f97eac0c0d82809"
+    },
+    {
+      "path": "scripts/opera_roshan_actor.gd",
+      "sha256": "7c0f334fd73b39685b5a1ef4e3e9214b974cbd90db3d291dc172ebc5b13a6b66"
+    },
+    {
+      "path": "scripts/save_state.gd",
+      "sha256": "13b77592028653cdcac67e54264f049bbab01c6566b4fad1ea9bdf89a37a07c8"
+    },
+    {
+      "path": "assets/opera/worlds/actors/animation/roshan_astronaut_sheet_a.png",
+      "sha256": "ccfb8e7af3a033e31e05af40fa62dc23b676aec6204ba8810e8cf79cbfc4d6fa"
+    }
+  ],
+  "implemented": "work_flip retains unchanged viewport-fit wrench orientation; approach/return use the left-authored travel row facing displacement, and arrival restores work_flip. Original whole figure size, source art, timing, contact/commit/save/input/canon preserved. Prior release ownership guards remain.",
+  "machine": {
+    "result": "PASS",
+    "receipt": "PIPE_TRAVEL_V1_RECEIPT.json",
+    "receipt_sha256": "63e7c07ef21d75aac89042d9aad0c58013e89e999e6158b71ef4d6d8157cad3a",
+    "per_aspect_checks": [
+      121,
+      121
+    ],
+    "untouched_native_pngs": [
+      84,
+      84
+    ],
+    "negative_checks": 17,
+    "engine_errors": 0,
+    "engine_seconds": 213.086,
+    "native_direction_samples": [
+      1125,
+      1151
+    ],
+    "output_bytes": 240627133,
+    "cache_growth_bytes": 0,
+    "source_bindings": true,
+    "meaning": "All117previous birthday assertions per aspect plus4direction/work-facing/scale observations, unchanged17negative checks. Actual Windows/Mobile/Vulkan, genuine menu/card/object/four mechanics/save/finish/settled return. Controls/state/pixel hashes only; captures incur synchronous readback overhead."
+  },
+  "directly_inspected_views": [
+    {
+      "width": 1280,
+      "label": "phase0_pipe_approach",
+      "path": "tmp/astronaut_native_birthday_capture_v5_20261007/1280x720/frames/0007_phase0_pipe_approach.png",
+      "sha256": "51b15268ac1299fc70a6534d55206df1bd1233aea1234a62a454bbf17bf260a4",
+      "inspection": "Direct original-resolution tool view; untouched full viewport; no crop/edit/resample."
+    },
+    {
+      "width": 1280,
+      "label": "phase0_pipe_anticipation",
+      "path": "tmp/astronaut_native_birthday_capture_v5_20261007/1280x720/frames/0012_phase0_pipe_anticipation.png",
+      "sha256": "efabc71f3168a1553d65339ae21f4ba4cd74cfaf8c925c712ab1c7bc383e3b4f",
+      "inspection": "Direct original-resolution tool view; untouched full viewport; no crop/edit/resample."
+    },
+    {
+      "width": 1280,
+      "label": "phase0_pipe_contact_b",
+      "path": "tmp/astronaut_native_birthday_capture_v5_20261007/1280x720/frames/0015_phase0_pipe_contact_b.png",
+      "sha256": "be68585a2284ea9bf499d69c842442ad882efb2c832a9ed5afcb7b9c96029f10",
+      "inspection": "Direct original-resolution tool view; untouched full viewport; no crop/edit/resample."
+    },
+    {
+      "width": 1280,
+      "label": "phase0_pipe_release",
+      "path": "tmp/astronaut_native_birthday_capture_v5_20261007/1280x720/frames/0017_phase0_pipe_release.png",
+      "sha256": "2c734df3352c60d7374948710688e04a8601b078514f5009124be15dc01c6b33",
+      "inspection": "Direct original-resolution tool view; untouched full viewport; no crop/edit/resample."
+    },
+    {
+      "width": 1280,
+      "label": "phase0_pipe_return",
+      "path": "tmp/astronaut_native_birthday_capture_v5_20261007/1280x720/frames/0019_phase0_pipe_return.png",
+      "sha256": "2596eb12d882f041e64ce5817213f0bebb4a55e11169df514588bd983e4d9d04",
+      "inspection": "Direct original-resolution tool view; untouched full viewport; no crop/edit/resample."
+    },
+    {
+      "width": 1600,
+      "label": "phase0_pipe_approach",
+      "path": "tmp/astronaut_native_birthday_capture_v5_20261007/1600x720/frames/0007_phase0_pipe_approach.png",
+      "sha256": "996c0420910a2aecf44820b81fc62222ee1f6c2f5583487d932549326c678546",
+      "inspection": "Direct original-resolution tool view; untouched full viewport; no crop/edit/resample."
+    },
+    {
+      "width": 1600,
+      "label": "phase0_pipe_anticipation",
+      "path": "tmp/astronaut_native_birthday_capture_v5_20261007/1600x720/frames/0012_phase0_pipe_anticipation.png",
+      "sha256": "41f41d3e69ac02d9849b2ba650a0d001865f1b453f225521a06eaadc4cb9f0ea",
+      "inspection": "Direct original-resolution tool view; untouched full viewport; no crop/edit/resample."
+    },
+    {
+      "width": 1600,
+      "label": "phase0_pipe_contact_b",
+      "path": "tmp/astronaut_native_birthday_capture_v5_20261007/1600x720/frames/0016_phase0_pipe_contact_b.png",
+      "sha256": "c800317bc38920d2f424f831db0227de888da71b1f9e2ef1829c67ae6a60a5d9",
+      "inspection": "Direct original-resolution tool view; untouched full viewport; no crop/edit/resample."
+    },
+    {
+      "width": 1600,
+      "label": "phase0_pipe_release",
+      "path": "tmp/astronaut_native_birthday_capture_v5_20261007/1600x720/frames/0018_phase0_pipe_release.png",
+      "sha256": "7805833104be36401eb6aced69cf31632c10c811209d72f8292bc4327e252afa",
+      "inspection": "Direct original-resolution tool view; untouched full viewport; no crop/edit/resample."
+    },
+    {
+      "width": 1600,
+      "label": "phase0_pipe_return",
+      "path": "tmp/astronaut_native_birthday_capture_v5_20261007/1600x720/frames/0020_phase0_pipe_return.png",
+      "sha256": "16ca29dbedf31c3cd3e7b51bd8f880e94993bad7f5ba263fdafedf0f1a0d5963",
+      "inspection": "Direct original-resolution tool view; untouched full viewport; no crop/edit/resample."
+    },
+    {
+      "width": 1600,
+      "label": "phase1_open",
+      "path": "tmp/astronaut_native_birthday_capture_v5_20261007/1600x720/frames/0034_phase1_open.png",
+      "sha256": "84c01be0c8e92c609d2de584cdb92163361ab15dfefb334f7086e20ad9b1027d",
+      "inspection": "Direct original-resolution tool view; untouched full viewport; no crop/edit/resample."
+    },
+    {
+      "width": 1600,
+      "label": "phase2_input_held",
+      "path": "tmp/astronaut_native_birthday_capture_v5_20261007/1600x720/frames/0049_phase2_input_held.png",
+      "sha256": "7908fe00ead87e50ad8cba4a721fa3f1bd67db1991af7cff7a2fe9b7854062dc",
+      "inspection": "Direct original-resolution tool view; untouched full viewport; no crop/edit/resample."
+    },
+    {
+      "width": 1600,
+      "label": "phase3_input_held",
+      "path": "tmp/astronaut_native_birthday_capture_v5_20261007/1600x720/frames/0068_phase3_input_held.png",
+      "sha256": "f7f01a92fa44eb502103903b2bc5168cf34e1d1a09185a1d24dbf2d49c515706",
+      "inspection": "Direct original-resolution tool view; untouched full viewport; no crop/edit/resample."
+    },
+    {
+      "width": 1600,
+      "label": "room_return",
+      "path": "tmp/astronaut_native_birthday_capture_v5_20261007/1600x720/frames/0083_room_return.png",
+      "sha256": "0e1c56822239ae4489df21578cf33ec74515720b6bc58d43c9435b36adc54788",
+      "inspection": "Direct original-resolution tool view; untouched full viewport; no crop/edit/resample."
+    }
+  ],
+  "primary_visual_findings": [
+    {
+      "item": "PIPE travel-facing",
+      "result": "Scoped correction observed at both aspects: complete travel figure faces right toward rightward socket approach and left toward leftward return. Work/contact/release remain left-facing at same work position; release jump remains repaired.",
+      "score": null,
+      "accepted_complete_action": false,
+      "remaining": "Whole-figure pose transitions/cadence, semantic wrench contact, coarse vector pipe/tray/grid art and full action/variant acceptance remain open."
+    },
+    {
+      "item": "PIPE complete action",
+      "provisional_score": 4.0,
+      "result": "BELOW_TARGET; retained provisional score, no numerical credit invented from a transform correction."
+    },
+    {
+      "item": "PATCH complete action",
+      "provisional_score": 2.4,
+      "result": "BELOW_TARGET; inspected1600 frame shows rocket/leak widget left of Roshan with her wrench action separate from repair target."
+    },
+    {
+      "item": "VALVE complete action",
+      "provisional_score": 2.5,
+      "result": "BELOW_TARGET; valve widget at left while Roshan works far right, no connected whole-figure turning."
+    },
+    {
+      "item": "READY PARK complete action",
+      "provisional_score": 2.3,
+      "result": "BELOW_TARGET; small rocket moves far left while Roshan remains far right with wrench rather than whole-figure bracing/push."
+    },
+    {
+      "item": "Settled Mermaid Pool return",
+      "score": null,
+      "result": "Both manifest return fade0; directly inspected1600 shows clear exact Mermaid Pool and birthday-return caption. Single-frame evidence, no complete transition acceptance."
+    }
+  ],
+  "historical_currency": "All earlier helper-bound receipts including nativeV4 and release-headless/document/seal receipts are historical at helper65450443, preserved literally in PIPE_TRAVEL_BEFORE_SOURCE.txt. NativeV3worldd39 snapshot and failed/lost nativeV1/V2 disclosures remain untouched. V1release-regression parent still FAIL, never promoted. Earlier91ordinary/57+57correction not refreshed on helperf6cd in this slice.",
+  "budget": "213.086seconds within new declared300cap; previous595.844slice costs retained. Zero generation/install/import/cachegrowth/new outgoing coordination. One exact approved engine at a time; all terminal.",
+  "acceptance": {
+    "target": 4.6,
+    "complete_actions_accepted": 0,
+    "strict_QA11": "PENDING",
+    "full_trusted_suite": "PENDING",
+    "full_natural_variant_matrix": "PENDING",
+    "normal_cadence_performance": "PENDING",
+    "independent_visual": "PENDING",
+    "device": "PENDING",
+    "child": "PENDING",
+    "owner": "PENDING",
+    "integration": "PENDING",
+    "game_wide_master": "UNSATISFIED"
+  },
+  "next_work": "Current ordinary/recovery proof refresh and true PATCH/VALVE whole-figure contact; art/parking/LAUNCH decisions still depend on existing human questions. No release promotion."
+}

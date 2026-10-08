@@ -1,0 +1,60 @@
+{
+  "result": "PASS",
+  "started_utc": "2026-10-07T18:02:28.198551+00:00",
+  "finished_utc": "2026-10-07T18:02:28.487765+00:00",
+  "elapsed_seconds": 0.289,
+  "cap_seconds": 15,
+  "steps": [
+    {
+      "label": "tracked",
+      "exit_code": 0,
+      "elapsed_seconds": 0.122,
+      "returned_paths": 526,
+      "all_paths_scoped": true,
+      "stderr_bytes": 0,
+      "stdout_sha256": "b3fa49b5fcc010a967ee9de7e972ed2bd5ae3b21268c06e54bd90cba8a22a565",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "changed",
+      "exit_code": 0,
+      "elapsed_seconds": 0.166,
+      "returned_paths": 1,
+      "all_paths_scoped": true,
+      "stderr_bytes": 0,
+      "stdout_sha256": "651edcf4bd392752c76bf60fed0769696b713d43d10319bf27f096a21332611a",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "failure": null,
+  "query_scope": [
+    "audit/astronaut_clearance_20261006",
+    "audit/astronaut_walkthrough_20261007",
+    ".gitattributes",
+    "ASSET_LICENSES.md",
+    "audit/MASTER_AUDIT_2026-08-09.md",
+    "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
+    "design/05_DOC_LEDGER.md",
+    "design/audit_impacts/astronaut-clearance-20261006.json",
+    "scripts/opera_astronaut_patch_work.gd",
+    "scripts/opera_astronaut_pipe_work.gd",
+    "scripts/opera_astronaut_surface.gd",
+    "scripts/opera_astronaut_surface.gd.uid",
+    "scripts/opera_astronaut_valve_work.gd",
+    "scripts/opera_career_world_2d.gd",
+    "scripts/probe_opera_gesture_quality.gd",
+    "scripts/save_state.gd"
+  ],
+  "declared_existing_paths": 528,
+  "candidate_paths_to_stage": [
+    "audit/astronaut_clearance_20261006/PIPE_PATH_QUERY_V1_PLAN.json",
+    "audit/astronaut_clearance_20261006/run_pipe_path_query_v1.py",
+    "design/audit_impacts/astronaut-clearance-20261006.json"
+  ],
+  "staging_performed": false,
+  "auditor_or_engine_run": false,
+  "prior_source_document_seconds": 242.272,
+  "log_path": "audit/astronaut_clearance_20261006/PIPE_PATH_QUERY_V1_LOG.txt",
+  "log_sha256": "3c88973d809c1e3fc2904e416cbc9e1a0742f33e96df1c119f75840b3723f151",
+  "meaning": "Read-only preparation timing and scoping only. Final coverage, byte seal, native/visual/independent/device/child/owner clearance are not established."
+}

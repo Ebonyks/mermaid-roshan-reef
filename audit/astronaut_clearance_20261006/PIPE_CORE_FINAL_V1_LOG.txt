@@ -1,0 +1,15 @@
+
+STEP Final document authority
+["C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe", "-X", "utf8", "-B", "tools/audit_document_authority.py"]
+DOCAUTH|INVENTORY=679|LEDGER=679|ACTIVE=69|RECORDS=72
+DOCAUTH|RESULT|ALL OK
+
+STEP Final development coverage
+["C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe", "-X", "utf8", "-B", "tools/audit_development.py", "--base", "auto"]
+AUDITDEV|BASE|96274aab9cebd563b10846a4a48de5d017588563
+AUDITDEV|RESULT|ALL OK
+
+STEP Post-record development coverage
+["C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe", "-X", "utf8", "-B", "tools/audit_development.py", "--base", "auto"]
+AUDITDEV|BASE|96274aab9cebd563b10846a4a48de5d017588563
+AUDITDEV|RESULT|ALL OK

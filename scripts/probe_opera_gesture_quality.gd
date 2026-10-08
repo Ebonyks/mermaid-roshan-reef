@@ -10,6 +10,7 @@ var failed := 0
 var events: Array[Dictionary] = []
 
 const BalletSurface := preload("res://scripts/opera_ballet_surface.gd")
+const AstronautSurface := preload("res://scripts/opera_astronaut_surface.gd")
 
 
 func _ck(name: String, ok: bool) -> void:
@@ -377,6 +378,300 @@ func _test_ballet_surface() -> void:
 	ballet.queue_free()
 
 
+func _astro_touch(surface: AstronautSurface, index: int, pressed: bool,
+		at: Vector2, canceled: bool = false) -> void:
+	var touch := InputEventScreenTouch.new()
+	touch.index = index
+	touch.pressed = pressed
+	touch.canceled = canceled
+	touch.position = surface.get_global_transform_with_canvas() * at
+	Input.parse_input_event(touch)
+
+
+func _astro_tile_count(surface: AstronautSurface) -> int:
+	var count: int = surface.pipe_tray.size()
+	if surface.pipe_drag_tile != "":
+		count += 1
+	for cell in range(surface.pipe_grid.size()):
+		if surface.PIPE_MOUTHS.has(String(surface.pipe_grid[cell])) and not surface.pipe_fixed[cell]:
+			count += 1
+	return count
+
+
+func _astro_drag(surface: AstronautSurface, at: Vector2, previous: Vector2) -> void:
+	var drag := InputEventScreenDrag.new()
+	drag.index = 7
+	drag.position = surface.get_global_transform_with_canvas() * at
+	drag.relative = at - previous
+	Input.parse_input_event(drag)
+
+
+func _test_astronaut_park() -> void:
+	# The birthday save keeps its existing context; the visible toy is a rocket.
+	get_root().size = Vector2i(1280, 720)
+	var astronaut: AstronautSurface = AstronautSurface.new()
+	astronaut.position = Vector2(40, 40)
+	get_root().add_child(astronaut)
+	astronaut.set_process(false)
+	astronaut.gesture.connect(_record_gesture)
+	for extent: Vector2 in [Vector2(852, 560), Vector2(640, 400)]:
+		astronaut.size = extent
+		astronaut.configure("swipe", Color.WHITE, 1, "push_racer")
+		await process_frame
+		await process_frame
+		_ck("Astronaut park uses the licensed rocket at %s" % extent,
+			astronaut.widget_mover != null and astronaut.widget_mover.resource_path
+			== "res://assets/opera/worlds/props/goal_astronaut.png")
+		_ck("Astronaut park draws its own floor destination at %s" % extent,
+			astronaut.last_contextual_draw_route == "push:park_astronaut"
+			and astronaut.widget_backdrop == null)
+		var bounds := Rect2(Vector2.ZERO, extent)
+		var start_rect: Rect2 = astronaut._long_push_mover_rect(0.0)
+		var end_rect: Rect2 = astronaut._long_push_mover_rect(1.0)
+		_ck("park toy remains whole and the same size at both endpoints %s" % extent,
+			bounds.encloses(start_rect) and bounds.encloses(end_rect)
+			and start_rect.size == end_rect.size)
+		var at: Vector2 = astronaut._long_push_start_hit_rect().get_center()
+		events.clear()
+		_astro_touch(astronaut, 7, true, at)
+		await process_frame
+		var previous := at
+		at -= Vector2(24, 0)
+		_astro_drag(astronaut, at, previous)
+		await process_frame
+		_ck("wrong-direction parking motion earns no work at %s" % extent,
+			is_zero_approx(astronaut.long_push_journey) and not _paid("swipe"))
+		previous = at
+		at += (astronaut._long_push_end() - astronaut._long_push_start()) * 0.25
+		_astro_drag(astronaut, at, previous)
+		await process_frame
+		_astro_touch(astronaut, 7, false, at)
+		await process_frame
+		_ck("real parking travel earns exactly one quarter at %s" % extent,
+			is_equal_approx(astronaut.long_push_journey, 0.25)
+			and is_equal_approx(_paid_total("swipe"), 1.25) and not astronaut.held)
+		var snapshot := astronaut.progress_snapshot()
+		astronaut.configure("swipe", Color.WHITE, 1, "push_racer")
+		events.clear()
+		_ck("legacy park context restores released work without paying at %s" % extent,
+			astronaut.restore_progress(snapshot, 1.25, 5.0)
+			and snapshot.get("context", "") == "push_racer"
+			and is_equal_approx(astronaut.long_push_journey, 0.25)
+			and not astronaut.held and astronaut.active_touch_index == -1
+			and not _paid("swipe"))
+		await process_frame
+		await process_frame
+		_ck("passive park display cannot add work at %s" % extent,
+			is_equal_approx(astronaut.long_push_journey, 0.25) and not _paid("swipe"))
+	astronaut.configure("hold", Color.WHITE, 1, "charge_astronaut")
+	_ck("ordinary launch remains its existing rocket hold",
+		astronaut.mode == "hold" and astronaut.charge_astronaut_texture != null
+		and astronaut.charge_astronaut_texture.resource_path
+		== "res://assets/opera/worlds/props/goal_astronaut.png")
+	astronaut.queue_free()
+	await process_frame
+
+
+func _test_astronaut_input() -> void:
+	# Real viewport dispatch; focus notifications are synthetic boundaries,
+	# while SceneTree.pause below exercises the engine's own pause notification.
+	get_root().size = Vector2i(1280, 720)
+	var astronaut: AstronautSurface = AstronautSurface.new()
+	astronaut.position = Vector2(40, 40)
+	astronaut.size = Vector2(852, 560)
+	get_root().add_child(astronaut)
+	astronaut.set_process(false)
+	astronaut.gesture.connect(_record_gesture)
+	astronaut.configure("hold", Color.WHITE, 1, "charge_astronaut")
+	astronaut.set_fill(0.6)
+	var center: Vector2 = astronaut.size * 0.5
+	await process_frame
+	events.clear()
+	_astro_touch(astronaut, 7, true, center)
+	await process_frame
+	_ck("Astronaut genuine viewport touch owns the launch hold",
+		astronaut.held and astronaut.active_touch_index == 7)
+	_astro_touch(astronaut, 8, true, center)
+	_astro_touch(astronaut, 8, false, center)
+	await process_frame
+	_ck("Astronaut second finger cannot steal or release the hold",
+		astronaut.held and astronaut.active_touch_index == 7)
+	_astro_touch(astronaut, 8, false, center, true)
+	var mouse_press := InputEventMouseButton.new()
+	mouse_press.button_index = MOUSE_BUTTON_LEFT
+	mouse_press.pressed = true
+	mouse_press.position = astronaut.get_global_transform_with_canvas() * (center + Vector2(50, 0))
+	Input.parse_input_event(mouse_press)
+	mouse_press = mouse_press.duplicate() as InputEventMouseButton
+	mouse_press.pressed = false
+	Input.parse_input_event(mouse_press)
+	await process_frame
+	_ck("Astronaut foreign cancel and actual mouse cannot steal the held touch",
+		astronaut.held and astronaut.active_touch_index == 7 and _event_count("hold_release") == 0)
+	astronaut.notification(NOTIFICATION_APPLICATION_FOCUS_OUT)
+	_ck("Astronaut focus loss clears ownership without a release payoff",
+		not astronaut.held and astronaut.active_touch_index == -1
+		and _event_count("hold_release") == 0 and is_equal_approx(astronaut.widget_fill, 0.6))
+	_astro_touch(astronaut, 7, false, center)
+	var mouse_release := InputEventMouseButton.new()
+	mouse_release.button_index = MOUSE_BUTTON_LEFT
+	mouse_release.pressed = false
+	mouse_release.position = astronaut.get_global_transform_with_canvas() * center
+	Input.parse_input_event(mouse_release)
+	await process_frame
+	_ck("Astronaut late touch and mouse releases cannot pay after cancellation",
+		_event_count("hold_release") == 0 and not astronaut.held)
+	astronaut.notification(NOTIFICATION_APPLICATION_PAUSED)
+	astronaut.notification(NOTIFICATION_APPLICATION_FOCUS_IN)
+	_astro_touch(astronaut, 9, true, center)
+	await process_frame
+	_ck("Astronaut focus return cannot override a remaining application pause",
+		astronaut.input_suspended() and not astronaut.held)
+	astronaut.notification(NOTIFICATION_APPLICATION_RESUMED)
+	_astro_touch(astronaut, 9, false, center)
+	_astro_touch(astronaut, 10, true, center)
+	await process_frame
+	_ck("Astronaut matching resumes allow a new deliberate hold",
+		not astronaut.input_suspended() and astronaut.held and astronaut.active_touch_index == 10)
+	_astro_touch(astronaut, 10, false, center, true)
+	await process_frame
+	_ck("Astronaut canceled native touch does not release a charge",
+		not astronaut.held and astronaut.active_touch_index == -1 and _event_count("hold_release") == 0)
+	_astro_touch(astronaut, 11, true, center)
+	_astro_touch(astronaut, 11, false, center)
+	await process_frame
+	_ck("Astronaut ordinary deliberate release still works",
+		_event_count("hold_release") == 1 and not astronaut.held)
+
+	astronaut.configure("pipe", Color.WHITE)
+	var inventory: int = _astro_tile_count(astronaut)
+	var tray_at: Vector2 = astronaut._pipe_tray_rect(0).get_center()
+	_astro_touch(astronaut, 12, true, tray_at)
+	await process_frame
+	_ck("Astronaut genuine tray touch carries exactly one existing pipe",
+		astronaut.pipe_drag_tile == "H" and _astro_tile_count(astronaut) == inventory)
+	events.clear()
+	astronaut.notification(NOTIFICATION_APPLICATION_FOCUS_OUT)
+	_ck("Astronaut canceled tray carry returns the pipe without progress",
+		astronaut.pipe_drag_tile == "" and astronaut.pipe_tray.size() == inventory
+		and _astro_tile_count(astronaut) == inventory and events.is_empty())
+	astronaut.notification(NOTIFICATION_APPLICATION_FOCUS_IN)
+	_astro_touch(astronaut, 12, false, tray_at)
+	_astro_touch(astronaut, 13, true, astronaut._pipe_tray_rect(0).get_center())
+	_astro_touch(astronaut, 13, false, astronaut._pipe_cell_rect(5).get_center())
+	await process_frame
+	_ck("Astronaut resumed genuine drag-drop still places the tile",
+		String(astronaut.pipe_grid[5]) == "H" and _astro_tile_count(astronaut) == inventory)
+	_astro_touch(astronaut, 14, true, astronaut._pipe_cell_rect(5).get_center())
+	await process_frame
+	_ck("Astronaut genuine placed-tile touch lifts the existing pipe",
+		astronaut.pipe_drag_tile == "H" and String(astronaut.pipe_grid[5]) == "")
+	events.clear()
+	paused = true
+	await process_frame
+	_ck("Astronaut real tree pause restores the lifted pipe to its cell",
+		astronaut.input_suspended() and not astronaut.held
+		and astronaut.pipe_drag_tile == "" and String(astronaut.pipe_grid[5]) == "H"
+		and _astro_tile_count(astronaut) == inventory and events.is_empty())
+	astronaut.notification(NOTIFICATION_APPLICATION_FOCUS_OUT)
+	paused = false
+	await process_frame
+	_ck("Astronaut tree resume cannot override remaining focus loss", astronaut.input_suspended())
+	astronaut.notification(NOTIFICATION_APPLICATION_FOCUS_IN)
+	_astro_touch(astronaut, 14, false, astronaut._pipe_cell_rect(5).get_center())
+	_astro_touch(astronaut, 15, true, astronaut._pipe_tray_rect(0).get_center())
+	await process_frame
+	events.clear()
+	astronaut.close_input()
+	_astro_touch(astronaut, 15, false, astronaut._pipe_cell_rect(6).get_center())
+	_astro_touch(astronaut, 16, true, center)
+	await process_frame
+	_ck("Astronaut close conserves inventory and blocks stale/new input",
+		astronaut.input_suspended() and not astronaut.held
+		and astronaut.pipe_drag_tile == "" and _astro_tile_count(astronaut) == inventory
+		and String(astronaut.pipe_grid[6]) == "" and events.is_empty())
+	astronaut.queue_free()
+	await process_frame
+
+
+func _astro_place_pipe(surface: AstronautSurface, tile: String, cell: int) -> bool:
+	var slot: int = surface.pipe_tray.find(tile)
+	if slot < 0:
+		return false
+	var inventory: int = _astro_tile_count(surface)
+	var start: Vector2 = surface._pipe_tray_rect(slot).get_center()
+	var finish: Vector2 = surface._pipe_cell_rect(cell).get_center()
+	_astro_touch(surface, 7, true, start)
+	await process_frame
+	if surface.pipe_drag_tile != tile or surface.active_touch_index != 7:
+		surface.cancel_input()
+		return false
+	var drag := InputEventScreenDrag.new()
+	drag.index = 7
+	drag.position = surface.get_global_transform_with_canvas() * finish
+	drag.relative = finish - start
+	Input.parse_input_event(drag)
+	await process_frame
+	_astro_touch(surface, 7, false, finish)
+	await process_frame
+	return String(surface.pipe_grid[cell]) == tile and surface.pipe_drag_tile == "" \
+		and _astro_tile_count(surface) == inventory
+
+
+func _astro_wait_pipe_round(surface: AstronautSurface, target: int) -> bool:
+	var deadline: int = Time.get_ticks_msec() + 6000
+	while Time.get_ticks_msec() < deadline:
+		if surface.pipe_round >= target and surface.pipe_pause <= 0.0:
+			return surface.pipe_round == target
+		await create_timer(0.05).timeout
+	return false
+
+
+func _test_astronaut_pipe_routes() -> void:
+	# Deliberate touch placement and the engine's normal process clock only.
+	# This fixture acknowledges the third earned award like the world caller;
+	# it does not stand in for whole-world acting, return or save verification.
+	get_root().size = Vector2i(1280, 720)
+	var astronaut: AstronautSurface = AstronautSurface.new()
+	astronaut.position = Vector2(40, 40)
+	astronaut.size = Vector2(852, 560)
+	get_root().add_child(astronaut)
+	astronaut.gesture.connect(_record_gesture)
+	astronaut.gesture.connect(func(kind: String, amount: float, _quality: float) -> void:
+		if kind == "pipe" and amount > 0.0 and _paid_count("pipe") == 3:
+			astronaut.accept_completion())
+	astronaut.configure("pipe", Color.WHITE)
+	await process_frame
+	events.clear()
+	await create_timer(1.3).timeout
+	_ck("Astronaut passive incomplete pipe board cannot award",
+		astronaut.pipe_round == 0 and not _paid("pipe"))
+	var routes: Array = [
+		[["H", 5], ["H", 6]],
+		[["SE", 0], ["H", 1], ["SW", 2], ["NE", 6]],
+		[["NW", 5], ["SE", 1], ["H", 2], ["NW", 3]],
+	]
+	for round_index in range(routes.size()):
+		for placement: Array in routes[round_index]:
+			var tile: String = String(placement[0])
+			var cell: int = int(placement[1])
+			var placed: bool = await _astro_place_pipe(astronaut, tile, cell)
+			_ck("Astronaut round%d real drag places %s at%d without losing a tile" % [
+				round_index + 1, tile, cell], placed)
+		var finished_round: bool = await _astro_wait_pipe_round(astronaut, round_index + 1)
+		_ck("Astronaut round%d reaches its exit on the engine clock" % (round_index + 1),
+			finished_round and _paid_count("pipe") == round_index + 1)
+		if not finished_round:
+			break
+	await create_timer(1.0).timeout
+	_ck("Astronaut accepted third pipe round cannot pay again while waiting",
+		astronaut.pipe_round == 3 and astronaut.completion_accepted
+		and _paid_count("pipe") == 3 and is_equal_approx(_paid_total("pipe"), 3.0))
+	astronaut.close_input()
+	astronaut.queue_free()
+	await process_frame
+
+
 func _finish_after_render(surface: OperaGestureSurface,
 		boxing: OperaBoxingSurface) -> void:
 	# Let CanvasItem execute each custom draw path once. Analyzer-only tests do
@@ -525,6 +820,12 @@ func _finish_after_render(surface: OperaGestureSurface,
 	_ck("all three full-stage ballet draw routes render headlessly", true)
 	ballet.queue_free()
 	_ck("specialist, contextual charge/crank/trace, long-push, portal, wheel-install, causal, and oven paths render", true)
+	surface.hide()
+	boxing.hide()
+	await process_frame
+	await _test_astronaut_input()
+	await _test_astronaut_pipe_routes()
+	await _test_astronaut_park()
 	print("GESTURE_QUALITY|result: %s (%d checks)" % [
 		"ALL OK" if failed == 0 else "%d FAIL" % failed,
 		checks,

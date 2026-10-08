@@ -1,0 +1,217 @@
+{
+  "started_utc": "2026-10-07T05:34:49.006233+00:00",
+  "finished_utc": "2026-10-07T05:35:07.848069+00:00",
+  "command": [
+    "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64.exe",
+    "--headless",
+    "--path",
+    "C:\\Users\\Peter\\.codex\\worktrees\\astronaut-goal-20261006\\mermaid-roshan-reef",
+    "--script",
+    "res://audit/astronaut_clearance_20261006/reproduce_partial_save.gd"
+  ],
+  "engine_version": "4.7.2.stable.official.ed1daf0bf",
+  "engine_sha256": "ab1824f85bfd8e0e4128182c000c4003a3e042245b2967848d089b2a04b22424",
+  "owned_pid": 38808,
+  "exit_code": 1,
+  "elapsed_seconds": 19.01,
+  "timed_out": false,
+  "time_cap_seconds": 90,
+  "errors": [],
+  "execution_result": "PASS",
+  "save_acceptance_result": "FAIL",
+  "evidence": [
+    {
+      "checks": 15,
+      "failures": 2,
+      "rows": [
+        {
+          "label": "real Mermaid Pool career card is visible",
+          "pass": true
+        },
+        {
+          "label": "unforced production route selects Astronaut Canvas surface",
+          "pass": true
+        },
+        {
+          "label": "real object touch opens the pipe activity after approach",
+          "pass": true
+        },
+        {
+          "label": "board one first H is placed by viewport drag",
+          "pass": true
+        },
+        {
+          "label": "board one second H is placed by viewport drag",
+          "pass": true
+        },
+        {
+          "label": "real engine time earns exactly one board",
+          "pass": true
+        },
+        {
+          "label": "board two partial SE is placed by viewport drag",
+          "pass": true
+        },
+        {
+          "label": "production write succeeds at isolated path",
+          "pass": true
+        },
+        {
+          "label": "production cancel returns to Mermaid Pool",
+          "pass": true
+        },
+        {
+          "label": "real Mermaid Pool career card is visible",
+          "pass": true
+        },
+        {
+          "label": "unforced production route selects Astronaut Canvas surface",
+          "pass": true
+        },
+        {
+          "label": "real object touch opens the pipe activity after approach",
+          "pass": true
+        },
+        {
+          "label": "save/load preserves earned first board",
+          "pass": false
+        },
+        {
+          "label": "save/load preserves released partial pipe layout",
+          "pass": false
+        },
+        {
+          "label": "cancel/save/load invents no career reward",
+          "pass": true
+        }
+      ],
+      "scope": "Headless production route/mechanic/save diagnostic only; isolated synthetic save, fixture story prerequisites, production cancel callback; no current native visual/whole action or target-device acceptance",
+      "snapshots": [
+        {
+          "grid": [
+            "SE",
+            "",
+            "",
+            "",
+            "NW",
+            "IMP",
+            "",
+            "H",
+            "",
+            "",
+            "",
+            ""
+          ],
+          "held": false,
+          "label": "before_save",
+          "owner": -1,
+          "pearls": 0,
+          "phase_index": 0,
+          "phase_progress": 1.0,
+          "pipe_round": 1,
+          "star_mask": 0,
+          "tray": [
+            "H",
+            "SW",
+            "NE",
+            "H"
+          ]
+        },
+        {
+          "grid": [
+            "",
+            "",
+            "",
+            "",
+            "H",
+            "",
+            "",
+            "H",
+            "",
+            "",
+            "",
+            ""
+          ],
+          "held": false,
+          "label": "after_load_reentry",
+          "owner": -1,
+          "pearls": 0,
+          "phase_index": 0,
+          "phase_progress": 0.0,
+          "pipe_round": 0,
+          "star_mask": 0,
+          "tray": [
+            "H",
+            "H"
+          ]
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "path": "audit/astronaut_clearance_20261006/reproduce_partial_save.gd",
+      "sha256": "4d40d03780e2561a6d8727d20760df41857b3582cf24c8db84840b3501ebc6e9"
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/run_partial_save.py",
+      "sha256": "9287eb0150cfca0530241a1283e6d70a1546610853f542935e13772d45d60934"
+    },
+    {
+      "path": "scripts/main.gd",
+      "sha256": "4f8787e5e788f100e6fd44f646435f6afeaee4a58965b5292630d2410de7f6f5"
+    },
+    {
+      "path": "scripts/save_state.gd",
+      "sha256": "96834a20b83b4115afaefc97d51403a5dd2ae8124a5ba3d40a860033b794aab4"
+    },
+    {
+      "path": "scripts/opera_house.gd",
+      "sha256": "09a70ca5f9abd836f66a2327e62553b8d603f9318845c404d7d3527fee953910"
+    },
+    {
+      "path": "scripts/opera_act.gd",
+      "sha256": "eddaa34b8dccd17f41f744176a1ceef6c38c788b200a66995438d42c74a78a63"
+    },
+    {
+      "path": "scripts/opera_career_world_2d.gd",
+      "sha256": "2eed1b973513449f4432ac408ec678d5f84d9963200362610c09b8a796890ca7"
+    },
+    {
+      "path": "scripts/opera_astronaut_surface.gd",
+      "sha256": "142777a177cc4732e94b1c7b68ad4d4000efbcb7f7b4b68906206e9bb453c2e9"
+    },
+    {
+      "path": "scripts/opera_gesture_surface.gd",
+      "sha256": "34f3f264f17edef42990712f6c3f7e0106cf9afecd3969f8348848e0eda56017"
+    },
+    {
+      "path": "scripts/castle_career_routes.gd",
+      "sha256": "c5de38d8126c96aae9e999780113edafff05601a22934443e67053edcd8e18d8"
+    },
+    {
+      "path": "scripts/opera_world_hotspot_2d.gd",
+      "sha256": "3544b48ee8e6f60edd54af26aff3fe3a4798fa0458ff69633fef38e4ec76955f"
+    },
+    {
+      "path": "project.godot",
+      "sha256": "8d942b12dfa87ed9fb39cf7f6cfbb1d3f64cc4461097c527f266a28e9428697f"
+    }
+  ],
+  "source_bindings_still_match": true,
+  "log_path": "audit/astronaut_clearance_20261006/PARTIAL_SAVE_BASELINE_LOG.txt",
+  "log_sha256": "fb7dd9265cb6a06c16bb5675a6478eb95a5cb6b13367e3949d0e77e82bdc2179",
+  "isolated_save_files": [
+    {
+      "path": "tmp/astronaut_partial_save_20261006/reef_save.json",
+      "size_bytes": 4242,
+      "sha256": "1482403732e41e735b1e249895e6cc82520baaeb71e2c2fc00718ff43ed1e944"
+    },
+    {
+      "path": "tmp/astronaut_partial_save_20261006/reef_save.json.bak",
+      "size_bytes": 4242,
+      "sha256": "1482403732e41e735b1e249895e6cc82520baaeb71e2c2fc00718ff43ed1e944"
+    }
+  ],
+  "meaning": "Falsifiable headless partial-save baseline; no visual/current-native/whole-action/device/child/owner acceptance; no original save read/write; fixture story prerequisites and production cancel callback explicitly scoped."
+}

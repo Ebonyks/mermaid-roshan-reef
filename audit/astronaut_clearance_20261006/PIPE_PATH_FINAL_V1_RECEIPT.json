@@ -1,0 +1,13 @@
+{
+  "result": "FAIL",
+  "started_utc": "2026-10-07T18:06:00.810320+00:00",
+  "finished_utc": "2026-10-07T18:06:50.844605+00:00",
+  "elapsed_seconds": 50.033,
+  "cap_seconds": 50,
+  "steps": [],
+  "failure": "TimeoutExpired: Command '['C:\\\\Users\\\\Peter\\\\AppData\\\\Local\\\\Python\\\\pythoncore-3.13-64\\\\python.exe', '-X', 'utf8', '-B', 'tools/audit_document_authority.py']' timed out after 13.226899500004947 seconds",
+  "verified_paths_before_failure": 0,
+  "original_failed_document_charge_seconds": 242.561,
+  "log_sha256": "6a0e5554a5cab944d3d68a0422a5680c8d87c6fb89aa024b3ee940ee2a0443c2",
+  "meaning": "Tail failure retained; no automatic retry or clearance."
+}

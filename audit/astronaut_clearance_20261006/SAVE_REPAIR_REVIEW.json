@@ -1,0 +1,210 @@
+{
+  "checked_utc": "2026-10-07T08:16:28.256321+00:00",
+  "historical_results": [
+    {
+      "receipt": "PARTIAL_SAVE_REPAIR_RECEIPT.json",
+      "scope": "15/15 same genuine baseline checks PASS on first repair source; later source changes require current recheck"
+    },
+    {
+      "receipt": "SAVE_LIFECYCLE_RECEIPT.json",
+      "scope": "67 checks,27 failures. First failure is object touch before layer readiness; later mode claims invalid because later phases were not reached."
+    },
+    {
+      "receipt": "SAVE_LIFECYCLE_V2_RECEIPT.json",
+      "scope": "Parse failure, no game checks or acceptance."
+    },
+    {
+      "receipt": "SAVE_LIFECYCLE_V3_RECEIPT.json",
+      "scope": "59 checks,1 failed completion-hold assertion. Actual later phases reached; raw snapshots show lost fill. Current fill fix and stronger comparator required."
+    },
+    {
+      "receipt": "CHECKPOINT_SCHEMA_RECEIPT.json",
+      "sha256": "582dd9ce5acdfa2ef3405165e0f4ce0324098890de395a5746548e2cbec8e047",
+      "scope": "12 checks,1 failure: fixture incorrectly configured pipe_astronaut but current ordinary production PIPES context is empty. Remaining malformed-board comparisons did not begin from a valid restored board; repeat with correct production context, preserving this run."
+    },
+    {
+      "receipt": "BIRTHDAY_SAVE_RECEIPT.json",
+      "sha256": "9a765dc7933d28ea3ba08e09661a4cfa9966c7cacf50ebda5621756b152504aa",
+      "scope": "15 checks,6 failures,0 engine errors. Fixture omitted Day One completed-room/triggered/inactive causal prerequisites; production normalizer reset boss defeated and route was ordinary, restoring the ordinary decoy checkpoint. No birthday behavior defect or acceptance inferred. Corrected V2 fixture binds DayOneDirector and fails early unless actual birthday is selected."
+    },
+    {
+      "receipt": "BIRTHDAY_SAVE_V2_RECEIPT.json",
+      "sha256": "4cc62b708c7d4bf72a65e634f4d1e31cefbb1870746a117209ce5f618c440781",
+      "scope": "Valid causal prior-story fixture passed; real birthday route reproduced MA-PLAY-005 empty-default phase rejection. Nil script errors,150s cap, no final check record. Not a birthday save PASS. V3 scope repairs missing-default handling and two Astronaut station aliases only."
+    }
+  ],
+  "source_archive": {
+    "original_path": "audit/astronaut_clearance_20261006/verify_save_lifecycle_v2.gd",
+    "archive_path": "audit/astronaut_clearance_20261006/verify_save_lifecycle_v2.gd.rejected.txt",
+    "sha256": "30b017b8172a57ec1352e8b679df4090ef5cc50ec807b031879649c6e9977933",
+    "reason": "Own uncommitted rejected diagnostic, preserved as inert text; immutable receipt retains its original run path/hash. No runtime/art source or prior historical packet moved."
+  },
+  "current_changes": "Astronaut input cancellation and versioned append-only checkpoints; missing Chapter2 default override now resolves authored phases, two Astronaut birthday names bind existing coolant/rocket objects and invitation art. Goals, artwork, ordinary launch and parked-unlaunched birthday semantics unchanged.",
+  "current_result": {
+    "ordinary": {
+      "receipt": "SAVE_LIFECYCLE_V6_RECEIPT.json",
+      "sha256": "6f1320a3fda3e64329062c8fa0d8e838d9e3887abee54196c54b3dbba023b4ef",
+      "checks": 71,
+      "result": "PASS",
+      "source_bindings_match": true
+    },
+    "birthday": {
+      "receipt": "BIRTHDAY_SAVE_V4_RECEIPT.json",
+      "sha256": "9cef8b4b1cae9ad9a20a6c77176ef209a8c3306da4aef475edcff5ecf3ef68d2",
+      "checks": 83,
+      "result": "PASS",
+      "source_bindings_match": true
+    },
+    "schema": {
+      "receipt": "CHECKPOINT_SCHEMA_V4_RECEIPT.json",
+      "sha256": "78f3cd09674964ef08ffbca18498b39143ba6d2e262437e722aebab8b833fcfd",
+      "checks": 12,
+      "result": "PASS",
+      "source_bindings_match": true
+    },
+    "park": {
+      "receipt": "PARK_PROP_REPAIR_RECEIPT.json",
+      "sha256": "89c8fe2f479e17e56bf9b31fbdbea2f0b00f504aa96ad14258bc42739ca65edd",
+      "checks": 320,
+      "result": "PASS",
+      "source_bindings_match": true
+    },
+    "review_gates": {
+      "path": "PARK_REVIEW_GATES_RECEIPT.json",
+      "sha256": "7e9683759ce855384adbeb653bc4ab53807127eaa990de8cae98509c2407bcb0",
+      "result": "PASS",
+      "source_bindings_match": true,
+      "changed_gds": 22,
+      "runtime_analyzers": 4,
+      "units": 54,
+      "stress": 6,
+      "full_ci_native_device_child_owner": "PENDING"
+    },
+    "native_visual_device_child_owner_full_suite": "PENDING"
+  },
+  "review_limits": "Scoped current-source headless input/save proof. Full scripts/ci.sh, complete natural Chapter2 reachability, current native whole actions/contact, independent visual, device, child, owner and4.6creative clearance pending. Standalone tutorial retired; compatibility isolation unit-only.",
+  "authority_at_review": [
+    {
+      "path": "AGENTS.md",
+      "sha256": "684e67841fb2910d5e3706eaaa24d82694573fcde55375a057c12b195e11f5e3"
+    },
+    {
+      "path": "audit/MASTER_AUDIT_2026-08-09.md",
+      "sha256": "668d2ab96e5c9a6918cb8454beb0dc23bfef2530a47e6d8f613f6004ca2f9af5"
+    },
+    {
+      "path": "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
+      "sha256": "0ab99b58832d432dd542c84ab63e5a2de1f10a5c3cc941906c632fdd6f0dd5b6"
+    },
+    {
+      "path": "design/05_DOC_LEDGER.md",
+      "sha256": "00c1efc4d0b33312c2a8d50571edc67196392ffa5d4dd5519e86e964a30ffe3e"
+    },
+    {
+      "path": "design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md",
+      "sha256": "6c73d8ffc89ffa99b8dbf2972365a190003914a60fc6807df166c0056cbff6b8"
+    },
+    {
+      "path": "design/AUDIT_DEVELOPMENT_CONTRACT.md",
+      "sha256": "e2e97157a029efb6abfd123f9cf438f6dd5e777c6bcfac7ea4912aad64fcbd13"
+    }
+  ],
+  "document_gate_attempt": {
+    "receipt": "SAVE_DOCUMENT_GATES_RECEIPT.json",
+    "sha256": "6ab0117fc109f506f7205aae5819a104cf70d72c4a90fc32b2d6379a838f9c8d",
+    "result": "FAIL",
+    "passed_steps": [
+      "Changed-GDScript parser",
+      "Inference lint",
+      "Document authority",
+      "54 document/development unit checks",
+      "6/6 authority stress",
+      "Audit development coverage"
+    ],
+    "failed_step": "Existing2D classifier matched four literal metric identifiers in impact prose. No runtime API added; wording changed to plain spatial-file counts. Original failed receipt/log preserved; no classifier or shrinking baseline change."
+  },
+  "document_gate_followup": {
+    "receipt": "SAVE_REVIEW_GATES_V2_RECEIPT.json",
+    "sha256": "cc70ddcd8efe37ff5e8900eaf5c6d5afea494b6b7da18f3c31826ec13dc3367a",
+    "result": "PASS",
+    "scope": "Before birthday/default/station change; historical prose correction and authority/coverage pass. Final document recheck required."
+  },
+  "document_gate_final_attempt": {
+    "receipt": "FINAL_SOURCE_DOCUMENT_GATES_RECEIPT.json",
+    "sha256": "5e28e42458022702dd94d605e936720628b53abde40ab29da95a51729b7c055a",
+    "result": "FAIL",
+    "passed": [
+      "All changed-GDScript parser",
+      "All changed-GDScript inference",
+      "54unit tests",
+      "Shrink-only2D NO_REGRESSION",
+      "Exact staged audit coverage"
+    ],
+    "failures": [
+      "DOC071: newly edited MA-SAVE-002 master row has6cells under5column header; corrected by removing extra acceptance cell.",
+      "Harness requested nonexistent audit_document_authority_stress.py; actual existing command is audit_document_authority.py --stress. No stress implementation changed."
+    ],
+    "scope": "Runtime sources and successful ordinary/birthday/schema/gesture proof unchanged; failed receipt/log/runner preserved."
+  },
+  "document_gate_final_current": {
+    "receipt": "FINAL_REVIEW_GATES_V2_RECEIPT.json",
+    "sha256": "e63f783acd53db84b8d7c472382c941a833a7cf84acd52ae30fdb205dc391547",
+    "result": "PASS",
+    "source_bindings_match": true,
+    "scope": "Exact current canonical facts/actual6stress/2D/stagedcoverage. First source-review parser/lint/54unitPASS preserved, source/tool unchanged. Full suite and creative/native/device acceptance separate."
+  },
+  "packet_provenance": {
+    "record": "STAGED_PROVENANCE_RECEIPT.json",
+    "raw_log_literals_verified": 32,
+    "source_eol_equivalence_verified": 4,
+    "meaning": "Native raw bytes preserved; native Windows and canonical LF Git code hashes explicitly separated. No visual/future-revision acceptance inferred."
+  },
+  "final_packet_gates": {
+    "receipt": "FINAL_PACKET_GATES_RECEIPT.json",
+    "sha256": "b990337c03a49f99cbca9cd681e1ee096eb06d08ecb9c84437b935988d6d6d62",
+    "result": "PASS",
+    "source_bindings_match": true
+  },
+  "historical_source_checks": [
+    {
+      "asof": "Before READY PARK skin change",
+      "current_result": {
+        "ordinary_lifecycle": {
+          "receipt": "SAVE_LIFECYCLE_V5_RECEIPT.json",
+          "sha256": "15b0df429955fa9a2b168a56ec37ee1b6253a07bea1c73b9d3bf9284e040913a",
+          "result": "PASS",
+          "source_bindings_match": true,
+          "checks": 71,
+          "failures": 0
+        },
+        "birthday_lifecycle": {
+          "receipt": "BIRTHDAY_SAVE_V3_RECEIPT.json",
+          "sha256": "d546eaa0098c2ee47f2f08ca1c003952aa62174f183b9e17a1740c8d6ae18884",
+          "result": "PASS",
+          "source_bindings_match": true,
+          "checks": 80,
+          "failures": 0,
+          "fixture_limit": "Explicit causal Day One completion and prior-six-jobs save; no full fresh-save Chapter2 route claim."
+        },
+        "schema": {
+          "receipt": "CHECKPOINT_SCHEMA_V3_RECEIPT.json",
+          "sha256": "00bc8766ef3db9ea52554cf3baaa67571142cbe5296e460ae52e13396c309f68",
+          "result": "PASS",
+          "source_bindings_match": true,
+          "checks": 12,
+          "failures": 0
+        },
+        "focused_gates": {
+          "receipt": "SAVE_POST_GATES_V2_RECEIPT.json",
+          "sha256": "75ed0fdc8500c1691f2ead01bdefc89830c4682e169f83a8df7749d49b84da81",
+          "result": "PASS",
+          "source_bindings_match": true,
+          "analyzers": 4,
+          "gesture_checks": 305,
+          "preflight_persisted": true
+        }
+      },
+      "note": "Recorded bindings retained historically; new class changes only prop/config/drawing, mechanic proof rerun."
+    }
+  ]
+}

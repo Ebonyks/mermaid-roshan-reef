@@ -1,0 +1,91 @@
+{
+  "reviewed_utc": "2026-10-07T08:09:45.314138+00:00",
+  "baseline": {
+    "receipt": "PARK_PROP_BASELINE_RECEIPT.json",
+    "sha256": "9852b60b82cdb5c611609e886a632f19d43c7bd3997c92a1f34b4bd461daa6b1",
+    "checks": 320,
+    "failed": 4,
+    "errors": 0,
+    "meaning": "Expected rocket resource and park draw route fail at2sizes; every other trusted check passes"
+  },
+  "scope": "READY PARK prop-only correction; no complete-action or art acceptance",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-INT-01",
+    "DL-INT-02",
+    "DL-INT-04",
+    "DL-MOT-01",
+    "DL-ASSET-01",
+    "DL-ASSET-02",
+    "DL-SAVE-01",
+    "DL-SAVE-04",
+    "DL-QA-11",
+    "DL-QA-12"
+  ],
+  "source_review": [
+    {
+      "path": "scripts/opera_astronaut_surface.gd",
+      "sha256": "ec9d84437989e22e826ee5b2be1ccde8bb302f2e60f172e512b75de7c249cebc",
+      "change": "Only class config skin and contextual draw override. Base long-push mechanics/rects/goal remain authoritative. Complete512square rocket drawn with fixed dimensions, one horizontal translation; flat floor destination only. No body isolation, new bitmap, racing arch or launch flame."
+    },
+    {
+      "path": "scripts/opera_gesture_surface.gd",
+      "sha256": "34f3f264f17edef42990712f6c3f7e0106cf9afecd3969f8348848e0eda56017",
+      "change": "Unchanged shared base; fallback drawing delegates to super for other contexts."
+    },
+    {
+      "path": "scripts/chapter_two_career_scene_adapter.gd",
+      "sha256": "ffdcd602711a6acc42a5c6352ad8cbb701316f94c21233356fb56071f85ad40a",
+      "change": "Unchanged READY PARK goal5/widget_context push_racer and parked_ready_unlaunched canon. Snapshot versions/signature remain unchanged."
+    },
+    {
+      "path": "assets/opera/worlds/props/goal_astronaut.png",
+      "sha256": "910f531303ec813a522f98b8ac2f97adeb5ed24bd0b438ecef9f136e19d77845",
+      "change": "Unmodified reused licensed512x512RGBA goal cutout; native source inspected. Existing license covers reuse; no new asset row needed."
+    }
+  ],
+  "protected_originals": "No asset/book/voice/friend bytes changed; no generated images",
+  "current_checks": {
+    "park": "PARK_PROP_REPAIR_RECEIPT.json",
+    "park_sha256": "89c8fe2f479e17e56bf9b31fbdbea2f0b00f504aa96ad14258bc42739ca65edd",
+    "gesture_checks": 320,
+    "birthday": "BIRTHDAY_SAVE_V4_RECEIPT.json",
+    "birthday_sha256": "9cef8b4b1cae9ad9a20a6c77176ef209a8c3306da4aef475edcff5ecf3ef68d2",
+    "birthday_checks": 83,
+    "ordinary": {
+      "receipt": "SAVE_LIFECYCLE_V6_RECEIPT.json",
+      "sha256": "6f1320a3fda3e64329062c8fa0d8e838d9e3887abee54196c54b3dbba023b4ef",
+      "checks": 71
+    },
+    "schema": {
+      "receipt": "CHECKPOINT_SCHEMA_V4_RECEIPT.json",
+      "sha256": "78f3cd09674964ef08ffbca18498b39143ba6d2e262437e722aebab8b833fcfd",
+      "checks": 12
+    },
+    "other_gates": {
+      "path": "PARK_REVIEW_GATES_RECEIPT.json",
+      "sha256": "7e9683759ce855384adbeb653bc4ab53807127eaa990de8cae98509c2407bcb0",
+      "result": "PASS",
+      "source_bindings_match": true,
+      "changed_gds": 22,
+      "runtime_analyzers": 4,
+      "units": 54,
+      "stress": 6,
+      "full_ci_native_device_child_owner": "PENDING"
+    }
+  },
+  "review_limits": [
+    "Headless last_contextual_draw_route proves draw dispatch, never the pixels or visual grade",
+    "Source reused asset appears correct; no native current-action twoaspect capture yet",
+    "Roshan contact/whole-figure acting remains unverified under MA-PLAY-004",
+    "4below-floor patch sources,8absent pipe sources and8provisional4.3backgrounds remain explicit",
+    "Full trusted suite/current clean Git native captures/independent visual/device/child/owner/CI/integration still pending",
+    "Ordinary launch staging owner choice remains pending; no inferred approval"
+  ],
+  "finding_lifecycle": "MA-SAVE-002 and scoped MA-PLAY-005 remain IN_PROGRESS; all broader art/interaction findings unchanged",
+  "independent_visual_review": "PENDING; this source review is by the implementing agent",
+  "baseline_commit": "96274aab9cebd563b10846a4a48de5d017588563",
+  "checked_utc": "2026-10-07T08:16:28.256321+00:00"
+}

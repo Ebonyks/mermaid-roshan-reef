@@ -1,0 +1,67 @@
+{
+  "created_utc": "2026-10-07T12:24:18.823953+00:00",
+  "baseline": "96274aab9cebd563b10846a4a48de5d017588563",
+  "origin_dev": "6238934447cf28834874396dfbaff65effafda46",
+  "branch": "codex/astronaut-clearance-20261006",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-MOT-01",
+    "DL-MOT-03",
+    "DL-MOT-10",
+    "DL-MOT-11",
+    "DL-MOT-12",
+    "DL-MOT-13",
+    "DL-MOT-16",
+    "DL-SAVE-01",
+    "DL-QA-02",
+    "DL-QA-03",
+    "DL-QA-06",
+    "DL-QA-11",
+    "DL-QA-12"
+  ],
+  "findings": [
+    "MA-PLAY-004",
+    "MA-SAVE-002",
+    "MA-VIS-006"
+  ],
+  "scope": "Helper-only horizontal facing repair: approved travel row faces left unflipped, so flip only for rightward travel. Preserve the viewport-fit contact facing separately; restore it on arrival before work2/0/1/2. Return faces displacement then restores original idle/rest. No art, size, timing, contact/award/save/input/canon changes.",
+  "before": {
+    "path": "scripts/opera_astronaut_pipe_work.gd",
+    "sha256": "654504436f9ba3040edfd3cbdf277aed2337a7799f9de5b8d5573369bdacdc39",
+    "snapshot": "audit/astronaut_clearance_20261006/PIPE_TRAVEL_BEFORE_SOURCE.txt"
+  },
+  "baseline_failure": {
+    "receipt": "NATIVE_BIRTHDAY_CAPTURE_V4_RECEIPT.json",
+    "sha256": "b5bde136d45de7d26d99dada9bc68d669fa54efdcfa2809eb8af060faa4924ce",
+    "approach": "0007_phase0_pipe_approach.png: left-facing whole travel figure moving toward work x782 from x218",
+    "return": "0019_phase0_pipe_return.png: flipped right-facing whole travel figure returning toward rest left of x782",
+    "source_inspection": "Intact approved 1024RGBA atlas travel row0-3 all face left before horizontal flip."
+  },
+  "clip_contract_revision": 2,
+  "contract": {
+    "whole_figure_source": "assets/opera/worlds/actors/animation/roshan_astronaut_sheet_a.png",
+    "source_sha256": "ccfb8e7af3a033e31e05af40fa62dc23b676aec6204ba8810e8cf79cbfc4d6fa",
+    "direction": "Leftward travel flip_h=false; rightward travel flip_h=true; work_flip retains unchanged full-figure viewport-fit candidate. Zero horizontal displacement is not directional coverage.",
+    "sequence": "Unchanged travel4keys8fps -> work2 .12 -> work0 .16 -> work1 .18 -> work2release .16 -> travelreturn -> originalidle0",
+    "contact": "Existing validated token/phase/cell/work1/jaw<=4viewportpixels; unchanged effects and at-most-once owner",
+    "interruptions": "Existing supersession/pause/focus/save/exit cancellation and conserved pending/committed piece rules unchanged"
+  },
+  "evidence": [
+    "Preserve all117 native birthday assertions literally; add read-only postdraw direction/contact-facing/scale observations; two serial actual Mobile/Vulkan native aspects1280x720 and1600x720. Real menu/card/object/input/four-phase/save/finish/settled return.",
+    "Current negative17checks copied unchanged into unique isolated save. Exact approved analyzer, native/log/source/pixel binding and zero engine errors.",
+    "Primary original-resolution whole-figure approach/contact/release/return inspection at both aspects. No acceptance inferred from matching flip booleans.",
+    "Applicable parser/inference/authority/development/unit/stress/2D/literal staged gates. Preserve previous candidate receipts as historical."
+  ],
+  "budget": {
+    "combined_engine_wall_seconds": 300,
+    "native_output_bytes": 536870912,
+    "cache_growth_bytes": 67108864,
+    "owned_engine_processes": 1,
+    "no_automatic_retry": true,
+    "prior_native_seconds": 276.448,
+    "previous_slice_engine_seconds": 595.844
+  },
+  "limits": "Dirty local diagnostic; all naturally reachable variants/full trusted suite/strict QA11/full speed temporal performance/independent/device/child/owner/integration acceptance remain open. Pending artistic choices unaffected. Local captures are ignored staging; no external handoff/outgoing message or release."
+}

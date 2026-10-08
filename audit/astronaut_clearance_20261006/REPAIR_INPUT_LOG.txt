@@ -1,0 +1,54 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+ERROR: Unable to open file: res://.godot/imported/widget_charge_astronaut_glow.png-6a3367ce2deed42de02d5de2b8babbda.s3tc.ctex.
+   at: _load_data (scene/resources/compressed_texture.cpp:45)
+   GDScript backtrace (most recent call first):
+       [0] _load_widget_texture (res://scripts/opera_gesture_surface.gd:744)
+       [1] _load_widget_set (res://scripts/opera_gesture_surface.gd:789)
+       [2] configure (res://scripts/opera_gesture_surface.gd:450)
+       [3] configure (res://scripts/opera_astronaut_surface.gd:15)
+       [4] _test_astronaut_input (res://scripts/probe_opera_gesture_quality.gd:411)
+       [5] _run_only (res://audit/astronaut_clearance_20261006/verify_input.gd:7)
+ERROR: Failed loading resource: res://.godot/imported/widget_charge_astronaut_glow.png-6a3367ce2deed42de02d5de2b8babbda.s3tc.ctex.
+   at: _load (core/io/resource_loader.cpp:317)
+   GDScript backtrace (most recent call first):
+       [0] _load_widget_texture (res://scripts/opera_gesture_surface.gd:744)
+       [1] _load_widget_set (res://scripts/opera_gesture_surface.gd:789)
+       [2] configure (res://scripts/opera_gesture_surface.gd:450)
+       [3] configure (res://scripts/opera_astronaut_surface.gd:15)
+       [4] _test_astronaut_input (res://scripts/probe_opera_gesture_quality.gd:411)
+       [5] _run_only (res://audit/astronaut_clearance_20261006/verify_input.gd:7)
+ERROR: Failed loading resource: res://assets/opera/worlds/widgets/widget_charge_astronaut_glow.png.
+   at: _load (core/io/resource_loader.cpp:317)
+   GDScript backtrace (most recent call first):
+       [0] _load_widget_texture (res://scripts/opera_gesture_surface.gd:744)
+       [1] _load_widget_set (res://scripts/opera_gesture_surface.gd:789)
+       [2] configure (res://scripts/opera_gesture_surface.gd:450)
+       [3] configure (res://scripts/opera_astronaut_surface.gd:15)
+       [4] _test_astronaut_input (res://scripts/probe_opera_gesture_quality.gd:411)
+       [5] _run_only (res://audit/astronaut_clearance_20261006/verify_input.gd:7)
+ERROR: Unable to open file: res://.godot/imported/goal_astronaut.png-99a883c005e02d50b9d2c0ef7d7f4365.s3tc.ctex.
+   at: _load_data (scene/resources/compressed_texture.cpp:45)
+   GDScript backtrace (most recent call first):
+       [0] _load_widget_texture (res://scripts/opera_gesture_surface.gd:744)
+       [1] configure (res://scripts/opera_gesture_surface.gd:454)
+       [2] configure (res://scripts/opera_astronaut_surface.gd:15)
+       [3] _test_astronaut_input (res://scripts/probe_opera_gesture_quality.gd:411)
+       [4] _run_only (res://audit/astronaut_clearance_20261006/verify_input.gd:7)
+ERROR: Failed loading resource: res://.godot/imported/goal_astronaut.png-99a883c005e02d50b9d2c0ef7d7f4365.s3tc.ctex.
+   at: _load (core/io/resource_loader.cpp:317)
+   GDScript backtrace (most recent call first):
+       [0] _load_widget_texture (res://scripts/opera_gesture_surface.gd:744)
+       [1] configure (res://scripts/opera_gesture_surface.gd:454)
+       [2] configure (res://scripts/opera_astronaut_surface.gd:15)
+       [3] _test_astronaut_input (res://scripts/probe_opera_gesture_quality.gd:411)
+       [4] _run_only (res://audit/astronaut_clearance_20261006/verify_input.gd:7)
+ERROR: Failed loading resource: res://assets/opera/worlds/props/goal_astronaut.png.
+   at: _load (core/io/resource_loader.cpp:317)
+   GDScript backtrace (most recent call first):
+       [0] _load_widget_texture (res://scripts/opera_gesture_surface.gd:744)
+       [1] configure (res://scripts/opera_gesture_surface.gd:454)
+       [2] configure (res://scripts/opera_astronaut_surface.gd:15)
+       [3] _test_astronaut_input (res://scripts/probe_opera_gesture_quality.gd:411)
+       [4] _run_only (res://audit/astronaut_clearance_20261006/verify_input.gd:7)
+ASTRO_INPUT_RESULT|{"checks":15,"failed":0,"focus":"synthetic notification boundary; not device acceptance","input":"genuine Input.parse_input_event viewport dispatch","pause":"SceneTree.paused engine notification","scope":"input lifecycle regression only; not full action or visual grading"}

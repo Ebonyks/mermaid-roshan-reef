@@ -1,0 +1,77 @@
+{
+  "result": "PASS",
+  "started_utc": "2026-10-07T17:15:57.748021+00:00",
+  "finished_utc": "2026-10-07T17:15:58.901090+00:00",
+  "elapsed_seconds": 1.153,
+  "steps": [
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-X",
+        "utf8",
+        "-B",
+        "-m",
+        "gdtoolkit.parser",
+        "audit/astronaut_clearance_20261006/verify_birthday_pipe_material_v1.gd",
+        "audit/astronaut_clearance_20261006/verify_pipe_contact_negative_v7.gd",
+        "audit/astronaut_clearance_20261006/capture_birthday_native_v9.gd"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 1.04
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-X",
+        "utf8",
+        "-B",
+        "tools/lint_inference.py",
+        "audit/astronaut_clearance_20261006/verify_birthday_pipe_material_v1.gd",
+        "audit/astronaut_clearance_20261006/verify_pipe_contact_negative_v7.gd",
+        "audit/astronaut_clearance_20261006/capture_birthday_native_v9.gd"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 0.112
+    }
+  ],
+  "unchanged_original_functions_after_EOL_normalization": [
+    "_drag",
+    "_draw_anchored_targets",
+    "_draw_long_push",
+    "_draw_patch_leak",
+    "_gui_input",
+    "_notification",
+    "_pipe_press",
+    "_pipe_release",
+    "_pipe_tick",
+    "_process",
+    "_release",
+    "_request_pipe_work",
+    "_restore_pipe_progress",
+    "_target_press",
+    "_uses_rocket_park_context",
+    "cancel_input",
+    "close_input",
+    "commit_patch_work",
+    "commit_pipe_work",
+    "commit_valve_motion",
+    "input_suspended",
+    "progress_snapshot",
+    "restore_progress"
+  ],
+  "only_original_function_edit": "configure initializes the cached PIPE drawing resources",
+  "new_rendering_functions": [
+    "_draw_pipe",
+    "_draw_pipe_band",
+    "_draw_pipe_connector",
+    "_draw_pipe_endpoint",
+    "_draw_pipe_tile",
+    "_pipe_cell_fueled",
+    "_prepare_pipe_materials"
+  ],
+  "before_surface_sha256": "5685ab40780025d1b6dac7d9543b2c8bed21c6be222a203fac38967eb913dc39",
+  "surface_sha256": "856b491556e2ed66b80991acfc930058a0bc4850611198beb93ed500b109f888",
+  "log_path": "audit/astronaut_clearance_20261006/PIPE_MATERIAL_PREPARATION_V1_LOG.txt",
+  "log_sha256": "c679b910b53284948083a3202e22d05d8adf36357704a0589beb016599b41e86",
+  "meaning": "Source syntax/inference and original function-body preservation only; no engine or native acceptance."
+}

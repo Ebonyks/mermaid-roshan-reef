@@ -1,0 +1,47 @@
+{
+  "schema": "reef.astronaut.voice-rejection-facts.v1",
+  "utc": "2026-10-08T01:54:31.975502+00:00",
+  "scope": "Supplement preserves the exact generated master manifest, which labels every rejected candidate with a generic lower-score reason. That generic label is inaccurate for these higher-scoring, out-of-register takes.",
+  "register_gate_hz": [
+    225,
+    360
+  ],
+  "actual_rejections": [
+    {
+      "key": "roshan_op_astronaut_gears",
+      "attempt": 1,
+      "f0_median_hz": 181.21,
+      "selection_score": 3.1522,
+      "reason": "Median pitch below the established225Hz Roshan register floor; not eligible regardless of quality rank."
+    },
+    {
+      "key": "roshan_op_astronaut_pressure",
+      "attempt": 1,
+      "f0_median_hz": 223.74,
+      "selection_score": 3.2508,
+      "reason": "Median pitch below the established225Hz Roshan register floor; not eligible regardless of quality rank."
+    },
+    {
+      "key": "roshan_op_astronaut_pressure",
+      "attempt": 2,
+      "f0_median_hz": 195.91,
+      "selection_score": 3.1598,
+      "reason": "Median pitch below the established225Hz Roshan register floor; not eligible regardless of quality rank."
+    }
+  ],
+  "actual_selections": [
+    {
+      "key": "roshan_op_astronaut_gears",
+      "attempt": 2,
+      "f0_median_hz": 254.06,
+      "selection_score": 3.0386
+    },
+    {
+      "key": "roshan_op_astronaut_pressure",
+      "attempt": 3,
+      "f0_median_hz": 285.17,
+      "selection_score": 3.1108
+    }
+  ],
+  "limits": "Measured source/selector data only; no human voice identity, child/device/owner acceptance."
+}

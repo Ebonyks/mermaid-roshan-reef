@@ -1,0 +1,25 @@
+{
+  "result": "TWO_CAUSES_CONFIRMED",
+  "CI_result": "FAIL",
+  "fixture_diagnostic": [
+    {
+      "location": "inside_git",
+      "parent": "C:\\Users\\Peter\\.codex\\worktrees\\astronaut-goal-20261006\\mermaid-roshan-reef\\tmp\\astronaut_full_ci_v1_20261007\\temp",
+      "inherited_git": "C:/Users/Peter/.codex/worktrees/astronaut-goal-20261006/mermaid-roshan-reef",
+      "detects_new_gamma": false,
+      "errors": []
+    },
+    {
+      "location": "outside_git",
+      "parent": "C:\\Users\\Peter\\AppData\\Local\\Temp",
+      "inherited_git": null,
+      "detects_new_gamma": true,
+      "errors": [
+        "scripts/games/gamma.gd: game file is not in the catalogue; catalogue and assess it, or list it under coverage.not_games with a reason"
+      ]
+    }
+  ],
+  "catalogue_error": "scripts/opera_astronaut_surface.gd is anactualgamefile missingfromAstronaut sources; no not_games workaround.",
+  "isolation_cause": "gold_star.git_files usesgit -C fixture ls-files; fixtureinsideGitcheckoutinheritsparentignorepolicy, so untrackedgamma vanishes. OutsideGit controlledfixture correctlyrejectsnewgamma. Runner correction, nottestexpectationchange.",
+  "next": "Register source preservingoldassessments; re-runfailedcontractswithoutinheritedGit. ContinueunalteredCIremainingcommands onlyafterpass; recordactualscope/cumulativetime."
+}

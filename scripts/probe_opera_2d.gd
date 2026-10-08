@@ -107,7 +107,6 @@ const RETAINED_ROTATIONS := {
 	"chef": "STIR",
 	"candymaker": "WRAP",
 	"doctor": "CAST",
-	"astronaut": "VALVE",
 	"magician": "PORTAL",
 	"racer": "TUNE",
 	"popstar": "ENCORE",
@@ -590,6 +589,9 @@ func _init() -> void:
 				career_direct_contracts_complete)
 		direct_surface_contracts_complete = direct_surface_contracts_complete \
 			and career_direct_contracts_complete
+		if career == "astronaut":
+			_check("astronaut exposes three distinct engineering devices", world.phases.slice(0, 3).map(func(value: Dictionary) -> String: return String(value["mode"])) == ["pipe", "gears", "pressure"])
+			_check("astronaut Pipe Dream is one room task", is_equal_approx(float(world.phases[0]["goal"]), 1.0))
 		var retained_rotation_ok := not RETAINED_ROTATIONS.has(career)
 		for pacing_phase: Dictionary in world.phases:
 			if String(pacing_phase.get("mode", "")) != "circle":
@@ -1000,6 +1002,29 @@ func _init() -> void:
 						var target_at := world.surface.size * anchor
 						world.surface._press(target_at)
 						world.surface._release(target_at)
+						if career == "astronaut":
+							# This isolated surface fixture blocks world signals. PATCH now
+							# queues input until its owner acknowledges physical contact;
+							# the API checks here do not substitute for live world acting.
+							var astronaut_surface: OperaAstronautSurface = world.surface as OperaAstronautSurface
+							var patch_generation: int = astronaut_surface.patch_generation
+							_check("astronaut PATCH queues its authored anchor without immediate repair",
+								not astronaut_surface.target_placed[0]
+								and astronaut_surface.patch_targets == [0]
+								and is_equal_approx(world.phase_progress, before_progress))
+							_check("astronaut PATCH rejects stale and unrequested surface acknowledgments",
+								not astronaut_surface.commit_patch_work(patch_generation - 1, 0)
+								and not astronaut_surface.commit_patch_work(patch_generation, 1)
+								and astronaut_surface.patch_targets == [0]
+								and not astronaut_surface.target_placed[0])
+							var patch_committed: bool = astronaut_surface.commit_patch_work(patch_generation, 0)
+							_check("astronaut PATCH owner acknowledgment consumes exactly one anchored request",
+								patch_committed and astronaut_surface.target_placed[0]
+								and astronaut_surface.patch_targets.is_empty())
+							_check("astronaut PATCH rejects a repeated surface acknowledgment",
+								not astronaut_surface.commit_patch_work(patch_generation, 0)
+								and astronaut_surface.patch_targets.is_empty()
+								and is_equal_approx(world.phase_progress, before_progress))
 						anchored_ok = bool(world.surface.target_placed[0])
 					_check("%s %s places pieces on authored surface anchors" \
 						% [career, String(phase_dict.get("name", "target"))],

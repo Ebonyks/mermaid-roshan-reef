@@ -1,0 +1,26 @@
+{
+  "created_utc": "2026-10-07T17:49:41.036717+00:00",
+  "state": "SOURCE_ONLY_METHOD_DIAGNOSIS_NO_EXECUTION",
+  "original_document_cap_seconds": 180,
+  "original_document_charge_seconds": 181.92,
+  "tail_original_cap_seconds": 60,
+  "tail_v2_seconds": 18.504,
+  "tail_v3_seconds": 41.848,
+  "tail_total_seconds": 60.352,
+  "tail_overshoot_seconds": 0.352,
+  "total_known_source_document_seconds": 242.272,
+  "v2_receipt_sha256": "b41337e7bd0ec9d5b3e9af2b83e266218b311dc6151ec16405e160e2c825f087",
+  "v3_receipt_sha256": "c552be4f23dd007374a5ca56e60fac475f0ed037c24cf1ae8d1e73043d802894",
+  "diagnosis": "V2authority returns0 and development finds one invalid result enum. That enum is corrected; V3does not produce a final development result before its timeout. The preparation queries git ls-files and git diff without a path restriction, traversing unrelated imported sidecars and emitting many CRLF warnings. This is an observed expensive method; timing/concurrency causation is not proven.",
+  "proposed_method": "Limit both git ls-files -z and git diff --name-only -z to the frozen union of existing declared impact paths; capture their stderr in the receipt log. Stage only this known set. Keep the auditor unchanged and run the original mandatory development command. One streamed cat-file verifies declared blobs after a complete result. No restored/staged unrelated import files, no gate weakening or silent capreset.",
+  "execution": "NOT_RUN; original allowances exhausted. Method preparation does not claim a renewed allowance or an executed check.",
+  "remaining": [
+    "Final development coverage",
+    "Current staged-byte seal",
+    "Native material/acting review",
+    "Full trusted suite",
+    "Independent/device/child/owner acceptance",
+    "Required publication/integration"
+  ],
+  "protected_originals_and_gameplay": "No pixel/voice/asset/input/contact/save or production source edits from this diagnosis."
+}

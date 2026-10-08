@@ -1,0 +1,466 @@
+class_name OperaAstronautSurface
+extends OperaGestureSurface
+## Astronaut input, saved mechanics and the birthday rocket's parking skin.
+
+signal progress_changed
+signal pipe_work_requested(request_id: int, cell: int)
+signal pipe_work_canceled
+signal valve_work_canceled
+signal patch_work_canceled
+
+const PARK_ROCKET_PATH := "res://assets/opera/worlds/props/goal_astronaut.png"
+
+const TREE_PAUSED := 1
+const APPLICATION_PAUSED := 2
+const FOCUS_LOST := 4
+const CLOSED := 8
+var _input_blocks: int = 0
+var pipe_contact_required := false
+var pipe_work_request_id := 0
+var pipe_work_cell := -1
+var pipe_work_round := -1
+var valve_contact_required := false
+var valve_input_generation := 0
+var valve_arcs: Array[float] = []
+var valve_commit_active := false
+var patch_contact_required := false
+var patch_generation := 0
+var patch_targets: Array[int] = []
+var patch_commit_target := -1
+
+
+func _target_press(at: Vector2) -> void:
+	if not patch_contact_required or mode != "tap" or visual_context != "target_astronaut":
+		super._target_press(at)
+		return
+	if completion_accepted or input_suspended():
+		return
+	var reach := maxf(46.0, minf(size.x, size.y) * 0.15)
+	var nearest := -1
+	var nearest_distance := reach
+	for index in range(target_placed.size()):
+		if target_placed[index]:
+			continue
+		var distance := at.distance_to(_target_anchor_point(index))
+		if distance <= nearest_distance:
+			nearest_distance = distance
+			nearest = index
+	if nearest < 0:
+		_target_rehint(at)
+		return
+	if patch_targets.has(nearest):
+		return
+	patch_targets.append(nearest)
+	feedback_positive = true
+	feedback_t = 0.30
+	feedback_anchor = _target_anchor_point(nearest)
+	queue_redraw()
+
+
+func commit_patch_work(generation: int, target: int) -> bool:
+	if not patch_contact_required or input_suspended() or mode != "tap" \
+			or completion_accepted or generation != patch_generation \
+			or patch_targets.is_empty() or patch_targets[0] != target \
+			or target < 0 or target >= target_placed.size() or target_placed[target]:
+		return false
+	patch_commit_target = target
+	# Only the live world contact owner enters the unchanged target consequence.
+	super._target_press(_target_anchor_point(target))
+	patch_commit_target = -1
+	patch_targets.pop_front()
+	progress_changed.emit()
+	return target_placed[target]
+
+
+func _drag(at: Vector2) -> void:
+	if not valve_contact_required or mode != "circle":
+		super._drag(at)
+		return
+	if not held or input_suspended() or completion_accepted:
+		return
+	note_input()
+	pointer_pos = at
+	var radius := at.distance_to(_circle_pivot())
+	if radius > _circle_min_radius():
+		var angle := (at - _circle_pivot()).angle()
+		if have_angle:
+			var change := wrapf(angle - previous_angle, -PI, PI)
+			# Keep the shared circle filter; only genuine arcs request work.
+			if absf(change) <= 0.9 and signf(change) == signf(_last_spin) \
+					and absf(_last_spin) > 0.0001 and valve_arcs.size() < 512:
+				valve_arcs.append(change)
+			_last_spin = change
+			previous_angle = angle
+			have_angle = true
+	previous_pos = at
+	queue_redraw()
+
+
+func commit_valve_motion(generation: int, maximum_arc: float) -> float:
+	if not valve_contact_required or input_suspended() or mode != "circle" \
+			or completion_accepted or generation != valve_input_generation \
+			or valve_arcs.is_empty() or maximum_arc <= 0.0:
+		return 0.0
+	var requested := valve_arcs[0]
+	var applied := signf(requested) * minf(absf(requested), maximum_arc)
+	valve_arcs[0] -= applied
+	if absf(valve_arcs[0]) <= 0.000001:
+		valve_arcs.pop_front()
+	crank_rotation += applied
+	valve_commit_active = true
+	gesture.emit("circle", absf(applied) / TAU, 1.0)
+	valve_commit_active = false
+	if completion_accepted:
+		valve_arcs.clear()
+	queue_redraw()
+	progress_changed.emit()
+	return applied
+
+
+func configure(next_mode: String, next_accent: Color, choice: int = 1,
+		next_context: String = "") -> void:
+	cancel_input()
+	super.configure(next_mode, next_accent, choice, next_context)
+	if _uses_rocket_park_context():
+		# Retain the existing phase/save context; reuse the same complete rocket
+		# as the launch hold without Racer's kart or bordered widget plate.
+		widget_mover = _load_widget_texture(PARK_ROCKET_PATH)
+
+
+func _uses_rocket_park_context() -> bool:
+	return mode == "swipe" and visual_context == "push_racer"
+
+
+func _draw_long_push() -> void:
+	if not _uses_rocket_park_context():
+		super._draw_long_push()
+		return
+	last_contextual_draw_route = "push:park_astronaut"
+	var mover_rect := _long_push_mover_rect(widget_fill)
+	var destination_rect := _long_push_mover_rect(1.0)
+	var start_rect := _long_push_mover_rect(0.0)
+	var floor_offset := Vector2(0.0, mover_rect.size.y * 0.47)
+	var start := start_rect.get_center() + floor_offset
+	var finish := destination_rect.get_center() + floor_offset
+	var position := mover_rect.get_center() + floor_offset
+	# A flat floor destination communicates parking. It never draws a launch
+	# flame, racing arch, or a new appearance over the approved toy artwork.
+	draw_line(start, position, Color(accent, 0.45), 3.0, true)
+	draw_circle(start, 4.0, accent)
+	draw_set_transform(finish, 0.0, Vector2(1.0, 0.20))
+	draw_arc(Vector2.ZERO, destination_rect.size.x * 0.46, 0.0, TAU, 36,
+		Color(accent, 1.0 if completion_accepted else 0.65), 4.0, true)
+	draw_set_transform(Vector2.ZERO)
+	if widget_mover != null:
+		draw_texture_rect(widget_mover, mover_rect, false)
+
+
+func input_suspended() -> bool:
+	return _input_blocks != 0
+
+
+func cancel_input() -> void:
+	patch_generation += 1
+	patch_targets.clear()
+	patch_commit_target = -1
+	patch_work_canceled.emit()
+	valve_input_generation += 1
+	valve_arcs.clear()
+	valve_commit_active = false
+	valve_work_canceled.emit()
+	pipe_work_request_id += 1
+	pipe_work_cell = -1
+	pipe_work_round = -1
+	pipe_work_canceled.emit()
+	# A carried tile is uncommitted. Restore its source cell when possible;
+	# otherwise return it to the tray. Do not synthesize a successful drop.
+	if pipe_drag_tile != "":
+		if pipe_drag_from >= 0 and pipe_drag_from < pipe_grid.size() \
+				and String(pipe_grid[pipe_drag_from]) == "":
+			pipe_grid[pipe_drag_from] = pipe_drag_tile
+		else:
+			pipe_tray.append(pipe_drag_tile)
+	pipe_drag_tile = ""
+	pipe_drag_from = -1
+	pipe_tray_sel = -1
+	held = false
+	active_touch_index = -1
+	have_angle = false
+	long_push_engaged = false
+	queue_redraw()
+	progress_changed.emit()
+
+
+func close_input() -> void:
+	_input_blocks |= CLOSED
+	cancel_input()
+
+
+func _notification(what: int) -> void:
+	match what:
+		NOTIFICATION_PAUSED:
+			_input_blocks |= TREE_PAUSED
+		NOTIFICATION_UNPAUSED:
+			_input_blocks &= ~TREE_PAUSED
+		NOTIFICATION_APPLICATION_PAUSED:
+			_input_blocks |= APPLICATION_PAUSED
+		NOTIFICATION_APPLICATION_RESUMED:
+			_input_blocks &= ~APPLICATION_PAUSED
+		NOTIFICATION_APPLICATION_FOCUS_OUT:
+			_input_blocks |= FOCUS_LOST
+		NOTIFICATION_APPLICATION_FOCUS_IN:
+			_input_blocks &= ~FOCUS_LOST
+		NOTIFICATION_WM_CLOSE_REQUEST, NOTIFICATION_EXIT_TREE:
+			_input_blocks |= CLOSED
+	if input_suspended():
+		cancel_input()
+
+
+func _gui_input(event: InputEvent) -> void:
+	if input_suspended():
+		return
+	if pipe_work_cell >= 0:
+		# The released piece belongs to one request until local work commits it.
+		# Another finger/tap cannot stack or replace that uncommitted action.
+		accept_event()
+		return
+	if event is InputEventScreenTouch:
+		var touch := event as InputEventScreenTouch
+		if touch.canceled:
+			if touch.index == active_touch_index:
+				cancel_input()
+				accept_event()
+			return
+	if event is InputEventMouseButton or event is InputEventMouseMotion:
+		# An actual mouse cannot steal a touch, just as a second finger cannot.
+		if active_touch_index >= 0:
+			return
+		if event is InputEventMouseButton and (event as InputEventMouseButton).pressed and held:
+			return
+	super._gui_input(event)
+
+
+func _release(at: Vector2) -> void:
+	if not held or input_suspended():
+		return
+	super._release(at)
+	progress_changed.emit()
+
+
+func _pipe_press(at: Vector2) -> void:
+	var cell := _pipe_cell_at(at)
+	if pipe_contact_required and cell >= 0 and not completion_accepted \
+			and String(pipe_grid[cell]).is_empty() \
+			and pipe_tray_sel >= 0 and pipe_tray_sel < pipe_tray.size():
+		pipe_drag_tile = String(pipe_tray[pipe_tray_sel])
+		pipe_tray.remove_at(pipe_tray_sel)
+		pipe_drag_from = -1
+		pipe_tray_sel = -1
+		_request_pipe_work(cell)
+		return
+	super._pipe_press(at)
+
+
+func _pipe_release(at: Vector2) -> void:
+	var cell := _pipe_cell_at(at)
+	if pipe_contact_required and not pipe_drag_tile.is_empty() and cell >= 0 \
+			and String(pipe_grid[cell]).is_empty():
+		_request_pipe_work(cell)
+		return
+	super._pipe_release(at)
+
+
+func _request_pipe_work(cell: int) -> void:
+	held = false
+	active_touch_index = -1
+	pipe_work_request_id += 1
+	pipe_work_cell = cell
+	pipe_work_round = pipe_round
+	pointer_pos = _pipe_cell_rect(cell).get_center()
+	queue_redraw()
+	pipe_work_requested.emit(pipe_work_request_id, cell)
+
+
+func commit_pipe_work(request_id: int) -> bool:
+	if not pipe_contact_required or input_suspended() or mode != "pipe" \
+			or request_id != pipe_work_request_id or pipe_work_cell < 0 \
+			or pipe_work_round != pipe_round or pipe_drag_tile.is_empty() \
+			or not String(pipe_grid[pipe_work_cell]).is_empty():
+		return false
+	var at := _pipe_cell_rect(pipe_work_cell).get_center()
+	pipe_work_cell = -1
+	pipe_work_round = -1
+	# The world has already validated the live target and authored contact.
+	# Keep the original tile conservation/drop and flow behavior at this point.
+	super._pipe_release(at)
+	progress_changed.emit()
+	return true
+
+
+func _process(delta: float) -> void:
+	if not input_suspended():
+		super._process(delta)
+
+
+func progress_snapshot() -> Dictionary:
+	var snapshot := {"version": 1, "mode": mode, "context": visual_context,
+		"fill": widget_fill, "angle": crank_rotation,
+		"targets": target_placed.duplicate()}
+	if mode == "pipe":
+		var grid := pipe_grid.duplicate()
+		var tray := pipe_tray.duplicate()
+		# Save the last released position, never an unearned carried placement.
+		if pipe_drag_tile != "":
+			if pipe_drag_from >= 0 and pipe_drag_from < grid.size() \
+					and String(grid[pipe_drag_from]) == "":
+				grid[pipe_drag_from] = pipe_drag_tile
+			else:
+				tray.append(pipe_drag_tile)
+		snapshot["round"] = pipe_round
+		snapshot["transition"] = pipe_pause > 0.0
+		snapshot["grid"] = grid
+		snapshot["tray"] = tray
+		snapshot["flow_cells"] = _pipe_flow_cells()
+		snapshot["flow_t"] = pipe_flow_t
+		snapshot["wait_t"] = pipe_wait_t
+	return snapshot
+
+
+func restore_progress(snapshot: Dictionary, progress: float, goal: float) -> bool:
+	if snapshot.get("version", 0) != 1 or snapshot.get("mode", "") != mode \
+			or snapshot.get("context", "") != visual_context:
+		return false
+	if mode == "pipe":
+		if not _restore_pipe_progress(snapshot, progress):
+			return false
+	elif mode == "tap":
+		var targets: Variant = snapshot.get("targets", [])
+		if not targets is Array or targets.size() != target_placed.size():
+			return false
+		var placed := 0
+		for value: Variant in targets:
+			if not value is bool:
+				return false
+			placed += 1 if value else 0
+		if not is_equal_approx(float(placed), progress):
+			return false
+		for index in range(target_placed.size()):
+			target_placed[index] = bool(targets[index])
+			if target_placed[index]:
+				tap_marks.append(_target_anchor_point(index))
+	elif mode in ["circle", "hold", "swipe"]:
+		var fill: Variant = snapshot.get("fill", null)
+		var angle: Variant = snapshot.get("angle", null)
+		if not _valid_saved_number(fill) or not _valid_saved_number(angle) \
+				or not is_equal_approx(float(fill), progress / goal):
+			return false
+		crank_rotation = float(angle)
+	else:
+		return false
+	set_fill(progress / goal)
+	# configure() already cleared every owner. Restoration grants no release.
+	held = false
+	active_touch_index = -1
+	have_angle = false
+	long_push_engaged = false
+	queue_redraw()
+	return true
+
+
+static func _valid_saved_number(value: Variant) -> bool:
+	return (value is int or value is float) and is_finite(float(value))
+
+
+func _restore_pipe_progress(snapshot: Dictionary, progress: float) -> bool:
+	var saved_round: Variant = snapshot.get("round", null)
+	if not _valid_saved_number(saved_round) or float(saved_round) != floorf(float(saved_round)) \
+			or int(saved_round) < 0 or int(saved_round) > PIPE_ROUNDS.size() \
+			or not is_equal_approx(float(saved_round), progress):
+		return false
+	var next_round := int(saved_round)
+	var transition: Variant = snapshot.get("transition", false)
+	if not transition is bool or (transition and (next_round == 0 or next_round >= PIPE_ROUNDS.size())):
+		return false
+	# A just-earned board keeps its credit; the next board starts with its
+	# canonical stock, rather than interpreting the previous board as this one.
+	if transition:
+		pipe_round = next_round
+		_pipe_setup_round()
+		return true
+	var grid: Variant = snapshot.get("grid", [])
+	var tray: Variant = snapshot.get("tray", [])
+	if not grid is Array or grid.size() != PIPE_COLS * PIPE_ROWS or not tray is Array:
+		return false
+	var round_data: Dictionary = PIPE_ROUNDS[mini(next_round, PIPE_ROUNDS.size() - 1)]
+	var fixed: Dictionary = round_data.get("fixed", {})
+	var imps: Array = round_data.get("imps", [])
+	var stock: Dictionary = {}
+	for tile: String in round_data.get("tray", []):
+		stock[tile] = int(stock.get(tile, 0)) + 1
+	var actual: Dictionary = {}
+	for cell in range(grid.size()):
+		var tile: Variant = grid[cell]
+		if not tile is String:
+			return false
+		if fixed.has(cell):
+			if tile != fixed[cell]:
+				return false
+		elif cell in imps:
+			if tile != "IMP":
+				return false
+		elif tile != "":
+			if not PIPE_MOUTHS.has(tile):
+				return false
+			actual[tile] = int(actual.get(tile, 0)) + 1
+	for tile: Variant in tray:
+		if not tile is String or not PIPE_MOUTHS.has(tile):
+			return false
+		actual[tile] = int(actual.get(tile, 0)) + 1
+	if actual != stock:
+		return false
+	var old_round := pipe_round
+	var old_grid := pipe_grid
+	var old_tray := pipe_tray
+	var old_flow := pipe_flow
+	pipe_round = next_round
+	pipe_grid = grid.duplicate()
+	pipe_tray = tray.duplicate()
+	pipe_flow = []
+	if next_round == PIPE_ROUNDS.size() and not _pipe_path_complete():
+		pipe_round = old_round
+		pipe_grid = old_grid
+		pipe_tray = old_tray
+		pipe_flow = old_flow
+		return false
+	pipe_fixed = []
+	for cell in range(grid.size()):
+		pipe_fixed.append(fixed.has(cell) or cell in imps)
+	var prefix: Variant = snapshot.get("flow_cells", [])
+	if prefix is Array:
+		for index in range(mini(prefix.size(), PIPE_COLS * PIPE_ROWS + 2)):
+			var cell: Variant = prefix[index]
+			var step := _pipe_next_step()
+			if not _valid_saved_number(cell) or step.is_empty() \
+					or int(step[0]) < 0 or float(cell) != float(step[0]):
+				break
+			pipe_flow.append(step)
+	# Clocks cannot jump to a reward on load; only the verified path prefix is
+	# restored, and the engine resumes its ordinary next-step timing.
+	var flow_t: Variant = snapshot.get("flow_t", 0.0)
+	var wait_t: Variant = snapshot.get("wait_t", 0.0)
+	pipe_flow_t = clampf(float(flow_t), 0.0, 1.2) if _valid_saved_number(flow_t) else 0.0
+	pipe_wait_t = clampf(float(wait_t), 0.0, 16.0) if _valid_saved_number(wait_t) else 0.0
+	pipe_pause = 0.0
+	return true
+
+
+func _pipe_tick(delta: float) -> void:
+	if pipe_work_cell >= 0:
+		return
+	var previous_round := pipe_round
+	var previous_flow := pipe_flow.size()
+	var previous_pause := pipe_pause
+	super._pipe_tick(delta)
+	if pipe_round != previous_round or pipe_flow.size() != previous_flow \
+			or (previous_pause > 0.0 and pipe_pause <= 0.0):
+		progress_changed.emit()

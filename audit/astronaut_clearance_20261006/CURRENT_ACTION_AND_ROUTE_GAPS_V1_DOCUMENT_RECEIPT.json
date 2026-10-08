@@ -1,0 +1,40 @@
+{
+  "result": "PASS",
+  "checked_utc": "2026-10-07T22:35:51.331682+00:00",
+  "seconds_ceiling": 25,
+  "elapsed_seconds": 16.721,
+  "steps": [
+    {
+      "command": [
+        "C:/Users/Peter/AppData/Local/Python/bin/python.exe",
+        "-X",
+        "utf8",
+        "-B",
+        "tools/audit_document_authority.py"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 8.182
+    },
+    {
+      "command": [
+        "C:/Users/Peter/AppData/Local/Python/bin/python.exe",
+        "-X",
+        "utf8",
+        "-B",
+        "tools/audit_development.py",
+        "--base",
+        "auto"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 4.038
+    },
+    {
+      "command": "post-record audit_development.py --base auto",
+      "exit_code": 0,
+      "elapsed_seconds": 4.179
+    }
+  ],
+  "log_sha256": "67ef21aa7975ed9bf7db22cad559bd3be5a3c3eb3e3a117b2df6dec31a011eb1",
+  "budget": "OriginalCI3600s family conservativecharged3562.743;37.257unused, no art/native budgetreset.",
+  "scope": "Current audit evidence/documentauthoritycoverage only. Native/cadence/naturalroute/independent/device/child/owner gaps preserved; no newnumeric score/fullgoalclaim."
+}

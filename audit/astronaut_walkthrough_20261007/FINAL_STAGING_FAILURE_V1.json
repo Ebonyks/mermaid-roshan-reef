@@ -1,0 +1,17 @@
+{
+  "result": "FAIL",
+  "recorded_utc": "2026-10-07T16:39:23.055381+00:00",
+  "cause": "git diff --cached --check reported one extra blank line at design/05_DOC_LEDGER.md:1040; helper asserted before coverage/byte seal",
+  "original_running_receipt": {
+    "status": "RUNNING",
+    "scope": "Final review staging/byte seal; no commit/push/integration or runtime acceptance"
+  },
+  "original_running_receipt_sha256": "6979dbec812defacf491d5e641599d955a862fb6566b187b6816e452ca2e8643",
+  "failed_helper_sha256": "b8f5690b66b3ff8da55704e71a576df9d8bfeba37e53669e17d631178f2b4499",
+  "diagnostic_recheck_stdout": "design/05_DOC_LEDGER.md:1040: new blank line at EOF.\n",
+  "first_process_wall_seconds": 1.857183,
+  "diagnostic_recheck_process_wall_seconds": 1.201487,
+  "actual_helper_elapsed_before_failure": "UNRECORDED; observed process wall used conservatively for remaining budget",
+  "runtime_changes": 0,
+  "native_pixel_edits": 0
+}

@@ -1,0 +1,12 @@
+COMMAND ["C:/Users/Peter/AppData/Local/Python/bin/python.exe", "-X", "utf8", "-B", "tools/audit_document_authority.py"]
+DOCAUTH|INVENTORY=678|LEDGER=678|ACTIVE=69|RECORDS=72
+DOCAUTH|RESULT|ALL OK
+COMMAND ["C:/Users/Peter/AppData/Local/Python/bin/python.exe", "-X", "utf8", "-B", "-m", "unittest", "tools.tests.test_audit_document_authority", "tools.tests.test_audit_development"]
+......................................................
+----------------------------------------------------------------------
+Ran 54 tests in 15.187s
+
+OK
+DOCAUTH|STRESS|6/6
+COMMAND ["C:/Users/Peter/AppData/Local/Python/bin/python.exe", "-X", "utf8", "-B", "tools/audit_document_authority.py", "--stress"]
+DOCAUTH|STRESS|6/6

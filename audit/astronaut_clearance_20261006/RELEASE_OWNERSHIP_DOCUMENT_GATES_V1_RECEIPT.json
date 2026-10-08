@@ -1,0 +1,506 @@
+{
+  "result": "PASS",
+  "started_utc": "2026-10-07T12:08:35.880288+00:00",
+  "finished_utc": "2026-10-07T12:09:43.469944+00:00",
+  "elapsed_seconds": 67.588,
+  "time_cap_seconds": 120,
+  "steps": [
+    {
+      "label": "Changed GDScript parser",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-X",
+        "utf8",
+        "-B",
+        "-m",
+        "gdtoolkit.parser",
+        "audit/astronaut_clearance_20261006/PIPE_CONTACT_V4_HELPER_SOURCE.gd",
+        "audit/astronaut_clearance_20261006/capture_birthday_native_v1.gd",
+        "audit/astronaut_clearance_20261006/capture_birthday_native_v2.gd",
+        "audit/astronaut_clearance_20261006/capture_birthday_native_v3.gd",
+        "audit/astronaut_clearance_20261006/capture_birthday_native_v4.gd",
+        "audit/astronaut_clearance_20261006/reproduce_focus.gd",
+        "audit/astronaut_clearance_20261006/reproduce_partial_save.gd",
+        "audit/astronaut_clearance_20261006/verify_birthday_contact_v1.gd",
+        "audit/astronaut_clearance_20261006/verify_birthday_save.gd",
+        "audit/astronaut_clearance_20261006/verify_birthday_save_v2.gd",
+        "audit/astronaut_clearance_20261006/verify_birthday_save_v3.gd",
+        "audit/astronaut_clearance_20261006/verify_birthday_save_v4.gd",
+        "audit/astronaut_clearance_20261006/verify_birthday_save_v5.gd",
+        "audit/astronaut_clearance_20261006/verify_checkpoint_schema.gd",
+        "audit/astronaut_clearance_20261006/verify_checkpoint_schema_v2.gd",
+        "audit/astronaut_clearance_20261006/verify_checkpoint_schema_v3.gd",
+        "audit/astronaut_clearance_20261006/verify_checkpoint_schema_v4.gd",
+        "audit/astronaut_clearance_20261006/verify_input.gd",
+        "audit/astronaut_clearance_20261006/verify_partial_save.gd",
+        "audit/astronaut_clearance_20261006/verify_pipe.gd",
+        "audit/astronaut_clearance_20261006/verify_pipe_contact_negative_v1.gd",
+        "audit/astronaut_clearance_20261006/verify_pipe_contact_negative_v2.gd",
+        "audit/astronaut_clearance_20261006/verify_pipe_contact_v1.gd",
+        "audit/astronaut_clearance_20261006/verify_pipe_contact_v2.gd",
+        "audit/astronaut_clearance_20261006/verify_pipe_contact_v3.gd",
+        "audit/astronaut_clearance_20261006/verify_pipe_contact_v4.gd",
+        "audit/astronaut_clearance_20261006/verify_pipe_contact_v5.gd",
+        "audit/astronaut_clearance_20261006/verify_pipe_contact_v6.gd",
+        "audit/astronaut_clearance_20261006/verify_pipe_correction_aspect_v2.gd",
+        "audit/astronaut_clearance_20261006/verify_pipe_correction_aspects_v1.gd",
+        "audit/astronaut_clearance_20261006/verify_save_lifecycle.gd",
+        "audit/astronaut_clearance_20261006/verify_save_lifecycle_v3.gd",
+        "audit/astronaut_clearance_20261006/verify_save_lifecycle_v4.gd",
+        "audit/astronaut_clearance_20261006/verify_save_lifecycle_v5.gd",
+        "audit/astronaut_clearance_20261006/verify_save_lifecycle_v6.gd",
+        "audit/astronaut_clearance_20261006/verify_save_lifecycle_v7.gd",
+        "audit/astronaut_clearance_20261006/verify_save_lifecycle_v8.gd",
+        "scripts/opera_astronaut_pipe_work.gd",
+        "scripts/opera_astronaut_surface.gd",
+        "scripts/opera_career_world_2d.gd",
+        "scripts/probe_opera_gesture_quality.gd",
+        "scripts/save_state.gd"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 3.999
+    },
+    {
+      "label": "Changed GDScript inference",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-X",
+        "utf8",
+        "-B",
+        "tools/lint_inference.py",
+        "audit/astronaut_clearance_20261006/PIPE_CONTACT_V4_HELPER_SOURCE.gd",
+        "audit/astronaut_clearance_20261006/capture_birthday_native_v1.gd",
+        "audit/astronaut_clearance_20261006/capture_birthday_native_v2.gd",
+        "audit/astronaut_clearance_20261006/capture_birthday_native_v3.gd",
+        "audit/astronaut_clearance_20261006/capture_birthday_native_v4.gd",
+        "audit/astronaut_clearance_20261006/reproduce_focus.gd",
+        "audit/astronaut_clearance_20261006/reproduce_partial_save.gd",
+        "audit/astronaut_clearance_20261006/verify_birthday_contact_v1.gd",
+        "audit/astronaut_clearance_20261006/verify_birthday_save.gd",
+        "audit/astronaut_clearance_20261006/verify_birthday_save_v2.gd",
+        "audit/astronaut_clearance_20261006/verify_birthday_save_v3.gd",
+        "audit/astronaut_clearance_20261006/verify_birthday_save_v4.gd",
+        "audit/astronaut_clearance_20261006/verify_birthday_save_v5.gd",
+        "audit/astronaut_clearance_20261006/verify_checkpoint_schema.gd",
+        "audit/astronaut_clearance_20261006/verify_checkpoint_schema_v2.gd",
+        "audit/astronaut_clearance_20261006/verify_checkpoint_schema_v3.gd",
+        "audit/astronaut_clearance_20261006/verify_checkpoint_schema_v4.gd",
+        "audit/astronaut_clearance_20261006/verify_input.gd",
+        "audit/astronaut_clearance_20261006/verify_partial_save.gd",
+        "audit/astronaut_clearance_20261006/verify_pipe.gd",
+        "audit/astronaut_clearance_20261006/verify_pipe_contact_negative_v1.gd",
+        "audit/astronaut_clearance_20261006/verify_pipe_contact_negative_v2.gd",
+        "audit/astronaut_clearance_20261006/verify_pipe_contact_v1.gd",
+        "audit/astronaut_clearance_20261006/verify_pipe_contact_v2.gd",
+        "audit/astronaut_clearance_20261006/verify_pipe_contact_v3.gd",
+        "audit/astronaut_clearance_20261006/verify_pipe_contact_v4.gd",
+        "audit/astronaut_clearance_20261006/verify_pipe_contact_v5.gd",
+        "audit/astronaut_clearance_20261006/verify_pipe_contact_v6.gd",
+        "audit/astronaut_clearance_20261006/verify_pipe_correction_aspect_v2.gd",
+        "audit/astronaut_clearance_20261006/verify_pipe_correction_aspects_v1.gd",
+        "audit/astronaut_clearance_20261006/verify_save_lifecycle.gd",
+        "audit/astronaut_clearance_20261006/verify_save_lifecycle_v3.gd",
+        "audit/astronaut_clearance_20261006/verify_save_lifecycle_v4.gd",
+        "audit/astronaut_clearance_20261006/verify_save_lifecycle_v5.gd",
+        "audit/astronaut_clearance_20261006/verify_save_lifecycle_v6.gd",
+        "audit/astronaut_clearance_20261006/verify_save_lifecycle_v7.gd",
+        "audit/astronaut_clearance_20261006/verify_save_lifecycle_v8.gd",
+        "scripts/opera_astronaut_pipe_work.gd",
+        "scripts/opera_astronaut_surface.gd",
+        "scripts/opera_career_world_2d.gd",
+        "scripts/probe_opera_gesture_quality.gd",
+        "scripts/save_state.gd"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 0.193
+    },
+    {
+      "label": "Document authority",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-X",
+        "utf8",
+        "-B",
+        "tools/audit_document_authority.py"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 7.103
+    },
+    {
+      "label": "Authority/development units",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-X",
+        "utf8",
+        "-B",
+        "-m",
+        "unittest",
+        "tools.tests.test_audit_document_authority",
+        "tools.tests.test_audit_development"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 9.229
+    },
+    {
+      "label": "Authority stress",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-X",
+        "utf8",
+        "-B",
+        "tools/audit_document_authority.py",
+        "--stress"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 0.236
+    },
+    {
+      "label": "Shrinking 2D regression",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-X",
+        "utf8",
+        "-B",
+        "tools/audit_game_2d.py",
+        "--regression-gate"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 40.942
+    },
+    {
+      "label": "Development coverage",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-X",
+        "utf8",
+        "-B",
+        "tools/audit_development.py",
+        "--base",
+        "auto"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 3.05
+    },
+    {
+      "label": "Staged whitespace",
+      "command": [
+        "git",
+        "diff",
+        "--cached",
+        "--check"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 0.258
+    }
+  ],
+  "gd_files": [
+    "audit/astronaut_clearance_20261006/PIPE_CONTACT_V4_HELPER_SOURCE.gd",
+    "audit/astronaut_clearance_20261006/capture_birthday_native_v1.gd",
+    "audit/astronaut_clearance_20261006/capture_birthday_native_v2.gd",
+    "audit/astronaut_clearance_20261006/capture_birthday_native_v3.gd",
+    "audit/astronaut_clearance_20261006/capture_birthday_native_v4.gd",
+    "audit/astronaut_clearance_20261006/reproduce_focus.gd",
+    "audit/astronaut_clearance_20261006/reproduce_partial_save.gd",
+    "audit/astronaut_clearance_20261006/verify_birthday_contact_v1.gd",
+    "audit/astronaut_clearance_20261006/verify_birthday_save.gd",
+    "audit/astronaut_clearance_20261006/verify_birthday_save_v2.gd",
+    "audit/astronaut_clearance_20261006/verify_birthday_save_v3.gd",
+    "audit/astronaut_clearance_20261006/verify_birthday_save_v4.gd",
+    "audit/astronaut_clearance_20261006/verify_birthday_save_v5.gd",
+    "audit/astronaut_clearance_20261006/verify_checkpoint_schema.gd",
+    "audit/astronaut_clearance_20261006/verify_checkpoint_schema_v2.gd",
+    "audit/astronaut_clearance_20261006/verify_checkpoint_schema_v3.gd",
+    "audit/astronaut_clearance_20261006/verify_checkpoint_schema_v4.gd",
+    "audit/astronaut_clearance_20261006/verify_input.gd",
+    "audit/astronaut_clearance_20261006/verify_partial_save.gd",
+    "audit/astronaut_clearance_20261006/verify_pipe.gd",
+    "audit/astronaut_clearance_20261006/verify_pipe_contact_negative_v1.gd",
+    "audit/astronaut_clearance_20261006/verify_pipe_contact_negative_v2.gd",
+    "audit/astronaut_clearance_20261006/verify_pipe_contact_v1.gd",
+    "audit/astronaut_clearance_20261006/verify_pipe_contact_v2.gd",
+    "audit/astronaut_clearance_20261006/verify_pipe_contact_v3.gd",
+    "audit/astronaut_clearance_20261006/verify_pipe_contact_v4.gd",
+    "audit/astronaut_clearance_20261006/verify_pipe_contact_v5.gd",
+    "audit/astronaut_clearance_20261006/verify_pipe_contact_v6.gd",
+    "audit/astronaut_clearance_20261006/verify_pipe_correction_aspect_v2.gd",
+    "audit/astronaut_clearance_20261006/verify_pipe_correction_aspects_v1.gd",
+    "audit/astronaut_clearance_20261006/verify_save_lifecycle.gd",
+    "audit/astronaut_clearance_20261006/verify_save_lifecycle_v3.gd",
+    "audit/astronaut_clearance_20261006/verify_save_lifecycle_v4.gd",
+    "audit/astronaut_clearance_20261006/verify_save_lifecycle_v5.gd",
+    "audit/astronaut_clearance_20261006/verify_save_lifecycle_v6.gd",
+    "audit/astronaut_clearance_20261006/verify_save_lifecycle_v7.gd",
+    "audit/astronaut_clearance_20261006/verify_save_lifecycle_v8.gd",
+    "scripts/opera_astronaut_pipe_work.gd",
+    "scripts/opera_astronaut_surface.gd",
+    "scripts/opera_career_world_2d.gd",
+    "scripts/probe_opera_gesture_quality.gd",
+    "scripts/save_state.gd"
+  ],
+  "source_bindings": [
+    {
+      "path": "audit/astronaut_clearance_20261006/PIPE_CONTACT_V4_HELPER_SOURCE.gd",
+      "sha256": "14af330e8e1359a002374734665ad3e639f384eff9af1d376964161cfa91497a"
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/capture_birthday_native_v1.gd",
+      "sha256": "03f1501776ff4ed2b5a687243eda1adb83492317e933b6dd8553fda5b21bc038"
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/capture_birthday_native_v2.gd",
+      "sha256": "e612df6692601ca24dd74c55ea9f76d79aced79717be8cd157750023a74058bc"
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/capture_birthday_native_v3.gd",
+      "sha256": "0cbf64a9dfb8fd428f9f40e237f9f44f3b606c5e143b4a1e81f15c485ca1ecb5"
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/capture_birthday_native_v4.gd",
+      "sha256": "ba2cfe9e42f36bc20e83f4f76588fe5ef6bc94e727ae65a8de994a7dd99190dc"
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/reproduce_focus.gd",
+      "sha256": "a9228b6357ba3aea2087b30c6c4fa1edcdf609b253583a92db022b6138dfb344"
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/reproduce_partial_save.gd",
+      "sha256": "4d40d03780e2561a6d8727d20760df41857b3582cf24c8db84840b3501ebc6e9"
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/verify_birthday_contact_v1.gd",
+      "sha256": "026349786063eb241280c98bc4a0c525af41786d72e8704b97daafa2b85bc3fd"
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/verify_birthday_save.gd",
+      "sha256": "3c78ac2934da2a3361dccb8351c4c320ba3627bbb9f8d6a6d784f45a6ada562b"
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/verify_birthday_save_v2.gd",
+      "sha256": "7941326fbe54ea16f715fcf2887ba449a97588ea289500bc9d62f08ac4f61065"
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/verify_birthday_save_v3.gd",
+      "sha256": "1bb3733c6a92305f5041a24c598116bd36738d4b5ba2411e34181dc3a1462920"
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/verify_birthday_save_v4.gd",
+      "sha256": "69b997cbf7ac9d35a679703bb24bcadba19f868c9edc5ee8edd85e29d1f6df7b"
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/verify_birthday_save_v5.gd",
+      "sha256": "441497892b19484e70cff759dfc6e7ca1ea55fa1a8dff4d10e597c6d98e12188"
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/verify_checkpoint_schema.gd",
+      "sha256": "c16d41e72c2660f9589c2bc94e559405a301cb184e12dbfdb7b9760daadd680a"
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/verify_checkpoint_schema_v2.gd",
+      "sha256": "1bdc5b06ea464bb54d3c5a3b67e0a1324d20ea9867c87a2d5d0f64fc642061d7"
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/verify_checkpoint_schema_v3.gd",
+      "sha256": "3da101cad00e53cb213ba3b76693fe8c2dfece12ed525553c0329bd4cdabba52"
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/verify_checkpoint_schema_v4.gd",
+      "sha256": "3da101cad00e53cb213ba3b76693fe8c2dfece12ed525553c0329bd4cdabba52"
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/verify_input.gd",
+      "sha256": "3a2b22223ae9f4c675b88dfbbf4306976b3d42b803edf836b5120fce0b4e90ba"
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/verify_partial_save.gd",
+      "sha256": "47adac5984d384127952d920ba75fb146575015262db9e2decbfa078574e1c0e"
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/verify_pipe.gd",
+      "sha256": "dc9959c8452c21de68a3ec08257a0387b954b63ee4100cf3872895a4d6e6f842"
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/verify_pipe_contact_negative_v1.gd",
+      "sha256": "33560e7c1b2eb9d3c63164b1946c5d135d57dd4213ba37dc0fab20053474bcb2"
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/verify_pipe_contact_negative_v2.gd",
+      "sha256": "a9f4acde8b318f502f9d97629a036c58319f9d84046b4111b25ff51ef64db048"
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/verify_pipe_contact_v1.gd",
+      "sha256": "f8d139d93f21b9d7233853a150f60321419ea019f6c3f5d8c20789fc0a9bf6da"
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/verify_pipe_contact_v2.gd",
+      "sha256": "5c00f6425ae267fb4dff78148c8a4dbf6f264ac5cc25a8ad89765454a386a8bc"
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/verify_pipe_contact_v3.gd",
+      "sha256": "536c048725181f87191c6a74e632c128f6e651a60dfdc28444b7be0146d83518"
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/verify_pipe_contact_v4.gd",
+      "sha256": "a99963fd403f760a05a61f4e27d7baa286b835749d68d35fa2ab61a27fc16a83"
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/verify_pipe_contact_v5.gd",
+      "sha256": "23f9dbad48283f808877bc991e589f9c603a23b2bac7caf29b21f907e6affe80"
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/verify_pipe_contact_v6.gd",
+      "sha256": "8322291dfaacbdf016490e86ac32f90f4f9ccbf375eeb676dc152b33ba2e51ba"
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/verify_pipe_correction_aspect_v2.gd",
+      "sha256": "6efd3a46aaffda030c7782a0c3ec4851c7aea87113353ede4c808894257ff0e3"
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/verify_pipe_correction_aspects_v1.gd",
+      "sha256": "0a229b71870f3d89086fd8cd85b1865c0af47b24734f5ddbb580f5f359184dae"
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/verify_save_lifecycle.gd",
+      "sha256": "0cf5c3202660aef3afe7cf55d2a33a6dd00582384ea534daa34f24961359b3bd"
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/verify_save_lifecycle_v3.gd",
+      "sha256": "a36b869d2756ce143d47a0c547d3da928e928c1a34f17729fe8ca22a37d95296"
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/verify_save_lifecycle_v4.gd",
+      "sha256": "88fde9dffe7826e323273fb67b257e72e49a71f39bcc36f5a3cbbc3e24ec7d54"
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/verify_save_lifecycle_v5.gd",
+      "sha256": "1c323c705edd8cfb0362db374d1aa428351ecf5057be6c3357109b72553e8bf5"
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/verify_save_lifecycle_v6.gd",
+      "sha256": "8dbd6c19d30487a0700979a3cab9f6d04e9993def927bd25b5628327ee291821"
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/verify_save_lifecycle_v7.gd",
+      "sha256": "c56daf630c2c6d8471c67b1307db97b65c7bcf17744fee994275087d13c44b9e"
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/verify_save_lifecycle_v8.gd",
+      "sha256": "927891b5942718c8a24f871e295f5a1bf173094f41de4493cbedc76dab8bfe25"
+    },
+    {
+      "path": "scripts/opera_astronaut_pipe_work.gd",
+      "sha256": "654504436f9ba3040edfd3cbdf277aed2337a7799f9de5b8d5573369bdacdc39"
+    },
+    {
+      "path": "scripts/opera_astronaut_surface.gd",
+      "sha256": "84b0806ee388e1d0150629c872318c92fd3f614e949385a26f97eac0c0d82809"
+    },
+    {
+      "path": "scripts/opera_career_world_2d.gd",
+      "sha256": "6f61646adc21cc2392fa18d3b3624f7c5f2bb4de050a6b858a7705980f5d2590"
+    },
+    {
+      "path": "scripts/probe_opera_gesture_quality.gd",
+      "sha256": "da8af209c9d0bffae1350e75097462f13934f6227465fcac744355495cee9a10"
+    },
+    {
+      "path": "scripts/save_state.gd",
+      "sha256": "13b77592028653cdcac67e54264f049bbab01c6566b4fad1ea9bdf89a37a07c8"
+    },
+    {
+      "path": "audit/MASTER_AUDIT_2026-08-09.md",
+      "sha256": "1aa6c02c5f5bf30d801917ee30518bf91cc81f53b44f12d4520d829adf54ece5"
+    },
+    {
+      "path": "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
+      "sha256": "a2657e4cd4dae9665bb4c7b282564d312f352f16d397e59c67904c26f6889a81"
+    },
+    {
+      "path": "design/05_DOC_LEDGER.md",
+      "sha256": "0f6545259d926ba38b0f414e25c0efc5139395f6da03a4aeb2bcc7f1fea3d71a"
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/PIPE_CONTACT_REVIEW.json",
+      "sha256": "56afceca1e05731d4f6a13f98a44ae0c426ef417ceea4799b10bdf1e4f95d4be"
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/CURRENT_ROUTE_CONTACT_RECHECK_PLAN.json",
+      "sha256": "fd2e058f13abd8164d1e3ab64f074f4a1165619d7d7d434f0e02eca58b2eed0a"
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/CURRENT_ROUTE_CONTACT_RECHECK_REVIEW.json",
+      "sha256": "a439474ebf63f3cec0593bd094f7fbaac8fcf74da05e9bccd9aa508c134f27ae"
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/PIPE_CORRECTION_ASPECT_PLAN.json",
+      "sha256": "0f22f6fa4b31bb3a5a356e0c3bc0faf58e27aee34705c76b7cdd0fc22ebc138d"
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/PIPE_CORRECTION_ASPECT_REVIEW.json",
+      "sha256": "c23b056bb483180a5612f9d19f62355249bb80efc107fd6e7aaed0577fca461d"
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/NATIVE_BIRTHDAY_CAPTURE_V4_REVIEW.json",
+      "sha256": "375d94a3eae8fa6b1f629921d8f911e6eb83e5714f354c844f2b590733f0acaf"
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/RELEASE_OWNERSHIP_REVIEW.json",
+      "sha256": "6c932a69b62af2cb85aece80d22e19eb6ec9aa87b3a3cdaa4f6b13363e02547b"
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/PIPE_RELEASE_OWNERSHIP_PLAN.json",
+      "sha256": "bddf91eee8970aeb67b28ca4e055802bd7e400acbac5f1e1859b1c7a020f89ae"
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/NATIVE_BIRTHDAY_CAPTURE_V1_REVIEW.json",
+      "sha256": "d2dcb59a6b3c17255914dfe68c785f2c74116bc2e88a4a1978a427e442ca314a"
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/NATIVE_BIRTHDAY_CAPTURE_V2_REVIEW.json",
+      "sha256": "5c4b00e4b73e19a03f313e20d9bb697dbad205890fffdaaaca38dc987347d21a"
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/PIPE_CONTACT_IMPLEMENTATION_PLAN.json",
+      "sha256": "94097e969aef78f77ddde3c2597fd797c174c18be02abc81c6adc27c55f1dfd9"
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/run_release_ownership_document_gates_v1.py",
+      "sha256": "57cc14c4507d06743ec924e697753cba4aaf645d1427a26f304747d6053cfbe8"
+    }
+  ],
+  "source_bindings_match": true,
+  "current_runtime_receipts": [
+    {
+      "path": "audit/astronaut_clearance_20261006/RELEASE_OWNERSHIP_REGRESSION_V1_RECEIPT.json",
+      "sha256": "929e1d9bbe8f30684695f688c2ec71f0d6d852b01c6226f2007e22cb7fea4331",
+      "checks": 90,
+      "aspect_checks": {},
+      "source_and_native_log_bindings_match": true,
+      "parent_result": "FAIL",
+      "accepted_scope": "Two named90passing subruns only; failed parent not promoted"
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/RELEASE_OWNERSHIP_REGRESSION_V2_RECEIPT.json",
+      "sha256": "33eb71608f6d5be2f1f76e0b6f0153def2877c6a09b504a7a288d660d6e2915f",
+      "checks": 205,
+      "aspect_checks": {
+        "1280": 57,
+        "1600": 57
+      },
+      "source_and_native_log_bindings_match": true,
+      "parent_result": "PASS",
+      "accepted_scope": "All declared assertions in this receipt"
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/NATIVE_BIRTHDAY_CAPTURE_V4_RECEIPT.json",
+      "sha256": "b5bde136d45de7d26d99dada9bc68d669fa54efdcfa2809eb8af060faa4924ce",
+      "checks": 117,
+      "aspect_checks": {},
+      "source_and_native_log_bindings_match": true,
+      "parent_result": "PASS",
+      "accepted_scope": "All declared assertions in this receipt"
+    }
+  ],
+  "log_path": "audit/astronaut_clearance_20261006/RELEASE_OWNERSHIP_DOCUMENT_GATES_V1_LOG.txt",
+  "log_sha256": "0cd2dfd42fc02feb7d0c7699a1875010c7497d71e3cbfb1aa0bb824448339f23",
+  "meaning": "Source syntax, authority, coverage, 2D no-regression and literal runtime-log binding only. Historical failing fixtures remain literal data under audit, outside ci.sh production scripts parser scope. NativeV4 pixels and owned release/settled return are byte-verified diagnostics; other visual defects still prevent4.6. No full trusted suite, strict clean/fresh runtime, independent/device/child/owner or integration acceptance."
+}

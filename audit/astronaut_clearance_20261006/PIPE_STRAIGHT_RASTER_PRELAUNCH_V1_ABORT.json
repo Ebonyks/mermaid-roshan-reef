@@ -1,0 +1,26 @@
+{
+  "result": "ABORT_BEFORE_ENGINE_LAUNCH",
+  "checked_utc": "2026-10-07T19:24:01.002202+00:00",
+  "runner": "run_straight_raster_engine_v1.py",
+  "runner_sha256": "d7f5b0a49207a8839e3aa1df4e895099cd18a89fc2c4c182c98092f0d84a63c2",
+  "literal_failure": "AssertionError: Actual/shared engine occupancy prevents launch, line28 beforeversion/import/save/log/preflightcreation",
+  "actual_wrapper_wall_seconds": 4.331254,
+  "original_combined_engine_wrapper_cap_seconds": 110,
+  "remaining_original_seconds": 105.668746,
+  "launched_engine_commands": 0,
+  "observed_unowned_processes": [
+    {
+      "pid": 80880,
+      "creation": "2026-10-07T12:21:44.221599-07:00",
+      "name": "godot_console.exe"
+    },
+    {
+      "pid": 34348,
+      "creation": "2026-10-07T12:21:44.248112-07:00",
+      "name": "godot.exe"
+    }
+  ],
+  "current_queue_snapshot_utc": "2026-10-07T19:10:15.295343+00:00",
+  "native_runs": 0,
+  "scope": "Failclosedprelaunch source-onlyabort. No automaticrerun orcapreset. Otherprocesses notterminated; sharedsnapshot doesnotprove actualabsence."
+}

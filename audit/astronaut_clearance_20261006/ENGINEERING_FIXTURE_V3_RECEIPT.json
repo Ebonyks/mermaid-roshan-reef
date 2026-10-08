@@ -1,0 +1,23 @@
+{
+  "result": "PASS",
+  "exit_code": 0,
+  "elapsed_seconds": 7.635844200034626,
+  "utc": "2026-10-08T01:10:06.534376+00:00",
+  "reports": [
+    {
+      "checks": 23,
+      "failures": 0,
+      "scope": "Surface event fixture and migration negatives. World native contact acceptance is separate."
+    }
+  ],
+  "source_bindings": {
+    "scripts/opera_career_world_2d.gd": "2377b57f09bb1edd6f22a81ab6f1c0d169a1dacbeb980baf11c3f2b73eddf2b7",
+    "scripts/opera_astronaut_surface.gd": "9ae8b4327efba8fd0b8abfc64cb251d4887dd1c0ff41f55b000f583702fc47e1",
+    "scripts/opera_astronaut_devices.gd": "c50e7b550685fa29ab90995c35c1a3013e8512072c49a4b1d44ace1e0f54ff55",
+    "audit/astronaut_clearance_20261006/probe_engineering_devices_v1.gd": "006e5a0fe37b2f631aec8829b25d64655fda2475951f81699aad5049dbcdbf2d"
+  },
+  "source_changes": [],
+  "errors": [],
+  "log_sha256": "5ddaa61ad80d5c39503197688ef246d977331a99625a3582e7a979d086e72a15",
+  "limits": "Surface input and legacy-save API fixture; not real viewport contact, natural route, visual/device/child/owner acceptance."
+}

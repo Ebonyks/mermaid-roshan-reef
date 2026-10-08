@@ -1,0 +1,516 @@
+{
+  "started_utc": "2026-10-07T05:52:09.372156+00:00",
+  "finished_utc": "2026-10-07T05:53:31.888934+00:00",
+  "command": [
+    "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64.exe",
+    "--headless",
+    "--path",
+    "C:\\Users\\Peter\\.codex\\worktrees\\astronaut-goal-20261006\\mermaid-roshan-reef",
+    "--script",
+    "res://audit/astronaut_clearance_20261006/verify_save_lifecycle.gd"
+  ],
+  "engine_version": "4.7.2.stable.official.ed1daf0bf",
+  "engine_sha256": "ab1824f85bfd8e0e4128182c000c4003a3e042245b2967848d089b2a04b22424",
+  "owned_pid": 24456,
+  "exit_code": 1,
+  "elapsed_seconds": 82.7,
+  "timed_out": false,
+  "time_cap_seconds": 150,
+  "errors": [],
+  "execution_result": "PASS",
+  "save_acceptance_result": "FAIL",
+  "evidence": [
+    {
+      "checks": 67,
+      "failures": 27,
+      "rows": [
+        {
+          "label": "real Mermaid Pool career card is visible",
+          "pass": true
+        },
+        {
+          "label": "unforced production route selects Astronaut Canvas surface",
+          "pass": true
+        },
+        {
+          "label": "real object touch opens current phase after approach",
+          "pass": true
+        },
+        {
+          "label": "genuine board1 placement H at5",
+          "pass": true
+        },
+        {
+          "label": "genuine board1 placement H at6",
+          "pass": true
+        },
+        {
+          "label": "engine earns board1 exactly once",
+          "pass": true
+        },
+        {
+          "label": "board transition has an earned credit and pending next board",
+          "pass": true
+        },
+        {
+          "label": "pipe_transition production save succeeds",
+          "pass": true
+        },
+        {
+          "label": "pipe_transition returns to exact room",
+          "pass": true
+        },
+        {
+          "label": "real Mermaid Pool career card is visible",
+          "pass": true
+        },
+        {
+          "label": "unforced production route selects Astronaut Canvas surface",
+          "pass": true
+        },
+        {
+          "label": "real object touch opens current phase after approach",
+          "pass": false
+        },
+        {
+          "label": "transition save preserves board credit and canonical next stock",
+          "pass": true
+        },
+        {
+          "label": "genuine board2 placement SE at0",
+          "pass": false
+        },
+        {
+          "label": "genuine board2 placement H at1",
+          "pass": false
+        },
+        {
+          "label": "genuine board2 placement SW at2",
+          "pass": false
+        },
+        {
+          "label": "genuine board2 placement NE at6",
+          "pass": false
+        },
+        {
+          "label": "engine earns board2 exactly once",
+          "pass": false
+        },
+        {
+          "label": "genuine board3 placement NW at5",
+          "pass": false
+        },
+        {
+          "label": "genuine board3 placement SE at1",
+          "pass": false
+        },
+        {
+          "label": "genuine board3 placement H at2",
+          "pass": false
+        },
+        {
+          "label": "genuine board3 placement NW at3",
+          "pass": false
+        },
+        {
+          "label": "engine earns board3 exactly once",
+          "pass": false
+        },
+        {
+          "label": "third board completes only the pipe phase",
+          "pass": false
+        },
+        {
+          "label": "completed_pipes production save succeeds",
+          "pass": true
+        },
+        {
+          "label": "completed_pipes returns to exact room",
+          "pass": true
+        },
+        {
+          "label": "real Mermaid Pool career card is visible",
+          "pass": true
+        },
+        {
+          "label": "unforced production route selects Astronaut Canvas surface",
+          "pass": true
+        },
+        {
+          "label": "real object touch opens current phase after approach",
+          "pass": true
+        },
+        {
+          "label": "earned pipe completion resumes normal PATCH handoff",
+          "pass": false
+        },
+        {
+          "label": "two real leak touches earn exactly two patches",
+          "pass": false
+        },
+        {
+          "label": "partial_patch production save succeeds",
+          "pass": true
+        },
+        {
+          "label": "partial_patch returns to exact room",
+          "pass": true
+        },
+        {
+          "label": "real Mermaid Pool career card is visible",
+          "pass": true
+        },
+        {
+          "label": "unforced production route selects Astronaut Canvas surface",
+          "pass": true
+        },
+        {
+          "label": "real object touch opens current phase after approach",
+          "pass": true
+        },
+        {
+          "label": "PATCH phase and exact repaired leaks survive reload",
+          "pass": false
+        },
+        {
+          "label": "already patched leak cannot pay twice",
+          "pass": false
+        },
+        {
+          "label": "remaining real leak touches finish PATCH",
+          "pass": false
+        },
+        {
+          "label": "normal hold advances to VALVE",
+          "pass": false
+        },
+        {
+          "label": "real object touch opens current phase after approach",
+          "pass": true
+        },
+        {
+          "label": "real arc earns partial valve turn",
+          "pass": true
+        },
+        {
+          "label": "partial_valve production save succeeds",
+          "pass": true
+        },
+        {
+          "label": "partial_valve returns to exact room",
+          "pass": true
+        },
+        {
+          "label": "real Mermaid Pool career card is visible",
+          "pass": true
+        },
+        {
+          "label": "unforced production route selects Astronaut Canvas surface",
+          "pass": true
+        },
+        {
+          "label": "real object touch opens current phase after approach",
+          "pass": true
+        },
+        {
+          "label": "VALVE progress and angle survive reload",
+          "pass": false
+        },
+        {
+          "label": "real circles finish VALVE",
+          "pass": false
+        },
+        {
+          "label": "normal hold advances to LAUNCH",
+          "pass": false
+        },
+        {
+          "label": "real object touch opens current phase after approach",
+          "pass": true
+        },
+        {
+          "label": "engine pause cancels held launch without erasing earned countdown",
+          "pass": true
+        },
+        {
+          "label": "stale release after pause cannot add countdown",
+          "pass": true
+        },
+        {
+          "label": "partial_launch production save succeeds",
+          "pass": true
+        },
+        {
+          "label": "partial_launch returns to exact room",
+          "pass": true
+        },
+        {
+          "label": "real Mermaid Pool career card is visible",
+          "pass": true
+        },
+        {
+          "label": "unforced production route selects Astronaut Canvas surface",
+          "pass": true
+        },
+        {
+          "label": "real object touch opens current phase after approach",
+          "pass": true
+        },
+        {
+          "label": "LAUNCH countdown reloads with no owned finger",
+          "pass": false
+        },
+        {
+          "label": "passive restored countdown cannot finish itself",
+          "pass": true
+        },
+        {
+          "label": "new deliberate hold finishes countdown",
+          "pass": false
+        },
+        {
+          "label": "natural finish awards one career and three first-time pearls",
+          "pass": false
+        },
+        {
+          "label": "natural completed act clears ordinary checkpoint",
+          "pass": false
+        },
+        {
+          "label": "real Mermaid Pool career card is visible",
+          "pass": false
+        },
+        {
+          "label": "unforced production route selects Astronaut Canvas surface",
+          "pass": true
+        },
+        {
+          "label": "real object touch opens current phase after approach",
+          "pass": true
+        },
+        {
+          "label": "replay begins a fresh pipe activity without extra reward",
+          "pass": false
+        }
+      ],
+      "scope": "Genuine headless ordinary route, all four mechanics, partial save/load, earned completion handoff, pause, natural finish/reward/return and replay; fixture story prerequisites and isolated save. Visual acting/contact, birthday/tutorial, device/child/owner acceptance pending",
+      "snapshots": [
+        {
+          "grid": [
+            "",
+            "",
+            "",
+            "",
+            "H",
+            "H",
+            "H",
+            "H",
+            "",
+            "",
+            "",
+            ""
+          ],
+          "held": false,
+          "label": "pipe_transition_before_save",
+          "owner": -1,
+          "pearls": 0,
+          "phase_index": 0,
+          "phase_progress": 1.0,
+          "pipe_round": 1,
+          "star_mask": 0,
+          "tray": []
+        },
+        {
+          "grid": [
+            "",
+            "",
+            "",
+            "",
+            "NW",
+            "IMP",
+            "",
+            "H",
+            "",
+            "",
+            "",
+            ""
+          ],
+          "held": false,
+          "label": "completed_pipes_before_save",
+          "owner": -1,
+          "pearls": 0,
+          "phase_index": 0,
+          "phase_progress": 1.0,
+          "pipe_round": 1,
+          "star_mask": 0,
+          "tray": [
+            "SE",
+            "H",
+            "SW",
+            "NE",
+            "H"
+          ]
+        },
+        {
+          "grid": [
+            "",
+            "",
+            "",
+            "",
+            "NW",
+            "IMP",
+            "",
+            "H",
+            "",
+            "",
+            "",
+            ""
+          ],
+          "held": false,
+          "label": "partial_patch_before_save",
+          "owner": -1,
+          "pearls": 0,
+          "phase_index": 0,
+          "phase_progress": 1.0,
+          "pipe_round": 1,
+          "star_mask": 0,
+          "tray": [
+            "SE",
+            "H",
+            "SW",
+            "NE",
+            "H"
+          ]
+        },
+        {
+          "grid": [
+            "",
+            "",
+            "",
+            "",
+            "NW",
+            "IMP",
+            "",
+            "H",
+            "",
+            "",
+            "",
+            ""
+          ],
+          "held": false,
+          "label": "partial_valve_before_save",
+          "owner": -1,
+          "pearls": 0,
+          "phase_index": 0,
+          "phase_progress": 1.0,
+          "pipe_round": 1,
+          "star_mask": 0,
+          "tray": [
+            "SE",
+            "H",
+            "SW",
+            "NE",
+            "H"
+          ]
+        },
+        {
+          "grid": [
+            "",
+            "",
+            "",
+            "",
+            "NW",
+            "IMP",
+            "",
+            "H",
+            "",
+            "",
+            "",
+            ""
+          ],
+          "held": false,
+          "label": "partial_launch_before_save",
+          "owner": -1,
+          "pearls": 0,
+          "phase_index": 0,
+          "phase_progress": 1.0,
+          "pipe_round": 1,
+          "star_mask": 0,
+          "tray": [
+            "SE",
+            "H",
+            "SW",
+            "NE",
+            "H"
+          ]
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "path": "audit/astronaut_clearance_20261006/verify_save_lifecycle.gd",
+      "sha256": "0cf5c3202660aef3afe7cf55d2a33a6dd00582384ea534daa34f24961359b3bd"
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/run_save_lifecycle.py",
+      "sha256": "b11b826ae1f0fe239ee68eba73a742c1da897085afe53dd4b2c26c320dcc7865"
+    },
+    {
+      "path": "scripts/main.gd",
+      "sha256": "4f8787e5e788f100e6fd44f646435f6afeaee4a58965b5292630d2410de7f6f5"
+    },
+    {
+      "path": "scripts/save_state.gd",
+      "sha256": "720a05ae3f2e1efcb6ef6972a6b48244990de2ab5c6bd7b2fb552aaa02ea921f"
+    },
+    {
+      "path": "scripts/opera_house.gd",
+      "sha256": "09a70ca5f9abd836f66a2327e62553b8d603f9318845c404d7d3527fee953910"
+    },
+    {
+      "path": "scripts/opera_act.gd",
+      "sha256": "eddaa34b8dccd17f41f744176a1ceef6c38c788b200a66995438d42c74a78a63"
+    },
+    {
+      "path": "scripts/opera_career_world_2d.gd",
+      "sha256": "7d402dd922eeed01c6cd0f7f960ddf16af611b2a03652bd244a2db6f109655a4"
+    },
+    {
+      "path": "scripts/opera_astronaut_surface.gd",
+      "sha256": "d0ac5296308a249b11b9ebb31f01c352b93658ecc68203278f3a6ede11d9780f"
+    },
+    {
+      "path": "scripts/opera_gesture_surface.gd",
+      "sha256": "34f3f264f17edef42990712f6c3f7e0106cf9afecd3969f8348848e0eda56017"
+    },
+    {
+      "path": "scripts/castle_career_routes.gd",
+      "sha256": "c5de38d8126c96aae9e999780113edafff05601a22934443e67053edcd8e18d8"
+    },
+    {
+      "path": "scripts/opera_world_hotspot_2d.gd",
+      "sha256": "3544b48ee8e6f60edd54af26aff3fe3a4798fa0458ff69633fef38e4ec76955f"
+    },
+    {
+      "path": "project.godot",
+      "sha256": "8d942b12dfa87ed9fb39cf7f6cfbb1d3f64cc4461097c527f266a28e9428697f"
+    }
+  ],
+  "source_bindings_still_match": true,
+  "log_path": "audit/astronaut_clearance_20261006/SAVE_LIFECYCLE_LOG.txt",
+  "log_sha256": "281654aaf04b6d1a8d51cf4d2a8691b79b172b084b73a4f2ea069fb337b9cdfe",
+  "isolated_save_files": [
+    {
+      "path": "tmp/astronaut_save_lifecycle_20261006/reef_save.json",
+      "size_bytes": 4682,
+      "sha256": "fbf1f410da0d07c3b1a05a3463ecc845a487c1da93167dfee5a1ce896ef66948"
+    },
+    {
+      "path": "tmp/astronaut_save_lifecycle_20261006/reef_save.json.bak",
+      "size_bytes": 4701,
+      "sha256": "3f4db938dacdcc043304d291b972d4513ed4f57919a0e48e8f8ee024c2af6560"
+    }
+  ],
+  "meaning": "Current-source genuine-input partial-save repair check; no visual/current-native/whole-action/device/child/owner acceptance; no original save read/write; fixture story prerequisites and production cancel callback explicitly scoped."
+}

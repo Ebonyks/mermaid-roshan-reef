@@ -1,0 +1,57 @@
+{
+  "result": "PASS",
+  "checked_utc": "2026-10-07T18:37:21.809577+00:00",
+  "steps": [
+    {
+      "label": "Authority",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-X",
+        "utf8",
+        "-B",
+        "tools/audit_document_authority.py"
+      ],
+      "exit_code": 0,
+      "seconds": 15.141
+    },
+    {
+      "label": "Development",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-X",
+        "utf8",
+        "-B",
+        "tools/audit_development.py",
+        "--base",
+        "auto"
+      ],
+      "exit_code": 0,
+      "seconds": 4.122
+    },
+    {
+      "label": "Post-record development",
+      "exit_code": 0,
+      "seconds": 4.0
+    }
+  ],
+  "failure": null,
+  "gate_seconds": 23.593,
+  "cap_seconds": 50,
+  "prior_source_method_process_seconds": 3.9151958,
+  "native_launches": 0,
+  "production_control_bindings": "Unchanged11core bindings verified in source receipt642a01c3; no native art grade.",
+  "paths": [
+    "audit/astronaut_clearance_20261006/PIPE_NATIVE_RUNNER_V2_PLAN.json",
+    "audit/astronaut_clearance_20261006/run_pipe_material_native_v2.py",
+    "audit/astronaut_clearance_20261006/PIPE_NATIVE_RUNNER_V2_SOURCE_RECEIPT.json",
+    "audit/astronaut_clearance_20261006/IMAGEGEN_POLICY_RECHECK_V1.json",
+    "audit/astronaut_clearance_20261006/PIPE_RASTER_REUSE_INVENTORY_V1.json",
+    "audit/astronaut_clearance_20261006/STATUS.json",
+    "audit/astronaut_clearance_20261006/PIPE_NATIVE_RUNNER_V2_FINAL_LOG.txt",
+    "audit/astronaut_clearance_20261006/PIPE_NATIVE_RUNNER_V2_FINAL_RECEIPT.json",
+    "design/audit_impacts/astronaut-clearance-20261006.json"
+  ],
+  "source_only": true,
+  "known_older_document_charge_seconds": 323.131,
+  "scope": "Final gates for capture-runner repair and verified human ImageGen correction/raster inventory. Old540path seal remains historical at exact prior bytes. No complete-suite, runtime/art acceptance, publication or integration."
+}

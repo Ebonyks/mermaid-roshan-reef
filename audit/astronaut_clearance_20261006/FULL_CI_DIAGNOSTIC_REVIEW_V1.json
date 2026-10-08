@@ -1,0 +1,93 @@
+{
+  "result": "FOCUSED_RUNTIME_RECOVERIES_PASS",
+  "checked_utc": "2026-10-07T22:19:05.110823+00:00",
+  "baseline": "96274aab9cebd563b10846a4a48de5d017588563",
+  "current_origin_dev": "c3b39155d8ab03e09224c0796456c35d1ec410bd",
+  "rules": "Existing impact DL-AUTH-05/06/07,DL-CODE-07,DL-QA-01/02/03/04/05/11/12,DL-PERF-01/02/03; MA-PLAY-004/005 related, no lifecycle satisfaction claim.",
+  "Opera": {
+    "receipt": "FULL_CI_DIAGNOSTIC_V3_RECEIPT.json",
+    "receipt_sha256": "d1f457af6c1cbecd69e0dd68fa948a162989082cd94bfc60ec993da3d491de35",
+    "checks": 1385,
+    "engine_seconds": 28.012,
+    "exit": 0,
+    "all_four_new_patch_guards": "PASS; queued/noimmediate, stale/outoforder, exactlyoneownerack, repeatedacknegative; surfaceAPIfixture remains distinct from livephysicalacting evidence.",
+    "resource_policy_failures": 0
+  },
+  "boss": {
+    "receipt": "FULL_CI_DIAGNOSTIC_V4_RECEIPT.json",
+    "receipt_sha256": "1a36c4683d0018646f0dd82fc7c6fb73b9f43c67bc93f8b9a6bd0fa1a150a879",
+    "engine_seconds": 234.142,
+    "exit": 0,
+    "ordered_case_names": [
+      "attentive",
+      "learning",
+      "slow",
+      "slow_counter",
+      "patient_dodger",
+      "patient_counter",
+      "patient_both",
+      "moving_masher",
+      "idle",
+      "stationary_masher",
+      "held_action",
+      "movement_only"
+    ],
+    "case_lines": [
+      "DUSTBAL|attentive,31.35,3,0,5,0,3,OK",
+      "DUSTBAL|learning,34.12,3,0,5,0,3,OK",
+      "DUSTBAL|slow,39.62,3,0,5,0,3,OK",
+      "DUSTBAL|slow_counter,50.19,3,0,5,2,3,OK",
+      "DUSTBAL|patient_dodger,60.51,3,2,5,0,3,OK",
+      "DUSTBAL|patient_counter,56.20,3,0,5,2,3,OK",
+      "DUSTBAL|patient_both,99.92,3,2,5,2,3,OK",
+      "DUSTBAL|moving_masher,30.17,3,0,5,0,194,OK",
+      "DUSTBAL|idle,60.02,0,0,0,0,0,OK",
+      "DUSTBAL|stationary_masher,60.02,0,0,0,0,395,OK",
+      "DUSTBAL|held_action,60.02,0,0,0,0,0,OK",
+      "DUSTBAL|movement_only,60.00,0,0,1,2,0,OK"
+    ],
+    "complete_verdict": "DUSTBAL|result: ALL OK",
+    "resource_policy_failures": 0
+  },
+  "source": {
+    "bindings": "FULL_CI_RECOVERY_V1_SOURCE_BINDINGS.json",
+    "binding_sha256": "74a6d206b32de23953eb1fde505880dbbc5ca351e478fd2791721b2cc5bb8723",
+    "current_binding_count": 310,
+    "current_changes": [],
+    "only_change_since_original_full_CI": [
+      "scripts/probe_opera_2d.gd"
+    ],
+    "production_changes_this_turn": []
+  },
+  "limits": {
+    "original_full_CI_V3": "FAIL; rawreceipt/log/exit unchanged. No allOK one-command current-source CI result.",
+    "reconciled_current_probe_exit_coverage": {
+      "count": 82,
+      "zero": 82,
+      "scope": "79 unchanged-source parent exits plus three complete focused recoveries. Humanart headlessSKIP remains visualunverified. This composite is not a new scripts/ci.sh pass."
+    },
+    "native_exit_cause": "UNRESOLVED. Verbose runs pass with steady resources, but neither Windowsfailure queries nor owned counter snapshots identify the cause of prior0xffffffff exits. No attribution to other agents or declaration of fixed engine defect.",
+    "current_art": "No pixels/captures/generation changed this turn. V9 nativeproduction binding remains same; test-script snapshot changed, do not relabel old fullsnapshot as newlycaptured.",
+    "creative": "No newnumeric scores or 4.6clearance. PIPEelbow budget authorization, PARKpush acting and ordinaryLAUNCH choice remain pending; independent/device/child/owner evidence unresolved.",
+    "publication": "NOT_COMMITTED/NOT_PUSHED; no devmerge/promotion orhandoff claim."
+  },
+  "budget": {
+    "original_CI_seconds": 3600,
+    "charged_before_post_diagnostic_closure": 3487.743,
+    "remaining_before_closure": 112.257,
+    "closure_preparation_reserve": 15,
+    "document_gates_seconds_ceiling": 25,
+    "reserve_total": 40,
+    "no_reset": true
+  },
+  "source_references": [
+    {
+      "url": "https://learn.microsoft.com/en-us/windows/win32/procthread/terminating-a-process",
+      "scope": "Exitcode may originate from process exit/main return/TerminateProcess/fatal exception; code alone does not identify caller. No diagnosis inferred."
+    },
+    {
+      "url": "https://github.com/godotengine/godot/blob/master/platform/windows/godot_windows.cpp",
+      "scope": "Current upstream Windows entry; not a verified4.7.2 source revision and not deployed baseline proof. General investigation only."
+    }
+  ]
+}

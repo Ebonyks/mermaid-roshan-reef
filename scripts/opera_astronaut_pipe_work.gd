@@ -1,0 +1,235 @@
+extends RefCounted
+## Presentation for one released pipe piece. World/surface retain gameplay state.
+
+# Measured candidate jaw openings in the intact 256px work cells. Native motion
+# and human contact review remain required; these are not accepted pose scores.
+const JAW_A := Vector2(43.0, 92.0)
+const JAW_B := Vector2(43.0, 93.0)
+const CONTACT_RADIUS := 4.0
+
+var world: OperaCareerWorld2D
+var state := ""
+var request_id := -1
+var phase_index := -1
+var cell := -1
+var state_t := 0.0
+var travel_seconds := 0.0
+var travel_start := Vector2.ZERO
+var work_position := Vector2.ZERO
+var work_flip := false
+var entry_position := Vector2.ZERO
+var entry_scale := Vector2.ONE
+var entry_rotation := 0.0
+var entry_flip := false
+var entry_z := 0
+var last_contact: Dictionary = {}
+
+
+func _init(owner: OperaCareerWorld2D) -> void:
+	world = owner
+
+
+func busy() -> bool:
+	return not state.is_empty()
+
+
+func request(next_id: int, next_cell: int) -> void:
+	cancel(false)
+	if not is_instance_valid(world):
+		return
+	var actor := world.player_actor
+	var surface := world.surface as OperaAstronautSurface
+	if actor == null or world.player_animator == null or surface == null \
+			or not world.active or not world.task_open:
+		if surface != null:
+			surface.cancel_input()
+		return
+	request_id = next_id
+	phase_index = world.phase_index
+	cell = next_cell
+	var rest: Dictionary = world.actor_rests.get("player", {})
+	entry_position = rest.get("position", actor.position) as Vector2
+	entry_scale = actor.scale
+	entry_rotation = actor.rotation
+	entry_flip = bool(rest.get("flip_h", actor.flip_h))
+	entry_z = actor.z_index
+	var old := world.actor_tweens.get("player") as Tween
+	if old != null and old.is_valid():
+		old.kill()
+	world.actor_tweens.erase("player")
+	world.idle_t = 0.0
+	world.player_animator.play("travel")
+	state = "wait_reveal"
+	state_t = 0.0
+
+
+func cancel(return_to_rest := true) -> void:
+	if busy() and is_instance_valid(world) and is_instance_valid(world.player_actor):
+		var actor := world.player_actor
+		actor.z_index = entry_z
+		if return_to_rest:
+			actor.position = entry_position
+			actor.scale = entry_scale
+			actor.rotation = entry_rotation
+			actor.flip_h = entry_flip
+		if is_instance_valid(world.player_animator):
+			world.player_animator.show_pose("idle", 0)
+	state = ""
+	request_id = -1
+	cell = -1
+	state_t = 0.0
+
+
+func _live() -> bool:
+	return is_instance_valid(world) and is_instance_valid(world.surface) \
+		and is_instance_valid(world.player_actor) \
+		and world.active and world.task_open and world.phase_index == phase_index \
+		and phase_index >= 0 and phase_index < world.phases.size() \
+		and String((world.phases[phase_index] as Dictionary).get("mode", "")) in ["pipe", "gears", "pressure"] \
+		and not (world.surface as OperaAstronautSurface).input_suspended()
+
+
+func _abort() -> void:
+	if not is_instance_valid(world):
+		cancel(false)
+		return
+	var surface := world.surface as OperaAstronautSurface
+	if is_instance_valid(surface) and surface.pipe_work_request_id == request_id \
+			and surface.pipe_work_cell >= 0:
+		surface.cancel_input()
+	cancel()
+
+
+func _jaw_local(point: Vector2) -> Vector2:
+	var actor := world.player_actor
+	var local := point * actor.size / 256.0
+	if actor.flip_h:
+		local.x = actor.size.x - local.x
+	return local
+
+
+func _target_viewport() -> Vector2:
+	return world.surface.get_global_transform_with_canvas() \
+		* (world.surface as OperaAstronautSurface).work_target_point(cell)
+
+
+func _actor_fits() -> bool:
+	var actor := world.player_actor
+	var transform := world.root.get_global_transform_with_canvas().affine_inverse() \
+		* actor.get_global_transform_with_canvas()
+	var minimum := Vector2(INF, INF)
+	var maximum := Vector2(-INF, -INF)
+	for corner: Vector2 in [Vector2.ZERO, Vector2(actor.size.x, 0.0),
+			actor.size, Vector2(0.0, actor.size.y)]:
+		var point := transform * corner
+		minimum = minimum.min(point)
+		maximum = maximum.max(point)
+	return Rect2(12.0, 12.0, 1256.0, 696.0).encloses(Rect2(minimum, maximum - minimum))
+
+
+func _begin_approach() -> bool:
+	var actor := world.player_actor
+	var parent := actor.get_parent() as CanvasItem
+	if parent == null:
+		return false
+	var target := parent.get_global_transform_with_canvas().affine_inverse() * _target_viewport()
+	travel_start = actor.position
+	actor.rotation = 0.0
+	# Face the pipe from the side that preserves the complete figure in frame.
+	for flip: bool in [false, true]:
+		actor.flip_h = flip
+		actor.position = travel_start
+		actor.position += target - actor.get_transform() * _jaw_local(JAW_A)
+		if _actor_fits():
+			work_position = actor.position
+			work_flip = flip
+			actor.position = travel_start
+			# The intact travel row faces left; the wrench has its own facing.
+			actor.flip_h = work_position.x > travel_start.x
+			actor.z_index = world.action_panel.z_index + 1
+			travel_seconds = clampf(travel_start.distance_to(work_position) / 700.0, 0.18, 0.60)
+			state = "approach"
+			state_t = 0.0
+			return true
+	actor.position = travel_start
+	return false
+
+
+func _pose(next_state: String, frame: int) -> void:
+	state = next_state
+	state_t = 0.0
+	world.player_animator.show_pose("work", frame)
+
+
+func contact_eligible(next_id: int, next_phase: int, next_cell: int) -> bool:
+	if state != "contact_b" or state_t < 0.18 or not _live() \
+			or next_id != request_id or next_phase != phase_index or next_cell != cell:
+		return false
+	var actor := world.player_actor
+	var jaw := actor.get_global_transform_with_canvas() * _jaw_local(JAW_B)
+	var atlas := actor.texture as AtlasTexture
+	return jaw.distance_to(_target_viewport()) <= CONTACT_RADIUS \
+		and actor.scale.is_equal_approx(entry_scale) \
+		and world.player_animator.current_animation == "work" \
+		and world.player_animator.current_frame == 1 and atlas != null \
+		and atlas.region == Rect2(256, 512, 256, 256)
+
+
+func tick(delta: float) -> void:
+	if not busy():
+		return
+	if not _live():
+		_abort()
+		return
+	var surface := world.surface as OperaAstronautSurface
+	if state not in ["release", "return"] and (surface.pipe_work_request_id != request_id \
+			or surface.pipe_work_cell != cell):
+		_abort()
+		return
+	state_t += delta
+	var actor := world.player_actor
+	match state:
+		"wait_reveal":
+			if world.action_panel.scale.is_equal_approx(Vector2.ONE):
+				if not _begin_approach():
+					_abort()
+			elif state_t > 0.50:
+				_abort()
+		"approach":
+			var progress := clampf(state_t / travel_seconds, 0.0, 1.0)
+			actor.position = travel_start.lerp(work_position, smoothstep(0.0, 1.0, progress))
+			if progress >= 1.0:
+				actor.flip_h = work_flip
+				_pose("anticipation", 2)
+		"anticipation":
+			if state_t >= 0.12:
+				_pose("contact_a", 0)
+		"contact_a":
+			if state_t >= 0.16:
+				_pose("contact_b", 1)
+		"contact_b":
+			if state_t >= 0.18:
+				var jaw := actor.get_global_transform_with_canvas() * _jaw_local(JAW_B)
+				var target := _target_viewport()
+				var atlas := actor.texture as AtlasTexture
+				if not world._commit_astronaut_pipe_work(request_id, phase_index, cell):
+					_abort()
+					return
+				last_contact = {"request_id": request_id, "phase_index": phase_index,
+					"cell": cell, "jaw": jaw, "target": target,
+					"distance": jaw.distance_to(target), "scale": actor.scale,
+					"atlas_region": atlas.region, "time_msec": Time.get_ticks_msec()}
+				_pose("release", 2)
+		"release":
+			if state_t >= 0.16:
+				state = "return"
+				state_t = 0.0
+				travel_start = actor.position
+				travel_seconds = clampf(travel_start.distance_to(entry_position) / 700.0, 0.18, 0.60)
+				actor.flip_h = entry_position.x > travel_start.x
+				world.player_animator.play("travel")
+		"return":
+			var progress := clampf(state_t / travel_seconds, 0.0, 1.0)
+			actor.position = travel_start.lerp(entry_position, smoothstep(0.0, 1.0, progress))
+			if progress >= 1.0:
+				cancel()

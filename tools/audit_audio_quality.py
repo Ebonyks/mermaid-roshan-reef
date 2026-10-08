@@ -23,6 +23,12 @@ AUDIO_SUFFIXES = {".ogg", ".wav", ".mp3"}
 VOICE_ROOT_REL = "assets/audio/voices/"
 FILLER_ROOT_REL = "assets/audio/voices/filler_v1/"
 FILLER_MANIFEST_NAME = "FILLER_MANIFEST.json"
+ENGINEERING_ROOT_REL = "assets/audio/voices/astronaut_engineering_v1/"
+ENGINEERING_KEYS = {"roshan_op_astronaut_gears", "roshan_op_astronaut_pressure"}
+HISTORICAL_PIPELINE_SOURCES = {
+    ("tools/master_filler_voices.py", "5f236a10632d933e51a26b3fd47fe8b95d75ed3f42b2b51a121a043f5637ed7f"):
+        "assets_src/audio/astronaut_engineering_devices_20261007/master_filler_voices_before_subset.py.txt",
+}
 TEACHER_ROOT_REL = "assets/audio/teacher/"
 TEACHER_MANIFEST_REL = "assets_src/teacher_learning_2026-09-05/audio_manifest.json"
 TEACHER_SOURCE_SNAPSHOT_REL = (
@@ -302,6 +308,11 @@ def validate_text_hash_map(root: Path, issues: list[str], label: str,
             issues.append(f"{label} path missing: {relative}")
             continue
         actual = normalized_text_sha256(path)
+        archive_rel = HISTORICAL_PIPELINE_SOURCES.get((str(relative), expected.lower())) if label == "pipeline_script_sha256" else None
+        if actual.lower() != expected.lower() and archive_rel is not None:
+            archive = _safe_relative(root, archive_rel)
+            if archive is not None and archive.is_file():
+                actual = normalized_text_sha256(archive)
         if actual.lower() != expected.lower():
             issues.append(f"{label} mismatch: {relative}")
             continue
@@ -362,6 +373,24 @@ def authoritative_filler_lines(root: Path,
     return expected
 
 
+
+def _engineering_catalog_only_change(before: bytes, after: bytes) -> bool:
+    """Allow only the two commissioned additions; freeze all prior producer code."""
+    def without_new_lines(source: bytes) -> str:
+        tree = ast.parse(source.decode("utf-8"))
+        for node in tree.body:
+            if isinstance(node, ast.Assign) and any(isinstance(target, ast.Name) and target.id == "LINES" for target in node.targets) and isinstance(node.value, ast.Dict):
+                kept = [(key, value) for key, value in zip(node.value.keys, node.value.values)
+                        if not isinstance(key, ast.Constant) or key.value not in ENGINEERING_KEYS]
+                node.value.keys = [item[0] for item in kept]
+                node.value.values = [item[1] for item in kept]
+        return ast.dump(tree, include_attributes=False)
+    try:
+        return without_new_lines(before) == without_new_lines(after)
+    except (SyntaxError, UnicodeError):
+        return False
+
+
 def validate_teacher_manifest(root: Path) -> dict[str, object]:
     """Validate the separately delivered Teacher speech cohort."""
     manifest_path = root / TEACHER_MANIFEST_REL
@@ -407,7 +436,7 @@ def validate_teacher_manifest(root: Path) -> dict[str, object]:
     if snapshot and current_generator.is_file():
         normalized_snapshot = snapshot.replace(b"\r\n", b"\n")
         normalized_current = current_generator.read_bytes().replace(b"\r\n", b"\n")
-        if normalized_snapshot != normalized_current:
+        if normalized_snapshot != normalized_current and not _engineering_catalog_only_change(normalized_snapshot, normalized_current):
             issues.append("Teacher generator snapshot disagrees with current normalized source")
     speaker_config = generator.get("speaker_config")
     expected_speaker = {
@@ -687,8 +716,27 @@ def validate_generation_evidence(root: Path, manifest: dict[str, object],
         if candidate_path.is_file():
             external_candidates = _candidate_evidence(
                 root, attempt, candidate_manifest_value)
-            if attempt in candidate_cache and external_candidates != candidate_cache[attempt]:
-                issues.append(f"{run_name} embedded candidate rows disagree with local manifest")
+            if attempt in candidate_cache:
+                for key, external in external_candidates.items():
+                    embedded = candidate_cache[attempt].get(key, {})
+                    raw_value = external.get("raw_path")
+                    if embedded.get("raw_hash_verified") is True and isinstance(raw_value, str):
+                        raw_path = Path(raw_value)
+                        if not raw_path.is_absolute():
+                            raw_path = root / raw_path
+                        try:
+                            relative_raw = raw_path.resolve().relative_to(root.resolve()).as_posix()
+                        except ValueError:
+                            continue
+                        if raw_path.is_file():
+                            external["raw_path"] = relative_raw
+                            external["raw_hash_verified"] = sha256(raw_path) == external.get("raw_sha256")
+                            # A copied staging WAV is the same source only after both hashes match.
+                            staged = _safe_relative(root, embedded.get("raw_path"))
+                            if external["raw_hash_verified"] and staged is not None and staged.is_file() and sha256(staged) == external.get("raw_sha256"):
+                                external["raw_path"] = embedded["raw_path"]
+                if external_candidates != candidate_cache[attempt]:
+                    issues.append(f"{run_name} embedded candidate rows disagree with local manifest")
             candidate_cache[attempt] = external_candidates
     for entry in entries:
         key = str(entry.get("key", ""))
@@ -759,7 +807,8 @@ def validate_generation_evidence(root: Path, manifest: dict[str, object],
 
 
 def validate_filler_manifest(root: Path,
-                             expected_lines: dict[str, tuple[str, str]] | None = None
+                             expected_lines: dict[str, tuple[str, str]] | None = None,
+                             *, cohort_root_rel: str = FILLER_ROOT_REL
                              ) -> dict[str, object]:
     """Validate the optional provisional filler cohort and return its state.
 
@@ -767,7 +816,7 @@ def validate_filler_manifest(root: Path,
     being generated.  Once present, every OGG must have one manifest entry and
     every entry must have a matching hash and delivery measurement.
     """
-    manifest_path = root / FILLER_ROOT_REL / FILLER_MANIFEST_NAME
+    manifest_path = root / cohort_root_rel / FILLER_MANIFEST_NAME
     if not manifest_path.exists():
         return {
             "present": False, "blocking": False, "issues": [],
@@ -845,7 +894,7 @@ def validate_filler_manifest(root: Path,
         issues.append("generation_run_provenance must be an object")
         generation_runs = {}
     validate_generation_evidence(root, manifest, entries, generation_runs, issues)
-    filler_root = root / FILLER_ROOT_REL
+    filler_root = root / cohort_root_rel
     actual_names = {path.name for path in filler_root.glob("*.ogg")}
     for missing in sorted(expected_names - actual_names):
         issues.append(f"manifest entry missing OGG: {missing}")
@@ -1019,6 +1068,20 @@ def validate_filler_manifest(root: Path,
     }
 
 
+
+def validate_engineering_manifest(root: Path,
+                                  authority: dict[str, tuple[str, str]]) -> dict[str, object]:
+    """Keep the additive engineering cohort under the complete filler gate."""
+    scoped = {key: authority[key] for key in ENGINEERING_KEYS if key in authority}
+    state = validate_filler_manifest(root, scoped, cohort_root_rel=ENGINEERING_ROOT_REL)
+    if scoped and set(scoped) != ENGINEERING_KEYS:
+        state["issues"].append("engineering cue authority must contain both exact objectives")
+    if scoped and not state["present"]:
+        state["issues"].append("required engineering cue manifest is missing")
+    state["blocking"] = bool(state["issues"])
+    return state
+
+
 def run(args: list[str]) -> subprocess.CompletedProcess[str]:
     return subprocess.run(args, capture_output=True, text=True, check=False)
 
@@ -1114,7 +1177,7 @@ def grade(rel: str, meta: dict[str, object], peak: float | None) -> tuple[str, i
         return "C", 3, "P2", "LISTEN_REPLACE_CANDIDATE"
     if protected_kind(rel):
         return "B", 4, "P2", "KEEP_PROTECTED"
-    if rel.startswith(FILLER_ROOT_REL):
+    if rel.startswith((FILLER_ROOT_REL, ENGINEERING_ROOT_REL)):
         return "A", "", "P1", "REVIEW_PROVISIONAL_FILLER"
     if category(rel) == "voice" and peak is not None and peak > -1.5:
         return "B", 3, "P2", "RENDER_TRUE_PEAK_SAFE"
@@ -1139,10 +1202,12 @@ def source_text(root: Path) -> str:
     return "\n".join(chunks)
 
 
-def build_rows(root: Path, filler_validation: dict[str, object] | None = None) -> list[dict[str, object]]:
+def build_rows(root: Path, filler_validation: dict[str, object] | None = None,
+               engineering_validation: dict[str, object] | None = None) -> list[dict[str, object]]:
     text = source_text(root)
     filler_validation = filler_validation or validate_filler_manifest(root)
     filler_names = set(filler_validation.get("expected_names", set()))
+    engineering_validation = engineering_validation or {}
     rows: list[dict[str, object]] = []
     audio_root = root / "assets" / "audio"
     for path in sorted(
@@ -1160,8 +1225,9 @@ def build_rows(root: Path, filler_validation: dict[str, object] | None = None) -
         technical, subjective, severity, decision = grade(rel, meta, peak)
         basename = path.name
         filler = rel.startswith(FILLER_ROOT_REL)
+        engineering = rel.startswith(ENGINEERING_ROOT_REL)
         kind = protected_kind(rel)
-        cohort = ("filler_v1" if filler else kind or
+        cohort = ("astronaut_engineering_v1" if engineering else "filler_v1" if filler else kind or
                   ("legacy_voice" if category(rel) == "voice" else category(rel)))
         legacy_path = f"{VOICE_ROOT_REL}{basename}"
         shadowed_by = f"{FILLER_ROOT_REL}{basename}" if basename in filler_names and not filler else ""
@@ -1170,8 +1236,8 @@ def build_rows(root: Path, filler_validation: dict[str, object] | None = None) -
             "category": category(rel),
             "cohort": cohort,
             "protected": bool(kind),
-            "filler_manifest_present": bool(filler_validation.get("present")),
-            "filler_manifest_blocking": bool(filler_validation.get("blocking")) if filler else False,
+            "filler_manifest_present": bool((engineering_validation if engineering else filler_validation).get("present")),
+            "filler_manifest_blocking": bool((engineering_validation if engineering else filler_validation).get("blocking")) if filler or engineering else False,
             "shadowed_legacy_path": legacy_path if filler and (root / legacy_path).exists() else "",
             "shadowed_by_filler_path": shadowed_by,
             "sha256": sha256(path),
@@ -1192,7 +1258,7 @@ def build_rows(root: Path, filler_validation: dict[str, object] | None = None) -
             "runtime_reference_count": text.count(basename),
             "routing": "dynamic_voice" if category(rel) == "voice" else "asset_or_dynamic",
             "provenance": "protected_original" if kind else (
-                "provisional_filler_manifest" if filler else "see_ASSET_LICENSES"),
+                "provisional_filler_manifest" if filler or engineering else "see_ASSET_LICENSES"),
         })
     return rows
 
@@ -1208,7 +1274,8 @@ def csv_text(rows: list[dict[str, object]]) -> str:
 def summary(rows: list[dict[str, object]],
             filler_validation: dict[str, object] | None = None,
             protected_validation: dict[str, object] | None = None,
-            teacher_validation: dict[str, object] | None = None) -> dict[str, object]:
+            teacher_validation: dict[str, object] | None = None,
+            engineering_validation: dict[str, object] | None = None) -> dict[str, object]:
     technical = Counter(str(row["technical_grade"]) for row in rows)
     decisions = Counter(str(row["decision"]) for row in rows)
     categories = Counter(str(row["category"]) for row in rows)
@@ -1224,6 +1291,10 @@ def summary(rows: list[dict[str, object]],
         "protected_recordings": protected_validation or {},
         "filler_manifest": {
             key: value for key, value in (filler_validation or {}).items()
+            if key != "expected_names"
+        },
+        "engineering_manifest": {
+            key: value for key, value in (engineering_validation or {}).items()
             if key != "expected_names"
         },
         "teacher_manifest": {
@@ -1250,16 +1321,19 @@ def main() -> int:
     json_path = out_dir / "audio_quality_summary_2026-08-24.json"
     teacher_validation = validate_teacher_manifest(root)
     teacher_keys = set(teacher_validation.get("declared_keys", set()))
+    authority = authoritative_filler_lines(root, teacher_keys)
+    engineering_validation = validate_engineering_manifest(root, authority)
     filler_validation = validate_filler_manifest(
-        root, authoritative_filler_lines(root, teacher_keys))
+        root, {key: value for key, value in authority.items() if key not in ENGINEERING_KEYS})
     protected_validation = protected_audit(root)
-    rows = build_rows(root, filler_validation)
+    rows = build_rows(root, filler_validation, engineering_validation)
     rendered_csv = csv_text(rows)
     rendered_json = json.dumps(
-        summary(rows, filler_validation, protected_validation, teacher_validation),
+        summary(rows, filler_validation, protected_validation, teacher_validation, engineering_validation),
         indent=2, sort_keys=True,
     ) + "\n"
-    blocking = (list(filler_validation.get("issues", []))
+    blocking = (list(engineering_validation.get("issues", []))
+                + list(filler_validation.get("issues", []))
                 + list(teacher_validation.get("issues", []))
                 + list(protected_validation.get("issues", [])))
     if blocking:

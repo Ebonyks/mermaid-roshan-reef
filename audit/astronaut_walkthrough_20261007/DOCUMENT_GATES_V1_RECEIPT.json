@@ -1,0 +1,28 @@
+{
+  "result": "FAIL",
+  "started_utc": "2026-10-07T16:27:28.151596+00:00",
+  "finished_utc": "2026-10-07T16:27:29.544075+00:00",
+  "elapsed_seconds": 1.392,
+  "aggregate_cap_seconds": 90,
+  "steps": [
+    {
+      "label": "artifact parity",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-B",
+        "C:\\Users\\Peter\\.codex\\worktrees\\astronaut-goal-20261006\\mermaid-roshan-reef\\audit\\astronaut_walkthrough_20261007\\verify_walkthrough.py"
+      ],
+      "exit": 1,
+      "elapsed_seconds": 1.374
+    }
+  ],
+  "errors": [
+    "artifact parity returned 1"
+  ],
+  "source_bindings_unchanged": true,
+  "manifest_unchanged": true,
+  "manifest_sha256": "c63f62af332eb66c2ad19385eba62d243e22837ccec748be072bcff1b40a520f",
+  "log_sha256": "796bf58819a5b6b857c5cbbf491dd0ac5d26baf9c38f24cc32f02cec752c483c",
+  "engine_launches": 0,
+  "scope": "Document/artifact verification only; full trusted suite, native/browser UI, independent/device/child/owner and GitHub publication pending."
+}

@@ -1,0 +1,138 @@
+{
+  "created_utc": "2026-10-07T14:30:13.263297+00:00",
+  "baseline": "96274aab9cebd563b10846a4a48de5d017588563",
+  "branch": "codex/astronaut-clearance-20261006",
+  "origin_dev": "6238934447cf28834874396dfbaff65effafda46",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-VIS-04",
+    "DL-VIS-05",
+    "DL-VIS-06",
+    "DL-VIS-08",
+    "DL-INT-01",
+    "DL-INT-02",
+    "DL-INT-04",
+    "DL-MOT-01",
+    "DL-MOT-03",
+    "DL-MOT-04",
+    "DL-MOT-12",
+    "DL-MOT-13",
+    "DL-MOT-16",
+    "DL-UI-03",
+    "DL-UI-05",
+    "DL-SAVE-01",
+    "DL-SAVE-03",
+    "DL-QA-03",
+    "DL-QA-06",
+    "DL-QA-11"
+  ],
+  "findings": [
+    "MA-PLAY-004",
+    "MA-SAVE-002",
+    "MA-VIS-006"
+  ],
+  "sources_before": [
+    {
+      "path": "scripts/opera_astronaut_surface.gd",
+      "sha256": "4c6f460f03d6b9610cb3d14305cf069f6841e122f200cdaa2f59f49120906c63",
+      "literal_snapshot": "audit/astronaut_clearance_20261006/PATCH_READABILITY_BEFORE_SURFACE_SOURCE.txt"
+    },
+    {
+      "path": "scripts/opera_career_world_2d.gd",
+      "sha256": "b567bb47894a25f26cb94e70b24ec3eda55e7e2ee6ab45247d46a2a13e8642cf"
+    }
+  ],
+  "baseline_visual_failure": {
+    "review": "PATCH_CONTACT_REVIEW.json",
+    "sha256": "cf54528bd3825ee0c910a396fc080a078b2dd4fe71f1eb9e2d41cc0a9c0228c0",
+    "score": 3.6,
+    "failure": "Unrepaired damage faint/ambiguous; awarded shell emblem looks decorative rather than a repair, ring overlaps jaw; sparse whole-figure acting remains open."
+  },
+  "inventory": [
+    {
+      "path": "assets/opera/worlds/widgets/widget_target_astronaut_mover.png",
+      "sha256": "5d11779c6c9d702dbbca75e359e019382b52e670f5fa6d3f1e47856878b5db15",
+      "dimensions": [
+        256,
+        256
+      ],
+      "modification": "None; approved existing source preserved",
+      "provenance": "Existing ASSET_LICENSES.md Opera isolated role art / project-original target pieces"
+    },
+    {
+      "path": "assets/opera/worlds/widgets/widget_target_astronaut_piece_0.png",
+      "sha256": "bfafdf432e4e0cd42bef4c436bc50839e0ecb48f322e84da2cbb2a312afefe04",
+      "dimensions": [
+        256,
+        256
+      ],
+      "modification": "None; approved existing source preserved",
+      "provenance": "Existing ASSET_LICENSES.md Opera isolated role art / project-original target pieces"
+    },
+    {
+      "path": "assets/opera/worlds/widgets/widget_target_astronaut_piece_1.png",
+      "sha256": "218c33235451de371a7644e18629a636955edc27722fc41de1d5167edf4cfd5d",
+      "dimensions": [
+        256,
+        256
+      ],
+      "modification": "None; approved existing source preserved",
+      "provenance": "Existing ASSET_LICENSES.md Opera isolated role art / project-original target pieces"
+    },
+    {
+      "path": "assets/opera/worlds/widgets/widget_target_astronaut_piece_2.png",
+      "sha256": "b2ac73c372b40b53914a3146c9c5c036ed9df0db898e699d64499d1b17d00b52",
+      "dimensions": [
+        256,
+        256
+      ],
+      "modification": "None; approved existing source preserved",
+      "provenance": "Existing ASSET_LICENSES.md Opera isolated role art / project-original target pieces"
+    },
+    {
+      "path": "assets/opera/worlds/actors/animation/roshan_astronaut_sheet_a.png",
+      "sha256": "ccfb8e7af3a033e31e05af40fa62dc23b676aec6204ba8810e8cf79cbfc4d6fa",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "modification": "None; approved existing source preserved",
+      "provenance": "Existing ASSET_LICENSES.md Opera isolated role art / project-original target pieces"
+    }
+  ],
+  "choice": "Direct reuse of existing horizontal rocket and fixed coral riveted repair plate(piece2); retain shell/rivet sources untouched. Code-native sparse dark-violet damage and small aqua/gold leak effects fill the cue gap without creating a new bitmap. No source generation/redesign. Context-local draw override only; no generic other-career changes.",
+  "contract": {
+    "identity": "Intact existing whole actor at current entry size, existing work and travel frames; no new character motion in this slice.",
+    "damage": "All five original anchors visibly leak until their existing earned mask changes. Three small aqua bubbles and one gold sparkle identify an unresolved local nick; next target cue stays simple.",
+    "consequence": "One fixed coral repair plate replaces each earned leak; no shell emblem, bounce, success ring or ongoing leak over repaired target. Exact target center is unchanged.",
+    "ownership": "Drawing reads only existing earned target mask and queue; no draw timer grants progress. World-owned contact still commits the same original gesture/save effects.",
+    "input": "Original generous nearest-unrepaired hit selection and touch ownership remain; ordinary/birthday/practice contexts preserved.",
+    "trace": "Fresh native fixture records actual PATCH helper state/generation/queue/last-contact plus alpha and target draw route; original127assertions retained. Headless retains141assertions and adds three-remaining-request rapid drain evidence; fullfivefreshqueue still separately open."
+  },
+  "required_evidence": [
+    "Exact-engine analyzers and current-source genuine four-mechanic/partial-save/finish/return headless/native checks.",
+    "Two untouched1280/1600 Mobile/Vulkan actual native captures of open damage, local work, repaired consequence and partial/reloaded masks; source/log/pixel/whole-figure/contact bindings.",
+    "Required parser/inference/authority/coverage/unit/stress/2D and literal staged-byte gates. Independent/fulltrusted/fullnatural/strictQA11/device/child/owner remain distinct."
+  ],
+  "caps": {
+    "headless_seconds": 220,
+    "native_seconds": 300,
+    "document_seconds": 120,
+    "native_output_bytes": 536870912,
+    "cache_growth_bytes": 67108864,
+    "owned_engine_processes": 1,
+    "no_automatic_retry": true,
+    "prior_patch_headless_seconds": 111.999,
+    "prior_patch_native_seconds": 255.172,
+    "prior_patch_document_seconds": 69.653,
+    "prior_valve_headless_seconds": 97.711,
+    "prior_valve_native_seconds": 227.677,
+    "prior_valve_prelaunch_seconds": 8.6128821,
+    "prior_valve_document_seconds": 86.111,
+    "prior_direction_seconds": 213.086,
+    "prior_release_slice_seconds": 595.844
+  },
+  "authority": "Active goal authorizes this routine code drawing/approved art reuse repair. No art generation, installation, external metadata messaging or release. Existing PARK/LAUNCH artistic decisions remain pending; no creative acceptance implied."
+}

@@ -1,0 +1,94 @@
+{
+  "status": "TERMINAL",
+  "started_utc": "2026-10-07T07:40:32.669599+00:00",
+  "sources": [
+    {
+      "path": "scripts/opera_astronaut_surface.gd",
+      "sha256": "69d53c911ea8b855a21512d6705bad62e79c3ced80fa705c77270aac6927cb8d"
+    },
+    {
+      "path": "scripts/opera_career_world_2d.gd",
+      "sha256": "dad92d6c2f174597c4cd590ef3a06f2ffcd48f961616e302317362a1ef1d02c7"
+    },
+    {
+      "path": "scripts/save_state.gd",
+      "sha256": "13b77592028653cdcac67e54264f049bbab01c6566b4fad1ea9bdf89a37a07c8"
+    },
+    {
+      "path": "scripts/probe_opera_gesture_quality.gd",
+      "sha256": "d6ebc13d2ad83353102c95eb819afa637545b4fc41e349074475a07e40fcd8c3"
+    },
+    {
+      "path": "audit/MASTER_AUDIT_2026-08-09.md",
+      "sha256": "668d2ab96e5c9a6918cb8454beb0dc23bfef2530a47e6d8f613f6004ca2f9af5"
+    },
+    {
+      "path": "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
+      "sha256": "0ab99b58832d432dd542c84ab63e5a2de1f10a5c3cc941906c632fdd6f0dd5b6"
+    },
+    {
+      "path": "design/05_DOC_LEDGER.md",
+      "sha256": "00c1efc4d0b33312c2a8d50571edc67196392ffa5d4dd5519e86e964a30ffe3e"
+    },
+    {
+      "path": ".gitattributes",
+      "sha256": "ba6b192a5b72d3b255192a44565537a35f02e12c8d3102600c38d5c9cdde0698"
+    }
+  ],
+  "results": [
+    {
+      "command": [
+        "C:/Users/Peter/AppData/Local/Python/bin/python.exe",
+        "-X",
+        "utf8",
+        "-B",
+        "tools/audit_document_authority.py"
+      ],
+      "exit_code": 0,
+      "result": "PASS",
+      "summary": [
+        "DOCAUTH|INVENTORY=678|LEDGER=678|ACTIVE=69|RECORDS=72",
+        "DOCAUTH|RESULT|ALL OK"
+      ]
+    },
+    {
+      "command": [
+        "C:/Users/Peter/AppData/Local/Python/bin/python.exe",
+        "-X",
+        "utf8",
+        "-B",
+        "tools/audit_game_2d.py",
+        "--regression-gate"
+      ],
+      "exit_code": 0,
+      "result": "PASS",
+      "summary": [
+        "GAME2D| DEBT| model_files=0| model_scan_coverage_files=0| active_export_model_files=0| model_import_sidecars=0| active_untracked_model_import_sidecars=0| model_archive_files=0| production_3d_files=52| probe_3d_files=61| scene_3d_files=1| configuration_3d_files=1| archive_now_model_files=0",
+        "GAME2D| STATUS| UNSATISFIED",
+        "GAME2D| RESULT| NO_REGRESSION - exact shrinking baseline; migration debt remains UNSATISFIED"
+      ]
+    },
+    {
+      "command": [
+        "C:/Users/Peter/AppData/Local/Python/bin/python.exe",
+        "-X",
+        "utf8",
+        "-B",
+        "tools/audit_development.py",
+        "--base",
+        "auto"
+      ],
+      "exit_code": 0,
+      "result": "PASS",
+      "summary": [
+        "AUDITDEV|BASE|96274aab9cebd563b10846a4a48de5d017588563",
+        "AUDITDEV|RESULT|ALL OK"
+      ]
+    }
+  ],
+  "finished_utc": "2026-10-07T07:43:17.415874+00:00",
+  "result": "PASS",
+  "log_sha256": "c1a4e0811ede14d332675b3aba190903dbfd3456b55419f7c2a204c1bed5571f",
+  "source_bindings_match": true,
+  "meaning": "Packet-only Git byte retention plus exact documentary/medium/coverage gates. No runtime-source byte changes, full trusted suite or4.6native/independent/device/child/owner acceptance."
+}

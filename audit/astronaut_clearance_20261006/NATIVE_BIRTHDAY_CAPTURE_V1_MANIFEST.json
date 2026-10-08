@@ -1,0 +1,69 @@
+{
+	"capture_method": "RenderingServer.frame_post_draw/get_root.texture.get_image.save_png",
+	"dense_counts": [
+		0,
+		0,
+		0,
+		0
+	],
+	"diagnostic_only": true,
+	"display_server": "Windows",
+	"engine": {
+		"build": "official",
+		"hash": "ed1daf0bf001b61586d9930840f2f1394092c079",
+		"hex": 263938,
+		"major": 4,
+		"minor": 7,
+		"patch": 2,
+		"status": "stable",
+		"string": "4.7.2-stable (official)",
+		"timestamp": 0
+	},
+	"errors": [],
+	"frames": [
+		{
+			"bytes": 1387100,
+			"candle_lit": false,
+			"castle_room": "mermaid_pool",
+			"dimensions": [
+				1280,
+				720
+			],
+			"label": "room_return",
+			"living_stage": "castle.room.mermaid_pool",
+			"main_instance": 120611407363,
+			"monotonic_msec": 14892,
+			"party_started": false,
+			"path": "tmp/astronaut_native_birthday_capture_v1_20261007/frames/0000_room_return.png",
+			"pearls": 0,
+			"process_frame": 889,
+			"rendered_frame": 889,
+			"sha256": "72184ff612574052d5125955770cd4721fecb653341c1400f13114de85784d28",
+			"star_mask": 0,
+			"viewport_canvas_transform": [
+				[
+					1.0,
+					0.0
+				],
+				[
+					0.0,
+					1.0
+				],
+				[
+					0.0,
+					0.0
+				]
+			],
+			"viewport_instance": 120158422467
+		}
+	],
+	"original_behavior_assertions": 103,
+	"rendering_driver": "vulkan",
+	"rendering_method": "mobile",
+	"schema": "reef.astronaut.native_birthday_pilot.v1",
+	"strict_visual_acceptance": false,
+	"viewport": [
+		1280,
+		720
+	]
+}

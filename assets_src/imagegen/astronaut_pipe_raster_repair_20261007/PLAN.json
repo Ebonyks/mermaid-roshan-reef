@@ -1,0 +1,81 @@
+{
+  "created_utc": "2026-10-07T18:43:02.161134+00:00",
+  "baseline": "96274aab9cebd563b10846a4a48de5d017588563",
+  "runtime_source_before": "856b491556e2ed66b80991acfc930058a0bc4850611198beb93ed500b109f888",
+  "rules_in_this_branch": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-ASSET-01",
+    "DL-ASSET-03",
+    "DL-VIS-01",
+    "DL-VIS-02",
+    "DL-VIS-05",
+    "DL-PERF-04"
+  ],
+  "human_correction": "ODR-IMAGEGEN-FIRST-ARTWORK-20261007, verified human Geologist turn01a11778-81de-75f1-b85b-32f6f2c557cf. This source repair applies the direct project-wide instruction; shared DL-ASSET-09/10 candidate docs are not copied or treated as integrated.",
+  "findings": [
+    "MA-VIS-006",
+    "MA-PLAY-004",
+    "MA-SAVE-002"
+  ],
+  "scope": "Named static raster PIPE appearance repair only. No new character, scene, canon, mechanic, input, save, animation or background redesign. Preserve vector study/history but do not use it as appearance pixels.",
+  "gap": "Eight expected runtime pipe images absent. Current code-visible tile artwork is ineligible final source. Existing accepted review/model-reference teal/gold source cards require an isolated cardinal view for actual112px board/84px tray geometry.",
+  "references": [
+    {
+      "path": "assets_src/concepts/opera_jobs_flat_2026-07-21/cards/opera_job_astronaut_engineer_gameplay_straight_pipe.png",
+      "sha256": "0236da6ad35cf15eb6a486550da54769f6c75c621180197e6240baa876aa75e1",
+      "role": "edit_target",
+      "acceptance_scope": "Accepted2026-07-21 generated review/model-reference sheet cell; runtime acceptance not granted",
+      "licence": "ASSET_LICENSES.md row248, OpenAI builtin project-generated art; PROMPTS and OPERA_JOB_FLAT_ART_AUDIT source provenance; deterministic4xcard render of256px sheet cell"
+    },
+    {
+      "path": "assets_src/concepts/opera_jobs_flat_2026-07-21/cards/opera_job_astronaut_engineer_gameplay_elbow_pipe.png",
+      "sha256": "44ff44aaed63d0f2164f5d015d298889a883795db60e26ee2dc0e9b70f645647",
+      "role": "material_identity",
+      "acceptance_scope": "Accepted2026-07-21 generated review/model-reference sheet cell; runtime acceptance not granted",
+      "licence": "ASSET_LICENSES.md row248, OpenAI builtin project-generated art; PROMPTS and OPERA_JOB_FLAT_ART_AUDIT source provenance; deterministic4xcard render of256px sheet cell"
+    }
+  ],
+  "backend": "Default builtin image_gen; no CLI/API key, installation, paid external backend or purchase",
+  "prompt": "Edit target IMAGE_1: the existing painted teal straight pipe with cream-gold collars. IMAGE_2 is supporting material identity for the same pipe family, not an extra object. Produce ONE isolated complete horizontal straight pipe sprite on genuinely transparent RGBA, a polished 2D painted storybook prop for Mermaid Roshan. Preserve the existing teal body, warm cream-gold collar metal, small golden rivets, dark hand-painted contour, and soft painted highlights; no redesign or new palette. Remove the navy card and border. Change only the pipe orientation/view so it reads as a flat front-on horizontal routing piece: one open port at the exact center of the left edge and one at the exact center of the right edge, connected continuously by one straight teal tube. The tube must be centered, level and symmetric in thickness, with no slanted/isometric camera. Keep the whole object inside the canvas; neither collar is cropped. In a square canvas, the outer left/right pipe ends should be at 7% and 93% of width, centered at 50% height; complete silhouette height about 35% of canvas. The end openings must visibly read left and right. Match the rounded painted volume of the references, without photorealism, sharp CAD shading, flat vector fills or line-diagram appearance. No additional objects, panels, labels, text, arrows, glow, water, bubbles, cast ground shadow, checkerboard pixels or background. This is one continuous single-unit pipe, not a scene or multiple tiles. Native requested output 1024x1024 PNG with actual alpha.",
+  "prompt_sha256": "ad99fd12f8abc346291593ee5ac0c0e5ad80c802238d20a431b67d54ca23a20c",
+  "caps": {
+    "family_total_builtin_calls": 2,
+    "first_call_only_now": true,
+    "family_combined_generation_cleanup_seconds": 600,
+    "cleanup_minutes_limit": 10,
+    "external_paid_spend_authorized": false,
+    "native_calls_now": 0,
+    "no_automatic_retry": true,
+    "separate_native_300_second_allowance_consumed": 0
+  },
+  "geometry": {
+    "native_requested": [
+      1024,
+      1024
+    ],
+    "alpha_required": true,
+    "horizontal_mouth_centers_normalized": [
+      [
+        0.07,
+        0.5
+      ],
+      [
+        0.93,
+        0.5
+      ]
+    ],
+    "runtime112px_end_inset": 8,
+    "runtime84px_end_inset": 8,
+    "whole_silhouette_vertical_fraction": 0.35,
+    "only_whole_unit_raster_transforms_permitted": true
+  },
+  "required_evidence": [
+    "Preserve raw generated image/request metadata and bytes/hash/actualdimensions/alpha.",
+    "Human source inspection for2connected cardinal ports, uncropped collars, reference style and novector substitute.",
+    "No runtime adoption without native geometry/contact/input/save/aspect/normal-cadence/independent review; no score transfer from concept source."
+  ],
+  "shared_resources": "QueueV15 snapshot2026-10-07T17:57:03.609948+00:00 showed noheavy allocation; latestread2026-10-07T18:39source check also noheavy allocation. This is a single builtin remote image repair, not a large local import/capturebatch; no exclusive coordinator grant is asserted. Record exactnew snapshot before call.",
+  "status": "PREPARED_NOT_GENERATED"
+}

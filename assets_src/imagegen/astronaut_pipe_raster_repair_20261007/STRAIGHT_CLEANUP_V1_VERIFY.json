@@ -1,0 +1,80 @@
+{
+  "result": "FAIL_RUNTIME_EXPORT_ALPHA",
+  "closed_utc": "2026-10-07T19:00:14.050045+00:00",
+  "source_visible_pixel_preservation": "PASS",
+  "visible_native_pixels_unchanged": 356204,
+  "alpha1_removed_pixels": 4113,
+  "total_changed_including_invisible_RGB": 4371,
+  "native_master_and_png": {
+    "dimensions": [
+      1254,
+      1254
+    ],
+    "alpha_range": [
+      0,
+      255
+    ],
+    "bounds": [
+      62,
+      445,
+      1192,
+      816
+    ]
+  },
+  "editable_master_roundtrip": "PASS_EXACT_ASEPRITE_PIXELS",
+  "runtime_candidate": {
+    "dimensions": [
+      1024,
+      1024
+    ],
+    "alpha_range": [
+      0,
+      254
+    ],
+    "bounds": [
+      51,
+      363,
+      974,
+      666
+    ]
+  },
+  "failed_expectation": "Expected export alpha range[0,255], observed[0,254]; failed original assertion retained. Do not call the whole cleanup/export verificationPASS.",
+  "cause": "Asepritebilinear attenuation is a hypothesis; not proved by a constant-opacity diagnostic yet.",
+  "raw_preserved_sha256": "7fb10766eeb8509827d2c7a7f969fb63b3be3df4682d5400233841c6bf445297",
+  "files": [
+    {
+      "path": "assets_src/imagegen/astronaut_pipe_raster_repair_20261007/STRAIGHT_CLEAN_NATIVE.png",
+      "sha256": "bc1e048ea6d016f33afacd56ae3da8a3f30187315b3d83acdef6bace3e76667b",
+      "bytes": 497010
+    },
+    {
+      "path": "assets_src/imagegen/astronaut_pipe_raster_repair_20261007/STRAIGHT_RUNTIME_CANDIDATE_1024.png",
+      "sha256": "6d6e487b5d0d4dd700c2781c23a201d414fe3911f77fd3770b69c9ac052a62ad",
+      "bytes": 338956
+    },
+    {
+      "path": "assets_src/imagegen/astronaut_pipe_raster_repair_20261007/STRAIGHT_EDITABLE_NATIVE.aseprite",
+      "sha256": "d9ffe02012de9a17a526a71fcab78c1541669d8ab72bc610f33ac29b7dec09f6",
+      "bytes": 1447347
+    },
+    {
+      "path": "assets_src/imagegen/astronaut_pipe_raster_repair_20261007/cleanup_straight.lua",
+      "sha256": "a86d9b07a1745219912418592f26f38c46d801bc521bb66c8fb92750fa69237b",
+      "bytes": 1695
+    }
+  ],
+  "family_builtin_calls": 1,
+  "family_call_ceiling": 2,
+  "first_generation_observed_seconds": 35.3,
+  "Aseprite_process_wall_seconds": 2.4081819,
+  "Aseprite_cpu_seconds": 1.3455485,
+  "family_wall_seconds_from_first_request_to_failure_seal": 929.05,
+  "family_wall_ceiling_seconds": 600,
+  "failure_record_closed_after_ceiling": true,
+  "next": "Source-only constant-alpha/algorithm diagnostic and review of the exact failed derivative before any renewed cleanup. Do not invoke the unused secondcall or expand runtime while this failure remains. All earlier caps/calls and failure evidence retained.",
+  "runtime_adopted": false,
+  "production_source_changed": false,
+  "native_runs": 0,
+  "visual_grade": null,
+  "full_goal": "NOT_ACHIEVED"
+}

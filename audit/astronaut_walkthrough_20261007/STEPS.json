@@ -1,0 +1,477 @@
+{
+  "steps": [
+    {
+      "number": 1,
+      "title": "Continue from saved play",
+      "images": [
+        "0000_start_menu_before_continue.png"
+      ],
+      "cue": "Visible Continue picture button. No captured spoken menu cue.",
+      "finger": "One tap at the centre of Continue.",
+      "body": "This is the title, before Astronaut work begins.",
+      "consequence": "The real touch dismisses the menu in the harness.",
+      "next": "Reach the Mermaid Pool career picture.",
+      "gap": "",
+      "annotations": [
+        {
+          "kind": "circle",
+          "cx": 451,
+          "cy": 610,
+          "r": 87,
+          "label": "Tap Continue"
+        }
+      ]
+    },
+    {
+      "number": 2,
+      "title": "Reach the Astronaut picture in Mermaid Pool",
+      "images": [],
+      "cue": "Room routing assigns Astronaut to Mermaid Pool; its card contains Roshan and the engineer crest.",
+      "finger": "Tap the career picture, then the lit activity object. The recorded harness uses real card and object touches.",
+      "body": "The room activity approaches its physical station before opening.",
+      "consequence": "The birthday adapter selects BUILD ROCKET, PATCH, VALVE and READY PARK.",
+      "next": "Open BUILD ROCKET.",
+      "gap": "NO ARRIVAL SCREENSHOT / NOT A FRESH NATURAL PLAYTHROUGH: the fixture seeds completed Day One and six prior story jobs, skips intro and positions Castle/Mermaid Pool via APIs. The actual room approach, card and each station handoff were not captured. See fixture lines208\u2013250 and _enter/_open_current; their input assertions do not replace missing images.",
+      "annotations": []
+    },
+    {
+      "number": 3,
+      "title": "BUILD ROCKET: find the two missing straight pieces",
+      "images": [
+        "0001_phase0_open.png"
+      ],
+      "cue": "Configured cue: \u201cConnect the rocket parts from the tank to the nose!\u201d (op_astronaut_pipes_stage). Gold circles/pointer identify the tray; tank and intake bracket the grid.",
+      "finger": "Drag a straight H piece from the lower tray into a middle-row gap. Board1 has H pieces already in cells4 and7; fill cells5 and6.",
+      "body": "Roshan starts beside the room equipment; the work board is on the right.",
+      "consequence": "No board credit yet. The two missing links remain empty.",
+      "next": "Drag and release a piece into the next empty cell.",
+      "gap": "",
+      "annotations": [
+        {
+          "kind": "arrow",
+          "x1": 653,
+          "y1": 551,
+          "x2": 823,
+          "y2": 329,
+          "label": "Drag H into this gap"
+        }
+      ]
+    },
+    {
+      "number": 4,
+      "title": "Hold and drag one pipe piece",
+      "images": [
+        "0005_phase0_input_held.png"
+      ],
+      "cue": "The carried piece leaves its tray slot.",
+      "finger": "Keep one finger down while dragging, then release over the cell.",
+      "body": "Roshan has not yet reached contact. Releasing creates an owned work request.",
+      "consequence": "The piece has not paid or filled the cell yet.",
+      "next": "Wait for Roshan to approach the requested piece.",
+      "gap": "",
+      "annotations": [
+        {
+          "kind": "arrow",
+          "x1": 653,
+          "y1": 551,
+          "x2": 823,
+          "y2": 329,
+          "label": "Release over the cell"
+        }
+      ]
+    },
+    {
+      "number": 5,
+      "title": "Roshan approaches the pipe",
+      "images": [
+        "0007_phase0_pipe_approach.png"
+      ],
+      "cue": "The queued piece remains pending.",
+      "finger": "The finger may lift; no extra tap is needed for this placement.",
+      "body": "The intact figure travels toward the chosen cell with the existing authored travel pose.",
+      "consequence": "The grid still has not committed the pending piece.",
+      "next": "Roshan reaches the wrench-contact pose.",
+      "gap": "",
+      "annotations": []
+    },
+    {
+      "number": 6,
+      "title": "Wrench contact earns the placement",
+      "images": [
+        "0013_phase0_pipe_contact_a.png",
+        "0015_phase0_pipe_contact_b.png"
+      ],
+      "cue": "The pending piece sits at the target; nearby fuel already occupies the earlier fixed link.",
+      "finger": "Wait after the valid release. Touch input requested this work; contact owns the commit.",
+      "body": "Existing whole-figure work0/work1 keys place the wrench at the cell. These two images are contact samples, not a complete full-speed performance.",
+      "consequence": "The live contact checker permits one placement. Sparse poses remain an artistic weakness.",
+      "next": "Release/settle, then place the other missing piece.",
+      "gap": "",
+      "annotations": [
+        {
+          "kind": "circle",
+          "cx": 824,
+          "cy": 330,
+          "r": 27,
+          "label": "Wrench / chosen cell"
+        }
+      ]
+    },
+    {
+      "number": 7,
+      "title": "The first piece remains after release",
+      "images": [
+        "0017_phase0_pipe_release.png"
+      ],
+      "cue": "The board and tray show the placement consequence.",
+      "finger": "Drag the remaining H into the other middle-row gap.",
+      "body": "Roshan releases and returns from the work position.",
+      "consequence": "Each placement is durable only after contact; a released pending request is not earned progress.",
+      "next": "Complete the continuous tank-to-intake route.",
+      "gap": "",
+      "annotations": []
+    },
+    {
+      "number": 8,
+      "title": "First board: continuous fuel path",
+      "images": [
+        "0027_phase0_action_018.png"
+      ],
+      "cue": "The first board now contains H pieces in middle-row cells4,5,6,7.",
+      "finger": "Wait for the automatic flow check; do not keep tapping a filled cell.",
+      "body": "Roshan has finished the second actual placement.",
+      "consequence": "This PNG is the connected route before the board credit is awarded (captured progress0). The later fixture records exactly one earned board and a save/re-entry.",
+      "next": "The next board changes the route and stock.",
+      "gap": "",
+      "annotations": []
+    },
+    {
+      "number": 9,
+      "title": "Second and third boards need turns",
+      "images": [],
+      "cue": "The same drag/contact rule is reused. The route shape and supplied stock change.",
+      "finger": "Recorded successful placements: board2 SE\u2192cell0, H\u21921, SW\u21922, NE\u21926; board3 NW\u21925, SE\u21921, H\u21922, NW\u21923. Cells are row-major in the4\u00d73 grid, starting at0.",
+      "body": "Roshan approaches and contacts each released piece.",
+      "consequence": "The fixture records ten genuine placements across all three boards and preserved board1 credit after controlled save/re-entry.",
+      "next": "Finish board3.",
+      "gap": "NO BOARD2/3 INTERMEDIATE PNGs: the dense PIPE sample cap was consumed by board1. The placement list is executable fixture evidence, not a newly captured visual sequence. Do not infer the intermediate geometry from the final screenshot.",
+      "annotations": []
+    },
+    {
+      "number": 10,
+      "title": "Three earned boards finish BUILD ROCKET",
+      "images": [
+        "0033_phase0_completed.png"
+      ],
+      "cue": "The final route reaches the raised intake; aqua links and completion rings are visible.",
+      "finger": "No completion button: a valid full path earns the board automatically.",
+      "body": "Roshan returns to the room pose and celebrates.",
+      "consequence": "Captured progress3, pipe_round3 and pending phase advance. No birthday Opera star or pearls.",
+      "next": "After the hold, touch the next lit PATCH station.",
+      "gap": "",
+      "annotations": []
+    },
+    {
+      "number": 11,
+      "title": "PATCH: five sparkling leaks",
+      "images": [
+        "0034_phase1_open.png"
+      ],
+      "cue": "Configured cue: \u201cTap every sparkling leak to patch the rocket!\u201d (op_astronaut_patch_stage). Five local nicks, bubbles and gold glints mark the rocket.",
+      "finger": "Tap one unrepaired sparkle on the horizontal rocket.",
+      "body": "Roshan will approach that exact target with the existing wrench keys.",
+      "consequence": "Before work, all five target_placed values are false.",
+      "next": "Wait for the local work contact.",
+      "gap": "",
+      "annotations": [
+        {
+          "kind": "circle",
+          "cx": 157,
+          "cy": 366,
+          "r": 27,
+          "label": "Tap an unrepaired sparkle"
+        }
+      ]
+    },
+    {
+      "number": 12,
+      "title": "Approach the tapped leak",
+      "images": [
+        "0039_phase1_patch_approach.png"
+      ],
+      "cue": "The tapped leak remains visible while its work request is queued.",
+      "finger": "Lift the finger. Unique later leak taps can queue; this walkthrough does not prove a fresh five-tap rapid sequence.",
+      "body": "Roshan travels as one intact figure to the target.",
+      "consequence": "The leak has not paid until valid wrench contact.",
+      "next": "Contact repairs that leak.",
+      "gap": "",
+      "annotations": []
+    },
+    {
+      "number": 13,
+      "title": "Contact repairs one leak",
+      "images": [
+        "0044_phase1_patch_contact_a.png",
+        "0046_phase1_patch_contact_b.png"
+      ],
+      "cue": "The contact target is on the rocket; the other nicks keep leaking.",
+      "finger": "Wait for the authored contact. Repeating a pending or already repaired target pays nothing.",
+      "body": "The whole-figure work0/work1 keys meet the target; no separate limb is animated.",
+      "consequence": "The target commits once through live contact. These samples do not accept the sparse wrench acting.",
+      "next": "See the permanent coral plate.",
+      "gap": "",
+      "annotations": [
+        {
+          "kind": "circle",
+          "cx": 157,
+          "cy": 366,
+          "r": 27,
+          "label": "Local repair contact"
+        }
+      ]
+    },
+    {
+      "number": 14,
+      "title": "One fixed plate replaces one leak",
+      "images": [
+        "0048_phase1_patch_release.png"
+      ],
+      "cue": "An existing coral repair plate is fixed to the earned target.",
+      "finger": "Tap a different remaining leak.",
+      "body": "Roshan releases from the target and returns.",
+      "consequence": "One repaired target stays patched and stops emitting leak bubbles; the other four stay active.",
+      "next": "Repair the second target, then test saved progress.",
+      "gap": "",
+      "annotations": []
+    },
+    {
+      "number": 15,
+      "title": "Two repairs survive controlled save/re-entry",
+      "images": [
+        "0063_phase1_action_021.png",
+        "0066_phase1_input_held.png"
+      ],
+      "cue": "Two coral plates remain; three nicks still leak.",
+      "finger": "The earlier repairs came from actual touches. Save/re-entry here is driven by production APIs in the test harness, not captured child navigation buttons.",
+      "body": "A new world instance reloads the same earned mask; held input is reset.",
+      "consequence": "The fixture verifies target mask true,true,false,false,false and progress2. The second PNG also samples an input hold after reload; it is not a dedicated immediate reload screen.",
+      "next": "Touch the remaining three distinct leaks.",
+      "gap": "",
+      "annotations": []
+    },
+    {
+      "number": 16,
+      "title": "All five repairs finish PATCH",
+      "images": [
+        "0067_phase1_completed.png"
+      ],
+      "cue": "All five fixed coral plates are visible; no unearned leak is removed.",
+      "finger": "Tap the remaining three leaks; in this run each is allowed to finish its work.",
+      "body": "Five actual contact commits repair five unique targets.",
+      "consequence": "Captured mask true\u00d75, progress5, pending advance. No extra credit for retapping an old plate.",
+      "next": "After the completion hold, touch the VALVE station.",
+      "gap": "",
+      "annotations": []
+    },
+    {
+      "number": 17,
+      "title": "VALVE: the wheel appears",
+      "images": [
+        "0068_phase2_open.png"
+      ],
+      "cue": "Configured cue: \u201cTurn the launch valve, but keep the rocket parked!\u201d (op_astronaut_valve). The wheel and circular pointer are on the left equipment.",
+      "finger": "Start on the wheel ring and trace circles with one finger. The fixture traces radius110 in surface coordinates.",
+      "body": "Roshan approaches the wheel before motion can commit.",
+      "consequence": "Passive local contact earns no rotation or progress.",
+      "next": "Trace while Roshan is at the wheel.",
+      "gap": "",
+      "annotations": [
+        {
+          "kind": "circle",
+          "cx": 230,
+          "cy": 349,
+          "r": 57,
+          "label": "Trace around the wheel"
+        }
+      ]
+    },
+    {
+      "number": 18,
+      "title": "Whole-figure valve contact",
+      "images": [
+        "0073_phase2_valve_contact.png"
+      ],
+      "cue": "The wrench reaches the wheel hub.",
+      "finger": "Continue a circular drag; lifting releases the touch owner.",
+      "body": "The work0/work1 figure stays at the hub; live contact consumes genuine queued arcs.",
+      "consequence": "A static screenshot proves placement only. The recorded contact and arc assertions separately show motion ownership.",
+      "next": "Earn a visible partial turn.",
+      "gap": "",
+      "annotations": [
+        {
+          "kind": "circle",
+          "cx": 231,
+          "cy": 349,
+          "r": 26,
+          "label": "Wrench meets hub"
+        }
+      ]
+    },
+    {
+      "number": 19,
+      "title": "Earned circle movement turns the wheel",
+      "images": [
+        "0105_phase2_valve_turn.png"
+      ],
+      "cue": "The wheel orientation has changed; progress dots appear.",
+      "finger": "Trace further circles with one finger.",
+      "body": "Roshan remains local to the wheel. The sparse acting is still below the required quality.",
+      "consequence": "This PNG records progress0.785722822717462. The fixture separately saves/restores the earlier partial angle; no dedicated before/after reload pair was captured.",
+      "next": "Continue until the1.8 goal is earned.",
+      "gap": "",
+      "annotations": []
+    },
+    {
+      "number": 20,
+      "title": "Release, return and finished valve",
+      "images": [
+        "0106_phase2_valve_release.png",
+        "0107_phase2_valve_return.png",
+        "0108_phase2_completed.png"
+      ],
+      "cue": "The wheel has a gold completion rim.",
+      "finger": "Lift after enough circular input; the normal completion hold advances.",
+      "body": "Roshan releases and moves back to the room pose.",
+      "consequence": "Captured progress1.80253128236069. The birthday rocket stays unlaunched and candle unlit.",
+      "next": "Touch the READY PARK station.",
+      "gap": "",
+      "annotations": []
+    },
+    {
+      "number": 21,
+      "title": "READY PARK: find the small movable rocket",
+      "images": [
+        "0109_phase3_open.png"
+      ],
+      "cue": "Configured cue: \u201cPark the repaired rocket and leave it ready for later!\u201d (chapter2_astronaut_ready_park). A small upright rocket and aqua lane sit at the lower left.",
+      "finger": "Start on the small rocket and drag right along its lane, lifting and starting again as needed.",
+      "body": "Current Roshan stands far right with a wrench; the rival is centre. She does not visibly push the small rocket.",
+      "consequence": "The large painted background rocket stays fixed. This is PARK, not ordinary LAUNCH.",
+      "next": "Drag in the lane direction.",
+      "gap": "",
+      "annotations": [
+        {
+          "kind": "arrow",
+          "x1": 98,
+          "y1": 456,
+          "x2": 367,
+          "y2": 456,
+          "label": "Drag the small rocket right"
+        }
+      ]
+    },
+    {
+      "number": 22,
+      "title": "Wrong direction and still holding earn nothing",
+      "images": [
+        "0113_phase3_input_held.png"
+      ],
+      "cue": "The small rocket remains at its starting position.",
+      "finger": "This sampled hold belongs to the initial negative-direction test. Reverse movement and a passive hold do not earn the journey.",
+      "body": "Roshan lifts the existing wrench pose remotely; useful body/contact acting is missing.",
+      "consequence": "Captured journey0 and progress0. It is not a partial successful park.",
+      "next": "Make a fresh rightward drag.",
+      "gap": "",
+      "annotations": []
+    },
+    {
+      "number": 23,
+      "title": "Partial parking saves without a held finger",
+      "images": [],
+      "cue": "Source and fixture check a real0.35-lane rightward drag, pause and re-entry.",
+      "finger": "Fresh rightward screen drags earn partial progress; pause cancels ownership and a stale release pays nothing.",
+      "body": "The current remote-actor weakness is unchanged.",
+      "consequence": "The fixture verifies partial progress between1 and3 and preserves the exact journey on controlled save/re-entry, with owner\u22121 and heldfalse.",
+      "next": "Resume with a new touch and complete the remaining lane.",
+      "gap": "NO SUCCESSFUL PARK MIDPOINT / PAUSE / RELOAD PNG: the PARK dense cap was consumed by the earlier negative hold. A start image cannot stand in for this partial state. The assertions are machine diagnostics only.",
+      "annotations": []
+    },
+    {
+      "number": 24,
+      "title": "Earned PARK completion leaves the rocket ready",
+      "images": [
+        "0127_phase3_completed.png"
+      ],
+      "cue": "The small rocket is visibly farther right at the aqua endpoint; completion dots and puff appear.",
+      "finger": "A new rightward drag completes the remaining journey.",
+      "body": "Roshan celebrates far from the small rocket. The unresolved physical push/contact failure is visible.",
+      "consequence": "Captured progress5 and pending advance; no launch, no birthday candle ignition.",
+      "next": "The normal completion callback returns to Mermaid Pool.",
+      "gap": "",
+      "annotations": []
+    },
+    {
+      "number": 25,
+      "title": "Return to Mermaid Pool",
+      "images": [
+        "0128_room_return.png"
+      ],
+      "cue": "Visible result: \u201cThis birthday job is ready! Back to our party!\u201d The room career picture carries a gold completion dot.",
+      "finger": "No further Astronaut action is needed. Follow the next story instruction when it is available.",
+      "body": "Roshan is back with Rosalie and the rainbow dust bunny in the pool.",
+      "consequence": "The genuine earned finish records the Astronaut contribution and all four phase bits; the fixture verifies Detective next, no pearls/stars, candle unlit and party not started.",
+      "next": "Saved story progression moves onward, rather than rerunning the completed birthday job.",
+      "gap": "",
+      "annotations": []
+    },
+    {
+      "number": 26,
+      "title": "Saved completion and later replay",
+      "images": [],
+      "cue": "The fixture reloads the production save and checks the earned story mask and untouched ordinary checkpoint.",
+      "finger": "A completed birthday contribution is not replayable through the same story gate; ordinary free play is a distinct reward/save context.",
+      "body": "No post-final-reload or freshly reached free-play replay screen was captured.",
+      "consequence": "Story mask and phase bits persist in the machine check; this does not prove the complete naturally earned replay route.",
+      "next": "Capture the natural subsequent route in a future bounded run.",
+      "gap": "NO POST-COMPLETION RELOAD / FREE-PLAY REPLAY PNG. This panel records source/API evidence only, not a child replay demonstration.",
+      "annotations": []
+    },
+    {
+      "number": 27,
+      "title": "Ordinary in-world / Opera career difference",
+      "images": [],
+      "cue": "Current ordinary table: PIPES \u2192 PATCH \u2192 VALVE \u2192 LAUNCH. Final configured cue: \u201cHold through the countdown and launch!\u201d (op_astronaut_launch_stage), goal4.5.",
+      "finger": "The first three gesture families match the mechanics above. The last ordinary phase holds; birthday READY PARK swipes.",
+      "body": "No exact-current-source ordinary native acting sequence is present in this packet.",
+      "consequence": "Astronaut is room-distributed to Mermaid Pool. Current Opera Hall contains other careers; do not invent a second live Astronaut lobby.",
+      "next": "Review ordinary LAUNCH separately after the pending owner choice.",
+      "gap": "CURRENT ORDINARY NATIVE COVERAGE GAP: birthday screenshots illustrate only their declared birthday context. Older ordinary tests/captures are historical after the current source edits and are not relabelled as current.",
+      "annotations": []
+    },
+    {
+      "number": 28,
+      "title": "Practice / retired training scope",
+      "images": [],
+      "cue": "The first birthday phase teaches the same pipe gesture. The Chapter2 director has an empty INITIAL_TUTORIAL_ACTS and tutorial_phase_is_active returnsfalse.",
+      "finger": "No separate naturally reachable Astronaut training prelude is established by the current route.",
+      "body": "Compatibility tutorial branches in source do not authorize reviving the retired route.",
+      "consequence": "Live practice/free-play coverage still needs naturally earned route evidence; this packet does not force its flags.",
+      "next": "Use only the current career routes.",
+      "gap": "STANDALONE TUTORIAL IS RETIRED IN CURRENT SOURCE; natural free-play/practice entry remains an evidence gap, not a forced fixture demonstration.",
+      "annotations": []
+    },
+    {
+      "number": 29,
+      "title": "Pending development decisions",
+      "images": [],
+      "cue": "PROPOSED / NOT PLAYABLE: ordinary launch control/contact choice and PARK whole-figure brace/push/release art choice remain pending.",
+      "finger": "No proposed control is included in these implemented-game screenshots.",
+      "body": "The PIPE material plan is also unimplemented at this capture source; the brown fallback shown here is current.",
+      "consequence": "No new artwork, replacement scene or artistic acceptance was created for this walkthrough.",
+      "next": "Resume independent PIPE readability work after this source-bound review is prepared.",
+      "gap": "These are pending decisions and an unimplemented repair plan, not screenshots of a redesign.",
+      "annotations": []
+    }
+  ],
+  "annotation_role": "Instructional SVG overlays based on inspected screenshot/source; not actual pointer telemetry; no PNG edits."
+}

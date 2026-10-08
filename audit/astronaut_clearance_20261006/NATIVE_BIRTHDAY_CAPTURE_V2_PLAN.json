@@ -1,0 +1,79 @@
+{
+  "created_utc": "2026-10-07T11:25:20.072496+00:00",
+  "baseline": "96274aab9cebd563b10846a4a48de5d017588563",
+  "candidate_branch": "codex/astronaut-clearance-20261006",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-INT-02",
+    "DL-INT-04",
+    "DL-MOT-07",
+    "DL-MOT-10",
+    "DL-MOT-11",
+    "DL-MOT-12",
+    "DL-MOT-13",
+    "DL-SAVE-01",
+    "DL-SAVE-02",
+    "DL-SAVE-03",
+    "DL-SAVE-04",
+    "DL-QA-02",
+    "DL-QA-06",
+    "DL-QA-11",
+    "DL-QA-12"
+  ],
+  "findings": [
+    "MA-PLAY-004",
+    "MA-PLAY-005",
+    "MA-SAVE-002",
+    "MA-VIS-006"
+  ],
+  "scope": "Corrective native fixture V2: real visible Continue-button touch and normal title closure before unchanged103birthday behavior assertions and read-only observer; preserve V1 failed evidence. No production/game/art change.",
+  "reference_driver": {
+    "path": "audit/astronaut_clearance_20261006/verify_birthday_save_v5.gd",
+    "sha256": "441497892b19484e70cff759dfc6e7ca1ea55fa1a8dff4d10e597c6d98e12188",
+    "prior_receipt": "BIRTHDAY_SAVE_V5_RECEIPT.json",
+    "prior_sha256": "7d39db45b11383b06ffef127cc89fa60345328e00b2e280dd06883e03577ccb7"
+  },
+  "capture": "RenderingServer.frame_post_draw then own root texture.get_image().save_png, immutable wholeviewportPNG, actual monotonic timestamps/rendered frame indices and live actor/surface/phase/geometry. Sample active action at<=30framespersecond underperphase caps; key states and room-return separately recorded. No cropped/composited/edited/drawn substitute pixels.",
+  "budget": {
+    "combined_analyzer_native_seconds": 180,
+    "max_owned_native_processes": 1,
+    "output_cap_bytes": 536870912,
+    "cache_growth_cap_bytes": 67108864,
+    "minimum_C_free_bytes": 3221225472,
+    "minimum_available_physical_bytes": 3221225472,
+    "dense_frame_caps": {
+      "0": 64,
+      "1": 40,
+      "2": 64,
+      "3": 48
+    },
+    "no_automatic_retry": true,
+    "previous_headless_seconds": [
+      141.03,
+      159.35,
+      58.378
+    ],
+    "prior_native_seconds": 23.342
+  },
+  "source_binding": "Deterministic full runtime source-tree signature plus fixture/runner/nativeplan; baseline and dirtycandidate stated, compare before/after; official engine/version/hash and Mobile/native backend bound. Existing canonical capture source inventory rules are reference, not a strict visual PASS adapter.",
+  "output_root": "tmp/astronaut_native_birthday_capture_v2_20261007",
+  "required_evidence": [
+    "Exact native backend and nonempty expected-dimension PNGs",
+    "All original103behavior/save/return/canon assertions preserved",
+    "Allfour actual phase views and before/during/after pipe states, native return image",
+    "Current source/rawlog/pixel SHA/dimensions/timestamp/instance/atlas bindings",
+    "Direct source-context image/action review with individual grades and failure evidence",
+    "Fullordinary/birthday twoaspect action/finish/return matrix remains required after the technical pilot"
+  ],
+  "acceptance": "Diagnostic pilot cannot grant>=4.6, clean-current strictDL-QA-11PASS, fullfreshchapter/fulltrusted, independent/device/child/owner/integration/release. Parkingpose/ordinarylaunch choices and further outgoing metadata permissions still pending.",
+  "predecessor": {
+    "receipt": "NATIVE_BIRTHDAY_CAPTURE_V1_RECEIPT.json",
+    "sha256": "312408bb0b0e60c3329ea3077ad18932644dbb277a9a08e132f919a79c45395b",
+    "result": "FAIL",
+    "seconds_spent": 23.342,
+    "reason": "Untouched1280x720 native screenshot shows actual title menu with Continue/New Game/Options over the room. Existing headless fixture skips storybook intro but does not dismiss native-only start menu. Career card under it reports visible but actual touch is intercepted. No Astronaut action pixel evidence exists in this attempt."
+  },
+  "approval": "Standing local native-verification goal authorizes this corrective fixture. No new art, paid call, outgoing message, release or coordinator grant."
+}

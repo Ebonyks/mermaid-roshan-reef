@@ -6,10 +6,11 @@
     "music": 60,
     "sfx": 7,
     "ui": 1,
-    "voice": 752
+    "voice": 754
   },
   "cohorts": {
     "ambience": 3,
+    "astronaut_engineering_v1": 2,
     "castle_sfx": 15,
     "combat_sfx": 6,
     "filler_v1": 500,
@@ -27,7 +28,14 @@
     "LISTEN_REPLACE_CANDIDATE": 31,
     "RENDER_TRUE_PEAK_SAFE": 120,
     "REVIEW_NEW_EXACT_VOICE": 2,
-    "REVIEW_PROVISIONAL_FILLER": 500
+    "REVIEW_PROVISIONAL_FILLER": 502
+  },
+  "engineering_manifest": {
+    "blocking": false,
+    "entry_count": 2,
+    "issues": [],
+    "manifest_path": "assets/audio/voices/astronaut_engineering_v1/FILLER_MANIFEST.json",
+    "present": true
   },
   "filler_manifest": {
     "blocking": false,
@@ -37,8 +45,8 @@
     "present": true
   },
   "human_review_state": "OPEN_DEVICE_LISTENING",
-  "inventory_count": 844,
-  "inventory_sha256": "9a2b99994bb71dc65f0fc8c772707dfe00f88be16474ac84e0c037f19016913e",
+  "inventory_count": 846,
+  "inventory_sha256": "c253317c0a6d5f4bd57543b3bec802b52ca2abb2e806ee286c39d5515c6fe0d6",
   "protected_count": 13,
   "protected_recordings": {
     "blocking": false,
@@ -155,7 +163,7 @@
     "present": true
   },
   "technical_grades": {
-    "A": 674,
+    "A": 676,
     "B": 139,
     "C": 26,
     "D": 5

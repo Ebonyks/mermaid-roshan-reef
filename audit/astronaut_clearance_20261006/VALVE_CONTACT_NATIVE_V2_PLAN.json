@@ -1,0 +1,18 @@
+{
+  "created_utc": "2026-10-07T13:12:01.988553+00:00",
+  "scope": "Correct only four-call-site guard for five runtime checks; unchanged V6fixture/negative/runtime/art. Reuse verified empty never-executed V6native output leaves and empty negative save parent, preserving V1guard failure/runner/8.6128821setup cost. No overwrite or hidden retry.",
+  "failure_receipt": "VALVE_CONTACT_NATIVE_V1_RECEIPT.json",
+  "failure_sha256": "208c1d4b71afd952cdf6aa7ac4c8752053b9370db3e29976f633f2a06dcc7fb1",
+  "expected_runtime_checks": [
+    126,
+    126,
+    17
+  ],
+  "added_call_sites": 4,
+  "shared_native_engine_cap_seconds": 300,
+  "prior_capture_analyzer_seconds": 0,
+  "prior_setup_wall_seconds": 8.6128821,
+  "fixture_sha256": "d161bd228e241d93d0034988bd1d2c08b9924ebeca28f73b322b1ff1217802ad",
+  "one_corrective_attempt": true,
+  "limits": "Current dirty-local native diagnostic; fulltrusted/QA11/fullmatrix/independent/device/child/owner acceptance remains open."
+}

@@ -1,0 +1,70 @@
+{
+  "created_utc": "2026-10-07T10:32:08.408340+00:00",
+  "baseline": "96274aab9cebd563b10846a4a48de5d017588563",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-INT-04",
+    "DL-INT-05",
+    "DL-MOT-05",
+    "DL-SAVE-01",
+    "DL-SAVE-02",
+    "DL-SAVE-03",
+    "DL-SAVE-04",
+    "DL-QA-02",
+    "DL-QA-11",
+    "DL-QA-12"
+  ],
+  "findings": [
+    "MA-PLAY-004",
+    "MA-SAVE-002"
+  ],
+  "scope": "Real-input wrong-plan recovery, canceled relocation and selected-tile correction at both supported viewport sizes, after the current contact implementation. No new production/art choice.",
+  "source_reference": {
+    "path": "audit/astronaut_clearance_20261006/verify_pipe_contact_v5.gd",
+    "sha256": "23f9dbad48283f808877bc991e589f9c603a23b2bac7caf29b21f907e6affe80"
+  },
+  "scenario": [
+    "Enter actual birthday card/object after documented prior-six-jobs fixture",
+    "Complete first board through actual contacts",
+    "Place SW at board2cell0 instead of requiredSE; wait for engine fuel to enter wrong piece, no board credit",
+    "Lift fueledSW toward correctcell2, snapshot must restore originalcell0 and omit target; actualtreepause cancels this pending relocation",
+    "Resume and liftSW off-grid to tray through realinput; select-and-tap cell2 requests actual contact",
+    "Place remainingSE0,H1,NE6 through contact; normal fuel finishes only board2 and earns exactly one board credit",
+    "Unlit candle/no star/no pearls remain; no third board or wholechapter acceptance inferred"
+  ],
+  "aspects": [
+    [
+      1280,
+      720
+    ],
+    [
+      1600,
+      720
+    ]
+  ],
+  "required_evidence": [
+    "Current source/rawlog bindings",
+    "Actual shared-transform contact/actor-rect/viewport measurements, unchanged uniform actor scale",
+    "Exact stock counts including carried tile before/during/after wrong recovery",
+    "Pending-source save/snapshot and pause/no-late-commit proof",
+    "Normal engine earns board2 only after corrected genuine input",
+    "Parser/inference/exactGodot4.7.2 analyzer/documentauthority/coverage/2Dno-regression",
+    "Remaining nativefullspeed/independent/device/child/owner/fullsuite acceptance explicit"
+  ],
+  "resource": {
+    "scope": "Bounded small headless correction check; no native capture, import or fullCI grant assumed.",
+    "combined_time_cap_seconds": 150,
+    "serial_aspects": true,
+    "no_automatic_retry": true,
+    "artifact_cap_bytes": 33554432,
+    "cache_growth_cap_bytes": 16777216,
+    "minimum_C_free_bytes": 3221225472,
+    "minimum_available_physical_bytes": 3221225472,
+    "prior_pipe_seconds": 141.03,
+    "prior_route_seconds": 159.35,
+    "prior_costs_not_reset": true
+  },
+  "acceptance": "No rendered/native/body-proportion/animation/4.6acceptance. Standing artistic choices and external storage/native-capture coordination permission remain pending."
+}

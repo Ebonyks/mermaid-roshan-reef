@@ -1,0 +1,732 @@
+{
+  "result": "PASS",
+  "checked_utc": "2026-10-07T16:44:12.865206+00:00",
+  "elapsed_seconds_before_receipt_write": 21.791,
+  "cap_seconds": 38.789,
+  "retained_document_attempt_seconds": [
+    1.392,
+    28.169,
+    32.583
+  ],
+  "failed_seal_process_wall_seconds": 1.857183,
+  "whitespace_diagnostic_wall_seconds": 1.201487,
+  "retained_second_seal_command_wall_seconds": 7.0618975,
+  "retained_third_seal_command_wall_seconds": 8.945815,
+  "extra_bounded_non_engine_allowance_seconds": 30,
+  "staged_files_verified": 99,
+  "files": [
+    {
+      "path": ".gitattributes",
+      "bytes": 3405,
+      "sha256": "bc2ade77bac0892c42aec377d63987ea170c4a1772e3827d864b319c7716df1d",
+      "working_sha256": "7c98ba4ce951e890dc325a689a92664a1c12fcaddeaffe678a4f9701ccc4eacf",
+      "normalization": "GIT_TEXT_UTF8_LF; distinct working/staged hashes recorded"
+    },
+    {
+      "path": "ASSET_LICENSES.md",
+      "bytes": 3254863,
+      "sha256": "3bbc2dbf0613a3189d82e1f2337570e306fe7dc678bb4b66cf1eaa8a78328a0b",
+      "working_sha256": "7d9e1302021061615a5869577e75796b585178660e9072893e03e7658f4a9bb8",
+      "normalization": "GIT_TEXT_UTF8_LF; distinct working/staged hashes recorded"
+    },
+    {
+      "path": "audit/astronaut_walkthrough_20261007/.gdignore",
+      "bytes": 66,
+      "sha256": "bad0444df629ffd68a679be911ec5a1d6c8318d0639b30ab13e58d27b3123e6d",
+      "working_sha256": "bad0444df629ffd68a679be911ec5a1d6c8318d0639b30ab13e58d27b3123e6d",
+      "normalization": "NONE_LITERAL"
+    },
+    {
+      "path": "audit/astronaut_walkthrough_20261007/DOCUMENT_GATES_V1_LOG.txt",
+      "bytes": 2151,
+      "sha256": "796bf58819a5b6b857c5cbbf491dd0ac5d26baf9c38f24cc32f02cec752c483c",
+      "working_sha256": "796bf58819a5b6b857c5cbbf491dd0ac5d26baf9c38f24cc32f02cec752c483c",
+      "normalization": "NONE_LITERAL"
+    },
+    {
+      "path": "audit/astronaut_walkthrough_20261007/DOCUMENT_GATES_V1_RECEIPT.json",
+      "bytes": 1078,
+      "sha256": "df8a60b068ac632414a7d7b6e512842110c460c342b9dadbc89cb7b253775914",
+      "working_sha256": "df8a60b068ac632414a7d7b6e512842110c460c342b9dadbc89cb7b253775914",
+      "normalization": "NONE_LITERAL"
+    },
+    {
+      "path": "audit/astronaut_walkthrough_20261007/DOCUMENT_GATES_V2_LOG.txt",
+      "bytes": 1319,
+      "sha256": "504cac4612175471863711638c39fb31a336d57f39b143790ef4df6aba09ade1",
+      "working_sha256": "504cac4612175471863711638c39fb31a336d57f39b143790ef4df6aba09ade1",
+      "normalization": "NONE_LITERAL"
+    },
+    {
+      "path": "audit/astronaut_walkthrough_20261007/DOCUMENT_GATES_V2_RECEIPT.json",
+      "bytes": 1516,
+      "sha256": "afe24b49ef42184d832d305e4c821b9c385d220a09567497b222c78d9c2c38ba",
+      "working_sha256": "afe24b49ef42184d832d305e4c821b9c385d220a09567497b222c78d9c2c38ba",
+      "normalization": "NONE_LITERAL"
+    },
+    {
+      "path": "audit/astronaut_walkthrough_20261007/DOCUMENT_GATES_V3_LOG.txt",
+      "bytes": 165389,
+      "sha256": "17556d049cb7e6eb0f43e0e314ed4083b5f73ecc58e2cf93291238d13243d8b3",
+      "working_sha256": "17556d049cb7e6eb0f43e0e314ed4083b5f73ecc58e2cf93291238d13243d8b3",
+      "normalization": "NONE_LITERAL"
+    },
+    {
+      "path": "audit/astronaut_walkthrough_20261007/DOCUMENT_GATES_V3_RECEIPT.json",
+      "bytes": 1995,
+      "sha256": "91b64a7959e78a6f603f59d42582ed3193b79f498db86e0d9d701c8fbb8598bb",
+      "working_sha256": "91b64a7959e78a6f603f59d42582ed3193b79f498db86e0d9d701c8fbb8598bb",
+      "normalization": "NONE_LITERAL"
+    },
+    {
+      "path": "audit/astronaut_walkthrough_20261007/DOCUMENT_GATE_RECOVERY_PLAN_V2.json",
+      "bytes": 1109,
+      "sha256": "59b348e0f1df2cb46aaad9a9f5f2148d38f6b6485f07c062ce43bdf1261d79ec",
+      "working_sha256": "59b348e0f1df2cb46aaad9a9f5f2148d38f6b6485f07c062ce43bdf1261d79ec",
+      "normalization": "NONE_LITERAL"
+    },
+    {
+      "path": "audit/astronaut_walkthrough_20261007/DOCUMENT_GATE_RECOVERY_PLAN_V3.json",
+      "bytes": 1431,
+      "sha256": "6f26b4d48950e1db2af5ef032879599f28a16c2fee23ae814b95d868b2c8d36b",
+      "working_sha256": "6f26b4d48950e1db2af5ef032879599f28a16c2fee23ae814b95d868b2c8d36b",
+      "normalization": "NONE_LITERAL"
+    },
+    {
+      "path": "audit/astronaut_walkthrough_20261007/FINAL_STAGING_FAILURE_V1.json",
+      "bytes": 953,
+      "sha256": "9bd201aeb6358d683e26521da6a7c21ac143ae3b3c5900c5224500ed17734fcc",
+      "working_sha256": "9bd201aeb6358d683e26521da6a7c21ac143ae3b3c5900c5224500ed17734fcc",
+      "normalization": "NONE_LITERAL"
+    },
+    {
+      "path": "audit/astronaut_walkthrough_20261007/FINAL_STAGING_FAILURE_V2.json",
+      "bytes": 821,
+      "sha256": "21ce8635c03c9da5923473a9645c31c9b0356b10dae991cff1e261b47d694584",
+      "working_sha256": "21ce8635c03c9da5923473a9645c31c9b0356b10dae991cff1e261b47d694584",
+      "normalization": "NONE_LITERAL"
+    },
+    {
+      "path": "audit/astronaut_walkthrough_20261007/FINAL_STAGING_FAILURE_V3.json",
+      "bytes": 844,
+      "sha256": "c8d004f815085be39020a95a8ae6041424671b893b02a6882e5bd452bcd8c1b9",
+      "working_sha256": "c8d004f815085be39020a95a8ae6041424671b893b02a6882e5bd452bcd8c1b9",
+      "normalization": "NONE_LITERAL"
+    },
+    {
+      "path": "audit/astronaut_walkthrough_20261007/FINAL_STAGING_RECOVERY_PLAN_V4.json",
+      "bytes": 772,
+      "sha256": "564028a807e2369ef76f8dcef6a52c829d17b27b8e95b68fcd3f195b23989208",
+      "working_sha256": "564028a807e2369ef76f8dcef6a52c829d17b27b8e95b68fcd3f195b23989208",
+      "normalization": "NONE_LITERAL"
+    },
+    {
+      "path": "audit/astronaut_walkthrough_20261007/MANIFEST.json",
+      "bytes": 194537,
+      "sha256": "03e5dfd1a1be9e220b126255f36b82542543f73c17996d93efee9e0979ebbd04",
+      "working_sha256": "03e5dfd1a1be9e220b126255f36b82542543f73c17996d93efee9e0979ebbd04",
+      "normalization": "NONE_LITERAL"
+    },
+    {
+      "path": "audit/astronaut_walkthrough_20261007/PUBLICATION_STATUS.json",
+      "bytes": 697,
+      "sha256": "0d1971431cd1385ce59e78f3261566468adeed2a6c235dd71d5838f844940e85",
+      "working_sha256": "0d1971431cd1385ce59e78f3261566468adeed2a6c235dd71d5838f844940e85",
+      "normalization": "NONE_LITERAL"
+    },
+    {
+      "path": "audit/astronaut_walkthrough_20261007/README.md",
+      "bytes": 25668,
+      "sha256": "c9a628c45b1ea6921b5e6b13843e6d69a418490c691af7d34665ea7ceffa43d0",
+      "working_sha256": "c9a628c45b1ea6921b5e6b13843e6d69a418490c691af7d34665ea7ceffa43d0",
+      "normalization": "NONE_LITERAL"
+    },
+    {
+      "path": "audit/astronaut_walkthrough_20261007/REVIEW_CORRECTIONS.json",
+      "bytes": 1569,
+      "sha256": "5667489de67187b700ba9b095bd02b8d9f87cd0b8c9309b4b09eb9080b60601b",
+      "working_sha256": "5667489de67187b700ba9b095bd02b8d9f87cd0b8c9309b4b09eb9080b60601b",
+      "normalization": "NONE_LITERAL"
+    },
+    {
+      "path": "audit/astronaut_walkthrough_20261007/SOURCE_BINDINGS.json",
+      "bytes": 3969,
+      "sha256": "e2069e7387529b8300a1e330911b7f783596dfc18eddc0462336cb7100fd331e",
+      "working_sha256": "e2069e7387529b8300a1e330911b7f783596dfc18eddc0462336cb7100fd331e",
+      "normalization": "NONE_LITERAL"
+    },
+    {
+      "path": "audit/astronaut_walkthrough_20261007/STEPS.json",
+      "bytes": 23149,
+      "sha256": "1f04d64d3b8d08f9f49b4f0da72fa2d8c5530ae730ff5a4f756d0c5e4479d21e",
+      "working_sha256": "1f04d64d3b8d08f9f49b4f0da72fa2d8c5530ae730ff5a4f756d0c5e4479d21e",
+      "normalization": "NONE_LITERAL"
+    },
+    {
+      "path": "audit/astronaut_walkthrough_20261007/VERIFY_LOG.txt",
+      "bytes": 18048,
+      "sha256": "be9c5157a7c49243326a011b805d16bbb21b018561bc26c0fd1fb7d12f5beba2",
+      "working_sha256": "be9c5157a7c49243326a011b805d16bbb21b018561bc26c0fd1fb7d12f5beba2",
+      "normalization": "NONE_LITERAL"
+    },
+    {
+      "path": "audit/astronaut_walkthrough_20261007/VERIFY_RECEIPT.json",
+      "bytes": 1813,
+      "sha256": "31e250e6cec12d75ec0c437f30d423c7e70bf4186dfc5574b05a775b9b37daa5",
+      "working_sha256": "31e250e6cec12d75ec0c437f30d423c7e70bf4186dfc5574b05a775b9b37daa5",
+      "normalization": "NONE_LITERAL"
+    },
+    {
+      "path": "audit/astronaut_walkthrough_20261007/VERIFY_V2_LOG.txt",
+      "bytes": 17170,
+      "sha256": "094d7159d180a4ebed9f819df6bcdfb4e907bed4c9d8e6051a5b6afbce49711b",
+      "working_sha256": "094d7159d180a4ebed9f819df6bcdfb4e907bed4c9d8e6051a5b6afbce49711b",
+      "normalization": "NONE_LITERAL"
+    },
+    {
+      "path": "audit/astronaut_walkthrough_20261007/VERIFY_V2_RECEIPT.json",
+      "bytes": 555,
+      "sha256": "f4b111f64d347e6abc36b784c4dd51a2c688e5146de21f104237c232addafdaa",
+      "working_sha256": "f4b111f64d347e6abc36b784c4dd51a2c688e5146de21f104237c232addafdaa",
+      "normalization": "NONE_LITERAL"
+    },
+    {
+      "path": "audit/astronaut_walkthrough_20261007/VERIFY_V3_LOG.txt",
+      "bytes": 17304,
+      "sha256": "b705cde6d2c0ed33d66fb6829a686589a8c97b6012f1d5cd76c7a5b3323bacaf",
+      "working_sha256": "b705cde6d2c0ed33d66fb6829a686589a8c97b6012f1d5cd76c7a5b3323bacaf",
+      "normalization": "NONE_LITERAL"
+    },
+    {
+      "path": "audit/astronaut_walkthrough_20261007/VERIFY_V3_RECEIPT.json",
+      "bytes": 555,
+      "sha256": "3dff967ef12b9e6666d85ca3c5f7125aac7235b050ca7535b417a38de1583b23",
+      "working_sha256": "3dff967ef12b9e6666d85ca3c5f7125aac7235b050ca7535b417a38de1583b23",
+      "normalization": "NONE_LITERAL"
+    },
+    {
+      "path": "audit/astronaut_walkthrough_20261007/WALKTHROUGH_PLAN.json",
+      "bytes": 10932,
+      "sha256": "6b13e330ff14cf7c80c8ff2d7e5c74d51aecda759db9eb488fc89ae7fdbf8103",
+      "working_sha256": "6b13e330ff14cf7c80c8ff2d7e5c74d51aecda759db9eb488fc89ae7fdbf8103",
+      "normalization": "NONE_LITERAL"
+    },
+    {
+      "path": "audit/astronaut_walkthrough_20261007/WALKTHROUGH_REVIEW_ADDENDUM.json",
+      "bytes": 1615,
+      "sha256": "315d72b7aced708efcb9c4ba18615d05485749cf247a1dd6fb9df0792801be49",
+      "working_sha256": "315d72b7aced708efcb9c4ba18615d05485749cf247a1dd6fb9df0792801be49",
+      "normalization": "NONE_LITERAL"
+    },
+    {
+      "path": "audit/astronaut_walkthrough_20261007/build_walkthrough.py",
+      "bytes": 31270,
+      "sha256": "1a0b3a296d7f6fc92f296a6906a92dcda0e59990d846acf6132422068cfeda52",
+      "working_sha256": "1a0b3a296d7f6fc92f296a6906a92dcda0e59990d846acf6132422068cfeda52",
+      "normalization": "NONE_LITERAL"
+    },
+    {
+      "path": "audit/astronaut_walkthrough_20261007/evidence/NATIVE_BIRTHDAY_CAPTURE_V8_1280_MANIFEST.json",
+      "bytes": 1181464,
+      "sha256": "7b81d0308c8868233d1b4c10db8cb9dfd53b3a67eac70a2ebf1447031d92bf71",
+      "working_sha256": "7b81d0308c8868233d1b4c10db8cb9dfd53b3a67eac70a2ebf1447031d92bf71",
+      "normalization": "NONE_LITERAL"
+    },
+    {
+      "path": "audit/astronaut_walkthrough_20261007/evidence/NATIVE_BIRTHDAY_CAPTURE_V8_1600_MANIFEST.json",
+      "bytes": 1185645,
+      "sha256": "691f949f5c22657a92ad48583a0105ec6180dedb994ddd96440443a751a26c02",
+      "working_sha256": "691f949f5c22657a92ad48583a0105ec6180dedb994ddd96440443a751a26c02",
+      "normalization": "NONE_LITERAL"
+    },
+    {
+      "path": "audit/astronaut_walkthrough_20261007/evidence/PATCH_READABILITY_NATIVE_RECOVERY_V1_RECEIPT.json",
+      "bytes": 1461010,
+      "sha256": "4ed1c934fe62ecb1141d326a07b7478056e2c977fb689871357ba180704ad73a",
+      "working_sha256": "4ed1c934fe62ecb1141d326a07b7478056e2c977fb689871357ba180704ad73a",
+      "normalization": "NONE_LITERAL"
+    },
+    {
+      "path": "audit/astronaut_walkthrough_20261007/evidence/PATCH_READABILITY_NATIVE_V1_PREFLIGHT.json",
+      "bytes": 1098628,
+      "sha256": "a500ec04f7ea3385109507f6b63ad6573f7d8f750a0ab042d6f6016054e44f61",
+      "working_sha256": "a500ec04f7ea3385109507f6b63ad6573f7d8f750a0ab042d6f6016054e44f61",
+      "normalization": "NONE_LITERAL"
+    },
+    {
+      "path": "audit/astronaut_walkthrough_20261007/evidence/PATCH_READABILITY_NATIVE_V1_RECEIPT.json",
+      "bytes": 1998,
+      "sha256": "94b8fefcc36a4c28220fcd1054a15bf9f85a8618068b69802764100c6d810cb0",
+      "working_sha256": "94b8fefcc36a4c28220fcd1054a15bf9f85a8618068b69802764100c6d810cb0",
+      "normalization": "NONE_LITERAL"
+    },
+    {
+      "path": "audit/astronaut_walkthrough_20261007/frames/1280/0000_start_menu_before_continue.png",
+      "bytes": 1441565,
+      "sha256": "7e0de09968f36372e1e66dcc9bdb3ef33d89a1825d2772764683b136417ab910",
+      "working_sha256": "7e0de09968f36372e1e66dcc9bdb3ef33d89a1825d2772764683b136417ab910",
+      "normalization": "NONE_LITERAL"
+    },
+    {
+      "path": "audit/astronaut_walkthrough_20261007/frames/1280/0001_phase0_open.png",
+      "bytes": 1354910,
+      "sha256": "da9f8d1143e8d4343f0d3451e254affa5e383d3469669b8b0f3b19585115c646",
+      "working_sha256": "da9f8d1143e8d4343f0d3451e254affa5e383d3469669b8b0f3b19585115c646",
+      "normalization": "NONE_LITERAL"
+    },
+    {
+      "path": "audit/astronaut_walkthrough_20261007/frames/1280/0005_phase0_input_held.png",
+      "bytes": 1351748,
+      "sha256": "dcd2ad860676dbe161e8a374012ece780fae491edc955c198cf69862fdad8aa3",
+      "working_sha256": "dcd2ad860676dbe161e8a374012ece780fae491edc955c198cf69862fdad8aa3",
+      "normalization": "NONE_LITERAL"
+    },
+    {
+      "path": "audit/astronaut_walkthrough_20261007/frames/1280/0007_phase0_pipe_approach.png",
+      "bytes": 1337533,
+      "sha256": "3755ca92c0512d9a94998db335fbb776761a0db8e030021ba2f7785330b004f7",
+      "working_sha256": "3755ca92c0512d9a94998db335fbb776761a0db8e030021ba2f7785330b004f7",
+      "normalization": "NONE_LITERAL"
+    },
+    {
+      "path": "audit/astronaut_walkthrough_20261007/frames/1280/0013_phase0_pipe_contact_a.png",
+      "bytes": 1346325,
+      "sha256": "a212283234733467ad683c9c1d2fc7da49147b6d76b8dfe5180803c836cf79d2",
+      "working_sha256": "a212283234733467ad683c9c1d2fc7da49147b6d76b8dfe5180803c836cf79d2",
+      "normalization": "NONE_LITERAL"
+    },
+    {
+      "path": "audit/astronaut_walkthrough_20261007/frames/1280/0015_phase0_pipe_contact_b.png",
+      "bytes": 1349733,
+      "sha256": "548ad4cbf1eafef6dcfd7043f24a9aec8676c45e99e3b099cf0e1345e4d4cf58",
+      "working_sha256": "548ad4cbf1eafef6dcfd7043f24a9aec8676c45e99e3b099cf0e1345e4d4cf58",
+      "normalization": "NONE_LITERAL"
+    },
+    {
+      "path": "audit/astronaut_walkthrough_20261007/frames/1280/0017_phase0_pipe_release.png",
+      "bytes": 1352375,
+      "sha256": "9c23a9050843b3be73946bc1a17fed45ae7c9541d40e23be322721216a8c7242",
+      "working_sha256": "9c23a9050843b3be73946bc1a17fed45ae7c9541d40e23be322721216a8c7242",
+      "normalization": "NONE_LITERAL"
+    },
+    {
+      "path": "audit/astronaut_walkthrough_20261007/frames/1280/0027_phase0_action_018.png",
+      "bytes": 1351473,
+      "sha256": "010afd609fef901191d2a9a0801f95cafeb4302f254af525ea0f8e8fcd732491",
+      "working_sha256": "010afd609fef901191d2a9a0801f95cafeb4302f254af525ea0f8e8fcd732491",
+      "normalization": "NONE_LITERAL"
+    },
+    {
+      "path": "audit/astronaut_walkthrough_20261007/frames/1280/0033_phase0_completed.png",
+      "bytes": 1297304,
+      "sha256": "f590cb4f191c71b6e51b8015b7a053a02e5b48e77c20042ddd2fb66dd4c0f046",
+      "working_sha256": "f590cb4f191c71b6e51b8015b7a053a02e5b48e77c20042ddd2fb66dd4c0f046",
+      "normalization": "NONE_LITERAL"
+    },
+    {
+      "path": "audit/astronaut_walkthrough_20261007/frames/1280/0034_phase1_open.png",
+      "bytes": 1471826,
+      "sha256": "f8ef25138b91e879cbdd6de1813efc01d9fd35364464f675029dde353db0ee62",
+      "working_sha256": "f8ef25138b91e879cbdd6de1813efc01d9fd35364464f675029dde353db0ee62",
+      "normalization": "NONE_LITERAL"
+    },
+    {
+      "path": "audit/astronaut_walkthrough_20261007/frames/1280/0039_phase1_patch_approach.png",
+      "bytes": 1468901,
+      "sha256": "b5fe1d84725b2edf0c8d7502ff93f6d22d5a19158c64b255ea117332b0852d86",
+      "working_sha256": "b5fe1d84725b2edf0c8d7502ff93f6d22d5a19158c64b255ea117332b0852d86",
+      "normalization": "NONE_LITERAL"
+    },
+    {
+      "path": "audit/astronaut_walkthrough_20261007/frames/1280/0044_phase1_patch_contact_a.png",
+      "bytes": 1465754,
+      "sha256": "b849d34f5147831bc73bd99801fc7d6ad4988b1b8268d6dab0df80a6bc697be9",
+      "working_sha256": "b849d34f5147831bc73bd99801fc7d6ad4988b1b8268d6dab0df80a6bc697be9",
+      "normalization": "NONE_LITERAL"
+    },
+    {
+      "path": "audit/astronaut_walkthrough_20261007/frames/1280/0046_phase1_patch_contact_b.png",
+      "bytes": 1466827,
+      "sha256": "a1746c84e5bba5af10ae823b28ca0a55cc0c7ff2cf74b4b8a85e5bbb48aa584c",
+      "working_sha256": "a1746c84e5bba5af10ae823b28ca0a55cc0c7ff2cf74b4b8a85e5bbb48aa584c",
+      "normalization": "NONE_LITERAL"
+    },
+    {
+      "path": "audit/astronaut_walkthrough_20261007/frames/1280/0048_phase1_patch_release.png",
+      "bytes": 1469129,
+      "sha256": "4ed10625a226024bc29dd2af43b5d40cdc9058ad9c3800b08db85e69445d4521",
+      "working_sha256": "4ed10625a226024bc29dd2af43b5d40cdc9058ad9c3800b08db85e69445d4521",
+      "normalization": "NONE_LITERAL"
+    },
+    {
+      "path": "audit/astronaut_walkthrough_20261007/frames/1280/0063_phase1_action_021.png",
+      "bytes": 1467041,
+      "sha256": "40cec24be565d0a668a7a3c7af1729d58de44489e2f27658f20e46b01e78e853",
+      "working_sha256": "40cec24be565d0a668a7a3c7af1729d58de44489e2f27658f20e46b01e78e853",
+      "normalization": "NONE_LITERAL"
+    },
+    {
+      "path": "audit/astronaut_walkthrough_20261007/frames/1280/0066_phase1_input_held.png",
+      "bytes": 1465079,
+      "sha256": "ab547e5154e14b1845427acc4ee55dc76682f2d516fbc9fa9b06b6600d5fc87a",
+      "working_sha256": "ab547e5154e14b1845427acc4ee55dc76682f2d516fbc9fa9b06b6600d5fc87a",
+      "normalization": "NONE_LITERAL"
+    },
+    {
+      "path": "audit/astronaut_walkthrough_20261007/frames/1280/0067_phase1_completed.png",
+      "bytes": 1469435,
+      "sha256": "127a03bab7cfdda21704efa83ec8d4e4fcaf9aa92b101d114868028747099942",
+      "working_sha256": "127a03bab7cfdda21704efa83ec8d4e4fcaf9aa92b101d114868028747099942",
+      "normalization": "NONE_LITERAL"
+    },
+    {
+      "path": "audit/astronaut_walkthrough_20261007/frames/1280/0068_phase2_open.png",
+      "bytes": 1460661,
+      "sha256": "83443902ce34ad4dd69a456bb3da389bfb113b97625282d938416de33d928c47",
+      "working_sha256": "83443902ce34ad4dd69a456bb3da389bfb113b97625282d938416de33d928c47",
+      "normalization": "NONE_LITERAL"
+    },
+    {
+      "path": "audit/astronaut_walkthrough_20261007/frames/1280/0073_phase2_valve_contact.png",
+      "bytes": 1460460,
+      "sha256": "01047d17783ceb8a473461960c26c45f8282900fdff6627b92bbbb0c271002be",
+      "working_sha256": "01047d17783ceb8a473461960c26c45f8282900fdff6627b92bbbb0c271002be",
+      "normalization": "NONE_LITERAL"
+    },
+    {
+      "path": "audit/astronaut_walkthrough_20261007/frames/1280/0105_phase2_valve_turn.png",
+      "bytes": 1461582,
+      "sha256": "0a7ac934f65b3441590821417f4003529b7dbb266ec2818115e9e31b0eb40761",
+      "working_sha256": "0a7ac934f65b3441590821417f4003529b7dbb266ec2818115e9e31b0eb40761",
+      "normalization": "NONE_LITERAL"
+    },
+    {
+      "path": "audit/astronaut_walkthrough_20261007/frames/1280/0106_phase2_valve_release.png",
+      "bytes": 1462286,
+      "sha256": "3e5d32deec519b2f73a610371bc3fde729edd3094abcc37d9f9cf156dad49144",
+      "working_sha256": "3e5d32deec519b2f73a610371bc3fde729edd3094abcc37d9f9cf156dad49144",
+      "normalization": "NONE_LITERAL"
+    },
+    {
+      "path": "audit/astronaut_walkthrough_20261007/frames/1280/0107_phase2_valve_return.png",
+      "bytes": 1457800,
+      "sha256": "8a09311737a927e39e8f8888507891d7af9d9b6c26173e5844b7fd94f1b17787",
+      "working_sha256": "8a09311737a927e39e8f8888507891d7af9d9b6c26173e5844b7fd94f1b17787",
+      "normalization": "NONE_LITERAL"
+    },
+    {
+      "path": "audit/astronaut_walkthrough_20261007/frames/1280/0108_phase2_completed.png",
+      "bytes": 1455324,
+      "sha256": "c6decc7b2c55c0cdb3e455e62029c57cc36113d83c5e853d3b4a30b39b2b7992",
+      "working_sha256": "c6decc7b2c55c0cdb3e455e62029c57cc36113d83c5e853d3b4a30b39b2b7992",
+      "normalization": "NONE_LITERAL"
+    },
+    {
+      "path": "audit/astronaut_walkthrough_20261007/frames/1280/0109_phase3_open.png",
+      "bytes": 1476965,
+      "sha256": "e93fdfa2b83674b2bca06d71a205edf04731fa40916903e04f8e0b57c2a261e2",
+      "working_sha256": "e93fdfa2b83674b2bca06d71a205edf04731fa40916903e04f8e0b57c2a261e2",
+      "normalization": "NONE_LITERAL"
+    },
+    {
+      "path": "audit/astronaut_walkthrough_20261007/frames/1280/0113_phase3_input_held.png",
+      "bytes": 1482654,
+      "sha256": "09cf74ff75433010e68d28295b257e8d7208bb5b470e62b16badfee9edfc0adc",
+      "working_sha256": "09cf74ff75433010e68d28295b257e8d7208bb5b470e62b16badfee9edfc0adc",
+      "normalization": "NONE_LITERAL"
+    },
+    {
+      "path": "audit/astronaut_walkthrough_20261007/frames/1280/0127_phase3_completed.png",
+      "bytes": 1475282,
+      "sha256": "0224e651cc71a50a7adfb0f866d281943f312e67358a6ff71586e741730c46f9",
+      "working_sha256": "0224e651cc71a50a7adfb0f866d281943f312e67358a6ff71586e741730c46f9",
+      "normalization": "NONE_LITERAL"
+    },
+    {
+      "path": "audit/astronaut_walkthrough_20261007/frames/1280/0128_room_return.png",
+      "bytes": 1336239,
+      "sha256": "ba3a1b91962be8ab77709dfee9218c67bf5ffa1ee445521b8ba61b6b1bce7508",
+      "working_sha256": "ba3a1b91962be8ab77709dfee9218c67bf5ffa1ee445521b8ba61b6b1bce7508",
+      "normalization": "NONE_LITERAL"
+    },
+    {
+      "path": "audit/astronaut_walkthrough_20261007/frames/1600/0015_phase0_pipe_contact_b.png",
+      "bytes": 1375705,
+      "sha256": "857b9c0d62b4795b6a045202bea18d1ed268060f494c92d9de9e3a0c0bbbdbb3",
+      "working_sha256": "857b9c0d62b4795b6a045202bea18d1ed268060f494c92d9de9e3a0c0bbbdbb3",
+      "normalization": "NONE_LITERAL"
+    },
+    {
+      "path": "audit/astronaut_walkthrough_20261007/frames/1600/0046_phase1_patch_contact_b.png",
+      "bytes": 1493882,
+      "sha256": "8dc6da9b799a052893897d4d6c4e6013eaa30a0c288449a1459013f5c6d15341",
+      "working_sha256": "8dc6da9b799a052893897d4d6c4e6013eaa30a0c288449a1459013f5c6d15341",
+      "normalization": "NONE_LITERAL"
+    },
+    {
+      "path": "audit/astronaut_walkthrough_20261007/frames/1600/0066_phase1_input_held.png",
+      "bytes": 1491777,
+      "sha256": "fc9f352eaf5dac598c03c6369a91b4e2d85b8a35ba3b8228e04f13924533cd61",
+      "working_sha256": "fc9f352eaf5dac598c03c6369a91b4e2d85b8a35ba3b8228e04f13924533cd61",
+      "normalization": "NONE_LITERAL"
+    },
+    {
+      "path": "audit/astronaut_walkthrough_20261007/frames/1600/0067_phase1_completed.png",
+      "bytes": 1496431,
+      "sha256": "1d67fd0497952fb9017bf45a94629afff5bb7025bcb141c4147cc87144e34c06",
+      "working_sha256": "1d67fd0497952fb9017bf45a94629afff5bb7025bcb141c4147cc87144e34c06",
+      "normalization": "NONE_LITERAL"
+    },
+    {
+      "path": "audit/astronaut_walkthrough_20261007/frames/1600/0073_phase2_valve_contact.png",
+      "bytes": 1487288,
+      "sha256": "2c469331699f792ad151ee274d7eb72eb98366a56e77dda5b3bb66f6deb7aa4f",
+      "working_sha256": "2c469331699f792ad151ee274d7eb72eb98366a56e77dda5b3bb66f6deb7aa4f",
+      "normalization": "NONE_LITERAL"
+    },
+    {
+      "path": "audit/astronaut_walkthrough_20261007/frames/1600/0105_phase2_valve_turn.png",
+      "bytes": 1488571,
+      "sha256": "80fadeeadd9d1a82656b8ac42735264265dfe51d68ef134aebebceb9183afa54",
+      "working_sha256": "80fadeeadd9d1a82656b8ac42735264265dfe51d68ef134aebebceb9183afa54",
+      "normalization": "NONE_LITERAL"
+    },
+    {
+      "path": "audit/astronaut_walkthrough_20261007/frames/1600/0113_phase3_input_held.png",
+      "bytes": 1509168,
+      "sha256": "3429abf9fcee1aadb2225de849226814cd6d81e4885fb17273651e81c9958411",
+      "working_sha256": "3429abf9fcee1aadb2225de849226814cd6d81e4885fb17273651e81c9958411",
+      "normalization": "NONE_LITERAL"
+    },
+    {
+      "path": "audit/astronaut_walkthrough_20261007/frames/1600/0128_room_return.png",
+      "bytes": 1387622,
+      "sha256": "bdd5061985df45e3d7327b758372200b1cf67134596011ff1922479fabc59c83",
+      "working_sha256": "bdd5061985df45e3d7327b758372200b1cf67134596011ff1922479fabc59c83",
+      "normalization": "NONE_LITERAL"
+    },
+    {
+      "path": "audit/astronaut_walkthrough_20261007/history/INITIAL_BUILDER.txt",
+      "bytes": 30520,
+      "sha256": "87ca31ca679e523f4e2416f7f0314b815a118221e7d0ddd6d97fffb82f69e09e",
+      "working_sha256": "87ca31ca679e523f4e2416f7f0314b815a118221e7d0ddd6d97fffb82f69e09e",
+      "normalization": "NONE_LITERAL"
+    },
+    {
+      "path": "audit/astronaut_walkthrough_20261007/history/INITIAL_INDEX.txt",
+      "bytes": 38895,
+      "sha256": "63c166a9accc981d492ffa49d2ff5d6491088c9f218b70850c3d607eb459af7c",
+      "working_sha256": "63c166a9accc981d492ffa49d2ff5d6491088c9f218b70850c3d607eb459af7c",
+      "normalization": "NONE_LITERAL"
+    },
+    {
+      "path": "audit/astronaut_walkthrough_20261007/history/INITIAL_MANIFEST.json",
+      "bytes": 191515,
+      "sha256": "e4667ab4d444707609f03092423bf116db72a174d49ddea9a65a806a745c2628",
+      "working_sha256": "e4667ab4d444707609f03092423bf116db72a174d49ddea9a65a806a745c2628",
+      "normalization": "NONE_LITERAL"
+    },
+    {
+      "path": "audit/astronaut_walkthrough_20261007/history/INITIAL_README.txt",
+      "bytes": 25572,
+      "sha256": "2e01800b6e3987629166523db97f9dbc8d1fad922203ffb377aa0374ff6da4a8",
+      "working_sha256": "2e01800b6e3987629166523db97f9dbc8d1fad922203ffb377aa0374ff6da4a8",
+      "normalization": "NONE_LITERAL"
+    },
+    {
+      "path": "audit/astronaut_walkthrough_20261007/history/INITIAL_STEPS.json",
+      "bytes": 23149,
+      "sha256": "7173d514d36b1ae145c657757387c724d4e27b92b77d99facad4de7e08c14615",
+      "working_sha256": "7173d514d36b1ae145c657757387c724d4e27b92b77d99facad4de7e08c14615",
+      "normalization": "NONE_LITERAL"
+    },
+    {
+      "path": "audit/astronaut_walkthrough_20261007/history/INITIAL_VERIFY_LOG.txt",
+      "bytes": 16589,
+      "sha256": "6640b18e954100a3a98cc285764ffaa4786ac5fb91cfdf79d83b22e676c963ee",
+      "working_sha256": "6640b18e954100a3a98cc285764ffaa4786ac5fb91cfdf79d83b22e676c963ee",
+      "normalization": "NONE_LITERAL"
+    },
+    {
+      "path": "audit/astronaut_walkthrough_20261007/history/INITIAL_VERIFY_RECEIPT.json",
+      "bytes": 555,
+      "sha256": "d8122dfdef2977d3be4e882f72c534c453b007738e53276950ecce5f436a6f21",
+      "working_sha256": "d8122dfdef2977d3be4e882f72c534c453b007738e53276950ecce5f436a6f21",
+      "normalization": "NONE_LITERAL"
+    },
+    {
+      "path": "audit/astronaut_walkthrough_20261007/index.html",
+      "bytes": 38991,
+      "sha256": "7b85eb43328885a1fe699a79260f1d78a7b0cf09d13739a59c6fa3a7a7c5ce75",
+      "working_sha256": "7b85eb43328885a1fe699a79260f1d78a7b0cf09d13739a59c6fa3a7a7c5ce75",
+      "normalization": "NONE_LITERAL"
+    },
+    {
+      "path": "audit/astronaut_walkthrough_20261007/run_document_gates_v1.py",
+      "bytes": 2935,
+      "sha256": "d1f5e73f4e38581dd33f5b940361ec1da4f94525fed5585c205518774cd1b03e",
+      "working_sha256": "d1f5e73f4e38581dd33f5b940361ec1da4f94525fed5585c205518774cd1b03e",
+      "normalization": "NONE_LITERAL"
+    },
+    {
+      "path": "audit/astronaut_walkthrough_20261007/run_document_gates_v2.py",
+      "bytes": 3097,
+      "sha256": "ad06a946e137a8ef8e79daea7caac153fca92608b7c068364ec0cb8f1f1b716e",
+      "working_sha256": "ad06a946e137a8ef8e79daea7caac153fca92608b7c068364ec0cb8f1f1b716e",
+      "normalization": "NONE_LITERAL"
+    },
+    {
+      "path": "audit/astronaut_walkthrough_20261007/run_document_gates_v3.py",
+      "bytes": 3098,
+      "sha256": "1b01e685022b2117fd85eb0f4453b5690938b2797700f3dd6acf140e76e5cad2",
+      "working_sha256": "1b01e685022b2117fd85eb0f4453b5690938b2797700f3dd6acf140e76e5cad2",
+      "normalization": "NONE_LITERAL"
+    },
+    {
+      "path": "audit/astronaut_walkthrough_20261007/sources/audio_director.gd.txt",
+      "bytes": 29188,
+      "sha256": "9de96599bd4b303a732e9ca5127547874ff35247771aee1d3fe4e0bcfbba59ba",
+      "working_sha256": "9de96599bd4b303a732e9ca5127547874ff35247771aee1d3fe4e0bcfbba59ba",
+      "normalization": "NONE_LITERAL"
+    },
+    {
+      "path": "audit/astronaut_walkthrough_20261007/sources/capture_birthday_native_v8.gd.txt",
+      "bytes": 39192,
+      "sha256": "b58b67ce736c9443f9f6f80d1ba52e3cbc8d2d42883a7b40c5d4b19e6bf6d0a2",
+      "working_sha256": "b58b67ce736c9443f9f6f80d1ba52e3cbc8d2d42883a7b40c5d4b19e6bf6d0a2",
+      "normalization": "NONE_LITERAL"
+    },
+    {
+      "path": "audit/astronaut_walkthrough_20261007/sources/castle_career_routes.gd.txt",
+      "bytes": 15425,
+      "sha256": "c5de38d8126c96aae9e999780113edafff05601a22934443e67053edcd8e18d8",
+      "working_sha256": "c5de38d8126c96aae9e999780113edafff05601a22934443e67053edcd8e18d8",
+      "normalization": "NONE_LITERAL"
+    },
+    {
+      "path": "audit/astronaut_walkthrough_20261007/sources/chapter_two_career_scene_adapter.gd.txt",
+      "bytes": 15702,
+      "sha256": "ffdcd602711a6acc42a5c6352ad8cbb701316f94c21233356fb56071f85ad40a",
+      "working_sha256": "ffdcd602711a6acc42a5c6352ad8cbb701316f94c21233356fb56071f85ad40a",
+      "normalization": "NONE_LITERAL"
+    },
+    {
+      "path": "audit/astronaut_walkthrough_20261007/sources/chapter_two_director.gd.txt",
+      "bytes": 39983,
+      "sha256": "789ee737eec9477c8b1d6a89b60b6747accc14a6568b2dfa924fa3e5fca42d8d",
+      "working_sha256": "789ee737eec9477c8b1d6a89b60b6747accc14a6568b2dfa924fa3e5fca42d8d",
+      "normalization": "NONE_LITERAL"
+    },
+    {
+      "path": "audit/astronaut_walkthrough_20261007/sources/chapter_two_party_plan.gd.txt",
+      "bytes": 2929,
+      "sha256": "c8fa0ff7f2f16d54085e920e3ad5ebc5c5a4e6c4d4afc85d98c702c900886dfa",
+      "working_sha256": "c8fa0ff7f2f16d54085e920e3ad5ebc5c5a4e6c4d4afc85d98c702c900886dfa",
+      "normalization": "NONE_LITERAL"
+    },
+    {
+      "path": "audit/astronaut_walkthrough_20261007/sources/opera_astronaut_patch_work.gd.txt",
+      "bytes": 3593,
+      "sha256": "60a11bf59152e4784d2208d69fbe3590488935ed6ae13f61a05fe03c7619c0d4",
+      "working_sha256": "60a11bf59152e4784d2208d69fbe3590488935ed6ae13f61a05fe03c7619c0d4",
+      "normalization": "NONE_LITERAL"
+    },
+    {
+      "path": "audit/astronaut_walkthrough_20261007/sources/opera_astronaut_pipe_work.gd.txt",
+      "bytes": 7708,
+      "sha256": "f6cd174b379139796aafa9c505ddc2ea27fd82ae309d66556b16b105d3f54600",
+      "working_sha256": "f6cd174b379139796aafa9c505ddc2ea27fd82ae309d66556b16b105d3f54600",
+      "normalization": "NONE_LITERAL"
+    },
+    {
+      "path": "audit/astronaut_walkthrough_20261007/sources/opera_astronaut_surface.gd.txt",
+      "bytes": 17580,
+      "sha256": "5685ab40780025d1b6dac7d9543b2c8bed21c6be222a203fac38967eb913dc39",
+      "working_sha256": "5685ab40780025d1b6dac7d9543b2c8bed21c6be222a203fac38967eb913dc39",
+      "normalization": "NONE_LITERAL"
+    },
+    {
+      "path": "audit/astronaut_walkthrough_20261007/sources/opera_astronaut_valve_work.gd.txt",
+      "bytes": 4440,
+      "sha256": "50ac3cd2cfc9df7f24fca5cc1de0a2b57f3e6b47b179b6010b9eab581a0fb0db",
+      "working_sha256": "50ac3cd2cfc9df7f24fca5cc1de0a2b57f3e6b47b179b6010b9eab581a0fb0db",
+      "normalization": "NONE_LITERAL"
+    },
+    {
+      "path": "audit/astronaut_walkthrough_20261007/sources/opera_career_world_2d.gd.txt",
+      "bytes": 245462,
+      "sha256": "b567bb47894a25f26cb94e70b24ec3eda55e7e2ee6ab45247d46a2a13e8642cf",
+      "working_sha256": "b567bb47894a25f26cb94e70b24ec3eda55e7e2ee6ab45247d46a2a13e8642cf",
+      "normalization": "NONE_LITERAL"
+    },
+    {
+      "path": "audit/astronaut_walkthrough_20261007/sources/opera_house.gd.txt",
+      "bytes": 17395,
+      "sha256": "09a70ca5f9abd836f66a2327e62553b8d603f9318845c404d7d3527fee953910",
+      "working_sha256": "09a70ca5f9abd836f66a2327e62553b8d603f9318845c404d7d3527fee953910",
+      "normalization": "NONE_LITERAL"
+    },
+    {
+      "path": "audit/astronaut_walkthrough_20261007/sources/save_state.gd.txt",
+      "bytes": 47047,
+      "sha256": "13b77592028653cdcac67e54264f049bbab01c6566b4fad1ea9bdf89a37a07c8",
+      "working_sha256": "13b77592028653cdcac67e54264f049bbab01c6566b4fad1ea9bdf89a37a07c8",
+      "normalization": "NONE_LITERAL"
+    },
+    {
+      "path": "audit/astronaut_walkthrough_20261007/verify_walkthrough.py",
+      "bytes": 4495,
+      "sha256": "c80136f341a6e5b18717d2aba4f4bd048a4007cb645b62c08114b3a4a37b584e",
+      "working_sha256": "c80136f341a6e5b18717d2aba4f4bd048a4007cb645b62c08114b3a4a37b584e",
+      "normalization": "NONE_LITERAL"
+    },
+    {
+      "path": "audit/astronaut_walkthrough_20261007/verify_walkthrough_v2.py",
+      "bytes": 4533,
+      "sha256": "71fe103b14753635ea677c8eae590ba15b6902adb2e9931ad8cf3e0e95e7ca42",
+      "working_sha256": "71fe103b14753635ea677c8eae590ba15b6902adb2e9931ad8cf3e0e95e7ca42",
+      "normalization": "NONE_LITERAL"
+    },
+    {
+      "path": "audit/astronaut_walkthrough_20261007/verify_walkthrough_v3.py",
+      "bytes": 4533,
+      "sha256": "c66a3c7c61b77d9df5372adbead03fc6dced091362a1d38e604b9f7601087428",
+      "working_sha256": "c66a3c7c61b77d9df5372adbead03fc6dced091362a1d38e604b9f7601087428",
+      "normalization": "NONE_LITERAL"
+    },
+    {
+      "path": "design/05_DOC_LEDGER.md",
+      "bytes": 205811,
+      "sha256": "07b4a70f391b7f1a556f31e2dfaffee4b31a4f0dc768ba128507657a1a7fd457",
+      "working_sha256": "3b95d0a8c03702c04a74dab030359c8e86875505f347b977de7588e2ba20ca37",
+      "normalization": "GIT_TEXT_UTF8_LF; distinct working/staged hashes recorded"
+    },
+    {
+      "path": "design/audit_impacts/astronaut-walkthrough-20261007.json",
+      "bytes": 10538,
+      "sha256": "e691e21a0ef373759cfcee7ada756f5ad00aee4c9099131e893a790ed2753fec",
+      "working_sha256": "686e7376540ff47bdff0eb4efef11692dc02318079ab5491eecfecac3c67b59e",
+      "normalization": "GIT_TEXT_UTF8_LF; distinct working/staged hashes recorded"
+    }
+  ],
+  "native_masters": 35,
+  "steps": 29,
+  "manifest_sha256": "03e5dfd1a1be9e220b126255f36b82542543f73c17996d93efee9e0979ebbd04",
+  "artifact_checks": 314,
+  "source_bindings_unchanged": true,
+  "native_png_bytes_unchanged": true,
+  "cached_whitespace": "PASS",
+  "development_coverage": "PASS",
+  "development_stdout_sha256": "17618ed3e8b43d1ba6115b6c5d6da93992398bbb8a9d734d394cc92f7aa8353a",
+  "document_authority": "PASS at final staging candidate",
+  "authority_stdout_sha256": "a27d0824befdbcba00c810c7f30bcda72b76382de12191377a800b8d454e4db5",
+  "metadata_correction": "V3plan text says25568for initial README size; literal INITIAL_README.txt is25668bytes. The clerical typo remains in preserved plan; use literal file length/hash as evidence.",
+  "seal_exclusion": "This receipt itself; its final bytes are staged after write. No exact-clean-Git, full trusted suite, browser UI, motion,4.6, independent/device/child/owner, remote delivery or integration claim.",
+  "publication": "NOT_DELIVERED_PENDING_FULL_TRUSTED_SUITE_AND_NORMAL_GATES",
+  "browser_preview": "BLOCKED_LOCAL_FILE_URL_POLICY; no workaround used",
+  "engine_launches": 0,
+  "runtime_changes": 0,
+  "pixel_edits": 0,
+  "commit": false,
+  "push": false
+}

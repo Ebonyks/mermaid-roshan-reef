@@ -1,0 +1,24 @@
+{
+  "created_utc": "2026-10-07T18:00:36.759256+00:00",
+  "scope": "First read-only trial of path-restricted index/working-diff queries, using the two owned audit directories and exact declared files outside them. No auditor, staging, engine, native, import or generation run.",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07"
+  ],
+  "findings": [
+    "MA-PLAY-004",
+    "MA-SAVE-002",
+    "MA-VIS-006"
+  ],
+  "finding_scope": "Existing Astronaut acceptance trace only; no new game defect or lifecycle change.",
+  "baseline": "96274aab9cebd563b10846a4a48de5d017588563",
+  "origin_dev": "6238934447cf28834874396dfbaff65effafda46",
+  "prior_source_document_seconds": 242.272,
+  "prior_headless_seconds": 151.559,
+  "previous_caps_and_failures": "Preserve original180s and60s allowances, their181.92s/60.352s charges, V1/V2/V3 FAIL receipts and unverified seals. This different-method read-only trial does not reset or replay those attempts.",
+  "trial_cap_seconds": 15,
+  "cumulative_document_trial_ceiling_seconds": 257.272,
+  "no_automatic_retry": true,
+  "required_evidence": "Both actual Git calls return0; query arguments contain no assets/.godot prefix; returned names belong to scoped paths; retained stderr and timings. This proves only preparation, not development coverage or visual clearance."
+}

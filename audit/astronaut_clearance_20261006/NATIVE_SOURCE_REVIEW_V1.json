@@ -1,0 +1,702 @@
+{
+  "recorded_utc": "2026-10-07T05:06:27.384912+00:00",
+  "baseline": "96274aab9cebd563b10846a4a48de5d017588563",
+  "branch": "codex/astronaut-clearance-20261006",
+  "previous_goal_turn": "PROGRESS: three-board genuine-input evidence, complete staged audit coverage, retained red broader probe and approved coordination delivery.",
+  "floor": 4.6,
+  "method": "Direct native original inspection by the Astronaut author, per-item/cell judgment plus alpha-bound measurement. No average and no separate independent review claimed.",
+  "source_bindings": [
+    {
+      "path": "scripts/opera_gesture_surface.gd",
+      "sha256": "34f3f264f17edef42990712f6c3f7e0106cf9afecd3969f8348848e0eda56017"
+    },
+    {
+      "path": "scripts/opera_career_world_2d.gd",
+      "sha256": "2eed1b973513449f4432ac408ec678d5f84d9963200362610c09b8a796890ca7"
+    },
+    {
+      "path": "scripts/opera_roshan_actor.gd",
+      "sha256": "7c0f334fd73b39685b5a1ef4e3e9214b974cbd90db3d291dc172ebc5b13a6b66"
+    },
+    {
+      "path": "scripts/opera_world_backdrop_2d.gd",
+      "sha256": "82ba08a1f9d396fd38879b28e44411868d67b024aefd6aa2570113aaa964dc02"
+    },
+    {
+      "path": "scripts/opera_hotspot_catalog.gd",
+      "sha256": "ad76445088eaaaa223f9374b2e7a098370350da7ebc5c419584453ff1da2ee5b"
+    },
+    {
+      "path": "scripts/chapter_two_career_scene_adapter.gd",
+      "sha256": "ffdcd602711a6acc42a5c6352ad8cbb701316f94c21233356fb56071f85ad40a"
+    }
+  ],
+  "reviewed_items": [
+    {
+      "id": "ASTRO-SRC-ROSHAN-IDLE-0",
+      "path": "assets/opera/worlds/actors/animation/roshan_astronaut_sheet_a.png",
+      "sha256": "ccfb8e7af3a033e31e05af40fa62dc23b676aec6204ba8810e8cf79cbfc4d6fa",
+      "native_dimensions": [
+        1024,
+        1024
+      ],
+      "cell_rect": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "cell_alpha_bbox_gt8": [
+        44,
+        38,
+        211,
+        237
+      ],
+      "cell_edge_clear": true,
+      "grade": 4.6,
+      "grade_lane": "NATIVE_SOURCE_APPEARANCE_ONLY",
+      "observation": "Clear face, rainbow forelock, one complete tail and rounded helmet/costume. Calm open-hand silhouette; warm identity against cool tail remains readable in the native cell.",
+      "binding": "scripts/opera_roshan_actor.gd ATLAS_PATH/ANIMATION_ROWS; scripts/opera_career_world_2d.gd player_animator.setup and generic _play_roshan_task_pose",
+      "runtime_action_grade": "PENDING",
+      "accepted_for_complete_action": false
+    },
+    {
+      "id": "ASTRO-SRC-ROSHAN-IDLE-1",
+      "path": "assets/opera/worlds/actors/animation/roshan_astronaut_sheet_a.png",
+      "sha256": "ccfb8e7af3a033e31e05af40fa62dc23b676aec6204ba8810e8cf79cbfc4d6fa",
+      "native_dimensions": [
+        1024,
+        1024
+      ],
+      "cell_rect": [
+        256,
+        0,
+        256,
+        256
+      ],
+      "cell_alpha_bbox_gt8": [
+        43,
+        38,
+        212,
+        238
+      ],
+      "cell_edge_clear": true,
+      "grade": 4.6,
+      "grade_lane": "NATIVE_SOURCE_APPEARANCE_ONLY",
+      "observation": "Clear face, rainbow forelock, one complete tail and rounded helmet/costume. Calm open-hand silhouette; warm identity against cool tail remains readable in the native cell.",
+      "binding": "scripts/opera_roshan_actor.gd ATLAS_PATH/ANIMATION_ROWS; scripts/opera_career_world_2d.gd player_animator.setup and generic _play_roshan_task_pose",
+      "runtime_action_grade": "PENDING",
+      "accepted_for_complete_action": false
+    },
+    {
+      "id": "ASTRO-SRC-ROSHAN-IDLE-2",
+      "path": "assets/opera/worlds/actors/animation/roshan_astronaut_sheet_a.png",
+      "sha256": "ccfb8e7af3a033e31e05af40fa62dc23b676aec6204ba8810e8cf79cbfc4d6fa",
+      "native_dimensions": [
+        1024,
+        1024
+      ],
+      "cell_rect": [
+        512,
+        0,
+        256,
+        256
+      ],
+      "cell_alpha_bbox_gt8": [
+        42,
+        38,
+        215,
+        238
+      ],
+      "cell_edge_clear": true,
+      "grade": 4.6,
+      "grade_lane": "NATIVE_SOURCE_APPEARANCE_ONLY",
+      "observation": "Clear face, rainbow forelock, one complete tail and rounded helmet/costume. Calm open-hand silhouette; warm identity against cool tail remains readable in the native cell.",
+      "binding": "scripts/opera_roshan_actor.gd ATLAS_PATH/ANIMATION_ROWS; scripts/opera_career_world_2d.gd player_animator.setup and generic _play_roshan_task_pose",
+      "runtime_action_grade": "PENDING",
+      "accepted_for_complete_action": false
+    },
+    {
+      "id": "ASTRO-SRC-ROSHAN-IDLE-3",
+      "path": "assets/opera/worlds/actors/animation/roshan_astronaut_sheet_a.png",
+      "sha256": "ccfb8e7af3a033e31e05af40fa62dc23b676aec6204ba8810e8cf79cbfc4d6fa",
+      "native_dimensions": [
+        1024,
+        1024
+      ],
+      "cell_rect": [
+        768,
+        0,
+        256,
+        256
+      ],
+      "cell_alpha_bbox_gt8": [
+        41,
+        38,
+        216,
+        238
+      ],
+      "cell_edge_clear": true,
+      "grade": 4.6,
+      "grade_lane": "NATIVE_SOURCE_APPEARANCE_ONLY",
+      "observation": "Clear face, rainbow forelock, one complete tail and rounded helmet/costume. Calm open-hand silhouette; warm identity against cool tail remains readable in the native cell.",
+      "binding": "scripts/opera_roshan_actor.gd ATLAS_PATH/ANIMATION_ROWS; scripts/opera_career_world_2d.gd player_animator.setup and generic _play_roshan_task_pose",
+      "runtime_action_grade": "PENDING",
+      "accepted_for_complete_action": false
+    },
+    {
+      "id": "ASTRO-SRC-ROSHAN-TRAVEL-0",
+      "path": "assets/opera/worlds/actors/animation/roshan_astronaut_sheet_a.png",
+      "sha256": "ccfb8e7af3a033e31e05af40fa62dc23b676aec6204ba8810e8cf79cbfc4d6fa",
+      "native_dimensions": [
+        1024,
+        1024
+      ],
+      "cell_rect": [
+        0,
+        256,
+        256,
+        256
+      ],
+      "cell_alpha_bbox_gt8": [
+        20,
+        109,
+        236,
+        238
+      ],
+      "cell_edge_clear": true,
+      "grade": 4.6,
+      "grade_lane": "NATIVE_SOURCE_APPEARANCE_ONLY",
+      "observation": "Complete swimming figure and rainbow tail remain legible, with coherent helmet/costume and no alpha-edge truncation. Native source appearance only; the lean/arm changes and row wrap need full-speed runtime review.",
+      "binding": "scripts/opera_roshan_actor.gd ATLAS_PATH/ANIMATION_ROWS; scripts/opera_career_world_2d.gd player_animator.setup and generic _play_roshan_task_pose",
+      "runtime_action_grade": "PENDING",
+      "accepted_for_complete_action": false
+    },
+    {
+      "id": "ASTRO-SRC-ROSHAN-TRAVEL-1",
+      "path": "assets/opera/worlds/actors/animation/roshan_astronaut_sheet_a.png",
+      "sha256": "ccfb8e7af3a033e31e05af40fa62dc23b676aec6204ba8810e8cf79cbfc4d6fa",
+      "native_dimensions": [
+        1024,
+        1024
+      ],
+      "cell_rect": [
+        256,
+        256,
+        256,
+        256
+      ],
+      "cell_alpha_bbox_gt8": [
+        31,
+        95,
+        226,
+        238
+      ],
+      "cell_edge_clear": true,
+      "grade": 4.6,
+      "grade_lane": "NATIVE_SOURCE_APPEARANCE_ONLY",
+      "observation": "Complete swimming figure and rainbow tail remain legible, with coherent helmet/costume and no alpha-edge truncation. Native source appearance only; the lean/arm changes and row wrap need full-speed runtime review.",
+      "binding": "scripts/opera_roshan_actor.gd ATLAS_PATH/ANIMATION_ROWS; scripts/opera_career_world_2d.gd player_animator.setup and generic _play_roshan_task_pose",
+      "runtime_action_grade": "PENDING",
+      "accepted_for_complete_action": false
+    },
+    {
+      "id": "ASTRO-SRC-ROSHAN-TRAVEL-2",
+      "path": "assets/opera/worlds/actors/animation/roshan_astronaut_sheet_a.png",
+      "sha256": "ccfb8e7af3a033e31e05af40fa62dc23b676aec6204ba8810e8cf79cbfc4d6fa",
+      "native_dimensions": [
+        1024,
+        1024
+      ],
+      "cell_rect": [
+        512,
+        256,
+        256,
+        256
+      ],
+      "cell_alpha_bbox_gt8": [
+        36,
+        92,
+        219,
+        238
+      ],
+      "cell_edge_clear": true,
+      "grade": 4.6,
+      "grade_lane": "NATIVE_SOURCE_APPEARANCE_ONLY",
+      "observation": "Complete swimming figure and rainbow tail remain legible, with coherent helmet/costume and no alpha-edge truncation. Native source appearance only; the lean/arm changes and row wrap need full-speed runtime review.",
+      "binding": "scripts/opera_roshan_actor.gd ATLAS_PATH/ANIMATION_ROWS; scripts/opera_career_world_2d.gd player_animator.setup and generic _play_roshan_task_pose",
+      "runtime_action_grade": "PENDING",
+      "accepted_for_complete_action": false
+    },
+    {
+      "id": "ASTRO-SRC-ROSHAN-TRAVEL-3",
+      "path": "assets/opera/worlds/actors/animation/roshan_astronaut_sheet_a.png",
+      "sha256": "ccfb8e7af3a033e31e05af40fa62dc23b676aec6204ba8810e8cf79cbfc4d6fa",
+      "native_dimensions": [
+        1024,
+        1024
+      ],
+      "cell_rect": [
+        768,
+        256,
+        256,
+        256
+      ],
+      "cell_alpha_bbox_gt8": [
+        19,
+        84,
+        238,
+        238
+      ],
+      "cell_edge_clear": true,
+      "grade": 4.6,
+      "grade_lane": "NATIVE_SOURCE_APPEARANCE_ONLY",
+      "observation": "Complete swimming figure and rainbow tail remain legible, with coherent helmet/costume and no alpha-edge truncation. Native source appearance only; the lean/arm changes and row wrap need full-speed runtime review.",
+      "binding": "scripts/opera_roshan_actor.gd ATLAS_PATH/ANIMATION_ROWS; scripts/opera_career_world_2d.gd player_animator.setup and generic _play_roshan_task_pose",
+      "runtime_action_grade": "PENDING",
+      "accepted_for_complete_action": false
+    },
+    {
+      "id": "ASTRO-SRC-ROSHAN-WORK-0",
+      "path": "assets/opera/worlds/actors/animation/roshan_astronaut_sheet_a.png",
+      "sha256": "ccfb8e7af3a033e31e05af40fa62dc23b676aec6204ba8810e8cf79cbfc4d6fa",
+      "native_dimensions": [
+        1024,
+        1024
+      ],
+      "cell_rect": [
+        0,
+        512,
+        256,
+        256
+      ],
+      "cell_alpha_bbox_gt8": [
+        33,
+        48,
+        222,
+        238
+      ],
+      "cell_edge_clear": true,
+      "grade": 4.6,
+      "grade_lane": "NATIVE_SOURCE_APPEARANCE_ONLY",
+      "observation": "Complete costumed figure, face and wrench silhouette are clear in the native cell. This is a generic wrench pose; it does not by itself prove pipe placement, leak repair, valve contact or countdown acting.",
+      "binding": "scripts/opera_roshan_actor.gd ATLAS_PATH/ANIMATION_ROWS; scripts/opera_career_world_2d.gd player_animator.setup and generic _play_roshan_task_pose",
+      "runtime_action_grade": "PENDING",
+      "accepted_for_complete_action": false
+    },
+    {
+      "id": "ASTRO-SRC-ROSHAN-WORK-1",
+      "path": "assets/opera/worlds/actors/animation/roshan_astronaut_sheet_a.png",
+      "sha256": "ccfb8e7af3a033e31e05af40fa62dc23b676aec6204ba8810e8cf79cbfc4d6fa",
+      "native_dimensions": [
+        1024,
+        1024
+      ],
+      "cell_rect": [
+        256,
+        512,
+        256,
+        256
+      ],
+      "cell_alpha_bbox_gt8": [
+        33,
+        48,
+        222,
+        238
+      ],
+      "cell_edge_clear": true,
+      "grade": 4.6,
+      "grade_lane": "NATIVE_SOURCE_APPEARANCE_ONLY",
+      "observation": "Complete costumed figure, face and wrench silhouette are clear in the native cell. This is a generic wrench pose; it does not by itself prove pipe placement, leak repair, valve contact or countdown acting.",
+      "binding": "scripts/opera_roshan_actor.gd ATLAS_PATH/ANIMATION_ROWS; scripts/opera_career_world_2d.gd player_animator.setup and generic _play_roshan_task_pose",
+      "runtime_action_grade": "PENDING",
+      "accepted_for_complete_action": false
+    },
+    {
+      "id": "ASTRO-SRC-ROSHAN-WORK-2",
+      "path": "assets/opera/worlds/actors/animation/roshan_astronaut_sheet_a.png",
+      "sha256": "ccfb8e7af3a033e31e05af40fa62dc23b676aec6204ba8810e8cf79cbfc4d6fa",
+      "native_dimensions": [
+        1024,
+        1024
+      ],
+      "cell_rect": [
+        512,
+        512,
+        256,
+        256
+      ],
+      "cell_alpha_bbox_gt8": [
+        38,
+        46,
+        217,
+        238
+      ],
+      "cell_edge_clear": true,
+      "grade": 4.6,
+      "grade_lane": "NATIVE_SOURCE_APPEARANCE_ONLY",
+      "observation": "Complete costumed figure, face and wrench silhouette are clear in the native cell. This is a generic wrench pose; it does not by itself prove pipe placement, leak repair, valve contact or countdown acting.",
+      "binding": "scripts/opera_roshan_actor.gd ATLAS_PATH/ANIMATION_ROWS; scripts/opera_career_world_2d.gd player_animator.setup and generic _play_roshan_task_pose",
+      "runtime_action_grade": "PENDING",
+      "accepted_for_complete_action": false
+    },
+    {
+      "id": "ASTRO-SRC-ROSHAN-WORK-3",
+      "path": "assets/opera/worlds/actors/animation/roshan_astronaut_sheet_a.png",
+      "sha256": "ccfb8e7af3a033e31e05af40fa62dc23b676aec6204ba8810e8cf79cbfc4d6fa",
+      "native_dimensions": [
+        1024,
+        1024
+      ],
+      "cell_rect": [
+        768,
+        512,
+        256,
+        256
+      ],
+      "cell_alpha_bbox_gt8": [
+        33,
+        46,
+        223,
+        238
+      ],
+      "cell_edge_clear": true,
+      "grade": 4.6,
+      "grade_lane": "NATIVE_SOURCE_APPEARANCE_ONLY",
+      "observation": "Complete costumed figure, face and wrench silhouette are clear in the native cell. This is a generic wrench pose; it does not by itself prove pipe placement, leak repair, valve contact or countdown acting.",
+      "binding": "scripts/opera_roshan_actor.gd ATLAS_PATH/ANIMATION_ROWS; scripts/opera_career_world_2d.gd player_animator.setup and generic _play_roshan_task_pose",
+      "runtime_action_grade": "PENDING",
+      "accepted_for_complete_action": false
+    },
+    {
+      "id": "ASTRO-SRC-ROSHAN-CHEER-0",
+      "path": "assets/opera/worlds/actors/animation/roshan_astronaut_sheet_a.png",
+      "sha256": "ccfb8e7af3a033e31e05af40fa62dc23b676aec6204ba8810e8cf79cbfc4d6fa",
+      "native_dimensions": [
+        1024,
+        1024
+      ],
+      "cell_rect": [
+        0,
+        768,
+        256,
+        256
+      ],
+      "cell_alpha_bbox_gt8": [
+        44,
+        50,
+        211,
+        238
+      ],
+      "cell_edge_clear": true,
+      "grade": 4.6,
+      "grade_lane": "NATIVE_SOURCE_APPEARANCE_ONLY",
+      "observation": "Happy facial register, complete rainbow tail and distinct hand gesture remain legible in the native cell. These different celebration keys require runtime cadence/transition review.",
+      "binding": "scripts/opera_roshan_actor.gd ATLAS_PATH/ANIMATION_ROWS; scripts/opera_career_world_2d.gd player_animator.setup and generic _play_roshan_task_pose",
+      "runtime_action_grade": "PENDING",
+      "accepted_for_complete_action": false
+    },
+    {
+      "id": "ASTRO-SRC-ROSHAN-CHEER-1",
+      "path": "assets/opera/worlds/actors/animation/roshan_astronaut_sheet_a.png",
+      "sha256": "ccfb8e7af3a033e31e05af40fa62dc23b676aec6204ba8810e8cf79cbfc4d6fa",
+      "native_dimensions": [
+        1024,
+        1024
+      ],
+      "cell_rect": [
+        256,
+        768,
+        256,
+        256
+      ],
+      "cell_alpha_bbox_gt8": [
+        45,
+        50,
+        211,
+        238
+      ],
+      "cell_edge_clear": true,
+      "grade": 4.6,
+      "grade_lane": "NATIVE_SOURCE_APPEARANCE_ONLY",
+      "observation": "Happy facial register, complete rainbow tail and distinct hand gesture remain legible in the native cell. These different celebration keys require runtime cadence/transition review.",
+      "binding": "scripts/opera_roshan_actor.gd ATLAS_PATH/ANIMATION_ROWS; scripts/opera_career_world_2d.gd player_animator.setup and generic _play_roshan_task_pose",
+      "runtime_action_grade": "PENDING",
+      "accepted_for_complete_action": false
+    },
+    {
+      "id": "ASTRO-SRC-ROSHAN-CHEER-2",
+      "path": "assets/opera/worlds/actors/animation/roshan_astronaut_sheet_a.png",
+      "sha256": "ccfb8e7af3a033e31e05af40fa62dc23b676aec6204ba8810e8cf79cbfc4d6fa",
+      "native_dimensions": [
+        1024,
+        1024
+      ],
+      "cell_rect": [
+        512,
+        768,
+        256,
+        256
+      ],
+      "cell_alpha_bbox_gt8": [
+        43,
+        50,
+        213,
+        238
+      ],
+      "cell_edge_clear": true,
+      "grade": 4.6,
+      "grade_lane": "NATIVE_SOURCE_APPEARANCE_ONLY",
+      "observation": "Happy facial register, complete rainbow tail and distinct hand gesture remain legible in the native cell. These different celebration keys require runtime cadence/transition review.",
+      "binding": "scripts/opera_roshan_actor.gd ATLAS_PATH/ANIMATION_ROWS; scripts/opera_career_world_2d.gd player_animator.setup and generic _play_roshan_task_pose",
+      "runtime_action_grade": "PENDING",
+      "accepted_for_complete_action": false
+    },
+    {
+      "id": "ASTRO-SRC-ROSHAN-CHEER-3",
+      "path": "assets/opera/worlds/actors/animation/roshan_astronaut_sheet_a.png",
+      "sha256": "ccfb8e7af3a033e31e05af40fa62dc23b676aec6204ba8810e8cf79cbfc4d6fa",
+      "native_dimensions": [
+        1024,
+        1024
+      ],
+      "cell_rect": [
+        768,
+        768,
+        256,
+        256
+      ],
+      "cell_alpha_bbox_gt8": [
+        39,
+        50,
+        216,
+        238
+      ],
+      "cell_edge_clear": true,
+      "grade": 4.6,
+      "grade_lane": "NATIVE_SOURCE_APPEARANCE_ONLY",
+      "observation": "Happy facial register, complete rainbow tail and distinct hand gesture remain legible in the native cell. These different celebration keys require runtime cadence/transition review.",
+      "binding": "scripts/opera_roshan_actor.gd ATLAS_PATH/ANIMATION_ROWS; scripts/opera_career_world_2d.gd player_animator.setup and generic _play_roshan_task_pose",
+      "runtime_action_grade": "PENDING",
+      "accepted_for_complete_action": false
+    },
+    {
+      "id": "ASTRO-SRC-VALVE",
+      "path": "assets/opera/worlds/widgets/widget_crank_astronaut_mover.png",
+      "sha256": "317c5463708b797df38d8a56b32d5cf2d067c33607e02424ab6f759e681ba7b5",
+      "native_dimensions": [
+        256,
+        256
+      ],
+      "grade": 4.6,
+      "grade_lane": "NATIVE_SOURCE_APPEARANCE_AND_ROLE_SUITABILITY_ONLY",
+      "observation": "Rounded wheel, warm brass ring and coral grips fit the rocket hardware. Distinct hub/spokes and broad painted bands give a readable source silhouette. Actual hub placement, wheel rotation and Roshan hand contact remain unverified.",
+      "binding": "crank_astronaut widget_mover and HotspotCatalog PIPES/VALVE",
+      "runtime_action_grade": "PENDING",
+      "accepted_for_complete_action": false
+    },
+    {
+      "id": "ASTRO-SRC-PATCH-ROCKET",
+      "path": "assets/opera/worlds/widgets/widget_target_astronaut_mover.png",
+      "sha256": "5d11779c6c9d702dbbca75e359e019382b52e670f5fa6d3f1e47856878b5db15",
+      "native_dimensions": [
+        256,
+        256
+      ],
+      "grade": 4.6,
+      "grade_lane": "NATIVE_SOURCE_APPEARANCE_AND_ROLE_SUITABILITY_ONLY",
+      "observation": "Cream/coral toy rocket with a large teal window and grouped brass fasteners gives a clear warm subject. Native isolated source is intact; patch placement, leak count and final repaired state need runtime capture.",
+      "binding": "target_astronaut widget_mover/_draw_target_subject",
+      "runtime_action_grade": "PENDING",
+      "accepted_for_complete_action": false
+    },
+    {
+      "id": "ASTRO-SRC-PATCH-PIECE0",
+      "path": "assets/opera/worlds/widgets/widget_target_astronaut_piece_0.png",
+      "sha256": "bfafdf432e4e0cd42bef4c436bc50839e0ecb48f322e84da2cbb2a312afefe04",
+      "native_dimensions": [
+        256,
+        256
+      ],
+      "grade": 4.2,
+      "grade_lane": "NATIVE_SOURCE_APPEARANCE_AND_ROLE_SUITABILITY_ONLY",
+      "observation": "Clear coral fan within a cream circular badge, but the flat pictogram and thick violet ring differ from the painted brass/cream repair hardware. As a rocket patch its material and mechanical role are less explicit; inspect the actual repair composite before selecting a correction.",
+      "binding": "target_astronaut target-piece family",
+      "runtime_action_grade": "PENDING",
+      "accepted_for_complete_action": false
+    },
+    {
+      "id": "ASTRO-SRC-PATCH-PIECE1",
+      "path": "assets/opera/worlds/widgets/widget_target_astronaut_piece_1.png",
+      "sha256": "218c33235451de371a7644e18629a636955edc27722fc41de1d5167edf4cfd5d",
+      "native_dimensions": [
+        256,
+        256
+      ],
+      "grade": 4.4,
+      "grade_lane": "NATIVE_SOURCE_APPEARANCE_AND_ROLE_SUITABILITY_ONLY",
+      "observation": "Readable teal hexagon, yellow bolts and cream center. The flat fills and violet contour lack the painted material bands of the rocket/valve; contextual patch readability remains unverified.",
+      "binding": "target_astronaut target-piece family; HotspotCatalog PATCH overlay",
+      "runtime_action_grade": "PENDING",
+      "accepted_for_complete_action": false
+    },
+    {
+      "id": "ASTRO-SRC-PATCH-PIECE2",
+      "path": "assets/opera/worlds/widgets/widget_target_astronaut_piece_2.png",
+      "sha256": "b2ac73c372b40b53914a3146c9c5c036ed9df0db898e699d64499d1b17d00b52",
+      "native_dimensions": [
+        256,
+        256
+      ],
+      "grade": 4.5,
+      "grade_lane": "NATIVE_SOURCE_APPEARANCE_AND_ROLE_SUITABILITY_ONLY",
+      "observation": "Rounded coral panel and teal gasket are the clearest repair-panel silhouette of the three pieces. Flat color and bold violet edging still differ from the main painted hardware; judge in the final mounted state.",
+      "binding": "target_astronaut target-piece family",
+      "runtime_action_grade": "PENDING",
+      "accepted_for_complete_action": false
+    },
+    {
+      "id": "ASTRO-SRC-PATCH-MARK",
+      "path": "assets/opera/worlds/widgets/widget_target_astronaut_mark.png",
+      "sha256": "7d59037930640802711ae0eebf0bca933c4be7a0fa74a7a645cc2341e4b538ad",
+      "native_dimensions": [
+        128,
+        128
+      ],
+      "grade": 4.2,
+      "grade_lane": "NATIVE_SOURCE_APPEARANCE_AND_ROLE_SUITABILITY_ONLY",
+      "observation": "Small coral fan badge is clear as a token, but does not itself communicate a sealed rocket leak. Preserve it until the current repaired-state composite establishes whether it is the correct feedback role.",
+      "binding": "target_astronaut widget_stamp loader %s_mark.png",
+      "runtime_action_grade": "PENDING",
+      "accepted_for_complete_action": false
+    },
+    {
+      "id": "ASTRO-SRC-RIVAL-IDLE",
+      "path": "assets/opera/worlds/actors/rival_astronaut.png",
+      "sha256": "e0cb4e0cadb943b640c533e0d3c5f3bca10bd8311b3e787233087142e243176a",
+      "native_dimensions": [
+        512,
+        512
+      ],
+      "grade": 4.6,
+      "grade_lane": "NATIVE_SOURCE_APPEARANCE_AND_ROLE_SUITABILITY_ONLY",
+      "observation": "Friendly imp face, large wrench and rounded cream/teal suit have a coherent complete silhouette and broad painted highlights. Static source only; rival visibility/state reach and celebration motion require runtime evidence.",
+      "binding": "scripts/opera_career_world_2d.gd partner_path rival_%s.png",
+      "runtime_action_grade": "PENDING",
+      "accepted_for_complete_action": false
+    },
+    {
+      "id": "ASTRO-SRC-GOAL-ROCKET",
+      "path": "assets/opera/worlds/props/goal_astronaut.png",
+      "sha256": "910f531303ec813a522f98b8ac2f97adeb5ed24bd0b438ecef9f136e19d77845",
+      "native_dimensions": [
+        512,
+        512
+      ],
+      "grade": 4.6,
+      "grade_lane": "NATIVE_SOURCE_APPEARANCE_AND_ROLE_SUITABILITY_ONLY",
+      "observation": "Clear upright cream/coral rocket, large teal window and grouped brass details preserve the established toy hardware identity. Launch effects, staging, cropping and birthday parked state remain unverified.",
+      "binding": "GOAL_PROPS, HotspotCatalog LAUNCH, charge_astronaut_texture",
+      "runtime_action_grade": "PENDING",
+      "accepted_for_complete_action": false
+    }
+  ],
+  "source_gaps": [
+    {
+      "id": "ASTRO-SRC-MISSING-PIPE-TILE_H",
+      "path": "assets/opera/worlds/widgets/widget_pipe_tile_h.png",
+      "exists": false,
+      "grade": null,
+      "state": "SOURCE_GAP",
+      "binding": "scripts/opera_gesture_surface.gd configure pipe face map/tank/intake at lines706-720",
+      "meaning": "Import cannot supply absent source bytes. Current code falls back to procedural Canvas shapes. No source suitability, native art or runtime visual acceptance claimed."
+    },
+    {
+      "id": "ASTRO-SRC-MISSING-PIPE-TILE_V",
+      "path": "assets/opera/worlds/widgets/widget_pipe_tile_v.png",
+      "exists": false,
+      "grade": null,
+      "state": "SOURCE_GAP",
+      "binding": "scripts/opera_gesture_surface.gd configure pipe face map/tank/intake at lines706-720",
+      "meaning": "Import cannot supply absent source bytes. Current code falls back to procedural Canvas shapes. No source suitability, native art or runtime visual acceptance claimed."
+    },
+    {
+      "id": "ASTRO-SRC-MISSING-PIPE-ELBOW_NE",
+      "path": "assets/opera/worlds/widgets/widget_pipe_elbow_ne.png",
+      "exists": false,
+      "grade": null,
+      "state": "SOURCE_GAP",
+      "binding": "scripts/opera_gesture_surface.gd configure pipe face map/tank/intake at lines706-720",
+      "meaning": "Import cannot supply absent source bytes. Current code falls back to procedural Canvas shapes. No source suitability, native art or runtime visual acceptance claimed."
+    },
+    {
+      "id": "ASTRO-SRC-MISSING-PIPE-ELBOW_NW",
+      "path": "assets/opera/worlds/widgets/widget_pipe_elbow_nw.png",
+      "exists": false,
+      "grade": null,
+      "state": "SOURCE_GAP",
+      "binding": "scripts/opera_gesture_surface.gd configure pipe face map/tank/intake at lines706-720",
+      "meaning": "Import cannot supply absent source bytes. Current code falls back to procedural Canvas shapes. No source suitability, native art or runtime visual acceptance claimed."
+    },
+    {
+      "id": "ASTRO-SRC-MISSING-PIPE-ELBOW_SE",
+      "path": "assets/opera/worlds/widgets/widget_pipe_elbow_se.png",
+      "exists": false,
+      "grade": null,
+      "state": "SOURCE_GAP",
+      "binding": "scripts/opera_gesture_surface.gd configure pipe face map/tank/intake at lines706-720",
+      "meaning": "Import cannot supply absent source bytes. Current code falls back to procedural Canvas shapes. No source suitability, native art or runtime visual acceptance claimed."
+    },
+    {
+      "id": "ASTRO-SRC-MISSING-PIPE-ELBOW_SW",
+      "path": "assets/opera/worlds/widgets/widget_pipe_elbow_sw.png",
+      "exists": false,
+      "grade": null,
+      "state": "SOURCE_GAP",
+      "binding": "scripts/opera_gesture_surface.gd configure pipe face map/tank/intake at lines706-720",
+      "meaning": "Import cannot supply absent source bytes. Current code falls back to procedural Canvas shapes. No source suitability, native art or runtime visual acceptance claimed."
+    },
+    {
+      "id": "ASTRO-SRC-MISSING-PIPE-TANK",
+      "path": "assets/opera/worlds/widgets/widget_pipe_tank.png",
+      "exists": false,
+      "grade": null,
+      "state": "SOURCE_GAP",
+      "binding": "scripts/opera_gesture_surface.gd configure pipe face map/tank/intake at lines706-720",
+      "meaning": "Import cannot supply absent source bytes. Current code falls back to procedural Canvas shapes. No source suitability, native art or runtime visual acceptance claimed."
+    },
+    {
+      "id": "ASTRO-SRC-MISSING-PIPE-INTAKE",
+      "path": "assets/opera/worlds/widgets/widget_pipe_intake.png",
+      "exists": false,
+      "grade": null,
+      "state": "SOURCE_GAP",
+      "binding": "scripts/opera_gesture_surface.gd configure pipe face map/tank/intake at lines706-720",
+      "meaning": "Import cannot supply absent source bytes. Current code falls back to procedural Canvas shapes. No source suitability, native art or runtime visual acceptance claimed."
+    }
+  ],
+  "counts": {
+    "reviewed_present": 24,
+    "native_source_below_floor": 4,
+    "missing_pipe_sources": 8,
+    "runtime_complete_actions_cleared": 0
+  },
+  "scope_limits": [
+    "This is a source review, not a fresh runtime/device capture or complete-action clearance.",
+    "No5/5 or owner acceptance is granted; existing approved originals unchanged.",
+    "Background tiles, legacy named files, rival alternate-state reach, actual mounted props/HUD and naturally reached variant contexts still require census/capture.",
+    "Pipe action mechanics passed15genuine-touch checks on engine time; missing pipe sources mean these checks cannot accept pipe artwork.",
+    "Launch control decision remains human-held. Historical V8 rejects/time caps are preserved and not reaccepted or reset."
+  ],
+  "production_changes": {
+    "native_art_edited": false,
+    "generated_takes": 0,
+    "paid_calls": 0
+  },
+  "next_actions": [
+    "Complete bounded import when storage slot is actually granted; rerun full trusted gates.",
+    "Reproduce real-world actions/partial-save/return and capture both required aspect ratios.",
+    "Confirm patch feedback and pipe placeholder context before bounded source/art/contact repairs.",
+    "Obtain the human launch-control answer and a separate independent source-bound visual review."
+  ]
+}

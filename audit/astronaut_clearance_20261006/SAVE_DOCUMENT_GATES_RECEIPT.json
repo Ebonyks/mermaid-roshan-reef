@@ -1,0 +1,223 @@
+{
+  "status": "TERMINAL",
+  "prepared_utc": "2026-10-07T06:11:35.517734+00:00",
+  "started_utc": "2026-10-07T06:11:37.355339+00:00",
+  "sources": [
+    {
+      "path": "audit/astronaut_clearance_20261006/reproduce_focus.gd",
+      "sha256": "a9228b6357ba3aea2087b30c6c4fa1edcdf609b253583a92db022b6138dfb344"
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/reproduce_partial_save.gd",
+      "sha256": "4d40d03780e2561a6d8727d20760df41857b3582cf24c8db84840b3501ebc6e9"
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/verify_checkpoint_schema.gd",
+      "sha256": "c16d41e72c2660f9589c2bc94e559405a301cb184e12dbfdb7b9760daadd680a"
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/verify_checkpoint_schema_v2.gd",
+      "sha256": "1bdc5b06ea464bb54d3c5a3b67e0a1324d20ea9867c87a2d5d0f64fc642061d7"
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/verify_input.gd",
+      "sha256": "3a2b22223ae9f4c675b88dfbbf4306976b3d42b803edf836b5120fce0b4e90ba"
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/verify_partial_save.gd",
+      "sha256": "47adac5984d384127952d920ba75fb146575015262db9e2decbfa078574e1c0e"
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/verify_pipe.gd",
+      "sha256": "dc9959c8452c21de68a3ec08257a0387b954b63ee4100cf3872895a4d6e6f842"
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/verify_save_lifecycle.gd",
+      "sha256": "0cf5c3202660aef3afe7cf55d2a33a6dd00582384ea534daa34f24961359b3bd"
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/verify_save_lifecycle_v3.gd",
+      "sha256": "a36b869d2756ce143d47a0c547d3da928e928c1a34f17729fe8ca22a37d95296"
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/verify_save_lifecycle_v4.gd",
+      "sha256": "88fde9dffe7826e323273fb67b257e72e49a71f39bcc36f5a3cbbc3e24ec7d54"
+    },
+    {
+      "path": "scripts/opera_astronaut_surface.gd",
+      "sha256": "69d53c911ea8b855a21512d6705bad62e79c3ced80fa705c77270aac6927cb8d"
+    },
+    {
+      "path": "scripts/opera_career_world_2d.gd",
+      "sha256": "089e783765ac21ee65e017fe3996e5739a946845d6cf69d81660b2c7d1dede63"
+    },
+    {
+      "path": "scripts/probe_opera_gesture_quality.gd",
+      "sha256": "d6ebc13d2ad83353102c95eb819afa637545b4fc41e349074475a07e40fcd8c3"
+    },
+    {
+      "path": "scripts/save_state.gd",
+      "sha256": "13b77592028653cdcac67e54264f049bbab01c6566b4fad1ea9bdf89a37a07c8"
+    },
+    {
+      "path": "audit/MASTER_AUDIT_2026-08-09.md",
+      "sha256": "a2acec4593720405d1ffb497fbb330f1f3fb81f5af4797bb01ee957ab05f9b98"
+    },
+    {
+      "path": "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
+      "sha256": "a90f55f2a2d87d09639c866ed710f6a3c6fffdb8842ea799f2edda13a30d2120"
+    },
+    {
+      "path": "design/05_DOC_LEDGER.md",
+      "sha256": "614b5a62455ab34bf77d89f946db3a4b3c9460984dcfa0ed23729d92a23633ae"
+    }
+  ],
+  "gd_file_count": 14,
+  "results": [
+    {
+      "command": [
+        "C:/Users/Peter/AppData/Local/Python/bin/python.exe",
+        "-X",
+        "utf8",
+        "-B",
+        "-m",
+        "gdtoolkit.parser",
+        "audit/astronaut_clearance_20261006/reproduce_focus.gd",
+        "audit/astronaut_clearance_20261006/reproduce_partial_save.gd",
+        "audit/astronaut_clearance_20261006/verify_checkpoint_schema.gd",
+        "audit/astronaut_clearance_20261006/verify_checkpoint_schema_v2.gd",
+        "audit/astronaut_clearance_20261006/verify_input.gd",
+        "audit/astronaut_clearance_20261006/verify_partial_save.gd",
+        "audit/astronaut_clearance_20261006/verify_pipe.gd",
+        "audit/astronaut_clearance_20261006/verify_save_lifecycle.gd",
+        "audit/astronaut_clearance_20261006/verify_save_lifecycle_v3.gd",
+        "audit/astronaut_clearance_20261006/verify_save_lifecycle_v4.gd",
+        "scripts/opera_astronaut_surface.gd",
+        "scripts/opera_career_world_2d.gd",
+        "scripts/probe_opera_gesture_quality.gd",
+        "scripts/save_state.gd"
+      ],
+      "exit_code": 0,
+      "result": "PASS",
+      "summary": []
+    },
+    {
+      "command": [
+        "C:/Users/Peter/AppData/Local/Python/bin/python.exe",
+        "-X",
+        "utf8",
+        "-B",
+        "tools/lint_inference.py",
+        "audit/astronaut_clearance_20261006/reproduce_focus.gd",
+        "audit/astronaut_clearance_20261006/reproduce_partial_save.gd",
+        "audit/astronaut_clearance_20261006/verify_checkpoint_schema.gd",
+        "audit/astronaut_clearance_20261006/verify_checkpoint_schema_v2.gd",
+        "audit/astronaut_clearance_20261006/verify_input.gd",
+        "audit/astronaut_clearance_20261006/verify_partial_save.gd",
+        "audit/astronaut_clearance_20261006/verify_pipe.gd",
+        "audit/astronaut_clearance_20261006/verify_save_lifecycle.gd",
+        "audit/astronaut_clearance_20261006/verify_save_lifecycle_v3.gd",
+        "audit/astronaut_clearance_20261006/verify_save_lifecycle_v4.gd",
+        "scripts/opera_astronaut_surface.gd",
+        "scripts/opera_career_world_2d.gd",
+        "scripts/probe_opera_gesture_quality.gd",
+        "scripts/save_state.gd"
+      ],
+      "exit_code": 0,
+      "result": "PASS",
+      "summary": []
+    },
+    {
+      "command": [
+        "C:/Users/Peter/AppData/Local/Python/bin/python.exe",
+        "-X",
+        "utf8",
+        "-B",
+        "tools/audit_document_authority.py"
+      ],
+      "exit_code": 0,
+      "result": "PASS",
+      "summary": [
+        "DOCAUTH|INVENTORY=678|LEDGER=678|ACTIVE=69|RECORDS=72",
+        "DOCAUTH|RESULT|ALL OK"
+      ]
+    },
+    {
+      "command": [
+        "C:/Users/Peter/AppData/Local/Python/bin/python.exe",
+        "-X",
+        "utf8",
+        "-B",
+        "-m",
+        "unittest",
+        "tools.tests.test_audit_document_authority",
+        "tools.tests.test_audit_development"
+      ],
+      "exit_code": 0,
+      "result": "PASS",
+      "summary": [
+        "DOCAUTH|STRESS|6/6",
+        "......................................................",
+        "----------------------------------------------------------------------",
+        "Ran 54 tests in 10.408s",
+        "",
+        "OK"
+      ]
+    },
+    {
+      "command": [
+        "C:/Users/Peter/AppData/Local/Python/bin/python.exe",
+        "-X",
+        "utf8",
+        "-B",
+        "tools/audit_document_authority.py",
+        "--stress"
+      ],
+      "exit_code": 0,
+      "result": "PASS",
+      "summary": [
+        "DOCAUTH|STRESS|6/6"
+      ]
+    },
+    {
+      "command": [
+        "C:/Users/Peter/AppData/Local/Python/bin/python.exe",
+        "-X",
+        "utf8",
+        "-B",
+        "tools/audit_game_2d.py",
+        "--regression-gate"
+      ],
+      "exit_code": 1,
+      "result": "FAIL",
+      "summary": [
+        "GAME2D| FAIL| G2D101| design/audit_impacts/astronaut-clearance-20261006.json| current production 3D API debt is missing from the shrinking manifest",
+        "GAME2D| DEBT| model_files=0| model_scan_coverage_files=0| active_export_model_files=0| model_import_sidecars=0| active_untracked_model_import_sidecars=0| model_archive_files=0| production_3d_files=53| probe_3d_files=61| scene_3d_files=1| configuration_3d_files=1| archive_now_model_files=0",
+        "GAME2D| STATUS| UNSATISFIED",
+        "GAME2D| RESULT| FAIL - manifest drift (1 finding(s)); 2D contract remains UNSATISFIED"
+      ]
+    },
+    {
+      "command": [
+        "C:/Users/Peter/AppData/Local/Python/bin/python.exe",
+        "-X",
+        "utf8",
+        "-B",
+        "tools/audit_development.py",
+        "--base",
+        "auto"
+      ],
+      "exit_code": 0,
+      "result": "PASS",
+      "summary": [
+        "AUDITDEV|BASE|96274aab9cebd563b10846a4a48de5d017588563",
+        "AUDITDEV|RESULT|ALL OK"
+      ]
+    }
+  ],
+  "finished_utc": "2026-10-07T06:13:58.270973+00:00",
+  "result": "FAIL",
+  "source_bindings_match": true,
+  "log_sha256": "df1bd37bffaa3892ee0394237ce6c959d56f6ee69581e4a0910070afdd61b270",
+  "scope": "Changed GDScript and canonical document/2D regression/coverage gates only. Full CI, strict zero-3D and visual/device/child/owner acceptance pending."
+}

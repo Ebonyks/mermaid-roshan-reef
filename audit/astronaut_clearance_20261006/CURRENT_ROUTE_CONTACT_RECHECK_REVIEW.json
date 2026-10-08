@@ -1,0 +1,321 @@
+{
+  "reviewed_utc": "2026-10-07T10:14:36.443279+00:00",
+  "baseline": "96274aab9cebd563b10846a4a48de5d017588563",
+  "implementation": "Validation fixture refresh only. Existing production pipe contact and other mechanics unchanged. New drivers observe deferred placement and sampled contact before retaining all original result checks.",
+  "machine_evidence": [
+    {
+      "path": "PIPE_CONTACT_V5_RECEIPT.json",
+      "sha256": "1edfe94b84a7a010a84490d5e25617fe3b5b52b696048aa7c1256204c029717a",
+      "result": "PASS",
+      "checks": 73,
+      "elapsed_seconds": 41.56,
+      "all_current_sources_and_raw_log_match": true
+    },
+    {
+      "path": "PIPE_CONTACT_NEGATIVE_V1_RECEIPT.json",
+      "sha256": "dea7fdcda060c20038df9b12f62e299e8b9d603cb923cdbd492d294c68a66485",
+      "result": "PASS",
+      "checks": 17,
+      "elapsed_seconds": 19.71,
+      "all_current_sources_and_raw_log_match": true
+    },
+    {
+      "path": "SAVE_LIFECYCLE_V7_RECEIPT.json",
+      "sha256": "89b5689da4b247003a7945bba8b1251774d13a55ad6c7952888a78dd3e1fd1e4",
+      "result": "PASS",
+      "checks": 91,
+      "elapsed_seconds": 83.3,
+      "all_current_sources_and_raw_log_match": true,
+      "setup_seconds": 2.178,
+      "total_observed_seconds": 85.48,
+      "resource_before": {
+        "C_free_bytes": 1015988617216,
+        "physical_available_bytes": 14938083328,
+        "cache_bytes": 960233748,
+        "artifact_cap_bytes": 33554432,
+        "cache_growth_cap_bytes": 16777216
+      },
+      "resource_after": {
+        "C_free_bytes": 1015958872064,
+        "cache_bytes": 960233748,
+        "artifact_bytes": 34189,
+        "cache_growth_bytes": 0
+      },
+      "contact_requests": [
+        {
+          "accepted_visual_action": false,
+          "candidate_distance": 0.96710205078125,
+          "cell": 5,
+          "request_id": 3,
+          "round": 0,
+          "sampled_contact_valid": true,
+          "wait_msec": 1106
+        },
+        {
+          "accepted_visual_action": false,
+          "candidate_distance": 0.9671630859375,
+          "cell": 6,
+          "request_id": 4,
+          "round": 0,
+          "sampled_contact_valid": true,
+          "wait_msec": 835
+        },
+        {
+          "accepted_visual_action": false,
+          "candidate_distance": 0.967147827148438,
+          "cell": 0,
+          "request_id": 3,
+          "round": 1,
+          "sampled_contact_valid": true,
+          "wait_msec": 1110
+        },
+        {
+          "accepted_visual_action": false,
+          "candidate_distance": 0.9671630859375,
+          "cell": 1,
+          "request_id": 4,
+          "round": 1,
+          "sampled_contact_valid": true,
+          "wait_msec": 780
+        },
+        {
+          "accepted_visual_action": false,
+          "candidate_distance": 0.967193603515625,
+          "cell": 2,
+          "request_id": 5,
+          "round": 1,
+          "sampled_contact_valid": true,
+          "wait_msec": 797
+        },
+        {
+          "accepted_visual_action": false,
+          "candidate_distance": 0.9671630859375,
+          "cell": 6,
+          "request_id": 6,
+          "round": 1,
+          "sampled_contact_valid": true,
+          "wait_msec": 684
+        },
+        {
+          "accepted_visual_action": false,
+          "candidate_distance": 0.96710205078125,
+          "cell": 5,
+          "request_id": 7,
+          "round": 2,
+          "sampled_contact_valid": true,
+          "wait_msec": 1087
+        },
+        {
+          "accepted_visual_action": false,
+          "candidate_distance": 0.967132568359375,
+          "cell": 1,
+          "request_id": 8,
+          "round": 2,
+          "sampled_contact_valid": true,
+          "wait_msec": 681
+        },
+        {
+          "accepted_visual_action": false,
+          "candidate_distance": 0.967178344726563,
+          "cell": 2,
+          "request_id": 9,
+          "round": 2,
+          "sampled_contact_valid": true,
+          "wait_msec": 780
+        },
+        {
+          "accepted_visual_action": false,
+          "candidate_distance": 0.967132568359375,
+          "cell": 3,
+          "request_id": 10,
+          "round": 2,
+          "sampled_contact_valid": true,
+          "wait_msec": 852
+        }
+      ]
+    },
+    {
+      "path": "BIRTHDAY_SAVE_V5_RECEIPT.json",
+      "sha256": "7d39db45b11383b06ffef127cc89fa60345328e00b2e280dd06883e03577ccb7",
+      "result": "PASS",
+      "checks": 103,
+      "elapsed_seconds": 76.05,
+      "all_current_sources_and_raw_log_match": true,
+      "setup_seconds": 1.729,
+      "total_observed_seconds": 77.778,
+      "resource_before": {
+        "C_free_bytes": 1015957757952,
+        "physical_available_bytes": 14824767488,
+        "cache_bytes": 960233748,
+        "artifact_cap_bytes": 33554432,
+        "cache_growth_cap_bytes": 16777216
+      },
+      "resource_after": {
+        "C_free_bytes": 1015957000192,
+        "cache_bytes": 960233748,
+        "artifact_bytes": 36796,
+        "cache_growth_bytes": 0
+      },
+      "contact_requests": [
+        {
+          "accepted_visual_action": false,
+          "candidate_distance": 0.967193603515625,
+          "cell": 5,
+          "request_id": 3,
+          "round": 0,
+          "sampled_contact_valid": true,
+          "wait_msec": 1101
+        },
+        {
+          "accepted_visual_action": false,
+          "candidate_distance": 0.967132568359375,
+          "cell": 6,
+          "request_id": 4,
+          "round": 0,
+          "sampled_contact_valid": true,
+          "wait_msec": 825
+        },
+        {
+          "accepted_visual_action": false,
+          "candidate_distance": 0.967193603515625,
+          "cell": 0,
+          "request_id": 3,
+          "round": 1,
+          "sampled_contact_valid": true,
+          "wait_msec": 1110
+        },
+        {
+          "accepted_visual_action": false,
+          "candidate_distance": 0.9671630859375,
+          "cell": 1,
+          "request_id": 4,
+          "round": 1,
+          "sampled_contact_valid": true,
+          "wait_msec": 754
+        },
+        {
+          "accepted_visual_action": false,
+          "candidate_distance": 0.9671630859375,
+          "cell": 2,
+          "request_id": 5,
+          "round": 1,
+          "sampled_contact_valid": true,
+          "wait_msec": 763
+        },
+        {
+          "accepted_visual_action": false,
+          "candidate_distance": 0.967132568359375,
+          "cell": 6,
+          "request_id": 6,
+          "round": 1,
+          "sampled_contact_valid": true,
+          "wait_msec": 707
+        },
+        {
+          "accepted_visual_action": false,
+          "candidate_distance": 0.967132568359375,
+          "cell": 5,
+          "request_id": 7,
+          "round": 2,
+          "sampled_contact_valid": true,
+          "wait_msec": 1081
+        },
+        {
+          "accepted_visual_action": false,
+          "candidate_distance": 0.967132568359375,
+          "cell": 1,
+          "request_id": 8,
+          "round": 2,
+          "sampled_contact_valid": true,
+          "wait_msec": 700
+        },
+        {
+          "accepted_visual_action": false,
+          "candidate_distance": 0.967178344726563,
+          "cell": 2,
+          "request_id": 9,
+          "round": 2,
+          "sampled_contact_valid": true,
+          "wait_msec": 751
+        },
+        {
+          "accepted_visual_action": false,
+          "candidate_distance": 0.9671630859375,
+          "cell": 3,
+          "request_id": 10,
+          "round": 2,
+          "sampled_contact_valid": true,
+          "wait_msec": 798
+        }
+      ]
+    }
+  ],
+  "driver_deltas": [
+    {
+      "old_fixture": "verify_save_lifecycle_v6.gd",
+      "new_fixture": "verify_save_lifecycle_v7.gd",
+      "reconstruction_matches_original_text": true,
+      "original_assertions_unchanged": true,
+      "added_checks": 20,
+      "genuine_input_and_original_final_predicate_unchanged": true
+    },
+    {
+      "old_fixture": "verify_birthday_save_v4.gd",
+      "new_fixture": "verify_birthday_save_v5.gd",
+      "reconstruction_matches_original_text": true,
+      "original_assertions_unchanged": true,
+      "added_checks": 20,
+      "genuine_input_and_original_final_predicate_unchanged": true
+    }
+  ],
+  "original_files": [
+    {
+      "path": "audit/astronaut_clearance_20261006/verify_save_lifecycle_v6.gd",
+      "sha256": "8dbd6c19d30487a0700979a3cab9f6d04e9993def927bd25b5628327ee291821"
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/run_save_lifecycle_v6.py",
+      "sha256": "e7ecd2f5a26f50b60814fd2362ccdc5657758969891523737daca317278a6ab1"
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/SAVE_LIFECYCLE_V6_RECEIPT.json",
+      "sha256": "6f1320a3fda3e64329062c8fa0d8e838d9e3887abee54196c54b3dbba023b4ef"
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/verify_birthday_save_v4.gd",
+      "sha256": "69b997cbf7ac9d35a679703bb24bcadba19f868c9edc5ee8edd85e29d1f6df7b"
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/run_birthday_save_v4.py",
+      "sha256": "0a9b4072930666efacc324bea719b0b79d2eea0759d2ce85e240dd82f69f9101"
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/BIRTHDAY_SAVE_V4_RECEIPT.json",
+      "sha256": "9cef8b4b1cae9ad9a20a6c77176ef209a8c3306da4aef475edcff5ecf3ef68d2"
+    }
+  ],
+  "source_currency": "OrdinaryV7(91) and birthdayV5(103) now bind current contact code across allfour mechanics; prior71/83/schema12/gesture320 remain historical at their exact pre-contact source. Current73pipe/17negative receipts still match.",
+  "ordinary_proven": "Real career card/object entry, three pipe boards with10deferred placements, patches, valve, hold countdown, partial saves/re-entry, safe pause/stale release, earned handoffs, one career/threefirsttimepearls, Mermaid Pool return and fresh replay without extra reward.",
+  "birthday_proven": "Real story card/object entry after explicit valid prior-six-jobs fixture, allfour mechanics,10pipe contacts, partial saves/re-entry/pause, parked unlaunched rocket and preserved legacy context, unlit candle, ordinary checkpoint unchanged, no freeplay reward and Detective next.",
+  "resource_accounting": {
+    "new_analyzer_gameplay_seconds": 159.35,
+    "new_combined_cap_seconds": 300,
+    "serial": true,
+    "all_native_processes_terminal": true,
+    "prior_pipe_diagnostic_seconds": 141.03,
+    "prior_costs_retained_not_refunded": true,
+    "setup_and_total_observed_seconds_recorded_separately": true,
+    "cache_growth_bytes": 0,
+    "no_import_capture_or_fullCI": true
+  },
+  "required_structural_gates": "CURRENT_ROUTE_DOCUMENT_GATES_V1_RECEIPT.json will bind this immutable review and updated canonical verification facts.",
+  "acceptance_gaps": [
+    "No new rendered pixels/native2aspect/current full-speed action or>=4.6 visual score.",
+    "Candidate jaw coordinates do not accept anatomy, work-loop readability or park/patch/valve acting.",
+    "Fixtures supply prior-story prerequisites; no fresh complete eight-job Chapter2 progression.",
+    "Current full trusted suite/topicCI/dev integration pending, no fullCI/native-display lease.",
+    "Separate independent visual, target-device performance/touch, child and owner acceptance remain open.",
+    "Ordinary launch-control and whole-figure parking-pose choices remain pending; no generated/edited art.",
+    "No commit, push, external handoff or release."
+  ]
+}

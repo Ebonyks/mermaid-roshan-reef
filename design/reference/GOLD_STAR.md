@@ -101,21 +101,21 @@ Budgets per play state: mean layers at most 2.5, four or more layers on at most 
 | Game | Rating | Busiest play state (mean, share with 4+ layers, max, peak) | OD1 | OD2 | OD3 | OD4 | OD5 | OD6 |
 |---|---:|---|---|---|---|---|---|---|
 | Mermaid Pool cleanup (Day One) | 3 | waterfall_start: 1.41, 0.012, 5, 5 | pass | — | pass | pass | pass | pass |
-| Boxer | 1 | after_phase: 2.61, 0.089, 12, 14 | — | — | fail | pass | pass | fail |
-| Magician | 1 | task_open: 2.62, 0.134, 7, 8 | — | — | fail | pass | pass | fail |
-| Teacher | 1 | task_open: 3.57, 0.603, 8, 8 | — | — | fail | pass | fail | fail |
-| Racecar Driver | 1 | world: 2.38, 0.029, 6, 6 | — | — | fail | pass | pass | pass |
-| Ballerina | 1 | task_open: 2.51, 0.127, 11, 11 | — | — | fail | pass | pass | fail |
-| Nursery Nurse | 1 | world: 2.39, 0.044, 6, 6 | — | — | fail | pass | pass | pass |
-| Pop Star | 1 | task_open: 2.58, 0.103, 8, 8 | — | — | fail | pass | pass | fail |
-| Stuffie Doctor | 1 | task_open: 2.41, 0.046, 8, 8 | — | — | fail | pass | pass | pass |
-| Geologist | 1 | task_open: 5.78, 0.613, 13, 16 | — | — | fail | pass | fail | fail |
-| Painter | 1 | task_open: 2.48, 0.049, 9, 9 | — | — | fail | pass | pass | fail |
-| Farmer | 1 | task_open: 2.5, 0.068, 8, 8 | — | — | fail | pass | pass | pass |
-| Candy Maker | 1 | task_open: 2.49, 0.092, 7, 7 | — | — | fail | pass | pass | pass |
-| Pastry Chef | 1 | world: 2.38, 0.031, 6, 6 | — | — | fail | pass | pass | pass |
-| Astronaut Engineer | 1 | world: 2.38, 0.025, 6, 6 | — | — | fail | pass | pass | fail |
-| Detective | 1 | task_open: 2.51, 0.083, 7, 8 | — | — | fail | pass | pass | fail |
+| Boxer | 1 | after_phase: 2.61, 0.089, 12, 14 | — | — | — | — | — | — |
+| Magician | 1 | task_open: 2.62, 0.134, 7, 8 | — | — | — | — | — | — |
+| Teacher | 1 | task_open: 3.57, 0.603, 8, 8 | — | — | — | — | — | — |
+| Racecar Driver | 1 | world: 2.38, 0.029, 6, 6 | — | — | — | — | — | — |
+| Ballerina | 1 | task_open: 2.51, 0.127, 11, 11 | — | — | — | — | — | — |
+| Nursery Nurse | 1 | world: 2.39, 0.044, 6, 6 | — | — | — | — | — | — |
+| Pop Star | 1 | task_open: 2.58, 0.103, 8, 8 | — | — | — | — | — | — |
+| Stuffie Doctor | 1 | task_open: 2.41, 0.046, 8, 8 | — | — | — | — | — | — |
+| Geologist | 1 | task_open: 5.78, 0.613, 13, 16 | — | — | — | — | — | — |
+| Painter | 1 | task_open: 2.48, 0.049, 9, 9 | — | — | — | — | — | — |
+| Farmer | 1 | task_open: 2.5, 0.068, 8, 8 | — | — | — | — | — | — |
+| Candy Maker | 1 | task_open: 2.49, 0.092, 7, 7 | — | — | — | — | — | — |
+| Pastry Chef | 1 | world: 2.38, 0.031, 6, 6 | — | — | — | — | — | — |
+| Astronaut Engineer | 1 | world: 2.38, 0.025, 6, 6 | — | — | — | — | — | — |
+| Detective | 1 | task_open: 2.51, 0.083, 7, 8 | — | — | — | — | — | — |
 
 Not yet measured (18 live games): Grand Puff in the Dusty Attic (Day One boss); Castle banner maker; Royal Bedroom wardrobe; Pearl Castle rooms; Comfy castle games (Day Two); Royal Hall sparring class; Sky Lagoon promenade; Free Baby Eagle (Day One); Stuffie adoption and care; Bubble Bathroom cleanup (Day One); Craft Room tidy (Day One); Birthday party preparation (Chapter 2); Moonflower door and Butterfly House; Birthday lawn and Ember King (Chapter 2 finale); Dance with Daddy (rhythm); Galaxy ice battle; Fairy Pond flight; Butterfly World (Galaxy).
 
@@ -134,7 +134,7 @@ Code-drawing scripts seen on screen:
 | `scripts/opera_racer_surface.gd` | stand_in | Race controls and the car drawn as code shapes. | no |
 | `scripts/opera_teacher_surface.gd` | stand_in | Counting objects, shapes, patterns, groups and the hint button drawn as code shapes, with no textures. | no |
 | `scripts/opera_performance_overlay.gd` | stand_in | Book, medal, curtain, progress bar and pearls drawn as code shapes over the stage. | no |
-| `scripts/opera_career_world_2d.gd` | guide | Through draw callbacks connected to script-less layers (visible to the meter since 2026-10-04): progress dots and the Chapter Two candy and detective activity marks on the action panel (_draw_activity_focus), combat telegraph arcs, bars and circles (_draw_combat_fx), and the detective lens's evidence trails, landmark crosses, pulses, hint rings and clue sparkles (_draw_lens_layer), all as code shapes over the career scene. | no |
+| `scripts/opera_career_world_2d.gd` (changed since classified) | guide | Through draw callbacks connected to script-less layers (visible to the meter since 2026-10-04): progress dots and the Chapter Two candy and detective activity marks on the action panel (_draw_activity_focus), combat telegraph arcs, bars and circles (_draw_combat_fx), and the detective lens's evidence trails, landmark crosses, pulses, hint rings and clue sparkles (_draw_lens_layer), all as code shapes over the career scene. | no |
 
 ## Rubric
 

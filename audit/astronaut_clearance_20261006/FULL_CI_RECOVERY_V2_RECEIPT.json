@@ -1,0 +1,59 @@
+{
+  "result": "FAIL",
+  "checked_utc": "2026-10-07T21:50:11.476045+00:00",
+  "elapsed_seconds": 209.326,
+  "steps": [
+    {
+      "step": "probe_day_one_bathroom_cleanup",
+      "pid": 87576,
+      "argv": [
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\.codex\\worktrees\\astronaut-goal-20261006\\mermaid-roshan-reef",
+        "-s",
+        "scripts/probe_day_one_bathroom_cleanup.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "save_profile": "C:\\Users\\Peter\\AppData\\Local\\Temp\\astronaut_full_ci_recovery_v2_20261007_2146\\probe_day_one_bathroom_cleanup",
+      "log": "FULL_CI_RECOVERY_V2_probe_day_one_bathroom_cleanup_LOG.txt",
+      "start_utc": "2026-10-07T21:46:42.171926+00:00",
+      "status": "PASS",
+      "exit_code": 0,
+      "elapsed_seconds": 16.48,
+      "log_sha256": "e3ac904c4ddad2ceec6937274324e0f46e845f5bc74095a74bd985a7a25a3d14",
+      "failure_lines": [],
+      "nonempty": true,
+      "final_result_seen": true
+    },
+    {
+      "step": "probe_dust_boss_balance",
+      "pid": 95804,
+      "argv": [
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\.codex\\worktrees\\astronaut-goal-20261006\\mermaid-roshan-reef",
+        "-s",
+        "scripts/probe_dust_boss_balance.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "save_profile": "C:\\Users\\Peter\\AppData\\Local\\Temp\\astronaut_full_ci_recovery_v2_20261007_2146\\probe_dust_boss_balance",
+      "log": "FULL_CI_RECOVERY_V2_probe_dust_boss_balance_LOG.txt",
+      "start_utc": "2026-10-07T21:46:58.898683+00:00",
+      "status": "FAIL",
+      "exit_code": 4294967295,
+      "elapsed_seconds": 192.266,
+      "log_sha256": "ef3791bd12ed6bcadca41edec99b5488abd789363ef737d8ae7de280d3c2692a",
+      "failure_lines": [],
+      "nonempty": true,
+      "final_result_seen": false
+    }
+  ],
+  "source_binding_changes": [],
+  "scope": "Direct-native focused recovery only; full CI V3 retains FAIL. All82 source-bound per-probe reconciliation and metadata closure not inferred."
+}

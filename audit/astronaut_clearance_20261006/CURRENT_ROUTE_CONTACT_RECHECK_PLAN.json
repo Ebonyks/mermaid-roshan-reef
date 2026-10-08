@@ -1,0 +1,78 @@
+{
+  "created_utc": "2026-10-07T10:06:36.888705+00:00",
+  "baseline": "96274aab9cebd563b10846a4a48de5d017588563",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-INT-04",
+    "DL-INT-05",
+    "DL-SAVE-01",
+    "DL-SAVE-02",
+    "DL-SAVE-03",
+    "DL-SAVE-04",
+    "DL-QA-02",
+    "DL-QA-11",
+    "DL-QA-12"
+  ],
+  "findings": [
+    "MA-SAVE-002",
+    "MA-PLAY-004",
+    "MA-PLAY-005"
+  ],
+  "scope": "Current-source ordinary and birthday four-phase lifecycle regressions after the pipe-contact implementation, using real picture/object/touch input from documented prerequisite fixtures. No production code/art change.",
+  "frozen_originals": [
+    {
+      "path": "audit/astronaut_clearance_20261006/verify_save_lifecycle_v6.gd",
+      "sha256": "8dbd6c19d30487a0700979a3cab9f6d04e9993def927bd25b5628327ee291821"
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/run_save_lifecycle_v6.py",
+      "sha256": "e7ecd2f5a26f50b60814fd2362ccdc5657758969891523737daca317278a6ab1"
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/SAVE_LIFECYCLE_V6_RECEIPT.json",
+      "sha256": "6f1320a3fda3e64329062c8fa0d8e838d9e3887abee54196c54b3dbba023b4ef"
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/verify_birthday_save_v4.gd",
+      "sha256": "69b997cbf7ac9d35a679703bb24bcadba19f868c9edc5ee8edd85e29d1f6df7b"
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/run_birthday_save_v4.py",
+      "sha256": "0a9b4072930666efacc324bea719b0b79d2eea0759d2ce85e240dd82f69f9101"
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/BIRTHDAY_SAVE_V4_RECEIPT.json",
+      "sha256": "9cef8b4b1cae9ad9a20a6c77176ef209a8c3306da4aef475edcff5ecf3ef68d2"
+    }
+  ],
+  "driver_delta": "Only isolated versioned save location, a bounded<=3s wait for the world-owned pending request, two timing/contact assertions per placement, diagnostic contact rows and result wording. Every preexisting assertion stays byte-identical. No phase/progress/placement injection or extended behavioral deadline.",
+  "required_evidence": [
+    "Exact4.7.2 analyzer and parser/inference",
+    "All existing71ordinary/83birthday lifecycle assertions retained",
+    "Current pending-before-commit and actual sampled world-contact checks on all10placements per variant",
+    "Genuine four mechanics, partial saves, safe interruption, earned phase handoff, exactly-once reward, natural room return, ordinary replay and birthday context/canon",
+    "Current source/raw-log SHA bindings and immutable previous versions",
+    "Canonical verification/history currency, exact impact coverage, document authority, 2D no-regression and whitespace"
+  ],
+  "resource_scope": {
+    "authorization": "Standing Astronaut goal and bounded small headless/source regression scope only. No granted fullCI/native-display/capture/import slot.",
+    "variants": [
+      "ordinaryV7",
+      "birthdayV5"
+    ],
+    "execution": "Serial direct owned engine processes, one attempt per variant. Stop failed variant; preserve its log/receipt.",
+    "time_cap_seconds_per_variant": 150,
+    "combined_new_analyzer_gameplay_cap_seconds": 300,
+    "prior_pipe_analyzer_gameplay_seconds": 141.03,
+    "prior_costs_not_reset": true,
+    "time_accounting": "Each analyzer/gameplay window begins after engine/version, source binding and isolated-directory preflight. Metadata/setup/version time reported separately.",
+    "admission_C_free_bytes": 3221225472,
+    "admission_physical_available_bytes": 3221225472,
+    "artifact_cap_bytes_per_variant": 33554432,
+    "cache_growth_cap_bytes_per_variant": 16777216,
+    "no_automatic_retry": true
+  },
+  "acceptance": "Headless behavioral proof only; no actual displayed pixels, body-proportion/native action/score, full natural chapter, fullCI, independent/device/child/owner/integration acceptance."
+}

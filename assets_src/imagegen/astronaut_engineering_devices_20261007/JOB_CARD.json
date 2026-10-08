@@ -1,0 +1,109 @@
+{
+  "id": "astronaut-engineering-devices-20261007",
+  "state": "OWNER_COMMISSIONED_IN_PROGRESS",
+  "owner_request": "Fluid needs to be drawn better, use image-gen to make it look like a green radioactive fluid rather than a vector drawing. There should be 3 similar minigames, the pipe dream should be only one. This room has three devices to interact with, they should be distinct games.",
+  "owner_answer": "Build pipes, gears and pressure",
+  "baseline_head": "96274aab9cebd563b10846a4a48de5d017588563",
+  "source_baseline": {
+    "scripts/opera_astronaut_surface.gd": "21857d8e719c2fc355d68381abf927b58f86037a7100ba0aead0735a87146eb7",
+    "scripts/opera_career_world_2d.gd": "b567bb47894a25f26cb94e70b24ec3eda55e7e2ee6ab45247d46a2a13e8642cf",
+    "scripts/chapter_two_career_scene_adapter.gd": "ffdcd602711a6acc42a5c6352ad8cbb701316f94c21233356fb56071f85ad40a"
+  },
+  "scope": [
+    "Left tank: one Pipe Dream board; painted green radioactive fluid, existing forgiving plumbing/input/contact.",
+    "Loop device: fit three differently sized gears into matching sockets; deliberate placement, correct mesh drives output.",
+    "Elbow device: tune three pressure controls into generous lit bands; child-controlled valves, no timed fail or reading.",
+    "Preserve ordinary launch and birthday parked/unlaunched finale, legacy submilestone keys and earned progress."
+  ],
+  "art_inventory": {
+    "reusable": [
+      "assets/opera/worlds/widgets/astronaut_pipe_straight_candidate_v1.png",
+      "assets/opera/worlds/widgets/widget_crank_astronaut_mover.png",
+      "assets/opera/worlds/widgets/widget_gauge_astronaut.png",
+      "assets/opera/worlds/widgets/widget_gauge_astronaut_success.png"
+    ],
+    "missing": "No suitable approved green radioactive fluid raster exists in the relevant asset inventory; current cyan vector bands and whole-pipe color wash do not satisfy the owner correction."
+  },
+  "fluid_job": {
+    "verb": "Flow green coolant through connected plumbing",
+    "fixed": "Approved pipe silhouettes, sockets, room and character identity",
+    "moving": "Current earned flow cells; raster material clipped to existing pipe bores",
+    "method": "One built-in ImageGen painted material; Aseprite native preservation/lossless runtime export; Canvas2D texture clipping, no on-device AI.",
+    "attempt_cap": 2,
+    "generation_cleanup_wall_cap_seconds": 1800,
+    "paid_backend_budget": "No external paid job authorized or started; built-in requested by human.",
+    "reported_cost": "Unavailable; count calls and elapsed time.",
+    "older_caps": "All prior PIPE family/elbow/CI/native caps, failed takes and evidence remain immutable. This is the new explicitly commissioned fluid-and-three-device correction; no old take/capture family silently reset.",
+    "attempts": [
+      {
+        "take": 1,
+        "method": "builtin ImageGen",
+        "native_original": "FLUID_RAW_TAKE_01.png",
+        "sha256": "91c9e999ccacd3117f08945728f5e4f0823d6cc67dbe401bb02b06fca15aac01",
+        "reported_usage": "Not exposed",
+        "generation_call_count": 1
+      }
+    ]
+  },
+  "required_evidence": [
+    "Exact Godot 4.7.2 import/analyzer, parser/lint, authority/coverage and applicable full trusted suite",
+    "Correct/wrong/passive/repeat/second-finger/cancel/focus/save/re-entry for each distinct task",
+    "Current-source Mobile native frames at 1280x720 and wide aspect; truthful contact and no actor occlusion",
+    "Independent visual, actual device performance, child and owner acceptance remain separate and pending"
+  ],
+  "research": [
+    {
+      "title": "IQ Gears",
+      "url": "https://www.smartgames.eu/uk/one-player-games/iq-gears",
+      "use": "Simplified gear fitting, no borrowed art or level layouts."
+    },
+    {
+      "title": "Circuit Maze",
+      "url": "https://www.thinkfun.com/en-US/products/single-player-logic-games/circuit-maze-44001008",
+      "use": "Alternative engineering task researched, human selected gears instead."
+    }
+  ],
+  "pressure_design": "New child-scale engineering adaptation: three adjustable valve sliders with visible gauge bands; generous endpoints, no countdown.",
+  "gear_job": {
+    "verb": "Fit the missing gears so the machine turns",
+    "method": "One isolated front-on painted gear from built-in ImageGen, native Aseprite preservation/export; one source uniformly scaled to three matching gear sizes",
+    "missing": "No suitable approved toothed gear raster found; existing crank wheel is a valve, not a gear.",
+    "attempt_cap": 2,
+    "generation_cleanup_wall_cap_seconds": 1200,
+    "paid_backend_budget": "No external paid job started",
+    "fixed": "Room, Roshan identity and three-device scope",
+    "moving": "Three pieces and earned meshed mechanism",
+    "acceptance": "Native input/contact/seams, current source review, separate device/child/owner gates",
+    "attempts": [
+      {
+        "take": 1,
+        "source": "GEAR_RAW_TAKE_01.png",
+        "reported_usage": "Not exposed; one built-in call"
+      }
+    ]
+  },
+  "fluid_derivation": {
+    "source": "assets_src/imagegen/astronaut_engineering_devices_20261007/FLUID_RAW_TAKE_01.png",
+    "source_sha256": "91c9e999ccacd3117f08945728f5e4f0823d6cc67dbe401bb02b06fca15aac01",
+    "native_master": "assets_src/imagegen/astronaut_engineering_devices_20261007/FLUID_NATIVE.aseprite",
+    "master_sha256": "4239c0b9283ea6811f52f77dff26bd774827240dff710a67925090d407befcb6",
+    "runtime": "assets/opera/worlds/widgets/astronaut_radioactive_fluid_v1.png",
+    "runtime_sha256": "895a90c44c5feb69afeb8d73a264304cb6a1282ade1a18a21a56417ec029b2bd",
+    "provider": "Built-in ImageGen, hidden provider/model revision not exposed",
+    "generation_calls": 1,
+    "aseprite": "1.3.18.4",
+    "source_acceptance": "New source candidate commissioned by owner; no 4.6/runtime/device/child/owner score inferred."
+  },
+  "gear_derivation": {
+    "source": "assets_src/imagegen/astronaut_engineering_devices_20261007/GEAR_RAW_TAKE_01.png",
+    "source_sha256": "5fb39de4b88144796275493ca8ede2631895ec36f2885d59e99cea2b6f8846da",
+    "native_master": "assets_src/imagegen/astronaut_engineering_devices_20261007/GEAR_NATIVE.aseprite",
+    "master_sha256": "7a9ba118172f354d1e656bd1f68550a0fed3d1b437a5e4c885602eee5d96ab4f",
+    "runtime": "assets/opera/worlds/widgets/astronaut_gear_v1.png",
+    "runtime_sha256": "8d25f70bb5594633eb2e0f817dfbb90c99fe923d02688b17a00a561eddf2f1e7",
+    "provider": "Built-in ImageGen, hidden provider/model revision not exposed",
+    "generation_calls": 1,
+    "aseprite": "1.3.18.4",
+    "source_acceptance": "New source candidate commissioned by owner; no 4.6/runtime/device/child/owner score inferred."
+  }
+}

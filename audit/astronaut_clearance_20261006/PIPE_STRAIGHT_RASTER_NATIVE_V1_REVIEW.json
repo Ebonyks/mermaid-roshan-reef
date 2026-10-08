@@ -1,0 +1,82 @@
+{
+  "checked_utc": "2026-10-07T20:07:29.164228+00:00",
+  "result": "NATIVE_TECHNICAL_PASS_VISIBLE_WEAKNESSES_REMAIN",
+  "reviewer": "Primaryagent direct exactnativePNGinspection; notindependent review",
+  "source_sha256": "21857d8e719c2fc355d68381abf927b58f86037a7100ba0aead0735a87146eb7",
+  "native_receipt_sha256": "286c60f30aee5b0fc8213ec9bd33f9690317ce4a9a0d6e0056e5f8b571f5ca77",
+  "checks": [
+    127,
+    127
+  ],
+  "frames": [
+    140,
+    140
+  ],
+  "inspected_frames": [
+    {
+      "aspect": 1280,
+      "label": "phase0_open",
+      "path": "tmp/astronaut_native_birthday_capture_v9_20261007/1280x720/frames/0001_phase0_open.png",
+      "sha256": "2373bf26660d22d00af2d6629f7927797cffd02dcd67c8976b4daa887bee3d14"
+    },
+    {
+      "aspect": 1280,
+      "label": "pipe_board2_cell0_committed",
+      "path": "tmp/astronaut_native_birthday_capture_v9_20261007/1280x720/frames/0033_pipe_board2_cell0_committed.png",
+      "sha256": "641e2ddb7c87f0f589fe5c1a7dd9bc5d6947737ca560b101ec41bd304f8abb6f"
+    },
+    {
+      "aspect": 1600,
+      "label": "pipe_board3_cell2_committed",
+      "path": "tmp/astronaut_native_birthday_capture_v9_20261007/1600x720/frames/0039_pipe_board3_cell2_committed.png",
+      "sha256": "e7b1df1b258e3036ee275143f3c2af61e5fb63e0902dd5538fd9291c7cced06f"
+    },
+    {
+      "aspect": 1280,
+      "label": "park_successful_partial",
+      "path": "tmp/astronaut_native_birthday_capture_v9_20261007/1280x720/frames/0135_park_successful_partial.png",
+      "sha256": "d15795ec433a893a7570863d91582e194a4dafac8cd13f448ad69ad18f3f04da"
+    }
+  ],
+  "visual_findings": [
+    {
+      "item": "painted H/V raster",
+      "observation": "Goldcollars/tealbody render clearly in actual1280scene and1600tray/world. The complete samebitmap rotates forV; a painted source is present in livegameplay. Localprimaryclarity improvement, no newnumericalgrade/4.6acceptance."
+    },
+    {
+      "item": "four existing code-drawn elbows/otherpipevectors",
+      "observation": "Wideboard3shows conspicuouslysoft grayquarterturns beside sharper paintedstraightpipe; purpleIMPblobs, flat tank/intake rings andtrayguides retain unsupported finalvectorappearance. Complete PIPE scene remainsbelowrequestedtarget."
+    },
+    {
+      "item": "READY PARK action",
+      "observation": "Successfulpartialframe showsrocketleft whileRoshanstandsrightraisingawrench; no visiblebrace/push/contact support. Source-specificwholefigurePARKpose/behavior decision remainspending; passingmechanics doesnotacceptacting."
+    },
+    {
+      "item": "existingelbowRGBreference",
+      "source": "assets_src/concepts/opera_jobs_flat_2026-07-21/cards/opera_job_astronaut_engineer_gameplay_elbow_pipe.png",
+      "sha256": "44ff44aaed63d0f2164f5d015d298889a883795db60e26ee2dc0e9b70f645647",
+      "observation": "Sourceis1024RGB4xcardwithdarknavybackground/frame andperspective mouth. Usefulapprovedmaterialreference; cannotdirectlyinsertastransparentruntimeelbow. Namedisolation/endpointderivative stillneeded, no newpixelworkorgeneration performed."
+    }
+  ],
+  "scoring_limits": "No currentnumericalgrades assigned. HistoricalV8PATCH4.0/PIPE4.0/VALVE3.8/PARK2.3remain scoped tooldsource. Newcaptureproof doesnotestablishcompleteactionfloor, allvariants/fullnaturalroute, cadence/device/child/owner orindependentacceptance.",
+  "machine_limits": "Currentheadless144fixtureonly118PASSbeforecap and17negativesunrun. Native127x2fixture preservesallassertions but doesnotreplace missingheadless/naturalroute/fulltrustedgates. DummyAudioandcapture-readbackperturbation; dirtyownedsource, nostrictQA11.",
+  "native_accounting": {
+    "original_seconds": 300,
+    "engine_plus_preflight_seconds": 268.957,
+    "authoritative_outer_command_seconds": 285.786,
+    "conservative_charged_seconds": 285.786,
+    "remaining_original_seconds": 14.214,
+    "native_attempts": 1
+  },
+  "integration_reference_limits": "Preflightorigin_dev62389344wasahardcodedhistoricalvalue; notfreshnessproof. Actualgitfetchduringrunadvancedknownorigin/dev131e7094toce32f9e0a364d06285f819b1c4d62e487161d060. OwnedHEAD96274aab/sourceinventory unchanged; reconciliation/fullCI/integrationnotperformed.",
+  "acceptance": {
+    "implementation": "H/Vpaintedcandidate present",
+    "machine": "SCOPED_NATIVE_PASS;IMPORT_ANALYZER_PASS;FOCUSED_HEADLESS_CAP_FAIL;2D_NO_REGRESSION",
+    "independent_visual": "PENDING",
+    "actual_mobile_device": "PENDING",
+    "child_owner": "PENDING",
+    "whole_game_2d": "UNSATISFIED",
+    "goal_4_6": "NOT_ACHIEVED",
+    "release": "NOT_AUTHORIZED"
+  }
+}

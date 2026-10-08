@@ -286,6 +286,59 @@ class AudioQualityPolicyTests(unittest.TestCase):
         self.assertIsNone(
             MODULE.protected_kind("assets/audio/voices/filler_v1/faron_fake.ogg"))
 
+    def test_required_engineering_cues_cannot_skip_their_manifest(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            authority = {key: ("roshan", "Exact objective.") for key in MODULE.ENGINEERING_KEYS}
+            state = MODULE.validate_engineering_manifest(root, authority)
+            self.assertTrue(state["blocking"])
+            self.assertIn("required engineering cue manifest is missing", state["issues"])
+            incomplete = MODULE.validate_engineering_manifest(root, {next(iter(authority)): ("roshan", "Exact objective.")})
+            self.assertIn("engineering cue authority must contain both exact objectives", incomplete["issues"])
+
+    def test_scoped_cohort_still_rejects_wrong_authority_and_unlisted_audio(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            cohort = root / MODULE.ENGINEERING_ROOT_REL
+            cohort.mkdir(parents=True)
+            (cohort / "FILLER_MANIFEST.json").write_text(json.dumps({"entries": []}), encoding="utf-8")
+            (cohort / "unlisted.ogg").write_bytes(b"unauthorized")
+            authority = {key: ("roshan", "Exact objective.") for key in MODULE.ENGINEERING_KEYS}
+            state = MODULE.validate_engineering_manifest(root, authority)
+            self.assertTrue(state["blocking"])
+            self.assertIn("unlisted filler OGG: unlisted.ogg", state["issues"])
+            self.assertTrue(any("authoritative filler key missing" in issue for issue in state["issues"]))
+
+    def test_teacher_source_allows_only_commissioned_catalog_additions(self):
+        before = b"LINES = {'teacher_count': ('roshan', 'Count!')}\nVALUE = 1\n"
+        after = b"LINES = {'teacher_count': ('roshan', 'Count!'), 'roshan_op_astronaut_gears': ('roshan', 'Fit!')}\nVALUE = 1\n"
+        self.assertTrue(MODULE._engineering_catalog_only_change(before, after))
+        self.assertFalse(MODULE._engineering_catalog_only_change(before, after.replace(b"Count!", b"Changed!")))
+        self.assertFalse(MODULE._engineering_catalog_only_change(before, after.replace(b"VALUE = 1", b"VALUE = 2")))
+        self.assertFalse(MODULE._engineering_catalog_only_change(before, after.replace(b"roshan_op_astronaut_gears", b"unknown_new_line")))
+
+    def test_historical_pipeline_source_must_match_recorded_generation_hash(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            current = root / "tools" / "master_filler_voices.py"
+            current.parent.mkdir(); current.write_text("new source\n", encoding="utf-8")
+            old_bytes = b"old producer source\n"
+            digest = hashlib.sha256(old_bytes).hexdigest()
+            archive_rel = "assets_src/audio/old_master.py.txt"
+            archive = root / archive_rel
+            archive.parent.mkdir(parents=True); archive.write_bytes(old_bytes)
+            saved = MODULE.HISTORICAL_PIPELINE_SOURCES
+            MODULE.HISTORICAL_PIPELINE_SOURCES = {("tools/master_filler_voices.py", digest): archive_rel}
+            try:
+                issues = []
+                MODULE.validate_text_hash_map(root, issues, "pipeline_script_sha256", {"tools/master_filler_voices.py": digest})
+                self.assertEqual(issues, [])
+                archive.write_text("tampered archive\n", encoding="utf-8")
+                MODULE.validate_text_hash_map(root, issues, "pipeline_script_sha256", {"tools/master_filler_voices.py": digest})
+                self.assertTrue(any("mismatch" in issue for issue in issues))
+            finally:
+                MODULE.HISTORICAL_PIPELINE_SOURCES = saved
+
     def test_filler_manifest_absence_is_allowed(self):
         with tempfile.TemporaryDirectory() as directory:
             state = MODULE.validate_filler_manifest(Path(directory))

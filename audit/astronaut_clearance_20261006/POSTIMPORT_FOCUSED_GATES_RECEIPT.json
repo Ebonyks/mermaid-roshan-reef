@@ -1,0 +1,96 @@
+{
+  "started_utc": "2026-10-07T05:25:10.300123+00:00",
+  "finished_utc": "2026-10-07T05:25:31.783667+00:00",
+  "engine_version": "4.7.2.stable.official.ed1daf0bf",
+  "engine_sha256": "ab1824f85bfd8e0e4128182c000c4003a3e042245b2967848d089b2a04b22424",
+  "results": [
+    {
+      "command": [
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\.codex\\worktrees\\astronaut-goal-20261006\\mermaid-roshan-reef",
+        "--check-only",
+        "--script",
+        "res://scripts/opera_astronaut_surface.gd"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 0.71,
+      "errors": [],
+      "summary": [],
+      "result": "PASS"
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\.codex\\worktrees\\astronaut-goal-20261006\\mermaid-roshan-reef",
+        "--check-only",
+        "--script",
+        "res://scripts/opera_career_world_2d.gd"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 7.39,
+      "errors": [],
+      "summary": [],
+      "result": "PASS"
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\.codex\\worktrees\\astronaut-goal-20261006\\mermaid-roshan-reef",
+        "--check-only",
+        "--script",
+        "res://scripts/probe_opera_gesture_quality.gd"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 0.8,
+      "errors": [],
+      "summary": [],
+      "result": "PASS"
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\.codex\\worktrees\\astronaut-goal-20261006\\mermaid-roshan-reef",
+        "--script",
+        "res://scripts/probe_opera_gesture_quality.gd"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 12.59,
+      "errors": [],
+      "summary": [
+        "GESTURE_QUALITY|result: ALL OK (305 checks)"
+      ],
+      "result": "PASS"
+    }
+  ],
+  "result": "PASS",
+  "sources": [
+    {
+      "path": "scripts/opera_gesture_surface.gd",
+      "sha256": "34f3f264f17edef42990712f6c3f7e0106cf9afecd3969f8348848e0eda56017"
+    },
+    {
+      "path": "scripts/opera_astronaut_surface.gd",
+      "sha256": "142777a177cc4732e94b1c7b68ad4d4000efbcb7f7b4b68906206e9bb453c2e9"
+    },
+    {
+      "path": "scripts/opera_career_world_2d.gd",
+      "sha256": "2eed1b973513449f4432ac408ec678d5f84d9963200362610c09b8a796890ca7"
+    },
+    {
+      "path": "scripts/probe_opera_gesture_quality.gd",
+      "sha256": "d6ebc13d2ad83353102c95eb819afa637545b4fc41e349074475a07e40fcd8c3"
+    }
+  ],
+  "source_bindings_still_match": true,
+  "log_path": "audit/astronaut_clearance_20261006/POSTIMPORT_FOCUSED_GATES_LOG.txt",
+  "log_sha256": "d262be4d1c264d4d1e48e25672923eca8db46658c723d7baeeb05f310dc3281c",
+  "scope": "Changed-script Godot analyzer and existing305-check gesture probe after successful full import. Small headless/source checks only; no capture/export/newcache, no full suite or current4.6visual/action/device/child/owner acceptance."
+}

@@ -1,0 +1,212 @@
+{
+  "reviewed_utc": "2026-10-07T08:31:34.739277+00:00",
+  "baseline_commit": "96274aab9cebd563b10846a4a48de5d017588563",
+  "candidate_branch": "codex/astronaut-clearance-20261006",
+  "finding": "MA-PLAY-004",
+  "lifecycle": "IN_PROGRESS",
+  "baseline_receipt": {
+    "path": "BIRTHDAY_CONTACT_V1_RECEIPT.json",
+    "sha256": "65050c2a758c456ffefb53a64383830c0ccf3b9b6985163093097f49b5dbe83a",
+    "result": "FAIL",
+    "checks": 87,
+    "required_contact_failures": 4,
+    "existing_logic_save_canon_checks_passed": 83,
+    "errors": 0,
+    "source_bindings_match": true
+  },
+  "samples": [
+    {
+      "actor_animation": "work",
+      "actor_canvas_quad_aabb": [
+        218.717163085938,
+        244.3271484375,
+        247.587524414063,
+        247.58740234375
+      ],
+      "actor_flip_h": false,
+      "actor_frame": 2,
+      "actor_position": [
+        218.717163085938,
+        244.3271484375
+      ],
+      "actor_scale": [
+        0.990349888801575,
+        0.990349888801575
+      ],
+      "atlas_region": [
+        512.0,
+        512.0,
+        256.0,
+        256.0
+      ],
+      "fill": 0.333333333333333,
+      "label": "PIPE_EARNED_BOARD",
+      "meaning": "Full control quads are conservative envelopes. Separated envelopes cannot contact; overlapping envelopes cannot prove actual hand/tool contact. Headless diagnostic only.",
+      "minimum_envelope_gap_viewport_px": 65.6953125,
+      "mode": "pipe",
+      "necessary_overlap": false,
+      "object_canvas_quad_aabb": [
+        532.0,
+        48.0,
+        712.0,
+        560.0
+      ],
+      "object_role": "complete_pipe_action_canvas",
+      "phase": "BUILD ROCKET",
+      "progress": 1.0,
+      "surface_draw_route": ""
+    },
+    {
+      "actor_animation": "work",
+      "actor_canvas_quad_aabb": [
+        469.050048828125,
+        254.80451965332,
+        251.250366210938,
+        251.249801635742
+      ],
+      "actor_flip_h": false,
+      "actor_frame": 0,
+      "actor_position": [
+        469.050048828125,
+        254.80451965332
+      ],
+      "actor_scale": [
+        1.00499999523163,
+        1.00499999523163
+      ],
+      "atlas_region": [
+        0.0,
+        512.0,
+        256.0,
+        256.0
+      ],
+      "fill": 0.4,
+      "label": "PATCH_EARNED_TWO",
+      "meaning": "Full control quads are conservative envelopes. Separated envelopes cannot contact; overlapping envelopes cannot prove actual hand/tool contact. Headless diagnostic only.",
+      "minimum_envelope_gap_viewport_px": 41.050048828125,
+      "mode": "tap",
+      "necessary_overlap": false,
+      "object_canvas_quad_aabb": [
+        36.0,
+        278.0,
+        392.0,
+        232.0
+      ],
+      "object_role": "complete_patch_action_canvas",
+      "phase": "PATCH",
+      "progress": 2.0,
+      "surface_draw_route": ""
+    },
+    {
+      "actor_animation": "work",
+      "actor_canvas_quad_aabb": [
+        624.858276367188,
+        255.662139892578,
+        251.249938964844,
+        251.250152587891
+      ],
+      "actor_flip_h": false,
+      "actor_frame": 2,
+      "actor_position": [
+        624.858276367188,
+        255.662139892578
+      ],
+      "actor_scale": [
+        1.00499999523163,
+        1.00499999523163
+      ],
+      "atlas_region": [
+        512.0,
+        512.0,
+        256.0,
+        256.0
+      ],
+      "fill": 0.138888894071376,
+      "label": "VALVE_EARNED_PARTIAL",
+      "meaning": "Full control quads are conservative envelopes. Separated envelopes cannot contact; overlapping envelopes cannot prove actual hand/tool contact. Headless diagnostic only.",
+      "minimum_envelope_gap_viewport_px": 196.858276367188,
+      "mode": "circle",
+      "necessary_overlap": false,
+      "object_canvas_quad_aabb": [
+        36.0,
+        278.0,
+        392.0,
+        232.0
+      ],
+      "object_role": "complete_valve_action_canvas",
+      "phase": "VALVE",
+      "progress": 0.250000009328477,
+      "surface_draw_route": "crank:crank_astronaut"
+    },
+    {
+      "actor_animation": "work",
+      "actor_canvas_quad_aabb": [
+        782.728637695313,
+        234.278137207031,
+        247.125122070313,
+        247.125213623047
+      ],
+      "actor_flip_h": false,
+      "actor_frame": 1,
+      "actor_position": [
+        782.728637695313,
+        234.278137207031
+      ],
+      "actor_scale": [
+        0.988499999046326,
+        0.988499999046326
+      ],
+      "atlas_region": [
+        256.0,
+        512.0,
+        256.0,
+        256.0
+      ],
+      "fill": 0.3500000801407,
+      "label": "PARK_EARNED_PARTIAL",
+      "meaning": "Full control quads are conservative envelopes. Separated envelopes cannot contact; overlapping envelopes cannot prove actual hand/tool contact. Headless diagnostic only.",
+      "minimum_envelope_gap_viewport_px": 559.905334472656,
+      "mode": "swipe",
+      "necessary_overlap": false,
+      "object_canvas_quad_aabb": [
+        124.823303222656,
+        360.52001953125,
+        98.0,
+        98.0
+      ],
+      "object_role": "actual_complete_rocket_draw_rect",
+      "phase": "READY PARK",
+      "progress": 1.7500004007035,
+      "surface_draw_route": "push:park_astronaut"
+    }
+  ],
+  "native_source_inspection": {
+    "path": "assets/opera/worlds/actors/animation/roshan_astronaut_sheet_a.png",
+    "sha256": "ccfb8e7af3a033e31e05af40fa62dc23b676aec6204ba8810e8cf79cbfc4d6fa",
+    "dimensions": [
+      1024,
+      1024
+    ],
+    "observation": "Complete native sheet inspected. Work0/1 hold a wrench forward; work2 holds it near the shoulder; work3 raises it. Travel0/1/2 extend empty hands in a swimming pose; travel3 opens one arm. None establishes a socket/timing contract for a parking push. Source-only per-cell4.6 scores do not accept the generic7fps loop as each complete action.",
+    "unchanged": true
+  },
+  "diagnosis": [
+    "Real station approach opens each activity, then large pipe layout moves the actor to a watching mark; other activities dock separately. Surface can earn changes while actor remains outside the complete action quad.",
+    "READY PARK rocket skin is correct, but after genuine35percent travel its actual whole draw rectangle is560viewportpx from the conservative whole-actor quad. No hand can touch the rocket in that sampled state.",
+    "Actor phase work animation is shared wrench keys, not a declared per-action reach/contact/settle event. Independent actual source geometry and current native review are needed for coherent reuse or a named whole-figure source gap."
+  ],
+  "required_next_repair": [
+    "Bind each selected pipe/patch/valve/parking target to one world transform and reachable actor approach",
+    "Use intact approved complete-figure states only when they demonstrate the specific action; define actual hand/tool sockets per used frame from inspected native sources, never guess acceptance coordinates",
+    "Allow intentional progress only after approach and required local acting/contact; preserve one-finger correction, at-most-once reward and save semantics",
+    "Cancel every pending request on focus/pause/back/teardown without awarding or replaying; persist already committed state",
+    "Current2aspect native before/during/after captures at clean candidate; independent per-item/action>=4.6 review plus device/child/owner acceptance remain required"
+  ],
+  "limits": [
+    "Conservative actor/control envelope gap is a falsifiable necessary condition. Overlapping envelopes would not prove actual contact, anatomy, identity, composition or animation.",
+    "Headless Canvas coordinates/atlas sampling/real input establish the separation; no rendered-native visibility or score is asserted.",
+    "Explicit causal prior-story fixture; not all8jobs from fresh save.",
+    "No production/asset edit in this slice; no owner decision, paid call, generation, subagent, import/capture/fullCI or finding closure.",
+    "Existing ordinary launch decision and storage-coordination authorization remain pending; dependent work remains held."
+  ]
+}

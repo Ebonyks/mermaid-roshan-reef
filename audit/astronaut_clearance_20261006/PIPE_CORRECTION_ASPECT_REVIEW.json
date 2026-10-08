@@ -1,0 +1,581 @@
+{
+  "reviewed_utc": "2026-10-07T10:41:29.177200+00:00",
+  "baseline": "96274aab9cebd563b10846a4a48de5d017588563",
+  "implementation": "New bounded diagnostic only; production behavior and native sources unchanged.",
+  "receipt": "PIPE_CORRECTION_ASPECT_V1_RECEIPT.json",
+  "sha256": "23ff67f02a0bfb69be0e814ecccd840b97d112b8d9e02482f00f1414d37bf0cb",
+  "aspects": [
+    {
+      "viewport": [
+        1280,
+        720
+      ],
+      "checks": 57,
+      "failures": 0,
+      "actual_contacts": 7,
+      "candidate_jaw_gap_px": [
+        0.96710205078125,
+        0.9671630859375
+      ],
+      "contacts": [
+        {
+          "actor_viewport_bounds": [
+            757.824951171875,
+            239.46891784668,
+            247.587768554688,
+            247.587600708008
+          ],
+          "atlas_region": [
+            256.0,
+            512.0,
+            256.0,
+            256.0
+          ],
+          "cell": 5,
+          "distance": 0.9671630859375,
+          "jaw_viewport": [
+            824.0,
+            330.967163085938
+          ],
+          "request_id": 3,
+          "round": 0,
+          "scale": [
+            0.990349888801575,
+            0.990349888801575
+          ],
+          "target_viewport": [
+            824.0,
+            330.0
+          ],
+          "viewport": [
+            1280,
+            720
+          ]
+        },
+        {
+          "actor_viewport_bounds": [
+            849.748474121094,
+            238.679504394531,
+            247.587707519531,
+            247.587646484375
+          ],
+          "atlas_region": [
+            256.0,
+            512.0,
+            256.0,
+            256.0
+          ],
+          "cell": 6,
+          "distance": 0.9671630859375,
+          "jaw_viewport": [
+            936.0,
+            330.967163085938
+          ],
+          "request_id": 4,
+          "round": 0,
+          "scale": [
+            0.990349888801575,
+            0.990349888801575
+          ],
+          "target_viewport": [
+            936.0,
+            330.0
+          ],
+          "viewport": [
+            1280,
+            720
+          ]
+        },
+        {
+          "actor_viewport_bounds": [
+            652.50048828125,
+            132.050689697266,
+            247.587463378906,
+            247.587432861328
+          ],
+          "atlas_region": [
+            256.0,
+            512.0,
+            256.0,
+            256.0
+          ],
+          "cell": 0,
+          "distance": 0.96710205078125,
+          "jaw_viewport": [
+            712.0,
+            218.967102050781
+          ],
+          "request_id": 5,
+          "round": 1,
+          "scale": [
+            0.990349888801575,
+            0.990349888801575
+          ],
+          "target_viewport": [
+            712.0,
+            218.0
+          ],
+          "viewport": [
+            1280,
+            720
+          ]
+        },
+        {
+          "actor_viewport_bounds": [
+            894.413024902344,
+            129.023208618164,
+            247.587951660156,
+            247.58757019043
+          ],
+          "atlas_region": [
+            256.0,
+            512.0,
+            256.0,
+            256.0
+          ],
+          "cell": 2,
+          "distance": 0.967132568359375,
+          "jaw_viewport": [
+            936.000061035156,
+            218.967132568359
+          ],
+          "request_id": 9,
+          "round": 1,
+          "scale": [
+            0.990349888801575,
+            0.990349888801575
+          ],
+          "target_viewport": [
+            936.0,
+            218.0
+          ],
+          "viewport": [
+            1280,
+            720
+          ]
+        },
+        {
+          "actor_viewport_bounds": [
+            634.616088867188,
+            135.100234985352,
+            247.587890625,
+            247.587509155273
+          ],
+          "atlas_region": [
+            256.0,
+            512.0,
+            256.0,
+            256.0
+          ],
+          "cell": 0,
+          "distance": 0.967132568359375,
+          "jaw_viewport": [
+            712.0,
+            218.967132568359
+          ],
+          "request_id": 10,
+          "round": 1,
+          "scale": [
+            0.990349888801575,
+            0.990349888801575
+          ],
+          "target_viewport": [
+            712.0,
+            218.0
+          ],
+          "viewport": [
+            1280,
+            720
+          ]
+        },
+        {
+          "actor_viewport_bounds": [
+            736.294006347656,
+            135.299407958984,
+            247.587707519531,
+            247.587493896484
+          ],
+          "atlas_region": [
+            256.0,
+            512.0,
+            256.0,
+            256.0
+          ],
+          "cell": 1,
+          "distance": 0.967132568359375,
+          "jaw_viewport": [
+            823.999938964844,
+            218.967132568359
+          ],
+          "request_id": 11,
+          "round": 1,
+          "scale": [
+            0.990349888801575,
+            0.990349888801575
+          ],
+          "target_viewport": [
+            824.0,
+            218.0
+          ],
+          "viewport": [
+            1280,
+            720
+          ]
+        },
+        {
+          "actor_viewport_bounds": [
+            894.413024902344,
+            241.02326965332,
+            247.587707519531,
+            247.587265014648
+          ],
+          "atlas_region": [
+            256.0,
+            512.0,
+            256.0,
+            256.0
+          ],
+          "cell": 6,
+          "distance": 0.96710205078125,
+          "jaw_viewport": [
+            936.0,
+            330.967102050781
+          ],
+          "request_id": 12,
+          "round": 1,
+          "scale": [
+            0.990349888801575,
+            0.990349888801575
+          ],
+          "target_viewport": [
+            936.0,
+            330.0
+          ],
+          "viewport": [
+            1280,
+            720
+          ]
+        }
+      ],
+      "required_recovery_labels": [
+        "wrong SW0 still requires actual local contact",
+        "engine fuel actually enters wrong SW0",
+        "fueled wrong plan earns no extra credit or loses stock",
+        "wrong fueled pipe can be lifted toward correct cell",
+        "pending relocation snapshot restores source not target",
+        "pending relocation uses normal save owner",
+        "actual saved pending relocation preserves source and credit",
+        "actual pause restores original wrong piece without credit",
+        "canceled relocation cannot commit later",
+        "off-grid drag returns wrong piece to selected tray",
+        "selected-tile tap requests owned contact",
+        "selected-tile correction commits locally",
+        "genuine correction finishes board2 exactly once",
+        "correction does not award career pearls or light candle"
+      ]
+    },
+    {
+      "viewport": [
+        1600,
+        720
+      ],
+      "checks": 57,
+      "failures": 0,
+      "actual_contacts": 7,
+      "candidate_jaw_gap_px": [
+        0.967071533203125,
+        0.96722412109375
+      ],
+      "contacts": [
+        {
+          "actor_viewport_bounds": [
+            920.05908203125,
+            239.609146118164,
+            247.5869140625,
+            247.587448120117
+          ],
+          "atlas_region": [
+            256.0,
+            512.0,
+            256.0,
+            256.0
+          ],
+          "cell": 5,
+          "distance": 0.967071533203125,
+          "jaw_viewport": [
+            983.999938964844,
+            330.967071533203
+          ],
+          "request_id": 3,
+          "round": 0,
+          "scale": [
+            0.990349888801575,
+            0.990349888801575
+          ],
+          "target_viewport": [
+            984.0,
+            330.0
+          ],
+          "viewport": [
+            1600,
+            720
+          ]
+        },
+        {
+          "actor_viewport_bounds": [
+            1054.4130859375,
+            241.02326965332,
+            247.587036132813,
+            247.587631225586
+          ],
+          "atlas_region": [
+            256.0,
+            512.0,
+            256.0,
+            256.0
+          ],
+          "cell": 6,
+          "distance": 0.96722412109375,
+          "jaw_viewport": [
+            1096.0,
+            330.967224121094
+          ],
+          "request_id": 4,
+          "round": 0,
+          "scale": [
+            0.990349888801575,
+            0.990349888801575
+          ],
+          "target_viewport": [
+            1096.0,
+            330.0
+          ],
+          "viewport": [
+            1600,
+            720
+          ]
+        },
+        {
+          "actor_viewport_bounds": [
+            792.347473144531,
+            135.490325927734,
+            247.586975097656,
+            247.587493896484
+          ],
+          "atlas_region": [
+            256.0,
+            512.0,
+            256.0,
+            256.0
+          ],
+          "cell": 0,
+          "distance": 0.967086791992188,
+          "jaw_viewport": [
+            871.999938964844,
+            218.967086791992
+          ],
+          "request_id": 5,
+          "round": 1,
+          "scale": [
+            0.990349888801575,
+            0.990349888801575
+          ],
+          "target_viewport": [
+            872.0,
+            218.0
+          ],
+          "viewport": [
+            1600,
+            720
+          ]
+        },
+        {
+          "actor_viewport_bounds": [
+            998.19287109375,
+            135.407211303711,
+            247.586791992188,
+            247.587661743164
+          ],
+          "atlas_region": [
+            256.0,
+            512.0,
+            256.0,
+            256.0
+          ],
+          "cell": 2,
+          "distance": 0.967147827148438,
+          "jaw_viewport": [
+            1095.99987792969,
+            218.967147827148
+          ],
+          "request_id": 9,
+          "round": 1,
+          "scale": [
+            0.990349888801575,
+            0.990349888801575
+          ],
+          "target_viewport": [
+            1096.0,
+            218.0
+          ],
+          "viewport": [
+            1600,
+            720
+          ]
+        },
+        {
+          "actor_viewport_bounds": [
+            792.830505371094,
+            135.407211303711,
+            247.586730957031,
+            247.587600708008
+          ],
+          "atlas_region": [
+            256.0,
+            512.0,
+            256.0,
+            256.0
+          ],
+          "cell": 0,
+          "distance": 0.967132568359375,
+          "jaw_viewport": [
+            872.0,
+            218.967132568359
+          ],
+          "request_id": 10,
+          "round": 1,
+          "scale": [
+            0.990349888801575,
+            0.990349888801575
+          ],
+          "target_viewport": [
+            872.0,
+            218.0
+          ],
+          "viewport": [
+            1600,
+            720
+          ]
+        },
+        {
+          "actor_viewport_bounds": [
+            920.059143066406,
+            132.050659179688,
+            247.586608886719,
+            247.587585449219
+          ],
+          "atlas_region": [
+            256.0,
+            512.0,
+            256.0,
+            256.0
+          ],
+          "cell": 1,
+          "distance": 0.967132568359375,
+          "jaw_viewport": [
+            983.999938964844,
+            218.967132568359
+          ],
+          "request_id": 11,
+          "round": 1,
+          "scale": [
+            0.990349888801575,
+            0.990349888801575
+          ],
+          "target_viewport": [
+            984.0,
+            218.0
+          ],
+          "viewport": [
+            1600,
+            720
+          ]
+        },
+        {
+          "actor_viewport_bounds": [
+            1024.93969726563,
+            239.468887329102,
+            247.5869140625,
+            247.587448120117
+          ],
+          "atlas_region": [
+            256.0,
+            512.0,
+            256.0,
+            256.0
+          ],
+          "cell": 6,
+          "distance": 0.96710205078125,
+          "jaw_viewport": [
+            1096.00012207031,
+            330.967102050781
+          ],
+          "request_id": 12,
+          "round": 1,
+          "scale": [
+            0.990349888801575,
+            0.990349888801575
+          ],
+          "target_viewport": [
+            1096.0,
+            330.0
+          ],
+          "viewport": [
+            1600,
+            720
+          ]
+        }
+      ],
+      "required_recovery_labels": [
+        "wrong SW0 still requires actual local contact",
+        "engine fuel actually enters wrong SW0",
+        "fueled wrong plan earns no extra credit or loses stock",
+        "wrong fueled pipe can be lifted toward correct cell",
+        "pending relocation snapshot restores source not target",
+        "pending relocation uses normal save owner",
+        "actual saved pending relocation preserves source and credit",
+        "actual pause restores original wrong piece without credit",
+        "canceled relocation cannot commit later",
+        "off-grid drag returns wrong piece to selected tray",
+        "selected-tile tap requests owned contact",
+        "selected-tile correction commits locally",
+        "genuine correction finishes board2 exactly once",
+        "correction does not award career pearls or light candle"
+      ]
+    }
+  ],
+  "source_and_rawlog_bindings_current": true,
+  "regression_currency": "Existing current91ordinary/103birthday/73pipe/17negative bindings still match. Source-only12schema/320gesture remain historical; no fulltrusted/native grant implied.",
+  "meaning": "Wrong fueled SW0 can be lifted, pending movement snapshots/saves originalSW0 and omits target2, actual pause cancels without stock/credit loss, off-grid release returns selectedSW, real celltap and contact move it to2, real SE0/H1/NE6 complete only board2. Whole actual actor control bounds fit both viewports with unchanged scale and sampled work1 jaw geometry.",
+  "resource": {
+    "elapsed_seconds": 58.378,
+    "combined_cap_seconds": 150,
+    "setup_seconds": 1.733,
+    "total_observed_seconds": 60.111,
+    "before": {
+      "C_free_bytes": 1015785635840,
+      "physical_available_bytes": 15419383808,
+      "cache_bytes": 960233748
+    },
+    "after": {
+      "C_free_bytes": 1015783104512,
+      "cache_bytes": 960233748,
+      "artifact_bytes": 46001,
+      "cache_growth_bytes": 0
+    },
+    "owned_processes": "ALL_TERMINAL",
+    "previous_measured_native_costs_seconds": [
+      141.03,
+      159.35
+    ],
+    "no_retry_import_capture_fullCI": true
+  },
+  "limits": [
+    "Headless geometry and behavior only; no captured/native pixels or4.6score.",
+    "Whole figure control bounds cannot prove alpha occlusion, internal anatomy, meaningful work, travel/contact seams or full-speed appearance.",
+    "Explicit prior-six-jobs fixture; no fresh fullchapter proof or otherphaseacting repair.",
+    "Fulltrusted/native2aspect/independent/device/child/owner/CI/devintegration remain open.",
+    "Parking art and ordinary launch owner choices, ongoing storage/native capture coordination permission remain pending."
+  ],
+  "structural_gate": "PIPE_CORRECTION_DOCUMENT_GATES_V1_RECEIPT.json will bind this immutable review and the changed canonical facts."
+}

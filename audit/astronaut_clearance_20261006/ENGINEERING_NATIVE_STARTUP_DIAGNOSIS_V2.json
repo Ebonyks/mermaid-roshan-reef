@@ -1,0 +1,7 @@
+{
+  "utc": "2026-10-08T01:18:00.503865+00:00",
+  "concrete_harness_difference": "V3 had VK_LOADER_LAYERS_DISABLE=~implicit~. V4 removed it in favor of two path overrides; V5-V9 restored default paths but omitted the working disable flag.",
+  "next_basis": "Restore exact V3 process-only disable flag. Preserve malformed Rockstar manifest error as raw error if it persists; no registry or driver edits.",
+  "production_source_limits": "Explicit/dynamic temporary legacy-validator variations did not by themselves restore native startup; no causal compiler-bug claim accepted. Validation behavior remains unchanged and negative fixture passes.",
+  "prior_failures": "All V4-V9 retained. No assertions/captures from them count as accepted."
+}

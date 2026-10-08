@@ -1,0 +1,69 @@
+{
+  "checked_utc": "2026-10-07T05:16:45.534734+00:00",
+  "grant": "Coordinator explicit single bounded exact-engine import grant received in Astronaut chat; queue released after Boxer terminal24PNG evidence.",
+  "grant_source_thread": "01a0f309-110a-7602-af22-f30d657bd017",
+  "branch": "codex/astronaut-clearance-20261006",
+  "head": "96274aab9cebd563b10846a4a48de5d017588563",
+  "C_free_bytes": 302192005120,
+  "H_free_bytes": 15599480832,
+  "additional_C_cap_bytes": 1610612736,
+  "minimum_reserve_bytes": 3221225472,
+  "time_cap_seconds": 720,
+  "owned_existing_cache_bytes": 420967647,
+  "prior_attempts": [
+    {
+      "path": "audit/astronaut_clearance_20261006/IMPORT_RECEIPT.json",
+      "sha256": "30fca4752571a67d3ffeec85a52e24268b5b08f24e781bcbe73a74510c76bc7d",
+      "exit_code": 4294967295,
+      "result": "FAIL"
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/IMPORT_ISOLATED_RECEIPT.json",
+      "sha256": "1b998eb2cd4df7519629336702bb52874b7181db0533779df1a4a32164cf1d7e",
+      "exit_code": 4294967295,
+      "result": "FAIL"
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/IMPORT_RECOVERY_RECEIPT.json",
+      "sha256": "4fdb0298a1f2c7de545ad68cea30846f575a55c96bbc7c7ba793e58878fbadd3",
+      "exit_code": 4294967295,
+      "result": "FAIL"
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/IMPORT_DIRECT_RECEIPT.json",
+      "sha256": "65ef3369a87125af92db6cf7f5078dc348596a27d8e060ce20d22a082818fd9a",
+      "exit_code": 4294967295,
+      "result": "FAIL"
+    }
+  ],
+  "sources": [
+    {
+      "path": "scripts/opera_gesture_surface.gd",
+      "sha256": "34f3f264f17edef42990712f6c3f7e0106cf9afecd3969f8348848e0eda56017"
+    },
+    {
+      "path": "scripts/opera_astronaut_surface.gd",
+      "sha256": "142777a177cc4732e94b1c7b68ad4d4000efbcb7f7b4b68906206e9bb453c2e9"
+    },
+    {
+      "path": "scripts/opera_career_world_2d.gd",
+      "sha256": "2eed1b973513449f4432ac408ec678d5f84d9963200362610c09b8a796890ca7"
+    },
+    {
+      "path": "scripts/probe_opera_gesture_quality.gd",
+      "sha256": "d6ebc13d2ad83353102c95eb819afa637545b4fc41e349074475a07e40fcd8c3"
+    },
+    {
+      "path": "project.godot",
+      "sha256": "8d942b12dfa87ed9fb39cf7f6cfbb1d3f64cc4461097c527f266a28e9428697f"
+    },
+    {
+      "path": "tools/godot_baseline.json",
+      "sha256": "9616e50b3ed535e038dc04c6e389140066b3354f79b4b437b60c0e2571e4676b"
+    }
+  ],
+  "new_cache_clone_export_capture_generation": false,
+  "no_automatic_next_heavy_job": true,
+  "launch_design_choice": "PENDING_HUMAN",
+  "no_prior_attempt_or_task_cap_reset": true
+}

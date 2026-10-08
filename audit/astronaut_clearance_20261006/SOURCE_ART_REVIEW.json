@@ -1,0 +1,40 @@
+{
+  "recorded_utc": "2026-10-07T04:51:04.421415+00:00",
+  "source_revision": "96274aab9cebd563b10846a4a48de5d017588563",
+  "inspection": "Native images viewed in prior continuing goal turn; current bytes/dimensions rechecked. No generated art.",
+  "items": [
+    {
+      "path": "assets/opera/worlds/actors/animation/roshan_astronaut_sheet_a.png",
+      "sha256": "ccfb8e7af3a033e31e05af40fa62dc23b676aec6204ba8810e8cf79cbfc4d6fa",
+      "width": 1024,
+      "height": 1024,
+      "observation": "Prior native inspection: approved costume preserved; 4x4 atlas includes generic wrench work poses. Source inspection did not verify contact with each pipe, patch, valve or launch control.",
+      "modification": "none; original preserved",
+      "acceptance": "Source inspection only; no current-runtime per-item >=4.6 or owner acceptance inferred."
+    },
+    {
+      "path": "assets/opera/worlds/widgets/widget_charge_astronaut.png",
+      "sha256": "8e2e2546a4bd65639ed15bb52292fb6331bcbcc7cf82b4f0ffd381ef9163410e",
+      "width": 1024,
+      "height": 608,
+      "observation": "Prior native inspection: framed rocket widget card; source reference only, not the current charge drawing route.",
+      "modification": "none; original preserved",
+      "acceptance": "Source inspection only; no current-runtime per-item >=4.6 or owner acceptance inferred."
+    },
+    {
+      "path": "assets/opera/worlds/props/goal_astronaut.png",
+      "sha256": "910f531303ec813a522f98b8ac2f97adeb5ed24bd0b438ecef9f136e19d77845",
+      "width": 512,
+      "height": 512,
+      "observation": "Prior native inspection: isolated approved cream/coral rocket with brass window; current source charge drawing reuses it.",
+      "modification": "none; original preserved",
+      "acceptance": "Source inspection only; no current-runtime per-item >=4.6 or owner acceptance inferred."
+    }
+  ],
+  "launch_decision": {
+    "state": "OWNER_ANSWER_PENDING",
+    "question": "Ordinary LAUNCH: hold existing valve through countdown or press a distinct launch button?",
+    "dependency": "Launch-control staging/contact art repair awaits the human answer in the Astronaut chat. Birthday READY PARK remains parked and unlaunched."
+  },
+  "method_authority": "Current owner-replacement AGENTS and ledger-authoritative animation protocol; method eligibility does not accept earlier rejected attempts. No generation calls or paid budget authorization."
+}

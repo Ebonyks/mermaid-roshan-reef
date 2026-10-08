@@ -1,0 +1,29 @@
+{
+  "result": "PASS",
+  "started_utc": "2026-10-07T19:39:53.490972+00:00",
+  "original_cap_seconds": 60,
+  "prior_conservative_charge_seconds": 2,
+  "cap_seconds": 58,
+  "source_sha256": "21857d8e719c2fc355d68381abf927b58f86037a7100ba0aead0735a87146eb7",
+  "scope": "Current source/document gates only; no engine/native/generation or acceptance claim. V1 ignored-path failure preserved.",
+  "steps": [
+    {
+      "label": "authority",
+      "exit_code": 0,
+      "seconds": 8.208
+    },
+    {
+      "label": "development",
+      "exit_code": 0,
+      "seconds": 4.818
+    }
+  ],
+  "elapsed_seconds": 17.462,
+  "source_unchanged": true,
+  "post_record_coverage": {
+    "exit_code": 0,
+    "seconds": 4.125
+  },
+  "closed_utc": "2026-10-07T19:40:10.952930+00:00",
+  "log_sha256": "52ae394ea002b41ad50d68444436ebed33b054995e71265f5ca820f8961d307e"
+}

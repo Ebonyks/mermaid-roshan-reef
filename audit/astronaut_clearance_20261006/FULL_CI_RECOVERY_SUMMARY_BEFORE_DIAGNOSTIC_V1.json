@@ -1,0 +1,43 @@
+{
+  "result": "FULL_TRUSTED_SUITE_NOT_GREEN",
+  "checked_utc": "2026-10-07T21:57:04.898510+00:00",
+  "baseline": "96274aab9cebd563b10846a4a48de5d017588563",
+  "current_production_surface_sha256": "21857d8e719c2fc355d68381abf927b58f86037a7100ba0aead0735a87146eb7",
+  "full_ci_v3": {
+    "receipt": "FULL_CI_V3_RECEIPT.json",
+    "exit": 1,
+    "probes_attempted": 82,
+    "zero_exits": 79,
+    "failures": [
+      "Opera2D old immediate PATCH expectation:2failedassertions",
+      "bathroomcleanup:127 headeronly",
+      "dustbalance:127 sixpositivecases, missingfinal"
+    ]
+  },
+  "implemented_test_correction": "23lineAstronaut-only blocked-signal surfaceAPI branch; originalanchor/causalcheckretained, fournew queue/stale/outoforder/single/repeat guards. No productionchange.",
+  "verification": {
+    "changed_probe_parser_lint": "PASS",
+    "changed_probe_exact_engine_analyzer": "PASS exit0",
+    "corrected_probe_runtime": "FAIL native4294967295/header-only, noassertions executed",
+    "bathroomcleanup_focused_native": "PASS 16.48s/exit0/finalresult",
+    "dustbalance_focused_native": "FAIL 192.266s/native4294967295,10/12casesprintedOK, nofinalresult, capnotreached"
+  },
+  "cause": "UNRESOLVED_NATIVE_PROCESS_TERMINATION; no matchingApplicationErrorreturned, memorysnapshotnotlow. Do notclaimMSYS-only/transient or attributeanotheragent withoutproof.",
+  "remaining_probe_evidence": [
+    "Current correctedOpera2Dcompleteverdict",
+    "Completebossbalance includingheld_action andmovement_only/finalverdict"
+  ],
+  "budget": {
+    "original_CI_seconds": 3600,
+    "previous_conservative_charges": 360,
+    "V3_measured": 2526,
+    "recovery_preparation_reserved": 14,
+    "native_recovery_V1": 18.686,
+    "native_recovery_V2": 209.326,
+    "sum_recorded": 3128.012,
+    "unused_recorded_allowance": 471.98799999999994,
+    "no_automatic_retry_or_reset": true
+  },
+  "source_scope": "310 script/straight-art/importbindings unchanged except correctedprobe. No fullnaturalChapter2/nativeindependent/device/child/owner or4.6clearance; retiredstandalonetutorialN/A.",
+  "publication": "NOT_PUSHED; localandremotefullgatesmustgreenbeforecommit/integration; walkthroughpublicationpending, nohandoffclaim."
+}

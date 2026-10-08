@@ -1,0 +1,55 @@
+{
+  "checked_utc": "2026-10-07T05:40:17.036397+00:00",
+  "results": [
+    {
+      "command": [
+        "C:/Users/Peter/AppData/Local/Python/bin/python.exe",
+        "-X",
+        "utf8",
+        "-B",
+        "tools/audit_document_authority.py"
+      ],
+      "exit_code": 0,
+      "summary": [
+        "DOCAUTH|RESULT|ALL OK"
+      ]
+    },
+    {
+      "command": [
+        "C:/Users/Peter/AppData/Local/Python/bin/python.exe",
+        "-X",
+        "utf8",
+        "-B",
+        "-m",
+        "unittest",
+        "tools.tests.test_audit_document_authority",
+        "tools.tests.test_audit_development"
+      ],
+      "exit_code": 0,
+      "summary": [
+        "Ran 54 tests in 15.187s",
+        "OK",
+        "DOCAUTH|STRESS|6/6"
+      ]
+    },
+    {
+      "command": [
+        "C:/Users/Peter/AppData/Local/Python/bin/python.exe",
+        "-X",
+        "utf8",
+        "-B",
+        "tools/audit_document_authority.py",
+        "--stress"
+      ],
+      "exit_code": 0,
+      "summary": [
+        "DOCAUTH|STRESS|6/6"
+      ]
+    }
+  ],
+  "result": "PASS",
+  "authority_review_sha256": "421e53858b953ae6a1378583d35b16bf2f4f44ad1915a85f690b1c4d1bee81bb",
+  "log_path": "audit/astronaut_clearance_20261006/DOCUMENT_REVIEW_GATES_LOG.txt",
+  "log_sha256": "75eb349459337344242f70f9d0f6e085146882c8b31aa7356b6143b4f8240b37",
+  "meaning": "Document authority, existing unit and stress gates after the new save finding. Full game suite and save repair remain pending."
+}

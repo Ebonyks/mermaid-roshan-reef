@@ -1,0 +1,142 @@
+{
+  "created_utc": "2026-10-07T15:47:47.260722+00:00",
+  "baseline": "96274aab9cebd563b10846a4a48de5d017588563",
+  "branch": "codex/astronaut-clearance-20261006",
+  "origin_dev": "6238934447cf28834874396dfbaff65effafda46",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-VIS-01",
+    "DL-VIS-02",
+    "DL-VIS-04",
+    "DL-VIS-05",
+    "DL-VIS-06",
+    "DL-INT-01",
+    "DL-INT-02",
+    "DL-INT-04",
+    "DL-INT-05",
+    "DL-UI-03",
+    "DL-UI-04",
+    "DL-UI-05",
+    "DL-ASSET-01",
+    "DL-ASSET-03",
+    "DL-PERF-01",
+    "DL-PERF-02",
+    "DL-PERF-03",
+    "DL-CODE-07",
+    "DL-QA-02",
+    "DL-QA-03",
+    "DL-QA-06",
+    "DL-QA-11"
+  ],
+  "findings": [
+    "MA-PLAY-004",
+    "MA-SAVE-002",
+    "MA-VIS-006"
+  ],
+  "baseline_review": {
+    "path": "PATCH_READABILITY_REVIEW.json",
+    "sha256": "f27df827562087821f7001718beffe5e885202f0c98a03f1d87044a6dc5174ea",
+    "pipe_provisional_score": 4.0,
+    "failure": "Flat brown/black vector pipe tiles and square grid mismatch the painted room; contact acting remains sparse."
+  },
+  "sources_before": [
+    {
+      "path": "scripts/opera_astronaut_surface.gd",
+      "sha256": "5685ab40780025d1b6dac7d9543b2c8bed21c6be222a203fac38967eb913dc39",
+      "literal_snapshot": "audit/astronaut_clearance_20261006/PIPE_MATERIAL_BEFORE_SURFACE_SOURCE.txt"
+    },
+    {
+      "path": "scripts/opera_gesture_surface.gd",
+      "sha256": "34f3f264f17edef42990712f6c3f7e0106cf9afecd3969f8348848e0eda56017"
+    },
+    {
+      "path": "scripts/opera_career_world_2d.gd",
+      "sha256": "b567bb47894a25f26cb94e70b24ec3eda55e7e2ee6ab45247d46a2a13e8642cf"
+    }
+  ],
+  "inventory": {
+    "missing_authored_pipe_art": [
+      {
+        "path": "assets/opera/worlds/widgets/widget_pipe_tile_h.png",
+        "exists": false
+      },
+      {
+        "path": "assets/opera/worlds/widgets/widget_pipe_tile_v.png",
+        "exists": false
+      },
+      {
+        "path": "assets/opera/worlds/widgets/widget_pipe_elbow_ne.png",
+        "exists": false
+      },
+      {
+        "path": "assets/opera/worlds/widgets/widget_pipe_elbow_nw.png",
+        "exists": false
+      },
+      {
+        "path": "assets/opera/worlds/widgets/widget_pipe_elbow_se.png",
+        "exists": false
+      },
+      {
+        "path": "assets/opera/worlds/widgets/widget_pipe_elbow_sw.png",
+        "exists": false
+      },
+      {
+        "path": "assets/opera/worlds/widgets/widget_pipe_tank.png",
+        "exists": false
+      },
+      {
+        "path": "assets/opera/worlds/widgets/widget_pipe_intake.png",
+        "exists": false
+      }
+    ],
+    "existing_sources": [
+      {
+        "path": "assets/opera/worlds/backdrops/stage_astronaut_c0r0.png",
+        "sha256": "619b84ddd1fd607ca10f9509ebbfb4d4aa13e8fa066ddefa9017dca742ceb54f",
+        "role": "Existing source preserved; painted room/material continuity only, not copied or generated into delivery pixels"
+      },
+      {
+        "path": "assets/opera/worlds/widgets/widget_target_astronaut_piece_1.png",
+        "sha256": "218c33235451de371a7644e18629a636955edc27722fc41de1d5167edf4cfd5d",
+        "role": "Existing source preserved; painted room/material continuity only, not copied or generated into delivery pixels"
+      },
+      {
+        "path": "assets/opera/worlds/widgets/widget_target_astronaut_piece_2.png",
+        "sha256": "b2ac73c372b40b53914a3146c9c5c036ed9df0db898e699d64499d1b17d00b52",
+        "role": "Existing source preserved; painted room/material continuity only, not copied or generated into delivery pixels"
+      },
+      {
+        "path": "assets/opera/worlds/actors/animation/roshan_astronaut_sheet_a.png",
+        "sha256": "ccfb8e7af3a033e31e05af40fa62dc23b676aec6204ba8810e8cf79cbfc4d6fa",
+        "role": "Existing source preserved; painted room/material continuity only, not copied or generated into delivery pixels"
+      }
+    ],
+    "reuse_limit": "Existing rocket/repair plates and valves lack the six pre-rotated pipe mouths; using them as tiles would misrepresent topology. No suitable authored pipe textures exist at the actual loader paths. Preserve originals; no image generation, installation, paid work or bitmap derivatives."
+  },
+  "implementation": "Astronaut-only code-native material/routing drawing: rounded navy-contoured pipe silhouettes with cream/silver bands and narrow earned-aqua fuel, calmer cell/tray guides and consistent endpoint collars. Keep all mouth directions, tile/obstacle identities, geometry/hit regions/ownership, three-round routing, timers, stock, actor atlas/contact/scale and save rules. Existing authored textures retain priority if available; other career renderer is unchanged. Existing napping-imp fallback remains an explicit later asset-review gap.",
+  "performance": "Only bounded Canvas drawing for12cells, existing tray and endpoints; no added textures/nodes/materials/lights/particles, no large new transparent layer. Normal-cadence/Speedy/device measurements pending.",
+  "required_evidence": [
+    "143original headless genuine-input/contact/save/finish/return assertions retained at new source;17pipe wrong/pose/stale negative assertions retained.",
+    "Two fresh native Mobile/Vulkan aspects with actual pipe draw route, loaded texture/fallback identities, current geometry, contacts and whole-figure scale; untouched PNG/source/log hashes. Preserve every existing127assertion peraspect.",
+    "Parser/inference/exact-engine analyzers, authority/development/unit/stress/2D and literal staged-byte gates. Fulltrusted/currentordinary/correction/fullnatural/strictQA11/independent/device/child/owner/integration remain separate."
+  ],
+  "caps": {
+    "headless_seconds": 220,
+    "native_seconds": 300,
+    "document_seconds": 180,
+    "native_output_bytes": 536870912,
+    "cache_growth_bytes": 67108864,
+    "one_engine_process": true,
+    "no_automatic_retry": true,
+    "previous_readability_headless_seconds": 114.522,
+    "previous_readability_native_known_first_seconds": 107.724,
+    "previous_native_second_exit": "UNRECORDED_AFTER_MONITOR_FAIL",
+    "previous_negative_recovery_seconds": 15.256,
+    "previous_document_v1_exhausted_cap_seconds": 120,
+    "previous_document_v2_seconds": 76.71,
+    "older_costs": "Retain all earlier plan/receipt costs and failures; no reset/refund."
+  },
+  "authority": "Active goal authorizes named existing-material repair with routine code-native Canvas drawing. Whole-figure acting/PARK/ordinaryLAUNCH creative choices remain subject to existing human questions. Replacement AGENTS animation workflow is applied; no new animation or funded generation is claimed."
+}

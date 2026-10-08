@@ -1,0 +1,66 @@
+{
+  "result": "PASS",
+  "started_utc": "2026-10-07T16:33:50.885337+00:00",
+  "finished_utc": "2026-10-07T16:34:23.468723+00:00",
+  "elapsed_seconds": 32.583,
+  "aggregate_cap_seconds": 60.439,
+  "retained_parent_spent_seconds": 29.561,
+  "original_aggregate_cap_seconds": 90,
+  "steps": [
+    {
+      "label": "artifact parity",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-X",
+        "utf8",
+        "-B",
+        "C:\\Users\\Peter\\.codex\\worktrees\\astronaut-goal-20261006\\mermaid-roshan-reef\\audit\\astronaut_walkthrough_20261007\\verify_walkthrough_v3.py"
+      ],
+      "exit": 0,
+      "elapsed_seconds": 1.918
+    },
+    {
+      "label": "document authority",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-X",
+        "utf8",
+        "-B",
+        "tools/audit_document_authority.py"
+      ],
+      "exit": 0,
+      "elapsed_seconds": 18.506
+    },
+    {
+      "label": "development coverage",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-X",
+        "utf8",
+        "-B",
+        "tools/audit_development.py",
+        "--base",
+        "auto"
+      ],
+      "exit": 0,
+      "elapsed_seconds": 10.213
+    },
+    {
+      "label": "whitespace",
+      "command": [
+        "git",
+        "diff",
+        "--check"
+      ],
+      "exit": 0,
+      "elapsed_seconds": 1.916
+    }
+  ],
+  "errors": [],
+  "source_bindings_unchanged": true,
+  "manifest_unchanged": true,
+  "manifest_sha256": "03e5dfd1a1be9e220b126255f36b82542543f73c17996d93efee9e0979ebbd04",
+  "log_sha256": "17556d049cb7e6eb0f43e0e314ed4083b5f73ecc58e2cf93291238d13243d8b3",
+  "engine_launches": 0,
+  "scope": "Document/artifact verification only; full trusted suite, native/browser UI, independent/device/child/owner and GitHub publication pending."
+}

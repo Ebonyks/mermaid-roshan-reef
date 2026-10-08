@@ -1,0 +1,27 @@
+{
+  "created_utc": "2026-10-07T11:28:18.726970+00:00",
+  "result": "FAIL",
+  "receipt": "NATIVE_BIRTHDAY_CAPTURE_V2_RECEIPT.json",
+  "receipt_sha256": "eed59e72b19898f00ab2664c6c8afc92313b145e9ba603e319943140d82967c8",
+  "cause": "Runner cloning did not replace capture_birthday_native_v1.gd literal. Actual commands and rawlog prove V1fixture launched again; corrected Continue fixture never executed. Its old ignored output and V1manifest were overwritten. V2receipt correctly recorded0frames and failure because expected V2manifest was absent at receipt time.",
+  "misrouted_actual_output_preserved": [
+    {
+      "source_overwritten_path": "tmp/astronaut_native_birthday_capture_v1_20261007/frames/0000_room_return.png",
+      "preserved_v2_path": "tmp/astronaut_native_birthday_capture_v2_20261007/frames/0000_room_return.png",
+      "sha256": "72184ff612574052d5125955770cd4721fecb653341c1400f13114de85784d28"
+    }
+  ],
+  "actual_manifest_copy": "NATIVE_BIRTHDAY_CAPTURE_V2_MANIFEST.json",
+  "actual_manifest_copy_sha256": "aa98f131ea82cd911154d9ad17105c2c46a85cca3818617f9528d6012da3a9d9",
+  "immutable_V1_log_and_receipt_preserved": true,
+  "V1_pixel_loss": {
+    "original_png_sha256": "f72e059dbd06fa5edbf2df343b941b126a1d7be7ba62fd8fac92eb88f051afb5",
+    "original_manifest_sha256": "4f1015d4775efce6fd9c26c968a912b785849a30e9792c2d73887842f91a0431",
+    "current_overwritten_manifest_sha256": "aa98f131ea82cd911154d9ad17105c2c46a85cca3818617f9528d6012da3a9d9",
+    "original_bytes_recoverable": false,
+    "prior_original_image_inspection": "Actual title screenshot was inspected before accidental overwrite. Retained original rawlog/receipt/review record its hash; current path cannot satisfy that native-byte binding."
+  },
+  "next_correction": "V3 uses exact new fixture literal and asserts save/manifest/capture paths within it before launch. Preserve failedV1V2 evidence, costs23.342+22.231; no production source change.",
+  "visual_scores": "NONE",
+  "machine_scope": "Native renderer successful but route entry failed; no whole-action or return proof."
+}

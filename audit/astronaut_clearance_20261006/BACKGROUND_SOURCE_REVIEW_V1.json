@@ -1,0 +1,256 @@
+{
+  "checked_utc": "2026-10-07T05:30:46.678450+00:00",
+  "baseline": "96274aab9cebd563b10846a4a48de5d017588563",
+  "reviewer": "Implementing agent; independent re-review pending",
+  "method": "Direct native original inspection and read-only decoded-RGBA quarter comparison; zero image edits or generation",
+  "manifest": {
+    "path": "assets_src/concepts/opera_regeneration_2026-08-01/OPERA_CODEX_MANIFEST_2026-08-02.json",
+    "sha256": "894084496edfa5b7d7beb19d99ecd89cfdd8398e6eeb23e3302d12c3364c9fcb"
+  },
+  "renderer": {
+    "path": "scripts/opera_world_backdrop_2d.gd",
+    "sha256": "82ba08a1f9d396fd38879b28e44411868d67b024aefd6aa2570113aaa964dc02",
+    "method": "_draw_tile_set",
+    "source_rects_per_row": [
+      [
+        0,
+        448,
+        1024,
+        576
+      ],
+      [
+        0,
+        0,
+        1024,
+        576
+      ]
+    ],
+    "equivalent_combined_crop": [
+      0,
+      448,
+      2048,
+      1152
+    ],
+    "current_composite_review": "PENDING"
+  },
+  "masters": [
+    {
+      "path": "assets_src/concepts/opera_regeneration_2026-08-01/cards/opera_world_master_astronaut.png",
+      "sha256": "ccf115926d670b7f0fbf5f2c1895e1d567ddba0fc260414b5b72f077f0d88843",
+      "dimensions": [
+        2048,
+        2048
+      ],
+      "historical_manifest_grade": 4.8,
+      "historical_status": "accepted",
+      "historical_status_preserved": true,
+      "source_declaration": "ImageGen native + non-subject edge continuation",
+      "registration_active_crop": [
+        0,
+        448,
+        2048,
+        1152
+      ]
+    },
+    {
+      "path": "assets_src/concepts/opera_regeneration_2026-08-01/cards/opera_stage_master_astronaut.png",
+      "sha256": "f4d23fdd45b3be7b4b34a19f3b4e06021b048c8fa78fe8772cc1ad68e84fbf3f",
+      "dimensions": [
+        2048,
+        2048
+      ],
+      "historical_manifest_grade": 4.8,
+      "historical_status": "accepted",
+      "historical_status_preserved": true,
+      "source_declaration": "ImageGen native + non-subject edge continuation",
+      "registration_active_crop": [
+        0,
+        448,
+        2048,
+        1152
+      ]
+    }
+  ],
+  "items": [
+    {
+      "path": "assets/opera/worlds/backdrops/world_astronaut_c0r0.png",
+      "sha256": "b8170e88b746c5ec608a6318fac254f7cddc78719ca36efacf089100fdcc0535",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "master_path": "assets_src/concepts/opera_regeneration_2026-08-01/cards/opera_world_master_astronaut.png",
+      "master_bounds": [
+        0,
+        0,
+        1024,
+        1024
+      ],
+      "decoded_RGBA_matches_master_quarter": true,
+      "native_review": "Previously inspected individually at original resolution; complete unchanged master inspected again at original resolution in this continuation.",
+      "provisional_static_source_grade": 4.3,
+      "grade_scope": "Source fragment with intended renderer sampling only; author review, not independent current runtime acceptance.",
+      "observations": "upper/left quadrant preserves painted rounded hardware, navy-purple contours and established aqua/lavender palette. Broad blurred edge continuation reaches the prescribed sampled region and creates an abrupt sharp/blur transition.",
+      "runtime_action_grade": null,
+      "runtime_capture_required": true
+    },
+    {
+      "path": "assets/opera/worlds/backdrops/world_astronaut_c1r0.png",
+      "sha256": "de5d027196f86286dd9032f9fea7ea97c39b9796ce8adee3db527f83025199fc",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "master_path": "assets_src/concepts/opera_regeneration_2026-08-01/cards/opera_world_master_astronaut.png",
+      "master_bounds": [
+        1024,
+        0,
+        2048,
+        1024
+      ],
+      "decoded_RGBA_matches_master_quarter": true,
+      "native_review": "Previously inspected individually at original resolution; complete unchanged master inspected again at original resolution in this continuation.",
+      "provisional_static_source_grade": 4.3,
+      "grade_scope": "Source fragment with intended renderer sampling only; author review, not independent current runtime acceptance.",
+      "observations": "upper/right quadrant preserves painted rounded hardware, navy-purple contours and established aqua/lavender palette. Broad blurred edge continuation reaches the prescribed sampled region and creates an abrupt sharp/blur transition.",
+      "runtime_action_grade": null,
+      "runtime_capture_required": true
+    },
+    {
+      "path": "assets/opera/worlds/backdrops/world_astronaut_c0r1.png",
+      "sha256": "f43b0d59499fcadce323adf984caf3492444377910e859e2b64c970ba7924dde",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "master_path": "assets_src/concepts/opera_regeneration_2026-08-01/cards/opera_world_master_astronaut.png",
+      "master_bounds": [
+        0,
+        1024,
+        1024,
+        2048
+      ],
+      "decoded_RGBA_matches_master_quarter": true,
+      "native_review": "Previously inspected individually at original resolution; complete unchanged master inspected again at original resolution in this continuation.",
+      "provisional_static_source_grade": 4.3,
+      "grade_scope": "Source fragment with intended renderer sampling only; author review, not independent current runtime acceptance.",
+      "observations": "lower/left quadrant preserves painted rounded hardware, navy-purple contours and established aqua/lavender palette. Broad blurred edge continuation reaches the prescribed sampled region and creates an abrupt sharp/blur transition.",
+      "runtime_action_grade": null,
+      "runtime_capture_required": true
+    },
+    {
+      "path": "assets/opera/worlds/backdrops/world_astronaut_c1r1.png",
+      "sha256": "491b2d32cd5b82b0c3436ed37725646dbc5e6dc9dd554851fb86d433acbad953",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "master_path": "assets_src/concepts/opera_regeneration_2026-08-01/cards/opera_world_master_astronaut.png",
+      "master_bounds": [
+        1024,
+        1024,
+        2048,
+        2048
+      ],
+      "decoded_RGBA_matches_master_quarter": true,
+      "native_review": "Previously inspected individually at original resolution; complete unchanged master inspected again at original resolution in this continuation.",
+      "provisional_static_source_grade": 4.3,
+      "grade_scope": "Source fragment with intended renderer sampling only; author review, not independent current runtime acceptance.",
+      "observations": "lower/right quadrant preserves painted rounded hardware, navy-purple contours and established aqua/lavender palette. Broad blurred edge continuation reaches the prescribed sampled region and creates an abrupt sharp/blur transition.",
+      "runtime_action_grade": null,
+      "runtime_capture_required": true
+    },
+    {
+      "path": "assets/opera/worlds/backdrops/stage_astronaut_c0r0.png",
+      "sha256": "619b84ddd1fd607ca10f9509ebbfb4d4aa13e8fa066ddefa9017dca742ceb54f",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "master_path": "assets_src/concepts/opera_regeneration_2026-08-01/cards/opera_stage_master_astronaut.png",
+      "master_bounds": [
+        0,
+        0,
+        1024,
+        1024
+      ],
+      "decoded_RGBA_matches_master_quarter": true,
+      "native_review": "Previously inspected individually at original resolution; complete unchanged master inspected again at original resolution in this continuation.",
+      "provisional_static_source_grade": 4.3,
+      "grade_scope": "Source fragment with intended renderer sampling only; author review, not independent current runtime acceptance.",
+      "observations": "upper/left quadrant preserves painted rounded hardware, navy-purple contours and established aqua/lavender palette. Broad blurred edge continuation reaches the prescribed sampled region and creates an abrupt sharp/blur transition.",
+      "runtime_action_grade": null,
+      "runtime_capture_required": true
+    },
+    {
+      "path": "assets/opera/worlds/backdrops/stage_astronaut_c1r0.png",
+      "sha256": "db3dc67b611c56376fe5235903fd6274417cce207dc06c43b35b654d09b43e6b",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "master_path": "assets_src/concepts/opera_regeneration_2026-08-01/cards/opera_stage_master_astronaut.png",
+      "master_bounds": [
+        1024,
+        0,
+        2048,
+        1024
+      ],
+      "decoded_RGBA_matches_master_quarter": true,
+      "native_review": "Previously inspected individually at original resolution; complete unchanged master inspected again at original resolution in this continuation.",
+      "provisional_static_source_grade": 4.3,
+      "grade_scope": "Source fragment with intended renderer sampling only; author review, not independent current runtime acceptance.",
+      "observations": "upper/right quadrant preserves painted rounded hardware, navy-purple contours and established aqua/lavender palette. Broad blurred edge continuation reaches the prescribed sampled region and creates an abrupt sharp/blur transition.",
+      "runtime_action_grade": null,
+      "runtime_capture_required": true
+    },
+    {
+      "path": "assets/opera/worlds/backdrops/stage_astronaut_c0r1.png",
+      "sha256": "737fa823d8e4d28beaefa106fc42a545db2756e1f2d1e13cd9e4a3e22f060f00",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "master_path": "assets_src/concepts/opera_regeneration_2026-08-01/cards/opera_stage_master_astronaut.png",
+      "master_bounds": [
+        0,
+        1024,
+        1024,
+        2048
+      ],
+      "decoded_RGBA_matches_master_quarter": true,
+      "native_review": "Previously inspected individually at original resolution; complete unchanged master inspected again at original resolution in this continuation.",
+      "provisional_static_source_grade": 4.3,
+      "grade_scope": "Source fragment with intended renderer sampling only; author review, not independent current runtime acceptance.",
+      "observations": "lower/left quadrant preserves painted rounded hardware, navy-purple contours and established aqua/lavender palette. Broad blurred edge continuation reaches the prescribed sampled region and creates an abrupt sharp/blur transition.",
+      "runtime_action_grade": null,
+      "runtime_capture_required": true
+    },
+    {
+      "path": "assets/opera/worlds/backdrops/stage_astronaut_c1r1.png",
+      "sha256": "66c7e532219909ad8010dd11af18ff07f285115e7dbb91dfbdb7b3ac6d410e8c",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "master_path": "assets_src/concepts/opera_regeneration_2026-08-01/cards/opera_stage_master_astronaut.png",
+      "master_bounds": [
+        1024,
+        1024,
+        2048,
+        2048
+      ],
+      "decoded_RGBA_matches_master_quarter": true,
+      "native_review": "Previously inspected individually at original resolution; complete unchanged master inspected again at original resolution in this continuation.",
+      "provisional_static_source_grade": 4.3,
+      "grade_scope": "Source fragment with intended renderer sampling only; author review, not independent current runtime acceptance.",
+      "observations": "lower/right quadrant preserves painted rounded hardware, navy-purple contours and established aqua/lavender palette. Broad blurred edge continuation reaches the prescribed sampled region and creates an abrupt sharp/blur transition.",
+      "runtime_action_grade": null,
+      "runtime_capture_required": true
+    }
+  ],
+  "technical_claim": "Eight1024-square tiles exactly preserve their2048-square masters. This proves packaging and native bytes, not2048x2048 detailed native background coverage per playable screen; the historical edge-continuation declaration and blurred padding require source/runtime review. No original generated-art dimensions inferred from Racer geometry.",
+  "acceptance": "No whole background/action/current-source4.6 acceptance; historical4.8 entries unchanged. No finding closure. Preserve canon and source artwork; any crop/repair requires current viewport/contact geometry and applicable owner choice.",
+  "art_edits": 0,
+  "generation_calls": 0
+}

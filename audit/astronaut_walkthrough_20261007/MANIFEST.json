@@ -1,0 +1,6445 @@
+{
+  "schema": "reef.astronaut.step_walkthrough.v1",
+  "created_utc": "2026-10-07T16:33:45.406011+00:00",
+  "baseline": "96274aab9cebd563b10846a4a48de5d017588563",
+  "branch": "codex/astronaut-clearance-20261006",
+  "candidate": "DIRTY_CURRENT_SOURCE_NATIVE_DIAGNOSTIC",
+  "native_source_currency": "Sources are exact at artifact creation; if source later changes this remains a sealed historical walkthrough and must not be relabelled current",
+  "steps": 29,
+  "native_master_count": 35,
+  "frames": [
+    {
+      "path": "frames/1280/0000_start_menu_before_continue.png",
+      "original_path": "tmp/astronaut_native_birthday_capture_v8_20261007/1280x720/frames/0000_start_menu_before_continue.png",
+      "sha256": "7e0de09968f36372e1e66dcc9bdb3ef33d89a1825d2772764683b136417ab910",
+      "bytes": 1441565,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "pixel_modifications": "NONE; literal byte copy",
+      "role": "diagnostic_native_capture",
+      "provenance": "Godot root viewport readback; underlying source assets retain their ASSET_LICENSES authority; review-only and not a generator input",
+      "original_manifest": "evidence/NATIVE_BIRTHDAY_CAPTURE_V8_1280_MANIFEST.json",
+      "original_label": "start_menu_before_continue",
+      "native_state": {
+        "bytes": 1441565,
+        "candle_lit": false,
+        "castle_room": "main_hall",
+        "dimensions": [
+          1280,
+          720
+        ],
+        "label": "start_menu_before_continue",
+        "living_stage": "intro.storybook",
+        "main_instance": 120779179513,
+        "monotonic_msec": 7750,
+        "party_started": false,
+        "path": "tmp/astronaut_native_birthday_capture_v8_20261007/1280x720/frames/0000_start_menu_before_continue.png",
+        "pearls": 0,
+        "process_frame": 1,
+        "rendered_frame": 1,
+        "return_fade_alpha": 0.0,
+        "sha256": "7e0de09968f36372e1e66dcc9bdb3ef33d89a1825d2772764683b136417ab910",
+        "star_mask": 0,
+        "viewport_canvas_transform": [
+          [
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0
+          ],
+          [
+            0.0,
+            0.0
+          ]
+        ],
+        "viewport_instance": 120326194638
+      }
+    },
+    {
+      "path": "frames/1280/0001_phase0_open.png",
+      "original_path": "tmp/astronaut_native_birthday_capture_v8_20261007/1280x720/frames/0001_phase0_open.png",
+      "sha256": "da9f8d1143e8d4343f0d3451e254affa5e383d3469669b8b0f3b19585115c646",
+      "bytes": 1354910,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "pixel_modifications": "NONE; literal byte copy",
+      "role": "diagnostic_native_capture",
+      "provenance": "Godot root viewport readback; underlying source assets retain their ASSET_LICENSES authority; review-only and not a generator input",
+      "original_manifest": "evidence/NATIVE_BIRTHDAY_CAPTURE_V8_1280_MANIFEST.json",
+      "original_label": "phase0_open",
+      "native_state": {
+        "bytes": 1354910,
+        "candle_lit": false,
+        "castle_room": "mermaid_pool",
+        "dimensions": [
+          1280,
+          720
+        ],
+        "label": "phase0_open",
+        "live_state": {
+          "actor_atlas_region": [
+            0.0,
+            0.0,
+            256.0,
+            256.0
+          ],
+          "actor_atlas_source": "res://assets/opera/worlds/actors/animation/roshan_astronaut_sheet_a.png",
+          "actor_canvas_transform": [
+            [
+              0.990349888801575,
+              0.0
+            ],
+            [
+              0.0,
+              0.990349888801575
+            ],
+            [
+              218.717102050781,
+              249.234085083008
+            ]
+          ],
+          "actor_flip_h": false,
+          "actor_instance": 191176379387,
+          "actor_position": [
+            218.717102050781,
+            249.234085083008
+          ],
+          "actor_scale": [
+            0.990349888801575,
+            0.990349888801575
+          ],
+          "actor_size": [
+            250.000183105469,
+            250.000106811523
+          ],
+          "actor_z_index": 0,
+          "crank_rotation": 0.0,
+          "generic_player_tween_owned": false,
+          "held": false,
+          "long_push_journey": 0.0,
+          "panel_alpha": 0.985219478607178,
+          "patch_draw_route": "",
+          "patch_entry_scale": [
+            1.0,
+            1.0
+          ],
+          "patch_generation": 2,
+          "patch_last_contact": {},
+          "patch_queue": [],
+          "patch_repair_source": "",
+          "patch_state": "",
+          "patch_state_t": 0.0,
+          "patch_work_position": [
+            0.0,
+            0.0
+          ],
+          "phase_advance_pending": false,
+          "phase_index": 0,
+          "phase_name": "BUILD ROCKET",
+          "phase_progress": 0.0,
+          "pipe_entry_position": [
+            0.0,
+            0.0
+          ],
+          "pipe_grid": [
+            "",
+            "",
+            "",
+            "",
+            "H",
+            "",
+            "",
+            "H",
+            "",
+            "",
+            "",
+            ""
+          ],
+          "pipe_last_contact": {},
+          "pipe_request_id": -1,
+          "pipe_round": 0,
+          "pipe_travel_start": [
+            0.0,
+            0.0
+          ],
+          "pipe_work_cell": -1,
+          "pipe_work_flip": false,
+          "pipe_work_position": [
+            0.0,
+            0.0
+          ],
+          "pipe_work_state": "",
+          "pipe_work_state_t": 0.0,
+          "surface_alpha": 1.0,
+          "surface_canvas_transform": [
+            [
+              1.01740264892578,
+              0.0
+            ],
+            [
+              0.0,
+              1.01740264892578
+            ],
+            [
+              531.895629882813,
+              42.5703735351563
+            ]
+          ],
+          "surface_instance": 192015240316,
+          "surface_mode": "pipe",
+          "surface_self_alpha": 1.0,
+          "target_placed": [],
+          "task_open": true,
+          "touch_owner": -1,
+          "valve_entry_scale": [
+            1.0,
+            1.0
+          ],
+          "valve_generation": 2,
+          "valve_last_contact": {},
+          "valve_pending_arcs": 0,
+          "valve_state": "",
+          "valve_work_position": [
+            0.0,
+            0.0
+          ],
+          "widget_fill": 0.0,
+          "widget_mover_path": "",
+          "world_instance": 187938376759
+        },
+        "living_stage": "opera.act.11",
+        "main_instance": 120779179513,
+        "monotonic_msec": 11513,
+        "party_started": false,
+        "path": "tmp/astronaut_native_birthday_capture_v8_20261007/1280x720/frames/0001_phase0_open.png",
+        "pearls": 0,
+        "process_frame": 311,
+        "rendered_frame": 311,
+        "return_fade_alpha": 0.0,
+        "sha256": "da9f8d1143e8d4343f0d3451e254affa5e383d3469669b8b0f3b19585115c646",
+        "star_mask": 0,
+        "viewport_canvas_transform": [
+          [
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0
+          ],
+          [
+            0.0,
+            0.0
+          ]
+        ],
+        "viewport_instance": 120326194638
+      }
+    },
+    {
+      "path": "frames/1280/0005_phase0_input_held.png",
+      "original_path": "tmp/astronaut_native_birthday_capture_v8_20261007/1280x720/frames/0005_phase0_input_held.png",
+      "sha256": "dcd2ad860676dbe161e8a374012ece780fae491edc955c198cf69862fdad8aa3",
+      "bytes": 1351748,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "pixel_modifications": "NONE; literal byte copy",
+      "role": "diagnostic_native_capture",
+      "provenance": "Godot root viewport readback; underlying source assets retain their ASSET_LICENSES authority; review-only and not a generator input",
+      "original_manifest": "evidence/NATIVE_BIRTHDAY_CAPTURE_V8_1280_MANIFEST.json",
+      "original_label": "phase0_input_held",
+      "native_state": {
+        "bytes": 1351748,
+        "candle_lit": false,
+        "castle_room": "mermaid_pool",
+        "dimensions": [
+          1280,
+          720
+        ],
+        "label": "phase0_input_held",
+        "live_state": {
+          "actor_atlas_region": [
+            0.0,
+            0.0,
+            256.0,
+            256.0
+          ],
+          "actor_atlas_source": "res://assets/opera/worlds/actors/animation/roshan_astronaut_sheet_a.png",
+          "actor_canvas_transform": [
+            [
+              0.990349888801575,
+              0.0
+            ],
+            [
+              0.0,
+              0.990349888801575
+            ],
+            [
+              218.717102050781,
+              249.234085083008
+            ]
+          ],
+          "actor_flip_h": false,
+          "actor_instance": 191176379387,
+          "actor_position": [
+            218.717102050781,
+            249.234085083008
+          ],
+          "actor_scale": [
+            0.990349888801575,
+            0.990349888801575
+          ],
+          "actor_size": [
+            250.000183105469,
+            250.000106811523
+          ],
+          "actor_z_index": 0,
+          "crank_rotation": 0.0,
+          "generic_player_tween_owned": false,
+          "held": true,
+          "long_push_journey": 0.0,
+          "panel_alpha": 1.0,
+          "patch_draw_route": "",
+          "patch_entry_scale": [
+            1.0,
+            1.0
+          ],
+          "patch_generation": 2,
+          "patch_last_contact": {},
+          "patch_queue": [],
+          "patch_repair_source": "",
+          "patch_state": "",
+          "patch_state_t": 0.0,
+          "patch_work_position": [
+            0.0,
+            0.0
+          ],
+          "phase_advance_pending": false,
+          "phase_index": 0,
+          "phase_name": "BUILD ROCKET",
+          "phase_progress": 0.0,
+          "pipe_entry_position": [
+            0.0,
+            0.0
+          ],
+          "pipe_grid": [
+            "",
+            "",
+            "",
+            "",
+            "H",
+            "",
+            "",
+            "H",
+            "",
+            "",
+            "",
+            ""
+          ],
+          "pipe_last_contact": {},
+          "pipe_request_id": -1,
+          "pipe_round": 0,
+          "pipe_travel_start": [
+            0.0,
+            0.0
+          ],
+          "pipe_work_cell": -1,
+          "pipe_work_flip": false,
+          "pipe_work_position": [
+            0.0,
+            0.0
+          ],
+          "pipe_work_state": "",
+          "pipe_work_state_t": 0.0,
+          "surface_alpha": 1.0,
+          "surface_canvas_transform": [
+            [
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0
+            ],
+            [
+              532.0,
+              48.0
+            ]
+          ],
+          "surface_instance": 192015240316,
+          "surface_mode": "pipe",
+          "surface_self_alpha": 1.0,
+          "target_placed": [],
+          "task_open": true,
+          "touch_owner": 7,
+          "valve_entry_scale": [
+            1.0,
+            1.0
+          ],
+          "valve_generation": 2,
+          "valve_last_contact": {},
+          "valve_pending_arcs": 0,
+          "valve_state": "",
+          "valve_work_position": [
+            0.0,
+            0.0
+          ],
+          "widget_fill": 0.0,
+          "widget_mover_path": "",
+          "world_instance": 187938376759
+        },
+        "living_stage": "opera.act.11",
+        "main_instance": 120779179513,
+        "monotonic_msec": 13278,
+        "party_started": false,
+        "path": "tmp/astronaut_native_birthday_capture_v8_20261007/1280x720/frames/0005_phase0_input_held.png",
+        "pearls": 0,
+        "process_frame": 395,
+        "rendered_frame": 395,
+        "return_fade_alpha": 0.0,
+        "sha256": "dcd2ad860676dbe161e8a374012ece780fae491edc955c198cf69862fdad8aa3",
+        "star_mask": 0,
+        "viewport_canvas_transform": [
+          [
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0
+          ],
+          [
+            0.0,
+            0.0
+          ]
+        ],
+        "viewport_instance": 120326194638
+      }
+    },
+    {
+      "path": "frames/1280/0007_phase0_pipe_approach.png",
+      "original_path": "tmp/astronaut_native_birthday_capture_v8_20261007/1280x720/frames/0007_phase0_pipe_approach.png",
+      "sha256": "3755ca92c0512d9a94998db335fbb776761a0db8e030021ba2f7785330b004f7",
+      "bytes": 1337533,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "pixel_modifications": "NONE; literal byte copy",
+      "role": "diagnostic_native_capture",
+      "provenance": "Godot root viewport readback; underlying source assets retain their ASSET_LICENSES authority; review-only and not a generator input",
+      "original_manifest": "evidence/NATIVE_BIRTHDAY_CAPTURE_V8_1280_MANIFEST.json",
+      "original_label": "phase0_pipe_approach",
+      "native_state": {
+        "bytes": 1337533,
+        "candle_lit": false,
+        "castle_room": "mermaid_pool",
+        "dimensions": [
+          1280,
+          720
+        ],
+        "label": "phase0_pipe_approach",
+        "live_state": {
+          "actor_atlas_region": [
+            256.0,
+            256.0,
+            256.0,
+            256.0
+          ],
+          "actor_atlas_source": "res://assets/opera/worlds/actors/animation/roshan_astronaut_sheet_a.png",
+          "actor_canvas_transform": [
+            [
+              0.990349888801575,
+              0.0
+            ],
+            [
+              0.0,
+              0.990349888801575
+            ],
+            [
+              218.717102050781,
+              249.234085083008
+            ]
+          ],
+          "actor_flip_h": true,
+          "actor_instance": 191176379387,
+          "actor_position": [
+            218.717102050781,
+            249.234085083008
+          ],
+          "actor_scale": [
+            0.990349888801575,
+            0.990349888801575
+          ],
+          "actor_size": [
+            250.000183105469,
+            250.000106811523
+          ],
+          "actor_z_index": 1,
+          "crank_rotation": 0.0,
+          "generic_player_tween_owned": false,
+          "held": false,
+          "long_push_journey": 0.0,
+          "panel_alpha": 1.0,
+          "patch_draw_route": "",
+          "patch_entry_scale": [
+            1.0,
+            1.0
+          ],
+          "patch_generation": 2,
+          "patch_last_contact": {},
+          "patch_queue": [],
+          "patch_repair_source": "",
+          "patch_state": "",
+          "patch_state_t": 0.0,
+          "patch_work_position": [
+            0.0,
+            0.0
+          ],
+          "phase_advance_pending": false,
+          "phase_index": 0,
+          "phase_name": "BUILD ROCKET",
+          "phase_progress": 0.0,
+          "pipe_entry_position": [
+            218.717102050781,
+            249.234085083008
+          ],
+          "pipe_grid": [
+            "",
+            "",
+            "",
+            "",
+            "H",
+            "",
+            "",
+            "H",
+            "",
+            "",
+            "",
+            ""
+          ],
+          "pipe_last_contact": {},
+          "pipe_request_id": 3,
+          "pipe_round": 0,
+          "pipe_travel_start": [
+            218.717102050781,
+            249.234085083008
+          ],
+          "pipe_work_cell": 5,
+          "pipe_work_flip": false,
+          "pipe_work_position": [
+            782.413024902344,
+            241.023208618164
+          ],
+          "pipe_work_state": "approach",
+          "pipe_work_state_t": 0.0,
+          "surface_alpha": 1.0,
+          "surface_canvas_transform": [
+            [
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0
+            ],
+            [
+              532.0,
+              48.0
+            ]
+          ],
+          "surface_instance": 192015240316,
+          "surface_mode": "pipe",
+          "surface_self_alpha": 1.0,
+          "target_placed": [],
+          "task_open": true,
+          "touch_owner": -1,
+          "valve_entry_scale": [
+            1.0,
+            1.0
+          ],
+          "valve_generation": 2,
+          "valve_last_contact": {},
+          "valve_pending_arcs": 0,
+          "valve_state": "",
+          "valve_work_position": [
+            0.0,
+            0.0
+          ],
+          "widget_fill": 0.0,
+          "widget_mover_path": "",
+          "world_instance": 187938376759
+        },
+        "living_stage": "opera.act.11",
+        "main_instance": 120779179513,
+        "monotonic_msec": 13919,
+        "party_started": false,
+        "path": "tmp/astronaut_native_birthday_capture_v8_20261007/1280x720/frames/0007_phase0_pipe_approach.png",
+        "pearls": 0,
+        "process_frame": 397,
+        "rendered_frame": 397,
+        "return_fade_alpha": 0.0,
+        "sha256": "3755ca92c0512d9a94998db335fbb776761a0db8e030021ba2f7785330b004f7",
+        "star_mask": 0,
+        "viewport_canvas_transform": [
+          [
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0
+          ],
+          [
+            0.0,
+            0.0
+          ]
+        ],
+        "viewport_instance": 120326194638
+      }
+    },
+    {
+      "path": "frames/1280/0013_phase0_pipe_contact_a.png",
+      "original_path": "tmp/astronaut_native_birthday_capture_v8_20261007/1280x720/frames/0013_phase0_pipe_contact_a.png",
+      "sha256": "a212283234733467ad683c9c1d2fc7da49147b6d76b8dfe5180803c836cf79d2",
+      "bytes": 1346325,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "pixel_modifications": "NONE; literal byte copy",
+      "role": "diagnostic_native_capture",
+      "provenance": "Godot root viewport readback; underlying source assets retain their ASSET_LICENSES authority; review-only and not a generator input",
+      "original_manifest": "evidence/NATIVE_BIRTHDAY_CAPTURE_V8_1280_MANIFEST.json",
+      "original_label": "phase0_pipe_contact_a",
+      "native_state": {
+        "bytes": 1346325,
+        "candle_lit": false,
+        "castle_room": "mermaid_pool",
+        "dimensions": [
+          1280,
+          720
+        ],
+        "label": "phase0_pipe_contact_a",
+        "live_state": {
+          "actor_atlas_region": [
+            0.0,
+            512.0,
+            256.0,
+            256.0
+          ],
+          "actor_atlas_source": "res://assets/opera/worlds/actors/animation/roshan_astronaut_sheet_a.png",
+          "actor_canvas_transform": [
+            [
+              0.990349888801575,
+              0.0
+            ],
+            [
+              0.0,
+              0.990349888801575
+            ],
+            [
+              782.413024902344,
+              241.023208618164
+            ]
+          ],
+          "actor_flip_h": false,
+          "actor_instance": 191176379387,
+          "actor_position": [
+            782.413024902344,
+            241.023208618164
+          ],
+          "actor_scale": [
+            0.990349888801575,
+            0.990349888801575
+          ],
+          "actor_size": [
+            250.000061035156,
+            250.000106811523
+          ],
+          "actor_z_index": 1,
+          "crank_rotation": 0.0,
+          "generic_player_tween_owned": false,
+          "held": false,
+          "long_push_journey": 0.0,
+          "panel_alpha": 1.0,
+          "patch_draw_route": "",
+          "patch_entry_scale": [
+            1.0,
+            1.0
+          ],
+          "patch_generation": 2,
+          "patch_last_contact": {},
+          "patch_queue": [],
+          "patch_repair_source": "",
+          "patch_state": "",
+          "patch_state_t": 0.0,
+          "patch_work_position": [
+            0.0,
+            0.0
+          ],
+          "phase_advance_pending": false,
+          "phase_index": 0,
+          "phase_name": "BUILD ROCKET",
+          "phase_progress": 0.0,
+          "pipe_entry_position": [
+            218.717102050781,
+            249.234085083008
+          ],
+          "pipe_grid": [
+            "",
+            "",
+            "",
+            "",
+            "H",
+            "",
+            "",
+            "H",
+            "",
+            "",
+            "",
+            ""
+          ],
+          "pipe_last_contact": {},
+          "pipe_request_id": 3,
+          "pipe_round": 0,
+          "pipe_travel_start": [
+            218.717102050781,
+            249.234085083008
+          ],
+          "pipe_work_cell": 5,
+          "pipe_work_flip": false,
+          "pipe_work_position": [
+            782.413024902344,
+            241.023208618164
+          ],
+          "pipe_work_state": "contact_a",
+          "pipe_work_state_t": 0.0,
+          "surface_alpha": 1.0,
+          "surface_canvas_transform": [
+            [
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0
+            ],
+            [
+              532.0,
+              48.0
+            ]
+          ],
+          "surface_instance": 192015240316,
+          "surface_mode": "pipe",
+          "surface_self_alpha": 1.0,
+          "target_placed": [],
+          "task_open": true,
+          "touch_owner": -1,
+          "valve_entry_scale": [
+            1.0,
+            1.0
+          ],
+          "valve_generation": 2,
+          "valve_last_contact": {},
+          "valve_pending_arcs": 0,
+          "valve_state": "",
+          "valve_work_position": [
+            0.0,
+            0.0
+          ],
+          "widget_fill": 0.0,
+          "widget_mover_path": "",
+          "world_instance": 187938376759
+        },
+        "living_stage": "opera.act.11",
+        "main_instance": 120779179513,
+        "monotonic_msec": 15684,
+        "party_started": false,
+        "path": "tmp/astronaut_native_birthday_capture_v8_20261007/1280x720/frames/0013_phase0_pipe_contact_a.png",
+        "pearls": 0,
+        "process_frame": 403,
+        "rendered_frame": 403,
+        "return_fade_alpha": 0.0,
+        "sha256": "a212283234733467ad683c9c1d2fc7da49147b6d76b8dfe5180803c836cf79d2",
+        "star_mask": 0,
+        "viewport_canvas_transform": [
+          [
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0
+          ],
+          [
+            0.0,
+            0.0
+          ]
+        ],
+        "viewport_instance": 120326194638
+      }
+    },
+    {
+      "path": "frames/1280/0015_phase0_pipe_contact_b.png",
+      "original_path": "tmp/astronaut_native_birthday_capture_v8_20261007/1280x720/frames/0015_phase0_pipe_contact_b.png",
+      "sha256": "548ad4cbf1eafef6dcfd7043f24a9aec8676c45e99e3b099cf0e1345e4d4cf58",
+      "bytes": 1349733,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "pixel_modifications": "NONE; literal byte copy",
+      "role": "diagnostic_native_capture",
+      "provenance": "Godot root viewport readback; underlying source assets retain their ASSET_LICENSES authority; review-only and not a generator input",
+      "original_manifest": "evidence/NATIVE_BIRTHDAY_CAPTURE_V8_1280_MANIFEST.json",
+      "original_label": "phase0_pipe_contact_b",
+      "native_state": {
+        "bytes": 1349733,
+        "candle_lit": false,
+        "castle_room": "mermaid_pool",
+        "dimensions": [
+          1280,
+          720
+        ],
+        "label": "phase0_pipe_contact_b",
+        "live_state": {
+          "actor_atlas_region": [
+            256.0,
+            512.0,
+            256.0,
+            256.0
+          ],
+          "actor_atlas_source": "res://assets/opera/worlds/actors/animation/roshan_astronaut_sheet_a.png",
+          "actor_canvas_transform": [
+            [
+              0.990349888801575,
+              0.0
+            ],
+            [
+              0.0,
+              0.990349888801575
+            ],
+            [
+              782.413024902344,
+              241.023208618164
+            ]
+          ],
+          "actor_flip_h": false,
+          "actor_instance": 191176379387,
+          "actor_position": [
+            782.413024902344,
+            241.023208618164
+          ],
+          "actor_scale": [
+            0.990349888801575,
+            0.990349888801575
+          ],
+          "actor_size": [
+            250.000061035156,
+            250.000106811523
+          ],
+          "actor_z_index": 1,
+          "crank_rotation": 0.0,
+          "generic_player_tween_owned": false,
+          "held": false,
+          "long_push_journey": 0.0,
+          "panel_alpha": 1.0,
+          "patch_draw_route": "",
+          "patch_entry_scale": [
+            1.0,
+            1.0
+          ],
+          "patch_generation": 2,
+          "patch_last_contact": {},
+          "patch_queue": [],
+          "patch_repair_source": "",
+          "patch_state": "",
+          "patch_state_t": 0.0,
+          "patch_work_position": [
+            0.0,
+            0.0
+          ],
+          "phase_advance_pending": false,
+          "phase_index": 0,
+          "phase_name": "BUILD ROCKET",
+          "phase_progress": 0.0,
+          "pipe_entry_position": [
+            218.717102050781,
+            249.234085083008
+          ],
+          "pipe_grid": [
+            "",
+            "",
+            "",
+            "",
+            "H",
+            "",
+            "",
+            "H",
+            "",
+            "",
+            "",
+            ""
+          ],
+          "pipe_last_contact": {},
+          "pipe_request_id": 3,
+          "pipe_round": 0,
+          "pipe_travel_start": [
+            218.717102050781,
+            249.234085083008
+          ],
+          "pipe_work_cell": 5,
+          "pipe_work_flip": false,
+          "pipe_work_position": [
+            782.413024902344,
+            241.023208618164
+          ],
+          "pipe_work_state": "contact_b",
+          "pipe_work_state_t": 0.0,
+          "surface_alpha": 1.0,
+          "surface_canvas_transform": [
+            [
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0
+            ],
+            [
+              532.0,
+              48.0
+            ]
+          ],
+          "surface_instance": 192015240316,
+          "surface_mode": "pipe",
+          "surface_self_alpha": 1.0,
+          "target_placed": [],
+          "task_open": true,
+          "touch_owner": -1,
+          "valve_entry_scale": [
+            1.0,
+            1.0
+          ],
+          "valve_generation": 2,
+          "valve_last_contact": {},
+          "valve_pending_arcs": 0,
+          "valve_state": "",
+          "valve_work_position": [
+            0.0,
+            0.0
+          ],
+          "widget_fill": 0.0,
+          "widget_mover_path": "",
+          "world_instance": 187938376759
+        },
+        "living_stage": "opera.act.11",
+        "main_instance": 120779179513,
+        "monotonic_msec": 16265,
+        "party_started": false,
+        "path": "tmp/astronaut_native_birthday_capture_v8_20261007/1280x720/frames/0015_phase0_pipe_contact_b.png",
+        "pearls": 0,
+        "process_frame": 405,
+        "rendered_frame": 405,
+        "return_fade_alpha": 0.0,
+        "sha256": "548ad4cbf1eafef6dcfd7043f24a9aec8676c45e99e3b099cf0e1345e4d4cf58",
+        "star_mask": 0,
+        "viewport_canvas_transform": [
+          [
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0
+          ],
+          [
+            0.0,
+            0.0
+          ]
+        ],
+        "viewport_instance": 120326194638
+      }
+    },
+    {
+      "path": "frames/1280/0017_phase0_pipe_release.png",
+      "original_path": "tmp/astronaut_native_birthday_capture_v8_20261007/1280x720/frames/0017_phase0_pipe_release.png",
+      "sha256": "9c23a9050843b3be73946bc1a17fed45ae7c9541d40e23be322721216a8c7242",
+      "bytes": 1352375,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "pixel_modifications": "NONE; literal byte copy",
+      "role": "diagnostic_native_capture",
+      "provenance": "Godot root viewport readback; underlying source assets retain their ASSET_LICENSES authority; review-only and not a generator input",
+      "original_manifest": "evidence/NATIVE_BIRTHDAY_CAPTURE_V8_1280_MANIFEST.json",
+      "original_label": "phase0_pipe_release",
+      "native_state": {
+        "bytes": 1352375,
+        "candle_lit": false,
+        "castle_room": "mermaid_pool",
+        "dimensions": [
+          1280,
+          720
+        ],
+        "label": "phase0_pipe_release",
+        "live_state": {
+          "actor_atlas_region": [
+            512.0,
+            512.0,
+            256.0,
+            256.0
+          ],
+          "actor_atlas_source": "res://assets/opera/worlds/actors/animation/roshan_astronaut_sheet_a.png",
+          "actor_canvas_transform": [
+            [
+              0.990349888801575,
+              0.0
+            ],
+            [
+              0.0,
+              0.990349888801575
+            ],
+            [
+              782.413024902344,
+              241.023208618164
+            ]
+          ],
+          "actor_flip_h": false,
+          "actor_instance": 191176379387,
+          "actor_position": [
+            782.413024902344,
+            241.023208618164
+          ],
+          "actor_scale": [
+            0.990349888801575,
+            0.990349888801575
+          ],
+          "actor_size": [
+            250.000061035156,
+            250.000106811523
+          ],
+          "actor_z_index": 1,
+          "crank_rotation": 0.0,
+          "generic_player_tween_owned": false,
+          "held": false,
+          "long_push_journey": 0.0,
+          "panel_alpha": 1.0,
+          "patch_draw_route": "",
+          "patch_entry_scale": [
+            1.0,
+            1.0
+          ],
+          "patch_generation": 2,
+          "patch_last_contact": {},
+          "patch_queue": [],
+          "patch_repair_source": "",
+          "patch_state": "",
+          "patch_state_t": 0.0,
+          "patch_work_position": [
+            0.0,
+            0.0
+          ],
+          "phase_advance_pending": false,
+          "phase_index": 0,
+          "phase_name": "BUILD ROCKET",
+          "phase_progress": 0.0,
+          "pipe_entry_position": [
+            218.717102050781,
+            249.234085083008
+          ],
+          "pipe_grid": [
+            "",
+            "",
+            "",
+            "",
+            "H",
+            "H",
+            "",
+            "H",
+            "",
+            "",
+            "",
+            ""
+          ],
+          "pipe_last_contact": {
+            "atlas_region": "[P: (256.0, 512.0), S: (256.0, 256.0)]",
+            "cell": 5,
+            "distance": 0.967132568359375,
+            "jaw": "(824.0, 330.9671)",
+            "phase_index": 0,
+            "request_id": 3,
+            "scale": "(0.99035, 0.99035)",
+            "target": "(824.0, 330.0)",
+            "time_msec": 16558
+          },
+          "pipe_request_id": 3,
+          "pipe_round": 0,
+          "pipe_travel_start": [
+            218.717102050781,
+            249.234085083008
+          ],
+          "pipe_work_cell": -1,
+          "pipe_work_flip": false,
+          "pipe_work_position": [
+            782.413024902344,
+            241.023208618164
+          ],
+          "pipe_work_state": "release",
+          "pipe_work_state_t": 0.0,
+          "surface_alpha": 1.0,
+          "surface_canvas_transform": [
+            [
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0
+            ],
+            [
+              532.0,
+              48.0
+            ]
+          ],
+          "surface_instance": 192015240316,
+          "surface_mode": "pipe",
+          "surface_self_alpha": 1.0,
+          "target_placed": [],
+          "task_open": true,
+          "touch_owner": -1,
+          "valve_entry_scale": [
+            1.0,
+            1.0
+          ],
+          "valve_generation": 2,
+          "valve_last_contact": {},
+          "valve_pending_arcs": 0,
+          "valve_state": "",
+          "valve_work_position": [
+            0.0,
+            0.0
+          ],
+          "widget_fill": 0.0,
+          "widget_mover_path": "",
+          "world_instance": 187938376759
+        },
+        "living_stage": "opera.act.11",
+        "main_instance": 120779179513,
+        "monotonic_msec": 16880,
+        "party_started": false,
+        "path": "tmp/astronaut_native_birthday_capture_v8_20261007/1280x720/frames/0017_phase0_pipe_release.png",
+        "pearls": 0,
+        "process_frame": 407,
+        "rendered_frame": 407,
+        "return_fade_alpha": 0.0,
+        "sha256": "9c23a9050843b3be73946bc1a17fed45ae7c9541d40e23be322721216a8c7242",
+        "star_mask": 0,
+        "viewport_canvas_transform": [
+          [
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0
+          ],
+          [
+            0.0,
+            0.0
+          ]
+        ],
+        "viewport_instance": 120326194638
+      }
+    },
+    {
+      "path": "frames/1280/0027_phase0_action_018.png",
+      "original_path": "tmp/astronaut_native_birthday_capture_v8_20261007/1280x720/frames/0027_phase0_action_018.png",
+      "sha256": "010afd609fef901191d2a9a0801f95cafeb4302f254af525ea0f8e8fcd732491",
+      "bytes": 1351473,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "pixel_modifications": "NONE; literal byte copy",
+      "role": "diagnostic_native_capture",
+      "provenance": "Godot root viewport readback; underlying source assets retain their ASSET_LICENSES authority; review-only and not a generator input",
+      "original_manifest": "evidence/NATIVE_BIRTHDAY_CAPTURE_V8_1280_MANIFEST.json",
+      "original_label": "phase0_action_018",
+      "native_state": {
+        "bytes": 1351473,
+        "candle_lit": false,
+        "castle_room": "mermaid_pool",
+        "dimensions": [
+          1280,
+          720
+        ],
+        "label": "phase0_action_018",
+        "live_state": {
+          "actor_atlas_region": [
+            512.0,
+            512.0,
+            256.0,
+            256.0
+          ],
+          "actor_atlas_source": "res://assets/opera/worlds/actors/animation/roshan_astronaut_sheet_a.png",
+          "actor_canvas_transform": [
+            [
+              0.990349888801575,
+              0.0
+            ],
+            [
+              0.0,
+              0.990349888801575
+            ],
+            [
+              894.413024902344,
+              241.023208618164
+            ]
+          ],
+          "actor_flip_h": false,
+          "actor_instance": 191176379387,
+          "actor_position": [
+            894.413024902344,
+            241.023208618164
+          ],
+          "actor_scale": [
+            0.990349888801575,
+            0.990349888801575
+          ],
+          "actor_size": [
+            250.000061035156,
+            250.000106811523
+          ],
+          "actor_z_index": 1,
+          "crank_rotation": 0.0,
+          "generic_player_tween_owned": false,
+          "held": false,
+          "long_push_journey": 0.0,
+          "panel_alpha": 1.0,
+          "patch_draw_route": "",
+          "patch_entry_scale": [
+            1.0,
+            1.0
+          ],
+          "patch_generation": 2,
+          "patch_last_contact": {},
+          "patch_queue": [],
+          "patch_repair_source": "",
+          "patch_state": "",
+          "patch_state_t": 0.0,
+          "patch_work_position": [
+            0.0,
+            0.0
+          ],
+          "phase_advance_pending": false,
+          "phase_index": 0,
+          "phase_name": "BUILD ROCKET",
+          "phase_progress": 0.0,
+          "pipe_entry_position": [
+            218.717102050781,
+            249.234085083008
+          ],
+          "pipe_grid": [
+            "",
+            "",
+            "",
+            "",
+            "H",
+            "H",
+            "H",
+            "H",
+            "",
+            "",
+            "",
+            ""
+          ],
+          "pipe_last_contact": {
+            "atlas_region": "[P: (256.0, 512.0), S: (256.0, 256.0)]",
+            "cell": 6,
+            "distance": 0.967132568359375,
+            "jaw": "(936.0, 330.9671)",
+            "phase_index": 0,
+            "request_id": 4,
+            "scale": "(0.99035, 0.99035)",
+            "target": "(936.0, 330.0)",
+            "time_msec": 19545
+          },
+          "pipe_request_id": 4,
+          "pipe_round": 0,
+          "pipe_travel_start": [
+            782.413024902344,
+            241.023208618164
+          ],
+          "pipe_work_cell": -1,
+          "pipe_work_flip": false,
+          "pipe_work_position": [
+            894.413024902344,
+            241.023208618164
+          ],
+          "pipe_work_state": "release",
+          "pipe_work_state_t": 0.0,
+          "surface_alpha": 1.0,
+          "surface_canvas_transform": [
+            [
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0
+            ],
+            [
+              532.0,
+              48.0
+            ]
+          ],
+          "surface_instance": 192015240316,
+          "surface_mode": "pipe",
+          "surface_self_alpha": 1.0,
+          "target_placed": [],
+          "task_open": true,
+          "touch_owner": -1,
+          "valve_entry_scale": [
+            1.0,
+            1.0
+          ],
+          "valve_generation": 2,
+          "valve_last_contact": {},
+          "valve_pending_arcs": 0,
+          "valve_state": "",
+          "valve_work_position": [
+            0.0,
+            0.0
+          ],
+          "widget_fill": 0.0,
+          "widget_mover_path": "",
+          "world_instance": 187938376759
+        },
+        "living_stage": "opera.act.11",
+        "main_instance": 120779179513,
+        "monotonic_msec": 19837,
+        "party_started": false,
+        "path": "tmp/astronaut_native_birthday_capture_v8_20261007/1280x720/frames/0027_phase0_action_018.png",
+        "pearls": 0,
+        "process_frame": 417,
+        "rendered_frame": 417,
+        "return_fade_alpha": 0.0,
+        "sha256": "010afd609fef901191d2a9a0801f95cafeb4302f254af525ea0f8e8fcd732491",
+        "star_mask": 0,
+        "viewport_canvas_transform": [
+          [
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0
+          ],
+          [
+            0.0,
+            0.0
+          ]
+        ],
+        "viewport_instance": 120326194638
+      }
+    },
+    {
+      "path": "frames/1280/0033_phase0_completed.png",
+      "original_path": "tmp/astronaut_native_birthday_capture_v8_20261007/1280x720/frames/0033_phase0_completed.png",
+      "sha256": "f590cb4f191c71b6e51b8015b7a053a02e5b48e77c20042ddd2fb66dd4c0f046",
+      "bytes": 1297304,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "pixel_modifications": "NONE; literal byte copy",
+      "role": "diagnostic_native_capture",
+      "provenance": "Godot root viewport readback; underlying source assets retain their ASSET_LICENSES authority; review-only and not a generator input",
+      "original_manifest": "evidence/NATIVE_BIRTHDAY_CAPTURE_V8_1280_MANIFEST.json",
+      "original_label": "phase0_completed",
+      "native_state": {
+        "bytes": 1297304,
+        "candle_lit": false,
+        "castle_room": "mermaid_pool",
+        "dimensions": [
+          1280,
+          720
+        ],
+        "label": "phase0_completed",
+        "live_state": {
+          "actor_atlas_region": [
+            0.0,
+            768.0,
+            256.0,
+            256.0
+          ],
+          "actor_atlas_source": "res://assets/opera/worlds/actors/animation/roshan_astronaut_sheet_a.png",
+          "actor_canvas_transform": [
+            [
+              0.990349888801575,
+              0.0
+            ],
+            [
+              0.0,
+              0.990349888801575
+            ],
+            [
+              218.717102050781,
+              247.638961791992
+            ]
+          ],
+          "actor_flip_h": false,
+          "actor_instance": 250752273496,
+          "actor_position": [
+            218.717102050781,
+            247.638961791992
+          ],
+          "actor_scale": [
+            0.990349888801575,
+            0.990349888801575
+          ],
+          "actor_size": [
+            250.000305175781,
+            249.999801635742
+          ],
+          "actor_z_index": 0,
+          "crank_rotation": 0.0,
+          "generic_player_tween_owned": true,
+          "held": false,
+          "long_push_journey": 0.0,
+          "panel_alpha": 1.0,
+          "patch_draw_route": "",
+          "patch_entry_scale": [
+            1.0,
+            1.0
+          ],
+          "patch_generation": 2,
+          "patch_last_contact": {},
+          "patch_queue": [],
+          "patch_repair_source": "",
+          "patch_state": "",
+          "patch_state_t": 0.0,
+          "patch_work_position": [
+            0.0,
+            0.0
+          ],
+          "phase_advance_pending": true,
+          "phase_index": 0,
+          "phase_name": "BUILD ROCKET",
+          "phase_progress": 3.0,
+          "pipe_entry_position": [
+            218.717102050781,
+            249.234268188477
+          ],
+          "pipe_grid": [
+            "IMP",
+            "SE",
+            "H",
+            "NW",
+            "H",
+            "NW",
+            "IMP",
+            "",
+            "",
+            "",
+            "",
+            ""
+          ],
+          "pipe_last_contact": {
+            "atlas_region": "[P: (256.0, 512.0), S: (256.0, 256.0)]",
+            "cell": 3,
+            "distance": 0.967132568359375,
+            "jaw": "(1048.0, 218.9671)",
+            "phase_index": 0,
+            "request_id": 10,
+            "scale": "(0.99035, 0.99035)",
+            "target": "(1048.0, 218.0)",
+            "time_msec": 34678
+          },
+          "pipe_request_id": -1,
+          "pipe_round": 3,
+          "pipe_travel_start": [
+            1006.41302490234,
+            129.023315429688
+          ],
+          "pipe_work_cell": -1,
+          "pipe_work_flip": false,
+          "pipe_work_position": [
+            1006.41302490234,
+            129.023315429688
+          ],
+          "pipe_work_state": "",
+          "pipe_work_state_t": 0.0,
+          "surface_alpha": 1.0,
+          "surface_canvas_transform": [
+            [
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0
+            ],
+            [
+              532.0,
+              48.0
+            ]
+          ],
+          "surface_instance": 251591134257,
+          "surface_mode": "pipe",
+          "surface_self_alpha": 1.0,
+          "target_placed": [],
+          "task_open": true,
+          "touch_owner": -1,
+          "valve_entry_scale": [
+            1.0,
+            1.0
+          ],
+          "valve_generation": 2,
+          "valve_last_contact": {},
+          "valve_pending_arcs": 0,
+          "valve_state": "",
+          "valve_work_position": [
+            0.0,
+            0.0
+          ],
+          "widget_fill": 1.0,
+          "widget_mover_path": "",
+          "world_instance": 247514270892
+        },
+        "living_stage": "opera.act.11",
+        "main_instance": 120779179513,
+        "monotonic_msec": 36921,
+        "party_started": false,
+        "path": "tmp/astronaut_native_birthday_capture_v8_20261007/1280x720/frames/0033_phase0_completed.png",
+        "pearls": 0,
+        "process_frame": 2543,
+        "rendered_frame": 2543,
+        "return_fade_alpha": 0.0,
+        "sha256": "f590cb4f191c71b6e51b8015b7a053a02e5b48e77c20042ddd2fb66dd4c0f046",
+        "star_mask": 0,
+        "viewport_canvas_transform": [
+          [
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0
+          ],
+          [
+            0.0,
+            0.0
+          ]
+        ],
+        "viewport_instance": 120326194638
+      }
+    },
+    {
+      "path": "frames/1280/0034_phase1_open.png",
+      "original_path": "tmp/astronaut_native_birthday_capture_v8_20261007/1280x720/frames/0034_phase1_open.png",
+      "sha256": "f8ef25138b91e879cbdd6de1813efc01d9fd35364464f675029dde353db0ee62",
+      "bytes": 1471826,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "pixel_modifications": "NONE; literal byte copy",
+      "role": "diagnostic_native_capture",
+      "provenance": "Godot root viewport readback; underlying source assets retain their ASSET_LICENSES authority; review-only and not a generator input",
+      "original_manifest": "evidence/NATIVE_BIRTHDAY_CAPTURE_V8_1280_MANIFEST.json",
+      "original_label": "phase1_open",
+      "native_state": {
+        "bytes": 1471826,
+        "candle_lit": false,
+        "castle_room": "mermaid_pool",
+        "dimensions": [
+          1280,
+          720
+        ],
+        "label": "phase1_open",
+        "live_state": {
+          "actor_atlas_region": [
+            0.0,
+            0.0,
+            256.0,
+            256.0
+          ],
+          "actor_atlas_source": "res://assets/opera/worlds/actors/animation/roshan_astronaut_sheet_a.png",
+          "actor_canvas_transform": [
+            [
+              1.00499999523163,
+              0.0
+            ],
+            [
+              0.0,
+              1.00499999523163
+            ],
+            [
+              469.049987792969,
+              264.749938964844
+            ]
+          ],
+          "actor_flip_h": false,
+          "actor_instance": 405421427814,
+          "actor_position": [
+            469.049987792969,
+            264.749938964844
+          ],
+          "actor_scale": [
+            1.00499999523163,
+            1.00499999523163
+          ],
+          "actor_size": [
+            250.000549316406,
+            250.000061035156
+          ],
+          "actor_z_index": 0,
+          "crank_rotation": 0.0,
+          "generic_player_tween_owned": false,
+          "held": false,
+          "long_push_journey": 0.0,
+          "panel_alpha": 0.983707249164581,
+          "patch_draw_route": "target:patch_astronaut",
+          "patch_entry_scale": [
+            1.0,
+            1.0
+          ],
+          "patch_generation": 3,
+          "patch_last_contact": {},
+          "patch_queue": [],
+          "patch_repair_source": "res://assets/opera/worlds/widgets/widget_target_astronaut_piece_2.png",
+          "patch_state": "",
+          "patch_state_t": 0.0,
+          "patch_work_position": [
+            0.0,
+            0.0
+          ],
+          "phase_advance_pending": false,
+          "phase_index": 1,
+          "phase_name": "PATCH",
+          "phase_progress": 0.0,
+          "pipe_entry_position": [
+            0.0,
+            0.0
+          ],
+          "pipe_grid": [
+            "IMP",
+            "SE",
+            "H",
+            "NW",
+            "H",
+            "NW",
+            "IMP",
+            "",
+            "",
+            "",
+            "",
+            ""
+          ],
+          "pipe_last_contact": {},
+          "pipe_request_id": -1,
+          "pipe_round": 3,
+          "pipe_travel_start": [
+            0.0,
+            0.0
+          ],
+          "pipe_work_cell": -1,
+          "pipe_work_flip": false,
+          "pipe_work_position": [
+            0.0,
+            0.0
+          ],
+          "pipe_work_state": "",
+          "pipe_work_state_t": 0.0,
+          "surface_alpha": 1.0,
+          "surface_canvas_transform": [
+            [
+              1.01747298240662,
+              0.0
+            ],
+            [
+              0.0,
+              1.01747298240662
+            ],
+            [
+              29.2554206848145,
+              277.447875976563
+            ]
+          ],
+          "surface_instance": 406260288613,
+          "surface_mode": "tap",
+          "surface_self_alpha": 1.0,
+          "target_placed": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "task_open": true,
+          "touch_owner": -1,
+          "valve_entry_scale": [
+            1.0,
+            1.0
+          ],
+          "valve_generation": 3,
+          "valve_last_contact": {},
+          "valve_pending_arcs": 0,
+          "valve_state": "",
+          "valve_work_position": [
+            0.0,
+            0.0
+          ],
+          "widget_fill": 0.0,
+          "widget_mover_path": "res://assets/opera/worlds/widgets/widget_target_astronaut_mover.png",
+          "world_instance": 402183425253
+        },
+        "living_stage": "opera.act.11",
+        "main_instance": 120779179513,
+        "monotonic_msec": 42413,
+        "party_started": false,
+        "path": "tmp/astronaut_native_birthday_capture_v8_20261007/1280x720/frames/0034_phase1_open.png",
+        "pearls": 0,
+        "process_frame": 3240,
+        "rendered_frame": 3240,
+        "return_fade_alpha": 0.0,
+        "sha256": "f8ef25138b91e879cbdd6de1813efc01d9fd35364464f675029dde353db0ee62",
+        "star_mask": 0,
+        "viewport_canvas_transform": [
+          [
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0
+          ],
+          [
+            0.0,
+            0.0
+          ]
+        ],
+        "viewport_instance": 120326194638
+      }
+    },
+    {
+      "path": "frames/1280/0039_phase1_patch_approach.png",
+      "original_path": "tmp/astronaut_native_birthday_capture_v8_20261007/1280x720/frames/0039_phase1_patch_approach.png",
+      "sha256": "b5fe1d84725b2edf0c8d7502ff93f6d22d5a19158c64b255ea117332b0852d86",
+      "bytes": 1468901,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "pixel_modifications": "NONE; literal byte copy",
+      "role": "diagnostic_native_capture",
+      "provenance": "Godot root viewport readback; underlying source assets retain their ASSET_LICENSES authority; review-only and not a generator input",
+      "original_manifest": "evidence/NATIVE_BIRTHDAY_CAPTURE_V8_1280_MANIFEST.json",
+      "original_label": "phase1_patch_approach",
+      "native_state": {
+        "bytes": 1468901,
+        "candle_lit": false,
+        "castle_room": "mermaid_pool",
+        "dimensions": [
+          1280,
+          720
+        ],
+        "label": "phase1_patch_approach",
+        "live_state": {
+          "actor_atlas_region": [
+            256.0,
+            256.0,
+            256.0,
+            256.0
+          ],
+          "actor_atlas_source": "res://assets/opera/worlds/actors/animation/roshan_astronaut_sheet_a.png",
+          "actor_canvas_transform": [
+            [
+              1.00499999523163,
+              0.0
+            ],
+            [
+              0.0,
+              1.00499999523163
+            ],
+            [
+              469.049987792969,
+              264.749938964844
+            ]
+          ],
+          "actor_flip_h": false,
+          "actor_instance": 405421427814,
+          "actor_position": [
+            469.049987792969,
+            264.749938964844
+          ],
+          "actor_scale": [
+            1.00499999523163,
+            1.00499999523163
+          ],
+          "actor_size": [
+            250.000549316406,
+            250.000061035156
+          ],
+          "actor_z_index": 1,
+          "crank_rotation": 0.0,
+          "generic_player_tween_owned": false,
+          "held": false,
+          "long_push_journey": 0.0,
+          "panel_alpha": 1.0,
+          "patch_draw_route": "target:patch_astronaut",
+          "patch_entry_scale": [
+            1.00499999523163,
+            1.00499999523163
+          ],
+          "patch_generation": 3,
+          "patch_last_contact": {},
+          "patch_queue": [
+            0
+          ],
+          "patch_repair_source": "res://assets/opera/worlds/widgets/widget_target_astronaut_piece_2.png",
+          "patch_state": "approach",
+          "patch_state_t": 0.0,
+          "patch_work_position": [
+            115.317749023438,
+            275.867004394531
+          ],
+          "phase_advance_pending": false,
+          "phase_index": 1,
+          "phase_name": "PATCH",
+          "phase_progress": 0.0,
+          "pipe_entry_position": [
+            0.0,
+            0.0
+          ],
+          "pipe_grid": [
+            "IMP",
+            "SE",
+            "H",
+            "NW",
+            "H",
+            "NW",
+            "IMP",
+            "",
+            "",
+            "",
+            "",
+            ""
+          ],
+          "pipe_last_contact": {},
+          "pipe_request_id": -1,
+          "pipe_round": 3,
+          "pipe_travel_start": [
+            0.0,
+            0.0
+          ],
+          "pipe_work_cell": -1,
+          "pipe_work_flip": false,
+          "pipe_work_position": [
+            0.0,
+            0.0
+          ],
+          "pipe_work_state": "",
+          "pipe_work_state_t": 0.0,
+          "surface_alpha": 1.0,
+          "surface_canvas_transform": [
+            [
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0
+            ],
+            [
+              36.0,
+              278.0
+            ]
+          ],
+          "surface_instance": 406260288613,
+          "surface_mode": "tap",
+          "surface_self_alpha": 1.0,
+          "target_placed": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "task_open": true,
+          "touch_owner": -1,
+          "valve_entry_scale": [
+            1.0,
+            1.0
+          ],
+          "valve_generation": 3,
+          "valve_last_contact": {},
+          "valve_pending_arcs": 0,
+          "valve_state": "",
+          "valve_work_position": [
+            0.0,
+            0.0
+          ],
+          "widget_fill": 0.0,
+          "widget_mover_path": "res://assets/opera/worlds/widgets/widget_target_astronaut_mover.png",
+          "world_instance": 402183425253
+        },
+        "living_stage": "opera.act.11",
+        "main_instance": 120779179513,
+        "monotonic_msec": 44545,
+        "party_started": false,
+        "path": "tmp/astronaut_native_birthday_capture_v8_20261007/1280x720/frames/0039_phase1_patch_approach.png",
+        "pearls": 0,
+        "process_frame": 3325,
+        "rendered_frame": 3325,
+        "return_fade_alpha": 0.0,
+        "sha256": "b5fe1d84725b2edf0c8d7502ff93f6d22d5a19158c64b255ea117332b0852d86",
+        "star_mask": 0,
+        "viewport_canvas_transform": [
+          [
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0
+          ],
+          [
+            0.0,
+            0.0
+          ]
+        ],
+        "viewport_instance": 120326194638
+      }
+    },
+    {
+      "path": "frames/1280/0044_phase1_patch_contact_a.png",
+      "original_path": "tmp/astronaut_native_birthday_capture_v8_20261007/1280x720/frames/0044_phase1_patch_contact_a.png",
+      "sha256": "b849d34f5147831bc73bd99801fc7d6ad4988b1b8268d6dab0df80a6bc697be9",
+      "bytes": 1465754,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "pixel_modifications": "NONE; literal byte copy",
+      "role": "diagnostic_native_capture",
+      "provenance": "Godot root viewport readback; underlying source assets retain their ASSET_LICENSES authority; review-only and not a generator input",
+      "original_manifest": "evidence/NATIVE_BIRTHDAY_CAPTURE_V8_1280_MANIFEST.json",
+      "original_label": "phase1_patch_contact_a",
+      "native_state": {
+        "bytes": 1465754,
+        "candle_lit": false,
+        "castle_room": "mermaid_pool",
+        "dimensions": [
+          1280,
+          720
+        ],
+        "label": "phase1_patch_contact_a",
+        "live_state": {
+          "actor_atlas_region": [
+            0.0,
+            512.0,
+            256.0,
+            256.0
+          ],
+          "actor_atlas_source": "res://assets/opera/worlds/actors/animation/roshan_astronaut_sheet_a.png",
+          "actor_canvas_transform": [
+            [
+              1.00499999523163,
+              0.0
+            ],
+            [
+              0.0,
+              1.00499999523163
+            ],
+            [
+              115.317749023438,
+              275.867004394531
+            ]
+          ],
+          "actor_flip_h": false,
+          "actor_instance": 405421427814,
+          "actor_position": [
+            115.317749023438,
+            275.867004394531
+          ],
+          "actor_scale": [
+            1.00499999523163,
+            1.00499999523163
+          ],
+          "actor_size": [
+            250.000549316406,
+            250.000061035156
+          ],
+          "actor_z_index": 1,
+          "crank_rotation": 0.0,
+          "generic_player_tween_owned": false,
+          "held": false,
+          "long_push_journey": 0.0,
+          "panel_alpha": 1.0,
+          "patch_draw_route": "target:patch_astronaut",
+          "patch_entry_scale": [
+            1.00499999523163,
+            1.00499999523163
+          ],
+          "patch_generation": 3,
+          "patch_last_contact": {},
+          "patch_queue": [
+            0
+          ],
+          "patch_repair_source": "res://assets/opera/worlds/widgets/widget_target_astronaut_piece_2.png",
+          "patch_state": "contact_a",
+          "patch_state_t": 0.0,
+          "patch_work_position": [
+            115.317749023438,
+            275.867004394531
+          ],
+          "phase_advance_pending": false,
+          "phase_index": 1,
+          "phase_name": "PATCH",
+          "phase_progress": 0.0,
+          "pipe_entry_position": [
+            0.0,
+            0.0
+          ],
+          "pipe_grid": [
+            "IMP",
+            "SE",
+            "H",
+            "NW",
+            "H",
+            "NW",
+            "IMP",
+            "",
+            "",
+            "",
+            "",
+            ""
+          ],
+          "pipe_last_contact": {},
+          "pipe_request_id": -1,
+          "pipe_round": 3,
+          "pipe_travel_start": [
+            0.0,
+            0.0
+          ],
+          "pipe_work_cell": -1,
+          "pipe_work_flip": false,
+          "pipe_work_position": [
+            0.0,
+            0.0
+          ],
+          "pipe_work_state": "",
+          "pipe_work_state_t": 0.0,
+          "surface_alpha": 1.0,
+          "surface_canvas_transform": [
+            [
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0
+            ],
+            [
+              36.0,
+              278.0
+            ]
+          ],
+          "surface_instance": 406260288613,
+          "surface_mode": "tap",
+          "surface_self_alpha": 1.0,
+          "target_placed": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "task_open": true,
+          "touch_owner": -1,
+          "valve_entry_scale": [
+            1.0,
+            1.0
+          ],
+          "valve_generation": 3,
+          "valve_last_contact": {},
+          "valve_pending_arcs": 0,
+          "valve_state": "",
+          "valve_work_position": [
+            0.0,
+            0.0
+          ],
+          "widget_fill": 0.0,
+          "widget_mover_path": "res://assets/opera/worlds/widgets/widget_target_astronaut_mover.png",
+          "world_instance": 402183425253
+        },
+        "living_stage": "opera.act.11",
+        "main_instance": 120779179513,
+        "monotonic_msec": 46057,
+        "party_started": false,
+        "path": "tmp/astronaut_native_birthday_capture_v8_20261007/1280x720/frames/0044_phase1_patch_contact_a.png",
+        "pearls": 0,
+        "process_frame": 3330,
+        "rendered_frame": 3330,
+        "return_fade_alpha": 0.0,
+        "sha256": "b849d34f5147831bc73bd99801fc7d6ad4988b1b8268d6dab0df80a6bc697be9",
+        "star_mask": 0,
+        "viewport_canvas_transform": [
+          [
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0
+          ],
+          [
+            0.0,
+            0.0
+          ]
+        ],
+        "viewport_instance": 120326194638
+      }
+    },
+    {
+      "path": "frames/1280/0046_phase1_patch_contact_b.png",
+      "original_path": "tmp/astronaut_native_birthday_capture_v8_20261007/1280x720/frames/0046_phase1_patch_contact_b.png",
+      "sha256": "a1746c84e5bba5af10ae823b28ca0a55cc0c7ff2cf74b4b8a85e5bbb48aa584c",
+      "bytes": 1466827,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "pixel_modifications": "NONE; literal byte copy",
+      "role": "diagnostic_native_capture",
+      "provenance": "Godot root viewport readback; underlying source assets retain their ASSET_LICENSES authority; review-only and not a generator input",
+      "original_manifest": "evidence/NATIVE_BIRTHDAY_CAPTURE_V8_1280_MANIFEST.json",
+      "original_label": "phase1_patch_contact_b",
+      "native_state": {
+        "bytes": 1466827,
+        "candle_lit": false,
+        "castle_room": "mermaid_pool",
+        "dimensions": [
+          1280,
+          720
+        ],
+        "label": "phase1_patch_contact_b",
+        "live_state": {
+          "actor_atlas_region": [
+            256.0,
+            512.0,
+            256.0,
+            256.0
+          ],
+          "actor_atlas_source": "res://assets/opera/worlds/actors/animation/roshan_astronaut_sheet_a.png",
+          "actor_canvas_transform": [
+            [
+              1.00499999523163,
+              0.0
+            ],
+            [
+              0.0,
+              1.00499999523163
+            ],
+            [
+              115.317749023438,
+              275.867004394531
+            ]
+          ],
+          "actor_flip_h": false,
+          "actor_instance": 405421427814,
+          "actor_position": [
+            115.317749023438,
+            275.867004394531
+          ],
+          "actor_scale": [
+            1.00499999523163,
+            1.00499999523163
+          ],
+          "actor_size": [
+            250.000549316406,
+            250.000061035156
+          ],
+          "actor_z_index": 1,
+          "crank_rotation": 0.0,
+          "generic_player_tween_owned": false,
+          "held": false,
+          "long_push_journey": 0.0,
+          "panel_alpha": 1.0,
+          "patch_draw_route": "target:patch_astronaut",
+          "patch_entry_scale": [
+            1.00499999523163,
+            1.00499999523163
+          ],
+          "patch_generation": 3,
+          "patch_last_contact": {},
+          "patch_queue": [
+            0
+          ],
+          "patch_repair_source": "res://assets/opera/worlds/widgets/widget_target_astronaut_piece_2.png",
+          "patch_state": "contact_b",
+          "patch_state_t": 0.0,
+          "patch_work_position": [
+            115.317749023438,
+            275.867004394531
+          ],
+          "phase_advance_pending": false,
+          "phase_index": 1,
+          "phase_name": "PATCH",
+          "phase_progress": 0.0,
+          "pipe_entry_position": [
+            0.0,
+            0.0
+          ],
+          "pipe_grid": [
+            "IMP",
+            "SE",
+            "H",
+            "NW",
+            "H",
+            "NW",
+            "IMP",
+            "",
+            "",
+            "",
+            "",
+            ""
+          ],
+          "pipe_last_contact": {},
+          "pipe_request_id": -1,
+          "pipe_round": 3,
+          "pipe_travel_start": [
+            0.0,
+            0.0
+          ],
+          "pipe_work_cell": -1,
+          "pipe_work_flip": false,
+          "pipe_work_position": [
+            0.0,
+            0.0
+          ],
+          "pipe_work_state": "",
+          "pipe_work_state_t": 0.0,
+          "surface_alpha": 1.0,
+          "surface_canvas_transform": [
+            [
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0
+            ],
+            [
+              36.0,
+              278.0
+            ]
+          ],
+          "surface_instance": 406260288613,
+          "surface_mode": "tap",
+          "surface_self_alpha": 1.0,
+          "target_placed": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "task_open": true,
+          "touch_owner": -1,
+          "valve_entry_scale": [
+            1.0,
+            1.0
+          ],
+          "valve_generation": 3,
+          "valve_last_contact": {},
+          "valve_pending_arcs": 0,
+          "valve_state": "",
+          "valve_work_position": [
+            0.0,
+            0.0
+          ],
+          "widget_fill": 0.0,
+          "widget_mover_path": "res://assets/opera/worlds/widgets/widget_target_astronaut_mover.png",
+          "world_instance": 402183425253
+        },
+        "living_stage": "opera.act.11",
+        "main_instance": 120779179513,
+        "monotonic_msec": 46667,
+        "party_started": false,
+        "path": "tmp/astronaut_native_birthday_capture_v8_20261007/1280x720/frames/0046_phase1_patch_contact_b.png",
+        "pearls": 0,
+        "process_frame": 3332,
+        "rendered_frame": 3332,
+        "return_fade_alpha": 0.0,
+        "sha256": "a1746c84e5bba5af10ae823b28ca0a55cc0c7ff2cf74b4b8a85e5bbb48aa584c",
+        "star_mask": 0,
+        "viewport_canvas_transform": [
+          [
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0
+          ],
+          [
+            0.0,
+            0.0
+          ]
+        ],
+        "viewport_instance": 120326194638
+      }
+    },
+    {
+      "path": "frames/1280/0048_phase1_patch_release.png",
+      "original_path": "tmp/astronaut_native_birthday_capture_v8_20261007/1280x720/frames/0048_phase1_patch_release.png",
+      "sha256": "4ed10625a226024bc29dd2af43b5d40cdc9058ad9c3800b08db85e69445d4521",
+      "bytes": 1469129,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "pixel_modifications": "NONE; literal byte copy",
+      "role": "diagnostic_native_capture",
+      "provenance": "Godot root viewport readback; underlying source assets retain their ASSET_LICENSES authority; review-only and not a generator input",
+      "original_manifest": "evidence/NATIVE_BIRTHDAY_CAPTURE_V8_1280_MANIFEST.json",
+      "original_label": "phase1_patch_release",
+      "native_state": {
+        "bytes": 1469129,
+        "candle_lit": false,
+        "castle_room": "mermaid_pool",
+        "dimensions": [
+          1280,
+          720
+        ],
+        "label": "phase1_patch_release",
+        "live_state": {
+          "actor_atlas_region": [
+            512.0,
+            512.0,
+            256.0,
+            256.0
+          ],
+          "actor_atlas_source": "res://assets/opera/worlds/actors/animation/roshan_astronaut_sheet_a.png",
+          "actor_canvas_transform": [
+            [
+              1.00499999523163,
+              0.0
+            ],
+            [
+              0.0,
+              1.00499999523163
+            ],
+            [
+              115.317749023438,
+              275.867004394531
+            ]
+          ],
+          "actor_flip_h": false,
+          "actor_instance": 405421427814,
+          "actor_position": [
+            115.317749023438,
+            275.867004394531
+          ],
+          "actor_scale": [
+            1.00499999523163,
+            1.00499999523163
+          ],
+          "actor_size": [
+            250.000549316406,
+            250.000061035156
+          ],
+          "actor_z_index": 1,
+          "crank_rotation": 0.0,
+          "generic_player_tween_owned": false,
+          "held": false,
+          "long_push_journey": 0.0,
+          "panel_alpha": 1.0,
+          "patch_draw_route": "target:patch_astronaut",
+          "patch_entry_scale": [
+            1.00499999523163,
+            1.00499999523163
+          ],
+          "patch_generation": 3,
+          "patch_last_contact": {
+            "atlas_region": "[P: (256.0, 512.0), S: (256.0, 256.0)]",
+            "distance": 0.9814453125,
+            "generation": 3,
+            "jaw": "(157.52, 367.1414)",
+            "phase_index": 1,
+            "scale": "(1.005, 1.005)",
+            "target": "(157.52, 366.16)",
+            "target_index": 0,
+            "time_msec": 46966
+          },
+          "patch_queue": [],
+          "patch_repair_source": "res://assets/opera/worlds/widgets/widget_target_astronaut_piece_2.png",
+          "patch_state": "release",
+          "patch_state_t": 0.0,
+          "patch_work_position": [
+            115.317749023438,
+            275.867004394531
+          ],
+          "phase_advance_pending": false,
+          "phase_index": 1,
+          "phase_name": "PATCH",
+          "phase_progress": 1.0,
+          "pipe_entry_position": [
+            0.0,
+            0.0
+          ],
+          "pipe_grid": [
+            "IMP",
+            "SE",
+            "H",
+            "NW",
+            "H",
+            "NW",
+            "IMP",
+            "",
+            "",
+            "",
+            "",
+            ""
+          ],
+          "pipe_last_contact": {},
+          "pipe_request_id": -1,
+          "pipe_round": 3,
+          "pipe_travel_start": [
+            0.0,
+            0.0
+          ],
+          "pipe_work_cell": -1,
+          "pipe_work_flip": false,
+          "pipe_work_position": [
+            0.0,
+            0.0
+          ],
+          "pipe_work_state": "",
+          "pipe_work_state_t": 0.0,
+          "surface_alpha": 1.0,
+          "surface_canvas_transform": [
+            [
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0
+            ],
+            [
+              36.0,
+              278.0
+            ]
+          ],
+          "surface_instance": 406260288613,
+          "surface_mode": "tap",
+          "surface_self_alpha": 1.0,
+          "target_placed": [
+            true,
+            false,
+            false,
+            false,
+            false
+          ],
+          "task_open": true,
+          "touch_owner": -1,
+          "valve_entry_scale": [
+            1.0,
+            1.0
+          ],
+          "valve_generation": 3,
+          "valve_last_contact": {},
+          "valve_pending_arcs": 0,
+          "valve_state": "",
+          "valve_work_position": [
+            0.0,
+            0.0
+          ],
+          "widget_fill": 0.2,
+          "widget_mover_path": "res://assets/opera/worlds/widgets/widget_target_astronaut_mover.png",
+          "world_instance": 402183425253
+        },
+        "living_stage": "opera.act.11",
+        "main_instance": 120779179513,
+        "monotonic_msec": 47285,
+        "party_started": false,
+        "path": "tmp/astronaut_native_birthday_capture_v8_20261007/1280x720/frames/0048_phase1_patch_release.png",
+        "pearls": 0,
+        "process_frame": 3334,
+        "rendered_frame": 3334,
+        "return_fade_alpha": 0.0,
+        "sha256": "4ed10625a226024bc29dd2af43b5d40cdc9058ad9c3800b08db85e69445d4521",
+        "star_mask": 0,
+        "viewport_canvas_transform": [
+          [
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0
+          ],
+          [
+            0.0,
+            0.0
+          ]
+        ],
+        "viewport_instance": 120326194638
+      }
+    },
+    {
+      "path": "frames/1280/0063_phase1_action_021.png",
+      "original_path": "tmp/astronaut_native_birthday_capture_v8_20261007/1280x720/frames/0063_phase1_action_021.png",
+      "sha256": "40cec24be565d0a668a7a3c7af1729d58de44489e2f27658f20e46b01e78e853",
+      "bytes": 1467041,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "pixel_modifications": "NONE; literal byte copy",
+      "role": "diagnostic_native_capture",
+      "provenance": "Godot root viewport readback; underlying source assets retain their ASSET_LICENSES authority; review-only and not a generator input",
+      "original_manifest": "evidence/NATIVE_BIRTHDAY_CAPTURE_V8_1280_MANIFEST.json",
+      "original_label": "phase1_action_021",
+      "native_state": {
+        "bytes": 1467041,
+        "candle_lit": false,
+        "castle_room": "mermaid_pool",
+        "dimensions": [
+          1280,
+          720
+        ],
+        "label": "phase1_action_021",
+        "live_state": {
+          "actor_atlas_region": [
+            512.0,
+            512.0,
+            256.0,
+            256.0
+          ],
+          "actor_atlas_source": "res://assets/opera/worlds/actors/animation/roshan_astronaut_sheet_a.png",
+          "actor_canvas_transform": [
+            [
+              1.00499999523163,
+              0.0
+            ],
+            [
+              0.0,
+              1.00499999523163
+            ],
+            [
+              197.637756347656,
+              254.986999511719
+            ]
+          ],
+          "actor_flip_h": false,
+          "actor_instance": 405421427814,
+          "actor_position": [
+            197.637756347656,
+            254.986999511719
+          ],
+          "actor_scale": [
+            1.00499999523163,
+            1.00499999523163
+          ],
+          "actor_size": [
+            250.000579833984,
+            250.000030517578
+          ],
+          "actor_z_index": 1,
+          "crank_rotation": 0.0,
+          "generic_player_tween_owned": false,
+          "held": false,
+          "long_push_journey": 0.0,
+          "panel_alpha": 1.0,
+          "patch_draw_route": "target:patch_astronaut",
+          "patch_entry_scale": [
+            1.00499999523163,
+            1.00499999523163
+          ],
+          "patch_generation": 3,
+          "patch_last_contact": {
+            "atlas_region": "[P: (256.0, 512.0), S: (256.0, 256.0)]",
+            "distance": 0.981414794921875,
+            "generation": 3,
+            "jaw": "(239.84, 346.2614)",
+            "phase_index": 1,
+            "scale": "(1.005, 1.005)",
+            "target": "(239.84, 345.28)",
+            "target_index": 1,
+            "time_msec": 51517
+          },
+          "patch_queue": [],
+          "patch_repair_source": "res://assets/opera/worlds/widgets/widget_target_astronaut_piece_2.png",
+          "patch_state": "release",
+          "patch_state_t": 0.0,
+          "patch_work_position": [
+            197.637756347656,
+            254.986999511719
+          ],
+          "phase_advance_pending": false,
+          "phase_index": 1,
+          "phase_name": "PATCH",
+          "phase_progress": 2.0,
+          "pipe_entry_position": [
+            0.0,
+            0.0
+          ],
+          "pipe_grid": [
+            "IMP",
+            "SE",
+            "H",
+            "NW",
+            "H",
+            "NW",
+            "IMP",
+            "",
+            "",
+            "",
+            "",
+            ""
+          ],
+          "pipe_last_contact": {},
+          "pipe_request_id": -1,
+          "pipe_round": 3,
+          "pipe_travel_start": [
+            0.0,
+            0.0
+          ],
+          "pipe_work_cell": -1,
+          "pipe_work_flip": false,
+          "pipe_work_position": [
+            0.0,
+            0.0
+          ],
+          "pipe_work_state": "",
+          "pipe_work_state_t": 0.0,
+          "surface_alpha": 1.0,
+          "surface_canvas_transform": [
+            [
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0
+            ],
+            [
+              36.0,
+              278.0
+            ]
+          ],
+          "surface_instance": 406260288613,
+          "surface_mode": "tap",
+          "surface_self_alpha": 1.0,
+          "target_placed": [
+            true,
+            true,
+            false,
+            false,
+            false
+          ],
+          "task_open": true,
+          "touch_owner": -1,
+          "valve_entry_scale": [
+            1.0,
+            1.0
+          ],
+          "valve_generation": 3,
+          "valve_last_contact": {},
+          "valve_pending_arcs": 0,
+          "valve_state": "",
+          "valve_work_position": [
+            0.0,
+            0.0
+          ],
+          "widget_fill": 0.4,
+          "widget_mover_path": "res://assets/opera/worlds/widgets/widget_target_astronaut_mover.png",
+          "world_instance": 402183425253
+        },
+        "living_stage": "opera.act.11",
+        "main_instance": 120779179513,
+        "monotonic_msec": 51818,
+        "party_started": false,
+        "path": "tmp/astronaut_native_birthday_capture_v8_20261007/1280x720/frames/0063_phase1_action_021.png",
+        "pearls": 0,
+        "process_frame": 3350,
+        "rendered_frame": 3350,
+        "return_fade_alpha": 0.0,
+        "sha256": "40cec24be565d0a668a7a3c7af1729d58de44489e2f27658f20e46b01e78e853",
+        "star_mask": 0,
+        "viewport_canvas_transform": [
+          [
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0
+          ],
+          [
+            0.0,
+            0.0
+          ]
+        ],
+        "viewport_instance": 120326194638
+      }
+    },
+    {
+      "path": "frames/1280/0066_phase1_input_held.png",
+      "original_path": "tmp/astronaut_native_birthday_capture_v8_20261007/1280x720/frames/0066_phase1_input_held.png",
+      "sha256": "ab547e5154e14b1845427acc4ee55dc76682f2d516fbc9fa9b06b6600d5fc87a",
+      "bytes": 1465079,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "pixel_modifications": "NONE; literal byte copy",
+      "role": "diagnostic_native_capture",
+      "provenance": "Godot root viewport readback; underlying source assets retain their ASSET_LICENSES authority; review-only and not a generator input",
+      "original_manifest": "evidence/NATIVE_BIRTHDAY_CAPTURE_V8_1280_MANIFEST.json",
+      "original_label": "phase1_input_held",
+      "native_state": {
+        "bytes": 1465079,
+        "candle_lit": false,
+        "castle_room": "mermaid_pool",
+        "dimensions": [
+          1280,
+          720
+        ],
+        "label": "phase1_input_held",
+        "live_state": {
+          "actor_atlas_region": [
+            0.0,
+            0.0,
+            256.0,
+            256.0
+          ],
+          "actor_atlas_source": "res://assets/opera/worlds/actors/animation/roshan_astronaut_sheet_a.png",
+          "actor_canvas_transform": [
+            [
+              1.00499999523163,
+              0.0
+            ],
+            [
+              0.0,
+              1.00499999523163
+            ],
+            [
+              469.049865722656,
+              263.952087402344
+            ]
+          ],
+          "actor_flip_h": false,
+          "actor_instance": 489039072477,
+          "actor_position": [
+            469.049865722656,
+            263.952087402344
+          ],
+          "actor_scale": [
+            1.00499999523163,
+            1.00499999523163
+          ],
+          "actor_size": [
+            250.000793457031,
+            250.000183105469
+          ],
+          "actor_z_index": 0,
+          "crank_rotation": 0.0,
+          "generic_player_tween_owned": true,
+          "held": true,
+          "long_push_journey": 0.0,
+          "panel_alpha": 1.0,
+          "patch_draw_route": "target:patch_astronaut",
+          "patch_entry_scale": [
+            1.0,
+            1.0
+          ],
+          "patch_generation": 2,
+          "patch_last_contact": {},
+          "patch_queue": [],
+          "patch_repair_source": "res://assets/opera/worlds/widgets/widget_target_astronaut_piece_2.png",
+          "patch_state": "",
+          "patch_state_t": 0.0,
+          "patch_work_position": [
+            0.0,
+            0.0
+          ],
+          "phase_advance_pending": false,
+          "phase_index": 1,
+          "phase_name": "PATCH",
+          "phase_progress": 2.0,
+          "pipe_entry_position": [
+            0.0,
+            0.0
+          ],
+          "pipe_grid": [],
+          "pipe_last_contact": {},
+          "pipe_request_id": -1,
+          "pipe_round": 0,
+          "pipe_travel_start": [
+            0.0,
+            0.0
+          ],
+          "pipe_work_cell": -1,
+          "pipe_work_flip": false,
+          "pipe_work_position": [
+            0.0,
+            0.0
+          ],
+          "pipe_work_state": "",
+          "pipe_work_state_t": 0.0,
+          "surface_alpha": 1.0,
+          "surface_canvas_transform": [
+            [
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0
+            ],
+            [
+              36.0,
+              278.0
+            ]
+          ],
+          "surface_instance": 489877933214,
+          "surface_mode": "tap",
+          "surface_self_alpha": 1.0,
+          "target_placed": [
+            true,
+            true,
+            false,
+            false,
+            false
+          ],
+          "task_open": true,
+          "touch_owner": 7,
+          "valve_entry_scale": [
+            1.0,
+            1.0
+          ],
+          "valve_generation": 2,
+          "valve_last_contact": {},
+          "valve_pending_arcs": 0,
+          "valve_state": "",
+          "valve_work_position": [
+            0.0,
+            0.0
+          ],
+          "widget_fill": 0.4,
+          "widget_mover_path": "res://assets/opera/worlds/widgets/widget_target_astronaut_mover.png",
+          "world_instance": 485801069659
+        },
+        "living_stage": "opera.act.11",
+        "main_instance": 120779179513,
+        "monotonic_msec": 57207,
+        "party_started": false,
+        "path": "tmp/astronaut_native_birthday_capture_v8_20261007/1280x720/frames/0066_phase1_input_held.png",
+        "pearls": 0,
+        "process_frame": 3962,
+        "rendered_frame": 3962,
+        "return_fade_alpha": 0.0,
+        "sha256": "ab547e5154e14b1845427acc4ee55dc76682f2d516fbc9fa9b06b6600d5fc87a",
+        "star_mask": 0,
+        "viewport_canvas_transform": [
+          [
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0
+          ],
+          [
+            0.0,
+            0.0
+          ]
+        ],
+        "viewport_instance": 120326194638
+      }
+    },
+    {
+      "path": "frames/1280/0067_phase1_completed.png",
+      "original_path": "tmp/astronaut_native_birthday_capture_v8_20261007/1280x720/frames/0067_phase1_completed.png",
+      "sha256": "127a03bab7cfdda21704efa83ec8d4e4fcaf9aa92b101d114868028747099942",
+      "bytes": 1469435,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "pixel_modifications": "NONE; literal byte copy",
+      "role": "diagnostic_native_capture",
+      "provenance": "Godot root viewport readback; underlying source assets retain their ASSET_LICENSES authority; review-only and not a generator input",
+      "original_manifest": "evidence/NATIVE_BIRTHDAY_CAPTURE_V8_1280_MANIFEST.json",
+      "original_label": "phase1_completed",
+      "native_state": {
+        "bytes": 1469435,
+        "candle_lit": false,
+        "castle_room": "mermaid_pool",
+        "dimensions": [
+          1280,
+          720
+        ],
+        "label": "phase1_completed",
+        "live_state": {
+          "actor_atlas_region": [
+            0.0,
+            0.0,
+            256.0,
+            256.0
+          ],
+          "actor_atlas_source": "res://assets/opera/worlds/actors/animation/roshan_astronaut_sheet_a.png",
+          "actor_canvas_transform": [
+            [
+              1.00499999523163,
+              0.0
+            ],
+            [
+              0.0,
+              1.00499999523163
+            ],
+            [
+              469.049865722656,
+              264.749786376953
+            ]
+          ],
+          "actor_flip_h": false,
+          "actor_instance": 489039072477,
+          "actor_position": [
+            469.049865722656,
+            264.749786376953
+          ],
+          "actor_scale": [
+            1.00499999523163,
+            1.00499999523163
+          ],
+          "actor_size": [
+            250.000183105469,
+            249.999969482422
+          ],
+          "actor_z_index": 0,
+          "crank_rotation": 0.0,
+          "generic_player_tween_owned": false,
+          "held": false,
+          "long_push_journey": 0.0,
+          "panel_alpha": 1.0,
+          "patch_draw_route": "target:patch_astronaut",
+          "patch_entry_scale": [
+            1.00499999523163,
+            1.00499999523163
+          ],
+          "patch_generation": 2,
+          "patch_last_contact": {
+            "atlas_region": "[P: (256.0, 512.0), S: (256.0, 256.0)]",
+            "distance": 0.9814453125,
+            "generation": 2,
+            "jaw": "(290.8, 436.7415)",
+            "phase_index": 1,
+            "scale": "(1.005, 1.005)",
+            "target": "(290.8, 435.76)",
+            "target_index": 4,
+            "time_msec": 60867
+          },
+          "patch_queue": [],
+          "patch_repair_source": "res://assets/opera/worlds/widgets/widget_target_astronaut_piece_2.png",
+          "patch_state": "",
+          "patch_state_t": 0.0,
+          "patch_work_position": [
+            248.597808837891,
+            345.467102050781
+          ],
+          "phase_advance_pending": true,
+          "phase_index": 1,
+          "phase_name": "PATCH",
+          "phase_progress": 5.0,
+          "pipe_entry_position": [
+            0.0,
+            0.0
+          ],
+          "pipe_grid": [],
+          "pipe_last_contact": {},
+          "pipe_request_id": -1,
+          "pipe_round": 0,
+          "pipe_travel_start": [
+            0.0,
+            0.0
+          ],
+          "pipe_work_cell": -1,
+          "pipe_work_flip": false,
+          "pipe_work_position": [
+            0.0,
+            0.0
+          ],
+          "pipe_work_state": "",
+          "pipe_work_state_t": 0.0,
+          "surface_alpha": 1.0,
+          "surface_canvas_transform": [
+            [
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0
+            ],
+            [
+              36.0,
+              278.0
+            ]
+          ],
+          "surface_instance": 489877933214,
+          "surface_mode": "tap",
+          "surface_self_alpha": 1.0,
+          "target_placed": [
+            true,
+            true,
+            true,
+            true,
+            true
+          ],
+          "task_open": true,
+          "touch_owner": -1,
+          "valve_entry_scale": [
+            1.0,
+            1.0
+          ],
+          "valve_generation": 2,
+          "valve_last_contact": {},
+          "valve_pending_arcs": 0,
+          "valve_state": "",
+          "valve_work_position": [
+            0.0,
+            0.0
+          ],
+          "widget_fill": 1.0,
+          "widget_mover_path": "res://assets/opera/worlds/widgets/widget_target_astronaut_mover.png",
+          "world_instance": 485801069659
+        },
+        "living_stage": "opera.act.11",
+        "main_instance": 120779179513,
+        "monotonic_msec": 61643,
+        "party_started": false,
+        "path": "tmp/astronaut_native_birthday_capture_v8_20261007/1280x720/frames/0067_phase1_completed.png",
+        "pearls": 0,
+        "process_frame": 4553,
+        "rendered_frame": 4553,
+        "return_fade_alpha": 0.0,
+        "sha256": "127a03bab7cfdda21704efa83ec8d4e4fcaf9aa92b101d114868028747099942",
+        "star_mask": 0,
+        "viewport_canvas_transform": [
+          [
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0
+          ],
+          [
+            0.0,
+            0.0
+          ]
+        ],
+        "viewport_instance": 120326194638
+      }
+    },
+    {
+      "path": "frames/1280/0068_phase2_open.png",
+      "original_path": "tmp/astronaut_native_birthday_capture_v8_20261007/1280x720/frames/0068_phase2_open.png",
+      "sha256": "83443902ce34ad4dd69a456bb3da389bfb113b97625282d938416de33d928c47",
+      "bytes": 1460661,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "pixel_modifications": "NONE; literal byte copy",
+      "role": "diagnostic_native_capture",
+      "provenance": "Godot root viewport readback; underlying source assets retain their ASSET_LICENSES authority; review-only and not a generator input",
+      "original_manifest": "evidence/NATIVE_BIRTHDAY_CAPTURE_V8_1280_MANIFEST.json",
+      "original_label": "phase2_open",
+      "native_state": {
+        "bytes": 1460661,
+        "candle_lit": false,
+        "castle_room": "mermaid_pool",
+        "dimensions": [
+          1280,
+          720
+        ],
+        "label": "phase2_open",
+        "live_state": {
+          "actor_atlas_region": [
+            256.0,
+            256.0,
+            256.0,
+            256.0
+          ],
+          "actor_atlas_source": "res://assets/opera/worlds/actors/animation/roshan_astronaut_sheet_a.png",
+          "actor_canvas_transform": [
+            [
+              1.00499999523163,
+              0.0
+            ],
+            [
+              0.0,
+              1.00499999523163
+            ],
+            [
+              624.857788085938,
+              264.750152587891
+            ]
+          ],
+          "actor_flip_h": false,
+          "actor_instance": 489039072477,
+          "actor_position": [
+            624.857788085938,
+            264.750152587891
+          ],
+          "actor_scale": [
+            1.00499999523163,
+            1.00499999523163
+          ],
+          "actor_size": [
+            250.000854492188,
+            249.999847412109
+          ],
+          "actor_z_index": 0,
+          "crank_rotation": 0.0,
+          "generic_player_tween_owned": false,
+          "held": false,
+          "long_push_journey": 0.0,
+          "panel_alpha": 1.0,
+          "patch_draw_route": "crank:crank_astronaut",
+          "patch_entry_scale": [
+            1.00499999523163,
+            1.00499999523163
+          ],
+          "patch_generation": 4,
+          "patch_last_contact": {
+            "atlas_region": "[P: (256.0, 512.0), S: (256.0, 256.0)]",
+            "distance": 0.9814453125,
+            "generation": 2,
+            "jaw": "(290.8, 436.7415)",
+            "phase_index": 1,
+            "scale": "(1.005, 1.005)",
+            "target": "(290.8, 435.76)",
+            "target_index": 4,
+            "time_msec": 60867
+          },
+          "patch_queue": [],
+          "patch_repair_source": "",
+          "patch_state": "",
+          "patch_state_t": 0.0,
+          "patch_work_position": [
+            248.597808837891,
+            345.467102050781
+          ],
+          "phase_advance_pending": false,
+          "phase_index": 2,
+          "phase_name": "VALVE",
+          "phase_progress": 0.0,
+          "pipe_entry_position": [
+            0.0,
+            0.0
+          ],
+          "pipe_grid": [],
+          "pipe_last_contact": {},
+          "pipe_request_id": -1,
+          "pipe_round": 0,
+          "pipe_travel_start": [
+            0.0,
+            0.0
+          ],
+          "pipe_work_cell": -1,
+          "pipe_work_flip": false,
+          "pipe_work_position": [
+            0.0,
+            0.0
+          ],
+          "pipe_work_state": "",
+          "pipe_work_state_t": 0.0,
+          "surface_alpha": 1.0,
+          "surface_canvas_transform": [
+            [
+              1.01635432243347,
+              0.0
+            ],
+            [
+              0.0,
+              1.01635432243347
+            ],
+            [
+              29.6872177124023,
+              276.776702880859
+            ]
+          ],
+          "surface_instance": 489877933214,
+          "surface_mode": "circle",
+          "surface_self_alpha": 1.0,
+          "target_placed": [],
+          "task_open": true,
+          "touch_owner": -1,
+          "valve_entry_scale": [
+            1.00499999523163,
+            1.00499999523163
+          ],
+          "valve_generation": 4,
+          "valve_last_contact": {},
+          "valve_pending_arcs": 0,
+          "valve_state": "wait_reveal",
+          "valve_work_position": [
+            0.0,
+            0.0
+          ],
+          "widget_fill": 0.0,
+          "widget_mover_path": "res://assets/opera/worlds/widgets/widget_crank_astronaut_mover.png",
+          "world_instance": 485801069659
+        },
+        "living_stage": "opera.act.11",
+        "main_instance": 120779179513,
+        "monotonic_msec": 65077,
+        "party_started": false,
+        "path": "tmp/astronaut_native_birthday_capture_v8_20261007/1280x720/frames/0068_phase2_open.png",
+        "pearls": 0,
+        "process_frame": 4997,
+        "rendered_frame": 4997,
+        "return_fade_alpha": 0.0,
+        "sha256": "83443902ce34ad4dd69a456bb3da389bfb113b97625282d938416de33d928c47",
+        "star_mask": 0,
+        "viewport_canvas_transform": [
+          [
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0
+          ],
+          [
+            0.0,
+            0.0
+          ]
+        ],
+        "viewport_instance": 120326194638
+      }
+    },
+    {
+      "path": "frames/1280/0073_phase2_valve_contact.png",
+      "original_path": "tmp/astronaut_native_birthday_capture_v8_20261007/1280x720/frames/0073_phase2_valve_contact.png",
+      "sha256": "01047d17783ceb8a473461960c26c45f8282900fdff6627b92bbbb0c271002be",
+      "bytes": 1460460,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "pixel_modifications": "NONE; literal byte copy",
+      "role": "diagnostic_native_capture",
+      "provenance": "Godot root viewport readback; underlying source assets retain their ASSET_LICENSES authority; review-only and not a generator input",
+      "original_manifest": "evidence/NATIVE_BIRTHDAY_CAPTURE_V8_1280_MANIFEST.json",
+      "original_label": "phase2_valve_contact",
+      "native_state": {
+        "bytes": 1460460,
+        "candle_lit": false,
+        "castle_room": "mermaid_pool",
+        "dimensions": [
+          1280,
+          720
+        ],
+        "label": "phase2_valve_contact",
+        "live_state": {
+          "actor_atlas_region": [
+            0.0,
+            512.0,
+            256.0,
+            256.0
+          ],
+          "actor_atlas_source": "res://assets/opera/worlds/actors/animation/roshan_astronaut_sheet_a.png",
+          "actor_canvas_transform": [
+            [
+              1.00499999523163,
+              0.0
+            ],
+            [
+              0.0,
+              1.00499999523163
+            ],
+            [
+              189.797729492188,
+              258.467102050781
+            ]
+          ],
+          "actor_flip_h": false,
+          "actor_instance": 489039072477,
+          "actor_position": [
+            189.797729492188,
+            258.467102050781
+          ],
+          "actor_scale": [
+            1.00499999523163,
+            1.00499999523163
+          ],
+          "actor_size": [
+            250.000640869141,
+            249.999847412109
+          ],
+          "actor_z_index": 1,
+          "crank_rotation": 0.0,
+          "generic_player_tween_owned": false,
+          "held": false,
+          "long_push_journey": 0.0,
+          "panel_alpha": 1.0,
+          "patch_draw_route": "crank:crank_astronaut",
+          "patch_entry_scale": [
+            1.00499999523163,
+            1.00499999523163
+          ],
+          "patch_generation": 4,
+          "patch_last_contact": {
+            "atlas_region": "[P: (256.0, 512.0), S: (256.0, 256.0)]",
+            "distance": 0.9814453125,
+            "generation": 2,
+            "jaw": "(290.8, 436.7415)",
+            "phase_index": 1,
+            "scale": "(1.005, 1.005)",
+            "target": "(290.8, 435.76)",
+            "target_index": 4,
+            "time_msec": 60867
+          },
+          "patch_queue": [],
+          "patch_repair_source": "",
+          "patch_state": "",
+          "patch_state_t": 0.0,
+          "patch_work_position": [
+            248.597808837891,
+            345.467102050781
+          ],
+          "phase_advance_pending": false,
+          "phase_index": 2,
+          "phase_name": "VALVE",
+          "phase_progress": 0.0,
+          "pipe_entry_position": [
+            0.0,
+            0.0
+          ],
+          "pipe_grid": [],
+          "pipe_last_contact": {},
+          "pipe_request_id": -1,
+          "pipe_round": 0,
+          "pipe_travel_start": [
+            0.0,
+            0.0
+          ],
+          "pipe_work_cell": -1,
+          "pipe_work_flip": false,
+          "pipe_work_position": [
+            0.0,
+            0.0
+          ],
+          "pipe_work_state": "",
+          "pipe_work_state_t": 0.0,
+          "surface_alpha": 1.0,
+          "surface_canvas_transform": [
+            [
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0
+            ],
+            [
+              36.0,
+              278.0
+            ]
+          ],
+          "surface_instance": 489877933214,
+          "surface_mode": "circle",
+          "surface_self_alpha": 1.0,
+          "target_placed": [],
+          "task_open": true,
+          "touch_owner": -1,
+          "valve_entry_scale": [
+            1.00499999523163,
+            1.00499999523163
+          ],
+          "valve_generation": 4,
+          "valve_last_contact": {},
+          "valve_pending_arcs": 0,
+          "valve_state": "contact",
+          "valve_work_position": [
+            189.797729492188,
+            258.467102050781
+          ],
+          "widget_fill": 0.0,
+          "widget_mover_path": "res://assets/opera/worlds/widgets/widget_crank_astronaut_mover.png",
+          "world_instance": 485801069659
+        },
+        "living_stage": "opera.act.11",
+        "main_instance": 120779179513,
+        "monotonic_msec": 67066,
+        "party_started": false,
+        "path": "tmp/astronaut_native_birthday_capture_v8_20261007/1280x720/frames/0073_phase2_valve_contact.png",
+        "pearls": 0,
+        "process_frame": 5072,
+        "rendered_frame": 5072,
+        "return_fade_alpha": 0.0,
+        "sha256": "01047d17783ceb8a473461960c26c45f8282900fdff6627b92bbbb0c271002be",
+        "star_mask": 0,
+        "viewport_canvas_transform": [
+          [
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0
+          ],
+          [
+            0.0,
+            0.0
+          ]
+        ],
+        "viewport_instance": 120326194638
+      }
+    },
+    {
+      "path": "frames/1280/0105_phase2_valve_turn.png",
+      "original_path": "tmp/astronaut_native_birthday_capture_v8_20261007/1280x720/frames/0105_phase2_valve_turn.png",
+      "sha256": "0a7ac934f65b3441590821417f4003529b7dbb266ec2818115e9e31b0eb40761",
+      "bytes": 1461582,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "pixel_modifications": "NONE; literal byte copy",
+      "role": "diagnostic_native_capture",
+      "provenance": "Godot root viewport readback; underlying source assets retain their ASSET_LICENSES authority; review-only and not a generator input",
+      "original_manifest": "evidence/NATIVE_BIRTHDAY_CAPTURE_V8_1280_MANIFEST.json",
+      "original_label": "phase2_valve_turn",
+      "native_state": {
+        "bytes": 1461582,
+        "candle_lit": false,
+        "castle_room": "mermaid_pool",
+        "dimensions": [
+          1280,
+          720
+        ],
+        "label": "phase2_valve_turn",
+        "live_state": {
+          "actor_atlas_region": [
+            256.0,
+            512.0,
+            256.0,
+            256.0
+          ],
+          "actor_atlas_source": "res://assets/opera/worlds/actors/animation/roshan_astronaut_sheet_a.png",
+          "actor_canvas_transform": [
+            [
+              1.00499999523163,
+              0.0
+            ],
+            [
+              0.0,
+              1.00499999523163
+            ],
+            [
+              189.797088623047,
+              258.466949462891
+            ]
+          ],
+          "actor_flip_h": false,
+          "actor_instance": 626998119480,
+          "actor_position": [
+            189.797088623047,
+            258.466949462891
+          ],
+          "actor_scale": [
+            1.00499999523163,
+            1.00499999523163
+          ],
+          "actor_size": [
+            250.00048828125,
+            250.000152587891
+          ],
+          "actor_z_index": 1,
+          "crank_rotation": 4.93684209521403,
+          "generic_player_tween_owned": false,
+          "held": true,
+          "long_push_journey": 0.0,
+          "panel_alpha": 1.0,
+          "patch_draw_route": "crank:crank_astronaut",
+          "patch_entry_scale": [
+            1.0,
+            1.0
+          ],
+          "patch_generation": 2,
+          "patch_last_contact": {},
+          "patch_queue": [],
+          "patch_repair_source": "",
+          "patch_state": "",
+          "patch_state_t": 0.0,
+          "patch_work_position": [
+            0.0,
+            0.0
+          ],
+          "phase_advance_pending": false,
+          "phase_index": 2,
+          "phase_name": "VALVE",
+          "phase_progress": 0.785722822717462,
+          "pipe_entry_position": [
+            0.0,
+            0.0
+          ],
+          "pipe_grid": [],
+          "pipe_last_contact": {},
+          "pipe_request_id": -1,
+          "pipe_round": 0,
+          "pipe_travel_start": [
+            0.0,
+            0.0
+          ],
+          "pipe_work_cell": -1,
+          "pipe_work_flip": false,
+          "pipe_work_position": [
+            0.0,
+            0.0
+          ],
+          "pipe_work_state": "",
+          "pipe_work_state_t": 0.0,
+          "surface_alpha": 1.0,
+          "surface_canvas_transform": [
+            [
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0
+            ],
+            [
+              36.0,
+              278.0
+            ]
+          ],
+          "surface_instance": 627836980302,
+          "surface_mode": "circle",
+          "surface_self_alpha": 1.0,
+          "target_placed": [],
+          "task_open": true,
+          "touch_owner": 7,
+          "valve_entry_scale": [
+            1.00499999523163,
+            1.00499999523163
+          ],
+          "valve_generation": 2,
+          "valve_last_contact": {
+            "distance": 0.981415033340454,
+            "frame": 1,
+            "generation": 2,
+            "jaw": "(231.9993, 349.7414)",
+            "phase_index": 2,
+            "scale": "(1.005, 1.005)",
+            "signed_radians": 0.0499199999999999,
+            "target": "(232.0, 348.76)",
+            "time_msec": 81601
+          },
+          "valve_pending_arcs": 1,
+          "valve_state": "contact",
+          "valve_work_position": [
+            189.797088623047,
+            258.466949462891
+          ],
+          "widget_fill": 0.436512679287479,
+          "widget_mover_path": "res://assets/opera/worlds/widgets/widget_crank_astronaut_mover.png",
+          "world_instance": 623760116860
+        },
+        "living_stage": "opera.act.11",
+        "main_instance": 120779179513,
+        "monotonic_msec": 81898,
+        "party_started": false,
+        "path": "tmp/astronaut_native_birthday_capture_v8_20261007/1280x720/frames/0105_phase2_valve_turn.png",
+        "pearls": 0,
+        "process_frame": 5795,
+        "rendered_frame": 5795,
+        "return_fade_alpha": 0.0,
+        "sha256": "0a7ac934f65b3441590821417f4003529b7dbb266ec2818115e9e31b0eb40761",
+        "star_mask": 0,
+        "viewport_canvas_transform": [
+          [
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0
+          ],
+          [
+            0.0,
+            0.0
+          ]
+        ],
+        "viewport_instance": 120326194638
+      }
+    },
+    {
+      "path": "frames/1280/0106_phase2_valve_release.png",
+      "original_path": "tmp/astronaut_native_birthday_capture_v8_20261007/1280x720/frames/0106_phase2_valve_release.png",
+      "sha256": "3e5d32deec519b2f73a610371bc3fde729edd3094abcc37d9f9cf156dad49144",
+      "bytes": 1462286,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "pixel_modifications": "NONE; literal byte copy",
+      "role": "diagnostic_native_capture",
+      "provenance": "Godot root viewport readback; underlying source assets retain their ASSET_LICENSES authority; review-only and not a generator input",
+      "original_manifest": "evidence/NATIVE_BIRTHDAY_CAPTURE_V8_1280_MANIFEST.json",
+      "original_label": "phase2_valve_release",
+      "native_state": {
+        "bytes": 1462286,
+        "candle_lit": false,
+        "castle_room": "mermaid_pool",
+        "dimensions": [
+          1280,
+          720
+        ],
+        "label": "phase2_valve_release",
+        "live_state": {
+          "actor_atlas_region": [
+            512.0,
+            512.0,
+            256.0,
+            256.0
+          ],
+          "actor_atlas_source": "res://assets/opera/worlds/actors/animation/roshan_astronaut_sheet_a.png",
+          "actor_canvas_transform": [
+            [
+              1.00499999523163,
+              0.0
+            ],
+            [
+              0.0,
+              1.00499999523163
+            ],
+            [
+              189.797088623047,
+              258.466949462891
+            ]
+          ],
+          "actor_flip_h": false,
+          "actor_instance": 626998119480,
+          "actor_position": [
+            189.797088623047,
+            258.466949462891
+          ],
+          "actor_scale": [
+            1.00499999523163,
+            1.00499999523163
+          ],
+          "actor_size": [
+            250.00048828125,
+            250.000152587891
+          ],
+          "actor_z_index": 1,
+          "crank_rotation": 11.3256380690602,
+          "generic_player_tween_owned": false,
+          "held": false,
+          "long_push_journey": 0.0,
+          "panel_alpha": 1.0,
+          "patch_draw_route": "crank:crank_astronaut",
+          "patch_entry_scale": [
+            1.0,
+            1.0
+          ],
+          "patch_generation": 2,
+          "patch_last_contact": {},
+          "patch_queue": [],
+          "patch_repair_source": "",
+          "patch_state": "",
+          "patch_state_t": 0.0,
+          "patch_work_position": [
+            0.0,
+            0.0
+          ],
+          "phase_advance_pending": true,
+          "phase_index": 2,
+          "phase_name": "VALVE",
+          "phase_progress": 1.80253128236069,
+          "pipe_entry_position": [
+            0.0,
+            0.0
+          ],
+          "pipe_grid": [],
+          "pipe_last_contact": {},
+          "pipe_request_id": -1,
+          "pipe_round": 0,
+          "pipe_travel_start": [
+            0.0,
+            0.0
+          ],
+          "pipe_work_cell": -1,
+          "pipe_work_flip": false,
+          "pipe_work_position": [
+            0.0,
+            0.0
+          ],
+          "pipe_work_state": "",
+          "pipe_work_state_t": 0.0,
+          "surface_alpha": 1.0,
+          "surface_canvas_transform": [
+            [
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0
+            ],
+            [
+              36.0,
+              278.0
+            ]
+          ],
+          "surface_instance": 627836980302,
+          "surface_mode": "circle",
+          "surface_self_alpha": 1.0,
+          "target_placed": [],
+          "task_open": true,
+          "touch_owner": -1,
+          "valve_entry_scale": [
+            1.00499999523163,
+            1.00499999523163
+          ],
+          "valve_generation": 2,
+          "valve_last_contact": {
+            "distance": 0.981415033340454,
+            "frame": 1,
+            "generation": 2,
+            "jaw": "(231.9993, 349.7414)",
+            "phase_index": 2,
+            "scale": "(1.005, 1.005)",
+            "signed_radians": 0.027776,
+            "target": "(232.0, 348.76)",
+            "time_msec": 83625
+          },
+          "valve_pending_arcs": 0,
+          "valve_state": "release",
+          "valve_work_position": [
+            189.797088623047,
+            258.466949462891
+          ],
+          "widget_fill": 1.0,
+          "widget_mover_path": "res://assets/opera/worlds/widgets/widget_crank_astronaut_mover.png",
+          "world_instance": 623760116860
+        },
+        "living_stage": "opera.act.11",
+        "main_instance": 120779179513,
+        "monotonic_msec": 83932,
+        "party_started": false,
+        "path": "tmp/astronaut_native_birthday_capture_v8_20261007/1280x720/frames/0106_phase2_valve_release.png",
+        "pearls": 0,
+        "process_frame": 6038,
+        "rendered_frame": 6038,
+        "return_fade_alpha": 0.0,
+        "sha256": "3e5d32deec519b2f73a610371bc3fde729edd3094abcc37d9f9cf156dad49144",
+        "star_mask": 0,
+        "viewport_canvas_transform": [
+          [
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0
+          ],
+          [
+            0.0,
+            0.0
+          ]
+        ],
+        "viewport_instance": 120326194638
+      }
+    },
+    {
+      "path": "frames/1280/0107_phase2_valve_return.png",
+      "original_path": "tmp/astronaut_native_birthday_capture_v8_20261007/1280x720/frames/0107_phase2_valve_return.png",
+      "sha256": "8a09311737a927e39e8f8888507891d7af9d9b6c26173e5844b7fd94f1b17787",
+      "bytes": 1457800,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "pixel_modifications": "NONE; literal byte copy",
+      "role": "diagnostic_native_capture",
+      "provenance": "Godot root viewport readback; underlying source assets retain their ASSET_LICENSES authority; review-only and not a generator input",
+      "original_manifest": "evidence/NATIVE_BIRTHDAY_CAPTURE_V8_1280_MANIFEST.json",
+      "original_label": "phase2_valve_return",
+      "native_state": {
+        "bytes": 1457800,
+        "candle_lit": false,
+        "castle_room": "mermaid_pool",
+        "dimensions": [
+          1280,
+          720
+        ],
+        "label": "phase2_valve_return",
+        "live_state": {
+          "actor_atlas_region": [
+            0.0,
+            256.0,
+            256.0,
+            256.0
+          ],
+          "actor_atlas_source": "res://assets/opera/worlds/actors/animation/roshan_astronaut_sheet_a.png",
+          "actor_canvas_transform": [
+            [
+              1.00499999523163,
+              0.0
+            ],
+            [
+              0.0,
+              1.00499999523163
+            ],
+            [
+              189.797088623047,
+              258.466949462891
+            ]
+          ],
+          "actor_flip_h": true,
+          "actor_instance": 626998119480,
+          "actor_position": [
+            189.797088623047,
+            258.466949462891
+          ],
+          "actor_scale": [
+            1.00499999523163,
+            1.00499999523163
+          ],
+          "actor_size": [
+            250.00048828125,
+            250.000152587891
+          ],
+          "actor_z_index": 1,
+          "crank_rotation": 11.3256380690602,
+          "generic_player_tween_owned": false,
+          "held": false,
+          "long_push_journey": 0.0,
+          "panel_alpha": 1.0,
+          "patch_draw_route": "crank:crank_astronaut",
+          "patch_entry_scale": [
+            1.0,
+            1.0
+          ],
+          "patch_generation": 2,
+          "patch_last_contact": {},
+          "patch_queue": [],
+          "patch_repair_source": "",
+          "patch_state": "",
+          "patch_state_t": 0.0,
+          "patch_work_position": [
+            0.0,
+            0.0
+          ],
+          "phase_advance_pending": true,
+          "phase_index": 2,
+          "phase_name": "VALVE",
+          "phase_progress": 1.80253128236069,
+          "pipe_entry_position": [
+            0.0,
+            0.0
+          ],
+          "pipe_grid": [],
+          "pipe_last_contact": {},
+          "pipe_request_id": -1,
+          "pipe_round": 0,
+          "pipe_travel_start": [
+            0.0,
+            0.0
+          ],
+          "pipe_work_cell": -1,
+          "pipe_work_flip": false,
+          "pipe_work_position": [
+            0.0,
+            0.0
+          ],
+          "pipe_work_state": "",
+          "pipe_work_state_t": 0.0,
+          "surface_alpha": 1.0,
+          "surface_canvas_transform": [
+            [
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0
+            ],
+            [
+              36.0,
+              278.0
+            ]
+          ],
+          "surface_instance": 627836980302,
+          "surface_mode": "circle",
+          "surface_self_alpha": 1.0,
+          "target_placed": [],
+          "task_open": true,
+          "touch_owner": -1,
+          "valve_entry_scale": [
+            1.00499999523163,
+            1.00499999523163
+          ],
+          "valve_generation": 2,
+          "valve_last_contact": {
+            "distance": 0.981415033340454,
+            "frame": 1,
+            "generation": 2,
+            "jaw": "(231.9993, 349.7414)",
+            "phase_index": 2,
+            "scale": "(1.005, 1.005)",
+            "signed_radians": 0.027776,
+            "target": "(232.0, 348.76)",
+            "time_msec": 83625
+          },
+          "valve_pending_arcs": 0,
+          "valve_state": "return",
+          "valve_work_position": [
+            189.797088623047,
+            258.466949462891
+          ],
+          "widget_fill": 1.0,
+          "widget_mover_path": "res://assets/opera/worlds/widgets/widget_crank_astronaut_mover.png",
+          "world_instance": 623760116860
+        },
+        "living_stage": "opera.act.11",
+        "main_instance": 120779179513,
+        "monotonic_msec": 84241,
+        "party_started": false,
+        "path": "tmp/astronaut_native_birthday_capture_v8_20261007/1280x720/frames/0107_phase2_valve_return.png",
+        "pearls": 0,
+        "process_frame": 6040,
+        "rendered_frame": 6040,
+        "return_fade_alpha": 0.0,
+        "sha256": "8a09311737a927e39e8f8888507891d7af9d9b6c26173e5844b7fd94f1b17787",
+        "star_mask": 0,
+        "viewport_canvas_transform": [
+          [
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0
+          ],
+          [
+            0.0,
+            0.0
+          ]
+        ],
+        "viewport_instance": 120326194638
+      }
+    },
+    {
+      "path": "frames/1280/0108_phase2_completed.png",
+      "original_path": "tmp/astronaut_native_birthday_capture_v8_20261007/1280x720/frames/0108_phase2_completed.png",
+      "sha256": "c6decc7b2c55c0cdb3e455e62029c57cc36113d83c5e853d3b4a30b39b2b7992",
+      "bytes": 1455324,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "pixel_modifications": "NONE; literal byte copy",
+      "role": "diagnostic_native_capture",
+      "provenance": "Godot root viewport readback; underlying source assets retain their ASSET_LICENSES authority; review-only and not a generator input",
+      "original_manifest": "evidence/NATIVE_BIRTHDAY_CAPTURE_V8_1280_MANIFEST.json",
+      "original_label": "phase2_completed",
+      "native_state": {
+        "bytes": 1455324,
+        "candle_lit": false,
+        "castle_room": "mermaid_pool",
+        "dimensions": [
+          1280,
+          720
+        ],
+        "label": "phase2_completed",
+        "live_state": {
+          "actor_atlas_region": [
+            0.0,
+            0.0,
+            256.0,
+            256.0
+          ],
+          "actor_atlas_source": "res://assets/opera/worlds/actors/animation/roshan_astronaut_sheet_a.png",
+          "actor_canvas_transform": [
+            [
+              1.00499999523163,
+              0.0
+            ],
+            [
+              0.0,
+              1.00499999523163
+            ],
+            [
+              624.85791015625,
+              264.749938964844
+            ]
+          ],
+          "actor_flip_h": false,
+          "actor_instance": 626998119480,
+          "actor_position": [
+            624.85791015625,
+            264.749938964844
+          ],
+          "actor_scale": [
+            1.00499999523163,
+            1.00499999523163
+          ],
+          "actor_size": [
+            250.000427246094,
+            250.000122070313
+          ],
+          "actor_z_index": 0,
+          "crank_rotation": 11.3256380690602,
+          "generic_player_tween_owned": false,
+          "held": false,
+          "long_push_journey": 0.0,
+          "panel_alpha": 1.0,
+          "patch_draw_route": "crank:crank_astronaut",
+          "patch_entry_scale": [
+            1.0,
+            1.0
+          ],
+          "patch_generation": 2,
+          "patch_last_contact": {},
+          "patch_queue": [],
+          "patch_repair_source": "",
+          "patch_state": "",
+          "patch_state_t": 0.0,
+          "patch_work_position": [
+            0.0,
+            0.0
+          ],
+          "phase_advance_pending": true,
+          "phase_index": 2,
+          "phase_name": "VALVE",
+          "phase_progress": 1.80253128236069,
+          "pipe_entry_position": [
+            0.0,
+            0.0
+          ],
+          "pipe_grid": [],
+          "pipe_last_contact": {},
+          "pipe_request_id": -1,
+          "pipe_round": 0,
+          "pipe_travel_start": [
+            0.0,
+            0.0
+          ],
+          "pipe_work_cell": -1,
+          "pipe_work_flip": false,
+          "pipe_work_position": [
+            0.0,
+            0.0
+          ],
+          "pipe_work_state": "",
+          "pipe_work_state_t": 0.0,
+          "surface_alpha": 1.0,
+          "surface_canvas_transform": [
+            [
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0
+            ],
+            [
+              36.0,
+              278.0
+            ]
+          ],
+          "surface_instance": 627836980302,
+          "surface_mode": "circle",
+          "surface_self_alpha": 1.0,
+          "target_placed": [],
+          "task_open": true,
+          "touch_owner": -1,
+          "valve_entry_scale": [
+            1.00499999523163,
+            1.00499999523163
+          ],
+          "valve_generation": 2,
+          "valve_last_contact": {
+            "distance": 0.981415033340454,
+            "frame": 1,
+            "generation": 2,
+            "jaw": "(231.9993, 349.7414)",
+            "phase_index": 2,
+            "scale": "(1.005, 1.005)",
+            "signed_radians": 0.027776,
+            "target": "(232.0, 348.76)",
+            "time_msec": 83625
+          },
+          "valve_pending_arcs": 0,
+          "valve_state": "",
+          "valve_work_position": [
+            189.797088623047,
+            258.466949462891
+          ],
+          "widget_fill": 1.0,
+          "widget_mover_path": "res://assets/opera/worlds/widgets/widget_crank_astronaut_mover.png",
+          "world_instance": 623760116860
+        },
+        "living_stage": "opera.act.11",
+        "main_instance": 120779179513,
+        "monotonic_msec": 84991,
+        "party_started": false,
+        "path": "tmp/astronaut_native_birthday_capture_v8_20261007/1280x720/frames/0108_phase2_completed.png",
+        "pearls": 0,
+        "process_frame": 6106,
+        "rendered_frame": 6106,
+        "return_fade_alpha": 0.0,
+        "sha256": "c6decc7b2c55c0cdb3e455e62029c57cc36113d83c5e853d3b4a30b39b2b7992",
+        "star_mask": 0,
+        "viewport_canvas_transform": [
+          [
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0
+          ],
+          [
+            0.0,
+            0.0
+          ]
+        ],
+        "viewport_instance": 120326194638
+      }
+    },
+    {
+      "path": "frames/1280/0109_phase3_open.png",
+      "original_path": "tmp/astronaut_native_birthday_capture_v8_20261007/1280x720/frames/0109_phase3_open.png",
+      "sha256": "e93fdfa2b83674b2bca06d71a205edf04731fa40916903e04f8e0b57c2a261e2",
+      "bytes": 1476965,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "pixel_modifications": "NONE; literal byte copy",
+      "role": "diagnostic_native_capture",
+      "provenance": "Godot root viewport readback; underlying source assets retain their ASSET_LICENSES authority; review-only and not a generator input",
+      "original_manifest": "evidence/NATIVE_BIRTHDAY_CAPTURE_V8_1280_MANIFEST.json",
+      "original_label": "phase3_open",
+      "native_state": {
+        "bytes": 1476965,
+        "candle_lit": false,
+        "castle_room": "mermaid_pool",
+        "dimensions": [
+          1280,
+          720
+        ],
+        "label": "phase3_open",
+        "live_state": {
+          "actor_atlas_region": [
+            256.0,
+            512.0,
+            256.0,
+            256.0
+          ],
+          "actor_atlas_source": "res://assets/opera/worlds/actors/animation/roshan_astronaut_sheet_a.png",
+          "actor_canvas_transform": [
+            [
+              0.988499999046326,
+              0.0
+            ],
+            [
+              0.0,
+              0.988499999046326
+            ],
+            [
+              782.728393554688,
+              247.275100708008
+            ]
+          ],
+          "actor_flip_h": false,
+          "actor_instance": 626998119480,
+          "actor_position": [
+            782.728393554688,
+            247.275100708008
+          ],
+          "actor_scale": [
+            0.988499999046326,
+            0.988499999046326
+          ],
+          "actor_size": [
+            250.000610351563,
+            249.999923706055
+          ],
+          "actor_z_index": 0,
+          "crank_rotation": 0.0,
+          "generic_player_tween_owned": false,
+          "held": false,
+          "long_push_journey": 0.0,
+          "panel_alpha": 1.0,
+          "patch_draw_route": "push:park_astronaut",
+          "patch_entry_scale": [
+            1.0,
+            1.0
+          ],
+          "patch_generation": 4,
+          "patch_last_contact": {},
+          "patch_queue": [],
+          "patch_repair_source": "",
+          "patch_state": "",
+          "patch_state_t": 0.0,
+          "patch_work_position": [
+            0.0,
+            0.0
+          ],
+          "phase_advance_pending": false,
+          "phase_index": 3,
+          "phase_name": "READY PARK",
+          "phase_progress": 0.0,
+          "pipe_entry_position": [
+            0.0,
+            0.0
+          ],
+          "pipe_grid": [],
+          "pipe_last_contact": {},
+          "pipe_request_id": -1,
+          "pipe_round": 0,
+          "pipe_travel_start": [
+            0.0,
+            0.0
+          ],
+          "pipe_work_cell": -1,
+          "pipe_work_flip": false,
+          "pipe_work_position": [
+            0.0,
+            0.0
+          ],
+          "pipe_work_state": "",
+          "pipe_work_state_t": 0.0,
+          "surface_alpha": 1.0,
+          "surface_canvas_transform": [
+            [
+              1.01635432243347,
+              0.0
+            ],
+            [
+              0.0,
+              1.01635432243347
+            ],
+            [
+              29.6872177124023,
+              256.301910400391
+            ]
+          ],
+          "surface_instance": 627836980302,
+          "surface_mode": "swipe",
+          "surface_self_alpha": 1.0,
+          "target_placed": [],
+          "task_open": true,
+          "touch_owner": -1,
+          "valve_entry_scale": [
+            1.00499999523163,
+            1.00499999523163
+          ],
+          "valve_generation": 4,
+          "valve_last_contact": {
+            "distance": 0.981415033340454,
+            "frame": 1,
+            "generation": 2,
+            "jaw": "(231.9993, 349.7414)",
+            "phase_index": 2,
+            "scale": "(1.005, 1.005)",
+            "signed_radians": 0.027776,
+            "target": "(232.0, 348.76)",
+            "time_msec": 83625
+          },
+          "valve_pending_arcs": 0,
+          "valve_state": "",
+          "valve_work_position": [
+            189.797088623047,
+            258.466949462891
+          ],
+          "widget_fill": 0.0,
+          "widget_mover_path": "res://assets/opera/worlds/props/goal_astronaut.png",
+          "world_instance": 623760116860
+        },
+        "living_stage": "opera.act.11",
+        "main_instance": 120779179513,
+        "monotonic_msec": 88457,
+        "party_started": false,
+        "path": "tmp/astronaut_native_birthday_capture_v8_20261007/1280x720/frames/0109_phase3_open.png",
+        "pearls": 0,
+        "process_frame": 6544,
+        "rendered_frame": 6544,
+        "return_fade_alpha": 0.0,
+        "sha256": "e93fdfa2b83674b2bca06d71a205edf04731fa40916903e04f8e0b57c2a261e2",
+        "star_mask": 0,
+        "viewport_canvas_transform": [
+          [
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0
+          ],
+          [
+            0.0,
+            0.0
+          ]
+        ],
+        "viewport_instance": 120326194638
+      }
+    },
+    {
+      "path": "frames/1280/0113_phase3_input_held.png",
+      "original_path": "tmp/astronaut_native_birthday_capture_v8_20261007/1280x720/frames/0113_phase3_input_held.png",
+      "sha256": "09cf74ff75433010e68d28295b257e8d7208bb5b470e62b16badfee9edfc0adc",
+      "bytes": 1482654,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "pixel_modifications": "NONE; literal byte copy",
+      "role": "diagnostic_native_capture",
+      "provenance": "Godot root viewport readback; underlying source assets retain their ASSET_LICENSES authority; review-only and not a generator input",
+      "original_manifest": "evidence/NATIVE_BIRTHDAY_CAPTURE_V8_1280_MANIFEST.json",
+      "original_label": "phase3_input_held",
+      "native_state": {
+        "bytes": 1482654,
+        "candle_lit": false,
+        "castle_room": "mermaid_pool",
+        "dimensions": [
+          1280,
+          720
+        ],
+        "label": "phase3_input_held",
+        "live_state": {
+          "actor_atlas_region": [
+            768.0,
+            512.0,
+            256.0,
+            256.0
+          ],
+          "actor_atlas_source": "res://assets/opera/worlds/actors/animation/roshan_astronaut_sheet_a.png",
+          "actor_canvas_transform": [
+            [
+              0.988499999046326,
+              0.0
+            ],
+            [
+              0.0,
+              0.988499999046326
+            ],
+            [
+              782.728393554688,
+              247.275100708008
+            ]
+          ],
+          "actor_flip_h": false,
+          "actor_instance": 626998119480,
+          "actor_position": [
+            782.728393554688,
+            247.275100708008
+          ],
+          "actor_scale": [
+            0.988499999046326,
+            0.988499999046326
+          ],
+          "actor_size": [
+            250.000610351563,
+            249.999923706055
+          ],
+          "actor_z_index": 0,
+          "crank_rotation": 0.0,
+          "generic_player_tween_owned": false,
+          "held": true,
+          "long_push_journey": 0.0,
+          "panel_alpha": 1.0,
+          "patch_draw_route": "push:park_astronaut",
+          "patch_entry_scale": [
+            1.0,
+            1.0
+          ],
+          "patch_generation": 4,
+          "patch_last_contact": {},
+          "patch_queue": [],
+          "patch_repair_source": "",
+          "patch_state": "",
+          "patch_state_t": 0.0,
+          "patch_work_position": [
+            0.0,
+            0.0
+          ],
+          "phase_advance_pending": false,
+          "phase_index": 3,
+          "phase_name": "READY PARK",
+          "phase_progress": 0.0,
+          "pipe_entry_position": [
+            0.0,
+            0.0
+          ],
+          "pipe_grid": [],
+          "pipe_last_contact": {},
+          "pipe_request_id": -1,
+          "pipe_round": 0,
+          "pipe_travel_start": [
+            0.0,
+            0.0
+          ],
+          "pipe_work_cell": -1,
+          "pipe_work_flip": false,
+          "pipe_work_position": [
+            0.0,
+            0.0
+          ],
+          "pipe_work_state": "",
+          "pipe_work_state_t": 0.0,
+          "surface_alpha": 1.0,
+          "surface_canvas_transform": [
+            [
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0
+            ],
+            [
+              36.0,
+              256.400024414063
+            ]
+          ],
+          "surface_instance": 627836980302,
+          "surface_mode": "swipe",
+          "surface_self_alpha": 1.0,
+          "target_placed": [],
+          "task_open": true,
+          "touch_owner": 7,
+          "valve_entry_scale": [
+            1.00499999523163,
+            1.00499999523163
+          ],
+          "valve_generation": 4,
+          "valve_last_contact": {
+            "distance": 0.981415033340454,
+            "frame": 1,
+            "generation": 2,
+            "jaw": "(231.9993, 349.7414)",
+            "phase_index": 2,
+            "scale": "(1.005, 1.005)",
+            "signed_radians": 0.027776,
+            "target": "(232.0, 348.76)",
+            "time_msec": 83625
+          },
+          "valve_pending_arcs": 0,
+          "valve_state": "",
+          "valve_work_position": [
+            189.797088623047,
+            258.466949462891
+          ],
+          "widget_fill": 0.0,
+          "widget_mover_path": "res://assets/opera/worlds/props/goal_astronaut.png",
+          "world_instance": 623760116860
+        },
+        "living_stage": "opera.act.11",
+        "main_instance": 120779179513,
+        "monotonic_msec": 90178,
+        "party_started": false,
+        "path": "tmp/astronaut_native_birthday_capture_v8_20261007/1280x720/frames/0113_phase3_input_held.png",
+        "pearls": 0,
+        "process_frame": 6623,
+        "rendered_frame": 6623,
+        "return_fade_alpha": 0.0,
+        "sha256": "09cf74ff75433010e68d28295b257e8d7208bb5b470e62b16badfee9edfc0adc",
+        "star_mask": 0,
+        "viewport_canvas_transform": [
+          [
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0
+          ],
+          [
+            0.0,
+            0.0
+          ]
+        ],
+        "viewport_instance": 120326194638
+      }
+    },
+    {
+      "path": "frames/1280/0127_phase3_completed.png",
+      "original_path": "tmp/astronaut_native_birthday_capture_v8_20261007/1280x720/frames/0127_phase3_completed.png",
+      "sha256": "0224e651cc71a50a7adfb0f866d281943f312e67358a6ff71586e741730c46f9",
+      "bytes": 1475282,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "pixel_modifications": "NONE; literal byte copy",
+      "role": "diagnostic_native_capture",
+      "provenance": "Godot root viewport readback; underlying source assets retain their ASSET_LICENSES authority; review-only and not a generator input",
+      "original_manifest": "evidence/NATIVE_BIRTHDAY_CAPTURE_V8_1280_MANIFEST.json",
+      "original_label": "phase3_completed",
+      "native_state": {
+        "bytes": 1475282,
+        "candle_lit": false,
+        "castle_room": "mermaid_pool",
+        "dimensions": [
+          1280,
+          720
+        ],
+        "label": "phase3_completed",
+        "live_state": {
+          "actor_atlas_region": [
+            0.0,
+            768.0,
+            256.0,
+            256.0
+          ],
+          "actor_atlas_source": "res://assets/opera/worlds/actors/animation/roshan_astronaut_sheet_a.png",
+          "actor_canvas_transform": [
+            [
+              0.988499999046326,
+              0.0
+            ],
+            [
+              0.0,
+              0.988499999046326
+            ],
+            [
+              782.728454589844,
+              232.343017578125
+            ]
+          ],
+          "actor_flip_h": false,
+          "actor_instance": 764839726101,
+          "actor_position": [
+            782.728454589844,
+            232.343017578125
+          ],
+          "actor_scale": [
+            0.988499999046326,
+            0.988499999046326
+          ],
+          "actor_size": [
+            250.000549316406,
+            250.00048828125
+          ],
+          "actor_z_index": 0,
+          "crank_rotation": 0.0,
+          "generic_player_tween_owned": true,
+          "held": true,
+          "long_push_journey": 1.0,
+          "panel_alpha": 1.0,
+          "patch_draw_route": "push:park_astronaut",
+          "patch_entry_scale": [
+            1.0,
+            1.0
+          ],
+          "patch_generation": 2,
+          "patch_last_contact": {},
+          "patch_queue": [],
+          "patch_repair_source": "",
+          "patch_state": "",
+          "patch_state_t": 0.0,
+          "patch_work_position": [
+            0.0,
+            0.0
+          ],
+          "phase_advance_pending": true,
+          "phase_index": 3,
+          "phase_name": "READY PARK",
+          "phase_progress": 5.0,
+          "pipe_entry_position": [
+            0.0,
+            0.0
+          ],
+          "pipe_grid": [],
+          "pipe_last_contact": {},
+          "pipe_request_id": -1,
+          "pipe_round": 0,
+          "pipe_travel_start": [
+            0.0,
+            0.0
+          ],
+          "pipe_work_cell": -1,
+          "pipe_work_flip": false,
+          "pipe_work_position": [
+            0.0,
+            0.0
+          ],
+          "pipe_work_state": "",
+          "pipe_work_state_t": 0.0,
+          "surface_alpha": 1.0,
+          "surface_canvas_transform": [
+            [
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0
+            ],
+            [
+              36.0,
+              256.400024414063
+            ]
+          ],
+          "surface_instance": 765678586810,
+          "surface_mode": "swipe",
+          "surface_self_alpha": 1.0,
+          "target_placed": [],
+          "task_open": true,
+          "touch_owner": 7,
+          "valve_entry_scale": [
+            1.0,
+            1.0
+          ],
+          "valve_generation": 2,
+          "valve_last_contact": {},
+          "valve_pending_arcs": 0,
+          "valve_state": "",
+          "valve_work_position": [
+            0.0,
+            0.0
+          ],
+          "widget_fill": 1.0,
+          "widget_mover_path": "res://assets/opera/worlds/props/goal_astronaut.png",
+          "world_instance": 761601723324
+        },
+        "living_stage": "opera.act.11",
+        "main_instance": 120779179513,
+        "monotonic_msec": 101287,
+        "party_started": false,
+        "path": "tmp/astronaut_native_birthday_capture_v8_20261007/1280x720/frames/0127_phase3_completed.png",
+        "pearls": 0,
+        "process_frame": 7542,
+        "rendered_frame": 7542,
+        "return_fade_alpha": 0.0,
+        "sha256": "0224e651cc71a50a7adfb0f866d281943f312e67358a6ff71586e741730c46f9",
+        "star_mask": 0,
+        "viewport_canvas_transform": [
+          [
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0
+          ],
+          [
+            0.0,
+            0.0
+          ]
+        ],
+        "viewport_instance": 120326194638
+      }
+    },
+    {
+      "path": "frames/1280/0128_room_return.png",
+      "original_path": "tmp/astronaut_native_birthday_capture_v8_20261007/1280x720/frames/0128_room_return.png",
+      "sha256": "ba3a1b91962be8ab77709dfee9218c67bf5ffa1ee445521b8ba61b6b1bce7508",
+      "bytes": 1336239,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "pixel_modifications": "NONE; literal byte copy",
+      "role": "diagnostic_native_capture",
+      "provenance": "Godot root viewport readback; underlying source assets retain their ASSET_LICENSES authority; review-only and not a generator input",
+      "original_manifest": "evidence/NATIVE_BIRTHDAY_CAPTURE_V8_1280_MANIFEST.json",
+      "original_label": "room_return",
+      "native_state": {
+        "bytes": 1336239,
+        "candle_lit": false,
+        "castle_room": "mermaid_pool",
+        "dimensions": [
+          1280,
+          720
+        ],
+        "label": "room_return",
+        "living_stage": "castle.room.mermaid_pool",
+        "main_instance": 120779179513,
+        "monotonic_msec": 107113,
+        "party_started": false,
+        "path": "tmp/astronaut_native_birthday_capture_v8_20261007/1280x720/frames/0128_room_return.png",
+        "pearls": 0,
+        "process_frame": 8291,
+        "rendered_frame": 8291,
+        "return_fade_alpha": 0.0,
+        "sha256": "ba3a1b91962be8ab77709dfee9218c67bf5ffa1ee445521b8ba61b6b1bce7508",
+        "star_mask": 0,
+        "viewport_canvas_transform": [
+          [
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0
+          ],
+          [
+            0.0,
+            0.0
+          ]
+        ],
+        "viewport_instance": 120326194638
+      }
+    },
+    {
+      "path": "frames/1600/0015_phase0_pipe_contact_b.png",
+      "original_path": "tmp/astronaut_native_birthday_capture_v8_20261007/1600x720/frames/0015_phase0_pipe_contact_b.png",
+      "sha256": "857b9c0d62b4795b6a045202bea18d1ed268060f494c92d9de9e3a0c0bbbdbb3",
+      "bytes": 1375705,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "pixel_modifications": "NONE; literal byte copy",
+      "role": "diagnostic_native_capture",
+      "provenance": "Godot root viewport readback; underlying source assets retain their ASSET_LICENSES authority; review-only and not a generator input",
+      "original_manifest": "evidence/NATIVE_BIRTHDAY_CAPTURE_V8_1600_MANIFEST.json",
+      "original_label": "phase0_pipe_contact_b",
+      "native_state": {
+        "bytes": 1375705,
+        "candle_lit": false,
+        "castle_room": "mermaid_pool",
+        "dimensions": [
+          1600,
+          720
+        ],
+        "label": "phase0_pipe_contact_b",
+        "live_state": {
+          "actor_atlas_region": [
+            256.0,
+            512.0,
+            256.0,
+            256.0
+          ],
+          "actor_atlas_source": "res://assets/opera/worlds/actors/animation/roshan_astronaut_sheet_a.png",
+          "actor_canvas_transform": [
+            [
+              0.990349888801575,
+              0.0
+            ],
+            [
+              0.0,
+              0.990349888801575
+            ],
+            [
+              942.4130859375,
+              241.023391723633
+            ]
+          ],
+          "actor_flip_h": false,
+          "actor_instance": 191176379414,
+          "actor_position": [
+            782.4130859375,
+            241.023391723633
+          ],
+          "actor_scale": [
+            0.990349888801575,
+            0.990349888801575
+          ],
+          "actor_size": [
+            250.0,
+            249.999649047852
+          ],
+          "actor_z_index": 1,
+          "crank_rotation": 0.0,
+          "generic_player_tween_owned": false,
+          "held": false,
+          "long_push_journey": 0.0,
+          "panel_alpha": 1.0,
+          "patch_draw_route": "",
+          "patch_entry_scale": [
+            1.0,
+            1.0
+          ],
+          "patch_generation": 2,
+          "patch_last_contact": {},
+          "patch_queue": [],
+          "patch_repair_source": "",
+          "patch_state": "",
+          "patch_state_t": 0.0,
+          "patch_work_position": [
+            0.0,
+            0.0
+          ],
+          "phase_advance_pending": false,
+          "phase_index": 0,
+          "phase_name": "BUILD ROCKET",
+          "phase_progress": 0.0,
+          "pipe_entry_position": [
+            218.717193603516,
+            249.234573364258
+          ],
+          "pipe_grid": [
+            "",
+            "",
+            "",
+            "",
+            "H",
+            "",
+            "",
+            "H",
+            "",
+            "",
+            "",
+            ""
+          ],
+          "pipe_last_contact": {},
+          "pipe_request_id": 3,
+          "pipe_round": 0,
+          "pipe_travel_start": [
+            218.717193603516,
+            249.234573364258
+          ],
+          "pipe_work_cell": 5,
+          "pipe_work_flip": false,
+          "pipe_work_position": [
+            782.4130859375,
+            241.023391723633
+          ],
+          "pipe_work_state": "contact_b",
+          "pipe_work_state_t": 0.0,
+          "surface_alpha": 1.0,
+          "surface_canvas_transform": [
+            [
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0
+            ],
+            [
+              692.0,
+              48.0
+            ]
+          ],
+          "surface_instance": 192015240312,
+          "surface_mode": "pipe",
+          "surface_self_alpha": 1.0,
+          "target_placed": [],
+          "task_open": true,
+          "touch_owner": -1,
+          "valve_entry_scale": [
+            1.0,
+            1.0
+          ],
+          "valve_generation": 2,
+          "valve_last_contact": {},
+          "valve_pending_arcs": 0,
+          "valve_state": "",
+          "valve_work_position": [
+            0.0,
+            0.0
+          ],
+          "widget_fill": 0.0,
+          "widget_mover_path": "",
+          "world_instance": 187938376756
+        },
+        "living_stage": "opera.act.11",
+        "main_instance": 120779179513,
+        "monotonic_msec": 16069,
+        "party_started": false,
+        "path": "tmp/astronaut_native_birthday_capture_v8_20261007/1600x720/frames/0015_phase0_pipe_contact_b.png",
+        "pearls": 0,
+        "process_frame": 399,
+        "rendered_frame": 399,
+        "return_fade_alpha": 0.0,
+        "sha256": "857b9c0d62b4795b6a045202bea18d1ed268060f494c92d9de9e3a0c0bbbdbb3",
+        "star_mask": 0,
+        "viewport_canvas_transform": [
+          [
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0
+          ],
+          [
+            0.0,
+            0.0
+          ]
+        ],
+        "viewport_instance": 120326194638
+      }
+    },
+    {
+      "path": "frames/1600/0046_phase1_patch_contact_b.png",
+      "original_path": "tmp/astronaut_native_birthday_capture_v8_20261007/1600x720/frames/0046_phase1_patch_contact_b.png",
+      "sha256": "8dc6da9b799a052893897d4d6c4e6013eaa30a0c288449a1459013f5c6d15341",
+      "bytes": 1493882,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "pixel_modifications": "NONE; literal byte copy",
+      "role": "diagnostic_native_capture",
+      "provenance": "Godot root viewport readback; underlying source assets retain their ASSET_LICENSES authority; review-only and not a generator input",
+      "original_manifest": "evidence/NATIVE_BIRTHDAY_CAPTURE_V8_1600_MANIFEST.json",
+      "original_label": "phase1_patch_contact_b",
+      "native_state": {
+        "bytes": 1493882,
+        "candle_lit": false,
+        "castle_room": "mermaid_pool",
+        "dimensions": [
+          1600,
+          720
+        ],
+        "label": "phase1_patch_contact_b",
+        "live_state": {
+          "actor_atlas_region": [
+            256.0,
+            512.0,
+            256.0,
+            256.0
+          ],
+          "actor_atlas_source": "res://assets/opera/worlds/actors/animation/roshan_astronaut_sheet_a.png",
+          "actor_canvas_transform": [
+            [
+              1.00499999523163,
+              0.0
+            ],
+            [
+              0.0,
+              1.00499999523163
+            ],
+            [
+              275.317749023438,
+              275.867095947266
+            ]
+          ],
+          "actor_flip_h": false,
+          "actor_instance": 405404650687,
+          "actor_position": [
+            115.317749023438,
+            275.867095947266
+          ],
+          "actor_scale": [
+            1.00499999523163,
+            1.00499999523163
+          ],
+          "actor_size": [
+            250.000762939453,
+            249.999847412109
+          ],
+          "actor_z_index": 1,
+          "crank_rotation": 0.0,
+          "generic_player_tween_owned": false,
+          "held": false,
+          "long_push_journey": 0.0,
+          "panel_alpha": 1.0,
+          "patch_draw_route": "target:patch_astronaut",
+          "patch_entry_scale": [
+            1.00499999523163,
+            1.00499999523163
+          ],
+          "patch_generation": 3,
+          "patch_last_contact": {},
+          "patch_queue": [
+            0
+          ],
+          "patch_repair_source": "res://assets/opera/worlds/widgets/widget_target_astronaut_piece_2.png",
+          "patch_state": "contact_b",
+          "patch_state_t": 0.0,
+          "patch_work_position": [
+            115.317749023438,
+            275.867095947266
+          ],
+          "phase_advance_pending": false,
+          "phase_index": 1,
+          "phase_name": "PATCH",
+          "phase_progress": 0.0,
+          "pipe_entry_position": [
+            0.0,
+            0.0
+          ],
+          "pipe_grid": [
+            "IMP",
+            "SE",
+            "H",
+            "NW",
+            "H",
+            "NW",
+            "IMP",
+            "",
+            "",
+            "",
+            "",
+            ""
+          ],
+          "pipe_last_contact": {},
+          "pipe_request_id": -1,
+          "pipe_round": 3,
+          "pipe_travel_start": [
+            0.0,
+            0.0
+          ],
+          "pipe_work_cell": -1,
+          "pipe_work_flip": false,
+          "pipe_work_position": [
+            0.0,
+            0.0
+          ],
+          "pipe_work_state": "",
+          "pipe_work_state_t": 0.0,
+          "surface_alpha": 1.0,
+          "surface_canvas_transform": [
+            [
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0
+            ],
+            [
+              196.0,
+              278.0
+            ]
+          ],
+          "surface_instance": 406243511421,
+          "surface_mode": "tap",
+          "surface_self_alpha": 1.0,
+          "target_placed": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "task_open": true,
+          "touch_owner": -1,
+          "valve_entry_scale": [
+            1.0,
+            1.0
+          ],
+          "valve_generation": 3,
+          "valve_last_contact": {},
+          "valve_pending_arcs": 0,
+          "valve_state": "",
+          "valve_work_position": [
+            0.0,
+            0.0
+          ],
+          "widget_fill": 0.0,
+          "widget_mover_path": "res://assets/opera/worlds/widgets/widget_target_astronaut_mover.png",
+          "world_instance": 402166648026
+        },
+        "living_stage": "opera.act.11",
+        "main_instance": 120779179513,
+        "monotonic_msec": 46349,
+        "party_started": false,
+        "path": "tmp/astronaut_native_birthday_capture_v8_20261007/1600x720/frames/0046_phase1_patch_contact_b.png",
+        "pearls": 0,
+        "process_frame": 3335,
+        "rendered_frame": 3335,
+        "return_fade_alpha": 0.0,
+        "sha256": "8dc6da9b799a052893897d4d6c4e6013eaa30a0c288449a1459013f5c6d15341",
+        "star_mask": 0,
+        "viewport_canvas_transform": [
+          [
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0
+          ],
+          [
+            0.0,
+            0.0
+          ]
+        ],
+        "viewport_instance": 120326194638
+      }
+    },
+    {
+      "path": "frames/1600/0066_phase1_input_held.png",
+      "original_path": "tmp/astronaut_native_birthday_capture_v8_20261007/1600x720/frames/0066_phase1_input_held.png",
+      "sha256": "fc9f352eaf5dac598c03c6369a91b4e2d85b8a35ba3b8228e04f13924533cd61",
+      "bytes": 1491777,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "pixel_modifications": "NONE; literal byte copy",
+      "role": "diagnostic_native_capture",
+      "provenance": "Godot root viewport readback; underlying source assets retain their ASSET_LICENSES authority; review-only and not a generator input",
+      "original_manifest": "evidence/NATIVE_BIRTHDAY_CAPTURE_V8_1600_MANIFEST.json",
+      "original_label": "phase1_input_held",
+      "native_state": {
+        "bytes": 1491777,
+        "candle_lit": false,
+        "castle_room": "mermaid_pool",
+        "dimensions": [
+          1600,
+          720
+        ],
+        "label": "phase1_input_held",
+        "live_state": {
+          "actor_atlas_region": [
+            0.0,
+            0.0,
+            256.0,
+            256.0
+          ],
+          "actor_atlas_source": "res://assets/opera/worlds/actors/animation/roshan_astronaut_sheet_a.png",
+          "actor_canvas_transform": [
+            [
+              1.00499999523163,
+              0.0
+            ],
+            [
+              0.0,
+              1.00499999523163
+            ],
+            [
+              629.049987792969,
+              262.573028564453
+            ]
+          ],
+          "actor_flip_h": false,
+          "actor_instance": 489139735712,
+          "actor_position": [
+            469.049987792969,
+            262.573028564453
+          ],
+          "actor_scale": [
+            1.00499999523163,
+            1.00499999523163
+          ],
+          "actor_size": [
+            250.000549316406,
+            249.999969482422
+          ],
+          "actor_z_index": 0,
+          "crank_rotation": 0.0,
+          "generic_player_tween_owned": true,
+          "held": true,
+          "long_push_journey": 0.0,
+          "panel_alpha": 1.0,
+          "patch_draw_route": "target:patch_astronaut",
+          "patch_entry_scale": [
+            1.0,
+            1.0
+          ],
+          "patch_generation": 2,
+          "patch_last_contact": {},
+          "patch_queue": [],
+          "patch_repair_source": "res://assets/opera/worlds/widgets/widget_target_astronaut_piece_2.png",
+          "patch_state": "",
+          "patch_state_t": 0.0,
+          "patch_work_position": [
+            0.0,
+            0.0
+          ],
+          "phase_advance_pending": false,
+          "phase_index": 1,
+          "phase_name": "PATCH",
+          "phase_progress": 2.0,
+          "pipe_entry_position": [
+            0.0,
+            0.0
+          ],
+          "pipe_grid": [],
+          "pipe_last_contact": {},
+          "pipe_request_id": -1,
+          "pipe_round": 0,
+          "pipe_travel_start": [
+            0.0,
+            0.0
+          ],
+          "pipe_work_cell": -1,
+          "pipe_work_flip": false,
+          "pipe_work_position": [
+            0.0,
+            0.0
+          ],
+          "pipe_work_state": "",
+          "pipe_work_state_t": 0.0,
+          "surface_alpha": 1.0,
+          "surface_canvas_transform": [
+            [
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0
+            ],
+            [
+              196.0,
+              278.0
+            ]
+          ],
+          "surface_instance": 489978596501,
+          "surface_mode": "tap",
+          "surface_self_alpha": 1.0,
+          "target_placed": [
+            true,
+            true,
+            false,
+            false,
+            false
+          ],
+          "task_open": true,
+          "touch_owner": 7,
+          "valve_entry_scale": [
+            1.0,
+            1.0
+          ],
+          "valve_generation": 2,
+          "valve_last_contact": {},
+          "valve_pending_arcs": 0,
+          "valve_state": "",
+          "valve_work_position": [
+            0.0,
+            0.0
+          ],
+          "widget_fill": 0.4,
+          "widget_mover_path": "res://assets/opera/worlds/widgets/widget_target_astronaut_mover.png",
+          "world_instance": 485901732931
+        },
+        "living_stage": "opera.act.11",
+        "main_instance": 120779179513,
+        "monotonic_msec": 56984,
+        "party_started": false,
+        "path": "tmp/astronaut_native_birthday_capture_v8_20261007/1600x720/frames/0066_phase1_input_held.png",
+        "pearls": 0,
+        "process_frame": 3960,
+        "rendered_frame": 3960,
+        "return_fade_alpha": 0.0,
+        "sha256": "fc9f352eaf5dac598c03c6369a91b4e2d85b8a35ba3b8228e04f13924533cd61",
+        "star_mask": 0,
+        "viewport_canvas_transform": [
+          [
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0
+          ],
+          [
+            0.0,
+            0.0
+          ]
+        ],
+        "viewport_instance": 120326194638
+      }
+    },
+    {
+      "path": "frames/1600/0067_phase1_completed.png",
+      "original_path": "tmp/astronaut_native_birthday_capture_v8_20261007/1600x720/frames/0067_phase1_completed.png",
+      "sha256": "1d67fd0497952fb9017bf45a94629afff5bb7025bcb141c4147cc87144e34c06",
+      "bytes": 1496431,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "pixel_modifications": "NONE; literal byte copy",
+      "role": "diagnostic_native_capture",
+      "provenance": "Godot root viewport readback; underlying source assets retain their ASSET_LICENSES authority; review-only and not a generator input",
+      "original_manifest": "evidence/NATIVE_BIRTHDAY_CAPTURE_V8_1600_MANIFEST.json",
+      "original_label": "phase1_completed",
+      "native_state": {
+        "bytes": 1496431,
+        "candle_lit": false,
+        "castle_room": "mermaid_pool",
+        "dimensions": [
+          1600,
+          720
+        ],
+        "label": "phase1_completed",
+        "live_state": {
+          "actor_atlas_region": [
+            0.0,
+            0.0,
+            256.0,
+            256.0
+          ],
+          "actor_atlas_source": "res://assets/opera/worlds/actors/animation/roshan_astronaut_sheet_a.png",
+          "actor_canvas_transform": [
+            [
+              1.00499999523163,
+              0.0
+            ],
+            [
+              0.0,
+              1.00499999523163
+            ],
+            [
+              629.049987792969,
+              264.75
+            ]
+          ],
+          "actor_flip_h": false,
+          "actor_instance": 489139735712,
+          "actor_position": [
+            469.049987792969,
+            264.75
+          ],
+          "actor_scale": [
+            1.00499999523163,
+            1.00499999523163
+          ],
+          "actor_size": [
+            250.000366210938,
+            250.0
+          ],
+          "actor_z_index": 0,
+          "crank_rotation": 0.0,
+          "generic_player_tween_owned": false,
+          "held": false,
+          "long_push_journey": 0.0,
+          "panel_alpha": 1.0,
+          "patch_draw_route": "target:patch_astronaut",
+          "patch_entry_scale": [
+            1.00499999523163,
+            1.00499999523163
+          ],
+          "patch_generation": 2,
+          "patch_last_contact": {
+            "atlas_region": "[P: (256.0, 512.0), S: (256.0, 256.0)]",
+            "distance": 0.981475830078125,
+            "generation": 2,
+            "jaw": "(450.8, 436.7415)",
+            "phase_index": 1,
+            "scale": "(1.005, 1.005)",
+            "target": "(450.8, 435.76)",
+            "target_index": 4,
+            "time_msec": 60637
+          },
+          "patch_queue": [],
+          "patch_repair_source": "res://assets/opera/worlds/widgets/widget_target_astronaut_piece_2.png",
+          "patch_state": "",
+          "patch_state_t": 0.0,
+          "patch_work_position": [
+            248.597778320313,
+            345.467071533203
+          ],
+          "phase_advance_pending": true,
+          "phase_index": 1,
+          "phase_name": "PATCH",
+          "phase_progress": 5.0,
+          "pipe_entry_position": [
+            0.0,
+            0.0
+          ],
+          "pipe_grid": [],
+          "pipe_last_contact": {},
+          "pipe_request_id": -1,
+          "pipe_round": 0,
+          "pipe_travel_start": [
+            0.0,
+            0.0
+          ],
+          "pipe_work_cell": -1,
+          "pipe_work_flip": false,
+          "pipe_work_position": [
+            0.0,
+            0.0
+          ],
+          "pipe_work_state": "",
+          "pipe_work_state_t": 0.0,
+          "surface_alpha": 1.0,
+          "surface_canvas_transform": [
+            [
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0
+            ],
+            [
+              196.0,
+              278.0
+            ]
+          ],
+          "surface_instance": 489978596501,
+          "surface_mode": "tap",
+          "surface_self_alpha": 1.0,
+          "target_placed": [
+            true,
+            true,
+            true,
+            true,
+            true
+          ],
+          "task_open": true,
+          "touch_owner": -1,
+          "valve_entry_scale": [
+            1.0,
+            1.0
+          ],
+          "valve_generation": 2,
+          "valve_last_contact": {},
+          "valve_pending_arcs": 0,
+          "valve_state": "",
+          "valve_work_position": [
+            0.0,
+            0.0
+          ],
+          "widget_fill": 1.0,
+          "widget_mover_path": "res://assets/opera/worlds/widgets/widget_target_astronaut_mover.png",
+          "world_instance": 485901732931
+        },
+        "living_stage": "opera.act.11",
+        "main_instance": 120779179513,
+        "monotonic_msec": 61423,
+        "party_started": false,
+        "path": "tmp/astronaut_native_birthday_capture_v8_20261007/1600x720/frames/0067_phase1_completed.png",
+        "pearls": 0,
+        "process_frame": 4549,
+        "rendered_frame": 4549,
+        "return_fade_alpha": 0.0,
+        "sha256": "1d67fd0497952fb9017bf45a94629afff5bb7025bcb141c4147cc87144e34c06",
+        "star_mask": 0,
+        "viewport_canvas_transform": [
+          [
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0
+          ],
+          [
+            0.0,
+            0.0
+          ]
+        ],
+        "viewport_instance": 120326194638
+      }
+    },
+    {
+      "path": "frames/1600/0073_phase2_valve_contact.png",
+      "original_path": "tmp/astronaut_native_birthday_capture_v8_20261007/1600x720/frames/0073_phase2_valve_contact.png",
+      "sha256": "2c469331699f792ad151ee274d7eb72eb98366a56e77dda5b3bb66f6deb7aa4f",
+      "bytes": 1487288,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "pixel_modifications": "NONE; literal byte copy",
+      "role": "diagnostic_native_capture",
+      "provenance": "Godot root viewport readback; underlying source assets retain their ASSET_LICENSES authority; review-only and not a generator input",
+      "original_manifest": "evidence/NATIVE_BIRTHDAY_CAPTURE_V8_1600_MANIFEST.json",
+      "original_label": "phase2_valve_contact",
+      "native_state": {
+        "bytes": 1487288,
+        "candle_lit": false,
+        "castle_room": "mermaid_pool",
+        "dimensions": [
+          1600,
+          720
+        ],
+        "label": "phase2_valve_contact",
+        "live_state": {
+          "actor_atlas_region": [
+            0.0,
+            512.0,
+            256.0,
+            256.0
+          ],
+          "actor_atlas_source": "res://assets/opera/worlds/actors/animation/roshan_astronaut_sheet_a.png",
+          "actor_canvas_transform": [
+            [
+              1.00499999523163,
+              0.0
+            ],
+            [
+              0.0,
+              1.00499999523163
+            ],
+            [
+              349.797790527344,
+              258.467041015625
+            ]
+          ],
+          "actor_flip_h": false,
+          "actor_instance": 489139735712,
+          "actor_position": [
+            189.797790527344,
+            258.467041015625
+          ],
+          "actor_scale": [
+            1.00499999523163,
+            1.00499999523163
+          ],
+          "actor_size": [
+            250.000366210938,
+            250.000091552734
+          ],
+          "actor_z_index": 1,
+          "crank_rotation": 0.0,
+          "generic_player_tween_owned": false,
+          "held": false,
+          "long_push_journey": 0.0,
+          "panel_alpha": 1.0,
+          "patch_draw_route": "crank:crank_astronaut",
+          "patch_entry_scale": [
+            1.00499999523163,
+            1.00499999523163
+          ],
+          "patch_generation": 4,
+          "patch_last_contact": {
+            "atlas_region": "[P: (256.0, 512.0), S: (256.0, 256.0)]",
+            "distance": 0.981475830078125,
+            "generation": 2,
+            "jaw": "(450.8, 436.7415)",
+            "phase_index": 1,
+            "scale": "(1.005, 1.005)",
+            "target": "(450.8, 435.76)",
+            "target_index": 4,
+            "time_msec": 60637
+          },
+          "patch_queue": [],
+          "patch_repair_source": "",
+          "patch_state": "",
+          "patch_state_t": 0.0,
+          "patch_work_position": [
+            248.597778320313,
+            345.467071533203
+          ],
+          "phase_advance_pending": false,
+          "phase_index": 2,
+          "phase_name": "VALVE",
+          "phase_progress": 0.0,
+          "pipe_entry_position": [
+            0.0,
+            0.0
+          ],
+          "pipe_grid": [],
+          "pipe_last_contact": {},
+          "pipe_request_id": -1,
+          "pipe_round": 0,
+          "pipe_travel_start": [
+            0.0,
+            0.0
+          ],
+          "pipe_work_cell": -1,
+          "pipe_work_flip": false,
+          "pipe_work_position": [
+            0.0,
+            0.0
+          ],
+          "pipe_work_state": "",
+          "pipe_work_state_t": 0.0,
+          "surface_alpha": 1.0,
+          "surface_canvas_transform": [
+            [
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0
+            ],
+            [
+              196.0,
+              278.0
+            ]
+          ],
+          "surface_instance": 489978596501,
+          "surface_mode": "circle",
+          "surface_self_alpha": 1.0,
+          "target_placed": [],
+          "task_open": true,
+          "touch_owner": -1,
+          "valve_entry_scale": [
+            1.00499999523163,
+            1.00499999523163
+          ],
+          "valve_generation": 4,
+          "valve_last_contact": {},
+          "valve_pending_arcs": 0,
+          "valve_state": "contact",
+          "valve_work_position": [
+            189.797790527344,
+            258.467041015625
+          ],
+          "widget_fill": 0.0,
+          "widget_mover_path": "res://assets/opera/worlds/widgets/widget_crank_astronaut_mover.png",
+          "world_instance": 485901732931
+        },
+        "living_stage": "opera.act.11",
+        "main_instance": 120779179513,
+        "monotonic_msec": 66766,
+        "party_started": false,
+        "path": "tmp/astronaut_native_birthday_capture_v8_20261007/1600x720/frames/0073_phase2_valve_contact.png",
+        "pearls": 0,
+        "process_frame": 5061,
+        "rendered_frame": 5061,
+        "return_fade_alpha": 0.0,
+        "sha256": "2c469331699f792ad151ee274d7eb72eb98366a56e77dda5b3bb66f6deb7aa4f",
+        "star_mask": 0,
+        "viewport_canvas_transform": [
+          [
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0
+          ],
+          [
+            0.0,
+            0.0
+          ]
+        ],
+        "viewport_instance": 120326194638
+      }
+    },
+    {
+      "path": "frames/1600/0105_phase2_valve_turn.png",
+      "original_path": "tmp/astronaut_native_birthday_capture_v8_20261007/1600x720/frames/0105_phase2_valve_turn.png",
+      "sha256": "80fadeeadd9d1a82656b8ac42735264265dfe51d68ef134aebebceb9183afa54",
+      "bytes": 1488571,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "pixel_modifications": "NONE; literal byte copy",
+      "role": "diagnostic_native_capture",
+      "provenance": "Godot root viewport readback; underlying source assets retain their ASSET_LICENSES authority; review-only and not a generator input",
+      "original_manifest": "evidence/NATIVE_BIRTHDAY_CAPTURE_V8_1600_MANIFEST.json",
+      "original_label": "phase2_valve_turn",
+      "native_state": {
+        "bytes": 1488571,
+        "candle_lit": false,
+        "castle_room": "mermaid_pool",
+        "dimensions": [
+          1600,
+          720
+        ],
+        "label": "phase2_valve_turn",
+        "live_state": {
+          "actor_atlas_region": [
+            256.0,
+            512.0,
+            256.0,
+            256.0
+          ],
+          "actor_atlas_source": "res://assets/opera/worlds/actors/animation/roshan_astronaut_sheet_a.png",
+          "actor_canvas_transform": [
+            [
+              1.00499999523163,
+              0.0
+            ],
+            [
+              0.0,
+              1.00499999523163
+            ],
+            [
+              349.797729492188,
+              258.466979980469
+            ]
+          ],
+          "actor_flip_h": false,
+          "actor_instance": 625907600474,
+          "actor_position": [
+            189.797729492188,
+            258.466979980469
+          ],
+          "actor_scale": [
+            1.00499999523163,
+            1.00499999523163
+          ],
+          "actor_size": [
+            250.000732421875,
+            250.000274658203
+          ],
+          "actor_z_index": 1,
+          "crank_rotation": 4.90995021442332,
+          "generic_player_tween_owned": false,
+          "held": true,
+          "long_push_journey": 0.0,
+          "panel_alpha": 1.0,
+          "patch_draw_route": "crank:crank_astronaut",
+          "patch_entry_scale": [
+            1.0,
+            1.0
+          ],
+          "patch_generation": 2,
+          "patch_last_contact": {},
+          "patch_queue": [],
+          "patch_repair_source": "",
+          "patch_state": "",
+          "patch_state_t": 0.0,
+          "patch_work_position": [
+            0.0,
+            0.0
+          ],
+          "phase_advance_pending": false,
+          "phase_index": 2,
+          "phase_name": "VALVE",
+          "phase_progress": 0.781442846960582,
+          "pipe_entry_position": [
+            0.0,
+            0.0
+          ],
+          "pipe_grid": [],
+          "pipe_last_contact": {},
+          "pipe_request_id": -1,
+          "pipe_round": 0,
+          "pipe_travel_start": [
+            0.0,
+            0.0
+          ],
+          "pipe_work_cell": -1,
+          "pipe_work_flip": false,
+          "pipe_work_position": [
+            0.0,
+            0.0
+          ],
+          "pipe_work_state": "",
+          "pipe_work_state_t": 0.0,
+          "surface_alpha": 1.0,
+          "surface_canvas_transform": [
+            [
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0
+            ],
+            [
+              196.0,
+              278.0
+            ]
+          ],
+          "surface_instance": 626746461267,
+          "surface_mode": "circle",
+          "surface_self_alpha": 1.0,
+          "target_placed": [],
+          "task_open": true,
+          "touch_owner": 7,
+          "valve_entry_scale": [
+            1.00499999523163,
+            1.00499999523163
+          ],
+          "valve_generation": 2,
+          "valve_last_contact": {
+            "distance": 0.981475830078125,
+            "frame": 1,
+            "generation": 2,
+            "jaw": "(392.0, 349.7415)",
+            "phase_index": 2,
+            "scale": "(1.005, 1.005)",
+            "signed_radians": 0.0230280000000011,
+            "target": "(392.0, 348.76)",
+            "time_msec": 81022
+          },
+          "valve_pending_arcs": 1,
+          "valve_state": "contact",
+          "valve_work_position": [
+            189.797729492188,
+            258.466979980469
+          ],
+          "widget_fill": 0.434134914978101,
+          "widget_mover_path": "res://assets/opera/worlds/widgets/widget_crank_astronaut_mover.png",
+          "world_instance": 622669597816
+        },
+        "living_stage": "opera.act.11",
+        "main_instance": 120779179513,
+        "monotonic_msec": 81315,
+        "party_started": false,
+        "path": "tmp/astronaut_native_birthday_capture_v8_20261007/1600x720/frames/0105_phase2_valve_turn.png",
+        "pearls": 0,
+        "process_frame": 5781,
+        "rendered_frame": 5781,
+        "return_fade_alpha": 0.0,
+        "sha256": "80fadeeadd9d1a82656b8ac42735264265dfe51d68ef134aebebceb9183afa54",
+        "star_mask": 0,
+        "viewport_canvas_transform": [
+          [
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0
+          ],
+          [
+            0.0,
+            0.0
+          ]
+        ],
+        "viewport_instance": 120326194638
+      }
+    },
+    {
+      "path": "frames/1600/0113_phase3_input_held.png",
+      "original_path": "tmp/astronaut_native_birthday_capture_v8_20261007/1600x720/frames/0113_phase3_input_held.png",
+      "sha256": "3429abf9fcee1aadb2225de849226814cd6d81e4885fb17273651e81c9958411",
+      "bytes": 1509168,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "pixel_modifications": "NONE; literal byte copy",
+      "role": "diagnostic_native_capture",
+      "provenance": "Godot root viewport readback; underlying source assets retain their ASSET_LICENSES authority; review-only and not a generator input",
+      "original_manifest": "evidence/NATIVE_BIRTHDAY_CAPTURE_V8_1600_MANIFEST.json",
+      "original_label": "phase3_input_held",
+      "native_state": {
+        "bytes": 1509168,
+        "candle_lit": false,
+        "castle_room": "mermaid_pool",
+        "dimensions": [
+          1600,
+          720
+        ],
+        "label": "phase3_input_held",
+        "live_state": {
+          "actor_atlas_region": [
+            0.0,
+            512.0,
+            256.0,
+            256.0
+          ],
+          "actor_atlas_source": "res://assets/opera/worlds/actors/animation/roshan_astronaut_sheet_a.png",
+          "actor_canvas_transform": [
+            [
+              0.988499999046326,
+              0.0
+            ],
+            [
+              0.0,
+              0.988499999046326
+            ],
+            [
+              942.728393554688,
+              247.274978637695
+            ]
+          ],
+          "actor_flip_h": false,
+          "actor_instance": 625907600474,
+          "actor_position": [
+            782.728393554688,
+            247.274978637695
+          ],
+          "actor_scale": [
+            0.988499999046326,
+            0.988499999046326
+          ],
+          "actor_size": [
+            250.000610351563,
+            250.000045776367
+          ],
+          "actor_z_index": 0,
+          "crank_rotation": 0.0,
+          "generic_player_tween_owned": false,
+          "held": true,
+          "long_push_journey": 0.0,
+          "panel_alpha": 1.0,
+          "patch_draw_route": "push:park_astronaut",
+          "patch_entry_scale": [
+            1.0,
+            1.0
+          ],
+          "patch_generation": 4,
+          "patch_last_contact": {},
+          "patch_queue": [],
+          "patch_repair_source": "",
+          "patch_state": "",
+          "patch_state_t": 0.0,
+          "patch_work_position": [
+            0.0,
+            0.0
+          ],
+          "phase_advance_pending": false,
+          "phase_index": 3,
+          "phase_name": "READY PARK",
+          "phase_progress": 0.0,
+          "pipe_entry_position": [
+            0.0,
+            0.0
+          ],
+          "pipe_grid": [],
+          "pipe_last_contact": {},
+          "pipe_request_id": -1,
+          "pipe_round": 0,
+          "pipe_travel_start": [
+            0.0,
+            0.0
+          ],
+          "pipe_work_cell": -1,
+          "pipe_work_flip": false,
+          "pipe_work_position": [
+            0.0,
+            0.0
+          ],
+          "pipe_work_state": "",
+          "pipe_work_state_t": 0.0,
+          "surface_alpha": 1.0,
+          "surface_canvas_transform": [
+            [
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0
+            ],
+            [
+              196.0,
+              256.400024414063
+            ]
+          ],
+          "surface_instance": 626746461267,
+          "surface_mode": "swipe",
+          "surface_self_alpha": 1.0,
+          "target_placed": [],
+          "task_open": true,
+          "touch_owner": 7,
+          "valve_entry_scale": [
+            1.00499999523163,
+            1.00499999523163
+          ],
+          "valve_generation": 4,
+          "valve_last_contact": {
+            "distance": 0.981475830078125,
+            "frame": 1,
+            "generation": 2,
+            "jaw": "(392.0, 349.7415)",
+            "phase_index": 2,
+            "scale": "(1.005, 1.005)",
+            "signed_radians": 0.031868,
+            "target": "(392.0, 348.76)",
+            "time_msec": 83062
+          },
+          "valve_pending_arcs": 0,
+          "valve_state": "",
+          "valve_work_position": [
+            189.797729492188,
+            258.466979980469
+          ],
+          "widget_fill": 0.0,
+          "widget_mover_path": "res://assets/opera/worlds/props/goal_astronaut.png",
+          "world_instance": 622669597816
+        },
+        "living_stage": "opera.act.11",
+        "main_instance": 120779179513,
+        "monotonic_msec": 89643,
+        "party_started": false,
+        "path": "tmp/astronaut_native_birthday_capture_v8_20261007/1600x720/frames/0113_phase3_input_held.png",
+        "pearls": 0,
+        "process_frame": 6625,
+        "rendered_frame": 6625,
+        "return_fade_alpha": 0.0,
+        "sha256": "3429abf9fcee1aadb2225de849226814cd6d81e4885fb17273651e81c9958411",
+        "star_mask": 0,
+        "viewport_canvas_transform": [
+          [
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0
+          ],
+          [
+            0.0,
+            0.0
+          ]
+        ],
+        "viewport_instance": 120326194638
+      }
+    },
+    {
+      "path": "frames/1600/0128_room_return.png",
+      "original_path": "tmp/astronaut_native_birthday_capture_v8_20261007/1600x720/frames/0128_room_return.png",
+      "sha256": "bdd5061985df45e3d7327b758372200b1cf67134596011ff1922479fabc59c83",
+      "bytes": 1387622,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "pixel_modifications": "NONE; literal byte copy",
+      "role": "diagnostic_native_capture",
+      "provenance": "Godot root viewport readback; underlying source assets retain their ASSET_LICENSES authority; review-only and not a generator input",
+      "original_manifest": "evidence/NATIVE_BIRTHDAY_CAPTURE_V8_1600_MANIFEST.json",
+      "original_label": "room_return",
+      "native_state": {
+        "bytes": 1387622,
+        "candle_lit": false,
+        "castle_room": "mermaid_pool",
+        "dimensions": [
+          1600,
+          720
+        ],
+        "label": "room_return",
+        "living_stage": "castle.room.mermaid_pool",
+        "main_instance": 120779179513,
+        "monotonic_msec": 106151,
+        "party_started": false,
+        "path": "tmp/astronaut_native_birthday_capture_v8_20261007/1600x720/frames/0128_room_return.png",
+        "pearls": 0,
+        "process_frame": 8285,
+        "rendered_frame": 8285,
+        "return_fade_alpha": 0.0,
+        "sha256": "bdd5061985df45e3d7327b758372200b1cf67134596011ff1922479fabc59c83",
+        "star_mask": 0,
+        "viewport_canvas_transform": [
+          [
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0
+          ],
+          [
+            0.0,
+            0.0
+          ]
+        ],
+        "viewport_instance": 120326194638
+      }
+    }
+  ],
+  "files": [
+    {
+      "path": ".gdignore",
+      "bytes": 66,
+      "sha256": "bad0444df629ffd68a679be911ec5a1d6c8318d0639b30ab13e58d27b3123e6d"
+    },
+    {
+      "path": "build_walkthrough.py",
+      "bytes": 31270,
+      "sha256": "1a0b3a296d7f6fc92f296a6906a92dcda0e59990d846acf6132422068cfeda52"
+    },
+    {
+      "path": "DOCUMENT_GATE_RECOVERY_PLAN_V2.json",
+      "bytes": 1109,
+      "sha256": "59b348e0f1df2cb46aaad9a9f5f2148d38f6b6485f07c062ce43bdf1261d79ec"
+    },
+    {
+      "path": "DOCUMENT_GATE_RECOVERY_PLAN_V3.json",
+      "bytes": 1431,
+      "sha256": "6f26b4d48950e1db2af5ef032879599f28a16c2fee23ae814b95d868b2c8d36b"
+    },
+    {
+      "path": "evidence/NATIVE_BIRTHDAY_CAPTURE_V8_1280_MANIFEST.json",
+      "bytes": 1181464,
+      "sha256": "7b81d0308c8868233d1b4c10db8cb9dfd53b3a67eac70a2ebf1447031d92bf71"
+    },
+    {
+      "path": "evidence/NATIVE_BIRTHDAY_CAPTURE_V8_1600_MANIFEST.json",
+      "bytes": 1185645,
+      "sha256": "691f949f5c22657a92ad48583a0105ec6180dedb994ddd96440443a751a26c02"
+    },
+    {
+      "path": "evidence/PATCH_READABILITY_NATIVE_RECOVERY_V1_RECEIPT.json",
+      "bytes": 1461010,
+      "sha256": "4ed1c934fe62ecb1141d326a07b7478056e2c977fb689871357ba180704ad73a"
+    },
+    {
+      "path": "evidence/PATCH_READABILITY_NATIVE_V1_PREFLIGHT.json",
+      "bytes": 1098628,
+      "sha256": "a500ec04f7ea3385109507f6b63ad6573f7d8f750a0ab042d6f6016054e44f61"
+    },
+    {
+      "path": "evidence/PATCH_READABILITY_NATIVE_V1_RECEIPT.json",
+      "bytes": 1998,
+      "sha256": "94b8fefcc36a4c28220fcd1054a15bf9f85a8618068b69802764100c6d810cb0"
+    },
+    {
+      "path": "frames/1280/0000_start_menu_before_continue.png",
+      "bytes": 1441565,
+      "sha256": "7e0de09968f36372e1e66dcc9bdb3ef33d89a1825d2772764683b136417ab910"
+    },
+    {
+      "path": "frames/1280/0001_phase0_open.png",
+      "bytes": 1354910,
+      "sha256": "da9f8d1143e8d4343f0d3451e254affa5e383d3469669b8b0f3b19585115c646"
+    },
+    {
+      "path": "frames/1280/0005_phase0_input_held.png",
+      "bytes": 1351748,
+      "sha256": "dcd2ad860676dbe161e8a374012ece780fae491edc955c198cf69862fdad8aa3"
+    },
+    {
+      "path": "frames/1280/0007_phase0_pipe_approach.png",
+      "bytes": 1337533,
+      "sha256": "3755ca92c0512d9a94998db335fbb776761a0db8e030021ba2f7785330b004f7"
+    },
+    {
+      "path": "frames/1280/0013_phase0_pipe_contact_a.png",
+      "bytes": 1346325,
+      "sha256": "a212283234733467ad683c9c1d2fc7da49147b6d76b8dfe5180803c836cf79d2"
+    },
+    {
+      "path": "frames/1280/0015_phase0_pipe_contact_b.png",
+      "bytes": 1349733,
+      "sha256": "548ad4cbf1eafef6dcfd7043f24a9aec8676c45e99e3b099cf0e1345e4d4cf58"
+    },
+    {
+      "path": "frames/1280/0017_phase0_pipe_release.png",
+      "bytes": 1352375,
+      "sha256": "9c23a9050843b3be73946bc1a17fed45ae7c9541d40e23be322721216a8c7242"
+    },
+    {
+      "path": "frames/1280/0027_phase0_action_018.png",
+      "bytes": 1351473,
+      "sha256": "010afd609fef901191d2a9a0801f95cafeb4302f254af525ea0f8e8fcd732491"
+    },
+    {
+      "path": "frames/1280/0033_phase0_completed.png",
+      "bytes": 1297304,
+      "sha256": "f590cb4f191c71b6e51b8015b7a053a02e5b48e77c20042ddd2fb66dd4c0f046"
+    },
+    {
+      "path": "frames/1280/0034_phase1_open.png",
+      "bytes": 1471826,
+      "sha256": "f8ef25138b91e879cbdd6de1813efc01d9fd35364464f675029dde353db0ee62"
+    },
+    {
+      "path": "frames/1280/0039_phase1_patch_approach.png",
+      "bytes": 1468901,
+      "sha256": "b5fe1d84725b2edf0c8d7502ff93f6d22d5a19158c64b255ea117332b0852d86"
+    },
+    {
+      "path": "frames/1280/0044_phase1_patch_contact_a.png",
+      "bytes": 1465754,
+      "sha256": "b849d34f5147831bc73bd99801fc7d6ad4988b1b8268d6dab0df80a6bc697be9"
+    },
+    {
+      "path": "frames/1280/0046_phase1_patch_contact_b.png",
+      "bytes": 1466827,
+      "sha256": "a1746c84e5bba5af10ae823b28ca0a55cc0c7ff2cf74b4b8a85e5bbb48aa584c"
+    },
+    {
+      "path": "frames/1280/0048_phase1_patch_release.png",
+      "bytes": 1469129,
+      "sha256": "4ed10625a226024bc29dd2af43b5d40cdc9058ad9c3800b08db85e69445d4521"
+    },
+    {
+      "path": "frames/1280/0063_phase1_action_021.png",
+      "bytes": 1467041,
+      "sha256": "40cec24be565d0a668a7a3c7af1729d58de44489e2f27658f20e46b01e78e853"
+    },
+    {
+      "path": "frames/1280/0066_phase1_input_held.png",
+      "bytes": 1465079,
+      "sha256": "ab547e5154e14b1845427acc4ee55dc76682f2d516fbc9fa9b06b6600d5fc87a"
+    },
+    {
+      "path": "frames/1280/0067_phase1_completed.png",
+      "bytes": 1469435,
+      "sha256": "127a03bab7cfdda21704efa83ec8d4e4fcaf9aa92b101d114868028747099942"
+    },
+    {
+      "path": "frames/1280/0068_phase2_open.png",
+      "bytes": 1460661,
+      "sha256": "83443902ce34ad4dd69a456bb3da389bfb113b97625282d938416de33d928c47"
+    },
+    {
+      "path": "frames/1280/0073_phase2_valve_contact.png",
+      "bytes": 1460460,
+      "sha256": "01047d17783ceb8a473461960c26c45f8282900fdff6627b92bbbb0c271002be"
+    },
+    {
+      "path": "frames/1280/0105_phase2_valve_turn.png",
+      "bytes": 1461582,
+      "sha256": "0a7ac934f65b3441590821417f4003529b7dbb266ec2818115e9e31b0eb40761"
+    },
+    {
+      "path": "frames/1280/0106_phase2_valve_release.png",
+      "bytes": 1462286,
+      "sha256": "3e5d32deec519b2f73a610371bc3fde729edd3094abcc37d9f9cf156dad49144"
+    },
+    {
+      "path": "frames/1280/0107_phase2_valve_return.png",
+      "bytes": 1457800,
+      "sha256": "8a09311737a927e39e8f8888507891d7af9d9b6c26173e5844b7fd94f1b17787"
+    },
+    {
+      "path": "frames/1280/0108_phase2_completed.png",
+      "bytes": 1455324,
+      "sha256": "c6decc7b2c55c0cdb3e455e62029c57cc36113d83c5e853d3b4a30b39b2b7992"
+    },
+    {
+      "path": "frames/1280/0109_phase3_open.png",
+      "bytes": 1476965,
+      "sha256": "e93fdfa2b83674b2bca06d71a205edf04731fa40916903e04f8e0b57c2a261e2"
+    },
+    {
+      "path": "frames/1280/0113_phase3_input_held.png",
+      "bytes": 1482654,
+      "sha256": "09cf74ff75433010e68d28295b257e8d7208bb5b470e62b16badfee9edfc0adc"
+    },
+    {
+      "path": "frames/1280/0127_phase3_completed.png",
+      "bytes": 1475282,
+      "sha256": "0224e651cc71a50a7adfb0f866d281943f312e67358a6ff71586e741730c46f9"
+    },
+    {
+      "path": "frames/1280/0128_room_return.png",
+      "bytes": 1336239,
+      "sha256": "ba3a1b91962be8ab77709dfee9218c67bf5ffa1ee445521b8ba61b6b1bce7508"
+    },
+    {
+      "path": "frames/1600/0015_phase0_pipe_contact_b.png",
+      "bytes": 1375705,
+      "sha256": "857b9c0d62b4795b6a045202bea18d1ed268060f494c92d9de9e3a0c0bbbdbb3"
+    },
+    {
+      "path": "frames/1600/0046_phase1_patch_contact_b.png",
+      "bytes": 1493882,
+      "sha256": "8dc6da9b799a052893897d4d6c4e6013eaa30a0c288449a1459013f5c6d15341"
+    },
+    {
+      "path": "frames/1600/0066_phase1_input_held.png",
+      "bytes": 1491777,
+      "sha256": "fc9f352eaf5dac598c03c6369a91b4e2d85b8a35ba3b8228e04f13924533cd61"
+    },
+    {
+      "path": "frames/1600/0067_phase1_completed.png",
+      "bytes": 1496431,
+      "sha256": "1d67fd0497952fb9017bf45a94629afff5bb7025bcb141c4147cc87144e34c06"
+    },
+    {
+      "path": "frames/1600/0073_phase2_valve_contact.png",
+      "bytes": 1487288,
+      "sha256": "2c469331699f792ad151ee274d7eb72eb98366a56e77dda5b3bb66f6deb7aa4f"
+    },
+    {
+      "path": "frames/1600/0105_phase2_valve_turn.png",
+      "bytes": 1488571,
+      "sha256": "80fadeeadd9d1a82656b8ac42735264265dfe51d68ef134aebebceb9183afa54"
+    },
+    {
+      "path": "frames/1600/0113_phase3_input_held.png",
+      "bytes": 1509168,
+      "sha256": "3429abf9fcee1aadb2225de849226814cd6d81e4885fb17273651e81c9958411"
+    },
+    {
+      "path": "frames/1600/0128_room_return.png",
+      "bytes": 1387622,
+      "sha256": "bdd5061985df45e3d7327b758372200b1cf67134596011ff1922479fabc59c83"
+    },
+    {
+      "path": "history/INITIAL_BUILDER.txt",
+      "bytes": 30520,
+      "sha256": "87ca31ca679e523f4e2416f7f0314b815a118221e7d0ddd6d97fffb82f69e09e"
+    },
+    {
+      "path": "history/INITIAL_INDEX.txt",
+      "bytes": 38895,
+      "sha256": "63c166a9accc981d492ffa49d2ff5d6491088c9f218b70850c3d607eb459af7c"
+    },
+    {
+      "path": "history/INITIAL_MANIFEST.json",
+      "bytes": 191515,
+      "sha256": "e4667ab4d444707609f03092423bf116db72a174d49ddea9a65a806a745c2628"
+    },
+    {
+      "path": "history/INITIAL_README.txt",
+      "bytes": 25572,
+      "sha256": "2e01800b6e3987629166523db97f9dbc8d1fad922203ffb377aa0374ff6da4a8"
+    },
+    {
+      "path": "history/INITIAL_STEPS.json",
+      "bytes": 23149,
+      "sha256": "7173d514d36b1ae145c657757387c724d4e27b92b77d99facad4de7e08c14615"
+    },
+    {
+      "path": "history/INITIAL_VERIFY_LOG.txt",
+      "bytes": 16589,
+      "sha256": "6640b18e954100a3a98cc285764ffaa4786ac5fb91cfdf79d83b22e676c963ee"
+    },
+    {
+      "path": "history/INITIAL_VERIFY_RECEIPT.json",
+      "bytes": 555,
+      "sha256": "d8122dfdef2977d3be4e882f72c534c453b007738e53276950ecce5f436a6f21"
+    },
+    {
+      "path": "index.html",
+      "bytes": 38991,
+      "sha256": "7b85eb43328885a1fe699a79260f1d78a7b0cf09d13739a59c6fa3a7a7c5ce75"
+    },
+    {
+      "path": "PUBLICATION_STATUS.json",
+      "bytes": 697,
+      "sha256": "0d1971431cd1385ce59e78f3261566468adeed2a6c235dd71d5838f844940e85"
+    },
+    {
+      "path": "README.md",
+      "bytes": 25668,
+      "sha256": "c9a628c45b1ea6921b5e6b13843e6d69a418490c691af7d34665ea7ceffa43d0"
+    },
+    {
+      "path": "REVIEW_CORRECTIONS.json",
+      "bytes": 1569,
+      "sha256": "5667489de67187b700ba9b095bd02b8d9f87cd0b8c9309b4b09eb9080b60601b"
+    },
+    {
+      "path": "run_document_gates_v1.py",
+      "bytes": 2935,
+      "sha256": "d1f5e73f4e38581dd33f5b940361ec1da4f94525fed5585c205518774cd1b03e"
+    },
+    {
+      "path": "run_document_gates_v2.py",
+      "bytes": 3097,
+      "sha256": "ad06a946e137a8ef8e79daea7caac153fca92608b7c068364ec0cb8f1f1b716e"
+    },
+    {
+      "path": "run_document_gates_v3.py",
+      "bytes": 3098,
+      "sha256": "1b01e685022b2117fd85eb0f4453b5690938b2797700f3dd6acf140e76e5cad2"
+    },
+    {
+      "path": "SOURCE_BINDINGS.json",
+      "bytes": 3969,
+      "sha256": "e2069e7387529b8300a1e330911b7f783596dfc18eddc0462336cb7100fd331e"
+    },
+    {
+      "path": "sources/audio_director.gd.txt",
+      "bytes": 29188,
+      "sha256": "9de96599bd4b303a732e9ca5127547874ff35247771aee1d3fe4e0bcfbba59ba"
+    },
+    {
+      "path": "sources/capture_birthday_native_v8.gd.txt",
+      "bytes": 39192,
+      "sha256": "b58b67ce736c9443f9f6f80d1ba52e3cbc8d2d42883a7b40c5d4b19e6bf6d0a2"
+    },
+    {
+      "path": "sources/castle_career_routes.gd.txt",
+      "bytes": 15425,
+      "sha256": "c5de38d8126c96aae9e999780113edafff05601a22934443e67053edcd8e18d8"
+    },
+    {
+      "path": "sources/chapter_two_career_scene_adapter.gd.txt",
+      "bytes": 15702,
+      "sha256": "ffdcd602711a6acc42a5c6352ad8cbb701316f94c21233356fb56071f85ad40a"
+    },
+    {
+      "path": "sources/chapter_two_director.gd.txt",
+      "bytes": 39983,
+      "sha256": "789ee737eec9477c8b1d6a89b60b6747accc14a6568b2dfa924fa3e5fca42d8d"
+    },
+    {
+      "path": "sources/chapter_two_party_plan.gd.txt",
+      "bytes": 2929,
+      "sha256": "c8fa0ff7f2f16d54085e920e3ad5ebc5c5a4e6c4d4afc85d98c702c900886dfa"
+    },
+    {
+      "path": "sources/opera_astronaut_patch_work.gd.txt",
+      "bytes": 3593,
+      "sha256": "60a11bf59152e4784d2208d69fbe3590488935ed6ae13f61a05fe03c7619c0d4"
+    },
+    {
+      "path": "sources/opera_astronaut_pipe_work.gd.txt",
+      "bytes": 7708,
+      "sha256": "f6cd174b379139796aafa9c505ddc2ea27fd82ae309d66556b16b105d3f54600"
+    },
+    {
+      "path": "sources/opera_astronaut_surface.gd.txt",
+      "bytes": 17580,
+      "sha256": "5685ab40780025d1b6dac7d9543b2c8bed21c6be222a203fac38967eb913dc39"
+    },
+    {
+      "path": "sources/opera_astronaut_valve_work.gd.txt",
+      "bytes": 4440,
+      "sha256": "50ac3cd2cfc9df7f24fca5cc1de0a2b57f3e6b47b179b6010b9eab581a0fb0db"
+    },
+    {
+      "path": "sources/opera_career_world_2d.gd.txt",
+      "bytes": 245462,
+      "sha256": "b567bb47894a25f26cb94e70b24ec3eda55e7e2ee6ab45247d46a2a13e8642cf"
+    },
+    {
+      "path": "sources/opera_house.gd.txt",
+      "bytes": 17395,
+      "sha256": "09a70ca5f9abd836f66a2327e62553b8d603f9318845c404d7d3527fee953910"
+    },
+    {
+      "path": "sources/save_state.gd.txt",
+      "bytes": 47047,
+      "sha256": "13b77592028653cdcac67e54264f049bbab01c6566b4fad1ea9bdf89a37a07c8"
+    },
+    {
+      "path": "STEPS.json",
+      "bytes": 23149,
+      "sha256": "1f04d64d3b8d08f9f49b4f0da72fa2d8c5530ae730ff5a4f756d0c5e4479d21e"
+    },
+    {
+      "path": "verify_walkthrough.py",
+      "bytes": 4495,
+      "sha256": "c80136f341a6e5b18717d2aba4f4bd048a4007cb645b62c08114b3a4a37b584e"
+    },
+    {
+      "path": "verify_walkthrough_v2.py",
+      "bytes": 4533,
+      "sha256": "71fe103b14753635ea677c8eae590ba15b6902adb2e9931ad8cf3e0e95e7ca42"
+    },
+    {
+      "path": "verify_walkthrough_v3.py",
+      "bytes": 4533,
+      "sha256": "c66a3c7c61b77d9df5372adbead03fc6dced091362a1d38e604b9f7601087428"
+    },
+    {
+      "path": "WALKTHROUGH_PLAN.json",
+      "bytes": 10932,
+      "sha256": "6b13e330ff14cf7c80c8ff2d7e5c74d51aecda759db9eb488fc89ae7fdbf8103"
+    },
+    {
+      "path": "WALKTHROUGH_REVIEW_ADDENDUM.json",
+      "bytes": 1615,
+      "sha256": "315d72b7aced708efcb9c4ba18615d05485749cf247a1dd6fb9df0792801be49"
+    }
+  ],
+  "sorted_payload_sha256": "2461ab7ef7e19644c65b0599f5e6558a606ed74757f64e85966e023ce2032174",
+  "hash_exclusions": [
+    "MANIFEST.json (self-reference)",
+    "VERIFY_LOG.txt",
+    "VERIFY_RECEIPT.json",
+    "DOCUMENT_GATES_V1_LOG.txt",
+    "DOCUMENT_GATES_V1_RECEIPT.json",
+    "VERIFY_V2_LOG.txt",
+    "VERIFY_V2_RECEIPT.json",
+    "DOCUMENT_GATES_V2_LOG.txt",
+    "DOCUMENT_GATES_V2_RECEIPT.json",
+    "VERIFY_V3_LOG.txt",
+    "VERIFY_V3_RECEIPT.json",
+    "DOCUMENT_GATES_V3_LOG.txt",
+    "DOCUMENT_GATES_V3_RECEIPT.json"
+  ],
+  "claim": "ILLUSTRATED_DIAGNOSTIC_REVIEW_ONLY",
+  "publication": "PENDING_FULL_TRUSTED_SUITE_AND_NORMAL_GATES"
+}

@@ -1,0 +1,106 @@
+{
+  "status": "TERMINAL",
+  "purpose": "Recheck exact canonical source/document facts, actual6stress, shrinking medium and staged coverage after table/harness corrections.",
+  "started_utc": "2026-10-07T07:28:02.226953+00:00",
+  "sources": [
+    {
+      "path": "scripts/opera_astronaut_surface.gd",
+      "sha256": "69d53c911ea8b855a21512d6705bad62e79c3ced80fa705c77270aac6927cb8d"
+    },
+    {
+      "path": "scripts/opera_career_world_2d.gd",
+      "sha256": "dad92d6c2f174597c4cd590ef3a06f2ffcd48f961616e302317362a1ef1d02c7"
+    },
+    {
+      "path": "scripts/save_state.gd",
+      "sha256": "13b77592028653cdcac67e54264f049bbab01c6566b4fad1ea9bdf89a37a07c8"
+    },
+    {
+      "path": "scripts/probe_opera_gesture_quality.gd",
+      "sha256": "d6ebc13d2ad83353102c95eb819afa637545b4fc41e349074475a07e40fcd8c3"
+    },
+    {
+      "path": "audit/MASTER_AUDIT_2026-08-09.md",
+      "sha256": "668d2ab96e5c9a6918cb8454beb0dc23bfef2530a47e6d8f613f6004ca2f9af5"
+    },
+    {
+      "path": "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
+      "sha256": "0ab99b58832d432dd542c84ab63e5a2de1f10a5c3cc941906c632fdd6f0dd5b6"
+    },
+    {
+      "path": "design/05_DOC_LEDGER.md",
+      "sha256": "00c1efc4d0b33312c2a8d50571edc67196392ffa5d4dd5519e86e964a30ffe3e"
+    }
+  ],
+  "results": [
+    {
+      "command": [
+        "C:/Users/Peter/AppData/Local/Python/bin/python.exe",
+        "-X",
+        "utf8",
+        "-B",
+        "tools/audit_document_authority.py"
+      ],
+      "exit_code": 0,
+      "result": "PASS",
+      "summary": [
+        "DOCAUTH|INVENTORY=678|LEDGER=678|ACTIVE=69|RECORDS=72",
+        "DOCAUTH|RESULT|ALL OK"
+      ]
+    },
+    {
+      "command": [
+        "C:/Users/Peter/AppData/Local/Python/bin/python.exe",
+        "-X",
+        "utf8",
+        "-B",
+        "tools/audit_document_authority.py",
+        "--stress"
+      ],
+      "exit_code": 0,
+      "result": "PASS",
+      "summary": [
+        "DOCAUTH|STRESS|6/6"
+      ]
+    },
+    {
+      "command": [
+        "C:/Users/Peter/AppData/Local/Python/bin/python.exe",
+        "-X",
+        "utf8",
+        "-B",
+        "tools/audit_game_2d.py",
+        "--regression-gate"
+      ],
+      "exit_code": 0,
+      "result": "PASS",
+      "summary": [
+        "GAME2D| DEBT| model_files=0| model_scan_coverage_files=0| active_export_model_files=0| model_import_sidecars=0| active_untracked_model_import_sidecars=0| model_archive_files=0| production_3d_files=52| probe_3d_files=61| scene_3d_files=1| configuration_3d_files=1| archive_now_model_files=0",
+        "GAME2D| STATUS| UNSATISFIED",
+        "GAME2D| RESULT| NO_REGRESSION - exact shrinking baseline; migration debt remains UNSATISFIED"
+      ]
+    },
+    {
+      "command": [
+        "C:/Users/Peter/AppData/Local/Python/bin/python.exe",
+        "-X",
+        "utf8",
+        "-B",
+        "tools/audit_development.py",
+        "--base",
+        "auto"
+      ],
+      "exit_code": 0,
+      "result": "PASS",
+      "summary": [
+        "AUDITDEV|BASE|96274aab9cebd563b10846a4a48de5d017588563",
+        "AUDITDEV|RESULT|ALL OK"
+      ]
+    }
+  ],
+  "finished_utc": "2026-10-07T07:28:53.451565+00:00",
+  "result": "PASS",
+  "source_bindings_match": true,
+  "log_sha256": "583f30ec096e754180a36e6f125739bb415b208643ea92730f7590e5ae50b8a6",
+  "scope": "Recheck corrected audit facts, exact coverage and unchanged2D classifier. Final parser/lint/54unit PASS retained with unchanged script/tool sources; this run verifies actual6stress and corrected canonical table. FullCI/native/device/child/owner pending."
+}

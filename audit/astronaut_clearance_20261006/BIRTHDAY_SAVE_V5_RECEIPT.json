@@ -1,0 +1,940 @@
+{
+  "started_utc": "2026-10-07T10:11:06.746434+00:00",
+  "finished_utc": "2026-10-07T10:12:22.644996+00:00",
+  "engine_version": "4.7.2.stable.official.ed1daf0bf",
+  "engine_sha256": "ab1824f85bfd8e0e4128182c000c4003a3e042245b2967848d089b2a04b22424",
+  "steps": [
+    {
+      "label": "Godot analyzer",
+      "command": [
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\.codex\\worktrees\\astronaut-goal-20261006\\mermaid-roshan-reef",
+        "--script",
+        "res://audit/astronaut_clearance_20261006/verify_birthday_save_v5.gd",
+        "--check-only"
+      ],
+      "owned_pid": 62532,
+      "exit_code": 0,
+      "timed_out": false
+    },
+    {
+      "label": "Birthday route touch/save test",
+      "command": [
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\.codex\\worktrees\\astronaut-goal-20261006\\mermaid-roshan-reef",
+        "--script",
+        "res://audit/astronaut_clearance_20261006/verify_birthday_save_v5.gd"
+      ],
+      "owned_pid": 65976,
+      "exit_code": 0,
+      "timed_out": false
+    }
+  ],
+  "elapsed_seconds": 76.05,
+  "time_cap_seconds": 150,
+  "setup_seconds": 1.729,
+  "total_observed_seconds": 77.778,
+  "resource_before": {
+    "C_free_bytes": 1015957757952,
+    "physical_available_bytes": 14824767488,
+    "cache_bytes": 960233748,
+    "artifact_cap_bytes": 33554432,
+    "cache_growth_cap_bytes": 16777216
+  },
+  "resource_after": {
+    "C_free_bytes": 1015957000192,
+    "cache_bytes": 960233748,
+    "artifact_bytes": 36796,
+    "cache_growth_bytes": 0
+  },
+  "resource_limits_pass": true,
+  "errors": [],
+  "result": "PASS",
+  "evidence": [
+    {
+      "checks": 103,
+      "contact_requests": [
+        {
+          "accepted_visual_action": false,
+          "candidate_distance": 0.967193603515625,
+          "cell": 5,
+          "request_id": 3,
+          "round": 0,
+          "sampled_contact_valid": true,
+          "wait_msec": 1101
+        },
+        {
+          "accepted_visual_action": false,
+          "candidate_distance": 0.967132568359375,
+          "cell": 6,
+          "request_id": 4,
+          "round": 0,
+          "sampled_contact_valid": true,
+          "wait_msec": 825
+        },
+        {
+          "accepted_visual_action": false,
+          "candidate_distance": 0.967193603515625,
+          "cell": 0,
+          "request_id": 3,
+          "round": 1,
+          "sampled_contact_valid": true,
+          "wait_msec": 1110
+        },
+        {
+          "accepted_visual_action": false,
+          "candidate_distance": 0.9671630859375,
+          "cell": 1,
+          "request_id": 4,
+          "round": 1,
+          "sampled_contact_valid": true,
+          "wait_msec": 754
+        },
+        {
+          "accepted_visual_action": false,
+          "candidate_distance": 0.9671630859375,
+          "cell": 2,
+          "request_id": 5,
+          "round": 1,
+          "sampled_contact_valid": true,
+          "wait_msec": 763
+        },
+        {
+          "accepted_visual_action": false,
+          "candidate_distance": 0.967132568359375,
+          "cell": 6,
+          "request_id": 6,
+          "round": 1,
+          "sampled_contact_valid": true,
+          "wait_msec": 707
+        },
+        {
+          "accepted_visual_action": false,
+          "candidate_distance": 0.967132568359375,
+          "cell": 5,
+          "request_id": 7,
+          "round": 2,
+          "sampled_contact_valid": true,
+          "wait_msec": 1081
+        },
+        {
+          "accepted_visual_action": false,
+          "candidate_distance": 0.967132568359375,
+          "cell": 1,
+          "request_id": 8,
+          "round": 2,
+          "sampled_contact_valid": true,
+          "wait_msec": 700
+        },
+        {
+          "accepted_visual_action": false,
+          "candidate_distance": 0.967178344726563,
+          "cell": 2,
+          "request_id": 9,
+          "round": 2,
+          "sampled_contact_valid": true,
+          "wait_msec": 751
+        },
+        {
+          "accepted_visual_action": false,
+          "candidate_distance": 0.9671630859375,
+          "cell": 3,
+          "request_id": 10,
+          "round": 2,
+          "sampled_contact_valid": true,
+          "wait_msec": 798
+        }
+      ],
+      "failures": 0,
+      "rows": [
+        {
+          "label": "valid prior-story fixture reaches Astronaut next",
+          "pass": true
+        },
+        {
+          "label": "explicit empty and unknown-mode overrides remain rejected",
+          "pass": true
+        },
+        {
+          "label": "real Mermaid Pool career card is visible",
+          "pass": true
+        },
+        {
+          "label": "unforced production route selects Astronaut Canvas surface",
+          "pass": true
+        },
+        {
+          "label": "all birthday phases own an existing physical station",
+          "pass": true
+        },
+        {
+          "label": "real object touch opens current phase after approach",
+          "pass": true
+        },
+        {
+          "label": "released board1 tile at5 waits for owned contact",
+          "pass": true
+        },
+        {
+          "label": "board1 tile at5 commits through sampled live contact",
+          "pass": true
+        },
+        {
+          "label": "genuine board1 placement H at5",
+          "pass": true
+        },
+        {
+          "label": "released board1 tile at6 waits for owned contact",
+          "pass": true
+        },
+        {
+          "label": "board1 tile at6 commits through sampled live contact",
+          "pass": true
+        },
+        {
+          "label": "genuine board1 placement H at6",
+          "pass": true
+        },
+        {
+          "label": "engine earns board1 exactly once",
+          "pass": true
+        },
+        {
+          "label": "board transition has an earned credit and pending next board",
+          "pass": true
+        },
+        {
+          "label": "pipe_transition production save succeeds",
+          "pass": true
+        },
+        {
+          "label": "pipe_transition returns to exact room",
+          "pass": true
+        },
+        {
+          "label": "real Mermaid Pool career card is visible",
+          "pass": true
+        },
+        {
+          "label": "unforced production route selects Astronaut Canvas surface",
+          "pass": true
+        },
+        {
+          "label": "all birthday phases own an existing physical station",
+          "pass": true
+        },
+        {
+          "label": "real object touch opens current phase after approach",
+          "pass": true
+        },
+        {
+          "label": "pipe_transition restores the exact widget fill",
+          "pass": true
+        },
+        {
+          "label": "transition save preserves board credit and canonical next stock",
+          "pass": true
+        },
+        {
+          "label": "released board2 tile at0 waits for owned contact",
+          "pass": true
+        },
+        {
+          "label": "board2 tile at0 commits through sampled live contact",
+          "pass": true
+        },
+        {
+          "label": "genuine board2 placement SE at0",
+          "pass": true
+        },
+        {
+          "label": "released board2 tile at1 waits for owned contact",
+          "pass": true
+        },
+        {
+          "label": "board2 tile at1 commits through sampled live contact",
+          "pass": true
+        },
+        {
+          "label": "genuine board2 placement H at1",
+          "pass": true
+        },
+        {
+          "label": "released board2 tile at2 waits for owned contact",
+          "pass": true
+        },
+        {
+          "label": "board2 tile at2 commits through sampled live contact",
+          "pass": true
+        },
+        {
+          "label": "genuine board2 placement SW at2",
+          "pass": true
+        },
+        {
+          "label": "released board2 tile at6 waits for owned contact",
+          "pass": true
+        },
+        {
+          "label": "board2 tile at6 commits through sampled live contact",
+          "pass": true
+        },
+        {
+          "label": "genuine board2 placement NE at6",
+          "pass": true
+        },
+        {
+          "label": "engine earns board2 exactly once",
+          "pass": true
+        },
+        {
+          "label": "released board3 tile at5 waits for owned contact",
+          "pass": true
+        },
+        {
+          "label": "board3 tile at5 commits through sampled live contact",
+          "pass": true
+        },
+        {
+          "label": "genuine board3 placement NW at5",
+          "pass": true
+        },
+        {
+          "label": "released board3 tile at1 waits for owned contact",
+          "pass": true
+        },
+        {
+          "label": "board3 tile at1 commits through sampled live contact",
+          "pass": true
+        },
+        {
+          "label": "genuine board3 placement SE at1",
+          "pass": true
+        },
+        {
+          "label": "released board3 tile at2 waits for owned contact",
+          "pass": true
+        },
+        {
+          "label": "board3 tile at2 commits through sampled live contact",
+          "pass": true
+        },
+        {
+          "label": "genuine board3 placement H at2",
+          "pass": true
+        },
+        {
+          "label": "released board3 tile at3 waits for owned contact",
+          "pass": true
+        },
+        {
+          "label": "board3 tile at3 commits through sampled live contact",
+          "pass": true
+        },
+        {
+          "label": "genuine board3 placement NW at3",
+          "pass": true
+        },
+        {
+          "label": "engine earns board3 exactly once",
+          "pass": true
+        },
+        {
+          "label": "third board completes only the pipe phase",
+          "pass": true
+        },
+        {
+          "label": "completed_pipes production save succeeds",
+          "pass": true
+        },
+        {
+          "label": "completed_pipes returns to exact room",
+          "pass": true
+        },
+        {
+          "label": "real Mermaid Pool career card is visible",
+          "pass": true
+        },
+        {
+          "label": "unforced production route selects Astronaut Canvas surface",
+          "pass": true
+        },
+        {
+          "label": "all birthday phases own an existing physical station",
+          "pass": true
+        },
+        {
+          "label": "real object touch opens current phase after approach",
+          "pass": true
+        },
+        {
+          "label": "earned pipe completion resumes normal PATCH handoff",
+          "pass": true
+        },
+        {
+          "label": "two real leak touches earn exactly two patches",
+          "pass": true
+        },
+        {
+          "label": "partial_patch production save succeeds",
+          "pass": true
+        },
+        {
+          "label": "partial_patch returns to exact room",
+          "pass": true
+        },
+        {
+          "label": "real Mermaid Pool career card is visible",
+          "pass": true
+        },
+        {
+          "label": "unforced production route selects Astronaut Canvas surface",
+          "pass": true
+        },
+        {
+          "label": "all birthday phases own an existing physical station",
+          "pass": true
+        },
+        {
+          "label": "real object touch opens current phase after approach",
+          "pass": true
+        },
+        {
+          "label": "partial_patch restores the exact widget fill",
+          "pass": true
+        },
+        {
+          "label": "PATCH phase and exact repaired leaks survive reload",
+          "pass": true
+        },
+        {
+          "label": "already patched leak cannot pay twice",
+          "pass": true
+        },
+        {
+          "label": "remaining real leak touches finish PATCH",
+          "pass": true
+        },
+        {
+          "label": "normal hold advances to VALVE",
+          "pass": true
+        },
+        {
+          "label": "real object touch opens current phase after approach",
+          "pass": true
+        },
+        {
+          "label": "real arc earns partial valve turn",
+          "pass": true
+        },
+        {
+          "label": "partial_valve production save succeeds",
+          "pass": true
+        },
+        {
+          "label": "partial_valve returns to exact room",
+          "pass": true
+        },
+        {
+          "label": "real Mermaid Pool career card is visible",
+          "pass": true
+        },
+        {
+          "label": "unforced production route selects Astronaut Canvas surface",
+          "pass": true
+        },
+        {
+          "label": "all birthday phases own an existing physical station",
+          "pass": true
+        },
+        {
+          "label": "real object touch opens current phase after approach",
+          "pass": true
+        },
+        {
+          "label": "partial_valve restores the exact widget fill",
+          "pass": true
+        },
+        {
+          "label": "VALVE progress and angle survive reload",
+          "pass": true
+        },
+        {
+          "label": "real circles finish VALVE",
+          "pass": true
+        },
+        {
+          "label": "normal hold advances to READY PARK",
+          "pass": true
+        },
+        {
+          "label": "real object touch opens current phase after approach",
+          "pass": true
+        },
+        {
+          "label": "birthday finale is swipe and parked unlaunched",
+          "pass": true
+        },
+        {
+          "label": "birthday parking binds the complete rocket and floor route",
+          "pass": true
+        },
+        {
+          "label": "wrong direction cannot park or ignite the rocket",
+          "pass": true
+        },
+        {
+          "label": "genuine motion earns partial parking journey",
+          "pass": true
+        },
+        {
+          "label": "engine pause cancels parking finger and preserves work",
+          "pass": true
+        },
+        {
+          "label": "stale parking release cannot earn work",
+          "pass": true
+        },
+        {
+          "label": "partial_park production save succeeds",
+          "pass": true
+        },
+        {
+          "label": "partial_park returns to exact room",
+          "pass": true
+        },
+        {
+          "label": "real Mermaid Pool career card is visible",
+          "pass": true
+        },
+        {
+          "label": "unforced production route selects Astronaut Canvas surface",
+          "pass": true
+        },
+        {
+          "label": "all birthday phases own an existing physical station",
+          "pass": true
+        },
+        {
+          "label": "real object touch opens current phase after approach",
+          "pass": true
+        },
+        {
+          "label": "partial_park restores the exact widget fill",
+          "pass": true
+        },
+        {
+          "label": "READY PARK progress and journey survive save/re-entry",
+          "pass": true
+        },
+        {
+          "label": "saved legacy parking context restores the rocket skin",
+          "pass": true
+        },
+        {
+          "label": "passive parked hold cannot complete or ignite",
+          "pass": true
+        },
+        {
+          "label": "fresh parking motion completes final phase",
+          "pass": true
+        },
+        {
+          "label": "natural birthday finish records only story result",
+          "pass": true
+        },
+        {
+          "label": "all four birthday phase bits persist and Detective is next",
+          "pass": true
+        },
+        {
+          "label": "completion never starts party or lights candle",
+          "pass": true
+        },
+        {
+          "label": "birthday finish clears only its checkpoint",
+          "pass": true
+        },
+        {
+          "label": "story result and ordinary checkpoint survive reload",
+          "pass": true
+        }
+      ],
+      "scope": "Genuine birthday picture/object route after explicit prior-six-jobs fixture; four mechanics, save/load, pause, completion/return and context isolation. No phase/progress injection. Current pipe request/contact timing only; native acting, device/child/owner and full-suite acceptance pending.",
+      "snapshots": [
+        {
+          "angle": 0.0,
+          "fill": 0.333333333333333,
+          "grid": [
+            "",
+            "",
+            "",
+            "",
+            "H",
+            "H",
+            "H",
+            "H",
+            "",
+            "",
+            "",
+            ""
+          ],
+          "held": false,
+          "label": "pipe_transition_before_save",
+          "owner": -1,
+          "pearls": 0,
+          "phase_index": 0,
+          "phase_progress": 1.0,
+          "pipe_round": 1,
+          "star_mask": 0,
+          "targets": [],
+          "tray": []
+        },
+        {
+          "angle": 0.0,
+          "fill": 0.333333333333333,
+          "grid": [
+            "",
+            "",
+            "",
+            "",
+            "NW",
+            "IMP",
+            "",
+            "H",
+            "",
+            "",
+            "",
+            ""
+          ],
+          "held": false,
+          "label": "pipe_transition_after_reload",
+          "owner": -1,
+          "pearls": 0,
+          "phase_index": 0,
+          "phase_progress": 1.0,
+          "pipe_round": 1,
+          "star_mask": 0,
+          "targets": [],
+          "tray": [
+            "SE",
+            "H",
+            "SW",
+            "NE",
+            "H"
+          ]
+        },
+        {
+          "angle": 0.0,
+          "fill": 1.0,
+          "grid": [
+            "IMP",
+            "SE",
+            "H",
+            "NW",
+            "H",
+            "NW",
+            "IMP",
+            "",
+            "",
+            "",
+            "",
+            ""
+          ],
+          "held": false,
+          "label": "completed_pipes_before_save",
+          "owner": -1,
+          "pearls": 0,
+          "phase_index": 0,
+          "phase_progress": 3.0,
+          "pipe_round": 3,
+          "star_mask": 0,
+          "targets": [],
+          "tray": [
+            "H",
+            "V"
+          ]
+        },
+        {
+          "angle": 0.0,
+          "fill": 0.0,
+          "grid": [
+            "IMP",
+            "SE",
+            "H",
+            "NW",
+            "H",
+            "NW",
+            "IMP",
+            "",
+            "",
+            "",
+            "",
+            ""
+          ],
+          "held": false,
+          "label": "completed_pipes_after_reload",
+          "owner": -1,
+          "pearls": 0,
+          "phase_index": 1,
+          "phase_progress": 0.0,
+          "pipe_round": 3,
+          "star_mask": 0,
+          "targets": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "tray": [
+            "H",
+            "V"
+          ]
+        },
+        {
+          "angle": 0.0,
+          "fill": 0.4,
+          "grid": [
+            "IMP",
+            "SE",
+            "H",
+            "NW",
+            "H",
+            "NW",
+            "IMP",
+            "",
+            "",
+            "",
+            "",
+            ""
+          ],
+          "held": false,
+          "label": "partial_patch_before_save",
+          "owner": -1,
+          "pearls": 0,
+          "phase_index": 1,
+          "phase_progress": 2.0,
+          "pipe_round": 3,
+          "star_mask": 0,
+          "targets": [
+            true,
+            true,
+            false,
+            false,
+            false
+          ],
+          "tray": [
+            "H",
+            "V"
+          ]
+        },
+        {
+          "angle": 0.0,
+          "fill": 0.4,
+          "grid": [],
+          "held": false,
+          "label": "partial_patch_after_reload",
+          "owner": -1,
+          "pearls": 0,
+          "phase_index": 1,
+          "phase_progress": 2.0,
+          "pipe_round": 0,
+          "star_mask": 0,
+          "targets": [
+            true,
+            true,
+            false,
+            false,
+            false
+          ],
+          "tray": []
+        },
+        {
+          "angle": 1.74532926082611,
+          "fill": 0.138888894071376,
+          "grid": [],
+          "held": false,
+          "label": "partial_valve_before_save",
+          "owner": -1,
+          "pearls": 0,
+          "phase_index": 2,
+          "phase_progress": 0.250000009328477,
+          "pipe_round": 0,
+          "star_mask": 0,
+          "targets": [],
+          "tray": []
+        },
+        {
+          "angle": 1.74532926082611,
+          "fill": 0.138888894071376,
+          "grid": [],
+          "held": false,
+          "label": "partial_valve_after_reload",
+          "owner": -1,
+          "pearls": 0,
+          "phase_index": 2,
+          "phase_progress": 0.250000009328477,
+          "pipe_round": 0,
+          "star_mask": 0,
+          "targets": [],
+          "tray": []
+        },
+        {
+          "angle": 0.0,
+          "fill": 0.3500000801407,
+          "grid": [],
+          "held": false,
+          "label": "partial_park_before_save",
+          "owner": -1,
+          "pearls": 0,
+          "phase_index": 3,
+          "phase_progress": 1.7500004007035,
+          "pipe_round": 0,
+          "star_mask": 0,
+          "targets": [],
+          "tray": []
+        },
+        {
+          "angle": 0.0,
+          "fill": 0.3500000801407,
+          "grid": [],
+          "held": false,
+          "label": "partial_park_after_reload",
+          "owner": -1,
+          "pearls": 0,
+          "phase_index": 3,
+          "phase_progress": 1.7500004007035,
+          "pipe_round": 0,
+          "star_mask": 0,
+          "targets": [],
+          "tray": []
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "path": "audit/astronaut_clearance_20261006/verify_birthday_save_v5.gd",
+      "sha256": "441497892b19484e70cff759dfc6e7ca1ea55fa1a8dff4d10e597c6d98e12188"
+    },
+    {
+      "path": "scripts/opera_astronaut_pipe_work.gd",
+      "sha256": "654504436f9ba3040edfd3cbdf277aed2337a7799f9de5b8d5573369bdacdc39"
+    },
+    {
+      "path": "scripts/opera_roshan_actor.gd",
+      "sha256": "7c0f334fd73b39685b5a1ef4e3e9214b974cbd90db3d291dc172ebc5b13a6b66"
+    },
+    {
+      "path": "assets/opera/worlds/actors/animation/roshan_astronaut_sheet_a.png",
+      "sha256": "ccfb8e7af3a033e31e05af40fa62dc23b676aec6204ba8810e8cf79cbfc4d6fa"
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/PIPE_CONTACT_IMPLEMENTATION_PLAN.json",
+      "sha256": "94097e969aef78f77ddde3c2597fd797c174c18be02abc81c6adc27c55f1dfd9"
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/PIPE_CONTACT_REVIEW.json",
+      "sha256": "56afceca1e05731d4f6a13f98a44ae0c426ef417ceea4799b10bdf1e4f95d4be"
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/CURRENT_ROUTE_CONTACT_RECHECK_PLAN.json",
+      "sha256": "fd2e058f13abd8164d1e3ab64f074f4a1165619d7d7d434f0e02eca58b2eed0a"
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/run_birthday_save_v5.py",
+      "sha256": "b8b1c274ab811d58225472936b3516ae91369fef889b18d162c615071ec48b7f"
+    },
+    {
+      "path": "scripts/main.gd",
+      "sha256": "4f8787e5e788f100e6fd44f646435f6afeaee4a58965b5292630d2410de7f6f5"
+    },
+    {
+      "path": "scripts/save_state.gd",
+      "sha256": "13b77592028653cdcac67e54264f049bbab01c6566b4fad1ea9bdf89a37a07c8"
+    },
+    {
+      "path": "scripts/opera_house.gd",
+      "sha256": "09a70ca5f9abd836f66a2327e62553b8d603f9318845c404d7d3527fee953910"
+    },
+    {
+      "path": "scripts/opera_act.gd",
+      "sha256": "eddaa34b8dccd17f41f744176a1ceef6c38c788b200a66995438d42c74a78a63"
+    },
+    {
+      "path": "scripts/opera_career_world_2d.gd",
+      "sha256": "d39bbed5c738535167ce9c526596fee32b4cfc369a5a2d376f1a7cf58e841d44"
+    },
+    {
+      "path": "scripts/opera_astronaut_surface.gd",
+      "sha256": "84b0806ee388e1d0150629c872318c92fd3f614e949385a26f97eac0c0d82809"
+    },
+    {
+      "path": "scripts/opera_gesture_surface.gd",
+      "sha256": "34f3f264f17edef42990712f6c3f7e0106cf9afecd3969f8348848e0eda56017"
+    },
+    {
+      "path": "scripts/castle_career_routes.gd",
+      "sha256": "c5de38d8126c96aae9e999780113edafff05601a22934443e67053edcd8e18d8"
+    },
+    {
+      "path": "scripts/opera_world_hotspot_2d.gd",
+      "sha256": "3544b48ee8e6f60edd54af26aff3fe3a4798fa0458ff69633fef38e4ec76955f"
+    },
+    {
+      "path": "scripts/day_one_director.gd",
+      "sha256": "1f26f9136d1b9eca6699dd91ffd17c0d36c04797d29ec9f858b1476f8aa87804"
+    },
+    {
+      "path": "scripts/chapter_two_director.gd",
+      "sha256": "789ee737eec9477c8b1d6a89b60b6747accc14a6568b2dfa924fa3e5fca42d8d"
+    },
+    {
+      "path": "scripts/chapter_two_career_scene_adapter.gd",
+      "sha256": "ffdcd602711a6acc42a5c6352ad8cbb701316f94c21233356fb56071f85ad40a"
+    },
+    {
+      "path": "scripts/chapter_two_party_plan.gd",
+      "sha256": "c8fa0ff7f2f16d54085e920e3ad5ebc5c5a4e6c4d4afc85d98c702c900886dfa"
+    },
+    {
+      "path": "assets/opera/worlds/props/goal_astronaut.png",
+      "sha256": "910f531303ec813a522f98b8ac2f97adeb5ed24bd0b438ecef9f136e19d77845"
+    },
+    {
+      "path": "project.godot",
+      "sha256": "8d942b12dfa87ed9fb39cf7f6cfbb1d3f64cc4461097c527f266a28e9428697f"
+    },
+    {
+      "path": "design/CHAPTER2_EIGHT_CAREER_PRODUCTION_SPINE_2026-08-30.md",
+      "sha256": "6415353b4bf286d3da28f5d7596a15fecaa6ba7d875c5159b7639ac85859c912"
+    },
+    {
+      "path": "tmp/astronaut_partial_save_repair_20261006/reef_save.json",
+      "sha256": "88b566be39ab0a1f78e86ecae3a9e2b6754c46037a4139a2a2c02adec15c437a"
+    }
+  ],
+  "source_bindings_still_match": true,
+  "preflight_path": "audit/astronaut_clearance_20261006/BIRTHDAY_SAVE_V5_PREFLIGHT.json",
+  "preflight_sha256": "7750a58b23644a23a35038d9f7cabb813a4776730efba8660b690558214af7ec",
+  "log_path": "audit/astronaut_clearance_20261006/BIRTHDAY_SAVE_V5_LOG.txt",
+  "log_sha256": "5873d9a230c37971eaf6457c0406173bbdcbccc54fb40c7ceaa2f2023b931530",
+  "isolated_save_files": [
+    {
+      "path": "tmp/astronaut_birthday_save_v5_20261007/reef_save.json",
+      "size_bytes": 4781,
+      "sha256": "57a6c9a39e8a961f90beae7310daf8166060a1b33b9f3dbf9e8ae9cb9951985b"
+    },
+    {
+      "path": "tmp/astronaut_birthday_save_v5_20261007/reef_save.json.bak",
+      "size_bytes": 4781,
+      "sha256": "205eab914616b1bc1bc4feb9a6ced1263f8d20eccb43e5fcf114c4c1c7c4567c"
+    }
+  ],
+  "meaning": "Genuine birthday picture/object/input route from explicit prior-six-jobs story fixture; save/load, pause, finish/return, unchanged legacy context, parked rocket binding/draw route and context isolation only. Native visual/full natural chapter/device/child/owner and full suite pending."
+}

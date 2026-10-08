@@ -1,0 +1,84 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+ASTRO_SAVE_CHECK|real Mermaid Pool career card is visible|PASS
+ASTRO_SAVE_CHECK|unforced production route selects Astronaut Canvas surface|PASS
+ASTRO_SAVE_CHECK|real object touch opens current phase after approach|PASS
+ASTRO_SAVE_CHECK|genuine board1 placement H at5|PASS
+ASTRO_SAVE_CHECK|genuine board1 placement H at6|PASS
+ASTRO_SAVE_CHECK|engine earns board1 exactly once|PASS
+ASTRO_SAVE_CHECK|board transition has an earned credit and pending next board|PASS
+ASTRO_SAVE_STATE|{"angle":0.0,"fill":0.333333333333333,"grid":["","","","","H","H","H","H","","","",""],"held":false,"label":"pipe_transition_before_save","owner":-1,"pearls":0,"phase_index":0,"phase_progress":1.0,"pipe_round":1,"star_mask":0,"targets":[],"tray":[]}
+ASTRO_SAVE_CHECK|pipe_transition production save succeeds|PASS
+ASTRO_SAVE_CHECK|pipe_transition returns to exact room|PASS
+ASTRO_SAVE_CHECK|real Mermaid Pool career card is visible|PASS
+ASTRO_SAVE_CHECK|unforced production route selects Astronaut Canvas surface|PASS
+ASTRO_SAVE_CHECK|real object touch opens current phase after approach|PASS
+ASTRO_SAVE_STATE|{"angle":0.0,"fill":0.333333333333333,"grid":["","","","","NW","IMP","","H","","","",""],"held":false,"label":"pipe_transition_after_reload","owner":-1,"pearls":0,"phase_index":0,"phase_progress":1.0,"pipe_round":1,"star_mask":0,"targets":[],"tray":["SE","H","SW","NE","H"]}
+ASTRO_SAVE_CHECK|pipe_transition restores the exact widget fill|PASS
+ASTRO_SAVE_CHECK|transition save preserves board credit and canonical next stock|PASS
+ASTRO_SAVE_CHECK|genuine board2 placement SE at0|PASS
+ASTRO_SAVE_CHECK|genuine board2 placement H at1|PASS
+ASTRO_SAVE_CHECK|genuine board2 placement SW at2|PASS
+ASTRO_SAVE_CHECK|genuine board2 placement NE at6|PASS
+ASTRO_SAVE_CHECK|engine earns board2 exactly once|PASS
+ASTRO_SAVE_CHECK|genuine board3 placement NW at5|PASS
+ASTRO_SAVE_CHECK|genuine board3 placement SE at1|PASS
+ASTRO_SAVE_CHECK|genuine board3 placement H at2|PASS
+ASTRO_SAVE_CHECK|genuine board3 placement NW at3|PASS
+ASTRO_SAVE_CHECK|engine earns board3 exactly once|PASS
+ASTRO_SAVE_CHECK|third board completes only the pipe phase|PASS
+ASTRO_SAVE_STATE|{"angle":0.0,"fill":1.0,"grid":["IMP","SE","H","NW","H","NW","IMP","","","","",""],"held":false,"label":"completed_pipes_before_save","owner":-1,"pearls":0,"phase_index":0,"phase_progress":3.0,"pipe_round":3,"star_mask":0,"targets":[],"tray":["H","V"]}
+ASTRO_SAVE_CHECK|completed_pipes production save succeeds|PASS
+ASTRO_SAVE_CHECK|completed_pipes returns to exact room|PASS
+ASTRO_SAVE_CHECK|real Mermaid Pool career card is visible|PASS
+ASTRO_SAVE_CHECK|unforced production route selects Astronaut Canvas surface|PASS
+ASTRO_SAVE_CHECK|real object touch opens current phase after approach|PASS
+ASTRO_SAVE_STATE|{"angle":0.0,"fill":0.0,"grid":["IMP","SE","H","NW","H","NW","IMP","","","","",""],"held":false,"label":"completed_pipes_after_reload","owner":-1,"pearls":0,"phase_index":1,"phase_progress":0.0,"pipe_round":3,"star_mask":0,"targets":[false,false,false,false,false],"tray":["H","V"]}
+ASTRO_SAVE_CHECK|earned pipe completion resumes normal PATCH handoff|PASS
+ASTRO_SAVE_CHECK|two real leak touches earn exactly two patches|PASS
+ASTRO_SAVE_STATE|{"angle":0.0,"fill":0.4,"grid":["IMP","SE","H","NW","H","NW","IMP","","","","",""],"held":false,"label":"partial_patch_before_save","owner":-1,"pearls":0,"phase_index":1,"phase_progress":2.0,"pipe_round":3,"star_mask":0,"targets":[true,true,false,false,false],"tray":["H","V"]}
+ASTRO_SAVE_CHECK|partial_patch production save succeeds|PASS
+ASTRO_SAVE_CHECK|partial_patch returns to exact room|PASS
+ASTRO_SAVE_CHECK|real Mermaid Pool career card is visible|PASS
+ASTRO_SAVE_CHECK|unforced production route selects Astronaut Canvas surface|PASS
+ASTRO_SAVE_CHECK|real object touch opens current phase after approach|PASS
+ASTRO_SAVE_STATE|{"angle":0.0,"fill":0.4,"grid":[],"held":false,"label":"partial_patch_after_reload","owner":-1,"pearls":0,"phase_index":1,"phase_progress":2.0,"pipe_round":0,"star_mask":0,"targets":[true,true,false,false,false],"tray":[]}
+ASTRO_SAVE_CHECK|partial_patch restores the exact widget fill|PASS
+ASTRO_SAVE_CHECK|PATCH phase and exact repaired leaks survive reload|PASS
+ASTRO_SAVE_CHECK|already patched leak cannot pay twice|PASS
+ASTRO_SAVE_CHECK|remaining real leak touches finish PATCH|PASS
+ASTRO_SAVE_CHECK|normal hold advances to VALVE|PASS
+ASTRO_SAVE_CHECK|real object touch opens current phase after approach|PASS
+ASTRO_SAVE_CHECK|real arc earns partial valve turn|PASS
+ASTRO_SAVE_STATE|{"angle":1.74532926082611,"fill":0.138888894071376,"grid":[],"held":false,"label":"partial_valve_before_save","owner":-1,"pearls":0,"phase_index":2,"phase_progress":0.250000009328477,"pipe_round":0,"star_mask":0,"targets":[],"tray":[]}
+ASTRO_SAVE_CHECK|partial_valve production save succeeds|PASS
+ASTRO_SAVE_CHECK|partial_valve returns to exact room|PASS
+ASTRO_SAVE_CHECK|real Mermaid Pool career card is visible|PASS
+ASTRO_SAVE_CHECK|unforced production route selects Astronaut Canvas surface|PASS
+ASTRO_SAVE_CHECK|real object touch opens current phase after approach|PASS
+ASTRO_SAVE_STATE|{"angle":1.74532926082611,"fill":0.138888894071376,"grid":[],"held":false,"label":"partial_valve_after_reload","owner":-1,"pearls":0,"phase_index":2,"phase_progress":0.250000009328477,"pipe_round":0,"star_mask":0,"targets":[],"tray":[]}
+ASTRO_SAVE_CHECK|partial_valve restores the exact widget fill|PASS
+ASTRO_SAVE_CHECK|VALVE progress and angle survive reload|PASS
+ASTRO_SAVE_CHECK|real circles finish VALVE|PASS
+ASTRO_SAVE_CHECK|normal hold advances to LAUNCH|PASS
+ASTRO_SAVE_CHECK|real object touch opens current phase after approach|PASS
+ASTRO_SAVE_CHECK|engine pause cancels held launch without erasing earned countdown|PASS
+ASTRO_SAVE_CHECK|stale release after pause cannot add countdown|PASS
+ASTRO_SAVE_STATE|{"angle":0.0,"fill":0.222727272727273,"grid":[],"held":false,"label":"partial_launch_before_save","owner":-1,"pearls":0,"phase_index":3,"phase_progress":1.00227272727273,"pipe_round":0,"star_mask":0,"targets":[],"tray":[]}
+ASTRO_SAVE_CHECK|partial_launch production save succeeds|PASS
+ASTRO_SAVE_CHECK|partial_launch returns to exact room|PASS
+ASTRO_SAVE_CHECK|real Mermaid Pool career card is visible|PASS
+ASTRO_SAVE_CHECK|unforced production route selects Astronaut Canvas surface|PASS
+ASTRO_SAVE_CHECK|real object touch opens current phase after approach|PASS
+ASTRO_SAVE_STATE|{"angle":0.0,"fill":0.222727272727273,"grid":[],"held":false,"label":"partial_launch_after_reload","owner":-1,"pearls":0,"phase_index":3,"phase_progress":1.00227272727273,"pipe_round":0,"star_mask":0,"targets":[],"tray":[]}
+ASTRO_SAVE_CHECK|partial_launch restores the exact widget fill|PASS
+ASTRO_SAVE_CHECK|LAUNCH countdown reloads with no owned finger|PASS
+ASTRO_SAVE_CHECK|passive restored countdown cannot finish itself|PASS
+ASTRO_SAVE_CHECK|new deliberate hold finishes countdown|PASS
+ASTRO_SAVE_CHECK|natural finish awards one career and three first-time pearls|PASS
+ASTRO_SAVE_CHECK|natural completed act clears ordinary checkpoint|PASS
+ASTRO_SAVE_CHECK|real Mermaid Pool career card is visible|PASS
+ASTRO_SAVE_CHECK|unforced production route selects Astronaut Canvas surface|PASS
+ASTRO_SAVE_CHECK|real object touch opens current phase after approach|PASS
+ASTRO_SAVE_CHECK|replay begins a fresh pipe activity without extra reward|PASS
+ASTRO_SAVE_RESULT|{"checks":71,"failures":0,"rows":[{"label":"real Mermaid Pool career card is visible","pass":true},{"label":"unforced production route selects Astronaut Canvas surface","pass":true},{"label":"real object touch opens current phase after approach","pass":true},{"label":"genuine board1 placement H at5","pass":true},{"label":"genuine board1 placement H at6","pass":true},{"label":"engine earns board1 exactly once","pass":true},{"label":"board transition has an earned credit and pending next board","pass":true},{"label":"pipe_transition production save succeeds","pass":true},{"label":"pipe_transition returns to exact room","pass":true},{"label":"real Mermaid Pool career card is visible","pass":true},{"label":"unforced production route selects Astronaut Canvas surface","pass":true},{"label":"real object touch opens current phase after approach","pass":true},{"label":"pipe_transition restores the exact widget fill","pass":true},{"label":"transition save preserves board credit and canonical next stock","pass":true},{"label":"genuine board2 placement SE at0","pass":true},{"label":"genuine board2 placement H at1","pass":true},{"label":"genuine board2 placement SW at2","pass":true},{"label":"genuine board2 placement NE at6","pass":true},{"label":"engine earns board2 exactly once","pass":true},{"label":"genuine board3 placement NW at5","pass":true},{"label":"genuine board3 placement SE at1","pass":true},{"label":"genuine board3 placement H at2","pass":true},{"label":"genuine board3 placement NW at3","pass":true},{"label":"engine earns board3 exactly once","pass":true},{"label":"third board completes only the pipe phase","pass":true},{"label":"completed_pipes production save succeeds","pass":true},{"label":"completed_pipes returns to exact room","pass":true},{"label":"real Mermaid Pool career card is visible","pass":true},{"label":"unforced production route selects Astronaut Canvas surface","pass":true},{"label":"real object touch opens current phase after approach","pass":true},{"label":"earned pipe completion resumes normal PATCH handoff","pass":true},{"label":"two real leak touches earn exactly two patches","pass":true},{"label":"partial_patch production save succeeds","pass":true},{"label":"partial_patch returns to exact room","pass":true},{"label":"real Mermaid Pool career card is visible","pass":true},{"label":"unforced production route selects Astronaut Canvas surface","pass":true},{"label":"real object touch opens current phase after approach","pass":true},{"label":"partial_patch restores the exact widget fill","pass":true},{"label":"PATCH phase and exact repaired leaks survive reload","pass":true},{"label":"already patched leak cannot pay twice","pass":true},{"label":"remaining real leak touches finish PATCH","pass":true},{"label":"normal hold advances to VALVE","pass":true},{"label":"real object touch opens current phase after approach","pass":true},{"label":"real arc earns partial valve turn","pass":true},{"label":"partial_valve production save succeeds","pass":true},{"label":"partial_valve returns to exact room","pass":true},{"label":"real Mermaid Pool career card is visible","pass":true},{"label":"unforced production route selects Astronaut Canvas surface","pass":true},{"label":"real object touch opens current phase after approach","pass":true},{"label":"partial_valve restores the exact widget fill","pass":true},{"label":"VALVE progress and angle survive reload","pass":true},{"label":"real circles finish VALVE","pass":true},{"label":"normal hold advances to LAUNCH","pass":true},{"label":"real object touch opens current phase after approach","pass":true},{"label":"engine pause cancels held launch without erasing earned countdown","pass":true},{"label":"stale release after pause cannot add countdown","pass":true},{"label":"partial_launch production save succeeds","pass":true},{"label":"partial_launch returns to exact room","pass":true},{"label":"real Mermaid Pool career card is visible","pass":true},{"label":"unforced production route selects Astronaut Canvas surface","pass":true},{"label":"real object touch opens current phase after approach","pass":true},{"label":"partial_launch restores the exact widget fill","pass":true},{"label":"LAUNCH countdown reloads with no owned finger","pass":true},{"label":"passive restored countdown cannot finish itself","pass":true},{"label":"new deliberate hold finishes countdown","pass":true},{"label":"natural finish awards one career and three first-time pearls","pass":true},{"label":"natural completed act clears ordinary checkpoint","pass":true},{"label":"real Mermaid Pool career card is visible","pass":true},{"label":"unforced production route selects Astronaut Canvas surface","pass":true},{"label":"real object touch opens current phase after approach","pass":true},{"label":"replay begins a fresh pipe activity without extra reward","pass":true}],"scope":"Genuine headless ordinary route, all four mechanics, partial save/load, earned completion handoff, pause, natural finish/reward/return and replay; fixture story prerequisites and isolated save. Visual acting/contact, birthday/tutorial, device/child/owner acceptance pending","snapshots":[{"angle":0.0,"fill":0.333333333333333,"grid":["","","","","H","H","H","H","","","",""],"held":false,"label":"pipe_transition_before_save","owner":-1,"pearls":0,"phase_index":0,"phase_progress":1.0,"pipe_round":1,"star_mask":0,"targets":[],"tray":[]},{"angle":0.0,"fill":0.333333333333333,"grid":["","","","","NW","IMP","","H","","","",""],"held":false,"label":"pipe_transition_after_reload","owner":-1,"pearls":0,"phase_index":0,"phase_progress":1.0,"pipe_round":1,"star_mask":0,"targets":[],"tray":["SE","H","SW","NE","H"]},{"angle":0.0,"fill":1.0,"grid":["IMP","SE","H","NW","H","NW","IMP","","","","",""],"held":false,"label":"completed_pipes_before_save","owner":-1,"pearls":0,"phase_index":0,"phase_progress":3.0,"pipe_round":3,"star_mask":0,"targets":[],"tray":["H","V"]},{"angle":0.0,"fill":0.0,"grid":["IMP","SE","H","NW","H","NW","IMP","","","","",""],"held":false,"label":"completed_pipes_after_reload","owner":-1,"pearls":0,"phase_index":1,"phase_progress":0.0,"pipe_round":3,"star_mask":0,"targets":[false,false,false,false,false],"tray":["H","V"]},{"angle":0.0,"fill":0.4,"grid":["IMP","SE","H","NW","H","NW","IMP","","","","",""],"held":false,"label":"partial_patch_before_save","owner":-1,"pearls":0,"phase_index":1,"phase_progress":2.0,"pipe_round":3,"star_mask":0,"targets":[true,true,false,false,false],"tray":["H","V"]},{"angle":0.0,"fill":0.4,"grid":[],"held":false,"label":"partial_patch_after_reload","owner":-1,"pearls":0,"phase_index":1,"phase_progress":2.0,"pipe_round":0,"star_mask":0,"targets":[true,true,false,false,false],"tray":[]},{"angle":1.74532926082611,"fill":0.138888894071376,"grid":[],"held":false,"label":"partial_valve_before_save","owner":-1,"pearls":0,"phase_index":2,"phase_progress":0.250000009328477,"pipe_round":0,"star_mask":0,"targets":[],"tray":[]},{"angle":1.74532926082611,"fill":0.138888894071376,"grid":[],"held":false,"label":"partial_valve_after_reload","owner":-1,"pearls":0,"phase_index":2,"phase_progress":0.250000009328477,"pipe_round":0,"star_mask":0,"targets":[],"tray":[]},{"angle":0.0,"fill":0.222727272727273,"grid":[],"held":false,"label":"partial_launch_before_save","owner":-1,"pearls":0,"phase_index":3,"phase_progress":1.00227272727273,"pipe_round":0,"star_mask":0,"targets":[],"tray":[]},{"angle":0.0,"fill":0.222727272727273,"grid":[],"held":false,"label":"partial_launch_after_reload","owner":-1,"pearls":0,"phase_index":3,"phase_progress":1.00227272727273,"pipe_round":0,"star_mask":0,"targets":[],"tray":[]}]}

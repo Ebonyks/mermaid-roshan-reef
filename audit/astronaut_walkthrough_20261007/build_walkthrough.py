@@ -1,0 +1,275 @@
+"""Build a review gallery from untouched, hash-bound native captures; no engine run."""
+from pathlib import Path
+from datetime import datetime, timezone
+import json, hashlib, html, shutil, struct
+
+ROOT = Path(__file__).resolve().parents[2]
+OUT = Path(__file__).resolve().parent
+OLD = ROOT / 'audit/astronaut_clearance_20261006'
+PLAN = json.loads((OUT/'WALKTHROUGH_PLAN.json').read_text(encoding='utf-8'))
+
+def sha(p): return hashlib.sha256(p.read_bytes()).hexdigest()
+def dump(p, d): p.write_text(json.dumps(d, indent=2, ensure_ascii=True)+'\n', encoding='utf-8')
+def esc(s): return html.escape(str(s), quote=True)
+
+# Captions describe what the selected PNG actually shows. Missing intermediate
+# states remain explicit; source/fixture assertions are not screenshot evidence.
+STEPS = []
+def step(title, images, cue, finger, body, consequence, next_step, gap='', marks=None):
+ STEPS.append(dict(number=len(STEPS)+1,title=title,images=images,cue=cue,
+  finger=finger,body=body,consequence=consequence,next=next_step,gap=gap,
+  annotations=marks or []))
+
+step('Continue from saved play', ['0000_start_menu_before_continue.png'],
+ 'Visible Continue picture button. No captured spoken menu cue.',
+ 'One tap at the centre of Continue.',
+ 'This is the title, before Astronaut work begins.',
+ 'The real touch dismisses the menu in the harness.', 'Reach the Mermaid Pool career picture.',
+ marks=[{'kind':'circle','cx':451,'cy':610,'r':87,'label':'Tap Continue'}])
+step('Reach the Astronaut picture in Mermaid Pool', [],
+ 'Room routing assigns Astronaut to Mermaid Pool; its card contains Roshan and the engineer crest.',
+ 'Tap the career picture, then the lit activity object. The recorded harness uses real card and object touches.',
+ 'The room activity approaches its physical station before opening.',
+ 'The birthday adapter selects BUILD ROCKET, PATCH, VALVE and READY PARK.', 'Open BUILD ROCKET.',
+ gap='NO ARRIVAL SCREENSHOT / NOT A FRESH NATURAL PLAYTHROUGH: the fixture seeds completed Day One and six prior story jobs, skips intro and positions Castle/Mermaid Pool via APIs. The actual room approach, card and each station handoff were not captured. See fixture lines208–250 and _enter/_open_current; their input assertions do not replace missing images.')
+step('BUILD ROCKET: find the two missing straight pieces', ['0001_phase0_open.png'],
+ 'Configured cue: “Connect the rocket parts from the tank to the nose!” (op_astronaut_pipes_stage). Gold circles/pointer identify the tray; tank and intake bracket the grid.',
+ 'Drag a straight H piece from the lower tray into a middle-row gap. Board1 has H pieces already in cells4 and7; fill cells5 and6.',
+ 'Roshan starts beside the room equipment; the work board is on the right.',
+ 'No board credit yet. The two missing links remain empty.', 'Drag and release a piece into the next empty cell.',
+ marks=[{'kind':'arrow','x1':653,'y1':551,'x2':823,'y2':329,'label':'Drag H into this gap'}])
+step('Hold and drag one pipe piece', ['0005_phase0_input_held.png'],
+ 'The carried piece leaves its tray slot.', 'Keep one finger down while dragging, then release over the cell.',
+ 'Roshan has not yet reached contact. Releasing creates an owned work request.',
+ 'The piece has not paid or filled the cell yet.', 'Wait for Roshan to approach the requested piece.',
+ marks=[{'kind':'arrow','x1':653,'y1':551,'x2':823,'y2':329,'label':'Release over the cell'}])
+step('Roshan approaches the pipe', ['0007_phase0_pipe_approach.png'],
+ 'The queued piece remains pending.', 'The finger may lift; no extra tap is needed for this placement.',
+ 'The intact figure travels toward the chosen cell with the existing authored travel pose.',
+ 'The grid still has not committed the pending piece.', 'Roshan reaches the wrench-contact pose.')
+step('Wrench contact earns the placement', ['0013_phase0_pipe_contact_a.png','0015_phase0_pipe_contact_b.png'],
+ 'The pending piece sits at the target; nearby fuel already occupies the earlier fixed link.',
+ 'Wait after the valid release. Touch input requested this work; contact owns the commit.',
+ 'Existing whole-figure work0/work1 keys place the wrench at the cell. These two images are contact samples, not a complete full-speed performance.',
+ 'The live contact checker permits one placement. Sparse poses remain an artistic weakness.', 'Release/settle, then place the other missing piece.',
+ marks=[{'kind':'circle','cx':824,'cy':330,'r':27,'label':'Wrench / chosen cell'}])
+step('The first piece remains after release', ['0017_phase0_pipe_release.png'],
+ 'The board and tray show the placement consequence.', 'Drag the remaining H into the other middle-row gap.',
+ 'Roshan releases and returns from the work position.',
+ 'Each placement is durable only after contact; a released pending request is not earned progress.', 'Complete the continuous tank-to-intake route.')
+step('First board: continuous fuel path', ['0027_phase0_action_018.png'],
+ 'The first board now contains H pieces in middle-row cells4,5,6,7.',
+ 'Wait for the automatic flow check; do not keep tapping a filled cell.',
+ 'Roshan has finished the second actual placement.',
+ 'This PNG is the connected route before the board credit is awarded (captured progress0). The later fixture records exactly one earned board and a save/re-entry.', 'The next board changes the route and stock.')
+step('Second and third boards need turns', [],
+ 'The same drag/contact rule is reused. The route shape and supplied stock change.',
+ 'Recorded successful placements: board2 SE→cell0, H→1, SW→2, NE→6; board3 NW→5, SE→1, H→2, NW→3. Cells are row-major in the4×3 grid, starting at0.',
+ 'Roshan approaches and contacts each released piece.',
+ 'The fixture records ten genuine placements across all three boards and preserved board1 credit after controlled save/re-entry.', 'Finish board3.',
+ gap='NO BOARD2/3 INTERMEDIATE PNGs: the dense PIPE sample cap was consumed by board1. The placement list is executable fixture evidence, not a newly captured visual sequence. Do not infer the intermediate geometry from the final screenshot.')
+step('Three earned boards finish BUILD ROCKET', ['0033_phase0_completed.png'],
+ 'The final route reaches the raised intake; aqua links and completion rings are visible.',
+ 'No completion button: a valid full path earns the board automatically.',
+ 'Roshan returns to the room pose and celebrates.',
+ 'Captured progress3, pipe_round3 and pending phase advance. No birthday Opera star or pearls.', 'After the hold, touch the next lit PATCH station.')
+step('PATCH: five sparkling leaks', ['0034_phase1_open.png'],
+ 'Configured cue: “Tap every sparkling leak to patch the rocket!” (op_astronaut_patch_stage). Five local nicks, bubbles and gold glints mark the rocket.',
+ 'Tap one unrepaired sparkle on the horizontal rocket.',
+ 'Roshan will approach that exact target with the existing wrench keys.',
+ 'Before work, all five target_placed values are false.', 'Wait for the local work contact.',
+ marks=[{'kind':'circle','cx':157,'cy':366,'r':27,'label':'Tap an unrepaired sparkle'}])
+step('Approach the tapped leak', ['0039_phase1_patch_approach.png'],
+ 'The tapped leak remains visible while its work request is queued.',
+ 'Lift the finger. Unique later leak taps can queue; this walkthrough does not prove a fresh five-tap rapid sequence.',
+ 'Roshan travels as one intact figure to the target.',
+ 'The leak has not paid until valid wrench contact.', 'Contact repairs that leak.')
+step('Contact repairs one leak', ['0044_phase1_patch_contact_a.png','0046_phase1_patch_contact_b.png'],
+ 'The contact target is on the rocket; the other nicks keep leaking.',
+ 'Wait for the authored contact. Repeating a pending or already repaired target pays nothing.',
+ 'The whole-figure work0/work1 keys meet the target; no separate limb is animated.',
+ 'The target commits once through live contact. These samples do not accept the sparse wrench acting.', 'See the permanent coral plate.',
+ marks=[{'kind':'circle','cx':157,'cy':366,'r':27,'label':'Local repair contact'}])
+step('One fixed plate replaces one leak', ['0048_phase1_patch_release.png'],
+ 'An existing coral repair plate is fixed to the earned target.', 'Tap a different remaining leak.',
+ 'Roshan releases from the target and returns.',
+ 'One repaired target stays patched and stops emitting leak bubbles; the other four stay active.', 'Repair the second target, then test saved progress.')
+step('Two repairs survive controlled save/re-entry', ['0063_phase1_action_021.png','0066_phase1_input_held.png'],
+ 'Two coral plates remain; three nicks still leak.',
+ 'The earlier repairs came from actual touches. Save/re-entry here is driven by production APIs in the test harness, not captured child navigation buttons.',
+ 'A new world instance reloads the same earned mask; held input is reset.',
+ 'The fixture verifies target mask true,true,false,false,false and progress2. The second PNG also samples an input hold after reload; it is not a dedicated immediate reload screen.', 'Touch the remaining three distinct leaks.')
+step('All five repairs finish PATCH', ['0067_phase1_completed.png'],
+ 'All five fixed coral plates are visible; no unearned leak is removed.',
+ 'Tap the remaining three leaks; in this run each is allowed to finish its work.',
+ 'Five actual contact commits repair five unique targets.',
+ 'Captured mask true×5, progress5, pending advance. No extra credit for retapping an old plate.', 'After the completion hold, touch the VALVE station.')
+step('VALVE: the wheel appears', ['0068_phase2_open.png'],
+ 'Configured cue: “Turn the launch valve, but keep the rocket parked!” (op_astronaut_valve). The wheel and circular pointer are on the left equipment.',
+ 'Start on the wheel ring and trace circles with one finger. The fixture traces radius110 in surface coordinates.',
+ 'Roshan approaches the wheel before motion can commit.',
+ 'Passive local contact earns no rotation or progress.', 'Trace while Roshan is at the wheel.',
+ marks=[{'kind':'circle','cx':230,'cy':349,'r':57,'label':'Trace around the wheel'}])
+step('Whole-figure valve contact', ['0073_phase2_valve_contact.png'],
+ 'The wrench reaches the wheel hub.', 'Continue a circular drag; lifting releases the touch owner.',
+ 'The work0/work1 figure stays at the hub; live contact consumes genuine queued arcs.',
+ 'A static screenshot proves placement only. The recorded contact and arc assertions separately show motion ownership.', 'Earn a visible partial turn.',
+ marks=[{'kind':'circle','cx':231,'cy':349,'r':26,'label':'Wrench meets hub'}])
+step('Earned circle movement turns the wheel', ['0105_phase2_valve_turn.png'],
+ 'The wheel orientation has changed; progress dots appear.', 'Trace further circles with one finger.',
+ 'Roshan remains local to the wheel. The sparse acting is still below the required quality.',
+ 'This PNG records progress0.785722822717462. The fixture separately saves/restores the earlier partial angle; no dedicated before/after reload pair was captured.', 'Continue until the1.8 goal is earned.')
+step('Release, return and finished valve', ['0106_phase2_valve_release.png','0107_phase2_valve_return.png','0108_phase2_completed.png'],
+ 'The wheel has a gold completion rim.', 'Lift after enough circular input; the normal completion hold advances.',
+ 'Roshan releases and moves back to the room pose.',
+ 'Captured progress1.80253128236069. The birthday rocket stays unlaunched and candle unlit.', 'Touch the READY PARK station.')
+step('READY PARK: find the small movable rocket', ['0109_phase3_open.png'],
+ 'Configured cue: “Park the repaired rocket and leave it ready for later!” (chapter2_astronaut_ready_park). A small upright rocket and aqua lane sit at the lower left.',
+ 'Start on the small rocket and drag right along its lane, lifting and starting again as needed.',
+ 'Current Roshan stands far right with a wrench; the rival is centre. She does not visibly push the small rocket.',
+ 'The large painted background rocket stays fixed. This is PARK, not ordinary LAUNCH.', 'Drag in the lane direction.',
+ marks=[{'kind':'arrow','x1':98,'y1':456,'x2':367,'y2':456,'label':'Drag the small rocket right'}])
+step('Wrong direction and still holding earn nothing', ['0113_phase3_input_held.png'],
+ 'The small rocket remains at its starting position.',
+ 'This sampled hold belongs to the initial negative-direction test. Reverse movement and a passive hold do not earn the journey.',
+ 'Roshan lifts the existing wrench pose remotely; useful body/contact acting is missing.',
+ 'Captured journey0 and progress0. It is not a partial successful park.', 'Make a fresh rightward drag.')
+step('Partial parking saves without a held finger', [],
+ 'Source and fixture check a real0.35-lane rightward drag, pause and re-entry.',
+ 'Fresh rightward screen drags earn partial progress; pause cancels ownership and a stale release pays nothing.',
+ 'The current remote-actor weakness is unchanged.',
+ 'The fixture verifies partial progress between1 and3 and preserves the exact journey on controlled save/re-entry, with owner−1 and heldfalse.', 'Resume with a new touch and complete the remaining lane.',
+ gap='NO SUCCESSFUL PARK MIDPOINT / PAUSE / RELOAD PNG: the PARK dense cap was consumed by the earlier negative hold. A start image cannot stand in for this partial state. The assertions are machine diagnostics only.')
+step('Earned PARK completion leaves the rocket ready', ['0127_phase3_completed.png'],
+ 'The small rocket is visibly farther right at the aqua endpoint; completion dots and puff appear.',
+ 'A new rightward drag completes the remaining journey.',
+ 'Roshan celebrates far from the small rocket. The unresolved physical push/contact failure is visible.',
+ 'Captured progress5 and pending advance; no launch, no birthday candle ignition.', 'The normal completion callback returns to Mermaid Pool.')
+step('Return to Mermaid Pool', ['0128_room_return.png'],
+ 'Visible result: “This birthday job is ready! Back to our party!” The room career picture carries a gold completion dot.',
+ 'No further Astronaut action is needed. Follow the next story instruction when it is available.',
+ 'Roshan is back with Rosalie and the rainbow dust bunny in the pool.',
+ 'The genuine earned finish records the Astronaut contribution and all four phase bits; the fixture verifies Detective next, no pearls/stars, candle unlit and party not started.', 'Saved story progression moves onward, rather than rerunning the completed birthday job.')
+step('Saved completion and later replay', [],
+ 'The fixture reloads the production save and checks the earned story mask and untouched ordinary checkpoint.',
+ 'A completed birthday contribution is not replayable through the same story gate; ordinary free play is a distinct reward/save context.',
+ 'No post-final-reload or freshly reached free-play replay screen was captured.',
+ 'Story mask and phase bits persist in the machine check; this does not prove the complete naturally earned replay route.', 'Capture the natural subsequent route in a future bounded run.',
+ gap='NO POST-COMPLETION RELOAD / FREE-PLAY REPLAY PNG. This panel records source/API evidence only, not a child replay demonstration.')
+step('Ordinary in-world / Opera career difference', [],
+ 'Current ordinary table: PIPES → PATCH → VALVE → LAUNCH. Final configured cue: “Hold through the countdown and launch!” (op_astronaut_launch_stage), goal4.5.',
+ 'The first three gesture families match the mechanics above. The last ordinary phase holds; birthday READY PARK swipes.',
+ 'No exact-current-source ordinary native acting sequence is present in this packet.',
+ 'Astronaut is room-distributed to Mermaid Pool. Current Opera Hall contains other careers; do not invent a second live Astronaut lobby.', 'Review ordinary LAUNCH separately after the pending owner choice.',
+ gap='CURRENT ORDINARY NATIVE COVERAGE GAP: birthday screenshots illustrate only their declared birthday context. Older ordinary tests/captures are historical after the current source edits and are not relabelled as current.')
+step('Practice / retired training scope', [],
+ 'The first birthday phase teaches the same pipe gesture. The Chapter2 director has an empty INITIAL_TUTORIAL_ACTS and tutorial_phase_is_active returnsfalse.',
+ 'No separate naturally reachable Astronaut training prelude is established by the current route.',
+ 'Compatibility tutorial branches in source do not authorize reviving the retired route.',
+ 'Live practice/free-play coverage still needs naturally earned route evidence; this packet does not force its flags.', 'Use only the current career routes.',
+ gap='STANDALONE TUTORIAL IS RETIRED IN CURRENT SOURCE; natural free-play/practice entry remains an evidence gap, not a forced fixture demonstration.')
+step('Pending development decisions', [],
+ 'PROPOSED / NOT PLAYABLE: ordinary launch control/contact choice and PARK whole-figure brace/push/release art choice remain pending.',
+ 'No proposed control is included in these implemented-game screenshots.',
+ 'The PIPE material plan is also unimplemented at this capture source; the brown fallback shown here is current.',
+ 'No new artwork, replacement scene or artistic acceptance was created for this walkthrough.', 'Resume independent PIPE readability work after this source-bound review is prepared.',
+ gap='These are pending decisions and an unimplemented repair plan, not screenshots of a redesign.')
+
+def svg(marks, width=1280):
+ if not marks: return ''
+ marker_id='arrow-'+hashlib.sha256(json.dumps(marks,sort_keys=True).encode()).hexdigest()[:12]
+ bits=['<svg class="overlay" viewBox="0 0 %d 720" aria-label="Separate instructional annotations"><defs><marker id="arrow" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto"><path d="M0,0 L9,4.5 L0,9 Z" fill="#fff38f"/></marker></defs>'%width]
+ for m in marks:
+  if m['kind']=='circle':
+   bits.append('<circle cx="{cx}" cy="{cy}" r="{r}" fill="none" stroke="#fff38f" stroke-width="6"/>'.format(**m))
+   x,y=m['cx'],m['cy']-m['r']-14
+  else:
+   bits.append('<path d="M{x1},{y1} L{x2},{y2}" fill="none" stroke="#fff38f" stroke-width="7" marker-end="url(#arrow)"/>'.format(**m))
+   x,y=m['x1']+25,m['y1']-25
+  bits.append('<text x="%s" y="%s" fill="white" stroke="#24164c" stroke-width="5" paint-order="stroke" font-size="23" font-family="sans-serif">%s</text>'%(x,y,esc(m['label'])))
+ return (''.join(bits)+'</svg>').replace('id="arrow"','id="'+marker_id+'"').replace('url(#arrow)','url(#'+marker_id+')')
+
+def main():
+ (OUT/'.gdignore').write_text('# Non-runtime review material; preserve native screenshot bytes.\n',encoding='utf-8')
+ for n,wanted in PLAN['inputs'].items():
+  assert sha(ROOT/n)==wanted, 'source changed before gallery: '+n
+ for n in ['frames/1280','frames/1600','sources','evidence']:(OUT/n).mkdir(parents=True,exist_ok=True)
+ rows=[]; originals={}
+ for w in [1280,1600]:
+  name='NATIVE_BIRTHDAY_CAPTURE_V8_%d_MANIFEST.json'%w
+  d=json.loads((OLD/name).read_text())
+  originals[w]={Path(f['path']).name:f for f in d['frames']}
+  for rel in PLAN['files']:
+   prefix='audit/astronaut_walkthrough_20261007/frames/%d/'%w
+   if not rel.startswith(prefix):continue
+   f=originals[w][Path(rel).name];source=ROOT/f['path'];target=ROOT/rel
+   assert sha(source)==f['sha256'], 'original native PNG changed'
+   shutil.copyfile(source,target)
+   assert sha(target)==f['sha256']
+   rows.append({'path':target.relative_to(OUT).as_posix(),'original_path':f['path'],
+    'sha256':f['sha256'],'bytes':f['bytes'],'dimensions':f['dimensions'],
+    'pixel_modifications':'NONE; literal byte copy','role':'diagnostic_native_capture',
+    'provenance':'Godot root viewport readback; underlying source assets retain their ASSET_LICENSES authority; review-only and not a generator input',
+    'original_manifest':'evidence/'+name,'original_label':f['label'],'native_state':f})
+ for rel in PLAN['files']:
+  if '/sources/' in rel:
+   target=ROOT/rel;name=target.name[:-4]
+   source=next(ROOT/n for n in PLAN['inputs'] if Path(n).name==name)
+   shutil.copyfile(source,target)
+  elif '/evidence/' in rel:shutil.copyfile(OLD/Path(rel).name,ROOT/rel)
+ dump(OUT/'SOURCE_BINDINGS.json',{'baseline':PLAN['baseline'],'branch':PLAN['branch'],
+  'dirty_candidate':True,'captured_source_sha256':PLAN['inputs'],
+  'literal_sources':{p.relative_to(OUT).as_posix():sha(p) for p in sorted((OUT/'sources').glob('*'))},
+  'capture_preflight':'evidence/PATCH_READABILITY_NATIVE_V1_PREFLIGHT.json',
+  'full_input_closure_scope':'Original preflight inventory, unmodified. No new clean checkout/strictQA11/complete natural-route claim.',
+  'capture_failure':'Original parent FAIL; second native exit unrecorded; resource continuity unverified. Recovery verifies old reports/PNGs without rerunning or accepting performance.',
+  'audio':'Dummy backend in original native runner; configured cue text/keys are source-backed, no spoken recording/transcript verified here.',
+  'input':'Input.parse_input_event with index7; real menu/card/object and touch/drag gestures. Fixture seeds prerequisites and enters Castle/room using APIs; partial save/leave/load/pause are controlled test calls. No progress or phase completion callback forced for earned mechanics.'})
+ dump(OUT/'STEPS.json',{'steps':STEPS,'annotation_role':'Instructional SVG overlays based on inspected screenshot/source; not actual pointer telemetry; no PNG edits.'})
+ cards=[];md=[]
+ for s in STEPS:
+  n=s['number'];cards.append('<article id="step%d"><h2><span>%02d</span> %s</h2>'%(n,n,esc(s['title'])))
+  md.append('## %02d. %s\n'%(n,s['title']))
+  if s['gap']:cards.append('<p class="gap">'+esc(s['gap'])+'</p>');md.append('**Coverage limit:** '+s['gap']+'\n')
+  for j,image in enumerate(s['images']):
+   rel='frames/1280/'+image;f=originals[1280][image]
+   cards.append('<figure><div class="picture"><img src="%s" width="1280" height="720" loading="lazy" alt="%s, native sample %d">%s</div><figcaption><a href="%s">Open untouched full-size PNG</a> · %s · rendered frame%s</figcaption></figure>'%(rel,esc(s['title']),j+1,svg(s['annotations']) if j==0 else '',rel,esc(f['label']),f['rendered_frame']))
+   md.append('![%s — native sample %d](%s)\n\n[Full-size PNG](%s). Rendered frame%s; SHA-256 `%s`.\n'%(s['title'],j+1,rel,rel,f['rendered_frame'],f['sha256']))
+  for key,label in [('cue','Cue'),('finger','Finger'),('body','Roshan / motion'),('consequence','Visible result and evidence'),('next','Next')]:
+   cards.append('<p><b>%s:</b> %s</p>'%(label,esc(s[key])));md.append('**%s:** %s\n'%(label,s[key]))
+  cards.append('</article>')
+ wide=[r for r in rows if r['dimensions'][0]==1600]
+ wide_html=''.join('<li><a href="%s">%s — untouched1600×720</a></li>'%(esc(r['path']),esc(r['original_label'])) for r in wide)
+ intro=('Current implemented birthday mechanics from the dirty owned candidate at '+PLAN['baseline'][:8]+'. '+
+  'Original1280×720 captures are unchanged. Yellow gesture marks are removable review overlays, not game UI or recorded finger telemetry. '+
+  'This is a diagnostic walkthrough, not4.6 clearance or DL-QA-11, full-speed, audio, device, child or owner acceptance. '+
+  'The original native supervisor failed; its unrecorded second exit and monitoring continuity remain explicit. The browser local-file policy blocked the UI preview, so layout/toggle verification is pending. '+
+  'Publication is PENDING the binding full trusted suite and normal branch gates.')
+ nav=''.join('<a href="#step%d">%02d %s</a>'%(s['number'],s['number'],esc(s['title'])) for s in STEPS)
+ page='''<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Astronaut — step-by-step review</title><style>
+ :root{color-scheme:light}*{box-sizing:border-box}body{margin:0;background:#f6f3fc;color:#271b42;font:17px/1.55 system-ui,sans-serif}main{max-width:1180px;margin:auto;padding:28px 20px 80px}h1{font-size:clamp(28px,5vw,46px);line-height:1.15}h2{font-size:25px;line-height:1.3}h2 span{color:#7551a4}a{color:#503486}nav{display:flex;gap:8px;flex-wrap:wrap;margin:24px 0}nav a{font-size:13px;background:white;border:1px solid #ded3ec;padding:5px 10px;border-radius:18px;text-decoration:none}article{background:#fff;border:1px solid #e4daef;border-radius:18px;margin:24px 0;padding:22px;scroll-margin-top:15px}figure{margin:18px 0}.picture{position:relative}.picture img{display:block;width:100%;height:auto;border-radius:8px}.overlay{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}body.hide-marks .overlay{display:none}figcaption{font-size:13px;padding:7px 0;color:#675775}.gap,.notice{padding:16px;background:#fff2d7;border-left:5px solid #ba8627;border-radius:6px}.notice{background:#eae3f6;border-color:#7551a4}button{padding:9px 15px;border:1px solid #7551a4;border-radius:8px;background:white;color:#503486;font:inherit;cursor:pointer}footer{font-size:14px}code{word-break:break-all}@media(max-width:600px){main{padding:18px 10px}article{padding:13px}h2{font-size:22px}}@media print{nav,button{display:none}article{break-inside:avoid}}
+ </style></head><body><main><p>MERMAID ROSHAN · DEVELOPMENT REVIEW · 7 OCTOBER2026</p><h1>Astronaut, step by step</h1><p class="notice">'''+esc(intro)+'''</p><button id="marks" aria-pressed="true" type="button">Hide gesture annotations</button><nav aria-label="Walkthrough steps">'''+nav+'''</nav>'''+''.join(cards)+'''<article id="wide"><h2>Wide-view comparisons</h2><p>These original1600×720 samples show the same birthday mechanics. They do not prove an ordinary route or device session.</p><ul>'''+wide_html+'''</ul></article><footer><p><a href="README.md">GitHub-readable walkthrough</a> · <a href="MANIFEST.json">Manifest</a> · <a href="SOURCE_BINDINGS.json">Source/input provenance</a> · <a href="PUBLICATION_STATUS.json">Publication status</a></p><p>Original bytes and all failure evidence are preserved. No runtime art or source changes are made by this packet.</p></footer></main><script>document.getElementById('marks').addEventListener('click',function(){const hidden=document.body.classList.toggle('hide-marks');this.setAttribute('aria-pressed',String(!hidden));this.textContent=hidden?'Show gesture annotations':'Hide gesture annotations';});</script></body></html>'''
+ (OUT/'index.html').write_text(page,encoding='utf-8')
+ (OUT/'README.md').write_text('# Astronaut — illustrated step-by-step development review\n\n'+intro+'\n\nOpen [index.html](index.html) in a browser for the numbered gallery, removable gesture overlays and full-size images. GitHub renders the complete illustrated sequence below.\n\n[Manifest](MANIFEST.json) · [Source and input provenance](SOURCE_BINDINGS.json) · [Publication status](PUBLICATION_STATUS.json)\n\n'+ '\n'.join(md)+'\n## Wide-view samples\n\n'+ '\n'.join('- [%s](%s)'%(r['original_label'],r['path']) for r in wide)+'\n',encoding='utf-8')
+ dump(OUT/'PUBLICATION_STATUS.json',{'status':'NOT_DELIVERED_PENDING_FULL_TRUSTED_SUITE_AND_NORMAL_GATES','repository':'https://github.com/Ebonyks/mermaid-roshan-reef','branch':PLAN['branch'],'entry_path':'audit/astronaut_walkthrough_20261007/README.md','remote_revision':None,'remote_verification':None,'browser_preview':'BLOCKED_LOCAL_FILE_URL_POLICY; actual browser UI not verified','recipient_access_mode':'PUBLIC_ANONYMOUS_HTTPS_NOT_YET_VERIFIED_FOR_THIS_REVISION','reason':'Owned runtime candidate remains uncommitted and has no complete exact-candidate trusted suite. No permission checkpoint is added; satisfy existing project gates before commit/push.'})
+ files=[]
+ for p in sorted(OUT.rglob('*')):
+  if p.is_file() and p.name not in ['MANIFEST.json','VERIFY_LOG.txt','VERIFY_RECEIPT.json','DOCUMENT_GATES_V1_LOG.txt','DOCUMENT_GATES_V1_RECEIPT.json','VERIFY_V2_LOG.txt','VERIFY_V2_RECEIPT.json','DOCUMENT_GATES_V2_LOG.txt','DOCUMENT_GATES_V2_RECEIPT.json','VERIFY_V3_LOG.txt','VERIFY_V3_RECEIPT.json','DOCUMENT_GATES_V3_LOG.txt','DOCUMENT_GATES_V3_RECEIPT.json']:
+   files.append({'path':p.relative_to(OUT).as_posix(),'bytes':p.stat().st_size,'sha256':sha(p)})
+ payload=''.join(r['path']+'\0'+r['sha256']+'\n' for r in files).encode()
+ dump(OUT/'MANIFEST.json',{'schema':'reef.astronaut.step_walkthrough.v1','created_utc':datetime.now(timezone.utc).isoformat(),'baseline':PLAN['baseline'],'branch':PLAN['branch'],'candidate':'DIRTY_CURRENT_SOURCE_NATIVE_DIAGNOSTIC','native_source_currency':'Sources are exact at artifact creation; if source later changes this remains a sealed historical walkthrough and must not be relabelled current','steps':len(STEPS),'native_master_count':len(rows),'frames':rows,'files':files,'sorted_payload_sha256':hashlib.sha256(payload).hexdigest(),'hash_exclusions':['MANIFEST.json (self-reference)','VERIFY_LOG.txt','VERIFY_RECEIPT.json','DOCUMENT_GATES_V1_LOG.txt','DOCUMENT_GATES_V1_RECEIPT.json','VERIFY_V2_LOG.txt','VERIFY_V2_RECEIPT.json','DOCUMENT_GATES_V2_LOG.txt','DOCUMENT_GATES_V2_RECEIPT.json','VERIFY_V3_LOG.txt','VERIFY_V3_RECEIPT.json','DOCUMENT_GATES_V3_LOG.txt','DOCUMENT_GATES_V3_RECEIPT.json'],'claim':'ILLUSTRATED_DIAGNOSTIC_REVIEW_ONLY','publication':'PENDING_FULL_TRUSTED_SUITE_AND_NORMAL_GATES'})
+ # One row per new native screenshot; no source originals are modified.
+ licenses=ROOT/'ASSET_LICENSES.md';text=licenses.read_text(encoding='utf-8')
+ marker='<!-- ASTRONAUT_WALKTHROUGH_20261007 -->'
+ already_licensed=marker in text
+ text+='\n'+marker+'\n\n| Review asset | Source / license | URL | Modifications |\n|---|---|---|---|\n'
+ for r in rows:
+  text+='| `audit/astronaut_walkthrough_20261007/%s` | Project runtime viewport capture; constituent approved/protected artwork retains its existing license and acceptance scope. Source `%s`; SHA-256 `%s` | Existing project source; review-only | Literal byte copy, no crop/rescale/compression/pixel edit; optional SVG annotation rendered separately in HTML. No generator input or runtime-art acceptance. |\n'%(r['path'],r['original_path'],r['sha256'])
+ if not already_licensed:licenses.write_text(text,encoding='utf-8')
+ ledger=ROOT/'design/05_DOC_LEDGER.md';text=ledger.read_text(encoding='utf-8')
+ row='| `audit/astronaut_walkthrough_20261007/README.md` | 🟣 | `SUPPORTING_CURRENT / DIAGNOSTIC_REVIEW` owner-requested illustrated Astronaut steps at dirty candidate96274aab with exact source hashes; unchanged V8 native PNGs and separate SVG annotations, source/API versus real-input distinctions, route/board/park/ordinary/audio/replay gaps and native supervisor failure preserved. No4.6, DL-QA-11, full-speed, independent/device/child/owner or release acceptance; GitHub publication pending full trusted suite and branch gates. |\n'
+ already_registered='astronaut_walkthrough_20261007/README.md' in text
+ if not already_registered:ledger.write_text(text+'\n'+row,encoding='utf-8')
+ print(json.dumps({'steps':len(STEPS),'native_masters':len(rows),'payload_sha256':hashlib.sha256(payload).hexdigest(),'publication':'PENDING','bytes':sum(p.stat().st_size for p in OUT.rglob('*') if p.is_file())}))
+
+if __name__=='__main__':main()

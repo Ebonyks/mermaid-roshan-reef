@@ -1,0 +1,18 @@
+{
+  "created_utc": "2026-10-07T16:33:43.273989+00:00",
+  "scope": "Stage only existing declared packet files under ignored/audit/*; no ignore, authority checker, ledger classification, runtime or screenshot changes. Versioned final artifact/gate outputs retain V1/V2 failures and V2 artifact PASS literally.",
+  "retained_sha256": {
+    "DOCUMENT_GATES_V1_LOG.txt": "796bf58819a5b6b857c5cbbf491dd0ac5d26baf9c38f24cc32f02cec752c483c",
+    "DOCUMENT_GATES_V1_RECEIPT.json": "df8a60b068ac632414a7d7b6e512842110c460c342b9dadbc89cb7b253775914",
+    "DOCUMENT_GATES_V2_LOG.txt": "504cac4612175471863711638c39fb31a336d57f39b143790ef4df6aba09ade1",
+    "DOCUMENT_GATES_V2_RECEIPT.json": "afe24b49ef42184d832d305e4c821b9c385d220a09567497b222c78d9c2c38ba",
+    "VERIFY_V2_LOG.txt": "094d7159d180a4ebed9f819df6bcdfb4e907bed4c9d8e6051a5b6afbce49711b",
+    "VERIFY_V2_RECEIPT.json": "f4b111f64d347e6abc36b784c4dd51a2c688e5146de21f104237c232addafdaa"
+  },
+  "original_aggregate_seconds": 90,
+  "spent_seconds": 29.561,
+  "remaining_seconds": 60.439,
+  "automatic_retry": false,
+  "root_cause": "git check-ignore -v identifies .gitignore27:/audit/*; git ls-files inventory excludes the untracked ignored README until force-added. Actual file exists25568bytes (size must be read from actual manifest; no checker change).",
+  "full_trusted_suite": "PENDING; stage is reversible, no commit/push authorized by these checks alone"
+}

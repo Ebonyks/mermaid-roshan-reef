@@ -1,0 +1,14 @@
+{
+  "result": "FAIL",
+  "recorded_utc": "2026-10-07T16:41:33.359497+00:00",
+  "cause": "Working/staged literal SHA inequality at ASSET_LICENSES.md under Git text normalization; final helper asserted after cached whitespace and development subprocesses had exited0. Their stdout was not written before failure, so no recovered PASS log is fabricated.",
+  "original_running_receipt": {
+    "status": "RUNNING",
+    "scope": "Final review staging/byte seal; no commit/push/integration or runtime acceptance"
+  },
+  "original_running_receipt_sha256": "6979dbec812defacf491d5e641599d955a862fb6566b187b6816e452ca2e8643",
+  "failed_helper_sha256": "0f66b9311ea5ba8363ecdb89c25df181bfadb46aa28b2b3053f854e0ee5dcff4",
+  "observed_command_wall_seconds": 7.0618975,
+  "native_pixel_edits": 0,
+  "runtime_changes": 0
+}

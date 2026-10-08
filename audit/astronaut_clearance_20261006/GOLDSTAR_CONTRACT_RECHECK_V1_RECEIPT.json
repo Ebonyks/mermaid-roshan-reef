@@ -1,0 +1,10 @@
+{
+  "result": "PASS",
+  "command": "python -X utf8 -B -m unittest tools.tests.test_record_owner_decision tools.tests.test_run_advisory_sensor tools.tests.test_study_game tools.tests.test_build_study_roadmap tools.tests.test_plan_prompt tools.tests.test_resolve_godot tools.tests.test_gold_star",
+  "tests": 131,
+  "elapsed_reported_seconds": 49.217,
+  "exit_code": 0,
+  "environment": "TEMP/TMP C:/Users/Peter/AppData/Local/Temp, outside Git checkout",
+  "scope": "All previously failing contracts pass. Fixture GOLDSTAR FAIL console is expected negative test, unittest final OK. Full CI remains pending.",
+  "tool_chunk": "915bbd"
+}

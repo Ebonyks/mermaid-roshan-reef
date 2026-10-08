@@ -1,0 +1,95 @@
+{
+  "result": "PASS_SOURCE_ONLY",
+  "checked_utc": "2026-10-07T18:30:44.557109+00:00",
+  "source_review_seconds": 2.273,
+  "source_cap_seconds": 60,
+  "first_preparation_result": "FAIL_BEFORE_WRITING_SUCCESSOR: exact wording replacement guard missed the semicolon variant; original and runtime files unchanged, native launches0. Corrected within the same source-only allowance.",
+  "original_v1_sha256": "5eedc572dc27cfee3e9256c439179c03300ec447119d608ff1b87054f1e861ad",
+  "v2_sha256": "1f360fb9d2f8da863d2bfbc0d6340c3cb47b4a1c813a0cecb6866b7976f37122",
+  "changed_function_definitions": [
+    "occupancy"
+  ],
+  "manifests": {
+    "1280": "audit/astronaut_clearance_20261006/NATIVE_BIRTHDAY_CAPTURE_V9_1280_MANIFEST.json",
+    "1600": "audit/astronaut_clearance_20261006/NATIVE_BIRTHDAY_CAPTURE_V9_1600_MANIFEST.json"
+  },
+  "unique_v2_receipts_and_v9_runtime_outputs_absent": true,
+  "old_v8_manifests_preserved": true,
+  "current_control_bindings_match": [
+    {
+      "path": "audit/astronaut_clearance_20261006/verify_birthday_pipe_material_v1.gd",
+      "bytes": 31091,
+      "sha256": "a523ab9e958f13bf3917662681d7290d703f4dfcd6ef271a4750558fc0bdfa71"
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/verify_pipe_contact_negative_v7.gd",
+      "bytes": 9657,
+      "sha256": "b1c47e42eda1838acd46ad827fce343343f13f1f3c439b4dcc5337e189f4511c"
+    },
+    {
+      "path": "project.godot",
+      "bytes": 1834,
+      "sha256": "8d942b12dfa87ed9fb39cf7f6cfbb1d3f64cc4461097c527f266a28e9428697f"
+    },
+    {
+      "path": "scripts/opera_astronaut_patch_work.gd",
+      "bytes": 3593,
+      "sha256": "60a11bf59152e4784d2208d69fbe3590488935ed6ae13f61a05fe03c7619c0d4"
+    },
+    {
+      "path": "scripts/opera_astronaut_pipe_work.gd",
+      "bytes": 7708,
+      "sha256": "f6cd174b379139796aafa9c505ddc2ea27fd82ae309d66556b16b105d3f54600"
+    },
+    {
+      "path": "scripts/opera_astronaut_surface.gd",
+      "bytes": 24931,
+      "sha256": "856b491556e2ed66b80991acfc930058a0bc4850611198beb93ed500b109f888"
+    },
+    {
+      "path": "scripts/opera_astronaut_valve_work.gd",
+      "bytes": 4440,
+      "sha256": "50ac3cd2cfc9df7f24fca5cc1de0a2b57f3e6b47b179b6010b9eab581a0fb0db"
+    },
+    {
+      "path": "scripts/opera_career_world_2d.gd",
+      "bytes": 245462,
+      "sha256": "b567bb47894a25f26cb94e70b24ec3eda55e7e2ee6ab45247d46a2a13e8642cf"
+    },
+    {
+      "path": "scripts/opera_gesture_surface.gd",
+      "bytes": 247228,
+      "sha256": "34f3f264f17edef42990712f6c3f7e0106cf9afecd3969f8348848e0eda56017"
+    },
+    {
+      "path": "scripts/save_state.gd",
+      "bytes": 47047,
+      "sha256": "13b77592028653cdcac67e54264f049bbab01c6566b4fad1ea9bdf89a37a07c8"
+    },
+    {
+      "path": "tools/godot_baseline.json",
+      "bytes": 1426,
+      "sha256": "9616e50b3ed535e038dc04c6e389140066b3354f79b4b437b60c0e2571e4676b"
+    }
+  ],
+  "actual_runtime_editor_occupancy": [
+    {
+      "ProcessId": 93772,
+      "CreationDate": "/Date(1791397840071)/",
+      "ExecutablePath": "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe"
+    },
+    {
+      "ProcessId": 68944,
+      "CreationDate": "/Date(1791397840101)/",
+      "ExecutablePath": "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot.exe"
+    }
+  ],
+  "actual_resource_floors": {
+    "C_free_bytes": 1051043602432,
+    "physical_available_bytes": 12208103424
+  },
+  "native_launches": 0,
+  "remaining_native_allowance_seconds": 300,
+  "scope": "Python source compilation, restricted definitions only, actual read-only occupancy/floor queries. No top-level runner execution, Godot launch, source-output capture, import or new visual grade. No reservation/grant is claimed.",
+  "native_ready": "WAIT_FOR_ACTUAL_SHARED_RESOURCE_AVAILABILITY; source checks do not constitute slot acquisition."
+}

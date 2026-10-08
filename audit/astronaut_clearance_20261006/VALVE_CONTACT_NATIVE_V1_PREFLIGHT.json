@@ -1,0 +1,36 @@
+{
+  "result": "FAIL",
+  "reported_utc": "2026-10-07T13:12:01.973170+00:00",
+  "stage": "PRELAUNCH_ASSERTION_GUARD",
+  "producer": "Primary agent record of returned exec tool failure; runner had not opened its own preflight/log/receipt",
+  "error": "AssertionError at run_valve_contact_native_v1.py line97: candidate.count(_check) expected original+5; actual four added call sites produce five checks because circle assertion executes twice.",
+  "tool_exec_exit_code": 1,
+  "tool_wall_seconds": 8.6128821,
+  "capture_or_analyzer_processes_launched": 0,
+  "version_query": "Approved Godot --version completed before guard; setup cost retained",
+  "runtime_fixtures_or_pixels_written": false,
+  "empty_output_dirs_verified": true,
+  "postfailure_bindings": [
+    {
+      "path": "audit/astronaut_clearance_20261006/run_valve_contact_native_v1.py",
+      "sha256": "9c175759e9f929e3dd3825d296993524266adee6c13ed04059c44824d29e8108"
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/capture_birthday_native_v6.gd",
+      "sha256": "d161bd228e241d93d0034988bd1d2c08b9924ebeca28f73b322b1ff1217802ad"
+    },
+    {
+      "path": "scripts/opera_career_world_2d.gd",
+      "sha256": "9368b7f398bbc57ec646c6068cda1ebafb8fee5a570d60049bd7ce9c04532d25"
+    },
+    {
+      "path": "scripts/opera_astronaut_surface.gd",
+      "sha256": "a8b1e12c6bfaecd5dda07c74ff2fdf2f373adcb7bb92f61b28fb5998d2887368"
+    },
+    {
+      "path": "scripts/opera_astronaut_valve_work.gd",
+      "sha256": "50ac3cd2cfc9df7f24fca5cc1de0a2b57f3e6b47b179b6010b9eab581a0fb0db"
+    }
+  ],
+  "source_binding_scope": "Postfailure current source digests, not a reconstructed runner preflight inventory. No runtime change since failure."
+}

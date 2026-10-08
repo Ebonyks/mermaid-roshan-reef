@@ -1,0 +1,68 @@
+{
+  "created_utc": "2026-10-07T19:13:49.853134+00:00",
+  "baseline": "96274aab9cebd563b10846a4a48de5d017588563",
+  "branch": "codex/astronaut-clearance-20261006",
+  "source_before_sha256": "856b491556e2ed66b80991acfc930058a0bc4850611198beb93ed500b109f888",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-ASSET-01",
+    "DL-ASSET-03",
+    "DL-VIS-01",
+    "DL-VIS-02",
+    "DL-VIS-05",
+    "DL-INT-02",
+    "DL-INT-04",
+    "DL-SAVE-01",
+    "DL-SAVE-02",
+    "DL-PERF-01",
+    "DL-PERF-03",
+    "DL-PERF-04",
+    "DL-CODE-07",
+    "DL-QA-02",
+    "DL-QA-03"
+  ],
+  "findings": [
+    "MA-VIS-006",
+    "MA-PLAY-004",
+    "MA-SAVE-002"
+  ],
+  "scope": "Local candidate renderer for horizontal/vertical PIPEpieces using the same existing new1024RGBA ImageGen/Asepritecandidate, one wholeunit rotated90degrees forV. No bitmapedit/regeneration, no mechanic/state/geometry/input/save/pose/sibling renderer change. Keep four elbow and other currentvector roles explicit pendingreplacement; no overallartclearance.",
+  "source_asset": "assets_src/imagegen/astronaut_pipe_raster_repair_20261007/STRAIGHT_RUNTIME_CANDIDATE_1024.png",
+  "source_asset_sha256": "6d6e487b5d0d4dd700c2781c23a201d414fe3911f77fd3770b69c9ac052a62ad",
+  "source_status": "Candidateonly. Earlier testexpectedmaxalpha255and failed254;4constant controls preservealpha exactly andsourcedominantly253, so no genericbilinearbugoropacityrepair is supported. Do not rewrite oldfailure orclaimfinaladoption.",
+  "source_scope_limits": "Original600sfamily generation/cleanup remainsstopped atonecall and929.05sclosure; this is existing-pixel candidatewiring for review, not resumedsourceproduction or budgetreset.",
+  "geometry": {
+    "measured_teal_mouth_centroids_native": [
+      [
+        116.70607162842754,
+        514.0581980973699
+      ],
+      [
+        906.0046070460704,
+        514.4456639566395
+      ]
+    ],
+    "nominal_mouth_span_normalized": 0.771,
+    "unit_mapping": "Uniform square drawside=(cellside-16)/0.771; wholeunit center/rotation. Approxmouthcenters shouldremainwithin1px of existing \u00b1(cellside/2-8) mechanicalports at112/84px. Exactvisual/nativecorrectnesspending.",
+    "no_anisotropic_scale": true,
+    "expected_decoded_texture_bytes": 4194304,
+    "resource_creation": "Load/cache oneTexture2Donconfigure, no perdraw textureallocation."
+  },
+  "fuel": "Preserve existing authored-texture earned tealwashdrawbehavior; source-based fuel appearance and all survivingvectorFX remainunaccepted until actualcontextreview.",
+  "required_evidence": [
+    "Parser/inference/body-diff control preservation and exactmouthmapping calculations at112/84.",
+    "Exact4.7.2import/analyzer and unchanged143birthday/17negative assertions atnewsource using freshisolated saves/output.",
+    "Currentnative twoaspects/actions/contact/save/return and independentreview,normalcadence/device/child/owner/fulltrusted stillrequired."
+  ],
+  "execution_caps": {
+    "source_review_seconds": 30,
+    "engine_import_analyzer_focused_headless_seconds": 110,
+    "engine_no_automatic_retry": true,
+    "output_bytes": 67108864,
+    "cache_growth_bytes": 67108864,
+    "native_original_300_second_allowance_consumed": 0
+  },
+  "scope_eligibility": "Authorized focusedappearancecandidate under activegoal/directImageGen correction; no release/fullgame/4.6acceptance."
+}

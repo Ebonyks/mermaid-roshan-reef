@@ -1,0 +1,1844 @@
+{
+  "result": "PASS",
+  "sealed_utc": "2026-10-07T12:40:18.147954+00:00",
+  "baseline": "96274aab9cebd563b10846a4a48de5d017588563",
+  "branch": "codex/astronaut-clearance-20261006",
+  "impact_exact_semantic_paths": 316,
+  "packet_files_including_this_receipt": 305,
+  "raw_logs": 64,
+  "literal_packet_rows": [
+    {
+      "path": "audit/astronaut_clearance_20261006/ASTRONAUT_PARK_ACTION_PILOT_BRIEF.json",
+      "bytes": 7349,
+      "sha256": "b8ec6b146a52f7ce4b9ab089d771116317383be755a242b170bc1db05f92022f",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/AUTHORITY_REPLACEMENT.json",
+      "bytes": 1495,
+      "sha256": "7eb28a4189b71351d9e34fad43b0081995f709e8248e796631fc4105c30eb6eb",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/AUTHORITY_SAVE_REVIEW.json",
+      "bytes": 2514,
+      "sha256": "421e53858b953ae6a1378583d35b16bf2f4f44ad1915a85f690b1c4d1bee81bb",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/AUTHORITY_START.json",
+      "bytes": 21140,
+      "sha256": "f10a55282a96db7b15d6bd58819fceee6e1343fbcb9d1695ce94f2f58b3c2e4d",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/BACKGROUND_SOURCE_REVIEW_V1.json",
+      "bytes": 12355,
+      "sha256": "455d0ca0047eccdedaf017d207e989f9dca14aaf919914cbaf3a2df3ab1c3cef",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/BASELINE_FOCUS_LOG.txt",
+      "bytes": 3405,
+      "sha256": "5d1b65969280d9c9a15f7d5462e266bfd8aedf75723cc4be74bd3cef6a25e214",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/BASELINE_FOCUS_RECEIPT.json",
+      "bytes": 2155,
+      "sha256": "5924f6f6c7fc8ef9c28e967e54ad726d0b0afa64e0c3144def4a5dc2806886f9",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/BIRTHDAY_CONTACT_V1_LOG.txt",
+      "bytes": 24004,
+      "sha256": "b5a51d1b0d7342f75fd2623333a985da864cd2f5906fb4dcb3e71f225d59fe38",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/BIRTHDAY_CONTACT_V1_PREFLIGHT.json",
+      "bytes": 4718,
+      "sha256": "abde74a51bbd72f258996d197ea8819b52898a12d678909076e089c134d1afd2",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/BIRTHDAY_CONTACT_V1_RECEIPT.json",
+      "bytes": 27814,
+      "sha256": "65050c2a758c456ffefb53a64383830c0ccf3b9b6985163093097f49b5dbe83a",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/BIRTHDAY_SAVE_LOG.txt",
+      "bytes": 3772,
+      "sha256": "388946e7e76d0d180c0227954505cdf0208652dfd3ba14924be335dbedaf5408",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/BIRTHDAY_SAVE_PREFLIGHT.json",
+      "bytes": 3878,
+      "sha256": "b427880e5593c25cda55317d4410e48628ae4378277b19bc426f55b50b2dc862",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/BIRTHDAY_SAVE_RECEIPT.json",
+      "bytes": 8645,
+      "sha256": "9a765dc7933d28ea3ba08e09661a4cfa9966c7cacf50ebda5621756b152504aa",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/BIRTHDAY_SAVE_V2_LOG.txt",
+      "bytes": 12659663,
+      "sha256": "b2d0bb849d3d82a6c85dda508de0981d7dd2a0683009455b2f149443d959430e",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/BIRTHDAY_SAVE_V2_PREFLIGHT.json",
+      "bytes": 4035,
+      "sha256": "61ae4f35d9a1219a25a23207cedcae08e87904578ad728db50f14dd99eca6443",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/BIRTHDAY_SAVE_V2_RECEIPT.json",
+      "bytes": 4143444,
+      "sha256": "4cc62b708c7d4bf72a65e634f4d1e31cefbb1870746a117209ce5f618c440781",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/BIRTHDAY_SAVE_V3_LOG.txt",
+      "bytes": 16569,
+      "sha256": "b666eaed6c5c5560d1ab431e496bff626ff61a4bff52eeb8a63f4b4b8756304b",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/BIRTHDAY_SAVE_V3_PREFLIGHT.json",
+      "bytes": 4035,
+      "sha256": "209d9b40e0ab522feee4ff22a256f5ee998aef8635fa6c1978c146a8696b164e",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/BIRTHDAY_SAVE_V3_RECEIPT.json",
+      "bytes": 20552,
+      "sha256": "d546eaa0098c2ee47f2f08ca1c003952aa62174f183b9e17a1740c8d6ae18884",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/BIRTHDAY_SAVE_V4_LOG.txt",
+      "bytes": 17034,
+      "sha256": "ea2501712e6091647a887bdc6d9239101f504adad2dcba01d94fcec7a2a7eab3",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/BIRTHDAY_SAVE_V4_PREFLIGHT.json",
+      "bytes": 4197,
+      "sha256": "2c35e7d392d8d6f3bd3c9d34003bccd59e36bdf1250a8deae52d1a203fb78152",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/BIRTHDAY_SAVE_V4_RECEIPT.json",
+      "bytes": 21146,
+      "sha256": "9cef8b4b1cae9ad9a20a6c77176ef209a8c3306da4aef475edcff5ecf3ef68d2",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/BIRTHDAY_SAVE_V5_LOG.txt",
+      "bytes": 21578,
+      "sha256": "5873d9a230c37971eaf6457c0406173bbdcbccc54fb40c7ceaa2f2023b931530",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/BIRTHDAY_SAVE_V5_PREFLIGHT.json",
+      "bytes": 5656,
+      "sha256": "7750a58b23644a23a35038d9f7cabb813a4776730efba8660b690558214af7ec",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/BIRTHDAY_SAVE_V5_RECEIPT.json",
+      "bytes": 27772,
+      "sha256": "7d39db45b11383b06ffef127cc89fa60345328e00b2e280dd06883e03577ccb7",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/capture_birthday_native_v1.gd",
+      "bytes": 26953,
+      "sha256": "03f1501776ff4ed2b5a687243eda1adb83492317e933b6dd8553fda5b21bc038",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/capture_birthday_native_v2.gd",
+      "bytes": 27861,
+      "sha256": "e612df6692601ca24dd74c55ea9f76d79aced79717be8cd157750023a74058bc",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/capture_birthday_native_v3.gd",
+      "bytes": 27861,
+      "sha256": "0cbf64a9dfb8fd428f9f40e237f9f44f3b606c5e143b4a1e81f15c485ca1ecb5",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/capture_birthday_native_v4.gd",
+      "bytes": 28983,
+      "sha256": "ba2cfe9e42f36bc20e83f4f76588fe5ef6bc94e727ae65a8de994a7dd99190dc",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/capture_birthday_native_v5.gd",
+      "bytes": 32523,
+      "sha256": "fb51e5d3f2b30377af1ea1bc7ce49b23074bcddf88129d894430f28f7442353a",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/CHECKPOINT_SCHEMA_LOG.txt",
+      "bytes": 1272,
+      "sha256": "dde54554574d952d1954e1165ddfdb77922feaa75f67a8164c4cc0c060e1d022",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/CHECKPOINT_SCHEMA_RECEIPT.json",
+      "bytes": 3550,
+      "sha256": "582dd9ce5acdfa2ef3405165e0f4ce0324098890de395a5746548e2cbec8e047",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/CHECKPOINT_SCHEMA_V2_LOG.txt",
+      "bytes": 1271,
+      "sha256": "a96f8886637063617c6a94aa418d7d186e14c538ed8ff79b81f05ae7dc1ba6fb",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/CHECKPOINT_SCHEMA_V2_RECEIPT.json",
+      "bytes": 3555,
+      "sha256": "341cc0a450d2a7ef9b941896f7c93d8edca502afbc58a71c334a434091d17503",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/CHECKPOINT_SCHEMA_V3_LOG.txt",
+      "bytes": 1271,
+      "sha256": "a96f8886637063617c6a94aa418d7d186e14c538ed8ff79b81f05ae7dc1ba6fb",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/CHECKPOINT_SCHEMA_V3_RECEIPT.json",
+      "bytes": 3556,
+      "sha256": "00bc8766ef3db9ea52554cf3baaa67571142cbe5296e460ae52e13396c309f68",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/CHECKPOINT_SCHEMA_V4_LOG.txt",
+      "bytes": 1268,
+      "sha256": "09f73d68607788efbf5dd302405c501d026fbd8d93be46f4aa516056e2cb40d8",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/CHECKPOINT_SCHEMA_V4_RECEIPT.json",
+      "bytes": 3942,
+      "sha256": "78f3cd09674964ef08ffbca18498b39143ba6d2e262437e722aebab8b833fcfd",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/CONTACT_BASELINE_PLAN.json",
+      "bytes": 2828,
+      "sha256": "60885286468402393e6ceb51716fff22b6217c493e411eca738601a0a7493714",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/CONTACT_BASELINE_REVIEW.json",
+      "bytes": 8167,
+      "sha256": "f06d8436176cff561cde12f057dd59f7dfe98472fa75fa9c4b633b6cd7e5d266",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/CONTACT_DOCUMENT_GATES_LOG.txt",
+      "bytes": 163308,
+      "sha256": "557b21cc6627854c490f55649f0f399a2aa665966fcf3e4775c387e15dff2f9b",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/CONTACT_DOCUMENT_GATES_RECEIPT.json",
+      "bytes": 5643,
+      "sha256": "ca507fa2ef9a2d9487e19cfc03dbfde1cd34c7e10d3b3f9fa935dcdf92a128ee",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/CONTACT_STAGED_PROVENANCE_RECEIPT.json",
+      "bytes": 41585,
+      "sha256": "26413b89711b9e04d1bd1dbdeb38bfec90161afe16fa51aa03f3f49381ff34b7",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/COORDINATION_MESSAGE_DRAFT.txt",
+      "bytes": 677,
+      "sha256": "999257a5bada358c3753008b60ad429f2166bc5bc30ecb32f02e56713c49381d",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/CURRENT_ROUTE_CONTACT_RECHECK_PLAN.json",
+      "bytes": 3932,
+      "sha256": "fd2e058f13abd8164d1e3ab64f074f4a1165619d7d7d434f0e02eca58b2eed0a",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/CURRENT_ROUTE_CONTACT_RECHECK_REVIEW.json",
+      "bytes": 11685,
+      "sha256": "a439474ebf63f3cec0593bd094f7fbaac8fcf74da05e9bccd9aa508c134f27ae",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/CURRENT_ROUTE_DOCUMENT_GATES_V1_LOG.txt",
+      "bytes": 996,
+      "sha256": "60ddcebcba4420ff3ed832a135bd239f9c1cbc3938437e074372e63af52e32fc",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/CURRENT_ROUTE_DOCUMENT_GATES_V1_RECEIPT.json",
+      "bytes": 18332,
+      "sha256": "b0e41d84325e06ff7cff1caca2d83ebfa12e66627ed4bd6c7916d7aad8515d21",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/CURRENT_ROUTE_STAGED_PROVENANCE_V1.json",
+      "bytes": 59701,
+      "sha256": "0d4beeed7e3520965cfb7e63b4ac1a1347fcc6a1e6683a0cbea5b591f7ed9711",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/DOCUMENT_REVIEW_GATES_LOG.txt",
+      "bytes": 713,
+      "sha256": "75eb349459337344242f70f9d0f6e085146882c8b31aa7356b6143b4f8240b37",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/DOCUMENT_REVIEW_GATES_RECEIPT.json",
+      "bytes": 1523,
+      "sha256": "decd6a6b4f9d073e0dd1351920f17ec77f829cddb0f833c20d22320135c1903f",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/EXISTING_ART_INVENTORY.json",
+      "bytes": 13436,
+      "sha256": "2ff32a8c5fa6fd8ea09edf9b350d89ffec8605b60864581d9c33923fa9e54bcb",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/FINAL_PACKET_GATES_LOG.txt",
+      "bytes": 956,
+      "sha256": "c1a4e0811ede14d332675b3aba190903dbfd3456b55419f7c2a204c1bed5571f",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/FINAL_PACKET_GATES_RECEIPT.json",
+      "bytes": 3228,
+      "sha256": "b990337c03a49f99cbca9cd681e1ee096eb06d08ecb9c84437b935988d6d6d62",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/FINAL_REVIEW_GATES_V2_LOG.txt",
+      "bytes": 1109,
+      "sha256": "583f30ec096e754180a36e6f125739bb415b208643ea92730f7590e5ae50b8a6",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/FINAL_REVIEW_GATES_V2_RECEIPT.json",
+      "bytes": 3642,
+      "sha256": "e63f783acd53db84b8d7c472382c941a833a7cf84acd52ae30fdb205dc391547",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/FINAL_SOURCE_DOCUMENT_GATES_LOG.txt",
+      "bytes": 4190,
+      "sha256": "a15156f68eb322befca9108c13cd4a22a544bfb196afc41de2069b27ce44f5b9",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/FINAL_SOURCE_DOCUMENT_GATES_RECEIPT.json",
+      "bytes": 7571,
+      "sha256": "5e28e42458022702dd94d605e936720628b53abde40ab29da95a51729b7c055a",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/GESTURE_QUALITY_COMPLETE_LOG.txt",
+      "bytes": 120130,
+      "sha256": "5ea53295ffc26fa76c24d5e93e3b1e22b17dec0ffdd8a5a0db56b7a1d77a23af",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/GESTURE_QUALITY_COMPLETE_RECEIPT.json",
+      "bytes": 32462,
+      "sha256": "85e536fdcad5cf2c34a6f43ad21af8dad52775cf230411c891d088e1de1a399a",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/IMPORT_DIRECT_LOG.txt",
+      "bytes": 826578,
+      "sha256": "2ea76f6434893e8eef43b25c2184b9efefb600df0e528376e6e762f4306c9cd5",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/IMPORT_DIRECT_RECEIPT.json",
+      "bytes": 1975,
+      "sha256": "65ef3369a87125af92db6cf7f5078dc348596a27d8e060ce20d22a082818fd9a",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/IMPORT_GRANTED_LOG.txt",
+      "bytes": 618655,
+      "sha256": "4710e78dbe79d9c2ed2eb41f02efcaf2091afbbf3b9da3404e7e0856499d2fc8",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/IMPORT_GRANTED_PREFLIGHT.json",
+      "bytes": 2594,
+      "sha256": "fca0827fb2ba62b0bb736a946c2270aaadce38d3819b7a83e8cccb917dc627df",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/IMPORT_GRANTED_RECEIPT.json",
+      "bytes": 4488,
+      "sha256": "166b9822bc5de02576de267537d1df6e2f4ce07140fc676632326503a4cb2709",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/IMPORT_ISOLATED_LOG.txt",
+      "bytes": 435493,
+      "sha256": "322bdfd3459427bc116b951928486e9d695855d3c909d7c5c14eaaf7772358ea",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/IMPORT_ISOLATED_RECEIPT.json",
+      "bytes": 1521,
+      "sha256": "1b998eb2cd4df7519629336702bb52874b7181db0533779df1a4a32164cf1d7e",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/IMPORT_LOG.txt",
+      "bytes": 2199,
+      "sha256": "10d1aeccf2e69ce575d0c7e1a285fb1e3b2dbfdfd94c00d144db866a4f8b7d19",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/IMPORT_RECEIPT.json",
+      "bytes": 1387,
+      "sha256": "30fca4752571a67d3ffeec85a52e24268b5b08f24e781bcbe73a74510c76bc7d",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/IMPORT_RECOVERY_LOG.txt",
+      "bytes": 2023,
+      "sha256": "735a82011e30e0554f02f24c0006d02a52654231a0cb87973a9f131379cb73a6",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/IMPORT_RECOVERY_RECEIPT.json",
+      "bytes": 2008,
+      "sha256": "4fdb0298a1f2c7de545ad68cea30846f575a55c96bbc7c7ba793e58878fbadd3",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/INPUT_REVIEW.json",
+      "bytes": 2419,
+      "sha256": "d28ccaa7309c72605813dc3ae46aeb468920ca1645e3e04d76684aa1f68f4b56",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/INTEGRATION_AUTHORITY_RECHECK.json",
+      "bytes": 8394,
+      "sha256": "c0ef10e20ce1c89e5382909e3b3aa84a114fa77bcd1c884d6e81e4fa0474c822",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/INTEGRATION_NATIVE_CAPTURE_RECHECK.json",
+      "bytes": 2397,
+      "sha256": "abc155a0e0620462128594b324fd88bab7cd6ccbf27cac5a9f5039325e9f56a9",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/NATIVE_BIRTHDAY_CAPTURE_V1_LOG.txt",
+      "bytes": 1865,
+      "sha256": "5faa6add1f4935accae3b4eb0d8657beee96fb167d2122cb8fd5f2bae65e46c3",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/NATIVE_BIRTHDAY_CAPTURE_V1_MANIFEST.json",
+      "bytes": 1400,
+      "sha256": "aa98f131ea82cd911154d9ad17105c2c46a85cca3818617f9528d6012da3a9d9",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/NATIVE_BIRTHDAY_CAPTURE_V1_PLAN.json",
+      "bytes": 3543,
+      "sha256": "bdb2dcbf85856ea779e6e376f52ec615d39ea2761754f424b9f06af998a3e7c8",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/NATIVE_BIRTHDAY_CAPTURE_V1_PREFLIGHT.json",
+      "bytes": 1095703,
+      "sha256": "6899f9ab163e25675baab0a6c916f7df901a994cbd148bfe7b682cd171a61e7d",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/NATIVE_BIRTHDAY_CAPTURE_V1_RECEIPT.json",
+      "bytes": 1098280,
+      "sha256": "312408bb0b0e60c3329ea3077ad18932644dbb277a9a08e132f919a79c45395b",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/NATIVE_BIRTHDAY_CAPTURE_V1_REVIEW.json",
+      "bytes": 1823,
+      "sha256": "d2dcb59a6b3c17255914dfe68c785f2c74116bc2e88a4a1978a427e442ca314a",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/NATIVE_BIRTHDAY_CAPTURE_V2_LOG.txt",
+      "bytes": 1865,
+      "sha256": "d56d983367b453157559ead52297f1748ab6a16fcfc5f7e4d6a5176d06b836e8",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/NATIVE_BIRTHDAY_CAPTURE_V2_MANIFEST.json",
+      "bytes": 1400,
+      "sha256": "aa98f131ea82cd911154d9ad17105c2c46a85cca3818617f9528d6012da3a9d9",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/NATIVE_BIRTHDAY_CAPTURE_V2_PLAN.json",
+      "bytes": 4045,
+      "sha256": "78d490b83c2602706f8b9bef194afaf419d7512a08d6cb592a83a413df8a19a9",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/NATIVE_BIRTHDAY_CAPTURE_V2_PREFLIGHT.json",
+      "bytes": 1095907,
+      "sha256": "8ce31e6fbacf990dd0330baabc7416107ad96ceef853ffff83e37f6d73b46444",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/NATIVE_BIRTHDAY_CAPTURE_V2_RECEIPT.json",
+      "bytes": 1097861,
+      "sha256": "eed59e72b19898f00ab2664c6c8afc92313b145e9ba603e319943140d82967c8",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/NATIVE_BIRTHDAY_CAPTURE_V2_REVIEW.json",
+      "bytes": 2104,
+      "sha256": "5c4b00e4b73e19a03f313e20d9bb697dbad205890fffdaaaca38dc987347d21a",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/NATIVE_BIRTHDAY_CAPTURE_V3_LOG.txt",
+      "bytes": 75818,
+      "sha256": "cc1629a280509219e6ec3166d2ce22b2a410d71fdbc773589b72a613ee6dfe2e",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/NATIVE_BIRTHDAY_CAPTURE_V3_MANIFEST.json",
+      "bytes": 504923,
+      "sha256": "01c876df71f5f6bf98012edaf9bdaac081532bfd349cfa5f4533c4d673cbcbe1",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/NATIVE_BIRTHDAY_CAPTURE_V3_PLAN.json",
+      "bytes": 4048,
+      "sha256": "2481948478d353c028f5901d95d80d1414e864ebe036370a5a5b0323b8dd4f0b",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/NATIVE_BIRTHDAY_CAPTURE_V3_PREFLIGHT.json",
+      "bytes": 1095907,
+      "sha256": "af20fb70283ccf0cc3f88c7cf43d07d6341e2eadad606ccb90e0a533f706f687",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/NATIVE_BIRTHDAY_CAPTURE_V3_RECEIPT.json",
+      "bytes": 1185838,
+      "sha256": "d50f16638bbaf9e6adddc8ef3d4b34b859cb9e7c7d2eb33f5f991fef2513fb79",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/NATIVE_BIRTHDAY_CAPTURE_V3_REVIEW.json",
+      "bytes": 10012,
+      "sha256": "6ca4997c60e461180a7c1a0f84fe4505f9a31efbe36ba7eccb034a1f99b788ca",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/NATIVE_BIRTHDAY_CAPTURE_V4_LOG.txt",
+      "bytes": 44243,
+      "sha256": "7ca676e6cd56d9e321d02347d26b71f8d92c7509fd607e62bccb54a017c06231",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/NATIVE_BIRTHDAY_CAPTURE_V4_MANIFEST.json",
+      "bytes": 201727,
+      "sha256": "cc1221f4d5377e6e6af58c2558597b175b4092345fb2edb13bc69c09bfc8d5f9",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/NATIVE_BIRTHDAY_CAPTURE_V4_PLAN.json",
+      "bytes": 4188,
+      "sha256": "f185bf07377668f27c5a2766e3a819aeb4b04d3460a71328e796797fc632f184",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/NATIVE_BIRTHDAY_CAPTURE_V4_PREFLIGHT.json",
+      "bytes": 1095977,
+      "sha256": "27128a521c76fc272bbab89638108a8fb55ad6c8d1f8974e73282ff16bc6521c",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/NATIVE_BIRTHDAY_CAPTURE_V4_RECEIPT.json",
+      "bytes": 1144986,
+      "sha256": "b5bde136d45de7d26d99dada9bc68d669fa54efdcfa2809eb8af060faa4924ce",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/NATIVE_BIRTHDAY_CAPTURE_V4_REVIEW.json",
+      "bytes": 8367,
+      "sha256": "375d94a3eae8fa6b1f629921d8f911e6eb83e5714f354c844f2b590733f0acaf",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/NATIVE_BIRTHDAY_CAPTURE_V5_1280_MANIFEST.json",
+      "bytes": 947136,
+      "sha256": "cc9bb0a8ca58140dfb633a1d20f4264db0d4993090f3de6e7cd8dc2c2034c51f",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/NATIVE_BIRTHDAY_CAPTURE_V5_1600_MANIFEST.json",
+      "bytes": 963238,
+      "sha256": "da6263078a05024c515fa16d2e1f0e46e8c745471f4897155b020d6396c4002f",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/NATIVE_BIRTHDAY_DOCUMENT_GATES_V1_LOG.txt",
+      "bytes": 996,
+      "sha256": "01107cc145497b11cfd72488bc3e894eb97ccbd626ef665fd34e5d93fc3be060",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/NATIVE_BIRTHDAY_DOCUMENT_GATES_V1_RECEIPT.json",
+      "bytes": 21816,
+      "sha256": "017161cb312cc75f3f3d37e366a2429c9cd166ce3fb7e4dce49197d29506d37a",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/NATIVE_BIRTHDAY_STAGED_PROVENANCE_V1.json",
+      "bytes": 70446,
+      "sha256": "c402bf744a9da0831aeb6d56c128f47667929682dd004a3fe015d36e2263007e",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/NATIVE_SOURCE_REVIEW_V1.json",
+      "bytes": 29328,
+      "sha256": "f2e885718b058f97d52fce78f40051e4582d2d8c8a99e29b3c7e30fd25f1d816",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/NATIVE_VERIFICATION_AUTHORIZATION_RECHECK.json",
+      "bytes": 3147,
+      "sha256": "94cac85476d688b612f8e1a3a6e62e86c5b2efc5dd4bbc48084dca7acfd1059d",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/PARK_PROP_BASELINE_LOG.txt",
+      "bytes": 611,
+      "sha256": "23f05aca57997774fde6b813f29b4da6b1939f436efc922e0a4a19ad44a14266",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/PARK_PROP_BASELINE_PREFLIGHT.json",
+      "bytes": 2993,
+      "sha256": "5d8bb9e3c617e8a7bc3b739a79e5ece944b107341b61925ed8d979511f99327d",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/PARK_PROP_BASELINE_RECEIPT.json",
+      "bytes": 4429,
+      "sha256": "9852b60b82cdb5c611609e886a632f19d43c7bd3997c92a1f34b4bd461daa6b1",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/PARK_PROP_REPAIR_LOG.txt",
+      "bytes": 277,
+      "sha256": "6ba3ad02e3bae86ffa83d076a198d454f4bfc6e847967f0c5db2fabfbcff195e",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/PARK_PROP_REPAIR_PREFLIGHT.json",
+      "bytes": 2991,
+      "sha256": "2d24a8e23a0c68cdd29106eb39f8fb90ac1f418fdb77fb9d019474b35a2e9119",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/PARK_PROP_REPAIR_RECEIPT.json",
+      "bytes": 4058,
+      "sha256": "89c8fe2f479e17e56bf9b31fbdbea2f0b00f504aa96ad14258bc42739ca65edd",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/PARK_PROP_REVIEW.json",
+      "bytes": 4238,
+      "sha256": "582d8ac756692bf206973adcd237f3bd1c8b6fcd3a6035340c15ded20b34e54b",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/PARK_REVIEW_GATES_LOG.txt",
+      "bytes": 164236,
+      "sha256": "48286f5a3d2e2e07fb09268a8e087d1beeac5d251397e01bc0d91aae9348a630",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/PARK_REVIEW_GATES_RECEIPT.json",
+      "bytes": 14047,
+      "sha256": "7e9683759ce855384adbeb653bc4ab53807127eaa990de8cae98509c2407bcb0",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/PARTIAL_SAVE_BASELINE_LOG.txt",
+      "bytes": 5922,
+      "sha256": "fb7dd9265cb6a06c16bb5675a6478eb95a5cb6b13367e3949d0e77e82bdc2179",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/PARTIAL_SAVE_BASELINE_RECEIPT.json",
+      "bytes": 6781,
+      "sha256": "89a23d9ba0065f029ceba9685b023286e944c9ffe23c83900e655061c1c73ad4",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/PARTIAL_SAVE_REPAIR_LOG.txt",
+      "bytes": 5989,
+      "sha256": "3cc8a94338e41169976da629e884bc930187ecc260692b33ea71bab9963ee6b6",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/PARTIAL_SAVE_REPAIR_RECEIPT.json",
+      "bytes": 6840,
+      "sha256": "6dcc2f6c6578425049ae4cd5cac5f4a561a6f93e30c6259a13b6c2f54e56165a",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/PIPE_CONTACT_DOCUMENT_GATES_V1_LOG.txt",
+      "bytes": 1007,
+      "sha256": "3284ac5be6f84145383771330a08f587ae0baeecb6ee8bf98706dbc52ecf5fbb",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/PIPE_CONTACT_DOCUMENT_GATES_V1_RECEIPT.json",
+      "bytes": 16071,
+      "sha256": "a2f47c94d02f47688cf55c57fbe85516f8c5676d3a668d21ca4f929288119519",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/PIPE_CONTACT_DOCUMENT_GATES_V2_LOG.txt",
+      "bytes": 996,
+      "sha256": "72b62723faf7c29ba69ff712290612932215a62e6040b2baf962d3499eb06533",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/PIPE_CONTACT_DOCUMENT_GATES_V2_RECEIPT.json",
+      "bytes": 16626,
+      "sha256": "3c6272794b92bf7d6934b2275ada4e62736db0eb2e3709472e1de8df678bb7ff",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/PIPE_CONTACT_IMPLEMENTATION_PLAN.json",
+      "bytes": 3212,
+      "sha256": "94097e969aef78f77ddde3c2597fd797c174c18be02abc81c6adc27c55f1dfd9",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/PIPE_CONTACT_NEGATIVE_V1_LOG.txt",
+      "bytes": 3064,
+      "sha256": "2d089e737e3bc56340a6406d51b2d93e5f6622979992aed7250cc84c60acb1af",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/PIPE_CONTACT_NEGATIVE_V1_PREFLIGHT.json",
+      "bytes": 4874,
+      "sha256": "573a369435d432de6888ea64394477efc7b9800d6e960615b7b835e6e2080320",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/PIPE_CONTACT_NEGATIVE_V1_RECEIPT.json",
+      "bytes": 8836,
+      "sha256": "dea7fdcda060c20038df9b12f62e299e8b9d603cb923cdbd492d294c68a66485",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/PIPE_CONTACT_REVIEW.json",
+      "bytes": 5447,
+      "sha256": "56afceca1e05731d4f6a13f98a44ae0c426ef417ceea4799b10bdf1e4f95d4be",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/PIPE_CONTACT_STAGED_PROVENANCE_V1.json",
+      "bytes": 52323,
+      "sha256": "2b3395ca521cf4262d0d4d31ed55a6af69126a2aafe7ae0e8a1b0c0fc63d9dae",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/PIPE_CONTACT_V1_LOG.txt",
+      "bytes": 496,
+      "sha256": "ac3b3d0f559b59c13fa442d8c88c60c7c32e9a5d4ef328823506145965a642bc",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/PIPE_CONTACT_V1_PREFLIGHT.json",
+      "bytes": 4839,
+      "sha256": "429767770cce2c0dd05aeecdf5f3c9025a24373dbbafe855300e72e33f04343f",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/PIPE_CONTACT_V1_RECEIPT.json",
+      "bytes": 5549,
+      "sha256": "da847162c1898329a87e7e6ee724628d8774c3527babb0429030dd9c0dc25e15",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/PIPE_CONTACT_V2_LOG.txt",
+      "bytes": 930,
+      "sha256": "d69757aa14b344de892fa842f685a226b1390607f29bdc3a340a691a8982fe7b",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/PIPE_CONTACT_V2_PREFLIGHT.json",
+      "bytes": 4839,
+      "sha256": "1fe46152f62cba38bfd2729ac1e5e5ff6477e6fca26592973e839d02fa00848d",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/PIPE_CONTACT_V2_RECEIPT.json",
+      "bytes": 7005,
+      "sha256": "1aea94eabcbb15dc9dba7e4732755eec0441f4f6b847e65efc9f40d3d31f7edd",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/PIPE_CONTACT_V3_LOG.txt",
+      "bytes": 1340,
+      "sha256": "9a219b78865a6d84b880f5bbb631abefae33a16b22780a9c7f878388a4502013",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/PIPE_CONTACT_V3_PREFLIGHT.json",
+      "bytes": 4839,
+      "sha256": "0719129b8a556850c3ac1b7be2b9ef10540d7a1b32c2002d8d20566bc1f9ddcf",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/PIPE_CONTACT_V3_RECEIPT.json",
+      "bytes": 7110,
+      "sha256": "7ce39dc5d6453840df2643c2f91f1926478b7e41058ead5986bcddba47e6dbf4",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/PIPE_CONTACT_V4_HELPER_SOURCE.gd",
+      "bytes": 7351,
+      "sha256": "14af330e8e1359a002374734665ad3e639f384eff9af1d376964161cfa91497a",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/PIPE_CONTACT_V4_LOG.txt",
+      "bytes": 10263,
+      "sha256": "3ea8ff815bfd07c3f2e751c19deb4236fe868ea3b20e9def66f5f88b2355b737",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/PIPE_CONTACT_V4_PREFLIGHT.json",
+      "bytes": 4839,
+      "sha256": "12ee2584458ad95103f2dc88fcc8823180dd9a788f4c181ccb46613ce6421d70",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/PIPE_CONTACT_V4_RECEIPT.json",
+      "bytes": 22820,
+      "sha256": "d441100ab3bbb8c3744d6f5a22504fb34cd490398240a53c244d046122467052",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/PIPE_CONTACT_V4_SOURCE_SNAPSHOT.json",
+      "bytes": 582,
+      "sha256": "6fd093d17a12e2c770aaa21ac04b9859494f04eee3dbe9e83a546ebc4782ffe1",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/PIPE_CONTACT_V5_LOG.txt",
+      "bytes": 12545,
+      "sha256": "cd09985c95dd11c34e01ece5d2a0af4fa21cbe3f0f2c0d4723071a0602a3787e",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/PIPE_CONTACT_V5_PREFLIGHT.json",
+      "bytes": 4838,
+      "sha256": "b5a2fd1f40bdb8dcd7421b035c5ef2a0a4fc43d985032ede831f8cc39dfbdb17",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/PIPE_CONTACT_V5_RECEIPT.json",
+      "bytes": 24491,
+      "sha256": "1edfe94b84a7a010a84490d5e25617fe3b5b52b696048aa7c1256204c029717a",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/PIPE_CORRECTION_ASPECT_PLAN.json",
+      "bytes": 2945,
+      "sha256": "0f22f6fa4b31bb3a5a356e0c3bc0faf58e27aee34705c76b7cdd0fc22ebc138d",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/PIPE_CORRECTION_ASPECT_REVIEW.json",
+      "bytes": 15740,
+      "sha256": "c23b056bb483180a5612f9d19f62355249bb80efc107fd6e7aaed0577fca461d",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/PIPE_CORRECTION_ASPECT_V1_LOG.txt",
+      "bytes": 21382,
+      "sha256": "cbe7ee97e933496d903208fa4bfdc5ddd52760eb168bacbf58a4792c2a21ab21",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/PIPE_CORRECTION_ASPECT_V1_PREFLIGHT.json",
+      "bytes": 5397,
+      "sha256": "ae91abb150189e13fb662035ffa7f69e174e02c288f440d10d2695d3bba1f39f",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/PIPE_CORRECTION_ASPECT_V1_RECEIPT.json",
+      "bytes": 32400,
+      "sha256": "23ff67f02a0bfb69be0e814ecccd840b97d112b8d9e02482f00f1414d37bf0cb",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/PIPE_CORRECTION_DOCUMENT_GATES_V1_LOG.txt",
+      "bytes": 996,
+      "sha256": "c0193388ad0438a805447809c275c25650c7703cf411219fdbcf2a6a8f1c1402",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/PIPE_CORRECTION_DOCUMENT_GATES_V1_RECEIPT.json",
+      "bytes": 19607,
+      "sha256": "6e0bd9876e53be661d61fcc7bb668655d3f8f0aae488727299e438acb951e8f0",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/PIPE_CORRECTION_STAGED_PROVENANCE_V1.json",
+      "bytes": 62165,
+      "sha256": "bca1f372c728125757e75eebcadbef2cbecba75cba4960029ab92b0145f2652d",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/PIPE_RELEASE_BEFORE_SOURCE.txt",
+      "bytes": 241822,
+      "sha256": "d39bbed5c738535167ce9c526596fee32b4cfc369a5a2d376f1a7cf58e841d44",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/PIPE_RELEASE_OWNERSHIP_PLAN.json",
+      "bytes": 4089,
+      "sha256": "bddf91eee8970aeb67b28ca4e055802bd7e400acbac5f1e1859b1c7a020f89ae",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/PIPE_ROUTES_LOG.txt",
+      "bytes": 428,
+      "sha256": "3dd458ad74d9ec538ea82f92cf01a22f4d532bfb87bc30c848a0bb738a26ff2f",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/PIPE_ROUTES_RECEIPT.json",
+      "bytes": 2704,
+      "sha256": "5f09d59346c6bc5f62a6db36ca07a8044439c8153299ce09e6337b3e821c6889",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/PIPE_TRAVEL_BEFORE_SOURCE.txt",
+      "bytes": 7515,
+      "sha256": "654504436f9ba3040edfd3cbdf277aed2337a7799f9de5b8d5573369bdacdc39",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/PIPE_TRAVEL_DOCUMENT_GATES_V1_LOG.txt",
+      "bytes": 996,
+      "sha256": "8614fc88e781498ff5715c39efced83d4551720933df1043d21d906acc597767",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/PIPE_TRAVEL_DOCUMENT_GATES_V1_RECEIPT.json",
+      "bytes": 24085,
+      "sha256": "21d7280450c28a0cc55a5ccce54426982ed2cc5a108c38f4bd63544e40c61358",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/PIPE_TRAVEL_PLAN.json",
+      "bytes": 3939,
+      "sha256": "e9e2152905f038961646d35c5be8577ecc1302c84fb9d9de986aae585f543bcf",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/PIPE_TRAVEL_REVIEW.json",
+      "bytes": 10894,
+      "sha256": "9329c136c192f74f65ef81263483f9e537c3a24f913b3f7fe1bcd76efd00a65e",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/PIPE_TRAVEL_V1_LOG.txt",
+      "bytes": 94469,
+      "sha256": "31412bc23ec63222961abd3c6db57e690eaaa698d316a76948a9a184ca6503ca",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/PIPE_TRAVEL_V1_PREFLIGHT.json",
+      "bytes": 1097818,
+      "sha256": "e6d3e9116e68292f05e2fdced77533cb195816ba3aca5febac57e32bbef6486a",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/PIPE_TRAVEL_V1_RECEIPT.json",
+      "bytes": 1202953,
+      "sha256": "63e7c07ef21d75aac89042d9aad0c58013e89e999e6158b71ef4d6d8157cad3a",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/PLAN.json",
+      "bytes": 16083,
+      "sha256": "a0a3e073aae4f50ce60316b3424b0cbbf78cca44303cb3d11b7850aec3b80492",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/POSTIMPORT_FOCUSED_GATES_LOG.txt",
+      "bytes": 1526,
+      "sha256": "d262be4d1c264d4d1e48e25672923eca8db46658c723d7baeeb05f310dc3281c",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/POSTIMPORT_FOCUSED_GATES_RECEIPT.json",
+      "bytes": 3410,
+      "sha256": "416599ab76afb1c09ecdc79c06b5af8edccb8552f262df8ed65880fb93e11f73",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/RELEASE_OWNERSHIP_DOCUMENT_GATES_V1_LOG.txt",
+      "bytes": 996,
+      "sha256": "0cd2dfd42fc02feb7d0c7699a1875010c7497d71e3cbfb1aa0bb824448339f23",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/RELEASE_OWNERSHIP_DOCUMENT_GATES_V1_RECEIPT.json",
+      "bytes": 23737,
+      "sha256": "ef817abcfbb7d939846a8bc24e11cd6f127ddf65797f023d9934d1dc1870b49a",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/RELEASE_OWNERSHIP_REGRESSION_V1_LOG.txt",
+      "bytes": 16321,
+      "sha256": "ae58a1251713a26ef59914e6442d2b2b873179bc100f4ec032074577af54f04b",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/RELEASE_OWNERSHIP_REGRESSION_V1_PREFLIGHT.json",
+      "bytes": 5882,
+      "sha256": "791653e9d999a11bce05a43ac7ea2161a74b0cb84dad5902404751cc49909234",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/RELEASE_OWNERSHIP_REGRESSION_V1_RECEIPT.json",
+      "bytes": 25738,
+      "sha256": "929e1d9bbe8f30684695f688c2ec71f0d6d852b01c6226f2007e22cb7fea4331",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/RELEASE_OWNERSHIP_REGRESSION_V2_LOG.txt",
+      "bytes": 41169,
+      "sha256": "78b84f9770173fc6d8cffd75a7138e5b88cbca5b19ada903d00d0db37a48d08a",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/RELEASE_OWNERSHIP_REGRESSION_V2_PLAN.json",
+      "bytes": 1447,
+      "sha256": "e5086cb17c9d15f50e95241934213276cd36b45840f0fc7dddcd7880653458b0",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/RELEASE_OWNERSHIP_REGRESSION_V2_PREFLIGHT.json",
+      "bytes": 5159,
+      "sha256": "646a9beb322d695a5af5628dc5c2f82a8f55ce234c6b71e4332e34baa6dd774b",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/RELEASE_OWNERSHIP_REGRESSION_V2_RECEIPT.json",
+      "bytes": 52532,
+      "sha256": "33eb71608f6d5be2f1f76e0b6f0153def2877c6a09b504a7a288d660d6e2915f",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/RELEASE_OWNERSHIP_REVIEW.json",
+      "bytes": 3802,
+      "sha256": "6c932a69b62af2cb85aece80d22e19eb6ec9aa87b3a3cdaa4f6b13363e02547b",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/RELEASE_OWNERSHIP_STAGED_PROVENANCE_V1.json",
+      "bytes": 77434,
+      "sha256": "6cb93bf893b15858710620d165ee83b97b0585eb1c80177c506c131b713ad8f1",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/REPAIR_INPUT_COMPLETE_LOG.txt",
+      "bytes": 369,
+      "sha256": "43f4269f8bdb74ca73d5bb1234c04263e27555529abf185424ef7ce9a38d5ce8",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/REPAIR_INPUT_COMPLETE_RECEIPT.json",
+      "bytes": 2324,
+      "sha256": "dbbafab7c74f02746253b94c2e707439a64691b217926f572d0cda94ab1ec1ba",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/REPAIR_INPUT_LOG.txt",
+      "bytes": 4167,
+      "sha256": "1789667a1f91b2d73dd173533c1196598261f06afd40a84cc4db08f4f2195b75",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/REPAIR_INPUT_RECEIPT.json",
+      "bytes": 2323,
+      "sha256": "31580f099185072c87bcc0012786a721b7e55b54e7422751a2ce686fed846fe0",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/reproduce_focus.gd",
+      "bytes": 1665,
+      "sha256": "a9228b6357ba3aea2087b30c6c4fa1edcdf609b253583a92db022b6138dfb344",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/reproduce_partial_save.gd",
+      "bytes": 6999,
+      "sha256": "4d40d03780e2561a6d8727d20760df41857b3582cf24c8db84840b3501ebc6e9",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/ROSHAN_NATIVE_GATE_LOG.txt",
+      "bytes": 66,
+      "sha256": "d749f996c6224ca24e5e3ddaa13e040b875d9e08d50599669c05049fcd22c632",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/ROSHAN_NATIVE_GATE_RECEIPT.json",
+      "bytes": 1645,
+      "sha256": "0f711a01933b72cebb79cf50a89e53f3cf1a364dbb9ea15b310381e3f83ea565",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/run_birthday_contact_v1.py",
+      "bytes": 5462,
+      "sha256": "d4edef03d4767d2c51acdf0c7cb624ee8c588fada62c94dfbf705d493760a4f4",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/run_birthday_native_capture_v1.py",
+      "bytes": 11255,
+      "sha256": "cabe568ea9250e08cd33db9bab7a6a3babf596f6f20482a6aea0a075e6e5fb15",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/run_birthday_native_capture_v2.py",
+      "bytes": 11449,
+      "sha256": "f08f1cd0f0f9d2d42fe4830a42db193d3e03f85f7d85ab3ed8ed23b31c8ac51a",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/run_birthday_native_capture_v3.py",
+      "bytes": 11908,
+      "sha256": "5f4b04abbc51710661a40932fb4c6e845e871e6aef320e82342d44450c9f0b66",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/run_birthday_native_capture_v4.py",
+      "bytes": 12601,
+      "sha256": "f34cdd7e397f7ecaa9c7e020ccf7a2f735bb6a87bdeaffa0631be2e4e5d62f74",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/run_birthday_save.py",
+      "bytes": 4897,
+      "sha256": "13d7fa8c21be78095e932bd04f77a3562091eee968056fee2c5d87ec78066dd2",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/run_birthday_save_v2.py",
+      "bytes": 4945,
+      "sha256": "45674111bd83a1b7c53ad88e8d847fdfaf0ef6ac78f12c83b06b4c655902a464",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/run_birthday_save_v3.py",
+      "bytes": 4945,
+      "sha256": "12c1ba304e14d05152e3913c77c1a0fcfb83fd95052f8f2bb2e02f59b0b82964",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/run_birthday_save_v4.py",
+      "bytes": 5052,
+      "sha256": "0a9b4072930666efacc324bea719b0b79d2eea0759d2ce85e240dd82f69f9101",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/run_birthday_save_v5.py",
+      "bytes": 7506,
+      "sha256": "b8b1c274ab811d58225472936b3516ae91369fef889b18d162c615071ec48b7f",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/run_checkpoint_schema.py",
+      "bytes": 2417,
+      "sha256": "583356d368c816ee46ee5668b458615d06ce127f8662a8abb4a52512a4f1e28b",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/run_checkpoint_schema_v2.py",
+      "bytes": 2429,
+      "sha256": "f8f7d8cefed89d49047b932e7e7ff02a5d9c9067a37c1dc68114400b8188c982",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/run_checkpoint_schema_v3.py",
+      "bytes": 2409,
+      "sha256": "c94233dc4e957ff6f6faf0ed2121355183daa4859c51208738468b7e99ed9477",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/run_checkpoint_schema_v4.py",
+      "bytes": 2664,
+      "sha256": "9d828fa4599953b80f94b3494af261847ef329444dc50e5764463a17bd8f77ff",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/run_contact_document_gates.py",
+      "bytes": 3866,
+      "sha256": "2534b4d85af17012f419b09dc69a8d0ce7c5fb66038fe5b528e1865d81debe7c",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/run_final_review_gates_v2.py",
+      "bytes": 2523,
+      "sha256": "1b706b3ea6fae6e6d1f55436c8ee7c629dab69963ea559a44b77d99e20b2d880",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/run_final_source_document_gates.py",
+      "bytes": 3121,
+      "sha256": "1e92bd93658e86ab6edef441834f01c6d2c9b368657614a0e7f0c599e24f30be",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/run_granted_import.py",
+      "bytes": 5390,
+      "sha256": "e6cb1e8e6895e8f0544379f436281070590cbf6585cd4278e2a2fc281f59f11f",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/run_native_birthday_document_gates_v1.py",
+      "bytes": 7016,
+      "sha256": "f8b520f258786aab10a0f7f81cb4da8bce2e51130c1694be1350ab3bd1c45a48",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/run_park_prop.py",
+      "bytes": 4200,
+      "sha256": "41e2034944e90dbc34eb4ec9e7c12068af9da616f528d7306a8b8f24b0682880",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/run_park_review_gates.py",
+      "bytes": 4541,
+      "sha256": "699fc5472bbbbff2e5bad6b87a0f246ba95b0c7c509e8d53bd398659fa146e13",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/run_partial_save.py",
+      "bytes": 3676,
+      "sha256": "9287eb0150cfca0530241a1283e6d70a1546610853f542935e13772d45d60934",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/run_pipe_contact_document_gates_v1.py",
+      "bytes": 5629,
+      "sha256": "fe68e81e7a1a057e20d265b6fa56aacf91082f7f403516f98f7532122f9981ad",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/run_pipe_contact_document_gates_v2.py",
+      "bytes": 5845,
+      "sha256": "0da7890cde89da49289f2c442cfad3af34e9226c27e9ce32980ff31298b537ba",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/run_pipe_contact_negative_v1.py",
+      "bytes": 5662,
+      "sha256": "f096eeb8e6c8d78be2c1a2a99ff79dc54d91a8643c20961c5bcf70fcbd8692b4",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/run_pipe_contact_v1.py",
+      "bytes": 5427,
+      "sha256": "ae7597b63cdae1834100baad3fdfb3156a2280fddaea6ec7edbbbee6cb333205",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/run_pipe_contact_v2.py",
+      "bytes": 5521,
+      "sha256": "31818dea86fe375f7f02b7db9b46e3a08a7868d2b340e6b5bf996dd76e9d7331",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/run_pipe_contact_v3.py",
+      "bytes": 5523,
+      "sha256": "fb0b6bfebcff35a426d528c8657dbd45ceedd543f7a01023e4e2857969dde0fd",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/run_pipe_contact_v4.py",
+      "bytes": 5523,
+      "sha256": "cc957e502fc5893348b1cfecf67429403c6f77d1869ba95992fa305c9561aeb0",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/run_pipe_contact_v5.py",
+      "bytes": 5519,
+      "sha256": "ad82d2594e418f943732e281d2e05ce0bff76d823f2c346722b92526af589c25",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/run_pipe_correction_aspects_v1.py",
+      "bytes": 8280,
+      "sha256": "ecf3df181a0efa58f36f9d7da48625cf0eae2d422f2e131e805e651fc9807057",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/run_pipe_correction_document_gates_v1.py",
+      "bytes": 6404,
+      "sha256": "1cfe391f7b46295f24e248697a8e19bbbb3ea06b33869ea59d289bddc21a7fff",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/run_pipe_travel_document_gates_v1.py",
+      "bytes": 7606,
+      "sha256": "d75116decae7b7c5a5c2b5a3535be20dba46b60487e253b57a7e76aecce8392c",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/run_pipe_travel_verification_v1.py",
+      "bytes": 12413,
+      "sha256": "488bdc645034239de12bcc0f170d26128714e6741e415782f9ca15c601a13326",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/run_release_ownership_document_gates_v1.py",
+      "bytes": 7877,
+      "sha256": "57cc14c4507d06743ec924e697753cba4aaf645d1427a26f304747d6053cfbe8",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/run_release_ownership_regressions_v1.py",
+      "bytes": 8952,
+      "sha256": "59619f5e2ce426ad2469a18bce02f37e60877d33d4fc5f81388b30338cd8aa4d",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/run_release_ownership_regressions_v2.py",
+      "bytes": 9068,
+      "sha256": "38e255c8659dc448ce444f33d329b63990804f18d34579d8736f9852bae52481",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/run_reproduction.py",
+      "bytes": 4034,
+      "sha256": "7db28d263ae16f40576b828d4b361f737ff7450448d8f824a2455ce6391fc034",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/run_route_document_gates_v1.py",
+      "bytes": 6088,
+      "sha256": "5a744d19de75f673b52adf37192b435a8ebfbb0eb09023d3996378b929871619",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/run_save_document_gates.py",
+      "bytes": 2774,
+      "sha256": "68b8fe36c95d3259f8997d21a3635ec2b9f8e8a95355422ee18124e751262d39",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/run_save_lifecycle.py",
+      "bytes": 3714,
+      "sha256": "b11b826ae1f0fe239ee68eba73a742c1da897085afe53dd4b2c26c320dcc7865",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/run_save_lifecycle_v2.py",
+      "bytes": 3729,
+      "sha256": "52e11a4e79948d36430dbefad851f290be01c4307b1cc0812edfb522ee7c9189",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/run_save_lifecycle_v3.py",
+      "bytes": 3729,
+      "sha256": "8199cc59eff3140033fe2aaff0ce39e61384fd02e665696f7d217d5eb4060393",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/run_save_lifecycle_v4.py",
+      "bytes": 3729,
+      "sha256": "a8e35fda9e0be23b2ba14ad1ef42e8e8ad466cd721105f711d3e3f828c973574",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/run_save_lifecycle_v5.py",
+      "bytes": 4854,
+      "sha256": "45ae84dbbcb62872592f8f8f5893481513490c0124f6eec7d0009667ff6147f6",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/run_save_lifecycle_v6.py",
+      "bytes": 4854,
+      "sha256": "e7ecd2f5a26f50b60814fd2362ccdc5657758969891523737daca317278a6ab1",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/run_save_lifecycle_v7.py",
+      "bytes": 7307,
+      "sha256": "523a13d2818784abafa34c7df9c1ad11f41ee6e5ecb4baa8b42509c1031067f3",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/run_save_post_gates.py",
+      "bytes": 2422,
+      "sha256": "4506c2b467fb0c8243a5a01ba9a24b5d3bc4f562551e6d1af1374d555a5dd150",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/run_save_post_gates_v2.py",
+      "bytes": 2976,
+      "sha256": "b9b89d6b5e8a7270ffa8a36015a58b50ec1fc9b152c0d75d5532f0d4b55c6158",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/run_save_repair.py",
+      "bytes": 3721,
+      "sha256": "c7c18c0602f7efba23b57863b27a74be4c030d1b1a76fb7c7ff48b3e7b63fbef",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/run_save_review_gates_v2.py",
+      "bytes": 2378,
+      "sha256": "6f71fed2edecdfc3c1e665099da4b02c977724d420714895f12907f49e1a47ec",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/SAVE_DOCUMENT_GATES_LOG.txt",
+      "bytes": 3356,
+      "sha256": "df1bd37bffaa3892ee0394237ce6c959d56f6ee69581e4a0910070afdd61b270",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/SAVE_DOCUMENT_GATES_RECEIPT.json",
+      "bytes": 8289,
+      "sha256": "6ab0117fc109f506f7205aae5819a104cf70d72c4a90fc32b2d6379a838f9c8d",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/SAVE_LIFECYCLE_LOG.txt",
+      "bytes": 11773,
+      "sha256": "281654aaf04b6d1a8d51cf4d2a8691b79b172b084b73a4f2ea069fb337b9cdfe",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/SAVE_LIFECYCLE_RECEIPT.json",
+      "bytes": 14664,
+      "sha256": "5dc999b11d95d3daefdf0d47ccba1e9b6d65ca98ba42fd88c5e357604791fa87",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/SAVE_LIFECYCLE_V2_LOG.txt",
+      "bytes": 436,
+      "sha256": "ae7e07641a222955df94c80044a368d05c16bd5bcc1ad677d4b1a6390e5b0fea",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/SAVE_LIFECYCLE_V2_RECEIPT.json",
+      "bytes": 3350,
+      "sha256": "8e5777654bb9a3fdbfd46ebea221aa2cea1e69ebf4849f842fce3f82af03f388",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/SAVE_LIFECYCLE_V3_LOG.txt",
+      "bytes": 13344,
+      "sha256": "268a76e8910128576add5d9a21ac255094a7eea79af9c669b0ffa7b8c4dab0d2",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/SAVE_LIFECYCLE_V3_RECEIPT.json",
+      "bytes": 16298,
+      "sha256": "936c3256dd2381155327985474fcfd269faf10a5b140cee2d33b9e8c3743f3dd",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/SAVE_LIFECYCLE_V4_LOG.txt",
+      "bytes": 15171,
+      "sha256": "dd3452f37c243ff5d69aa9372345e547b1b2fbafbaffa4bb55937eb812b20b37",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/SAVE_LIFECYCLE_V4_RECEIPT.json",
+      "bytes": 17769,
+      "sha256": "f62477b05bc43854e31d38691d11ddff3918f92c325f43112a5f9f3ab8efe40f",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/SAVE_LIFECYCLE_V5_LOG.txt",
+      "bytes": 15300,
+      "sha256": "e3cb8bbc174d2bf8943fd83de6e8bc5f5fb15ccf73d2ead2f61bd9e97e56ef88",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/SAVE_LIFECYCLE_V5_PREFLIGHT.json",
+      "bytes": 3974,
+      "sha256": "60b4833acb2caf9a436ea8799f93d93ef8285c338bc6b91733e6e6910eacb8a3",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/SAVE_LIFECYCLE_V5_RECEIPT.json",
+      "bytes": 19489,
+      "sha256": "15b0df429955fa9a2b168a56ec37ee1b6253a07bea1c73b9d3bf9284e040913a",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/SAVE_LIFECYCLE_V6_LOG.txt",
+      "bytes": 15300,
+      "sha256": "0b63329a75d1b334c7babed53f0eb15b839f9979c9668fa6d607d32379c0a800",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/SAVE_LIFECYCLE_V6_PREFLIGHT.json",
+      "bytes": 3974,
+      "sha256": "5b87182535ea6b8bc69f227f0a068a977a8318fb62bbcfd6460d5b4eb6d2917c",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/SAVE_LIFECYCLE_V6_RECEIPT.json",
+      "bytes": 19489,
+      "sha256": "6f1320a3fda3e64329062c8fa0d8e838d9e3887abee54196c54b3dbba023b4ef",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/SAVE_LIFECYCLE_V7_LOG.txt",
+      "bytes": 19813,
+      "sha256": "7d0defe9dfe01c0d25e4b48b83c0f64b00bb3406f0fd9cc93537cc51caeb3d0a",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/SAVE_LIFECYCLE_V7_PREFLIGHT.json",
+      "bytes": 5433,
+      "sha256": "8b788d07e9593aad13147b040da4f1c333880aa0c871e94e6d8502b55ae2e421",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/SAVE_LIFECYCLE_V7_RECEIPT.json",
+      "bytes": 26096,
+      "sha256": "89b5689da4b247003a7945bba8b1251774d13a55ad6c7952888a78dd3e1fd1e4",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/SAVE_POST_GATES_LOG.txt",
+      "bytes": 1897,
+      "sha256": "be4bf98bcf14dda5836b0b55f68a58f0e387b0ef51fa5134fef5e1c400d15cbf",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/SAVE_POST_GATES_RECEIPT.json",
+      "bytes": 4039,
+      "sha256": "605629eb976dd637cc7c0d361c84213a070359eec32136c36f5fefac4ed0a6d9",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/SAVE_POST_GATES_V2_LOG.txt",
+      "bytes": 1897,
+      "sha256": "be4bf98bcf14dda5836b0b55f68a58f0e387b0ef51fa5134fef5e1c400d15cbf",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/SAVE_POST_GATES_V2_PREFLIGHT.json",
+      "bytes": 968,
+      "sha256": "8f57c4d75f97227a6629359ae506e809254af6f986fcfe6c3c65a9e5e43605ae",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/SAVE_POST_GATES_V2_RECEIPT.json",
+      "bytes": 3752,
+      "sha256": "75ed0fdc8500c1691f2ead01bdefc89830c4682e169f83a8df7749d49b84da81",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/SAVE_POST_GATES_WRITER_RECOVERY.json",
+      "bytes": 4843,
+      "sha256": "79591726cf59365d86a79900a3fe8a1fd39a9dc56cd3ea278799edbf951d45b2",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/SAVE_REPAIR_REVIEW.json",
+      "bytes": 10374,
+      "sha256": "8e4ce6c34cea7fa3e829b7066e71fb92a36c9888f50f0d5ff4366b3afdf4e414",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/SAVE_REVIEW_GATES_V2_LOG.txt",
+      "bytes": 956,
+      "sha256": "c1a4e0811ede14d332675b3aba190903dbfd3456b55419f7c2a204c1bed5571f",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/SAVE_REVIEW_GATES_V2_RECEIPT.json",
+      "bytes": 3137,
+      "sha256": "cc70ddcd8efe37ff5e8900eaf5c6d5afea494b6b7da18f3c31826ec13dc3367a",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/SOURCE_ART_REVIEW.json",
+      "bytes": 2423,
+      "sha256": "8ffa201c3a103aa82089c14e332c8054c5e0df3b03e6b82ebf8c790846cb674c",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/SOURCE_START.json",
+      "bytes": 1276,
+      "sha256": "262d8bbd75785035d774e5aa8cc799f171f1e7b24b64ea05884eb7b32bb85ac0",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/STAGED_PROVENANCE_RECEIPT.json",
+      "bytes": 13785,
+      "sha256": "636750fd75037809d6738498aa7aa7591911ead11aad1e25d87112fe8cb23498",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/STAGED_PROVENANCE_V2_RECEIPT.json",
+      "bytes": 53605,
+      "sha256": "c53d897a34b11725f6d77081632df9bd79722843595080d930f770bcc4d77942",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/STATUS.json",
+      "bytes": 20679,
+      "sha256": "ff74afdb0108e7c93582e5d8d98421f19e2b849d1f85e8774826391d4e42c570",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/VARIANT_ROUTE_REVIEW.json",
+      "bytes": 2310,
+      "sha256": "84ceec9b1db3a1deb7dd23a6fc216dfe9effbe448ca7856811e507c75cdcccfd",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/verify_birthday_contact_v1.gd",
+      "bytes": 20157,
+      "sha256": "026349786063eb241280c98bc4a0c525af41786d72e8704b97daafa2b85bc3fd",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/verify_birthday_save.gd",
+      "bytes": 15896,
+      "sha256": "3c78ac2934da2a3361dccb8351c4c320ba3627bbb9f8d6a6d784f45a6ada562b",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/verify_birthday_save_v2.gd",
+      "bytes": 16088,
+      "sha256": "7941326fbe54ea16f715fcf2887ba449a97588ea289500bc9d62f08ac4f61065",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/verify_birthday_save_v3.gd",
+      "bytes": 16624,
+      "sha256": "1bb3733c6a92305f5041a24c598116bd36738d4b5ba2411e34181dc3a1462920",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/verify_birthday_save_v4.gd",
+      "bytes": 17422,
+      "sha256": "69b997cbf7ac9d35a679703bb24bcadba19f868c9edc5ee8edd85e29d1f6df7b",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/verify_birthday_save_v5.gd",
+      "bytes": 19469,
+      "sha256": "441497892b19484e70cff759dfc6e7ca1ea55fa1a8dff4d10e597c6d98e12188",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/verify_checkpoint_schema.gd",
+      "bytes": 4538,
+      "sha256": "c16d41e72c2660f9589c2bc94e559405a301cb184e12dbfdb7b9760daadd680a",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/verify_checkpoint_schema_v2.gd",
+      "bytes": 4642,
+      "sha256": "1bdc5b06ea464bb54d3c5a3b67e0a1324d20ea9867c87a2d5d0f64fc642061d7",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/verify_checkpoint_schema_v3.gd",
+      "bytes": 4570,
+      "sha256": "3da101cad00e53cb213ba3b76693fe8c2dfece12ed525553c0329bd4cdabba52",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/verify_checkpoint_schema_v4.gd",
+      "bytes": 4570,
+      "sha256": "3da101cad00e53cb213ba3b76693fe8c2dfece12ed525553c0329bd4cdabba52",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/verify_input.gd",
+      "bytes": 545,
+      "sha256": "3a2b22223ae9f4c675b88dfbbf4306976b3d42b803edf836b5120fce0b4e90ba",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/verify_partial_save.gd",
+      "bytes": 7153,
+      "sha256": "47adac5984d384127952d920ba75fb146575015262db9e2decbfa078574e1c0e",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/verify_pipe.gd",
+      "bytes": 610,
+      "sha256": "dc9959c8452c21de68a3ec08257a0387b954b63ee4100cf3872895a4d6e6f842",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/verify_pipe_contact_negative_v1.gd",
+      "bytes": 9657,
+      "sha256": "33560e7c1b2eb9d3c63164b1946c5d135d57dd4213ba37dc0fab20053474bcb2",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/verify_pipe_contact_negative_v2.gd",
+      "bytes": 9472,
+      "sha256": "a9f4acde8b318f502f9d97629a036c58319f9d84046b4111b25ff51ef64db048",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/verify_pipe_contact_negative_v3.gd",
+      "bytes": 9657,
+      "sha256": "22734b4d3c02193c70345d3bb931d2e09bf1b858611723d502f9d3fa8d339d45",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/verify_pipe_contact_v1.gd",
+      "bytes": 9505,
+      "sha256": "f8d139d93f21b9d7233853a150f60321419ea019f6c3f5d8c20789fc0a9bf6da",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/verify_pipe_contact_v2.gd",
+      "bytes": 9706,
+      "sha256": "5c00f6425ae267fb4dff78148c8a4dbf6f264ac5cc25a8ad89765454a386a8bc",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/verify_pipe_contact_v3.gd",
+      "bytes": 10917,
+      "sha256": "536c048725181f87191c6a74e632c128f6e651a60dfdc28444b7be0146d83518",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/verify_pipe_contact_v4.gd",
+      "bytes": 10957,
+      "sha256": "a99963fd403f760a05a61f4e27d7baa286b835749d68d35fa2ab61a27fc16a83",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/verify_pipe_contact_v5.gd",
+      "bytes": 13187,
+      "sha256": "23f9dbad48283f808877bc991e589f9c603a23b2bac7caf29b21f907e6affe80",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/verify_pipe_contact_v6.gd",
+      "bytes": 12950,
+      "sha256": "8322291dfaacbdf016490e86ac32f90f4f9ccbf375eeb676dc152b33ba2e51ba",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/verify_pipe_correction_aspect_v2.gd",
+      "bytes": 15028,
+      "sha256": "6efd3a46aaffda030c7782a0c3ec4851c7aea87113353ede4c808894257ff0e3",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/verify_pipe_correction_aspects_v1.gd",
+      "bytes": 15307,
+      "sha256": "0a229b71870f3d89086fd8cd85b1865c0af47b24734f5ddbb580f5f359184dae",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/verify_save_lifecycle.gd",
+      "bytes": 13184,
+      "sha256": "0cf5c3202660aef3afe7cf55d2a33a6dd00582384ea534daa34f24961359b3bd",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/verify_save_lifecycle_v2.gd.rejected.txt",
+      "bytes": 13853,
+      "sha256": "30b017b8172a57ec1352e8b679df4090ef5cc50ec807b031879649c6e9977933",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/verify_save_lifecycle_v3.gd",
+      "bytes": 13859,
+      "sha256": "a36b869d2756ce143d47a0c547d3da928e928c1a34f17729fe8ca22a37d95296",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/verify_save_lifecycle_v4.gd",
+      "bytes": 14110,
+      "sha256": "88fde9dffe7826e323273fb67b257e72e49a71f39bcc36f5a3cbbc3e24ec7d54",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/verify_save_lifecycle_v5.gd",
+      "bytes": 13830,
+      "sha256": "1c323c705edd8cfb0362db374d1aa428351ecf5057be6c3357109b72553e8bf5",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/verify_save_lifecycle_v6.gd",
+      "bytes": 13830,
+      "sha256": "8dbd6c19d30487a0700979a3cab9f6d04e9993def927bd25b5628327ee291821",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/verify_save_lifecycle_v7.gd",
+      "bytes": 15840,
+      "sha256": "c56daf630c2c6d8471c67b1307db97b65c7bcf17744fee994275087d13c44b9e",
+      "native_equals_staged": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/verify_save_lifecycle_v8.gd",
+      "bytes": 15537,
+      "sha256": "927891b5942718c8a24f871e295f5a1bf173094f41de4493cbedc76dab8bfe25",
+      "native_equals_staged": true
+    }
+  ],
+  "current_runtime_receipt_sha256": "63e7c07ef21d75aac89042d9aad0c58013e89e999e6158b71ef4d6d8157cad3a",
+  "current_document_gate_receipt_sha256": "21d7280450c28a0cc55a5ccce54426982ed2cc5a108c38f4bd63544e40c61358",
+  "current_native_pngs_verified": 168,
+  "old_helper_source_preserved": true,
+  "old_world_source_preserved": true,
+  "failed_parent_retained": true,
+  "lost_V1_native_pixel_disclosure_retained": true,
+  "no_commit_push_integration_or_release": true,
+  "meaning": "All current packet native bytes match their staged Git bytes; current source/log/native hashes independently match. Older source-bound receipts remain historical and their failures/lost-original disclosure are preserved. Whole-game satisfaction/fulltrusted/strictQA11/independent/device/child/owner remain open."
+}

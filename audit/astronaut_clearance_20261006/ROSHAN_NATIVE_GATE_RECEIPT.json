@@ -1,0 +1,41 @@
+{
+  "started_utc": "2026-10-07T05:10:14.213662+00:00",
+  "finished_utc": "2026-10-07T05:10:15.330663+00:00",
+  "command": [
+    "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+    "-X",
+    "utf8",
+    "-B",
+    "tools/audit_opera_roshan_animation.py"
+  ],
+  "exit_code": 0,
+  "result": "PASS",
+  "summary": [
+    "OPERA_ROSHAN_ART|result: ALL OK (13 careers, 208 reviewed frames)"
+  ],
+  "log_path": "audit/astronaut_clearance_20261006/ROSHAN_NATIVE_GATE_LOG.txt",
+  "log_sha256": "d749f996c6224ca24e5e3ddaa13e040b875d9e08d50599669c05049fcd22c632",
+  "bound_sources": [
+    {
+      "path": "tools/audit_opera_roshan_animation.py",
+      "exists": true,
+      "sha256": "a30ff9e467c283849f45dd2f63c2a8343cf1149065869883cfdcc8a06e6bf147"
+    },
+    {
+      "path": "assets/opera/worlds/actors/animation/roshan_astronaut_sheet_a.png",
+      "exists": true,
+      "sha256": "ccfb8e7af3a033e31e05af40fa62dc23b676aec6204ba8810e8cf79cbfc4d6fa"
+    },
+    {
+      "path": "assets_src/imagegen/opera_roshan_animation_2026-08-09/OPERA_ROSHAN_ANIMATION_REVIEW_2026-08-09.json",
+      "exists": true,
+      "sha256": "b47aee4d70fa675a30ee78143b55b693fe3842f236d4ae55122b2463f9abe7aa"
+    },
+    {
+      "path": "assets_src/imagegen/opera_roshan_animation_2026-08-09/roshan_astronaut_sheet_a_pack_report.json",
+      "exists": true,
+      "sha256": "a4fdb17383d7071d6cdfa28eaf1154d35878ce5b49c29bc5c39bdcd6e68de88f"
+    }
+  ],
+  "scope": "Existing13-career208-cell provenance/bounds/semantic-ledger source gate. No complete-action, fresh runtime, new independent review, device, child, owner or4.6creative clearance inferred."
+}

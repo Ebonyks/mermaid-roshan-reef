@@ -1,0 +1,37 @@
+{
+  "result": "FAIL",
+  "failure_kind": "OPERATOR_MONITOR_FILE_ROTATION_RACE",
+  "reported_exception": "FileNotFoundError WinError2:1600x720/reef_save.json.bak disappeared between is_file and stat in dir_bytes; Python runner exited1. This exception is from the operator tool result, not a Godot ERROR or an added raw-log line.",
+  "runner_path": "audit/astronaut_clearance_20261006/run_patch_readability_native_v1.py",
+  "runner_sha256": "0ad3a3b39429f6469cc8fa6cbee24eac46cedf3b4733b868a9ec18b8656c988e",
+  "preflight_sha256": "a500ec04f7ea3385109507f6b63ad6573f7d8f750a0ab042d6f6016054e44f61",
+  "log_path": "audit/astronaut_clearance_20261006/PATCH_READABILITY_NATIVE_V1_LOG.txt",
+  "log_sha256": "975606516228223217e96ff88c60e506a54320f473ad01f27c8b918b8787c75c",
+  "started_utc": "2026-10-07T14:40:38.267360+00:00",
+  "terminal_observed_utc": "2026-10-07T14:51:07.055928+00:00",
+  "authoritative_process_observation": "CIM approved-executable process inventory empty after runner terminal. Both127-row fixture reports and both native manifests present; second exit code was not captured by crashed parent. No restart or capture overwrite.",
+  "completed_subrun_checks": [
+    127,
+    127
+  ],
+  "completed_subrun_failures": [
+    0,
+    0
+  ],
+  "first_native_exit_code": 0,
+  "first_native_elapsed_seconds": 107.724,
+  "second_native_exit_code": "UNRECORDED",
+  "analyzers_elapsed_seconds": [
+    6.391,
+    6.148,
+    6.137
+  ],
+  "capture_log_last_write_utc": "2026-10-07T14:44:34.624058+00:00",
+  "native_manifest_last_write_utc": {
+    "1280": "2026-10-07T14:42:47.077329+00:00",
+    "1600": "2026-10-07T14:44:34.618480+00:00"
+  },
+  "negative_process_launched": false,
+  "continuous_native_resource_monitoring": "UNVERIFIED_AFTER_PARENT_FAILURE",
+  "meaning": "Retained failing parent. Raw native fixture reports and pixels may be independently reconciled as diagnostics; do not promote this parent or infer an unrecorded exit/resource interval."
+}

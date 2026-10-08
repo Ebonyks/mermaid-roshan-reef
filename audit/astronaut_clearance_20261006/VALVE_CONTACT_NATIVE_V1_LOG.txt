@@ -1,0 +1,6 @@
+OPERATOR TOOL FAILURE RECORD (not a runner-owned raw engine log)
+Exit1 before capture/analyzer launch. Returned tool wall time8.6128821seconds.
+AssertionError at run_valve_contact_native_v1.py:97
+assert candidate.count('_check(') == original.count('_check(') + 5
+Four actual new call sites; one circle assertion executes twice, so runtime126 remains correct.
+No frame/save/manifest output existed. Original runner preserved.

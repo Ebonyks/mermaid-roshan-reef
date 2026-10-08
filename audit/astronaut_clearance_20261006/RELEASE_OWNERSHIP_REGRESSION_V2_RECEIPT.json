@@ -1,0 +1,1881 @@
+{
+  "started_utc": "2026-10-07T12:02:19.034883+00:00",
+  "finished_utc": "2026-10-07T12:04:37.117426+00:00",
+  "result": "PASS",
+  "engine_version": "4.7.2.stable.official.ed1daf0bf",
+  "engine_sha256": "ab1824f85bfd8e0e4128182c000c4003a3e042245b2967848d089b2a04b22424",
+  "steps": [
+    {
+      "label": "Analyzer verify_pipe_correction_aspect_v2.gd",
+      "command": [
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\.codex\\worktrees\\astronaut-goal-20261006\\mermaid-roshan-reef",
+        "--script",
+        "res://audit/astronaut_clearance_20261006/verify_pipe_correction_aspect_v2.gd",
+        "--check-only"
+      ],
+      "exit_code": 0
+    },
+    {
+      "label": "Analyzer verify_save_lifecycle_v8.gd",
+      "command": [
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\.codex\\worktrees\\astronaut-goal-20261006\\mermaid-roshan-reef",
+        "--script",
+        "res://audit/astronaut_clearance_20261006/verify_save_lifecycle_v8.gd",
+        "--check-only"
+      ],
+      "exit_code": 0
+    },
+    {
+      "label": "Correction1280",
+      "command": [
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\.codex\\worktrees\\astronaut-goal-20261006\\mermaid-roshan-reef",
+        "--script",
+        "res://audit/astronaut_clearance_20261006/verify_pipe_correction_aspect_v2.gd"
+      ],
+      "owned_pid": 65784,
+      "exit_code": 0,
+      "timed_out": false,
+      "engine_error_stop": false,
+      "checks_expected": 57,
+      "behavior_pass": true
+    },
+    {
+      "label": "Correction1600",
+      "command": [
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\.codex\\worktrees\\astronaut-goal-20261006\\mermaid-roshan-reef",
+        "--script",
+        "res://audit/astronaut_clearance_20261006/verify_pipe_correction_aspect_v2.gd"
+      ],
+      "owned_pid": 55036,
+      "exit_code": 0,
+      "timed_out": false,
+      "engine_error_stop": false,
+      "checks_expected": 57,
+      "behavior_pass": true
+    },
+    {
+      "label": "Ordinary allmechanics91",
+      "command": [
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\.codex\\worktrees\\astronaut-goal-20261006\\mermaid-roshan-reef",
+        "--script",
+        "res://audit/astronaut_clearance_20261006/verify_save_lifecycle_v8.gd"
+      ],
+      "owned_pid": 66420,
+      "exit_code": 0,
+      "timed_out": false,
+      "engine_error_stop": false,
+      "checks_expected": 91,
+      "behavior_pass": true
+    }
+  ],
+  "evidence": [
+    {
+      "label": "Correction1280",
+      "fixture": "verify_pipe_correction_aspect_v2.gd",
+      "checks": 57,
+      "contacts": [
+        {
+          "actor_viewport_bounds": [
+            782.413024902344,
+            241.02326965332,
+            247.587585449219,
+            247.587448120117
+          ],
+          "atlas_region": [
+            256.0,
+            512.0,
+            256.0,
+            256.0
+          ],
+          "cell": 5,
+          "distance": 0.967132568359375,
+          "jaw_viewport": [
+            824.0,
+            330.967132568359
+          ],
+          "request_id": 3,
+          "round": 0,
+          "scale": [
+            0.990349888801575,
+            0.990349888801575
+          ],
+          "target_viewport": [
+            824.0,
+            330.0
+          ],
+          "viewport": [
+            1280,
+            720
+          ]
+        },
+        {
+          "actor_viewport_bounds": [
+            894.413024902344,
+            241.02326965332,
+            247.587585449219,
+            247.587448120117
+          ],
+          "atlas_region": [
+            256.0,
+            512.0,
+            256.0,
+            256.0
+          ],
+          "cell": 6,
+          "distance": 0.967132568359375,
+          "jaw_viewport": [
+            936.0,
+            330.967132568359
+          ],
+          "request_id": 4,
+          "round": 0,
+          "scale": [
+            0.990349888801575,
+            0.990349888801575
+          ],
+          "target_viewport": [
+            936.0,
+            330.0
+          ],
+          "viewport": [
+            1280,
+            720
+          ]
+        },
+        {
+          "actor_viewport_bounds": [
+            670.413024902344,
+            129.02326965332,
+            247.587707519531,
+            247.587387084961
+          ],
+          "atlas_region": [
+            256.0,
+            512.0,
+            256.0,
+            256.0
+          ],
+          "cell": 0,
+          "distance": 0.967132568359375,
+          "jaw_viewport": [
+            712.0,
+            218.967132568359
+          ],
+          "request_id": 5,
+          "round": 1,
+          "scale": [
+            0.990349888801575,
+            0.990349888801575
+          ],
+          "target_viewport": [
+            712.0,
+            218.0
+          ],
+          "viewport": [
+            1280,
+            720
+          ]
+        },
+        {
+          "actor_viewport_bounds": [
+            894.413024902344,
+            129.023208618164,
+            247.587341308594,
+            247.587631225586
+          ],
+          "atlas_region": [
+            256.0,
+            512.0,
+            256.0,
+            256.0
+          ],
+          "cell": 2,
+          "distance": 0.9671630859375,
+          "jaw_viewport": [
+            935.999938964844,
+            218.967163085938
+          ],
+          "request_id": 9,
+          "round": 1,
+          "scale": [
+            0.990349888801575,
+            0.990349888801575
+          ],
+          "target_viewport": [
+            936.0,
+            218.0
+          ],
+          "viewport": [
+            1280,
+            720
+          ]
+        },
+        {
+          "actor_viewport_bounds": [
+            670.4130859375,
+            129.023193359375,
+            247.587341308594,
+            247.587646484375
+          ],
+          "atlas_region": [
+            256.0,
+            512.0,
+            256.0,
+            256.0
+          ],
+          "cell": 0,
+          "distance": 0.967147827148438,
+          "jaw_viewport": [
+            712.0,
+            218.967147827148
+          ],
+          "request_id": 10,
+          "round": 1,
+          "scale": [
+            0.990349888801575,
+            0.990349888801575
+          ],
+          "target_viewport": [
+            712.0,
+            218.0
+          ],
+          "viewport": [
+            1280,
+            720
+          ]
+        },
+        {
+          "actor_viewport_bounds": [
+            782.4130859375,
+            129.023193359375,
+            247.587524414063,
+            247.587646484375
+          ],
+          "atlas_region": [
+            256.0,
+            512.0,
+            256.0,
+            256.0
+          ],
+          "cell": 1,
+          "distance": 0.967147827148438,
+          "jaw_viewport": [
+            824.000061035156,
+            218.967147827148
+          ],
+          "request_id": 11,
+          "round": 1,
+          "scale": [
+            0.990349888801575,
+            0.990349888801575
+          ],
+          "target_viewport": [
+            824.0,
+            218.0
+          ],
+          "viewport": [
+            1280,
+            720
+          ]
+        },
+        {
+          "actor_viewport_bounds": [
+            894.413024902344,
+            241.023193359375,
+            247.587707519531,
+            247.587646484375
+          ],
+          "atlas_region": [
+            256.0,
+            512.0,
+            256.0,
+            256.0
+          ],
+          "cell": 6,
+          "distance": 0.9671630859375,
+          "jaw_viewport": [
+            936.0,
+            330.967163085938
+          ],
+          "request_id": 12,
+          "round": 1,
+          "scale": [
+            0.990349888801575,
+            0.990349888801575
+          ],
+          "target_viewport": [
+            936.0,
+            330.0
+          ],
+          "viewport": [
+            1280,
+            720
+          ]
+        }
+      ],
+      "failures": 0,
+      "height": 720,
+      "rows": [
+        {
+          "label": "requested aspect is supported",
+          "pass": true
+        },
+        {
+          "label": "explicit prior-six-jobs fixture makes Astronaut next",
+          "pass": true
+        },
+        {
+          "label": "actual birthday card is visible",
+          "pass": true
+        },
+        {
+          "label": "room fade permits real card input",
+          "pass": true
+        },
+        {
+          "label": "production world requires pipe contact",
+          "pass": true
+        },
+        {
+          "label": "actual object touch opens pipe after room approach",
+          "pass": true
+        },
+        {
+          "label": "actual expanded viewport has requested width",
+          "pass": true
+        },
+        {
+          "label": "early world commit is rejected at5",
+          "pass": true
+        },
+        {
+          "label": "whole figure control fits actual viewport at5",
+          "pass": true
+        },
+        {
+          "label": "actual full-figure contact geometry and size at5",
+          "pass": true
+        },
+        {
+          "label": "repeated same commit is rejected at5",
+          "pass": true
+        },
+        {
+          "label": "board1 H5 contact succeeds",
+          "pass": true
+        },
+        {
+          "label": "early world commit is rejected at6",
+          "pass": true
+        },
+        {
+          "label": "whole figure control fits actual viewport at6",
+          "pass": true
+        },
+        {
+          "label": "actual full-figure contact geometry and size at6",
+          "pass": true
+        },
+        {
+          "label": "repeated same commit is rejected at6",
+          "pass": true
+        },
+        {
+          "label": "board1 H6 contact succeeds",
+          "pass": true
+        },
+        {
+          "label": "board1 earns exactly one credit",
+          "pass": true
+        },
+        {
+          "label": "board2 exact authored free stock starts intact",
+          "pass": true
+        },
+        {
+          "label": "early world commit is rejected at0",
+          "pass": true
+        },
+        {
+          "label": "whole figure control fits actual viewport at0",
+          "pass": true
+        },
+        {
+          "label": "actual full-figure contact geometry and size at0",
+          "pass": true
+        },
+        {
+          "label": "repeated same commit is rejected at0",
+          "pass": true
+        },
+        {
+          "label": "wrong SW0 still requires actual local contact",
+          "pass": true
+        },
+        {
+          "label": "engine fuel actually enters wrong SW0",
+          "pass": true
+        },
+        {
+          "label": "fueled wrong plan earns no extra credit or loses stock",
+          "pass": true
+        },
+        {
+          "label": "wrong fueled pipe can be lifted toward correct cell",
+          "pass": true
+        },
+        {
+          "label": "pending relocation snapshot restores source not target",
+          "pass": true
+        },
+        {
+          "label": "pending relocation uses normal save owner",
+          "pass": true
+        },
+        {
+          "label": "actual saved pending relocation preserves source and credit",
+          "pass": true
+        },
+        {
+          "label": "actual pause restores original wrong piece without credit",
+          "pass": true
+        },
+        {
+          "label": "canceled relocation cannot commit later",
+          "pass": true
+        },
+        {
+          "label": "off-grid drag returns wrong piece to selected tray",
+          "pass": true
+        },
+        {
+          "label": "selected-tile tap requests owned contact",
+          "pass": true
+        },
+        {
+          "label": "early world commit is rejected at2",
+          "pass": true
+        },
+        {
+          "label": "whole figure control fits actual viewport at2",
+          "pass": true
+        },
+        {
+          "label": "actual full-figure contact geometry and size at2",
+          "pass": true
+        },
+        {
+          "label": "repeated same commit is rejected at2",
+          "pass": true
+        },
+        {
+          "label": "selected-tile correction commits locally",
+          "pass": true
+        },
+        {
+          "label": "corrected SW keeps exact stock and unearned board",
+          "pass": true
+        },
+        {
+          "label": "early world commit is rejected at0",
+          "pass": true
+        },
+        {
+          "label": "whole figure control fits actual viewport at0",
+          "pass": true
+        },
+        {
+          "label": "actual full-figure contact geometry and size at0",
+          "pass": true
+        },
+        {
+          "label": "repeated same commit is rejected at0",
+          "pass": true
+        },
+        {
+          "label": "remaining corrected route SE at0",
+          "pass": true
+        },
+        {
+          "label": "early world commit is rejected at1",
+          "pass": true
+        },
+        {
+          "label": "whole figure control fits actual viewport at1",
+          "pass": true
+        },
+        {
+          "label": "actual full-figure contact geometry and size at1",
+          "pass": true
+        },
+        {
+          "label": "repeated same commit is rejected at1",
+          "pass": true
+        },
+        {
+          "label": "remaining corrected route H at1",
+          "pass": true
+        },
+        {
+          "label": "early world commit is rejected at6",
+          "pass": true
+        },
+        {
+          "label": "whole figure control fits actual viewport at6",
+          "pass": true
+        },
+        {
+          "label": "actual full-figure contact geometry and size at6",
+          "pass": true
+        },
+        {
+          "label": "repeated same commit is rejected at6",
+          "pass": true
+        },
+        {
+          "label": "remaining corrected route NE at6",
+          "pass": true
+        },
+        {
+          "label": "genuine correction finishes board2 exactly once",
+          "pass": true
+        },
+        {
+          "label": "correction does not award career pearls or light candle",
+          "pass": true
+        }
+      ],
+      "scope": "Current headless1280x720and1600x720 birthday card/object/wrong-plan input after explicit prior-six-jobs fixture. Fueled wrong-pipe lifting, pending source save/pause conservation, selected-tile correction, sampled whole-figure control bounds and normal board credit only. No native pixels/visual/fullchapter/device/child/owner/fullCI acceptance.",
+      "width": 1280
+    },
+    {
+      "label": "Correction1600",
+      "fixture": "verify_pipe_correction_aspect_v2.gd",
+      "checks": 57,
+      "contacts": [
+        {
+          "actor_viewport_bounds": [
+            942.413208007813,
+            241.023361206055,
+            247.5869140625,
+            247.587112426758
+          ],
+          "atlas_region": [
+            256.0,
+            512.0,
+            256.0,
+            256.0
+          ],
+          "cell": 5,
+          "distance": 0.96710205078125,
+          "jaw_viewport": [
+            984.000061035156,
+            330.967102050781
+          ],
+          "request_id": 3,
+          "round": 0,
+          "scale": [
+            0.990349888801575,
+            0.990349888801575
+          ],
+          "target_viewport": [
+            984.0,
+            330.0
+          ],
+          "viewport": [
+            1600,
+            720
+          ]
+        },
+        {
+          "actor_viewport_bounds": [
+            1054.4130859375,
+            241.023391723633,
+            247.5869140625,
+            247.58708190918
+          ],
+          "atlas_region": [
+            256.0,
+            512.0,
+            256.0,
+            256.0
+          ],
+          "cell": 6,
+          "distance": 0.967132568359375,
+          "jaw_viewport": [
+            1096.0,
+            330.967132568359
+          ],
+          "request_id": 4,
+          "round": 0,
+          "scale": [
+            0.990349888801575,
+            0.990349888801575
+          ],
+          "target_viewport": [
+            1096.0,
+            330.0
+          ],
+          "viewport": [
+            1600,
+            720
+          ]
+        },
+        {
+          "actor_viewport_bounds": [
+            830.413146972656,
+            129.023361206055,
+            247.586608886719,
+            247.586929321289
+          ],
+          "atlas_region": [
+            256.0,
+            512.0,
+            256.0,
+            256.0
+          ],
+          "cell": 0,
+          "distance": 0.967056274414063,
+          "jaw_viewport": [
+            871.999938964844,
+            218.967056274414
+          ],
+          "request_id": 5,
+          "round": 1,
+          "scale": [
+            0.990349888801575,
+            0.990349888801575
+          ],
+          "target_viewport": [
+            872.0,
+            218.0
+          ],
+          "viewport": [
+            1600,
+            720
+          ]
+        },
+        {
+          "actor_viewport_bounds": [
+            1054.41320800781,
+            129.023452758789,
+            247.586791992188,
+            247.586776733398
+          ],
+          "atlas_region": [
+            256.0,
+            512.0,
+            256.0,
+            256.0
+          ],
+          "cell": 2,
+          "distance": 0.967086791992188,
+          "jaw_viewport": [
+            1096.0,
+            218.967086791992
+          ],
+          "request_id": 9,
+          "round": 1,
+          "scale": [
+            0.990349888801575,
+            0.990349888801575
+          ],
+          "target_viewport": [
+            1096.0,
+            218.0
+          ],
+          "viewport": [
+            1600,
+            720
+          ]
+        },
+        {
+          "actor_viewport_bounds": [
+            830.413146972656,
+            129.023483276367,
+            247.586853027344,
+            247.58674621582
+          ],
+          "atlas_region": [
+            256.0,
+            512.0,
+            256.0,
+            256.0
+          ],
+          "cell": 0,
+          "distance": 0.96710205078125,
+          "jaw_viewport": [
+            872.0,
+            218.967102050781
+          ],
+          "request_id": 10,
+          "round": 1,
+          "scale": [
+            0.990349888801575,
+            0.990349888801575
+          ],
+          "target_viewport": [
+            872.0,
+            218.0
+          ],
+          "viewport": [
+            1600,
+            720
+          ]
+        },
+        {
+          "actor_viewport_bounds": [
+            942.413146972656,
+            129.023513793945,
+            247.586853027344,
+            247.586715698242
+          ],
+          "atlas_region": [
+            256.0,
+            512.0,
+            256.0,
+            256.0
+          ],
+          "cell": 1,
+          "distance": 0.967132568359375,
+          "jaw_viewport": [
+            984.0,
+            218.967132568359
+          ],
+          "request_id": 11,
+          "round": 1,
+          "scale": [
+            0.990349888801575,
+            0.990349888801575
+          ],
+          "target_viewport": [
+            984.0,
+            218.0
+          ],
+          "viewport": [
+            1600,
+            720
+          ]
+        },
+        {
+          "actor_viewport_bounds": [
+            1054.4130859375,
+            241.023513793945,
+            247.58642578125,
+            247.586776733398
+          ],
+          "atlas_region": [
+            256.0,
+            512.0,
+            256.0,
+            256.0
+          ],
+          "cell": 6,
+          "distance": 0.9671630859375,
+          "jaw_viewport": [
+            1095.99987792969,
+            330.967163085938
+          ],
+          "request_id": 12,
+          "round": 1,
+          "scale": [
+            0.990349888801575,
+            0.990349888801575
+          ],
+          "target_viewport": [
+            1096.0,
+            330.0
+          ],
+          "viewport": [
+            1600,
+            720
+          ]
+        }
+      ],
+      "failures": 0,
+      "height": 720,
+      "rows": [
+        {
+          "label": "requested aspect is supported",
+          "pass": true
+        },
+        {
+          "label": "explicit prior-six-jobs fixture makes Astronaut next",
+          "pass": true
+        },
+        {
+          "label": "actual birthday card is visible",
+          "pass": true
+        },
+        {
+          "label": "room fade permits real card input",
+          "pass": true
+        },
+        {
+          "label": "production world requires pipe contact",
+          "pass": true
+        },
+        {
+          "label": "actual object touch opens pipe after room approach",
+          "pass": true
+        },
+        {
+          "label": "actual expanded viewport has requested width",
+          "pass": true
+        },
+        {
+          "label": "early world commit is rejected at5",
+          "pass": true
+        },
+        {
+          "label": "whole figure control fits actual viewport at5",
+          "pass": true
+        },
+        {
+          "label": "actual full-figure contact geometry and size at5",
+          "pass": true
+        },
+        {
+          "label": "repeated same commit is rejected at5",
+          "pass": true
+        },
+        {
+          "label": "board1 H5 contact succeeds",
+          "pass": true
+        },
+        {
+          "label": "early world commit is rejected at6",
+          "pass": true
+        },
+        {
+          "label": "whole figure control fits actual viewport at6",
+          "pass": true
+        },
+        {
+          "label": "actual full-figure contact geometry and size at6",
+          "pass": true
+        },
+        {
+          "label": "repeated same commit is rejected at6",
+          "pass": true
+        },
+        {
+          "label": "board1 H6 contact succeeds",
+          "pass": true
+        },
+        {
+          "label": "board1 earns exactly one credit",
+          "pass": true
+        },
+        {
+          "label": "board2 exact authored free stock starts intact",
+          "pass": true
+        },
+        {
+          "label": "early world commit is rejected at0",
+          "pass": true
+        },
+        {
+          "label": "whole figure control fits actual viewport at0",
+          "pass": true
+        },
+        {
+          "label": "actual full-figure contact geometry and size at0",
+          "pass": true
+        },
+        {
+          "label": "repeated same commit is rejected at0",
+          "pass": true
+        },
+        {
+          "label": "wrong SW0 still requires actual local contact",
+          "pass": true
+        },
+        {
+          "label": "engine fuel actually enters wrong SW0",
+          "pass": true
+        },
+        {
+          "label": "fueled wrong plan earns no extra credit or loses stock",
+          "pass": true
+        },
+        {
+          "label": "wrong fueled pipe can be lifted toward correct cell",
+          "pass": true
+        },
+        {
+          "label": "pending relocation snapshot restores source not target",
+          "pass": true
+        },
+        {
+          "label": "pending relocation uses normal save owner",
+          "pass": true
+        },
+        {
+          "label": "actual saved pending relocation preserves source and credit",
+          "pass": true
+        },
+        {
+          "label": "actual pause restores original wrong piece without credit",
+          "pass": true
+        },
+        {
+          "label": "canceled relocation cannot commit later",
+          "pass": true
+        },
+        {
+          "label": "off-grid drag returns wrong piece to selected tray",
+          "pass": true
+        },
+        {
+          "label": "selected-tile tap requests owned contact",
+          "pass": true
+        },
+        {
+          "label": "early world commit is rejected at2",
+          "pass": true
+        },
+        {
+          "label": "whole figure control fits actual viewport at2",
+          "pass": true
+        },
+        {
+          "label": "actual full-figure contact geometry and size at2",
+          "pass": true
+        },
+        {
+          "label": "repeated same commit is rejected at2",
+          "pass": true
+        },
+        {
+          "label": "selected-tile correction commits locally",
+          "pass": true
+        },
+        {
+          "label": "corrected SW keeps exact stock and unearned board",
+          "pass": true
+        },
+        {
+          "label": "early world commit is rejected at0",
+          "pass": true
+        },
+        {
+          "label": "whole figure control fits actual viewport at0",
+          "pass": true
+        },
+        {
+          "label": "actual full-figure contact geometry and size at0",
+          "pass": true
+        },
+        {
+          "label": "repeated same commit is rejected at0",
+          "pass": true
+        },
+        {
+          "label": "remaining corrected route SE at0",
+          "pass": true
+        },
+        {
+          "label": "early world commit is rejected at1",
+          "pass": true
+        },
+        {
+          "label": "whole figure control fits actual viewport at1",
+          "pass": true
+        },
+        {
+          "label": "actual full-figure contact geometry and size at1",
+          "pass": true
+        },
+        {
+          "label": "repeated same commit is rejected at1",
+          "pass": true
+        },
+        {
+          "label": "remaining corrected route H at1",
+          "pass": true
+        },
+        {
+          "label": "early world commit is rejected at6",
+          "pass": true
+        },
+        {
+          "label": "whole figure control fits actual viewport at6",
+          "pass": true
+        },
+        {
+          "label": "actual full-figure contact geometry and size at6",
+          "pass": true
+        },
+        {
+          "label": "repeated same commit is rejected at6",
+          "pass": true
+        },
+        {
+          "label": "remaining corrected route NE at6",
+          "pass": true
+        },
+        {
+          "label": "genuine correction finishes board2 exactly once",
+          "pass": true
+        },
+        {
+          "label": "correction does not award career pearls or light candle",
+          "pass": true
+        }
+      ],
+      "scope": "Current headless1280x720and1600x720 birthday card/object/wrong-plan input after explicit prior-six-jobs fixture. Fueled wrong-pipe lifting, pending source save/pause conservation, selected-tile correction, sampled whole-figure control bounds and normal board credit only. No native pixels/visual/fullchapter/device/child/owner/fullCI acceptance.",
+      "width": 1600
+    },
+    {
+      "label": "Ordinary allmechanics91",
+      "fixture": "verify_save_lifecycle_v8.gd",
+      "checks": 91,
+      "contact_requests": [
+        {
+          "accepted_visual_action": false,
+          "candidate_distance": 0.967193603515625,
+          "cell": 5,
+          "request_id": 3,
+          "round": 0,
+          "sampled_contact_valid": true,
+          "wait_msec": 1113
+        },
+        {
+          "accepted_visual_action": false,
+          "candidate_distance": 0.9671630859375,
+          "cell": 6,
+          "request_id": 4,
+          "round": 0,
+          "sampled_contact_valid": true,
+          "wait_msec": 683
+        },
+        {
+          "accepted_visual_action": false,
+          "candidate_distance": 0.9671630859375,
+          "cell": 0,
+          "request_id": 3,
+          "round": 1,
+          "sampled_contact_valid": true,
+          "wait_msec": 1126
+        },
+        {
+          "accepted_visual_action": false,
+          "candidate_distance": 0.9671630859375,
+          "cell": 1,
+          "request_id": 4,
+          "round": 1,
+          "sampled_contact_valid": true,
+          "wait_msec": 672
+        },
+        {
+          "accepted_visual_action": false,
+          "candidate_distance": 0.967132568359375,
+          "cell": 2,
+          "request_id": 5,
+          "round": 1,
+          "sampled_contact_valid": true,
+          "wait_msec": 671
+        },
+        {
+          "accepted_visual_action": false,
+          "candidate_distance": 0.9671630859375,
+          "cell": 6,
+          "request_id": 6,
+          "round": 1,
+          "sampled_contact_valid": true,
+          "wait_msec": 667
+        },
+        {
+          "accepted_visual_action": false,
+          "candidate_distance": 0.9671630859375,
+          "cell": 5,
+          "request_id": 7,
+          "round": 2,
+          "sampled_contact_valid": true,
+          "wait_msec": 1095
+        },
+        {
+          "accepted_visual_action": false,
+          "candidate_distance": 0.9671630859375,
+          "cell": 1,
+          "request_id": 8,
+          "round": 2,
+          "sampled_contact_valid": true,
+          "wait_msec": 660
+        },
+        {
+          "accepted_visual_action": false,
+          "candidate_distance": 0.967132568359375,
+          "cell": 2,
+          "request_id": 9,
+          "round": 2,
+          "sampled_contact_valid": true,
+          "wait_msec": 688
+        },
+        {
+          "accepted_visual_action": false,
+          "candidate_distance": 0.967132568359375,
+          "cell": 3,
+          "request_id": 10,
+          "round": 2,
+          "sampled_contact_valid": true,
+          "wait_msec": 653
+        }
+      ],
+      "failures": 0,
+      "rows": [
+        {
+          "label": "real Mermaid Pool career card is visible",
+          "pass": true
+        },
+        {
+          "label": "unforced production route selects Astronaut Canvas surface",
+          "pass": true
+        },
+        {
+          "label": "real object touch opens current phase after approach",
+          "pass": true
+        },
+        {
+          "label": "released board1 tile at5 waits for owned contact",
+          "pass": true
+        },
+        {
+          "label": "board1 tile at5 commits through sampled live contact",
+          "pass": true
+        },
+        {
+          "label": "genuine board1 placement H at5",
+          "pass": true
+        },
+        {
+          "label": "released board1 tile at6 waits for owned contact",
+          "pass": true
+        },
+        {
+          "label": "board1 tile at6 commits through sampled live contact",
+          "pass": true
+        },
+        {
+          "label": "genuine board1 placement H at6",
+          "pass": true
+        },
+        {
+          "label": "engine earns board1 exactly once",
+          "pass": true
+        },
+        {
+          "label": "board transition has an earned credit and pending next board",
+          "pass": true
+        },
+        {
+          "label": "pipe_transition production save succeeds",
+          "pass": true
+        },
+        {
+          "label": "pipe_transition returns to exact room",
+          "pass": true
+        },
+        {
+          "label": "real Mermaid Pool career card is visible",
+          "pass": true
+        },
+        {
+          "label": "unforced production route selects Astronaut Canvas surface",
+          "pass": true
+        },
+        {
+          "label": "real object touch opens current phase after approach",
+          "pass": true
+        },
+        {
+          "label": "pipe_transition restores the exact widget fill",
+          "pass": true
+        },
+        {
+          "label": "transition save preserves board credit and canonical next stock",
+          "pass": true
+        },
+        {
+          "label": "released board2 tile at0 waits for owned contact",
+          "pass": true
+        },
+        {
+          "label": "board2 tile at0 commits through sampled live contact",
+          "pass": true
+        },
+        {
+          "label": "genuine board2 placement SE at0",
+          "pass": true
+        },
+        {
+          "label": "released board2 tile at1 waits for owned contact",
+          "pass": true
+        },
+        {
+          "label": "board2 tile at1 commits through sampled live contact",
+          "pass": true
+        },
+        {
+          "label": "genuine board2 placement H at1",
+          "pass": true
+        },
+        {
+          "label": "released board2 tile at2 waits for owned contact",
+          "pass": true
+        },
+        {
+          "label": "board2 tile at2 commits through sampled live contact",
+          "pass": true
+        },
+        {
+          "label": "genuine board2 placement SW at2",
+          "pass": true
+        },
+        {
+          "label": "released board2 tile at6 waits for owned contact",
+          "pass": true
+        },
+        {
+          "label": "board2 tile at6 commits through sampled live contact",
+          "pass": true
+        },
+        {
+          "label": "genuine board2 placement NE at6",
+          "pass": true
+        },
+        {
+          "label": "engine earns board2 exactly once",
+          "pass": true
+        },
+        {
+          "label": "released board3 tile at5 waits for owned contact",
+          "pass": true
+        },
+        {
+          "label": "board3 tile at5 commits through sampled live contact",
+          "pass": true
+        },
+        {
+          "label": "genuine board3 placement NW at5",
+          "pass": true
+        },
+        {
+          "label": "released board3 tile at1 waits for owned contact",
+          "pass": true
+        },
+        {
+          "label": "board3 tile at1 commits through sampled live contact",
+          "pass": true
+        },
+        {
+          "label": "genuine board3 placement SE at1",
+          "pass": true
+        },
+        {
+          "label": "released board3 tile at2 waits for owned contact",
+          "pass": true
+        },
+        {
+          "label": "board3 tile at2 commits through sampled live contact",
+          "pass": true
+        },
+        {
+          "label": "genuine board3 placement H at2",
+          "pass": true
+        },
+        {
+          "label": "released board3 tile at3 waits for owned contact",
+          "pass": true
+        },
+        {
+          "label": "board3 tile at3 commits through sampled live contact",
+          "pass": true
+        },
+        {
+          "label": "genuine board3 placement NW at3",
+          "pass": true
+        },
+        {
+          "label": "engine earns board3 exactly once",
+          "pass": true
+        },
+        {
+          "label": "third board completes only the pipe phase",
+          "pass": true
+        },
+        {
+          "label": "completed_pipes production save succeeds",
+          "pass": true
+        },
+        {
+          "label": "completed_pipes returns to exact room",
+          "pass": true
+        },
+        {
+          "label": "real Mermaid Pool career card is visible",
+          "pass": true
+        },
+        {
+          "label": "unforced production route selects Astronaut Canvas surface",
+          "pass": true
+        },
+        {
+          "label": "real object touch opens current phase after approach",
+          "pass": true
+        },
+        {
+          "label": "earned pipe completion resumes normal PATCH handoff",
+          "pass": true
+        },
+        {
+          "label": "two real leak touches earn exactly two patches",
+          "pass": true
+        },
+        {
+          "label": "partial_patch production save succeeds",
+          "pass": true
+        },
+        {
+          "label": "partial_patch returns to exact room",
+          "pass": true
+        },
+        {
+          "label": "real Mermaid Pool career card is visible",
+          "pass": true
+        },
+        {
+          "label": "unforced production route selects Astronaut Canvas surface",
+          "pass": true
+        },
+        {
+          "label": "real object touch opens current phase after approach",
+          "pass": true
+        },
+        {
+          "label": "partial_patch restores the exact widget fill",
+          "pass": true
+        },
+        {
+          "label": "PATCH phase and exact repaired leaks survive reload",
+          "pass": true
+        },
+        {
+          "label": "already patched leak cannot pay twice",
+          "pass": true
+        },
+        {
+          "label": "remaining real leak touches finish PATCH",
+          "pass": true
+        },
+        {
+          "label": "normal hold advances to VALVE",
+          "pass": true
+        },
+        {
+          "label": "real object touch opens current phase after approach",
+          "pass": true
+        },
+        {
+          "label": "real arc earns partial valve turn",
+          "pass": true
+        },
+        {
+          "label": "partial_valve production save succeeds",
+          "pass": true
+        },
+        {
+          "label": "partial_valve returns to exact room",
+          "pass": true
+        },
+        {
+          "label": "real Mermaid Pool career card is visible",
+          "pass": true
+        },
+        {
+          "label": "unforced production route selects Astronaut Canvas surface",
+          "pass": true
+        },
+        {
+          "label": "real object touch opens current phase after approach",
+          "pass": true
+        },
+        {
+          "label": "partial_valve restores the exact widget fill",
+          "pass": true
+        },
+        {
+          "label": "VALVE progress and angle survive reload",
+          "pass": true
+        },
+        {
+          "label": "real circles finish VALVE",
+          "pass": true
+        },
+        {
+          "label": "normal hold advances to LAUNCH",
+          "pass": true
+        },
+        {
+          "label": "real object touch opens current phase after approach",
+          "pass": true
+        },
+        {
+          "label": "engine pause cancels held launch without erasing earned countdown",
+          "pass": true
+        },
+        {
+          "label": "stale release after pause cannot add countdown",
+          "pass": true
+        },
+        {
+          "label": "partial_launch production save succeeds",
+          "pass": true
+        },
+        {
+          "label": "partial_launch returns to exact room",
+          "pass": true
+        },
+        {
+          "label": "real Mermaid Pool career card is visible",
+          "pass": true
+        },
+        {
+          "label": "unforced production route selects Astronaut Canvas surface",
+          "pass": true
+        },
+        {
+          "label": "real object touch opens current phase after approach",
+          "pass": true
+        },
+        {
+          "label": "partial_launch restores the exact widget fill",
+          "pass": true
+        },
+        {
+          "label": "LAUNCH countdown reloads with no owned finger",
+          "pass": true
+        },
+        {
+          "label": "passive restored countdown cannot finish itself",
+          "pass": true
+        },
+        {
+          "label": "new deliberate hold finishes countdown",
+          "pass": true
+        },
+        {
+          "label": "natural finish awards one career and three first-time pearls",
+          "pass": true
+        },
+        {
+          "label": "natural completed act clears ordinary checkpoint",
+          "pass": true
+        },
+        {
+          "label": "real Mermaid Pool career card is visible",
+          "pass": true
+        },
+        {
+          "label": "unforced production route selects Astronaut Canvas surface",
+          "pass": true
+        },
+        {
+          "label": "real object touch opens current phase after approach",
+          "pass": true
+        },
+        {
+          "label": "replay begins a fresh pipe activity without extra reward",
+          "pass": true
+        }
+      ],
+      "scope": "Genuine headless ordinary route, all four mechanics, partial save/load, earned completion handoff, pause, natural finish/reward/return and replay; fixture story prerequisites and isolated save. Current pipe request/contact timing only; visual acting, birthday/tutorial, device/child/owner acceptance pending",
+      "snapshots": [
+        {
+          "angle": 0.0,
+          "fill": 0.333333333333333,
+          "grid": [
+            "",
+            "",
+            "",
+            "",
+            "H",
+            "H",
+            "H",
+            "H",
+            "",
+            "",
+            "",
+            ""
+          ],
+          "held": false,
+          "label": "pipe_transition_before_save",
+          "owner": -1,
+          "pearls": 0,
+          "phase_index": 0,
+          "phase_progress": 1.0,
+          "pipe_round": 1,
+          "star_mask": 0,
+          "targets": [],
+          "tray": []
+        },
+        {
+          "angle": 0.0,
+          "fill": 0.333333333333333,
+          "grid": [
+            "",
+            "",
+            "",
+            "",
+            "NW",
+            "IMP",
+            "",
+            "H",
+            "",
+            "",
+            "",
+            ""
+          ],
+          "held": false,
+          "label": "pipe_transition_after_reload",
+          "owner": -1,
+          "pearls": 0,
+          "phase_index": 0,
+          "phase_progress": 1.0,
+          "pipe_round": 1,
+          "star_mask": 0,
+          "targets": [],
+          "tray": [
+            "SE",
+            "H",
+            "SW",
+            "NE",
+            "H"
+          ]
+        },
+        {
+          "angle": 0.0,
+          "fill": 1.0,
+          "grid": [
+            "IMP",
+            "SE",
+            "H",
+            "NW",
+            "H",
+            "NW",
+            "IMP",
+            "",
+            "",
+            "",
+            "",
+            ""
+          ],
+          "held": false,
+          "label": "completed_pipes_before_save",
+          "owner": -1,
+          "pearls": 0,
+          "phase_index": 0,
+          "phase_progress": 3.0,
+          "pipe_round": 3,
+          "star_mask": 0,
+          "targets": [],
+          "tray": [
+            "H",
+            "V"
+          ]
+        },
+        {
+          "angle": 0.0,
+          "fill": 0.0,
+          "grid": [
+            "IMP",
+            "SE",
+            "H",
+            "NW",
+            "H",
+            "NW",
+            "IMP",
+            "",
+            "",
+            "",
+            "",
+            ""
+          ],
+          "held": false,
+          "label": "completed_pipes_after_reload",
+          "owner": -1,
+          "pearls": 0,
+          "phase_index": 1,
+          "phase_progress": 0.0,
+          "pipe_round": 3,
+          "star_mask": 0,
+          "targets": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "tray": [
+            "H",
+            "V"
+          ]
+        },
+        {
+          "angle": 0.0,
+          "fill": 0.4,
+          "grid": [
+            "IMP",
+            "SE",
+            "H",
+            "NW",
+            "H",
+            "NW",
+            "IMP",
+            "",
+            "",
+            "",
+            "",
+            ""
+          ],
+          "held": false,
+          "label": "partial_patch_before_save",
+          "owner": -1,
+          "pearls": 0,
+          "phase_index": 1,
+          "phase_progress": 2.0,
+          "pipe_round": 3,
+          "star_mask": 0,
+          "targets": [
+            true,
+            true,
+            false,
+            false,
+            false
+          ],
+          "tray": [
+            "H",
+            "V"
+          ]
+        },
+        {
+          "angle": 0.0,
+          "fill": 0.4,
+          "grid": [],
+          "held": false,
+          "label": "partial_patch_after_reload",
+          "owner": -1,
+          "pearls": 0,
+          "phase_index": 1,
+          "phase_progress": 2.0,
+          "pipe_round": 0,
+          "star_mask": 0,
+          "targets": [
+            true,
+            true,
+            false,
+            false,
+            false
+          ],
+          "tray": []
+        },
+        {
+          "angle": 1.74532926082611,
+          "fill": 0.138888894071376,
+          "grid": [],
+          "held": false,
+          "label": "partial_valve_before_save",
+          "owner": -1,
+          "pearls": 0,
+          "phase_index": 2,
+          "phase_progress": 0.250000009328477,
+          "pipe_round": 0,
+          "star_mask": 0,
+          "targets": [],
+          "tray": []
+        },
+        {
+          "angle": 1.74532926082611,
+          "fill": 0.138888894071376,
+          "grid": [],
+          "held": false,
+          "label": "partial_valve_after_reload",
+          "owner": -1,
+          "pearls": 0,
+          "phase_index": 2,
+          "phase_progress": 0.250000009328477,
+          "pipe_round": 0,
+          "star_mask": 0,
+          "targets": [],
+          "tray": []
+        },
+        {
+          "angle": 0.0,
+          "fill": 0.222387777777778,
+          "grid": [],
+          "held": false,
+          "label": "partial_launch_before_save",
+          "owner": -1,
+          "pearls": 0,
+          "phase_index": 3,
+          "phase_progress": 1.000745,
+          "pipe_round": 0,
+          "star_mask": 0,
+          "targets": [],
+          "tray": []
+        },
+        {
+          "angle": 0.0,
+          "fill": 0.222387777777778,
+          "grid": [],
+          "held": false,
+          "label": "partial_launch_after_reload",
+          "owner": -1,
+          "pearls": 0,
+          "phase_index": 3,
+          "phase_progress": 1.000745,
+          "pipe_round": 0,
+          "star_mask": 0,
+          "targets": [],
+          "tray": []
+        }
+      ]
+    }
+  ],
+  "total_checks": 205,
+  "elapsed_seconds": 138.08,
+  "time_cap_seconds": 210,
+  "resource_before": {
+    "C_free_bytes": 1015034621952,
+    "physical_available_bytes": 14967775232,
+    "cache_bytes": 960233748
+  },
+  "resource_after": {
+    "C_free_bytes": 1015030759424,
+    "physical_available_bytes": 14410301440,
+    "cache_bytes": 960233748,
+    "artifact_bytes": 74475,
+    "cache_growth_bytes": 0
+  },
+  "resource_limits_pass": true,
+  "sources": [
+    {
+      "path": "assets/opera/worlds/actors/animation/roshan_astronaut_sheet_a.png",
+      "sha256": "ccfb8e7af3a033e31e05af40fa62dc23b676aec6204ba8810e8cf79cbfc4d6fa"
+    },
+    {
+      "path": "assets/opera/worlds/props/goal_astronaut.png",
+      "sha256": "910f531303ec813a522f98b8ac2f97adeb5ed24bd0b438ecef9f136e19d77845"
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/PIPE_RELEASE_OWNERSHIP_PLAN.json",
+      "sha256": "bddf91eee8970aeb67b28ca4e055802bd7e400acbac5f1e1859b1c7a020f89ae"
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/run_release_ownership_regressions_v2.py",
+      "sha256": "38e255c8659dc448ce444f33d329b63990804f18d34579d8736f9852bae52481"
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/verify_pipe_correction_aspect_v2.gd",
+      "sha256": "6efd3a46aaffda030c7782a0c3ec4851c7aea87113353ede4c808894257ff0e3"
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/verify_save_lifecycle_v8.gd",
+      "sha256": "927891b5942718c8a24f871e295f5a1bf173094f41de4493cbedc76dab8bfe25"
+    },
+    {
+      "path": "design/CHAPTER2_EIGHT_CAREER_PRODUCTION_SPINE_2026-08-30.md",
+      "sha256": "6415353b4bf286d3da28f5d7596a15fecaa6ba7d875c5159b7639ac85859c912"
+    },
+    {
+      "path": "project.godot",
+      "sha256": "8d942b12dfa87ed9fb39cf7f6cfbb1d3f64cc4461097c527f266a28e9428697f"
+    },
+    {
+      "path": "scripts/castle_career_routes.gd",
+      "sha256": "c5de38d8126c96aae9e999780113edafff05601a22934443e67053edcd8e18d8"
+    },
+    {
+      "path": "scripts/chapter_two_career_scene_adapter.gd",
+      "sha256": "ffdcd602711a6acc42a5c6352ad8cbb701316f94c21233356fb56071f85ad40a"
+    },
+    {
+      "path": "scripts/chapter_two_director.gd",
+      "sha256": "789ee737eec9477c8b1d6a89b60b6747accc14a6568b2dfa924fa3e5fca42d8d"
+    },
+    {
+      "path": "scripts/chapter_two_party_plan.gd",
+      "sha256": "c8fa0ff7f2f16d54085e920e3ad5ebc5c5a4e6c4d4afc85d98c702c900886dfa"
+    },
+    {
+      "path": "scripts/day_one_director.gd",
+      "sha256": "1f26f9136d1b9eca6699dd91ffd17c0d36c04797d29ec9f858b1476f8aa87804"
+    },
+    {
+      "path": "scripts/main.gd",
+      "sha256": "4f8787e5e788f100e6fd44f646435f6afeaee4a58965b5292630d2410de7f6f5"
+    },
+    {
+      "path": "scripts/opera_act.gd",
+      "sha256": "eddaa34b8dccd17f41f744176a1ceef6c38c788b200a66995438d42c74a78a63"
+    },
+    {
+      "path": "scripts/opera_astronaut_pipe_work.gd",
+      "sha256": "654504436f9ba3040edfd3cbdf277aed2337a7799f9de5b8d5573369bdacdc39"
+    },
+    {
+      "path": "scripts/opera_astronaut_surface.gd",
+      "sha256": "84b0806ee388e1d0150629c872318c92fd3f614e949385a26f97eac0c0d82809"
+    },
+    {
+      "path": "scripts/opera_career_world_2d.gd",
+      "sha256": "6f61646adc21cc2392fa18d3b3624f7c5f2bb4de050a6b858a7705980f5d2590"
+    },
+    {
+      "path": "scripts/opera_gesture_surface.gd",
+      "sha256": "34f3f264f17edef42990712f6c3f7e0106cf9afecd3969f8348848e0eda56017"
+    },
+    {
+      "path": "scripts/opera_house.gd",
+      "sha256": "09a70ca5f9abd836f66a2327e62553b8d603f9318845c404d7d3527fee953910"
+    },
+    {
+      "path": "scripts/opera_roshan_actor.gd",
+      "sha256": "7c0f334fd73b39685b5a1ef4e3e9214b974cbd90db3d291dc172ebc5b13a6b66"
+    },
+    {
+      "path": "scripts/opera_world_hotspot_2d.gd",
+      "sha256": "3544b48ee8e6f60edd54af26aff3fe3a4798fa0458ff69633fef38e4ec76955f"
+    },
+    {
+      "path": "scripts/save_state.gd",
+      "sha256": "13b77592028653cdcac67e54264f049bbab01c6566b4fad1ea9bdf89a37a07c8"
+    },
+    {
+      "path": "tmp/astronaut_partial_save_repair_20261006/reef_save.json",
+      "sha256": "88b566be39ab0a1f78e86ecae3a9e2b6754c46037a4139a2a2c02adec15c437a"
+    }
+  ],
+  "source_bindings_still_match": true,
+  "errors": [],
+  "log_path": "audit/astronaut_clearance_20261006/RELEASE_OWNERSHIP_REGRESSION_V2_LOG.txt",
+  "log_sha256": "78b84f9770173fc6d8cffd75a7138e5b88cbca5b19ada903d00d0db37a48d08a",
+  "preflight_sha256": "646a9beb322d695a5af5628dc5c2f82a8f55ce234c6b71e4332e34baa6dd774b",
+  "meaning": "Remaining57+57twoaspect correction and91ordinary allmechanics/save checks on current ownership repair. V1failed parent with90passed subruns remains separate, not PASS. No visual/4.6/fulltrusted/independent/device/child/owner or integration acceptance."
+}

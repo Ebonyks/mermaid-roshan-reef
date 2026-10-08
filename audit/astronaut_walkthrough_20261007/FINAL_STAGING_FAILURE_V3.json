@@ -1,0 +1,14 @@
+{
+  "result": "FAIL",
+  "recorded_utc": "2026-10-07T16:43:50.757470+00:00",
+  "cause": "Previously staged normalized .gdignore blob remained cached after literal packet attribute was added; explicit git add --renormalize is required. Assertion happened after whitespace/development commands exited0; their raw stdout was not retained, no retroactive PASS log is fabricated.",
+  "original_running_receipt": {
+    "status": "RUNNING",
+    "scope": "Final review staging/byte seal; no commit/push/integration or runtime acceptance"
+  },
+  "original_running_receipt_sha256": "6979dbec812defacf491d5e641599d955a862fb6566b187b6816e452ca2e8643",
+  "failed_helper_sha256": "738261c203a7cf59ac07840beb2003b03cc53fdcee9542507fa0ef4f7df91251",
+  "observed_command_wall_seconds": 8.945815,
+  "native_pixel_edits": 0,
+  "runtime_changes": 0
+}

@@ -1,0 +1,27 @@
+{
+  "created_utc": "2026-10-07T18:50:51.253311+00:00",
+  "source": "RAW_TAKE_01.png",
+  "source_sha256": "7fb10766eeb8509827d2c7a7f969fb63b3be3df4682d5400233841c6bf445297",
+  "method": "Existing Aseprite native Lua cleanup, owner-requested Aseprite bridge. No Python bitmap edits.",
+  "edits": [
+    "Clear only alpha<=1 pixels in a new visible layer, preserve original layer hidden.",
+    "Save native1254editable master andlosslessnativePNG.",
+    "Export whole square canvas uniformly to1024\u00d71024 with Asepritebilinear; no crop/warp/repaint/identity edit."
+  ],
+  "cap_seconds": 40,
+  "family_generation_cleanup_ceiling_seconds": 600,
+  "family_calls_consumed": 1,
+  "original_preserved": true,
+  "human_acceptance": "NOT_GRANTED; current source-artcandidate only",
+  "docs": [
+    "https://aseprite.org/api/command/SpriteSize",
+    "https://aseprite.org/api/image",
+    "https://aseprite.org/api/sprite"
+  ],
+  "required_verification": [
+    "Native cleanedRGBA equals rawRGBA at everypixelwithalpha>1; only lowalpha removed.",
+    "Aseprite export native1254and1024runtimecandidate have actualRGBA/alpha cleanoutside; rawhash unchanged.",
+    "Reopen savededitablemaster throughAseprite andrender; comparepixels withclean native export.",
+    "View the1024candidateatnativepixels before any runtime adoption."
+  ]
+}

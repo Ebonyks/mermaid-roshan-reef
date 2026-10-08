@@ -1,0 +1,198 @@
+{
+  "created_utc": "2026-10-07T11:34:48.273304+00:00",
+  "baseline": "96274aab9cebd563b10846a4a48de5d017588563",
+  "branch": "codex/astronaut-clearance-20261006",
+  "technical_result": "PASS",
+  "visual_result": "BELOW_TARGET",
+  "receipt": "NATIVE_BIRTHDAY_CAPTURE_V3_RECEIPT.json",
+  "receipt_sha256": "d50f16638bbaf9e6adddc8ef3d4b34b859cb9e7c7d2eb33f5f991fef2513fb79",
+  "manifest_sha256": "01c876df71f5f6bf98012edaf9bdaac081532bfd349cfa5f4533c4d673cbcbe1",
+  "current_source_signature": "00bc517619c031c35caa198074cecacd4f8cd15d7336153c25e601653d7ed5e0",
+  "checks": 107,
+  "original_checks_preserved": 103,
+  "native_windows_mobile_vulkan": true,
+  "frames_verified": 221,
+  "directly_inspected_images": [
+    {
+      "label": "start_menu_before_continue",
+      "path": "tmp/astronaut_native_birthday_capture_v3_20261007/frames/0000_start_menu_before_continue.png",
+      "sha256": "95a9c2aee189a84a4cb1ba458272363648d3119b9670cb2afed7a29f05439019",
+      "dimensions": [
+        1280,
+        720
+      ]
+    },
+    {
+      "label": "phase0_open",
+      "path": "tmp/astronaut_native_birthday_capture_v3_20261007/frames/0001_phase0_open.png",
+      "sha256": "3e1dfe5bd0e52aa21022d679c235b4c0f96d24995a8a25db9d7f93baa30b04a7",
+      "dimensions": [
+        1280,
+        720
+      ]
+    },
+    {
+      "label": "phase0_pipe_approach",
+      "path": "tmp/astronaut_native_birthday_capture_v3_20261007/frames/0007_phase0_pipe_approach.png",
+      "sha256": "74107d6834d191f0b610c1e7a742ad2cfbd4ab845caca397cd4ea80fc5984104",
+      "dimensions": [
+        1280,
+        720
+      ]
+    },
+    {
+      "label": "phase0_pipe_contact_a",
+      "path": "tmp/astronaut_native_birthday_capture_v3_20261007/frames/0013_phase0_pipe_contact_a.png",
+      "sha256": "010780ade37a9cf683493798b1fabacb248d3ba90fb442f1efba17b74ead4ae3",
+      "dimensions": [
+        1280,
+        720
+      ]
+    },
+    {
+      "label": "phase0_pipe_contact_b",
+      "path": "tmp/astronaut_native_birthday_capture_v3_20261007/frames/0015_phase0_pipe_contact_b.png",
+      "sha256": "54b17f5b36b06b893bb678debbed23dbe0a9faf9e0880ab383b0063640d64fa8",
+      "dimensions": [
+        1280,
+        720
+      ]
+    },
+    {
+      "label": "phase0_pipe_release",
+      "path": "tmp/astronaut_native_birthday_capture_v3_20261007/frames/0017_phase0_pipe_release.png",
+      "sha256": "4d483e0fcd188c319aff77997294de92428e48fa923f3cc94304b22e297d2590",
+      "dimensions": [
+        1280,
+        720
+      ]
+    },
+    {
+      "label": "phase1_open",
+      "path": "tmp/astronaut_native_birthday_capture_v3_20261007/frames/0074_phase1_open.png",
+      "sha256": "b2d72b1de0a1d3e7b7be22f125b964ec98856afddfa6b58a8ebbf1ef21abf94a",
+      "dimensions": [
+        1280,
+        720
+      ]
+    },
+    {
+      "label": "phase1_completed",
+      "path": "tmp/astronaut_native_birthday_capture_v3_20261007/frames/0086_phase1_completed.png",
+      "sha256": "f9716a2190e4eb511f6c8ef5658a968b98a56ceb671a2ff4df9b76df5a7f68d5",
+      "dimensions": [
+        1280,
+        720
+      ]
+    },
+    {
+      "label": "phase2_open",
+      "path": "tmp/astronaut_native_birthday_capture_v3_20261007/frames/0102_phase2_open.png",
+      "sha256": "fe3ef5b151b692eb1849333c7ea81802c15b0d3ec888d5b05907336153e1f3ce",
+      "dimensions": [
+        1280,
+        720
+      ]
+    },
+    {
+      "label": "phase2_input_held",
+      "path": "tmp/astronaut_native_birthday_capture_v3_20261007/frames/0106_phase2_input_held.png",
+      "sha256": "227ae4d8aa643448e29a399f6708e3040cc1a320f95f6bcea36202e2ba50c3c4",
+      "dimensions": [
+        1280,
+        720
+      ]
+    },
+    {
+      "label": "phase3_open",
+      "path": "tmp/astronaut_native_birthday_capture_v3_20261007/frames/0169_phase3_open.png",
+      "sha256": "6ce67a26add40f2d2eed09a68ec68d300d5f31cdb9c805bbd92127297de13f7b",
+      "dimensions": [
+        1280,
+        720
+      ]
+    },
+    {
+      "label": "phase3_input_held",
+      "path": "tmp/astronaut_native_birthday_capture_v3_20261007/frames/0173_phase3_input_held.png",
+      "sha256": "c744c4fee12d307515c73196d3837bd24d1e34985e3a2bcc99bc3975aa574a1c",
+      "dimensions": [
+        1280,
+        720
+      ]
+    },
+    {
+      "label": "phase3_completed",
+      "path": "tmp/astronaut_native_birthday_capture_v3_20261007/frames/0217_phase3_completed.png",
+      "sha256": "11f809fa04501e0cb709a6879793208119707de526b2825fff9c40e264fbbfb5",
+      "dimensions": [
+        1280,
+        720
+      ]
+    },
+    {
+      "label": "room_return",
+      "path": "tmp/astronaut_native_birthday_capture_v3_20261007/frames/0220_room_return.png",
+      "sha256": "65c1dc4eae963eb6ba0269cf55c82263fccbcf08d5ba20f975acc2365de374dc",
+      "dimensions": [
+        1280,
+        720
+      ]
+    }
+  ],
+  "frame_pacing": {
+    "interval_min_msec": 283,
+    "interval_median_msec": 304.5,
+    "interval_max_msec": 9437,
+    "limitation": "Readback/PNG encoding occurs synchronously in the live process; observed intervals and action durations include capture overhead. This is not normal-play/device FPS or accepted natural cadence. Sparse frame caps cannot establish full temporal coverage."
+  },
+  "individual_primary_visual_assessments": [
+    {
+      "item": "PIPE interaction and complete action",
+      "provisional_primary_score": 3.8,
+      "basis": "Whole approved figure reaches the board, two intact wrench contact poses visible, then release frame has moved from actor position782.413,241.023 to416.138,233.880 while helper state still release. Shared success bounce drives actor toward rest during helper-owned release; return frame reaches rest before expected independent return sequence. Coarse brown/black vector tiles conflict with polished room art.",
+      "required_repair": "Protect helper ownership from generic success bounce/animation, then repeat native release/return evidence and genuine-input regression; inspect socket/wrench semantic contact and all boards separately."
+    },
+    {
+      "item": "PATCH interaction and complete action",
+      "provisional_primary_score": 2.4,
+      "basis": "PATCH rocket/leaks on left while Roshan loops wrench gestures at center; taps repair patches without figure contact. Mixed bright flat patch graphics and translucent duplicate rocket clutter scene.",
+      "required_repair": "Bind actual target and whole-figure approach/contact/result/release before award; approved patch sources below4.6 need individual source correction/reuse review."
+    },
+    {
+      "item": "VALVE interaction and complete action",
+      "provisional_primary_score": 2.5,
+      "basis": "Interactive valve at left x~225 while Roshan stays near center-right x~750 gesturing with wrench; no hand/tool connection.",
+      "required_repair": "Match real station/control position and whole-figure valve action; preserve arc/reload semantics and supported aspects."
+    },
+    {
+      "item": "READY PARK interaction and complete action",
+      "provisional_primary_score": 2.3,
+      "basis": "Tiny rocket moves on far-left lane; Roshan remains at right in generic wrench work then cheers. Painted large stationary rocket remains on far-right background. Wrong direction/save/unlaunched canon pass but physical push absent.",
+      "required_repair": "Owner whole-figure parking-pose choice remains pending. Align one gameplay rocket with approach/contact/motion/release and make floor journey readable; preserve saved legacy context."
+    },
+    {
+      "item": "Complete room background composition",
+      "provisional_primary_score": 4.3,
+      "basis": "Consistent polished underwater workshop identity, but activity overlays and unrelated painted props create misleading station ownership and peripheral clutter. Source background quarters remain individually provisional."
+    },
+    {
+      "item": "Finish/return visual transition",
+      "provisional_primary_score": null,
+      "basis": "Natural birthday room and save/canon checks pass. Captured return pixels show Mermaid Pool under heavy purple transition fade, so this single frame does not establish settled visible room return."
+    }
+  ],
+  "scoring_limits": "Primary diagnostic provisional scores for identified failing complete actions/composition only; not independent or source-asset grades, not averaged, no4.6clearance. Other individual assets/variants/contact/occlusion/reach/temporality remain unreviewed. Source16cell4.6appearance cannot raise these action scores.",
+  "genuine_machine_findings": "Four mechanics, saves/reloads, pause/stale touch, stock/credit conservation, parked-unlaunched rocket, unlit candle, ordinary checkpoint isolation, four phase bits, Detective next, no freeplay reward and exact Mermaid Pool return all pass original103assertions. Four added checks bind native backend and actual Continue input.",
+  "costs": {
+    "native_v1_seconds": 23.342,
+    "misrouted_v2_seconds": 22.231,
+    "v3_analyzer_native_seconds": 134.971,
+    "cumulative_native_analyzer_seconds": 180.544,
+    "v3_output_bytes": 314360118,
+    "v3_cache_growth_bytes": 0
+  },
+  "historical_failures": "V1 title-interception and V2runner-mismatch retained. V1original pixel/manifest bytes lost by V2misroute explicitly recorded in V2review; V1original log/receipt remain unchanged. No V1pixel freshness claimed.",
+  "next_authorized_work": "Small owned release-tween ownership repair is justified by measured native position jump; patch/valve/parking action repairs still need separate contact contracts/source coverage and review. Finish/return observer must wait for actual fade clear. Full twoaspect ordinary/birthday matrix and clean fresh-runtime/independent/fullsuite/device/child/owner remain pending.",
+  "delivery": "Local ignored rawPNG staging, not published external handoff. No GitHub delivery or integration/release acceptance."
+}

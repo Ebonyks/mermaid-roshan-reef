@@ -1,0 +1,98 @@
+{
+  "result": "SOURCE_CANDIDATE_REQUIRES_CLEANUP",
+  "generated_started_utc": "2026-10-07T18:44:45Z",
+  "generated_finished_utc": "2026-10-07T18:45:20Z",
+  "observed_tool_wall_seconds": 35.3,
+  "request_id": "exec-a1926f6e-91da-4d91-bdcd-efa4160428f2",
+  "provider": "OpenAI builtin image_gen",
+  "model_revision": "NOT_EXPOSED_BY_TOOL",
+  "seed": "NOT_EXPOSED_BY_TOOL",
+  "usage_cost": "NOT_EXPOSED; record call count1, no external paid backend/purchase",
+  "raw_tool_path": "C:\\Users\\Peter\\.codex\\generated_images\\01a103ab-3700-7df0-af38-61bf90ea00d7\\exec-a1926f6e-91da-4d91-bdcd-efa4160428f2.png",
+  "preserved_path": "assets_src/imagegen/astronaut_pipe_raster_repair_20261007/RAW_TAKE_01.png",
+  "sha256": "7fb10766eeb8509827d2c7a7f969fb63b3be3df4682d5400233841c6bf445297",
+  "metadata": {
+    "native_dimensions": [
+      1254,
+      1254
+    ],
+    "mode": "RGBA",
+    "alpha_range": [
+      0,
+      255
+    ],
+    "alpha_nonzero_pixels": 360317,
+    "alpha_bounds_by_threshold": {
+      "0": [
+        61,
+        52,
+        1198,
+        1212
+      ],
+      "1": [
+        62,
+        445,
+        1192,
+        816
+      ],
+      "4": [
+        63,
+        445,
+        1192,
+        814
+      ],
+      "8": [
+        64,
+        447,
+        1190,
+        812
+      ],
+      "16": [
+        64,
+        447,
+        1190,
+        812
+      ],
+      "32": [
+        64,
+        447,
+        1190,
+        811
+      ],
+      "64": [
+        65,
+        447,
+        1190,
+        811
+      ],
+      "128": [
+        65,
+        448,
+        1189,
+        811
+      ],
+      "254": [
+        66,
+        449,
+        1188,
+        802
+      ]
+    }
+  },
+  "prompt_sha256": "ad99fd12f8abc346291593ee5ac0c0e5ad80c802238d20a431b67d54ca23a20c",
+  "requested_native_dimensions": [
+    1024,
+    1024
+  ],
+  "native_size_match": false,
+  "family_calls_consumed": 1,
+  "family_call_cap": 2,
+  "cleanup_operations_so_far": [],
+  "human_source_observation": "Continuous horizontal teal tube with two cream/gold open collars; uncropped main subject and original materials retained. Only local source inspection, no score or current runtime action/variant acceptance. Faint off-subject alpha fringe remains to inspect/clean.",
+  "runtime_adopted": false,
+  "native_runs": 0,
+  "limits": [
+    "Native1254size differs from requested1024. Needs separately preserved appropriate runtime export; no destructive rescaling of raw source.",
+    "PNG transparency alone does not prove clean matte or exact runtime mouth/contact geometry."
+  ]
+}

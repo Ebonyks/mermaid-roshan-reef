@@ -1,0 +1,100 @@
+{
+  "started_utc": "2026-10-07T07:17:20.076707+00:00",
+  "sources": [
+    {
+      "path": "scripts/opera_astronaut_surface.gd",
+      "sha256": "69d53c911ea8b855a21512d6705bad62e79c3ced80fa705c77270aac6927cb8d"
+    },
+    {
+      "path": "scripts/opera_career_world_2d.gd",
+      "sha256": "dad92d6c2f174597c4cd590ef3a06f2ffcd48f961616e302317362a1ef1d02c7"
+    },
+    {
+      "path": "scripts/save_state.gd",
+      "sha256": "13b77592028653cdcac67e54264f049bbab01c6566b4fad1ea9bdf89a37a07c8"
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/verify_checkpoint_schema_v3.gd",
+      "sha256": "3da101cad00e53cb213ba3b76693fe8c2dfece12ed525553c0329bd4cdabba52"
+    },
+    {
+      "path": "tmp/astronaut_partial_save_repair_20261006/reef_save.json",
+      "sha256": "88b566be39ab0a1f78e86ecae3a9e2b6754c46037a4139a2a2c02adec15c437a"
+    }
+  ],
+  "engine_sha256": "ab1824f85bfd8e0e4128182c000c4003a3e042245b2967848d089b2a04b22424",
+  "status": "TERMINAL",
+  "scope": "Schema/corruption/context unit checks with actual genuine source save; no native or naturally reached tutorial/birthday acceptance.",
+  "command": [
+    "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64.exe",
+    "--headless",
+    "--path",
+    "C:\\Users\\Peter\\.codex\\worktrees\\astronaut-goal-20261006\\mermaid-roshan-reef",
+    "--script",
+    "res://audit/astronaut_clearance_20261006/verify_checkpoint_schema_v3.gd"
+  ],
+  "finished_utc": "2026-10-07T07:17:26.200815+00:00",
+  "elapsed_seconds": 5.96,
+  "exit_code": 0,
+  "errors": [],
+  "evidence": [
+    {
+      "checks": 12,
+      "failures": 0,
+      "rows": [
+        {
+          "label": "legacy saves default Astronaut checkpoints without losing unknown fields",
+          "pass": true
+        },
+        {
+          "label": "actual genuine save round-trips the registered checkpoint field",
+          "pass": true
+        },
+        {
+          "label": "actual released board-two snapshot restores valid conserved stock",
+          "pass": true
+        },
+        {
+          "label": "duplicated pipe stock is rejected without mutating the valid board",
+          "pass": true
+        },
+        {
+          "label": "altered canonical fixed pipe is rejected",
+          "pass": true
+        },
+        {
+          "label": "fractional earned board is rejected",
+          "pass": true
+        },
+        {
+          "label": "foreign mechanic identity is rejected",
+          "pass": true
+        },
+        {
+          "label": "current ordinary phase signature finds the genuine checkpoint",
+          "pass": true
+        },
+        {
+          "label": "tutorial context cannot consume ordinary earned work",
+          "pass": true
+        },
+        {
+          "label": "birthday context cannot consume ordinary earned work",
+          "pass": true
+        },
+        {
+          "label": "updating current checkpoint preserves unknown context metadata",
+          "pass": true
+        },
+        {
+          "label": "unsupported future checkpoint is preserved and not accepted",
+          "pass": true
+        }
+      ],
+      "scope": "Corruption and save-schema/context unit checks using a genuine source save. No naturally reached tutorial/birthday, native visual, device/child/owner acceptance."
+    }
+  ],
+  "log_sha256": "a96f8886637063617c6a94aa418d7d186e14c538ed8ff79b81f05ae7dc1ba6fb",
+  "source_bindings_match": true,
+  "result": "PASS"
+}

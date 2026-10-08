@@ -1,0 +1,58 @@
+{
+  "result": "PASS_SOURCE_GEOMETRY_ONLY",
+  "source_before_sha256": "856b491556e2ed66b80991acfc930058a0bc4850611198beb93ed500b109f888",
+  "source_after_sha256": "21857d8e719c2fc355d68381abf927b58f86037a7100ba0aead0735a87146eb7",
+  "modified_existing_functions": [
+    "configure",
+    "_draw_pipe_tile"
+  ],
+  "unchanged_original_functions": 29,
+  "new_function": "_draw_pipe_straight_raster",
+  "raster_mouth_mapping": [
+    {
+      "side": 112,
+      "raster_uniform_side": 124.5136186770428,
+      "mouth_offset": [
+        -48.06589595957836,
+        0.250267278376688
+      ],
+      "expected_axis_offset": -48.0,
+      "max_axis_error_px": 0.250267278376688
+    },
+    {
+      "side": 112,
+      "raster_uniform_side": 124.5136186770428,
+      "mouth_offset": [
+        47.90912050657471,
+        0.2973813176847597
+      ],
+      "expected_axis_offset": 48.0,
+      "max_axis_error_px": 0.2973813176847597
+    },
+    {
+      "side": 84,
+      "raster_uniform_side": 88.19714656290532,
+      "mouth_offset": [
+        -34.04667630470134,
+        0.17727265551682064
+      ],
+      "expected_axis_offset": -34.0,
+      "max_axis_error_px": 0.17727265551682064
+    },
+    {
+      "side": 84,
+      "raster_uniform_side": 88.19714656290532,
+      "mouth_offset": [
+        33.93562702549042,
+        0.21064510002670483
+      ],
+      "expected_axis_offset": 34.0,
+      "max_axis_error_px": 0.21064510002670483
+    }
+  ],
+  "PNG_sha256": "6d6e487b5d0d4dd700c2781c23a201d414fe3911f77fd3770b69c9ac052a62ad",
+  "draw_scope": "H/Vonly, samewhole-raster and90degreerotation; no mouth/hitbox/topology/input/save/acting changes",
+  "engine_import": "NOT_RUN",
+  "native_art_review": "NOT_RUN",
+  "visual_score": null
+}

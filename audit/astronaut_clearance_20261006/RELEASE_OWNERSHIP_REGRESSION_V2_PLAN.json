@@ -1,0 +1,37 @@
+{
+  "created_utc": "2026-10-07T12:02:08.426964+00:00",
+  "baseline": "96274aab9cebd563b10846a4a48de5d017588563",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-SAVE-01",
+    "DL-SAVE-03",
+    "DL-QA-06",
+    "DL-MOT-12"
+  ],
+  "findings": [
+    "MA-PLAY-004",
+    "MA-SAVE-002"
+  ],
+  "scope": "Correct only isolated diagnostic folder setup; remaining205genuine-input assertions on unchanged new production source and unchanged fixtures. No paid generation, source/art/import/release or recipient messaging.",
+  "previous_attempt": {
+    "receipt": "RELEASE_OWNERSHIP_REGRESSION_V1_RECEIPT.json",
+    "sha256": "929e1d9bbe8f30684695f688c2ec71f0d6d852b01c6226f2007e22cb7fea4331",
+    "result": "FAIL",
+    "seconds_spent": 361.86,
+    "passed_subruns": [
+      "Pipe contact73",
+      "Contact negatives17"
+    ],
+    "failed": "Correction1280 could not create nested isolated save; nil FileAccess, engine error and timeout. Do not promote complete parent to PASS."
+  },
+  "budget": {
+    "fresh_corrective_cap_seconds": 210,
+    "previous_run_seconds_retained": 361.86,
+    "prior_native_seconds": 276.448,
+    "no_automatic_retry": true,
+    "immediate_script_error_stop": true
+  },
+  "required_evidence": "Literal source/log bindings, expected57/57/91 with no engine errors for corrective run; original failed parent preserved and any partial accepted subrun named explicitly."
+}

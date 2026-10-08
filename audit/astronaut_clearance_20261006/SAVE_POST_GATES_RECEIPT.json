@@ -1,0 +1,109 @@
+{
+  "recovered_utc": "2026-10-07T06:07:20.836451+00:00",
+  "result": "PASS",
+  "results": [
+    {
+      "command": [
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\.codex\\worktrees\\astronaut-goal-20261006\\mermaid-roshan-reef",
+        "--check-only",
+        "--script",
+        "res://scripts/opera_astronaut_surface.gd"
+      ],
+      "exit_code": 0,
+      "errors": [],
+      "summary": [],
+      "result": "PASS"
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\.codex\\worktrees\\astronaut-goal-20261006\\mermaid-roshan-reef",
+        "--check-only",
+        "--script",
+        "res://scripts/opera_career_world_2d.gd"
+      ],
+      "exit_code": 0,
+      "errors": [],
+      "summary": [],
+      "result": "PASS"
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\.codex\\worktrees\\astronaut-goal-20261006\\mermaid-roshan-reef",
+        "--check-only",
+        "--script",
+        "res://scripts/save_state.gd"
+      ],
+      "exit_code": 0,
+      "errors": [],
+      "summary": [],
+      "result": "PASS"
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\.codex\\worktrees\\astronaut-goal-20261006\\mermaid-roshan-reef",
+        "--check-only",
+        "--script",
+        "res://scripts/probe_opera_gesture_quality.gd"
+      ],
+      "exit_code": 0,
+      "errors": [],
+      "summary": [],
+      "result": "PASS"
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\.codex\\worktrees\\astronaut-goal-20261006\\mermaid-roshan-reef",
+        "--script",
+        "res://scripts/probe_opera_gesture_quality.gd"
+      ],
+      "exit_code": 0,
+      "errors": [],
+      "summary": [
+        "GESTURE_QUALITY|result: ALL OK (305 checks)"
+      ],
+      "result": "PASS"
+    }
+  ],
+  "sources_at_recovery": [
+    {
+      "path": "scripts/opera_astronaut_surface.gd",
+      "sha256": "69d53c911ea8b855a21512d6705bad62e79c3ced80fa705c77270aac6927cb8d"
+    },
+    {
+      "path": "scripts/opera_career_world_2d.gd",
+      "sha256": "089e783765ac21ee65e017fe3996e5739a946845d6cf69d81660b2c7d1dede63"
+    },
+    {
+      "path": "scripts/save_state.gd",
+      "sha256": "13b77592028653cdcac67e54264f049bbab01c6566b4fad1ea9bdf89a37a07c8"
+    },
+    {
+      "path": "scripts/probe_opera_gesture_quality.gd",
+      "sha256": "d6ebc13d2ad83353102c95eb819afa637545b4fc41e349074475a07e40fcd8c3"
+    }
+  ],
+  "binding_note": "Original in-memory preflight hashes were lost when receipt writer subscripted WindowsPath. Source files were unchanged between this run and recovery; current hashes recorded separately without inventing a preflight receipt. Final exact revision/full suite remains pending.",
+  "log_sha256": "be4bf98bcf14dda5836b0b55f68a58f0e387b0ef51fa5134fef5e1c400d15cbf",
+  "exit_status_witness": {
+    "path": "audit/astronaut_clearance_20261006/SAVE_POST_GATES_WRITER_RECOVERY.json",
+    "sha256": "79591726cf59365d86a79900a3fe8a1fd39a9dc56cd3ea278799edbf951d45b2"
+  },
+  "engine_version": "4.7.2.stable.official.ed1daf0bf",
+  "engine_sha256": "ab1824f85bfd8e0e4128182c000c4003a3e042245b2967848d089b2a04b22424",
+  "scope": "Four Godot analyzers and 305-check gesture gate only; full CI/native/device/child/owner pending."
+}

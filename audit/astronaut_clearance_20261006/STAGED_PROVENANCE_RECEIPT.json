@@ -1,0 +1,269 @@
+{
+  "checked_utc": "2026-10-07T07:38:24.883619+00:00",
+  "result": "PASS",
+  "stage_scope": "Uncommitted owned candidate; no GitHub publication or visual acceptance claim.",
+  "before_correction": "27of32raw logs differed under default staging normalization. Attribute change requires explicit git add --renormalize for already indexed files; initial ordinary git add did not update their cached blobs. Original native files/immutable receipts unchanged.",
+  "attribute_rule": "audit/astronaut_clearance_20261006/** -text whitespace=-blank-at-eol,-blank-at-eof,cr-at-eol",
+  "logs": [
+    {
+      "path": "audit/astronaut_clearance_20261006/BASELINE_FOCUS_LOG.txt",
+      "size_bytes": 3405,
+      "native_sha256": "5d1b65969280d9c9a15f7d5462e266bfd8aedf75723cc4be74bd3cef6a25e214",
+      "staged_blob_sha256": "5d1b65969280d9c9a15f7d5462e266bfd8aedf75723cc4be74bd3cef6a25e214",
+      "literal_matches": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/BIRTHDAY_SAVE_LOG.txt",
+      "size_bytes": 3772,
+      "native_sha256": "388946e7e76d0d180c0227954505cdf0208652dfd3ba14924be335dbedaf5408",
+      "staged_blob_sha256": "388946e7e76d0d180c0227954505cdf0208652dfd3ba14924be335dbedaf5408",
+      "literal_matches": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/BIRTHDAY_SAVE_V2_LOG.txt",
+      "size_bytes": 12659663,
+      "native_sha256": "b2d0bb849d3d82a6c85dda508de0981d7dd2a0683009455b2f149443d959430e",
+      "staged_blob_sha256": "b2d0bb849d3d82a6c85dda508de0981d7dd2a0683009455b2f149443d959430e",
+      "literal_matches": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/BIRTHDAY_SAVE_V3_LOG.txt",
+      "size_bytes": 16569,
+      "native_sha256": "b666eaed6c5c5560d1ab431e496bff626ff61a4bff52eeb8a63f4b4b8756304b",
+      "staged_blob_sha256": "b666eaed6c5c5560d1ab431e496bff626ff61a4bff52eeb8a63f4b4b8756304b",
+      "literal_matches": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/CHECKPOINT_SCHEMA_LOG.txt",
+      "size_bytes": 1272,
+      "native_sha256": "dde54554574d952d1954e1165ddfdb77922feaa75f67a8164c4cc0c060e1d022",
+      "staged_blob_sha256": "dde54554574d952d1954e1165ddfdb77922feaa75f67a8164c4cc0c060e1d022",
+      "literal_matches": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/CHECKPOINT_SCHEMA_V2_LOG.txt",
+      "size_bytes": 1271,
+      "native_sha256": "a96f8886637063617c6a94aa418d7d186e14c538ed8ff79b81f05ae7dc1ba6fb",
+      "staged_blob_sha256": "a96f8886637063617c6a94aa418d7d186e14c538ed8ff79b81f05ae7dc1ba6fb",
+      "literal_matches": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/CHECKPOINT_SCHEMA_V3_LOG.txt",
+      "size_bytes": 1271,
+      "native_sha256": "a96f8886637063617c6a94aa418d7d186e14c538ed8ff79b81f05ae7dc1ba6fb",
+      "staged_blob_sha256": "a96f8886637063617c6a94aa418d7d186e14c538ed8ff79b81f05ae7dc1ba6fb",
+      "literal_matches": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/DOCUMENT_REVIEW_GATES_LOG.txt",
+      "size_bytes": 713,
+      "native_sha256": "75eb349459337344242f70f9d0f6e085146882c8b31aa7356b6143b4f8240b37",
+      "staged_blob_sha256": "75eb349459337344242f70f9d0f6e085146882c8b31aa7356b6143b4f8240b37",
+      "literal_matches": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/FINAL_REVIEW_GATES_V2_LOG.txt",
+      "size_bytes": 1109,
+      "native_sha256": "583f30ec096e754180a36e6f125739bb415b208643ea92730f7590e5ae50b8a6",
+      "staged_blob_sha256": "583f30ec096e754180a36e6f125739bb415b208643ea92730f7590e5ae50b8a6",
+      "literal_matches": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/FINAL_SOURCE_DOCUMENT_GATES_LOG.txt",
+      "size_bytes": 4190,
+      "native_sha256": "a15156f68eb322befca9108c13cd4a22a544bfb196afc41de2069b27ce44f5b9",
+      "staged_blob_sha256": "a15156f68eb322befca9108c13cd4a22a544bfb196afc41de2069b27ce44f5b9",
+      "literal_matches": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/GESTURE_QUALITY_COMPLETE_LOG.txt",
+      "size_bytes": 120130,
+      "native_sha256": "5ea53295ffc26fa76c24d5e93e3b1e22b17dec0ffdd8a5a0db56b7a1d77a23af",
+      "staged_blob_sha256": "5ea53295ffc26fa76c24d5e93e3b1e22b17dec0ffdd8a5a0db56b7a1d77a23af",
+      "literal_matches": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/IMPORT_DIRECT_LOG.txt",
+      "size_bytes": 826578,
+      "native_sha256": "2ea76f6434893e8eef43b25c2184b9efefb600df0e528376e6e762f4306c9cd5",
+      "staged_blob_sha256": "2ea76f6434893e8eef43b25c2184b9efefb600df0e528376e6e762f4306c9cd5",
+      "literal_matches": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/IMPORT_GRANTED_LOG.txt",
+      "size_bytes": 618655,
+      "native_sha256": "4710e78dbe79d9c2ed2eb41f02efcaf2091afbbf3b9da3404e7e0856499d2fc8",
+      "staged_blob_sha256": "4710e78dbe79d9c2ed2eb41f02efcaf2091afbbf3b9da3404e7e0856499d2fc8",
+      "literal_matches": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/IMPORT_ISOLATED_LOG.txt",
+      "size_bytes": 435493,
+      "native_sha256": "322bdfd3459427bc116b951928486e9d695855d3c909d7c5c14eaaf7772358ea",
+      "staged_blob_sha256": "322bdfd3459427bc116b951928486e9d695855d3c909d7c5c14eaaf7772358ea",
+      "literal_matches": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/IMPORT_LOG.txt",
+      "size_bytes": 2199,
+      "native_sha256": "10d1aeccf2e69ce575d0c7e1a285fb1e3b2dbfdfd94c00d144db866a4f8b7d19",
+      "staged_blob_sha256": "10d1aeccf2e69ce575d0c7e1a285fb1e3b2dbfdfd94c00d144db866a4f8b7d19",
+      "literal_matches": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/IMPORT_RECOVERY_LOG.txt",
+      "size_bytes": 2023,
+      "native_sha256": "735a82011e30e0554f02f24c0006d02a52654231a0cb87973a9f131379cb73a6",
+      "staged_blob_sha256": "735a82011e30e0554f02f24c0006d02a52654231a0cb87973a9f131379cb73a6",
+      "literal_matches": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/PARTIAL_SAVE_BASELINE_LOG.txt",
+      "size_bytes": 5922,
+      "native_sha256": "fb7dd9265cb6a06c16bb5675a6478eb95a5cb6b13367e3949d0e77e82bdc2179",
+      "staged_blob_sha256": "fb7dd9265cb6a06c16bb5675a6478eb95a5cb6b13367e3949d0e77e82bdc2179",
+      "literal_matches": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/PARTIAL_SAVE_REPAIR_LOG.txt",
+      "size_bytes": 5989,
+      "native_sha256": "3cc8a94338e41169976da629e884bc930187ecc260692b33ea71bab9963ee6b6",
+      "staged_blob_sha256": "3cc8a94338e41169976da629e884bc930187ecc260692b33ea71bab9963ee6b6",
+      "literal_matches": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/PIPE_ROUTES_LOG.txt",
+      "size_bytes": 428,
+      "native_sha256": "3dd458ad74d9ec538ea82f92cf01a22f4d532bfb87bc30c848a0bb738a26ff2f",
+      "staged_blob_sha256": "3dd458ad74d9ec538ea82f92cf01a22f4d532bfb87bc30c848a0bb738a26ff2f",
+      "literal_matches": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/POSTIMPORT_FOCUSED_GATES_LOG.txt",
+      "size_bytes": 1526,
+      "native_sha256": "d262be4d1c264d4d1e48e25672923eca8db46658c723d7baeeb05f310dc3281c",
+      "staged_blob_sha256": "d262be4d1c264d4d1e48e25672923eca8db46658c723d7baeeb05f310dc3281c",
+      "literal_matches": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/REPAIR_INPUT_COMPLETE_LOG.txt",
+      "size_bytes": 369,
+      "native_sha256": "43f4269f8bdb74ca73d5bb1234c04263e27555529abf185424ef7ce9a38d5ce8",
+      "staged_blob_sha256": "43f4269f8bdb74ca73d5bb1234c04263e27555529abf185424ef7ce9a38d5ce8",
+      "literal_matches": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/REPAIR_INPUT_LOG.txt",
+      "size_bytes": 4167,
+      "native_sha256": "1789667a1f91b2d73dd173533c1196598261f06afd40a84cc4db08f4f2195b75",
+      "staged_blob_sha256": "1789667a1f91b2d73dd173533c1196598261f06afd40a84cc4db08f4f2195b75",
+      "literal_matches": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/ROSHAN_NATIVE_GATE_LOG.txt",
+      "size_bytes": 66,
+      "native_sha256": "d749f996c6224ca24e5e3ddaa13e040b875d9e08d50599669c05049fcd22c632",
+      "staged_blob_sha256": "d749f996c6224ca24e5e3ddaa13e040b875d9e08d50599669c05049fcd22c632",
+      "literal_matches": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/SAVE_DOCUMENT_GATES_LOG.txt",
+      "size_bytes": 3356,
+      "native_sha256": "df1bd37bffaa3892ee0394237ce6c959d56f6ee69581e4a0910070afdd61b270",
+      "staged_blob_sha256": "df1bd37bffaa3892ee0394237ce6c959d56f6ee69581e4a0910070afdd61b270",
+      "literal_matches": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/SAVE_LIFECYCLE_LOG.txt",
+      "size_bytes": 11773,
+      "native_sha256": "281654aaf04b6d1a8d51cf4d2a8691b79b172b084b73a4f2ea069fb337b9cdfe",
+      "staged_blob_sha256": "281654aaf04b6d1a8d51cf4d2a8691b79b172b084b73a4f2ea069fb337b9cdfe",
+      "literal_matches": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/SAVE_LIFECYCLE_V2_LOG.txt",
+      "size_bytes": 436,
+      "native_sha256": "ae7e07641a222955df94c80044a368d05c16bd5bcc1ad677d4b1a6390e5b0fea",
+      "staged_blob_sha256": "ae7e07641a222955df94c80044a368d05c16bd5bcc1ad677d4b1a6390e5b0fea",
+      "literal_matches": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/SAVE_LIFECYCLE_V3_LOG.txt",
+      "size_bytes": 13344,
+      "native_sha256": "268a76e8910128576add5d9a21ac255094a7eea79af9c669b0ffa7b8c4dab0d2",
+      "staged_blob_sha256": "268a76e8910128576add5d9a21ac255094a7eea79af9c669b0ffa7b8c4dab0d2",
+      "literal_matches": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/SAVE_LIFECYCLE_V4_LOG.txt",
+      "size_bytes": 15171,
+      "native_sha256": "dd3452f37c243ff5d69aa9372345e547b1b2fbafbaffa4bb55937eb812b20b37",
+      "staged_blob_sha256": "dd3452f37c243ff5d69aa9372345e547b1b2fbafbaffa4bb55937eb812b20b37",
+      "literal_matches": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/SAVE_LIFECYCLE_V5_LOG.txt",
+      "size_bytes": 15300,
+      "native_sha256": "e3cb8bbc174d2bf8943fd83de6e8bc5f5fb15ccf73d2ead2f61bd9e97e56ef88",
+      "staged_blob_sha256": "e3cb8bbc174d2bf8943fd83de6e8bc5f5fb15ccf73d2ead2f61bd9e97e56ef88",
+      "literal_matches": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/SAVE_POST_GATES_LOG.txt",
+      "size_bytes": 1897,
+      "native_sha256": "be4bf98bcf14dda5836b0b55f68a58f0e387b0ef51fa5134fef5e1c400d15cbf",
+      "staged_blob_sha256": "be4bf98bcf14dda5836b0b55f68a58f0e387b0ef51fa5134fef5e1c400d15cbf",
+      "literal_matches": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/SAVE_POST_GATES_V2_LOG.txt",
+      "size_bytes": 1897,
+      "native_sha256": "be4bf98bcf14dda5836b0b55f68a58f0e387b0ef51fa5134fef5e1c400d15cbf",
+      "staged_blob_sha256": "be4bf98bcf14dda5836b0b55f68a58f0e387b0ef51fa5134fef5e1c400d15cbf",
+      "literal_matches": true
+    },
+    {
+      "path": "audit/astronaut_clearance_20261006/SAVE_REVIEW_GATES_V2_LOG.txt",
+      "size_bytes": 956,
+      "native_sha256": "c1a4e0811ede14d332675b3aba190903dbfd3456b55419f7c2a204c1bed5571f",
+      "staged_blob_sha256": "c1a4e0811ede14d332675b3aba190903dbfd3456b55419f7c2a204c1bed5571f",
+      "literal_matches": true
+    }
+  ],
+  "current_source_eol_equivalence": [
+    {
+      "path": "scripts/opera_astronaut_surface.gd",
+      "native_capture_source_sha256": "69d53c911ea8b855a21512d6705bad62e79c3ced80fa705c77270aac6927cb8d",
+      "staged_git_source_sha256": "186b4def287602a5578a51d479b81abf0588624c5f7986de61b5a9846e8f4148",
+      "canonical_utf8_lf_sha256": "186b4def287602a5578a51d479b81abf0588624c5f7986de61b5a9846e8f4148",
+      "literal_matches": false,
+      "canonical_utf8_lf_matches": true
+    },
+    {
+      "path": "scripts/opera_career_world_2d.gd",
+      "native_capture_source_sha256": "dad92d6c2f174597c4cd590ef3a06f2ffcd48f961616e302317362a1ef1d02c7",
+      "staged_git_source_sha256": "dad92d6c2f174597c4cd590ef3a06f2ffcd48f961616e302317362a1ef1d02c7",
+      "canonical_utf8_lf_sha256": "dad92d6c2f174597c4cd590ef3a06f2ffcd48f961616e302317362a1ef1d02c7",
+      "literal_matches": true,
+      "canonical_utf8_lf_matches": true
+    },
+    {
+      "path": "scripts/save_state.gd",
+      "native_capture_source_sha256": "13b77592028653cdcac67e54264f049bbab01c6566b4fad1ea9bdf89a37a07c8",
+      "staged_git_source_sha256": "b9c97326f821634a9c0ae518198fcbbd177fc40f6ecb11bf730455fccfc8aefd",
+      "canonical_utf8_lf_sha256": "b9c97326f821634a9c0ae518198fcbbd177fc40f6ecb11bf730455fccfc8aefd",
+      "literal_matches": false,
+      "canonical_utf8_lf_matches": true
+    },
+    {
+      "path": "scripts/probe_opera_gesture_quality.gd",
+      "native_capture_source_sha256": "d6ebc13d2ad83353102c95eb819afa637545b4fc41e349074475a07e40fcd8c3",
+      "staged_git_source_sha256": "d6ebc13d2ad83353102c95eb819afa637545b4fc41e349074475a07e40fcd8c3",
+      "canonical_utf8_lf_sha256": "d6ebc13d2ad83353102c95eb819afa637545b4fc41e349074475a07e40fcd8c3",
+      "literal_matches": true,
+      "canonical_utf8_lf_matches": true
+    }
+  ],
+  "source_meaning": "Native machine receipts bind exact Windows source bytes. This separately proves staged Git source differs only by CRLF/LF where shown; historical hashes are not relabeled. Future exact-revision/native visual acceptance requires its own evidence.",
+  "unavailable": "Full trusted suite, current native whole actions/contact, independent/device/child/owner and4.6clearance pending."
+}

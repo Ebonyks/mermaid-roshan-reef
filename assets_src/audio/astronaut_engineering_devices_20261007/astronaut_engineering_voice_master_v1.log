@@ -1,0 +1,10 @@
+FILLER_MASTER|roshan_op_astronaut_gears|-16.6 LUFS|-3.3 dBTP
+FILLER_MASTER|roshan_op_astronaut_pressure|-15.4 LUFS|-3.2 dBTP
+Traceback (most recent call last):
+  File "C:\Users\Peter\.codex\worktrees\astronaut-goal-20261006\mermaid-roshan-reef\tools\master_filler_voices.py", line 953, in <module>
+    raise SystemExit(main())
+                     ^^^^^^
+  File "C:\Users\Peter\.codex\worktrees\astronaut-goal-20261006\mermaid-roshan-reef\tools\master_filler_voices.py", line 716, in main
+    talk_entry = next(item for item in manifest_rows if item["key"] == "harper")
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+StopIteration

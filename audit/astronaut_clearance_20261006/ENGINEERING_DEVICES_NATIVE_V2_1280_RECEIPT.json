@@ -1,0 +1,508 @@
+{
+  "result": "FAIL",
+  "utc": "2026-10-08T00:26:51.206005+00:00",
+  "elapsed_seconds": 68.07128889998421,
+  "exit_code": 1,
+  "checks": 83,
+  "source_bindings": {
+    "scripts/opera_astronaut_surface.gd": "9ae8b4327efba8fd0b8abfc64cb251d4887dd1c0ff41f55b000f583702fc47e1",
+    "scripts/opera_astronaut_devices.gd": "c7bc86b567655be2bb3550d9a27eabb4944342bcfadec90dde1e09854728cf7c",
+    "scripts/opera_astronaut_pipe_work.gd": "0766a4e92235c74548006c6ae6b55c3578f2d0b5bd04f978fdb99aefcdf6819c",
+    "scripts/opera_career_world_2d.gd": "170d6ad87e3d4117c5c7de92026e5e5c0fb42a55ed4238b60a88ee6c8fac5a7b",
+    "scripts/chapter_two_career_scene_adapter.gd": "ffdcd602711a6acc42a5c6352ad8cbb701316f94c21233356fb56071f85ad40a",
+    "scripts/save_state.gd": "13b77592028653cdcac67e54264f049bbab01c6566b4fad1ea9bdf89a37a07c8",
+    "assets/opera/worlds/widgets/astronaut_radioactive_fluid_v1.png": "895a90c44c5feb69afeb8d73a264304cb6a1282ade1a18a21a56417ec029b2bd",
+    "assets/opera/worlds/widgets/astronaut_gear_v1.png": "8d25f70bb5594633eb2e0f817dfbb90c99fe923d02688b17a00a561eddf2f1e7",
+    "audit/astronaut_clearance_20261006/capture_engineering_devices_v2.gd": "99e64bf9a1de0f7b811d5c6dfa60dbcea72c3320e827aaaa2c9f6834cc537483"
+  },
+  "source_changes": [],
+  "failure_lines": [
+    "ERROR: GENERAL - Message Id Number: 0 | Message Id Name: Loader Message"
+  ],
+  "report": {
+    "checks": 83,
+    "contact_requests": [
+      {
+        "accepted_visual_action": false,
+        "candidate_distance": 0.967132568359375,
+        "cell": 5,
+        "request_id": 3,
+        "round": 0,
+        "sampled_contact_valid": true,
+        "wait_msec": 2046
+      },
+      {
+        "accepted_visual_action": false,
+        "candidate_distance": 0.967132568359375,
+        "cell": 6,
+        "request_id": 4,
+        "round": 0,
+        "sampled_contact_valid": true,
+        "wait_msec": 747
+      }
+    ],
+    "failures": 27,
+    "patch_contacts": [],
+    "rows": [
+      {
+        "label": "native display backend is active",
+        "pass": true
+      },
+      {
+        "label": "native pilot uses Mobile rendering",
+        "pass": true
+      },
+      {
+        "label": "native visible Continue button is available",
+        "pass": true
+      },
+      {
+        "label": "real Continue touch dismisses native title",
+        "pass": true
+      },
+      {
+        "label": "valid prior-story fixture reaches Astronaut next",
+        "pass": true
+      },
+      {
+        "label": "explicit empty and unknown-mode overrides remain rejected",
+        "pass": true
+      },
+      {
+        "label": "real Mermaid Pool career card is visible",
+        "pass": true
+      },
+      {
+        "label": "unforced production route selects Astronaut Canvas surface",
+        "pass": true
+      },
+      {
+        "label": "all birthday phases own an existing physical station",
+        "pass": true
+      },
+      {
+        "label": "real object touch opens current phase after approach",
+        "pass": true
+      },
+      {
+        "label": "three room devices use distinct games",
+        "pass": true
+      },
+      {
+        "label": "Pipe Dream is one board",
+        "pass": true
+      },
+      {
+        "label": "released board1 tile at5 waits for owned contact",
+        "pass": true
+      },
+      {
+        "label": "board1 tile at5 commits through sampled live contact",
+        "pass": true
+      },
+      {
+        "label": "board1 tile at5 preserves owned release position and pose",
+        "pass": true
+      },
+      {
+        "label": "genuine single-board placement",
+        "pass": true
+      },
+      {
+        "label": "released board1 tile at6 waits for owned contact",
+        "pass": true
+      },
+      {
+        "label": "board1 tile at6 commits through sampled live contact",
+        "pass": true
+      },
+      {
+        "label": "board1 tile at6 preserves owned release position and pose",
+        "pass": true
+      },
+      {
+        "label": "genuine single-board placement",
+        "pass": true
+      },
+      {
+        "label": "one earned pipe board advances",
+        "pass": true
+      },
+      {
+        "label": "normal completion opens gear device",
+        "pass": true
+      },
+      {
+        "label": "real object touch opens current phase after approach",
+        "pass": true
+      },
+      {
+        "label": "gear-fitting mode uses its own artwork",
+        "pass": true
+      },
+      {
+        "label": "passive gears never pay",
+        "pass": true
+      },
+      {
+        "label": "device action returns with constant whole-figure size",
+        "pass": false
+      },
+      {
+        "label": "wrong-sized gear returns without progress",
+        "pass": true
+      },
+      {
+        "label": "device action returns with constant whole-figure size",
+        "pass": false
+      },
+      {
+        "label": "first gear commits through local contact",
+        "pass": false
+      },
+      {
+        "label": "partial_gears production save succeeds",
+        "pass": true
+      },
+      {
+        "label": "partial_gears returns to exact room",
+        "pass": true
+      },
+      {
+        "label": "real Mermaid Pool career card is visible",
+        "pass": true
+      },
+      {
+        "label": "unforced production route selects Astronaut Canvas surface",
+        "pass": true
+      },
+      {
+        "label": "all birthday phases own an existing physical station",
+        "pass": true
+      },
+      {
+        "label": "real object touch opens current phase after approach",
+        "pass": true
+      },
+      {
+        "label": "partial_gears restores the exact widget fill",
+        "pass": true
+      },
+      {
+        "label": "installed gear survives genuine re-entry",
+        "pass": false
+      },
+      {
+        "label": "device action returns with constant whole-figure size",
+        "pass": false
+      },
+      {
+        "label": "installed gear cannot pay twice",
+        "pass": false
+      },
+      {
+        "label": "device action returns with constant whole-figure size",
+        "pass": false
+      },
+      {
+        "label": "device action returns with constant whole-figure size",
+        "pass": false
+      },
+      {
+        "label": "all fitted gears complete the machine",
+        "pass": false
+      },
+      {
+        "label": "normal completion opens pressure device",
+        "pass": false
+      },
+      {
+        "label": "real object touch opens current phase after approach",
+        "pass": true
+      },
+      {
+        "label": "passive pressure never pays",
+        "pass": false
+      },
+      {
+        "label": "device action returns with constant whole-figure size",
+        "pass": false
+      },
+      {
+        "label": "stationary valve taps cannot pay",
+        "pass": false
+      },
+      {
+        "label": "device action returns with constant whole-figure size",
+        "pass": false
+      },
+      {
+        "label": "wrong pressure has kind recovery without progress",
+        "pass": false
+      },
+      {
+        "label": "device action returns with constant whole-figure size",
+        "pass": false
+      },
+      {
+        "label": "deliberate pressure tune earns one gauge",
+        "pass": false
+      },
+      {
+        "label": "partial_pressure production save succeeds",
+        "pass": true
+      },
+      {
+        "label": "partial_pressure returns to exact room",
+        "pass": true
+      },
+      {
+        "label": "real Mermaid Pool career card is visible",
+        "pass": true
+      },
+      {
+        "label": "unforced production route selects Astronaut Canvas surface",
+        "pass": true
+      },
+      {
+        "label": "all birthday phases own an existing physical station",
+        "pass": true
+      },
+      {
+        "label": "real object touch opens current phase after approach",
+        "pass": true
+      },
+      {
+        "label": "partial_pressure restores the exact widget fill",
+        "pass": true
+      },
+      {
+        "label": "pressure tuning survives real re-entry",
+        "pass": false
+      },
+      {
+        "label": "device action returns with constant whole-figure size",
+        "pass": false
+      },
+      {
+        "label": "device action returns with constant whole-figure size",
+        "pass": false
+      },
+      {
+        "label": "three tuned gauges finish pressure task",
+        "pass": false
+      },
+      {
+        "label": "normal completion opens unlaunched parking finale",
+        "pass": false
+      },
+      {
+        "label": "real object touch opens current phase after approach",
+        "pass": true
+      },
+      {
+        "label": "birthday finale is swipe and parked unlaunched",
+        "pass": false
+      },
+      {
+        "label": "birthday parking binds the complete rocket and floor route",
+        "pass": false
+      },
+      {
+        "label": "wrong direction cannot park or ignite the rocket",
+        "pass": false
+      },
+      {
+        "label": "genuine motion earns partial parking journey",
+        "pass": true
+      },
+      {
+        "label": "engine pause cancels parking finger and preserves work",
+        "pass": true
+      },
+      {
+        "label": "stale parking release cannot earn work",
+        "pass": true
+      },
+      {
+        "label": "partial_park production save succeeds",
+        "pass": true
+      },
+      {
+        "label": "partial_park returns to exact room",
+        "pass": true
+      },
+      {
+        "label": "real Mermaid Pool career card is visible",
+        "pass": true
+      },
+      {
+        "label": "unforced production route selects Astronaut Canvas surface",
+        "pass": true
+      },
+      {
+        "label": "all birthday phases own an existing physical station",
+        "pass": true
+      },
+      {
+        "label": "real object touch opens current phase after approach",
+        "pass": true
+      },
+      {
+        "label": "partial_park restores the exact widget fill",
+        "pass": true
+      },
+      {
+        "label": "READY PARK progress and journey survive save/re-entry",
+        "pass": false
+      },
+      {
+        "label": "saved legacy parking context restores the rocket skin",
+        "pass": false
+      },
+      {
+        "label": "native observer sees both horizontal travel directions",
+        "pass": true
+      },
+      {
+        "label": "every observed travel frame faces its actual destination",
+        "pass": true
+      },
+      {
+        "label": "every observed wrench state retains viewport-fit work facing",
+        "pass": true
+      },
+      {
+        "label": "all observed whole-figure states preserve entry scale",
+        "pass": true
+      }
+    ],
+    "scope": "Genuine birthday picture/object route after explicit prior-six-jobs fixture; four mechanics, save/load, pause, completion/return and context isolation. No phase/progress injection. New pipes/gears/pressure and existing parking, current contact/save route; native visual/device/child/owner and full-suite acceptance separate.",
+    "snapshots": [
+      {
+        "angle": 0.0,
+        "fill": 0.0,
+        "grid": [
+          "",
+          "",
+          "",
+          "",
+          "H",
+          "H",
+          "H",
+          "H",
+          "",
+          "",
+          "",
+          ""
+        ],
+        "held": true,
+        "label": "partial_gears_before_save",
+        "owner": 7,
+        "pearls": 0,
+        "phase_index": 1,
+        "phase_progress": 0.0,
+        "pipe_round": 1,
+        "star_mask": 0,
+        "targets": [],
+        "tray": []
+      },
+      {
+        "angle": 0.0,
+        "fill": 0.0,
+        "grid": [],
+        "held": false,
+        "label": "partial_gears_after_reload",
+        "owner": -1,
+        "pearls": 0,
+        "phase_index": 1,
+        "phase_progress": 0.0,
+        "pipe_round": 0,
+        "star_mask": 0,
+        "targets": [],
+        "tray": []
+      },
+      {
+        "angle": 0.0,
+        "fill": 0.666666666666667,
+        "grid": [],
+        "held": true,
+        "label": "partial_pressure_before_save",
+        "owner": 7,
+        "pearls": 0,
+        "phase_index": 1,
+        "phase_progress": 2.0,
+        "pipe_round": 0,
+        "star_mask": 0,
+        "targets": [],
+        "tray": []
+      },
+      {
+        "angle": 0.0,
+        "fill": 0.666666666666667,
+        "grid": [],
+        "held": false,
+        "label": "partial_pressure_after_reload",
+        "owner": -1,
+        "pearls": 0,
+        "phase_index": 1,
+        "phase_progress": 2.0,
+        "pipe_round": 0,
+        "star_mask": 0,
+        "targets": [],
+        "tray": []
+      },
+      {
+        "angle": 0.0,
+        "fill": 0.666666666666667,
+        "grid": [],
+        "held": false,
+        "label": "partial_park_before_save",
+        "owner": -1,
+        "pearls": 0,
+        "phase_index": 1,
+        "phase_progress": 2.0,
+        "pipe_round": 0,
+        "star_mask": 0,
+        "targets": [],
+        "tray": []
+      },
+      {
+        "angle": 0.0,
+        "fill": 0.666666666666667,
+        "grid": [],
+        "held": false,
+        "label": "partial_park_after_reload",
+        "owner": -1,
+        "pearls": 0,
+        "phase_index": 1,
+        "phase_progress": 2.0,
+        "pipe_round": 0,
+        "star_mask": 0,
+        "targets": [],
+        "tray": []
+      }
+    ],
+    "valve_contacts": []
+  },
+  "argv": [
+    "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64.exe",
+    "--verbose",
+    "--path",
+    "C:\\Users\\Peter\\.codex\\worktrees\\astronaut-goal-20261006\\mermaid-roshan-reef",
+    "--audio-driver",
+    "Dummy",
+    "--rendering-method",
+    "mobile",
+    "--rendering-driver",
+    "vulkan",
+    "--resolution",
+    "1280x720",
+    "--max-fps",
+    "30",
+    "-s",
+    "audit/astronaut_clearance_20261006/capture_engineering_devices_v2.gd"
+  ],
+  "log_sha256": "cedb38df448141c723bfe45e80613363f6ebf000f2ddf3a8ad6e68621f608726",
+  "limits": "Native diagnostic, prior story seeded; no full-speed/device/independent/child/owner acceptance."
+}

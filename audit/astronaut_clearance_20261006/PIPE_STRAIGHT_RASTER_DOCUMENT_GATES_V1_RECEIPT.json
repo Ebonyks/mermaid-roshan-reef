@@ -1,0 +1,12 @@
+{
+  "result": "FAIL_BEFORE_GATES",
+  "started_utc": "2026-10-07T19:38:44.206607+00:00",
+  "cap_seconds": 60,
+  "source_sha256": "21857d8e719c2fc355d68381abf927b58f86037a7100ba0aead0735a87146eb7",
+  "scope": "Source/document gates only; zeroengine/native/generation. Earlierfailedprelaunch andartfamilycap retained; no runtimeacceptance.",
+  "closed_utc": "2026-10-07T19:39:53.477610+00:00",
+  "actual_wrapper_seconds": 0.8020557,
+  "conservative_charge_seconds": 2,
+  "gate_commands": 0,
+  "failure": "git add rejected explicitly named untracked audit files because .gitignore:27 ignores /audit/*. Asset staged; no gate executed. Corrective basis: force-add only named owned evidence files, without changing ignore rules."
+}

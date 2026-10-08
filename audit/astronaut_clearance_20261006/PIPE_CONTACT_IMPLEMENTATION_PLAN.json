@@ -1,0 +1,63 @@
+{
+  "created_utc": "2026-10-07T09:21:51.629279+00:00",
+  "baseline": "96274aab9cebd563b10846a4a48de5d017588563",
+  "finding": "MA-PLAY-004",
+  "failing_baseline": {
+    "path": "BIRTHDAY_CONTACT_V1_RECEIPT.json",
+    "sha256": "65050c2a758c456ffefb53a64383830c0ccf3b9b6985163093097f49b5dbe83a",
+    "necessary_contact_failures": 4,
+    "engine_errors": 0
+  },
+  "scope": "Released pipe placement only. Other phase acting/parking artwork and ordinary launch owner choice remain open.",
+  "source": {
+    "path": "assets/opera/worlds/actors/animation/roshan_astronaut_sheet_a.png",
+    "sha256": "ccfb8e7af3a033e31e05af40fa62dc23b676aec6204ba8810e8cf79cbfc4d6fa",
+    "dimensions": [
+      1024,
+      1024
+    ],
+    "cell_dimensions": [
+      256,
+      256
+    ],
+    "unchanged": true
+  },
+  "source_landmarks": {
+    "method": "Direct native original inspection plus read-only RGBA ASCII mask around x30..57/y80..109; manually locate transparent opening between the visible wrench prongs. Do not use the contaminated whole-ROI low-chroma bounding boxes.",
+    "work0_jaw_opening": [
+      43,
+      92
+    ],
+    "work1_jaw_opening": [
+      43,
+      93
+    ],
+    "status": "CANDIDATE_GEOMETRY_NOT_HUMAN_ACCEPTED_CONTACT",
+    "visual_review_required": true
+  },
+  "action": {
+    "request": "Real drop/tap-then-cell keeps tile carried and conserves its released-source snapshot. One pending intent blocks duplicate input.",
+    "approach": "Original room hotspot route occurs before activity. Within the existing close-up work canvas, complete figure translates on a bounded line with fixed current whole-figure size; facing chooses an unclipped figure. No new source art, camera, costume or scene.",
+    "states": [
+      "travel",
+      "work2 anticipation 0.12s",
+      "work0 contact 0.16s",
+      "work1 contact 0.18s",
+      "work2 release 0.16s",
+      "travel to existing rest mark",
+      "idle0"
+    ],
+    "commit": "World validates live request, phase, target, work interval, actual AtlasTexture region, unaltered uniform actor size and <=4 viewport-pixel candidate jaw gap before original surface drop/flow/checkpoint. No timer callback independently grants progress.",
+    "cancel": "Focus, actual tree pause, configure/phase change and close restore pending tile through existing source/tray conservation; cancel presentation and enter safe pose. Committed tile is preserved.",
+    "save": "Pending target is omitted, source state conserved. Original released-grid/flow schema, signature and version1 remain."
+  },
+  "required_evidence": [
+    "Meaningful parser/inference/exact-engine checks",
+    "Real card/object/input tests across all3 authored pipe routes",
+    "Early/repeated/wrong/stale/contact eligibility/cancel/pause/save-load/teardown tests",
+    "Current-source whole-action native2aspect review; candidate jaw measurement alone cannot accept work motion",
+    "Remaining phase repairs and independent >=4.6 per-item/action review",
+    "FullCI, topic CI and integration; device/child/owner acceptance"
+  ],
+  "resource": "Small bounded headless diagnostic only, no import/capture/fullCI/generation allocation."
+}

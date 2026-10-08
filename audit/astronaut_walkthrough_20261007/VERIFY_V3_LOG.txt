@@ -1,0 +1,316 @@
+PASS | numbered steps contiguous
+PASS | claim stays diagnostic
+PASS | sorted payload hash
+PASS | payload .gdignore
+PASS | payload build_walkthrough.py
+PASS | payload DOCUMENT_GATE_RECOVERY_PLAN_V2.json
+PASS | payload DOCUMENT_GATE_RECOVERY_PLAN_V3.json
+PASS | payload evidence/NATIVE_BIRTHDAY_CAPTURE_V8_1280_MANIFEST.json
+PASS | payload evidence/NATIVE_BIRTHDAY_CAPTURE_V8_1600_MANIFEST.json
+PASS | payload evidence/PATCH_READABILITY_NATIVE_RECOVERY_V1_RECEIPT.json
+PASS | payload evidence/PATCH_READABILITY_NATIVE_V1_PREFLIGHT.json
+PASS | payload evidence/PATCH_READABILITY_NATIVE_V1_RECEIPT.json
+PASS | payload frames/1280/0000_start_menu_before_continue.png
+PASS | payload frames/1280/0001_phase0_open.png
+PASS | payload frames/1280/0005_phase0_input_held.png
+PASS | payload frames/1280/0007_phase0_pipe_approach.png
+PASS | payload frames/1280/0013_phase0_pipe_contact_a.png
+PASS | payload frames/1280/0015_phase0_pipe_contact_b.png
+PASS | payload frames/1280/0017_phase0_pipe_release.png
+PASS | payload frames/1280/0027_phase0_action_018.png
+PASS | payload frames/1280/0033_phase0_completed.png
+PASS | payload frames/1280/0034_phase1_open.png
+PASS | payload frames/1280/0039_phase1_patch_approach.png
+PASS | payload frames/1280/0044_phase1_patch_contact_a.png
+PASS | payload frames/1280/0046_phase1_patch_contact_b.png
+PASS | payload frames/1280/0048_phase1_patch_release.png
+PASS | payload frames/1280/0063_phase1_action_021.png
+PASS | payload frames/1280/0066_phase1_input_held.png
+PASS | payload frames/1280/0067_phase1_completed.png
+PASS | payload frames/1280/0068_phase2_open.png
+PASS | payload frames/1280/0073_phase2_valve_contact.png
+PASS | payload frames/1280/0105_phase2_valve_turn.png
+PASS | payload frames/1280/0106_phase2_valve_release.png
+PASS | payload frames/1280/0107_phase2_valve_return.png
+PASS | payload frames/1280/0108_phase2_completed.png
+PASS | payload frames/1280/0109_phase3_open.png
+PASS | payload frames/1280/0113_phase3_input_held.png
+PASS | payload frames/1280/0127_phase3_completed.png
+PASS | payload frames/1280/0128_room_return.png
+PASS | payload frames/1600/0015_phase0_pipe_contact_b.png
+PASS | payload frames/1600/0046_phase1_patch_contact_b.png
+PASS | payload frames/1600/0066_phase1_input_held.png
+PASS | payload frames/1600/0067_phase1_completed.png
+PASS | payload frames/1600/0073_phase2_valve_contact.png
+PASS | payload frames/1600/0105_phase2_valve_turn.png
+PASS | payload frames/1600/0113_phase3_input_held.png
+PASS | payload frames/1600/0128_room_return.png
+PASS | payload history/INITIAL_BUILDER.txt
+PASS | payload history/INITIAL_INDEX.txt
+PASS | payload history/INITIAL_MANIFEST.json
+PASS | payload history/INITIAL_README.txt
+PASS | payload history/INITIAL_STEPS.json
+PASS | payload history/INITIAL_VERIFY_LOG.txt
+PASS | payload history/INITIAL_VERIFY_RECEIPT.json
+PASS | payload index.html
+PASS | payload PUBLICATION_STATUS.json
+PASS | payload README.md
+PASS | payload REVIEW_CORRECTIONS.json
+PASS | payload run_document_gates_v1.py
+PASS | payload run_document_gates_v2.py
+PASS | payload run_document_gates_v3.py
+PASS | payload SOURCE_BINDINGS.json
+PASS | payload sources/audio_director.gd.txt
+PASS | payload sources/capture_birthday_native_v8.gd.txt
+PASS | payload sources/castle_career_routes.gd.txt
+PASS | payload sources/chapter_two_career_scene_adapter.gd.txt
+PASS | payload sources/chapter_two_director.gd.txt
+PASS | payload sources/chapter_two_party_plan.gd.txt
+PASS | payload sources/opera_astronaut_patch_work.gd.txt
+PASS | payload sources/opera_astronaut_pipe_work.gd.txt
+PASS | payload sources/opera_astronaut_surface.gd.txt
+PASS | payload sources/opera_astronaut_valve_work.gd.txt
+PASS | payload sources/opera_career_world_2d.gd.txt
+PASS | payload sources/opera_house.gd.txt
+PASS | payload sources/save_state.gd.txt
+PASS | payload STEPS.json
+PASS | payload verify_walkthrough.py
+PASS | payload verify_walkthrough_v2.py
+PASS | payload verify_walkthrough_v3.py
+PASS | payload WALKTHROUGH_PLAN.json
+PASS | payload WALKTHROUGH_REVIEW_ADDENDUM.json
+PASS | literal native frames/1280/0000_start_menu_before_continue.png
+PASS | native dimensions frames/1280/0000_start_menu_before_continue.png
+PASS | original metadata frames/1280/0000_start_menu_before_continue.png
+PASS | literal native frames/1280/0001_phase0_open.png
+PASS | native dimensions frames/1280/0001_phase0_open.png
+PASS | original metadata frames/1280/0001_phase0_open.png
+PASS | literal native frames/1280/0005_phase0_input_held.png
+PASS | native dimensions frames/1280/0005_phase0_input_held.png
+PASS | original metadata frames/1280/0005_phase0_input_held.png
+PASS | literal native frames/1280/0007_phase0_pipe_approach.png
+PASS | native dimensions frames/1280/0007_phase0_pipe_approach.png
+PASS | original metadata frames/1280/0007_phase0_pipe_approach.png
+PASS | literal native frames/1280/0013_phase0_pipe_contact_a.png
+PASS | native dimensions frames/1280/0013_phase0_pipe_contact_a.png
+PASS | original metadata frames/1280/0013_phase0_pipe_contact_a.png
+PASS | literal native frames/1280/0015_phase0_pipe_contact_b.png
+PASS | native dimensions frames/1280/0015_phase0_pipe_contact_b.png
+PASS | original metadata frames/1280/0015_phase0_pipe_contact_b.png
+PASS | literal native frames/1280/0017_phase0_pipe_release.png
+PASS | native dimensions frames/1280/0017_phase0_pipe_release.png
+PASS | original metadata frames/1280/0017_phase0_pipe_release.png
+PASS | literal native frames/1280/0027_phase0_action_018.png
+PASS | native dimensions frames/1280/0027_phase0_action_018.png
+PASS | original metadata frames/1280/0027_phase0_action_018.png
+PASS | literal native frames/1280/0033_phase0_completed.png
+PASS | native dimensions frames/1280/0033_phase0_completed.png
+PASS | original metadata frames/1280/0033_phase0_completed.png
+PASS | literal native frames/1280/0034_phase1_open.png
+PASS | native dimensions frames/1280/0034_phase1_open.png
+PASS | original metadata frames/1280/0034_phase1_open.png
+PASS | literal native frames/1280/0039_phase1_patch_approach.png
+PASS | native dimensions frames/1280/0039_phase1_patch_approach.png
+PASS | original metadata frames/1280/0039_phase1_patch_approach.png
+PASS | literal native frames/1280/0044_phase1_patch_contact_a.png
+PASS | native dimensions frames/1280/0044_phase1_patch_contact_a.png
+PASS | original metadata frames/1280/0044_phase1_patch_contact_a.png
+PASS | literal native frames/1280/0046_phase1_patch_contact_b.png
+PASS | native dimensions frames/1280/0046_phase1_patch_contact_b.png
+PASS | original metadata frames/1280/0046_phase1_patch_contact_b.png
+PASS | literal native frames/1280/0048_phase1_patch_release.png
+PASS | native dimensions frames/1280/0048_phase1_patch_release.png
+PASS | original metadata frames/1280/0048_phase1_patch_release.png
+PASS | literal native frames/1280/0063_phase1_action_021.png
+PASS | native dimensions frames/1280/0063_phase1_action_021.png
+PASS | original metadata frames/1280/0063_phase1_action_021.png
+PASS | literal native frames/1280/0066_phase1_input_held.png
+PASS | native dimensions frames/1280/0066_phase1_input_held.png
+PASS | original metadata frames/1280/0066_phase1_input_held.png
+PASS | literal native frames/1280/0067_phase1_completed.png
+PASS | native dimensions frames/1280/0067_phase1_completed.png
+PASS | original metadata frames/1280/0067_phase1_completed.png
+PASS | literal native frames/1280/0068_phase2_open.png
+PASS | native dimensions frames/1280/0068_phase2_open.png
+PASS | original metadata frames/1280/0068_phase2_open.png
+PASS | literal native frames/1280/0073_phase2_valve_contact.png
+PASS | native dimensions frames/1280/0073_phase2_valve_contact.png
+PASS | original metadata frames/1280/0073_phase2_valve_contact.png
+PASS | literal native frames/1280/0105_phase2_valve_turn.png
+PASS | native dimensions frames/1280/0105_phase2_valve_turn.png
+PASS | original metadata frames/1280/0105_phase2_valve_turn.png
+PASS | literal native frames/1280/0106_phase2_valve_release.png
+PASS | native dimensions frames/1280/0106_phase2_valve_release.png
+PASS | original metadata frames/1280/0106_phase2_valve_release.png
+PASS | literal native frames/1280/0107_phase2_valve_return.png
+PASS | native dimensions frames/1280/0107_phase2_valve_return.png
+PASS | original metadata frames/1280/0107_phase2_valve_return.png
+PASS | literal native frames/1280/0108_phase2_completed.png
+PASS | native dimensions frames/1280/0108_phase2_completed.png
+PASS | original metadata frames/1280/0108_phase2_completed.png
+PASS | literal native frames/1280/0109_phase3_open.png
+PASS | native dimensions frames/1280/0109_phase3_open.png
+PASS | original metadata frames/1280/0109_phase3_open.png
+PASS | literal native frames/1280/0113_phase3_input_held.png
+PASS | native dimensions frames/1280/0113_phase3_input_held.png
+PASS | original metadata frames/1280/0113_phase3_input_held.png
+PASS | literal native frames/1280/0127_phase3_completed.png
+PASS | native dimensions frames/1280/0127_phase3_completed.png
+PASS | original metadata frames/1280/0127_phase3_completed.png
+PASS | literal native frames/1280/0128_room_return.png
+PASS | native dimensions frames/1280/0128_room_return.png
+PASS | original metadata frames/1280/0128_room_return.png
+PASS | literal native frames/1600/0015_phase0_pipe_contact_b.png
+PASS | native dimensions frames/1600/0015_phase0_pipe_contact_b.png
+PASS | original metadata frames/1600/0015_phase0_pipe_contact_b.png
+PASS | literal native frames/1600/0046_phase1_patch_contact_b.png
+PASS | native dimensions frames/1600/0046_phase1_patch_contact_b.png
+PASS | original metadata frames/1600/0046_phase1_patch_contact_b.png
+PASS | literal native frames/1600/0066_phase1_input_held.png
+PASS | native dimensions frames/1600/0066_phase1_input_held.png
+PASS | original metadata frames/1600/0066_phase1_input_held.png
+PASS | literal native frames/1600/0067_phase1_completed.png
+PASS | native dimensions frames/1600/0067_phase1_completed.png
+PASS | original metadata frames/1600/0067_phase1_completed.png
+PASS | literal native frames/1600/0073_phase2_valve_contact.png
+PASS | native dimensions frames/1600/0073_phase2_valve_contact.png
+PASS | original metadata frames/1600/0073_phase2_valve_contact.png
+PASS | literal native frames/1600/0105_phase2_valve_turn.png
+PASS | native dimensions frames/1600/0105_phase2_valve_turn.png
+PASS | original metadata frames/1600/0105_phase2_valve_turn.png
+PASS | literal native frames/1600/0113_phase3_input_held.png
+PASS | native dimensions frames/1600/0113_phase3_input_held.png
+PASS | original metadata frames/1600/0113_phase3_input_held.png
+PASS | literal native frames/1600/0128_room_return.png
+PASS | native dimensions frames/1600/0128_room_return.png
+PASS | original metadata frames/1600/0128_room_return.png
+PASS | exact source remains scripts/opera_career_world_2d.gd
+PASS | literal source snapshot scripts/opera_career_world_2d.gd
+PASS | exact source remains scripts/opera_astronaut_surface.gd
+PASS | literal source snapshot scripts/opera_astronaut_surface.gd
+PASS | exact source remains scripts/opera_astronaut_pipe_work.gd
+PASS | literal source snapshot scripts/opera_astronaut_pipe_work.gd
+PASS | exact source remains scripts/opera_astronaut_patch_work.gd
+PASS | literal source snapshot scripts/opera_astronaut_patch_work.gd
+PASS | exact source remains scripts/opera_astronaut_valve_work.gd
+PASS | literal source snapshot scripts/opera_astronaut_valve_work.gd
+PASS | exact source remains scripts/chapter_two_career_scene_adapter.gd
+PASS | literal source snapshot scripts/chapter_two_career_scene_adapter.gd
+PASS | exact source remains scripts/castle_career_routes.gd
+PASS | literal source snapshot scripts/castle_career_routes.gd
+PASS | exact source remains scripts/opera_house.gd
+PASS | literal source snapshot scripts/opera_house.gd
+PASS | exact source remains scripts/chapter_two_director.gd
+PASS | literal source snapshot scripts/chapter_two_director.gd
+PASS | exact source remains scripts/chapter_two_party_plan.gd
+PASS | literal source snapshot scripts/chapter_two_party_plan.gd
+PASS | exact source remains scripts/audio_director.gd
+PASS | literal source snapshot scripts/audio_director.gd
+PASS | exact source remains scripts/save_state.gd
+PASS | literal source snapshot scripts/save_state.gd
+PASS | exact source remains audit/astronaut_clearance_20261006/capture_birthday_native_v8.gd
+PASS | literal source snapshot audit/astronaut_clearance_20261006/capture_birthday_native_v8.gd
+PASS | all illustrated image references match step data
+PASS | anchor #step1
+PASS | anchor #step2
+PASS | anchor #step3
+PASS | anchor #step4
+PASS | anchor #step5
+PASS | anchor #step6
+PASS | anchor #step7
+PASS | anchor #step8
+PASS | anchor #step9
+PASS | anchor #step10
+PASS | anchor #step11
+PASS | anchor #step12
+PASS | anchor #step13
+PASS | anchor #step14
+PASS | anchor #step15
+PASS | anchor #step16
+PASS | anchor #step17
+PASS | anchor #step18
+PASS | anchor #step19
+PASS | anchor #step20
+PASS | anchor #step21
+PASS | anchor #step22
+PASS | anchor #step23
+PASS | anchor #step24
+PASS | anchor #step25
+PASS | anchor #step26
+PASS | anchor #step27
+PASS | anchor #step28
+PASS | anchor #step29
+PASS | local link frames/1280/0000_start_menu_before_continue.png
+PASS | local link frames/1280/0000_start_menu_before_continue.png
+PASS | local link frames/1280/0001_phase0_open.png
+PASS | local link frames/1280/0001_phase0_open.png
+PASS | local link frames/1280/0005_phase0_input_held.png
+PASS | local link frames/1280/0005_phase0_input_held.png
+PASS | local link frames/1280/0007_phase0_pipe_approach.png
+PASS | local link frames/1280/0007_phase0_pipe_approach.png
+PASS | local link frames/1280/0013_phase0_pipe_contact_a.png
+PASS | local link frames/1280/0013_phase0_pipe_contact_a.png
+PASS | local link frames/1280/0015_phase0_pipe_contact_b.png
+PASS | local link frames/1280/0015_phase0_pipe_contact_b.png
+PASS | local link frames/1280/0017_phase0_pipe_release.png
+PASS | local link frames/1280/0017_phase0_pipe_release.png
+PASS | local link frames/1280/0027_phase0_action_018.png
+PASS | local link frames/1280/0027_phase0_action_018.png
+PASS | local link frames/1280/0033_phase0_completed.png
+PASS | local link frames/1280/0033_phase0_completed.png
+PASS | local link frames/1280/0034_phase1_open.png
+PASS | local link frames/1280/0034_phase1_open.png
+PASS | local link frames/1280/0039_phase1_patch_approach.png
+PASS | local link frames/1280/0039_phase1_patch_approach.png
+PASS | local link frames/1280/0044_phase1_patch_contact_a.png
+PASS | local link frames/1280/0044_phase1_patch_contact_a.png
+PASS | local link frames/1280/0046_phase1_patch_contact_b.png
+PASS | local link frames/1280/0046_phase1_patch_contact_b.png
+PASS | local link frames/1280/0048_phase1_patch_release.png
+PASS | local link frames/1280/0048_phase1_patch_release.png
+PASS | local link frames/1280/0063_phase1_action_021.png
+PASS | local link frames/1280/0063_phase1_action_021.png
+PASS | local link frames/1280/0066_phase1_input_held.png
+PASS | local link frames/1280/0066_phase1_input_held.png
+PASS | local link frames/1280/0067_phase1_completed.png
+PASS | local link frames/1280/0067_phase1_completed.png
+PASS | local link frames/1280/0068_phase2_open.png
+PASS | local link frames/1280/0068_phase2_open.png
+PASS | local link frames/1280/0073_phase2_valve_contact.png
+PASS | local link frames/1280/0073_phase2_valve_contact.png
+PASS | local link frames/1280/0105_phase2_valve_turn.png
+PASS | local link frames/1280/0105_phase2_valve_turn.png
+PASS | local link frames/1280/0106_phase2_valve_release.png
+PASS | local link frames/1280/0106_phase2_valve_release.png
+PASS | local link frames/1280/0107_phase2_valve_return.png
+PASS | local link frames/1280/0107_phase2_valve_return.png
+PASS | local link frames/1280/0108_phase2_completed.png
+PASS | local link frames/1280/0108_phase2_completed.png
+PASS | local link frames/1280/0109_phase3_open.png
+PASS | local link frames/1280/0109_phase3_open.png
+PASS | local link frames/1280/0113_phase3_input_held.png
+PASS | local link frames/1280/0113_phase3_input_held.png
+PASS | local link frames/1280/0127_phase3_completed.png
+PASS | local link frames/1280/0127_phase3_completed.png
+PASS | local link frames/1280/0128_room_return.png
+PASS | local link frames/1280/0128_room_return.png
+PASS | local link frames/1600/0015_phase0_pipe_contact_b.png
+PASS | local link frames/1600/0046_phase1_patch_contact_b.png
+PASS | local link frames/1600/0066_phase1_input_held.png
+PASS | local link frames/1600/0067_phase1_completed.png
+PASS | local link frames/1600/0073_phase2_valve_contact.png
+PASS | local link frames/1600/0105_phase2_valve_turn.png
+PASS | local link frames/1600/0113_phase3_input_held.png
+PASS | local link frames/1600/0128_room_return.png
+PASS | local link README.md
+PASS | local link MANIFEST.json
+PASS | local link SOURCE_BINDINGS.json
+PASS | local link PUBLICATION_STATUS.json
+PASS | all native masters retained
+PASS | separate overlays and toggle present
+PASS | gap panels explicit
+PASS | publication remains unclaimed
+PASS | review output below declared64MiB
+PASS | nonruntime import exclusion
+
+RESULT | PASS

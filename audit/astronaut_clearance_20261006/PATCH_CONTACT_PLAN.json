@@ -1,0 +1,140 @@
+{
+  "created_utc": "2026-10-07T13:48:44.947398+00:00",
+  "baseline": "96274aab9cebd563b10846a4a48de5d017588563",
+  "origin_dev": "6238934447cf28834874396dfbaff65effafda46",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-AGE-01",
+    "DL-AGE-02",
+    "DL-AGE-07",
+    "DL-INT-01",
+    "DL-INT-02",
+    "DL-INT-04",
+    "DL-INT-06",
+    "DL-MOT-01",
+    "DL-MOT-03",
+    "DL-MOT-10",
+    "DL-MOT-11",
+    "DL-MOT-12",
+    "DL-MOT-13",
+    "DL-MOT-16",
+    "DL-SAVE-01",
+    "DL-SAVE-03",
+    "DL-SAVE-04",
+    "DL-QA-02",
+    "DL-QA-03",
+    "DL-QA-06",
+    "DL-QA-11",
+    "DL-QA-12"
+  ],
+  "findings": [
+    "MA-PLAY-004",
+    "MA-SAVE-002",
+    "MA-VIS-006"
+  ],
+  "sources_before": [
+    {
+      "path": "scripts/opera_career_world_2d.gd",
+      "sha256": "9368b7f398bbc57ec646c6068cda1ebafb8fee5a570d60049bd7ce9c04532d25",
+      "literal_snapshot": "audit/astronaut_clearance_20261006/PATCH_BEFORE_WORLD_SOURCE.txt"
+    },
+    {
+      "path": "scripts/opera_astronaut_surface.gd",
+      "sha256": "a8b1e12c6bfaecd5dda07c74ff2fdf2f373adcb7bb92f61b28fb5998d2887368",
+      "literal_snapshot": "audit/astronaut_clearance_20261006/PATCH_BEFORE_SURFACE_SOURCE.txt"
+    }
+  ],
+  "reused_art": [
+    {
+      "path": "assets/opera/worlds/actors/animation/roshan_astronaut_sheet_a.png",
+      "sha256": "ccfb8e7af3a033e31e05af40fa62dc23b676aec6204ba8810e8cf79cbfc4d6fa",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "modification": "None, intact reuse",
+      "license": "Existing ASSET_LICENSES.md project-original Opera art; source grades do not accept actions."
+    },
+    {
+      "path": "assets/opera/worlds/widgets/widget_target_astronaut_mover.png",
+      "sha256": "5d11779c6c9d702dbbca75e359e019382b52e670f5fa6d3f1e47856878b5db15",
+      "dimensions": [
+        256,
+        256
+      ],
+      "modification": "None, intact reuse",
+      "license": "Existing ASSET_LICENSES.md project-original Opera art; source grades do not accept actions."
+    },
+    {
+      "path": "assets/opera/worlds/widgets/widget_target_astronaut_piece_0.png",
+      "sha256": "bfafdf432e4e0cd42bef4c436bc50839e0ecb48f322e84da2cbb2a312afefe04",
+      "dimensions": [
+        256,
+        256
+      ],
+      "modification": "None, intact reuse",
+      "license": "Existing ASSET_LICENSES.md project-original Opera art; source grades do not accept actions."
+    },
+    {
+      "path": "assets/opera/worlds/widgets/widget_target_astronaut_piece_1.png",
+      "sha256": "218c33235451de371a7644e18629a636955edc27722fc41de1d5167edf4cfd5d",
+      "dimensions": [
+        256,
+        256
+      ],
+      "modification": "None, intact reuse",
+      "license": "Existing ASSET_LICENSES.md project-original Opera art; source grades do not accept actions."
+    },
+    {
+      "path": "assets/opera/worlds/widgets/widget_target_astronaut_piece_2.png",
+      "sha256": "b2ac73c372b40b53914a3146c9c5c036ed9df0db898e699d64499d1b17d00b52",
+      "dimensions": [
+        256,
+        256
+      ],
+      "modification": "None, intact reuse",
+      "license": "Existing ASSET_LICENSES.md project-original Opera art; source grades do not accept actions."
+    }
+  ],
+  "baseline_visual_failure": {
+    "review": "VALVE_CONTACT_REVIEW.json",
+    "sha256": "edd28660b38795131abb98255ac33b13779789f81a5ac13d5353ab64d85baa48",
+    "score": 2.4,
+    "frame": "tmp/astronaut_native_birthday_capture_v6_20261007/1600x720/frames/0034_phase1_open.png",
+    "failure": "Rocket/leaks at left, Roshan distant at center; repairs pay immediately with no local wrench work."
+  },
+  "clip_contract": {
+    "id": "astronaut.patch.v1",
+    "intent": "Roshan attends to each child-requested leak, approaches its exact anchor, performs compact wrench work locally, shows the repaired patch, withdraws and returns. Concentrating Ribbon Glide register.",
+    "source_cells": "Existing whole travel row, work2 anticipation/release, work0 thenwork1 contact; idle0rest.",
+    "geometry": "Inherit candidate jawA(43,92)/jawB(43,93),4viewportpx tolerance; exact atlas region, entry size/scale, target anchor under shared Canvas transform,12logicalpx viewport margin. No limb/body resizing or separate transforms.",
+    "timing": "Actual panel reveal; approach.18-.60s at700px/s, anticipation.12/contactA.16/contactB.18, release.16/return.18-.60. One pending distinct target per real tap, bounded by original5targets; each gets its own local work. No passive reward.",
+    "events": "Surface owns genuine unique-target queue and generation; world validates live request/phase/front-target/work1/geometry before shared anchored-target commit. Existing probe diagnostic bypass remains separate.",
+    "interruptions": "Normal touch release retains requested targets; repeated pending target cannot stack. Pause/focus/close/configure clears all uncommitted targets and helper ownership, preserves only earned target mask/progress; stale token/target rejects. No save schema change.",
+    "limits": "Geometry is a candidate; semantic repair action, pose transitions, target readability and all assets still require native/independent review before4.6."
+  },
+  "required_evidence": [
+    "Preserve all121headless and126peraspect native assertions, with waits on genuine pending repairs; full four-mechanic/partialsave/completion/return/canon proof.",
+    "Passive/rawsignal/outside/repeated/distinctqueue/pause/focus/wrongposition/wrongpose/wrongphase/stalegeneration/cancel controls; each actual accepted patch observes live source/contact/scale.",
+    "Two untouched Mobile native aspect captures of patch approach/anticipation/contact/release/return, and neighboring valve/pipe/parking/settled return. No capture readback performance acceptance.",
+    "Required parser/inference/analyzer/authority/coverage/unit/stress/2D/source/log/pixel/staged byte checks; fulltrusted/ordinary/fullnaturalvariants/independent/device/child/owner/integration remain open."
+  ],
+  "caps": {
+    "headless_seconds": 220,
+    "native_seconds": 300,
+    "document_seconds": 120,
+    "native_output_bytes": 536870912,
+    "cache_growth_bytes": 67108864,
+    "owned_engine_processes": 1,
+    "no_automatic_retry": true,
+    "prior_valve_headless_seconds": 97.711,
+    "prior_valve_native_seconds": 227.677,
+    "prior_valve_prelaunch_setup_seconds": 8.6128821,
+    "prior_valve_document_seconds": 86.111,
+    "prior_direction_engine_seconds": 213.086,
+    "prior_release_slice_engine_seconds": 595.844
+  },
+  "authorization": "Active goal authorizes local existing-art contact repair and bounded native verification. No paid generation/install/art rewrite/outgoing metadata/release. Existing PARK/LAUNCH artistic decisions remain dependent on human answers."
+}

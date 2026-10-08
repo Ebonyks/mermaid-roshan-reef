@@ -1,0 +1,121 @@
+ASTRO_FULL_CI_START|2026-10-07T20:34:26Z
+....
+----------------------------------------------------------------------
+Ran 4 tests in 0.091s
+
+OK
+GODOTBASELINE|ALL OK|4.7.2-stable|official.ed1daf0bf
+........s...............................
+----------------------------------------------------------------------
+Ran 40 tests in 32.217s
+
+OK (skipped=1)
+TYPOGRAPHY_AUDIT status=OPEN
+FONT assets=0 bindings=0 coverage=UNRESOLVED device=MISSING
+GLYPHS observed=133 unclassified=0 critical=124 critical_unresolved=124
+LABEL3D current=36 baseline=45 files=11 delta=-9
+LABEL3D_FILE  7 scripts/arena/sky_lagoon.gd
+LABEL3D_FILE  2 scripts/collection_system.gd
+LABEL3D_FILE  1 scripts/combat_arena.gd
+LABEL3D_FILE 11 scripts/companion.gd
+LABEL3D_FILE  1 scripts/dungeon_puzzle_room.gd
+LABEL3D_FILE  2 scripts/galaxy.gd
+LABEL3D_FILE  4 scripts/games/shop.gd
+LABEL3D_FILE  4 scripts/kart.gd
+LABEL3D_FILE  2 scripts/main.gd
+LABEL3D_FILE  1 scripts/reef_districts.gd
+LABEL3D_FILE  1 scripts/stuffie_battle.gd
+OPEN font authority, coverage, and/or device evidence remains unresolved
+...
+----------------------------------------------------------------------
+Ran 3 tests in 0.165s
+
+OK
+ROSHAN2D| stress: 8 falsification cases ALL OK
+ROSHAN2D| RESULT: ALL OK - active project is 2D Roshan only
+...........................................................................
+----------------------------------------------------------------------
+Ran 75 tests in 54.897s
+
+OK
+GAME2D| stress: 14 falsification/control assertions ALL OK
+GAME2D| stress: 14 falsification/control assertions ALL OK
+.....
+----------------------------------------------------------------------
+Ran 5 tests in 0.111s
+
+OK
+naive 256px grid :      0 px of Roshan clipped,      0 px ghost
+shipped windows  :      0 px of Roshan clipped,      0 px ghost
+                   (0.00% -> 0.00% of her art lost)
+playground poses :     12 whole, single-silhouette 512px frames
+OK: every Roshan frame renders whole
+PROBE_PARITY|stress missing loop: OK
+PROBE_PARITY|stress duplicate probe: OK
+PROBE_PARITY|stress local/remote mismatch: OK
+PROBE_PARITY|stress missing probe file: OK
+PROBE_PARITY|stress missing separate invocation: OK
+PROBE_PARITY|stress missing parity gate: OK
+PROBE_PARITY|stress missing local music verifier: OK
+PROBE_PARITY|stress missing pinned music verifier: OK
+PROBE_PARITY|result: ALL OK
+.........................................
+----------------------------------------------------------------------
+Ran 41 tests in 0.309s
+
+OK
+DOCAUTH|STRESS|6/6
+DOCAUTH|STRESS|6/6
+.............
+----------------------------------------------------------------------
+Ran 13 tests in 9.209s
+
+OK
+......................F...................................................................................F........F...............
+======================================================================
+FAIL: test_live_repository_summary_names_the_reference (tools.tests.test_study_game.GoldStarStudyTests.test_live_repository_summary_names_the_reference)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Peter\.codex\worktrees\astronaut-goal-20261006\mermaid-roshan-reef\tools\tests\test_study_game.py", line 635, in test_live_repository_summary_names_the_reference
+    self.assertIn(summary["status"], {"CURRENT", "STALE"})
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'ERROR' not found in {'STALE', 'CURRENT'}
+
+======================================================================
+FAIL: test_new_game_file_must_be_catalogued (tools.tests.test_gold_star.FixtureTests.test_new_game_file_must_be_catalogued)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Peter\.codex\worktrees\astronaut-goal-20261006\mermaid-roshan-reef\tools\tests\test_gold_star.py", line 222, in test_new_game_file_must_be_catalogued
+    self.assertTrue(any("scripts/games/gamma.gd" in error and "not in the catalogue" in error for error in errors))
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true
+
+======================================================================
+FAIL: test_repository_catalogue_and_rubric_validate (tools.tests.test_gold_star.LiveCatalogueTests.test_repository_catalogue_and_rubric_validate)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Peter\.codex\worktrees\astronaut-goal-20261006\mermaid-roshan-reef\tools\tests\test_gold_star.py", line 467, in test_repository_catalogue_and_rubric_validate
+    self.assertEqual([], gold_star.validate(ROOT, catalogue, rubric))
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Lists differ: [] != ['scripts/opera_astronaut_surface.gd: game[102 chars]son']
+
+Second list contains 1 additional elements.
+First extra element 0:
+'scripts/opera_astronaut_surface.gd: game file is not in the catalogue; catalogue and assess it, or list it under coverage.not_games with a reason'
+
+- []
++ ['scripts/opera_astronaut_surface.gd: game file is not in the catalogue; '
++  'catalogue and assess it, or list it under coverage.not_games with a reason']
+
+----------------------------------------------------------------------
+Ran 131 tests in 40.362s
+
+FAILED (failures=3)
+GOLDSTAR|RENDER|design/reference/GOLD_STAR.md
+GOLDSTAR|RESULT|OK|2 games, 0 errors, 0 stale
+GOLDSTAR|STALE_PAGE|design/reference/GOLD_STAR.md|run --render
+GOLDSTAR|RESULT|OK|2 games, 0 errors, 0 stale
+GOLDSTAR|STALE_PAGE|design/reference/GOLD_STAR.md|run --render
+GOLDSTAR|RESULT|FAIL|2 games, 0 errors, 0 stale
+SELF-IMPROVEMENT LOOP CONTRACT TEST FAIL
+ASTRO_FULL_CI_EXIT|1|2026-10-07T20:38:01Z
