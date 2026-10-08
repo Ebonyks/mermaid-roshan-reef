@@ -1,0 +1,56 @@
+{
+  "schema": 1,
+  "source_revision": "e97a6db8ce823a6730b08318d463469d16d9a472",
+  "entries": [
+    {
+      "id": "intro.storybook",
+      "status": "NORMAL_DISPLAY_STARTUP_RETIRED_HEADLESS_PROBE_ONLY",
+      "evidence": [
+        {
+          "path": "scripts/main.gd",
+          "sha256": "841efbfa74a61ed14775fa7c2b19e6ff7f54b0a2c4af04d1b08c345440d6f880",
+          "lines": [
+            1080,
+            1088
+          ]
+        },
+        {
+          "path": "scripts/start_menu.gd",
+          "sha256": "c00fe34a6f4218d790a3f23d768800fed93210cd886b297adb62552964ec5bfb",
+          "reason": "No _build_intro call; fresh/Continue uses _launch_from_start_menu"
+        },
+        {
+          "path": "scripts/probe_start_menu_routing.gd",
+          "sha256": "a155f579c9038830924d5583e64aea6c88798723c46843b0807d8e5bd00bfb26",
+          "reason": "Existing retired-intro routing contract"
+        }
+      ],
+      "retained_scope": "IntroOverlay source is retained and headless first_session still builds it; no source/runtime deletion or exemption of its illustrative art. Display first-run/saved menu captures included; complete reachability audit remains pending."
+    },
+    {
+      "id": "ui.intro",
+      "status": "NORMAL_DISPLAY_STARTUP_RETIRED_HEADLESS_PROBE_ONLY",
+      "evidence": [
+        {
+          "path": "scripts/main.gd",
+          "sha256": "841efbfa74a61ed14775fa7c2b19e6ff7f54b0a2c4af04d1b08c345440d6f880",
+          "lines": [
+            1080,
+            1088
+          ]
+        },
+        {
+          "path": "scripts/start_menu.gd",
+          "sha256": "c00fe34a6f4218d790a3f23d768800fed93210cd886b297adb62552964ec5bfb",
+          "reason": "No _build_intro call; fresh/Continue uses _launch_from_start_menu"
+        },
+        {
+          "path": "scripts/probe_start_menu_routing.gd",
+          "sha256": "a155f579c9038830924d5583e64aea6c88798723c46843b0807d8e5bd00bfb26",
+          "reason": "Existing retired-intro routing contract"
+        }
+      ],
+      "retained_scope": "IntroOverlay source is retained and headless first_session still builds it; no source/runtime deletion or exemption of its illustrative art. Display first-run/saved menu captures included; complete reachability audit remains pending."
+    }
+  ]
+}

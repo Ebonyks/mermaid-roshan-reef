@@ -1,0 +1,197 @@
+{
+  "schema": 1,
+  "count_unit": "11 context families/material/composition rows;40 separately split helper-child instances;not added to frozen224 and not an exhaustive individual-art total",
+  "components": [
+    {
+      "id": "FVC-6F5C8E0AAE0A",
+      "name": "Shared flat panel/button and focus materials",
+      "source": "scripts/storybook_ui.gd",
+      "status": "CURRENT_ART_OR_COMPOSITION_REVIEW_REQUIRED",
+      "current_evidence": [
+        "overlays/1280x720/pause_castle.png",
+        "overlays/1600x720/pause_castle.png",
+        "overlays/1280x720/craft_locked.png",
+        "overlays/1600x720/craft_locked.png",
+        "overlays/1280x720/wardrobe_locked.png",
+        "overlays/1600x720/wardrobe_locked.png",
+        "overlays/1280x720/critter_fish_caught.png",
+        "overlays/1600x720/critter_fish_caught.png"
+      ],
+      "weakness": "Visible StyleBoxFlat fills/contours/shadows replace painted surface treatment; disabled/selected/hover/pressed variations remain art candidates.",
+      "replacements": 0,
+      "accepted_removals": 0
+    },
+    {
+      "id": "FVC-4B3E920FE576",
+      "name": "Shared drawn shell crests and pearl ornaments",
+      "source": "scripts/shell_ornament.gd",
+      "status": "CURRENT_ART_OR_COMPOSITION_REVIEW_REQUIRED",
+      "current_evidence": [
+        "overlays/1280x720/pause_castle.png",
+        "overlays/1600x720/pause_castle.png",
+        "overlays/1280x720/craft_cat.png",
+        "overlays/1600x720/craft_cat.png",
+        "overlays/1280x720/wardrobe_unlocked.png",
+        "overlays/1600x720/wardrobe_unlocked.png",
+        "overlays/1280x720/critter_bird_caught.png",
+        "overlays/1600x720/critter_bird_caught.png"
+      ],
+      "weakness": "Sharp outlined fan-shell and circular pearl ornaments appear over rounded flat panels; source rendering and exact repeated consumers still need full enumeration.",
+      "replacements": 0,
+      "accepted_removals": 0
+    },
+    {
+      "id": "FVC-F1C249691B9B",
+      "name": "Menu button finishes:40 named children",
+      "source": "scripts/start_menu.gd",
+      "status": "CURRENT_ART_OR_COMPOSITION_REVIEW_REQUIRED",
+      "current_evidence": [
+        "saved/1280x720/saved_default.png",
+        "saved/1600x720/saved_default.png",
+        "saved/1280x720/saved_options_on.png",
+        "saved/1600x720/saved_options_on.png",
+        "saved/1280x720/confirm_armed.png",
+        "saved/1600x720/confirm_armed.png"
+      ],
+      "weakness": "Five exact helper roles on eight buttons are split in scope_dispositions.json. All40 require painted treatment; no functional exemption.",
+      "replacements": 0,
+      "accepted_removals": 0
+    },
+    {
+      "id": "FVC-D2A2054B3536",
+      "name": "Hold confirmation fill and ghost-hand pointer",
+      "source": "scripts/start_menu.gd",
+      "status": "CURRENT_ART_OR_COMPOSITION_REVIEW_REQUIRED",
+      "current_evidence": [
+        "saved/1280x720/confirm_disarmed.png",
+        "saved/1600x720/confirm_disarmed.png",
+        "saved/1280x720/confirm_holding.png",
+        "saved/1600x720/confirm_holding.png",
+        "saved/1280x720/confirm_cancelled.png",
+        "saved/1600x720/confirm_cancelled.png"
+      ],
+      "weakness": "Gold flat fill strip and outlined ghost_hand PNG are visible; ordinary hold caption and safety words are text. Preserve hold/delay/save behavior; source-native hand needs reuse/identity review.",
+      "replacements": 0,
+      "accepted_removals": 0
+    },
+    {
+      "id": "FVC-910EB90FB28B",
+      "name": "Craft backdrop and palette",
+      "source": "scripts/craft_studio.gd",
+      "status": "CURRENT_ART_OR_COMPOSITION_REVIEW_REQUIRED",
+      "current_evidence": [
+        "overlays/1280x720/craft_locked.png",
+        "overlays/1600x720/craft_locked.png",
+        "overlays/1280x720/craft_need_pearls.png",
+        "overlays/1600x720/craft_need_pearls.png",
+        "overlays/1280x720/craft_rainbow.png",
+        "overlays/1600x720/craft_rainbow.png",
+        "overlays/1280x720/craft_bird_detail.png",
+        "overlays/1600x720/craft_bird_detail.png"
+      ],
+      "weakness": "Opaque teal field, flat preview/control surfaces and eight flat swatches per applicable palette; source-coded symbols/locked currency/rainbow remain pictogram art. Actual paint selection must stay legible after painted treatment.",
+      "replacements": 0,
+      "accepted_removals": 0
+    },
+    {
+      "id": "FVC-2D2A7C88D010",
+      "name": "Craft layered raster character previews",
+      "source": "scripts/craft_studio.gd",
+      "status": "CURRENT_ART_OR_COMPOSITION_REVIEW_REQUIRED",
+      "current_evidence": [
+        "overlays/1280x720/craft_locked.png",
+        "overlays/1600x720/craft_locked.png",
+        "overlays/1280x720/craft_cat.png",
+        "overlays/1600x720/craft_cat.png",
+        "overlays/1280x720/craft_bird_detail.png",
+        "overlays/1600x720/craft_bird_detail.png"
+      ],
+      "weakness": "Extension is not proof. Current tinted layered fish/kitty/bird show contour/fill differences; fish layering/registration and flat-versus-painted regions need source-native inspection. No full-character flat classification or approved reuse claim.",
+      "replacements": 0,
+      "accepted_removals": 0
+    },
+    {
+      "id": "FVC-7D4134918702",
+      "name": "Wardrobe selection/lock surfaces and feedback",
+      "source": "scripts/wardrobe_ui.gd",
+      "status": "CURRENT_ART_OR_COMPOSITION_REVIEW_REQUIRED",
+      "current_evidence": [
+        "overlays/1280x720/wardrobe_locked.png",
+        "overlays/1600x720/wardrobe_locked.png",
+        "overlays/1280x720/wardrobe_locked_feedback.png",
+        "overlays/1600x720/wardrobe_locked_feedback.png",
+        "overlays/1280x720/wardrobe_fairy_selected.png",
+        "overlays/1600x720/wardrobe_fairy_selected.png"
+      ],
+      "weakness": "Rounded flat tile/frame materials, lock/check/star pictograms and feedback glyphs surround painted portraits. Preserve approved portrait identity; isolate material replacement. Locked toast sits at/beyond bottom in current capture.",
+      "replacements": 0,
+      "accepted_removals": 0
+    },
+    {
+      "id": "FVC-7158D1E8E54D",
+      "name": "Sticker Book repeated cards and glyph illustrations",
+      "source": "scripts/wardrobe_ui.gd",
+      "status": "CURRENT_ART_OR_COMPOSITION_REVIEW_REQUIRED",
+      "current_evidence": [
+        "overlays/1280x720/stickers_empty.png",
+        "overlays/1600x720/stickers_empty.png",
+        "overlays/1280x720/stickers_earned.png",
+        "overlays/1600x720/stickers_earned.png"
+      ],
+      "weakness": "All earned cells use font pictograms, not painted sticker assets. Flat repeated cell surfaces and mystery marks remain art candidates. Last row is cut below viewport; inventory for all cells is still incomplete.",
+      "replacements": 0,
+      "accepted_removals": 0
+    },
+    {
+      "id": "FVC-03D852B5788E",
+      "name": "Critter Book species cards/category/habitat art",
+      "source": "scripts/collection_system.gd",
+      "status": "CURRENT_ART_OR_COMPOSITION_REVIEW_REQUIRED",
+      "current_evidence": [
+        "overlays/1280x720/critter_fish_caught.png",
+        "overlays/1600x720/critter_fish_caught.png",
+        "overlays/1280x720/critter_insect_caught.png",
+        "overlays/1600x720/critter_insect_caught.png",
+        "overlays/1280x720/critter_bird_caught.png",
+        "overlays/1600x720/critter_bird_caught.png"
+      ],
+      "weakness": "18 named species cards use only three generic category illustrations (6 each); habitat symbols, tab symbols, flat cards and mystery marks remain art. Text species names are functional typography. Category pictures are not unique species artwork.",
+      "replacements": 0,
+      "accepted_removals": 0
+    },
+    {
+      "id": "FVC-42F4197159F9",
+      "name": "Persistent Castle caption over overlays",
+      "source": "scripts/main.gd",
+      "status": "CURRENT_ART_OR_COMPOSITION_REVIEW_REQUIRED",
+      "current_evidence": [
+        "overlays/1280x720/craft_locked.png",
+        "overlays/1600x720/craft_locked.png",
+        "overlays/1280x720/wardrobe_locked.png",
+        "overlays/1600x720/wardrobe_locked.png",
+        "overlays/1280x720/stickers_earned.png",
+        "overlays/1600x720/stickers_earned.png",
+        "overlays/1280x720/critter_bird_caught.png",
+        "overlays/1600x720/critter_bird_caught.png"
+      ],
+      "weakness": "Current caption panel stays above overlays and covers lower palette/actions/cards; this is a native composition weakness, not a change made by the harness. Titles/labels partly absent/clipped in this context; review exact layering/layout before repair.",
+      "replacements": 0,
+      "accepted_removals": 0
+    },
+    {
+      "id": "FVC-CF771E3B698B",
+      "name": "Wide-menu margins with decorative particles/glyphs",
+      "source": "scripts/touch_ui.gd",
+      "status": "CURRENT_ART_OR_COMPOSITION_REVIEW_REQUIRED",
+      "current_evidence": [
+        "saved/1280x720/saved_default.png",
+        "saved/1600x720/saved_default.png",
+        "saved/1280x720/confirm_holding.png",
+        "saved/1600x720/confirm_holding.png"
+      ],
+      "weakness": "1600x720 start/confirmation native frames show flat blue margins plus bubble/star decorations outside centered artwork. Background fill and visible decoration are separate roles; neither extension nor Control/particle implementation establishes acceptance.",
+      "replacements": 0,
+      "accepted_removals": 0
+    }
+  ]
+}

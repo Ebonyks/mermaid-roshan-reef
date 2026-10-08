@@ -1,7 +1,7 @@
 {
   "schema": "reef.flat_vector_tally/1",
   "baseline": "92c9fe70319ef46bfaa8f61348a6f51512141ec3",
-  "revision": "FV-AUDIT-20261007-R2",
+  "revision": "FV-AUDIT-20261007-R4",
   "status_lanes": [
     "NEEDS_CONTEXT_REVIEW",
     "IDENTIFIED",
@@ -48,7 +48,7 @@
   "runtime_verified": 0,
   "accepted_removed": 0,
   "remaining_named_design_records": 224,
-  "remaining_source_scopes_to_disposition": 367,
+  "remaining_source_scopes_to_disposition": 366,
   "regression_count": null,
   "regression_evidence": "Initial audit baseline; no replacement or runtime change. A zero regression claim awaits repeat census at unchanged/updated candidate.",
   "zero_acceptance_criteria": [
@@ -65,19 +65,21 @@
   "remaining_named_definition": "Named candidates still unresolved or requiring removal. Accepted removal and source/runtime-proved non-flat artwork, non-art functional geometry or inactive archive dispositions are separately resolved; they are never counted as replacements. A quality score cannot exempt flat-vector ART.",
   "source_register_frozen": true,
   "current_context": {
-    "evidence": "live_v3/README.md",
-    "source_revision": "fab9043e3e5f0b317424d89e234d6865a9605c11",
-    "exact_capture_count": 292,
+    "evidence": "live_v4/README.md",
+    "source_revision": "e97a6db8ce823a6730b08318d463469d16d9a472",
+    "exact_capture_count": 354,
     "live_free_play_careers": 15,
     "live_open_phases": 70,
-    "partial_overlapping_entries": 30,
+    "partial_overlapping_entries": 39,
     "complete_entries": 0,
-    "entries_without_current_slice": 146,
-    "partial_drawing_scopes": 22,
-    "fully_dispositioned_scopes": 2,
+    "entries_without_current_slice": 137,
+    "partial_drawing_scopes": 34,
+    "fully_dispositioned_scopes": 3,
     "source_closure_files": 6427,
     "natural_play_device_child_owner": null,
-    "r3_exact_capture_count": 100
+    "r3_exact_capture_count": 100,
+    "r4_exact_capture_count": 62,
+    "r4_split_flat_art_helper_instances": 40
   },
-  "unreviewed_current_route_entries_note": "All176 remain incomplete;30 have partial current context. R1/R2 evidence retains its historical scope;live_v3/coverage.json owns current combined coverage."
+  "unreviewed_current_route_entries_note": "All176 remain incomplete;39 have partial current context. Frozen R1/R2/R3 retain historical scopes;live_v4/coverage.json owns combined current coverage. Two intro entries retain source-only headless-route evidence."
 }

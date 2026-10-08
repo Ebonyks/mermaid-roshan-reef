@@ -1,0 +1,226 @@
+{
+  "schema": 1,
+  "contacts": [
+    {
+      "path": "contacts/fresh_start.png",
+      "dimensions": [
+        1280,
+        842
+      ],
+      "sha256": "8578f1ec57d7339b8e0f0877d5ca8c25e48d3f4cf6e3d453252f082ebf5f8be6",
+      "sources": [
+        {
+          "path": "fresh/1280x720/fresh_default.png",
+          "sha256": "f89f98dbcdb93433bd2f106177197166882f0fe3b3fdb583162a9814df3ada05",
+          "state_id": "fresh_default"
+        },
+        {
+          "path": "fresh/1280x720/fresh_options_on.png",
+          "sha256": "45ae24217b396ad5c585c338e47af27ad42838a244965605e667338e36aa07e0",
+          "state_id": "fresh_options_on"
+        },
+        {
+          "path": "fresh/1280x720/fresh_options_off.png",
+          "sha256": "c87cdd2f896e29cc7f997de2994685186730787d4332ed29222312eac884d2ef",
+          "state_id": "fresh_options_off"
+        }
+      ],
+      "derivation": "Native PNGs downscaled to640x360 with Lanczos; two-column review montage and audit labels; no scene pixels redrawn."
+    },
+    {
+      "path": "contacts/saved_start.png",
+      "dimensions": [
+        1280,
+        1236
+      ],
+      "sha256": "0859eeff2aebe7bb877568732947b1011f33f8c98060d3da0b3ed963a808317d",
+      "sources": [
+        {
+          "path": "saved/1280x720/saved_default.png",
+          "sha256": "78f80a2fd644174ee180fc4473f1893409364b1e0ff423ba27e13f1e9a09ea83",
+          "state_id": "saved_default"
+        },
+        {
+          "path": "saved/1280x720/saved_hover.png",
+          "sha256": "d33619d1ab3126b99fc75078b3c8bf08a217a118aa8c7e7cbce1c4d192a565e5",
+          "state_id": "saved_hover"
+        },
+        {
+          "path": "saved/1280x720/saved_pressed.png",
+          "sha256": "774e5a64bf4719ee9314786f3312fd67516cbeecc99cccff04d599398bddd458",
+          "state_id": "saved_pressed"
+        },
+        {
+          "path": "saved/1280x720/saved_options_on.png",
+          "sha256": "19f0f4667526977b9399386071f1ff7d87baad9f5e780b0f0c78028846f76c72",
+          "state_id": "saved_options_on"
+        },
+        {
+          "path": "saved/1280x720/saved_options_off.png",
+          "sha256": "d317787fb274081397a7d935a5484c378524ee378acd15c6276abf543c52e78e",
+          "state_id": "saved_options_off"
+        }
+      ],
+      "derivation": "Native PNGs downscaled to640x360 with Lanczos; two-column review montage and audit labels; no scene pixels redrawn."
+    },
+    {
+      "path": "contacts/hold_confirmation.png",
+      "dimensions": [
+        1280,
+        1236
+      ],
+      "sha256": "87d35ba32f62ed54e7930e74ecc555a39dbe605106ffc4db74c237e7cc0a412f",
+      "sources": [
+        {
+          "path": "saved/1280x720/confirm_disarmed.png",
+          "sha256": "6fc85f4893b22ac5f49707c3dc6f7bd2abecfc7e65aed80a7a0d0a350a2f2ac5",
+          "state_id": "confirm_disarmed"
+        },
+        {
+          "path": "saved/1280x720/confirm_armed.png",
+          "sha256": "c69ad08607ac12608c8721c8ba53c27a9fe8fcb2ea807a4be3a70dec65537391",
+          "state_id": "confirm_armed"
+        },
+        {
+          "path": "saved/1280x720/confirm_holding.png",
+          "sha256": "d663a9f5b526e75a2ab30c9e2c251a05c255a180a06fb60b0484886712a30389",
+          "state_id": "confirm_holding"
+        },
+        {
+          "path": "saved/1280x720/confirm_cancelled.png",
+          "sha256": "44c9ab4fa453a25333fb061a9c518f87f46eefec620db7f5f4d467aed7fd17cb",
+          "state_id": "confirm_cancelled"
+        },
+        {
+          "path": "saved/1280x720/saved_kept.png",
+          "sha256": "62c4a3afcfe2c858852928299d56fa269ab2f9dd47162d7b39d4e782aadb6638",
+          "state_id": "saved_kept"
+        }
+      ],
+      "derivation": "Native PNGs downscaled to640x360 with Lanczos; two-column review montage and audit labels; no scene pixels redrawn."
+    },
+    {
+      "path": "contacts/pause_craft.png",
+      "dimensions": [
+        1280,
+        1236
+      ],
+      "sha256": "e9a382d43181f6ede3d9096f584c9ee5af9aef2064e0c7c1120010888325a04f",
+      "sources": [
+        {
+          "path": "overlays/1280x720/pause_castle.png",
+          "sha256": "4ed6f5fe21c2df2eab8a17a0a3b1412912d17782eea67e058e3eef96a8060138",
+          "state_id": "pause_castle"
+        },
+        {
+          "path": "overlays/1280x720/craft_locked.png",
+          "sha256": "a5ed54f197bfdccea14e3d58569a233a30caa7e48f67b80a785fac59c48dbbda",
+          "state_id": "craft_locked"
+        },
+        {
+          "path": "overlays/1280x720/craft_need_pearls.png",
+          "sha256": "568d60baec184dd571963e2ab153a4859bc596d48e23c4cb1a3e89845d6871c8",
+          "state_id": "craft_need_pearls"
+        },
+        {
+          "path": "overlays/1280x720/craft_rainbow.png",
+          "sha256": "8214a90fc4344f2a89885bff1d431993f915d81750533cfdd51cc3c3ff16b1aa",
+          "state_id": "craft_rainbow"
+        },
+        {
+          "path": "overlays/1280x720/craft_cat.png",
+          "sha256": "e747f2e23c25781cd8dd29bd5ed0bdfc71ca573eb00ffde0505e1a20f414219c",
+          "state_id": "craft_cat"
+        },
+        {
+          "path": "overlays/1280x720/craft_bird_detail.png",
+          "sha256": "a3dca01d68f31a5688598781ca6d2e29bbbbd58fb5379f6264906e5751da32a7",
+          "state_id": "craft_bird_detail"
+        }
+      ],
+      "derivation": "Native PNGs downscaled to640x360 with Lanczos; two-column review montage and audit labels; no scene pixels redrawn."
+    },
+    {
+      "path": "contacts/wardrobe_stickers.png",
+      "dimensions": [
+        1280,
+        1236
+      ],
+      "sha256": "45ee26ad52f494fda3a6fc27e68839c838eeb6e5b6c0de59c8f364ebb179b2ac",
+      "sources": [
+        {
+          "path": "overlays/1280x720/wardrobe_locked.png",
+          "sha256": "621658d4cad7bb8f99969221b8b3e3c3351810897a064fa993d7437b8cf3eea5",
+          "state_id": "wardrobe_locked"
+        },
+        {
+          "path": "overlays/1280x720/wardrobe_locked_feedback.png",
+          "sha256": "bf1fbc1b73c4cad4ac60b797deaf497c87755aa088cc71160b658db7b89f0b0f",
+          "state_id": "wardrobe_locked_feedback"
+        },
+        {
+          "path": "overlays/1280x720/wardrobe_unlocked.png",
+          "sha256": "ba876fd96d9f7f35aba8d75a1e43d794adfd0efd278d3db9f7d83329fe32e235",
+          "state_id": "wardrobe_unlocked"
+        },
+        {
+          "path": "overlays/1280x720/wardrobe_fairy_selected.png",
+          "sha256": "0387b2d9fe4dd976235859505310cf64184cdf2e21e83687d50223f2605f33de",
+          "state_id": "wardrobe_fairy_selected"
+        },
+        {
+          "path": "overlays/1280x720/stickers_empty.png",
+          "sha256": "e8806353e4e53e612fd0d1eb89361d73d26c207dfe3f46de0b2174eb26644b92",
+          "state_id": "stickers_empty"
+        },
+        {
+          "path": "overlays/1280x720/stickers_earned.png",
+          "sha256": "2c22968cec37345b3efef2f7a60d3d1e16b51f1d4184d3fc0a20c45b993056b1",
+          "state_id": "stickers_earned"
+        }
+      ],
+      "derivation": "Native PNGs downscaled to640x360 with Lanczos; two-column review montage and audit labels; no scene pixels redrawn."
+    },
+    {
+      "path": "contacts/critter_book.png",
+      "dimensions": [
+        1280,
+        1236
+      ],
+      "sha256": "a5060fc178b4f9a17521849afa797e546f2993323d2f1f32249241cc9f54fc0b",
+      "sources": [
+        {
+          "path": "overlays/1280x720/critter_fish_empty.png",
+          "sha256": "15d26a22a10a590cd55c410295ce17cdf4fd7313326ea6a21a5b76080ef9e66e",
+          "state_id": "critter_fish_empty"
+        },
+        {
+          "path": "overlays/1280x720/critter_insect_empty.png",
+          "sha256": "c7f43586e80d9227cc79c132957e7e3dc7435febb8292d98a2ef06146bcd5995",
+          "state_id": "critter_insect_empty"
+        },
+        {
+          "path": "overlays/1280x720/critter_bird_empty.png",
+          "sha256": "20ca8834ccb055fd77cd5199ed1a635fd20fb8233736b92efeabbf5a68f127ec",
+          "state_id": "critter_bird_empty"
+        },
+        {
+          "path": "overlays/1280x720/critter_fish_caught.png",
+          "sha256": "164b398cb6d5255da83ae71a32b58c05476ee9eda154c3fac5027a0f67643ba6",
+          "state_id": "critter_fish_caught"
+        },
+        {
+          "path": "overlays/1280x720/critter_insect_caught.png",
+          "sha256": "922573ec8289df7e4fb7092abd88b3ccf9cbb9b560586947036f0ce52f8f4adb",
+          "state_id": "critter_insect_caught"
+        },
+        {
+          "path": "overlays/1280x720/critter_bird_caught.png",
+          "sha256": "c4eba48e935f9e1edabc62acb0021a0ce9ccc7ad07080cddf40c2ebe4093b31b",
+          "state_id": "critter_bird_caught"
+        }
+      ],
+      "derivation": "Native PNGs downscaled to640x360 with Lanczos; two-column review montage and audit labels; no scene pixels redrawn."
+    }
+  ]
+}

@@ -8,7 +8,7 @@ from pathlib import Path
 import argparse, datetime, hashlib, json, subprocess, urllib.request, concurrent.futures
 P=Path(__file__).resolve().parent;R=P.parents[2]
 REL=P.relative_to(R).as_posix();BASE='92c9fe70319ef46bfaa8f61348a6f51512141ec3'
-REPO='Ebonyks/mermaid-roshan-reef';REVISION='FV-AUDIT-20261007-R3'
+REPO='Ebonyks/mermaid-roshan-reef';REVISION='FV-AUDIT-20261007-R4'
 def digest(b):return hashlib.sha256(b).hexdigest()
 def read(n):return json.loads((P/n).read_text(encoding='utf8'))
 def save(n,d):(P/n).write_text(json.dumps(d,indent=2,ensure_ascii=False)+'\n',encoding='utf8', newline='\n')
@@ -32,13 +32,13 @@ def manifest():
     for path,metadata in sorted(sources.items()):
         b=subprocess.check_output(['git','show',BASE+':'+path],cwd=R)
         external.append({'path':path,'revision':BASE,'bytes':len(b),'sha256_git_blob_bytes':digest(b),**metadata})
-    for live_machine in [P/'live_v2/MACHINE.json',P/'live_v3/MACHINE.json']:
+    for live_machine in [P/'live_v2/MACHINE.json',P/'live_v3/MACHINE.json',P/'live_v4/MACHINE.json']:
         if not live_machine.is_file():continue
         for row in json.loads(live_machine.read_text(encoding='utf8'))['sources']:
             b=subprocess.check_output(['git','show',row['revision']+':'+row['path']],cwd=R)
             if digest(b)!=row['git_blob_sha256']:raise RuntimeError('bound live source drift '+row['path'])
             external.append({'path':row['path'],'revision':row['revision'],'bytes':len(b),'sha256_git_blob_bytes':digest(b),'role':'current_capture_runtime_source'})
-    required_project=['AGENTS.md','SECURITY.md','ASSET_LICENSES.md','ART_STYLE_GUIDE.md','design/02_ART_DIRECTION.md','design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md','design/05_DOC_LEDGER.md','design/AUDIT_DEVELOPMENT_CONTRACT.md','audit/MASTER_AUDIT_2026-08-09.md','audit/MASTER_AUDIT_CHANGELOG_ROLLBACK_2026-08-10.md','audit/findings/ACTIVE_FINDINGS_2026-08-13.md','design/audit_impacts/flat-vector-art-audit-20261007.json','design/audit_impacts/flat-vector-live-review-20261008.json','design/audit_impacts/flat-vector-castle-dayone-review-20261008.json']
+    required_project=['AGENTS.md','SECURITY.md','ASSET_LICENSES.md','ART_STYLE_GUIDE.md','design/02_ART_DIRECTION.md','design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md','design/05_DOC_LEDGER.md','design/AUDIT_DEVELOPMENT_CONTRACT.md','audit/MASTER_AUDIT_2026-08-09.md','audit/MASTER_AUDIT_CHANGELOG_ROLLBACK_2026-08-10.md','audit/findings/ACTIVE_FINDINGS_2026-08-13.md','design/audit_impacts/flat-vector-art-audit-20261007.json','design/audit_impacts/flat-vector-live-review-20261008.json','design/audit_impacts/flat-vector-castle-dayone-review-20261008.json','design/audit_impacts/flat-vector-shared-ui-review-20261008.json']
     project=[]
     for path in sorted(required_project):
         oid=subprocess.check_output(['git','hash-object','-w','--path='+path,path],cwd=R,text=True).strip()

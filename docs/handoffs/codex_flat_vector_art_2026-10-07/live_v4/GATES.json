@@ -1,0 +1,134 @@
+{
+  "harness": [
+    {
+      "file": "capture_fresh.gd",
+      "gate": "parser",
+      "exit": 0,
+      "output": ""
+    },
+    {
+      "file": "capture_fresh.gd",
+      "gate": "inference",
+      "exit": 0,
+      "output": ""
+    },
+    {
+      "file": "capture_fresh.gd",
+      "gate": "exact_analyzer",
+      "exit": 0,
+      "output": "Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org\n\n"
+    },
+    {
+      "file": "capture_overlays.gd",
+      "gate": "parser",
+      "exit": 0,
+      "output": ""
+    },
+    {
+      "file": "capture_overlays.gd",
+      "gate": "inference",
+      "exit": 0,
+      "output": ""
+    },
+    {
+      "file": "capture_overlays.gd",
+      "gate": "exact_analyzer",
+      "exit": 0,
+      "output": "Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org\n\n"
+    },
+    {
+      "file": "capture_saved.gd",
+      "gate": "parser",
+      "exit": 0,
+      "output": ""
+    },
+    {
+      "file": "capture_saved.gd",
+      "gate": "inference",
+      "exit": 0,
+      "output": ""
+    },
+    {
+      "file": "capture_saved.gd",
+      "gate": "exact_analyzer",
+      "exit": 0,
+      "output": "Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org\n\n"
+    }
+  ],
+  "historical_and_authority": [
+    {
+      "command": [
+        "python",
+        "-B",
+        "docs/handoffs/codex_flat_vector_art_2026-10-07/live_v2/validate.py",
+        "--stress"
+      ],
+      "exit": 0,
+      "output": "LIVE REVIEW falsification: 5/5 rejected\n"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "docs/handoffs/codex_flat_vector_art_2026-10-07/live_v3/validate.py",
+        "--stress"
+      ],
+      "exit": 0,
+      "output": "R3 falsification: 9 / 9 rejected\n"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "docs/handoffs/codex_flat_vector_art_2026-10-07/audit_register.py",
+        "--check"
+      ],
+      "exit": 0,
+      "output": "FLATVECTOR|RESULT|ALL OK\n"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_document_authority.py"
+      ],
+      "exit": 0,
+      "output": "DOCAUTH|INVENTORY=688|LEDGER=688|ACTIVE=68|RECORDS=71\nDOCAUTH|RESULT|ALL OK\n"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_development.py",
+        "--base",
+        "auto"
+      ],
+      "exit": 0,
+      "output": "AUDITDEV|BASE|92c9fe70319ef46bfaa8f61348a6f51512141ec3\nAUDITDEV|RESULT|ALL OK\n"
+    }
+  ],
+  "r4_focused": {
+    "command": "python -B live_v4/validate.py --stress",
+    "result": "PASS62/6/40 and11/11 rejected"
+  },
+  "production_comparison": {
+    "baseline": "92c9fe70319ef46bfaa8f61348a6f51512141ec3",
+    "paths": [
+      "scripts",
+      "scenes",
+      "assets",
+      "shaders",
+      "project.godot"
+    ],
+    "result": "UNCHANGED;git diff --quiet baseline HEAD and HEAD worktree both exit0"
+  },
+  "source_head_ci": {
+    "revision": "e97a6db8ce823a6730b08318d463469d16d9a472",
+    "run": 37750314745,
+    "status": "in_progress",
+    "checked_at_utc": "2026-10-08T09:07:53.099252+00:00",
+    "url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/37750314745",
+    "claim": "No completed exact-head CI result claimed;publication/integration distinct."
+  },
+  "literal_byte_preservation": "Executed harnesses retain their original final blank line and native logs retain CRCRLF. Packet-local whitespace attributes exclude only blank-at-eof on exact harness evidence;runtime source lint rules unchanged."
+}

@@ -1,6 +1,6 @@
 {
   "schema": "reef.flat_vector_manifest/1",
-  "revision": "FV-AUDIT-20261007-R3",
+  "revision": "FV-AUDIT-20261007-R4",
   "source_baseline": "92c9fe70319ef46bfaa8f61348a6f51512141ec3",
   "status": "AUDIT_CANDIDATE; zero-flat-vector goal remains active",
   "destination": {
@@ -18,32 +18,32 @@
     },
     {
       "path": ".gitattributes",
-      "bytes": 217,
-      "sha256": "226c9d7c37d01f6f09332976e5ad2334200aec65486ae32fe17644345690a860",
+      "bytes": 502,
+      "sha256": "bfbe032146dc1b1f54224e7cbe609081c16307a085591a850a7fe7a764d5d540",
       "role": "audit_payload"
     },
     {
       "path": "AUDIT.md",
-      "bytes": 15398,
-      "sha256": "ac52ee5fb19e4b3c5ace8d7e9d4530f09fe16c2abcc6e184852fea258b43125e",
+      "bytes": 15495,
+      "sha256": "e1f1dbe1d6c68598cb57e00cd5026c2d8d29dfbc6fcd2edba1a6b8400144adf9",
       "role": "audit_payload"
     },
     {
       "path": "MACHINE_VERIFICATION.json",
-      "bytes": 172180,
-      "sha256": "1febf8499f09377e97cbd7ae539899a836e8e322b0b3f186041cb9a629ce5acc",
+      "bytes": 172700,
+      "sha256": "72624924ce0fbc90d862a60f91013179575e9f66f763fbf64269de3b63afd46d",
       "role": "audit_payload"
     },
     {
       "path": "PRODUCTION_BACKLOG.md",
-      "bytes": 27200,
-      "sha256": "fc4a77ded2a1f6ed435125487ad3cb98dcc029881c59f2e0cd35e6397a63e60d",
+      "bytes": 27717,
+      "sha256": "8c9b2c82d06e656d3afec214d1c51cc4c980ced7e1b0ea79e72bccf729962e7b",
       "role": "audit_payload"
     },
     {
       "path": "README.md",
-      "bytes": 12225,
-      "sha256": "cb3f01c4d5ad86a83583630e1eb0b5d2e20ae98e60e12fc362c46b3a1ee2af1e",
+      "bytes": 12322,
+      "sha256": "5c1590d26ba44fb3dd62f2e01fd3706bd05c091474aeb8afe4eaaae96d0a4737",
       "role": "audit_payload"
     },
     {
@@ -54,8 +54,8 @@
     },
     {
       "path": "build_index.py",
-      "bytes": 8027,
-      "sha256": "af64b7fa6ea552801c58a4869b404886ac5f70b0b6f37a53078ee0a74cb4b408",
+      "bytes": 8153,
+      "sha256": "d119422146a9934c0f2cf18c45bef1ac5c4c2b1d3abaed02b22f80bc56f0e51d",
       "role": "audit_payload"
     },
     {
@@ -126,8 +126,8 @@
     },
     {
       "path": "index.html",
-      "bytes": 214004,
-      "sha256": "5d4e3f0e697964c26080272895509e9458ba1e4b2c63a306edd69b55acb6aa58",
+      "bytes": 214130,
+      "sha256": "2c9de5f2022bc16f6eac8d314c2a618b855798f80d01878c0087baa6f9f73458",
       "role": "audit_payload"
     },
     {
@@ -2387,6 +2387,636 @@
       "role": "audit_payload"
     },
     {
+      "path": "live_v4/CAPTURE_LAUNCH.json",
+      "bytes": 11126,
+      "sha256": "d20b5f1a7dfa9de8a017371af0074dc8de11d52cd168aad72405e77ab9c62fc0",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v4/EXPECTED_MATRIX.json",
+      "bytes": 795,
+      "sha256": "3081e03c4821068be7c913f04f5c58fa941cf157f2b6200d7b959d42e12e2f4f",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v4/GATES.json",
+      "bytes": 3533,
+      "sha256": "d43c8cb495c1409e7afc5371c856486e75234955e4a40e4ea91193013b2f281e",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v4/MACHINE.json",
+      "bytes": 17476,
+      "sha256": "d6b27a2cd59af023f2004c496ebf36c6a2e4ec3eaab9b7f3a76600bae7abfb86",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v4/README.md",
+      "bytes": 4105,
+      "sha256": "21c35ef33b281a8d0670d4db9232ef7b9110d1218bce0e1a49a9fc1c0d47d87b",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v4/capture_fresh.gd",
+      "bytes": 22582,
+      "sha256": "076f4782a7b9523273d31f63df7d8242cba29cb2a258da08b5fa81e330ecbba5",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v4/capture_overlays.gd",
+      "bytes": 23115,
+      "sha256": "d154a1fd73bbf123bf16b245d76808883220270f8ce7fa45ab0d7ceea9a175a3",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v4/capture_saved.gd",
+      "bytes": 22630,
+      "sha256": "87cd485dd108d41ab80d3b875c4650f0e9b1054db4762e3f6902c093e944efb4",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v4/components.json",
+      "bytes": 9470,
+      "sha256": "f25c2d8b03d3ec675115e6c8a3ddcc37391b4a164e40db05422cf6bc555d7750",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v4/contact_index.json",
+      "bytes": 8681,
+      "sha256": "45ddeadbeaebe6bf92c9aa77a6f095d9ae33b6dd1483ebf07264a8ea4a87313d",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v4/contacts/critter_book.png",
+      "bytes": 489682,
+      "sha256": "a5060fc178b4f9a17521849afa797e546f2993323d2f1f32249241cc9f54fc0b",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v4/contacts/fresh_start.png",
+      "bytes": 1018842,
+      "sha256": "8578f1ec57d7339b8e0f0877d5ca8c25e48d3f4cf6e3d453252f082ebf5f8be6",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v4/contacts/hold_confirmation.png",
+      "bytes": 1041521,
+      "sha256": "87d35ba32f62ed54e7930e74ecc555a39dbe605106ffc4db74c237e7cc0a412f",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v4/contacts/pause_craft.png",
+      "bytes": 756651,
+      "sha256": "e9a382d43181f6ede3d9096f584c9ee5af9aef2064e0c7c1120010888325a04f",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v4/contacts/saved_start.png",
+      "bytes": 1879538,
+      "sha256": "0859eeff2aebe7bb877568732947b1011f33f8c98060d3da0b3ed963a808317d",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v4/contacts/wardrobe_stickers.png",
+      "bytes": 526857,
+      "sha256": "45ee26ad52f494fda3a6fc27e68839c838eeb6e5b6c0de59c8f364ebb179b2ac",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v4/coverage.json",
+      "bytes": 142620,
+      "sha256": "b20b43200366e9990ff85fa9d8b2108becac170050bf352a3cfebc585d02ed38",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v4/diagnostics/executed_driver.py.txt",
+      "bytes": 3399,
+      "sha256": "dfd0824a9d9b9c7887400a946daa74401226e1163f433d27801b80828a6de28c",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v4/diagnostics/rejected_overlay_v2.gd.txt",
+      "bytes": 22630,
+      "sha256": "87cd485dd108d41ab80d3b875c4650f0e9b1054db4762e3f6902c093e944efb4",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v4/diagnostics/rejected_saved_v1.gd.txt",
+      "bytes": 22582,
+      "sha256": "076f4782a7b9523273d31f63df7d8242cba29cb2a258da08b5fa81e330ecbba5",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v4/diagnostics/run-20261008T084910-saved-1280x720.log",
+      "bytes": 2449,
+      "sha256": "2b1fa6c2c935296cbaf8de08bfa3d421f5be63ab8b644b4c557c3fb79d3dd8cd",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v4/diagnostics/run-20261008T084910-saved-1600x720.log",
+      "bytes": 2698,
+      "sha256": "ba7db09e79da4b1d97cc7e4a86849b15b5ec0797c0cde1ef1ca4035b33630378",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v4/diagnostics/run-20261008T085137-overlays-1280x720.log",
+      "bytes": 13859,
+      "sha256": "aa216e62de0b969e76ed1ffb847026e5bd644f7dfd56ef07abe5c5e9b931a32d",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v4/fresh/1280x720/capture.log",
+      "bytes": 1133,
+      "sha256": "a40f2ca2cb382cf08849d361fb5d6cbf24ea0ed6aac84056b0f599bb9d5a2129",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v4/fresh/1280x720/capture_manifest.json",
+      "bytes": 1390991,
+      "sha256": "9d472fd139094058b2661fbc6844abd2d474aaecb91933734f0eaedf1d7e964a",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v4/fresh/1280x720/fresh_default.png",
+      "bytes": 1419757,
+      "sha256": "f89f98dbcdb93433bd2f106177197166882f0fe3b3fdb583162a9814df3ada05",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v4/fresh/1280x720/fresh_options_off.png",
+      "bytes": 738590,
+      "sha256": "c87cdd2f896e29cc7f997de2994685186730787d4332ed29222312eac884d2ef",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v4/fresh/1280x720/fresh_options_on.png",
+      "bytes": 735992,
+      "sha256": "45ae24217b396ad5c585c338e47af27ad42838a244965605e667338e36aa07e0",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v4/fresh/1600x720/capture.log",
+      "bytes": 1133,
+      "sha256": "a40f2ca2cb382cf08849d361fb5d6cbf24ea0ed6aac84056b0f599bb9d5a2129",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v4/fresh/1600x720/capture_manifest.json",
+      "bytes": 1391013,
+      "sha256": "692a8da6d23997f03d406157470269ce2dbf79ef783ce24e54ba5ea707df5531",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v4/fresh/1600x720/fresh_default.png",
+      "bytes": 1440431,
+      "sha256": "41df70d5ed336a8287ed186b072d422d9e8b338c62f002ead95e55f46b678597",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v4/fresh/1600x720/fresh_options_off.png",
+      "bytes": 751140,
+      "sha256": "f382a6fede66d31a06b287794cab5fc804b361f27531c7152098d75d5959c428",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v4/fresh/1600x720/fresh_options_on.png",
+      "bytes": 748432,
+      "sha256": "df982148c0c83c9820773ac7bc7795d949a8d921624d439e47f2284b1cb2eaed",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v4/instance_briefs.json",
+      "bytes": 181252,
+      "sha256": "502167fa89cb93a4dfda23388e54d50a25b6de35a3eae7f16b6e4f96d4f6a421",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v4/observations.json",
+      "bytes": 3354,
+      "sha256": "0072275c12f4a5fda889a522006ae247b0f1b78116f20c72b22e832791bb30db",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v4/overlays/1280x720/capture.log",
+      "bytes": 3522,
+      "sha256": "af8af561e3bcc79d019a51c971a906d125ea8e92de35fc0542a3367060b43b0f",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v4/overlays/1280x720/capture_manifest.json",
+      "bytes": 2616200,
+      "sha256": "83f1436b7bafd2332b7c474d1c14637cd3ae6de9e1e80dfc815acb2ce4112130",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v4/overlays/1280x720/craft_bird_detail.png",
+      "bytes": 248226,
+      "sha256": "a3dca01d68f31a5688598781ca6d2e29bbbbd58fb5379f6264906e5751da32a7",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v4/overlays/1280x720/craft_cat.png",
+      "bytes": 257572,
+      "sha256": "e747f2e23c25781cd8dd29bd5ed0bdfc71ca573eb00ffde0505e1a20f414219c",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v4/overlays/1280x720/craft_locked.png",
+      "bytes": 393524,
+      "sha256": "a5ed54f197bfdccea14e3d58569a233a30caa7e48f67b80a785fac59c48dbbda",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v4/overlays/1280x720/craft_need_pearls.png",
+      "bytes": 406747,
+      "sha256": "568d60baec184dd571963e2ab153a4859bc596d48e23c4cb1a3e89845d6871c8",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v4/overlays/1280x720/craft_rainbow.png",
+      "bytes": 404645,
+      "sha256": "8214a90fc4344f2a89885bff1d431993f915d81750533cfdd51cc3c3ff16b1aa",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v4/overlays/1280x720/critter_bird_caught.png",
+      "bytes": 255879,
+      "sha256": "c4eba48e935f9e1edabc62acb0021a0ce9ccc7ad07080cddf40c2ebe4093b31b",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v4/overlays/1280x720/critter_bird_empty.png",
+      "bytes": 198067,
+      "sha256": "20ca8834ccb055fd77cd5199ed1a635fd20fb8233736b92efeabbf5a68f127ec",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v4/overlays/1280x720/critter_fish_caught.png",
+      "bytes": 254179,
+      "sha256": "164b398cb6d5255da83ae71a32b58c05476ee9eda154c3fac5027a0f67643ba6",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v4/overlays/1280x720/critter_fish_empty.png",
+      "bytes": 194077,
+      "sha256": "15d26a22a10a590cd55c410295ce17cdf4fd7313326ea6a21a5b76080ef9e66e",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v4/overlays/1280x720/critter_insect_caught.png",
+      "bytes": 259829,
+      "sha256": "922573ec8289df7e4fb7092abd88b3ccf9cbb9b560586947036f0ce52f8f4adb",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v4/overlays/1280x720/critter_insect_empty.png",
+      "bytes": 199650,
+      "sha256": "c7f43586e80d9227cc79c132957e7e3dc7435febb8292d98a2ef06146bcd5995",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v4/overlays/1280x720/pause_castle.png",
+      "bytes": 416633,
+      "sha256": "4ed6f5fe21c2df2eab8a17a0a3b1412912d17782eea67e058e3eef96a8060138",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v4/overlays/1280x720/stickers_earned.png",
+      "bytes": 239229,
+      "sha256": "2c22968cec37345b3efef2f7a60d3d1e16b51f1d4184d3fc0a20c45b993056b1",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v4/overlays/1280x720/stickers_empty.png",
+      "bytes": 165294,
+      "sha256": "e8806353e4e53e612fd0d1eb89361d73d26c207dfe3f46de0b2174eb26644b92",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v4/overlays/1280x720/wardrobe_fairy_selected.png",
+      "bytes": 352746,
+      "sha256": "0387b2d9fe4dd976235859505310cf64184cdf2e21e83687d50223f2605f33de",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v4/overlays/1280x720/wardrobe_locked.png",
+      "bytes": 290372,
+      "sha256": "621658d4cad7bb8f99969221b8b3e3c3351810897a064fa993d7437b8cf3eea5",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v4/overlays/1280x720/wardrobe_locked_feedback.png",
+      "bytes": 306014,
+      "sha256": "bf1fbc1b73c4cad4ac60b797deaf497c87755aa088cc71160b658db7b89f0b0f",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v4/overlays/1280x720/wardrobe_unlocked.png",
+      "bytes": 305316,
+      "sha256": "ba876fd96d9f7f35aba8d75a1e43d794adfd0efd278d3db9f7d83329fe32e235",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v4/overlays/1600x720/capture.log",
+      "bytes": 3522,
+      "sha256": "af8af561e3bcc79d019a51c971a906d125ea8e92de35fc0542a3367060b43b0f",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v4/overlays/1600x720/capture_manifest.json",
+      "bytes": 2632109,
+      "sha256": "f7eb13b58ee90d0061f44b95b86adfa3e040ef4d34f236912e5c5fb632b3db74",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v4/overlays/1600x720/craft_bird_detail.png",
+      "bytes": 259557,
+      "sha256": "e656826fb454bfe3e7911c61fd8f39625c0ea3a13d23705c48697778481a97e0",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v4/overlays/1600x720/craft_cat.png",
+      "bytes": 268278,
+      "sha256": "844562360e0b97d8511b4536f9c6ee1cf86ea1a7cd9e51ce6e4d1387a7ec41c2",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v4/overlays/1600x720/craft_locked.png",
+      "bytes": 404983,
+      "sha256": "dff7ad8b2bb8c0f04e287f3c692816b8cb471f5d363b88db1c8639a636c1a4fd",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v4/overlays/1600x720/craft_need_pearls.png",
+      "bytes": 419213,
+      "sha256": "92f441965973def34be002862f291250b4968499d05d319ac608b70825c3fd96",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v4/overlays/1600x720/craft_rainbow.png",
+      "bytes": 416830,
+      "sha256": "cb157b48c52661ccadb6bde1a5a2cfd62e8764888f28de3b4af9eaf3ac1b8b2c",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v4/overlays/1600x720/critter_bird_caught.png",
+      "bytes": 267961,
+      "sha256": "fdb6e982bfc58b47b6fdf9417be7329e68ca7e253587f0ed0385db2eecb533a8",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v4/overlays/1600x720/critter_bird_empty.png",
+      "bytes": 210087,
+      "sha256": "a857ba8f5fb164128f9a04182901b41d2bfa6131c19b1e8f803f0a736c8dfa7f",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v4/overlays/1600x720/critter_fish_caught.png",
+      "bytes": 266123,
+      "sha256": "d73840a9958b193f3433ef756c776cead40b590d34e79d8991425173bd59df19",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v4/overlays/1600x720/critter_fish_empty.png",
+      "bytes": 206671,
+      "sha256": "6e2392babf55bcbe029848adc7b1d63c1c8dbaac7cdea7fac3c241d9726b83a1",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v4/overlays/1600x720/critter_insect_caught.png",
+      "bytes": 271541,
+      "sha256": "6c6ca4fe3d13f2ba4bf37491dbde3fb732cbc8dea4408567da7b749b4e386ae3",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v4/overlays/1600x720/critter_insect_empty.png",
+      "bytes": 211479,
+      "sha256": "e9709ab06418665bac948043955750c540eb6106705a2c7c03564d73c87b1c6e",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v4/overlays/1600x720/pause_castle.png",
+      "bytes": 447739,
+      "sha256": "db42b590202f3474ddfaf6153ac2bfa5df5c096e1854e9c7df00cab08c4fa98f",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v4/overlays/1600x720/stickers_earned.png",
+      "bytes": 251008,
+      "sha256": "812d567e07e3b8432d3c3c0508bf316df4c7387a5be1a51fcebea2d359f7251a",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v4/overlays/1600x720/stickers_empty.png",
+      "bytes": 176567,
+      "sha256": "0c967ff2f1bacb894ca7219bf98c0ac06934a4de15f35b04156fc7e18f5139d5",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v4/overlays/1600x720/wardrobe_fairy_selected.png",
+      "bytes": 359468,
+      "sha256": "6c34e861eb325d566a527aeb3ac48ddeacfbcfd93f58ffbfb1ea8bb5c2b8f7f6",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v4/overlays/1600x720/wardrobe_locked.png",
+      "bytes": 298556,
+      "sha256": "4586e3cbf33c773dc8b52167a02c57720aee5d07b26b98f6feae9db127842c7d",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v4/overlays/1600x720/wardrobe_locked_feedback.png",
+      "bytes": 312075,
+      "sha256": "90fc7908a07b93ca2507603a947e546db17d36a85dc4ce4b7abe80fb08ed7c6f",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v4/overlays/1600x720/wardrobe_unlocked.png",
+      "bytes": 311359,
+      "sha256": "6df8d2c9fb45e72cacf6e8322d0ac2cc0c93d7e3a4d3eca3f2213f14c5c21b36",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v4/prior_r3_receipt.json",
+      "bytes": 378756,
+      "sha256": "b89c9ac78944899a8adda4855bdd91f730ab3be02a658569f8d58688831e01cf",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v4/route_dispositions.json",
+      "bytes": 2263,
+      "sha256": "d3625423af7b2c23439e3db60599b3c9cfa2366c457977b9f48a2a6a04492a91",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v4/run_capture.py",
+      "bytes": 3530,
+      "sha256": "4e866dc6f6168f5396438710c7a907f4c31d33cf3f85f9b769cc12d8464bb31b",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v4/saved/1280x720/capture.log",
+      "bytes": 2449,
+      "sha256": "2b1fa6c2c935296cbaf8de08bfa3d421f5be63ab8b644b4c557c3fb79d3dd8cd",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v4/saved/1280x720/capture_manifest.json",
+      "bytes": 1680708,
+      "sha256": "b759d98132ecbb760a5b010c10aa744949dc90642f02f904cc03c9789ea3872a",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v4/saved/1280x720/confirm_armed.png",
+      "bytes": 677206,
+      "sha256": "c69ad08607ac12608c8721c8ba53c27a9fe8fcb2ea807a4be3a70dec65537391",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v4/saved/1280x720/confirm_cancelled.png",
+      "bytes": 677767,
+      "sha256": "44c9ab4fa453a25333fb061a9c518f87f46eefec620db7f5f4d467aed7fd17cb",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v4/saved/1280x720/confirm_disarmed.png",
+      "bytes": 676417,
+      "sha256": "6fc85f4893b22ac5f49707c3dc6f7bd2abecfc7e65aed80a7a0d0a350a2f2ac5",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v4/saved/1280x720/confirm_holding.png",
+      "bytes": 677132,
+      "sha256": "d663a9f5b526e75a2ab30c9e2c251a05c255a180a06fb60b0484886712a30389",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v4/saved/1280x720/saved_default.png",
+      "bytes": 1436704,
+      "sha256": "78f80a2fd644174ee180fc4473f1893409364b1e0ff423ba27e13f1e9a09ea83",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v4/saved/1280x720/saved_hover.png",
+      "bytes": 1388056,
+      "sha256": "d33619d1ab3126b99fc75078b3c8bf08a217a118aa8c7e7cbce1c4d192a565e5",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v4/saved/1280x720/saved_kept.png",
+      "bytes": 1387739,
+      "sha256": "62c4a3afcfe2c858852928299d56fa269ab2f9dd47162d7b39d4e782aadb6638",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v4/saved/1280x720/saved_options_off.png",
+      "bytes": 736925,
+      "sha256": "d317787fb274081397a7d935a5484c378524ee378acd15c6276abf543c52e78e",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v4/saved/1280x720/saved_options_on.png",
+      "bytes": 737183,
+      "sha256": "19f0f4667526977b9399386071f1ff7d87baad9f5e780b0f0c78028846f76c72",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v4/saved/1280x720/saved_pressed.png",
+      "bytes": 1392131,
+      "sha256": "774e5a64bf4719ee9314786f3312fd67516cbeecc99cccff04d599398bddd458",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v4/saved/1600x720/capture.log",
+      "bytes": 2449,
+      "sha256": "2b1fa6c2c935296cbaf8de08bfa3d421f5be63ab8b644b4c557c3fb79d3dd8cd",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v4/saved/1600x720/capture_manifest.json",
+      "bytes": 1680824,
+      "sha256": "0331ca5d7ef6e014eebd1b6aa7ba2f1055ab1f376cb8b48ae44cc9202b418806",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v4/saved/1600x720/confirm_armed.png",
+      "bytes": 689997,
+      "sha256": "029f83862bb74b4da8388978128fef89d6b345096586d2659722572f92b86afb",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v4/saved/1600x720/confirm_cancelled.png",
+      "bytes": 690471,
+      "sha256": "22a963a33fae2c453dff11892f4c29daf7ba62f3919d7830f4deefd44e469dda",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v4/saved/1600x720/confirm_disarmed.png",
+      "bytes": 689268,
+      "sha256": "779af9ee1979e5280625021322180ad3208fcd67357cc052f8da6620fef51410",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v4/saved/1600x720/confirm_holding.png",
+      "bytes": 689693,
+      "sha256": "2a3d8c1832c4ce6c89b589c706c5138577f52788df9c819773a1add552095135",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v4/saved/1600x720/saved_default.png",
+      "bytes": 1452249,
+      "sha256": "c801e115078c60831459a0aa4f31dc4255fdc62292f2eb55bec2013fd6fefe11",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v4/saved/1600x720/saved_hover.png",
+      "bytes": 1403543,
+      "sha256": "794de4ea555da5e7f3c3a746ba781dbb75bafd2e51ead88e230fa78e32ebaec0",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v4/saved/1600x720/saved_kept.png",
+      "bytes": 1403004,
+      "sha256": "034363e9429185c2c22561047ac2d58ed86f0e3f6e1acc72e6021d03383ea142",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v4/saved/1600x720/saved_options_off.png",
+      "bytes": 749431,
+      "sha256": "4e9293a746b1d8b0791943fe471e24d6f023b8c0cf64c313a1dde57b8f947066",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v4/saved/1600x720/saved_options_on.png",
+      "bytes": 749634,
+      "sha256": "8a2df0aad84814893184aeb4ea8cde2d3c44138ad9c522d95400fe0d1b16bbc8",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v4/saved/1600x720/saved_pressed.png",
+      "bytes": 1407828,
+      "sha256": "f5cbcb6c9daa2d4b430fb1dc1a2c391ea1ec9743c534a125276f049db1809203",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v4/scope_dispositions.json",
+      "bytes": 695664,
+      "sha256": "0d87a40c1aca18a49a1362a90d466c161c30523da46b0344f69d082b5ae74c19",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v4/scope_review.json",
+      "bytes": 139407,
+      "sha256": "0aa29eff4b197d7a183ae2c7482d308537c799281555f9ad1447eadea566a399",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v4/validate.py",
+      "bytes": 10050,
+      "sha256": "457f11613683c631fe9d9f4c2aded87283c8beac73d99a0dbb60a449a31637d4",
+      "role": "audit_payload"
+    },
+    {
       "path": "per_piece.json",
       "bytes": 1085901,
       "sha256": "5799a999f8a6c377ff362873be69e13bd36bf5f50c159c986f8b92c5118c12ac",
@@ -2412,8 +3042,8 @@
     },
     {
       "path": "publish_verification.py",
-      "bytes": 9601,
-      "sha256": "58ff31334b95103a3934665af1d7da91b4d318bf6a527455f8c90ea5d8a8ffe0",
+      "bytes": 9692,
+      "sha256": "3c22b7c96fba385dba355f8b585e8ef61b3b1a2e6ca5a16ee7c3dfb3aecb779f",
       "role": "audit_payload"
     },
     {
@@ -2622,8 +3252,8 @@
     },
     {
       "path": "tally.json",
-      "bytes": 4248,
-      "sha256": "cb381b5e0bb7824a0be141048f587cfc73b31472e4e7adc6a32665353281d7f1",
+      "bytes": 4387,
+      "sha256": "04a9c52e855416bb6bcb97a530858d5dbe800dafdd8cf60d78002415617b028c",
       "role": "audit_payload"
     },
     {
@@ -2639,7 +3269,7 @@
       "role": "audit_payload"
     }
   ],
-  "payload_sha256": "74c4b796fc41d02d77843d38433d80272aa94cc7638204b723300a78a620006a",
+  "payload_sha256": "b1de6c68351d1551db27e3092519672df9689cfe157f9398b2c10e1febb251ea",
   "payload_hash_algorithm": "SHA-256 of sorted UTF-8 path + TAB + lowercase SHA-256 + LF for every listed payload file",
   "excluded_post_publication_record": "REMOTE_VERIFICATION.json; receipt-only revision verified separately",
   "external_bound_sources": [
@@ -4922,6 +5552,349 @@
       "bytes": 6141,
       "sha256_git_blob_bytes": "b5d36a535a72975d7c2c2000fba5e94facde3f949ea92dbf18d85de9f9f5dafd",
       "role": "current_capture_runtime_source"
+    },
+    {
+      "path": "assets/castle/training/ghost_hand.png",
+      "revision": "e97a6db8ce823a6730b08318d463469d16d9a472",
+      "bytes": 123283,
+      "sha256_git_blob_bytes": "e484d14899d8137448128314536132dbd16f970cb1f0fabea006e9d51b5435b9",
+      "role": "current_capture_runtime_source"
+    },
+    {
+      "path": "assets/characters/friends/huluu.png",
+      "revision": "e97a6db8ce823a6730b08318d463469d16d9a472",
+      "bytes": 612525,
+      "sha256_git_blob_bytes": "4b6c0e4d1c4945cc1c3cb1594ad967aa6001e9bf24506e4574345088fd9a2dc9",
+      "role": "current_capture_runtime_source"
+    },
+    {
+      "path": "assets/characters/roshan_25d/roshan_base.png",
+      "revision": "e97a6db8ce823a6730b08318d463469d16d9a472",
+      "bytes": 50051,
+      "sha256_git_blob_bytes": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab",
+      "role": "current_capture_runtime_source"
+    },
+    {
+      "path": "assets/characters/roshan_25d/roshan_directional.png",
+      "revision": "e97a6db8ce823a6730b08318d463469d16d9a472",
+      "bytes": 396741,
+      "sha256_git_blob_bytes": "2bcc6212dddaddedb5823ba095caff1cbecdb762d5bbdc76726d3d5b0e3ee85a",
+      "role": "current_capture_runtime_source"
+    },
+    {
+      "path": "assets/characters/skins/fairy_mermaid.png",
+      "revision": "e97a6db8ce823a6730b08318d463469d16d9a472",
+      "bytes": 596226,
+      "sha256_git_blob_bytes": "de6e97375d6cae78dbcba02ce25a7c7f81de50c43bbe66b255e2b5130142c13d",
+      "role": "current_capture_runtime_source"
+    },
+    {
+      "path": "assets/fashion/party_dress_garment.png",
+      "revision": "e97a6db8ce823a6730b08318d463469d16d9a472",
+      "bytes": 145486,
+      "sha256_git_blob_bytes": "e7d3d9a9ba1e6f47ee1d1092992d264cc131af655ab86fae95480320dbd57d07",
+      "role": "current_capture_runtime_source"
+    },
+    {
+      "path": "assets/flats/castle/interactions_v2/craft_room_idea_board_sheet.png",
+      "revision": "e97a6db8ce823a6730b08318d463469d16d9a472",
+      "bytes": 467899,
+      "sha256_git_blob_bytes": "a88d626f5d455c8850f195b7b8ccb0f9ac75680f860a219c297bd8206ab8da03",
+      "role": "current_capture_runtime_source"
+    },
+    {
+      "path": "assets/flats/castle/interactions_v2/craft_room_paint_table_sheet.png",
+      "revision": "e97a6db8ce823a6730b08318d463469d16d9a472",
+      "bytes": 317517,
+      "sha256_git_blob_bytes": "2beb7dd4e5e731acfe0a402f45aef195ac2a886c6ec982eecdc2b16e9ea7ecba",
+      "role": "current_capture_runtime_source"
+    },
+    {
+      "path": "assets/flats/castle/interactions_v2/craft_room_palette_sheet.png",
+      "revision": "e97a6db8ce823a6730b08318d463469d16d9a472",
+      "bytes": 832285,
+      "sha256_git_blob_bytes": "c36ee3bb19840d9977961f6525f3d543a38bc599335a0ad82bfd11fb60850071",
+      "role": "current_capture_runtime_source"
+    },
+    {
+      "path": "assets/flats/castle/interactions_v2/craft_room_ribbon_rack_sheet.png",
+      "revision": "e97a6db8ce823a6730b08318d463469d16d9a472",
+      "bytes": 776255,
+      "sha256_git_blob_bytes": "3867c9ba410fa68d2688f9eae9c789a832b49c1455ff94b801947bf5f43b8e01",
+      "role": "current_capture_runtime_source"
+    },
+    {
+      "path": "assets/flats/castle/interactions_v4/background_tiles/room_craft_room_background_r0_c0.png",
+      "revision": "e97a6db8ce823a6730b08318d463469d16d9a472",
+      "bytes": 773687,
+      "sha256_git_blob_bytes": "a7bac7f1207c7fb68f706a6f1702215da771f30e9752e72b33d708de7d4e97d3",
+      "role": "current_capture_runtime_source"
+    },
+    {
+      "path": "assets/flats/castle/interactions_v4/background_tiles/room_craft_room_background_r0_c1.png",
+      "revision": "e97a6db8ce823a6730b08318d463469d16d9a472",
+      "bytes": 840210,
+      "sha256_git_blob_bytes": "beb2abb1c5b24a89d13ad2318a2040e28fc624ac14404f3cd85cc1ea4069519d",
+      "role": "current_capture_runtime_source"
+    },
+    {
+      "path": "assets/flats/castle/interactions_v4/background_tiles/room_craft_room_background_r0_c2.png",
+      "revision": "e97a6db8ce823a6730b08318d463469d16d9a472",
+      "bytes": 842561,
+      "sha256_git_blob_bytes": "8b12029b8dd7f1bd7be4b7f5b33dee7fe7aed240aea155474d26a826f9e1772e",
+      "role": "current_capture_runtime_source"
+    },
+    {
+      "path": "assets/flats/castle/interactions_v4/background_tiles/room_craft_room_background_r0_c3.png",
+      "revision": "e97a6db8ce823a6730b08318d463469d16d9a472",
+      "bytes": 762953,
+      "sha256_git_blob_bytes": "3d263e7fdaf731fd6da217361ebfcc10a920f1e8caedd9471f3ccee909f3bfbe",
+      "role": "current_capture_runtime_source"
+    },
+    {
+      "path": "assets/flats/castle/interactions_v4/background_tiles/room_craft_room_background_r1_c0.png",
+      "revision": "e97a6db8ce823a6730b08318d463469d16d9a472",
+      "bytes": 658601,
+      "sha256_git_blob_bytes": "7aedf83c6bba58e085744bc3e11cb0aa2987f93f3b34a3db33aa9af295daa255",
+      "role": "current_capture_runtime_source"
+    },
+    {
+      "path": "assets/flats/castle/interactions_v4/background_tiles/room_craft_room_background_r1_c1.png",
+      "revision": "e97a6db8ce823a6730b08318d463469d16d9a472",
+      "bytes": 670248,
+      "sha256_git_blob_bytes": "41adc48e454d86813de0ff67ea7d724753d07aee5eaea92161cd623eaa3ed9c8",
+      "role": "current_capture_runtime_source"
+    },
+    {
+      "path": "assets/flats/castle/interactions_v4/background_tiles/room_craft_room_background_r1_c2.png",
+      "revision": "e97a6db8ce823a6730b08318d463469d16d9a472",
+      "bytes": 677852,
+      "sha256_git_blob_bytes": "72bf313d31004123fcf029828e0ae7aa4f60973fb5760e314e59195fadff92fc",
+      "role": "current_capture_runtime_source"
+    },
+    {
+      "path": "assets/flats/castle/interactions_v4/background_tiles/room_craft_room_background_r1_c3.png",
+      "revision": "e97a6db8ce823a6730b08318d463469d16d9a472",
+      "bytes": 654697,
+      "sha256_git_blob_bytes": "3aad0f5d2e0f2a33d6755e7aff253d4123a1f4a4b9dd6899e1dfb63eade551d7",
+      "role": "current_capture_runtime_source"
+    },
+    {
+      "path": "assets/flats/castle/interactions_v4/sheets/craft_room_supply_cupboard_left_sheet.png",
+      "revision": "e97a6db8ce823a6730b08318d463469d16d9a472",
+      "bytes": 96020,
+      "sha256_git_blob_bytes": "454488a5a9e2fd67a98ef83d4392356441088a9b8a6de18ef8541206fb764e4a",
+      "role": "current_capture_runtime_source"
+    },
+    {
+      "path": "assets/flats/castle/logo_studio_v2/castle_banner_motif_rainbow.png",
+      "revision": "e97a6db8ce823a6730b08318d463469d16d9a472",
+      "bytes": 65150,
+      "sha256_git_blob_bytes": "eb9a0985d88ee51c6bca2fa3bdb29b5db0e45bbb9d75b0c430d3936c85244409",
+      "role": "current_capture_runtime_source"
+    },
+    {
+      "path": "assets/flats/castle/logo_studio_v2/castle_banner_rainbow.png",
+      "revision": "e97a6db8ce823a6730b08318d463469d16d9a472",
+      "bytes": 132543,
+      "sha256_git_blob_bytes": "1cbf785bded294e8e4f5814f5b85fb2a455e07c4fe16f8826b00545d095a6731",
+      "role": "current_capture_runtime_source"
+    },
+    {
+      "path": "assets/flats/castle/rooms/room_actor_shadow.png",
+      "revision": "e97a6db8ce823a6730b08318d463469d16d9a472",
+      "bytes": 3083,
+      "sha256_git_blob_bytes": "642aa3bdc6ef1be14febfd7855963da80071febd9ea7b69101261d6632ee3604",
+      "role": "current_capture_runtime_source"
+    },
+    {
+      "path": "assets/flats/castle/rooms/room_craft_room_front_left.png",
+      "revision": "e97a6db8ce823a6730b08318d463469d16d9a472",
+      "bytes": 67798,
+      "sha256_git_blob_bytes": "466d88d72a245fabe0ef6810796aca8eb7aba6c66cbac031eb2e5ddf5aa68d9a",
+      "role": "current_capture_runtime_source"
+    },
+    {
+      "path": "assets/flats/castle/rooms/room_craft_room_front_right.png",
+      "revision": "e97a6db8ce823a6730b08318d463469d16d9a472",
+      "bytes": 99708,
+      "sha256_git_blob_bytes": "41167d28ce5a519e0aee05239f782accf8f4137cf0c002189e8d1456a6c17871",
+      "role": "current_capture_runtime_source"
+    },
+    {
+      "path": "assets/mg/bird_accent.png",
+      "revision": "e97a6db8ce823a6730b08318d463469d16d9a472",
+      "bytes": 125626,
+      "sha256_git_blob_bytes": "9ce0108266bb439919465ef2f196aa92ce195c318ac636d2156de7d581eea457",
+      "role": "current_capture_runtime_source"
+    },
+    {
+      "path": "assets/mg/bird_body.png",
+      "revision": "e97a6db8ce823a6730b08318d463469d16d9a472",
+      "bytes": 120881,
+      "sha256_git_blob_bytes": "54fbb11c50c5d859b32aaca6fa1ecf8455253460691eabfd3eeacf4a91c12629",
+      "role": "current_capture_runtime_source"
+    },
+    {
+      "path": "assets/mg/bird_line.png",
+      "revision": "e97a6db8ce823a6730b08318d463469d16d9a472",
+      "bytes": 72,
+      "sha256_git_blob_bytes": "a54ddc4b657b5217f40ee975d30077fa269b6628960cf372a159d634f3e84c1e",
+      "role": "current_capture_runtime_source"
+    },
+    {
+      "path": "assets/mg/cat_accent.png",
+      "revision": "e97a6db8ce823a6730b08318d463469d16d9a472",
+      "bytes": 124395,
+      "sha256_git_blob_bytes": "1e2dc4203082d14c0b80e108bf9102edfb4c81904392bdc48a3aa33e373d56d0",
+      "role": "current_capture_runtime_source"
+    },
+    {
+      "path": "assets/mg/cat_body.png",
+      "revision": "e97a6db8ce823a6730b08318d463469d16d9a472",
+      "bytes": 119756,
+      "sha256_git_blob_bytes": "6011c4e2debce40e92f55812d91f5e28f918748abf472f05f1ea70b456f224ed",
+      "role": "current_capture_runtime_source"
+    },
+    {
+      "path": "assets/mg/cat_line.png",
+      "revision": "e97a6db8ce823a6730b08318d463469d16d9a472",
+      "bytes": 72,
+      "sha256_git_blob_bytes": "a54ddc4b657b5217f40ee975d30077fa269b6628960cf372a159d634f3e84c1e",
+      "role": "current_capture_runtime_source"
+    },
+    {
+      "path": "assets/mg/fish_body.png",
+      "revision": "e97a6db8ce823a6730b08318d463469d16d9a472",
+      "bytes": 499234,
+      "sha256_git_blob_bytes": "219da6079daa8fdfc0bf854c3c37d9584d18c2b1f65ef60dc0e2fa24a8996a41",
+      "role": "current_capture_runtime_source"
+    },
+    {
+      "path": "assets/mg/fish_fins.png",
+      "revision": "e97a6db8ce823a6730b08318d463469d16d9a472",
+      "bytes": 964497,
+      "sha256_git_blob_bytes": "52bbe03e05baed1092d4c17c881132311dc99772cb6deb038ace858fdc13c30e",
+      "role": "current_capture_runtime_source"
+    },
+    {
+      "path": "assets/mg/fish_line.png",
+      "revision": "e97a6db8ce823a6730b08318d463469d16d9a472",
+      "bytes": 12778,
+      "sha256_git_blob_bytes": "955f754a758c542034188e49d1a87e0c1a88cd21632888b862a884cf81bf16ef",
+      "role": "current_capture_runtime_source"
+    },
+    {
+      "path": "assets/opera/worlds/ui/crests/opera_crest_painter.png",
+      "revision": "e97a6db8ce823a6730b08318d463469d16d9a472",
+      "bytes": 98921,
+      "sha256_git_blob_bytes": "5e60ba5490ba69ac3b6aa398ecc7057047863bd9d7ac64e233054116917d020b",
+      "role": "current_capture_runtime_source"
+    },
+    {
+      "path": "assets/ui/boot_splash_mermaid_roshan.png",
+      "revision": "e97a6db8ce823a6730b08318d463469d16d9a472",
+      "bytes": 1848681,
+      "sha256_git_blob_bytes": "d5127c4a6227baab05343dc10692e2f76f1dd59f22ca24a22329de402dbb8044",
+      "role": "current_capture_runtime_source"
+    },
+    {
+      "path": "scripts/chapter_two_room_plot.gd",
+      "revision": "e97a6db8ce823a6730b08318d463469d16d9a472",
+      "bytes": 4138,
+      "sha256_git_blob_bytes": "9eef1ece57be88ac9d01d85a5181ad1c258e6ff00f6b9a6cb3d7a86393d6e10d",
+      "role": "current_capture_runtime_source"
+    },
+    {
+      "path": "scripts/collection_system.gd",
+      "revision": "e97a6db8ce823a6730b08318d463469d16d9a472",
+      "bytes": 16314,
+      "sha256_git_blob_bytes": "876bb4901406034dfa6a3bf4d319383261e04a45fbedfe120d97c8eb2d24eb3a",
+      "role": "current_capture_runtime_source"
+    },
+    {
+      "path": "scripts/craft_studio.gd",
+      "revision": "e97a6db8ce823a6730b08318d463469d16d9a472",
+      "bytes": 13414,
+      "sha256_git_blob_bytes": "fd97af6efaeaf4b3949b94f921a71064b753c383d5adcf6e49395a487018de57",
+      "role": "current_capture_runtime_source"
+    },
+    {
+      "path": "scripts/intro_overlay.gd",
+      "revision": "e97a6db8ce823a6730b08318d463469d16d9a472",
+      "bytes": 7412,
+      "sha256_git_blob_bytes": "d39288491fd4e37024905faa11c66eee0e3a98d7de1cb340ca703c8a907ff2eb",
+      "role": "current_capture_runtime_source"
+    },
+    {
+      "path": "scripts/living_world_canvas.gd",
+      "revision": "e97a6db8ce823a6730b08318d463469d16d9a472",
+      "bytes": 14155,
+      "sha256_git_blob_bytes": "f18a8324cd3eb43eac0dae0ae09efbbb86f6bd3af65e7e74e44d8c197f351e6e",
+      "role": "current_capture_runtime_source"
+    },
+    {
+      "path": "scripts/main.gd",
+      "revision": "e97a6db8ce823a6730b08318d463469d16d9a472",
+      "bytes": 370822,
+      "sha256_git_blob_bytes": "b6e905824a4b60461181deda525c816fc790613479e9321d12ae7f71df666a33",
+      "role": "current_capture_runtime_source"
+    },
+    {
+      "path": "scripts/pause_menu.gd",
+      "revision": "e97a6db8ce823a6730b08318d463469d16d9a472",
+      "bytes": 13628,
+      "sha256_git_blob_bytes": "2afc6103f8a750c437c1aa23c94419191a0b303cdec54aabd9345b560a5646b0",
+      "role": "current_capture_runtime_source"
+    },
+    {
+      "path": "scripts/probe_start_menu_new_game.gd",
+      "revision": "e97a6db8ce823a6730b08318d463469d16d9a472",
+      "bytes": 7752,
+      "sha256_git_blob_bytes": "01fadd2ec67be31e93626f0eba4fd41983c8137cc760acac46aedd901c340e2d",
+      "role": "current_capture_runtime_source"
+    },
+    {
+      "path": "scripts/probe_start_menu_routing.gd",
+      "revision": "e97a6db8ce823a6730b08318d463469d16d9a472",
+      "bytes": 6989,
+      "sha256_git_blob_bytes": "cb78dc83a64764bbff81aec0835f8354fbb20cc886cf9ca1e60f80792a4c19d8",
+      "role": "current_capture_runtime_source"
+    },
+    {
+      "path": "scripts/shell_ornament.gd",
+      "revision": "e97a6db8ce823a6730b08318d463469d16d9a472",
+      "bytes": 1920,
+      "sha256_git_blob_bytes": "b55765cfd7926b755563f9017891c955fc23ae5c050c3d7141b7b2f2b1cdbc08",
+      "role": "current_capture_runtime_source"
+    },
+    {
+      "path": "scripts/start_menu.gd",
+      "revision": "e97a6db8ce823a6730b08318d463469d16d9a472",
+      "bytes": 18908,
+      "sha256_git_blob_bytes": "2eb3a55dba1db6e223de967df6465e137d7bfcfa5309cd770a36ff7a3833f771",
+      "role": "current_capture_runtime_source"
+    },
+    {
+      "path": "scripts/storybook_ui.gd",
+      "revision": "e97a6db8ce823a6730b08318d463469d16d9a472",
+      "bytes": 16107,
+      "sha256_git_blob_bytes": "839e53d6893347808341523d4e4b58e3727cc4fd4cd698726c92d494edce0fa7",
+      "role": "current_capture_runtime_source"
+    },
+    {
+      "path": "scripts/touch_ui.gd",
+      "revision": "e97a6db8ce823a6730b08318d463469d16d9a472",
+      "bytes": 39214,
+      "sha256_git_blob_bytes": "a6f45679ff9738d6079078ba9cf5c623618a50a740e4fde2387385352029868d",
+      "role": "current_capture_runtime_source"
+    },
+    {
+      "path": "scripts/wardrobe_ui.gd",
+      "revision": "e97a6db8ce823a6730b08318d463469d16d9a472",
+      "bytes": 14633,
+      "sha256_git_blob_bytes": "0d7f4c5241f141ca4bbb9464f21aa5bd46545e1817b8b2638fea1caadf9f6573",
+      "role": "current_capture_runtime_source"
     }
   ],
   "required_project_files": [
@@ -4939,8 +5912,8 @@
     },
     {
       "path": "ASSET_LICENSES.md",
-      "bytes": 3761454,
-      "sha256_git_blob_bytes": "94931c6a0ce73a2e9e5f4c83f6538767f4215e226f5a24613ed687bb296ba381",
+      "bytes": 3788222,
+      "sha256_git_blob_bytes": "4d3385ecf3effac4368e26482cc570375cefde416434158d1fb39c67e2af30dd",
       "role": "project_authority_or_source_license_at_immutable_payload_revision"
     },
     {
@@ -4951,20 +5924,20 @@
     },
     {
       "path": "audit/MASTER_AUDIT_2026-08-09.md",
-      "bytes": 293212,
-      "sha256_git_blob_bytes": "9b1a479d1c8f920d6ad24834c1edbdfa65e1ffe90b42ba685f8b75fa643f43ea",
+      "bytes": 293236,
+      "sha256_git_blob_bytes": "0c7efbf4667abf0dd7ca9bd76ab2ce550f5a15562ae0bd3273c619280d897de5",
       "role": "project_authority_or_source_license_at_immutable_payload_revision"
     },
     {
       "path": "audit/MASTER_AUDIT_CHANGELOG_ROLLBACK_2026-08-10.md",
-      "bytes": 143588,
-      "sha256_git_blob_bytes": "109d71abc829018a73949b87fe7c0ea35d25a08a60c9c6eed92ff08317719432",
+      "bytes": 146080,
+      "sha256_git_blob_bytes": "5d3888f90ef416a585c5af6a44e96c3125360835f90a07ce160ca184f0682374",
       "role": "project_authority_or_source_license_at_immutable_payload_revision"
     },
     {
       "path": "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
-      "bytes": 247168,
-      "sha256_git_blob_bytes": "5f108474eb52b0c0abf9e18dc37ae230159c4161643653f6b5e97a4d6d759ff3",
+      "bytes": 249444,
+      "sha256_git_blob_bytes": "10f870fd416d7ccfd78d9516fac95c46046d8aabdf1954416b80bfd83871f486",
       "role": "project_authority_or_source_license_at_immutable_payload_revision"
     },
     {
@@ -4975,8 +5948,8 @@
     },
     {
       "path": "design/05_DOC_LEDGER.md",
-      "bytes": 206784,
-      "sha256_git_blob_bytes": "13189a217f668c392e6d378a10743ab2087d733d2700fefd09b91bdb4a627227",
+      "bytes": 207304,
+      "sha256_git_blob_bytes": "af38c3869311179f831b108e110043e7a38a0cd69f8aaf84629a5bbedcd2423d",
       "role": "project_authority_or_source_license_at_immutable_payload_revision"
     },
     {
@@ -5007,6 +5980,12 @@
       "path": "design/audit_impacts/flat-vector-live-review-20261008.json",
       "bytes": 27729,
       "sha256_git_blob_bytes": "650a9bcc69ae4574f4fa106085d09cec62d2413825ddc3caeeb0fafb047ff1ad",
+      "role": "project_authority_or_source_license_at_immutable_payload_revision"
+    },
+    {
+      "path": "design/audit_impacts/flat-vector-shared-ui-review-20261008.json",
+      "bytes": 15395,
+      "sha256_git_blob_bytes": "09088950c648afed262ac9b505f09ed997578817108aa60fec26f17825e008a0",
       "role": "project_authority_or_source_license_at_immutable_payload_revision"
     }
   ],

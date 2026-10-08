@@ -190,5 +190,19 @@
   },
   "generation_calls": 0,
   "runtime_replacement_count": 0,
-  "staging_correction": "Initial staged whitespace check rejected generated CRLF text under byte-preserving packet attributes. Generated text/builders now use explicit LF; literal SVG references preserve source bytes with CR-at-EOL recognized only on those copies. No audit payload was committed or delivered before correction."
+  "staging_correction": "Initial staged whitespace check rejected generated CRLF text under byte-preserving packet attributes. Generated text/builders now use explicit LF; literal SVG references preserve source bytes with CR-at-EOL recognized only on those copies. No audit payload was committed or delivered before correction.",
+  "current_r4_context": {
+    "evidence": "live_v4/MACHINE.json",
+    "source_revision": "e97a6db8ce823a6730b08318d463469d16d9a472",
+    "native_frames": 62,
+    "cumulative_native_frames": 354,
+    "partial_entries": 39,
+    "complete_entries": 0,
+    "classified_scopes": 3,
+    "remaining_scopes": 366,
+    "focused_validator": "live_v4/validate.py;stress11/11",
+    "replacement_count": 0,
+    "runtime_changes": false,
+    "acceptance": "Diagnostic desktop only;DL-QA-11 live-target/device/child/owner absent"
+  }
 }

@@ -1,0 +1,334 @@
+{
+  "schema": "reef.flat_vector.shared_ui_machine.v1",
+  "runtime_git_revision": "e97a6db8ce823a6730b08318d463469d16d9a472",
+  "runtime_baseline": "92c9fe70319ef46bfaa8f61348a6f51512141ec3",
+  "source_closure_files": 6427,
+  "capture_method": "Native same-process Windows Vulkan Mobile viewport; synthetic pointer/save/route fixtures; actual pause only on pause_castle",
+  "gpu": "NVIDIA RTX3060Ti desktop",
+  "engine": "4.7.2-stable official.ed1daf0bf",
+  "quality": "speedy",
+  "aspects": {
+    "1280x720": 31,
+    "1600x720": 31
+  },
+  "case_matrix": {
+    "fresh": 3,
+    "saved": 10,
+    "overlays": 18
+  },
+  "sources": [
+    {
+      "path": "assets/castle/training/ghost_hand.png",
+      "revision": "e97a6db8ce823a6730b08318d463469d16d9a472",
+      "git_blob_sha256": "e484d14899d8137448128314536132dbd16f970cb1f0fabea006e9d51b5435b9",
+      "worktree_sha256": "e484d14899d8137448128314536132dbd16f970cb1f0fabea006e9d51b5435b9"
+    },
+    {
+      "path": "assets/characters/friends/huluu.png",
+      "revision": "e97a6db8ce823a6730b08318d463469d16d9a472",
+      "git_blob_sha256": "4b6c0e4d1c4945cc1c3cb1594ad967aa6001e9bf24506e4574345088fd9a2dc9",
+      "worktree_sha256": "4b6c0e4d1c4945cc1c3cb1594ad967aa6001e9bf24506e4574345088fd9a2dc9"
+    },
+    {
+      "path": "assets/characters/roshan_25d/roshan_base.png",
+      "revision": "e97a6db8ce823a6730b08318d463469d16d9a472",
+      "git_blob_sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab",
+      "worktree_sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab"
+    },
+    {
+      "path": "assets/characters/roshan_25d/roshan_directional.png",
+      "revision": "e97a6db8ce823a6730b08318d463469d16d9a472",
+      "git_blob_sha256": "2bcc6212dddaddedb5823ba095caff1cbecdb762d5bbdc76726d3d5b0e3ee85a",
+      "worktree_sha256": "2bcc6212dddaddedb5823ba095caff1cbecdb762d5bbdc76726d3d5b0e3ee85a"
+    },
+    {
+      "path": "assets/characters/skins/fairy_mermaid.png",
+      "revision": "e97a6db8ce823a6730b08318d463469d16d9a472",
+      "git_blob_sha256": "de6e97375d6cae78dbcba02ce25a7c7f81de50c43bbe66b255e2b5130142c13d",
+      "worktree_sha256": "de6e97375d6cae78dbcba02ce25a7c7f81de50c43bbe66b255e2b5130142c13d"
+    },
+    {
+      "path": "assets/fashion/party_dress_garment.png",
+      "revision": "e97a6db8ce823a6730b08318d463469d16d9a472",
+      "git_blob_sha256": "e7d3d9a9ba1e6f47ee1d1092992d264cc131af655ab86fae95480320dbd57d07",
+      "worktree_sha256": "e7d3d9a9ba1e6f47ee1d1092992d264cc131af655ab86fae95480320dbd57d07"
+    },
+    {
+      "path": "assets/flats/castle/interactions_v2/craft_room_idea_board_sheet.png",
+      "revision": "e97a6db8ce823a6730b08318d463469d16d9a472",
+      "git_blob_sha256": "a88d626f5d455c8850f195b7b8ccb0f9ac75680f860a219c297bd8206ab8da03",
+      "worktree_sha256": "a88d626f5d455c8850f195b7b8ccb0f9ac75680f860a219c297bd8206ab8da03"
+    },
+    {
+      "path": "assets/flats/castle/interactions_v2/craft_room_paint_table_sheet.png",
+      "revision": "e97a6db8ce823a6730b08318d463469d16d9a472",
+      "git_blob_sha256": "2beb7dd4e5e731acfe0a402f45aef195ac2a886c6ec982eecdc2b16e9ea7ecba",
+      "worktree_sha256": "2beb7dd4e5e731acfe0a402f45aef195ac2a886c6ec982eecdc2b16e9ea7ecba"
+    },
+    {
+      "path": "assets/flats/castle/interactions_v2/craft_room_palette_sheet.png",
+      "revision": "e97a6db8ce823a6730b08318d463469d16d9a472",
+      "git_blob_sha256": "c36ee3bb19840d9977961f6525f3d543a38bc599335a0ad82bfd11fb60850071",
+      "worktree_sha256": "c36ee3bb19840d9977961f6525f3d543a38bc599335a0ad82bfd11fb60850071"
+    },
+    {
+      "path": "assets/flats/castle/interactions_v2/craft_room_ribbon_rack_sheet.png",
+      "revision": "e97a6db8ce823a6730b08318d463469d16d9a472",
+      "git_blob_sha256": "3867c9ba410fa68d2688f9eae9c789a832b49c1455ff94b801947bf5f43b8e01",
+      "worktree_sha256": "3867c9ba410fa68d2688f9eae9c789a832b49c1455ff94b801947bf5f43b8e01"
+    },
+    {
+      "path": "assets/flats/castle/interactions_v4/background_tiles/room_craft_room_background_r0_c0.png",
+      "revision": "e97a6db8ce823a6730b08318d463469d16d9a472",
+      "git_blob_sha256": "a7bac7f1207c7fb68f706a6f1702215da771f30e9752e72b33d708de7d4e97d3",
+      "worktree_sha256": "a7bac7f1207c7fb68f706a6f1702215da771f30e9752e72b33d708de7d4e97d3"
+    },
+    {
+      "path": "assets/flats/castle/interactions_v4/background_tiles/room_craft_room_background_r0_c1.png",
+      "revision": "e97a6db8ce823a6730b08318d463469d16d9a472",
+      "git_blob_sha256": "beb2abb1c5b24a89d13ad2318a2040e28fc624ac14404f3cd85cc1ea4069519d",
+      "worktree_sha256": "beb2abb1c5b24a89d13ad2318a2040e28fc624ac14404f3cd85cc1ea4069519d"
+    },
+    {
+      "path": "assets/flats/castle/interactions_v4/background_tiles/room_craft_room_background_r0_c2.png",
+      "revision": "e97a6db8ce823a6730b08318d463469d16d9a472",
+      "git_blob_sha256": "8b12029b8dd7f1bd7be4b7f5b33dee7fe7aed240aea155474d26a826f9e1772e",
+      "worktree_sha256": "8b12029b8dd7f1bd7be4b7f5b33dee7fe7aed240aea155474d26a826f9e1772e"
+    },
+    {
+      "path": "assets/flats/castle/interactions_v4/background_tiles/room_craft_room_background_r0_c3.png",
+      "revision": "e97a6db8ce823a6730b08318d463469d16d9a472",
+      "git_blob_sha256": "3d263e7fdaf731fd6da217361ebfcc10a920f1e8caedd9471f3ccee909f3bfbe",
+      "worktree_sha256": "3d263e7fdaf731fd6da217361ebfcc10a920f1e8caedd9471f3ccee909f3bfbe"
+    },
+    {
+      "path": "assets/flats/castle/interactions_v4/background_tiles/room_craft_room_background_r1_c0.png",
+      "revision": "e97a6db8ce823a6730b08318d463469d16d9a472",
+      "git_blob_sha256": "7aedf83c6bba58e085744bc3e11cb0aa2987f93f3b34a3db33aa9af295daa255",
+      "worktree_sha256": "7aedf83c6bba58e085744bc3e11cb0aa2987f93f3b34a3db33aa9af295daa255"
+    },
+    {
+      "path": "assets/flats/castle/interactions_v4/background_tiles/room_craft_room_background_r1_c1.png",
+      "revision": "e97a6db8ce823a6730b08318d463469d16d9a472",
+      "git_blob_sha256": "41adc48e454d86813de0ff67ea7d724753d07aee5eaea92161cd623eaa3ed9c8",
+      "worktree_sha256": "41adc48e454d86813de0ff67ea7d724753d07aee5eaea92161cd623eaa3ed9c8"
+    },
+    {
+      "path": "assets/flats/castle/interactions_v4/background_tiles/room_craft_room_background_r1_c2.png",
+      "revision": "e97a6db8ce823a6730b08318d463469d16d9a472",
+      "git_blob_sha256": "72bf313d31004123fcf029828e0ae7aa4f60973fb5760e314e59195fadff92fc",
+      "worktree_sha256": "72bf313d31004123fcf029828e0ae7aa4f60973fb5760e314e59195fadff92fc"
+    },
+    {
+      "path": "assets/flats/castle/interactions_v4/background_tiles/room_craft_room_background_r1_c3.png",
+      "revision": "e97a6db8ce823a6730b08318d463469d16d9a472",
+      "git_blob_sha256": "3aad0f5d2e0f2a33d6755e7aff253d4123a1f4a4b9dd6899e1dfb63eade551d7",
+      "worktree_sha256": "3aad0f5d2e0f2a33d6755e7aff253d4123a1f4a4b9dd6899e1dfb63eade551d7"
+    },
+    {
+      "path": "assets/flats/castle/interactions_v4/sheets/craft_room_supply_cupboard_left_sheet.png",
+      "revision": "e97a6db8ce823a6730b08318d463469d16d9a472",
+      "git_blob_sha256": "454488a5a9e2fd67a98ef83d4392356441088a9b8a6de18ef8541206fb764e4a",
+      "worktree_sha256": "454488a5a9e2fd67a98ef83d4392356441088a9b8a6de18ef8541206fb764e4a"
+    },
+    {
+      "path": "assets/flats/castle/logo_studio_v2/castle_banner_motif_rainbow.png",
+      "revision": "e97a6db8ce823a6730b08318d463469d16d9a472",
+      "git_blob_sha256": "eb9a0985d88ee51c6bca2fa3bdb29b5db0e45bbb9d75b0c430d3936c85244409",
+      "worktree_sha256": "eb9a0985d88ee51c6bca2fa3bdb29b5db0e45bbb9d75b0c430d3936c85244409"
+    },
+    {
+      "path": "assets/flats/castle/logo_studio_v2/castle_banner_rainbow.png",
+      "revision": "e97a6db8ce823a6730b08318d463469d16d9a472",
+      "git_blob_sha256": "1cbf785bded294e8e4f5814f5b85fb2a455e07c4fe16f8826b00545d095a6731",
+      "worktree_sha256": "1cbf785bded294e8e4f5814f5b85fb2a455e07c4fe16f8826b00545d095a6731"
+    },
+    {
+      "path": "assets/flats/castle/rooms/room_actor_shadow.png",
+      "revision": "e97a6db8ce823a6730b08318d463469d16d9a472",
+      "git_blob_sha256": "642aa3bdc6ef1be14febfd7855963da80071febd9ea7b69101261d6632ee3604",
+      "worktree_sha256": "642aa3bdc6ef1be14febfd7855963da80071febd9ea7b69101261d6632ee3604"
+    },
+    {
+      "path": "assets/flats/castle/rooms/room_craft_room_front_left.png",
+      "revision": "e97a6db8ce823a6730b08318d463469d16d9a472",
+      "git_blob_sha256": "466d88d72a245fabe0ef6810796aca8eb7aba6c66cbac031eb2e5ddf5aa68d9a",
+      "worktree_sha256": "466d88d72a245fabe0ef6810796aca8eb7aba6c66cbac031eb2e5ddf5aa68d9a"
+    },
+    {
+      "path": "assets/flats/castle/rooms/room_craft_room_front_right.png",
+      "revision": "e97a6db8ce823a6730b08318d463469d16d9a472",
+      "git_blob_sha256": "41167d28ce5a519e0aee05239f782accf8f4137cf0c002189e8d1456a6c17871",
+      "worktree_sha256": "41167d28ce5a519e0aee05239f782accf8f4137cf0c002189e8d1456a6c17871"
+    },
+    {
+      "path": "assets/mg/bird_accent.png",
+      "revision": "e97a6db8ce823a6730b08318d463469d16d9a472",
+      "git_blob_sha256": "9ce0108266bb439919465ef2f196aa92ce195c318ac636d2156de7d581eea457",
+      "worktree_sha256": "9ce0108266bb439919465ef2f196aa92ce195c318ac636d2156de7d581eea457"
+    },
+    {
+      "path": "assets/mg/bird_body.png",
+      "revision": "e97a6db8ce823a6730b08318d463469d16d9a472",
+      "git_blob_sha256": "54fbb11c50c5d859b32aaca6fa1ecf8455253460691eabfd3eeacf4a91c12629",
+      "worktree_sha256": "54fbb11c50c5d859b32aaca6fa1ecf8455253460691eabfd3eeacf4a91c12629"
+    },
+    {
+      "path": "assets/mg/bird_line.png",
+      "revision": "e97a6db8ce823a6730b08318d463469d16d9a472",
+      "git_blob_sha256": "a54ddc4b657b5217f40ee975d30077fa269b6628960cf372a159d634f3e84c1e",
+      "worktree_sha256": "a54ddc4b657b5217f40ee975d30077fa269b6628960cf372a159d634f3e84c1e"
+    },
+    {
+      "path": "assets/mg/cat_accent.png",
+      "revision": "e97a6db8ce823a6730b08318d463469d16d9a472",
+      "git_blob_sha256": "1e2dc4203082d14c0b80e108bf9102edfb4c81904392bdc48a3aa33e373d56d0",
+      "worktree_sha256": "1e2dc4203082d14c0b80e108bf9102edfb4c81904392bdc48a3aa33e373d56d0"
+    },
+    {
+      "path": "assets/mg/cat_body.png",
+      "revision": "e97a6db8ce823a6730b08318d463469d16d9a472",
+      "git_blob_sha256": "6011c4e2debce40e92f55812d91f5e28f918748abf472f05f1ea70b456f224ed",
+      "worktree_sha256": "6011c4e2debce40e92f55812d91f5e28f918748abf472f05f1ea70b456f224ed"
+    },
+    {
+      "path": "assets/mg/cat_line.png",
+      "revision": "e97a6db8ce823a6730b08318d463469d16d9a472",
+      "git_blob_sha256": "a54ddc4b657b5217f40ee975d30077fa269b6628960cf372a159d634f3e84c1e",
+      "worktree_sha256": "a54ddc4b657b5217f40ee975d30077fa269b6628960cf372a159d634f3e84c1e"
+    },
+    {
+      "path": "assets/mg/fish_body.png",
+      "revision": "e97a6db8ce823a6730b08318d463469d16d9a472",
+      "git_blob_sha256": "219da6079daa8fdfc0bf854c3c37d9584d18c2b1f65ef60dc0e2fa24a8996a41",
+      "worktree_sha256": "219da6079daa8fdfc0bf854c3c37d9584d18c2b1f65ef60dc0e2fa24a8996a41"
+    },
+    {
+      "path": "assets/mg/fish_fins.png",
+      "revision": "e97a6db8ce823a6730b08318d463469d16d9a472",
+      "git_blob_sha256": "52bbe03e05baed1092d4c17c881132311dc99772cb6deb038ace858fdc13c30e",
+      "worktree_sha256": "52bbe03e05baed1092d4c17c881132311dc99772cb6deb038ace858fdc13c30e"
+    },
+    {
+      "path": "assets/mg/fish_line.png",
+      "revision": "e97a6db8ce823a6730b08318d463469d16d9a472",
+      "git_blob_sha256": "955f754a758c542034188e49d1a87e0c1a88cd21632888b862a884cf81bf16ef",
+      "worktree_sha256": "955f754a758c542034188e49d1a87e0c1a88cd21632888b862a884cf81bf16ef"
+    },
+    {
+      "path": "assets/opera/worlds/ui/crests/opera_crest_painter.png",
+      "revision": "e97a6db8ce823a6730b08318d463469d16d9a472",
+      "git_blob_sha256": "5e60ba5490ba69ac3b6aa398ecc7057047863bd9d7ac64e233054116917d020b",
+      "worktree_sha256": "5e60ba5490ba69ac3b6aa398ecc7057047863bd9d7ac64e233054116917d020b"
+    },
+    {
+      "path": "assets/ui/boot_splash_mermaid_roshan.png",
+      "revision": "e97a6db8ce823a6730b08318d463469d16d9a472",
+      "git_blob_sha256": "d5127c4a6227baab05343dc10692e2f76f1dd59f22ca24a22329de402dbb8044",
+      "worktree_sha256": "d5127c4a6227baab05343dc10692e2f76f1dd59f22ca24a22329de402dbb8044"
+    },
+    {
+      "path": "scripts/chapter_two_room_plot.gd",
+      "revision": "e97a6db8ce823a6730b08318d463469d16d9a472",
+      "git_blob_sha256": "9eef1ece57be88ac9d01d85a5181ad1c258e6ff00f6b9a6cb3d7a86393d6e10d",
+      "worktree_sha256": "bdae21ffe3236f331906b2b16600c7bcaedfe6926195e6dbfaa5cd76f0ed1235"
+    },
+    {
+      "path": "scripts/collection_system.gd",
+      "revision": "e97a6db8ce823a6730b08318d463469d16d9a472",
+      "git_blob_sha256": "876bb4901406034dfa6a3bf4d319383261e04a45fbedfe120d97c8eb2d24eb3a",
+      "worktree_sha256": "23f9095e843f0e735265cc563e13cd95deaf6532f2cb9cf7e2d0af73afe32c32"
+    },
+    {
+      "path": "scripts/craft_studio.gd",
+      "revision": "e97a6db8ce823a6730b08318d463469d16d9a472",
+      "git_blob_sha256": "fd97af6efaeaf4b3949b94f921a71064b753c383d5adcf6e49395a487018de57",
+      "worktree_sha256": "e07c6b99b46e399f6025738309843875b9fb827f5b15aa239347771f945604b3"
+    },
+    {
+      "path": "scripts/intro_overlay.gd",
+      "revision": "e97a6db8ce823a6730b08318d463469d16d9a472",
+      "git_blob_sha256": "d39288491fd4e37024905faa11c66eee0e3a98d7de1cb340ca703c8a907ff2eb",
+      "worktree_sha256": "815101b7727f7caf3f89bc1ab221fb2eae733ce4df62c4b47fe256392cf983d2"
+    },
+    {
+      "path": "scripts/living_world_canvas.gd",
+      "revision": "e97a6db8ce823a6730b08318d463469d16d9a472",
+      "git_blob_sha256": "f18a8324cd3eb43eac0dae0ae09efbbb86f6bd3af65e7e74e44d8c197f351e6e",
+      "worktree_sha256": "80b0e4ed487dfd84bed69418d8943291384f4a9c5173fa68ec3fc2062ec6f7f4"
+    },
+    {
+      "path": "scripts/main.gd",
+      "revision": "e97a6db8ce823a6730b08318d463469d16d9a472",
+      "git_blob_sha256": "b6e905824a4b60461181deda525c816fc790613479e9321d12ae7f71df666a33",
+      "worktree_sha256": "841efbfa74a61ed14775fa7c2b19e6ff7f54b0a2c4af04d1b08c345440d6f880"
+    },
+    {
+      "path": "scripts/pause_menu.gd",
+      "revision": "e97a6db8ce823a6730b08318d463469d16d9a472",
+      "git_blob_sha256": "2afc6103f8a750c437c1aa23c94419191a0b303cdec54aabd9345b560a5646b0",
+      "worktree_sha256": "28ad120339ff9f178f57cb59d820ea208a6d7aad988d56ea72d3afb64099423c"
+    },
+    {
+      "path": "scripts/probe_start_menu_new_game.gd",
+      "revision": "e97a6db8ce823a6730b08318d463469d16d9a472",
+      "git_blob_sha256": "01fadd2ec67be31e93626f0eba4fd41983c8137cc760acac46aedd901c340e2d",
+      "worktree_sha256": "e1212dc0ef7feba7c4f63b8b3b84af21d99e644334729664243384a61df4aa84"
+    },
+    {
+      "path": "scripts/probe_start_menu_routing.gd",
+      "revision": "e97a6db8ce823a6730b08318d463469d16d9a472",
+      "git_blob_sha256": "cb78dc83a64764bbff81aec0835f8354fbb20cc886cf9ca1e60f80792a4c19d8",
+      "worktree_sha256": "a155f579c9038830924d5583e64aea6c88798723c46843b0807d8e5bd00bfb26"
+    },
+    {
+      "path": "scripts/shell_ornament.gd",
+      "revision": "e97a6db8ce823a6730b08318d463469d16d9a472",
+      "git_blob_sha256": "b55765cfd7926b755563f9017891c955fc23ae5c050c3d7141b7b2f2b1cdbc08",
+      "worktree_sha256": "47ffb51bca717b0e362fdf7b90279f83c8d73fbab2dac55c869c117cd4c13638"
+    },
+    {
+      "path": "scripts/start_menu.gd",
+      "revision": "e97a6db8ce823a6730b08318d463469d16d9a472",
+      "git_blob_sha256": "2eb3a55dba1db6e223de967df6465e137d7bfcfa5309cd770a36ff7a3833f771",
+      "worktree_sha256": "c00fe34a6f4218d790a3f23d768800fed93210cd886b297adb62552964ec5bfb"
+    },
+    {
+      "path": "scripts/storybook_ui.gd",
+      "revision": "e97a6db8ce823a6730b08318d463469d16d9a472",
+      "git_blob_sha256": "839e53d6893347808341523d4e4b58e3727cc4fd4cd698726c92d494edce0fa7",
+      "worktree_sha256": "137404cf953e2f40b0a21924c22e8f5a7bd63aee3e7f81ae71543cceefbdab31"
+    },
+    {
+      "path": "scripts/touch_ui.gd",
+      "revision": "e97a6db8ce823a6730b08318d463469d16d9a472",
+      "git_blob_sha256": "a6f45679ff9738d6079078ba9cf5c623618a50a740e4fde2387385352029868d",
+      "worktree_sha256": "c25d51407589b841126f872172b7f628805259e6d2190e1a8347ec863378ef04"
+    },
+    {
+      "path": "scripts/wardrobe_ui.gd",
+      "revision": "e97a6db8ce823a6730b08318d463469d16d9a472",
+      "git_blob_sha256": "0d7f4c5241f141ca4bbb9464f21aa5bd46545e1817b8b2638fea1caadf9f6573",
+      "worktree_sha256": "c347d851000a66a7069c262babf26658fe85b983d6179c6e1f33ac033acf1e29"
+    }
+  ],
+  "normal_child_save_unchanged": true,
+  "source_unchanged": true,
+  "inherited_regression": "Earlier82/82 exact-engine local suite inherited only because production sources are unchanged. No new full suite or exact-head CI green claim.",
+  "acceptance": {
+    "replacements": 0,
+    "accepted_removals": 0,
+    "full_current_inventory": false,
+    "device_child_owner": null,
+    "dl_qa_11_live_target_pass": false
+  },
+  "focused_validation": "GATES.json and validate.py:62 frames/6 matrices/40 instances/11 rejected falsifications;three archived harness parser/inference/analyzer gates pass",
+  "source_head_ci": {
+    "revision": "e97a6db8ce823a6730b08318d463469d16d9a472",
+    "run": 37750314745,
+    "status": "in_progress",
+    "checked_at_utc": "2026-10-08T09:07:53.099252+00:00",
+    "url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/37750314745",
+    "claim": "No completed exact-head CI result claimed;publication/integration distinct."
+  }
+}
