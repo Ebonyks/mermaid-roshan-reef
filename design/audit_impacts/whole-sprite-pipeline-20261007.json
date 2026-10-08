@@ -166,6 +166,7 @@
     "assets_src/animation/whole_sprite_pipeline_20261007/raise_reservation.json",
     "assets_src/animation/whole_sprite_pipeline_20261007/references/approved_K0.png",
     "assets_src/animation/whole_sprite_pipeline_20261007/references/approved_K2.png",
+    "assets_src/animation/whole_sprite_pipeline_20261007/remote_verification.json",
     "assets_src/animation/whole_sprite_pipeline_20261007/repair_plan.json",
     "assets_src/animation/whole_sprite_pipeline_20261007/repair_plan_after_cap.json",
     "assets_src/animation/whole_sprite_pipeline_20261007/repair_plan_initial.json",
@@ -218,9 +219,14 @@
       "evidence": "verification/full_ci.log and machine_verification.json: exact Godot4.7.2-stable, exit0, all82 trusted probes completed; original baseline and tool snapshot hashes retained"
     },
     {
-      "command": "Published branch/remote artifact hashes and exact-head CI",
+      "command": "Published archive manifest and every required file verified through anonymous GitHub",
+      "result": "PASS",
+      "evidence": "assets_src/animation/whole_sprite_pipeline_20261007/remote_verification.json: exact9775dcb76946b18fd2c9ff629d190eb8af27a8cd,206/206 files, payload6cd451391580c0215458859f10b92b908a36712e6191d89e75bf7b3fa7ccd731; archive complete only"
+    },
+    {
+      "command": "Exact-head remote Probe Suite before dev integration",
       "result": "PENDING",
-      "evidence": "After local gates; dev integration only after green exact work-branch probes"
+      "evidence": "Tracked in the PR checks after receipt publication; this is the honest frozen pre-CI state, not a claim of remote green. Final CI/integration revision recorded in the PR."
     }
   ],
   "acceptance_gaps": "Reusable preparation/repair engine implemented,24 contract tests and actual one-layer native export pass. Native study and both generated keys remain rejected; normalized framing/alpha and missing joint/tracking/full-speed evidence block final guides. Local LTX runner remains a recipe reference, not generalized/executed here. Runtime/device/child/owner acceptance, findings and UNSATISFIED remain unchanged.",
