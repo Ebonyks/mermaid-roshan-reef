@@ -1,0 +1,294 @@
+{
+  "result": "FAIL",
+  "utc": "2026-10-08T02:37:56.537737+00:00",
+  "revision": "11017f669185da5de80a55abc0ec6ca87d885398",
+  "cause": "Anonymous remoteJOB_CARD byte verification failed: Git auto-normalized nativeCRLF text archive toLF. Runtimeimages/OGG/binarymasters unchanged. Source archive literal hashes must survive delivery.",
+  "source_roots": [
+    "assets_src/audio/astronaut_engineering_devices_20261007",
+    "assets_src/imagegen/astronaut_engineering_devices_20261007",
+    "assets_src/imagegen/astronaut_pipe_raster_repair_20261007"
+  ],
+  "mismatches": [
+    {
+      "path": "assets_src/audio/astronaut_engineering_devices_20261007/CUES.json",
+      "working_sha256": "81efd65024304bec9d4e5d583f880a10c1d3f1cc8a8225d2f9e9dd9dd211c95d",
+      "git_sha256": "c43a646170eb1408230e0a7498f8f6b300bf30f7cdd93fb2ae178a8501b222b8",
+      "working_bytes": 490,
+      "git_bytes": 473,
+      "only_crlf_normalization": true
+    },
+    {
+      "path": "assets_src/audio/astronaut_engineering_devices_20261007/VOICE_JOB_CARD.json",
+      "working_sha256": "c1a053cc68f4be7e83243dcde49d37f0804f13bed61988b68e9f3447c2336475",
+      "git_sha256": "bca5f6320eb4922c18d2c15bf3dbb4de765808f9c7ee545d5d69b57946269caa",
+      "working_bytes": 6322,
+      "git_bytes": 6200,
+      "only_crlf_normalization": true
+    },
+    {
+      "path": "assets_src/audio/astronaut_engineering_devices_20261007/astronaut_engineering_voice_master_v1.log",
+      "working_sha256": "06256f6392f25238bf9ad28da07f7e5a160dd6516919c52a73ab82a9fc7960d3",
+      "git_sha256": "5c456f886af5afa9c5b54e0560e03615326944138ffe30dd79acfb42cf02a824",
+      "working_bytes": 675,
+      "git_bytes": 665,
+      "only_crlf_normalization": true
+    },
+    {
+      "path": "assets_src/audio/astronaut_engineering_devices_20261007/astronaut_engineering_voice_master_v2.log",
+      "working_sha256": "7ea329583a7c83022b4ae35af241042049a52a93772f5b41b166713ae5d4e50c",
+      "git_sha256": "ee748d6cc80bc732d105df9fde9feb18dbf70c53d02331aef3f6e9218d89e780",
+      "working_bytes": 127,
+      "git_bytes": 125,
+      "only_crlf_normalization": true
+    },
+    {
+      "path": "assets_src/audio/astronaut_engineering_devices_20261007/astronaut_engineering_voice_selection.json",
+      "working_sha256": "ae2a5d9ca74b70f22dde18b4184db6707fde262940cb485ae7d796f82b1b02f2",
+      "git_sha256": "21388fc7255c76a16aaf7574859b6829f42d51dd4d7e8883cbebac92020ba59f",
+      "working_bytes": 89980,
+      "git_bytes": 86674,
+      "only_crlf_normalization": true
+    },
+    {
+      "path": "assets_src/audio/astronaut_engineering_devices_20261007/astronaut_engineering_voice_selection_cache.json",
+      "working_sha256": "3c204fd2bbcbc6325ba2b305dfab54d3ffe712aa7bb0635ee5b35be9efc80409",
+      "git_sha256": "b2417c6d4a42920626a7458e7efc342e7685bd211ee1079652388164a0673d7f",
+      "working_bytes": 5385,
+      "git_bytes": 5200,
+      "only_crlf_normalization": true
+    },
+    {
+      "path": "assets_src/audio/astronaut_engineering_devices_20261007/astronaut_engineering_voice_selection_provenance.json",
+      "working_sha256": "bc290f8384e17a113454bef303a5abdf42a43fccf337576dbe0f1278ddd2cd59",
+      "git_sha256": "3634898f6c141800545256b4d69d7f16b28b6922b2685763023f3a3a1f0ee178",
+      "working_bytes": 3567,
+      "git_bytes": 3464,
+      "only_crlf_normalization": true
+    },
+    {
+      "path": "assets_src/audio/astronaut_engineering_devices_20261007/astronaut_engineering_voice_selection_provenance_v2.json",
+      "working_sha256": "628bf0e8eb36e1562530e2ae56f45d95a3673e22cad7242174d037db25e32bd2",
+      "git_sha256": "2d59a225823fdec72b03e2866f1e3bf761699a71416a87cc79d06c98465e3a80",
+      "working_bytes": 3719,
+      "git_bytes": 3615,
+      "only_crlf_normalization": true
+    },
+    {
+      "path": "assets_src/audio/astronaut_engineering_devices_20261007/astronaut_engineering_voice_selection_v2.json",
+      "working_sha256": "dec2a9e6b9f1ae73cc5dd28464d7acf1ca42bb75e2bbdb8396b01233f6cdd68d",
+      "git_sha256": "799c109e20cca04ea5b4caed354755de1c0375f39e794719c84c93f13244d804",
+      "working_bytes": 12657,
+      "git_bytes": 12242,
+      "only_crlf_normalization": true
+    },
+    {
+      "path": "assets_src/audio/astronaut_engineering_devices_20261007/generation/attempt_1/run_provenance.json",
+      "working_sha256": "fca9856bb1fd30e27f8e9b0579cc8295f70fcfe3ec1c1fb759e1eed768e791a6",
+      "git_sha256": "79ad3b091abc54b04ffa22be100adfa867b08ebe30262ef13fc8a86342e0d58d",
+      "working_bytes": 2090,
+      "git_bytes": 2052,
+      "only_crlf_normalization": true
+    },
+    {
+      "path": "assets_src/audio/astronaut_engineering_devices_20261007/generation/attempt_1/trial_manifest.json",
+      "working_sha256": "8590c14649093fe80f7aa1b0778973011ec7c4888ad01e90354ea0dc6d63eef8",
+      "git_sha256": "76404761473c288f8e73b6655bfdb268c38589c820274f7837c6c9026ab389b6",
+      "working_bytes": 7035,
+      "git_bytes": 6941,
+      "only_crlf_normalization": true
+    },
+    {
+      "path": "assets_src/audio/astronaut_engineering_devices_20261007/generation/attempt_3/run_provenance.json",
+      "working_sha256": "4e681c4c94cbadc844e0a79526755a27d0223899b087981802ea03697f2b216e",
+      "git_sha256": "4c1e24a60ffd72885761b72d5e0b55f3698051865890a8179da45ba5d9efa2cf",
+      "working_bytes": 2090,
+      "git_bytes": 2052,
+      "only_crlf_normalization": true
+    },
+    {
+      "path": "assets_src/audio/astronaut_engineering_devices_20261007/generation/attempt_3/trial_manifest.json",
+      "working_sha256": "c84d93c41bf2867164bd7b7845206458d09afe646fa1fc90a8187769ba3d8816",
+      "git_sha256": "ef5db2c1603ce23187f69d5d2243d4e37b657d4fc03a07ea70722377d14c068b",
+      "working_bytes": 2066,
+      "git_bytes": 2041,
+      "only_crlf_normalization": true
+    },
+    {
+      "path": "assets_src/audio/astronaut_engineering_devices_20261007/make_parler_voice_trials.py.txt",
+      "working_sha256": "9e5aefb0fce2dbce6e3c08e2d9f06c178cefbeabdbdc27128940a7da082c9353",
+      "git_sha256": "5c0f95ae90d4ce451489b44fc4025db91fa2d7b22ba711bef7ee9016897db073",
+      "working_bytes": 22003,
+      "git_bytes": 21521,
+      "only_crlf_normalization": true
+    },
+    {
+      "path": "assets_src/audio/astronaut_engineering_devices_20261007/master_filler_voices.py.txt",
+      "working_sha256": "c4ca04d8c2b7db6b6ed80491dd350781c14043da23b155ba699b77ced19b043e",
+      "git_sha256": "15f09d11478d2d04cb9bc79791f7d5ae8202269ecf38a264749c1d2e8adc5f66",
+      "working_bytes": 50723,
+      "git_bytes": 49766,
+      "only_crlf_normalization": true
+    },
+    {
+      "path": "assets_src/audio/astronaut_engineering_devices_20261007/select_filler_voices.py.txt",
+      "working_sha256": "746d8af84f659f2de29fe3cdf9d797f1fa000434570342ce9d00ea5fe77437ab",
+      "git_sha256": "9d3f1c82b163c7bcd3b0b069be25747fc0fd223b9c71e1cecce60a2567e499c0",
+      "working_bytes": 24665,
+      "git_bytes": 24144,
+      "only_crlf_normalization": true
+    },
+    {
+      "path": "assets_src/imagegen/astronaut_engineering_devices_20261007/GEAR_FIT_TURN_ACTION_V1.json",
+      "working_sha256": "cc0c8211c6365281a9d50207eb8d3095a3d4b141cd32b6f03467470bdb787413",
+      "git_sha256": "9fd11a597afbeb25fb39ed6b0c0ffef49226b477b4966f848f508d8515fb19c1",
+      "working_bytes": 3888,
+      "git_bytes": 3835,
+      "only_crlf_normalization": true
+    },
+    {
+      "path": "assets_src/imagegen/astronaut_engineering_devices_20261007/JOB_CARD.json",
+      "working_sha256": "4e15813bafd3ca3627e010d2a5befa7cb69713879e633a15dea323e690da8f82",
+      "git_sha256": "aef9a9cf97574b21e31abc5a5078b5125995b2be5a18f98b2601d7658d4d5d8b",
+      "working_bytes": 6791,
+      "git_bytes": 6682,
+      "only_crlf_normalization": true
+    },
+    {
+      "path": "assets_src/imagegen/astronaut_engineering_devices_20261007/PIPE_RADIOACTIVE_FLOW_ACTION_V1.json",
+      "working_sha256": "d26433be7832a7a512db851523b963bac1fea45db587407a812652bc0599b597",
+      "git_sha256": "8465bf98fed881fae2dda833e3b47357777b75d63eeab43b5641fcc7a611aa86",
+      "working_bytes": 4199,
+      "git_bytes": 4139,
+      "only_crlf_normalization": true
+    },
+    {
+      "path": "assets_src/imagegen/astronaut_engineering_devices_20261007/PRESSURE_TUNE_ACTION_V1.json",
+      "working_sha256": "d2bb4ec326b4fc60593fb3a8af722a3bc0d534437d19d12467bb0805c4c04d1a",
+      "git_sha256": "41b247203cf33da1feb828487f69aa66b5621bb154fb2c7cd0d13dc11f3b3c92",
+      "working_bytes": 3909,
+      "git_bytes": 3856,
+      "only_crlf_normalization": true
+    },
+    {
+      "path": "assets_src/imagegen/astronaut_engineering_devices_20261007/export_assets.lua",
+      "working_sha256": "09989acf487858c487b18cdfaf2ab06f8372eb5cfaed76452a5aad8658571f45",
+      "git_sha256": "f05e120ec28a1ad617617aac52dc4bf62f7fc1780336b478fb72cb9a58bbfe4e",
+      "working_bytes": 910,
+      "git_bytes": 896,
+      "only_crlf_normalization": true
+    },
+    {
+      "path": "assets_src/imagegen/astronaut_engineering_devices_20261007/export_gear.lua",
+      "working_sha256": "7909cec93599a030cfb856f5daeeb2b17e43c8824f34b281a641f0956b453ccf",
+      "git_sha256": "ba4563c20344105c23f141f276b29be59f02dfa2a6ef1b902a7ec493ba7b65c5",
+      "working_bytes": 1309,
+      "git_bytes": 1286,
+      "only_crlf_normalization": true
+    },
+    {
+      "path": "assets_src/imagegen/astronaut_pipe_raster_repair_20261007/ALPHA_DIAGNOSTIC_COVERAGE_RECEIPT.json",
+      "working_sha256": "4479a5099359410e0abf6803448dde69d9b12f4415f5bc527b108cd6e0a310ec",
+      "git_sha256": "2d6cffce1f4ca255963ef44ea5042462c9761d9aa746e69c7173743e5770772c",
+      "working_bytes": 719,
+      "git_bytes": 701,
+      "only_crlf_normalization": true
+    },
+    {
+      "path": "assets_src/imagegen/astronaut_pipe_raster_repair_20261007/ALPHA_DIAGNOSTIC_PLAN.json",
+      "working_sha256": "97307366b0a832cb347bee559cfee39494af5f6ec3fc01e4d0d18aae17b6ca60",
+      "git_sha256": "861e586ad75e1e2d3cfd775a547da15eb6b962a7220111068e781e3ec70953c5",
+      "working_bytes": 940,
+      "git_bytes": 926,
+      "only_crlf_normalization": true
+    },
+    {
+      "path": "assets_src/imagegen/astronaut_pipe_raster_repair_20261007/ALPHA_DIAGNOSTIC_REVIEW.json",
+      "working_sha256": "f54f9bf90af4e0074404359d9abbaed66f1f28fcb740ca358b9368b7e35d512e",
+      "git_sha256": "34ea211a41e60decf734072395acb608c7c2f64edf82bf3fd6b718dc76877839",
+      "working_bytes": 1782,
+      "git_bytes": 1744,
+      "only_crlf_normalization": true
+    },
+    {
+      "path": "assets_src/imagegen/astronaut_pipe_raster_repair_20261007/PLAN.json",
+      "working_sha256": "47fe8adbf527c8e6fcaf587176829bfe07fe712d6fc99e6eae6176ae6635fde9",
+      "git_sha256": "ac392b1425aa54c2c20f0c364347ab79debc968556fe5c876ffc06bd937139c9",
+      "working_bytes": 5710,
+      "git_bytes": 5629,
+      "only_crlf_normalization": true
+    },
+    {
+      "path": "assets_src/imagegen/astronaut_pipe_raster_repair_20261007/PROMPT.txt",
+      "working_sha256": "a4061fc60dcac8012061a9e90520eb398723f14a9472fc35147f2763f2f2a5a7",
+      "git_sha256": "290aaec3903af3895c6a9f8fc5cb6df4910462e35a80bf170d5676a7b0da65ee",
+      "working_bytes": 1537,
+      "git_bytes": 1536,
+      "only_crlf_normalization": true
+    },
+    {
+      "path": "assets_src/imagegen/astronaut_pipe_raster_repair_20261007/RASTER_SOURCE_FINAL_GATES_LOG.txt",
+      "working_sha256": "65262ef24a389829ed3926f5e7d6218d4adc2beec609de0a3fb784d3ebfeb02c",
+      "git_sha256": "ef8a05abe4bbafdc958fb113589c80a1170e3b561ad9f79086ff11449ed2420e",
+      "working_bytes": 593,
+      "git_bytes": 587,
+      "only_crlf_normalization": true
+    },
+    {
+      "path": "assets_src/imagegen/astronaut_pipe_raster_repair_20261007/RASTER_SOURCE_FINAL_GATES_RECEIPT.json",
+      "working_sha256": "59dd2c129d779a47429c5f513cc18c9e1c56e85a90c46addd625cb408f9390b8",
+      "git_sha256": "91a53e5ff5e7ae62ab65e49b6d51e758fe16463be495d633eec10e20d36dfe9d",
+      "working_bytes": 2633,
+      "git_bytes": 2569,
+      "only_crlf_normalization": true
+    },
+    {
+      "path": "assets_src/imagegen/astronaut_pipe_raster_repair_20261007/RESOURCE_PREFLIGHT.json",
+      "working_sha256": "03ba3efa05d811b77e70f76bd980c6ea81d00cb1546f2ea862879de5cc7a6421",
+      "git_sha256": "48ce9e8cd64d73ce9975792cadf92d94a5edc648366237ae9d4b99bdf40109a1",
+      "working_bytes": 420,
+      "git_bytes": 410,
+      "only_crlf_normalization": true
+    },
+    {
+      "path": "assets_src/imagegen/astronaut_pipe_raster_repair_20261007/STRAIGHT_CLEANUP_V1_PLAN.json",
+      "working_sha256": "3f685ddada75563dd15cdeba2e5f19ead0f62458112a5ee911c75eae7701fa8f",
+      "git_sha256": "b49ae212adab906bcdf0cec8ae8798ae9f8221399f878b5be984b580b3ca54fd",
+      "working_bytes": 1353,
+      "git_bytes": 1326,
+      "only_crlf_normalization": true
+    },
+    {
+      "path": "assets_src/imagegen/astronaut_pipe_raster_repair_20261007/STRAIGHT_CLEANUP_V1_VERIFY.json",
+      "working_sha256": "9d57ba649889a0968f9a4b81fc581bf668166ef62c31664338e6f87922f130d6",
+      "git_sha256": "cc469e8ddf3ef7717181e0677a33f9ec88eab45716af390ceed70a1eb7eaf787",
+      "working_bytes": 2827,
+      "git_bytes": 2747,
+      "only_crlf_normalization": true
+    },
+    {
+      "path": "assets_src/imagegen/astronaut_pipe_raster_repair_20261007/TAKE_01_RECEIPT.json",
+      "working_sha256": "5ff8af61c1b1a8510b9b1d5e611fdd54c69bb34bdd6d04a3b5ef2b543aa6916b",
+      "git_sha256": "82b749ae99a712d209172ba870de8ef1f30c894027d72eb68c456e237c4e3af1",
+      "working_bytes": 2639,
+      "git_bytes": 2541,
+      "only_crlf_normalization": true
+    },
+    {
+      "path": "assets_src/imagegen/astronaut_pipe_raster_repair_20261007/cleanup_straight.lua",
+      "working_sha256": "a86d9b07a1745219912418592f26f38c46d801bc521bb66c8fb92750fa69237b",
+      "git_sha256": "53c8c1c2a8f8ffb431ff6fecc8510c655962320258add796fd45e1b074655396",
+      "working_bytes": 1695,
+      "git_bytes": 1694,
+      "only_crlf_normalization": true
+    },
+    {
+      "path": "assets_src/imagegen/astronaut_pipe_raster_repair_20261007/diagnose_aseprite_alpha.lua",
+      "working_sha256": "c84138a2e508b7a2cbf6e87c837a98bc7748283a9e97cb13bc79be72619b9929",
+      "git_sha256": "f4bb92b6479b0eba4b7f5b0ba00689f4041b523c68bd17be48907953cc2947eb",
+      "working_bytes": 1071,
+      "git_bytes": 1070,
+      "only_crlf_normalization": true
+    }
+  ],
+  "correction": "Declare exact owned sourcearchive roots -text, re-add literal originals. Preserve this failed remote revision and receipt; no source generation, artwork or code edits."
+}

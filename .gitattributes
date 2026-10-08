@@ -53,3 +53,8 @@ audit/astronaut_clearance_20261006/** -text whitespace=-blank-at-eol,-blank-at-e
 
 # Astronaut walkthrough binds literal source/capture/receipt bytes.
 audit/astronaut_walkthrough_20261007/** -text whitespace=-blank-at-eol,-blank-at-eof,cr-at-eol
+
+# Astronaut native generation/source manifests bind literal archive bytes.
+assets_src/audio/astronaut_engineering_devices_20261007/** -text whitespace=-blank-at-eol,-blank-at-eof,cr-at-eol
+assets_src/imagegen/astronaut_engineering_devices_20261007/** -text whitespace=-blank-at-eol,-blank-at-eof,cr-at-eol
+assets_src/imagegen/astronaut_pipe_raster_repair_20261007/** -text whitespace=-blank-at-eol,-blank-at-eof,cr-at-eol
