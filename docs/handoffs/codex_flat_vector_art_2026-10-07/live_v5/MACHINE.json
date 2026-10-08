@@ -1,0 +1,662 @@
+{
+  "schema": "reef.flat_vector.companion_controls_machine.v1",
+  "runtime_git_revision": "6c2f3fb6b47ac247521cb4bd029d258c4f060693",
+  "runtime_baseline": "92c9fe70319ef46bfaa8f61348a6f51512141ec3",
+  "source_closure_files": 6427,
+  "capture_method": "Native same-process Windows Mobile viewport; isolated diagnostic profiles; synthetic actual GUI pointer events and explicit bounded route/save-state seeds",
+  "gpu": "NVIDIA RTX3060Ti desktop",
+  "engine": "4.7.2-stable official.ed1daf0bf",
+  "quality": "speedy",
+  "aspects": {
+    "1280x720": 125,
+    "1600x720": 125
+  },
+  "case_matrix": {
+    "companion": 52,
+    "logo": 60,
+    "attack": 13
+  },
+  "sources": [
+    {
+      "path": "assets/castle/day_one_art_studio/magic_cleaning_brush.png",
+      "revision": "6c2f3fb6b47ac247521cb4bd029d258c4f060693",
+      "git_blob_sha256": "17e76b7f758f31a9b148167ff103a68bdf9543e7aac5794314a97bbd91066ef3",
+      "worktree_sha256": "17e76b7f758f31a9b148167ff103a68bdf9543e7aac5794314a97bbd91066ef3"
+    },
+    {
+      "path": "assets/castle/dirty_cleanup_2d/critters/dust_bunnies/dust_bunny_hop.png",
+      "revision": "6c2f3fb6b47ac247521cb4bd029d258c4f060693",
+      "git_blob_sha256": "677cda8c5de1d3aaf1d8960b089d48fab27106429bc221b4c26c14775b382752",
+      "worktree_sha256": "677cda8c5de1d3aaf1d8960b089d48fab27106429bc221b4c26c14775b382752"
+    },
+    {
+      "path": "assets/characters/companions/baby_eagle.png",
+      "revision": "6c2f3fb6b47ac247521cb4bd029d258c4f060693",
+      "git_blob_sha256": "7d6f10afbd8cd157436a05eaadab7eb4cc07c3a3d242ad2291111fc6b4f3ed2f",
+      "worktree_sha256": "7d6f10afbd8cd157436a05eaadab7eb4cc07c3a3d242ad2291111fc6b4f3ed2f"
+    },
+    {
+      "path": "assets/characters/roshan_25d/roshan_directional.png",
+      "revision": "6c2f3fb6b47ac247521cb4bd029d258c4f060693",
+      "git_blob_sha256": "2bcc6212dddaddedb5823ba095caff1cbecdb762d5bbdc76726d3d5b0e3ee85a",
+      "worktree_sha256": "2bcc6212dddaddedb5823ba095caff1cbecdb762d5bbdc76726d3d5b0e3ee85a"
+    },
+    {
+      "path": "assets/flats/castle/dream_house/family_portal_dining.png",
+      "revision": "6c2f3fb6b47ac247521cb4bd029d258c4f060693",
+      "git_blob_sha256": "45ac409e09db698811c7dc9dd16099525f78c61e4924333a586180981055d1cb",
+      "worktree_sha256": "45ac409e09db698811c7dc9dd16099525f78c61e4924333a586180981055d1cb"
+    },
+    {
+      "path": "assets/flats/castle/dream_house/family_portal_movie_lounge.png",
+      "revision": "6c2f3fb6b47ac247521cb4bd029d258c4f060693",
+      "git_blob_sha256": "325ef4a1fbf2f75fbf88e8d8e6b1235c21c113767e36a62545880e5ba1c8d12f",
+      "worktree_sha256": "325ef4a1fbf2f75fbf88e8d8e6b1235c21c113767e36a62545880e5ba1c8d12f"
+    },
+    {
+      "path": "assets/flats/castle/dream_house/family_portal_royal_bedroom.png",
+      "revision": "6c2f3fb6b47ac247521cb4bd029d258c4f060693",
+      "git_blob_sha256": "a9dd6f48a97cd2429362235b6c975c474ed4a1dce8eacc221cdb05436f62422a",
+      "worktree_sha256": "a9dd6f48a97cd2429362235b6c975c474ed4a1dce8eacc221cdb05436f62422a"
+    },
+    {
+      "path": "assets/flats/castle/dream_house/family_portal_sleepover_bedroom.png",
+      "revision": "6c2f3fb6b47ac247521cb4bd029d258c4f060693",
+      "git_blob_sha256": "02b25afe4f5eb18619a451d0273ac0fb0c4e1d35b4cda7051deb56cf80a8d7b2",
+      "worktree_sha256": "02b25afe4f5eb18619a451d0273ac0fb0c4e1d35b4cda7051deb56cf80a8d7b2"
+    },
+    {
+      "path": "assets/flats/castle/interactions_v2/craft_room_idea_board_sheet.png",
+      "revision": "6c2f3fb6b47ac247521cb4bd029d258c4f060693",
+      "git_blob_sha256": "a88d626f5d455c8850f195b7b8ccb0f9ac75680f860a219c297bd8206ab8da03",
+      "worktree_sha256": "a88d626f5d455c8850f195b7b8ccb0f9ac75680f860a219c297bd8206ab8da03"
+    },
+    {
+      "path": "assets/flats/castle/interactions_v2/craft_room_paint_table_sheet.png",
+      "revision": "6c2f3fb6b47ac247521cb4bd029d258c4f060693",
+      "git_blob_sha256": "2beb7dd4e5e731acfe0a402f45aef195ac2a886c6ec982eecdc2b16e9ea7ecba",
+      "worktree_sha256": "2beb7dd4e5e731acfe0a402f45aef195ac2a886c6ec982eecdc2b16e9ea7ecba"
+    },
+    {
+      "path": "assets/flats/castle/interactions_v2/craft_room_palette_sheet.png",
+      "revision": "6c2f3fb6b47ac247521cb4bd029d258c4f060693",
+      "git_blob_sha256": "c36ee3bb19840d9977961f6525f3d543a38bc599335a0ad82bfd11fb60850071",
+      "worktree_sha256": "c36ee3bb19840d9977961f6525f3d543a38bc599335a0ad82bfd11fb60850071"
+    },
+    {
+      "path": "assets/flats/castle/interactions_v2/craft_room_ribbon_rack_sheet.png",
+      "revision": "6c2f3fb6b47ac247521cb4bd029d258c4f060693",
+      "git_blob_sha256": "3867c9ba410fa68d2688f9eae9c789a832b49c1455ff94b801947bf5f43b8e01",
+      "worktree_sha256": "3867c9ba410fa68d2688f9eae9c789a832b49c1455ff94b801947bf5f43b8e01"
+    },
+    {
+      "path": "assets/flats/castle/interactions_v2/playroom_blocks_sheet.png",
+      "revision": "6c2f3fb6b47ac247521cb4bd029d258c4f060693",
+      "git_blob_sha256": "434b2a37678a51d319dc0ecfc9dcb2e5aee0a2753230004796716fa32e595106",
+      "worktree_sha256": "434b2a37678a51d319dc0ecfc9dcb2e5aee0a2753230004796716fa32e595106"
+    },
+    {
+      "path": "assets/flats/castle/interactions_v2/playroom_play_tent_sheet.png",
+      "revision": "6c2f3fb6b47ac247521cb4bd029d258c4f060693",
+      "git_blob_sha256": "75c3135758dc001d330dc93819a17c7d670d32739c555eb84e7ed53904f6706a",
+      "worktree_sha256": "75c3135758dc001d330dc93819a17c7d670d32739c555eb84e7ed53904f6706a"
+    },
+    {
+      "path": "assets/flats/castle/interactions_v2/playroom_stacking_toy_sheet.png",
+      "revision": "6c2f3fb6b47ac247521cb4bd029d258c4f060693",
+      "git_blob_sha256": "30acc6f771d26039045310cac40dad36ccf660b9b3110cfaa1238f01d5a49e85",
+      "worktree_sha256": "30acc6f771d26039045310cac40dad36ccf660b9b3110cfaa1238f01d5a49e85"
+    },
+    {
+      "path": "assets/flats/castle/interactions_v2/playroom_stuffie_nook_sheet.png",
+      "revision": "6c2f3fb6b47ac247521cb4bd029d258c4f060693",
+      "git_blob_sha256": "bc8dde1a1cffcfd061f01f83d9c2549f3f7bca7d978e4df18ee651a8bee94574",
+      "worktree_sha256": "bc8dde1a1cffcfd061f01f83d9c2549f3f7bca7d978e4df18ee651a8bee94574"
+    },
+    {
+      "path": "assets/flats/castle/interactions_v4/background_tiles/room_craft_room_background_r0_c0.png",
+      "revision": "6c2f3fb6b47ac247521cb4bd029d258c4f060693",
+      "git_blob_sha256": "a7bac7f1207c7fb68f706a6f1702215da771f30e9752e72b33d708de7d4e97d3",
+      "worktree_sha256": "a7bac7f1207c7fb68f706a6f1702215da771f30e9752e72b33d708de7d4e97d3"
+    },
+    {
+      "path": "assets/flats/castle/interactions_v4/background_tiles/room_craft_room_background_r0_c1.png",
+      "revision": "6c2f3fb6b47ac247521cb4bd029d258c4f060693",
+      "git_blob_sha256": "beb2abb1c5b24a89d13ad2318a2040e28fc624ac14404f3cd85cc1ea4069519d",
+      "worktree_sha256": "beb2abb1c5b24a89d13ad2318a2040e28fc624ac14404f3cd85cc1ea4069519d"
+    },
+    {
+      "path": "assets/flats/castle/interactions_v4/background_tiles/room_craft_room_background_r0_c2.png",
+      "revision": "6c2f3fb6b47ac247521cb4bd029d258c4f060693",
+      "git_blob_sha256": "8b12029b8dd7f1bd7be4b7f5b33dee7fe7aed240aea155474d26a826f9e1772e",
+      "worktree_sha256": "8b12029b8dd7f1bd7be4b7f5b33dee7fe7aed240aea155474d26a826f9e1772e"
+    },
+    {
+      "path": "assets/flats/castle/interactions_v4/background_tiles/room_craft_room_background_r0_c3.png",
+      "revision": "6c2f3fb6b47ac247521cb4bd029d258c4f060693",
+      "git_blob_sha256": "3d263e7fdaf731fd6da217361ebfcc10a920f1e8caedd9471f3ccee909f3bfbe",
+      "worktree_sha256": "3d263e7fdaf731fd6da217361ebfcc10a920f1e8caedd9471f3ccee909f3bfbe"
+    },
+    {
+      "path": "assets/flats/castle/interactions_v4/background_tiles/room_craft_room_background_r1_c0.png",
+      "revision": "6c2f3fb6b47ac247521cb4bd029d258c4f060693",
+      "git_blob_sha256": "7aedf83c6bba58e085744bc3e11cb0aa2987f93f3b34a3db33aa9af295daa255",
+      "worktree_sha256": "7aedf83c6bba58e085744bc3e11cb0aa2987f93f3b34a3db33aa9af295daa255"
+    },
+    {
+      "path": "assets/flats/castle/interactions_v4/background_tiles/room_craft_room_background_r1_c1.png",
+      "revision": "6c2f3fb6b47ac247521cb4bd029d258c4f060693",
+      "git_blob_sha256": "41adc48e454d86813de0ff67ea7d724753d07aee5eaea92161cd623eaa3ed9c8",
+      "worktree_sha256": "41adc48e454d86813de0ff67ea7d724753d07aee5eaea92161cd623eaa3ed9c8"
+    },
+    {
+      "path": "assets/flats/castle/interactions_v4/background_tiles/room_craft_room_background_r1_c2.png",
+      "revision": "6c2f3fb6b47ac247521cb4bd029d258c4f060693",
+      "git_blob_sha256": "72bf313d31004123fcf029828e0ae7aa4f60973fb5760e314e59195fadff92fc",
+      "worktree_sha256": "72bf313d31004123fcf029828e0ae7aa4f60973fb5760e314e59195fadff92fc"
+    },
+    {
+      "path": "assets/flats/castle/interactions_v4/background_tiles/room_craft_room_background_r1_c3.png",
+      "revision": "6c2f3fb6b47ac247521cb4bd029d258c4f060693",
+      "git_blob_sha256": "3aad0f5d2e0f2a33d6755e7aff253d4123a1f4a4b9dd6899e1dfb63eade551d7",
+      "worktree_sha256": "3aad0f5d2e0f2a33d6755e7aff253d4123a1f4a4b9dd6899e1dfb63eade551d7"
+    },
+    {
+      "path": "assets/flats/castle/interactions_v4/background_tiles/room_playroom_background_r0_c0.png",
+      "revision": "6c2f3fb6b47ac247521cb4bd029d258c4f060693",
+      "git_blob_sha256": "096488900a40cbf648a1d14bc47a0c12b7fed6581b59f3ae64438df68083281d",
+      "worktree_sha256": "096488900a40cbf648a1d14bc47a0c12b7fed6581b59f3ae64438df68083281d"
+    },
+    {
+      "path": "assets/flats/castle/interactions_v4/background_tiles/room_playroom_background_r0_c1.png",
+      "revision": "6c2f3fb6b47ac247521cb4bd029d258c4f060693",
+      "git_blob_sha256": "6f4e4aba1b1088202e029c7789dd72ae3839973ad03188baba70bcf4dd04edee",
+      "worktree_sha256": "6f4e4aba1b1088202e029c7789dd72ae3839973ad03188baba70bcf4dd04edee"
+    },
+    {
+      "path": "assets/flats/castle/interactions_v4/background_tiles/room_playroom_background_r0_c2.png",
+      "revision": "6c2f3fb6b47ac247521cb4bd029d258c4f060693",
+      "git_blob_sha256": "6a53730b073147c28cf9d0592e8a671df9660a167e08e3522f8870caf585e05a",
+      "worktree_sha256": "6a53730b073147c28cf9d0592e8a671df9660a167e08e3522f8870caf585e05a"
+    },
+    {
+      "path": "assets/flats/castle/interactions_v4/background_tiles/room_playroom_background_r0_c3.png",
+      "revision": "6c2f3fb6b47ac247521cb4bd029d258c4f060693",
+      "git_blob_sha256": "843edda8aaa1167aa7f38b9ff0a7b3ce073e44137e8191f966b1dfa2b928268f",
+      "worktree_sha256": "843edda8aaa1167aa7f38b9ff0a7b3ce073e44137e8191f966b1dfa2b928268f"
+    },
+    {
+      "path": "assets/flats/castle/interactions_v4/background_tiles/room_playroom_background_r1_c0.png",
+      "revision": "6c2f3fb6b47ac247521cb4bd029d258c4f060693",
+      "git_blob_sha256": "e5d5044e76a9f542ad27229baa135862e4daf86b628b50bdee3a81eb85b4bca7",
+      "worktree_sha256": "e5d5044e76a9f542ad27229baa135862e4daf86b628b50bdee3a81eb85b4bca7"
+    },
+    {
+      "path": "assets/flats/castle/interactions_v4/background_tiles/room_playroom_background_r1_c1.png",
+      "revision": "6c2f3fb6b47ac247521cb4bd029d258c4f060693",
+      "git_blob_sha256": "b03d79f00f8bf9848e8d42edfc6a6fbfa37e1ac6e8cebb0df5653c8611661f2a",
+      "worktree_sha256": "b03d79f00f8bf9848e8d42edfc6a6fbfa37e1ac6e8cebb0df5653c8611661f2a"
+    },
+    {
+      "path": "assets/flats/castle/interactions_v4/background_tiles/room_playroom_background_r1_c2.png",
+      "revision": "6c2f3fb6b47ac247521cb4bd029d258c4f060693",
+      "git_blob_sha256": "b971fbb842904377f5fdd3e91ea48284ba4ec563497d77656719e9e963e5ecdd",
+      "worktree_sha256": "b971fbb842904377f5fdd3e91ea48284ba4ec563497d77656719e9e963e5ecdd"
+    },
+    {
+      "path": "assets/flats/castle/interactions_v4/background_tiles/room_playroom_background_r1_c3.png",
+      "revision": "6c2f3fb6b47ac247521cb4bd029d258c4f060693",
+      "git_blob_sha256": "eb67c27e7d4dc2d0d304390cf83b58aa1be2347c4e466beb35eadd27ae82240f",
+      "worktree_sha256": "eb67c27e7d4dc2d0d304390cf83b58aa1be2347c4e466beb35eadd27ae82240f"
+    },
+    {
+      "path": "assets/flats/castle/interactions_v4/sheets/craft_room_supply_cupboard_left_sheet.png",
+      "revision": "6c2f3fb6b47ac247521cb4bd029d258c4f060693",
+      "git_blob_sha256": "454488a5a9e2fd67a98ef83d4392356441088a9b8a6de18ef8541206fb764e4a",
+      "worktree_sha256": "454488a5a9e2fd67a98ef83d4392356441088a9b8a6de18ef8541206fb764e4a"
+    },
+    {
+      "path": "assets/flats/castle/interactions_v4/sheets/playroom_shelf_sailboat_sheet.png",
+      "revision": "6c2f3fb6b47ac247521cb4bd029d258c4f060693",
+      "git_blob_sha256": "759a5da53c1dc3ed494951a37803616e9ac2986e6d040486abc7873551575975",
+      "worktree_sha256": "759a5da53c1dc3ed494951a37803616e9ac2986e6d040486abc7873551575975"
+    },
+    {
+      "path": "assets/flats/castle/logo_studio_v2/castle_banner_gold.png",
+      "revision": "6c2f3fb6b47ac247521cb4bd029d258c4f060693",
+      "git_blob_sha256": "644b838b0df14145ab936c96cf4a05f3ed98d4817a4229e76e4a863d8fe36c68",
+      "worktree_sha256": "644b838b0df14145ab936c96cf4a05f3ed98d4817a4229e76e4a863d8fe36c68"
+    },
+    {
+      "path": "assets/flats/castle/logo_studio_v2/castle_banner_mint.png",
+      "revision": "6c2f3fb6b47ac247521cb4bd029d258c4f060693",
+      "git_blob_sha256": "08ee5c09cf39d04d5a282d58909ac0333e8881b99751e8dda32cb5328e17fe33",
+      "worktree_sha256": "08ee5c09cf39d04d5a282d58909ac0333e8881b99751e8dda32cb5328e17fe33"
+    },
+    {
+      "path": "assets/flats/castle/logo_studio_v2/castle_banner_motif_butterfly.png",
+      "revision": "6c2f3fb6b47ac247521cb4bd029d258c4f060693",
+      "git_blob_sha256": "6756a8393fd9a388b959e662dae5289a34f9f278480e74db07d10cc9106f07be",
+      "worktree_sha256": "6756a8393fd9a388b959e662dae5289a34f9f278480e74db07d10cc9106f07be"
+    },
+    {
+      "path": "assets/flats/castle/logo_studio_v2/castle_banner_motif_crown.png",
+      "revision": "6c2f3fb6b47ac247521cb4bd029d258c4f060693",
+      "git_blob_sha256": "ac6c2f1a9f02acd50783cfc0cdc96d3c093c7affe6c76a754af6f7a4a318939c",
+      "worktree_sha256": "ac6c2f1a9f02acd50783cfc0cdc96d3c093c7affe6c76a754af6f7a4a318939c"
+    },
+    {
+      "path": "assets/flats/castle/logo_studio_v2/castle_banner_motif_dog.png",
+      "revision": "6c2f3fb6b47ac247521cb4bd029d258c4f060693",
+      "git_blob_sha256": "e2091812257c9586729d08d0e0db1f2a7a378472d52ced6ae3905be7cfee4d5b",
+      "worktree_sha256": "e2091812257c9586729d08d0e0db1f2a7a378472d52ced6ae3905be7cfee4d5b"
+    },
+    {
+      "path": "assets/flats/castle/logo_studio_v2/castle_banner_motif_heart.png",
+      "revision": "6c2f3fb6b47ac247521cb4bd029d258c4f060693",
+      "git_blob_sha256": "8815278d13b8809343e0f3bad18cbde81a0cd1fceb395f2c81c769cc473ef744",
+      "worktree_sha256": "8815278d13b8809343e0f3bad18cbde81a0cd1fceb395f2c81c769cc473ef744"
+    },
+    {
+      "path": "assets/flats/castle/logo_studio_v2/castle_banner_motif_kitty.png",
+      "revision": "6c2f3fb6b47ac247521cb4bd029d258c4f060693",
+      "git_blob_sha256": "f09166bb850830aa0e57f344de1a4258a67a1f0a1f93990ba03c7670b9aba7ad",
+      "worktree_sha256": "f09166bb850830aa0e57f344de1a4258a67a1f0a1f93990ba03c7670b9aba7ad"
+    },
+    {
+      "path": "assets/flats/castle/logo_studio_v2/castle_banner_motif_rainbow.png",
+      "revision": "6c2f3fb6b47ac247521cb4bd029d258c4f060693",
+      "git_blob_sha256": "eb9a0985d88ee51c6bca2fa3bdb29b5db0e45bbb9d75b0c430d3936c85244409",
+      "worktree_sha256": "eb9a0985d88ee51c6bca2fa3bdb29b5db0e45bbb9d75b0c430d3936c85244409"
+    },
+    {
+      "path": "assets/flats/castle/logo_studio_v2/castle_banner_motif_shell.png",
+      "revision": "6c2f3fb6b47ac247521cb4bd029d258c4f060693",
+      "git_blob_sha256": "6460cd110e925cdea7006ed7adf85d34cc1ace442018cbe56d3d340cc44a2209",
+      "worktree_sha256": "6460cd110e925cdea7006ed7adf85d34cc1ace442018cbe56d3d340cc44a2209"
+    },
+    {
+      "path": "assets/flats/castle/logo_studio_v2/castle_banner_motif_star.png",
+      "revision": "6c2f3fb6b47ac247521cb4bd029d258c4f060693",
+      "git_blob_sha256": "940afd1160f2596773b5177326d8ba5c12eca12d88388eb5ddc7124245c69f7c",
+      "worktree_sha256": "940afd1160f2596773b5177326d8ba5c12eca12d88388eb5ddc7124245c69f7c"
+    },
+    {
+      "path": "assets/flats/castle/logo_studio_v2/castle_banner_ocean.png",
+      "revision": "6c2f3fb6b47ac247521cb4bd029d258c4f060693",
+      "git_blob_sha256": "de95d976b0fff81db1acbd543e25e7da91bc0211c966a290110febea89f715d2",
+      "worktree_sha256": "de95d976b0fff81db1acbd543e25e7da91bc0211c966a290110febea89f715d2"
+    },
+    {
+      "path": "assets/flats/castle/logo_studio_v2/castle_banner_pink.png",
+      "revision": "6c2f3fb6b47ac247521cb4bd029d258c4f060693",
+      "git_blob_sha256": "026dacdcb1c0f002c241d9f99d9fe1d4510717feadac18736db6f687f549bcc9",
+      "worktree_sha256": "026dacdcb1c0f002c241d9f99d9fe1d4510717feadac18736db6f687f549bcc9"
+    },
+    {
+      "path": "assets/flats/castle/logo_studio_v2/castle_banner_purple.png",
+      "revision": "6c2f3fb6b47ac247521cb4bd029d258c4f060693",
+      "git_blob_sha256": "92862a337a1932c62e8663bcf6c624d09a64ac490d1065b3e6d3783344462913",
+      "worktree_sha256": "92862a337a1932c62e8663bcf6c624d09a64ac490d1065b3e6d3783344462913"
+    },
+    {
+      "path": "assets/flats/castle/logo_studio_v2/castle_banner_rainbow.png",
+      "revision": "6c2f3fb6b47ac247521cb4bd029d258c4f060693",
+      "git_blob_sha256": "1cbf785bded294e8e4f5814f5b85fb2a455e07c4fe16f8826b00545d095a6731",
+      "worktree_sha256": "1cbf785bded294e8e4f5814f5b85fb2a455e07c4fe16f8826b00545d095a6731"
+    },
+    {
+      "path": "assets/flats/castle/rooms/background_tiles/room_family_gallery_background_r0_c0.png",
+      "revision": "6c2f3fb6b47ac247521cb4bd029d258c4f060693",
+      "git_blob_sha256": "79a218b4fe470b5b3228cfd1899734b3e1730dbd8f75ad783ea165aa7b9047dc",
+      "worktree_sha256": "79a218b4fe470b5b3228cfd1899734b3e1730dbd8f75ad783ea165aa7b9047dc"
+    },
+    {
+      "path": "assets/flats/castle/rooms/background_tiles/room_family_gallery_background_r0_c1.png",
+      "revision": "6c2f3fb6b47ac247521cb4bd029d258c4f060693",
+      "git_blob_sha256": "f9fecea95f04e79b18844aa3434892f89afc5975ee6788dd670ca50eba5bba32",
+      "worktree_sha256": "f9fecea95f04e79b18844aa3434892f89afc5975ee6788dd670ca50eba5bba32"
+    },
+    {
+      "path": "assets/flats/castle/rooms/background_tiles/room_family_gallery_background_r1_c0.png",
+      "revision": "6c2f3fb6b47ac247521cb4bd029d258c4f060693",
+      "git_blob_sha256": "717eb872ff8b1dfdd9bc4c7d66bcaea8fe6a3196bb18f41b0ecb4873ddf48130",
+      "worktree_sha256": "717eb872ff8b1dfdd9bc4c7d66bcaea8fe6a3196bb18f41b0ecb4873ddf48130"
+    },
+    {
+      "path": "assets/flats/castle/rooms/background_tiles/room_family_gallery_background_r1_c1.png",
+      "revision": "6c2f3fb6b47ac247521cb4bd029d258c4f060693",
+      "git_blob_sha256": "fe1c01762027565046065239c6e1a3ca7a714edadcbc04086d31e3ffabea9089",
+      "worktree_sha256": "fe1c01762027565046065239c6e1a3ca7a714edadcbc04086d31e3ffabea9089"
+    },
+    {
+      "path": "assets/flats/castle/rooms/room_actor_shadow.png",
+      "revision": "6c2f3fb6b47ac247521cb4bd029d258c4f060693",
+      "git_blob_sha256": "642aa3bdc6ef1be14febfd7855963da80071febd9ea7b69101261d6632ee3604",
+      "worktree_sha256": "642aa3bdc6ef1be14febfd7855963da80071febd9ea7b69101261d6632ee3604"
+    },
+    {
+      "path": "assets/flats/castle/rooms/room_craft_room_front_left.png",
+      "revision": "6c2f3fb6b47ac247521cb4bd029d258c4f060693",
+      "git_blob_sha256": "466d88d72a245fabe0ef6810796aca8eb7aba6c66cbac031eb2e5ddf5aa68d9a",
+      "worktree_sha256": "466d88d72a245fabe0ef6810796aca8eb7aba6c66cbac031eb2e5ddf5aa68d9a"
+    },
+    {
+      "path": "assets/flats/castle/rooms/room_craft_room_front_right.png",
+      "revision": "6c2f3fb6b47ac247521cb4bd029d258c4f060693",
+      "git_blob_sha256": "41167d28ce5a519e0aee05239f782accf8f4137cf0c002189e8d1456a6c17871",
+      "worktree_sha256": "41167d28ce5a519e0aee05239f782accf8f4137cf0c002189e8d1456a6c17871"
+    },
+    {
+      "path": "assets/flats/castle/rooms/room_playroom_front_left.png",
+      "revision": "6c2f3fb6b47ac247521cb4bd029d258c4f060693",
+      "git_blob_sha256": "19f1482c9607236468d1a2d33468839bf0f1a654462fce018d96b010f2892b5f",
+      "worktree_sha256": "19f1482c9607236468d1a2d33468839bf0f1a654462fce018d96b010f2892b5f"
+    },
+    {
+      "path": "assets/flats/castle/rooms/room_playroom_front_right.png",
+      "revision": "6c2f3fb6b47ac247521cb4bd029d258c4f060693",
+      "git_blob_sha256": "f16e7a2c02049c4b63de87b75fec7c5daa7d533d71a4a23e3acb89f07bd615e4",
+      "worktree_sha256": "f16e7a2c02049c4b63de87b75fec7c5daa7d533d71a4a23e3acb89f07bd615e4"
+    },
+    {
+      "path": "assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r0_c0.png",
+      "revision": "6c2f3fb6b47ac247521cb4bd029d258c4f060693",
+      "git_blob_sha256": "5addf12c775f697d89b5f7227485155616558c5c2c3c4b29accc89fd9a93fcdb",
+      "worktree_sha256": "5addf12c775f697d89b5f7227485155616558c5c2c3c4b29accc89fd9a93fcdb"
+    },
+    {
+      "path": "assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r0_c1.png",
+      "revision": "6c2f3fb6b47ac247521cb4bd029d258c4f060693",
+      "git_blob_sha256": "ae962d17088df75e6f3db9fd632a1c2f105d91a902996cd5ac5aba184f82fc1d",
+      "worktree_sha256": "ae962d17088df75e6f3db9fd632a1c2f105d91a902996cd5ac5aba184f82fc1d"
+    },
+    {
+      "path": "assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r0_c2.png",
+      "revision": "6c2f3fb6b47ac247521cb4bd029d258c4f060693",
+      "git_blob_sha256": "a5e0dc1e71031ade14059722885bf7905d88f3ea45e9b04e5994cb09ece88850",
+      "worktree_sha256": "a5e0dc1e71031ade14059722885bf7905d88f3ea45e9b04e5994cb09ece88850"
+    },
+    {
+      "path": "assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r0_c3.png",
+      "revision": "6c2f3fb6b47ac247521cb4bd029d258c4f060693",
+      "git_blob_sha256": "b423c7c320377e15a38d684d4cec4499c81fa9a31e20bdf4d7dbf051d63c1959",
+      "worktree_sha256": "b423c7c320377e15a38d684d4cec4499c81fa9a31e20bdf4d7dbf051d63c1959"
+    },
+    {
+      "path": "assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r0_c4.png",
+      "revision": "6c2f3fb6b47ac247521cb4bd029d258c4f060693",
+      "git_blob_sha256": "bb674934980b1b3e70dfe4e2fcb0f866e61f0ac6eefc3414b398a6da654f86ac",
+      "worktree_sha256": "bb674934980b1b3e70dfe4e2fcb0f866e61f0ac6eefc3414b398a6da654f86ac"
+    },
+    {
+      "path": "assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r0_c5.png",
+      "revision": "6c2f3fb6b47ac247521cb4bd029d258c4f060693",
+      "git_blob_sha256": "563cdab3a65bd22518350c441cffd6f0f1173ab51df7d70cf09c11b4c151035c",
+      "worktree_sha256": "563cdab3a65bd22518350c441cffd6f0f1173ab51df7d70cf09c11b4c151035c"
+    },
+    {
+      "path": "assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r1_c0.png",
+      "revision": "6c2f3fb6b47ac247521cb4bd029d258c4f060693",
+      "git_blob_sha256": "60b2ca6fb0ed517929a7dcdaa19cc9cf13a61cb27d7a7700c396383c85418a3a",
+      "worktree_sha256": "60b2ca6fb0ed517929a7dcdaa19cc9cf13a61cb27d7a7700c396383c85418a3a"
+    },
+    {
+      "path": "assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r1_c1.png",
+      "revision": "6c2f3fb6b47ac247521cb4bd029d258c4f060693",
+      "git_blob_sha256": "2fb96fa18f1e9ccec77ba4f1fd162223385fdfaa230f57647f0240de27ca1400",
+      "worktree_sha256": "2fb96fa18f1e9ccec77ba4f1fd162223385fdfaa230f57647f0240de27ca1400"
+    },
+    {
+      "path": "assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r1_c2.png",
+      "revision": "6c2f3fb6b47ac247521cb4bd029d258c4f060693",
+      "git_blob_sha256": "2c095349af8d05bb11e43f2115406ce55f583eb885f2abf5b7b4faf7cb8b1e28",
+      "worktree_sha256": "2c095349af8d05bb11e43f2115406ce55f583eb885f2abf5b7b4faf7cb8b1e28"
+    },
+    {
+      "path": "assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r1_c3.png",
+      "revision": "6c2f3fb6b47ac247521cb4bd029d258c4f060693",
+      "git_blob_sha256": "1f84c75cdfc85923b2a18011e50ac60e78145ed6a9703f7c99ae26592bb6edb7",
+      "worktree_sha256": "1f84c75cdfc85923b2a18011e50ac60e78145ed6a9703f7c99ae26592bb6edb7"
+    },
+    {
+      "path": "assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r1_c4.png",
+      "revision": "6c2f3fb6b47ac247521cb4bd029d258c4f060693",
+      "git_blob_sha256": "72e54d1d6a1fbfbeba326670c0d0c640d582b0a60f89d95db77ebcec1257e9c4",
+      "worktree_sha256": "72e54d1d6a1fbfbeba326670c0d0c640d582b0a60f89d95db77ebcec1257e9c4"
+    },
+    {
+      "path": "assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r1_c5.png",
+      "revision": "6c2f3fb6b47ac247521cb4bd029d258c4f060693",
+      "git_blob_sha256": "6ef1dd25a1ea4ee998886d6e0c5a824ef915dddb2cff786ffad5520ba0aa2e21",
+      "worktree_sha256": "6ef1dd25a1ea4ee998886d6e0c5a824ef915dddb2cff786ffad5520ba0aa2e21"
+    },
+    {
+      "path": "assets/mg/cat_accent.png",
+      "revision": "6c2f3fb6b47ac247521cb4bd029d258c4f060693",
+      "git_blob_sha256": "1e2dc4203082d14c0b80e108bf9102edfb4c81904392bdc48a3aa33e373d56d0",
+      "worktree_sha256": "1e2dc4203082d14c0b80e108bf9102edfb4c81904392bdc48a3aa33e373d56d0"
+    },
+    {
+      "path": "assets/mg/cat_body.png",
+      "revision": "6c2f3fb6b47ac247521cb4bd029d258c4f060693",
+      "git_blob_sha256": "6011c4e2debce40e92f55812d91f5e28f918748abf472f05f1ea70b456f224ed",
+      "worktree_sha256": "6011c4e2debce40e92f55812d91f5e28f918748abf472f05f1ea70b456f224ed"
+    },
+    {
+      "path": "assets/mg/cat_line.png",
+      "revision": "6c2f3fb6b47ac247521cb4bd029d258c4f060693",
+      "git_blob_sha256": "a54ddc4b657b5217f40ee975d30077fa269b6628960cf372a159d634f3e84c1e",
+      "worktree_sha256": "a54ddc4b657b5217f40ee975d30077fa269b6628960cf372a159d634f3e84c1e"
+    },
+    {
+      "path": "assets/mg/star.png",
+      "revision": "6c2f3fb6b47ac247521cb4bd029d258c4f060693",
+      "git_blob_sha256": "3cc5d5cbc5d6e0df0540cdc00ef557b0c7ed6e566331035c4e75d5d971ef3b98",
+      "worktree_sha256": "3cc5d5cbc5d6e0df0540cdc00ef557b0c7ed6e566331035c4e75d5d971ef3b98"
+    },
+    {
+      "path": "assets/opera/worlds/ui/crests/opera_crest_boxer.png",
+      "revision": "6c2f3fb6b47ac247521cb4bd029d258c4f060693",
+      "git_blob_sha256": "f9500790099a13e1dfb4f87b24946cf18595749e3e1cb2f418476b60565c92c6",
+      "worktree_sha256": "f9500790099a13e1dfb4f87b24946cf18595749e3e1cb2f418476b60565c92c6"
+    },
+    {
+      "path": "assets/opera/worlds/ui/crests/opera_crest_doctor.png",
+      "revision": "6c2f3fb6b47ac247521cb4bd029d258c4f060693",
+      "git_blob_sha256": "5cc937a104099e4afa5174069191eca6299ed7c3fa5fb68439858fe1d04da3ba",
+      "worktree_sha256": "5cc937a104099e4afa5174069191eca6299ed7c3fa5fb68439858fe1d04da3ba"
+    },
+    {
+      "path": "assets/opera/worlds/ui/crests/opera_crest_painter.png",
+      "revision": "6c2f3fb6b47ac247521cb4bd029d258c4f060693",
+      "git_blob_sha256": "5e60ba5490ba69ac3b6aa398ecc7057047863bd9d7ac64e233054116917d020b",
+      "worktree_sha256": "5e60ba5490ba69ac3b6aa398ecc7057047863bd9d7ac64e233054116917d020b"
+    },
+    {
+      "path": "assets/props/story/play_swing_frame.png",
+      "revision": "6c2f3fb6b47ac247521cb4bd029d258c4f060693",
+      "git_blob_sha256": "a2098346be89be32ff1b559a8db96fbc95a9ab29c7ef3d7bb451059e2ef05592",
+      "worktree_sha256": "a2098346be89be32ff1b559a8db96fbc95a9ab29c7ef3d7bb451059e2ef05592"
+    },
+    {
+      "path": "assets/props/story/play_swing_seat.png",
+      "revision": "6c2f3fb6b47ac247521cb4bd029d258c4f060693",
+      "git_blob_sha256": "b3e6933400d83ece5e58ff62f23a052b3e1a5ce3ef788f66752e1f8f8fd0db7b",
+      "worktree_sha256": "b3e6933400d83ece5e58ff62f23a052b3e1a5ce3ef788f66752e1f8f8fd0db7b"
+    },
+    {
+      "path": "assets/sprites/sky_lagoon/animals/hare_idle_atlas.png",
+      "revision": "6c2f3fb6b47ac247521cb4bd029d258c4f060693",
+      "git_blob_sha256": "723a3a473845c506aeb45fe1ff1b5da5ea4794495dbd4c7a4946918016fa63ff",
+      "worktree_sha256": "723a3a473845c506aeb45fe1ff1b5da5ea4794495dbd4c7a4946918016fa63ff"
+    },
+    {
+      "path": "assets/sprites/sky_lagoon/animals/raccoon_idle_atlas.png",
+      "revision": "6c2f3fb6b47ac247521cb4bd029d258c4f060693",
+      "git_blob_sha256": "3ed12de88641330134844cdc37927aecf022ae74187f4b4deb2193a3c282d9dc",
+      "worktree_sha256": "3ed12de88641330134844cdc37927aecf022ae74187f4b4deb2193a3c282d9dc"
+    },
+    {
+      "path": "assets/sprites/sky_lagoon/sky_lagoon_castle_door_focus_v1.png",
+      "revision": "6c2f3fb6b47ac247521cb4bd029d258c4f060693",
+      "git_blob_sha256": "fddab0ef204be19a8fce65221f3801ba69497d289b0f012f029076a099feb25c",
+      "worktree_sha256": "fddab0ef204be19a8fce65221f3801ba69497d289b0f012f029076a099feb25c"
+    },
+    {
+      "path": "assets/sprites/sky_lagoon/sky_lagoon_castle_four_tower_v4.png",
+      "revision": "6c2f3fb6b47ac247521cb4bd029d258c4f060693",
+      "git_blob_sha256": "08e3b8503520f3657e7f788bc74c967b76692f5dd292e0971495677f0e695a42",
+      "worktree_sha256": "08e3b8503520f3657e7f788bc74c967b76692f5dd292e0971495677f0e695a42"
+    },
+    {
+      "path": "assets/sprites/sky_lagoon/sky_lagoon_cloud_single_v1.png",
+      "revision": "6c2f3fb6b47ac247521cb4bd029d258c4f060693",
+      "git_blob_sha256": "c7c708694ff729e703271b40bf68cd23913d1c43485bf4b614fb0681cfb9cfdb",
+      "worktree_sha256": "c7c708694ff729e703271b40bf68cd23913d1c43485bf4b614fb0681cfb9cfdb"
+    },
+    {
+      "path": "assets/sprites/sky_lagoon/sky_lagoon_contact_shadow.png",
+      "revision": "6c2f3fb6b47ac247521cb4bd029d258c4f060693",
+      "git_blob_sha256": "2daa0ae7a46d359880f7aa1a28496ec0881abf227ee6260deeb6b035773aa6f6",
+      "worktree_sha256": "2daa0ae7a46d359880f7aa1a28496ec0881abf227ee6260deeb6b035773aa6f6"
+    },
+    {
+      "path": "assets/sprites/sky_lagoon/sky_lagoon_plane_v5_hd_grade.png",
+      "revision": "6c2f3fb6b47ac247521cb4bd029d258c4f060693",
+      "git_blob_sha256": "850d9614c299df94e08553754d45376de5851445923bb2ab249ab655ea931dde",
+      "worktree_sha256": "850d9614c299df94e08553754d45376de5851445923bb2ab249ab655ea931dde"
+    },
+    {
+      "path": "assets/sprites/sky_lagoon/sky_lagoon_seesaw_v5_fitted.png",
+      "revision": "6c2f3fb6b47ac247521cb4bd029d258c4f060693",
+      "git_blob_sha256": "e39464f3eb3d8bc275ddd4788dfe4eb50db2147d9e20d7bbd1c4ed02d51d6129",
+      "worktree_sha256": "e39464f3eb3d8bc275ddd4788dfe4eb50db2147d9e20d7bbd1c4ed02d51d6129"
+    },
+    {
+      "path": "assets/sprites/sky_lagoon/sky_lagoon_slide_v3_compact.png",
+      "revision": "6c2f3fb6b47ac247521cb4bd029d258c4f060693",
+      "git_blob_sha256": "3b917608d9e3067d9fe68bbd260eba045acc0a15074795f4649f40ee0c69a3e4",
+      "worktree_sha256": "3b917608d9e3067d9fe68bbd260eba045acc0a15074795f4649f40ee0c69a3e4"
+    },
+    {
+      "path": "assets/sprites/sky_lagoon/sky_lagoon_smoke_wisp_v2.png",
+      "revision": "6c2f3fb6b47ac247521cb4bd029d258c4f060693",
+      "git_blob_sha256": "ff0c49869ff0152323282b0228c2f76494ad2381ba64c0e535a68c8bc229e007",
+      "worktree_sha256": "ff0c49869ff0152323282b0228c2f76494ad2381ba64c0e535a68c8bc229e007"
+    },
+    {
+      "path": "assets/sprites/sky_lagoon/sky_lagoon_tree_sticker_slender_v1.png",
+      "revision": "6c2f3fb6b47ac247521cb4bd029d258c4f060693",
+      "git_blob_sha256": "d82ceecb13213d903f228d143ae77b69cbdb80cb293fa1995bc855719791b7e8",
+      "worktree_sha256": "d82ceecb13213d903f228d143ae77b69cbdb80cb293fa1995bc855719791b7e8"
+    },
+    {
+      "path": "assets/sprites/stuffie_studio/lamma.png",
+      "revision": "6c2f3fb6b47ac247521cb4bd029d258c4f060693",
+      "git_blob_sha256": "fa05513ecf6530691d712230acb4da9c0b3dd11fa694c788f3df8556efc33268",
+      "worktree_sha256": "fa05513ecf6530691d712230acb4da9c0b3dd11fa694c788f3df8556efc33268"
+    },
+    {
+      "path": "scripts/arena/castle_rooms_25d.gd",
+      "revision": "6c2f3fb6b47ac247521cb4bd029d258c4f060693",
+      "git_blob_sha256": "50c723043680c987cc959d9bfbbcad94cfb62162f24d305d3f058c0d2de05176",
+      "worktree_sha256": "7eabec5e061e767ef0c42dce173d9d812bd5fb155de4222987595951a7fc8f5a"
+    },
+    {
+      "path": "scripts/attack_customizer.gd",
+      "revision": "6c2f3fb6b47ac247521cb4bd029d258c4f060693",
+      "git_blob_sha256": "b47bbfc164cc8508354bece86096245a2152fe627f5dbfed8440ec54db5198e0",
+      "worktree_sha256": "768d7f410b4d0af59f140a8f86ca0262d795fbb614d9bd0326ebc56c4befba6f"
+    },
+    {
+      "path": "scripts/castle_logo_studio.gd",
+      "revision": "6c2f3fb6b47ac247521cb4bd029d258c4f060693",
+      "git_blob_sha256": "5afe612eb11261818b760b0f04b6b6a995000a23b27e31aa228c0a04e63dc52a",
+      "worktree_sha256": "ca9867cc2cbdad56a8b37090de08835755474eabc6f8da168f7e8cf809052988"
+    },
+    {
+      "path": "scripts/chapter_two_room_plot.gd",
+      "revision": "6c2f3fb6b47ac247521cb4bd029d258c4f060693",
+      "git_blob_sha256": "9eef1ece57be88ac9d01d85a5181ad1c258e6ff00f6b9a6cb3d7a86393d6e10d",
+      "worktree_sha256": "bdae21ffe3236f331906b2b16600c7bcaedfe6926195e6dbfaa5cd76f0ed1235"
+    },
+    {
+      "path": "scripts/companion.gd",
+      "revision": "6c2f3fb6b47ac247521cb4bd029d258c4f060693",
+      "git_blob_sha256": "0baeb7256a209b5266ebdf48cdccb7af6497b30fd0666021c597eced6e04d269",
+      "worktree_sha256": "dc8622d6ae0a8c2802357ad46cab7b5b6fe9939ccd0c5b01abe49eba7126af72"
+    },
+    {
+      "path": "scripts/fashion_outfit_renderer.gd",
+      "revision": "6c2f3fb6b47ac247521cb4bd029d258c4f060693",
+      "git_blob_sha256": "cb37b3ed5df0ccba26b54f146021ddcad1f9f6693fb32b48b9bbda6a3ca96b93",
+      "worktree_sha256": "2c2bfedf1fc3b3e1e0b4dd78d12908929c963b52eefccacaaf358f9ade3d96f0"
+    },
+    {
+      "path": "scripts/fashion_skin_engine.gd",
+      "revision": "6c2f3fb6b47ac247521cb4bd029d258c4f060693",
+      "git_blob_sha256": "e94b42966c75092835dc134b0dc4b1eb59f432655b266a0dc1aa82580d9f95ad",
+      "worktree_sha256": "e566e5c56698272523baf278bada941d2b28f3737183bf63065235a6ef9cb0fc"
+    },
+    {
+      "path": "scripts/living_world_canvas.gd",
+      "revision": "6c2f3fb6b47ac247521cb4bd029d258c4f060693",
+      "git_blob_sha256": "f18a8324cd3eb43eac0dae0ae09efbbb86f6bd3af65e7e74e44d8c197f351e6e",
+      "worktree_sha256": "80b0e4ed487dfd84bed69418d8943291384f4a9c5173fa68ec3fc2062ec6f7f4"
+    },
+    {
+      "path": "scripts/main.gd",
+      "revision": "6c2f3fb6b47ac247521cb4bd029d258c4f060693",
+      "git_blob_sha256": "b6e905824a4b60461181deda525c816fc790613479e9321d12ae7f71df666a33",
+      "worktree_sha256": "841efbfa74a61ed14775fa7c2b19e6ff7f54b0a2c4af04d1b08c345440d6f880"
+    },
+    {
+      "path": "scripts/probe_stuffie.gd",
+      "revision": "6c2f3fb6b47ac247521cb4bd029d258c4f060693",
+      "git_blob_sha256": "6a70cad9c8b4a992061af670a4d75c7db1afab671a7a1f6b2ecea9d0ea899286",
+      "worktree_sha256": "b40ea5b8b14ddb5dd9ac9e28c59b020a9cfe28701663a649277421d93dc0cc39"
+    },
+    {
+      "path": "scripts/save_state.gd",
+      "revision": "6c2f3fb6b47ac247521cb4bd029d258c4f060693",
+      "git_blob_sha256": "de380b088c8dcdd4623804d44a8fe35be5bfe7f8095cdcff1ca40c24e2c9c9b9",
+      "worktree_sha256": "34ed8239321ee3f2362b3718d4d0e6f9467e7c500e54b7dec78333ccbf90c884"
+    },
+    {
+      "path": "scripts/shell_ornament.gd",
+      "revision": "6c2f3fb6b47ac247521cb4bd029d258c4f060693",
+      "git_blob_sha256": "b55765cfd7926b755563f9017891c955fc23ae5c050c3d7141b7b2f2b1cdbc08",
+      "worktree_sha256": "47ffb51bca717b0e362fdf7b90279f83c8d73fbab2dac55c869c117cd4c13638"
+    },
+    {
+      "path": "scripts/storybook_ui.gd",
+      "revision": "6c2f3fb6b47ac247521cb4bd029d258c4f060693",
+      "git_blob_sha256": "839e53d6893347808341523d4e4b58e3727cc4fd4cd698726c92d494edce0fa7",
+      "worktree_sha256": "137404cf953e2f40b0a21924c22e8f5a7bd63aee3e7f81ae71543cceefbdab31"
+    },
+    {
+      "path": "scripts/touch_ui.gd",
+      "revision": "6c2f3fb6b47ac247521cb4bd029d258c4f060693",
+      "git_blob_sha256": "a6f45679ff9738d6079078ba9cf5c623618a50a740e4fde2387385352029868d",
+      "worktree_sha256": "c25d51407589b841126f872172b7f628805259e6d2190e1a8347ec863378ef04"
+    },
+    {
+      "path": "tools/godot_baseline.json",
+      "revision": "6c2f3fb6b47ac247521cb4bd029d258c4f060693",
+      "git_blob_sha256": "7fe925d2d12927d152a27f3a614ff62c9b0e6fe02991396a6837e8f5c06d0f5b",
+      "worktree_sha256": "9616e50b3ed535e038dc04c6e389140066b3354f79b4b437b60c0e2571e4676b"
+    }
+  ],
+  "normal_child_save_unchanged": true,
+  "source_unchanged": true,
+  "font_limit": "Visible primary theme FontFile OpenSansSemiBold is engine-embedded; native glyphs show OS fallback appearance, standalone font source and actual per-glyph fallback/Android identity remain unresolved. No illustrative font exemption.",
+  "inherited_regression": "Earlier82/82 approved-engine local suite inherited only because production still exactly matches92c9fe70; no current-head full-suite claim. Incoming source-only sprite engine passed24/24 tool tests.",
+  "acceptance": {
+    "replacements": 0,
+    "accepted_removals": 0,
+    "full_current_inventory": false,
+    "device_child_owner": null,
+    "dl_qa_11_live_target_pass": false
+  }
+}

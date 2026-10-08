@@ -1,6 +1,6 @@
 {
   "schema": "reef.flat_vector_manifest/1",
-  "revision": "FV-AUDIT-20261007-R4",
+  "revision": "FV-AUDIT-20261007-R5",
   "source_baseline": "92c9fe70319ef46bfaa8f61348a6f51512141ec3",
   "status": "AUDIT_CANDIDATE; zero-flat-vector goal remains active",
   "destination": {
@@ -18,14 +18,14 @@
     },
     {
       "path": ".gitattributes",
-      "bytes": 502,
-      "sha256": "bfbe032146dc1b1f54224e7cbe609081c16307a085591a850a7fe7a764d5d540",
+      "bytes": 706,
+      "sha256": "1a746b25882bad8aed617be1b281b2cd44f71396013f867e475bbf9c5ae62cd6",
       "role": "audit_payload"
     },
     {
       "path": "AUDIT.md",
-      "bytes": 15495,
-      "sha256": "e1f1dbe1d6c68598cb57e00cd5026c2d8d29dfbc6fcd2edba1a6b8400144adf9",
+      "bytes": 16139,
+      "sha256": "8b1d2d06ff3e8f381d42713b05d3d463908a4db8da36c80b020005542a3eeee5",
       "role": "audit_payload"
     },
     {
@@ -36,14 +36,14 @@
     },
     {
       "path": "PRODUCTION_BACKLOG.md",
-      "bytes": 27717,
-      "sha256": "8c9b2c82d06e656d3afec214d1c51cc4c980ced7e1b0ea79e72bccf729962e7b",
+      "bytes": 28361,
+      "sha256": "76c8c7769ca8d5c360eebac4f3884e105876532127f3dcab2be87e5ca98bea74",
       "role": "audit_payload"
     },
     {
       "path": "README.md",
-      "bytes": 12322,
-      "sha256": "5c1590d26ba44fb3dd62f2e01fd3706bd05c091474aeb8afe4eaaae96d0a4737",
+      "bytes": 12959,
+      "sha256": "9ccd9b46b746fd54dea965072603b3f8c87bbf9e4149cf6c12902ad3ba9d0afa",
       "role": "audit_payload"
     },
     {
@@ -126,8 +126,8 @@
     },
     {
       "path": "index.html",
-      "bytes": 214130,
-      "sha256": "2c9de5f2022bc16f6eac8d314c2a618b855798f80d01878c0087baa6f9f73458",
+      "bytes": 214670,
+      "sha256": "09cec507e126397eb2684082a4407a2cdf7b4fe961f1caebd56bdf7bcb7c817d",
       "role": "audit_payload"
     },
     {
@@ -3017,6 +3017,1890 @@
       "role": "audit_payload"
     },
     {
+      "path": "live_v5/CAPTURE_LAUNCH.json",
+      "bytes": 12009,
+      "sha256": "7ccd7587a24af8bb5994bdd266811ac788f684150b3a053988d22a79022be2a8",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/EXPECTED_MATRIX.json",
+      "bytes": 2974,
+      "sha256": "3e3b3eb2acba6d8274b382f0edc323afd4dd2792c7981ff4ff277b6f0e0cf9d2",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/GATES.json",
+      "bytes": 6788,
+      "sha256": "cf5bfe0da260703b9bc816594d4be10c41038aa3b25a9f188db42594a601781b",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/MACHINE.json",
+      "bytes": 36912,
+      "sha256": "f276a9a867bd4ccb748044fffb3979a4a4b12b5a217ca160ef3b59925f834221",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/README.md",
+      "bytes": 3820,
+      "sha256": "af8ad210373e4a772d572a802e6f834e5dd4f10d2598787f2c3f35b97df5eca6",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/attack/1280x720/attack_0_bubbles.png",
+      "bytes": 481133,
+      "sha256": "f03aabac5bee3ae3119832eec5a44d1ef2775579d19e08b7036b56c75c27f272",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/attack/1280x720/attack_0_splashes.png",
+      "bytes": 480188,
+      "sha256": "4f31133770b727ef6f81ab1f1e4c61cd4a3971d270d9750049281571de5c3b68",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/attack/1280x720/attack_1_bubbles.png",
+      "bytes": 481393,
+      "sha256": "48ab05fe7180a9eb115129a886ce6974ec391cdf566c6e35ead94d22468a4e87",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/attack/1280x720/attack_1_splashes.png",
+      "bytes": 479383,
+      "sha256": "236e94c1f1314948ccd0a514d765b7f9603bbc123b8c6d7eda6972aadc655056",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/attack/1280x720/attack_2_bubbles.png",
+      "bytes": 481490,
+      "sha256": "9aa1eadffbec3b7ab509c535ab0e1d5d8bf484c5b50dffc0f9fe4cb1ccfbe11b",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/attack/1280x720/attack_2_splashes.png",
+      "bytes": 480218,
+      "sha256": "99553183d7b1bfbdce2df45cf516d5af9ecd45aa333b03e5c0c9793ed7cf7930",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/attack/1280x720/attack_3_bubbles.png",
+      "bytes": 481483,
+      "sha256": "31b0a2b10e87e7151d6b11d00ae550577256dc87c38c19d5e72afa04f10d487f",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/attack/1280x720/attack_3_splashes.png",
+      "bytes": 479188,
+      "sha256": "10ad2333918bb031a191a3356e64a9b02cbe2efd8e69b1cae1718f9cff654b74",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/attack/1280x720/attack_4_bubbles.png",
+      "bytes": 480201,
+      "sha256": "776f1644f756bdb453f89a026dff600291681c2e537270f194a04571b6fc1a02",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/attack/1280x720/attack_4_splashes.png",
+      "bytes": 480014,
+      "sha256": "457b544846855174bb36703f4bd7822472a2e3b94738e7a2f50d810accae266e",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/attack/1280x720/attack_confirmed.png",
+      "bytes": 1193068,
+      "sha256": "a349587edcdde9665c02ace5f5be0798e5dd9f827ee0c1b9d77283e89587c3bc",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/attack/1280x720/attack_hover.png",
+      "bytes": 480495,
+      "sha256": "81174ae65a29888aabc2a5603f31a1a206eb6120a3c45e460f520c2c80a3b7fa",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/attack/1280x720/attack_pressed.png",
+      "bytes": 480604,
+      "sha256": "b46bf03cdce4cd7db9d3265530736d9e6ee6081cec2fd7ba1fedfa5bc01ce5ea",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/attack/1280x720/capture.log",
+      "bytes": 3103,
+      "sha256": "439826eff7fd7537a1a2f9ac2502981bfaf29ff1b30a011a29169a055adaa530",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/attack/1280x720/capture_manifest.json",
+      "bytes": 2301504,
+      "sha256": "3345ed64281d31a0f149f6f19ca1b88e19c126e302a0079c0244a0a6a213bf0f",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/attack/1600x720/attack_0_bubbles.png",
+      "bytes": 516091,
+      "sha256": "bb0a11bd66090db6cee5694e09fa8522cedb1c150937c7a10fcd4ce09ca50274",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/attack/1600x720/attack_0_splashes.png",
+      "bytes": 515059,
+      "sha256": "1d8d646bc6c6762b5d1e8ff5d7f80875c27b1990b722e086efaced445e80aa66",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/attack/1600x720/attack_1_bubbles.png",
+      "bytes": 515685,
+      "sha256": "2bbfd9ddde41a76fe2615c31ea8240bd26e777b92d6eef25d43a8129ebd1737a",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/attack/1600x720/attack_1_splashes.png",
+      "bytes": 514489,
+      "sha256": "a98a1503cdfdde66810f87af80cc72dbb474252c8bcff37fbf72123fd1cd65d8",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/attack/1600x720/attack_2_bubbles.png",
+      "bytes": 516457,
+      "sha256": "4e1a4e71b1122c1ee43ecd6a5177c9941db1a38a4ca2810cfb792b30b8adfac4",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/attack/1600x720/attack_2_splashes.png",
+      "bytes": 515103,
+      "sha256": "a42d6c47b84c287a002b7c19555ed4b39200f3a25e1aaa53167cdb4073b8828b",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/attack/1600x720/attack_3_bubbles.png",
+      "bytes": 516616,
+      "sha256": "823625a8592b17402ac2de768029ffc5484b2b8cddf1acaa757c6a156e0929cb",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/attack/1600x720/attack_3_splashes.png",
+      "bytes": 514126,
+      "sha256": "3d9434c521553a9cdf5960fce94fd7577241fe9d80a563e0266187acef7ff2ee",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/attack/1600x720/attack_4_bubbles.png",
+      "bytes": 515690,
+      "sha256": "d012291b99cc6d9444781022196c689332cb7e2b5a1a62f5891a29ac8f3094be",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/attack/1600x720/attack_4_splashes.png",
+      "bytes": 514345,
+      "sha256": "b05951e76d407cabb17dac5f2aed780ea84c5d30a568b56f5eabc06439d025b5",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/attack/1600x720/attack_confirmed.png",
+      "bytes": 1228271,
+      "sha256": "7685eed4e717565c07f61b4a05286d920cf2a654632815fdb3a4559b22006302",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/attack/1600x720/attack_hover.png",
+      "bytes": 515631,
+      "sha256": "6bd13496509a3130f5ad1ddb856507df03ed9959ec52101ceb8205180bf397cc",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/attack/1600x720/attack_pressed.png",
+      "bytes": 515801,
+      "sha256": "c60a8083cb430efbf3a714f0b2c601f69e0cee79763d89b86ad353b87d150382",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/attack/1600x720/capture.log",
+      "bytes": 3103,
+      "sha256": "439826eff7fd7537a1a2f9ac2502981bfaf29ff1b30a011a29169a055adaa530",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/attack/1600x720/capture_manifest.json",
+      "bytes": 2322382,
+      "sha256": "5e282740ea131e6682c60615a976fcfde89d4aaa7fed2a49ed3620c44e469d20",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/capture_attack.gd",
+      "bytes": 29220,
+      "sha256": "86f3b5ffdabee950c1cd346da434a83a5fdbf1c3b5294a5320a1026195f27c51",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/capture_companion.gd",
+      "bytes": 29366,
+      "sha256": "5c5c14d72672e78f2c551b92782805b554b516fbe94c09ceac973ca0eafc6d9a",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/capture_logo.gd",
+      "bytes": 29201,
+      "sha256": "837bc2023962522df642ead46d3bf54a7c6176029655915c5cd7a170aacf3bd9",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/companion/1280x720/capture.log",
+      "bytes": 9738,
+      "sha256": "4f168471d244da8380f3b6eed7e301a5e21194ea68b4726bf58b5b4b81b9dfe8",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/companion/1280x720/capture_manifest.json",
+      "bytes": 4901682,
+      "sha256": "eb532b588c51f292cde11dabcb9069399b95da0df7880df7d75d4971f4d6e75c",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/companion/1280x720/care_active_bath.png",
+      "bytes": 342348,
+      "sha256": "7f4a5a8ecabf5e7fae79f44fa123f362246d2f74d9b45ad2353ba87523acdf87",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/companion/1280x720/care_active_cuddle.png",
+      "bytes": 342201,
+      "sha256": "9b97291b53349a924dc0fc613253780c18cb9c5952c2310e7c8e0e4bc302989e",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/companion/1280x720/care_active_feed.png",
+      "bytes": 342615,
+      "sha256": "4f2c677ea6645918d01cb3c429e653e9b7f346b43305784541d65b73609d5c82",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/companion/1280x720/care_active_nap.png",
+      "bytes": 342344,
+      "sha256": "7cf2f24339f2eb354985d549f2063fc1e4c5675a668f151eef2cacf4bea9229d",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/companion/1280x720/care_active_play.png",
+      "bytes": 341894,
+      "sha256": "b372d8da1d61c9a82e1615af6f41744bb4145984c33c87ab1bf7f6eb9c6d1996",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/companion/1280x720/care_bruises.png",
+      "bytes": 343877,
+      "sha256": "d260b4758ab43d3c2dcb45e97be8f98df4756445b1e5184e510c3a8e51cab385",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/companion/1280x720/care_busy.png",
+      "bytes": 343559,
+      "sha256": "8e7ed7c70fbae8f340f481cc2a57481131f49b2c0869f26cc4c42468223c2aa9",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/companion/1280x720/care_canvas_fulfilled.png",
+      "bytes": 345566,
+      "sha256": "0687d53792cbc2a22cd38d7577de25ed2af8e557b9bc8228a77ddcf3b9e5d1f1",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/companion/1280x720/care_eagle_idle.png",
+      "bytes": 377404,
+      "sha256": "4ea33c0bc4dfb1242f6837db4449833fddf454c4ccc1b2deb45819bbc532ce80",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/companion/1280x720/care_growth_1.png",
+      "bytes": 346825,
+      "sha256": "210f6afffe3a2fd39acfc57c73f46e6e2c505cd70486aad5a68b5c4ab526f037",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/companion/1280x720/care_growth_2.png",
+      "bytes": 346823,
+      "sha256": "b38559c466c6adf639f7c2ae097a14e1935b3013eddecf328e435b28a5f16eb4",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/companion/1280x720/care_growth_3.png",
+      "bytes": 346902,
+      "sha256": "89eaedb543d8d41d08beb402f76a70b548ebe37dcdc204c4e1b8e08f0b8b4596",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/companion/1280x720/care_growth_4.png",
+      "bytes": 344742,
+      "sha256": "c38e9573cfa36bf63ff15c383363f16176d1d9a906f448322a56c3e07c596f40",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/companion/1280x720/care_lamma_idle.png",
+      "bytes": 357140,
+      "sha256": "c332c365af40fc99df3926b349eee8399421a56e165c35b1ce6e606790605413",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/companion/1280x720/care_mewsha_idle.png",
+      "bytes": 344675,
+      "sha256": "8afc8c794b90144b80719c4da973918e14de7358c2908b4df86635185bf5a180",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/companion/1280x720/care_queued_bath.png",
+      "bytes": 344981,
+      "sha256": "58a768d1383546ef5064d1022558721e3749a45ea4f531c0888b77c652571dcd",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/companion/1280x720/care_queued_cuddle.png",
+      "bytes": 344800,
+      "sha256": "81923925a37a02a3267d99636e66eff4e8f603d2b173f25d895221552f24f1fe",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/companion/1280x720/care_queued_feed.png",
+      "bytes": 345335,
+      "sha256": "ea7f9ce3e7729dcd542bf2f1d7b3b47d392bad33d5d06aaeca7d3444e62c15eb",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/companion/1280x720/care_queued_nap.png",
+      "bytes": 344976,
+      "sha256": "c6d305aa271d09f2519c26b43fa980367ada72b45ba1c087f4db7246639719b7",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/companion/1280x720/care_queued_play.png",
+      "bytes": 344413,
+      "sha256": "c52ab050444108a6eeca1eefeb8b049f3eb9de1dfed024401a87e9fe4b9d82dd",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/companion/1280x720/palette_0_0.png",
+      "bytes": 307024,
+      "sha256": "d33cf3f64e7d80ebb8c8cf4657a45dc7cb3d06209486a8e04200ee8a9bb3d46a",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/companion/1280x720/palette_0_1.png",
+      "bytes": 306832,
+      "sha256": "d8b156259d5784ed702c54d5616b1fab313a196c48174fbfb80c4e0fc90f700d",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/companion/1280x720/palette_0_2.png",
+      "bytes": 308070,
+      "sha256": "86da94f917fbfeaa68e05409c529991443326415f76b05f7cadf3f8155a5eb4e",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/companion/1280x720/palette_0_3.png",
+      "bytes": 306461,
+      "sha256": "7e9664296181ec1b1d216b016dacccfb446d5cca3d97e9d23bcad13eef25cdec",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/companion/1280x720/palette_0_4.png",
+      "bytes": 306244,
+      "sha256": "d367bcbd4bf45a74ee126839b977d79b850563e4795f2f61b4f76d657d48a799",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/companion/1280x720/palette_0_5.png",
+      "bytes": 305760,
+      "sha256": "cd50bb1a59287ff3f9d290c2321d6c1a639f4327bedca834887e5022b930ffb4",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/companion/1280x720/palette_0_6.png",
+      "bytes": 307645,
+      "sha256": "617cdbc41217984dda20b219e8481329ad8fb4ba3e1937f175b8a01b43cd7499",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/companion/1280x720/palette_0_7.png",
+      "bytes": 308366,
+      "sha256": "befe430a6a695ae0bca56be8ffe5f5f8f8316967083ca5ee7fd1148369ba18d9",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/companion/1280x720/palette_1_0.png",
+      "bytes": 308699,
+      "sha256": "cb4c6b7a00b2468b9c42e2a24f4521359438e2209eb834fdbe6780fb088ad838",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/companion/1280x720/palette_1_1.png",
+      "bytes": 308841,
+      "sha256": "c2dde6004d7d1116db442b5d097f73bef32540892308ba64360f85a73943d68f",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/companion/1280x720/palette_1_2.png",
+      "bytes": 308602,
+      "sha256": "f629f3cc69a374d1f4eac8abf167f368b318f9879e01609f0d75f13f7ac1df2d",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/companion/1280x720/palette_1_3.png",
+      "bytes": 308817,
+      "sha256": "f7804369476ba888a421a101125e07dfa2cdb4281975d83eba8c6c8d9ef59313",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/companion/1280x720/palette_1_4.png",
+      "bytes": 308701,
+      "sha256": "e3d32ab6ccc28c97fbe1cd0cbccb929edf3bfed2f5ee73d8252e2baecc6c3e4f",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/companion/1280x720/palette_1_5.png",
+      "bytes": 308893,
+      "sha256": "f48e3b0fb0623e3f295fa4c64ba9fc44c1d197be72da9154997e25d7e2768748",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/companion/1280x720/palette_1_6.png",
+      "bytes": 308080,
+      "sha256": "256d83287f665af25c587a1a821d31af93e34ca74bb7c496e32af78e7925cf9f",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/companion/1280x720/palette_1_7.png",
+      "bytes": 306402,
+      "sha256": "c0b8e75a598bfad026735ee2c43536fbcc6356f86f1b7a98ddb7fbf41e722821",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/companion/1280x720/palette_2_0.png",
+      "bytes": 306874,
+      "sha256": "7b682d10561fa109fe6cc55673d24726478469c3fa7ebc4bc7feb4497c843509",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/companion/1280x720/palette_2_1.png",
+      "bytes": 306907,
+      "sha256": "baa946d33d5afa47234331247cf486f89c70896c6271faaee1f28faed0530c59",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/companion/1280x720/palette_2_2.png",
+      "bytes": 306721,
+      "sha256": "41768564294a7b04da48adb9c6328cf438f2105aeae16f2e510375295778c87d",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/companion/1280x720/palette_2_3.png",
+      "bytes": 306920,
+      "sha256": "a2620ae275aa7be2bcb4dba46adc2e1b86decee0c9a7b5a7b31d949ab4d606fe",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/companion/1280x720/palette_2_4.png",
+      "bytes": 306967,
+      "sha256": "48996ea68e1cad848cbbe7acd04a1bbd319c3f079287ec6f6d4173f681c7ec45",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/companion/1280x720/palette_2_5.png",
+      "bytes": 307114,
+      "sha256": "9959a60855dbce2b74bdb48b72261a4d18f86f4c90ffe571f7f219f62cf50f7c",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/companion/1280x720/palette_2_6.png",
+      "bytes": 318088,
+      "sha256": "71463a0723fd05e1fe375b52bf5c44175fda4d86f40556e29e90ee59db2b0ea5",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/companion/1280x720/palette_2_7.png",
+      "bytes": 317972,
+      "sha256": "72fc60412ef202338a34d075af8d82ce5b17c5084fcb2e2bcd6104b52103444c",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/companion/1280x720/picker_rescue_current_step2.png",
+      "bytes": 276404,
+      "sha256": "4f077a6f680f8ff06e4f7371a17e6edbbad79b5598c6f6ef66d09fab73316fa7",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/companion/1280x720/picker_starters_eagle.png",
+      "bytes": 371994,
+      "sha256": "91a5d903bb62883e1acc1048537a3ad687437858aed0fef0b8ebb01d4840608a",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/companion/1280x720/picker_starters_mewsha.png",
+      "bytes": 359974,
+      "sha256": "7e21cb392bd3ec216aaed8f735d1e9949d6d382f9c96db24043f8e240a86884a",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/companion/1280x720/picker_studio_eagle.png",
+      "bytes": 343374,
+      "sha256": "db0ec20445cf1fa9034a743b798f91c22e6f726c6af4e8e1839e86473f67e394",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/companion/1280x720/picker_studio_lamma.png",
+      "bytes": 299936,
+      "sha256": "cf194f0b71592f0b029e9afc683f10408c77c6d7144ce972d10a11c04a3f276a",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/companion/1280x720/picker_studio_mewsha.png",
+      "bytes": 307474,
+      "sha256": "8fe1cf8fc78e15816d25d150af21272dbcf3077c27d4741c9dbbaad3865b484e",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/companion/1280x720/picker_swap.png",
+      "bytes": 344373,
+      "sha256": "6f1c1ea4c2e01e4f9969158a3c1198ff2665c3258024ccafbfae4007c9cb9723",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/companion/1280x720/picker_unlocked_lamma.png",
+      "bytes": 351449,
+      "sha256": "28d01f1dbe3359c5d2ee5330a97fcd6564a651824b8441962e487a2fdf41826a",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/companion/1600x720/capture.log",
+      "bytes": 9738,
+      "sha256": "4f168471d244da8380f3b6eed7e301a5e21194ea68b4726bf58b5b4b81b9dfe8",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/companion/1600x720/capture_manifest.json",
+      "bytes": 4897322,
+      "sha256": "1618c7455b47a98f4242dd9b8586f2d3ece8674d4eb6d8f24e53993f1c006b39",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/companion/1600x720/care_active_bath.png",
+      "bytes": 644566,
+      "sha256": "b653c51e4b7009289acee4420b565599b84933dc9deb7905a46ff55a5e780fb6",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/companion/1600x720/care_active_cuddle.png",
+      "bytes": 644389,
+      "sha256": "dd046ea3bfc4e30a82adbd2c30320dd714449e20eb144c5dfdcabc83e538bb67",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/companion/1600x720/care_active_feed.png",
+      "bytes": 645018,
+      "sha256": "9d678e53796e1efef0d4e20d27a12c5e697a0086d614f142db7ed5ebdeafeeb4",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/companion/1600x720/care_active_nap.png",
+      "bytes": 644841,
+      "sha256": "5ca4c72e355dc74be7e57f5fb60718d98a63822b5a6ce74f33a70c3341279db5",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/companion/1600x720/care_active_play.png",
+      "bytes": 644107,
+      "sha256": "08df85348d5de6773eee4dcdf54dfbb15f08aade54eb162d63e5dbcbe3f9ea49",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/companion/1600x720/care_bruises.png",
+      "bytes": 646222,
+      "sha256": "49f07b7e0b12a7f0b47c996bb6590a615cd33c2caac7486139a89119ae55d928",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/companion/1600x720/care_busy.png",
+      "bytes": 645472,
+      "sha256": "6728d536b7f42a47dbea45bd3ef5cee75edf048aea8d69d982c3120498b5cb05",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/companion/1600x720/care_canvas_fulfilled.png",
+      "bytes": 648211,
+      "sha256": "dfccf527b80ead6664c677cdcfe4f75489d64e3d637c5a1c8a4b54daa3531cc3",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/companion/1600x720/care_eagle_idle.png",
+      "bytes": 677407,
+      "sha256": "c5c19ed691baf064c8376a24192a1644191a32d748f9b3c636c69fceea7cc7fa",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/companion/1600x720/care_growth_1.png",
+      "bytes": 649207,
+      "sha256": "ef2f1e18dec1f5678f4b653590e2f4ba4fe44b31c99da7915c9df51804b80451",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/companion/1600x720/care_growth_2.png",
+      "bytes": 649348,
+      "sha256": "4b8b67a5f756ef28e4df1c954367ce5f4a76f24586c4c29175fb7aa754292cdb",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/companion/1600x720/care_growth_3.png",
+      "bytes": 649180,
+      "sha256": "e74f6c91b5da1d81cd52b3dd190849d7d57ddaf090a2fd1289995e44de4ce1ec",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/companion/1600x720/care_growth_4.png",
+      "bytes": 647262,
+      "sha256": "0bc254e4a94af4dd2e90d4af82a8640aae20e386af65829318dfbf3a74cccc3e",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/companion/1600x720/care_lamma_idle.png",
+      "bytes": 655490,
+      "sha256": "1ba1f7308b2a745ff3befd8ba27c3a41c7b075b948abb18f2ed6eb641569f83b",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/companion/1600x720/care_mewsha_idle.png",
+      "bytes": 647014,
+      "sha256": "711f8d108f6ed0f2e2fae05588383ba8b38f34cd8008832791c0843f6ed4544c",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/companion/1600x720/care_queued_bath.png",
+      "bytes": 647217,
+      "sha256": "df0a468810fe5bcbd81a861784d873fec0fa46670c7eba8f454f479ceb2dec83",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/companion/1600x720/care_queued_cuddle.png",
+      "bytes": 647011,
+      "sha256": "8aeff88faeca848f74f91d0044334fff07eb8f90a3ba73fa12d85a73a169c94b",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/companion/1600x720/care_queued_feed.png",
+      "bytes": 647587,
+      "sha256": "17c739f983f9413dbc4b60ada8d0f6b1b39b83abb7f511bfd363b2898fe494c4",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/companion/1600x720/care_queued_nap.png",
+      "bytes": 647353,
+      "sha256": "155da1706c7d76cd730d1aecec6af45694d203940b868f5c88766807958e9f7c",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/companion/1600x720/care_queued_play.png",
+      "bytes": 646824,
+      "sha256": "e72c0b573e911012631fd0dc31d5186c5c12349fb08db678709732743ae61102",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/companion/1600x720/palette_0_0.png",
+      "bytes": 618221,
+      "sha256": "150c24ac24c58a43e7a12825c7201a30e470cadadac20825f342dc2c2b3b5b93",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/companion/1600x720/palette_0_1.png",
+      "bytes": 618297,
+      "sha256": "ab5fce8707686c8c0d1fc2af8223311bc97bfcd19568306c2cb5b697c0735ef3",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/companion/1600x720/palette_0_2.png",
+      "bytes": 619601,
+      "sha256": "36abeb6f1f51b3da64aa3875e2b524ede43f1fd6243630c8d193e5b81dd24774",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/companion/1600x720/palette_0_3.png",
+      "bytes": 618044,
+      "sha256": "6e2f0bbf70223d74be3066ecd58c620869e1bf94d4d1038cd7d65d4f499cdeb3",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/companion/1600x720/palette_0_4.png",
+      "bytes": 618084,
+      "sha256": "da73a57f2c6a8e17b09432ebb347cb3bc3797c584189d279804dded3be2dad8c",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/companion/1600x720/palette_0_5.png",
+      "bytes": 617327,
+      "sha256": "bbef3c0ff2a58ddc72734e8ea57e1099804c7d98e87dd4c1b20c66966ca7c766",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/companion/1600x720/palette_0_6.png",
+      "bytes": 619605,
+      "sha256": "7d29d9f6f4d893bcfbf6202100cd7ec978a07982323aa8c8e06b41e2d840bbcd",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/companion/1600x720/palette_0_7.png",
+      "bytes": 620521,
+      "sha256": "67296a0b3fa55ebb88d59c776a8f6f358575625628bf0a899ba0e166a3678e2d",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/companion/1600x720/palette_1_0.png",
+      "bytes": 620544,
+      "sha256": "5286d9e30e22d5de85de22ca0b14aeea705dd8dc780b5dc65e45221737ee5d63",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/companion/1600x720/palette_1_1.png",
+      "bytes": 620627,
+      "sha256": "5520a73d20426d048a5d723edd2ae65c64e63019095f223fbec8abc136967e26",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/companion/1600x720/palette_1_2.png",
+      "bytes": 620370,
+      "sha256": "7e9ca48acc4db4ec9b0cf39878dce75e0bb87c2bfef31567533dc3b1e91e3def",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/companion/1600x720/palette_1_3.png",
+      "bytes": 620587,
+      "sha256": "b3827ffb9c08d385a1346832fdae1dfe2d44d8d60cf51c903b650d4eab6c249b",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/companion/1600x720/palette_1_4.png",
+      "bytes": 620678,
+      "sha256": "d35347ecb6a8ea1bc1527cef71bcecf0601c7e1cdedf618117d28ed6156db2c7",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/companion/1600x720/palette_1_5.png",
+      "bytes": 620777,
+      "sha256": "455129c68565b5155f751e2b5ecffcf2deba5af379a79a80ba84c2dcb26f940c",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/companion/1600x720/palette_1_6.png",
+      "bytes": 620174,
+      "sha256": "fbb3b7bb9ea7023c5352c3c04db7a38bb69767ffbbf8bb0404e379972443f55d",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/companion/1600x720/palette_1_7.png",
+      "bytes": 618654,
+      "sha256": "2aac17ce059b8fbcd81babc001a3eb7bc29efa3d9c3b013875d10b1126c3f367",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/companion/1600x720/palette_2_0.png",
+      "bytes": 619016,
+      "sha256": "1e4743829533e5e4cfe725754c5ec05e6912b062a11a714286396ed639a2b316",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/companion/1600x720/palette_2_1.png",
+      "bytes": 618902,
+      "sha256": "b84454803d6431b90425c72417262353d4d55f7e5001fa0c111683ede01287de",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/companion/1600x720/palette_2_2.png",
+      "bytes": 629700,
+      "sha256": "9b4336f33b958b6d68a303f7773aaaac27abbc6025b96dc382fb42e6fd788fcd",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/companion/1600x720/palette_2_3.png",
+      "bytes": 629766,
+      "sha256": "90989c442a0ef86c91cdffddfdd33f67f5a02668013b48b97b1b4a384d2db57f",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/companion/1600x720/palette_2_4.png",
+      "bytes": 629936,
+      "sha256": "961243fd794bd6ad1874f5369c9f4dd8d1db89a1b468c458b2b0642acb1b17d9",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/companion/1600x720/palette_2_5.png",
+      "bytes": 630059,
+      "sha256": "0cfe59fb9c9856513d95fb3bde93e7341a6027c9452efce50ca8523c8fade111",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/companion/1600x720/palette_2_6.png",
+      "bytes": 629643,
+      "sha256": "afa218e5bcc80e1726bf6e35740c1006090d3e6f9e5b9d359693cc5ea0505dd7",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/companion/1600x720/palette_2_7.png",
+      "bytes": 629525,
+      "sha256": "19380ab6ce458bd46d15c88644cdc9aa05d1a3762b037f09454236005ef42aa9",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/companion/1600x720/picker_rescue_current_step2.png",
+      "bytes": 283463,
+      "sha256": "0854d0a9c1d76fa87bc0b31e000b8551316283ef59e3f4f96b2f9d46a70f5382",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/companion/1600x720/picker_starters_eagle.png",
+      "bytes": 682238,
+      "sha256": "4b6e14965f7c70e289e6dac7fd5b02786b067cddb7bd3241e9b68544165bebdf",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/companion/1600x720/picker_starters_mewsha.png",
+      "bytes": 672043,
+      "sha256": "930df17e9e283c7f1a1ff230a35c4373c0885670ae304879b2163f31d002fd86",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/companion/1600x720/picker_studio_eagle.png",
+      "bytes": 651900,
+      "sha256": "0bf3a219d756e8e58dd5000daeffa71256b41e93b4fcb2b3d59d22f751a94f18",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/companion/1600x720/picker_studio_lamma.png",
+      "bytes": 607197,
+      "sha256": "928e12ab50136d2bb70d3bd6de948e3cd4231fdae771d1066672084cea57528c",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/companion/1600x720/picker_studio_mewsha.png",
+      "bytes": 619230,
+      "sha256": "e67a56a853db16fe74f5b83a57b632bce4923839e99e23f4b636b223786578c2",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/companion/1600x720/picker_swap.png",
+      "bytes": 655551,
+      "sha256": "9f008126b79340139fadfada62eb4585f7eaf293bc23ea4628ff248d3700984f",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/companion/1600x720/picker_unlocked_lamma.png",
+      "bytes": 660586,
+      "sha256": "39bebc23e318fef5228b349f44d3f8b2de133db3ff3450f6807e027302109ec8",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/components.json",
+      "bytes": 6821,
+      "sha256": "1365a249cca3afa0c4eb31bf7c60cd00792f2066d672b8b7e747a6b8583306e7",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/contact_index.json",
+      "bytes": 35309,
+      "sha256": "ba777883686b5f2529ef52fab9500b3e838013e838eb42a1c26733a646752efa",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/contacts/attack_00.png",
+      "bytes": 942873,
+      "sha256": "a966d972b242cdc5e91620495e0610d64590fe665fa2cfda0e9a89f14a6980a6",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/contacts/attack_01.png",
+      "bytes": 813551,
+      "sha256": "5a4247bb3ef6c1ace703017e2f592e18872d0ba33165fd5b63c9d1b6a377805c",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/contacts/companion_00.png",
+      "bytes": 719204,
+      "sha256": "1c6fb021dd2722c565f7d5ece7d03f3bd24b132d6fa84f5b6235432fc6d2ac83",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/contacts/companion_01.png",
+      "bytes": 609165,
+      "sha256": "3c1831307117ed19c188c8055a1a40b8f0d43da553b649f4a1e61cf9bb56deb6",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/contacts/companion_02.png",
+      "bytes": 564751,
+      "sha256": "09c66049f7fbba3bb5b73cf88072b3541dcad95eb7b3ff2769548094ef3eba9e",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/contacts/companion_03.png",
+      "bytes": 660085,
+      "sha256": "87d6e3cc50d3a0a11399fbfca24c5fcb9e4c02ec2a669a55d89fb1700f9af835",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/contacts/companion_04.png",
+      "bytes": 652374,
+      "sha256": "9f5470834a46e172ba244d9b3882bc36ff44c4e1d0b70651fb1fbac864dc48c3",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/contacts/companion_05.png",
+      "bytes": 644115,
+      "sha256": "3762fd0be9e3620839f719574aa33b7ff6c82d7b46cf7b9abd18e34e25d8d84d",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/contacts/companion_06.png",
+      "bytes": 312077,
+      "sha256": "1d46cd851187572db49ad77d829b8ad7594826772672a8911fc3de29af54fa47",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/contacts/logo_00.png",
+      "bytes": 634810,
+      "sha256": "2a3c4d93fd880c4c0472680c89411a6d6c61795b7db4bf8894dec6f702e70e61",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/contacts/logo_01.png",
+      "bytes": 619844,
+      "sha256": "ef8ec616298ea90127ff2f72348171c7b7651ba4d47a617b3699ce25973867d6",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/contacts/logo_02.png",
+      "bytes": 635209,
+      "sha256": "1a91c141082852aa4b8721a2bcf066206a8b789fda249528e2dea430f79c4f7b",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/contacts/logo_03.png",
+      "bytes": 647219,
+      "sha256": "c672195328e38437073589740591c4641e07e00265e9e92bf4a13c58c06060e1",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/contacts/logo_04.png",
+      "bytes": 645099,
+      "sha256": "09b9f90e4701c02f6292cad208cf365e05bd83dbcdcde15b6c234c4fe2ea299d",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/contacts/logo_05.png",
+      "bytes": 645509,
+      "sha256": "ab1233424de10ad8e2a569f559618f100850757913eef1fda7d2a29262dc7943",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/contacts/logo_06.png",
+      "bytes": 1576935,
+      "sha256": "b63a706bfada1f517d99ab1c2d03ce9e2e4f0cd8f8482c9963b9b0a2b61cc9ee",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/contacts/logo_07.png",
+      "bytes": 1071162,
+      "sha256": "f7164feb91724dc24ae40ea63b3cb9da9e417bd5f90e9f7bd3cc2d7e84139a38",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/contacts/wide_attack.png",
+      "bytes": 643188,
+      "sha256": "d61b44e03f6534c15e8e0d30b8d88210a25e036c06527d6e2348cc474e8c9aaf",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/contacts/wide_logo.png",
+      "bytes": 688999,
+      "sha256": "2b5b9da10e296e0b06cfc9ee77b493e65e2b882746c0f9ca94f8d0ce28a161b8",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/contacts/wide_representatives.png",
+      "bytes": 465064,
+      "sha256": "abb86d05b10867e94c4f7ad6ff0080cc0c0f20ce9c0c09276287383551497b2a",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/coverage.json",
+      "bytes": 157093,
+      "sha256": "43b49d700abc99969d6ed8c3ab711a3aec639b6c7935e6a840d6f23ecff6beed",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/diagnostics/executed_driver.py.txt",
+      "bytes": 3418,
+      "sha256": "2185e2e6cf04c43217888c53f3c3465dd37f8641058fcaeab9e990e3b65f6fd4",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/diagnostics/reconciliation_gates.json",
+      "bytes": 1252902,
+      "sha256": "eb87813c732f3b0f3bfa323a8badc1685d4fd6a0ee2e9edb7b1ad696fc573992",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/diagnostics/rejected_attack_v4.gd.txt",
+      "bytes": 29201,
+      "sha256": "837bc2023962522df642ead46d3bf54a7c6176029655915c5cd7a170aacf3bd9",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/diagnostics/rejected_care_background_v3.gd.txt",
+      "bytes": 29194,
+      "sha256": "b1547670794227e09114601c7da36f74de85e4fe5fe03c1629aeaec0476b1866",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/diagnostics/rejected_companion_v1.gd.txt",
+      "bytes": 28893,
+      "sha256": "a9de24117e230b2bf9b001a07b97e543a02fc7c71cb78eec3bcd4eacdb0ae615",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/diagnostics/rejected_companion_v2.gd.txt",
+      "bytes": 29135,
+      "sha256": "7004214a9ecce834bc2333ce530cd2003912d28bcf0b1725467fe7db4d29bd4b",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/diagnostics/rejected_logo_v3.gd.txt",
+      "bytes": 29194,
+      "sha256": "b1547670794227e09114601c7da36f74de85e4fe5fe03c1629aeaec0476b1866",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/diagnostics/run-20261008T093725-companion-1280x720.log",
+      "bytes": 9738,
+      "sha256": "bc48b41a99f4c6690762498a0b02a75f0229a3d129f9e5243816a0918f700a21",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/diagnostics/run-20261008T094011-companion-1280x720.log",
+      "bytes": 9738,
+      "sha256": "0a9b94d04c33f7714e34a6a0cce022d88ad177f29a06b26a9bf23c76d0e777f2",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/diagnostics/run-20261008T094212-companion-1280x720.log",
+      "bytes": 9738,
+      "sha256": "4f168471d244da8380f3b6eed7e301a5e21194ea68b4726bf58b5b4b81b9dfe8",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/diagnostics/run-20261008T094212-companion-1600x720.log",
+      "bytes": 9738,
+      "sha256": "4f168471d244da8380f3b6eed7e301a5e21194ea68b4726bf58b5b4b81b9dfe8",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/diagnostics/run-20261008T094403-logo-1280x720.log",
+      "bytes": 11622,
+      "sha256": "20eb0bb75c7722411c926bfc2e7cacd06fcd5d238b932e82c7d1073dcb1c548a",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/diagnostics/run-20261008T094551-attack-1280x720.log",
+      "bytes": 3103,
+      "sha256": "f8264b42037081cf5086840d1571feb5b70128da877452ace4d3dfd9fec1df38",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/instance_briefs.json",
+      "bytes": 53881,
+      "sha256": "20b2f17a504dcec62d81a7ecfbd34b3398f00e674d638ff7b135f76f2dfccee0",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/logo/1280x720/capture.log",
+      "bytes": 11629,
+      "sha256": "385bc4bd76a99892d826f743e0af784a17fa68e383f42b5bc4f40d92596f58d2",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/logo/1280x720/capture_manifest.json",
+      "bytes": 7149973,
+      "sha256": "354296d7d31b89090ce152a9bda8afb21a625e74640bfe2e9fac40afdb114ed5",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/logo/1280x720/logo_badge_gold.png",
+      "bytes": 1270868,
+      "sha256": "7b8378446254013041b0a806a98ca10ccbd58ee7b88c853275fd28c8a552a582",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/logo/1280x720/logo_badge_mint.png",
+      "bytes": 1271889,
+      "sha256": "1e95798d53db6149ffe8d385cd30a689d71dc709afb642fb8a5f35e5f457edc2",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/logo/1280x720/logo_badge_ocean.png",
+      "bytes": 1270550,
+      "sha256": "32a661f212195c088c5eda8cc9e1fb600027f76376215796431f48ccf407d5ae",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/logo/1280x720/logo_badge_pink.png",
+      "bytes": 1271203,
+      "sha256": "81cc3747da3d490da9f7e58a1dc23efa00b477999b38aecb27f2e944d95b4101",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/logo/1280x720/logo_badge_purple.png",
+      "bytes": 1270776,
+      "sha256": "4a28189119b0ac6cb5f0f98a448f52cb67693681acdfea7d93331e1775492737",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/logo/1280x720/logo_badge_rainbow.png",
+      "bytes": 1271271,
+      "sha256": "394120451b2bd7209ef67be82572fd712f5a632c90e60c3585c32c4bfb98ef92",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/logo/1280x720/logo_cancel_restored.png",
+      "bytes": 1271989,
+      "sha256": "f9df8bbb0c60fd1c9e0da476e7895f3bb8e546da169a9addf2ffbfff06212f4e",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/logo/1280x720/logo_commit_feedback.png",
+      "bytes": 265689,
+      "sha256": "a888eefd63e3b856fdb62d369bcfd5502711dde5b9bd0e2525692dd279a7fd9e",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/logo/1280x720/logo_gold_butterfly.png",
+      "bytes": 264741,
+      "sha256": "64fa7a5b9015c375e2cce7f4ce9ef4adb6b0fb4feb64246a4375dcebc8c8dd24",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/logo/1280x720/logo_gold_crown.png",
+      "bytes": 259260,
+      "sha256": "02ea4bb01cdc2c4fc6a2d967b3c5260369d578ff3302dc5757bcd2361f9eca7e",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/logo/1280x720/logo_gold_dog.png",
+      "bytes": 256649,
+      "sha256": "af79814aee9a504019e6051c69277966b8870f4cbc101b17e4bad9f1beda6b60",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/logo/1280x720/logo_gold_heart.png",
+      "bytes": 258462,
+      "sha256": "4af1d7f888dd0d001df97506c8a2f4fbcfba5798783a08b1172856fc5e522c65",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/logo/1280x720/logo_gold_kitty.png",
+      "bytes": 265435,
+      "sha256": "05dc8056fb6917b62d645f6156d7246bee6fec6f83be10aee357f269a09a6537",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/logo/1280x720/logo_gold_rainbow.png",
+      "bytes": 257231,
+      "sha256": "d5796af3a332e71453d438ac6ace4911b6c48fcc85c0ddc257467984d92c2cfb",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/logo/1280x720/logo_gold_shell.png",
+      "bytes": 261800,
+      "sha256": "e8c75de22fb9caa69a619f677465a7cbcf1ca1640e00fa2ca1f05bc539ab6978",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/logo/1280x720/logo_gold_star.png",
+      "bytes": 255837,
+      "sha256": "0e13b920535b4bae74cbdba8357a2af3815288b0e2b6574394f1810f00fa2b68",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/logo/1280x720/logo_hover.png",
+      "bytes": 273659,
+      "sha256": "1ec294cac60f9aa8261ec3c65320eae33c653f767549b102d1f5f04588a9070b",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/logo/1280x720/logo_mint_butterfly.png",
+      "bytes": 273130,
+      "sha256": "5b9b3ee55c6a757c077afa7b6b37f67400c64a6666e1fb9785fecf2d2f0d7043",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/logo/1280x720/logo_mint_crown.png",
+      "bytes": 266993,
+      "sha256": "0a4f021bdff8684a7708eead0b4475811ba2b9ee451f188c8616232fb0a8d0b9",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/logo/1280x720/logo_mint_dog.png",
+      "bytes": 263830,
+      "sha256": "2ca74ae047f06887d13a0c49ee0b9475021e3084f964007d2c0cbcb313ae6656",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/logo/1280x720/logo_mint_heart.png",
+      "bytes": 264867,
+      "sha256": "c7f0c9c309be5bf7384164f95af27317bc39530ce51caf955f1a9996c5e49310",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/logo/1280x720/logo_mint_kitty.png",
+      "bytes": 273983,
+      "sha256": "6b6e4cf3b21ec01a9e1e2384f4409b9bde53a5bb9a1b166e86e0abb9ea414f8e",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/logo/1280x720/logo_mint_rainbow.png",
+      "bytes": 256714,
+      "sha256": "8805612e5d1b1060bda2b30ddd34ba86de9972501d44aa67d7d7589fa713c47a",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/logo/1280x720/logo_mint_shell.png",
+      "bytes": 262709,
+      "sha256": "c518abb8441f65e0bdf22ca006737cbbd1996600238c079cba405374246b7d44",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/logo/1280x720/logo_mint_star.png",
+      "bytes": 261157,
+      "sha256": "06144282922169df406d26cc68ce5614dcd2282f7a61e4ae8f122d682d728f7b",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/logo/1280x720/logo_no_room_badge.png",
+      "bytes": 680339,
+      "sha256": "23ebdd14307ff8b9df40ee4752129d4f7227660fdb650e3f09aeec7bc3a48bcf",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/logo/1280x720/logo_ocean_butterfly.png",
+      "bytes": 274462,
+      "sha256": "5e47d319475b66e4ff3d0ffee74623f662d5ccba789a68705cb236ce075b2b42",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/logo/1280x720/logo_ocean_crown.png",
+      "bytes": 268117,
+      "sha256": "730b1b69efbf2a4fad4bbca3301abb0fdaaf07c56e89ed2bea3bc7d8adc5ba6d",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/logo/1280x720/logo_ocean_dog.png",
+      "bytes": 266648,
+      "sha256": "e5880b57307250bde2843a9a5415cb063996682666a8d28867033d7fa0c016ad",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/logo/1280x720/logo_ocean_heart.png",
+      "bytes": 266519,
+      "sha256": "193abf12877ba5d8fc69faa7325fad9399ed995b7cac30e658e08c4cf14000c0",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/logo/1280x720/logo_ocean_kitty.png",
+      "bytes": 274975,
+      "sha256": "19763600b083aeec6ccbbef3a0e7e1303452db648d87db209a0886131b6845d0",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/logo/1280x720/logo_ocean_rainbow.png",
+      "bytes": 265139,
+      "sha256": "5035a35d1f1a308862e6ab39da2fec8567fabc4b1a5123a03438f064c678e75f",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/logo/1280x720/logo_ocean_shell.png",
+      "bytes": 270815,
+      "sha256": "858aab497d199de9f3c0279e8aacbfe2893e25d05758a128cfc0094695512553",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/logo/1280x720/logo_ocean_star.png",
+      "bytes": 264319,
+      "sha256": "60179deb8d1a9bb57dc3424cc0f47abae54267a6e27cd808cf104c91051af4f5",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/logo/1280x720/logo_pink_butterfly.png",
+      "bytes": 264537,
+      "sha256": "662141c26c47266d8b3661bdcc0204adec73652b5fc3e8461a9d70dcc9d827ea",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/logo/1280x720/logo_pink_crown.png",
+      "bytes": 257436,
+      "sha256": "b69fa7fe45c7a67385aa6ff7316c484f96e56e0f84dfbd628e1e1603d9f08918",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/logo/1280x720/logo_pink_dog.png",
+      "bytes": 256821,
+      "sha256": "25e3aa8e3059062035b07d776e49edf1ee2a0c6db4fd1923660ade3793858540",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/logo/1280x720/logo_pink_heart.png",
+      "bytes": 255909,
+      "sha256": "f695f394bf7d2e000f9131e2ecd4763b431b04d362d56237378bfa8383b3b000",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/logo/1280x720/logo_pink_kitty.png",
+      "bytes": 265125,
+      "sha256": "218faa1ebfc76599a65431c59cfc2bbab6168cc64065ae03d32a1cfb895b8812",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/logo/1280x720/logo_pink_rainbow.png",
+      "bytes": 254667,
+      "sha256": "8b1cc86e2c68effc6018157a5b36e4c0d187d91fe11d38f46d732929f190abf7",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/logo/1280x720/logo_pink_shell.png",
+      "bytes": 260327,
+      "sha256": "51049ba0c57c778ea659c3d780ae4b109cdbbe0d362bcf7fda9728266c81bf7e",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/logo/1280x720/logo_pink_star.png",
+      "bytes": 253906,
+      "sha256": "ad8b23b539d8b4dac02be716872a81d820ec7213e3c197f70cff501f4cf9df45",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/logo/1280x720/logo_playroom_banners.png",
+      "bytes": 1279683,
+      "sha256": "4a3fd123760c0e847c040b1218bca684363e54796da6857588c7bc32432a4866",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/logo/1280x720/logo_pressed.png",
+      "bytes": 273464,
+      "sha256": "5d4dd99acdca20071073a023597015d24a5dacfb471e803132cf8bb3d08b39a2",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/logo/1280x720/logo_purple_butterfly.png",
+      "bytes": 273980,
+      "sha256": "75ba1766ad0144addd5dc0d0bb6d760b6dd7f3d4f217b40cfecf043850ba059e",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/logo/1280x720/logo_purple_crown.png",
+      "bytes": 268665,
+      "sha256": "66f851d01f4be3d39c6e2106dd62dda23208aa832b3d7b514677c0ad6826e3e3",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/logo/1280x720/logo_purple_dog.png",
+      "bytes": 265158,
+      "sha256": "224af8b86f1db5ce25e4203e22aa738ca53ed60697f846ed4102a667359135df",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/logo/1280x720/logo_purple_heart.png",
+      "bytes": 267186,
+      "sha256": "9f1907f3b53c4210e08d4ae30c2e0b3f06c946c21c92ae2db0e937fa1fd95a4e",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/logo/1280x720/logo_purple_kitty.png",
+      "bytes": 274884,
+      "sha256": "9411f9443d048a4b3362347f46d269a409e3082e374a1fb7a980471420cbd029",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/logo/1280x720/logo_purple_rainbow.png",
+      "bytes": 266020,
+      "sha256": "24d8a9021db61cb149f18a242938ef3b1f1a10e5f20166b366d6dcd6b70d3697",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/logo/1280x720/logo_purple_shell.png",
+      "bytes": 271524,
+      "sha256": "b7917dffb2c00cbe6bc8a5dd0779d675405cad7712cb6c60df07767bb8c1cb09",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/logo/1280x720/logo_purple_star.png",
+      "bytes": 263659,
+      "sha256": "538f3ef0519086c8b8b5707771052baa2e194665dfb37ccea9a25f79665d5bbd",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/logo/1280x720/logo_rainbow_butterfly.png",
+      "bytes": 273974,
+      "sha256": "3b616643bfa3fa237ae3d923c7435a5e6be372dfc9ad9dce0194d11165d55915",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/logo/1280x720/logo_rainbow_crown.png",
+      "bytes": 267730,
+      "sha256": "be9949aa534b76875320abb8e736acb4422080670a1c740c5b6dfa8222b9ff05",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/logo/1280x720/logo_rainbow_dog.png",
+      "bytes": 265856,
+      "sha256": "5b95b5c5e7614f7d0bf38c4121bb2495c00ff6fb54a8ba10a2bfb39d72790027",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/logo/1280x720/logo_rainbow_heart.png",
+      "bytes": 265272,
+      "sha256": "0444f2cdf4ebbbb60096cc7d8de9c8fd4cc74c1d083354f900622ab002379069",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/logo/1280x720/logo_rainbow_kitty.png",
+      "bytes": 275028,
+      "sha256": "ca945fd61389dbaab22e64fac8f23f5bce5d27051e8e8dc315417e9ee08c6d70",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/logo/1280x720/logo_rainbow_rainbow.png",
+      "bytes": 263992,
+      "sha256": "de54cd6d587b2c448429d6ccabd8205a03c9e29fca44a7cd4d1f29d87bc38dab",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/logo/1280x720/logo_rainbow_shell.png",
+      "bytes": 270825,
+      "sha256": "c0d5bc0379a552154fb15399a7ff30973e541d885e32e1237a82cea50ab3631e",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/logo/1280x720/logo_rainbow_star.png",
+      "bytes": 262202,
+      "sha256": "e3e4ea08df9e0d49ee1b1d84b55f89008eaaea2232feb4dc3d140d3649bc22b4",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/logo/1600x720/capture.log",
+      "bytes": 11629,
+      "sha256": "385bc4bd76a99892d826f743e0af784a17fa68e383f42b5bc4f40d92596f58d2",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/logo/1600x720/capture_manifest.json",
+      "bytes": 7248343,
+      "sha256": "21a2935c77587a3a30e1af59cc098f01c213a0b8e58b66b71bdb9216f03d4bb9",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/logo/1600x720/logo_badge_gold.png",
+      "bytes": 1306443,
+      "sha256": "b1eaf036bcfb906bdd7e0b4031aa693ecb1fad6a6a32b4fd41b8fa31d1a9d182",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/logo/1600x720/logo_badge_mint.png",
+      "bytes": 1304999,
+      "sha256": "ecf38f09c82ef344ad2ff72f659b59af4e97478fe0a2f6c594080496565883a0",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/logo/1600x720/logo_badge_ocean.png",
+      "bytes": 1305570,
+      "sha256": "b8f0fadacbfdd652c521e273d410ca329980172b669af8e993754a849c5786bf",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/logo/1600x720/logo_badge_pink.png",
+      "bytes": 1305303,
+      "sha256": "0092987a5d2d15465c9bb2939369f328a89697407e2f87a4b3e1e5afdbce7211",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/logo/1600x720/logo_badge_purple.png",
+      "bytes": 1305725,
+      "sha256": "373706c58cc0b57db309fd833097cd338e4b3a83396502d55d3bfbe8d1296be5",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/logo/1600x720/logo_badge_rainbow.png",
+      "bytes": 1306405,
+      "sha256": "0a78102447f803ebe92c7312bde73590757370373049d7eea596f3dce78fb066",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/logo/1600x720/logo_cancel_restored.png",
+      "bytes": 1306998,
+      "sha256": "57e2f2056eb6f81f7e5daa0e370aa5ea4c775f5806e7fd30a34a2a3637089d88",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/logo/1600x720/logo_commit_feedback.png",
+      "bytes": 275059,
+      "sha256": "3ffaae7cd153ccb2b6e93f4132071255e3c5b8cb67381ec0f40eb03e64e3c85f",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/logo/1600x720/logo_gold_butterfly.png",
+      "bytes": 275729,
+      "sha256": "c28d6b485abc885f8c6ac17ed681d7bc199c99dc1a376d902c9f0d29ce7e58d1",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/logo/1600x720/logo_gold_crown.png",
+      "bytes": 269964,
+      "sha256": "6437aa57f080aa164920e3045b54a84f50a16c7b016475ac10057d9f5f9991c9",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/logo/1600x720/logo_gold_dog.png",
+      "bytes": 267381,
+      "sha256": "4e6cf9fecc5d7680a378afe63f14f16c2cd9740aeaf0c354ca89db3d0634f6fc",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/logo/1600x720/logo_gold_heart.png",
+      "bytes": 269432,
+      "sha256": "e680b832e33f110ebc5566fb1e37f18b002ea7f3df28b13b94c66ab2f63ec6c4",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/logo/1600x720/logo_gold_kitty.png",
+      "bytes": 275903,
+      "sha256": "38763cd485a9c690a9a45c348e29c66659955fc513c7d76cd20afab47a4f4ef2",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/logo/1600x720/logo_gold_rainbow.png",
+      "bytes": 268816,
+      "sha256": "87843b1a8badbc92250d91f64d9dd82f295dc7e388d588a0d34fbc84d0e73a01",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/logo/1600x720/logo_gold_shell.png",
+      "bytes": 273279,
+      "sha256": "900ce5fd6fb809bbf40ce0f0bc3ecda33e6bb2cfeb3a8903e7662a089314d59e",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/logo/1600x720/logo_gold_star.png",
+      "bytes": 266367,
+      "sha256": "b1bd4bc1a841d249ab2a971b58d7cc7d51411dafa0744c607f8803d74b8fbb10",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/logo/1600x720/logo_hover.png",
+      "bytes": 282941,
+      "sha256": "827ab2ac340d1e53515e6e9491758aa4db3f3692e54d86f0ebde77ce5e204e05",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/logo/1600x720/logo_mint_butterfly.png",
+      "bytes": 282973,
+      "sha256": "54f65b3a7c5267e19434066327a60780d565861373e98b28d40536d6da3e6212",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/logo/1600x720/logo_mint_crown.png",
+      "bytes": 276639,
+      "sha256": "9e21a3aff95e48d2fc556694dba32f758e058eec7c26a5da1e4c742c14dcac96",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/logo/1600x720/logo_mint_dog.png",
+      "bytes": 273316,
+      "sha256": "028356ba136c5e1256e1b3310ecfa94295405e6e3881d868ebc82fccf10c46cd",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/logo/1600x720/logo_mint_heart.png",
+      "bytes": 274823,
+      "sha256": "137d0c64e0fdff27762cddabdb080a84fc45fbaee4ba9ad1b81de187c98189bf",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/logo/1600x720/logo_mint_kitty.png",
+      "bytes": 283489,
+      "sha256": "2bb4c6fc3f09d41dddc65a09eb1ee70cf1d5a64d885ea705fb71ba869a49a4e4",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/logo/1600x720/logo_mint_rainbow.png",
+      "bytes": 267465,
+      "sha256": "d7ea8d763a3ad5cad03218db9c3c195a02614bc3bdab29d832b178ae25aec298",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/logo/1600x720/logo_mint_shell.png",
+      "bytes": 273703,
+      "sha256": "0b35a04564de824c8903792959b2cc23350c4080df7bf893a5c0acaab980b0c3",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/logo/1600x720/logo_mint_star.png",
+      "bytes": 270380,
+      "sha256": "3eb2d7868ed71e8736a05b667903565608dbb5a4a59d32b4c5335c78e70c10b8",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/logo/1600x720/logo_no_room_badge.png",
+      "bytes": 692942,
+      "sha256": "31b1e1ea386d8c69612273c0a0e8b332f6c1cb10fcd9b581bed4838132890caf",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/logo/1600x720/logo_ocean_butterfly.png",
+      "bytes": 284323,
+      "sha256": "b1a1b641d36af50e45a6d136591e1e07652946dee6e1bf55cc7658ea3e01b3c0",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/logo/1600x720/logo_ocean_crown.png",
+      "bytes": 277776,
+      "sha256": "e3bd9b682faaae31b8830b2e3e1074e95624fc04e509de489b695df525876dcd",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/logo/1600x720/logo_ocean_dog.png",
+      "bytes": 276828,
+      "sha256": "90838a208fc1a7d17ff6c927005414877359cf4608aba3353c268a298675d980",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/logo/1600x720/logo_ocean_heart.png",
+      "bytes": 276286,
+      "sha256": "1628fe57d39028b3c9f820735f478d2588b8772bb646fe8570435aed2bb3e801",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/logo/1600x720/logo_ocean_kitty.png",
+      "bytes": 284643,
+      "sha256": "4406ae923bac2edd6250140ea773a41a3481bbac7bfbbb888c3811aaa6c2778d",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/logo/1600x720/logo_ocean_rainbow.png",
+      "bytes": 274557,
+      "sha256": "8989f478f9be3ff4e3fb4d0cee6ac23348b2a753195e1e89bc8858bd5f8d949a",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/logo/1600x720/logo_ocean_shell.png",
+      "bytes": 280416,
+      "sha256": "b80fd20538d5a0736b5e4eb9c8dc1d9fe251913f7fef40799500128e1ae49fd2",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/logo/1600x720/logo_ocean_star.png",
+      "bytes": 273775,
+      "sha256": "eb1723f99bd6f7671e5086768b52945016947b19f1aae4eb2c2f2e1eb5a0a5cb",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/logo/1600x720/logo_pink_butterfly.png",
+      "bytes": 274331,
+      "sha256": "a2b7fa4a6731d809e18af005ac7f6aebac5b11b3219f9b8ed7a3e16073c7656e",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/logo/1600x720/logo_pink_crown.png",
+      "bytes": 267938,
+      "sha256": "32b5944793b76a388bbd85aa30f331e902c7dd7dfb31252b4023aa2f5b11dcfa",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/logo/1600x720/logo_pink_dog.png",
+      "bytes": 267843,
+      "sha256": "ec8c0ec378fbfb888dc54c3e0aa7ccd126d31e34a0a28f8796a59d0f878fe822",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/logo/1600x720/logo_pink_heart.png",
+      "bytes": 266859,
+      "sha256": "003722a3fcd71fac4b2d5a02a8667785298a387fb456a0cb86c8bee43277f970",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/logo/1600x720/logo_pink_kitty.png",
+      "bytes": 275295,
+      "sha256": "4d19b9293a9f16bfd10c9d08b87d701b1b82341cfa689a58fd266d6c25fe23c6",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/logo/1600x720/logo_pink_rainbow.png",
+      "bytes": 265676,
+      "sha256": "5aa5169398a7aaae98c8bda4f1f9bab821accbec4d76c4e929ab0ff70ef256a1",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/logo/1600x720/logo_pink_shell.png",
+      "bytes": 270758,
+      "sha256": "0351a55661b16b2399af11c6898301f7fac07ef0bd655678f61729132732b860",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/logo/1600x720/logo_pink_star.png",
+      "bytes": 265166,
+      "sha256": "2af8cc4ab8c091434fd7b9078709279494b26e0a5791a962cc55abe716908dc2",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/logo/1600x720/logo_playroom_banners.png",
+      "bytes": 1318390,
+      "sha256": "5d8833a0d3db44041df06879286d04ed3e0e86bee6086dc72f04714e40eeb490",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/logo/1600x720/logo_pressed.png",
+      "bytes": 282061,
+      "sha256": "8bd1596f8102b01d669ff7665816c94dc593b81cf084dfde1461b417d1d22ad3",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/logo/1600x720/logo_purple_butterfly.png",
+      "bytes": 283429,
+      "sha256": "a0ee906f4b756fded261da744e7e10bc860e886744ba436c8381ea3585fae7eb",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/logo/1600x720/logo_purple_crown.png",
+      "bytes": 278082,
+      "sha256": "b36555c55990f1730e9bd413a53ea8cd88e37426ae14ec206db687e9af852735",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/logo/1600x720/logo_purple_dog.png",
+      "bytes": 274968,
+      "sha256": "b2978f8747a8eba88b32752bfca8ea90b0bdc63e5f176567e8cc6f5dd335be3e",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/logo/1600x720/logo_purple_heart.png",
+      "bytes": 277282,
+      "sha256": "48386ebe1ebb2a575ebb4bca7e16bc588eb25692b15f24dd0820271de034a0c7",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/logo/1600x720/logo_purple_kitty.png",
+      "bytes": 283950,
+      "sha256": "a373fd86da76a1efa0a4b53a94f3e10dc43ba8603cb96de71d70c81caaf7c88e",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/logo/1600x720/logo_purple_rainbow.png",
+      "bytes": 275906,
+      "sha256": "7a3b52fe02289793ea4b81bdef174129bf1910cd50164aebe18ea5e5b8a06fb4",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/logo/1600x720/logo_purple_shell.png",
+      "bytes": 280696,
+      "sha256": "2b2a02956deb5a24ba919b9c7dd61e62f8b467e11dba1c84174d28b0bdc4c094",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/logo/1600x720/logo_purple_star.png",
+      "bytes": 273752,
+      "sha256": "92c88915376422a0cbd96f360093c7c288a9905ac126e13102dce7dcd47bfa89",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/logo/1600x720/logo_rainbow_butterfly.png",
+      "bytes": 283754,
+      "sha256": "67642c756b497da3264ce9167bf4a9f989167d225efd7cb17dd38ad655ef15fe",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/logo/1600x720/logo_rainbow_crown.png",
+      "bytes": 277871,
+      "sha256": "f179b532ed84fd5192630c1d9d3f0ba51ddbd0f6fcd4d32e2caaeb3ed57bc75c",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/logo/1600x720/logo_rainbow_dog.png",
+      "bytes": 275053,
+      "sha256": "80dd8325c6ba9561f7e93d7dc31555d4e15922db79b37f7d0f9d48959383b167",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/logo/1600x720/logo_rainbow_heart.png",
+      "bytes": 275722,
+      "sha256": "ba90c66ac973f4971f5e6446fc4274ff27b2ee6621f95dc08f84e6409f06a078",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/logo/1600x720/logo_rainbow_kitty.png",
+      "bytes": 284389,
+      "sha256": "23e57d0468f482332625ac8cd1742f7f6316f40ddb01072681321fe894d35e7d",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/logo/1600x720/logo_rainbow_rainbow.png",
+      "bytes": 274031,
+      "sha256": "075d33c0747e9dd85ed1812a22ef2cd567622421d55b329ca662d168d56d5ad3",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/logo/1600x720/logo_rainbow_shell.png",
+      "bytes": 280602,
+      "sha256": "d112e863735d83d0ae1b3823a4c352f8f682294517a01cae06872903e00d0cb0",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/logo/1600x720/logo_rainbow_star.png",
+      "bytes": 271533,
+      "sha256": "bfc940f6014a65bef7f45f183bb0c555e12234d9ba730fdcb3007086ff83f722",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/observations.json",
+      "bytes": 4756,
+      "sha256": "a250e9d8370f5512374669cf4d65542ad504b836e0baf455dba21d4735fe3e52",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/prior_r4_receipt.json",
+      "bytes": 450412,
+      "sha256": "eaf738854fe85f38e7a247b2e7114711ead42688c834827f2f9eff79dc80b862",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/route_dispositions.json",
+      "bytes": 1181,
+      "sha256": "e6358b6579cd79e39139e98d4c5c1403055a39d747da04bbaf0a5443757d1c6a",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/run_capture.py",
+      "bytes": 3595,
+      "sha256": "8ec762915c568349ba316c1c94e1a3328d209d7b7c042cadbdeb6ca37c914d8e",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/scope_dispositions.json",
+      "bytes": 4384284,
+      "sha256": "4c9cc1a55cd3152863bee9e85400ef8f0283be604c404215ec7386678503f1ef",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/scope_review.json",
+      "bytes": 141272,
+      "sha256": "394ec01682abe94fb9582c7e7c1e8f27eefdfa83f9b0ce49dd20f6fcf8b07d80",
+      "role": "audit_payload"
+    },
+    {
+      "path": "live_v5/validate.py",
+      "bytes": 12415,
+      "sha256": "422f919533b663dc3a8d5dfbe143c18db9cb93f993bb399d8957b503b06b28cb",
+      "role": "audit_payload"
+    },
+    {
       "path": "per_piece.json",
       "bytes": 1085901,
       "sha256": "5799a999f8a6c377ff362873be69e13bd36bf5f50c159c986f8b92c5118c12ac",
@@ -3042,8 +4926,8 @@
     },
     {
       "path": "publish_verification.py",
-      "bytes": 9692,
-      "sha256": "3c22b7c96fba385dba355f8b585e8ef61b3b1a2e6ca5a16ee7c3dfb3aecb779f",
+      "bytes": 9792,
+      "sha256": "c8cf79687a1bb8467be3544d602e297f1ef88add9bdb21f828aaef22a875f52e",
       "role": "audit_payload"
     },
     {
@@ -3252,8 +5136,8 @@
     },
     {
       "path": "tally.json",
-      "bytes": 4387,
-      "sha256": "04a9c52e855416bb6bcb97a530858d5dbe800dafdd8cf60d78002415617b028c",
+      "bytes": 4477,
+      "sha256": "55842275a63f988ec68ea973614403759d19bae1644538c4b5a1a39a0d44d6de",
       "role": "audit_payload"
     },
     {
@@ -3269,7 +5153,7 @@
       "role": "audit_payload"
     }
   ],
-  "payload_sha256": "b1de6c68351d1551db27e3092519672df9689cfe157f9398b2c10e1febb251ea",
+  "payload_sha256": "45093cd20af746a56683c054e7d017b5887d166939df01ebd3d6fad90603d2c7",
   "payload_hash_algorithm": "SHA-256 of sorted UTF-8 path + TAB + lowercase SHA-256 + LF for every listed payload file",
   "excluded_post_publication_record": "REMOTE_VERIFICATION.json; receipt-only revision verified separately",
   "external_bound_sources": [
@@ -5895,6 +7779,741 @@
       "bytes": 14633,
       "sha256_git_blob_bytes": "0d7f4c5241f141ca4bbb9464f21aa5bd46545e1817b8b2638fea1caadf9f6573",
       "role": "current_capture_runtime_source"
+    },
+    {
+      "path": "assets/castle/day_one_art_studio/magic_cleaning_brush.png",
+      "revision": "6c2f3fb6b47ac247521cb4bd029d258c4f060693",
+      "bytes": 535795,
+      "sha256_git_blob_bytes": "17e76b7f758f31a9b148167ff103a68bdf9543e7aac5794314a97bbd91066ef3",
+      "role": "current_capture_runtime_source"
+    },
+    {
+      "path": "assets/castle/dirty_cleanup_2d/critters/dust_bunnies/dust_bunny_hop.png",
+      "revision": "6c2f3fb6b47ac247521cb4bd029d258c4f060693",
+      "bytes": 164693,
+      "sha256_git_blob_bytes": "677cda8c5de1d3aaf1d8960b089d48fab27106429bc221b4c26c14775b382752",
+      "role": "current_capture_runtime_source"
+    },
+    {
+      "path": "assets/characters/companions/baby_eagle.png",
+      "revision": "6c2f3fb6b47ac247521cb4bd029d258c4f060693",
+      "bytes": 139462,
+      "sha256_git_blob_bytes": "7d6f10afbd8cd157436a05eaadab7eb4cc07c3a3d242ad2291111fc6b4f3ed2f",
+      "role": "current_capture_runtime_source"
+    },
+    {
+      "path": "assets/characters/roshan_25d/roshan_directional.png",
+      "revision": "6c2f3fb6b47ac247521cb4bd029d258c4f060693",
+      "bytes": 396741,
+      "sha256_git_blob_bytes": "2bcc6212dddaddedb5823ba095caff1cbecdb762d5bbdc76726d3d5b0e3ee85a",
+      "role": "current_capture_runtime_source"
+    },
+    {
+      "path": "assets/flats/castle/dream_house/family_portal_dining.png",
+      "revision": "6c2f3fb6b47ac247521cb4bd029d258c4f060693",
+      "bytes": 269136,
+      "sha256_git_blob_bytes": "45ac409e09db698811c7dc9dd16099525f78c61e4924333a586180981055d1cb",
+      "role": "current_capture_runtime_source"
+    },
+    {
+      "path": "assets/flats/castle/dream_house/family_portal_movie_lounge.png",
+      "revision": "6c2f3fb6b47ac247521cb4bd029d258c4f060693",
+      "bytes": 242240,
+      "sha256_git_blob_bytes": "325ef4a1fbf2f75fbf88e8d8e6b1235c21c113767e36a62545880e5ba1c8d12f",
+      "role": "current_capture_runtime_source"
+    },
+    {
+      "path": "assets/flats/castle/dream_house/family_portal_royal_bedroom.png",
+      "revision": "6c2f3fb6b47ac247521cb4bd029d258c4f060693",
+      "bytes": 262000,
+      "sha256_git_blob_bytes": "a9dd6f48a97cd2429362235b6c975c474ed4a1dce8eacc221cdb05436f62422a",
+      "role": "current_capture_runtime_source"
+    },
+    {
+      "path": "assets/flats/castle/dream_house/family_portal_sleepover_bedroom.png",
+      "revision": "6c2f3fb6b47ac247521cb4bd029d258c4f060693",
+      "bytes": 237201,
+      "sha256_git_blob_bytes": "02b25afe4f5eb18619a451d0273ac0fb0c4e1d35b4cda7051deb56cf80a8d7b2",
+      "role": "current_capture_runtime_source"
+    },
+    {
+      "path": "assets/flats/castle/interactions_v2/craft_room_idea_board_sheet.png",
+      "revision": "6c2f3fb6b47ac247521cb4bd029d258c4f060693",
+      "bytes": 467899,
+      "sha256_git_blob_bytes": "a88d626f5d455c8850f195b7b8ccb0f9ac75680f860a219c297bd8206ab8da03",
+      "role": "current_capture_runtime_source"
+    },
+    {
+      "path": "assets/flats/castle/interactions_v2/craft_room_paint_table_sheet.png",
+      "revision": "6c2f3fb6b47ac247521cb4bd029d258c4f060693",
+      "bytes": 317517,
+      "sha256_git_blob_bytes": "2beb7dd4e5e731acfe0a402f45aef195ac2a886c6ec982eecdc2b16e9ea7ecba",
+      "role": "current_capture_runtime_source"
+    },
+    {
+      "path": "assets/flats/castle/interactions_v2/craft_room_palette_sheet.png",
+      "revision": "6c2f3fb6b47ac247521cb4bd029d258c4f060693",
+      "bytes": 832285,
+      "sha256_git_blob_bytes": "c36ee3bb19840d9977961f6525f3d543a38bc599335a0ad82bfd11fb60850071",
+      "role": "current_capture_runtime_source"
+    },
+    {
+      "path": "assets/flats/castle/interactions_v2/craft_room_ribbon_rack_sheet.png",
+      "revision": "6c2f3fb6b47ac247521cb4bd029d258c4f060693",
+      "bytes": 776255,
+      "sha256_git_blob_bytes": "3867c9ba410fa68d2688f9eae9c789a832b49c1455ff94b801947bf5f43b8e01",
+      "role": "current_capture_runtime_source"
+    },
+    {
+      "path": "assets/flats/castle/interactions_v2/playroom_blocks_sheet.png",
+      "revision": "6c2f3fb6b47ac247521cb4bd029d258c4f060693",
+      "bytes": 324904,
+      "sha256_git_blob_bytes": "434b2a37678a51d319dc0ecfc9dcb2e5aee0a2753230004796716fa32e595106",
+      "role": "current_capture_runtime_source"
+    },
+    {
+      "path": "assets/flats/castle/interactions_v2/playroom_play_tent_sheet.png",
+      "revision": "6c2f3fb6b47ac247521cb4bd029d258c4f060693",
+      "bytes": 655177,
+      "sha256_git_blob_bytes": "75c3135758dc001d330dc93819a17c7d670d32739c555eb84e7ed53904f6706a",
+      "role": "current_capture_runtime_source"
+    },
+    {
+      "path": "assets/flats/castle/interactions_v2/playroom_stacking_toy_sheet.png",
+      "revision": "6c2f3fb6b47ac247521cb4bd029d258c4f060693",
+      "bytes": 563521,
+      "sha256_git_blob_bytes": "30acc6f771d26039045310cac40dad36ccf660b9b3110cfaa1238f01d5a49e85",
+      "role": "current_capture_runtime_source"
+    },
+    {
+      "path": "assets/flats/castle/interactions_v2/playroom_stuffie_nook_sheet.png",
+      "revision": "6c2f3fb6b47ac247521cb4bd029d258c4f060693",
+      "bytes": 655559,
+      "sha256_git_blob_bytes": "bc8dde1a1cffcfd061f01f83d9c2549f3f7bca7d978e4df18ee651a8bee94574",
+      "role": "current_capture_runtime_source"
+    },
+    {
+      "path": "assets/flats/castle/interactions_v4/background_tiles/room_craft_room_background_r0_c0.png",
+      "revision": "6c2f3fb6b47ac247521cb4bd029d258c4f060693",
+      "bytes": 773687,
+      "sha256_git_blob_bytes": "a7bac7f1207c7fb68f706a6f1702215da771f30e9752e72b33d708de7d4e97d3",
+      "role": "current_capture_runtime_source"
+    },
+    {
+      "path": "assets/flats/castle/interactions_v4/background_tiles/room_craft_room_background_r0_c1.png",
+      "revision": "6c2f3fb6b47ac247521cb4bd029d258c4f060693",
+      "bytes": 840210,
+      "sha256_git_blob_bytes": "beb2abb1c5b24a89d13ad2318a2040e28fc624ac14404f3cd85cc1ea4069519d",
+      "role": "current_capture_runtime_source"
+    },
+    {
+      "path": "assets/flats/castle/interactions_v4/background_tiles/room_craft_room_background_r0_c2.png",
+      "revision": "6c2f3fb6b47ac247521cb4bd029d258c4f060693",
+      "bytes": 842561,
+      "sha256_git_blob_bytes": "8b12029b8dd7f1bd7be4b7f5b33dee7fe7aed240aea155474d26a826f9e1772e",
+      "role": "current_capture_runtime_source"
+    },
+    {
+      "path": "assets/flats/castle/interactions_v4/background_tiles/room_craft_room_background_r0_c3.png",
+      "revision": "6c2f3fb6b47ac247521cb4bd029d258c4f060693",
+      "bytes": 762953,
+      "sha256_git_blob_bytes": "3d263e7fdaf731fd6da217361ebfcc10a920f1e8caedd9471f3ccee909f3bfbe",
+      "role": "current_capture_runtime_source"
+    },
+    {
+      "path": "assets/flats/castle/interactions_v4/background_tiles/room_craft_room_background_r1_c0.png",
+      "revision": "6c2f3fb6b47ac247521cb4bd029d258c4f060693",
+      "bytes": 658601,
+      "sha256_git_blob_bytes": "7aedf83c6bba58e085744bc3e11cb0aa2987f93f3b34a3db33aa9af295daa255",
+      "role": "current_capture_runtime_source"
+    },
+    {
+      "path": "assets/flats/castle/interactions_v4/background_tiles/room_craft_room_background_r1_c1.png",
+      "revision": "6c2f3fb6b47ac247521cb4bd029d258c4f060693",
+      "bytes": 670248,
+      "sha256_git_blob_bytes": "41adc48e454d86813de0ff67ea7d724753d07aee5eaea92161cd623eaa3ed9c8",
+      "role": "current_capture_runtime_source"
+    },
+    {
+      "path": "assets/flats/castle/interactions_v4/background_tiles/room_craft_room_background_r1_c2.png",
+      "revision": "6c2f3fb6b47ac247521cb4bd029d258c4f060693",
+      "bytes": 677852,
+      "sha256_git_blob_bytes": "72bf313d31004123fcf029828e0ae7aa4f60973fb5760e314e59195fadff92fc",
+      "role": "current_capture_runtime_source"
+    },
+    {
+      "path": "assets/flats/castle/interactions_v4/background_tiles/room_craft_room_background_r1_c3.png",
+      "revision": "6c2f3fb6b47ac247521cb4bd029d258c4f060693",
+      "bytes": 654697,
+      "sha256_git_blob_bytes": "3aad0f5d2e0f2a33d6755e7aff253d4123a1f4a4b9dd6899e1dfb63eade551d7",
+      "role": "current_capture_runtime_source"
+    },
+    {
+      "path": "assets/flats/castle/interactions_v4/background_tiles/room_playroom_background_r0_c0.png",
+      "revision": "6c2f3fb6b47ac247521cb4bd029d258c4f060693",
+      "bytes": 825449,
+      "sha256_git_blob_bytes": "096488900a40cbf648a1d14bc47a0c12b7fed6581b59f3ae64438df68083281d",
+      "role": "current_capture_runtime_source"
+    },
+    {
+      "path": "assets/flats/castle/interactions_v4/background_tiles/room_playroom_background_r0_c1.png",
+      "revision": "6c2f3fb6b47ac247521cb4bd029d258c4f060693",
+      "bytes": 782371,
+      "sha256_git_blob_bytes": "6f4e4aba1b1088202e029c7789dd72ae3839973ad03188baba70bcf4dd04edee",
+      "role": "current_capture_runtime_source"
+    },
+    {
+      "path": "assets/flats/castle/interactions_v4/background_tiles/room_playroom_background_r0_c2.png",
+      "revision": "6c2f3fb6b47ac247521cb4bd029d258c4f060693",
+      "bytes": 772715,
+      "sha256_git_blob_bytes": "6a53730b073147c28cf9d0592e8a671df9660a167e08e3522f8870caf585e05a",
+      "role": "current_capture_runtime_source"
+    },
+    {
+      "path": "assets/flats/castle/interactions_v4/background_tiles/room_playroom_background_r0_c3.png",
+      "revision": "6c2f3fb6b47ac247521cb4bd029d258c4f060693",
+      "bytes": 815011,
+      "sha256_git_blob_bytes": "843edda8aaa1167aa7f38b9ff0a7b3ce073e44137e8191f966b1dfa2b928268f",
+      "role": "current_capture_runtime_source"
+    },
+    {
+      "path": "assets/flats/castle/interactions_v4/background_tiles/room_playroom_background_r1_c0.png",
+      "revision": "6c2f3fb6b47ac247521cb4bd029d258c4f060693",
+      "bytes": 658128,
+      "sha256_git_blob_bytes": "e5d5044e76a9f542ad27229baa135862e4daf86b628b50bdee3a81eb85b4bca7",
+      "role": "current_capture_runtime_source"
+    },
+    {
+      "path": "assets/flats/castle/interactions_v4/background_tiles/room_playroom_background_r1_c1.png",
+      "revision": "6c2f3fb6b47ac247521cb4bd029d258c4f060693",
+      "bytes": 674120,
+      "sha256_git_blob_bytes": "b03d79f00f8bf9848e8d42edfc6a6fbfa37e1ac6e8cebb0df5653c8611661f2a",
+      "role": "current_capture_runtime_source"
+    },
+    {
+      "path": "assets/flats/castle/interactions_v4/background_tiles/room_playroom_background_r1_c2.png",
+      "revision": "6c2f3fb6b47ac247521cb4bd029d258c4f060693",
+      "bytes": 700229,
+      "sha256_git_blob_bytes": "b971fbb842904377f5fdd3e91ea48284ba4ec563497d77656719e9e963e5ecdd",
+      "role": "current_capture_runtime_source"
+    },
+    {
+      "path": "assets/flats/castle/interactions_v4/background_tiles/room_playroom_background_r1_c3.png",
+      "revision": "6c2f3fb6b47ac247521cb4bd029d258c4f060693",
+      "bytes": 686053,
+      "sha256_git_blob_bytes": "eb67c27e7d4dc2d0d304390cf83b58aa1be2347c4e466beb35eadd27ae82240f",
+      "role": "current_capture_runtime_source"
+    },
+    {
+      "path": "assets/flats/castle/interactions_v4/sheets/craft_room_supply_cupboard_left_sheet.png",
+      "revision": "6c2f3fb6b47ac247521cb4bd029d258c4f060693",
+      "bytes": 96020,
+      "sha256_git_blob_bytes": "454488a5a9e2fd67a98ef83d4392356441088a9b8a6de18ef8541206fb764e4a",
+      "role": "current_capture_runtime_source"
+    },
+    {
+      "path": "assets/flats/castle/interactions_v4/sheets/playroom_shelf_sailboat_sheet.png",
+      "revision": "6c2f3fb6b47ac247521cb4bd029d258c4f060693",
+      "bytes": 36884,
+      "sha256_git_blob_bytes": "759a5da53c1dc3ed494951a37803616e9ac2986e6d040486abc7873551575975",
+      "role": "current_capture_runtime_source"
+    },
+    {
+      "path": "assets/flats/castle/logo_studio_v2/castle_banner_gold.png",
+      "revision": "6c2f3fb6b47ac247521cb4bd029d258c4f060693",
+      "bytes": 127531,
+      "sha256_git_blob_bytes": "644b838b0df14145ab936c96cf4a05f3ed98d4817a4229e76e4a863d8fe36c68",
+      "role": "current_capture_runtime_source"
+    },
+    {
+      "path": "assets/flats/castle/logo_studio_v2/castle_banner_mint.png",
+      "revision": "6c2f3fb6b47ac247521cb4bd029d258c4f060693",
+      "bytes": 129315,
+      "sha256_git_blob_bytes": "08ee5c09cf39d04d5a282d58909ac0333e8881b99751e8dda32cb5328e17fe33",
+      "role": "current_capture_runtime_source"
+    },
+    {
+      "path": "assets/flats/castle/logo_studio_v2/castle_banner_motif_butterfly.png",
+      "revision": "6c2f3fb6b47ac247521cb4bd029d258c4f060693",
+      "bytes": 85453,
+      "sha256_git_blob_bytes": "6756a8393fd9a388b959e662dae5289a34f9f278480e74db07d10cc9106f07be",
+      "role": "current_capture_runtime_source"
+    },
+    {
+      "path": "assets/flats/castle/logo_studio_v2/castle_banner_motif_crown.png",
+      "revision": "6c2f3fb6b47ac247521cb4bd029d258c4f060693",
+      "bytes": 73249,
+      "sha256_git_blob_bytes": "ac6c2f1a9f02acd50783cfc0cdc96d3c093c7affe6c76a754af6f7a4a318939c",
+      "role": "current_capture_runtime_source"
+    },
+    {
+      "path": "assets/flats/castle/logo_studio_v2/castle_banner_motif_dog.png",
+      "revision": "6c2f3fb6b47ac247521cb4bd029d258c4f060693",
+      "bytes": 64084,
+      "sha256_git_blob_bytes": "e2091812257c9586729d08d0e0db1f2a7a378472d52ced6ae3905be7cfee4d5b",
+      "role": "current_capture_runtime_source"
+    },
+    {
+      "path": "assets/flats/castle/logo_studio_v2/castle_banner_motif_heart.png",
+      "revision": "6c2f3fb6b47ac247521cb4bd029d258c4f060693",
+      "bytes": 69256,
+      "sha256_git_blob_bytes": "8815278d13b8809343e0f3bad18cbde81a0cd1fceb395f2c81c769cc473ef744",
+      "role": "current_capture_runtime_source"
+    },
+    {
+      "path": "assets/flats/castle/logo_studio_v2/castle_banner_motif_kitty.png",
+      "revision": "6c2f3fb6b47ac247521cb4bd029d258c4f060693",
+      "bytes": 85483,
+      "sha256_git_blob_bytes": "f09166bb850830aa0e57f344de1a4258a67a1f0a1f93990ba03c7670b9aba7ad",
+      "role": "current_capture_runtime_source"
+    },
+    {
+      "path": "assets/flats/castle/logo_studio_v2/castle_banner_motif_rainbow.png",
+      "revision": "6c2f3fb6b47ac247521cb4bd029d258c4f060693",
+      "bytes": 65150,
+      "sha256_git_blob_bytes": "eb9a0985d88ee51c6bca2fa3bdb29b5db0e45bbb9d75b0c430d3936c85244409",
+      "role": "current_capture_runtime_source"
+    },
+    {
+      "path": "assets/flats/castle/logo_studio_v2/castle_banner_motif_shell.png",
+      "revision": "6c2f3fb6b47ac247521cb4bd029d258c4f060693",
+      "bytes": 77599,
+      "sha256_git_blob_bytes": "6460cd110e925cdea7006ed7adf85d34cc1ace442018cbe56d3d340cc44a2209",
+      "role": "current_capture_runtime_source"
+    },
+    {
+      "path": "assets/flats/castle/logo_studio_v2/castle_banner_motif_star.png",
+      "revision": "6c2f3fb6b47ac247521cb4bd029d258c4f060693",
+      "bytes": 61445,
+      "sha256_git_blob_bytes": "940afd1160f2596773b5177326d8ba5c12eca12d88388eb5ddc7124245c69f7c",
+      "role": "current_capture_runtime_source"
+    },
+    {
+      "path": "assets/flats/castle/logo_studio_v2/castle_banner_ocean.png",
+      "revision": "6c2f3fb6b47ac247521cb4bd029d258c4f060693",
+      "bytes": 129391,
+      "sha256_git_blob_bytes": "de95d976b0fff81db1acbd543e25e7da91bc0211c966a290110febea89f715d2",
+      "role": "current_capture_runtime_source"
+    },
+    {
+      "path": "assets/flats/castle/logo_studio_v2/castle_banner_pink.png",
+      "revision": "6c2f3fb6b47ac247521cb4bd029d258c4f060693",
+      "bytes": 128170,
+      "sha256_git_blob_bytes": "026dacdcb1c0f002c241d9f99d9fe1d4510717feadac18736db6f687f549bcc9",
+      "role": "current_capture_runtime_source"
+    },
+    {
+      "path": "assets/flats/castle/logo_studio_v2/castle_banner_purple.png",
+      "revision": "6c2f3fb6b47ac247521cb4bd029d258c4f060693",
+      "bytes": 129130,
+      "sha256_git_blob_bytes": "92862a337a1932c62e8663bcf6c624d09a64ac490d1065b3e6d3783344462913",
+      "role": "current_capture_runtime_source"
+    },
+    {
+      "path": "assets/flats/castle/logo_studio_v2/castle_banner_rainbow.png",
+      "revision": "6c2f3fb6b47ac247521cb4bd029d258c4f060693",
+      "bytes": 132543,
+      "sha256_git_blob_bytes": "1cbf785bded294e8e4f5814f5b85fb2a455e07c4fe16f8826b00545d095a6731",
+      "role": "current_capture_runtime_source"
+    },
+    {
+      "path": "assets/flats/castle/rooms/background_tiles/room_family_gallery_background_r0_c0.png",
+      "revision": "6c2f3fb6b47ac247521cb4bd029d258c4f060693",
+      "bytes": 40754,
+      "sha256_git_blob_bytes": "79a218b4fe470b5b3228cfd1899734b3e1730dbd8f75ad783ea165aa7b9047dc",
+      "role": "current_capture_runtime_source"
+    },
+    {
+      "path": "assets/flats/castle/rooms/background_tiles/room_family_gallery_background_r0_c1.png",
+      "revision": "6c2f3fb6b47ac247521cb4bd029d258c4f060693",
+      "bytes": 39825,
+      "sha256_git_blob_bytes": "f9fecea95f04e79b18844aa3434892f89afc5975ee6788dd670ca50eba5bba32",
+      "role": "current_capture_runtime_source"
+    },
+    {
+      "path": "assets/flats/castle/rooms/background_tiles/room_family_gallery_background_r1_c0.png",
+      "revision": "6c2f3fb6b47ac247521cb4bd029d258c4f060693",
+      "bytes": 90207,
+      "sha256_git_blob_bytes": "717eb872ff8b1dfdd9bc4c7d66bcaea8fe6a3196bb18f41b0ecb4873ddf48130",
+      "role": "current_capture_runtime_source"
+    },
+    {
+      "path": "assets/flats/castle/rooms/background_tiles/room_family_gallery_background_r1_c1.png",
+      "revision": "6c2f3fb6b47ac247521cb4bd029d258c4f060693",
+      "bytes": 95433,
+      "sha256_git_blob_bytes": "fe1c01762027565046065239c6e1a3ca7a714edadcbc04086d31e3ffabea9089",
+      "role": "current_capture_runtime_source"
+    },
+    {
+      "path": "assets/flats/castle/rooms/room_actor_shadow.png",
+      "revision": "6c2f3fb6b47ac247521cb4bd029d258c4f060693",
+      "bytes": 3083,
+      "sha256_git_blob_bytes": "642aa3bdc6ef1be14febfd7855963da80071febd9ea7b69101261d6632ee3604",
+      "role": "current_capture_runtime_source"
+    },
+    {
+      "path": "assets/flats/castle/rooms/room_craft_room_front_left.png",
+      "revision": "6c2f3fb6b47ac247521cb4bd029d258c4f060693",
+      "bytes": 67798,
+      "sha256_git_blob_bytes": "466d88d72a245fabe0ef6810796aca8eb7aba6c66cbac031eb2e5ddf5aa68d9a",
+      "role": "current_capture_runtime_source"
+    },
+    {
+      "path": "assets/flats/castle/rooms/room_craft_room_front_right.png",
+      "revision": "6c2f3fb6b47ac247521cb4bd029d258c4f060693",
+      "bytes": 99708,
+      "sha256_git_blob_bytes": "41167d28ce5a519e0aee05239f782accf8f4137cf0c002189e8d1456a6c17871",
+      "role": "current_capture_runtime_source"
+    },
+    {
+      "path": "assets/flats/castle/rooms/room_playroom_front_left.png",
+      "revision": "6c2f3fb6b47ac247521cb4bd029d258c4f060693",
+      "bytes": 54175,
+      "sha256_git_blob_bytes": "19f1482c9607236468d1a2d33468839bf0f1a654462fce018d96b010f2892b5f",
+      "role": "current_capture_runtime_source"
+    },
+    {
+      "path": "assets/flats/castle/rooms/room_playroom_front_right.png",
+      "revision": "6c2f3fb6b47ac247521cb4bd029d258c4f060693",
+      "bytes": 61536,
+      "sha256_git_blob_bytes": "f16e7a2c02049c4b63de87b75fec7c5daa7d533d71a4a23e3acb89f07bd615e4",
+      "role": "current_capture_runtime_source"
+    },
+    {
+      "path": "assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r0_c0.png",
+      "revision": "6c2f3fb6b47ac247521cb4bd029d258c4f060693",
+      "bytes": 1326003,
+      "sha256_git_blob_bytes": "5addf12c775f697d89b5f7227485155616558c5c2c3c4b29accc89fd9a93fcdb",
+      "role": "current_capture_runtime_source"
+    },
+    {
+      "path": "assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r0_c1.png",
+      "revision": "6c2f3fb6b47ac247521cb4bd029d258c4f060693",
+      "bytes": 1112475,
+      "sha256_git_blob_bytes": "ae962d17088df75e6f3db9fd632a1c2f105d91a902996cd5ac5aba184f82fc1d",
+      "role": "current_capture_runtime_source"
+    },
+    {
+      "path": "assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r0_c2.png",
+      "revision": "6c2f3fb6b47ac247521cb4bd029d258c4f060693",
+      "bytes": 1119885,
+      "sha256_git_blob_bytes": "a5e0dc1e71031ade14059722885bf7905d88f3ea45e9b04e5994cb09ece88850",
+      "role": "current_capture_runtime_source"
+    },
+    {
+      "path": "assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r0_c3.png",
+      "revision": "6c2f3fb6b47ac247521cb4bd029d258c4f060693",
+      "bytes": 1235978,
+      "sha256_git_blob_bytes": "b423c7c320377e15a38d684d4cec4499c81fa9a31e20bdf4d7dbf051d63c1959",
+      "role": "current_capture_runtime_source"
+    },
+    {
+      "path": "assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r0_c4.png",
+      "revision": "6c2f3fb6b47ac247521cb4bd029d258c4f060693",
+      "bytes": 1564115,
+      "sha256_git_blob_bytes": "bb674934980b1b3e70dfe4e2fcb0f866e61f0ac6eefc3414b398a6da654f86ac",
+      "role": "current_capture_runtime_source"
+    },
+    {
+      "path": "assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r0_c5.png",
+      "revision": "6c2f3fb6b47ac247521cb4bd029d258c4f060693",
+      "bytes": 1478823,
+      "sha256_git_blob_bytes": "563cdab3a65bd22518350c441cffd6f0f1173ab51df7d70cf09c11b4c151035c",
+      "role": "current_capture_runtime_source"
+    },
+    {
+      "path": "assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r1_c0.png",
+      "revision": "6c2f3fb6b47ac247521cb4bd029d258c4f060693",
+      "bytes": 1556321,
+      "sha256_git_blob_bytes": "60b2ca6fb0ed517929a7dcdaa19cc9cf13a61cb27d7a7700c396383c85418a3a",
+      "role": "current_capture_runtime_source"
+    },
+    {
+      "path": "assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r1_c1.png",
+      "revision": "6c2f3fb6b47ac247521cb4bd029d258c4f060693",
+      "bytes": 1645750,
+      "sha256_git_blob_bytes": "2fb96fa18f1e9ccec77ba4f1fd162223385fdfaa230f57647f0240de27ca1400",
+      "role": "current_capture_runtime_source"
+    },
+    {
+      "path": "assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r1_c2.png",
+      "revision": "6c2f3fb6b47ac247521cb4bd029d258c4f060693",
+      "bytes": 1758075,
+      "sha256_git_blob_bytes": "2c095349af8d05bb11e43f2115406ce55f583eb885f2abf5b7b4faf7cb8b1e28",
+      "role": "current_capture_runtime_source"
+    },
+    {
+      "path": "assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r1_c3.png",
+      "revision": "6c2f3fb6b47ac247521cb4bd029d258c4f060693",
+      "bytes": 1608993,
+      "sha256_git_blob_bytes": "1f84c75cdfc85923b2a18011e50ac60e78145ed6a9703f7c99ae26592bb6edb7",
+      "role": "current_capture_runtime_source"
+    },
+    {
+      "path": "assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r1_c4.png",
+      "revision": "6c2f3fb6b47ac247521cb4bd029d258c4f060693",
+      "bytes": 1715536,
+      "sha256_git_blob_bytes": "72e54d1d6a1fbfbeba326670c0d0c640d582b0a60f89d95db77ebcec1257e9c4",
+      "role": "current_capture_runtime_source"
+    },
+    {
+      "path": "assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r1_c5.png",
+      "revision": "6c2f3fb6b47ac247521cb4bd029d258c4f060693",
+      "bytes": 1657023,
+      "sha256_git_blob_bytes": "6ef1dd25a1ea4ee998886d6e0c5a824ef915dddb2cff786ffad5520ba0aa2e21",
+      "role": "current_capture_runtime_source"
+    },
+    {
+      "path": "assets/mg/cat_accent.png",
+      "revision": "6c2f3fb6b47ac247521cb4bd029d258c4f060693",
+      "bytes": 124395,
+      "sha256_git_blob_bytes": "1e2dc4203082d14c0b80e108bf9102edfb4c81904392bdc48a3aa33e373d56d0",
+      "role": "current_capture_runtime_source"
+    },
+    {
+      "path": "assets/mg/cat_body.png",
+      "revision": "6c2f3fb6b47ac247521cb4bd029d258c4f060693",
+      "bytes": 119756,
+      "sha256_git_blob_bytes": "6011c4e2debce40e92f55812d91f5e28f918748abf472f05f1ea70b456f224ed",
+      "role": "current_capture_runtime_source"
+    },
+    {
+      "path": "assets/mg/cat_line.png",
+      "revision": "6c2f3fb6b47ac247521cb4bd029d258c4f060693",
+      "bytes": 72,
+      "sha256_git_blob_bytes": "a54ddc4b657b5217f40ee975d30077fa269b6628960cf372a159d634f3e84c1e",
+      "role": "current_capture_runtime_source"
+    },
+    {
+      "path": "assets/mg/star.png",
+      "revision": "6c2f3fb6b47ac247521cb4bd029d258c4f060693",
+      "bytes": 868379,
+      "sha256_git_blob_bytes": "3cc5d5cbc5d6e0df0540cdc00ef557b0c7ed6e566331035c4e75d5d971ef3b98",
+      "role": "current_capture_runtime_source"
+    },
+    {
+      "path": "assets/opera/worlds/ui/crests/opera_crest_boxer.png",
+      "revision": "6c2f3fb6b47ac247521cb4bd029d258c4f060693",
+      "bytes": 79934,
+      "sha256_git_blob_bytes": "f9500790099a13e1dfb4f87b24946cf18595749e3e1cb2f418476b60565c92c6",
+      "role": "current_capture_runtime_source"
+    },
+    {
+      "path": "assets/opera/worlds/ui/crests/opera_crest_doctor.png",
+      "revision": "6c2f3fb6b47ac247521cb4bd029d258c4f060693",
+      "bytes": 94348,
+      "sha256_git_blob_bytes": "5cc937a104099e4afa5174069191eca6299ed7c3fa5fb68439858fe1d04da3ba",
+      "role": "current_capture_runtime_source"
+    },
+    {
+      "path": "assets/opera/worlds/ui/crests/opera_crest_painter.png",
+      "revision": "6c2f3fb6b47ac247521cb4bd029d258c4f060693",
+      "bytes": 98921,
+      "sha256_git_blob_bytes": "5e60ba5490ba69ac3b6aa398ecc7057047863bd9d7ac64e233054116917d020b",
+      "role": "current_capture_runtime_source"
+    },
+    {
+      "path": "assets/props/story/play_swing_frame.png",
+      "revision": "6c2f3fb6b47ac247521cb4bd029d258c4f060693",
+      "bytes": 410877,
+      "sha256_git_blob_bytes": "a2098346be89be32ff1b559a8db96fbc95a9ab29c7ef3d7bb451059e2ef05592",
+      "role": "current_capture_runtime_source"
+    },
+    {
+      "path": "assets/props/story/play_swing_seat.png",
+      "revision": "6c2f3fb6b47ac247521cb4bd029d258c4f060693",
+      "bytes": 265290,
+      "sha256_git_blob_bytes": "b3e6933400d83ece5e58ff62f23a052b3e1a5ce3ef788f66752e1f8f8fd0db7b",
+      "role": "current_capture_runtime_source"
+    },
+    {
+      "path": "assets/sprites/sky_lagoon/animals/hare_idle_atlas.png",
+      "revision": "6c2f3fb6b47ac247521cb4bd029d258c4f060693",
+      "bytes": 220380,
+      "sha256_git_blob_bytes": "723a3a473845c506aeb45fe1ff1b5da5ea4794495dbd4c7a4946918016fa63ff",
+      "role": "current_capture_runtime_source"
+    },
+    {
+      "path": "assets/sprites/sky_lagoon/animals/raccoon_idle_atlas.png",
+      "revision": "6c2f3fb6b47ac247521cb4bd029d258c4f060693",
+      "bytes": 191044,
+      "sha256_git_blob_bytes": "3ed12de88641330134844cdc37927aecf022ae74187f4b4deb2193a3c282d9dc",
+      "role": "current_capture_runtime_source"
+    },
+    {
+      "path": "assets/sprites/sky_lagoon/sky_lagoon_castle_door_focus_v1.png",
+      "revision": "6c2f3fb6b47ac247521cb4bd029d258c4f060693",
+      "bytes": 1355,
+      "sha256_git_blob_bytes": "fddab0ef204be19a8fce65221f3801ba69497d289b0f012f029076a099feb25c",
+      "role": "current_capture_runtime_source"
+    },
+    {
+      "path": "assets/sprites/sky_lagoon/sky_lagoon_castle_four_tower_v4.png",
+      "revision": "6c2f3fb6b47ac247521cb4bd029d258c4f060693",
+      "bytes": 1412255,
+      "sha256_git_blob_bytes": "08e3b8503520f3657e7f788bc74c967b76692f5dd292e0971495677f0e695a42",
+      "role": "current_capture_runtime_source"
+    },
+    {
+      "path": "assets/sprites/sky_lagoon/sky_lagoon_cloud_single_v1.png",
+      "revision": "6c2f3fb6b47ac247521cb4bd029d258c4f060693",
+      "bytes": 16828,
+      "sha256_git_blob_bytes": "c7c708694ff729e703271b40bf68cd23913d1c43485bf4b614fb0681cfb9cfdb",
+      "role": "current_capture_runtime_source"
+    },
+    {
+      "path": "assets/sprites/sky_lagoon/sky_lagoon_contact_shadow.png",
+      "revision": "6c2f3fb6b47ac247521cb4bd029d258c4f060693",
+      "bytes": 4937,
+      "sha256_git_blob_bytes": "2daa0ae7a46d359880f7aa1a28496ec0881abf227ee6260deeb6b035773aa6f6",
+      "role": "current_capture_runtime_source"
+    },
+    {
+      "path": "assets/sprites/sky_lagoon/sky_lagoon_plane_v5_hd_grade.png",
+      "revision": "6c2f3fb6b47ac247521cb4bd029d258c4f060693",
+      "bytes": 218626,
+      "sha256_git_blob_bytes": "850d9614c299df94e08553754d45376de5851445923bb2ab249ab655ea931dde",
+      "role": "current_capture_runtime_source"
+    },
+    {
+      "path": "assets/sprites/sky_lagoon/sky_lagoon_seesaw_v5_fitted.png",
+      "revision": "6c2f3fb6b47ac247521cb4bd029d258c4f060693",
+      "bytes": 52560,
+      "sha256_git_blob_bytes": "e39464f3eb3d8bc275ddd4788dfe4eb50db2147d9e20d7bbd1c4ed02d51d6129",
+      "role": "current_capture_runtime_source"
+    },
+    {
+      "path": "assets/sprites/sky_lagoon/sky_lagoon_slide_v3_compact.png",
+      "revision": "6c2f3fb6b47ac247521cb4bd029d258c4f060693",
+      "bytes": 174961,
+      "sha256_git_blob_bytes": "3b917608d9e3067d9fe68bbd260eba045acc0a15074795f4649f40ee0c69a3e4",
+      "role": "current_capture_runtime_source"
+    },
+    {
+      "path": "assets/sprites/sky_lagoon/sky_lagoon_smoke_wisp_v2.png",
+      "revision": "6c2f3fb6b47ac247521cb4bd029d258c4f060693",
+      "bytes": 12563,
+      "sha256_git_blob_bytes": "ff0c49869ff0152323282b0228c2f76494ad2381ba64c0e535a68c8bc229e007",
+      "role": "current_capture_runtime_source"
+    },
+    {
+      "path": "assets/sprites/sky_lagoon/sky_lagoon_tree_sticker_slender_v1.png",
+      "revision": "6c2f3fb6b47ac247521cb4bd029d258c4f060693",
+      "bytes": 137320,
+      "sha256_git_blob_bytes": "d82ceecb13213d903f228d143ae77b69cbdb80cb293fa1995bc855719791b7e8",
+      "role": "current_capture_runtime_source"
+    },
+    {
+      "path": "assets/sprites/stuffie_studio/lamma.png",
+      "revision": "6c2f3fb6b47ac247521cb4bd029d258c4f060693",
+      "bytes": 925242,
+      "sha256_git_blob_bytes": "fa05513ecf6530691d712230acb4da9c0b3dd11fa694c788f3df8556efc33268",
+      "role": "current_capture_runtime_source"
+    },
+    {
+      "path": "scripts/arena/castle_rooms_25d.gd",
+      "revision": "6c2f3fb6b47ac247521cb4bd029d258c4f060693",
+      "bytes": 242528,
+      "sha256_git_blob_bytes": "50c723043680c987cc959d9bfbbcad94cfb62162f24d305d3f058c0d2de05176",
+      "role": "current_capture_runtime_source"
+    },
+    {
+      "path": "scripts/attack_customizer.gd",
+      "revision": "6c2f3fb6b47ac247521cb4bd029d258c4f060693",
+      "bytes": 11752,
+      "sha256_git_blob_bytes": "b47bbfc164cc8508354bece86096245a2152fe627f5dbfed8440ec54db5198e0",
+      "role": "current_capture_runtime_source"
+    },
+    {
+      "path": "scripts/castle_logo_studio.gd",
+      "revision": "6c2f3fb6b47ac247521cb4bd029d258c4f060693",
+      "bytes": 19430,
+      "sha256_git_blob_bytes": "5afe612eb11261818b760b0f04b6b6a995000a23b27e31aa228c0a04e63dc52a",
+      "role": "current_capture_runtime_source"
+    },
+    {
+      "path": "scripts/chapter_two_room_plot.gd",
+      "revision": "6c2f3fb6b47ac247521cb4bd029d258c4f060693",
+      "bytes": 4138,
+      "sha256_git_blob_bytes": "9eef1ece57be88ac9d01d85a5181ad1c258e6ff00f6b9a6cb3d7a86393d6e10d",
+      "role": "current_capture_runtime_source"
+    },
+    {
+      "path": "scripts/companion.gd",
+      "revision": "6c2f3fb6b47ac247521cb4bd029d258c4f060693",
+      "bytes": 65658,
+      "sha256_git_blob_bytes": "0baeb7256a209b5266ebdf48cdccb7af6497b30fd0666021c597eced6e04d269",
+      "role": "current_capture_runtime_source"
+    },
+    {
+      "path": "scripts/fashion_outfit_renderer.gd",
+      "revision": "6c2f3fb6b47ac247521cb4bd029d258c4f060693",
+      "bytes": 1096,
+      "sha256_git_blob_bytes": "cb37b3ed5df0ccba26b54f146021ddcad1f9f6693fb32b48b9bbda6a3ca96b93",
+      "role": "current_capture_runtime_source"
+    },
+    {
+      "path": "scripts/fashion_skin_engine.gd",
+      "revision": "6c2f3fb6b47ac247521cb4bd029d258c4f060693",
+      "bytes": 7240,
+      "sha256_git_blob_bytes": "e94b42966c75092835dc134b0dc4b1eb59f432655b266a0dc1aa82580d9f95ad",
+      "role": "current_capture_runtime_source"
+    },
+    {
+      "path": "scripts/living_world_canvas.gd",
+      "revision": "6c2f3fb6b47ac247521cb4bd029d258c4f060693",
+      "bytes": 14155,
+      "sha256_git_blob_bytes": "f18a8324cd3eb43eac0dae0ae09efbbb86f6bd3af65e7e74e44d8c197f351e6e",
+      "role": "current_capture_runtime_source"
+    },
+    {
+      "path": "scripts/main.gd",
+      "revision": "6c2f3fb6b47ac247521cb4bd029d258c4f060693",
+      "bytes": 370822,
+      "sha256_git_blob_bytes": "b6e905824a4b60461181deda525c816fc790613479e9321d12ae7f71df666a33",
+      "role": "current_capture_runtime_source"
+    },
+    {
+      "path": "scripts/probe_stuffie.gd",
+      "revision": "6c2f3fb6b47ac247521cb4bd029d258c4f060693",
+      "bytes": 34871,
+      "sha256_git_blob_bytes": "6a70cad9c8b4a992061af670a4d75c7db1afab671a7a1f6b2ecea9d0ea899286",
+      "role": "current_capture_runtime_source"
+    },
+    {
+      "path": "scripts/save_state.gd",
+      "revision": "6c2f3fb6b47ac247521cb4bd029d258c4f060693",
+      "bytes": 46616,
+      "sha256_git_blob_bytes": "de380b088c8dcdd4623804d44a8fe35be5bfe7f8095cdcff1ca40c24e2c9c9b9",
+      "role": "current_capture_runtime_source"
+    },
+    {
+      "path": "scripts/shell_ornament.gd",
+      "revision": "6c2f3fb6b47ac247521cb4bd029d258c4f060693",
+      "bytes": 1920,
+      "sha256_git_blob_bytes": "b55765cfd7926b755563f9017891c955fc23ae5c050c3d7141b7b2f2b1cdbc08",
+      "role": "current_capture_runtime_source"
+    },
+    {
+      "path": "scripts/storybook_ui.gd",
+      "revision": "6c2f3fb6b47ac247521cb4bd029d258c4f060693",
+      "bytes": 16107,
+      "sha256_git_blob_bytes": "839e53d6893347808341523d4e4b58e3727cc4fd4cd698726c92d494edce0fa7",
+      "role": "current_capture_runtime_source"
+    },
+    {
+      "path": "scripts/touch_ui.gd",
+      "revision": "6c2f3fb6b47ac247521cb4bd029d258c4f060693",
+      "bytes": 39214,
+      "sha256_git_blob_bytes": "a6f45679ff9738d6079078ba9cf5c623618a50a740e4fde2387385352029868d",
+      "role": "current_capture_runtime_source"
+    },
+    {
+      "path": "tools/godot_baseline.json",
+      "revision": "6c2f3fb6b47ac247521cb4bd029d258c4f060693",
+      "bytes": 1392,
+      "sha256_git_blob_bytes": "7fe925d2d12927d152a27f3a614ff62c9b0e6fe02991396a6837e8f5c06d0f5b",
+      "role": "current_capture_runtime_source"
     }
   ],
   "required_project_files": [
@@ -5912,8 +8531,8 @@
     },
     {
       "path": "ASSET_LICENSES.md",
-      "bytes": 3788222,
-      "sha256_git_blob_bytes": "4d3385ecf3effac4368e26482cc570375cefde416434158d1fb39c67e2af30dd",
+      "bytes": 3951205,
+      "sha256_git_blob_bytes": "972d63d737b3b7e45eafae8a9e4e3e1c2c978abb64c9d3af5354735510de28bb",
       "role": "project_authority_or_source_license_at_immutable_payload_revision"
     },
     {
@@ -5924,20 +8543,20 @@
     },
     {
       "path": "audit/MASTER_AUDIT_2026-08-09.md",
-      "bytes": 293236,
-      "sha256_git_blob_bytes": "0c7efbf4667abf0dd7ca9bd76ab2ce550f5a15562ae0bd3273c619280d897de5",
+      "bytes": 294094,
+      "sha256_git_blob_bytes": "7deb87131fc0ff82890583607cff6cc733f8b8439db304cbe681d36b47767320",
       "role": "project_authority_or_source_license_at_immutable_payload_revision"
     },
     {
       "path": "audit/MASTER_AUDIT_CHANGELOG_ROLLBACK_2026-08-10.md",
-      "bytes": 146080,
-      "sha256_git_blob_bytes": "5d3888f90ef416a585c5af6a44e96c3125360835f90a07ce160ca184f0682374",
+      "bytes": 147844,
+      "sha256_git_blob_bytes": "de22da089e1ee6771b91a515c51a662ab45bfd4bbdcf9763a7d1266f4c869d63",
       "role": "project_authority_or_source_license_at_immutable_payload_revision"
     },
     {
       "path": "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
-      "bytes": 249444,
-      "sha256_git_blob_bytes": "10f870fd416d7ccfd78d9516fac95c46046d8aabdf1954416b80bfd83871f486",
+      "bytes": 250628,
+      "sha256_git_blob_bytes": "337856a27512ce99b7195190aa18d3fef0de8706765de3f0332aa35150cde1f3",
       "role": "project_authority_or_source_license_at_immutable_payload_revision"
     },
     {
@@ -5948,8 +8567,8 @@
     },
     {
       "path": "design/05_DOC_LEDGER.md",
-      "bytes": 207304,
-      "sha256_git_blob_bytes": "af38c3869311179f831b108e110043e7a38a0cd69f8aaf84629a5bbedcd2423d",
+      "bytes": 208944,
+      "sha256_git_blob_bytes": "d7e1fb681c7d6ab5e0c0beb83c218e77db80908488f9fd5f430970adfc466b6d",
       "role": "project_authority_or_source_license_at_immutable_payload_revision"
     },
     {
@@ -5974,6 +8593,12 @@
       "path": "design/audit_impacts/flat-vector-castle-dayone-review-20261008.json",
       "bytes": 21052,
       "sha256_git_blob_bytes": "536cddb352b00e90dd0bbdd17247f3daca37ade891cda68f64707e0c4a96711d",
+      "role": "project_authority_or_source_license_at_immutable_payload_revision"
+    },
+    {
+      "path": "design/audit_impacts/flat-vector-companion-controls-review-20261008.json",
+      "bytes": 37481,
+      "sha256_git_blob_bytes": "521851671102c7174638e42147cde9159905f82c32007a8019d92f79f7c7a2d4",
       "role": "project_authority_or_source_license_at_immutable_payload_revision"
     },
     {

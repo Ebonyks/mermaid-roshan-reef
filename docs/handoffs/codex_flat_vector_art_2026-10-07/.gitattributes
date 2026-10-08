@@ -7,3 +7,7 @@ live_v4/**/*.log -diff
 # Preserve exact executed capture harness bytes,including their final blank line.
 live_v4/capture_*.gd whitespace=blank-at-eol,space-before-tab,cr-at-eol,-blank-at-eof
 live_v4/diagnostics/*.gd.txt whitespace=blank-at-eol,space-before-tab,cr-at-eol,-blank-at-eof
+
+live_v5/capture_*.gd whitespace=blank-at-eol,space-before-tab,cr-at-eol,-blank-at-eof
+live_v5/diagnostics/*.gd.txt whitespace=blank-at-eol,space-before-tab,cr-at-eol,-blank-at-eof
+live_v5/**/*.log -diff

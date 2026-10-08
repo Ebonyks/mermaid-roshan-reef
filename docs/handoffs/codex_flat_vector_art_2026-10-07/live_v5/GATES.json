@@ -1,0 +1,175 @@
+{
+  "schema": 1,
+  "checked_at_utc": "2026-10-08T10:09:43.348355+00:00",
+  "focused": [
+    {
+      "command": [
+        "python",
+        "-m",
+        "gdtoolkit.parser",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-art-audit-20261007\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\live_v5\\capture_attack.gd"
+      ],
+      "exit": 0,
+      "output": ""
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/lint_inference.py",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-art-audit-20261007\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\live_v5\\capture_attack.gd"
+      ],
+      "exit": 0,
+      "output": ""
+    },
+    {
+      "command": [
+        "C:/Users/Peter/Documents/mermaid-roshan-reef/tmp/godot-4.7.2/editor/Godot_v4.7.2-stable_win64_console.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-art-audit-20261007\\mermaid-roshan-reef",
+        "--check-only",
+        "-s",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-art-audit-20261007\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\live_v5\\capture_attack.gd"
+      ],
+      "exit": 0,
+      "output": "Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org\n\n"
+    },
+    {
+      "command": [
+        "python",
+        "-m",
+        "gdtoolkit.parser",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-art-audit-20261007\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\live_v5\\capture_companion.gd"
+      ],
+      "exit": 0,
+      "output": ""
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/lint_inference.py",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-art-audit-20261007\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\live_v5\\capture_companion.gd"
+      ],
+      "exit": 0,
+      "output": ""
+    },
+    {
+      "command": [
+        "C:/Users/Peter/Documents/mermaid-roshan-reef/tmp/godot-4.7.2/editor/Godot_v4.7.2-stable_win64_console.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-art-audit-20261007\\mermaid-roshan-reef",
+        "--check-only",
+        "-s",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-art-audit-20261007\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\live_v5\\capture_companion.gd"
+      ],
+      "exit": 0,
+      "output": "Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org\n\n"
+    },
+    {
+      "command": [
+        "python",
+        "-m",
+        "gdtoolkit.parser",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-art-audit-20261007\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\live_v5\\capture_logo.gd"
+      ],
+      "exit": 0,
+      "output": ""
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/lint_inference.py",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-art-audit-20261007\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\live_v5\\capture_logo.gd"
+      ],
+      "exit": 0,
+      "output": ""
+    },
+    {
+      "command": [
+        "C:/Users/Peter/Documents/mermaid-roshan-reef/tmp/godot-4.7.2/editor/Godot_v4.7.2-stable_win64_console.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-art-audit-20261007\\mermaid-roshan-reef",
+        "--check-only",
+        "-s",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-art-audit-20261007\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\live_v5\\capture_logo.gd"
+      ],
+      "exit": 0,
+      "output": "Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org\n\n"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-art-audit-20261007\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\audit_register.py"
+      ],
+      "exit": 0,
+      "output": "FLATVECTOR|RESULT|ALL OK\n"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-art-audit-20261007\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\live_v2\\validate.py",
+        "--stress"
+      ],
+      "exit": 0,
+      "output": "LIVE REVIEW falsification: 5/5 rejected\n"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-art-audit-20261007\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\live_v3\\validate.py",
+        "--stress"
+      ],
+      "exit": 0,
+      "output": "R3 falsification: 9 / 9 rejected\n"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-art-audit-20261007\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\live_v4\\validate.py",
+        "--stress"
+      ],
+      "exit": 0,
+      "output": "LIVE4|RESULT|ALL OK;62 frames,6 matrices,40 helper instances,39 partial entries,366 unresolved scopes\nLIVE4|STRESS|PASS11/11 falsifications rejected\n"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-art-audit-20261007\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\live_v5\\validate.py",
+        "--stress"
+      ],
+      "exit": 0,
+      "output": "LIVE5|RESULT|ALL OK;250 frames,6 matrices,23 namedinstances,43 partialentries,363 unresolvedscopes\nLIVE5|STRESS|PASS14/14 falsifications rejected\n"
+    }
+  ],
+  "inherited_regression": "Earlier exact-engine82/82 inherited at runtime92c9fe70 only;R4 GATES/MACHINE and production comparison retained. New current-head fullsuite not claimed.",
+  "incoming_ci": {
+    "head": "a0219865061cb4ac8a88d30924f33f24e934a3ae",
+    "run": 37751458456,
+    "conclusion": "success",
+    "scope": "Incoming integration only;no workbranch exact-head claim"
+  },
+  "authority_development_and_publication": {
+    "checked_at_utc": "2026-10-08T10:15:12.473988+00:00",
+    "authority": "ALL OK:692inventory/692ledger/68active/71records",
+    "audit_development_base": "a0219865061cb4ac8a88d30924f33f24e934a3ae",
+    "audit_development": "ALL OK",
+    "staged_whitespace": "PASS;scopednativeartifactattributes preserveexactcapturedbytes",
+    "remote_publication": "PENDING;immutableall-fileverificationwillwrite subsequentreceipt"
+  },
+  "production_identity": {
+    "baseline": "92c9fe70319ef46bfaa8f61348a6f51512141ec3",
+    "native_source_files": 6427,
+    "mismatches": [],
+    "git_production_diff_exit": 0
+  }
+}

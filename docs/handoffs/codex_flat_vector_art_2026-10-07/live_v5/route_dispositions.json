@@ -1,0 +1,20 @@
+{
+  "schema": 1,
+  "source_revision": "6c2f3fb6b47ac247521cb4bd029d258c4f060693",
+  "routes": [
+    {
+      "route": "Current fresh BabyEagle playroom rescue offer",
+      "source": "scripts/arena/castle_rooms_25d.gd::_open_playroom_stuffie_tutorial",
+      "guards": "Playroomopen,DayOneactive,companion_idempty; preselecteagle",
+      "native": "picker_rescue_current_step2, bothaspects",
+      "scope": "Native current nonpaintable Eagle forces step2. Existing step0/1 palette-focus source and paintable/stale rescue-resume draft branch are retained SOURCE_ONLY_REACHABILITY_PENDING; no globalunreachable claim."
+    },
+    {
+      "route": "Current Canvas companioncare",
+      "source": "scripts/companion.gd::_follow_ctx/_choose_canvas_menu_care;castle_rooms::_exit_to_courtyard",
+      "guards": "level2 phasepromenade, no castle layer, no pause/menu/movie/fade; friendseeded inisolatedsave fixture",
+      "native": "care_*; allfive active/queued wants,idle/bruises/busy/progress, fulfilledCanvascare",
+      "scope": "No forced castlehall Care or creationof legacy3Dfollower. High growth5-8stars and full care/profile/cartoon preview variants remain pending."
+    }
+  ]
+}
