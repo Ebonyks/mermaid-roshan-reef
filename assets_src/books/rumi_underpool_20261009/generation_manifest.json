@@ -1,0 +1,659 @@
+{
+  "task": {
+    "id": "rumi-underpool-book-20261009",
+    "baseline": "245e9c543be771d297b60dafb91b8a3baf73e211",
+    "scope": "Owner-authorized complete illustrated draft of the new Chapter 3 under-pool book and two original mermaids. Preserve earlier book originals and runtime.",
+    "rules": [
+      "DL-AUTH-05",
+      "DL-AUTH-06",
+      "DL-AUTH-07",
+      "DL-VIS-01",
+      "DL-VIS-02",
+      "DL-VIS-03",
+      "DL-VIS-04",
+      "DL-VIS-05",
+      "DL-VIS-06",
+      "DL-READ-03",
+      "DL-ASSET-01",
+      "DL-ASSET-02",
+      "DL-ASSET-03",
+      "DL-ASSET-04",
+      "DL-ASSET-05",
+      "DL-ASSET-06",
+      "DL-ASSET-08",
+      "DL-PLAN-02",
+      "DL-PLAN-03",
+      "DL-PLAN-05"
+    ],
+    "findings": [
+      "MA-DOC-008",
+      "MA-VIS-006",
+      "MA-ROSHAN-005"
+    ],
+    "gap": "Existing pool, Pop Star characters/venues, dressed imps and turtle provide identities/settings/props but no complete new-book scene sequence or original Hana/Nari designs. Owner explicitly commissions new book drawings on 2026-10-09; no existing book scenes replaced.",
+    "evidence": "Inspect source and all generated spreads; hash native sources/prompts and derivatives; verify 34-page PDF text/layout; document/change gates and applicable source/runtime regression gates."
+  },
+  "cast": {
+    "prompt": "Use case: illustration-story. Asset: consistent cast identity reference for a new Mermaid Roshan children's comic picture book, wide landscape polished painted 2D storybook, clean dark-indigo contours, high-key cream/pale aqua background, no 3D. Input 1 existing Roshan exact identity/clothing; input 2 existing Rumi exact identity/clothing; input 3 existing turtle identity; input 4 attached K-pop image ONLY broad tall-redhead and younger-performer archetypes, do not copy those characters/costumes/weapons; input 5 owner-liked city rendering style.\nDraw a beautifully spaced full-body lineup of FIVE characters, left to right ROSHAN, RUMI, HANA, NARI, DURI. Put only these exact small names underneath. Roshan is the smallest child, preserve brown hair/rainbow forelock, large brown eyes, coral performance jacket/cream blouse, iridescent rainbow single mermaid tail and split fan fin. Cloth waist ribbons remain narrow fabric, never extra tails.\nRumi has her existing long thick lavender braid and purple eyes, purple/navy/gold full jacket over white blouse, cyan/lavender single tail, broad pink fins. Do not redesign.\nHana NEW ORIGINAL CHARACTER: tallest mermaid, warm friendly face, copper-red LONG LOOSE WAVES with a half-up twisted crown and one celadon shell barrette, NOT high ponytail; coral long-sleeved double-breasted jacket over cream high-neck blouse, celadon scaled SINGLE tail ending in deep teal fan fin. Confident welcoming choreographer, one hand raised. No sword, no black graphic cropped shirt, no skirt, no exposed midriff or borrowed markings.\nNari NEW ORIGINAL CHARACTER: shorter and a little younger than Rumi/Hana but older than child Roshan, bright round face, DARK NAVY CHIN-LENGTH BOB with curled ends, one silver crescent shell clip, NOT double buns. Mint hooded long-sleeved performance jacket with peach scarf/collar over cream blouse; SINGLE lavender scaled tail and peach fan fin. Witty attentive little rhythm singer, gently cupping ear with one hand. No copied film silhouette/outfit, no weapon.\nDuri: small lavender sea turtle, existing mint shell with coral pink flower/coral shapes and yellow sun motifs, gentle smiling black eyes, FOUR flippers. No costume required for turtle.\nShow complete silhouettes separated with margins, correct two arms/one tail for each mermaid, no duplicate character, one front-three-quarter pose each, relaxed friendly childhood-appropriate ensemble. Their jackets fully cover torsos. Include small subtle underwater bubbles. No elaborate props, no other characters. New friends share the project storybook style while clearly distinct from film characters.",
+    "references": [
+      "C:/Users/Peter/Documents/mermaid-roshan-reef/assets/opera/worlds/actors/roshan_popstar.png",
+      "C:/Users/Peter/Documents/mermaid-roshan-reef/assets_src/characters/rumi_2026-08-22/rumi_full_body_identity.png",
+      "C:/Users/Peter/Documents/mermaid-roshan-reef/gen2/generated/aquatic_turtle/v3.webp",
+      "C:/Users/Peter/Downloads/kpop.jpg",
+      "C:/Users/Peter/.codex/generated_images/01a0f35d-f268-7751-aa9b-79fa94ceeacc/exec-f9856eab-5ffa-40e7-8926-246f4386b9e7.png"
+    ],
+    "native_source": "C:/Users/Peter/.codex/generated_images/01a0f35d-f268-7751-aa9b-79fa94ceeacc/exec-3b4e5b76-f795-4aa4-9f9b-a56c29d44906.png",
+    "saved_path": "C:/Users/Peter/Documents/mermaid-roshan-reef/assets_src/books/rumi_underpool_20261009/native/cast_identity.png",
+    "elapsed_ms": 37686,
+    "tool": "built-in image_gen",
+    "model_revision": "not exposed",
+    "status": "CHARACTER_DESIGN_CANDIDATE",
+    "native_sha256": "eba965d569e145bf0440674f18af76e3f1aed3c0359e396c67c62a4182751946",
+    "native_dimensions": [
+      1774,
+      887
+    ],
+    "native_mode": "RGB",
+    "native_source_sha256": "eba965d569e145bf0440674f18af76e3f1aed3c0359e396c67c62a4182751946"
+  },
+  "generations": [
+    {
+      "id": "01",
+      "name": "pool_invitation",
+      "prompt": "Use case: illustration-story. Asset: a NEW commissioned Mermaid Roshan picture-book illustration, full wide landscape 2:1 image, polished painted 2D anime/storybook with gentle comic staging. Not a photograph or 3D render. Reference 1 cast lineup EXACT character identity/clothing/scale, reference 2 city environment style/geography; additional references if provided are exact scene/prop identity. Keep Roshan brown hair/rainbow forelock and coral/cream jacket/rainbow single tail; Rumi lavender braid purple/navy jacket cyan-lavender single tail/pink fin; Hana tall copper loose waves/half-up crown coral jacket/cream blouse celadon tail/deepteal fin; Nari younger navy bob/crescent clip mint jacket/peach scarf lavender tail/peach fin; Duri lavender turtle/mint floral shell. Only cast specifically requested in the scene. Characters have two arms and exactly ONE continuous mermaid tail, no legs, no anatomy duplication. Preserve authored contours, rounded shapes, clean indigo outlines, warm readable faces, cool cyan/periwinkle background, controlled peach/orchid/gold accents. All mermaid torsos clothed. Everything below pool is entirely UNDERWATER inside Pearl Castle's magical under-pool city; no air streets/surface rivers. Korean curved grey-plum tiled eaves, cream/celadon framed buildings, warm pictogram storefronts, bubble-tram pearl bridge, mint bathhouse, shell stage repeat coherently. Magical flow already exists; no quest for new powers/candle, no film fictional barrier or stolen logos/characters/weapons.\nPage composition: scene art only, NO TITLES, LETTERING, LABELS, SPEECH BUBBLES, NUMBERS or captions; book text will be typeset separately beneath. Keep important faces/hands/action clear and away from the exact centre gutter. No important art in narrow outer margins. If comic panels requested use rounded cream gutters and a clear dominant action; do not add extra beats, characters or sound text. Restrained motion arcs allowed, not scratchy speed lines. Crisp warm family-friendly wonder for a four-year-old.\nSCENE 01: Familiar Pearl Castle pool room. Roshan and Rumi at the near turquoise pool rim, Rumi offers one hand, Roshan shy but curious, rainbow waterfall left, seahorse fountain right, lavender arches, shell throne, towel shelf. No other characters. One calm invitation.",
+      "references": [
+        "C:/Users/Peter/Documents/mermaid-roshan-reef/assets_src/books/rumi_underpool_20261009/native/cast_identity.png",
+        "C:/Users/Peter/Documents/mermaid-roshan-reef/assets_src/books/rumi_underpool_20261009/native/city_concept_source.png",
+        "C:/Users/Peter/Documents/mermaid-roshan-reef/assets_src/imagegen/mermaid_pool_room_2026-08-02/room_mermaid_pool_fullframe_v3_native.png"
+      ],
+      "native_source": "C:/Users/Peter/.codex/generated_images/01a0f35d-f268-7751-aa9b-79fa94ceeacc/exec-139105e9-e76b-47d9-b49f-4dd188f5c9d2.png",
+      "saved_path": "C:/Users/Peter/Documents/mermaid-roshan-reef/assets_src/books/rumi_underpool_20261009/native/spread_01_pool_invitation.png",
+      "elapsed_ms": 36843,
+      "elapsed_limit": "Individual elapsed time unavailable for calls 04-09; no timing claim.",
+      "tool": "built-in image_gen",
+      "model_revision": "not exposed",
+      "status": "ILLUSTRATED_DRAFT_CANDIDATE",
+      "native_sha256": "ec0b6690d17b4fa7f92a41e1b2e25248c9d93bacfe3bf07f9c9a007484af5a80",
+      "prompt_sha256_utf8": "cd6bfc195cb25832bfccba97bb157d2612b90bc766f361d720b47f67acdcf64f",
+      "selected_for_story": true,
+      "native_source_sha256": "ec0b6690d17b4fa7f92a41e1b2e25248c9d93bacfe3bf07f9c9a007484af5a80",
+      "native_dimensions": [
+        1774,
+        887
+      ],
+      "native_mode": "RGB",
+      "tool_cache_available": true
+    },
+    {
+      "id": "02",
+      "name": "city_beneath_pool",
+      "prompt": "Use case: illustration-story. Asset: a NEW commissioned Mermaid Roshan picture-book illustration, full wide landscape 2:1 image, polished painted 2D anime/storybook with gentle comic staging. Not a photograph or 3D render. Reference 1 cast lineup EXACT character identity/clothing/scale, reference 2 city environment style/geography; additional references if provided are exact scene/prop identity. Keep Roshan brown hair/rainbow forelock and coral/cream jacket/rainbow single tail; Rumi lavender braid purple/navy jacket cyan-lavender single tail/pink fin; Hana tall copper loose waves/half-up crown coral jacket/cream blouse celadon tail/deepteal fin; Nari younger navy bob/crescent clip mint jacket/peach scarf lavender tail/peach fin; Duri lavender turtle/mint floral shell. Only cast specifically requested in the scene. Characters have two arms and exactly ONE continuous mermaid tail, no legs, no anatomy duplication. Preserve authored contours, rounded shapes, clean indigo outlines, warm readable faces, cool cyan/periwinkle background, controlled peach/orchid/gold accents. All mermaid torsos clothed. Everything below pool is entirely UNDERWATER inside Pearl Castle's magical under-pool city; no air streets/surface rivers. Korean curved grey-plum tiled eaves, cream/celadon framed buildings, warm pictogram storefronts, bubble-tram pearl bridge, mint bathhouse, shell stage repeat coherently. Magical flow already exists; no quest for new powers/candle, no film fictional barrier or stolen logos/characters/weapons.\nPage composition: scene art only, NO TITLES, LETTERING, LABELS, SPEECH BUBBLES, NUMBERS or captions; book text will be typeset separately beneath. Keep important faces/hands/action clear and away from the exact centre gutter. No important art in narrow outer margins. If comic panels requested use rounded cream gutters and a clear dominant action; do not add extra beats, characters or sound text. Restrained motion arcs allowed, not scratchy speed lines. Crisp warm family-friendly wonder for a four-year-old.\nSCENE 02: Big cinematic underwater city discovery. Roshan and Rumi swimming downward from familiar illuminated oval pool underside, lavender castle columns above, Korean curved-tile-roof houses, warm projecting pictogram shop signs, lavender apartment blocks, pearl transit bridge and bubble tram, far shell stage. No surface ocean or dry city; all figures float in clear underwater volume. Wide magical geography, characters large foreground left/right away from central gutter.",
+      "references": [
+        "C:/Users/Peter/Documents/mermaid-roshan-reef/assets_src/books/rumi_underpool_20261009/native/cast_identity.png",
+        "C:/Users/Peter/Documents/mermaid-roshan-reef/assets_src/books/rumi_underpool_20261009/native/city_concept_source.png"
+      ],
+      "native_source": "C:/Users/Peter/.codex/generated_images/01a0f35d-f268-7751-aa9b-79fa94ceeacc/exec-df6d20ac-e257-4e97-949f-1f76fe3d07df.png",
+      "saved_path": "C:/Users/Peter/Documents/mermaid-roshan-reef/assets_src/books/rumi_underpool_20261009/native/spread_02_city_beneath_pool.png",
+      "elapsed_ms": 125516,
+      "elapsed_limit": "Individual elapsed time unavailable for calls 04-09; no timing claim.",
+      "tool": "built-in image_gen",
+      "model_revision": "not exposed",
+      "status": "SUPERSEDED_FOR_STORY_CONTINUITY",
+      "native_sha256": "eb62c7d1e15b8e92e815fe2d82f226408c7c441e54e1b7aaff8562ed045e7851",
+      "prompt_sha256_utf8": "758c7d6372d0bb5c0d2d8bfea9432388934f126dc303e09f70aa0a4e35645adb",
+      "selected_for_story": false,
+      "native_source_sha256": "eb62c7d1e15b8e92e815fe2d82f226408c7c441e54e1b7aaff8562ed045e7851",
+      "native_dimensions": [
+        1774,
+        887
+      ],
+      "native_mode": "RGB",
+      "tool_cache_available": true
+    },
+    {
+      "id": "03",
+      "name": "meet_hana_nari",
+      "prompt": "Use case: illustration-story. Asset: a NEW commissioned Mermaid Roshan picture-book illustration, full wide landscape 2:1 image, polished painted 2D anime/storybook with gentle comic staging. Not a photograph or 3D render. Reference 1 cast lineup EXACT character identity/clothing/scale, reference 2 city environment style/geography; additional references if provided are exact scene/prop identity. Keep Roshan brown hair/rainbow forelock and coral/cream jacket/rainbow single tail; Rumi lavender braid purple/navy jacket cyan-lavender single tail/pink fin; Hana tall copper loose waves/half-up crown coral jacket/cream blouse celadon tail/deepteal fin; Nari younger navy bob/crescent clip mint jacket/peach scarf lavender tail/peach fin; Duri lavender turtle/mint floral shell. Only cast specifically requested in the scene. Characters have two arms and exactly ONE continuous mermaid tail, no legs, no anatomy duplication. Preserve authored contours, rounded shapes, clean indigo outlines, warm readable faces, cool cyan/periwinkle background, controlled peach/orchid/gold accents. All mermaid torsos clothed. Everything below pool is entirely UNDERWATER inside Pearl Castle's magical under-pool city; no air streets/surface rivers. Korean curved grey-plum tiled eaves, cream/celadon framed buildings, warm pictogram storefronts, bubble-tram pearl bridge, mint bathhouse, shell stage repeat coherently. Magical flow already exists; no quest for new powers/candle, no film fictional barrier or stolen logos/characters/weapons.\nPage composition: scene art only, NO TITLES, LETTERING, LABELS, SPEECH BUBBLES, NUMBERS or captions; book text will be typeset separately beneath. Keep important faces/hands/action clear and away from the exact centre gutter. No important art in narrow outer margins. If comic panels requested use rounded cream gutters and a clear dominant action; do not add extra beats, characters or sound text. Restrained motion arcs allowed, not scratchy speed lines. Crisp warm family-friendly wonder for a four-year-old.\nSCENE 03: Welcoming encounter at an underwater neighbourhood music-room doorway under a curved Korean tiled eave, warm round window and music pictogram, cream stone/celadon timber. Tall copper-haired Hana gestures openly; petite navy-bob Nari peeks from beside her; Rumi and child Roshan arrive. Four characters distinct no doubles, friendly expressive faces. Original new identity designs from cast reference.",
+      "references": [
+        "C:/Users/Peter/Documents/mermaid-roshan-reef/assets_src/books/rumi_underpool_20261009/native/cast_identity.png",
+        "C:/Users/Peter/Documents/mermaid-roshan-reef/assets_src/books/rumi_underpool_20261009/native/city_concept_source.png"
+      ],
+      "native_source": "C:/Users/Peter/.codex/generated_images/01a0f35d-f268-7751-aa9b-79fa94ceeacc/exec-f4377562-18f1-4591-90f6-f8ef1ac0b304.png",
+      "saved_path": "C:/Users/Peter/Documents/mermaid-roshan-reef/assets_src/books/rumi_underpool_20261009/native/spread_03_meet_hana_nari.png",
+      "elapsed_ms": 207702,
+      "elapsed_limit": "Individual elapsed time unavailable for calls 04-09; no timing claim.",
+      "tool": "built-in image_gen",
+      "model_revision": "not exposed",
+      "status": "SUPERSEDED_FOR_STORY_CONTINUITY",
+      "native_sha256": "af060fb77fb3855cdfc98637cc76864e489304e589dd4e48585c924f7e5b0bfd",
+      "prompt_sha256_utf8": "0fa2e44d7c8764b7c6f12492dfc59c59c6730502ed52b383d9a215b164778b2c",
+      "selected_for_story": false,
+      "native_source_sha256": "af060fb77fb3855cdfc98637cc76864e489304e589dd4e48585c924f7e5b0bfd",
+      "native_dimensions": [
+        1774,
+        887
+      ],
+      "native_mode": "RGB",
+      "tool_cache_available": true
+    },
+    {
+      "id": "04",
+      "name": "first_song_no_answer",
+      "prompt": "Use case: illustration-story. Asset: a NEW commissioned Mermaid Roshan picture-book illustration, full wide landscape 2:1 image, polished painted 2D anime/storybook with gentle comic staging. Not a photograph or 3D render. Reference 1 cast lineup EXACT character identity/clothing/scale, reference 2 city environment style/geography; additional references if provided are exact scene/prop identity. Keep Roshan brown hair/rainbow forelock and coral/cream jacket/rainbow single tail; Rumi lavender braid purple/navy jacket cyan-lavender single tail/pink fin; Hana tall copper loose waves/half-up crown coral jacket/cream blouse celadon tail/deepteal fin; Nari younger navy bob/crescent clip mint jacket/peach scarf lavender tail/peach fin; Duri lavender turtle/mint floral shell. Only cast specifically requested in the scene. Characters have two arms and exactly ONE continuous mermaid tail, no legs, no anatomy duplication. Preserve authored contours, rounded shapes, clean indigo outlines, warm readable faces, cool cyan/periwinkle background, controlled peach/orchid/gold accents. All mermaid torsos clothed. Everything below pool is entirely UNDERWATER inside Pearl Castle's magical under-pool city; no air streets/surface rivers. Korean curved grey-plum tiled eaves, cream/celadon framed buildings, warm pictogram storefronts, bubble-tram pearl bridge, mint bathhouse, shell stage repeat coherently. Magical flow already exists; no quest for new powers/candle, no film fictional barrier or stolen logos/characters/weapons.\nPage composition: scene art only, NO TITLES, LETTERING, LABELS, SPEECH BUBBLES, NUMBERS or captions; book text will be typeset separately beneath. Keep important faces/hands/action clear and away from the exact centre gutter. No important art in narrow outer margins. If comic panels requested use rounded cream gutters and a clear dominant action; do not add extra beats, characters or sound text. Restrained motion arcs allowed, not scratchy speed lines. Crisp warm family-friendly wonder for a four-year-old.\nSCENE 04: Manga-inspired page-spread with three clean rounded panels reading left to right. Large panel: Rumi Hana Nari singing into pearl microphones in cozy lavender seating lounge with shell speakers, Roshan shyly joins. Second smaller panel: quiet city bridge with still streamers and no answering neighbours. Final clear close-up: Roshan tilts head/listens, palm at ear, tiny bubbles near window. No text or music symbols shaped as readable letters, no sound captions, no photoreal 3D.\nCAST LIMIT: There is NO TURTLE and NO IMP anywhere in this illustration. Only four mermaids Roshan/Rumi/Hana/Nari. Ignore the turtle figure in the identity lineup; it is not present yet.",
+      "references": [
+        "C:/Users/Peter/Documents/mermaid-roshan-reef/assets_src/books/rumi_underpool_20261009/native/cast_identity.png",
+        "C:/Users/Peter/Documents/mermaid-roshan-reef/assets_src/books/rumi_underpool_20261009/native/city_concept_source.png"
+      ],
+      "native_source": "C:/Users/Peter/.codex/generated_images/01a0f35d-f268-7751-aa9b-79fa94ceeacc/exec-ea2557c3-78b8-419f-b56d-24b0f492bd81.png",
+      "saved_path": "C:/Users/Peter/Documents/mermaid-roshan-reef/assets_src/books/rumi_underpool_20261009/native/spread_04_first_song_no_answer.png",
+      "elapsed_ms": null,
+      "elapsed_limit": "Individual elapsed time unavailable for calls 04-09; no timing claim.",
+      "tool": "built-in image_gen",
+      "model_revision": "not exposed",
+      "status": "ILLUSTRATED_DRAFT_CANDIDATE",
+      "native_sha256": "f812cd007d84bc9339232935d1a0f48574fa8d416cf1425a4af55bddcdc0721c",
+      "prompt_sha256_utf8": "ebd6ce1d58ef6752bc4014c6f3088e66c05cd5ac82056a3f029eb1ba6bc21d89",
+      "selected_for_story": true,
+      "native_source_sha256": "f812cd007d84bc9339232935d1a0f48574fa8d416cf1425a4af55bddcdc0721c",
+      "native_dimensions": [
+        1774,
+        887
+      ],
+      "native_mode": "RGB",
+      "tool_cache_available": true
+    },
+    {
+      "id": "05",
+      "name": "hear_turtle",
+      "prompt": "Use case: illustration-story. Asset: a NEW commissioned Mermaid Roshan picture-book illustration, full wide landscape 2:1 image, polished painted 2D anime/storybook with gentle comic staging. Not a photograph or 3D render. Reference 1 cast lineup EXACT character identity/clothing/scale, reference 2 city environment style/geography; additional references if provided are exact scene/prop identity. Keep Roshan brown hair/rainbow forelock and coral/cream jacket/rainbow single tail; Rumi lavender braid purple/navy jacket cyan-lavender single tail/pink fin; Hana tall copper loose waves/half-up crown coral jacket/cream blouse celadon tail/deepteal fin; Nari younger navy bob/crescent clip mint jacket/peach scarf lavender tail/peach fin; Duri lavender turtle/mint floral shell. Only cast specifically requested in the scene. Characters have two arms and exactly ONE continuous mermaid tail, no legs, no anatomy duplication. Preserve authored contours, rounded shapes, clean indigo outlines, warm readable faces, cool cyan/periwinkle background, controlled peach/orchid/gold accents. All mermaid torsos clothed. Everything below pool is entirely UNDERWATER inside Pearl Castle's magical under-pool city; no air streets/surface rivers. Korean curved grey-plum tiled eaves, cream/celadon framed buildings, warm pictogram storefronts, bubble-tram pearl bridge, mint bathhouse, shell stage repeat coherently. Magical flow already exists; no quest for new powers/candle, no film fictional barrier or stolen logos/characters/weapons.\nPage composition: scene art only, NO TITLES, LETTERING, LABELS, SPEECH BUBBLES, NUMBERS or captions; book text will be typeset separately beneath. Keep important faces/hands/action clear and away from the exact centre gutter. No important art in narrow outer margins. If comic panels requested use rounded cream gutters and a clear dominant action; do not add extra beats, characters or sound text. Restrained motion arcs allowed, not scratchy speed lines. Crisp warm family-friendly wonder for a four-year-old.\nSCENE 05: Two-panel comic spread. Left supporting panel: Roshan leads Rumi Hana Nari down the clearly navigable current below pearl tram bridge, pointing at soft sound/bubbles. Dominant right panel: gentle worried lavender turtle Duri/mint floral shell safe in a gap BETWEEN two concert prop crates, soft fabric banner tangled at shell edge, no crushing/injury; Roshan and Rumi crouch/float beside him looking carefully. Turtle brightly visible, warm underbridge service alcove, quiet kelp. No shipwreck or blanket/dustbunnies.",
+      "references": [
+        "C:/Users/Peter/Documents/mermaid-roshan-reef/assets_src/books/rumi_underpool_20261009/native/cast_identity.png",
+        "C:/Users/Peter/Documents/mermaid-roshan-reef/assets_src/books/rumi_underpool_20261009/native/city_concept_source.png"
+      ],
+      "native_source": "C:/Users/Peter/.codex/generated_images/01a0f35d-f268-7751-aa9b-79fa94ceeacc/exec-66dd2c9c-e46b-4cd7-a81c-03b606d37f2a.png",
+      "saved_path": "C:/Users/Peter/Documents/mermaid-roshan-reef/assets_src/books/rumi_underpool_20261009/native/spread_05_hear_turtle.png",
+      "elapsed_ms": null,
+      "elapsed_limit": "Individual elapsed time unavailable for calls 04-09; no timing claim.",
+      "tool": "built-in image_gen",
+      "model_revision": "not exposed",
+      "status": "SUPERSEDED_FOR_STORY_CONTINUITY",
+      "native_sha256": "43f8391a3a3ceb90eb68f1915f4de1556c56798999a61e55db9272a9383c76e9",
+      "prompt_sha256_utf8": "d282a651099f05d21953ee16296a9cebc55b74faf48bf08701d79cb89467a5a0",
+      "selected_for_story": false,
+      "native_source_sha256": "43f8391a3a3ceb90eb68f1915f4de1556c56798999a61e55db9272a9383c76e9",
+      "native_dimensions": [
+        1774,
+        887
+      ],
+      "native_mode": "RGB",
+      "tool_cache_available": true
+    },
+    {
+      "id": "06",
+      "name": "rescue_duri",
+      "prompt": "Use case: illustration-story. Asset: a NEW commissioned Mermaid Roshan picture-book illustration, full wide landscape 2:1 image, polished painted 2D anime/storybook with gentle comic staging. Not a photograph or 3D render. Reference 1 cast lineup EXACT character identity/clothing/scale, reference 2 city environment style/geography; additional references if provided are exact scene/prop identity. Keep Roshan brown hair/rainbow forelock and coral/cream jacket/rainbow single tail; Rumi lavender braid purple/navy jacket cyan-lavender single tail/pink fin; Hana tall copper loose waves/half-up crown coral jacket/cream blouse celadon tail/deepteal fin; Nari younger navy bob/crescent clip mint jacket/peach scarf lavender tail/peach fin; Duri lavender turtle/mint floral shell. Only cast specifically requested in the scene. Characters have two arms and exactly ONE continuous mermaid tail, no legs, no anatomy duplication. Preserve authored contours, rounded shapes, clean indigo outlines, warm readable faces, cool cyan/periwinkle background, controlled peach/orchid/gold accents. All mermaid torsos clothed. Everything below pool is entirely UNDERWATER inside Pearl Castle's magical under-pool city; no air streets/surface rivers. Korean curved grey-plum tiled eaves, cream/celadon framed buildings, warm pictogram storefronts, bubble-tram pearl bridge, mint bathhouse, shell stage repeat coherently. Magical flow already exists; no quest for new powers/candle, no film fictional barrier or stolen logos/characters/weapons.\nPage composition: scene art only, NO TITLES, LETTERING, LABELS, SPEECH BUBBLES, NUMBERS or captions; book text will be typeset separately beneath. Keep important faces/hands/action clear and away from the exact centre gutter. No important art in narrow outer margins. If comic panels requested use rounded cream gutters and a clear dominant action; do not add extra beats, characters or sound text. Restrained motion arcs allowed, not scratchy speed lines. Crisp warm family-friendly wonder for a four-year-old.\nSCENE 06: Three sequential rounded comic panels with physically clear staged rescue, safe no force on turtle. 1 Roshan bracing palms on LEFT movable crate, Rumi unloops soft banner away from turtle shell. 2 Hana steadies other separate crate, Nari supports/encourages; open gap and lifted loose fabric visible. 3 relieved Duri freely swims toward Roshan and Rumi; all single-tail mermaids. Continuity same service alcove, two crates now visibly separated. Clear correct hand/object contact.",
+      "references": [
+        "C:/Users/Peter/Documents/mermaid-roshan-reef/assets_src/books/rumi_underpool_20261009/native/cast_identity.png",
+        "C:/Users/Peter/Documents/mermaid-roshan-reef/assets_src/books/rumi_underpool_20261009/native/city_concept_source.png"
+      ],
+      "native_source": "C:/Users/Peter/.codex/generated_images/01a0f35d-f268-7751-aa9b-79fa94ceeacc/exec-880a98dc-48fd-4af4-96de-ae131749e992.png",
+      "saved_path": "C:/Users/Peter/Documents/mermaid-roshan-reef/assets_src/books/rumi_underpool_20261009/native/spread_06_rescue_duri.png",
+      "elapsed_ms": null,
+      "elapsed_limit": "Individual elapsed time unavailable for calls 04-09; no timing claim.",
+      "tool": "built-in image_gen",
+      "model_revision": "not exposed",
+      "status": "ILLUSTRATED_DRAFT_CANDIDATE",
+      "native_sha256": "f365b3ca926237d77b2151228e6863552653aba6f2dad7604695c0bd34282641",
+      "prompt_sha256_utf8": "2615ee3861ebbab3a836701ba562dd40a2d4267b677e5cf471290d97f6b8889d",
+      "selected_for_story": true,
+      "native_source_sha256": "f365b3ca926237d77b2151228e6863552653aba6f2dad7604695c0bd34282641",
+      "native_dimensions": [
+        1774,
+        887
+      ],
+      "native_mode": "RGB",
+      "tool_cache_available": true
+    },
+    {
+      "id": "07",
+      "name": "bathhouse_rest_song",
+      "prompt": "Use case: illustration-story. Asset: a NEW commissioned Mermaid Roshan picture-book illustration, full wide landscape 2:1 image, polished painted 2D anime/storybook with gentle comic staging. Not a photograph or 3D render. Reference 1 cast lineup EXACT character identity/clothing/scale, reference 2 city environment style/geography; additional references if provided are exact scene/prop identity. Keep Roshan brown hair/rainbow forelock and coral/cream jacket/rainbow single tail; Rumi lavender braid purple/navy jacket cyan-lavender single tail/pink fin; Hana tall copper loose waves/half-up crown coral jacket/cream blouse celadon tail/deepteal fin; Nari younger navy bob/crescent clip mint jacket/peach scarf lavender tail/peach fin; Duri lavender turtle/mint floral shell. Only cast specifically requested in the scene. Characters have two arms and exactly ONE continuous mermaid tail, no legs, no anatomy duplication. Preserve authored contours, rounded shapes, clean indigo outlines, warm readable faces, cool cyan/periwinkle background, controlled peach/orchid/gold accents. All mermaid torsos clothed. Everything below pool is entirely UNDERWATER inside Pearl Castle's magical under-pool city; no air streets/surface rivers. Korean curved grey-plum tiled eaves, cream/celadon framed buildings, warm pictogram storefronts, bubble-tram pearl bridge, mint bathhouse, shell stage repeat coherently. Magical flow already exists; no quest for new powers/candle, no film fictional barrier or stolen logos/characters/weapons.\nPage composition: scene art only, NO TITLES, LETTERING, LABELS, SPEECH BUBBLES, NUMBERS or captions; book text will be typeset separately beneath. Keep important faces/hands/action clear and away from the exact centre gutter. No important art in narrow outer margins. If comic panels requested use rounded cream gutters and a clear dominant action; do not add extra beats, characters or sound text. Restrained motion arcs allowed, not scratchy speed lines. Crisp warm family-friendly wonder for a four-year-old.\nSCENE 07: Quiet cozy recovery in underwater Korean neighbourhood bathhouse, celadon/mint mosaic warming-current seating basin, round pearl benches, seahorse water fixture, rising fine bubbles not steam. Roshan and shorter Nari sing gently to Duri close and visible; Rumi/Hana relaxed behind them. All mermaids keep their original modest jackets/blouses and one tail, no bathing undress, no hot dangerous water. Large soft calm picture, warm cream light.",
+      "references": [
+        "C:/Users/Peter/Documents/mermaid-roshan-reef/assets_src/books/rumi_underpool_20261009/native/cast_identity.png",
+        "C:/Users/Peter/Documents/mermaid-roshan-reef/assets_src/books/rumi_underpool_20261009/native/city_concept_source.png"
+      ],
+      "native_source": "C:/Users/Peter/.codex/generated_images/01a0f35d-f268-7751-aa9b-79fa94ceeacc/exec-0e1459c9-7575-4909-ab9c-08c80c813284.png",
+      "saved_path": "C:/Users/Peter/Documents/mermaid-roshan-reef/assets_src/books/rumi_underpool_20261009/native/spread_07_bathhouse_rest_song.png",
+      "elapsed_ms": null,
+      "elapsed_limit": "Individual elapsed time unavailable for calls 04-09; no timing claim.",
+      "tool": "built-in image_gen",
+      "model_revision": "not exposed",
+      "status": "ILLUSTRATED_DRAFT_CANDIDATE",
+      "native_sha256": "f9b43a361113dfbacc28d9abbdbc6974f9cbc44365eb7eaa16c5b847373d05ae",
+      "prompt_sha256_utf8": "7c26bee6f0d311f1ec472f382191fdcd6c0355c621756ce758702205b53aac9c",
+      "selected_for_story": true,
+      "native_source_sha256": "f9b43a361113dfbacc28d9abbdbc6974f9cbc44365eb7eaa16c5b847373d05ae",
+      "native_dimensions": [
+        1774,
+        887
+      ],
+      "native_mode": "RGB",
+      "tool_cache_available": true
+    },
+    {
+      "id": "08",
+      "name": "imp_clue",
+      "prompt": "Use case: illustration-story. Asset: a NEW commissioned Mermaid Roshan picture-book illustration, full wide landscape 2:1 image, polished painted 2D anime/storybook with gentle comic staging. Not a photograph or 3D render. Reference 1 cast lineup EXACT character identity/clothing/scale, reference 2 city environment style/geography; additional references if provided are exact scene/prop identity. Keep Roshan brown hair/rainbow forelock and coral/cream jacket/rainbow single tail; Rumi lavender braid purple/navy jacket cyan-lavender single tail/pink fin; Hana tall copper loose waves/half-up crown coral jacket/cream blouse celadon tail/deepteal fin; Nari younger navy bob/crescent clip mint jacket/peach scarf lavender tail/peach fin; Duri lavender turtle/mint floral shell. Only cast specifically requested in the scene. Characters have two arms and exactly ONE continuous mermaid tail, no legs, no anatomy duplication. Preserve authored contours, rounded shapes, clean indigo outlines, warm readable faces, cool cyan/periwinkle background, controlled peach/orchid/gold accents. All mermaid torsos clothed. Everything below pool is entirely UNDERWATER inside Pearl Castle's magical under-pool city; no air streets/surface rivers. Korean curved grey-plum tiled eaves, cream/celadon framed buildings, warm pictogram storefronts, bubble-tram pearl bridge, mint bathhouse, shell stage repeat coherently. Magical flow already exists; no quest for new powers/candle, no film fictional barrier or stolen logos/characters/weapons.\nPage composition: scene art only, NO TITLES, LETTERING, LABELS, SPEECH BUBBLES, NUMBERS or captions; book text will be typeset separately beneath. Keep important faces/hands/action clear and away from the exact centre gutter. No important art in narrow outer margins. If comic panels requested use rounded cream gutters and a clear dominant action; do not add extra beats, characters or sound text. Restrained motion arcs allowed, not scratchy speed lines. Crisp warm family-friendly wonder for a four-year-old.\nSCENE 08: Playful underwater bathhouse-door interruption. Existing navy fully clothed magician imp with red bowtie/top hat comically pops amid small bubbles, existing purple glitter-jacket performer imp hauling a light stage prop crate beyond doorway. Four mermaids and Duri face them with surprised determination not fear. Through doorway clear route toward shell-stage district, pearl/kelp scenery. Imps have trousers/shoes, no bare torso, no weapons aimed at children. Two linked panels, no text.",
+      "references": [
+        "C:/Users/Peter/Documents/mermaid-roshan-reef/assets_src/books/rumi_underpool_20261009/native/cast_identity.png",
+        "C:/Users/Peter/Documents/mermaid-roshan-reef/assets_src/books/rumi_underpool_20261009/native/city_concept_source.png",
+        "C:/Users/Peter/Documents/mermaid-roshan-reef/assets/opera/worlds/actors/rival_popstar.png",
+        "C:/Users/Peter/Documents/mermaid-roshan-reef/assets/opera/worlds/actors/rival_magician.png"
+      ],
+      "native_source": "C:/Users/Peter/.codex/generated_images/01a0f35d-f268-7751-aa9b-79fa94ceeacc/exec-18a9061a-4955-4a04-8e6b-809b1fbc59df.png",
+      "saved_path": "C:/Users/Peter/Documents/mermaid-roshan-reef/assets_src/books/rumi_underpool_20261009/native/spread_08_imp_clue.png",
+      "elapsed_ms": null,
+      "elapsed_limit": "Individual elapsed time unavailable for calls 04-09; no timing claim.",
+      "tool": "built-in image_gen",
+      "model_revision": "not exposed",
+      "status": "ILLUSTRATED_DRAFT_CANDIDATE",
+      "native_sha256": "ddd012968d66d3b2bda7046557c2cf7a799f7a36c7870d30985aa8bae84172e9",
+      "prompt_sha256_utf8": "3a5cbc5138808656024215e808483184eaaae6ecf3133cb5baf720dbe1a65e0a",
+      "selected_for_story": true,
+      "native_source_sha256": "ddd012968d66d3b2bda7046557c2cf7a799f7a36c7870d30985aa8bae84172e9",
+      "native_dimensions": [
+        1774,
+        887
+      ],
+      "native_mode": "RGB",
+      "tool_cache_available": true
+    },
+    {
+      "id": "09",
+      "name": "current_gate_plan",
+      "prompt": "Use case: illustration-story. Asset: a NEW commissioned Mermaid Roshan picture-book illustration, full wide landscape 2:1 image, polished painted 2D anime/storybook with gentle comic staging. Not a photograph or 3D render. Reference 1 cast lineup EXACT character identity/clothing/scale, reference 2 city environment style/geography; additional references if provided are exact scene/prop identity. Keep Roshan brown hair/rainbow forelock and coral/cream jacket/rainbow single tail; Rumi lavender braid purple/navy jacket cyan-lavender single tail/pink fin; Hana tall copper loose waves/half-up crown coral jacket/cream blouse celadon tail/deepteal fin; Nari younger navy bob/crescent clip mint jacket/peach scarf lavender tail/peach fin; Duri lavender turtle/mint floral shell. Only cast specifically requested in the scene. Characters have two arms and exactly ONE continuous mermaid tail, no legs, no anatomy duplication. Preserve authored contours, rounded shapes, clean indigo outlines, warm readable faces, cool cyan/periwinkle background, controlled peach/orchid/gold accents. All mermaid torsos clothed. Everything below pool is entirely UNDERWATER inside Pearl Castle's magical under-pool city; no air streets/surface rivers. Korean curved grey-plum tiled eaves, cream/celadon framed buildings, warm pictogram storefronts, bubble-tram pearl bridge, mint bathhouse, shell stage repeat coherently. Magical flow already exists; no quest for new powers/candle, no film fictional barrier or stolen logos/characters/weapons.\nPage composition: scene art only, NO TITLES, LETTERING, LABELS, SPEECH BUBBLES, NUMBERS or captions; book text will be typeset separately beneath. Keep important faces/hands/action clear and away from the exact centre gutter. No important art in narrow outer margins. If comic panels requested use rounded cream gutters and a clear dominant action; do not add extra beats, characters or sound text. Restrained motion arcs allowed, not scratchy speed lines. Crisp warm family-friendly wonder for a four-year-old.\nSCENE 09: Single clear investigation image from under elevated shell concert terrace. Large gold-rimmed circular current arch/gate fixed in stone, partly blocked by three piled separate prop crates and limp soft banners. No chains/trappedcreatures. Roshan foreground points to low safe opening; Duri guides at her shoulder; Rumi Hana Nari examine independently. Faint existing blue glow visible through obstruction, proving magic remains. Above terrace, imps' shell speakers/stage; Korean shops and hanging tiles secondary. Readable objective geometry not gloomy dungeon.",
+      "references": [
+        "C:/Users/Peter/Documents/mermaid-roshan-reef/assets_src/books/rumi_underpool_20261009/native/cast_identity.png",
+        "C:/Users/Peter/Documents/mermaid-roshan-reef/assets_src/books/rumi_underpool_20261009/native/city_concept_source.png"
+      ],
+      "native_source": "C:/Users/Peter/.codex/generated_images/01a0f35d-f268-7751-aa9b-79fa94ceeacc/exec-3623b172-df77-4fe6-8053-f651bd211d8e.png",
+      "saved_path": "C:/Users/Peter/Documents/mermaid-roshan-reef/assets_src/books/rumi_underpool_20261009/native/spread_09_current_gate_plan.png",
+      "elapsed_ms": null,
+      "elapsed_limit": "Individual elapsed time unavailable for calls 04-09; no timing claim.",
+      "tool": "built-in image_gen",
+      "model_revision": "not exposed",
+      "status": "ILLUSTRATED_DRAFT_CANDIDATE",
+      "native_sha256": "a1d44024d522893b5211298dc40133c381b993ee7d2d2df7105a94cf859e9e13",
+      "prompt_sha256_utf8": "21ea04aaa85869939074852dab99ac9bdfc77375e3b75e079e2c441ed0a325c9",
+      "selected_for_story": true,
+      "native_source_sha256": "a1d44024d522893b5211298dc40133c381b993ee7d2d2df7105a94cf859e9e13",
+      "native_dimensions": [
+        1774,
+        887
+      ],
+      "native_mode": "RGB",
+      "tool_cache_available": true
+    },
+    {
+      "id": "02",
+      "name": "city_beneath_pool",
+      "prompt": "Edit this exact picture with ONE LOCAL CAST CORRECTION. Remove ONLY the copper-haired celadon-tail mermaid Hana, the navy-bob lavender-tail mermaid Nari, and the floral-shell turtle Duri from the foreground. Naturally heal the underwater city behind those three removed figures, matching the existing image. Keep the small brown/rainbow-haired Roshan at left and the lavender-braided Rumi exactly unchanged. Keep all buildings, tram, pool oval, shell stage, lighting and composition unchanged. This scene happens BEFORE meeting Hana/Nari and BEFORE the turtle rescue: ONLY Roshan and Rumi appear as foreground principals. Do not add any new characters or text. Preserve the original polished 2D style and image size.",
+      "references": [
+        "C:/Users/Peter/Documents/mermaid-roshan-reef/assets_src/books/rumi_underpool_20261009/native/spread_02_city_beneath_pool.png"
+      ],
+      "native_source": "C:/Users/Peter/.codex/generated_images/01a0f35d-f268-7751-aa9b-79fa94ceeacc/exec-2a7df6e3-6de1-4326-9ee8-edb372038c66.png",
+      "saved_path": "C:/Users/Peter/Documents/mermaid-roshan-reef/assets_src/books/rumi_underpool_20261009/native/spread_02_city_beneath_pool_v2.png",
+      "elapsed_ms": null,
+      "tool": "built-in image_gen edit",
+      "model_revision": "not exposed",
+      "status": "ILLUSTRATED_DRAFT_CANDIDATE",
+      "revision": 2,
+      "reason": "Remove premature cast appearances; preserve all other staging.",
+      "native_sha256": "59c0eb8ad79a83b655c79c119382b549bc2e884e05afa76f3709ab5145a28730",
+      "prompt_sha256_utf8": "fd4a950bdf5da9866ee029dffbeda0368c1d79a0a9f127993946ea9166a14c38",
+      "selected_for_story": true,
+      "native_source_sha256": "59c0eb8ad79a83b655c79c119382b549bc2e884e05afa76f3709ab5145a28730",
+      "native_dimensions": [
+        1774,
+        887
+      ],
+      "native_mode": "RGB",
+      "tool_cache_available": true
+    },
+    {
+      "id": "03",
+      "name": "meet_hana_nari",
+      "prompt": "Edit this exact image with ONE LOCAL REMOVAL ONLY: remove the floral-shell lavender turtle Duri from the lower foreground centre-left and naturally heal the city background there. Preserve all FOUR mermaids Roshan, Rumi, copper-haired Hana, navy-bob Nari exactly, plus music room doorway, buildings, lighting, composition and size. This scene is before Duri's rescue, so NO turtle may appear. No other changes, new characters, text, relighting or redesign.",
+      "references": [
+        "C:/Users/Peter/Documents/mermaid-roshan-reef/assets_src/books/rumi_underpool_20261009/native/spread_03_meet_hana_nari.png"
+      ],
+      "native_source": "C:/Users/Peter/.codex/generated_images/01a0f35d-f268-7751-aa9b-79fa94ceeacc/exec-f4f9479c-d2d9-4c1a-b20b-bd906dcd3e31.png",
+      "saved_path": "C:/Users/Peter/Documents/mermaid-roshan-reef/assets_src/books/rumi_underpool_20261009/native/spread_03_meet_hana_nari_v2.png",
+      "elapsed_ms": null,
+      "tool": "built-in image_gen edit",
+      "model_revision": "not exposed",
+      "status": "ILLUSTRATED_DRAFT_CANDIDATE",
+      "revision": 2,
+      "reason": "Remove premature cast appearances; preserve all other staging.",
+      "native_sha256": "51ec6c931dfacfdfbe91bdb7d99a7033b121014a70e9c56df33d73dc1c15b698",
+      "prompt_sha256_utf8": "ebb3d2c6419dc40ef87f9ead538c64ce7da1168dff2537acabd6fb5a1c0e0133",
+      "selected_for_story": true,
+      "native_source_sha256": "51ec6c931dfacfdfbe91bdb7d99a7033b121014a70e9c56df33d73dc1c15b698",
+      "native_dimensions": [
+        1774,
+        887
+      ],
+      "native_mode": "RGB",
+      "tool_cache_available": true
+    },
+    {
+      "id": "05",
+      "name": "hear_turtle",
+      "prompt": "Edit this exact two-panel rescue discovery image ONLY in the LEFT panel: REMOVE the small freely swimming lavender floral-shell turtle at bottom left. Heal only that removed turtle footprint naturally with matching underwater water/kelp/city. Keep the four mermaids in the left panel and EVERYTHING in the right panel completely unchanged, especially the trapped turtle between the crates. Story continuity: Duri exists ONLY in the RIGHT panel, still trapped, until the next spread's rescue. No extra turtle, no other changes, no new text.",
+      "references": [
+        "C:/Users/Peter/Documents/mermaid-roshan-reef/assets_src/books/rumi_underpool_20261009/native/spread_05_hear_turtle.png"
+      ],
+      "native_source": "C:/Users/Peter/.codex/generated_images/01a0f35d-f268-7751-aa9b-79fa94ceeacc/exec-616bb40f-516f-46a3-b264-816c9fbacf1f.png",
+      "saved_path": "C:/Users/Peter/Documents/mermaid-roshan-reef/assets_src/books/rumi_underpool_20261009/native/spread_05_hear_turtle_v2.png",
+      "elapsed_ms": null,
+      "tool": "built-in image_gen edit",
+      "model_revision": "not exposed",
+      "status": "ILLUSTRATED_DRAFT_CANDIDATE",
+      "revision": 2,
+      "reason": "Remove premature cast appearances; preserve all other staging.",
+      "native_sha256": "e2c3ef68a08f1b279b848ad79fd6ceb492e012d2798677ac2d3da91590cdab22",
+      "prompt_sha256_utf8": "e747b5a7bd2c746c8a5ed902ff751232bb6a47d52b4806ad7f3efae2c8570135",
+      "selected_for_story": true,
+      "native_source_sha256": "e2c3ef68a08f1b279b848ad79fd6ceb492e012d2798677ac2d3da91590cdab22",
+      "native_dimensions": [
+        1774,
+        887
+      ],
+      "native_mode": "RGB",
+      "tool_cache_available": true
+    },
+    {
+      "id": "10",
+      "name": "concert_fight_start",
+      "prompt": "Use case: illustration-story. Asset: a NEW commissioned Mermaid Roshan picture-book illustration, full wide landscape 2:1 image, polished painted 2D anime/storybook with gentle comic staging. Not a photograph or 3D render. Reference 1 cast lineup EXACT character identity/clothing/scale, reference 2 city environment style/geography; additional references if provided are exact scene/prop identity. Keep Roshan brown hair/rainbow forelock and coral/cream jacket/rainbow single tail; Rumi lavender braid purple/navy jacket cyan-lavender single tail/pink fin; Hana tall copper loose waves/half-up crown coral jacket/cream blouse celadon tail/deepteal fin; Nari younger navy bob/crescent clip mint jacket/peach scarf lavender tail/peach fin; Duri lavender turtle/mint floral shell. Only cast specifically requested in the scene. Characters have two arms and exactly ONE continuous mermaid tail, no legs, no anatomy duplication. Preserve authored contours, rounded shapes, clean indigo outlines, warm readable faces, cool cyan/periwinkle background, controlled peach/orchid/gold accents. All mermaid torsos clothed. Everything below pool is entirely UNDERWATER inside Pearl Castle's magical under-pool city; no air streets/surface rivers. Korean curved grey-plum tiled eaves, cream/celadon framed buildings, warm pictogram storefronts, bubble-tram pearl bridge, mint bathhouse, shell stage repeat coherently. Magical flow already exists; no quest for new powers/candle, no film fictional barrier or stolen logos/characters/weapons.\nPage composition: scene art only, NO TITLES, LETTERING, LABELS, SPEECH BUBBLES, NUMBERS or captions; book text will be typeset separately beneath. Keep important faces/hands/action clear and away from the exact centre gutter. No important art in narrow outer margins. If comic panels requested use rounded cream gutters and a clear dominant action; do not add extra beats, characters or sound text. Restrained motion arcs allowed, not scratchy speed lines. Crisp warm family-friendly wonder for a four-year-old.\nSCENE 10: Two bold child-readable comic panels. Left smaller: Roshan politely confronts TWO existing fully costumed purple imps on lavender shell stage, other friends behind. Right larger: Rumi singing with microphone, Hana choreographed sweeping arm pose, Nari rhythm taps small shell drum, Roshan swimming decisively along stage edge toward gatebelow; imps winding up soft round foam stars. No swords/filmweapons or copiedfilmposes/logos, no sexualcostume; warm pink/orchid stage lights against cyan underwater city. Action begins with purposeful movement.\nAdditional identity/geometry note: reference 2 is the exact established shell-stage current-gate location from the previous scene. Maintain its golden arch, lavender stage above and prop crate/banner family. References 3 and 4 lock the two imp costumes. Duri is now rescued. No scene from the reference is to be repeated unchanged.",
+      "references": [
+        "C:/Users/Peter/Documents/mermaid-roshan-reef/assets_src/books/rumi_underpool_20261009/native/cast_identity.png",
+        "C:/Users/Peter/Documents/mermaid-roshan-reef/assets_src/books/rumi_underpool_20261009/native/spread_09_current_gate_plan.png",
+        "C:/Users/Peter/Documents/mermaid-roshan-reef/assets/opera/worlds/actors/rival_popstar.png",
+        "C:/Users/Peter/Documents/mermaid-roshan-reef/assets/opera/worlds/actors/rival_magician.png"
+      ],
+      "native_source": "C:\\Users\\Peter\\.codex\\generated_images\\01a0f35d-f268-7751-aa9b-79fa94ceeacc\\exec-9759ed56-03af-47a2-ad21-54403de2260d.png",
+      "saved_path": "C:/Users/Peter/Documents/mermaid-roshan-reef/assets_src/books/rumi_underpool_20261009/native/spread_10_concert_fight_start.png",
+      "elapsed_ms": 84236,
+      "tool": "built-in image_gen",
+      "model_revision": "not exposed",
+      "status": "ILLUSTRATED_DRAFT_CANDIDATE",
+      "native_sha256": "21e1dd98a6fd2ecf11a6df84b152ac92e4af131e7f56f1354d6cbcbdefc8d413",
+      "prompt_sha256_utf8": "de720846680171e75612a5601ab24c42ea990e32f9b6b78613edb275ccc7350a",
+      "selected_for_story": true,
+      "native_source_sha256": "21e1dd98a6fd2ecf11a6df84b152ac92e4af131e7f56f1354d6cbcbdefc8d413",
+      "native_dimensions": [
+        1774,
+        887
+      ],
+      "native_mode": "RGB",
+      "tool_cache_available": true
+    },
+    {
+      "id": "11",
+      "name": "bubble_battle",
+      "prompt": "Use case: illustration-story. Asset: a NEW commissioned Mermaid Roshan picture-book illustration, full wide landscape 2:1 image, polished painted 2D anime/storybook with gentle comic staging. Not a photograph or 3D render. Reference 1 cast lineup EXACT character identity/clothing/scale, reference 2 city environment style/geography; additional references if provided are exact scene/prop identity. Keep Roshan brown hair/rainbow forelock and coral/cream jacket/rainbow single tail; Rumi lavender braid purple/navy jacket cyan-lavender single tail/pink fin; Hana tall copper loose waves/half-up crown coral jacket/cream blouse celadon tail/deepteal fin; Nari younger navy bob/crescent clip mint jacket/peach scarf lavender tail/peach fin; Duri lavender turtle/mint floral shell. Only cast specifically requested in the scene. Characters have two arms and exactly ONE continuous mermaid tail, no legs, no anatomy duplication. Preserve authored contours, rounded shapes, clean indigo outlines, warm readable faces, cool cyan/periwinkle background, controlled peach/orchid/gold accents. All mermaid torsos clothed. Everything below pool is entirely UNDERWATER inside Pearl Castle's magical under-pool city; no air streets/surface rivers. Korean curved grey-plum tiled eaves, cream/celadon framed buildings, warm pictogram storefronts, bubble-tram pearl bridge, mint bathhouse, shell stage repeat coherently. Magical flow already exists; no quest for new powers/candle, no film fictional barrier or stolen logos/characters/weapons.\nPage composition: scene art only, NO TITLES, LETTERING, LABELS, SPEECH BUBBLES, NUMBERS or captions; book text will be typeset separately beneath. Keep important faces/hands/action clear and away from the exact centre gutter. No important art in narrow outer margins. If comic panels requested use rounded cream gutters and a clear dominant action; do not add extra beats, characters or sound text. Restrained motion arcs allowed, not scratchy speed lines. Crisp warm family-friendly wonder for a four-year-old.\nSCENE 11: Three compact clean manga panels of real playful physical fight with existing costumed imps: 1 magician sends little bubble puff; 2 Hana catches large SOFT FOAM STAR in a slack fabric banner hammock, Nari ducks safely besideher, Rumi turns clear; 3 performer imp comically bounces backward onto obvious padded stage cushions after Roshan deftly loops fabric ribbon round blocking propcrate, no binding person. No wounds, frightening teeth, explosions, lightning, sharpblades or weapons; single tails not multiplelimbs; clear motion/contact and amused determined faces. Restrained swoosh arcs no unreadable captions.\nAdditional identity/geometry note: reference 2 is the exact established shell-stage current-gate location from the previous scene. Maintain its golden arch, lavender stage above and prop crate/banner family. References 3 and 4 lock the two imp costumes. Duri is now rescued. No scene from the reference is to be repeated unchanged.",
+      "references": [
+        "C:/Users/Peter/Documents/mermaid-roshan-reef/assets_src/books/rumi_underpool_20261009/native/cast_identity.png",
+        "C:/Users/Peter/Documents/mermaid-roshan-reef/assets_src/books/rumi_underpool_20261009/native/spread_09_current_gate_plan.png",
+        "C:/Users/Peter/Documents/mermaid-roshan-reef/assets/opera/worlds/actors/rival_popstar.png",
+        "C:/Users/Peter/Documents/mermaid-roshan-reef/assets/opera/worlds/actors/rival_magician.png"
+      ],
+      "native_source": "C:\\Users\\Peter\\.codex\\generated_images\\01a0f35d-f268-7751-aa9b-79fa94ceeacc\\exec-78d95b0f-9046-40ef-9087-9b5bde115157.png",
+      "saved_path": "C:/Users/Peter/Documents/mermaid-roshan-reef/assets_src/books/rumi_underpool_20261009/native/spread_11_bubble_battle.png",
+      "elapsed_ms": 172640,
+      "tool": "built-in image_gen",
+      "model_revision": "not exposed",
+      "status": "ILLUSTRATED_DRAFT_CANDIDATE",
+      "native_sha256": "bfb1ecef05a6b96809a9d188ea016024f70b1d8218284367bfd1fb467457a956",
+      "prompt_sha256_utf8": "2564a2098e5066a56c8bf40c4fedcc2ab4a795952a5af158689177ec91ce14ef",
+      "selected_for_story": true,
+      "native_source_sha256": "bfb1ecef05a6b96809a9d188ea016024f70b1d8218284367bfd1fb467457a956",
+      "native_dimensions": [
+        1774,
+        887
+      ],
+      "native_mode": "RGB",
+      "tool_cache_available": true
+    },
+    {
+      "id": "12",
+      "name": "roshan_opens_gate",
+      "prompt": "Use case: illustration-story. Asset: a NEW commissioned Mermaid Roshan picture-book illustration, full wide landscape 2:1 image, polished painted 2D anime/storybook with gentle comic staging. Not a photograph or 3D render. Reference 1 cast lineup EXACT character identity/clothing/scale, reference 2 city environment style/geography; additional references if provided are exact scene/prop identity. Keep Roshan brown hair/rainbow forelock and coral/cream jacket/rainbow single tail; Rumi lavender braid purple/navy jacket cyan-lavender single tail/pink fin; Hana tall copper loose waves/half-up crown coral jacket/cream blouse celadon tail/deepteal fin; Nari younger navy bob/crescent clip mint jacket/peach scarf lavender tail/peach fin; Duri lavender turtle/mint floral shell. Only cast specifically requested in the scene. Characters have two arms and exactly ONE continuous mermaid tail, no legs, no anatomy duplication. Preserve authored contours, rounded shapes, clean indigo outlines, warm readable faces, cool cyan/periwinkle background, controlled peach/orchid/gold accents. All mermaid torsos clothed. Everything below pool is entirely UNDERWATER inside Pearl Castle's magical under-pool city; no air streets/surface rivers. Korean curved grey-plum tiled eaves, cream/celadon framed buildings, warm pictogram storefronts, bubble-tram pearl bridge, mint bathhouse, shell stage repeat coherently. Magical flow already exists; no quest for new powers/candle, no film fictional barrier or stolen logos/characters/weapons.\nPage composition: scene art only, NO TITLES, LETTERING, LABELS, SPEECH BUBBLES, NUMBERS or captions; book text will be typeset separately beneath. Keep important faces/hands/action clear and away from the exact centre gutter. No important art in narrow outer margins. If comic panels requested use rounded cream gutters and a clear dominant action; do not add extra beats, characters or sound text. Restrained motion arcs allowed, not scratchy speed lines. Crisp warm family-friendly wonder for a four-year-old.\nSCENE 12: Dominant heroic physically clear teamwork repair, not spellcast. Roshan and Rumi side by side pulling same loose ribbon attached to a light crate on low ledge; Hana's two palms push its opposite exposed side, Nari tugs separate fabric handle. LAST crate moves sideways away from gold circular currentarch which is visibly open now; lavender floral-shell Duri swims unharmed through centre. Flow ribbons/bright cyan current curve through opened channel. In small inset two clothed imps sit on padded cushions surprised. All mermaid tails one continuous body, faces visible; no obstruction duplicated behind moved crate.\nAdditional identity/geometry note: reference 2 is the exact established shell-stage current-gate location from the previous scene. Maintain its golden arch, lavender stage above and prop crate/banner family. References 3 and 4 lock the two imp costumes. Duri is now rescued. No scene from the reference is to be repeated unchanged.",
+      "references": [
+        "C:/Users/Peter/Documents/mermaid-roshan-reef/assets_src/books/rumi_underpool_20261009/native/cast_identity.png",
+        "C:/Users/Peter/Documents/mermaid-roshan-reef/assets_src/books/rumi_underpool_20261009/native/spread_09_current_gate_plan.png",
+        "C:/Users/Peter/Documents/mermaid-roshan-reef/assets/opera/worlds/actors/rival_popstar.png",
+        "C:/Users/Peter/Documents/mermaid-roshan-reef/assets/opera/worlds/actors/rival_magician.png"
+      ],
+      "native_source": "C:\\Users\\Peter\\.codex\\generated_images\\01a0f35d-f268-7751-aa9b-79fa94ceeacc\\exec-99c5ea04-bea8-48e3-b441-cb1feafdd222.png",
+      "saved_path": "C:/Users/Peter/Documents/mermaid-roshan-reef/assets_src/books/rumi_underpool_20261009/native/spread_12_roshan_opens_gate.png",
+      "elapsed_ms": 253854,
+      "tool": "built-in image_gen",
+      "model_revision": "not exposed",
+      "status": "ILLUSTRATED_DRAFT_CANDIDATE",
+      "native_sha256": "3e303bec5c495daa43a5d77ec69fb7f65103b0545ee803955539f8bc4d057fa7",
+      "prompt_sha256_utf8": "71069eeb23518d7c38b8a9ee10232e77db451aa72a3b30969e1060744195b765",
+      "selected_for_story": true,
+      "native_source_sha256": "3e303bec5c495daa43a5d77ec69fb7f65103b0545ee803955539f8bc4d057fa7",
+      "native_dimensions": [
+        1774,
+        887
+      ],
+      "native_mode": "RGB",
+      "tool_cache_available": true
+    },
+    {
+      "id": "13",
+      "name": "city_encore",
+      "prompt": "Use case: illustration-story. Asset: a NEW commissioned Mermaid Roshan picture-book illustration, full wide landscape 2:1 image, polished painted 2D anime/storybook with gentle comic staging. Not a photograph or 3D render. Reference 1 cast lineup EXACT character identity/clothing/scale, reference 2 city environment style/geography; additional references if provided are exact scene/prop identity. Keep Roshan brown hair/rainbow forelock and coral/cream jacket/rainbow single tail; Rumi lavender braid purple/navy jacket cyan-lavender single tail/pink fin; Hana tall copper loose waves/half-up crown coral jacket/cream blouse celadon tail/deepteal fin; Nari younger navy bob/crescent clip mint jacket/peach scarf lavender tail/peach fin; Duri lavender turtle/mint floral shell. Only cast specifically requested in the scene. Characters have two arms and exactly ONE continuous mermaid tail, no legs, no anatomy duplication. Preserve authored contours, rounded shapes, clean indigo outlines, warm readable faces, cool cyan/periwinkle background, controlled peach/orchid/gold accents. All mermaid torsos clothed. Everything below pool is entirely UNDERWATER inside Pearl Castle's magical under-pool city; no air streets/surface rivers. Korean curved grey-plum tiled eaves, cream/celadon framed buildings, warm pictogram storefronts, bubble-tram pearl bridge, mint bathhouse, shell stage repeat coherently. Magical flow already exists; no quest for new powers/candle, no film fictional barrier or stolen logos/characters/weapons.\nPage composition: scene art only, NO TITLES, LETTERING, LABELS, SPEECH BUBBLES, NUMBERS or captions; book text will be typeset separately beneath. Keep important faces/hands/action clear and away from the exact centre gutter. No important art in narrow outer margins. If comic panels requested use rounded cream gutters and a clear dominant action; do not add extra beats, characters or sound text. Restrained motion arcs allowed, not scratchy speed lines. Crisp warm family-friendly wonder for a four-year-old.\nSCENE 13: Expansive celebratory evening-underwater encore. Main quartet Roshan Rumi Hana Nari at established shell concert stage together singing; Duri beside them. Korean tiled-roof neighbourhood, projecting shops, pearl bridge/bubble tram visible in rear; diverse small mermaid neighbours sing from balconies and tramwindows, warm lights connected by flowing cyan current rather than new mysticalbarrier. Open gate visible belowstage, no crates blocking. Faces/foursilhouettes readable. Two repentant costumedimps unobtrusive atside. Big musical payoff pinklavendergold controlled palette no abstractneonstorm.",
+      "references": [
+        "C:/Users/Peter/Documents/mermaid-roshan-reef/assets_src/books/rumi_underpool_20261009/native/cast_identity.png",
+        "C:/Users/Peter/Documents/mermaid-roshan-reef/assets_src/books/rumi_underpool_20261009/native/city_concept_source.png"
+      ],
+      "native_source": "C:\\Users\\Peter\\.codex\\generated_images\\01a0f35d-f268-7751-aa9b-79fa94ceeacc\\exec-583a1de1-22a6-4f6d-9533-41cf9c61de78.png",
+      "saved_path": "C:/Users/Peter/Documents/mermaid-roshan-reef/assets_src/books/rumi_underpool_20261009/native/spread_13_city_encore.png",
+      "elapsed_ms": 91104,
+      "tool": "built-in image_gen",
+      "model_revision": "not exposed",
+      "status": "SUPERSEDED_FOR_STORY_CONTINUITY",
+      "native_sha256": "13d17159e267a9b218d95b10b5fb0ea69ba1e3d36219ea2f115f09e8fc070d8f",
+      "prompt_sha256_utf8": "00c4f4e4836b8748924a504cb811a7a908a41a2dd77bc35bbaecf9fb1442c94c",
+      "selected_for_story": false,
+      "native_source_sha256": "13d17159e267a9b218d95b10b5fb0ea69ba1e3d36219ea2f115f09e8fc070d8f",
+      "native_dimensions": [
+        1774,
+        887
+      ],
+      "native_mode": "RGB",
+      "tool_cache_available": true
+    },
+    {
+      "id": "14",
+      "name": "imps_make_space",
+      "prompt": "Use case: illustration-story. Asset: a NEW commissioned Mermaid Roshan picture-book illustration, full wide landscape 2:1 image, polished painted 2D anime/storybook with gentle comic staging. Not a photograph or 3D render. Reference 1 cast lineup EXACT character identity/clothing/scale, reference 2 city environment style/geography; additional references if provided are exact scene/prop identity. Keep Roshan brown hair/rainbow forelock and coral/cream jacket/rainbow single tail; Rumi lavender braid purple/navy jacket cyan-lavender single tail/pink fin; Hana tall copper loose waves/half-up crown coral jacket/cream blouse celadon tail/deepteal fin; Nari younger navy bob/crescent clip mint jacket/peach scarf lavender tail/peach fin; Duri lavender turtle/mint floral shell. Only cast specifically requested in the scene. Characters have two arms and exactly ONE continuous mermaid tail, no legs, no anatomy duplication. Preserve authored contours, rounded shapes, clean indigo outlines, warm readable faces, cool cyan/periwinkle background, controlled peach/orchid/gold accents. All mermaid torsos clothed. Everything below pool is entirely UNDERWATER inside Pearl Castle's magical under-pool city; no air streets/surface rivers. Korean curved grey-plum tiled eaves, cream/celadon framed buildings, warm pictogram storefronts, bubble-tram pearl bridge, mint bathhouse, shell stage repeat coherently. Magical flow already exists; no quest for new powers/candle, no film fictional barrier or stolen logos/characters/weapons.\nPage composition: scene art only, NO TITLES, LETTERING, LABELS, SPEECH BUBBLES, NUMBERS or captions; book text will be typeset separately beneath. Keep important faces/hands/action clear and away from the exact centre gutter. No important art in narrow outer margins. If comic panels requested use rounded cream gutters and a clear dominant action; do not add extra beats, characters or sound text. Restrained motion arcs allowed, not scratchy speed lines. Crisp warm family-friendly wonder for a four-year-old.\nSCENE 14: Warm comic resolution on same cleared shellstage. Main view: glitter-jacket imp responsibly carries small propcrate to tidy side storageshelf, magician imp in full suit rings a small pearlbellextended arm/top hat tipped bow; Roshan smiles and directs with open palm, Rumi Hana Nari welcoming. Duri taps small drumwithflipper (not unnaturalhumanhand). Visible open currentarch below, emptycentre. Softcomic smallinset impbow ifneeded, no new violentbanishing/humiliation, no giant cheeringcrowd. Stage costumes unchanged.",
+      "references": [
+        "C:/Users/Peter/Documents/mermaid-roshan-reef/assets_src/books/rumi_underpool_20261009/native/cast_identity.png",
+        "C:/Users/Peter/Documents/mermaid-roshan-reef/assets_src/books/rumi_underpool_20261009/native/spread_12_roshan_opens_gate.png",
+        "C:/Users/Peter/Documents/mermaid-roshan-reef/assets/opera/worlds/actors/rival_popstar.png",
+        "C:/Users/Peter/Documents/mermaid-roshan-reef/assets/opera/worlds/actors/rival_magician.png"
+      ],
+      "native_source": "C:\\Users\\Peter\\.codex\\generated_images\\01a0f35d-f268-7751-aa9b-79fa94ceeacc\\exec-f8ca3491-b55e-4fd5-a312-e9fd66223d1a.png",
+      "saved_path": "C:/Users/Peter/Documents/mermaid-roshan-reef/assets_src/books/rumi_underpool_20261009/native/spread_14_imps_make_space.png",
+      "elapsed_ms": 171220,
+      "tool": "built-in image_gen",
+      "model_revision": "not exposed",
+      "status": "ILLUSTRATED_DRAFT_CANDIDATE",
+      "native_sha256": "83db10376f1dcd012994fa053e02e9f1914027c800c962ff3f3621be5b50294c",
+      "prompt_sha256_utf8": "8428012bd44f81552dba1b9dbc51997815719c4ec47af11890bfafec1f28d681",
+      "selected_for_story": true,
+      "native_source_sha256": "83db10376f1dcd012994fa053e02e9f1914027c800c962ff3f3621be5b50294c",
+      "native_dimensions": [
+        1774,
+        887
+      ],
+      "native_mode": "RGB",
+      "tool_cache_available": true
+    },
+    {
+      "id": "15",
+      "name": "home_pool",
+      "prompt": "Use case: illustration-story. Asset: a NEW commissioned Mermaid Roshan picture-book illustration, full wide landscape 2:1 image, polished painted 2D anime/storybook with gentle comic staging. Not a photograph or 3D render. Reference 1 cast lineup EXACT character identity/clothing/scale, reference 2 city environment style/geography; additional references if provided are exact scene/prop identity. Keep Roshan brown hair/rainbow forelock and coral/cream jacket/rainbow single tail; Rumi lavender braid purple/navy jacket cyan-lavender single tail/pink fin; Hana tall copper loose waves/half-up crown coral jacket/cream blouse celadon tail/deepteal fin; Nari younger navy bob/crescent clip mint jacket/peach scarf lavender tail/peach fin; Duri lavender turtle/mint floral shell. Only cast specifically requested in the scene. Characters have two arms and exactly ONE continuous mermaid tail, no legs, no anatomy duplication. Preserve authored contours, rounded shapes, clean indigo outlines, warm readable faces, cool cyan/periwinkle background, controlled peach/orchid/gold accents. All mermaid torsos clothed. Everything below pool is entirely UNDERWATER inside Pearl Castle's magical under-pool city; no air streets/surface rivers. Korean curved grey-plum tiled eaves, cream/celadon framed buildings, warm pictogram storefronts, bubble-tram pearl bridge, mint bathhouse, shell stage repeat coherently. Magical flow already exists; no quest for new powers/candle, no film fictional barrier or stolen logos/characters/weapons.\nPage composition: scene art only, NO TITLES, LETTERING, LABELS, SPEECH BUBBLES, NUMBERS or captions; book text will be typeset separately beneath. Keep important faces/hands/action clear and away from the exact centre gutter. No important art in narrow outer margins. If comic panels requested use rounded cream gutters and a clear dominant action; do not add extra beats, characters or sound text. Restrained motion arcs allowed, not scratchy speed lines. Crisp warm family-friendly wonder for a four-year-old.\nSCENE 15: Final peaceful return to original PearlCastle poolroom identity, rainbow waterfallleft, seahorse fountainright, lavenderarches/shellthrone/towels, turquoiseforegroundpool. Roshan and Rumi rest at near poolrim smiling quietly together, their one mermaidtailssubmergedvisible. Underwater far below a subtle tiny Duri turtle silhouette swims home, not inside dryroom. Warm restful lighting, no thirdperson/candleappearance. Composition echoes firstspread toclosecircle, simple calm no panels.\nSTRICT CAST/REFERENCE OVERRIDE FOR FINAL HOMECOMING: Reference 1 ONLY Roshan, reference 2 ONLY Rumi, reference 3 original pool room. ONLY these TWO mermaids appear. NO Hana, NO Nari, NO imps, NO other foreground character. No city concert stage replaces the familiar room. Tiny distant turtle silhouette below pool may be omitted. Preserve original pool room architecture/fixtures.",
+      "references": [
+        "C:/Users/Peter/Documents/mermaid-roshan-reef/assets/opera/worlds/actors/roshan_popstar.png",
+        "C:/Users/Peter/Documents/mermaid-roshan-reef/assets_src/characters/rumi_2026-08-22/rumi_full_body_identity.png",
+        "C:/Users/Peter/Documents/mermaid-roshan-reef/assets_src/imagegen/mermaid_pool_room_2026-08-02/room_mermaid_pool_fullframe_v3_native.png"
+      ],
+      "native_source": "C:\\Users\\Peter\\.codex\\generated_images\\01a0f35d-f268-7751-aa9b-79fa94ceeacc\\exec-9136f4a6-c61d-4119-8067-261419667c4f.png",
+      "saved_path": "C:/Users/Peter/Documents/mermaid-roshan-reef/assets_src/books/rumi_underpool_20261009/native/spread_15_home_pool.png",
+      "elapsed_ms": 206775,
+      "tool": "built-in image_gen",
+      "model_revision": "not exposed",
+      "status": "ILLUSTRATED_DRAFT_CANDIDATE",
+      "native_sha256": "1eab507ad93c6357982005ff4104d65b8e36e4216746e209852e6579a1d6cb64",
+      "prompt_sha256_utf8": "565bc1ad7ecd3f1fd2f789e5cdb5e2634a7830ed265060980f7314dafbcec482",
+      "selected_for_story": true,
+      "native_source_sha256": "1eab507ad93c6357982005ff4104d65b8e36e4216746e209852e6579a1d6cb64",
+      "native_dimensions": [
+        1774,
+        887
+      ],
+      "native_mode": "RGB",
+      "tool_cache_available": true
+    },
+    {
+      "id": "13",
+      "name": "city_encore",
+      "prompt": "Edit ONLY the two tiny purple imps at the LOWER RIGHT CORNER of this exact concert-encore illustration. Replace their jester caps/outfits locally with the EXISTING approved imp costumes in reference images 2 and 3: one purple glitter-jacket performer with teal shirt, trousers and purple shoes; one navy-coated magician with red bowtie, navy trousers, red shoes and navy top hat with pink feather. Both smiling gently and watching the encore. Retain purple skin, small horns, pointed ears, appropriate child-friendly scale. Keep their current location and unobtrusive size. Preserve absolutely everything else in the scene: all four singing mermaids, Duri, stage, crowd, bridge, shops, lighting, palette, composition and dimensions. No new characters, no text or weapons. The only correction is costume continuity for these two tiny figures.",
+      "references": [
+        "C:/Users/Peter/Documents/mermaid-roshan-reef/assets_src/books/rumi_underpool_20261009/native/spread_13_city_encore.png",
+        "C:/Users/Peter/Documents/mermaid-roshan-reef/assets/opera/worlds/actors/rival_popstar.png",
+        "C:/Users/Peter/Documents/mermaid-roshan-reef/assets/opera/worlds/actors/rival_magician.png"
+      ],
+      "native_source": "C:\\Users\\Peter\\.codex\\generated_images\\01a0f35d-f268-7751-aa9b-79fa94ceeacc\\exec-b21cb975-2470-475a-980b-e6f675a2b06e.png",
+      "saved_path": "C:/Users/Peter/Documents/mermaid-roshan-reef/assets_src/books/rumi_underpool_20261009/native/spread_13_city_encore_v2.png",
+      "elapsed_ms": 61964,
+      "tool": "built-in image_gen edit",
+      "model_revision": "not exposed",
+      "status": "ILLUSTRATED_DRAFT_CANDIDATE",
+      "revision": 2,
+      "reason": "Restore original costumes of tiny background imps; no other intended changes.",
+      "native_sha256": "89d7274ed0d33cdacc87886f29b1e61cfb8f62c405e166d5678d63d7907f2309",
+      "prompt_sha256_utf8": "31786dcc424db9d63548b11471820673116478223e25d58e4fe7db5bf23649d9",
+      "selected_for_story": true,
+      "native_source_sha256": "89d7274ed0d33cdacc87886f29b1e61cfb8f62c405e166d5678d63d7907f2309",
+      "native_dimensions": [
+        1774,
+        887
+      ],
+      "native_mode": "RGB",
+      "tool_cache_available": true
+    }
+  ],
+  "calls_completed": 20,
+  "source_only": true,
+  "acceptance": "Owner story/design/art review pending; no runtime or prior-book replacement.",
+  "call_log_note": "First 12 illustration/edit call records reconstructed from exact executed prompt specifications and printed native output paths after session array serialization did not retain appended entries. Unknown individual elapsed times remain null.",
+  "source_hashes": [
+    {
+      "path": "C:/Users/Peter/.codex/generated_images/01a0f35d-f268-7751-aa9b-79fa94ceeacc/exec-f9856eab-5ffa-40e7-8926-246f4386b9e7.png",
+      "sha256": "6cf86f799132ede85df803e29abc69fd52ca81076caca8288e41ead72c11f54d",
+      "available_at_record_update": true
+    },
+    {
+      "path": "C:/Users/Peter/Documents/mermaid-roshan-reef/assets/opera/worlds/actors/rival_magician.png",
+      "sha256": "516b8cf100df6502f3be269d302464ad6081e971ed50742f827527ee73f8965e",
+      "available_at_record_update": true
+    },
+    {
+      "path": "C:/Users/Peter/Documents/mermaid-roshan-reef/assets/opera/worlds/actors/rival_popstar.png",
+      "sha256": "d8c59bcd6b59dd27090b1caede54315f26e1fbda7f7efc3220aaeccfc31ad97f",
+      "available_at_record_update": true
+    },
+    {
+      "path": "C:/Users/Peter/Documents/mermaid-roshan-reef/assets/opera/worlds/actors/roshan_popstar.png",
+      "sha256": "2d7d45ee94bab0adbacb4331461942dd5ba14d20327ed7985945575adbf6d523",
+      "available_at_record_update": true
+    },
+    {
+      "path": "C:/Users/Peter/Documents/mermaid-roshan-reef/assets_src/books/rumi_underpool_20261009/native/cast_identity.png",
+      "sha256": "eba965d569e145bf0440674f18af76e3f1aed3c0359e396c67c62a4182751946",
+      "available_at_record_update": true
+    },
+    {
+      "path": "C:/Users/Peter/Documents/mermaid-roshan-reef/assets_src/books/rumi_underpool_20261009/native/city_concept_source.png",
+      "sha256": "6cf86f799132ede85df803e29abc69fd52ca81076caca8288e41ead72c11f54d",
+      "available_at_record_update": true
+    },
+    {
+      "path": "C:/Users/Peter/Documents/mermaid-roshan-reef/assets_src/books/rumi_underpool_20261009/native/spread_02_city_beneath_pool.png",
+      "sha256": "eb62c7d1e15b8e92e815fe2d82f226408c7c441e54e1b7aaff8562ed045e7851",
+      "available_at_record_update": true
+    },
+    {
+      "path": "C:/Users/Peter/Documents/mermaid-roshan-reef/assets_src/books/rumi_underpool_20261009/native/spread_03_meet_hana_nari.png",
+      "sha256": "af060fb77fb3855cdfc98637cc76864e489304e589dd4e48585c924f7e5b0bfd",
+      "available_at_record_update": true
+    },
+    {
+      "path": "C:/Users/Peter/Documents/mermaid-roshan-reef/assets_src/books/rumi_underpool_20261009/native/spread_05_hear_turtle.png",
+      "sha256": "43f8391a3a3ceb90eb68f1915f4de1556c56798999a61e55db9272a9383c76e9",
+      "available_at_record_update": true
+    },
+    {
+      "path": "C:/Users/Peter/Documents/mermaid-roshan-reef/assets_src/books/rumi_underpool_20261009/native/spread_09_current_gate_plan.png",
+      "sha256": "a1d44024d522893b5211298dc40133c381b993ee7d2d2df7105a94cf859e9e13",
+      "available_at_record_update": true
+    },
+    {
+      "path": "C:/Users/Peter/Documents/mermaid-roshan-reef/assets_src/books/rumi_underpool_20261009/native/spread_12_roshan_opens_gate.png",
+      "sha256": "3e303bec5c495daa43a5d77ec69fb7f65103b0545ee803955539f8bc4d057fa7",
+      "available_at_record_update": true
+    },
+    {
+      "path": "C:/Users/Peter/Documents/mermaid-roshan-reef/assets_src/books/rumi_underpool_20261009/native/spread_13_city_encore.png",
+      "sha256": "13d17159e267a9b218d95b10b5fb0ea69ba1e3d36219ea2f115f09e8fc070d8f",
+      "available_at_record_update": true
+    },
+    {
+      "path": "C:/Users/Peter/Documents/mermaid-roshan-reef/assets_src/characters/rumi_2026-08-22/rumi_full_body_identity.png",
+      "sha256": "636ec38fd0e01d472163da8a83e7c818a488823545565f17136ca6eb7b5bb31f",
+      "available_at_record_update": true
+    },
+    {
+      "path": "C:/Users/Peter/Documents/mermaid-roshan-reef/assets_src/imagegen/mermaid_pool_room_2026-08-02/room_mermaid_pool_fullframe_v3_native.png",
+      "sha256": "2a4bd923c26d5f7980fc8a723576ecb573097e30bc94090f75437833fc3d55a5",
+      "available_at_record_update": true
+    },
+    {
+      "path": "C:/Users/Peter/Documents/mermaid-roshan-reef/gen2/generated/aquatic_turtle/v3.webp",
+      "sha256": "c05e9872b43a382bd4429363678b92952af4ad15e7db8a66414dc5cf48f1a7bb",
+      "available_at_record_update": true
+    },
+    {
+      "path": "C:/Users/Peter/Downloads/kpop.jpg",
+      "sha256": "5cce99d110e31687a93772d51d078c7db1454b4ae22875aa56374ded68ffac1e",
+      "available_at_record_update": true
+    }
+  ],
+  "edits": "Four local corrections: remove premature cast in spreads 02/03/05 and restore tiny encore imp costumes in spread 13. Unaltered native originals preserved. PDF scales complete images and embeds separate RGB JPEG encodings at quality95/subsampling0, without resizing or retouching native sources.",
+  "book_format": "34 logical book pages: cover, title, 15 full story spreads (30 pages), refrain, back. PDF review keeps spreads intact: 19 landscape PDF sheets.",
+  "cover_source": "native/spread_02_city_beneath_pool.png; too-early supporting cast rejected for story spread 02 but appropriate ensemble imagery for cover.",
+  "tool_settings": {
+    "transparent_background": false,
+    "one_output_per_call": true,
+    "native_dimensions": "Chosen by built-in tool; measured in file manifest",
+    "seed": "Not exposed"
+  },
+  "assembly_dependency": "Book images load from repository-native copies. External generator caches and the supplied film reference are provenance inputs, not required PDF appearance files; unavailable originals retain their recorded hashes and explicit availability limits."
+}

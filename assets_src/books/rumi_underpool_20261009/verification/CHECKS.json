@@ -1,0 +1,28 @@
+{
+  "result": "PASS",
+  "date": "2026-10-09",
+  "baseline": "245e9c543be771d297b60dafb91b8a3baf73e211",
+  "implementation": "Complete static illustrated book draft and two new character candidates; 15 story spreads, cast board, cover/title/refrain/back, 576-word editable manuscript.",
+  "machine_verification": {
+    "pdf_sheets": 19,
+    "logical_book_pages": 34,
+    "story_spreads": 15,
+    "all_prose_extracted_exactly": true,
+    "layout_overflow": false,
+    "pdf_sha256": "97fecbd02376e1f13210d29df5e25d2a4c0fbe8520a569a696cd54ac1b10d40f",
+    "native_outputs_copied_byte_identically": true,
+    "completed_builtin_image_calls": 20,
+    "full_local_ci": {
+      "command": "C:/Program Files/Git/bin/bash.exe --noprofile --norc scripts/ci.sh",
+      "exit_code": 0,
+      "distinct_trusted_probes": 82,
+      "all_probe_process_exits": 0,
+      "engine": "4.7.2.stable.official.ed1daf0bf",
+      "log": "verification/full_ci.log",
+      "scope": "Runtime source is unchanged throughout this run; final source-art/document coverage rechecked separately."
+    },
+    "document_authority": "DOCAUTH inventory/ledger686/686 active68 records71 ALL OK; final rerun captured alongside source-art files.",
+    "runtime_and_protected_source_diff": "git diff --exit-code 245e9c543be771d297b60dafb91b8a3baf73e211 -- assets scripts scenes project.godot tools: exit0."
+  },
+  "acceptance": "Owner creative review pending; no runtime, print-production, cinematic, device/child or game-wide acceptance."
+}

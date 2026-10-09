@@ -1,0 +1,5 @@
+# Preserve exact artifact/evidence bytes; these are not line-editable sources.
+output/pdf/*.pdf binary
+native/*.png binary
+verification/*.png binary
+verification/*.log binary

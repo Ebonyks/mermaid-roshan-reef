@@ -1,0 +1,103 @@
+{
+  "id": "rumi-underpool-book-20261009",
+  "baseline": "245e9c543be771d297b60dafb91b8a3baf73e211",
+  "scope": "Owner-authorized complete illustrated draft of the new Chapter 3 under-pool book and two original mermaids. Preserve earlier book originals and runtime.",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-VIS-01",
+    "DL-VIS-02",
+    "DL-VIS-03",
+    "DL-VIS-04",
+    "DL-VIS-05",
+    "DL-VIS-06",
+    "DL-READ-03",
+    "DL-ASSET-01",
+    "DL-ASSET-02",
+    "DL-ASSET-03",
+    "DL-ASSET-04",
+    "DL-ASSET-05",
+    "DL-ASSET-06",
+    "DL-ASSET-08",
+    "DL-PLAN-02",
+    "DL-PLAN-03",
+    "DL-PLAN-05"
+  ],
+  "findings": [
+    "MA-DOC-008",
+    "MA-VIS-006",
+    "MA-ROSHAN-005"
+  ],
+  "gap": "Existing pool, Pop Star characters/venues, dressed imps and turtle provide identities/settings/props but no complete new-book scene sequence or original Hana/Nari designs. Owner explicitly commissions new book drawings on 2026-10-09; no existing book scenes replaced.",
+  "evidence": "Inspect source and all generated spreads; hash native sources/prompts and derivatives; verify 34-page PDF text/layout; document/change gates and applicable source/runtime regression gates.",
+  "files": [
+    "ASSET_LICENSES.md",
+    "assets_src/books/rumi_underpool_20261009/.gitattributes",
+    "assets_src/books/rumi_underpool_20261009/MANUSCRIPT.txt",
+    "assets_src/books/rumi_underpool_20261009/book_plan.json",
+    "assets_src/books/rumi_underpool_20261009/build_book.py",
+    "assets_src/books/rumi_underpool_20261009/cast_prompt.txt",
+    "assets_src/books/rumi_underpool_20261009/generation_manifest.json",
+    "assets_src/books/rumi_underpool_20261009/native/cast_identity.png",
+    "assets_src/books/rumi_underpool_20261009/native/city_concept_source.png",
+    "assets_src/books/rumi_underpool_20261009/native/spread_01_pool_invitation.png",
+    "assets_src/books/rumi_underpool_20261009/native/spread_02_city_beneath_pool.png",
+    "assets_src/books/rumi_underpool_20261009/native/spread_02_city_beneath_pool_v2.png",
+    "assets_src/books/rumi_underpool_20261009/native/spread_03_meet_hana_nari.png",
+    "assets_src/books/rumi_underpool_20261009/native/spread_03_meet_hana_nari_v2.png",
+    "assets_src/books/rumi_underpool_20261009/native/spread_04_first_song_no_answer.png",
+    "assets_src/books/rumi_underpool_20261009/native/spread_05_hear_turtle.png",
+    "assets_src/books/rumi_underpool_20261009/native/spread_05_hear_turtle_v2.png",
+    "assets_src/books/rumi_underpool_20261009/native/spread_06_rescue_duri.png",
+    "assets_src/books/rumi_underpool_20261009/native/spread_07_bathhouse_rest_song.png",
+    "assets_src/books/rumi_underpool_20261009/native/spread_08_imp_clue.png",
+    "assets_src/books/rumi_underpool_20261009/native/spread_09_current_gate_plan.png",
+    "assets_src/books/rumi_underpool_20261009/native/spread_10_concert_fight_start.png",
+    "assets_src/books/rumi_underpool_20261009/native/spread_11_bubble_battle.png",
+    "assets_src/books/rumi_underpool_20261009/native/spread_12_roshan_opens_gate.png",
+    "assets_src/books/rumi_underpool_20261009/native/spread_13_city_encore.png",
+    "assets_src/books/rumi_underpool_20261009/native/spread_13_city_encore_v2.png",
+    "assets_src/books/rumi_underpool_20261009/native/spread_14_imps_make_space.png",
+    "assets_src/books/rumi_underpool_20261009/native/spread_15_home_pool.png",
+    "assets_src/books/rumi_underpool_20261009/output/pdf/Mermaid_Roshan_Song_Beneath_the_Pool_DRAFT.pdf",
+    "assets_src/books/rumi_underpool_20261009/verification/CHECKS.json",
+    "assets_src/books/rumi_underpool_20261009/verification/VISUAL_REVIEW.json",
+    "assets_src/books/rumi_underpool_20261009/verification/book_check.json",
+    "assets_src/books/rumi_underpool_20261009/verification/document_gates.log",
+    "assets_src/books/rumi_underpool_20261009/verification/full_ci.log",
+    "assets_src/books/rumi_underpool_20261009/verification/pdf_contact_01.png",
+    "assets_src/books/rumi_underpool_20261009/verification/pdf_contact_02.png",
+    "audit/MASTER_AUDIT_2026-08-09.md",
+    "design/05_DOC_LEDGER.md",
+    "design/chapters/RUMI_UNDERPOOL_BOOK_20261009.md"
+  ],
+  "validation": [
+    {
+      "command": "Inspected source inventory and story-first scope review",
+      "result": "PASS",
+      "evidence": "Existing pool/Roshan/Rumi/turtle/dressed-imps and owner-liked city inspected; source identities and named new-story gap recorded in chapter brief."
+    },
+    {
+      "command": "Native output byte/hash checks, complete illustrated-book assembly, prose extraction and rendered layout review",
+      "result": "PASS",
+      "evidence": "20 built-in calls: one cast board, 15 story illustrations and four local continuity/costume corrections. Native sources and variants preserved; each copied output matches its tool-original SHA-256. verification/book_check.json records 34 logical pages on 19 PDF review sheets, 576 story words, exact complete prose extraction and no text overflow. Final PDF SHA-256 97fecbd02376e1f13210d29df5e25d2a4c0fbe8520a569a696cd54ac1b10d40f. All selected art and both complete PDF contact sheets inspected; full-size sheets1/8/13/15/17/18 additionally reviewed. VISUAL_REVIEW.json records scope and owner/production limits."
+    },
+    {
+      "command": "python -B tools/audit_document_authority.py; python -B tools/audit_development.py --base auto; git diff --check",
+      "result": "PASS",
+      "evidence": "Final source-art/document candidate from245e9c543be771d297b60dafb91b8a3baf73e211: DOCAUTH inventory/ledger686/686 active68 records71 ALL OK; AUDITDEV BASE245e9c543be771d297b60dafb91b8a3baf73e211 ALL OK; whitespace check exit0. Final gate receipt verification/document_gates.log."
+    },
+    {
+      "command": "C:/Program Files/Git/bin/bash.exe --noprofile --norc scripts/ci.sh",
+      "result": "PASS",
+      "evidence": "Full local CI process exit0; all82 distinct trusted probes process exit0 with exact resolver-selected Godot4.7.2.stable.official.ed1daf0bf. verification/full_ci.log and CHECKS.json. Runtime source stays byte-unchanged from task baseline throughout this run; source-art and document coverage are separately rechecked on the final draft. Existing global visual-audit UNSATISFIED results retain their scope and are not closed by the regression pass."
+    },
+    {
+      "command": "git diff --exit-code 245e9c543be771d297b60dafb91b8a3baf73e211 -- assets scripts scenes project.godot tools",
+      "result": "PASS",
+      "evidence": "Exit0; protected book/voice/friend sources and all runtime/art/script/scene/configuration/tool files unchanged. Source book is excluded from Godot import by existing assets_src/.gdignore. No runtime implementation, new save field, release or earlier-book replacement."
+    }
+  ],
+  "acceptance_gaps": "Owner review of all new names/designs/prose/images pending. Static illustrated draft only; no runtime/device/child/cinematic/print-production acceptance or existing-finding closure."
+}
