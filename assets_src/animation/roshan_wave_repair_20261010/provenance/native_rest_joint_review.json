@@ -1,0 +1,1276 @@
+{
+  "schema": "reef.native-rest-joint-model-review.v1",
+  "recorded_at_utc": "2026-10-11T00:51:29.287201+00:00",
+  "status": "MODEL_OBSERVED_NATIVE_JOINT_ESTIMATES_NOT_W3_ACCEPTANCE",
+  "scope": "Unpainted native rest/early-lift0..4 and late-rest34..40 only; do not substitute these coordinates for painted/native affected spans",
+  "coordinate_space": {
+    "canvas": [
+      640,
+      896
+    ],
+    "origin": "top-left",
+    "units": "native pixels",
+    "joint_definitions": "Corresponding viewer-left waving-arm shoulder/elbow/wrist/fingertip locations from the approved K0 relaxed-hand authority; hidden joint centers are estimates."
+  },
+  "reference": {
+    "path": "assets_src/animation/whole_sprite_pipeline_20261007/references/approved_K0.png",
+    "sha256": "432f8283ee8d9cd7f53a36b1f12bb1b82a865e048a03c3bd7cbd3a103ff2e789",
+    "bytes": 55208,
+    "role": "Approved K0 identity/rest joint-location authority supplied by root"
+  },
+  "approved_K0_points": {
+    "shoulder": [
+      120,
+      103
+    ],
+    "elbow": [
+      115,
+      127
+    ],
+    "wrist": [
+      104,
+      150
+    ],
+    "tip": [
+      98,
+      165
+    ]
+  },
+  "initial_guess_only": {
+    "method": "Root-supplied SIFT/similarity source-to-native guess",
+    "scale": 3.202124,
+    "translation_native_px": [
+      -177.2,
+      33.2
+    ],
+    "used_as_final_joint_coordinates": false,
+    "actual_confirmation": "All12 source crops reviewed in order at native pixels and2x nearest with coordinate grid; actual points manually estimated on each rendered source."
+  },
+  "contract": {
+    "arm_length_tolerance_pct": 5.0,
+    "approved_contract_px": {
+      "upper_arm": 25.5,
+      "forearm": 24.5,
+      "hand": 20.5
+    },
+    "native_mapping_scale": 3.202124,
+    "hand_open_false_exempts_only_hand_segment": true
+  },
+  "uncertainty_policy": "Per-joint ±px estimates are radial uncertainty, not calibrated statistical confidence. Segment interval conservatively sums its endpoint uncertainties. Nominal passes/fails are reported separately; overlapping uncertainty leaves W3 readiness PENDING. No point was moved to meet a length target.",
+  "review_boards_disposable": [
+    {
+      "absolute_path": "C:/Users/Peter/.codex/worktrees/roshan-wave-keys-20261007/mermaid-roshan-reef/tmp/native_rest_joint_review/board_00.png",
+      "sha256": "d2db93ff43934ad1b791342f8929895f5129599e7682a2ab9f94293200ec8d01",
+      "role": "Ignored diagnostic crop/grid only; never generator or delivery pixels"
+    },
+    {
+      "absolute_path": "C:/Users/Peter/.codex/worktrees/roshan-wave-keys-20261007/mermaid-roshan-reef/tmp/native_rest_joint_review/board_01.png",
+      "sha256": "a3c0af4f23e73729690ca7750a22a74d58a2c7f7d06ae66105866b07afc13345",
+      "role": "Ignored diagnostic crop/grid only; never generator or delivery pixels"
+    }
+  ],
+  "frames": [
+    {
+      "index": 0,
+      "path": "assets_src/animation/roshan_wave_repair_20261010/native640_01/take_01/native_frames/0000.png",
+      "sha256": "d6886554ce2518664049bdfecbf483dca914498a3f26f0700c133fff8c4a287d",
+      "bytes": 473692,
+      "role": "Unpainted complete native source frame",
+      "points": {
+        "shoulder": [
+          209,
+          363
+        ],
+        "elbow": [
+          197,
+          440
+        ],
+        "wrist": [
+          162,
+          513
+        ],
+        "tip": [
+          140,
+          560
+        ]
+      },
+      "flags": {
+        "hand_open": false
+      },
+      "reviewer_kind": "model_observation",
+      "reviewed_at_utc": "2026-10-11T00:51:29.274038+00:00",
+      "point_review": {
+        "shoulder": {
+          "confidence": "MEDIUM",
+          "estimated_radial_uncertainty_native_px": 4,
+          "observation": "Rendered source landmark estimate; no human or target-constrained annotation"
+        },
+        "elbow": {
+          "confidence": "MEDIUM",
+          "estimated_radial_uncertainty_native_px": 5,
+          "observation": "Rendered source landmark estimate; no human or target-constrained annotation"
+        },
+        "wrist": {
+          "confidence": "MEDIUM",
+          "estimated_radial_uncertainty_native_px": 3,
+          "observation": "Rendered source landmark estimate; no human or target-constrained annotation"
+        },
+        "tip": {
+          "confidence": "MEDIUM",
+          "estimated_radial_uncertainty_native_px": 3,
+          "observation": "Rendered source landmark estimate; no human or target-constrained annotation"
+        }
+      },
+      "measurements": {
+        "upper_arm": {
+          "observed_native_px": 77.929455,
+          "expected_native_px": 81.654162,
+          "deviation_pct": -4.561564,
+          "tolerance_pct": 5.0,
+          "nominal_status": "PASS",
+          "estimated_length_interval_native_px": [
+            68.929455,
+            86.929455
+          ],
+          "uncertainty_interval_inside_tolerance": false,
+          "readiness_status": "PENDING_MEASUREMENT_UNCERTAINTY"
+        },
+        "forearm": {
+          "observed_native_px": 80.956779,
+          "expected_native_px": 78.452038,
+          "deviation_pct": 3.192703,
+          "tolerance_pct": 5.0,
+          "nominal_status": "PASS",
+          "estimated_length_interval_native_px": [
+            72.956779,
+            88.956779
+          ],
+          "uncertainty_interval_inside_tolerance": false,
+          "readiness_status": "PENDING_MEASUREMENT_UNCERTAINTY"
+        },
+        "hand": {
+          "observed_native_px": 51.894123,
+          "expected_native_px": 65.643542,
+          "deviation_pct": -20.945578,
+          "tolerance_pct": 5.0,
+          "nominal_status": "EXEMPT_RELAXED_HAND",
+          "estimated_length_interval_native_px": [
+            45.894123,
+            57.894123
+          ],
+          "uncertainty_interval_inside_tolerance": false,
+          "readiness_status": "EXEMPT_RELAXED_HAND"
+        }
+      },
+      "review_status": "PENDING_EXACT_GEOMETRY_REVIEW",
+      "notes": "Actual source forearm and relaxed fingers are coherent. Shoulder center is inferred beneath sleeve and elbow beneath soft painted contour; positions were manually confirmed/adjusted on this rendered source, not copied from the SIFT target."
+    },
+    {
+      "index": 1,
+      "path": "assets_src/animation/roshan_wave_repair_20261010/native640_01/take_01/native_frames/0001.png",
+      "sha256": "b1549c171534643afee2b020e027b486def90de7145e00b9463047f12fedf33b",
+      "bytes": 479244,
+      "role": "Unpainted complete native source frame",
+      "points": {
+        "shoulder": [
+          209,
+          363
+        ],
+        "elbow": [
+          197,
+          440
+        ],
+        "wrist": [
+          163,
+          514
+        ],
+        "tip": [
+          142,
+          562
+        ]
+      },
+      "flags": {
+        "hand_open": false
+      },
+      "reviewer_kind": "model_observation",
+      "reviewed_at_utc": "2026-10-11T00:51:29.275352+00:00",
+      "point_review": {
+        "shoulder": {
+          "confidence": "MEDIUM",
+          "estimated_radial_uncertainty_native_px": 4,
+          "observation": "Rendered source landmark estimate; no human or target-constrained annotation"
+        },
+        "elbow": {
+          "confidence": "MEDIUM",
+          "estimated_radial_uncertainty_native_px": 5,
+          "observation": "Rendered source landmark estimate; no human or target-constrained annotation"
+        },
+        "wrist": {
+          "confidence": "MEDIUM",
+          "estimated_radial_uncertainty_native_px": 3,
+          "observation": "Rendered source landmark estimate; no human or target-constrained annotation"
+        },
+        "tip": {
+          "confidence": "MEDIUM",
+          "estimated_radial_uncertainty_native_px": 3,
+          "observation": "Rendered source landmark estimate; no human or target-constrained annotation"
+        }
+      },
+      "measurements": {
+        "upper_arm": {
+          "observed_native_px": 77.929455,
+          "expected_native_px": 81.654162,
+          "deviation_pct": -4.561564,
+          "tolerance_pct": 5.0,
+          "nominal_status": "PASS",
+          "estimated_length_interval_native_px": [
+            68.929455,
+            86.929455
+          ],
+          "uncertainty_interval_inside_tolerance": false,
+          "readiness_status": "PENDING_MEASUREMENT_UNCERTAINTY"
+        },
+        "forearm": {
+          "observed_native_px": 81.437092,
+          "expected_native_px": 78.452038,
+          "deviation_pct": 3.804942,
+          "tolerance_pct": 5.0,
+          "nominal_status": "PASS",
+          "estimated_length_interval_native_px": [
+            73.437092,
+            89.437092
+          ],
+          "uncertainty_interval_inside_tolerance": false,
+          "readiness_status": "PENDING_MEASUREMENT_UNCERTAINTY"
+        },
+        "hand": {
+          "observed_native_px": 52.392748,
+          "expected_native_px": 65.643542,
+          "deviation_pct": -20.185983,
+          "tolerance_pct": 5.0,
+          "nominal_status": "EXEMPT_RELAXED_HAND",
+          "estimated_length_interval_native_px": [
+            46.392748,
+            58.392748
+          ],
+          "uncertainty_interval_inside_tolerance": false,
+          "readiness_status": "EXEMPT_RELAXED_HAND"
+        }
+      },
+      "review_status": "PENDING_EXACT_GEOMETRY_REVIEW",
+      "notes": "Actual source forearm and relaxed fingers are coherent. Shoulder center is inferred beneath sleeve and elbow beneath soft painted contour; positions were manually confirmed/adjusted on this rendered source, not copied from the SIFT target."
+    },
+    {
+      "index": 2,
+      "path": "assets_src/animation/roshan_wave_repair_20261010/native640_01/take_01/native_frames/0002.png",
+      "sha256": "df5357ae3314fbbba4525af2fe5ddcb0f41fb4b349d6907b5703bf8591eaa17a",
+      "bytes": 484666,
+      "role": "Unpainted complete native source frame",
+      "points": {
+        "shoulder": [
+          210,
+          363
+        ],
+        "elbow": [
+          197,
+          440
+        ],
+        "wrist": [
+          162,
+          514
+        ],
+        "tip": [
+          143,
+          563
+        ]
+      },
+      "flags": {
+        "hand_open": false
+      },
+      "reviewer_kind": "model_observation",
+      "reviewed_at_utc": "2026-10-11T00:51:29.276548+00:00",
+      "point_review": {
+        "shoulder": {
+          "confidence": "MEDIUM",
+          "estimated_radial_uncertainty_native_px": 4,
+          "observation": "Rendered source landmark estimate; no human or target-constrained annotation"
+        },
+        "elbow": {
+          "confidence": "MEDIUM",
+          "estimated_radial_uncertainty_native_px": 5,
+          "observation": "Rendered source landmark estimate; no human or target-constrained annotation"
+        },
+        "wrist": {
+          "confidence": "MEDIUM",
+          "estimated_radial_uncertainty_native_px": 3,
+          "observation": "Rendered source landmark estimate; no human or target-constrained annotation"
+        },
+        "tip": {
+          "confidence": "MEDIUM",
+          "estimated_radial_uncertainty_native_px": 3,
+          "observation": "Rendered source landmark estimate; no human or target-constrained annotation"
+        }
+      },
+      "measurements": {
+        "upper_arm": {
+          "observed_native_px": 78.089692,
+          "expected_native_px": 81.654162,
+          "deviation_pct": -4.365326,
+          "tolerance_pct": 5.0,
+          "nominal_status": "PASS",
+          "estimated_length_interval_native_px": [
+            69.089692,
+            87.089692
+          ],
+          "uncertainty_interval_inside_tolerance": false,
+          "readiness_status": "PENDING_MEASUREMENT_UNCERTAINTY"
+        },
+        "forearm": {
+          "observed_native_px": 81.859636,
+          "expected_native_px": 78.452038,
+          "deviation_pct": 4.343543,
+          "tolerance_pct": 5.0,
+          "nominal_status": "PASS",
+          "estimated_length_interval_native_px": [
+            73.859636,
+            89.859636
+          ],
+          "uncertainty_interval_inside_tolerance": false,
+          "readiness_status": "PENDING_MEASUREMENT_UNCERTAINTY"
+        },
+        "hand": {
+          "observed_native_px": 52.554733,
+          "expected_native_px": 65.643542,
+          "deviation_pct": -19.939218,
+          "tolerance_pct": 5.0,
+          "nominal_status": "EXEMPT_RELAXED_HAND",
+          "estimated_length_interval_native_px": [
+            46.554733,
+            58.554733
+          ],
+          "uncertainty_interval_inside_tolerance": false,
+          "readiness_status": "EXEMPT_RELAXED_HAND"
+        }
+      },
+      "review_status": "PENDING_EXACT_GEOMETRY_REVIEW",
+      "notes": "Actual source forearm and relaxed fingers are coherent. Shoulder center is inferred beneath sleeve and elbow beneath soft painted contour; positions were manually confirmed/adjusted on this rendered source, not copied from the SIFT target."
+    },
+    {
+      "index": 3,
+      "path": "assets_src/animation/roshan_wave_repair_20261010/native640_01/take_01/native_frames/0003.png",
+      "sha256": "f77dac4b845263497bc3d4bb1554f5a5de745b7bff2f515ff716bf6db49fd30c",
+      "bytes": 493821,
+      "role": "Unpainted complete native source frame",
+      "points": {
+        "shoulder": [
+          209,
+          363
+        ],
+        "elbow": [
+          197,
+          440
+        ],
+        "wrist": [
+          161,
+          514
+        ],
+        "tip": [
+          143,
+          563
+        ]
+      },
+      "flags": {
+        "hand_open": false
+      },
+      "reviewer_kind": "model_observation",
+      "reviewed_at_utc": "2026-10-11T00:51:29.277893+00:00",
+      "point_review": {
+        "shoulder": {
+          "confidence": "MEDIUM",
+          "estimated_radial_uncertainty_native_px": 4,
+          "observation": "Rendered source landmark estimate; no human or target-constrained annotation"
+        },
+        "elbow": {
+          "confidence": "MEDIUM",
+          "estimated_radial_uncertainty_native_px": 5,
+          "observation": "Rendered source landmark estimate; no human or target-constrained annotation"
+        },
+        "wrist": {
+          "confidence": "MEDIUM",
+          "estimated_radial_uncertainty_native_px": 3,
+          "observation": "Rendered source landmark estimate; no human or target-constrained annotation"
+        },
+        "tip": {
+          "confidence": "MEDIUM",
+          "estimated_radial_uncertainty_native_px": 3,
+          "observation": "Rendered source landmark estimate; no human or target-constrained annotation"
+        }
+      },
+      "measurements": {
+        "upper_arm": {
+          "observed_native_px": 77.929455,
+          "expected_native_px": 81.654162,
+          "deviation_pct": -4.561564,
+          "tolerance_pct": 5.0,
+          "nominal_status": "PASS",
+          "estimated_length_interval_native_px": [
+            68.929455,
+            86.929455
+          ],
+          "uncertainty_interval_inside_tolerance": false,
+          "readiness_status": "PENDING_MEASUREMENT_UNCERTAINTY"
+        },
+        "forearm": {
+          "observed_native_px": 82.292162,
+          "expected_native_px": 78.452038,
+          "deviation_pct": 4.894869,
+          "tolerance_pct": 5.0,
+          "nominal_status": "PASS",
+          "estimated_length_interval_native_px": [
+            74.292162,
+            90.292162
+          ],
+          "uncertainty_interval_inside_tolerance": false,
+          "readiness_status": "PENDING_MEASUREMENT_UNCERTAINTY"
+        },
+        "hand": {
+          "observed_native_px": 52.201533,
+          "expected_native_px": 65.643542,
+          "deviation_pct": -20.477276,
+          "tolerance_pct": 5.0,
+          "nominal_status": "EXEMPT_RELAXED_HAND",
+          "estimated_length_interval_native_px": [
+            46.201533,
+            58.201533
+          ],
+          "uncertainty_interval_inside_tolerance": false,
+          "readiness_status": "EXEMPT_RELAXED_HAND"
+        }
+      },
+      "review_status": "PENDING_EXACT_GEOMETRY_REVIEW",
+      "notes": "Actual source forearm and relaxed fingers are coherent. Shoulder center is inferred beneath sleeve and elbow beneath soft painted contour; positions were manually confirmed/adjusted on this rendered source, not copied from the SIFT target."
+    },
+    {
+      "index": 4,
+      "path": "assets_src/animation/roshan_wave_repair_20261010/native640_01/take_01/native_frames/0004.png",
+      "sha256": "27940e74b8081a9c53dd4a96d7f231eaf916b6f610a79e091f4e7f8f10d235d5",
+      "bytes": 502324,
+      "role": "Unpainted complete native source frame",
+      "points": {
+        "shoulder": [
+          209,
+          363
+        ],
+        "elbow": [
+          198,
+          440
+        ],
+        "wrist": [
+          162,
+          514
+        ],
+        "tip": [
+          143,
+          565
+        ]
+      },
+      "flags": {
+        "hand_open": false
+      },
+      "reviewer_kind": "model_observation",
+      "reviewed_at_utc": "2026-10-11T00:51:29.279020+00:00",
+      "point_review": {
+        "shoulder": {
+          "confidence": "MEDIUM",
+          "estimated_radial_uncertainty_native_px": 4,
+          "observation": "Rendered source landmark estimate; no human or target-constrained annotation"
+        },
+        "elbow": {
+          "confidence": "MEDIUM",
+          "estimated_radial_uncertainty_native_px": 5,
+          "observation": "Rendered source landmark estimate; no human or target-constrained annotation"
+        },
+        "wrist": {
+          "confidence": "MEDIUM",
+          "estimated_radial_uncertainty_native_px": 3,
+          "observation": "Rendered source landmark estimate; no human or target-constrained annotation"
+        },
+        "tip": {
+          "confidence": "MEDIUM",
+          "estimated_radial_uncertainty_native_px": 3,
+          "observation": "Rendered source landmark estimate; no human or target-constrained annotation"
+        }
+      },
+      "measurements": {
+        "upper_arm": {
+          "observed_native_px": 77.781746,
+          "expected_native_px": 81.654162,
+          "deviation_pct": -4.74246,
+          "tolerance_pct": 5.0,
+          "nominal_status": "PASS",
+          "estimated_length_interval_native_px": [
+            68.781746,
+            86.781746
+          ],
+          "uncertainty_interval_inside_tolerance": false,
+          "readiness_status": "PENDING_MEASUREMENT_UNCERTAINTY"
+        },
+        "forearm": {
+          "observed_native_px": 82.292162,
+          "expected_native_px": 78.452038,
+          "deviation_pct": 4.894869,
+          "tolerance_pct": 5.0,
+          "nominal_status": "PASS",
+          "estimated_length_interval_native_px": [
+            74.292162,
+            90.292162
+          ],
+          "uncertainty_interval_inside_tolerance": false,
+          "readiness_status": "PENDING_MEASUREMENT_UNCERTAINTY"
+        },
+        "hand": {
+          "observed_native_px": 54.424259,
+          "expected_native_px": 65.643542,
+          "deviation_pct": -17.091221,
+          "tolerance_pct": 5.0,
+          "nominal_status": "EXEMPT_RELAXED_HAND",
+          "estimated_length_interval_native_px": [
+            48.424259,
+            60.424259
+          ],
+          "uncertainty_interval_inside_tolerance": false,
+          "readiness_status": "EXEMPT_RELAXED_HAND"
+        }
+      },
+      "review_status": "PENDING_EXACT_GEOMETRY_REVIEW",
+      "notes": "Actual source forearm and relaxed fingers are coherent. Shoulder center is inferred beneath sleeve and elbow beneath soft painted contour; positions were manually confirmed/adjusted on this rendered source, not copied from the SIFT target. Hand remains relaxed during the slight early lift; no open-hand exception was inferred from timing alone."
+    },
+    {
+      "index": 34,
+      "path": "assets_src/animation/roshan_wave_repair_20261010/native640_01/take_01/native_frames/0034.png",
+      "sha256": "f8f94d230d34bf7b51327290df14c69deb9ac94d60cad76ccbdfffbfe86565e0",
+      "bytes": 497682,
+      "role": "Unpainted complete native source frame",
+      "points": {
+        "shoulder": [
+          209,
+          363
+        ],
+        "elbow": [
+          195,
+          440
+        ],
+        "wrist": [
+          157,
+          513
+        ],
+        "tip": [
+          142,
+          562
+        ]
+      },
+      "flags": {
+        "hand_open": false
+      },
+      "reviewer_kind": "model_observation",
+      "reviewed_at_utc": "2026-10-11T00:51:29.280144+00:00",
+      "point_review": {
+        "shoulder": {
+          "confidence": "MEDIUM",
+          "estimated_radial_uncertainty_native_px": 4,
+          "observation": "Rendered source landmark estimate; no human or target-constrained annotation"
+        },
+        "elbow": {
+          "confidence": "MEDIUM",
+          "estimated_radial_uncertainty_native_px": 5,
+          "observation": "Rendered source landmark estimate; no human or target-constrained annotation"
+        },
+        "wrist": {
+          "confidence": "MEDIUM",
+          "estimated_radial_uncertainty_native_px": 3,
+          "observation": "Rendered source landmark estimate; no human or target-constrained annotation"
+        },
+        "tip": {
+          "confidence": "MEDIUM",
+          "estimated_radial_uncertainty_native_px": 3,
+          "observation": "Rendered source landmark estimate; no human or target-constrained annotation"
+        }
+      },
+      "measurements": {
+        "upper_arm": {
+          "observed_native_px": 78.262379,
+          "expected_native_px": 81.654162,
+          "deviation_pct": -4.153839,
+          "tolerance_pct": 5.0,
+          "nominal_status": "PASS",
+          "estimated_length_interval_native_px": [
+            69.262379,
+            87.262379
+          ],
+          "uncertainty_interval_inside_tolerance": false,
+          "readiness_status": "PENDING_MEASUREMENT_UNCERTAINTY"
+        },
+        "forearm": {
+          "observed_native_px": 82.298238,
+          "expected_native_px": 78.452038,
+          "deviation_pct": 4.902613,
+          "tolerance_pct": 5.0,
+          "nominal_status": "PASS",
+          "estimated_length_interval_native_px": [
+            74.298238,
+            90.298238
+          ],
+          "uncertainty_interval_inside_tolerance": false,
+          "readiness_status": "PENDING_MEASUREMENT_UNCERTAINTY"
+        },
+        "hand": {
+          "observed_native_px": 51.244512,
+          "expected_native_px": 65.643542,
+          "deviation_pct": -21.935182,
+          "tolerance_pct": 5.0,
+          "nominal_status": "EXEMPT_RELAXED_HAND",
+          "estimated_length_interval_native_px": [
+            45.244512,
+            57.244512
+          ],
+          "uncertainty_interval_inside_tolerance": false,
+          "readiness_status": "EXEMPT_RELAXED_HAND"
+        }
+      },
+      "review_status": "PENDING_EXACT_GEOMETRY_REVIEW",
+      "notes": "Actual source forearm and relaxed fingers are coherent. Shoulder center is inferred beneath sleeve and elbow beneath soft painted contour; positions were manually confirmed/adjusted on this rendered source, not copied from the SIFT target. Late settle has slightly different finger silhouette from frame0; the exact original K0 endpoint remains a separate unmet review."
+    },
+    {
+      "index": 35,
+      "path": "assets_src/animation/roshan_wave_repair_20261010/native640_01/take_01/native_frames/0035.png",
+      "sha256": "99f28b3353205bb0b1136d9d71bb0b3b614f2c1e6074ef8df34e6a9312c38543",
+      "bytes": 495388,
+      "role": "Unpainted complete native source frame",
+      "points": {
+        "shoulder": [
+          209,
+          364
+        ],
+        "elbow": [
+          195,
+          440
+        ],
+        "wrist": [
+          157,
+          513
+        ],
+        "tip": [
+          142,
+          562
+        ]
+      },
+      "flags": {
+        "hand_open": false
+      },
+      "reviewer_kind": "model_observation",
+      "reviewed_at_utc": "2026-10-11T00:51:29.281209+00:00",
+      "point_review": {
+        "shoulder": {
+          "confidence": "MEDIUM",
+          "estimated_radial_uncertainty_native_px": 4,
+          "observation": "Rendered source landmark estimate; no human or target-constrained annotation"
+        },
+        "elbow": {
+          "confidence": "MEDIUM",
+          "estimated_radial_uncertainty_native_px": 5,
+          "observation": "Rendered source landmark estimate; no human or target-constrained annotation"
+        },
+        "wrist": {
+          "confidence": "MEDIUM",
+          "estimated_radial_uncertainty_native_px": 3,
+          "observation": "Rendered source landmark estimate; no human or target-constrained annotation"
+        },
+        "tip": {
+          "confidence": "MEDIUM",
+          "estimated_radial_uncertainty_native_px": 3,
+          "observation": "Rendered source landmark estimate; no human or target-constrained annotation"
+        }
+      },
+      "measurements": {
+        "upper_arm": {
+          "observed_native_px": 77.278716,
+          "expected_native_px": 81.654162,
+          "deviation_pct": -5.358509,
+          "tolerance_pct": 5.0,
+          "nominal_status": "FAIL",
+          "estimated_length_interval_native_px": [
+            68.278716,
+            86.278716
+          ],
+          "uncertainty_interval_inside_tolerance": false,
+          "readiness_status": "PENDING_MEASUREMENT_UNCERTAINTY"
+        },
+        "forearm": {
+          "observed_native_px": 82.298238,
+          "expected_native_px": 78.452038,
+          "deviation_pct": 4.902613,
+          "tolerance_pct": 5.0,
+          "nominal_status": "PASS",
+          "estimated_length_interval_native_px": [
+            74.298238,
+            90.298238
+          ],
+          "uncertainty_interval_inside_tolerance": false,
+          "readiness_status": "PENDING_MEASUREMENT_UNCERTAINTY"
+        },
+        "hand": {
+          "observed_native_px": 51.244512,
+          "expected_native_px": 65.643542,
+          "deviation_pct": -21.935182,
+          "tolerance_pct": 5.0,
+          "nominal_status": "EXEMPT_RELAXED_HAND",
+          "estimated_length_interval_native_px": [
+            45.244512,
+            57.244512
+          ],
+          "uncertainty_interval_inside_tolerance": false,
+          "readiness_status": "EXEMPT_RELAXED_HAND"
+        }
+      },
+      "review_status": "PENDING_EXACT_GEOMETRY_REVIEW",
+      "notes": "Actual source forearm and relaxed fingers are coherent. Shoulder center is inferred beneath sleeve and elbow beneath soft painted contour; positions were manually confirmed/adjusted on this rendered source, not copied from the SIFT target. Late settle has slightly different finger silhouette from frame0; the exact original K0 endpoint remains a separate unmet review."
+    },
+    {
+      "index": 36,
+      "path": "assets_src/animation/roshan_wave_repair_20261010/native640_01/take_01/native_frames/0036.png",
+      "sha256": "3a4a900d86ab3f8bab804c000185c279a995df1d25b4eaa31e497e7b3ea99910",
+      "bytes": 491760,
+      "role": "Unpainted complete native source frame",
+      "points": {
+        "shoulder": [
+          210,
+          364
+        ],
+        "elbow": [
+          196,
+          440
+        ],
+        "wrist": [
+          158,
+          513
+        ],
+        "tip": [
+          140,
+          560
+        ]
+      },
+      "flags": {
+        "hand_open": false
+      },
+      "reviewer_kind": "model_observation",
+      "reviewed_at_utc": "2026-10-11T00:51:29.282498+00:00",
+      "point_review": {
+        "shoulder": {
+          "confidence": "MEDIUM",
+          "estimated_radial_uncertainty_native_px": 4,
+          "observation": "Rendered source landmark estimate; no human or target-constrained annotation"
+        },
+        "elbow": {
+          "confidence": "MEDIUM",
+          "estimated_radial_uncertainty_native_px": 5,
+          "observation": "Rendered source landmark estimate; no human or target-constrained annotation"
+        },
+        "wrist": {
+          "confidence": "MEDIUM",
+          "estimated_radial_uncertainty_native_px": 3,
+          "observation": "Rendered source landmark estimate; no human or target-constrained annotation"
+        },
+        "tip": {
+          "confidence": "MEDIUM",
+          "estimated_radial_uncertainty_native_px": 3,
+          "observation": "Rendered source landmark estimate; no human or target-constrained annotation"
+        }
+      },
+      "measurements": {
+        "upper_arm": {
+          "observed_native_px": 77.278716,
+          "expected_native_px": 81.654162,
+          "deviation_pct": -5.358509,
+          "tolerance_pct": 5.0,
+          "nominal_status": "FAIL",
+          "estimated_length_interval_native_px": [
+            68.278716,
+            86.278716
+          ],
+          "uncertainty_interval_inside_tolerance": false,
+          "readiness_status": "PENDING_MEASUREMENT_UNCERTAINTY"
+        },
+        "forearm": {
+          "observed_native_px": 82.298238,
+          "expected_native_px": 78.452038,
+          "deviation_pct": 4.902613,
+          "tolerance_pct": 5.0,
+          "nominal_status": "PASS",
+          "estimated_length_interval_native_px": [
+            74.298238,
+            90.298238
+          ],
+          "uncertainty_interval_inside_tolerance": false,
+          "readiness_status": "PENDING_MEASUREMENT_UNCERTAINTY"
+        },
+        "hand": {
+          "observed_native_px": 50.328918,
+          "expected_native_px": 65.643542,
+          "deviation_pct": -23.329978,
+          "tolerance_pct": 5.0,
+          "nominal_status": "EXEMPT_RELAXED_HAND",
+          "estimated_length_interval_native_px": [
+            44.328918,
+            56.328918
+          ],
+          "uncertainty_interval_inside_tolerance": false,
+          "readiness_status": "EXEMPT_RELAXED_HAND"
+        }
+      },
+      "review_status": "PENDING_EXACT_GEOMETRY_REVIEW",
+      "notes": "Actual source forearm and relaxed fingers are coherent. Shoulder center is inferred beneath sleeve and elbow beneath soft painted contour; positions were manually confirmed/adjusted on this rendered source, not copied from the SIFT target. Late settle has slightly different finger silhouette from frame0; the exact original K0 endpoint remains a separate unmet review."
+    },
+    {
+      "index": 37,
+      "path": "assets_src/animation/roshan_wave_repair_20261010/native640_01/take_01/native_frames/0037.png",
+      "sha256": "610a1992da8e12201aba0f2328b9b4189f970ea11873311f23b510ca8c5fc71a",
+      "bytes": 487719,
+      "role": "Unpainted complete native source frame",
+      "points": {
+        "shoulder": [
+          210,
+          364
+        ],
+        "elbow": [
+          197,
+          440
+        ],
+        "wrist": [
+          159,
+          513
+        ],
+        "tip": [
+          141,
+          561
+        ]
+      },
+      "flags": {
+        "hand_open": false
+      },
+      "reviewer_kind": "model_observation",
+      "reviewed_at_utc": "2026-10-11T00:51:29.283706+00:00",
+      "point_review": {
+        "shoulder": {
+          "confidence": "MEDIUM",
+          "estimated_radial_uncertainty_native_px": 4,
+          "observation": "Rendered source landmark estimate; no human or target-constrained annotation"
+        },
+        "elbow": {
+          "confidence": "MEDIUM",
+          "estimated_radial_uncertainty_native_px": 5,
+          "observation": "Rendered source landmark estimate; no human or target-constrained annotation"
+        },
+        "wrist": {
+          "confidence": "MEDIUM",
+          "estimated_radial_uncertainty_native_px": 3,
+          "observation": "Rendered source landmark estimate; no human or target-constrained annotation"
+        },
+        "tip": {
+          "confidence": "MEDIUM",
+          "estimated_radial_uncertainty_native_px": 3,
+          "observation": "Rendered source landmark estimate; no human or target-constrained annotation"
+        }
+      },
+      "measurements": {
+        "upper_arm": {
+          "observed_native_px": 77.103826,
+          "expected_native_px": 81.654162,
+          "deviation_pct": -5.572693,
+          "tolerance_pct": 5.0,
+          "nominal_status": "FAIL",
+          "estimated_length_interval_native_px": [
+            68.103826,
+            86.103826
+          ],
+          "uncertainty_interval_inside_tolerance": false,
+          "readiness_status": "PENDING_MEASUREMENT_UNCERTAINTY"
+        },
+        "forearm": {
+          "observed_native_px": 82.298238,
+          "expected_native_px": 78.452038,
+          "deviation_pct": 4.902613,
+          "tolerance_pct": 5.0,
+          "nominal_status": "PASS",
+          "estimated_length_interval_native_px": [
+            74.298238,
+            90.298238
+          ],
+          "uncertainty_interval_inside_tolerance": false,
+          "readiness_status": "PENDING_MEASUREMENT_UNCERTAINTY"
+        },
+        "hand": {
+          "observed_native_px": 51.264022,
+          "expected_native_px": 65.643542,
+          "deviation_pct": -21.90546,
+          "tolerance_pct": 5.0,
+          "nominal_status": "EXEMPT_RELAXED_HAND",
+          "estimated_length_interval_native_px": [
+            45.264022,
+            57.264022
+          ],
+          "uncertainty_interval_inside_tolerance": false,
+          "readiness_status": "EXEMPT_RELAXED_HAND"
+        }
+      },
+      "review_status": "PENDING_EXACT_GEOMETRY_REVIEW",
+      "notes": "Actual source forearm and relaxed fingers are coherent. Shoulder center is inferred beneath sleeve and elbow beneath soft painted contour; positions were manually confirmed/adjusted on this rendered source, not copied from the SIFT target. Late settle has slightly different finger silhouette from frame0; the exact original K0 endpoint remains a separate unmet review."
+    },
+    {
+      "index": 38,
+      "path": "assets_src/animation/roshan_wave_repair_20261010/native640_01/take_01/native_frames/0038.png",
+      "sha256": "dd32d8a41fc38e0ae0d68f6d263c4a57e481cdc2c76c1a27eb5e8a3363cf41e7",
+      "bytes": 486187,
+      "role": "Unpainted complete native source frame",
+      "points": {
+        "shoulder": [
+          210,
+          364
+        ],
+        "elbow": [
+          197,
+          440
+        ],
+        "wrist": [
+          159,
+          513
+        ],
+        "tip": [
+          142,
+          562
+        ]
+      },
+      "flags": {
+        "hand_open": false
+      },
+      "reviewer_kind": "model_observation",
+      "reviewed_at_utc": "2026-10-11T00:51:29.284988+00:00",
+      "point_review": {
+        "shoulder": {
+          "confidence": "MEDIUM",
+          "estimated_radial_uncertainty_native_px": 4,
+          "observation": "Rendered source landmark estimate; no human or target-constrained annotation"
+        },
+        "elbow": {
+          "confidence": "MEDIUM",
+          "estimated_radial_uncertainty_native_px": 5,
+          "observation": "Rendered source landmark estimate; no human or target-constrained annotation"
+        },
+        "wrist": {
+          "confidence": "MEDIUM",
+          "estimated_radial_uncertainty_native_px": 3,
+          "observation": "Rendered source landmark estimate; no human or target-constrained annotation"
+        },
+        "tip": {
+          "confidence": "MEDIUM",
+          "estimated_radial_uncertainty_native_px": 3,
+          "observation": "Rendered source landmark estimate; no human or target-constrained annotation"
+        }
+      },
+      "measurements": {
+        "upper_arm": {
+          "observed_native_px": 77.103826,
+          "expected_native_px": 81.654162,
+          "deviation_pct": -5.572693,
+          "tolerance_pct": 5.0,
+          "nominal_status": "FAIL",
+          "estimated_length_interval_native_px": [
+            68.103826,
+            86.103826
+          ],
+          "uncertainty_interval_inside_tolerance": false,
+          "readiness_status": "PENDING_MEASUREMENT_UNCERTAINTY"
+        },
+        "forearm": {
+          "observed_native_px": 82.298238,
+          "expected_native_px": 78.452038,
+          "deviation_pct": 4.902613,
+          "tolerance_pct": 5.0,
+          "nominal_status": "PASS",
+          "estimated_length_interval_native_px": [
+            74.298238,
+            90.298238
+          ],
+          "uncertainty_interval_inside_tolerance": false,
+          "readiness_status": "PENDING_MEASUREMENT_UNCERTAINTY"
+        },
+        "hand": {
+          "observed_native_px": 51.86521,
+          "expected_native_px": 65.643542,
+          "deviation_pct": -20.989623,
+          "tolerance_pct": 5.0,
+          "nominal_status": "EXEMPT_RELAXED_HAND",
+          "estimated_length_interval_native_px": [
+            45.86521,
+            57.86521
+          ],
+          "uncertainty_interval_inside_tolerance": false,
+          "readiness_status": "EXEMPT_RELAXED_HAND"
+        }
+      },
+      "review_status": "PENDING_EXACT_GEOMETRY_REVIEW",
+      "notes": "Actual source forearm and relaxed fingers are coherent. Shoulder center is inferred beneath sleeve and elbow beneath soft painted contour; positions were manually confirmed/adjusted on this rendered source, not copied from the SIFT target. Late settle has slightly different finger silhouette from frame0; the exact original K0 endpoint remains a separate unmet review."
+    },
+    {
+      "index": 39,
+      "path": "assets_src/animation/roshan_wave_repair_20261010/native640_01/take_01/native_frames/0039.png",
+      "sha256": "3661539198725bb20efa49ba999951b81167dfa895a078a783acc791422eefec",
+      "bytes": 485301,
+      "role": "Unpainted complete native source frame",
+      "points": {
+        "shoulder": [
+          210,
+          364
+        ],
+        "elbow": [
+          197,
+          440
+        ],
+        "wrist": [
+          160,
+          513
+        ],
+        "tip": [
+          142,
+          562
+        ]
+      },
+      "flags": {
+        "hand_open": false
+      },
+      "reviewer_kind": "model_observation",
+      "reviewed_at_utc": "2026-10-11T00:51:29.286079+00:00",
+      "point_review": {
+        "shoulder": {
+          "confidence": "MEDIUM",
+          "estimated_radial_uncertainty_native_px": 4,
+          "observation": "Rendered source landmark estimate; no human or target-constrained annotation"
+        },
+        "elbow": {
+          "confidence": "MEDIUM",
+          "estimated_radial_uncertainty_native_px": 5,
+          "observation": "Rendered source landmark estimate; no human or target-constrained annotation"
+        },
+        "wrist": {
+          "confidence": "MEDIUM",
+          "estimated_radial_uncertainty_native_px": 3,
+          "observation": "Rendered source landmark estimate; no human or target-constrained annotation"
+        },
+        "tip": {
+          "confidence": "MEDIUM",
+          "estimated_radial_uncertainty_native_px": 3,
+          "observation": "Rendered source landmark estimate; no human or target-constrained annotation"
+        }
+      },
+      "measurements": {
+        "upper_arm": {
+          "observed_native_px": 77.103826,
+          "expected_native_px": 81.654162,
+          "deviation_pct": -5.572693,
+          "tolerance_pct": 5.0,
+          "nominal_status": "FAIL",
+          "estimated_length_interval_native_px": [
+            68.103826,
+            86.103826
+          ],
+          "uncertainty_interval_inside_tolerance": false,
+          "readiness_status": "PENDING_MEASUREMENT_UNCERTAINTY"
+        },
+        "forearm": {
+          "observed_native_px": 81.84131,
+          "expected_native_px": 78.452038,
+          "deviation_pct": 4.320183,
+          "tolerance_pct": 5.0,
+          "nominal_status": "PASS",
+          "estimated_length_interval_native_px": [
+            73.84131,
+            89.84131
+          ],
+          "uncertainty_interval_inside_tolerance": false,
+          "readiness_status": "PENDING_MEASUREMENT_UNCERTAINTY"
+        },
+        "hand": {
+          "observed_native_px": 52.201533,
+          "expected_native_px": 65.643542,
+          "deviation_pct": -20.477276,
+          "tolerance_pct": 5.0,
+          "nominal_status": "EXEMPT_RELAXED_HAND",
+          "estimated_length_interval_native_px": [
+            46.201533,
+            58.201533
+          ],
+          "uncertainty_interval_inside_tolerance": false,
+          "readiness_status": "EXEMPT_RELAXED_HAND"
+        }
+      },
+      "review_status": "PENDING_EXACT_GEOMETRY_REVIEW",
+      "notes": "Actual source forearm and relaxed fingers are coherent. Shoulder center is inferred beneath sleeve and elbow beneath soft painted contour; positions were manually confirmed/adjusted on this rendered source, not copied from the SIFT target. Late settle has slightly different finger silhouette from frame0; the exact original K0 endpoint remains a separate unmet review."
+    },
+    {
+      "index": 40,
+      "path": "assets_src/animation/roshan_wave_repair_20261010/native640_01/take_01/native_frames/0040.png",
+      "sha256": "82f6da7023b0944dd63ff4fd95e4c5353e471304be4ad73b99330bd449fba936",
+      "bytes": 487773,
+      "role": "Unpainted complete native source frame",
+      "points": {
+        "shoulder": [
+          210,
+          364
+        ],
+        "elbow": [
+          197,
+          440
+        ],
+        "wrist": [
+          160,
+          513
+        ],
+        "tip": [
+          142,
+          562
+        ]
+      },
+      "flags": {
+        "hand_open": false
+      },
+      "reviewer_kind": "model_observation",
+      "reviewed_at_utc": "2026-10-11T00:51:29.287174+00:00",
+      "point_review": {
+        "shoulder": {
+          "confidence": "MEDIUM",
+          "estimated_radial_uncertainty_native_px": 4,
+          "observation": "Rendered source landmark estimate; no human or target-constrained annotation"
+        },
+        "elbow": {
+          "confidence": "MEDIUM",
+          "estimated_radial_uncertainty_native_px": 5,
+          "observation": "Rendered source landmark estimate; no human or target-constrained annotation"
+        },
+        "wrist": {
+          "confidence": "MEDIUM",
+          "estimated_radial_uncertainty_native_px": 3,
+          "observation": "Rendered source landmark estimate; no human or target-constrained annotation"
+        },
+        "tip": {
+          "confidence": "MEDIUM",
+          "estimated_radial_uncertainty_native_px": 3,
+          "observation": "Rendered source landmark estimate; no human or target-constrained annotation"
+        }
+      },
+      "measurements": {
+        "upper_arm": {
+          "observed_native_px": 77.103826,
+          "expected_native_px": 81.654162,
+          "deviation_pct": -5.572693,
+          "tolerance_pct": 5.0,
+          "nominal_status": "FAIL",
+          "estimated_length_interval_native_px": [
+            68.103826,
+            86.103826
+          ],
+          "uncertainty_interval_inside_tolerance": false,
+          "readiness_status": "PENDING_MEASUREMENT_UNCERTAINTY"
+        },
+        "forearm": {
+          "observed_native_px": 81.84131,
+          "expected_native_px": 78.452038,
+          "deviation_pct": 4.320183,
+          "tolerance_pct": 5.0,
+          "nominal_status": "PASS",
+          "estimated_length_interval_native_px": [
+            73.84131,
+            89.84131
+          ],
+          "uncertainty_interval_inside_tolerance": false,
+          "readiness_status": "PENDING_MEASUREMENT_UNCERTAINTY"
+        },
+        "hand": {
+          "observed_native_px": 52.201533,
+          "expected_native_px": 65.643542,
+          "deviation_pct": -20.477276,
+          "tolerance_pct": 5.0,
+          "nominal_status": "EXEMPT_RELAXED_HAND",
+          "estimated_length_interval_native_px": [
+            46.201533,
+            58.201533
+          ],
+          "uncertainty_interval_inside_tolerance": false,
+          "readiness_status": "EXEMPT_RELAXED_HAND"
+        }
+      },
+      "review_status": "PENDING_EXACT_GEOMETRY_REVIEW",
+      "notes": "Actual source forearm and relaxed fingers are coherent. Shoulder center is inferred beneath sleeve and elbow beneath soft painted contour; positions were manually confirmed/adjusted on this rendered source, not copied from the SIFT target. Late settle has slightly different finger silhouette from frame0; the exact original K0 endpoint remains a separate unmet review."
+    }
+  ],
+  "reviewed_indices": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    34,
+    35,
+    36,
+    37,
+    38,
+    39,
+    40
+  ],
+  "missing_native41_indices": [
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29,
+    30,
+    31,
+    32,
+    33
+  ],
+  "complete_native41_geometry_coverage": false,
+  "nominal_upper_arm_failed_indices": [
+    35,
+    36,
+    37,
+    38,
+    39,
+    40
+  ],
+  "nominal_forearm_failed_indices": [],
+  "acceptance": {
+    "W3_complete": false,
+    "human": false,
+    "owner": false,
+    "artifact_free_sample": false,
+    "delivery_accepted": false
+  }
+}

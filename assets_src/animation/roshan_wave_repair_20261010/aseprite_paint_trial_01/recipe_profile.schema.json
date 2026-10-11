@@ -1,0 +1,72 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "reef.aseprite-whole-cel-paint-profile.v2",
+  "title": "Source-bound complete-cel Roshan wave paint profile",
+  "type": "object",
+  "required": ["schema", "source_dir", "source_canvas", "workspace_padding_left", "repair_y_range", "repair_right_max", "head_boundary_masks", "head_protection", "fixture_domain", "frame_count", "fps", "duration_ms", "paint_range", "lengths_native", "angle_keys", "palette", "relaxed_hand_native", "relaxed_lateral_scale", "relaxed_outline", "preview_mapping"],
+  "properties": {
+    "schema": {"const": "reef.aseprite-whole-cel-paint-profile.v2"},
+    "source_dir": {"type": "string", "pattern": "^assets_src/animation/"},
+    "source_canvas": {"$ref": "#/$defs/canvas"},
+    "workspace_padding_left": {"type": "integer", "minimum": 0, "maximum": 1024},
+    "repair_y_range": {"$ref": "#/$defs/pair"},
+    "repair_right_max": {"type": "integer", "minimum": 0},
+    "head_boundary_masks": {"type": "string", "pattern": "^assets_src/animation/"},
+    "head_protection": {
+      "type": "object",
+      "required": ["seed_bounds", "coordinate_margin", "skin_exclusion_min", "hair_max_channel", "hair_blue_max", "dilation_native_px", "halfplane_until_y", "face_guard_until_y", "face_guard_left_x"],
+      "properties": {
+        "seed_bounds": {"$ref": "#/$defs/region"},
+        "coordinate_margin": {"type": "integer", "minimum": 0},
+        "skin_exclusion_min": {"$ref": "#/$defs/rgb"},
+        "hair_max_channel": {"type": "number", "minimum": 0, "maximum": 256},
+        "hair_blue_max": {"type": "number", "minimum": 0, "maximum": 256},
+        "dilation_native_px": {"type": "integer", "minimum": 0},
+        "halfplane_until_y": {"type": "integer", "minimum": 0},
+        "face_guard_until_y": {"type": "integer", "minimum": 0},
+        "face_guard_left_x": {"type": "integer", "minimum": 0}
+      }
+    },
+    "fixture_domain": {
+      "type": "object",
+      "required": ["boundary", "sleeve_seed_bounds", "color_membership", "fixture_color_dilation_native_px", "narrow_dilation_until_y", "lower_dilation_native_px", "old_skin_start_y", "old_skin_color_differences"],
+      "properties": {
+        "boundary": {"type": "array", "minItems": 2, "items": {"$ref": "#/$defs/pair"}},
+        "sleeve_seed_bounds": {"$ref": "#/$defs/region"},
+        "color_membership": {
+          "type": "object", "required": ["blue_minus_green_min", "blue_minus_red_min", "red_min"],
+          "properties": {"blue_minus_green_min": {"type": "number"}, "blue_minus_red_min": {"type": "number"}, "red_min": {"type": "number"}}
+        },
+        "fixture_color_dilation_native_px": {"type": "integer", "minimum": 0},
+        "narrow_dilation_until_y": {"type": "integer", "minimum": 0},
+        "lower_dilation_native_px": {"type": "integer", "minimum": 0},
+        "old_skin_start_y": {"type": "integer", "minimum": 0},
+        "old_skin_color_differences": {"type": "array", "minItems": 3, "maxItems": 3, "items": {"type": "number"}}
+      }
+    },
+    "frame_count": {"const": 41},
+    "fps": {"const": 24},
+    "duration_ms": {"const": 1708},
+    "paint_range": {"$ref": "#/$defs/pair"},
+    "lengths_native": {
+      "type": "object", "required": ["upper", "fore", "open_hand"],
+      "properties": {"upper": {"type": "number", "exclusiveMinimum": 0}, "fore": {"type": "number", "exclusiveMinimum": 0}, "open_hand": {"type": "number", "exclusiveMinimum": 0}}
+    },
+    "angle_keys": {
+      "type": "array", "minItems": 2,
+      "items": {"type": "object", "required": ["frame", "upper", "fore", "hand", "shoulder_x", "shoulder_y"], "properties": {"frame": {"type": "integer", "minimum": 0, "maximum": 40}, "upper": {"type": "number"}, "fore": {"type": "number"}, "hand": {"type": "number"}, "shoulder_x": {"type": "number"}, "shoulder_y": {"type": "number"}}}
+    },
+    "palette": {"type": "object", "required": ["base", "shadow", "highlight", "outline", "crease"], "properties": {"base": {"$ref": "#/$defs/rgb"}, "shadow": {"$ref": "#/$defs/rgb"}, "highlight": {"$ref": "#/$defs/rgb"}, "outline": {"$ref": "#/$defs/rgb"}, "crease": {"$ref": "#/$defs/rgb"}}},
+    "relaxed_hand_native": {"type": "number", "exclusiveMinimum": 0},
+    "relaxed_lateral_scale": {"type": "number", "exclusiveMinimum": 0},
+    "relaxed_outline": {"$ref": "#/$defs/rgb"},
+    "fresh_fill_membership": {"type": "object", "required": ["red_min", "green_max", "blue_max", "green_minus_blue_min"]},
+    "preview_mapping": {"type": "object", "required": ["whole_size", "translation", "canvas", "uniform_scale"], "properties": {"whole_size": {"$ref": "#/$defs/canvas"}, "translation": {"$ref": "#/$defs/pair"}, "canvas": {"$ref": "#/$defs/canvas"}, "uniform_scale": {"type": "number", "exclusiveMinimum": 0}}}
+  },
+  "$defs": {
+    "pair": {"type": "array", "minItems": 2, "maxItems": 2, "items": {"type": "number"}},
+    "canvas": {"type": "array", "minItems": 2, "maxItems": 2, "items": {"type": "integer", "minimum": 1, "maximum": 1024}},
+    "region": {"type": "array", "minItems": 4, "maxItems": 4, "items": {"type": "integer", "minimum": 0}},
+    "rgb": {"type": "array", "minItems": 3, "maxItems": 3, "items": {"type": "number", "minimum": 0, "maximum": 255}}
+  }
+}

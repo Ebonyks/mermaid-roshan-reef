@@ -1,0 +1,113 @@
+{
+  "schema": "reef.local-cleanup-review-clock.v1",
+  "authoring_review_observed_interval": {
+    "start_utc": "2026-10-11T01:16:51+00:00",
+    "end_utc": "2026-10-11T01:40:03.180534+00:00",
+    "elapsed_minutes": 23.2030089,
+    "method": "Explicit continuous authoring/review clock begun via clock tool at01:16:51 UTC; includes reasoning, read-only measurements, tool waits, Aseprite diagnostics, and packet documentation; no blocking idle wait in this interval. Batch wall intervals are separate and overlap this inclusive clock."
+  },
+  "earlier_timing_limit": "Authoring before01:16:51 UTC was not separately metered. File birth/mtime and tool-wall observations are bounds rather than invented cleanup estimates. Root owns cumulative accounting across overlapping agent clocks.",
+  "batch_intervals": [
+    {
+      "exit_code": 0,
+      "end_utc": "2026-10-11T01:35:05.5887004Z",
+      "start_utc": "2026-10-11T01:35:04.8793598Z",
+      "wall_seconds": 0.7035091,
+      "operation": "Aseprite512 whole-drawing K0 versus inside-only and dim-closed pilot opaque comparisons",
+      "record_path": "full_wave_matte_02/compare_k0_pilots_batch_clock.json"
+    },
+    {
+      "end_utc": "2026-10-11T01:34:25.6827339Z",
+      "wall_seconds": 0.3619278,
+      "exit_code": -1,
+      "operation": "Aseprite512 whole-drawing K0 versus inside-only and dim-closed pilot opaque comparisons",
+      "start_utc": "2026-10-11T01:34:25.3151847Z",
+      "record_path": "full_wave_matte_02/compare_k0_pilots_failed_batch_clock.json"
+    },
+    {
+      "start_utc": "2026-10-11T01:33:32.5021979Z",
+      "operation": "Aseprite inside-only alpha fitting of dim newly closed edge cells with original closed highlight guard",
+      "exit_code": 0,
+      "wall_seconds": 6.2550465,
+      "end_utc": "2026-10-11T01:33:38.7744356Z",
+      "record_path": "full_wave_matte_02/dim_closed_edge_pilot_01/batch_clock.json"
+    },
+    {
+      "start_utc": "2026-10-11T01:33:38.8064984Z",
+      "operation": "Aseprite opaque black native and sprite composites",
+      "exit_code": 0,
+      "wall_seconds": 0.5176608,
+      "end_utc": "2026-10-11T01:33:39.3243186Z",
+      "record_path": "full_wave_matte_02/dim_closed_edge_pilot_01/preview_batch_clock.json"
+    },
+    {
+      "started_at_utc": "2026-10-11T01:22:20.9309097Z",
+      "completed_at_utc": "2026-10-11T01:22:29.0477929Z",
+      "generator_calls": 0,
+      "exit_code": 0,
+      "gpu_calls": 0,
+      "wall_seconds": 8.110763,
+      "schema": "reef.actual-local-batch-clock.v1",
+      "record_path": "full_wave_matte_02/gray_field_pilot_01/batch_clock.json"
+    },
+    {
+      "schema": "reef.actual-local-batch-clock.v1",
+      "generator_calls": 0,
+      "wall_seconds": 6.453497,
+      "completed_at_utc": "2026-10-11T01:18:13.9195234Z",
+      "exit_code": 0,
+      "started_at_utc": "2026-10-11T01:18:07.4640370Z",
+      "gpu_calls": 0,
+      "record_path": "full_wave_matte_02/neutral_fit_pilot_01/batch_clock.json"
+    },
+    {
+      "wall_seconds": 1.425106,
+      "exit_code": 0,
+      "started_at_utc": "2026-10-11T01:20:04.7941187Z",
+      "schema": "reef.actual-local-batch-clock.v1",
+      "completed_at_utc": "2026-10-11T01:20:06.2242870Z",
+      "gpu_calls": 0,
+      "generator_calls": 0,
+      "record_path": "full_wave_matte_02/pilot_composites_batch_clock.json"
+    },
+    {
+      "operation": "Aseprite whole-cel tinted connected field and boundary unmatting",
+      "wall_seconds": 9.4615653,
+      "end_utc": "2026-10-11T01:28:03.8881012Z",
+      "exit_code": 0,
+      "start_utc": "2026-10-11T01:27:54.3980002Z",
+      "record_path": "full_wave_matte_02/tinted_field_pilot_01/batch_clock.json"
+    },
+    {
+      "operation": "Aseprite opaque black native and sprite composites",
+      "wall_seconds": 0.745667,
+      "end_utc": "2026-10-11T01:28:04.6701027Z",
+      "exit_code": 0,
+      "start_utc": "2026-10-11T01:28:03.9241135Z",
+      "record_path": "full_wave_matte_02/tinted_field_pilot_01/preview_batch_clock.json"
+    },
+    {
+      "exit_code": 0,
+      "start_utc": "2026-10-11T01:28:23.6220480Z",
+      "end_utc": "2026-10-11T01:28:30.5333555Z",
+      "wall_seconds": 6.9044935,
+      "operation": "Aseprite whole-cel tinted connected field with inside-only alpha recovery",
+      "record_path": "full_wave_matte_02/tinted_inside_edge_pilot_01/batch_clock.json"
+    },
+    {
+      "exit_code": 0,
+      "start_utc": "2026-10-11T01:28:30.6330767Z",
+      "end_utc": "2026-10-11T01:28:31.4032310Z",
+      "wall_seconds": 0.7699324,
+      "operation": "Aseprite opaque black native and sprite composites",
+      "record_path": "full_wave_matte_02/tinted_inside_edge_pilot_01/preview_batch_clock.json"
+    }
+  ],
+  "full02_main_batch_observed_bounds": {
+    "reviewed_seed_plan_write_utc": "2026-10-11T01:05:08.241782+00:00",
+    "pixel_stats_write_utc": "2026-10-11T01:07:24.730187+00:00",
+    "limitation": "Observed source-plan/last-output file timestamps bound the launch/output window; original StartProcess stopwatch was not captured. They are not asserted as exact authoring or process duration."
+  },
+  "generator_calls": 0,
+  "gpu_calls": 0
+}

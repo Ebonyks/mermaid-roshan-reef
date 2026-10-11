@@ -1,0 +1,185 @@
+{
+  "schema": "reef.rife-midpoint-model-review.v1",
+  "reviewer": "Codex whole_frame_interpolation subagent",
+  "reviewer_kind": "model_observation",
+  "reviewed_at_utc": "2026-10-11T00:23:29.784328+00:00",
+  "scope": "Three source-only complete-frame midpoint method tests, not a wave delivery or human/device acceptance",
+  "receipt_path": "assets_src/animation/roshan_wave_repair_20261010/rife_midpoint_01/take_01/receipt.json",
+  "receipt_sha256": "044a354d407eaf3025e7b4279e1d91e65bea373d573da88b95ee30b5a99aa156",
+  "workflow_sha256": "4f683b8df465e40685d3601b57afaa50ed219253639b53d320fa5fc5a6fcb822",
+  "method_invocations": {
+    "queue_items": 1,
+    "independent_pair_model_inferences": 3,
+    "campaign_take_reservations": 1
+  },
+  "elapsed_seconds": 11.170999999972992,
+  "sampled_total_card_peak_mib": 4573,
+  "results": [
+    {
+      "pair": [
+        6,
+        3
+      ],
+      "artifact_verdict": "REJECTED_MIDPOINT_HAND_CONTOUR",
+      "model_observation": "The large lowering span synthesizes a narrow partly closed palm, while the endpoints switch from a spread hand to rest. The intermediate thumb and fingertip contour is less clearly authored than the endpoints. No LTX-like broad smear, but insufficient clean-hand evidence for this span.",
+      "artifacts": [
+        {
+          "index": 0,
+          "path": "assets_src/animation/roshan_wave_repair_20261010/rife_midpoint_01/take_01/pair_0006_0003/0000.png",
+          "sha256": "a3b86552500181f94d2c2711dc1f4d2cde30f97913b3e3c35a36ce60a1a9b515",
+          "role": "source_endpoint_roundtrip"
+        },
+        {
+          "index": 1,
+          "path": "assets_src/animation/roshan_wave_repair_20261010/rife_midpoint_01/take_01/pair_0006_0003/0001.png",
+          "sha256": "0fc24fae5bfbd63c774139fba31923a912e593560611ed1f562ab9747501bda2",
+          "role": "generated_midpoint"
+        },
+        {
+          "index": 2,
+          "path": "assets_src/animation/roshan_wave_repair_20261010/rife_midpoint_01/take_01/pair_0006_0003/0002.png",
+          "sha256": "950f947df95682449546b5f1be627b6db23d9239e8531771fbbe56b5b9482fb4",
+          "role": "source_endpoint_roundtrip"
+        }
+      ],
+      "endpoints": [
+        {
+          "input_index": 6,
+          "output_index": 0,
+          "decoded_rgb_exact": true,
+          "absolute_channel_difference_max": 0,
+          "changed_pixel_count": 0,
+          "explanation": "Decoded endpoints preserve every submitted gray RGB pixel exactly; PNG container metadata may differ."
+        },
+        {
+          "input_index": 3,
+          "output_index": 2,
+          "decoded_rgb_exact": true,
+          "absolute_channel_difference_max": 0,
+          "changed_pixel_count": 0,
+          "explanation": "Decoded endpoints preserve every submitted gray RGB pixel exactly; PNG container metadata may differ."
+        }
+      ]
+    },
+    {
+      "pair": [
+        14,
+        12
+      ],
+      "artifact_verdict": "PROMISING_SOURCE_STUDY_ONLY",
+      "model_observation": "Short raised-hand transition retains painted finger separation, elbow silhouette and figure outline at native256px. No obvious doubled hand outline in the inspected midpoint. Existing source arm foreshortening and scale rejection still apply.",
+      "artifacts": [
+        {
+          "index": 0,
+          "path": "assets_src/animation/roshan_wave_repair_20261010/rife_midpoint_01/take_01/pair_0014_0012/0000.png",
+          "sha256": "e382e7d3526b0cac4473ba854599474ad6dbca0f80936a3547f64dcea3189d86",
+          "role": "source_endpoint_roundtrip"
+        },
+        {
+          "index": 1,
+          "path": "assets_src/animation/roshan_wave_repair_20261010/rife_midpoint_01/take_01/pair_0014_0012/0001.png",
+          "sha256": "87308fb0c3dd1263741a22f5f249638aee2072da26fdeaa0a0721e29c3da6ebc",
+          "role": "generated_midpoint"
+        },
+        {
+          "index": 2,
+          "path": "assets_src/animation/roshan_wave_repair_20261010/rife_midpoint_01/take_01/pair_0014_0012/0002.png",
+          "sha256": "bb2216ab147effda7cb788d6d34ef5db0b347fe6dd1c8a244fbe6c3bfc58fd48",
+          "role": "source_endpoint_roundtrip"
+        }
+      ],
+      "endpoints": [
+        {
+          "input_index": 14,
+          "output_index": 0,
+          "decoded_rgb_exact": true,
+          "absolute_channel_difference_max": 0,
+          "changed_pixel_count": 0,
+          "explanation": "Decoded endpoints preserve every submitted gray RGB pixel exactly; PNG container metadata may differ."
+        },
+        {
+          "input_index": 12,
+          "output_index": 2,
+          "decoded_rgb_exact": true,
+          "absolute_channel_difference_max": 0,
+          "changed_pixel_count": 0,
+          "explanation": "Decoded endpoints preserve every submitted gray RGB pixel exactly; PNG container metadata may differ."
+        }
+      ]
+    },
+    {
+      "pair": [
+        10,
+        12
+      ],
+      "artifact_verdict": "PROMISING_SOURCE_STUDY_ONLY",
+      "model_observation": "Short raised-hand transition retains readable finger separation and the forearm contour at native256px. No obvious doubled hand outline in the inspected midpoint. Existing source arm foreshortening and scale rejection still apply.",
+      "artifacts": [
+        {
+          "index": 0,
+          "path": "assets_src/animation/roshan_wave_repair_20261010/rife_midpoint_01/take_01/pair_0010_0012/0000.png",
+          "sha256": "3c7e0a7dbede46dfed3fa5f8098ba5745d34a7929bafc519633ede1521d9145c",
+          "role": "source_endpoint_roundtrip"
+        },
+        {
+          "index": 1,
+          "path": "assets_src/animation/roshan_wave_repair_20261010/rife_midpoint_01/take_01/pair_0010_0012/0001.png",
+          "sha256": "baadcf6be8e3d1d63b7f19ac557b129d70ee54573d1659b2fb22a3f0a078a532",
+          "role": "generated_midpoint"
+        },
+        {
+          "index": 2,
+          "path": "assets_src/animation/roshan_wave_repair_20261010/rife_midpoint_01/take_01/pair_0010_0012/0002.png",
+          "sha256": "bb2216ab147effda7cb788d6d34ef5db0b347fe6dd1c8a244fbe6c3bfc58fd48",
+          "role": "source_endpoint_roundtrip"
+        }
+      ],
+      "endpoints": [
+        {
+          "input_index": 10,
+          "output_index": 0,
+          "decoded_rgb_exact": true,
+          "absolute_channel_difference_max": 0,
+          "changed_pixel_count": 0,
+          "explanation": "Decoded endpoints preserve every submitted gray RGB pixel exactly; PNG container metadata may differ."
+        },
+        {
+          "input_index": 12,
+          "output_index": 2,
+          "decoded_rgb_exact": true,
+          "absolute_channel_difference_max": 0,
+          "changed_pixel_count": 0,
+          "explanation": "Decoded endpoints preserve every submitted gray RGB pixel exactly; PNG container metadata may differ."
+        }
+      ]
+    }
+  ],
+  "hard_limits": {
+    "W1": "Internal bidirectional full-frame warping and per-pixel mask lerp disclosed. One PNG/layer does not prove one complete authored drawing; no acceptance given.",
+    "source_anatomy_and_scale": "Family02 draft01 already rejected before this study; interpolation cannot repair its source proportions.",
+    "alpha": "RGB-only neutral-gray output; transparent alpha propagation not implemented or accepted.",
+    "full_motion": "No complete41-frame animation made or accepted from this study.",
+    "owner_device_child_runtime_delivery_accepted": false
+  },
+  "next_method_use": "Test close, anatomically coherent whole-frame repaired keys; reject large source-pose jumps that collapse fingers. Do not combine parts or interpolate independently estimated mattes.",
+  "master_layer_measurements": [
+    {
+      "path": "assets_src/animation/roshan_wave_repair_20261010/rife_midpoint_01/pair_0006_0003.aseprite",
+      "sha256": "f8549beaa968a7548350c76fdbfb84b45bf40be1ad3abc1b4ba6254bf6858797",
+      "layers": 1,
+      "claim": "Storage layer count only; not W1 or artwork acceptance"
+    },
+    {
+      "path": "assets_src/animation/roshan_wave_repair_20261010/rife_midpoint_01/pair_0010_0012.aseprite",
+      "sha256": "7f6cb3cf3b7bbc7c7b5cdceddc115407c811951e2300df98678dca2d22b2d792",
+      "layers": 1,
+      "claim": "Storage layer count only; not W1 or artwork acceptance"
+    },
+    {
+      "path": "assets_src/animation/roshan_wave_repair_20261010/rife_midpoint_01/pair_0014_0012.aseprite",
+      "sha256": "3823fbc333a3e0952aeeb33508d15448d2c988ecb50677445ada14cfcbb11f1c",
+      "layers": 1,
+      "claim": "Storage layer count only; not W1 or artwork acceptance"
+    }
+  ]
+}

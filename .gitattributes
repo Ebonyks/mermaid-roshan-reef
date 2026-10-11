@@ -46,3 +46,6 @@ assets_src/cinematics/sky_lagoon_moderate_motion_v2_2026-09-30/verification/*.lo
 # Runtime GDScript source hashes separately declare canonical UTF-8 LF.
 audit/chef_overdraw_20261003/** -text whitespace=-blank-at-eol,-blank-at-eof,cr-at-eol
 assets_src/imagegen/chef_overdraw_v1_20261003/** -text whitespace=cr-at-eol
+
+# Whole-wave source/reject receipts bind literal bytes across Windows/Linux.
+assets_src/animation/roshan_wave_repair_20261010/** -text whitespace=-blank-at-eol,-blank-at-eof,cr-at-eol

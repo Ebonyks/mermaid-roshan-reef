@@ -1,0 +1,2569 @@
+{
+  "schema": "reef.repaired-sequence-partial-joints.v1",
+  "frames": [
+    {
+      "index": 0,
+      "sha256": "432f8283ee8d9cd7f53a36b1f12bb1b82a865e048a03c3bd7cbd3a103ff2e789",
+      "points": {
+        "shoulder": [
+          120,
+          103
+        ],
+        "elbow": [
+          115,
+          127
+        ],
+        "wrist": [
+          104,
+          150
+        ],
+        "tip": [
+          98,
+          165
+        ]
+      },
+      "flags": {
+        "hand_open": false
+      },
+      "point_authority": "Exact approved complete K0 source calibration under known whole-image mapping; no generated joint inference",
+      "canonical_source_landmarks": {
+        "shoulder": [
+          120,
+          103
+        ],
+        "elbow": [
+          115,
+          127
+        ],
+        "wrist": [
+          104,
+          150
+        ],
+        "tip": [
+          98,
+          165
+        ]
+      },
+      "canonical_to_this_canvas": {
+        "scale": 1,
+        "offset": [
+          0,
+          0
+        ]
+      }
+    },
+    {
+      "index": 1,
+      "sha256": "9409b42b6c68b66979b62fbab607041083e8e326d74b70924fd116ce8c831c05",
+      "points": {
+        "shoulder": null,
+        "elbow": [
+          114.4725,
+          128.99656249999998
+        ],
+        "wrist": [
+          104.285625,
+          150.68375
+        ],
+        "tip": [
+          98.90625,
+          165.859375
+        ]
+      },
+      "authored_points": {
+        "shoulder": [
+          120.0,
+          103.4375
+        ],
+        "elbow": [
+          114.88766378019321,
+          127.97304410698186
+        ],
+        "wrist": [
+          104.07429663531417,
+          150.58277646364743
+        ],
+        "tip": [
+          98.07113557364463,
+          165.5917498551774
+        ]
+      },
+      "flags": {
+        "hand_open": false
+      },
+      "point_authority": {
+        "shoulder": "AUTHORED_HIDDEN_UNDER_FRILL; deliberately missing from validated points",
+        "elbow": "RASTER_AXIS_ESTIMATE",
+        "wrist": "RASTER_SKIN_CENTER",
+        "tip": "RASTER_COLOR_ENVELOPE"
+      },
+      "measurement_uncertainty_native_px": {
+        "shoulder": 4,
+        "elbow": 2,
+        "wrist": 1.5,
+        "tip": 1.5
+      },
+      "observation_source_native_sha256": "6d8fbd5597d1018c94e95e6a5e281d9e12d0af6b56d767436c037e28ac875e81",
+      "transfer_to_this_canvas": {
+        "scale": 0.3125,
+        "offset": [
+          15,
+          -10
+        ]
+      },
+      "actual_final_rgba_landmarks_remeasured": false,
+      "limitation": "Transferred native RGB estimates; boundary-alpha edits remain separately reviewed. Hidden shoulder is authored, so complete exact W3 must stay PENDING."
+    },
+    {
+      "index": 2,
+      "sha256": "0de271f00f2560272b24d2a8138af1504426c9efb97edc04e26dc441bb01128f",
+      "points": {
+        "shoulder": null,
+        "elbow": [
+          114.95593749999999,
+          127.96531249999998
+        ],
+        "wrist": [
+          104.285625,
+          150.68375
+        ],
+        "tip": [
+          98.90625,
+          165.859375
+        ]
+      },
+      "authored_points": {
+        "shoulder": [
+          120.0,
+          103.4375
+        ],
+        "elbow": [
+          114.88766378019321,
+          127.97304410698186
+        ],
+        "wrist": [
+          104.07429663531417,
+          150.58277646364743
+        ],
+        "tip": [
+          98.07113557364463,
+          165.5917498551774
+        ]
+      },
+      "flags": {
+        "hand_open": false
+      },
+      "point_authority": {
+        "shoulder": "AUTHORED_HIDDEN_UNDER_FRILL; deliberately missing from validated points",
+        "elbow": "RASTER_AXIS_ESTIMATE",
+        "wrist": "RASTER_SKIN_CENTER",
+        "tip": "RASTER_COLOR_ENVELOPE"
+      },
+      "measurement_uncertainty_native_px": {
+        "shoulder": 4,
+        "elbow": 2,
+        "wrist": 1.5,
+        "tip": 1.5
+      },
+      "observation_source_native_sha256": "1144473b217db49ef941b630425413f445715dfa1ecdd91c84a9a5b573c9ba6c",
+      "transfer_to_this_canvas": {
+        "scale": 0.3125,
+        "offset": [
+          15,
+          -10
+        ]
+      },
+      "actual_final_rgba_landmarks_remeasured": false,
+      "limitation": "Transferred native RGB estimates; boundary-alpha edits remain separately reviewed. Hidden shoulder is authored, so complete exact W3 must stay PENDING."
+    },
+    {
+      "index": 3,
+      "sha256": "a3a9cd4c5f3b1094eb7c076ae90154ef178d819ed33656757509069ebf3db430",
+      "points": {
+        "shoulder": null,
+        "elbow": [
+          114.48718749999999,
+          128.9346875
+        ],
+        "wrist": [
+          104.285625,
+          150.68375
+        ],
+        "tip": [
+          98.90625,
+          165.859375
+        ]
+      },
+      "authored_points": {
+        "shoulder": [
+          120.0,
+          103.4375
+        ],
+        "elbow": [
+          114.88766378019321,
+          127.97304410698186
+        ],
+        "wrist": [
+          104.07429663531417,
+          150.58277646364743
+        ],
+        "tip": [
+          98.07113557364463,
+          165.5917498551774
+        ]
+      },
+      "flags": {
+        "hand_open": false
+      },
+      "point_authority": {
+        "shoulder": "AUTHORED_HIDDEN_UNDER_FRILL; deliberately missing from validated points",
+        "elbow": "RASTER_AXIS_ESTIMATE",
+        "wrist": "RASTER_SKIN_CENTER",
+        "tip": "RASTER_COLOR_ENVELOPE"
+      },
+      "measurement_uncertainty_native_px": {
+        "shoulder": 4,
+        "elbow": 2,
+        "wrist": 1.5,
+        "tip": 1.5
+      },
+      "observation_source_native_sha256": "45813e4c6a4058fc84696398eec2815224515498ec400a2f6f721d8995fc0504",
+      "transfer_to_this_canvas": {
+        "scale": 0.3125,
+        "offset": [
+          15,
+          -10
+        ]
+      },
+      "actual_final_rgba_landmarks_remeasured": false,
+      "limitation": "Transferred native RGB estimates; boundary-alpha edits remain separately reviewed. Hidden shoulder is authored, so complete exact W3 must stay PENDING."
+    },
+    {
+      "index": 4,
+      "sha256": "3664a1dadc21383c0972752d5b3cb97fbd1c5bf34b566b4a0fe49f63dbc8e753",
+      "points": {
+        "shoulder": null,
+        "elbow": [
+          114.48718749999999,
+          128.9346875
+        ],
+        "wrist": [
+          104.285625,
+          150.68375
+        ],
+        "tip": [
+          98.90625,
+          165.859375
+        ]
+      },
+      "authored_points": {
+        "shoulder": [
+          120.0,
+          103.4375
+        ],
+        "elbow": [
+          114.88766378019321,
+          127.97304410698186
+        ],
+        "wrist": [
+          104.07429663531417,
+          150.58277646364743
+        ],
+        "tip": [
+          98.07113557364463,
+          165.5917498551774
+        ]
+      },
+      "flags": {
+        "hand_open": false
+      },
+      "point_authority": {
+        "shoulder": "AUTHORED_HIDDEN_UNDER_FRILL; deliberately missing from validated points",
+        "elbow": "RASTER_AXIS_ESTIMATE",
+        "wrist": "RASTER_SKIN_CENTER",
+        "tip": "RASTER_COLOR_ENVELOPE"
+      },
+      "measurement_uncertainty_native_px": {
+        "shoulder": 4,
+        "elbow": 2,
+        "wrist": 1.5,
+        "tip": 1.5
+      },
+      "observation_source_native_sha256": "a80351be3341206865c70757b435a24afd735295ebec00742160849138b2ff62",
+      "transfer_to_this_canvas": {
+        "scale": 0.3125,
+        "offset": [
+          15,
+          -10
+        ]
+      },
+      "actual_final_rgba_landmarks_remeasured": false,
+      "limitation": "Transferred native RGB estimates; boundary-alpha edits remain separately reviewed. Hidden shoulder is authored, so complete exact W3 must stay PENDING."
+    },
+    {
+      "index": 5,
+      "sha256": "e41c1fd50cd5cc46220ff6b9ccda5d2a84f25f82a3159e3060a0260827600f32",
+      "points": {
+        "shoulder": null,
+        "elbow": [
+          112.661875,
+          126.79218750000001
+        ],
+        "wrist": [
+          98.578125,
+          147.33531250000001
+        ],
+        "tip": [
+          87.96875,
+          160.46875
+        ]
+      },
+      "authored_points": {
+        "shoulder": [
+          120.15625,
+          102.70943306587839
+        ],
+        "elbow": [
+          112.72400828958347,
+          126.64456810639874
+        ],
+        "wrist": [
+          98.35423579743875,
+          147.1784071233483
+        ],
+        "tip": [
+          88.07712043819257,
+          160.52491722351687
+        ]
+      },
+      "flags": {
+        "hand_open": false
+      },
+      "point_authority": {
+        "shoulder": "AUTHORED_HIDDEN_UNDER_FRILL; deliberately missing from validated points",
+        "elbow": "RASTER_AXIS_ESTIMATE",
+        "wrist": "RASTER_SKIN_CENTER",
+        "tip": "RASTER_COLOR_ENVELOPE"
+      },
+      "measurement_uncertainty_native_px": {
+        "shoulder": 4,
+        "elbow": 2,
+        "wrist": 1.5,
+        "tip": 1.5
+      },
+      "observation_source_native_sha256": "23b9f06dc1fcdfeccb7de4a1c01c6a8c3372f44801206b87d64add195f51b5a4",
+      "transfer_to_this_canvas": {
+        "scale": 0.3125,
+        "offset": [
+          15,
+          -10
+        ]
+      },
+      "actual_final_rgba_landmarks_remeasured": false,
+      "limitation": "Transferred native RGB estimates; boundary-alpha edits remain separately reviewed. Hidden shoulder is authored, so complete exact W3 must stay PENDING."
+    },
+    {
+      "index": 6,
+      "sha256": "c990c853721c0f7c4fa5488b98cf9df11f4b72304f5df73c446231b4394f93bf",
+      "points": {
+        "shoulder": null,
+        "elbow": [
+          109.8765625,
+          126.2328125
+        ],
+        "wrist": [
+          93.29718749999999,
+          143.136875
+        ],
+        "tip": [
+          78.4896875,
+          153.59375
+        ]
+      },
+      "authored_points": {
+        "shoulder": [
+          120.3125,
+          101.96473817567568
+        ],
+        "elbow": [
+          110.71634725651083,
+          125.11733541170139
+        ],
+        "wrist": [
+          93.26901237369006,
+          143.1095396050932
+        ],
+        "tip": [
+          78.54644643346367,
+          154.04657970310018
+        ]
+      },
+      "flags": {
+        "hand_open": false
+      },
+      "point_authority": {
+        "shoulder": "AUTHORED_HIDDEN_UNDER_FRILL; deliberately missing from validated points",
+        "elbow": "RASTER_AXIS_ESTIMATE",
+        "wrist": "RASTER_SKIN_CENTER",
+        "tip": "RASTER_COLOR_ENVELOPE"
+      },
+      "measurement_uncertainty_native_px": {
+        "shoulder": 4,
+        "elbow": 2,
+        "wrist": 1.5,
+        "tip": 1.5
+      },
+      "observation_source_native_sha256": "9c1606e4a777120b47636fba80706cbbe75794ff7238725542a452132ef60632",
+      "transfer_to_this_canvas": {
+        "scale": 0.3125,
+        "offset": [
+          15,
+          -10
+        ]
+      },
+      "actual_final_rgba_landmarks_remeasured": false,
+      "limitation": "Transferred native RGB estimates; boundary-alpha edits remain separately reviewed. Hidden shoulder is authored, so complete exact W3 must stay PENDING."
+    },
+    {
+      "index": 7,
+      "sha256": "9acd62a6f512cf00db2926d7fffcbe65c26455346d67a213357767743543be07",
+      "points": {
+        "shoulder": null,
+        "elbow": [
+          108.50843749999999,
+          123.37937500000001
+        ],
+        "wrist": [
+          88.3878125,
+          138.12875
+        ],
+        "tip": [
+          70.0,
+          145.0
+        ]
+      },
+      "authored_points": {
+        "shoulder": [
+          120.46875,
+          101.25329919763514
+        ],
+        "elbow": [
+          108.62112520950271,
+          123.33864938896318
+        ],
+        "wrist": [
+          88.38788548447822,
+          138.12867699136106
+        ],
+        "tip": [
+          69.84566132943723,
+          145.17544405625014
+        ]
+      },
+      "flags": {
+        "hand_open": false
+      },
+      "point_authority": {
+        "shoulder": "AUTHORED_HIDDEN_UNDER_FRILL; deliberately missing from validated points",
+        "elbow": "RASTER_AXIS_ESTIMATE",
+        "wrist": "RASTER_SKIN_CENTER",
+        "tip": "RASTER_COLOR_ENVELOPE"
+      },
+      "measurement_uncertainty_native_px": {
+        "shoulder": 4,
+        "elbow": 2,
+        "wrist": 1.5,
+        "tip": 1.5
+      },
+      "observation_source_native_sha256": "c5359f44f0776c110312a999ad04fdde8bd202d50eacd5fa2dfa1fdf08c02fe5",
+      "transfer_to_this_canvas": {
+        "scale": 0.3125,
+        "offset": [
+          15,
+          -10
+        ]
+      },
+      "actual_final_rgba_landmarks_remeasured": false,
+      "limitation": "Transferred native RGB estimates; boundary-alpha edits remain separately reviewed. Hidden shoulder is authored, so complete exact W3 must stay PENDING."
+    },
+    {
+      "index": 8,
+      "sha256": "f878c3d38624b12e43d70fc8e4f258ecead82b4af1b731e7b59fda4b0f92c9a6",
+      "points": {
+        "shoulder": null,
+        "elbow": [
+          105.95218750000001,
+          121.294375
+        ],
+        "wrist": [
+          83.45281250000001,
+          131.57
+        ],
+        "tip": [
+          63.28125,
+          133.125
+        ]
+      },
+      "authored_points": {
+        "shoulder": [
+          120.625,
+          100.625
+        ],
+        "elbow": [
+          106.2497405639519,
+          121.15499810999285
+        ],
+        "wrist": [
+          83.53540165134586,
+          131.74686829486913
+        ],
+        "tip": [
+          63.09753348746425,
+          133.53495006584617
+        ]
+      },
+      "flags": {
+        "hand_open": true
+      },
+      "point_authority": {
+        "shoulder": "AUTHORED_HIDDEN_UNDER_FRILL; deliberately missing from validated points",
+        "elbow": "RASTER_AXIS_ESTIMATE",
+        "wrist": "RASTER_SKIN_CENTER",
+        "tip": "RASTER_COLOR_ENVELOPE"
+      },
+      "measurement_uncertainty_native_px": {
+        "shoulder": 4,
+        "elbow": 2,
+        "wrist": 1.5,
+        "tip": 1.5
+      },
+      "observation_source_native_sha256": "65b814813dab5d51a53930497a8c621b5db23d352947498e669c188c1bdc76e9",
+      "transfer_to_this_canvas": {
+        "scale": 0.3125,
+        "offset": [
+          15,
+          -10
+        ]
+      },
+      "actual_final_rgba_landmarks_remeasured": false,
+      "limitation": "Transferred native RGB estimates; boundary-alpha edits remain separately reviewed. Hidden shoulder is authored, so complete exact W3 must stay PENDING."
+    },
+    {
+      "index": 9,
+      "sha256": "2c365d69a4d4fe4488f2e826ea2ee2ba0385827c0a26fffe07a9b8e8689e58dd",
+      "points": {
+        "shoulder": null,
+        "elbow": [
+          102.72343749999999,
+          117.6684375
+        ],
+        "wrist": [
+          78.195625,
+          121.421875
+        ],
+        "tip": [
+          58.59375,
+          117.03125
+        ]
+      },
+      "authored_points": {
+        "shoulder": [
+          120.80295138888889,
+          100.02076295045045
+        ],
+        "elbow": [
+          102.97145122535437,
+          117.63230769155331
+        ],
+        "wrist": [
+          78.23986725767767,
+          121.69157618473736
+        ],
+        "tip": [
+          58.198675507116505,
+          117.30360117100432
+        ]
+      },
+      "flags": {
+        "hand_open": true
+      },
+      "point_authority": {
+        "shoulder": "AUTHORED_HIDDEN_UNDER_FRILL; deliberately missing from validated points",
+        "elbow": "RASTER_AXIS_ESTIMATE",
+        "wrist": "RASTER_SKIN_CENTER",
+        "tip": "RASTER_COLOR_ENVELOPE"
+      },
+      "measurement_uncertainty_native_px": {
+        "shoulder": 4,
+        "elbow": 2,
+        "wrist": 1.5,
+        "tip": 1.5
+      },
+      "observation_source_native_sha256": "1c957fb80ca31e1fe0b4e702e95fbe135ca881dad31993a47c13ed3e1e2cc3e2",
+      "transfer_to_this_canvas": {
+        "scale": 0.3125,
+        "offset": [
+          15,
+          -10
+        ]
+      },
+      "actual_final_rgba_landmarks_remeasured": false,
+      "limitation": "Transferred native RGB estimates; boundary-alpha edits remain separately reviewed. Hidden shoulder is authored, so complete exact W3 must stay PENDING."
+    },
+    {
+      "index": 10,
+      "sha256": "0d766a3c43ac4a5de7b91d28cd9a346378cc88c961f1a0f871c69775751e33a7",
+      "points": {
+        "shoulder": null,
+        "elbow": [
+          98.9390625,
+          112.17093750000001
+        ],
+        "wrist": [
+          74.80812499999999,
+          107.1846875
+        ],
+        "tip": [
+          57.65625,
+          96.5625
+        ]
+      },
+      "authored_points": {
+        "shoulder": [
+          121.00694444444444,
+          99.38907657657658
+        ],
+        "elbow": [
+          99.38979903751084,
+          112.0708718243122
+        ],
+        "wrist": [
+          74.80060411454292,
+          107.22315078342204
+        ],
+        "tip": [
+          57.316019605878466,
+          96.49035077302042
+        ]
+      },
+      "flags": {
+        "hand_open": true
+      },
+      "point_authority": {
+        "shoulder": "AUTHORED_HIDDEN_UNDER_FRILL; deliberately missing from validated points",
+        "elbow": "RASTER_AXIS_ESTIMATE",
+        "wrist": "RASTER_SKIN_CENTER",
+        "tip": "RASTER_COLOR_ENVELOPE"
+      },
+      "measurement_uncertainty_native_px": {
+        "shoulder": 4,
+        "elbow": 2,
+        "wrist": 1.5,
+        "tip": 1.5
+      },
+      "observation_source_native_sha256": "4204bdec2271a0cab6b34c628f4cfa072b7ea1cad0a2e43317019f63ad694265",
+      "transfer_to_this_canvas": {
+        "scale": 0.3125,
+        "offset": [
+          15,
+          -10
+        ]
+      },
+      "actual_final_rgba_landmarks_remeasured": false,
+      "limitation": "Transferred native RGB estimates; boundary-alpha edits remain separately reviewed. Hidden shoulder is authored, so complete exact W3 must stay PENDING."
+    },
+    {
+      "index": 11,
+      "sha256": "68c8e441f9e0a839ab81864f72cf63efd6f396de61a561cf78a00bab745dfd7c",
+      "points": {
+        "shoulder": null,
+        "elbow": [
+          97.2540625,
+          105.28656249999999
+        ],
+        "wrist": [
+          76.100625,
+          91.3503125
+        ],
+        "tip": [
+          63.3853125,
+          75.78125
+        ]
+      },
+      "authored_points": {
+        "shoulder": [
+          121.2109375,
+          98.79117398648648
+        ],
+        "elbow": [
+          96.98395235892514,
+          105.20850187464511
+        ],
+        "wrist": [
+          75.99376781690445,
+          91.51393875120391
+        ],
+        "tip": [
+          63.0112454506235,
+          75.62816509950784
+        ]
+      },
+      "flags": {
+        "hand_open": true
+      },
+      "point_authority": {
+        "shoulder": "AUTHORED_HIDDEN_UNDER_FRILL; deliberately missing from validated points",
+        "elbow": "RASTER_AXIS_ESTIMATE",
+        "wrist": "RASTER_SKIN_CENTER",
+        "tip": "RASTER_COLOR_ENVELOPE"
+      },
+      "measurement_uncertainty_native_px": {
+        "shoulder": 4,
+        "elbow": 2,
+        "wrist": 1.5,
+        "tip": 1.5
+      },
+      "observation_source_native_sha256": "bd28f485049bd51dd426201d022f8c75d7db5c4fdd18a5f2b31be88d384f681a",
+      "transfer_to_this_canvas": {
+        "scale": 0.3125,
+        "offset": [
+          15,
+          -10
+        ]
+      },
+      "actual_final_rgba_landmarks_remeasured": false,
+      "limitation": "Transferred native RGB estimates; boundary-alpha edits remain separately reviewed. Hidden shoulder is authored, so complete exact W3 must stay PENDING."
+    },
+    {
+      "index": 12,
+      "sha256": "bb4564860cceb2b10aa805f32dcaddeac71177c4ac5180075defa6ea137647ff",
+      "points": {
+        "shoulder": null,
+        "elbow": [
+          96.08937499999999,
+          98.56
+        ],
+        "wrist": [
+          81.40718749999999,
+          78.38374999999999
+        ],
+        "tip": [
+          73.90625,
+          59.6353125
+        ]
+      },
+      "authored_points": {
+        "shoulder": [
+          121.38888888888889,
+          98.2882882882883
+        ],
+        "elbow": [
+          96.32747102848911,
+          98.52118542531457
+        ],
+        "wrist": [
+          81.34440604854314,
+          78.43047438621204
+        ],
+        "tip": [
+          73.69572028586941,
+          59.39363384982633
+        ]
+      },
+      "flags": {
+        "hand_open": true
+      },
+      "point_authority": {
+        "shoulder": "AUTHORED_HIDDEN_UNDER_FRILL; deliberately missing from validated points",
+        "elbow": "RASTER_AXIS_ESTIMATE",
+        "wrist": "RASTER_SKIN_CENTER",
+        "tip": "RASTER_COLOR_ENVELOPE"
+      },
+      "measurement_uncertainty_native_px": {
+        "shoulder": 4,
+        "elbow": 2,
+        "wrist": 1.5,
+        "tip": 1.5
+      },
+      "observation_source_native_sha256": "47e10d5f5c877e04626e48aa2119d72d971b4c3cdc0b3295ec2feefb7f00b0d8",
+      "transfer_to_this_canvas": {
+        "scale": 0.3125,
+        "offset": [
+          15,
+          -10
+        ]
+      },
+      "actual_final_rgba_landmarks_remeasured": false,
+      "limitation": "Transferred native RGB estimates; boundary-alpha edits remain separately reviewed. Hidden shoulder is authored, so complete exact W3 must stay PENDING."
+    },
+    {
+      "index": 13,
+      "sha256": "8febee0a50094bd9fb7bd304603e65b36ec91d284114dbc8ca674ffacb53653e",
+      "points": {
+        "shoulder": null,
+        "elbow": [
+          96.3640625,
+          93.1421875
+        ],
+        "wrist": [
+          87.5071875,
+          70.3515625
+        ],
+        "tip": [
+          84.84375,
+          50.46875
+        ]
+      },
+      "authored_points": {
+        "shoulder": [
+          121.51475694444444,
+          97.94165259009009
+        ],
+        "elbow": [
+          96.82830109455737,
+          93.61640071053714
+        ],
+        "wrist": [
+          87.57978366935872,
+          70.32275712079796
+        ],
+        "tip": [
+          84.65674750494692,
+          50.016119016831894
+        ]
+      },
+      "flags": {
+        "hand_open": true
+      },
+      "point_authority": {
+        "shoulder": "AUTHORED_HIDDEN_UNDER_FRILL; deliberately missing from validated points",
+        "elbow": "RASTER_AXIS_ESTIMATE",
+        "wrist": "RASTER_SKIN_CENTER",
+        "tip": "RASTER_COLOR_ENVELOPE"
+      },
+      "measurement_uncertainty_native_px": {
+        "shoulder": 4,
+        "elbow": 2,
+        "wrist": 1.5,
+        "tip": 1.5
+      },
+      "observation_source_native_sha256": "decf551eaf515e324b1de8e653fd7b020a390982ab9f0b0817aa758a6e33e836",
+      "transfer_to_this_canvas": {
+        "scale": 0.3125,
+        "offset": [
+          15,
+          -10
+        ]
+      },
+      "actual_final_rgba_landmarks_remeasured": false,
+      "limitation": "Transferred native RGB estimates; boundary-alpha edits remain separately reviewed. Hidden shoulder is authored, so complete exact W3 must stay PENDING."
+    },
+    {
+      "index": 14,
+      "sha256": "3e495cbeb963cee5404e8b8b4310b2a84759a19f67c517ceda6200ad4261babf",
+      "points": {
+        "shoulder": null,
+        "elbow": [
+          97.0859375,
+          91.74843750000001
+        ],
+        "wrist": [
+          90.606875,
+          67.58125
+        ],
+        "tip": [
+          90.9375,
+          47.34375
+        ]
+      },
+      "authored_points": {
+        "shoulder": [
+          121.5625,
+          97.8125
+        ],
+        "elbow": [
+          97.24446336020783,
+          91.74933249153334
+        ],
+        "wrist": [
+          90.75781104232591,
+          67.54081647016356
+        ],
+        "tip": [
+          90.75781104232591,
+          47.024878970163556
+        ]
+      },
+      "flags": {
+        "hand_open": true
+      },
+      "point_authority": {
+        "shoulder": "AUTHORED_HIDDEN_UNDER_FRILL; deliberately missing from validated points",
+        "elbow": "RASTER_AXIS_ESTIMATE",
+        "wrist": "RASTER_SKIN_CENTER",
+        "tip": "RASTER_COLOR_ENVELOPE"
+      },
+      "measurement_uncertainty_native_px": {
+        "shoulder": 4,
+        "elbow": 2,
+        "wrist": 1.5,
+        "tip": 1.5
+      },
+      "observation_source_native_sha256": "411c0f41fb752b8ca807b50889b32e3d549fe983a71c3533691d026b99044c46",
+      "transfer_to_this_canvas": {
+        "scale": 0.3125,
+        "offset": [
+          15,
+          -10
+        ]
+      },
+      "actual_final_rgba_landmarks_remeasured": false,
+      "limitation": "Transferred native RGB estimates; boundary-alpha edits remain separately reviewed. Hidden shoulder is authored, so complete exact W3 must stay PENDING."
+    },
+    {
+      "index": 15,
+      "sha256": "e498323175fc46d6c70e1f0a55afe310cb2c0e3a16c41811156b87832989b8e6",
+      "points": {
+        "shoulder": null,
+        "elbow": [
+          97.17625,
+          91.77187500000001
+        ],
+        "wrist": [
+          91.430625,
+          67.37
+        ],
+        "tip": [
+          92.96875,
+          47.34375
+        ]
+      },
+      "authored_points": {
+        "shoulder": [
+          121.5625,
+          97.8125
+        ],
+        "elbow": [
+          97.24446336020783,
+          91.74933249153334
+        ],
+        "wrist": [
+          91.27887803284591,
+          67.40717363181089
+        ],
+        "tip": [
+          92.92034166943567,
+          46.9570076512214
+        ]
+      },
+      "flags": {
+        "hand_open": true
+      },
+      "point_authority": {
+        "shoulder": "AUTHORED_HIDDEN_UNDER_FRILL; deliberately missing from validated points",
+        "elbow": "RASTER_AXIS_ESTIMATE",
+        "wrist": "RASTER_SKIN_CENTER",
+        "tip": "RASTER_COLOR_ENVELOPE"
+      },
+      "measurement_uncertainty_native_px": {
+        "shoulder": 4,
+        "elbow": 2,
+        "wrist": 1.5,
+        "tip": 1.5
+      },
+      "observation_source_native_sha256": "3019a7b0916547b43221ee6b8a3a2cfd814c5e6281c4c3259440573267c4dcf7",
+      "transfer_to_this_canvas": {
+        "scale": 0.3125,
+        "offset": [
+          15,
+          -10
+        ]
+      },
+      "actual_final_rgba_landmarks_remeasured": false,
+      "limitation": "Transferred native RGB estimates; boundary-alpha edits remain separately reviewed. Hidden shoulder is authored, so complete exact W3 must stay PENDING."
+    },
+    {
+      "index": 16,
+      "sha256": "959fdca6afb6b5c5451ed96c5355dc81b96e3400a7f705a137d15929214bbf20",
+      "points": {
+        "shoulder": null,
+        "elbow": [
+          97.25843749999999,
+          91.793125
+        ],
+        "wrist": [
+          91.72,
+          67.303125
+        ],
+        "tip": [
+          94.6875,
+          47.34375
+        ]
+      },
+      "authored_points": {
+        "shoulder": [
+          121.5625,
+          97.8125
+        ],
+        "elbow": [
+          97.24446336020783,
+          91.74933249153334
+        ],
+        "wrist": [
+          91.6818756116735,
+          67.31193238862026
+        ],
+        "tip": [
+          94.68334368642134,
+          47.01673884679426
+        ]
+      },
+      "flags": {
+        "hand_open": true
+      },
+      "point_authority": {
+        "shoulder": "AUTHORED_HIDDEN_UNDER_FRILL; deliberately missing from validated points",
+        "elbow": "RASTER_AXIS_ESTIMATE",
+        "wrist": "RASTER_SKIN_CENTER",
+        "tip": "RASTER_COLOR_ENVELOPE"
+      },
+      "measurement_uncertainty_native_px": {
+        "shoulder": 4,
+        "elbow": 2,
+        "wrist": 1.5,
+        "tip": 1.5
+      },
+      "observation_source_native_sha256": "3e923fd0b21ec58cf6aabc31bd63c8a223a280552c16d932bd55dd629f6b8d8a",
+      "transfer_to_this_canvas": {
+        "scale": 0.3125,
+        "offset": [
+          15,
+          -10
+        ]
+      },
+      "actual_final_rgba_landmarks_remeasured": false,
+      "limitation": "Transferred native RGB estimates; boundary-alpha edits remain separately reviewed. Hidden shoulder is authored, so complete exact W3 must stay PENDING."
+    },
+    {
+      "index": 17,
+      "sha256": "5cf9cdc19c7965e2b1c24361bdbe61c9bd251606691085c5765895efb39c1770",
+      "points": {
+        "shoulder": null,
+        "elbow": [
+          96.9128125,
+          91.703125
+        ],
+        "wrist": [
+          92.018125,
+          67.2378125
+        ],
+        "tip": [
+          96.015625,
+          47.421875
+        ]
+      },
+      "authored_points": {
+        "shoulder": [
+          121.5625,
+          97.8125
+        ],
+        "elbow": [
+          97.24446336020783,
+          91.74933249153334
+        ],
+        "wrist": [
+          91.94169406573727,
+          67.25424024717509
+        ],
+        "tip": [
+          95.86675759776281,
+          47.11727007354992
+        ]
+      },
+      "flags": {
+        "hand_open": true
+      },
+      "point_authority": {
+        "shoulder": "AUTHORED_HIDDEN_UNDER_FRILL; deliberately missing from validated points",
+        "elbow": "RASTER_AXIS_ESTIMATE",
+        "wrist": "RASTER_SKIN_CENTER",
+        "tip": "RASTER_COLOR_ENVELOPE"
+      },
+      "measurement_uncertainty_native_px": {
+        "shoulder": 4,
+        "elbow": 2,
+        "wrist": 1.5,
+        "tip": 1.5
+      },
+      "observation_source_native_sha256": "91556a243da804771e62abb5248b293b61ba98522a885c4ea39c34708d54dafb",
+      "transfer_to_this_canvas": {
+        "scale": 0.3125,
+        "offset": [
+          15,
+          -10
+        ]
+      },
+      "actual_final_rgba_landmarks_remeasured": false,
+      "limitation": "Transferred native RGB estimates; boundary-alpha edits remain separately reviewed. Hidden shoulder is authored, so complete exact W3 must stay PENDING."
+    },
+    {
+      "index": 18,
+      "sha256": "6ffda72742f434b7d4cc30030d1803ce6ac82f4f6577ed09a85a24c513cb2aca",
+      "points": {
+        "shoulder": null,
+        "elbow": [
+          96.979375,
+          91.72062499999998
+        ],
+        "wrist": [
+          92.645,
+          67.10468750000001
+        ],
+        "tip": [
+          96.61468749999999,
+          47.5521875
+        ]
+      },
+      "authored_points": {
+        "shoulder": [
+          121.5625,
+          97.8125
+        ],
+        "elbow": [
+          97.24446336020783,
+          91.74933249153334
+        ],
+        "wrist": [
+          92.03367660908773,
+          67.23450824814233
+        ],
+        "tip": [
+          96.2991798634242,
+          47.166893205712626
+        ]
+      },
+      "flags": {
+        "hand_open": true
+      },
+      "point_authority": {
+        "shoulder": "AUTHORED_HIDDEN_UNDER_FRILL; deliberately missing from validated points",
+        "elbow": "RASTER_AXIS_ESTIMATE",
+        "wrist": "RASTER_SKIN_CENTER",
+        "tip": "RASTER_COLOR_ENVELOPE"
+      },
+      "measurement_uncertainty_native_px": {
+        "shoulder": 4,
+        "elbow": 2,
+        "wrist": 1.5,
+        "tip": 1.5
+      },
+      "observation_source_native_sha256": "2562140916427deee70c1559a7262ba46f6a2799edae4c950283bcebb784c193",
+      "transfer_to_this_canvas": {
+        "scale": 0.3125,
+        "offset": [
+          15,
+          -10
+        ]
+      },
+      "actual_final_rgba_landmarks_remeasured": false,
+      "limitation": "Transferred native RGB estimates; boundary-alpha edits remain separately reviewed. Hidden shoulder is authored, so complete exact W3 must stay PENDING."
+    },
+    {
+      "index": 19,
+      "sha256": "c99a69e1d9924630fcb6393c755a8978c9c585cbb49bbf3c7807c4eba5962399",
+      "points": {
+        "shoulder": null,
+        "elbow": [
+          97.2871875,
+          91.800625
+        ],
+        "wrist": [
+          91.709375,
+          67.30562499999999
+        ],
+        "tip": [
+          94.53125,
+          47.34375
+        ]
+      },
+      "authored_points": {
+        "shoulder": [
+          121.5625,
+          97.8125
+        ],
+        "elbow": [
+          97.24446336020783,
+          91.74933249153334
+        ],
+        "wrist": [
+          91.63326916075421,
+          67.32304734814696
+        ],
+        "tip": [
+          94.57715482523636,
+          47.01942134936628
+        ]
+      },
+      "flags": {
+        "hand_open": true
+      },
+      "point_authority": {
+        "shoulder": "AUTHORED_HIDDEN_UNDER_FRILL; deliberately missing from validated points",
+        "elbow": "RASTER_AXIS_ESTIMATE",
+        "wrist": "RASTER_SKIN_CENTER",
+        "tip": "RASTER_COLOR_ENVELOPE"
+      },
+      "measurement_uncertainty_native_px": {
+        "shoulder": 4,
+        "elbow": 2,
+        "wrist": 1.5,
+        "tip": 1.5
+      },
+      "observation_source_native_sha256": "06a9499cc0973dfcc49229762e095806a4fea7bcf11a6bff32b1a51359f9e2ff",
+      "transfer_to_this_canvas": {
+        "scale": 0.3125,
+        "offset": [
+          15,
+          -10
+        ]
+      },
+      "actual_final_rgba_landmarks_remeasured": false,
+      "limitation": "Transferred native RGB estimates; boundary-alpha edits remain separately reviewed. Hidden shoulder is authored, so complete exact W3 must stay PENDING."
+    },
+    {
+      "index": 20,
+      "sha256": "7c482280a485af1f410390956abaa7184794af22d7580e05a3a1b04c67034884",
+      "points": {
+        "shoulder": null,
+        "elbow": [
+          97.0859375,
+          91.74843750000001
+        ],
+        "wrist": [
+          90.606875,
+          67.58125
+        ],
+        "tip": [
+          90.9375,
+          47.34375
+        ]
+      },
+      "authored_points": {
+        "shoulder": [
+          121.5625,
+          97.8125
+        ],
+        "elbow": [
+          97.24446336020783,
+          91.74933249153334
+        ],
+        "wrist": [
+          90.75781104232591,
+          67.54081647016356
+        ],
+        "tip": [
+          90.75781104232591,
+          47.024878970163556
+        ]
+      },
+      "flags": {
+        "hand_open": true
+      },
+      "point_authority": {
+        "shoulder": "AUTHORED_HIDDEN_UNDER_FRILL; deliberately missing from validated points",
+        "elbow": "RASTER_AXIS_ESTIMATE",
+        "wrist": "RASTER_SKIN_CENTER",
+        "tip": "RASTER_COLOR_ENVELOPE"
+      },
+      "measurement_uncertainty_native_px": {
+        "shoulder": 4,
+        "elbow": 2,
+        "wrist": 1.5,
+        "tip": 1.5
+      },
+      "observation_source_native_sha256": "1e29220c2ac7553ddb3e1c95ea4549a51b8c874404396d5a8b41fb45192ea402",
+      "transfer_to_this_canvas": {
+        "scale": 0.3125,
+        "offset": [
+          15,
+          -10
+        ]
+      },
+      "actual_final_rgba_landmarks_remeasured": false,
+      "limitation": "Transferred native RGB estimates; boundary-alpha edits remain separately reviewed. Hidden shoulder is authored, so complete exact W3 must stay PENDING."
+    },
+    {
+      "index": 21,
+      "sha256": "83d2a161bf3fbf7f225edbeb629a9b0950e15a3f344c0bbc3c465fb02fef252b",
+      "points": {
+        "shoulder": null,
+        "elbow": [
+          96.9053125,
+          91.70125
+        ],
+        "wrist": [
+          90.00281249999999,
+          67.75562500000001
+        ],
+        "tip": [
+          87.1875,
+          47.65625
+        ]
+      },
+      "authored_points": {
+        "shoulder": [
+          121.5625,
+          97.8125
+        ],
+        "elbow": [
+          97.24446336020783,
+          91.74933249153334
+        ],
+        "wrist": [
+          89.89075751080937,
+          67.7899519375515
+        ],
+        "tip": [
+          86.94687184632721,
+          47.48632593877083
+        ]
+      },
+      "flags": {
+        "hand_open": true
+      },
+      "point_authority": {
+        "shoulder": "AUTHORED_HIDDEN_UNDER_FRILL; deliberately missing from validated points",
+        "elbow": "RASTER_AXIS_ESTIMATE",
+        "wrist": "RASTER_SKIN_CENTER",
+        "tip": "RASTER_COLOR_ENVELOPE"
+      },
+      "measurement_uncertainty_native_px": {
+        "shoulder": 4,
+        "elbow": 2,
+        "wrist": 1.5,
+        "tip": 1.5
+      },
+      "observation_source_native_sha256": "c52fc917770323b4c0c3ceb6199e5df13a25094d78169af1a8fb281793d78935",
+      "transfer_to_this_canvas": {
+        "scale": 0.3125,
+        "offset": [
+          15,
+          -10
+        ]
+      },
+      "actual_final_rgba_landmarks_remeasured": false,
+      "limitation": "Transferred native RGB estimates; boundary-alpha edits remain separately reviewed. Hidden shoulder is authored, so complete exact W3 must stay PENDING."
+    },
+    {
+      "index": 22,
+      "sha256": "4606162a360f282eaa0bb839e067d544e5a1a22c1fedb8b306a5e674c204d143",
+      "points": {
+        "shoulder": null,
+        "elbow": [
+          97.13531250000001,
+          91.76125
+        ],
+        "wrist": [
+          89.4625,
+          67.925625
+        ],
+        "tip": [
+          85.2603125,
+          48.1771875
+        ]
+      },
+      "authored_points": {
+        "shoulder": [
+          121.5625,
+          97.8125
+        ],
+        "elbow": [
+          97.24446336020783,
+          91.74933249153334
+        ],
+        "wrist": [
+          89.4997249386857,
+          67.91347855188606
+        ],
+        "tip": [
+          85.23422168434922,
+          47.84586350945634
+        ]
+      },
+      "flags": {
+        "hand_open": true
+      },
+      "point_authority": {
+        "shoulder": "AUTHORED_HIDDEN_UNDER_FRILL; deliberately missing from validated points",
+        "elbow": "RASTER_AXIS_ESTIMATE",
+        "wrist": "RASTER_SKIN_CENTER",
+        "tip": "RASTER_COLOR_ENVELOPE"
+      },
+      "measurement_uncertainty_native_px": {
+        "shoulder": 4,
+        "elbow": 2,
+        "wrist": 1.5,
+        "tip": 1.5
+      },
+      "observation_source_native_sha256": "61d8f1a1034119d0ab8e3db27c6beaf5208b53497c7b53a71c474eb400b6ec12",
+      "transfer_to_this_canvas": {
+        "scale": 0.3125,
+        "offset": [
+          15,
+          -10
+        ]
+      },
+      "actual_final_rgba_landmarks_remeasured": false,
+      "limitation": "Transferred native RGB estimates; boundary-alpha edits remain separately reviewed. Hidden shoulder is authored, so complete exact W3 must stay PENDING."
+    },
+    {
+      "index": 23,
+      "sha256": "7472a9f6fff8ae5f0b896005e94a6634b3b5ed935d9bfb241f34d156c117bdaf",
+      "points": {
+        "shoulder": null,
+        "elbow": [
+          97.3359375,
+          91.81343749999999
+        ],
+        "wrist": [
+          90.0140625,
+          67.75218749999999
+        ],
+        "tip": [
+          88.28125,
+          47.65625
+        ]
+      },
+      "authored_points": {
+        "shoulder": [
+          121.5625,
+          97.8125
+        ],
+        "elbow": [
+          97.24446336020783,
+          91.74933249153334
+        ],
+        "wrist": [
+          90.12632878356577,
+          67.71891288639924
+        ],
+        "tip": [
+          87.98182936419555,
+          47.315363838642206
+        ]
+      },
+      "flags": {
+        "hand_open": true
+      },
+      "point_authority": {
+        "shoulder": "AUTHORED_HIDDEN_UNDER_FRILL; deliberately missing from validated points",
+        "elbow": "RASTER_AXIS_ESTIMATE",
+        "wrist": "RASTER_SKIN_CENTER",
+        "tip": "RASTER_COLOR_ENVELOPE"
+      },
+      "measurement_uncertainty_native_px": {
+        "shoulder": 4,
+        "elbow": 2,
+        "wrist": 1.5,
+        "tip": 1.5
+      },
+      "observation_source_native_sha256": "e7e4d32dd97e71f50c3d2e745b930488eec829c4b3d8850f0ddf12e31f527cb9",
+      "transfer_to_this_canvas": {
+        "scale": 0.3125,
+        "offset": [
+          15,
+          -10
+        ]
+      },
+      "actual_final_rgba_landmarks_remeasured": false,
+      "limitation": "Transferred native RGB estimates; boundary-alpha edits remain separately reviewed. Hidden shoulder is authored, so complete exact W3 must stay PENDING."
+    },
+    {
+      "index": 24,
+      "sha256": "6e2b2a8c92480c28437080c244ab11eabdb813b8d35f72206a8f052f2906ac7f",
+      "points": {
+        "shoulder": null,
+        "elbow": [
+          97.0859375,
+          91.74843750000001
+        ],
+        "wrist": [
+          90.606875,
+          67.58125
+        ],
+        "tip": [
+          90.9375,
+          47.34375
+        ]
+      },
+      "authored_points": {
+        "shoulder": [
+          121.5625,
+          97.8125
+        ],
+        "elbow": [
+          97.24446336020783,
+          91.74933249153334
+        ],
+        "wrist": [
+          90.75781104232591,
+          67.54081647016356
+        ],
+        "tip": [
+          90.75781104232591,
+          47.024878970163556
+        ]
+      },
+      "flags": {
+        "hand_open": true
+      },
+      "point_authority": {
+        "shoulder": "AUTHORED_HIDDEN_UNDER_FRILL; deliberately missing from validated points",
+        "elbow": "RASTER_AXIS_ESTIMATE",
+        "wrist": "RASTER_SKIN_CENTER",
+        "tip": "RASTER_COLOR_ENVELOPE"
+      },
+      "measurement_uncertainty_native_px": {
+        "shoulder": 4,
+        "elbow": 2,
+        "wrist": 1.5,
+        "tip": 1.5
+      },
+      "observation_source_native_sha256": "e1fce921d67c87fba74b11e44a58dbd2e374d82a2458f046149b7b282bbbd9fa",
+      "transfer_to_this_canvas": {
+        "scale": 0.3125,
+        "offset": [
+          15,
+          -10
+        ]
+      },
+      "actual_final_rgba_landmarks_remeasured": false,
+      "limitation": "Transferred native RGB estimates; boundary-alpha edits remain separately reviewed. Hidden shoulder is authored, so complete exact W3 must stay PENDING."
+    },
+    {
+      "index": 25,
+      "sha256": "b23fb5969a03110719801e97a3ebb0c68842a14b61fa2bd7528c530b723a0214",
+      "points": {
+        "shoulder": null,
+        "elbow": [
+          96.14687500000001,
+          95.075
+        ],
+        "wrist": [
+          84.52656250000001,
+          73.35906250000001
+        ],
+        "tip": [
+          78.4896875,
+          54.0103125
+        ]
+      },
+      "authored_points": {
+        "shoulder": [
+          121.4453125,
+          98.15043604651163
+        ],
+        "elbow": [
+          96.53919161711796,
+          95.3550740275117
+        ],
+        "wrist": [
+          84.59518807158392,
+          73.32169740125964
+        ],
+        "tip": [
+          78.21200058579566,
+          53.82404090040851
+        ]
+      },
+      "flags": {
+        "hand_open": true
+      },
+      "point_authority": {
+        "shoulder": "AUTHORED_HIDDEN_UNDER_FRILL; deliberately missing from validated points",
+        "elbow": "RASTER_AXIS_ESTIMATE",
+        "wrist": "RASTER_SKIN_CENTER",
+        "tip": "RASTER_COLOR_ENVELOPE"
+      },
+      "measurement_uncertainty_native_px": {
+        "shoulder": 4,
+        "elbow": 2,
+        "wrist": 1.5,
+        "tip": 1.5
+      },
+      "observation_source_native_sha256": "69bfce774a70fdbc90eee7d67248f851b87d085a4d6ebaaa596277d648ab7e0f",
+      "transfer_to_this_canvas": {
+        "scale": 0.3125,
+        "offset": [
+          15,
+          -10
+        ]
+      },
+      "actual_final_rgba_landmarks_remeasured": false,
+      "limitation": "Transferred native RGB estimates; boundary-alpha edits remain separately reviewed. Hidden shoulder is authored, so complete exact W3 must stay PENDING."
+    },
+    {
+      "index": 26,
+      "sha256": "113daa2446ae657d8a82a07206e936eb081e5bfc0a2778d773e7bdf9b4e7d25c",
+      "points": {
+        "shoulder": null,
+        "elbow": [
+          96.2928125,
+          101.2103125
+        ],
+        "wrist": [
+          77.13968750000001,
+          85.12124999999999
+        ],
+        "tip": [
+          62.96875,
+          70.78125
+        ]
+      },
+      "authored_points": {
+        "shoulder": [
+          121.25,
+          98.75
+        ],
+        "elbow": [
+          96.31360151133651,
+          101.26096329415267
+        ],
+        "wrist": [
+          77.11461265566713,
+          85.15109882638377
+        ],
+        "tip": [
+          62.60765412701774,
+          70.64414029773438
+        ]
+      },
+      "flags": {
+        "hand_open": true
+      },
+      "point_authority": {
+        "shoulder": "AUTHORED_HIDDEN_UNDER_FRILL; deliberately missing from validated points",
+        "elbow": "RASTER_AXIS_ESTIMATE",
+        "wrist": "RASTER_SKIN_CENTER",
+        "tip": "RASTER_COLOR_ENVELOPE"
+      },
+      "measurement_uncertainty_native_px": {
+        "shoulder": 4,
+        "elbow": 2,
+        "wrist": 1.5,
+        "tip": 1.5
+      },
+      "observation_source_native_sha256": "7d6aa33e95f89ea510726ec9a2039217380b36d071889f9115bb57bdbab4e758",
+      "transfer_to_this_canvas": {
+        "scale": 0.3125,
+        "offset": [
+          15,
+          -10
+        ]
+      },
+      "actual_final_rgba_landmarks_remeasured": false,
+      "limitation": "Transferred native RGB estimates; boundary-alpha edits remain separately reviewed. Hidden shoulder is authored, so complete exact W3 must stay PENDING."
+    },
+    {
+      "index": 27,
+      "sha256": "2b5e1b97f769b637c2d9fbdb172c7e5a50c0e8f269cae08a8482e3f9c0683119",
+      "points": {
+        "shoulder": null,
+        "elbow": [
+          96.56875,
+          105.5134375
+        ],
+        "wrist": [
+          73.88625,
+          95.41624999999999
+        ],
+        "tip": [
+          56.25,
+          85.625
+        ]
+      },
+      "authored_points": {
+        "shoulder": [
+          121.09375,
+          99.3184754521964
+        ],
+        "elbow": [
+          96.81473675753676,
+          105.53606519600343
+        ],
+        "wrist": [
+          73.87050261681452,
+          95.45186835412672
+        ],
+        "tip": [
+          55.930388415690615,
+          85.49918057872964
+        ]
+      },
+      "flags": {
+        "hand_open": true
+      },
+      "point_authority": {
+        "shoulder": "AUTHORED_HIDDEN_UNDER_FRILL; deliberately missing from validated points",
+        "elbow": "RASTER_AXIS_ESTIMATE",
+        "wrist": "RASTER_SKIN_CENTER",
+        "tip": "RASTER_COLOR_ENVELOPE"
+      },
+      "measurement_uncertainty_native_px": {
+        "shoulder": 4,
+        "elbow": 2,
+        "wrist": 1.5,
+        "tip": 1.5
+      },
+      "observation_source_native_sha256": "03e13a9c5f07ca6c7de20e41e651c095d5efcc4c42d0646c887f486aed411729",
+      "transfer_to_this_canvas": {
+        "scale": 0.3125,
+        "offset": [
+          15,
+          -10
+        ]
+      },
+      "actual_final_rgba_landmarks_remeasured": false,
+      "limitation": "Transferred native RGB estimates; boundary-alpha edits remain separately reviewed. Hidden shoulder is authored, so complete exact W3 must stay PENDING."
+    },
+    {
+      "index": 28,
+      "sha256": "995c27f96d235b66790ea800585f19cb9d3975e01e6609cb5aafdb13ae6e5f0e",
+      "points": {
+        "shoulder": null,
+        "elbow": [
+          97.40375,
+          109.4653125
+        ],
+        "wrist": [
+          72.8853125,
+          106.246875
+        ],
+        "tip": [
+          53.3853125,
+          100.67718749999999
+        ]
+      },
+      "authored_points": {
+        "shoulder": [
+          120.9375,
+          99.9547803617571
+        ],
+        "elbow": [
+          97.74256209493032,
+          109.44813392253647
+        ],
+        "wrist": [
+          72.89544471056072,
+          106.16946590985842
+        ],
+        "tip": [
+          53.11679821438045,
+          100.71888481395294
+        ]
+      },
+      "flags": {
+        "hand_open": true
+      },
+      "point_authority": {
+        "shoulder": "AUTHORED_HIDDEN_UNDER_FRILL; deliberately missing from validated points",
+        "elbow": "RASTER_AXIS_ESTIMATE",
+        "wrist": "RASTER_SKIN_CENTER",
+        "tip": "RASTER_COLOR_ENVELOPE"
+      },
+      "measurement_uncertainty_native_px": {
+        "shoulder": 4,
+        "elbow": 2,
+        "wrist": 1.5,
+        "tip": 1.5
+      },
+      "observation_source_native_sha256": "f062779e0a6881e11bccd288fb73e61896b724955adc247af0b1b7b11333f3b4",
+      "transfer_to_this_canvas": {
+        "scale": 0.3125,
+        "offset": [
+          15,
+          -10
+        ]
+      },
+      "actual_final_rgba_landmarks_remeasured": false,
+      "limitation": "Transferred native RGB estimates; boundary-alpha edits remain separately reviewed. Hidden shoulder is authored, so complete exact W3 must stay PENDING."
+    },
+    {
+      "index": 29,
+      "sha256": "6eaf78d3469c1646e76bc9eef1d07125c88acc398022e8ae000f370d74f5e502",
+      "points": {
+        "shoulder": null,
+        "elbow": [
+          98.166875,
+          113.1634375
+        ],
+        "wrist": [
+          74.2428125,
+          116.701875
+        ],
+        "tip": [
+          54.21875,
+          115.46875
+        ]
+      },
+      "authored_points": {
+        "shoulder": [
+          120.78125,
+          100.625
+        ],
+        "elbow": [
+          99.04541605243523,
+          113.10227649985727
+        ],
+        "wrist": [
+          74.23718741094842,
+          116.6632732594336
+        ],
+        "tip": [
+          53.75282821863037,
+          115.52541563037748
+        ]
+      },
+      "flags": {
+        "hand_open": true
+      },
+      "point_authority": {
+        "shoulder": "AUTHORED_HIDDEN_UNDER_FRILL; deliberately missing from validated points",
+        "elbow": "RASTER_AXIS_ESTIMATE",
+        "wrist": "RASTER_SKIN_CENTER",
+        "tip": "RASTER_COLOR_ENVELOPE"
+      },
+      "measurement_uncertainty_native_px": {
+        "shoulder": 4,
+        "elbow": 2,
+        "wrist": 1.5,
+        "tip": 1.5
+      },
+      "observation_source_native_sha256": "af7b30b46887181899b44d1fd722a9b47a3ef89acc705e40193fdb465d7dd132",
+      "transfer_to_this_canvas": {
+        "scale": 0.3125,
+        "offset": [
+          15,
+          -10
+        ]
+      },
+      "actual_final_rgba_landmarks_remeasured": false,
+      "limitation": "Transferred native RGB estimates; boundary-alpha edits remain separately reviewed. Hidden shoulder is authored, so complete exact W3 must stay PENDING."
+    },
+    {
+      "index": 30,
+      "sha256": "18c81782f8579738ab8d5766dcfaa923a63685b60a74e0e673e8cacceba9d853",
+      "points": {
+        "shoulder": null,
+        "elbow": [
+          101.3996875,
+          116.3846875
+        ],
+        "wrist": [
+          77.6421875,
+          126.25125
+        ],
+        "tip": [
+          57.65625,
+          129.0625
+        ]
+      },
+      "authored_points": {
+        "shoulder": [
+          120.625,
+          101.29521963824288
+        ],
+        "elbow": [
+          100.76437990171019,
+          116.58196800280382
+        ],
+        "wrist": [
+          77.6724180114191,
+          126.32312821642023
+        ],
+        "tip": [
+          57.38950262343004,
+          129.4064762129304
+        ]
+      },
+      "flags": {
+        "hand_open": true
+      },
+      "point_authority": {
+        "shoulder": "AUTHORED_HIDDEN_UNDER_FRILL; deliberately missing from validated points",
+        "elbow": "RASTER_AXIS_ESTIMATE",
+        "wrist": "RASTER_SKIN_CENTER",
+        "tip": "RASTER_COLOR_ENVELOPE"
+      },
+      "measurement_uncertainty_native_px": {
+        "shoulder": 4,
+        "elbow": 2,
+        "wrist": 1.5,
+        "tip": 1.5
+      },
+      "observation_source_native_sha256": "3222ff4232e3fe05596bdbd47e4b1cb628d72fd66454e513d16bc14defb2269d",
+      "transfer_to_this_canvas": {
+        "scale": 0.3125,
+        "offset": [
+          15,
+          -10
+        ]
+      },
+      "actual_final_rgba_landmarks_remeasured": false,
+      "limitation": "Transferred native RGB estimates; boundary-alpha edits remain separately reviewed. Hidden shoulder is authored, so complete exact W3 must stay PENDING."
+    },
+    {
+      "index": 31,
+      "sha256": "293aa5b8774d8ea6c276cd779fa37182d9ff6c07f1709030a2fa709514785e72",
+      "points": {
+        "shoulder": null,
+        "elbow": [
+          103.57968749999999,
+          119.4621875
+        ],
+        "wrist": [
+          82.7528125,
+          134.6671875
+        ],
+        "tip": [
+          64.53125,
+          141.875
+        ]
+      },
+      "authored_points": {
+        "shoulder": [
+          120.46875,
+          101.93152454780362
+        ],
+        "elbow": [
+          103.01693657437681,
+          119.91938474314753
+        ],
+        "wrist": [
+          82.77580674839984,
+          134.6986123825726
+        ],
+        "tip": [
+          64.26257834175952,
+          141.82120858382928
+        ]
+      },
+      "flags": {
+        "hand_open": false
+      },
+      "point_authority": {
+        "shoulder": "AUTHORED_HIDDEN_UNDER_FRILL; deliberately missing from validated points",
+        "elbow": "RASTER_AXIS_ESTIMATE",
+        "wrist": "RASTER_SKIN_CENTER",
+        "tip": "RASTER_COLOR_ENVELOPE"
+      },
+      "measurement_uncertainty_native_px": {
+        "shoulder": 4,
+        "elbow": 2,
+        "wrist": 1.5,
+        "tip": 1.5
+      },
+      "observation_source_native_sha256": "26d98c51d6129b550cedcde80f95fed58512a37b5683db62b1f53ed8e734e462",
+      "transfer_to_this_canvas": {
+        "scale": 0.3125,
+        "offset": [
+          15,
+          -10
+        ]
+      },
+      "actual_final_rgba_landmarks_remeasured": false,
+      "limitation": "Transferred native RGB estimates; boundary-alpha edits remain separately reviewed. Hidden shoulder is authored, so complete exact W3 must stay PENDING."
+    },
+    {
+      "index": 32,
+      "sha256": "b1aa77994c970ab62b09138b67ef18b20186f2471636271be3ee129f63df7695",
+      "points": {
+        "shoulder": null,
+        "elbow": [
+          106.811875,
+          121.86500000000001
+        ],
+        "wrist": [
+          89.07875,
+          141.565625
+        ],
+        "tip": [
+          74.140625,
+          151.875
+        ]
+      },
+      "authored_points": {
+        "shoulder": [
+          120.3125,
+          102.5
+        ],
+        "elbow": [
+          105.98206424679547,
+          123.06131117835818
+        ],
+        "wrist": [
+          89.050084668428,
+          141.53932443216192
+        ],
+        "tip": [
+          74.02645219864712,
+          152.05898513879464
+        ]
+      },
+      "flags": {
+        "hand_open": false
+      },
+      "point_authority": {
+        "shoulder": "AUTHORED_HIDDEN_UNDER_FRILL; deliberately missing from validated points",
+        "elbow": "RASTER_AXIS_ESTIMATE",
+        "wrist": "RASTER_SKIN_CENTER",
+        "tip": "RASTER_COLOR_ENVELOPE"
+      },
+      "measurement_uncertainty_native_px": {
+        "shoulder": 4,
+        "elbow": 2,
+        "wrist": 1.5,
+        "tip": 1.5
+      },
+      "observation_source_native_sha256": "b082fb29666fa95704f936732473650a4c906ad6c963e69ef7d239e737b51283",
+      "transfer_to_this_canvas": {
+        "scale": 0.3125,
+        "offset": [
+          15,
+          -10
+        ]
+      },
+      "actual_final_rgba_landmarks_remeasured": false,
+      "limitation": "Transferred native RGB estimates; boundary-alpha edits remain separately reviewed. Hidden shoulder is authored, so complete exact W3 must stay PENDING."
+    },
+    {
+      "index": 33,
+      "sha256": "cad38b1f506711ff2342c42f44424af68b925f5ef1813038e495fd49c123d7ce",
+      "points": {
+        "shoulder": null,
+        "elbow": [
+          110.28968750000001,
+          125.52625
+        ],
+        "wrist": [
+          96.399375,
+          146.9334375
+        ],
+        "tip": [
+          85.46875,
+          159.84375
+        ]
+      },
+      "authored_points": {
+        "shoulder": [
+          120.15625,
+          102.98237645348837
+        ],
+        "elbow": [
+          110.06702092631559,
+          125.92439822465582
+        ],
+        "wrist": [
+          96.20425140187466,
+          146.80387444802483
+        ],
+        "tip": [
+          85.65278790599861,
+          159.93456559725036
+        ]
+      },
+      "flags": {
+        "hand_open": false
+      },
+      "point_authority": {
+        "shoulder": "AUTHORED_HIDDEN_UNDER_FRILL; deliberately missing from validated points",
+        "elbow": "RASTER_AXIS_ESTIMATE",
+        "wrist": "RASTER_SKIN_CENTER",
+        "tip": "RASTER_COLOR_ENVELOPE"
+      },
+      "measurement_uncertainty_native_px": {
+        "shoulder": 4,
+        "elbow": 2,
+        "wrist": 1.5,
+        "tip": 1.5
+      },
+      "observation_source_native_sha256": "e330efa36f51f29a5059a759cac007be2ce33ab287101f01695e4785bacd3612",
+      "transfer_to_this_canvas": {
+        "scale": 0.3125,
+        "offset": [
+          15,
+          -10
+        ]
+      },
+      "actual_final_rgba_landmarks_remeasured": false,
+      "limitation": "Transferred native RGB estimates; boundary-alpha edits remain separately reviewed. Hidden shoulder is authored, so complete exact W3 must stay PENDING."
+    },
+    {
+      "index": 34,
+      "sha256": "ce3f7e63f746bc7ad02ed564039290071747db31f71d44af75e93b639d8316ac",
+      "points": {
+        "shoulder": null,
+        "elbow": [
+          114.96875,
+          127.9075
+        ],
+        "wrist": [
+          104.285625,
+          150.68375
+        ],
+        "tip": [
+          98.90625,
+          165.859375
+        ]
+      },
+      "authored_points": {
+        "shoulder": [
+          120.0,
+          103.4375
+        ],
+        "elbow": [
+          114.88766378019321,
+          127.97304410698186
+        ],
+        "wrist": [
+          104.07429663531417,
+          150.58277646364743
+        ],
+        "tip": [
+          98.07113557364463,
+          165.5917498551774
+        ]
+      },
+      "flags": {
+        "hand_open": false
+      },
+      "point_authority": {
+        "shoulder": "AUTHORED_HIDDEN_UNDER_FRILL; deliberately missing from validated points",
+        "elbow": "RASTER_AXIS_ESTIMATE",
+        "wrist": "RASTER_SKIN_CENTER",
+        "tip": "RASTER_COLOR_ENVELOPE"
+      },
+      "measurement_uncertainty_native_px": {
+        "shoulder": 4,
+        "elbow": 2,
+        "wrist": 1.5,
+        "tip": 1.5
+      },
+      "observation_source_native_sha256": "75f1f514e371987556386d14b02792eb555334bf20d3e28f895d5f7fd8ef1b16",
+      "transfer_to_this_canvas": {
+        "scale": 0.3125,
+        "offset": [
+          15,
+          -10
+        ]
+      },
+      "actual_final_rgba_landmarks_remeasured": false,
+      "limitation": "Transferred native RGB estimates; boundary-alpha edits remain separately reviewed. Hidden shoulder is authored, so complete exact W3 must stay PENDING."
+    },
+    {
+      "index": 35,
+      "sha256": "f3602036fff3ccd107e5edd83faa880a70887ab8147de4e42724fc62d82d6cce",
+      "points": {
+        "shoulder": null,
+        "elbow": [
+          114.4725,
+          128.99656249999998
+        ],
+        "wrist": [
+          104.285625,
+          150.68375
+        ],
+        "tip": [
+          98.90625,
+          165.859375
+        ]
+      },
+      "authored_points": {
+        "shoulder": [
+          120.0,
+          103.4375
+        ],
+        "elbow": [
+          114.88766378019321,
+          127.97304410698186
+        ],
+        "wrist": [
+          104.07429663531417,
+          150.58277646364743
+        ],
+        "tip": [
+          98.07113557364463,
+          165.5917498551774
+        ]
+      },
+      "flags": {
+        "hand_open": false
+      },
+      "point_authority": {
+        "shoulder": "AUTHORED_HIDDEN_UNDER_FRILL; deliberately missing from validated points",
+        "elbow": "RASTER_AXIS_ESTIMATE",
+        "wrist": "RASTER_SKIN_CENTER",
+        "tip": "RASTER_COLOR_ENVELOPE"
+      },
+      "measurement_uncertainty_native_px": {
+        "shoulder": 4,
+        "elbow": 2,
+        "wrist": 1.5,
+        "tip": 1.5
+      },
+      "observation_source_native_sha256": "e5ce785dc8fff3007e96aa411294a1c9baccda37e611e1f853abaa4b4be62071",
+      "transfer_to_this_canvas": {
+        "scale": 0.3125,
+        "offset": [
+          15,
+          -10
+        ]
+      },
+      "actual_final_rgba_landmarks_remeasured": false,
+      "limitation": "Transferred native RGB estimates; boundary-alpha edits remain separately reviewed. Hidden shoulder is authored, so complete exact W3 must stay PENDING."
+    },
+    {
+      "index": 36,
+      "sha256": "9d82e229247bfb95a2cb13c4ccf36f28247fe17065568f3cad8643510d484349",
+      "points": {
+        "shoulder": null,
+        "elbow": [
+          114.95593749999999,
+          127.96531249999998
+        ],
+        "wrist": [
+          104.285625,
+          150.68375
+        ],
+        "tip": [
+          98.90625,
+          165.859375
+        ]
+      },
+      "authored_points": {
+        "shoulder": [
+          120.0,
+          103.4375
+        ],
+        "elbow": [
+          114.88766378019321,
+          127.97304410698186
+        ],
+        "wrist": [
+          104.07429663531417,
+          150.58277646364743
+        ],
+        "tip": [
+          98.07113557364463,
+          165.5917498551774
+        ]
+      },
+      "flags": {
+        "hand_open": false
+      },
+      "point_authority": {
+        "shoulder": "AUTHORED_HIDDEN_UNDER_FRILL; deliberately missing from validated points",
+        "elbow": "RASTER_AXIS_ESTIMATE",
+        "wrist": "RASTER_SKIN_CENTER",
+        "tip": "RASTER_COLOR_ENVELOPE"
+      },
+      "measurement_uncertainty_native_px": {
+        "shoulder": 4,
+        "elbow": 2,
+        "wrist": 1.5,
+        "tip": 1.5
+      },
+      "observation_source_native_sha256": "60fed07cd549c82aca627c102ad01ea7b6f791d1401e61e5773e460a870f9125",
+      "transfer_to_this_canvas": {
+        "scale": 0.3125,
+        "offset": [
+          15,
+          -10
+        ]
+      },
+      "actual_final_rgba_landmarks_remeasured": false,
+      "limitation": "Transferred native RGB estimates; boundary-alpha edits remain separately reviewed. Hidden shoulder is authored, so complete exact W3 must stay PENDING."
+    },
+    {
+      "index": 37,
+      "sha256": "0dd7b839b1b328acddf9a94c3ab0ddd72c758db188972af43b4aae264d439d8a",
+      "points": {
+        "shoulder": null,
+        "elbow": [
+          114.96875,
+          127.9075
+        ],
+        "wrist": [
+          104.285625,
+          150.68375
+        ],
+        "tip": [
+          98.90625,
+          165.859375
+        ]
+      },
+      "authored_points": {
+        "shoulder": [
+          120.0,
+          103.4375
+        ],
+        "elbow": [
+          114.88766378019321,
+          127.97304410698186
+        ],
+        "wrist": [
+          104.07429663531417,
+          150.58277646364743
+        ],
+        "tip": [
+          98.07113557364463,
+          165.5917498551774
+        ]
+      },
+      "flags": {
+        "hand_open": false
+      },
+      "point_authority": {
+        "shoulder": "AUTHORED_HIDDEN_UNDER_FRILL; deliberately missing from validated points",
+        "elbow": "RASTER_AXIS_ESTIMATE",
+        "wrist": "RASTER_SKIN_CENTER",
+        "tip": "RASTER_COLOR_ENVELOPE"
+      },
+      "measurement_uncertainty_native_px": {
+        "shoulder": 4,
+        "elbow": 2,
+        "wrist": 1.5,
+        "tip": 1.5
+      },
+      "observation_source_native_sha256": "c7f3b29d76fc1a30a96c03073e0e0130aadb58eb37fd38eede5f48e186ae64d9",
+      "transfer_to_this_canvas": {
+        "scale": 0.3125,
+        "offset": [
+          15,
+          -10
+        ]
+      },
+      "actual_final_rgba_landmarks_remeasured": false,
+      "limitation": "Transferred native RGB estimates; boundary-alpha edits remain separately reviewed. Hidden shoulder is authored, so complete exact W3 must stay PENDING."
+    },
+    {
+      "index": 38,
+      "sha256": "88e815dafbeda3a51dbe13a69bbe16503d58565953ca65d5407fa46844fb92c8",
+      "points": {
+        "shoulder": null,
+        "elbow": [
+          114.4725,
+          128.99656249999998
+        ],
+        "wrist": [
+          104.285625,
+          150.68375
+        ],
+        "tip": [
+          98.90625,
+          165.859375
+        ]
+      },
+      "authored_points": {
+        "shoulder": [
+          120.0,
+          103.4375
+        ],
+        "elbow": [
+          114.88766378019321,
+          127.97304410698186
+        ],
+        "wrist": [
+          104.07429663531417,
+          150.58277646364743
+        ],
+        "tip": [
+          98.07113557364463,
+          165.5917498551774
+        ]
+      },
+      "flags": {
+        "hand_open": false
+      },
+      "point_authority": {
+        "shoulder": "AUTHORED_HIDDEN_UNDER_FRILL; deliberately missing from validated points",
+        "elbow": "RASTER_AXIS_ESTIMATE",
+        "wrist": "RASTER_SKIN_CENTER",
+        "tip": "RASTER_COLOR_ENVELOPE"
+      },
+      "measurement_uncertainty_native_px": {
+        "shoulder": 4,
+        "elbow": 2,
+        "wrist": 1.5,
+        "tip": 1.5
+      },
+      "observation_source_native_sha256": "e50eb2ec559e7bd59fb0f146da0e390681e59f72003cb6ef604120a0356603ea",
+      "transfer_to_this_canvas": {
+        "scale": 0.3125,
+        "offset": [
+          15,
+          -10
+        ]
+      },
+      "actual_final_rgba_landmarks_remeasured": false,
+      "limitation": "Transferred native RGB estimates; boundary-alpha edits remain separately reviewed. Hidden shoulder is authored, so complete exact W3 must stay PENDING."
+    },
+    {
+      "index": 39,
+      "sha256": "b674cdc6d1950fbbdd875dd7a7202d77454a7d32f1713e835a9869614a4aabc2",
+      "points": {
+        "shoulder": null,
+        "elbow": [
+          114.95593749999999,
+          127.96531249999998
+        ],
+        "wrist": [
+          104.285625,
+          150.68375
+        ],
+        "tip": [
+          98.90625,
+          165.859375
+        ]
+      },
+      "authored_points": {
+        "shoulder": [
+          120.0,
+          103.4375
+        ],
+        "elbow": [
+          114.88766378019321,
+          127.97304410698186
+        ],
+        "wrist": [
+          104.07429663531417,
+          150.58277646364743
+        ],
+        "tip": [
+          98.07113557364463,
+          165.5917498551774
+        ]
+      },
+      "flags": {
+        "hand_open": false
+      },
+      "point_authority": {
+        "shoulder": "AUTHORED_HIDDEN_UNDER_FRILL; deliberately missing from validated points",
+        "elbow": "RASTER_AXIS_ESTIMATE",
+        "wrist": "RASTER_SKIN_CENTER",
+        "tip": "RASTER_COLOR_ENVELOPE"
+      },
+      "measurement_uncertainty_native_px": {
+        "shoulder": 4,
+        "elbow": 2,
+        "wrist": 1.5,
+        "tip": 1.5
+      },
+      "observation_source_native_sha256": "d80a2ba49af8b083fd44e43c4b55e666eaec378eb000bbc07cff757935b8bd5f",
+      "transfer_to_this_canvas": {
+        "scale": 0.3125,
+        "offset": [
+          15,
+          -10
+        ]
+      },
+      "actual_final_rgba_landmarks_remeasured": false,
+      "limitation": "Transferred native RGB estimates; boundary-alpha edits remain separately reviewed. Hidden shoulder is authored, so complete exact W3 must stay PENDING."
+    },
+    {
+      "index": 40,
+      "sha256": "432f8283ee8d9cd7f53a36b1f12bb1b82a865e048a03c3bd7cbd3a103ff2e789",
+      "points": {
+        "shoulder": [
+          120,
+          103
+        ],
+        "elbow": [
+          115,
+          127
+        ],
+        "wrist": [
+          104,
+          150
+        ],
+        "tip": [
+          98,
+          165
+        ]
+      },
+      "flags": {
+        "hand_open": false
+      },
+      "point_authority": "Exact approved complete K0 source calibration under known whole-image mapping; no generated joint inference",
+      "canonical_source_landmarks": {
+        "shoulder": [
+          120,
+          103
+        ],
+        "elbow": [
+          115,
+          127
+        ],
+        "wrist": [
+          104,
+          150
+        ],
+        "tip": [
+          98,
+          165
+        ]
+      },
+      "canonical_to_this_canvas": {
+        "scale": 1,
+        "offset": [
+          0,
+          0
+        ]
+      }
+    }
+  ],
+  "all41_indices_present": true,
+  "complete_actual_joint_coverage": false,
+  "missing_measured_shoulder_indices": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29,
+    30,
+    31,
+    32,
+    33,
+    34,
+    35,
+    36,
+    37,
+    38,
+    39
+  ],
+  "human_acceptance": false
+}

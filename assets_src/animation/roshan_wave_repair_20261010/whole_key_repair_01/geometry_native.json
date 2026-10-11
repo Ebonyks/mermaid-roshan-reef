@@ -1,0 +1,52 @@
+{
+ "label": "",
+ "frames": 9,
+ "limits": {
+  "figure_scale_pp_pct": 1.0,
+  "head_scale_pp_pct": 2.0,
+  "arm_length_pct": 5.0,
+  "master_layers": 1
+ },
+ "contract_cell_px": {
+  "upper_arm": 25.5,
+  "forearm": 24.5,
+  "hand": 20.5
+ },
+ "checks": {
+  "figure_scale_pp_pct": {
+   "value": 1.11,
+   "pass": false
+  },
+  "head_scale_pp_pct": {
+   "value": 17.54,
+   "pass": false
+  },
+  "master_layers": {
+   "value": 1,
+   "pass": true
+  }
+ },
+ "figure_scale_pct": [
+  0.0,
+  -0.02,
+  0.62,
+  -0.41,
+  -0.17,
+  -0.1,
+  0.14,
+  0.43,
+  0.7
+ ],
+ "head_scale_pct": [
+  -0.15,
+  0.17,
+  NaN,
+  0.13,
+  0.43,
+  0.64,
+  0.45,
+  0.79,
+  -16.76
+ ],
+ "all_pass": false
+}

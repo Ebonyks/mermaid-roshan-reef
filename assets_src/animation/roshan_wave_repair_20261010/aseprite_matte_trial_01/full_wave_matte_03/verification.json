@@ -1,0 +1,1763 @@
+{
+  "schema": "reef.whole-cel-matte-verification.v1",
+  "verified_at_utc": "2026-10-11T01:44:40.027150+00:00",
+  "status": "UNACCEPTED_MATTE_CANDIDATE_REVIEW_REQUIRED",
+  "checks": {
+    "classified_field_stays_alpha_zero": true,
+    "all_source_copies_byte_exact": true,
+    "all_reviewed_background_seed_pixels_transparent": true,
+    "all_deep_retained_pixels_unchanged": true,
+    "all_closed_neutral_highlights_unchanged": true,
+    "all_final_frames_256": true,
+    "all_native_frames_match_source_size": true,
+    "masters_have_41_frames_one_layer_1708ms": true,
+    "native_endpoint_master_pixels_exact": true,
+    "endpoints_exact": true
+  },
+  "machine_preservation_checks_pass": true,
+  "frames": [
+    {
+      "frame_index": 0,
+      "source_path": "assets_src/animation/roshan_wave_repair_20261010/aseprite_paint_trial_01/full_wave_draft_06/0000.png",
+      "source_sha256": "201c00fad7f4790ed99e4bd8ea70fed5b1e7b346e70cac61b936569339e6b41b",
+      "preserved_source_sha256": "201c00fad7f4790ed99e4bd8ea70fed5b1e7b346e70cac61b936569339e6b41b",
+      "source_copy_byte_exact": true,
+      "native_rgba_sha256": "7b8c8cb81e0f31b35bfd51ab6c8075515ec4ef6f47a7f0aac347eb64464e4415",
+      "preservation_matte_sha256": "125baf90102215ab45be7fc41a83df3b6855598d8a1f7cc443b83f3a9c065e31",
+      "native_endpoint_replacement": true,
+      "final_rgba_sha256": "432f8283ee8d9cd7f53a36b1f12bb1b82a865e048a03c3bd7cbd3a103ff2e789",
+      "native_dimensions": [
+        768,
+        896
+      ],
+      "final_dimensions": [
+        256,
+        256
+      ],
+      "reviewed_background_seeds": [
+        [
+          593,
+          222
+        ],
+        [
+          306,
+          236
+        ]
+      ],
+      "source_matte_seed_pixels_transparent": true,
+      "background_mask_pixels": 523569,
+      "deep_retained_pixels": 146974,
+      "modified_retained_pixels_beyond4px": 0,
+      "classifier_min_rgb": 170,
+      "classifier_max_chroma": 22,
+      "modification_band_px": 4,
+      "classified_field_nonzero_alpha_pixels": 0,
+      "protected_closed_neutral_pixels": 362,
+      "modified_protected_closed_neutral_pixels": 0,
+      "native_foreground_pixels_on_left_edge": 0,
+      "native_foreground_pixels_on_right_edge": 0
+    },
+    {
+      "frame_index": 1,
+      "source_path": "assets_src/animation/roshan_wave_repair_20261010/aseprite_paint_trial_01/full_wave_draft_06/0001.png",
+      "source_sha256": "6d8fbd5597d1018c94e95e6a5e281d9e12d0af6b56d767436c037e28ac875e81",
+      "preserved_source_sha256": "6d8fbd5597d1018c94e95e6a5e281d9e12d0af6b56d767436c037e28ac875e81",
+      "source_copy_byte_exact": true,
+      "native_rgba_sha256": "cbcafbfaa273d5fc8adfcbc22759262422fea6d6fa8bd7dad69fdecc294af657",
+      "preservation_matte_sha256": "cbcafbfaa273d5fc8adfcbc22759262422fea6d6fa8bd7dad69fdecc294af657",
+      "native_endpoint_replacement": false,
+      "final_rgba_sha256": "9409b42b6c68b66979b62fbab607041083e8e326d74b70924fd116ce8c831c05",
+      "native_dimensions": [
+        768,
+        896
+      ],
+      "final_dimensions": [
+        256,
+        256
+      ],
+      "reviewed_background_seeds": [
+        [
+          585,
+          219
+        ],
+        [
+          306,
+          236
+        ]
+      ],
+      "source_matte_seed_pixels_transparent": true,
+      "background_mask_pixels": 525377,
+      "deep_retained_pixels": 144256,
+      "modified_retained_pixels_beyond4px": 0,
+      "classifier_min_rgb": 170,
+      "classifier_max_chroma": 22,
+      "modification_band_px": 4,
+      "classified_field_nonzero_alpha_pixels": 0,
+      "protected_closed_neutral_pixels": 402,
+      "modified_protected_closed_neutral_pixels": 0,
+      "native_foreground_pixels_on_left_edge": 0,
+      "native_foreground_pixels_on_right_edge": 0
+    },
+    {
+      "frame_index": 2,
+      "source_path": "assets_src/animation/roshan_wave_repair_20261010/aseprite_paint_trial_01/full_wave_draft_06/0002.png",
+      "source_sha256": "1144473b217db49ef941b630425413f445715dfa1ecdd91c84a9a5b573c9ba6c",
+      "preserved_source_sha256": "1144473b217db49ef941b630425413f445715dfa1ecdd91c84a9a5b573c9ba6c",
+      "source_copy_byte_exact": true,
+      "native_rgba_sha256": "8cc8eed8723f6b29b6acca7671f759c2ef4a09a6abe4156700508e418a8ed7d9",
+      "preservation_matte_sha256": "8cc8eed8723f6b29b6acca7671f759c2ef4a09a6abe4156700508e418a8ed7d9",
+      "native_endpoint_replacement": false,
+      "final_rgba_sha256": "0de271f00f2560272b24d2a8138af1504426c9efb97edc04e26dc441bb01128f",
+      "native_dimensions": [
+        768,
+        896
+      ],
+      "final_dimensions": [
+        256,
+        256
+      ],
+      "reviewed_background_seeds": [
+        [
+          587,
+          221
+        ],
+        [
+          306,
+          236
+        ]
+      ],
+      "source_matte_seed_pixels_transparent": true,
+      "background_mask_pixels": 525466,
+      "deep_retained_pixels": 144434,
+      "modified_retained_pixels_beyond4px": 0,
+      "classifier_min_rgb": 170,
+      "classifier_max_chroma": 22,
+      "modification_band_px": 4,
+      "classified_field_nonzero_alpha_pixels": 0,
+      "protected_closed_neutral_pixels": 465,
+      "modified_protected_closed_neutral_pixels": 0,
+      "native_foreground_pixels_on_left_edge": 0,
+      "native_foreground_pixels_on_right_edge": 0
+    },
+    {
+      "frame_index": 3,
+      "source_path": "assets_src/animation/roshan_wave_repair_20261010/aseprite_paint_trial_01/full_wave_draft_06/0003.png",
+      "source_sha256": "45813e4c6a4058fc84696398eec2815224515498ec400a2f6f721d8995fc0504",
+      "preserved_source_sha256": "45813e4c6a4058fc84696398eec2815224515498ec400a2f6f721d8995fc0504",
+      "source_copy_byte_exact": true,
+      "native_rgba_sha256": "2977521969f87819a52345f8ea675c04e656a609dc75a92bb65cd35254c82c5a",
+      "preservation_matte_sha256": "2977521969f87819a52345f8ea675c04e656a609dc75a92bb65cd35254c82c5a",
+      "native_endpoint_replacement": false,
+      "final_rgba_sha256": "a3a9cd4c5f3b1094eb7c076ae90154ef178d819ed33656757509069ebf3db430",
+      "native_dimensions": [
+        768,
+        896
+      ],
+      "final_dimensions": [
+        256,
+        256
+      ],
+      "reviewed_background_seeds": [
+        [
+          586,
+          222
+        ],
+        [
+          306,
+          236
+        ]
+      ],
+      "source_matte_seed_pixels_transparent": true,
+      "background_mask_pixels": 525623,
+      "deep_retained_pixels": 144214,
+      "modified_retained_pixels_beyond4px": 0,
+      "classifier_min_rgb": 170,
+      "classifier_max_chroma": 22,
+      "modification_band_px": 4,
+      "classified_field_nonzero_alpha_pixels": 0,
+      "protected_closed_neutral_pixels": 525,
+      "modified_protected_closed_neutral_pixels": 0,
+      "native_foreground_pixels_on_left_edge": 0,
+      "native_foreground_pixels_on_right_edge": 0
+    },
+    {
+      "frame_index": 4,
+      "source_path": "assets_src/animation/roshan_wave_repair_20261010/aseprite_paint_trial_01/full_wave_draft_06/0004.png",
+      "source_sha256": "a80351be3341206865c70757b435a24afd735295ebec00742160849138b2ff62",
+      "preserved_source_sha256": "a80351be3341206865c70757b435a24afd735295ebec00742160849138b2ff62",
+      "source_copy_byte_exact": true,
+      "native_rgba_sha256": "d00dcfe0b37101d0846a710019eac526839108920959d2dfdf3b23090e1aec2e",
+      "preservation_matte_sha256": "d00dcfe0b37101d0846a710019eac526839108920959d2dfdf3b23090e1aec2e",
+      "native_endpoint_replacement": false,
+      "final_rgba_sha256": "3664a1dadc21383c0972752d5b3cb97fbd1c5bf34b566b4a0fe49f63dbc8e753",
+      "native_dimensions": [
+        768,
+        896
+      ],
+      "final_dimensions": [
+        256,
+        256
+      ],
+      "reviewed_background_seeds": [
+        [
+          589,
+          225
+        ],
+        [
+          305,
+          240
+        ]
+      ],
+      "source_matte_seed_pixels_transparent": true,
+      "background_mask_pixels": 525840,
+      "deep_retained_pixels": 144008,
+      "modified_retained_pixels_beyond4px": 0,
+      "classifier_min_rgb": 170,
+      "classifier_max_chroma": 22,
+      "modification_band_px": 4,
+      "classified_field_nonzero_alpha_pixels": 0,
+      "protected_closed_neutral_pixels": 632,
+      "modified_protected_closed_neutral_pixels": 0,
+      "native_foreground_pixels_on_left_edge": 0,
+      "native_foreground_pixels_on_right_edge": 0
+    },
+    {
+      "frame_index": 5,
+      "source_path": "assets_src/animation/roshan_wave_repair_20261010/aseprite_paint_trial_01/full_wave_draft_06/0005.png",
+      "source_sha256": "23b9f06dc1fcdfeccb7de4a1c01c6a8c3372f44801206b87d64add195f51b5a4",
+      "preserved_source_sha256": "23b9f06dc1fcdfeccb7de4a1c01c6a8c3372f44801206b87d64add195f51b5a4",
+      "source_copy_byte_exact": true,
+      "native_rgba_sha256": "38f7d9ca736427bb262be9402780b886b95c43da61e82c8de2566dcc4c5894c0",
+      "preservation_matte_sha256": "38f7d9ca736427bb262be9402780b886b95c43da61e82c8de2566dcc4c5894c0",
+      "native_endpoint_replacement": false,
+      "final_rgba_sha256": "e41c1fd50cd5cc46220ff6b9ccda5d2a84f25f82a3159e3060a0260827600f32",
+      "native_dimensions": [
+        768,
+        896
+      ],
+      "final_dimensions": [
+        256,
+        256
+      ],
+      "reviewed_background_seeds": [
+        [
+          591,
+          227
+        ],
+        [
+          305,
+          241
+        ]
+      ],
+      "source_matte_seed_pixels_transparent": true,
+      "background_mask_pixels": 525679,
+      "deep_retained_pixels": 144058,
+      "modified_retained_pixels_beyond4px": 0,
+      "classifier_min_rgb": 170,
+      "classifier_max_chroma": 22,
+      "modification_band_px": 4,
+      "classified_field_nonzero_alpha_pixels": 0,
+      "protected_closed_neutral_pixels": 735,
+      "modified_protected_closed_neutral_pixels": 0,
+      "native_foreground_pixels_on_left_edge": 0,
+      "native_foreground_pixels_on_right_edge": 0
+    },
+    {
+      "frame_index": 6,
+      "source_path": "assets_src/animation/roshan_wave_repair_20261010/aseprite_paint_trial_01/full_wave_draft_06/0006.png",
+      "source_sha256": "9c1606e4a777120b47636fba80706cbbe75794ff7238725542a452132ef60632",
+      "preserved_source_sha256": "9c1606e4a777120b47636fba80706cbbe75794ff7238725542a452132ef60632",
+      "source_copy_byte_exact": true,
+      "native_rgba_sha256": "f17e4f03f27c64118c70936b05a25600ac8eb01070d7a7d5d112ba25e618d223",
+      "preservation_matte_sha256": "f17e4f03f27c64118c70936b05a25600ac8eb01070d7a7d5d112ba25e618d223",
+      "native_endpoint_replacement": false,
+      "final_rgba_sha256": "c990c853721c0f7c4fa5488b98cf9df11f4b72304f5df73c446231b4394f93bf",
+      "native_dimensions": [
+        768,
+        896
+      ],
+      "final_dimensions": [
+        256,
+        256
+      ],
+      "reviewed_background_seeds": [
+        [
+          588,
+          225
+        ]
+      ],
+      "source_matte_seed_pixels_transparent": true,
+      "background_mask_pixels": 525313,
+      "deep_retained_pixels": 144243,
+      "modified_retained_pixels_beyond4px": 0,
+      "classifier_min_rgb": 170,
+      "classifier_max_chroma": 22,
+      "modification_band_px": 4,
+      "classified_field_nonzero_alpha_pixels": 0,
+      "protected_closed_neutral_pixels": 747,
+      "modified_protected_closed_neutral_pixels": 0,
+      "native_foreground_pixels_on_left_edge": 0,
+      "native_foreground_pixels_on_right_edge": 0
+    },
+    {
+      "frame_index": 7,
+      "source_path": "assets_src/animation/roshan_wave_repair_20261010/aseprite_paint_trial_01/full_wave_draft_06/0007.png",
+      "source_sha256": "c5359f44f0776c110312a999ad04fdde8bd202d50eacd5fa2dfa1fdf08c02fe5",
+      "preserved_source_sha256": "c5359f44f0776c110312a999ad04fdde8bd202d50eacd5fa2dfa1fdf08c02fe5",
+      "source_copy_byte_exact": true,
+      "native_rgba_sha256": "0dcd7d7a0571b1031b58e422e4632ba6a982130df7f1b3eedd6528a014ed2237",
+      "preservation_matte_sha256": "0dcd7d7a0571b1031b58e422e4632ba6a982130df7f1b3eedd6528a014ed2237",
+      "native_endpoint_replacement": false,
+      "final_rgba_sha256": "9acd62a6f512cf00db2926d7fffcbe65c26455346d67a213357767743543be07",
+      "native_dimensions": [
+        768,
+        896
+      ],
+      "final_dimensions": [
+        256,
+        256
+      ],
+      "reviewed_background_seeds": [
+        [
+          588,
+          225
+        ]
+      ],
+      "source_matte_seed_pixels_transparent": true,
+      "background_mask_pixels": 524906,
+      "deep_retained_pixels": 144476,
+      "modified_retained_pixels_beyond4px": 0,
+      "classifier_min_rgb": 170,
+      "classifier_max_chroma": 22,
+      "modification_band_px": 4,
+      "classified_field_nonzero_alpha_pixels": 0,
+      "protected_closed_neutral_pixels": 746,
+      "modified_protected_closed_neutral_pixels": 0,
+      "native_foreground_pixels_on_left_edge": 0,
+      "native_foreground_pixels_on_right_edge": 0
+    },
+    {
+      "frame_index": 8,
+      "source_path": "assets_src/animation/roshan_wave_repair_20261010/aseprite_paint_trial_01/full_wave_draft_06/0008.png",
+      "source_sha256": "65b814813dab5d51a53930497a8c621b5db23d352947498e669c188c1bdc76e9",
+      "preserved_source_sha256": "65b814813dab5d51a53930497a8c621b5db23d352947498e669c188c1bdc76e9",
+      "source_copy_byte_exact": true,
+      "native_rgba_sha256": "d46b47f9ced703764c55c3c569b32854fc610a181a2da154d1053ccd7f3062f0",
+      "preservation_matte_sha256": "d46b47f9ced703764c55c3c569b32854fc610a181a2da154d1053ccd7f3062f0",
+      "native_endpoint_replacement": false,
+      "final_rgba_sha256": "f878c3d38624b12e43d70fc8e4f258ecead82b4af1b731e7b59fda4b0f92c9a6",
+      "native_dimensions": [
+        768,
+        896
+      ],
+      "final_dimensions": [
+        256,
+        256
+      ],
+      "reviewed_background_seeds": [
+        [
+          588,
+          225
+        ]
+      ],
+      "source_matte_seed_pixels_transparent": true,
+      "background_mask_pixels": 524604,
+      "deep_retained_pixels": 144759,
+      "modified_retained_pixels_beyond4px": 0,
+      "classifier_min_rgb": 170,
+      "classifier_max_chroma": 22,
+      "modification_band_px": 4,
+      "classified_field_nonzero_alpha_pixels": 0,
+      "protected_closed_neutral_pixels": 754,
+      "modified_protected_closed_neutral_pixels": 0,
+      "native_foreground_pixels_on_left_edge": 0,
+      "native_foreground_pixels_on_right_edge": 0
+    },
+    {
+      "frame_index": 9,
+      "source_path": "assets_src/animation/roshan_wave_repair_20261010/aseprite_paint_trial_01/full_wave_draft_06/0009.png",
+      "source_sha256": "1c957fb80ca31e1fe0b4e702e95fbe135ca881dad31993a47c13ed3e1e2cc3e2",
+      "preserved_source_sha256": "1c957fb80ca31e1fe0b4e702e95fbe135ca881dad31993a47c13ed3e1e2cc3e2",
+      "source_copy_byte_exact": true,
+      "native_rgba_sha256": "0fc99b6dd1790ecdca8d9e8d1e3132e74e28eb2304cadb36496d716c41fb9c9d",
+      "preservation_matte_sha256": "0fc99b6dd1790ecdca8d9e8d1e3132e74e28eb2304cadb36496d716c41fb9c9d",
+      "native_endpoint_replacement": false,
+      "final_rgba_sha256": "2c365d69a4d4fe4488f2e826ea2ee2ba0385827c0a26fffe07a9b8e8689e58dd",
+      "native_dimensions": [
+        768,
+        896
+      ],
+      "final_dimensions": [
+        256,
+        256
+      ],
+      "reviewed_background_seeds": [
+        [
+          588,
+          225
+        ],
+        [
+          307,
+          237
+        ]
+      ],
+      "source_matte_seed_pixels_transparent": true,
+      "background_mask_pixels": 524680,
+      "deep_retained_pixels": 144787,
+      "modified_retained_pixels_beyond4px": 0,
+      "classifier_min_rgb": 170,
+      "classifier_max_chroma": 22,
+      "modification_band_px": 4,
+      "classified_field_nonzero_alpha_pixels": 0,
+      "protected_closed_neutral_pixels": 731,
+      "modified_protected_closed_neutral_pixels": 0,
+      "native_foreground_pixels_on_left_edge": 0,
+      "native_foreground_pixels_on_right_edge": 0
+    },
+    {
+      "frame_index": 10,
+      "source_path": "assets_src/animation/roshan_wave_repair_20261010/aseprite_paint_trial_01/full_wave_draft_06/0010.png",
+      "source_sha256": "4204bdec2271a0cab6b34c628f4cfa072b7ea1cad0a2e43317019f63ad694265",
+      "preserved_source_sha256": "4204bdec2271a0cab6b34c628f4cfa072b7ea1cad0a2e43317019f63ad694265",
+      "source_copy_byte_exact": true,
+      "native_rgba_sha256": "a42679643d289f714fe1b859569440f3c594e65fc53d8ab71af5fa09096cf26c",
+      "preservation_matte_sha256": "a42679643d289f714fe1b859569440f3c594e65fc53d8ab71af5fa09096cf26c",
+      "native_endpoint_replacement": false,
+      "final_rgba_sha256": "0d766a3c43ac4a5de7b91d28cd9a346378cc88c961f1a0f871c69775751e33a7",
+      "native_dimensions": [
+        768,
+        896
+      ],
+      "final_dimensions": [
+        256,
+        256
+      ],
+      "reviewed_background_seeds": [
+        [
+          591,
+          227
+        ],
+        [
+          308,
+          238
+        ]
+      ],
+      "source_matte_seed_pixels_transparent": true,
+      "background_mask_pixels": 524724,
+      "deep_retained_pixels": 144762,
+      "modified_retained_pixels_beyond4px": 0,
+      "classifier_min_rgb": 170,
+      "classifier_max_chroma": 22,
+      "modification_band_px": 4,
+      "classified_field_nonzero_alpha_pixels": 0,
+      "protected_closed_neutral_pixels": 763,
+      "modified_protected_closed_neutral_pixels": 0,
+      "native_foreground_pixels_on_left_edge": 0,
+      "native_foreground_pixels_on_right_edge": 0
+    },
+    {
+      "frame_index": 11,
+      "source_path": "assets_src/animation/roshan_wave_repair_20261010/aseprite_paint_trial_01/full_wave_draft_06/0011.png",
+      "source_sha256": "bd28f485049bd51dd426201d022f8c75d7db5c4fdd18a5f2b31be88d384f681a",
+      "preserved_source_sha256": "bd28f485049bd51dd426201d022f8c75d7db5c4fdd18a5f2b31be88d384f681a",
+      "source_copy_byte_exact": true,
+      "native_rgba_sha256": "fca778dd7a0574a4f5632715451cd83a22fa84d553840000a5a7d1551cac615a",
+      "preservation_matte_sha256": "fca778dd7a0574a4f5632715451cd83a22fa84d553840000a5a7d1551cac615a",
+      "native_endpoint_replacement": false,
+      "final_rgba_sha256": "68c8e441f9e0a839ab81864f72cf63efd6f396de61a561cf78a00bab745dfd7c",
+      "native_dimensions": [
+        768,
+        896
+      ],
+      "final_dimensions": [
+        256,
+        256
+      ],
+      "reviewed_background_seeds": [
+        [
+          587,
+          225
+        ]
+      ],
+      "source_matte_seed_pixels_transparent": true,
+      "background_mask_pixels": 524827,
+      "deep_retained_pixels": 144610,
+      "modified_retained_pixels_beyond4px": 0,
+      "classifier_min_rgb": 170,
+      "classifier_max_chroma": 22,
+      "modification_band_px": 4,
+      "classified_field_nonzero_alpha_pixels": 0,
+      "protected_closed_neutral_pixels": 720,
+      "modified_protected_closed_neutral_pixels": 0,
+      "native_foreground_pixels_on_left_edge": 0,
+      "native_foreground_pixels_on_right_edge": 0
+    },
+    {
+      "frame_index": 12,
+      "source_path": "assets_src/animation/roshan_wave_repair_20261010/aseprite_paint_trial_01/full_wave_draft_06/0012.png",
+      "source_sha256": "47e10d5f5c877e04626e48aa2119d72d971b4c3cdc0b3295ec2feefb7f00b0d8",
+      "preserved_source_sha256": "47e10d5f5c877e04626e48aa2119d72d971b4c3cdc0b3295ec2feefb7f00b0d8",
+      "source_copy_byte_exact": true,
+      "native_rgba_sha256": "cbe41a6226482a64cad45b8b5e6726a4ed746400d4266a7ba5c710c5366251d2",
+      "preservation_matte_sha256": "cbe41a6226482a64cad45b8b5e6726a4ed746400d4266a7ba5c710c5366251d2",
+      "native_endpoint_replacement": false,
+      "final_rgba_sha256": "bb4564860cceb2b10aa805f32dcaddeac71177c4ac5180075defa6ea137647ff",
+      "native_dimensions": [
+        768,
+        896
+      ],
+      "final_dimensions": [
+        256,
+        256
+      ],
+      "reviewed_background_seeds": [
+        [
+          591,
+          227
+        ]
+      ],
+      "source_matte_seed_pixels_transparent": true,
+      "background_mask_pixels": 524776,
+      "deep_retained_pixels": 144762,
+      "modified_retained_pixels_beyond4px": 0,
+      "classifier_min_rgb": 170,
+      "classifier_max_chroma": 22,
+      "modification_band_px": 4,
+      "classified_field_nonzero_alpha_pixels": 0,
+      "protected_closed_neutral_pixels": 741,
+      "modified_protected_closed_neutral_pixels": 0,
+      "native_foreground_pixels_on_left_edge": 0,
+      "native_foreground_pixels_on_right_edge": 0
+    },
+    {
+      "frame_index": 13,
+      "source_path": "assets_src/animation/roshan_wave_repair_20261010/aseprite_paint_trial_01/full_wave_draft_06/0013.png",
+      "source_sha256": "decf551eaf515e324b1de8e653fd7b020a390982ab9f0b0817aa758a6e33e836",
+      "preserved_source_sha256": "decf551eaf515e324b1de8e653fd7b020a390982ab9f0b0817aa758a6e33e836",
+      "source_copy_byte_exact": true,
+      "native_rgba_sha256": "daa0a93b0c49d15dc611f5b833e2883aacbaf0ffa20b541935f0de7a5a19be4a",
+      "preservation_matte_sha256": "daa0a93b0c49d15dc611f5b833e2883aacbaf0ffa20b541935f0de7a5a19be4a",
+      "native_endpoint_replacement": false,
+      "final_rgba_sha256": "8febee0a50094bd9fb7bd304603e65b36ec91d284114dbc8ca674ffacb53653e",
+      "native_dimensions": [
+        768,
+        896
+      ],
+      "final_dimensions": [
+        256,
+        256
+      ],
+      "reviewed_background_seeds": [
+        [
+          588,
+          225
+        ]
+      ],
+      "source_matte_seed_pixels_transparent": true,
+      "background_mask_pixels": 524756,
+      "deep_retained_pixels": 144825,
+      "modified_retained_pixels_beyond4px": 0,
+      "classifier_min_rgb": 170,
+      "classifier_max_chroma": 22,
+      "modification_band_px": 4,
+      "classified_field_nonzero_alpha_pixels": 0,
+      "protected_closed_neutral_pixels": 711,
+      "modified_protected_closed_neutral_pixels": 0,
+      "native_foreground_pixels_on_left_edge": 0,
+      "native_foreground_pixels_on_right_edge": 0
+    },
+    {
+      "frame_index": 14,
+      "source_path": "assets_src/animation/roshan_wave_repair_20261010/aseprite_paint_trial_01/full_wave_draft_06/0014.png",
+      "source_sha256": "411c0f41fb752b8ca807b50889b32e3d549fe983a71c3533691d026b99044c46",
+      "preserved_source_sha256": "411c0f41fb752b8ca807b50889b32e3d549fe983a71c3533691d026b99044c46",
+      "source_copy_byte_exact": true,
+      "native_rgba_sha256": "c7a408e1cb9a769fe6564749fe3ff7a490e4668ce9deb683cfb35f46f301ff16",
+      "preservation_matte_sha256": "c7a408e1cb9a769fe6564749fe3ff7a490e4668ce9deb683cfb35f46f301ff16",
+      "native_endpoint_replacement": false,
+      "final_rgba_sha256": "3e495cbeb963cee5404e8b8b4310b2a84759a19f67c517ceda6200ad4261babf",
+      "native_dimensions": [
+        768,
+        896
+      ],
+      "final_dimensions": [
+        256,
+        256
+      ],
+      "reviewed_background_seeds": [
+        [
+          585,
+          223
+        ]
+      ],
+      "source_matte_seed_pixels_transparent": true,
+      "background_mask_pixels": 524648,
+      "deep_retained_pixels": 144851,
+      "modified_retained_pixels_beyond4px": 0,
+      "classifier_min_rgb": 170,
+      "classifier_max_chroma": 22,
+      "modification_band_px": 4,
+      "classified_field_nonzero_alpha_pixels": 0,
+      "protected_closed_neutral_pixels": 709,
+      "modified_protected_closed_neutral_pixels": 0,
+      "native_foreground_pixels_on_left_edge": 0,
+      "native_foreground_pixels_on_right_edge": 0
+    },
+    {
+      "frame_index": 15,
+      "source_path": "assets_src/animation/roshan_wave_repair_20261010/aseprite_paint_trial_01/full_wave_draft_06/0015.png",
+      "source_sha256": "3019a7b0916547b43221ee6b8a3a2cfd814c5e6281c4c3259440573267c4dcf7",
+      "preserved_source_sha256": "3019a7b0916547b43221ee6b8a3a2cfd814c5e6281c4c3259440573267c4dcf7",
+      "source_copy_byte_exact": true,
+      "native_rgba_sha256": "87445d6b672132346333e85fa61a8e596939a56f3e6265b21cf067f17c6fea96",
+      "preservation_matte_sha256": "87445d6b672132346333e85fa61a8e596939a56f3e6265b21cf067f17c6fea96",
+      "native_endpoint_replacement": false,
+      "final_rgba_sha256": "e498323175fc46d6c70e1f0a55afe310cb2c0e3a16c41811156b87832989b8e6",
+      "native_dimensions": [
+        768,
+        896
+      ],
+      "final_dimensions": [
+        256,
+        256
+      ],
+      "reviewed_background_seeds": [
+        [
+          583,
+          222
+        ]
+      ],
+      "source_matte_seed_pixels_transparent": true,
+      "background_mask_pixels": 524624,
+      "deep_retained_pixels": 144781,
+      "modified_retained_pixels_beyond4px": 0,
+      "classifier_min_rgb": 170,
+      "classifier_max_chroma": 22,
+      "modification_band_px": 4,
+      "classified_field_nonzero_alpha_pixels": 0,
+      "protected_closed_neutral_pixels": 711,
+      "modified_protected_closed_neutral_pixels": 0,
+      "native_foreground_pixels_on_left_edge": 0,
+      "native_foreground_pixels_on_right_edge": 0
+    },
+    {
+      "frame_index": 16,
+      "source_path": "assets_src/animation/roshan_wave_repair_20261010/aseprite_paint_trial_01/full_wave_draft_06/0016.png",
+      "source_sha256": "3e923fd0b21ec58cf6aabc31bd63c8a223a280552c16d932bd55dd629f6b8d8a",
+      "preserved_source_sha256": "3e923fd0b21ec58cf6aabc31bd63c8a223a280552c16d932bd55dd629f6b8d8a",
+      "source_copy_byte_exact": true,
+      "native_rgba_sha256": "aea31a815d20db9a3d7b321d57c045b5f37922284fb19dbd534938cc68542955",
+      "preservation_matte_sha256": "aea31a815d20db9a3d7b321d57c045b5f37922284fb19dbd534938cc68542955",
+      "native_endpoint_replacement": false,
+      "final_rgba_sha256": "959fdca6afb6b5c5451ed96c5355dc81b96e3400a7f705a137d15929214bbf20",
+      "native_dimensions": [
+        768,
+        896
+      ],
+      "final_dimensions": [
+        256,
+        256
+      ],
+      "reviewed_background_seeds": [
+        [
+          583,
+          222
+        ]
+      ],
+      "source_matte_seed_pixels_transparent": true,
+      "background_mask_pixels": 524571,
+      "deep_retained_pixels": 144811,
+      "modified_retained_pixels_beyond4px": 0,
+      "classifier_min_rgb": 170,
+      "classifier_max_chroma": 22,
+      "modification_band_px": 4,
+      "classified_field_nonzero_alpha_pixels": 0,
+      "protected_closed_neutral_pixels": 741,
+      "modified_protected_closed_neutral_pixels": 0,
+      "native_foreground_pixels_on_left_edge": 0,
+      "native_foreground_pixels_on_right_edge": 0
+    },
+    {
+      "frame_index": 17,
+      "source_path": "assets_src/animation/roshan_wave_repair_20261010/aseprite_paint_trial_01/full_wave_draft_06/0017.png",
+      "source_sha256": "91556a243da804771e62abb5248b293b61ba98522a885c4ea39c34708d54dafb",
+      "preserved_source_sha256": "91556a243da804771e62abb5248b293b61ba98522a885c4ea39c34708d54dafb",
+      "source_copy_byte_exact": true,
+      "native_rgba_sha256": "09ec7ff24b6caaa8fc1886a49094bef333b668820ae7ceac896d5cacd2b6769b",
+      "preservation_matte_sha256": "09ec7ff24b6caaa8fc1886a49094bef333b668820ae7ceac896d5cacd2b6769b",
+      "native_endpoint_replacement": false,
+      "final_rgba_sha256": "5cf9cdc19c7965e2b1c24361bdbe61c9bd251606691085c5765895efb39c1770",
+      "native_dimensions": [
+        768,
+        896
+      ],
+      "final_dimensions": [
+        256,
+        256
+      ],
+      "reviewed_background_seeds": [
+        [
+          583,
+          222
+        ]
+      ],
+      "source_matte_seed_pixels_transparent": true,
+      "background_mask_pixels": 524502,
+      "deep_retained_pixels": 144911,
+      "modified_retained_pixels_beyond4px": 0,
+      "classifier_min_rgb": 170,
+      "classifier_max_chroma": 22,
+      "modification_band_px": 4,
+      "classified_field_nonzero_alpha_pixels": 0,
+      "protected_closed_neutral_pixels": 740,
+      "modified_protected_closed_neutral_pixels": 0,
+      "native_foreground_pixels_on_left_edge": 0,
+      "native_foreground_pixels_on_right_edge": 0
+    },
+    {
+      "frame_index": 18,
+      "source_path": "assets_src/animation/roshan_wave_repair_20261010/aseprite_paint_trial_01/full_wave_draft_06/0018.png",
+      "source_sha256": "2562140916427deee70c1559a7262ba46f6a2799edae4c950283bcebb784c193",
+      "preserved_source_sha256": "2562140916427deee70c1559a7262ba46f6a2799edae4c950283bcebb784c193",
+      "source_copy_byte_exact": true,
+      "native_rgba_sha256": "2337b9ed4a6eaad820cd87c3f1d99afe4e0f5388dd29f284341403254048a5d8",
+      "preservation_matte_sha256": "2337b9ed4a6eaad820cd87c3f1d99afe4e0f5388dd29f284341403254048a5d8",
+      "native_endpoint_replacement": false,
+      "final_rgba_sha256": "6ffda72742f434b7d4cc30030d1803ce6ac82f4f6577ed09a85a24c513cb2aca",
+      "native_dimensions": [
+        768,
+        896
+      ],
+      "final_dimensions": [
+        256,
+        256
+      ],
+      "reviewed_background_seeds": [
+        [
+          580,
+          221
+        ]
+      ],
+      "source_matte_seed_pixels_transparent": true,
+      "background_mask_pixels": 524508,
+      "deep_retained_pixels": 144917,
+      "modified_retained_pixels_beyond4px": 0,
+      "classifier_min_rgb": 170,
+      "classifier_max_chroma": 22,
+      "modification_band_px": 4,
+      "classified_field_nonzero_alpha_pixels": 0,
+      "protected_closed_neutral_pixels": 733,
+      "modified_protected_closed_neutral_pixels": 0,
+      "native_foreground_pixels_on_left_edge": 0,
+      "native_foreground_pixels_on_right_edge": 0
+    },
+    {
+      "frame_index": 19,
+      "source_path": "assets_src/animation/roshan_wave_repair_20261010/aseprite_paint_trial_01/full_wave_draft_06/0019.png",
+      "source_sha256": "06a9499cc0973dfcc49229762e095806a4fea7bcf11a6bff32b1a51359f9e2ff",
+      "preserved_source_sha256": "06a9499cc0973dfcc49229762e095806a4fea7bcf11a6bff32b1a51359f9e2ff",
+      "source_copy_byte_exact": true,
+      "native_rgba_sha256": "1c39297b20019726ea5afe13a3043aafa0e0fe8b4cefe37b63e0d37cd964f22b",
+      "preservation_matte_sha256": "1c39297b20019726ea5afe13a3043aafa0e0fe8b4cefe37b63e0d37cd964f22b",
+      "native_endpoint_replacement": false,
+      "final_rgba_sha256": "c99a69e1d9924630fcb6393c755a8978c9c585cbb49bbf3c7807c4eba5962399",
+      "native_dimensions": [
+        768,
+        896
+      ],
+      "final_dimensions": [
+        256,
+        256
+      ],
+      "reviewed_background_seeds": [
+        [
+          580,
+          221
+        ]
+      ],
+      "source_matte_seed_pixels_transparent": true,
+      "background_mask_pixels": 524487,
+      "deep_retained_pixels": 144964,
+      "modified_retained_pixels_beyond4px": 0,
+      "classifier_min_rgb": 170,
+      "classifier_max_chroma": 22,
+      "modification_band_px": 4,
+      "classified_field_nonzero_alpha_pixels": 0,
+      "protected_closed_neutral_pixels": 718,
+      "modified_protected_closed_neutral_pixels": 0,
+      "native_foreground_pixels_on_left_edge": 0,
+      "native_foreground_pixels_on_right_edge": 0
+    },
+    {
+      "frame_index": 20,
+      "source_path": "assets_src/animation/roshan_wave_repair_20261010/aseprite_paint_trial_01/full_wave_draft_06/0020.png",
+      "source_sha256": "1e29220c2ac7553ddb3e1c95ea4549a51b8c874404396d5a8b41fb45192ea402",
+      "preserved_source_sha256": "1e29220c2ac7553ddb3e1c95ea4549a51b8c874404396d5a8b41fb45192ea402",
+      "source_copy_byte_exact": true,
+      "native_rgba_sha256": "395c326cbe20c53464c8a309900a1e7c207fa367de76926e28f7f7c8d7e242b3",
+      "preservation_matte_sha256": "395c326cbe20c53464c8a309900a1e7c207fa367de76926e28f7f7c8d7e242b3",
+      "native_endpoint_replacement": false,
+      "final_rgba_sha256": "7c482280a485af1f410390956abaa7184794af22d7580e05a3a1b04c67034884",
+      "native_dimensions": [
+        768,
+        896
+      ],
+      "final_dimensions": [
+        256,
+        256
+      ],
+      "reviewed_background_seeds": [
+        [
+          581,
+          221
+        ]
+      ],
+      "source_matte_seed_pixels_transparent": true,
+      "background_mask_pixels": 524431,
+      "deep_retained_pixels": 144944,
+      "modified_retained_pixels_beyond4px": 0,
+      "classifier_min_rgb": 170,
+      "classifier_max_chroma": 22,
+      "modification_band_px": 4,
+      "classified_field_nonzero_alpha_pixels": 0,
+      "protected_closed_neutral_pixels": 729,
+      "modified_protected_closed_neutral_pixels": 0,
+      "native_foreground_pixels_on_left_edge": 0,
+      "native_foreground_pixels_on_right_edge": 0
+    },
+    {
+      "frame_index": 21,
+      "source_path": "assets_src/animation/roshan_wave_repair_20261010/aseprite_paint_trial_01/full_wave_draft_06/0021.png",
+      "source_sha256": "c52fc917770323b4c0c3ceb6199e5df13a25094d78169af1a8fb281793d78935",
+      "preserved_source_sha256": "c52fc917770323b4c0c3ceb6199e5df13a25094d78169af1a8fb281793d78935",
+      "source_copy_byte_exact": true,
+      "native_rgba_sha256": "42da4bbe5c5879e189b56cb52eafe204f89a29ef324d702832feb8c680630457",
+      "preservation_matte_sha256": "42da4bbe5c5879e189b56cb52eafe204f89a29ef324d702832feb8c680630457",
+      "native_endpoint_replacement": false,
+      "final_rgba_sha256": "83d2a161bf3fbf7f225edbeb629a9b0950e15a3f344c0bbc3c465fb02fef252b",
+      "native_dimensions": [
+        768,
+        896
+      ],
+      "final_dimensions": [
+        256,
+        256
+      ],
+      "reviewed_background_seeds": [
+        [
+          580,
+          220
+        ]
+      ],
+      "source_matte_seed_pixels_transparent": true,
+      "background_mask_pixels": 524303,
+      "deep_retained_pixels": 145057,
+      "modified_retained_pixels_beyond4px": 0,
+      "classifier_min_rgb": 170,
+      "classifier_max_chroma": 22,
+      "modification_band_px": 4,
+      "classified_field_nonzero_alpha_pixels": 0,
+      "protected_closed_neutral_pixels": 709,
+      "modified_protected_closed_neutral_pixels": 0,
+      "native_foreground_pixels_on_left_edge": 0,
+      "native_foreground_pixels_on_right_edge": 0
+    },
+    {
+      "frame_index": 22,
+      "source_path": "assets_src/animation/roshan_wave_repair_20261010/aseprite_paint_trial_01/full_wave_draft_06/0022.png",
+      "source_sha256": "61d8f1a1034119d0ab8e3db27c6beaf5208b53497c7b53a71c474eb400b6ec12",
+      "preserved_source_sha256": "61d8f1a1034119d0ab8e3db27c6beaf5208b53497c7b53a71c474eb400b6ec12",
+      "source_copy_byte_exact": true,
+      "native_rgba_sha256": "47cbdab8b56fc256eb69b3fc15f7b1250ade4071ad339ce65691aba0194aa2b0",
+      "preservation_matte_sha256": "47cbdab8b56fc256eb69b3fc15f7b1250ade4071ad339ce65691aba0194aa2b0",
+      "native_endpoint_replacement": false,
+      "final_rgba_sha256": "4606162a360f282eaa0bb839e067d544e5a1a22c1fedb8b306a5e674c204d143",
+      "native_dimensions": [
+        768,
+        896
+      ],
+      "final_dimensions": [
+        256,
+        256
+      ],
+      "reviewed_background_seeds": [
+        [
+          582,
+          220
+        ]
+      ],
+      "source_matte_seed_pixels_transparent": true,
+      "background_mask_pixels": 524224,
+      "deep_retained_pixels": 145056,
+      "modified_retained_pixels_beyond4px": 0,
+      "classifier_min_rgb": 170,
+      "classifier_max_chroma": 22,
+      "modification_band_px": 4,
+      "classified_field_nonzero_alpha_pixels": 0,
+      "protected_closed_neutral_pixels": 703,
+      "modified_protected_closed_neutral_pixels": 0,
+      "native_foreground_pixels_on_left_edge": 0,
+      "native_foreground_pixels_on_right_edge": 0
+    },
+    {
+      "frame_index": 23,
+      "source_path": "assets_src/animation/roshan_wave_repair_20261010/aseprite_paint_trial_01/full_wave_draft_06/0023.png",
+      "source_sha256": "e7e4d32dd97e71f50c3d2e745b930488eec829c4b3d8850f0ddf12e31f527cb9",
+      "preserved_source_sha256": "e7e4d32dd97e71f50c3d2e745b930488eec829c4b3d8850f0ddf12e31f527cb9",
+      "source_copy_byte_exact": true,
+      "native_rgba_sha256": "4809ee620b84d581ebfa5a4778c09e3a60e80ffddaa738598f8f79b58ad2548c",
+      "preservation_matte_sha256": "4809ee620b84d581ebfa5a4778c09e3a60e80ffddaa738598f8f79b58ad2548c",
+      "native_endpoint_replacement": false,
+      "final_rgba_sha256": "7472a9f6fff8ae5f0b896005e94a6634b3b5ed935d9bfb241f34d156c117bdaf",
+      "native_dimensions": [
+        768,
+        896
+      ],
+      "final_dimensions": [
+        256,
+        256
+      ],
+      "reviewed_background_seeds": [
+        [
+          580,
+          218
+        ]
+      ],
+      "source_matte_seed_pixels_transparent": true,
+      "background_mask_pixels": 524131,
+      "deep_retained_pixels": 145238,
+      "modified_retained_pixels_beyond4px": 0,
+      "classifier_min_rgb": 170,
+      "classifier_max_chroma": 22,
+      "modification_band_px": 4,
+      "classified_field_nonzero_alpha_pixels": 0,
+      "protected_closed_neutral_pixels": 715,
+      "modified_protected_closed_neutral_pixels": 0,
+      "native_foreground_pixels_on_left_edge": 0,
+      "native_foreground_pixels_on_right_edge": 0
+    },
+    {
+      "frame_index": 24,
+      "source_path": "assets_src/animation/roshan_wave_repair_20261010/aseprite_paint_trial_01/full_wave_draft_06/0024.png",
+      "source_sha256": "e1fce921d67c87fba74b11e44a58dbd2e374d82a2458f046149b7b282bbbd9fa",
+      "preserved_source_sha256": "e1fce921d67c87fba74b11e44a58dbd2e374d82a2458f046149b7b282bbbd9fa",
+      "source_copy_byte_exact": true,
+      "native_rgba_sha256": "6f99e8b444f1d124f62a18c0a15829a179d2fee24f75ad5bc351cad55d1d3709",
+      "preservation_matte_sha256": "6f99e8b444f1d124f62a18c0a15829a179d2fee24f75ad5bc351cad55d1d3709",
+      "native_endpoint_replacement": false,
+      "final_rgba_sha256": "6e2b2a8c92480c28437080c244ab11eabdb813b8d35f72206a8f052f2906ac7f",
+      "native_dimensions": [
+        768,
+        896
+      ],
+      "final_dimensions": [
+        256,
+        256
+      ],
+      "reviewed_background_seeds": [
+        [
+          580,
+          217
+        ]
+      ],
+      "source_matte_seed_pixels_transparent": true,
+      "background_mask_pixels": 524112,
+      "deep_retained_pixels": 145256,
+      "modified_retained_pixels_beyond4px": 0,
+      "classifier_min_rgb": 170,
+      "classifier_max_chroma": 22,
+      "modification_band_px": 4,
+      "classified_field_nonzero_alpha_pixels": 0,
+      "protected_closed_neutral_pixels": 760,
+      "modified_protected_closed_neutral_pixels": 0,
+      "native_foreground_pixels_on_left_edge": 0,
+      "native_foreground_pixels_on_right_edge": 0
+    },
+    {
+      "frame_index": 25,
+      "source_path": "assets_src/animation/roshan_wave_repair_20261010/aseprite_paint_trial_01/full_wave_draft_06/0025.png",
+      "source_sha256": "69bfce774a70fdbc90eee7d67248f851b87d085a4d6ebaaa596277d648ab7e0f",
+      "preserved_source_sha256": "69bfce774a70fdbc90eee7d67248f851b87d085a4d6ebaaa596277d648ab7e0f",
+      "source_copy_byte_exact": true,
+      "native_rgba_sha256": "2654e3ab04afc0e7218bde461efaf1712f23710292a07a2e4452d1f8f413869b",
+      "preservation_matte_sha256": "2654e3ab04afc0e7218bde461efaf1712f23710292a07a2e4452d1f8f413869b",
+      "native_endpoint_replacement": false,
+      "final_rgba_sha256": "b23fb5969a03110719801e97a3ebb0c68842a14b61fa2bd7528c530b723a0214",
+      "native_dimensions": [
+        768,
+        896
+      ],
+      "final_dimensions": [
+        256,
+        256
+      ],
+      "reviewed_background_seeds": [
+        [
+          581,
+          216
+        ]
+      ],
+      "source_matte_seed_pixels_transparent": true,
+      "background_mask_pixels": 524149,
+      "deep_retained_pixels": 145217,
+      "modified_retained_pixels_beyond4px": 0,
+      "classifier_min_rgb": 170,
+      "classifier_max_chroma": 22,
+      "modification_band_px": 4,
+      "classified_field_nonzero_alpha_pixels": 0,
+      "protected_closed_neutral_pixels": 774,
+      "modified_protected_closed_neutral_pixels": 0,
+      "native_foreground_pixels_on_left_edge": 0,
+      "native_foreground_pixels_on_right_edge": 0
+    },
+    {
+      "frame_index": 26,
+      "source_path": "assets_src/animation/roshan_wave_repair_20261010/aseprite_paint_trial_01/full_wave_draft_06/0026.png",
+      "source_sha256": "7d6aa33e95f89ea510726ec9a2039217380b36d071889f9115bb57bdbab4e758",
+      "preserved_source_sha256": "7d6aa33e95f89ea510726ec9a2039217380b36d071889f9115bb57bdbab4e758",
+      "source_copy_byte_exact": true,
+      "native_rgba_sha256": "1aec0245cb6beeaaa64b95ba732b147f8ae681effb4a19ef1ec9999d1f5d2ce7",
+      "preservation_matte_sha256": "1aec0245cb6beeaaa64b95ba732b147f8ae681effb4a19ef1ec9999d1f5d2ce7",
+      "native_endpoint_replacement": false,
+      "final_rgba_sha256": "113daa2446ae657d8a82a07206e936eb081e5bfc0a2778d773e7bdf9b4e7d25c",
+      "native_dimensions": [
+        768,
+        896
+      ],
+      "final_dimensions": [
+        256,
+        256
+      ],
+      "reviewed_background_seeds": [
+        [
+          581,
+          215
+        ]
+      ],
+      "source_matte_seed_pixels_transparent": true,
+      "background_mask_pixels": 524057,
+      "deep_retained_pixels": 145244,
+      "modified_retained_pixels_beyond4px": 0,
+      "classifier_min_rgb": 170,
+      "classifier_max_chroma": 22,
+      "modification_band_px": 4,
+      "classified_field_nonzero_alpha_pixels": 0,
+      "protected_closed_neutral_pixels": 760,
+      "modified_protected_closed_neutral_pixels": 0,
+      "native_foreground_pixels_on_left_edge": 0,
+      "native_foreground_pixels_on_right_edge": 0
+    },
+    {
+      "frame_index": 27,
+      "source_path": "assets_src/animation/roshan_wave_repair_20261010/aseprite_paint_trial_01/full_wave_draft_06/0027.png",
+      "source_sha256": "03e13a9c5f07ca6c7de20e41e651c095d5efcc4c42d0646c887f486aed411729",
+      "preserved_source_sha256": "03e13a9c5f07ca6c7de20e41e651c095d5efcc4c42d0646c887f486aed411729",
+      "source_copy_byte_exact": true,
+      "native_rgba_sha256": "523a36bec6504f62ddaa1fa9abe6375dee5eabcd03e3d69b827442eafa3b0e3c",
+      "preservation_matte_sha256": "523a36bec6504f62ddaa1fa9abe6375dee5eabcd03e3d69b827442eafa3b0e3c",
+      "native_endpoint_replacement": false,
+      "final_rgba_sha256": "2b5e1b97f769b637c2d9fbdb172c7e5a50c0e8f269cae08a8482e3f9c0683119",
+      "native_dimensions": [
+        768,
+        896
+      ],
+      "final_dimensions": [
+        256,
+        256
+      ],
+      "reviewed_background_seeds": [
+        [
+          582,
+          215
+        ]
+      ],
+      "source_matte_seed_pixels_transparent": true,
+      "background_mask_pixels": 523952,
+      "deep_retained_pixels": 145399,
+      "modified_retained_pixels_beyond4px": 0,
+      "classifier_min_rgb": 170,
+      "classifier_max_chroma": 22,
+      "modification_band_px": 4,
+      "classified_field_nonzero_alpha_pixels": 0,
+      "protected_closed_neutral_pixels": 716,
+      "modified_protected_closed_neutral_pixels": 0,
+      "native_foreground_pixels_on_left_edge": 0,
+      "native_foreground_pixels_on_right_edge": 0
+    },
+    {
+      "frame_index": 28,
+      "source_path": "assets_src/animation/roshan_wave_repair_20261010/aseprite_paint_trial_01/full_wave_draft_06/0028.png",
+      "source_sha256": "f062779e0a6881e11bccd288fb73e61896b724955adc247af0b1b7b11333f3b4",
+      "preserved_source_sha256": "f062779e0a6881e11bccd288fb73e61896b724955adc247af0b1b7b11333f3b4",
+      "source_copy_byte_exact": true,
+      "native_rgba_sha256": "1003d1580dce1cec04283271f604656951dc51b89a54ad851675abaf7d3bb7e9",
+      "preservation_matte_sha256": "1003d1580dce1cec04283271f604656951dc51b89a54ad851675abaf7d3bb7e9",
+      "native_endpoint_replacement": false,
+      "final_rgba_sha256": "995c27f96d235b66790ea800585f19cb9d3975e01e6609cb5aafdb13ae6e5f0e",
+      "native_dimensions": [
+        768,
+        896
+      ],
+      "final_dimensions": [
+        256,
+        256
+      ],
+      "reviewed_background_seeds": [
+        [
+          580,
+          214
+        ]
+      ],
+      "source_matte_seed_pixels_transparent": true,
+      "background_mask_pixels": 523872,
+      "deep_retained_pixels": 145601,
+      "modified_retained_pixels_beyond4px": 0,
+      "classifier_min_rgb": 170,
+      "classifier_max_chroma": 22,
+      "modification_band_px": 4,
+      "classified_field_nonzero_alpha_pixels": 0,
+      "protected_closed_neutral_pixels": 720,
+      "modified_protected_closed_neutral_pixels": 0,
+      "native_foreground_pixels_on_left_edge": 0,
+      "native_foreground_pixels_on_right_edge": 0
+    },
+    {
+      "frame_index": 29,
+      "source_path": "assets_src/animation/roshan_wave_repair_20261010/aseprite_paint_trial_01/full_wave_draft_06/0029.png",
+      "source_sha256": "af7b30b46887181899b44d1fd722a9b47a3ef89acc705e40193fdb465d7dd132",
+      "preserved_source_sha256": "af7b30b46887181899b44d1fd722a9b47a3ef89acc705e40193fdb465d7dd132",
+      "source_copy_byte_exact": true,
+      "native_rgba_sha256": "521c10d60dd864884945367d1692ad91d3fb3c287d715be9dc5b29c04487bfea",
+      "preservation_matte_sha256": "521c10d60dd864884945367d1692ad91d3fb3c287d715be9dc5b29c04487bfea",
+      "native_endpoint_replacement": false,
+      "final_rgba_sha256": "6eaf78d3469c1646e76bc9eef1d07125c88acc398022e8ae000f370d74f5e502",
+      "native_dimensions": [
+        768,
+        896
+      ],
+      "final_dimensions": [
+        256,
+        256
+      ],
+      "reviewed_background_seeds": [
+        [
+          581,
+          215
+        ]
+      ],
+      "source_matte_seed_pixels_transparent": true,
+      "background_mask_pixels": 523864,
+      "deep_retained_pixels": 145500,
+      "modified_retained_pixels_beyond4px": 0,
+      "classifier_min_rgb": 170,
+      "classifier_max_chroma": 22,
+      "modification_band_px": 4,
+      "classified_field_nonzero_alpha_pixels": 0,
+      "protected_closed_neutral_pixels": 651,
+      "modified_protected_closed_neutral_pixels": 0,
+      "native_foreground_pixels_on_left_edge": 0,
+      "native_foreground_pixels_on_right_edge": 0
+    },
+    {
+      "frame_index": 30,
+      "source_path": "assets_src/animation/roshan_wave_repair_20261010/aseprite_paint_trial_01/full_wave_draft_06/0030.png",
+      "source_sha256": "3222ff4232e3fe05596bdbd47e4b1cb628d72fd66454e513d16bc14defb2269d",
+      "preserved_source_sha256": "3222ff4232e3fe05596bdbd47e4b1cb628d72fd66454e513d16bc14defb2269d",
+      "source_copy_byte_exact": true,
+      "native_rgba_sha256": "34328e6137d8629d6ea69bd23862a506a2b8147df528d65ee6b0e872db75a904",
+      "preservation_matte_sha256": "34328e6137d8629d6ea69bd23862a506a2b8147df528d65ee6b0e872db75a904",
+      "native_endpoint_replacement": false,
+      "final_rgba_sha256": "18c81782f8579738ab8d5766dcfaa923a63685b60a74e0e673e8cacceba9d853",
+      "native_dimensions": [
+        768,
+        896
+      ],
+      "final_dimensions": [
+        256,
+        256
+      ],
+      "reviewed_background_seeds": [
+        [
+          581,
+          215
+        ]
+      ],
+      "source_matte_seed_pixels_transparent": true,
+      "background_mask_pixels": 523812,
+      "deep_retained_pixels": 145449,
+      "modified_retained_pixels_beyond4px": 0,
+      "classifier_min_rgb": 170,
+      "classifier_max_chroma": 22,
+      "modification_band_px": 4,
+      "classified_field_nonzero_alpha_pixels": 0,
+      "protected_closed_neutral_pixels": 617,
+      "modified_protected_closed_neutral_pixels": 0,
+      "native_foreground_pixels_on_left_edge": 0,
+      "native_foreground_pixels_on_right_edge": 0
+    },
+    {
+      "frame_index": 31,
+      "source_path": "assets_src/animation/roshan_wave_repair_20261010/aseprite_paint_trial_01/full_wave_draft_06/0031.png",
+      "source_sha256": "26d98c51d6129b550cedcde80f95fed58512a37b5683db62b1f53ed8e734e462",
+      "preserved_source_sha256": "26d98c51d6129b550cedcde80f95fed58512a37b5683db62b1f53ed8e734e462",
+      "source_copy_byte_exact": true,
+      "native_rgba_sha256": "2e7021adf016523e33ff1874f2ebca48e8c06bfef7ee912c418870155d561ed1",
+      "preservation_matte_sha256": "2e7021adf016523e33ff1874f2ebca48e8c06bfef7ee912c418870155d561ed1",
+      "native_endpoint_replacement": false,
+      "final_rgba_sha256": "293aa5b8774d8ea6c276cd779fa37182d9ff6c07f1709030a2fa709514785e72",
+      "native_dimensions": [
+        768,
+        896
+      ],
+      "final_dimensions": [
+        256,
+        256
+      ],
+      "reviewed_background_seeds": [
+        [
+          582,
+          215
+        ]
+      ],
+      "source_matte_seed_pixels_transparent": true,
+      "background_mask_pixels": 524036,
+      "deep_retained_pixels": 145234,
+      "modified_retained_pixels_beyond4px": 0,
+      "classifier_min_rgb": 170,
+      "classifier_max_chroma": 22,
+      "modification_band_px": 4,
+      "classified_field_nonzero_alpha_pixels": 0,
+      "protected_closed_neutral_pixels": 567,
+      "modified_protected_closed_neutral_pixels": 0,
+      "native_foreground_pixels_on_left_edge": 0,
+      "native_foreground_pixels_on_right_edge": 0
+    },
+    {
+      "frame_index": 32,
+      "source_path": "assets_src/animation/roshan_wave_repair_20261010/aseprite_paint_trial_01/full_wave_draft_06/0032.png",
+      "source_sha256": "b082fb29666fa95704f936732473650a4c906ad6c963e69ef7d239e737b51283",
+      "preserved_source_sha256": "b082fb29666fa95704f936732473650a4c906ad6c963e69ef7d239e737b51283",
+      "source_copy_byte_exact": true,
+      "native_rgba_sha256": "a7eee4d95abc3b777f366f2990a9ed9a70f01e8ed73527494bd738e95bcf63e5",
+      "preservation_matte_sha256": "a7eee4d95abc3b777f366f2990a9ed9a70f01e8ed73527494bd738e95bcf63e5",
+      "native_endpoint_replacement": false,
+      "final_rgba_sha256": "b1aa77994c970ab62b09138b67ef18b20186f2471636271be3ee129f63df7695",
+      "native_dimensions": [
+        768,
+        896
+      ],
+      "final_dimensions": [
+        256,
+        256
+      ],
+      "reviewed_background_seeds": [
+        [
+          580,
+          214
+        ]
+      ],
+      "source_matte_seed_pixels_transparent": true,
+      "background_mask_pixels": 524579,
+      "deep_retained_pixels": 144877,
+      "modified_retained_pixels_beyond4px": 0,
+      "classifier_min_rgb": 170,
+      "classifier_max_chroma": 22,
+      "modification_band_px": 4,
+      "classified_field_nonzero_alpha_pixels": 0,
+      "protected_closed_neutral_pixels": 533,
+      "modified_protected_closed_neutral_pixels": 0,
+      "native_foreground_pixels_on_left_edge": 0,
+      "native_foreground_pixels_on_right_edge": 0
+    },
+    {
+      "frame_index": 33,
+      "source_path": "assets_src/animation/roshan_wave_repair_20261010/aseprite_paint_trial_01/full_wave_draft_06/0033.png",
+      "source_sha256": "e330efa36f51f29a5059a759cac007be2ce33ab287101f01695e4785bacd3612",
+      "preserved_source_sha256": "e330efa36f51f29a5059a759cac007be2ce33ab287101f01695e4785bacd3612",
+      "source_copy_byte_exact": true,
+      "native_rgba_sha256": "14f581e79ead5dbf55da1a17bd2486cbbf6331b14bff3459144211b342c1c5a4",
+      "preservation_matte_sha256": "14f581e79ead5dbf55da1a17bd2486cbbf6331b14bff3459144211b342c1c5a4",
+      "native_endpoint_replacement": false,
+      "final_rgba_sha256": "cad38b1f506711ff2342c42f44424af68b925f5ef1813038e495fd49c123d7ce",
+      "native_dimensions": [
+        768,
+        896
+      ],
+      "final_dimensions": [
+        256,
+        256
+      ],
+      "reviewed_background_seeds": [
+        [
+          587,
+          217
+        ]
+      ],
+      "source_matte_seed_pixels_transparent": true,
+      "background_mask_pixels": 525116,
+      "deep_retained_pixels": 144594,
+      "modified_retained_pixels_beyond4px": 0,
+      "classifier_min_rgb": 170,
+      "classifier_max_chroma": 22,
+      "modification_band_px": 4,
+      "classified_field_nonzero_alpha_pixels": 0,
+      "protected_closed_neutral_pixels": 498,
+      "modified_protected_closed_neutral_pixels": 0,
+      "native_foreground_pixels_on_left_edge": 0,
+      "native_foreground_pixels_on_right_edge": 0
+    },
+    {
+      "frame_index": 34,
+      "source_path": "assets_src/animation/roshan_wave_repair_20261010/aseprite_paint_trial_01/full_wave_draft_06/0034.png",
+      "source_sha256": "75f1f514e371987556386d14b02792eb555334bf20d3e28f895d5f7fd8ef1b16",
+      "preserved_source_sha256": "75f1f514e371987556386d14b02792eb555334bf20d3e28f895d5f7fd8ef1b16",
+      "source_copy_byte_exact": true,
+      "native_rgba_sha256": "0126358a1a39672c64c1b6100e64222c506bc86433ccdfa27667f615e129a43f",
+      "preservation_matte_sha256": "0126358a1a39672c64c1b6100e64222c506bc86433ccdfa27667f615e129a43f",
+      "native_endpoint_replacement": false,
+      "final_rgba_sha256": "ce3f7e63f746bc7ad02ed564039290071747db31f71d44af75e93b639d8316ac",
+      "native_dimensions": [
+        768,
+        896
+      ],
+      "final_dimensions": [
+        256,
+        256
+      ],
+      "reviewed_background_seeds": [
+        [
+          587,
+          217
+        ]
+      ],
+      "source_matte_seed_pixels_transparent": true,
+      "background_mask_pixels": 525492,
+      "deep_retained_pixels": 144453,
+      "modified_retained_pixels_beyond4px": 0,
+      "classifier_min_rgb": 170,
+      "classifier_max_chroma": 22,
+      "modification_band_px": 4,
+      "classified_field_nonzero_alpha_pixels": 0,
+      "protected_closed_neutral_pixels": 489,
+      "modified_protected_closed_neutral_pixels": 0,
+      "native_foreground_pixels_on_left_edge": 0,
+      "native_foreground_pixels_on_right_edge": 0
+    },
+    {
+      "frame_index": 35,
+      "source_path": "assets_src/animation/roshan_wave_repair_20261010/aseprite_paint_trial_01/full_wave_draft_06/0035.png",
+      "source_sha256": "e5ce785dc8fff3007e96aa411294a1c9baccda37e611e1f853abaa4b4be62071",
+      "preserved_source_sha256": "e5ce785dc8fff3007e96aa411294a1c9baccda37e611e1f853abaa4b4be62071",
+      "source_copy_byte_exact": true,
+      "native_rgba_sha256": "0d03abeedbe7ad0b3e0947da7d13cc4854d652adde5e7f9a9e9887f66a001bf1",
+      "preservation_matte_sha256": "0d03abeedbe7ad0b3e0947da7d13cc4854d652adde5e7f9a9e9887f66a001bf1",
+      "native_endpoint_replacement": false,
+      "final_rgba_sha256": "f3602036fff3ccd107e5edd83faa880a70887ab8147de4e42724fc62d82d6cce",
+      "native_dimensions": [
+        768,
+        896
+      ],
+      "final_dimensions": [
+        256,
+        256
+      ],
+      "reviewed_background_seeds": [
+        [
+          586,
+          216
+        ],
+        [
+          303,
+          234
+        ]
+      ],
+      "source_matte_seed_pixels_transparent": true,
+      "background_mask_pixels": 525516,
+      "deep_retained_pixels": 144440,
+      "modified_retained_pixels_beyond4px": 0,
+      "classifier_min_rgb": 170,
+      "classifier_max_chroma": 22,
+      "modification_band_px": 4,
+      "classified_field_nonzero_alpha_pixels": 0,
+      "protected_closed_neutral_pixels": 451,
+      "modified_protected_closed_neutral_pixels": 0,
+      "native_foreground_pixels_on_left_edge": 0,
+      "native_foreground_pixels_on_right_edge": 0
+    },
+    {
+      "frame_index": 36,
+      "source_path": "assets_src/animation/roshan_wave_repair_20261010/aseprite_paint_trial_01/full_wave_draft_06/0036.png",
+      "source_sha256": "60fed07cd549c82aca627c102ad01ea7b6f791d1401e61e5773e460a870f9125",
+      "preserved_source_sha256": "60fed07cd549c82aca627c102ad01ea7b6f791d1401e61e5773e460a870f9125",
+      "source_copy_byte_exact": true,
+      "native_rgba_sha256": "70ce81b0098001d6e7ed56022018fdfe02e0e23887931c68914263c6d1310340",
+      "preservation_matte_sha256": "70ce81b0098001d6e7ed56022018fdfe02e0e23887931c68914263c6d1310340",
+      "native_endpoint_replacement": false,
+      "final_rgba_sha256": "9d82e229247bfb95a2cb13c4ccf36f28247fe17065568f3cad8643510d484349",
+      "native_dimensions": [
+        768,
+        896
+      ],
+      "final_dimensions": [
+        256,
+        256
+      ],
+      "reviewed_background_seeds": [
+        [
+          588,
+          217
+        ],
+        [
+          304,
+          235
+        ]
+      ],
+      "source_matte_seed_pixels_transparent": true,
+      "background_mask_pixels": 525594,
+      "deep_retained_pixels": 144354,
+      "modified_retained_pixels_beyond4px": 0,
+      "classifier_min_rgb": 170,
+      "classifier_max_chroma": 22,
+      "modification_band_px": 4,
+      "classified_field_nonzero_alpha_pixels": 0,
+      "protected_closed_neutral_pixels": 451,
+      "modified_protected_closed_neutral_pixels": 0,
+      "native_foreground_pixels_on_left_edge": 0,
+      "native_foreground_pixels_on_right_edge": 0
+    },
+    {
+      "frame_index": 37,
+      "source_path": "assets_src/animation/roshan_wave_repair_20261010/aseprite_paint_trial_01/full_wave_draft_06/0037.png",
+      "source_sha256": "c7f3b29d76fc1a30a96c03073e0e0130aadb58eb37fd38eede5f48e186ae64d9",
+      "preserved_source_sha256": "c7f3b29d76fc1a30a96c03073e0e0130aadb58eb37fd38eede5f48e186ae64d9",
+      "source_copy_byte_exact": true,
+      "native_rgba_sha256": "ba0509fba7d5c63729c775113ab23631b1443ce49ec47111a4f9a1245db8ae1b",
+      "preservation_matte_sha256": "ba0509fba7d5c63729c775113ab23631b1443ce49ec47111a4f9a1245db8ae1b",
+      "native_endpoint_replacement": false,
+      "final_rgba_sha256": "0dd7b839b1b328acddf9a94c3ab0ddd72c758db188972af43b4aae264d439d8a",
+      "native_dimensions": [
+        768,
+        896
+      ],
+      "final_dimensions": [
+        256,
+        256
+      ],
+      "reviewed_background_seeds": [
+        [
+          583,
+          215
+        ],
+        [
+          304,
+          235
+        ]
+      ],
+      "source_matte_seed_pixels_transparent": true,
+      "background_mask_pixels": 525685,
+      "deep_retained_pixels": 144353,
+      "modified_retained_pixels_beyond4px": 0,
+      "classifier_min_rgb": 170,
+      "classifier_max_chroma": 22,
+      "modification_band_px": 4,
+      "classified_field_nonzero_alpha_pixels": 0,
+      "protected_closed_neutral_pixels": 446,
+      "modified_protected_closed_neutral_pixels": 0,
+      "native_foreground_pixels_on_left_edge": 0,
+      "native_foreground_pixels_on_right_edge": 0
+    },
+    {
+      "frame_index": 38,
+      "source_path": "assets_src/animation/roshan_wave_repair_20261010/aseprite_paint_trial_01/full_wave_draft_06/0038.png",
+      "source_sha256": "e50eb2ec559e7bd59fb0f146da0e390681e59f72003cb6ef604120a0356603ea",
+      "preserved_source_sha256": "e50eb2ec559e7bd59fb0f146da0e390681e59f72003cb6ef604120a0356603ea",
+      "source_copy_byte_exact": true,
+      "native_rgba_sha256": "37814262925cf88f500f615ed011263daf0b6d4613cbe3e8e6df29cbd8ed8368",
+      "preservation_matte_sha256": "37814262925cf88f500f615ed011263daf0b6d4613cbe3e8e6df29cbd8ed8368",
+      "native_endpoint_replacement": false,
+      "final_rgba_sha256": "88e815dafbeda3a51dbe13a69bbe16503d58565953ca65d5407fa46844fb92c8",
+      "native_dimensions": [
+        768,
+        896
+      ],
+      "final_dimensions": [
+        256,
+        256
+      ],
+      "reviewed_background_seeds": [
+        [
+          588,
+          217
+        ],
+        [
+          305,
+          236
+        ]
+      ],
+      "source_matte_seed_pixels_transparent": true,
+      "background_mask_pixels": 525743,
+      "deep_retained_pixels": 144276,
+      "modified_retained_pixels_beyond4px": 0,
+      "classifier_min_rgb": 170,
+      "classifier_max_chroma": 22,
+      "modification_band_px": 4,
+      "classified_field_nonzero_alpha_pixels": 0,
+      "protected_closed_neutral_pixels": 442,
+      "modified_protected_closed_neutral_pixels": 0,
+      "native_foreground_pixels_on_left_edge": 0,
+      "native_foreground_pixels_on_right_edge": 0
+    },
+    {
+      "frame_index": 39,
+      "source_path": "assets_src/animation/roshan_wave_repair_20261010/aseprite_paint_trial_01/full_wave_draft_06/0039.png",
+      "source_sha256": "d80a2ba49af8b083fd44e43c4b55e666eaec378eb000bbc07cff757935b8bd5f",
+      "preserved_source_sha256": "d80a2ba49af8b083fd44e43c4b55e666eaec378eb000bbc07cff757935b8bd5f",
+      "source_copy_byte_exact": true,
+      "native_rgba_sha256": "660ea4695afc301d61be7643d42ad3a032583b920ededa6364719bb62d3447bb",
+      "preservation_matte_sha256": "660ea4695afc301d61be7643d42ad3a032583b920ededa6364719bb62d3447bb",
+      "native_endpoint_replacement": false,
+      "final_rgba_sha256": "b674cdc6d1950fbbdd875dd7a7202d77454a7d32f1713e835a9869614a4aabc2",
+      "native_dimensions": [
+        768,
+        896
+      ],
+      "final_dimensions": [
+        256,
+        256
+      ],
+      "reviewed_background_seeds": [
+        [
+          585,
+          216
+        ]
+      ],
+      "source_matte_seed_pixels_transparent": true,
+      "background_mask_pixels": 525821,
+      "deep_retained_pixels": 144163,
+      "modified_retained_pixels_beyond4px": 0,
+      "classifier_min_rgb": 170,
+      "classifier_max_chroma": 22,
+      "modification_band_px": 4,
+      "classified_field_nonzero_alpha_pixels": 0,
+      "protected_closed_neutral_pixels": 403,
+      "modified_protected_closed_neutral_pixels": 0,
+      "native_foreground_pixels_on_left_edge": 0,
+      "native_foreground_pixels_on_right_edge": 0
+    },
+    {
+      "frame_index": 40,
+      "source_path": "assets_src/animation/roshan_wave_repair_20261010/aseprite_paint_trial_01/full_wave_draft_06/0040.png",
+      "source_sha256": "9ea6d45e7e0c5d1d70ec92fcde25cfb08afc987c0ceb0911e62c1076805d8921",
+      "preserved_source_sha256": "9ea6d45e7e0c5d1d70ec92fcde25cfb08afc987c0ceb0911e62c1076805d8921",
+      "source_copy_byte_exact": true,
+      "native_rgba_sha256": "7b8c8cb81e0f31b35bfd51ab6c8075515ec4ef6f47a7f0aac347eb64464e4415",
+      "preservation_matte_sha256": "73e2d73bc460f5882f0c043e6e477193c71523063cef6f49ea4f3eaece03fa3b",
+      "native_endpoint_replacement": true,
+      "final_rgba_sha256": "432f8283ee8d9cd7f53a36b1f12bb1b82a865e048a03c3bd7cbd3a103ff2e789",
+      "native_dimensions": [
+        768,
+        896
+      ],
+      "final_dimensions": [
+        256,
+        256
+      ],
+      "reviewed_background_seeds": [
+        [
+          586,
+          217
+        ],
+        [
+          305,
+          235
+        ]
+      ],
+      "source_matte_seed_pixels_transparent": true,
+      "background_mask_pixels": 523895,
+      "deep_retained_pixels": 146915,
+      "modified_retained_pixels_beyond4px": 0,
+      "classifier_min_rgb": 170,
+      "classifier_max_chroma": 22,
+      "modification_band_px": 4,
+      "classified_field_nonzero_alpha_pixels": 0,
+      "protected_closed_neutral_pixels": 406,
+      "modified_protected_closed_neutral_pixels": 0,
+      "native_foreground_pixels_on_left_edge": 0,
+      "native_foreground_pixels_on_right_edge": 0
+    }
+  ],
+  "masters": [
+    {
+      "file": "wave.aseprite",
+      "sha256": "0335ee9a652048f713d0d19cc2f6a3b16088f433314fb8467e8ec712c516193e",
+      "frame_count": 41,
+      "dimensions": [
+        256,
+        256
+      ],
+      "layers": 1,
+      "durations_ms": [
+        42,
+        41,
+        42,
+        42,
+        41,
+        42,
+        42,
+        41,
+        42,
+        42,
+        41,
+        42,
+        42,
+        41,
+        42,
+        42,
+        41,
+        42,
+        42,
+        41,
+        42,
+        42,
+        41,
+        42,
+        42,
+        41,
+        42,
+        42,
+        41,
+        42,
+        42,
+        41,
+        42,
+        42,
+        41,
+        42,
+        42,
+        41,
+        42,
+        42,
+        41
+      ],
+      "total_duration_ms": 1708
+    },
+    {
+      "file": "native_final_wave.aseprite",
+      "sha256": "95f07f23dff2444fe205fafc6ec913733ebed8ff51a526e915e6a576bce89042",
+      "frame_count": 41,
+      "dimensions": [
+        768,
+        896
+      ],
+      "layers": 1,
+      "durations_ms": [
+        42,
+        41,
+        42,
+        42,
+        41,
+        42,
+        42,
+        41,
+        42,
+        42,
+        41,
+        42,
+        42,
+        41,
+        42,
+        42,
+        41,
+        42,
+        42,
+        41,
+        42,
+        42,
+        41,
+        42,
+        42,
+        41,
+        42,
+        42,
+        41,
+        42,
+        42,
+        41,
+        42,
+        42,
+        41,
+        42,
+        42,
+        41,
+        42,
+        42,
+        41
+      ],
+      "total_duration_ms": 1708
+    }
+  ],
+  "endpoints": [
+    {
+      "frame_index": 0,
+      "approved_k0_sha256": "432f8283ee8d9cd7f53a36b1f12bb1b82a865e048a03c3bd7cbd3a103ff2e789",
+      "export_sha256": "432f8283ee8d9cd7f53a36b1f12bb1b82a865e048a03c3bd7cbd3a103ff2e789",
+      "export_exact_png_bytes": true,
+      "reopened_master_alpha_exact": true,
+      "reopened_master_visible_rgb_exact": true
+    },
+    {
+      "frame_index": 40,
+      "approved_k0_sha256": "432f8283ee8d9cd7f53a36b1f12bb1b82a865e048a03c3bd7cbd3a103ff2e789",
+      "export_sha256": "432f8283ee8d9cd7f53a36b1f12bb1b82a865e048a03c3bd7cbd3a103ff2e789",
+      "export_exact_png_bytes": true,
+      "reopened_master_alpha_exact": true,
+      "reopened_master_visible_rgb_exact": true
+    }
+  ],
+  "native_endpoint_replacements": [
+    {
+      "frame_index": 0,
+      "approved_k0_sha256": "432f8283ee8d9cd7f53a36b1f12bb1b82a865e048a03c3bd7cbd3a103ff2e789",
+      "whole_resized_dimensions": [
+        819,
+        819
+      ],
+      "uniform_raster_scale": 3.19921875,
+      "translation": [
+        -48,
+        32
+      ],
+      "ideal_inverse_mapping_scale": 3.2,
+      "relative_scale_error_pct": -0.0244140625,
+      "master_alpha_exact": true,
+      "master_visible_rgb_exact": true
+    },
+    {
+      "frame_index": 40,
+      "approved_k0_sha256": "432f8283ee8d9cd7f53a36b1f12bb1b82a865e048a03c3bd7cbd3a103ff2e789",
+      "whole_resized_dimensions": [
+        819,
+        819
+      ],
+      "uniform_raster_scale": 3.19921875,
+      "translation": [
+        -48,
+        32
+      ],
+      "ideal_inverse_mapping_scale": 3.2,
+      "relative_scale_error_pct": -0.0244140625,
+      "master_alpha_exact": true,
+      "master_visible_rgb_exact": true
+    }
+  ],
+  "pixel_write_method": "Aseprite Lua only. Python reads and measures pixels, hashes files, and writes JSON records.",
+  "model_visual_review": "All 41 seed crops and left-curl/shoulder crops reviewed before application; all 41 output cels reviewed on black and light contacts and native upper-body black contact. Source arm-shadow remnants at1..11 and27..39 remain. Native source contour noise and focus remain; no final acceptance is inferred from preservation checks.",
+  "acceptance": {
+    "artifact_free_wave": false,
+    "owner": false,
+    "device": false,
+    "child": false,
+    "runtime": false,
+    "delivery_accepted": false
+  }
+}

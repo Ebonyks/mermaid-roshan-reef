@@ -1,0 +1,775 @@
+{
+  "schema": "reef.native-wave-frame-review.v1",
+  "recorded_at_utc": "2026-10-11T00:19:46.951934+00:00",
+  "status": "REJECTED_WAVE_SELECTED_CRISP_KEYS_ONLY",
+  "reviewer_kind": "model_observation",
+  "review_lane": "All41 ordered full-figure views at half spatial scale plus native-resolution waving-arm/hand region; further whole-native-pixel review remains independent",
+  "source_receipt": {
+    "path": "assets_src/animation/roshan_wave_repair_20261010/native640_01/take_01/receipt.json",
+    "sha256": "9fabe5d50d9b553131c49b725ec1b524c6e7b32f3d839dd9d18c65c38acdbc2f",
+    "execution_status": "EXECUTION_PASS",
+    "elapsed_seconds": 693.7660000000033
+  },
+  "frame_count": 41,
+  "frame_rate": 24,
+  "native_canvas": [
+    640,
+    896
+  ],
+  "frames": [
+    {
+      "index": 0,
+      "path": "assets_src/animation/roshan_wave_repair_20261010/native640_01/take_01/native_frames/0000.png",
+      "sha256": "d6886554ce2518664049bdfecbf483dca914498a3f26f0700c133fff8c4a287d",
+      "reviewer_kind": "model_observation",
+      "result": "CANDIDATE_KEY_PENDING",
+      "phase": "rest_or_settle",
+      "findings": [
+        "Rest pose; relaxed waving-side hand silhouette coherent."
+      ],
+      "crisp_whole_frame_key_candidate": true,
+      "artifact_free_acceptance": false,
+      "joint_measurement": "PENDING",
+      "identity_human_review": "PENDING",
+      "native_alpha": "Opaque gray canvas; no RGBA matte acceptance"
+    },
+    {
+      "index": 1,
+      "path": "assets_src/animation/roshan_wave_repair_20261010/native640_01/take_01/native_frames/0001.png",
+      "sha256": "b1549c171534643afee2b020e027b486def90de7145e00b9463047f12fedf33b",
+      "reviewer_kind": "model_observation",
+      "result": "CANDIDATE_KEY_PENDING",
+      "phase": "rest_or_settle",
+      "findings": [
+        "Rest pose; no obvious new waving-hand artifact in inspected region."
+      ],
+      "crisp_whole_frame_key_candidate": true,
+      "artifact_free_acceptance": false,
+      "joint_measurement": "PENDING",
+      "identity_human_review": "PENDING",
+      "native_alpha": "Opaque gray canvas; no RGBA matte acceptance"
+    },
+    {
+      "index": 2,
+      "path": "assets_src/animation/roshan_wave_repair_20261010/native640_01/take_01/native_frames/0002.png",
+      "sha256": "df5357ae3314fbbba4525af2fe5ddcb0f41fb4b349d6907b5703bf8591eaa17a",
+      "reviewer_kind": "model_observation",
+      "result": "CANDIDATE_KEY_PENDING",
+      "phase": "rest_or_settle",
+      "findings": [
+        "Rest pose; relaxed hand coherent."
+      ],
+      "crisp_whole_frame_key_candidate": true,
+      "artifact_free_acceptance": false,
+      "joint_measurement": "PENDING",
+      "identity_human_review": "PENDING",
+      "native_alpha": "Opaque gray canvas; no RGBA matte acceptance"
+    },
+    {
+      "index": 3,
+      "path": "assets_src/animation/roshan_wave_repair_20261010/native640_01/take_01/native_frames/0003.png",
+      "sha256": "f77dac4b845263497bc3d4bb1554f5a5de745b7bff2f515ff716bf6db49fd30c",
+      "reviewer_kind": "model_observation",
+      "result": "CANDIDATE_KEY_PENDING",
+      "phase": "rest_or_settle",
+      "findings": [
+        "Rest pose; relaxed hand coherent."
+      ],
+      "crisp_whole_frame_key_candidate": true,
+      "artifact_free_acceptance": false,
+      "joint_measurement": "PENDING",
+      "identity_human_review": "PENDING",
+      "native_alpha": "Opaque gray canvas; no RGBA matte acceptance"
+    },
+    {
+      "index": 4,
+      "path": "assets_src/animation/roshan_wave_repair_20261010/native640_01/take_01/native_frames/0004.png",
+      "sha256": "27940e74b8081a9c53dd4a96d7f231eaf916b6f610a79e091f4e7f8f10d235d5",
+      "reviewer_kind": "model_observation",
+      "result": "CANDIDATE_KEY_PENDING",
+      "phase": "rest_or_settle",
+      "findings": [
+        "Early lift retains relaxed hand contour; not a complete mid-rise key."
+      ],
+      "crisp_whole_frame_key_candidate": true,
+      "artifact_free_acceptance": false,
+      "joint_measurement": "PENDING",
+      "identity_human_review": "PENDING",
+      "native_alpha": "Opaque gray canvas; no RGBA matte acceptance"
+    },
+    {
+      "index": 5,
+      "path": "assets_src/animation/roshan_wave_repair_20261010/native640_01/take_01/native_frames/0005.png",
+      "sha256": "cacc15855a9b38e99729e5460f566af17d6345b2b0e3a8780e05639c9d0583ae",
+      "reviewer_kind": "model_observation",
+      "result": "FAIL_OBSERVED_ARTIFACT",
+      "phase": "rise",
+      "findings": [
+        "First visibly malformed rising hand: fingers become scribbled/doubled inside a swelling palm."
+      ],
+      "crisp_whole_frame_key_candidate": false,
+      "artifact_free_acceptance": false,
+      "joint_measurement": "PENDING",
+      "identity_human_review": "PENDING",
+      "native_alpha": "Opaque gray canvas; no RGBA matte acceptance"
+    },
+    {
+      "index": 6,
+      "path": "assets_src/animation/roshan_wave_repair_20261010/native640_01/take_01/native_frames/0006.png",
+      "sha256": "edca4ef1a299c51c5af8225323889ea0368319917da23ee58ac2ed2887378c78",
+      "reviewer_kind": "model_observation",
+      "result": "FAIL_OBSERVED_ARTIFACT",
+      "phase": "rise",
+      "findings": [
+        "Rising palm/fingers remain scribbled and anatomy is ambiguous."
+      ],
+      "crisp_whole_frame_key_candidate": false,
+      "artifact_free_acceptance": false,
+      "joint_measurement": "PENDING",
+      "identity_human_review": "PENDING",
+      "native_alpha": "Opaque gray canvas; no RGBA matte acceptance"
+    },
+    {
+      "index": 7,
+      "path": "assets_src/animation/roshan_wave_repair_20261010/native640_01/take_01/native_frames/0007.png",
+      "sha256": "dfe01a61ddd074209d620a7489b32c5f013a283fc653a110d4ca1fa5e8a7232d",
+      "reviewer_kind": "model_observation",
+      "result": "FAIL_OBSERVED_ARTIFACT",
+      "phase": "rise",
+      "findings": [
+        "Contour temporarily simpler, but long fingers are fused/missing; cannot count this as a clean open-hand key."
+      ],
+      "crisp_whole_frame_key_candidate": false,
+      "artifact_free_acceptance": false,
+      "joint_measurement": "PENDING",
+      "identity_human_review": "PENDING",
+      "native_alpha": "Opaque gray canvas; no RGBA matte acceptance"
+    },
+    {
+      "index": 8,
+      "path": "assets_src/animation/roshan_wave_repair_20261010/native640_01/take_01/native_frames/0008.png",
+      "sha256": "186d01bc8ee06af5305a4bb8f0e3aabc31f659a8a33f0a0aac1f887aad013fef",
+      "reviewer_kind": "model_observation",
+      "result": "FAIL_OBSERVED_ARTIFACT",
+      "phase": "rise",
+      "findings": [
+        "Rising hand has repeated scratch-like finger contours and ghost edges."
+      ],
+      "crisp_whole_frame_key_candidate": false,
+      "artifact_free_acceptance": false,
+      "joint_measurement": "PENDING",
+      "identity_human_review": "PENDING",
+      "native_alpha": "Opaque gray canvas; no RGBA matte acceptance"
+    },
+    {
+      "index": 9,
+      "path": "assets_src/animation/roshan_wave_repair_20261010/native640_01/take_01/native_frames/0009.png",
+      "sha256": "6cc337796f985d775bac942266254300d217af4a3690340e81428db367d9807e",
+      "reviewer_kind": "model_observation",
+      "result": "FAIL_OBSERVED_ARTIFACT",
+      "phase": "rise",
+      "findings": [
+        "Open hand turns into textured/fused cluster; wrist/forearm contour also irregular."
+      ],
+      "crisp_whole_frame_key_candidate": false,
+      "artifact_free_acceptance": false,
+      "joint_measurement": "PENDING",
+      "identity_human_review": "PENDING",
+      "native_alpha": "Opaque gray canvas; no RGBA matte acceptance"
+    },
+    {
+      "index": 10,
+      "path": "assets_src/animation/roshan_wave_repair_20261010/native640_01/take_01/native_frames/0010.png",
+      "sha256": "c48361f23abf2d884c44c665e0eb69400cd755fd28a7efe3f19abfd08fd02373",
+      "reviewer_kind": "model_observation",
+      "result": "FAIL_OBSERVED_ARTIFACT",
+      "phase": "rise",
+      "findings": [
+        "Repeated hand/finger strokes and wrist contour ambiguity."
+      ],
+      "crisp_whole_frame_key_candidate": false,
+      "artifact_free_acceptance": false,
+      "joint_measurement": "PENDING",
+      "identity_human_review": "PENDING",
+      "native_alpha": "Opaque gray canvas; no RGBA matte acceptance"
+    },
+    {
+      "index": 11,
+      "path": "assets_src/animation/roshan_wave_repair_20261010/native640_01/take_01/native_frames/0011.png",
+      "sha256": "241ca3b42b5ea00145e6a1de3b60837b75d20668bbf789fe39aaec87b4f3d048",
+      "reviewer_kind": "model_observation",
+      "result": "FAIL_OBSERVED_ARTIFACT",
+      "phase": "rise",
+      "findings": [
+        "Finger lengths/contours visibly irregular, with doubled dark strokes."
+      ],
+      "crisp_whole_frame_key_candidate": false,
+      "artifact_free_acceptance": false,
+      "joint_measurement": "PENDING",
+      "identity_human_review": "PENDING",
+      "native_alpha": "Opaque gray canvas; no RGBA matte acceptance"
+    },
+    {
+      "index": 12,
+      "path": "assets_src/animation/roshan_wave_repair_20261010/native640_01/take_01/native_frames/0012.png",
+      "sha256": "d6a5b1cf38fbe865e272f49d7beb557fa1c66c3fa22f2def3087aa4370cc7b6a",
+      "reviewer_kind": "model_observation",
+      "result": "FAIL_OBSERVED_ARTIFACT",
+      "phase": "rise",
+      "findings": [
+        "Hand/palm remains blotched and incoherent; arm bend outline jagged."
+      ],
+      "crisp_whole_frame_key_candidate": false,
+      "artifact_free_acceptance": false,
+      "joint_measurement": "PENDING",
+      "identity_human_review": "PENDING",
+      "native_alpha": "Opaque gray canvas; no RGBA matte acceptance"
+    },
+    {
+      "index": 13,
+      "path": "assets_src/animation/roshan_wave_repair_20261010/native640_01/take_01/native_frames/0013.png",
+      "sha256": "154944b6ea3af40544236666af80cb8284610438f2ddfc26534c75db028458e2",
+      "reviewer_kind": "model_observation",
+      "result": "FAIL_OBSERVED_ARTIFACT",
+      "phase": "rise",
+      "findings": [
+        "Transition toward high pose retains blurred/ghost finger tips and irregular arm outline."
+      ],
+      "crisp_whole_frame_key_candidate": false,
+      "artifact_free_acceptance": false,
+      "joint_measurement": "PENDING",
+      "identity_human_review": "PENDING",
+      "native_alpha": "Opaque gray canvas; no RGBA matte acceptance"
+    },
+    {
+      "index": 14,
+      "path": "assets_src/animation/roshan_wave_repair_20261010/native640_01/take_01/native_frames/0014.png",
+      "sha256": "15db04d7153268e187ddf8195b5169dd5e830858eaf2fabefbcbb6eeeb1256ff",
+      "reviewer_kind": "model_observation",
+      "result": "CANDIDATE_KEY_PENDING",
+      "phase": "raised_wave",
+      "findings": [
+        "Raised open palm has readable four long fingers plus thumb; connected arm contour; candidate key only."
+      ],
+      "crisp_whole_frame_key_candidate": true,
+      "artifact_free_acceptance": false,
+      "joint_measurement": "PENDING",
+      "identity_human_review": "PENDING",
+      "native_alpha": "Opaque gray canvas; no RGBA matte acceptance"
+    },
+    {
+      "index": 15,
+      "path": "assets_src/animation/roshan_wave_repair_20261010/native640_01/take_01/native_frames/0015.png",
+      "sha256": "efd06ec616ac20540f8d2e4adf321b051083983d306146d13111fc774e1e4c99",
+      "reviewer_kind": "model_observation",
+      "result": "CANDIDATE_KEY_PENDING",
+      "phase": "raised_wave",
+      "findings": [
+        "Raised open palm readable; silhouette coherent at this pose."
+      ],
+      "crisp_whole_frame_key_candidate": true,
+      "artifact_free_acceptance": false,
+      "joint_measurement": "PENDING",
+      "identity_human_review": "PENDING",
+      "native_alpha": "Opaque gray canvas; no RGBA matte acceptance"
+    },
+    {
+      "index": 16,
+      "path": "assets_src/animation/roshan_wave_repair_20261010/native640_01/take_01/native_frames/0016.png",
+      "sha256": "b2f3be8b4ab4c627be835482a96b04d5ccfcb840496af9be37eb27a6eca46098",
+      "reviewer_kind": "model_observation",
+      "result": "CANDIDATE_KEY_PENDING",
+      "phase": "raised_wave",
+      "findings": [
+        "Raised palm coherent during modest wrist angle change."
+      ],
+      "crisp_whole_frame_key_candidate": true,
+      "artifact_free_acceptance": false,
+      "joint_measurement": "PENDING",
+      "identity_human_review": "PENDING",
+      "native_alpha": "Opaque gray canvas; no RGBA matte acceptance"
+    },
+    {
+      "index": 17,
+      "path": "assets_src/animation/roshan_wave_repair_20261010/native640_01/take_01/native_frames/0017.png",
+      "sha256": "be4b67324b8c6cc2a38c06346c92405a4fe4d669d5931c0c539b49ce09e7b3e3",
+      "reviewer_kind": "model_observation",
+      "result": "CANDIDATE_KEY_PENDING",
+      "phase": "raised_wave",
+      "findings": [
+        "Raised open palm coherent; fingers distinct."
+      ],
+      "crisp_whole_frame_key_candidate": true,
+      "artifact_free_acceptance": false,
+      "joint_measurement": "PENDING",
+      "identity_human_review": "PENDING",
+      "native_alpha": "Opaque gray canvas; no RGBA matte acceptance"
+    },
+    {
+      "index": 18,
+      "path": "assets_src/animation/roshan_wave_repair_20261010/native640_01/take_01/native_frames/0018.png",
+      "sha256": "67d697d772899404fdd8415a7379127139fcbefb0a95a68df43a51abfd5728eb",
+      "reviewer_kind": "model_observation",
+      "result": "CANDIDATE_KEY_PENDING",
+      "phase": "raised_wave",
+      "findings": [
+        "Raised open palm coherent; useful mid-wave comparison key."
+      ],
+      "crisp_whole_frame_key_candidate": true,
+      "artifact_free_acceptance": false,
+      "joint_measurement": "PENDING",
+      "identity_human_review": "PENDING",
+      "native_alpha": "Opaque gray canvas; no RGBA matte acceptance"
+    },
+    {
+      "index": 19,
+      "path": "assets_src/animation/roshan_wave_repair_20261010/native640_01/take_01/native_frames/0019.png",
+      "sha256": "b0f6903351b2b3c2a21711779c703ba5adc8198d1e4b2d0132fbea6169474917",
+      "reviewer_kind": "model_observation",
+      "result": "CANDIDATE_KEY_PENDING",
+      "phase": "raised_wave",
+      "findings": [
+        "Raised palm readable; no obvious hand breakup in inspected region."
+      ],
+      "crisp_whole_frame_key_candidate": true,
+      "artifact_free_acceptance": false,
+      "joint_measurement": "PENDING",
+      "identity_human_review": "PENDING",
+      "native_alpha": "Opaque gray canvas; no RGBA matte acceptance"
+    },
+    {
+      "index": 20,
+      "path": "assets_src/animation/roshan_wave_repair_20261010/native640_01/take_01/native_frames/0020.png",
+      "sha256": "99254a2d392b289d0e7252a02ee891c3719b97c3c6d31ace707f0adb3628907e",
+      "reviewer_kind": "model_observation",
+      "result": "CANDIDATE_KEY_PENDING",
+      "phase": "raised_wave",
+      "findings": [
+        "Raised palm coherent during small wave angle change."
+      ],
+      "crisp_whole_frame_key_candidate": true,
+      "artifact_free_acceptance": false,
+      "joint_measurement": "PENDING",
+      "identity_human_review": "PENDING",
+      "native_alpha": "Opaque gray canvas; no RGBA matte acceptance"
+    },
+    {
+      "index": 21,
+      "path": "assets_src/animation/roshan_wave_repair_20261010/native640_01/take_01/native_frames/0021.png",
+      "sha256": "bf4d4b2709391a9b33556e8d8e388f6fbc043d2bc5a61cf4a689f99c44291b5c",
+      "reviewer_kind": "model_observation",
+      "result": "CANDIDATE_KEY_PENDING",
+      "phase": "raised_wave",
+      "findings": [
+        "Raised palm coherent; useful opposite-angle comparison key."
+      ],
+      "crisp_whole_frame_key_candidate": true,
+      "artifact_free_acceptance": false,
+      "joint_measurement": "PENDING",
+      "identity_human_review": "PENDING",
+      "native_alpha": "Opaque gray canvas; no RGBA matte acceptance"
+    },
+    {
+      "index": 22,
+      "path": "assets_src/animation/roshan_wave_repair_20261010/native640_01/take_01/native_frames/0022.png",
+      "sha256": "67c88341f0554cf28aa9f7f824be21ee6a3cc46f1b70fb633656e3943c5a77bb",
+      "reviewer_kind": "model_observation",
+      "result": "CANDIDATE_KEY_PENDING",
+      "phase": "raised_wave",
+      "findings": [
+        "Raised palm readable; no obvious hand breakup in inspected region."
+      ],
+      "crisp_whole_frame_key_candidate": true,
+      "artifact_free_acceptance": false,
+      "joint_measurement": "PENDING",
+      "identity_human_review": "PENDING",
+      "native_alpha": "Opaque gray canvas; no RGBA matte acceptance"
+    },
+    {
+      "index": 23,
+      "path": "assets_src/animation/roshan_wave_repair_20261010/native640_01/take_01/native_frames/0023.png",
+      "sha256": "bdc2ec7f7fc92d263efbee2e43a38e142ad4c3c3488d82a684291e3d20e6cf03",
+      "reviewer_kind": "model_observation",
+      "result": "CANDIDATE_KEY_PENDING",
+      "phase": "raised_wave",
+      "findings": [
+        "Raised palm coherent; complete figure remains present."
+      ],
+      "crisp_whole_frame_key_candidate": true,
+      "artifact_free_acceptance": false,
+      "joint_measurement": "PENDING",
+      "identity_human_review": "PENDING",
+      "native_alpha": "Opaque gray canvas; no RGBA matte acceptance"
+    },
+    {
+      "index": 24,
+      "path": "assets_src/animation/roshan_wave_repair_20261010/native640_01/take_01/native_frames/0024.png",
+      "sha256": "a7bc0daa67aac7ef8f32600abba7f083199b8acc91e17d254d3bead2a0200b0e",
+      "reviewer_kind": "model_observation",
+      "result": "CANDIDATE_KEY_PENDING",
+      "phase": "raised_wave",
+      "findings": [
+        "Last coherent raised open-hand pose before lowering breakup."
+      ],
+      "crisp_whole_frame_key_candidate": true,
+      "artifact_free_acceptance": false,
+      "joint_measurement": "PENDING",
+      "identity_human_review": "PENDING",
+      "native_alpha": "Opaque gray canvas; no RGBA matte acceptance"
+    },
+    {
+      "index": 25,
+      "path": "assets_src/animation/roshan_wave_repair_20261010/native640_01/take_01/native_frames/0025.png",
+      "sha256": "0beac751bbddfadaad43a145de69ff57a5a20da854108a0d5086d469bc3d4773",
+      "reviewer_kind": "model_observation",
+      "result": "FAIL_OBSERVED_ARTIFACT",
+      "phase": "lower",
+      "findings": [
+        "Lowering begins with doubled/scribbled fingers and mottled palm."
+      ],
+      "crisp_whole_frame_key_candidate": false,
+      "artifact_free_acceptance": false,
+      "joint_measurement": "PENDING",
+      "identity_human_review": "PENDING",
+      "native_alpha": "Opaque gray canvas; no RGBA matte acceptance"
+    },
+    {
+      "index": 26,
+      "path": "assets_src/animation/roshan_wave_repair_20261010/native640_01/take_01/native_frames/0026.png",
+      "sha256": "01ad535d0cac0eb0e34a4bca90aab6f9c582c1b6f3ed9bcc9baff59149fd50a9",
+      "reviewer_kind": "model_observation",
+      "result": "FAIL_OBSERVED_ARTIFACT",
+      "phase": "lower",
+      "findings": [
+        "Severe hand plus forearm/elbow contour disintegration; detached skin/outline marks; hand-only repair insufficient."
+      ],
+      "crisp_whole_frame_key_candidate": false,
+      "artifact_free_acceptance": false,
+      "joint_measurement": "PENDING",
+      "identity_human_review": "PENDING",
+      "native_alpha": "Opaque gray canvas; no RGBA matte acceptance"
+    },
+    {
+      "index": 27,
+      "path": "assets_src/animation/roshan_wave_repair_20261010/native640_01/take_01/native_frames/0027.png",
+      "sha256": "3636c272ef8fa68dc04d3297711cc14295580d3ebd45fd2886665f2e5632d208",
+      "reviewer_kind": "model_observation",
+      "result": "FAIL_OBSERVED_ARTIFACT",
+      "phase": "lower",
+      "findings": [
+        "Lowering hand has doubled angular fingers and textured palm; arm contour rough."
+      ],
+      "crisp_whole_frame_key_candidate": false,
+      "artifact_free_acceptance": false,
+      "joint_measurement": "PENDING",
+      "identity_human_review": "PENDING",
+      "native_alpha": "Opaque gray canvas; no RGBA matte acceptance"
+    },
+    {
+      "index": 28,
+      "path": "assets_src/animation/roshan_wave_repair_20261010/native640_01/take_01/native_frames/0028.png",
+      "sha256": "9cebd825b18f920a95cc32d9efbaa0fdc8c6aed8174bed03b3d97748b436996e",
+      "reviewer_kind": "model_observation",
+      "result": "FAIL_OBSERVED_ARTIFACT",
+      "phase": "lower",
+      "findings": [
+        "Finger/palm structure is a textured scribble; wrist and forearm outlines also rough."
+      ],
+      "crisp_whole_frame_key_candidate": false,
+      "artifact_free_acceptance": false,
+      "joint_measurement": "PENDING",
+      "identity_human_review": "PENDING",
+      "native_alpha": "Opaque gray canvas; no RGBA matte acceptance"
+    },
+    {
+      "index": 29,
+      "path": "assets_src/animation/roshan_wave_repair_20261010/native640_01/take_01/native_frames/0029.png",
+      "sha256": "8c43184fe29a64edf72abdc98875b25a22b1db8c288f4ae61f6322412a4b900b",
+      "reviewer_kind": "model_observation",
+      "result": "FAIL_OBSERVED_ARTIFACT",
+      "phase": "lower",
+      "findings": [
+        "Malformed finger cluster and palm; cannot infer clean open-hand anatomy."
+      ],
+      "crisp_whole_frame_key_candidate": false,
+      "artifact_free_acceptance": false,
+      "joint_measurement": "PENDING",
+      "identity_human_review": "PENDING",
+      "native_alpha": "Opaque gray canvas; no RGBA matte acceptance"
+    },
+    {
+      "index": 30,
+      "path": "assets_src/animation/roshan_wave_repair_20261010/native640_01/take_01/native_frames/0030.png",
+      "sha256": "5bddd6d9dd3bf14e69fec9310eef9639afd2192384820afb8e9fa88fb6427f7e",
+      "reviewer_kind": "model_observation",
+      "result": "FAIL_OBSERVED_ARTIFACT",
+      "phase": "lower",
+      "findings": [
+        "Multiple dark finger trails and inconsistent palm/finger proportions."
+      ],
+      "crisp_whole_frame_key_candidate": false,
+      "artifact_free_acceptance": false,
+      "joint_measurement": "PENDING",
+      "identity_human_review": "PENDING",
+      "native_alpha": "Opaque gray canvas; no RGBA matte acceptance"
+    },
+    {
+      "index": 31,
+      "path": "assets_src/animation/roshan_wave_repair_20261010/native640_01/take_01/native_frames/0031.png",
+      "sha256": "3c33bc9692be7bf596fb0009962b09b3fa8ba937298215a17f51bc7034a67d7a",
+      "reviewer_kind": "model_observation",
+      "result": "FAIL_OBSERVED_ARTIFACT",
+      "phase": "lower",
+      "findings": [
+        "Apparently cleaner bars still fuse/simplify fingers and create malformed thumb/palm; not a usable clean key."
+      ],
+      "crisp_whole_frame_key_candidate": false,
+      "artifact_free_acceptance": false,
+      "joint_measurement": "PENDING",
+      "identity_human_review": "PENDING",
+      "native_alpha": "Opaque gray canvas; no RGBA matte acceptance"
+    },
+    {
+      "index": 32,
+      "path": "assets_src/animation/roshan_wave_repair_20261010/native640_01/take_01/native_frames/0032.png",
+      "sha256": "e47da634b1f95336768816cca7c1953e783a682af897c78fc8d0467c2b1a0b75",
+      "reviewer_kind": "model_observation",
+      "result": "FAIL_OBSERVED_ARTIFACT",
+      "phase": "lower",
+      "findings": [
+        "Near-rest hand remains scrambled, with scratch-like doubled strokes."
+      ],
+      "crisp_whole_frame_key_candidate": false,
+      "artifact_free_acceptance": false,
+      "joint_measurement": "PENDING",
+      "identity_human_review": "PENDING",
+      "native_alpha": "Opaque gray canvas; no RGBA matte acceptance"
+    },
+    {
+      "index": 33,
+      "path": "assets_src/animation/roshan_wave_repair_20261010/native640_01/take_01/native_frames/0033.png",
+      "sha256": "4054053ddb51cac7e03e328424cf395e5b7aad54aa547508967e5dc7c6e21139",
+      "reviewer_kind": "model_observation",
+      "result": "FAIL_OBSERVED_ARTIFACT",
+      "phase": "lower",
+      "findings": [
+        "Relaxing hand plus detached outline trails above wrist/fingers; incomplete clean settle."
+      ],
+      "crisp_whole_frame_key_candidate": false,
+      "artifact_free_acceptance": false,
+      "joint_measurement": "PENDING",
+      "identity_human_review": "PENDING",
+      "native_alpha": "Opaque gray canvas; no RGBA matte acceptance"
+    },
+    {
+      "index": 34,
+      "path": "assets_src/animation/roshan_wave_repair_20261010/native640_01/take_01/native_frames/0034.png",
+      "sha256": "f8f94d230d34bf7b51327290df14c69deb9ac94d60cad76ccbdfffbfe86565e0",
+      "reviewer_kind": "model_observation",
+      "result": "CANDIDATE_KEY_PENDING",
+      "phase": "rest_or_settle",
+      "findings": [
+        "Relaxed rest hand coherent again; candidate settle key only."
+      ],
+      "crisp_whole_frame_key_candidate": true,
+      "artifact_free_acceptance": false,
+      "joint_measurement": "PENDING",
+      "identity_human_review": "PENDING",
+      "native_alpha": "Opaque gray canvas; no RGBA matte acceptance"
+    },
+    {
+      "index": 35,
+      "path": "assets_src/animation/roshan_wave_repair_20261010/native640_01/take_01/native_frames/0035.png",
+      "sha256": "99f28b3353205bb0b1136d9d71bb0b3b614f2c1e6074ef8df34e6a9312c38543",
+      "reviewer_kind": "model_observation",
+      "result": "CANDIDATE_KEY_PENDING",
+      "phase": "rest_or_settle",
+      "findings": [
+        "Relaxed hand coherent; still requires identity/matte/geometry review."
+      ],
+      "crisp_whole_frame_key_candidate": true,
+      "artifact_free_acceptance": false,
+      "joint_measurement": "PENDING",
+      "identity_human_review": "PENDING",
+      "native_alpha": "Opaque gray canvas; no RGBA matte acceptance"
+    },
+    {
+      "index": 36,
+      "path": "assets_src/animation/roshan_wave_repair_20261010/native640_01/take_01/native_frames/0036.png",
+      "sha256": "3a4a900d86ab3f8bab804c000185c279a995df1d25b4eaa31e497e7b3ea99910",
+      "reviewer_kind": "model_observation",
+      "result": "CANDIDATE_KEY_PENDING",
+      "phase": "rest_or_settle",
+      "findings": [
+        "Rest pose hand coherent."
+      ],
+      "crisp_whole_frame_key_candidate": true,
+      "artifact_free_acceptance": false,
+      "joint_measurement": "PENDING",
+      "identity_human_review": "PENDING",
+      "native_alpha": "Opaque gray canvas; no RGBA matte acceptance"
+    },
+    {
+      "index": 37,
+      "path": "assets_src/animation/roshan_wave_repair_20261010/native640_01/take_01/native_frames/0037.png",
+      "sha256": "610a1992da8e12201aba0f2328b9b4189f970ea11873311f23b510ca8c5fc71a",
+      "reviewer_kind": "model_observation",
+      "result": "CANDIDATE_KEY_PENDING",
+      "phase": "rest_or_settle",
+      "findings": [
+        "Rest pose hand coherent."
+      ],
+      "crisp_whole_frame_key_candidate": true,
+      "artifact_free_acceptance": false,
+      "joint_measurement": "PENDING",
+      "identity_human_review": "PENDING",
+      "native_alpha": "Opaque gray canvas; no RGBA matte acceptance"
+    },
+    {
+      "index": 38,
+      "path": "assets_src/animation/roshan_wave_repair_20261010/native640_01/take_01/native_frames/0038.png",
+      "sha256": "dd32d8a41fc38e0ae0d68f6d263c4a57e481cdc2c76c1a27eb5e8a3363cf41e7",
+      "reviewer_kind": "model_observation",
+      "result": "CANDIDATE_KEY_PENDING",
+      "phase": "rest_or_settle",
+      "findings": [
+        "Rest pose hand coherent."
+      ],
+      "crisp_whole_frame_key_candidate": true,
+      "artifact_free_acceptance": false,
+      "joint_measurement": "PENDING",
+      "identity_human_review": "PENDING",
+      "native_alpha": "Opaque gray canvas; no RGBA matte acceptance"
+    },
+    {
+      "index": 39,
+      "path": "assets_src/animation/roshan_wave_repair_20261010/native640_01/take_01/native_frames/0039.png",
+      "sha256": "3661539198725bb20efa49ba999951b81167dfa895a078a783acc791422eefec",
+      "reviewer_kind": "model_observation",
+      "result": "CANDIDATE_KEY_PENDING",
+      "phase": "rest_or_settle",
+      "findings": [
+        "Rest pose hand coherent."
+      ],
+      "crisp_whole_frame_key_candidate": true,
+      "artifact_free_acceptance": false,
+      "joint_measurement": "PENDING",
+      "identity_human_review": "PENDING",
+      "native_alpha": "Opaque gray canvas; no RGBA matte acceptance"
+    },
+    {
+      "index": 40,
+      "path": "assets_src/animation/roshan_wave_repair_20261010/native640_01/take_01/native_frames/0040.png",
+      "sha256": "82f6da7023b0944dd63ff4fd95e4c5353e471304be4ad73b99330bd449fba936",
+      "reviewer_kind": "model_observation",
+      "result": "CANDIDATE_KEY_PENDING",
+      "phase": "rest_or_settle",
+      "findings": [
+        "Rest pose hand coherent, but native generated gray-canvas frame is not exact approved K0 endpoint."
+      ],
+      "crisp_whole_frame_key_candidate": true,
+      "artifact_free_acceptance": false,
+      "joint_measurement": "PENDING",
+      "identity_human_review": "PENDING",
+      "native_alpha": "Opaque gray canvas; no RGBA matte acceptance"
+    }
+  ],
+  "ordered_frame_sha256": "744a8b6286cbc28d7621780056d25cb1352c4ffb8ca01b02842e928e89483765",
+  "failed_spans": [
+    {
+      "first": 5,
+      "last": 13,
+      "phase": "rise",
+      "context": [
+        4,
+        14
+      ],
+      "gap": "No clean open-hand intermediate rise; entire affected native cel must be repaired/redrawn."
+    },
+    {
+      "first": 25,
+      "last": 33,
+      "phase": "lower",
+      "context": [
+        24,
+        34
+      ],
+      "gap": "No coherent lowering sequence; frame26 needs forearm/elbow plus hand repair."
+    }
+  ],
+  "crisp_draft_key_spans": [
+    {
+      "first": 0,
+      "last": 4,
+      "phase": "rest/early lift"
+    },
+    {
+      "first": 14,
+      "last": 24,
+      "phase": "raised wave"
+    },
+    {
+      "first": 34,
+      "last": 40,
+      "phase": "rest/settle"
+    }
+  ],
+  "suggested_raised_keys": [
+    14,
+    18,
+    21,
+    24
+  ],
+  "prohibited_shortcut": "Do not fill missing raise/lower motion using repeated raised/rest keys or a hand stamp. Whole-frame authored cadence still requires readable missing action states.",
+  "full_speed_review": "NOT_PERFORMED",
+  "loop_seam_review": "PENDING",
+  "diagnostic_boards": {
+    "role": "REVIEW_ONLY_NOT_GENERATION_OR_DELIVERY_PIXELS",
+    "whole_figure_scale": 0.5,
+    "native_arm_crop_xyxy": [
+      20,
+      100,
+      260,
+      580
+    ],
+    "files": [
+      {
+        "path": "C:\\Users\\Peter\\.codex\\worktrees\\roshan-wave-keys-20261007\\mermaid-roshan-reef\\tmp\\wave_native640_review\\00-05.png",
+        "sha256": "7cbb43349eeb19261a6462e5a74b78d4e8327dc32ce88f86e7eb7ae638d0f4fd"
+      },
+      {
+        "path": "C:\\Users\\Peter\\.codex\\worktrees\\roshan-wave-keys-20261007\\mermaid-roshan-reef\\tmp\\wave_native640_review\\06-11.png",
+        "sha256": "93e62476b641a501a8cdf400623094d942111ebd27419a69f33f122e6125f102"
+      },
+      {
+        "path": "C:\\Users\\Peter\\.codex\\worktrees\\roshan-wave-keys-20261007\\mermaid-roshan-reef\\tmp\\wave_native640_review\\12-17.png",
+        "sha256": "3edaded65986fcb1af0ee9c660897120d34fc12a9f5fa14d76d02a4dac529053"
+      },
+      {
+        "path": "C:\\Users\\Peter\\.codex\\worktrees\\roshan-wave-keys-20261007\\mermaid-roshan-reef\\tmp\\wave_native640_review\\18-23.png",
+        "sha256": "a5594f3adc54dd4041ff418749eb546ecbe4a8eb95cc413431aef8c33d7cb83f"
+      },
+      {
+        "path": "C:\\Users\\Peter\\.codex\\worktrees\\roshan-wave-keys-20261007\\mermaid-roshan-reef\\tmp\\wave_native640_review\\24-29.png",
+        "sha256": "adba7ae7636a2e014ed5ec47475e1a41812fc50cccff6707d12627051603f8b8"
+      },
+      {
+        "path": "C:\\Users\\Peter\\.codex\\worktrees\\roshan-wave-keys-20261007\\mermaid-roshan-reef\\tmp\\wave_native640_review\\30-35.png",
+        "sha256": "19133e25943a77bd977cc21ebf6680faf091a37019367895565fa5bcb8c43e02"
+      },
+      {
+        "path": "C:\\Users\\Peter\\.codex\\worktrees\\roshan-wave-keys-20261007\\mermaid-roshan-reef\\tmp\\wave_native640_review\\36-40.png",
+        "sha256": "502887bb587e8f31d4ad5150b26525819fe2a3c4d38ccd5cec6d3ca67f930c21"
+      }
+    ]
+  },
+  "acceptance": {
+    "artifact_free_sample": false,
+    "human": false,
+    "owner": false,
+    "runtime": false,
+    "device": false,
+    "child": false,
+    "delivery_accepted": false
+  }
+}
