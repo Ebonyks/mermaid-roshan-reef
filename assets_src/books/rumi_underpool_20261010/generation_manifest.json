@@ -1,0 +1,509 @@
+{
+  "status": "STATIC_BOOK_REVIEW_CANDIDATE",
+  "book_source_baseline": "616d22b9fa9748c70b68b0400bbe7c399461d4af",
+  "backend": "OpenAI built-in imagegen",
+  "provider_model_revision": "Not exposed by tool",
+  "seed": "Not exposed",
+  "monetary_usage": "Not exposed by tool; 17 calls recorded, including one local correction",
+  "call_count": 17,
+  "method": "16 newly commissioned sequential comic boards for named gaps; one local gate-continuity edit. Existing first-book images reused via declared PDF crops, without source changes.",
+  "calls": [
+    {
+      "id": "04_swim_tram",
+      "prompt": "Use case: illustration-story. New missing sequential comic panels for the owner-commissioned Mermaid Roshan and the Song Beneath the Pool. Preserve the established painted 2D storybook manga-comic style, rounded deep-indigo contours, readable bright faces, clear cyan underwater space with lavender/cream architecture and small warm coral-gold accents. Mermaid Korean neighbourhood entirely inside Pearl Castle beneath Rumi's magic swimming pool: curved tiled hanok roofs, pearl transit bridge, modern lavender apartment/shop terraces, celadon bathhouse, shell concert venue. NOT surface ocean, not dry land, no new portals. Every mermaid has exactly one continuous scaled tail and fan fin, no legs or extra tails. Roshan is a small child with brown wavy hair/rainbow forelock, coral modest jacket/cream blouse, iridescent rainbow tail. Rumi is taller with lavender thick braid/navy-purple-gold jacket, cyan-lavender tail/pink fin. Hana is tall copper loose waves/half-up crown/celadon clip, coral jacket/cream blouse/celadon tail-teal fin. Nari is shorter younger navy bob/crescent clip/mint hooded jacket/peach collar/lavender tail-peach fin. Duri is lavender turtle with mint floral shell/four flippers. No character redesign, no copied film costumes/logos/weapons. NO TEXT, speech balloons, letters, numbers, logos, watermark or sound words. We add all lettering in page layout. Quiet gutters, no busy hatching or speed-line field. Each panel must visibly show its separate moment and correct object/hand contact.\nInput references: Image 1: established character identity/style, not page layout (spread_02_city_beneath_pool_v2.png)\nPrimary request: A SQUARE comic art board containing THREE equal full-width horizontal strip panels stacked top to bottom, narrow cream gutters. ONLY Roshan and Rumi. Top: close underwater view Roshan and Rumi approach pearl bridge; a huge harmless bubble-tram pod crosses ABOVE them, floating stream of tiny bubbles splits around stone pier. Middle: Rumi waits beside pier and points to curved safe current lane UNDER bridge, Roshan observes floating leaf showing curve. Bottom: Roshan curls her single rainbow tail and follows Rumi under clear bridge arch along curved tiny bubble stream, away from tram. Large characters foreground, city continuity, not collisions, no turtle or Hana/Nari.",
+      "references": [
+        {
+          "path": "C:/Users/Peter/Documents/mermaid-roshan-reef/assets_src/books/rumi_underpool_20261009/native/spread_02_city_beneath_pool_v2.png",
+          "sha256": "59c0eb8ad79a83b655c79c119382b549bc2e884e05afa76f3709ab5145a28730",
+          "role": "identity/style/scene continuity reference; not copied into output"
+        }
+      ],
+      "original_path": "C:\\Users\\Peter\\.codex\\generated_images\\01a0f35d-f268-7751-aa9b-79fa94ceeacc\\exec-879cd20e-4c38-4522-bdf1-811e21925ed1.png",
+      "output_hint": "Generated images are saved to C:\\Users\\Peter\\.codex\\generated_images\\01a0f35d-f268-7751-aa9b-79fa94ceeacc as C:\\Users\\Peter\\.codex\\generated_images\\01a0f35d-f268-7751-aa9b-79fa94ceeacc\\exec-879cd20e-4c38-4522-bdf1-811e21925ed1.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
+      "native_path": "assets_src/books/rumi_underpool_20261010/native/04_swim_tram.png",
+      "selection": "SELECTED static book candidate; exact page/panel crops in book_check.json.",
+      "native_sha256": "c08f7c63c7cd5b9ce49e63802295c6cb17d919f9d1814151b7e6499fef13cff4",
+      "tool_original_sha256": "c08f7c63c7cd5b9ce49e63802295c6cb17d919f9d1814151b7e6499fef13cff4",
+      "native_dimensions": [
+        1254,
+        1254
+      ],
+      "native_mode": "RGB",
+      "copy_operation": "byte-identical archive copy; no native PNG edit, resize or recompression"
+    },
+    {
+      "id": "05_courier_bells",
+      "prompt": "Use case: illustration-story. New missing sequential comic panels for the owner-commissioned Mermaid Roshan and the Song Beneath the Pool. Preserve the established painted 2D storybook manga-comic style, rounded deep-indigo contours, readable bright faces, clear cyan underwater space with lavender/cream architecture and small warm coral-gold accents. Mermaid Korean neighbourhood entirely inside Pearl Castle beneath Rumi's magic swimming pool: curved tiled hanok roofs, pearl transit bridge, modern lavender apartment/shop terraces, celadon bathhouse, shell concert venue. NOT surface ocean, not dry land, no new portals. Every mermaid has exactly one continuous scaled tail and fan fin, no legs or extra tails. Roshan is a small child with brown wavy hair/rainbow forelock, coral modest jacket/cream blouse, iridescent rainbow tail. Rumi is taller with lavender thick braid/navy-purple-gold jacket, cyan-lavender tail/pink fin. Hana is tall copper loose waves/half-up crown/celadon clip, coral jacket/cream blouse/celadon tail-teal fin. Nari is shorter younger navy bob/crescent clip/mint hooded jacket/peach collar/lavender tail-peach fin. Duri is lavender turtle with mint floral shell/four flippers. No character redesign, no copied film costumes/logos/weapons. NO TEXT, speech balloons, letters, numbers, logos, watermark or sound words. We add all lettering in page layout. Quiet gutters, no busy hatching or speed-line field. Each panel must visibly show its separate moment and correct object/hand contact.\nInput references: Image 1: established character identity/style, not page layout (cast_identity.png); Image 2: established environment vocabulary (city_concept_source.png)\nPrimary request: SQUARE comic art board with THREE equal horizontal strip panels top to bottom. ONLY Roshan, Rumi and Duri, no Hana/Nari. Top: friendly lavender floral-shell turtle Duri at pearl market counter, a little open courier basket beside him containing THREE round gold handbells with short handles and a rolled soft purple-gold concert banner, he greets Roshan/Rumi. Middle: one loose small gold bell drifts around harmless soft kelp fronds, Roshan reaches deliberately along curved bubble current to catch it while Rumi watches nearby, Duri next to basket. Bottom: smiling Roshan returns that bell into turtle's open basket, Duri looks pleased, he carries basket on broad strap around shell; Korean curvedroof shops background. No text/icons resembling words, no new main characters.",
+      "references": [
+        {
+          "path": "C:/Users/Peter/Documents/mermaid-roshan-reef/assets_src/books/rumi_underpool_20261009/native/cast_identity.png",
+          "sha256": "eba965d569e145bf0440674f18af76e3f1aed3c0359e396c67c62a4182751946",
+          "role": "identity/style/scene continuity reference; not copied into output"
+        },
+        {
+          "path": "C:/Users/Peter/Documents/mermaid-roshan-reef/assets_src/books/rumi_underpool_20261009/native/city_concept_source.png",
+          "sha256": "6cf86f799132ede85df803e29abc69fd52ca81076caca8288e41ead72c11f54d",
+          "role": "identity/style/scene continuity reference; not copied into output"
+        }
+      ],
+      "original_path": "C:\\Users\\Peter\\.codex\\generated_images\\01a0f35d-f268-7751-aa9b-79fa94ceeacc\\exec-35b8fc92-d788-4e3a-a99c-acf03b171c5b.png",
+      "output_hint": "Generated images are saved to C:\\Users\\Peter\\.codex\\generated_images\\01a0f35d-f268-7751-aa9b-79fa94ceeacc as C:\\Users\\Peter\\.codex\\generated_images\\01a0f35d-f268-7751-aa9b-79fa94ceeacc\\exec-35b8fc92-d788-4e3a-a99c-acf03b171c5b.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
+      "native_path": "assets_src/books/rumi_underpool_20261010/native/05_courier_bells.png",
+      "selection": "SELECTED static book candidate; exact page/panel crops in book_check.json.",
+      "native_sha256": "c529179a4356d8bc238364a9348700736534ae2809d493030617f26f669b82f0",
+      "tool_original_sha256": "c529179a4356d8bc238364a9348700736534ae2809d493030617f26f669b82f0",
+      "native_dimensions": [
+        1254,
+        1254
+      ],
+      "native_mode": "RGB",
+      "copy_operation": "byte-identical archive copy; no native PNG edit, resize or recompression"
+    },
+    {
+      "id": "07_rehearsal",
+      "prompt": "Use case: illustration-story. New missing sequential comic panels for the owner-commissioned Mermaid Roshan and the Song Beneath the Pool. Preserve the established painted 2D storybook manga-comic style, rounded deep-indigo contours, readable bright faces, clear cyan underwater space with lavender/cream architecture and small warm coral-gold accents. Mermaid Korean neighbourhood entirely inside Pearl Castle beneath Rumi's magic swimming pool: curved tiled hanok roofs, pearl transit bridge, modern lavender apartment/shop terraces, celadon bathhouse, shell concert venue. NOT surface ocean, not dry land, no new portals. Every mermaid has exactly one continuous scaled tail and fan fin, no legs or extra tails. Roshan is a small child with brown wavy hair/rainbow forelock, coral modest jacket/cream blouse, iridescent rainbow tail. Rumi is taller with lavender thick braid/navy-purple-gold jacket, cyan-lavender tail/pink fin. Hana is tall copper loose waves/half-up crown/celadon clip, coral jacket/cream blouse/celadon tail-teal fin. Nari is shorter younger navy bob/crescent clip/mint hooded jacket/peach collar/lavender tail-peach fin. Duri is lavender turtle with mint floral shell/four flippers. No character redesign, no copied film costumes/logos/weapons. NO TEXT, speech balloons, letters, numbers, logos, watermark or sound words. We add all lettering in page layout. Quiet gutters, no busy hatching or speed-line field. Each panel must visibly show its separate moment and correct object/hand contact.\nInput references: Image 1: established character identity/style, not page layout (cast_identity.png); Image 2: established environment vocabulary (spread_03_meet_hana_nari_v2.png)\nPrimary request: SQUARE comic board THREE horizontal strips. ONLY four mermaids Roshan/Rumi/Hana/Nari, NO turtle/imps. Inside established warm cream/celadon music room under curved tile eave, underwater with shell drum and microphone. Top: Rumi offers child Roshan a small pearl microphone and rests own hand on chest, kind. Middle: tall Hana does expansive arm dance gesture accidentally brushing a light ribbon into Nari's bob; Nari holds tiny shell drum with funny amused scrunched expression, no injury. Bottom: Hana makes small open palm dance instead, Nari gently taps drum, Roshan copies modest small palm gesture with relieved smile, Rumi sings encouragement. One clear action each, characters lively not identical poses.",
+      "references": [
+        {
+          "path": "C:/Users/Peter/Documents/mermaid-roshan-reef/assets_src/books/rumi_underpool_20261009/native/cast_identity.png",
+          "sha256": "eba965d569e145bf0440674f18af76e3f1aed3c0359e396c67c62a4182751946",
+          "role": "identity/style/scene continuity reference; not copied into output"
+        },
+        {
+          "path": "C:/Users/Peter/Documents/mermaid-roshan-reef/assets_src/books/rumi_underpool_20261009/native/spread_03_meet_hana_nari_v2.png",
+          "sha256": "51ec6c931dfacfdfbe91bdb7d99a7033b121014a70e9c56df33d73dc1c15b698",
+          "role": "identity/style/scene continuity reference; not copied into output"
+        }
+      ],
+      "original_path": "C:\\Users\\Peter\\.codex\\generated_images\\01a0f35d-f268-7751-aa9b-79fa94ceeacc\\exec-ea9fb9b5-d327-4b12-ad32-14555cddf67e.png",
+      "output_hint": "Generated images are saved to C:\\Users\\Peter\\.codex\\generated_images\\01a0f35d-f268-7751-aa9b-79fa94ceeacc as C:\\Users\\Peter\\.codex\\generated_images\\01a0f35d-f268-7751-aa9b-79fa94ceeacc\\exec-ea9fb9b5-d327-4b12-ad32-14555cddf67e.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
+      "native_path": "assets_src/books/rumi_underpool_20261010/native/07_rehearsal.png",
+      "selection": "SELECTED static book candidate; exact page/panel crops in book_check.json.",
+      "native_sha256": "8865279fdf5ef4c03da5fa78ba311fe32177f308598c784927a6e3dfe17a8b64",
+      "tool_original_sha256": "8865279fdf5ef4c03da5fa78ba311fe32177f308598c784927a6e3dfe17a8b64",
+      "native_dimensions": [
+        1254,
+        1254
+      ],
+      "native_mode": "RGB",
+      "copy_operation": "byte-identical archive copy; no native PNG edit, resize or recompression"
+    },
+    {
+      "id": "09_listen",
+      "prompt": "Use case: illustration-story. New missing sequential comic panels for the owner-commissioned Mermaid Roshan and the Song Beneath the Pool. Preserve the established painted 2D storybook manga-comic style, rounded deep-indigo contours, readable bright faces, clear cyan underwater space with lavender/cream architecture and small warm coral-gold accents. Mermaid Korean neighbourhood entirely inside Pearl Castle beneath Rumi's magic swimming pool: curved tiled hanok roofs, pearl transit bridge, modern lavender apartment/shop terraces, celadon bathhouse, shell concert venue. NOT surface ocean, not dry land, no new portals. Every mermaid has exactly one continuous scaled tail and fan fin, no legs or extra tails. Roshan is a small child with brown wavy hair/rainbow forelock, coral modest jacket/cream blouse, iridescent rainbow tail. Rumi is taller with lavender thick braid/navy-purple-gold jacket, cyan-lavender tail/pink fin. Hana is tall copper loose waves/half-up crown/celadon clip, coral jacket/cream blouse/celadon tail-teal fin. Nari is shorter younger navy bob/crescent clip/mint hooded jacket/peach collar/lavender tail-peach fin. Duri is lavender turtle with mint floral shell/four flippers. No character redesign, no copied film costumes/logos/weapons. NO TEXT, speech balloons, letters, numbers, logos, watermark or sound words. We add all lettering in page layout. Quiet gutters, no busy hatching or speed-line field. Each panel must visibly show its separate moment and correct object/hand contact.\nInput references: Image1 identity only (cast labels not output); Image2 existing scene continuity only. Exclude unlisted characters, cast reference does not require everyone to appear.\nPrimary request: SQUARE comic board THREE horizontal strips. ONLY four mermaids; turtle not visible. Top: Hana takes a big breath ready to sing louder but Roshan raises gentle stop palm, Rumi turns listening, in musicroom by underwater window. Middle: Roshan and shorter Nari at open rounded window, both listening, fingertips near ears; faint trail of THREE tiny round bubbles rising from underside of bridge below, no drawn text. Bottom: all4 leave musicroom underwater doorway with Roshan ahead pointing downward beneath pearl bridge, Hana holds folded soft purple banner and Nari carries shell drum, Rumi follows. Cyan clear city, calm curiosity no scary danger.",
+      "references": [
+        {
+          "path": "C:/Users/Peter/Documents/mermaid-roshan-reef/assets_src/books/rumi_underpool_20261009/native/cast_identity.png",
+          "sha256": "eba965d569e145bf0440674f18af76e3f1aed3c0359e396c67c62a4182751946",
+          "role": "identity/style/scene continuity reference; not copied into output"
+        },
+        {
+          "path": "C:/Users/Peter/Documents/mermaid-roshan-reef/assets_src/books/rumi_underpool_20261009/native/spread_04_first_song_no_answer.png",
+          "sha256": "f812cd007d84bc9339232935d1a0f48574fa8d416cf1425a4af55bddcdc0721c",
+          "role": "identity/style/scene continuity reference; not copied into output"
+        }
+      ],
+      "original_path": "C:\\Users\\Peter\\.codex\\generated_images\\01a0f35d-f268-7751-aa9b-79fa94ceeacc\\exec-6d030ff8-c7dd-4a4c-9c88-043e25d44bbe.png",
+      "output_hint": "Generated images are saved to C:\\Users\\Peter\\.codex\\generated_images\\01a0f35d-f268-7751-aa9b-79fa94ceeacc as C:\\Users\\Peter\\.codex\\generated_images\\01a0f35d-f268-7751-aa9b-79fa94ceeacc\\exec-6d030ff8-c7dd-4a4c-9c88-043e25d44bbe.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
+      "native_path": "assets_src/books/rumi_underpool_20261010/native/09_listen.png",
+      "selection": "SELECTED static book candidate; exact page/panel crops in book_check.json.",
+      "native_sha256": "ce432710cc721736ede1c00ada47b5e85a9439b4c6d68ae5a46276e6c21f29f9",
+      "tool_original_sha256": "ce432710cc721736ede1c00ada47b5e85a9439b4c6d68ae5a46276e6c21f29f9",
+      "native_dimensions": [
+        1254,
+        1254
+      ],
+      "native_mode": "RGB",
+      "copy_operation": "byte-identical archive copy; no native PNG edit, resize or recompression"
+    },
+    {
+      "id": "10_follow_tapping",
+      "prompt": "Use case: illustration-story. New missing sequential comic panels for the owner-commissioned Mermaid Roshan and the Song Beneath the Pool. Preserve the established painted 2D storybook manga-comic style, rounded deep-indigo contours, readable bright faces, clear cyan underwater space with lavender/cream architecture and small warm coral-gold accents. Mermaid Korean neighbourhood entirely inside Pearl Castle beneath Rumi's magic swimming pool: curved tiled hanok roofs, pearl transit bridge, modern lavender apartment/shop terraces, celadon bathhouse, shell concert venue. NOT surface ocean, not dry land, no new portals. Every mermaid has exactly one continuous scaled tail and fan fin, no legs or extra tails. Roshan is a small child with brown wavy hair/rainbow forelock, coral modest jacket/cream blouse, iridescent rainbow tail. Rumi is taller with lavender thick braid/navy-purple-gold jacket, cyan-lavender tail/pink fin. Hana is tall copper loose waves/half-up crown/celadon clip, coral jacket/cream blouse/celadon tail-teal fin. Nari is shorter younger navy bob/crescent clip/mint hooded jacket/peach collar/lavender tail-peach fin. Duri is lavender turtle with mint floral shell/four flippers. No character redesign, no copied film costumes/logos/weapons. NO TEXT, speech balloons, letters, numbers, logos, watermark or sound words. We add all lettering in page layout. Quiet gutters, no busy hatching or speed-line field. Each panel must visibly show its separate moment and correct object/hand contact.\nInput references: Image1 identity only (cast labels not output); Image2 existing scene continuity only. Exclude unlisted characters, cast reference does not require everyone to appear.\nPrimary request: SQUARE board THREE horizontal comic strips. ONLY four mermaids, Duri hidden/not visible. Top: Roshan and Rumi lead Hana/Nari into broad bright underbridge route, two short diverging arches left/right, bubble trails in both, pearl tram above. Middle: at one quiet arch Roshan pauses with hand to ear; Nari points toward second arch where tiny bubbles rise behind soft kelp curtain, Hana waits rather than rushing. Bottom: Rumi carefully holds harmless kelp fronds aside while Roshan swims through clear space toward service alcove; Hana and Nari behind, no cramped tunnels or danger, warm lantern. Distinct decisions, bridge continuity.",
+      "references": [
+        {
+          "path": "C:/Users/Peter/Documents/mermaid-roshan-reef/assets_src/books/rumi_underpool_20261009/native/cast_identity.png",
+          "sha256": "eba965d569e145bf0440674f18af76e3f1aed3c0359e396c67c62a4182751946",
+          "role": "identity/style/scene continuity reference; not copied into output"
+        },
+        {
+          "path": "C:/Users/Peter/Documents/mermaid-roshan-reef/assets_src/books/rumi_underpool_20261009/native/spread_05_hear_turtle_v2.png",
+          "sha256": "e2c3ef68a08f1b279b848ad79fd6ceb492e012d2798677ac2d3da91590cdab22",
+          "role": "identity/style/scene continuity reference; not copied into output"
+        }
+      ],
+      "original_path": "C:\\Users\\Peter\\.codex\\generated_images\\01a0f35d-f268-7751-aa9b-79fa94ceeacc\\exec-64e6cf67-a3e4-4a2f-97f3-e19973708870.png",
+      "output_hint": "Generated images are saved to C:\\Users\\Peter\\.codex\\generated_images\\01a0f35d-f268-7751-aa9b-79fa94ceeacc as C:\\Users\\Peter\\.codex\\generated_images\\01a0f35d-f268-7751-aa9b-79fa94ceeacc\\exec-64e6cf67-a3e4-4a2f-97f3-e19973708870.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
+      "native_path": "assets_src/books/rumi_underpool_20261010/native/10_follow_tapping.png",
+      "selection": "SELECTED static book candidate; exact page/panel crops in book_check.json.",
+      "native_sha256": "417f4321c38057f7273ef082d9ec005c15d60e1dc886b03a777a9fa72353d395",
+      "tool_original_sha256": "417f4321c38057f7273ef082d9ec005c15d60e1dc886b03a777a9fa72353d395",
+      "native_dimensions": [
+        1254,
+        1254
+      ],
+      "native_mode": "RGB",
+      "copy_operation": "byte-identical archive copy; no native PNG edit, resize or recompression"
+    },
+    {
+      "id": "12_rescue_plan",
+      "prompt": "Use case: illustration-story. New missing sequential comic panels for the owner-commissioned Mermaid Roshan and the Song Beneath the Pool. Preserve the established painted 2D storybook manga-comic style, rounded deep-indigo contours, readable bright faces, clear cyan underwater space with lavender/cream architecture and small warm coral-gold accents. Mermaid Korean neighbourhood entirely inside Pearl Castle beneath Rumi's magic swimming pool: curved tiled hanok roofs, pearl transit bridge, modern lavender apartment/shop terraces, celadon bathhouse, shell concert venue. NOT surface ocean, not dry land, no new portals. Every mermaid has exactly one continuous scaled tail and fan fin, no legs or extra tails. Roshan is a small child with brown wavy hair/rainbow forelock, coral modest jacket/cream blouse, iridescent rainbow tail. Rumi is taller with lavender thick braid/navy-purple-gold jacket, cyan-lavender tail/pink fin. Hana is tall copper loose waves/half-up crown/celadon clip, coral jacket/cream blouse/celadon tail-teal fin. Nari is shorter younger navy bob/crescent clip/mint hooded jacket/peach collar/lavender tail-peach fin. Duri is lavender turtle with mint floral shell/four flippers. No character redesign, no copied film costumes/logos/weapons. NO TEXT, speech balloons, letters, numbers, logos, watermark or sound words. We add all lettering in page layout. Quiet gutters, no busy hatching or speed-line field. Each panel must visibly show its separate moment and correct object/hand contact.\nInput references: Image1 identity only (cast labels not output); Image2 existing scene continuity only. Exclude unlisted characters, cast reference does not require everyone to appear.\nPrimary request: SQUARE board THREE horizontal strips same well-lit underwater underbridge service alcove. Duri lavender turtle/mint floral shell safely wedged BETWEEN TWO separate wood prop crates with soft purple-gold banner snagged across shell edge; no injury/no crushing. Top: Roshan floats eye-level with Duri, palms open reassurance, Rumi nearby. Middle: Hana begins pushing left crate but Roshan gently stops with palm up because banner still caught beneath edge; Rumi sees fabric snag, Duri worried but safe. Bottom: close enough readable Roshan points at banner snag; Rumi lifts loose banner off turtle's shell while Hana holds opposite crate steady and Nari makes gentle small rhythm-count hand gesture. No turtlefree yet, no extra crates.",
+      "references": [
+        {
+          "path": "C:/Users/Peter/Documents/mermaid-roshan-reef/assets_src/books/rumi_underpool_20261009/native/cast_identity.png",
+          "sha256": "eba965d569e145bf0440674f18af76e3f1aed3c0359e396c67c62a4182751946",
+          "role": "identity/style/scene continuity reference; not copied into output"
+        },
+        {
+          "path": "C:/Users/Peter/Documents/mermaid-roshan-reef/assets_src/books/rumi_underpool_20261009/native/spread_05_hear_turtle_v2.png",
+          "sha256": "e2c3ef68a08f1b279b848ad79fd6ceb492e012d2798677ac2d3da91590cdab22",
+          "role": "identity/style/scene continuity reference; not copied into output"
+        }
+      ],
+      "original_path": "C:\\Users\\Peter\\.codex\\generated_images\\01a0f35d-f268-7751-aa9b-79fa94ceeacc\\exec-00ca3b0b-de87-4667-80fe-bfd002dd085e.png",
+      "output_hint": "Generated images are saved to C:\\Users\\Peter\\.codex\\generated_images\\01a0f35d-f268-7751-aa9b-79fa94ceeacc as C:\\Users\\Peter\\.codex\\generated_images\\01a0f35d-f268-7751-aa9b-79fa94ceeacc\\exec-00ca3b0b-de87-4667-80fe-bfd002dd085e.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
+      "native_path": "assets_src/books/rumi_underpool_20261010/native/12_rescue_plan.png",
+      "selection": "SELECTED static book candidate; exact page/panel crops in book_check.json.",
+      "native_sha256": "1a21d9796da39542ac0e10f8ef281a4604db3b814f5fb53a689d79fca0fe15e4",
+      "tool_original_sha256": "1a21d9796da39542ac0e10f8ef281a4604db3b814f5fb53a689d79fca0fe15e4",
+      "native_dimensions": [
+        1254,
+        1254
+      ],
+      "native_mode": "RGB",
+      "copy_operation": "byte-identical archive copy; no native PNG edit, resize or recompression"
+    },
+    {
+      "id": "14_free_friend",
+      "prompt": "Use case: illustration-story. New missing sequential comic panels for the owner-commissioned Mermaid Roshan and the Song Beneath the Pool. Preserve the established painted 2D storybook manga-comic style, rounded deep-indigo contours, readable bright faces, clear cyan underwater space with lavender/cream architecture and small warm coral-gold accents. Mermaid Korean neighbourhood entirely inside Pearl Castle beneath Rumi's magic swimming pool: curved tiled hanok roofs, pearl transit bridge, modern lavender apartment/shop terraces, celadon bathhouse, shell concert venue. NOT surface ocean, not dry land, no new portals. Every mermaid has exactly one continuous scaled tail and fan fin, no legs or extra tails. Roshan is a small child with brown wavy hair/rainbow forelock, coral modest jacket/cream blouse, iridescent rainbow tail. Rumi is taller with lavender thick braid/navy-purple-gold jacket, cyan-lavender tail/pink fin. Hana is tall copper loose waves/half-up crown/celadon clip, coral jacket/cream blouse/celadon tail-teal fin. Nari is shorter younger navy bob/crescent clip/mint hooded jacket/peach collar/lavender tail-peach fin. Duri is lavender turtle with mint floral shell/four flippers. No character redesign, no copied film costumes/logos/weapons. NO TEXT, speech balloons, letters, numbers, logos, watermark or sound words. We add all lettering in page layout. Quiet gutters, no busy hatching or speed-line field. Each panel must visibly show its separate moment and correct object/hand contact.\nInput roles: first image is cast identity only; second is scene continuity only. No reference lettering in output.\nPrimary request: Square comic board, THREE equal full-width horizontal strips with cream gutters. Same bright underbridge alcove AFTER rescue: two crates separated, loose banner away from turtle. Top: free Duri and Roshan face one another at eye level, Roshan offers an open hand and turtle touches it with a flipper, Rumi smiles beside them. Middle: Rumi catches Duri's small open courier basket drifting beside him, containing little gold bells and rolled purple-gold banner. Bottom: Nari taps one separated crate with fingers, Duri answers tapping wood with one flipper, Roshan laughs, Hana watches. Safe friendly relief, all four mermaids keep identity and single tails.",
+      "references": [
+        {
+          "path": "C:/Users/Peter/Documents/mermaid-roshan-reef/assets_src/books/rumi_underpool_20261009/native/cast_identity.png",
+          "sha256": "eba965d569e145bf0440674f18af76e3f1aed3c0359e396c67c62a4182751946",
+          "role": "identity/style/scene continuity reference; not copied into output"
+        },
+        {
+          "path": "C:/Users/Peter/Documents/mermaid-roshan-reef/assets_src/books/rumi_underpool_20261009/native/spread_06_rescue_duri.png",
+          "sha256": "f365b3ca926237d77b2151228e6863552653aba6f2dad7604695c0bd34282641",
+          "role": "identity/style/scene continuity reference; not copied into output"
+        }
+      ],
+      "original_path": "C:\\Users\\Peter\\.codex\\generated_images\\01a0f35d-f268-7751-aa9b-79fa94ceeacc\\exec-9d46546d-1e3b-409a-bf7c-ea9b8884628f.png",
+      "output_hint": "Generated images are saved to C:\\Users\\Peter\\.codex\\generated_images\\01a0f35d-f268-7751-aa9b-79fa94ceeacc as C:\\Users\\Peter\\.codex\\generated_images\\01a0f35d-f268-7751-aa9b-79fa94ceeacc\\exec-9d46546d-1e3b-409a-bf7c-ea9b8884628f.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
+      "native_path": "assets_src/books/rumi_underpool_20261010/native/14_free_friend.png",
+      "selection": "SELECTED static book candidate; exact page/panel crops in book_check.json.",
+      "native_sha256": "2d2e51cd12c8425a1412d38267d3757b201e515ca9bbb3379ca3cbca8d5785f2",
+      "tool_original_sha256": "2d2e51cd12c8425a1412d38267d3757b201e515ca9bbb3379ca3cbca8d5785f2",
+      "native_dimensions": [
+        1254,
+        1254
+      ],
+      "native_mode": "RGB",
+      "copy_operation": "byte-identical archive copy; no native PNG edit, resize or recompression"
+    },
+    {
+      "id": "19_service_passage",
+      "prompt": "Use case: illustration-story. New missing sequential comic panels for the owner-commissioned Mermaid Roshan and the Song Beneath the Pool. Preserve the established painted 2D storybook manga-comic style, rounded deep-indigo contours, readable bright faces, clear cyan underwater space with lavender/cream architecture and small warm coral-gold accents. Mermaid Korean neighbourhood entirely inside Pearl Castle beneath Rumi's magic swimming pool: curved tiled hanok roofs, pearl transit bridge, modern lavender apartment/shop terraces, celadon bathhouse, shell concert venue. NOT surface ocean, not dry land, no new portals. Every mermaid has exactly one continuous scaled tail and fan fin, no legs or extra tails. Roshan is a small child with brown wavy hair/rainbow forelock, coral modest jacket/cream blouse, iridescent rainbow tail. Rumi is taller with lavender thick braid/navy-purple-gold jacket, cyan-lavender tail/pink fin. Hana is tall copper loose waves/half-up crown/celadon clip, coral jacket/cream blouse/celadon tail-teal fin. Nari is shorter younger navy bob/crescent clip/mint hooded jacket/peach collar/lavender tail-peach fin. Duri is lavender turtle with mint floral shell/four flippers. No character redesign, no copied film costumes/logos/weapons. NO TEXT, speech balloons, letters, numbers, logos, watermark or sound words. We add all lettering in page layout. Quiet gutters, no busy hatching or speed-line field. Each panel must visibly show its separate moment and correct object/hand contact.\nInput roles: first image is cast identity only; second is scene continuity only. No reference lettering in output.\nPrimary request: Square comic board, THREE equal full-width horizontal strips. Top: Duri points to a broad sheltered service passage beside pearl bridge behind shell stage; Roshan, Rumi, Hana and Nari follow. Middle: Hana deliberately folds her large teal fan fin close to pass a rounded doorway, Nari waits holding shell drum, entire single-tail anatomy visible. Bottom: Nari confidently points left at a corridor branch while listening; Roshan smiles following Duri and Rumi. Warm pearl lanterns and faint existing blue current by low wall. Spacious bright safe route, no dungeon, no open gate yet.",
+      "references": [
+        {
+          "path": "C:/Users/Peter/Documents/mermaid-roshan-reef/assets_src/books/rumi_underpool_20261009/native/cast_identity.png",
+          "sha256": "eba965d569e145bf0440674f18af76e3f1aed3c0359e396c67c62a4182751946",
+          "role": "identity/style/scene continuity reference; not copied into output"
+        },
+        {
+          "path": "C:/Users/Peter/Documents/mermaid-roshan-reef/assets_src/books/rumi_underpool_20261009/native/spread_09_current_gate_plan.png",
+          "sha256": "a1d44024d522893b5211298dc40133c381b993ee7d2d2df7105a94cf859e9e13",
+          "role": "identity/style/scene continuity reference; not copied into output"
+        }
+      ],
+      "original_path": "C:\\Users\\Peter\\.codex\\generated_images\\01a0f35d-f268-7751-aa9b-79fa94ceeacc\\exec-f0a4a4f3-5c74-41ee-a14f-9dc8b251f8a5.png",
+      "output_hint": "Generated images are saved to C:\\Users\\Peter\\.codex\\generated_images\\01a0f35d-f268-7751-aa9b-79fa94ceeacc as C:\\Users\\Peter\\.codex\\generated_images\\01a0f35d-f268-7751-aa9b-79fa94ceeacc\\exec-f0a4a4f3-5c74-41ee-a14f-9dc8b251f8a5.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
+      "native_path": "assets_src/books/rumi_underpool_20261010/native/19_service_passage.png",
+      "selection": "SELECTED static book candidate; exact page/panel crops in book_check.json.",
+      "native_sha256": "32491752472422b85e2c6deef779310e0610288dc2b9aff25e912284f3d082ec",
+      "tool_original_sha256": "32491752472422b85e2c6deef779310e0610288dc2b9aff25e912284f3d082ec",
+      "native_dimensions": [
+        1254,
+        1254
+      ],
+      "native_mode": "RGB",
+      "copy_operation": "byte-identical archive copy; no native PNG edit, resize or recompression"
+    },
+    {
+      "id": "20_team_plan",
+      "prompt": "Use case: illustration-story. New missing sequential comic panels for the owner-commissioned Mermaid Roshan and the Song Beneath the Pool. Preserve the established painted 2D storybook manga-comic style, rounded deep-indigo contours, readable bright faces, clear cyan underwater space with lavender/cream architecture and small warm coral-gold accents. Mermaid Korean neighbourhood entirely inside Pearl Castle beneath Rumi's magic swimming pool: curved tiled hanok roofs, pearl transit bridge, modern lavender apartment/shop terraces, celadon bathhouse, shell concert venue. NOT surface ocean, not dry land, no new portals. Every mermaid has exactly one continuous scaled tail and fan fin, no legs or extra tails. Roshan is a small child with brown wavy hair/rainbow forelock, coral modest jacket/cream blouse, iridescent rainbow tail. Rumi is taller with lavender thick braid/navy-purple-gold jacket, cyan-lavender tail/pink fin. Hana is tall copper loose waves/half-up crown/celadon clip, coral jacket/cream blouse/celadon tail-teal fin. Nari is shorter younger navy bob/crescent clip/mint hooded jacket/peach collar/lavender tail-peach fin. Duri is lavender turtle with mint floral shell/four flippers. No character redesign, no copied film costumes/logos/weapons. NO TEXT, speech balloons, letters, numbers, logos, watermark or sound words. We add all lettering in page layout. Quiet gutters, no busy hatching or speed-line field. Each panel must visibly show its separate moment and correct object/hand contact.\nInput roles: first image is cast identity only; second is scene continuity only. No reference lettering in output.\nPrimary request: Square comic board, THREE equal full-width horizontal strips under shell concert stage. Gold-rimmed circular current arch is blocked by THREE wood prop crates; faint existing blue water threads through bottom; broad empty side-storage ledge at RIGHT. Top: Roshan points at last large crate's fabric loop handle and clear ledge; Duri indicates ledge, Rumi attentive. Middle: Rumi tests loose purple-gold banner through crate handle, Hana touches flat opposite face to show push direction, Nari tests other fabric end. Bottom: all four mermaids and turtle look up toward imp stage above, Roshan makes polite open-palm asking gesture. Crates still blocking: do not perform repair before conversation.",
+      "references": [
+        {
+          "path": "C:/Users/Peter/Documents/mermaid-roshan-reef/assets_src/books/rumi_underpool_20261009/native/cast_identity.png",
+          "sha256": "eba965d569e145bf0440674f18af76e3f1aed3c0359e396c67c62a4182751946",
+          "role": "identity/style/scene continuity reference; not copied into output"
+        },
+        {
+          "path": "C:/Users/Peter/Documents/mermaid-roshan-reef/assets_src/books/rumi_underpool_20261009/native/spread_09_current_gate_plan.png",
+          "sha256": "a1d44024d522893b5211298dc40133c381b993ee7d2d2df7105a94cf859e9e13",
+          "role": "identity/style/scene continuity reference; not copied into output"
+        }
+      ],
+      "original_path": "C:\\Users\\Peter\\.codex\\generated_images\\01a0f35d-f268-7751-aa9b-79fa94ceeacc\\exec-37371f51-3d67-4801-a622-140409cd5e3e.png",
+      "output_hint": "Generated images are saved to C:\\Users\\Peter\\.codex\\generated_images\\01a0f35d-f268-7751-aa9b-79fa94ceeacc as C:\\Users\\Peter\\.codex\\generated_images\\01a0f35d-f268-7751-aa9b-79fa94ceeacc\\exec-37371f51-3d67-4801-a622-140409cd5e3e.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
+      "native_path": "assets_src/books/rumi_underpool_20261010/native/20_team_plan.png",
+      "selection": "SELECTED static book candidate; exact page/panel crops in book_check.json.",
+      "native_sha256": "7c955487006f72e4bab5c08cc452d9778298f2e7580310eb9df532119cbf21ae",
+      "tool_original_sha256": "7c955487006f72e4bab5c08cc452d9778298f2e7580310eb9df532119cbf21ae",
+      "native_dimensions": [
+        1254,
+        1254
+      ],
+      "native_mode": "RGB",
+      "copy_operation": "byte-identical archive copy; no native PNG edit, resize or recompression"
+    },
+    {
+      "id": "21_ask_imps",
+      "prompt": "Use case: illustration-story. New missing sequential comic panels for the owner-commissioned Mermaid Roshan and the Song Beneath the Pool. Preserve the established painted 2D storybook manga-comic style, rounded deep-indigo contours, readable bright faces, clear cyan underwater space with lavender/cream architecture and small warm coral-gold accents. Mermaid Korean neighbourhood entirely inside Pearl Castle beneath Rumi's magic swimming pool: curved tiled hanok roofs, pearl transit bridge, modern lavender apartment/shop terraces, celadon bathhouse, shell concert venue. NOT surface ocean, not dry land, no new portals. Every mermaid has exactly one continuous scaled tail and fan fin, no legs or extra tails. Roshan is a small child with brown wavy hair/rainbow forelock, coral modest jacket/cream blouse, iridescent rainbow tail. Rumi is taller with lavender thick braid/navy-purple-gold jacket, cyan-lavender tail/pink fin. Hana is tall copper loose waves/half-up crown/celadon clip, coral jacket/cream blouse/celadon tail-teal fin. Nari is shorter younger navy bob/crescent clip/mint hooded jacket/peach collar/lavender tail-peach fin. Duri is lavender turtle with mint floral shell/four flippers. No character redesign, no copied film costumes/logos/weapons. NO TEXT, speech balloons, letters, numbers, logos, watermark or sound words. We add all lettering in page layout. Quiet gutters, no busy hatching or speed-line field. Each panel must visibly show its separate moment and correct object/hand contact.\nInput roles: Image1 cast identity only, Image2 established scene/action vocabulary, Image3 imp costumes or gate continuity. No reference lettering in output.\nPrimary request: Square comic board THREE equal full-width horizontal strips. Established underwater lavender shell stage, coral/orchid/gold accents against clear cyan water. EXACT TWO purple imps in source costumes: glitter-jacket performer, teal shirt, trousers, purple shoes; navy-coated magician, red bowtie, navy trousers/red shoes, top hat/pink feather. Top: Roshan politely opens palm toward them, Rumi Hana Nari behind and Duri at her shoulder. Middle: performer puffs jacket proudly and points at huge wood prop crate, magician holds hat and nods. Bottom: Rumi speaks calmly with open hand toward performer, Roshan looks toward EMPTY audience terrace, others support. No fight yet. No jester costumes.",
+      "references": [
+        {
+          "path": "C:/Users/Peter/Documents/mermaid-roshan-reef/assets_src/books/rumi_underpool_20261009/native/cast_identity.png",
+          "sha256": "eba965d569e145bf0440674f18af76e3f1aed3c0359e396c67c62a4182751946",
+          "role": "identity/style/scene continuity reference; not copied into output"
+        },
+        {
+          "path": "C:/Users/Peter/Documents/mermaid-roshan-reef/assets_src/books/rumi_underpool_20261009/native/spread_10_concert_fight_start.png",
+          "sha256": "21e1dd98a6fd2ecf11a6df84b152ac92e4af131e7f56f1354d6cbcbdefc8d413",
+          "role": "identity/style/scene continuity reference; not copied into output"
+        },
+        {
+          "path": "C:/Users/Peter/Documents/mermaid-roshan-reef/assets_src/books/rumi_underpool_20261009/native/spread_08_imp_clue.png",
+          "sha256": "ddd012968d66d3b2bda7046557c2cf7a799f7a36c7870d30985aa8bae84172e9",
+          "role": "identity/style/scene continuity reference; not copied into output"
+        }
+      ],
+      "original_path": "C:\\Users\\Peter\\.codex\\generated_images\\01a0f35d-f268-7751-aa9b-79fa94ceeacc\\exec-3513d112-affc-42a6-adc8-9f899b9aa8b1.png",
+      "output_hint": "Generated images are saved to C:\\Users\\Peter\\.codex\\generated_images\\01a0f35d-f268-7751-aa9b-79fa94ceeacc as C:\\Users\\Peter\\.codex\\generated_images\\01a0f35d-f268-7751-aa9b-79fa94ceeacc\\exec-3513d112-affc-42a6-adc8-9f899b9aa8b1.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
+      "native_path": "assets_src/books/rumi_underpool_20261010/native/21_ask_imps.png",
+      "selection": "SELECTED static book candidate; exact page/panel crops in book_check.json.",
+      "native_sha256": "04b10191f0ec982daeb75aecd71b6a8618e3acabbb4ac85c2d58a918b7a3ed99",
+      "tool_original_sha256": "04b10191f0ec982daeb75aecd71b6a8618e3acabbb4ac85c2d58a918b7a3ed99",
+      "native_dimensions": [
+        1254,
+        1254
+      ],
+      "native_mode": "RGB",
+      "copy_operation": "byte-identical archive copy; no native PNG edit, resize or recompression"
+    },
+    {
+      "id": "22_imp_refusal",
+      "prompt": "Use case: illustration-story. New missing sequential comic panels for the owner-commissioned Mermaid Roshan and the Song Beneath the Pool. Preserve the established painted 2D storybook manga-comic style, rounded deep-indigo contours, readable bright faces, clear cyan underwater space with lavender/cream architecture and small warm coral-gold accents. Mermaid Korean neighbourhood entirely inside Pearl Castle beneath Rumi's magic swimming pool: curved tiled hanok roofs, pearl transit bridge, modern lavender apartment/shop terraces, celadon bathhouse, shell concert venue. NOT surface ocean, not dry land, no new portals. Every mermaid has exactly one continuous scaled tail and fan fin, no legs or extra tails. Roshan is a small child with brown wavy hair/rainbow forelock, coral modest jacket/cream blouse, iridescent rainbow tail. Rumi is taller with lavender thick braid/navy-purple-gold jacket, cyan-lavender tail/pink fin. Hana is tall copper loose waves/half-up crown/celadon clip, coral jacket/cream blouse/celadon tail-teal fin. Nari is shorter younger navy bob/crescent clip/mint hooded jacket/peach collar/lavender tail-peach fin. Duri is lavender turtle with mint floral shell/four flippers. No character redesign, no copied film costumes/logos/weapons. NO TEXT, speech balloons, letters, numbers, logos, watermark or sound words. We add all lettering in page layout. Quiet gutters, no busy hatching or speed-line field. Each panel must visibly show its separate moment and correct object/hand contact.\nInput roles: Image1 cast identity only, Image2 established scene/action vocabulary, Image3 imp costumes or gate continuity. No reference lettering in output.\nPrimary request: Square comic board THREE equal full-width horizontal strips, same shell stage and exact two fully clothed purple imp costumes. Top: Roshan reaches politely toward wood crate edge, navy-coated top-hat magician makes theatrical stop gesture. Middle: magician sends harmless bright iridescent bubbles from hat into the gap between Roshan and stairs to current arch; Roshan pauses, not bound. Bottom: glitter-jacket performer winds up to throw a large round soft foam star; Hana and Nari calmly take opposite corners of slack purple-gold banner to catch it, Rumi holds microphone, Roshan looks for route below. Playful determined faces, no injury or sharp weapons.",
+      "references": [
+        {
+          "path": "C:/Users/Peter/Documents/mermaid-roshan-reef/assets_src/books/rumi_underpool_20261009/native/cast_identity.png",
+          "sha256": "eba965d569e145bf0440674f18af76e3f1aed3c0359e396c67c62a4182751946",
+          "role": "identity/style/scene continuity reference; not copied into output"
+        },
+        {
+          "path": "C:/Users/Peter/Documents/mermaid-roshan-reef/assets_src/books/rumi_underpool_20261009/native/spread_11_bubble_battle.png",
+          "sha256": "bfb1ecef05a6b96809a9d188ea016024f70b1d8218284367bfd1fb467457a956",
+          "role": "identity/style/scene continuity reference; not copied into output"
+        },
+        {
+          "path": "C:/Users/Peter/Documents/mermaid-roshan-reef/assets_src/books/rumi_underpool_20261009/native/spread_08_imp_clue.png",
+          "sha256": "ddd012968d66d3b2bda7046557c2cf7a799f7a36c7870d30985aa8bae84172e9",
+          "role": "identity/style/scene continuity reference; not copied into output"
+        }
+      ],
+      "original_path": "C:\\Users\\Peter\\.codex\\generated_images\\01a0f35d-f268-7751-aa9b-79fa94ceeacc\\exec-5019ccc2-93a3-47f7-9e36-181de00dae82.png",
+      "output_hint": "Generated images are saved to C:\\Users\\Peter\\.codex\\generated_images\\01a0f35d-f268-7751-aa9b-79fa94ceeacc as C:\\Users\\Peter\\.codex\\generated_images\\01a0f35d-f268-7751-aa9b-79fa94ceeacc\\exec-5019ccc2-93a3-47f7-9e36-181de00dae82.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
+      "native_path": "assets_src/books/rumi_underpool_20261010/native/22_imp_refusal.png",
+      "selection": "SELECTED static book candidate; exact page/panel crops in book_check.json.",
+      "native_sha256": "8d0d159c593be9d48780bca53fbf909a029dba6142b05d827e5b3e1d81ea70d8",
+      "tool_original_sha256": "8d0d159c593be9d48780bca53fbf909a029dba6142b05d827e5b3e1d81ea70d8",
+      "native_dimensions": [
+        1254,
+        1254
+      ],
+      "native_mode": "RGB",
+      "copy_operation": "byte-identical archive copy; no native PNG edit, resize or recompression"
+    },
+    {
+      "id": "24_bubble_route",
+      "prompt": "Use case: illustration-story. New missing sequential comic panels for the owner-commissioned Mermaid Roshan and the Song Beneath the Pool. Preserve the established painted 2D storybook manga-comic style, rounded deep-indigo contours, readable bright faces, clear cyan underwater space with lavender/cream architecture and small warm coral-gold accents. Mermaid Korean neighbourhood entirely inside Pearl Castle beneath Rumi's magic swimming pool: curved tiled hanok roofs, pearl transit bridge, modern lavender apartment/shop terraces, celadon bathhouse, shell concert venue. NOT surface ocean, not dry land, no new portals. Every mermaid has exactly one continuous scaled tail and fan fin, no legs or extra tails. Roshan is a small child with brown wavy hair/rainbow forelock, coral modest jacket/cream blouse, iridescent rainbow tail. Rumi is taller with lavender thick braid/navy-purple-gold jacket, cyan-lavender tail/pink fin. Hana is tall copper loose waves/half-up crown/celadon clip, coral jacket/cream blouse/celadon tail-teal fin. Nari is shorter younger navy bob/crescent clip/mint hooded jacket/peach collar/lavender tail-peach fin. Duri is lavender turtle with mint floral shell/four flippers. No character redesign, no copied film costumes/logos/weapons. NO TEXT, speech balloons, letters, numbers, logos, watermark or sound words. We add all lettering in page layout. Quiet gutters, no busy hatching or speed-line field. Each panel must visibly show its separate moment and correct object/hand contact.\nInput roles: Image1 cast identity only, Image2 established scene/action vocabulary, Image3 imp costumes or gate continuity. No reference lettering in output.\nPrimary request: Square comic board THREE equal full-width horizontal strips. Top: gentle bubble cloud between Roshan and gold current arch below stage, with blue current thread visible UNDER cloud and BETWEEN prop crates; Roshan stops to observe. Middle: Nari holds shell drum still, cups free hand to ear and points to LOW clear current route, Hana holds slack purple-gold banner ready. Bottom: Roshan swims beneath bubbles following blue flow to crate, one rainbow tail; above, Rumi dances clear of navy magician's harmless puff. Bright readable stage and clear blue water; no dark swirling magic, no wound, no new barriers.",
+      "references": [
+        {
+          "path": "C:/Users/Peter/Documents/mermaid-roshan-reef/assets_src/books/rumi_underpool_20261009/native/cast_identity.png",
+          "sha256": "eba965d569e145bf0440674f18af76e3f1aed3c0359e396c67c62a4182751946",
+          "role": "identity/style/scene continuity reference; not copied into output"
+        },
+        {
+          "path": "C:/Users/Peter/Documents/mermaid-roshan-reef/assets_src/books/rumi_underpool_20261009/native/spread_11_bubble_battle.png",
+          "sha256": "bfb1ecef05a6b96809a9d188ea016024f70b1d8218284367bfd1fb467457a956",
+          "role": "identity/style/scene continuity reference; not copied into output"
+        },
+        {
+          "path": "C:/Users/Peter/Documents/mermaid-roshan-reef/assets_src/books/rumi_underpool_20261009/native/spread_09_current_gate_plan.png",
+          "sha256": "a1d44024d522893b5211298dc40133c381b993ee7d2d2df7105a94cf859e9e13",
+          "role": "identity/style/scene continuity reference; not copied into output"
+        }
+      ],
+      "original_path": "C:\\Users\\Peter\\.codex\\generated_images\\01a0f35d-f268-7751-aa9b-79fa94ceeacc\\exec-09546428-2b8f-4825-ae41-4780c1760ec3.png",
+      "output_hint": "Generated images are saved to C:\\Users\\Peter\\.codex\\generated_images\\01a0f35d-f268-7751-aa9b-79fa94ceeacc as C:\\Users\\Peter\\.codex\\generated_images\\01a0f35d-f268-7751-aa9b-79fa94ceeacc\\exec-09546428-2b8f-4825-ae41-4780c1760ec3.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
+      "native_path": "assets_src/books/rumi_underpool_20261010/native/24_bubble_route.png",
+      "selection": "SUPERSEDED: gate appeared open before story repair; retained, excluded from final PDF.",
+      "native_sha256": "4d7f5545e926335655fc0c141148f55b6ad8d53a46b6797f7b63f50a96e89c7f",
+      "tool_original_sha256": "4d7f5545e926335655fc0c141148f55b6ad8d53a46b6797f7b63f50a96e89c7f",
+      "native_dimensions": [
+        1312,
+        1199
+      ],
+      "native_mode": "RGB",
+      "copy_operation": "byte-identical archive copy; no native PNG edit, resize or recompression"
+    },
+    {
+      "id": "25_cushion_landing",
+      "prompt": "Use case: illustration-story. New missing sequential comic panels for the owner-commissioned Mermaid Roshan and the Song Beneath the Pool. Preserve the established painted 2D storybook manga-comic style, rounded deep-indigo contours, readable bright faces, clear cyan underwater space with lavender/cream architecture and small warm coral-gold accents. Mermaid Korean neighbourhood entirely inside Pearl Castle beneath Rumi's magic swimming pool: curved tiled hanok roofs, pearl transit bridge, modern lavender apartment/shop terraces, celadon bathhouse, shell concert venue. NOT surface ocean, not dry land, no new portals. Every mermaid has exactly one continuous scaled tail and fan fin, no legs or extra tails. Roshan is a small child with brown wavy hair/rainbow forelock, coral modest jacket/cream blouse, iridescent rainbow tail. Rumi is taller with lavender thick braid/navy-purple-gold jacket, cyan-lavender tail/pink fin. Hana is tall copper loose waves/half-up crown/celadon clip, coral jacket/cream blouse/celadon tail-teal fin. Nari is shorter younger navy bob/crescent clip/mint hooded jacket/peach collar/lavender tail-peach fin. Duri is lavender turtle with mint floral shell/four flippers. No character redesign, no copied film costumes/logos/weapons. NO TEXT, speech balloons, letters, numbers, logos, watermark or sound words. We add all lettering in page layout. Quiet gutters, no busy hatching or speed-line field. Each panel must visibly show its separate moment and correct object/hand contact.\nInput roles: Image1 cast identity only, remaining image(s) established environment/costume/prop continuity. No reference lettering in output.\nPrimary request: Square comic board THREE equal horizontal strips, same underwater shell stage. Top: Hana and Nari hold slack purple-gold banner hammock containing gold SOFT FOAM STAR; Nari flicks its corner to bounce star BACK toward glitter-jacket performer, Rumi observes. Middle: glitter-jacket purple performer tumbles backward onto obvious padded pink-gold stage cushions; soft star rests beside him, teal shirt/trousers/purple shoes consistent, cheerful surprise, no injury. Bottom: navy-coated magician's harmless puff bobs his top hat half backward as he lands SITTING on cushion beside performer, red bowtie/navy trousers/red shoes unchanged. No jester costume, no dark demon.",
+      "references": [
+        {
+          "path": "C:/Users/Peter/Documents/mermaid-roshan-reef/assets_src/books/rumi_underpool_20261009/native/cast_identity.png",
+          "sha256": "eba965d569e145bf0440674f18af76e3f1aed3c0359e396c67c62a4182751946",
+          "role": "identity/style/scene continuity reference; not copied into output"
+        },
+        {
+          "path": "C:/Users/Peter/Documents/mermaid-roshan-reef/assets_src/books/rumi_underpool_20261009/native/spread_11_bubble_battle.png",
+          "sha256": "bfb1ecef05a6b96809a9d188ea016024f70b1d8218284367bfd1fb467457a956",
+          "role": "identity/style/scene continuity reference; not copied into output"
+        },
+        {
+          "path": "C:/Users/Peter/Documents/mermaid-roshan-reef/assets_src/books/rumi_underpool_20261009/native/spread_08_imp_clue.png",
+          "sha256": "ddd012968d66d3b2bda7046557c2cf7a799f7a36c7870d30985aa8bae84172e9",
+          "role": "identity/style/scene continuity reference; not copied into output"
+        }
+      ],
+      "original_path": "C:\\Users\\Peter\\.codex\\generated_images\\01a0f35d-f268-7751-aa9b-79fa94ceeacc\\exec-b9487ac2-b6bb-4561-8ab5-7d7426bf23e7.png",
+      "output_hint": "Generated images are saved to C:\\Users\\Peter\\.codex\\generated_images\\01a0f35d-f268-7751-aa9b-79fa94ceeacc as C:\\Users\\Peter\\.codex\\generated_images\\01a0f35d-f268-7751-aa9b-79fa94ceeacc\\exec-b9487ac2-b6bb-4561-8ab5-7d7426bf23e7.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
+      "native_path": "assets_src/books/rumi_underpool_20261010/native/25_cushion_landing.png",
+      "selection": "SELECTED static book candidate; exact page/panel crops in book_check.json.",
+      "native_sha256": "ecf7aacae4b7e2e880a6f5dc0e33565200378185163054abd2daf9af7a5eec20",
+      "tool_original_sha256": "ecf7aacae4b7e2e880a6f5dc0e33565200378185163054abd2daf9af7a5eec20",
+      "native_dimensions": [
+        1254,
+        1254
+      ],
+      "native_mode": "RGB",
+      "copy_operation": "byte-identical archive copy; no native PNG edit, resize or recompression"
+    },
+    {
+      "id": "26_two_crates",
+      "prompt": "Use case: illustration-story. New missing sequential comic panels for the owner-commissioned Mermaid Roshan and the Song Beneath the Pool. Preserve the established painted 2D storybook manga-comic style, rounded deep-indigo contours, readable bright faces, clear cyan underwater space with lavender/cream architecture and small warm coral-gold accents. Mermaid Korean neighbourhood entirely inside Pearl Castle beneath Rumi's magic swimming pool: curved tiled hanok roofs, pearl transit bridge, modern lavender apartment/shop terraces, celadon bathhouse, shell concert venue. NOT surface ocean, not dry land, no new portals. Every mermaid has exactly one continuous scaled tail and fan fin, no legs or extra tails. Roshan is a small child with brown wavy hair/rainbow forelock, coral modest jacket/cream blouse, iridescent rainbow tail. Rumi is taller with lavender thick braid/navy-purple-gold jacket, cyan-lavender tail/pink fin. Hana is tall copper loose waves/half-up crown/celadon clip, coral jacket/cream blouse/celadon tail-teal fin. Nari is shorter younger navy bob/crescent clip/mint hooded jacket/peach collar/lavender tail-peach fin. Duri is lavender turtle with mint floral shell/four flippers. No character redesign, no copied film costumes/logos/weapons. NO TEXT, speech balloons, letters, numbers, logos, watermark or sound words. We add all lettering in page layout. Quiet gutters, no busy hatching or speed-line field. Each panel must visibly show its separate moment and correct object/hand contact.\nInput roles: Image1 cast identity only, remaining image(s) established environment/costume/prop continuity. No reference lettering in output.\nPrimary request: Square comic board THREE equal horizontal strips under shell stage. Gold circular current arch initially blocked by THREE crates; broad empty side-storage ledge RIGHT. Top: Rumi and Nari each push ONE SMALL crate RIGHT onto storage ledge, Hana steadies them; Roshan beside LAST LARGE crate still in front of arch, Duri points to storage. Middle: ONLY last large crate blocks arch now, two small crates visibly parked on RIGHT ledge; Roshan loops purple-gold banner through handle and pulls ALONE, moves only slightly, blue slit under arch. Bottom: Roshan looks back and calls friends with one outstretched hand while holding banner with other; Rumi joins, Hana moves to opposite crate face, Nari count gesture, Duri checks clear ledge. Correct physical hand contact. Do not multiply crates.",
+      "references": [
+        {
+          "path": "C:/Users/Peter/Documents/mermaid-roshan-reef/assets_src/books/rumi_underpool_20261009/native/cast_identity.png",
+          "sha256": "eba965d569e145bf0440674f18af76e3f1aed3c0359e396c67c62a4182751946",
+          "role": "identity/style/scene continuity reference; not copied into output"
+        },
+        {
+          "path": "C:/Users/Peter/Documents/mermaid-roshan-reef/assets_src/books/rumi_underpool_20261009/native/spread_09_current_gate_plan.png",
+          "sha256": "a1d44024d522893b5211298dc40133c381b993ee7d2d2df7105a94cf859e9e13",
+          "role": "identity/style/scene continuity reference; not copied into output"
+        }
+      ],
+      "original_path": "C:\\Users\\Peter\\.codex\\generated_images\\01a0f35d-f268-7751-aa9b-79fa94ceeacc\\exec-bbc09ff5-34e2-4b13-a7cc-21f2bd2a5f52.png",
+      "output_hint": "Generated images are saved to C:\\Users\\Peter\\.codex\\generated_images\\01a0f35d-f268-7751-aa9b-79fa94ceeacc as C:\\Users\\Peter\\.codex\\generated_images\\01a0f35d-f268-7751-aa9b-79fa94ceeacc\\exec-bbc09ff5-34e2-4b13-a7cc-21f2bd2a5f52.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
+      "native_path": "assets_src/books/rumi_underpool_20261010/native/26_two_crates.png",
+      "selection": "SELECTED static book candidate; exact page/panel crops in book_check.json.",
+      "native_sha256": "6fbb193559be0c1cdd824286323b4c0afb79e0c9a853537020e7352c8c79e41a",
+      "tool_original_sha256": "6fbb193559be0c1cdd824286323b4c0afb79e0c9a853537020e7352c8c79e41a",
+      "native_dimensions": [
+        1254,
+        1254
+      ],
+      "native_mode": "RGB",
+      "copy_operation": "byte-identical archive copy; no native PNG edit, resize or recompression"
+    },
+    {
+      "id": "27_current_returns",
+      "prompt": "Use case: illustration-story. New missing sequential comic panels for the owner-commissioned Mermaid Roshan and the Song Beneath the Pool. Preserve the established painted 2D storybook manga-comic style, rounded deep-indigo contours, readable bright faces, clear cyan underwater space with lavender/cream architecture and small warm coral-gold accents. Mermaid Korean neighbourhood entirely inside Pearl Castle beneath Rumi's magic swimming pool: curved tiled hanok roofs, pearl transit bridge, modern lavender apartment/shop terraces, celadon bathhouse, shell concert venue. NOT surface ocean, not dry land, no new portals. Every mermaid has exactly one continuous scaled tail and fan fin, no legs or extra tails. Roshan is a small child with brown wavy hair/rainbow forelock, coral modest jacket/cream blouse, iridescent rainbow tail. Rumi is taller with lavender thick braid/navy-purple-gold jacket, cyan-lavender tail/pink fin. Hana is tall copper loose waves/half-up crown/celadon clip, coral jacket/cream blouse/celadon tail-teal fin. Nari is shorter younger navy bob/crescent clip/mint hooded jacket/peach collar/lavender tail-peach fin. Duri is lavender turtle with mint floral shell/four flippers. No character redesign, no copied film costumes/logos/weapons. NO TEXT, speech balloons, letters, numbers, logos, watermark or sound words. We add all lettering in page layout. Quiet gutters, no busy hatching or speed-line field. Each panel must visibly show its separate moment and correct object/hand contact.\nInput roles: Image1 cast identity only, remaining image(s) established environment/costume/prop continuity. No reference lettering in output.\nPrimary request: Square comic board THREE equal horizontal strips. Same under-stage gold circular current arch now OPEN. Exactly ALL THREE wood crates fully parked on RIGHT storage ledge OUTSIDE arch opening; no blocking duplicates. Top: Roshan and Rumi hold purple-gold banner together from moved LAST large crate; Hana pushes opposite face and Nari counts, quartet relieved. Middle: lavender Duri with mint floral shell/four flippers swims freely THROUGH open round arch; bright existing blue current curls after him; no limbs merged with banner. Bottom: underwater bridge/street above, purple-gold hanging ribbons flutter in current, lamps glow; Roshan and Nari watch and listen from stage ledge. No new magic object/spell/candle/barrier.",
+      "references": [
+        {
+          "path": "C:/Users/Peter/Documents/mermaid-roshan-reef/assets_src/books/rumi_underpool_20261009/native/cast_identity.png",
+          "sha256": "eba965d569e145bf0440674f18af76e3f1aed3c0359e396c67c62a4182751946",
+          "role": "identity/style/scene continuity reference; not copied into output"
+        },
+        {
+          "path": "C:/Users/Peter/Documents/mermaid-roshan-reef/assets_src/books/rumi_underpool_20261009/native/spread_12_roshan_opens_gate.png",
+          "sha256": "3e303bec5c495daa43a5d77ec69fb7f65103b0545ee803955539f8bc4d057fa7",
+          "role": "identity/style/scene continuity reference; not copied into output"
+        }
+      ],
+      "original_path": "C:\\Users\\Peter\\.codex\\generated_images\\01a0f35d-f268-7751-aa9b-79fa94ceeacc\\exec-637ac229-25e3-49f1-9643-7d23843033c9.png",
+      "output_hint": "Generated images are saved to C:\\Users\\Peter\\.codex\\generated_images\\01a0f35d-f268-7751-aa9b-79fa94ceeacc as C:\\Users\\Peter\\.codex\\generated_images\\01a0f35d-f268-7751-aa9b-79fa94ceeacc\\exec-637ac229-25e3-49f1-9643-7d23843033c9.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
+      "native_path": "assets_src/books/rumi_underpool_20261010/native/27_current_returns.png",
+      "selection": "SELECTED only for open-current/city-reaction panels; initial teamwork strip omitted because existing physical-repair source is clearer.",
+      "native_sha256": "89f55f3c6dfbbe002246e21f2f109c4636818a615d1dc7d089092abbb34bb08a",
+      "tool_original_sha256": "89f55f3c6dfbbe002246e21f2f109c4636818a615d1dc7d089092abbb34bb08a",
+      "native_dimensions": [
+        1254,
+        1254
+      ],
+      "native_mode": "RGB",
+      "copy_operation": "byte-identical archive copy; no native PNG edit, resize or recompression"
+    },
+    {
+      "id": "28_courier_encore",
+      "prompt": "Use case: illustration-story. New missing sequential comic panels for the owner-commissioned Mermaid Roshan and the Song Beneath the Pool. Preserve the established painted 2D storybook manga-comic style, rounded deep-indigo contours, readable bright faces, clear cyan underwater space with lavender/cream architecture and small warm coral-gold accents. Mermaid Korean neighbourhood entirely inside Pearl Castle beneath Rumi's magic swimming pool: curved tiled hanok roofs, pearl transit bridge, modern lavender apartment/shop terraces, celadon bathhouse, shell concert venue. NOT surface ocean, not dry land, no new portals. Every mermaid has exactly one continuous scaled tail and fan fin, no legs or extra tails. Roshan is a small child with brown wavy hair/rainbow forelock, coral modest jacket/cream blouse, iridescent rainbow tail. Rumi is taller with lavender thick braid/navy-purple-gold jacket, cyan-lavender tail/pink fin. Hana is tall copper loose waves/half-up crown/celadon clip, coral jacket/cream blouse/celadon tail-teal fin. Nari is shorter younger navy bob/crescent clip/mint hooded jacket/peach collar/lavender tail-peach fin. Duri is lavender turtle with mint floral shell/four flippers. No character redesign, no copied film costumes/logos/weapons. NO TEXT, speech balloons, letters, numbers, logos, watermark or sound words. We add all lettering in page layout. Quiet gutters, no busy hatching or speed-line field. Each panel must visibly show its separate moment and correct object/hand contact.\nInput roles: Image1 cast identity only, remaining image(s) established environment/costume/prop continuity. No reference lettering in output.\nPrimary request: Square comic board THREE equal horizontal strips. Duri is ONLY named character, anonymous modestly clothed mermaid neighbors background. Top: lavender floral-shell Duri taps one flipper against pearl shop window beneath Korean curved-tile roof; neighbor opens window, smiles singing, blue current by street edge. Middle: Duri at celadon bathhouse window, two neighbor mermaids hum smiling; hanging ribbons move, courier basket at his side. Bottom: Duri swims beside pearl bubble-tram stop, residents inside tram pod sing with smiling open faces, warm gold lamps and lavender apartment blocks behind. All underwater beneath castle pool, no surface streets, no extra heroes.",
+      "references": [
+        {
+          "path": "C:/Users/Peter/Documents/mermaid-roshan-reef/assets_src/books/rumi_underpool_20261009/native/cast_identity.png",
+          "sha256": "eba965d569e145bf0440674f18af76e3f1aed3c0359e396c67c62a4182751946",
+          "role": "identity/style/scene continuity reference; not copied into output"
+        },
+        {
+          "path": "C:/Users/Peter/Documents/mermaid-roshan-reef/assets_src/books/rumi_underpool_20261009/native/spread_13_city_encore_v2.png",
+          "sha256": "89d7274ed0d33cdacc87886f29b1e61cfb8f62c405e166d5678d63d7907f2309",
+          "role": "identity/style/scene continuity reference; not copied into output"
+        },
+        {
+          "path": "C:/Users/Peter/Documents/mermaid-roshan-reef/assets_src/books/rumi_underpool_20261009/native/city_concept_source.png",
+          "sha256": "6cf86f799132ede85df803e29abc69fd52ca81076caca8288e41ead72c11f54d",
+          "role": "identity/style/scene continuity reference; not copied into output"
+        }
+      ],
+      "original_path": "C:\\Users\\Peter\\.codex\\generated_images\\01a0f35d-f268-7751-aa9b-79fa94ceeacc\\exec-07bc0253-9a9b-4432-9d16-32b0d930562e.png",
+      "output_hint": "Generated images are saved to C:\\Users\\Peter\\.codex\\generated_images\\01a0f35d-f268-7751-aa9b-79fa94ceeacc as C:\\Users\\Peter\\.codex\\generated_images\\01a0f35d-f268-7751-aa9b-79fa94ceeacc\\exec-07bc0253-9a9b-4432-9d16-32b0d930562e.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
+      "native_path": "assets_src/books/rumi_underpool_20261010/native/28_courier_encore.png",
+      "selection": "SELECTED static book candidate; exact page/panel crops in book_check.json.",
+      "native_sha256": "318f9592f58a28f1f998eff35ae252383b6f8783c31aa111d1519d51f0b17fdf",
+      "tool_original_sha256": "318f9592f58a28f1f998eff35ae252383b6f8783c31aa111d1519d51f0b17fdf",
+      "native_dimensions": [
+        1254,
+        1254
+      ],
+      "native_mode": "RGB",
+      "copy_operation": "byte-identical archive copy; no native PNG edit, resize or recompression"
+    },
+    {
+      "id": "24_bubble_route_v2",
+      "edit_target": "24_bubble_route",
+      "prompt": "Use case: precise-object-edit. Image1 is EDIT TARGET, a three-strip underwater comic board. Image2 is supporting identity of the BLOCKED gold current arch and wood prop crates. Correct ONLY the current-gate continuity in each panel of Image1: the gold circular current arch must STILL BE OBSTRUCTED by existing wood concert crates and limp purple-gold banners, as in Image2. It has a faint blue glow behind the crates and ONE THIN low current thread creeping through the bottom gap. Remove the broad open-arch current stream; nobody has cleared it yet. Keep the gentle bubble cloud, Roshan observing/swimming low, Nari pointing, Hana banner, Rumi turn, magician puff, Duri, exact faces/clothes/tails, painted 2D style, panel count, framing and all other staging unchanged. Do not add crates elsewhere or introduce new characters. No letters, captions, speech balloons, words, watermark. Local gate repair only, not a full-scene redraw.",
+      "references": [
+        {
+          "path": "C:/Users/Peter/Documents/mermaid-roshan-reef/assets_src/books/rumi_underpool_20261010/native/24_bubble_route.png",
+          "sha256": "4d7f5545e926335655fc0c141148f55b6ad8d53a46b6797f7b63f50a96e89c7f",
+          "role": "identity/style/scene continuity reference; not copied into output"
+        },
+        {
+          "path": "C:/Users/Peter/Documents/mermaid-roshan-reef/assets_src/books/rumi_underpool_20261009/native/spread_09_current_gate_plan.png",
+          "sha256": "a1d44024d522893b5211298dc40133c381b993ee7d2d2df7105a94cf859e9e13",
+          "role": "identity/style/scene continuity reference; not copied into output"
+        }
+      ],
+      "original_path": "C:\\Users\\Peter\\.codex\\generated_images\\01a0f35d-f268-7751-aa9b-79fa94ceeacc\\exec-f53c44aa-c99e-455c-9072-f3f937aa17fd.png",
+      "output_hint": "Generated images are saved to C:\\Users\\Peter\\.codex\\generated_images\\01a0f35d-f268-7751-aa9b-79fa94ceeacc as C:\\Users\\Peter\\.codex\\generated_images\\01a0f35d-f268-7751-aa9b-79fa94ceeacc\\exec-f53c44aa-c99e-455c-9072-f3f937aa17fd.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
+      "native_path": "assets_src/books/rumi_underpool_20261010/native/24_bubble_route_v2.png",
+      "selection": "SELECTED static book candidate; exact page/panel crops in book_check.json.",
+      "native_sha256": "06e30658a761478257c7405a9310d2b60337d813cf3e8cc243401751fc9c18c2",
+      "tool_original_sha256": "06e30658a761478257c7405a9310d2b60337d813cf3e8cc243401751fc9c18c2",
+      "native_dimensions": [
+        1312,
+        1199
+      ],
+      "native_mode": "RGB",
+      "copy_operation": "byte-identical archive copy; no native PNG edit, resize or recompression"
+    }
+  ]
+}

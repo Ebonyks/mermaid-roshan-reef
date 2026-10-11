@@ -1,0 +1,103 @@
+{
+  "id": "rumi-underpool-32-pages-20261010",
+  "baseline": "616d22b9fa9748c70b68b0400bbe7c399461d4af",
+  "scope": "Owner correction 2026-10-10: refine the sparse book into exactly 32 actual comic PDF pages with substantial causal story content. Reuse selected prior art and generate named missing city/job/rescue/investigation/action moments; preserve all prior book and runtime sources.",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-VIS-01",
+    "DL-VIS-02",
+    "DL-VIS-03",
+    "DL-VIS-04",
+    "DL-VIS-05",
+    "DL-VIS-06",
+    "DL-READ-03",
+    "DL-ASSET-01",
+    "DL-ASSET-02",
+    "DL-ASSET-03",
+    "DL-ASSET-04",
+    "DL-ASSET-05",
+    "DL-ASSET-06",
+    "DL-ASSET-08",
+    "DL-PLAN-02",
+    "DL-PLAN-03",
+    "DL-PLAN-05",
+    "DL-PLAN-06"
+  ],
+  "findings": [
+    "MA-DOC-008",
+    "MA-VIS-006",
+    "MA-ROSHAN-005"
+  ],
+  "files": [
+    "ASSET_LICENSES.md",
+    "assets_src/books/rumi_underpool_20261010/.gitattributes",
+    "assets_src/books/rumi_underpool_20261010/MANUSCRIPT.txt",
+    "assets_src/books/rumi_underpool_20261010/README.txt",
+    "assets_src/books/rumi_underpool_20261010/art_jobs.json",
+    "assets_src/books/rumi_underpool_20261010/art_jobs_extension.json",
+    "assets_src/books/rumi_underpool_20261010/build_comic.py",
+    "assets_src/books/rumi_underpool_20261010/comic_script.json",
+    "assets_src/books/rumi_underpool_20261010/editorial_draft.json",
+    "assets_src/books/rumi_underpool_20261010/generation_manifest.json",
+    "assets_src/books/rumi_underpool_20261010/native/04_swim_tram.png",
+    "assets_src/books/rumi_underpool_20261010/native/05_courier_bells.png",
+    "assets_src/books/rumi_underpool_20261010/native/07_rehearsal.png",
+    "assets_src/books/rumi_underpool_20261010/native/09_listen.png",
+    "assets_src/books/rumi_underpool_20261010/native/10_follow_tapping.png",
+    "assets_src/books/rumi_underpool_20261010/native/12_rescue_plan.png",
+    "assets_src/books/rumi_underpool_20261010/native/14_free_friend.png",
+    "assets_src/books/rumi_underpool_20261010/native/19_service_passage.png",
+    "assets_src/books/rumi_underpool_20261010/native/20_team_plan.png",
+    "assets_src/books/rumi_underpool_20261010/native/21_ask_imps.png",
+    "assets_src/books/rumi_underpool_20261010/native/22_imp_refusal.png",
+    "assets_src/books/rumi_underpool_20261010/native/24_bubble_route.png",
+    "assets_src/books/rumi_underpool_20261010/native/24_bubble_route_v2.png",
+    "assets_src/books/rumi_underpool_20261010/native/25_cushion_landing.png",
+    "assets_src/books/rumi_underpool_20261010/native/26_two_crates.png",
+    "assets_src/books/rumi_underpool_20261010/native/27_current_returns.png",
+    "assets_src/books/rumi_underpool_20261010/native/28_courier_encore.png",
+    "assets_src/books/rumi_underpool_20261010/output/pdf/Mermaid_Roshan_Song_Beneath_the_Pool_32_Pages.pdf",
+    "assets_src/books/rumi_underpool_20261010/verification/VISUAL_REVIEW.json",
+    "assets_src/books/rumi_underpool_20261010/verification/book_check.json",
+    "assets_src/books/rumi_underpool_20261010/verification/document_gates.log",
+    "assets_src/books/rumi_underpool_20261010/verification/full_ci.log",
+    "assets_src/books/rumi_underpool_20261010/verification/full_ci_attempt_01.log",
+    "assets_src/books/rumi_underpool_20261010/verification/pdf_contact_01.png",
+    "assets_src/books/rumi_underpool_20261010/verification/pdf_contact_02.png",
+    "assets_src/books/rumi_underpool_20261010/verification/pdf_contact_03.png",
+    "assets_src/books/rumi_underpool_20261010/verification/pdf_contact_04.png",
+    "audit/MASTER_AUDIT_2026-08-09.md",
+    "design/05_DOC_LEDGER.md",
+    "design/chapters/RUMI_UNDERPOOL_BOOK_20261009.md"
+  ],
+  "validation": [
+    {
+      "command": "Task-start source and authority review",
+      "result": "PASS",
+      "evidence": "Fresh origin fetch; clean source branch at 616d22b9. Master planning/index, design rules, active findings, ledger, chapter guide and prior scoped brief read. Prior book 21 native images and complete first PDF contact sheet inspected. Existing corrected scenes/cast/pool/city/imps selected for reuse. Named gaps: city courier job and swim obstacle, fuller rehearsal/listening/rescue decisions, Duri courier payoff, gate investigation/approach, imp negotiation and multi-step teamwork. These are new commissioned moments, not redraws of protected earlier books."
+    },
+    {
+      "command": "Bundled Python build_comic.py; complete render/content review; native/source hash checks",
+      "result": "PASS",
+      "evidence": "Exact 32 actual PDF pages (cover + 30 story + back), 87 story panels/89 total panels, 1322 story words, all script lines extract completely and all text stays inside frames. PDF SHA-256 ad96c1ba81b2dab23c83c31431ef1f1f202b309802b40f0b7bb1eb8e25a76c20. book_check.json records sources, exact crops, embedded fonts and JPEG95/subsampling0 encodings; all 17 native outputs match untouched tool originals. Four contact sheets cover all 32 pages, with focused full-page and independent editorial/layout reviews in VISUAL_REVIEW.json."
+    },
+    {
+      "command": "python -B tools/audit_document_authority.py; python -B tools/audit_development.py --base auto; git diff --check",
+      "result": "PASS",
+      "evidence": "Final source-art/document checks exit 0: DOCAUTH inventory/ledger 686/686, active 68, records 71 ALL OK; AUDITDEV base 245e9c543be771d297b60dafb91b8a3baf73e211 ALL OK; whitespace check exit 0. Receipt verification/document_gates.log. Rechecked master planning/task index, current brief/ledger/rules and related open findings at completion; no finding lifecycle or runtime acceptance changes."
+    },
+    {
+      "command": "C:/Program Files/Git/bin/bash.exe --noprofile --norc scripts/ci.sh",
+      "result": "PASS",
+      "evidence": "Full local CI process exit 0; all 82 distinct trusted probes process exit 0 with resolver-selected Godot 4.7.2.stable.official.ed1daf0bf. Receipt verification/full_ci.log SHA-256 0e76ee69b3b89134a2b2ed7e06b72d6c74ea73a447766a81ea42ed56f7828cba. Initial coverage failure before probes is preserved in full_ci_attempt_01.log. Runtime sources remain byte-unchanged from task baseline throughout the suite; final source-art/document coverage is separately rechecked on the completed book. Existing global visual-audit UNSATISFIED retains its scope and is not closed by this regression pass."
+    },
+    {
+      "command": "git diff --exit-code 616d22b9fa9748c70b68b0400bbe7c399461d4af -- assets scripts scenes project.godot tools assets_src/books/rumi_underpool_20261009",
+      "result": "PASS",
+      "evidence": "Exit 0: no runtime, protected original, game tool or previous book changes. Source book remains excluded from Godot import by existing assets_src/.gdignore."
+    }
+  ],
+  "acceptance_gaps": "Static book review candidate; new expanded prose/art await owner/child review. No runtime changes or device/cinematic/print-production/release acceptance. Related finding lifecycles and whole-game UNSATISFIED remain unchanged."
+}
