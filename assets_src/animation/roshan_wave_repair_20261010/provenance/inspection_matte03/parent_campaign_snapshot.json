@@ -1,0 +1,203 @@
+{
+  "schema": "reef.wave-repair-campaign.v1",
+  "owner_authorization": "2026-10-10: keep experimenting with different methodologies, create/review drafts and continue until a high-quality artifact-free Roshan waving sample is available",
+  "baseline": "245e9c543be771d297b60dafb91b8a3baf73e211",
+  "action": "One friendly whole-figure wave returning to approved K0; pink outfit first",
+  "contract": "W1-W6 unchanged: complete single-unit frames, fixed proportions, coordinated body, 41 frames/24fps/1708ms, exact K0 endpoints",
+  "limits": {
+    "takes_per_changed_method": 2,
+    "new_transformer_takes_max": 10,
+    "new_named_key_or_key_family_calls_max": 4,
+    "wall_minutes_per_gpu_take": 20,
+    "cleanup_minutes_max": 180,
+    "paid_api_jobs": 0,
+    "weight_download_gib_max": 1.3
+  },
+  "budget_authority": "This explicit renewed owner commission follows exhausted prior briefs; their counts and rejects remain cumulative history. A failed method is diagnosed before the next bounded stage; no silent frame-by-frame ImageGen campaign or paid API spend.",
+  "prior": [
+    {
+      "id": "ltx25-union-trial-20261004",
+      "transformer_takes": 2,
+      "status": "REJECTED"
+    },
+    {
+      "id": "whole-sprite-engine-corrective-keys-20261007",
+      "imagegen_calls": 2,
+      "status": "REJECTED_KEYS"
+    },
+    {
+      "id": "ltx25-focus-repair-20261004",
+      "status": "TWO_STEP_DECODE_REJECTED"
+    },
+    {
+      "id": "claude-whole-frame-wave-20261005",
+      "status": "OWNER_REJECTED_PART_ASSEMBLY_AND_SIZE"
+    }
+  ],
+  "methods": [
+    {
+      "id": "corrected-guide-staged-union",
+      "status": "PREFLIGHT_ONLY_NOT_DISPATCHED",
+      "hypothesis": "Correct W3 source proportions; inspect first-pass native hand silhouettes before refinement"
+    },
+    {
+      "id": "native-resolution-union",
+      "status": "NATIVE_FIRST_PASS_VISUALLY_REJECTED",
+      "hypothesis": "Avoid creating hand anatomy at a low-resolution pass then enlarging it"
+    },
+    {
+      "id": "aligned-temporal-detail",
+      "status": "ACCESS_BLOCKED_AND_INPUT_TOPOLOGY_REJECTED",
+      "hypothesis": "Recover fine detail only after topology and geometry pass"
+    },
+    {
+      "id": "authored-whole-cel-family",
+      "status": "GENERATED_FAMILIES_REJECTED",
+      "hypothesis": "Paint complete consistent key family and clean coherent whole-frame transitions when local video does not retain anatomy"
+    },
+    {
+      "id": "whole-frame-rife",
+      "status": "LONG_DROP_MIDPOINT_REJECTED_SHORT_PAIRS_DIAGNOSTIC",
+      "hypothesis": "Synthesise complete-frame temporal midpoints from sharp painted cels using learned bidirectional optical flow; diagnose contour ghosting before any full-loop use",
+      "commission": "2026-10-10 renewed owner request to experiment until artifact-free wave; root delegated three pairs in one queue item",
+      "method_limits": "One queue item contains three pair tests; each submitted queue item consumes one campaign invocation and one method take. RGB source study only, no W1 or anatomy acceptance."
+    },
+    {
+      "id": "direct-whole-cel-aseprite-repair",
+      "status": "MODEL_REVIEWED_SAMPLE_AVAILABLE",
+      "hypothesis": "Retain complete native body acting and redraw damaged connected arm/hand contour directly into each flattened cel; same-cel boundary alpha reconstruction and whole-frame export. No pasted limb, deformation of a copied limb or part animation.",
+      "profiles": "aseprite_paint_trial_01/engine_profile.json; full_wave_draft_06 immutable render inputs; aseprite_matte_trial_01/full_wave_matte_03 selected dim-closed alpha recipe",
+      "fixed_parts": "Approved identity, pink costume, camera, in-plane bone lengths, scale, endpoint K0 authority",
+      "moving_parts": "Hand/arm gesture with source-authored shoulder, head, bodice, hair and tail response",
+      "entry_exit": "Approved whole K0 bytes at256 indices0/40; relaxed hand at1\u20134/34\u201339, rise5\u201313, open wave14\u201324, lower25\u201333",
+      "generated_takes": 0,
+      "paid_api_jobs": 0
+    }
+  ],
+  "attempts": [
+    {
+      "id": "22750afc-adf4-4495-a70a-bd2a6acd12bf",
+      "method": "native-resolution-union",
+      "stage": "first-pass",
+      "status": "EXECUTION_PASS",
+      "reserved_at_utc": "2026-10-10T17:02:09.506381-07:00",
+      "output": "assets_src/animation/roshan_wave_repair_20261010/native640_01/take_01",
+      "wall_seconds_max": 1200,
+      "counted_as_transformer_take": true,
+      "ended_at_utc": "2026-10-11T00:13:43.283652+00:00",
+      "prompt_id": "3f849ef1-1ccb-4c9a-940e-6d378d1bb88f",
+      "elapsed_seconds": 693.7660000000033,
+      "receipt_sha256": "9fabe5d50d9b553131c49b725ec1b524c6e7b32f3d839dd9d18c65c38acdbc2f"
+    },
+    {
+      "id": "16321391-858f-4222-8644-80e30844872d",
+      "method": "whole-frame-rife",
+      "stage": "single",
+      "status": "EXECUTION_PASS",
+      "reserved_at_utc": "2026-10-11T00:20:54.133132+00:00",
+      "output": "assets_src/animation/roshan_wave_repair_20261010/rife_midpoint_01/take_01",
+      "wall_seconds_max": 1200,
+      "counted_as_transformer_take": true,
+      "ended_at_utc": "2026-10-11T00:21:05.313787+00:00",
+      "prompt_id": "fd19952a-c0fa-43a2-91ec-28c41ce78728",
+      "elapsed_seconds": 11.170999999972992,
+      "receipt_sha256": "044a354d407eaf3025e7b4279e1d91e65bea373d573da88b95ee30b5a99aa156"
+    }
+  ],
+  "acceptance": {
+    "artifact_free_model_sample_available_at_256": true,
+    "universal_or_human_artifact_free_claim": false,
+    "human_owner_device_child": false,
+    "runtime_integrated": false,
+    "DELIVERY_ACCEPTED": false,
+    "MA_ROSHAN_005_006": "CONFIRMED_OPEN unchanged"
+  },
+  "image_attempts": [
+    {
+      "id": "whole_cel_family_01",
+      "method": "painted-whole-cel-family",
+      "status": "REJECTED",
+      "call_number": 1,
+      "purpose": "One coherent 12-pose whole-figure painted wave family, no per-frame calls",
+      "reserved_at_utc": "2026-10-10T23:58:30.1239214Z",
+      "diagnosis": "Requested4x3 square cells returned square1254canvas with rectangular cells; right-edge fin clipping, pose/size inconsistency and diffuse low-alpha matte noise. Native retained."
+    },
+    {
+      "id": "whole_cel_family_02",
+      "method": "painted-whole-cel-family",
+      "status": "REJECTED_ANATOMY_AND_SCALE",
+      "call_number": 2,
+      "purpose": "Change canvas/layout to4x4 square cells; maintain original K0 identity and clean lowering sequence",
+      "reserved_at_utc": "2026-10-11T00:03:23.2245481Z",
+      "diagnosis": "Crisp drawings but actual whole-figure draft has2.52%figure/3.43%head variation and shortened bent forearms, so cannot become final merely through alpha cleanup."
+    },
+    {
+      "id": "whole_key_repair_01",
+      "method": "targeted-whole-key-anatomy-repair",
+      "status": "REJECTED_PROPORTIONS_AND_IDENTITY_REDRAWN",
+      "call_number": 3,
+      "purpose": "Edit nine whole-frame native motion keys, preserve body/head dimensions and repair smeared arm/hand anatomy; changed input/method after paintedfamilyreject",
+      "diagnosis": "Native nine-cel output retained; proportions/identity redrawn, figure1.11% exceeds1% maximum. Official raw head coverage fails; alternate9/9 finite ECC remains diagnostic. Missing W3 joints and motion/identity acceptance block.",
+      "receipt_path": "assets_src/animation/roshan_wave_repair_20261010/whole_key_repair_01/receipt.json",
+      "receipt_sha256": "5fb3828d2d17a7369a174daa1b142d5395bc158d587736ee1f2ef22b8ff963f7",
+      "quality_summary_path": "assets_src/animation/roshan_wave_repair_20261010/whole_key_repair_01/quality_summary.json",
+      "quality_summary_sha256": "5289ab7638c16df2c69b974c69ef97e741b6ccdf56e77e60f1e3e13ef5297bb2"
+    }
+  ],
+  "review_findings": {
+    "native640_01": {
+      "reject_indices": [
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33
+      ],
+      "issues": [
+        "fused/incomplete moving fingers",
+        "lowering elbow/hand ghosting"
+      ],
+      "refine_gate": "BLOCKED_BY_TOPOLOGY"
+    },
+    "paint_drafts_01_to_04": "Fixture remnants, source-arm shadow and clipped left hand; frozen reject evidence retained",
+    "paint_draft_05": "Arm shadow fixed;10 resting-hand frames retain dark comb style",
+    "rest_style_pilot_02": "Root native and256 static review passes filled relaxed silhouette; complete sequence and alpha review pending",
+    "final_sample_03": {
+      "status": "MODEL_REVIEWED_SAMPLE_AVAILABLE",
+      "record": "provenance/sample_review.json",
+      "human_owner_device_child": "PENDING",
+      "runtime": "NOT_INTEGRATED"
+    }
+  },
+  "usage": {
+    "new_gpu_queue_items": 2,
+    "gpu_execution_seconds": 704.937,
+    "whole_key_builtin_calls": 3,
+    "whole_key_builtin_calls_remaining": 1,
+    "provider_usage_billing_request_id_revision": "Not exposed for builtin image calls; no invented API IDs, prices or model revisions",
+    "local_paint_api_calls": 0,
+    "local_matte_api_calls": 0,
+    "cleanup_accounting": "Paint00:28:33-01:38:44UTC70.197min; matte explicit clock segment01:16:51-01:40:03UTC23.203min plus measured finalbatch266.576s. Parallel intervals overlap and are not added as elapsed task time. Prior active-author stopwatch unavailable; no fabricated cost or billing. Exact ledgers preserved.",
+    "paint_contiguous_work_minutes": 70.197
+  },
+  "derivation_routes": {
+    "native": "native640_01/take_01/receipt.json",
+    "paint": "aseprite_paint_trial_01/README.md",
+    "matte": "aseprite_matte_trial_01/README.md",
+    "source_inventory": "provenance/source_snapshot_20261010.json",
+    "prior_cumulative_history": "prior_local_history.json"
+  }
+}

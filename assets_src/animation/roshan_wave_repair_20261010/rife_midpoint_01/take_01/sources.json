@@ -1,0 +1,111 @@
+{
+  "sources": [
+    {
+      "path": "assets_src/animation/roshan_wave_repair_20261010/rife_midpoint_01/inputs/native_rgba/0003.png",
+      "sha256": "81f3e05140d1eda45fba922fb22de933e4f1154d3292cbd34255229f702f9248",
+      "role": "complete-cel-source-candidate",
+      "acceptance": "SOURCE_STUDY_ONLY; source family rejected for anatomy and scale"
+    },
+    {
+      "path": "assets_src/animation/roshan_wave_repair_20261010/rife_midpoint_01/inputs/native_rgba/0006.png",
+      "sha256": "f0cda28db829e7f3debd476486620a596d93e5ca0830cdb1c7b4c5d637af2aa6",
+      "role": "complete-cel-source-candidate",
+      "acceptance": "SOURCE_STUDY_ONLY; source family rejected for anatomy and scale"
+    },
+    {
+      "path": "assets_src/animation/roshan_wave_repair_20261010/rife_midpoint_01/inputs/native_rgba/0010.png",
+      "sha256": "c53a1ed2d7674a150c43696b9c2317a6dc90ba40879ec6cb138c02308477c0ca",
+      "role": "complete-cel-source-candidate",
+      "acceptance": "SOURCE_STUDY_ONLY; source family rejected for anatomy and scale"
+    },
+    {
+      "path": "assets_src/animation/roshan_wave_repair_20261010/rife_midpoint_01/inputs/native_rgba/0012.png",
+      "sha256": "9c3b23f13466e66fd5d2e7934a85c7e5380f944c49046f9f53c4b3675fe2edec",
+      "role": "complete-cel-source-candidate",
+      "acceptance": "SOURCE_STUDY_ONLY; source family rejected for anatomy and scale"
+    },
+    {
+      "path": "assets_src/animation/roshan_wave_repair_20261010/rife_midpoint_01/inputs/native_rgba/0014.png",
+      "sha256": "e32890bbfa063d765287d51664318bc9e84874d8b8a6ab320e0c41d733d61a26",
+      "role": "complete-cel-source-candidate",
+      "acceptance": "SOURCE_STUDY_ONLY; source family rejected for anatomy and scale"
+    },
+    {
+      "path": "assets_src/animation/roshan_wave_repair_20261010/rife_midpoint_01/inputs/neutral_gray/0003.png",
+      "sha256": "0abf63bca745eb26bf5a08710f9ca4a217b392723716150de7aec23ba45331d6",
+      "role": "whole-cel-neutral-background-interpolation-input",
+      "acceptance": "SOURCE_STUDY_ONLY; source family rejected for anatomy and scale",
+      "runtime_path": "input/wave_repair_20261010/rife_midpoint_01/0003.png"
+    },
+    {
+      "path": "assets_src/animation/roshan_wave_repair_20261010/rife_midpoint_01/inputs/neutral_gray/0006.png",
+      "sha256": "5b6e50689797ec7312d9342e8315edf67a2890a8a7e4571a7edf885495f552b0",
+      "role": "whole-cel-neutral-background-interpolation-input",
+      "acceptance": "SOURCE_STUDY_ONLY; source family rejected for anatomy and scale",
+      "runtime_path": "input/wave_repair_20261010/rife_midpoint_01/0006.png"
+    },
+    {
+      "path": "assets_src/animation/roshan_wave_repair_20261010/rife_midpoint_01/inputs/neutral_gray/0010.png",
+      "sha256": "4f7ee58d1fd198b3f2ad34bf0c78647d9d8c908859c25cccec27933531b921ac",
+      "role": "whole-cel-neutral-background-interpolation-input",
+      "acceptance": "SOURCE_STUDY_ONLY; source family rejected for anatomy and scale",
+      "runtime_path": "input/wave_repair_20261010/rife_midpoint_01/0010.png"
+    },
+    {
+      "path": "assets_src/animation/roshan_wave_repair_20261010/rife_midpoint_01/inputs/neutral_gray/0012.png",
+      "sha256": "3d94e6575297757a13c56bdf3b7143ae47d15e651028e4cf94c961ef839cb45b",
+      "role": "whole-cel-neutral-background-interpolation-input",
+      "acceptance": "SOURCE_STUDY_ONLY; source family rejected for anatomy and scale",
+      "runtime_path": "input/wave_repair_20261010/rife_midpoint_01/0012.png"
+    },
+    {
+      "path": "assets_src/animation/roshan_wave_repair_20261010/rife_midpoint_01/inputs/neutral_gray/0014.png",
+      "sha256": "eeb9eb0851539571735ed2040a78d4c068f1633e387176ada68cbfae13a0fc06",
+      "role": "whole-cel-neutral-background-interpolation-input",
+      "acceptance": "SOURCE_STUDY_ONLY; source family rejected for anatomy and scale",
+      "runtime_path": "input/wave_repair_20261010/rife_midpoint_01/0014.png"
+    }
+  ],
+  "model_workflow_pins": {
+    "ComfyUI": "87465b8f1f64a27a46f16f22b13b410494dca66d",
+    "Comfy-Org_frame_interpolation": "219da3c9d8c357ceaf457fc1d5932c6e861b8dee",
+    "weight_file": "rife_v4.25.safetensors",
+    "weight_sha256": "1505884b9bdae956795430d2a70f7e2317b2abd8f130f8cfdb35a5759f909481",
+    "weight_size_bytes": 22674688,
+    "source_nodes_frame_interpolation.py": "ff30a5795d371ed833019d5b156d5139325ac05f2f87f2ec0ab61960b8f0e394",
+    "source_frame_interpolation_models/ifnet.py": "255657e119c96b48858fd963fb1149b42463c36843f2f5927d0b433aee2a076c"
+  },
+  "settings": {
+    "method": "Whole-frame learned bidirectional optical flow and spatial mask fusion",
+    "multiplier": 2,
+    "pairs": [
+      [
+        6,
+        3
+      ],
+      [
+        14,
+        12
+      ],
+      [
+        10,
+        12
+      ]
+    ],
+    "canvas": [
+      256,
+      256
+    ],
+    "background_rgb": [
+      245,
+      245,
+      245
+    ],
+    "background_flattening_tool": "Aseprite1.3.18.4-x64",
+    "stage": "RGB-only midpoint method study",
+    "alpha": "Native RGBA preserved. Aseprite composited entire cell once over neutral background. FrameInterpolate model has3-channel RGB output; no claim of transparent final.",
+    "W1_provenance": "No authored body-part layers or pasted hand. RIFE internally warps both whole frames and torch.lerp fuses them with learned sigmoid mask. This is expressly disclosed; one-flat-layer output is not whole-drawing acceptance. Any doubled contours or crossfade ghosts cause rejection.",
+    "source_anatomy": "Source draft itself already rejected for shortened arms and scale drift; this method cannot cure those source defects.",
+    "attempt_count": "Three independent midpoint nodes in one graph/queue item count as one campaign invocation; no extra submission or hidden refinement."
+  }
+}

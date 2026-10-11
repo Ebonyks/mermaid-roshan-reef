@@ -1,0 +1,66 @@
+{
+ "label": "painted-family02-native",
+ "frames": 16,
+ "limits": {
+  "figure_scale_pp_pct": 1.0,
+  "head_scale_pp_pct": 2.0,
+  "arm_length_pct": 5.0,
+  "master_layers": 1
+ },
+ "contract_cell_px": {
+  "upper_arm": 25.5,
+  "forearm": 24.5,
+  "hand": 20.5
+ },
+ "checks": {
+  "figure_scale_pp_pct": {
+   "value": 3.9,
+   "pass": false
+  },
+  "head_scale_pp_pct": {
+   "value": 3.69,
+   "pass": false
+  },
+  "master_layers": {
+   "value": 1,
+   "pass": true
+  }
+ },
+ "figure_scale_pct": [
+  0.0,
+  0.11,
+  0.5,
+  0.53,
+  0.87,
+  1.64,
+  1.17,
+  2.79,
+  -1.11,
+  2.31,
+  -0.55,
+  0.73,
+  1.03,
+  -0.06,
+  0.52,
+  0.12
+ ],
+ "head_scale_pct": [
+  -0.26,
+  -0.47,
+  -0.71,
+  -0.3,
+  1.27,
+  1.95,
+  1.08,
+  NaN,
+  -1.74,
+  NaN,
+  -1.32,
+  NaN,
+  0.9,
+  1.03,
+  1.47,
+  NaN
+ ],
+ "all_pass": false
+}

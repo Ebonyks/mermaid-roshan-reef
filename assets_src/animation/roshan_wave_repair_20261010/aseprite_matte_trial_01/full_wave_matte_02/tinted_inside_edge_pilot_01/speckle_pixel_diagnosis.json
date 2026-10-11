@@ -1,0 +1,435 @@
+{
+  "schema": "reef.actual-matte-speckle-pixel-diagnosis.v1",
+  "source_packet": "assets_src/animation/roshan_wave_repair_20261010/aseprite_paint_trial_01/full_wave_draft_06",
+  "source_sha256": "411c0f41fb752b8ca807b50889b32e3d549fe983a71c3533691d026b99044c46",
+  "compared_output": "tinted_inside_edge_pilot_01/native_rgba/0014.png",
+  "original_strict_closed_count": 709,
+  "new_closed_eligible_count": 3899,
+  "new_closed_eligible_outside_original_protection_count": 3190,
+  "pixels": [
+    {
+      "region": "crown",
+      "xy": [
+        410,
+        79
+      ],
+      "source_rgba": [
+        144,
+        153,
+        151,
+        255
+      ],
+      "output_rgba": [
+        144,
+        153,
+        151,
+        255
+      ],
+      "source_chroma": 9,
+      "depth": 1.0,
+      "connected_field": false,
+      "new_closed_eligible_skipped": false,
+      "original_strict_closed_highlight": false,
+      "changed": false,
+      "measured_background_rgb": [
+        236.0,
+        235.0,
+        234.0
+      ],
+      "nearest_actual_candidate": null,
+      "lowest_score_actual_candidate": null,
+      "candidate_count": 0
+    },
+    {
+      "region": "crown",
+      "xy": [
+        413,
+        80
+      ],
+      "source_rgba": [
+        204,
+        216,
+        213,
+        255
+      ],
+      "output_rgba": [
+        204,
+        216,
+        213,
+        255
+      ],
+      "source_chroma": 12,
+      "depth": 2.0,
+      "connected_field": false,
+      "new_closed_eligible_skipped": true,
+      "original_strict_closed_highlight": false,
+      "changed": false,
+      "measured_background_rgb": [
+        236.0,
+        236.0,
+        234.0
+      ],
+      "nearest_actual_candidate": {
+        "xy": [
+          410,
+          81
+        ],
+        "source_rgb": [
+          166,
+          186,
+          189
+        ],
+        "depth": 2.0,
+        "distance": 3.1623,
+        "fit_alpha": 0.44403,
+        "fit_error": 2.5936,
+        "fit_limit": 25,
+        "passes_fit": true
+      },
+      "lowest_score_actual_candidate": {
+        "xy": [
+          410,
+          81
+        ],
+        "source_rgb": [
+          166,
+          186,
+          189
+        ],
+        "depth": 2.0,
+        "distance": 3.1623,
+        "fit_alpha": 0.44403,
+        "fit_error": 2.5936,
+        "fit_limit": 25,
+        "passes_fit": true
+      },
+      "candidate_count": 14
+    },
+    {
+      "region": "crown",
+      "xy": [
+        411,
+        83
+      ],
+      "source_rgba": [
+        204,
+        234,
+        239,
+        255
+      ],
+      "output_rgba": [
+        204,
+        234,
+        239,
+        255
+      ],
+      "source_chroma": 35,
+      "depth": 3.0,
+      "connected_field": false,
+      "new_closed_eligible_skipped": false,
+      "original_strict_closed_highlight": false,
+      "changed": false,
+      "measured_background_rgb": [
+        237.0,
+        237.0,
+        237.0
+      ],
+      "nearest_actual_candidate": {
+        "xy": [
+          410,
+          83
+        ],
+        "source_rgb": [
+          183,
+          212,
+          218
+        ],
+        "depth": 2.0,
+        "distance": 1.0,
+        "fit_alpha": 0.46617,
+        "fit_error": 15.9385,
+        "fit_limit": 10,
+        "passes_fit": false
+      },
+      "lowest_score_actual_candidate": {
+        "xy": [
+          410,
+          85
+        ],
+        "source_rgb": [
+          188,
+          219,
+          225
+        ],
+        "depth": 3.0,
+        "distance": 2.2361,
+        "fit_alpha": 0.57407,
+        "fit_error": 12.5104,
+        "fit_limit": 10,
+        "passes_fit": false
+      },
+      "candidate_count": 15
+    },
+    {
+      "region": "pink_hair",
+      "xy": [
+        537,
+        175
+      ],
+      "source_rgba": [
+        192,
+        190,
+        172,
+        255
+      ],
+      "output_rgba": [
+        192,
+        190,
+        172,
+        255
+      ],
+      "source_chroma": 20,
+      "depth": 2.0,
+      "connected_field": false,
+      "new_closed_eligible_skipped": true,
+      "original_strict_closed_highlight": false,
+      "changed": false,
+      "measured_background_rgb": [
+        237.0,
+        237.0,
+        237.0
+      ],
+      "nearest_actual_candidate": {
+        "xy": [
+          537,
+          176
+        ],
+        "source_rgb": [
+          183,
+          181,
+          160
+        ],
+        "depth": 3.0,
+        "distance": 1.0,
+        "fit_alpha": 0.84025,
+        "fit_error": 0.4826,
+        "fit_limit": 10,
+        "passes_fit": true
+      },
+      "lowest_score_actual_candidate": {
+        "xy": [
+          537,
+          176
+        ],
+        "source_rgb": [
+          183,
+          181,
+          160
+        ],
+        "depth": 3.0,
+        "distance": 1.0,
+        "fit_alpha": 0.84025,
+        "fit_error": 0.4826,
+        "fit_limit": 10,
+        "passes_fit": true
+      },
+      "candidate_count": 59
+    },
+    {
+      "region": "pink_hair",
+      "xy": [
+        506,
+        138
+      ],
+      "source_rgba": [
+        251,
+        235,
+        218,
+        255
+      ],
+      "output_rgba": [
+        251,
+        235,
+        218,
+        255
+      ],
+      "source_chroma": 33,
+      "depth": 4.0,
+      "connected_field": false,
+      "new_closed_eligible_skipped": false,
+      "original_strict_closed_highlight": false,
+      "changed": false,
+      "measured_background_rgb": [
+        237.0,
+        237.0,
+        237.0
+      ],
+      "nearest_actual_candidate": {
+        "xy": [
+          504,
+          138
+        ],
+        "source_rgb": [
+          235,
+          203,
+          191
+        ],
+        "depth": 5.0,
+        "distance": 2.0,
+        "fit_alpha": 0.279,
+        "fit_error": 17.4927,
+        "fit_limit": 10,
+        "passes_fit": false
+      },
+      "lowest_score_actual_candidate": {
+        "xy": [
+          503,
+          143
+        ],
+        "source_rgb": [
+          246,
+          219,
+          196
+        ],
+        "depth": 8.0,
+        "distance": 5.831,
+        "fit_alpha": 0.4511,
+        "fit_error": 11.6839,
+        "fit_limit": 10,
+        "passes_fit": false
+      },
+      "candidate_count": 55
+    },
+    {
+      "region": "fin",
+      "xy": [
+        677,
+        584
+      ],
+      "source_rgba": [
+        183,
+        177,
+        176,
+        255
+      ],
+      "output_rgba": [
+        183,
+        177,
+        176,
+        255
+      ],
+      "source_chroma": 7,
+      "depth": 3.0,
+      "connected_field": false,
+      "new_closed_eligible_skipped": true,
+      "original_strict_closed_highlight": false,
+      "changed": false,
+      "measured_background_rgb": [
+        237.0,
+        237.0,
+        237.0
+      ],
+      "nearest_actual_candidate": {
+        "xy": [
+          677,
+          583
+        ],
+        "source_rgb": [
+          128,
+          124,
+          123
+        ],
+        "depth": 2.0,
+        "distance": 1.0,
+        "fit_alpha": 0.52117,
+        "fit_error": 3.4098,
+        "fit_limit": 25,
+        "passes_fit": true
+      },
+      "lowest_score_actual_candidate": {
+        "xy": [
+          677,
+          583
+        ],
+        "source_rgb": [
+          128,
+          124,
+          123
+        ],
+        "depth": 2.0,
+        "distance": 1.0,
+        "fit_alpha": 0.52117,
+        "fit_error": 3.4098,
+        "fit_limit": 25,
+        "passes_fit": true
+      },
+      "candidate_count": 26
+    },
+    {
+      "region": "fin",
+      "xy": [
+        668,
+        588
+      ],
+      "source_rgba": [
+        248,
+        218,
+        239,
+        255
+      ],
+      "output_rgba": [
+        248,
+        218,
+        239,
+        255
+      ],
+      "source_chroma": 30,
+      "depth": 4.0,
+      "connected_field": false,
+      "new_closed_eligible_skipped": false,
+      "original_strict_closed_highlight": false,
+      "changed": false,
+      "measured_background_rgb": [
+        237.0,
+        237.0,
+        237.0
+      ],
+      "nearest_actual_candidate": {
+        "xy": [
+          668,
+          589
+        ],
+        "source_rgb": [
+          225,
+          194,
+          213
+        ],
+        "depth": 4.0,
+        "distance": 1.0,
+        "fit_alpha": 0.24796,
+        "fit_error": 18.1122,
+        "fit_limit": 10,
+        "passes_fit": false
+      },
+      "lowest_score_actual_candidate": {
+        "xy": [
+          663,
+          591
+        ],
+        "source_rgb": [
+          237,
+          183,
+          218
+        ],
+        "depth": 4.0,
+        "distance": 5.831,
+        "fit_alpha": 0.3015,
+        "fit_error": 13.7158,
+        "fit_limit": 10,
+        "passes_fit": false
+      },
+      "candidate_count": 52
+    }
+  ],
+  "interpretation": "Skipped closed neutral cells and unchanged opaque retained cells both occur on bright rims. The wider classifier adds closed neutral protection, but classification alone does not establish an artifact: cyan crown and bright fin paint may be intended highlights. Inside-only output has zero recovered classified-field pixels, so remaining rim is not resurrected outer field. K0 mapped dark/light comparison is required before targeted correction."
+}

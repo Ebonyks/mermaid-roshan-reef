@@ -1,0 +1,69 @@
+{
+  "schema": "reef.local-whole-cel-matte-receipt.v1",
+  "status": "UNACCEPTED_MATTE_CANDIDATE_REVIEW_REQUIRED",
+  "started_at_utc": "2026-10-11T01:37:36.418649+00:00",
+  "completed_at_utc": "2026-10-11T01:46:02.436309+00:00",
+  "elapsed_local_processing_and_review_minutes": 8.4336,
+  "timing_limit": "Folder creation to packet completion; engine preparation preceded this folder and concurrent parent/agent work may overlap. Root owns cumulative campaign accounting.",
+  "generator_calls": 0,
+  "api_calls": 0,
+  "gpu_calls": 0,
+  "paid_calls": 0,
+  "aseprite_version": "1.3.18.4-x64",
+  "pixel_writer": "Aseprite Lua",
+  "source_packet": "assets_src/animation/roshan_wave_repair_20261010/aseprite_paint_trial_01/full_wave_draft_06",
+  "source_frame_count": 41,
+  "native_size": [
+    768,
+    896
+  ],
+  "workflow": [
+    "review_seeds.lua",
+    "recover_full_edges.lua",
+    "black_review.lua",
+    "verify_full_matte.py"
+  ],
+  "whole_cel_uniform_scale": 0.3125,
+  "whole_cel_resize": [
+    240,
+    280
+  ],
+  "whole_cel_translation": [
+    15,
+    -10
+  ],
+  "final_size": [
+    256,
+    256
+  ],
+  "native_endpoint_replacement": {
+    "source": "approved_K0.png",
+    "source_sha256": "432f8283ee8d9cd7f53a36b1f12bb1b82a865e048a03c3bd7cbd3a103ff2e789",
+    "whole_resized_dimensions": [
+      819,
+      819
+    ],
+    "uniform_raster_scale": 3.19921875,
+    "translation": [
+      -48,
+      32
+    ],
+    "ideal_inverse_scale": 3.2,
+    "relative_scale_error_pct": -0.0244140625,
+    "source_RGB_and_upstream_matte_preserved": true,
+    "source_indices": [
+      0,
+      40
+    ]
+  },
+  "export_endpoint_replacement": "Exact approvedK0 PNG bytes and directly loaded approvedK0 master pixels",
+  "geometry": "Root independently measures actual native final and256px output joints/figure/head geometry; source settings or this pixel-preservation PASS do not establish W2/W3/W6.",
+  "acceptance": {
+    "artifact_free_wave": false,
+    "owner": false,
+    "device": false,
+    "child": false,
+    "runtime": false,
+    "delivery_accepted": false
+  }
+}

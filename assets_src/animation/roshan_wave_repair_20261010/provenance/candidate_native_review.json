@@ -1,0 +1,1439 @@
+{
+  "schema": "roshan-wave-native-model-review-v1",
+  "status": "SOURCE_ONLY_MODEL_REVIEW_DRAFT04_LOCAL_CLEANUP_REJECTED",
+  "reviewed_utc": "2026-10-11T01:07:56.932435+00:00",
+  "candidate_source_directory": "assets_src/animation/roshan_wave_repair_20261010/aseprite_paint_trial_01/full_wave_draft_04",
+  "reviewed_frame_count": 41,
+  "ordered_indices": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29,
+    30,
+    31,
+    32,
+    33,
+    34,
+    35,
+    36,
+    37,
+    38,
+    39,
+    40
+  ],
+  "derivation_metadata": {
+    "path": "assets_src/animation/roshan_wave_repair_20261010/aseprite_paint_trial_01/full_wave_draft_04/joint_geometry.json",
+    "sha256": "190c8e90becb56965d6fcf7880f263b25764840ff8fd27f4f3735c07b57d8800",
+    "authored_joints_are_actual_measured_joints": false
+  },
+  "review_method": {
+    "whole_figure": "All41 original RGB sources viewed in ordered half-resolution full-figure diagnostic contacts; critical14/28/cuff sources separately inspected. Source files remain authoritative.",
+    "hand_and_attachment": "All41 native arm regions viewed at exact source pixel scale from padded crop[90,140,380,620].",
+    "cuff_cleanup": "All41 padded source crops[300,320,375,450] viewed at2x nearest-neighbor;1,14,27..33 additionally3x. Original native28 crop[172,320,247,450] compared against draft28.",
+    "diagnostic_boards": "Ignored disposable tmp contact boards; no board pixels enter source or delivery.",
+    "temporal_playback": "NOT_REVIEWED_IN_THIS_REPORT; ordered static/native review only."
+  },
+  "summary": {
+    "complete_hands_model_pass_indices": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31,
+      32,
+      33,
+      34,
+      35,
+      36,
+      37,
+      38,
+      39,
+      40
+    ],
+    "attachment_model_pass_indices": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31,
+      32,
+      33,
+      34,
+      35,
+      36,
+      37,
+      38,
+      39,
+      40
+    ],
+    "canvas_clipping_model_pass_indices": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31,
+      32,
+      33,
+      34,
+      35,
+      36,
+      37,
+      38,
+      39,
+      40
+    ],
+    "old_arm_cleanup_model_fail_indices": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      27,
+      28,
+      29,
+      30,
+      31,
+      32,
+      33,
+      34,
+      35,
+      36,
+      37,
+      38,
+      39
+    ],
+    "rest_hand_style_model_fail_indices": [
+      1,
+      2,
+      3,
+      4,
+      34,
+      35,
+      36,
+      37,
+      38,
+      39
+    ],
+    "local_visual_model_pass_indices": [
+      0,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      40
+    ],
+    "artifact_free_complete_wave_available": false
+  },
+  "acceptance": {
+    "W1_whole_drawing": "PENDING_METHOD_AND_EXACT_OUTPUT_REVIEW",
+    "W2_size": "PENDING_FINAL_MASTER_MEASUREMENTS",
+    "W3_geometry": "PENDING_ALL41_HASH_BOUND_ACTUAL_JOINTS",
+    "W4_coordinated_acting": "PENDING_EXACT_FULL_SPEED_REVIEW",
+    "W5_endpoint_loop_seam": "PENDING_FINAL_K0_SUBSTITUTION_AND_PLAYBACK",
+    "W6_timing": "PENDING_FINAL_MASTER_VERIFICATION",
+    "human_identity_topology_style_motion": "PENDING",
+    "runtime": "PENDING",
+    "device": "PENDING",
+    "child": "PENDING",
+    "owner": "PENDING",
+    "delivery_accepted": false
+  },
+  "frames": [
+    {
+      "index": 0,
+      "source_path": "assets_src/animation/roshan_wave_repair_20261010/aseprite_paint_trial_01/full_wave_draft_04/0000.png",
+      "source_sha256": "201c00fad7f4790ed99e4bd8ea70fed5b1e7b346e70cac61b936569339e6b41b",
+      "dimensions": [
+        768,
+        896
+      ],
+      "reviewer": "Codex model visual review; no human or owner claim",
+      "model_axes": {
+        "hand_complete": "PASS",
+        "wrist_forearm_connected": "PASS",
+        "sleeve_arm_connected": "PASS",
+        "hair_curl_complete": "PASS",
+        "no_hand_smear": "PASS",
+        "whole_figure_not_canvas_cropped": "PASS",
+        "old_arm_pixels_removed": "PASS",
+        "rest_hand_style_continuity": "PASS"
+      },
+      "model_visual_status": "PASS_WITHIN_REVIEW_SCOPE",
+      "observations": [
+        "Unpainted translated native RGB endpoint. No approved-K0 native endpoint substitution has occurred in this draft; final endpoint source authority is a separate matte-master operation.",
+        "Native curl-tip neutral/green fringe and overall native softness remain matte/style review items; this RGB source review does not establish alpha cleanup quality."
+      ],
+      "exact_geometry_status": "PENDING_SEPARATE_ACTUAL_RENDERED_JOINT_REVIEW",
+      "human_review": "PENDING",
+      "owner_acceptance": false
+    },
+    {
+      "index": 1,
+      "source_path": "assets_src/animation/roshan_wave_repair_20261010/aseprite_paint_trial_01/full_wave_draft_04/0001.png",
+      "source_sha256": "25a95a9c02b8d583f17bb4a238362df2ceccdaa77f179af2eb7bf77dbebb522f",
+      "dimensions": [
+        768,
+        896
+      ],
+      "reviewer": "Codex model visual review; no human or owner claim",
+      "model_axes": {
+        "hand_complete": "PASS",
+        "wrist_forearm_connected": "PASS",
+        "sleeve_arm_connected": "PASS",
+        "hair_curl_complete": "PASS",
+        "no_hand_smear": "PASS",
+        "whole_figure_not_canvas_cropped": "PASS",
+        "old_arm_pixels_removed": "FAIL",
+        "rest_hand_style_continuity": "FAIL"
+      },
+      "model_visual_status": "FAIL",
+      "observations": [
+        "Retained orange/brown source arm-shadow pixels protrude immediately below the sleeve beside the viewer-left torso silhouette; they are exposed between the new arm and body. Index28 source comparison confirms retained original pixels. At11 the visible residual is chiefly an old dark-outline nub.",
+        "Authored relaxed hand is narrower, darker and more graphic than the untouched native endpoint hand; exact approved-K0 final endpoints still require frame0-to1 and39-to40 seam/style review.",
+        "Native curl-tip neutral/green fringe and overall native softness remain matte/style review items; this RGB source review does not establish alpha cleanup quality."
+      ],
+      "exact_geometry_status": "PENDING_SEPARATE_ACTUAL_RENDERED_JOINT_REVIEW",
+      "human_review": "PENDING",
+      "owner_acceptance": false
+    },
+    {
+      "index": 2,
+      "source_path": "assets_src/animation/roshan_wave_repair_20261010/aseprite_paint_trial_01/full_wave_draft_04/0002.png",
+      "source_sha256": "8ef22e14d1f995d50ad60e4cd11be65f2662caf24a0adc77e6f05e0303b94b24",
+      "dimensions": [
+        768,
+        896
+      ],
+      "reviewer": "Codex model visual review; no human or owner claim",
+      "model_axes": {
+        "hand_complete": "PASS",
+        "wrist_forearm_connected": "PASS",
+        "sleeve_arm_connected": "PASS",
+        "hair_curl_complete": "PASS",
+        "no_hand_smear": "PASS",
+        "whole_figure_not_canvas_cropped": "PASS",
+        "old_arm_pixels_removed": "FAIL",
+        "rest_hand_style_continuity": "FAIL"
+      },
+      "model_visual_status": "FAIL",
+      "observations": [
+        "Retained orange/brown source arm-shadow pixels protrude immediately below the sleeve beside the viewer-left torso silhouette; they are exposed between the new arm and body. Index28 source comparison confirms retained original pixels. At11 the visible residual is chiefly an old dark-outline nub.",
+        "Authored relaxed hand is narrower, darker and more graphic than the untouched native endpoint hand; exact approved-K0 final endpoints still require frame0-to1 and39-to40 seam/style review.",
+        "Native curl-tip neutral/green fringe and overall native softness remain matte/style review items; this RGB source review does not establish alpha cleanup quality."
+      ],
+      "exact_geometry_status": "PENDING_SEPARATE_ACTUAL_RENDERED_JOINT_REVIEW",
+      "human_review": "PENDING",
+      "owner_acceptance": false
+    },
+    {
+      "index": 3,
+      "source_path": "assets_src/animation/roshan_wave_repair_20261010/aseprite_paint_trial_01/full_wave_draft_04/0003.png",
+      "source_sha256": "c01cb007f79ea4d95ea1a05d1793a149d6ea00b6a480bb2089d8ebb3aa87deed",
+      "dimensions": [
+        768,
+        896
+      ],
+      "reviewer": "Codex model visual review; no human or owner claim",
+      "model_axes": {
+        "hand_complete": "PASS",
+        "wrist_forearm_connected": "PASS",
+        "sleeve_arm_connected": "PASS",
+        "hair_curl_complete": "PASS",
+        "no_hand_smear": "PASS",
+        "whole_figure_not_canvas_cropped": "PASS",
+        "old_arm_pixels_removed": "FAIL",
+        "rest_hand_style_continuity": "FAIL"
+      },
+      "model_visual_status": "FAIL",
+      "observations": [
+        "Retained orange/brown source arm-shadow pixels protrude immediately below the sleeve beside the viewer-left torso silhouette; they are exposed between the new arm and body. Index28 source comparison confirms retained original pixels. At11 the visible residual is chiefly an old dark-outline nub.",
+        "Authored relaxed hand is narrower, darker and more graphic than the untouched native endpoint hand; exact approved-K0 final endpoints still require frame0-to1 and39-to40 seam/style review.",
+        "Native curl-tip neutral/green fringe and overall native softness remain matte/style review items; this RGB source review does not establish alpha cleanup quality."
+      ],
+      "exact_geometry_status": "PENDING_SEPARATE_ACTUAL_RENDERED_JOINT_REVIEW",
+      "human_review": "PENDING",
+      "owner_acceptance": false
+    },
+    {
+      "index": 4,
+      "source_path": "assets_src/animation/roshan_wave_repair_20261010/aseprite_paint_trial_01/full_wave_draft_04/0004.png",
+      "source_sha256": "e402d45e361d4cf67cc8bdb1a248022ff167b7be04cf7dc0a4b6c3df54e9f509",
+      "dimensions": [
+        768,
+        896
+      ],
+      "reviewer": "Codex model visual review; no human or owner claim",
+      "model_axes": {
+        "hand_complete": "PASS",
+        "wrist_forearm_connected": "PASS",
+        "sleeve_arm_connected": "PASS",
+        "hair_curl_complete": "PASS",
+        "no_hand_smear": "PASS",
+        "whole_figure_not_canvas_cropped": "PASS",
+        "old_arm_pixels_removed": "FAIL",
+        "rest_hand_style_continuity": "FAIL"
+      },
+      "model_visual_status": "FAIL",
+      "observations": [
+        "Retained orange/brown source arm-shadow pixels protrude immediately below the sleeve beside the viewer-left torso silhouette; they are exposed between the new arm and body. Index28 source comparison confirms retained original pixels. At11 the visible residual is chiefly an old dark-outline nub.",
+        "Authored relaxed hand is narrower, darker and more graphic than the untouched native endpoint hand; exact approved-K0 final endpoints still require frame0-to1 and39-to40 seam/style review.",
+        "Native curl-tip neutral/green fringe and overall native softness remain matte/style review items; this RGB source review does not establish alpha cleanup quality."
+      ],
+      "exact_geometry_status": "PENDING_SEPARATE_ACTUAL_RENDERED_JOINT_REVIEW",
+      "human_review": "PENDING",
+      "owner_acceptance": false
+    },
+    {
+      "index": 5,
+      "source_path": "assets_src/animation/roshan_wave_repair_20261010/aseprite_paint_trial_01/full_wave_draft_04/0005.png",
+      "source_sha256": "e9ed8554f82a1d1f8b5ab8d2253a3db613c8008c7d4cb38bbde3f2434eb6ae94",
+      "dimensions": [
+        768,
+        896
+      ],
+      "reviewer": "Codex model visual review; no human or owner claim",
+      "model_axes": {
+        "hand_complete": "PASS",
+        "wrist_forearm_connected": "PASS",
+        "sleeve_arm_connected": "PASS",
+        "hair_curl_complete": "PASS",
+        "no_hand_smear": "PASS",
+        "whole_figure_not_canvas_cropped": "PASS",
+        "old_arm_pixels_removed": "FAIL",
+        "rest_hand_style_continuity": "PASS"
+      },
+      "model_visual_status": "FAIL",
+      "observations": [
+        "Retained orange/brown source arm-shadow pixels protrude immediately below the sleeve beside the viewer-left torso silhouette; they are exposed between the new arm and body. Index28 source comparison confirms retained original pixels. At11 the visible residual is chiefly an old dark-outline nub.",
+        "Moving hand remains completely drawn and connected; no lowering-hand smear or disintegrating forearm seen in this painted draft.",
+        "Native curl-tip neutral/green fringe and overall native softness remain matte/style review items; this RGB source review does not establish alpha cleanup quality."
+      ],
+      "exact_geometry_status": "PENDING_SEPARATE_ACTUAL_RENDERED_JOINT_REVIEW",
+      "human_review": "PENDING",
+      "owner_acceptance": false
+    },
+    {
+      "index": 6,
+      "source_path": "assets_src/animation/roshan_wave_repair_20261010/aseprite_paint_trial_01/full_wave_draft_04/0006.png",
+      "source_sha256": "28184688893b56dd62eafc6faaef534f96171dc3d4a466528436faed1ad7f854",
+      "dimensions": [
+        768,
+        896
+      ],
+      "reviewer": "Codex model visual review; no human or owner claim",
+      "model_axes": {
+        "hand_complete": "PASS",
+        "wrist_forearm_connected": "PASS",
+        "sleeve_arm_connected": "PASS",
+        "hair_curl_complete": "PASS",
+        "no_hand_smear": "PASS",
+        "whole_figure_not_canvas_cropped": "PASS",
+        "old_arm_pixels_removed": "FAIL",
+        "rest_hand_style_continuity": "PASS"
+      },
+      "model_visual_status": "FAIL",
+      "observations": [
+        "Retained orange/brown source arm-shadow pixels protrude immediately below the sleeve beside the viewer-left torso silhouette; they are exposed between the new arm and body. Index28 source comparison confirms retained original pixels. At11 the visible residual is chiefly an old dark-outline nub.",
+        "Moving hand remains completely drawn and connected; no lowering-hand smear or disintegrating forearm seen in this painted draft.",
+        "Native curl-tip neutral/green fringe and overall native softness remain matte/style review items; this RGB source review does not establish alpha cleanup quality."
+      ],
+      "exact_geometry_status": "PENDING_SEPARATE_ACTUAL_RENDERED_JOINT_REVIEW",
+      "human_review": "PENDING",
+      "owner_acceptance": false
+    },
+    {
+      "index": 7,
+      "source_path": "assets_src/animation/roshan_wave_repair_20261010/aseprite_paint_trial_01/full_wave_draft_04/0007.png",
+      "source_sha256": "876d90c368a7936dbb401e9d5bf40222b14fa1504079ed6f656dd2740ad14fa4",
+      "dimensions": [
+        768,
+        896
+      ],
+      "reviewer": "Codex model visual review; no human or owner claim",
+      "model_axes": {
+        "hand_complete": "PASS",
+        "wrist_forearm_connected": "PASS",
+        "sleeve_arm_connected": "PASS",
+        "hair_curl_complete": "PASS",
+        "no_hand_smear": "PASS",
+        "whole_figure_not_canvas_cropped": "PASS",
+        "old_arm_pixels_removed": "FAIL",
+        "rest_hand_style_continuity": "PASS"
+      },
+      "model_visual_status": "FAIL",
+      "observations": [
+        "Retained orange/brown source arm-shadow pixels protrude immediately below the sleeve beside the viewer-left torso silhouette; they are exposed between the new arm and body. Index28 source comparison confirms retained original pixels. At11 the visible residual is chiefly an old dark-outline nub.",
+        "Moving hand remains completely drawn and connected; no lowering-hand smear or disintegrating forearm seen in this painted draft.",
+        "Native curl-tip neutral/green fringe and overall native softness remain matte/style review items; this RGB source review does not establish alpha cleanup quality."
+      ],
+      "exact_geometry_status": "PENDING_SEPARATE_ACTUAL_RENDERED_JOINT_REVIEW",
+      "human_review": "PENDING",
+      "owner_acceptance": false
+    },
+    {
+      "index": 8,
+      "source_path": "assets_src/animation/roshan_wave_repair_20261010/aseprite_paint_trial_01/full_wave_draft_04/0008.png",
+      "source_sha256": "97ea142e5cb80231d5548d74134f00d0f043222095d35225c02bc3a221a4caca",
+      "dimensions": [
+        768,
+        896
+      ],
+      "reviewer": "Codex model visual review; no human or owner claim",
+      "model_axes": {
+        "hand_complete": "PASS",
+        "wrist_forearm_connected": "PASS",
+        "sleeve_arm_connected": "PASS",
+        "hair_curl_complete": "PASS",
+        "no_hand_smear": "PASS",
+        "whole_figure_not_canvas_cropped": "PASS",
+        "old_arm_pixels_removed": "FAIL",
+        "rest_hand_style_continuity": "PASS"
+      },
+      "model_visual_status": "FAIL",
+      "observations": [
+        "Retained orange/brown source arm-shadow pixels protrude immediately below the sleeve beside the viewer-left torso silhouette; they are exposed between the new arm and body. Index28 source comparison confirms retained original pixels. At11 the visible residual is chiefly an old dark-outline nub.",
+        "Moving hand remains completely drawn and connected; no lowering-hand smear or disintegrating forearm seen in this painted draft.",
+        "Native curl-tip neutral/green fringe and overall native softness remain matte/style review items; this RGB source review does not establish alpha cleanup quality."
+      ],
+      "exact_geometry_status": "PENDING_SEPARATE_ACTUAL_RENDERED_JOINT_REVIEW",
+      "human_review": "PENDING",
+      "owner_acceptance": false
+    },
+    {
+      "index": 9,
+      "source_path": "assets_src/animation/roshan_wave_repair_20261010/aseprite_paint_trial_01/full_wave_draft_04/0009.png",
+      "source_sha256": "9de6f9e37a24a7a387b42dc955b06b3a6abb949893970fd21b801751167f0d0e",
+      "dimensions": [
+        768,
+        896
+      ],
+      "reviewer": "Codex model visual review; no human or owner claim",
+      "model_axes": {
+        "hand_complete": "PASS",
+        "wrist_forearm_connected": "PASS",
+        "sleeve_arm_connected": "PASS",
+        "hair_curl_complete": "PASS",
+        "no_hand_smear": "PASS",
+        "whole_figure_not_canvas_cropped": "PASS",
+        "old_arm_pixels_removed": "FAIL",
+        "rest_hand_style_continuity": "PASS"
+      },
+      "model_visual_status": "FAIL",
+      "observations": [
+        "Retained orange/brown source arm-shadow pixels protrude immediately below the sleeve beside the viewer-left torso silhouette; they are exposed between the new arm and body. Index28 source comparison confirms retained original pixels. At11 the visible residual is chiefly an old dark-outline nub.",
+        "Moving hand remains completely drawn and connected; no lowering-hand smear or disintegrating forearm seen in this painted draft.",
+        "Native curl-tip neutral/green fringe and overall native softness remain matte/style review items; this RGB source review does not establish alpha cleanup quality."
+      ],
+      "exact_geometry_status": "PENDING_SEPARATE_ACTUAL_RENDERED_JOINT_REVIEW",
+      "human_review": "PENDING",
+      "owner_acceptance": false
+    },
+    {
+      "index": 10,
+      "source_path": "assets_src/animation/roshan_wave_repair_20261010/aseprite_paint_trial_01/full_wave_draft_04/0010.png",
+      "source_sha256": "fa0a41f0cfc1e0959dc7c9c9ebca77e839946f49581afb2d499a5bcd27c77e9e",
+      "dimensions": [
+        768,
+        896
+      ],
+      "reviewer": "Codex model visual review; no human or owner claim",
+      "model_axes": {
+        "hand_complete": "PASS",
+        "wrist_forearm_connected": "PASS",
+        "sleeve_arm_connected": "PASS",
+        "hair_curl_complete": "PASS",
+        "no_hand_smear": "PASS",
+        "whole_figure_not_canvas_cropped": "PASS",
+        "old_arm_pixels_removed": "FAIL",
+        "rest_hand_style_continuity": "PASS"
+      },
+      "model_visual_status": "FAIL",
+      "observations": [
+        "Retained orange/brown source arm-shadow pixels protrude immediately below the sleeve beside the viewer-left torso silhouette; they are exposed between the new arm and body. Index28 source comparison confirms retained original pixels. At11 the visible residual is chiefly an old dark-outline nub.",
+        "Moving hand remains completely drawn and connected; no lowering-hand smear or disintegrating forearm seen in this painted draft.",
+        "Native curl-tip neutral/green fringe and overall native softness remain matte/style review items; this RGB source review does not establish alpha cleanup quality."
+      ],
+      "exact_geometry_status": "PENDING_SEPARATE_ACTUAL_RENDERED_JOINT_REVIEW",
+      "human_review": "PENDING",
+      "owner_acceptance": false
+    },
+    {
+      "index": 11,
+      "source_path": "assets_src/animation/roshan_wave_repair_20261010/aseprite_paint_trial_01/full_wave_draft_04/0011.png",
+      "source_sha256": "6733dfcce35cf0eafc4b9a24ccd431fade3b65959627eb5435c969940e4e7a67",
+      "dimensions": [
+        768,
+        896
+      ],
+      "reviewer": "Codex model visual review; no human or owner claim",
+      "model_axes": {
+        "hand_complete": "PASS",
+        "wrist_forearm_connected": "PASS",
+        "sleeve_arm_connected": "PASS",
+        "hair_curl_complete": "PASS",
+        "no_hand_smear": "PASS",
+        "whole_figure_not_canvas_cropped": "PASS",
+        "old_arm_pixels_removed": "FAIL",
+        "rest_hand_style_continuity": "PASS"
+      },
+      "model_visual_status": "FAIL",
+      "observations": [
+        "Retained orange/brown source arm-shadow pixels protrude immediately below the sleeve beside the viewer-left torso silhouette; they are exposed between the new arm and body. Index28 source comparison confirms retained original pixels. At11 the visible residual is chiefly an old dark-outline nub.",
+        "Moving hand remains completely drawn and connected; no lowering-hand smear or disintegrating forearm seen in this painted draft.",
+        "Native curl-tip neutral/green fringe and overall native softness remain matte/style review items; this RGB source review does not establish alpha cleanup quality."
+      ],
+      "exact_geometry_status": "PENDING_SEPARATE_ACTUAL_RENDERED_JOINT_REVIEW",
+      "human_review": "PENDING",
+      "owner_acceptance": false
+    },
+    {
+      "index": 12,
+      "source_path": "assets_src/animation/roshan_wave_repair_20261010/aseprite_paint_trial_01/full_wave_draft_04/0012.png",
+      "source_sha256": "90952050a2ae81b536b7b37eb9864d8b7c03e1fe93a229a66297bc14010014de",
+      "dimensions": [
+        768,
+        896
+      ],
+      "reviewer": "Codex model visual review; no human or owner claim",
+      "model_axes": {
+        "hand_complete": "PASS",
+        "wrist_forearm_connected": "PASS",
+        "sleeve_arm_connected": "PASS",
+        "hair_curl_complete": "PASS",
+        "no_hand_smear": "PASS",
+        "whole_figure_not_canvas_cropped": "PASS",
+        "old_arm_pixels_removed": "PASS",
+        "rest_hand_style_continuity": "PASS"
+      },
+      "model_visual_status": "PASS_WITHIN_REVIEW_SCOPE",
+      "observations": [
+        "Raised/open hand has separately readable fingers and thumb, an uninterrupted wrist/forearm, and a clean cuff-to-body separation in the reviewed crops.",
+        "Native curl-tip neutral/green fringe and overall native softness remain matte/style review items; this RGB source review does not establish alpha cleanup quality."
+      ],
+      "exact_geometry_status": "PENDING_SEPARATE_ACTUAL_RENDERED_JOINT_REVIEW",
+      "human_review": "PENDING",
+      "owner_acceptance": false
+    },
+    {
+      "index": 13,
+      "source_path": "assets_src/animation/roshan_wave_repair_20261010/aseprite_paint_trial_01/full_wave_draft_04/0013.png",
+      "source_sha256": "104181a428ebe88449c448d56fda6af331e0cd9fbbcb772dfbfd408344e21920",
+      "dimensions": [
+        768,
+        896
+      ],
+      "reviewer": "Codex model visual review; no human or owner claim",
+      "model_axes": {
+        "hand_complete": "PASS",
+        "wrist_forearm_connected": "PASS",
+        "sleeve_arm_connected": "PASS",
+        "hair_curl_complete": "PASS",
+        "no_hand_smear": "PASS",
+        "whole_figure_not_canvas_cropped": "PASS",
+        "old_arm_pixels_removed": "PASS",
+        "rest_hand_style_continuity": "PASS"
+      },
+      "model_visual_status": "PASS_WITHIN_REVIEW_SCOPE",
+      "observations": [
+        "Raised/open hand has separately readable fingers and thumb, an uninterrupted wrist/forearm, and a clean cuff-to-body separation in the reviewed crops.",
+        "Native curl-tip neutral/green fringe and overall native softness remain matte/style review items; this RGB source review does not establish alpha cleanup quality."
+      ],
+      "exact_geometry_status": "PENDING_SEPARATE_ACTUAL_RENDERED_JOINT_REVIEW",
+      "human_review": "PENDING",
+      "owner_acceptance": false
+    },
+    {
+      "index": 14,
+      "source_path": "assets_src/animation/roshan_wave_repair_20261010/aseprite_paint_trial_01/full_wave_draft_04/0014.png",
+      "source_sha256": "0ecb04627e7ba3905564675a427a9456af640ae6ad78e14035b178bce36316ae",
+      "dimensions": [
+        768,
+        896
+      ],
+      "reviewer": "Codex model visual review; no human or owner claim",
+      "model_axes": {
+        "hand_complete": "PASS",
+        "wrist_forearm_connected": "PASS",
+        "sleeve_arm_connected": "PASS",
+        "hair_curl_complete": "PASS",
+        "no_hand_smear": "PASS",
+        "whole_figure_not_canvas_cropped": "PASS",
+        "old_arm_pixels_removed": "PASS",
+        "rest_hand_style_continuity": "PASS"
+      },
+      "model_visual_status": "PASS_WITHIN_REVIEW_SCOPE",
+      "observations": [
+        "Raised/open hand has separately readable fingers and thumb, an uninterrupted wrist/forearm, and a clean cuff-to-body separation in the reviewed crops.",
+        "Native curl-tip neutral/green fringe and overall native softness remain matte/style review items; this RGB source review does not establish alpha cleanup quality."
+      ],
+      "exact_geometry_status": "PENDING_SEPARATE_ACTUAL_RENDERED_JOINT_REVIEW",
+      "human_review": "PENDING",
+      "owner_acceptance": false
+    },
+    {
+      "index": 15,
+      "source_path": "assets_src/animation/roshan_wave_repair_20261010/aseprite_paint_trial_01/full_wave_draft_04/0015.png",
+      "source_sha256": "23d5149f73af40fcd1c36f768d219403e9fce4c33ff04b75865f702e03c2f11c",
+      "dimensions": [
+        768,
+        896
+      ],
+      "reviewer": "Codex model visual review; no human or owner claim",
+      "model_axes": {
+        "hand_complete": "PASS",
+        "wrist_forearm_connected": "PASS",
+        "sleeve_arm_connected": "PASS",
+        "hair_curl_complete": "PASS",
+        "no_hand_smear": "PASS",
+        "whole_figure_not_canvas_cropped": "PASS",
+        "old_arm_pixels_removed": "PASS",
+        "rest_hand_style_continuity": "PASS"
+      },
+      "model_visual_status": "PASS_WITHIN_REVIEW_SCOPE",
+      "observations": [
+        "Raised/open hand has separately readable fingers and thumb, an uninterrupted wrist/forearm, and a clean cuff-to-body separation in the reviewed crops.",
+        "Native curl-tip neutral/green fringe and overall native softness remain matte/style review items; this RGB source review does not establish alpha cleanup quality."
+      ],
+      "exact_geometry_status": "PENDING_SEPARATE_ACTUAL_RENDERED_JOINT_REVIEW",
+      "human_review": "PENDING",
+      "owner_acceptance": false
+    },
+    {
+      "index": 16,
+      "source_path": "assets_src/animation/roshan_wave_repair_20261010/aseprite_paint_trial_01/full_wave_draft_04/0016.png",
+      "source_sha256": "de8312dc404e569098b7a1f9549a035bc15f95026f06415fb46ce0e877d3ef94",
+      "dimensions": [
+        768,
+        896
+      ],
+      "reviewer": "Codex model visual review; no human or owner claim",
+      "model_axes": {
+        "hand_complete": "PASS",
+        "wrist_forearm_connected": "PASS",
+        "sleeve_arm_connected": "PASS",
+        "hair_curl_complete": "PASS",
+        "no_hand_smear": "PASS",
+        "whole_figure_not_canvas_cropped": "PASS",
+        "old_arm_pixels_removed": "PASS",
+        "rest_hand_style_continuity": "PASS"
+      },
+      "model_visual_status": "PASS_WITHIN_REVIEW_SCOPE",
+      "observations": [
+        "Raised/open hand has separately readable fingers and thumb, an uninterrupted wrist/forearm, and a clean cuff-to-body separation in the reviewed crops.",
+        "Native curl-tip neutral/green fringe and overall native softness remain matte/style review items; this RGB source review does not establish alpha cleanup quality."
+      ],
+      "exact_geometry_status": "PENDING_SEPARATE_ACTUAL_RENDERED_JOINT_REVIEW",
+      "human_review": "PENDING",
+      "owner_acceptance": false
+    },
+    {
+      "index": 17,
+      "source_path": "assets_src/animation/roshan_wave_repair_20261010/aseprite_paint_trial_01/full_wave_draft_04/0017.png",
+      "source_sha256": "239bc5a5510ae426e5a630b75ecb98ee85322e76ef84d4c012d2e6135f72476a",
+      "dimensions": [
+        768,
+        896
+      ],
+      "reviewer": "Codex model visual review; no human or owner claim",
+      "model_axes": {
+        "hand_complete": "PASS",
+        "wrist_forearm_connected": "PASS",
+        "sleeve_arm_connected": "PASS",
+        "hair_curl_complete": "PASS",
+        "no_hand_smear": "PASS",
+        "whole_figure_not_canvas_cropped": "PASS",
+        "old_arm_pixels_removed": "PASS",
+        "rest_hand_style_continuity": "PASS"
+      },
+      "model_visual_status": "PASS_WITHIN_REVIEW_SCOPE",
+      "observations": [
+        "Raised/open hand has separately readable fingers and thumb, an uninterrupted wrist/forearm, and a clean cuff-to-body separation in the reviewed crops.",
+        "Native curl-tip neutral/green fringe and overall native softness remain matte/style review items; this RGB source review does not establish alpha cleanup quality."
+      ],
+      "exact_geometry_status": "PENDING_SEPARATE_ACTUAL_RENDERED_JOINT_REVIEW",
+      "human_review": "PENDING",
+      "owner_acceptance": false
+    },
+    {
+      "index": 18,
+      "source_path": "assets_src/animation/roshan_wave_repair_20261010/aseprite_paint_trial_01/full_wave_draft_04/0018.png",
+      "source_sha256": "db83adae9162fcea2c1f40983b4e84a60164cd62a4ac887153f3267e50669768",
+      "dimensions": [
+        768,
+        896
+      ],
+      "reviewer": "Codex model visual review; no human or owner claim",
+      "model_axes": {
+        "hand_complete": "PASS",
+        "wrist_forearm_connected": "PASS",
+        "sleeve_arm_connected": "PASS",
+        "hair_curl_complete": "PASS",
+        "no_hand_smear": "PASS",
+        "whole_figure_not_canvas_cropped": "PASS",
+        "old_arm_pixels_removed": "PASS",
+        "rest_hand_style_continuity": "PASS"
+      },
+      "model_visual_status": "PASS_WITHIN_REVIEW_SCOPE",
+      "observations": [
+        "Raised/open hand has separately readable fingers and thumb, an uninterrupted wrist/forearm, and a clean cuff-to-body separation in the reviewed crops.",
+        "Native curl-tip neutral/green fringe and overall native softness remain matte/style review items; this RGB source review does not establish alpha cleanup quality."
+      ],
+      "exact_geometry_status": "PENDING_SEPARATE_ACTUAL_RENDERED_JOINT_REVIEW",
+      "human_review": "PENDING",
+      "owner_acceptance": false
+    },
+    {
+      "index": 19,
+      "source_path": "assets_src/animation/roshan_wave_repair_20261010/aseprite_paint_trial_01/full_wave_draft_04/0019.png",
+      "source_sha256": "278492132a5fc20cf15ee2c55748b3e86de375c0cad95e4ac072c7f8bccbe5f7",
+      "dimensions": [
+        768,
+        896
+      ],
+      "reviewer": "Codex model visual review; no human or owner claim",
+      "model_axes": {
+        "hand_complete": "PASS",
+        "wrist_forearm_connected": "PASS",
+        "sleeve_arm_connected": "PASS",
+        "hair_curl_complete": "PASS",
+        "no_hand_smear": "PASS",
+        "whole_figure_not_canvas_cropped": "PASS",
+        "old_arm_pixels_removed": "PASS",
+        "rest_hand_style_continuity": "PASS"
+      },
+      "model_visual_status": "PASS_WITHIN_REVIEW_SCOPE",
+      "observations": [
+        "Raised/open hand has separately readable fingers and thumb, an uninterrupted wrist/forearm, and a clean cuff-to-body separation in the reviewed crops.",
+        "Native curl-tip neutral/green fringe and overall native softness remain matte/style review items; this RGB source review does not establish alpha cleanup quality."
+      ],
+      "exact_geometry_status": "PENDING_SEPARATE_ACTUAL_RENDERED_JOINT_REVIEW",
+      "human_review": "PENDING",
+      "owner_acceptance": false
+    },
+    {
+      "index": 20,
+      "source_path": "assets_src/animation/roshan_wave_repair_20261010/aseprite_paint_trial_01/full_wave_draft_04/0020.png",
+      "source_sha256": "4d39475f1937dea9c4478aaa46fba2bd04f3e3b006499641ec00475671ae2366",
+      "dimensions": [
+        768,
+        896
+      ],
+      "reviewer": "Codex model visual review; no human or owner claim",
+      "model_axes": {
+        "hand_complete": "PASS",
+        "wrist_forearm_connected": "PASS",
+        "sleeve_arm_connected": "PASS",
+        "hair_curl_complete": "PASS",
+        "no_hand_smear": "PASS",
+        "whole_figure_not_canvas_cropped": "PASS",
+        "old_arm_pixels_removed": "PASS",
+        "rest_hand_style_continuity": "PASS"
+      },
+      "model_visual_status": "PASS_WITHIN_REVIEW_SCOPE",
+      "observations": [
+        "Raised/open hand has separately readable fingers and thumb, an uninterrupted wrist/forearm, and a clean cuff-to-body separation in the reviewed crops.",
+        "Native curl-tip neutral/green fringe and overall native softness remain matte/style review items; this RGB source review does not establish alpha cleanup quality."
+      ],
+      "exact_geometry_status": "PENDING_SEPARATE_ACTUAL_RENDERED_JOINT_REVIEW",
+      "human_review": "PENDING",
+      "owner_acceptance": false
+    },
+    {
+      "index": 21,
+      "source_path": "assets_src/animation/roshan_wave_repair_20261010/aseprite_paint_trial_01/full_wave_draft_04/0021.png",
+      "source_sha256": "69fdfc8fafed53845f176383b196db72cc49ea98a965de56c2dad391084de835",
+      "dimensions": [
+        768,
+        896
+      ],
+      "reviewer": "Codex model visual review; no human or owner claim",
+      "model_axes": {
+        "hand_complete": "PASS",
+        "wrist_forearm_connected": "PASS",
+        "sleeve_arm_connected": "PASS",
+        "hair_curl_complete": "PASS",
+        "no_hand_smear": "PASS",
+        "whole_figure_not_canvas_cropped": "PASS",
+        "old_arm_pixels_removed": "PASS",
+        "rest_hand_style_continuity": "PASS"
+      },
+      "model_visual_status": "PASS_WITHIN_REVIEW_SCOPE",
+      "observations": [
+        "Raised/open hand has separately readable fingers and thumb, an uninterrupted wrist/forearm, and a clean cuff-to-body separation in the reviewed crops.",
+        "Native curl-tip neutral/green fringe and overall native softness remain matte/style review items; this RGB source review does not establish alpha cleanup quality."
+      ],
+      "exact_geometry_status": "PENDING_SEPARATE_ACTUAL_RENDERED_JOINT_REVIEW",
+      "human_review": "PENDING",
+      "owner_acceptance": false
+    },
+    {
+      "index": 22,
+      "source_path": "assets_src/animation/roshan_wave_repair_20261010/aseprite_paint_trial_01/full_wave_draft_04/0022.png",
+      "source_sha256": "472094e4485de7881da8a2e0c042b82fb629dfa153d67e1f3c1e09d6c0b8ed96",
+      "dimensions": [
+        768,
+        896
+      ],
+      "reviewer": "Codex model visual review; no human or owner claim",
+      "model_axes": {
+        "hand_complete": "PASS",
+        "wrist_forearm_connected": "PASS",
+        "sleeve_arm_connected": "PASS",
+        "hair_curl_complete": "PASS",
+        "no_hand_smear": "PASS",
+        "whole_figure_not_canvas_cropped": "PASS",
+        "old_arm_pixels_removed": "PASS",
+        "rest_hand_style_continuity": "PASS"
+      },
+      "model_visual_status": "PASS_WITHIN_REVIEW_SCOPE",
+      "observations": [
+        "Raised/open hand has separately readable fingers and thumb, an uninterrupted wrist/forearm, and a clean cuff-to-body separation in the reviewed crops.",
+        "Native curl-tip neutral/green fringe and overall native softness remain matte/style review items; this RGB source review does not establish alpha cleanup quality."
+      ],
+      "exact_geometry_status": "PENDING_SEPARATE_ACTUAL_RENDERED_JOINT_REVIEW",
+      "human_review": "PENDING",
+      "owner_acceptance": false
+    },
+    {
+      "index": 23,
+      "source_path": "assets_src/animation/roshan_wave_repair_20261010/aseprite_paint_trial_01/full_wave_draft_04/0023.png",
+      "source_sha256": "0918e6586bd0d0a63ae3f81da1d21ce456f232f1285889504f1f0fac692569c2",
+      "dimensions": [
+        768,
+        896
+      ],
+      "reviewer": "Codex model visual review; no human or owner claim",
+      "model_axes": {
+        "hand_complete": "PASS",
+        "wrist_forearm_connected": "PASS",
+        "sleeve_arm_connected": "PASS",
+        "hair_curl_complete": "PASS",
+        "no_hand_smear": "PASS",
+        "whole_figure_not_canvas_cropped": "PASS",
+        "old_arm_pixels_removed": "PASS",
+        "rest_hand_style_continuity": "PASS"
+      },
+      "model_visual_status": "PASS_WITHIN_REVIEW_SCOPE",
+      "observations": [
+        "Raised/open hand has separately readable fingers and thumb, an uninterrupted wrist/forearm, and a clean cuff-to-body separation in the reviewed crops.",
+        "Native curl-tip neutral/green fringe and overall native softness remain matte/style review items; this RGB source review does not establish alpha cleanup quality."
+      ],
+      "exact_geometry_status": "PENDING_SEPARATE_ACTUAL_RENDERED_JOINT_REVIEW",
+      "human_review": "PENDING",
+      "owner_acceptance": false
+    },
+    {
+      "index": 24,
+      "source_path": "assets_src/animation/roshan_wave_repair_20261010/aseprite_paint_trial_01/full_wave_draft_04/0024.png",
+      "source_sha256": "a378f182f441414f73063a769af8e937a05df02035633549b52a02df1a04398d",
+      "dimensions": [
+        768,
+        896
+      ],
+      "reviewer": "Codex model visual review; no human or owner claim",
+      "model_axes": {
+        "hand_complete": "PASS",
+        "wrist_forearm_connected": "PASS",
+        "sleeve_arm_connected": "PASS",
+        "hair_curl_complete": "PASS",
+        "no_hand_smear": "PASS",
+        "whole_figure_not_canvas_cropped": "PASS",
+        "old_arm_pixels_removed": "PASS",
+        "rest_hand_style_continuity": "PASS"
+      },
+      "model_visual_status": "PASS_WITHIN_REVIEW_SCOPE",
+      "observations": [
+        "Raised/open hand has separately readable fingers and thumb, an uninterrupted wrist/forearm, and a clean cuff-to-body separation in the reviewed crops.",
+        "Native curl-tip neutral/green fringe and overall native softness remain matte/style review items; this RGB source review does not establish alpha cleanup quality."
+      ],
+      "exact_geometry_status": "PENDING_SEPARATE_ACTUAL_RENDERED_JOINT_REVIEW",
+      "human_review": "PENDING",
+      "owner_acceptance": false
+    },
+    {
+      "index": 25,
+      "source_path": "assets_src/animation/roshan_wave_repair_20261010/aseprite_paint_trial_01/full_wave_draft_04/0025.png",
+      "source_sha256": "6277db41b742c3624a4958c3fa81b02154f99d501a86981317213e90e1b17aad",
+      "dimensions": [
+        768,
+        896
+      ],
+      "reviewer": "Codex model visual review; no human or owner claim",
+      "model_axes": {
+        "hand_complete": "PASS",
+        "wrist_forearm_connected": "PASS",
+        "sleeve_arm_connected": "PASS",
+        "hair_curl_complete": "PASS",
+        "no_hand_smear": "PASS",
+        "whole_figure_not_canvas_cropped": "PASS",
+        "old_arm_pixels_removed": "PASS",
+        "rest_hand_style_continuity": "PASS"
+      },
+      "model_visual_status": "PASS_WITHIN_REVIEW_SCOPE",
+      "observations": [
+        "Raised/open hand has separately readable fingers and thumb, an uninterrupted wrist/forearm, and a clean cuff-to-body separation in the reviewed crops.",
+        "Native curl-tip neutral/green fringe and overall native softness remain matte/style review items; this RGB source review does not establish alpha cleanup quality."
+      ],
+      "exact_geometry_status": "PENDING_SEPARATE_ACTUAL_RENDERED_JOINT_REVIEW",
+      "human_review": "PENDING",
+      "owner_acceptance": false
+    },
+    {
+      "index": 26,
+      "source_path": "assets_src/animation/roshan_wave_repair_20261010/aseprite_paint_trial_01/full_wave_draft_04/0026.png",
+      "source_sha256": "696298565f980e1b3c896ccaede376523be72fdc60026d7c119760baf7466245",
+      "dimensions": [
+        768,
+        896
+      ],
+      "reviewer": "Codex model visual review; no human or owner claim",
+      "model_axes": {
+        "hand_complete": "PASS",
+        "wrist_forearm_connected": "PASS",
+        "sleeve_arm_connected": "PASS",
+        "hair_curl_complete": "PASS",
+        "no_hand_smear": "PASS",
+        "whole_figure_not_canvas_cropped": "PASS",
+        "old_arm_pixels_removed": "PASS",
+        "rest_hand_style_continuity": "PASS"
+      },
+      "model_visual_status": "PASS_WITHIN_REVIEW_SCOPE",
+      "observations": [
+        "Raised/open hand has separately readable fingers and thumb, an uninterrupted wrist/forearm, and a clean cuff-to-body separation in the reviewed crops.",
+        "Native curl-tip neutral/green fringe and overall native softness remain matte/style review items; this RGB source review does not establish alpha cleanup quality."
+      ],
+      "exact_geometry_status": "PENDING_SEPARATE_ACTUAL_RENDERED_JOINT_REVIEW",
+      "human_review": "PENDING",
+      "owner_acceptance": false
+    },
+    {
+      "index": 27,
+      "source_path": "assets_src/animation/roshan_wave_repair_20261010/aseprite_paint_trial_01/full_wave_draft_04/0027.png",
+      "source_sha256": "b4b31f9647410d0725f7c94d467767d8e9a4c1f07f5aa7d92baa469d025919d8",
+      "dimensions": [
+        768,
+        896
+      ],
+      "reviewer": "Codex model visual review; no human or owner claim",
+      "model_axes": {
+        "hand_complete": "PASS",
+        "wrist_forearm_connected": "PASS",
+        "sleeve_arm_connected": "PASS",
+        "hair_curl_complete": "PASS",
+        "no_hand_smear": "PASS",
+        "whole_figure_not_canvas_cropped": "PASS",
+        "old_arm_pixels_removed": "FAIL",
+        "rest_hand_style_continuity": "PASS"
+      },
+      "model_visual_status": "FAIL",
+      "observations": [
+        "Retained orange/brown source arm-shadow pixels protrude immediately below the sleeve beside the viewer-left torso silhouette; they are exposed between the new arm and body. Index28 source comparison confirms retained original pixels. At11 the visible residual is chiefly an old dark-outline nub.",
+        "Moving hand remains completely drawn and connected; no lowering-hand smear or disintegrating forearm seen in this painted draft.",
+        "Native curl-tip neutral/green fringe and overall native softness remain matte/style review items; this RGB source review does not establish alpha cleanup quality."
+      ],
+      "exact_geometry_status": "PENDING_SEPARATE_ACTUAL_RENDERED_JOINT_REVIEW",
+      "human_review": "PENDING",
+      "owner_acceptance": false
+    },
+    {
+      "index": 28,
+      "source_path": "assets_src/animation/roshan_wave_repair_20261010/aseprite_paint_trial_01/full_wave_draft_04/0028.png",
+      "source_sha256": "72a49fd6c7f2b5f279c6bcdb957cefe95e30f45dc00c30341ce52e26fd9c6042",
+      "dimensions": [
+        768,
+        896
+      ],
+      "reviewer": "Codex model visual review; no human or owner claim",
+      "model_axes": {
+        "hand_complete": "PASS",
+        "wrist_forearm_connected": "PASS",
+        "sleeve_arm_connected": "PASS",
+        "hair_curl_complete": "PASS",
+        "no_hand_smear": "PASS",
+        "whole_figure_not_canvas_cropped": "PASS",
+        "old_arm_pixels_removed": "FAIL",
+        "rest_hand_style_continuity": "PASS"
+      },
+      "model_visual_status": "FAIL",
+      "observations": [
+        "Retained orange/brown source arm-shadow pixels protrude immediately below the sleeve beside the viewer-left torso silhouette; they are exposed between the new arm and body. Index28 source comparison confirms retained original pixels. At11 the visible residual is chiefly an old dark-outline nub.",
+        "Moving hand remains completely drawn and connected; no lowering-hand smear or disintegrating forearm seen in this painted draft.",
+        "Native curl-tip neutral/green fringe and overall native softness remain matte/style review items; this RGB source review does not establish alpha cleanup quality."
+      ],
+      "exact_geometry_status": "PENDING_SEPARATE_ACTUAL_RENDERED_JOINT_REVIEW",
+      "human_review": "PENDING",
+      "owner_acceptance": false
+    },
+    {
+      "index": 29,
+      "source_path": "assets_src/animation/roshan_wave_repair_20261010/aseprite_paint_trial_01/full_wave_draft_04/0029.png",
+      "source_sha256": "ebac4dcfdb6f621adca9699bc96af2d4484b9701a629fd574651f3205fc599a7",
+      "dimensions": [
+        768,
+        896
+      ],
+      "reviewer": "Codex model visual review; no human or owner claim",
+      "model_axes": {
+        "hand_complete": "PASS",
+        "wrist_forearm_connected": "PASS",
+        "sleeve_arm_connected": "PASS",
+        "hair_curl_complete": "PASS",
+        "no_hand_smear": "PASS",
+        "whole_figure_not_canvas_cropped": "PASS",
+        "old_arm_pixels_removed": "FAIL",
+        "rest_hand_style_continuity": "PASS"
+      },
+      "model_visual_status": "FAIL",
+      "observations": [
+        "Retained orange/brown source arm-shadow pixels protrude immediately below the sleeve beside the viewer-left torso silhouette; they are exposed between the new arm and body. Index28 source comparison confirms retained original pixels. At11 the visible residual is chiefly an old dark-outline nub.",
+        "Moving hand remains completely drawn and connected; no lowering-hand smear or disintegrating forearm seen in this painted draft.",
+        "Native curl-tip neutral/green fringe and overall native softness remain matte/style review items; this RGB source review does not establish alpha cleanup quality."
+      ],
+      "exact_geometry_status": "PENDING_SEPARATE_ACTUAL_RENDERED_JOINT_REVIEW",
+      "human_review": "PENDING",
+      "owner_acceptance": false
+    },
+    {
+      "index": 30,
+      "source_path": "assets_src/animation/roshan_wave_repair_20261010/aseprite_paint_trial_01/full_wave_draft_04/0030.png",
+      "source_sha256": "902f980e8b7a88a2da407e5b561c22fbf93e9886b9cbb4496af379d2087edeea",
+      "dimensions": [
+        768,
+        896
+      ],
+      "reviewer": "Codex model visual review; no human or owner claim",
+      "model_axes": {
+        "hand_complete": "PASS",
+        "wrist_forearm_connected": "PASS",
+        "sleeve_arm_connected": "PASS",
+        "hair_curl_complete": "PASS",
+        "no_hand_smear": "PASS",
+        "whole_figure_not_canvas_cropped": "PASS",
+        "old_arm_pixels_removed": "FAIL",
+        "rest_hand_style_continuity": "PASS"
+      },
+      "model_visual_status": "FAIL",
+      "observations": [
+        "Retained orange/brown source arm-shadow pixels protrude immediately below the sleeve beside the viewer-left torso silhouette; they are exposed between the new arm and body. Index28 source comparison confirms retained original pixels. At11 the visible residual is chiefly an old dark-outline nub.",
+        "Moving hand remains completely drawn and connected; no lowering-hand smear or disintegrating forearm seen in this painted draft.",
+        "Native curl-tip neutral/green fringe and overall native softness remain matte/style review items; this RGB source review does not establish alpha cleanup quality."
+      ],
+      "exact_geometry_status": "PENDING_SEPARATE_ACTUAL_RENDERED_JOINT_REVIEW",
+      "human_review": "PENDING",
+      "owner_acceptance": false
+    },
+    {
+      "index": 31,
+      "source_path": "assets_src/animation/roshan_wave_repair_20261010/aseprite_paint_trial_01/full_wave_draft_04/0031.png",
+      "source_sha256": "6c6eda1772c7bed60415a71276219a044777ab3e0be2efb35b13f659e18d9de4",
+      "dimensions": [
+        768,
+        896
+      ],
+      "reviewer": "Codex model visual review; no human or owner claim",
+      "model_axes": {
+        "hand_complete": "PASS",
+        "wrist_forearm_connected": "PASS",
+        "sleeve_arm_connected": "PASS",
+        "hair_curl_complete": "PASS",
+        "no_hand_smear": "PASS",
+        "whole_figure_not_canvas_cropped": "PASS",
+        "old_arm_pixels_removed": "FAIL",
+        "rest_hand_style_continuity": "PASS"
+      },
+      "model_visual_status": "FAIL",
+      "observations": [
+        "Retained orange/brown source arm-shadow pixels protrude immediately below the sleeve beside the viewer-left torso silhouette; they are exposed between the new arm and body. Index28 source comparison confirms retained original pixels. At11 the visible residual is chiefly an old dark-outline nub.",
+        "Moving hand remains completely drawn and connected; no lowering-hand smear or disintegrating forearm seen in this painted draft.",
+        "Native curl-tip neutral/green fringe and overall native softness remain matte/style review items; this RGB source review does not establish alpha cleanup quality."
+      ],
+      "exact_geometry_status": "PENDING_SEPARATE_ACTUAL_RENDERED_JOINT_REVIEW",
+      "human_review": "PENDING",
+      "owner_acceptance": false
+    },
+    {
+      "index": 32,
+      "source_path": "assets_src/animation/roshan_wave_repair_20261010/aseprite_paint_trial_01/full_wave_draft_04/0032.png",
+      "source_sha256": "7ad7c2656c44a2eb8d188871b8d29bd76d4bccea9bab0f23000e2754ce89cce9",
+      "dimensions": [
+        768,
+        896
+      ],
+      "reviewer": "Codex model visual review; no human or owner claim",
+      "model_axes": {
+        "hand_complete": "PASS",
+        "wrist_forearm_connected": "PASS",
+        "sleeve_arm_connected": "PASS",
+        "hair_curl_complete": "PASS",
+        "no_hand_smear": "PASS",
+        "whole_figure_not_canvas_cropped": "PASS",
+        "old_arm_pixels_removed": "FAIL",
+        "rest_hand_style_continuity": "PASS"
+      },
+      "model_visual_status": "FAIL",
+      "observations": [
+        "Retained orange/brown source arm-shadow pixels protrude immediately below the sleeve beside the viewer-left torso silhouette; they are exposed between the new arm and body. Index28 source comparison confirms retained original pixels. At11 the visible residual is chiefly an old dark-outline nub.",
+        "Moving hand remains completely drawn and connected; no lowering-hand smear or disintegrating forearm seen in this painted draft.",
+        "Native curl-tip neutral/green fringe and overall native softness remain matte/style review items; this RGB source review does not establish alpha cleanup quality."
+      ],
+      "exact_geometry_status": "PENDING_SEPARATE_ACTUAL_RENDERED_JOINT_REVIEW",
+      "human_review": "PENDING",
+      "owner_acceptance": false
+    },
+    {
+      "index": 33,
+      "source_path": "assets_src/animation/roshan_wave_repair_20261010/aseprite_paint_trial_01/full_wave_draft_04/0033.png",
+      "source_sha256": "0079af2a92dd7271ced188a92c13498de5bc177b23a3d1471d7bda1724125c49",
+      "dimensions": [
+        768,
+        896
+      ],
+      "reviewer": "Codex model visual review; no human or owner claim",
+      "model_axes": {
+        "hand_complete": "PASS",
+        "wrist_forearm_connected": "PASS",
+        "sleeve_arm_connected": "PASS",
+        "hair_curl_complete": "PASS",
+        "no_hand_smear": "PASS",
+        "whole_figure_not_canvas_cropped": "PASS",
+        "old_arm_pixels_removed": "FAIL",
+        "rest_hand_style_continuity": "PASS"
+      },
+      "model_visual_status": "FAIL",
+      "observations": [
+        "Retained orange/brown source arm-shadow pixels protrude immediately below the sleeve beside the viewer-left torso silhouette; they are exposed between the new arm and body. Index28 source comparison confirms retained original pixels. At11 the visible residual is chiefly an old dark-outline nub.",
+        "Moving hand remains completely drawn and connected; no lowering-hand smear or disintegrating forearm seen in this painted draft.",
+        "Native curl-tip neutral/green fringe and overall native softness remain matte/style review items; this RGB source review does not establish alpha cleanup quality."
+      ],
+      "exact_geometry_status": "PENDING_SEPARATE_ACTUAL_RENDERED_JOINT_REVIEW",
+      "human_review": "PENDING",
+      "owner_acceptance": false
+    },
+    {
+      "index": 34,
+      "source_path": "assets_src/animation/roshan_wave_repair_20261010/aseprite_paint_trial_01/full_wave_draft_04/0034.png",
+      "source_sha256": "2ddb8467336454c7cb572df0d59456e18128cf038089e20ec2ef7b04f1cb00e6",
+      "dimensions": [
+        768,
+        896
+      ],
+      "reviewer": "Codex model visual review; no human or owner claim",
+      "model_axes": {
+        "hand_complete": "PASS",
+        "wrist_forearm_connected": "PASS",
+        "sleeve_arm_connected": "PASS",
+        "hair_curl_complete": "PASS",
+        "no_hand_smear": "PASS",
+        "whole_figure_not_canvas_cropped": "PASS",
+        "old_arm_pixels_removed": "FAIL",
+        "rest_hand_style_continuity": "FAIL"
+      },
+      "model_visual_status": "FAIL",
+      "observations": [
+        "Retained orange/brown source arm-shadow pixels protrude immediately below the sleeve beside the viewer-left torso silhouette; they are exposed between the new arm and body. Index28 source comparison confirms retained original pixels. At11 the visible residual is chiefly an old dark-outline nub.",
+        "Authored relaxed hand is narrower, darker and more graphic than the untouched native endpoint hand; exact approved-K0 final endpoints still require frame0-to1 and39-to40 seam/style review.",
+        "Native curl-tip neutral/green fringe and overall native softness remain matte/style review items; this RGB source review does not establish alpha cleanup quality."
+      ],
+      "exact_geometry_status": "PENDING_SEPARATE_ACTUAL_RENDERED_JOINT_REVIEW",
+      "human_review": "PENDING",
+      "owner_acceptance": false
+    },
+    {
+      "index": 35,
+      "source_path": "assets_src/animation/roshan_wave_repair_20261010/aseprite_paint_trial_01/full_wave_draft_04/0035.png",
+      "source_sha256": "12022c2893526f2ccfb00a9b2744c5564263788f9c0247acb6c75586848f76ef",
+      "dimensions": [
+        768,
+        896
+      ],
+      "reviewer": "Codex model visual review; no human or owner claim",
+      "model_axes": {
+        "hand_complete": "PASS",
+        "wrist_forearm_connected": "PASS",
+        "sleeve_arm_connected": "PASS",
+        "hair_curl_complete": "PASS",
+        "no_hand_smear": "PASS",
+        "whole_figure_not_canvas_cropped": "PASS",
+        "old_arm_pixels_removed": "FAIL",
+        "rest_hand_style_continuity": "FAIL"
+      },
+      "model_visual_status": "FAIL",
+      "observations": [
+        "Retained orange/brown source arm-shadow pixels protrude immediately below the sleeve beside the viewer-left torso silhouette; they are exposed between the new arm and body. Index28 source comparison confirms retained original pixels. At11 the visible residual is chiefly an old dark-outline nub.",
+        "Authored relaxed hand is narrower, darker and more graphic than the untouched native endpoint hand; exact approved-K0 final endpoints still require frame0-to1 and39-to40 seam/style review.",
+        "Native curl-tip neutral/green fringe and overall native softness remain matte/style review items; this RGB source review does not establish alpha cleanup quality."
+      ],
+      "exact_geometry_status": "PENDING_SEPARATE_ACTUAL_RENDERED_JOINT_REVIEW",
+      "human_review": "PENDING",
+      "owner_acceptance": false
+    },
+    {
+      "index": 36,
+      "source_path": "assets_src/animation/roshan_wave_repair_20261010/aseprite_paint_trial_01/full_wave_draft_04/0036.png",
+      "source_sha256": "a4f66231991d6444d4d0b1137b4e55b59f68d5e0c42a5b993a42b085f8b55930",
+      "dimensions": [
+        768,
+        896
+      ],
+      "reviewer": "Codex model visual review; no human or owner claim",
+      "model_axes": {
+        "hand_complete": "PASS",
+        "wrist_forearm_connected": "PASS",
+        "sleeve_arm_connected": "PASS",
+        "hair_curl_complete": "PASS",
+        "no_hand_smear": "PASS",
+        "whole_figure_not_canvas_cropped": "PASS",
+        "old_arm_pixels_removed": "FAIL",
+        "rest_hand_style_continuity": "FAIL"
+      },
+      "model_visual_status": "FAIL",
+      "observations": [
+        "Retained orange/brown source arm-shadow pixels protrude immediately below the sleeve beside the viewer-left torso silhouette; they are exposed between the new arm and body. Index28 source comparison confirms retained original pixels. At11 the visible residual is chiefly an old dark-outline nub.",
+        "Authored relaxed hand is narrower, darker and more graphic than the untouched native endpoint hand; exact approved-K0 final endpoints still require frame0-to1 and39-to40 seam/style review.",
+        "Native curl-tip neutral/green fringe and overall native softness remain matte/style review items; this RGB source review does not establish alpha cleanup quality."
+      ],
+      "exact_geometry_status": "PENDING_SEPARATE_ACTUAL_RENDERED_JOINT_REVIEW",
+      "human_review": "PENDING",
+      "owner_acceptance": false
+    },
+    {
+      "index": 37,
+      "source_path": "assets_src/animation/roshan_wave_repair_20261010/aseprite_paint_trial_01/full_wave_draft_04/0037.png",
+      "source_sha256": "5e731eac26fa79249800d0a56c3cf6908bf2e968aac10069322a4deeca530955",
+      "dimensions": [
+        768,
+        896
+      ],
+      "reviewer": "Codex model visual review; no human or owner claim",
+      "model_axes": {
+        "hand_complete": "PASS",
+        "wrist_forearm_connected": "PASS",
+        "sleeve_arm_connected": "PASS",
+        "hair_curl_complete": "PASS",
+        "no_hand_smear": "PASS",
+        "whole_figure_not_canvas_cropped": "PASS",
+        "old_arm_pixels_removed": "FAIL",
+        "rest_hand_style_continuity": "FAIL"
+      },
+      "model_visual_status": "FAIL",
+      "observations": [
+        "Retained orange/brown source arm-shadow pixels protrude immediately below the sleeve beside the viewer-left torso silhouette; they are exposed between the new arm and body. Index28 source comparison confirms retained original pixels. At11 the visible residual is chiefly an old dark-outline nub.",
+        "Authored relaxed hand is narrower, darker and more graphic than the untouched native endpoint hand; exact approved-K0 final endpoints still require frame0-to1 and39-to40 seam/style review.",
+        "Native curl-tip neutral/green fringe and overall native softness remain matte/style review items; this RGB source review does not establish alpha cleanup quality."
+      ],
+      "exact_geometry_status": "PENDING_SEPARATE_ACTUAL_RENDERED_JOINT_REVIEW",
+      "human_review": "PENDING",
+      "owner_acceptance": false
+    },
+    {
+      "index": 38,
+      "source_path": "assets_src/animation/roshan_wave_repair_20261010/aseprite_paint_trial_01/full_wave_draft_04/0038.png",
+      "source_sha256": "e1add9687ccb5d5161ba050a394519654abc522c4e0977b3f2960746902b3803",
+      "dimensions": [
+        768,
+        896
+      ],
+      "reviewer": "Codex model visual review; no human or owner claim",
+      "model_axes": {
+        "hand_complete": "PASS",
+        "wrist_forearm_connected": "PASS",
+        "sleeve_arm_connected": "PASS",
+        "hair_curl_complete": "PASS",
+        "no_hand_smear": "PASS",
+        "whole_figure_not_canvas_cropped": "PASS",
+        "old_arm_pixels_removed": "FAIL",
+        "rest_hand_style_continuity": "FAIL"
+      },
+      "model_visual_status": "FAIL",
+      "observations": [
+        "Retained orange/brown source arm-shadow pixels protrude immediately below the sleeve beside the viewer-left torso silhouette; they are exposed between the new arm and body. Index28 source comparison confirms retained original pixels. At11 the visible residual is chiefly an old dark-outline nub.",
+        "Authored relaxed hand is narrower, darker and more graphic than the untouched native endpoint hand; exact approved-K0 final endpoints still require frame0-to1 and39-to40 seam/style review.",
+        "Native curl-tip neutral/green fringe and overall native softness remain matte/style review items; this RGB source review does not establish alpha cleanup quality."
+      ],
+      "exact_geometry_status": "PENDING_SEPARATE_ACTUAL_RENDERED_JOINT_REVIEW",
+      "human_review": "PENDING",
+      "owner_acceptance": false
+    },
+    {
+      "index": 39,
+      "source_path": "assets_src/animation/roshan_wave_repair_20261010/aseprite_paint_trial_01/full_wave_draft_04/0039.png",
+      "source_sha256": "8ddffc1b6a6edd3e440b91f7f9923d61dac1b745b4b16f4d84eca5de0eb834e5",
+      "dimensions": [
+        768,
+        896
+      ],
+      "reviewer": "Codex model visual review; no human or owner claim",
+      "model_axes": {
+        "hand_complete": "PASS",
+        "wrist_forearm_connected": "PASS",
+        "sleeve_arm_connected": "PASS",
+        "hair_curl_complete": "PASS",
+        "no_hand_smear": "PASS",
+        "whole_figure_not_canvas_cropped": "PASS",
+        "old_arm_pixels_removed": "FAIL",
+        "rest_hand_style_continuity": "FAIL"
+      },
+      "model_visual_status": "FAIL",
+      "observations": [
+        "Retained orange/brown source arm-shadow pixels protrude immediately below the sleeve beside the viewer-left torso silhouette; they are exposed between the new arm and body. Index28 source comparison confirms retained original pixels. At11 the visible residual is chiefly an old dark-outline nub.",
+        "Authored relaxed hand is narrower, darker and more graphic than the untouched native endpoint hand; exact approved-K0 final endpoints still require frame0-to1 and39-to40 seam/style review.",
+        "Native curl-tip neutral/green fringe and overall native softness remain matte/style review items; this RGB source review does not establish alpha cleanup quality."
+      ],
+      "exact_geometry_status": "PENDING_SEPARATE_ACTUAL_RENDERED_JOINT_REVIEW",
+      "human_review": "PENDING",
+      "owner_acceptance": false
+    },
+    {
+      "index": 40,
+      "source_path": "assets_src/animation/roshan_wave_repair_20261010/aseprite_paint_trial_01/full_wave_draft_04/0040.png",
+      "source_sha256": "9ea6d45e7e0c5d1d70ec92fcde25cfb08afc987c0ceb0911e62c1076805d8921",
+      "dimensions": [
+        768,
+        896
+      ],
+      "reviewer": "Codex model visual review; no human or owner claim",
+      "model_axes": {
+        "hand_complete": "PASS",
+        "wrist_forearm_connected": "PASS",
+        "sleeve_arm_connected": "PASS",
+        "hair_curl_complete": "PASS",
+        "no_hand_smear": "PASS",
+        "whole_figure_not_canvas_cropped": "PASS",
+        "old_arm_pixels_removed": "PASS",
+        "rest_hand_style_continuity": "PASS"
+      },
+      "model_visual_status": "PASS_WITHIN_REVIEW_SCOPE",
+      "observations": [
+        "Unpainted translated native RGB endpoint. No approved-K0 native endpoint substitution has occurred in this draft; final endpoint source authority is a separate matte-master operation.",
+        "Native curl-tip neutral/green fringe and overall native softness remain matte/style review items; this RGB source review does not establish alpha cleanup quality."
+      ],
+      "exact_geometry_status": "PENDING_SEPARATE_ACTUAL_RENDERED_JOINT_REVIEW",
+      "human_review": "PENDING",
+      "owner_acceptance": false
+    }
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "schema": "reef.local-cleanup-review-clock.v1",
+  "authoring_review_observed_interval": {
+    "start_utc": "2026-10-11T01:40:03.180534+00:00",
+    "end_utc": "2026-10-11T01:46:01.750576+00:00",
+    "elapsed_minutes": 5.976167366666667,
+    "method": "Continuation of explicit clock begun01:16:51 UTC, after the previous recorded interval ending2026-10-11T01:40:03.180534+00:00. Includes reasoning, measurements, all41 source/output review, tool waits, local Aseprite processing and packaging; no blocking idle wait. Batch wall intervals overlap this inclusive clock."
+  },
+  "batch_intervals": [
+    {
+      "exit_code": 0,
+      "wall_seconds": 266.5755826,
+      "start_utc": "2026-10-11T01:39:01.2878927Z",
+      "end_utc": "2026-10-11T01:43:27.8753657Z",
+      "operation": "Aseprite all41 source06 dim closed-edge matte with original closed-paint protection and wholeK0 endpoints",
+      "record_path": "matte_batch_clock.json"
+    },
+    {
+      "operation": "Aseprite all41 opaque black/light/dark native andsprite preview composites plus two-master endpoint reopen proof",
+      "end_utc": "2026-10-11T01:44:30.4672132Z",
+      "exit_code": 0,
+      "wall_seconds": 29.2374542,
+      "start_utc": "2026-10-11T01:44:01.2240386Z",
+      "record_path": "review_preview_batch_clock.json"
+    },
+    {
+      "wall_seconds": 7.2484019,
+      "start_utc": "2026-10-11T01:37:40.7454492Z",
+      "end_utc": "2026-10-11T01:37:48.0110498Z",
+      "operation": "Aseprite all41 actual source hair-loop/curl seed review boards",
+      "exit_code": 0,
+      "record_path": "seed_preview_batch_clock.json"
+    }
+  ],
+  "earlier_timing_limit": "Authoring before01:16:51 UTC was not separately metered; previous measured interval is recorded in frozen full_wave_matte_02/timing_record.json. Root owns cumulative campaign accounting and overlap.",
+  "generator_calls": 0,
+  "gpu_calls": 0
+}

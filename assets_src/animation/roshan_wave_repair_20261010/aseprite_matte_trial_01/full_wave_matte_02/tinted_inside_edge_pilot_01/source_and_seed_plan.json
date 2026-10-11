@@ -1,0 +1,83 @@
+{
+  "schema": "reef.whole-cel-matte-source-seed-plan.v1",
+  "created_at_utc": "2026-10-11T01:04:11.697864+00:00",
+  "source_packet": "assets_src/animation/roshan_wave_repair_20261010/aseprite_paint_trial_01/full_wave_draft_06",
+  "status": "ONE_CEL_SOURCE_FRAME14_REVIEWED_SEED_DIAGNOSTIC",
+  "sources": [
+    {
+      "index": 14,
+      "source_path": "assets_src/animation/roshan_wave_repair_20261010/aseprite_paint_trial_01/full_wave_draft_06/0014.png",
+      "source_sha256": "411c0f41fb752b8ca807b50889b32e3d549fe983a71c3533691d026b99044c46",
+      "preserved_source_path": "assets_src/animation/roshan_wave_repair_20261010/aseprite_matte_trial_01/full_wave_matte_02/tinted_inside_edge_pilot_01/sources/0014.png",
+      "preserved_source_sha256": "411c0f41fb752b8ca807b50889b32e3d549fe983a71c3533691d026b99044c46",
+      "source_size": [
+        768,
+        896
+      ],
+      "hair_gap_component": {
+        "label": 4,
+        "bbox": [
+          568,
+          218,
+          33,
+          23
+        ],
+        "area": 262,
+        "seed": [
+          585,
+          223
+        ],
+        "review_status": "MODEL_REVIEWED_TRUE_BACKGROUND",
+        "review_basis": "Actual all41 pink/rainbow hair-loop source-crop contact inspected; each measured seed lies in true background, consistent with approvedK0 transparent gap"
+      },
+      "left_curl_gap_components": []
+    }
+  ],
+  "source_workflow_references": [
+    {
+      "path": "assets_src/animation/roshan_wave_repair_20261010/aseprite_paint_trial_01/full_wave_draft_06/recipe_profile.json",
+      "sha256": "0de4ee7ca5b2d221035fdf6f949d4801c476319a0eae88fba4b6abb5e56fbda6",
+      "bytes": 5110,
+      "role": "source_workflow_or_master_reference"
+    },
+    {
+      "path": "assets_src/animation/roshan_wave_repair_20261010/aseprite_paint_trial_01/full_wave_draft_06/joint_geometry.json",
+      "sha256": "dc2a37537accc5491a35cb3d72d243442276b159330c911c5f25afd2a56e0f68",
+      "bytes": 46199,
+      "role": "source_workflow_or_master_reference"
+    },
+    {
+      "path": "assets_src/animation/roshan_wave_repair_20261010/aseprite_paint_trial_01/full_wave_draft_06/head_boundary_masks.json",
+      "sha256": "4cc82e51a5906093581bfde2c59153e5212b431408a002c16cc57acc893b4cdc",
+      "bytes": 450304,
+      "role": "source_workflow_or_master_reference"
+    },
+    {
+      "path": "assets_src/animation/roshan_wave_repair_20261010/aseprite_paint_trial_01/full_wave_draft_06/paint_connected.lua",
+      "sha256": "4fd1108a8f2d07e4b255b018c0cd8868ae1144687eeb343f63466a6b8aa3738c",
+      "bytes": 18677,
+      "role": "source_workflow_or_master_reference"
+    },
+    {
+      "path": "assets_src/animation/roshan_wave_repair_20261010/aseprite_paint_trial_01/full_wave_draft_06/wave_native_rgb.aseprite",
+      "sha256": "85022e34903387b623d651d5c75c300a8780618c5c06b995467488cf3a760fd8",
+      "bytes": 26843283,
+      "role": "source_workflow_or_master_reference"
+    }
+  ],
+  "unusual_other_closed_neutral_components": [],
+  "note": "Only specific model-reviewed true-background hole components may be seeded. Ambiguous shoulder paint stays intact. Coordinates are measured fresh in the padded sources, not copied from a prior drawing.",
+  "reviewed_at_utc": "2026-10-11T01:05:08.241782+00:00",
+  "model_review_note": "Grayish enclosed shoulder island frame4 remains protected; no broad neutral erasure. Root independently reviews source-paint topology and motion.",
+  "parameters": {
+    "connected_background_min_rgb": 170,
+    "connected_background_max_chroma": 22,
+    "boundary_radius": 4,
+    "foreground_search_radius": 6,
+    "foreground_depth_min": 2,
+    "neutral_fit_residual_max": 25,
+    "neutral_fit_chroma_max": 15,
+    "colored_fit_residual_max": 10,
+    "recover_visited_background_pixels": false
+  }
+}

@@ -1,0 +1,2883 @@
+{
+  "schema": "reef.native-painted-raster-observation.v1",
+  "source_master_sha256": "f4933a6b1845eb1ec90c8b92df387f4d3df933a803c8d26599460efaf3484952",
+  "authored_geometry_sha256": "190c8e90becb56965d6fcf7880f263b25764840ff8fd27f4f3735c07b57d8800",
+  "review_type": "model observation plus read-only raster measurement; not human acceptance",
+  "method": "Pillow/NumPy read-only native RGB; skin transverse centers, fitted segment-axis elbow intersection, middle-fingertip color envelope; no image pixels written",
+  "scope": "39 painted complete native cels; RGB endpoints belong to original source and are separately replaced as whole drawings in final derivative",
+  "minimum_hand_pixel_canvas_margin_native": 122,
+  "canvas": [
+    768,
+    896
+  ],
+  "whole_mapping_scale": 0.3125,
+  "visual_sequence_review": {
+    "contact_sheets": "review/native_arm_contact_00_07.png through40_40.png; rows left-to-right, then top-to-bottom",
+    "complete_hand_contours": "All39 painted cels viewed in ordered native crop contacts; four unequal fingers/opposed thumb connected, no cropped fingertip or lowering-hand smear found",
+    "attachments": "Connected arm enters native frill; earlier cuff rectangle absent; original small warm fringe under left curl retained",
+    "style_limitation": "Fresh contour is cleaner than original opposite arm; narrow relaxed fingers have darker graphic outlines than K0; final256/full-speed style review remains pending",
+    "motion_limitation": "Frame-step order inspected; no normal-speed delivery playback claimed here"
+  },
+  "frames": [
+    {
+      "frame": 0,
+      "native_sha256": "201c00fad7f4790ed99e4bd8ea70fed5b1e7b346e70cac61b936569339e6b41b",
+      "painted": false,
+      "status": "SOURCE_RGB_ENDPOINT_REPLACED_BY_WHOLE_APPROVED_K0_IN_FINAL_DERIVATIVE"
+    },
+    {
+      "frame": 1,
+      "native_sha256": "25a95a9c02b8d583f17bb4a238362df2ceccdaa77f179af2eb7bf77dbebb522f",
+      "painted": true,
+      "authored_shoulder": [
+        336.0,
+        363.0
+      ],
+      "shoulder_observation": "hidden under retained frill; authored center, not falsely reclassified as measured",
+      "raster_upper_cross_section_centers": [
+        [
+          331.008,
+          390.633
+        ],
+        [
+          328.554,
+          402.41
+        ],
+        [
+          325.978,
+          414.161
+        ]
+      ],
+      "raster_fore_cross_section_centers": [
+        [
+          309.485,
+          463.327
+        ],
+        [
+          302.565,
+          477.797
+        ],
+        [
+          295.982,
+          492.429
+        ]
+      ],
+      "raster_elbow_axis_intersection": [
+        320.677,
+        439.057
+      ],
+      "raster_wrist_cross_section_center": [
+        286.053,
+        514.35
+      ],
+      "raster_longest_tip": [
+        265.0,
+        561.5
+      ],
+      "hand_open": false,
+      "hand_openness": 0,
+      "nominal_authored_w3_cell": {
+        "upper": 25.0625,
+        "fore": 25.0625,
+        "open_hand": 20.5159375
+      },
+      "elbow_observed_vs_target_native_px": 2.667,
+      "wrist_observed_vs_target_native_px": 1.125,
+      "observed_tip_from_observed_wrist_cell": 16.136,
+      "hand_raster_bounds_native": [
+        259,
+        511,
+        292,
+        561
+      ],
+      "measurement_uncertainty_native_px": {
+        "shoulder": 4,
+        "elbow": 2,
+        "wrist": 1.5,
+        "tip": 1.5
+      },
+      "status": "MODEL_VISUAL_AND_READ_ONLY_RASTER_EVIDENCE; FINAL_RGBA_REVIEW_PENDING"
+    },
+    {
+      "frame": 2,
+      "native_sha256": "8ef22e14d1f995d50ad60e4cd11be65f2662caf24a0adc77e6f05e0303b94b24",
+      "painted": true,
+      "authored_shoulder": [
+        336.0,
+        363.0
+      ],
+      "shoulder_observation": "hidden under retained frill; authored center, not falsely reclassified as measured",
+      "raster_upper_cross_section_centers": [
+        [
+          331.008,
+          390.633
+        ],
+        [
+          328.554,
+          402.41
+        ],
+        [
+          325.978,
+          414.161
+        ]
+      ],
+      "raster_fore_cross_section_centers": [
+        [
+          309.485,
+          463.327
+        ],
+        [
+          302.565,
+          477.797
+        ],
+        [
+          295.982,
+          492.429
+        ]
+      ],
+      "raster_elbow_axis_intersection": [
+        320.677,
+        439.057
+      ],
+      "raster_wrist_cross_section_center": [
+        286.053,
+        514.35
+      ],
+      "raster_longest_tip": [
+        265.0,
+        561.5
+      ],
+      "hand_open": false,
+      "hand_openness": 0,
+      "nominal_authored_w3_cell": {
+        "upper": 25.0625,
+        "fore": 25.0625,
+        "open_hand": 20.5159375
+      },
+      "elbow_observed_vs_target_native_px": 2.667,
+      "wrist_observed_vs_target_native_px": 1.125,
+      "observed_tip_from_observed_wrist_cell": 16.136,
+      "hand_raster_bounds_native": [
+        259,
+        511,
+        292,
+        561
+      ],
+      "measurement_uncertainty_native_px": {
+        "shoulder": 4,
+        "elbow": 2,
+        "wrist": 1.5,
+        "tip": 1.5
+      },
+      "status": "MODEL_VISUAL_AND_READ_ONLY_RASTER_EVIDENCE; FINAL_RGBA_REVIEW_PENDING"
+    },
+    {
+      "frame": 3,
+      "native_sha256": "c01cb007f79ea4d95ea1a05d1793a149d6ea00b6a480bb2089d8ebb3aa87deed",
+      "painted": true,
+      "authored_shoulder": [
+        336.0,
+        363.0
+      ],
+      "shoulder_observation": "hidden under retained frill; authored center, not falsely reclassified as measured",
+      "raster_upper_cross_section_centers": [
+        [
+          331.008,
+          390.633
+        ],
+        [
+          328.554,
+          402.41
+        ],
+        [
+          325.489,
+          414.059
+        ]
+      ],
+      "raster_fore_cross_section_centers": [
+        [
+          309.485,
+          463.327
+        ],
+        [
+          302.565,
+          477.797
+        ],
+        [
+          295.982,
+          492.429
+        ]
+      ],
+      "raster_elbow_axis_intersection": [
+        318.703,
+        443.311
+      ],
+      "raster_wrist_cross_section_center": [
+        286.053,
+        514.35
+      ],
+      "raster_longest_tip": [
+        265.0,
+        561.5
+      ],
+      "hand_open": false,
+      "hand_openness": 0,
+      "nominal_authored_w3_cell": {
+        "upper": 25.0625,
+        "fore": 25.0625,
+        "open_hand": 20.5159375
+      },
+      "elbow_observed_vs_target_native_px": 2.027,
+      "wrist_observed_vs_target_native_px": 1.125,
+      "observed_tip_from_observed_wrist_cell": 16.136,
+      "hand_raster_bounds_native": [
+        259,
+        511,
+        292,
+        561
+      ],
+      "measurement_uncertainty_native_px": {
+        "shoulder": 4,
+        "elbow": 2,
+        "wrist": 1.5,
+        "tip": 1.5
+      },
+      "status": "MODEL_VISUAL_AND_READ_ONLY_RASTER_EVIDENCE; FINAL_RGBA_REVIEW_PENDING"
+    },
+    {
+      "frame": 4,
+      "native_sha256": "e402d45e361d4cf67cc8bdb1a248022ff167b7be04cf7dc0a4b6c3df54e9f509",
+      "painted": true,
+      "authored_shoulder": [
+        336.0,
+        363.0
+      ],
+      "shoulder_observation": "hidden under retained frill; authored center, not falsely reclassified as measured",
+      "raster_upper_cross_section_centers": [
+        [
+          331.008,
+          390.633
+        ],
+        [
+          328.554,
+          402.41
+        ],
+        [
+          325.978,
+          414.161
+        ]
+      ],
+      "raster_fore_cross_section_centers": [
+        [
+          309.485,
+          463.327
+        ],
+        [
+          302.565,
+          477.797
+        ],
+        [
+          295.982,
+          492.429
+        ]
+      ],
+      "raster_elbow_axis_intersection": [
+        320.677,
+        439.057
+      ],
+      "raster_wrist_cross_section_center": [
+        286.053,
+        514.35
+      ],
+      "raster_longest_tip": [
+        265.0,
+        561.5
+      ],
+      "hand_open": false,
+      "hand_openness": 0,
+      "nominal_authored_w3_cell": {
+        "upper": 25.0625,
+        "fore": 25.0625,
+        "open_hand": 20.5159375
+      },
+      "elbow_observed_vs_target_native_px": 2.667,
+      "wrist_observed_vs_target_native_px": 1.125,
+      "observed_tip_from_observed_wrist_cell": 16.136,
+      "hand_raster_bounds_native": [
+        259,
+        511,
+        292,
+        561
+      ],
+      "measurement_uncertainty_native_px": {
+        "shoulder": 4,
+        "elbow": 2,
+        "wrist": 1.5,
+        "tip": 1.5
+      },
+      "status": "MODEL_VISUAL_AND_READ_ONLY_RASTER_EVIDENCE; FINAL_RGBA_REVIEW_PENDING"
+    },
+    {
+      "frame": 5,
+      "native_sha256": "e9ed8554f82a1d1f8b5ab8d2253a3db613c8008c7d4cb38bbde3f2434eb6ae94",
+      "painted": true,
+      "authored_shoulder": [
+        336.5,
+        360.67
+      ],
+      "shoulder_observation": "hidden under retained frill; authored center, not falsely reclassified as measured",
+      "raster_upper_cross_section_centers": [
+        [
+          329.012,
+          387.737
+        ],
+        [
+          325.563,
+          399.263
+        ],
+        [
+          321.16,
+          410.492
+        ]
+      ],
+      "raster_fore_cross_section_centers": [
+        [
+          299.024,
+          457.047
+        ],
+        [
+          289.93,
+          470.26
+        ],
+        [
+          280.938,
+          483.545
+        ]
+      ],
+      "raster_elbow_axis_intersection": [
+        311.687,
+        438.457
+      ],
+      "raster_wrist_cross_section_center": [
+        267.45,
+        503.473
+      ],
+      "raster_longest_tip": [
+        233.0,
+        545.0
+      ],
+      "hand_open": false,
+      "hand_openness": 0.15625,
+      "nominal_authored_w3_cell": {
+        "upper": 25.0625,
+        "fore": 25.0625,
+        "open_hand": 20.5159375
+      },
+      "elbow_observed_vs_target_native_px": 1.577,
+      "wrist_observed_vs_target_native_px": 0.875,
+      "observed_tip_from_observed_wrist_cell": 16.862,
+      "hand_raster_bounds_native": [
+        229,
+        498,
+        273,
+        547
+      ],
+      "measurement_uncertainty_native_px": {
+        "shoulder": 4,
+        "elbow": 2,
+        "wrist": 1.5,
+        "tip": 1.5
+      },
+      "status": "MODEL_VISUAL_AND_READ_ONLY_RASTER_EVIDENCE; FINAL_RGBA_REVIEW_PENDING"
+    },
+    {
+      "frame": 6,
+      "native_sha256": "28184688893b56dd62eafc6faaef534f96171dc3d4a466528436faed1ad7f854",
+      "painted": true,
+      "authored_shoulder": [
+        337.0,
+        358.287
+      ],
+      "shoulder_observation": "hidden under retained frill; authored center, not falsely reclassified as measured",
+      "raster_upper_cross_section_centers": [
+        [
+          326.714,
+          384.41
+        ],
+        [
+          322.224,
+          395.571
+        ],
+        [
+          317.502,
+          406.636
+        ]
+      ],
+      "raster_fore_cross_section_centers": [
+        [
+          289.902,
+          449.996
+        ],
+        [
+          278.556,
+          461.337
+        ],
+        [
+          267.838,
+          473.287
+        ]
+      ],
+      "raster_elbow_axis_intersection": [
+        307.257,
+        431.463
+      ],
+      "raster_wrist_cross_section_center": [
+        250.999,
+        490.473
+      ],
+      "raster_longest_tip": [
+        203.25,
+        524.0
+      ],
+      "hand_open": false,
+      "hand_openness": 0.5,
+      "nominal_authored_w3_cell": {
+        "upper": 25.0625,
+        "fore": 25.0625,
+        "open_hand": 20.5159375
+      },
+      "elbow_observed_vs_target_native_px": 1.328,
+      "wrist_observed_vs_target_native_px": 0.75,
+      "observed_tip_from_observed_wrist_cell": 18.233,
+      "hand_raster_bounds_native": [
+        200,
+        482,
+        255,
+        531
+      ],
+      "measurement_uncertainty_native_px": {
+        "shoulder": 4,
+        "elbow": 2,
+        "wrist": 1.5,
+        "tip": 1.5
+      },
+      "status": "MODEL_VISUAL_AND_READ_ONLY_RASTER_EVIDENCE; FINAL_RGBA_REVIEW_PENDING"
+    },
+    {
+      "frame": 7,
+      "native_sha256": "876d90c368a7936dbb401e9d5bf40222b14fa1504079ed6f656dd2740ad14fa4",
+      "painted": true,
+      "authored_shoulder": [
+        337.5,
+        356.011
+      ],
+      "shoulder_observation": "hidden under retained frill; authored center, not falsely reclassified as measured",
+      "raster_upper_cross_section_centers": [
+        [
+          325.002,
+          381.16
+        ],
+        [
+          318.984,
+          391.583
+        ],
+        [
+          313.187,
+          402.125
+        ]
+      ],
+      "raster_fore_cross_section_centers": [
+        [
+          280.311,
+          441.084
+        ],
+        [
+          267.731,
+          451.054
+        ],
+        [
+          254.782,
+          460.52
+        ]
+      ],
+      "raster_elbow_axis_intersection": [
+        299.227,
+        426.814
+      ],
+      "raster_wrist_cross_section_center": [
+        234.841,
+        474.012
+      ],
+      "raster_longest_tip": [
+        176.0,
+        496.0
+      ],
+      "hand_open": false,
+      "hand_openness": 0.84375,
+      "nominal_authored_w3_cell": {
+        "upper": 25.0625,
+        "fore": 25.0625,
+        "open_hand": 20.5159375
+      },
+      "elbow_observed_vs_target_native_px": 0.383,
+      "wrist_observed_vs_target_native_px": 0.0,
+      "observed_tip_from_observed_wrist_cell": 19.63,
+      "hand_raster_bounds_native": [
+        175,
+        454,
+        237,
+        511
+      ],
+      "measurement_uncertainty_native_px": {
+        "shoulder": 4,
+        "elbow": 2,
+        "wrist": 1.5,
+        "tip": 1.5
+      },
+      "status": "MODEL_VISUAL_AND_READ_ONLY_RASTER_EVIDENCE; FINAL_RGBA_REVIEW_PENDING"
+    },
+    {
+      "frame": 8,
+      "native_sha256": "97ea142e5cb80231d5548d74134f00d0f043222095d35225c02bc3a221a4caca",
+      "painted": true,
+      "authored_shoulder": [
+        338.0,
+        354.0
+      ],
+      "shoulder_observation": "hidden under retained frill; authored center, not falsely reclassified as measured",
+      "raster_upper_cross_section_centers": [
+        [
+          322.514,
+          377.424
+        ],
+        [
+          315.614,
+          387.278
+        ],
+        [
+          308.202,
+          396.774
+        ]
+      ],
+      "raster_fore_cross_section_centers": [
+        [
+          270.299,
+          430.091
+        ],
+        [
+          255.868,
+          437.096
+        ],
+        [
+          241.383,
+          443.988
+        ]
+      ],
+      "raster_elbow_axis_intersection": [
+        291.047,
+        420.142
+      ],
+      "raster_wrist_cross_section_center": [
+        219.049,
+        453.024
+      ],
+      "raster_longest_tip": [
+        154.5,
+        458.0
+      ],
+      "hand_open": true,
+      "hand_openness": 1,
+      "nominal_authored_w3_cell": {
+        "upper": 25.0625,
+        "fore": 25.0625,
+        "open_hand": 20.5159375
+      },
+      "elbow_observed_vs_target_native_px": 1.051,
+      "wrist_observed_vs_target_native_px": 0.625,
+      "observed_tip_from_observed_wrist_cell": 20.231,
+      "hand_raster_bounds_native": [
+        154,
+        422,
+        220,
+        482
+      ],
+      "measurement_uncertainty_native_px": {
+        "shoulder": 4,
+        "elbow": 2,
+        "wrist": 1.5,
+        "tip": 1.5
+      },
+      "status": "MODEL_VISUAL_AND_READ_ONLY_RASTER_EVIDENCE; FINAL_RGBA_REVIEW_PENDING"
+    },
+    {
+      "frame": 9,
+      "native_sha256": "9de6f9e37a24a7a387b42dc955b06b3a6abb949893970fd21b801751167f0d0e",
+      "painted": true,
+      "authored_shoulder": [
+        338.569,
+        352.066
+      ],
+      "shoulder_observation": "hidden under retained frill; authored center, not falsely reclassified as measured",
+      "raster_upper_cross_section_centers": [
+        [
+          319.301,
+          372.503
+        ],
+        [
+          310.303,
+          380.512
+        ],
+        [
+          301.743,
+          388.965
+        ]
+      ],
+      "raster_fore_cross_section_centers": [
+        [
+          257.807,
+          412.567
+        ],
+        [
+          241.958,
+          415.042
+        ],
+        [
+          226.191,
+          418.01
+        ]
+      ],
+      "raster_elbow_axis_intersection": [
+        280.715,
+        408.539
+      ],
+      "raster_wrist_cross_section_center": [
+        202.226,
+        420.55
+      ],
+      "raster_longest_tip": [
+        139.5,
+        406.5
+      ],
+      "hand_open": true,
+      "hand_openness": 1,
+      "nominal_authored_w3_cell": {
+        "upper": 25.0625,
+        "fore": 25.0625,
+        "open_hand": 20.5159375
+      },
+      "elbow_observed_vs_target_native_px": 0.802,
+      "wrist_observed_vs_target_native_px": 0.875,
+      "observed_tip_from_observed_wrist_cell": 20.088,
+      "hand_raster_bounds_native": [
+        139,
+        381,
+        204,
+        436
+      ],
+      "measurement_uncertainty_native_px": {
+        "shoulder": 4,
+        "elbow": 2,
+        "wrist": 1.5,
+        "tip": 1.5
+      },
+      "status": "MODEL_VISUAL_AND_READ_ONLY_RASTER_EVIDENCE; FINAL_RGBA_REVIEW_PENDING"
+    },
+    {
+      "frame": 10,
+      "native_sha256": "fa0a41f0cfc1e0959dc7c9c9ebca77e839946f49581afb2d499a5bcd27c77e9e",
+      "painted": true,
+      "authored_shoulder": [
+        339.222,
+        350.045
+      ],
+      "shoulder_observation": "hidden under retained frill; authored center, not falsely reclassified as measured",
+      "raster_upper_cross_section_centers": [
+        [
+          315.454,
+          365.003
+        ],
+        [
+          305.014,
+          370.983
+        ],
+        [
+          294.385,
+          376.639
+        ]
+      ],
+      "raster_fore_cross_section_centers": [
+        [
+          246.345,
+          386.464
+        ],
+        [
+          230.68,
+          382.993
+        ],
+        [
+          214.919,
+          380.013
+        ]
+      ],
+      "raster_elbow_axis_intersection": [
+        268.605,
+        390.947
+      ],
+      "raster_wrist_cross_section_center": [
+        191.386,
+        374.991
+      ],
+      "raster_longest_tip": [
+        136.5,
+        341.0
+      ],
+      "hand_open": true,
+      "hand_openness": 1,
+      "nominal_authored_w3_cell": {
+        "upper": 25.0625,
+        "fore": 25.0625,
+        "open_hand": 20.5159375
+      },
+      "elbow_observed_vs_target_native_px": 1.478,
+      "wrist_observed_vs_target_native_px": 0.125,
+      "observed_tip_from_observed_wrist_cell": 20.175,
+      "hand_raster_bounds_native": [
+        134,
+        328,
+        196,
+        383
+      ],
+      "measurement_uncertainty_native_px": {
+        "shoulder": 4,
+        "elbow": 2,
+        "wrist": 1.5,
+        "tip": 1.5
+      },
+      "status": "MODEL_VISUAL_AND_READ_ONLY_RASTER_EVIDENCE; FINAL_RGBA_REVIEW_PENDING"
+    },
+    {
+      "frame": 11,
+      "native_sha256": "6733dfcce35cf0eafc4b9a24ccd431fade3b65959627eb5435c969940e4e7a67",
+      "painted": true,
+      "authored_shoulder": [
+        339.875,
+        348.132
+      ],
+      "shoulder_observation": "hidden under retained frill; authored center, not falsely reclassified as measured",
+      "raster_upper_cross_section_centers": [
+        [
+          312.933,
+          356.044
+        ],
+        [
+          301.272,
+          359.004
+        ],
+        [
+          289.643,
+          362.084
+        ]
+      ],
+      "raster_fore_cross_section_centers": [
+        [
+          242.198,
+          355.52
+        ],
+        [
+          228.423,
+          347.279
+        ],
+        [
+          215.057,
+          338.41
+        ]
+      ],
+      "raster_elbow_axis_intersection": [
+        263.213,
+        368.917
+      ],
+      "raster_wrist_cross_section_center": [
+        195.522,
+        324.321
+      ],
+      "raster_longest_tip": [
+        154.833,
+        274.5
+      ],
+      "hand_open": true,
+      "hand_openness": 1,
+      "nominal_authored_w3_cell": {
+        "upper": 25.0625,
+        "fore": 25.0625,
+        "open_hand": 20.5159375
+      },
+      "elbow_observed_vs_target_native_px": 0.9,
+      "wrist_observed_vs_target_native_px": 0.625,
+      "observed_tip_from_observed_wrist_cell": 20.102,
+      "hand_raster_bounds_native": [
+        145,
+        267,
+        205,
+        330
+      ],
+      "measurement_uncertainty_native_px": {
+        "shoulder": 4,
+        "elbow": 2,
+        "wrist": 1.5,
+        "tip": 1.5
+      },
+      "status": "MODEL_VISUAL_AND_READ_ONLY_RASTER_EVIDENCE; FINAL_RGBA_REVIEW_PENDING"
+    },
+    {
+      "frame": 12,
+      "native_sha256": "90952050a2ae81b536b7b37eb9864d8b7c03e1fe93a229a66297bc14010014de",
+      "painted": true,
+      "authored_shoulder": [
+        340.444,
+        346.523
+      ],
+      "shoulder_observation": "hidden under retained frill; authored center, not falsely reclassified as measured",
+      "raster_upper_cross_section_centers": [
+        [
+          312.381,
+          347.408
+        ],
+        [
+          300.352,
+          347.52
+        ],
+        [
+          288.32,
+          347.382
+        ]
+      ],
+      "raster_fore_cross_section_centers": [
+        [
+          245.463,
+          328.28
+        ],
+        [
+          235.974,
+          315.347
+        ],
+        [
+          226.485,
+          302.414
+        ]
+      ],
+      "raster_elbow_axis_intersection": [
+        259.486,
+        347.392
+      ],
+      "raster_wrist_cross_section_center": [
+        212.503,
+        282.828
+      ],
+      "raster_longest_tip": [
+        188.5,
+        222.833
+      ],
+      "hand_open": true,
+      "hand_openness": 1,
+      "nominal_authored_w3_cell": {
+        "upper": 25.0625,
+        "fore": 25.0625,
+        "open_hand": 20.5159375
+      },
+      "elbow_observed_vs_target_native_px": 0.772,
+      "wrist_observed_vs_target_native_px": 0.25,
+      "observed_tip_from_observed_wrist_cell": 20.193,
+      "hand_raster_bounds_native": [
+        171,
+        221,
+        233,
+        286
+      ],
+      "measurement_uncertainty_native_px": {
+        "shoulder": 4,
+        "elbow": 2,
+        "wrist": 1.5,
+        "tip": 1.5
+      },
+      "status": "MODEL_VISUAL_AND_READ_ONLY_RASTER_EVIDENCE; FINAL_RGBA_REVIEW_PENDING"
+    },
+    {
+      "frame": 13,
+      "native_sha256": "104181a428ebe88449c448d56fda6af331e0cd9fbbcb772dfbfd408344e21920",
+      "painted": true,
+      "authored_shoulder": [
+        340.847,
+        345.413
+      ],
+      "shoulder_observation": "hidden under retained frill; authored center, not falsely reclassified as measured",
+      "raster_upper_cross_section_centers": [
+        [
+          313.026,
+          341.554
+        ],
+        [
+          301.263,
+          338.985
+        ],
+        [
+          289.499,
+          336.417
+        ]
+      ],
+      "raster_fore_cross_section_centers": [
+        [
+          252.391,
+          309.441
+        ],
+        [
+          246.821,
+          294.395
+        ],
+        [
+          240.902,
+          279.487
+        ]
+      ],
+      "raster_elbow_axis_intersection": [
+        260.365,
+        330.055
+      ],
+      "raster_wrist_cross_section_center": [
+        232.023,
+        257.125
+      ],
+      "raster_longest_tip": [
+        223.5,
+        193.5
+      ],
+      "hand_open": true,
+      "hand_openness": 1,
+      "nominal_authored_w3_cell": {
+        "upper": 25.0625,
+        "fore": 25.0625,
+        "open_hand": 20.5159375
+      },
+      "elbow_observed_vs_target_native_px": 2.124,
+      "wrist_observed_vs_target_native_px": 0.25,
+      "observed_tip_from_observed_wrist_cell": 20.06,
+      "hand_raster_bounds_native": [
+        201,
+        193,
+        261,
+        258
+      ],
+      "measurement_uncertainty_native_px": {
+        "shoulder": 4,
+        "elbow": 2,
+        "wrist": 1.5,
+        "tip": 1.5
+      },
+      "status": "MODEL_VISUAL_AND_READ_ONLY_RASTER_EVIDENCE; FINAL_RGBA_REVIEW_PENDING"
+    },
+    {
+      "frame": 14,
+      "native_sha256": "0ecb04627e7ba3905564675a427a9456af640ae6ad78e14035b178bce36316ae",
+      "painted": true,
+      "authored_shoulder": [
+        341.0,
+        345.0
+      ],
+      "shoulder_observation": "hidden under retained frill; authored center, not falsely reclassified as measured",
+      "raster_upper_cross_section_centers": [
+        [
+          313.552,
+          339.058
+        ],
+        [
+          302.061,
+          335.42
+        ],
+        [
+          290.267,
+          332.995
+        ]
+      ],
+      "raster_fore_cross_section_centers": [
+        [
+          256.593,
+          302.455
+        ],
+        [
+          252.441,
+          286.961
+        ],
+        [
+          248.411,
+          271.435
+        ]
+      ],
+      "raster_elbow_axis_intersection": [
+        262.675,
+        325.595
+      ],
+      "raster_wrist_cross_section_center": [
+        241.942,
+        248.26
+      ],
+      "raster_longest_tip": [
+        243.0,
+        183.5
+      ],
+      "hand_open": true,
+      "hand_openness": 1,
+      "nominal_authored_w3_cell": {
+        "upper": 25.0625,
+        "fore": 25.0625,
+        "open_hand": 20.5159375
+      },
+      "elbow_observed_vs_target_native_px": 0.507,
+      "wrist_observed_vs_target_native_px": 0.5,
+      "observed_tip_from_observed_wrist_cell": 20.24,
+      "hand_raster_bounds_native": [
+        217,
+        183,
+        276,
+        248
+      ],
+      "measurement_uncertainty_native_px": {
+        "shoulder": 4,
+        "elbow": 2,
+        "wrist": 1.5,
+        "tip": 1.5
+      },
+      "status": "MODEL_VISUAL_AND_READ_ONLY_RASTER_EVIDENCE; FINAL_RGBA_REVIEW_PENDING"
+    },
+    {
+      "frame": 15,
+      "native_sha256": "23d5149f73af40fcd1c36f768d219403e9fce4c33ff04b75865f702e03c2f11c",
+      "painted": true,
+      "authored_shoulder": [
+        341.0,
+        345.0
+      ],
+      "shoulder_observation": "hidden under retained frill; authored center, not falsely reclassified as measured",
+      "raster_upper_cross_section_centers": [
+        [
+          313.552,
+          339.058
+        ],
+        [
+          302.061,
+          335.42
+        ],
+        [
+          290.267,
+          332.995
+        ]
+      ],
+      "raster_fore_cross_section_centers": [
+        [
+          257.091,
+          302.319
+        ],
+        [
+          253.03,
+          286.799
+        ],
+        [
+          249.212,
+          271.22
+        ]
+      ],
+      "raster_elbow_axis_intersection": [
+        262.964,
+        325.67
+      ],
+      "raster_wrist_cross_section_center": [
+        244.578,
+        247.584
+      ],
+      "raster_longest_tip": [
+        249.5,
+        183.5
+      ],
+      "hand_open": true,
+      "hand_openness": 1,
+      "nominal_authored_w3_cell": {
+        "upper": 25.0625,
+        "fore": 25.0625,
+        "open_hand": 20.5159375
+      },
+      "elbow_observed_vs_target_native_px": 0.23,
+      "wrist_observed_vs_target_native_px": 0.5,
+      "observed_tip_from_observed_wrist_cell": 20.085,
+      "hand_raster_bounds_native": [
+        222,
+        183,
+        280,
+        248
+      ],
+      "measurement_uncertainty_native_px": {
+        "shoulder": 4,
+        "elbow": 2,
+        "wrist": 1.5,
+        "tip": 1.5
+      },
+      "status": "MODEL_VISUAL_AND_READ_ONLY_RASTER_EVIDENCE; FINAL_RGBA_REVIEW_PENDING"
+    },
+    {
+      "frame": 16,
+      "native_sha256": "de8312dc404e569098b7a1f9549a035bc15f95026f06415fb46ce0e877d3ef94",
+      "painted": true,
+      "authored_shoulder": [
+        341.0,
+        345.0
+      ],
+      "shoulder_observation": "hidden under retained frill; authored center, not falsely reclassified as measured",
+      "raster_upper_cross_section_centers": [
+        [
+          313.552,
+          339.058
+        ],
+        [
+          302.061,
+          335.42
+        ],
+        [
+          290.267,
+          332.995
+        ]
+      ],
+      "raster_fore_cross_section_centers": [
+        [
+          257.477,
+          302.221
+        ],
+        [
+          254.038,
+          286.554
+        ],
+        [
+          249.991,
+          271.025
+        ]
+      ],
+      "raster_elbow_axis_intersection": [
+        263.227,
+        325.738
+      ],
+      "raster_wrist_cross_section_center": [
+        245.504,
+        247.37
+      ],
+      "raster_longest_tip": [
+        255.0,
+        183.5
+      ],
+      "hand_open": true,
+      "hand_openness": 1,
+      "nominal_authored_w3_cell": {
+        "upper": 25.0625,
+        "fore": 25.0625,
+        "open_hand": 20.5159375
+      },
+      "elbow_observed_vs_target_native_px": 0.147,
+      "wrist_observed_vs_target_native_px": 0.125,
+      "observed_tip_from_observed_wrist_cell": 20.179,
+      "hand_raster_bounds_native": [
+        226,
+        183,
+        294,
+        248
+      ],
+      "measurement_uncertainty_native_px": {
+        "shoulder": 4,
+        "elbow": 2,
+        "wrist": 1.5,
+        "tip": 1.5
+      },
+      "status": "MODEL_VISUAL_AND_READ_ONLY_RASTER_EVIDENCE; FINAL_RGBA_REVIEW_PENDING"
+    },
+    {
+      "frame": 17,
+      "native_sha256": "239bc5a5510ae426e5a630b75ecb98ee85322e76ef84d4c012d2e6135f72476a",
+      "painted": true,
+      "authored_shoulder": [
+        341.0,
+        345.0
+      ],
+      "shoulder_observation": "hidden under retained frill; authored center, not falsely reclassified as measured",
+      "raster_upper_cross_section_centers": [
+        [
+          313.552,
+          339.058
+        ],
+        [
+          302.061,
+          335.42
+        ],
+        [
+          290.267,
+          332.995
+        ]
+      ],
+      "raster_fore_cross_section_centers": [
+        [
+          257.481,
+          302.215
+        ],
+        [
+          253.965,
+          286.564
+        ],
+        [
+          251.06,
+          270.782
+        ]
+      ],
+      "raster_elbow_axis_intersection": [
+        262.121,
+        325.45
+      ],
+      "raster_wrist_cross_section_center": [
+        246.458,
+        247.161
+      ],
+      "raster_longest_tip": [
+        259.25,
+        183.75
+      ],
+      "hand_open": true,
+      "hand_openness": 1,
+      "nominal_authored_w3_cell": {
+        "upper": 25.0625,
+        "fore": 25.0625,
+        "open_hand": 20.5159375
+      },
+      "elbow_observed_vs_target_native_px": 1.072,
+      "wrist_observed_vs_target_native_px": 0.25,
+      "observed_tip_from_observed_wrist_cell": 20.215,
+      "hand_raster_bounds_native": [
+        229,
+        183,
+        297,
+        248
+      ],
+      "measurement_uncertainty_native_px": {
+        "shoulder": 4,
+        "elbow": 2,
+        "wrist": 1.5,
+        "tip": 1.5
+      },
+      "status": "MODEL_VISUAL_AND_READ_ONLY_RASTER_EVIDENCE; FINAL_RGBA_REVIEW_PENDING"
+    },
+    {
+      "frame": 18,
+      "native_sha256": "db83adae9162fcea2c1f40983b4e84a60164cd62a4ac887153f3267e50669768",
+      "painted": true,
+      "authored_shoulder": [
+        341.0,
+        345.0
+      ],
+      "shoulder_observation": "hidden under retained frill; authored center, not falsely reclassified as measured",
+      "raster_upper_cross_section_centers": [
+        [
+          313.552,
+          339.058
+        ],
+        [
+          302.061,
+          335.42
+        ],
+        [
+          290.267,
+          332.995
+        ]
+      ],
+      "raster_fore_cross_section_centers": [
+        [
+          257.446,
+          302.22
+        ],
+        [
+          254.6,
+          286.426
+        ],
+        [
+          251.021,
+          270.789
+        ]
+      ],
+      "raster_elbow_axis_intersection": [
+        262.334,
+        325.506
+      ],
+      "raster_wrist_cross_section_center": [
+        248.464,
+        246.735
+      ],
+      "raster_longest_tip": [
+        261.167,
+        184.167
+      ],
+      "hand_open": true,
+      "hand_openness": 1,
+      "nominal_authored_w3_cell": {
+        "upper": 25.0625,
+        "fore": 25.0625,
+        "open_hand": 20.5159375
+      },
+      "elbow_observed_vs_target_native_px": 0.853,
+      "wrist_observed_vs_target_native_px": 2.0,
+      "observed_tip_from_observed_wrist_cell": 19.951,
+      "hand_raster_bounds_native": [
+        230,
+        183,
+        299,
+        249
+      ],
+      "measurement_uncertainty_native_px": {
+        "shoulder": 4,
+        "elbow": 2,
+        "wrist": 1.5,
+        "tip": 1.5
+      },
+      "status": "MODEL_VISUAL_AND_READ_ONLY_RASTER_EVIDENCE; FINAL_RGBA_REVIEW_PENDING"
+    },
+    {
+      "frame": 19,
+      "native_sha256": "278492132a5fc20cf15ee2c55748b3e86de375c0cad95e4ac072c7f8bccbe5f7",
+      "painted": true,
+      "authored_shoulder": [
+        341.0,
+        345.0
+      ],
+      "shoulder_observation": "hidden under retained frill; authored center, not falsely reclassified as measured",
+      "raster_upper_cross_section_centers": [
+        [
+          313.552,
+          339.058
+        ],
+        [
+          302.061,
+          335.42
+        ],
+        [
+          290.267,
+          332.995
+        ]
+      ],
+      "raster_fore_cross_section_centers": [
+        [
+          257.552,
+          302.205
+        ],
+        [
+          253.961,
+          286.572
+        ],
+        [
+          250.004,
+          271.023
+        ]
+      ],
+      "raster_elbow_axis_intersection": [
+        263.319,
+        325.762
+      ],
+      "raster_wrist_cross_section_center": [
+        245.47,
+        247.378
+      ],
+      "raster_longest_tip": [
+        254.5,
+        183.5
+      ],
+      "hand_open": true,
+      "hand_openness": 1,
+      "nominal_authored_w3_cell": {
+        "upper": 25.0625,
+        "fore": 25.0625,
+        "open_hand": 20.5159375
+      },
+      "elbow_observed_vs_target_native_px": 0.213,
+      "wrist_observed_vs_target_native_px": 0.25,
+      "observed_tip_from_observed_wrist_cell": 20.16,
+      "hand_raster_bounds_native": [
+        226,
+        183,
+        294,
+        248
+      ],
+      "measurement_uncertainty_native_px": {
+        "shoulder": 4,
+        "elbow": 2,
+        "wrist": 1.5,
+        "tip": 1.5
+      },
+      "status": "MODEL_VISUAL_AND_READ_ONLY_RASTER_EVIDENCE; FINAL_RGBA_REVIEW_PENDING"
+    },
+    {
+      "frame": 20,
+      "native_sha256": "4d39475f1937dea9c4478aaa46fba2bd04f3e3b006499641ec00475671ae2366",
+      "painted": true,
+      "authored_shoulder": [
+        341.0,
+        345.0
+      ],
+      "shoulder_observation": "hidden under retained frill; authored center, not falsely reclassified as measured",
+      "raster_upper_cross_section_centers": [
+        [
+          313.552,
+          339.058
+        ],
+        [
+          302.061,
+          335.42
+        ],
+        [
+          290.267,
+          332.995
+        ]
+      ],
+      "raster_fore_cross_section_centers": [
+        [
+          256.593,
+          302.455
+        ],
+        [
+          252.441,
+          286.961
+        ],
+        [
+          248.411,
+          271.435
+        ]
+      ],
+      "raster_elbow_axis_intersection": [
+        262.675,
+        325.595
+      ],
+      "raster_wrist_cross_section_center": [
+        241.942,
+        248.26
+      ],
+      "raster_longest_tip": [
+        243.0,
+        183.5
+      ],
+      "hand_open": true,
+      "hand_openness": 1,
+      "nominal_authored_w3_cell": {
+        "upper": 25.0625,
+        "fore": 25.0625,
+        "open_hand": 20.5159375
+      },
+      "elbow_observed_vs_target_native_px": 0.507,
+      "wrist_observed_vs_target_native_px": 0.5,
+      "observed_tip_from_observed_wrist_cell": 20.24,
+      "hand_raster_bounds_native": [
+        217,
+        183,
+        276,
+        248
+      ],
+      "measurement_uncertainty_native_px": {
+        "shoulder": 4,
+        "elbow": 2,
+        "wrist": 1.5,
+        "tip": 1.5
+      },
+      "status": "MODEL_VISUAL_AND_READ_ONLY_RASTER_EVIDENCE; FINAL_RGBA_REVIEW_PENDING"
+    },
+    {
+      "frame": 21,
+      "native_sha256": "69fdfc8fafed53845f176383b196db72cc49ea98a965de56c2dad391084de835",
+      "painted": true,
+      "authored_shoulder": [
+        341.0,
+        345.0
+      ],
+      "shoulder_observation": "hidden under retained frill; authored center, not falsely reclassified as measured",
+      "raster_upper_cross_section_centers": [
+        [
+          313.552,
+          339.058
+        ],
+        [
+          302.061,
+          335.42
+        ],
+        [
+          290.267,
+          332.995
+        ]
+      ],
+      "raster_fore_cross_section_centers": [
+        [
+          255.525,
+          302.78
+        ],
+        [
+          251.058,
+          287.373
+        ],
+        [
+          246.59,
+          271.966
+        ]
+      ],
+      "raster_elbow_axis_intersection": [
+        262.097,
+        325.444
+      ],
+      "raster_wrist_cross_section_center": [
+        240.009,
+        248.818
+      ],
+      "raster_longest_tip": [
+        231.0,
+        184.5
+      ],
+      "hand_open": true,
+      "hand_openness": 1,
+      "nominal_authored_w3_cell": {
+        "upper": 25.0625,
+        "fore": 25.0625,
+        "open_hand": 20.5159375
+      },
+      "elbow_observed_vs_target_native_px": 1.097,
+      "wrist_observed_vs_target_native_px": 0.375,
+      "observed_tip_from_observed_wrist_cell": 20.296,
+      "hand_raster_bounds_native": [
+        208,
+        184,
+        269,
+        250
+      ],
+      "measurement_uncertainty_native_px": {
+        "shoulder": 4,
+        "elbow": 2,
+        "wrist": 1.5,
+        "tip": 1.5
+      },
+      "status": "MODEL_VISUAL_AND_READ_ONLY_RASTER_EVIDENCE; FINAL_RGBA_REVIEW_PENDING"
+    },
+    {
+      "frame": 22,
+      "native_sha256": "472094e4485de7881da8a2e0c042b82fb629dfa153d67e1f3c1e09d6c0b8ed96",
+      "painted": true,
+      "authored_shoulder": [
+        341.0,
+        345.0
+      ],
+      "shoulder_observation": "hidden under retained frill; authored center, not falsely reclassified as measured",
+      "raster_upper_cross_section_centers": [
+        [
+          313.552,
+          339.058
+        ],
+        [
+          302.061,
+          335.42
+        ],
+        [
+          290.267,
+          332.995
+        ]
+      ],
+      "raster_fore_cross_section_centers": [
+        [
+          255.51,
+          302.793
+        ],
+        [
+          249.959,
+          287.731
+        ],
+        [
+          245.477,
+          272.321
+        ]
+      ],
+      "raster_elbow_axis_intersection": [
+        262.833,
+        325.636
+      ],
+      "raster_wrist_cross_section_center": [
+        238.28,
+        249.362
+      ],
+      "raster_longest_tip": [
+        224.833,
+        186.167
+      ],
+      "hand_open": true,
+      "hand_openness": 1,
+      "nominal_authored_w3_cell": {
+        "upper": 25.0625,
+        "fore": 25.0625,
+        "open_hand": 20.5159375
+      },
+      "elbow_observed_vs_target_native_px": 0.351,
+      "wrist_observed_vs_target_native_px": 0.125,
+      "observed_tip_from_observed_wrist_cell": 20.191,
+      "hand_raster_bounds_native": [
+        204,
+        185,
+        265,
+        251
+      ],
+      "measurement_uncertainty_native_px": {
+        "shoulder": 4,
+        "elbow": 2,
+        "wrist": 1.5,
+        "tip": 1.5
+      },
+      "status": "MODEL_VISUAL_AND_READ_ONLY_RASTER_EVIDENCE; FINAL_RGBA_REVIEW_PENDING"
+    },
+    {
+      "frame": 23,
+      "native_sha256": "0918e6586bd0d0a63ae3f81da1d21ce456f232f1285889504f1f0fac692569c2",
+      "painted": true,
+      "authored_shoulder": [
+        341.0,
+        345.0
+      ],
+      "shoulder_observation": "hidden under retained frill; authored center, not falsely reclassified as measured",
+      "raster_upper_cross_section_centers": [
+        [
+          313.552,
+          339.058
+        ],
+        [
+          302.061,
+          335.42
+        ],
+        [
+          290.267,
+          332.995
+        ]
+      ],
+      "raster_fore_cross_section_centers": [
+        [
+          256.469,
+          302.493
+        ],
+        [
+          251.194,
+          287.327
+        ],
+        [
+          246.998,
+          271.841
+        ]
+      ],
+      "raster_elbow_axis_intersection": [
+        263.475,
+        325.803
+      ],
+      "raster_wrist_cross_section_center": [
+        240.045,
+        248.807
+      ],
+      "raster_longest_tip": [
+        234.5,
+        184.5
+      ],
+      "hand_open": true,
+      "hand_openness": 1,
+      "nominal_authored_w3_cell": {
+        "upper": 25.0625,
+        "fore": 25.0625,
+        "open_hand": 20.5159375
+      },
+      "elbow_observed_vs_target_native_px": 0.357,
+      "wrist_observed_vs_target_native_px": 0.375,
+      "observed_tip_from_observed_wrist_cell": 20.171,
+      "hand_raster_bounds_native": [
+        210,
+        184,
+        271,
+        249
+      ],
+      "measurement_uncertainty_native_px": {
+        "shoulder": 4,
+        "elbow": 2,
+        "wrist": 1.5,
+        "tip": 1.5
+      },
+      "status": "MODEL_VISUAL_AND_READ_ONLY_RASTER_EVIDENCE; FINAL_RGBA_REVIEW_PENDING"
+    },
+    {
+      "frame": 24,
+      "native_sha256": "a378f182f441414f73063a769af8e937a05df02035633549b52a02df1a04398d",
+      "painted": true,
+      "authored_shoulder": [
+        341.0,
+        345.0
+      ],
+      "shoulder_observation": "hidden under retained frill; authored center, not falsely reclassified as measured",
+      "raster_upper_cross_section_centers": [
+        [
+          313.552,
+          339.058
+        ],
+        [
+          302.061,
+          335.42
+        ],
+        [
+          290.267,
+          332.995
+        ]
+      ],
+      "raster_fore_cross_section_centers": [
+        [
+          256.593,
+          302.455
+        ],
+        [
+          252.441,
+          286.961
+        ],
+        [
+          248.411,
+          271.435
+        ]
+      ],
+      "raster_elbow_axis_intersection": [
+        262.675,
+        325.595
+      ],
+      "raster_wrist_cross_section_center": [
+        241.942,
+        248.26
+      ],
+      "raster_longest_tip": [
+        243.0,
+        183.5
+      ],
+      "hand_open": true,
+      "hand_openness": 1,
+      "nominal_authored_w3_cell": {
+        "upper": 25.0625,
+        "fore": 25.0625,
+        "open_hand": 20.5159375
+      },
+      "elbow_observed_vs_target_native_px": 0.507,
+      "wrist_observed_vs_target_native_px": 0.5,
+      "observed_tip_from_observed_wrist_cell": 20.24,
+      "hand_raster_bounds_native": [
+        217,
+        183,
+        276,
+        248
+      ],
+      "measurement_uncertainty_native_px": {
+        "shoulder": 4,
+        "elbow": 2,
+        "wrist": 1.5,
+        "tip": 1.5
+      },
+      "status": "MODEL_VISUAL_AND_READ_ONLY_RASTER_EVIDENCE; FINAL_RGBA_REVIEW_PENDING"
+    },
+    {
+      "frame": 25,
+      "native_sha256": "6277db41b742c3624a4958c3fa81b02154f99d501a86981317213e90e1b17aad",
+      "painted": true,
+      "authored_shoulder": [
+        340.625,
+        346.081
+      ],
+      "shoulder_observation": "hidden under retained frill; authored center, not falsely reclassified as measured",
+      "raster_upper_cross_section_centers": [
+        [
+          312.619,
+          343.944
+        ],
+        [
+          300.733,
+          341.981
+        ],
+        [
+          288.792,
+          340.515
+        ]
+      ],
+      "raster_fore_cross_section_centers": [
+        [
+          249.02,
+          316.222
+        ],
+        [
+          241.485,
+          302.062
+        ],
+        [
+          233.951,
+          287.901
+        ]
+      ],
+      "raster_elbow_axis_intersection": [
+        259.67,
+        336.24
+      ],
+      "raster_wrist_cross_section_center": [
+        222.485,
+        266.749
+      ],
+      "raster_longest_tip": [
+        203.167,
+        204.833
+      ],
+      "hand_open": true,
+      "hand_openness": 1,
+      "nominal_authored_w3_cell": {
+        "upper": 25.0625,
+        "fore": 25.0625,
+        "open_hand": 20.5159375
+      },
+      "elbow_observed_vs_target_native_px": 1.543,
+      "wrist_observed_vs_target_native_px": 0.25,
+      "observed_tip_from_observed_wrist_cell": 20.268,
+      "hand_raster_bounds_native": [
+        184,
+        204,
+        246,
+        269
+      ],
+      "measurement_uncertainty_native_px": {
+        "shoulder": 4,
+        "elbow": 2,
+        "wrist": 1.5,
+        "tip": 1.5
+      },
+      "status": "MODEL_VISUAL_AND_READ_ONLY_RASTER_EVIDENCE; FINAL_RGBA_REVIEW_PENDING"
+    },
+    {
+      "frame": 26,
+      "native_sha256": "696298565f980e1b3c896ccaede376523be72fdc60026d7c119760baf7466245",
+      "painted": true,
+      "authored_shoulder": [
+        340.0,
+        348.0
+      ],
+      "shoulder_observation": "hidden under retained frill; authored center, not falsely reclassified as measured",
+      "raster_upper_cross_section_centers": [
+        [
+          312.134,
+          351.434
+        ],
+        [
+          300.152,
+          352.515
+        ],
+        [
+          288.157,
+          353.472
+        ]
+      ],
+      "raster_fore_cross_section_centers": [
+        [
+          241.612,
+          340.761
+        ],
+        [
+          229.083,
+          330.738
+        ],
+        [
+          216.716,
+          320.524
+        ]
+      ],
+      "raster_elbow_axis_intersection": [
+        260.137,
+        355.873
+      ],
+      "raster_wrist_cross_section_center": [
+        198.847,
+        304.388
+      ],
+      "raster_longest_tip": [
+        153.5,
+        258.5
+      ],
+      "hand_open": true,
+      "hand_openness": 1,
+      "nominal_authored_w3_cell": {
+        "upper": 25.0625,
+        "fore": 25.0625,
+        "open_hand": 20.5159375
+      },
+      "elbow_observed_vs_target_native_px": 0.175,
+      "wrist_observed_vs_target_native_px": 0.125,
+      "observed_tip_from_observed_wrist_cell": 20.161,
+      "hand_raster_bounds_native": [
+        147,
+        250,
+        206,
+        310
+      ],
+      "measurement_uncertainty_native_px": {
+        "shoulder": 4,
+        "elbow": 2,
+        "wrist": 1.5,
+        "tip": 1.5
+      },
+      "status": "MODEL_VISUAL_AND_READ_ONLY_RASTER_EVIDENCE; FINAL_RGBA_REVIEW_PENDING"
+    },
+    {
+      "frame": 27,
+      "native_sha256": "b4b31f9647410d0725f7c94d467767d8e9a4c1f07f5aa7d92baa469d025919d8",
+      "painted": true,
+      "authored_shoulder": [
+        339.5,
+        349.819
+      ],
+      "shoulder_observation": "hidden under retained frill; authored center, not falsely reclassified as measured",
+      "raster_upper_cross_section_centers": [
+        [
+          312.494,
+          357.509
+        ],
+        [
+          300.84,
+          360.494
+        ],
+        [
+          289.062,
+          362.994
+        ]
+      ],
+      "raster_fore_cross_section_centers": [
+        [
+          239.73,
+          360.149
+        ],
+        [
+          224.895,
+          354.038
+        ],
+        [
+          210.362,
+          347.241
+        ]
+      ],
+      "raster_elbow_axis_intersection": [
+        261.02,
+        369.643
+      ],
+      "raster_wrist_cross_section_center": [
+        188.436,
+        337.332
+      ],
+      "raster_longest_tip": [
+        132.0,
+        306.0
+      ],
+      "hand_open": true,
+      "hand_openness": 1,
+      "nominal_authored_w3_cell": {
+        "upper": 25.0625,
+        "fore": 25.0625,
+        "open_hand": 20.5159375
+      },
+      "elbow_observed_vs_target_native_px": 0.79,
+      "wrist_observed_vs_target_native_px": 0.125,
+      "observed_tip_from_observed_wrist_cell": 20.172,
+      "hand_raster_bounds_native": [
+        130,
+        292,
+        192,
+        346
+      ],
+      "measurement_uncertainty_native_px": {
+        "shoulder": 4,
+        "elbow": 2,
+        "wrist": 1.5,
+        "tip": 1.5
+      },
+      "status": "MODEL_VISUAL_AND_READ_ONLY_RASTER_EVIDENCE; FINAL_RGBA_REVIEW_PENDING"
+    },
+    {
+      "frame": 28,
+      "native_sha256": "72a49fd6c7f2b5f279c6bcdb957cefe95e30f45dc00c30341ce52e26fd9c6042",
+      "painted": true,
+      "authored_shoulder": [
+        339.0,
+        351.855
+      ],
+      "shoulder_observation": "hidden under retained frill; authored center, not falsely reclassified as measured",
+      "raster_upper_cross_section_centers": [
+        [
+          313.448,
+          363.529
+        ],
+        [
+          302.077,
+          367.507
+        ],
+        [
+          290.944,
+          372.064
+        ]
+      ],
+      "raster_fore_cross_section_centers": [
+        [
+          240.874,
+          379.458
+        ],
+        [
+          224.955,
+          377.484
+        ],
+        [
+          209.037,
+          375.509
+        ]
+      ],
+      "raster_elbow_axis_intersection": [
+        263.692,
+        382.289
+      ],
+      "raster_wrist_cross_section_center": [
+        185.233,
+        371.99
+      ],
+      "raster_longest_tip": [
+        122.833,
+        354.167
+      ],
+      "hand_open": true,
+      "hand_openness": 1,
+      "nominal_authored_w3_cell": {
+        "upper": 25.0625,
+        "fore": 25.0625,
+        "open_hand": 20.5159375
+      },
+      "elbow_observed_vs_target_native_px": 1.085,
+      "wrist_observed_vs_target_native_px": 0.25,
+      "observed_tip_from_observed_wrist_cell": 20.28,
+      "hand_raster_bounds_native": [
+        122,
+        330,
+        187,
+        384
+      ],
+      "measurement_uncertainty_native_px": {
+        "shoulder": 4,
+        "elbow": 2,
+        "wrist": 1.5,
+        "tip": 1.5
+      },
+      "status": "MODEL_VISUAL_AND_READ_ONLY_RASTER_EVIDENCE; FINAL_RGBA_REVIEW_PENDING"
+    },
+    {
+      "frame": 29,
+      "native_sha256": "ebac4dcfdb6f621adca9699bc96af2d4484b9701a629fd574651f3205fc599a7",
+      "painted": true,
+      "authored_shoulder": [
+        338.5,
+        354.0
+      ],
+      "shoulder_observation": "hidden under retained frill; authored center, not falsely reclassified as measured",
+      "raster_upper_cross_section_centers": [
+        [
+          314.654,
+          368.842
+        ],
+        [
+          304.034,
+          374.506
+        ],
+        [
+          293.289,
+          379.953
+        ]
+      ],
+      "raster_fore_cross_section_centers": [
+        [
+          245.147,
+          397.47
+        ],
+        [
+          229.305,
+          399.996
+        ],
+        [
+          213.464,
+          402.523
+        ]
+      ],
+      "raster_elbow_axis_intersection": [
+        266.134,
+        394.123
+      ],
+      "raster_wrist_cross_section_center": [
+        189.577,
+        405.446
+      ],
+      "raster_longest_tip": [
+        125.5,
+        401.5
+      ],
+      "hand_open": true,
+      "hand_openness": 1,
+      "nominal_authored_w3_cell": {
+        "upper": 25.0625,
+        "fore": 25.0625,
+        "open_hand": 20.5159375
+      },
+      "elbow_observed_vs_target_native_px": 2.819,
+      "wrist_observed_vs_target_native_px": 0.125,
+      "observed_tip_from_observed_wrist_cell": 20.062,
+      "hand_raster_bounds_native": [
+        125,
+        369,
+        190,
+        427
+      ],
+      "measurement_uncertainty_native_px": {
+        "shoulder": 4,
+        "elbow": 2,
+        "wrist": 1.5,
+        "tip": 1.5
+      },
+      "status": "MODEL_VISUAL_AND_READ_ONLY_RASTER_EVIDENCE; FINAL_RGBA_REVIEW_PENDING"
+    },
+    {
+      "frame": 30,
+      "native_sha256": "902f980e8b7a88a2da407e5b561c22fbf93e9886b9cbb4496af379d2087edeea",
+      "painted": true,
+      "authored_shoulder": [
+        338.0,
+        356.145
+      ],
+      "shoulder_observation": "hidden under retained frill; authored center, not falsely reclassified as measured",
+      "raster_upper_cross_section_centers": [
+        [
+          316.061,
+          373.662
+        ],
+        [
+          306.528,
+          381.0
+        ],
+        [
+          297.071,
+          388.436
+        ]
+      ],
+      "raster_fore_cross_section_centers": [
+        [
+          252.326,
+          414.529
+        ],
+        [
+          237.645,
+          420.994
+        ],
+        [
+          222.769,
+          426.998
+        ]
+      ],
+      "raster_elbow_axis_intersection": [
+        276.479,
+        404.431
+      ],
+      "raster_wrist_cross_section_center": [
+        200.455,
+        436.004
+      ],
+      "raster_longest_tip": [
+        136.5,
+        445.0
+      ],
+      "hand_open": true,
+      "hand_openness": 1,
+      "nominal_authored_w3_cell": {
+        "upper": 25.0625,
+        "fore": 25.0625,
+        "open_hand": 20.5159375
+      },
+      "elbow_observed_vs_target_native_px": 2.129,
+      "wrist_observed_vs_target_native_px": 0.25,
+      "observed_tip_from_observed_wrist_cell": 20.183,
+      "hand_raster_bounds_native": [
+        136,
+        406,
+        201,
+        467
+      ],
+      "measurement_uncertainty_native_px": {
+        "shoulder": 4,
+        "elbow": 2,
+        "wrist": 1.5,
+        "tip": 1.5
+      },
+      "status": "MODEL_VISUAL_AND_READ_ONLY_RASTER_EVIDENCE; FINAL_RGBA_REVIEW_PENDING"
+    },
+    {
+      "frame": 31,
+      "native_sha256": "6c6eda1772c7bed60415a71276219a044777ab3e0be2efb35b13f659e18d9de4",
+      "painted": true,
+      "authored_shoulder": [
+        337.5,
+        358.181
+      ],
+      "shoulder_observation": "hidden under retained frill; authored center, not falsely reclassified as measured",
+      "raster_upper_cross_section_centers": [
+        [
+          318.492,
+          378.85
+        ],
+        [
+          309.667,
+          387.048
+        ],
+        [
+          301.559,
+          395.944
+        ]
+      ],
+      "raster_fore_cross_section_centers": [
+        [
+          262.665,
+          430.536
+        ],
+        [
+          249.637,
+          439.894
+        ],
+        [
+          236.756,
+          449.453
+        ]
+      ],
+      "raster_elbow_axis_intersection": [
+        278.725,
+        418.758
+      ],
+      "raster_wrist_cross_section_center": [
+        216.809,
+        462.935
+      ],
+      "raster_longest_tip": [
+        158.5,
+        486.0
+      ],
+      "hand_open": false,
+      "hand_openness": 0.84375,
+      "nominal_authored_w3_cell": {
+        "upper": 25.0625,
+        "fore": 25.0625,
+        "open_hand": 20.5159375
+      },
+      "elbow_observed_vs_target_native_px": 4.204,
+      "wrist_observed_vs_target_native_px": 0.125,
+      "observed_tip_from_observed_wrist_cell": 19.595,
+      "hand_raster_bounds_native": [
+        157,
+        444,
+        220,
+        500
+      ],
+      "measurement_uncertainty_native_px": {
+        "shoulder": 4,
+        "elbow": 2,
+        "wrist": 1.5,
+        "tip": 1.5
+      },
+      "status": "MODEL_VISUAL_AND_READ_ONLY_RASTER_EVIDENCE; FINAL_RGBA_REVIEW_PENDING"
+    },
+    {
+      "frame": 32,
+      "native_sha256": "7ad7c2656c44a2eb8d188871b8d29bd76d4bccea9bab0f23000e2754ce89cce9",
+      "painted": true,
+      "authored_shoulder": [
+        337.0,
+        360.0
+      ],
+      "shoulder_observation": "hidden under retained frill; authored center, not falsely reclassified as measured",
+      "raster_upper_cross_section_centers": [
+        [
+          321.565,
+          383.458
+        ],
+        [
+          314.482,
+          393.184
+        ],
+        [
+          307.5,
+          402.982
+        ]
+      ],
+      "raster_fore_cross_section_centers": [
+        [
+          274.98,
+          443.62
+        ],
+        [
+          264.512,
+          455.783
+        ],
+        [
+          253.584,
+          467.525
+        ]
+      ],
+      "raster_elbow_axis_intersection": [
+        290.905,
+        425.984
+      ],
+      "raster_wrist_cross_section_center": [
+        237.605,
+        485.517
+      ],
+      "raster_longest_tip": [
+        189.25,
+        518.0
+      ],
+      "hand_open": false,
+      "hand_openness": 0.5,
+      "nominal_authored_w3_cell": {
+        "upper": 25.0625,
+        "fore": 25.0625,
+        "open_hand": 20.5159375
+      },
+      "elbow_observed_vs_target_native_px": 0.303,
+      "wrist_observed_vs_target_native_px": 0.875,
+      "observed_tip_from_observed_wrist_cell": 18.204,
+      "hand_raster_bounds_native": [
+        186,
+        477,
+        241,
+        525
+      ],
+      "measurement_uncertainty_native_px": {
+        "shoulder": 4,
+        "elbow": 2,
+        "wrist": 1.5,
+        "tip": 1.5
+      },
+      "status": "MODEL_VISUAL_AND_READ_ONLY_RASTER_EVIDENCE; FINAL_RGBA_REVIEW_PENDING"
+    },
+    {
+      "frame": 33,
+      "native_sha256": "0079af2a92dd7271ced188a92c13498de5bc177b23a3d1471d7bda1724125c49",
+      "painted": true,
+      "authored_shoulder": [
+        336.5,
+        361.544
+      ],
+      "shoulder_observation": "hidden under retained frill; authored center, not falsely reclassified as measured",
+      "raster_upper_cross_section_centers": [
+        [
+          325.543,
+          387.39
+        ],
+        [
+          320.929,
+          398.502
+        ],
+        [
+          316.087,
+          409.515
+        ]
+      ],
+      "raster_fore_cross_section_centers": [
+        [
+          290.906,
+          455.002
+        ],
+        [
+          282.242,
+          468.504
+        ],
+        [
+          273.578,
+          482.005
+        ]
+      ],
+      "raster_elbow_axis_intersection": [
+        308.224,
+        428.016
+      ],
+      "raster_wrist_cross_section_center": [
+        260.687,
+        502.326
+      ],
+      "raster_longest_tip": [
+        225.5,
+        543.5
+      ],
+      "hand_open": false,
+      "hand_openness": 0.15625,
+      "nominal_authored_w3_cell": {
+        "upper": 25.0625,
+        "fore": 25.0625,
+        "open_hand": 20.5159375
+      },
+      "elbow_observed_vs_target_native_px": 8.017,
+      "wrist_observed_vs_target_native_px": 1.0,
+      "observed_tip_from_observed_wrist_cell": 16.925,
+      "hand_raster_bounds_native": [
+        221,
+        497,
+        266,
+        545
+      ],
+      "measurement_uncertainty_native_px": {
+        "shoulder": 4,
+        "elbow": 2,
+        "wrist": 1.5,
+        "tip": 1.5
+      },
+      "status": "MODEL_VISUAL_AND_READ_ONLY_RASTER_EVIDENCE; FINAL_RGBA_REVIEW_PENDING"
+    },
+    {
+      "frame": 34,
+      "native_sha256": "2ddb8467336454c7cb572df0d59456e18128cf038089e20ec2ef7b04f1cb00e6",
+      "painted": true,
+      "authored_shoulder": [
+        336.0,
+        363.0
+      ],
+      "shoulder_observation": "hidden under retained frill; authored center, not falsely reclassified as measured",
+      "raster_upper_cross_section_centers": [
+        [
+          331.008,
+          390.633
+        ],
+        [
+          328.554,
+          402.41
+        ],
+        [
+          325.978,
+          414.161
+        ]
+      ],
+      "raster_fore_cross_section_centers": [
+        [
+          309.485,
+          463.327
+        ],
+        [
+          302.565,
+          477.797
+        ],
+        [
+          295.982,
+          492.429
+        ]
+      ],
+      "raster_elbow_axis_intersection": [
+        320.677,
+        439.057
+      ],
+      "raster_wrist_cross_section_center": [
+        286.053,
+        514.35
+      ],
+      "raster_longest_tip": [
+        265.0,
+        562.0
+      ],
+      "hand_open": false,
+      "hand_openness": 0,
+      "nominal_authored_w3_cell": {
+        "upper": 25.0625,
+        "fore": 25.0625,
+        "open_hand": 20.5159375
+      },
+      "elbow_observed_vs_target_native_px": 2.667,
+      "wrist_observed_vs_target_native_px": 1.125,
+      "observed_tip_from_observed_wrist_cell": 16.279,
+      "hand_raster_bounds_native": [
+        259,
+        511,
+        292,
+        562
+      ],
+      "measurement_uncertainty_native_px": {
+        "shoulder": 4,
+        "elbow": 2,
+        "wrist": 1.5,
+        "tip": 1.5
+      },
+      "status": "MODEL_VISUAL_AND_READ_ONLY_RASTER_EVIDENCE; FINAL_RGBA_REVIEW_PENDING"
+    },
+    {
+      "frame": 35,
+      "native_sha256": "12022c2893526f2ccfb00a9b2744c5564263788f9c0247acb6c75586848f76ef",
+      "painted": true,
+      "authored_shoulder": [
+        336.0,
+        363.0
+      ],
+      "shoulder_observation": "hidden under retained frill; authored center, not falsely reclassified as measured",
+      "raster_upper_cross_section_centers": [
+        [
+          331.008,
+          390.633
+        ],
+        [
+          328.554,
+          402.41
+        ],
+        [
+          325.978,
+          414.161
+        ]
+      ],
+      "raster_fore_cross_section_centers": [
+        [
+          309.485,
+          463.327
+        ],
+        [
+          302.565,
+          477.797
+        ],
+        [
+          295.982,
+          492.429
+        ]
+      ],
+      "raster_elbow_axis_intersection": [
+        320.677,
+        439.057
+      ],
+      "raster_wrist_cross_section_center": [
+        286.053,
+        514.35
+      ],
+      "raster_longest_tip": [
+        265.0,
+        562.0
+      ],
+      "hand_open": false,
+      "hand_openness": 0,
+      "nominal_authored_w3_cell": {
+        "upper": 25.0625,
+        "fore": 25.0625,
+        "open_hand": 20.5159375
+      },
+      "elbow_observed_vs_target_native_px": 2.667,
+      "wrist_observed_vs_target_native_px": 1.125,
+      "observed_tip_from_observed_wrist_cell": 16.279,
+      "hand_raster_bounds_native": [
+        259,
+        511,
+        292,
+        562
+      ],
+      "measurement_uncertainty_native_px": {
+        "shoulder": 4,
+        "elbow": 2,
+        "wrist": 1.5,
+        "tip": 1.5
+      },
+      "status": "MODEL_VISUAL_AND_READ_ONLY_RASTER_EVIDENCE; FINAL_RGBA_REVIEW_PENDING"
+    },
+    {
+      "frame": 36,
+      "native_sha256": "a4f66231991d6444d4d0b1137b4e55b59f68d5e0c42a5b993a42b085f8b55930",
+      "painted": true,
+      "authored_shoulder": [
+        336.0,
+        363.0
+      ],
+      "shoulder_observation": "hidden under retained frill; authored center, not falsely reclassified as measured",
+      "raster_upper_cross_section_centers": [
+        [
+          331.008,
+          390.633
+        ],
+        [
+          328.554,
+          402.41
+        ],
+        [
+          325.978,
+          414.161
+        ]
+      ],
+      "raster_fore_cross_section_centers": [
+        [
+          309.485,
+          463.327
+        ],
+        [
+          302.565,
+          477.797
+        ],
+        [
+          295.982,
+          492.429
+        ]
+      ],
+      "raster_elbow_axis_intersection": [
+        320.677,
+        439.057
+      ],
+      "raster_wrist_cross_section_center": [
+        286.053,
+        514.35
+      ],
+      "raster_longest_tip": [
+        265.0,
+        562.0
+      ],
+      "hand_open": false,
+      "hand_openness": 0,
+      "nominal_authored_w3_cell": {
+        "upper": 25.0625,
+        "fore": 25.0625,
+        "open_hand": 20.5159375
+      },
+      "elbow_observed_vs_target_native_px": 2.667,
+      "wrist_observed_vs_target_native_px": 1.125,
+      "observed_tip_from_observed_wrist_cell": 16.279,
+      "hand_raster_bounds_native": [
+        259,
+        511,
+        292,
+        562
+      ],
+      "measurement_uncertainty_native_px": {
+        "shoulder": 4,
+        "elbow": 2,
+        "wrist": 1.5,
+        "tip": 1.5
+      },
+      "status": "MODEL_VISUAL_AND_READ_ONLY_RASTER_EVIDENCE; FINAL_RGBA_REVIEW_PENDING"
+    },
+    {
+      "frame": 37,
+      "native_sha256": "5e731eac26fa79249800d0a56c3cf6908bf2e968aac10069322a4deeca530955",
+      "painted": true,
+      "authored_shoulder": [
+        336.0,
+        363.0
+      ],
+      "shoulder_observation": "hidden under retained frill; authored center, not falsely reclassified as measured",
+      "raster_upper_cross_section_centers": [
+        [
+          331.008,
+          390.633
+        ],
+        [
+          328.554,
+          402.41
+        ],
+        [
+          325.489,
+          414.059
+        ]
+      ],
+      "raster_fore_cross_section_centers": [
+        [
+          309.485,
+          463.327
+        ],
+        [
+          302.565,
+          477.797
+        ],
+        [
+          295.982,
+          492.429
+        ]
+      ],
+      "raster_elbow_axis_intersection": [
+        318.703,
+        443.311
+      ],
+      "raster_wrist_cross_section_center": [
+        286.053,
+        514.35
+      ],
+      "raster_longest_tip": [
+        265.0,
+        562.0
+      ],
+      "hand_open": false,
+      "hand_openness": 0,
+      "nominal_authored_w3_cell": {
+        "upper": 25.0625,
+        "fore": 25.0625,
+        "open_hand": 20.5159375
+      },
+      "elbow_observed_vs_target_native_px": 2.027,
+      "wrist_observed_vs_target_native_px": 1.125,
+      "observed_tip_from_observed_wrist_cell": 16.279,
+      "hand_raster_bounds_native": [
+        259,
+        511,
+        292,
+        562
+      ],
+      "measurement_uncertainty_native_px": {
+        "shoulder": 4,
+        "elbow": 2,
+        "wrist": 1.5,
+        "tip": 1.5
+      },
+      "status": "MODEL_VISUAL_AND_READ_ONLY_RASTER_EVIDENCE; FINAL_RGBA_REVIEW_PENDING"
+    },
+    {
+      "frame": 38,
+      "native_sha256": "e1add9687ccb5d5161ba050a394519654abc522c4e0977b3f2960746902b3803",
+      "painted": true,
+      "authored_shoulder": [
+        336.0,
+        363.0
+      ],
+      "shoulder_observation": "hidden under retained frill; authored center, not falsely reclassified as measured",
+      "raster_upper_cross_section_centers": [
+        [
+          331.008,
+          390.633
+        ],
+        [
+          328.554,
+          402.41
+        ],
+        [
+          325.978,
+          414.161
+        ]
+      ],
+      "raster_fore_cross_section_centers": [
+        [
+          309.485,
+          463.327
+        ],
+        [
+          302.565,
+          477.797
+        ],
+        [
+          295.982,
+          492.429
+        ]
+      ],
+      "raster_elbow_axis_intersection": [
+        320.677,
+        439.057
+      ],
+      "raster_wrist_cross_section_center": [
+        286.053,
+        514.35
+      ],
+      "raster_longest_tip": [
+        265.0,
+        562.0
+      ],
+      "hand_open": false,
+      "hand_openness": 0,
+      "nominal_authored_w3_cell": {
+        "upper": 25.0625,
+        "fore": 25.0625,
+        "open_hand": 20.5159375
+      },
+      "elbow_observed_vs_target_native_px": 2.667,
+      "wrist_observed_vs_target_native_px": 1.125,
+      "observed_tip_from_observed_wrist_cell": 16.279,
+      "hand_raster_bounds_native": [
+        259,
+        511,
+        292,
+        562
+      ],
+      "measurement_uncertainty_native_px": {
+        "shoulder": 4,
+        "elbow": 2,
+        "wrist": 1.5,
+        "tip": 1.5
+      },
+      "status": "MODEL_VISUAL_AND_READ_ONLY_RASTER_EVIDENCE; FINAL_RGBA_REVIEW_PENDING"
+    },
+    {
+      "frame": 39,
+      "native_sha256": "8ddffc1b6a6edd3e440b91f7f9923d61dac1b745b4b16f4d84eca5de0eb834e5",
+      "painted": true,
+      "authored_shoulder": [
+        336.0,
+        363.0
+      ],
+      "shoulder_observation": "hidden under retained frill; authored center, not falsely reclassified as measured",
+      "raster_upper_cross_section_centers": [
+        [
+          331.008,
+          390.633
+        ],
+        [
+          328.554,
+          402.41
+        ],
+        [
+          325.978,
+          414.161
+        ]
+      ],
+      "raster_fore_cross_section_centers": [
+        [
+          309.485,
+          463.327
+        ],
+        [
+          302.565,
+          477.797
+        ],
+        [
+          295.982,
+          492.429
+        ]
+      ],
+      "raster_elbow_axis_intersection": [
+        320.677,
+        439.057
+      ],
+      "raster_wrist_cross_section_center": [
+        286.053,
+        514.35
+      ],
+      "raster_longest_tip": [
+        265.0,
+        562.0
+      ],
+      "hand_open": false,
+      "hand_openness": 0,
+      "nominal_authored_w3_cell": {
+        "upper": 25.0625,
+        "fore": 25.0625,
+        "open_hand": 20.5159375
+      },
+      "elbow_observed_vs_target_native_px": 2.667,
+      "wrist_observed_vs_target_native_px": 1.125,
+      "observed_tip_from_observed_wrist_cell": 16.279,
+      "hand_raster_bounds_native": [
+        259,
+        511,
+        292,
+        562
+      ],
+      "measurement_uncertainty_native_px": {
+        "shoulder": 4,
+        "elbow": 2,
+        "wrist": 1.5,
+        "tip": 1.5
+      },
+      "status": "MODEL_VISUAL_AND_READ_ONLY_RASTER_EVIDENCE; FINAL_RGBA_REVIEW_PENDING"
+    },
+    {
+      "frame": 40,
+      "native_sha256": "9ea6d45e7e0c5d1d70ec92fcde25cfb08afc987c0ceb0911e62c1076805d8921",
+      "painted": false,
+      "status": "SOURCE_RGB_ENDPOINT_REPLACED_BY_WHOLE_APPROVED_K0_IN_FINAL_DERIVATIVE"
+    }
+  ],
+  "human_acceptance": false
+}
