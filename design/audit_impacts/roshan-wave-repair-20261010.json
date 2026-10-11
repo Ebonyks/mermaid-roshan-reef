@@ -2139,6 +2139,7 @@
     "assets_src/animation/roshan_wave_repair_20261010/provenance/remaining_fringe_probe.json",
     "assets_src/animation/roshan_wave_repair_20261010/provenance/sample_review.json",
     "assets_src/animation/roshan_wave_repair_20261010/provenance/source_snapshot_20261010.json",
+    "assets_src/animation/roshan_wave_repair_20261010/remote_verification.json",
     "assets_src/animation/roshan_wave_repair_20261010/rife_midpoint_01/README.md",
     "assets_src/animation/roshan_wave_repair_20261010/rife_midpoint_01/contact_sheet.png",
     "assets_src/animation/roshan_wave_repair_20261010/rife_midpoint_01/hand_comparison_2x_nearest.png",
@@ -2299,6 +2300,11 @@
       "command": "Final packet freezing and dependency byte bindings",
       "result": "PASS",
       "evidence": "scripts/freeze_packet.py verifies complete Git-visible packet path coverage, ignored scratch exclusion and13 external Git byte bindings. Mixed LF/CRLF preservation explicit; actual anonymous publication verification follows separately."
+    },
+    {
+      "command": "Anonymous immutable GitHub byte verification of packet and13 bound dependencies",
+      "result": "PASS",
+      "evidence": "assets_src/animation/roshan_wave_repair_20261010/remote_verification.json: revision043f8f88bd745b1d160357f3e2d60b074d47cb4a;2249/2249files,822921143bytes; payloadSHA256d39441902dfe1d0c9ab8453c0bc81c4dca68ee0046660c66d1ff97ba6442ee5f; checked2026-10-11T02:56:44.463748+00:00; no auth/cookies. ReceiptSHA256b00d8de87c4c431c98088693f546defbb5d10db2db5e1e052a0bca1c3aeb33ba. Historical preparation-helper gap keeps ARCHIVE_COMPLETE false; no creative acceptance."
     }
   ],
   "acceptance_gaps": "Clean model-reviewed waving sample available at256; human owner/full-speed/device/child, exact hidden joint coverage and runtime integration pending. Partial raster estimates31/32 exceed forearm tolerance; near-straight axis estimates have recorded uncertainty. No complete W3 geometry or DELIVERY_ACCEPTED claim, no MA-ROSHAN-005/006 closure; overall audit UNSATISFIED.",
