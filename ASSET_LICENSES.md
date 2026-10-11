@@ -1,5 +1,24 @@
 # Asset license ledger (Phase 8 — complete table)
 
+<!-- RUMI_BATHHOUSE_ITERATION_20261010_BEGIN -->
+## Rumi bathhouse and couch source-book iteration - 2026-10-10
+
+All new art is a static review candidate. Existing cast/setting/imp reference terms retain their scope; previous native books and protected runtime originals are preserved. Exact prompts, source/output hashes, native copies, crop/encoding mapping and review are archived with this version. No film image or copied shot is used as generation pixels.
+
+| File | Source / license | URL | Modifications / status |
+|---|---|---|---|
+| `assets_src/books/rumi_underpool_iteration_20261010/native/15_bathhouse_recovery.png` | OpenAI built-in ImageGen; commissioned new-story artwork; project source references retain their original terms. | https://openai.com/policies/terms-of-use/ | Native output copied byte-identically; exact prompts/refs/hashes in generation_manifest.json. Review candidate. |
+| `assets_src/books/rumi_underpool_iteration_20261010/native/16_couch_rest.png` | OpenAI built-in ImageGen; commissioned new-story artwork; project source references retain their original terms. | https://openai.com/policies/terms-of-use/ | Native output copied byte-identically; exact prompts/refs/hashes in generation_manifest.json. Review candidate. |
+| `assets_src/books/rumi_underpool_iteration_20261010/native/17_couch_interrupted.png` | OpenAI built-in ImageGen; commissioned new-story artwork; project source references retain their original terms. | https://openai.com/policies/terms-of-use/ | Native output copied byte-identically; exact prompts/refs/hashes in generation_manifest.json. Review candidate. |
+| `assets_src/books/rumi_underpool_iteration_20261010/output/pdf/Mermaid_Roshan_Song_Beneath_the_Pool_Refined_32_Pages.pdf` | Project-authored source-book layout or verification render; constituent artwork retains source terms. | Project-local provenance in generation_manifest.json / book_check.json | Non-destructive layout/crops or rendered comparison only; originals preserved; book_check.json and ITERATION_REVIEW.json record details. Review candidate. |
+| `assets_src/books/rumi_underpool_iteration_20261010/verification/before_after_15_17.png` | Project-authored source-book layout or verification render; constituent artwork retains source terms. | Project-local provenance in generation_manifest.json / book_check.json | Non-destructive layout/crops or rendered comparison only; originals preserved; book_check.json and ITERATION_REVIEW.json record details. Review candidate. |
+| `assets_src/books/rumi_underpool_iteration_20261010/verification/pdf_contact_01.png` | Project-authored source-book layout or verification render; constituent artwork retains source terms. | Project-local provenance in generation_manifest.json / book_check.json | Non-destructive layout/crops or rendered comparison only; originals preserved; book_check.json and ITERATION_REVIEW.json record details. Review candidate. |
+| `assets_src/books/rumi_underpool_iteration_20261010/verification/pdf_contact_02.png` | Project-authored source-book layout or verification render; constituent artwork retains source terms. | Project-local provenance in generation_manifest.json / book_check.json | Non-destructive layout/crops or rendered comparison only; originals preserved; book_check.json and ITERATION_REVIEW.json record details. Review candidate. |
+| `assets_src/books/rumi_underpool_iteration_20261010/verification/pdf_contact_03.png` | Project-authored source-book layout or verification render; constituent artwork retains source terms. | Project-local provenance in generation_manifest.json / book_check.json | Non-destructive layout/crops or rendered comparison only; originals preserved; book_check.json and ITERATION_REVIEW.json record details. Review candidate. |
+| `assets_src/books/rumi_underpool_iteration_20261010/verification/pdf_contact_04.png` | Project-authored source-book layout or verification render; constituent artwork retains source terms. | Project-local provenance in generation_manifest.json / book_check.json | Non-destructive layout/crops or rendered comparison only; originals preserved; book_check.json and ITERATION_REVIEW.json record details. Review candidate. |
+<!-- RUMI_BATHHOUSE_ITERATION_20261010_END -->
+
+
 <!-- RUMI_UNDERPOOL_BOOK_20261010_BEGIN -->
 ## Rumi under-pool 32-page comic refinement - 2026-10-10
 

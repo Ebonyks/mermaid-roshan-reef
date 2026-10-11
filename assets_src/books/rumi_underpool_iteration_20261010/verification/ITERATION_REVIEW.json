@@ -1,0 +1,149 @@
+{
+  "status": "AGENT_REVIEW_COMPLETE_OWNER_REVIEW_PENDING",
+  "baseline_commit": "6681a053d07053559f58b452eaf5e04508157bba",
+  "baseline_pdf": "assets_src/books/rumi_underpool_20261010/output/pdf/Mermaid_Roshan_Song_Beneath_the_Pool_32_Pages.pdf",
+  "baseline_pdf_sha256": "ad96c1ba81b2dab23c83c31431ef1f1f202b309802b40f0b7bb1eb8e25a76c20",
+  "scope": "Only pages15-17 changed; exactly32 actual pages retained. Static source book, no runtime or protected previous-book edits.",
+  "cycle_1": {
+    "observe": [
+      "Root viewed rendered baseline pages15-17; independent agent reviewed all32 contact pages plus full15-17,23,30.",
+      "Pages15-16 reuse one broadly smiling bathhouse painting through multiple crops; vulnerable words are not supported by matching faces.",
+      "Page16 repeats Duri explaining an event already explained on page11, rather than building friendship.",
+      "Page17 includes a two-panel source painting nested inside one panel, then repeats its imp entrance through crops.",
+      "Beads, bubbles, windows, scales and sparkles compete at similar brightness; little value/rhythm contrast between rest and performance.",
+      "No authored couch downtime scene exists in the relevant sources; runtime movie-lounge background is an empty auditorium and cannot meet this story moment."
+    ],
+    "hypothesize": [
+      "A worried Duri and compassionate Roshan connect the rescue to her small-voice concern.",
+      "Affectionate bathhouse towel comedy releases tension after the vulnerable exchange.",
+      "Hana physically making couch room for Duri repeats her rehearsal lesson and prefigures clearing the current channel.",
+      "A quiet shared snack and original refrain let the cast act as friends before becoming coordinated helpers.",
+      "Fixed lounge geography and differentiated reactions make the imp interruption readable without a general increase in visual noise.",
+      "A banner instead of another crate identifies the imps without breaking the later three-crate repair."
+    ],
+    "implement": [
+      "Preserve the existing bathhouse establishing painting on15; new two-panel recovery and towel-gag source.",
+      "New three-panel couch rest source on16: sprawling fin, make space, settled snack/hum.",
+      "New three-panel same-couch interruption source on17, followed by Roshan deciding to investigate.",
+      "Maintain clothes, cast size order, rainbow forelock, one-tail anatomy, Duri shell identity and existing costumed imps.",
+      "Quiet palette intent: broad cream couch, pale mint tiles, aqua/lavender shadows, one warm lantern cluster and a simplified city window."
+    ],
+    "review": {
+      "native_boards": "Root inspected all three full native outputs; independent agent inspected new recovery/couch/interruption art. Identity/costumes, one-tail silhouettes, comforting hand/flipper contact, resting couch support, differentiated expressions and exit acting found suitable as book-review candidates.",
+      "first_page_size_render": "Initial p15 lower portraits were too narrow. Agent and independent review both identified face scale, not native artwork, as the issue.",
+      "final_page_size_render": "Root viewed all32 pages through four contact sheets and full15-17; independent agent reviewed all32contacts and full17 plus continuity14-19. Final p15 faces/contact/towel cues read at page size; no visible lettering overlap, cropped named face, extra tail or new crate found in revised pages.",
+      "story_continuity": "Rescue → bathhouse reassurance/laughter → couch rest/shared song → comic interruption → blocked-current discovery → Duri guiding route. Roshan makes the investigative decision; the imps banner connects to Duri without another crate.",
+      "independent_verdict": "Suitable as the next owner-review candidate, with no blocking static visual or story-continuity issue; no owner/child/runtime/print acceptance implied."
+    },
+    "corrections": [
+      {
+        "issue": "P15 initial lower portrait scale too small inside wide shallow frames.",
+        "change": "New establish_pair geometry reduces establishing panel from57% to35% of available height, increases lower pair height and uses closer documented portrait crops. Re-rendered and inspected, no new image generation.",
+        "result": "Comforting hand, worried faces, towel ears and Duri flippers visibly larger and readable."
+      },
+      {
+        "issue": "Duri changes position during the surprise rather than staying on the same cushion.",
+        "change": "Caption 'Rumi drew Duri close' matches her hand on his shell in top frame; 'Duri paddled up' matches his banner approach in the second. Preserve good native art and explain intentional movement.",
+        "result": "Independent review confirms visual/text continuity; no regeneration needed."
+      }
+    ]
+  },
+  "design_rules": {
+    "DL-VIS-01_to_06": "Rounded painted2D forms, stable cast contours/identity, cool environment/warm focal accents, simplified materials and authored acting.",
+    "DL-READ-01_and_03": "One focal action per panel, distinguishable actor silhouettes and readable emotional/body cues for read-aloud comic.",
+    "DL-ASSET-01_to_06_and_08": "Inventory/reuse first; only named commissioned new-story gaps; native outputs/references/prompts/hashes preserved. Older protected-book restrictions retain their own scope."
+  },
+  "inspiration_sources": [
+    {
+      "title": "Netflix Tudum: KPop Demon Hunters colors",
+      "url": "https://www.netflix.com/tudum/features/kpop-demon-hunters-colors",
+      "use": "Primary art-direction discussion of softer lighting and color serving emotion. Our inference: reduce environmental competition in the rest scene while preserving established cast colors. No film image used as generation pixels."
+    },
+    {
+      "title": "Netflix Tudum: KPop Demon Hunters locations guide",
+      "url": "https://www.netflix.com/tudum/articles/kpop-demon-hunters-locations-guide",
+      "use": "Primary background reference for stylized Korean modern/traditional urban vocabulary and the public-performance/private-home contrast. Existing project bathhouse/city vocabulary reused; no exact film location or camera staging reconstructed."
+    }
+  ],
+  "broad_tropes": "Performers in private downtime, shared food, affectionate personality contrast, sudden showy interruption and friends coordinating to help. All dialogue, compositions and rescue causality are original.",
+  "acceptance_limits": "Agent inspection and machine checks are separate from owner/child approval of exact new prose/art, final print-production, runtime/device or cinematic acceptance. Master UNSATISFIED and related open findings unchanged.",
+  "review_completed_utc": "2026-10-11T01:42:30.758448+00:00",
+  "source_budget": {
+    "new_named_boards": 3,
+    "imagegen_calls": 3,
+    "rejected_takes": 0,
+    "local_layout_iterations": 2,
+    "cost_usage": "NOT_EXPOSED",
+    "originals_preserved": true
+  },
+  "final_pdf": {
+    "path": "assets_src/books/rumi_underpool_iteration_20261010/output/pdf/Mermaid_Roshan_Song_Beneath_the_Pool_Refined_32_Pages.pdf",
+    "sha256": "8cdba5dbd125ae3fd5c3039b7c5353d0e717f35ecdf61f8acfeedb6625b07f74",
+    "bytes": 49406805,
+    "actual_pages": 32,
+    "story_panels": 88,
+    "total_panels": 90,
+    "story_words": 1357
+  },
+  "unchanged_pages": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29,
+    30,
+    31,
+    32
+  ],
+  "unchanged_script_and_render_mapping": "PASS: all29 other page scripts, coordinates, source hashes, crop/encoding records and text mapping exactly equal the previous32-page version.",
+  "artifact_checks": {
+    "text_extracts_completely": true,
+    "text_inside_frames": true,
+    "minimum_story_font_pt": 13.4,
+    "rendered_pages": 32,
+    "old_books_runtime_protected_source_diff": "PASS exit0 at baseline6681a053",
+    "comparison": {
+      "path": "assets_src/books/rumi_underpool_iteration_20261010/verification/before_after_15_17.png",
+      "sha256": "d3af85f7df9ad55dc1c57c6e51c50622df308fb2d787091f1f4348494dc08d32"
+    }
+  },
+  "minor_review_notes": [
+    "Duri already has some couch space; Hana fin fold makes him more comfortable. Light room-for-one joke is appropriate, with no trapping/crushing claim.",
+    "A floating top hat is a conjured show prop; the magician also wears his costume hat, with no single-hat continuity claim.",
+    "Nari towel is left off-panel between the lounge departure and current-gate scene, a reasonable bathhouse-to-adventure transition.",
+    "The reused establishing bathhouse remains denser than the quieter couch; it establishes the familiar setting before the focused portraits."
+  ],
+  "machine_regression": {
+    "full_ci_process_exit": 0,
+    "trusted_probe_count": 82,
+    "all_probe_exit_codes": 0,
+    "engine": "Godot4.7.2.stable.official.ed1daf0bf",
+    "log": "assets_src/books/rumi_underpool_iteration_20261010/verification/full_ci.log",
+    "sha256": "eba7dbfa0b444f4f25291699acaefe68789de1c6d608b0b9917e81033b330da1",
+    "document_authority": "ALL OK686/686",
+    "development_coverage": "ALL OK base245e9c543be771d297b60dafb91b8a3baf73e211",
+    "no_runtime_edits": true,
+    "global_audit_satisfaction": "UNSATISFIED - unchanged"
+  }
+}

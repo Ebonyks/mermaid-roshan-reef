@@ -1,0 +1,108 @@
+{
+  "id": "rumi-bathhouse-iteration-20261010",
+  "baseline": "6681a053d07053559f58b452eaf5e04508157bba",
+  "scope": "Owner-directed iterative source-book refinement: inspect the actual pages against Roshan design language, expand pages15-17 with bathhouse emotional recovery, couch downtime and an imp interruption, preserving exactly32 pages and all earlier books/runtime sources. Broad performer downtime/teamwork tropes only; original dialogue/staging/cast, no copied film shots or lore.",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-VIS-01",
+    "DL-VIS-02",
+    "DL-VIS-03",
+    "DL-VIS-04",
+    "DL-VIS-05",
+    "DL-VIS-06",
+    "DL-READ-01",
+    "DL-READ-03",
+    "DL-ASSET-01",
+    "DL-ASSET-02",
+    "DL-ASSET-03",
+    "DL-ASSET-04",
+    "DL-ASSET-05",
+    "DL-ASSET-06",
+    "DL-ASSET-08",
+    "DL-PLAN-02",
+    "DL-PLAN-03",
+    "DL-PLAN-05",
+    "DL-PLAN-06"
+  ],
+  "findings": [
+    "MA-DOC-008",
+    "MA-VIS-006",
+    "MA-ROSHAN-005"
+  ],
+  "files": [
+    "ASSET_LICENSES.md",
+    "audit/MASTER_AUDIT_2026-08-09.md",
+    "design/05_DOC_LEDGER.md",
+    "design/chapters/RUMI_UNDERPOOL_BOOK_20261009.md",
+    "assets_src/books/rumi_underpool_iteration_20261010/.gitattributes",
+    "assets_src/books/rumi_underpool_iteration_20261010/build_comic.py",
+    "assets_src/books/rumi_underpool_iteration_20261010/comic_script.json",
+    "assets_src/books/rumi_underpool_iteration_20261010/MANUSCRIPT.txt",
+    "assets_src/books/rumi_underpool_iteration_20261010/README.txt",
+    "assets_src/books/rumi_underpool_iteration_20261010/art_jobs.json",
+    "assets_src/books/rumi_underpool_iteration_20261010/generation_manifest.json",
+    "assets_src/books/rumi_underpool_iteration_20261010/verification/ITERATION_REVIEW.json",
+    "assets_src/books/rumi_underpool_iteration_20261010/verification/book_check.json",
+    "assets_src/books/rumi_underpool_iteration_20261010/verification/document_gates.log",
+    "assets_src/books/rumi_underpool_iteration_20261010/verification/full_ci.log",
+    "assets_src/books/rumi_underpool_iteration_20261010/verification/pdf_contact_01.png",
+    "assets_src/books/rumi_underpool_iteration_20261010/verification/pdf_contact_02.png",
+    "assets_src/books/rumi_underpool_iteration_20261010/verification/pdf_contact_03.png",
+    "assets_src/books/rumi_underpool_iteration_20261010/verification/pdf_contact_04.png",
+    "assets_src/books/rumi_underpool_iteration_20261010/verification/before_after_15_17.png",
+    "assets_src/books/rumi_underpool_iteration_20261010/native/15_bathhouse_recovery.png",
+    "assets_src/books/rumi_underpool_iteration_20261010/native/16_couch_rest.png",
+    "assets_src/books/rumi_underpool_iteration_20261010/native/17_couch_interrupted.png",
+    "assets_src/books/rumi_underpool_iteration_20261010/output/pdf/Mermaid_Roshan_Song_Beneath_the_Pool_Refined_32_Pages.pdf"
+  ],
+  "validation": [
+    {
+      "command": "Task-start authority and rendered-page/source review",
+      "result": "PASS",
+      "evidence": "Fresh origin fetch; clean source6681a053; new scoped branch. Master planning/index, applicable design rules, active findings, ledger/brief and contract reviewed. Viewed actual pages15-17 and native cast/bathhouse/imp references. Repetition, smiling-only acting, dense equal-value backgrounds and nested panels identified; couch is an actual source gap. Existing establishing art reused; only three named missing sequential boards commissioned. Scope does not reopen protected prior-book redraws."
+    },
+    {
+      "command": "Iterative native artwork, all32 rendered pages and independent narrative/layout review",
+      "result": "PASS",
+      "evidence": "verification/ITERATION_REVIEW.json records baseline observations, hypotheses, three named source boards, larger p15 face-scale layout correction and explicit Duri movement narration. Root all32contact/full15-17 and independent all32contact/full17/continuity14-19 review found no blocking static issue. generation_manifest.json records exact prompts/role-bound refs/hashes; all3 native copies match preserved tool originals byte-identically. No regeneration/rejects; no owner/child acceptance claimed."
+    },
+    {
+      "command": "Bundled Python -B assets_src/books/rumi_underpool_iteration_20261010/build_comic.py",
+      "result": "PASS",
+      "evidence": "book_check.json:32 actual8x10-inch pages,88 story/90 total panels,1357 story words; all script text extracts, all lettering stays inside panels, minimum story font13.4pt. PDF SHA256 8cdba5dbd125ae3fd5c3039b7c5353d0e717f35ecdf61f8acfeedb6625b07f74; bytes49406805. Every source hash preserved; all29 unrevised page scripts/render mappings exactly equal the previous32-page book."
+    },
+    {
+      "command": "python -B tools/audit_document_authority.py; python -B tools/audit_development.py --base auto; git diff --check",
+      "result": "PASS",
+      "evidence": "Final document/source-book coverage checks exit0: DOCAUTH inventory/ledger686/686 active68 records71 ALL OK; AUDITDEV base245e9c543be771d297b60dafb91b8a3baf73e211 ALL OK; whitespace exit0. Receipt verification/document_gates.log. Master planning/index, scoped current brief/ledger, applicable art/readability/source rules and related findings rechecked during review/completion; no closure or authority escalation."
+    },
+    {
+      "command": "C:/Program Files/Git/bin/bash.exe --noprofile --norc scripts/ci.sh",
+      "result": "PASS",
+      "evidence": "Full local CI process exit0; all82 distinct trusted probes process exit0, exact resolver-selected Godot4.7.2.stable.official.ed1daf0bf. verification/full_ci.log SHA256 eba7dbfa0b444f4f25291699acaefe68789de1c6d608b0b9917e81033b330da1. Runtime/protected sources and both previous books remained unchanged throughout. Final document coverage separately checked on completed artifact/records; machine regression does not close global UNSATISFIED or owner/child/visual acceptance."
+    },
+    {
+      "command": "git diff --exit-code 6681a053d07053559f58b452eaf5e04508157bba -- assets scripts scenes project.godot tools assets_src/books/rumi_underpool_20261009 assets_src/books/rumi_underpool_20261010",
+      "result": "PASS",
+      "evidence": "Exit0: runtime, protected originals, game tools and both previous books remain unchanged. This source folder is excluded from Godot import by existing assets_src/.gdignore."
+    },
+    {
+      "command": "Changed-GDScript parser/inference gates",
+      "result": "NOT_APPLICABLE",
+      "evidence": "No .gd, scene, runtime configuration or game tools changed; source-book Python builder verified through exact page/text/bounds/source/render mapping checks."
+    }
+  ],
+  "acceptance_gaps": "New book art/prose are owner/child review candidates. No final print, device, cinematic, runtime integration, external handoff or release acceptance; related finding lifecycle and whole-game UNSATISFIED unchanged.",
+  "lessons": [
+    {
+      "lesson": "A polished native illustration can lose emotional readability when contained in a shallow panel. Evaluate actual page-size faces/gestures before spending on another take.",
+      "write_back": "assets_src/books/rumi_underpool_iteration_20261010/verification/ITERATION_REVIEW.json"
+    },
+    {
+      "lesson": "Private downtime should add relationship/action meaning; do not repeat exposition already delivered. The physical make-space couch beat echoes rehearsal and prepares the current-gate payoff.",
+      "write_back": "design/chapters/RUMI_UNDERPOOL_BOOK_20261009.md"
+    }
+  ]
+}

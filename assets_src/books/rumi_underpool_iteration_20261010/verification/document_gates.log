@@ -1,0 +1,25 @@
+COMMAND: & 'C:/Users/Peter/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/python.exe' -B tools/audit_document_authority.py
+
+DOCAUTH|INVENTORY=686|LEDGER=686|ACTIVE=68|RECORDS=71
+DOCAUTH|RESULT|ALL OK
+EXIT: 0
+
+COMMAND: & 'C:/Users/Peter/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/python.exe' -B tools/audit_development.py --base auto
+AUDITDEV|BASE|245e9c543be771d297b60dafb91b8a3baf73e211
+AUDITDEV|RESULT|ALL OK
+
+EXIT: 0
+
+FINAL POST-CI RECHECK:
+DOCAUTH|INVENTORY=686|LEDGER=686|ACTIVE=68|RECORDS=71
+DOCAUTH|RESULT|ALL OK
+AUDITDEV|BASE|245e9c543be771d297b60dafb91b8a3baf73e211
+AUDITDEV|RESULT|ALL OK
+Final staged whitespace and runtime/protected/previous-book diff checks: EXIT 0.
+
+COMMAND: git diff --check
+warning: in the working copy of 'audit/MASTER_AUDIT_2026-08-09.md', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'design/05_DOC_LEDGER.md', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'design/chapters/RUMI_UNDERPOOL_BOOK_20261009.md', LF will be replaced by CRLF the next time Git touches it
+
+EXIT: 0
