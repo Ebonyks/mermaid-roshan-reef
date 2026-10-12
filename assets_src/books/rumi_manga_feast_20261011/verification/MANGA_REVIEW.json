@@ -1,0 +1,258 @@
+{
+  "status": "SOURCE_BOOK_REVIEW_CANDIDATE",
+  "baseline": "3d662deea4bcb7b97277e4d0c534c6304e6e8023",
+  "owner_correction": "2026-10-11: food table needs to be much larger and more extravagant; style should look more like manga, big awkward boxes and too much whitespace are rejected.",
+  "observations": [
+    "Viewed actual prior page16 and native16/17. Prior panels are contain-fit inside large rounded cards, each text entry consumes another full-width rounded rectangle outside the art; no manga balloon relationship to speakers.",
+    "Prior low coral table is approximately one third of native strip width with only a bowl and cup. Food is visually too sparse for the desired extravagance.",
+    "Independent page review identifies postcard-like cover/back, floating rescue portraits and excessive container height as the primary layout issue; existing art can support a tighter manga composition without full-book redraws."
+  ],
+  "hypotheses_and_choices": [
+    "Replace universal image/text bands with explicit source-proportioned page rectangles, tighter gutters and varied reaction/detail panels while retaining English reading order and13.4pt dialogue.",
+    "Use compact in-art narration captions and curved speech balloons with deliberate safe anchors; inspect every page for face, hand and contact obstruction.",
+    "Grow the foreground banquet into one generous grouped food cluster spanning most of the strip width; preserve actor identity, room anchors and the same serving arrangement when imps enter.",
+    "Preserve source art and previous PDFs. Use existing close fin-detail crops to keep Hana's couch joke visible when the new banquet naturally occludes the lower foreground."
+  ],
+  "art_iterations": [
+    {
+      "source": "native/16_couch_feast.png",
+      "observed": "Table now spans most foreground; abundant left snack platter, central tiered sweets/side dishes, right fruit platter and shell cups. Cast faces/hands/Duri/Nari's held bowl remain clear. Lower fin occlusion needs the separate page-layout detail view.",
+      "decision": "SELECTED_STATIC_CANDIDATE; owner review pending"
+    },
+    {
+      "source": "native/review/17_feast_interrupted_take1.png",
+      "observed": "Same banquet is consistent across entrance/banner/departure, but Duri shell/flippers are obscured behind food in bottom strip.",
+      "decision": "REJECTED_FOR_DELIVERY; archived and bounded local correction requested"
+    },
+    {
+      "source": "native/17_feast_interrupted.png",
+      "observed": "Local departure correction exposes complete turtle shell/head/four flippers above fruit platter. Feast remains large and consistent; actors, imp banner and room anchors retained.",
+      "decision": "SELECTED_STATIC_CANDIDATE; owner review pending"
+    }
+  ],
+  "page_review": {
+    "status": "PASS_STATIC_CANDIDATE",
+    "exact_pdf_sha256": "0812d04e2005a517b865a75dd7c1341baedae9321809582d1ecd7178c87aee4c",
+    "independent_reviewer": "page_review",
+    "inspection_chain": [
+      "All32 ec273 full pages inspected; remaining lettering/attribution defects consolidated.",
+      "All13 changed723f full pages re-inspected; named repairs pass except final Duri5/Rumi face and p12/Hana upper face.",
+      "Final0812 changed5/12 full pages inspected; both faces restored; hand/banner contact and original prose order readable.",
+      "All32 final render hashes verified;19 equal ec273 and30 equal723f. Unchanged pages retain the exact previously inspected pixels."
+    ],
+    "root_review": "All four contact sheets reviewed after manga geometry changes; full13/15/16/17/23/24/27/29/31/32 checked for feast, acting and crop repairs, plus final5/12/21/22/26/28 for readable faces and source contact.",
+    "criteria": {
+      "larger_extravagant_shared_feast": "PASS: broad foreground banquet with three generous platter groups, tiered sweets, side dishes and shell cups. Same arrangement persists through interruption; no cast face/hand hidden.",
+      "manga_page_composition": "PASS_STATIC_CANDIDATE: thin square frames,16pt margins/6pt gutters, varied1-5 source-specific action/reaction/detail panels. Large unframed holes eliminated; redundant fin detail replaced by expressive Hana speaker view.",
+      "lettering": "PASS_STATIC_CANDIDATE: compact balloons/captions and source-specific small lanes where heads/food leave no quiet space.38 explicit labels retained only for ambiguous/off-panel voices; misleading/eye-crossing tails removed.",
+      "story_and_canon": "PASS_STATIC_CANDIDATE: pool inside Pearl Castle, existing magic, no Kareem or candle-resolution retcon; Duri rescue/recovery/interruption/gate/courier payoff preserved. Singing trio, playful costumed imps and Hana/Nari identities remain.",
+      "agency_and_pacing": "PASS_STATIC_CANDIDATE: Roshan listens, stops unsafe pulling, leads rescue/investigation and asks for physical help; bathhouse/feast gives recovery between rescue and conflict; Duri actively carries the community payoff.",
+      "sources": "PASS: protected originals and all previous editions unchanged; only named foreground banquet and bounded Duri visibility edits, three total generation calls including reject."
+    },
+    "limitations": "Human agent review is separate from owner artistic acceptance, child read-aloud and print proof. No runtime/device/release acceptance or finding closure."
+  },
+  "acceptance": {
+    "implementation": "Complete source-only static candidate; prior editions and original sources preserved",
+    "machine_verification": "PASS: exact PDF/source/prose/geometry integrity and full82-probe local regression",
+    "independent_review": "PASS_STATIC_CANDIDATE at exact final hash; owner/child/print remain separate",
+    "owner": "PENDING",
+    "child_read_aloud": "PENDING",
+    "print_production": "NOT_CLAIMED",
+    "runtime_device_release": "NOT_APPLICABLE; no game changes or release",
+    "master_audit": "UNSATISFIED; finding lifecycles unchanged"
+  },
+  "layout_iterations": [
+    {
+      "pdf_sha256": "c0e34d43f850cd77297d0f59e8e691c01873837e1668ee5a20a7cee736643b61",
+      "panels": 130,
+      "decision": "REJECTED_FIRST_LAYOUT",
+      "observed": "All prose extracted, but exact full-page inspection found 15 visible lettering collision pairs, face obstruction and unframed page holes on 23/27/29. Per-panel containment alone missed the page-wide problem.",
+      "correction": "Authored safe anchors/crops, filled page-wide geometry, compact local caption lanes where source headroom is absent. Added hard visible-box collision and empty-band gates."
+    },
+    {
+      "pdf_sha256": "63f4ac64d71d9f715fa120d6d40edacceb772735c963100cd933fb11e61d392b",
+      "panels": 134,
+      "decision": "REVISED_FOR_STRONGER_MANGA_ACTING",
+      "observed": "All geometry/lettering gates pass. Root and independent page reviewer found remaining expressive-crop opportunities: repeated soft fin detail on16, clipped Magician chin on29, and near-abstract current detail on27. Script-like speaker prefixes lengthen balloons.",
+      "correction": "Reuse Hana reclining speaker expression, retain one short fin-action detail, refine current/Magician crops and remove redundant speaker-name prefixes."
+    },
+    {
+      "pdf_sha256": "ec2733262d30f467e806df48dd3137c1ef5343a1a0ed99083293e610c34a2496",
+      "panels": 133,
+      "decision": "REJECTED_FOR_REMAINING_LETTERING_OBSTRUCTION_AND_ATTRIBUTION",
+      "observed": "Independent exact all32 full-page inspection and root critical-page views identified eye-obstructing captions on named crowded panels and ambiguous/off-panel voice attribution exposed by prefix removal. Scene/crop/feast/page-fill corrections themselves pass.",
+      "correction": "Consolidated bounded final repair: relocate or locally lane crowded captions, retain small labels only for ambiguous/off-panel speakers, remove misleading or eye-crossing tails, pure city crop on3. Reinspect changed pages and verify unchanged render hashes."
+    },
+    {
+      "pdf_sha256": "723f4334ca6e879ba4781bb253007c5c2661f2548963307025935da3550906cf",
+      "panels": 133,
+      "decision": "REVISED_FOR_TWO_REMAINING_FACE_OBSTRUCTIONS",
+      "observed": "Exact13 changed-page full inspection passes the named repairs except p5 final Duri balloon over Rumi face and p12 detail balloons over Hana upper face. All19 other pages are byte-identical to previously inspected ec273 renders.",
+      "correction": "One compact local p5 cap; move p12 off-panel dialogue to authored cap/bottom lane in original prose order. Reinspect those two pages and verify all other pages unchanged."
+    },
+    {
+      "pdf_sha256": "0812d04e2005a517b865a75dd7c1341baedae9321809582d1ecd7178c87aee4c",
+      "panels": 133,
+      "decision": "FINAL_STATIC_REVIEW_CANDIDATE; OWNER_ACCEPTANCE_PENDING",
+      "observed": "See exact rendered-page review and independent reviewer record below."
+    }
+  ],
+  "candidate": {
+    "pdf_sha256": "0812d04e2005a517b865a75dd7c1341baedae9321809582d1ecd7178c87aee4c",
+    "pdf_bytes": 51154215,
+    "actual_pages": 32,
+    "panels": 133,
+    "story_panels": 127,
+    "story_words": 1357,
+    "text_entries": 159,
+    "script_sha256": "8a483dcfe68acc9c3c620c8abd1bc8eab294df335811fd888e89cb4f766e699d"
+  },
+  "machine_verification": {
+    "status": "PASS",
+    "checked_at_utc": "2026-10-12T04:14:20.168284+00:00",
+    "page_size_points": [
+      576,
+      720
+    ],
+    "all_original_story_words_and_order_preserved": true,
+    "all_entry_lines_extract_on_corresponding_page": true,
+    "visible_box_collision_pairs": 0,
+    "page_panels_non_overlapping": true,
+    "all_source_font_contact_prompt_and_bound_reference_hashes_match": true,
+    "rejected_art_excluded_from_pdf": true,
+    "runtime_protected_sources_and_previous_books_unchanged": true,
+    "source_freeze_baseline": "3d662deea4bcb7b97277e4d0c534c6304e6e8023",
+    "source_freeze_paths": [
+      "assets",
+      "scripts",
+      "scenes",
+      "project.godot",
+      "tools",
+      "assets_src/books/rumi_underpool_20261009",
+      "assets_src/books/rumi_underpool_20261010",
+      "assets_src/books/rumi_underpool_iteration_20261010"
+    ],
+    "targeted_render_evidence": {
+      "previous_pdf_sha256": "ec2733262d30f467e806df48dd3137c1ef5343a1a0ed99083293e610c34a2496",
+      "changed_pages": [
+        3,
+        5,
+        6,
+        7,
+        10,
+        12,
+        14,
+        19,
+        20,
+        21,
+        22,
+        26,
+        28
+      ],
+      "unchanged_pages": [
+        1,
+        2,
+        4,
+        8,
+        9,
+        11,
+        13,
+        15,
+        16,
+        17,
+        18,
+        23,
+        24,
+        25,
+        27,
+        29,
+        30,
+        31,
+        32
+      ],
+      "all32_final_render_hashes_verified": true,
+      "previous_render_record_sha256": "7283ac0c24db2ca69be97abae002d7616629ab7c87c7b45fa91c1d70cf491ecf",
+      "targeted_render_receipt_sha256": "f4d59aa170aed521311214974b1b5e13f363dd07c6357918814b7080275e7d2e"
+    },
+    "page_coverage_comparison": [
+      {
+        "page": 1,
+        "prior_painted_image_fraction_of_page": 0.326,
+        "current_painted_image_fraction_of_page": 0.85953
+      },
+      {
+        "page": 13,
+        "prior_painted_image_fraction_of_page": 0.47729,
+        "current_painted_image_fraction_of_page": 0.82189
+      },
+      {
+        "page": 15,
+        "prior_painted_image_fraction_of_page": 0.57143,
+        "current_painted_image_fraction_of_page": 0.87909
+      },
+      {
+        "page": 16,
+        "prior_painted_image_fraction_of_page": 0.42876,
+        "current_painted_image_fraction_of_page": 0.67352
+      },
+      {
+        "page": 17,
+        "prior_painted_image_fraction_of_page": 0.40969,
+        "current_painted_image_fraction_of_page": 0.67531
+      },
+      {
+        "page": 23,
+        "prior_painted_image_fraction_of_page": 0.47251,
+        "current_painted_image_fraction_of_page": 0.88172
+      },
+      {
+        "page": 24,
+        "prior_painted_image_fraction_of_page": 0.52029,
+        "current_painted_image_fraction_of_page": 0.87016
+      },
+      {
+        "page": 27,
+        "prior_painted_image_fraction_of_page": 0.51213,
+        "current_painted_image_fraction_of_page": 0.88176
+      },
+      {
+        "page": 29,
+        "prior_painted_image_fraction_of_page": 0.51239,
+        "current_painted_image_fraction_of_page": 0.80465
+      },
+      {
+        "page": 30,
+        "prior_painted_image_fraction_of_page": 0.48268,
+        "current_painted_image_fraction_of_page": 0.8835
+      },
+      {
+        "page": 31,
+        "prior_painted_image_fraction_of_page": 0.52757,
+        "current_painted_image_fraction_of_page": 0.87979
+      },
+      {
+        "page": 32,
+        "prior_painted_image_fraction_of_page": 0.33104,
+        "current_painted_image_fraction_of_page": 0.87979
+      }
+    ],
+    "coverage_limit": "Painted image area only, not an artistic score; compact local caption lanes on crowded source views and cropped-detail softness require exact human review.",
+    "before_after_montage_sha256": "e609ac6436e6ea06c49756cedaec8748dd50cbdf4b6a8e2d0d8d032af4b96309"
+  },
+  "regression": {
+    "status": "PASS",
+    "actual_root_process_exit_code": 0,
+    "distinct_trusted_probe_exits": 82,
+    "all_probe_process_exit_codes": 0,
+    "godot_baseline": "4.7.2.stable.official.ed1daf0bf",
+    "log": "assets_src/books/rumi_manga_feast_20261011/verification/full_ci.log",
+    "log_sha256": "9cbcfd70a50d18ef3bd0c19420a63a5df9286415b13ec54cb23ff6b5a5269a59",
+    "acceptance_limit": "Global visual audit remains UNSATISFIED; green machine checks do not establish owner/child/print/device/release acceptance."
+  },
+  "independent_machine_review": {
+    "status": "PASS",
+    "reviewer": "story_editor",
+    "exact_pdf_sha256": "0812d04e2005a517b865a75dd7c1341baedae9321809582d1ecd7178c87aee4c",
+    "evidence": "Actual32-page PDF,133panels/127story,1357words/159entries; original normalized story sequence and page extraction order;36 source hashes/dimensions,4 fonts/4 contacts,3 native/prompt outputs and5 bound refs; zero lettering-box collisions. Fresh scale2 renders of actual final PDF are pixel-identical to every saved PNG. Targeted receipts confirm13/19 versus ec273 and2/30 versus723f."
+  }
+}

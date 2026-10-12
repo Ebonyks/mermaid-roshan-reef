@@ -1,0 +1,120 @@
+{
+  "id": "rumi-manga-feast-20261011",
+  "scope": "Owner correction of the new under-pool book: enlarge and lavishly fill the couch feast table on pages16-17, replace oversized rounded page cards with tighter manga panel composition and compact lettering throughout exactly32 pages. Named crowded source views use small local caption lanes to preserve acting. Preserve original prose/cast/canon, previous editions and protected sources. Source-only static book; no game or external handoff.",
+  "baseline": "3d662deea4bcb7b97277e4d0c534c6304e6e8023",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-VIS-01",
+    "DL-VIS-02",
+    "DL-VIS-03",
+    "DL-VIS-04",
+    "DL-VIS-05",
+    "DL-VIS-06",
+    "DL-READ-01",
+    "DL-READ-03",
+    "DL-ASSET-01",
+    "DL-ASSET-02",
+    "DL-ASSET-03",
+    "DL-ASSET-04",
+    "DL-ASSET-05",
+    "DL-ASSET-06",
+    "DL-ASSET-08",
+    "DL-PLAN-02",
+    "DL-PLAN-03",
+    "DL-PLAN-05",
+    "DL-PLAN-06"
+  ],
+  "findings": [
+    "MA-DOC-008",
+    "MA-VIS-006",
+    "MA-ROSHAN-005"
+  ],
+  "finding_scope": "Contextual source authority, visual composition and one-tail anatomy review; all remain CONFIRMED_OPEN. This static source revision closes no runtime finding.",
+  "files": [
+    "ASSET_LICENSES.md",
+    "audit/MASTER_AUDIT_2026-08-09.md",
+    "design/05_DOC_LEDGER.md",
+    "design/chapters/RUMI_UNDERPOOL_BOOK_20261009.md",
+    "assets_src/books/rumi_manga_feast_20261011/.gitattributes",
+    "assets_src/books/rumi_manga_feast_20261011/build_comic.py",
+    "assets_src/books/rumi_manga_feast_20261011/comic_script.json",
+    "assets_src/books/rumi_manga_feast_20261011/MANUSCRIPT.txt",
+    "assets_src/books/rumi_manga_feast_20261011/README.txt",
+    "assets_src/books/rumi_manga_feast_20261011/art_jobs.json",
+    "assets_src/books/rumi_manga_feast_20261011/generation_manifest.json",
+    "assets_src/books/rumi_manga_feast_20261011/native/16_couch_feast.png",
+    "assets_src/books/rumi_manga_feast_20261011/native/17_feast_interrupted.png",
+    "assets_src/books/rumi_manga_feast_20261011/native/review/17_feast_interrupted_take1.png",
+    "assets_src/books/rumi_manga_feast_20261011/output/pdf/Mermaid_Roshan_Song_Beneath_the_Pool_Manga_32_Pages.pdf",
+    "assets_src/books/rumi_manga_feast_20261011/verification/MANGA_REVIEW.json",
+    "assets_src/books/rumi_manga_feast_20261011/verification/book_check.json",
+    "assets_src/books/rumi_manga_feast_20261011/verification/previous_render_hashes.json",
+    "assets_src/books/rumi_manga_feast_20261011/verification/targeted_render_receipt.json",
+    "assets_src/books/rumi_manga_feast_20261011/verification/document_gates.log",
+    "assets_src/books/rumi_manga_feast_20261011/verification/full_ci.log",
+    "assets_src/books/rumi_manga_feast_20261011/verification/pdf_contact_01.png",
+    "assets_src/books/rumi_manga_feast_20261011/verification/pdf_contact_02.png",
+    "assets_src/books/rumi_manga_feast_20261011/verification/pdf_contact_03.png",
+    "assets_src/books/rumi_manga_feast_20261011/verification/pdf_contact_04.png",
+    "assets_src/books/rumi_manga_feast_20261011/verification/before_after_16_17.png"
+  ],
+  "validation": [
+    {
+      "command": "Task-start and completion master/design/finding/ledger/chapter/source inventory review",
+      "result": "PASS",
+      "evidence": "Fresh origin fetch; clean task baseline3d662deea4bcb7b97277e4d0c534c6304e6e8023; scoped codex/rumi-manga-feast-20261011 branch. Read/rechecked master planning/index, DL-AUTH05-07, applicable visual/readability/source/commission rules, related open findings, current ledger/brief and development/chapter contracts. Original16/17 and prior rendered pages inspected before generation; only named foreground banquet gap warranted new art. No finding lifecycle/authority escalation."
+    },
+    {
+      "command": "Iterative rendered-page and native-art review, independent full32-page/targeted review",
+      "result": "PASS",
+      "evidence": "verification/MANGA_REVIEW.json records actual observations, rejected layout/food candidate, corrections and final human candidate review at0812d04e2005a517b865a75dd7c1341baedae9321809582d1ecd7178c87aee4c. All32 pages full-inspected;13 corrected pages and final2 re-inspected, with unchanged render equivalence. Thin square frames/compact lettering replace oversized cards. Consistent lavish feast16-17; expressive Hana, full Duri/Magician, source contact and plot preserved. Three generation calls include one retained rejected17 take; generation_manifest.json binds full prompts/refs/outputs. Owner/child/print acceptance pending."
+    },
+    {
+      "command": "Bundled Python -B build_comic.py and independent final PDF/source/prose/geometry/render checks",
+      "result": "PASS",
+      "evidence": "verification/book_check.json and MANGA_REVIEW.json:32actual576x720pt pages,133total/127story panels,1357original story words,159complete entries; zero visible text-box collisions; all panels non-overlapping and page-fill gates pass. PDF bytes51154215, SHA256 0812d04e2005a517b865a75dd7c1341baedae9321809582d1ecd7178c87aee4c;36 source hashes/dimensions and4 font/contact hashes verified. story_editor independently freshly rendered actual final PDF and all32 pixels match saved PNGs. targeted_render_receipt.json / previous_render_hashes.json preserve exact review-chain hashes. Minimum source-art containment0.75873 applies only to declared compact local lanes; it is not an artistic acceptance score."
+    },
+    {
+      "command": "python -B tools/audit_document_authority.py; python -B tools/audit_development.py --base auto",
+      "result": "PASS",
+      "evidence": "verification/document_gates.log: DOCAUTH686/686 inventory/ledger,68active/71records ALL OK exit0. AUDITDEV base245e9c543be771d297b60dafb91b8a3baf73e211 ALL OK exit0. Final current brief/master/ledger facts record133panels/1357words and scoped owner correction; no finding closure."
+    },
+    {
+      "command": "C:/Program Files/Git/bin/bash.exe --noprofile --norc scripts/ci.sh",
+      "result": "PASS",
+      "evidence": "verification/full_ci.log SHA2569cbcfd70a50d18ef3bd0c19420a63a5df9286415b13ec54cb23ff6b5a5269a59. Actual root process exit0; all82 distinct trusted probe process exits0; exact resolver-selected Godot4.7.2.stable.official.ed1daf0bf. Runtime/scripts/scenes/tools/protected sources and all three prior books frozen at task baseline throughout; final static-art/doc checks run separately. Global UNSATISFIED retained."
+    },
+    {
+      "command": "git diff --exit-code 3d662deea4bcb7b97277e4d0c534c6304e6e8023 -- assets scripts scenes project.godot tools and all three previous book folders",
+      "result": "PASS",
+      "evidence": "Independent final helper exits0 with empty output. This new source folder is excluded from runtime import by existing assets_src/.gdignore; no original, voice, friend, earlier-book, game-tool or runtime file changes."
+    },
+    {
+      "command": "git diff --check and git diff --cached --check",
+      "result": "PASS",
+      "evidence": "Both final working-tree and staged whitespace checks exit0. The first staged check flagged preserved Windows CRLF in literal-hashed source JSON/TXT; packet-local attributes explicitly recognize CR at EOL while retaining blank-at-eol, blank-at-eof and space-before-tab checks. Source/provenance bytes and final PDF remain unchanged."
+    },
+    {
+      "command": "Changed GDScript parser and inference gates",
+      "result": "NOT_APPLICABLE",
+      "evidence": "No GDScript or runtime files changed; full local CI runs existing applicable gates."
+    }
+  ],
+  "acceptance_gaps": "Owner visual/story acceptance and child read-aloud review remain outstanding. Static PDF is not a print-production or runtime acceptance claim. Device and release gates are not exercised; game-wide master remains UNSATISFIED. New feast edits use built-in ImageGen only for the named foreground tabletop gap, with separately archived prompts and provenance.",
+  "lessons": [
+    {
+      "lesson": "Per-panel image/text-bounds checks can pass while actual visible boxes overlap or whole-page geometry has large holes. Pairwise visible-box and page-wide empty-band checks catch different failures; exact rendered-page review is still required.",
+      "write_back": "assets_src/books/rumi_manga_feast_20261011/build_comic.py"
+    },
+    {
+      "lesson": "Suppressing comic speaker labels needs an exact tail/off-panel attribution review. Compact source-specific caption lanes are preferable to covering eyes, contact or the feast when the original strip has no quiet lettering space.",
+      "write_back": "assets_src/books/rumi_manga_feast_20261011/verification/MANGA_REVIEW.json"
+    },
+    {
+      "lesson": "Added detail panels should have an expressive or physical story purpose. Repeated enlarged soft fin crops feel like padding; an existing speaker reaction plus one narrow action detail uses the same source art more effectively.",
+      "write_back": "assets_src/books/rumi_manga_feast_20261011/comic_script.json"
+    }
+  ]
+}

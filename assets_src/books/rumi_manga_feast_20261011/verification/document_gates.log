@@ -1,0 +1,24 @@
+Task baseline: 3d662deea4bcb7b97277e4d0c534c6304e6e8023
+Source-only static book; no runtime, protected-original or previous-edition change.
+
+COMMAND: python -B tools/audit_document_authority.py
+DOCAUTH|INVENTORY=686|LEDGER=686|ACTIVE=68|RECORDS=71
+DOCAUTH|RESULT|ALL OK
+PROCESS EXIT: 0
+
+COMMAND: python -B tools/audit_development.py --base auto
+AUDITDEV|BASE|245e9c543be771d297b60dafb91b8a3baf73e211
+AUDITDEV|RESULT|ALL OK
+PROCESS EXIT: 0
+
+Full local CI: scripts/ci.sh; actual process exit 0; all 82 trusted probe exits 0.
+Exact engine: GODOTBASELINE|ALL OK|4.7.2-stable|official.ed1daf0bf
+Full CI SHA-256: 9cbcfd70a50d18ef3bd0c19420a63a5df9286415b13ec54cb23ff6b5a5269a59
+Machine regression is separate from exact rendered-page, owner, child and print review.
+Global master audit remains UNSATISFIED; no finding lifecycle is changed.
+
+Final staged document-authority recheck: DOCAUTH686/686 inventory/ledger,68active/71records ALL OK; actual process exit0.
+Final staged development recheck: AUDITDEV base245e9c543be771d297b60dafb91b8a3baf73e211 ALL OK; actual process exit0.
+git diff --check: actual process exit0.
+git diff --cached --check: actual process exit0.
+First staged whitespace check flagged literal-preserved Windows CRLF in source JSON/TXT. Packet-local whitespace attributes now recognize CR at EOL while retaining ordinary whitespace checks; source/provenance bytes and PDF are unchanged.

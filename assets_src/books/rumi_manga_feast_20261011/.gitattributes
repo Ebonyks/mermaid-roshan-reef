@@ -1,0 +1,9 @@
+output/pdf/*.pdf binary
+native/*.png binary
+native/review/*.png binary
+verification/*.png binary
+verification/*.log binary
+# Literal script/provenance hashes must survive Windows checkout conversion.
+*.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+*.txt -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+*.py text eol=lf

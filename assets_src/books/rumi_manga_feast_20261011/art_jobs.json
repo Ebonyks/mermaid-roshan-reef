@@ -1,0 +1,85 @@
+{
+  "scope": "Owner-directed larger extravagant foreground feast and source-preserving manga page layout",
+  "method": "OpenAI built-in ImageGen; two named table/food edits plus bounded Duri visibility repair",
+  "total_generation_calls": 3,
+  "cost_usage": "NOT_EXPOSED; no cost/token quantities invented",
+  "jobs": [
+    {
+      "id": "couch-feast-16",
+      "target": "assets_src/books/rumi_underpool_iteration_20261010/native/16_couch_rest.png",
+      "prompt": "EDIT TARGET: first attached image, the existing three-horizontal-panel bathhouse couch comic board. Perform a targeted foreground tabletop/food edit only, preserve the complete scene identity, all four mermaids and turtle, exact faces/hair/costumes/tail anatomy, expressions, hand positions, seating order, couch, mint bathhouse, lantern, blue city window, purple curtain, panel boundaries and the three story actions. Do not redraw the room or characters. The low coral-pink oval table is far too small and sparse: expand it into a broad lavish low banquet table spanning about 70-75% of each panel's width across the foreground, with the tabletop visibly extending toward the viewer. Keep the same table and serving groups in all three panels. Fill the table abundantly with Korean-inspired undersea bathhouse party food in the existing polished 2D inked manga/storybook appearance: scalloped shell platters piled with seaweed rice rolls, colorful rice cakes, golden snack dumplings, fruit fans, three little side-dish bowls, a central tiered shell tray of pastel sweets and several pearly shell cups. Organize food into 3 clear serving groups rather than scattered tiny noise. Give it generosity and visual abundance, charming extravagant banquet rather than one bowl. Food is below the faces and Duri's shell, and below upper bodies; it must not cover any face, expression, hand gesture, towel ears or turtle. Preserve visible tail silhouettes and especially enough of Hana's long teal fin in top panel and folded fin in middle panel to read the couch joke. Nari keeps her hand-held snack bowl. All cast remain modestly dressed with exactly one tail per mermaid; no additional people, no extra arms, no weapons, no crates, no letters. Preserve original panel camera and action; use only foreground local edit and a small local gap fill around the widened tabletop. Output the whole edited three-panel board at the same square composition, not a single scene.",
+      "references": [
+        {
+          "path": "assets_src/books/rumi_underpool_iteration_20261010/native/16_couch_rest.png",
+          "role": "edit_target"
+        }
+      ],
+      "maximum_takes": 2,
+      "takes_used": 1,
+      "status": "COMPLETED_VISUAL_CANDIDATE; OWNER_ACCEPTANCE_PENDING",
+      "invariants": "Same scene/cast/actions; local foreground table/food scope. Natural lower-fin occlusion handled by original fin detail crop in page layout.",
+      "reference_hashes": [
+        {
+          "path": "assets_src/books/rumi_underpool_iteration_20261010/native/16_couch_rest.png",
+          "sha256": "333a8cfdac66d3f2baa34f75c2b2a6d2d808de9ad7fa7253913e94d884996f8e"
+        }
+      ]
+    },
+    {
+      "id": "feast-interrupted-17",
+      "target": "assets_src/books/rumi_underpool_iteration_20261010/native/17_couch_interrupted.png",
+      "prompt": "EDIT TARGET IMAGE_1: existing three-horizontal-panel bathhouse couch interruption board. Supporting IMAGE_2: newly approved-for-this-edit feast board defines the MUCH LARGER coral-pink low banquet table, exact abundant food/platters/cups and their arrangement. Targeted foreground tabletop/food change only: replace the tiny sparse table in ALL THREE IMAGE_1 panels with the same big luxurious table and same three serving clusters from IMAGE_2. Table spans roughly 75-85% of frame width, low across foreground. Match the piled seaweed rice rolls and golden snacks at left, tiered pastel shell sweets at center with three small side-dish bowls, huge colorful fruit platter at right and four pearl shell cups. Lavishly abundant and visually extravagant. Match perspective of each original interruption panel, so this is the same feast moments later, not a different table. Preserve IMAGE_1 exact story actions and staging: top magician enters at purple curtain and everyone startled; middle Duri paddles forward to tell the imps about their banner/crates; bottom imps hurry through curtain as Roshan leads friends after them. Preserve ALL faces, expressions, hair, modest jackets, hands, body sizes, one-tail anatomy, Duri's floral shell and four flippers, Nari's bunny-ear towel and handheld snack bowl, magician top hat/red bowtie/trousers/shoes and performer imp purple glitter costume/banner. Keep cream couch, mint tiles, lanterns, window/city and purple curtain unchanged; do not copy seated poses from IMAGE_2 into IMAGE_1. The feast must never block a face, hand, shell, banner, torso or departing character. Keep table below the cast, lower tail surfaces may be naturally occluded. No crates appear here, no weapons, no extra people, no letters, no additional limbs, no new scenes. Preserve original three panel boundaries and camera; output the complete same square three-panel board in the existing polished inked 2D manga/storybook finish. Only local foreground food/table edit, no global scene or character redraw.",
+      "references": [
+        {
+          "path": "assets_src/books/rumi_underpool_iteration_20261010/native/17_couch_interrupted.png",
+          "role": "edit_target"
+        },
+        {
+          "path": "assets_src/books/rumi_manga_feast_20261011/native/16_couch_feast.png",
+          "role": "selected_feast_identity"
+        }
+      ],
+      "maximum_takes": 2,
+      "takes_used": 2,
+      "status": "COMPLETED_VISUAL_CANDIDATE; OWNER_ACCEPTANCE_PENDING",
+      "rejection": "Take1 hides Duri shell/flippers behind food in departure panel; source remains archived, excluded from PDF.",
+      "reference_hashes": [
+        {
+          "path": "assets_src/books/rumi_underpool_iteration_20261010/native/17_couch_interrupted.png",
+          "sha256": "4df12c9dd703bf42117d6f06b38a3fcb73687f6a4916b8e55d3e759ee27bdec0"
+        },
+        {
+          "path": "assets_src/books/rumi_manga_feast_20261011/native/16_couch_feast.png",
+          "sha256": "4e3b285003f4d78fd2bd4cba85aac6230b1b4864a8fc09e6d3a7e9f05a116886"
+        }
+      ]
+    },
+    {
+      "id": "feast-interrupted-17-take2",
+      "target": "assets_src/books/rumi_manga_feast_20261011/native/review/17_feast_interrupted_take1.png",
+      "prompt": "Edit IMAGE_1 only, a three-horizontal-panel book board. One tiny local correction in the BOTTOM THIRD PANEL: Duri, the lavender turtle swimming beside Nari on the right, is hidden behind the extravagant feast platter. Lift that same turtle slightly upward into the gap just above the right fruit platter so his complete mint floral shell, head and FOUR lavender swimming flippers are visible. Same turtle size and happy face, same rightward swimming/following action; anatomically one head and four flippers, no tail ribbon. IMAGE_2 is the original interruption board, a source reference for Duri's full body/swimming shape ONLY; do not copy its small sparse table. Preserve every other pixel/composition as closely as possible: the huge lavish food banquet/table and all food/platters/cups must remain abundant and unchanged, exact faces/hair/clothing/hand gestures/tails of all four mermaids, both imps leaving at right, banner, mint bathhouse/couch/lantern/window/curtain and all panel boundaries. Top and middle panels unchanged. Do not shrink the feast or redraw the characters or setting. Only local turtle visibility repair and tiny paint-gap fill where he was hidden. No text, no new people, no crates, no additional heads or flippers. Output the full same three-panel square board.",
+      "references": [
+        {
+          "path": "assets_src/books/rumi_manga_feast_20261011/native/review/17_feast_interrupted_take1.png",
+          "role": "local_edit_target"
+        },
+        {
+          "path": "assets_src/books/rumi_underpool_iteration_20261010/native/17_couch_interrupted.png",
+          "role": "original_turtle_action_reference"
+        }
+      ],
+      "bounded_action": "Second and final take for same page17 task; move Duri into visible swimming gap only.",
+      "status": "COMPLETED_VISUAL_CANDIDATE; OWNER_ACCEPTANCE_PENDING",
+      "reference_hashes": [
+        {
+          "path": "assets_src/books/rumi_manga_feast_20261011/native/review/17_feast_interrupted_take1.png",
+          "sha256": "41e9c1351f2ef77f68ae0deee93e46a9282608647b44cbec136133e48ded682d"
+        },
+        {
+          "path": "assets_src/books/rumi_underpool_iteration_20261010/native/17_couch_interrupted.png",
+          "sha256": "4df12c9dd703bf42117d6f06b38a3fcb73687f6a4916b8e55d3e759ee27bdec0"
+        }
+      ]
+    }
+  ]
+}
