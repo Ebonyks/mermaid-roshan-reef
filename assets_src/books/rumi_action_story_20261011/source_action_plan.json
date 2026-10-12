@@ -1,0 +1,1326 @@
+{
+  "schema_version": 1,
+  "id": "rumi-action-story-source-plan-20261011",
+  "status": "TEXT_AND_STAGING_SOURCE_CHECK_ONLY; NEW_ACTION_ILLUSTRATION_PENDING",
+  "review_date": "2026-10-11",
+  "scope": "Bounded source-action plan for bridge rescue pages9–14 and current-gate battle pages21–28. No artwork generation, old-scene redraw, runtime change or source-image edit.",
+  "story_binding": {
+    "path": "assets_src/books/rumi_action_story_20261011/story_script.json",
+    "sha256": "bf25c331b148bdd67451766df110da8b8da7c087e4fc3dfe51375ddc2802cd62",
+    "page_count": 32,
+    "panel_count": 130,
+    "source_revision": "7b5c0faff45706520f2f94c8958686d8446e6c88"
+  },
+  "claims": {
+    "new_image_pixels_delivered": false,
+    "new_illustrated_action_reviewed": false,
+    "owner_art_acceptance": false,
+    "child_acceptance": false,
+    "print_acceptance": false,
+    "runtime_integration": false,
+    "source_check_only": true
+  },
+  "preservation": {
+    "prior_illustrated_editions": [
+      "assets_src/books/rumi_underpool_20261009/",
+      "assets_src/books/rumi_underpool_20261010/",
+      "assets_src/books/rumi_underpool_iteration_20261010/",
+      "assets_src/books/rumi_manga_feast_20261011/"
+    ],
+    "instruction": "Preserve original scripts, native art, PDFs and receipts at existing paths. This new proof is text/staging only; no old pixels are redrawn or claimed as newly illustrated actions.",
+    "source_authority": "All listed book sources are source-only scene/appearance candidates, not owner-accepted new artwork. Prior visual candidate clearance does not accept this expanded script's new geometry or illustrations.",
+    "provenance_sources": [
+      "assets_src/books/rumi_underpool_20261009/generation_manifest.json",
+      "assets_src/books/rumi_underpool_20261010/generation_manifest.json",
+      "assets_src/books/rumi_manga_feast_20261011/generation_manifest.json"
+    ]
+  },
+  "review_basis": {
+    "applicable_rules": [
+      "DL-AUTH-05",
+      "DL-AUTH-06",
+      "DL-AUTH-07",
+      "DL-VIS-01",
+      "DL-VIS-02",
+      "DL-VIS-03",
+      "DL-VIS-04",
+      "DL-VIS-05",
+      "DL-VIS-06",
+      "DL-READ-01",
+      "DL-READ-03",
+      "DL-ASSET-01",
+      "DL-ASSET-02",
+      "DL-ASSET-03",
+      "DL-ASSET-04",
+      "DL-ASSET-05",
+      "DL-ASSET-06",
+      "DL-ASSET-08",
+      "DL-PLAN-02",
+      "DL-PLAN-03",
+      "DL-PLAN-05",
+      "DL-PLAN-06"
+    ],
+    "related_open_findings": [
+      "MA-DOC-008",
+      "MA-VIS-006",
+      "MA-ROSHAN-005"
+    ],
+    "finding_closure_claim": false,
+    "method": "Read frozen story stages; inspect representative native boards and previously reviewed actual manga pages; hash source bytes and read PNG dimensions. Distinguish pictured poses/endpoints from missing elapsed actions. No numeric art score or generation campaign.",
+    "representative_native_sources_viewed": [
+      "BRIDGE_LEAF",
+      "TRAPPED",
+      "ASSESS",
+      "RESCUE",
+      "RECOVERY",
+      "IMP_REFUSAL",
+      "TRIO_STAGE",
+      "OLD_BATTLE",
+      "LOW_CURRENT",
+      "SOFT_LANDING",
+      "TWO_OUT",
+      "TEAM_OPEN",
+      "CURRENT_RETURN"
+    ]
+  },
+  "source_catalog": [
+    {
+      "path": "assets_src/books/rumi_underpool_20261010/native/04_swim_tram.png",
+      "sha256": "c08f7c63c7cd5b9ce49e63802295c6cb17d919f9d1814151b7e6499fef13cff4",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "id": "BRIDGE_LEAF",
+      "pictured_support": "Tram above bridge, leaf/current curl, low swimming route; no pulse or pillar-grip acting.",
+      "acceptance_scope": "SOURCE_ONLY_CANDIDATE; NOT_OWNER_ACCEPTED_NEW_ART"
+    },
+    {
+      "path": "assets_src/books/rumi_underpool_20261010/native/10_follow_tapping.png",
+      "sha256": "417f4321c38057f7273ef082d9ec005c15d60e1dc886b03a777a9fa72353d395",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "id": "ARCH_ROUTE",
+      "pictured_support": "Two arches, listening choice, Rumi holding kelp aside; no wrong-route return or four-person pulse hold.",
+      "acceptance_scope": "SOURCE_ONLY_CANDIDATE; NOT_OWNER_ACCEPTED_NEW_ART"
+    },
+    {
+      "path": "assets_src/books/rumi_underpool_20261009/native/spread_05_hear_turtle_v2.png",
+      "sha256": "e2c3ef68a08f1b279b848ad79fd6ceb492e012d2798677ac2d3da91590cdab22",
+      "dimensions": [
+        1774,
+        887
+      ],
+      "id": "TRAPPED",
+      "pictured_support": "Right scene pictures Duri, cloth, two crates and Roshan/Rumi approaching; no demonstrated sloping-floor geometry.",
+      "acceptance_scope": "SOURCE_ONLY_CANDIDATE; NOT_OWNER_ACCEPTED_NEW_ART"
+    },
+    {
+      "path": "assets_src/books/rumi_underpool_20261010/native/12_rescue_plan.png",
+      "sha256": "1a21d9796da39542ac0e10f8ef281a4604db3b814f5fb53a689d79fca0fe15e4",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "id": "ASSESS",
+      "pictured_support": "Top reassurance; middle Hana push/Roshan stop; bottom cloth inspection/lift preparation.",
+      "acceptance_scope": "SOURCE_ONLY_CANDIDATE; NOT_OWNER_ACCEPTED_NEW_ART"
+    },
+    {
+      "path": "assets_src/books/rumi_underpool_20261009/native/spread_06_rescue_duri.png",
+      "sha256": "f365b3ca926237d77b2151228e6863552653aba6f2dad7604695c0bd34282641",
+      "dimensions": [
+        1774,
+        887
+      ],
+      "id": "RESCUE",
+      "pictured_support": "Left cloth lift/crate brace; middle Duri emerging; right relief. Intermediate displacement is absent.",
+      "acceptance_scope": "SOURCE_ONLY_CANDIDATE; NOT_OWNER_ACCEPTED_NEW_ART"
+    },
+    {
+      "path": "assets_src/books/rumi_underpool_20261010/native/14_free_friend.png",
+      "sha256": "2d2e51cd12c8425a1412d38267d3757b201e515ca9bbb3379ca3cbca8d5785f2",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "id": "RECOVERY",
+      "pictured_support": "Flipper/hand contact, Rumi holding full basket, shared tapping; no eddy or loose-bell collection.",
+      "acceptance_scope": "SOURCE_ONLY_CANDIDATE; NOT_OWNER_ACCEPTED_NEW_ART"
+    },
+    {
+      "path": "assets_src/books/rumi_underpool_20261010/native/21_ask_imps.png",
+      "sha256": "04b10191f0ec982daeb75aecd71b6a8618e3acabbb4ac85c2d58a918b7a3ed99",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "id": "GATE_REQUEST",
+      "pictured_support": "Request, defensive performer and silent audience; previous crate geography is not the new floor plan.",
+      "acceptance_scope": "SOURCE_ONLY_CANDIDATE; NOT_OWNER_ACCEPTED_NEW_ART"
+    },
+    {
+      "path": "assets_src/books/rumi_underpool_20261010/native/22_imp_refusal.png",
+      "sha256": "8d0d159c593be9d48780bca53fbf909a029dba6142b05d827e5b3e1d81ea70d8",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "id": "IMP_REFUSAL",
+      "pictured_support": "Refusal, hat/bubble puff, star launch, opened catcher; no sustained timing or new crate layout.",
+      "acceptance_scope": "SOURCE_ONLY_CANDIDATE; NOT_OWNER_ACCEPTED_NEW_ART"
+    },
+    {
+      "path": "assets_src/books/rumi_underpool_20261009/native/spread_10_concert_fight_start.png",
+      "sha256": "21e1dd98a6fd2ecf11a6df84b152ac92e4af131e7f56f1354d6cbcbdefc8d413",
+      "dimensions": [
+        1774,
+        887
+      ],
+      "id": "TRIO_STAGE",
+      "pictured_support": "Trio performs while Roshan approaches below; several crops remain one simultaneous scene.",
+      "acceptance_scope": "SOURCE_ONLY_CANDIDATE; NOT_OWNER_ACCEPTED_NEW_ART"
+    },
+    {
+      "path": "assets_src/books/rumi_underpool_20261009/native/spread_11_bubble_battle.png",
+      "sha256": "bfb1ecef05a6b96809a9d188ea016024f70b1d8218284367bfd1fb467457a956",
+      "dimensions": [
+        1774,
+        887
+      ],
+      "id": "OLD_BATTLE",
+      "pictured_support": "Actual duck/pivot/star catch and a magician fall; whole lower strip has outdated three-crate geometry.",
+      "acceptance_scope": "SOURCE_ONLY_CANDIDATE; NOT_OWNER_ACCEPTED_NEW_ART"
+    },
+    {
+      "path": "assets_src/books/rumi_underpool_20261010/native/24_bubble_route_v2.png",
+      "sha256": "06e30658a761478257c7405a9310d2b60337d813cf3e8cc243401751fc9c18c2",
+      "dimensions": [
+        1312,
+        1199
+      ],
+      "id": "LOW_CURRENT",
+      "pictured_support": "Blue thread beneath blocked arch, Nari listens, Roshan low approach/Rumi evasion; selected v2 only.",
+      "acceptance_scope": "SOURCE_ONLY_CANDIDATE; NOT_OWNER_ACCEPTED_NEW_ART"
+    },
+    {
+      "path": "assets_src/books/rumi_underpool_20261010/native/25_cushion_landing.png",
+      "sha256": "ecf7aacae4b7e2e880a6f5dc0e33565200378185163054abd2daf9af7a5eec20",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "id": "SOFT_LANDING",
+      "pictured_support": "Star in catcher/return flight, performer landing, both imps resting; no drum-rim nudge or guided magician.",
+      "acceptance_scope": "SOURCE_ONLY_CANDIDATE; NOT_OWNER_ACCEPTED_NEW_ART"
+    },
+    {
+      "path": "assets_src/books/rumi_underpool_20261010/native/26_two_crates.png",
+      "sha256": "6fbb193559be0c1cdd824286323b4c0afb79e0c9a853537020e7352c8c79e41a",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "id": "TWO_OUT",
+      "pictured_support": "Two smaller crates at side, Roshan's handle/banner pull, invitation for help; no individual Roshan/Rumi moves or jamb snag.",
+      "acceptance_scope": "SOURCE_ONLY_CANDIDATE; NOT_OWNER_ACCEPTED_NEW_ART"
+    },
+    {
+      "path": "assets_src/books/rumi_underpool_20261009/native/spread_12_roshan_opens_gate.png",
+      "sha256": "3e303bec5c495daa43a5d77ec69fb7f65103b0545ee803955539f8bc4d057fa7",
+      "dimensions": [
+        1774,
+        887
+      ],
+      "id": "TEAM_OPEN",
+      "pictured_support": "Team pull, open arch and Duri passing; taut-cloth endpoint cannot prove the preceding slack-cloth rotation.",
+      "acceptance_scope": "SOURCE_ONLY_CANDIDATE; NOT_OWNER_ACCEPTED_NEW_ART"
+    },
+    {
+      "path": "assets_src/books/rumi_underpool_20261010/native/27_current_returns.png",
+      "sha256": "89f55f3c6dfbbe002246e21f2f109c4636818a615d1dc7d089092abbb34bb08a",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "id": "CURRENT_RETURN",
+      "pictured_support": "Open arch/blue current, three side crates and city response; side crates are stacked in old view.",
+      "acceptance_scope": "SOURCE_ONLY_CANDIDATE; NOT_OWNER_ACCEPTED_NEW_ART"
+    },
+    {
+      "path": "assets_src/books/rumi_underpool_20261009/native/cast_identity.png",
+      "sha256": "eba965d569e145bf0440674f18af76e3f1aed3c0359e396c67c62a4182751946",
+      "dimensions": [
+        1774,
+        887
+      ],
+      "id": "CAST_IDENTITY",
+      "pictured_support": "Established Roshan/Rumi/Hana/Nari candidate identities; appearance reference only.",
+      "acceptance_scope": "SOURCE_ONLY_CANDIDATE; NOT_OWNER_ACCEPTED_NEW_ART"
+    },
+    {
+      "path": "assets_src/books/rumi_underpool_20261009/native/city_concept_source.png",
+      "sha256": "6cf86f799132ede85df803e29abc69fd52ca81076caca8288e41ead72c11f54d",
+      "dimensions": [
+        1672,
+        941
+      ],
+      "id": "CITY_LANGUAGE",
+      "pictured_support": "Korean mermaid city palette/landmark vocabulary; not proof of the new current-flow map.",
+      "acceptance_scope": "SOURCE_ONLY_CANDIDATE; NOT_OWNER_ACCEPTED_NEW_ART"
+    }
+  ],
+  "shared_staging_review": {
+    "world": "All action remains inside Pearl Castle beneath Rumi's existing magical swimming pool; no new portal or power source.",
+    "current_direction": "Music room → shell-stage arch → shops → bathhouse → tram. Establish this before blocking/restoring it; planning arrows are not delivery pixels.",
+    "geography": "Bridge rescue has two crates on a new sloped recess with adjacent flat patches. Stage battle has a separate large rear crate plus two smaller forward crates, all floor-supported and unstacked; arch low/centre, stage above, clear storage bay right/outside outflow, safe pillar left/rear.",
+    "contact": "Hands touch the object they affect. Draw grips, releases, cloth tension/slack, corner clearance and support surfaces before declaring motion. Keep Duri and observers outside moving-crate/pivot paths.",
+    "focal_action": "One primary physical beat per panel; action/reaction/detail crops may explain that beat but cannot manufacture a new elapsed state.",
+    "identity_and_anatomy": "Roshan brown waves/rainbow forelock and iridescent rainbow tail; Rumi purple braid/cyan-lavender tail; Hana copper waves/celadon tail; Nari navy bob/lavender tail. Exactly one continuous scaled tail and one fin per mermaid, no feet, duplicate tails or fabric resembling another tail. Duri keeps rigid mint-floral shell and exactly four lavender flippers. Imps retain costumes, purple hands, trousers/shoes; no new cape/gloves.",
+    "manga_staging": "Use visible anticipation → contact → gained state, varied wide/action/reaction framing and short dialogue. Preserve reading order and faces/hands/props; keep sound effects away from the contact evidence. Show safe settles and give rescue/current opening a larger payoff panel."
+  },
+  "outside_sequence_dependencies": [
+    {
+      "panels": [
+        "p03.1",
+        "p03.2"
+      ],
+      "dependency": "New connected landmark/current-flow plan must be drawn. Existing city source supplies appearance but not this exact map."
+    },
+    {
+      "panels": [
+        "p04.2"
+      ],
+      "dependency": "The tram-driven water pulse and hand/pillar hold must be illustrated before rescue repeats them. BRIDGE_LEAF only pictures approach, leaf and swim."
+    },
+    {
+      "panels": [
+        "p19.3",
+        "p20.1"
+      ],
+      "dependency": "Storage bay needs enough coplanar support for all three crates and an entry permitting sliding without a vertical jump. Old raised/stacked gate art is not proof. New short side-jamb projection/open forecourt must be drawable before the p26–28 snag/turn."
+    }
+  ],
+  "sequences": [
+    {
+      "id": "A_BRIDGE_RESCUE",
+      "pages": [
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "intended_panel_count": 32,
+      "gained_states": [
+        "Correct low route found.",
+        "Loop loosened and lifted; never re-entangled.",
+        "Duri freed; both bridge crates flat/stable.",
+        "Basket and every loose bell recovered; load shared."
+      ],
+      "pages_detail": [
+        {
+          "page": 9,
+          "title": "Follow the tapping",
+          "focal_beat": "Reject the loud echo and choose the faint low route.",
+          "intended_causal_states": [
+            {
+              "panel_id": "p09.1",
+              "stage": "Nari stops drumming. Roshan separates irregular tapping from a bell ringing."
+            },
+            {
+              "panel_id": "p09.2",
+              "stage": "They reach the bridge. Sound seems to come from two arches; show left kelp route and right open echo chamber."
+            },
+            {
+              "panel_id": "p09.3",
+              "stage": "Hana swims toward the loud echo, finds an empty recess and turns back. A meaningful wrong first route."
+            },
+            {
+              "panel_id": "p09.4",
+              "stage": "Roshan holds still; Nari leaves a silent gap. A faint tap comes from the low kelp arch."
+            },
+            {
+              "panel_id": "p09.5",
+              "stage": "Roshan follows a leaf toward the low arch. Rumi keeps Hana and Nari together."
+            }
+          ],
+          "existing_source_anchors": [
+            {
+              "source_id": "ARCH_ROUTE",
+              "native_region": "top/middle strips",
+              "pictured_support_and_limit": "Pictures two arches and listening toward kelp; not Hana's wrong-route excursion or return."
+            },
+            {
+              "source_id": "BRIDGE_LEAF",
+              "native_region": "middle strip",
+              "pictured_support_and_limit": "Pictures a leaf curling under the bridge; not this four-person route."
+            }
+          ],
+          "new_action_gaps": [
+            {
+              "panel_id": "p09.1",
+              "missing_pictured_action": "Nari's visible drum stop while Roshan distinguishes knocking."
+            },
+            {
+              "panel_id": "p09.3",
+              "missing_pictured_action": "Hana enters the empty echo recess, then turns back."
+            },
+            {
+              "panel_id": "p09.4",
+              "missing_pictured_action": "Silent interval and faint knock assigned to the low arch."
+            },
+            {
+              "panel_id": "p09.5",
+              "missing_pictured_action": "Leaf-guided four-friend departure in the established arch orientation."
+            }
+          ],
+          "geography_contact_and_focal_review": [
+            "Establish both arches before isolating a listening face.",
+            "Keep the leaf and low kelp opening in the same direction across the decision.",
+            "A closer crop of the two-arch scene cannot depict the new wrong-route result."
+          ],
+          "illustration_status": "PENDING; ANCHORS_ARE_NOT_NEW_ACTION_PIXELS"
+        },
+        {
+          "page": 10,
+          "title": "Through the low arch",
+          "focal_beat": "Apply the earlier swimming lesson: hold through the pulse, then enter safely.",
+          "intended_causal_states": [
+            {
+              "panel_id": "p10.1",
+              "stage": "A tram approaches above. The fronds begin to lean; Roshan recognises the setup from p4."
+            },
+            {
+              "panel_id": "p10.2",
+              "stage": "Pulse passes; all four maintain their holds. No separation or injury."
+            },
+            {
+              "panel_id": "p10.3",
+              "stage": "Rumi keeps kelp aside once the pulse settles. Roshan leads with a small tail turn."
+            },
+            {
+              "panel_id": "p10.4",
+              "stage": "Nari carries drum close to chest through the gap rather than letting it snag."
+            },
+            {
+              "panel_id": "p10.5",
+              "stage": "At the inner recess they see Duri tapping from between two crates. Clear establishing view before close-ups."
+            }
+          ],
+          "existing_source_anchors": [
+            {
+              "source_id": "BRIDGE_LEAF",
+              "native_region": "top/bottom strips",
+              "pictured_support_and_limit": "Tram/bridge and low swim silhouettes are pictured; pillar grips and pulse are absent."
+            },
+            {
+              "source_id": "ARCH_ROUTE",
+              "native_region": "bottom strip",
+              "pictured_support_and_limit": "Rumi holds fronds as Roshan enters; no four-person grip/release sequence."
+            },
+            {
+              "source_id": "TRAPPED",
+              "native_region": "right scene",
+              "pictured_support_and_limit": "Duri in a lantern-lit two-crate recess provides the discovery endpoint."
+            }
+          ],
+          "new_action_gaps": [
+            {
+              "panel_id": "p10.1",
+              "missing_pictured_action": "Recognise approaching tram and place hands on the pillar."
+            },
+            {
+              "panel_id": "p10.2",
+              "missing_pictured_action": "All four hold while water/fronds sweep sideways; entry remains blocked."
+            },
+            {
+              "panel_id": "p10.3",
+              "missing_pictured_action": "Release grips after the pulse and pass one at a time."
+            },
+            {
+              "panel_id": "p10.4",
+              "missing_pictured_action": "Nari brings the drum close through the same narrow opening."
+            },
+            {
+              "panel_id": "p10.5",
+              "missing_pictured_action": "Discovery view connecting the route to the revised sloped recess."
+            }
+          ],
+          "geography_contact_and_focal_review": [
+            "Show hand/pillar contact, not free-floating actors labelled as holding.",
+            "The tram pulse must be introduced in p04.2 before this payoff.",
+            "Keep tails/drum within the available opening without body or fin clipping."
+          ],
+          "illustration_status": "PENDING; ANCHORS_ARE_NOT_NEW_ACTION_PIXELS"
+        },
+        {
+          "page": 11,
+          "title": "Caught in the banner",
+          "focal_beat": "The first push tightens the cloth; Roshan stops it.",
+          "intended_causal_states": [
+            {
+              "panel_id": "p11.1",
+              "stage": "Two empty concert prop crates rest on a sloping stone ledge. Duri fits between them but cannot turn his shell. Banner loop catches his shell and nearer crate corner."
+            },
+            {
+              "panel_id": "p11.2",
+              "stage": "Close on loop and floral shell; no neck constriction, wounds or frightening crushing."
+            },
+            {
+              "panel_id": "p11.3",
+              "stage": "Duri taps crate with one free flipper. Roshan answers by touching the same crate."
+            },
+            {
+              "panel_id": "p11.4",
+              "stage": "Hana begins pushing the nearer crate; the cloth draws tight instead of freeing Duri."
+            },
+            {
+              "panel_id": "p11.5",
+              "stage": "Roshan immediately stops the push. All hands hold stable; Duri remains safe."
+            }
+          ],
+          "existing_source_anchors": [
+            {
+              "source_id": "TRAPPED",
+              "native_region": "right scene",
+              "pictured_support_and_limit": "Duri/cloth/two crates are pictured; slope, exact loop and tapping contact are not established."
+            },
+            {
+              "source_id": "ASSESS",
+              "native_region": "top/middle strips",
+              "pictured_support_and_limit": "Reassurance and Hana pushing while Roshan signals stop are pictured."
+            }
+          ],
+          "new_action_gaps": [
+            {
+              "panel_id": "p11.1",
+              "missing_pictured_action": "Drawable slope and two-crate positions that explain sliding together."
+            },
+            {
+              "panel_id": "p11.2",
+              "missing_pictured_action": "Unambiguous loop from shell edge to nearer crate corner."
+            },
+            {
+              "panel_id": "p11.3",
+              "missing_pictured_action": "Duri taps the crate and Roshan answers on the same physical surface."
+            },
+            {
+              "panel_id": "p11.4",
+              "missing_pictured_action": "Before/after crate displacement and visible cloth tightening."
+            },
+            {
+              "panel_id": "p11.5",
+              "missing_pictured_action": "Stable stopped contacts consistent with the new positions."
+            }
+          ],
+          "geography_contact_and_focal_review": [
+            "Bridge has exactly two crates; they are separate from the three stage crates.",
+            "Tension passes through fabric at shell edge, never Duri's neck.",
+            "Use one focal action: tightening cloth, then stopping; preserve Duri's free flippers."
+          ],
+          "illustration_status": "PENDING; ANCHORS_ARE_NOT_NEW_ACTION_PIXELS"
+        },
+        {
+          "page": 12,
+          "title": "A different plan",
+          "focal_beat": "Reverse the harmful move, slacken the loop, then lift it.",
+          "intended_causal_states": [
+            {
+              "panel_id": "p12.1",
+              "stage": "Overhead close plan: nearer crate/banner corner, Duri in gap, far crate held by Hana; same orientation as p11."
+            },
+            {
+              "panel_id": "p12.2",
+              "stage": "Roshan gently moves nearer crate back just enough to slacken cloth, without undoing any completed rescue."
+            },
+            {
+              "panel_id": "p12.3",
+              "stage": "Rumi places fingers under loose fabric, clear hand-shell contact."
+            },
+            {
+              "panel_id": "p12.4",
+              "stage": "Roshan takes nearer crate; Hana far crate. Nari positions where she can see overhead tram and all hands."
+            },
+            {
+              "panel_id": "p12.5",
+              "stage": "Rumi lifts the loop over the widest shell edge while Duri folds his flippers in."
+            }
+          ],
+          "existing_source_anchors": [
+            {
+              "source_id": "ASSESS",
+              "native_region": "bottom strip",
+              "pictured_support_and_limit": "Rumi handles the cloth while friends inspect it; not an overhead plan or reversal."
+            },
+            {
+              "source_id": "RESCUE",
+              "native_region": "left portrait",
+              "pictured_support_and_limit": "Rumi lifts cloth and Roshan braces a crate; intermediate loop-clearance is unpictured."
+            }
+          ],
+          "new_action_gaps": [
+            {
+              "panel_id": "p12.1",
+              "missing_pictured_action": "Overhead plan matching the established near/far crates and shell."
+            },
+            {
+              "panel_id": "p12.2",
+              "missing_pictured_action": "Small reverse move visibly slackens the loop."
+            },
+            {
+              "panel_id": "p12.3",
+              "missing_pictured_action": "Rumi's fingers under loose fabric, distinct from shell/flippers."
+            },
+            {
+              "panel_id": "p12.4",
+              "missing_pictured_action": "Roshan/Hana take separate crates while Nari watches bridge."
+            },
+            {
+              "panel_id": "p12.5",
+              "missing_pictured_action": "Cloth clears the widest shell edge as Duri folds flippers."
+            }
+          ],
+          "geography_contact_and_focal_review": [
+            "The near crate moves only far enough to create slack; no rescue progress is silently lost.",
+            "Rumi lifts cloth, not Duri or his shell.",
+            "Keep the gap and slope aligned with p11; do not substitute simultaneous pose crops for these transitions."
+          ],
+          "illustration_status": "PENDING; ANCHORS_ARE_NOT_NEW_ACTION_PIXELS"
+        },
+        {
+          "page": 13,
+          "title": "The rush returns",
+          "focal_beat": "Maintain the freed loop and choose Duri's safety over the drifting delivery.",
+          "intended_causal_states": [
+            {
+              "panel_id": "p13.1",
+              "stage": "Banner is fully off Duri; the freed cloth floats above his shell. First concrete gained state."
+            },
+            {
+              "panel_id": "p13.2",
+              "stage": "Nari sees tram lanterns crossing above; kelp and hair bend before the pulse."
+            },
+            {
+              "panel_id": "p13.3",
+              "stage": "Pulse nudges nearer crate along slope. Roshan braces; Hana keeps far crate stable; Rumi supports Duri."
+            },
+            {
+              "panel_id": "p13.4",
+              "stage": "Duri's basket lifts; loose bells join it in one visible eddy/kelp pocket behind pillar, just beyond safe recess. No renewed cloth entanglement or offscreen lost bells."
+            },
+            {
+              "panel_id": "p13.5",
+              "stage": "Roshan starts to reach for basket; crate begins turning. Her decision has an immediate visible consequence."
+            },
+            {
+              "panel_id": "p13.6",
+              "stage": "Roshan returns both hands to brace; Rumi keeps Duri safe. Nari tracks basket circling a clear recess behind pillar; no risky mid-rescue recovery."
+            }
+          ],
+          "existing_source_anchors": [
+            {
+              "source_id": "RESCUE",
+              "native_region": "left portrait",
+              "pictured_support_and_limit": "Useful crate-brace and cloth-lift appearance, not the new rush."
+            },
+            {
+              "source_id": "RECOVERY",
+              "native_region": "middle strip",
+              "pictured_support_and_limit": "Defines full courier basket/bells at recovery, not their drift."
+            }
+          ],
+          "new_action_gaps": [
+            {
+              "panel_id": "p13.1",
+              "missing_pictured_action": "Cloth fully clear of shell: this gained state persists."
+            },
+            {
+              "panel_id": "p13.2",
+              "missing_pictured_action": "Nari reads tram/kelp warning and calls the hold."
+            },
+            {
+              "panel_id": "p13.3",
+              "missing_pictured_action": "Pulse nudges near crate a hand-width on slope; hands visibly oppose it."
+            },
+            {
+              "panel_id": "p13.4",
+              "missing_pictured_action": "Basket and loose bells enter one visible eddy/kelp pocket behind pillar."
+            },
+            {
+              "panel_id": "p13.5",
+              "missing_pictured_action": "Roshan reaches; her released grip causes the crate to turn."
+            },
+            {
+              "panel_id": "p13.6",
+              "missing_pictured_action": "She restores both hands; Nari tracks the same delivery pocket."
+            }
+          ],
+          "geography_contact_and_focal_review": [
+            "A floating basket alone does not prove the new bell spill or eddy.",
+            "Keep Rumi supporting Duri after cloth release; no second entanglement.",
+            "Show reach and lost contact separately so Roshan's choice has a visible cause and consequence."
+          ],
+          "illustration_status": "PENDING; ANCHORS_ARE_NOT_NEW_ACTION_PIXELS"
+        },
+        {
+          "page": 14,
+          "title": "Back out together",
+          "focal_beat": "Hold the gain, open the gap, bring Duri and the whole delivery safely out.",
+          "intended_causal_states": [
+            {
+              "panel_id": "p14.1",
+              "stage": "Pulse ends; Nari checks fronds, then counts. Hana and Roshan have maintained stable crate positions."
+            },
+            {
+              "panel_id": "p14.2",
+              "stage": "Roshan slides nearer crate sideways off slope onto adjacent flat patch; Hana steadies far crate. Gap opens behind Duri."
+            },
+            {
+              "panel_id": "p14.3",
+              "stage": "Duri turns shell edge-on into newly opened gap and backs into Roshan's now-free hands, all four flippers free. Nearer crate rests on flat patch."
+            },
+            {
+              "panel_id": "p14.4",
+              "stage": "Primary action: now Duri is free, Hana slides far bridge crate off slope onto separate flat patch. Roshan/Duri safe in supporting background; their clear offpanel speech continues. Both crates stable before departure."
+            },
+            {
+              "panel_id": "p14.5",
+              "stage": "Now Duri is safely free, Nari points to same eddy/kelp pocket; Rumi follows curling water, scoops loose bells into basket then catches basket. No new trap or lost possessions."
+            },
+            {
+              "panel_id": "p14.6",
+              "stage": "Duri accepts shared carrying; Hana takes banner, Rumi basket. Nari taps a quiet reply."
+            }
+          ],
+          "existing_source_anchors": [
+            {
+              "source_id": "RESCUE",
+              "native_region": "middle/right portraits",
+              "pictured_support_and_limit": "Duri emerges and relief is pictured, but not backing edge-on through revised gap."
+            },
+            {
+              "source_id": "RECOVERY",
+              "native_region": "top/middle strips",
+              "pictured_support_and_limit": "Hand/flipper contact and full basket endpoint are pictured."
+            }
+          ],
+          "new_action_gaps": [
+            {
+              "panel_id": "p14.1",
+              "missing_pictured_action": "Quiet-water confirmation and coordinated release from hold."
+            },
+            {
+              "panel_id": "p14.2",
+              "missing_pictured_action": "Near crate slides off slope onto adjacent flat patch and remains there."
+            },
+            {
+              "panel_id": "p14.3",
+              "missing_pictured_action": "Duri turns shell edge-on and backs toward Roshan's now-free hands."
+            },
+            {
+              "panel_id": "p14.4",
+              "missing_pictured_action": "Hana settles far crate on its own flat patch before departure."
+            },
+            {
+              "panel_id": "p14.5",
+              "missing_pictured_action": "Rumi scoops all loose bells from the same visible pocket into basket, then catches basket."
+            },
+            {
+              "panel_id": "p14.6",
+              "missing_pictured_action": "Explicit shared carrying: Hana banner, Rumi basket."
+            }
+          ],
+          "geography_contact_and_focal_review": [
+            "Both bridge crates end flat/stable and apart; do not leave the second on the slope.",
+            "Roshan can receive Duri only after the near crate is stable.",
+            "Shell shape stays rigid; show all four freed flippers without extra limbs."
+          ],
+          "illustration_status": "PENDING; ANCHORS_ARE_NOT_NEW_ACTION_PIXELS"
+        }
+      ]
+    },
+    {
+      "id": "B_CURRENT_GATE_BATTLE",
+      "pages": [
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28
+      ],
+      "intended_panel_count": 41,
+      "gained_states": [
+        "Low interval crossed.",
+        "First then second small crate stably stored; no reblocking.",
+        "Both imps safely seated.",
+        "Caught large-crate corner rotated clear with slack cloth.",
+        "Last crate slid aside after Clear; current/answer restored."
+      ],
+      "pages_detail": [
+        {
+          "page": 21,
+          "title": "The first request",
+          "focal_beat": "Offer a workable storage solution; refusal initiates the bubble defence.",
+          "intended_causal_states": [
+            {
+              "panel_id": "p21.1",
+              "stage": "Roshan faces costumed imps at shell stage. The three gate crates and unused right ledge visible in context; two bridge crates stay at bridge."
+            },
+            {
+              "panel_id": "p21.2",
+              "stage": "Performer reacts defensively; motive is being heard, not a new evil conspiracy."
+            },
+            {
+              "panel_id": "p21.3",
+              "stage": "Roshan points to safe ledge and silent shop windows, offering concrete solution."
+            },
+            {
+              "panel_id": "p21.4",
+              "stage": "Magician refuses, then begins bubble puff with purple hand. Preserve navy coat/top hat/red bow tie/trousers/shoes and original bare purple hands; no new gloves, cape or costume transformation."
+            }
+          ],
+          "existing_source_anchors": [
+            {
+              "source_id": "GATE_REQUEST",
+              "native_region": "top/middle strips",
+              "pictured_support_and_limit": "Request and defensive performer acting are pictured."
+            },
+            {
+              "source_id": "IMP_REFUSAL",
+              "native_region": "top/middle strips",
+              "pictured_support_and_limit": "Magician refusal and bubble puff are pictured; white glove is not part of the costume."
+            }
+          ],
+          "new_action_gaps": [
+            {
+              "panel_id": "p21.1",
+              "missing_pictured_action": "Request view containing new three-crate floor plan and usable right bay."
+            },
+            {
+              "panel_id": "p21.3",
+              "missing_pictured_action": "Roshan points to the actual bay and silent neighbours."
+            },
+            {
+              "panel_id": "p21.4",
+              "missing_pictured_action": "Bare purple-hand flick leading visibly into puff."
+            }
+          ],
+          "geography_contact_and_focal_review": [
+            "Show stage above/arch below, two small forward crates and large rear crate independently floor-supported.",
+            "Never import the old stacked arrangement from earlier gate boards.",
+            "Bridge's two stable crates stay at the bridge."
+          ],
+          "illustration_status": "PENDING; ANCHORS_ARE_NOT_NEW_ACTION_PIXELS"
+        },
+        {
+          "page": 22,
+          "title": "Bubbles across the way",
+          "focal_beat": "Catch the soft star while Roshan locates the low route.",
+          "intended_causal_states": [
+            {
+              "panel_id": "p22.1",
+              "stage": "A directional bubble wall separates stage approach from crates. Roshan brakes; head and hands readable through clear space."
+            },
+            {
+              "panel_id": "p22.2",
+              "stage": "Performer tosses foam star; Hana opens rescue banner across its flight line."
+            },
+            {
+              "panel_id": "p22.3",
+              "stage": "Banner bows and catches star. Hana braces fin against stage edge while floating, no mermaid feet; Nari ducks clearly beneath it."
+            },
+            {
+              "panel_id": "p22.4",
+              "stage": "Rumi starts a distinct original work-song; Hana/Nari join while catching/counting. Singing coordinates physical moves, never acts as an attack or removes crates."
+            },
+            {
+              "panel_id": "p22.5",
+              "stage": "Roshan watches rising bubbles, not trying to outsing them. Duri points to low current from safe pillar."
+            }
+          ],
+          "existing_source_anchors": [
+            {
+              "source_id": "IMP_REFUSAL",
+              "native_region": "middle/bottom strips",
+              "pictured_support_and_limit": "Bubble burst and performer star launch/open catcher are pictured."
+            },
+            {
+              "source_id": "OLD_BATTLE",
+              "native_region": "middle strip only",
+              "pictured_support_and_limit": "Shortlist actual Hana catch, Nari duck and Rumi pivot; do not carry its unrelated crate arrangement."
+            },
+            {
+              "source_id": "LOW_CURRENT",
+              "native_region": "top/middle strips",
+              "pictured_support_and_limit": "Low blue thread and listening provide route vocabulary."
+            }
+          ],
+          "new_action_gaps": [
+            {
+              "panel_id": "p22.1",
+              "missing_pictured_action": "Directional bubble wall relative to revised arch and safe approach."
+            },
+            {
+              "panel_id": "p22.2",
+              "missing_pictured_action": "Rescue banner opens across one foam star's flight line."
+            },
+            {
+              "panel_id": "p22.3",
+              "missing_pictured_action": "Cloth bows on contact; Hana fin braces against stage edge while floating."
+            },
+            {
+              "panel_id": "p22.4",
+              "missing_pictured_action": "Trio sings while physical catcher/counting actions remain truthful."
+            },
+            {
+              "panel_id": "p22.5",
+              "missing_pictured_action": "Duri points from safe pillar to the same low blue thread."
+            }
+          ],
+          "geography_contact_and_focal_review": [
+            "No feet/legs; fin/body balance supplies the stated brace.",
+            "Use one consistent foam star and one rescue banner.",
+            "Song coordinates movement; it does not attack imps or move crates magically."
+          ],
+          "illustration_status": "PENDING; ANCHORS_ARE_NOT_NEW_ACTION_PIXELS"
+        },
+        {
+          "page": 23,
+          "title": "A gap between the puffs",
+          "focal_beat": "Read the interval and cross beneath the next puff.",
+          "intended_causal_states": [
+            {
+              "panel_id": "p23.1",
+              "stage": "Bubble wall cycles upward with a clear interval beneath. Roshan follows blue thread with her eyes."
+            },
+            {
+              "panel_id": "p23.2",
+              "stage": "Nari leaves one drumbeat silent so she can hear the next puff starting."
+            },
+            {
+              "panel_id": "p23.3",
+              "stage": "Magician draws breath for puff; Rumi pivots aside. Roshan remains braced until interval."
+            },
+            {
+              "panel_id": "p23.4",
+              "stage": "Nari signals clear low interval. One readable diagonal dive, one-tail anatomy, no whole-body blur."
+            },
+            {
+              "panel_id": "p23.5",
+              "stage": "Roshan folds low, swims beneath cloud and turns at pillar in same direction as learned p4 route."
+            },
+            {
+              "panel_id": "p23.6",
+              "stage": "She reaches first small crate from below. Establish successful position before next task; Rumi answers with next work-song line before following."
+            }
+          ],
+          "existing_source_anchors": [
+            {
+              "source_id": "LOW_CURRENT",
+              "native_region": "all three strips",
+              "pictured_support_and_limit": "Blocked arch, listening and low Roshan route are pictured, but no timed multi-puff sequence."
+            },
+            {
+              "source_id": "OLD_BATTLE",
+              "native_region": "middle strip, Rumi only",
+              "pictured_support_and_limit": "Actual pivot pose can inform evasion; no entire old battle panorama."
+            }
+          ],
+          "new_action_gaps": [
+            {
+              "panel_id": "p23.1",
+              "missing_pictured_action": "Two puffs with a persistent clear low interval."
+            },
+            {
+              "panel_id": "p23.2",
+              "missing_pictured_action": "Nari leaves one beat silent and listens for next puff."
+            },
+            {
+              "panel_id": "p23.3",
+              "missing_pictured_action": "Magician's new puff passes Rumi's vacated position."
+            },
+            {
+              "panel_id": "p23.4",
+              "missing_pictured_action": "Nari signals the interval."
+            },
+            {
+              "panel_id": "p23.5",
+              "missing_pictured_action": "Roshan's low dip/turn around the fixed pillar."
+            },
+            {
+              "panel_id": "p23.6",
+              "missing_pictured_action": "She reaches first small crate; Rumi still outside before following."
+            }
+          ],
+          "geography_contact_and_focal_review": [
+            "Use before/contact/after silhouettes rather than repeating one low-swim crop.",
+            "Keep Roshan's face, hands and continuous single tail readable through bubbles.",
+            "Preserve p4's learned direction and the p20 geography."
+          ],
+          "illustration_status": "PENDING; ANCHORS_ARE_NOT_NEW_ACTION_PIXELS"
+        },
+        {
+          "page": 24,
+          "title": "Two boxes out",
+          "focal_beat": "Clear the two small crates separately while the main blockage remains.",
+          "intended_causal_states": [
+            {
+              "panel_id": "p24.1",
+              "stage": "Rumi follows same timed gap. Hana holds foam catcher above; Nari counts from stage edge."
+            },
+            {
+              "panel_id": "p24.2",
+              "stage": "Roshan and Rumi each have visible two-hand contact on first small crate; slide to right ledge."
+            },
+            {
+              "panel_id": "p24.3",
+              "stage": "Duri confirms first crate flat/stable from nearby safe position, without heavy lifting."
+            },
+            {
+              "panel_id": "p24.4",
+              "stage": "Rumi and Roshan repeat with second small crate, altered approach because blue thread is clearer. First remains on ledge."
+            },
+            {
+              "panel_id": "p24.5",
+              "stage": "Second settles beside first; Nari sees ribbons begin stirring. Larger crate still blocks main arch. Rumi swims back up to stage, Roshan stays by large crate."
+            }
+          ],
+          "existing_source_anchors": [
+            {
+              "source_id": "TWO_OUT",
+              "native_region": "top/middle strips",
+              "pictured_support_and_limit": "Side storage of two small crates is an endpoint reference; old movers are Rumi/Nari/Hana, not the scripted Roshan/Rumi pair."
+            },
+            {
+              "source_id": "LOW_CURRENT",
+              "native_region": "bottom strip",
+              "pictured_support_and_limit": "Low approach can inform Rumi's path; not proof of the two separate moves."
+            }
+          ],
+          "new_action_gaps": [
+            {
+              "panel_id": "p24.1",
+              "missing_pictured_action": "Rumi follows timed gap while Hana retains the catcher above."
+            },
+            {
+              "panel_id": "p24.2",
+              "missing_pictured_action": "Roshan/Rumi two-hand contacts and first floor-supported slide."
+            },
+            {
+              "panel_id": "p24.3",
+              "missing_pictured_action": "Duri verifies first crate is flat/stable."
+            },
+            {
+              "panel_id": "p24.4",
+              "missing_pictured_action": "Second move with first remaining in place."
+            },
+            {
+              "panel_id": "p24.5",
+              "missing_pictured_action": "Two separately settled crates; large crate still blocks arch; Rumi returns up to stage."
+            }
+          ],
+          "geography_contact_and_focal_review": [
+            "Storage-bay entry must share the support plane so sliding needs no unexplained vertical lift.",
+            "Both small crates remain unstacked; show empty → one → two bay occupancy.",
+            "Do not swap old pictured actors by writing different names over their action."
+          ],
+          "illustration_status": "PENDING; ANCHORS_ARE_NOT_NEW_ACTION_PIXELS"
+        },
+        {
+          "page": 25,
+          "title": "Big moves, soft finish",
+          "focal_beat": "Return the soft star and guide both imps to their own cushions.",
+          "intended_causal_states": [
+            {
+              "panel_id": "p25.1",
+              "stage": "Performer pulls banner edge to reclaim star, making cloth taut. Hana stays balanced and offers release rather than tug-of-war."
+            },
+            {
+              "panel_id": "p25.2",
+              "stage": "Hana tilts soft catcher and Nari tips star with drum rim, directing it to padded cushions already by performer. No hard strike."
+            },
+            {
+              "panel_id": "p25.3",
+              "stage": "Star drifts into performer's arms; backward surprise step lands him on cushions, safe and comical."
+            },
+            {
+              "panel_id": "p25.4",
+              "stage": "Magician aims broad puff in response; own broad bubble stream lifts/tilts hat over eyes. Clear causal puff-hat contact detail, same costume."
+            },
+            {
+              "panel_id": "p25.5",
+              "stage": "Rumi offers elbow/hand to guide magician onto same cushions instead of leaving him blind to stumble."
+            },
+            {
+              "panel_id": "p25.6",
+              "stage": "Residual final bubble puff drifts between Roshan below and friends above. Two cleared crates remain safe; no regression."
+            }
+          ],
+          "existing_source_anchors": [
+            {
+              "source_id": "SOFT_LANDING",
+              "native_region": "top/middle/bottom strips",
+              "pictured_support_and_limit": "Star return/performer landing and resting imps are pictured."
+            },
+            {
+              "source_id": "OLD_BATTLE",
+              "native_region": "bottom-right magician fall only",
+              "pictured_support_and_limit": "Optional existing fall shortlist; no old whole-strip crate/ribbon action."
+            }
+          ],
+          "new_action_gaps": [
+            {
+              "panel_id": "p25.1",
+              "missing_pictured_action": "Performer grabs banner edge; taut catcher contact."
+            },
+            {
+              "panel_id": "p25.2",
+              "missing_pictured_action": "Hana tilts cloth and Nari gently nudges star with drum rim."
+            },
+            {
+              "panel_id": "p25.3",
+              "missing_pictured_action": "Star arrives in performer's arms and surprise step leads to cushion landing."
+            },
+            {
+              "panel_id": "p25.4",
+              "missing_pictured_action": "Magician's own puff flips hat over eyes."
+            },
+            {
+              "panel_id": "p25.5",
+              "missing_pictured_action": "Rumi offers hand/elbow and guides him onto cushions."
+            },
+            {
+              "panel_id": "p25.6",
+              "missing_pictured_action": "Residual final puff lies between Roshan at last crate and friends above."
+            }
+          ],
+          "geography_contact_and_focal_review": [
+            "Foam/drum-rim contact is gentle, with no hard strike or injury.",
+            "The old resting pose cannot establish hat obstruction or Rumi's assistance.",
+            "Two small crates remain stably stored throughout this comedy beat."
+          ],
+          "illustration_status": "PENDING; ANCHORS_ARE_NOT_NEW_ACTION_PIXELS"
+        },
+        {
+          "page": 26,
+          "title": "Pulling is not enough",
+          "focal_beat": "The straight pull catches a corner; Roshan stops and changes her signal.",
+          "intended_causal_states": [
+            {
+              "panel_id": "p26.1",
+              "stage": "Hana passes the now-empty rescue banner down to Roshan through last thinning puff. Show explicit handoff; performer's interruption banner remains a different prop."
+            },
+            {
+              "panel_id": "p26.2",
+              "stage": "Roshan loops freed end of banner through large crate handle; cloth can reach up to ledge, no tied actor limbs."
+            },
+            {
+              "panel_id": "p26.3",
+              "stage": "She pulls straight toward right ledge; square crate skews diagonally and trailing corner catches a short side projection of right arch jamb. Floor is flat with open pivot space in front; no full-width threshold."
+            },
+            {
+              "panel_id": "p26.4",
+              "stage": "Close on caught corner, short side lip and taut cloth; she stops pulling, learned snag inspection echoed from p11."
+            },
+            {
+              "panel_id": "p26.5",
+              "stage": "Roshan calls to friends across residual bubbles; loud hiss masks call. Show why no immediate answer comes, rather than making friends ignore her."
+            },
+            {
+              "panel_id": "p26.6",
+              "stage": "Bubbles hide hand signal but their hiss is fading. Roshan taps crate three times as Duri did in rescue; Duri hears knock through quieter interval from safe route."
+            }
+          ],
+          "existing_source_anchors": [
+            {
+              "source_id": "TWO_OUT",
+              "native_region": "middle strip",
+              "pictured_support_and_limit": "Banner through handle and Roshan pulling a square large crate are pictured; no diagonal side-jamb catch."
+            },
+            {
+              "source_id": "LOW_CURRENT",
+              "native_region": "top/bottom strips",
+              "pictured_support_and_limit": "Bubble occlusion vocabulary only; not the later one-crate state."
+            }
+          ],
+          "new_action_gaps": [
+            {
+              "panel_id": "p26.1",
+              "missing_pictured_action": "Empty rescue-banner handoff from Hana to Roshan."
+            },
+            {
+              "panel_id": "p26.2",
+              "missing_pictured_action": "Handle threading with reachable free cloth end."
+            },
+            {
+              "panel_id": "p26.3",
+              "missing_pictured_action": "Straight pull skews crate and trailing corner catches short right-jamb projection."
+            },
+            {
+              "panel_id": "p26.4",
+              "missing_pictured_action": "Taut pull presses catch; then deliberate slack."
+            },
+            {
+              "panel_id": "p26.5",
+              "missing_pictured_action": "Residual hiss masks her call and separates friends."
+            },
+            {
+              "panel_id": "p26.6",
+              "missing_pictured_action": "She taps crate three times instead of relying on hidden hand signal."
+            }
+          ],
+          "geography_contact_and_focal_review": [
+            "Floor remains flat and supports crate throughout; no tipping onto Duri or full-width threshold.",
+            "Caught corner, short side lip and open forecourt must fit in one drawable plan.",
+            "Rescue banner differs from performer's interruption banner; never tie cloth to an actor."
+          ],
+          "illustration_status": "PENDING; ANCHORS_ARE_NOT_NEW_ACTION_PIXELS"
+        },
+        {
+          "page": 27,
+          "title": "Turn before sliding",
+          "focal_beat": "Hear Roshan, diagnose the caught corner and turn while the banner stays slack.",
+          "intended_causal_states": [
+            {
+              "panel_id": "p27.1",
+              "stage": "Nari pauses drumming; Duri identifies Roshan's taps. Rumi and Hana turn toward arch."
+            },
+            {
+              "panel_id": "p27.2",
+              "stage": "Friends use low gap; Duri guides along safe corridor, not through a renewed trap."
+            },
+            {
+              "panel_id": "p27.3",
+              "stage": "Duri points to short side projection/diagonal corner and demonstrates small turn with bell basket. Show free floor/pivot arc beside jamb, drawing on courier experience."
+            },
+            {
+              "panel_id": "p27.4",
+              "stage": "Roshan assigns contacts: Hana pushes far corner into open forecourt; Roshan guides near corner; Rumi keeps banner slack during rotation; Nari counts; Duri watches from outside pivot path."
+            },
+            {
+              "panel_id": "p27.5",
+              "stage": "Short rotation around floor-supported near corner swings caught trailing corner away from short jamb lip into open forecourt; show gained clearance before any sideways pull. Rumi's banner remains slack."
+            }
+          ],
+          "existing_source_anchors": [
+            {
+              "source_id": "TEAM_OPEN",
+              "native_region": "main team scene",
+              "pictured_support_and_limit": "Identity/contact vocabulary for teamwork only; all-pulling taut pose cannot prove this turn."
+            },
+            {
+              "source_id": "TWO_OUT",
+              "native_region": "bottom strip",
+              "pictured_support_and_limit": "Friends gather by large crate, but no basket demonstration, pivot or slack banner."
+            }
+          ],
+          "new_action_gaps": [
+            {
+              "panel_id": "p27.1",
+              "missing_pictured_action": "Duri identifies Roshan's taps after Nari's pause."
+            },
+            {
+              "panel_id": "p27.2",
+              "missing_pictured_action": "Duri leads clear corridor to her without re-entering a trap."
+            },
+            {
+              "panel_id": "p27.3",
+              "missing_pictured_action": "Basket-turn demonstration beside actual short lip and free floor."
+            },
+            {
+              "panel_id": "p27.4",
+              "missing_pictured_action": "Hana far-corner push, Roshan near-corner guide, Rumi slack-cloth hold, Duri outside pivot arc."
+            },
+            {
+              "panel_id": "p27.5",
+              "missing_pictured_action": "Short supported rotation gains clearance before sideways pull."
+            }
+          ],
+          "geography_contact_and_focal_review": [
+            "Rumi must not pull while the corner is caught; cloth remains visibly slack until Duri says Clear.",
+            "Define pivot, trailing caught corner and free arc consistently across frames.",
+            "Duri observes from outside swept area; Nari counts without occupying another actor's contact spot."
+          ],
+          "illustration_status": "PENDING; ANCHORS_ARE_NOT_NEW_ACTION_PIXELS"
+        },
+        {
+          "page": 28,
+          "title": "The blue ribbon runs",
+          "focal_beat": "After clearance, reset grips and slide the last crate; physical opening restores the song.",
+          "intended_causal_states": [
+            {
+              "panel_id": "p28.1",
+              "stage": "Maintain rotated crate from p27; after Duri's Clear, Rumi takes banner with Roshan and pulls; Hana supports far edge. Reset grips for sideways slide without losing orientation."
+            },
+            {
+              "panel_id": "p28.2",
+              "stage": "Crate moves onto right ledge beside two smaller crates; arch progressively revealed. Big action panel, consistent geography."
+            },
+            {
+              "panel_id": "p28.3",
+              "stage": "Full golden arch now clear. Blue current flows to shops/bathhouse/tram; hanging ribbons lift, no new magic source. Trio completes work-song after physical clearing."
+            },
+            {
+              "panel_id": "p28.4",
+              "stage": "Duri swims through safe cleared opening with basket and rings one bell. First reply reaches friends."
+            }
+          ],
+          "existing_source_anchors": [
+            {
+              "source_id": "TEAM_OPEN",
+              "native_region": "team/open-arch scene",
+              "pictured_support_and_limit": "Useful pull and payoff silhouettes; arch already open in old image."
+            },
+            {
+              "source_id": "CURRENT_RETURN",
+              "native_region": "middle/bottom strips",
+              "pictured_support_and_limit": "Current and city-ribbon payoff pictured, but old three-crate side stack is unsuitable."
+            }
+          ],
+          "new_action_gaps": [
+            {
+              "panel_id": "p28.1",
+              "missing_pictured_action": "Rumi/Roshan take tension only after Clear; Hana supports far edge."
+            },
+            {
+              "panel_id": "p28.2",
+              "missing_pictured_action": "Rotated crate translates into bay beside two small crates; progressive arch clearance."
+            },
+            {
+              "panel_id": "p28.3",
+              "missing_pictured_action": "Current follows established music-room → arch → neighbourhood path."
+            },
+            {
+              "panel_id": "p28.4",
+              "missing_pictured_action": "Duri carries complete basket through cleared opening and rings a bell."
+            }
+          ],
+          "geography_contact_and_focal_review": [
+            "Maintain p27 orientation until translation; no sudden square reset or teleport.",
+            "All three crates remain on support outside straight outflow; do not reuse old stack as the new endpoint.",
+            "Big payoff panel shows gained clearance before blue-current response; magic already exists."
+          ],
+          "illustration_status": "PENDING; ANCHORS_ARE_NOT_NEW_ACTION_PIXELS"
+        }
+      ]
+    }
+  ],
+  "bounded_art_gap_summary": [
+    "Bridge echo excursion/return and repeated tram-pulse hand holds.",
+    "Exact sloped recess, loop tightening/reversal/release, maintained crate brace and visible basket/bell eddy.",
+    "Backing Duri through gained gap, settling both bridge crates and retrieving every loose bell.",
+    "New gate floor plan and two individual Roshan/Rumi crate moves.",
+    "Timed puff intervals, Duri guidance and Roshan/Rumi separate crossings.",
+    "Star/drum-rim return, magician's hat-over-eyes cause and Rumi's guided landing.",
+    "Empty rescue-banner handoff, diagonal jamb catch, masked call and tapping response.",
+    "Basket demonstration, slack-cloth supported turn, grip reset and progressive final slide."
+  ],
+  "source_check_result": "Story-first causal staging is recorded, but sustained new actions depend on the named unavailable geometry/verbs. Existing sources can inform identities, pictured poses and endpoints; none proves the missing transitions. Future illustration/contact/one-tail/page review and owner acceptance remain pending."
+}

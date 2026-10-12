@@ -1,0 +1,208 @@
+{
+  "schema_version": 1,
+  "record_type": "independent_story_editor_review",
+  "reviewer": "/root/story_editor",
+  "recorded_at_utc": "2026-10-12T04:51:23.100138+00:00",
+  "status": "SOURCE_EDITORIAL_REVIEW_PASS; FINAL_CORRECTED_SCRIPT_PROOF_VERIFIED; ACTION_ILLUSTRATION_PENDING",
+  "scope": "Read-only editorial review of complete story and bounded final corrections. This record does not alter the story or accept illustration, runtime, cinematic, print, owner or child delivery.",
+  "source": {
+    "path": "assets_src/books/rumi_action_story_20261011/story_script.json",
+    "sha256": "bf25c331b148bdd67451766df110da8b8da7c087e4fc3dfe51375ddc2802cd62",
+    "source_status": "STORY_SCRIPT_REVIEW_CANDIDATE; NEW_ACTION_ILLUSTRATION_PENDING"
+  },
+  "counts": {
+    "intended_pages": 32,
+    "architecture": "Page 1 cover; pages 2-31 story; page 32 back",
+    "total_panels": 130,
+    "story_panels": 128,
+    "story_word_count": 1535,
+    "word_count_method": "Whitespace-separated nonempty tokens: re.findall(r\"\\S+\", text), story entries only; staging and covers excluded",
+    "original_songs": 2
+  },
+  "causal_observations": [
+    {
+      "subject": "Roshan personal arc",
+      "finding": "The wish to be heard begins with her small note. Listening locates Duri and protects him; later Roshan calls for help, uses Duri's three taps, coordinates a changed plan and leaves a space for the city's answer."
+    },
+    {
+      "subject": "Bridge rescue, pages 9-14",
+      "physical_beats": [
+        "Distinguish loud empty echo from faint tapping and choose the kelp arch",
+        "Recognise tram pulse, hold pillar, then enter one at a time",
+        "Find trapped Duri; first push tightens banner; Roshan stops it",
+        "Reverse a small crate motion to slacken cloth; Rumi lifts loop off shell",
+        "New tram pulse shifts crate and spills bells",
+        "Roshan returns to bracing Duri while Nari tracks basket; belongings wait",
+        "Sideways clearance opens exit; Duri actively paddles backward",
+        "Hana settles second crate on flat stone; Rumi scoops bells and basket; Duri accepts shared carrying"
+      ],
+      "reversal": "A gained state (free banner loop) does not end rescue. The tram rush changes support and threatens possessions; Roshan chooses to keep Duri safe."
+    },
+    {
+      "subject": "Current-arch battle, pages 21-28",
+      "physical_beats": [
+        "Ask imps to move props onto visible safe ledge; refusal initiates obstruction",
+        "Bubble wall blocks approach; Hana catches soft foam star",
+        "Nari leaves a beat; Roshan follows low current between puffs",
+        "Roshan and Rumi permanently clear two independently supported small crates",
+        "Return star softly; imps land on cushions; bigger puff hides arch",
+        "Roshan's straight pull skews final crate onto short jamb projection; she stops and taps for help",
+        "Duri identifies snag; team rotates crate with banner slack until corner is clear",
+        "Rumi and Roshan pull with Hana supporting; final crate slides to ledge; Duri resumes delivery"
+      ],
+      "reversal": "Two crates removed is real persistent progress. Final crate fails through geometry, requiring a changed turn-before-slide method rather than more force."
+    },
+    {
+      "subject": "Existing magic and geography",
+      "finding": "Music room connects to stage arch and then shops, bathhouse and tram. Crates obstruct the existing singing current. Tram pulses remain local water movements. No new power source or song attack resolves the obstacle."
+    },
+    {
+      "subject": "Crate count and persistence",
+      "finding": "Two bridge crates settle at bridge. Three separate stage crates are two small forward crates and one large rear crate. The first two remain on right ledge; the third joins them after clearing the short side jamb projection."
+    },
+    {
+      "subject": "Imp conflict and amends",
+      "finding": "Imps want the biggest show and refuse to make room; their larger puff worsens the obstruction. Soft landings preserve the playful tone. They learn why neighbours could not answer and perform practical tidying before joining the ensemble."
+    }
+  ],
+  "character_roles": {
+    "Roshan": "Chooses the route, stops harmful pushing, stays with Duri, reads current gaps, asks help and directs changed crate plan.",
+    "Rumi": "Invites and supports Roshan, lifts cloth, keeps Duri safe during pulse, recovers delivery after release, leads singing and assists final pull.",
+    "Hana": "Learns controlled movement and making room, holds and settles bridge crate, catches foam star, supplies banner and turns final crate.",
+    "Nari": "Makes deliberate musical rests, identifies faint signal, watches tram and basket, times swimming/pushing and signals rotation.",
+    "Duri": "Refuses then accepts shared carrying, actively backs out, guides courier passage, identifies Roshan's taps and caught crate corner, confirms clearance and delivers answers."
+  },
+  "pacing": {
+    "setup": "Pages 2-8 establish invitation, neighbourhood, current lesson, Duri delivery and trio practice.",
+    "first_sustained_sequence": "Pages 9-14: search and physical rescue.",
+    "rest_and_interruption": "Bathhouse 15; extravagant couch feast 16; costumed interruption 17.",
+    "investigation_and_plan": "Pages 18-20 reveal blockage, courier route, safe ledge and roles.",
+    "second_sustained_sequence": "Pages 21-28: refusal, swimming puzzle, playful fight, persistent clearance, reversal and coordinated repair.",
+    "payoff": "Pages 29-31: practical amends, courier/song return, confident Roshan and unresolved candle canon."
+  },
+  "final_corrections_reviewed": [
+    {
+      "panels": [
+        "p03.2"
+      ],
+      "finding": "Singing-current map includes music room before stage arch."
+    },
+    {
+      "panels": [
+        "p13.3",
+        "p13.5",
+        "p13.6",
+        "p14.3",
+        "p14.4",
+        "p14.5"
+      ],
+      "finding": "Rumi stays with Duri through pulse; Nari tracks basket; active four-flipper backward exit precedes settling far crate and collecting all bells."
+    },
+    {
+      "panels": [
+        "p18.1",
+        "p20.1",
+        "p21.1"
+      ],
+      "finding": "Separate bridge/stage counts; floor-supported small crates and square-aligned rear big crate; right ledge outside outflow."
+    },
+    {
+      "panels": [
+        "p20.3",
+        "p21.4",
+        "p22.3"
+      ],
+      "finding": "Mermaids float and brace fins; magician retains original bare purple hands and established costume."
+    },
+    {
+      "panels": [
+        "p24.5",
+        "p25.4",
+        "p26.1",
+        "p26.5",
+        "p26.6"
+      ],
+      "finding": "Rumi explicitly swims up; existing bubbles flip magician hat; catcher banner handoff shown; hiss masks call and cloud hides wave before taps."
+    },
+    {
+      "panels": [
+        "p26.3",
+        "p26.4",
+        "p27.3",
+        "p27.4",
+        "p27.5",
+        "p28.1",
+        "p28.2"
+      ],
+      "finding": "Short side projection and open pivot floor support rotation without lifting; banner stays slack until Clear; grips then reset for slide."
+    },
+    {
+      "panels": [
+        "p22.4",
+        "p23.6",
+        "p24.5",
+        "p28.3"
+      ],
+      "finding": "Distinct original work-song accompanies physical fight and completes after physical clearance; no magic attack."
+    }
+  ],
+  "remaining_material_source_issues": [],
+  "story_proof_review": {
+    "status": "INDEPENDENT_MACHINE_VERIFICATION_PASS; BOUNDED_VISUAL_REVIEW_PASS",
+    "proof_check_path": "assets_src/books/rumi_action_story_20261011/verification/story_proof_check.json",
+    "proof_check_sha256": "c7a42d4b371fcec7f561f32d4602984f7f298491b8f7c9f200ec275463110c80",
+    "pdf_path": "assets_src/books/rumi_action_story_20261011/output/pdf/Story_and_Action_Revision_32_Pages.pdf",
+    "pdf_sha256": "e3a8e944403719b58812ab22ff1a35b2d812667d45c2b723a095771b73f63eb8",
+    "source_script_sha256": "bf25c331b148bdd67451766df110da8b8da7c087e4fc3dfe51375ddc2802cd62",
+    "actual_pdf_pages": 32,
+    "format_points": [
+      576,
+      720
+    ],
+    "source_stage_and_manuscript_lines_verified_in_page_panel_order": 339,
+    "story_word_count": 1535,
+    "staging_word_count": 2298,
+    "minimum_story_font_pt": 13.4,
+    "minimum_staging_font_pt": 12.6,
+    "recorded_text_rectangles_within_page_bounds": true,
+    "recorded_text_rectangle_collisions": 0,
+    "font_file_hashes_independently_checked": 3,
+    "saved_page_png_hashes_independently_checked": 32,
+    "contact_sheet_hashes_independently_checked": 4,
+    "independent_actual_pdf_rerender": {
+      "method": "Poppler pdftoppm 144 dpi, each actual page rendered to stdout PNG; no PDF or source edits",
+      "page_count": 32,
+      "saved_png_pixel_dimensions": [
+        1152,
+        1440
+      ],
+      "all_saved_png_RGB_pixels_equal_actual_pdf_rerenders": true
+    },
+    "bounded_full_page_visual_review": [
+      3,
+      14,
+      18,
+      20,
+      21,
+      22,
+      26,
+      27,
+      28
+    ],
+    "contact_sheets_visually_reviewed": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "visual_observation": "Corrected notes and dialogue are readable, uncropped and separated on relevant full pages. All 32 contact previews retain headers, sequential panel labels and footer page numbers. This is typography of an explicitly unillustrated story proof; it cannot establish actor contact or action geometry in future artwork.",
+    "limitations": "No illustrated-book, runtime, cinematic, owner, child or print acceptance is claimed. New action illustrations remain pending."
+  },
+  "pending_acceptance": [
+    "New action illustrations and exact visual staging/contact/geometry review, including bridge slope/pulse/crate movement/basket spill and stage diagonal jam/rotation",
+    "Owner story and artwork acceptance",
+    "Child read-aloud pacing/comprehension acceptance",
+    "Illustrated-book layout and print acceptance; runtime/device/cinematic acceptance if separately commissioned"
+  ],
+  "source_art_limits": "Existing native anchors may supply cast/environment continuity but do not establish the newly authored action geometry. This is a story-first revision, not acceptance of old reaction crops as new elapsed actions. Protected originals remain unchanged."
+}

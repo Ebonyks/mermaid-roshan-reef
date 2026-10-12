@@ -1,0 +1,116 @@
+{
+  "id": "rumi-action-story-20261011",
+  "scope": "Owner-directed story-first rewrite of the existing32-page under-pool book. Develop two sustained causal action sequences through Duri's rescue and the costumed imp/current-gate encounter, preserving established setting/cast, bathhouse, extravagant feast, songs and unresolved candle. Preserve all illustrated editions. Deliver complete page/panel manuscript and action/source plan; no game or external handoff.",
+  "baseline": "7b5c0faff45706520f2f94c8958686d8446e6c88",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-VIS-01",
+    "DL-VIS-02",
+    "DL-VIS-03",
+    "DL-VIS-04",
+    "DL-VIS-05",
+    "DL-VIS-06",
+    "DL-READ-01",
+    "DL-READ-03",
+    "DL-ASSET-01",
+    "DL-ASSET-02",
+    "DL-ASSET-03",
+    "DL-ASSET-04",
+    "DL-ASSET-05",
+    "DL-ASSET-06",
+    "DL-ASSET-08",
+    "DL-PLAN-01",
+    "DL-PLAN-02",
+    "DL-PLAN-03",
+    "DL-PLAN-05",
+    "DL-PLAN-06"
+  ],
+  "findings": [
+    "MA-DOC-008",
+    "MA-VIS-006",
+    "MA-ROSHAN-005"
+  ],
+  "finding_scope": "Contextual source authority, readable composition and identity/anatomy checks; no runtime finding is repaired or closed.",
+  "files": [
+    "ASSET_LICENSES.md",
+    "assets_src/books/rumi_action_story_20261011/.gitattributes",
+    "assets_src/books/rumi_action_story_20261011/MANUSCRIPT.txt",
+    "assets_src/books/rumi_action_story_20261011/README.txt",
+    "assets_src/books/rumi_action_story_20261011/build_story_proof.py",
+    "assets_src/books/rumi_action_story_20261011/output/pdf/Story_and_Action_Revision_32_Pages.pdf",
+    "assets_src/books/rumi_action_story_20261011/source_action_plan.json",
+    "assets_src/books/rumi_action_story_20261011/story_script.json",
+    "assets_src/books/rumi_action_story_20261011/verification/document_gates.log",
+    "assets_src/books/rumi_action_story_20261011/verification/review_receipt.json",
+    "assets_src/books/rumi_action_story_20261011/verification/story_editor_review.json",
+    "assets_src/books/rumi_action_story_20261011/verification/story_proof_check.json",
+    "audit/MASTER_AUDIT_2026-08-09.md",
+    "audit/cycles/rumi-story-20261011/owner_answers.json",
+    "design/05_DOC_LEDGER.md",
+    "design/chapters/RUMI_UNDERPOOL_BOOK_20261009.md",
+    "design/reference/OWNER_DECISIONS.md",
+    "design/reference/owner_decisions.json"
+  ],
+  "validation": [
+    {
+      "command": "Task-start master/design/finding/ledger/chapter and actual manuscript/source review",
+      "result": "PASS",
+      "evidence": "Clean baseline7b5c0faf, fresh origin fetch and new continuation branch codex/rumi-action-story-20261011. Continue the owner's existing source-book revision chain so all four prior editions remain available; no runtime reconciliation or integration claimed. Read mandatory sources and current manuscript before choosing story changes."
+    },
+    {
+      "command": "Independent complete story and exact-script source-gap review",
+      "result": "PASS",
+      "evidence": "verification/story_editor_review.json atscriptbf25c331b148bdd67451766df110da8b8da7c087e4fc3dfe51375ddc2802cd62: sustained6-page rescue/8-page battle, causal reversals, safe stable props, three-tap/courier role reversal, two original songs and Roshan leadership. source_action_plan.json names actual native anchors and missing action transitions; no raster generation or illustration acceptance."
+    },
+    {
+      "command": "Bundled Python -B build_story_proof.py and independent actual-PDF source/geometry/render verification",
+      "result": "PASS",
+      "evidence": "verification/story_proof_check.json and review_receipt.json:32actual576x720pt script-proof pages,130total/128story panels,1535story words plus2298separate staging words,all339entries ordered; 13.4ptstory/12.6ptstaging,no overflow. PDFe3a8e944403719b58812ab22ff1a35b2d812667d45c2b723a095771b73f63eb8,145597bytes. Independent editor freshly rendered all32actualPDFpages with Poppler; allpixels matchsavedrenders;3fonts/32PNG/4contacts verified. Root/builder/editor actual render review pass for source-proof typography only."
+    },
+    {
+      "command": "python -B -m unittest tools.tests.test_audit_document_authority tools.tests.test_audit_development",
+      "result": "PASS",
+      "evidence": "Actualprocess exit0;54tests in9.417s,OK;DOCAUTHSTRESS6/6. Final receipt inverification/document_gates.log."
+    },
+    {
+      "command": "python -B tools/record_owner_decision.py --check --base 7b5c0faff45706520f2f94c8958686d8446e6c88",
+      "result": "PASS",
+      "evidence": "45decisions,ALL OK actualexit0; newODR-RUMI-BOOK-ACTION-20261011 records exact ownercommission,notcreativeacceptance. Existingbaseline decisions unchanged."
+    },
+    {
+      "command": "git diff --exit-code 7b5c0faff45706520f2f94c8958686d8446e6c88 -- assets scripts scenes project.godot tools and allfour prior book folders",
+      "result": "PASS",
+      "evidence": "Actualexit0empty output. No protected originals,voices/friends,earlierbooks,game/runtime/GDScript or game-tool change. Existingbaseline82-probe log remains historical evidence; this source-only editorial task claims no new-head gameplay probe/device result."
+    },
+    {
+      "command": "python -B tools/audit_document_authority.py; python -B tools/audit_development.py --base auto; git diff --check; git diff --cached --check",
+      "result": "PASS",
+      "evidence": "verification/document_gates.log: DOCAUTH686/686inventory/ledger,68active/71records ALL OK actualexit0; AUDITDEVbase245e9c543be771d297b60dafb91b8a3baf73e211 ALL OK actualexit0. Finalworking/stagedwhitespace checks both actualexit0 after removing one extra manuscript EOF blank line. Packet-local attribute preserves literal renderer receipt bytes/CRLF bound by independent review; ordinary whitespace checks remain enabled.19exact covered files staged."
+    },
+    {
+      "command": "Changed GDScript parser/inference and new runtime/device gameplay gates",
+      "result": "NOT_APPLICABLE",
+      "evidence": "Source-only editorial/PDF task. No GDScript/runtime changes; preceding full82-probe runtime bytes remain exactly frozen. Current relevant artifact/document/owner-register gates are run separately; no runtimeintegration/release claim."
+    }
+  ],
+  "acceptance_gaps": "Owner story and child read-aloud acceptance pending. New action illustration, print production and runtime adaptation are separate pending work; prior art approval is not assumed. No device, release, game-wide audit or external-delivery claim.",
+  "lessons": [
+    {
+      "lesson": "More cropped panels can repeat time instead of adding plot. Sustained comic action needs objective, changed contact/state, failed approach, revised tactic and consequence before artwork/layout expansion.",
+      "write_back": "design/chapters/RUMI_UNDERPOOL_BOOK_20261009.md#owner-correction-sustained-action---2026-10-11"
+    },
+    {
+      "lesson": "An action source can cover an endpoint without depicting its new mechanics. Bind pictured support separately from gaps; do not treat a prose-only storyboard as accepted action/contact art.",
+      "write_back": "assets_src/books/rumi_action_story_20261011/source_action_plan.json"
+    }
+  ],
+  "owner_corrections": [
+    {
+      "decision_id": "ODR-RUMI-BOOK-ACTION-20261011",
+      "evidence": "Owner: \"The plot is also far, far too thin to support this much material, there should be1-2detailed action sequences as well\". Exactoriginal wording retained inbrief/register.",
+      "write_back": "design/reference/OWNER_DECISIONS.md; design/chapters/RUMI_UNDERPOOL_BOOK_20261009.md"
+    }
+  ]
+}

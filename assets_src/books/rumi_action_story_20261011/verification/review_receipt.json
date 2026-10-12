@@ -1,0 +1,66 @@
+{
+  "status": "STATIC_STORY_PROOF_REVIEW_PASS; ACTION_ILLUSTRATION_PENDING",
+  "baseline": "7b5c0faff45706520f2f94c8958686d8446e6c88",
+  "script_sha256": "bf25c331b148bdd67451766df110da8b8da7c087e4fc3dfe51375ddc2802cd62",
+  "pdf_sha256": "e3a8e944403719b58812ab22ff1a35b2d812667d45c2b723a095771b73f63eb8",
+  "pages": 32,
+  "panels": 130,
+  "story_panels": 128,
+  "story_words": 1535,
+  "staging_words": 2298,
+  "ordered_extracted_entries": 339,
+  "sequences": [
+    {
+      "id": "A",
+      "pages": [
+        9,
+        14
+      ],
+      "authored_panels": 32
+    },
+    {
+      "id": "B",
+      "pages": [
+        21,
+        28
+      ],
+      "authored_panels": 41
+    }
+  ],
+  "machine_observations": [
+    "Actual32-pagePDF/page-size/source-word ordering and339 entries checked",
+    "Exact source/builder/PDF/3fonts/32renders/4contacts verified",
+    "Runtime/tools/protected sources/all four prior editions byte-frozen atbaseline",
+    "No scene-art pixels used;0raster generation calls"
+  ],
+  "root_visual_review": {
+    "contacts": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "full_pages": [
+      13,
+      14,
+      26,
+      27
+    ],
+    "observation": "Source-proof typography and reading order are legible; staging visibly differs from dialogue, headers/numbered panels/footer are clear, no clipped text or collisions seen. Unillustrated review layout is intentional, not a replacement manga-art layout."
+  },
+  "editorial_review": "verification/story_editor_review.json binds independent source/causal/prose/actual-PDF render review; source_action_plan.json binds pictured anchors vs new action gaps.",
+  "source_action_plan": {
+    "sha256": "17a06deebab63d9b424395c8b4dcf257ea5cc94a763cd2981a9ae83f4d8284d4",
+    "native_sources_verified": 17,
+    "sequence_pages_mapped": 14,
+    "new_action_artwork_pending": true
+  },
+  "regression_scope": "Source-only editorial/artifact task: no new runtime code or GDScript. Existing applicable document,append-only owner-register and PDF gates run; prior baseline82-probe receipt remains historical runtime evidence, not a new-head probe claim.",
+  "pending": [
+    "Owner story acceptance",
+    "Child read-aloud comprehension/pacing",
+    "New action drawings and exact visual/contact/geometry review",
+    "Later illustrated-book/print acceptance and separately scoped game adaptation"
+  ],
+  "master_audit": "UNSATISFIED; no finding lifecycle changed"
+}

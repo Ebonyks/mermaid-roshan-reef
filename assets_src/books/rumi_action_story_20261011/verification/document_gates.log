@@ -1,0 +1,34 @@
+Baseline: 7b5c0faff45706520f2f94c8958686d8446e6c88
+Branch: codex/rumi-action-story-20261011
+Scope: static story/manuscript proof; no game or external handoff.
+
+COMMAND: python -B tools/audit_document_authority.py
+DOCAUTH|INVENTORY=686|LEDGER=686|ACTIVE=68|RECORDS=71
+DOCAUTH|RESULT|ALL OK
+ACTUAL PROCESS EXIT: 0
+
+COMMAND: python -B tools/audit_development.py --base auto
+AUDITDEV|BASE|245e9c543be771d297b60dafb91b8a3baf73e211
+AUDITDEV|RESULT|ALL OK
+ACTUAL PROCESS EXIT: 0
+
+COMMAND: python -B -m unittest tools.tests.test_audit_document_authority tools.tests.test_audit_development
+Ran54tests in9.417s; OK; DOCAUTH|STRESS|6/6
+ACTUAL PROCESS EXIT: 0
+
+COMMAND: python -B tools/record_owner_decision.py --check --base 7b5c0faff45706520f2f94c8958686d8446e6c88
+DECISIONS|COUNT|45
+DECISIONS|RESULT|ALL OK
+ACTUAL PROCESS EXIT: 0
+
+git diff --check: ACTUAL PROCESS EXIT0
+git diff --cached --check: ACTUAL PROCESS EXIT0
+First staged check found one extra MANUSCRIPT EOF blank line, removed without changing story text. Literal renderer JSON receipt/CRLF is preserved by packet-local attributes; ordinary whitespace checks remain enabled.
+
+Static independent check:32actual576x720ptpages,130/128panels,1535story words,339ordered staging/dialogue entries,3font/32render/4contact hashes.
+Script SHA256: bf25c331b148bdd67451766df110da8b8da7c087e4fc3dfe51375ddc2802cd62
+PDF SHA256: e3a8e944403719b58812ab22ff1a35b2d812667d45c2b723a095771b73f63eb8
+Source plan:17actual native hashes/dimensions,14page maps,73authored action panels; no new raster output or action-art acceptance.
+Runtime/protected sources/tools/four prior book folders remain byte-frozen atbaseline, gitdiff actualexit0emptyoutput.
+Existing baseline82-probe receipt is historical unchanged-runtime evidence, not a new-head gameplay/device claim. No GDScript/runtime change: those change-specific gates do not apply to this editorial/PDF task.
+Source/proof/editorial verification is separate from owner/child/new illustration/contact/geometry/print acceptance, all pending. Global master remains UNSATISFIED; no finding lifecycle changed.

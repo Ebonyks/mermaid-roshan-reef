@@ -1,0 +1,7 @@
+output/pdf/*.pdf binary
+verification/*.log binary
+*.json text eol=lf
+*.txt text eol=lf
+*.py text eol=lf
+# Preserve the exact renderer receipt bound by the independent review.
+verification/story_proof_check.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
