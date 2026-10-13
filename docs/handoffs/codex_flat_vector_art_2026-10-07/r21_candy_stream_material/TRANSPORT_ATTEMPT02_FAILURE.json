@@ -1,0 +1,41 @@
+{
+  "status": "BOUNDED_WAIT_EXCEEDED_OWNED_SUBTREE_STOPPED",
+  "root_pid": 196780,
+  "owned_git_subtree": [
+    {
+      "ProcessId": 196780,
+      "ParentProcessId": 248000,
+      "Name": "git.exe",
+      "CreationDate": "2026-10-13T14:03:59.673079-07:00"
+    },
+    {
+      "ProcessId": 131736,
+      "ParentProcessId": 196780,
+      "Name": "git.exe",
+      "CreationDate": "2026-10-13T14:03:59.691225-07:00"
+    },
+    {
+      "ProcessId": 236868,
+      "ParentProcessId": 131736,
+      "Name": "git.exe",
+      "CreationDate": "2026-10-13T14:03:59.724977-07:00"
+    },
+    {
+      "ProcessId": 195436,
+      "ParentProcessId": 236868,
+      "Name": "git-remote-https.exe",
+      "CreationDate": "2026-10-13T14:03:59.747689-07:00"
+    },
+    {
+      "ProcessId": 184400,
+      "ParentProcessId": 195436,
+      "Name": "git.exe",
+      "CreationDate": "2026-10-13T14:04:02.422532-07:00"
+    }
+  ],
+  "raw_log_sha256": "782698d44b5804042de22e44a2b4e072016793d4690df4ca5a42fc97831a142b",
+  "raw_log": "push_attempt02.log",
+  "observed": "62.61MiB pack written,no completion response within150secondwait;known Git-only subtree stopped after exact branch/flag/PID ancestry validation. No unrelated editor interrupted.",
+  "later_initial_publication": "GitHub API and ls-remote independently observed original408b11972571d9ad148a25deb9a255799bcf295c available and branchadvanced to that commit. Correctedf84fc571 object unavailable at that observation.",
+  "checked_at_utc": "2026-10-13T21:12:40.413511+00:00"
+}

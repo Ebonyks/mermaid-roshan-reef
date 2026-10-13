@@ -68,7 +68,9 @@
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r21_candy_stream_material/REVIEW.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r21_candy_stream_material/SCRIPT_GATES.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r21_candy_stream_material/SOURCES.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r21_candy_stream_material/TRANSPORT_ATTEMPT02_FAILURE.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r21_candy_stream_material/TRANSPORT_RECOVERY.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r21_candy_stream_material/TRANSPORT_RESULT.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r21_candy_stream_material/build_manifest.py",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r21_candy_stream_material/candidate_stream_surface.gd",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r21_candy_stream_material/capture_stream_material.gd",
@@ -129,6 +131,8 @@
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r21_candy_stream_material/native/1600x720/candidate/wrong_released.png",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r21_candy_stream_material/native_capture.log",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r21_candy_stream_material/per_piece.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r21_candy_stream_material/push_attempt02.log",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r21_candy_stream_material/push_retry.log",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r21_candy_stream_material/receipt_gates.log",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r21_candy_stream_material/run_gates.py",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r21_candy_stream_material/scene_coverage.json",
@@ -154,13 +158,13 @@
     },
     {
       "command": "Anonymous exact public payload verification",
-      "result": "PENDING",
-      "evidence": "REMOTE_VERIFICATION.json"
+      "result": "PASS",
+      "evidence": "REMOTE_VERIFICATION.json:1684required files plusmanifest,565387296bytes,allbyte/hash checks anonymous atf84fc571b38ed28c82b47f46a5474410c0320364. Alpha0hiddenRGBcorrection preserves source/capture/provenance/history/counts. Final receipt metadata verified separately."
     },
     {
       "command": "Receipt source/document/audit/medium checks",
       "result": "PASS",
-      "evidence": "Fresh four source/document/audit-impact/medium receipt gates after exactalpha correction;GATES original54tests/6stress unchanged and passed. No production/runtime pixels changed."
+      "evidence": "RECEIPT_GATES.json/receipt_gates.log four blocking source/document/audit-impact/medium gates all0;full54document tests/6stress preservedGATES and not repeated for delivery metadata. No production pixels/code changes;localvisualQC/naturalroute/QA11/device/child/owner/globalacceptance remain open."
     }
   ],
   "acceptance_gaps": "LocalQCfailed Sshape/onset/staticflow;all production/fallback/naturalroute/QA11/device/child/owner/performance/global inventory remain open.",

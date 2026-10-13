@@ -542,10 +542,17 @@
   ],
   "role_and_family_counts_are_separate": true,
   "publication": {
-    "status": "PENDING",
-    "revision": null,
+    "status": "ALL_DECLARED_DEPENDENCIES_VERIFIED",
+    "revision": "f84fc571b38ed28c82b47f46a5474410c0320364",
     "manifest": "MANIFEST.json",
-    "receipt": "REMOTE_VERIFICATION.json"
+    "receipt": "REMOTE_VERIFICATION.json",
+    "manifest_sha256": "17dcd485d843c29e5cac989a4c525b5d2d7ce389aa3299bf2dd490c1ae9f22dd",
+    "payload_sha256": "b4af47d673163b86114137b463e948a34ee8d3ad6e1f9b672c1114df421c6053",
+    "required_file_count": 1684,
+    "required_bytes": 565387296,
+    "access_mode": "Anonymous public HTTPS for manifest and every declared required file; public GitHub repo API independently checked; recipient can use the same unauthenticated access mode.",
+    "checked_at_utc": "2026-10-13T21:13:33.043088+00:00",
+    "post_payload_metadata": "Final receipt metadata files verified separately against their final exact Git commit;creativeacceptance remains false."
   },
   "independent_style_review": {
     "file": "ROOT_CONTEXT_REVIEW_20261012.json",
@@ -687,8 +694,12 @@
   },
   "unpublished_external_activity_limit": "Separate Garden production branch has no published revision at the verified reconciliation; its local candidate is outside this frozen verified tally. Generation/integration counts in this packet retain packet scope.",
   "current_ci": {
-    "status": "NOT_YET_PUSHED",
-    "previous_head": "PREVIOUS_HEAD_CI.json"
+    "conclusion": "",
+    "databaseId": 38468857830,
+    "headSha": "f84fc571b38ed28c82b47f46a5474410c0320364",
+    "status": "in_progress",
+    "url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/38468857830",
+    "checked_at_utc": "2026-10-13T21:19:47.281736+00:00"
   },
   "inherited_r7_reference_base": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/c1e466a8a9e605f43b4c7a181b3d7b702d7677aa/docs/handoffs/codex_flat_vector_art_2026-10-07/r7_craft_context/",
   "inherited_r8_reference_base": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/f4de7b921298b0dac052df408af03bbb2b62132b/docs/handoffs/codex_flat_vector_art_2026-10-07/r8_geode_context/",
