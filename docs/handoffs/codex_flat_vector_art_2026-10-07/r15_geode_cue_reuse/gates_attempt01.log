@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "C:\Users\Peter\.codex\worktrees\flat-vector-r6-20261012\mermaid-roshan-reef\docs\handoffs\codex_flat_vector_art_2026-10-07\r15_geode_cue_reuse\validate.py", line 10, in <module>
+    b=subprocess.check_output(['git','show',x['revision']+':'+x['path']],cwd=R,stderr=subprocess.PIPE);assert len(b)==x['bytes'] and hashlib.sha256(b).hexdigest()==x['sha256'],x['path'];assert b==(R/x['path']).read_bytes()
+                                                                                                                                                                                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError

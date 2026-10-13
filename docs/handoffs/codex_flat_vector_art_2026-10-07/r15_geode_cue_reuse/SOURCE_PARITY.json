@@ -1,0 +1,44 @@
+{
+  "schema": 1,
+  "baseline": "42ef9083c07d15e0436ad981d23a35c6309871c8",
+  "working_production_diff": [],
+  "origin_dev": "831d0bbb155b99d75ef0289cc5cc694e0ef00c1e",
+  "origin_dev_production_diff": [
+    "scripts/opera_geology_surface.gd",
+    "scripts/probe_opera_2d.gd"
+  ],
+  "exact_cue_trial_input_owner": "Inherited unchanged OperaGeologySurface; no input/state/save override.",
+  "candidate_function_overrides": [
+    "_draw_geode"
+  ],
+  "additional_helper": "marker_spot returns original target center; no input mutation",
+  "draw_prefix_parity": "Everything before five-target loop byte-for-text identical to current production _draw_geode. Original stone/crystal visuals intentionally retained as control; no art-wide closure.",
+  "candidate_cue_half_diagonal": 45.254833995939045,
+  "original_hit_radius": 56,
+  "visible_cue_entire_rect_inside_hit_circle": true,
+  "seam_centers": [
+    [
+      766,
+      216
+    ],
+    [
+      735,
+      278
+    ],
+    [
+      778,
+      340
+    ],
+    [
+      744,
+      401
+    ],
+    [
+      770,
+      466
+    ]
+  ],
+  "original_travel_limit": 34,
+  "original_pull_distance": 120,
+  "byte_scope": "Git production diff empty; PNG bytes exact. Source text uses Git LF canonical equality; existing CRLF checkout bytes explicitly retained in SOURCES.json. No raw-byte-equal claim for unchanged CRLF text."
+}

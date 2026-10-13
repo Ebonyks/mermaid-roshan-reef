@@ -1,6 +1,8 @@
-Current canonical evidence: [R14 Geode terminal repair/lifecycle](r14_geode_lifecycle/README.md), [registry](r14_geode_lifecycle/per_piece.json), [coverage](r14_geode_lifecycle/scene_coverage.json), [tally](r14_geode_lifecycle/tally.json).
+Current canonical evidence: [R15 painted Geode cue study](r15_geode_cue_reuse/README.md), [registry](r15_geode_cue_reuse/per_piece.json), [coverage](r15_geode_cue_reuse/scene_coverage.json), [tally](r15_geode_cue_reuse/tally.json).
 
-# Full-game flat-vector audit — current R14 Geode lifecycle
+# Full-game flat-vector audit — current R15 cue reuse study
+
+R15 adds44 isolated whole-source gold-star cue diagnostics; completed feedback and inherited pointer/feedback artwork remain unresolved.2044 bounded/2158 retained,225 known/30 families; zero integration/accepted removal,unknown whole-game denominator. Earlier R14 behavior evidence and history remain below.
 
 R14 repairs a reproduced terminal-input blocker and captures normal-policy save/reload/reward/re-entry.2000 bounded/2114 retained;225 known/30 families; zero artwork replacements/acceptance,whole-game denominator unknown. Previous R13 narrative remains historical below.
 

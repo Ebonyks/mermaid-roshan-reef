@@ -1,0 +1,1089 @@
+{
+  "schema": "reef.flat_vector_tally/1",
+  "baseline": "92c9fe70319ef46bfaa8f61348a6f51512141ec3",
+  "revision": "FV-AUDIT-20261013-R15",
+  "status_lanes": [
+    "NEEDS_CONTEXT_REVIEW",
+    "IDENTIFIED",
+    "REUSE_READY",
+    "DRAWING_REQUIRED",
+    "SAMPLE_READY",
+    "VISUAL_REVIEW_PENDING",
+    "APPROVED_FOR_INTEGRATION",
+    "INTEGRATED",
+    "RUNTIME_VERIFIED",
+    "DEVICE_CHILD_OWNER_PENDING",
+    "ACCEPTED_REMOVED",
+    "BLOCKED",
+    "VERIFIED_NOT_FLAT_VECTOR_ART",
+    "EXEMPT_FUNCTIONAL",
+    "INACTIVE_ARCHIVE"
+  ],
+  "mission_status": "ACTIVE; zero-vector removal NOT achieved",
+  "phase": "CURRENT_CONTEXT_PARTIAL; first fullysource-bound namedrepair/sample afterR6verifiedpublication;inventorycontinues alongside andmustclosebeforegoalcompletion",
+  "named_piece_records": 224,
+  "named_family_count": 29,
+  "named_status_counts": {
+    "IDENTIFIED": 91,
+    "NEEDS_CONTEXT_REVIEW": 128,
+    "BLOCKED": 4,
+    "REUSE_READY": 1
+  },
+  "all_game_individual_piece_total": null,
+  "total_unknown_reason": "369 source scopes, repeated/phase variants, dynamic resources, raster lookalikes and shader/mesh state visibility need current context enumeration. Named records are a lower bound, not an exhaustive accepted visual-piece total. Two extra texture-compositor scopes and raster/fallback/dynamic consumers remain outside the frozen369primitive census.",
+  "source_script_count": 165,
+  "source_function_scopes": 369,
+  "primitive_candidate_call_sites": 1451,
+  "commissioning_scan_call_sites": 1246,
+  "scan_count_difference": "Broader collector includes generated textures, primitive meshes, flat styles, scene-only scripts and draw_style_box; narrow root scan uses its documented primitive set. Neither count is an art total.",
+  "source_image_count": 10046,
+  "runtime_svg_assets": 5,
+  "glyph_candidate_rows": 348,
+  "route_entries": 176,
+  "unreviewed_current_route_entries": 176,
+  "current_distinct_screen_total": null,
+  "source_or_historical_review_only": false,
+  "replaced": 0,
+  "integrated": 0,
+  "runtime_verified": 0,
+  "accepted_removed": 0,
+  "remaining_named_design_records": 224,
+  "remaining_source_scopes_to_disposition": 351,
+  "regression_count": null,
+  "regression_evidence": "Initial audit baseline; no replacement or runtime change. A zero regression claim awaits repeat census at unchanged/updated candidate.",
+  "zero_acceptance_criteria": [
+    "No reachable flat-vector art in gameplay or UI across every current route/state/save variant",
+    "All runtime-loaded SVG/vector resources and raster vector-lookalikes individually dispositioned",
+    "Every procedural draw callback, scene primitive, generated texture, mesh stand-in, shader artwork and decorative glyph has accepted disposition",
+    "Old fallback branches, manifests/export references and obsolete builders cannot recreate flat-vector art",
+    "Every named item accepted in current Mobile 1280x720 plus phone ratio with HUD, action/contact/settle/seam and source hashes",
+    "Device performance/readability, child comprehension and explicit owner style acceptance recorded",
+    "Functional collision/masks/text rendering and protected originals preserved; child content not erased",
+    "All source scopes resolved; unknown actual totals/coverage gaps reduced to zero before completion"
+  ],
+  "named_resolved_without_replacement": 0,
+  "remaining_named_definition": "Named candidates still unresolved or requiring removal. Accepted removal and source/runtime-proved non-flat artwork, non-art functional geometry or inactive archive dispositions are separately resolved; they are never counted as replacements. A quality score cannot exempt flat-vector ART.",
+  "source_register_frozen": true,
+  "current_context": {
+    "evidence": "README.md",
+    "source_revision": "42ef9083c07d15e0436ad981d23a35c6309871c8",
+    "reconciled_origin_dev": "831d0bbb155b99d75ef0289cc5cc694e0ef00c1e",
+    "runtime_byte_diff": [
+      "scripts/opera_geology_surface.gd",
+      "scripts/probe_opera_2d.gd"
+    ],
+    "exact_capture_count": 2044,
+    "new_R6_capture_count": 980,
+    "partial_overlapping_entries": 77,
+    "complete_entries": 0,
+    "entries_without_current_slice": 99,
+    "partial_drawing_scopes": 50,
+    "fully_dispositioned_scopes": 18,
+    "functional_scopes": 4,
+    "art_scopes_pending_replacement": 13,
+    "counted_flat_role_contexts": 164,
+    "source_closure_files": 6444,
+    "source_closure_limit": "Measured suffix inventory;full active resource/callback/raster/procedural closure remains open",
+    "natural_play_device_child_owner": null,
+    "pre_picture_R6_slice": {
+      "exact_capture_count": 1488,
+      "new_R6_capture_count": 884,
+      "partial_entries": 68,
+      "entries_without_current_slice": 108,
+      "counted_flat_role_contexts": 164
+    },
+    "retained_native_capture_count": 2158,
+    "rejected_boot_capture_count": 8,
+    "supplementary_picture_role_contexts": 3,
+    "independent_picture_partial_scope_ids": [
+      "FVF-8A1564966D4B",
+      "FVF-535EDBF3F803",
+      "FVF-F5F7A8DE4736",
+      "FVF-B6D63EC4F8E0"
+    ],
+    "inactive_scopes": 1,
+    "inventory_disposition_definition": "18source scopes role/reachability inventory-classified:4functional,13mixed/ART requiring replacements,1unreachable oldslide. This does not establish full context/acceptance or artremoved.",
+    "independent_picture_source_dispositions": "ROOT_PICTURE_SCOPE_DISPOSITIONS_20261012.json",
+    "failed_run_capture_count": 94,
+    "supplementary_action_role_contexts": 1,
+    "excluded_diagnostic_native_count": 114,
+    "new_R7_capture_count": 80,
+    "supplemental_craft_component_roles": 3,
+    "source_closure_files_craft": 6452,
+    "craft_source_parity": "5350raw identical plus1102newline-only import sidecars",
+    "origin_dev_reconciliation": "SOURCE_PARITY.json",
+    "origin_dev_runtime_diff": [
+      "scripts/opera_geology_surface.gd",
+      "scripts/probe_opera_2d.gd"
+    ],
+    "geode_native_added": 44,
+    "retained_native_captures": 2158,
+    "geode_capture_revision": "c1e466a8a9e605f43b4c7a181b3d7b702d7677aa",
+    "new_geode_source_census": {
+      "files": 3236,
+      "definition": "Every file under assets/scripts/scenes/shaders excluding .import/.uid plus project.godot; not a full reachability/QA11 closure.",
+      "byte_changes": []
+    },
+    "geode_capture_hashes_unique": 34,
+    "geode_capture_count_unit": "44 native state/event capture files,34 unique PNG byte hashes; no claim of44 visually distinct states or authored action frames.",
+    "geode_reuse_capture_count": 44,
+    "geode_reuse_unique_hashes": 35,
+    "geode_reuse_capture_revision": "f4de7b921298b0dac052df408af03bbb2b62132b",
+    "legacy_R7_retained_native_capture_count": 1766,
+    "retained_field_reconciliation": "R15 both retained aliases2158=2044 bounded+114 excluded;44 new cue diagnostic files and no excluded trial frames. Earlier revisions remain immutable history.",
+    "geode_marker_fit_capture_count": 44,
+    "geode_marker_fit_unique_hashes": 35,
+    "geode_marker_fit_capture_revision": "0c2732204bec7f882db26d835e2ce32ee12c7471",
+    "geode_open_pair_capture_count": 52,
+    "geode_open_pair_unique_hashes": 45,
+    "geode_open_pair_capture_revision": "e8d0aa54b79d222f092534a053e4d716fc27067f",
+    "geode_layered_capture_count": 52,
+    "geode_layered_unique_hashes": 46,
+    "geode_layered_capture_revision": "c5d70079bc2b048a76f50edeabd8a2ff2a95bd24",
+    "R14_new_bounded_capture_count": 100,
+    "R14_new_retained_capture_count": 112,
+    "R14_failed_downstream_excluded": 12,
+    "runtime_behavior_delta": "scripts/opera_geology_surface.gd terminal guard correction; scripts/probe_opera_2d.gd meaningful regression. No artwork asset replacement.",
+    "source_revision_scope": "Baseline for R14 working correction; exact modified source bytes bound by SOURCE_PARITY/new payload. Earlier mixed current-context captures keep their immutable historical revisions.",
+    "failed_run_capture_count_scope": "Inherited R6 excluded failed-run diagnostics94; R14 failed downstream views12 are separate. This historical R6 field is not the current all-run failure count.",
+    "published_runtime_source_revision": "53c511b0ec5b0fbf5a697e6e64d216540060fc43",
+    "new_R15_capture_count": 44,
+    "geode_cue_candidate_diagnostics": "CAPTURE_INDEX.json"
+  },
+  "unreviewed_current_route_entries_note": "All176incomplete:77partial,99without. Frozen224/29 and369/18/351 retain count units; one whole fish/3roles and2texture compositors. Whole-game denominator unknown.",
+  "historical_totals": [
+    {
+      "revision": "FV-AUDIT-20261007-R5",
+      "immutable_commit": "5e5140fb0f0b636825354b6db8d28da0e9c07446",
+      "tally_file": "HISTORICAL_R5_TALLY.json",
+      "current_context": {
+        "evidence": "live_v5/README.md",
+        "source_revision": "6c2f3fb6b47ac247521cb4bd029d258c4f060693",
+        "exact_capture_count": 604,
+        "live_free_play_careers": 15,
+        "live_open_phases": 70,
+        "partial_overlapping_entries": 43,
+        "complete_entries": 0,
+        "entries_without_current_slice": 133,
+        "partial_drawing_scopes": 39,
+        "fully_dispositioned_scopes": 6,
+        "source_closure_files": 6427,
+        "natural_play_device_child_owner": null,
+        "r3_exact_capture_count": 100,
+        "r4_exact_capture_count": 62,
+        "r4_split_flat_art_helper_instances": 40,
+        "r5_exact_capture_count": 250,
+        "r5_split_flat_art_editor_instances": 23
+      }
+    },
+    {
+      "revision": "FV-AUDIT-20261007-R6",
+      "immutable_payload_revision": "4aceae967de9da7c8f479e358a008188ba1f6304",
+      "receipt_revision": "70879a91ddcbba51ba09c7d0be81cc65f340e3b5",
+      "named_design_records": 224,
+      "families": 29,
+      "bounded_captures": 1584,
+      "retained_native": 1686,
+      "partial_entries": 76,
+      "complete_entries": 0,
+      "without": 100,
+      "source_scopes": 369,
+      "classified": 18,
+      "unresolved": 351,
+      "accepted_removed": 0,
+      "all_game_individual_piece_total": null
+    },
+    {
+      "revision": "FV-AUDIT-20261012-R7",
+      "immutable_receipt_revision": "c1e466a8a9e605f43b4c7a181b3d7b702d7677aa",
+      "known_designs": 225,
+      "families": 30,
+      "bounded_captures": 1664,
+      "retained_native": 1766,
+      "partial_entries": 77,
+      "complete_entries": 0,
+      "entries_without": 99,
+      "accepted_removed": 0,
+      "whole_game_total": null
+    },
+    {
+      "revision": "FV-AUDIT-20261013-R8",
+      "immutable_payload_revision": "f9f276b27f86744672bd06b3d0c8f9e72c9d9120",
+      "receipt_revision": "f4de7b921298b0dac052df408af03bbb2b62132b",
+      "known_designs": 225,
+      "families": 30,
+      "bounded_captures": 1708,
+      "retained_native": 1810,
+      "partial_entries": 77,
+      "complete_entries": 0,
+      "accepted_removed": 0,
+      "whole_game_total": null
+    },
+    {
+      "revision": "FV-AUDIT-20261013-R9",
+      "immutable_payload_revision": "9e7ba36427dcb85bedf3ecd920da9706f8eb8629",
+      "receipt_revision": "0c2732204bec7f882db26d835e2ce32ee12c7471",
+      "known_designs": 225,
+      "families": 30,
+      "bounded_captures": 1752,
+      "retained_native": 1854,
+      "partial_entries": 77,
+      "complete_entries": 0,
+      "accepted_removed": 0,
+      "whole_game_total": null
+    },
+    {
+      "revision": "FV-AUDIT-20261013-R10",
+      "immutable_payload_revision": "4e561c72e1859153eca8d49bba84e5b0a9a32f60",
+      "receipt_revision": "e8d0aa54b79d222f092534a053e4d716fc27067f",
+      "known_designs": 225,
+      "families": 30,
+      "bounded_captures": 1796,
+      "retained_native": 1898,
+      "partial_entries": 77,
+      "complete_entries": 0,
+      "accepted_removed": 0,
+      "whole_game_total": null
+    },
+    {
+      "revision": "FV-AUDIT-20261013-R11",
+      "immutable_payload_revision": "ca36462c4fb117cd22ee9003838d64cd1b0e9415",
+      "receipt_revision": "c5d70079bc2b048a76f50edeabd8a2ff2a95bd24",
+      "known_designs": 225,
+      "families": 30,
+      "bounded_captures": 1848,
+      "retained_native": 1950,
+      "partial_entries": 77,
+      "complete_entries": 0,
+      "accepted_removed": 0,
+      "whole_game_total": null
+    },
+    {
+      "revision": "FV-AUDIT-20261013-R12",
+      "immutable_commit": "d26512b120500492be8e2694ac552a187f0091ca",
+      "tally_file": "docs/handoffs/codex_flat_vector_art_2026-10-07/r12_geode_layered_reveal/tally.json",
+      "current_context": {
+        "evidence": "README.md",
+        "source_revision": "e2b3c73789707aa49a91b4f42e2a9dd4b68225df",
+        "reconciled_origin_dev": "831d0bbb155b99d75ef0289cc5cc694e0ef00c1e",
+        "runtime_byte_diff": [],
+        "exact_capture_count": 1900,
+        "new_R6_capture_count": 980,
+        "partial_overlapping_entries": 77,
+        "complete_entries": 0,
+        "entries_without_current_slice": 99,
+        "partial_drawing_scopes": 50,
+        "fully_dispositioned_scopes": 18,
+        "functional_scopes": 4,
+        "art_scopes_pending_replacement": 13,
+        "counted_flat_role_contexts": 164,
+        "source_closure_files": 6444,
+        "source_closure_limit": "Measured suffix inventory;full active resource/callback/raster/procedural closure remains open",
+        "natural_play_device_child_owner": null,
+        "pre_picture_R6_slice": {
+          "exact_capture_count": 1488,
+          "new_R6_capture_count": 884,
+          "partial_entries": 68,
+          "entries_without_current_slice": 108,
+          "counted_flat_role_contexts": 164
+        },
+        "retained_native_capture_count": 2002,
+        "rejected_boot_capture_count": 8,
+        "supplementary_picture_role_contexts": 3,
+        "independent_picture_partial_scope_ids": [
+          "FVF-8A1564966D4B",
+          "FVF-535EDBF3F803",
+          "FVF-F5F7A8DE4736",
+          "FVF-B6D63EC4F8E0"
+        ],
+        "inactive_scopes": 1,
+        "inventory_disposition_definition": "18source scopes role/reachability inventory-classified:4functional,13mixed/ART requiring replacements,1unreachable oldslide. This does not establish full context/acceptance or artremoved.",
+        "independent_picture_source_dispositions": "ROOT_PICTURE_SCOPE_DISPOSITIONS_20261012.json",
+        "failed_run_capture_count": 94,
+        "supplementary_action_role_contexts": 1,
+        "excluded_diagnostic_native_count": 102,
+        "new_R7_capture_count": 80,
+        "supplemental_craft_component_roles": 3,
+        "source_closure_files_craft": 6452,
+        "craft_source_parity": "5350raw identical plus1102newline-only import sidecars",
+        "origin_dev_reconciliation": "ORIGIN_DEV_RECONCILIATION.json",
+        "origin_dev_runtime_diff": [],
+        "geode_native_added": 44,
+        "retained_native_captures": 2002,
+        "geode_capture_revision": "c1e466a8a9e605f43b4c7a181b3d7b702d7677aa",
+        "new_geode_source_census": {
+          "files": 3236,
+          "definition": "Every file under assets/scripts/scenes/shaders excluding .import/.uid plus project.godot; not a full reachability/QA11 closure.",
+          "byte_changes": []
+        },
+        "geode_capture_hashes_unique": 34,
+        "geode_capture_count_unit": "44 native state/event capture files,34 unique PNG byte hashes; no claim of44 visually distinct states or authored action frames.",
+        "geode_reuse_capture_count": 44,
+        "geode_reuse_unique_hashes": 35,
+        "geode_reuse_capture_revision": "f4de7b921298b0dac052df408af03bbb2b62132b",
+        "legacy_R7_retained_native_capture_count": 1766,
+        "retained_field_reconciliation": "R10 corrected stale R7 retained-field value1766. R12 current total2002=1900bounded+102excluded; all earlier exact revisions retained.",
+        "geode_marker_fit_capture_count": 44,
+        "geode_marker_fit_unique_hashes": 35,
+        "geode_marker_fit_capture_revision": "0c2732204bec7f882db26d835e2ce32ee12c7471",
+        "geode_open_pair_capture_count": 52,
+        "geode_open_pair_unique_hashes": 45,
+        "geode_open_pair_capture_revision": "e8d0aa54b79d222f092534a053e4d716fc27067f",
+        "geode_layered_capture_count": 52,
+        "geode_layered_unique_hashes": 46,
+        "geode_layered_capture_revision": "c5d70079bc2b048a76f50edeabd8a2ff2a95bd24"
+      },
+      "named_piece_records": 224,
+      "named_family_count": 29,
+      "known_including_supplemental": 225,
+      "known_families_including_supplemental": 30,
+      "accepted_removed": 0
+    },
+    {
+      "revision": "FV-AUDIT-20261013-R13",
+      "immutable_commit": "8a0db03f72735b67ebb581927051c92ca62eaef9",
+      "tally_file": "docs/handoffs/codex_flat_vector_art_2026-10-07/r13_geode_source_closure/tally.json",
+      "current_context": {
+        "evidence": "README.md",
+        "source_revision": "e2b3c73789707aa49a91b4f42e2a9dd4b68225df",
+        "reconciled_origin_dev": "831d0bbb155b99d75ef0289cc5cc694e0ef00c1e",
+        "runtime_byte_diff": [],
+        "exact_capture_count": 1900,
+        "new_R6_capture_count": 980,
+        "partial_overlapping_entries": 77,
+        "complete_entries": 0,
+        "entries_without_current_slice": 99,
+        "partial_drawing_scopes": 50,
+        "fully_dispositioned_scopes": 18,
+        "functional_scopes": 4,
+        "art_scopes_pending_replacement": 13,
+        "counted_flat_role_contexts": 164,
+        "source_closure_files": 6444,
+        "source_closure_limit": "Measured suffix inventory;full active resource/callback/raster/procedural closure remains open",
+        "natural_play_device_child_owner": null,
+        "pre_picture_R6_slice": {
+          "exact_capture_count": 1488,
+          "new_R6_capture_count": 884,
+          "partial_entries": 68,
+          "entries_without_current_slice": 108,
+          "counted_flat_role_contexts": 164
+        },
+        "retained_native_capture_count": 2002,
+        "rejected_boot_capture_count": 8,
+        "supplementary_picture_role_contexts": 3,
+        "independent_picture_partial_scope_ids": [
+          "FVF-8A1564966D4B",
+          "FVF-535EDBF3F803",
+          "FVF-F5F7A8DE4736",
+          "FVF-B6D63EC4F8E0"
+        ],
+        "inactive_scopes": 1,
+        "inventory_disposition_definition": "18source scopes role/reachability inventory-classified:4functional,13mixed/ART requiring replacements,1unreachable oldslide. This does not establish full context/acceptance or artremoved.",
+        "independent_picture_source_dispositions": "ROOT_PICTURE_SCOPE_DISPOSITIONS_20261012.json",
+        "failed_run_capture_count": 94,
+        "supplementary_action_role_contexts": 1,
+        "excluded_diagnostic_native_count": 102,
+        "new_R7_capture_count": 80,
+        "supplemental_craft_component_roles": 3,
+        "source_closure_files_craft": 6452,
+        "craft_source_parity": "5350raw identical plus1102newline-only import sidecars",
+        "origin_dev_reconciliation": "ORIGIN_DEV_RECONCILIATION.json",
+        "origin_dev_runtime_diff": [],
+        "geode_native_added": 44,
+        "retained_native_captures": 2002,
+        "geode_capture_revision": "c1e466a8a9e605f43b4c7a181b3d7b702d7677aa",
+        "new_geode_source_census": {
+          "files": 3236,
+          "definition": "Every file under assets/scripts/scenes/shaders excluding .import/.uid plus project.godot; not a full reachability/QA11 closure.",
+          "byte_changes": []
+        },
+        "geode_capture_hashes_unique": 34,
+        "geode_capture_count_unit": "44 native state/event capture files,34 unique PNG byte hashes; no claim of44 visually distinct states or authored action frames.",
+        "geode_reuse_capture_count": 44,
+        "geode_reuse_unique_hashes": 35,
+        "geode_reuse_capture_revision": "f4de7b921298b0dac052df408af03bbb2b62132b",
+        "legacy_R7_retained_native_capture_count": 1766,
+        "retained_field_reconciliation": "R10 corrected stale R7 retained-field value1766. R12 current total2002=1900bounded+102excluded; all earlier exact revisions retained.",
+        "geode_marker_fit_capture_count": 44,
+        "geode_marker_fit_unique_hashes": 35,
+        "geode_marker_fit_capture_revision": "0c2732204bec7f882db26d835e2ce32ee12c7471",
+        "geode_open_pair_capture_count": 52,
+        "geode_open_pair_unique_hashes": 45,
+        "geode_open_pair_capture_revision": "e8d0aa54b79d222f092534a053e4d716fc27067f",
+        "geode_layered_capture_count": 52,
+        "geode_layered_unique_hashes": 46,
+        "geode_layered_capture_revision": "c5d70079bc2b048a76f50edeabd8a2ff2a95bd24"
+      },
+      "known_including_supplemental": 225,
+      "known_families_including_supplemental": 30,
+      "accepted_removed": 0
+    },
+    {
+      "revision": "FV-AUDIT-20261013-R15",
+      "source_revision": "42ef9083c07d15e0436ad981d23a35c6309871c8",
+      "known_named_design_records_including_supplemental": 225,
+      "known_family_count_including_supplemental": 30,
+      "new_cue_diagnostic_files": 44,
+      "cumulative_bounded_diagnostic_files": 2044,
+      "retained_native_captures": 2158,
+      "excluded_diagnostic_native_count": 114,
+      "accepted_removed": 0,
+      "all_game_individual_piece_total": null,
+      "note": "Cue source reuse study only; no new design/family,replacement,source-scope disposition or acceptance.",
+      "current_existing_named_partial_context_records": 47,
+      "current_existing_named_partial_context_families": 8
+    }
+  ],
+  "role_and_family_counts_are_separate": true,
+  "publication": {
+    "revision": "FV-AUDIT-20261013-R15",
+    "status": "PAYLOAD_PREPARED_REMOTE_VERIFICATION_PENDING",
+    "manifest": "MANIFEST.json",
+    "receipt": "REMOTE_VERIFICATION.json",
+    "creative_acceptance": false,
+    "accepted_removed": 0
+  },
+  "independent_style_review": {
+    "file": "ROOT_CONTEXT_REVIEW_20261012.json",
+    "sha256": "ab19b2d0a681322a79dcc187cba397de51d6c5201c67f2970c430d2cadda55e6",
+    "native_images": 20,
+    "observations": 20,
+    "existing_named_design_records_with_partial_review": 30,
+    "full_context_review_complete": false,
+    "accepted_removed": 0,
+    "picture_addendum": {
+      "file": "root_picture_review_20261012/review.json",
+      "sha256": "5eb465c1e48be3f665100a526ec05fa8620afd078bd4f462cf2b69c5c8ec78dc",
+      "native_retained": 52,
+      "native_rejected_boot": 8,
+      "bounded_diagnostic_native": 44,
+      "actually_viewed_unique": 24,
+      "observations": 17,
+      "existing_named_ids": 15,
+      "full_context_review_complete": false,
+      "accepted_removed": 0
+    },
+    "combined_named_records_with_partial_review": 44,
+    "action_addendum": {
+      "file": "root_picture_actions_review_20261012/review.json",
+      "sha256": "54b167f9b14b4de7e79ca570a30828fcf48d394d54937376e7468461dd9399f1",
+      "retained_native": 146,
+      "successful_fixture_native": 52,
+      "failed_run_native": 94,
+      "actually_viewed_unique": 12,
+      "observations": 8,
+      "existing_named_ids": 6,
+      "full_context_review_complete": false,
+      "accepted_removed": 0
+    },
+    "craft_addendum": {
+      "file": "REVIEW.json",
+      "native": 80,
+      "actually_viewed_unique": 5,
+      "source_images_viewed": 3,
+      "observations": 4,
+      "supplemental_whole_designs": 1,
+      "newly_reviewed_existing_224_ids": 0,
+      "full_context_review_complete": false,
+      "accepted_removed": 0
+    },
+    "geode_addendum": {
+      "file": "REVIEW.json",
+      "native": 44,
+      "actually_viewed_unique": 5,
+      "observations": 2,
+      "existing_named_piece_ids": 4,
+      "already_in_existing_partial_review_union": true,
+      "full_context_review_complete": false,
+      "accepted_removed": 0
+    },
+    "geode_reuse_trial": {
+      "file": "REVIEW.json",
+      "native": 44,
+      "unique_png_hashes": 35,
+      "actually_viewed_unique": 5,
+      "observations": 3,
+      "existing_piece_trial": 1,
+      "existing_family_trial": 1,
+      "full_context_review_complete": false,
+      "accepted_removed": 0
+    },
+    "geode_marker_fit": {
+      "evidence": "REVIEW.json",
+      "measurements": "FIT_MEASUREMENTS.json",
+      "source_revision": "0c2732204bec7f882db26d835e2ce32ee12c7471",
+      "status": "ISOLATED_MARKER_ALIGNMENT_REPAIR_FAMILY_INCOMPLETE",
+      "native_captures": 44,
+      "unique_png_hashes": 35,
+      "actually_viewed_unique": 5,
+      "original_input_geometry_preserved": true,
+      "whole_source_shift": [
+        -20,
+        0
+      ],
+      "new_generation_calls": 0,
+      "production_integration": null,
+      "accepted_removed": 0
+    },
+    "geode_open_pair_trial": {
+      "evidence": "REVIEW.json",
+      "derivatives": "DERIVATIVES.json",
+      "measurements": "FIT_MEASUREMENTS.json",
+      "source_revision": "e8d0aa54b79d222f092534a053e4d716fc27067f",
+      "status": "SOURCE_TECHNICAL_NORMALIZATION_PASS_ENDPOINT_METHOD_ACTION_FAIL",
+      "native_captures": 52,
+      "unique_png_hashes": 45,
+      "actually_viewed_unique": 6,
+      "new_generation_calls": 0,
+      "production_integration": null,
+      "accepted_removed": 0,
+      "scope": "Underlying source not rejected wholesale; curved/local matched assembly still untested."
+    },
+    "geode_layered_reveal": {
+      "evidence": "REVIEW.json",
+      "derivatives": "DERIVATIVES.json",
+      "job": "REUSE_JOB.json",
+      "measurements": "FIT_MEASUREMENTS.json",
+      "source_revision": "c5d70079bc2b048a76f50edeabd8a2ff2a95bd24",
+      "status": "ISOLATED_PROGRESSIVE_REVEAL_CANDIDATE_CAP_FIT_INCOMPLETE",
+      "native_captures": 52,
+      "unique_png_hashes": 46,
+      "actually_viewed_unique": 6,
+      "new_generation_calls": 0,
+      "production_integration": null,
+      "accepted_removed": 0,
+      "scope": "R11 instantaneous endpoint method addressed by source-derived shell translation/gap reveal; straight cavity caps and full acceptance remain blocking."
+    }
+  },
+  "known_named_design_records_including_supplemental": 225,
+  "supplemental_named_design_records": 1,
+  "known_family_count_including_supplemental": 30,
+  "supplemental_family_count": 1,
+  "supplemental_status_counts": {
+    "NEEDS_CONTEXT_REVIEW": 1
+  },
+  "supplemental_texture_compositor_scopes": 2,
+  "supplemental_texture_scope_runtime_coverage_gaps": 2,
+  "inherited_r6_reference_base": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/4aceae967de9da7c8f479e358a008188ba1f6304/docs/handoffs/codex_flat_vector_art_2026-10-07/",
+  "reference_resolution": "Inherited keys retain their per-revision inherited reference bases; geode_lifecycle and its unqualified paths resolve against inherited_r14_reference_base; geode_cue_reuse paths resolve beside current R15 files. Older frozen units/history unchanged.",
+  "unpublished_external_activity_limit": "Separate Garden production branch has no published revision at the verified reconciliation; its local candidate is outside this frozen verified tally. Generation/integration counts in this packet retain packet scope.",
+  "current_ci": {
+    "head": "42ef9083c07d15e0436ad981d23a35c6309871c8",
+    "run": 38409790014,
+    "status": "in_progress",
+    "new_R15_exact_head": "PENDING_AFTER_PUBLICATION",
+    "local_full_suite": "Inherited unchanged production source passed all82 native trusted probes in R14; no82 repeat claimed by cue study.",
+    "conclusion": "",
+    "jobs": [
+      {
+        "name": "area-music-provenance",
+        "status": "completed",
+        "conclusion": "cancelled"
+      },
+      {
+        "name": "probes",
+        "status": "in_progress",
+        "conclusion": ""
+      }
+    ]
+  },
+  "inherited_r7_reference_base": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/c1e466a8a9e605f43b4c7a181b3d7b702d7677aa/docs/handoffs/codex_flat_vector_art_2026-10-07/r7_craft_context/",
+  "inherited_r8_reference_base": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/f4de7b921298b0dac052df408af03bbb2b62132b/docs/handoffs/codex_flat_vector_art_2026-10-07/r8_geode_context/",
+  "published_technical_source_trials": {
+    "known_piece_count": 3,
+    "known_family_count": 1,
+    "piece_ids": [
+      "FV-C1AB21410352",
+      "FV-99DB2D71D276",
+      "FV-F7DB96881260"
+    ],
+    "scope": "Three existing named role/state records in one existing Geode subject/family share two source-state candidate assets; not three independent new designs or removals.",
+    "candidate_approval_pending": true,
+    "incomplete_fit_count": 1,
+    "accepted_integrations": 0,
+    "source_state_candidate_assets": 2
+  },
+  "frozen_source_image_count_scope": "Original collector source-image snapshot10046 retained as history; new nonruntime technical files are listed separately and do not create design/removal totals.",
+  "new_nonruntime_technical_derivatives": {
+    "png_files": 8,
+    "editable_aseprite_masters": 5,
+    "existing_designs": 1,
+    "existing_families": 1,
+    "runtime_bound": 0,
+    "existing_named_role_state_ids": [
+      "FV-C1AB21410352",
+      "FV-99DB2D71D276",
+      "FV-F7DB96881260"
+    ],
+    "R11_added_png_files": 2,
+    "R11_added_editable_masters": 2,
+    "count_unit": "Technical artifacts: four earlier PNG/four masters plus R12 three sampled components/one partition proof PNG/one four-layer master. Same existing Geode subject/family and three original role/state IDs; not new whole designs/removals.",
+    "R12_added_png_files": 4,
+    "R12_added_editable_masters": 1
+  },
+  "inherited_r9_reference_base": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/0c2732204bec7f882db26d835e2ce32ee12c7471/docs/handoffs/codex_flat_vector_art_2026-10-07/r9_geode_reuse/",
+  "geode_alignment_repair": {
+    "evidence": "REVIEW.json",
+    "measurements": "FIT_MEASUREMENTS.json",
+    "source_revision": "0c2732204bec7f882db26d835e2ce32ee12c7471",
+    "status": "ISOLATED_MARKER_ALIGNMENT_REPAIR_FAMILY_INCOMPLETE",
+    "native_captures": 44,
+    "unique_png_hashes": 35,
+    "actually_viewed_unique": 5,
+    "original_input_geometry_preserved": true,
+    "whole_source_shift": [
+      -20,
+      0
+    ],
+    "new_generation_calls": 0,
+    "production_integration": null,
+    "accepted_removed": 0
+  },
+  "inherited_r10_reference_base": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/e8d0aa54b79d222f092534a053e4d716fc27067f/docs/handoffs/codex_flat_vector_art_2026-10-07/r10_geode_marker_fit/",
+  "geode_open_pair_trial": {
+    "evidence": "REVIEW.json",
+    "derivatives": "DERIVATIVES.json",
+    "measurements": "FIT_MEASUREMENTS.json",
+    "source_revision": "e8d0aa54b79d222f092534a053e4d716fc27067f",
+    "status": "SOURCE_TECHNICAL_NORMALIZATION_PASS_ENDPOINT_METHOD_ACTION_FAIL",
+    "native_captures": 52,
+    "unique_png_hashes": 45,
+    "actually_viewed_unique": 6,
+    "new_generation_calls": 0,
+    "production_integration": null,
+    "accepted_removed": 0,
+    "scope": "Underlying source not rejected wholesale; curved/local matched assembly still untested."
+  },
+  "inherited_r11_reference_base": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/c5d70079bc2b048a76f50edeabd8a2ff2a95bd24/docs/handoffs/codex_flat_vector_art_2026-10-07/r11_geode_open_pair/",
+  "geode_layered_reveal": {
+    "evidence": "REVIEW.json",
+    "derivatives": "DERIVATIVES.json",
+    "job": "REUSE_JOB.json",
+    "measurements": "FIT_MEASUREMENTS.json",
+    "source_revision": "c5d70079bc2b048a76f50edeabd8a2ff2a95bd24",
+    "status": "ISOLATED_PROGRESSIVE_REVEAL_CANDIDATE_CAP_FIT_INCOMPLETE",
+    "native_captures": 52,
+    "unique_png_hashes": 46,
+    "actually_viewed_unique": 6,
+    "new_generation_calls": 0,
+    "production_integration": null,
+    "accepted_removed": 0,
+    "scope": "R11 instantaneous endpoint method addressed by source-derived shell translation/gap reveal; straight cavity caps and full acceptance remain blocking."
+  },
+  "inherited_r12_reference_base": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/d26512b120500492be8e2694ac552a187f0091ca/docs/handoffs/codex_flat_vector_art_2026-10-07/r12_geode_layered_reveal/",
+  "geode_source_closure": {
+    "revision": "FV-AUDIT-20261013-R13",
+    "audit": "SOURCE_AUDIT.json",
+    "review": "REVIEW.json",
+    "status": "SOURCE_BINDINGS_VERIFIED_WHOLE_UNIT_ACTION_FAMILY_GAP_OPEN",
+    "native_captures_added": 0,
+    "source_only": true,
+    "loaded_geode_texture_has_draw_consumer": false,
+    "whole_unit_final_sprite": null,
+    "production_integration": null,
+    "accepted_removed": 0,
+    "global_inventory_complete": false,
+    "crystal_resource_bindings": 3,
+    "potential_texture_draw_roles": 2,
+    "hotspot_current_painted_presentation_skips_texture": true
+  },
+  "inherited_r13_reference_base": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/8a0db03f72735b67ebb581927051c92ca62eaef9/docs/handoffs/codex_flat_vector_art_2026-10-07/r13_geode_source_closure/",
+  "geode_lifecycle": {
+    "revision": "FV-AUDIT-20261013-R14",
+    "finding": "MA-PLAY-007",
+    "evidence": "REVIEW.json",
+    "captures": "CAPTURE_INDEX.json",
+    "lifecycle": "LIFECYCLE_FACTS.json",
+    "new_bounded_diagnostics": 100,
+    "new_native_retained": 112,
+    "excluded_failed_downstream": 12,
+    "status": "TERMINAL_GUARD_LOCAL_82_AND_NATIVE_LIFECYCLE_PASS_EXTERNAL_VERIFICATION_PENDING",
+    "runtime_behavior_change": "Fresh qualifying drag reaches120 from119/119.25; all art,input geometry/save keys unchanged.",
+    "replacement_integrated": 0,
+    "runtime_verified_art_replacement": 0,
+    "accepted_removed": 0,
+    "natural_castle_or_chapter2_route": false,
+    "QA11": null,
+    "device": null,
+    "child": null,
+    "owner": null
+  },
+  "geode_cue_reuse": {
+    "revision": "FV-AUDIT-20261013-R15",
+    "evidence": "REVIEW.json",
+    "sources": "SOURCES.json",
+    "captures": "CAPTURE_INDEX.json",
+    "status": "WHOLE_STAR_REUSE_STUDY_FEEDBACK_AND_INHERITED_POINTER_GAPS_OPEN",
+    "native_captures": 44,
+    "unique_png_hashes": 32,
+    "actually_viewed_native": 5,
+    "generation_calls": 0,
+    "new_drawings": 0,
+    "production_integration": null,
+    "accepted_removed": 0,
+    "candidate_approval": null,
+    "runtime_verified_replacement": null,
+    "QA11": null,
+    "device": null,
+    "child": null,
+    "owner": null,
+    "related_existing_piece_id": "FV-1DC9F18904A8"
+  },
+  "inherited_r14_reference_base": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/42ef9083c07d15e0436ad981d23a35c6309871c8/docs/handoffs/codex_flat_vector_art_2026-10-07/r14_geode_lifecycle/",
+  "current_partial_context_union": {
+    "schema": 1,
+    "count_unit": "Existing224-role registry records with at least one explicitly partial native context overlay; not full-reviewed designs/screens/acceptance. Supplemental Craft fish kept separately.",
+    "current_existing_named_records_with_partial_context": 47,
+    "current_existing_families_with_partial_context": 8,
+    "previous_same_measure_at_R14": 46,
+    "new_R15_partial_existing_ids": [
+      "FV-1DC9F18904A8"
+    ],
+    "historical_independent_root_union": 44,
+    "historical_root_union_scope": "Original independent root/picture/action union; includes fewer items than later Geode current contexts. Its frozen count remains unchanged.",
+    "full_context_review_complete": 0,
+    "supplemental_craft_partial_records": 1,
+    "accepted_removed": 0,
+    "records": [
+      {
+        "id": "FV-14664183159D",
+        "family": "opera_geologist",
+        "evidence_fields": [
+          "independent_partial_context_review"
+        ]
+      },
+      {
+        "id": "FV-1DC9F18904A8",
+        "family": "opera_shared",
+        "evidence_fields": [
+          "geode_cue_reuse"
+        ]
+      },
+      {
+        "id": "FV-DA16E1E99C6D",
+        "family": "opera_geologist",
+        "evidence_fields": [
+          "independent_partial_context_review"
+        ]
+      },
+      {
+        "id": "FV-4120D0DEF44C",
+        "family": "opera_geologist",
+        "evidence_fields": [
+          "independent_partial_context_review"
+        ]
+      },
+      {
+        "id": "FV-4E515D6F7A64",
+        "family": "opera_geologist",
+        "evidence_fields": [
+          "independent_partial_context_review"
+        ]
+      },
+      {
+        "id": "FV-F2DE53A80AA7",
+        "family": "opera_geologist",
+        "evidence_fields": [
+          "independent_partial_context_review"
+        ]
+      },
+      {
+        "id": "FV-819BC170AF16",
+        "family": "opera_geologist",
+        "evidence_fields": [
+          "independent_partial_context_review"
+        ]
+      },
+      {
+        "id": "FV-1E16581A6287",
+        "family": "opera_geologist",
+        "evidence_fields": [
+          "independent_partial_context_review"
+        ]
+      },
+      {
+        "id": "FV-C1AB21410352",
+        "family": "opera_geologist",
+        "evidence_fields": [
+          "independent_partial_context_review",
+          "geode_lifecycle"
+        ]
+      },
+      {
+        "id": "FV-99DB2D71D276",
+        "family": "opera_geologist",
+        "evidence_fields": [
+          "geode_lifecycle"
+        ]
+      },
+      {
+        "id": "FV-4502C5860C45",
+        "family": "opera_geologist",
+        "evidence_fields": [
+          "independent_partial_context_review",
+          "geode_lifecycle",
+          "geode_cue_reuse"
+        ]
+      },
+      {
+        "id": "FV-F7DB96881260",
+        "family": "opera_geologist",
+        "evidence_fields": [
+          "geode_lifecycle"
+        ]
+      },
+      {
+        "id": "FV-A6CE3E284202",
+        "family": "opera_geologist",
+        "evidence_fields": [
+          "independent_partial_context_review"
+        ]
+      },
+      {
+        "id": "FV-811B30EC9ED5",
+        "family": "opera_teacher",
+        "evidence_fields": [
+          "independent_partial_context_review"
+        ]
+      },
+      {
+        "id": "FV-3DF34F8DBE3A",
+        "family": "opera_teacher",
+        "evidence_fields": [
+          "independent_partial_context_review"
+        ]
+      },
+      {
+        "id": "FV-E9E82E0C6703",
+        "family": "shared_ui",
+        "evidence_fields": [
+          "independent_partial_context_review",
+          "independent_picture_partial_context_review",
+          "independent_action_partial_context_review"
+        ]
+      },
+      {
+        "id": "FV-2ABD73BAFFE0",
+        "family": "shared_ui",
+        "evidence_fields": [
+          "independent_partial_context_review"
+        ]
+      },
+      {
+        "id": "FV-E1D26D3057A3",
+        "family": "shared_ui",
+        "evidence_fields": [
+          "independent_partial_context_review",
+          "independent_picture_partial_context_review",
+          "independent_action_partial_context_review"
+        ]
+      },
+      {
+        "id": "FV-AB474EF3699E",
+        "family": "shared_ui",
+        "evidence_fields": [
+          "independent_picture_partial_context_review"
+        ]
+      },
+      {
+        "id": "FV-2A7698EB514E",
+        "family": "picture_games",
+        "evidence_fields": [
+          "independent_picture_partial_context_review"
+        ]
+      },
+      {
+        "id": "FV-0CE81E2C1213",
+        "family": "picture_games",
+        "evidence_fields": [
+          "independent_picture_partial_context_review"
+        ]
+      },
+      {
+        "id": "FV-80696B25F705",
+        "family": "picture_games",
+        "evidence_fields": [
+          "independent_picture_partial_context_review"
+        ]
+      },
+      {
+        "id": "FV-712A4ED716EA",
+        "family": "picture_games",
+        "evidence_fields": [
+          "independent_picture_partial_context_review"
+        ]
+      },
+      {
+        "id": "FV-D3FF54E92E64",
+        "family": "picture_games",
+        "evidence_fields": [
+          "independent_picture_partial_context_review"
+        ]
+      },
+      {
+        "id": "FV-0B0A0AE1B9CF",
+        "family": "picture_games",
+        "evidence_fields": [
+          "independent_picture_partial_context_review"
+        ]
+      },
+      {
+        "id": "FV-74CBBFCFD63F",
+        "family": "picture_games",
+        "evidence_fields": [
+          "independent_picture_partial_context_review"
+        ]
+      },
+      {
+        "id": "FV-6A93EB8DB0B8",
+        "family": "castle_rooms",
+        "evidence_fields": [
+          "independent_partial_context_review"
+        ]
+      },
+      {
+        "id": "FV-4E38B4F52104",
+        "family": "castle_rooms",
+        "evidence_fields": [
+          "independent_partial_context_review"
+        ]
+      },
+      {
+        "id": "FV-B8CE0DD0E36C",
+        "family": "castle_rooms",
+        "evidence_fields": [
+          "independent_partial_context_review"
+        ]
+      },
+      {
+        "id": "FV-794E9BBC4E61",
+        "family": "castle_rooms",
+        "evidence_fields": [
+          "independent_partial_context_review"
+        ]
+      },
+      {
+        "id": "FV-DC5F1DA5FED1",
+        "family": "castle_rooms",
+        "evidence_fields": [
+          "independent_partial_context_review"
+        ]
+      },
+      {
+        "id": "FV-34445F8B894C",
+        "family": "castle_rooms",
+        "evidence_fields": [
+          "independent_partial_context_review"
+        ]
+      },
+      {
+        "id": "FV-59881865F63C",
+        "family": "castle_rooms",
+        "evidence_fields": [
+          "independent_partial_context_review"
+        ]
+      },
+      {
+        "id": "FV-F71C445636A0",
+        "family": "castle_rooms",
+        "evidence_fields": [
+          "independent_partial_context_review"
+        ]
+      },
+      {
+        "id": "FV-DE6A6ED53E68",
+        "family": "castle_rooms",
+        "evidence_fields": [
+          "independent_partial_context_review"
+        ]
+      },
+      {
+        "id": "FV-1848A46F07C2",
+        "family": "castle_rooms",
+        "evidence_fields": [
+          "independent_partial_context_review"
+        ]
+      },
+      {
+        "id": "FV-2D5C7DBE66E2",
+        "family": "castle_rooms",
+        "evidence_fields": [
+          "independent_partial_context_review"
+        ]
+      },
+      {
+        "id": "FV-DDC9D4DD50F9",
+        "family": "castle_rooms",
+        "evidence_fields": [
+          "independent_partial_context_review"
+        ]
+      },
+      {
+        "id": "FV-D9B2595DE0B6",
+        "family": "castle_rooms",
+        "evidence_fields": [
+          "independent_partial_context_review"
+        ]
+      },
+      {
+        "id": "FV-C628227FA1F2",
+        "family": "castle_rooms",
+        "evidence_fields": [
+          "independent_partial_context_review"
+        ]
+      },
+      {
+        "id": "FV-AC96A9DA2FB4",
+        "family": "castle_rooms",
+        "evidence_fields": [
+          "independent_partial_context_review"
+        ]
+      },
+      {
+        "id": "FV-55B5EF60A12C",
+        "family": "picture_snowman",
+        "evidence_fields": [
+          "independent_picture_partial_context_review",
+          "independent_action_partial_context_review"
+        ]
+      },
+      {
+        "id": "FV-C99F706798D3",
+        "family": "picture_snowman",
+        "evidence_fields": [
+          "independent_picture_partial_context_review",
+          "independent_action_partial_context_review"
+        ]
+      },
+      {
+        "id": "FV-0FCB49F07274",
+        "family": "picture_snowman",
+        "evidence_fields": [
+          "independent_action_partial_context_review"
+        ]
+      },
+      {
+        "id": "FV-C6F64FAA2F32",
+        "family": "picture_trampoline",
+        "evidence_fields": [
+          "independent_picture_partial_context_review",
+          "independent_action_partial_context_review"
+        ]
+      },
+      {
+        "id": "FV-BBB50149283E",
+        "family": "picture_games",
+        "evidence_fields": [
+          "independent_picture_partial_context_review"
+        ]
+      },
+      {
+        "id": "FV-E96CD69662D1",
+        "family": "picture_games",
+        "evidence_fields": [
+          "independent_picture_partial_context_review"
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,352 @@
+{
+  "schema": 1,
+  "revision": "FV-AUDIT-20261013-R15",
+  "source_revision": "42ef9083c07d15e0436ad981d23a35c6309871c8",
+  "sources": [
+    {
+      "path": "assets/mg/star.png",
+      "revision": "42ef9083c07d15e0436ad981d23a35c6309871c8",
+      "sha256": "3cc5d5cbc5d6e0df0540cdc00ef557b0c7ed6e566331035c4e75d5d971ef3b98",
+      "bytes": 868379,
+      "role": "Directly viewed candidate source; historical role approval distinct from Geode acceptance",
+      "dimensions": [
+        1024,
+        1008
+      ],
+      "mode": "RGBA",
+      "alpha_bbox": [
+        17,
+        17,
+        1007,
+        991
+      ],
+      "decision": "REUSE_TRIAL_ONLY",
+      "reason": "Documented approved existing gold-star role; painted brush texture/yellow/plum matches actor accent family. Single whole source64px cue tested; Geode use/feedback not approved.",
+      "actually_viewed": true,
+      "geode_approval": null,
+      "working_parity": "exact binary",
+      "working_raw_sha256_at_validation": "3cc5d5cbc5d6e0df0540cdc00ef557b0c7ed6e566331035c4e75d5d971ef3b98",
+      "working_raw_bytes_at_validation": 868379
+    },
+    {
+      "path": "assets/opera/worlds/props/fx_stolen_sparkle.png",
+      "revision": "42ef9083c07d15e0436ad981d23a35c6309871c8",
+      "sha256": "fad456ad3641cf67e194945ba9208108cd1f0cf9f35b8ee10516e18bc88eb772",
+      "bytes": 16687,
+      "role": "Directly viewed candidate source; historical role approval distinct from Geode acceptance",
+      "dimensions": [
+        128,
+        128
+      ],
+      "mode": "RGBA",
+      "alpha_bbox": [
+        8,
+        9,
+        120,
+        119
+      ],
+      "decision": "LOWER_RESOLUTION_DERIVATIVE_AVAILABLE",
+      "reason": "Existing whole-star128px resize/pad; no generated pixels. Selected1024master preserves full source detail and avoids extra normalization.",
+      "actually_viewed": true,
+      "geode_approval": null,
+      "working_parity": "exact binary",
+      "working_raw_sha256_at_validation": "fad456ad3641cf67e194945ba9208108cd1f0cf9f35b8ee10516e18bc88eb772",
+      "working_raw_bytes_at_validation": 16687
+    },
+    {
+      "path": "assets/castle/training/verb_chip_tap.png",
+      "revision": "42ef9083c07d15e0436ad981d23a35c6309871c8",
+      "sha256": "375a002f998abd97c3fe1333ea30199d223e91e3269a9dfc01b269b71e74092e",
+      "bytes": 51117,
+      "role": "Directly viewed candidate source; historical role approval distinct from Geode acceptance",
+      "dimensions": [
+        256,
+        256
+      ],
+      "mode": "RGBA",
+      "alpha_bbox": [
+        33,
+        30,
+        223,
+        225
+      ],
+      "decision": "NOT_SELECTED_STYLE_AND_SEMANTIC_GAP",
+      "reason": "Glossy pink toy button with star engraving and uniform outline; does not establish painted seam/material fit. Literal tap semantics exist,but new Geode approval absent.",
+      "actually_viewed": true,
+      "geode_approval": null,
+      "working_parity": "exact binary",
+      "working_raw_sha256_at_validation": "375a002f998abd97c3fe1333ea30199d223e91e3269a9dfc01b269b71e74092e",
+      "working_raw_bytes_at_validation": 51117
+    },
+    {
+      "path": "assets/opera/worlds/ui/station_marker.png",
+      "revision": "42ef9083c07d15e0436ad981d23a35c6309871c8",
+      "sha256": "e98b2c3080ed5afd7dde87a17aa7ea9351b3ce365d594719040236eb0a6d814a",
+      "bytes": 460698,
+      "role": "Directly viewed candidate source; historical role approval distinct from Geode acceptance",
+      "dimensions": [
+        512,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha_bbox": [
+        16,
+        33,
+        496,
+        991
+      ],
+      "decision": "NOT_SELECTED_WRONG_WHOLE_OBJECT",
+      "reason": "512x1024 ornate framed easel,not a small pearl/circle cue. Whole-object reduction obscures action; extracting a jewel requires separate derivative/context work.",
+      "actually_viewed": true,
+      "geode_approval": null,
+      "working_parity": "exact binary",
+      "working_raw_sha256_at_validation": "e98b2c3080ed5afd7dde87a17aa7ea9351b3ce365d594719040236eb0a6d814a",
+      "working_raw_bytes_at_validation": 460698
+    },
+    {
+      "path": "assets/opera/worlds/ui/magnifier.png",
+      "revision": "42ef9083c07d15e0436ad981d23a35c6309871c8",
+      "sha256": "25dcb35f5b2a44281f798b67cb066720ac8a38e509f9b1398e77dbb170ac00bb",
+      "bytes": 177563,
+      "role": "Directly viewed candidate source; historical role approval distinct from Geode acceptance",
+      "dimensions": [
+        512,
+        512
+      ],
+      "mode": "RGBA",
+      "alpha_bbox": [
+        34,
+        12,
+        477,
+        500
+      ],
+      "decision": "NOT_SELECTED_WRONG_ACTION",
+      "reason": "Whole handheld magnifier indicates search,not five seam releases. Existing helper already holds that object. Wrong affordance/scale for this task.",
+      "actually_viewed": true,
+      "geode_approval": null,
+      "working_parity": "exact binary",
+      "working_raw_sha256_at_validation": "25dcb35f5b2a44281f798b67cb066720ac8a38e509f9b1398e77dbb170ac00bb",
+      "working_raw_bytes_at_validation": 177563
+    },
+    {
+      "path": "assets/opera/worlds/widgets/widget_charge_astronaut_glow.png",
+      "revision": "42ef9083c07d15e0436ad981d23a35c6309871c8",
+      "sha256": "85cb78ee6fe181d85f55908d4f882b5bb60d54e698df86fbf3c7c730e0014bde",
+      "bytes": 2945,
+      "role": "Directly viewed candidate source; historical role approval distinct from Geode acceptance",
+      "dimensions": [
+        256,
+        256
+      ],
+      "mode": "RGBA",
+      "alpha_bbox": [
+        16,
+        16,
+        241,
+        241
+      ],
+      "decision": "NOT_SELECTED_FLAT_RASTER_LOOKALIKE",
+      "reason": "Broad cyan ring with flat fill/plum rim; raster extension does not cure flat-vector appearance.",
+      "actually_viewed": true,
+      "geode_approval": null,
+      "working_parity": "exact binary",
+      "working_raw_sha256_at_validation": "85cb78ee6fe181d85f55908d4f882b5bb60d54e698df86fbf3c7c730e0014bde",
+      "working_raw_bytes_at_validation": 2945
+    },
+    {
+      "path": "assets/opera/worlds/widgets/widget_charge_magician_glow.png",
+      "revision": "42ef9083c07d15e0436ad981d23a35c6309871c8",
+      "sha256": "d2142426b33a30cf1e6cb0ce1ef929437f5f2c3cb466c39e5e699f94f9e4a8b3",
+      "bytes": 2941,
+      "role": "Directly viewed candidate source; historical role approval distinct from Geode acceptance",
+      "dimensions": [
+        256,
+        256
+      ],
+      "mode": "RGBA",
+      "alpha_bbox": [
+        16,
+        16,
+        241,
+        241
+      ],
+      "decision": "NOT_SELECTED_FLAT_RASTER_LOOKALIKE",
+      "reason": "Broad yellow ring with flat fill/plum rim; raster extension does not cure flat-vector appearance.",
+      "actually_viewed": true,
+      "geode_approval": null,
+      "working_parity": "exact binary",
+      "working_raw_sha256_at_validation": "d2142426b33a30cf1e6cb0ce1ef929437f5f2c3cb466c39e5e699f94f9e4a8b3",
+      "working_raw_bytes_at_validation": 2941
+    },
+    {
+      "path": "assets/opera/worlds/actors/animation/roshan_geologist_sheet_a.png",
+      "revision": "42ef9083c07d15e0436ad981d23a35c6309871c8",
+      "sha256": "1fd7080933fd49b27a9cbb2b20d9470e4fd654dec58db72e9aa9e081a6e24c37",
+      "bytes": 910920,
+      "role": "Same-scene existing actor reference; approved identity scope preserved",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha_bbox": [
+        26,
+        27,
+        1002,
+        984
+      ],
+      "working_parity": "exact binary",
+      "working_raw_sha256_at_validation": "1fd7080933fd49b27a9cbb2b20d9470e4fd654dec58db72e9aa9e081a6e24c37",
+      "working_raw_bytes_at_validation": 910920
+    },
+    {
+      "path": "assets/opera/worlds/actors/rival_detective.png",
+      "revision": "42ef9083c07d15e0436ad981d23a35c6309871c8",
+      "sha256": "44a6e07766a0733979e6aa3bda4c8cf89776a75f81c6600db4cb8ad89c7edecb",
+      "bytes": 217399,
+      "role": "Same-scene existing actor reference; approved identity scope preserved",
+      "dimensions": [
+        512,
+        512
+      ],
+      "mode": "RGBA",
+      "alpha_bbox": [
+        74,
+        19,
+        422,
+        504
+      ],
+      "working_parity": "exact binary",
+      "working_raw_sha256_at_validation": "44a6e07766a0733979e6aa3bda4c8cf89776a75f81c6600db4cb8ad89c7edecb",
+      "working_raw_bytes_at_validation": 217399
+    },
+    {
+      "path": "ASSET_LICENSES.md",
+      "revision": "42ef9083c07d15e0436ad981d23a35c6309871c8",
+      "sha256": "67ea4b0b88f7bb499afa9171e7d8aa4a598977fcf078d369457b4eff54f6d902",
+      "bytes": 4410780,
+      "role": "Historical source/license/role records; machine score/status not new owner Geode acceptance",
+      "working_parity": "Current ASSET_LICENSES.md now adds R15 capture row;historical exact license remains source authority",
+      "working_raw_sha256_at_validation": "b6d5926422f12b27d4fdeacd58fb11bde513f45b68576617608ec37f865aa76b",
+      "working_raw_bytes_at_validation": 4411234
+    },
+    {
+      "path": "assets_src/imagegen/imp_animation_states_2026-08-02/reports/fx_stolen_sparkle.json",
+      "revision": "42ef9083c07d15e0436ad981d23a35c6309871c8",
+      "sha256": "37b3c166b23bc4e9074ce9b960abeeb2dcb6ccf8448fee5f8eba3be667db7d8a",
+      "bytes": 811,
+      "role": "Historical source/license/role records; machine score/status not new owner Geode acceptance",
+      "working_parity": "Git LF canonical text;CRLF checkout only",
+      "working_raw_sha256_at_validation": "6d1d8ac20603be10f79ad97ebca5f6d3c5557d06ea4fc36dedc9404df0946a62",
+      "working_raw_bytes_at_validation": 850
+    },
+    {
+      "path": "assets_src/imagegen/imp_animation_states_2026-08-02/PROMPTS.md",
+      "revision": "42ef9083c07d15e0436ad981d23a35c6309871c8",
+      "sha256": "40eaa2ea9bb8cc2025d156d4ae235c620cf6db27bccac9396f2a27f92c306ae6",
+      "bytes": 19544,
+      "role": "Historical source/license/role records; machine score/status not new owner Geode acceptance",
+      "working_parity": "Git LF canonical text;CRLF checkout only",
+      "working_raw_sha256_at_validation": "dd828c563202489779628dd244ba16a3a3eaff28d8d26c9bdd74e62bc42b1c54",
+      "working_raw_bytes_at_validation": 19672
+    },
+    {
+      "path": "assets_src/imagegen/combat_tutorial_2026-08-01/PROMPTS.md",
+      "revision": "42ef9083c07d15e0436ad981d23a35c6309871c8",
+      "sha256": "87c215582eb6fffb8738fc079c4423e4b80e6076dc993f8b17e852c21747c3c2",
+      "bytes": 11526,
+      "role": "Historical source/license/role records; machine score/status not new owner Geode acceptance",
+      "working_parity": "Git LF canonical text;CRLF checkout only",
+      "working_raw_sha256_at_validation": "680967756cb59724bbf4b695dbbb0a7fd2f8f18ab59518d1007fcd447af5ed59",
+      "working_raw_bytes_at_validation": 11666
+    },
+    {
+      "path": "assets_src/concepts/opera_regeneration_2026-08-01/OPERA_CODEX_MANIFEST_2026-08-02.json",
+      "revision": "42ef9083c07d15e0436ad981d23a35c6309871c8",
+      "sha256": "bd87602eb7886a370581a1bcefef9b63581fd05b3fccea01b7ca455920582a1f",
+      "bytes": 166926,
+      "role": "Historical source/license/role records; machine score/status not new owner Geode acceptance",
+      "working_parity": "Git LF canonical text;CRLF checkout only",
+      "working_raw_sha256_at_validation": "894084496edfa5b7d7beb19d99ecd89cfdd8398e6eeb23e3302d12c3364c9fcb",
+      "working_raw_bytes_at_validation": 170902
+    },
+    {
+      "path": "scripts/opera_geology_surface.gd",
+      "revision": "42ef9083c07d15e0436ad981d23a35c6309871c8",
+      "sha256": "0e245a1fb550c0c171775197b1d32de9deb2f1e9637f076fa1e248888583e397",
+      "bytes": 33472,
+      "role": "Unchanged current production input/draw/caller dependency",
+      "working_parity": "exact binary",
+      "working_raw_sha256_at_validation": "0e245a1fb550c0c171775197b1d32de9deb2f1e9637f076fa1e248888583e397",
+      "working_raw_bytes_at_validation": 33472
+    },
+    {
+      "path": "scripts/opera_gesture_surface.gd",
+      "revision": "42ef9083c07d15e0436ad981d23a35c6309871c8",
+      "sha256": "458d3afb7e231f8f5da6e21c64f27b699e7bf66bc5e6eb43fd9e331eaad6b07b",
+      "bytes": 240970,
+      "role": "Unchanged current production input/draw/caller dependency",
+      "working_parity": "Git LF canonical text;CRLF checkout only",
+      "working_raw_sha256_at_validation": "34f3f264f17edef42990712f6c3f7e0106cf9afecd3969f8348848e0eda56017",
+      "working_raw_bytes_at_validation": 247228
+    },
+    {
+      "path": "scripts/opera_career_world_2d.gd",
+      "revision": "42ef9083c07d15e0436ad981d23a35c6309871c8",
+      "sha256": "2195e137800fd840e4a813a83e6ac9b393a9e7851fd80ca84ca51fb964232702",
+      "bytes": 235089,
+      "role": "Unchanged current production input/draw/caller dependency",
+      "working_parity": "Git LF canonical text;CRLF checkout only",
+      "working_raw_sha256_at_validation": "bef433ce6869d268bae3ee07948b37ba8b2d93bed8a9d82005a031e817db0edf",
+      "working_raw_bytes_at_validation": 240378
+    },
+    {
+      "path": "scripts/opera_act.gd",
+      "revision": "42ef9083c07d15e0436ad981d23a35c6309871c8",
+      "sha256": "7a8db71dfd827efabeee50a348d7849ea646d2693c2ec2b6930c80938d2517b0",
+      "bytes": 7447,
+      "role": "Unchanged current production input/draw/caller dependency",
+      "working_parity": "Git LF canonical text;CRLF checkout only",
+      "working_raw_sha256_at_validation": "eddaa34b8dccd17f41f744176a1ceef6c38c788b200a66995438d42c74a78a63",
+      "working_raw_bytes_at_validation": 7672
+    },
+    {
+      "path": "scripts/opera_house.gd",
+      "revision": "42ef9083c07d15e0436ad981d23a35c6309871c8",
+      "sha256": "6d6aeead33ff8cc451daa09da215185171359fd218693371184f38ecadac2d7f",
+      "bytes": 17056,
+      "role": "Unchanged current production input/draw/caller dependency",
+      "working_parity": "Git LF canonical text;CRLF checkout only",
+      "working_raw_sha256_at_validation": "09a70ca5f9abd836f66a2327e62553b8d603f9318845c404d7d3527fee953910",
+      "working_raw_bytes_at_validation": 17395
+    }
+  ],
+  "selected_source": {
+    "path": "assets/mg/star.png",
+    "revision": "42ef9083c07d15e0436ad981d23a35c6309871c8",
+    "sha256": "3cc5d5cbc5d6e0df0540cdc00ef557b0c7ed6e566331035c4e75d5d971ef3b98",
+    "bytes": 868379,
+    "role": "Directly viewed candidate source; historical role approval distinct from Geode acceptance",
+    "dimensions": [
+      1024,
+      1008
+    ],
+    "mode": "RGBA",
+    "alpha_bbox": [
+      17,
+      17,
+      1007,
+      991
+    ],
+    "decision": "REUSE_TRIAL_ONLY",
+    "reason": "Documented approved existing gold-star role; painted brush texture/yellow/plum matches actor accent family. Single whole source64px cue tested; Geode use/feedback not approved.",
+    "actually_viewed": true,
+    "geode_approval": null
+  },
+  "modifications": "No source/image pixel changes,crops,retiming,repainting or generation. Whole-texture opacity on completed cue in diagnostic only.",
+  "generation_calls": 0,
+  "new_drawings": 0,
+  "source_scope": "Seven directly viewed candidate images. Filename shortlist not complete repository visual inventory; no blanket failed-reuse or generation-required claim.",
+  "source_byte_binding": "Every main path/bytes/sha256 row binds exact immutable Git bytes. Additional working fields expose CRLF checkout hashes; comparisons normalize line endings only for text. Updated ASSET_LICENSES.md retains historical prefix plus R15 capture row.",
+  "working_parity_checked_at_utc": "2026-10-13T14:27:12.334171+00:00"
+}

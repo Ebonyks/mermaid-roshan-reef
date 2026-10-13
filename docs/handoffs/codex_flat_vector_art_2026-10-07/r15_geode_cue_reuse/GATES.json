@@ -1,0 +1,58 @@
+{
+  "status": "PASS_WITH_EXTERNAL_ACCEPTANCE_OPEN",
+  "commands": [
+    {
+      "command": [
+        "python",
+        "-B",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r15_geode_cue_reuse\\validate.py"
+      ],
+      "started_at_utc": "2026-10-13T14:27:12.441276+00:00",
+      "checked_at_utc": "2026-10-13T14:27:14.498850+00:00",
+      "exit_code": 0,
+      "result": "PASS",
+      "evidence": "gates.log"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_document_authority.py"
+      ],
+      "started_at_utc": "2026-10-13T14:27:14.508349+00:00",
+      "checked_at_utc": "2026-10-13T14:27:25.036468+00:00",
+      "exit_code": 0,
+      "result": "PASS",
+      "evidence": "gates.log"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_development.py",
+        "--base",
+        "auto"
+      ],
+      "started_at_utc": "2026-10-13T14:27:25.047229+00:00",
+      "checked_at_utc": "2026-10-13T14:27:27.820491+00:00",
+      "exit_code": 0,
+      "result": "PASS",
+      "evidence": "gates.log"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_game_2d.py",
+        "--regression-gate"
+      ],
+      "started_at_utc": "2026-10-13T14:27:27.829721+00:00",
+      "checked_at_utc": "2026-10-13T14:28:34.378870+00:00",
+      "exit_code": 0,
+      "result": "PASS",
+      "evidence": "gates.log"
+    }
+  ],
+  "scope": "New nonruntime cue study/static/source/document gates. R14 unchanged production82 local trusted passes inherited; no new full-suite/art/QA11/device/child/owner acceptance.",
+  "raw_log_sha256": "d7ddf781374b739eba8c94b773e971919f04cc44f993eff2c1febe47f6a29274"
+}

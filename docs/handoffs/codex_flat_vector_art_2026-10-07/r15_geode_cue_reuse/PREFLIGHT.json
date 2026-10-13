@@ -1,0 +1,57 @@
+{
+  "revision": "FV-AUDIT-20261013-R15",
+  "recorded_at_utc": "2026-10-13T14:15:32.219181+00:00",
+  "baseline": "42ef9083c07d15e0436ad981d23a35c6309871c8",
+  "origin_dev": "831d0bbb155b99d75ef0289cc5cc694e0ef00c1e",
+  "stable_piece_id": "FV-4502C5860C45",
+  "family": "opera_geologist",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-VIS-01",
+    "DL-VIS-02",
+    "DL-VIS-03",
+    "DL-VIS-06",
+    "DL-VIS-07",
+    "DL-VIS-08",
+    "DL-READ-02",
+    "DL-READ-06",
+    "DL-ASSET-01",
+    "DL-ASSET-02",
+    "DL-ASSET-03",
+    "DL-ASSET-04",
+    "DL-ASSET-05",
+    "DL-ASSET-06",
+    "DL-QA-11"
+  ],
+  "findings": [
+    "MA-VIS-006",
+    "MA-VIS-007",
+    "MA-VIS-008",
+    "MA-DOC-008",
+    "MA-OPERA-012"
+  ],
+  "scope": "Bounded whole-star painted seam cue reuse trial in ignored diagnostic surface only; five original centers/radius56/travel34/pull120 and original stone/opening remain unchanged. Gold-star source documented approved for existing role; Geode use not approved. No generation,source-image edit,production code change or replacement credit.",
+  "context_already_published": {
+    "payload": "53c511b0ec5b0fbf5a697e6e64d216540060fc43",
+    "receipt": "42ef9083c07d15e0436ad981d23a35c6309871c8",
+    "manifest": "r14_geode_lifecycle/MANIFEST.json",
+    "receipt_path": "r14_geode_lifecycle/REMOTE_VERIFICATION.json",
+    "captures": [
+      "r14_geode_lifecycle/native/1280x720/prepare/geode_closed_ready.png",
+      "r14_geode_lifecycle/native/1280x720/resume/geode_disk_resume060_task.png"
+    ]
+  },
+  "selected_source": "assets/mg/star.png",
+  "source_scope": "Whole painted drawing reused as a single texture per cue; no composite drawing,star crop,new pixel or recolor. Completed cues use whole-texture opacity0.32; this new feedback choice remains unaccepted.",
+  "evidence_required": [
+    "Candidate hashes/license/specific historical acceptance scope",
+    "Current two-aspect isolated Speedy/Mobile captures with real synthetic Window input and negative/cancel checks",
+    "All ten same-scene comparison axes and exact actor source hashes",
+    "Source parity and input/draw separation",
+    "Canonical IDs/unknown totals/history preserved",
+    "Parser/lint/exact engine/source-medium/document gates",
+    "Anonymous exact-revision delivery of all dependencies"
+  ]
+}

@@ -1,0 +1,201 @@
+{
+  "schema": 1,
+  "revision": "FV-AUDIT-20261013-R15",
+  "reviewer": "Codex direct inspection; source/candidate diagnostic review only",
+  "status": "WHOLE_SOURCE_REUSE_TRIAL_LOCAL_INPUT_PASS_STYLE_FEEDBACK_AND_CALLER_ART_OPEN",
+  "stable_piece_id": "FV-4502C5860C45",
+  "family": "opera_geologist",
+  "actually_viewed_native": 5,
+  "viewed_native": [
+    {
+      "bytes": 131937,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "file": "geode_closed_ready.png",
+      "sha256": "08b345cf05221b726f3e6a9a42096d4354810c95c076fe7d61142e7f709d8e0d",
+      "path": "native/1280x720/geode_closed_ready.png",
+      "aspect": "1280x720",
+      "state_id": "geode_closed_ready",
+      "bounded_diagnostic": true
+    },
+    {
+      "bytes": 131050,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "file": "geode_seam00_released.png",
+      "sha256": "b2d4e806046fc49b80cc8b6f73541b2b0e4f3c33d04b43000c5a977d31a36c76",
+      "path": "native/1280x720/geode_seam00_released.png",
+      "aspect": "1280x720",
+      "state_id": "geode_seam00_released",
+      "bounded_diagnostic": true
+    },
+    {
+      "bytes": 127035,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "file": "geode_all_seams_ready.png",
+      "sha256": "7aecaa70d198795fa0319b8ef71887cbae89720d5ff82bdff9bc8a9e609bab6d",
+      "path": "native/1280x720/geode_all_seams_ready.png",
+      "aspect": "1280x720",
+      "state_id": "geode_all_seams_ready",
+      "bounded_diagnostic": true
+    },
+    {
+      "bytes": 111284,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "file": "geode_partial_open_released.png",
+      "sha256": "f9a821b20f9c4240b49458d544265ebbf3b4904569491aa911399d16eecc4d62",
+      "path": "native/1280x720/geode_partial_open_released.png",
+      "aspect": "1280x720",
+      "state_id": "geode_partial_open_released",
+      "bounded_diagnostic": true
+    },
+    {
+      "bytes": 132008,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "file": "geode_seam02_released.png",
+      "sha256": "f6c5c156fb20813ed02fbd1b7110fb8a6f9b4987395167767cd06eb358fbc40a",
+      "path": "native/1600x720/geode_seam02_released.png",
+      "aspect": "1600x720",
+      "state_id": "geode_seam02_released",
+      "bounded_diagnostic": true
+    }
+  ],
+  "reviewed_existing_R14_context": [
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r14_geode_lifecycle/native/1280x720/prepare/geode_closed_ready.png",
+      "revision": "42ef9083c07d15e0436ad981d23a35c6309871c8",
+      "sha256": "cb06040d1de1627a6e555fe20e7796ef13e25946094855adc8aca80bd7971002",
+      "bytes": 120309,
+      "role": "Previously published original-art current context",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "mode": "RGB",
+      "alpha_bbox": null
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r14_geode_lifecycle/native/1280x720/resume/geode_disk_resume060_task.png",
+      "revision": "42ef9083c07d15e0436ad981d23a35c6309871c8",
+      "sha256": "7e6cc155b636e5d218ed62c6a8db07022fb0d4b8002d7f0e33d6c6214ebd47dc",
+      "bytes": 112418,
+      "role": "Previously published original-art current context",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "mode": "RGB",
+      "alpha_bbox": null
+    }
+  ],
+  "directly_viewed_source_images": 7,
+  "same_scene_reference_hashes": [
+    {
+      "path": "assets/opera/worlds/actors/animation/roshan_geologist_sheet_a.png",
+      "revision": "42ef9083c07d15e0436ad981d23a35c6309871c8",
+      "sha256": "1fd7080933fd49b27a9cbb2b20d9470e4fd654dec58db72e9aa9e081a6e24c37",
+      "bytes": 910920,
+      "role": "Same-scene actor identity",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha_bbox": [
+        26,
+        27,
+        1002,
+        984
+      ]
+    },
+    {
+      "path": "assets/opera/worlds/actors/rival_detective.png",
+      "revision": "42ef9083c07d15e0436ad981d23a35c6309871c8",
+      "sha256": "44a6e07766a0733979e6aa3bda4c8cf89776a75f81c6600db4cb8ad89c7edecb",
+      "bytes": 217399,
+      "role": "Same-scene actor identity",
+      "dimensions": [
+        512,
+        512
+      ],
+      "mode": "RGBA",
+      "alpha_bbox": [
+        74,
+        19,
+        422,
+        504
+      ]
+    }
+  ],
+  "all_ten_comparison_axes": {
+    "contour": "Star source retains soft painted edge and complete five-lobe silhouette as one drawing. Round diagram seam targets removed only in diagnostic override; original flat stone outline remains.",
+    "material": "Source brush texture survives large isolated view; native64px cues have broad painted shading. Done-alpha0.32 muddies material against stone. Same-scene hair/clothes carry authored detail; shell/board/cave remain flat controls.",
+    "palette": "Gold/plum cue accents relate to actor gold trims and purple costume; no recolor. Completed stars blend grey/mauve into stone,so done readability/congruency is insufficient.",
+    "light": "Star yellow highlight/plum underside is retained; actor highlights broadly compatible,but star cushion-like volume looks like separate reward decoration rather than a seam mark. Stone lighting remains absent.",
+    "perspective": "Frontal whole star is a UI cue; mounting does not make it a geological object or change the stone perspective. No cap/inner-wall/topology repair.",
+    "scale": "64square at five original target centers; entire rectangle corner45.2548 < hit radius56. Both native aspects maintain centered registration. Visible star extent larger than old44diameter dot but within old68-69 halo bounds; untested phone squint/overdraw/performance.",
+    "contact": "Original raw press/release at each unchanged center works; nothing earned on press/passive/wrong/early pull. This is input cue binding,not actor hand/stone contact or natural approach evidence.",
+    "occlusion": "Generic demo-finger rings overlap the first star in initial state. Separate positive-feedback circle remains visible in the partial-open snapshot. They are inherited callbacks,not retired by changing seam sprites.",
+    "readability": "Bright pending stars versus dim completed stars distinguish states in inspected desktop captures; dim states are muddy and stars may imply collectible rewards. No child-comprehension/phone acceptance. Flat action pointer/back/workbench/cave and SVG crystal art still visible.",
+    "action_state": "44 native state/event captures through five actual synthetic releases,repeated seam,60px partial pull/release,explicit focus notification and teardown pass. Dev-playtest phase3 fixture; no first-three-phase,natural-route,ordinary award,disk restore/full120 or actual OS/device-focus proof for candidate."
+  },
+  "observations": [
+    {
+      "id": "R15-GEO-DONE-ALPHA",
+      "status": "OPEN_METHOD_WEAKNESS",
+      "evidence": "native/1280x720/geode_all_seams_ready.png",
+      "weakness": "Completed alpha0.32 stars become muddy against the stone; revise feedback treatment before integration."
+    },
+    {
+      "id": "R15-GEO-DEMO-OVERLAY",
+      "status": "OPEN_INHERITED_ART_CALLER",
+      "evidence": "native/1280x720/geode_closed_ready.png",
+      "source": "scripts/opera_geology_surface.gd::_draw calls inherited OperaGestureSurface::_draw_demo_finger at scripts/opera_gesture_surface.gd:4239-4258",
+      "weakness": "Generic concentric circles/arc remain over painted star. Preserve truthful nonreader action guidance while replacing its artwork; do not simply disable pointer.",
+      "stable_piece_id": "FV-1DC9F18904A8",
+      "stable_scope_id": "FVF-6CF7C85C1B16"
+    },
+    {
+      "id": "R15-GEO-FEEDBACK-OVERLAY",
+      "status": "OPEN_INHERITED_ART_CALLER",
+      "evidence": "native/1280x720/geode_partial_open_released.png",
+      "source": "scripts/opera_geology_surface.gd::_draw at lines626-628",
+      "weakness": "Positive feedback flat circle survives candidate cue replacement.",
+      "stable_scope_id": "FVF-8D84B7D480FD"
+    },
+    {
+      "id": "R15-GEO-REWARD-SEMANTICS",
+      "status": "UNREVIEWED_CHILD_SEMANTICS",
+      "evidence": "native/1280x720/geode_closed_ready.png",
+      "weakness": "Stars can suggest collecting rewards rather than tapping a stone seam; no owner/child interpretation inferred."
+    }
+  ],
+  "candidate_art": "NONRUNTIME_REUSE_STUDY_UNACCEPTED",
+  "art_integration": null,
+  "runtime_verified_art_replacement": null,
+  "QA11": null,
+  "device": null,
+  "child": null,
+  "owner": null,
+  "accepted_removed": 0,
+  "new_generation_calls": 0,
+  "next_bounded_step": "Reuse/compare a literal painted hand/pointer and positive-feedback source,with whole-object provenance and actual scene context; revise completed cue contrast. Do not generate while existing suitable hand/cue sources remain untested.",
+  "related_existing_piece_id": "FV-1DC9F18904A8",
+  "related_existing_scope_ids": [
+    "FVF-6CF7C85C1B16",
+    "FVF-8D84B7D480FD"
+  ]
+}
