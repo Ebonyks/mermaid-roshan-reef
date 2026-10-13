@@ -503,8 +503,17 @@
   ],
   "role_and_family_counts_are_separate": true,
   "publication": {
-    "status": "PENDING_EXACT_PUBLICATION",
+    "status": "EXACT_PUBLIC_PAYLOAD_VERIFIED",
+    "payload_revision": "25d9e92b48115ed1047871f530df5c820b88126d",
+    "manifest_sha256": "5b2cb4d87cd62ffcf9660648c0676a4cddaa3969e64ea02f6e34d8158e48d08f",
+    "payload_sha256": "c871ec0faf6f8709d512069d9b2bdcfa2e33f56527ba15c7205543202bdfb871",
+    "verified_required_files": 1397,
+    "verified_fetches_including_manifest": 1398,
+    "required_bytes": 344395273,
+    "checked_at_utc": "2026-10-13T18:53:57.832830+00:00",
+    "access_mode": "Anonymous public HTTPS for manifest and every declared required file; public GitHub repo API independently checked; recipient can use the same unauthenticated access mode.",
     "receipt": "REMOTE_VERIFICATION.json",
+    "upload_recovery": "UPLOAD_RECOVERY.json:successful ephemeral HTTP1.1/POST-buffer retry",
     "candidate_sample_count": 1,
     "accepted_removed": 0
   },
@@ -644,11 +653,24 @@
   "current_ci": {
     "prior_R18_receipt_head": "73caf71ad24f1e2471ee8bc4353a60bcfc497e37",
     "prior_run": 38444241074,
-    "status": "in_progress",
-    "conclusion": "",
+    "status": "completed",
+    "conclusion": "cancelled",
     "evidence": "PREVIOUS_HEAD_CI.json",
     "new_R19_exact_head": "PENDING_AFTER_PUBLICATION",
-    "local_R19_scope": "Four parser/lint/native analyzer gates plus62 diagnostic captures; unchanged production82 local native baseline inherited from R16"
+    "local_R19_scope": "Four parser/lint/native analyzer gates plus62 diagnostic captures; unchanged production82 local native baseline inherited from R16",
+    "latest_evidence": "REMOTE_VERIFICATION.json:ci_snapshot",
+    "payload_head": "25d9e92b48115ed1047871f530df5c820b88126d",
+    "payload_runs": [
+      {
+        "conclusion": "",
+        "databaseId": 38450406143,
+        "headSha": "25d9e92b48115ed1047871f530df5c820b88126d",
+        "status": "in_progress",
+        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/38450406143",
+        "workflowName": "Probe suite (graphics fork)"
+      }
+    ],
+    "exact_receipt_run": "PENDING_AFTER_RECEIPT_PUSH"
   },
   "inherited_r7_reference_base": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/c1e466a8a9e605f43b4c7a181b3d7b702d7677aa/docs/handoffs/codex_flat_vector_art_2026-10-07/r7_craft_context/",
   "inherited_r8_reference_base": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/f4de7b921298b0dac052df408af03bbb2b62132b/docs/handoffs/codex_flat_vector_art_2026-10-07/r8_geode_context/",

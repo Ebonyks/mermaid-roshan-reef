@@ -1,0 +1,71 @@
+{
+  "status": "STALLED_TASK_TRANSFER_STOPPED_FOR_BOUNDED_RETRY",
+  "payload_revision": "25d9e92b48115ed1047871f530df5c820b88126d",
+  "remote_before": "73caf71ad24f1e2471ee8bc4353a60bcfc497e37",
+  "checked_at_utc": "2026-10-13T18:51:58.2469156Z",
+  "ownership": [
+    {
+      "pid": 246016,
+      "parent": 215412,
+      "name": "git.exe",
+      "created": "2026-10-13T18:46:53.9580080Z",
+      "cpu_ticks": 0
+    },
+    {
+      "pid": 226360,
+      "parent": 246016,
+      "name": "git.exe",
+      "created": "2026-10-13T18:46:53.9743440Z",
+      "cpu_ticks": 781250
+    },
+    {
+      "pid": 224164,
+      "parent": 226360,
+      "name": "git.exe",
+      "created": "2026-10-13T18:46:54.0086580Z",
+      "cpu_ticks": 0
+    },
+    {
+      "pid": 244684,
+      "parent": 224164,
+      "name": "git-remote-https.exe",
+      "created": "2026-10-13T18:46:54.0409000Z",
+      "cpu_ticks": 156250
+    },
+    {
+      "pid": 189088,
+      "parent": 244684,
+      "name": "git.exe",
+      "created": "2026-10-13T18:46:57.2468160Z",
+      "cpu_ticks": 1093750
+    },
+    {
+      "pid": 243680,
+      "parent": 189088,
+      "name": "git.exe",
+      "created": "2026-10-13T18:46:57.8928140Z",
+      "cpu_ticks": 50937500
+    }
+  ],
+  "reason": "Repeated unchanged remote head and silent task upload; preserve local payload and retry only this transfer. No other editor stopped; no permanent configuration changed.",
+  "retry_command": [
+    "git",
+    "-c",
+    "http.version=HTTP/1.1",
+    "-c",
+    "http.postBuffer=268435456",
+    "-c",
+    "http.lowSpeedLimit=1024",
+    "-c",
+    "http.lowSpeedTime=60",
+    "push",
+    "--progress",
+    "origin",
+    "HEAD:codex/flat-vector-r6-20261012"
+  ],
+  "retry_started_at_utc": "2026-10-13T18:52:31.586480+00:00",
+  "retry_completed_at_utc": "2026-10-13T18:53:21.845811+00:00",
+  "retry_exit_code": 0,
+  "configuration_scope": "Ephemeral per-command HTTP1.1 and256MiB POST buffer; no repository/security/TLS/credential/egress configuration changed.",
+  "original_transfer_exit_code": 4294967295
+}

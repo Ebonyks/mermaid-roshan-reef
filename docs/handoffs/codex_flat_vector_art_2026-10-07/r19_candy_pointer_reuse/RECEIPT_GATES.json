@@ -1,1 +1,58 @@
-{"status": "PENDING_PUBLICATION_OR_RECEIPT_GATES", "revision": "FV-AUDIT-20261013-R19", "creative_acceptance": false}
+{
+  "status": "PASS_WITH_ACCEPTANCE_OPEN",
+  "commands": [
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-B",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r19_candy_pointer_reuse\\validate.py"
+      ],
+      "started_at_utc": "2026-10-13T18:55:32.456383+00:00",
+      "checked_at_utc": "2026-10-13T18:55:35.391096+00:00",
+      "exit_code": 0,
+      "result": "PASS",
+      "evidence": "receipt_gates.log"
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-B",
+        "tools/audit_document_authority.py"
+      ],
+      "started_at_utc": "2026-10-13T18:55:35.391160+00:00",
+      "checked_at_utc": "2026-10-13T18:55:47.132900+00:00",
+      "exit_code": 0,
+      "result": "PASS",
+      "evidence": "receipt_gates.log"
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-B",
+        "tools/audit_development.py",
+        "--base",
+        "auto"
+      ],
+      "started_at_utc": "2026-10-13T18:55:47.132956+00:00",
+      "checked_at_utc": "2026-10-13T18:55:50.247358+00:00",
+      "exit_code": 0,
+      "result": "PASS",
+      "evidence": "receipt_gates.log"
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-B",
+        "tools/audit_game_2d.py",
+        "--regression-gate"
+      ],
+      "started_at_utc": "2026-10-13T18:55:50.247420+00:00",
+      "checked_at_utc": "2026-10-13T18:58:41.165252+00:00",
+      "exit_code": 0,
+      "result": "PASS",
+      "evidence": "receipt_gates.log"
+    }
+  ],
+  "raw_log_sha256": "1307acd3db3e91a43bc8b8eb9c0d7a76129ac71b4b9d7f056f033d9159c3a82c",
+  "scope": "Native context diagnostic/evidence over unchanged runtime; inherited R16 exact82 local trusted passes. No production runtime code/assets or generation changes; new nonruntime trial captures. Strict medium/global/QA11/device/child/owner acceptance open."
+}

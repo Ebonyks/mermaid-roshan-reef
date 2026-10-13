@@ -52,6 +52,7 @@
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r19_candy_pointer_reuse/REVIEW.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r19_candy_pointer_reuse/SCRIPT_GATES.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r19_candy_pointer_reuse/SOURCES.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r19_candy_pointer_reuse/UPLOAD_RECOVERY.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r19_candy_pointer_reuse/build_manifest.py",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r19_candy_pointer_reuse/candidate_candy_surface.gd",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r19_candy_pointer_reuse/capture_candy_pointer_reuse.gd",
@@ -127,6 +128,7 @@
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r19_candy_pointer_reuse/run_gates.py",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r19_candy_pointer_reuse/scene_coverage.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r19_candy_pointer_reuse/tally.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r19_candy_pointer_reuse/upload_retry.log",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r19_candy_pointer_reuse/validate.py",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r19_candy_pointer_reuse/verify_remote.py"
   ],
@@ -147,9 +149,14 @@
       "evidence": "No production code/assets changed; inherited R16 FULL_VALIDATION.json82native local passes over identical bytes. New prototype has its own parser/analyzer/native evidence; current exact-head CI separate."
     },
     {
-      "command": "Anonymous exact GitHub payload and final metadata verification",
-      "result": "PENDING",
-      "evidence": "REMOTE_VERIFICATION.json then separately pinned final receipt bytes; no delivery claimed yet."
+      "command": "Anonymous exact public payload verification",
+      "result": "PASS",
+      "evidence": "REMOTE_VERIFICATION.json:1397required files plus manifest,344395273required bytes at25d9e92b48115ed1047871f530df5c820b88126d;every declared byte/hash checked anonymously. Successful temporary transport retry retained in UPLOAD_RECOVERY.json/upload_retry.log. Final seven metadata byte checks follow receipt push and are reported separately."
+    },
+    {
+      "command": "Final receipt source/document/audit-impact/medium gates",
+      "result": "PASS",
+      "evidence": "RECEIPT_GATES.json and exact receipt_gates.log,all4 exit0; final seven receipt metadata bytes checked after push and reported separately. No production code or artwork acceptance."
     }
   ],
   "acceptance_gaps": "Declared dev-playtest entry,not natural Castle/Chapter2 or QA11/device/child/owner evidence. No whole-game denominator inferred.",
