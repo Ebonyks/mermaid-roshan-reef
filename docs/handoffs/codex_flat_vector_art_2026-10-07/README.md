@@ -1,6 +1,8 @@
-Current canonical evidence: [R17 shared-pointer caller audit](r17_pointer_callers/README.md), [registry](r17_pointer_callers/per_piece.json), [coverage](r17_pointer_callers/scene_coverage.json), [tally](r17_pointer_callers/tally.json).
+Current canonical evidence: [R18 CandyMaker pointer context](r18_candy_pointer_context/README.md), [registry](r18_candy_pointer_context/per_piece.json), [coverage](r18_candy_pointer_context/scene_coverage.json), [tally](r18_candy_pointer_context/tally.json).
 
-# Full-game flat-vector audit — current R17 pointer source audit
+# Full-game flat-vector audit — current R18 CandyMaker pointer context
+
+R18 adds 62 original CandyMaker normal/null-hand and input-state diagnostics with eight directly inspected native views. Current partial-context union expands to 48 existing records / nine families,with syrup stream added as one existing ID. Cumulative 2200 bounded / 2314 retained; 225 known / 30 families,one sample pending,zero integration/accepted removal and unknown whole-game denominator.
 
 R17 binds15 live routes/61 constant phase rows:12 shared-player routes/49 rows,3 independent guide IDs/12 rows.16 old-hand reference files require live/state/missing-texture review. No new art,captures or acceptance; the full-game denominator stays unknown.
 

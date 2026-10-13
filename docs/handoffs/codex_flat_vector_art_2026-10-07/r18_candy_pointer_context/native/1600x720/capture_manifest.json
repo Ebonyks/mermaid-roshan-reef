@@ -1,0 +1,3354 @@
+{
+	"aspect": [
+		1600,
+		720
+	],
+	"capture_method": "Same-process native viewport diagnostics",
+	"engine": {
+		"build": "official",
+		"hash": "ed1daf0bf001b61586d9930840f2f1394092c079",
+		"hex": 263938,
+		"major": 4,
+		"minor": 7,
+		"patch": 2,
+		"status": "stable",
+		"string": "4.7.2-stable (official)",
+		"timestamp": 0
+	},
+	"errors": [],
+	"normal_save_after": {
+		"": "47c287147713fac860e25dade59da95961204f9b3170f5e00b5843e11590ad1e",
+		".bak": "de9d0441ed4d74f01cc8778c1c21600351b1426017d33a5ce99e69b03e893c3a",
+		".bak.old": "absent",
+		".bak.tmp": "absent",
+		".old": "absent",
+		".tmp": "absent",
+		".tmp0": "absent",
+		".tmp1": "absent"
+	},
+	"normal_save_before": {
+		"": "47c287147713fac860e25dade59da95961204f9b3170f5e00b5843e11590ad1e",
+		".bak": "de9d0441ed4d74f01cc8778c1c21600351b1426017d33a5ce99e69b03e893c3a",
+		".bak.old": "absent",
+		".bak.tmp": "absent",
+		".old": "absent",
+		".tmp": "absent",
+		".tmp0": "absent",
+		".tmp1": "absent"
+	},
+	"quality": "speedy",
+	"renderer": "mobile",
+	"schema": "reef.candy_pointer_context/1",
+	"scope_limits": "Default first phase of isolated dev-playtest production entry. Actual passive clock and Window touch/drag/release; null-hand field injection only. No loader/package-failure,natural Castle/Chapter2,full completion/reward,disk reload,OS focus/device,child,owner or QA11 acceptance.",
+	"source_revision": "90d19ceddb20d624f134a3429dfa2afd25e5faaa",
+	"states": [
+		{
+			"demo_active": true,
+			"demo_pose": "{ \"at\": (172.4388, 112.0831), \"pressing\": false }",
+			"demo_t": 0.200350777777779,
+			"held": false,
+			"id": "normal_ready",
+			"image": {
+				"bytes": 1459679,
+				"dimensions": [
+					1600,
+					720
+				],
+				"file": "normal_ready.png",
+				"sha256": "eaa00a667c06304edb104a538563a0ad92999f46a4e5796d2727b7d4eb51ad3e"
+			},
+			"input": {
+				"entry": "Production OperaAct start(slot3),dev_playtest,default first phase; production _open_task API. Not a natural Castle/Chapter2 route."
+			},
+			"mode": "pourt",
+			"phase_index": 0,
+			"pointer_path": "res://assets/castle/training/ghost_hand.png",
+			"pointer_present": true,
+			"pour_hold": false,
+			"pour_level": 0.0,
+			"pour_reserve": 1.2,
+			"pour_tilt": 0.0,
+			"presentation": {
+				"boot_splash_present": false,
+				"fade_alpha": 0.0,
+				"intro_active": false,
+				"intro_layer_present": false,
+				"medal_present": false,
+				"start_menu_active": false,
+				"start_menu_layer_present": false
+			},
+			"save_path": "C:\\Users\\Peter\\.codex\\visualizations\\2026\\10\\08\\01a119cc-74b1-7d23-b956-126129405418\\candy_pointer_context_20261013\\native/1600x720/profiles/candy/reef_save.json",
+			"surface_transform": "[X: (1.016611, 0.0), Y: (0.0, 1.016611), O: (1011.9, 306.7003)]",
+			"task_open": true,
+			"visible_nodes": [
+				{
+					"class": "ColorRect",
+					"global_rect": "[P: (0.0, 0.0), S: (1600.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaStageBleed",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/CareerWorldBackdrop",
+					"z_index": 0
+				},
+				{
+					"class": "ColorRect",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/@ColorRect@692",
+					"z_index": 0
+				},
+				{
+					"class": "TextureRect",
+					"global_rect": "[P: (271.5021, 290.6911), S: (257.3735, 257.3735)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/@TextureRect@695",
+					"texture": "",
+					"z_index": 0
+				},
+				{
+					"class": "ColorRect",
+					"global_rect": "[P: (999.701, 294.501), S: (422.9101, 296.8504)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/@ColorRect@698",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (1011.9, 306.7003), S: (398.5114, 235.8537)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/@ColorRect@698/CareerGestureSurface",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/StageCombatLayer",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/StageCombatFX",
+					"z_index": 0
+				}
+			],
+			"visual_context": "pour_candymaker",
+			"widget_fill": 0.0
+		},
+		{
+			"demo_active": true,
+			"demo_pose": "{ \"at\": (143.9081, 107.3402), \"pressing\": false }",
+			"demo_t": 0.442958000000001,
+			"held": false,
+			"id": "normal_demo00",
+			"image": {
+				"bytes": 1457303,
+				"dimensions": [
+					1600,
+					720
+				],
+				"file": "normal_demo00.png",
+				"sha256": "a1bdb236cba6f0b9fe56893109ecbc4b69ff88ab733acd3ca50e82fd7d8cbbc4"
+			},
+			"input": {
+				"method": "Actual passive timer; no forced demo pose/state"
+			},
+			"mode": "pourt",
+			"phase_index": 0,
+			"pointer_path": "res://assets/castle/training/ghost_hand.png",
+			"pointer_present": true,
+			"pour_hold": false,
+			"pour_level": 0.0,
+			"pour_reserve": 1.2,
+			"pour_tilt": 0.0,
+			"presentation": {
+				"boot_splash_present": false,
+				"fade_alpha": 0.0,
+				"intro_active": false,
+				"intro_layer_present": false,
+				"medal_present": false,
+				"start_menu_active": false,
+				"start_menu_layer_present": false
+			},
+			"save_path": "C:\\Users\\Peter\\.codex\\visualizations\\2026\\10\\08\\01a119cc-74b1-7d23-b956-126129405418\\candy_pointer_context_20261013\\native/1600x720/profiles/candy/reef_save.json",
+			"surface_transform": "[X: (1.0, 0.0), Y: (0.0, 1.0), O: (1012.0, 306.8)]",
+			"task_open": true,
+			"visible_nodes": [
+				{
+					"class": "ColorRect",
+					"global_rect": "[P: (0.0, 0.0), S: (1600.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaStageBleed",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/CareerWorldBackdrop",
+					"z_index": 0
+				},
+				{
+					"class": "ColorRect",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/@ColorRect@692",
+					"z_index": 0
+				},
+				{
+					"class": "TextureRect",
+					"global_rect": "[P: (271.5021, 290.6911), S: (257.3735, 257.3735)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/@TextureRect@695",
+					"texture": "",
+					"z_index": 0
+				},
+				{
+					"class": "ColorRect",
+					"global_rect": "[P: (1000.0, 294.8), S: (416.0, 292.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/@ColorRect@698",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (1012.0, 306.8), S: (392.0, 232.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/@ColorRect@698/CareerGestureSurface",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/StageCombatLayer",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/StageCombatFX",
+					"z_index": 0
+				}
+			],
+			"visual_context": "pour_candymaker",
+			"widget_fill": 0.0
+		},
+		{
+			"demo_active": true,
+			"demo_pose": "{ \"at\": (115.579, 102.6307), \"pressing\": false }",
+			"demo_t": 0.683852000000001,
+			"held": false,
+			"id": "normal_demo01",
+			"image": {
+				"bytes": 1457137,
+				"dimensions": [
+					1600,
+					720
+				],
+				"file": "normal_demo01.png",
+				"sha256": "8ae76e75032d056edde32643bf18edb927b19aa6a50ff579b20faf48d1beb20e"
+			},
+			"input": {
+				"method": "Actual passive timer; no forced demo pose/state"
+			},
+			"mode": "pourt",
+			"phase_index": 0,
+			"pointer_path": "res://assets/castle/training/ghost_hand.png",
+			"pointer_present": true,
+			"pour_hold": false,
+			"pour_level": 0.0,
+			"pour_reserve": 1.2,
+			"pour_tilt": 0.0,
+			"presentation": {
+				"boot_splash_present": false,
+				"fade_alpha": 0.0,
+				"intro_active": false,
+				"intro_layer_present": false,
+				"medal_present": false,
+				"start_menu_active": false,
+				"start_menu_layer_present": false
+			},
+			"save_path": "C:\\Users\\Peter\\.codex\\visualizations\\2026\\10\\08\\01a119cc-74b1-7d23-b956-126129405418\\candy_pointer_context_20261013\\native/1600x720/profiles/candy/reef_save.json",
+			"surface_transform": "[X: (1.0, 0.0), Y: (0.0, 1.0), O: (1012.0, 306.8)]",
+			"task_open": true,
+			"visible_nodes": [
+				{
+					"class": "ColorRect",
+					"global_rect": "[P: (0.0, 0.0), S: (1600.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaStageBleed",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/CareerWorldBackdrop",
+					"z_index": 0
+				},
+				{
+					"class": "ColorRect",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/@ColorRect@692",
+					"z_index": 0
+				},
+				{
+					"class": "TextureRect",
+					"global_rect": "[P: (271.5021, 290.6911), S: (257.3735, 257.3735)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/@TextureRect@695",
+					"texture": "",
+					"z_index": 0
+				},
+				{
+					"class": "ColorRect",
+					"global_rect": "[P: (1000.0, 294.8), S: (416.0, 292.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/@ColorRect@698",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (1012.0, 306.8), S: (392.0, 232.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/@ColorRect@698/CareerGestureSurface",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/StageCombatLayer",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/StageCombatFX",
+					"z_index": 0
+				}
+			],
+			"visual_context": "pour_candymaker",
+			"widget_fill": 0.0
+		},
+		{
+			"demo_active": true,
+			"demo_pose": "{ \"at\": (107.8331, 100.36), \"pressing\": true }",
+			"demo_t": 0.926537190476192,
+			"held": false,
+			"id": "normal_demo02",
+			"image": {
+				"bytes": 1458198,
+				"dimensions": [
+					1600,
+					720
+				],
+				"file": "normal_demo02.png",
+				"sha256": "31b8f83e266bfe429f13189088c4a60e62b6a6cb581212c94ee3c28a18876b92"
+			},
+			"input": {
+				"method": "Actual passive timer; no forced demo pose/state"
+			},
+			"mode": "pourt",
+			"phase_index": 0,
+			"pointer_path": "res://assets/castle/training/ghost_hand.png",
+			"pointer_present": true,
+			"pour_hold": false,
+			"pour_level": 0.0,
+			"pour_reserve": 1.2,
+			"pour_tilt": 0.0,
+			"presentation": {
+				"boot_splash_present": false,
+				"fade_alpha": 0.0,
+				"intro_active": false,
+				"intro_layer_present": false,
+				"medal_present": false,
+				"start_menu_active": false,
+				"start_menu_layer_present": false
+			},
+			"save_path": "C:\\Users\\Peter\\.codex\\visualizations\\2026\\10\\08\\01a119cc-74b1-7d23-b956-126129405418\\candy_pointer_context_20261013\\native/1600x720/profiles/candy/reef_save.json",
+			"surface_transform": "[X: (1.0, 0.0), Y: (0.0, 1.0), O: (1012.0, 306.8)]",
+			"task_open": true,
+			"visible_nodes": [
+				{
+					"class": "ColorRect",
+					"global_rect": "[P: (0.0, 0.0), S: (1600.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaStageBleed",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/CareerWorldBackdrop",
+					"z_index": 0
+				},
+				{
+					"class": "ColorRect",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/@ColorRect@692",
+					"z_index": 0
+				},
+				{
+					"class": "TextureRect",
+					"global_rect": "[P: (271.5021, 290.6911), S: (257.3735, 257.3735)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/@TextureRect@695",
+					"texture": "",
+					"z_index": 0
+				},
+				{
+					"class": "ColorRect",
+					"global_rect": "[P: (1000.0, 294.8), S: (416.0, 292.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/@ColorRect@698",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (1012.0, 306.8), S: (392.0, 232.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/@ColorRect@698/CareerGestureSurface",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/StageCombatLayer",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/StageCombatFX",
+					"z_index": 0
+				}
+			],
+			"visual_context": "pour_candymaker",
+			"widget_fill": 0.0
+		},
+		{
+			"demo_active": true,
+			"demo_pose": "{ \"at\": (111.5402, 100.36), \"pressing\": true }",
+			"demo_t": 1.16945533333333,
+			"held": false,
+			"id": "normal_demo03",
+			"image": {
+				"bytes": 1459639,
+				"dimensions": [
+					1600,
+					720
+				],
+				"file": "normal_demo03.png",
+				"sha256": "cca1ce81b991762bdaaf70adbefe0fb54f96a9fca8a89c5d2e7892fc3180afef"
+			},
+			"input": {
+				"method": "Actual passive timer; no forced demo pose/state"
+			},
+			"mode": "pourt",
+			"phase_index": 0,
+			"pointer_path": "res://assets/castle/training/ghost_hand.png",
+			"pointer_present": true,
+			"pour_hold": false,
+			"pour_level": 0.0,
+			"pour_reserve": 1.2,
+			"pour_tilt": 0.0,
+			"presentation": {
+				"boot_splash_present": false,
+				"fade_alpha": 0.0,
+				"intro_active": false,
+				"intro_layer_present": false,
+				"medal_present": false,
+				"start_menu_active": false,
+				"start_menu_layer_present": false
+			},
+			"save_path": "C:\\Users\\Peter\\.codex\\visualizations\\2026\\10\\08\\01a119cc-74b1-7d23-b956-126129405418\\candy_pointer_context_20261013\\native/1600x720/profiles/candy/reef_save.json",
+			"surface_transform": "[X: (1.0, 0.0), Y: (0.0, 1.0), O: (1012.0, 306.8)]",
+			"task_open": true,
+			"visible_nodes": [
+				{
+					"class": "ColorRect",
+					"global_rect": "[P: (0.0, 0.0), S: (1600.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaStageBleed",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/CareerWorldBackdrop",
+					"z_index": 0
+				},
+				{
+					"class": "ColorRect",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/@ColorRect@692",
+					"z_index": 0
+				},
+				{
+					"class": "TextureRect",
+					"global_rect": "[P: (271.5021, 290.6911), S: (257.3735, 257.3735)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/@TextureRect@695",
+					"texture": "",
+					"z_index": 0
+				},
+				{
+					"class": "ColorRect",
+					"global_rect": "[P: (1000.0, 294.8), S: (416.0, 292.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/@ColorRect@698",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (1012.0, 306.8), S: (392.0, 232.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/@ColorRect@698/CareerGestureSurface",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/StageCombatLayer",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/StageCombatFX",
+					"z_index": 0
+				}
+			],
+			"visual_context": "pour_candymaker",
+			"widget_fill": 0.0
+		},
+		{
+			"demo_active": true,
+			"demo_pose": "{ \"at\": (102.4955, 100.36), \"pressing\": true }",
+			"demo_t": 1.416802,
+			"held": false,
+			"id": "normal_demo04",
+			"image": {
+				"bytes": 1460894,
+				"dimensions": [
+					1600,
+					720
+				],
+				"file": "normal_demo04.png",
+				"sha256": "b330bdc53fee4a08f1bcdff360524c6029d1833cb0d39ba18be8e09b52a7b1f2"
+			},
+			"input": {
+				"method": "Actual passive timer; no forced demo pose/state"
+			},
+			"mode": "pourt",
+			"phase_index": 0,
+			"pointer_path": "res://assets/castle/training/ghost_hand.png",
+			"pointer_present": true,
+			"pour_hold": false,
+			"pour_level": 0.0,
+			"pour_reserve": 1.2,
+			"pour_tilt": 0.0,
+			"presentation": {
+				"boot_splash_present": false,
+				"fade_alpha": 0.0,
+				"intro_active": false,
+				"intro_layer_present": false,
+				"medal_present": false,
+				"start_menu_active": false,
+				"start_menu_layer_present": false
+			},
+			"save_path": "C:\\Users\\Peter\\.codex\\visualizations\\2026\\10\\08\\01a119cc-74b1-7d23-b956-126129405418\\candy_pointer_context_20261013\\native/1600x720/profiles/candy/reef_save.json",
+			"surface_transform": "[X: (1.0, 0.0), Y: (0.0, 1.0), O: (1012.0, 306.8)]",
+			"task_open": true,
+			"visible_nodes": [
+				{
+					"class": "ColorRect",
+					"global_rect": "[P: (0.0, 0.0), S: (1600.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaStageBleed",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/CareerWorldBackdrop",
+					"z_index": 0
+				},
+				{
+					"class": "ColorRect",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/@ColorRect@692",
+					"z_index": 0
+				},
+				{
+					"class": "TextureRect",
+					"global_rect": "[P: (271.5021, 290.6911), S: (257.3735, 257.3735)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/@TextureRect@695",
+					"texture": "",
+					"z_index": 0
+				},
+				{
+					"class": "ColorRect",
+					"global_rect": "[P: (1000.0, 294.8), S: (416.0, 292.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/@ColorRect@698",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (1012.0, 306.8), S: (392.0, 232.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/@ColorRect@698/CareerGestureSurface",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/StageCombatLayer",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/StageCombatFX",
+					"z_index": 0
+				}
+			],
+			"visual_context": "pour_candymaker",
+			"widget_fill": 0.0
+		},
+		{
+			"demo_active": true,
+			"demo_pose": "{ \"at\": (92.6982, 100.36), \"pressing\": true }",
+			"demo_t": 1.66305433333333,
+			"held": false,
+			"id": "normal_demo05",
+			"image": {
+				"bytes": 1461833,
+				"dimensions": [
+					1600,
+					720
+				],
+				"file": "normal_demo05.png",
+				"sha256": "cfcdbc6446e0296fb302a977dbfc78b51bf7ee597b531f277707a58736fb6469"
+			},
+			"input": {
+				"method": "Actual passive timer; no forced demo pose/state"
+			},
+			"mode": "pourt",
+			"phase_index": 0,
+			"pointer_path": "res://assets/castle/training/ghost_hand.png",
+			"pointer_present": true,
+			"pour_hold": false,
+			"pour_level": 0.0,
+			"pour_reserve": 1.2,
+			"pour_tilt": 0.0,
+			"presentation": {
+				"boot_splash_present": false,
+				"fade_alpha": 0.0,
+				"intro_active": false,
+				"intro_layer_present": false,
+				"medal_present": false,
+				"start_menu_active": false,
+				"start_menu_layer_present": false
+			},
+			"save_path": "C:\\Users\\Peter\\.codex\\visualizations\\2026\\10\\08\\01a119cc-74b1-7d23-b956-126129405418\\candy_pointer_context_20261013\\native/1600x720/profiles/candy/reef_save.json",
+			"surface_transform": "[X: (1.0, 0.0), Y: (0.0, 1.0), O: (1012.0, 306.8)]",
+			"task_open": true,
+			"visible_nodes": [
+				{
+					"class": "ColorRect",
+					"global_rect": "[P: (0.0, 0.0), S: (1600.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaStageBleed",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/CareerWorldBackdrop",
+					"z_index": 0
+				},
+				{
+					"class": "ColorRect",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/@ColorRect@692",
+					"z_index": 0
+				},
+				{
+					"class": "TextureRect",
+					"global_rect": "[P: (271.5021, 290.6911), S: (257.3735, 257.3735)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/@TextureRect@695",
+					"texture": "",
+					"z_index": 0
+				},
+				{
+					"class": "ColorRect",
+					"global_rect": "[P: (1000.0, 294.8), S: (416.0, 292.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/@ColorRect@698",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (1012.0, 306.8), S: (392.0, 232.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/@ColorRect@698/CareerGestureSurface",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/StageCombatLayer",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/StageCombatFX",
+					"z_index": 0
+				}
+			],
+			"visual_context": "pour_candymaker",
+			"widget_fill": 0.0
+		},
+		{
+			"demo_active": true,
+			"demo_pose": "{ \"at\": (95.07185, 100.36), \"pressing\": true }",
+			"demo_t": 1.905767,
+			"held": false,
+			"id": "normal_demo06",
+			"image": {
+				"bytes": 1462492,
+				"dimensions": [
+					1600,
+					720
+				],
+				"file": "normal_demo06.png",
+				"sha256": "55de85cbaed9a782168c2b03addb36366b3c444662b712c111ba5c16b4d45ce5"
+			},
+			"input": {
+				"method": "Actual passive timer; no forced demo pose/state"
+			},
+			"mode": "pourt",
+			"phase_index": 0,
+			"pointer_path": "res://assets/castle/training/ghost_hand.png",
+			"pointer_present": true,
+			"pour_hold": false,
+			"pour_level": 0.0,
+			"pour_reserve": 1.2,
+			"pour_tilt": 0.0,
+			"presentation": {
+				"boot_splash_present": false,
+				"fade_alpha": 0.0,
+				"intro_active": false,
+				"intro_layer_present": false,
+				"medal_present": false,
+				"start_menu_active": false,
+				"start_menu_layer_present": false
+			},
+			"save_path": "C:\\Users\\Peter\\.codex\\visualizations\\2026\\10\\08\\01a119cc-74b1-7d23-b956-126129405418\\candy_pointer_context_20261013\\native/1600x720/profiles/candy/reef_save.json",
+			"surface_transform": "[X: (1.0, 0.0), Y: (0.0, 1.0), O: (1012.0, 306.8)]",
+			"task_open": true,
+			"visible_nodes": [
+				{
+					"class": "ColorRect",
+					"global_rect": "[P: (0.0, 0.0), S: (1600.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaStageBleed",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/CareerWorldBackdrop",
+					"z_index": 0
+				},
+				{
+					"class": "ColorRect",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/@ColorRect@692",
+					"z_index": 0
+				},
+				{
+					"class": "TextureRect",
+					"global_rect": "[P: (271.5021, 290.6911), S: (257.3735, 257.3735)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/@TextureRect@695",
+					"texture": "",
+					"z_index": 0
+				},
+				{
+					"class": "ColorRect",
+					"global_rect": "[P: (1000.0, 294.8), S: (416.0, 292.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/@ColorRect@698",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (1012.0, 306.8), S: (392.0, 232.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/@ColorRect@698/CareerGestureSurface",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/StageCombatLayer",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/StageCombatFX",
+					"z_index": 0
+				}
+			],
+			"visual_context": "pour_candymaker",
+			"widget_fill": 0.0
+		},
+		{
+			"demo_active": true,
+			"demo_pose": "{ \"at\": (106.3656, 100.36), \"pressing\": true }",
+			"demo_t": 2.148774,
+			"held": false,
+			"id": "normal_demo07",
+			"image": {
+				"bytes": 1461471,
+				"dimensions": [
+					1600,
+					720
+				],
+				"file": "normal_demo07.png",
+				"sha256": "9e74210a937b2e2db8c11b920acf8e679182620704ce340fce6c34823b09e27a"
+			},
+			"input": {
+				"method": "Actual passive timer; no forced demo pose/state"
+			},
+			"mode": "pourt",
+			"phase_index": 0,
+			"pointer_path": "res://assets/castle/training/ghost_hand.png",
+			"pointer_present": true,
+			"pour_hold": false,
+			"pour_level": 0.0,
+			"pour_reserve": 1.2,
+			"pour_tilt": 0.0,
+			"presentation": {
+				"boot_splash_present": false,
+				"fade_alpha": 0.0,
+				"intro_active": false,
+				"intro_layer_present": false,
+				"medal_present": false,
+				"start_menu_active": false,
+				"start_menu_layer_present": false
+			},
+			"save_path": "C:\\Users\\Peter\\.codex\\visualizations\\2026\\10\\08\\01a119cc-74b1-7d23-b956-126129405418\\candy_pointer_context_20261013\\native/1600x720/profiles/candy/reef_save.json",
+			"surface_transform": "[X: (1.0, 0.0), Y: (0.0, 1.0), O: (1012.0, 306.8)]",
+			"task_open": true,
+			"visible_nodes": [
+				{
+					"class": "ColorRect",
+					"global_rect": "[P: (0.0, 0.0), S: (1600.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaStageBleed",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/CareerWorldBackdrop",
+					"z_index": 0
+				},
+				{
+					"class": "ColorRect",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/@ColorRect@692",
+					"z_index": 0
+				},
+				{
+					"class": "TextureRect",
+					"global_rect": "[P: (271.5021, 290.6911), S: (257.3735, 257.3735)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/@TextureRect@695",
+					"texture": "",
+					"z_index": 0
+				},
+				{
+					"class": "ColorRect",
+					"global_rect": "[P: (1000.0, 294.8), S: (416.0, 292.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/@ColorRect@698",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (1012.0, 306.8), S: (392.0, 232.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/@ColorRect@698/CareerGestureSurface",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/StageCombatLayer",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/StageCombatFX",
+					"z_index": 0
+				}
+			],
+			"visual_context": "pour_candymaker",
+			"widget_fill": 0.0
+		},
+		{
+			"demo_active": true,
+			"demo_pose": "{ \"at\": (111.8758, 100.36), \"pressing\": true }",
+			"demo_t": 2.38961266666667,
+			"held": false,
+			"id": "normal_demo08",
+			"image": {
+				"bytes": 1461281,
+				"dimensions": [
+					1600,
+					720
+				],
+				"file": "normal_demo08.png",
+				"sha256": "a258e3c28bbe0bb078fe2248697673f72596924bd470d03a2f310867c82b9eff"
+			},
+			"input": {
+				"method": "Actual passive timer; no forced demo pose/state"
+			},
+			"mode": "pourt",
+			"phase_index": 0,
+			"pointer_path": "res://assets/castle/training/ghost_hand.png",
+			"pointer_present": true,
+			"pour_hold": false,
+			"pour_level": 0.0,
+			"pour_reserve": 1.2,
+			"pour_tilt": 0.0,
+			"presentation": {
+				"boot_splash_present": false,
+				"fade_alpha": 0.0,
+				"intro_active": false,
+				"intro_layer_present": false,
+				"medal_present": false,
+				"start_menu_active": false,
+				"start_menu_layer_present": false
+			},
+			"save_path": "C:\\Users\\Peter\\.codex\\visualizations\\2026\\10\\08\\01a119cc-74b1-7d23-b956-126129405418\\candy_pointer_context_20261013\\native/1600x720/profiles/candy/reef_save.json",
+			"surface_transform": "[X: (1.0, 0.0), Y: (0.0, 1.0), O: (1012.0, 306.8)]",
+			"task_open": true,
+			"visible_nodes": [
+				{
+					"class": "ColorRect",
+					"global_rect": "[P: (0.0, 0.0), S: (1600.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaStageBleed",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/CareerWorldBackdrop",
+					"z_index": 0
+				},
+				{
+					"class": "ColorRect",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/@ColorRect@692",
+					"z_index": 0
+				},
+				{
+					"class": "TextureRect",
+					"global_rect": "[P: (271.5021, 290.6911), S: (257.3735, 257.3735)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/@TextureRect@695",
+					"texture": "",
+					"z_index": 0
+				},
+				{
+					"class": "ColorRect",
+					"global_rect": "[P: (1000.0, 294.8), S: (416.0, 292.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/@ColorRect@698",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (1012.0, 306.8), S: (392.0, 232.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/@ColorRect@698/CareerGestureSurface",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/StageCombatLayer",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/StageCombatFX",
+					"z_index": 0
+				}
+			],
+			"visual_context": "pour_candymaker",
+			"widget_fill": 0.0
+		},
+		{
+			"demo_active": true,
+			"demo_pose": "{ \"at\": (168.4875, 111.4263), \"pressing\": false }",
+			"demo_t": 2.63394966666667,
+			"held": false,
+			"id": "normal_demo09",
+			"image": {
+				"bytes": 1460466,
+				"dimensions": [
+					1600,
+					720
+				],
+				"file": "normal_demo09.png",
+				"sha256": "8a0f764afdfbc09426623c93b462c07923d6dcc3b6782cc028818ad33ffa29c5"
+			},
+			"input": {
+				"method": "Actual passive timer; no forced demo pose/state"
+			},
+			"mode": "pourt",
+			"phase_index": 0,
+			"pointer_path": "res://assets/castle/training/ghost_hand.png",
+			"pointer_present": true,
+			"pour_hold": false,
+			"pour_level": 0.0,
+			"pour_reserve": 1.2,
+			"pour_tilt": 0.0,
+			"presentation": {
+				"boot_splash_present": false,
+				"fade_alpha": 0.0,
+				"intro_active": false,
+				"intro_layer_present": false,
+				"medal_present": false,
+				"start_menu_active": false,
+				"start_menu_layer_present": false
+			},
+			"save_path": "C:\\Users\\Peter\\.codex\\visualizations\\2026\\10\\08\\01a119cc-74b1-7d23-b956-126129405418\\candy_pointer_context_20261013\\native/1600x720/profiles/candy/reef_save.json",
+			"surface_transform": "[X: (1.0, 0.0), Y: (0.0, 1.0), O: (1012.0, 306.8)]",
+			"task_open": true,
+			"visible_nodes": [
+				{
+					"class": "ColorRect",
+					"global_rect": "[P: (0.0, 0.0), S: (1600.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaStageBleed",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/CareerWorldBackdrop",
+					"z_index": 0
+				},
+				{
+					"class": "ColorRect",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/@ColorRect@692",
+					"z_index": 0
+				},
+				{
+					"class": "TextureRect",
+					"global_rect": "[P: (271.5021, 290.6911), S: (257.3735, 257.3735)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/@TextureRect@695",
+					"texture": "",
+					"z_index": 0
+				},
+				{
+					"class": "ColorRect",
+					"global_rect": "[P: (1000.0, 294.8), S: (416.0, 292.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/@ColorRect@698",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (1012.0, 306.8), S: (392.0, 232.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/@ColorRect@698/CareerGestureSurface",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/StageCombatLayer",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/StageCombatFX",
+					"z_index": 0
+				}
+			],
+			"visual_context": "pour_candymaker",
+			"widget_fill": 0.0
+		},
+		{
+			"demo_active": true,
+			"demo_pose": "{ \"at\": (139.666, 106.6349), \"pressing\": false }",
+			"demo_t": 2.879031,
+			"held": false,
+			"id": "normal_demo10",
+			"image": {
+				"bytes": 1458514,
+				"dimensions": [
+					1600,
+					720
+				],
+				"file": "normal_demo10.png",
+				"sha256": "e812c05a18b896f0f9d6e5abf8740706eb896c98564043d5b37ed57044ea9eff"
+			},
+			"input": {
+				"method": "Actual passive timer; no forced demo pose/state"
+			},
+			"mode": "pourt",
+			"phase_index": 0,
+			"pointer_path": "res://assets/castle/training/ghost_hand.png",
+			"pointer_present": true,
+			"pour_hold": false,
+			"pour_level": 0.0,
+			"pour_reserve": 1.2,
+			"pour_tilt": 0.0,
+			"presentation": {
+				"boot_splash_present": false,
+				"fade_alpha": 0.0,
+				"intro_active": false,
+				"intro_layer_present": false,
+				"medal_present": false,
+				"start_menu_active": false,
+				"start_menu_layer_present": false
+			},
+			"save_path": "C:\\Users\\Peter\\.codex\\visualizations\\2026\\10\\08\\01a119cc-74b1-7d23-b956-126129405418\\candy_pointer_context_20261013\\native/1600x720/profiles/candy/reef_save.json",
+			"surface_transform": "[X: (1.0, 0.0), Y: (0.0, 1.0), O: (1012.0, 306.8)]",
+			"task_open": true,
+			"visible_nodes": [
+				{
+					"class": "ColorRect",
+					"global_rect": "[P: (0.0, 0.0), S: (1600.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaStageBleed",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/CareerWorldBackdrop",
+					"z_index": 0
+				},
+				{
+					"class": "ColorRect",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/@ColorRect@692",
+					"z_index": 0
+				},
+				{
+					"class": "TextureRect",
+					"global_rect": "[P: (271.5021, 290.6911), S: (257.3735, 257.3735)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/@TextureRect@695",
+					"texture": "",
+					"z_index": 0
+				},
+				{
+					"class": "ColorRect",
+					"global_rect": "[P: (1000.0, 294.8), S: (416.0, 292.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/@ColorRect@698",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (1012.0, 306.8), S: (392.0, 232.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/@ColorRect@698/CareerGestureSurface",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/StageCombatLayer",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/StageCombatFX",
+					"z_index": 0
+				}
+			],
+			"visual_context": "pour_candymaker",
+			"widget_fill": 0.0
+		},
+		{
+			"demo_active": true,
+			"demo_pose": "{ \"at\": (123.8029, 103.9978), \"pressing\": false }",
+			"demo_t": 3.013921,
+			"held": false,
+			"id": "missing_hand_ready",
+			"image": {
+				"bytes": 1456540,
+				"dimensions": [
+					1600,
+					720
+				],
+				"file": "missing_hand_ready.png",
+				"sha256": "3e910088641ae5f877ee89ac0aa2a4ed6cf516690b961f688aff925a6a1898b3"
+			},
+			"input": {
+				"fault_injection": "Only pour_demo_hand_texture=null; no file removed or loader patched. Measures the production null-texture draw branch,not actual packaging failure."
+			},
+			"mode": "pourt",
+			"phase_index": 0,
+			"pointer_path": "",
+			"pointer_present": false,
+			"pour_hold": false,
+			"pour_level": 0.0,
+			"pour_reserve": 1.2,
+			"pour_tilt": 0.0,
+			"presentation": {
+				"boot_splash_present": false,
+				"fade_alpha": 0.0,
+				"intro_active": false,
+				"intro_layer_present": false,
+				"medal_present": false,
+				"start_menu_active": false,
+				"start_menu_layer_present": false
+			},
+			"save_path": "C:\\Users\\Peter\\.codex\\visualizations\\2026\\10\\08\\01a119cc-74b1-7d23-b956-126129405418\\candy_pointer_context_20261013\\native/1600x720/profiles/candy/reef_save.json",
+			"surface_transform": "[X: (1.0, 0.0), Y: (0.0, 1.0), O: (1012.0, 306.8)]",
+			"task_open": true,
+			"visible_nodes": [
+				{
+					"class": "ColorRect",
+					"global_rect": "[P: (0.0, 0.0), S: (1600.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaStageBleed",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/CareerWorldBackdrop",
+					"z_index": 0
+				},
+				{
+					"class": "ColorRect",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/@ColorRect@692",
+					"z_index": 0
+				},
+				{
+					"class": "TextureRect",
+					"global_rect": "[P: (271.5021, 290.6911), S: (257.3735, 257.3735)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/@TextureRect@695",
+					"texture": "",
+					"z_index": 0
+				},
+				{
+					"class": "ColorRect",
+					"global_rect": "[P: (1000.0, 294.8), S: (416.0, 292.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/@ColorRect@698",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (1012.0, 306.8), S: (392.0, 232.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/@ColorRect@698/CareerGestureSurface",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/StageCombatLayer",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/StageCombatFX",
+					"z_index": 0
+				}
+			],
+			"visual_context": "pour_candymaker",
+			"widget_fill": 0.0
+		},
+		{
+			"demo_active": true,
+			"demo_pose": "{ \"at\": (104.5885, 100.36), \"pressing\": true }",
+			"demo_t": 3.25402566666667,
+			"held": false,
+			"id": "missing_hand_demo00",
+			"image": {
+				"bytes": 1456929,
+				"dimensions": [
+					1600,
+					720
+				],
+				"file": "missing_hand_demo00.png",
+				"sha256": "68059591e7f0e61c78303934f378df59b8e77bbcd71deebc099baebb97952363"
+			},
+			"input": {
+				"method": "Actual passive timer under declared null-hand fault injection"
+			},
+			"mode": "pourt",
+			"phase_index": 0,
+			"pointer_path": "",
+			"pointer_present": false,
+			"pour_hold": false,
+			"pour_level": 0.0,
+			"pour_reserve": 1.2,
+			"pour_tilt": 0.0,
+			"presentation": {
+				"boot_splash_present": false,
+				"fade_alpha": 0.0,
+				"intro_active": false,
+				"intro_layer_present": false,
+				"medal_present": false,
+				"start_menu_active": false,
+				"start_menu_layer_present": false
+			},
+			"save_path": "C:\\Users\\Peter\\.codex\\visualizations\\2026\\10\\08\\01a119cc-74b1-7d23-b956-126129405418\\candy_pointer_context_20261013\\native/1600x720/profiles/candy/reef_save.json",
+			"surface_transform": "[X: (1.0, 0.0), Y: (0.0, 1.0), O: (1012.0, 306.8)]",
+			"task_open": true,
+			"visible_nodes": [
+				{
+					"class": "ColorRect",
+					"global_rect": "[P: (0.0, 0.0), S: (1600.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaStageBleed",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/CareerWorldBackdrop",
+					"z_index": 0
+				},
+				{
+					"class": "ColorRect",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/@ColorRect@692",
+					"z_index": 0
+				},
+				{
+					"class": "TextureRect",
+					"global_rect": "[P: (271.5021, 290.6911), S: (257.3735, 257.3735)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/@TextureRect@695",
+					"texture": "",
+					"z_index": 0
+				},
+				{
+					"class": "ColorRect",
+					"global_rect": "[P: (1000.0, 294.8), S: (416.0, 292.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/@ColorRect@698",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (1012.0, 306.8), S: (392.0, 232.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/@ColorRect@698/CareerGestureSurface",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/StageCombatLayer",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/StageCombatFX",
+					"z_index": 0
+				}
+			],
+			"visual_context": "pour_candymaker",
+			"widget_fill": 0.0
+		},
+		{
+			"demo_active": true,
+			"demo_pose": "{ \"at\": (111.8987, 100.36), \"pressing\": true }",
+			"demo_t": 3.50111240740741,
+			"held": false,
+			"id": "missing_hand_demo01",
+			"image": {
+				"bytes": 1455915,
+				"dimensions": [
+					1600,
+					720
+				],
+				"file": "missing_hand_demo01.png",
+				"sha256": "92aabc3c2eb9a92baa8c682cf66cd5ae0a0770be09775969c2766eb1e1bcfa3a"
+			},
+			"input": {
+				"method": "Actual passive timer under declared null-hand fault injection"
+			},
+			"mode": "pourt",
+			"phase_index": 0,
+			"pointer_path": "",
+			"pointer_present": false,
+			"pour_hold": false,
+			"pour_level": 0.0,
+			"pour_reserve": 1.2,
+			"pour_tilt": 0.0,
+			"presentation": {
+				"boot_splash_present": false,
+				"fade_alpha": 0.0,
+				"intro_active": false,
+				"intro_layer_present": false,
+				"medal_present": false,
+				"start_menu_active": false,
+				"start_menu_layer_present": false
+			},
+			"save_path": "C:\\Users\\Peter\\.codex\\visualizations\\2026\\10\\08\\01a119cc-74b1-7d23-b956-126129405418\\candy_pointer_context_20261013\\native/1600x720/profiles/candy/reef_save.json",
+			"surface_transform": "[X: (1.0, 0.0), Y: (0.0, 1.0), O: (1012.0, 306.8)]",
+			"task_open": true,
+			"visible_nodes": [
+				{
+					"class": "ColorRect",
+					"global_rect": "[P: (0.0, 0.0), S: (1600.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaStageBleed",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/CareerWorldBackdrop",
+					"z_index": 0
+				},
+				{
+					"class": "ColorRect",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/@ColorRect@692",
+					"z_index": 0
+				},
+				{
+					"class": "TextureRect",
+					"global_rect": "[P: (271.5021, 290.6911), S: (257.3735, 257.3735)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/@TextureRect@695",
+					"texture": "",
+					"z_index": 0
+				},
+				{
+					"class": "ColorRect",
+					"global_rect": "[P: (1000.0, 294.8), S: (416.0, 292.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/@ColorRect@698",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (1012.0, 306.8), S: (392.0, 232.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/@ColorRect@698/CareerGestureSurface",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/StageCombatLayer",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/StageCombatFX",
+					"z_index": 0
+				}
+			],
+			"visual_context": "pour_candymaker",
+			"widget_fill": 0.0
+		},
+		{
+			"demo_active": true,
+			"demo_pose": "{ \"at\": (105.9248, 100.36), \"pressing\": true }",
+			"demo_t": 3.74591133333334,
+			"held": false,
+			"id": "missing_hand_demo02",
+			"image": {
+				"bytes": 1457966,
+				"dimensions": [
+					1600,
+					720
+				],
+				"file": "missing_hand_demo02.png",
+				"sha256": "7af0846ac2d55aedfa048f67b538cfa2dbcc9de5c0196a28e875f3950d2d1b74"
+			},
+			"input": {
+				"method": "Actual passive timer under declared null-hand fault injection"
+			},
+			"mode": "pourt",
+			"phase_index": 0,
+			"pointer_path": "",
+			"pointer_present": false,
+			"pour_hold": false,
+			"pour_level": 0.0,
+			"pour_reserve": 1.2,
+			"pour_tilt": 0.0,
+			"presentation": {
+				"boot_splash_present": false,
+				"fade_alpha": 0.0,
+				"intro_active": false,
+				"intro_layer_present": false,
+				"medal_present": false,
+				"start_menu_active": false,
+				"start_menu_layer_present": false
+			},
+			"save_path": "C:\\Users\\Peter\\.codex\\visualizations\\2026\\10\\08\\01a119cc-74b1-7d23-b956-126129405418\\candy_pointer_context_20261013\\native/1600x720/profiles/candy/reef_save.json",
+			"surface_transform": "[X: (1.0, 0.0), Y: (0.0, 1.0), O: (1012.0, 306.8)]",
+			"task_open": true,
+			"visible_nodes": [
+				{
+					"class": "ColorRect",
+					"global_rect": "[P: (0.0, 0.0), S: (1600.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaStageBleed",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/CareerWorldBackdrop",
+					"z_index": 0
+				},
+				{
+					"class": "ColorRect",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/@ColorRect@692",
+					"z_index": 0
+				},
+				{
+					"class": "TextureRect",
+					"global_rect": "[P: (271.5021, 290.6911), S: (257.3735, 257.3735)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/@TextureRect@695",
+					"texture": "",
+					"z_index": 0
+				},
+				{
+					"class": "ColorRect",
+					"global_rect": "[P: (1000.0, 294.8), S: (416.0, 292.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/@ColorRect@698",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (1012.0, 306.8), S: (392.0, 232.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/@ColorRect@698/CareerGestureSurface",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/StageCombatLayer",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/StageCombatFX",
+					"z_index": 0
+				}
+			],
+			"visual_context": "pour_candymaker",
+			"widget_fill": 0.0
+		},
+		{
+			"demo_active": true,
+			"demo_pose": "{ \"at\": (94.76045, 100.36), \"pressing\": true }",
+			"demo_t": 3.98791666666667,
+			"held": false,
+			"id": "missing_hand_demo03",
+			"image": {
+				"bytes": 1457767,
+				"dimensions": [
+					1600,
+					720
+				],
+				"file": "missing_hand_demo03.png",
+				"sha256": "454059929f75d7e3c3d9fce9225c28add0e99ed1029bbf289b1768844529aed9"
+			},
+			"input": {
+				"method": "Actual passive timer under declared null-hand fault injection"
+			},
+			"mode": "pourt",
+			"phase_index": 0,
+			"pointer_path": "",
+			"pointer_present": false,
+			"pour_hold": false,
+			"pour_level": 0.0,
+			"pour_reserve": 1.2,
+			"pour_tilt": 0.0,
+			"presentation": {
+				"boot_splash_present": false,
+				"fade_alpha": 0.0,
+				"intro_active": false,
+				"intro_layer_present": false,
+				"medal_present": false,
+				"start_menu_active": false,
+				"start_menu_layer_present": false
+			},
+			"save_path": "C:\\Users\\Peter\\.codex\\visualizations\\2026\\10\\08\\01a119cc-74b1-7d23-b956-126129405418\\candy_pointer_context_20261013\\native/1600x720/profiles/candy/reef_save.json",
+			"surface_transform": "[X: (1.0, 0.0), Y: (0.0, 1.0), O: (1012.0, 306.8)]",
+			"task_open": true,
+			"visible_nodes": [
+				{
+					"class": "ColorRect",
+					"global_rect": "[P: (0.0, 0.0), S: (1600.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaStageBleed",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/CareerWorldBackdrop",
+					"z_index": 0
+				},
+				{
+					"class": "ColorRect",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/@ColorRect@692",
+					"z_index": 0
+				},
+				{
+					"class": "TextureRect",
+					"global_rect": "[P: (271.5021, 290.6911), S: (257.3735, 257.3735)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/@TextureRect@695",
+					"texture": "",
+					"z_index": 0
+				},
+				{
+					"class": "ColorRect",
+					"global_rect": "[P: (1000.0, 294.8), S: (416.0, 292.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/@ColorRect@698",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (1012.0, 306.8), S: (392.0, 232.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/@ColorRect@698/CareerGestureSurface",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/StageCombatLayer",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/StageCombatFX",
+					"z_index": 0
+				}
+			],
+			"visual_context": "pour_candymaker",
+			"widget_fill": 0.0
+		},
+		{
+			"demo_active": true,
+			"demo_pose": "{ \"at\": (92.94887, 100.36), \"pressing\": true }",
+			"demo_t": 4.23399878835979,
+			"held": false,
+			"id": "missing_hand_demo04",
+			"image": {
+				"bytes": 1459762,
+				"dimensions": [
+					1600,
+					720
+				],
+				"file": "missing_hand_demo04.png",
+				"sha256": "0aa8de99d77cea584d1d13b8c250ac4b66f3d1cccae092ed8656fb4ceac4c254"
+			},
+			"input": {
+				"method": "Actual passive timer under declared null-hand fault injection"
+			},
+			"mode": "pourt",
+			"phase_index": 0,
+			"pointer_path": "",
+			"pointer_present": false,
+			"pour_hold": false,
+			"pour_level": 0.0,
+			"pour_reserve": 1.2,
+			"pour_tilt": 0.0,
+			"presentation": {
+				"boot_splash_present": false,
+				"fade_alpha": 0.0,
+				"intro_active": false,
+				"intro_layer_present": false,
+				"medal_present": false,
+				"start_menu_active": false,
+				"start_menu_layer_present": false
+			},
+			"save_path": "C:\\Users\\Peter\\.codex\\visualizations\\2026\\10\\08\\01a119cc-74b1-7d23-b956-126129405418\\candy_pointer_context_20261013\\native/1600x720/profiles/candy/reef_save.json",
+			"surface_transform": "[X: (1.0, 0.0), Y: (0.0, 1.0), O: (1012.0, 306.8)]",
+			"task_open": true,
+			"visible_nodes": [
+				{
+					"class": "ColorRect",
+					"global_rect": "[P: (0.0, 0.0), S: (1600.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaStageBleed",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/CareerWorldBackdrop",
+					"z_index": 0
+				},
+				{
+					"class": "ColorRect",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/@ColorRect@692",
+					"z_index": 0
+				},
+				{
+					"class": "TextureRect",
+					"global_rect": "[P: (271.5021, 290.6911), S: (257.3735, 257.3735)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/@TextureRect@695",
+					"texture": "",
+					"z_index": 0
+				},
+				{
+					"class": "ColorRect",
+					"global_rect": "[P: (1000.0, 294.8), S: (416.0, 292.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/@ColorRect@698",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (1012.0, 306.8), S: (392.0, 232.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/@ColorRect@698/CareerGestureSurface",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/StageCombatLayer",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/StageCombatFX",
+					"z_index": 0
+				}
+			],
+			"visual_context": "pour_candymaker",
+			"widget_fill": 0.0
+		},
+		{
+			"demo_active": true,
+			"demo_pose": "{ \"at\": (102.8572, 100.36), \"pressing\": true }",
+			"demo_t": 4.47540900000022,
+			"held": false,
+			"id": "missing_hand_demo05",
+			"image": {
+				"bytes": 1460642,
+				"dimensions": [
+					1600,
+					720
+				],
+				"file": "missing_hand_demo05.png",
+				"sha256": "f895cdeeabe49b83202d62f93ccaac99761023fd3d09e465c40f57dcc2f99575"
+			},
+			"input": {
+				"method": "Actual passive timer under declared null-hand fault injection"
+			},
+			"mode": "pourt",
+			"phase_index": 0,
+			"pointer_path": "",
+			"pointer_present": false,
+			"pour_hold": false,
+			"pour_level": 0.0,
+			"pour_reserve": 1.2,
+			"pour_tilt": 0.0,
+			"presentation": {
+				"boot_splash_present": false,
+				"fade_alpha": 0.0,
+				"intro_active": false,
+				"intro_layer_present": false,
+				"medal_present": false,
+				"start_menu_active": false,
+				"start_menu_layer_present": false
+			},
+			"save_path": "C:\\Users\\Peter\\.codex\\visualizations\\2026\\10\\08\\01a119cc-74b1-7d23-b956-126129405418\\candy_pointer_context_20261013\\native/1600x720/profiles/candy/reef_save.json",
+			"surface_transform": "[X: (1.0, 0.0), Y: (0.0, 1.0), O: (1012.0, 306.8)]",
+			"task_open": true,
+			"visible_nodes": [
+				{
+					"class": "ColorRect",
+					"global_rect": "[P: (0.0, 0.0), S: (1600.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaStageBleed",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/CareerWorldBackdrop",
+					"z_index": 0
+				},
+				{
+					"class": "ColorRect",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/@ColorRect@692",
+					"z_index": 0
+				},
+				{
+					"class": "TextureRect",
+					"global_rect": "[P: (271.5021, 290.6911), S: (257.3735, 257.3735)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/@TextureRect@695",
+					"texture": "",
+					"z_index": 0
+				},
+				{
+					"class": "ColorRect",
+					"global_rect": "[P: (1000.0, 294.8), S: (416.0, 292.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/@ColorRect@698",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (1012.0, 306.8), S: (392.0, 232.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/@ColorRect@698/CareerGestureSurface",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/StageCombatLayer",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/StageCombatFX",
+					"z_index": 0
+				}
+			],
+			"visual_context": "pour_candymaker",
+			"widget_fill": 0.0
+		},
+		{
+			"demo_active": true,
+			"demo_pose": "{ \"at\": (111.5785, 100.36), \"pressing\": true }",
+			"demo_t": 4.71837833333334,
+			"held": false,
+			"id": "missing_hand_demo06",
+			"image": {
+				"bytes": 1460576,
+				"dimensions": [
+					1600,
+					720
+				],
+				"file": "missing_hand_demo06.png",
+				"sha256": "3225d7ce69ac4208669935be49fa3408ee890f1447191de1d3108fe8376e59fa"
+			},
+			"input": {
+				"method": "Actual passive timer under declared null-hand fault injection"
+			},
+			"mode": "pourt",
+			"phase_index": 0,
+			"pointer_path": "",
+			"pointer_present": false,
+			"pour_hold": false,
+			"pour_level": 0.0,
+			"pour_reserve": 1.2,
+			"pour_tilt": 0.0,
+			"presentation": {
+				"boot_splash_present": false,
+				"fade_alpha": 0.0,
+				"intro_active": false,
+				"intro_layer_present": false,
+				"medal_present": false,
+				"start_menu_active": false,
+				"start_menu_layer_present": false
+			},
+			"save_path": "C:\\Users\\Peter\\.codex\\visualizations\\2026\\10\\08\\01a119cc-74b1-7d23-b956-126129405418\\candy_pointer_context_20261013\\native/1600x720/profiles/candy/reef_save.json",
+			"surface_transform": "[X: (1.0, 0.0), Y: (0.0, 1.0), O: (1012.0, 306.8)]",
+			"task_open": true,
+			"visible_nodes": [
+				{
+					"class": "ColorRect",
+					"global_rect": "[P: (0.0, 0.0), S: (1600.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaStageBleed",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/CareerWorldBackdrop",
+					"z_index": 0
+				},
+				{
+					"class": "ColorRect",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/@ColorRect@692",
+					"z_index": 0
+				},
+				{
+					"class": "TextureRect",
+					"global_rect": "[P: (271.5021, 290.6911), S: (257.3735, 257.3735)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/@TextureRect@695",
+					"texture": "",
+					"z_index": 0
+				},
+				{
+					"class": "ColorRect",
+					"global_rect": "[P: (1000.0, 294.8), S: (416.0, 292.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/@ColorRect@698",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (1012.0, 306.8), S: (392.0, 232.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/@ColorRect@698/CareerGestureSurface",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/StageCombatLayer",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/StageCombatFX",
+					"z_index": 0
+				}
+			],
+			"visual_context": "pour_candymaker",
+			"widget_fill": 0.0
+		},
+		{
+			"demo_active": true,
+			"demo_pose": "{ \"at\": (176.7834, 112.8054), \"pressing\": false }",
+			"demo_t": 4.96340633333335,
+			"held": false,
+			"id": "missing_hand_demo07",
+			"image": {
+				"bytes": 1461239,
+				"dimensions": [
+					1600,
+					720
+				],
+				"file": "missing_hand_demo07.png",
+				"sha256": "8c07c118facc18cb9a80d264f1540b47ddee21ecd7459c11e37004bb5265a042"
+			},
+			"input": {
+				"method": "Actual passive timer under declared null-hand fault injection"
+			},
+			"mode": "pourt",
+			"phase_index": 0,
+			"pointer_path": "",
+			"pointer_present": false,
+			"pour_hold": false,
+			"pour_level": 0.0,
+			"pour_reserve": 1.2,
+			"pour_tilt": 0.0,
+			"presentation": {
+				"boot_splash_present": false,
+				"fade_alpha": 0.0,
+				"intro_active": false,
+				"intro_layer_present": false,
+				"medal_present": false,
+				"start_menu_active": false,
+				"start_menu_layer_present": false
+			},
+			"save_path": "C:\\Users\\Peter\\.codex\\visualizations\\2026\\10\\08\\01a119cc-74b1-7d23-b956-126129405418\\candy_pointer_context_20261013\\native/1600x720/profiles/candy/reef_save.json",
+			"surface_transform": "[X: (1.0, 0.0), Y: (0.0, 1.0), O: (1012.0, 306.8)]",
+			"task_open": true,
+			"visible_nodes": [
+				{
+					"class": "ColorRect",
+					"global_rect": "[P: (0.0, 0.0), S: (1600.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaStageBleed",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/CareerWorldBackdrop",
+					"z_index": 0
+				},
+				{
+					"class": "ColorRect",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/@ColorRect@692",
+					"z_index": 0
+				},
+				{
+					"class": "TextureRect",
+					"global_rect": "[P: (271.5021, 290.6911), S: (257.3735, 257.3735)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/@TextureRect@695",
+					"texture": "",
+					"z_index": 0
+				},
+				{
+					"class": "ColorRect",
+					"global_rect": "[P: (1000.0, 294.8), S: (416.0, 292.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/@ColorRect@698",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (1012.0, 306.8), S: (392.0, 232.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/@ColorRect@698/CareerGestureSurface",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/StageCombatLayer",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/StageCombatFX",
+					"z_index": 0
+				}
+			],
+			"visual_context": "pour_candymaker",
+			"widget_fill": 0.0
+		},
+		{
+			"demo_active": true,
+			"demo_pose": "{ \"at\": (148.1155, 108.0396), \"pressing\": false }",
+			"demo_t": 5.20718133333335,
+			"held": false,
+			"id": "missing_hand_demo08",
+			"image": {
+				"bytes": 1460198,
+				"dimensions": [
+					1600,
+					720
+				],
+				"file": "missing_hand_demo08.png",
+				"sha256": "c52eaf3bb52e2523c101f7c72c6a1f85cc61aea9abbf7704ef545682d9b150bd"
+			},
+			"input": {
+				"method": "Actual passive timer under declared null-hand fault injection"
+			},
+			"mode": "pourt",
+			"phase_index": 0,
+			"pointer_path": "",
+			"pointer_present": false,
+			"pour_hold": false,
+			"pour_level": 0.0,
+			"pour_reserve": 1.2,
+			"pour_tilt": 0.0,
+			"presentation": {
+				"boot_splash_present": false,
+				"fade_alpha": 0.0,
+				"intro_active": false,
+				"intro_layer_present": false,
+				"medal_present": false,
+				"start_menu_active": false,
+				"start_menu_layer_present": false
+			},
+			"save_path": "C:\\Users\\Peter\\.codex\\visualizations\\2026\\10\\08\\01a119cc-74b1-7d23-b956-126129405418\\candy_pointer_context_20261013\\native/1600x720/profiles/candy/reef_save.json",
+			"surface_transform": "[X: (1.0, 0.0), Y: (0.0, 1.0), O: (1012.0, 306.8)]",
+			"task_open": true,
+			"visible_nodes": [
+				{
+					"class": "ColorRect",
+					"global_rect": "[P: (0.0, 0.0), S: (1600.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaStageBleed",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/CareerWorldBackdrop",
+					"z_index": 0
+				},
+				{
+					"class": "ColorRect",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/@ColorRect@692",
+					"z_index": 0
+				},
+				{
+					"class": "TextureRect",
+					"global_rect": "[P: (271.5021, 290.6911), S: (257.3735, 257.3735)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/@TextureRect@695",
+					"texture": "",
+					"z_index": 0
+				},
+				{
+					"class": "ColorRect",
+					"global_rect": "[P: (1000.0, 294.8), S: (416.0, 292.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/@ColorRect@698",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (1012.0, 306.8), S: (392.0, 232.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/@ColorRect@698/CareerGestureSurface",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/StageCombatLayer",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/StageCombatFX",
+					"z_index": 0
+				}
+			],
+			"visual_context": "pour_candymaker",
+			"widget_fill": 0.0
+		},
+		{
+			"demo_active": true,
+			"demo_pose": "{ \"at\": (119.2433, 103.2399), \"pressing\": false }",
+			"demo_t": 5.45269300000001,
+			"held": false,
+			"id": "missing_hand_demo09",
+			"image": {
+				"bytes": 1459690,
+				"dimensions": [
+					1600,
+					720
+				],
+				"file": "missing_hand_demo09.png",
+				"sha256": "f2d613c113e35d94463db2912a93ff77098939e421af1b368ab4105be24afd75"
+			},
+			"input": {
+				"method": "Actual passive timer under declared null-hand fault injection"
+			},
+			"mode": "pourt",
+			"phase_index": 0,
+			"pointer_path": "",
+			"pointer_present": false,
+			"pour_hold": false,
+			"pour_level": 0.0,
+			"pour_reserve": 1.2,
+			"pour_tilt": 0.0,
+			"presentation": {
+				"boot_splash_present": false,
+				"fade_alpha": 0.0,
+				"intro_active": false,
+				"intro_layer_present": false,
+				"medal_present": false,
+				"start_menu_active": false,
+				"start_menu_layer_present": false
+			},
+			"save_path": "C:\\Users\\Peter\\.codex\\visualizations\\2026\\10\\08\\01a119cc-74b1-7d23-b956-126129405418\\candy_pointer_context_20261013\\native/1600x720/profiles/candy/reef_save.json",
+			"surface_transform": "[X: (1.0, 0.0), Y: (0.0, 1.0), O: (1012.0, 306.8)]",
+			"task_open": true,
+			"visible_nodes": [
+				{
+					"class": "ColorRect",
+					"global_rect": "[P: (0.0, 0.0), S: (1600.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaStageBleed",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/CareerWorldBackdrop",
+					"z_index": 0
+				},
+				{
+					"class": "ColorRect",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/@ColorRect@692",
+					"z_index": 0
+				},
+				{
+					"class": "TextureRect",
+					"global_rect": "[P: (271.5021, 290.6911), S: (257.3735, 257.3735)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/@TextureRect@695",
+					"texture": "",
+					"z_index": 0
+				},
+				{
+					"class": "ColorRect",
+					"global_rect": "[P: (1000.0, 294.8), S: (416.0, 292.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/@ColorRect@698",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (1012.0, 306.8), S: (392.0, 232.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/@ColorRect@698/CareerGestureSurface",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/StageCombatLayer",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/StageCombatFX",
+					"z_index": 0
+				}
+			],
+			"visual_context": "pour_candymaker",
+			"widget_fill": 0.0
+		},
+		{
+			"demo_active": true,
+			"demo_pose": "{ \"at\": (106.4264, 100.36), \"pressing\": true }",
+			"demo_t": 5.6934971904762,
+			"held": false,
+			"id": "missing_hand_demo10",
+			"image": {
+				"bytes": 1457607,
+				"dimensions": [
+					1600,
+					720
+				],
+				"file": "missing_hand_demo10.png",
+				"sha256": "75d78a715e060971e250b6655a4d6f9338b9e923ef8486c19048782308ebd593"
+			},
+			"input": {
+				"method": "Actual passive timer under declared null-hand fault injection"
+			},
+			"mode": "pourt",
+			"phase_index": 0,
+			"pointer_path": "",
+			"pointer_present": false,
+			"pour_hold": false,
+			"pour_level": 0.0,
+			"pour_reserve": 1.2,
+			"pour_tilt": 0.0,
+			"presentation": {
+				"boot_splash_present": false,
+				"fade_alpha": 0.0,
+				"intro_active": false,
+				"intro_layer_present": false,
+				"medal_present": false,
+				"start_menu_active": false,
+				"start_menu_layer_present": false
+			},
+			"save_path": "C:\\Users\\Peter\\.codex\\visualizations\\2026\\10\\08\\01a119cc-74b1-7d23-b956-126129405418\\candy_pointer_context_20261013\\native/1600x720/profiles/candy/reef_save.json",
+			"surface_transform": "[X: (1.0, 0.0), Y: (0.0, 1.0), O: (1012.0, 306.8)]",
+			"task_open": true,
+			"visible_nodes": [
+				{
+					"class": "ColorRect",
+					"global_rect": "[P: (0.0, 0.0), S: (1600.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaStageBleed",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/CareerWorldBackdrop",
+					"z_index": 0
+				},
+				{
+					"class": "ColorRect",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/@ColorRect@692",
+					"z_index": 0
+				},
+				{
+					"class": "TextureRect",
+					"global_rect": "[P: (271.5021, 290.6911), S: (257.3735, 257.3735)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/@TextureRect@695",
+					"texture": "",
+					"z_index": 0
+				},
+				{
+					"class": "ColorRect",
+					"global_rect": "[P: (1000.0, 294.8), S: (416.0, 292.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/@ColorRect@698",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (1012.0, 306.8), S: (392.0, 232.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/@ColorRect@698/CareerGestureSurface",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/StageCombatLayer",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/StageCombatFX",
+					"z_index": 0
+				}
+			],
+			"visual_context": "pour_candymaker",
+			"widget_fill": 0.0
+		},
+		{
+			"demo_active": false,
+			"demo_pose": "{ \"at\": (106.4264, 100.36), \"pressing\": true }",
+			"demo_t": 5.6934971904762,
+			"held": true,
+			"id": "wrong_pressed",
+			"image": {
+				"bytes": 1459554,
+				"dimensions": [
+					1600,
+					720
+				],
+				"file": "wrong_pressed.png",
+				"sha256": "d430020f09fd84978cf17f62578e69633b22cb32ec1bc113c0ae23b4a5ccd0ad"
+			},
+			"input": {
+				"method": "Window.push_input outside ladle hit rect"
+			},
+			"mode": "pourt",
+			"phase_index": 0,
+			"pointer_path": "res://assets/castle/training/ghost_hand.png",
+			"pointer_present": true,
+			"pour_hold": false,
+			"pour_level": 0.0,
+			"pour_reserve": 1.2,
+			"pour_tilt": 0.0,
+			"presentation": {
+				"boot_splash_present": false,
+				"fade_alpha": 0.0,
+				"intro_active": false,
+				"intro_layer_present": false,
+				"medal_present": false,
+				"start_menu_active": false,
+				"start_menu_layer_present": false
+			},
+			"save_path": "C:\\Users\\Peter\\.codex\\visualizations\\2026\\10\\08\\01a119cc-74b1-7d23-b956-126129405418\\candy_pointer_context_20261013\\native/1600x720/profiles/candy/reef_save.json",
+			"surface_transform": "[X: (1.0, 0.0), Y: (0.0, 1.0), O: (1012.0, 306.8)]",
+			"task_open": true,
+			"visible_nodes": [
+				{
+					"class": "ColorRect",
+					"global_rect": "[P: (0.0, 0.0), S: (1600.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaStageBleed",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/CareerWorldBackdrop",
+					"z_index": 0
+				},
+				{
+					"class": "ColorRect",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/@ColorRect@692",
+					"z_index": 0
+				},
+				{
+					"class": "TextureRect",
+					"global_rect": "[P: (271.5021, 278.3622), S: (257.3735, 257.3735)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/@TextureRect@695",
+					"texture": "",
+					"z_index": 0
+				},
+				{
+					"class": "ColorRect",
+					"global_rect": "[P: (1000.0, 294.8), S: (416.0, 292.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/@ColorRect@698",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (1012.0, 306.8), S: (392.0, 232.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/@ColorRect@698/CareerGestureSurface",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/StageCombatLayer",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/StageCombatFX",
+					"z_index": 0
+				}
+			],
+			"visual_context": "pour_candymaker",
+			"widget_fill": 0.0
+		},
+		{
+			"demo_active": false,
+			"demo_pose": "{ \"at\": (106.4264, 100.36), \"pressing\": true }",
+			"demo_t": 5.6934971904762,
+			"held": false,
+			"id": "wrong_released",
+			"image": {
+				"bytes": 1459094,
+				"dimensions": [
+					1600,
+					720
+				],
+				"file": "wrong_released.png",
+				"sha256": "691f7289987cae9e813ec06939c6d2552be6df413d43866addbf22afbcf1b517"
+			},
+			"input": {},
+			"mode": "pourt",
+			"phase_index": 0,
+			"pointer_path": "res://assets/castle/training/ghost_hand.png",
+			"pointer_present": true,
+			"pour_hold": false,
+			"pour_level": 0.0,
+			"pour_reserve": 1.2,
+			"pour_tilt": 0.0,
+			"presentation": {
+				"boot_splash_present": false,
+				"fade_alpha": 0.0,
+				"intro_active": false,
+				"intro_layer_present": false,
+				"medal_present": false,
+				"start_menu_active": false,
+				"start_menu_layer_present": false
+			},
+			"save_path": "C:\\Users\\Peter\\.codex\\visualizations\\2026\\10\\08\\01a119cc-74b1-7d23-b956-126129405418\\candy_pointer_context_20261013\\native/1600x720/profiles/candy/reef_save.json",
+			"surface_transform": "[X: (1.0, 0.0), Y: (0.0, 1.0), O: (1012.0, 306.8)]",
+			"task_open": true,
+			"visible_nodes": [
+				{
+					"class": "ColorRect",
+					"global_rect": "[P: (0.0, 0.0), S: (1600.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaStageBleed",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/CareerWorldBackdrop",
+					"z_index": 0
+				},
+				{
+					"class": "ColorRect",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/@ColorRect@692",
+					"z_index": 0
+				},
+				{
+					"class": "TextureRect",
+					"global_rect": "[P: (271.5021, 290.2579), S: (257.3735, 257.3735)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/@TextureRect@695",
+					"texture": "",
+					"z_index": 0
+				},
+				{
+					"class": "ColorRect",
+					"global_rect": "[P: (1000.0, 294.8), S: (416.0, 292.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/@ColorRect@698",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (1012.0, 306.8), S: (392.0, 232.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/@ColorRect@698/CareerGestureSurface",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/StageCombatLayer",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/StageCombatFX",
+					"z_index": 0
+				}
+			],
+			"visual_context": "pour_candymaker",
+			"widget_fill": 0.0
+		},
+		{
+			"demo_active": false,
+			"demo_pose": "{ \"at\": (106.4264, 100.36), \"pressing\": true }",
+			"demo_t": 5.6934971904762,
+			"held": true,
+			"id": "ladle_pressed",
+			"image": {
+				"bytes": 1459832,
+				"dimensions": [
+					1600,
+					720
+				],
+				"file": "ladle_pressed.png",
+				"sha256": "1ba23cde079872ca1071046770710590712d56c74ce50e74668f993182750bab"
+			},
+			"input": {
+				"method": "Window.push_input at actual production ladle center",
+				"point": "(101.92, 100.36)"
+			},
+			"mode": "pourt",
+			"phase_index": 0,
+			"pointer_path": "res://assets/castle/training/ghost_hand.png",
+			"pointer_present": true,
+			"pour_hold": true,
+			"pour_level": 0.0,
+			"pour_reserve": 1.2,
+			"pour_tilt": 0.162208750000002,
+			"presentation": {
+				"boot_splash_present": false,
+				"fade_alpha": 0.0,
+				"intro_active": false,
+				"intro_layer_present": false,
+				"medal_present": false,
+				"start_menu_active": false,
+				"start_menu_layer_present": false
+			},
+			"save_path": "C:\\Users\\Peter\\.codex\\visualizations\\2026\\10\\08\\01a119cc-74b1-7d23-b956-126129405418\\candy_pointer_context_20261013\\native/1600x720/profiles/candy/reef_save.json",
+			"surface_transform": "[X: (1.0, 0.0), Y: (0.0, 1.0), O: (1012.0, 306.8)]",
+			"task_open": true,
+			"visible_nodes": [
+				{
+					"class": "ColorRect",
+					"global_rect": "[P: (0.0, 0.0), S: (1600.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaStageBleed",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/CareerWorldBackdrop",
+					"z_index": 0
+				},
+				{
+					"class": "ColorRect",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/@ColorRect@692",
+					"z_index": 0
+				},
+				{
+					"class": "TextureRect",
+					"global_rect": "[P: (271.5021, 290.6911), S: (257.3735, 257.3735)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/@TextureRect@695",
+					"texture": "",
+					"z_index": 0
+				},
+				{
+					"class": "ColorRect",
+					"global_rect": "[P: (1000.0, 294.8), S: (416.0, 292.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/@ColorRect@698",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (1012.0, 306.8), S: (392.0, 232.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/@ColorRect@698/CareerGestureSurface",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/StageCombatLayer",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/StageCombatFX",
+					"z_index": 0
+				}
+			],
+			"visual_context": "pour_candymaker",
+			"widget_fill": 0.0
+		},
+		{
+			"demo_active": false,
+			"demo_pose": "{ \"at\": (106.4264, 100.36), \"pressing\": true }",
+			"demo_t": 5.6934971904762,
+			"held": true,
+			"id": "ladle_held_08s",
+			"image": {
+				"bytes": 1460184,
+				"dimensions": [
+					1600,
+					720
+				],
+				"file": "ladle_held_08s.png",
+				"sha256": "1a7bc496b3579ffd1c6b0b9e15ba35b3685822b35311aa05f1b4e0e762fa7599"
+			},
+			"input": {},
+			"mode": "pourt",
+			"phase_index": 0,
+			"pointer_path": "res://assets/castle/training/ghost_hand.png",
+			"pointer_present": true,
+			"pour_hold": true,
+			"pour_level": 0.129951637983465,
+			"pour_reserve": 1.04405803441984,
+			"pour_tilt": 1.0,
+			"presentation": {
+				"boot_splash_present": false,
+				"fade_alpha": 0.0,
+				"intro_active": false,
+				"intro_layer_present": false,
+				"medal_present": false,
+				"start_menu_active": false,
+				"start_menu_layer_present": false
+			},
+			"save_path": "C:\\Users\\Peter\\.codex\\visualizations\\2026\\10\\08\\01a119cc-74b1-7d23-b956-126129405418\\candy_pointer_context_20261013\\native/1600x720/profiles/candy/reef_save.json",
+			"surface_transform": "[X: (1.0, 0.0), Y: (0.0, 1.0), O: (1012.0, 306.8)]",
+			"task_open": true,
+			"visible_nodes": [
+				{
+					"class": "ColorRect",
+					"global_rect": "[P: (0.0, 0.0), S: (1600.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaStageBleed",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/CareerWorldBackdrop",
+					"z_index": 0
+				},
+				{
+					"class": "ColorRect",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/@ColorRect@692",
+					"z_index": 0
+				},
+				{
+					"class": "TextureRect",
+					"global_rect": "[P: (271.5021, 283.8571), S: (257.3735, 257.3734)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/@TextureRect@695",
+					"texture": "",
+					"z_index": 0
+				},
+				{
+					"class": "ColorRect",
+					"global_rect": "[P: (1000.0, 294.8), S: (416.0, 292.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/@ColorRect@698",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (1012.0, 306.8), S: (392.0, 232.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/@ColorRect@698/CareerGestureSurface",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/StageCombatLayer",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/StageCombatFX",
+					"z_index": 0
+				}
+			],
+			"visual_context": "pour_candymaker",
+			"widget_fill": 0.122808780840608
+		},
+		{
+			"demo_active": false,
+			"demo_pose": "{ \"at\": (118.4265, 100.36), \"pressing\": true }",
+			"demo_t": 5.6934971904762,
+			"held": true,
+			"id": "ladle_dragged_12px",
+			"image": {
+				"bytes": 1462822,
+				"dimensions": [
+					1600,
+					720
+				],
+				"file": "ladle_dragged_12px.png",
+				"sha256": "a1dffe50e02216a2c25350da6f6d6b72d1b4dfa182eff8022ee97e9a4203b7cb"
+			},
+			"input": {},
+			"mode": "pourt",
+			"phase_index": 0,
+			"pointer_path": "res://assets/castle/training/ghost_hand.png",
+			"pointer_present": true,
+			"pour_hold": true,
+			"pour_level": 0.174962616819445,
+			"pour_reserve": 0.990044859816665,
+			"pour_tilt": 1.0,
+			"presentation": {
+				"boot_splash_present": false,
+				"fade_alpha": 0.0,
+				"intro_active": false,
+				"intro_layer_present": false,
+				"medal_present": false,
+				"start_menu_active": false,
+				"start_menu_layer_present": false
+			},
+			"save_path": "C:\\Users\\Peter\\.codex\\visualizations\\2026\\10\\08\\01a119cc-74b1-7d23-b956-126129405418\\candy_pointer_context_20261013\\native/1600x720/profiles/candy/reef_save.json",
+			"surface_transform": "[X: (1.0, 0.0), Y: (0.0, 1.0), O: (1012.0, 306.8)]",
+			"task_open": true,
+			"visible_nodes": [
+				{
+					"class": "ColorRect",
+					"global_rect": "[P: (0.0, 0.0), S: (1600.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaStageBleed",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/CareerWorldBackdrop",
+					"z_index": 0
+				},
+				{
+					"class": "ColorRect",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/@ColorRect@692",
+					"z_index": 0
+				},
+				{
+					"class": "TextureRect",
+					"global_rect": "[P: (271.5021, 280.8205), S: (257.3735, 257.3734)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/@TextureRect@695",
+					"texture": "",
+					"z_index": 0
+				},
+				{
+					"class": "ColorRect",
+					"global_rect": "[P: (1000.0, 294.8), S: (416.0, 292.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/@ColorRect@698",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (1012.0, 306.8), S: (392.0, 232.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/@ColorRect@698/CareerGestureSurface",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/StageCombatLayer",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/StageCombatFX",
+					"z_index": 0
+				}
+			],
+			"visual_context": "pour_candymaker",
+			"widget_fill": 0.174962616819445
+		},
+		{
+			"demo_active": false,
+			"demo_pose": "{ \"at\": (118.4265, 100.36), \"pressing\": true }",
+			"demo_t": 5.6934971904762,
+			"held": false,
+			"id": "ladle_released",
+			"image": {
+				"bytes": 1464264,
+				"dimensions": [
+					1600,
+					720
+				],
+				"file": "ladle_released.png",
+				"sha256": "072e5205a5dacc48d82ae8c13405f4d200480346e9c503a8de78d6f1921b4b72"
+			},
+			"input": {},
+			"mode": "pourt",
+			"phase_index": 0,
+			"pointer_path": "res://assets/castle/training/ghost_hand.png",
+			"pointer_present": true,
+			"pour_hold": false,
+			"pour_level": 0.174962616819445,
+			"pour_reserve": 0.990044859816665,
+			"pour_tilt": 0.659426666666667,
+			"presentation": {
+				"boot_splash_present": false,
+				"fade_alpha": 0.0,
+				"intro_active": false,
+				"intro_layer_present": false,
+				"medal_present": false,
+				"start_menu_active": false,
+				"start_menu_layer_present": false
+			},
+			"save_path": "C:\\Users\\Peter\\.codex\\visualizations\\2026\\10\\08\\01a119cc-74b1-7d23-b956-126129405418\\candy_pointer_context_20261013\\native/1600x720/profiles/candy/reef_save.json",
+			"surface_transform": "[X: (1.0, 0.0), Y: (0.0, 1.0), O: (1012.0, 306.8)]",
+			"task_open": true,
+			"visible_nodes": [
+				{
+					"class": "ColorRect",
+					"global_rect": "[P: (0.0, 0.0), S: (1600.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaStageBleed",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/CareerWorldBackdrop",
+					"z_index": 0
+				},
+				{
+					"class": "ColorRect",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/@ColorRect@692",
+					"z_index": 0
+				},
+				{
+					"class": "TextureRect",
+					"global_rect": "[P: (271.5021, 290.5106), S: (257.3735, 257.3734)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/@TextureRect@695",
+					"texture": "",
+					"z_index": 0
+				},
+				{
+					"class": "ColorRect",
+					"global_rect": "[P: (1000.0, 294.8), S: (416.0, 292.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/@ColorRect@698",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (1012.0, 306.8), S: (392.0, 232.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/@ColorRect@698/CareerGestureSurface",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/StageCombatLayer",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/StageCombatFX",
+					"z_index": 0
+				}
+			],
+			"visual_context": "pour_candymaker",
+			"widget_fill": 0.174962616819445
+		},
+		{
+			"demo_active": false,
+			"demo_pose": "{ \"at\": (118.4265, 100.36), \"pressing\": true }",
+			"demo_t": 5.6934971904762,
+			"held": false,
+			"id": "released_passive_05s",
+			"image": {
+				"bytes": 1463028,
+				"dimensions": [
+					1600,
+					720
+				],
+				"file": "released_passive_05s.png",
+				"sha256": "6cf0fcb731006fd5b6fbde7b66ea5c700cc9890334a438dbe883c84fbba8e229"
+			},
+			"input": {},
+			"mode": "pourt",
+			"phase_index": 0,
+			"pointer_path": "res://assets/castle/training/ghost_hand.png",
+			"pointer_present": true,
+			"pour_hold": false,
+			"pour_level": 0.174962616819445,
+			"pour_reserve": 0.990044859816665,
+			"pour_tilt": 0.0,
+			"presentation": {
+				"boot_splash_present": false,
+				"fade_alpha": 0.0,
+				"intro_active": false,
+				"intro_layer_present": false,
+				"medal_present": false,
+				"start_menu_active": false,
+				"start_menu_layer_present": false
+			},
+			"save_path": "C:\\Users\\Peter\\.codex\\visualizations\\2026\\10\\08\\01a119cc-74b1-7d23-b956-126129405418\\candy_pointer_context_20261013\\native/1600x720/profiles/candy/reef_save.json",
+			"surface_transform": "[X: (1.0, 0.0), Y: (0.0, 1.0), O: (1012.0, 306.8)]",
+			"task_open": true,
+			"visible_nodes": [
+				{
+					"class": "ColorRect",
+					"global_rect": "[P: (0.0, 0.0), S: (1600.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaStageBleed",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/CareerWorldBackdrop",
+					"z_index": 0
+				},
+				{
+					"class": "ColorRect",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/@ColorRect@692",
+					"z_index": 0
+				},
+				{
+					"class": "TextureRect",
+					"global_rect": "[P: (271.5021, 290.6911), S: (257.3735, 257.3735)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/@TextureRect@695",
+					"texture": "",
+					"z_index": 0
+				},
+				{
+					"class": "ColorRect",
+					"global_rect": "[P: (1000.0, 294.8), S: (416.0, 292.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/@ColorRect@698",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (1012.0, 306.8), S: (392.0, 232.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/@ColorRect@698/CareerGestureSurface",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/StageCombatLayer",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/StageCombatFX",
+					"z_index": 0
+				}
+			],
+			"visual_context": "pour_candymaker",
+			"widget_fill": 0.174962616819445
+		}
+	]
+}

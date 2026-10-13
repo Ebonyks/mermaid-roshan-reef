@@ -1,0 +1,64 @@
+{
+  "revision": "FV-AUDIT-20261013-R18",
+  "piece_id": "FV-1DC9F18904A8",
+  "status": "PARTIAL_CANDYMAKER_CONTEXT_REVIEW",
+  "source_revision": "90d19ceddb20d624f134a3429dfa2afd25e5faaa",
+  "route": "opera.act.03/default phase0 SYRUP",
+  "viewed_native_files": [
+    "1280x720/normal_ready",
+    "1280x720/normal_demo03",
+    "1280x720/missing_hand_demo03",
+    "1280x720/ladle_held_08s",
+    "1600x720/normal_demo03",
+    "1600x720/missing_hand_demo03",
+    "1600x720/ladle_held_08s",
+    "1600x720/ladle_released"
+  ],
+  "actually_viewed_native_count": 8,
+  "source_images_viewed": [
+    "assets/castle/training/ghost_hand.png",
+    "assets/opera/worlds/widgets/widget_pour_candymaker.png",
+    "assets/opera/worlds/widgets/widget_pour_candymaker_mover.png",
+    "assets/opera/worlds/actors/animation/roshan_candymaker_sheet_a.png",
+    "assets_src/flat_vector_pointer_20261013/pointer_1024.png"
+  ],
+  "ten_axis_comparison": {
+    "contour": "Old hand has a uniform dark plum rim and yellow edge,unlike finer varied contours on the painted ladle/actor; null branch consists of concentric circles and a pressing arc.",
+    "material": "Old hand has broad smooth cream/peach bands; nearby ladle has metallic facets/reflections and actor softly painted skin. R16 existing source provides painted skin texture for a bounded future fit trial.",
+    "palette": "Warm cream/peach connects to the shell mold,while the yellow fringe/plum rim is harsher than neighboring warm metal/painted skin; syrup stream has three uniform brown/gold/light polylines.",
+    "light": "Hand has a generic broad upper highlight rather than the textured neighboring highlights; no source light is changed or human lighting score invented.",
+    "perspective": "Hand is a screen-facing instructional overlay above the tilted ladle,not a physical Roshan body part. The workbench has an oblique top view; actual world contact/acting remain separate.",
+    "scale": "Production54px idle/58px pressing hand squares on a372x266 surface; viewed native samples show a small but recognizable downward finger. Exact child/device readability pending.",
+    "contact": "Passive pose approaches actual ladle center; source UV(.455,.91) anchors the fingertip and adds10px lateral rocking while pressing. Real press/hold tips the ladle and starts syrup; endpoint/body contact is not fully accepted.",
+    "occlusion": "Hand covers a small portion of ladle/handle; null circle/ring occupies the same control area. Source workbench is a hard rectangular inset over the scene; actor stands separately to its left,an incidental framing/contact gap.",
+    "readability": "Literal finger is more specific than the fallback dot/ring at these inspected native aspects; this is agent inspection,not child comprehension or phone acceptance.",
+    "action_state": "Actual passive clock does not fill syrup; wrong touches leave level0; real hold/drag creates partial stream/fill and release clears hold. Guide hides during real action; separate cream feedback appears after release. Full completion,replay/disk restore/actual focus,natural Castle/Chapter2 remain untested."
+  },
+  "specific_weakness": "Existing hand looks flat beside painted scene; null-hand fallback visibly restores dot/ring vector artwork. R16 candidate may be reused for a bounded same-scene fit trial after this context is publicly verified. No new generation or acceptance.",
+  "adjacent_existing_piece": {
+    "id": "FV-E49ED1B88811",
+    "name": "Syrup stream",
+    "source": "scripts/opera_gesture_surface.gd::_draw_candymaker_pour_stream",
+    "viewed_contexts": [
+      "native/1280x720/ladle_held_08s.png",
+      "native/1600x720/ladle_held_08s.png"
+    ],
+    "observation": "Visible three-polyline rope uses uniform gold/light/brown bands,with a ribbon-like broad join at the pool beside textured metal; needs a separate source-reuse/material/contact review. Partial active-stream context only; rest/full-state/empty-resource variants remain open."
+  },
+  "incidental_uncredited_scopes": [
+    "FV-C9432C73586E normal painted mold shown; its procedural missing-scene/overlay fallbacks not injected or context-complete",
+    "Hard rectangular workbench inset,blurred stage edges and distant actor contact",
+    "Separate post-release feedback and remaining shared/global guide callers"
+  ],
+  "capture_contract": "Exact Godot4.7.2 official Mobile/Speedy,2 aspects,private profiles,unchanged normal8save-file hashes; same-process native diagnostics without one-use QA11 challenge.",
+  "fault_injection_scope": "pour_demo_hand_texture=null only; no actual package/loader failure or file removal",
+  "QA11": null,
+  "device": null,
+  "child": null,
+  "owner": null,
+  "approved": 0,
+  "integrated": 0,
+  "runtime_verified_replacement": 0,
+  "accepted_removed": 0,
+  "global_inventory_complete": false
+}
