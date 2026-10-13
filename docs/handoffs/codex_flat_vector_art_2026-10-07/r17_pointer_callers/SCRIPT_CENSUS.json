@@ -1,0 +1,1035 @@
+{
+  "schema": 1,
+  "revision": "FV-AUDIT-20261013-R17",
+  "source_revision": "182f2e522a330b89bf7329b26516583160f343e0",
+  "predicate": "Git-declared scripts/**/*.gd, basename not starting probe; includes prototypes/test helpers,not proof of live reachability",
+  "count": 171,
+  "files": [
+    {
+      "path": "scripts/arena/castle_fixture_rigs.gd",
+      "revision": "182f2e522a330b89bf7329b26516583160f343e0",
+      "bytes": 48767,
+      "sha256": "118af0b72b82d0bde5ab6ea701303fd8469a40b24f4fc2db607a109a5cddd6af"
+    },
+    {
+      "path": "scripts/arena/castle_rooms_25d.gd",
+      "revision": "182f2e522a330b89bf7329b26516583160f343e0",
+      "bytes": 242528,
+      "sha256": "50c723043680c987cc959d9bfbbcad94cfb62162f24d305d3f058c0d2de05176"
+    },
+    {
+      "path": "scripts/arena/courtyard_train.gd",
+      "revision": "182f2e522a330b89bf7329b26516583160f343e0",
+      "bytes": 29438,
+      "sha256": "329efa196bb5eb3c74cb4b44d0e4dfac6069071e6066daab206bca35a9abe364"
+    },
+    {
+      "path": "scripts/arena/day_one_castle_dressing.gd",
+      "revision": "182f2e522a330b89bf7329b26516583160f343e0",
+      "bytes": 10369,
+      "sha256": "b2898e247748381c86c022c158da6220fb300a45545a1e47de59f9d432c8a8a5"
+    },
+    {
+      "path": "scripts/arena/day_one_castle_grime.gd",
+      "revision": "182f2e522a330b89bf7329b26516583160f343e0",
+      "bytes": 2548,
+      "sha256": "b354780fb5e3648eba9962b2996a49bbcb563314874d840b3e8603a39c2ee6f8"
+    },
+    {
+      "path": "scripts/arena/fairy_conservatory_door_2d.gd",
+      "revision": "182f2e522a330b89bf7329b26516583160f343e0",
+      "bytes": 10043,
+      "sha256": "ae6e1ad07979c97bd7c474c546a64a12ccd4c944719ec886fdd76f7fae165089"
+    },
+    {
+      "path": "scripts/arena/fairy_conservatory_handoff_2d.gd",
+      "revision": "182f2e522a330b89bf7329b26516583160f343e0",
+      "bytes": 14672,
+      "sha256": "5bf165f546860121beb6c19369dce9833d8b665274e0edff75bc2d00b7ccbd34"
+    },
+    {
+      "path": "scripts/arena/northern_kingdom.gd",
+      "revision": "182f2e522a330b89bf7329b26516583160f343e0",
+      "bytes": 75975,
+      "sha256": "513f2f4d726f3b7b05187d1ee78f12cbb745849f09da212f2ec0f10c0dfad97a"
+    },
+    {
+      "path": "scripts/arena/sky_lagoon.gd",
+      "revision": "182f2e522a330b89bf7329b26516583160f343e0",
+      "bytes": 135470,
+      "sha256": "c3b81b4d6b2cb500c8d4e1f6ff2e4064a8b9c7ca4c8b0010c20236ccbb2e0395"
+    },
+    {
+      "path": "scripts/arena/sky_lagoon_promenade.gd",
+      "revision": "182f2e522a330b89bf7329b26516583160f343e0",
+      "bytes": 73828,
+      "sha256": "a6c72599809ddace2e94e02ba10db518483008ace62655e9059a76d3eacd2dfa"
+    },
+    {
+      "path": "scripts/attack_customizer.gd",
+      "revision": "182f2e522a330b89bf7329b26516583160f343e0",
+      "bytes": 11752,
+      "sha256": "b47bbfc164cc8508354bece86096245a2152fe627f5dbfed8440ec54db5198e0"
+    },
+    {
+      "path": "scripts/audio_director.gd",
+      "revision": "182f2e522a330b89bf7329b26516583160f343e0",
+      "bytes": 28713,
+      "sha256": "982ae2bcbeabdb7a76c1c193aa391319bf255a3cd046108f6361dacc655eb666"
+    },
+    {
+      "path": "scripts/boot_splash_overlay.gd",
+      "revision": "182f2e522a330b89bf7329b26516583160f343e0",
+      "bytes": 1586,
+      "sha256": "d90b8692f1632eedcd957a6ca46539aa3ad85b87d3abe93c20cd9cfc0dc64b0d"
+    },
+    {
+      "path": "scripts/boss_encounter_2d.gd",
+      "revision": "182f2e522a330b89bf7329b26516583160f343e0",
+      "bytes": 4152,
+      "sha256": "371f260c9547f0665a41f290b2b1502c5ab22172b3d448f108d1b4e427bf9d55"
+    },
+    {
+      "path": "scripts/boss_splash_2d.gd",
+      "revision": "182f2e522a330b89bf7329b26516583160f343e0",
+      "bytes": 9032,
+      "sha256": "5ce5cf49ae82c414bbd1f3123ec770b91622b46a71d8f9ee67a41546c166fab2"
+    },
+    {
+      "path": "scripts/camera_kit.gd",
+      "revision": "182f2e522a330b89bf7329b26516583160f343e0",
+      "bytes": 8461,
+      "sha256": "ec980456ed35789e273ea7b28964e63959277ecc61eb8438251bfe012bb0927b"
+    },
+    {
+      "path": "scripts/castle_career_routes.gd",
+      "revision": "182f2e522a330b89bf7329b26516583160f343e0",
+      "bytes": 15000,
+      "sha256": "d2e9f24b10bf6b25bc7fd71c76630a6e88b8d8f3134db9b01139203fba925bb5"
+    },
+    {
+      "path": "scripts/castle_door_cue.gd",
+      "revision": "182f2e522a330b89bf7329b26516583160f343e0",
+      "bytes": 5639,
+      "sha256": "0932feb34209b3dbd3e2738b32a7dddf0ee99ab607251356bb4fbac9cc7f895d"
+    },
+    {
+      "path": "scripts/castle_door_language.gd",
+      "revision": "182f2e522a330b89bf7329b26516583160f343e0",
+      "bytes": 2664,
+      "sha256": "54d6cb97a34ffd0cd8ca8b916312d39c157856860db2fa2d1592f9b042ea3b5f"
+    },
+    {
+      "path": "scripts/castle_logo_studio.gd",
+      "revision": "182f2e522a330b89bf7329b26516583160f343e0",
+      "bytes": 19430,
+      "sha256": "5afe612eb11261818b760b0f04b6b6a995000a23b27e31aa228c0a04e63dc52a"
+    },
+    {
+      "path": "scripts/chapter_two_career_scene_adapter.gd",
+      "revision": "182f2e522a330b89bf7329b26516583160f343e0",
+      "bytes": 15546,
+      "sha256": "7397beeabc10e20ea3cdf38f2918d672711ac06dedb539d536a4eb1c1c656e2f"
+    },
+    {
+      "path": "scripts/chapter_two_director.gd",
+      "revision": "182f2e522a330b89bf7329b26516583160f343e0",
+      "bytes": 38925,
+      "sha256": "b87490ac66083cee44ba3f469c9c8cbfa158930167614169e0f63759f8b3f70b"
+    },
+    {
+      "path": "scripts/chapter_two_ember_encounter.gd",
+      "revision": "182f2e522a330b89bf7329b26516583160f343e0",
+      "bytes": 3611,
+      "sha256": "964356fb569fc6fe8b8de90b4003284bc99cc58a4074b4cc2245a8be168b7a42"
+    },
+    {
+      "path": "scripts/chapter_two_giant_cake_2d.gd",
+      "revision": "182f2e522a330b89bf7329b26516583160f343e0",
+      "bytes": 35950,
+      "sha256": "85dd504a6a2e76d17b398b9a3d0e65ba15a5a1d1e1cd73ebf6ee9da93cda2813"
+    },
+    {
+      "path": "scripts/chapter_two_lawn_finale_2d.gd",
+      "revision": "182f2e522a330b89bf7329b26516583160f343e0",
+      "bytes": 25519,
+      "sha256": "e4c07fb5e9404dd247d3aa10186b69f3df9f8f0fc5cd5679b8bf2f625f400797"
+    },
+    {
+      "path": "scripts/chapter_two_party_plan.gd",
+      "revision": "182f2e522a330b89bf7329b26516583160f343e0",
+      "bytes": 2887,
+      "sha256": "50ffb004ac24a4827caed4e4899e999f7d37c7713c88eb3d1c778a766c54ec61"
+    },
+    {
+      "path": "scripts/chapter_two_party_table_2d.gd",
+      "revision": "182f2e522a330b89bf7329b26516583160f343e0",
+      "bytes": 23340,
+      "sha256": "761014dc77166dea11e4fa0e963cdb72c5aa2dea3e53b05f3540306950e89f87"
+    },
+    {
+      "path": "scripts/chapter_two_rainbow_candle_2d.gd",
+      "revision": "182f2e522a330b89bf7329b26516583160f343e0",
+      "bytes": 6208,
+      "sha256": "12e1a75500e2cb4a535c075e3a32c54987a570f7d4bb5ffbdb64c3e35da3e62f"
+    },
+    {
+      "path": "scripts/chapter_two_room_plot.gd",
+      "revision": "182f2e522a330b89bf7329b26516583160f343e0",
+      "bytes": 4138,
+      "sha256": "9eef1ece57be88ac9d01d85a5181ad1c258e6ff00f6b9a6cb3d7a86393d6e10d"
+    },
+    {
+      "path": "scripts/chapter_two_voice_catalog.gd",
+      "revision": "182f2e522a330b89bf7329b26516583160f343e0",
+      "bytes": 2729,
+      "sha256": "878cdebb43c777741d0462369f11da32369bb2efa08b5fae2adbfa64fbacfe96"
+    },
+    {
+      "path": "scripts/collection_system.gd",
+      "revision": "182f2e522a330b89bf7329b26516583160f343e0",
+      "bytes": 16314,
+      "sha256": "876bb4901406034dfa6a3bf4d319383261e04a45fbedfe120d97c8eb2d24eb3a"
+    },
+    {
+      "path": "scripts/combat_arena.gd",
+      "revision": "182f2e522a330b89bf7329b26516583160f343e0",
+      "bytes": 44298,
+      "sha256": "fa2b2f537ee83689b414b64d95ba19e18663f7dbfa10a88301932013c20f5de8"
+    },
+    {
+      "path": "scripts/combat_tutorial.gd",
+      "revision": "182f2e522a330b89bf7329b26516583160f343e0",
+      "bytes": 11873,
+      "sha256": "2f1dc422c6bd9ee9e4d4cfc08d9863146d8a04afb60a943f8116cf6dc9861327"
+    },
+    {
+      "path": "scripts/comfy_games.gd",
+      "revision": "182f2e522a330b89bf7329b26516583160f343e0",
+      "bytes": 25280,
+      "sha256": "bcd36dcb3f25c0bbb3586c8d20fc7a5524792b56d7b0577644a0d2645931a0be"
+    },
+    {
+      "path": "scripts/companion.gd",
+      "revision": "182f2e522a330b89bf7329b26516583160f343e0",
+      "bytes": 65658,
+      "sha256": "0baeb7256a209b5266ebdf48cdccb7af6497b30fd0666021c597eced6e04d269"
+    },
+    {
+      "path": "scripts/craft_studio.gd",
+      "revision": "182f2e522a330b89bf7329b26516583160f343e0",
+      "bytes": 13414,
+      "sha256": "fd97af6efaeaf4b3949b94f921a71064b753c383d5adcf6e49395a487018de57"
+    },
+    {
+      "path": "scripts/day_one_art_studio.gd",
+      "revision": "182f2e522a330b89bf7329b26516583160f343e0",
+      "bytes": 21869,
+      "sha256": "8ebdbccbae4e1a4994a891ac9706bc5fb22dce4ac8e9a9c75dd02123fc9f621a"
+    },
+    {
+      "path": "scripts/day_one_bathroom_movie_handoff.gd",
+      "revision": "182f2e522a330b89bf7329b26516583160f343e0",
+      "bytes": 7540,
+      "sha256": "975f3ee0800bcd6e7d6df2f485cd3dd4861fbee060eec9e85b911c9f2d30b3a9"
+    },
+    {
+      "path": "scripts/day_one_contact_action_2d.gd",
+      "revision": "182f2e522a330b89bf7329b26516583160f343e0",
+      "bytes": 4954,
+      "sha256": "f85672d9a57a95689ddb302a3ca1da7f9b8de09027997e527790e230fb299dac"
+    },
+    {
+      "path": "scripts/day_one_contextual_voice_catalog.gd",
+      "revision": "182f2e522a330b89bf7329b26516583160f343e0",
+      "bytes": 39205,
+      "sha256": "c14e8403fb36e82b2a3c6eb20eb0d5839424707046c64c3ded52893918ada75b"
+    },
+    {
+      "path": "scripts/day_one_director.gd",
+      "revision": "182f2e522a330b89bf7329b26516583160f343e0",
+      "bytes": 29053,
+      "sha256": "33235c3ff99454fd9b6b8ec3724cc246457abdef5dcb1cdd9d0401b438c35cbf"
+    },
+    {
+      "path": "scripts/day_one_flow.gd",
+      "revision": "182f2e522a330b89bf7329b26516583160f343e0",
+      "bytes": 17269,
+      "sha256": "913cfc362e1a2a9cc3a73ed0e1d3e491b73731d335c51af3f2f3753bb98a10e1"
+    },
+    {
+      "path": "scripts/day_one_story_clips.gd",
+      "revision": "182f2e522a330b89bf7329b26516583160f343e0",
+      "bytes": 8389,
+      "sha256": "ca199cc8efe6c203717c2faca4541ee4a262ae7587627975a166e7e3f955c82a"
+    },
+    {
+      "path": "scripts/day_two_transition_2d.gd",
+      "revision": "182f2e522a330b89bf7329b26516583160f343e0",
+      "bytes": 17434,
+      "sha256": "671548eb20ea115e9e21b0b019122c55cf39ab39760feec517a8504d9670026d"
+    },
+    {
+      "path": "scripts/debug_export_stage_pathfinding.gd",
+      "revision": "182f2e522a330b89bf7329b26516583160f343e0",
+      "bytes": 25281,
+      "sha256": "771e7d06e7b7ed206bb8ae23d056f55dfbabe39aff28246ad260d716a8203736"
+    },
+    {
+      "path": "scripts/dev_mode.gd",
+      "revision": "182f2e522a330b89bf7329b26516583160f343e0",
+      "bytes": 48385,
+      "sha256": "ff65b0693736fad7123a0ee54c48b4ca2e9c96a7c83c157c7da88ae29e016a5c"
+    },
+    {
+      "path": "scripts/dungeon_art.gd",
+      "revision": "182f2e522a330b89bf7329b26516583160f343e0",
+      "bytes": 7418,
+      "sha256": "14d4d835962ebf2a389383376fbc42a55704a58642624bbb22b56afe1cd13941"
+    },
+    {
+      "path": "scripts/dungeon_level.gd",
+      "revision": "182f2e522a330b89bf7329b26516583160f343e0",
+      "bytes": 9176,
+      "sha256": "2c5e69c04cab123a42810ecb99e943a4e3f5d362f754236177db3569d222f8ab"
+    },
+    {
+      "path": "scripts/dungeon_puzzle_room.gd",
+      "revision": "182f2e522a330b89bf7329b26516583160f343e0",
+      "bytes": 22095,
+      "sha256": "d29527c4a8e23f4aaab430fe67d2b3cf6e54d7a99126f3fc23606cf7e77e3e33"
+    },
+    {
+      "path": "scripts/dust_boss_lesson_2d.gd",
+      "revision": "182f2e522a330b89bf7329b26516583160f343e0",
+      "bytes": 4759,
+      "sha256": "7a445184e36eaaed6d29886ae2197c0f0deef10362706c233c889af8df42fbd4"
+    },
+    {
+      "path": "scripts/dust_boss_telegraph_2d.gd",
+      "revision": "182f2e522a330b89bf7329b26516583160f343e0",
+      "bytes": 10814,
+      "sha256": "ce1713cadd0eae48ae42c86ee5367193fdf5cb490097dbf54a10ad94f72b2982"
+    },
+    {
+      "path": "scripts/dust_bunny_ai.gd",
+      "revision": "182f2e522a330b89bf7329b26516583160f343e0",
+      "bytes": 3015,
+      "sha256": "129f1fb65b4854b6fbd481932883a5240c9dc289aa985cb2ba258d3e3025c55b"
+    },
+    {
+      "path": "scripts/dust_bunny_boss_sprite.gd",
+      "revision": "182f2e522a330b89bf7329b26516583160f343e0",
+      "bytes": 12899,
+      "sha256": "106bedcba3881d2b9c6d105947aa14e89a06b21caf8b59e078290cacaac93739"
+    },
+    {
+      "path": "scripts/dust_bunny_sprite.gd",
+      "revision": "182f2e522a330b89bf7329b26516583160f343e0",
+      "bytes": 4332,
+      "sha256": "4880c9090d6e8f70b7ed6fb9e251a4bcb5d86e0ce8d325c4c30c57f4969fa837"
+    },
+    {
+      "path": "scripts/ember_fortress.gd",
+      "revision": "182f2e522a330b89bf7329b26516583160f343e0",
+      "bytes": 51545,
+      "sha256": "dbaec3f196f1b2bd3bab68db44555ea75c35cd756b21fd26e0897fb92f41a2a9"
+    },
+    {
+      "path": "scripts/encounter_attack_2d.gd",
+      "revision": "182f2e522a330b89bf7329b26516583160f343e0",
+      "bytes": 716,
+      "sha256": "f427ccd622a7bde0308998976bba7141a7b6b8bdc21e4fa562537af014617bed"
+    },
+    {
+      "path": "scripts/encounter_contract_checks.gd",
+      "revision": "182f2e522a330b89bf7329b26516583160f343e0",
+      "bytes": 10066,
+      "sha256": "910c876867420ddf2b1e9249512910c0838894285e3d07af755ce82195aae639"
+    },
+    {
+      "path": "scripts/encounter_gesture_guide_2d.gd",
+      "revision": "182f2e522a330b89bf7329b26516583160f343e0",
+      "bytes": 3050,
+      "sha256": "5a0481f8edda1874ccf7fb3bc95aa669e1aa0ce30e1b9b8ed9304901b2c2508f"
+    },
+    {
+      "path": "scripts/encounter_navigation_2d.gd",
+      "revision": "182f2e522a330b89bf7329b26516583160f343e0",
+      "bytes": 2735,
+      "sha256": "e8d0fc1913b781fe0494a11dc2e642b7088c27d3f12077e81c950171e0819e71"
+    },
+    {
+      "path": "scripts/encounter_patterns_2d.gd",
+      "revision": "182f2e522a330b89bf7329b26516583160f343e0",
+      "bytes": 6506,
+      "sha256": "d2feafa7dd1081fe5bf350f836421bbe2c4a545dfc6f22ec22c2aa7798ac5efe"
+    },
+    {
+      "path": "scripts/encounter_phase_2d.gd",
+      "revision": "182f2e522a330b89bf7329b26516583160f343e0",
+      "bytes": 326,
+      "sha256": "b78240e2844a33dc55d021286ef612b344ee8022701de7324f0732d53c36ddda"
+    },
+    {
+      "path": "scripts/encounter_profile_2d.gd",
+      "revision": "182f2e522a330b89bf7329b26516583160f343e0",
+      "bytes": 2079,
+      "sha256": "80ced9bb58afde098f12c8e017f86f953b64c0ca764759abf32144e82a50c971"
+    },
+    {
+      "path": "scripts/encounter_telegraph_2d.gd",
+      "revision": "182f2e522a330b89bf7329b26516583160f343e0",
+      "bytes": 6553,
+      "sha256": "f31b0ba990a8e1d70a8688460b810bb8c43ed91f42f7eaa0241f5cddc87abb29"
+    },
+    {
+      "path": "scripts/encounter_warning_cue_2d.gd",
+      "revision": "182f2e522a330b89bf7329b26516583160f343e0",
+      "bytes": 1144,
+      "sha256": "750a09cad16bd8517551aab6b091d37f2d76bcb0b517b4d51ce0c553e2b2fb59"
+    },
+    {
+      "path": "scripts/fairy_restoration_prototype.gd",
+      "revision": "182f2e522a330b89bf7329b26516583160f343e0",
+      "bytes": 21759,
+      "sha256": "75a80350f45bb59b822d1084a05b8b0e7899d59df32a00c1e07d4ea8a9ec09fe"
+    },
+    {
+      "path": "scripts/fashion_designer.gd",
+      "revision": "182f2e522a330b89bf7329b26516583160f343e0",
+      "bytes": 8785,
+      "sha256": "f3c6165baa08f6e99f21d4d02782d1b1f1658ad348aae0e79a4f79740442165d"
+    },
+    {
+      "path": "scripts/fashion_designer_test_case.gd",
+      "revision": "182f2e522a330b89bf7329b26516583160f343e0",
+      "bytes": 8406,
+      "sha256": "9dcbba0a3ffd837db69b702e03a0262987c1b6abb7447e76cbc302dceb777d22"
+    },
+    {
+      "path": "scripts/fashion_dressing_input.gd",
+      "revision": "182f2e522a330b89bf7329b26516583160f343e0",
+      "bytes": 5196,
+      "sha256": "45d02a87cf842a5deb427f15269f776cb4c430b0272ceea7add8d037df7ceadf"
+    },
+    {
+      "path": "scripts/fashion_outfit_renderer.gd",
+      "revision": "182f2e522a330b89bf7329b26516583160f343e0",
+      "bytes": 1096,
+      "sha256": "cb37b3ed5df0ccba26b54f146021ddcad1f9f6693fb32b48b9bbda6a3ca96b93"
+    },
+    {
+      "path": "scripts/fashion_parts.gd",
+      "revision": "182f2e522a330b89bf7329b26516583160f343e0",
+      "bytes": 6931,
+      "sha256": "d5b440608b63510446196233ef5fb559c006b0a90c5dcee74516e84dba5e1cfc"
+    },
+    {
+      "path": "scripts/fashion_parts_test_case.gd",
+      "revision": "182f2e522a330b89bf7329b26516583160f343e0",
+      "bytes": 9524,
+      "sha256": "27399d2be439afe62e653b9d484cb36a28828412e1cd50a950af5a7d8b750351"
+    },
+    {
+      "path": "scripts/fashion_skin_catalog.gd",
+      "revision": "182f2e522a330b89bf7329b26516583160f343e0",
+      "bytes": 160,
+      "sha256": "c71d558cff766d25cd7835657f7e0e10ebe268d8e74a7b4c2e083b8b28adf548"
+    },
+    {
+      "path": "scripts/fashion_skin_engine.gd",
+      "revision": "182f2e522a330b89bf7329b26516583160f343e0",
+      "bytes": 7240,
+      "sha256": "e94b42966c75092835dc134b0dc4b1eb59f432655b266a0dc1aa82580d9f95ad"
+    },
+    {
+      "path": "scripts/fashion_skin_engine_test_case.gd",
+      "revision": "182f2e522a330b89bf7329b26516583160f343e0",
+      "bytes": 9462,
+      "sha256": "dc77bc632c87a4587f24fcd317d3e185f833fa1e822f049a558eed69c90648ed"
+    },
+    {
+      "path": "scripts/fashion_wardrobe.gd",
+      "revision": "182f2e522a330b89bf7329b26516583160f343e0",
+      "bytes": 12825,
+      "sha256": "fbdedcca120066389563d5b678da30de83012737b1a14958cbe0306118c0cd59"
+    },
+    {
+      "path": "scripts/fx_water.gd",
+      "revision": "182f2e522a330b89bf7329b26516583160f343e0",
+      "bytes": 12218,
+      "sha256": "e33ff31788951f89715cc926cbbfc9a05bb8e6324b76c9e0137ce2b658f5d4c0"
+    },
+    {
+      "path": "scripts/galaxy.gd",
+      "revision": "182f2e522a330b89bf7329b26516583160f343e0",
+      "bytes": 73159,
+      "sha256": "54278a504f031e001e1e2eb2f13082040da6b6967f02522f5f73cc46ed664f59"
+    },
+    {
+      "path": "scripts/games/brawl.gd",
+      "revision": "182f2e522a330b89bf7329b26516583160f343e0",
+      "bytes": 22123,
+      "sha256": "0780ad5b708cde10bbf3a1a37a1c06f7210e8d04a44172633605760c22dac8d7"
+    },
+    {
+      "path": "scripts/games/dance_engine.gd",
+      "revision": "182f2e522a330b89bf7329b26516583160f343e0",
+      "bytes": 17044,
+      "sha256": "d8af408dbc2b8fe54a0b88b16e978b2bf9e6aab36e3a2eed3a15a1bdfe52511e"
+    },
+    {
+      "path": "scripts/games/day_one_bathroom_cleaning.gd",
+      "revision": "182f2e522a330b89bf7329b26516583160f343e0",
+      "bytes": 36313,
+      "sha256": "b6422a46d529b033dac36a14bba9b9695d2351f15ea6f850348380dc7be200b0"
+    },
+    {
+      "path": "scripts/games/day_one_bathroom_cleanup.gd",
+      "revision": "182f2e522a330b89bf7329b26516583160f343e0",
+      "bytes": 36097,
+      "sha256": "c13d7ecf1536dc682eaa29312c1aa8d45210985196608dfb830e26fa4b543a5e"
+    },
+    {
+      "path": "scripts/games/day_one_bathroom_toilet.gd",
+      "revision": "182f2e522a330b89bf7329b26516583160f343e0",
+      "bytes": 8553,
+      "sha256": "28413b931406d85afaaa45ab5e50133aa1df042d2aa29edb932096a0a752ed36"
+    },
+    {
+      "path": "scripts/games/day_one_dust_bunny_swimmer.gd",
+      "revision": "182f2e522a330b89bf7329b26516583160f343e0",
+      "bytes": 9785,
+      "sha256": "2ff24ebee6b078f7d31fa53648e5c1b443f954760b3042d61ea0eb69f10e84c3"
+    },
+    {
+      "path": "scripts/games/day_one_fixture_scrub.gd",
+      "revision": "182f2e522a330b89bf7329b26516583160f343e0",
+      "bytes": 3856,
+      "sha256": "b5aba569698ba641809a5bf216f4236443edca206f97a7e4d6010bd775389980"
+    },
+    {
+      "path": "scripts/games/day_one_pool_cleanup.gd",
+      "revision": "182f2e522a330b89bf7329b26516583160f343e0",
+      "bytes": 28592,
+      "sha256": "b476ba553994c093cf32a6390f067e84c00b3fa26d2afca47d8a00df5fe91f44"
+    },
+    {
+      "path": "scripts/games/dolls.gd",
+      "revision": "182f2e522a330b89bf7329b26516583160f343e0",
+      "bytes": 12800,
+      "sha256": "a3cf7ffd6f6a7bcf1072fa1a753e465f742190f46d9809830589a2242c77c7e0"
+    },
+    {
+      "path": "scripts/games/dust_boss.gd",
+      "revision": "182f2e522a330b89bf7329b26516583160f343e0",
+      "bytes": 42786,
+      "sha256": "05f9174e05c0c00ee09cf21c8e70e251c3afbed8e35b9f9526e200de65869a0d"
+    },
+    {
+      "path": "scripts/games/dust_boss_patterns.gd",
+      "revision": "182f2e522a330b89bf7329b26516583160f343e0",
+      "bytes": 243,
+      "sha256": "530c25b906a3c88a336f1492517dc94b67fd7835b93aaac4afbcd437a727360c"
+    },
+    {
+      "path": "scripts/games/fairy.gd",
+      "revision": "182f2e522a330b89bf7329b26516583160f343e0",
+      "bytes": 30308,
+      "sha256": "8bf4e48249c63441b4e3c89de0930ae14668b2cd8c1577189ff7b41f1b77d679"
+    },
+    {
+      "path": "scripts/games/fetch.gd",
+      "revision": "182f2e522a330b89bf7329b26516583160f343e0",
+      "bytes": 14405,
+      "sha256": "d1cd79931637e376cbdcff3fa88871f63d673c82987ec20fa2dffb150fb1b805"
+    },
+    {
+      "path": "scripts/games/melody.gd",
+      "revision": "182f2e522a330b89bf7329b26516583160f343e0",
+      "bytes": 42980,
+      "sha256": "a2477bc6fd21454c69480b290ccc13892e6938e4d1abf534051380dd84e5712e"
+    },
+    {
+      "path": "scripts/games/octagon_stage.gd",
+      "revision": "182f2e522a330b89bf7329b26516583160f343e0",
+      "bytes": 15858,
+      "sha256": "828efb4077edc8a0e770ac74735298447d7d7cc4ac49ed5774276ce9811d3513"
+    },
+    {
+      "path": "scripts/games/picture_games.gd",
+      "revision": "182f2e522a330b89bf7329b26516583160f343e0",
+      "bytes": 32556,
+      "sha256": "5d7202ac46b0ca26752b74b959eb052f2889369932d697b8b8727ad368abc8f0"
+    },
+    {
+      "path": "scripts/games/pool_seahorse_rescue_activity.gd",
+      "revision": "182f2e522a330b89bf7329b26516583160f343e0",
+      "bytes": 22256,
+      "sha256": "60a5540c943dc760f4b83cca68b4a649074ceaa91bd23de3d4ef4a42302476b0"
+    },
+    {
+      "path": "scripts/games/pool_skimmer_activity.gd",
+      "revision": "182f2e522a330b89bf7329b26516583160f343e0",
+      "bytes": 22079,
+      "sha256": "41894d67693bb6d8e7d2a544f677083dea12b43a7f8d4e2ac0e6511d79461bce"
+    },
+    {
+      "path": "scripts/games/pool_waterfall_activity.gd",
+      "revision": "182f2e522a330b89bf7329b26516583160f343e0",
+      "bytes": 20079,
+      "sha256": "036e5cb7f64f9231e0f9781680cf005df4170f9e3055c5d353df7e6ddd4bf3da"
+    },
+    {
+      "path": "scripts/games/seek.gd",
+      "revision": "182f2e522a330b89bf7329b26516583160f343e0",
+      "bytes": 23081,
+      "sha256": "d559447c82c29a33ddb319ef191cf9542d55304f62cae649e39cb2f9d9079741"
+    },
+    {
+      "path": "scripts/games/shop.gd",
+      "revision": "182f2e522a330b89bf7329b26516583160f343e0",
+      "bytes": 17821,
+      "sha256": "62ce2b2bf2a8319b7f0e86a7856436b5072f662be1c0477d6d7a79b0e45f7585"
+    },
+    {
+      "path": "scripts/games/side_scroll.gd",
+      "revision": "182f2e522a330b89bf7329b26516583160f343e0",
+      "bytes": 42173,
+      "sha256": "e094f4efef2ee295ebad159e82e49ccd2bb8db26c38049c5f7135bd86114b0a7"
+    },
+    {
+      "path": "scripts/games/slide_race.gd",
+      "revision": "182f2e522a330b89bf7329b26516583160f343e0",
+      "bytes": 68216,
+      "sha256": "2293c08bd2a056b2e5819f2406fc9ca42f5cc734e700552eab29642555f44b8f"
+    },
+    {
+      "path": "scripts/games/treasure.gd",
+      "revision": "182f2e522a330b89bf7329b26516583160f343e0",
+      "bytes": 4905,
+      "sha256": "f228a13ad65977517f3486e42be6e79fb20546d633d747e6353d859a6ec7540c"
+    },
+    {
+      "path": "scripts/hit_engine.gd",
+      "revision": "182f2e522a330b89bf7329b26516583160f343e0",
+      "bytes": 36221,
+      "sha256": "9a9fc4df1598737937b7c37d2f68675ca4e257f8260cf72a0396a8dfea9a789c"
+    },
+    {
+      "path": "scripts/imp_ai.gd",
+      "revision": "182f2e522a330b89bf7329b26516583160f343e0",
+      "bytes": 20764,
+      "sha256": "b07ba584b88dbaa9ed5712d28784dfa9192d1b03016589237c84a3ad5cda148e"
+    },
+    {
+      "path": "scripts/interaction_affordance.gd",
+      "revision": "182f2e522a330b89bf7329b26516583160f343e0",
+      "bytes": 4599,
+      "sha256": "3c01ea0dc292bbccde681e7eba71efcaeb3c68c7e0a2e84a6ea4c2a66a8b5644"
+    },
+    {
+      "path": "scripts/interaction_director.gd",
+      "revision": "182f2e522a330b89bf7329b26516583160f343e0",
+      "bytes": 8800,
+      "sha256": "22d206cc7e278b9e46557f20d358e0fd80b3dec26fae61bf6d2f51aedd86c5ab"
+    },
+    {
+      "path": "scripts/intro_overlay.gd",
+      "revision": "182f2e522a330b89bf7329b26516583160f343e0",
+      "bytes": 7412,
+      "sha256": "d39288491fd4e37024905faa11c66eee0e3a98d7de1cb340ca703c8a907ff2eb"
+    },
+    {
+      "path": "scripts/juice.gd",
+      "revision": "182f2e522a330b89bf7329b26516583160f343e0",
+      "bytes": 4139,
+      "sha256": "a356054344800d52edddb531108cd50f6d941582ea44d123b8397d5663de0fb4"
+    },
+    {
+      "path": "scripts/kart.gd",
+      "revision": "182f2e522a330b89bf7329b26516583160f343e0",
+      "bytes": 128735,
+      "sha256": "621bf52117af06641285b25a046fe0462c581889fcb53b899c0fb101be88f2bf"
+    },
+    {
+      "path": "scripts/kart_driving.gd",
+      "revision": "182f2e522a330b89bf7329b26516583160f343e0",
+      "bytes": 5116,
+      "sha256": "a87c53f06301f79d45ef3b73877686103af70196a41e7df059399f39014cf5e8"
+    },
+    {
+      "path": "scripts/landmark_art.gd",
+      "revision": "182f2e522a330b89bf7329b26516583160f343e0",
+      "bytes": 10065,
+      "sha256": "01e8e9bb7332ab76decfa093a98ed6b1940e8d9b424221fd8b27a9591ea300e0"
+    },
+    {
+      "path": "scripts/light_rig.gd",
+      "revision": "182f2e522a330b89bf7329b26516583160f343e0",
+      "bytes": 6085,
+      "sha256": "09e97441be4aa77a390e813298d1848a5d5f5c291d2efbcbf706cf10e3611551"
+    },
+    {
+      "path": "scripts/living_world.gd",
+      "revision": "182f2e522a330b89bf7329b26516583160f343e0",
+      "bytes": 14317,
+      "sha256": "97c0e9dd7d6d660ec5b6386179233714c6772b06fe7b3b6dcd26262852c071fe"
+    },
+    {
+      "path": "scripts/living_world_canvas.gd",
+      "revision": "182f2e522a330b89bf7329b26516583160f343e0",
+      "bytes": 14155,
+      "sha256": "f18a8324cd3eb43eac0dae0ae09efbbb86f6bd3af65e7e74e44d8c197f351e6e"
+    },
+    {
+      "path": "scripts/living_world_catalog.gd",
+      "revision": "182f2e522a330b89bf7329b26516583160f343e0",
+      "bytes": 33453,
+      "sha256": "2db85ea403333cd6b71fca87195b927a44b282d0233d79051b8bf0314f53ae2e"
+    },
+    {
+      "path": "scripts/main.gd",
+      "revision": "182f2e522a330b89bf7329b26516583160f343e0",
+      "bytes": 370822,
+      "sha256": "b6e905824a4b60461181deda525c816fc790613479e9321d12ae7f71df666a33"
+    },
+    {
+      "path": "scripts/medal_system.gd",
+      "revision": "182f2e522a330b89bf7329b26516583160f343e0",
+      "bytes": 12895,
+      "sha256": "585959372cbe4bf2e98d0830097b3b98c9519b52645516857a61ce22b489d36d"
+    },
+    {
+      "path": "scripts/mic_input.gd",
+      "revision": "182f2e522a330b89bf7329b26516583160f343e0",
+      "bytes": 24216,
+      "sha256": "02d0af4179486e1a1b43d197917b1eb015caa7ca355cdea9783b281c22810532"
+    },
+    {
+      "path": "scripts/navigation_controller.gd",
+      "revision": "182f2e522a330b89bf7329b26516583160f343e0",
+      "bytes": 3749,
+      "sha256": "8a7c805f6b0d73840d62316dc349390d8125299fd8bdf0c146c6699ca725a873"
+    },
+    {
+      "path": "scripts/opera_act.gd",
+      "revision": "182f2e522a330b89bf7329b26516583160f343e0",
+      "bytes": 7447,
+      "sha256": "7a8db71dfd827efabeee50a348d7849ea646d2693c2ec2b6930c80938d2517b0"
+    },
+    {
+      "path": "scripts/opera_ballet_surface.gd",
+      "revision": "182f2e522a330b89bf7329b26516583160f343e0",
+      "bytes": 25366,
+      "sha256": "76a648de7fd0d52eadf1974257bfaaf3f17bb6b73a0bd96029b35133c33cb70b"
+    },
+    {
+      "path": "scripts/opera_boxing_surface.gd",
+      "revision": "182f2e522a330b89bf7329b26516583160f343e0",
+      "bytes": 27480,
+      "sha256": "321da2219887b07f3efcd142c3015bfcf027ef21a5eb1755e877dc2ff5a71170"
+    },
+    {
+      "path": "scripts/opera_career_world_2d.gd",
+      "revision": "182f2e522a330b89bf7329b26516583160f343e0",
+      "bytes": 235089,
+      "sha256": "2195e137800fd840e4a813a83e6ac9b393a9e7851fd80ca84ca51fb964232702"
+    },
+    {
+      "path": "scripts/opera_chef_surface.gd",
+      "revision": "182f2e522a330b89bf7329b26516583160f343e0",
+      "bytes": 11406,
+      "sha256": "fe6cc1756d66df11a8c27906610d415b9739f21f8bae982e22611baf7e0a4dbb"
+    },
+    {
+      "path": "scripts/opera_competition.gd",
+      "revision": "182f2e522a330b89bf7329b26516583160f343e0",
+      "bytes": 8801,
+      "sha256": "2449c21807e83f9c5d0f5994b37663b9e5ae4f56aa418690151eac081d03ec57"
+    },
+    {
+      "path": "scripts/opera_geology_surface.gd",
+      "revision": "182f2e522a330b89bf7329b26516583160f343e0",
+      "bytes": 33472,
+      "sha256": "0e245a1fb550c0c171775197b1d32de9deb2f1e9637f076fa1e248888583e397"
+    },
+    {
+      "path": "scripts/opera_gesture_surface.gd",
+      "revision": "182f2e522a330b89bf7329b26516583160f343e0",
+      "bytes": 240970,
+      "sha256": "458d3afb7e231f8f5da6e21c64f27b699e7bf66bc5e6eb43fd9e331eaad6b07b"
+    },
+    {
+      "path": "scripts/opera_hotspot_catalog.gd",
+      "revision": "182f2e522a330b89bf7329b26516583160f343e0",
+      "bytes": 25931,
+      "sha256": "713a43c5e2245f5dd4496a1a1909a5ba7c3bbd6961ebe4a8dd3db34e89b57222"
+    },
+    {
+      "path": "scripts/opera_house.gd",
+      "revision": "182f2e522a330b89bf7329b26516583160f343e0",
+      "bytes": 17056,
+      "sha256": "6d6aeead33ff8cc451daa09da215185171359fd218693371184f38ecadac2d7f"
+    },
+    {
+      "path": "scripts/opera_house_venue_2d.gd",
+      "revision": "182f2e522a330b89bf7329b26516583160f343e0",
+      "bytes": 18361,
+      "sha256": "cdb1c43991cd3a63cddb2a063be105435a343e469f84e4b49da93c10c45f1243"
+    },
+    {
+      "path": "scripts/opera_imp_clips.gd",
+      "revision": "182f2e522a330b89bf7329b26516583160f343e0",
+      "bytes": 3293,
+      "sha256": "e061de84be9831d4e9662c11d3440461078c505b4b1484d499fdf1fa37df0797"
+    },
+    {
+      "path": "scripts/opera_job_playtest_menu.gd",
+      "revision": "182f2e522a330b89bf7329b26516583160f343e0",
+      "bytes": 6331,
+      "sha256": "e77790fb2b9bd2ff35d7c9b5856d77a7af1d8c9a5cc228cf8b8d363ec3884375"
+    },
+    {
+      "path": "scripts/opera_mastery.gd",
+      "revision": "182f2e522a330b89bf7329b26516583160f343e0",
+      "bytes": 7933,
+      "sha256": "1a5c6f89f2cd0effea2b22e85a29c3dcfcebb0298fb6d582b81a9bb427518bf3"
+    },
+    {
+      "path": "scripts/opera_nursery_catch.gd",
+      "revision": "182f2e522a330b89bf7329b26516583160f343e0",
+      "bytes": 9606,
+      "sha256": "b997e83c4032be14f187260a6fda1a99bcb5f3b61a7e07adebf5a99479dda431"
+    },
+    {
+      "path": "scripts/opera_performance_overlay.gd",
+      "revision": "182f2e522a330b89bf7329b26516583160f343e0",
+      "bytes": 7696,
+      "sha256": "16c7a17ed901750764481e7077ac2e60d4cf5bfc1a3b41970066e4a633545ddb"
+    },
+    {
+      "path": "scripts/opera_performance_plan.gd",
+      "revision": "182f2e522a330b89bf7329b26516583160f343e0",
+      "bytes": 1533,
+      "sha256": "6b5ff197b0d88663af260217dc673a39d2d681e081b313c1c4b49c0a359d8366"
+    },
+    {
+      "path": "scripts/opera_racer_surface.gd",
+      "revision": "182f2e522a330b89bf7329b26516583160f343e0",
+      "bytes": 18753,
+      "sha256": "09b292073f3d4fcfc2605a22bf79b039f00047787edf2d25dde37798b3db4cba"
+    },
+    {
+      "path": "scripts/opera_roshan_actor.gd",
+      "revision": "182f2e522a330b89bf7329b26516583160f343e0",
+      "bytes": 6876,
+      "sha256": "556301bbaeefcc55f7a5c28744170872e488563719aee54856ad4c65c4e9cb6d"
+    },
+    {
+      "path": "scripts/opera_route_presentation.gd",
+      "revision": "182f2e522a330b89bf7329b26516583160f343e0",
+      "bytes": 905,
+      "sha256": "dd353ac7377557900f15d3b98a317f8ad5da33a5f6d4d0b4635f8b50740ecad4"
+    },
+    {
+      "path": "scripts/opera_stage_paths.gd",
+      "revision": "182f2e522a330b89bf7329b26516583160f343e0",
+      "bytes": 48376,
+      "sha256": "63fc873b1b2bb3b7a4a10211c447a0812bba5bdd96131c1b1c72e1eadcf8419f"
+    },
+    {
+      "path": "scripts/opera_teacher_surface.gd",
+      "revision": "182f2e522a330b89bf7329b26516583160f343e0",
+      "bytes": 15132,
+      "sha256": "cab2eee9f0bf1297296fef0a8650df7794214cfcb58fc379e44954f6153ec2ed"
+    },
+    {
+      "path": "scripts/opera_tree_book_test.gd",
+      "revision": "182f2e522a330b89bf7329b26516583160f343e0",
+      "bytes": 14435,
+      "sha256": "20b33a534ca912b84e25f80342bfd7c17f0cd6f284e375f627d1e7b89e7caea1"
+    },
+    {
+      "path": "scripts/opera_world_backdrop_2d.gd",
+      "revision": "182f2e522a330b89bf7329b26516583160f343e0",
+      "bytes": 25442,
+      "sha256": "49a927c8183ed253b82d9893849dbdaf4af27f5ece52392588b3b287cf4932b4"
+    },
+    {
+      "path": "scripts/opera_world_hotspot_2d.gd",
+      "revision": "182f2e522a330b89bf7329b26516583160f343e0",
+      "bytes": 14689,
+      "sha256": "4f36f8f00a94c4d668a8283d5d6a5f3701206c83883e7f12bac6f2cde0993800"
+    },
+    {
+      "path": "scripts/painter/painter_document.gd",
+      "revision": "182f2e522a330b89bf7329b26516583160f343e0",
+      "bytes": 6373,
+      "sha256": "a08227e81e5100d1743d5707708eea6e2ff9f366129982280ec579b6490af4ff"
+    },
+    {
+      "path": "scripts/painter/painter_guided_probe.gd",
+      "revision": "182f2e522a330b89bf7329b26516583160f343e0",
+      "bytes": 5671,
+      "sha256": "356738628280b63dcb6885726538f85033267386f123bb1c7f0672188e3bb5a0"
+    },
+    {
+      "path": "scripts/painter/painter_probe.gd",
+      "revision": "182f2e522a330b89bf7329b26516583160f343e0",
+      "bytes": 10991,
+      "sha256": "288ce1900225597006e16c2ddc23ddf8990df131ad9d5b5b4162daea5f8aee9c"
+    },
+    {
+      "path": "scripts/painter/painter_studio.gd",
+      "revision": "182f2e522a330b89bf7329b26516583160f343e0",
+      "bytes": 17837,
+      "sha256": "19e5f6e21d116f17926b5ab666836db382dea8d0060b43e957460af7b637314a"
+    },
+    {
+      "path": "scripts/painter/painter_template.gd",
+      "revision": "182f2e522a330b89bf7329b26516583160f343e0",
+      "bytes": 3614,
+      "sha256": "0f48f9885a2b1e1cb3ab3a0b828df8cf06bdcb8162f37e80e1b8fa258be2a746"
+    },
+    {
+      "path": "scripts/painter/vendor/painter_flood_fill.gd",
+      "revision": "182f2e522a330b89bf7329b26516583160f343e0",
+      "bytes": 5888,
+      "sha256": "60a50de9b675751431ddd51e4cbea47b691d8c9f17b7ca0f69a9305740e5ae0c"
+    },
+    {
+      "path": "scripts/partner_assist.gd",
+      "revision": "182f2e522a330b89bf7329b26516583160f343e0",
+      "bytes": 3506,
+      "sha256": "b2450228b9f22d2c6d652b43c6dc577dad8863293a9b2270a4a8d9da76a9dbad"
+    },
+    {
+      "path": "scripts/pause_menu.gd",
+      "revision": "182f2e522a330b89bf7329b26516583160f343e0",
+      "bytes": 13628,
+      "sha256": "2afc6103f8a750c437c1aa23c94419191a0b303cdec54aabd9345b560a5646b0"
+    },
+    {
+      "path": "scripts/physics.gd",
+      "revision": "182f2e522a330b89bf7329b26516583160f343e0",
+      "bytes": 13998,
+      "sha256": "39a8a3ecf72e79ff797d2f6eb067ad3d186626a282d044af6f8ce64a57a78cce"
+    },
+    {
+      "path": "scripts/player.gd",
+      "revision": "182f2e522a330b89bf7329b26516583160f343e0",
+      "bytes": 47872,
+      "sha256": "91ae8a4e9dccc090c7e1ce86bbec387ff8c761951e794e9d93b3c753be7c49b8"
+    },
+    {
+      "path": "scripts/rainbow_friend_follower.gd",
+      "revision": "182f2e522a330b89bf7329b26516583160f343e0",
+      "bytes": 2983,
+      "sha256": "745c323c562a51628c0d8b268e07dd640fe7d6b0e22aedd975bd4a7ccd1f72cb"
+    },
+    {
+      "path": "scripts/reef_districts.gd",
+      "revision": "182f2e522a330b89bf7329b26516583160f343e0",
+      "bytes": 16731,
+      "sha256": "79371c2799a0430107c91a43d4705f8a5bb7939d3d2b33c2df1e3cb608058d3b"
+    },
+    {
+      "path": "scripts/roshan_sprite_anchors.gd",
+      "revision": "182f2e522a330b89bf7329b26516583160f343e0",
+      "bytes": 2361,
+      "sha256": "a4d1b54324bb8faa959ec88d82ccf728efeec9cdb4134fac761b119cfac731a5"
+    },
+    {
+      "path": "scripts/roshan_sprite_frames.gd",
+      "revision": "182f2e522a330b89bf7329b26516583160f343e0",
+      "bytes": 9541,
+      "sha256": "41860fcd11e0ee071cc1c7c8bacc8242160b209b73c3a5d4bc1d2eda4a908d81"
+    },
+    {
+      "path": "scripts/roshan_sprite_loop.gd",
+      "revision": "182f2e522a330b89bf7329b26516583160f343e0",
+      "bytes": 11251,
+      "sha256": "73663a09ec2bf6f3f87d37596a7bcd1818346d744492deb109cac4a31e65362e"
+    },
+    {
+      "path": "scripts/save_state.gd",
+      "revision": "182f2e522a330b89bf7329b26516583160f343e0",
+      "bytes": 46616,
+      "sha256": "de380b088c8dcdd4623804d44a8fe35be5bfe7f8095cdcff1ca40c24e2c9c9b9"
+    },
+    {
+      "path": "scripts/shell_ornament.gd",
+      "revision": "182f2e522a330b89bf7329b26516583160f343e0",
+      "bytes": 1920,
+      "sha256": "b55765cfd7926b755563f9017891c955fc23ae5c050c3d7141b7b2f2b1cdbc08"
+    },
+    {
+      "path": "scripts/sprite_transition_2d.gd",
+      "revision": "182f2e522a330b89bf7329b26516583160f343e0",
+      "bytes": 7902,
+      "sha256": "0a5c87ff8c4eb812bc2b352382f069c82771f1f39860e9adece4b35a04bf4bd5"
+    },
+    {
+      "path": "scripts/stage_navigation_2d.gd",
+      "revision": "182f2e522a330b89bf7329b26516583160f343e0",
+      "bytes": 3261,
+      "sha256": "36fb7f194b8ad710284b7c5f5e9ef797a0d3c3c56bdc040f8b98d25bc455d79b"
+    },
+    {
+      "path": "scripts/start_menu.gd",
+      "revision": "182f2e522a330b89bf7329b26516583160f343e0",
+      "bytes": 18908,
+      "sha256": "2eb3a55dba1db6e223de967df6465e137d7bfcfa5309cd770a36ff7a3833f771"
+    },
+    {
+      "path": "scripts/story_art.gd",
+      "revision": "182f2e522a330b89bf7329b26516583160f343e0",
+      "bytes": 5234,
+      "sha256": "3ff0367f3be0801e4a40f233d42cf66baef8a952948b373c2a33ffab6f176f8b"
+    },
+    {
+      "path": "scripts/storybook_ui.gd",
+      "revision": "182f2e522a330b89bf7329b26516583160f343e0",
+      "bytes": 16107,
+      "sha256": "839e53d6893347808341523d4e4b58e3727cc4fd4cd698726c92d494edce0fa7"
+    },
+    {
+      "path": "scripts/stuffie_battle.gd",
+      "revision": "182f2e522a330b89bf7329b26516583160f343e0",
+      "bytes": 24254,
+      "sha256": "9fa3246eb07d249ac223a82df8cd6b68ca572e0b28e918f594c420a49f9384a4"
+    },
+    {
+      "path": "scripts/tap_move_director.gd",
+      "revision": "182f2e522a330b89bf7329b26516583160f343e0",
+      "bytes": 6058,
+      "sha256": "dbe2d50e6b0dfb40b0f24f7cc9a73065c267209cd6a399e3fde601af4ce2a263"
+    },
+    {
+      "path": "scripts/teacher_lesson_plan.gd",
+      "revision": "182f2e522a330b89bf7329b26516583160f343e0",
+      "bytes": 6662,
+      "sha256": "d82e5b7a817335b4da2d0d7b55706a5cde1ff1954c2b33d8ba34d891dac5778e"
+    },
+    {
+      "path": "scripts/touch_ui.gd",
+      "revision": "182f2e522a330b89bf7329b26516583160f343e0",
+      "bytes": 39214,
+      "sha256": "a6f45679ff9738d6079078ba9cf5c623618a50a740e4fde2387385352029868d"
+    },
+    {
+      "path": "scripts/tree_book_test_checks.gd",
+      "revision": "182f2e522a330b89bf7329b26516583160f343e0",
+      "bytes": 6920,
+      "sha256": "739daaaa3e501ec636999619c4ea5894b9e6551faaee53fbefc66e2f1931aed8"
+    },
+    {
+      "path": "scripts/wardrobe_ui.gd",
+      "revision": "182f2e522a330b89bf7329b26516583160f343e0",
+      "bytes": 14633,
+      "sha256": "0d7f4c5241f141ca4bbb9464f21aa5bd46545e1817b8b2638fea1caadf9f6573"
+    }
+  ]
+}

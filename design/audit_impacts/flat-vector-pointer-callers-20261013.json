@@ -1,0 +1,101 @@
+{
+  "id": "flat-vector-pointer-callers-20261013",
+  "scope": "Source-only closure of shared pointer caller/guard/missing-texture boundaries,from the published weakness list and R16 candidate. No production edit,new image,new runtime capture or visual acceptance.",
+  "baseline": "182f2e522a330b89bf7329b26516583160f343e0",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-VIS-01",
+    "DL-VIS-03",
+    "DL-VIS-06",
+    "DL-VIS-07",
+    "DL-VIS-08",
+    "DL-READ-02",
+    "DL-READ-06",
+    "DL-ASSET-01",
+    "DL-ASSET-02",
+    "DL-ASSET-06",
+    "DL-QA-11"
+  ],
+  "findings": [
+    "MA-VIS-006",
+    "MA-VIS-007",
+    "MA-VIS-008",
+    "MA-DOC-008",
+    "MA-OPERA-012"
+  ],
+  "files": [
+    ".gitattributes",
+    "audit/MASTER_AUDIT_2026-08-09.md",
+    "design/05_DOC_LEDGER.md",
+    "design/audit_impacts/flat-vector-pointer-callers-20261013.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/CURRENT.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/README.md",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r17_pointer_callers/CONGRUENCY_BACKLOG.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r17_pointer_callers/GATES.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r17_pointer_callers/GATES_ATTEMPT01.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r17_pointer_callers/MANIFEST.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r17_pointer_callers/PLAN.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r17_pointer_callers/PREVIOUS_HEAD_CI.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r17_pointer_callers/README.md",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r17_pointer_callers/RECEIPT_GATES.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r17_pointer_callers/REMOTE_VERIFICATION.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r17_pointer_callers/SCRIPT_CENSUS.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r17_pointer_callers/SOURCES.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r17_pointer_callers/SOURCE_AUDIT.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r17_pointer_callers/SOURCE_EXCERPTS.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r17_pointer_callers/assemble.py",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r17_pointer_callers/build_manifest.py",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r17_pointer_callers/gates.log",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r17_pointer_callers/gates_attempt01.log",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r17_pointer_callers/per_piece.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r17_pointer_callers/receipt_gates.log",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r17_pointer_callers/run_gates.py",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r17_pointer_callers/scene_coverage.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r17_pointer_callers/tally.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r17_pointer_callers/validate.py",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r17_pointer_callers/verify_remote.py"
+  ],
+  "validation": [
+    {
+      "command": "Exact Git source census and R17 canonical preservation validation",
+      "result": "PASS",
+      "evidence": "R17 GATES.json/gates.log;171 declared scripts,29 bound sources,15 routes/61 constant phase rows,12 shared routes/49 rows and3 independent guides/12 rows. No context or removal acceptance."
+    },
+    {
+      "command": "python -B tools/audit_document_authority.py; python -B tools/audit_development.py --base auto;54 authority/development unit tests plus6 stress;medium regression gate",
+      "result": "PASS",
+      "evidence": "R17 GATES.json/gates.log.720 inventory/ledger,69 active/72 records;medium NO_REGRESSION,strict UNSATISFIED. Initial missing-link attempt retained separately."
+    },
+    {
+      "command": "All trusted runtime probes",
+      "result": "NOT_APPLICABLE",
+      "evidence": "No runtime code/assets changed in R17; inherited exact R16 FULL_VALIDATION.json preserves82 local trusted native passes on identical runtime bytes. Current R17 CI remains separate,pending."
+    },
+    {
+      "command": "Anonymous exact remote payload and final receipt verification",
+      "result": "PENDING",
+      "evidence": "R17 MANIFEST.json/REMOTE_VERIFICATION.json and later final receipt byte verification"
+    }
+  ],
+  "acceptance_gaps": "Source-only audit: all visual/candidate/integration/runtime-replacement/QA11/device/child/owner lanes remain separately open. No finding lifecycle change.",
+  "references_used": [
+    {
+      "path": "audit/MASTER_AUDIT_2026-08-09.md",
+      "purpose": "Planning/task-index and individual repair contract"
+    },
+    {
+      "path": "design/05_DOC_LEDGER.md",
+      "purpose": "Current source authority"
+    },
+    {
+      "path": "design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md",
+      "purpose": "Scoped source/visual/reuse/QA rules"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r16_pointer_candidate/CONGRUENCY_BACKLOG.json",
+      "purpose": "Existing game-wide weakness work list and candidate boundary"
+    }
+  ]
+}

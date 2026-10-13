@@ -1,6 +1,8 @@
-Current canonical evidence: [R16 painted pointer candidate](r16_pointer_candidate/README.md), [registry](r16_pointer_candidate/per_piece.json), [coverage](r16_pointer_candidate/scene_coverage.json), [tally](r16_pointer_candidate/tally.json).
+Current canonical evidence: [R17 shared-pointer caller audit](r17_pointer_callers/README.md), [registry](r17_pointer_callers/per_piece.json), [coverage](r17_pointer_callers/scene_coverage.json), [tally](r17_pointer_callers/tally.json).
 
-# Full-game flat-vector audit — current R16 pointer candidate
+# Full-game flat-vector audit — current R17 pointer source audit
+
+R17 binds15 live routes/61 constant phase rows:12 shared-player routes/49 rows,3 independent guide IDs/12 rows.16 old-hand reference files require live/state/missing-texture review. No new art,captures or acceptance; the full-game denominator stays unknown.
 
 R16 fills one documented hand-paint reuse gap with one whole-hand candidate and94 native diagnostic files; Geode-only style/input/registration review is partial.2138 bounded/2252 retained,225 known/30 families; one context sample awaiting review,zero art integration/accepted removal,unknown whole-game denominator. Earlier R15 and R14 evidence remains below.
 

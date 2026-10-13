@@ -1,0 +1,1013 @@
+{
+  "schema": 1,
+  "revision": "FV-AUDIT-20261013-R17",
+  "source_revision": "182f2e522a330b89bf7329b26516583160f343e0",
+  "origin_dev": "831d0bbb155b99d75ef0289cc5cc694e0ef00c1e",
+  "piece_id": "FV-1DC9F18904A8",
+  "scope_id": "FVF-6CF7C85C1B16",
+  "status": "BOUNDED_SOURCE_CALLER_MAP_VERIFIED_CONTEXT_CLOSURE_OPEN",
+  "live_career_routes": 15,
+  "current_constant_phase_rows": 61,
+  "shared_helper_player_routes": 12,
+  "shared_helper_constant_phase_rows": 49,
+  "independent_player_routes": 3,
+  "independent_constant_phase_rows": 12,
+  "rows": [
+    {
+      "route_id": "opera.act.00",
+      "career": "chef",
+      "source_phase_rows": [
+        {
+          "name": "MIX",
+          "mode": "pourt",
+          "source_line": 271,
+          "phase_index": 0,
+          "pointer_branch": "GENERIC_DOT_ARC",
+          "missing_texture": "Generic dot/arc branch unchanged"
+        },
+        {
+          "name": "STIR",
+          "mode": "circle",
+          "source_line": 272,
+          "phase_index": 1,
+          "pointer_branch": "GENERIC_DOT_ARC",
+          "missing_texture": "Generic dot/arc branch unchanged"
+        },
+        {
+          "name": "BAKE",
+          "mode": "oven",
+          "source_line": 273,
+          "phase_index": 2,
+          "pointer_branch": "GENERIC_DOT_ARC",
+          "missing_texture": "Generic dot/arc branch unchanged"
+        },
+        {
+          "name": "FROST",
+          "mode": "swipe",
+          "source_line": 274,
+          "phase_index": 3,
+          "pointer_branch": "GENERIC_DOT_ARC",
+          "missing_texture": "Generic dot/arc branch unchanged"
+        },
+        {
+          "name": "TOP",
+          "mode": "tap",
+          "source_line": 275,
+          "phase_index": 4,
+          "pointer_branch": "GENERIC_DOT_ARC",
+          "missing_texture": "Generic dot/arc branch unchanged"
+        }
+      ],
+      "surface_path": "scripts/opera_gesture_surface.gd",
+      "guide_method": "_draw_demo_finger",
+      "existing_piece_id": "FV-1DC9F18904A8",
+      "uses_shared_helper": true,
+      "draw_guard": "demo_active",
+      "factory_alternatives": [
+        "Chapter2 story scene selects OperaChefSurface; calls inherited pointer guarded by demo_active. Generic dev/Opera uses parent."
+      ],
+      "source_only": true,
+      "runtime_context_complete": false,
+      "ten_axis_review": "PENDING actual mode/rest/action/contact/payoff captures and same-scene comparison; R16 covers Geode candidate only"
+    },
+    {
+      "route_id": "opera.act.01",
+      "career": "detective",
+      "source_phase_rows": [
+        {
+          "name": "SEARCH",
+          "mode": "lens",
+          "source_line": 278,
+          "phase_index": 0,
+          "pointer_branch": "GENERIC_DOT_ARC",
+          "missing_texture": "Generic dot/arc branch unchanged"
+        },
+        {
+          "name": "CASE BOARD",
+          "mode": "clue_board",
+          "widget": "",
+          "source_line": 279,
+          "phase_index": 1,
+          "pointer_branch": "GENERIC_DOT_ARC",
+          "missing_texture": "Generic dot/arc branch unchanged"
+        },
+        {
+          "name": "CROWN",
+          "mode": "crown_chest",
+          "widget": "",
+          "source_line": 280,
+          "phase_index": 2,
+          "pointer_branch": "GENERIC_DOT_ARC",
+          "missing_texture": "Generic dot/arc branch unchanged"
+        }
+      ],
+      "surface_path": "scripts/opera_gesture_surface.gd",
+      "guide_method": "_draw_demo_finger",
+      "existing_piece_id": "FV-1DC9F18904A8",
+      "uses_shared_helper": true,
+      "draw_guard": "demo_active",
+      "factory_alternatives": [],
+      "source_only": true,
+      "runtime_context_complete": false,
+      "ten_axis_review": "PENDING actual mode/rest/action/contact/payoff captures and same-scene comparison; R16 covers Geode candidate only"
+    },
+    {
+      "route_id": "opera.act.02",
+      "career": "ballerina",
+      "source_phase_rows": [
+        {
+          "name": "PEARL MIRROR",
+          "mode": "ballet_pose",
+          "widget": "",
+          "source_line": 283,
+          "phase_index": 0,
+          "pointer_branch": "INDEPENDENT_PROCEDURAL_GUIDE",
+          "missing_texture": "No hand texture dependency for this independent guide; other art fallbacks unreviewed"
+        },
+        {
+          "name": "RIBBON TRAIL",
+          "mode": "ballet_ribbon",
+          "widget": "",
+          "source_line": 284,
+          "phase_index": 1,
+          "pointer_branch": "INDEPENDENT_PROCEDURAL_GUIDE",
+          "missing_texture": "No hand texture dependency for this independent guide; other art fallbacks unreviewed"
+        },
+        {
+          "name": "GRAND TWIRL",
+          "mode": "ballet_twirl",
+          "widget": "",
+          "source_line": 285,
+          "phase_index": 2,
+          "pointer_branch": "INDEPENDENT_PROCEDURAL_GUIDE",
+          "missing_texture": "No hand texture dependency for this independent guide; other art fallbacks unreviewed"
+        }
+      ],
+      "surface_path": "scripts/opera_ballet_surface.gd",
+      "guide_method": "_draw_ballet_demo -> _draw_ghost_finger",
+      "existing_piece_id": "FV-D2EA0464919A",
+      "uses_shared_helper": false,
+      "draw_guard": "demo_active and not armed_only and not completion_accepted and not _mode_complete()",
+      "factory_alternatives": [],
+      "source_only": true,
+      "runtime_context_complete": false,
+      "ten_axis_review": "PENDING actual mode/rest/action/contact/payoff captures and same-scene comparison; R16 covers Geode candidate only"
+    },
+    {
+      "route_id": "opera.act.03",
+      "career": "candymaker",
+      "source_phase_rows": [
+        {
+          "name": "SYRUP",
+          "mode": "pourt",
+          "source_line": 288,
+          "phase_index": 0,
+          "pointer_branch": "OLD_WHOLE_HAND_IF_TEXTURE_PRESENT_OTHERWISE_GENERIC_DOT_ARC",
+          "missing_texture": "Generic dot/arc branch unchanged"
+        },
+        {
+          "name": "SORT",
+          "mode": "candy_sort",
+          "source_line": 289,
+          "phase_index": 1,
+          "pointer_branch": "GENERIC_DOT_ARC",
+          "missing_texture": "Generic dot/arc branch unchanged"
+        },
+        {
+          "name": "WRAP",
+          "mode": "circle",
+          "source_line": 290,
+          "phase_index": 2,
+          "pointer_branch": "GENERIC_DOT_ARC",
+          "missing_texture": "Generic dot/arc branch unchanged"
+        },
+        {
+          "name": "SHARE",
+          "mode": "tap",
+          "source_line": 291,
+          "phase_index": 3,
+          "pointer_branch": "GENERIC_DOT_ARC",
+          "missing_texture": "Generic dot/arc branch unchanged"
+        }
+      ],
+      "surface_path": "scripts/opera_gesture_surface.gd",
+      "guide_method": "_draw_demo_finger",
+      "existing_piece_id": "FV-1DC9F18904A8",
+      "uses_shared_helper": true,
+      "draw_guard": "demo_active",
+      "factory_alternatives": [],
+      "source_only": true,
+      "runtime_context_complete": false,
+      "ten_axis_review": "PENDING actual mode/rest/action/contact/payoff captures and same-scene comparison; R16 covers Geode candidate only"
+    },
+    {
+      "route_id": "opera.act.05",
+      "career": "doctor",
+      "source_phase_rows": [
+        {
+          "name": "WASH",
+          "mode": "hold",
+          "source_line": 294,
+          "phase_index": 0,
+          "pointer_branch": "GENERIC_DOT_ARC",
+          "missing_texture": "Generic dot/arc branch unchanged"
+        },
+        {
+          "name": "FIND",
+          "mode": "choice",
+          "source_line": 295,
+          "phase_index": 1,
+          "pointer_branch": "GENERIC_DOT_ARC",
+          "missing_texture": "Generic dot/arc branch unchanged"
+        },
+        {
+          "name": "X-RAY",
+          "mode": "xray_scan",
+          "source_line": 296,
+          "phase_index": 2,
+          "pointer_branch": "GENERIC_DOT_ARC",
+          "missing_texture": "Generic dot/arc branch unchanged"
+        },
+        {
+          "name": "CAST",
+          "mode": "circle",
+          "source_line": 297,
+          "phase_index": 3,
+          "pointer_branch": "GENERIC_DOT_ARC",
+          "missing_texture": "Generic dot/arc branch unchanged"
+        },
+        {
+          "name": "BANDAGE",
+          "mode": "swipe",
+          "source_line": 298,
+          "phase_index": 4,
+          "pointer_branch": "GENERIC_DOT_ARC",
+          "missing_texture": "Generic dot/arc branch unchanged"
+        }
+      ],
+      "surface_path": "scripts/opera_gesture_surface.gd",
+      "guide_method": "_draw_demo_finger",
+      "existing_piece_id": "FV-1DC9F18904A8",
+      "uses_shared_helper": true,
+      "draw_guard": "demo_active",
+      "factory_alternatives": [],
+      "source_only": true,
+      "runtime_context_complete": false,
+      "ten_axis_review": "PENDING actual mode/rest/action/contact/payoff captures and same-scene comparison; R16 covers Geode candidate only"
+    },
+    {
+      "route_id": "opera.act.06",
+      "career": "farmer",
+      "source_phase_rows": [
+        {
+          "name": "PLANT",
+          "mode": "garden_plant",
+          "widget": "",
+          "source_line": 301,
+          "phase_index": 0,
+          "pointer_branch": "GENERIC_DOT_ARC",
+          "missing_texture": "Generic dot/arc branch unchanged"
+        },
+        {
+          "name": "TOSS",
+          "mode": "farm_lob",
+          "source_line": 302,
+          "phase_index": 1,
+          "pointer_branch": "GENERIC_DOT_ARC",
+          "missing_texture": "Generic dot/arc branch unchanged"
+        },
+        {
+          "name": "HERD",
+          "mode": "swipe",
+          "source_line": 303,
+          "phase_index": 2,
+          "pointer_branch": "GENERIC_DOT_ARC",
+          "missing_texture": "Generic dot/arc branch unchanged"
+        },
+        {
+          "name": "PICNIC",
+          "mode": "tap",
+          "source_line": 304,
+          "phase_index": 3,
+          "pointer_branch": "GENERIC_DOT_ARC",
+          "missing_texture": "Generic dot/arc branch unchanged"
+        }
+      ],
+      "surface_path": "scripts/opera_gesture_surface.gd",
+      "guide_method": "_draw_demo_finger",
+      "existing_piece_id": "FV-1DC9F18904A8",
+      "uses_shared_helper": true,
+      "draw_guard": "demo_active",
+      "factory_alternatives": [],
+      "source_only": true,
+      "runtime_context_complete": false,
+      "ten_axis_review": "PENDING actual mode/rest/action/contact/payoff captures and same-scene comparison; R16 covers Geode candidate only"
+    },
+    {
+      "route_id": "opera.act.07",
+      "career": "boxer",
+      "source_phase_rows": [
+        {
+          "name": "GLOVE GUIDE",
+          "mode": "boxing_guide",
+          "widget": "",
+          "source_line": 307,
+          "phase_index": 0,
+          "pointer_branch": "INDEPENDENT_PROCEDURAL_GUIDE",
+          "missing_texture": "No hand texture dependency for this independent guide; other art fallbacks unreviewed"
+        },
+        {
+          "name": "JAB PRACTICE",
+          "mode": "boxing_jab",
+          "widget": "",
+          "source_line": 308,
+          "phase_index": 1,
+          "pointer_branch": "INDEPENDENT_PROCEDURAL_GUIDE",
+          "missing_texture": "No hand texture dependency for this independent guide; other art fallbacks unreviewed"
+        },
+        {
+          "name": "SOFT GUARD",
+          "mode": "boxing_guard",
+          "widget": "",
+          "source_line": 309,
+          "phase_index": 2,
+          "pointer_branch": "INDEPENDENT_PROCEDURAL_GUIDE",
+          "missing_texture": "No hand texture dependency for this independent guide; other art fallbacks unreviewed"
+        },
+        {
+          "name": "TITLE IMP",
+          "mode": "boxing_imp",
+          "widget": "",
+          "source_line": 310,
+          "phase_index": 3,
+          "pointer_branch": "INDEPENDENT_PROCEDURAL_GUIDE",
+          "missing_texture": "No hand texture dependency for this independent guide; other art fallbacks unreviewed"
+        },
+        {
+          "name": "BELT",
+          "mode": "boxing_belt",
+          "widget": "",
+          "source_line": 311,
+          "phase_index": 4,
+          "pointer_branch": "INDEPENDENT_PROCEDURAL_GUIDE",
+          "missing_texture": "No hand texture dependency for this independent guide; other art fallbacks unreviewed"
+        }
+      ],
+      "surface_path": "scripts/opera_boxing_surface.gd",
+      "guide_method": "_draw_demo",
+      "existing_piece_id": "FV-DAA9072B905A",
+      "uses_shared_helper": false,
+      "draw_guard": "demo_active and not completion_accepted",
+      "factory_alternatives": [],
+      "source_only": true,
+      "runtime_context_complete": false,
+      "ten_axis_review": "PENDING actual mode/rest/action/contact/payoff captures and same-scene comparison; R16 covers Geode candidate only"
+    },
+    {
+      "route_id": "opera.act.08",
+      "career": "magician",
+      "source_phase_rows": [
+        {
+          "name": "VANISH",
+          "mode": "hold",
+          "widget": "",
+          "visual_context": "magic_vanish",
+          "source_line": 314,
+          "phase_index": 0,
+          "pointer_branch": "GENERIC_DOT_ARC",
+          "missing_texture": "Generic dot/arc branch unchanged"
+        },
+        {
+          "name": "TRACK",
+          "mode": "choice",
+          "source_line": 315,
+          "phase_index": 1,
+          "pointer_branch": "GENERIC_DOT_ARC",
+          "missing_texture": "Generic dot/arc branch unchanged"
+        },
+        {
+          "name": "ROPE",
+          "mode": "swipe",
+          "source_line": 316,
+          "phase_index": 2,
+          "pointer_branch": "GENERIC_DOT_ARC",
+          "missing_texture": "Generic dot/arc branch unchanged"
+        },
+        {
+          "name": "CABINET",
+          "mode": "magic_cabinet",
+          "widget": "",
+          "source_line": 317,
+          "phase_index": 3,
+          "pointer_branch": "GENERIC_DOT_ARC",
+          "missing_texture": "Generic dot/arc branch unchanged"
+        },
+        {
+          "name": "PORTAL",
+          "mode": "circle",
+          "source_line": 318,
+          "phase_index": 4,
+          "pointer_branch": "GENERIC_DOT_ARC",
+          "missing_texture": "Generic dot/arc branch unchanged"
+        }
+      ],
+      "surface_path": "scripts/opera_gesture_surface.gd",
+      "guide_method": "_draw_demo_finger",
+      "existing_piece_id": "FV-1DC9F18904A8",
+      "uses_shared_helper": true,
+      "draw_guard": "demo_active",
+      "factory_alternatives": [],
+      "source_only": true,
+      "runtime_context_complete": false,
+      "ten_axis_review": "PENDING actual mode/rest/action/contact/payoff captures and same-scene comparison; R16 covers Geode candidate only"
+    },
+    {
+      "route_id": "opera.act.10",
+      "career": "painter",
+      "source_phase_rows": [
+        {
+          "name": "PAINT",
+          "mode": "paint_reveal",
+          "source_line": 321,
+          "phase_index": 0,
+          "pointer_branch": "GENERIC_DOT_ARC",
+          "missing_texture": "Generic dot/arc branch unchanged"
+        },
+        {
+          "name": "STAMPS",
+          "mode": "tap",
+          "source_line": 322,
+          "phase_index": 1,
+          "pointer_branch": "GENERIC_DOT_ARC",
+          "missing_texture": "Generic dot/arc branch unchanged"
+        },
+        {
+          "name": "GALLERY",
+          "mode": "choice",
+          "source_line": 323,
+          "phase_index": 2,
+          "pointer_branch": "GENERIC_DOT_ARC",
+          "missing_texture": "Generic dot/arc branch unchanged"
+        }
+      ],
+      "surface_path": "scripts/opera_gesture_surface.gd",
+      "guide_method": "_draw_demo_finger",
+      "existing_piece_id": "FV-1DC9F18904A8",
+      "uses_shared_helper": true,
+      "draw_guard": "demo_active",
+      "factory_alternatives": [],
+      "source_only": true,
+      "runtime_context_complete": false,
+      "ten_axis_review": "PENDING actual mode/rest/action/contact/payoff captures and same-scene comparison; R16 covers Geode candidate only"
+    },
+    {
+      "route_id": "opera.act.11",
+      "career": "astronaut",
+      "source_phase_rows": [
+        {
+          "name": "PIPES",
+          "mode": "pipe",
+          "source_line": 326,
+          "phase_index": 0,
+          "pointer_branch": "GENERIC_DOT_ARC",
+          "missing_texture": "Generic dot/arc branch unchanged"
+        },
+        {
+          "name": "PATCH",
+          "mode": "tap",
+          "source_line": 327,
+          "phase_index": 1,
+          "pointer_branch": "GENERIC_DOT_ARC",
+          "missing_texture": "Generic dot/arc branch unchanged"
+        },
+        {
+          "name": "VALVE",
+          "mode": "circle",
+          "source_line": 328,
+          "phase_index": 2,
+          "pointer_branch": "GENERIC_DOT_ARC",
+          "missing_texture": "Generic dot/arc branch unchanged"
+        },
+        {
+          "name": "LAUNCH",
+          "mode": "hold",
+          "source_line": 329,
+          "phase_index": 3,
+          "pointer_branch": "GENERIC_DOT_ARC",
+          "missing_texture": "Generic dot/arc branch unchanged"
+        }
+      ],
+      "surface_path": "scripts/opera_gesture_surface.gd",
+      "guide_method": "_draw_demo_finger",
+      "existing_piece_id": "FV-1DC9F18904A8",
+      "uses_shared_helper": true,
+      "draw_guard": "demo_active",
+      "factory_alternatives": [],
+      "source_only": true,
+      "runtime_context_complete": false,
+      "ten_axis_review": "PENDING actual mode/rest/action/contact/payoff captures and same-scene comparison; R16 covers Geode candidate only"
+    },
+    {
+      "route_id": "opera.act.12",
+      "career": "racer",
+      "source_phase_rows": [
+        {
+          "name": "TUNE",
+          "mode": "circle",
+          "source_line": 332,
+          "phase_index": 0,
+          "pointer_branch": "GENERIC_DOT_ARC",
+          "missing_texture": "Generic dot/arc branch unchanged"
+        },
+        {
+          "name": "TO THE LINE",
+          "mode": "swipe",
+          "source_line": 333,
+          "phase_index": 1,
+          "pointer_branch": "GENERIC_DOT_ARC",
+          "missing_texture": "Generic dot/arc branch unchanged"
+        },
+        {
+          "name": "RACE",
+          "mode": "kart_race",
+          "widget": "",
+          "source_line": 334,
+          "phase_index": 2,
+          "pointer_branch": "GENERIC_DOT_ARC",
+          "missing_texture": "Generic dot/arc branch unchanged"
+        }
+      ],
+      "surface_path": "scripts/opera_racer_surface.gd",
+      "guide_method": "_draw_demo_finger",
+      "existing_piece_id": "FV-1DC9F18904A8",
+      "uses_shared_helper": true,
+      "draw_guard": "demo_active",
+      "factory_alternatives": [
+        "kart_race uses _draw_race_controls and its pose override; other modes delegate super._draw()/super._demo_finger_pose()."
+      ],
+      "source_only": true,
+      "runtime_context_complete": false,
+      "ten_axis_review": "PENDING actual mode/rest/action/contact/payoff captures and same-scene comparison; R16 covers Geode candidate only"
+    },
+    {
+      "route_id": "opera.act.13",
+      "career": "popstar",
+      "source_phase_rows": [
+        {
+          "name": "SOUND CHECK",
+          "mode": "hold",
+          "source_line": 344,
+          "phase_index": 0,
+          "pointer_branch": "GENERIC_DOT_ARC",
+          "missing_texture": "Generic dot/arc branch unchanged"
+        },
+        {
+          "name": "DANCE",
+          "mode": "choice",
+          "source_line": 345,
+          "phase_index": 1,
+          "pointer_branch": "GENERIC_DOT_ARC",
+          "missing_texture": "Generic dot/arc branch unchanged"
+        },
+        {
+          "name": "RHYTHM",
+          "mode": "echo",
+          "source_line": 346,
+          "phase_index": 2,
+          "pointer_branch": "GENERIC_DOT_ARC",
+          "missing_texture": "Generic dot/arc branch unchanged"
+        },
+        {
+          "name": "ENCORE",
+          "mode": "circle",
+          "source_line": 347,
+          "phase_index": 3,
+          "pointer_branch": "GENERIC_DOT_ARC",
+          "missing_texture": "Generic dot/arc branch unchanged"
+        }
+      ],
+      "surface_path": "scripts/opera_gesture_surface.gd",
+      "guide_method": "_draw_demo_finger",
+      "existing_piece_id": "FV-1DC9F18904A8",
+      "uses_shared_helper": true,
+      "draw_guard": "demo_active",
+      "factory_alternatives": [],
+      "source_only": true,
+      "runtime_context_complete": false,
+      "ten_axis_review": "PENDING actual mode/rest/action/contact/payoff captures and same-scene comparison; R16 covers Geode candidate only"
+    },
+    {
+      "route_id": "opera.act.15",
+      "career": "nursery",
+      "source_phase_rows": [
+        {
+          "name": "WASH HANDS",
+          "mode": "hold",
+          "widget": "",
+          "visual_context": "nursery_wash",
+          "source_line": 337,
+          "phase_index": 0,
+          "pointer_branch": "GENERIC_DOT_ARC",
+          "missing_texture": "Generic dot/arc branch unchanged"
+        },
+        {
+          "name": "CATCH BABIES",
+          "mode": "catch",
+          "source_line": 338,
+          "phase_index": 1,
+          "pointer_branch": "GENERIC_DOT_ARC",
+          "missing_texture": "Generic dot/arc branch unchanged"
+        },
+        {
+          "name": "FEED",
+          "mode": "hold",
+          "widget": "",
+          "visual_context": "nursery_feed",
+          "source_line": 339,
+          "phase_index": 2,
+          "pointer_branch": "GENERIC_DOT_ARC",
+          "missing_texture": "Generic dot/arc branch unchanged"
+        },
+        {
+          "name": "BURP",
+          "mode": "tap",
+          "widget": "",
+          "visual_context": "nursery_burp",
+          "source_line": 340,
+          "phase_index": 3,
+          "pointer_branch": "GENERIC_DOT_ARC",
+          "missing_texture": "Generic dot/arc branch unchanged"
+        },
+        {
+          "name": "BEDTIME",
+          "mode": "swipe",
+          "widget": "",
+          "visual_context": "nursery_bedtime",
+          "source_line": 341,
+          "phase_index": 4,
+          "pointer_branch": "GENERIC_DOT_ARC",
+          "missing_texture": "Generic dot/arc branch unchanged"
+        }
+      ],
+      "surface_path": "scripts/opera_gesture_surface.gd",
+      "guide_method": "_draw_demo_finger",
+      "existing_piece_id": "FV-1DC9F18904A8",
+      "uses_shared_helper": true,
+      "draw_guard": "demo_active",
+      "factory_alternatives": [],
+      "source_only": true,
+      "runtime_context_complete": false,
+      "ten_axis_review": "PENDING actual mode/rest/action/contact/payoff captures and same-scene comparison; R16 covers Geode candidate only"
+    },
+    {
+      "route_id": "opera.act.16",
+      "career": "geologist",
+      "source_phase_rows": [
+        {
+          "name": "RIVER",
+          "mode": "geology_river",
+          "widget": "",
+          "source_line": 350,
+          "phase_index": 0,
+          "pointer_branch": "GENERIC_DOT_ARC",
+          "missing_texture": "Generic dot/arc branch unchanged"
+        },
+        {
+          "name": "FOSSIL",
+          "mode": "geology_fossil",
+          "widget": "",
+          "source_line": 351,
+          "phase_index": 1,
+          "pointer_branch": "GENERIC_DOT_ARC",
+          "missing_texture": "Generic dot/arc branch unchanged"
+        },
+        {
+          "name": "PAN",
+          "mode": "geology_pan",
+          "widget": "",
+          "source_line": 352,
+          "phase_index": 2,
+          "pointer_branch": "GENERIC_DOT_ARC",
+          "missing_texture": "Generic dot/arc branch unchanged"
+        },
+        {
+          "name": "GEODE",
+          "mode": "geology_geode",
+          "widget": "",
+          "source_line": 353,
+          "phase_index": 3,
+          "pointer_branch": "GENERIC_DOT_ARC",
+          "missing_texture": "Generic dot/arc branch unchanged"
+        }
+      ],
+      "surface_path": "scripts/opera_geology_surface.gd",
+      "guide_method": "_draw_demo_finger",
+      "existing_piece_id": "FV-1DC9F18904A8",
+      "uses_shared_helper": true,
+      "draw_guard": "demo_active and not armed_only and not _completion_emitted",
+      "factory_alternatives": [],
+      "source_only": true,
+      "runtime_context_complete": false,
+      "ten_axis_review": "PENDING actual mode/rest/action/contact/payoff captures and same-scene comparison; R16 covers Geode candidate only"
+    },
+    {
+      "route_id": "opera.act.17",
+      "career": "teacher",
+      "source_phase_rows": [
+        {
+          "name": "PATTERN",
+          "mode": "teacher_pattern",
+          "widget": "",
+          "source_line": 265,
+          "phase_index": 0,
+          "pointer_branch": "INDEPENDENT_PROCEDURAL_GUIDE",
+          "missing_texture": "No hand texture dependency for this independent guide; other art fallbacks unreviewed"
+        },
+        {
+          "name": "COUNT",
+          "mode": "teacher_count",
+          "widget": "",
+          "source_line": 266,
+          "phase_index": 1,
+          "pointer_branch": "INDEPENDENT_PROCEDURAL_GUIDE",
+          "missing_texture": "No hand texture dependency for this independent guide; other art fallbacks unreviewed"
+        },
+        {
+          "name": "ADD",
+          "mode": "teacher_add",
+          "widget": "",
+          "source_line": 267,
+          "phase_index": 2,
+          "pointer_branch": "INDEPENDENT_PROCEDURAL_GUIDE",
+          "missing_texture": "No hand texture dependency for this independent guide; other art fallbacks unreviewed"
+        },
+        {
+          "name": "MATCH",
+          "mode": "teacher_match",
+          "widget": "",
+          "source_line": 268,
+          "phase_index": 3,
+          "pointer_branch": "INDEPENDENT_PROCEDURAL_GUIDE",
+          "missing_texture": "No hand texture dependency for this independent guide; other art fallbacks unreviewed"
+        }
+      ],
+      "surface_path": "scripts/opera_teacher_surface.gd",
+      "guide_method": "_draw_demo",
+      "existing_piece_id": "FV-E1049E4945A3",
+      "uses_shared_helper": false,
+      "draw_guard": "not solved; demo returns unless add not joined,uncounted counters,or help_visible",
+      "factory_alternatives": [],
+      "source_only": true,
+      "runtime_context_complete": false,
+      "ten_axis_review": "PENDING actual mode/rest/action/contact/payoff captures and same-scene comparison; R16 covers Geode candidate only"
+    }
+  ],
+  "shared_helper_call_sites": [
+    {
+      "path": "scripts/opera_chef_surface.gd",
+      "line": 121,
+      "text": "\t\t_draw_demo_finger()"
+    },
+    {
+      "path": "scripts/opera_geology_surface.gd",
+      "line": 630,
+      "text": "\t\t_draw_demo_finger()"
+    },
+    {
+      "path": "scripts/opera_gesture_surface.gd",
+      "line": 1292,
+      "text": "\t\t\t_draw_demo_finger()"
+    },
+    {
+      "path": "scripts/opera_gesture_surface.gd",
+      "line": 1297,
+      "text": "\t\t\t_draw_demo_finger()"
+    },
+    {
+      "path": "scripts/opera_gesture_surface.gd",
+      "line": 1302,
+      "text": "\t\t\t_draw_demo_finger()"
+    },
+    {
+      "path": "scripts/opera_gesture_surface.gd",
+      "line": 1307,
+      "text": "\t\t\t_draw_demo_finger()"
+    },
+    {
+      "path": "scripts/opera_gesture_surface.gd",
+      "line": 1312,
+      "text": "\t\t\t_draw_demo_finger()"
+    },
+    {
+      "path": "scripts/opera_gesture_surface.gd",
+      "line": 1317,
+      "text": "\t\t\t_draw_demo_finger()"
+    },
+    {
+      "path": "scripts/opera_gesture_surface.gd",
+      "line": 1322,
+      "text": "\t\t\t_draw_demo_finger()"
+    },
+    {
+      "path": "scripts/opera_gesture_surface.gd",
+      "line": 1327,
+      "text": "\t\t\t_draw_demo_finger()"
+    },
+    {
+      "path": "scripts/opera_gesture_surface.gd",
+      "line": 1332,
+      "text": "\t\t\t_draw_demo_finger()"
+    },
+    {
+      "path": "scripts/opera_gesture_surface.gd",
+      "line": 1337,
+      "text": "\t\t\t_draw_demo_finger()"
+    },
+    {
+      "path": "scripts/opera_gesture_surface.gd",
+      "line": 1342,
+      "text": "\t\t\t_draw_demo_finger()"
+    },
+    {
+      "path": "scripts/opera_gesture_surface.gd",
+      "line": 1347,
+      "text": "\t\t\t_draw_demo_finger()"
+    },
+    {
+      "path": "scripts/opera_gesture_surface.gd",
+      "line": 1352,
+      "text": "\t\t\t_draw_demo_finger()"
+    },
+    {
+      "path": "scripts/opera_gesture_surface.gd",
+      "line": 1357,
+      "text": "\t\t\t_draw_demo_finger()"
+    },
+    {
+      "path": "scripts/opera_gesture_surface.gd",
+      "line": 1361,
+      "text": "\t\t\t_draw_demo_finger()"
+    },
+    {
+      "path": "scripts/opera_gesture_surface.gd",
+      "line": 1367,
+      "text": "\t\t\t_draw_demo_finger()"
+    },
+    {
+      "path": "scripts/opera_gesture_surface.gd",
+      "line": 1372,
+      "text": "\t\t\t_draw_demo_finger()"
+    },
+    {
+      "path": "scripts/opera_gesture_surface.gd",
+      "line": 1429,
+      "text": "\t\t_draw_demo_finger()"
+    },
+    {
+      "path": "scripts/opera_racer_surface.gd",
+      "line": 454,
+      "text": "\t\t_draw_demo_finger()"
+    }
+  ],
+  "old_hand_path_references": [
+    {
+      "path": "scripts/arena/fairy_conservatory_handoff_2d.gd",
+      "line": 28,
+      "text": "const POINTER_PATH := \"res://assets/castle/training/ghost_hand.png\"",
+      "status": "SOURCE_REFERENCE_ONLY_LIVE_VISIBILITY_AND_MISSING_PATH_UNREVIEWED"
+    },
+    {
+      "path": "scripts/boss_splash_2d.gd",
+      "line": 19,
+      "text": "const GHOST_HAND := preload(\"res://assets/castle/training/ghost_hand.png\")",
+      "status": "SOURCE_REFERENCE_ONLY_LIVE_VISIBILITY_AND_MISSING_PATH_UNREVIEWED"
+    },
+    {
+      "path": "scripts/chapter_two_lawn_finale_2d.gd",
+      "line": 247,
+      "text": "\tpointer = _picture(\"GuideHand\", \"res://assets/castle/training/ghost_hand.png\",",
+      "status": "SOURCE_REFERENCE_ONLY_LIVE_VISIBILITY_AND_MISSING_PATH_UNREVIEWED"
+    },
+    {
+      "path": "scripts/encounter_gesture_guide_2d.gd",
+      "line": 5,
+      "text": "const HAND_PATH := \"res://assets/castle/training/ghost_hand.png\"",
+      "status": "SOURCE_REFERENCE_ONLY_LIVE_VISIBILITY_AND_MISSING_PATH_UNREVIEWED"
+    },
+    {
+      "path": "scripts/encounter_telegraph_2d.gd",
+      "line": 12,
+      "text": "const SAFE_HAND := preload(\"res://assets/castle/training/ghost_hand.png\")",
+      "status": "SOURCE_REFERENCE_ONLY_LIVE_VISIBILITY_AND_MISSING_PATH_UNREVIEWED"
+    },
+    {
+      "path": "scripts/fairy_restoration_prototype.gd",
+      "line": 21,
+      "text": "const POINTER := \"res://assets/castle/training/ghost_hand.png\"",
+      "status": "SOURCE_REFERENCE_ONLY_LIVE_VISIBILITY_AND_MISSING_PATH_UNREVIEWED"
+    },
+    {
+      "path": "scripts/games/day_one_bathroom_cleaning.gd",
+      "line": 43,
+      "text": "const POINTER_TEXTURE := \"res://assets/castle/training/ghost_hand.png\"",
+      "status": "SOURCE_REFERENCE_ONLY_LIVE_VISIBILITY_AND_MISSING_PATH_UNREVIEWED"
+    },
+    {
+      "path": "scripts/games/day_one_bathroom_cleanup.gd",
+      "line": 63,
+      "text": "const POINTER_TEXTURE := \"res://assets/castle/training/ghost_hand.png\"",
+      "status": "SOURCE_REFERENCE_ONLY_LIVE_VISIBILITY_AND_MISSING_PATH_UNREVIEWED"
+    },
+    {
+      "path": "scripts/games/day_one_bathroom_toilet.gd",
+      "line": 16,
+      "text": "const POINTER := preload(\"res://assets/castle/training/ghost_hand.png\")",
+      "status": "SOURCE_REFERENCE_ONLY_LIVE_VISIBILITY_AND_MISSING_PATH_UNREVIEWED"
+    },
+    {
+      "path": "scripts/games/pool_seahorse_rescue_activity.gd",
+      "line": 30,
+      "text": "const GUIDE_HAND_PATH := \"res://assets/castle/training/ghost_hand.png\"",
+      "status": "SOURCE_REFERENCE_ONLY_LIVE_VISIBILITY_AND_MISSING_PATH_UNREVIEWED"
+    },
+    {
+      "path": "scripts/games/pool_skimmer_activity.gd",
+      "line": 36,
+      "text": "const GUIDE_HAND_PATH := \"res://assets/castle/training/ghost_hand.png\"",
+      "status": "SOURCE_REFERENCE_ONLY_LIVE_VISIBILITY_AND_MISSING_PATH_UNREVIEWED"
+    },
+    {
+      "path": "scripts/games/pool_waterfall_activity.gd",
+      "line": 28,
+      "text": "const GUIDE_HAND_PATH := \"res://assets/castle/training/ghost_hand.png\"",
+      "status": "SOURCE_REFERENCE_ONLY_LIVE_VISIBILITY_AND_MISSING_PATH_UNREVIEWED"
+    },
+    {
+      "path": "scripts/opera_gesture_surface.gd",
+      "line": 784,
+      "text": "\t\t\t\t\t\"res://assets/castle/training/ghost_hand.png\")",
+      "status": "SOURCE_REFERENCE_ONLY_LIVE_VISIBILITY_AND_MISSING_PATH_UNREVIEWED"
+    },
+    {
+      "path": "scripts/opera_house_venue_2d.gd",
+      "line": 18,
+      "text": "const GHOST_HAND_TEXTURE := \"res://assets/castle/training/ghost_hand.png\"",
+      "status": "SOURCE_REFERENCE_ONLY_LIVE_VISIBILITY_AND_MISSING_PATH_UNREVIEWED"
+    },
+    {
+      "path": "scripts/opera_tree_book_test.gd",
+      "line": 71,
+      "text": "\thand = load(\"res://assets/castle/training/ghost_hand.png\") as Texture2D",
+      "status": "SOURCE_REFERENCE_ONLY_LIVE_VISIBILITY_AND_MISSING_PATH_UNREVIEWED"
+    },
+    {
+      "path": "scripts/start_menu.gd",
+      "line": 260,
+      "text": "\thand.texture = load(\"res://assets/castle/training/ghost_hand.png\") as Texture2D",
+      "status": "SOURCE_REFERENCE_ONLY_LIVE_VISIBILITY_AND_MISSING_PATH_UNREVIEWED"
+    }
+  ],
+  "old_hand_source_reference_files": 16,
+  "load_branch": {
+    "predicate": "mode == pourt and visual_context == pour_candymaker and pour_demo_hand_texture != null",
+    "loader": "_load_widget_set resets hand null; pour family + pour_candymaker loads through ResourceLoader.exists/load",
+    "normal": "54px unpressed/58px pressed whole old hand,UV(.455,.91),alpha.96; return skips parent circles/arc",
+    "missing": "null hand falls through to 3 circles and pressing arc; no retirement"
+  },
+  "generic_branch": {
+    "normal": "3 circles always; arc only pressing; used in remaining shared contexts",
+    "missing": "Same procedural pointer; it has no general texture dependency"
+  },
+  "phase_variants": [
+    "PHASES constant table61 is a bounded selector table,not all reachable states",
+    "Chapter2 adapter/config phase overrides may replace it",
+    "chapter2_tutorial truncates to first phase",
+    "PerformancePlan may rebuild two-act phase lists",
+    "Rival generic surface exists for non-Ballet two-act careers; armed_only/process-disabled/visibility cannot alone imply suppression because parent _draw guards only demo_active. Actual displayed rivalry states not captured here."
+  ],
+  "encounter_guide": {
+    "source": "scripts/encounter_gesture_guide_2d.gd",
+    "actual_direct_caller": "scripts/combat_tutorial.gd:142",
+    "draw_guard": "anchor != Vector2.ZERO",
+    "normal": "Old hand82square,UV(.435,.875),10px unpressed lift; halo always,press arc and hold-stage arc remain",
+    "missing": "13px cream dot; halo/press/hold arcs remain; optional chip missing silently omits chip",
+    "scope": "Separate renderer; not affected by replacement of OperaGestureSurface._draw_demo_finger"
+  },
+  "limits": [
+    "String references establish potential dependencies only,not live reachability or visual weakness",
+    "No new source image/current capture/ten-axis human review",
+    "All old-hand consumers need actual normal/missing/rest/action/state context before repair",
+    "Inherited current registry route_refs retain historical broad candidate scope; R17 direct player route overlay corrects only this source boundary",
+    "No full function-scope disposition/global caller closure or zero-art claim"
+  ],
+  "native_captures_added": 0,
+  "new_design_ids": 0,
+  "new_art_drawings": 0,
+  "samples_awaiting_review": 1,
+  "approved": 0,
+  "integrated": 0,
+  "runtime_verified_replacement": 0,
+  "accepted_removed": 0,
+  "whole_game_individual_total": null,
+  "distinct_screen_total": null
+}

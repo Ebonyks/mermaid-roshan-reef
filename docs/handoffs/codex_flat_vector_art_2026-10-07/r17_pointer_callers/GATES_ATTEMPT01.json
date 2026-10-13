@@ -1,0 +1,31 @@
+{
+  "status": "FAIL",
+  "commands": [
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-B",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r17_pointer_callers\\validate.py"
+      ],
+      "started_at_utc": "2026-10-13T16:42:12.191145+00:00",
+      "checked_at_utc": "2026-10-13T16:42:26.763983+00:00",
+      "exit_code": 0,
+      "result": "PASS",
+      "evidence": "gates.log"
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-B",
+        "tools/audit_document_authority.py"
+      ],
+      "started_at_utc": "2026-10-13T16:42:26.764032+00:00",
+      "checked_at_utc": "2026-10-13T16:42:38.999090+00:00",
+      "exit_code": 1,
+      "result": "FAIL",
+      "evidence": "gates.log"
+    }
+  ],
+  "raw_log_sha256": "e45e04b713ee85f53ba37fcb6b374e14e0f6167677814fed07bff69f96a05dea",
+  "scope": "Source-only documents over unchanged runtime; inherited R16 exact82 local trusted passes. No runtime code/assets/generation/capture changes. Strict medium/global/QA11/device/child/owner acceptance open."
+}
