@@ -74,9 +74,14 @@
       "evidence": "No runtime code/assets changed in R17; inherited exact R16 FULL_VALIDATION.json preserves82 local trusted native passes on identical runtime bytes. Current R17 CI remains separate,pending."
     },
     {
-      "command": "Anonymous exact remote payload and final receipt verification",
-      "result": "PENDING",
-      "evidence": "R17 MANIFEST.json/REMOTE_VERIFICATION.json and later final receipt byte verification"
+      "command": "Anonymous exact payload verification",
+      "result": "PASS",
+      "evidence": "R17 REMOTE_VERIFICATION.json:1135 required files plus manifest,127531304 required bytes at0606fbc0f94d3d60fa332dc430f44af70c7a812a; public unauthenticated bytes/hashes verified. Final receipt metadata verification follows receipt publication."
+    },
+    {
+      "command": "Final receipt source/document/audit-impact/medium gates",
+      "result": "PASS",
+      "evidence": "R17 RECEIPT_GATES.json and exact receipt_gates.log; all4 exit0. Anonymous final five metadata byte check follows receipt push and is reported separately from this pre-publication receipt record."
     }
   ],
   "acceptance_gaps": "Source-only audit: all visual/candidate/integration/runtime-replacement/QA11/device/child/owner lanes remain separately open. No finding lifecycle change.",
