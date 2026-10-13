@@ -1,5 +1,1305 @@
 {
-  "schema": 1,
-  "status": "PENDING_EXACT_PUBLICATION",
-  "creative_acceptance": false
+  "schema": "reef.flat_vector_delta_receipt/1",
+  "status": "ALL_DECLARED_DEPENDENCIES_VERIFIED",
+  "revision": "f9f276b27f86744672bd06b3d0c8f9e72c9d9120",
+  "manifest_path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r8_geode_context/MANIFEST.json",
+  "manifest_sha256": "e77c2d347c0cf8b9181109d94c584ea45e7fe4643cb8e420aa20ce8c49253b17",
+  "payload_sha256": "ab119c39c362029359298f4cd46447abbc3c3356a6c494fddc071149a4387730",
+  "required_file_count": 121,
+  "required_bytes": 28407914,
+  "started_at_utc": "2026-10-13T06:04:21.808336+00:00",
+  "checked_at_utc": "2026-10-13T06:04:25.280989+00:00",
+  "access_mode": "Anonymous public HTTPS for manifest and every declared required file; public GitHub repo API independently checked; recipient can use the same unauthenticated access mode.",
+  "repo_private": false,
+  "checks": [
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/MANIFEST.json",
+      "revision": "4aceae967de9da7c8f479e358a008188ba1f6304",
+      "bytes": 707814,
+      "sha256": "d8ed259c922647cfbd1601804fc491a152afbeac57e1be80cf8bafe74094670e",
+      "role": "Immutable prior registry/count/capture/delivery/CI context; earlier manifests/receipts retain their exact inherited dependency verification scope",
+      "verified_revision": "4aceae967de9da7c8f479e358a008188ba1f6304",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/4aceae967de9da7c8f479e358a008188ba1f6304/docs/handoffs/codex_flat_vector_art_2026-10-07/MANIFEST.json"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/per_piece.json",
+      "revision": "4aceae967de9da7c8f479e358a008188ba1f6304",
+      "bytes": 1103788,
+      "sha256": "5b10e09df85b6d21027435bc64709a6032f5ac6f81bd8f406560221b936996e9",
+      "role": "Immutable prior registry/count/capture/delivery/CI context; earlier manifests/receipts retain their exact inherited dependency verification scope",
+      "verified_revision": "4aceae967de9da7c8f479e358a008188ba1f6304",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/4aceae967de9da7c8f479e358a008188ba1f6304/docs/handoffs/codex_flat_vector_art_2026-10-07/per_piece.json"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/scene_coverage.json",
+      "revision": "4aceae967de9da7c8f479e358a008188ba1f6304",
+      "bytes": 438160,
+      "sha256": "5a2b60e16204949a807a9ea5d0fd5755522c49481a119f637512602245c3fd6f",
+      "role": "Immutable prior registry/count/capture/delivery/CI context; earlier manifests/receipts retain their exact inherited dependency verification scope",
+      "verified_revision": "4aceae967de9da7c8f479e358a008188ba1f6304",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/4aceae967de9da7c8f479e358a008188ba1f6304/docs/handoffs/codex_flat_vector_art_2026-10-07/scene_coverage.json"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/tally.json",
+      "revision": "4aceae967de9da7c8f479e358a008188ba1f6304",
+      "bytes": 7990,
+      "sha256": "fc7c26096d5ccd1e63df0fb89862e91481551a077aa82a1bf1e37aa169b1d66a",
+      "role": "Immutable prior registry/count/capture/delivery/CI context; earlier manifests/receipts retain their exact inherited dependency verification scope",
+      "verified_revision": "4aceae967de9da7c8f479e358a008188ba1f6304",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/4aceae967de9da7c8f479e358a008188ba1f6304/docs/handoffs/codex_flat_vector_art_2026-10-07/tally.json"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/REMOTE_VERIFICATION.json",
+      "revision": "70879a91ddcbba51ba09c7d0be81cc65f340e3b5",
+      "bytes": 1835762,
+      "sha256": "541c3b2ed42ccd1fe6be47b5bb807f81a75be2f274d04f686e0f2af9e7933670",
+      "role": "Immutable prior registry/count/capture/delivery/CI context; earlier manifests/receipts retain their exact inherited dependency verification scope",
+      "verified_revision": "70879a91ddcbba51ba09c7d0be81cc65f340e3b5",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/70879a91ddcbba51ba09c7d0be81cc65f340e3b5/docs/handoffs/codex_flat_vector_art_2026-10-07/REMOTE_VERIFICATION.json"
+    },
+    {
+      "path": ".gitattributes",
+      "revision": null,
+      "bytes": 3629,
+      "sha256": "4a318d4790f796f307f061f09fbf4142f3a67671fb6beac25a628e3c4e1fa954",
+      "role": "Literal native R8 diagnostic-log preservation metadata; no runtime/scanner exclusions",
+      "verified_revision": "f9f276b27f86744672bd06b3d0c8f9e72c9d9120",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/f9f276b27f86744672bd06b3d0c8f9e72c9d9120/.gitattributes"
+    },
+    {
+      "path": "ASSET_LICENSES.md",
+      "revision": null,
+      "bytes": 4389443,
+      "sha256": "6837894063b79d58675929d58783a2149a6686e2dde78fe086b68a92c41eca7e",
+      "role": "R8 context delta",
+      "verified_revision": "f9f276b27f86744672bd06b3d0c8f9e72c9d9120",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/f9f276b27f86744672bd06b3d0c8f9e72c9d9120/ASSET_LICENSES.md"
+    },
+    {
+      "path": "audit/MASTER_AUDIT_2026-08-09.md",
+      "revision": null,
+      "bytes": 295576,
+      "sha256": "9ff45ededacbdba24ee1ac37ea6c1a2bf524f282e3f0e5d152267a7bafb1ef0a",
+      "role": "R8 context delta",
+      "verified_revision": "f9f276b27f86744672bd06b3d0c8f9e72c9d9120",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/f9f276b27f86744672bd06b3d0c8f9e72c9d9120/audit/MASTER_AUDIT_2026-08-09.md"
+    },
+    {
+      "path": "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
+      "revision": null,
+      "bytes": 246292,
+      "sha256": "0e66e2a5a3268b38e0d220c05ab8de8c0ad806f8cc5f50e6dc58635e3edfc804",
+      "role": "R8 context delta",
+      "verified_revision": "f9f276b27f86744672bd06b3d0c8f9e72c9d9120",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/f9f276b27f86744672bd06b3d0c8f9e72c9d9120/audit/findings/ACTIVE_FINDINGS_2026-08-13.md"
+    },
+    {
+      "path": "design/05_DOC_LEDGER.md",
+      "revision": null,
+      "bytes": 220777,
+      "sha256": "fbed17dc4c8fdce37bd655341301dc52047f8416ced3969fb7eb91266c9a0f21",
+      "role": "R8 context delta",
+      "verified_revision": "f9f276b27f86744672bd06b3d0c8f9e72c9d9120",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/f9f276b27f86744672bd06b3d0c8f9e72c9d9120/design/05_DOC_LEDGER.md"
+    },
+    {
+      "path": "design/audit_impacts/flat-vector-geode-context-20261013.json",
+      "revision": null,
+      "bytes": 9659,
+      "sha256": "0a8ecbc7ab214d3bdf5c990a2273eb3a5e1edff9d8a4cf5778ec71a5cf7115e1",
+      "role": "R8 context delta",
+      "verified_revision": "f9f276b27f86744672bd06b3d0c8f9e72c9d9120",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/f9f276b27f86744672bd06b3d0c8f9e72c9d9120/design/audit_impacts/flat-vector-geode-context-20261013.json"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/CURRENT.json",
+      "revision": null,
+      "bytes": 880,
+      "sha256": "edabdb21607e562b5835ab41c45a5476b58437b9a477993b2c293be2b1493782",
+      "role": "R8 context delta",
+      "verified_revision": "f9f276b27f86744672bd06b3d0c8f9e72c9d9120",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/f9f276b27f86744672bd06b3d0c8f9e72c9d9120/docs/handoffs/codex_flat_vector_art_2026-10-07/CURRENT.json"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/README.md",
+      "revision": null,
+      "bytes": 7852,
+      "sha256": "e9343d7e6dc885531c61b44fa3320d3a7e20e326d82ee07e89fa9d6177b5c434",
+      "role": "R8 context delta",
+      "verified_revision": "f9f276b27f86744672bd06b3d0c8f9e72c9d9120",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/f9f276b27f86744672bd06b3d0c8f9e72c9d9120/docs/handoffs/codex_flat_vector_art_2026-10-07/README.md"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r8_geode_context/CALLER_CLOSURE.json",
+      "revision": null,
+      "bytes": 866,
+      "sha256": "8dbbd40e031d0783af12fe8022cddcb8b03f69813d5600e73d122dd911d0f0b0",
+      "role": "R8 context delta",
+      "verified_revision": "f9f276b27f86744672bd06b3d0c8f9e72c9d9120",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/f9f276b27f86744672bd06b3d0c8f9e72c9d9120/docs/handoffs/codex_flat_vector_art_2026-10-07/r8_geode_context/CALLER_CLOSURE.json"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r8_geode_context/CONGRUENCY_BACKLOG.json",
+      "revision": null,
+      "bytes": 68811,
+      "sha256": "ff660d2060ece396708dfe487f8490e099c4afc3d0b7b3a550916d573b50799a",
+      "role": "R8 context delta",
+      "verified_revision": "f9f276b27f86744672bd06b3d0c8f9e72c9d9120",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/f9f276b27f86744672bd06b3d0c8f9e72c9d9120/docs/handoffs/codex_flat_vector_art_2026-10-07/r8_geode_context/CONGRUENCY_BACKLOG.json"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r8_geode_context/GATES.json",
+      "revision": null,
+      "bytes": 59859,
+      "sha256": "50b4af876a4a3993ec6d7bcae12c2f0ae6e3670bc216350090f37c58cb676b34",
+      "role": "R8 context delta",
+      "verified_revision": "f9f276b27f86744672bd06b3d0c8f9e72c9d9120",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/f9f276b27f86744672bd06b3d0c8f9e72c9d9120/docs/handoffs/codex_flat_vector_art_2026-10-07/r8_geode_context/GATES.json"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r8_geode_context/GATES.log",
+      "revision": null,
+      "bytes": 1234,
+      "sha256": "59eba92ec69895c9a6101a017bc26a805732f8ea58977704766677cad1f6acc1",
+      "role": "R8 context delta",
+      "verified_revision": "f9f276b27f86744672bd06b3d0c8f9e72c9d9120",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/f9f276b27f86744672bd06b3d0c8f9e72c9d9120/docs/handoffs/codex_flat_vector_art_2026-10-07/r8_geode_context/GATES.log"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r8_geode_context/IMPORT.json",
+      "revision": null,
+      "bytes": 718,
+      "sha256": "7dae8958a6942328145dbf2a1dcee60fd0ffbb7da9cbe6aef2e4ef73d2f8ada3",
+      "role": "R8 context delta",
+      "verified_revision": "f9f276b27f86744672bd06b3d0c8f9e72c9d9120",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/f9f276b27f86744672bd06b3d0c8f9e72c9d9120/docs/handoffs/codex_flat_vector_art_2026-10-07/r8_geode_context/IMPORT.json"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r8_geode_context/LAUNCH.json",
+      "revision": null,
+      "bytes": 901,
+      "sha256": "32fab31812a09f753cf81b292d1afc29dd9516aec5e6b0d9cd9a7696ef6b5607",
+      "role": "R8 context delta",
+      "verified_revision": "f9f276b27f86744672bd06b3d0c8f9e72c9d9120",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/f9f276b27f86744672bd06b3d0c8f9e72c9d9120/docs/handoffs/codex_flat_vector_art_2026-10-07/r8_geode_context/LAUNCH.json"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r8_geode_context/ORIGIN_DEV_RECONCILIATION.json",
+      "revision": null,
+      "bytes": 494,
+      "sha256": "f02227a31bac9807d44af8b97f221ddd5b65728c1178d08a36455f49b40b47c8",
+      "role": "R8 context delta",
+      "verified_revision": "f9f276b27f86744672bd06b3d0c8f9e72c9d9120",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/f9f276b27f86744672bd06b3d0c8f9e72c9d9120/docs/handoffs/codex_flat_vector_art_2026-10-07/r8_geode_context/ORIGIN_DEV_RECONCILIATION.json"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r8_geode_context/PREFLIGHT.json",
+      "revision": null,
+      "bytes": 612209,
+      "sha256": "0d78d44065342cfb2affd419d8a673d585d524c25db3b4098d6c45348545ae6a",
+      "role": "R8 context delta",
+      "verified_revision": "f9f276b27f86744672bd06b3d0c8f9e72c9d9120",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/f9f276b27f86744672bd06b3d0c8f9e72c9d9120/docs/handoffs/codex_flat_vector_art_2026-10-07/r8_geode_context/PREFLIGHT.json"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r8_geode_context/README.md",
+      "revision": null,
+      "bytes": 2710,
+      "sha256": "442d147e339ca92fb96b00fb1cd51d0bbb9da626b83a72cf7444c0530106499c",
+      "role": "R8 context delta",
+      "verified_revision": "f9f276b27f86744672bd06b3d0c8f9e72c9d9120",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/f9f276b27f86744672bd06b3d0c8f9e72c9d9120/docs/handoffs/codex_flat_vector_art_2026-10-07/r8_geode_context/README.md"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r8_geode_context/REUSE_DISPOSITION.json",
+      "revision": null,
+      "bytes": 1330,
+      "sha256": "ebfe4231dd3360f3990e2d83aaf84230277a9720711c836631aa7d35276c084e",
+      "role": "R8 context delta",
+      "verified_revision": "f9f276b27f86744672bd06b3d0c8f9e72c9d9120",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/f9f276b27f86744672bd06b3d0c8f9e72c9d9120/docs/handoffs/codex_flat_vector_art_2026-10-07/r8_geode_context/REUSE_DISPOSITION.json"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r8_geode_context/REVIEW.json",
+      "revision": null,
+      "bytes": 5346,
+      "sha256": "8ca23b83e1291a848feca5cda4267e9c75632b609b384dfcdd9e29eb8584c54a",
+      "role": "R8 context delta",
+      "verified_revision": "f9f276b27f86744672bd06b3d0c8f9e72c9d9120",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/f9f276b27f86744672bd06b3d0c8f9e72c9d9120/docs/handoffs/codex_flat_vector_art_2026-10-07/r8_geode_context/REVIEW.json"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r8_geode_context/SOURCES.json",
+      "revision": null,
+      "bytes": 13600,
+      "sha256": "2d59e928e56c12ec16d3ea3c91d1fa2df6af06bd0421337ae4a5acfe0e3d35dd",
+      "role": "R8 context delta",
+      "verified_revision": "f9f276b27f86744672bd06b3d0c8f9e72c9d9120",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/f9f276b27f86744672bd06b3d0c8f9e72c9d9120/docs/handoffs/codex_flat_vector_art_2026-10-07/r8_geode_context/SOURCES.json"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r8_geode_context/SOURCE_PARITY.json",
+      "revision": null,
+      "bytes": 14293,
+      "sha256": "7047dd9eaf97bae909e07cca24ab36774029e2508cfd6dcd075d780ffd33ceaf",
+      "role": "R8 context delta",
+      "verified_revision": "f9f276b27f86744672bd06b3d0c8f9e72c9d9120",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/f9f276b27f86744672bd06b3d0c8f9e72c9d9120/docs/handoffs/codex_flat_vector_art_2026-10-07/r8_geode_context/SOURCE_PARITY.json"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r8_geode_context/analyzer.log",
+      "revision": null,
+      "bytes": 73,
+      "sha256": "6d1c065383a27c36804949b6ffa4b09714470b112e5dacc0bd5aeb7b9c147c4e",
+      "role": "R8 context delta",
+      "verified_revision": "f9f276b27f86744672bd06b3d0c8f9e72c9d9120",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/f9f276b27f86744672bd06b3d0c8f9e72c9d9120/docs/handoffs/codex_flat_vector_art_2026-10-07/r8_geode_context/analyzer.log"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r8_geode_context/build_manifest.py",
+      "revision": null,
+      "bytes": 3421,
+      "sha256": "8763ab927d758e6a31884c940588374c7cd31085c8029e64e471a50bb6b25eee",
+      "role": "R8 context delta",
+      "verified_revision": "f9f276b27f86744672bd06b3d0c8f9e72c9d9120",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/f9f276b27f86744672bd06b3d0c8f9e72c9d9120/docs/handoffs/codex_flat_vector_art_2026-10-07/r8_geode_context/build_manifest.py"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r8_geode_context/capture.log",
+      "revision": null,
+      "bytes": 2012,
+      "sha256": "697097cfe550a4b4e9f66e098813eaf44f5778dffa1fd24045842f398e0f3bf9",
+      "role": "R8 context delta",
+      "verified_revision": "f9f276b27f86744672bd06b3d0c8f9e72c9d9120",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/f9f276b27f86744672bd06b3d0c8f9e72c9d9120/docs/handoffs/codex_flat_vector_art_2026-10-07/r8_geode_context/capture.log"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r8_geode_context/capture_geode.gd",
+      "revision": null,
+      "bytes": 11037,
+      "sha256": "35f9f8bfe9824b881c2fd4050128584aa4e6d38ddd6dbdacc3a229bb96f1fb23",
+      "role": "R8 context delta",
+      "verified_revision": "f9f276b27f86744672bd06b3d0c8f9e72c9d9120",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/f9f276b27f86744672bd06b3d0c8f9e72c9d9120/docs/handoffs/codex_flat_vector_art_2026-10-07/r8_geode_context/capture_geode.gd"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r8_geode_context/import.log",
+      "revision": null,
+      "bytes": 242687,
+      "sha256": "9aace8ec7f4b6e5d7bfc6b56e402674329cc62259877fc448d9cafeffa1e1997",
+      "role": "R8 context delta",
+      "verified_revision": "f9f276b27f86744672bd06b3d0c8f9e72c9d9120",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/f9f276b27f86744672bd06b3d0c8f9e72c9d9120/docs/handoffs/codex_flat_vector_art_2026-10-07/r8_geode_context/import.log"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r8_geode_context/native/1280x720/capture_manifest.json",
+      "revision": null,
+      "bytes": 84477,
+      "sha256": "32fc3e993419dd5636fd8c8c7989c4359eed7c70040478ebd048e4104cc8e69b",
+      "role": "R8 context delta",
+      "verified_revision": "f9f276b27f86744672bd06b3d0c8f9e72c9d9120",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/f9f276b27f86744672bd06b3d0c8f9e72c9d9120/docs/handoffs/codex_flat_vector_art_2026-10-07/r8_geode_context/native/1280x720/capture_manifest.json"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r8_geode_context/native/1280x720/geode_all_seams_ready.png",
+      "revision": null,
+      "bytes": 108076,
+      "sha256": "515b9a989f384599d0505e504c32ddf0d5e2d7b65705d60093caf43405cd4c43",
+      "role": "R8 context delta",
+      "verified_revision": "f9f276b27f86744672bd06b3d0c8f9e72c9d9120",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/f9f276b27f86744672bd06b3d0c8f9e72c9d9120/docs/handoffs/codex_flat_vector_art_2026-10-07/r8_geode_context/native/1280x720/geode_all_seams_ready.png"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r8_geode_context/native/1280x720/geode_cancel_focus_notification.png",
+      "revision": null,
+      "bytes": 111110,
+      "sha256": "eaa898980e34ccf93738dd7e58cde2d6f5b60cf7be9f1fbfb4098bc0c3fe63eb",
+      "role": "R8 context delta",
+      "verified_revision": "f9f276b27f86744672bd06b3d0c8f9e72c9d9120",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/f9f276b27f86744672bd06b3d0c8f9e72c9d9120/docs/handoffs/codex_flat_vector_art_2026-10-07/r8_geode_context/native/1280x720/geode_cancel_focus_notification.png"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r8_geode_context/native/1280x720/geode_cancel_pressed.png",
+      "revision": null,
+      "bytes": 111257,
+      "sha256": "87e4dd1c449d4122d0609b95cbf37b5a968fd50c0cfa48a3cd9cab442ace9e0d",
+      "role": "R8 context delta",
+      "verified_revision": "f9f276b27f86744672bd06b3d0c8f9e72c9d9120",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/f9f276b27f86744672bd06b3d0c8f9e72c9d9120/docs/handoffs/codex_flat_vector_art_2026-10-07/r8_geode_context/native/1280x720/geode_cancel_pressed.png"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r8_geode_context/native/1280x720/geode_closed_passive_1s.png",
+      "revision": null,
+      "bytes": 119829,
+      "sha256": "dad934c3a8881086131d62be7e153fda8eb371e9bdfec959c373f2ded03938af",
+      "role": "R8 context delta",
+      "verified_revision": "f9f276b27f86744672bd06b3d0c8f9e72c9d9120",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/f9f276b27f86744672bd06b3d0c8f9e72c9d9120/docs/handoffs/codex_flat_vector_art_2026-10-07/r8_geode_context/native/1280x720/geode_closed_passive_1s.png"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r8_geode_context/native/1280x720/geode_closed_ready.png",
+      "revision": null,
+      "bytes": 120105,
+      "sha256": "fbb22f5df57b6c04a8bdb7dffc878b79375ea34e40b85db5142184be289074c6",
+      "role": "R8 context delta",
+      "verified_revision": "f9f276b27f86744672bd06b3d0c8f9e72c9d9120",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/f9f276b27f86744672bd06b3d0c8f9e72c9d9120/docs/handoffs/codex_flat_vector_art_2026-10-07/r8_geode_context/native/1280x720/geode_closed_ready.png"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r8_geode_context/native/1280x720/geode_early_pull_dragged.png",
+      "revision": null,
+      "bytes": 119348,
+      "sha256": "85afb02a688ae1b5bc2a09de8fb87ec0443847ee1cc79db96371851721066b03",
+      "role": "R8 context delta",
+      "verified_revision": "f9f276b27f86744672bd06b3d0c8f9e72c9d9120",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/f9f276b27f86744672bd06b3d0c8f9e72c9d9120/docs/handoffs/codex_flat_vector_art_2026-10-07/r8_geode_context/native/1280x720/geode_early_pull_dragged.png"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r8_geode_context/native/1280x720/geode_early_pull_pressed.png",
+      "revision": null,
+      "bytes": 119352,
+      "sha256": "45398dc0841f21fcec4211f93870188c685f2961b3542706012a308d3414faa8",
+      "role": "R8 context delta",
+      "verified_revision": "f9f276b27f86744672bd06b3d0c8f9e72c9d9120",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/f9f276b27f86744672bd06b3d0c8f9e72c9d9120/docs/handoffs/codex_flat_vector_art_2026-10-07/r8_geode_context/native/1280x720/geode_early_pull_pressed.png"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r8_geode_context/native/1280x720/geode_early_pull_released.png",
+      "revision": null,
+      "bytes": 119348,
+      "sha256": "85afb02a688ae1b5bc2a09de8fb87ec0443847ee1cc79db96371851721066b03",
+      "role": "R8 context delta",
+      "verified_revision": "f9f276b27f86744672bd06b3d0c8f9e72c9d9120",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/f9f276b27f86744672bd06b3d0c8f9e72c9d9120/docs/handoffs/codex_flat_vector_art_2026-10-07/r8_geode_context/native/1280x720/geode_early_pull_released.png"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r8_geode_context/native/1280x720/geode_partial_open_held.png",
+      "revision": null,
+      "bytes": 111305,
+      "sha256": "97f6be71cf1d90a8b4c6db87259e50e09fa568d5d754efa6a60da9959a0586fe",
+      "role": "R8 context delta",
+      "verified_revision": "f9f276b27f86744672bd06b3d0c8f9e72c9d9120",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/f9f276b27f86744672bd06b3d0c8f9e72c9d9120/docs/handoffs/codex_flat_vector_art_2026-10-07/r8_geode_context/native/1280x720/geode_partial_open_held.png"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r8_geode_context/native/1280x720/geode_partial_open_released.png",
+      "revision": null,
+      "bytes": 111270,
+      "sha256": "3acd7c26461a7f054f3d337cb449fe484aa9a9a95a51e93543de18eb0b270b49",
+      "role": "R8 context delta",
+      "verified_revision": "f9f276b27f86744672bd06b3d0c8f9e72c9d9120",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/f9f276b27f86744672bd06b3d0c8f9e72c9d9120/docs/handoffs/codex_flat_vector_art_2026-10-07/r8_geode_context/native/1280x720/geode_partial_open_released.png"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r8_geode_context/native/1280x720/geode_seam00_pressed.png",
+      "revision": null,
+      "bytes": 119351,
+      "sha256": "62644c2cd0eed3c5a0b8889646738bebd7673f0c57c41af0442c5075054478e0",
+      "role": "R8 context delta",
+      "verified_revision": "f9f276b27f86744672bd06b3d0c8f9e72c9d9120",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/f9f276b27f86744672bd06b3d0c8f9e72c9d9120/docs/handoffs/codex_flat_vector_art_2026-10-07/r8_geode_context/native/1280x720/geode_seam00_pressed.png"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r8_geode_context/native/1280x720/geode_seam00_released.png",
+      "revision": null,
+      "bytes": 117089,
+      "sha256": "734a27cd0d7d265c57cd0d1573417c6c8195931be1294350e8528738257a0e6f",
+      "role": "R8 context delta",
+      "verified_revision": "f9f276b27f86744672bd06b3d0c8f9e72c9d9120",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/f9f276b27f86744672bd06b3d0c8f9e72c9d9120/docs/handoffs/codex_flat_vector_art_2026-10-07/r8_geode_context/native/1280x720/geode_seam00_released.png"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r8_geode_context/native/1280x720/geode_seam01_pressed.png",
+      "revision": null,
+      "bytes": 117089,
+      "sha256": "734a27cd0d7d265c57cd0d1573417c6c8195931be1294350e8528738257a0e6f",
+      "role": "R8 context delta",
+      "verified_revision": "f9f276b27f86744672bd06b3d0c8f9e72c9d9120",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/f9f276b27f86744672bd06b3d0c8f9e72c9d9120/docs/handoffs/codex_flat_vector_art_2026-10-07/r8_geode_context/native/1280x720/geode_seam01_pressed.png"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r8_geode_context/native/1280x720/geode_seam01_released.png",
+      "revision": null,
+      "bytes": 114701,
+      "sha256": "c973ecee26099cfb1f977c8f2c14221de6d2fc2a7352472576618fe7a1ef0b6b",
+      "role": "R8 context delta",
+      "verified_revision": "f9f276b27f86744672bd06b3d0c8f9e72c9d9120",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/f9f276b27f86744672bd06b3d0c8f9e72c9d9120/docs/handoffs/codex_flat_vector_art_2026-10-07/r8_geode_context/native/1280x720/geode_seam01_released.png"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r8_geode_context/native/1280x720/geode_seam02_pressed.png",
+      "revision": null,
+      "bytes": 114701,
+      "sha256": "c973ecee26099cfb1f977c8f2c14221de6d2fc2a7352472576618fe7a1ef0b6b",
+      "role": "R8 context delta",
+      "verified_revision": "f9f276b27f86744672bd06b3d0c8f9e72c9d9120",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/f9f276b27f86744672bd06b3d0c8f9e72c9d9120/docs/handoffs/codex_flat_vector_art_2026-10-07/r8_geode_context/native/1280x720/geode_seam02_pressed.png"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r8_geode_context/native/1280x720/geode_seam02_released.png",
+      "revision": null,
+      "bytes": 112343,
+      "sha256": "4f9acf9a805e3a8a5e42c45345a175625a201978d3e3928c4b0543aa96c6f1b2",
+      "role": "R8 context delta",
+      "verified_revision": "f9f276b27f86744672bd06b3d0c8f9e72c9d9120",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/f9f276b27f86744672bd06b3d0c8f9e72c9d9120/docs/handoffs/codex_flat_vector_art_2026-10-07/r8_geode_context/native/1280x720/geode_seam02_released.png"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r8_geode_context/native/1280x720/geode_seam03_pressed.png",
+      "revision": null,
+      "bytes": 112343,
+      "sha256": "4f9acf9a805e3a8a5e42c45345a175625a201978d3e3928c4b0543aa96c6f1b2",
+      "role": "R8 context delta",
+      "verified_revision": "f9f276b27f86744672bd06b3d0c8f9e72c9d9120",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/f9f276b27f86744672bd06b3d0c8f9e72c9d9120/docs/handoffs/codex_flat_vector_art_2026-10-07/r8_geode_context/native/1280x720/geode_seam03_pressed.png"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r8_geode_context/native/1280x720/geode_seam03_released.png",
+      "revision": null,
+      "bytes": 109939,
+      "sha256": "1ff7cfc965db98c44dacdf7a804e95828d8c711743e933a5d2fd3c0ec1a75c1d",
+      "role": "R8 context delta",
+      "verified_revision": "f9f276b27f86744672bd06b3d0c8f9e72c9d9120",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/f9f276b27f86744672bd06b3d0c8f9e72c9d9120/docs/handoffs/codex_flat_vector_art_2026-10-07/r8_geode_context/native/1280x720/geode_seam03_released.png"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r8_geode_context/native/1280x720/geode_seam04_pressed.png",
+      "revision": null,
+      "bytes": 109939,
+      "sha256": "1ff7cfc965db98c44dacdf7a804e95828d8c711743e933a5d2fd3c0ec1a75c1d",
+      "role": "R8 context delta",
+      "verified_revision": "f9f276b27f86744672bd06b3d0c8f9e72c9d9120",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/f9f276b27f86744672bd06b3d0c8f9e72c9d9120/docs/handoffs/codex_flat_vector_art_2026-10-07/r8_geode_context/native/1280x720/geode_seam04_pressed.png"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r8_geode_context/native/1280x720/geode_seam04_released.png",
+      "revision": null,
+      "bytes": 108106,
+      "sha256": "ac5d23ddd4df3e0c5a971bcabab1a26242f54b93c4eb7f8d1b9a5797b3a9c73e",
+      "role": "R8 context delta",
+      "verified_revision": "f9f276b27f86744672bd06b3d0c8f9e72c9d9120",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/f9f276b27f86744672bd06b3d0c8f9e72c9d9120/docs/handoffs/codex_flat_vector_art_2026-10-07/r8_geode_context/native/1280x720/geode_seam04_released.png"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r8_geode_context/native/1280x720/geode_seam_repeat.png",
+      "revision": null,
+      "bytes": 108108,
+      "sha256": "1fca12a98b0bf900710acc0fcbf51d4bd7a674fef13c2a5f0a15330736c369bc",
+      "role": "R8 context delta",
+      "verified_revision": "f9f276b27f86744672bd06b3d0c8f9e72c9d9120",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/f9f276b27f86744672bd06b3d0c8f9e72c9d9120/docs/handoffs/codex_flat_vector_art_2026-10-07/r8_geode_context/native/1280x720/geode_seam_repeat.png"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r8_geode_context/native/1280x720/geode_wrong_tap.png",
+      "revision": null,
+      "bytes": 119352,
+      "sha256": "45398dc0841f21fcec4211f93870188c685f2961b3542706012a308d3414faa8",
+      "role": "R8 context delta",
+      "verified_revision": "f9f276b27f86744672bd06b3d0c8f9e72c9d9120",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/f9f276b27f86744672bd06b3d0c8f9e72c9d9120/docs/handoffs/codex_flat_vector_art_2026-10-07/r8_geode_context/native/1280x720/geode_wrong_tap.png"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r8_geode_context/native/1600x720/capture_manifest.json",
+      "revision": null,
+      "bytes": 84873,
+      "sha256": "716b3a7a6eab9f89955aca4594bd7e0fa2fc4678d3cc3fd5d367034243a9da7e",
+      "role": "R8 context delta",
+      "verified_revision": "f9f276b27f86744672bd06b3d0c8f9e72c9d9120",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/f9f276b27f86744672bd06b3d0c8f9e72c9d9120/docs/handoffs/codex_flat_vector_art_2026-10-07/r8_geode_context/native/1600x720/capture_manifest.json"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r8_geode_context/native/1600x720/geode_all_seams_ready.png",
+      "revision": null,
+      "bytes": 110242,
+      "sha256": "5e0b9cc41d0aaa4df543c252b463efc2059418720ebda4cef7c1f49822f690a7",
+      "role": "R8 context delta",
+      "verified_revision": "f9f276b27f86744672bd06b3d0c8f9e72c9d9120",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/f9f276b27f86744672bd06b3d0c8f9e72c9d9120/docs/handoffs/codex_flat_vector_art_2026-10-07/r8_geode_context/native/1600x720/geode_all_seams_ready.png"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r8_geode_context/native/1600x720/geode_cancel_focus_notification.png",
+      "revision": null,
+      "bytes": 113733,
+      "sha256": "e05d8262db41a5ba779e70c16c108436e52052a04d01bb32b6220d49e2a5012f",
+      "role": "R8 context delta",
+      "verified_revision": "f9f276b27f86744672bd06b3d0c8f9e72c9d9120",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/f9f276b27f86744672bd06b3d0c8f9e72c9d9120/docs/handoffs/codex_flat_vector_art_2026-10-07/r8_geode_context/native/1600x720/geode_cancel_focus_notification.png"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r8_geode_context/native/1600x720/geode_cancel_pressed.png",
+      "revision": null,
+      "bytes": 113923,
+      "sha256": "78225de18d4c53311d06bfee76b4292f9b25d9af7d61ab8a6abd0f742a2edf39",
+      "role": "R8 context delta",
+      "verified_revision": "f9f276b27f86744672bd06b3d0c8f9e72c9d9120",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/f9f276b27f86744672bd06b3d0c8f9e72c9d9120/docs/handoffs/codex_flat_vector_art_2026-10-07/r8_geode_context/native/1600x720/geode_cancel_pressed.png"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r8_geode_context/native/1600x720/geode_closed_passive_1s.png",
+      "revision": null,
+      "bytes": 122606,
+      "sha256": "3df0b91d111ac4d7838d9185e0d9af7b7a0e43207c5bbe6c47b1a34b2acfc5d7",
+      "role": "R8 context delta",
+      "verified_revision": "f9f276b27f86744672bd06b3d0c8f9e72c9d9120",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/f9f276b27f86744672bd06b3d0c8f9e72c9d9120/docs/handoffs/codex_flat_vector_art_2026-10-07/r8_geode_context/native/1600x720/geode_closed_passive_1s.png"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r8_geode_context/native/1600x720/geode_closed_ready.png",
+      "revision": null,
+      "bytes": 122826,
+      "sha256": "3d9324be9257b8831e9cc71a49ea3875d5596f27d325df4152c4a5a195c55d08",
+      "role": "R8 context delta",
+      "verified_revision": "f9f276b27f86744672bd06b3d0c8f9e72c9d9120",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/f9f276b27f86744672bd06b3d0c8f9e72c9d9120/docs/handoffs/codex_flat_vector_art_2026-10-07/r8_geode_context/native/1600x720/geode_closed_ready.png"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r8_geode_context/native/1600x720/geode_early_pull_dragged.png",
+      "revision": null,
+      "bytes": 122016,
+      "sha256": "2cc2b541f98d459b77627795126191606031327d2bc720925d5023fb0e077a67",
+      "role": "R8 context delta",
+      "verified_revision": "f9f276b27f86744672bd06b3d0c8f9e72c9d9120",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/f9f276b27f86744672bd06b3d0c8f9e72c9d9120/docs/handoffs/codex_flat_vector_art_2026-10-07/r8_geode_context/native/1600x720/geode_early_pull_dragged.png"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r8_geode_context/native/1600x720/geode_early_pull_pressed.png",
+      "revision": null,
+      "bytes": 122011,
+      "sha256": "0777037ab1d23662007257d0bec411be2441c0bb3bc811c2ed4277ef1cee491c",
+      "role": "R8 context delta",
+      "verified_revision": "f9f276b27f86744672bd06b3d0c8f9e72c9d9120",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/f9f276b27f86744672bd06b3d0c8f9e72c9d9120/docs/handoffs/codex_flat_vector_art_2026-10-07/r8_geode_context/native/1600x720/geode_early_pull_pressed.png"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r8_geode_context/native/1600x720/geode_early_pull_released.png",
+      "revision": null,
+      "bytes": 122043,
+      "sha256": "67175f822823993d79752c99b528320b996f33cb22ad7c5215b03506d8fecdc6",
+      "role": "R8 context delta",
+      "verified_revision": "f9f276b27f86744672bd06b3d0c8f9e72c9d9120",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/f9f276b27f86744672bd06b3d0c8f9e72c9d9120/docs/handoffs/codex_flat_vector_art_2026-10-07/r8_geode_context/native/1600x720/geode_early_pull_released.png"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r8_geode_context/native/1600x720/geode_partial_open_held.png",
+      "revision": null,
+      "bytes": 113977,
+      "sha256": "5a7299a90c7762a00706aaa1103493c52d73f9e4391f23bd2a6678196c20912d",
+      "role": "R8 context delta",
+      "verified_revision": "f9f276b27f86744672bd06b3d0c8f9e72c9d9120",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/f9f276b27f86744672bd06b3d0c8f9e72c9d9120/docs/handoffs/codex_flat_vector_art_2026-10-07/r8_geode_context/native/1600x720/geode_partial_open_held.png"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r8_geode_context/native/1600x720/geode_partial_open_released.png",
+      "revision": null,
+      "bytes": 113958,
+      "sha256": "c1ae8c7ea85212b97b8ae38d26e24d31ef81d015a4e6860ac8704282dc38c345",
+      "role": "R8 context delta",
+      "verified_revision": "f9f276b27f86744672bd06b3d0c8f9e72c9d9120",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/f9f276b27f86744672bd06b3d0c8f9e72c9d9120/docs/handoffs/codex_flat_vector_art_2026-10-07/r8_geode_context/native/1600x720/geode_partial_open_released.png"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r8_geode_context/native/1600x720/geode_seam00_pressed.png",
+      "revision": null,
+      "bytes": 122043,
+      "sha256": "67175f822823993d79752c99b528320b996f33cb22ad7c5215b03506d8fecdc6",
+      "role": "R8 context delta",
+      "verified_revision": "f9f276b27f86744672bd06b3d0c8f9e72c9d9120",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/f9f276b27f86744672bd06b3d0c8f9e72c9d9120/docs/handoffs/codex_flat_vector_art_2026-10-07/r8_geode_context/native/1600x720/geode_seam00_pressed.png"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r8_geode_context/native/1600x720/geode_seam00_released.png",
+      "revision": null,
+      "bytes": 119779,
+      "sha256": "e28596c070b09b52d94dc53de4bf89e7a7b3d094baa52602578fbd6eef09bd23",
+      "role": "R8 context delta",
+      "verified_revision": "f9f276b27f86744672bd06b3d0c8f9e72c9d9120",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/f9f276b27f86744672bd06b3d0c8f9e72c9d9120/docs/handoffs/codex_flat_vector_art_2026-10-07/r8_geode_context/native/1600x720/geode_seam00_released.png"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r8_geode_context/native/1600x720/geode_seam01_pressed.png",
+      "revision": null,
+      "bytes": 119779,
+      "sha256": "e28596c070b09b52d94dc53de4bf89e7a7b3d094baa52602578fbd6eef09bd23",
+      "role": "R8 context delta",
+      "verified_revision": "f9f276b27f86744672bd06b3d0c8f9e72c9d9120",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/f9f276b27f86744672bd06b3d0c8f9e72c9d9120/docs/handoffs/codex_flat_vector_art_2026-10-07/r8_geode_context/native/1600x720/geode_seam01_pressed.png"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r8_geode_context/native/1600x720/geode_seam01_released.png",
+      "revision": null,
+      "bytes": 117422,
+      "sha256": "e4df20fe3fd0845a362fe275c0eb5c18a9471065f7e16747d7e76d5b80c190c9",
+      "role": "R8 context delta",
+      "verified_revision": "f9f276b27f86744672bd06b3d0c8f9e72c9d9120",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/f9f276b27f86744672bd06b3d0c8f9e72c9d9120/docs/handoffs/codex_flat_vector_art_2026-10-07/r8_geode_context/native/1600x720/geode_seam01_released.png"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r8_geode_context/native/1600x720/geode_seam02_pressed.png",
+      "revision": null,
+      "bytes": 117422,
+      "sha256": "e4df20fe3fd0845a362fe275c0eb5c18a9471065f7e16747d7e76d5b80c190c9",
+      "role": "R8 context delta",
+      "verified_revision": "f9f276b27f86744672bd06b3d0c8f9e72c9d9120",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/f9f276b27f86744672bd06b3d0c8f9e72c9d9120/docs/handoffs/codex_flat_vector_art_2026-10-07/r8_geode_context/native/1600x720/geode_seam02_pressed.png"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r8_geode_context/native/1600x720/geode_seam02_released.png",
+      "revision": null,
+      "bytes": 115054,
+      "sha256": "5016e0b016e00d1b55c8a5c512dd69f635ac4f1f21ac18274fb458107aa9d38b",
+      "role": "R8 context delta",
+      "verified_revision": "f9f276b27f86744672bd06b3d0c8f9e72c9d9120",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/f9f276b27f86744672bd06b3d0c8f9e72c9d9120/docs/handoffs/codex_flat_vector_art_2026-10-07/r8_geode_context/native/1600x720/geode_seam02_released.png"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r8_geode_context/native/1600x720/geode_seam03_pressed.png",
+      "revision": null,
+      "bytes": 115015,
+      "sha256": "87133c4cd1b28d1c75a75dd24fb5017ad3625d60e6c40b2b54055a75acde11e9",
+      "role": "R8 context delta",
+      "verified_revision": "f9f276b27f86744672bd06b3d0c8f9e72c9d9120",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/f9f276b27f86744672bd06b3d0c8f9e72c9d9120/docs/handoffs/codex_flat_vector_art_2026-10-07/r8_geode_context/native/1600x720/geode_seam03_pressed.png"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r8_geode_context/native/1600x720/geode_seam03_released.png",
+      "revision": null,
+      "bytes": 112600,
+      "sha256": "179470d7f4256b2dc207492c76b62b983eb4d4ced468d911185f3d3025a48dbb",
+      "role": "R8 context delta",
+      "verified_revision": "f9f276b27f86744672bd06b3d0c8f9e72c9d9120",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/f9f276b27f86744672bd06b3d0c8f9e72c9d9120/docs/handoffs/codex_flat_vector_art_2026-10-07/r8_geode_context/native/1600x720/geode_seam03_released.png"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r8_geode_context/native/1600x720/geode_seam04_pressed.png",
+      "revision": null,
+      "bytes": 112604,
+      "sha256": "6b3073fe30f08f14c4fdc79837723d48ed0514a066871a9edfc9af327dbdd92b",
+      "role": "R8 context delta",
+      "verified_revision": "f9f276b27f86744672bd06b3d0c8f9e72c9d9120",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/f9f276b27f86744672bd06b3d0c8f9e72c9d9120/docs/handoffs/codex_flat_vector_art_2026-10-07/r8_geode_context/native/1600x720/geode_seam04_pressed.png"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r8_geode_context/native/1600x720/geode_seam04_released.png",
+      "revision": null,
+      "bytes": 110225,
+      "sha256": "b9924dbc55d45fa2ed9d588acd3ff3bf9e27b6dd5ae51bd463880cdcf99cd265",
+      "role": "R8 context delta",
+      "verified_revision": "f9f276b27f86744672bd06b3d0c8f9e72c9d9120",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/f9f276b27f86744672bd06b3d0c8f9e72c9d9120/docs/handoffs/codex_flat_vector_art_2026-10-07/r8_geode_context/native/1600x720/geode_seam04_released.png"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r8_geode_context/native/1600x720/geode_seam_repeat.png",
+      "revision": null,
+      "bytes": 110235,
+      "sha256": "75611ff2ba587a6f219af9ece46764ae85a759d605ee0b0e72ab25e59bc8ba7d",
+      "role": "R8 context delta",
+      "verified_revision": "f9f276b27f86744672bd06b3d0c8f9e72c9d9120",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/f9f276b27f86744672bd06b3d0c8f9e72c9d9120/docs/handoffs/codex_flat_vector_art_2026-10-07/r8_geode_context/native/1600x720/geode_seam_repeat.png"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r8_geode_context/native/1600x720/geode_wrong_tap.png",
+      "revision": null,
+      "bytes": 122011,
+      "sha256": "0777037ab1d23662007257d0bec411be2441c0bb3bc811c2ed4277ef1cee491c",
+      "role": "R8 context delta",
+      "verified_revision": "f9f276b27f86744672bd06b3d0c8f9e72c9d9120",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/f9f276b27f86744672bd06b3d0c8f9e72c9d9120/docs/handoffs/codex_flat_vector_art_2026-10-07/r8_geode_context/native/1600x720/geode_wrong_tap.png"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r8_geode_context/per_piece.json",
+      "revision": null,
+      "bytes": 1106718,
+      "sha256": "7c9a0efd9ccb4c42ef44cc5ba9d517ec78c15e24705aa4859c0eae7ff94aa7fd",
+      "role": "R8 context delta",
+      "verified_revision": "f9f276b27f86744672bd06b3d0c8f9e72c9d9120",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/f9f276b27f86744672bd06b3d0c8f9e72c9d9120/docs/handoffs/codex_flat_vector_art_2026-10-07/r8_geode_context/per_piece.json"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r8_geode_context/scene_coverage.json",
+      "revision": null,
+      "bytes": 570867,
+      "sha256": "34430f2ccdb090e599eab7507df3aec823c49d50cbc055e93c9969b168d9bb35",
+      "role": "R8 context delta",
+      "verified_revision": "f9f276b27f86744672bd06b3d0c8f9e72c9d9120",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/f9f276b27f86744672bd06b3d0c8f9e72c9d9120/docs/handoffs/codex_flat_vector_art_2026-10-07/r8_geode_context/scene_coverage.json"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r8_geode_context/tally.json",
+      "revision": null,
+      "bytes": 12490,
+      "sha256": "2c11b6a097be588d53cf646e261e3c4f51907aef321ef8c901baed948db537f4",
+      "role": "R8 context delta",
+      "verified_revision": "f9f276b27f86744672bd06b3d0c8f9e72c9d9120",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/f9f276b27f86744672bd06b3d0c8f9e72c9d9120/docs/handoffs/codex_flat_vector_art_2026-10-07/r8_geode_context/tally.json"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r8_geode_context/validate.py",
+      "revision": null,
+      "bytes": 3303,
+      "sha256": "02659bdc3f5728676e88c383231adadd00f44ac243eae73eab29af912283fb26",
+      "role": "R8 context delta",
+      "verified_revision": "f9f276b27f86744672bd06b3d0c8f9e72c9d9120",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/f9f276b27f86744672bd06b3d0c8f9e72c9d9120/docs/handoffs/codex_flat_vector_art_2026-10-07/r8_geode_context/validate.py"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r8_geode_context/verify_remote.py",
+      "revision": null,
+      "bytes": 2703,
+      "sha256": "c0f5ef905b1484e290129c770a07660459dc0cd118a8a1425aa4ca8fdf8ceaf6",
+      "role": "R8 context delta",
+      "verified_revision": "f9f276b27f86744672bd06b3d0c8f9e72c9d9120",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/f9f276b27f86744672bd06b3d0c8f9e72c9d9120/docs/handoffs/codex_flat_vector_art_2026-10-07/r8_geode_context/verify_remote.py"
+    },
+    {
+      "path": "AGENTS.md",
+      "revision": "c1e466a8a9e605f43b4c7a181b3d7b702d7677aa",
+      "bytes": 32943,
+      "sha256": "f95a3fb3c4fcf68dd7ac359bdca7fd8fdebfaffc81772f51e136fce7c5a9da4b",
+      "role": "Current binding authority with scoped historical precedence",
+      "verified_revision": "c1e466a8a9e605f43b4c7a181b3d7b702d7677aa",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/c1e466a8a9e605f43b4c7a181b3d7b702d7677aa/AGENTS.md"
+    },
+    {
+      "path": "ART_STYLE_GUIDE.md",
+      "revision": "c1e466a8a9e605f43b4c7a181b3d7b702d7677aa",
+      "bytes": 43258,
+      "sha256": "c015277643b610e8370971d6eadf582bee19a430e6be4219b163abbb550a4d6e",
+      "role": "Current binding authority with scoped historical precedence",
+      "verified_revision": "c1e466a8a9e605f43b4c7a181b3d7b702d7677aa",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/c1e466a8a9e605f43b4c7a181b3d7b702d7677aa/ART_STYLE_GUIDE.md"
+    },
+    {
+      "path": "ASSET_LICENSES.md",
+      "revision": "c1e466a8a9e605f43b4c7a181b3d7b702d7677aa",
+      "bytes": 4372218,
+      "sha256": "2b43507ac415b13d5ad9f980c4cc1e4948b7f5cad69a95f22efd039abbc39a67",
+      "role": "Preserved nonruntime candidate, provenance, scoped authority or historical review; no current acceptance",
+      "verified_revision": "c1e466a8a9e605f43b4c7a181b3d7b702d7677aa",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/c1e466a8a9e605f43b4c7a181b3d7b702d7677aa/ASSET_LICENSES.md"
+    },
+    {
+      "path": "assets/opera/worlds/actors/animation/roshan_geologist_sheet_a.png",
+      "revision": "c1e466a8a9e605f43b4c7a181b3d7b702d7677aa",
+      "bytes": 910920,
+      "sha256": "1fd7080933fd49b27a9cbb2b20d9470e4fd654dec58db72e9aa9e081a6e24c37",
+      "role": "Current production source/same-scene appearance",
+      "verified_revision": "c1e466a8a9e605f43b4c7a181b3d7b702d7677aa",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/c1e466a8a9e605f43b4c7a181b3d7b702d7677aa/assets/opera/worlds/actors/animation/roshan_geologist_sheet_a.png"
+    },
+    {
+      "path": "assets/opera/worlds/actors/rival_detective.png",
+      "revision": "c1e466a8a9e605f43b4c7a181b3d7b702d7677aa",
+      "bytes": 217399,
+      "sha256": "44a6e07766a0733979e6aa3bda4c8cf89776a75f81c6600db4cb8ad89c7edecb",
+      "role": "Current production source/same-scene appearance",
+      "verified_revision": "c1e466a8a9e605f43b4c7a181b3d7b702d7677aa",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/c1e466a8a9e605f43b4c7a181b3d7b702d7677aa/assets/opera/worlds/actors/rival_detective.png"
+    },
+    {
+      "path": "assets/opera/worlds/props/goal_geologist.svg",
+      "revision": "c1e466a8a9e605f43b4c7a181b3d7b702d7677aa",
+      "bytes": 583,
+      "sha256": "14023de6e1338fb209b06be58dc37574060c3a22bcb08f3506843389620c2f50",
+      "role": "Current production source/same-scene appearance",
+      "verified_revision": "c1e466a8a9e605f43b4c7a181b3d7b702d7677aa",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/c1e466a8a9e605f43b4c7a181b3d7b702d7677aa/assets/opera/worlds/props/goal_geologist.svg"
+    },
+    {
+      "path": "assets_src/minigame_art_quality_2026-09-05/geode-extraction-attempt01/manifest.json",
+      "revision": "c1e466a8a9e605f43b4c7a181b3d7b702d7677aa",
+      "bytes": 2034,
+      "sha256": "ba1488befca5e48724f6dd642eb7329fa753322d3289e65d4993aff29da53990",
+      "role": "Preserved nonruntime candidate, provenance, scoped authority or historical review; no current acceptance",
+      "verified_revision": "c1e466a8a9e605f43b4c7a181b3d7b702d7677aa",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/c1e466a8a9e605f43b4c7a181b3d7b702d7677aa/assets_src/minigame_art_quality_2026-09-05/geode-extraction-attempt01/manifest.json"
+    },
+    {
+      "path": "assets_src/minigame_art_quality_2026-09-05/geode-extraction-attempt01/native.png",
+      "revision": "c1e466a8a9e605f43b4c7a181b3d7b702d7677aa",
+      "bytes": 1620800,
+      "sha256": "efaa5f2be034f61d62a548b1ebeaade825b56b98a757871f7e53244c6ed16181",
+      "role": "Preserved nonruntime candidate, provenance, scoped authority or historical review; no current acceptance",
+      "verified_revision": "c1e466a8a9e605f43b4c7a181b3d7b702d7677aa",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/c1e466a8a9e605f43b4c7a181b3d7b702d7677aa/assets_src/minigame_art_quality_2026-09-05/geode-extraction-attempt01/native.png"
+    },
+    {
+      "path": "assets_src/minigame_art_quality_2026-09-05/geode-extraction-attempt01/prompt.txt",
+      "revision": "c1e466a8a9e605f43b4c7a181b3d7b702d7677aa",
+      "bytes": 1033,
+      "sha256": "efa58bfdb114957bd736a2f2298d081d1f7176039739d035021a0ff849c32bb2",
+      "role": "Preserved nonruntime candidate, provenance, scoped authority or historical review; no current acceptance",
+      "verified_revision": "c1e466a8a9e605f43b4c7a181b3d7b702d7677aa",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/c1e466a8a9e605f43b4c7a181b3d7b702d7677aa/assets_src/minigame_art_quality_2026-09-05/geode-extraction-attempt01/prompt.txt"
+    },
+    {
+      "path": "assets_src/minigame_art_quality_2026-09-05/geode-open-alpha-attempt02/manifest.json",
+      "revision": "c1e466a8a9e605f43b4c7a181b3d7b702d7677aa",
+      "bytes": 1864,
+      "sha256": "860b8f35d608cea0e0e978199fa444e5c9c8e7e5356332dd418f2eef647fe3fe",
+      "role": "Preserved nonruntime candidate, provenance, scoped authority or historical review; no current acceptance",
+      "verified_revision": "c1e466a8a9e605f43b4c7a181b3d7b702d7677aa",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/c1e466a8a9e605f43b4c7a181b3d7b702d7677aa/assets_src/minigame_art_quality_2026-09-05/geode-open-alpha-attempt02/manifest.json"
+    },
+    {
+      "path": "assets_src/minigame_art_quality_2026-09-05/geode-open-alpha-attempt02/native.png",
+      "revision": "c1e466a8a9e605f43b4c7a181b3d7b702d7677aa",
+      "bytes": 1432012,
+      "sha256": "0ca5e2572f5f306f3a46b75d5babf892fffd2cd65b16d0c5c7ee90426ae4bb2c",
+      "role": "Preserved nonruntime candidate, provenance, scoped authority or historical review; no current acceptance",
+      "verified_revision": "c1e466a8a9e605f43b4c7a181b3d7b702d7677aa",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/c1e466a8a9e605f43b4c7a181b3d7b702d7677aa/assets_src/minigame_art_quality_2026-09-05/geode-open-alpha-attempt02/native.png"
+    },
+    {
+      "path": "assets_src/minigame_art_quality_2026-09-05/geode-open-alpha-attempt02/prompt.txt",
+      "revision": "c1e466a8a9e605f43b4c7a181b3d7b702d7677aa",
+      "bytes": 585,
+      "sha256": "002cb1d0f454438ca8cea5d1434f8db268f03f3a2ad1ac7927bc0ba86aea0234",
+      "role": "Preserved nonruntime candidate, provenance, scoped authority or historical review; no current acceptance",
+      "verified_revision": "c1e466a8a9e605f43b4c7a181b3d7b702d7677aa",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/c1e466a8a9e605f43b4c7a181b3d7b702d7677aa/assets_src/minigame_art_quality_2026-09-05/geode-open-alpha-attempt02/prompt.txt"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/geode_extraction_attempt01_review.json",
+      "revision": "c1e466a8a9e605f43b4c7a181b3d7b702d7677aa",
+      "bytes": 6270,
+      "sha256": "1f5dc26512ec9b4079dd2ce3654081f2d017acf9f1d40e0e9dcf116e2549a176",
+      "role": "Preserved nonruntime candidate, provenance, scoped authority or historical review; no current acceptance",
+      "verified_revision": "c1e466a8a9e605f43b4c7a181b3d7b702d7677aa",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/c1e466a8a9e605f43b4c7a181b3d7b702d7677aa/audit/minigame_art_quality_2026-09-05/geode_extraction_attempt01_review.json"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/geode_open_alpha_attempt02_review.json",
+      "revision": "c1e466a8a9e605f43b4c7a181b3d7b702d7677aa",
+      "bytes": 6435,
+      "sha256": "7d9a28f37dfa85fba0ae529aae0c742b5b2b6a04606020114310b487dbf73cf3",
+      "role": "Preserved nonruntime candidate, provenance, scoped authority or historical review; no current acceptance",
+      "verified_revision": "c1e466a8a9e605f43b4c7a181b3d7b702d7677aa",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/c1e466a8a9e605f43b4c7a181b3d7b702d7677aa/audit/minigame_art_quality_2026-09-05/geode_open_alpha_attempt02_review.json"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/prop_pixel_processing_plan.json",
+      "revision": "c1e466a8a9e605f43b4c7a181b3d7b702d7677aa",
+      "bytes": 9777,
+      "sha256": "43bb865e77bd95d6d8587172f1bd308065dd85bb78c8238435433d06ecaa9660",
+      "role": "Preserved nonruntime candidate, provenance, scoped authority or historical review; no current acceptance",
+      "verified_revision": "c1e466a8a9e605f43b4c7a181b3d7b702d7677aa",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/c1e466a8a9e605f43b4c7a181b3d7b702d7677aa/audit/minigame_art_quality_2026-09-05/prop_pixel_processing_plan.json"
+    },
+    {
+      "path": "design/02_ART_DIRECTION.md",
+      "revision": "c1e466a8a9e605f43b4c7a181b3d7b702d7677aa",
+      "bytes": 22151,
+      "sha256": "e249211113b739beae2cfe2a6bf09c695591d61efe8c2794f69470790f6c67cb",
+      "role": "Current binding authority with scoped historical precedence",
+      "verified_revision": "c1e466a8a9e605f43b4c7a181b3d7b702d7677aa",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/c1e466a8a9e605f43b4c7a181b3d7b702d7677aa/design/02_ART_DIRECTION.md"
+    },
+    {
+      "path": "design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md",
+      "revision": "c1e466a8a9e605f43b4c7a181b3d7b702d7677aa",
+      "bytes": 104724,
+      "sha256": "8e240a56ace2e7174d528b0cb528c9ae85efdd5a8267789d5131693466db06d3",
+      "role": "Current binding authority with scoped historical precedence",
+      "verified_revision": "c1e466a8a9e605f43b4c7a181b3d7b702d7677aa",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/c1e466a8a9e605f43b4c7a181b3d7b702d7677aa/design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md"
+    },
+    {
+      "path": "design/AUDIT_DEVELOPMENT_CONTRACT.md",
+      "revision": "c1e466a8a9e605f43b4c7a181b3d7b702d7677aa",
+      "bytes": 7602,
+      "sha256": "f2817f20cbf89b2b0da6d28b5d956ab0408239ecd9438f4b6a7057b45e9b5fd9",
+      "role": "Current binding authority with scoped historical precedence",
+      "verified_revision": "c1e466a8a9e605f43b4c7a181b3d7b702d7677aa",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/c1e466a8a9e605f43b4c7a181b3d7b702d7677aa/design/AUDIT_DEVELOPMENT_CONTRACT.md"
+    },
+    {
+      "path": "design/GEOLOGIST_REBUILD_2026-09-05.md",
+      "revision": "c1e466a8a9e605f43b4c7a181b3d7b702d7677aa",
+      "bytes": 15523,
+      "sha256": "72e722480adb61d04c6f655166cd7db2b72ce4b1f22be8b4313ccca0e624cbc8",
+      "role": "Preserved nonruntime candidate, provenance, scoped authority or historical review; no current acceptance",
+      "verified_revision": "c1e466a8a9e605f43b4c7a181b3d7b702d7677aa",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/c1e466a8a9e605f43b4c7a181b3d7b702d7677aa/design/GEOLOGIST_REBUILD_2026-09-05.md"
+    },
+    {
+      "path": "design/MINIGAME_ART_AUDIT_2026-09-05.md",
+      "revision": "c1e466a8a9e605f43b4c7a181b3d7b702d7677aa",
+      "bytes": 45039,
+      "sha256": "f56f299064c01796b94b144d54e248d6c75fddc923dd80ba5c890dbd11f73924",
+      "role": "Preserved nonruntime candidate, provenance, scoped authority or historical review; no current acceptance",
+      "verified_revision": "c1e466a8a9e605f43b4c7a181b3d7b702d7677aa",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/c1e466a8a9e605f43b4c7a181b3d7b702d7677aa/design/MINIGAME_ART_AUDIT_2026-09-05.md"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r7_ci_correction/MANIFEST.json",
+      "revision": "c1e466a8a9e605f43b4c7a181b3d7b702d7677aa",
+      "bytes": 4957,
+      "sha256": "4902c26965344f573f3b548ff423a694b5659bda9af71862401f815c89faaaa7",
+      "role": "Immutable prior registry/count/capture/delivery/CI context; earlier manifests/receipts retain their exact inherited dependency verification scope",
+      "verified_revision": "c1e466a8a9e605f43b4c7a181b3d7b702d7677aa",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/c1e466a8a9e605f43b4c7a181b3d7b702d7677aa/docs/handoffs/codex_flat_vector_art_2026-10-07/r7_ci_correction/MANIFEST.json"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r7_ci_correction/RECEIPT_GATES.json",
+      "revision": "c1e466a8a9e605f43b4c7a181b3d7b702d7677aa",
+      "bytes": 2312,
+      "sha256": "6508405dab1588b7e00ab11b11fa81d9711bb76caf138fcf4d214d278f4429a9",
+      "role": "Immutable prior registry/count/capture/delivery/CI context; earlier manifests/receipts retain their exact inherited dependency verification scope",
+      "verified_revision": "c1e466a8a9e605f43b4c7a181b3d7b702d7677aa",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/c1e466a8a9e605f43b4c7a181b3d7b702d7677aa/docs/handoffs/codex_flat_vector_art_2026-10-07/r7_ci_correction/RECEIPT_GATES.json"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r7_ci_correction/REMOTE_VERIFICATION.json",
+      "revision": "c1e466a8a9e605f43b4c7a181b3d7b702d7677aa",
+      "bytes": 10862,
+      "sha256": "246e57876c69a12e542aeb5d951541ffda9604758fa4d405aaed098409bd3c94",
+      "role": "Immutable prior registry/count/capture/delivery/CI context; earlier manifests/receipts retain their exact inherited dependency verification scope",
+      "verified_revision": "c1e466a8a9e605f43b4c7a181b3d7b702d7677aa",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/c1e466a8a9e605f43b4c7a181b3d7b702d7677aa/docs/handoffs/codex_flat_vector_art_2026-10-07/r7_ci_correction/REMOTE_VERIFICATION.json"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r7_craft_context/CONGRUENCY_BACKLOG.json",
+      "revision": "c1e466a8a9e605f43b4c7a181b3d7b702d7677aa",
+      "bytes": 68115,
+      "sha256": "e20dffd99b5274f2d1306c279c76216113c91640a63e37958a9fcf4d24970ecd",
+      "role": "Immutable prior registry/count/capture/delivery/CI context; earlier manifests/receipts retain their exact inherited dependency verification scope",
+      "verified_revision": "c1e466a8a9e605f43b4c7a181b3d7b702d7677aa",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/c1e466a8a9e605f43b4c7a181b3d7b702d7677aa/docs/handoffs/codex_flat_vector_art_2026-10-07/r7_craft_context/CONGRUENCY_BACKLOG.json"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r7_craft_context/MANIFEST.json",
+      "revision": "c1e466a8a9e605f43b4c7a181b3d7b702d7677aa",
+      "bytes": 43223,
+      "sha256": "bf71e9c9d8e834a89835a46ef13a6a5dc9383d5c937722220fadc925ec6a30e4",
+      "role": "Immutable prior registry/count/capture/delivery/CI context; earlier manifests/receipts retain their exact inherited dependency verification scope",
+      "verified_revision": "c1e466a8a9e605f43b4c7a181b3d7b702d7677aa",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/c1e466a8a9e605f43b4c7a181b3d7b702d7677aa/docs/handoffs/codex_flat_vector_art_2026-10-07/r7_craft_context/MANIFEST.json"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r7_craft_context/ORIGIN_DEV_RECONCILIATION.json",
+      "revision": "c1e466a8a9e605f43b4c7a181b3d7b702d7677aa",
+      "bytes": 26748,
+      "sha256": "c1677ca391df75e77b9d9237cf4f417643c5bf1df05c73cf9aab715a96090624",
+      "role": "Immutable prior registry/count/capture/delivery/CI context; earlier manifests/receipts retain their exact inherited dependency verification scope",
+      "verified_revision": "c1e466a8a9e605f43b4c7a181b3d7b702d7677aa",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/c1e466a8a9e605f43b4c7a181b3d7b702d7677aa/docs/handoffs/codex_flat_vector_art_2026-10-07/r7_craft_context/ORIGIN_DEV_RECONCILIATION.json"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r7_craft_context/R6_EXACT_HEAD_CI.json",
+      "revision": "c1e466a8a9e605f43b4c7a181b3d7b702d7677aa",
+      "bytes": 10720,
+      "sha256": "62ff564695a8ba358f6c7b2aa31e396424f18ad7a832ee7ffbf93eac0deb9053",
+      "role": "Immutable prior registry/count/capture/delivery/CI context; earlier manifests/receipts retain their exact inherited dependency verification scope",
+      "verified_revision": "c1e466a8a9e605f43b4c7a181b3d7b702d7677aa",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/c1e466a8a9e605f43b4c7a181b3d7b702d7677aa/docs/handoffs/codex_flat_vector_art_2026-10-07/r7_craft_context/R6_EXACT_HEAD_CI.json"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r7_craft_context/REMOTE_VERIFICATION.json",
+      "revision": "c1e466a8a9e605f43b4c7a181b3d7b702d7677aa",
+      "bytes": 89672,
+      "sha256": "21ca4aaff6bcb672125b3a1ca5c845764525a32aaef735b7c2cb4c10356bc94f",
+      "role": "Immutable prior registry/count/capture/delivery/CI context; earlier manifests/receipts retain their exact inherited dependency verification scope",
+      "verified_revision": "c1e466a8a9e605f43b4c7a181b3d7b702d7677aa",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/c1e466a8a9e605f43b4c7a181b3d7b702d7677aa/docs/handoffs/codex_flat_vector_art_2026-10-07/r7_craft_context/REMOTE_VERIFICATION.json"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r7_craft_context/REVIEW.json",
+      "revision": "c1e466a8a9e605f43b4c7a181b3d7b702d7677aa",
+      "bytes": 35252,
+      "sha256": "adb978982b812afa046e0d3ba0bf11c8816a5e5863734b36edf43caaafa91319",
+      "role": "Immutable prior registry/count/capture/delivery/CI context; earlier manifests/receipts retain their exact inherited dependency verification scope",
+      "verified_revision": "c1e466a8a9e605f43b4c7a181b3d7b702d7677aa",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/c1e466a8a9e605f43b4c7a181b3d7b702d7677aa/docs/handoffs/codex_flat_vector_art_2026-10-07/r7_craft_context/REVIEW.json"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r7_craft_context/per_piece.json",
+      "revision": "c1e466a8a9e605f43b4c7a181b3d7b702d7677aa",
+      "bytes": 1106076,
+      "sha256": "a428f389401b33b7e2156034969a45c1e7e6da6bdf11f5a87f66d18d268d06a1",
+      "role": "Immutable prior registry/count/capture/delivery/CI context; earlier manifests/receipts retain their exact inherited dependency verification scope",
+      "verified_revision": "c1e466a8a9e605f43b4c7a181b3d7b702d7677aa",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/c1e466a8a9e605f43b4c7a181b3d7b702d7677aa/docs/handoffs/codex_flat_vector_art_2026-10-07/r7_craft_context/per_piece.json"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r7_craft_context/scene_coverage.json",
+      "revision": "c1e466a8a9e605f43b4c7a181b3d7b702d7677aa",
+      "bytes": 536942,
+      "sha256": "16f0b18c419035e3b9f426cfe748010138bfacb8951acd25f0cd9c957af5a5c6",
+      "role": "Immutable prior registry/count/capture/delivery/CI context; earlier manifests/receipts retain their exact inherited dependency verification scope",
+      "verified_revision": "c1e466a8a9e605f43b4c7a181b3d7b702d7677aa",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/c1e466a8a9e605f43b4c7a181b3d7b702d7677aa/docs/handoffs/codex_flat_vector_art_2026-10-07/r7_craft_context/scene_coverage.json"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r7_craft_context/tally.json",
+      "revision": "c1e466a8a9e605f43b4c7a181b3d7b702d7677aa",
+      "bytes": 11482,
+      "sha256": "ce58b33013374950b17501cfd27657b25038a4babcfcf1ac324f6911b25bea4d",
+      "role": "Immutable prior registry/count/capture/delivery/CI context; earlier manifests/receipts retain their exact inherited dependency verification scope",
+      "verified_revision": "c1e466a8a9e605f43b4c7a181b3d7b702d7677aa",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/c1e466a8a9e605f43b4c7a181b3d7b702d7677aa/docs/handoffs/codex_flat_vector_art_2026-10-07/r7_craft_context/tally.json"
+    },
+    {
+      "path": "project.godot",
+      "revision": "c1e466a8a9e605f43b4c7a181b3d7b702d7677aa",
+      "bytes": 1762,
+      "sha256": "ef6e56681ebd8b9c9abfc7654be1a2bcf90d55e1d697522eb3871b0e6750d207",
+      "role": "Current production source/same-scene appearance",
+      "verified_revision": "c1e466a8a9e605f43b4c7a181b3d7b702d7677aa",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/c1e466a8a9e605f43b4c7a181b3d7b702d7677aa/project.godot"
+    },
+    {
+      "path": "scripts/opera_act.gd",
+      "revision": "c1e466a8a9e605f43b4c7a181b3d7b702d7677aa",
+      "bytes": 7447,
+      "sha256": "7a8db71dfd827efabeee50a348d7849ea646d2693c2ec2b6930c80938d2517b0",
+      "role": "Current production source/same-scene appearance",
+      "verified_revision": "c1e466a8a9e605f43b4c7a181b3d7b702d7677aa",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/c1e466a8a9e605f43b4c7a181b3d7b702d7677aa/scripts/opera_act.gd"
+    },
+    {
+      "path": "scripts/opera_career_world_2d.gd",
+      "revision": "c1e466a8a9e605f43b4c7a181b3d7b702d7677aa",
+      "bytes": 235089,
+      "sha256": "2195e137800fd840e4a813a83e6ac9b393a9e7851fd80ca84ca51fb964232702",
+      "role": "Current production source/same-scene appearance",
+      "verified_revision": "c1e466a8a9e605f43b4c7a181b3d7b702d7677aa",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/c1e466a8a9e605f43b4c7a181b3d7b702d7677aa/scripts/opera_career_world_2d.gd"
+    },
+    {
+      "path": "scripts/opera_geology_surface.gd",
+      "revision": "c1e466a8a9e605f43b4c7a181b3d7b702d7677aa",
+      "bytes": 33298,
+      "sha256": "da96f3b7c07b2ecac796cbe21410499c4439937a21d4096fd918a611e02ba8be",
+      "role": "Current production source/same-scene appearance",
+      "verified_revision": "c1e466a8a9e605f43b4c7a181b3d7b702d7677aa",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/c1e466a8a9e605f43b4c7a181b3d7b702d7677aa/scripts/opera_geology_surface.gd"
+    },
+    {
+      "path": "scripts/opera_house.gd",
+      "revision": "c1e466a8a9e605f43b4c7a181b3d7b702d7677aa",
+      "bytes": 17056,
+      "sha256": "6d6aeead33ff8cc451daa09da215185171359fd218693371184f38ecadac2d7f",
+      "role": "Current production source/same-scene appearance",
+      "verified_revision": "c1e466a8a9e605f43b4c7a181b3d7b702d7677aa",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/c1e466a8a9e605f43b4c7a181b3d7b702d7677aa/scripts/opera_house.gd"
+    },
+    {
+      "path": "scripts/opera_roshan_actor.gd",
+      "revision": "c1e466a8a9e605f43b4c7a181b3d7b702d7677aa",
+      "bytes": 6876,
+      "sha256": "556301bbaeefcc55f7a5c28744170872e488563719aee54856ad4c65c4e9cb6d",
+      "role": "Current production source/same-scene appearance",
+      "verified_revision": "c1e466a8a9e605f43b4c7a181b3d7b702d7677aa",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/c1e466a8a9e605f43b4c7a181b3d7b702d7677aa/scripts/opera_roshan_actor.gd"
+    },
+    {
+      "path": "scripts/save_state.gd",
+      "revision": "c1e466a8a9e605f43b4c7a181b3d7b702d7677aa",
+      "bytes": 46616,
+      "sha256": "de380b088c8dcdd4623804d44a8fe35be5bfe7f8095cdcff1ca40c24e2c9c9b9",
+      "role": "Current production source/same-scene appearance",
+      "verified_revision": "c1e466a8a9e605f43b4c7a181b3d7b702d7677aa",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/c1e466a8a9e605f43b4c7a181b3d7b702d7677aa/scripts/save_state.gd"
+    }
+  ],
+  "entry_url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/f9f276b27f86744672bd06b3d0c8f9e72c9d9120/docs/handoffs/codex_flat_vector_art_2026-10-07/r8_geode_context/README.md",
+  "immutable_tree_url": "https://github.com/Ebonyks/mermaid-roshan-reef/tree/f9f276b27f86744672bd06b3d0c8f9e72c9d9120/docs/handoffs/codex_flat_vector_art_2026-10-07/r8_geode_context",
+  "direct_manifest_url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/f9f276b27f86744672bd06b3d0c8f9e72c9d9120/docs/handoffs/codex_flat_vector_art_2026-10-07/r8_geode_context/MANIFEST.json",
+  "creative_acceptance": false,
+  "accepted_removed": 0,
+  "mission_complete": false,
+  "post_publication_metadata_paths": [
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r8_geode_context/REMOTE_VERIFICATION.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r8_geode_context/RECEIPT_GATES.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r8_geode_context/tally.json",
+    "design/audit_impacts/flat-vector-geode-context-20261013.json"
+  ],
+  "manifest_bytes": 39461,
+  "verified_fetches_including_manifest": 122,
+  "ci_predecessor_snapshot": {
+    "run_id": 38351836539,
+    "head_sha": "c1e466a8a9e605f43b4c7a181b3d7b702d7677aa",
+    "status": "completed",
+    "conclusion": "cancelled",
+    "url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/38351836539",
+    "checked_at_utc": "2026-10-13T06:07:19.422356+00:00",
+    "jobs": [
+      {
+        "name": "area-music-provenance",
+        "status": "completed",
+        "conclusion": "success",
+        "steps": [
+          {
+            "name": "Verify deterministic area-music delivery",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Post Run actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Post Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5",
+            "status": "completed",
+            "conclusion": "success"
+          }
+        ]
+      },
+      {
+        "name": "probes",
+        "status": "completed",
+        "conclusion": "cancelled",
+        "steps": [
+          {
+            "name": "Static gates (parse + Variant-inference lint)",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Import (deadlock-guarded)",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Compile-check every script (real analyzer, catches what parse-only cannot)",
+            "status": "completed",
+            "conclusion": "cancelled"
+          },
+          {
+            "name": "Run trusted probes",
+            "status": "completed",
+            "conclusion": "skipped"
+          },
+          {
+            "name": "Boot gate (real viewport — the area the phone opens in)",
+            "status": "completed",
+            "conclusion": "skipped"
+          }
+        ]
+      }
+    ]
+  },
+  "ci_limit": "Predecessor run is scoped to its exact head and may be cancelled by newer topic pushes. Latest receipt-head CI remains separately pending; no probe/visual acceptance inferred."
 }

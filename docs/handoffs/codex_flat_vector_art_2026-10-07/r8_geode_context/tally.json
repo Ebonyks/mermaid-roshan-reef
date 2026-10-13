@@ -180,8 +180,17 @@
   ],
   "role_and_family_counts_are_separate": true,
   "publication": {
-    "status": "PENDING_EXACT_PUBLICATION",
-    "receipt": "REMOTE_VERIFICATION.json"
+    "status": "EXACT_PUBLIC_PAYLOAD_VERIFIED",
+    "payload_revision": "f9f276b27f86744672bd06b3d0c8f9e72c9d9120",
+    "manifest_sha256": "e77c2d347c0cf8b9181109d94c584ea45e7fe4643cb8e420aa20ce8c49253b17",
+    "payload_sha256": "ab119c39c362029359298f4cd46447abbc3c3356a6c494fddc071149a4387730",
+    "verified_required_files": 121,
+    "verified_fetches_including_manifest": 122,
+    "required_bytes": 28407914,
+    "checked_at_utc": "2026-10-13T06:04:25.280989+00:00",
+    "access_mode": "Anonymous public HTTPS for manifest and every declared required file; public GitHub repo API independently checked; recipient can use the same unauthenticated access mode.",
+    "receipt": "REMOTE_VERIFICATION.json",
+    "scope": "Delivery attestation only; source/count/acceptance bytes remain scoped to immutable payload. Four later receipt metadata files require separate exact-commit verification."
   },
   "independent_style_review": {
     "file": "ROOT_CONTEXT_REVIEW_20261012.json",
@@ -251,19 +260,16 @@
   "reference_resolution": "Inherited R6 evidence keeps immutable R6 base. Inherited Craft/correction references resolve at immutable R7 base. geode_addendum references resolve within this R8 subpacket; inherited files are never rebound by filename.",
   "unpublished_external_activity_limit": "Separate Garden production branch has no published revision at the verified reconciliation; its local candidate is outside this frozen verified tally. Generation/integration counts in this packet retain packet scope.",
   "current_ci": {
-    "status": "CORRECTION_PUBLISHED_EXACT_HEAD_CI_PENDING",
-    "failed_revision": "f2455e918ef328bdbd842535237787ac3f3072ae",
-    "failed_run": 38347407409,
-    "failed_step": "unchanged2D scanner",
-    "repair_evidence": "../r7_ci_correction/DIAGNOSIS.json",
-    "runtime_change": false,
-    "art_regression_claim": null,
-    "accepted_removed": 0,
-    "correction_payload": "de7fbb338b2a19e1e6bd56cb013866db7909952d",
-    "correction_local_gates": "PASS_FINAL_STAGED_BYTES",
-    "correction_publication": "EXACT_ANONYMOUS_BYTES_VERIFIED",
-    "correction_receipt": "../r7_ci_correction/REMOTE_VERIFICATION.json",
-    "new_head_ci": null
+    "status": "LATEST_RECEIPT_HEAD_CI_PENDING",
+    "correction_evidence": "../r7_ci_correction/README.md",
+    "r7_failed_head": "f2455e918ef328bdbd842535237787ac3f3072ae",
+    "r7_failed_run": 38347407409,
+    "predecessor_head": "c1e466a8a9e605f43b4c7a181b3d7b702d7677aa",
+    "predecessor_snapshot": "REMOTE_VERIFICATION.json#ci_predecessor_snapshot",
+    "r8_payload_head": "f9f276b27f86744672bd06b3d0c8f9e72c9d9120",
+    "local_final_staged_gates": "PASS; unchanged medium detector/baseline",
+    "latest_receipt_head_run": null,
+    "interpretation": "No runtime change and no new artwork acceptance; full exact new-head CI tracked separately."
   },
   "inherited_r7_reference_base": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/c1e466a8a9e605f43b4c7a181b3d7b702d7677aa/docs/handoffs/codex_flat_vector_art_2026-10-07/r7_craft_context/"
 }

@@ -48,6 +48,7 @@
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r8_geode_context/ORIGIN_DEV_RECONCILIATION.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r8_geode_context/PREFLIGHT.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r8_geode_context/README.md",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r8_geode_context/RECEIPT_GATES.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r8_geode_context/REMOTE_VERIFICATION.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r8_geode_context/REUSE_DISPOSITION.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r8_geode_context/REVIEW.json",
@@ -127,9 +128,9 @@
       "evidence": "All initial final-staged gates passed; actual outputs and input hashes retained in GATES.json. Exact updated receipt/count prose is staged before the final repeat and must pass unchanged gates again."
     },
     {
-      "command": "Anonymous exact GitHub publication",
-      "result": "PENDING",
-      "evidence": "REMOTE_VERIFICATION.json after payload publication."
+      "command": "Anonymous manifest and all declared required dependencies at exact Git revisions",
+      "result": "PASS",
+      "evidence": "REMOTE_VERIFICATION.json binds payload f9f276b27f86744672bd06b3d0c8f9e72c9d9120,121 required files plus manifest,28407914 required bytes; public HTTP/SHA and length verified. Receipt metadata is checked separately after publication."
     }
   ],
   "acceptance_gaps": "Inventory,natural routes,full state-family/reward/settle,device,child,owner and QA11 remain open. No accepted removal,medium satisfaction,integration or release."
