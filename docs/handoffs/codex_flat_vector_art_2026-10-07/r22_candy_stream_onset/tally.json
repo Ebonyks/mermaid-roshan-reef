@@ -20,7 +20,7 @@
     "INACTIVE_ARCHIVE"
   ],
   "mission_status": "ACTIVE; zero-vector removal NOT achieved",
-  "phase": "CANDYMAKER_POINTER_CURRENT_CONTEXT_AUDIT",
+  "phase": "CANDYMAKER_STREAM_ONSET_CONTACT_TRIAL; ART_CONTOUR_ACTION_ACCEPTANCE_OPEN",
   "named_piece_records": 224,
   "named_family_count": 29,
   "named_status_counts": {
@@ -155,7 +155,8 @@
     "R21_native_added": 48,
     "R21_unique_hashes": 45,
     "R22_native_added": 78,
-    "R22_unique_hashes": 72
+    "R22_unique_hashes": 72,
+    "R22_capture_source_revision": "fa6402f4b1dd382c0d32c740eb034d67a6ac72f8"
   },
   "unreviewed_current_route_entries_note": "All176incomplete:77partial,99without. Frozen224/29 and369/18/351 retain count units; one whole fish/3roles and2texture compositors. Whole-game denominator unknown.",
   "historical_totals": [
@@ -563,9 +564,17 @@
   ],
   "role_and_family_counts_are_separate": true,
   "publication": {
-    "status": "PENDING_PUBLICATION",
+    "status": "ALL_DECLARED_DEPENDENCIES_VERIFIED",
+    "revision": "2f89b512943af57f676ae23b15e0f044d6be2ff9",
+    "manifest_sha256": "537f78f94ededa2f6610e1ddbd18b8756383e57ac7129eeed6f1bde290016583",
+    "payload_sha256": "4d4521c5b0b6250fd829c30db8cf5134846c788cc450517f808bbf30743d96e5",
+    "required_file_count": 1844,
+    "required_bytes": 693326412,
+    "access_mode": "Anonymous public HTTPS for manifest and every declared required file; public GitHub repo API independently checked; recipient can use the same unauthenticated access mode.",
+    "checked_at_utc": "2026-10-13T22:02:40.035493+00:00",
     "manifest": "MANIFEST.json",
-    "receipt": "REMOTE_VERIFICATION.json"
+    "receipt": "REMOTE_VERIFICATION.json",
+    "post_payload_metadata": "These post-payload summaries/gates/receipt are separately anonymously verified against the final receipt Git commit. Sealed payload manifest/bytes retain immutable payload revision; publication is not acceptance."
   },
   "independent_style_review": {
     "file": "ROOT_CONTEXT_REVIEW_20261012.json",
@@ -710,8 +719,12 @@
   },
   "unpublished_external_activity_limit": "Separate Garden production branch has no published revision at the verified reconciliation; its local candidate is outside this frozen verified tally. Generation/integration counts in this packet retain packet scope.",
   "current_ci": {
-    "status": "NOT_PUBLISHED",
-    "conclusion": null
+    "conclusion": "",
+    "headSha": "2f89b512943af57f676ae23b15e0f044d6be2ff9",
+    "status": "in_progress",
+    "url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/38474843861",
+    "databaseId": 38474843861,
+    "checked_at_utc": "2026-10-13T22:07:00.876329+00:00"
   },
   "inherited_r7_reference_base": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/c1e466a8a9e605f43b4c7a181b3d7b702d7677aa/docs/handoffs/codex_flat_vector_art_2026-10-07/r7_craft_context/",
   "inherited_r8_reference_base": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/f4de7b921298b0dac052df408af03bbb2b62132b/docs/handoffs/codex_flat_vector_art_2026-10-07/r8_geode_context/",

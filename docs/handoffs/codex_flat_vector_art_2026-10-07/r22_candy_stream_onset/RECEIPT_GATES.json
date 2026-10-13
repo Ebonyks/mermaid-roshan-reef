@@ -1,4 +1,58 @@
 {
-  "status": "PENDING",
-  "scope": "Initialized before document link gate;no pass claimed"
+  "status": "PASS_WITH_ACCEPTANCE_OPEN",
+  "commands": [
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-B",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r22_candy_stream_onset\\validate.py"
+      ],
+      "started_at_utc": "2026-10-13T22:03:39.923114+00:00",
+      "checked_at_utc": "2026-10-13T22:03:46.346747+00:00",
+      "exit_code": 0,
+      "result": "PASS",
+      "evidence": "receipt_gates.log"
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-B",
+        "tools/audit_document_authority.py"
+      ],
+      "started_at_utc": "2026-10-13T22:03:46.346808+00:00",
+      "checked_at_utc": "2026-10-13T22:03:56.847680+00:00",
+      "exit_code": 0,
+      "result": "PASS",
+      "evidence": "receipt_gates.log"
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-B",
+        "tools/audit_development.py",
+        "--base",
+        "auto"
+      ],
+      "started_at_utc": "2026-10-13T22:03:56.847723+00:00",
+      "checked_at_utc": "2026-10-13T22:04:00.621422+00:00",
+      "exit_code": 0,
+      "result": "PASS",
+      "evidence": "receipt_gates.log"
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-B",
+        "tools/audit_game_2d.py",
+        "--regression-gate"
+      ],
+      "started_at_utc": "2026-10-13T22:04:00.621471+00:00",
+      "checked_at_utc": "2026-10-13T22:06:02.076439+00:00",
+      "exit_code": 0,
+      "result": "PASS",
+      "evidence": "receipt_gates.log"
+    }
+  ],
+  "raw_log_sha256": "bbc1a15ed3bee096255ba055e623f67e7d2c6397692b7e1a69f76aa1c972b23a",
+  "scope": "Nonruntime source-mask contact diagnostic;production/source pixels unchanged;inherited R16 exact82 local trusted passes. New parser/inference/analyzers/native checks pass;inherited R21 contour/action locally failsQC. Global/QA11/device/child/owner remain open."
 }

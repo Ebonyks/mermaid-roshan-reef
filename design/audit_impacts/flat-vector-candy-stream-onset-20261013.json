@@ -176,6 +176,16 @@
       "command": "Source/canonical/document-authority/audit-impact/document tests/medium regression gates",
       "result": "PASS",
       "evidence": "GATES.json/gates.log:50source bindings;78native/72unique/18views;725inventory/ledger,69active72records;54tests6stress;strictmediumUNSATISFIED/NO_REGRESSION. Initialimpact acceptance_gaps schema error and setup quoting error retained;corrected without weakening gates."
+    },
+    {
+      "command": "Anonymous exact GitHub payload verification",
+      "result": "PASS",
+      "evidence": "REMOTE_VERIFICATION.json:1844required files plusmanifest,693326412bytes;all declared hashes/bytes fetched anonymously at2f89b512943af57f676ae23b15e0f044d6be2ff9. Final receipt metadata separately verified at its final commit."
+    },
+    {
+      "command": "Final receipt source/document/audit-impact/medium gates",
+      "result": "PASS",
+      "evidence": "RECEIPT_GATES.json/receipt_gates.log:four blocking checks all0;full54document tests6stress preserved inGATES,no repetition for metadata. StrictmediumUNSATISFIED/NO_REGRESSION,art contour/action/global/humanacceptance remain open."
     }
   ],
   "acceptance_gaps": "All art adoption/QA11/device/child/owner/fullroute/performance/global inventory acceptance remains open;inherited R21 contour/action QC failed;contact constraint only partially reviewed.",
