@@ -1,0 +1,98 @@
+{
+  "schema": 1,
+  "checked_at_utc": "2026-10-13T05:16:31.395480+00:00",
+  "status": "PASS",
+  "exact_staged_inputs": [
+    {
+      "path": "design/05_DOC_LEDGER.md",
+      "bytes": 220277,
+      "sha256": "bbee41f056c2dbde2727e0e4409fd613a337f98fca6280bc39b48d7a9e94e128"
+    },
+    {
+      "path": "design/audit_impacts/flat-vector-craft-context-20261012.json",
+      "bytes": 17596,
+      "sha256": "3b530b661c6805709b44d370a42e1d76c1bfaf4ae3cc051620fe2390fccf9066"
+    },
+    {
+      "path": "design/audit_impacts/flat-vector-r7-ci-correction-20261012.json",
+      "bytes": 3133,
+      "sha256": "86c9a1a3cb8bf195e0db18c11bc0d3f8e6772067e529c110d9b1f4403fa1d28c"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/CURRENT.json",
+      "bytes": 801,
+      "sha256": "aa5c4c06b2b71c9fd0c05632384f2d2fa44b3c4f91cfe8f47d2176912db93d48"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/README.md",
+      "bytes": 7409,
+      "sha256": "d655b8e61f60ed4d7ff225f19ef7cca6598bf7ecf20639b4f964831d454847b0"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r7_ci_correction/.gitattributes",
+      "bytes": 48,
+      "sha256": "5ac6166584f426dde02ec15dbe6e87fea0bb95832730dbeeef93c0e84a90ee0c"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r7_ci_correction/DIAGNOSIS.json",
+      "bytes": 1757,
+      "sha256": "a7790496776f87f4e79373f995774f391fb11970cb29fd0aad85795f7a94598b"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r7_ci_correction/README.md",
+      "bytes": 1662,
+      "sha256": "44d376e60588133cf11be56f228da10d10206ddc57ae55a28001a5c9fa075b8a"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r7_ci_correction/failed_ci_38347407409.log",
+      "bytes": 1275649,
+      "sha256": "711bf7f6f43f6b76327e868a907145ec927e236dc4b84d98e02ad8c7cde5f195"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r7_ci_correction/verify_remote.py",
+      "bytes": 2703,
+      "sha256": "c0f5ef905b1484e290129c770a07660459dc0cd118a8a1425aa4ca8fdf8ceaf6"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r7_craft_context/tally.json",
+      "bytes": 11180,
+      "sha256": "6909107684bc59e787f4a251728d57b016b922b123c159f0b091f87d54a17d24"
+    }
+  ],
+  "commands": [
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_document_authority.py"
+      ],
+      "returncode": 0,
+      "sha256": "a1abf183a59bf52adba122c4011aa7d56a165403e89a44cbe45235ca89b9ea05",
+      "output": "DOCAUTH|INVENTORY=710|LEDGER=710|ACTIVE=68|RECORDS=71\r\nDOCAUTH|RESULT|ALL OK\r\n"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_development.py",
+        "--base",
+        "auto"
+      ],
+      "returncode": 0,
+      "sha256": "fe1136f6488648e75036829fb4dde2405eb9ed57eec05f046fe441463c20d023",
+      "output": "AUDITDEV|BASE|e2b3c73789707aa49a91b4f42e2a9dd4b68225df\r\nAUDITDEV|RESULT|ALL OK\r\n"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_game_2d.py",
+        "--regression-gate"
+      ],
+      "returncode": 0,
+      "sha256": "763e51b38ed1cefc7a506b7148b9d6822c3a647d2fb45e1b64c8f22cb194e0ac",
+      "output": "GAME2D| DEBT| model_files=0| model_scan_coverage_files=0| active_export_model_files=0| model_import_sidecars=0| active_untracked_model_import_sidecars=0| model_archive_files=0| production_3d_files=52| probe_3d_files=61| scene_3d_files=1| configuration_3d_files=1| archive_now_model_files=0\r\nGAME2D| STATUS| UNSATISFIED\r\nGAME2D| RESULT| NO_REGRESSION - exact shrinking baseline; migration debt remains UNSATISFIED\r\n"
+    }
+  ],
+  "interpretation": "Final impact status and prose staged before this scan. No later prose mutation; source/acceptance unchanged; exact-head CI separately pending."
+}

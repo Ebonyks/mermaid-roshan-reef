@@ -1,5 +1,7 @@
 # Flat-vector-art full-game audit — current R7 Craft addendum
 
+The R7 receipt CI failure and its bounded correction are recorded in [CI evidence](r7_ci_correction/README.md). Artwork counts and acceptance remain unchanged.
+
 Use [CURRENT.json](CURRENT.json) and the [R7 entry](r7_craft_context/README.md) for the current canonical registry, coverage, tally and backlog. R7 adds 80 bounded Craft captures, one whole fish design with three component roles, and two incomplete texture compositor scopes. There are 225 known design records in 30 families; 77 of 176 routes have partial context, zero complete, and zero accepted removals. The whole-game denominator remains unknown.
 
 Root JSON files and the original MANIFEST/REMOTE_VERIFICATION retain frozen R6 scope. Their manifest applies to immutable payload 4aceae967de9da7c8f479e358a008188ba1f6304, not later current-entry text. R7 has its own delta manifest and separately published receipt.

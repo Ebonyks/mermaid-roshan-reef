@@ -1,0 +1,55 @@
+{
+  "id": "flat-vector-r7-ci-correction-20261012",
+  "scope": "Correct one joined prose word in the audit-impact receipt that failed the exact published CI head; preserve failed revision/log, truthful tally CI status, immutable R7 context and all source/count/acceptance lanes. No runtime or scanner change.",
+  "baseline": "f2455e918ef328bdbd842535237787ac3f3072ae",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-MED-01",
+    "DL-QA-14",
+    "DL-QA-15"
+  ],
+  "findings": [
+    "MA-DOC-008"
+  ],
+  "files": [
+    "design/05_DOC_LEDGER.md",
+    "design/audit_impacts/flat-vector-craft-context-20261012.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/CURRENT.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/README.md",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r7_ci_correction/.gitattributes",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r7_ci_correction/DIAGNOSIS.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r7_ci_correction/GATES.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r7_ci_correction/GATES.log",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r7_ci_correction/MANIFEST.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r7_ci_correction/README.md",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r7_ci_correction/REMOTE_VERIFICATION.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r7_ci_correction/failed_ci_38347407409.log",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r7_ci_correction/verify_remote.py",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r7_craft_context/tally.json"
+  ],
+  "validation": [
+    {
+      "command": "Exact CI38347407409 at f2455e918ef328bdbd842535237787ac3f3072ae",
+      "result": "FAIL",
+      "evidence": "DIAGNOSIS.json and intact failed log: G2D101 audit-impact token. Import completed, scanner failed, analyzer/probes skipped; no exact-head green claim."
+    },
+    {
+      "command": "Direct unchanged classifier before/after and genuine engine-type control",
+      "result": "PASS",
+      "evidence": "DIAGNOSIS.json: one prose token before, none after, genuine type twice still detected. Runtime/scanner/baseline byte preservation required."
+    },
+    {
+      "command": "Final staged document/audit-development/integrity/unchanged2D gates",
+      "result": "PASS",
+      "evidence": "GATES.json: final staged input hashes and successful document/coverage/source-integrity/unchanged migration scan. Final corrected prose is included in the exact scan; no later evidence-sentence edit."
+    },
+    {
+      "command": "Exact anonymous correction publication and successful exact-head CI",
+      "result": "PENDING",
+      "evidence": "Remote manifest/receipt and GitHub run required; publication and CI remain separate."
+    }
+  ],
+  "acceptance_gaps": "No art repair/integration/runtime proof or accepted removal. Whole-game denominator, shared state/caller, device/child/owner/QA11 closure remain open. Other production chat failed workspace routing; its unpushed Garden work is left intact. No new approval checkpoint or release authority."
+}

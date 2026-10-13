@@ -1087,3 +1087,9 @@ release/device/child/owner authority retain precedence.
 | Document | Class | Authority and limits |
 |---|---|---|
 | `docs/handoffs/codex_flat_vector_art_2026-10-07/r7_craft_context/README.md` | 🔵 | `SUPPORTING_CURRENT`; 80 hash-verified native Craft diagnostics; five runtime/three source views/four observations. One stable whole-fish design with three roles; shared texture callers remain incomplete. 5350 raw-matched files plus 1102 newline-only import sidecars. Preserves frozen R6 and unknown denominator. No natural/purchased/final-save/motion/device/child/owner/QA11 closure, generation or accepted removal. |
+
+## R7 CI correction (2026-10-12)
+
+| Document | Class | Authority and limits |
+|---|---|---|
+| `docs/handoffs/codex_flat_vector_art_2026-10-07/r7_ci_correction/README.md` | 🔵 | `SUPPORTING_CURRENT`; exact R7 failed CI log and proof of a joined prose token triggering the unchanged spatial-class detector. Clarifies one evidence sentence; runtime/scanner/baseline unchanged, no acceptance or count change. Final staged gates and exact-head CI are separate from public delivery. |

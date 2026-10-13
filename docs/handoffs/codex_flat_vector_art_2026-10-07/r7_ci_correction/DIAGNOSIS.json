@@ -1,0 +1,33 @@
+{
+  "schema": 1,
+  "checked_at_utc": "2026-10-13T05:04:30.647939+00:00",
+  "failed_revision": "f2455e918ef328bdbd842535237787ac3f3072ae",
+  "failed_run": 38347407409,
+  "failed_run_url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/38347407409",
+  "failed_step": "Import (deadlock-guarded) -> unchanged2D scanner",
+  "gate_finding": "G2D101",
+  "observed_production_file_count": 53,
+  "expected_existing_production_file_count": 52,
+  "path": "design/audit_impacts/flat-vector-craft-context-20261012.json",
+  "before_sha256": "029dcf22a31dec9150470836c0a650e037e65794d528cac97ff06dad05668bff",
+  "corrected_sha256": "3b530b661c6805709b44d370a42e1d76c1bfaf4ae3cc051620fe2390fccf9066",
+  "before_tokens": {
+    "Existing3D": 1
+  },
+  "after_tokens": {},
+  "real_engine_type_control": {
+    "Node3D": 2
+  },
+  "exact_change": "Separate/clarify ordinary prose; no detector, model metadata representation, runtime source or shrinking manifest change.",
+  "sequence_limit": "Original receipt local scan ran before the last evidence sentence was updated. Final prose introduced the joined token; CI correctly caught the additional lexical inventory entry. Historical local PASS remains scoped to the earlier checked bytes and is not exact-head CI success.",
+  "scanner_sha256": "b8d44cac5aa42fe62e2ec41d34cff268b15db4c777325bf75fdbfd075209eb8b",
+  "baseline_manifest_sha256": "5a170307c476b2d892fb5d3fb51e5f72b2cdea4b82f34b2c8874dc2084726ec4",
+  "failed_log": {
+    "path": "failed_ci_38347407409.log",
+    "bytes": 1275649,
+    "sha256": "711bf7f6f43f6b76327e868a907145ec927e236dc4b84d98e02ad8c7cde5f195"
+  },
+  "runtime_diff": [],
+  "artwork_accepted_removed": 0,
+  "replacement_candidate_status": "PENDING_FINAL_STAGED_GATES_AND_EXACT_HEAD_CI"
+}
