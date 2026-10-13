@@ -1,0 +1,12 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+PASS stick steers
+PASS second-finger tap jumps
+drag: orbit=-2.8274 pitch=-4.5000 look_active=true
+PASS second-finger drag drives camera, no jump
+PASS drifts back after camera finger lifts
+PASS still hold becomes HELD jump
+PASS held jump releases
+PASS focus loss clears touch state
+galaxy drag: orbit=-2.8274
+PASS galaxy touch camera works

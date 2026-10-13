@@ -1,0 +1,24 @@
+["C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe", "-B", "tools/audit_document_authority.py"]
+DOCAUTH|INVENTORY=704|LEDGER=704|ACTIVE=69|RECORDS=72
+DOCAUTH|FAIL|DOC072|audit\MASTER_AUDIT_2026-08-09.md|line 67: local link target is missing: cycles/luna-playtest-20261012/verification/final_gates.json
+DOCAUTH|FAIL|DOC072|audit\cycles\luna-playtest-20261012\README.md|line 27: local link target is missing: verification/final_gates.json
+DOCAUTH|FAIL|DOC072|audit\cycles\luna-playtest-20261012\README.md|line 29: local link target is missing: MANIFEST.json
+DOCAUTH|FAIL|DOC080|audit\MASTER_AUDIT_2026-08-09.md|navigation target missing or outside repository: cycles/luna-playtest-20261012/verification/final_gates.json
+DOCAUTH|RESULT|4 ISSUE(S)
+["C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe", "-B", "tools/audit_development.py", "--base", "auto"]
+AUDITDEV|BASE|e2b3c73789707aa49a91b4f42e2a9dd4b68225df
+AUDITDEV|FAIL|navigation target missing or outside repository: cycles/luna-playtest-20261012/verification/final_gates.json
+AUDITDEV|RESULT|1 ISSUE(S)
+["C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe", "-B", "-m", "unittest", "tools.tests.test_audit_document_authority", "tools.tests.test_audit_development"]
+DOCAUTH|STRESS|6/6
+......................................................
+----------------------------------------------------------------------
+Ran 54 tests in 44.134s
+
+OK
+["C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe", "-B", "-m", "gdtoolkit.parser", "audit/cycles/luna-playtest-20261012/review_tools/chapter2_farmer_diagnostic.gd", "audit/cycles/luna-playtest-20261012/review_tools/pipe_touch_diagnostic.gd", "audit/cycles/luna-playtest-20261012/review_tools/pool_burst_diagnostic.gd", "audit/cycles/luna-playtest-20261012/review_tools/pool_diagnostic.gd"]
+["C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe", "-B", "tools/lint_inference.py", "audit/cycles/luna-playtest-20261012/review_tools/chapter2_farmer_diagnostic.gd", "audit/cycles/luna-playtest-20261012/review_tools/pipe_touch_diagnostic.gd", "audit/cycles/luna-playtest-20261012/review_tools/pool_burst_diagnostic.gd", "audit/cycles/luna-playtest-20261012/review_tools/pool_diagnostic.gd"]
+["git", "diff", "--check"]
+warning: in the working copy of '.gitattributes', LF will be replaced by CRLF the next time Git touches it
+["git", "diff", "--exit-code", "--", "scripts", "scenes", "assets", "project.godot"]
+HELPER_AST ALL 13 OK

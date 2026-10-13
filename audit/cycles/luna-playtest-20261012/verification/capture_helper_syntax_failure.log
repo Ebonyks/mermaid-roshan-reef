@@ -1,0 +1,11 @@
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+    import ast,sys; ast.parse(open(sys.argv[1],encoding="utf-8").read(),filename=sys.argv[1])
+                    ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Peter\AppData\Local\Python\pythoncore-3.13-64\Lib\ast.py", line 50, in parse
+    return compile(source, filename, mode, flags,
+                   _feature_version=feature_version, optimize=optimize)
+  File "C:\Users\Peter\.codex\worktrees\luna-playtest-20261012\mermaid-roshan-reef\audit\cycles\luna-playtest-20261012\review_tools\capture_pool.py", line 10
+    if a.output and not re.fullmatch(r'[a-z0-9_-]{1,64}',a.output): parser.error('--output must be a simple capture name') diagnostic=a.diagnostic or a.burst
+                                                                                                                           ^^^^^^^^^^
+SyntaxError: invalid syntax

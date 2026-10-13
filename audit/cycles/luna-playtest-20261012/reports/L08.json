@@ -1,0 +1,122 @@
+{
+  "schema": "luna_playthrough_report/1",
+  "session_id": "L08",
+  "reviewer": {
+    "agent_id": "/root/luna_playtest_coordinator/luna_l08",
+    "model": "gpt-6-luna"
+  },
+  "baseline": "e2b3c73789707aa49a91b4f42e2a9dd4b68225df",
+  "focus": "Waterfall lane strokes and tap assist",
+  "runtime_receipt": "audit/cycles/luna-playtest-20261012/runtime/L08/attempt_1/receipt.json",
+  "evidence_kind": "INTERNAL_PROBE",
+  "route_status": {
+    "proven_scope": "The unchanged exact-Godot 4.7.2 headless probe passed checks for the live cleanup controller's waterfall stage, a downward synthetic touch/drag/release through _gui_input, all three lane clears, progress persistence and unlock, plus standalone tap-assist, same-lane retap, retarget, cancellation, local-contact and touch-owner assertions. The focused source traces these mechanics to the visible waterfall fixture and connects progress/completion to the controller.",
+    "gaps": "The probe directly constructs ReefMain, a Control host, and synthetic waterfall/seahorse fixture sprites (scripts/probe_day_one_pool_cleanup.gd:29-64), then directly calls the waterfall's _gui_input handler with synthetic events (scripts/probe_day_one_pool_cleanup.gd:223-258). It does not enter from the castle through displayed controls or exercise normal engine input routing on a rendered screen. The lane hit geometry, actual visual legibility, spoken playback, physical phone response and observed child comprehension/appeal remain unproven."
+  },
+  "verdict": "INCOMPLETE",
+  "timing": {
+    "code_constants": [
+      "GUIDE_IDLE_SECONDS=0.6 s before the guide demonstration (scripts/games/pool_waterfall_activity.gd:33)",
+      "GUIDE_STROKE_SECONDS=1.4 s and GUIDE_REST_SECONDS=0.5 s for the repeating guide cycle (scripts/games/pool_waterfall_activity.gd:34-35)",
+      "TAP_ASSIST=0.22 lane progress per assisted tap; no source-defined total completion time (scripts/games/pool_waterfall_activity.gd:17-20)"
+    ],
+    "gameplay_duration": null,
+    "assumptions": "The guide-cycle values describe code timing, not a measured child's play session. Completion time depends on how many deliberate strokes/taps and approach actions are needed. The helper's wall time is probe execution time and is not gameplay duration."
+  },
+  "tactile": {
+    "target_size": "The probe's synthetic live-fixture metadata resolves to 151.25×207.5 canvas units (scripts/probe_day_one_pool_cleanup.gd:40-43,211-215), about 50.4 units wide per lane. Source assigns a lane by dividing the fixture into thirds (scripts/games/pool_waterfall_activity.gd:436-440). The probe does not measure projected phone hit geometry; the per-lane width is below the DL-UI-03 110-unit guideline and merits a phone-size comfort check.",
+    "press_response": "A lane press starts the scrubber affordance and hides the idle guide; with the actor bound it requests approach, and a tap is armed to award the 0.22 assist only after the contact action. Probe assertions for guide response and contact-gated tap passed (probe.log:35-36,119). Rendered-frame latency was not measured.",
+    "drag_hold_release": "A downward drag reports partial wipe progress while moving through the lane; release under the 12-unit tap threshold uses tap assist, while a longer stroke arms its local action. No hold is required. The probe releases one synthetic downward stroke per lane and checks completion (probe.log:119-123).",
+    "ownership": "The activity tracks one active touch ID and ignores events from other IDs for that gesture (scripts/games/pool_waterfall_activity.gd:230-247,266-268). This was exercised through direct handler calls in standalone contact-action cases, not a hardware multitouch stream.",
+    "cancellation": "cancel_touch cancels the contact action and pending lane before releasing touch state (scripts/games/pool_waterfall_activity.gd:135-139,296-321). Probe retarget/focus-cancel assertions verified that unearned work did not award lane progress (probe.log:34-35). Pause/back/overlay teardown through the displayed application route was not tested."
+  },
+  "play_appeal": {
+    "agency": "Hypothesis: a child can choose among three visible strips and see the dirt wipe downward, while the small tap assist offers a less demanding alternative without making an unattended win. The source and probe support these mechanics; I did not see the rendered scene or observe a child.",
+    "variety": "Within this focused activity, the mechanics vary between a full downward stroke and repeated lane taps, with a hand guide demonstrating the stroke. The intended variety and child preference are untested.",
+    "world_response": "Code removes each dirty lane from the top and emits a progress mask; the cleanup controller persists the mask and announces lane cues, then advances to the seahorse stage when complete (scripts/games/pool_waterfall_activity.gd:450-472; scripts/games/day_one_pool_cleanup.gd:478-502). Probe verifies these state transitions, not their visual or audible quality.",
+    "replay": "Source initializes lane progress from the saved clear mask and derives the next hint from uncleared lanes (scripts/games/pool_waterfall_activity.gd:73-96,111-119). The probe exercises completion persistence/unlock, but does not perform a fresh visible re-entry route or child replay observation.",
+    "fun_score": null
+  },
+  "observations": [
+    {
+      "title": "Synthetic downward strokes clear all three lanes and advance the pool stage",
+      "classification": "CONFIRMED_RUNTIME",
+      "evidence": [
+        "scripts/probe_day_one_pool_cleanup.gd:223-258 sends a synthetic touch, two drag positions, and release through the waterfall handler for each of three lanes; it asserts partial top-down grime reveal and clear mask 0x07.",
+        "scripts/probe_day_one_pool_cleanup.gd:260-264 asserts the saved waterfall mask, cleanup step, and seahorse as current activity.",
+        "audit/cycles/luna-playtest-20261012/runtime/L08/attempt_1/probe.log:119,121-123 reports guide display, partial wipe, three-lane clearing, and completion/unlock OK; final line is RESULT: PASS checks_failed=0."
+      ],
+      "rules": ["DL-AGE-01", "DL-AGE-02", "DL-INT-02", "DL-QA-02"],
+      "existing_findings": ["MA-PLAY-004"],
+      "reproduction": "Run the retained L08 receipt command. It exercises synthetic downward input on the fixture and asserts all three lane bits and the next stage.",
+      "child_impact": "Within the asserted setup, a downward stroke produces local visual progress and finishing all strips advances the activity. This supports a clear action/result relationship but does not show whether the image or response is legible to the child.",
+      "proposed_repair": "No defect established by this lane. Preserve the one-finger stroke and truthful top-down wipe while collecting routed visual evidence.",
+      "acceptance_test": "On the shipping renderer, enter the pool naturally, make a downward stroke on each visible lane, and verify local dirt removal, one appropriate lane cue, persisted progress, and the seahorse handoff after the third lane."
+    },
+    {
+      "title": "Tap assist and actor-contact gates prevent a tap or released swipe from awarding remote work",
+      "classification": "CONFIRMED_RUNTIME",
+      "evidence": [
+        "scripts/games/pool_waterfall_activity.gd:296-333 routes a short tap through TAP_ASSIST or arms the longer drag callback; _finish_tap_lane and _finish_drag_lane apply progress only after the callback.",
+        "scripts/probe_day_one_pool_cleanup.gd:742-763 checks that cancellation awards nothing, a same-lane retap does not restart work, a tap earns one assist after local scrub, and a quick released swipe completes after contact.",
+        "audit/cycles/luna-playtest-20261012/runtime/L08/attempt_1/probe.log:34-38 reports the retarget, cancel, local scrub, contact-wait and release checks OK."
+      ],
+      "rules": ["DL-AGE-02", "DL-AGE-03", "DL-INT-02", "DL-SAVE-03", "DL-UI-05", "DL-QA-02"],
+      "existing_findings": ["MA-PLAY-004"],
+      "reproduction": "Run the L08 receipt; the standalone waterfall contact-action segment drives touch begin/end and contact-action processing, then checks progress before and after the approach/work completes.",
+      "child_impact": "The mechanics are designed to let a brief tap still help while requiring the character's local action before credit, and interruption does not pay unearned work. Actual character/tool readability and perceived wait remain unobserved.",
+      "proposed_repair": "No repair indicated by this probe. Retain contact-gated assist and interruption semantics; assess their visible timing on device.",
+      "acceptance_test": "With routed one-finger input on device, compare tap and stroke response; verify the action appears at the waterfall before progress is credited, lane retarget/cancel clears pending work, and another touch cannot steal the gesture."
+    },
+    {
+      "title": "Each lane's nominal hit strip is narrow relative to the child-target guideline",
+      "classification": "CONFIRMED_CODE",
+      "evidence": [
+        "scripts/probe_day_one_pool_cleanup.gd:40-43 sets fixture art bounds to 121×166 and the expected live bounds at :211-215.",
+        "scripts/games/day_one_pool_cleanup.gd:20 defines ART_TO_STAGE=1.25 and :593-599 derives the fixture size from source_art_rect, yielding 151.25×207.5 and nominal lane width about 50.4.",
+        "scripts/games/pool_waterfall_activity.gd:436-440 divides the fixture into three lane hit regions; design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md:714-716 says required touch targets should be at least 110×110 base-canvas pixels or provide an equivalently generous projected hit region."
+      ],
+      "rules": ["DL-UI-03", "DL-INT-01", "DL-QA-04", "DL-QA-07"],
+      "existing_findings": [],
+      "reproduction": "Use the fixture geometry in the probe and follow _waterfall_fixture_size plus _lane_at: 151.25 canvas units total width divided into three nominal columns, each approximately 50.4 units wide.",
+      "child_impact": "A narrow horizontal lane may be harder for a preschooler to hit reliably on a phone, particularly when the lanes are visually adjacent. This is a geometry-based concern, not a demonstrated miss or defect; projected hit testing and child comfort have not been observed.",
+      "proposed_repair": "Measure the displayed hit region on the target phone and test child-sized finger tolerance. If lane selection proves difficult, consider a generous lane-aware tolerance that still makes each visible strip own its input without neighboring ambiguity.",
+      "acceptance_test": "Measure projected lane hit areas and spacing at phone size, then verify intentional taps/strokes on each strip register reliably without cross-lane selection under one-finger child play."
+    },
+    {
+      "title": "The passing contract probe does not prove the castle-to-waterfall route or ordinary input dispatch",
+      "classification": "COVERAGE_GAP",
+      "evidence": [
+        "scripts/probe_day_one_pool_cleanup.gd:29-64 constructs ReefMain and a Control host, creates synthetic waterfall and seahorse sprites, assigns them into the room-item dictionary and calls cleanup.setup directly.",
+        "scripts/probe_day_one_pool_cleanup.gd:235-256 calls waterfall_activity._gui_input directly with constructed InputEventScreenTouch and InputEventScreenDrag objects.",
+        "audit/cycles/luna-playtest-20261012/runtime/L08/attempt_1/receipt.json records headless=true and rendered_mobile_acceptance=false; the retained log records the scripted PASS at line 123."
+      ],
+      "rules": ["DL-AGE-01", "DL-AGE-06", "DL-UI-01", "DL-QA-02", "DL-QA-03", "DL-QA-04", "DL-QA-05", "DL-QA-07"],
+      "existing_findings": ["MA-PLAY-001", "MA-PLAY-004"],
+      "reproduction": "Read the probe setup and direct calls cited above; its runtime does not load a full displayed pool route or inject through normal GUI dispatch.",
+      "child_impact": "The probe cannot show whether a child discovers the waterfall after skimming, sees the lane cue at phone size, or can reliably touch the intended lane through normal event routing.",
+      "proposed_repair": "No production repair is inferred. Keep this evidence gap separate and collect a routed, displayed phone session before claiming route or tactile acceptance.",
+      "acceptance_test": "From a fresh save, enter the dirty pool through its visible route, complete skimming, observe the waterfall cue, use ordinary touchscreen input on all lanes, and verify completion/re-entry on the target Android device without adult prompting."
+    }
+  ],
+  "strengths": [
+    {
+      "claim": "The lane interaction pairs an authored hand demonstration with a top-down removal of the dirty strip, giving the child a visible example of the intended downward stroke.",
+      "evidence": "scripts/games/pool_waterfall_activity.gd:563-582; scripts/probe_day_one_pool_cleanup.gd:223-251; runtime log:119,121. The probe verifies visibility/state, not rendered composition."
+    },
+    {
+      "claim": "Tap assist is bounded at 0.22 progress and unearned actor work is canceled or retargeted without awarding the old lane.",
+      "evidence": "scripts/games/pool_waterfall_activity.gd:19,230-258,296-333; scripts/probe_day_one_pool_cleanup.gd:729-763; runtime log:34-38."
+    },
+    {
+      "claim": "The same waterfall progress signal is connected to the cleanup controller's persistence and lane voice-cue path, with completion advancing only from the waterfall phase.",
+      "evidence": "scripts/games/day_one_pool_cleanup.gd:379-389,478-502; runtime log:122-123. Probe state wiring does not establish audible voice or real save-device behavior."
+    }
+  ],
+  "acceptance_gaps": [
+    "No fresh-save castle entry or complete skimming-to-waterfall route was played through ordinary displayed input; this probe directly constructs the controller and directly calls _gui_input.",
+    "No rendered Mobile capture verifies the waterfall cue, scrubber contact, hand guide, lane separation, or visible action timing at supported aspect ratios.",
+    "Nominal lane width from the probe fixture is about 50.4 base-canvas units; no Lenovo Tab M11 projected hit-area or finger-tolerance measurement exists in this review.",
+    "No target-device latency, frame pacing, thermal/memory or audio audibility evidence; no observed-child comprehension, comfort, agency, session length or fun evidence; no owner acceptance."
+  ]
+}

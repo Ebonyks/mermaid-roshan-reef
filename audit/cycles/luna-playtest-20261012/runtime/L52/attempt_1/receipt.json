@@ -1,0 +1,50 @@
+{
+  "schema": "luna_probe_receipt/1",
+  "session_id": "L52",
+  "attempt": 1,
+  "baseline": "e2b3c73789707aa49a91b4f42e2a9dd4b68225df",
+  "focus": "Adversarial wrong touch vs intentional action",
+  "probe": "probe_touch_adversary",
+  "command": [
+    "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64_console.exe",
+    "--headless",
+    "--path",
+    "C:\\Users\\Peter\\.codex\\worktrees\\luna-playtest-20261012\\mermaid-roshan-reef",
+    "-s",
+    "scripts/probe_touch_adversary.gd",
+    "--",
+    "--touch",
+    "--hybrid-touch-test"
+  ],
+  "started_utc": "2026-10-13T02:25:06.936563+00:00",
+  "status": "PASS",
+  "evidence_kind": "SCRIPTED_PROBE",
+  "engine": {
+    "version": "4.7.2.stable.official.ed1daf0bf",
+    "sha256": "c8f0a6bc45a19b33541501e57f6f7cd972ab18453743266339d495cbbe846643"
+  },
+  "source_hashes": {
+    "project.godot": "8d942b12dfa87ed9fb39cf7f6cfbb1d3f64cc4461097c527f266a28e9428697f",
+    "scenes/main.tscn": "064ca94c2eca6638eafe169c5fedeb6310a9ef31e5941351e7c41b2934263db7",
+    "scripts/ci.sh": "769ed4c4259ebe740f1e247c129bfc34914fa70fe72e28f65e5b5d5c9a577279",
+    "scripts/probe_touch_adversary.gd": "72aae12811c597a32e929ab9ee62a1bd30297a87cc6e7072c212174cf91df2f1",
+    "scripts/touch_ui.gd": "c25d51407589b841126f872172b7f628805259e6d2190e1a8347ec863378ef04"
+  },
+  "helper_sha256": "2ff23721f7e50a2abe878afde1f797fa3c27c66285b33aa1a549157005e3c953",
+  "save_profile": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef-luna-L52-gd_odd8f",
+  "profile_isolated": true,
+  "headless": true,
+  "rendered_mobile_acceptance": false,
+  "log": "audit/cycles/luna-playtest-20261012/runtime/L52/attempt_1/probe.log",
+  "wall_clock_is_gameplay_timing": false,
+  "finished_utc": "2026-10-13T02:27:22.185931+00:00",
+  "wall_elapsed_seconds": 135.241,
+  "exit_code": 0,
+  "timed_out": false,
+  "failure_lines": [],
+  "terminal_lines": [
+    "TOUCH_ADVERSARY|ALL 25 SCENARIO RUNS CLEAR"
+  ],
+  "log_sha256": "7dce7b16bedf0a78e23f3951656cebf93faf911ab4ab7ef1e163c81feb2a5643",
+  "log_bytes": 1644
+}

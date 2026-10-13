@@ -1,0 +1,139 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+LAGOONANIMALS|launch_menu_and_story_clip_cleared|OK
+LAGOONANIMALS|exact_five_species_roster|OK
+LAGOONANIMALS|ecological_page_rosters|OK|{ 0: 2, 1: 2, 2: 1 }
+LAGOONANIMALS|authored_paths_clear_route_props_and_seams|OK
+LAGOONANIMALS|animal_atlas_contract|OK
+LAGOONANIMALS|authored_day_night_lighting|OK
+LAGOONANIMALS|reject_old_rope_water_and_air_route|OK
+LAGOONANIMALS|reject_old_shrub_canopy_route|OK
+LAGOONANIMALS|reject_feet_inside_but_body_over_ground_edge|OK
+LAGOONANIMALS|undeclared_habitat_fails_closed|OK
+LAGOONANIMALS|reject_obstacle_between_safe_waypoints|OK
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/sprites/sky_lagoon/animals/otter_idle_atlas.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _validate_ground_boundaries (res://scripts/probe_sky_lagoon_animals.gd:367)
+       [1] _run (res://scripts/probe_sky_lagoon_animals.gd:520)
+       [2] _frames (res://scripts/probe_sky_lagoon_animals.gd:35)
+LAGOONANIMALS|otter_idle_exact_source_cell_contacts|OK
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/sprites/sky_lagoon/animals/otter_startle_atlas.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _validate_ground_boundaries (res://scripts/probe_sky_lagoon_animals.gd:367)
+       [1] _run (res://scripts/probe_sky_lagoon_animals.gd:520)
+       [2] _frames (res://scripts/probe_sky_lagoon_animals.gd:35)
+LAGOONANIMALS|otter_startle_exact_source_cell_contacts|OK
+LAGOONANIMALS|otter_complete_patrol_stays_on_floor|OK
+LAGOONANIMALS|otter_all_startles_follow_ground_to_endpoint|OK
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/sprites/sky_lagoon/animals/frog_idle_atlas.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _validate_ground_boundaries (res://scripts/probe_sky_lagoon_animals.gd:367)
+       [1] _run (res://scripts/probe_sky_lagoon_animals.gd:520)
+       [2] _frames (res://scripts/probe_sky_lagoon_animals.gd:35)
+LAGOONANIMALS|frog_idle_exact_source_cell_contacts|OK
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/sprites/sky_lagoon/animals/frog_startle_atlas.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _validate_ground_boundaries (res://scripts/probe_sky_lagoon_animals.gd:367)
+       [1] _run (res://scripts/probe_sky_lagoon_animals.gd:520)
+       [2] _frames (res://scripts/probe_sky_lagoon_animals.gd:35)
+LAGOONANIMALS|frog_startle_exact_source_cell_contacts|OK
+LAGOONANIMALS|frog_complete_patrol_stays_on_floor|OK
+LAGOONANIMALS|frog_all_startles_follow_ground_to_endpoint|OK
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/sprites/sky_lagoon/animals/hare_idle_atlas.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _validate_ground_boundaries (res://scripts/probe_sky_lagoon_animals.gd:367)
+       [1] _run (res://scripts/probe_sky_lagoon_animals.gd:520)
+       [2] _frames (res://scripts/probe_sky_lagoon_animals.gd:35)
+LAGOONANIMALS|hare_idle_exact_source_cell_contacts|OK
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/sprites/sky_lagoon/animals/hare_startle_atlas.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _validate_ground_boundaries (res://scripts/probe_sky_lagoon_animals.gd:367)
+       [1] _run (res://scripts/probe_sky_lagoon_animals.gd:520)
+       [2] _frames (res://scripts/probe_sky_lagoon_animals.gd:35)
+LAGOONANIMALS|hare_startle_exact_source_cell_contacts|OK
+LAGOONANIMALS|hare_complete_patrol_stays_on_floor|OK
+LAGOONANIMALS|hare_all_startles_follow_ground_to_endpoint|OK
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/sprites/sky_lagoon/animals/squirrel_idle_atlas.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _validate_ground_boundaries (res://scripts/probe_sky_lagoon_animals.gd:367)
+       [1] _run (res://scripts/probe_sky_lagoon_animals.gd:520)
+       [2] _frames (res://scripts/probe_sky_lagoon_animals.gd:35)
+LAGOONANIMALS|squirrel_idle_exact_source_cell_contacts|OK
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/sprites/sky_lagoon/animals/squirrel_startle_atlas.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _validate_ground_boundaries (res://scripts/probe_sky_lagoon_animals.gd:367)
+       [1] _run (res://scripts/probe_sky_lagoon_animals.gd:520)
+       [2] _frames (res://scripts/probe_sky_lagoon_animals.gd:35)
+LAGOONANIMALS|squirrel_startle_exact_source_cell_contacts|OK
+LAGOONANIMALS|squirrel_complete_patrol_stays_on_floor|OK
+LAGOONANIMALS|squirrel_all_startles_follow_ground_to_endpoint|OK
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/sprites/sky_lagoon/animals/raccoon_idle_atlas.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _validate_ground_boundaries (res://scripts/probe_sky_lagoon_animals.gd:367)
+       [1] _run (res://scripts/probe_sky_lagoon_animals.gd:520)
+       [2] _frames (res://scripts/probe_sky_lagoon_animals.gd:35)
+LAGOONANIMALS|raccoon_idle_exact_source_cell_contacts|OK
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/sprites/sky_lagoon/animals/raccoon_startle_atlas.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _validate_ground_boundaries (res://scripts/probe_sky_lagoon_animals.gd:367)
+       [1] _run (res://scripts/probe_sky_lagoon_animals.gd:520)
+       [2] _frames (res://scripts/probe_sky_lagoon_animals.gd:35)
+LAGOONANIMALS|raccoon_startle_exact_source_cell_contacts|OK
+LAGOONANIMALS|raccoon_complete_patrol_stays_on_floor|OK
+LAGOONANIMALS|raccoon_all_startles_follow_ground_to_endpoint|OK
+LAGOONANIMALS|ambient_patrol_and_taps_award_nothing|OK
+LAGOONANIMALS|single_pooled_canvas_animal|OK
+LAGOONANIMALS|single_pooled_canvas_contact_shadow|OK
+LAGOONANIMALS|bind_otter|OK
+LAGOONANIMALS|otter_reuses_canvas_pool|OK
+LAGOONANIMALS|otter_idle_path_and_production_touch|OK
+LAGOONANIMALS|otter_actual_phone_readability_and_clear_staging|OK|bounds=[P: (246.9056, 451.2273), S: (137.851, 66.32996)] overlap=0.019
+LAGOONANIMALS|otter_canvas_metadata_and_lighting|OK
+LAGOONANIMALS|otter_cute_startle_sequence|OK
+LAGOONANIMALS|bind_frog|OK
+LAGOONANIMALS|frog_reuses_canvas_pool|OK
+LAGOONANIMALS|frog_idle_path_and_production_touch|OK
+LAGOONANIMALS|frog_actual_phone_readability_and_clear_staging|OK|bounds=[P: (253.6451, 434.3904), S: (101.2637, 68.98315)] overlap=0.000
+LAGOONANIMALS|frog_canvas_metadata_and_lighting|OK
+LAGOONANIMALS|frog_cute_startle_sequence|OK
+LAGOONANIMALS|bind_hare|OK
+LAGOONANIMALS|hare_reuses_canvas_pool|OK
+LAGOONANIMALS|hare_idle_path_and_production_touch|OK
+LAGOONANIMALS|hare_actual_phone_readability_and_clear_staging|OK|bounds=[P: (742.8715, 554.4389), S: (67.62775, 70.3194)] overlap=0.000
+LAGOONANIMALS|hare_canvas_metadata_and_lighting|OK
+LAGOONANIMALS|hare_cute_startle_sequence|OK
+LAGOONANIMALS|bind_squirrel|OK
+LAGOONANIMALS|squirrel_reuses_canvas_pool|OK
+LAGOONANIMALS|squirrel_idle_path_and_production_touch|OK
+LAGOONANIMALS|squirrel_actual_phone_readability_and_clear_staging|OK|bounds=[P: (745.7559, 555.4769), S: (85.22644, 68.1015)] overlap=0.000
+LAGOONANIMALS|squirrel_canvas_metadata_and_lighting|OK
+LAGOONANIMALS|squirrel_cute_startle_sequence|OK
+LAGOONANIMALS|bind_raccoon|OK
+LAGOONANIMALS|raccoon_reuses_canvas_pool|OK
+LAGOONANIMALS|raccoon_idle_path_and_production_touch|OK
+LAGOONANIMALS|raccoon_actual_phone_readability_and_clear_staging|OK|bounds=[P: (871.098, 591.6002), S: (94.78455, 67.70325)] overlap=0.000
+LAGOONANIMALS|raccoon_canvas_metadata_and_lighting|OK
+LAGOONANIMALS|raccoon_cute_startle_sequence|OK
+LAGOONANIMALS|reef_route_visible_from_arrival_page|OK
+LAGOONANIMALS|shore_starts_with_otter|OK
+LAGOONANIMALS|arrival_plane_excludes_shore_animals|OK
+LAGOONANIMALS|shore_returns_after_plane_departure_bind|OK
+LAGOONANIMALS|shore_returns_after_plane_departure|OK
+LAGOONANIMALS|activation_exits_toward_safe_edge|OK
+LAGOONANIMALS|shore_roster_advances_otter_to_frog|OK
+LAGOONANIMALS|otter_night_lighting|OK
+LAGOONANIMALS|frog_night_lighting|OK
+LAGOONANIMALS|hare_night_lighting|OK
+LAGOONANIMALS|squirrel_night_lighting|OK
+LAGOONANIMALS|raccoon_night_lighting|OK
+SKY_LAGOON_ANIMALS|ALL OK

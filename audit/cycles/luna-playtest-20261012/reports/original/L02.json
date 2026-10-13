@@ -1,0 +1,108 @@
+{
+  "schema": "luna_playthrough_report/1",
+  "session_id": "L02",
+  "reviewer": {
+    "agent_id": "/root/luna_playtest_coordinator/luna_l02",
+    "model": "gpt-6-luna"
+  },
+  "baseline": "e2b3c73789707aa49a91b4f42e2a9dd4b68225df",
+  "focus": "Bathroom first-action discoverability",
+  "runtime_receipt": "../runtime/L02/attempt_1/receipt.json",
+  "evidence_kind": "INTERNAL_PROBE",
+  "route_status": {
+    "proven_scope": "The focused scripted probe instantiates the bathroom cleanup owner, confirms the dirty interactive room and basket invitation, triggers its internal basket-tap seam, and checks handoff into sink cleaning. Source review confirms production synchronization is conditional on an active Day One bubble_bath room.",
+    "gaps": "The probe does not enter the bathroom through the ordinary fresh-save child route or exercise the visible Button with routed screen-touch input. It calls setup(main, false), disabling spoken announcements; voice checks include static source wiring and a prompt-state flag. It supplies no rendered phone view, device latency check, child observation, or owner review."
+  },
+  "verdict": "INCOMPLETE",
+  "timing": {
+    "source_constants": [
+      {
+        "value": "BASKET_BUTTON_SIZE = Vector2(220.0, 220.0)",
+        "evidence": "scripts/games/day_one_bathroom_cleanup.gd:74"
+      },
+      {
+        "value": "Initial spoken hint is deferred after setup; code text is ‘Tap the cleaning basket.’",
+        "evidence": "scripts/games/day_one_bathroom_cleanup.gd:180,809-813"
+      }
+    ],
+    "estimated_activity_duration": null,
+    "assumptions": "No child session duration is inferred. Probe runner wall time is not gameplay timing."
+  },
+  "tactile": {
+    "target_size": "A 220×220 base-canvas Button overlays the basket at scripts/games/day_one_bathroom_cleanup.gd:724-734; source defines the physical basket at (940,575), scale 0.105 (lines 72-74). Probe and 110×110 guidance support a generous target by dimensions only; no device projection or touch feel was measured.",
+    "press_response": "Code connects Button.pressed to _on_basket_tapped; the handler sets busy, plays UI tap and contextual voice when announcements are enabled, then marks both supplies found and starts the cleaning handoff (lines 734,789-806). The probe invoked probe_tap_basket() directly rather than the visible button.",
+    "drag_hold_release": "Not part of this first action; code comment states the basket is the single tap action and no magnifier/drag surface is playable (lines 6-8,355-367).",
+    "ownership": "The button is a transparent physical-object hit region on the visible basket and world controls are suppressed while this overlay owns the rescue (lines 724-734; 647-662). One-finger device ownership was not evaluated here.",
+    "cancellation": "This review did not exercise cancellation of the initial basket tap; focused probe covers teardown/restoration, but not an actual routed press cancellation."
+  },
+  "play_appeal": {
+    "hypothesis": "One focused tap followed by the sponge visibly traveling toward the sink may make the first cause and effect legible. The basket pulse, moving hand pointer, spoken hint, and prompt repeaters offer multiple cues without a reading task. Whether this feels inviting or obvious at phone size needs visual and child evidence.",
+    "fun_score": null
+  },
+  "observations": [
+    {
+      "title": "A clear, single basket target is built in code",
+      "classification": "CONFIRMED_CODE",
+      "evidence": [
+        "scripts/games/day_one_bathroom_cleanup.gd:67-80 (front-right basket, 220×220 hit target, pointer offset and Roshan safe region)",
+        "scripts/games/day_one_bathroom_cleanup.gd:717-734 (visible pointer plus transparent Button bound to basket; press connected to handler)",
+        "scripts/probe_day_one_bathroom_cleanup.gd:84-111; audit/cycles/luna-playtest-20261012/runtime/L02/attempt_1/probe.log:9-13,31-32 (scripted invitation and suppression assertions passed)"
+      ],
+      "rules": ["DL-AGE-01", "DL-AGE-02", "DL-INT-01", "DL-UI-03"],
+      "existing_findings": [],
+      "reproduction": "Inspect the production setup and guidance builders; the probe setup confirms the basket and pointer states, then calls an internal seam for the tap.",
+      "child_impact": "A visible, large target, pointing hand, and one-finger action are promising supports for a non-reader’s first action. Their visual clarity and effective phone-size hit area remain unmeasured.",
+      "proposed_repair": "No repair indicated by this scoped evidence. Capture the ordinary entry at target-device aspect and observe whether a child finds the basket without adult prompting.",
+      "acceptance_test": "From a fresh save, enter the bathroom through visible gameplay on the target phone; verify the spoken cue and pointer identify the basket, and a child independently taps it with immediate visible response."
+    },
+    {
+      "title": "The scripted tap verifies the handoff, but bypasses the visible input route",
+      "classification": "COVERAGE_GAP",
+      "evidence": [
+        "scripts/probe_day_one_bathroom_cleanup.gd:64 (setup with announcements disabled)",
+        "scripts/probe_day_one_bathroom_cleanup.gd:126-132 (calls probe_tap_basket directly)",
+        "scripts/games/day_one_bathroom_cleanup.gd:373-378 (probe seam directly invokes the handler)",
+        "audit/cycles/luna-playtest-20261012/runtime/L02/attempt_1/receipt.json (headless SCRIPTED_PROBE, rendered_mobile_acceptance=false)",
+        "audit/cycles/luna-playtest-20261012/runtime/L02/attempt_1/probe.log:31-35,118 (basket handoff and zero failed checks)"
+      ],
+      "rules": ["DL-AGE-06", "DL-UI-01", "DL-QA-02", "DL-QA-03", "DL-QA-05"],
+      "existing_findings": ["MA-PLAY-001"],
+      "reproduction": "Read the probe setup and tap block; it bypasses Button.pressed and disables announcements. Runtime result: probe PASS, 0 failed assertions.",
+      "child_impact": "This evidence cannot establish that a child reaches the activity, notices the cue, or successfully taps the visible object without instruction.",
+      "proposed_repair": "No code repair from this probe alone. Add an ordinary routed-input/device and child observation to the acceptance evidence for the live route.",
+      "acceptance_test": "Bind the exact build and fresh-save route to a phone recording; show the live spoken/pointer cue, routed first touch, handoff animation, and child discovery without coaching."
+    },
+    {
+      "title": "The first spoken hint is configured but not heard in this run",
+      "classification": "COVERAGE_GAP",
+      "evidence": [
+        "scripts/games/day_one_bathroom_cleanup.gd:157-180 (production default enables announcements and defers initial hint)",
+        "scripts/games/day_one_bathroom_cleanup.gd:809-813 (basket hint cue and spoken text)",
+        "scripts/probe_day_one_bathroom_cleanup.gd:64,99-111 (announcements disabled; checks invitation state and static cue source)",
+        "audit/cycles/luna-playtest-20261012/runtime/L02/attempt_1/probe.log:4-6,12 (source-string wiring passed; no audio playback claim)"
+      ],
+      "rules": ["DL-AGE-01", "DL-MOT-04", "DL-QA-04", "DL-QA-05", "DL-QA-07"],
+      "existing_findings": ["MA-PLAY-001"],
+      "reproduction": "The focused probe calls setup(main, false), while production setup defaults announcements_enabled to true. Its contextual-voice helper reads source text; it does not hear the cue.",
+      "child_impact": "If the initial voice is inaudible, delayed, or unclear on the phone, a non-reader may not know the basket is actionable even when the pointer is visible.",
+      "proposed_repair": "No repair indicated. Verify actual cue playback and audibility on device during the live bathroom entry.",
+      "acceptance_test": "Record the exact fresh-entry voice cue and visible pointer together on target hardware; confirm timing and audibility at normal play volume with child observation."
+    }
+  ],
+  "strengths": [
+    {
+      "strength": "The supply hunt presents one basket action rather than competing cabinet or magnifier routes.",
+      "evidence": "scripts/games/day_one_bathroom_cleanup.gd:650-662,747-759; runtime/L02/attempt_1/probe.log:8-13"
+    },
+    {
+      "strength": "The handler’s first tap reveals both tools and hands off to a visible sponge-to-sink demonstration; the probe reports no assertion failures.",
+      "evidence": "scripts/games/day_one_bathroom_cleanup.gd:789-806; runtime/L02/attempt_1/probe.log:31-35,118"
+    }
+  ],
+  "acceptance_gaps": [
+    "Ordinary fresh-save route to bathroom and visible routed first touch are not proven by this probe; MA-PLAY-001 remains open.",
+    "No rendered Mobile capture or target-device projected hit-area, latency, audio audibility, frame pacing, or touch evidence (DL-QA-03, DL-QA-04).",
+    "No observed child comprehension/discoverability or owner acceptance (DL-QA-05, DL-QA-06).",
+    "PASS is limited to the unchanged internal probe’s scripted assertions at Godot 4.7.2-stable; it does not establish game-wide audit satisfaction."
+  ]
+}

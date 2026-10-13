@@ -1,0 +1,67 @@
+{
+  "schema": "luna_root_confirmation/1",
+  "baseline": "e2b3c73789707aa49a91b4f42e2a9dd4b68225df",
+  "checked_utc": "2026-10-13T01:05:00.132569+00:00",
+  "finding": "MA-TOUCH-004",
+  "status": "CONFIRMED_OPEN",
+  "scope": "Actual Mobile Vulkan desktop1280x720 viewport input in restored saved seahorse fixture; story clips canceled explicitly. No full fresh-save route, physical touchscreen,device latency,child or owner proof. Nominal scheduled cadence is not measured target-device frame timing.",
+  "runs": [
+    {
+      "run": "pool_burst",
+      "scheduled_interval_s": 0.3,
+      "input": "eight viewport InputEventScreenTouch press/releases at painted fixture center,50ms hold",
+      "observed_taps": 6,
+      "remaining_taps": 2,
+      "queued_tugs_after_settle": 0,
+      "completed": false,
+      "overall_exit": 1,
+      "receipt": "audit/cycles/luna-playtest-20261012/captures/pool_burst/receipt.json",
+      "log_sha256": "ba1a83a5f391335f077aadd5997fdf98d0d6d9a27329b18178cf9a8ce324ab85",
+      "fixture_sha256": "4f771c85204b0a5f7c9d09e3bffcf481afbec2531019cc00f61e404c36293087",
+      "qualification": "First fixture retained an incorrect dirty-waterfall check despite restoring saved step2; v2 corrects only that initialization check. No shipped source/test alteration."
+    },
+    {
+      "run": "pool_burst_repeat",
+      "scheduled_interval_s": 0.3,
+      "input": "eight viewport InputEventScreenTouch press/releases at painted fixture center,50ms hold",
+      "observed_taps": 6,
+      "remaining_taps": 2,
+      "queued_tugs_after_settle": 0,
+      "completed": false,
+      "overall_exit": 1,
+      "receipt": "audit/cycles/luna-playtest-20261012/captures/pool_burst_repeat/receipt.json",
+      "log_sha256": "67a74a9ea727c905adbd25df729c8d339d94e620809f600c14bcbbf035778f4f",
+      "fixture_sha256": "f0483820319d3502171384aec705a1f33950b776697f17dbdf0b7d917a38dea7",
+      "qualification": "First fixture retained an incorrect dirty-waterfall check despite restoring saved step2; v2 corrects only that initialization check. No shipped source/test alteration."
+    },
+    {
+      "run": "pool_burst_slow",
+      "scheduled_interval_s": 1.2,
+      "input": "eight viewport InputEventScreenTouch press/releases at painted fixture center,50ms hold",
+      "observed_taps": 8,
+      "remaining_taps": 0,
+      "queued_tugs_after_settle": 0,
+      "completed": true,
+      "overall_exit": 1,
+      "receipt": "audit/cycles/luna-playtest-20261012/captures/pool_burst_slow/receipt.json",
+      "log_sha256": "6cd6fe22269c845678c9b3331cb1b4971ac39272efa89cdc84fa352eb843650f",
+      "fixture_sha256": "4f771c85204b0a5f7c9d09e3bffcf481afbec2531019cc00f61e404c36293087",
+      "qualification": "First fixture retained an incorrect dirty-waterfall check despite restoring saved step2; v2 corrects only that initialization check. No shipped source/test alteration."
+    },
+    {
+      "run": "pool_burst_slow_repeat",
+      "scheduled_interval_s": 1.2,
+      "input": "eight viewport InputEventScreenTouch press/releases at painted fixture center,50ms hold",
+      "observed_taps": 8,
+      "remaining_taps": 0,
+      "queued_tugs_after_settle": 0,
+      "completed": true,
+      "overall_exit": 0,
+      "receipt": "audit/cycles/luna-playtest-20261012/captures/pool_burst_slow_repeat/receipt.json",
+      "log_sha256": "faab7ebf3fc8370daede387cd484b208b4de3c1192a62341ba74eb6eff0b47c5",
+      "fixture_sha256": "f0483820319d3502171384aec705a1f33950b776697f17dbdf0b7d917a38dea7",
+      "qualification": "First fixture retained an incorrect dirty-waterfall check despite restoring saved step2; v2 corrects only that initialization check. No shipped source/test alteration."
+    }
+  ],
+  "conclusion": "Eight fast intended on-target requests settle at6 tugs in two fresh fixtures. Eight slow requests settle at8 in two fixtures; corrected slow v2 exits0. Source saturates queued tugs at3 but emits bubbles even when capacity reached. Saved earned progress remains intact; this is input/cue/pacing friction, not lost save progress."
+}

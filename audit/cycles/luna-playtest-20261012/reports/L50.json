@@ -1,0 +1,205 @@
+{
+  "schema": "luna_playthrough_report/1",
+  "session_id": "L50",
+  "reviewer": {
+    "agent_id": "/root/luna_playtest_coordinator/luna_l50",
+    "model": "gpt-6-luna"
+  },
+  "baseline": "e2b3c73789707aa49a91b4f42e2a9dd4b68225df",
+  "focus": "Chapter Two milestone no duplicate award",
+  "runtime_receipt": "audit/cycles/luna-playtest-20261012/runtime/L50/attempt_1/receipt.json",
+  "evidence_kind": "INTERNAL_PROBE",
+  "route_status": {
+    "proven_scope": "The unchanged probe_alpha_milestone_save ran under Godot 4.7.2.stable.official.ed1daf0bf in an isolated profile. It exercised direct Chapter Two strawberry, phase, and party-contribution callbacks; checked disk values, fresh SaveState reloads, duplicate rejection for each strawberry, and preservation of an unknown save field. It also checked cake/phase masks.",
+    "route_gaps": "The probe seeds Chapter Two active state and calls callbacks directly; it does not begin at a fresh save, enter an ordinary room, perform touch actions, display feedback, or complete a job through its visible route. MA-PLAY-005 remains CONFIRMED_OPEN: the production Chapter Two career config can reject empty phase overrides and story tasks may lack armed stations. No visible route or child experience is established by this callback-focused probe."
+  },
+  "verdict": "INCOMPLETE",
+  "timing": {
+    "code_constants": [
+      {
+        "value": "The probe has no SceneTree process-frame wait, Timer, or input delay; its test sequence runs synchronously from _init, including immediate writes and reload assertions.",
+        "evidence": "scripts/probe_alpha_milestone_save.gd:14-25, 81-90",
+        "scope": "Harness timing only; not gameplay duration or user-visible save latency."
+      },
+      {
+        "value": "Each accepted callback is followed by an immediate disk read and a fresh fixture load. The probe then tests five strawberry picks, career phase sets, and party contributions.",
+        "evidence": "scripts/probe_alpha_milestone_save.gd:22-45, 81-90",
+        "scope": "Test operation order only; the helper's 13.971-second wall time is not play time."
+      }
+    ],
+    "gameplay_duration": null,
+    "assumptions": "No normal-route or child-session duration can be estimated from this direct fixture probe."
+  },
+  "tactile": {
+    "target_size": "Not measured; the probe creates no child-facing target.",
+    "press_response": "No touch event or rendered acknowledgment is sent. Callback-to-save behavior is checked synchronously only.",
+    "drag_hold_release": "No drag, hold, or release is exercised.",
+    "ownership": "No finger ownership or competing input is exercised.",
+    "cancellation": "No pause, focus loss, scene exit, or interruption during a visible milestone is exercised."
+  },
+  "play_appeal": {
+    "agency": "Hypothesis: retaining each earned milestone after an interruption could help a child resume a longer preparation sequence without repeating completed work; no child route was observed.",
+    "variety": "Not assessed. The fixture invokes multiple milestone types but does not present their actions or visuals.",
+    "world_response": "The probe proves serialized masks change and reload; it does not inspect whether a room, ingredient, or party object visibly changes with them.",
+    "replay": "Whether a child would choose another preparation task or replay after a milestone is unknown.",
+    "appeal_test": "On a Lenovo Tab M11 using an isolated test save, start from the ordinary post-boss Chapter Two invitation with the exact candidate build. Without naming the controls, observe whether the child finds and completes one strawberry pickup, notices its world/save response, leaves and returns, and understands which berries remain. Then let the child complete the remaining berries and repeat one already-collected target; note whether the repeat is safely ignored and whether she chooses to continue or stop. Record adult help, video-frame time to acknowledgment, voluntary continuation/replay, and confusion. Separately verify the save mask after app relaunch. Repeat once with a new isolated profile; never inject faults into the child's real save.",
+    "fun_score": null
+  },
+  "play_sequence": [
+    {
+      "beat": 1,
+      "action": "The fixture loads a ReefMain SaveFixture, seeds an unknown marker and inactive Day One state, then restores Chapter Two as active with the boss defeated and writes the initial save.",
+      "input": "No player input; direct fixture state assignment and _write_save().",
+      "wait": "No frame wait or timer; synchronous setup.",
+      "evidence": "scripts/probe_alpha_milestone_save.gd:14-21"
+    },
+    {
+      "beat": 2,
+      "action": "For berry indices 0 through 4, the probe invokes the strawberry callback once, checks the contiguous expected mask on disk and after a fresh load, then invokes the same index again and requires rejection.",
+      "input": "Five direct callback calls followed by five duplicate callback calls; no touch events.",
+      "wait": "No frame wait between callback, disk read, reload, or duplicate call.",
+      "evidence": "scripts/probe_alpha_milestone_save.gd:22-25, 81-90; runtime/L50/attempt_1/probe.log: berry accepted and repeated berry assertions"
+    },
+    {
+      "beat": 3,
+      "action": "For each live career in the party plan, it iterates the authored phase list and calls the phase-completed callback, verifying saved job-phase and cake-piece masks after each phase.",
+      "input": "Direct callbacks with act_index and phase_index from the plan; no room interaction or visible task completion.",
+      "wait": "No frame or animation wait; each assertion reads the saved JSON immediately.",
+      "evidence": "scripts/probe_alpha_milestone_save.gd:26-35"
+    },
+    {
+      "beat": 4,
+      "action": "For Ballerina and Detective, the fixture invokes the special plot-context completion path; for other careers it invokes party contribution, then verifies the growing party mask after each career.",
+      "input": "Direct state callbacks; no actual party job or touch input.",
+      "wait": "No frame wait; save/reload checks are synchronous.",
+      "evidence": "scripts/probe_alpha_milestone_save.gd:36-45"
+    },
+    {
+      "beat": 5,
+      "action": "After each milestone key check, the helper reads the JSON file, compares its value, constructs a fresh fixture, reloads state, verifies the selected director serialization, and checks that the unknown marker remains.",
+      "input": "No player input; helper performs file reads and creates a fresh SaveFixture.",
+      "wait": "No process-frame wait or debounce-clock advance.",
+      "evidence": "scripts/probe_alpha_milestone_save.gd:81-90; runtime/L50/attempt_1/probe.log: disk milestone, restart milestone, and unknown keys retained assertions"
+    },
+    {
+      "beat": 6,
+      "action": "The probe exits after printing ALPHA_SAVE|RESULT: ALL OK. The retained receipt reports exit code 0, no timeout or failure lines, isolated profile, and rendered_mobile_acceptance=false.",
+      "input": "No player input.",
+      "wait": "No gameplay wait; the receipt's 13.971 seconds is tool execution time only.",
+      "evidence": "scripts/probe_alpha_milestone_save.gd:71-75; audit/cycles/luna-playtest-20261012/runtime/L50/attempt_1/receipt.json"
+    }
+  ],
+  "observations": [
+    {
+      "title": "A strawberry milestone is persisted and the same berry cannot be accepted twice",
+      "classification": "CONFIRMED_RUNTIME",
+      "evidence": [
+        "scripts/probe_alpha_milestone_save.gd:22-25 calls each berry index, checks the disk mask, then asserts a repeated index returns false.",
+        "scripts/chapter_two_director.gd:324-334 rejects inactive, out-of-order, out-of-range, or already-set strawberry bits.",
+        "runtime/L50/attempt_1/probe.log: berry accepted 0-4, disk milestone chapter2_strawberry_mask, restart milestone, and repeated berry cannot advance all report OK.",
+        "audit/cycles/luna-playtest-20261012/runtime/L50/attempt_1/receipt.json: PASS; exact Godot 4.7.2 stable, isolated profile, exit 0, no timeout/failure lines."
+      ],
+      "rules": ["DL-SAVE-01", "DL-SAVE-04", "DL-QA-02"],
+      "existing_findings": [],
+      "reproduction": "The one authorized L50 run completes the five-pick loop and its duplicate negative checks; all named assertions pass.",
+      "child_impact": "Could preserve progress and prevent double-counting if the child repeats a berry action. The visible pickup cue, target, and child understanding were not tested.",
+      "proposed_repair": "No repair indicated for the tested callback/save behavior. Keep the monotonic mask and duplicate rejection.",
+      "acceptance_test": "On the target device through the ordinary Farmer route, collect one berry, verify a visible acknowledgment and saved progress, retap that berry, and confirm neither the world nor reward count advances twice; relaunch an isolated profile and confirm it remains collected."
+    },
+    {
+      "title": "Career phase masks and cake milestones survive immediate reload",
+      "classification": "CONFIRMED_RUNTIME",
+      "evidence": [
+        "scripts/probe_alpha_milestone_save.gd:26-35 iterates each career's phase list and checks chapter2_job_phase_masks and chapter2_cake_piece_mask on disk and after reload.",
+        "scripts/chapter_two_director.gd:356-398 rejects invalid/repeated phases and records ordered phase prefixes; lines 1000-1005 derive Farmer/Chef/Candy Maker readiness from masks.",
+        "runtime/L50/attempt_1/probe.log: phase accepted, disk milestone chapter2_job_phase_masks, disk milestone chapter2_cake_piece_mask, and restart assertions report OK."
+      ],
+      "rules": ["DL-SAVE-01", "DL-SAVE-04", "DL-QA-02"],
+      "existing_findings": [],
+      "reproduction": "The unchanged probe invokes phase callbacks for the plan's live careers and immediately validates saved values and fresh director state; runtime assertions pass.",
+      "child_impact": "A completed phase can remain earned across reload in the tested state path. Whether the child sees a truthful cake or room change is not shown by this fixture.",
+      "proposed_repair": "No repair indicated for these tested serialization paths; retain ordered phase masks and derived cake-state synchronization.",
+      "acceptance_test": "Complete one real Farmer, Chef, and Candy Maker phase through visible room actions, interrupt/relaunch after each, and verify the pictured ingredient/result and next unfinished phase match the persisted state without replaying a completed step."
+    },
+    {
+      "title": "Party contribution bits are monotonic across the tested career sequence",
+      "classification": "CONFIRMED_RUNTIME",
+      "evidence": [
+        "scripts/probe_alpha_milestone_save.gd:36-45 exercises special Ballerina/Detective plot contexts and ordinary contribution callbacks, checking each cumulative party mask.",
+        "scripts/chapter_two_director.gd:282-319 rejects unavailable/already-awarded contributions, sets the career bit, synchronizes milestone state, and emits the contribution event.",
+        "runtime/L50/attempt_1/probe.log: party contribution accepted and disk/restart chapter2_party_piece_mask checks report OK across the plan."
+      ],
+      "rules": ["DL-SAVE-01", "DL-SAVE-04", "DL-QA-02"],
+      "existing_findings": [],
+      "reproduction": "The one L50 invocation completes callback-level contribution checks; cumulative mask assertions and reloads pass.",
+      "child_impact": "Could protect earned party progress; this test does not show the room object, ceremony, or whether a contribution is awarded only after the child completes visible work.",
+      "proposed_repair": "No repair indicated for the tested contribution-mask path. Maintain the guarded, additive award behavior.",
+      "acceptance_test": "Finish an available job through its live room route, verify the matching party object changes once, leave and return, then attempt the same completed job again and confirm no duplicate contribution or misleading reward occurs."
+    },
+    {
+      "title": "Unknown save fields survive Chapter Two milestone writes and reloads",
+      "classification": "CONFIRMED_RUNTIME",
+      "evidence": [
+        "scripts/probe_alpha_milestone_save.gd:15-20 seeds alpha_unknown_field before milestone writes; lines 81-90 checks it after each fresh fixture load.",
+        "runtime/L50/attempt_1/probe.log: unknown keys retained assertions report OK throughout the milestone sequence.",
+        "audit/cycles/luna-playtest-20261012/runtime/L50/attempt_1/receipt.json: source hash binds the executed probe and ChapterTwoDirector to the frozen baseline."
+      ],
+      "rules": ["DL-SAVE-01", "DL-QA-02"],
+      "existing_findings": [],
+      "reproduction": "Seed the unknown marker as the probe does and inspect its repeated post-write reload assertions; all pass in L50.",
+      "child_impact": "Preserving fields a different build understands can protect progress during version changes; no user-facing impact was observed.",
+      "proposed_repair": "No repair indicated for this covered additive save behavior.",
+      "acceptance_test": "Round-trip an unknown nested marker through ordinary milestone completion, app restart, and the supported save migration path; verify it remains while current milestone values normalize correctly."
+    },
+    {
+      "title": "The L50 probe bypasses the normal Chapter Two career route",
+      "classification": "COVERAGE_GAP",
+      "evidence": [
+        "scripts/probe_alpha_milestone_save.gd:14-20 seeds chapter2_active and writes fixture state directly; lines 22-45 call milestone callbacks without InputEvent or room entry.",
+        "scripts/main.gd:2733 and scripts/main.gd:6071-6101 identify the career start and milestone wrapper callers; these are not driven by this test.",
+        "audit/findings/ACTIVE_FINDINGS_2026-08-13.md:973-991 (MA-PLAY-005) records the empty production phase override rejection and missing/unarmed story stations; it remains CONFIRMED_OPEN.",
+        "audit/cycles/luna-playtest-20261012/runtime/L50/attempt_1/receipt.json: evidence_kind SCRIPTED_PROBE, headless true, rendered_mobile_acceptance false."
+      ],
+      "rules": ["DL-AGE-01", "DL-AGE-06", "DL-SAVE-04", "DL-QA-02", "DL-QA-04", "DL-QA-05", "DL-QA-07"],
+      "existing_findings": ["MA-PLAY-005"],
+      "reproduction": "Inspect fixture seeding and direct callback loops in the probe, then compare with MA-PLAY-005's production config trace. The L50 invocation validates saved callback behavior but never tests an ordinary room route.",
+      "child_impact": "Milestones might work after callbacks are invoked, while a child still cannot reach or complete the story job in normal play; this runtime does not resolve the known route blocker.",
+      "proposed_repair": "No new source defect is inferred from this callback probe. Route repair and trusted ordinary-touch verification remain under MA-PLAY-005.",
+      "acceptance_test": "From a clean save, route through the visible Chapter Two invitation into each applicable job, perform the actual one-finger task, inspect the saved milestone and visible result, re-enter after interruption, and complete the eight-job sequence on the approved phone."
+    },
+    {
+      "title": "Headless save assertions do not establish tactile feel or child appeal",
+      "classification": "COVERAGE_GAP",
+      "evidence": [
+        "scripts/probe_alpha_milestone_save.gd:22-45 uses direct callbacks; there are no touch events, rendered targets, or observed choices.",
+        "audit/cycles/luna-playtest-20261012/runtime/L50/attempt_1/receipt.json: headless=true and rendered_mobile_acceptance=false.",
+        "design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md:1246-1267 (DL-QA-01 through DL-QA-07) separates automated, device, child, and owner evidence."
+      ],
+      "rules": ["DL-AGE-02", "DL-AGE-07", "DL-UI-03", "DL-QA-04", "DL-QA-05", "DL-QA-07"],
+      "existing_findings": [],
+      "reproduction": "Run L50 and inspect its input-free fixture sequence and receipt; no visual/tactile or child evidence is produced.",
+      "child_impact": "Target size, touch response, comprehension, enjoyment, voluntary replay, and session length remain unknown.",
+      "proposed_repair": "No code change follows from missing evidence alone. Conduct the normal-route device and observed-child test described in appeal_test.",
+      "acceptance_test": "Use the exact candidate on Lenovo Tab M11, capture touch-to-visible acknowledgment and progression, then observe a child without verbal instruction; report device, child, and owner evidence separately from probe status."
+    }
+  ],
+  "strengths": [
+    {
+      "claim": "The tested strawberry milestone is monotonic, rejects duplicate callback awards, and persists through a fresh fixture reload.",
+      "evidence": "scripts/probe_alpha_milestone_save.gd:22-25, 81-90; runtime/L50/attempt_1/probe.log: strawberry disk/restart/duplicate assertions"
+    },
+    {
+      "claim": "The probe checks phase/cake and party masks against both the written file and newly loaded state rather than relying only on in-memory values.",
+      "evidence": "scripts/probe_alpha_milestone_save.gd:26-45, 81-90; runtime/L50/attempt_1/probe.log: phase, cake, party disk/restart assertions"
+    },
+    {
+      "claim": "An unknown save field remains present through the tested milestone writes and reloads.",
+      "evidence": "scripts/probe_alpha_milestone_save.gd:15-20, 81-90; runtime/L50/attempt_1/probe.log: unknown keys retained assertions"
+    }
+  ],
+  "acceptance_gaps": [
+    "The focused internal probe passed, but no child-facing Chapter Two route was exercised; MA-PLAY-005 remains a blocking confirmed finding.",
+    "No visual Mobile capture, Lenovo Tab M11 touch/frame-pacing session, child observation, or owner review was performed.",
+    "The test uses direct callback and fixture state setup; it does not establish that a real task completion awards the milestone exactly once or that a visible world state agrees with the save."
+  ]
+}

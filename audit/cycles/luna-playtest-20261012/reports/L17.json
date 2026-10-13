@@ -1,0 +1,115 @@
+{
+  "schema": "luna_playthrough_report/1",
+  "session_id": "L17",
+  "reviewer": {"agent_id": "/root/luna_playtest_coordinator/luna_l17", "model": "gpt-6-luna"},
+  "baseline": "e2b3c73789707aa49a91b4f42e2a9dd4b68225df",
+  "focus": "Boxer jab/guard intentional rhythm",
+  "runtime_receipt": "audit/cycles/luna-playtest-20261012/runtime/L17/attempt_1/receipt.json",
+  "evidence_kind": "INTERNAL_PROBE",
+  "route_status": {
+    "proven_scope": "One exact Godot 4.7.2-stable headless invocation ran probe_opera_gesture_quality.gd and reported ALL OK (274 checks). Source tracing confirms OperaCareerWorld2D defines the five Boxer modes and routes boxing gesture signals into phase progress. Focused assertions directly call the specialist's internal press/drag/release methods for jab, and the probe also covers both-glove ownership, passive waiting, render-path setup, and mouse fallback.",
+    "route_gaps": "No fresh-save entry, visible career navigation, ordinary GUI touch route, rendered Mobile frame, actual voice playback, or full child-paced Boxer sequence was executed. The probe's internal method calls and 5.847-second runner wall time are not a play session or gameplay duration. Physical Lenovo Tab M11 target geometry/latency, a second aspect, child understanding/comfort/replay choice, and owner acceptance remain untested."
+  },
+  "verdict": "INCOMPLETE",
+  "timing": {
+    "code_constants": [
+      {"value": "The guard counter interval is COUNTER_SECONDS = 3.2 seconds (scripts/opera_boxing_surface.gd:24,343-363).", "scope": "Code interval only; not observed wall-clock cadence or child wait."},
+      {"value": "Assist thresholds are FIRST_ASSIST_SECONDS = 5.0 and STRONG_ASSIST_SECONDS = 10.0; stuck time sets the demonstration/assist level at those thresholds (scripts/opera_boxing_surface.gd:22-23,320-329).", "scope": "Source thresholds only; exact visible onset and interaction with a child's attempted movement were not rendered or timed."},
+      {"value": "After a phase goal, the world requests 1.1 seconds before phase advance, or 2.2 seconds for the belt (scripts/opera_career_world_2d.gd:3315-3319).", "scope": "Code hold only; speech, animation, and overall career length were not measured."}
+    ],
+    "gameplay_duration": null,
+    "assumptions": "No gameplay time was observed. Probe wall time measures the isolated scripted invocation only."
+  },
+  "tactile": {
+    "target_size": "The radial acceptance radius is 78 base-canvas pixels initially, a 156-pixel diameter, and increases by 18 pixels per assist level (scripts/opera_boxing_surface.gd:599-600). Actual visible/hit alignment, projected size, overlap, and separation on device were not measured. Press chooses the nearest available glove without a distance cutoff (scripts/opera_boxing_surface.gd:441-457,501-516), so a bounded glove press region is not established by source.",
+    "press_response": "A claimed glove follows its finger on drag and queues redraw; accepted forward reach emits a jab immediately in the same handler (scripts/opera_boxing_surface.gd:460-478,544-572). Probe assertions verified state changes, not rendered response frames or physical latency.",
+    "drag_hold_release": "Jab requires a drag from the owned glove origin toward the active target; the extension latch prevents repeated drag samples from paying twice before release. Release clears that finger and the glove returns over subsequent process frames (scripts/opera_boxing_surface.gd:481-498,519-572). No biological touch feel or actual device drag was tested.",
+    "ownership": "The source maps each finger ID to a distinct free glove and routes drag/release by that ID (scripts/opera_boxing_surface.gd:409-438,441-478,481-516). The probe directly checked two owners and releasing one while the other remains movable (scripts/probe_opera_gesture_quality.gd:1780-1804).",
+    "cancellation": "Application/window focus loss calls cancel_all_touches, which clears both finger claims and resets gloves (scripts/opera_boxing_surface.gd:153-164,297-300). This invocation did not exercise actual focus loss, pause, close, or re-entry."
+  },
+  "play_appeal": {
+    "agency": "Hypothesis: the child can choose which glove to move and make a visible jab, then decide whether to answer the slower guard cue; phase progress is emitted only after intentional movement. No child observed this.",
+    "variety": "Source alternates among four jab mitt positions on accepted hits, and guard alternates sides after each successful counter (scripts/opera_boxing_surface.gd:35-38,204-212,353-363,560-566). Whether these changes look distinct or create a satisfying rhythm was not observed.",
+    "world_response": "An accepted jab triggers a short impact response and advances the target; guard produces a pop and advances the side, while friendly contact preserves accepted progress (scripts/opera_boxing_surface.gd:167-176,353-363,560-572; probe log reports 274 checks).",
+    "replay": "The source has phases with goals of four jabs and three guards, then additional modes; an intentional wrong move restarts the demonstration and raises assistance. Whether that loop feels inviting or repetitive is a hypothesis, not observed.",
+    "fun_score": null,
+    "concrete_test_or_proposal": "In a consented short play observation, let the child try one jab with either hand, notice the next mitt, and choose to continue or stop; then present one guard cue without coaching. Record whether the child independently repeats the visible glove-to-target action and notices the left/right change. If the three guard waits feel inert, test an earlier visual windup or nearby bubble pulse while preserving the existing harmless no-input outcome and requiring a real glove movement for progress."
+  },
+  "play_sequence": [
+    {"beat": 1, "input": "At GLOVE GUIDE, press one visible glove, drag it toward its glowing mitt, then release.", "wait": "Wait for the glove return before pressing the other glove; no measured duration is claimed.", "basis": "The source contract permits completing the guide one glove at a time; the probe checks the released-finger path at scripts/probe_opera_gesture_quality.gd:1764-1778."},
+    {"beat": 2, "input": "At JAB PRACTICE, press either glove, drag forward to the currently glowing pad, and release.", "wait": "Wait for the next pad to appear, then repeat until four intentional hits.", "basis": "Four-hit phase and target sequence are defined at scripts/opera_career_world_2d.gd:307-311 and scripts/opera_boxing_surface.gd:35-38,544-566."},
+    {"beat": 3, "input": "On one jab, send repeated drag samples at the same target before releasing.", "wait": "Wait for release and return.", "basis": "Probe expects the accepted extension latch to bank only one jab despite duplicate samples at scripts/probe_opera_gesture_quality.gd:1727-1746."},
+    {"beat": 4, "input": "At SOFT GUARD, move either glove into the currently highlighted guard bubble and keep it there through the counter check.", "wait": "The coded counter interval is 3.2 seconds; this is a source estimate, not a measured child wait.", "basis": "Counter checks glove distance, grants one guard when covered, then switches side at scripts/opera_boxing_surface.gd:343-363."},
+    {"beat": 5, "input": "For one guard cue, leave both gloves at rest.", "wait": "Wait through one counter check.", "basis": "Uncovered contact routes to harmless feedback and awards no guard at scripts/opera_boxing_surface.gd:349-363; the probe's 12.8-second passive leg checks no passive progress at scripts/probe_opera_gesture_quality.gd:1715-1725."},
+    {"beat": 6, "input": "Offer the next jab/guard opportunity and allow the child to decide whether to repeat, stop, or leave.", "wait": "Observe one complete response cycle only; do not coach or infer engagement from elapsed tool time.", "basis": "The two phases have distinct target verbs and explicit goals in scripts/opera_career_world_2d.gd:307-309."}
+  ],
+  "observations": [
+    {
+      "title": "Jab progress follows an intentional forward glove drag and cannot be duplicated by extra drag samples",
+      "classification": "CONFIRMED_RUNTIME",
+      "evidence": ["scripts/opera_boxing_surface.gd:441-478,544-566 checks forward reach, latches the punch, advances the jab target, and emits one accepted unit.", "scripts/probe_opera_gesture_quality.gd:1727-1746 presses, drags to the target, sends duplicate drag samples, and verifies exactly one paid jab and cleared ownership.", "audit/cycles/luna-playtest-20261012/runtime/L17/attempt_1/probe.log:3 reports ALL OK (274 checks)."],
+      "rules": ["DL-AGE-04", "DL-AGE-05", "DL-INT-02", "DL-UI-01"],
+      "existing_findings": ["MA-OPERA-009"],
+      "reproduction": "Run the assigned probe through the recorded L17 receipt; its jab leg calls the specialist's owned press/drag/release methods directly. This confirms the scripted state transition, not ordinary GUI or device input.",
+      "child_impact": "A purposeful movement has a game-state response, and repeating the same held extension does not count multiple times. Actual response visibility and satisfying feel are unobserved.",
+      "proposed_repair": "No repair supported by this assertion. Keep the target advance visually distinct and verify the first response on the approved phone.",
+      "acceptance_test": "On the exact runtime build, record a one-finger press-drag-release to one mitt and duplicate drag samples before release; confirm one target advance, one progress increment, immediate readable feedback, and no accidental repeat."
+    },
+    {
+      "title": "Press claims the nearest available glove even when the press is not near either glove",
+      "classification": "CONFIRMED_CODE",
+      "evidence": ["scripts/opera_boxing_surface.gd:441-457 calls _choose_hand for every press, then assigns that finger; there is no distance or hit-region check before the claim.", "scripts/opera_boxing_surface.gd:501-516 chooses whichever available glove is nearer, without checking how far away the press is.", "design/BOXING_GAME_PROJECT_2026-08-09.md:57-62 describes a nearest unclaimed glove within a generous home/hit region."],
+      "rules": ["DL-INT-01", "DL-UI-03"],
+      "existing_findings": ["MA-OPERA-009"],
+      "reproduction": "Call _handle_press with a touch coordinate well away from both resting gloves. Source selects and owns the nearer glove; no runtime touch was issued in L17.",
+      "child_impact": "A child who taps a target or empty part of the surface may unexpectedly take control of a glove, which can make the apparent touch target feel unreliable.",
+      "proposed_repair": "Check the visible glove's generous home hit region before claiming it, or make the design deliberately show a screen-wide glove-grab affordance; preserve one-finger completion.",
+      "acceptance_test": "At both required aspects and on the target device, tap a glove, the mitt, and empty space. Confirm only the visible intended control responds, with forgiving but bounded separation."
+    },
+    {
+      "title": "Guard alternates sides after a covered counter and repeats harmlessly when uncovered",
+      "classification": "CONFIRMED_CODE",
+      "evidence": ["scripts/opera_boxing_surface.gd:343-363 tests whether either glove overlaps the current guard target, emits one guard and changes side when covered, otherwise routes to friendly contact.", "scripts/opera_career_world_2d.gd:3282-3302 ignores cosmetic contact for scoring and routes zero-amount outcomes into a fresh cue without a miss path.", "scripts/probe_opera_gesture_quality.gd:1832-1843 completes three guard rounds through mouse helper calls and manually advanced process time; it does not validate touch response or child-visible timing."],
+      "rules": ["DL-AGE-03", "DL-AGE-04", "DL-INT-02", "DL-MOT-04"],
+      "existing_findings": ["MA-OPERA-009"],
+      "reproduction": "Trace _tick_counter: move a glove within the target radius before the counter timer expires for progress; leave both away for soft reset. The probe uses mouse helper events and manually advances the process timer.",
+      "child_impact": "Guard offers a harmless retry and eventually changes sides, while uncovered contact awards no work. The coded 3.2-second interval may feel like waiting if the cue is subtle or target hard to reach; prominence and child pacing are unobserved.",
+      "proposed_repair": "No mechanic change is justified from headless evidence. Observe the windup and bubble at full speed; if children wait without understanding, strengthen the early visual telegraph while keeping no-input harmless and progress input-driven.",
+      "acceptance_test": "On device, test one covered and one uncovered cue with one finger; verify the child can predict the bubble, recover from missing it, and is not awarded progress during passive waiting."
+    },
+    {
+      "title": "Touch ownership keeps the second glove active when the first finger releases",
+      "classification": "CONFIRMED_RUNTIME",
+      "evidence": ["scripts/opera_boxing_surface.gd:409-438 dispatches touch IDs and :441-478 stores an owner per finger.", "scripts/probe_opera_gesture_quality.gd:1780-1804 assigns two touch IDs, releases one, drags the other, and verifies the remaining owner.", "audit/cycles/luna-playtest-20261012/runtime/L17/attempt_1/probe.log:3 reports ALL OK (274 checks)."],
+      "rules": ["DL-AGE-02", "DL-UI-04"],
+      "existing_findings": ["MA-OPERA-009"],
+      "reproduction": "The assigned probe calls press twice with distinct IDs, releases the left owner, then drags and releases the right owner.",
+      "child_impact": "The optional second finger does not steal the remaining glove in this scripted test. Two-finger use is not required, consistent with a one-finger primary interaction.",
+      "proposed_repair": "No code repair supported. Confirm actual screen-touch indices stay mapped during crossed drags and one-finger sequential play on device.",
+      "acceptance_test": "On target device, optionally claim both gloves, cross the fingers, release one, and verify the other stays under its original finger; then complete the same task sequentially with one finger."
+    },
+    {
+      "title": "The assigned probe does not establish ordinary Boxer route, touch latency, or child appeal",
+      "classification": "COVERAGE_GAP",
+      "evidence": ["scripts/probe_opera_gesture_quality.gd:1727-1746 and :1780-1804 call _handle_press/_handle_drag/_handle_release directly for the focused path rather than traversing navigation or the GUI hit route.", "audit/cycles/luna-playtest-20261012/runtime/L17/attempt_1/receipt.json records exact Godot 4.7.2, isolated profile, headless=true, rendered_mobile_acceptance=false, and wall_clock_is_gameplay_timing=false.", "audit/cycles/luna-playtest-20261012/runtime/L17/attempt_1/probe.log:3 contains the scripted ALL OK line only."],
+      "rules": ["DL-QA-02", "DL-QA-03", "DL-QA-04", "DL-QA-05", "DL-QA-06", "DL-QA-07"],
+      "existing_findings": ["MA-OPERA-009", "MA-PLAY-005", "MA-CHILD-001", "MA-TOUCH-001"],
+      "reproduction": "Inspect the listed assertions and receipt. The helper launches only the headless scripted probe; no child or device input was present.",
+      "child_impact": "These checks cannot establish that a non-reading child finds the gloves, understands which action to make, feels responsive feedback, or enjoys replaying the rhythm.",
+      "proposed_repair": "Retain the current finding lifecycle. Use the concrete one-finger jab/guard observation in play_sequence on the exact candidate and collect separately labeled display, phone, child, and owner evidence.",
+      "acceptance_test": "Show a fresh ordinary Boxer route on both required aspects and Lenovo Tab M11; capture direct touch and cue response, then observe a consented child complete or choose to stop without coaching. Record owner/style and voice playback review separately."
+    }
+  ],
+  "strengths": [
+    {"claim": "Jab uses real direction and target proximity, while a per-hand latch blocks duplicate payout from one held extension.", "evidence": "scripts/opera_boxing_surface.gd:519-572; probe assertions at scripts/probe_opera_gesture_quality.gd:1727-1746; L17 probe log:3."},
+    {"claim": "Soft guard leaves a safe repeat route when the counter is uncovered, and passive Boxer phases cannot bank progress in the assigned scripted assertion.", "evidence": "scripts/opera_boxing_surface.gd:343-363; scripts/probe_opera_gesture_quality.gd:1715-1725; L17 probe log:3."},
+    {"claim": "Touch IDs remain mapped to separate gloves through one finger's release in the assigned probe.", "evidence": "scripts/opera_boxing_surface.gd:409-478; scripts/probe_opera_gesture_quality.gd:1780-1804; L17 probe log:3."}
+  ],
+  "acceptance_gaps": [
+    "The single L17 invocation passed 274 scripted checks, but focused jab and two-finger legs call internal handlers; guard completion uses mouse helper calls with manually advanced time. No ordinary visible Boxer route was played.",
+    "No rendered Mobile capture or second-aspect capture establishes glove-to-finger alignment, target affordance, target separation, visibility of side alternation, or response within two rendered frames.",
+    "No physical Lenovo Tab M11 touch, latency/frame-pacing, focus loss/pause/re-entry, voice audibility, or performance evidence was collected.",
+    "No consented child observation establishes non-reading comprehension, comfort, guard timing, replay choice, or appeal; owner acceptance and recorded voice playback review remain separate."
+  ],
+  "voice_status": "The career source maps Boxer phases to existing recorded event IDs (scripts/opera_career_world_2d.gd:307-311). This session did not play or approve any voice recording; no voice asset was changed."
+}

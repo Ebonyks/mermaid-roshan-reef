@@ -1,0 +1,221 @@
+{
+  "schema": "luna_playthrough_report/1",
+  "session_id": "L15",
+  "reviewer": {
+    "agent_id": "/root/luna_playtest_coordinator/luna_l15",
+    "model": "gpt-6-luna"
+  },
+  "baseline": "e2b3c73789707aa49a91b4f42e2a9dd4b68225df",
+  "focus": "Day One revisit and repeat incentive",
+  "runtime_receipt": "audit/cycles/luna-playtest-20261012/runtime/L15/attempt_1/receipt.json",
+  "evidence_kind": "INTERNAL_PROBE",
+  "route_status": {
+    "proven_scope": "One isolated Godot 4.7.2 headless invocation passed the assigned probe's nine source-contract assertions. Those assertions search source text for bounded blocked-door feedback, a six-second completed-room response, fixture replay without launch/reward hooks, bathroom-navigation restoration, persistent contextual Rumi, protected-speaker exclusions, and a corrected art-studio prompt. The probe reads files and tests string conditions; it does not construct a gameplay scene or dispatch player input. The retained output is runtime/L15/attempt_1/probe.log.",
+    "route_gaps": "The ordinary route is only traced from source: main.gd dispatches a completed room to the room-response method, while castle-room setup syncs persistent Rumi. No fresh-save visible navigation, completed-room tap, actual fixture animation, Rumi hotspot press, voice playback, render, or leave/re-enter/save-load sequence was executed. The runner reports headless=true and rendered_mobile_acceptance=false. Device touch latency/geometry, child understanding/replay choice, and owner acceptance remain untested; the probe's 0.573-second tool runtime is not gameplay duration."
+  },
+  "verdict": "INCOMPLETE",
+  "timing": {
+    "code_constants": [
+      {
+        "value": "Completed-room entry requests the 'day_one_room_clean' message with a 6.0-second display duration (scripts/main.gd:6276-6278).",
+        "scope": "Code-specified message duration only; no speech length, animation length, cue alignment, or rendered timing was measured."
+      },
+      {
+        "value": "Blocked-door feedback uses a 1.2-second SFX cooldown and a 6.0-second second-tap window (scripts/arena/castle_rooms_25d.gd:80-81).",
+        "scope": "These constants bound source logic, not a measured child wait or session duration."
+      }
+    ],
+    "gameplay_duration": null,
+    "assumptions": "No gameplay timing was observed. Receipt wall time is isolated probe execution time only."
+  },
+  "tactile": {
+    "target_size": "The persistent Rumi hotspot is assigned a 240×240 base-coordinate Rect2 (scripts/arena/castle_rooms_25d.gd:86,2108-2112); projected size, overlap, and separation on Lenovo Tab M11 were not measured. Completed fixture target geometry was not measured.",
+    "press_response": "Not measured with input. Source routes a completed-room entry to a message and fixture sequence (scripts/main.gd:6276-6278; castle_rooms_25d.gd:2031-2067).",
+    "drag_hold_release": "No drag, hold, or release input is part of the assigned source-contract probe; the inspected revisit interactions are taps.",
+    "ownership": "Not tested. No touch or competing-control event was dispatched.",
+    "cancellation": "Not tested for hotspot press, fixture animation, room exit, pause, or focus loss in the live route."
+  },
+  "play_appeal": {
+    "agency": "Hypothesis: a completed-room tap that gives a small room-specific fixture animation, plus a repeatable greeting from Rumi after the pool is clean, may let a child choose to revisit a familiar place and friend. This probe does not establish that the child discovers or values either response.",
+    "variety": "Source maps bathroom, pool, stuffie room, and art room to different replay fixtures; the probe verifies the mapping appears in source but does not animate or compare the four responses.",
+    "world_response": "Code maintains clean-room fixture feedback and conditionally adds persistent Rumi in the pool. Whether either response is visually legible or feels connected to the child's tap is unobserved.",
+    "replay": "Repeatability is source-intended: completed-room feedback is invoked on room activation, and the Rumi hotspot increments a greeting counter on press. No actual repeated entry/press or cross-session replay policy was tested.",
+    "fun_score": null,
+    "play_appeal_test": "On the approved phone and an ordinary Day One save with at least one room complete, let the child choose whether to revisit a clean room and whether to tap its fixture or Rumi. Without prompting, observe whether the tap produces an understandable small response, whether the child explores another clean room, and whether the child chooses to repeat or leave. Repeat after leaving and re-entering, noting if responses feel fresh, redundant, or confusing. Do not assign a numeric fun score."
+  },
+  "play_sequence": [
+    {
+      "beat": "Reach a room that has already been completed through the ordinary castle route; let any entry story clip finish.",
+      "input": "Tap the visible completed-room destination once.",
+      "wait": "Wait for the room-clean voice/message and the room's chosen fixture response to finish before tapping again.",
+      "evidence_limit": "Proposed routed device observation; L15 did not execute this input."
+    },
+    {
+      "beat": "Check whether the completed fixture response is local and understandable as a room reaction.",
+      "input": "Tap the same visible fixture once while it is idle.",
+      "wait": "Wait for its authored sequence to settle; observe whether it starts the activity or changes completion/reward state."
+    },
+    {
+      "beat": "Visit the cleaned pool after Rumi has been met, using the visible room route.",
+      "input": "Tap the pool destination once, then wait until the room entry transition ends.",
+      "wait": "Observe whether Rumi is present before giving another input; no timing is inferred from the probe."
+    },
+    {
+      "beat": "Test the optional friend interaction without relying on its tooltip.",
+      "input": "Tap Rumi once, release fully, then wait before deciding whether to tap again.",
+      "wait": "Wait for the contextual greeting and visible burst to end; note whether the child understands that Rumi responded."
+    },
+    {
+      "beat": "Test a clean-room revisit loop for repeat appeal and safe exit.",
+      "input": "Leave to the hall using its visible navigation, then re-enter one completed room and tap its fixture once.",
+      "wait": "Wait for entry response and fixture settle; allow the child to choose another room or stop."
+    },
+    {
+      "beat": "Check a not-yet-unlocked destination's feedback against the actual next-step door.",
+      "input": "Tap one visibly resting door once, wait, then tap that same door a second time within six seconds.",
+      "wait": "Observe whether the local pulse and spoken guidance identify the active golden door; wait for the feedback to finish before following it."
+    }
+  ],
+  "observations": [
+    {
+      "title": "Completed-room taps have a room-specific animation-only response path",
+      "classification": "CONFIRMED_CODE",
+      "evidence": [
+        "scripts/arena/castle_rooms_25d.gd:2031-2054 guards on active Day One, clean matching room, idle fixture, and maps bathroom/pool/stuffie/art to rubber duck/flower float/stacking toy/idea board.",
+        "scripts/main.gd:6269-6279 dispatches a completed destination to this response after the six-second room-clean message.",
+        "scripts/probe_day_one_d8_revisits.gd:41-47 checks the source for safe replay hooks; runtime/L15/attempt_1/probe.log:5 records that source-string assertion as OK."
+      ],
+      "rules": [
+        "DL-AGE-01",
+        "DL-INT-02",
+        "DL-AGE-06",
+        "DL-QA-02"
+      ],
+      "existing_findings": [
+        "MA-PLAY-001",
+        "MA-CHILD-001"
+      ],
+      "reproduction": "Trace main.gd:6269-6279 into castle_rooms_25d.gd:2031-2067; use the retained L15 probe log only as evidence that its source predicate passed, not that a fixture actually animated.",
+      "child_impact": "A familiar clean room can still respond to a voluntary revisit. The probe does not prove the child can discover the tap, recognize the response, or prefer repeating it.",
+      "proposed_repair": "No repair is established by source inspection. Observe whether each fixture response is visibly tied to the tap and remains a short optional replay.",
+      "acceptance_test": "On-device, enter each completed room through the visible route, tap its mapped fixture once, and verify a prompt response without activity launch, repeated reward, or confusing state change; then leave and revisit."
+    },
+    {
+      "title": "The revisit fixture sequence strips activity launch hooks and marks its response as unrewarded",
+      "classification": "CONFIRMED_CODE",
+      "evidence": [
+        "scripts/arena/castle_rooms_25d.gd:2055-2067 duplicates fixture data, removes launch_activity and room_destination, clears a stale launch-after-sequence meta, invokes the atlas sequence with both final flags false, and records reward=false.",
+        "scripts/probe_day_one_d8_revisits.gd:36-45 checks these source guards; runtime/L15/attempt_1/probe.log:7 records the assertion as OK."
+      ],
+      "rules": [
+        "DL-AGE-03",
+        "DL-AGE-05",
+        "DL-INT-06",
+        "DL-QA-02"
+      ],
+      "existing_findings": [
+        "MA-PLAY-001"
+      ],
+      "reproduction": "Inspect the completed-room response code at castle_rooms_25d.gd:2055-2067 and the corresponding source assertion at probe_day_one_d8_revisits.gd:41-47.",
+      "child_impact": "The source separates a familiar visual replay from earning another reward or launching an activity. Actual repeated taps and interrupted-sequence behavior were not run.",
+      "proposed_repair": "Keep the no-relaunch/no-reward contract. Include tap repetition and room-exit interruption in routed verification.",
+      "acceptance_test": "After a room is complete, tap its mapped fixture twice with the first animation settled, then leave during a later replay; verify no activity launch, duplicate completion/reward, or stale callback after exit."
+    },
+    {
+      "title": "A pool revisit can retain a tap-responsive Rumi greeting after the clean-room meeting",
+      "classification": "CONFIRMED_CODE",
+      "evidence": [
+        "scripts/arena/castle_rooms_25d.gd:2070-2119 creates the persistent pool character/hotspot only while Day One is active, the pool is clean, and Rumi has been met; hotspot size is set from RUMI_TAP_HIT_RECT (240×240 at :86).",
+        "scripts/arena/castle_rooms_25d.gd:2136-2145 increments a greeting counter, requests day1_pool_rumi_reply, and emits a burst on press.",
+        "scripts/day_one_contextual_voice_catalog.gd:90 records the exact pool greeting cue as READY/once_per_session; runtime/L15/attempt_1/probe.log:9 records a source-text persistence assertion as OK."
+      ],
+      "rules": [
+        "DL-AGE-01",
+        "DL-UI-01",
+        "DL-UI-03",
+        "DL-INT-01",
+        "DL-QA-04",
+        "DL-QA-05"
+      ],
+      "existing_findings": [
+        "MA-CHILD-001",
+        "MA-TOUCH-001"
+      ],
+      "reproduction": "Complete the pool and meet Rumi, leave, and re-enter mermaid_pool; confirm Rumi/hotspot synchronization at castle_rooms_25d.gd:2070-2119, then press once and inspect the greeting path at :2136-2145. L15 did not run that route.",
+      "child_impact": "The source offers a repeatable friend response, which may make the pool feel lived in and reward a voluntary return. The sprite/hit alignment, one-finger ownership, voice playback, and child appeal remain unverified.",
+      "proposed_repair": "No implementation change is justified. Verify the 240×240 hotspot aligns with Rumi on the actual canvas/device and that repeat greetings feel intentional rather than noisy.",
+      "acceptance_test": "On the approved phone, revisit the clean pool after meeting Rumi; confirm the child can tap the visible Rumi once, gets the contextual response, cannot trigger it from an unrelated target, and can choose to repeat or stop."
+    },
+    {
+      "title": "A second blocked-door tap points attention to the current active door",
+      "classification": "CONFIRMED_CODE",
+      "evidence": [
+        "scripts/arena/castle_rooms_25d.gd:1781-1795 tracks a second tap per destination, pulses the supplied cue and active door, and gates the SFX with a 1.2-second cooldown; :1811-1814 gives a short route hint.",
+        "scripts/arena/castle_rooms_25d.gd:80-81 sets the second-tap window to six seconds; the probe's matching source assertion passes at runtime/L15/attempt_1/probe.log:3-4."
+      ],
+      "rules": [
+        "DL-AGE-01",
+        "DL-AGE-06",
+        "DL-UI-01",
+        "DL-QA-02"
+      ],
+      "existing_findings": [
+        "MA-PLAY-001",
+        "MA-CHILD-001"
+      ],
+      "reproduction": "Tap a blocked door, then tap it again before six seconds elapse; trace _blocked_door_feedback at castle_rooms_25d.gd:1781-1814. No player tap was sent in L15.",
+      "child_impact": "The code is designed to help the child locate the available next route rather than merely repeat the rejection. Whether the child sees/hears the cue and follows the intended door has not been observed.",
+      "proposed_repair": "No code repair is supported by this probe. Check the cue's visual prominence, target separation, and spoken hint in the rendered hall.",
+      "acceptance_test": "At native phone aspect, try one blocked door twice within the stated window; verify gentle local feedback and an unmistakable indication of the active door, with the child able to follow it without reading or adult direction."
+    },
+    {
+      "title": "L15's passing probe is a source-text contract and does not prove the revisit route works in play",
+      "classification": "COVERAGE_GAP",
+      "evidence": [
+        "scripts/probe_day_one_d8_revisits.gd:14-22 reads files as text and its _check helper asserts String.contains predicates at :81-90; it creates no scene and dispatches no input.",
+        "audit/cycles/luna-playtest-20261012/runtime/L15/attempt_1/receipt.json confirms isolated Godot 4.7.2 headless run, status PASS, rendered_mobile_acceptance=false, and wall_elapsed_seconds=0.573.",
+        "audit/cycles/luna-playtest-20261012/runtime/L15/attempt_1/probe.log:1-10 reports nine text assertions and ALL OK."
+      ],
+      "rules": [
+        "DL-QA-02",
+        "DL-QA-03",
+        "DL-QA-04",
+        "DL-QA-05",
+        "DL-QA-07"
+      ],
+      "existing_findings": [
+        "MA-PLAY-001",
+        "MA-CHILD-001",
+        "MA-TOUCH-001"
+      ],
+      "reproduction": "Read the assigned probe implementation: _read returns source text and each check searches for literals. Compare receipt evidence_kind SCRIPTED_PROBE and rendered_mobile_acceptance=false. This confirms coverage limits, not a gameplay defect.",
+      "child_impact": "The passing result cannot show whether a child discovers a completed-room revisit, understands the feedback, or chooses to repeat it; a mismatch in runtime presentation could remain undetected.",
+      "proposed_repair": "Do not alter runtime based on this contract-only result. Add an ordinary-route rendered/input review for completion, optional revisit, room exit, and return, then obtain device and consented child observations.",
+      "acceptance_test": "Record an exact-candidate fresh/meaningful Day One save on the approved phone: enter a completed room, repeat its fixture response, interact with Rumi if met, leave/re-enter, and verify one-finger discovery, safe completion state, legible feedback, and child-directed replay choice without coaching."
+    }
+  ],
+  "strengths": [
+    {
+      "claim": "Source assigns distinct safe fixtures to four clean Day One rooms for an optional revisit response.",
+      "evidence": "scripts/arena/castle_rooms_25d.gd:2042-2067; source-contract assertion passes in runtime/L15/attempt_1/probe.log:5-6."
+    },
+    {
+      "claim": "The response path explicitly removes activity-launch hooks and disables its reward path before sequence playback.",
+      "evidence": "scripts/arena/castle_rooms_25d.gd:2055-2067; runtime/L15/attempt_1/probe.log:6."
+    },
+    {
+      "claim": "Clean-pool source supports a persistent Rumi greeting after the child has met her, with a contextual cue and visible burst.",
+      "evidence": "scripts/arena/castle_rooms_25d.gd:2070-2119,2136-2145; scripts/day_one_contextual_voice_catalog.gd:90."
+    },
+    {
+      "claim": "Repeated blocked-door feedback has a defined short window and source points to the active door with bounded sound feedback.",
+      "evidence": "scripts/arena/castle_rooms_25d.gd:80-81,1781-1814; runtime/L15/attempt_1/probe.log:3-4."
+    }
+  ],
+  "acceptance_gaps": [
+    "The sole L15 invocation is a source-text contract; no ordinary visible Day One route, scene setup, player input, fixture animation, Rumi interaction, or room re-entry was executed.",
+    "No rendered Mobile capture establishes fixture/Rumi art, hotspot alignment, blocked-door pulse clarity, target separation, or visible response timing.",
+    "No Lenovo Tab M11 physical touch, projected target-size, latency/frame-pacing, audio audibility, interruption, focus-loss, or save/re-entry evidence was collected.",
+    "No consented intended-child observation establishes non-reading discovery, comprehension, comfort, replay preference, or play appeal; no owner acceptance is claimed."
+  ]
+}

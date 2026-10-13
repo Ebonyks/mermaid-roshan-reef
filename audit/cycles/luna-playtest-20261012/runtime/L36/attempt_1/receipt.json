@@ -1,0 +1,50 @@
+{
+  "schema": "luna_probe_receipt/1",
+  "session_id": "L36",
+  "attempt": 1,
+  "baseline": "e2b3c73789707aa49a91b4f42e2a9dd4b68225df",
+  "focus": "Sky Lagoon approach animal boundaries return",
+  "probe": "probe_sky_lagoon_animals",
+  "command": [
+    "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64_console.exe",
+    "--headless",
+    "--path",
+    "C:\\Users\\Peter\\.codex\\worktrees\\luna-playtest-20261012\\mermaid-roshan-reef",
+    "-s",
+    "scripts/probe_sky_lagoon_animals.gd",
+    "--",
+    "--touch",
+    "--classic-touch-test"
+  ],
+  "started_utc": "2026-10-13T01:49:19.374213+00:00",
+  "status": "PASS",
+  "evidence_kind": "SCRIPTED_PROBE",
+  "engine": {
+    "version": "4.7.2.stable.official.ed1daf0bf",
+    "sha256": "c8f0a6bc45a19b33541501e57f6f7cd972ab18453743266339d495cbbe846643"
+  },
+  "source_hashes": {
+    "project.godot": "8d942b12dfa87ed9fb39cf7f6cfbb1d3f64cc4461097c527f266a28e9428697f",
+    "scenes/main.tscn": "064ca94c2eca6638eafe169c5fedeb6310a9ef31e5941351e7c41b2934263db7",
+    "scripts/ci.sh": "769ed4c4259ebe740f1e247c129bfc34914fa70fe72e28f65e5b5d5c9a577279",
+    "scripts/probe_sky_lagoon_animals.gd": "777535dec44ed5dd1285a7219f5b85f275e79265769c7b80ace120313f3b4c35",
+    "scripts/arena/sky_lagoon_promenade.gd": "839c849488a657a3f0ed977be013e4f9ae6c3c27fc48aa8610ac987558cb5d5e"
+  },
+  "helper_sha256": "2ff23721f7e50a2abe878afde1f797fa3c27c66285b33aa1a549157005e3c953",
+  "save_profile": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef-luna-L36-daz0pcla",
+  "profile_isolated": true,
+  "headless": true,
+  "rendered_mobile_acceptance": false,
+  "log": "audit/cycles/luna-playtest-20261012/runtime/L36/attempt_1/probe.log",
+  "wall_clock_is_gameplay_timing": false,
+  "finished_utc": "2026-10-13T01:49:31.414588+00:00",
+  "wall_elapsed_seconds": 12.036,
+  "exit_code": 0,
+  "timed_out": false,
+  "failure_lines": [],
+  "terminal_lines": [
+    "SKY_LAGOON_ANIMALS|ALL OK"
+  ],
+  "log_sha256": "1f403e7dc1d681de9f8ee0f2ffbb4158afc26142f61693fb695760e89c42fc08",
+  "log_bytes": 9843
+}

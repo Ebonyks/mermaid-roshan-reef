@@ -1,0 +1,70 @@
+{
+  "schema": "luna_verifier_controls/1",
+  "source_sha256": "035c1df0ebb0a8dbce4bbfdf01f94643ee6b8a442a9cda8d63c02a58fe20f2ef",
+  "status": "PASS",
+  "cases": [
+    {
+      "case": "Valid scoped single session passes partial review",
+      "expected_exit": 0,
+      "actual_exit": 0,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "case": "A planned54-session matrix cannot establish54 actual completions",
+      "expected_exit": 1,
+      "actual_exit": 1,
+      "errors": [
+        "Only 1 valid actual sessions of54",
+        "Coordinator has not confirmed54 completed agent sessions"
+      ],
+      "pass": true
+    },
+    {
+      "case": "Mutated raw log fails exact hash",
+      "expected_exit": 1,
+      "actual_exit": 1,
+      "errors": [
+        "L01.json: Runtime incomplete/log hash mismatch"
+      ],
+      "pass": true
+    },
+    {
+      "case": "PASS report cannot mask failed runtime receipt",
+      "expected_exit": 1,
+      "actual_exit": 1,
+      "errors": [
+        "L01.json: Report masks failed runtime"
+      ],
+      "pass": true
+    },
+    {
+      "case": "Invented numeric child/product fun score rejected",
+      "expected_exit": 1,
+      "actual_exit": 1,
+      "errors": [
+        "L01.json: Numeric fun score forbidden"
+      ],
+      "pass": true
+    },
+    {
+      "case": "Uninvoked agent identity rejected against coordinator",
+      "expected_exit": 1,
+      "actual_exit": 1,
+      "errors": [
+        "L01.json: Report identity absent from actual invocation manifest"
+      ],
+      "pass": true
+    },
+    {
+      "case": "Wrong frozen baseline rejected",
+      "expected_exit": 1,
+      "actual_exit": 1,
+      "errors": [
+        "L01.json: Schema/source mismatch"
+      ],
+      "pass": true
+    }
+  ],
+  "scope": "Falsifiable evidence/count/report validator only; not gameplay or child evidence. Test fixtures remain in task-specific system temp and are never counted in54."
+}

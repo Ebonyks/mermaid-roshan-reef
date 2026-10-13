@@ -1,0 +1,17 @@
+{
+  "schema": "luna_helper_syntax_failure/1",
+  "status": "FAIL",
+  "checked_utc": "2026-10-13T02:44:45.301052+00:00",
+  "command": [
+    "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+    "-B",
+    "-c",
+    "import ast,sys; ast.parse(open(sys.argv[1],encoding=\"utf-8\").read(),filename=sys.argv[1])",
+    "C:\\Users\\Peter\\.codex\\worktrees\\luna-playtest-20261012\\mermaid-roshan-reef\\audit\\cycles\\luna-playtest-20261012\\review_tools\\capture_pool.py"
+  ],
+  "exit_code": 1,
+  "source_snapshot": "audit/cycles/luna-playtest-20261012/source_snapshots/capture_pool_output_syntax_v1.py.txt",
+  "source_sha256": "a7ca0d043595acb84d765ad3de4061ba8e8e923f0198ef5419c68f04d1ef7ac7",
+  "log_sha256": "8f93234d9ebd0a035c5c99170d951e51109726653d32a962760613d9c47f735c",
+  "scope": "Final-gates wrapper aborted on this source syntax error before emitting its receipt. This focused reproduction preserves that error; no engine invocation or gameplay evidence changed."
+}

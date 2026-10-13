@@ -1,0 +1,46 @@
+{
+  "schema": "luna_farmer_diagnostic/1",
+  "baseline": "e2b3c73789707aa49a91b4f42e2a9dd4b68225df",
+  "command": [
+    "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64_console.exe",
+    "--headless",
+    "--path",
+    "C:\\Users\\Peter\\.codex\\worktrees\\luna-playtest-20261012\\mermaid-roshan-reef",
+    "-s",
+    "audit/cycles/luna-playtest-20261012/review_tools/chapter2_farmer_diagnostic.gd",
+    "--",
+    "--touch",
+    "--classic-touch-test",
+    "--supplied-phases"
+  ],
+  "started_utc": "2026-10-13T01:40:41.359188+00:00",
+  "finished_utc": "2026-10-13T01:40:52.394543+00:00",
+  "engine": {
+    "version": "4.7.2.stable.official.ed1daf0bf",
+    "sha256": "c8f0a6bc45a19b33541501e57f6f7cd972ab18453743266339d495cbbe846643"
+  },
+  "fixture_sha256": "e5d2a412800fca113a7d11c1b7b7dfb1ff0946d6be21589337352cb3e8ddf13b",
+  "helper_sha256": "2f23f7c7a5490263c93f2fbc814d7d85fa65ed6167b576825cfda6b7efaf0ee4",
+  "source_hashes": {
+    "scripts/main.gd": "841efbfa74a61ed14775fa7c2b19e6ff7f54b0a2c4af04d1b08c345440d6f880",
+    "scripts/chapter_two_director.gd": "41be997e2e367343a85106bcf30f619be497baa59052eece81889e302b20ca71",
+    "scripts/opera_house.gd": "09a70ca5f9abd836f66a2327e62553b8d603f9318845c404d7d3527fee953910",
+    "scripts/opera_act.gd": "eddaa34b8dccd17f41f744176a1ceef6c38c788b200a66995438d42c74a78a63",
+    "scripts/opera_career_world_2d.gd": "bef433ce6869d268bae3ee07948b37ba8b2d93bed8a9d82005a031e817db0edf",
+    "scripts/chapter_two_career_scene_adapter.gd": "ffdcd602711a6acc42a5c6352ad8cbb701316f94c21233356fb56071f85ad40a"
+  },
+  "exit_code": 1,
+  "status": "FAIL",
+  "explicit_phases_supplied": true,
+  "profile_isolated": true,
+  "save_profile": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef-luna-farmer_supplied_phases-nxoril2i",
+  "headless": true,
+  "evidence_kind": "INTERNAL_PRODUCTION_CALL_CHAIN_DIAGNOSTIC",
+  "scope": "Injected post-boss state; production director/House/Act chain, no visible room/fresh child route/device/child acceptance.",
+  "wall_clock_is_gameplay_timing": false,
+  "wall_elapsed_seconds": 11.04,
+  "log": "audit/cycles/luna-playtest-20261012/verification/farmer_supplied_phases/probe.log",
+  "log_sha256": "089828aee460dd12e84093c9fc1ce58e28d699abfd8851d8cc32af93e2f9279a",
+  "fixture_snapshot": "audit/cycles/luna-playtest-20261012/source_snapshots/chapter2_farmer_v1.gd.txt",
+  "printed_fixture_label_correction": "The original printed fixture phrase says no supplied phase override in both modes. explicit_phases_supplied and the command distinguish the original production config from the intentional phase-supplied diagnostic. Log and original source bytes preserved."
+}
