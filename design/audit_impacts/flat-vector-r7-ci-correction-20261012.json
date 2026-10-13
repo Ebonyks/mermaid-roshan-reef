@@ -24,6 +24,7 @@
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r7_ci_correction/GATES.log",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r7_ci_correction/MANIFEST.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r7_ci_correction/README.md",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r7_ci_correction/RECEIPT_GATES.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r7_ci_correction/REMOTE_VERIFICATION.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r7_ci_correction/failed_ci_38347407409.log",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r7_ci_correction/verify_remote.py",
@@ -49,6 +50,11 @@
       "command": "Exact anonymous correction publication and successful exact-head CI",
       "result": "PENDING",
       "evidence": "Remote manifest/receipt and GitHub run required; publication and CI remain separate."
+    },
+    {
+      "command": "Anonymous exact correction payload verification",
+      "result": "PASS",
+      "evidence": "REMOTE_VERIFICATION.json:15declared required files plus manifest,1,653,942required bytes all matched; payload de7fbb338b2a19e1e6bd56cb013866db7909952d. Exact-head workflow remains pending. Receipt metadata separately verified after push."
     }
   ],
   "acceptance_gaps": "No art repair/integration/runtime proof or accepted removal. Whole-game denominator, shared state/caller, device/child/owner/QA11 closure remain open. Other production chat failed workspace routing; its unpushed Garden work is left intact. No new approval checkpoint or release authority."

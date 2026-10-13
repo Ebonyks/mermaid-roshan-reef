@@ -1,0 +1,58 @@
+{
+  "schema": 1,
+  "checked_at_utc": "2026-10-13T05:26:44.480754+00:00",
+  "status": "PASS",
+  "exact_staged_inputs": [
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r7_ci_correction/REMOTE_VERIFICATION.json",
+      "sha256": "246e57876c69a12e542aeb5d951541ffda9604758fa4d405aaed098409bd3c94",
+      "bytes": 10862
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r7_craft_context/tally.json",
+      "sha256": "ce58b33013374950b17501cfd27657b25038a4babcfcf1ac324f6911b25bea4d",
+      "bytes": 11482
+    },
+    {
+      "path": "design/audit_impacts/flat-vector-r7-ci-correction-20261012.json",
+      "sha256": "40aeb3087147cdb798ba9126e3de3bf7e130d5bbe81d3e4e75baaeb487425d40",
+      "bytes": 3586
+    }
+  ],
+  "commands": [
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_document_authority.py"
+      ],
+      "returncode": 0,
+      "output": "DOCAUTH|INVENTORY=710|LEDGER=710|ACTIVE=68|RECORDS=71\r\nDOCAUTH|RESULT|ALL OK\r\n",
+      "output_sha256": "a1abf183a59bf52adba122c4011aa7d56a165403e89a44cbe45235ca89b9ea05"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_development.py",
+        "--base",
+        "auto"
+      ],
+      "returncode": 0,
+      "output": "AUDITDEV|BASE|e2b3c73789707aa49a91b4f42e2a9dd4b68225df\r\nAUDITDEV|RESULT|ALL OK\r\n",
+      "output_sha256": "fe1136f6488648e75036829fb4dde2405eb9ed57eec05f046fe441463c20d023"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_game_2d.py",
+        "--regression-gate"
+      ],
+      "returncode": 0,
+      "output": "GAME2D| DEBT| model_files=0| model_scan_coverage_files=0| active_export_model_files=0| model_import_sidecars=0| active_untracked_model_import_sidecars=0| model_archive_files=0| production_3d_files=52| probe_3d_files=61| scene_3d_files=1| configuration_3d_files=1| archive_now_model_files=0\r\nGAME2D| STATUS| UNSATISFIED\r\nGAME2D| RESULT| NO_REGRESSION - exact shrinking baseline; migration debt remains UNSATISFIED\r\n",
+      "output_sha256": "763e51b38ed1cefc7a506b7148b9d6822c3a647d2fb45e1b64c8f22cb194e0ac"
+    }
+  ],
+  "interpretation": "Receipt-only metadata, exact final prose checked; no further evidence sentence edit after this gate. Artwork/acceptance unchanged."
+}
