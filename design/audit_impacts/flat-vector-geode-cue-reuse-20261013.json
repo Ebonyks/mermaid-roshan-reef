@@ -48,6 +48,7 @@
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r15_geode_cue_reuse/PREFLIGHT.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r15_geode_cue_reuse/PREVIOUS_HEAD_CI.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r15_geode_cue_reuse/README.md",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r15_geode_cue_reuse/RECEIPT_GATES.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r15_geode_cue_reuse/REMOTE_VERIFICATION.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r15_geode_cue_reuse/REVIEW.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r15_geode_cue_reuse/SCRIPT_GATES.json",
@@ -131,8 +132,8 @@
     },
     {
       "command": "Anonymous full exact-revision GitHub delivery",
-      "result": "PENDING",
-      "evidence": "MANIFEST.json and REMOTE_VERIFICATION.json,postpublication receipt separate."
+      "result": "PASS",
+      "evidence": "R15 REMOTE_VERIFICATION.json: payloadf83c1ddf43eb8b0a81bf661fe85081071cccb88a,665 required files/666 including manifest,81,613,121 dependency bytes anonymously verified; no creative acceptance."
     },
     {
       "command": "Initial R15 source validation",

@@ -1,0 +1,66 @@
+{
+  "status": "PASS",
+  "scope": "Four receipt metadata files; exact production/candidate source unchanged. Publication/machine success grants no art/QA11/device/child/owner acceptance.",
+  "payload_revision": "f83c1ddf43eb8b0a81bf661fe85081071cccb88a",
+  "commands": [
+    {
+      "command": [
+        "python",
+        "-B",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r15_geode_cue_reuse\\validate.py"
+      ],
+      "started_at_utc": "2026-10-13T14:35:44.432089+00:00",
+      "checked_at_utc": "2026-10-13T14:35:46.533691+00:00",
+      "exit_code": 0,
+      "result": "PASS",
+      "raw_output_bytes": 147,
+      "raw_output_sha256": "b4ebf618464789e5c319accdce95c291a588671d8a8b665dbba09b6bca25d41f",
+      "output": "R15_VALIDATION_OK;44 diagnostic files/32 hashes,unchanged production/input and stable unknown totals; art/QA11/device/child/owner acceptance open\r\n"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_document_authority.py"
+      ],
+      "started_at_utc": "2026-10-13T14:35:46.534666+00:00",
+      "checked_at_utc": "2026-10-13T14:35:55.622563+00:00",
+      "exit_code": 0,
+      "result": "PASS",
+      "raw_output_bytes": 78,
+      "raw_output_sha256": "25da93384f1b25a6953c2d5804b8b7464d293637af4503cd25c6f4dee44cbb31",
+      "output": "DOCAUTH|INVENTORY=718|LEDGER=718|ACTIVE=69|RECORDS=72\r\nDOCAUTH|RESULT|ALL OK\r\n"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_development.py",
+        "--base",
+        "auto"
+      ],
+      "started_at_utc": "2026-10-13T14:35:55.623780+00:00",
+      "checked_at_utc": "2026-10-13T14:35:58.057056+00:00",
+      "exit_code": 0,
+      "result": "PASS",
+      "raw_output_bytes": 80,
+      "raw_output_sha256": "fe1136f6488648e75036829fb4dde2405eb9ed57eec05f046fe441463c20d023",
+      "output": "AUDITDEV|BASE|e2b3c73789707aa49a91b4f42e2a9dd4b68225df\r\nAUDITDEV|RESULT|ALL OK\r\n"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_game_2d.py",
+        "--regression-gate"
+      ],
+      "started_at_utc": "2026-10-13T14:35:58.057952+00:00",
+      "checked_at_utc": "2026-10-13T14:36:55.014101+00:00",
+      "exit_code": 0,
+      "result": "PASS",
+      "raw_output_bytes": 414,
+      "raw_output_sha256": "763e51b38ed1cefc7a506b7148b9d6822c3a647d2fb45e1b64c8f22cb194e0ac",
+      "output": "GAME2D| DEBT| model_files=0| model_scan_coverage_files=0| active_export_model_files=0| model_import_sidecars=0| active_untracked_model_import_sidecars=0| model_archive_files=0| production_3d_files=52| probe_3d_files=61| scene_3d_files=1| configuration_3d_files=1| archive_now_model_files=0\r\nGAME2D| STATUS| UNSATISFIED\r\nGAME2D| RESULT| NO_REGRESSION - exact shrinking baseline; migration debt remains UNSATISFIED\r\n"
+    }
+  ]
+}

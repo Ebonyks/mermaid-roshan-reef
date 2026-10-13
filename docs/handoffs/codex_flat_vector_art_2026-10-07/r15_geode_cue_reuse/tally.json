@@ -436,11 +436,16 @@
   ],
   "role_and_family_counts_are_separate": true,
   "publication": {
-    "revision": "FV-AUDIT-20261013-R15",
-    "status": "PAYLOAD_PREPARED_REMOTE_VERIFICATION_PENDING",
-    "manifest": "MANIFEST.json",
+    "status": "EXACT_PUBLIC_PAYLOAD_VERIFIED",
+    "payload_revision": "f83c1ddf43eb8b0a81bf661fe85081071cccb88a",
+    "manifest_sha256": "6920939c2a48284925b48ec24cd7438f2557dd8dd3391d70d5734f2d6e48ac22",
+    "payload_sha256": "c4b682d0c0b1b6feaede1e4c8c2fea5df665bf7e1f5d2def146c4af19c91c263",
+    "verified_required_files": 665,
+    "verified_fetches_including_manifest": 666,
+    "required_bytes": 81613121,
+    "checked_at_utc": "2026-10-13T14:34:35.551935+00:00",
+    "access_mode": "Anonymous public HTTPS for manifest and every declared required file; public GitHub repo API independently checked; recipient can use the same unauthenticated access mode.",
     "receipt": "REMOTE_VERIFICATION.json",
-    "creative_acceptance": false,
     "accepted_removed": 0
   },
   "independent_style_review": {
@@ -568,24 +573,20 @@
   "reference_resolution": "Inherited keys retain their per-revision inherited reference bases; geode_lifecycle and its unqualified paths resolve against inherited_r14_reference_base; geode_cue_reuse paths resolve beside current R15 files. Older frozen units/history unchanged.",
   "unpublished_external_activity_limit": "Separate Garden production branch has no published revision at the verified reconciliation; its local candidate is outside this frozen verified tally. Generation/integration counts in this packet retain packet scope.",
   "current_ci": {
-    "head": "42ef9083c07d15e0436ad981d23a35c6309871c8",
-    "run": 38409790014,
-    "status": "in_progress",
-    "new_R15_exact_head": "PENDING_AFTER_PUBLICATION",
-    "local_full_suite": "Inherited unchanged production source passed all82 native trusted probes in R14; no82 repeat claimed by cue study.",
-    "conclusion": "",
-    "jobs": [
+    "payload_head": "f83c1ddf43eb8b0a81bf661fe85081071cccb88a",
+    "payload_runs": [
       {
-        "name": "area-music-provenance",
-        "status": "completed",
-        "conclusion": "cancelled"
-      },
-      {
-        "name": "probes",
-        "status": "in_progress",
-        "conclusion": ""
+        "conclusion": "",
+        "databaseId": 38414508538,
+        "headSha": "f83c1ddf43eb8b0a81bf661fe85081071cccb88a",
+        "name": "Probe suite (graphics fork)",
+        "status": "in_progress"
       }
-    ]
+    ],
+    "checked_at_utc": "2026-10-13T14:35:44.285075+00:00",
+    "receipt_head": "PENDING_NEW_COMMIT",
+    "prior_R14_snapshot": "PREVIOUS_HEAD_CI.json; immutable prepublication status",
+    "local_full_suite": "R14 all82 trusted native passes on unchanged production source; R15 diagnostic/static/document gates separately pass. No candidate art/QA11/device/child/owner acceptance."
   },
   "inherited_r7_reference_base": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/c1e466a8a9e605f43b4c7a181b3d7b702d7677aa/docs/handoffs/codex_flat_vector_art_2026-10-07/r7_craft_context/",
   "inherited_r8_reference_base": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/f4de7b921298b0dac052df408af03bbb2b62132b/docs/handoffs/codex_flat_vector_art_2026-10-07/r8_geode_context/",
