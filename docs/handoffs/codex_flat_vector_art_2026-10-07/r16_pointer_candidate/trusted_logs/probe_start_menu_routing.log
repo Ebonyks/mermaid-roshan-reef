@@ -1,0 +1,33 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+START_MENU_ROUTING|Continue bypasses Day 1: OK
+START_MENU_ROUTING|Continue bypasses the legacy intro: OK
+START_MENU_ROUTING|New Game selects Day 1: OK
+START_MENU_ROUTING|New Game bypasses the legacy intro: OK
+START_MENU_ROUTING|Continue preserves an explicitly active Day One save: OK
+START_MENU_ROUTING|legacy Continue remains outside Day One: OK
+START_MENU_ROUTING|New Game confirmation is delayed and hold-gated: OK
+START_MENU_ROUTING|confirm sheet focuses the safe KEEP GAME action: OK
+START_MENU_ROUTING|saved menu makes Continue gold and New Game secondary: OK
+START_MENU_ROUTING|Options has no hidden hold that restores an archived save: OK
+START_MENU_ROUTING|Continue maps valid room bathroom: OK
+START_MENU_ROUTING|Continue maps valid room pool: OK
+START_MENU_ROUTING|Continue maps valid room stuffie: OK
+START_MENU_ROUTING|Continue maps valid room art: OK
+START_MENU_ROUTING|Continue invalid room fails closed to hall: OK
+START_MENU_ROUTING|save normalization preserves authoritative valid room: OK
+START_MENU_ROUTING|save normalization falls back invalid room safely: OK
+START_MENU_ROUTING|Day Two routing clear removes room and discovery latch: OK
+START_MENU_ROUTING|startup waits for the menu or probe driver: OK
+START_MENU_ROUTING|Continue derives its mode from the saved Day One flag: OK
+START_MENU_ROUTING|New Game calls the Day 1 route after reload: OK
+START_MENU_ROUTING|New Game reload marker survives the scene reset: OK
+START_MENU_ROUTING|menu cannot invoke the retired legacy intro: OK
+START_MENU_ROUTING|fresh Day One focuses the castle approach: OK
+START_MENU_ROUTING|retired Reef target is absent for every day: OK
+START_MENU_ROUTING|Day One castle affordance survives idle cap: OK
+START_MENU_ROUTING|castle art target stays visible and actionable without an elevator overlay: OK
+START_MENU_ROUTING|level exits route through Day One gate; reef attic portal is gone: OK
+START_MENU_ROUTING|pause never advertises a Reef tile: OK
+START_MENU_ROUTING|Day Two clears stale Day One routing: OK
+START_MENU_ROUTING|RESULT: PASS failures=0

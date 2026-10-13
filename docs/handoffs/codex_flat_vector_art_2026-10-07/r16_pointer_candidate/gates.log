@@ -1,0 +1,10 @@
+C:\Users\Peter\.codex\worktrees\flat-vector-r6-20261012\mermaid-roshan-reef\docs\handoffs\codex_flat_vector_art_2026-10-07\r16_pointer_candidate\validate.py:11: DeprecationWarning: Image.Image.getdata is deprecated and will be removed in Pillow 14 (2027-10-15). Use get_flattened_data instead.
+  A=R/'assets_src/flat_vector_pointer_20261013';native=Image.open(A/'native.png').convert('RGBA');rt=Image.open(A/'native_roundtrip.png').convert('RGBA');clean=Image.open(A/'clean_native.png').convert('RGBA');assert native.tobytes()==rt.tobytes();assert all(c==o or c==(0,0,0,0) for o,c in zip(native.getdata(),clean.getdata()))
+R16_VALIDATION_OK;one whole-hand sample/94 native files/all82 trusted probes; stable IDs/unknown totals and all art acceptance limits preserved
+DOCAUTH|INVENTORY=719|LEDGER=719|ACTIVE=69|RECORDS=72
+DOCAUTH|RESULT|ALL OK
+AUDITDEV|BASE|e2b3c73789707aa49a91b4f42e2a9dd4b68225df
+AUDITDEV|RESULT|ALL OK
+GAME2D| DEBT| model_files=0| model_scan_coverage_files=0| active_export_model_files=0| model_import_sidecars=0| active_untracked_model_import_sidecars=0| model_archive_files=0| production_3d_files=52| probe_3d_files=61| scene_3d_files=1| configuration_3d_files=1| archive_now_model_files=0
+GAME2D| STATUS| UNSATISFIED
+GAME2D| RESULT| NO_REGRESSION - exact shrinking baseline; migration debt remains UNSATISFIED

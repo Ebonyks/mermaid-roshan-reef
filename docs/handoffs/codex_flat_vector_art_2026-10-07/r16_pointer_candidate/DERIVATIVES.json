@@ -1,0 +1,143 @@
+{
+  "schema": 1,
+  "piece": "FV-1DC9F18904A8",
+  "native_generation": "REUSE_JOB.json",
+  "started_at_utc": "2026-10-13T15:16:58.246870+00:00",
+  "completed_at_utc": "2026-10-13T15:17:02.302969+00:00",
+  "aseprite_version": "Aseprite 1.3.18.4-x64",
+  "command": [
+    "C:/Program Files/Aseprite/Aseprite.exe",
+    "--batch",
+    "--script-param",
+    "source=C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\assets_src\\flat_vector_pointer_20261013\\native.png",
+    "--script-param",
+    "native_master=C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\assets_src\\flat_vector_pointer_20261013\\pointer_native.aseprite",
+    "--script-param",
+    "native_roundtrip=C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\assets_src\\flat_vector_pointer_20261013\\native_roundtrip.png",
+    "--script-param",
+    "clean_master=C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\assets_src\\flat_vector_pointer_20261013\\pointer_clean_native.aseprite",
+    "--script-param",
+    "clean_png=C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\assets_src\\flat_vector_pointer_20261013\\clean_native.png",
+    "--script-param",
+    "normalized_master=C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\assets_src\\flat_vector_pointer_20261013\\pointer_1024.aseprite",
+    "--script-param",
+    "output=C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\assets_src\\flat_vector_pointer_20261013\\pointer_1024.png",
+    "--script-param",
+    "proof=C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\assets_src\\flat_vector_pointer_20261013\\MASTER_PROOF.json",
+    "--script",
+    "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\assets_src\\flat_vector_pointer_20261013\\bridge_pointer.lua"
+  ],
+  "returncode": 0,
+  "files": [
+    {
+      "path": "assets_src/flat_vector_pointer_20261013/aseprite.log",
+      "bytes": 95,
+      "sha256": "7ef8dc943f4485b746d242fe88307a01c94673df01a9c175f4637c453796148a",
+      "runtime_bound": false
+    },
+    {
+      "path": "assets_src/flat_vector_pointer_20261013/bridge_pointer.lua",
+      "bytes": 2545,
+      "sha256": "cfc7a03da33525fab84c6bbc3e03f140f1b3849437383378c7ea6005ce0a1d53",
+      "runtime_bound": false
+    },
+    {
+      "path": "assets_src/flat_vector_pointer_20261013/clean_native.png",
+      "bytes": 662519,
+      "sha256": "3cbafd9c79f29e3621cd9e1fb577419ca8aece49a46871d04312493d8d8492c2",
+      "runtime_bound": false
+    },
+    {
+      "path": "assets_src/flat_vector_pointer_20261013/MASTER_PROOF.json",
+      "bytes": 385,
+      "sha256": "cc0f0583deb6c3c3756cc291827b9cd51fff5fa5166982a64acf0bfbeaaed068",
+      "runtime_bound": false
+    },
+    {
+      "path": "assets_src/flat_vector_pointer_20261013/native.png",
+      "bytes": 693114,
+      "sha256": "9e78333d1e8f3daaa2e02b7daf709462886fee17ca931dc0c94fe5029e6508ff",
+      "runtime_bound": false
+    },
+    {
+      "path": "assets_src/flat_vector_pointer_20261013/native_roundtrip.png",
+      "bytes": 667920,
+      "sha256": "7d6d4278aa2c3ab5ef295ac49ac5f519f73c7a50b483ca2da289a5dfeabc16f3",
+      "runtime_bound": false
+    },
+    {
+      "path": "assets_src/flat_vector_pointer_20261013/pointer_1024.aseprite",
+      "bytes": 668499,
+      "sha256": "646cf74226351d07708294556236a219ac3d7f82fd59eeb09f16dc03fbd8f4f2",
+      "runtime_bound": false
+    },
+    {
+      "path": "assets_src/flat_vector_pointer_20261013/pointer_1024.png",
+      "bytes": 436458,
+      "sha256": "7e80a06704e21d780e66692c68d1226ea3b9a88544e927ba293b49ed1d3451ec",
+      "runtime_bound": false
+    },
+    {
+      "path": "assets_src/flat_vector_pointer_20261013/pointer_clean_native.aseprite",
+      "bytes": 993320,
+      "sha256": "9725217af39c9f473f8e8f4d51f92b6abb9f145a55edd21567c3388dc433215c",
+      "runtime_bound": false
+    },
+    {
+      "path": "assets_src/flat_vector_pointer_20261013/pointer_native.aseprite",
+      "bytes": 998509,
+      "sha256": "beaf8193b745aade92cddb804d2a28620fbbbd69a63575a69bfb2c74b67e0730",
+      "runtime_bound": false
+    }
+  ],
+  "native_roundtrip_RGBA_exact": true,
+  "cleaned_retained_RGBA_exact": true,
+  "cleanup": "Only disconnected nonzero alpha farther than2px from main alpha>=16 hand component removed. No retained RGB/alpha repaint,crop,part split or warp. Native preserved unchanged.",
+  "master_proof": {
+    "crop": false,
+    "frames": 1,
+    "layers": 1,
+    "matte_cleanup": {
+      "alpha_component_threshold": 16,
+      "antialias_neighbor_radius": 2,
+      "component_count": 1,
+      "main_alpha_pixels": 370704,
+      "removed_nonzero_alpha_pixels": 3064,
+      "retained_component": 1
+    },
+    "method": "bilinear",
+    "native_size": [
+      1254,
+      1254
+    ],
+    "normalized_size": [
+      1024,
+      1024
+    ],
+    "part_separation": false,
+    "recolor": false,
+    "repaint": false
+  },
+  "export_dimensions": [
+    1024,
+    1024
+  ],
+  "export_alpha_bbox": [
+    220,
+    87,
+    769,
+    932
+  ],
+  "export_alpha128_bbox": [
+    222,
+    90,
+    767,
+    929
+  ],
+  "measured_fingertip_uv": [
+    0.44580078125,
+    0.90625
+  ],
+  "candidate_review": null,
+  "device_child_owner": null
+}

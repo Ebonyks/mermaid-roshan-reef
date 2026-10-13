@@ -1,0 +1,138 @@
+{
+  "schema": 1,
+  "revision": "FV-AUDIT-20261013-R16",
+  "source_revision": "1910dc272025ca53b049f559245eb0c4ee8675fb",
+  "sources": [
+    {
+      "path": "assets/castle/training/ghost_hand.png",
+      "revision": "1910dc272025ca53b049f559245eb0c4ee8675fb",
+      "sha256": "e484d14899d8137448128314536132dbd16f970cb1f0fabea006e9d51b5435b9",
+      "bytes": 123283,
+      "role": "EDIT_TARGET_GESTURE_GEOMETRY_ONLY; preserved original; existing generic tutorial hand,not a Roshan body-part layer",
+      "dimensions": [
+        512,
+        512
+      ],
+      "mode": "RGBA",
+      "alpha_bbox": [
+        111,
+        37,
+        383,
+        451
+      ]
+    },
+    {
+      "path": "assets/mg/star.png",
+      "revision": "1910dc272025ca53b049f559245eb0c4ee8675fb",
+      "sha256": "3cc5d5cbc5d6e0df0540cdc00ef557b0c7ed6e566331035c4e75d5d971ef3b98",
+      "bytes": 868379,
+      "role": "PAINTED_SURFACE_STYLE_REFERENCE; whole approved existing gold-star role; not new hand approval",
+      "dimensions": [
+        1024,
+        1008
+      ],
+      "mode": "RGBA",
+      "alpha_bbox": [
+        17,
+        17,
+        1007,
+        991
+      ]
+    },
+    {
+      "path": "assets/opera/worlds/actors/animation/roshan_geologist_sheet_a.png",
+      "revision": "1910dc272025ca53b049f559245eb0c4ee8675fb",
+      "sha256": "1fd7080933fd49b27a9cbb2b20d9470e4fd654dec58db72e9aa9e081a6e24c37",
+      "bytes": 910920,
+      "role": "SAME_SCENE_APPROVED_ACTOR_STYLE_REFERENCE; existing identity untouched; reference for warm skin/plum contours/material finish only",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha_bbox": [
+        26,
+        27,
+        1002,
+        984
+      ]
+    },
+    {
+      "path": "assets/opera/worlds/actors/rival_detective.png",
+      "revision": "1910dc272025ca53b049f559245eb0c4ee8675fb",
+      "sha256": "44a6e07766a0733979e6aa3bda4c8cf89776a75f81c6600db4cb8ad89c7edecb",
+      "bytes": 217399,
+      "role": "Same-scene comparison only; not generator pixels",
+      "dimensions": [
+        512,
+        512
+      ],
+      "mode": "RGBA",
+      "alpha_bbox": [
+        74,
+        19,
+        422,
+        504
+      ]
+    },
+    {
+      "path": "assets_src/imagegen/combat_tutorial_2026-08-01/ghost_hand_alpha_native.png",
+      "revision": "1910dc272025ca53b049f559245eb0c4ee8675fb",
+      "sha256": "345972c6311edf6885ce81b2951f4d1b2322582573bf353ad3bd2c92c12da617",
+      "bytes": 454414,
+      "role": "Existing higher-resolution original hand master; same uniform contour/vector-lookalike design; reviewed source family gap,not fresh approval",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "alpha_bbox": [
+        272,
+        92,
+        937,
+        1103
+      ]
+    },
+    {
+      "path": "assets_src/imagegen/combat_tutorial_2026-08-01/PROMPTS.md",
+      "revision": "1910dc272025ca53b049f559245eb0c4ee8675fb",
+      "sha256": "87c215582eb6fffb8738fc079c4423e4b80e6076dc993f8b17e852c21747c3c2",
+      "bytes": 11526,
+      "role": "Exact native/runtime source and chroma provenance"
+    },
+    {
+      "path": "ASSET_LICENSES.md",
+      "revision": "1910dc272025ca53b049f559245eb0c4ee8675fb",
+      "sha256": "b6d5926422f12b27d4fdeacd58fb11bde513f45b68576617608ec37f865aa76b",
+      "bytes": 4411234,
+      "role": "Immutable original role/provenance; new derivative license separate"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r14_geode_lifecycle/native/1280x720/prepare/geode_closed_ready.png",
+      "revision": "1910dc272025ca53b049f559245eb0c4ee8675fb",
+      "sha256": "cb06040d1de1627a6e555fe20e7796ef13e25946094855adc8aca80bd7971002",
+      "bytes": 120309,
+      "role": "Verified original current Geode screen; context-only; never generator/delivery pixels",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "mode": "RGB",
+      "alpha_bbox": null
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r15_geode_cue_reuse/native/1280x720/geode_closed_ready.png",
+      "revision": "1910dc272025ca53b049f559245eb0c4ee8675fb",
+      "sha256": "08b345cf05221b726f3e6a9a42096d4354810c95c076fe7d61142e7f709d8e0d",
+      "bytes": 131937,
+      "role": "Verified current failed star/demo overlap study; context-only; never generator/delivery pixels",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "mode": "RGB",
+      "alpha_bbox": null
+    }
+  ],
+  "pixel_edit_originals": false
+}

@@ -1,0 +1,42 @@
+{
+  "schema": 1,
+  "baseline": "1910dc272025ca53b049f559245eb0c4ee8675fb",
+  "working_production_diff": [],
+  "origin_dev": "831d0bbb155b99d75ef0289cc5cc694e0ef00c1e",
+  "production_delta_from_origin_dev": [
+    "scripts/opera_geology_surface.gd",
+    "scripts/probe_opera_2d.gd"
+  ],
+  "new_R16_production_code_delta": [],
+  "candidate_input_owner": "Unchanged inherited OperaGeologySurface; no input/state/save function override. Whole-hand draw only adds Geode demo override/contract,retaining R15 star draw as unaccepted study context.",
+  "geometry": {
+    "seam_centers": [
+      [
+        766,
+        216
+      ],
+      [
+        735,
+        278
+      ],
+      [
+        778,
+        340
+      ],
+      [
+        744,
+        401
+      ],
+      [
+        770,
+        466
+      ]
+    ],
+    "hit_radius": 56,
+    "tap_travel": 34,
+    "pull_distance": 120
+  },
+  "originals_preserved": true,
+  "private_normal_save_hashes_unchanged_in_all_four_launch_manifests": true,
+  "byte_scope": "Exact PNG bytes and immutable Git source hashes; existing CRLF checkout text treated with explicit LF-only normalization. Generated tracked .import/.uid1998 preserved separately."
+}

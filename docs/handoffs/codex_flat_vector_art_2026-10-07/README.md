@@ -1,6 +1,8 @@
-Current canonical evidence: [R15 painted Geode cue study](r15_geode_cue_reuse/README.md), [registry](r15_geode_cue_reuse/per_piece.json), [coverage](r15_geode_cue_reuse/scene_coverage.json), [tally](r15_geode_cue_reuse/tally.json).
+Current canonical evidence: [R16 painted pointer candidate](r16_pointer_candidate/README.md), [registry](r16_pointer_candidate/per_piece.json), [coverage](r16_pointer_candidate/scene_coverage.json), [tally](r16_pointer_candidate/tally.json).
 
-# Full-game flat-vector audit — current R15 cue reuse study
+# Full-game flat-vector audit — current R16 pointer candidate
+
+R16 fills one documented hand-paint reuse gap with one whole-hand candidate and94 native diagnostic files; Geode-only style/input/registration review is partial.2138 bounded/2252 retained,225 known/30 families; one context sample awaiting review,zero art integration/accepted removal,unknown whole-game denominator. Earlier R15 and R14 evidence remains below.
 
 R15 adds44 isolated whole-source gold-star cue diagnostics; completed feedback and inherited pointer/feedback artwork remain unresolved.2044 bounded/2158 retained,225 known/30 families; zero integration/accepted removal,unknown whole-game denominator. Earlier R14 behavior evidence and history remain below.
 
