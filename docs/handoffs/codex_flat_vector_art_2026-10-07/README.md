@@ -2,7 +2,7 @@ Current canonical evidence: [R21 CandyMaker stream material](r21_candy_stream_ma
 
 # Full-game flat-vector audit — current R21 material trial
 
-One generated painted stream draft fails local visual QC:glow,strong S contour,onset and static-flow gaps remain.48native event files/12views,2378bounded/2492retained;225known/30families,one existing hand sample pending,zero adoption/acceptedremoval,unknown global totals. [R20 contact study](r20_candy_stream_contact/README.md) remains immutable.
+One generated painted stream draft fails local visual QC:strong S contour,onset and static-flow gaps remain.48native event files/12views,2378bounded/2492retained;225known/30families,one existing hand sample pending,zero adoption/acceptedremoval,unknown global totals. [R20 contact study](r20_candy_stream_contact/README.md) remains immutable.
 
 Historical R20 routing: [R20 CandyMaker stream contact](r20_candy_stream_contact/README.md), [registry](r20_candy_stream_contact/per_piece.json), [coverage](r20_candy_stream_contact/scene_coverage.json), [tally](r20_candy_stream_contact/tally.json).
 

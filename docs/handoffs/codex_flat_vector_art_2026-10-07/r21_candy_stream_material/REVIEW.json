@@ -10,8 +10,8 @@
   "ten_axes": {
     "contour": "Irregular painted contours replace uniform line bands in the isolated trial, but source has a stronger S bend than the gently bowed brief; locally fails flow silhouette.",
     "material": "Amber/copper translucent paint and broken cream reflections resemble the painted pool more closely than the old flat bands. Candidate is still unaccepted.",
-    "palette": "Warm honey-orange/ivory fits adjacent syrup and gold-rimmed ladle; source glow produces extra yellow around the flow.",
-    "light": "Upper-left reflections/right copper shade follow source references; broad emitted-looking halo is incongruent and fails local QC.",
+    "palette": "Warm honey-orange/ivory follows adjacent syrup and gold-rimmed ladle. Broad isolated-preview color around flow is alpha0 hidden RGB,not a rendered palette defect.",
+    "light": "Upper-left painted reflections/right copper shade follow references. ALPHA_INSPECTION proves sampled broad preview glow has alpha0;no broad emitted-halo failure is claimed in the native scene. Actual OD/device/owner light acceptance remains unestablished.",
     "perspective": "Whole sprite uses rigid rotation+uniform scale between anchors; no parts/UV warp. Static curved ribbon cannot prove gravity/contact through every tilt.",
     "scale": "683x1024 proportional export; native stream small at current panel size. No device/child readability or performance measurement.",
     "contact": "Low held_08s uses R20 nearest visible opaque pool pixel. At held_02s no revealed opaque pool pixel,trial uses nominal endpoint and hangs in empty cavity: onset contact remains failed/open.",
@@ -49,7 +49,6 @@
   "calls": 1,
   "call_cap": 1,
   "blocked_next_quality_steps": [
-    "Retire glow without damaging painted antialias contour",
     "Replace strong S silhouette with actual gravity/tilt-bound whole-flow drawings",
     "Repair near-zero onset target/flow contact",
     "Authored flow states and full-speed/frame-step action review",
@@ -68,5 +67,6 @@
     "QA11": null
   },
   "geometry_only_lookup": "FILL_CONTACT_ROWS exact immutable R20 alpha geometry; no new functional scope/art total",
-  "limits": "Declared script swap/re-arm dev-playtest firstphase;private SaveState BEFORE Main;raw Window inputs/timers,two aspects. No QA11/new production bytes/full motion/acceptance."
+  "limits": "Declared script swap/re-arm dev-playtest firstphase;private SaveState BEFORE Main;raw Window inputs/timers,two aspects. No QA11/new production bytes/full motion/acceptance.",
+  "alpha_assessment_correction": "ALPHA_INSPECTION.json;initial R21 source-only glow inference at408b119 superseded. Generated/export/native bytes and all count units unchanged."
 }

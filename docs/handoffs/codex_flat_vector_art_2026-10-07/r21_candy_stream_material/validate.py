@@ -43,6 +43,8 @@ for f in manifests:
 assert read(P/'LAUNCH.json')['returncode']==0 and read(P/'IMPORT.json')['returncode']==0
 assert all(x['exit_code']==0 for x in read(P/'SCRIPT_GATES.json'))
 for f in ['native_capture.log','import.log']:assert b'ERROR:' not in (P/f).read_bytes() and b'SCRIPT ERROR' not in (P/f).read_bytes()
+alpha=read(P/'ALPHA_INSPECTION.json');norm=Image.open(A/'stream_1024.png').convert('RGBA');assert alpha['candidate_sha256']==sha((A/'stream_1024.png').read_bytes())
+for sample in alpha['samples']:assert list(norm.getpixel(tuple(sample['xy'])))==sample['rgba'] and sample['rgba'][3]==0
 review=read(P/'REVIEW.json');assert len(review['ten_axes'])==10 and len(review['direct_native_views'])==12 and len(review['direct_source_images_viewed'])==6
 assert review['status'].startswith('FAILED_LOCAL_VISUAL_QC') and review['acceptance']['accepted_removed']==0 and review['acceptance']['owner'] is None
 for name in ['per_piece.json','scene_coverage.json','tally.json','CONGRUENCY_BACKLOG.json']:

@@ -1,4 +1,58 @@
 {
-  "status": "PENDING",
-  "creative_acceptance": false
+  "status": "PASS_WITH_ACCEPTANCE_OPEN",
+  "commands": [
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-B",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r21_candy_stream_material\\validate.py"
+      ],
+      "started_at_utc": "2026-10-13T21:01:11.139266+00:00",
+      "checked_at_utc": "2026-10-13T21:01:15.506727+00:00",
+      "exit_code": 0,
+      "result": "PASS",
+      "evidence": "receipt_gates.log"
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-B",
+        "tools/audit_document_authority.py"
+      ],
+      "started_at_utc": "2026-10-13T21:01:15.506791+00:00",
+      "checked_at_utc": "2026-10-13T21:01:25.236269+00:00",
+      "exit_code": 0,
+      "result": "PASS",
+      "evidence": "receipt_gates.log"
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-B",
+        "tools/audit_development.py",
+        "--base",
+        "auto"
+      ],
+      "started_at_utc": "2026-10-13T21:01:25.236327+00:00",
+      "checked_at_utc": "2026-10-13T21:01:28.755892+00:00",
+      "exit_code": 0,
+      "result": "PASS",
+      "evidence": "receipt_gates.log"
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-B",
+        "tools/audit_game_2d.py",
+        "--regression-gate"
+      ],
+      "started_at_utc": "2026-10-13T21:01:28.755934+00:00",
+      "checked_at_utc": "2026-10-13T21:03:53.177107+00:00",
+      "exit_code": 0,
+      "result": "PASS",
+      "evidence": "receipt_gates.log"
+    }
+  ],
+  "raw_log_sha256": "8b431ecf2f2c8d1ab2967616ab262c5199fbe523daa778d5b6e7f506aa6ed2de",
+  "scope": "Native contact-only diagnostic/evidence over unchanged runtime; inherited R16 exact82 local trusted passes. No production runtime code/assets changed;one generated nonruntime source locally failsQC;new native trial captures. Strict medium/global/QA11/device/child/owner acceptance open."
 }

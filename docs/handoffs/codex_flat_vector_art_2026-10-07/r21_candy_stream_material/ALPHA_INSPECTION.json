@@ -1,0 +1,102 @@
+{
+  "method": "Read-only Pillow RGBA/alpha inspection;native alpha-aware viewport is context authority",
+  "candidate_sha256": "39a1d5009e953125a2112082e69e40ecb06b13af7e55698a7f37b485cfe38e6a",
+  "dimensions": [
+    683,
+    1024
+  ],
+  "alpha_bins": {
+    "zero": 631873,
+    "one_to_15": 2955,
+    "16_to_127": 1196,
+    "128_to_255": 63368
+  },
+  "samples": [
+    {
+      "xy": [
+        350,
+        200
+      ],
+      "rgba": [
+        69,
+        49,
+        9,
+        0
+      ]
+    },
+    {
+      "xy": [
+        390,
+        200
+      ],
+      "rgba": [
+        156,
+        110,
+        23,
+        0
+      ]
+    },
+    {
+      "xy": [
+        415,
+        200
+      ],
+      "rgba": [
+        223,
+        161,
+        38,
+        0
+      ]
+    },
+    {
+      "xy": [
+        500,
+        200
+      ],
+      "rgba": [
+        173,
+        79,
+        14,
+        0
+      ]
+    },
+    {
+      "xy": [
+        540,
+        200
+      ],
+      "rgba": [
+        87,
+        39,
+        4,
+        0
+      ]
+    },
+    {
+      "xy": [
+        220,
+        550
+      ],
+      "rgba": [
+        59,
+        46,
+        17,
+        0
+      ]
+    },
+    {
+      "xy": [
+        250,
+        550
+      ],
+      "rgba": [
+        115,
+        89,
+        31,
+        0
+      ]
+    }
+  ],
+  "correction": "Broad colored glow seen in isolated display is hidden RGB at alpha0 and does not render in Godot. Initial R21 light-failure inference superseded;no pixel edit/generation or OD score. LocalQCfailed contour/onset and incomplete action evidence remain.",
+  "initial_inference_commit": "408b11972571d9ad148a25deb9a255799bcf295c"
+}
