@@ -1,0 +1,13 @@
+# R8 Geologist closed-geode context
+
+This bounded audit binds `FV-C1AB21410352` to current Godot4.7.2 official/Mobile/Speedy gameplay source at `c1e466a8a9e605f43b4c7a181b3d7b702d7677aa`. It adds44 separately captured native files,22 per aspect,with34 unique PNG byte hashes,and five direct inspections. Some held/released/negative/cancel states render identically; they are diagnostic event snapshots,not temporal-action padding. The Geologist phase was selected explicitly as a diagnostic fixture; five actual touch releases change the seam and a60-pixel partial drag opens the halves. No natural earlier-phase route is claimed.
+
+[Review](REVIEW.json), [preserved sources](SOURCES.json), [reuse disposition](REUSE_DISPOSITION.json), [caller closure](CALLER_CLOSURE.json), [source/save parity](SOURCE_PARITY.json), [launch](LAUNCH.json), [gates](GATES.json), [manifest](MANIFEST.json) and [remote receipt](REMOTE_VERIFICATION.json) keep evidence lanes separate.
+
+The shell remains a flat solid ellipse with a thick plum contour beside painted Roshan and helper art. Seam dots become cyan; partial opening exposes vector crystals. The preserved painted source is shortlisted for a proportional technical fit trial. Runtime sizing and a matched closed/open family remain unresolved. No art generation,pixel processing or runtime change occurred. Brush artwork is absent from the chosen states. All ten congruency axes are recorded without invented scores.
+
+Known design records remain225 in30 families. Cumulative bounded captures become1708,with1810 retained native files including prior excluded diagnostics. Routes remain77/176 partial,zero complete,99 without a current slice; all176 remain incomplete. Frozen369 scopes still have18 inventory classifications and351 unresolved,plus two supplemental compositor gaps. Whole-game artwork/screen/regression totals remain unknown. Replacements,integrated/runtime-verified replacements and accepted removals remainzero.
+
+The [registry](per_piece.json), [coverage](scene_coverage.json), [tally](tally.json) and [backlog](CONGRUENCY_BACKLOG.json) inherit immutable R7/R6 evidence through explicit reference bases. History remains intact. The raw before/after census3236 excludes import/UID sidecars; Git LF and checkout CRLF hashes are separately recorded. No full active-source/QA11 closure is claimed.
+
+Natural route,complete opening/reward/settle,return/re-entry/reload,independent temporal/phone review,QA11,device,child and owner acceptance remain open. Input geometry and save keys remain unchanged. Visible markers/interior remain artwork work,not invisible-geometry exemptions. Exact-head CI and public delivery are separate; mission completion stays open.

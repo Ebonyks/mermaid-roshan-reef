@@ -49,3 +49,9 @@ assets_src/imagegen/chef_overdraw_v1_20261003/** -text whitespace=cr-at-eol
 
 # Whole-wave source/reject receipts bind literal bytes across Windows/Linux.
 assets_src/animation/roshan_wave_repair_20261010/** -text whitespace=-blank-at-eol,-blank-at-eof,cr-at-eol
+
+# Preserve exact native R8 diagnostic output bytes, including terminal blank lines.
+docs/handoffs/codex_flat_vector_art_2026-10-07/r8_geode_context/analyzer.log -text -diff
+docs/handoffs/codex_flat_vector_art_2026-10-07/r8_geode_context/capture.log -text -diff
+docs/handoffs/codex_flat_vector_art_2026-10-07/r8_geode_context/import.log -text -diff
+docs/handoffs/codex_flat_vector_art_2026-10-07/r8_geode_context/GATES.log -text -diff

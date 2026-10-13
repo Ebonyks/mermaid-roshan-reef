@@ -1,0 +1,117 @@
+{
+  "schema": 1,
+  "revision": "FV-AUDIT-20261013-R8",
+  "stable_piece_id": "FV-C1AB21410352",
+  "scope_id": "FVF-FAD33ED5C4F6",
+  "source_revision": "c1e466a8a9e605f43b4c7a181b3d7b702d7677aa",
+  "reviewer": "Codex direct visual inspection in this audit chat",
+  "status": "PARTIAL_CURRENT_CONTEXT_REVIEW",
+  "actually_viewed_unique_native": 5,
+  "viewed_native": [
+    {
+      "aspect": "1280x720",
+      "state_id": "geode_closed_ready",
+      "path": "native/1280x720/geode_closed_ready.png",
+      "bytes": 120105,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "sha256": "fbb22f5df57b6c04a8bdb7dffc878b79375ea34e40b85db5142184be289074c6"
+    },
+    {
+      "aspect": "1280x720",
+      "state_id": "geode_seam02_released",
+      "path": "native/1280x720/geode_seam02_released.png",
+      "bytes": 112343,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "sha256": "4f9acf9a805e3a8a5e42c45345a175625a201978d3e3928c4b0543aa96c6f1b2"
+    },
+    {
+      "aspect": "1280x720",
+      "state_id": "geode_all_seams_ready",
+      "path": "native/1280x720/geode_all_seams_ready.png",
+      "bytes": 108076,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "sha256": "515b9a989f384599d0505e504c32ddf0d5e2d7b65705d60093caf43405cd4c43"
+    },
+    {
+      "aspect": "1280x720",
+      "state_id": "geode_partial_open_held",
+      "path": "native/1280x720/geode_partial_open_held.png",
+      "bytes": 111305,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "sha256": "97f6be71cf1d90a8b4c6db87259e50e09fa568d5d754efa6a60da9959a0586fe"
+    },
+    {
+      "aspect": "1600x720",
+      "state_id": "geode_closed_ready",
+      "path": "native/1600x720/geode_closed_ready.png",
+      "bytes": 122826,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "sha256": "3d9324be9257b8831e9cc71a49ea3875d5596f27d325df4152c4a5a195c55d08"
+    }
+  ],
+  "source_images_viewed": [
+    "assets_src/minigame_art_quality_2026-09-05/geode-extraction-attempt01/native.png"
+  ],
+  "all_ten_comparison_axes": {
+    "contour": "Solid ellipse halves use a source-declared12px plum outline; visible actors use finer irregular painted edges. Native closed candidate is rounder and asymmetric, so anisotropic fitting would distort its design.",
+    "material": "Shell has two solid fills, board a rounded flat field, while actors carry authored hair/cloth/skin value bands. Candidate has painted stone planes; dense speckles still need mounted phone review.",
+    "palette": "Muted plum shell sits on warm ochre board; yellow/cyan markers peak in brightness. Candidate lavender/pink and cool shadows plausibly share actor colors but have no mounted acceptance. No global recolor justified.",
+    "light": "Current shell has no directional authored light; its two values divide by half. Actors/candidate use upper-left highlights. Source light must remain stable in any fit.",
+    "perspective": "Current shell is a wide frontal ellipse; candidate is a near-round frontal joined stone and opened source is a separately angled pair. Consistent opening topology is unproved.",
+    "scale": "Input GEODE_RECT440x350 centered770,340 contains a roughly440x260 procedural shell before outline. Candidate native1254 square is NPOT/oversized; uniform sizing and five seam alignment remain untested.",
+    "contact": "Five actual releases change unresolved seams. Wrong tap/early pull do not progress; partial right drag60 survives release and explicit cancel notification. This is diagnostic input/state evidence, not authored hand/tool-contact acceptance.",
+    "occlusion": "Actors stay left of the board in inspected frames. Partial separation exposes a narrow vector-crystal strip between halves. New layers must preserve this reveal order.",
+    "readability": "Yellow unresolved circles become cyan; remaining targets retain rings. Symbolic action reads in inspected desktop images; phone-size HUD/device/child comprehension is unreviewed.",
+    "action_state": "Actual touches cover five seams and60-pixel partial opening. Full120 opening/reward, earlier natural phases, reload/re-entry, actual OS focus/device and continuous temporal review remain missing."
+  },
+  "observations": [
+    {
+      "id": "GEODE-R8-SHELL",
+      "pieces": [
+        "FV-C1AB21410352"
+      ],
+      "observation": "Schematic solid shell remains visibly incongruent with painted same-scene actors."
+    },
+    {
+      "id": "GEODE-R8-STATE-FAMILY",
+      "pieces": [
+        "FV-C1AB21410352",
+        "FV-99DB2D71D276",
+        "FV-4502C5860C45",
+        "FV-F7DB96881260"
+      ],
+      "observation": "Markers and revealed crystals are separate visible artwork; closed-only adoption would leave these unresolved."
+    }
+  ],
+  "new_generation_calls": 0,
+  "runtime_changes": [],
+  "accepted_removed": 0,
+  "full_context_review_complete": false,
+  "acceptance_lanes": {
+    "candidate": null,
+    "integration": null,
+    "runtime_verified_replacement": null,
+    "device": null,
+    "child": null,
+    "owner": null,
+    "QA11": null
+  },
+  "scope_limits": "Declared phase fixture and partial pull;5 of44 native images directly inspected. Before/after3236-file census excludes import/UID sidecars and is not exhaustive runtime/QA11 closure. Historical scores not promoted.",
+  "native_file_count": 44,
+  "unique_native_sha256_count": 34
+}

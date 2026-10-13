@@ -1,0 +1,15 @@
+{
+  "schema": 1,
+  "source_revision": "c1e466a8a9e605f43b4c7a181b3d7b702d7677aa",
+  "caller": "OperaAct.start -> OperaCareerWorld2D.setup -> _arm_phase/_open_task -> OperaGeologySurface.configure/_draw_geode",
+  "route": "Geologist Castle Library and dev playtest use same career source; new capture explicitly selects phase3.",
+  "input": "Raw Window.push_input ScreenTouch/ScreenDrag -> Control GUI dispatch -> _press/_drag/_release; full opening not reached.",
+  "save": "Fresh external SaveState before Main enters tree, dev_playtest reward policy; normal-child save suffix hashes unchanged. No child save contents published.",
+  "open_callers": [
+    "Natural Castle entry/earlier phases",
+    "Full opening/family/reward/settle",
+    "Return/re-entry/reload/real OS focus/device",
+    "Full callback reachability and QA11"
+  ],
+  "new_runtime_consumers": []
+}
