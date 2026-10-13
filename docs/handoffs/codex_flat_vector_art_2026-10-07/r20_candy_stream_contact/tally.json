@@ -522,9 +522,18 @@
   ],
   "role_and_family_counts_are_separate": true,
   "publication": {
-    "status": "PENDING_EXACT_PUBLICATION",
+    "status": "EXACT_PUBLIC_PAYLOAD_VERIFIED",
+    "payload_revision": "005d031c75159efa78bfaab859db7150bc0c3dae",
+    "manifest_sha256": "0dbc63e8b80d0d6a61e646fb380de034b7faecd3fd1dff17c8b5d0ef5d9bd0d7",
+    "payload_sha256": "3762baaf1e22fb4e5733f5055eef9d7fc594f75ad21cbb5548ff3a8ac2d5591b",
+    "verified_required_files": 1560,
+    "verified_fetches_including_manifest": 1561,
+    "required_bytes": 476137985,
+    "checked_at_utc": "2026-10-13T19:59:07.130465+00:00",
+    "access_mode": "Anonymous public HTTPS for manifest and every declared required file; public GitHub repo API independently checked; recipient can use the same unauthenticated access mode.",
     "receipt": "REMOTE_VERIFICATION.json",
     "candidate_sample_count": 1,
+    "new_drawing_samples": 0,
     "accepted_removed": 0
   },
   "independent_style_review": {
@@ -666,11 +675,24 @@
   "current_ci": {
     "prior_R19_receipt_head": "f2b91f6ecfee41adc9c1300a67bdd9cafbe08b17",
     "prior_run": 38451439034,
-    "status": "in_progress",
-    "conclusion": "",
+    "status": "completed",
+    "conclusion": "success",
     "evidence": "PREVIOUS_HEAD_CI.json",
     "new_R20_exact_head": "PENDING_AFTER_PUBLICATION",
-    "local_R20_scope": "Two native fixtures over unchanged production; inherited R16 exact82 trusted local passes; exact published-head CI separate."
+    "local_R20_scope": "Two native fixtures over unchanged production; inherited R16 exact82 trusted local passes; exact published-head CI separate.",
+    "latest_evidence": "REMOTE_VERIFICATION.json:ci_snapshot",
+    "payload_head": "005d031c75159efa78bfaab859db7150bc0c3dae",
+    "payload_runs": [
+      {
+        "conclusion": "",
+        "databaseId": 38459090043,
+        "headSha": "005d031c75159efa78bfaab859db7150bc0c3dae",
+        "status": "in_progress",
+        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/38459090043",
+        "workflowName": "Probe suite (graphics fork)"
+      }
+    ],
+    "exact_receipt_run": "PENDING_AFTER_RECEIPT_PUSH"
   },
   "inherited_r7_reference_base": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/c1e466a8a9e605f43b4c7a181b3d7b702d7677aa/docs/handoffs/codex_flat_vector_art_2026-10-07/r7_craft_context/",
   "inherited_r8_reference_base": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/f4de7b921298b0dac052df408af03bbb2b62132b/docs/handoffs/codex_flat_vector_art_2026-10-07/r8_geode_context/",

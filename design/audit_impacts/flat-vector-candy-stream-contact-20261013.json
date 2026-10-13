@@ -164,9 +164,14 @@
       "evidence": "Production bytes unchanged; inherited R16 FULL_VALIDATION82local native trusted passes. New prototypes/fixtures have exact script/native checks; exact current-head CI separate."
     },
     {
-      "command": "Anonymous exact GitHub payload verification",
-      "result": "PENDING",
-      "evidence": "REMOTE_VERIFICATION.json then final receipt metadata bytes; publication required."
+      "command": "Anonymous exact public payload verification",
+      "result": "PASS",
+      "evidence": "REMOTE_VERIFICATION.json:1560required files plus manifest,476137985required bytes at005d031c75159efa78bfaab859db7150bc0c3dae;every declared byte/hash checked anonymously. Final five receipt metadata byte checks follow receipt push and are reported separately."
+    },
+    {
+      "command": "Final receipt source/document/audit-impact/medium gates",
+      "result": "PASS",
+      "evidence": "RECEIPT_GATES.json/exact receipt_gates.log:all4 exit0. Final five metadata byte checks follow receipt push and are reported separately; no art acceptance."
     }
   ],
   "acceptance_gaps": "Flat stream material,all production fallbacks,natural route/QA11/full lifecycle/device/child/owner and unknown whole-game inventory remain open.",
