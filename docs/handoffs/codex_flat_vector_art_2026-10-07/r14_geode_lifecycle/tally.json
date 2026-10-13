@@ -142,7 +142,8 @@
     "R14_failed_downstream_excluded": 12,
     "runtime_behavior_delta": "scripts/opera_geology_surface.gd terminal guard correction; scripts/probe_opera_2d.gd meaningful regression. No artwork asset replacement.",
     "source_revision_scope": "Baseline for R14 working correction; exact modified source bytes bound by SOURCE_PARITY/new payload. Earlier mixed current-context captures keep their immutable historical revisions.",
-    "failed_run_capture_count_scope": "Inherited R6 excluded failed-run diagnostics94; R14 failed downstream views12 are separate. This historical R6 field is not the current all-run failure count."
+    "failed_run_capture_count_scope": "Inherited R6 excluded failed-run diagnostics94; R14 failed downstream views12 are separate. This historical R6 field is not the current all-run failure count.",
+    "published_runtime_source_revision": "53c511b0ec5b0fbf5a697e6e64d216540060fc43"
   },
   "unreviewed_current_route_entries_note": "All176incomplete:77partial,99without. Frozen224/29 and369/18/351 retain count units; one whole fish/3roles and2texture compositors. Whole-game denominator unknown.",
   "historical_totals": [
@@ -415,7 +416,17 @@
   ],
   "role_and_family_counts_are_separate": true,
   "publication": {
-    "status": "PENDING_EXACT_PUBLIC_PAYLOAD_VERIFICATION"
+    "status": "EXACT_PUBLIC_PAYLOAD_VERIFIED",
+    "payload_revision": "53c511b0ec5b0fbf5a697e6e64d216540060fc43",
+    "manifest_sha256": "b8fe5feb4d4165cd4da4bdabc9bdd4727627a90d9590f5e02712cf369248acb6",
+    "payload_sha256": "03d7b9863fb825d52e8565b366f87d1c7c066cc2613af3ac73543fd779ae5919",
+    "verified_required_files": 552,
+    "verified_fetches_including_manifest": 553,
+    "required_bytes": 58348359,
+    "checked_at_utc": "2026-10-13T13:53:46.850804+00:00",
+    "access_mode": "Anonymous public HTTPS for manifest and every declared required file; public GitHub repo API independently checked; recipient can use the same unauthenticated access mode.",
+    "receipt": "REMOTE_VERIFICATION.json",
+    "accepted_removed": 0
   },
   "independent_style_review": {
     "file": "ROOT_CONTEXT_REVIEW_20261012.json",
@@ -542,12 +553,16 @@
   "reference_resolution": "Inherited R6/R7/R8/R9/R10/R11 fields retain corresponding exact immutable bases. geode_layered_reveal resolves in R12; new derivative/project paths bound by R12 manifest. Historical rejects/failures/counts unchanged. R12 annotations resolve against inherited_r12_reference_base; geode_source_closure resolves in R13; no inherited evidence paths or totals rewritten. R13 annotations resolve against inherited_r13_reference_base; geode_lifecycle resolves in R14. No accepted art replacement or whole-game inventory closure.",
   "unpublished_external_activity_limit": "Separate Garden production branch has no published revision at the verified reconciliation; its local candidate is outside this frozen verified tally. Generation/integration counts in this packet retain packet scope.",
   "current_ci": {
-    "status": "R14_NOT_YET_PUBLISHED",
+    "status": "R14_RECEIPT_HEAD_CI_PENDING",
     "prior_r13_head": "8a0db03f72735b67ebb581927051c92ca62eaef9",
     "prior_r13_run": 38392883923,
     "prior_r13_conclusion": "success",
     "evidence": "PREVIOUS_HEAD_CI.json",
-    "acceptance": false
+    "acceptance": false,
+    "payload_head": "53c511b0ec5b0fbf5a697e6e64d216540060fc43",
+    "payload_run": 38408651508,
+    "payload_observed_status": "in_progress",
+    "interpretation": "Exact named CI head/run only. All82 local trusted/native and isolated lifecycle pass; topic receipt CI and external acceptance remain separate. Code not merged into origin/dev; no art replacement accepted."
   },
   "inherited_r7_reference_base": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/c1e466a8a9e605f43b4c7a181b3d7b702d7677aa/docs/handoffs/codex_flat_vector_art_2026-10-07/r7_craft_context/",
   "inherited_r8_reference_base": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/f4de7b921298b0dac052df408af03bbb2b62132b/docs/handoffs/codex_flat_vector_art_2026-10-07/r8_geode_context/",
