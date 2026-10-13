@@ -1,0 +1,31 @@
+{
+  "status": "FAIL",
+  "commands": [
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-B",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r19_candy_pointer_reuse\\validate.py"
+      ],
+      "started_at_utc": "2026-10-13T18:40:49.712888+00:00",
+      "checked_at_utc": "2026-10-13T18:40:52.355030+00:00",
+      "exit_code": 0,
+      "result": "PASS",
+      "evidence": "gates.log"
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-B",
+        "tools/audit_document_authority.py"
+      ],
+      "started_at_utc": "2026-10-13T18:40:52.355097+00:00",
+      "checked_at_utc": "2026-10-13T18:41:07.785208+00:00",
+      "exit_code": 1,
+      "result": "FAIL",
+      "evidence": "gates.log"
+    }
+  ],
+  "raw_log_sha256": "b8ef32fcf3082b2b0711d1c2236c786fc4ac88115401e7ce339ad5d05fb9345c",
+  "scope": "Native context diagnostic/evidence over unchanged runtime; inherited R16 exact82 local trusted passes. No production runtime code/assets or generation changes; new nonruntime trial captures. Strict medium/global/QA11/device/child/owner acceptance open."
+}

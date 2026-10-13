@@ -1,0 +1,74 @@
+{
+  "revision": "FV-AUDIT-20261013-R19",
+  "piece_id": "FV-1DC9F18904A8",
+  "scope_id": "FVF-6CF7C85C1B16",
+  "status": "CANDY_CONTEXT_CANDIDATE_REVIEW_PENDING",
+  "source_revision": "73caf71ad24f1e2471ee8bc4353a60bcfc497e37",
+  "route": "opera.act.03/default phase0 SYRUP",
+  "viewed_native_files": [
+    "1280x720/normal_ready",
+    "1280x720/normal_demo03",
+    "1280x720/missing_hand_demo03",
+    "1280x720/ladle_held_08s",
+    "1600x720/normal_ready",
+    "1600x720/normal_demo03",
+    "1600x720/missing_hand_demo03",
+    "1600x720/ladle_released"
+  ],
+  "actually_viewed_native_count": 8,
+  "source_images_viewed": [
+    "assets_src/flat_vector_pointer_20261013/pointer_1024.png"
+  ],
+  "baseline_native_views_this_turn": [
+    {
+      "revision": "73caf71ad24f1e2471ee8bc4353a60bcfc497e37",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r18_candy_pointer_context/native/1280x720/normal_demo03.png",
+      "sha256": "5a21bd7dfcd316819aaffd5c9798bf20c7385ddcbbfb0a7b61f3badb413f5e0c"
+    }
+  ],
+  "ten_axis_comparison": {
+    "contour": "One whole hand preserves the established down-pointing index,left thumb and three folded fingers. Its shaded,soft contour removes the old uniform dark rim/neon fringe in directly viewed normal and old-field-null previews. Whole source remains unchanged; no separate finger/part sprites.",
+    "material": "Painted peach skin with fine brush shading is visible in source and less flat beside painted metallic ladle/actor. At54/58px fine brush detail is reduced; full-size source quality does not establish phone comprehension.",
+    "palette": "Cream/peach and lavender shading connects to warm shell mold and painted skin. Candidate sits over cream/coral/gold objects,so low local contrast is still a phone-review risk; no fabricated palette score.",
+    "light": "Soft warm highlight and lavender shadow replace broad flat bands; fixed source light is preserved with no shader relight. The instructional overlay has its own authored light and is not a physical relit limb.",
+    "perspective": "Screen-facing downward instructional hand remains separate from the oblique workbench and Roshan actor. Source gesture identity is retained; no Roshan anatomical hand or contact performance is claimed.",
+    "scale": "Unchanged production54px idle/58px pressing texture squares. Measured source fingertip UV(.44580078125,.90625) is aligned to inherited live pose; captured algebraic tip error0 at both aspects. Alpha extent/source resolution does not prove physical-device readability.",
+    "contact": "Pointer tip follows the existing ladle-center target and inherited10px lateral pressing rock. It overlaps the handle in pressed samples. This cues touch rather than portraying Roshan physically holding the ladle; actor contact remains open.",
+    "occlusion": "Drawn once above the existing workbench with no stacked hand/halo in Candy preview; touching hides the guide. Some cup/handle pixels are covered during approach. Null old-hand field still draws the candidate without concentric dots/ring. Candidate-file failure is not tested.",
+    "readability": "Eight directly viewed native snapshots show recognizable down-pointing silhouette at both aspects. Softer outline blends more into the warm table than old dark-rim hand; exact device-size squint and child understanding remain pending. No visual5/5 or owner acceptance claimed.",
+    "action_state": "Inherited _demo_finger_pose/passive clock unchanged;54/58 size shift and pressing motion retained. Passive/wrong give zero progress,real hold partially fills and hides guide,release clears hold. Event snapshots do not establish full-speed loop seam/transition or QA11 lifecycle acceptance."
+  },
+  "context_prerequisite": {
+    "payload": "35fc561feec63d8319ab388ba4d8552e8761d0ca",
+    "receipt": "73caf71ad24f1e2471ee8bc4353a60bcfc497e37",
+    "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r18_candy_pointer_context/REMOTE_VERIFICATION.json",
+    "scope": "Original current Candy normal/null field/input context published and anonymously verified before R19;22 same-scene/source inputs rebound to BASE."
+  },
+  "candidate": {
+    "path": "assets_src/flat_vector_pointer_20261013/pointer_1024.png",
+    "sha256": "7e80a06704e21d780e66692c68d1226ea3b9a88544e927ba293b49ed1d3451ec",
+    "whole_drawings": 1,
+    "new_generations": 0,
+    "new_derivatives": 0,
+    "one_existing_sample": true,
+    "provenance": "Inherited R16 REUSE_JOB/DERIVATIVES/MASTER_PROOF and native outputs; generation cap1 already used,not reset."
+  },
+  "fault_injection_scope": "Only production old-hand texture field null; independently loaded candidate remains. No candidate-file/packaging failure,loader patch or production fallback retirement. hand_contract whole_texture_draw_count is a static helper declaration,not an observed GPU invocation counter.",
+  "capture_contract": "Declared derived-script swap/re-arm at defaultfirstphase in isolated dev-playtest production entry,raw Window touch/drag/release and actual passive timers. Private SaveState BEFORE adding Main; normal8save hashes unchanged;teardown. No natural Castle/Chapter2,full completion/reward,save reload,re-entry/OSfocus or full loop/movie evidence.",
+  "separate_open_items": [
+    "FV-E49ED1B88811 syrup stream material/contact",
+    "Candy hard rectangular inset,feedback dots,actor contact",
+    "Shared12 route/49phase caller state closure plus3 independent guides/12phases",
+    "Candidate packaging-failure safe artwork,device readability/overdraw30fps",
+    "QA11,human style/identity,child and owner acceptance"
+  ],
+  "QA11": null,
+  "device": null,
+  "child": null,
+  "owner": null,
+  "approved": 0,
+  "integrated": 0,
+  "runtime_verified_replacement": 0,
+  "accepted_removed": 0,
+  "global_inventory_complete": false
+}
