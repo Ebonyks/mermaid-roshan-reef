@@ -1,0 +1,98 @@
+{
+  "schema": 1,
+  "revision": "FV-AUDIT-20261013-R13",
+  "reviewer": "Codex direct source and published native diagnostic inspection; no owner or device review",
+  "stable_piece_ids": [
+    "FV-C1AB21410352",
+    "FV-99DB2D71D276",
+    "FV-F7DB96881260",
+    "FV-4502C5860C45"
+  ],
+  "scope_id": "FVF-FAD33ED5C4F6",
+  "source_revision": "d26512b120500492be8e2694ac552a187f0091ca",
+  "status": "BOUNDED_SOURCE_AND_WHOLE_UNIT_AUDIT_COMPLETE_ACTION_FAMILY_AND_RUNTIME_CLOSURE_OPEN",
+  "native_captures_added": 0,
+  "existing_native_images_reinspected": [
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r12_geode_layered_reveal/native/1280x720/geode_closed_ready.png",
+      "revision": "d26512b120500492be8e2694ac552a187f0091ca",
+      "bytes": 226719,
+      "sha256": "50787aaf41f54ab9aec89cef235ede5fc5241584b05fa2099c36bd7b27fba5a3"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r12_geode_layered_reveal/native/1280x720/geode_layered_pull030_held.png",
+      "revision": "d26512b120500492be8e2694ac552a187f0091ca",
+      "bytes": 253465,
+      "sha256": "f4832c5f008c68b8a53ada6a6369de1a91c2a727974d6c30f449c6f0db620ace"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r12_geode_layered_reveal/native/1280x720/geode_layered_pull119_held.png",
+      "revision": "d26512b120500492be8e2694ac552a187f0091ca",
+      "bytes": 310304,
+      "sha256": "0bfe1c346b86681d5b1ee31c2c45bd7748618d62f3726c317fb102b79cfcc0ef"
+    }
+  ],
+  "source_images_inspected": [
+    {
+      "path": "assets_src/geologist_rebuild_2026-09-05/geology_props_candidate.png",
+      "revision": "d26512b120500492be8e2694ac552a187f0091ca",
+      "bytes": 1616914,
+      "sha256": "d36dbd3af772b95182b4ce1757c74a9db9947830ba390a3989506622875dfdcd"
+    },
+    {
+      "path": "assets_src/geologist_rebuild_2026-09-05/geology_props_alpha_retry.png",
+      "revision": "d26512b120500492be8e2694ac552a187f0091ca",
+      "bytes": 1783813,
+      "sha256": "b91680888b3eff6acc25bcd6c62a407a60489deed41eabed3b8195699f5bb629"
+    },
+    {
+      "path": "assets_src/flat_vector_geode_open_reuse_20261013/geode_open_1024.png",
+      "revision": "d26512b120500492be8e2694ac552a187f0091ca",
+      "bytes": 978308,
+      "sha256": "ff239195b857f247622218176db05cd196b6cd8b735dda2d6a08550e61f77d53"
+    }
+  ],
+  "same_scene_reference_bindings": [
+    {
+      "path": "assets/opera/worlds/actors/animation/roshan_geologist_sheet_a.png",
+      "revision": "d26512b120500492be8e2694ac552a187f0091ca",
+      "bytes": 910920,
+      "sha256": "1fd7080933fd49b27a9cbb2b20d9470e4fd654dec58db72e9aa9e081a6e24c37"
+    },
+    {
+      "path": "assets/opera/worlds/actors/rival_detective.png",
+      "revision": "d26512b120500492be8e2694ac552a187f0091ca",
+      "bytes": 217399,
+      "sha256": "44a6e07766a0733979e6aa3bda4c8cf89776a75f81c6600db4cb8ad89c7edecb"
+    }
+  ],
+  "reference_scope": "Exact R12 phase3 fixture; Roshan work row2/cell0 and helper source hashes inherited. Brush absent. Three source-only views are not same-scene exemplars or approved artwork.",
+  "all_ten_comparison_axes": {
+    "contour": "Closed rock has rounded irregular painted outer contour. Pull30 and119 expose horizontal top/bottom cuts on the cavity insert; larger width magnifies the cap defect. Sheet candidates have complete rock/cavity contours but baked RGB checkerboards and no opening action.",
+    "material": "Rock shell uses broad lavender faceted shading and speckles; opened cavity uses magenta/aqua crystals. R12 crop retains material pixels but omits coherent inner-wall/cap structure; rendering polish does not correct topology.",
+    "palette": "Existing lavender rock plus magenta/aqua cavity shares costume accents with Roshan/helper,against warm ochre board. No recolor prescribed; full composited phone/device assessment pending.",
+    "light": "Both sources retain authored highlights; closed shell brightest upper-left. Two opened halves expose different angles; no evidence of physically matched transition lighting or contact.",
+    "perspective": "Whole closed front view and static separated pair expose differently angled interiors. Shifting closed masks plus cropped interior is a study,not a whole-frame perspective solution.",
+    "scale": "R12 whole closed image350x350 and right-shell translation follow recorded geometry; full opened pair was separately fitted. Whole-image bounding-box fit does not establish inner-wall scale/action continuity.",
+    "contact": "Closed and moving right shell sit at retained source bottom,while cavity crop has flat floor and lower-right edge gap. Contact must be authored/reviewed in complete frames through120/reward/reentry.",
+    "occlusion": "Growing cropped cavity is hidden between source shells; masking alters visibility but cannot invent curved cap/rim topology. Source binding and alpha checks do not accept occlusion.",
+    "readability": "Crystal reveal is recognizable at119; flat yellow seam targets,ochre board,background and back arrow remain broader artwork debt. Rejected checkerboard sheets cannot supply clean direct alpha reuse.",
+    "action_state": "R12 samples demonstrate input-correlated movement; they are not a complete whole-drawing action family,full-speed/every-transition review,full120 completion or normal-save lifecycle proof."
+  },
+  "observations": [
+    "GEODE_PATH-only assignment cannot repair shell because geode_texture has no draw consumer.",
+    "goal_geologist.svg has two potential texture draw roles and one loaded hotspot binding. Current painted hotspot presentation skips the loaded image and draws a procedural cue; changing the SVG cannot repair that cue.",
+    "No complete approved intermediate action family found in this bounded filename/provenance search; unlabeled sources remain unreviewed.",
+    "R12 components remain nonruntime study; baking/flattening their separate motion alone does not satisfy whole-unit drawing rule."
+  ],
+  "candidate": null,
+  "integration": null,
+  "runtime_verified_replacement": null,
+  "device": null,
+  "child": null,
+  "owner": null,
+  "QA11": null,
+  "full_context_review_complete": false,
+  "new_generation_calls": 0,
+  "accepted_removed": 0
+}

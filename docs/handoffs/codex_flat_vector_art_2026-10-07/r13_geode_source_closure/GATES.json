@@ -1,0 +1,47 @@
+{
+  "scope": "R13 source/document-only delta; no assets or production scripts changed. Existing engine/import/probe and acceptance limits remain separately scoped.",
+  "prior_attempt": "INITIAL_GATE_ATTEMPT.json",
+  "commands": [
+    {
+      "command": "python -B docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r13_geode_source_closure\\validate.py",
+      "started_at_utc": "2026-10-13T11:39:56.366422+00:00",
+      "completed_at_utc": "2026-10-13T11:40:00.245268+00:00",
+      "exit_code": 0,
+      "result": "PASS",
+      "evidence": "gates.log"
+    },
+    {
+      "command": "python -B tools/audit_document_authority.py",
+      "started_at_utc": "2026-10-13T11:40:00.246051+00:00",
+      "completed_at_utc": "2026-10-13T11:40:09.433765+00:00",
+      "exit_code": 0,
+      "result": "PASS",
+      "evidence": "gates.log"
+    },
+    {
+      "command": "python -B tools/audit_development.py --base auto",
+      "started_at_utc": "2026-10-13T11:40:09.434899+00:00",
+      "completed_at_utc": "2026-10-13T11:40:11.809660+00:00",
+      "exit_code": 0,
+      "result": "PASS",
+      "evidence": "gates.log"
+    },
+    {
+      "command": "python -B -m unittest tools.tests.test_audit_document_authority tools.tests.test_audit_development",
+      "started_at_utc": "2026-10-13T11:40:11.810474+00:00",
+      "completed_at_utc": "2026-10-13T11:40:22.343603+00:00",
+      "exit_code": 0,
+      "result": "PASS",
+      "evidence": "gates.log"
+    },
+    {
+      "command": "python -B tools/audit_game_2d.py --regression-gate",
+      "started_at_utc": "2026-10-13T11:40:22.344392+00:00",
+      "completed_at_utc": "2026-10-13T11:42:03.894452+00:00",
+      "exit_code": 0,
+      "result": "PASS",
+      "evidence": "gates.log"
+    }
+  ],
+  "status": "PASS_WITH_ACCEPTANCE_OPEN"
+}

@@ -1,0 +1,51 @@
+{
+  "revision": "FV-AUDIT-20261013-R13",
+  "recorded_at_utc": "2026-10-13T11:28:45.173585+00:00",
+  "baseline": "d26512b120500492be8e2694ac552a187f0091ca",
+  "origin_dev": "831d0bbb155b99d75ef0289cc5cc694e0ef00c1e",
+  "scope": "Read-only relevant-source inventory and all tracked production GDScript/scene text reference search for existing geode resources; direct source bindings are distinct from route/runtime closure.",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-VIS-01",
+    "DL-VIS-02",
+    "DL-VIS-03",
+    "DL-VIS-04",
+    "DL-VIS-05",
+    "DL-VIS-06",
+    "DL-VIS-07",
+    "DL-VIS-08",
+    "DL-READ-02",
+    "DL-ASSET-01",
+    "DL-ASSET-02",
+    "DL-ASSET-03",
+    "DL-ASSET-04",
+    "DL-ASSET-05",
+    "DL-ASSET-06",
+    "DL-QA-11",
+    "DL-READ-06",
+    "DL-MOT-14",
+    "DL-MOT-15",
+    "DL-MOT-16"
+  ],
+  "findings": [
+    "MA-VIS-006",
+    "MA-VIS-007",
+    "MA-VIS-008",
+    "MA-DOC-008",
+    "MA-OPERA-012"
+  ],
+  "evidence_required": [
+    "Exact source blobs/hashes and search scope",
+    "Current R12 captures and same-scene Roshan/helper hashes",
+    "Known direct consumer bodies and current unused texture binding",
+    "Source acceptance/alpha/native constraints and whole-sprite eligibility",
+    "Canonical count/history preservation",
+    "Audit/document/no-growth gates and anonymous exact GitHub verification"
+  ],
+  "production_editor": "Commissioning chat inactive systemError workspace routing discovery timed out; no editor interrupted.",
+  "no_pixels_or_runtime_modified": true,
+  "new_generation_calls": 0,
+  "paid_spend": 0
+}

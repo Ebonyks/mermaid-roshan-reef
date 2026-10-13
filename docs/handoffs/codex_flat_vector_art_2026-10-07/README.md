@@ -1,6 +1,8 @@
-Current canonical evidence: [R12 layered Geode reveal](r12_geode_layered_reveal/README.md), [registry](r12_geode_layered_reveal/per_piece.json), [coverage](r12_geode_layered_reveal/scene_coverage.json), [tally](r12_geode_layered_reveal/tally.json).
+Current canonical evidence: [R13 Geode source/caller audit](r13_geode_source_closure/README.md), [registry](r13_geode_source_closure/per_piece.json), [coverage](r13_geode_source_closure/scene_coverage.json), [tally](r13_geode_source_closure/tally.json).
 
-# Full-game flat-vector audit — current R12 layered reveal
+# Full-game flat-vector audit — current R13 source closure
+
+R13 verifies the unused geode texture binding, three crystal-resource bindings/two potential draw roles and the remaining whole-unit action family gap. No new pixels/captures,production changes or acceptance.225 known/30 families,1900 bounded/2002 retained; whole-game denominator unknown. Earlier R12 narrative remains historical below.
 
 R12 source-preserving curved shell isolation and input-driven textured gap address R11 immediate endpoint substitution in52 native event snapshots. Cavity cap/edge fit and all acceptance remain incomplete. Cumulative1900 bounded/2002 retained;225 known/30 families,77/176 partial,zero complete/accepted removed. No generation/production adoption. [Preserved R11 failure](r11_geode_open_pair/README.md), [R10 fit](r10_geode_marker_fit/README.md), [R9 source trial](r9_geode_reuse/README.md), [R8 context](r8_geode_context/README.md), [R7 Craft](r7_craft_context/README.md) retain exact history. Use [CURRENT.json](CURRENT.json); root JSON/manifests remain frozen R6.
 

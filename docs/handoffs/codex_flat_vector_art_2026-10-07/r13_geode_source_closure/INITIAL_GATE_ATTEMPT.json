@@ -1,0 +1,23 @@
+{
+  "scope": "R13 source/document-only delta; no assets or production scripts changed. Exact engine/renderer/import/trusted probe evidence remains in immutable prior R12 and R10 full-green CI. No new runtime/QA11/device/child/owner acceptance.",
+  "commands": [
+    {
+      "command": "python -B docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r13_geode_source_closure\\validate.py",
+      "started_at_utc": "2026-10-13T11:36:50.290922+00:00",
+      "completed_at_utc": "2026-10-13T11:36:54.250639+00:00",
+      "exit_code": 0,
+      "result": "PASS",
+      "evidence": "gates.log"
+    },
+    {
+      "command": "python -B tools/audit_document_authority.py",
+      "started_at_utc": "2026-10-13T11:36:54.251342+00:00",
+      "completed_at_utc": "2026-10-13T11:37:03.337281+00:00",
+      "exit_code": 1,
+      "result": "FAIL",
+      "evidence": "gates.log"
+    }
+  ],
+  "status": "PENDING",
+  "failure_reason": "Three README publication-link targets had not yet been created; repaired by explicit PENDING placeholders before new gates."
+}

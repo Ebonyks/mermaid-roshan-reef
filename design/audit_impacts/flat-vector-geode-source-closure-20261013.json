@@ -1,0 +1,84 @@
+{
+  "id": "flat-vector-geode-source-closure-20261013",
+  "scope": "Additive bounded source/caller/whole-unit audit of the existing Geode after exact R12 context publication; no image,game runtime,save,protected-source or acceptance change.",
+  "baseline": "d26512b120500492be8e2694ac552a187f0091ca",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-VIS-01",
+    "DL-VIS-02",
+    "DL-VIS-03",
+    "DL-VIS-04",
+    "DL-VIS-05",
+    "DL-VIS-06",
+    "DL-VIS-07",
+    "DL-VIS-08",
+    "DL-READ-02",
+    "DL-ASSET-01",
+    "DL-ASSET-02",
+    "DL-ASSET-03",
+    "DL-ASSET-04",
+    "DL-ASSET-05",
+    "DL-ASSET-06",
+    "DL-QA-11",
+    "DL-READ-06",
+    "DL-MOT-14",
+    "DL-MOT-15",
+    "DL-MOT-16"
+  ],
+  "findings": [
+    "MA-VIS-006",
+    "MA-VIS-007",
+    "MA-VIS-008",
+    "MA-DOC-008",
+    "MA-OPERA-012"
+  ],
+  "files": [
+    ".gitattributes",
+    "audit/MASTER_AUDIT_2026-08-09.md",
+    "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
+    "design/05_DOC_LEDGER.md",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/CURRENT.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/README.md",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r13_geode_source_closure/CONGRUENCY_BACKLOG.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r13_geode_source_closure/GATES.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r13_geode_source_closure/INITIAL_GATE_ATTEMPT.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r13_geode_source_closure/MANIFEST.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r13_geode_source_closure/ORIGIN_DEV_RECONCILIATION.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r13_geode_source_closure/PREFLIGHT.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r13_geode_source_closure/PREVIOUS_HEAD_CI.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r13_geode_source_closure/README.md",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r13_geode_source_closure/RECEIPT_GATES.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r13_geode_source_closure/REMOTE_VERIFICATION.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r13_geode_source_closure/REVIEW.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r13_geode_source_closure/SOURCE_AUDIT.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r13_geode_source_closure/build_manifest.py",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r13_geode_source_closure/collect_source_audit.py",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r13_geode_source_closure/gates.log",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r13_geode_source_closure/per_piece.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r13_geode_source_closure/prepublication_failed_gates.log",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r13_geode_source_closure/scene_coverage.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r13_geode_source_closure/tally.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r13_geode_source_closure/validate.py",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r13_geode_source_closure/verify_remote.py"
+  ],
+  "validation": [
+    {
+      "command": "R13 exact source census and caller/appearance inspection",
+      "result": "PASS",
+      "evidence": "SOURCE_AUDIT:35 filename-matched images,317 declared-term text files,8 exact references. Three bindings include two potential draw sites and one current painted hotspot whose guard skips its loaded texture. ORIGIN_DEV:4417 production Git objects unchanged; REVIEW:three existing native frames/three source images and ten axes. Source proof grants no route/runtime/visual acceptance."
+    },
+    {
+      "command": "python -B tools/audit_document_authority.py; python -B tools/audit_development.py --base auto; python -B tools/audit_game_2d.py --regression-gate",
+      "result": "PASS",
+      "evidence": "GATES.json/raw gates.log:source validation,document authority,development auto-base,existing document/development unit suite and unchanged medium regression all pass. Initial missing-link failure retained separately; no new runtime code/assets,so inherited full trusted suite is separately scoped prior evidence."
+    },
+    {
+      "command": "Initial R13 document-authority gate",
+      "result": "FAIL",
+      "evidence": "INITIAL_GATE_ATTEMPT.json/prepublication_failed_gates.log:three missing publication-link targets; explicit pending targets now present. Repaired-run outcome separately recorded."
+    }
+  ],
+  "acceptance_gaps": "Known whole-unit intermediate frames/cavity contours,full lifecycle/current source-bound QA11/device/child/owner/inventory remain open. No production replacement or acceptance."
+}
