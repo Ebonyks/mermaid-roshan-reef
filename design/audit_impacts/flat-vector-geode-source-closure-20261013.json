@@ -78,6 +78,11 @@
       "command": "Initial R13 document-authority gate",
       "result": "FAIL",
       "evidence": "INITIAL_GATE_ATTEMPT.json/prepublication_failed_gates.log:three missing publication-link targets; explicit pending targets now present. Repaired-run outcome separately recorded."
+    },
+    {
+      "command": "Anonymous exact-revision GitHub manifest/all-dependency verification",
+      "result": "PASS",
+      "evidence": "REMOTE_VERIFICATION.json:payload 867e1b6c38822a1475ee7ffcc1aac75e83a715eb;448 required files/449 fetches;68535928 bytes;manifest cd7bd0f518315044783f1fec4ddab03062b6351e2823bde6578ae8af60b2ce12;public unauthenticated access. Final receipt metadata separately verified after push."
     }
   ],
   "acceptance_gaps": "Known whole-unit intermediate frames/cavity contours,full lifecycle/current source-bound QA11/device/child/owner/inventory remain open. No production replacement or acceptance."

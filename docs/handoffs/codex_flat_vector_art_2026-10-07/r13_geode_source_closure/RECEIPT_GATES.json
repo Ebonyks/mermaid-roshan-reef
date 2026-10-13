@@ -1,6 +1,42 @@
 {
-  "status": "PENDING_PUBLICATION_OR_REMOTE_VERIFICATION",
-  "revision": "FV-AUDIT-20261013-R13",
+  "schema": 1,
+  "payload_revision": "867e1b6c38822a1475ee7ffcc1aac75e83a715eb",
+  "scope": "Four receipt/current metadata files only; source/art/production unchanged and prior failed attempt retained. Machine/publication evidence does not establish art/runtime/device/child/owner acceptance.",
+  "commands": [
+    {
+      "command": "python -B docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r13_geode_source_closure\\validate.py",
+      "started_at_utc": "2026-10-13T11:46:47.972087+00:00",
+      "checked_at_utc": "2026-10-13T11:46:52.499921+00:00",
+      "exit_code": 0,
+      "result": "PASS",
+      "raw_output": "R13_VALIDATION_OK; frozen counts/history preserved; declared source bindings exact; whole-game/runtime/acceptance still open\r\n"
+    },
+    {
+      "command": "python -B tools/audit_document_authority.py",
+      "started_at_utc": "2026-10-13T11:46:52.500728+00:00",
+      "checked_at_utc": "2026-10-13T11:47:01.615939+00:00",
+      "exit_code": 0,
+      "result": "PASS",
+      "raw_output": "DOCAUTH|INVENTORY=716|LEDGER=716|ACTIVE=68|RECORDS=71\r\nDOCAUTH|RESULT|ALL OK\r\n"
+    },
+    {
+      "command": "python -B tools/audit_development.py --base auto",
+      "started_at_utc": "2026-10-13T11:47:01.616865+00:00",
+      "checked_at_utc": "2026-10-13T11:47:03.962298+00:00",
+      "exit_code": 0,
+      "result": "PASS",
+      "raw_output": "AUDITDEV|BASE|e2b3c73789707aa49a91b4f42e2a9dd4b68225df\r\nAUDITDEV|RESULT|ALL OK\r\n"
+    },
+    {
+      "command": "python -B tools/audit_game_2d.py --regression-gate",
+      "started_at_utc": "2026-10-13T11:47:03.963177+00:00",
+      "checked_at_utc": "2026-10-13T11:48:42.008883+00:00",
+      "exit_code": 0,
+      "result": "PASS",
+      "raw_output": "GAME2D| DEBT| model_files=0| model_scan_coverage_files=0| active_export_model_files=0| model_import_sidecars=0| active_untracked_model_import_sidecars=0| model_archive_files=0| production_3d_files=52| probe_3d_files=61| scene_3d_files=1| configuration_3d_files=1| archive_now_model_files=0\r\nGAME2D| STATUS| UNSATISFIED\r\nGAME2D| RESULT| NO_REGRESSION - exact shrinking baseline; migration debt remains UNSATISFIED\r\n"
+    }
+  ],
+  "status": "PASS_WITH_ACCEPTANCE_OPEN",
   "accepted_removed": 0,
-  "mission_complete": false
+  "medium_state": "UNSATISFIED; NO_REGRESSION; production debt52/probe61/scene1/configuration1,models0"
 }
