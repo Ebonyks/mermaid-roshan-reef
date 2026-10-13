@@ -45,6 +45,7 @@
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r18_candy_pointer_context/MANIFEST.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r18_candy_pointer_context/PLAN.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r18_candy_pointer_context/PREVIOUS_HEAD_CI.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r18_candy_pointer_context/PUSH_RETRY.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r18_candy_pointer_context/README.md",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r18_candy_pointer_context/RECEIPT_GATES.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r18_candy_pointer_context/REMOTE_VERIFICATION.json",
@@ -121,6 +122,7 @@
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r18_candy_pointer_context/native/1600x720/wrong_released.png",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r18_candy_pointer_context/native_capture.log",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r18_candy_pointer_context/per_piece.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r18_candy_pointer_context/push_retry.log",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r18_candy_pointer_context/receipt_gates.log",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r18_candy_pointer_context/run_gates.py",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r18_candy_pointer_context/scene_coverage.json",
@@ -145,9 +147,14 @@
       "evidence": "No production code/assets changed in R18. Inherited R16 FULL_VALIDATION.json preserves82 local trusted native passes over identical runtime bytes. Current exact-head CI is separate."
     },
     {
-      "command": "Anonymous exact GitHub payload and final receipt byte verification",
-      "result": "PENDING",
-      "evidence": "MANIFEST.json/REMOTE_VERIFICATION.json/RECEIPT_GATES.json after publication"
+      "command": "Anonymous exact public payload verification",
+      "result": "PASS",
+      "evidence": "REMOTE_VERIFICATION.json:1264 required files plus manifest,235876587 required bytes at35fc561feec63d8319ab388ba4d8552e8761d0ca; every declared byte/hash checked anonymously. Successful upload recovery recorded in PUSH_RETRY.json/push_retry.log."
+    },
+    {
+      "command": "Final receipt source/document/audit-impact/medium gates",
+      "result": "PASS",
+      "evidence": "RECEIPT_GATES.json and exact receipt_gates.log,all4 exit0; final seven metadata byte checks follow receipt push and are reported separately."
     }
   ],
   "acceptance_gaps": "Declared dev-playtest entry,not natural Castle/Chapter2 or QA11/device/child/owner evidence. No whole-game denominator inferred.",

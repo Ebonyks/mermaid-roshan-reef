@@ -484,7 +484,17 @@
   ],
   "role_and_family_counts_are_separate": true,
   "publication": {
-    "status": "PENDING_PUBLICATION",
+    "status": "EXACT_PUBLIC_PAYLOAD_VERIFIED",
+    "payload_revision": "35fc561feec63d8319ab388ba4d8552e8761d0ca",
+    "manifest_sha256": "7e4aa964fcc1e16515627de85c1f2615e62a261992578ffd9aafefba0b054ac2",
+    "payload_sha256": "f470da85640093ba44bcd18d8829ea769ef9e1200ad395e797965809d7330188",
+    "verified_required_files": 1264,
+    "verified_fetches_including_manifest": 1265,
+    "required_bytes": 235876587,
+    "checked_at_utc": "2026-10-13T18:00:46.730539+00:00",
+    "access_mode": "Anonymous public HTTPS for manifest and every declared required file; public GitHub repo API independently checked; recipient can use the same unauthenticated access mode.",
+    "receipt": "REMOTE_VERIFICATION.json",
+    "upload_recovery": "PUSH_RETRY.json:successful temporary HTTP/1.1 retry",
     "candidate_sample_count": 1,
     "accepted_removed": 0
   },
@@ -625,7 +635,13 @@
     "new_R18_exact_head": "PENDING_AFTER_PUBLICATION",
     "local_R18_scope": "SCRIPT_GATES.json and LAUNCH.json,62 native diagnostics; no production changes; unchanged82 trusted local baseline inherited from R16",
     "conclusion": "cancelled",
-    "evidence": "PREVIOUS_HEAD_CI.json"
+    "evidence": "PREVIOUS_HEAD_CI.json",
+    "payload_head": "35fc561feec63d8319ab388ba4d8552e8761d0ca",
+    "payload_run": 38443039143,
+    "payload_status": "in_progress",
+    "exact_receipt_run": "PENDING_AFTER_RECEIPT_PUSH",
+    "payload_conclusion": "",
+    "latest_evidence": "REMOTE_VERIFICATION.json:ci_snapshot"
   },
   "inherited_r7_reference_base": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/c1e466a8a9e605f43b4c7a181b3d7b702d7677aa/docs/handoffs/codex_flat_vector_art_2026-10-07/r7_craft_context/",
   "inherited_r8_reference_base": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/f4de7b921298b0dac052df408af03bbb2b62132b/docs/handoffs/codex_flat_vector_art_2026-10-07/r8_geode_context/",
