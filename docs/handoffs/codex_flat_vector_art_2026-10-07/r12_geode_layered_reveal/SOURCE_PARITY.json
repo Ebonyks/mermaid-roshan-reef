@@ -1,0 +1,742 @@
+{
+  "schema": 1,
+  "baseline": "c5d70079bc2b048a76f50edeabd8a2ff2a95bd24",
+  "checked_at_utc": "2026-10-13T10:36:47.502886+00:00",
+  "source_census_files": 3236,
+  "source_census_definition": "Raw assets/scripts/scenes/shaders excluding .import/.uid plus project.godot; not full reachability/QA11 closure.",
+  "raw_byte_changes": [],
+  "normal_save_hashes_unchanged_both_aspects": true,
+  "native_file_count": 52,
+  "unique_png_sha256_count": 46,
+  "captures": [
+    {
+      "bytes": 226719,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "file": "geode_closed_ready.png",
+      "sha256": "50787aaf41f54ab9aec89cef235ede5fc5241584b05fa2099c36bd7b27fba5a3",
+      "path": "native/1280x720/geode_closed_ready.png",
+      "aspect": "1280x720",
+      "state_id": "geode_closed_ready",
+      "painted_closed_candidate_drawn": true,
+      "layered_shells_drawn": false
+    },
+    {
+      "bytes": 226585,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "file": "geode_closed_passive_1s.png",
+      "sha256": "f2b8d369c4295022e276e3884badf98fff8df2bcc543b9320cf44b5caa146193",
+      "path": "native/1280x720/geode_closed_passive_1s.png",
+      "aspect": "1280x720",
+      "state_id": "geode_closed_passive_1s",
+      "painted_closed_candidate_drawn": true,
+      "layered_shells_drawn": false
+    },
+    {
+      "bytes": 226307,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "file": "geode_wrong_tap.png",
+      "sha256": "25f6e4cf79e9f3001931ae2eb82e4a0a7c6981bfbbadde68b020016123d6db59",
+      "path": "native/1280x720/geode_wrong_tap.png",
+      "aspect": "1280x720",
+      "state_id": "geode_wrong_tap",
+      "painted_closed_candidate_drawn": true,
+      "layered_shells_drawn": false
+    },
+    {
+      "bytes": 226307,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "file": "geode_early_pull_pressed.png",
+      "sha256": "25f6e4cf79e9f3001931ae2eb82e4a0a7c6981bfbbadde68b020016123d6db59",
+      "path": "native/1280x720/geode_early_pull_pressed.png",
+      "aspect": "1280x720",
+      "state_id": "geode_early_pull_pressed",
+      "painted_closed_candidate_drawn": true,
+      "layered_shells_drawn": false
+    },
+    {
+      "bytes": 226305,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "file": "geode_early_pull_dragged.png",
+      "sha256": "9d845a17754a1660eabcc86b8a2c77aba4f71a8fac396760004a417e3b92d561",
+      "path": "native/1280x720/geode_early_pull_dragged.png",
+      "aspect": "1280x720",
+      "state_id": "geode_early_pull_dragged",
+      "painted_closed_candidate_drawn": true,
+      "layered_shells_drawn": false
+    },
+    {
+      "bytes": 226305,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "file": "geode_early_pull_released.png",
+      "sha256": "9d845a17754a1660eabcc86b8a2c77aba4f71a8fac396760004a417e3b92d561",
+      "path": "native/1280x720/geode_early_pull_released.png",
+      "aspect": "1280x720",
+      "state_id": "geode_early_pull_released",
+      "painted_closed_candidate_drawn": true,
+      "layered_shells_drawn": false
+    },
+    {
+      "bytes": 226329,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "file": "geode_seam00_pressed.png",
+      "sha256": "f65cf65c6cced5f317c8c706a6eb98f2802122bbe402f819ef2eb4596167403d",
+      "path": "native/1280x720/geode_seam00_pressed.png",
+      "aspect": "1280x720",
+      "state_id": "geode_seam00_pressed",
+      "painted_closed_candidate_drawn": true,
+      "layered_shells_drawn": false
+    },
+    {
+      "bytes": 225796,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "file": "geode_seam00_released.png",
+      "sha256": "03cc0c6465464bda4890fe2a3eb7a64e31e5ce91da13e37d9a66e56dc57ac587",
+      "path": "native/1280x720/geode_seam00_released.png",
+      "aspect": "1280x720",
+      "state_id": "geode_seam00_released",
+      "painted_closed_candidate_drawn": true,
+      "layered_shells_drawn": false
+    },
+    {
+      "bytes": 225784,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "file": "geode_seam01_pressed.png",
+      "sha256": "59ead5e20f74605599700ac98daca300d19278d3b1d11ef713140877aa8693ba",
+      "path": "native/1280x720/geode_seam01_pressed.png",
+      "aspect": "1280x720",
+      "state_id": "geode_seam01_pressed",
+      "painted_closed_candidate_drawn": true,
+      "layered_shells_drawn": false
+    },
+    {
+      "bytes": 225477,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "file": "geode_seam01_released.png",
+      "sha256": "5504a8e0bf60a0f6d8962f7a1ec5621f6635c0841e9c93318b5d2224c65f9a20",
+      "path": "native/1280x720/geode_seam01_released.png",
+      "aspect": "1280x720",
+      "state_id": "geode_seam01_released",
+      "painted_closed_candidate_drawn": true,
+      "layered_shells_drawn": false
+    },
+    {
+      "bytes": 225477,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "file": "geode_seam02_pressed.png",
+      "sha256": "5504a8e0bf60a0f6d8962f7a1ec5621f6635c0841e9c93318b5d2224c65f9a20",
+      "path": "native/1280x720/geode_seam02_pressed.png",
+      "aspect": "1280x720",
+      "state_id": "geode_seam02_pressed",
+      "painted_closed_candidate_drawn": true,
+      "layered_shells_drawn": false
+    },
+    {
+      "bytes": 225055,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "file": "geode_seam02_released.png",
+      "sha256": "18292413d507184b946ef8a53f901a1c72050d244b37abe54021592fadd7a9b2",
+      "path": "native/1280x720/geode_seam02_released.png",
+      "aspect": "1280x720",
+      "state_id": "geode_seam02_released",
+      "painted_closed_candidate_drawn": true,
+      "layered_shells_drawn": false
+    },
+    {
+      "bytes": 225071,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "file": "geode_seam03_pressed.png",
+      "sha256": "23a3c68ed148c8bb32ee330e6b79246795f7de1167b719bdc1e37704f033c490",
+      "path": "native/1280x720/geode_seam03_pressed.png",
+      "aspect": "1280x720",
+      "state_id": "geode_seam03_pressed",
+      "painted_closed_candidate_drawn": true,
+      "layered_shells_drawn": false
+    },
+    {
+      "bytes": 224587,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "file": "geode_seam03_released.png",
+      "sha256": "1f69eb0518115025c045e507aba808e33336e810439baa81bbbc3e36e607c8a2",
+      "path": "native/1280x720/geode_seam03_released.png",
+      "aspect": "1280x720",
+      "state_id": "geode_seam03_released",
+      "painted_closed_candidate_drawn": true,
+      "layered_shells_drawn": false
+    },
+    {
+      "bytes": 224590,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "file": "geode_seam04_pressed.png",
+      "sha256": "9a89783a39a9974add2ed27da2c8d1ae38400a3b7ff63bf7679d634b30fde03f",
+      "path": "native/1280x720/geode_seam04_pressed.png",
+      "aspect": "1280x720",
+      "state_id": "geode_seam04_pressed",
+      "painted_closed_candidate_drawn": true,
+      "layered_shells_drawn": false
+    },
+    {
+      "bytes": 224008,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "file": "geode_seam04_released.png",
+      "sha256": "dbc31577ba21bcbb727c093a6f6a1824ec24793b8899f70ff8ce57bf251093d0",
+      "path": "native/1280x720/geode_seam04_released.png",
+      "aspect": "1280x720",
+      "state_id": "geode_seam04_released",
+      "painted_closed_candidate_drawn": true,
+      "layered_shells_drawn": false
+    },
+    {
+      "bytes": 224006,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "file": "geode_seam_repeat.png",
+      "sha256": "59f62f641424921b62fbeca90b070debd4fe32dc5719c2cbae6cbe02e9561bd6",
+      "path": "native/1280x720/geode_seam_repeat.png",
+      "aspect": "1280x720",
+      "state_id": "geode_seam_repeat",
+      "painted_closed_candidate_drawn": true,
+      "layered_shells_drawn": false
+    },
+    {
+      "bytes": 223988,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "file": "geode_all_seams_ready.png",
+      "sha256": "d2daffb8745661173b799624d28edf2df1afaaf1fd134d68205e3d1e8eb08398",
+      "path": "native/1280x720/geode_all_seams_ready.png",
+      "aspect": "1280x720",
+      "state_id": "geode_all_seams_ready",
+      "painted_closed_candidate_drawn": true,
+      "layered_shells_drawn": false
+    },
+    {
+      "bytes": 236460,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "file": "geode_layered_pull002_held.png",
+      "sha256": "871a67c6e37aef8b858087f36d11811f3d0204d8f734f5ca649f9400f78f398d",
+      "path": "native/1280x720/geode_layered_pull002_held.png",
+      "aspect": "1280x720",
+      "state_id": "geode_layered_pull002_held",
+      "painted_closed_candidate_drawn": false,
+      "layered_shells_drawn": true
+    },
+    {
+      "bytes": 253465,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "file": "geode_layered_pull030_held.png",
+      "sha256": "f4832c5f008c68b8a53ada6a6369de1a91c2a727974d6c30f449c6f0db620ace",
+      "path": "native/1280x720/geode_layered_pull030_held.png",
+      "aspect": "1280x720",
+      "state_id": "geode_layered_pull030_held",
+      "painted_closed_candidate_drawn": false,
+      "layered_shells_drawn": true
+    },
+    {
+      "bytes": 272478,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "file": "geode_layered_pull060_held.png",
+      "sha256": "0c8e397dd92f298fe1120e83518bb1da7a6261875b43e842e95ce8c776c55146",
+      "path": "native/1280x720/geode_layered_pull060_held.png",
+      "aspect": "1280x720",
+      "state_id": "geode_layered_pull060_held",
+      "painted_closed_candidate_drawn": false,
+      "layered_shells_drawn": true
+    },
+    {
+      "bytes": 292138,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "file": "geode_layered_pull090_held.png",
+      "sha256": "31ded47bcc5deede7850a3a4e84881ef480bb482e33d45c88a4833947f8bf679",
+      "path": "native/1280x720/geode_layered_pull090_held.png",
+      "aspect": "1280x720",
+      "state_id": "geode_layered_pull090_held",
+      "painted_closed_candidate_drawn": false,
+      "layered_shells_drawn": true
+    },
+    {
+      "bytes": 310304,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "file": "geode_layered_pull119_held.png",
+      "sha256": "0bfe1c346b86681d5b1ee31c2c45bd7748618d62f3726c317fb102b79cfcc0ef",
+      "path": "native/1280x720/geode_layered_pull119_held.png",
+      "aspect": "1280x720",
+      "state_id": "geode_layered_pull119_held",
+      "painted_closed_candidate_drawn": false,
+      "layered_shells_drawn": true
+    },
+    {
+      "bytes": 310379,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "file": "geode_layered_pull119_released.png",
+      "sha256": "d72b62f3bca937f2450eba219d770a818da44a7d0e1f2b2c370daca7b42869da",
+      "path": "native/1280x720/geode_layered_pull119_released.png",
+      "aspect": "1280x720",
+      "state_id": "geode_layered_pull119_released",
+      "painted_closed_candidate_drawn": false,
+      "layered_shells_drawn": true
+    },
+    {
+      "bytes": 310371,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "file": "geode_cancel_pressed.png",
+      "sha256": "50db96629749a609fbde0ef46498ad8000d7597b9ed4548729beeba0ee6cc1cc",
+      "path": "native/1280x720/geode_cancel_pressed.png",
+      "aspect": "1280x720",
+      "state_id": "geode_cancel_pressed",
+      "painted_closed_candidate_drawn": false,
+      "layered_shells_drawn": true
+    },
+    {
+      "bytes": 310383,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "file": "geode_cancel_focus_notification.png",
+      "sha256": "d766cc1555815a792f1a9a4fe9ca63b962834fdda8fd51dd762c2b5341776103",
+      "path": "native/1280x720/geode_cancel_focus_notification.png",
+      "aspect": "1280x720",
+      "state_id": "geode_cancel_focus_notification",
+      "painted_closed_candidate_drawn": false,
+      "layered_shells_drawn": true
+    },
+    {
+      "bytes": 229457,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "file": "geode_closed_ready.png",
+      "sha256": "3d24eae4de05980a9a093b9c2962ac7778c5eb32d8362a4e4b3a931c2e1b467d",
+      "path": "native/1600x720/geode_closed_ready.png",
+      "aspect": "1600x720",
+      "state_id": "geode_closed_ready",
+      "painted_closed_candidate_drawn": true,
+      "layered_shells_drawn": false
+    },
+    {
+      "bytes": 229273,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "file": "geode_closed_passive_1s.png",
+      "sha256": "63976958204b1b032ad9cc2a5200c9f8e50675d6cc92df889628aeff30028272",
+      "path": "native/1600x720/geode_closed_passive_1s.png",
+      "aspect": "1600x720",
+      "state_id": "geode_closed_passive_1s",
+      "painted_closed_candidate_drawn": true,
+      "layered_shells_drawn": false
+    },
+    {
+      "bytes": 228963,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "file": "geode_wrong_tap.png",
+      "sha256": "eca9e147a2e08bb730aea250313f7ad77396258badfb61a1de67cf9e50d638fd",
+      "path": "native/1600x720/geode_wrong_tap.png",
+      "aspect": "1600x720",
+      "state_id": "geode_wrong_tap",
+      "painted_closed_candidate_drawn": true,
+      "layered_shells_drawn": false
+    },
+    {
+      "bytes": 228963,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "file": "geode_early_pull_pressed.png",
+      "sha256": "eca9e147a2e08bb730aea250313f7ad77396258badfb61a1de67cf9e50d638fd",
+      "path": "native/1600x720/geode_early_pull_pressed.png",
+      "aspect": "1600x720",
+      "state_id": "geode_early_pull_pressed",
+      "painted_closed_candidate_drawn": true,
+      "layered_shells_drawn": false
+    },
+    {
+      "bytes": 228971,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "file": "geode_early_pull_dragged.png",
+      "sha256": "3b5a957fc02230a72e653f8d82e37e8ff5e7cf8786f6c6e94a5a60b821ecd68f",
+      "path": "native/1600x720/geode_early_pull_dragged.png",
+      "aspect": "1600x720",
+      "state_id": "geode_early_pull_dragged",
+      "painted_closed_candidate_drawn": true,
+      "layered_shells_drawn": false
+    },
+    {
+      "bytes": 228971,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "file": "geode_early_pull_released.png",
+      "sha256": "3b5a957fc02230a72e653f8d82e37e8ff5e7cf8786f6c6e94a5a60b821ecd68f",
+      "path": "native/1600x720/geode_early_pull_released.png",
+      "aspect": "1600x720",
+      "state_id": "geode_early_pull_released",
+      "painted_closed_candidate_drawn": true,
+      "layered_shells_drawn": false
+    },
+    {
+      "bytes": 228982,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "file": "geode_seam00_pressed.png",
+      "sha256": "b2e39352d900274c38fa904fd7d229fef73b969aa170c26b837161842b8b3a1a",
+      "path": "native/1600x720/geode_seam00_pressed.png",
+      "aspect": "1600x720",
+      "state_id": "geode_seam00_pressed",
+      "painted_closed_candidate_drawn": true,
+      "layered_shells_drawn": false
+    },
+    {
+      "bytes": 228476,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "file": "geode_seam00_released.png",
+      "sha256": "51f2740637da6f8b8e60a52f0ee67964a56d610399f7ac074ce0063d740e771f",
+      "path": "native/1600x720/geode_seam00_released.png",
+      "aspect": "1600x720",
+      "state_id": "geode_seam00_released",
+      "painted_closed_candidate_drawn": true,
+      "layered_shells_drawn": false
+    },
+    {
+      "bytes": 228466,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "file": "geode_seam01_pressed.png",
+      "sha256": "b0365543acceaa52b3d45bdd4e03a1fc90ed9c4c446e99eb2f166488a37ec60c",
+      "path": "native/1600x720/geode_seam01_pressed.png",
+      "aspect": "1600x720",
+      "state_id": "geode_seam01_pressed",
+      "painted_closed_candidate_drawn": true,
+      "layered_shells_drawn": false
+    },
+    {
+      "bytes": 228230,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "file": "geode_seam01_released.png",
+      "sha256": "416d389622c382b26ceaf565163eb178154b010b7b56f1053d0405780ddac893",
+      "path": "native/1600x720/geode_seam01_released.png",
+      "aspect": "1600x720",
+      "state_id": "geode_seam01_released",
+      "painted_closed_candidate_drawn": true,
+      "layered_shells_drawn": false
+    },
+    {
+      "bytes": 228230,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "file": "geode_seam02_pressed.png",
+      "sha256": "416d389622c382b26ceaf565163eb178154b010b7b56f1053d0405780ddac893",
+      "path": "native/1600x720/geode_seam02_pressed.png",
+      "aspect": "1600x720",
+      "state_id": "geode_seam02_pressed",
+      "painted_closed_candidate_drawn": true,
+      "layered_shells_drawn": false
+    },
+    {
+      "bytes": 227801,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "file": "geode_seam02_released.png",
+      "sha256": "66f22b6c18134f1a6ed499ec938277a1152107162a81b48163c3821d89c1b05d",
+      "path": "native/1600x720/geode_seam02_released.png",
+      "aspect": "1600x720",
+      "state_id": "geode_seam02_released",
+      "painted_closed_candidate_drawn": true,
+      "layered_shells_drawn": false
+    },
+    {
+      "bytes": 227832,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "file": "geode_seam03_pressed.png",
+      "sha256": "6e929d166bca390b461ae43ad103764db1850338879837fef8fc0d41d1451256",
+      "path": "native/1600x720/geode_seam03_pressed.png",
+      "aspect": "1600x720",
+      "state_id": "geode_seam03_pressed",
+      "painted_closed_candidate_drawn": true,
+      "layered_shells_drawn": false
+    },
+    {
+      "bytes": 227370,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "file": "geode_seam03_released.png",
+      "sha256": "14e6fe16786a15a03001b7d361a999a05ad4642964bfbaf3688db94b321394e6",
+      "path": "native/1600x720/geode_seam03_released.png",
+      "aspect": "1600x720",
+      "state_id": "geode_seam03_released",
+      "painted_closed_candidate_drawn": true,
+      "layered_shells_drawn": false
+    },
+    {
+      "bytes": 227361,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "file": "geode_seam04_pressed.png",
+      "sha256": "a67864af850c9af93d83b0e3acfd17f3b1be6250e2ee6eabbdc5b0f6c23a3680",
+      "path": "native/1600x720/geode_seam04_pressed.png",
+      "aspect": "1600x720",
+      "state_id": "geode_seam04_pressed",
+      "painted_closed_candidate_drawn": true,
+      "layered_shells_drawn": false
+    },
+    {
+      "bytes": 226843,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "file": "geode_seam04_released.png",
+      "sha256": "21025808920183ae211c9ea94e468249f6e195e775a8f1c717629a38484dc2f4",
+      "path": "native/1600x720/geode_seam04_released.png",
+      "aspect": "1600x720",
+      "state_id": "geode_seam04_released",
+      "painted_closed_candidate_drawn": true,
+      "layered_shells_drawn": false
+    },
+    {
+      "bytes": 226862,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "file": "geode_seam_repeat.png",
+      "sha256": "0ae683266eabc96fb4e09cc2b9e51bca51d3e532d92fb435e555264af2654e82",
+      "path": "native/1600x720/geode_seam_repeat.png",
+      "aspect": "1600x720",
+      "state_id": "geode_seam_repeat",
+      "painted_closed_candidate_drawn": true,
+      "layered_shells_drawn": false
+    },
+    {
+      "bytes": 226848,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "file": "geode_all_seams_ready.png",
+      "sha256": "82aca2cc2ef1b7a7f0a365e58698dcc81b4f87a95191af2e1c48ad29e90203ce",
+      "path": "native/1600x720/geode_all_seams_ready.png",
+      "aspect": "1600x720",
+      "state_id": "geode_all_seams_ready",
+      "painted_closed_candidate_drawn": true,
+      "layered_shells_drawn": false
+    },
+    {
+      "bytes": 239551,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "file": "geode_layered_pull002_held.png",
+      "sha256": "1f1aa3d840bb7e70da92165aea2d6029be5399fbbb3f4ac63ac3d758a360ee2b",
+      "path": "native/1600x720/geode_layered_pull002_held.png",
+      "aspect": "1600x720",
+      "state_id": "geode_layered_pull002_held",
+      "painted_closed_candidate_drawn": false,
+      "layered_shells_drawn": true
+    },
+    {
+      "bytes": 256282,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "file": "geode_layered_pull030_held.png",
+      "sha256": "d69b9bf95477d95ca61bc011e68b6aa54627a76fef31eba6fd4e861a1aa0a9bc",
+      "path": "native/1600x720/geode_layered_pull030_held.png",
+      "aspect": "1600x720",
+      "state_id": "geode_layered_pull030_held",
+      "painted_closed_candidate_drawn": false,
+      "layered_shells_drawn": true
+    },
+    {
+      "bytes": 275819,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "file": "geode_layered_pull060_held.png",
+      "sha256": "26a2e504528d03cd34af81013599b756c381cf84e5aea8349b3bec2d6caaf596",
+      "path": "native/1600x720/geode_layered_pull060_held.png",
+      "aspect": "1600x720",
+      "state_id": "geode_layered_pull060_held",
+      "painted_closed_candidate_drawn": false,
+      "layered_shells_drawn": true
+    },
+    {
+      "bytes": 295026,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "file": "geode_layered_pull090_held.png",
+      "sha256": "ef53cc7e8f04290ec4bbfa24fbcfc9a65aeea257266b7c706b3c21ef26b4703a",
+      "path": "native/1600x720/geode_layered_pull090_held.png",
+      "aspect": "1600x720",
+      "state_id": "geode_layered_pull090_held",
+      "painted_closed_candidate_drawn": false,
+      "layered_shells_drawn": true
+    },
+    {
+      "bytes": 313465,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "file": "geode_layered_pull119_held.png",
+      "sha256": "22281e5e0765dcd6de3dda419867831f4cb6937816c2876c366eb4041cf4c56d",
+      "path": "native/1600x720/geode_layered_pull119_held.png",
+      "aspect": "1600x720",
+      "state_id": "geode_layered_pull119_held",
+      "painted_closed_candidate_drawn": false,
+      "layered_shells_drawn": true
+    },
+    {
+      "bytes": 313509,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "file": "geode_layered_pull119_released.png",
+      "sha256": "791c426b63851c3402ce1cc75c73ac0a252de9d302b8af57934db712ca77eac6",
+      "path": "native/1600x720/geode_layered_pull119_released.png",
+      "aspect": "1600x720",
+      "state_id": "geode_layered_pull119_released",
+      "painted_closed_candidate_drawn": false,
+      "layered_shells_drawn": true
+    },
+    {
+      "bytes": 313528,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "file": "geode_cancel_pressed.png",
+      "sha256": "029e39dedf37a3cf62ea30af8882ccb969e736982be09427e796a35cf9c12acc",
+      "path": "native/1600x720/geode_cancel_pressed.png",
+      "aspect": "1600x720",
+      "state_id": "geode_cancel_pressed",
+      "painted_closed_candidate_drawn": false,
+      "layered_shells_drawn": true
+    },
+    {
+      "bytes": 313530,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "file": "geode_cancel_focus_notification.png",
+      "sha256": "7267f33c962b43f717ec29ff082e3fbe968492fd59cb3252e46ea80a06f3bca1",
+      "path": "native/1600x720/geode_cancel_focus_notification.png",
+      "aspect": "1600x720",
+      "state_id": "geode_cancel_focus_notification",
+      "painted_closed_candidate_drawn": false,
+      "layered_shells_drawn": true
+    }
+  ],
+  "interpretation": "Actual raw event/gesture diagnostics,not authored per-frame animation or human/device/QA11 acceptance. Positive source-derived reveal differs from rejected R11 endpoint substitution."
+}

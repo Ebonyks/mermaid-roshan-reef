@@ -1,0 +1,168 @@
+{
+  "schema": 1,
+  "revision": "FV-AUDIT-20261013-R12",
+  "stable_piece_ids": [
+    "FV-C1AB21410352",
+    "FV-99DB2D71D276",
+    "FV-F7DB96881260"
+  ],
+  "scope_id": "FVF-FAD33ED5C4F6",
+  "source_revision": "c5d70079bc2b048a76f50edeabd8a2ff2a95bd24",
+  "reviewer": "Codex direct native diagnostic inspection",
+  "status": "INPUT_DRIVEN_PROGRESSIVE_REVEAL_ADDRESSED_CAP_CONTOUR_FIT_INCOMPLETE",
+  "native_file_count": 52,
+  "unique_native_sha256_count": 46,
+  "actually_viewed_unique_native": 6,
+  "viewed_native": [
+    {
+      "bytes": 236460,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "file": "geode_layered_pull002_held.png",
+      "sha256": "871a67c6e37aef8b858087f36d11811f3d0204d8f734f5ca649f9400f78f398d",
+      "path": "native/1280x720/geode_layered_pull002_held.png",
+      "aspect": "1280x720",
+      "state_id": "geode_layered_pull002_held",
+      "painted_closed_candidate_drawn": false,
+      "layered_shells_drawn": true
+    },
+    {
+      "bytes": 253465,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "file": "geode_layered_pull030_held.png",
+      "sha256": "f4832c5f008c68b8a53ada6a6369de1a91c2a727974d6c30f449c6f0db620ace",
+      "path": "native/1280x720/geode_layered_pull030_held.png",
+      "aspect": "1280x720",
+      "state_id": "geode_layered_pull030_held",
+      "painted_closed_candidate_drawn": false,
+      "layered_shells_drawn": true
+    },
+    {
+      "bytes": 272478,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "file": "geode_layered_pull060_held.png",
+      "sha256": "0c8e397dd92f298fe1120e83518bb1da7a6261875b43e842e95ce8c776c55146",
+      "path": "native/1280x720/geode_layered_pull060_held.png",
+      "aspect": "1280x720",
+      "state_id": "geode_layered_pull060_held",
+      "painted_closed_candidate_drawn": false,
+      "layered_shells_drawn": true
+    },
+    {
+      "bytes": 310304,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "file": "geode_layered_pull119_held.png",
+      "sha256": "0bfe1c346b86681d5b1ee31c2c45bd7748618d62f3726c317fb102b79cfcc0ef",
+      "path": "native/1280x720/geode_layered_pull119_held.png",
+      "aspect": "1280x720",
+      "state_id": "geode_layered_pull119_held",
+      "painted_closed_candidate_drawn": false,
+      "layered_shells_drawn": true
+    },
+    {
+      "bytes": 239551,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "file": "geode_layered_pull002_held.png",
+      "sha256": "1f1aa3d840bb7e70da92165aea2d6029be5399fbbb3f4ac63ac3d758a360ee2b",
+      "path": "native/1600x720/geode_layered_pull002_held.png",
+      "aspect": "1600x720",
+      "state_id": "geode_layered_pull002_held",
+      "painted_closed_candidate_drawn": false,
+      "layered_shells_drawn": true
+    },
+    {
+      "bytes": 313465,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "file": "geode_layered_pull119_held.png",
+      "sha256": "22281e5e0765dcd6de3dda419867831f4cb6937816c2876c366eb4041cf4c56d",
+      "path": "native/1600x720/geode_layered_pull119_held.png",
+      "aspect": "1600x720",
+      "state_id": "geode_layered_pull119_held",
+      "painted_closed_candidate_drawn": false,
+      "layered_shells_drawn": true
+    }
+  ],
+  "source_images_viewed": [
+    {
+      "path": "assets_src/flat_vector_geode_reuse_20261013/geode_closed_1024.png",
+      "sha256": "b639c2cbe36b460bb29db5f0e459329f8b6b8266d205412c95e539e9b7dc95ff"
+    },
+    {
+      "path": "assets_src/flat_vector_geode_open_reuse_20261013/geode_open_1024.png",
+      "sha256": "ff239195b857f247622218176db05cd196b6cd8b735dda2d6a08550e61f77d53"
+    }
+  ],
+  "all_ten_comparison_axes": {
+    "contour": "Closed shell pixels are preserved via exclusive curved source split; closed0pull uses original whole texture. Positive pull retains both original irregular outer contours rather than switching to a wider unrelated endpoint. Cavity crop top/bottom remain straight visible caps; contour/topology fit is incomplete.",
+    "material": "Exterior lavender stone and pink/aqua crystal material are reused without repaint. Source facets remain busier than same-scene actor cloth/skin; cavity rim now reveals with the gap but looks like a cropped insert at the caps.",
+    "palette": "Original lavender/plum/pink/aqua source colors match same-scene Roshan/helper cool rainbow hues against ochre board. Colors sampled from original source or exact cropped pixels; no global recolor or accepted palette score.",
+    "light": "Existing upper-left exterior highlights remain attached to each source half as the right moves. Cavity keeps its authored light; cap/thickness/contact must still be evaluated before claiming continuous physical material.",
+    "perspective": "Exterior is the original frontal stone; right shell moves laterally as the original activity specifies. Cropped left cavity is mapped row-wise along curved seam with declared shear. This fixes whole-endpoint perspective switching but does not yet prove depth/sidewall/cap anatomy.",
+    "scale": "Source exterior remains350square at575,165,with right xoffset exactly equal to pull. Cavity220x560 crop maps about120.58x306.93 before curved registration; full image/shape bounds and touch proof remain separate.",
+    "contact": "Actual displayed guide releases and pull2/30/60/90/119 show right shell displacement/reveal width tracking original gesture. Release/cancel retain119 without reward. This is synthetic raw Window input and partial diagnostics,not child/device/hand-tool contact or full120 completion.",
+    "occlusion": "Source cavity is drawn only within the growing textured gap,then covered by original left/right source layers. Viewed2px exposes a small crack;30/60/119 reveal increasing material. Roshan/helper remain visible. Straight caps and lower-right transparent/cropped edge need refinement; full alpha/QA11/temporal layer proof pending.",
+    "readability": "One preserved stone now visibly separates with the drag instead of showing full cavities at2px. Native desktop views show increasing crystals; flat guide/board/background and phone/child comprehension remain open. Cap insert presentation cannot be accepted as finished geology art.",
+    "action_state": "R11 immediate endpoint jump is addressed in the isolated layered candidate. The source-derived right half translates by actual pull and the cavity reveal grows; no old procedural geode/gallery or missing-art fallback is drawn here. Only52 discrete event snapshots/six views,not complete full-speed/frame-step/full-phase/reload/natural-route acceptance."
+  },
+  "observations": [
+    {
+      "id": "GEODE-R12-PARTITION",
+      "pieces": [
+        "FV-C1AB21410352",
+        "FV-99DB2D71D276",
+        "FV-F7DB96881260"
+      ],
+      "result": "Aseprite editable four-layer master roundtrip preserves original closed RGBA; exclusive left/right alpha and visible colors are exact. Cavity rectangle exact. No new generated appearance pixels."
+    },
+    {
+      "id": "GEODE-R12-PROGRESSIVE",
+      "pieces": [
+        "FV-C1AB21410352",
+        "FV-99DB2D71D276",
+        "FV-F7DB96881260"
+      ],
+      "result": "Actual2/30/60/90/119 snapshots show the same source right half moving and increasing cavity reveal; R11 instant endpoint swap addressed for this diagnostic candidate only."
+    },
+    {
+      "id": "GEODE-R12-CAPS",
+      "pieces": [
+        "FV-99DB2D71D276",
+        "FV-F7DB96881260"
+      ],
+      "result": "Straight cropped top/bottom cavity caps and lower-right edge remain visibly incomplete. Refine/verify matched inner wall/cap contours and full action before integration; no owner approval or all-reuse failure declared."
+    }
+  ],
+  "new_generation_calls": 0,
+  "runtime_changes": [],
+  "accepted_removed": 0,
+  "full_context_review_complete": false,
+  "full_speed_and_every_transition_review": null,
+  "acceptance_lanes": {
+    "approved_candidate": null,
+    "production_integration": null,
+    "runtime_verified_replacement": null,
+    "device": null,
+    "child": null,
+    "owner": null,
+    "QA11": null,
+    "whole_unit_final_sprite": null
+  },
+  "method_disposition": "PROGRESSIVE_SOURCE_ASSEMBLY_CANDIDATE_CAP_CONTOUR_FIT_INCOMPLETE; R11 rejected endpoint method/history preserved"
+}

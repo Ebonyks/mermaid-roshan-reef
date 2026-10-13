@@ -1,0 +1,129 @@
+{
+  "schema": 1,
+  "job_id": "GEODE-LAYERED-REVEAL-20261013-04",
+  "baseline": "c5d70079bc2b048a76f50edeabd8a2ff2a95bd24",
+  "piece_ids": [
+    "FV-C1AB21410352",
+    "FV-99DB2D71D276",
+    "FV-F7DB96881260"
+  ],
+  "intention": "Open the same preserved closed stone by moving its right shell with the original finger drag and revealing existing crystal material only in the growing gap.",
+  "output_lane": "Nonruntime source/candidate gameplay study; no production adoption",
+  "sources": [
+    {
+      "path": "assets_src/flat_vector_geode_reuse_20261013/geode_closed_1024.png",
+      "sha256": "b639c2cbe36b460bb29db5f0e459329f8b6b8266d205412c95e539e9b7dc95ff",
+      "role": "Closed identity/outer shell pixels; currentR10 fit"
+    },
+    {
+      "path": "assets_src/flat_vector_geode_open_reuse_20261013/geode_open_1024.png",
+      "sha256": "ff239195b857f247622218176db05cd196b6cd8b735dda2d6a08550e61f77d53",
+      "role": "Preserved left crystal cavity material; currentR11 fit/reject evidence"
+    }
+  ],
+  "source_acceptance": "Preserved existing source candidates,unapproved/unintegrated; technical normalization and prior direct-mount failure retained. Approved same-scene Roshan/helper identities untouched.",
+  "reuse_gap": "R11 direct full endpoint swap fails at2px. Source-preserving curved shell separation/layered progressive reveal not yet tested; no generation gap declared.",
+  "method": "Aseprite1.3.18.4 binary curved partition of closed pixels into exclusive left/right layers; exact rectangle isolation of opened left cavity. Godot Canvas translates right shell by actual geode_pull and maps cavity material into only the curved gap. Declared row-wise Canvas registration/shear follows the crack; no repaint/recolor/new appearance pixels.",
+  "closed_partition_curve_xy": [
+    [
+      600,
+      0
+    ],
+    [
+      584,
+      90
+    ],
+    [
+      550,
+      150
+    ],
+    [
+      539,
+      210
+    ],
+    [
+      529,
+      330
+    ],
+    [
+      530,
+      512
+    ],
+    [
+      530,
+      690
+    ],
+    [
+      518,
+      790
+    ],
+    [
+      516,
+      881
+    ],
+    [
+      504,
+      961
+    ],
+    [
+      504,
+      1024
+    ]
+  ],
+  "cavity_source_rect": [
+    260,
+    240,
+    220,
+    560
+  ],
+  "fixed": [
+    "Original sources/characters/background/workbench/save keys",
+    "Original invisible input centers/radius/travel/pull120",
+    "Closed350square placement575,165; left shell position",
+    "Source palettes/light/pixel RGBA values outside discarded masks"
+  ],
+  "moving": [
+    "Right shell pure x translation0..120 driven by production pull",
+    "Growing source-bound textured gap; actual release/cancel retain pull"
+  ],
+  "entry_exit": "Fresh isolated phase3 dev_playtest; near-open119 release/cancel below120 reward threshold",
+  "motion_tolerances": "Source partition exclusive/reconstruct exact decoded RGBA; cavity crop decoded-exact; actual displayed shell offset equals original pull,not a timed endpoint swap. Inspect every retained transition and native full action before any acceptance.",
+  "limits": {
+    "local_assembly_trials": 1,
+    "aseprite_process_seconds": 90,
+    "capture_process_seconds": 150,
+    "manual_pixel_cleanup_minutes": 10,
+    "new_generation_calls": 0,
+    "new_spend": 0,
+    "prior_generated_attempts_retained": {
+      "closed": 1,
+      "opened": 2
+    }
+  },
+  "stop_fallback": "If this bounded local assembly fails,record exact contour/material/contact/occlusion state; do not silently commission frames or reinstate a procedural/missing-art fallback.",
+  "acceptance_lanes": {
+    "human_topology_style": null,
+    "human_motion_contact": null,
+    "production_integration": null,
+    "runtime_verified_replacement": null,
+    "QA11": null,
+    "device": null,
+    "child": null,
+    "owner": null,
+    "whole_unit_final_sprite": null
+  },
+  "primary_api_references": [
+    "https://www.aseprite.org/api/image",
+    "https://www.aseprite.org/api/sprite",
+    "https://www.aseprite.org/api/layer"
+  ],
+  "new_generation_calls": 0,
+  "geometry": "FIT_MEASUREMENTS.json",
+  "source_export_proof": "DERIVATIVES.json/PARTITION_PROOF.json/MASTER_PROOF/TECHNICAL_DERIVATION",
+  "actual": "Executed commands/timestamps in TECHNICAL_DERIVATION,LAUNCH,IMPORT and SCRIPT_GATES; zero generated calls/spend; no manual repaint. Full speed/every transition/contact/topology review still pending.",
+  "normal_speed_review": null,
+  "frame_step_every_transition_review": null,
+  "loop": "Not a loop; input-driven single opening. Full120 endpoint/re-entry not captured; no completion claim.",
+  "next": "Refine matched cavity cap/inner-wall contours and lower-right cropped edge; then full temporal/120 completion/reward/return/re-entry/reload and source-bound QA11 before integration/acceptance.",
+  "whole_unit_scope": "Actors/whole-figure sprites are unchanged. This review study deliberately separates the two physical stone shells with disjoint source masks; it is not a final one-layer gameplay sprite or an accepted whole-unit delivery. Final sprite construction/whole-unit eligibility remains to be checked against current protocol before adoption."
+}

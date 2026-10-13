@@ -1,0 +1,93 @@
+{
+  "schema": 1,
+  "sources": [
+    {
+      "path": "assets_src/flat_vector_geode_reuse_20261013/geode_closed_1024.png",
+      "sha256": "b639c2cbe36b460bb29db5f0e459329f8b6b8266d205412c95e539e9b7dc95ff",
+      "role": "Closed identity/outer shell pixels; currentR10 fit"
+    },
+    {
+      "path": "assets_src/flat_vector_geode_open_reuse_20261013/geode_open_1024.png",
+      "sha256": "ff239195b857f247622218176db05cd196b6cd8b735dda2d6a08550e61f77d53",
+      "role": "Preserved left crystal cavity material; currentR11 fit/reject evidence"
+    }
+  ],
+  "files": [
+    {
+      "path": "assets_src/flat_vector_geode_layered_20261013/aseprite.log",
+      "bytes": 86,
+      "sha256": "e302318010d8c26672c5f041b717bf9472f30bafedf82c3b7f5bcabbdc5e4e71",
+      "runtime_bound": false,
+      "role": "Source-derived matte/crop/editable master or executed provenance"
+    },
+    {
+      "path": "assets_src/flat_vector_geode_layered_20261013/bridge_layered.lua",
+      "bytes": 1934,
+      "sha256": "cd2f672cefcf601daaf93d056f4ad40b3ad55d2aa52558bfb225726ff65ddd72",
+      "runtime_bound": false,
+      "role": "Source-derived matte/crop/editable master or executed provenance"
+    },
+    {
+      "path": "assets_src/flat_vector_geode_layered_20261013/geode_cavity.png",
+      "bytes": 248634,
+      "sha256": "83b2f33449d066bba4d9f28971ce0496fba427dc80514b7757057edcc14e9d83",
+      "runtime_bound": false,
+      "role": "Source-derived matte/crop/editable master or executed provenance"
+    },
+    {
+      "path": "assets_src/flat_vector_geode_layered_20261013/geode_closed_left.png",
+      "bytes": 560076,
+      "sha256": "067235e390e395b13fe9fe3cee43c501530fb1868bf5c505c15e19d0b23f226e",
+      "runtime_bound": false,
+      "role": "Source-derived matte/crop/editable master or executed provenance"
+    },
+    {
+      "path": "assets_src/flat_vector_geode_layered_20261013/geode_closed_partition_roundtrip.png",
+      "bytes": 1022500,
+      "sha256": "b639c2cbe36b460bb29db5f0e459329f8b6b8266d205412c95e539e9b7dc95ff",
+      "runtime_bound": false,
+      "role": "Source-derived matte/crop/editable master or executed provenance"
+    },
+    {
+      "path": "assets_src/flat_vector_geode_layered_20261013/geode_closed_right.png",
+      "bytes": 514547,
+      "sha256": "4b542287bbfeede87e54159bf81ffacd4af3cd2569d190b3baa8388a92c5fd30",
+      "runtime_bound": false,
+      "role": "Source-derived matte/crop/editable master or executed provenance"
+    },
+    {
+      "path": "assets_src/flat_vector_geode_layered_20261013/geode_layered.aseprite",
+      "bytes": 4934588,
+      "sha256": "684c1fc5090ae72c12d78a2a5307fb4dbd6a212fd186601ae6cfa277be4866af",
+      "runtime_bound": false,
+      "role": "Source-derived matte/crop/editable master or executed provenance"
+    },
+    {
+      "path": "assets_src/flat_vector_geode_layered_20261013/MASTER_PROOF.json",
+      "bytes": 204,
+      "sha256": "f227f68d2a7089d3856fe0e1000bbcfafc1db26886b4ff6e02835bfd87cc6aed",
+      "runtime_bound": false,
+      "role": "Source-derived matte/crop/editable master or executed provenance"
+    },
+    {
+      "path": "assets_src/flat_vector_geode_layered_20261013/PLAN.json",
+      "bytes": 3996,
+      "sha256": "49518686b1bdb018bfffceb8487a4057fb45925130a8ca72dd4de634e929e603",
+      "runtime_bound": false,
+      "role": "Source-derived matte/crop/editable master or executed provenance"
+    },
+    {
+      "path": "assets_src/flat_vector_geode_layered_20261013/TECHNICAL_DERIVATION.json",
+      "bytes": 2465,
+      "sha256": "bac16717c819d2c3425d571cc02982222f9cf1467d0d92f099fdfaf42c4b2a07",
+      "runtime_bound": false,
+      "role": "Source-derived matte/crop/editable master or executed provenance"
+    }
+  ],
+  "png_file_count": 4,
+  "editable_master_count": 1,
+  "method": "Aseprite1.3.18.4 binary curved partition of closed pixels into exclusive left/right layers; exact rectangle isolation of opened left cavity. Godot Canvas translates right shell by actual geode_pull and maps cavity material into only the curved gap. Declared row-wise Canvas registration/shear follows the crack; no repaint/recolor/new appearance pixels.",
+  "new_generation_calls": 0,
+  "production_integration": null,
+  "accepted_removed": 0
+}

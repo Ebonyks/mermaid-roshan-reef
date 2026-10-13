@@ -1,0 +1,245 @@
+{
+  "schema": 1,
+  "candidate_sha256": "b639c2cbe36b460bb29db5f0e459329f8b6b8266d205412c95e539e9b7dc95ff",
+  "method": "Read-only alpha>=128 support bounding box and declared uniform source-to-Canvas projection; not semantic/QA11 acceptance.",
+  "source_alpha128_bbox": [
+    66,
+    67,
+    971,
+    965
+  ],
+  "draw_box": [
+    575,
+    165,
+    350,
+    350
+  ],
+  "projected_alpha128_bbox": [
+    597.55859375,
+    187.900390625,
+    906.884765625,
+    494.833984375
+  ],
+  "original_procedural_half_family": "Two halves of an approximately440x260 ellipse,12px outline; source-defined geometry retained in opening comparison control.",
+  "invisible_input_rect": [
+    550,
+    165,
+    440,
+    350
+  ],
+  "input_seam_points": [
+    [
+      766,
+      216
+    ],
+    [
+      735,
+      278
+    ],
+    [
+      778,
+      340
+    ],
+    [
+      744,
+      401
+    ],
+    [
+      770,
+      466
+    ]
+  ],
+  "input_radius": 56,
+  "input_tap_travel_limit": 34,
+  "pull_required": 120,
+  "trial_partial_pull": 60,
+  "no_python_pixel_edits": true,
+  "whole_source_translation": [
+    -20,
+    0
+  ],
+  "guide_halo_radius": 31,
+  "guide_halo_width": 5,
+  "guide_rows": [
+    {
+      "index": 0,
+      "original_hit_center": [
+        766,
+        216
+      ],
+      "visible_guide_center": [
+        763,
+        216
+      ],
+      "center_offset": 3.0,
+      "halo_outer_radius": 33.5,
+      "maximum_reach_from_original_center": 36.5,
+      "inside_original_radius56": true,
+      "source_crack_landmark_estimate": [
+        550.0342857142857,
+        149.21142857142857
+      ]
+    },
+    {
+      "index": 1,
+      "original_hit_center": [
+        735,
+        278
+      ],
+      "visible_guide_center": [
+        756.2,
+        278
+      ],
+      "center_offset": 21.200000000000045,
+      "halo_outer_radius": 33.5,
+      "maximum_reach_from_original_center": 54.700000000000045,
+      "inside_original_radius56": true,
+      "source_crack_landmark_estimate": [
+        530.1394285714287,
+        330.60571428571427
+      ]
+    },
+    {
+      "index": 2,
+      "original_hit_center": [
+        778,
+        340
+      ],
+      "visible_guide_center": [
+        756.2,
+        340
+      ],
+      "center_offset": 21.799999999999955,
+      "halo_outer_radius": 33.5,
+      "maximum_reach_from_original_center": 55.299999999999955,
+      "inside_original_radius56": true,
+      "source_crack_landmark_estimate": [
+        530.1394285714287,
+        512.0
+      ]
+    },
+    {
+      "index": 3,
+      "original_hit_center": [
+        744,
+        401
+      ],
+      "visible_guide_center": [
+        755.8,
+        401
+      ],
+      "center_offset": 11.799999999999955,
+      "halo_outer_radius": 33.5,
+      "maximum_reach_from_original_center": 45.299999999999955,
+      "inside_original_radius56": true,
+      "source_crack_landmark_estimate": [
+        528.9691428571427,
+        690.4685714285714
+      ]
+    },
+    {
+      "index": 4,
+      "original_hit_center": [
+        770,
+        466
+      ],
+      "visible_guide_center": [
+        751,
+        466
+      ],
+      "center_offset": 19.0,
+      "halo_outer_radius": 33.5,
+      "maximum_reach_from_original_center": 52.5,
+      "inside_original_radius56": true,
+      "source_crack_landmark_estimate": [
+        514.9257142857143,
+        880.64
+      ]
+    }
+  ],
+  "interpretation": "Source partition/mapped crop preserves sampled source colors; declared row-wise Canvas registration/shear follows crack. Alpha128 height bounds and native event snapshots are diagnostic only. Straight cavity crop caps and full temporal/contact/topology review remain unresolved.",
+  "opened_candidate_sha256": "ff239195b857f247622218176db05cd196b6cd8b735dda2d6a08550e61f77d53",
+  "opened_draw_box": [
+    534.9607615427929,
+    107.7105327984234,
+    471.9219219219219,
+    471.9219219219219
+  ],
+  "opened_alpha128_bbox": [
+    60,
+    174,
+    960,
+    840
+  ],
+  "projected_opened_alpha128_bbox": [
+    562.6124366554054,
+    187.90039062499997,
+    977.3875633445946,
+    494.833984375
+  ],
+  "opened_pair_width_increase_vs_closed": 105.44895481418916,
+  "layered_draw_box": [
+    575,
+    165,
+    350,
+    350
+  ],
+  "closed_partition_curve_xy": [
+    [
+      600,
+      0
+    ],
+    [
+      584,
+      90
+    ],
+    [
+      550,
+      150
+    ],
+    [
+      539,
+      210
+    ],
+    [
+      529,
+      330
+    ],
+    [
+      530,
+      512
+    ],
+    [
+      530,
+      690
+    ],
+    [
+      518,
+      790
+    ],
+    [
+      516,
+      881
+    ],
+    [
+      504,
+      961
+    ],
+    [
+      504,
+      1024
+    ]
+  ],
+  "cavity_source_rect": [
+    260,
+    240,
+    220,
+    560
+  ],
+  "cavity_uniform_canvas_scale": 0.548095703125,
+  "cavity_canvas_height": 306.93359375,
+  "cavity_canvas_width": 120.5810546875,
+  "right_shell_offset": "Actual source geode_pull0..120; pure x translation",
+  "crystal_gap": "Curve-derived left boundary; right boundary is left+actual pull. UV uses actual pull/cavity_width and source row registration; no full endpoint switch.",
+  "clip_geometry_disposition": "Invisible source-texture clipping/matte geometry; not new colored artwork or counted removed art. Functional input unchanged; QA11 proof missing."
+}

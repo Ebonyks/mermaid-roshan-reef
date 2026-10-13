@@ -1,0 +1,32 @@
+{
+  "schema": 1,
+  "command": [
+    "C:/Program Files/Aseprite/Aseprite.exe",
+    "--batch",
+    "--script-param",
+    "closed=C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\assets_src\\flat_vector_geode_reuse_20261013\\geode_closed_1024.png",
+    "--script-param",
+    "opened=C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\assets_src\\flat_vector_geode_open_reuse_20261013\\geode_open_1024.png",
+    "--script-param",
+    "curve=[[600,0],[584,90],[550,150],[539,210],[529,330],[530,512],[530,690],[518,790],[516,881],[504,961],[504,1024]]",
+    "--script-param",
+    "master=C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\assets_src\\flat_vector_geode_layered_20261013\\geode_layered.aseprite",
+    "--script-param",
+    "roundtrip=C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\assets_src\\flat_vector_geode_layered_20261013\\geode_closed_partition_roundtrip.png",
+    "--script-param",
+    "left=C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\assets_src\\flat_vector_geode_layered_20261013\\geode_closed_left.png",
+    "--script-param",
+    "right=C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\assets_src\\flat_vector_geode_layered_20261013\\geode_closed_right.png",
+    "--script-param",
+    "cavity=C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\assets_src\\flat_vector_geode_layered_20261013\\geode_cavity.png",
+    "--script-param",
+    "proof=C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\assets_src\\flat_vector_geode_layered_20261013\\MASTER_PROOF.json",
+    "--script",
+    "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\assets_src\\flat_vector_geode_layered_20261013\\bridge_layered.lua"
+  ],
+  "started_at_utc": "2026-10-13T10:25:15.146042+00:00",
+  "completed_at_utc": "2026-10-13T10:25:27.670626+00:00",
+  "returncode": 0,
+  "method": "Aseprite1.3.18.4 binary curved partition of closed pixels into exclusive left/right layers; exact rectangle isolation of opened left cavity. Godot Canvas translates right shell by actual geode_pull and maps cavity material into only the curved gap. Declared row-wise Canvas registration/shear follows the crack; no repaint/recolor/new appearance pixels.",
+  "new_generation_calls": 0
+}

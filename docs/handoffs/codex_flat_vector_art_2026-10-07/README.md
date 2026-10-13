@@ -1,8 +1,8 @@
-Current canonical evidence: [R11 opened Geode reuse](r11_geode_open_pair/README.md), [registry](r11_geode_open_pair/per_piece.json), [coverage](r11_geode_open_pair/scene_coverage.json), [tally](r11_geode_open_pair/tally.json).
+Current canonical evidence: [R12 layered Geode reveal](r12_geode_layered_reveal/README.md), [registry](r12_geode_layered_reveal/per_piece.json), [coverage](r12_geode_layered_reveal/scene_coverage.json), [tally](r12_geode_layered_reveal/tally.json).
 
-# Full-game flat-vector audit — current R11 opened-source trial
+# Full-game flat-vector audit — current R12 layered reveal
 
-R11 preserves/normalizes existing painted opened-pair source and tests52 actual event snapshots. Direct static endpoint mounting fails action continuity; underlying source/local assembly remains open. Cumulative1848 bounded/1950 retained;225 known/30 families,77/176 partial,zero complete/accepted removed. No new generation or production adoption. [Preserved R10 marker fit](r10_geode_marker_fit/README.md), [R9 source trial](r9_geode_reuse/README.md), [R8 context](r8_geode_context/README.md) and [R7 Craft](r7_craft_context/README.md) keep immutable scope. Use [CURRENT.json](CURRENT.json); root JSON/manifests remain frozen R6.
+R12 source-preserving curved shell isolation and input-driven textured gap address R11 immediate endpoint substitution in52 native event snapshots. Cavity cap/edge fit and all acceptance remain incomplete. Cumulative1900 bounded/2002 retained;225 known/30 families,77/176 partial,zero complete/accepted removed. No generation/production adoption. [Preserved R11 failure](r11_geode_open_pair/README.md), [R10 fit](r10_geode_marker_fit/README.md), [R9 source trial](r9_geode_reuse/README.md), [R8 context](r8_geode_context/README.md), [R7 Craft](r7_craft_context/README.md) retain exact history. Use [CURRENT.json](CURRENT.json); root JSON/manifests remain frozen R6.
 
 # Frozen R6 review snapshot
 
