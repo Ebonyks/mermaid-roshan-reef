@@ -83,6 +83,8 @@
     "docs/handoffs/codex_flat_vector_art_2026-10-07/PRODUCTION_BACKLOG.md",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/PUBLICATION.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/README.md",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/RECEIPT_GATES.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/RECEIPT_GATE_TIMEOUT.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/REMOTE_VERIFICATION.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/ROOT_CONTEXT_REVIEW_20261012.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/ROOT_GARDEN_CLAY_POT_JOB_20261012.json",
@@ -1752,6 +1754,7 @@
     "docs/handoffs/codex_flat_vector_art_2026-10-07/publication_diagnostics/r6_party_props.log",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/publication_diagnostics/r6_promenade.log",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/publication_diagnostics/r6_room_routes.log",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/publication_diagnostics/receipt_2d_retry.log",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/publication_diagnostics/retry_probe_audit.log",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/publication_diagnostics/retry_probe_dance.log",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/publication_diagnostics/retry_probe_dust_boss.log",
@@ -2082,9 +2085,9 @@
       "evidence": "FINAL_GATES.json;12 commands passed;LOCAL_ACTION_VALIDATION24passed. NO_REGRESSION retainsUNSATISFIED debt. Finaldocchecks repeat afterimpact finalization."
     },
     {
-      "command": "Commit/push and anonymous every-file SHA-256/owner access verification",
-      "result": "PENDING",
-      "evidence": "Exact post-publication REMOTE_VERIFICATION.json required; no delivered claim before receipt"
+      "command": "Commit/push and anonymous every-required-file SHA256 plus public/owner access verification",
+      "result": "PASS",
+      "evidence": "REMOTE_VERIFICATION.json;payload4aceae967de9da7c8f479e358a008188ba1f6304;2899boundfiles2369574368bytes plus manifest;d8ed259c922647cfbd1601804fc491a152afbeac57e1be80cf8bafe74094670e;checked 2026-10-13T02:28:34.869293+00:00;Public unauthenticated immutable raw HTTP200; owner Ebonyks API permission admin;receipt own remote commit checked separately"
     }
   ],
   "acceptance_gaps": "All-game denominator unknown;76/176 overlapping entries partial,100 without current slice,all176 incomplete;351 scopes unresolved. 52 independent picture frames retained,8 rejected boot contexts;44 bounded diagnostics do not close natural routes/all motion. 0 replaced/integrated/runtime-verified/accepted removed;device/child/owner pending. Full weakness inventory and production mission incomplete. Immutable R5 unchanged."

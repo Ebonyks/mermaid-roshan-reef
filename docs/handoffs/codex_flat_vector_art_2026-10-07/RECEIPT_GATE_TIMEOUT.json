@@ -1,0 +1,14 @@
+{
+  "schema": 1,
+  "command": [
+    "python",
+    "-B",
+    "tools/audit_game_2d.py",
+    "--regression-gate"
+  ],
+  "result": "NO_VERDICT_TIMEOUT_AFTER_240_SECONDS",
+  "recorded_at_utc": "2026-10-13T02:35:33.843684+00:00",
+  "prior_payload_gate": "PASS_NO_REGRESSION;see immutable payload FINAL_GATES.json",
+  "meaning": "Execution deadline exhausted;not a semantic pass or a documented regression. Do not modify gate/scanner/baseline. Repeat exact command with enough wall time.",
+  "retry": "publication_diagnostics/receipt_2d_retry.log"
+}
