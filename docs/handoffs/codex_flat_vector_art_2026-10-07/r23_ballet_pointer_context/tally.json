@@ -158,7 +158,8 @@
     "R22_unique_hashes": 72,
     "R22_capture_source_revision": "fa6402f4b1dd382c0d32c740eb034d67a6ac72f8",
     "R23_native_added": 54,
-    "R23_unique_hashes": 54
+    "R23_unique_hashes": 54,
+    "R23_capture_source_revision": "45cb1b26b9bcf16ac1bd5142cc5c38085b631dee"
   },
   "unreviewed_current_route_entries_note": "All176incomplete:77partial,99without. Frozen224/29 and369/18/351 retain count units; one whole fish/3roles and2texture compositors. Whole-game denominator unknown.",
   "historical_totals": [
@@ -584,9 +585,17 @@
   ],
   "role_and_family_counts_are_separate": true,
   "publication": {
-    "status": "PENDING_PUBLICATION",
+    "status": "ALL_DECLARED_DEPENDENCIES_VERIFIED",
+    "revision": "e1234f2c4ee0ddfbf45e3578e524a269b6909383",
+    "manifest_sha256": "f85d2dbfb5529f2b52bd01cdd8d41aec4fb100ba05ae9f9e943f73bcb7cbfbda",
+    "payload_sha256": "299261fca7b27e8aa790a2602a65609304ab57a8fb7a42773ab9f2e8231517e5",
+    "required_file_count": 2013,
+    "required_bytes": 794211476,
+    "access_mode": "Anonymous public HTTPS for manifest and every declared required file; public GitHub repo API independently checked; recipient can use the same unauthenticated access mode.",
+    "checked_at_utc": "2026-10-13T23:03:18.806143+00:00",
     "manifest": "MANIFEST.json",
-    "receipt": "REMOTE_VERIFICATION.json"
+    "receipt": "REMOTE_VERIFICATION.json",
+    "post_payload_metadata": "Post-payload receipt/summary/gates files separately anonymously verified against final receipt Git commit. Sealed payload hashes retain exact payload revision;publication is not acceptance."
   },
   "independent_style_review": {
     "file": "ROOT_CONTEXT_REVIEW_20261012.json",
@@ -734,8 +743,12 @@
   },
   "unpublished_external_activity_limit": "Separate Garden production branch has no published revision at the verified reconciliation; its local candidate is outside this frozen verified tally. Generation/integration counts in this packet retain packet scope.",
   "current_ci": {
-    "status": "NOT_PUBLISHED",
-    "conclusion": null
+    "conclusion": "",
+    "headSha": "e1234f2c4ee0ddfbf45e3578e524a269b6909383",
+    "status": "in_progress",
+    "url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/38481566554",
+    "databaseId": 38481566554,
+    "checked_at_utc": "2026-10-13T23:08:27.724355+00:00"
   },
   "inherited_r7_reference_base": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/c1e466a8a9e605f43b4c7a181b3d7b702d7677aa/docs/handoffs/codex_flat_vector_art_2026-10-07/r7_craft_context/",
   "inherited_r8_reference_base": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/f4de7b921298b0dac052df408af03bbb2b62132b/docs/handoffs/codex_flat_vector_art_2026-10-07/r8_geode_context/",
