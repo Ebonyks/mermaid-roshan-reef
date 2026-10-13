@@ -1,10 +1,16 @@
-# Flat-vector-art full-game audit — R6 review packet
+# Flat-vector-art full-game audit — current R7 Craft addendum
+
+Use [CURRENT.json](CURRENT.json) and the [R7 entry](r7_craft_context/README.md) for the current canonical registry, coverage, tally and backlog. R7 adds 80 bounded Craft captures, one whole fish design with three component roles, and two incomplete texture compositor scopes. There are 225 known design records in 30 families; 77 of 176 routes have partial context, zero complete, and zero accepted removals. The whole-game denominator remains unknown.
+
+Root JSON files and the original MANIFEST/REMOTE_VERIFICATION retain frozen R6 scope. Their manifest applies to immutable payload 4aceae967de9da7c8f479e358a008188ba1f6304, not later current-entry text. R7 has its own delta manifest and separately published receipt.
+
+# Frozen R6 review snapshot
 
 R6 contains 980 new bounded diagnostic native captures plus 604 historical captures: **1,584 cumulative**. Eight rejected boot-overlay captures and 94 failed-run action captures are retained separately, giving 1,686 retained native frames. **0 artwork replaced, 0 integrated, 0 runtime-verified replacements and 0 accepted removed.** The unique all-game artwork denominator remains unknown.
 
 Of 176 overlapping route entries, 76 have partial current context, 100 have no current slice and none is complete. Of 369 source scopes, 18 have inventory classifications: four functional, 13 mixed or visible artwork awaiting replacement, and one bypassed old slide builder. The other 351 scopes remain unresolved. These source classifications do not establish visual, runtime, device, child or owner acceptance.
 
-[Current tally](tally.json), [stable named register](per_piece.json), [scene/state coverage](scene_coverage.json), [current scope overlay](CURRENT_SCOPE_CONTEXT_OVERLAY.json) and [production backlog](PRODUCTION_BACKLOG.md) keep separate count units. The frozen register has 224 named design/state records in 29 families. The 164 earlier overlapping flat caller-role contexts and four supplementary picture/action roles are not unique design totals.
+[R6 tally](tally.json), [R6 frozen named register](per_piece.json), [R6 scene/state coverage](scene_coverage.json), [current scope overlay](CURRENT_SCOPE_CONTEXT_OVERLAY.json) and [production backlog](PRODUCTION_BACKLOG.md) keep separate count units. The frozen register has 224 named design/state records in 29 families. The 164 earlier overlapping flat caller-role contexts and four supplementary picture/action roles are not unique design totals.
 
 This additive topic branch starts from origin/dev `e2b3c73789707aa49a91b4f42e2a9dd4b68225df`. Runtime bytes match capture source `6cde8aeae04aaedcc0b1ff22a05ef93ab9bf666f`. Current dev's source-only animation studies supply no replacement or acceptance evidence. Protected originals and runtime code are unchanged.
 

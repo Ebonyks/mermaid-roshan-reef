@@ -1,0 +1,1044 @@
+{
+  "schema": "reef.flat_vector_delta_manifest/1",
+  "revision": "FV-AUDIT-20261012-R7",
+  "repository": "Ebonyks/mermaid-roshan-reef",
+  "branch": "codex/flat-vector-r6-20261012",
+  "files": [
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/CONGRUENCY_BACKLOG.json",
+      "revision": "4aceae967de9da7c8f479e358a008188ba1f6304",
+      "bytes": 62701,
+      "sha256": "b2a64e5e387d7c9451327d0d8f0e9ea5c8e1ae08f7666486e3cb44b0a7a6f500",
+      "role": "Frozen R6 registry/history/probe/public-delivery evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/CURRENT_SCOPE_CONTEXT_OVERLAY.json",
+      "revision": "4aceae967de9da7c8f479e358a008188ba1f6304",
+      "bytes": 155213,
+      "sha256": "e9f5bbfefd8222bc0c4974de93dc328da469c1d7ac77bcbbf835cc8a446d91f1",
+      "role": "Frozen R6 registry/history/probe/public-delivery evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/FULL_VALIDATION.json",
+      "revision": "4aceae967de9da7c8f479e358a008188ba1f6304",
+      "bytes": 15485,
+      "sha256": "417c00855f243d544d3f7b37d0661e9e8346bdde622fc73c57e631dcf3924839",
+      "role": "Frozen R6 registry/history/probe/public-delivery evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/MANIFEST.json",
+      "revision": "4aceae967de9da7c8f479e358a008188ba1f6304",
+      "bytes": 707814,
+      "sha256": "d8ed259c922647cfbd1601804fc491a152afbeac57e1be80cf8bafe74094670e",
+      "role": "Frozen R6 registry/history/probe/public-delivery evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/per_piece.json",
+      "revision": "4aceae967de9da7c8f479e358a008188ba1f6304",
+      "bytes": 1103788,
+      "sha256": "5b10e09df85b6d21027435bc64709a6032f5ac6f81bd8f406560221b936996e9",
+      "role": "Frozen R6 registry/history/probe/public-delivery evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/scene_coverage.json",
+      "revision": "4aceae967de9da7c8f479e358a008188ba1f6304",
+      "bytes": 438160,
+      "sha256": "5a2b60e16204949a807a9ea5d0fd5755522c49481a119f637512602245c3fd6f",
+      "role": "Frozen R6 registry/history/probe/public-delivery evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/tally.json",
+      "revision": "4aceae967de9da7c8f479e358a008188ba1f6304",
+      "bytes": 7990,
+      "sha256": "fc7c26096d5ccd1e63df0fb89862e91481551a077aa82a1bf1e37aa169b1d66a",
+      "role": "Frozen R6 registry/history/probe/public-delivery evidence"
+    },
+    {
+      "path": "AGENTS.md",
+      "revision": "70879a91ddcbba51ba09c7d0be81cc65f340e3b5",
+      "bytes": 32943,
+      "sha256": "f95a3fb3c4fcf68dd7ac359bdca7fd8fdebfaffc81772f51e136fce7c5a9da4b",
+      "role": "Binding authority"
+    },
+    {
+      "path": "ART_STYLE_GUIDE.md",
+      "revision": "70879a91ddcbba51ba09c7d0be81cc65f340e3b5",
+      "bytes": 43258,
+      "sha256": "c015277643b610e8370971d6eadf582bee19a430e6be4219b163abbb550a4d6e",
+      "role": "Binding authority"
+    },
+    {
+      "path": "ASSET_LICENSES.md",
+      "revision": "70879a91ddcbba51ba09c7d0be81cc65f340e3b5",
+      "bytes": 4371693,
+      "sha256": "98dfa85b226bea9b3c76757220d4ff143f53b4cf1a9586528384cb66562349ab",
+      "role": "Exact source/license dependency"
+    },
+    {
+      "path": "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
+      "revision": "70879a91ddcbba51ba09c7d0be81cc65f340e3b5",
+      "bytes": 245777,
+      "sha256": "ae9d9e43786003332014dd1f2aead00d3efaaf25c69964903cfc6dfd1a31a6a9",
+      "role": "Binding authority"
+    },
+    {
+      "path": "design/02_ART_DIRECTION.md",
+      "revision": "70879a91ddcbba51ba09c7d0be81cc65f340e3b5",
+      "bytes": 22151,
+      "sha256": "e249211113b739beae2cfe2a6bf09c695591d61efe8c2794f69470790f6c67cb",
+      "role": "Binding authority"
+    },
+    {
+      "path": "design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md",
+      "revision": "70879a91ddcbba51ba09c7d0be81cc65f340e3b5",
+      "bytes": 104724,
+      "sha256": "8e240a56ace2e7174d528b0cb528c9ae85efdd5a8267789d5131693466db06d3",
+      "role": "Binding authority"
+    },
+    {
+      "path": "design/AUDIT_DEVELOPMENT_CONTRACT.md",
+      "revision": "70879a91ddcbba51ba09c7d0be81cc65f340e3b5",
+      "bytes": 7602,
+      "sha256": "f2817f20cbf89b2b0da6d28b5d956ab0408239ecd9438f4b6a7057b45e9b5fd9",
+      "role": "Binding authority"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/REMOTE_VERIFICATION.json",
+      "revision": "70879a91ddcbba51ba09c7d0be81cc65f340e3b5",
+      "bytes": 1835762,
+      "sha256": "541c3b2ed42ccd1fe6be47b5bb807f81a75be2f274d04f686e0f2af9e7933670",
+      "role": "Frozen R6 registry/history/probe/public-delivery evidence"
+    },
+    {
+      "path": "audit/cycles/luna-playtest-20261012/MANIFEST.json",
+      "revision": "831d0bbb155b99d75ef0289cc5cc694e0ef00c1e",
+      "sha256": "4dab10029cfb3a8cbd796cd4ab662873b39951d9b908c0d04ff5609a385bba5a",
+      "bytes": 62277,
+      "role": "Latest integration documentation/authority reconciliation; no new art acceptance"
+    },
+    {
+      "path": "audit/cycles/luna-playtest-20261012/verification/remote_publication.json",
+      "revision": "831d0bbb155b99d75ef0289cc5cc694e0ef00c1e",
+      "sha256": "b1128bcc54160830dfe176f0dac7f977afb0719e7a6cefacfb33f8aba0133dbc",
+      "bytes": 62245,
+      "role": "Latest integration documentation/authority reconciliation; no new art acceptance"
+    },
+    {
+      "path": "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
+      "revision": "831d0bbb155b99d75ef0289cc5cc694e0ef00c1e",
+      "sha256": "a3d88cf574930657b01a95ec230b61f3ae32604d74cebac6b1f3b2c12b0b85a8",
+      "bytes": 250219,
+      "role": "Latest integration documentation/authority reconciliation; no new art acceptance"
+    },
+    {
+      "path": "ASSET_LICENSES.md",
+      "revision": null,
+      "bytes": 4372218,
+      "sha256": "2b43507ac415b13d5ad9f980c4cc1e4948b7f5cad69a95f22efd039abbc39a67",
+      "role": "R7 delta"
+    },
+    {
+      "path": "audit/MASTER_AUDIT_2026-08-09.md",
+      "revision": null,
+      "bytes": 295619,
+      "sha256": "3b14787b576d2232339f60ee23ab7b0f0bb6b584cad340463abb14bdbe4d4c26",
+      "role": "R7 delta"
+    },
+    {
+      "path": "audit/MASTER_AUDIT_CHANGELOG_ROLLBACK_2026-08-10.md",
+      "revision": null,
+      "bytes": 139779,
+      "sha256": "9afb0f9af04f6a7bb067e5edf087725919f481873a04cbcfb1c8891779c0334f",
+      "role": "R7 delta"
+    },
+    {
+      "path": "design/05_DOC_LEDGER.md",
+      "revision": null,
+      "bytes": 219795,
+      "sha256": "1b05bf39353c0b8e394565b7d964231756a3efa8a09d8682b0af9f987c912599",
+      "role": "R7 delta"
+    },
+    {
+      "path": "design/audit_impacts/flat-vector-craft-context-20261012.json",
+      "revision": null,
+      "bytes": 16791,
+      "sha256": "13af67766615f28a870cae072e310c8d5b7caf3d2ebf7081cc79d1fb2dee7247",
+      "role": "R7 delta"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/CURRENT.json",
+      "revision": null,
+      "bytes": 746,
+      "sha256": "2fca94c1881c31685c5f1c09e0a79b53c116e122c14374402dedf31c59332b58",
+      "role": "R7 delta"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/README.md",
+      "revision": null,
+      "bytes": 7248,
+      "sha256": "7117ed91af57bce564a8f0558a4075d77c3a60e30eaa6be6883c1db2efbf9f8e",
+      "role": "R7 delta"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r7_craft_context/.gitattributes",
+      "revision": null,
+      "bytes": 228,
+      "sha256": "1a3cfda05e8d615bab85fd7b4aa801903951fcc48ada6b3a7f1036969da77395",
+      "role": "R7 delta"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r7_craft_context/CALLER_CLOSURE.json",
+      "revision": null,
+      "bytes": 3252,
+      "sha256": "c0a3a28c8b91aafc23e2d9328e126b97a3b7b22641f5607f40cf9b9bc88433b6",
+      "role": "R7 delta"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r7_craft_context/CONGRUENCY_BACKLOG.json",
+      "revision": null,
+      "bytes": 68115,
+      "sha256": "e20dffd99b5274f2d1306c279c76216113c91640a63e37958a9fcf4d24970ecd",
+      "role": "R7 delta"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r7_craft_context/GATES.json",
+      "revision": null,
+      "bytes": 4395,
+      "sha256": "3b698d34fe6d7beb5541847eb0a58602d57222d783e6ec919ccca7588a3f0840",
+      "role": "R7 delta"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r7_craft_context/IMPORT.json",
+      "revision": null,
+      "bytes": 69818,
+      "sha256": "32f7d62a3031dbdcd8bcf43638b6899fc83365acf3a75eaea71db6ab568ab3c3",
+      "role": "R7 delta"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r7_craft_context/ORIGIN_DEV_RECONCILIATION.json",
+      "revision": null,
+      "bytes": 26748,
+      "sha256": "c1677ca391df75e77b9d9237cf4f417643c5bf1df05c73cf9aab715a96090624",
+      "role": "R7 delta"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r7_craft_context/R6_EXACT_HEAD_CI.json",
+      "revision": null,
+      "bytes": 10720,
+      "sha256": "62ff564695a8ba358f6c7b2aa31e396424f18ad7a832ee7ffbf93eac0deb9053",
+      "role": "R7 delta"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r7_craft_context/README.md",
+      "revision": null,
+      "bytes": 3689,
+      "sha256": "cabc1bacbbc7da760e9ec5c67d04621133df855eadf6308b97a9252d0740e3c2",
+      "role": "R7 delta"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r7_craft_context/REVIEW.json",
+      "revision": null,
+      "bytes": 35252,
+      "sha256": "adb978982b812afa046e0d3ba0bf11c8816a5e5863734b36edf43caaafa91319",
+      "role": "R7 delta"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r7_craft_context/SOURCES.json",
+      "revision": null,
+      "bytes": 5242,
+      "sha256": "5a3adf3f6510e9b66ff9a9795a89f10bef21589546c78b7a08b2f0654867fd82",
+      "role": "R7 delta"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r7_craft_context/SOURCE_PARITY.json",
+      "revision": null,
+      "bytes": 545272,
+      "sha256": "7f31942b691fca4ab0e6d733a19acd2d971e36964be3b799e18a39c0111dcf1d",
+      "role": "R7 delta"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r7_craft_context/build_manifest.py",
+      "revision": null,
+      "bytes": 3099,
+      "sha256": "126f362ca15ce96b8b627a7d26007e175f94272482ca04e36997885bb574d41d",
+      "role": "R7 delta"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r7_craft_context/capture.log",
+      "revision": null,
+      "bytes": 3701,
+      "sha256": "0b1ec29c53c5edc1b01246afc714d6c57191cdc7a07bbafb7d410c281efce224",
+      "role": "R7 delta"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r7_craft_context/capture_craft.gd",
+      "revision": null,
+      "bytes": 10604,
+      "sha256": "35d7e04bed41c6ac95f71e64a742db7f705c25c3c4b5834a1557f88e11458f37",
+      "role": "R7 delta"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r7_craft_context/captures/1280x720/capture_manifest.json",
+      "revision": null,
+      "bytes": 380628,
+      "sha256": "38b57d1af109e1b86f618e06f2be574362c7d28c3b5ab09d8c247f00e0d1629b",
+      "role": "R7 delta"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r7_craft_context/captures/1280x720/craft_accent_color00_selected.png",
+      "revision": null,
+      "bytes": 332000,
+      "sha256": "edf38c44657f8aeea27e988ce578ade8352faf119a555e3651ebb382fe8babc7",
+      "role": "R7 delta"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r7_craft_context/captures/1280x720/craft_accent_color01_selected.png",
+      "revision": null,
+      "bytes": 335645,
+      "sha256": "209a77b9c46e0e3d0c1f2eaf2381185e9aae208b778b1837c284ceb5a3c501ca",
+      "role": "R7 delta"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r7_craft_context/captures/1280x720/craft_accent_color02_selected.png",
+      "revision": null,
+      "bytes": 339089,
+      "sha256": "4d4af1d6a598d9e4667c9ba0a2a91bf4f1978138edfd5889caadbf6377e54eeb",
+      "role": "R7 delta"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r7_craft_context/captures/1280x720/craft_accent_color03_selected.png",
+      "revision": null,
+      "bytes": 337105,
+      "sha256": "eeb7e7211c4ee1b1410388c96213a3e527c5869b9ce54a3bde4f9c3564ff88c7",
+      "role": "R7 delta"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r7_craft_context/captures/1280x720/craft_accent_color04_selected.png",
+      "revision": null,
+      "bytes": 339466,
+      "sha256": "7567eeb50331d713445ad2a93a34837b323f3da09e7d37546c13f11c98aefc95",
+      "role": "R7 delta"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r7_craft_context/captures/1280x720/craft_accent_color05_selected.png",
+      "revision": null,
+      "bytes": 339053,
+      "sha256": "82e66662b05ee53ba480be6762cec56d3e3dd61893e9c98306587d17a55f7635",
+      "role": "R7 delta"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r7_craft_context/captures/1280x720/craft_accent_color06_selected.png",
+      "revision": null,
+      "bytes": 339869,
+      "sha256": "7a2710e40289548d888a16080d22af3e7ec5b5306641de75dca445244835aa99",
+      "role": "R7 delta"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r7_craft_context/captures/1280x720/craft_accent_color07_selected.png",
+      "revision": null,
+      "bytes": 341942,
+      "sha256": "40302d608ff7d622f81bf738f1eb39d65875282c6049669ba07776124a9cdb9f",
+      "role": "R7 delta"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r7_craft_context/captures/1280x720/craft_accent_palette_ready.png",
+      "revision": null,
+      "bytes": 332562,
+      "sha256": "04aa60ea6ba8ca565c47b02370b80a1232f41174cd61228aba8cd93f7bdd396f",
+      "role": "R7 delta"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r7_craft_context/captures/1280x720/craft_accent_rainbow_selected.png",
+      "revision": null,
+      "bytes": 339600,
+      "sha256": "4e197f4b27827c4f8ee99bf3248fbf61a6a38bf305299ad98437fff76f04002b",
+      "role": "R7 delta"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r7_craft_context/captures/1280x720/craft_body_color00_pressed.png",
+      "revision": null,
+      "bytes": 328830,
+      "sha256": "f15cf44c37eb2627551b00f43e6b083dae0bbccac218ae216bd9b2d19e168cc2",
+      "role": "R7 delta"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r7_craft_context/captures/1280x720/craft_body_color00_selected.png",
+      "revision": null,
+      "bytes": 326450,
+      "sha256": "910941c50ec8547b55fcf839dff5d81eaeae1bf81c74dbb169887659e89f6c89",
+      "role": "R7 delta"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r7_craft_context/captures/1280x720/craft_body_color01_pressed.png",
+      "revision": null,
+      "bytes": 330011,
+      "sha256": "742efb38684c3e0623e5b2c4cbe9e783ee4e864a1c3aabf89efec222fbd6d0b6",
+      "role": "R7 delta"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r7_craft_context/captures/1280x720/craft_body_color01_selected.png",
+      "revision": null,
+      "bytes": 331352,
+      "sha256": "893ee81073799ec48c2e1647cb208a220cfb08ba263cdc12dd0d892b30793e5d",
+      "role": "R7 delta"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r7_craft_context/captures/1280x720/craft_body_color02_pressed.png",
+      "revision": null,
+      "bytes": 334562,
+      "sha256": "dcb9e921939ecb0b1d071d3da2fc7df01808cebc0b6e02629408ff84adc5c74d",
+      "role": "R7 delta"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r7_craft_context/captures/1280x720/craft_body_color02_selected.png",
+      "revision": null,
+      "bytes": 333597,
+      "sha256": "a2abcd6f29b264d43dfc4e235fe18f379cae33e38d9241071f32fd25b058f26e",
+      "role": "R7 delta"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r7_craft_context/captures/1280x720/craft_body_color03_pressed.png",
+      "revision": null,
+      "bytes": 337877,
+      "sha256": "9dd2e6d85a51b1a5843807a9e22522026792dabc84946a50262296e896a8d8e3",
+      "role": "R7 delta"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r7_craft_context/captures/1280x720/craft_body_color03_selected.png",
+      "revision": null,
+      "bytes": 325887,
+      "sha256": "73809c9bcc535253460ea693b4537bbea5b5e13185a7eea470b1945974506f02",
+      "role": "R7 delta"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r7_craft_context/captures/1280x720/craft_body_color04_pressed.png",
+      "revision": null,
+      "bytes": 330717,
+      "sha256": "add5784d4e52d70bd6fc56ab89635e50b3d70f49acf408709f4f03cde201d7d4",
+      "role": "R7 delta"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r7_craft_context/captures/1280x720/craft_body_color04_selected.png",
+      "revision": null,
+      "bytes": 331063,
+      "sha256": "1434baf458fa1b61ed29c6e3f84342009b283f366407e903c91199474318b9fc",
+      "role": "R7 delta"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r7_craft_context/captures/1280x720/craft_body_color05_pressed.png",
+      "revision": null,
+      "bytes": 335156,
+      "sha256": "0404def70763f3b3a197ba71cbc0a165496a6b693a65d5fde9b824c9c8a36f18",
+      "role": "R7 delta"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r7_craft_context/captures/1280x720/craft_body_color05_selected.png",
+      "revision": null,
+      "bytes": 329806,
+      "sha256": "25baf750a0112e344bab231dcc648b4e2db0560fd36a9374f468850121a0ab87",
+      "role": "R7 delta"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r7_craft_context/captures/1280x720/craft_body_color06_pressed.png",
+      "revision": null,
+      "bytes": 332131,
+      "sha256": "057406f758b6691b922e59cc3263a6fa096d33bc4aff9eaa6a7d624d12ab5e89",
+      "role": "R7 delta"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r7_craft_context/captures/1280x720/craft_body_color06_selected.png",
+      "revision": null,
+      "bytes": 331487,
+      "sha256": "25702e852f375c8c24a293fcdbf927ce03da02aac4fb69dc132890e035643101",
+      "role": "R7 delta"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r7_craft_context/captures/1280x720/craft_body_color07_pressed.png",
+      "revision": null,
+      "bytes": 333886,
+      "sha256": "5ae8d3a0bf85ba88f86d0a9145d7f1a2c7c5d345b03dcc0dda5ec817aeed1372",
+      "role": "R7 delta"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r7_craft_context/captures/1280x720/craft_body_color07_selected.png",
+      "revision": null,
+      "bytes": 334902,
+      "sha256": "ca46aff24e54ba765cedb7eadcbc039e4a46f0043e6e9df4d4eb8f9d8970ea07",
+      "role": "R7 delta"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r7_craft_context/captures/1280x720/craft_body_palette_ready.png",
+      "revision": null,
+      "bytes": 331349,
+      "sha256": "739e10c8c0efd27920808ea1251db1187cdcdc5d39c10963602043a1600e465e",
+      "role": "R7 delta"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r7_craft_context/captures/1280x720/craft_body_rainbow_selected.png",
+      "revision": null,
+      "bytes": 336067,
+      "sha256": "6a6f32b9151fdbec6ab2c49fa4c07bc468d5aa4cc3af92a280a5f52906b690d1",
+      "role": "R7 delta"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r7_craft_context/captures/1280x720/craft_fresh_ready.png",
+      "revision": null,
+      "bytes": 324304,
+      "sha256": "ba47e8e78cb46425f3571fd95b2725bf9468f1c1fbba70c9cbcf636eb23d3c7c",
+      "role": "R7 delta"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r7_craft_context/captures/1280x720/craft_locked_bird_feedback.png",
+      "revision": null,
+      "bytes": 338976,
+      "sha256": "662aad591136e88138043b73714f9c418baae2d7a00b4dd4ec5f8c41012d523e",
+      "role": "R7 delta"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r7_craft_context/captures/1280x720/craft_locked_cat_feedback.png",
+      "revision": null,
+      "bytes": 338371,
+      "sha256": "9e854dd644af8ea4aab5c3c8f15af275b1f0e281976e310329cc76e3f22763ee",
+      "role": "R7 delta"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r7_craft_context/captures/1280x720/craft_third_color00_selected.png",
+      "revision": null,
+      "bytes": 335675,
+      "sha256": "fa8725181b1e28c1def5f72cb087ad197281c7cd65b3df90375336aea0cccb43",
+      "role": "R7 delta"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r7_craft_context/captures/1280x720/craft_third_color01_selected.png",
+      "revision": null,
+      "bytes": 338734,
+      "sha256": "2f9cc19b3f45622ec266a23aeeeac693d473aa3e946a4a239adb4005be1ceca8",
+      "role": "R7 delta"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r7_craft_context/captures/1280x720/craft_third_color02_selected.png",
+      "revision": null,
+      "bytes": 338887,
+      "sha256": "02cb07b23b73d49556361dcfaac59952e386ee69cb2c62f0dec81ebccb1f42d1",
+      "role": "R7 delta"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r7_craft_context/captures/1280x720/craft_third_color03_selected.png",
+      "revision": null,
+      "bytes": 339501,
+      "sha256": "01fd366aae27cf47cd1182b63471ccce14349bf8c7721baaa4288afeacdc0543",
+      "role": "R7 delta"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r7_craft_context/captures/1280x720/craft_third_color04_selected.png",
+      "revision": null,
+      "bytes": 338601,
+      "sha256": "198ef9b07b36e2a1cda98483e53d5d06f9dd0b47a59d8528df41476a1d81d016",
+      "role": "R7 delta"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r7_craft_context/captures/1280x720/craft_third_color05_selected.png",
+      "revision": null,
+      "bytes": 338586,
+      "sha256": "ce9d7df28b39af3d9def8cfabd961e2983cfb129d6f5e8eb8f5df3e418a46c8f",
+      "role": "R7 delta"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r7_craft_context/captures/1280x720/craft_third_color06_selected.png",
+      "revision": null,
+      "bytes": 338025,
+      "sha256": "c3029c92e6db9d239af08e5458b20613d436d1da8aff4eca1ac563a3541e8bbf",
+      "role": "R7 delta"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r7_craft_context/captures/1280x720/craft_third_color07_selected.png",
+      "revision": null,
+      "bytes": 337677,
+      "sha256": "51ed90c8b6a5b5356a3dbb08eba4ce63590e6dbca72a4f269ed047a88d1f86bc",
+      "role": "R7 delta"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r7_craft_context/captures/1280x720/craft_third_palette_ready.png",
+      "revision": null,
+      "bytes": 319815,
+      "sha256": "a289bebad00a4dba284d1410224a3dc5804b584d4b8d37340de1e3e8b9445621",
+      "role": "R7 delta"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r7_craft_context/captures/1600x720/capture_manifest.json",
+      "revision": null,
+      "bytes": 381149,
+      "sha256": "f8d2e5b8417e3a0172b83b9a87a5c02555fad8a86ecf8282137ec6d23d319561",
+      "role": "R7 delta"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r7_craft_context/captures/1600x720/craft_accent_color00_selected.png",
+      "revision": null,
+      "bytes": 374735,
+      "sha256": "2d54f6bb24a48e2ea16e3b6827b9f47060774fe75bae2a1f3a851b55c10760c8",
+      "role": "R7 delta"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r7_craft_context/captures/1600x720/craft_accent_color01_selected.png",
+      "revision": null,
+      "bytes": 379219,
+      "sha256": "0aa9de07ee86e045e842a672ddc8ccb15f274cee1319f73e3eaf12406e6198a7",
+      "role": "R7 delta"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r7_craft_context/captures/1600x720/craft_accent_color02_selected.png",
+      "revision": null,
+      "bytes": 380414,
+      "sha256": "ab7a5c2c7610f92e90b2e7f6b34f26df4bb26d36fb77ef68f642a5076cdcd3aa",
+      "role": "R7 delta"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r7_craft_context/captures/1600x720/craft_accent_color03_selected.png",
+      "revision": null,
+      "bytes": 378154,
+      "sha256": "0efce088a149146b373efcf82fadcfa45049a8171846659e80a11741abc453b7",
+      "role": "R7 delta"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r7_craft_context/captures/1600x720/craft_accent_color04_selected.png",
+      "revision": null,
+      "bytes": 379956,
+      "sha256": "2d4eff347759031734e85bd474483fb1f318ae860a706a8e9055a6880e364b80",
+      "role": "R7 delta"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r7_craft_context/captures/1600x720/craft_accent_color05_selected.png",
+      "revision": null,
+      "bytes": 377933,
+      "sha256": "35be590e11d663e99e975002568d7d3c1873d8c1965b20e9d248502bcef63ff2",
+      "role": "R7 delta"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r7_craft_context/captures/1600x720/craft_accent_color06_selected.png",
+      "revision": null,
+      "bytes": 381351,
+      "sha256": "05e93ab1553a64a740a1174110c35d9c4962ece3f2872a823af6c41d4c4240d2",
+      "role": "R7 delta"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r7_craft_context/captures/1600x720/craft_accent_color07_selected.png",
+      "revision": null,
+      "bytes": 383612,
+      "sha256": "ff36ae408de6e7f16eeb6ea50fac10d7e1f46ead849c7526dff455be3c8dabee",
+      "role": "R7 delta"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r7_craft_context/captures/1600x720/craft_accent_palette_ready.png",
+      "revision": null,
+      "bytes": 373492,
+      "sha256": "aa98e66fdf8b775ba71e670230eea77c6f13e3c218593eccf579985f4d2904ce",
+      "role": "R7 delta"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r7_craft_context/captures/1600x720/craft_accent_rainbow_selected.png",
+      "revision": null,
+      "bytes": 383878,
+      "sha256": "2c6720d0eec5872523a5de816f750295eb708bb8f9449f9ab87ac64c4cb496c0",
+      "role": "R7 delta"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r7_craft_context/captures/1600x720/craft_body_color00_pressed.png",
+      "revision": null,
+      "bytes": 368843,
+      "sha256": "0d28454a2e56ef1b242673f05833b2e3850772a5e87fe87afa24fc18ffaa30c5",
+      "role": "R7 delta"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r7_craft_context/captures/1600x720/craft_body_color00_selected.png",
+      "revision": null,
+      "bytes": 367876,
+      "sha256": "31e4fa9c5080264ea0d90421ed7a4215e33e7f930d6b5cf170c4a32ccaa9eed8",
+      "role": "R7 delta"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r7_craft_context/captures/1600x720/craft_body_color01_pressed.png",
+      "revision": null,
+      "bytes": 371254,
+      "sha256": "fac48017c3215fd4688be1360dd7582df4e3fa739d8adfbaf7a965268736c980",
+      "role": "R7 delta"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r7_craft_context/captures/1600x720/craft_body_color01_selected.png",
+      "revision": null,
+      "bytes": 372805,
+      "sha256": "5b022c7e57e6fd3f31517af984ed4f95cd77e34edb1d7afd63a95440933fedc3",
+      "role": "R7 delta"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r7_craft_context/captures/1600x720/craft_body_color02_pressed.png",
+      "revision": null,
+      "bytes": 376441,
+      "sha256": "9ad10c1e0a92e4d51e3bd7b5ab5be64f56fcb895da6ddc7d1ae04314e4f2666c",
+      "role": "R7 delta"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r7_craft_context/captures/1600x720/craft_body_color02_selected.png",
+      "revision": null,
+      "bytes": 373951,
+      "sha256": "183353166825f5218fccd7a168f298be6af95ec0207c173ff229536560d2ad11",
+      "role": "R7 delta"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r7_craft_context/captures/1600x720/craft_body_color03_pressed.png",
+      "revision": null,
+      "bytes": 379781,
+      "sha256": "b63b4623a7e3f4ca5a542018464c22b157e2d03f6fc24e544383e5187c11a800",
+      "role": "R7 delta"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r7_craft_context/captures/1600x720/craft_body_color03_selected.png",
+      "revision": null,
+      "bytes": 368362,
+      "sha256": "c2ca79a998c0fccd541e860179470350fe31be9cdbfa55295dd02975f1486c69",
+      "role": "R7 delta"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r7_craft_context/captures/1600x720/craft_body_color04_pressed.png",
+      "revision": null,
+      "bytes": 373970,
+      "sha256": "ef4575c56e5d3bb9912d8e73b95061708d6b21c03638811f70d88365f6966783",
+      "role": "R7 delta"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r7_craft_context/captures/1600x720/craft_body_color04_selected.png",
+      "revision": null,
+      "bytes": 372844,
+      "sha256": "14f8f1f2658ebb7da2bf4b6beabff915ce72fe432b59932ee93f15c1688c6c8f",
+      "role": "R7 delta"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r7_craft_context/captures/1600x720/craft_body_color05_pressed.png",
+      "revision": null,
+      "bytes": 376632,
+      "sha256": "698a73aef1f0eab8f2758c298dae891192ee93e8cabd537554d8a467b3cfaffa",
+      "role": "R7 delta"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r7_craft_context/captures/1600x720/craft_body_color05_selected.png",
+      "revision": null,
+      "bytes": 370775,
+      "sha256": "002bd422050ec98fea238d47ea68c37335c32012c926074a9dde55920abfb4f8",
+      "role": "R7 delta"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r7_craft_context/captures/1600x720/craft_body_color06_pressed.png",
+      "revision": null,
+      "bytes": 374820,
+      "sha256": "c28383bc8cbc42052d6778deccc2ab5c6eaf3aa5a8acc5ff86bb3722ca59c2d3",
+      "role": "R7 delta"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r7_craft_context/captures/1600x720/craft_body_color06_selected.png",
+      "revision": null,
+      "bytes": 372595,
+      "sha256": "7d83124ecc46823b2dce31ef51708bae36186b574a5b367fecdc1817a3bac272",
+      "role": "R7 delta"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r7_craft_context/captures/1600x720/craft_body_color07_pressed.png",
+      "revision": null,
+      "bytes": 375321,
+      "sha256": "e918e109d1286cc8a1e226c6f5f5ca11b11779eece6ca099cfde38c2f7214d32",
+      "role": "R7 delta"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r7_craft_context/captures/1600x720/craft_body_color07_selected.png",
+      "revision": null,
+      "bytes": 375585,
+      "sha256": "59e10ccaab378c35cf4bc681f89b52a6bc9455b48278abce36aaad9500d7aade",
+      "role": "R7 delta"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r7_craft_context/captures/1600x720/craft_body_palette_ready.png",
+      "revision": null,
+      "bytes": 372857,
+      "sha256": "1a0be90226db75000c4f25db61db0715adeb64992d37f601d48aca71984af60c",
+      "role": "R7 delta"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r7_craft_context/captures/1600x720/craft_body_rainbow_selected.png",
+      "revision": null,
+      "bytes": 375328,
+      "sha256": "539f302fa435ed994c8e2ccda211e56198c745aae7040b09aa1bd48cc44af643",
+      "role": "R7 delta"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r7_craft_context/captures/1600x720/craft_fresh_ready.png",
+      "revision": null,
+      "bytes": 365110,
+      "sha256": "329aa563d100d7653c29b46436defe1696e3e9995b34eeb5d3430cefd27f5065",
+      "role": "R7 delta"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r7_craft_context/captures/1600x720/craft_locked_bird_feedback.png",
+      "revision": null,
+      "bytes": 380815,
+      "sha256": "5b27e107c1e9da0a64a5781296709b13836c49be3f59d9f2c760f1ea22bbf675",
+      "role": "R7 delta"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r7_craft_context/captures/1600x720/craft_locked_cat_feedback.png",
+      "revision": null,
+      "bytes": 379066,
+      "sha256": "d1476a56b2727f0c64d5911286322fbc02c7bb2fc2f900dbacce5827ac4c7d0f",
+      "role": "R7 delta"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r7_craft_context/captures/1600x720/craft_third_color00_selected.png",
+      "revision": null,
+      "bytes": 381048,
+      "sha256": "6962157bd971b465b5aee3898caf1f0df1f70425605b189ab26aec32f43b2d8f",
+      "role": "R7 delta"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r7_craft_context/captures/1600x720/craft_third_color01_selected.png",
+      "revision": null,
+      "bytes": 383355,
+      "sha256": "d072c1fea1bf6cdff5112e2e901e5d597175d0ce8ce5294c99c586ed202f392a",
+      "role": "R7 delta"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r7_craft_context/captures/1600x720/craft_third_color02_selected.png",
+      "revision": null,
+      "bytes": 380919,
+      "sha256": "6fe245f8bff4e750e681b3953fa0cd384d29df48434b9fa1b4f5d9fd337691d3",
+      "role": "R7 delta"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r7_craft_context/captures/1600x720/craft_third_color03_selected.png",
+      "revision": null,
+      "bytes": 382973,
+      "sha256": "d1b4a25880f596beb564ae0c384c086f92a26e284362a9a5d9dc4006a7725653",
+      "role": "R7 delta"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r7_craft_context/captures/1600x720/craft_third_color04_selected.png",
+      "revision": null,
+      "bytes": 382378,
+      "sha256": "2060126adef99e0f00ebe13b6ea3017898c50d5b427c92502569f7046b9beba0",
+      "role": "R7 delta"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r7_craft_context/captures/1600x720/craft_third_color05_selected.png",
+      "revision": null,
+      "bytes": 383076,
+      "sha256": "8164284b44107a826f4177ec223c49ba4f1a1f6a2cacd5bd81c0a516a44282fd",
+      "role": "R7 delta"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r7_craft_context/captures/1600x720/craft_third_color06_selected.png",
+      "revision": null,
+      "bytes": 381985,
+      "sha256": "cc5c8df756bb5bfa756532a52fc3c1706c32e2bf1f01722f63a2efb411bdb513",
+      "role": "R7 delta"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r7_craft_context/captures/1600x720/craft_third_color07_selected.png",
+      "revision": null,
+      "bytes": 383055,
+      "sha256": "5a60622c3fb865088780c087f3841f3b737859e49e6d0522822265a9b7c53120",
+      "role": "R7 delta"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r7_craft_context/captures/1600x720/craft_third_palette_ready.png",
+      "revision": null,
+      "bytes": 362254,
+      "sha256": "744fd2b85ee1630f80d55436157b940d8147300cf1daa5c1aa5e40a9be2d604b",
+      "role": "R7 delta"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r7_craft_context/gate_logs/authority.log",
+      "revision": null,
+      "bytes": 78,
+      "sha256": "f68dce853c1033c9f4f0d5ac820713fab1020716276720958539a72802f62fa6",
+      "role": "R7 delta"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r7_craft_context/gate_logs/development.log",
+      "revision": null,
+      "bytes": 80,
+      "sha256": "fe1136f6488648e75036829fb4dde2405eb9ed57eec05f046fe441463c20d023",
+      "role": "R7 delta"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r7_craft_context/gate_logs/godot_check.log",
+      "revision": null,
+      "bytes": 75,
+      "sha256": "83cf0b082206af2aa236c83064fbcfa76be1e00a4aa3558574b2f65965d9481c",
+      "role": "R7 delta"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r7_craft_context/gate_logs/import.log",
+      "revision": null,
+      "bytes": 246021,
+      "sha256": "8feb4753b6dd94026a3587a7f6a849bbb26670eff693c6cd6ae36ecd3b8d2ea9",
+      "role": "R7 delta"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r7_craft_context/gate_logs/inference.log",
+      "revision": null,
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "role": "R7 delta"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r7_craft_context/gate_logs/integrity.log",
+      "revision": null,
+      "bytes": 133,
+      "sha256": "a827546586118afa675242a260d14d6f2916fabfef129ec229f05b89fe17ad02",
+      "role": "R7 delta"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r7_craft_context/gate_logs/parser.log",
+      "revision": null,
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "role": "R7 delta"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r7_craft_context/gate_logs/two_d.log",
+      "revision": null,
+      "bytes": 414,
+      "sha256": "763e51b38ed1cefc7a506b7148b9d6822c3a647d2fb45e1b64c8f22cb194e0ac",
+      "role": "R7 delta"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r7_craft_context/original_launch_receipt.json",
+      "revision": null,
+      "bytes": 1117,
+      "sha256": "d0cff7363308ae86554eab131a15c0151a508805affb49b4051b7793c6ca16c7",
+      "role": "R7 delta"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r7_craft_context/original_preflight.json",
+      "revision": null,
+      "bytes": 1290,
+      "sha256": "186e4b53e6fcaf0790fdba9ceac44b6118723a8fae39c79f91ea6f95202cd516",
+      "role": "R7 delta"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r7_craft_context/per_piece.json",
+      "revision": null,
+      "bytes": 1106076,
+      "sha256": "a428f389401b33b7e2156034969a45c1e7e6da6bdf11f5a87f66d18d268d06a1",
+      "role": "R7 delta"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r7_craft_context/scene_coverage.json",
+      "revision": null,
+      "bytes": 536942,
+      "sha256": "16f0b18c419035e3b9f426cfe748010138bfacb8951acd25f0cd9c957af5a5c6",
+      "role": "R7 delta"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r7_craft_context/source_before.json",
+      "revision": null,
+      "bytes": 1233618,
+      "sha256": "218912660f4b2e53335fe2a641dd08e33f352874cf1da07927bf4aac59913960",
+      "role": "R7 delta"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r7_craft_context/tally.json",
+      "revision": null,
+      "bytes": 10212,
+      "sha256": "4dd5decbd93c1270fcb17d2b80430971fd103aab42040f4451d806874a0896ba",
+      "role": "R7 delta"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r7_craft_context/validate.py",
+      "revision": null,
+      "bytes": 4737,
+      "sha256": "b1d2a6eff7eeb7f1a2dad9398850836e7865e220da72f224e5c4a0968ab79b17",
+      "role": "R7 delta"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r7_craft_context/verify_remote.py",
+      "revision": null,
+      "bytes": 2703,
+      "sha256": "c0f5ef905b1484e290129c770a07660459dc0cd118a8a1425aa4ca8fdf8ceaf6",
+      "role": "R7 delta"
+    },
+    {
+      "path": "assets/mg/fish_body.png",
+      "revision": "e2b3c73789707aa49a91b4f42e2a9dd4b68225df",
+      "bytes": 499234,
+      "sha256": "219da6079daa8fdfc0bf854c3c37d9584d18c2b1f65ef60dc0e2fa24a8996a41",
+      "role": "Exact source/license dependency"
+    },
+    {
+      "path": "assets/mg/fish_fins.png",
+      "revision": "e2b3c73789707aa49a91b4f42e2a9dd4b68225df",
+      "bytes": 964497,
+      "sha256": "52bbe03e05baed1092d4c17c881132311dc99772cb6deb038ace858fdc13c30e",
+      "role": "Exact source/license dependency"
+    },
+    {
+      "path": "assets/mg/fish_line.png",
+      "revision": "e2b3c73789707aa49a91b4f42e2a9dd4b68225df",
+      "bytes": 12778,
+      "sha256": "955f754a758c542034188e49d1a87e0c1a88cd21632888b862a884cf81bf16ef",
+      "role": "Exact source/license dependency"
+    },
+    {
+      "path": "scripts/arena/sky_lagoon.gd",
+      "revision": "e2b3c73789707aa49a91b4f42e2a9dd4b68225df",
+      "bytes": 135470,
+      "sha256": "c3b81b4d6b2cb500c8d4e1f6ff2e4064a8b9c7ca4c8b0010c20236ccbb2e0395",
+      "role": "Exact source/license dependency"
+    },
+    {
+      "path": "scripts/companion.gd",
+      "revision": "e2b3c73789707aa49a91b4f42e2a9dd4b68225df",
+      "bytes": 65658,
+      "sha256": "0baeb7256a209b5266ebdf48cdccb7af6497b30fd0666021c597eced6e04d269",
+      "role": "Exact source/license dependency"
+    },
+    {
+      "path": "scripts/craft_studio.gd",
+      "revision": "e2b3c73789707aa49a91b4f42e2a9dd4b68225df",
+      "bytes": 13414,
+      "sha256": "fd97af6efaeaf4b3949b94f921a71064b753c383d5adcf6e49395a487018de57",
+      "role": "Exact source/license dependency"
+    },
+    {
+      "path": "scripts/games/shop.gd",
+      "revision": "e2b3c73789707aa49a91b4f42e2a9dd4b68225df",
+      "bytes": 17821,
+      "sha256": "62ce2b2bf2a8319b7f0e86a7856436b5072f662be1c0477d6d7a79b0e45f7585",
+      "role": "Exact source/license dependency"
+    },
+    {
+      "path": "scripts/main.gd",
+      "revision": "e2b3c73789707aa49a91b4f42e2a9dd4b68225df",
+      "bytes": 370822,
+      "sha256": "b6e905824a4b60461181deda525c816fc790613479e9321d12ae7f71df666a33",
+      "role": "Exact source/license dependency"
+    },
+    {
+      "path": "scripts/save_state.gd",
+      "revision": "e2b3c73789707aa49a91b4f42e2a9dd4b68225df",
+      "bytes": 46616,
+      "sha256": "de380b088c8dcdd4623804d44a8fe35be5bfe7f8095cdcff1ca40c24e2c9c9b9",
+      "role": "Exact source/license dependency"
+    },
+    {
+      "path": "scripts/stuffie_battle.gd",
+      "revision": "e2b3c73789707aa49a91b4f42e2a9dd4b68225df",
+      "bytes": 24254,
+      "sha256": "9fa3246eb07d249ac223a82df8cd6b68ca572e0b28e918f594c420a49f9384a4",
+      "role": "Exact source/license dependency"
+    }
+  ],
+  "required_file_count": 147,
+  "required_bytes": 49865401,
+  "payload_sha256": "6da57703577056ed7e50a2f1f9c9e12cd394c9b5e4115c617b9279dfa628371b",
+  "inherited_context_limit": "Unchanged R6 context dependencies were previously fully verified by the exact immutable bound receipt; this revision re-verifies its declared delta/source/history/authority dependencies. No new full-game closure claim.",
+  "excluded_post_publication_record": "REMOTE_VERIFICATION.json",
+  "accepted_removed": 0,
+  "mission_complete": false
+}

@@ -1,0 +1,4 @@
+# Literal executed evidence retains original bytes. Fresh authored files keep inherited whitespace gates.
+capture.log -diff
+capture_craft.gd whitespace=blank-at-eol,space-before-tab,cr-at-eol,-blank-at-eof
+gate_logs/*.log -diff

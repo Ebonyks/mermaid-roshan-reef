@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "harness_sha256": "35d7e04bed41c6ac95f71e64a742db7f705c25c3c4b5834a1557f88e11458f37",
+  "commands": [
+    {
+      "command": [
+        "python",
+        "-m",
+        "gdtoolkit.parser",
+        "C:\\Users\\Peter\\.codex\\visualizations\\2026\\10\\08\\01a119c6-5602-7523-92db-1d320ca62bdf\\root_capture_craft_context_20261012.gd"
+      ],
+      "returncode": 0,
+      "output": ""
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/lint_inference.py",
+        "C:\\Users\\Peter\\.codex\\visualizations\\2026\\10\\08\\01a119c6-5602-7523-92db-1d320ca62bdf\\root_capture_craft_context_20261012.gd"
+      ],
+      "returncode": 0,
+      "output": ""
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-garden-pot-20261012\\mermaid-roshan-reef",
+        "--check-only",
+        "-s",
+        "C:\\Users\\Peter\\.codex\\visualizations\\2026\\10\\08\\01a119c6-5602-7523-92db-1d320ca62bdf\\root_capture_craft_context_20261012.gd"
+      ],
+      "returncode": 0,
+      "output": "Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org\n\n"
+    }
+  ]
+}

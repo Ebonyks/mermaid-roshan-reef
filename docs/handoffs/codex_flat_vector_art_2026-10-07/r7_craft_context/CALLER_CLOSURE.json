@@ -1,0 +1,116 @@
+{
+  "schema": 1,
+  "source_revision": "e2b3c73789707aa49a91b4f42e2a9dd4b68225df",
+  "piece_id": "FVR-FE178DEED189",
+  "texture_scopes": [
+    {
+      "id": "FVT-CCF43BC8DE55",
+      "path": "scripts/craft_studio.gd",
+      "function": "_craft_build_preview",
+      "lines": [
+        17,
+        38
+      ],
+      "status": "PARTIAL_CURRENT_CONTEXT"
+    },
+    {
+      "id": "FVT-318E934BB0DA",
+      "path": "scripts/main.gd",
+      "function": "_make_creature_node",
+      "lines": [
+        7168,
+        7217
+      ],
+      "status": "SOURCE_REVIEW_ONLY_RUNTIME_GAP",
+      "medium": "Legacy Node3D/Sprite3D measured migration debt; true2D conversion required"
+    }
+  ],
+  "id_method": "FVT- plus first12 uppercase SHA256 UTF8 path::function; separate texture census from frozen369primitive scopes.",
+  "primitive_register_membership": false,
+  "callers": [
+    {
+      "path": "scripts/main.gd",
+      "function": "_place_aq",
+      "lines": [
+        1797,
+        1807
+      ],
+      "role": "missing-model fish fallback",
+      "runtime_status": "COVERAGE_GAP"
+    },
+    {
+      "path": "scripts/games/shop.gd",
+      "function": "tank roster build",
+      "lines": [
+        152,
+        170
+      ],
+      "role": "same fish card across tank species; identity check required",
+      "runtime_status": "COVERAGE_GAP"
+    },
+    {
+      "path": "scripts/arena/sky_lagoon.gd",
+      "function": "saved custom_friends build",
+      "lines": [
+        653,
+        665
+      ],
+      "role": "saved cat/bird colors/flags/third defaults",
+      "runtime_status": "COVERAGE_GAP"
+    },
+    {
+      "path": "scripts/main.gd",
+      "function": "_layer_fx/_creature_spawned/_animate_billboard_creature",
+      "lines": [
+        7130,
+        7155,
+        7244,
+        7275
+      ],
+      "role": "modulation/shimmer/rainbow/idle; full transitions absent",
+      "runtime_status": "COVERAGE_GAP"
+    },
+    {
+      "path": "scripts/craft_studio.gd",
+      "function": "_craft_done",
+      "lines": [
+        268,
+        311
+      ],
+      "role": "preserve8-value custom_fish and kind/colors/flags/third custom_friends",
+      "runtime_status": "FINAL_CRAFT_SAVE_NOT_EXERCISED"
+    },
+    {
+      "path": "scripts/save_state.gd",
+      "function": "load/write/default validation",
+      "lines": [
+        40,
+        146,
+        281,
+        652
+      ],
+      "role": "preserve old arrays/defaults; no child save content read/modified",
+      "runtime_status": "ADDITIVE_SAVE_SCHEMA_REQUIRED"
+    }
+  ],
+  "excluded_similarly_named_caller": {
+    "path": "scripts/stuffie_battle.gd",
+    "function": "_build_creature",
+    "lines": [
+      165,
+      171
+    ],
+    "reason": "Companion.make_creature -> creature_for -> _stuffie_cutout; different source path than CREATURE_LAYERS."
+  },
+  "remaining_closure": [
+    "Natural/final/saved/repeat Craft entry",
+    "Purchased cat/bird old/new defaults/fallback states",
+    "Shop/species/_place_aq/courtyard runtime consumers",
+    "Full rainbow/shimmer/idle/contact/projection/ownership states",
+    "Fish-line attribution and fallback retirement",
+    "True2D/device/child/owner/live-target evidence"
+  ],
+  "fully_resolved_scopes": 0,
+  "all_game_piece_total": null,
+  "accepted_removed": 0
+}
