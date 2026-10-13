@@ -1,7 +1,76 @@
 {
   "schema": 1,
-  "status": "PENDING_VERIFICATION",
-  "creative_acceptance": false,
-  "accepted_removed": 0,
-  "mission_complete": false
+  "status": "PASS",
+  "started_at_utc": "2026-10-13T10:53:47.830317+00:00",
+  "checked_at_utc": "2026-10-13T10:55:09.373121+00:00",
+  "exact_staged_receipt_inputs": [
+    {
+      "path": "design/audit_impacts/flat-vector-geode-layered-reveal-20261013.json",
+      "bytes": 14245,
+      "sha256": "8718f485e81818cf745d8825444b2cd3c793162e86286b3807a1582b63b5a0fb"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r12_geode_layered_reveal/REMOTE_VERIFICATION.json",
+      "bytes": 104899,
+      "sha256": "9a52e65852570fb06223834635b20ecf538e9458b3572057a519d5f5db6a01b2"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r12_geode_layered_reveal/tally.json",
+      "bytes": 22437,
+      "sha256": "51f87635790457f61ae703671fed04779cdbd5089ac65ebad1568e484ef24038"
+    }
+  ],
+  "commands": [
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_document_authority.py"
+      ],
+      "returncode": 0,
+      "output": "DOCAUTH|INVENTORY=715|LEDGER=715|ACTIVE=68|RECORDS=71\nDOCAUTH|RESULT|ALL OK\n"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_development.py",
+        "--base",
+        "auto"
+      ],
+      "returncode": 0,
+      "output": "AUDITDEV|BASE|e2b3c73789707aa49a91b4f42e2a9dd4b68225df\nAUDITDEV|RESULT|ALL OK\n"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_game_2d.py",
+        "--regression-gate"
+      ],
+      "returncode": 0,
+      "output": "GAME2D| DEBT| model_files=0| model_scan_coverage_files=0| active_export_model_files=0| model_import_sidecars=0| active_untracked_model_import_sidecars=0| model_archive_files=0| production_3d_files=52| probe_3d_files=61| scene_3d_files=1| configuration_3d_files=1| archive_now_model_files=0\nGAME2D| STATUS| UNSATISFIED\nGAME2D| RESULT| NO_REGRESSION - exact shrinking baseline; migration debt remains UNSATISFIED\n"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r12_geode_layered_reveal\\validate.py"
+      ],
+      "returncode": 0,
+      "output": "R12_LAYERED|ALL OK|source partition/crop RGBA exact/52 native event snapshots; progressive input-driven reveal; cap/edge and motion acceptance incomplete;225 known/30 families;1900 bounded/2002 retained;zero acceptance;production unchanged\n"
+    },
+    {
+      "command": [
+        "git",
+        "diff",
+        "--cached",
+        "--check"
+      ],
+      "returncode": 0,
+      "output": ""
+    }
+  ],
+  "candidate_acceptance": "INCOMPLETE: caps/edge,full motion/contact/topology/whole-unit final sprite,QA11/device/child/owner/global inventory",
+  "interpretation": "Receipt metadata/final impact prose only; all immutable source/capture/count/candidate/acceptance facts preserved. No runtime integration or mission completion."
 }

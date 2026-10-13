@@ -246,9 +246,17 @@
   ],
   "role_and_family_counts_are_separate": true,
   "publication": {
-    "status": "PENDING_R12_PUBLICATION",
-    "manifest": "MANIFEST.json",
-    "receipt": "REMOTE_VERIFICATION.json"
+    "status": "EXACT_PUBLIC_PAYLOAD_VERIFIED",
+    "payload_revision": "a294cff1d874ed2c0f3f65c9d5b8dd1c93d3f065",
+    "manifest_sha256": "4e1dbd2507593f736feaa2eea860f8fad9202147d5787a4ae0ec5c43ee53bd4d",
+    "payload_sha256": "f5e7a685afd60ef85a313bfd4a3531bd04598b01182f879ec296da2a85aa77da",
+    "verified_required_files": 160,
+    "verified_fetches_including_manifest": 161,
+    "required_bytes": 54814570,
+    "checked_at_utc": "2026-10-13T10:51:28.694265+00:00",
+    "access_mode": "Anonymous public HTTPS for manifest and every declared required file; public GitHub repo API independently checked; recipient can use the same unauthenticated access mode.",
+    "receipt": "REMOTE_VERIFICATION.json",
+    "scope": "Post-publication delivery evidence only; source/count/candidate/acceptance gaps unchanged from immutable payload. Four final receipt metadata paths separately verified after receipt commit."
   },
   "independent_style_review": {
     "file": "ROOT_CONTEXT_REVIEW_20261012.json",
@@ -375,13 +383,23 @@
   "reference_resolution": "Inherited R6/R7/R8/R9/R10/R11 fields retain corresponding exact immutable bases. geode_layered_reveal resolves in R12; new derivative/project paths bound by R12 manifest. Historical rejects/failures/counts unchanged.",
   "unpublished_external_activity_limit": "Separate Garden production branch has no published revision at the verified reconciliation; its local candidate is outside this frozen verified tally. Generation/integration counts in this packet retain packet scope.",
   "current_ci": {
-    "status": "R12_PUBLICATION_PENDING",
+    "status": "LATEST_R12_RECEIPT_HEAD_CI_PENDING",
     "preceding_r11_head": "c5d70079bc2b048a76f50edeabd8a2ff2a95bd24",
     "preceding_r11_run": 38378061301,
     "preceding_snapshot": "PREVIOUS_HEAD_CI.json",
     "interpretation": "Exact current CI status separately frozen; unchanged production. No machine/technical evidence grants candidate/runtime/device/child/owner acceptance.",
     "preceding_r11_status": "completed",
-    "preceding_r11_conclusion": "cancelled"
+    "preceding_r11_conclusion": "cancelled",
+    "r12_payload_head": "a294cff1d874ed2c0f3f65c9d5b8dd1c93d3f065",
+    "payload_ci_snapshot": {
+      "conclusion": "",
+      "databaseId": 38386178523,
+      "headSha": "a294cff1d874ed2c0f3f65c9d5b8dd1c93d3f065",
+      "status": "in_progress",
+      "url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/38386178523"
+    },
+    "last_completed_full_green_head": "e8d0aa54b79d222f092534a053e4d716fc27067f",
+    "last_completed_full_green_run": 38369278689
   },
   "inherited_r7_reference_base": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/c1e466a8a9e605f43b4c7a181b3d7b702d7677aa/docs/handoffs/codex_flat_vector_art_2026-10-07/r7_craft_context/",
   "inherited_r8_reference_base": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/f4de7b921298b0dac052df408af03bbb2b62132b/docs/handoffs/codex_flat_vector_art_2026-10-07/r8_geode_context/",
