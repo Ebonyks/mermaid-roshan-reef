@@ -214,9 +214,17 @@
   ],
   "role_and_family_counts_are_separate": true,
   "publication": {
-    "status": "PENDING_R10_PAYLOAD_PUBLICATION",
-    "manifest": "MANIFEST.json",
-    "receipt": "REMOTE_VERIFICATION.json"
+    "status": "EXACT_PUBLIC_PAYLOAD_VERIFIED",
+    "payload_revision": "4e561c72e1859153eca8d49bba84e5b0a9a32f60",
+    "manifest_sha256": "dab041c5a9d2a4143e785328f321cd378989ccfef976d4626fd048e6f6a9b389",
+    "payload_sha256": "032d1af4f37e1f4650c6165e25ee308400c61c8bb6512d22123ee3b65a6d0d8a",
+    "verified_required_files": 124,
+    "verified_fetches_including_manifest": 125,
+    "required_bytes": 34980854,
+    "checked_at_utc": "2026-10-13T08:22:53.840001+00:00",
+    "access_mode": "Anonymous public HTTPS for manifest and every declared required file; public GitHub repo API independently checked; recipient can use the same unauthenticated access mode.",
+    "receipt": "REMOTE_VERIFICATION.json",
+    "scope": "Post-publication delivery evidence only; source/count/acceptance lanes unchanged from immutable payload. Final four receipt metadata paths require exact remote verification after receipt commit."
   },
   "independent_style_review": {
     "file": "ROOT_CONTEXT_REVIEW_20261012.json",
@@ -314,7 +322,7 @@
   "reference_resolution": "Inherited R6/R7/R8/R9 fields keep corresponding exact immutable bases; geode_marker_fit references resolve in R10. The prior exact registries/manifests are bound in this delta; no filename rebinding.",
   "unpublished_external_activity_limit": "Separate Garden production branch has no published revision at the verified reconciliation; its local candidate is outside this frozen verified tally. Generation/integration counts in this packet retain packet scope.",
   "current_ci": {
-    "status": "R10_PUBLICATION_PENDING",
+    "status": "LATEST_R10_RECEIPT_HEAD_CI_PENDING",
     "preceding_r9_head": "0c2732204bec7f882db26d835e2ce32ee12c7471",
     "preceding_r9_run": 38361393842,
     "preceding_snapshot": "PREVIOUS_HEAD_CI.json",
@@ -322,7 +330,17 @@
     "preceding_r9_status": "completed",
     "preceding_r9_conclusion": "cancelled",
     "last_completed_full_green_head": "f4de7b921298b0dac052df408af03bbb2b62132b",
-    "last_completed_full_green_run": 38355219868
+    "last_completed_full_green_run": 38355219868,
+    "r10_payload_head": "4e561c72e1859153eca8d49bba84e5b0a9a32f60",
+    "payload_ci_snapshot": {
+      "conclusion": "",
+      "databaseId": 38368803346,
+      "headSha": "4e561c72e1859153eca8d49bba84e5b0a9a32f60",
+      "status": "in_progress",
+      "url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/38368803346"
+    },
+    "preceding_r9_probes_conclusion": "success",
+    "preceding_r9_music_provenance_conclusion": "cancelled"
   },
   "inherited_r7_reference_base": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/c1e466a8a9e605f43b4c7a181b3d7b702d7677aa/docs/handoffs/codex_flat_vector_art_2026-10-07/r7_craft_context/",
   "inherited_r8_reference_base": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/f4de7b921298b0dac052df408af03bbb2b62132b/docs/handoffs/codex_flat_vector_art_2026-10-07/r8_geode_context/",

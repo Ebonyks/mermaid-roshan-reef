@@ -129,8 +129,8 @@
     },
     {
       "command": "Anonymous manifest/all-required-file remote SHA verification",
-      "result": "PENDING",
-      "evidence": "Additive R10 manifest plus post-publication REMOTE_VERIFICATION receipt; required before final delivery."
+      "result": "PASS",
+      "evidence": "Anonymous exact payload4e561c72e1859153eca8d49bba84e5b0a9a32f60 verified124requiredfiles plus manifest,34980854requiredbytes; manifest SHA dab041c5a9d2a4143e785328f321cd378989ccfef976d4626fd048e6f6a9b389. REMOTE_VERIFICATION records each exact revision/hash/access/time. Final receipt metadata is separately checked before completion of delivery."
     }
   ],
   "acceptance_gaps": "Matched opening family,vector guides,QA11,natural full route/reward/return/reload,device/child/owner and unknown full-game inventory remain open. No integration or accepted removal.",

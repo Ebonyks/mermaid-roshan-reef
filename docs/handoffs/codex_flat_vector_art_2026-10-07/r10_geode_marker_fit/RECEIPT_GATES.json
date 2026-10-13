@@ -1,4 +1,75 @@
 {
   "schema": 1,
-  "status": "PENDING_POST_PUBLICATION_RECEIPT_CHECKS"
+  "status": "PASS",
+  "started_at_utc": "2026-10-13T08:24:16.280597+00:00",
+  "checked_at_utc": "2026-10-13T08:25:36.791897+00:00",
+  "exact_staged_receipt_inputs": [
+    {
+      "path": "design/audit_impacts/flat-vector-geode-marker-fit-20261013.json",
+      "bytes": 11466,
+      "sha256": "fca8c6158302058b5c112b8e638b99cd28a026a1371e24894e7e502d782a8f68"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r10_geode_marker_fit/REMOTE_VERIFICATION.json",
+      "bytes": 81346,
+      "sha256": "42ee8290e9e29aa7814ac236d6ef7f2da24d8ce017432e94bf1cfddeb797dd3b"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r10_geode_marker_fit/tally.json",
+      "bytes": 17697,
+      "sha256": "9bf67467eea6ccb218a0b40afb85060a879fc6eb95d89f0fd43a1393bde44587"
+    }
+  ],
+  "commands": [
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_document_authority.py"
+      ],
+      "returncode": 0,
+      "output": "DOCAUTH|INVENTORY=713|LEDGER=713|ACTIVE=68|RECORDS=71\nDOCAUTH|RESULT|ALL OK\n"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_development.py",
+        "--base",
+        "auto"
+      ],
+      "returncode": 0,
+      "output": "AUDITDEV|BASE|e2b3c73789707aa49a91b4f42e2a9dd4b68225df\nAUDITDEV|RESULT|ALL OK\n"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_game_2d.py",
+        "--regression-gate"
+      ],
+      "returncode": 0,
+      "output": "GAME2D| DEBT| model_files=0| model_scan_coverage_files=0| active_export_model_files=0| model_import_sidecars=0| active_untracked_model_import_sidecars=0| model_archive_files=0| production_3d_files=52| probe_3d_files=61| scene_3d_files=1| configuration_3d_files=1| archive_now_model_files=0\nGAME2D| STATUS| UNSATISFIED\nGAME2D| RESULT| NO_REGRESSION - exact shrinking baseline; migration debt remains UNSATISFIED\n"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r10_geode_marker_fit\\validate.py"
+      ],
+      "returncode": 0,
+      "output": "R10_FIT|ALL OK|44 diagnostic snapshots; guide halo max55.3 within original56;225 known/30 families;1796 bounded/1898 retained;zero acceptance;production/pixels unchanged\n"
+    },
+    {
+      "command": [
+        "git",
+        "diff",
+        "--cached",
+        "--check"
+      ],
+      "returncode": 0,
+      "output": ""
+    }
+  ],
+  "interpretation": "Receipt metadata and final staged impact prose only; payload/source/capture/count/candidate acceptance facts unchanged. Prior native log retained in payload GATES.log. No acceptance or full mission completion."
 }
