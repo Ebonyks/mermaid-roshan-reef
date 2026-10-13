@@ -1,0 +1,82 @@
+{
+  "schema": 1,
+  "piece": "FV-C1AB21410352",
+  "family": "opera_geologist",
+  "original_source": "assets_src/minigame_art_quality_2026-09-05/geode-extraction-attempt01/native.png",
+  "original_sha256": "efaa5f2be034f61d62a548b1ebeaade825b56b98a757871f7e53244c6ed16181",
+  "derivative_sha256": "b639c2cbe36b460bb29db5f0e459329f8b6b8266d205412c95e539e9b7dc95ff",
+  "source_context_payload": "f9f276b27f86744672bd06b3d0c8f9e72c9d9120",
+  "context_receipt": "f4de7b921298b0dac052df408af03bbb2b62132b",
+  "files": [
+    {
+      "path": "assets_src/flat_vector_geode_reuse_20261013/geode_closed_native.aseprite",
+      "bytes": 2563929,
+      "sha256": "edac0711766f778dae56fec2ca49ad2773ce006b927cd35dc2dd7e9338f1f89e",
+      "role": "native source-preserving master/roundtrip",
+      "runtime_bound": false
+    },
+    {
+      "path": "assets_src/flat_vector_geode_reuse_20261013/geode_closed_native_roundtrip.png",
+      "bytes": 1560834,
+      "sha256": "a4bc45e2c50fc18c1620efba08c4277541a4334e86406b959e7be60b5d3ac524",
+      "role": "native source-preserving master/roundtrip",
+      "runtime_bound": false
+    },
+    {
+      "path": "assets_src/flat_vector_geode_reuse_20261013/geode_closed_1024.aseprite",
+      "bytes": 1695609,
+      "sha256": "7c363515eef23102b63f755f647eaea8b7a0b3163b92ad0d5f9e17fd81716203",
+      "role": "proportional technical candidate or processing/provenance record",
+      "runtime_bound": false
+    },
+    {
+      "path": "assets_src/flat_vector_geode_reuse_20261013/geode_closed_1024.png",
+      "bytes": 1022500,
+      "sha256": "b639c2cbe36b460bb29db5f0e459329f8b6b8266d205412c95e539e9b7dc95ff",
+      "role": "proportional technical candidate or processing/provenance record",
+      "runtime_bound": false
+    },
+    {
+      "path": "assets_src/flat_vector_geode_reuse_20261013/bridge_geode.lua",
+      "bytes": 1312,
+      "sha256": "03cfacd39e86ca42960d707cf76bc23e7b0b7e9b471db972bd4ca1a564ffcef7",
+      "role": "proportional technical candidate or processing/provenance record",
+      "runtime_bound": false
+    },
+    {
+      "path": "assets_src/flat_vector_geode_reuse_20261013/MASTER_PROOF.json",
+      "bytes": 186,
+      "sha256": "43cdec55e69c3d8fb06f18ac93d10960030d77716dfba017df2d62858be18d0c",
+      "role": "proportional technical candidate or processing/provenance record",
+      "runtime_bound": false
+    },
+    {
+      "path": "assets_src/flat_vector_geode_reuse_20261013/TECHNICAL_DERIVATION.json",
+      "bytes": 3302,
+      "sha256": "7bab7a1e2abe361f73654a6c81faafb60278bacfa7ce2eb5b284fef45d8fc6f8",
+      "role": "proportional technical candidate or processing/provenance record",
+      "runtime_bound": false
+    },
+    {
+      "path": "assets_src/flat_vector_geode_reuse_20261013/PLAN.json",
+      "bytes": 2938,
+      "sha256": "e2db81a3cdd07abb56605577b73370159b2d35a4ba3d5c98e581f2402d20ec8a",
+      "role": "proportional technical candidate or processing/provenance record",
+      "runtime_bound": false
+    },
+    {
+      "path": "assets_src/flat_vector_geode_reuse_20261013/aseprite.log",
+      "bytes": 67,
+      "sha256": "1efa888b9025540fc0c4c081ad49742c9f829c53579b03159cad774270ecec63",
+      "role": "proportional technical candidate or processing/provenance record",
+      "runtime_bound": false
+    }
+  ],
+  "technical_result": "PASS_NATIVE_RGBA_PRESERVATION_AND_UNIFORM1024_EXPORT",
+  "context_result": "INCOMPLETE_CLOSED_ONLY_FIT; two marker/crack offsets and matched opening family unresolved",
+  "new_generated_calls": 0,
+  "native_master_frames": 1,
+  "native_master_layers": 1,
+  "motion_acceptance": false,
+  "originals_preserved": true
+}

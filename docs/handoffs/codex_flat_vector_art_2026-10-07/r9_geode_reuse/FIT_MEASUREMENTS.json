@@ -1,0 +1,57 @@
+{
+  "schema": 1,
+  "candidate_sha256": "b639c2cbe36b460bb29db5f0e459329f8b6b8266d205412c95e539e9b7dc95ff",
+  "method": "Read-only alpha>=128 support bounding box and declared uniform source-to-Canvas projection; not semantic/QA11 acceptance.",
+  "source_alpha128_bbox": [
+    66,
+    67,
+    971,
+    965
+  ],
+  "draw_box": [
+    595,
+    165,
+    350,
+    350
+  ],
+  "projected_alpha128_bbox": [
+    617.55859375,
+    187.900390625,
+    926.884765625,
+    494.833984375
+  ],
+  "original_procedural_half_family": "Two halves of an approximately440x260 ellipse,12px outline; source-defined geometry retained in opening comparison control.",
+  "invisible_input_rect": [
+    550,
+    165,
+    440,
+    350
+  ],
+  "input_seam_points": [
+    [
+      766,
+      216
+    ],
+    [
+      735,
+      278
+    ],
+    [
+      778,
+      340
+    ],
+    [
+      744,
+      401
+    ],
+    [
+      770,
+      466
+    ]
+  ],
+  "input_radius": 56,
+  "input_tap_travel_limit": 34,
+  "pull_required": 120,
+  "trial_partial_pull": 60,
+  "no_python_pixel_edits": true
+}

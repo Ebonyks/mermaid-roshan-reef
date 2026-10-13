@@ -1,0 +1,68 @@
+[
+  {
+    "command": [
+      "python",
+      "-m",
+      "gdtoolkit.parser",
+      "C:\\Users\\Peter\\.codex\\visualizations\\2026\\10\\08\\01a119cc-74b1-7d23-b956-126129405418\\geode_reuse_trial_20261013T0620\\candidate_geode_surface.gd"
+    ],
+    "returncode": 0,
+    "output": ""
+  },
+  {
+    "command": [
+      "python",
+      "-B",
+      "tools/lint_inference.py",
+      "C:\\Users\\Peter\\.codex\\visualizations\\2026\\10\\08\\01a119cc-74b1-7d23-b956-126129405418\\geode_reuse_trial_20261013T0620\\candidate_geode_surface.gd"
+    ],
+    "returncode": 0,
+    "output": ""
+  },
+  {
+    "command": [
+      "python",
+      "-m",
+      "gdtoolkit.parser",
+      "C:\\Users\\Peter\\.codex\\visualizations\\2026\\10\\08\\01a119cc-74b1-7d23-b956-126129405418\\geode_reuse_trial_20261013T0620\\capture_geode_trial.gd"
+    ],
+    "returncode": 0,
+    "output": ""
+  },
+  {
+    "command": [
+      "python",
+      "-B",
+      "tools/lint_inference.py",
+      "C:\\Users\\Peter\\.codex\\visualizations\\2026\\10\\08\\01a119cc-74b1-7d23-b956-126129405418\\geode_reuse_trial_20261013T0620\\capture_geode_trial.gd"
+    ],
+    "returncode": 0,
+    "output": ""
+  },
+  {
+    "command": [
+      "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+      "--headless",
+      "--path",
+      "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef",
+      "--script",
+      "res://.godot/r9_candidate_geode_surface.gd",
+      "--check-only"
+    ],
+    "returncode": 0,
+    "output": "Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org\n\n"
+  },
+  {
+    "command": [
+      "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+      "--headless",
+      "--path",
+      "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef",
+      "--script",
+      "res://.godot/r9_capture_geode_trial.gd",
+      "--check-only"
+    ],
+    "returncode": 0,
+    "output": "Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org\n\n"
+  }
+]

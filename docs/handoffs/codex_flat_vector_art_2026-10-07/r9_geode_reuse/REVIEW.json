@@ -1,0 +1,128 @@
+{
+  "schema": 1,
+  "revision": "FV-AUDIT-20261013-R9",
+  "stable_piece_id": "FV-C1AB21410352",
+  "scope_id": "FVF-FAD33ED5C4F6",
+  "source_revision": "f4de7b921298b0dac052df408af03bbb2b62132b",
+  "reviewer": "Codex direct diagnostic visual inspection",
+  "status": "TECHNICAL_REUSE_TRIAL_COMPLETE_CONTEXT_FIT_INCOMPLETE",
+  "native_file_count": 44,
+  "unique_native_sha256_count": 35,
+  "actually_viewed_unique_native": 5,
+  "viewed_native": [
+    {
+      "aspect": "1280x720",
+      "state_id": "geode_closed_ready",
+      "path": "native/1280x720/geode_closed_ready.png",
+      "painted_closed_candidate_drawn": true,
+      "bytes": 226831,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "sha256": "54c112ae72384dfa4b8bd2ccdbfc5b7f9b9ecb3df1c609e3432668b0ad068bc3"
+    },
+    {
+      "aspect": "1280x720",
+      "state_id": "geode_seam02_released",
+      "path": "native/1280x720/geode_seam02_released.png",
+      "painted_closed_candidate_drawn": true,
+      "bytes": 225334,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "sha256": "7eaffad53bdfb5028f89935a71ad8a60333f6e70369fbbea983b894b624a0882"
+    },
+    {
+      "aspect": "1280x720",
+      "state_id": "geode_all_seams_ready",
+      "path": "native/1280x720/geode_all_seams_ready.png",
+      "painted_closed_candidate_drawn": true,
+      "bytes": 224036,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "sha256": "2a608295c5a3c9702c832232fbb8eae2ae1795bde257a12f57a22916bb538f02"
+    },
+    {
+      "aspect": "1280x720",
+      "state_id": "geode_partial_open_held",
+      "path": "native/1280x720/geode_partial_open_held.png",
+      "painted_closed_candidate_drawn": false,
+      "bytes": 111304,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "sha256": "058e105f6a74c92e06656e6c82c5dba409f278e0bce9732ca6476f94a89d8927"
+    },
+    {
+      "aspect": "1600x720",
+      "state_id": "geode_closed_ready",
+      "path": "native/1600x720/geode_closed_ready.png",
+      "painted_closed_candidate_drawn": true,
+      "bytes": 229560,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "sha256": "2c83f5110f567c0bf27b45d846785dd7a7d76bd7099acd204743c447b844fc25"
+    }
+  ],
+  "derived_source_viewed": {
+    "path": "assets_src/flat_vector_geode_reuse_20261013/geode_closed_1024.png",
+    "bytes": 1022500,
+    "sha256": "b639c2cbe36b460bb29db5f0e459329f8b6b8266d205412c95e539e9b7dc95ff",
+    "role": "proportional technical candidate or processing/provenance record",
+    "runtime_bound": false
+  },
+  "all_ten_comparison_axes": {
+    "contour": "Painted closed shell has a thin irregular plum/indigo edge closer to the same-scene actors than the old12px ellipse. Its alpha128 support projects to about309x307,while the old ellipse is about440x260 before outline. Closed-only replacement would change silhouette at opening.",
+    "material": "Source retains painted lavender planes and dense speckles through whole-canvas normalization. More volumetric than the solid ellipse; small detail is busier than broad actor cloth/skin groups. Mounted phone/material acceptance remains pending.",
+    "palette": "Lavender/pink stone and blue-purple shadows share Roshan tail/hair and helper cool-clothing hues; warm board separates it. Source colors retained. No global recolor or palette score inferred.",
+    "light": "Upper-left authored highlights remain intact; current actors also carry painted directional light. The new closed state loses that finish on deliberately unchanged procedural opening control,showing why closed-only adoption is incomplete.",
+    "perspective": "Near-round frontal source is uniformly fit. Legacy opened halves remain a wide frontal ellipse. Separately opened painted candidate is not trialed or assumed to solve matched topology; no new art gap is declared from that untested assumption.",
+    "scale": "Whole canvas1024 maps into350square at595,165 inside unchanged440x350 input envelope. Actual alpha128 projected bbox is recorded. The narrower source does not justify changing hit geometry or stretching it.",
+    "contact": "All five releases preserve original seam progression; wrong touch/early pull do not progress.60-pixel pull survives release/cancel. These are isolated diagnostics. No authored hand/tool contact,full opening or complete physical performance accepted.",
+    "occlusion": "Characters remain left of board and visible. Markers overlay the crack; marker1 and3 centers visibly sit left of painted seam. Upper/lower markers also cover some crack detail. Need a declared source/guide fit within existing generous touch reach.",
+    "readability": "Painted closed stone remains one clear mass,but flat yellow/cyan markers dominate it. Five markers retain their original action state. Phone squint/non-reader/device/child understanding and full semantic-geode read remain unreviewed.",
+    "action_state": "Painted source is shown only while pull=0. At positive pull the prototype intentionally shows unchanged production control; that branch is not a repaired candidate fallback. Complete matching closed/seamed/open/interior/settle family remains missing. No source-generation failure or global regression claimed."
+  },
+  "observations": [
+    {
+      "id": "GEODE-R9-SIZE",
+      "piece": "FV-C1AB21410352",
+      "result": "Native-size blocker addressed for this derivative; preservation and size/alpha machine checks pass. No acceptance."
+    },
+    {
+      "id": "GEODE-R9-MARKERS",
+      "piece": "FV-4502C5860C45",
+      "result": "Marker1/3 are left of painted crack in viewed closed context. Local source/guide placement refinement remains untested; not proof all reuse failed."
+    },
+    {
+      "id": "GEODE-R9-FAMILY",
+      "pieces": [
+        "FV-C1AB21410352",
+        "FV-99DB2D71D276",
+        "FV-F7DB96881260"
+      ],
+      "result": "Closed-only swap is incomplete. Positive-pull branch intentionally retains legacy control; matching painted opening/interior/geometry has not been authored or accepted."
+    }
+  ],
+  "new_generation_calls": 0,
+  "runtime_changes": [],
+  "accepted_removed": 0,
+  "full_context_review_complete": false,
+  "acceptance_lanes": {
+    "approved_candidate": null,
+    "production_integration": null,
+    "runtime_verified_replacement": null,
+    "device": null,
+    "child": null,
+    "owner": null,
+    "QA11": null
+  },
+  "candidate_lane": "One published technical derivative/diagnostic sample for one existing piece and family; incomplete fit,not ready for adoption or owner final-art approval."
+}

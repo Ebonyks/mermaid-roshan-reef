@@ -1,0 +1,977 @@
+{
+  "schema": 1,
+  "status": "PASS",
+  "started_at_utc": "2026-10-13T07:01:04.525678+00:00",
+  "checked_at_utc": "2026-10-13T07:02:16.121918+00:00",
+  "exact_staged_inputs": [
+    {
+      "path": ".gitattributes",
+      "bytes": 4023,
+      "sha256": "4ff14f22e68ae23ee02401d22f587b1d5d2934a4d41a9878776053814a7f8672"
+    },
+    {
+      "path": "ASSET_LICENSES.md",
+      "bytes": 4406911,
+      "sha256": "284173cd08124f5cca9dde1d88f67e4cab6537087292c767b47f962abfdf04fc"
+    },
+    {
+      "path": "assets_src/flat_vector_geode_reuse_20261013/MASTER_PROOF.json",
+      "bytes": 186,
+      "sha256": "43cdec55e69c3d8fb06f18ac93d10960030d77716dfba017df2d62858be18d0c"
+    },
+    {
+      "path": "assets_src/flat_vector_geode_reuse_20261013/PLAN.json",
+      "bytes": 2938,
+      "sha256": "e2db81a3cdd07abb56605577b73370159b2d35a4ba3d5c98e581f2402d20ec8a"
+    },
+    {
+      "path": "assets_src/flat_vector_geode_reuse_20261013/TECHNICAL_DERIVATION.json",
+      "bytes": 3302,
+      "sha256": "7bab7a1e2abe361f73654a6c81faafb60278bacfa7ce2eb5b284fef45d8fc6f8"
+    },
+    {
+      "path": "assets_src/flat_vector_geode_reuse_20261013/aseprite.log",
+      "bytes": 67,
+      "sha256": "1efa888b9025540fc0c4c081ad49742c9f829c53579b03159cad774270ecec63"
+    },
+    {
+      "path": "assets_src/flat_vector_geode_reuse_20261013/bridge_geode.lua",
+      "bytes": 1312,
+      "sha256": "03cfacd39e86ca42960d707cf76bc23e7b0b7e9b471db972bd4ca1a564ffcef7"
+    },
+    {
+      "path": "assets_src/flat_vector_geode_reuse_20261013/geode_closed_1024.aseprite",
+      "bytes": 1695609,
+      "sha256": "7c363515eef23102b63f755f647eaea8b7a0b3163b92ad0d5f9e17fd81716203"
+    },
+    {
+      "path": "assets_src/flat_vector_geode_reuse_20261013/geode_closed_1024.png",
+      "bytes": 1022500,
+      "sha256": "b639c2cbe36b460bb29db5f0e459329f8b6b8266d205412c95e539e9b7dc95ff"
+    },
+    {
+      "path": "assets_src/flat_vector_geode_reuse_20261013/geode_closed_native.aseprite",
+      "bytes": 2563929,
+      "sha256": "edac0711766f778dae56fec2ca49ad2773ce006b927cd35dc2dd7e9338f1f89e"
+    },
+    {
+      "path": "assets_src/flat_vector_geode_reuse_20261013/geode_closed_native_roundtrip.png",
+      "bytes": 1560834,
+      "sha256": "a4bc45e2c50fc18c1620efba08c4277541a4334e86406b959e7be60b5d3ac524"
+    },
+    {
+      "path": "audit/MASTER_AUDIT_2026-08-09.md",
+      "bytes": 295513,
+      "sha256": "aaebe4ddb274a4660ae374240dae91c1308a0bb3645166722404dc471c8235a9"
+    },
+    {
+      "path": "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
+      "bytes": 246752,
+      "sha256": "c517b77e2e82297e5ae59cd68b1680f15d79afee422a423c5055f01e2a2592ce"
+    },
+    {
+      "path": "design/05_DOC_LEDGER.md",
+      "bytes": 221318,
+      "sha256": "88e85ba5784d171bf449de2f9d459e69b4b41c3eab2b6330a56cf8a47276caaa"
+    },
+    {
+      "path": "design/audit_impacts/flat-vector-geode-reuse-20261013.json",
+      "bytes": 10987,
+      "sha256": "86caaa574b36eed4325ec3fd35e3c9a625e01c434c50992bcd0d1f884aed022f"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/CURRENT.json",
+      "bytes": 947,
+      "sha256": "f110e708e3d997619cbd8d0ec42f68bf22c88826e0092d494784d78b88921c9b"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/README.md",
+      "bytes": 8059,
+      "sha256": "ad94b78732466ebc6dd51e4ccd93be282ae07b5bddc34bd2e15579a830f772e7"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r9_geode_reuse/CONGRUENCY_BACKLOG.json",
+      "bytes": 69531,
+      "sha256": "dba63b6bbac7ccab7dd7275b4a5c7f3ea5841e11e16b43c8a0d2e53f1d5960fc"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r9_geode_reuse/DERIVATIVES.json",
+      "bytes": 3626,
+      "sha256": "02d7bdd56571fea38946e9ef53fd0bc1ce0d73dd83c76027ebcf19bc41dc1ccb"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r9_geode_reuse/FIT_MEASUREMENTS.json",
+      "bytes": 1047,
+      "sha256": "0a895b6722abcdebe27ad0a58dba8a260793f5af8e37133ddb739d4e25066567"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r9_geode_reuse/IMPORT.json",
+      "bytes": 722,
+      "sha256": "04317deb6643134ca37ff79cba93634d596684642c73a75a1104e9a6ddf534c7"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r9_geode_reuse/LAUNCH.json",
+      "bytes": 1107,
+      "sha256": "05fbf7917269a8feafb97e5c523681e881a3eda1402f9065605c54d32b2c3bae"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r9_geode_reuse/PREFLIGHT.json",
+      "bytes": 612689,
+      "sha256": "694dd5f3c9339ae067fc74968c108a8a8cc87d8c98a608f304d2fb034370f5a3"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r9_geode_reuse/PREVIOUS_HEAD_CI.json",
+      "bytes": 10379,
+      "sha256": "5af6df4ed0c9b9fbf22e51dd7e2399409316c5cf978a698c08f65c27a3b0bcdf"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r9_geode_reuse/README.md",
+      "bytes": 3321,
+      "sha256": "bf5157f861ed7c3e9843125756b40472cd261e10232cff8c29202a50352da43c"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r9_geode_reuse/REUSE_JOB.json",
+      "bytes": 1923,
+      "sha256": "499c82235cd5bc14e77df89b1d1870f175586dee2250af3262fbefffda31d916"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r9_geode_reuse/REVIEW.json",
+      "bytes": 6527,
+      "sha256": "177daeb2da72d2f74f6f324043141782733216f094cc9972df7ae840f27b86b8"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r9_geode_reuse/SCRIPT_GATES.json",
+      "bytes": 2087,
+      "sha256": "335b9478b1a07fceb3fea9d8318adba409e271bea37fb4eba1851ee19f8aea9b"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r9_geode_reuse/SOURCES.json",
+      "bytes": 13792,
+      "sha256": "93885c3fe7397c8ebb953b8ba54ea666a1ecc65687531531df62406239fb6520"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r9_geode_reuse/SOURCE_PARITY.json",
+      "bytes": 16259,
+      "sha256": "349a70c35d1ecb3388cd1e3ff678521caddb0aef926db64bd0fcd784c679c296"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r9_geode_reuse/build_manifest.py",
+      "bytes": 3324,
+      "sha256": "58e60f7e98b0c07ff51425a2b6fc16880856ce66869cb220145c002c3c7d96c6"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r9_geode_reuse/candidate_geode_surface.gd",
+      "bytes": 1247,
+      "sha256": "0017d5cc2c2ef654fa56de2c42b5708a2d93e3bdf46b9b0b370189842698c39b"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r9_geode_reuse/capture.log",
+      "bytes": 1922,
+      "sha256": "eb34ad592188a408ea388b398faa02164232e03dc8c95d533302e84b00d35b07"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r9_geode_reuse/capture_geode_trial.gd",
+      "bytes": 11560,
+      "sha256": "5713db387af66934e6795d948df8dc261515c67c553c948d26c06bebda1aab7c"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r9_geode_reuse/import.log",
+      "bytes": 242687,
+      "sha256": "9aace8ec7f4b6e5d7bfc6b56e402674329cc62259877fc448d9cafeffa1e1997"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r9_geode_reuse/native/1280x720/capture_manifest.json",
+      "bytes": 85871,
+      "sha256": "dce5a5305457f9926c362f94bc36b9e875b0a5d199841389255a735250418678"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r9_geode_reuse/native/1280x720/geode_all_seams_ready.png",
+      "bytes": 224036,
+      "sha256": "2a608295c5a3c9702c832232fbb8eae2ae1795bde257a12f57a22916bb538f02"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r9_geode_reuse/native/1280x720/geode_cancel_focus_notification.png",
+      "bytes": 111048,
+      "sha256": "1a543fa6c601790284fd1d2db1c35d999d9eb2476c6a00050806575dea07175e"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r9_geode_reuse/native/1280x720/geode_cancel_pressed.png",
+      "bytes": 111237,
+      "sha256": "c27385b6092e1a81da18ea2b58c5424b919ae480c43429f9620f31e5e223482a"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r9_geode_reuse/native/1280x720/geode_closed_passive_1s.png",
+      "bytes": 226760,
+      "sha256": "f7378aaaa5597dc83158bf444a1564b4a77bf05e87512072945515ecfa0279e3"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r9_geode_reuse/native/1280x720/geode_closed_ready.png",
+      "bytes": 226831,
+      "sha256": "54c112ae72384dfa4b8bd2ccdbfc5b7f9b9ecb3df1c609e3432668b0ad068bc3"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r9_geode_reuse/native/1280x720/geode_early_pull_dragged.png",
+      "bytes": 226486,
+      "sha256": "b2290dd55edd29666ec3f520d37d0f71d69ba3d29943df8f74a7a6ce02b5f488"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r9_geode_reuse/native/1280x720/geode_early_pull_pressed.png",
+      "bytes": 226486,
+      "sha256": "b760bbb548282be4417771a13502730ff73c8413ee9353dbb50bd50b75699482"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r9_geode_reuse/native/1280x720/geode_early_pull_released.png",
+      "bytes": 226486,
+      "sha256": "b2290dd55edd29666ec3f520d37d0f71d69ba3d29943df8f74a7a6ce02b5f488"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r9_geode_reuse/native/1280x720/geode_partial_open_held.png",
+      "bytes": 111304,
+      "sha256": "058e105f6a74c92e06656e6c82c5dba409f278e0bce9732ca6476f94a89d8927"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r9_geode_reuse/native/1280x720/geode_partial_open_released.png",
+      "bytes": 111291,
+      "sha256": "88a2236fb22079ff0416357382c06e5513fa81677073657bd263eb4737fad1e9"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r9_geode_reuse/native/1280x720/geode_seam00_pressed.png",
+      "bytes": 226481,
+      "sha256": "bbff02a9c278360599ce012101b4cb84848d2c35f182cfc5eb5351d1c089dce7"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r9_geode_reuse/native/1280x720/geode_seam00_released.png",
+      "bytes": 226187,
+      "sha256": "9e8eae6cc2c0a25b39b518d8093c5a2d62a78615ac5bd4ba9352ff5de146e9d2"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r9_geode_reuse/native/1280x720/geode_seam01_pressed.png",
+      "bytes": 226187,
+      "sha256": "9e8eae6cc2c0a25b39b518d8093c5a2d62a78615ac5bd4ba9352ff5de146e9d2"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r9_geode_reuse/native/1280x720/geode_seam01_released.png",
+      "bytes": 225874,
+      "sha256": "57bca842e5e0812e43718fd11fc5115cad9737ed42340af71c8d0ddd8d87a89c"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r9_geode_reuse/native/1280x720/geode_seam02_pressed.png",
+      "bytes": 225874,
+      "sha256": "57bca842e5e0812e43718fd11fc5115cad9737ed42340af71c8d0ddd8d87a89c"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r9_geode_reuse/native/1280x720/geode_seam02_released.png",
+      "bytes": 225334,
+      "sha256": "7eaffad53bdfb5028f89935a71ad8a60333f6e70369fbbea983b894b624a0882"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r9_geode_reuse/native/1280x720/geode_seam03_pressed.png",
+      "bytes": 225334,
+      "sha256": "7eaffad53bdfb5028f89935a71ad8a60333f6e70369fbbea983b894b624a0882"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r9_geode_reuse/native/1280x720/geode_seam03_released.png",
+      "bytes": 224617,
+      "sha256": "c617b3b517aa9838492ff71f9e65572f15a57dbd00870dd58c25103c692b008c"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r9_geode_reuse/native/1280x720/geode_seam04_pressed.png",
+      "bytes": 224617,
+      "sha256": "c617b3b517aa9838492ff71f9e65572f15a57dbd00870dd58c25103c692b008c"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r9_geode_reuse/native/1280x720/geode_seam04_released.png",
+      "bytes": 224033,
+      "sha256": "bb2d9d7f36b850dcbbced2008a7dd6799f5ee56b3ee39add83faff5618413482"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r9_geode_reuse/native/1280x720/geode_seam_repeat.png",
+      "bytes": 224026,
+      "sha256": "6971df0c2b5245a81ebc4e53bba18b6b9b7ea20a27b1dbea292eb75341174813"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r9_geode_reuse/native/1280x720/geode_wrong_tap.png",
+      "bytes": 226486,
+      "sha256": "b760bbb548282be4417771a13502730ff73c8413ee9353dbb50bd50b75699482"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r9_geode_reuse/native/1600x720/capture_manifest.json",
+      "bytes": 86267,
+      "sha256": "b89072982b71860b38127e4a483c6a2448829f79053de63a05991a0ec6b20b67"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r9_geode_reuse/native/1600x720/geode_all_seams_ready.png",
+      "bytes": 226899,
+      "sha256": "c8df3bc84c588ccfdaa38e8f876e8973df8d20728a44b766c2eaaa5db8f66e9b"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r9_geode_reuse/native/1600x720/geode_cancel_focus_notification.png",
+      "bytes": 113726,
+      "sha256": "5d56a5d2226205145fc8cbd694c71d4381ebb63e600c7362a443f87af9a3798d"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r9_geode_reuse/native/1600x720/geode_cancel_pressed.png",
+      "bytes": 113916,
+      "sha256": "534279390882ab87276379bb806fd383aa28f5c439d6fc01f2cef49c41ed8d4b"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r9_geode_reuse/native/1600x720/geode_closed_passive_1s.png",
+      "bytes": 229295,
+      "sha256": "405089be90d7428ce5755b9527f06ff16c54b5aa3a61b570d003efc54f441690"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r9_geode_reuse/native/1600x720/geode_closed_ready.png",
+      "bytes": 229560,
+      "sha256": "2c83f5110f567c0bf27b45d846785dd7a7d76bd7099acd204743c447b844fc25"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r9_geode_reuse/native/1600x720/geode_early_pull_dragged.png",
+      "bytes": 229164,
+      "sha256": "b7b0bedf5df6672696a1c68324785823f0c8eab2d1ed7077871de504174be9aa"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r9_geode_reuse/native/1600x720/geode_early_pull_pressed.png",
+      "bytes": 229155,
+      "sha256": "c35b750307ff0720cf2e45b16c13b11ef46bd1ab1bf8b974a7eae8fc55da04ea"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r9_geode_reuse/native/1600x720/geode_early_pull_released.png",
+      "bytes": 229164,
+      "sha256": "b7b0bedf5df6672696a1c68324785823f0c8eab2d1ed7077871de504174be9aa"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r9_geode_reuse/native/1600x720/geode_partial_open_held.png",
+      "bytes": 113909,
+      "sha256": "ea6fa52201e0e86e3a042d9264d935cfaa115a87de35e8bd4d6e5ef9901216cb"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r9_geode_reuse/native/1600x720/geode_partial_open_released.png",
+      "bytes": 113918,
+      "sha256": "7199a022d60e0a7f61c4a9677dde0aa78ee2fd097819cadbe5f3d8a3377eb597"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r9_geode_reuse/native/1600x720/geode_seam00_pressed.png",
+      "bytes": 229176,
+      "sha256": "10469934bde1ca741a2249df105ec3c0da7422892f273e96bed8998c533316ba"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r9_geode_reuse/native/1600x720/geode_seam00_released.png",
+      "bytes": 228778,
+      "sha256": "88b902590d7bede3537380e2d819d77e8390bbbbc932c538138db0264df82ab2"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r9_geode_reuse/native/1600x720/geode_seam01_pressed.png",
+      "bytes": 228760,
+      "sha256": "eb749f9a34f2092cabf3481faafe9579c1e978e33ef94bb94ce4ee862cf7fd66"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r9_geode_reuse/native/1600x720/geode_seam01_released.png",
+      "bytes": 228571,
+      "sha256": "dd367683e5d06a53456d3c3d7b1c7fd7fffdd725261ec907c5bd55486159087d"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r9_geode_reuse/native/1600x720/geode_seam02_pressed.png",
+      "bytes": 228571,
+      "sha256": "dd367683e5d06a53456d3c3d7b1c7fd7fffdd725261ec907c5bd55486159087d"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r9_geode_reuse/native/1600x720/geode_seam02_released.png",
+      "bytes": 228061,
+      "sha256": "65a29c97db963e2e39a65d06e2e84365716d0b97eec88c65ddd2a42a6c5b8e98"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r9_geode_reuse/native/1600x720/geode_seam03_pressed.png",
+      "bytes": 228077,
+      "sha256": "df8578d8d715e52cc157e9acd0a1b0303947cf95a5a9b59aa7d23f37426f383a"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r9_geode_reuse/native/1600x720/geode_seam03_released.png",
+      "bytes": 227500,
+      "sha256": "a80cfbac261839635fd2be41447190d93b2178292014fd7ffbf191e5f32e0b63"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r9_geode_reuse/native/1600x720/geode_seam04_pressed.png",
+      "bytes": 227482,
+      "sha256": "a06ea310a67054eda441ab689337dd8cfc978cdb792d7d3c8cae6f5df0aa0d3f"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r9_geode_reuse/native/1600x720/geode_seam04_released.png",
+      "bytes": 226913,
+      "sha256": "10cf7220e683480fe9cb6615ae9ae2d488a9d6a41c7b849be490a9864ba12105"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r9_geode_reuse/native/1600x720/geode_seam_repeat.png",
+      "bytes": 226911,
+      "sha256": "df9011de250d2fe6ddd818b45809796d7eef2e45649cac39b63d680b3d752162"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r9_geode_reuse/native/1600x720/geode_wrong_tap.png",
+      "bytes": 229155,
+      "sha256": "c35b750307ff0720cf2e45b16c13b11ef46bd1ab1bf8b974a7eae8fc55da04ea"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r9_geode_reuse/per_piece.json",
+      "bytes": 1107321,
+      "sha256": "197bb53875451d08f366c8f0d9a6aa8bb24e8eacae722ff938f2ffdd6746902c"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r9_geode_reuse/scene_coverage.json",
+      "bytes": 609326,
+      "sha256": "a50de9bed12bbf0bc898bf811689cea541eeab93bccc2eed14d69f0c24c47f73"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r9_geode_reuse/tally.json",
+      "bytes": 14048,
+      "sha256": "a0ac991ecb5217e7db85e83bce68c5c03e838937f2cef1e00eaaa2e810461b80"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r9_geode_reuse/validate.py",
+      "bytes": 4457,
+      "sha256": "df832679b350b2d88897a94008f2da6c95d5ff353a425e9ce67c484b57f707eb"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r9_geode_reuse/verify_remote.py",
+      "bytes": 2703,
+      "sha256": "d07ab54880697f20f7197d0dfcc3099c2682af84aee71e99644c6ffe99867d4d"
+    }
+  ],
+  "commands": [
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_document_authority.py"
+      ],
+      "returncode": 0,
+      "output": "DOCAUTH|INVENTORY=712|LEDGER=712|ACTIVE=68|RECORDS=71\nDOCAUTH|RESULT|ALL OK\n"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_development.py",
+        "--base",
+        "auto"
+      ],
+      "returncode": 0,
+      "output": "AUDITDEV|BASE|e2b3c73789707aa49a91b4f42e2a9dd4b68225df\nAUDITDEV|RESULT|ALL OK\n"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_game_2d.py",
+        "--regression-gate"
+      ],
+      "returncode": 0,
+      "output": "GAME2D| DEBT| model_files=0| model_scan_coverage_files=0| active_export_model_files=0| model_import_sidecars=0| active_untracked_model_import_sidecars=0| model_archive_files=0| production_3d_files=52| probe_3d_files=61| scene_3d_files=1| configuration_3d_files=1| archive_now_model_files=0\nGAME2D| STATUS| UNSATISFIED\nGAME2D| RESULT| NO_REGRESSION - exact shrinking baseline; migration debt remains UNSATISFIED\n"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r9_geode_reuse\\validate.py"
+      ],
+      "returncode": 0,
+      "output": "R9_REUSE|ALL OK|native RGBA preserved/1024 export/44 preview files;225 known/30 families;unknown denominators;zero acceptance;production unchanged\n"
+    }
+  ],
+  "initial_gates": {
+    "schema": 1,
+    "status": "PASS",
+    "started_at_utc": "2026-10-13T06:53:14.280766+00:00",
+    "checked_at_utc": "2026-10-13T06:55:43.156935+00:00",
+    "exact_staged_inputs": [
+      {
+        "path": ".gitattributes",
+        "bytes": 4023,
+        "sha256": "4ff14f22e68ae23ee02401d22f587b1d5d2934a4d41a9878776053814a7f8672"
+      },
+      {
+        "path": "ASSET_LICENSES.md",
+        "bytes": 4406911,
+        "sha256": "284173cd08124f5cca9dde1d88f67e4cab6537087292c767b47f962abfdf04fc"
+      },
+      {
+        "path": "audit/MASTER_AUDIT_2026-08-09.md",
+        "bytes": 295513,
+        "sha256": "aaebe4ddb274a4660ae374240dae91c1308a0bb3645166722404dc471c8235a9"
+      },
+      {
+        "path": "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
+        "bytes": 246752,
+        "sha256": "c517b77e2e82297e5ae59cd68b1680f15d79afee422a423c5055f01e2a2592ce"
+      },
+      {
+        "path": "design/05_DOC_LEDGER.md",
+        "bytes": 221318,
+        "sha256": "88e85ba5784d171bf449de2f9d459e69b4b41c3eab2b6330a56cf8a47276caaa"
+      },
+      {
+        "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/CURRENT.json",
+        "bytes": 947,
+        "sha256": "f110e708e3d997619cbd8d0ec42f68bf22c88826e0092d494784d78b88921c9b"
+      },
+      {
+        "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/README.md",
+        "bytes": 8059,
+        "sha256": "ad94b78732466ebc6dd51e4ccd93be282ae07b5bddc34bd2e15579a830f772e7"
+      },
+      {
+        "path": "assets_src/flat_vector_geode_reuse_20261013/MASTER_PROOF.json",
+        "bytes": 186,
+        "sha256": "43cdec55e69c3d8fb06f18ac93d10960030d77716dfba017df2d62858be18d0c"
+      },
+      {
+        "path": "assets_src/flat_vector_geode_reuse_20261013/PLAN.json",
+        "bytes": 2938,
+        "sha256": "e2db81a3cdd07abb56605577b73370159b2d35a4ba3d5c98e581f2402d20ec8a"
+      },
+      {
+        "path": "assets_src/flat_vector_geode_reuse_20261013/TECHNICAL_DERIVATION.json",
+        "bytes": 3302,
+        "sha256": "7bab7a1e2abe361f73654a6c81faafb60278bacfa7ce2eb5b284fef45d8fc6f8"
+      },
+      {
+        "path": "assets_src/flat_vector_geode_reuse_20261013/aseprite.log",
+        "bytes": 67,
+        "sha256": "1efa888b9025540fc0c4c081ad49742c9f829c53579b03159cad774270ecec63"
+      },
+      {
+        "path": "assets_src/flat_vector_geode_reuse_20261013/bridge_geode.lua",
+        "bytes": 1312,
+        "sha256": "03cfacd39e86ca42960d707cf76bc23e7b0b7e9b471db972bd4ca1a564ffcef7"
+      },
+      {
+        "path": "assets_src/flat_vector_geode_reuse_20261013/geode_closed_1024.aseprite",
+        "bytes": 1695609,
+        "sha256": "7c363515eef23102b63f755f647eaea8b7a0b3163b92ad0d5f9e17fd81716203"
+      },
+      {
+        "path": "assets_src/flat_vector_geode_reuse_20261013/geode_closed_1024.png",
+        "bytes": 1022500,
+        "sha256": "b639c2cbe36b460bb29db5f0e459329f8b6b8266d205412c95e539e9b7dc95ff"
+      },
+      {
+        "path": "assets_src/flat_vector_geode_reuse_20261013/geode_closed_native.aseprite",
+        "bytes": 2563929,
+        "sha256": "edac0711766f778dae56fec2ca49ad2773ce006b927cd35dc2dd7e9338f1f89e"
+      },
+      {
+        "path": "assets_src/flat_vector_geode_reuse_20261013/geode_closed_native_roundtrip.png",
+        "bytes": 1560834,
+        "sha256": "a4bc45e2c50fc18c1620efba08c4277541a4334e86406b959e7be60b5d3ac524"
+      },
+      {
+        "path": "design/audit_impacts/flat-vector-geode-reuse-20261013.json",
+        "bytes": 10836,
+        "sha256": "20d4be9758933c6ba486f7bd37645789e1476bf29e6ae37f0cbd3b93e6be33b0"
+      },
+      {
+        "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r9_geode_reuse/CONGRUENCY_BACKLOG.json",
+        "bytes": 69531,
+        "sha256": "dba63b6bbac7ccab7dd7275b4a5c7f3ea5841e11e16b43c8a0d2e53f1d5960fc"
+      },
+      {
+        "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r9_geode_reuse/DERIVATIVES.json",
+        "bytes": 3626,
+        "sha256": "02d7bdd56571fea38946e9ef53fd0bc1ce0d73dd83c76027ebcf19bc41dc1ccb"
+      },
+      {
+        "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r9_geode_reuse/FIT_MEASUREMENTS.json",
+        "bytes": 1047,
+        "sha256": "0a895b6722abcdebe27ad0a58dba8a260793f5af8e37133ddb739d4e25066567"
+      },
+      {
+        "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r9_geode_reuse/IMPORT.json",
+        "bytes": 722,
+        "sha256": "04317deb6643134ca37ff79cba93634d596684642c73a75a1104e9a6ddf534c7"
+      },
+      {
+        "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r9_geode_reuse/LAUNCH.json",
+        "bytes": 1107,
+        "sha256": "05fbf7917269a8feafb97e5c523681e881a3eda1402f9065605c54d32b2c3bae"
+      },
+      {
+        "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r9_geode_reuse/PREFLIGHT.json",
+        "bytes": 612689,
+        "sha256": "694dd5f3c9339ae067fc74968c108a8a8cc87d8c98a608f304d2fb034370f5a3"
+      },
+      {
+        "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r9_geode_reuse/README.md",
+        "bytes": 3321,
+        "sha256": "bf5157f861ed7c3e9843125756b40472cd261e10232cff8c29202a50352da43c"
+      },
+      {
+        "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r9_geode_reuse/REUSE_JOB.json",
+        "bytes": 1923,
+        "sha256": "499c82235cd5bc14e77df89b1d1870f175586dee2250af3262fbefffda31d916"
+      },
+      {
+        "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r9_geode_reuse/REVIEW.json",
+        "bytes": 6527,
+        "sha256": "177daeb2da72d2f74f6f324043141782733216f094cc9972df7ae840f27b86b8"
+      },
+      {
+        "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r9_geode_reuse/SCRIPT_GATES.json",
+        "bytes": 2087,
+        "sha256": "335b9478b1a07fceb3fea9d8318adba409e271bea37fb4eba1851ee19f8aea9b"
+      },
+      {
+        "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r9_geode_reuse/SOURCES.json",
+        "bytes": 13792,
+        "sha256": "93885c3fe7397c8ebb953b8ba54ea666a1ecc65687531531df62406239fb6520"
+      },
+      {
+        "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r9_geode_reuse/SOURCE_PARITY.json",
+        "bytes": 16259,
+        "sha256": "349a70c35d1ecb3388cd1e3ff678521caddb0aef926db64bd0fcd784c679c296"
+      },
+      {
+        "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r9_geode_reuse/build_manifest.py",
+        "bytes": 3324,
+        "sha256": "58e60f7e98b0c07ff51425a2b6fc16880856ce66869cb220145c002c3c7d96c6"
+      },
+      {
+        "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r9_geode_reuse/candidate_geode_surface.gd",
+        "bytes": 1247,
+        "sha256": "0017d5cc2c2ef654fa56de2c42b5708a2d93e3bdf46b9b0b370189842698c39b"
+      },
+      {
+        "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r9_geode_reuse/capture.log",
+        "bytes": 1922,
+        "sha256": "eb34ad592188a408ea388b398faa02164232e03dc8c95d533302e84b00d35b07"
+      },
+      {
+        "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r9_geode_reuse/capture_geode_trial.gd",
+        "bytes": 11560,
+        "sha256": "5713db387af66934e6795d948df8dc261515c67c553c948d26c06bebda1aab7c"
+      },
+      {
+        "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r9_geode_reuse/import.log",
+        "bytes": 242687,
+        "sha256": "9aace8ec7f4b6e5d7bfc6b56e402674329cc62259877fc448d9cafeffa1e1997"
+      },
+      {
+        "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r9_geode_reuse/native/1280x720/capture_manifest.json",
+        "bytes": 85871,
+        "sha256": "dce5a5305457f9926c362f94bc36b9e875b0a5d199841389255a735250418678"
+      },
+      {
+        "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r9_geode_reuse/native/1280x720/geode_all_seams_ready.png",
+        "bytes": 224036,
+        "sha256": "2a608295c5a3c9702c832232fbb8eae2ae1795bde257a12f57a22916bb538f02"
+      },
+      {
+        "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r9_geode_reuse/native/1280x720/geode_cancel_focus_notification.png",
+        "bytes": 111048,
+        "sha256": "1a543fa6c601790284fd1d2db1c35d999d9eb2476c6a00050806575dea07175e"
+      },
+      {
+        "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r9_geode_reuse/native/1280x720/geode_cancel_pressed.png",
+        "bytes": 111237,
+        "sha256": "c27385b6092e1a81da18ea2b58c5424b919ae480c43429f9620f31e5e223482a"
+      },
+      {
+        "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r9_geode_reuse/native/1280x720/geode_closed_passive_1s.png",
+        "bytes": 226760,
+        "sha256": "f7378aaaa5597dc83158bf444a1564b4a77bf05e87512072945515ecfa0279e3"
+      },
+      {
+        "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r9_geode_reuse/native/1280x720/geode_closed_ready.png",
+        "bytes": 226831,
+        "sha256": "54c112ae72384dfa4b8bd2ccdbfc5b7f9b9ecb3df1c609e3432668b0ad068bc3"
+      },
+      {
+        "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r9_geode_reuse/native/1280x720/geode_early_pull_dragged.png",
+        "bytes": 226486,
+        "sha256": "b2290dd55edd29666ec3f520d37d0f71d69ba3d29943df8f74a7a6ce02b5f488"
+      },
+      {
+        "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r9_geode_reuse/native/1280x720/geode_early_pull_pressed.png",
+        "bytes": 226486,
+        "sha256": "b760bbb548282be4417771a13502730ff73c8413ee9353dbb50bd50b75699482"
+      },
+      {
+        "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r9_geode_reuse/native/1280x720/geode_early_pull_released.png",
+        "bytes": 226486,
+        "sha256": "b2290dd55edd29666ec3f520d37d0f71d69ba3d29943df8f74a7a6ce02b5f488"
+      },
+      {
+        "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r9_geode_reuse/native/1280x720/geode_partial_open_held.png",
+        "bytes": 111304,
+        "sha256": "058e105f6a74c92e06656e6c82c5dba409f278e0bce9732ca6476f94a89d8927"
+      },
+      {
+        "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r9_geode_reuse/native/1280x720/geode_partial_open_released.png",
+        "bytes": 111291,
+        "sha256": "88a2236fb22079ff0416357382c06e5513fa81677073657bd263eb4737fad1e9"
+      },
+      {
+        "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r9_geode_reuse/native/1280x720/geode_seam00_pressed.png",
+        "bytes": 226481,
+        "sha256": "bbff02a9c278360599ce012101b4cb84848d2c35f182cfc5eb5351d1c089dce7"
+      },
+      {
+        "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r9_geode_reuse/native/1280x720/geode_seam00_released.png",
+        "bytes": 226187,
+        "sha256": "9e8eae6cc2c0a25b39b518d8093c5a2d62a78615ac5bd4ba9352ff5de146e9d2"
+      },
+      {
+        "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r9_geode_reuse/native/1280x720/geode_seam01_pressed.png",
+        "bytes": 226187,
+        "sha256": "9e8eae6cc2c0a25b39b518d8093c5a2d62a78615ac5bd4ba9352ff5de146e9d2"
+      },
+      {
+        "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r9_geode_reuse/native/1280x720/geode_seam01_released.png",
+        "bytes": 225874,
+        "sha256": "57bca842e5e0812e43718fd11fc5115cad9737ed42340af71c8d0ddd8d87a89c"
+      },
+      {
+        "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r9_geode_reuse/native/1280x720/geode_seam02_pressed.png",
+        "bytes": 225874,
+        "sha256": "57bca842e5e0812e43718fd11fc5115cad9737ed42340af71c8d0ddd8d87a89c"
+      },
+      {
+        "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r9_geode_reuse/native/1280x720/geode_seam02_released.png",
+        "bytes": 225334,
+        "sha256": "7eaffad53bdfb5028f89935a71ad8a60333f6e70369fbbea983b894b624a0882"
+      },
+      {
+        "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r9_geode_reuse/native/1280x720/geode_seam03_pressed.png",
+        "bytes": 225334,
+        "sha256": "7eaffad53bdfb5028f89935a71ad8a60333f6e70369fbbea983b894b624a0882"
+      },
+      {
+        "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r9_geode_reuse/native/1280x720/geode_seam03_released.png",
+        "bytes": 224617,
+        "sha256": "c617b3b517aa9838492ff71f9e65572f15a57dbd00870dd58c25103c692b008c"
+      },
+      {
+        "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r9_geode_reuse/native/1280x720/geode_seam04_pressed.png",
+        "bytes": 224617,
+        "sha256": "c617b3b517aa9838492ff71f9e65572f15a57dbd00870dd58c25103c692b008c"
+      },
+      {
+        "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r9_geode_reuse/native/1280x720/geode_seam04_released.png",
+        "bytes": 224033,
+        "sha256": "bb2d9d7f36b850dcbbced2008a7dd6799f5ee56b3ee39add83faff5618413482"
+      },
+      {
+        "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r9_geode_reuse/native/1280x720/geode_seam_repeat.png",
+        "bytes": 224026,
+        "sha256": "6971df0c2b5245a81ebc4e53bba18b6b9b7ea20a27b1dbea292eb75341174813"
+      },
+      {
+        "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r9_geode_reuse/native/1280x720/geode_wrong_tap.png",
+        "bytes": 226486,
+        "sha256": "b760bbb548282be4417771a13502730ff73c8413ee9353dbb50bd50b75699482"
+      },
+      {
+        "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r9_geode_reuse/native/1600x720/capture_manifest.json",
+        "bytes": 86267,
+        "sha256": "b89072982b71860b38127e4a483c6a2448829f79053de63a05991a0ec6b20b67"
+      },
+      {
+        "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r9_geode_reuse/native/1600x720/geode_all_seams_ready.png",
+        "bytes": 226899,
+        "sha256": "c8df3bc84c588ccfdaa38e8f876e8973df8d20728a44b766c2eaaa5db8f66e9b"
+      },
+      {
+        "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r9_geode_reuse/native/1600x720/geode_cancel_focus_notification.png",
+        "bytes": 113726,
+        "sha256": "5d56a5d2226205145fc8cbd694c71d4381ebb63e600c7362a443f87af9a3798d"
+      },
+      {
+        "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r9_geode_reuse/native/1600x720/geode_cancel_pressed.png",
+        "bytes": 113916,
+        "sha256": "534279390882ab87276379bb806fd383aa28f5c439d6fc01f2cef49c41ed8d4b"
+      },
+      {
+        "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r9_geode_reuse/native/1600x720/geode_closed_passive_1s.png",
+        "bytes": 229295,
+        "sha256": "405089be90d7428ce5755b9527f06ff16c54b5aa3a61b570d003efc54f441690"
+      },
+      {
+        "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r9_geode_reuse/native/1600x720/geode_closed_ready.png",
+        "bytes": 229560,
+        "sha256": "2c83f5110f567c0bf27b45d846785dd7a7d76bd7099acd204743c447b844fc25"
+      },
+      {
+        "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r9_geode_reuse/native/1600x720/geode_early_pull_dragged.png",
+        "bytes": 229164,
+        "sha256": "b7b0bedf5df6672696a1c68324785823f0c8eab2d1ed7077871de504174be9aa"
+      },
+      {
+        "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r9_geode_reuse/native/1600x720/geode_early_pull_pressed.png",
+        "bytes": 229155,
+        "sha256": "c35b750307ff0720cf2e45b16c13b11ef46bd1ab1bf8b974a7eae8fc55da04ea"
+      },
+      {
+        "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r9_geode_reuse/native/1600x720/geode_early_pull_released.png",
+        "bytes": 229164,
+        "sha256": "b7b0bedf5df6672696a1c68324785823f0c8eab2d1ed7077871de504174be9aa"
+      },
+      {
+        "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r9_geode_reuse/native/1600x720/geode_partial_open_held.png",
+        "bytes": 113909,
+        "sha256": "ea6fa52201e0e86e3a042d9264d935cfaa115a87de35e8bd4d6e5ef9901216cb"
+      },
+      {
+        "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r9_geode_reuse/native/1600x720/geode_partial_open_released.png",
+        "bytes": 113918,
+        "sha256": "7199a022d60e0a7f61c4a9677dde0aa78ee2fd097819cadbe5f3d8a3377eb597"
+      },
+      {
+        "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r9_geode_reuse/native/1600x720/geode_seam00_pressed.png",
+        "bytes": 229176,
+        "sha256": "10469934bde1ca741a2249df105ec3c0da7422892f273e96bed8998c533316ba"
+      },
+      {
+        "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r9_geode_reuse/native/1600x720/geode_seam00_released.png",
+        "bytes": 228778,
+        "sha256": "88b902590d7bede3537380e2d819d77e8390bbbbc932c538138db0264df82ab2"
+      },
+      {
+        "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r9_geode_reuse/native/1600x720/geode_seam01_pressed.png",
+        "bytes": 228760,
+        "sha256": "eb749f9a34f2092cabf3481faafe9579c1e978e33ef94bb94ce4ee862cf7fd66"
+      },
+      {
+        "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r9_geode_reuse/native/1600x720/geode_seam01_released.png",
+        "bytes": 228571,
+        "sha256": "dd367683e5d06a53456d3c3d7b1c7fd7fffdd725261ec907c5bd55486159087d"
+      },
+      {
+        "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r9_geode_reuse/native/1600x720/geode_seam02_pressed.png",
+        "bytes": 228571,
+        "sha256": "dd367683e5d06a53456d3c3d7b1c7fd7fffdd725261ec907c5bd55486159087d"
+      },
+      {
+        "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r9_geode_reuse/native/1600x720/geode_seam02_released.png",
+        "bytes": 228061,
+        "sha256": "65a29c97db963e2e39a65d06e2e84365716d0b97eec88c65ddd2a42a6c5b8e98"
+      },
+      {
+        "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r9_geode_reuse/native/1600x720/geode_seam03_pressed.png",
+        "bytes": 228077,
+        "sha256": "df8578d8d715e52cc157e9acd0a1b0303947cf95a5a9b59aa7d23f37426f383a"
+      },
+      {
+        "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r9_geode_reuse/native/1600x720/geode_seam03_released.png",
+        "bytes": 227500,
+        "sha256": "a80cfbac261839635fd2be41447190d93b2178292014fd7ffbf191e5f32e0b63"
+      },
+      {
+        "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r9_geode_reuse/native/1600x720/geode_seam04_pressed.png",
+        "bytes": 227482,
+        "sha256": "a06ea310a67054eda441ab689337dd8cfc978cdb792d7d3c8cae6f5df0aa0d3f"
+      },
+      {
+        "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r9_geode_reuse/native/1600x720/geode_seam04_released.png",
+        "bytes": 226913,
+        "sha256": "10cf7220e683480fe9cb6615ae9ae2d488a9d6a41c7b849be490a9864ba12105"
+      },
+      {
+        "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r9_geode_reuse/native/1600x720/geode_seam_repeat.png",
+        "bytes": 226911,
+        "sha256": "df9011de250d2fe6ddd818b45809796d7eef2e45649cac39b63d680b3d752162"
+      },
+      {
+        "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r9_geode_reuse/native/1600x720/geode_wrong_tap.png",
+        "bytes": 229155,
+        "sha256": "c35b750307ff0720cf2e45b16c13b11ef46bd1ab1bf8b974a7eae8fc55da04ea"
+      },
+      {
+        "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r9_geode_reuse/per_piece.json",
+        "bytes": 1107321,
+        "sha256": "197bb53875451d08f366c8f0d9a6aa8bb24e8eacae722ff938f2ffdd6746902c"
+      },
+      {
+        "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r9_geode_reuse/scene_coverage.json",
+        "bytes": 609326,
+        "sha256": "a50de9bed12bbf0bc898bf811689cea541eeab93bccc2eed14d69f0c24c47f73"
+      },
+      {
+        "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r9_geode_reuse/tally.json",
+        "bytes": 14048,
+        "sha256": "a0ac991ecb5217e7db85e83bce68c5c03e838937f2cef1e00eaaa2e810461b80"
+      },
+      {
+        "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r9_geode_reuse/validate.py",
+        "bytes": 4457,
+        "sha256": "df832679b350b2d88897a94008f2da6c95d5ff353a425e9ce67c484b57f707eb"
+      },
+      {
+        "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r9_geode_reuse/verify_remote.py",
+        "bytes": 2703,
+        "sha256": "d07ab54880697f20f7197d0dfcc3099c2682af84aee71e99644c6ffe99867d4d"
+      }
+    ],
+    "commands": [
+      {
+        "command": [
+          "python",
+          "-B",
+          "tools/audit_document_authority.py"
+        ],
+        "returncode": 0,
+        "output": "DOCAUTH|INVENTORY=712|LEDGER=712|ACTIVE=68|RECORDS=71\nDOCAUTH|RESULT|ALL OK\n"
+      },
+      {
+        "command": [
+          "python",
+          "-B",
+          "tools/audit_development.py",
+          "--base",
+          "auto"
+        ],
+        "returncode": 0,
+        "output": "AUDITDEV|BASE|e2b3c73789707aa49a91b4f42e2a9dd4b68225df\nAUDITDEV|RESULT|ALL OK\n"
+      },
+      {
+        "command": [
+          "python",
+          "-B",
+          "tools/audit_game_2d.py",
+          "--regression-gate"
+        ],
+        "returncode": 0,
+        "output": "GAME2D| DEBT| model_files=0| model_scan_coverage_files=0| active_export_model_files=0| model_import_sidecars=0| active_untracked_model_import_sidecars=0| model_archive_files=0| production_3d_files=52| probe_3d_files=61| scene_3d_files=1| configuration_3d_files=1| archive_now_model_files=0\nGAME2D| STATUS| UNSATISFIED\nGAME2D| RESULT| NO_REGRESSION - exact shrinking baseline; migration debt remains UNSATISFIED\n"
+      },
+      {
+        "command": [
+          "python",
+          "-B",
+          "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r9_geode_reuse\\validate.py"
+        ],
+        "returncode": 0,
+        "output": "R9_REUSE|ALL OK|native RGBA preserved/1024 export/44 preview files;225 known/30 families;unknown denominators;zero acceptance;production unchanged\n"
+      },
+      {
+        "command": [
+          "python",
+          "-m",
+          "gdtoolkit.parser",
+          "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r9_geode_reuse\\capture_geode_trial.gd",
+          "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r9_geode_reuse\\candidate_geode_surface.gd"
+        ],
+        "returncode": 0,
+        "output": ""
+      },
+      {
+        "command": [
+          "python",
+          "-B",
+          "tools/lint_inference.py",
+          "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r9_geode_reuse\\capture_geode_trial.gd",
+          "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r9_geode_reuse\\candidate_geode_surface.gd"
+        ],
+        "returncode": 0,
+        "output": ""
+      }
+    ],
+    "interpretation": "Technical source/isolated control and unchanged gates only,no acceptance. Pending impact result will be updated then exact final prose rescanned."
+  },
+  "interpretation": "Exact final impact/candidate/count prose staged before scan; no later evidence-sentence edit. No production or acceptance changes."
+}

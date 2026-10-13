@@ -1,0 +1,904 @@
+{
+  "schema": "reef.flat_vector_delta_manifest/1",
+  "revision": "FV-AUDIT-20261013-R9",
+  "repository": "Ebonyks/mermaid-roshan-reef",
+  "branch": "codex/flat-vector-r6-20261012",
+  "files": [
+    {
+      "path": ".gitattributes",
+      "revision": null,
+      "bytes": 4023,
+      "sha256": "4ff14f22e68ae23ee02401d22f587b1d5d2934a4d41a9878776053814a7f8672",
+      "role": "R9 source-reuse/preview/provenance/current evidence delta"
+    },
+    {
+      "path": "ASSET_LICENSES.md",
+      "revision": null,
+      "bytes": 4406911,
+      "sha256": "284173cd08124f5cca9dde1d88f67e4cab6537087292c767b47f962abfdf04fc",
+      "role": "R9 source-reuse/preview/provenance/current evidence delta"
+    },
+    {
+      "path": "assets_src/flat_vector_geode_reuse_20261013/MASTER_PROOF.json",
+      "revision": null,
+      "bytes": 186,
+      "sha256": "43cdec55e69c3d8fb06f18ac93d10960030d77716dfba017df2d62858be18d0c",
+      "role": "R9 source-reuse/preview/provenance/current evidence delta"
+    },
+    {
+      "path": "assets_src/flat_vector_geode_reuse_20261013/PLAN.json",
+      "revision": null,
+      "bytes": 2938,
+      "sha256": "e2db81a3cdd07abb56605577b73370159b2d35a4ba3d5c98e581f2402d20ec8a",
+      "role": "R9 source-reuse/preview/provenance/current evidence delta"
+    },
+    {
+      "path": "assets_src/flat_vector_geode_reuse_20261013/TECHNICAL_DERIVATION.json",
+      "revision": null,
+      "bytes": 3302,
+      "sha256": "7bab7a1e2abe361f73654a6c81faafb60278bacfa7ce2eb5b284fef45d8fc6f8",
+      "role": "R9 source-reuse/preview/provenance/current evidence delta"
+    },
+    {
+      "path": "assets_src/flat_vector_geode_reuse_20261013/aseprite.log",
+      "revision": null,
+      "bytes": 67,
+      "sha256": "1efa888b9025540fc0c4c081ad49742c9f829c53579b03159cad774270ecec63",
+      "role": "R9 source-reuse/preview/provenance/current evidence delta"
+    },
+    {
+      "path": "assets_src/flat_vector_geode_reuse_20261013/bridge_geode.lua",
+      "revision": null,
+      "bytes": 1312,
+      "sha256": "03cfacd39e86ca42960d707cf76bc23e7b0b7e9b471db972bd4ca1a564ffcef7",
+      "role": "R9 source-reuse/preview/provenance/current evidence delta"
+    },
+    {
+      "path": "assets_src/flat_vector_geode_reuse_20261013/geode_closed_1024.aseprite",
+      "revision": null,
+      "bytes": 1695609,
+      "sha256": "7c363515eef23102b63f755f647eaea8b7a0b3163b92ad0d5f9e17fd81716203",
+      "role": "R9 source-reuse/preview/provenance/current evidence delta"
+    },
+    {
+      "path": "assets_src/flat_vector_geode_reuse_20261013/geode_closed_1024.png",
+      "revision": null,
+      "bytes": 1022500,
+      "sha256": "b639c2cbe36b460bb29db5f0e459329f8b6b8266d205412c95e539e9b7dc95ff",
+      "role": "R9 source-reuse/preview/provenance/current evidence delta"
+    },
+    {
+      "path": "assets_src/flat_vector_geode_reuse_20261013/geode_closed_native.aseprite",
+      "revision": null,
+      "bytes": 2563929,
+      "sha256": "edac0711766f778dae56fec2ca49ad2773ce006b927cd35dc2dd7e9338f1f89e",
+      "role": "R9 source-reuse/preview/provenance/current evidence delta"
+    },
+    {
+      "path": "assets_src/flat_vector_geode_reuse_20261013/geode_closed_native_roundtrip.png",
+      "revision": null,
+      "bytes": 1560834,
+      "sha256": "a4bc45e2c50fc18c1620efba08c4277541a4334e86406b959e7be60b5d3ac524",
+      "role": "R9 source-reuse/preview/provenance/current evidence delta"
+    },
+    {
+      "path": "audit/MASTER_AUDIT_2026-08-09.md",
+      "revision": null,
+      "bytes": 295513,
+      "sha256": "aaebe4ddb274a4660ae374240dae91c1308a0bb3645166722404dc471c8235a9",
+      "role": "R9 source-reuse/preview/provenance/current evidence delta"
+    },
+    {
+      "path": "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
+      "revision": null,
+      "bytes": 246752,
+      "sha256": "c517b77e2e82297e5ae59cd68b1680f15d79afee422a423c5055f01e2a2592ce",
+      "role": "R9 source-reuse/preview/provenance/current evidence delta"
+    },
+    {
+      "path": "design/05_DOC_LEDGER.md",
+      "revision": null,
+      "bytes": 221318,
+      "sha256": "88e85ba5784d171bf449de2f9d459e69b4b41c3eab2b6330a56cf8a47276caaa",
+      "role": "R9 source-reuse/preview/provenance/current evidence delta"
+    },
+    {
+      "path": "design/audit_impacts/flat-vector-geode-reuse-20261013.json",
+      "revision": null,
+      "bytes": 10987,
+      "sha256": "86caaa574b36eed4325ec3fd35e3c9a625e01c434c50992bcd0d1f884aed022f",
+      "role": "R9 source-reuse/preview/provenance/current evidence delta"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/CURRENT.json",
+      "revision": null,
+      "bytes": 947,
+      "sha256": "f110e708e3d997619cbd8d0ec42f68bf22c88826e0092d494784d78b88921c9b",
+      "role": "R9 source-reuse/preview/provenance/current evidence delta"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/README.md",
+      "revision": null,
+      "bytes": 8059,
+      "sha256": "ad94b78732466ebc6dd51e4ccd93be282ae07b5bddc34bd2e15579a830f772e7",
+      "role": "R9 source-reuse/preview/provenance/current evidence delta"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r9_geode_reuse/CONGRUENCY_BACKLOG.json",
+      "revision": null,
+      "bytes": 69531,
+      "sha256": "dba63b6bbac7ccab7dd7275b4a5c7f3ea5841e11e16b43c8a0d2e53f1d5960fc",
+      "role": "R9 source-reuse/preview/provenance/current evidence delta"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r9_geode_reuse/DERIVATIVES.json",
+      "revision": null,
+      "bytes": 3626,
+      "sha256": "02d7bdd56571fea38946e9ef53fd0bc1ce0d73dd83c76027ebcf19bc41dc1ccb",
+      "role": "R9 source-reuse/preview/provenance/current evidence delta"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r9_geode_reuse/FIT_MEASUREMENTS.json",
+      "revision": null,
+      "bytes": 1047,
+      "sha256": "0a895b6722abcdebe27ad0a58dba8a260793f5af8e37133ddb739d4e25066567",
+      "role": "R9 source-reuse/preview/provenance/current evidence delta"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r9_geode_reuse/GATES.json",
+      "revision": null,
+      "bytes": 43905,
+      "sha256": "f185cf353003e45a8e47b0b23dee708ac5886be31b0830928164dbfa3312bc32",
+      "role": "R9 source-reuse/preview/provenance/current evidence delta"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r9_geode_reuse/GATES.log",
+      "revision": null,
+      "bytes": 1260,
+      "sha256": "8efec086f39f96d0a8d67fd208bef88467f03563ebacabcb54862b17f6870853",
+      "role": "R9 source-reuse/preview/provenance/current evidence delta"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r9_geode_reuse/IMPORT.json",
+      "revision": null,
+      "bytes": 722,
+      "sha256": "04317deb6643134ca37ff79cba93634d596684642c73a75a1104e9a6ddf534c7",
+      "role": "R9 source-reuse/preview/provenance/current evidence delta"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r9_geode_reuse/LAUNCH.json",
+      "revision": null,
+      "bytes": 1107,
+      "sha256": "05fbf7917269a8feafb97e5c523681e881a3eda1402f9065605c54d32b2c3bae",
+      "role": "R9 source-reuse/preview/provenance/current evidence delta"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r9_geode_reuse/PREFLIGHT.json",
+      "revision": null,
+      "bytes": 612689,
+      "sha256": "694dd5f3c9339ae067fc74968c108a8a8cc87d8c98a608f304d2fb034370f5a3",
+      "role": "R9 source-reuse/preview/provenance/current evidence delta"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r9_geode_reuse/PREVIOUS_HEAD_CI.json",
+      "revision": null,
+      "bytes": 10379,
+      "sha256": "5af6df4ed0c9b9fbf22e51dd7e2399409316c5cf978a698c08f65c27a3b0bcdf",
+      "role": "R9 source-reuse/preview/provenance/current evidence delta"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r9_geode_reuse/README.md",
+      "revision": null,
+      "bytes": 3321,
+      "sha256": "bf5157f861ed7c3e9843125756b40472cd261e10232cff8c29202a50352da43c",
+      "role": "R9 source-reuse/preview/provenance/current evidence delta"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r9_geode_reuse/REUSE_JOB.json",
+      "revision": null,
+      "bytes": 1923,
+      "sha256": "499c82235cd5bc14e77df89b1d1870f175586dee2250af3262fbefffda31d916",
+      "role": "R9 source-reuse/preview/provenance/current evidence delta"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r9_geode_reuse/REVIEW.json",
+      "revision": null,
+      "bytes": 6527,
+      "sha256": "177daeb2da72d2f74f6f324043141782733216f094cc9972df7ae840f27b86b8",
+      "role": "R9 source-reuse/preview/provenance/current evidence delta"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r9_geode_reuse/SCRIPT_GATES.json",
+      "revision": null,
+      "bytes": 2087,
+      "sha256": "335b9478b1a07fceb3fea9d8318adba409e271bea37fb4eba1851ee19f8aea9b",
+      "role": "R9 source-reuse/preview/provenance/current evidence delta"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r9_geode_reuse/SOURCES.json",
+      "revision": null,
+      "bytes": 13792,
+      "sha256": "93885c3fe7397c8ebb953b8ba54ea666a1ecc65687531531df62406239fb6520",
+      "role": "R9 source-reuse/preview/provenance/current evidence delta"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r9_geode_reuse/SOURCE_PARITY.json",
+      "revision": null,
+      "bytes": 16259,
+      "sha256": "349a70c35d1ecb3388cd1e3ff678521caddb0aef926db64bd0fcd784c679c296",
+      "role": "R9 source-reuse/preview/provenance/current evidence delta"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r9_geode_reuse/build_manifest.py",
+      "revision": null,
+      "bytes": 3324,
+      "sha256": "58e60f7e98b0c07ff51425a2b6fc16880856ce66869cb220145c002c3c7d96c6",
+      "role": "R9 source-reuse/preview/provenance/current evidence delta"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r9_geode_reuse/candidate_geode_surface.gd",
+      "revision": null,
+      "bytes": 1247,
+      "sha256": "0017d5cc2c2ef654fa56de2c42b5708a2d93e3bdf46b9b0b370189842698c39b",
+      "role": "R9 source-reuse/preview/provenance/current evidence delta"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r9_geode_reuse/capture.log",
+      "revision": null,
+      "bytes": 1922,
+      "sha256": "eb34ad592188a408ea388b398faa02164232e03dc8c95d533302e84b00d35b07",
+      "role": "R9 source-reuse/preview/provenance/current evidence delta"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r9_geode_reuse/capture_geode_trial.gd",
+      "revision": null,
+      "bytes": 11560,
+      "sha256": "5713db387af66934e6795d948df8dc261515c67c553c948d26c06bebda1aab7c",
+      "role": "R9 source-reuse/preview/provenance/current evidence delta"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r9_geode_reuse/import.log",
+      "revision": null,
+      "bytes": 242687,
+      "sha256": "9aace8ec7f4b6e5d7bfc6b56e402674329cc62259877fc448d9cafeffa1e1997",
+      "role": "R9 source-reuse/preview/provenance/current evidence delta"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r9_geode_reuse/native/1280x720/capture_manifest.json",
+      "revision": null,
+      "bytes": 85871,
+      "sha256": "dce5a5305457f9926c362f94bc36b9e875b0a5d199841389255a735250418678",
+      "role": "R9 source-reuse/preview/provenance/current evidence delta"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r9_geode_reuse/native/1280x720/geode_all_seams_ready.png",
+      "revision": null,
+      "bytes": 224036,
+      "sha256": "2a608295c5a3c9702c832232fbb8eae2ae1795bde257a12f57a22916bb538f02",
+      "role": "R9 source-reuse/preview/provenance/current evidence delta"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r9_geode_reuse/native/1280x720/geode_cancel_focus_notification.png",
+      "revision": null,
+      "bytes": 111048,
+      "sha256": "1a543fa6c601790284fd1d2db1c35d999d9eb2476c6a00050806575dea07175e",
+      "role": "R9 source-reuse/preview/provenance/current evidence delta"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r9_geode_reuse/native/1280x720/geode_cancel_pressed.png",
+      "revision": null,
+      "bytes": 111237,
+      "sha256": "c27385b6092e1a81da18ea2b58c5424b919ae480c43429f9620f31e5e223482a",
+      "role": "R9 source-reuse/preview/provenance/current evidence delta"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r9_geode_reuse/native/1280x720/geode_closed_passive_1s.png",
+      "revision": null,
+      "bytes": 226760,
+      "sha256": "f7378aaaa5597dc83158bf444a1564b4a77bf05e87512072945515ecfa0279e3",
+      "role": "R9 source-reuse/preview/provenance/current evidence delta"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r9_geode_reuse/native/1280x720/geode_closed_ready.png",
+      "revision": null,
+      "bytes": 226831,
+      "sha256": "54c112ae72384dfa4b8bd2ccdbfc5b7f9b9ecb3df1c609e3432668b0ad068bc3",
+      "role": "R9 source-reuse/preview/provenance/current evidence delta"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r9_geode_reuse/native/1280x720/geode_early_pull_dragged.png",
+      "revision": null,
+      "bytes": 226486,
+      "sha256": "b2290dd55edd29666ec3f520d37d0f71d69ba3d29943df8f74a7a6ce02b5f488",
+      "role": "R9 source-reuse/preview/provenance/current evidence delta"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r9_geode_reuse/native/1280x720/geode_early_pull_pressed.png",
+      "revision": null,
+      "bytes": 226486,
+      "sha256": "b760bbb548282be4417771a13502730ff73c8413ee9353dbb50bd50b75699482",
+      "role": "R9 source-reuse/preview/provenance/current evidence delta"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r9_geode_reuse/native/1280x720/geode_early_pull_released.png",
+      "revision": null,
+      "bytes": 226486,
+      "sha256": "b2290dd55edd29666ec3f520d37d0f71d69ba3d29943df8f74a7a6ce02b5f488",
+      "role": "R9 source-reuse/preview/provenance/current evidence delta"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r9_geode_reuse/native/1280x720/geode_partial_open_held.png",
+      "revision": null,
+      "bytes": 111304,
+      "sha256": "058e105f6a74c92e06656e6c82c5dba409f278e0bce9732ca6476f94a89d8927",
+      "role": "R9 source-reuse/preview/provenance/current evidence delta"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r9_geode_reuse/native/1280x720/geode_partial_open_released.png",
+      "revision": null,
+      "bytes": 111291,
+      "sha256": "88a2236fb22079ff0416357382c06e5513fa81677073657bd263eb4737fad1e9",
+      "role": "R9 source-reuse/preview/provenance/current evidence delta"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r9_geode_reuse/native/1280x720/geode_seam00_pressed.png",
+      "revision": null,
+      "bytes": 226481,
+      "sha256": "bbff02a9c278360599ce012101b4cb84848d2c35f182cfc5eb5351d1c089dce7",
+      "role": "R9 source-reuse/preview/provenance/current evidence delta"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r9_geode_reuse/native/1280x720/geode_seam00_released.png",
+      "revision": null,
+      "bytes": 226187,
+      "sha256": "9e8eae6cc2c0a25b39b518d8093c5a2d62a78615ac5bd4ba9352ff5de146e9d2",
+      "role": "R9 source-reuse/preview/provenance/current evidence delta"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r9_geode_reuse/native/1280x720/geode_seam01_pressed.png",
+      "revision": null,
+      "bytes": 226187,
+      "sha256": "9e8eae6cc2c0a25b39b518d8093c5a2d62a78615ac5bd4ba9352ff5de146e9d2",
+      "role": "R9 source-reuse/preview/provenance/current evidence delta"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r9_geode_reuse/native/1280x720/geode_seam01_released.png",
+      "revision": null,
+      "bytes": 225874,
+      "sha256": "57bca842e5e0812e43718fd11fc5115cad9737ed42340af71c8d0ddd8d87a89c",
+      "role": "R9 source-reuse/preview/provenance/current evidence delta"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r9_geode_reuse/native/1280x720/geode_seam02_pressed.png",
+      "revision": null,
+      "bytes": 225874,
+      "sha256": "57bca842e5e0812e43718fd11fc5115cad9737ed42340af71c8d0ddd8d87a89c",
+      "role": "R9 source-reuse/preview/provenance/current evidence delta"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r9_geode_reuse/native/1280x720/geode_seam02_released.png",
+      "revision": null,
+      "bytes": 225334,
+      "sha256": "7eaffad53bdfb5028f89935a71ad8a60333f6e70369fbbea983b894b624a0882",
+      "role": "R9 source-reuse/preview/provenance/current evidence delta"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r9_geode_reuse/native/1280x720/geode_seam03_pressed.png",
+      "revision": null,
+      "bytes": 225334,
+      "sha256": "7eaffad53bdfb5028f89935a71ad8a60333f6e70369fbbea983b894b624a0882",
+      "role": "R9 source-reuse/preview/provenance/current evidence delta"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r9_geode_reuse/native/1280x720/geode_seam03_released.png",
+      "revision": null,
+      "bytes": 224617,
+      "sha256": "c617b3b517aa9838492ff71f9e65572f15a57dbd00870dd58c25103c692b008c",
+      "role": "R9 source-reuse/preview/provenance/current evidence delta"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r9_geode_reuse/native/1280x720/geode_seam04_pressed.png",
+      "revision": null,
+      "bytes": 224617,
+      "sha256": "c617b3b517aa9838492ff71f9e65572f15a57dbd00870dd58c25103c692b008c",
+      "role": "R9 source-reuse/preview/provenance/current evidence delta"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r9_geode_reuse/native/1280x720/geode_seam04_released.png",
+      "revision": null,
+      "bytes": 224033,
+      "sha256": "bb2d9d7f36b850dcbbced2008a7dd6799f5ee56b3ee39add83faff5618413482",
+      "role": "R9 source-reuse/preview/provenance/current evidence delta"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r9_geode_reuse/native/1280x720/geode_seam_repeat.png",
+      "revision": null,
+      "bytes": 224026,
+      "sha256": "6971df0c2b5245a81ebc4e53bba18b6b9b7ea20a27b1dbea292eb75341174813",
+      "role": "R9 source-reuse/preview/provenance/current evidence delta"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r9_geode_reuse/native/1280x720/geode_wrong_tap.png",
+      "revision": null,
+      "bytes": 226486,
+      "sha256": "b760bbb548282be4417771a13502730ff73c8413ee9353dbb50bd50b75699482",
+      "role": "R9 source-reuse/preview/provenance/current evidence delta"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r9_geode_reuse/native/1600x720/capture_manifest.json",
+      "revision": null,
+      "bytes": 86267,
+      "sha256": "b89072982b71860b38127e4a483c6a2448829f79053de63a05991a0ec6b20b67",
+      "role": "R9 source-reuse/preview/provenance/current evidence delta"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r9_geode_reuse/native/1600x720/geode_all_seams_ready.png",
+      "revision": null,
+      "bytes": 226899,
+      "sha256": "c8df3bc84c588ccfdaa38e8f876e8973df8d20728a44b766c2eaaa5db8f66e9b",
+      "role": "R9 source-reuse/preview/provenance/current evidence delta"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r9_geode_reuse/native/1600x720/geode_cancel_focus_notification.png",
+      "revision": null,
+      "bytes": 113726,
+      "sha256": "5d56a5d2226205145fc8cbd694c71d4381ebb63e600c7362a443f87af9a3798d",
+      "role": "R9 source-reuse/preview/provenance/current evidence delta"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r9_geode_reuse/native/1600x720/geode_cancel_pressed.png",
+      "revision": null,
+      "bytes": 113916,
+      "sha256": "534279390882ab87276379bb806fd383aa28f5c439d6fc01f2cef49c41ed8d4b",
+      "role": "R9 source-reuse/preview/provenance/current evidence delta"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r9_geode_reuse/native/1600x720/geode_closed_passive_1s.png",
+      "revision": null,
+      "bytes": 229295,
+      "sha256": "405089be90d7428ce5755b9527f06ff16c54b5aa3a61b570d003efc54f441690",
+      "role": "R9 source-reuse/preview/provenance/current evidence delta"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r9_geode_reuse/native/1600x720/geode_closed_ready.png",
+      "revision": null,
+      "bytes": 229560,
+      "sha256": "2c83f5110f567c0bf27b45d846785dd7a7d76bd7099acd204743c447b844fc25",
+      "role": "R9 source-reuse/preview/provenance/current evidence delta"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r9_geode_reuse/native/1600x720/geode_early_pull_dragged.png",
+      "revision": null,
+      "bytes": 229164,
+      "sha256": "b7b0bedf5df6672696a1c68324785823f0c8eab2d1ed7077871de504174be9aa",
+      "role": "R9 source-reuse/preview/provenance/current evidence delta"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r9_geode_reuse/native/1600x720/geode_early_pull_pressed.png",
+      "revision": null,
+      "bytes": 229155,
+      "sha256": "c35b750307ff0720cf2e45b16c13b11ef46bd1ab1bf8b974a7eae8fc55da04ea",
+      "role": "R9 source-reuse/preview/provenance/current evidence delta"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r9_geode_reuse/native/1600x720/geode_early_pull_released.png",
+      "revision": null,
+      "bytes": 229164,
+      "sha256": "b7b0bedf5df6672696a1c68324785823f0c8eab2d1ed7077871de504174be9aa",
+      "role": "R9 source-reuse/preview/provenance/current evidence delta"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r9_geode_reuse/native/1600x720/geode_partial_open_held.png",
+      "revision": null,
+      "bytes": 113909,
+      "sha256": "ea6fa52201e0e86e3a042d9264d935cfaa115a87de35e8bd4d6e5ef9901216cb",
+      "role": "R9 source-reuse/preview/provenance/current evidence delta"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r9_geode_reuse/native/1600x720/geode_partial_open_released.png",
+      "revision": null,
+      "bytes": 113918,
+      "sha256": "7199a022d60e0a7f61c4a9677dde0aa78ee2fd097819cadbe5f3d8a3377eb597",
+      "role": "R9 source-reuse/preview/provenance/current evidence delta"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r9_geode_reuse/native/1600x720/geode_seam00_pressed.png",
+      "revision": null,
+      "bytes": 229176,
+      "sha256": "10469934bde1ca741a2249df105ec3c0da7422892f273e96bed8998c533316ba",
+      "role": "R9 source-reuse/preview/provenance/current evidence delta"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r9_geode_reuse/native/1600x720/geode_seam00_released.png",
+      "revision": null,
+      "bytes": 228778,
+      "sha256": "88b902590d7bede3537380e2d819d77e8390bbbbc932c538138db0264df82ab2",
+      "role": "R9 source-reuse/preview/provenance/current evidence delta"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r9_geode_reuse/native/1600x720/geode_seam01_pressed.png",
+      "revision": null,
+      "bytes": 228760,
+      "sha256": "eb749f9a34f2092cabf3481faafe9579c1e978e33ef94bb94ce4ee862cf7fd66",
+      "role": "R9 source-reuse/preview/provenance/current evidence delta"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r9_geode_reuse/native/1600x720/geode_seam01_released.png",
+      "revision": null,
+      "bytes": 228571,
+      "sha256": "dd367683e5d06a53456d3c3d7b1c7fd7fffdd725261ec907c5bd55486159087d",
+      "role": "R9 source-reuse/preview/provenance/current evidence delta"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r9_geode_reuse/native/1600x720/geode_seam02_pressed.png",
+      "revision": null,
+      "bytes": 228571,
+      "sha256": "dd367683e5d06a53456d3c3d7b1c7fd7fffdd725261ec907c5bd55486159087d",
+      "role": "R9 source-reuse/preview/provenance/current evidence delta"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r9_geode_reuse/native/1600x720/geode_seam02_released.png",
+      "revision": null,
+      "bytes": 228061,
+      "sha256": "65a29c97db963e2e39a65d06e2e84365716d0b97eec88c65ddd2a42a6c5b8e98",
+      "role": "R9 source-reuse/preview/provenance/current evidence delta"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r9_geode_reuse/native/1600x720/geode_seam03_pressed.png",
+      "revision": null,
+      "bytes": 228077,
+      "sha256": "df8578d8d715e52cc157e9acd0a1b0303947cf95a5a9b59aa7d23f37426f383a",
+      "role": "R9 source-reuse/preview/provenance/current evidence delta"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r9_geode_reuse/native/1600x720/geode_seam03_released.png",
+      "revision": null,
+      "bytes": 227500,
+      "sha256": "a80cfbac261839635fd2be41447190d93b2178292014fd7ffbf191e5f32e0b63",
+      "role": "R9 source-reuse/preview/provenance/current evidence delta"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r9_geode_reuse/native/1600x720/geode_seam04_pressed.png",
+      "revision": null,
+      "bytes": 227482,
+      "sha256": "a06ea310a67054eda441ab689337dd8cfc978cdb792d7d3c8cae6f5df0aa0d3f",
+      "role": "R9 source-reuse/preview/provenance/current evidence delta"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r9_geode_reuse/native/1600x720/geode_seam04_released.png",
+      "revision": null,
+      "bytes": 226913,
+      "sha256": "10cf7220e683480fe9cb6615ae9ae2d488a9d6a41c7b849be490a9864ba12105",
+      "role": "R9 source-reuse/preview/provenance/current evidence delta"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r9_geode_reuse/native/1600x720/geode_seam_repeat.png",
+      "revision": null,
+      "bytes": 226911,
+      "sha256": "df9011de250d2fe6ddd818b45809796d7eef2e45649cac39b63d680b3d752162",
+      "role": "R9 source-reuse/preview/provenance/current evidence delta"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r9_geode_reuse/native/1600x720/geode_wrong_tap.png",
+      "revision": null,
+      "bytes": 229155,
+      "sha256": "c35b750307ff0720cf2e45b16c13b11ef46bd1ab1bf8b974a7eae8fc55da04ea",
+      "role": "R9 source-reuse/preview/provenance/current evidence delta"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r9_geode_reuse/per_piece.json",
+      "revision": null,
+      "bytes": 1107321,
+      "sha256": "197bb53875451d08f366c8f0d9a6aa8bb24e8eacae722ff938f2ffdd6746902c",
+      "role": "R9 source-reuse/preview/provenance/current evidence delta"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r9_geode_reuse/scene_coverage.json",
+      "revision": null,
+      "bytes": 609326,
+      "sha256": "a50de9bed12bbf0bc898bf811689cea541eeab93bccc2eed14d69f0c24c47f73",
+      "role": "R9 source-reuse/preview/provenance/current evidence delta"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r9_geode_reuse/tally.json",
+      "revision": null,
+      "bytes": 14048,
+      "sha256": "a0ac991ecb5217e7db85e83bce68c5c03e838937f2cef1e00eaaa2e810461b80",
+      "role": "R9 source-reuse/preview/provenance/current evidence delta"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r9_geode_reuse/validate.py",
+      "revision": null,
+      "bytes": 4457,
+      "sha256": "df832679b350b2d88897a94008f2da6c95d5ff353a425e9ce67c484b57f707eb",
+      "role": "R9 source-reuse/preview/provenance/current evidence delta"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r9_geode_reuse/verify_remote.py",
+      "revision": null,
+      "bytes": 2703,
+      "sha256": "d07ab54880697f20f7197d0dfcc3099c2682af84aee71e99644c6ffe99867d4d",
+      "role": "R9 source-reuse/preview/provenance/current evidence delta"
+    },
+    {
+      "path": "ASSET_LICENSES.md",
+      "revision": "c1e466a8a9e605f43b4c7a181b3d7b702d7677aa",
+      "bytes": 4372218,
+      "sha256": "2b43507ac415b13d5ad9f980c4cc1e4948b7f5cad69a95f22efd039abbc39a67",
+      "role": "Inherited exact production/appearance/source/provenance dependency"
+    },
+    {
+      "path": "assets/opera/worlds/actors/animation/roshan_geologist_sheet_a.png",
+      "revision": "c1e466a8a9e605f43b4c7a181b3d7b702d7677aa",
+      "bytes": 910920,
+      "sha256": "1fd7080933fd49b27a9cbb2b20d9470e4fd654dec58db72e9aa9e081a6e24c37",
+      "role": "Inherited exact production/appearance/source/provenance dependency"
+    },
+    {
+      "path": "assets/opera/worlds/actors/rival_detective.png",
+      "revision": "c1e466a8a9e605f43b4c7a181b3d7b702d7677aa",
+      "bytes": 217399,
+      "sha256": "44a6e07766a0733979e6aa3bda4c8cf89776a75f81c6600db4cb8ad89c7edecb",
+      "role": "Inherited exact production/appearance/source/provenance dependency"
+    },
+    {
+      "path": "assets/opera/worlds/props/goal_geologist.svg",
+      "revision": "c1e466a8a9e605f43b4c7a181b3d7b702d7677aa",
+      "bytes": 583,
+      "sha256": "14023de6e1338fb209b06be58dc37574060c3a22bcb08f3506843389620c2f50",
+      "role": "Inherited exact production/appearance/source/provenance dependency"
+    },
+    {
+      "path": "assets_src/minigame_art_quality_2026-09-05/geode-extraction-attempt01/manifest.json",
+      "revision": "c1e466a8a9e605f43b4c7a181b3d7b702d7677aa",
+      "bytes": 2034,
+      "sha256": "ba1488befca5e48724f6dd642eb7329fa753322d3289e65d4993aff29da53990",
+      "role": "Inherited exact production/appearance/source/provenance dependency"
+    },
+    {
+      "path": "assets_src/minigame_art_quality_2026-09-05/geode-extraction-attempt01/native.png",
+      "revision": "c1e466a8a9e605f43b4c7a181b3d7b702d7677aa",
+      "bytes": 1620800,
+      "sha256": "efaa5f2be034f61d62a548b1ebeaade825b56b98a757871f7e53244c6ed16181",
+      "role": "Inherited exact production/appearance/source/provenance dependency"
+    },
+    {
+      "path": "assets_src/minigame_art_quality_2026-09-05/geode-extraction-attempt01/prompt.txt",
+      "revision": "c1e466a8a9e605f43b4c7a181b3d7b702d7677aa",
+      "bytes": 1033,
+      "sha256": "efa58bfdb114957bd736a2f2298d081d1f7176039739d035021a0ff849c32bb2",
+      "role": "Inherited exact production/appearance/source/provenance dependency"
+    },
+    {
+      "path": "assets_src/minigame_art_quality_2026-09-05/geode-open-alpha-attempt02/manifest.json",
+      "revision": "c1e466a8a9e605f43b4c7a181b3d7b702d7677aa",
+      "bytes": 1864,
+      "sha256": "860b8f35d608cea0e0e978199fa444e5c9c8e7e5356332dd418f2eef647fe3fe",
+      "role": "Inherited exact production/appearance/source/provenance dependency"
+    },
+    {
+      "path": "assets_src/minigame_art_quality_2026-09-05/geode-open-alpha-attempt02/native.png",
+      "revision": "c1e466a8a9e605f43b4c7a181b3d7b702d7677aa",
+      "bytes": 1432012,
+      "sha256": "0ca5e2572f5f306f3a46b75d5babf892fffd2cd65b16d0c5c7ee90426ae4bb2c",
+      "role": "Inherited exact production/appearance/source/provenance dependency"
+    },
+    {
+      "path": "assets_src/minigame_art_quality_2026-09-05/geode-open-alpha-attempt02/prompt.txt",
+      "revision": "c1e466a8a9e605f43b4c7a181b3d7b702d7677aa",
+      "bytes": 585,
+      "sha256": "002cb1d0f454438ca8cea5d1434f8db268f03f3a2ad1ac7927bc0ba86aea0234",
+      "role": "Inherited exact production/appearance/source/provenance dependency"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/geode_extraction_attempt01_review.json",
+      "revision": "c1e466a8a9e605f43b4c7a181b3d7b702d7677aa",
+      "bytes": 6270,
+      "sha256": "1f5dc26512ec9b4079dd2ce3654081f2d017acf9f1d40e0e9dcf116e2549a176",
+      "role": "Inherited exact production/appearance/source/provenance dependency"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/geode_open_alpha_attempt02_review.json",
+      "revision": "c1e466a8a9e605f43b4c7a181b3d7b702d7677aa",
+      "bytes": 6435,
+      "sha256": "7d9a28f37dfa85fba0ae529aae0c742b5b2b6a04606020114310b487dbf73cf3",
+      "role": "Inherited exact production/appearance/source/provenance dependency"
+    },
+    {
+      "path": "audit/minigame_art_quality_2026-09-05/prop_pixel_processing_plan.json",
+      "revision": "c1e466a8a9e605f43b4c7a181b3d7b702d7677aa",
+      "bytes": 9777,
+      "sha256": "43bb865e77bd95d6d8587172f1bd308065dd85bb78c8238435433d06ecaa9660",
+      "role": "Inherited exact production/appearance/source/provenance dependency"
+    },
+    {
+      "path": "design/GEOLOGIST_REBUILD_2026-09-05.md",
+      "revision": "c1e466a8a9e605f43b4c7a181b3d7b702d7677aa",
+      "bytes": 15523,
+      "sha256": "72e722480adb61d04c6f655166cd7db2b72ce4b1f22be8b4313ccca0e624cbc8",
+      "role": "Inherited exact production/appearance/source/provenance dependency"
+    },
+    {
+      "path": "design/MINIGAME_ART_AUDIT_2026-09-05.md",
+      "revision": "c1e466a8a9e605f43b4c7a181b3d7b702d7677aa",
+      "bytes": 45039,
+      "sha256": "f56f299064c01796b94b144d54e248d6c75fddc923dd80ba5c890dbd11f73924",
+      "role": "Inherited exact production/appearance/source/provenance dependency"
+    },
+    {
+      "path": "project.godot",
+      "revision": "c1e466a8a9e605f43b4c7a181b3d7b702d7677aa",
+      "bytes": 1762,
+      "sha256": "ef6e56681ebd8b9c9abfc7654be1a2bcf90d55e1d697522eb3871b0e6750d207",
+      "role": "Inherited exact production/appearance/source/provenance dependency"
+    },
+    {
+      "path": "scripts/opera_act.gd",
+      "revision": "c1e466a8a9e605f43b4c7a181b3d7b702d7677aa",
+      "bytes": 7447,
+      "sha256": "7a8db71dfd827efabeee50a348d7849ea646d2693c2ec2b6930c80938d2517b0",
+      "role": "Inherited exact production/appearance/source/provenance dependency"
+    },
+    {
+      "path": "scripts/opera_career_world_2d.gd",
+      "revision": "c1e466a8a9e605f43b4c7a181b3d7b702d7677aa",
+      "bytes": 235089,
+      "sha256": "2195e137800fd840e4a813a83e6ac9b393a9e7851fd80ca84ca51fb964232702",
+      "role": "Inherited exact production/appearance/source/provenance dependency"
+    },
+    {
+      "path": "scripts/opera_geology_surface.gd",
+      "revision": "c1e466a8a9e605f43b4c7a181b3d7b702d7677aa",
+      "bytes": 33298,
+      "sha256": "da96f3b7c07b2ecac796cbe21410499c4439937a21d4096fd918a611e02ba8be",
+      "role": "Inherited exact production/appearance/source/provenance dependency"
+    },
+    {
+      "path": "scripts/opera_house.gd",
+      "revision": "c1e466a8a9e605f43b4c7a181b3d7b702d7677aa",
+      "bytes": 17056,
+      "sha256": "6d6aeead33ff8cc451daa09da215185171359fd218693371184f38ecadac2d7f",
+      "role": "Inherited exact production/appearance/source/provenance dependency"
+    },
+    {
+      "path": "scripts/opera_roshan_actor.gd",
+      "revision": "c1e466a8a9e605f43b4c7a181b3d7b702d7677aa",
+      "bytes": 6876,
+      "sha256": "556301bbaeefcc55f7a5c28744170872e488563719aee54856ad4c65c4e9cb6d",
+      "role": "Inherited exact production/appearance/source/provenance dependency"
+    },
+    {
+      "path": "scripts/save_state.gd",
+      "revision": "c1e466a8a9e605f43b4c7a181b3d7b702d7677aa",
+      "bytes": 46616,
+      "sha256": "de380b088c8dcdd4623804d44a8fe35be5bfe7f8095cdcff1ca40c24e2c9c9b9",
+      "role": "Inherited exact production/appearance/source/provenance dependency"
+    },
+    {
+      "path": "AGENTS.md",
+      "revision": "f4de7b921298b0dac052df408af03bbb2b62132b",
+      "bytes": 32943,
+      "sha256": "f95a3fb3c4fcf68dd7ac359bdca7fd8fdebfaffc81772f51e136fce7c5a9da4b",
+      "role": "Binding authority/scoped primary local technical bridge"
+    },
+    {
+      "path": "ART_STYLE_GUIDE.md",
+      "revision": "f4de7b921298b0dac052df408af03bbb2b62132b",
+      "bytes": 43258,
+      "sha256": "c015277643b610e8370971d6eadf582bee19a430e6be4219b163abbb550a4d6e",
+      "role": "Binding authority/scoped primary local technical bridge"
+    },
+    {
+      "path": "design/02_ART_DIRECTION.md",
+      "revision": "f4de7b921298b0dac052df408af03bbb2b62132b",
+      "bytes": 22151,
+      "sha256": "e249211113b739beae2cfe2a6bf09c695591d61efe8c2794f69470790f6c67cb",
+      "role": "Binding authority/scoped primary local technical bridge"
+    },
+    {
+      "path": "design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md",
+      "revision": "f4de7b921298b0dac052df408af03bbb2b62132b",
+      "bytes": 104724,
+      "sha256": "8e240a56ace2e7174d528b0cb528c9ae85efdd5a8267789d5131693466db06d3",
+      "role": "Binding authority/scoped primary local technical bridge"
+    },
+    {
+      "path": "design/AUDIT_DEVELOPMENT_CONTRACT.md",
+      "revision": "f4de7b921298b0dac052df408af03bbb2b62132b",
+      "bytes": 7602,
+      "sha256": "f2817f20cbf89b2b0da6d28b5d956ab0408239ecd9438f4b6a7057b45e9b5fd9",
+      "role": "Binding authority/scoped primary local technical bridge"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r8_geode_context/CALLER_CLOSURE.json",
+      "revision": "f4de7b921298b0dac052df408af03bbb2b62132b",
+      "bytes": 866,
+      "sha256": "8dbbd40e031d0783af12fe8022cddcb8b03f69813d5600e73d122dd911d0f0b0",
+      "role": "Immutable R8 context/registry/count/history/public verification; inherited earlier dependency closure stays bound through exact R8/R7/R6 manifests and receipts"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r8_geode_context/CONGRUENCY_BACKLOG.json",
+      "revision": "f4de7b921298b0dac052df408af03bbb2b62132b",
+      "bytes": 68811,
+      "sha256": "ff660d2060ece396708dfe487f8490e099c4afc3d0b7b3a550916d573b50799a",
+      "role": "Immutable R8 context/registry/count/history/public verification; inherited earlier dependency closure stays bound through exact R8/R7/R6 manifests and receipts"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r8_geode_context/MANIFEST.json",
+      "revision": "f4de7b921298b0dac052df408af03bbb2b62132b",
+      "bytes": 39461,
+      "sha256": "e77c2d347c0cf8b9181109d94c584ea45e7fe4643cb8e420aa20ce8c49253b17",
+      "role": "Immutable R8 context/registry/count/history/public verification; inherited earlier dependency closure stays bound through exact R8/R7/R6 manifests and receipts"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r8_geode_context/RECEIPT_GATES.json",
+      "revision": "f4de7b921298b0dac052df408af03bbb2b62132b",
+      "bytes": 2492,
+      "sha256": "a365a9e7e7106b1dac6cf73c5fda75671575d87ae2ef01396f3cef9b52dff14b",
+      "role": "Immutable R8 context/registry/count/history/public verification; inherited earlier dependency closure stays bound through exact R8/R7/R6 manifests and receipts"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r8_geode_context/REMOTE_VERIFICATION.json",
+      "revision": "f4de7b921298b0dac052df408af03bbb2b62132b",
+      "bytes": 78448,
+      "sha256": "6a0fa10b6641786a5e62aea51fedb2cdcb8edbc51f0331657355f15eb6e923a0",
+      "role": "Immutable R8 context/registry/count/history/public verification; inherited earlier dependency closure stays bound through exact R8/R7/R6 manifests and receipts"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r8_geode_context/REUSE_DISPOSITION.json",
+      "revision": "f4de7b921298b0dac052df408af03bbb2b62132b",
+      "bytes": 1330,
+      "sha256": "ebfe4231dd3360f3990e2d83aaf84230277a9720711c836631aa7d35276c084e",
+      "role": "Immutable R8 context/registry/count/history/public verification; inherited earlier dependency closure stays bound through exact R8/R7/R6 manifests and receipts"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r8_geode_context/REVIEW.json",
+      "revision": "f4de7b921298b0dac052df408af03bbb2b62132b",
+      "bytes": 5346,
+      "sha256": "8ca23b83e1291a848feca5cda4267e9c75632b609b384dfcdd9e29eb8584c54a",
+      "role": "Immutable R8 context/registry/count/history/public verification; inherited earlier dependency closure stays bound through exact R8/R7/R6 manifests and receipts"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r8_geode_context/SOURCE_PARITY.json",
+      "revision": "f4de7b921298b0dac052df408af03bbb2b62132b",
+      "bytes": 14293,
+      "sha256": "7047dd9eaf97bae909e07cca24ab36774029e2508cfd6dcd075d780ffd33ceaf",
+      "role": "Immutable R8 context/registry/count/history/public verification; inherited earlier dependency closure stays bound through exact R8/R7/R6 manifests and receipts"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r8_geode_context/per_piece.json",
+      "revision": "f4de7b921298b0dac052df408af03bbb2b62132b",
+      "bytes": 1106718,
+      "sha256": "7c9a0efd9ccb4c42ef44cc5ba9d517ec78c15e24705aa4859c0eae7ff94aa7fd",
+      "role": "Immutable R8 context/registry/count/history/public verification; inherited earlier dependency closure stays bound through exact R8/R7/R6 manifests and receipts"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r8_geode_context/scene_coverage.json",
+      "revision": "f4de7b921298b0dac052df408af03bbb2b62132b",
+      "bytes": 570867,
+      "sha256": "34430f2ccdb090e599eab7507df3aec823c49d50cbc055e93c9969b168d9bb35",
+      "role": "Immutable R8 context/registry/count/history/public verification; inherited earlier dependency closure stays bound through exact R8/R7/R6 manifests and receipts"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r8_geode_context/tally.json",
+      "revision": "f4de7b921298b0dac052df408af03bbb2b62132b",
+      "bytes": 13310,
+      "sha256": "55871fa77686904029af0132f5674fa9bf89965cfd33106245a8363c41a11fcf",
+      "role": "Immutable R8 context/registry/count/history/public verification; inherited earlier dependency closure stays bound through exact R8/R7/R6 manifests and receipts"
+    },
+    {
+      "path": "tools/sprite_pipeline_bridge.lua",
+      "revision": "f4de7b921298b0dac052df408af03bbb2b62132b",
+      "bytes": 1687,
+      "sha256": "89fe9c5f26845c66acbf999fd3163555956512430042ddf6d869bb00f0306661",
+      "role": "Binding authority/scoped primary local technical bridge"
+    }
+  ],
+  "required_file_count": 127,
+  "required_bytes": 35182714,
+  "payload_sha256": "18fee46b43fbccb02d57cf4825d72bf36495725884178f2a6f80dbc0917654cd",
+  "inherited_context_limit": "Reverify every declared exact delta/source/authority/history dependency. Earlier unchanged context remains bound through previously verified immutable manifests/receipts; no new whole-game or acceptance closure.",
+  "excluded_post_publication_record": "REMOTE_VERIFICATION.json and RECEIPT_GATES.json",
+  "accepted_removed": 0,
+  "mission_complete": false
+}

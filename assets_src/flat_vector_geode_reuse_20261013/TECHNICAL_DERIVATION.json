@@ -1,0 +1,83 @@
+{
+  "schema": 1,
+  "started_at_utc": "2026-10-13T06:18:21.215377+00:00",
+  "completed_at_utc": "2026-10-13T06:18:22.821370+00:00",
+  "command": [
+    "C:/Program Files/Aseprite/Aseprite.exe",
+    "--batch",
+    "--script-param",
+    "source=C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\assets_src\\minigame_art_quality_2026-09-05\\geode-extraction-attempt01\\native.png",
+    "--script-param",
+    "native_master=C:\\Users\\Peter\\.codex\\visualizations\\2026\\10\\08\\01a119cc-74b1-7d23-b956-126129405418\\geode_reuse_trial_20261013T0620\\geode_closed_native.aseprite",
+    "--script-param",
+    "native_roundtrip=C:\\Users\\Peter\\.codex\\visualizations\\2026\\10\\08\\01a119cc-74b1-7d23-b956-126129405418\\geode_reuse_trial_20261013T0620\\geode_closed_native_roundtrip.png",
+    "--script-param",
+    "normalized_master=C:\\Users\\Peter\\.codex\\visualizations\\2026\\10\\08\\01a119cc-74b1-7d23-b956-126129405418\\geode_reuse_trial_20261013T0620\\geode_closed_1024.aseprite",
+    "--script-param",
+    "output=C:\\Users\\Peter\\.codex\\visualizations\\2026\\10\\08\\01a119cc-74b1-7d23-b956-126129405418\\geode_reuse_trial_20261013T0620\\geode_closed_1024.png",
+    "--script-param",
+    "proof=C:\\Users\\Peter\\.codex\\visualizations\\2026\\10\\08\\01a119cc-74b1-7d23-b956-126129405418\\geode_reuse_trial_20261013T0620\\MASTER_PROOF.json",
+    "--script",
+    "C:\\Users\\Peter\\.codex\\visualizations\\2026\\10\\08\\01a119cc-74b1-7d23-b956-126129405418\\geode_reuse_trial_20261013T0620\\bridge_geode.lua"
+  ],
+  "returncode": 0,
+  "program_version": "Aseprite1.3.18.4-x64",
+  "native_roundtrip_rgba_identical": true,
+  "native_source_preserved": true,
+  "normalized_dimensions": [
+    1024,
+    1024
+  ],
+  "normalized_mode": "RGBA",
+  "normalized_alpha_extrema": [
+    0,
+    254
+  ],
+  "uniform_scale_numerator": 1024,
+  "uniform_scale_denominator": 1254,
+  "new_generation_calls": 0,
+  "python_pixel_processing": false,
+  "files": [
+    {
+      "file": "aseprite.log",
+      "bytes": 67,
+      "sha256": "1efa888b9025540fc0c4c081ad49742c9f829c53579b03159cad774270ecec63"
+    },
+    {
+      "file": "bridge_geode.lua",
+      "bytes": 1312,
+      "sha256": "03cfacd39e86ca42960d707cf76bc23e7b0b7e9b471db972bd4ca1a564ffcef7"
+    },
+    {
+      "file": "geode_closed_1024.aseprite",
+      "bytes": 1695609,
+      "sha256": "7c363515eef23102b63f755f647eaea8b7a0b3163b92ad0d5f9e17fd81716203"
+    },
+    {
+      "file": "geode_closed_1024.png",
+      "bytes": 1022500,
+      "sha256": "b639c2cbe36b460bb29db5f0e459329f8b6b8266d205412c95e539e9b7dc95ff"
+    },
+    {
+      "file": "geode_closed_native.aseprite",
+      "bytes": 2563929,
+      "sha256": "edac0711766f778dae56fec2ca49ad2773ce006b927cd35dc2dd7e9338f1f89e"
+    },
+    {
+      "file": "geode_closed_native_roundtrip.png",
+      "bytes": 1560834,
+      "sha256": "a4bc45e2c50fc18c1620efba08c4277541a4334e86406b959e7be60b5d3ac524"
+    },
+    {
+      "file": "MASTER_PROOF.json",
+      "bytes": 186,
+      "sha256": "43cdec55e69c3d8fb06f18ac93d10960030d77716dfba017df2d62858be18d0c"
+    },
+    {
+      "file": "PLAN.json",
+      "bytes": 2938,
+      "sha256": "e2db81a3cdd07abb56605577b73370159b2d35a4ba3d5c98e581f2402d20ec8a"
+    }
+  ],
+  "acceptance": "None; technical derivative/source preview only."
+}

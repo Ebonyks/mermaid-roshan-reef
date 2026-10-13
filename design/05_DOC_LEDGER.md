@@ -1099,3 +1099,9 @@ release/device/child/owner authority retain precedence.
 | Document | State | Scope |
 |---|---|---|
 | `docs/handoffs/codex_flat_vector_art_2026-10-07/r8_geode_context/README.md` | 🔵 | `SUPPORTING_CURRENT` bounded Geologist phase fixture,44 native captures/five inspections,preserved source shortlist and ten-axis congruency.225 known designs/30 families;1708 bounded/1810 retained;77 partial/zero complete. No runtime/pixel change,art acceptance or finding closure; whole-game denominator/acceptance remain open. |
+
+## R9 Geologist source-reuse trial (2026-10-13)
+
+| Document | State | Scope |
+|---|---|---|
+| `docs/handoffs/codex_flat_vector_art_2026-10-07/r9_geode_reuse/README.md` | 🔵 | `SUPPORTING_CURRENT` one existing Geode source-preserving Aseprite/1024 derivative and isolated closed-fit trial;44 captures/35 unique hashes/five inspections. Marker fit/matched opening family incomplete; no generation,production integration or acceptance.225 known/30 families,1752 bounded/1854 retained; unknown whole-game totals and acceptance remain open. |
