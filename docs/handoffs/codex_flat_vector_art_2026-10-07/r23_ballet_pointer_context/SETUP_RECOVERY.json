@@ -1,0 +1,5 @@
+{
+  "failure": "TypeError: str object is not a mapping",
+  "context": "Attempted to extend inherited current_partial_context_union as a dictionary,but it is a canonical path string. No gate or runtime source failed.",
+  "correction": "Preserved the original link-string representation and added separate current_partial_context_counts. All prior/frozen evidence unchanged."
+}

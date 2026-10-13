@@ -1,0 +1,72 @@
+{
+  "revision": "FV-AUDIT-20261013-R23",
+  "piece_id": "FV-D2EA0464919A",
+  "scope_id": "FVF-CEAD9700B93C",
+  "family": "opera_ballerina",
+  "route": "opera.act.02",
+  "source_revision": "45cb1b26b9bcf16ac1bd5142cc5c38085b631dee",
+  "reviewer": "Codex direct native/source image inspection;not human approval",
+  "status": "PARTIAL_CURRENT_CONTEXT_AUDIT; VISIBLE_PROCEDURAL_GUIDE_REQUIRES_REPLACEMENT",
+  "ten_axes": {
+    "contour": "Circular disc,purple arc and thick diagonal stem look like a simple magnifier/pointer rather than an articulated painted hand. Shape is independently drawn,not the shared hand helper.",
+    "material": "Uniform cream/white disc and stem,purple outline,gold translucent halo differ from same-scene painted satin/scales,flowers and shell/gold relief.",
+    "palette": "Cream,gold and lavender fit existing Ballet source colors;no palette redesign is indicated by these samples.",
+    "light": "Uniform white highlight and halo versus authored directional broad paint bands in character/music-box/stage;actual overdraw/device/light acceptance remains open.",
+    "perspective": "Screen-space demonstration guide travels along 2D pose/ribbon/twirl geometry;flat UI constraint separate from world perspective. Future whole-source art must preserve exact input contact and motion.",
+    "scale": "Idle radius34/pressed29,halo+15 and stem ending at44,56 provide a large native guide beside portrait choices. New source fit/phone readability untested.",
+    "contact": "Source helper centers at authoritative target/path/handle positions;partial ribbon0.16 and twirl~0.063662 follow actual raw drags. Source formula binding is not QA11 measured projection/phone comprehension.",
+    "occlusion": "Pose demo disc covers portions of the target/option body and face in directly viewed samples;after one correct choice next-round demo covers the upper portrait. Ballet guide reuse must reduce semantic occlusion while preserving input target.",
+    "readability": "Guide remains high-key/distinct on background but resembles a disc/stem;portrait arm/face information can be covered. Painted hand is only a source-reuse candidate pending actual Ballet fit and child review.",
+    "action_state": "Actual timers demo0.4/1.2/end,wrong choice/position,one partial correct choice or two bounded drags/release/teardown captured at two aspects. Guide disappears at demo end and active ribbon/twirl input,returns after partial release;pose advances only one ofthree rounds and replays next demo. Full route/award/motion/focus/load/device/child/owner missing."
+  },
+  "direct_native_views": [
+    "native/1280x720/phase_00/opened_demo_04s.png",
+    "native/1280x720/phase_00/demo_press_12s.png",
+    "native/1280x720/phase_00/correct_moved.png",
+    "native/1280x720/phase_01/opened_demo_04s.png",
+    "native/1280x720/phase_01/demo_press_12s.png",
+    "native/1280x720/phase_01/correct_released.png",
+    "native/1280x720/phase_02/opened_demo_04s.png",
+    "native/1280x720/phase_02/demo_press_12s.png",
+    "native/1280x720/phase_02/correct_released.png",
+    "native/1600x720/phase_00/opened_demo_04s.png",
+    "native/1600x720/phase_00/demo_press_12s.png",
+    "native/1600x720/phase_00/correct_moved.png",
+    "native/1600x720/phase_01/opened_demo_04s.png",
+    "native/1600x720/phase_01/demo_press_12s.png",
+    "native/1600x720/phase_01/correct_released.png",
+    "native/1600x720/phase_02/opened_demo_04s.png",
+    "native/1600x720/phase_02/demo_press_12s.png",
+    "native/1600x720/phase_02/correct_released.png"
+  ],
+  "direct_source_images_viewed": [
+    "assets/opera/worlds/backdrops/world_ballerina.png",
+    "assets/opera/worlds/actors/animation/roshan_ballerina_sheet_a.png",
+    "assets/opera/worlds/props/goal_ballerina.png",
+    "assets_src/flat_vector_pointer_20261013/pointer_1024.png"
+  ],
+  "native_files": 54,
+  "unique_native_hashes": 54,
+  "new_generation_calls": 0,
+  "new_art_drawings": 0,
+  "next_bounded_repair": "After this current context is published/anonymous-verified,test direct reuse of the existing whole R16 painted hand at actual Ballet guide contact/visibility states. Hand remains unaccepted; preserve all trajectory/hit/save/caller guards. No new drawing until a documented failed-reuse gap.",
+  "remaining_weaknesses": [
+    "Independent flat guide remains visible in all three demos",
+    "Pose portrait occlusion and hand meaning at child size",
+    "Neighboring flat pose frames,ribbon/thick segmented bands,touch pearls,twirl ring/completion halo and HUD need their own named review;no extra per-piece coverage credit from incidental visibility",
+    "All armed/completion/remaining-round/full-route/missing-source branches",
+    "Full QA11/device/child/owner/performance/global inventory acceptance"
+  ],
+  "acceptance": {
+    "candidate": null,
+    "approved": null,
+    "integrated": null,
+    "runtime_verified_replacement": null,
+    "QA11": null,
+    "device": null,
+    "child": null,
+    "owner": null,
+    "accepted_removed": 0
+  },
+  "limits": "Unmodified real specialist,private SaveState BEFORE Main,forced phase0/1/2 dev-playtest entry,actual inputs/timers. Diagnostic only;no generation or production changes;historical six-phase evidence unchanged."
+}

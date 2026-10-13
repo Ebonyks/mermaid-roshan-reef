@@ -1,6 +1,12 @@
-Current canonical evidence: [R22 CandyMaker onset contact](r22_candy_stream_onset/README.md), [registry](r22_candy_stream_onset/per_piece.json), [coverage](r22_candy_stream_onset/scene_coverage.json), [tally](r22_candy_stream_onset/tally.json).
+Current canonical evidence: [R23 Ballet guide context](r23_ballet_pointer_context/README.md), [registry](r23_ballet_pointer_context/per_piece.json), [coverage](r23_ballet_pointer_context/scene_coverage.json), [tally](r23_ballet_pointer_context/tally.json).
 
-# Full-game flat-vector audit — current R22 contact trial
+# Full-game flat-vector audit — current R23 independent Ballet context
+
+54 current native files across three Ballet modes/18 direct views.49 existing partial records/10 families;2510 bounded/2624 retained,225 known/30 families. Independent procedural guide still needs replacement;zero art adoption/accepted removal,unknown whole-game inventory and acceptance.
+
+Historical R22 routing: [R22 CandyMaker onset contact](r22_candy_stream_onset/README.md), [registry](r22_candy_stream_onset/per_piece.json), [coverage](r22_candy_stream_onset/scene_coverage.json), [tally](r22_candy_stream_onset/tally.json).
+
+# Historical R22 contact trial
 
 Source-mask onset and same-column handoff improved in an isolated preview using unchanged R21 art; contour/action still fail local QC.78 new native files/18 views;2456 bounded/2570 retained.225 known/30 families,zero accepted removals;whole-game inventory and acceptance remain open.
 

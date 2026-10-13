@@ -1,0 +1,364 @@
+{
+  "revision": "FV-AUDIT-20261013-R23",
+  "source_revision": "45cb1b26b9bcf16ac1bd5142cc5c38085b631dee",
+  "sources": [
+    {
+      "path": "scripts/opera_ballet_surface.gd",
+      "revision": "45cb1b26b9bcf16ac1bd5142cc5c38085b631dee",
+      "sha256": "76a648de7fd0d52eadf1974257bfaaf3f17bb6b73a0bd96029b35133c33cb70b",
+      "bytes": 25366,
+      "role": "Current Ballet production context/source dependency; source reference only,no acceptance"
+    },
+    {
+      "path": "scripts/opera_gesture_surface.gd",
+      "revision": "45cb1b26b9bcf16ac1bd5142cc5c38085b631dee",
+      "sha256": "458d3afb7e231f8f5da6e21c64f27b699e7bf66bc5e6eb43fd9e331eaad6b07b",
+      "bytes": 240970,
+      "role": "Current Ballet production context/source dependency; source reference only,no acceptance"
+    },
+    {
+      "path": "scripts/opera_career_world_2d.gd",
+      "revision": "45cb1b26b9bcf16ac1bd5142cc5c38085b631dee",
+      "sha256": "2195e137800fd840e4a813a83e6ac9b393a9e7851fd80ca84ca51fb964232702",
+      "bytes": 235089,
+      "role": "Current Ballet production context/source dependency; source reference only,no acceptance"
+    },
+    {
+      "path": "scripts/opera_act.gd",
+      "revision": "45cb1b26b9bcf16ac1bd5142cc5c38085b631dee",
+      "sha256": "7a8db71dfd827efabeee50a348d7849ea646d2693c2ec2b6930c80938d2517b0",
+      "bytes": 7447,
+      "role": "Current Ballet production context/source dependency; source reference only,no acceptance"
+    },
+    {
+      "path": "scripts/opera_house.gd",
+      "revision": "45cb1b26b9bcf16ac1bd5142cc5c38085b631dee",
+      "sha256": "6d6aeead33ff8cc451daa09da215185171359fd218693371184f38ecadac2d7f",
+      "bytes": 17056,
+      "role": "Current Ballet production context/source dependency; source reference only,no acceptance"
+    },
+    {
+      "path": "scripts/opera_world_backdrop_2d.gd",
+      "revision": "45cb1b26b9bcf16ac1bd5142cc5c38085b631dee",
+      "sha256": "49a927c8183ed253b82d9893849dbdaf4af27f5ece52392588b3b287cf4932b4",
+      "bytes": 25442,
+      "role": "Current Ballet production context/source dependency; source reference only,no acceptance"
+    },
+    {
+      "path": "scripts/save_state.gd",
+      "revision": "45cb1b26b9bcf16ac1bd5142cc5c38085b631dee",
+      "sha256": "de380b088c8dcdd4623804d44a8fe35be5bfe7f8095cdcff1ca40c24e2c9c9b9",
+      "bytes": 46616,
+      "role": "Current Ballet production context/source dependency; source reference only,no acceptance"
+    },
+    {
+      "path": "project.godot",
+      "revision": "45cb1b26b9bcf16ac1bd5142cc5c38085b631dee",
+      "sha256": "ef6e56681ebd8b9c9abfc7654be1a2bcf90d55e1d697522eb3871b0e6750d207",
+      "bytes": 1762,
+      "role": "Current Ballet production context/source dependency; source reference only,no acceptance"
+    },
+    {
+      "path": "scenes/main.tscn",
+      "revision": "45cb1b26b9bcf16ac1bd5142cc5c38085b631dee",
+      "sha256": "1de477913ac3db6efe5d66d04967279dc9b66217bea01afeeddb4d98ef692f21",
+      "bytes": 221,
+      "role": "Current Ballet production context/source dependency; source reference only,no acceptance"
+    },
+    {
+      "path": "assets/opera/worlds/actors/animation/roshan_ballerina_sheet_a.png",
+      "revision": "45cb1b26b9bcf16ac1bd5142cc5c38085b631dee",
+      "sha256": "c829784d4085e9cd9765cf0114a0f65bfe3f662ed8acc423223b726a0f003995",
+      "bytes": 922607,
+      "role": "Ballet filename-matched art/source-reuse inventory;actual visible runtime paths recorded separately. Filename match is not acceptance or active-use proof."
+    },
+    {
+      "path": "assets/opera/worlds/props/goal_ballerina.png",
+      "revision": "45cb1b26b9bcf16ac1bd5142cc5c38085b631dee",
+      "sha256": "4891a0863557a0105912afe7497d2b0f976aadf32507ad1c079f03f3162c257e",
+      "bytes": 291121,
+      "role": "Ballet filename-matched art/source-reuse inventory;actual visible runtime paths recorded separately. Filename match is not acceptance or active-use proof."
+    },
+    {
+      "path": "assets/opera/worlds/actors/rival_ballerina.png",
+      "revision": "45cb1b26b9bcf16ac1bd5142cc5c38085b631dee",
+      "sha256": "e2b8a9d82782b80a5e6f4c768eb0b349a91acaa859b32b820c2d1b6da305c583",
+      "bytes": 236097,
+      "role": "Ballet filename-matched art/source-reuse inventory;actual visible runtime paths recorded separately. Filename match is not acceptance or active-use proof."
+    },
+    {
+      "path": "assets/opera/worlds/actors/rival_ballerina_bopped.png",
+      "revision": "45cb1b26b9bcf16ac1bd5142cc5c38085b631dee",
+      "sha256": "8f517dcca547a26903c87925936a452a3a30c5ceaf201dffc78b3267a1b45812",
+      "bytes": 255120,
+      "role": "Ballet filename-matched art/source-reuse inventory;actual visible runtime paths recorded separately. Filename match is not acceptance or active-use proof."
+    },
+    {
+      "path": "assets/opera/worlds/actors/rival_ballerina_bow.png",
+      "revision": "45cb1b26b9bcf16ac1bd5142cc5c38085b631dee",
+      "sha256": "bc1bdc24fb1ebb8ecc5577501a95038996d0ca5c5457fe9ad370747161a77d2a",
+      "bytes": 196236,
+      "role": "Ballet filename-matched art/source-reuse inventory;actual visible runtime paths recorded separately. Filename match is not acceptance or active-use proof."
+    },
+    {
+      "path": "assets/opera/worlds/actors/rival_ballerina_charge.png",
+      "revision": "45cb1b26b9bcf16ac1bd5142cc5c38085b631dee",
+      "sha256": "1050c0f7dc8e8e41160343542ebc32b79d9e3a15c593f9b9241ac03326a43424",
+      "bytes": 186725,
+      "role": "Ballet filename-matched art/source-reuse inventory;actual visible runtime paths recorded separately. Filename match is not acceptance or active-use proof."
+    },
+    {
+      "path": "assets/opera/worlds/actors/rival_ballerina_flee.png",
+      "revision": "45cb1b26b9bcf16ac1bd5142cc5c38085b631dee",
+      "sha256": "798326b446f99f8572cf7629cebb7e29ef90378660029fd35fe8712b70591009",
+      "bytes": 178824,
+      "role": "Ballet filename-matched art/source-reuse inventory;actual visible runtime paths recorded separately. Filename match is not acceptance or active-use proof."
+    },
+    {
+      "path": "assets/opera/worlds/actors/rival_ballerina_guard.png",
+      "revision": "45cb1b26b9bcf16ac1bd5142cc5c38085b631dee",
+      "sha256": "a8524d557df37aa1cf1efc788b62de3f4d94ea87899e34178e4fbc68937ca8e7",
+      "bytes": 223686,
+      "role": "Ballet filename-matched art/source-reuse inventory;actual visible runtime paths recorded separately. Filename match is not acceptance or active-use proof."
+    },
+    {
+      "path": "assets/opera/worlds/actors/rival_ballerina_hop_a.png",
+      "revision": "45cb1b26b9bcf16ac1bd5142cc5c38085b631dee",
+      "sha256": "3944df45e8306a6d45c1ff377273e01b16ee6a160bded426bc5b06bc6344391a",
+      "bytes": 228020,
+      "role": "Ballet filename-matched art/source-reuse inventory;actual visible runtime paths recorded separately. Filename match is not acceptance or active-use proof."
+    },
+    {
+      "path": "assets/opera/worlds/actors/rival_ballerina_hop_b.png",
+      "revision": "45cb1b26b9bcf16ac1bd5142cc5c38085b631dee",
+      "sha256": "6f87db844ab250fc450e64aaeb841679905e99ccb303e96e1a442fbde4527d5e",
+      "bytes": 203042,
+      "role": "Ballet filename-matched art/source-reuse inventory;actual visible runtime paths recorded separately. Filename match is not acceptance or active-use proof."
+    },
+    {
+      "path": "assets/opera/worlds/actors/rival_ballerina_recover.png",
+      "revision": "45cb1b26b9bcf16ac1bd5142cc5c38085b631dee",
+      "sha256": "4ec225ad1839853b1bbcdbcbef633b37aac11faf4c80023213d53987f5080ff9",
+      "bytes": 198443,
+      "role": "Ballet filename-matched art/source-reuse inventory;actual visible runtime paths recorded separately. Filename match is not acceptance or active-use proof."
+    },
+    {
+      "path": "assets/opera/worlds/actors/rival_ballerina_slash.png",
+      "revision": "45cb1b26b9bcf16ac1bd5142cc5c38085b631dee",
+      "sha256": "454283b236edc9234f386433e01777b82d4f224ee155eecdad9c6e99d16b8fdb",
+      "bytes": 211365,
+      "role": "Ballet filename-matched art/source-reuse inventory;actual visible runtime paths recorded separately. Filename match is not acceptance or active-use proof."
+    },
+    {
+      "path": "assets/opera/worlds/actors/rival_ballerina_stagger.png",
+      "revision": "45cb1b26b9bcf16ac1bd5142cc5c38085b631dee",
+      "sha256": "056a2f3a28ef6b9b2cd882550045a98962456a8616d6dfe17d48e2283ba25d3a",
+      "bytes": 235919,
+      "role": "Ballet filename-matched art/source-reuse inventory;actual visible runtime paths recorded separately. Filename match is not acceptance or active-use proof."
+    },
+    {
+      "path": "assets/opera/worlds/actors/rival_ballerina_taunt.png",
+      "revision": "45cb1b26b9bcf16ac1bd5142cc5c38085b631dee",
+      "sha256": "93fc0f37ec326b0f1fff1cf690b18757f4677090f366d7003535f7e5fd9516b9",
+      "bytes": 218534,
+      "role": "Ballet filename-matched art/source-reuse inventory;actual visible runtime paths recorded separately. Filename match is not acceptance or active-use proof."
+    },
+    {
+      "path": "assets/opera/worlds/actors/rival_ballerina_windup.png",
+      "revision": "45cb1b26b9bcf16ac1bd5142cc5c38085b631dee",
+      "sha256": "9cddfc5ded15e6a30c3c059f74abe1f7bbe990b7ebaf82e7de4f8b984fbbe735",
+      "bytes": 233674,
+      "role": "Ballet filename-matched art/source-reuse inventory;actual visible runtime paths recorded separately. Filename match is not acceptance or active-use proof."
+    },
+    {
+      "path": "assets/opera/worlds/actors/roshan_ballerina.png",
+      "revision": "45cb1b26b9bcf16ac1bd5142cc5c38085b631dee",
+      "sha256": "3e1ff9afca613e7a009135a3b7878c4131daae7d12d4e7b3bdba1ca1a91b5b27",
+      "bytes": 255919,
+      "role": "Ballet filename-matched art/source-reuse inventory;actual visible runtime paths recorded separately. Filename match is not acceptance or active-use proof."
+    },
+    {
+      "path": "assets/opera/worlds/backdrops/stage_ballerina_c0r0.png",
+      "revision": "45cb1b26b9bcf16ac1bd5142cc5c38085b631dee",
+      "sha256": "405fa2471603227c202b095f9a409cb7bcb70aac836e1f6fe507cfdba862e6e8",
+      "bytes": 845553,
+      "role": "Ballet filename-matched art/source-reuse inventory;actual visible runtime paths recorded separately. Filename match is not acceptance or active-use proof."
+    },
+    {
+      "path": "assets/opera/worlds/backdrops/stage_ballerina_c0r1.png",
+      "revision": "45cb1b26b9bcf16ac1bd5142cc5c38085b631dee",
+      "sha256": "e240fa5e9968a999c7a8df6feaf843d9dcd83b3437e6ad01f1f92f4b291bfb32",
+      "bytes": 767893,
+      "role": "Ballet filename-matched art/source-reuse inventory;actual visible runtime paths recorded separately. Filename match is not acceptance or active-use proof."
+    },
+    {
+      "path": "assets/opera/worlds/backdrops/stage_ballerina_c1r0.png",
+      "revision": "45cb1b26b9bcf16ac1bd5142cc5c38085b631dee",
+      "sha256": "798a7f025f3219a7717b6e34ed2ab10d85e72506d84603d0735a0e80c5152dc3",
+      "bytes": 854065,
+      "role": "Ballet filename-matched art/source-reuse inventory;actual visible runtime paths recorded separately. Filename match is not acceptance or active-use proof."
+    },
+    {
+      "path": "assets/opera/worlds/backdrops/stage_ballerina_c1r1.png",
+      "revision": "45cb1b26b9bcf16ac1bd5142cc5c38085b631dee",
+      "sha256": "e91833407e8304ceea85a505707246d1416d6b3c0a673040a5299cb61fca8e1e",
+      "bytes": 755915,
+      "role": "Ballet filename-matched art/source-reuse inventory;actual visible runtime paths recorded separately. Filename match is not acceptance or active-use proof."
+    },
+    {
+      "path": "assets/opera/worlds/backdrops/world_ballerina.png",
+      "revision": "45cb1b26b9bcf16ac1bd5142cc5c38085b631dee",
+      "sha256": "0011569b86b3c194cbcc8c6a2c7ad2e9278f3092640d0b55a771c02ddb9426a1",
+      "bytes": 1287791,
+      "role": "Ballet filename-matched art/source-reuse inventory;actual visible runtime paths recorded separately. Filename match is not acceptance or active-use proof."
+    },
+    {
+      "path": "assets/opera/worlds/backdrops/world_ballerina_c0r0.png",
+      "revision": "45cb1b26b9bcf16ac1bd5142cc5c38085b631dee",
+      "sha256": "eb80cc6370747ef192d0e0129d113b3d6aeb5cdaab2ceed9ae27b5c1b3f36f1c",
+      "bytes": 843364,
+      "role": "Ballet filename-matched art/source-reuse inventory;actual visible runtime paths recorded separately. Filename match is not acceptance or active-use proof."
+    },
+    {
+      "path": "assets/opera/worlds/backdrops/world_ballerina_c0r1.png",
+      "revision": "45cb1b26b9bcf16ac1bd5142cc5c38085b631dee",
+      "sha256": "4a87be9608a19b2f0b8f11b9b9623acf227a474963e72889999868266f47f4a5",
+      "bytes": 920439,
+      "role": "Ballet filename-matched art/source-reuse inventory;actual visible runtime paths recorded separately. Filename match is not acceptance or active-use proof."
+    },
+    {
+      "path": "assets/opera/worlds/backdrops/world_ballerina_c1r0.png",
+      "revision": "45cb1b26b9bcf16ac1bd5142cc5c38085b631dee",
+      "sha256": "7a442098e1d3399d25971c0f537a05181dcf6f79ead4f94a04cd983936184201",
+      "bytes": 815342,
+      "role": "Ballet filename-matched art/source-reuse inventory;actual visible runtime paths recorded separately. Filename match is not acceptance or active-use proof."
+    },
+    {
+      "path": "assets/opera/worlds/backdrops/world_ballerina_c1r1.png",
+      "revision": "45cb1b26b9bcf16ac1bd5142cc5c38085b631dee",
+      "sha256": "68165f9af9ceadacc02702f252fd2b432815c29b6037c7bc883e36241e1d5a59",
+      "bytes": 905641,
+      "role": "Ballet filename-matched art/source-reuse inventory;actual visible runtime paths recorded separately. Filename match is not acceptance or active-use proof."
+    },
+    {
+      "path": "assets/opera/worlds/widgets/widget_charge_ballerina.png",
+      "revision": "45cb1b26b9bcf16ac1bd5142cc5c38085b631dee",
+      "sha256": "0a0ddfea8657c4502477b96b532a84d9d685e1cd37bbade4d0859954266f9fe7",
+      "bytes": 309530,
+      "role": "Ballet filename-matched art/source-reuse inventory;actual visible runtime paths recorded separately. Filename match is not acceptance or active-use proof."
+    },
+    {
+      "path": "assets/opera/worlds/widgets/widget_charge_ballerina_full.png",
+      "revision": "45cb1b26b9bcf16ac1bd5142cc5c38085b631dee",
+      "sha256": "f403de5b062f955f00976570366ce2e0b91df6395f4e5beb2bef17d76753504e",
+      "bytes": 3947,
+      "role": "Ballet filename-matched art/source-reuse inventory;actual visible runtime paths recorded separately. Filename match is not acceptance or active-use proof."
+    },
+    {
+      "path": "assets/opera/worlds/widgets/widget_charge_ballerina_glow.png",
+      "revision": "45cb1b26b9bcf16ac1bd5142cc5c38085b631dee",
+      "sha256": "7a206365725676f5b6f1a5106a6b9f885bef3a88454fb3284c3bb4867ed3454c",
+      "bytes": 2945,
+      "role": "Ballet filename-matched art/source-reuse inventory;actual visible runtime paths recorded separately. Filename match is not acceptance or active-use proof."
+    },
+    {
+      "path": "assets/opera/worlds/widgets/widget_crank_ballerina.png",
+      "revision": "45cb1b26b9bcf16ac1bd5142cc5c38085b631dee",
+      "sha256": "b7131b3c40da16bbd93e226add01f52cef5f0eb31335cf593cab7718a8fc5f3a",
+      "bytes": 369005,
+      "role": "Ballet filename-matched art/source-reuse inventory;actual visible runtime paths recorded separately. Filename match is not acceptance or active-use proof."
+    },
+    {
+      "path": "assets/opera/worlds/widgets/widget_crank_ballerina_mover.png",
+      "revision": "45cb1b26b9bcf16ac1bd5142cc5c38085b631dee",
+      "sha256": "4036b45ea0ba15fe4f82425ead00d090300b972f08994248bfad07274112033f",
+      "bytes": 82452,
+      "role": "Ballet filename-matched art/source-reuse inventory;actual visible runtime paths recorded separately. Filename match is not acceptance or active-use proof."
+    },
+    {
+      "path": "assets/opera/worlds/widgets/widget_crank_ballerina_progress.png",
+      "revision": "45cb1b26b9bcf16ac1bd5142cc5c38085b631dee",
+      "sha256": "565ea6ea262a177428242d4652077224aef6307b1e8756f9597981a9b00d4c0e",
+      "bytes": 7252,
+      "role": "Ballet filename-matched art/source-reuse inventory;actual visible runtime paths recorded separately. Filename match is not acceptance or active-use proof."
+    },
+    {
+      "path": "assets/opera/worlds/widgets/widget_lanes_ballerina.png",
+      "revision": "45cb1b26b9bcf16ac1bd5142cc5c38085b631dee",
+      "sha256": "973af7333787745f91208a2836696851e31b277367337988faacb6098545304a",
+      "bytes": 455579,
+      "role": "Ballet filename-matched art/source-reuse inventory;actual visible runtime paths recorded separately. Filename match is not acceptance or active-use proof."
+    },
+    {
+      "path": "assets/opera/worlds/widgets/widget_lanes_ballerina_lit.png",
+      "revision": "45cb1b26b9bcf16ac1bd5142cc5c38085b631dee",
+      "sha256": "6d13cd6ad2f0856e58e9065a86695b9a751e8ef2a727de23863cf58aa3933107",
+      "bytes": 199908,
+      "role": "Ballet filename-matched art/source-reuse inventory;actual visible runtime paths recorded separately. Filename match is not acceptance or active-use proof."
+    },
+    {
+      "path": "assets/opera/worlds/widgets/widget_trace_ballerina.png",
+      "revision": "45cb1b26b9bcf16ac1bd5142cc5c38085b631dee",
+      "sha256": "5ce3d068692a18d62d4ffa44e52ef32817f5118a8d2fb7e43c45f3c72383de12",
+      "bytes": 287174,
+      "role": "Ballet filename-matched art/source-reuse inventory;actual visible runtime paths recorded separately. Filename match is not acceptance or active-use proof."
+    },
+    {
+      "path": "assets/opera/worlds/widgets/widget_trace_ballerina_lit.png",
+      "revision": "45cb1b26b9bcf16ac1bd5142cc5c38085b631dee",
+      "sha256": "bbe4169aba9bd477592b665b08833e245c8a5b38567c238d50576e0406c4f937",
+      "bytes": 4074,
+      "role": "Ballet filename-matched art/source-reuse inventory;actual visible runtime paths recorded separately. Filename match is not acceptance or active-use proof."
+    },
+    {
+      "path": "assets/opera/worlds/widgets/widget_track_ballerina.png",
+      "revision": "45cb1b26b9bcf16ac1bd5142cc5c38085b631dee",
+      "sha256": "9a3770554a3812004a840c3c7cc5cb160de7e26dfcb7f3c8c1ff7a51e2e7db96",
+      "bytes": 150110,
+      "role": "Ballet filename-matched art/source-reuse inventory;actual visible runtime paths recorded separately. Filename match is not acceptance or active-use proof."
+    },
+    {
+      "path": "assets/opera/worlds/widgets/widget_track_ballerina_mover.png",
+      "revision": "45cb1b26b9bcf16ac1bd5142cc5c38085b631dee",
+      "sha256": "f8647bb2d56346db2ec9b187b29df45155310cef692e5a43f16a312bdf72f4a8",
+      "bytes": 66779,
+      "role": "Ballet filename-matched art/source-reuse inventory;actual visible runtime paths recorded separately. Filename match is not acceptance or active-use proof."
+    },
+    {
+      "path": "assets/opera/worlds/ui/crests/opera_crest_ballerina.png",
+      "revision": "45cb1b26b9bcf16ac1bd5142cc5c38085b631dee",
+      "sha256": "d3d0c73d798688a21459b14f8a5ee3f8985578286b7a7e03e9b6ac68e917d2c3",
+      "bytes": 76915,
+      "role": "Ballet filename-matched art/source-reuse inventory;actual visible runtime paths recorded separately. Filename match is not acceptance or active-use proof."
+    },
+    {
+      "path": "scripts/opera_roshan_actor.gd",
+      "revision": "45cb1b26b9bcf16ac1bd5142cc5c38085b631dee",
+      "sha256": "556301bbaeefcc55f7a5c28744170872e488563719aee54856ad4c65c4e9cb6d",
+      "bytes": 6876,
+      "role": "Actual current player animator source dependency"
+    },
+    {
+      "path": "assets_src/flat_vector_pointer_20261013/pointer_1024.png",
+      "revision": "45cb1b26b9bcf16ac1bd5142cc5c38085b631dee",
+      "sha256": "7e80a06704e21d780e66692c68d1226ea3b9a88544e927ba293b49ed1d3451ec",
+      "bytes": 436458,
+      "role": "Viewed existing R16 source sample,not approved Ballet art;no pixels used"
+    },
+    {
+      "path": "assets_src/flat_vector_pointer_20261013/MASTER_PROOF.json",
+      "revision": "45cb1b26b9bcf16ac1bd5142cc5c38085b631dee",
+      "sha256": "cc0f0583deb6c3c3756cc291827b9cd51fff5fa5166982a64acf0bfbeaaed068",
+      "bytes": 385,
+      "role": "Existing whole-source hand master/provenance;acceptance scope unchanged"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r17_pointer_callers/SOURCE_AUDIT.json",
+      "revision": "45cb1b26b9bcf16ac1bd5142cc5c38085b631dee",
+      "sha256": "dd64707243aadfc5068e2a812601e1f148f176cacd4787ef01a98ef9e41fbfed",
+      "bytes": 35764,
+      "role": "Published independent caller boundary and three source phase rows"
+    }
+  ],
+  "closure_limit": "Named scene/controller/player/atlas/backdrop/goal dependency binding;not full active resource/native/callback/QA11 closure."
+}

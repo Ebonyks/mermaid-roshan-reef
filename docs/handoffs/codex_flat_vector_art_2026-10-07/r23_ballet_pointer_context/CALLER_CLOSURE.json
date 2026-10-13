@@ -1,0 +1,31 @@
+{
+  "revision": "FV-AUDIT-20261013-R23",
+  "piece_id": "FV-D2EA0464919A",
+  "scope_id": "FVF-CEAD9700B93C",
+  "source_revision": "45cb1b26b9bcf16ac1bd5142cc5c38085b631dee",
+  "route": "opera.act.02",
+  "current_modes": [
+    "ballet_pose",
+    "ballet_ribbon",
+    "ballet_twirl"
+  ],
+  "current_phase_count": 3,
+  "source_call_sites": [
+    {
+      "line": 755,
+      "text": "\t_draw_ghost_finger(at, travel >= 0.72)"
+    }
+  ],
+  "draw_guard": "demo_active && !armed_only && !completion_accepted && !_mode_complete()",
+  "material_construction": "Four circles,one thick diagonal line,one arc; no hand texture loaded by this helper",
+  "independent_of_shared_pointer": true,
+  "source_only_branches_not_closed": [
+    "armed_only",
+    "completion_accepted/full completion",
+    "full ribbon/twirl",
+    "remaining pose rounds",
+    "natural route/reentry/focus/load/Chapter2/saved overrides/missing atlas/music box"
+  ],
+  "native_contract": "Guide present in actual timed demos;pose re-demo after one correct choice,ribbon/twirl return demo after partial release. Passive/wrong do not advance;actual partial correct progress recorded;no full route/QA11/human closure.",
+  "historical_phase_note": "Frozen scene coverage contains historical six-phase Ballet captures. They remain immutable old-source evidence;current source and new native fixture use three modes. No old capture is relabelled current."
+}
