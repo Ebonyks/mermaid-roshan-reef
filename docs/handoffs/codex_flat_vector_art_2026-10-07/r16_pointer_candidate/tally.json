@@ -452,9 +452,17 @@
   ],
   "role_and_family_counts_are_separate": true,
   "publication": {
-    "status": "PREPARED_REMOTE_VERIFICATION_PENDING",
-    "manifest": "MANIFEST.json",
+    "status": "EXACT_PUBLIC_PAYLOAD_VERIFIED",
+    "payload_revision": "a75dff44fdb594323b09069e9e53ccfeb42bc653",
+    "manifest_sha256": "195859d208b45433f32468e1a35799206cb627e62c026ea363662f52ca9dd9f3",
+    "payload_sha256": "550ab05afb98268dbb941632ecbf8e3763c2c5264f9cc7625e2a8925220326f5",
+    "verified_required_files": 925,
+    "verified_fetches_including_manifest": 926,
+    "required_bytes": 117375397,
+    "checked_at_utc": "2026-10-13T16:04:44.982370+00:00",
+    "access_mode": "Anonymous public HTTPS for manifest and every declared required file; public GitHub repo API independently checked; recipient can use the same unauthenticated access mode.",
     "receipt": "REMOTE_VERIFICATION.json",
+    "candidate_sample_count": 1,
     "accepted_removed": 0
   },
   "independent_style_review": {
@@ -588,7 +596,19 @@
     "prior_status": "completed",
     "evidence": "PREVIOUS_HEAD_CI.json",
     "new_R16_exact_head": "PENDING_AFTER_PUBLICATION",
-    "scope": "Exact R15 receipt-head machine CI success; source contains preceding R14 terminal fix. No new R16 source/art/QA11/device/child/owner acceptance."
+    "scope": "Exact R15 receipt-head machine CI success; source contains preceding R14 terminal fix. No new R16 source/art/QA11/device/child/owner acceptance.",
+    "payload_head": "a75dff44fdb594323b09069e9e53ccfeb42bc653",
+    "payload_runs": [
+      {
+        "conclusion": "",
+        "databaseId": 38427472919,
+        "headSha": "a75dff44fdb594323b09069e9e53ccfeb42bc653",
+        "name": "Probe suite (graphics fork)",
+        "status": "in_progress"
+      }
+    ],
+    "receipt_head": "PENDING_NEW_COMMIT",
+    "local_R16_full_suite": "FULL_VALIDATION.json:82 trusted native passes"
   },
   "inherited_r7_reference_base": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/c1e466a8a9e605f43b4c7a181b3d7b702d7677aa/docs/handoffs/codex_flat_vector_art_2026-10-07/r7_craft_context/",
   "inherited_r8_reference_base": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/f4de7b921298b0dac052df408af03bbb2b62132b/docs/handoffs/codex_flat_vector_art_2026-10-07/r8_geode_context/",

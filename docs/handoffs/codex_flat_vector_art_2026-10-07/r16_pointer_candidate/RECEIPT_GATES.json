@@ -1,5 +1,66 @@
 {
-  "status": "PENDING_PRE_PUBLICATION",
-  "accepted_removed": 0,
-  "mission_complete": false
+  "status": "PASS",
+  "scope": "Four receipt metadata files; exact production/candidate assets and scripts unchanged after payload gates/all82 passes. No art/QA11/device/child/owner acceptance.",
+  "payload_revision": "a75dff44fdb594323b09069e9e53ccfeb42bc653",
+  "commands": [
+    {
+      "command": [
+        "python",
+        "-B",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r16_pointer_candidate\\validate.py"
+      ],
+      "started_at_utc": "2026-10-13T16:12:25.128486+00:00",
+      "checked_at_utc": "2026-10-13T16:12:26.993572+00:00",
+      "exit_code": 0,
+      "result": "PASS",
+      "raw_output_bytes": 770,
+      "raw_output_sha256": "c01200d39fd419c7b5c6e4dc4591b45fef42f94877fb7a632ec45b47997aae42",
+      "output": "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r16_pointer_candidate\\validate.py:11: DeprecationWarning: Image.Image.getdata is deprecated and will be removed in Pillow 14 (2027-10-15). Use get_flattened_data instead.\r\n  A=R/'assets_src/flat_vector_pointer_20261013';native=Image.open(A/'native.png').convert('RGBA');rt=Image.open(A/'native_roundtrip.png').convert('RGBA');clean=Image.open(A/'clean_native.png').convert('RGBA');assert native.tobytes()==rt.tobytes();assert all(c==o or c==(0,0,0,0) for o,c in zip(native.getdata(),clean.getdata()))\r\nR16_VALIDATION_OK;one whole-hand sample/94 native files/all82 trusted probes; stable IDs/unknown totals and all art acceptance limits preserved\r\n"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_document_authority.py"
+      ],
+      "started_at_utc": "2026-10-13T16:12:26.994734+00:00",
+      "checked_at_utc": "2026-10-13T16:12:36.202379+00:00",
+      "exit_code": 0,
+      "result": "PASS",
+      "raw_output_bytes": 78,
+      "raw_output_sha256": "d84001bd42ecd0f5b5df5b45a5a6109945a4b07e6b334df2463557172964280a",
+      "output": "DOCAUTH|INVENTORY=719|LEDGER=719|ACTIVE=69|RECORDS=72\r\nDOCAUTH|RESULT|ALL OK\r\n"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_development.py",
+        "--base",
+        "auto"
+      ],
+      "started_at_utc": "2026-10-13T16:12:36.203185+00:00",
+      "checked_at_utc": "2026-10-13T16:12:38.855591+00:00",
+      "exit_code": 0,
+      "result": "PASS",
+      "raw_output_bytes": 80,
+      "raw_output_sha256": "fe1136f6488648e75036829fb4dde2405eb9ed57eec05f046fe441463c20d023",
+      "output": "AUDITDEV|BASE|e2b3c73789707aa49a91b4f42e2a9dd4b68225df\r\nAUDITDEV|RESULT|ALL OK\r\n"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_game_2d.py",
+        "--regression-gate"
+      ],
+      "started_at_utc": "2026-10-13T16:12:38.858019+00:00",
+      "checked_at_utc": "2026-10-13T16:13:32.723506+00:00",
+      "exit_code": 0,
+      "result": "PASS",
+      "raw_output_bytes": 414,
+      "raw_output_sha256": "763e51b38ed1cefc7a506b7148b9d6822c3a647d2fb45e1b64c8f22cb194e0ac",
+      "output": "GAME2D| DEBT| model_files=0| model_scan_coverage_files=0| active_export_model_files=0| model_import_sidecars=0| active_untracked_model_import_sidecars=0| model_archive_files=0| production_3d_files=52| probe_3d_files=61| scene_3d_files=1| configuration_3d_files=1| archive_now_model_files=0\r\nGAME2D| STATUS| UNSATISFIED\r\nGAME2D| RESULT| NO_REGRESSION - exact shrinking baseline; migration debt remains UNSATISFIED\r\n"
+    }
+  ]
 }
