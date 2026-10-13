@@ -1,0 +1,97 @@
+{
+  "revision": "FV-AUDIT-20261013-R20",
+  "piece_id": "FV-E49ED1B88811",
+  "scope_id": "FVF-435230B3EA4A",
+  "source_revision": "f2b91f6ecfee41adc9c1300a67bdd9cafbe08b17",
+  "status": "CONTACT_ONLY_NONRUNTIME_TRIAL; MATERIAL_AND_ONSET_OPEN",
+  "route": "opera.act.03/default SYRUP phase0",
+  "viewed_native_files": [
+    "native/1280x720/baseline/held_08s",
+    "native/1280x720/candidate/held_08s",
+    "native/1280x720/baseline/held_40s",
+    "native/1280x720/candidate/held_40s",
+    "native/1280x720/baseline/held_22s",
+    "native/1280x720/candidate/held_22s",
+    "native/1600x720/baseline/held_08s",
+    "native/1600x720/candidate/held_08s",
+    "native/1600x720/baseline/held_22s",
+    "native/1600x720/candidate/held_22s",
+    "partial_release/1280x720/candidate/held_08s",
+    "partial_release/1280x720/candidate/released",
+    "partial_release/1600x720/candidate/held_08s",
+    "partial_release/1600x720/candidate/released"
+  ],
+  "actually_viewed_native_count": 14,
+  "source_images_viewed": [
+    "assets_src/imagegen/opera_candymaker_syrup_2026-08-10/candymaker_syrup_full_native.png",
+    "assets_src/imagegen/opera_candymaker_syrup_2026-08-10/candymaker_syrup_fill_alpha_native.png",
+    "assets_src/concepts/opera_regeneration_2026-08-01/cards/widget_pour_candymaker.png",
+    "assets_src/imagegen/opera_candymaker_syrup_2026-08-10/candymaker_syrup_ladle_alpha_native.png",
+    "assets_src/imagegen/opera_candymaker_syrup_2026-08-10/candymaker_syrup_ladle_style_reference.png",
+    "assets/opera/worlds/widgets/widget_pour_candymaker_fill.png"
+  ],
+  "ten_axis_comparison": {
+    "contour": "Original and trial retain the same three smooth ribbon bands; their flat contour remains a failed material/style lane. No new flowing drawing is produced.",
+    "material": "Current full/fill/ladle sources provide painted glazed metal and settled glossy liquid,not an inspected whole flowing shape. Trial changes contact only; no source-paint prestige or technical pass grants stream-art acceptance.",
+    "palette": "Original brown/gold/cream line colours are unchanged and broadly echo the liquid/ladle,while their uniform bands remain less varied than neighboring painted highlights.",
+    "light": "No source lighting,grade or approved pixels change. The fixed line highlight still lacks the neighboring painted translucency/reflection variation.",
+    "perspective": "Existing oblique shell/ladle scene is preserved. The horizontal wipe of the shell fill and the ladle lip below the higher revealed surface remain presentation constraints,not a newly solved fluid-depth model.",
+    "scale": "Original stream thickness and nine-sample curve remain. Contact lookup maps1024x576 source-alpha coordinates through the existing cover transform at both native aspects; it is functional geometry,not new artwork.",
+    "contact": "At inspected low fill about0.14,the original endpoint is outside revealed liquid. Its nearest opaque main-fill pixel is6.48\u20137.29local pixels away. Trial uses that source-bound point and native views show the stream joining the revealed pool. Near-zero fill has no eligible main-alpha pixel and still delegates old rendering.",
+    "occlusion": "Trial order is background/stream/painted fill/ladle. The rising painted fill covers the stream termination; at about0.61the lip/flow is beneath the revealed fill and the visible stream is occluded. Original order paints the flat ribbon over liquid. High-fill staging/readability and first impact remain open.",
+    "readability": "Fourteen native views compare low/mid/terminal and actual partial release. Joining the low-fill pool reduces the floating-stop cue,but three flat bands,feedback dots and inset staging remain. No phone-size/child/owner score or acceptance is assigned.",
+    "action_state": "Actual passive/wrong inputs keep zero progress. Short supplemental holds assert an active partial pour before raw release; release hides stream and clears hold. Initial four-second sweep reaches incidental completion and does not prove partial release or full award/lifecycle. Full action/transitions,OSfocus/reload/natural routes remain open."
+  },
+  "context_prerequisite": {
+    "original_context_payload": "35fc561feec63d8319ab388ba4d8552e8761d0ca",
+    "original_context_receipt": "73caf71ad24f1e2471ee8bc4353a60bcfc497e37",
+    "latest_verified_packet_receipt": "f2b91f6ecfee41adc9c1300a67bdd9cafbe08b17",
+    "current_source_bytes_unchanged": true,
+    "baseline_capture": "docs/handoffs/codex_flat_vector_art_2026-10-07/r18_candy_pointer_context/native/1280x720/ladle_held_08s.png",
+    "baseline_capture_sha256": "5dfca9fd157d67d0a55ba6d244c2e2f565ac0fef32ad048aed8eb75b8b82f803",
+    "baseline_view_this_turn": true
+  },
+  "capture_contract": "Private SaveState BEFORE adding Main,isolated dev-playtest production entry and declared derived-script swap/re-arm. Initial48 state files include incidental completion;20 supplemental files explicitly assert active partial-hold release. Actual native timers/Window input,not forced fill values. No normal reward/save reload/re-entry/OSfocus/QA11/device/child/owner acceptance.",
+  "reuse_limits": "276filename shortlist paths and35 exact source inputs do not prove no unlabeled reusable stream exists. Six exact sources directly inspected. Generation record role names such as accepted_empty_backdrop are historical producer labels,not new owner approval. Legacy model/Blender candidates excluded.",
+  "new_generation_calls": 0,
+  "new_pixel_derivatives": 0,
+  "new_drawing_samples": 0,
+  "new_functional_geometry_lookups": 1,
+  "production_integration": null,
+  "runtime_verified_art_replacement": null,
+  "approved": 0,
+  "accepted_removed": 0,
+  "QA11": null,
+  "device": null,
+  "child": null,
+  "owner": null,
+  "remaining_weaknesses": [
+    "Three flat polylines/material/whole flowing shape",
+    "Near-zero reveal/onset fallback and first impact",
+    "Higher-fill ladle staging/readability,horizontal reveal,feedback dots",
+    "All missing-art fallbacks,physical-device30fps/overdraw and acceptance",
+    "Natural route and full lifecycle/caller closure,unknown inventory"
+  ],
+  "source_only_caller_audit": {
+    "source_revision": "f2b91f6ecfee41adc9c1300a67bdd9cafbe08b17",
+    "method": "Production scripts rg symbol/constant inspection; exact parent bytes bound in SOURCES",
+    "rows": [
+      "scripts/opera_gesture_surface.gd:125:const CANDYMAKER_POUR_SECONDS := 3.0",
+      "scripts/opera_gesture_surface.gd:6113:\t\treturn tilt_flow * delta / CANDYMAKER_POUR_SECONDS",
+      "scripts/opera_gesture_surface.gd:6162:func _draw_candymaker_pour_stream() -> void:",
+      "scripts/opera_gesture_surface.gd:6205:\t\t_draw_candymaker_pour_stream()"
+    ],
+    "direct_production_helper_calls": 1,
+    "call_site": "scripts/opera_gesture_surface.gd:6205",
+    "guard": "_draw_pour_scene CandyMaker branch; _is_candymaker_pour requires mode=pourt and visual_context=pour_candymaker",
+    "duration_constant_seconds": 3.0,
+    "scope_limit": "Source-only direct helper closure,not full runtime route/override/state/fallback acceptance",
+    "additional_stream_filename_paths": [
+      "assets_src/animation/roshan_wave_repair_20261010/aseprite_matte_trial_01/full_wave_matte_03/upstream_endpoint_matte/0040.png",
+      "assets_src/animation/roshan_wave_repair_20261010/aseprite_matte_trial_01/full_wave_matte_03/upstream_endpoint_matte/0000.png",
+      "assets_src/animation/roshan_wave_repair_20261010/aseprite_matte_trial_01/full_wave_matte_02/upstream_endpoint_matte/0040.png",
+      "assets_src/animation/roshan_wave_repair_20261010/aseprite_matte_trial_01/full_wave_matte_02/upstream_endpoint_matte/0000.png"
+    ],
+    "additional_stream_filename_inspection": "Names only; unviewed/unqualified for CandyMaker reuse,no global absence claim"
+  }
+}

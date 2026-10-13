@@ -1,0 +1,45 @@
+{
+  "revision": "FV-AUDIT-20261013-R20",
+  "filename_census": "REUSE_NAME_CENSUS.json",
+  "bound_source_inputs": 35,
+  "directly_viewed_images": [
+    "assets_src/imagegen/opera_candymaker_syrup_2026-08-10/candymaker_syrup_full_native.png",
+    "assets_src/imagegen/opera_candymaker_syrup_2026-08-10/candymaker_syrup_fill_alpha_native.png",
+    "assets_src/concepts/opera_regeneration_2026-08-01/cards/widget_pour_candymaker.png",
+    "assets_src/imagegen/opera_candymaker_syrup_2026-08-10/candymaker_syrup_ladle_alpha_native.png",
+    "assets_src/imagegen/opera_candymaker_syrup_2026-08-10/candymaker_syrup_ladle_style_reference.png",
+    "assets/opera/worlds/widgets/widget_pour_candymaker_fill.png"
+  ],
+  "inspected_family": "Original CandyMaker syrup family and runtime fill/vessel sources",
+  "settled_pool_suitable_for": "Source-alpha contact/occlusion,material reference",
+  "settled_pool_unsuitable_for": "Direct flowing-stream sprite; shell-shaped rim/reflections are not a new flow silhouette",
+  "ladle_suitable_for": "Existing fixed identity/paint/material and measured source lip",
+  "concept_card_unsuitable_for": "Wrapped candy and flat UI reference,not flowing syrup",
+  "global_reuse_absence_proven": false,
+  "generated_calls": 0,
+  "budget_spent": 0,
+  "functional_geometry": "Read-only main alpha intervals; original pixels unchanged; FILL_CONTACT_ROWS/FILL_ALPHA_PREFLIGHT bind source hash and thresholds",
+  "provenance_scope": "Current published source family retained; no new creative approval inferred.",
+  "source_only_caller_audit": {
+    "source_revision": "f2b91f6ecfee41adc9c1300a67bdd9cafbe08b17",
+    "method": "Production scripts rg symbol/constant inspection; exact parent bytes bound in SOURCES",
+    "rows": [
+      "scripts/opera_gesture_surface.gd:125:const CANDYMAKER_POUR_SECONDS := 3.0",
+      "scripts/opera_gesture_surface.gd:6113:\t\treturn tilt_flow * delta / CANDYMAKER_POUR_SECONDS",
+      "scripts/opera_gesture_surface.gd:6162:func _draw_candymaker_pour_stream() -> void:",
+      "scripts/opera_gesture_surface.gd:6205:\t\t_draw_candymaker_pour_stream()"
+    ],
+    "direct_production_helper_calls": 1,
+    "call_site": "scripts/opera_gesture_surface.gd:6205",
+    "guard": "_draw_pour_scene CandyMaker branch; _is_candymaker_pour requires mode=pourt and visual_context=pour_candymaker",
+    "duration_constant_seconds": 3.0,
+    "scope_limit": "Source-only direct helper closure,not full runtime route/override/state/fallback acceptance",
+    "additional_stream_filename_paths": [
+      "assets_src/animation/roshan_wave_repair_20261010/aseprite_matte_trial_01/full_wave_matte_03/upstream_endpoint_matte/0040.png",
+      "assets_src/animation/roshan_wave_repair_20261010/aseprite_matte_trial_01/full_wave_matte_03/upstream_endpoint_matte/0000.png",
+      "assets_src/animation/roshan_wave_repair_20261010/aseprite_matte_trial_01/full_wave_matte_02/upstream_endpoint_matte/0040.png",
+      "assets_src/animation/roshan_wave_repair_20261010/aseprite_matte_trial_01/full_wave_matte_02/upstream_endpoint_matte/0000.png"
+    ],
+    "additional_stream_filename_inspection": "Names only; unviewed/unqualified for CandyMaker reuse,no global absence claim"
+  }
+}

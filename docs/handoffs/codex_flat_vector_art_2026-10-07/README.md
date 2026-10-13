@@ -1,8 +1,8 @@
-Current canonical evidence: [R19 CandyMaker painted-hand reuse](r19_candy_pointer_reuse/README.md), [registry](r19_candy_pointer_reuse/per_piece.json), [coverage](r19_candy_pointer_reuse/scene_coverage.json), [tally](r19_candy_pointer_reuse/tally.json).
+Current canonical evidence: [R20 CandyMaker stream contact](r20_candy_stream_contact/README.md), [registry](r20_candy_stream_contact/per_piece.json), [coverage](r20_candy_stream_contact/scene_coverage.json), [tally](r20_candy_stream_contact/tally.json).
 
-# Full-game flat-vector audit — current R19 CandyMaker reuse trial
+# Full-game flat-vector audit — current R20 stream contact study
 
-R19 adds62 candidate preview diagnostics of the same existing whole hand,eight direct native views. No generation,production adoption or acceptance.2262bounded/2376retained,225known/30families,48existing partial records/9families,one sample pending with two partial contexts. Global totals remain unknown. [R18 original CandyMaker context](r18_candy_pointer_context/README.md) remains the published baseline;its2200bounded/2314retained totals are historical.
+R20 adds68 native state files and14 direct views for a source-alpha contact/occlusion trial. Original flat material and near-zero onset remain open; no generation,production adoption or art acceptance.2330 bounded/2444 retained;225 known/30 families,48 existing partial/9 families,one existing hand sample pending. Global totals remain unknown. [R19 hand context trial](r19_candy_pointer_reuse/README.md) and [R18 original CandyMaker context](r18_candy_pointer_context/README.md) remain immutable prior evidence.
 
 R17 binds15 live routes/61 constant phase rows:12 shared-player routes/49 rows,3 independent guide IDs/12 rows.16 old-hand reference files require live/state/missing-texture review. No new art,captures or acceptance; the full-game denominator stays unknown.
 
