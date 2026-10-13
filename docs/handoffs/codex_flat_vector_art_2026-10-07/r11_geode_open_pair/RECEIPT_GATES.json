@@ -1,7 +1,76 @@
 {
   "schema": 1,
-  "status": "PENDING_VERIFICATION",
-  "creative_acceptance": false,
-  "accepted_removed": 0,
-  "mission_complete": false
+  "status": "PASS",
+  "started_at_utc": "2026-10-13T09:38:10.628645+00:00",
+  "checked_at_utc": "2026-10-13T09:40:08.327112+00:00",
+  "exact_staged_receipt_inputs": [
+    {
+      "path": "design/audit_impacts/flat-vector-geode-open-pair-20261013.json",
+      "bytes": 13398,
+      "sha256": "1bae7cd0d98744db6984f924d307e14ca0991dac69d5b5b6728c12a85d81e033"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r11_geode_open_pair/REMOTE_VERIFICATION.json",
+      "bytes": 96095,
+      "sha256": "0bc8c4491a2c487a1d6cc71ec551b21df3abf591ac8595225725084a271033ba"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r11_geode_open_pair/tally.json",
+      "bytes": 20116,
+      "sha256": "38dad06956dc3627a977cdf7542255afd1a720b40def3fb077a3d72202f59d69"
+    }
+  ],
+  "commands": [
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_document_authority.py"
+      ],
+      "returncode": 0,
+      "output": "DOCAUTH|INVENTORY=714|LEDGER=714|ACTIVE=68|RECORDS=71\nDOCAUTH|RESULT|ALL OK\n"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_development.py",
+        "--base",
+        "auto"
+      ],
+      "returncode": 0,
+      "output": "AUDITDEV|BASE|e2b3c73789707aa49a91b4f42e2a9dd4b68225df\nAUDITDEV|RESULT|ALL OK\n"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_game_2d.py",
+        "--regression-gate"
+      ],
+      "returncode": 0,
+      "output": "GAME2D| DEBT| model_files=0| model_scan_coverage_files=0| active_export_model_files=0| model_import_sidecars=0| active_untracked_model_import_sidecars=0| model_archive_files=0| production_3d_files=52| probe_3d_files=61| scene_3d_files=1| configuration_3d_files=1| archive_now_model_files=0\nGAME2D| STATUS| UNSATISFIED\nGAME2D| RESULT| NO_REGRESSION - exact shrinking baseline; migration debt remains UNSATISFIED\n"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r11_geode_open_pair\\validate.py"
+      ],
+      "returncode": 0,
+      "output": "R11_REUSE|ALL OK|native RGBA exact/1024 opened derivative/52 snapshots; endpoint-only action method FAIL remains explicit;225 known/30 families;1848 bounded/1950 retained;zero acceptance;production unchanged\n"
+    },
+    {
+      "command": [
+        "git",
+        "diff",
+        "--cached",
+        "--check"
+      ],
+      "returncode": 0,
+      "output": ""
+    }
+  ],
+  "separate_candidate_action_method_result": "FAIL; direct endpoint substitution rejected for integration; local matched assembly untested",
+  "interpretation": "Receipt metadata/final impact prose only; all payload/source/count/candidate/failure/acceptance facts preserved. No whole-game completion or visual/runtime acceptance."
 }

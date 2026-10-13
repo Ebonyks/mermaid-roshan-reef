@@ -230,9 +230,17 @@
   ],
   "role_and_family_counts_are_separate": true,
   "publication": {
-    "status": "PENDING_R11_PUBLICATION",
-    "manifest": "MANIFEST.json",
-    "receipt": "REMOTE_VERIFICATION.json"
+    "status": "EXACT_PUBLIC_PAYLOAD_VERIFIED",
+    "payload_revision": "ca36462c4fb117cd22ee9003838d64cd1b0e9415",
+    "manifest_sha256": "10fad6be271aaf6e184f0b320871304948a02f277111a14f9107800892fe4876",
+    "payload_sha256": "2786c0cde970fe1926084b4a76d6b46458d8cf6ecbb9afc0774d89caa2dc117d",
+    "verified_required_files": 147,
+    "verified_fetches_including_manifest": 148,
+    "required_bytes": 47757859,
+    "checked_at_utc": "2026-10-13T09:36:28.233551+00:00",
+    "access_mode": "Anonymous public HTTPS for manifest and every declared required file; public GitHub repo API independently checked; recipient can use the same unauthenticated access mode.",
+    "receipt": "REMOTE_VERIFICATION.json",
+    "scope": "Post-publication delivery evidence only; count/source/candidate/failure/acceptance facts unchanged from immutable payload. Final four receipt metadata paths require exact final remote verification."
   },
   "independent_style_review": {
     "file": "ROOT_CONTEXT_REVIEW_20261012.json",
@@ -344,7 +352,7 @@
   "reference_resolution": "Inherited R6/R7/R8/R9/R10 fields retain corresponding exact immutable bases. geode_open_pair_trial resolves in R11; new derivative paths bind in R11 manifest. No inherited evidence is rebound by filename.",
   "unpublished_external_activity_limit": "Separate Garden production branch has no published revision at the verified reconciliation; its local candidate is outside this frozen verified tally. Generation/integration counts in this packet retain packet scope.",
   "current_ci": {
-    "status": "R11_PUBLICATION_PENDING",
+    "status": "LATEST_R11_RECEIPT_HEAD_CI_PENDING",
     "preceding_r10_head": "e8d0aa54b79d222f092534a053e4d716fc27067f",
     "preceding_r10_run": 38369278689,
     "preceding_snapshot": "PREVIOUS_HEAD_CI.json",
@@ -352,7 +360,15 @@
     "preceding_r10_status": "completed",
     "preceding_r10_conclusion": "success",
     "last_completed_full_green_head": "e8d0aa54b79d222f092534a053e4d716fc27067f",
-    "last_completed_full_green_run": 38369278689
+    "last_completed_full_green_run": 38369278689,
+    "r11_payload_head": "ca36462c4fb117cd22ee9003838d64cd1b0e9415",
+    "payload_ci_snapshot": {
+      "conclusion": "",
+      "databaseId": 38377426233,
+      "headSha": "ca36462c4fb117cd22ee9003838d64cd1b0e9415",
+      "status": "in_progress",
+      "url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/38377426233"
+    }
   },
   "inherited_r7_reference_base": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/c1e466a8a9e605f43b4c7a181b3d7b702d7677aa/docs/handoffs/codex_flat_vector_art_2026-10-07/r7_craft_context/",
   "inherited_r8_reference_base": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/f4de7b921298b0dac052df408af03bbb2b62132b/docs/handoffs/codex_flat_vector_art_2026-10-07/r8_geode_context/",

@@ -154,8 +154,8 @@
     },
     {
       "command": "Anonymous public manifest/all-dependency SHA verification",
-      "result": "PENDING",
-      "evidence": "MANIFEST and post-publication REMOTE_VERIFICATION; final receipt metadata separately verified before delivery claim."
+      "result": "PASS",
+      "evidence": "Anonymous exact payloadca36462c4fb117cd22ee9003838d64cd1b0e9415 verified147required files plus manifest,47757859required bytes; manifest SHA10fad6be271aaf6e184f0b320871304948a02f277111a14f9107800892fe4876. REMOTE_VERIFICATION records every exact revision/hash/access/time; final receipt metadata separately checked before delivery. Source/candidate action FAIL remains blocking."
     }
   ],
   "acceptance_gaps": "Whole-pair endpoint alone cannot establish matched opening action. Source/candidate approval,full native action/contact,QA11,production,natural route/reward/return/reload,device/child/owner and global inventory remain pending.",
