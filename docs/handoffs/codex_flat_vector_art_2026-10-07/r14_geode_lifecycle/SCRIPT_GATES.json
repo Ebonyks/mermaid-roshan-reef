@@ -1,0 +1,52 @@
+[
+  {
+    "command": [
+      "python",
+      "-B",
+      "-m",
+      "gdtoolkit.parser",
+      "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r14_geode_lifecycle\\capture_geode_lifecycle.gd",
+      "scripts/opera_geology_surface.gd",
+      "scripts/probe_opera_2d.gd"
+    ],
+    "returncode": 0,
+    "output": ""
+  },
+  {
+    "command": [
+      "python",
+      "-B",
+      "tools/lint_inference.py",
+      "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r14_geode_lifecycle\\capture_geode_lifecycle.gd",
+      "scripts/opera_geology_surface.gd",
+      "scripts/probe_opera_2d.gd"
+    ],
+    "returncode": 0,
+    "output": ""
+  },
+  {
+    "command": [
+      "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+      "--headless",
+      "--path",
+      "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef",
+      "--check-only",
+      "--script",
+      "res://.godot/r14_capture_geode_lifecycle.gd"
+    ],
+    "returncode": 0,
+    "output": "Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org\r\n\r\n"
+  },
+  {
+    "command": [
+      "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+      "--headless",
+      "--path",
+      "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef",
+      "--script",
+      "res://.godot/r14_endpoint_regression.gd"
+    ],
+    "returncode": 0,
+    "output": "Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org\r\n\r\nGEODE_ENDPOINT|119.0|travel8|pull=120.0|awards=[\"geology_geode\"]|PASS\r\nGEODE_ENDPOINT|119.25|travel8|pull=120.0|awards=[\"geology_geode\"]|PASS\r\n"
+  }
+]

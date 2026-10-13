@@ -1,0 +1,15 @@
+{
+  "command": [
+    "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+    "--headless",
+    "--path",
+    "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef",
+    "--script",
+    "res://.godot/r14_endpoint_regression.gd"
+  ],
+  "source_revision": "8a0db03f72735b67ebb581927051c92ca62eaef9",
+  "checked_at_utc": "2026-10-13T12:42:14.341714+00:00",
+  "returncode": 1,
+  "log": "ENDPOINT_BASELINE.log",
+  "expected_failure": "Fresh8px drag cannot complete119 or119.25 because endpoint120 is rejected by increment1 deadzone. Direct _gui_input microtest supplements actual Window scene captures; not route/device acceptance."
+}

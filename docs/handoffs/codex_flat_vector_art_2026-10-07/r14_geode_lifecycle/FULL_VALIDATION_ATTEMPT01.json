@@ -1,0 +1,29 @@
+{
+  "schema": "reef.full_validation/1",
+  "source_baseline": "8a0db03f72735b67ebb581927051c92ca62eaef9",
+  "runtime_delta": [
+    "scripts/opera_geology_surface.gd"
+  ],
+  "trusted_regression_delta": [
+    "scripts/probe_opera_2d.gd"
+  ],
+  "approved_engine": "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+  "engine_version": "4.7.2.stable.official.ed1daf0bf",
+  "status": "INCOMPLETE_PREGATES_WRAPPER_TIMEOUT",
+  "trusted_required": 82,
+  "trusted_passed": 0,
+  "rows": [],
+  "pregates": "Exact unchanged scripts/ci.sh prefix through import/medium regression,then the same82 listed probes natively on Windows with isolated data/touch modes. No existing gate or probe skipped.",
+  "ci_sh_sha256": "769ed4c4259ebe740f1e247c129bfc34914fa70fe72e28f65e5b5d5c9a577279",
+  "extracted_pregates_sha256": "f7f044b97f62c588b11f5eea7de95ca7d05e2c5bf67503dc12cac7f2b64398b6",
+  "started_at_utc": "2026-10-13T12:53:53.084241+00:00",
+  "acceptance_limit": "Machine behavior checks do not establish art/runtime-replacement,QA11/device/child/owner or full-game completion.",
+  "tracked_sidecars_preserved": 1998,
+  "tracked_sidecars_restored_exact": 1102,
+  "full_log_sha256": "64740ca4a81b9a6dd8283d6574d50bbfb78437ac5c923e8c8b3af00e38d52b37",
+  "pregates_wrapper_timeout_seconds": 1200,
+  "timeout_recorded_at_utc": "2026-10-13T13:16:21.183034+00:00",
+  "limit": "Original wrapper did not establish pregate process exit; output reached import DONE. No passing full suite or82 probe result claimed. Current native import and remaining82 checks must run with recorded exits.",
+  "full_log_sha256_at_wrapper_finally": "b2915c940a268ee1d7ba2ee6c243a60a3c52dd2eac7ce745f0739beaad538c5b",
+  "log_finalization_note": "Raw log subsequently recorded GAME2D NO_REGRESSION from the child after the wrapper timeout. Original snapshot hash retained separately; wrapper overall exit remains unknown and is not called green."
+}

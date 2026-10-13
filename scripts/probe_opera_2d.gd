@@ -2698,6 +2698,33 @@ func _exercise_geology_surface(world: OperaCareerWorld2D,
 	_check("fully earned restore awards once after opening and never while armed",
 		armed_restore_silent and geology_awards == ["geology_river"])
 
+	# An interrupted opening can leave less than one pixel to the clamp.
+	# Stationary/backward input stays silent; a fresh real drag reaches120 once.
+	for saved_pull: float in [119.0, 119.25]:
+		geology_awards.clear()
+		geology.configure("geology_geode", Color.WHITE)
+		geology.armed_only = false
+		geology.restore_progress({"mode": "geology_geode",
+			"seams": [true, true, true, true, true], "pull": saved_pull})
+		geology._process(0.05)
+		var half: Vector2 = geology.geode_half_center()
+		_geology_touch(geology, 0, true, half)
+		_geology_touch(geology, 0, false, half)
+		_geology_touch(geology, 0, true, half)
+		_geology_drag(geology, 0, half - Vector2(8, 0))
+		_geology_touch(geology, 0, false, half - Vector2(8, 0))
+		_check("near-open geode restore/tap/backward drag grants no award " + str(saved_pull),
+			geology_awards.is_empty() and is_equal_approx(geology.geode_pull, saved_pull))
+		_geology_touch(geology, 0, true, half)
+		_geology_drag(geology, 0, half + Vector2(8, 0))
+		_geology_touch(geology, 0, false, half + Vector2(8, 0))
+		_geology_touch(geology, 0, true, half)
+		_geology_drag(geology, 0, half + Vector2(8, 0))
+		_geology_touch(geology, 0, false, half + Vector2(8, 0))
+		_check("near-open geode fresh terminal drag completes exactly once " + str(saved_pull),
+			geology.geode_pull == GeologySurface.GEODE_PULL_DISTANCE
+			and geology_awards == ["geology_geode"])
+
 	geology_awards.clear()
 	for mode_name: String in GeologySurface.SUPPORTED_MODES:
 		geology.configure(mode_name, Color.WHITE)

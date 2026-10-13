@@ -1,0 +1,191 @@
+{
+  "schema": 1,
+  "revision": "FV-AUDIT-20261013-R14",
+  "reviewer": "Codex direct native diagnostic inspection; no child/owner/device acceptance",
+  "status": "ORIGINAL_ART_ENDPOINT_BEHAVIOR_REPAIRED_VISUAL_DEBT_OPEN",
+  "actually_viewed_native": 8,
+  "viewed_native": [
+    {
+      "path": "native/1280x720/prepare/geode_room_armed.png",
+      "sha256": "59067662cbaae75cb0d28d68f1c7ee81b88eaca926e82ac78ad183851a65ad0d",
+      "bytes": 108244,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "state_id": "geode_room_armed",
+      "part": "prepare",
+      "baseline_attempt": false,
+      "bounded_diagnostic": true,
+      "exclusion_reason": null
+    },
+    {
+      "path": "native/1280x720/prepare/geode_closed_ready.png",
+      "sha256": "cb06040d1de1627a6e555fe20e7796ef13e25946094855adc8aca80bd7971002",
+      "bytes": 120309,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "state_id": "geode_closed_ready",
+      "part": "prepare",
+      "baseline_attempt": false,
+      "bounded_diagnostic": true,
+      "exclusion_reason": null
+    },
+    {
+      "path": "native/1280x720/resume/geode_disk_resume060_task.png",
+      "sha256": "7e6cc155b636e5d218ed62c6a8db07022fb0d4b8002d7f0e33d6c6214ebd47dc",
+      "bytes": 112418,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "state_id": "geode_disk_resume060_task",
+      "part": "resume",
+      "baseline_attempt": false,
+      "bounded_diagnostic": true,
+      "exclusion_reason": null
+    },
+    {
+      "path": "native/1280x720/resume/geode_completed120_held.png",
+      "sha256": "a4253dc75e139071b6f063d5218bae7e6f51a16fdb5db36da9e9189f94b356d5",
+      "bytes": 116582,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "state_id": "geode_completed120_held",
+      "part": "resume",
+      "baseline_attempt": false,
+      "bounded_diagnostic": true,
+      "exclusion_reason": null
+    },
+    {
+      "path": "native/1280x720/resume/geode_completion_reward_return.png",
+      "sha256": "f0b576da9c24a8ff2dde72254b43eef5243313dce2ce51e7ed317a5e4a856c9c",
+      "bytes": 428397,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "state_id": "geode_completion_reward_return",
+      "part": "resume",
+      "baseline_attempt": false,
+      "bounded_diagnostic": true,
+      "exclusion_reason": null
+    },
+    {
+      "path": "native/1280x720/resume/geode_post_reward_reentry_river.png",
+      "sha256": "55bafcc1b0b3d4eb08bdcdbd91c9d28ec21a08af9900304e4385f43047b13371",
+      "bytes": 100083,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "state_id": "geode_post_reward_reentry_river",
+      "part": "resume",
+      "baseline_attempt": false,
+      "bounded_diagnostic": true,
+      "exclusion_reason": null
+    },
+    {
+      "path": "native/1600x720/resume/geode_completed120_held.png",
+      "sha256": "882fb595baf220e456930b7851c16bc7059db65c0f3ffaf258046dd5226ca07a",
+      "bytes": 120041,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "state_id": "geode_completed120_held",
+      "part": "resume",
+      "baseline_attempt": false,
+      "bounded_diagnostic": true,
+      "exclusion_reason": null
+    },
+    {
+      "path": "baseline_native/1280x720/resume/geode_completed120_held.png",
+      "sha256": "6ea8727a7262c3da645c8e64286f962d2123c4f6d2bd333125a7457e80b9b62b",
+      "bytes": 115761,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "state_id": "geode_completed120_held",
+      "part": "resume",
+      "baseline_attempt": true,
+      "bounded_diagnostic": true,
+      "exclusion_reason": null
+    }
+  ],
+  "same_scene_reference_hashes": [
+    {
+      "path": "assets/opera/worlds/actors/animation/roshan_geologist_sheet_a.png",
+      "revision": "8a0db03f72735b67ebb581927051c92ca62eaef9",
+      "bytes": 910920,
+      "sha256": "1fd7080933fd49b27a9cbb2b20d9470e4fd654dec58db72e9aa9e081a6e24c37",
+      "scope": "Same-scene approved existing source identity; no new actor approval."
+    },
+    {
+      "path": "assets/opera/worlds/actors/rival_detective.png",
+      "revision": "8a0db03f72735b67ebb581927051c92ca62eaef9",
+      "bytes": 217399,
+      "sha256": "44a6e07766a0733979e6aa3bda4c8cf89776a75f81c6600db4cb8ad89c7edecb",
+      "scope": "Same-scene approved existing source identity; no new actor approval."
+    }
+  ],
+  "stable_piece_ids": [
+    "FV-C1AB21410352",
+    "FV-99DB2D71D276",
+    "FV-F7DB96881260",
+    "FV-4502C5860C45"
+  ],
+  "all_ten_comparison_axes": {
+    "contour": "Original closed stone is a uniform ellipse with thick dark contour; opened state splits its flat half polygons. Roshan/helper have detailed authored outlines. No artwork contour is repaired by the endpoint guard.",
+    "material": "Stone/board/cave bands remain flat fills; crystal SVG uses simple facets. Painted hair/costume props carry shading/detail. Original material gap stays open; current action proof does not accept it.",
+    "palette": "Ochre board and muted plum stone contrast with lavender/blue cave bands and aqua/pink crystals; actor rainbow accents belong to the same frame. No global palette metric or recolor claim.",
+    "light": "Stone halves have no authored directional light unlike actor hair/costume highlights; original cave/board shadow is procedural. No lighting/style congruency acceptance.",
+    "perspective": "Closed ellipse and translated half silhouettes retain procedural representation; inner aperture is a dark ellipse. A coherent whole-drawing opening family and cap/inner-wall topology remain required.",
+    "scale": "Original440x350 interaction geometry and scene transforms stay unchanged; two aspects preserve behavior. Actor pose/scale shifts at cheer need separate full motion review.",
+    "contact": "Opening reaches real120 and triggers actual completion; no source-painted shell/crystal support/contact acceptance. Cheer overlaps Roshan with the helper at upper-left of board in the viewed120 snapshots. In this deliberately opened fixture,Roshan\u2019s work pose sits away from the stone; actual approach/hand contact on the natural route is unproved.",
+    "occlusion": "At120,aqua/plum crystal card is revealed between shell halves; completion actor moves underneath helper. Return restores main scene after owned world removal; seeded standalone owner entry does not establish exact Castle-room return.",
+    "readability": "Big seam guides and shell are readable but flat; rounded board,cave station tokens and halo cues remain artwork debt. Reward caption wrongly says nursery team for Geologist in the viewed return; record separately for later correction.",
+    "action_state": "Current raw input reaches120 from restored119,holds picture,suppresses repeat completion,awards star/three pearls,clears checkpoint and restarts river0. Separate engine reload60 verified. Baseline failed120 view is really119; twelve downstream mislabeled views are excluded. No first-three-phase/natural-route,physical Back/focus,QA11/device/child/owner proof."
+  },
+  "observations": [
+    {
+      "id": "R14-GEO-ENDPOINT",
+      "finding": "MA-PLAY-007",
+      "result": "Local native/8px regression red-to-green; complete required suite/remote head separately pending."
+    },
+    {
+      "id": "R14-GEO-CHEER-CONTACT",
+      "status": "OPEN_CONTEXT_OBSERVATION",
+      "evidence": "native/1280x720/resume/geode_completed120_held.png",
+      "weakness": "Roshan cheer overlaps the existing helper at the board left edge; stage/contact/occlusion review is incomplete. No new design count."
+    },
+    {
+      "id": "R14-GEO-CAPTION",
+      "status": "OPEN_CONTEXT_OBSERVATION",
+      "evidence": "native/1280x720/resume/geode_completion_reward_return.png",
+      "source": "scripts/opera_act.gd::_win",
+      "weakness": "Cooperative result path appends nursery team to the Geologist caption. Existing source behavior,not introduced by endpoint fix. Text/caller correction is separate from artwork removal and no new design count."
+    },
+    {
+      "id": "R14-GEO-ACTOR-CONTACT",
+      "status": "OPEN_CONTEXT_OBSERVATION",
+      "evidence": "native/1280x720/resume/geode_disk_resume060_task.png",
+      "weakness": "Fixture work pose remains away from the stone; skipped approach means no natural-route/contact acceptance. Actual child-accessed actor/action closure still needed. No new design count."
+    }
+  ],
+  "candidate_art": null,
+  "art_integration": null,
+  "runtime_verified_art_replacement": null,
+  "QA11": null,
+  "device": null,
+  "child": null,
+  "owner": null,
+  "accepted_removed": 0,
+  "normal_speed_every_transition_review": null,
+  "whole_unit_opening_family": null
+}

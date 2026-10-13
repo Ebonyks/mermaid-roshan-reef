@@ -1,0 +1,1582 @@
+{
+  "schema": 1,
+  "revision": "FV-AUDIT-20261013-R14",
+  "captures": [
+    {
+      "path": "native/1280x720/prepare/geode_room_armed.png",
+      "sha256": "59067662cbaae75cb0d28d68f1c7ee81b88eaca926e82ac78ad183851a65ad0d",
+      "bytes": 108244,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "state_id": "geode_room_armed",
+      "part": "prepare",
+      "baseline_attempt": false,
+      "bounded_diagnostic": true,
+      "exclusion_reason": null
+    },
+    {
+      "path": "native/1280x720/prepare/geode_closed_ready.png",
+      "sha256": "cb06040d1de1627a6e555fe20e7796ef13e25946094855adc8aca80bd7971002",
+      "bytes": 120309,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "state_id": "geode_closed_ready",
+      "part": "prepare",
+      "baseline_attempt": false,
+      "bounded_diagnostic": true,
+      "exclusion_reason": null
+    },
+    {
+      "path": "native/1280x720/prepare/geode_passive_1s.png",
+      "sha256": "e9a72458d3e2700b9a87a15dc1a43638a790bed042412f9d7d8775d5761967bf",
+      "bytes": 119985,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "state_id": "geode_passive_1s",
+      "part": "prepare",
+      "baseline_attempt": false,
+      "bounded_diagnostic": true,
+      "exclusion_reason": null
+    },
+    {
+      "path": "native/1280x720/prepare/geode_wrong_tap.png",
+      "sha256": "f6d9bf4359439fdeccc13b1ca015616bd510c848d38b757379dee4f0f736514d",
+      "bytes": 119348,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "state_id": "geode_wrong_tap",
+      "part": "prepare",
+      "baseline_attempt": false,
+      "bounded_diagnostic": true,
+      "exclusion_reason": null
+    },
+    {
+      "path": "native/1280x720/prepare/geode_early_pull_ignored.png",
+      "sha256": "51a86bad746c799af7649b24824fb8a21d5c59314bc60dfc3591f9ac9324685a",
+      "bytes": 119311,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "state_id": "geode_early_pull_ignored",
+      "part": "prepare",
+      "baseline_attempt": false,
+      "bounded_diagnostic": true,
+      "exclusion_reason": null
+    },
+    {
+      "path": "native/1280x720/prepare/geode_seam00_released.png",
+      "sha256": "193f3109e491259b76fa39da049d1884d29d12c8ac7339d0de314dd43a2c6d41",
+      "bytes": 117044,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "state_id": "geode_seam00_released",
+      "part": "prepare",
+      "baseline_attempt": false,
+      "bounded_diagnostic": true,
+      "exclusion_reason": null
+    },
+    {
+      "path": "native/1280x720/prepare/geode_seam01_released.png",
+      "sha256": "de5279da0ceb500e92461ad0609bbaba8e37428d3e2d5951d15943abcaca0617",
+      "bytes": 114701,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "state_id": "geode_seam01_released",
+      "part": "prepare",
+      "baseline_attempt": false,
+      "bounded_diagnostic": true,
+      "exclusion_reason": null
+    },
+    {
+      "path": "native/1280x720/prepare/geode_seam02_released.png",
+      "sha256": "0692ab4d94108a8ca73d5b696592633f6c67dba5963799f92330112bc0c238d0",
+      "bytes": 112336,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "state_id": "geode_seam02_released",
+      "part": "prepare",
+      "baseline_attempt": false,
+      "bounded_diagnostic": true,
+      "exclusion_reason": null
+    },
+    {
+      "path": "native/1280x720/prepare/geode_seam03_released.png",
+      "sha256": "484515126687a99805b1146f975013a006b0dcf6893fd2950ba9711512bfe10c",
+      "bytes": 109932,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "state_id": "geode_seam03_released",
+      "part": "prepare",
+      "baseline_attempt": false,
+      "bounded_diagnostic": true,
+      "exclusion_reason": null
+    },
+    {
+      "path": "native/1280x720/prepare/geode_seam04_released.png",
+      "sha256": "ac5d23ddd4df3e0c5a971bcabab1a26242f54b93c4eb7f8d1b9a5797b3a9c73e",
+      "bytes": 108106,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "state_id": "geode_seam04_released",
+      "part": "prepare",
+      "baseline_attempt": false,
+      "bounded_diagnostic": true,
+      "exclusion_reason": null
+    },
+    {
+      "path": "native/1280x720/prepare/geode_pull060_held.png",
+      "sha256": "0766036c152ef5527cb8d4e78f7c9f9f868801f81246a4858ca47f4d2554dce9",
+      "bytes": 111353,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "state_id": "geode_pull060_held",
+      "part": "prepare",
+      "baseline_attempt": false,
+      "bounded_diagnostic": true,
+      "exclusion_reason": null
+    },
+    {
+      "path": "native/1280x720/prepare/geode_pull060_released.png",
+      "sha256": "0766036c152ef5527cb8d4e78f7c9f9f868801f81246a4858ca47f4d2554dce9",
+      "bytes": 111353,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "state_id": "geode_pull060_released",
+      "part": "prepare",
+      "baseline_attempt": false,
+      "bounded_diagnostic": true,
+      "exclusion_reason": null
+    },
+    {
+      "path": "native/1280x720/prepare/geode_focus060_flushed.png",
+      "sha256": "60cdf48ce8cde78bcada35acb92fa7af7dd041f3312a184f34b5685760a86b87",
+      "bytes": 111344,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "state_id": "geode_focus060_flushed",
+      "part": "prepare",
+      "baseline_attempt": false,
+      "bounded_diagnostic": true,
+      "exclusion_reason": null
+    },
+    {
+      "path": "native/1280x720/prepare/geode_partial_leave_return.png",
+      "sha256": "951987cdbbb9e3803de405b33c5dde29a6c9ce6eaef32a689f8b1d0963953bc3",
+      "bytes": 431312,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "state_id": "geode_partial_leave_return",
+      "part": "prepare",
+      "baseline_attempt": false,
+      "bounded_diagnostic": true,
+      "exclusion_reason": null
+    },
+    {
+      "path": "native/1280x720/resume/geode_disk_resume_room_armed.png",
+      "sha256": "bed765d9614c7f0b231d018defc0b858faa5fb23ecd7823c14dd5cc2e321c48f",
+      "bytes": 108345,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "state_id": "geode_disk_resume_room_armed",
+      "part": "resume",
+      "baseline_attempt": false,
+      "bounded_diagnostic": true,
+      "exclusion_reason": null
+    },
+    {
+      "path": "native/1280x720/resume/geode_disk_resume060_task.png",
+      "sha256": "7e6cc155b636e5d218ed62c6a8db07022fb0d4b8002d7f0e33d6c6214ebd47dc",
+      "bytes": 112418,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "state_id": "geode_disk_resume060_task",
+      "part": "resume",
+      "baseline_attempt": false,
+      "bounded_diagnostic": true,
+      "exclusion_reason": null
+    },
+    {
+      "path": "native/1280x720/resume/geode_pull119_held.png",
+      "sha256": "8c189acdbc6190875e08ccc56ade64beaf284ac64bd33a04a926d99a86b25c0b",
+      "bytes": 115856,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "state_id": "geode_pull119_held",
+      "part": "resume",
+      "baseline_attempt": false,
+      "bounded_diagnostic": true,
+      "exclusion_reason": null
+    },
+    {
+      "path": "native/1280x720/resume/geode_pull119_released.png",
+      "sha256": "4ec3376b2f60a9141f97ec53e9ddc0eaff69e0972e23a53621df725c2f500974",
+      "bytes": 115830,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "state_id": "geode_pull119_released",
+      "part": "resume",
+      "baseline_attempt": false,
+      "bounded_diagnostic": true,
+      "exclusion_reason": null
+    },
+    {
+      "path": "native/1280x720/resume/geode_119_leave_return.png",
+      "sha256": "c5fa037bc8c50894b52db5a57d5ce76bd2514e558f5c4765f1850be3b4ff801d",
+      "bytes": 397887,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "state_id": "geode_119_leave_return",
+      "part": "resume",
+      "baseline_attempt": false,
+      "bounded_diagnostic": true,
+      "exclusion_reason": null
+    },
+    {
+      "path": "native/1280x720/resume/geode_119_reentry_room_armed.png",
+      "sha256": "b87845b5b1608c7069b344c22040d5803fbc53cdb156518d1011a165e3bbcb41",
+      "bytes": 108356,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "state_id": "geode_119_reentry_room_armed",
+      "part": "resume",
+      "baseline_attempt": false,
+      "bounded_diagnostic": true,
+      "exclusion_reason": null
+    },
+    {
+      "path": "native/1280x720/resume/geode_119_reentry_task.png",
+      "sha256": "6019bee09429361609520d1986425ebfd1f4032dbe5b9085de4fc5c1e634e2ba",
+      "bytes": 117024,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "state_id": "geode_119_reentry_task",
+      "part": "resume",
+      "baseline_attempt": false,
+      "bounded_diagnostic": true,
+      "exclusion_reason": null
+    },
+    {
+      "path": "native/1280x720/resume/geode_completed120_held.png",
+      "sha256": "a4253dc75e139071b6f063d5218bae7e6f51a16fdb5db36da9e9189f94b356d5",
+      "bytes": 116582,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "state_id": "geode_completed120_held",
+      "part": "resume",
+      "baseline_attempt": false,
+      "bounded_diagnostic": true,
+      "exclusion_reason": null
+    },
+    {
+      "path": "native/1280x720/resume/geode_completion_repeat_ignored.png",
+      "sha256": "2fa7ec5ad99e14a0c3f5b87269958a4d64043da7ff49cc8b818142c8ca5de8ca",
+      "bytes": 117065,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "state_id": "geode_completion_repeat_ignored",
+      "part": "resume",
+      "baseline_attempt": false,
+      "bounded_diagnostic": true,
+      "exclusion_reason": null
+    },
+    {
+      "path": "native/1280x720/resume/geode_completion_hold.png",
+      "sha256": "48cff87698d7b8715437eb307175a97f9c37a8d704512b0dadbc6370ac388aa3",
+      "bytes": 113502,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "state_id": "geode_completion_hold",
+      "part": "resume",
+      "baseline_attempt": false,
+      "bounded_diagnostic": true,
+      "exclusion_reason": null
+    },
+    {
+      "path": "native/1280x720/resume/geode_completion_reward_return.png",
+      "sha256": "f0b576da9c24a8ff2dde72254b43eef5243313dce2ce51e7ed317a5e4a856c9c",
+      "bytes": 428397,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "state_id": "geode_completion_reward_return",
+      "part": "resume",
+      "baseline_attempt": false,
+      "bounded_diagnostic": true,
+      "exclusion_reason": null
+    },
+    {
+      "path": "native/1280x720/resume/geode_post_reward_reentry_room.png",
+      "sha256": "e7178e41fadd12fc8729a0e7df362c41b012499147279c377758e5acefec39ba",
+      "bytes": 107865,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "state_id": "geode_post_reward_reentry_room",
+      "part": "resume",
+      "baseline_attempt": false,
+      "bounded_diagnostic": true,
+      "exclusion_reason": null
+    },
+    {
+      "path": "native/1280x720/resume/geode_post_reward_reentry_river.png",
+      "sha256": "55bafcc1b0b3d4eb08bdcdbd91c9d28ec21a08af9900304e4385f43047b13371",
+      "bytes": 100083,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "state_id": "geode_post_reward_reentry_river",
+      "part": "resume",
+      "baseline_attempt": false,
+      "bounded_diagnostic": true,
+      "exclusion_reason": null
+    },
+    {
+      "path": "native/1280x720/resume/geode_replay_leave_return.png",
+      "sha256": "35052dd5a96ea173b8d0ae41c6aaa049b8616e2b82b0f4d4cb12c06b78a7771e",
+      "bytes": 421096,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "state_id": "geode_replay_leave_return",
+      "part": "resume",
+      "baseline_attempt": false,
+      "bounded_diagnostic": true,
+      "exclusion_reason": null
+    },
+    {
+      "path": "native/1600x720/prepare/geode_room_armed.png",
+      "sha256": "7e528e60c0361f97609a78fc6a5cd55744a898263efa45c45a962a61079d648a",
+      "bytes": 111185,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "state_id": "geode_room_armed",
+      "part": "prepare",
+      "baseline_attempt": false,
+      "bounded_diagnostic": true,
+      "exclusion_reason": null
+    },
+    {
+      "path": "native/1600x720/prepare/geode_closed_ready.png",
+      "sha256": "33ae29c787bd0e99a010d510d2d9e834f8253e855ce6763db73c64407c8740ae",
+      "bytes": 123052,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "state_id": "geode_closed_ready",
+      "part": "prepare",
+      "baseline_attempt": false,
+      "bounded_diagnostic": true,
+      "exclusion_reason": null
+    },
+    {
+      "path": "native/1600x720/prepare/geode_passive_1s.png",
+      "sha256": "ae32fd106ad8fd0d03d20a5a0a2aca9dae197b299bf9dfb76cfb7ef40183341a",
+      "bytes": 122479,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "state_id": "geode_passive_1s",
+      "part": "prepare",
+      "baseline_attempt": false,
+      "bounded_diagnostic": true,
+      "exclusion_reason": null
+    },
+    {
+      "path": "native/1600x720/prepare/geode_wrong_tap.png",
+      "sha256": "54db7bfe8f9a795ede8b4d2abf69b033aae083659434b2ebe60d46ab928db4ed",
+      "bytes": 121969,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "state_id": "geode_wrong_tap",
+      "part": "prepare",
+      "baseline_attempt": false,
+      "bounded_diagnostic": true,
+      "exclusion_reason": null
+    },
+    {
+      "path": "native/1600x720/prepare/geode_early_pull_ignored.png",
+      "sha256": "1f39543dfa4f6d418c0f3784abeaea5f3cdcc5b9c59dd31f1d773acde91a56a6",
+      "bytes": 121950,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "state_id": "geode_early_pull_ignored",
+      "part": "prepare",
+      "baseline_attempt": false,
+      "bounded_diagnostic": true,
+      "exclusion_reason": null
+    },
+    {
+      "path": "native/1600x720/prepare/geode_seam00_released.png",
+      "sha256": "31b51d609c5b63c36d6ca05ce3bfa71706e3386ea077c881177232ddd5797db2",
+      "bytes": 119751,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "state_id": "geode_seam00_released",
+      "part": "prepare",
+      "baseline_attempt": false,
+      "bounded_diagnostic": true,
+      "exclusion_reason": null
+    },
+    {
+      "path": "native/1600x720/prepare/geode_seam01_released.png",
+      "sha256": "bf660856da35d478c0fc5a1cee6844280f912b848af5b0d1c7275e7f60b83651",
+      "bytes": 117422,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "state_id": "geode_seam01_released",
+      "part": "prepare",
+      "baseline_attempt": false,
+      "bounded_diagnostic": true,
+      "exclusion_reason": null
+    },
+    {
+      "path": "native/1600x720/prepare/geode_seam02_released.png",
+      "sha256": "e34ae3763a4f6c24992aad8119b49b4ab8748ae5db2cb968a076426125315551",
+      "bytes": 115022,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "state_id": "geode_seam02_released",
+      "part": "prepare",
+      "baseline_attempt": false,
+      "bounded_diagnostic": true,
+      "exclusion_reason": null
+    },
+    {
+      "path": "native/1600x720/prepare/geode_seam03_released.png",
+      "sha256": "179470d7f4256b2dc207492c76b62b983eb4d4ced468d911185f3d3025a48dbb",
+      "bytes": 112600,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "state_id": "geode_seam03_released",
+      "part": "prepare",
+      "baseline_attempt": false,
+      "bounded_diagnostic": true,
+      "exclusion_reason": null
+    },
+    {
+      "path": "native/1600x720/prepare/geode_seam04_released.png",
+      "sha256": "be7adae2d64af14a7a9bc6a438b6a3b24f55296f572c7326c7eabd51ef571b17",
+      "bytes": 110231,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "state_id": "geode_seam04_released",
+      "part": "prepare",
+      "baseline_attempt": false,
+      "bounded_diagnostic": true,
+      "exclusion_reason": null
+    },
+    {
+      "path": "native/1600x720/prepare/geode_pull060_held.png",
+      "sha256": "bc45c47f675734eab5c6f1cf4d4dc206e216bc59d2de50b43410767c51cffb1a",
+      "bytes": 113956,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "state_id": "geode_pull060_held",
+      "part": "prepare",
+      "baseline_attempt": false,
+      "bounded_diagnostic": true,
+      "exclusion_reason": null
+    },
+    {
+      "path": "native/1600x720/prepare/geode_pull060_released.png",
+      "sha256": "3f0c2ea270faecd1a3c5981a391248bf211da19df52dc8b138a974dc1cd0bd7f",
+      "bytes": 113983,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "state_id": "geode_pull060_released",
+      "part": "prepare",
+      "baseline_attempt": false,
+      "bounded_diagnostic": true,
+      "exclusion_reason": null
+    },
+    {
+      "path": "native/1600x720/prepare/geode_focus060_flushed.png",
+      "sha256": "cbda9fee43ab738e353cfa1cdaa4d804ec52516ee6c1cb938779e4a8c91f298d",
+      "bytes": 113950,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "state_id": "geode_focus060_flushed",
+      "part": "prepare",
+      "baseline_attempt": false,
+      "bounded_diagnostic": true,
+      "exclusion_reason": null
+    },
+    {
+      "path": "native/1600x720/prepare/geode_partial_leave_return.png",
+      "sha256": "a67b4adb9465d5e0b938e8aa48a7dd7b08825d7f20a43ca698b21567c6559abc",
+      "bytes": 533245,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "state_id": "geode_partial_leave_return",
+      "part": "prepare",
+      "baseline_attempt": false,
+      "bounded_diagnostic": true,
+      "exclusion_reason": null
+    },
+    {
+      "path": "native/1600x720/resume/geode_disk_resume_room_armed.png",
+      "sha256": "e8b97511fb77786e8e15ee16967552230091bbddcf82f7b78d1712590f5ada80",
+      "bytes": 111192,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "state_id": "geode_disk_resume_room_armed",
+      "part": "resume",
+      "baseline_attempt": false,
+      "bounded_diagnostic": true,
+      "exclusion_reason": null
+    },
+    {
+      "path": "native/1600x720/resume/geode_disk_resume060_task.png",
+      "sha256": "68b107d7bccf00f30570ea912766a930cd4650b7d1fb8e5ac79497d169572893",
+      "bytes": 115098,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "state_id": "geode_disk_resume060_task",
+      "part": "resume",
+      "baseline_attempt": false,
+      "bounded_diagnostic": true,
+      "exclusion_reason": null
+    },
+    {
+      "path": "native/1600x720/resume/geode_pull119_held.png",
+      "sha256": "00af92a5c8ac8d113527102fbb89ecb0eb2214e66a00d4ff16d287cc15c12a2b",
+      "bytes": 118775,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "state_id": "geode_pull119_held",
+      "part": "resume",
+      "baseline_attempt": false,
+      "bounded_diagnostic": true,
+      "exclusion_reason": null
+    },
+    {
+      "path": "native/1600x720/resume/geode_pull119_released.png",
+      "sha256": "52efd401af6860cea76f0d8da1fa24e80e41ed972c9f3a87dfc66f47d4fafdcd",
+      "bytes": 118733,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "state_id": "geode_pull119_released",
+      "part": "resume",
+      "baseline_attempt": false,
+      "bounded_diagnostic": true,
+      "exclusion_reason": null
+    },
+    {
+      "path": "native/1600x720/resume/geode_119_leave_return.png",
+      "sha256": "d4e384cf4f9096a4211835d0a4fc89aff3792144bfc08e2ac463e79b26820d6d",
+      "bytes": 474145,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "state_id": "geode_119_leave_return",
+      "part": "resume",
+      "baseline_attempt": false,
+      "bounded_diagnostic": true,
+      "exclusion_reason": null
+    },
+    {
+      "path": "native/1600x720/resume/geode_119_reentry_room_armed.png",
+      "sha256": "013c5fdd0ceebabbf900aacaa61f528f27f59d030357c5dda939cb6b87ab90af",
+      "bytes": 111112,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "state_id": "geode_119_reentry_room_armed",
+      "part": "resume",
+      "baseline_attempt": false,
+      "bounded_diagnostic": true,
+      "exclusion_reason": null
+    },
+    {
+      "path": "native/1600x720/resume/geode_119_reentry_task.png",
+      "sha256": "b09aaea08e02bc15f4436982785a7497dd35f44e7dae78e5a4609aed8df3d15a",
+      "bytes": 119991,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "state_id": "geode_119_reentry_task",
+      "part": "resume",
+      "baseline_attempt": false,
+      "bounded_diagnostic": true,
+      "exclusion_reason": null
+    },
+    {
+      "path": "native/1600x720/resume/geode_completed120_held.png",
+      "sha256": "882fb595baf220e456930b7851c16bc7059db65c0f3ffaf258046dd5226ca07a",
+      "bytes": 120041,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "state_id": "geode_completed120_held",
+      "part": "resume",
+      "baseline_attempt": false,
+      "bounded_diagnostic": true,
+      "exclusion_reason": null
+    },
+    {
+      "path": "native/1600x720/resume/geode_completion_repeat_ignored.png",
+      "sha256": "86a88d14e07fef90151758c957171e70c95c3c42890d206501db34446019a327",
+      "bytes": 118989,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "state_id": "geode_completion_repeat_ignored",
+      "part": "resume",
+      "baseline_attempt": false,
+      "bounded_diagnostic": true,
+      "exclusion_reason": null
+    },
+    {
+      "path": "native/1600x720/resume/geode_completion_hold.png",
+      "sha256": "507b4cb9440b601928f2e3cb7db1b48d9933e22f15deafd12af88db7f3bc7138",
+      "bytes": 115946,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "state_id": "geode_completion_hold",
+      "part": "resume",
+      "baseline_attempt": false,
+      "bounded_diagnostic": true,
+      "exclusion_reason": null
+    },
+    {
+      "path": "native/1600x720/resume/geode_completion_reward_return.png",
+      "sha256": "3718fd9be3982037d2a49e830ae805f411e2b8c47482ef52c2d1cc031c1c8e1c",
+      "bytes": 498465,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "state_id": "geode_completion_reward_return",
+      "part": "resume",
+      "baseline_attempt": false,
+      "bounded_diagnostic": true,
+      "exclusion_reason": null
+    },
+    {
+      "path": "native/1600x720/resume/geode_post_reward_reentry_room.png",
+      "sha256": "ca21564825196e742e26a81353df2b55759d28bdc2264846b6e84f124bef6e64",
+      "bytes": 110761,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "state_id": "geode_post_reward_reentry_room",
+      "part": "resume",
+      "baseline_attempt": false,
+      "bounded_diagnostic": true,
+      "exclusion_reason": null
+    },
+    {
+      "path": "native/1600x720/resume/geode_post_reward_reentry_river.png",
+      "sha256": "ec259e3b4c30507abf6d395b4755b0aa5714522ee0f4a1ae28c87f864d1f6463",
+      "bytes": 102473,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "state_id": "geode_post_reward_reentry_river",
+      "part": "resume",
+      "baseline_attempt": false,
+      "bounded_diagnostic": true,
+      "exclusion_reason": null
+    },
+    {
+      "path": "native/1600x720/resume/geode_replay_leave_return.png",
+      "sha256": "c00e2ecada1b3ae1444f041bf1df45a951371fdd29869b31f3eaa81e0135aea3",
+      "bytes": 486935,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "state_id": "geode_replay_leave_return",
+      "part": "resume",
+      "baseline_attempt": false,
+      "bounded_diagnostic": true,
+      "exclusion_reason": null
+    },
+    {
+      "path": "baseline_native/1280x720/prepare/geode_room_armed.png",
+      "sha256": "838828eb896a4f0ccd34605cd884d0a342044b369845aefa08fec5b9434b3448",
+      "bytes": 108259,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "state_id": "geode_room_armed",
+      "part": "prepare",
+      "baseline_attempt": true,
+      "bounded_diagnostic": true,
+      "exclusion_reason": null
+    },
+    {
+      "path": "baseline_native/1280x720/prepare/geode_closed_ready.png",
+      "sha256": "bef7d88867e0d70ebb33accb37a5d850424cbb58033c55fcdfcc063ad3ee8eb9",
+      "bytes": 120141,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "state_id": "geode_closed_ready",
+      "part": "prepare",
+      "baseline_attempt": true,
+      "bounded_diagnostic": true,
+      "exclusion_reason": null
+    },
+    {
+      "path": "baseline_native/1280x720/prepare/geode_passive_1s.png",
+      "sha256": "a20809e16a72145a2daaa9d855354cad83df17e40b84b5757135bb5cd75f3fbb",
+      "bytes": 119968,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "state_id": "geode_passive_1s",
+      "part": "prepare",
+      "baseline_attempt": true,
+      "bounded_diagnostic": true,
+      "exclusion_reason": null
+    },
+    {
+      "path": "baseline_native/1280x720/prepare/geode_wrong_tap.png",
+      "sha256": "f6d9bf4359439fdeccc13b1ca015616bd510c848d38b757379dee4f0f736514d",
+      "bytes": 119348,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "state_id": "geode_wrong_tap",
+      "part": "prepare",
+      "baseline_attempt": true,
+      "bounded_diagnostic": true,
+      "exclusion_reason": null
+    },
+    {
+      "path": "baseline_native/1280x720/prepare/geode_early_pull_ignored.png",
+      "sha256": "f6d9bf4359439fdeccc13b1ca015616bd510c848d38b757379dee4f0f736514d",
+      "bytes": 119348,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "state_id": "geode_early_pull_ignored",
+      "part": "prepare",
+      "baseline_attempt": true,
+      "bounded_diagnostic": true,
+      "exclusion_reason": null
+    },
+    {
+      "path": "baseline_native/1280x720/prepare/geode_seam00_released.png",
+      "sha256": "3f1ac188137969744ce61c75e682d402d4b69762134720924cc7c05e3201e290",
+      "bytes": 117064,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "state_id": "geode_seam00_released",
+      "part": "prepare",
+      "baseline_attempt": true,
+      "bounded_diagnostic": true,
+      "exclusion_reason": null
+    },
+    {
+      "path": "baseline_native/1280x720/prepare/geode_seam01_released.png",
+      "sha256": "de5279da0ceb500e92461ad0609bbaba8e37428d3e2d5951d15943abcaca0617",
+      "bytes": 114701,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "state_id": "geode_seam01_released",
+      "part": "prepare",
+      "baseline_attempt": true,
+      "bounded_diagnostic": true,
+      "exclusion_reason": null
+    },
+    {
+      "path": "baseline_native/1280x720/prepare/geode_seam02_released.png",
+      "sha256": "6a5bac7b153d20d4494df448d8a5236b9d3a5d29a13224d36f2477d6bc44b52b",
+      "bytes": 112361,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "state_id": "geode_seam02_released",
+      "part": "prepare",
+      "baseline_attempt": true,
+      "bounded_diagnostic": true,
+      "exclusion_reason": null
+    },
+    {
+      "path": "baseline_native/1280x720/prepare/geode_seam03_released.png",
+      "sha256": "d455c2bc5e1e487a394654c09279b2263de823458e932735d55eb24dd3ac10a2",
+      "bytes": 109940,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "state_id": "geode_seam03_released",
+      "part": "prepare",
+      "baseline_attempt": true,
+      "bounded_diagnostic": true,
+      "exclusion_reason": null
+    },
+    {
+      "path": "baseline_native/1280x720/prepare/geode_seam04_released.png",
+      "sha256": "ac5d23ddd4df3e0c5a971bcabab1a26242f54b93c4eb7f8d1b9a5797b3a9c73e",
+      "bytes": 108106,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "state_id": "geode_seam04_released",
+      "part": "prepare",
+      "baseline_attempt": true,
+      "bounded_diagnostic": true,
+      "exclusion_reason": null
+    },
+    {
+      "path": "baseline_native/1280x720/prepare/geode_pull060_held.png",
+      "sha256": "00d5dc904fd7c234cdfad9a51aacc90a74bf42a143a0ea83a73432135677fe84",
+      "bytes": 111330,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "state_id": "geode_pull060_held",
+      "part": "prepare",
+      "baseline_attempt": true,
+      "bounded_diagnostic": true,
+      "exclusion_reason": null
+    },
+    {
+      "path": "baseline_native/1280x720/prepare/geode_pull060_released.png",
+      "sha256": "6e54de5142b22cb79757947f629b8c4f9443010b0d632c398de8e1c87c6882eb",
+      "bytes": 111349,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "state_id": "geode_pull060_released",
+      "part": "prepare",
+      "baseline_attempt": true,
+      "bounded_diagnostic": true,
+      "exclusion_reason": null
+    },
+    {
+      "path": "baseline_native/1280x720/prepare/geode_focus060_flushed.png",
+      "sha256": "a4ed311954dab89ed26d0226d5f6698b5a5fca50f78d15a8cee835e97ebe9070",
+      "bytes": 111333,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "state_id": "geode_focus060_flushed",
+      "part": "prepare",
+      "baseline_attempt": true,
+      "bounded_diagnostic": true,
+      "exclusion_reason": null
+    },
+    {
+      "path": "baseline_native/1280x720/prepare/geode_partial_leave_return.png",
+      "sha256": "6e722b6147d1fedffe32769425eff5f3cc50b5aa93b8e6684e32dd529bb63696",
+      "bytes": 431058,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "state_id": "geode_partial_leave_return",
+      "part": "prepare",
+      "baseline_attempt": true,
+      "bounded_diagnostic": true,
+      "exclusion_reason": null
+    },
+    {
+      "path": "baseline_native/1280x720/resume/geode_disk_resume_room_armed.png",
+      "sha256": "49c21c18a39690f397cdd80f72e85a29d471f75046df122752358789820a8369",
+      "bytes": 108269,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "state_id": "geode_disk_resume_room_armed",
+      "part": "resume",
+      "baseline_attempt": true,
+      "bounded_diagnostic": true,
+      "exclusion_reason": null
+    },
+    {
+      "path": "baseline_native/1280x720/resume/geode_disk_resume060_task.png",
+      "sha256": "eb2fa2d47be0ab7afdfecb15b6b35d5c545e950fd86d8878d11732f4f7bcd274",
+      "bytes": 112397,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "state_id": "geode_disk_resume060_task",
+      "part": "resume",
+      "baseline_attempt": true,
+      "bounded_diagnostic": true,
+      "exclusion_reason": null
+    },
+    {
+      "path": "baseline_native/1280x720/resume/geode_pull119_held.png",
+      "sha256": "8a4158461bc860201396a1923f4437320f91d944d41ffd32739fcbd29699cc73",
+      "bytes": 115886,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "state_id": "geode_pull119_held",
+      "part": "resume",
+      "baseline_attempt": true,
+      "bounded_diagnostic": true,
+      "exclusion_reason": null
+    },
+    {
+      "path": "baseline_native/1280x720/resume/geode_pull119_released.png",
+      "sha256": "88c0e1e519077a1c0cdcc332de7bce1ec138ec0bd3c9540bab95fa4757027e81",
+      "bytes": 115920,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "state_id": "geode_pull119_released",
+      "part": "resume",
+      "baseline_attempt": true,
+      "bounded_diagnostic": true,
+      "exclusion_reason": null
+    },
+    {
+      "path": "baseline_native/1280x720/resume/geode_119_leave_return.png",
+      "sha256": "cf1f5b74e4ac6a976f1bfbaa36fa672d8982e2d1e3209899766354460e2f06db",
+      "bytes": 397675,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "state_id": "geode_119_leave_return",
+      "part": "resume",
+      "baseline_attempt": true,
+      "bounded_diagnostic": true,
+      "exclusion_reason": null
+    },
+    {
+      "path": "baseline_native/1280x720/resume/geode_119_reentry_room_armed.png",
+      "sha256": "ddf28e7468874be81ac95b3efd4debf3cfdd721c00ca469ab68e88c340058776",
+      "bytes": 108308,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "state_id": "geode_119_reentry_room_armed",
+      "part": "resume",
+      "baseline_attempt": true,
+      "bounded_diagnostic": true,
+      "exclusion_reason": null
+    },
+    {
+      "path": "baseline_native/1280x720/resume/geode_119_reentry_task.png",
+      "sha256": "bbda8f2239eff646a290fb1ebc7c0ef1317c1a50c2fab7d029d00e9044c30d43",
+      "bytes": 117289,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "state_id": "geode_119_reentry_task",
+      "part": "resume",
+      "baseline_attempt": true,
+      "bounded_diagnostic": true,
+      "exclusion_reason": null
+    },
+    {
+      "path": "baseline_native/1280x720/resume/geode_completed120_held.png",
+      "sha256": "6ea8727a7262c3da645c8e64286f962d2123c4f6d2bd333125a7457e80b9b62b",
+      "bytes": 115761,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "state_id": "geode_completed120_held",
+      "part": "resume",
+      "baseline_attempt": true,
+      "bounded_diagnostic": true,
+      "exclusion_reason": null
+    },
+    {
+      "path": "baseline_native/1280x720/resume/geode_completion_repeat_ignored.png",
+      "sha256": "908925da9611f080a439a90f5968a363d1d9886101100c914c81563b68a2bd77",
+      "bytes": 115627,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "state_id": "geode_completion_repeat_ignored",
+      "part": "resume",
+      "baseline_attempt": true,
+      "bounded_diagnostic": false,
+      "exclusion_reason": "Failed baseline downstream intended-completion labels did not achieve completion; actual state remains119 and later stacked re-entry is not a trustworthy reward/route view."
+    },
+    {
+      "path": "baseline_native/1280x720/resume/geode_completion_hold.png",
+      "sha256": "b134ee57a2d0eaf4c7fb1fa1b8ca32fa53b9948e0c427998ae3cec001abcae86",
+      "bytes": 115654,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "state_id": "geode_completion_hold",
+      "part": "resume",
+      "baseline_attempt": true,
+      "bounded_diagnostic": false,
+      "exclusion_reason": "Failed baseline downstream intended-completion labels did not achieve completion; actual state remains119 and later stacked re-entry is not a trustworthy reward/route view."
+    },
+    {
+      "path": "baseline_native/1280x720/resume/geode_completion_reward_return.png",
+      "sha256": "67a0432267309f2d40b80750dd17104b6ffc332eebf97730f7bafd9e2ba6d647",
+      "bytes": 115644,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "state_id": "geode_completion_reward_return",
+      "part": "resume",
+      "baseline_attempt": true,
+      "bounded_diagnostic": false,
+      "exclusion_reason": "Failed baseline downstream intended-completion labels did not achieve completion; actual state remains119 and later stacked re-entry is not a trustworthy reward/route view."
+    },
+    {
+      "path": "baseline_native/1280x720/resume/geode_post_reward_reentry_room.png",
+      "sha256": "532d930300605003dc167ab9fd767a84193c9297809ea805c24f4aa1a31a1cb9",
+      "bytes": 108243,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "state_id": "geode_post_reward_reentry_room",
+      "part": "resume",
+      "baseline_attempt": true,
+      "bounded_diagnostic": false,
+      "exclusion_reason": "Failed baseline downstream intended-completion labels did not achieve completion; actual state remains119 and later stacked re-entry is not a trustworthy reward/route view."
+    },
+    {
+      "path": "baseline_native/1280x720/resume/geode_post_reward_reentry_river.png",
+      "sha256": "1d96966746f344d8f6f871cc34d9e79f16387dad81a4561baf10650e1281d092",
+      "bytes": 117010,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "state_id": "geode_post_reward_reentry_river",
+      "part": "resume",
+      "baseline_attempt": true,
+      "bounded_diagnostic": false,
+      "exclusion_reason": "Failed baseline downstream intended-completion labels did not achieve completion; actual state remains119 and later stacked re-entry is not a trustworthy reward/route view."
+    },
+    {
+      "path": "baseline_native/1280x720/resume/geode_replay_leave_return.png",
+      "sha256": "29d9acaf7d816ca2fd5e29afbe15caed53c16936f1a0500d4ca2c6eb3c5fbd19",
+      "bytes": 115703,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "state_id": "geode_replay_leave_return",
+      "part": "resume",
+      "baseline_attempt": true,
+      "bounded_diagnostic": false,
+      "exclusion_reason": "Failed baseline downstream intended-completion labels did not achieve completion; actual state remains119 and later stacked re-entry is not a trustworthy reward/route view."
+    },
+    {
+      "path": "baseline_native/1600x720/prepare/geode_room_armed.png",
+      "sha256": "0747abfb4f3126f7f46b8f1c6f393ddd8939c6366ab442d31e1513329a42689d",
+      "bytes": 111107,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "state_id": "geode_room_armed",
+      "part": "prepare",
+      "baseline_attempt": true,
+      "bounded_diagnostic": true,
+      "exclusion_reason": null
+    },
+    {
+      "path": "baseline_native/1600x720/prepare/geode_closed_ready.png",
+      "sha256": "1d767dff29125d2e0dac9848a70a5fa6749590d92b96bdd5c952b0daa62d51d7",
+      "bytes": 123088,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "state_id": "geode_closed_ready",
+      "part": "prepare",
+      "baseline_attempt": true,
+      "bounded_diagnostic": true,
+      "exclusion_reason": null
+    },
+    {
+      "path": "baseline_native/1600x720/prepare/geode_passive_1s.png",
+      "sha256": "3cacca1ee20e82179c013230312b49b0786df33f9296659f0e050ade21716cbe",
+      "bytes": 122484,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "state_id": "geode_passive_1s",
+      "part": "prepare",
+      "baseline_attempt": true,
+      "bounded_diagnostic": true,
+      "exclusion_reason": null
+    },
+    {
+      "path": "baseline_native/1600x720/prepare/geode_wrong_tap.png",
+      "sha256": "41e05ad1b37e8d179974a36fd69404649d90fe51c2ee086dd4ce288d6d942cfd",
+      "bytes": 121959,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "state_id": "geode_wrong_tap",
+      "part": "prepare",
+      "baseline_attempt": true,
+      "bounded_diagnostic": true,
+      "exclusion_reason": null
+    },
+    {
+      "path": "baseline_native/1600x720/prepare/geode_early_pull_ignored.png",
+      "sha256": "41e05ad1b37e8d179974a36fd69404649d90fe51c2ee086dd4ce288d6d942cfd",
+      "bytes": 121959,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "state_id": "geode_early_pull_ignored",
+      "part": "prepare",
+      "baseline_attempt": true,
+      "bounded_diagnostic": true,
+      "exclusion_reason": null
+    },
+    {
+      "path": "baseline_native/1600x720/prepare/geode_seam00_released.png",
+      "sha256": "31b51d609c5b63c36d6ca05ce3bfa71706e3386ea077c881177232ddd5797db2",
+      "bytes": 119751,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "state_id": "geode_seam00_released",
+      "part": "prepare",
+      "baseline_attempt": true,
+      "bounded_diagnostic": true,
+      "exclusion_reason": null
+    },
+    {
+      "path": "baseline_native/1600x720/prepare/geode_seam01_released.png",
+      "sha256": "036646f79b7445d110aa232c301deb083fde6f5ddebfd216b1b8221c3e5574fd",
+      "bytes": 117402,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "state_id": "geode_seam01_released",
+      "part": "prepare",
+      "baseline_attempt": true,
+      "bounded_diagnostic": true,
+      "exclusion_reason": null
+    },
+    {
+      "path": "baseline_native/1600x720/prepare/geode_seam02_released.png",
+      "sha256": "4f69849ca32fe1a954f7220bce9182aa1ace631b0b88e7c61d55205a54f2bab2",
+      "bytes": 115017,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "state_id": "geode_seam02_released",
+      "part": "prepare",
+      "baseline_attempt": true,
+      "bounded_diagnostic": true,
+      "exclusion_reason": null
+    },
+    {
+      "path": "baseline_native/1600x720/prepare/geode_seam03_released.png",
+      "sha256": "179470d7f4256b2dc207492c76b62b983eb4d4ced468d911185f3d3025a48dbb",
+      "bytes": 112600,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "state_id": "geode_seam03_released",
+      "part": "prepare",
+      "baseline_attempt": true,
+      "bounded_diagnostic": true,
+      "exclusion_reason": null
+    },
+    {
+      "path": "baseline_native/1600x720/prepare/geode_seam04_released.png",
+      "sha256": "be7adae2d64af14a7a9bc6a438b6a3b24f55296f572c7326c7eabd51ef571b17",
+      "bytes": 110231,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "state_id": "geode_seam04_released",
+      "part": "prepare",
+      "baseline_attempt": true,
+      "bounded_diagnostic": true,
+      "exclusion_reason": null
+    },
+    {
+      "path": "baseline_native/1600x720/prepare/geode_pull060_held.png",
+      "sha256": "b19173805778c29ccdefbbd39c434f2e48dd9686c7a5dbb76798e3b23643effc",
+      "bytes": 113960,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "state_id": "geode_pull060_held",
+      "part": "prepare",
+      "baseline_attempt": true,
+      "bounded_diagnostic": true,
+      "exclusion_reason": null
+    },
+    {
+      "path": "baseline_native/1600x720/prepare/geode_pull060_released.png",
+      "sha256": "ab299d2bbaa10d880f12f5b1305d0b803a4ec26a35d23adf6d80497d42ea1c21",
+      "bytes": 113955,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "state_id": "geode_pull060_released",
+      "part": "prepare",
+      "baseline_attempt": true,
+      "bounded_diagnostic": true,
+      "exclusion_reason": null
+    },
+    {
+      "path": "baseline_native/1600x720/prepare/geode_focus060_flushed.png",
+      "sha256": "1987542a3a28cd664384015215e8d4acd71198f4e1ad2c096593c63b47496777",
+      "bytes": 113972,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "state_id": "geode_focus060_flushed",
+      "part": "prepare",
+      "baseline_attempt": true,
+      "bounded_diagnostic": true,
+      "exclusion_reason": null
+    },
+    {
+      "path": "baseline_native/1600x720/prepare/geode_partial_leave_return.png",
+      "sha256": "4060365554c8760f9b6e4df541711672635713579e669705012b53e10fade0c8",
+      "bytes": 536287,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "state_id": "geode_partial_leave_return",
+      "part": "prepare",
+      "baseline_attempt": true,
+      "bounded_diagnostic": true,
+      "exclusion_reason": null
+    },
+    {
+      "path": "baseline_native/1600x720/resume/geode_disk_resume_room_armed.png",
+      "sha256": "a120f9397dc8168917534b5a1b5d62062427bfdb18f3196cdbb2d62b6c05bfc4",
+      "bytes": 111017,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "state_id": "geode_disk_resume_room_armed",
+      "part": "resume",
+      "baseline_attempt": true,
+      "bounded_diagnostic": true,
+      "exclusion_reason": null
+    },
+    {
+      "path": "baseline_native/1600x720/resume/geode_disk_resume060_task.png",
+      "sha256": "99c276568aa05885100cc97eefe1d4903f481eec673dea4587d07f645f3f9d67",
+      "bytes": 115192,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "state_id": "geode_disk_resume060_task",
+      "part": "resume",
+      "baseline_attempt": true,
+      "bounded_diagnostic": true,
+      "exclusion_reason": null
+    },
+    {
+      "path": "baseline_native/1600x720/resume/geode_pull119_held.png",
+      "sha256": "c46317b4e4cc1e597001d8c43c4e3481082c3727f5e5968969db52db3b28f55f",
+      "bytes": 118704,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "state_id": "geode_pull119_held",
+      "part": "resume",
+      "baseline_attempt": true,
+      "bounded_diagnostic": true,
+      "exclusion_reason": null
+    },
+    {
+      "path": "baseline_native/1600x720/resume/geode_pull119_released.png",
+      "sha256": "02e2d304696970a6c3d3c2526e1820eb42f9e7fd3e541ac5127678e6a88c5391",
+      "bytes": 118744,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "state_id": "geode_pull119_released",
+      "part": "resume",
+      "baseline_attempt": true,
+      "bounded_diagnostic": true,
+      "exclusion_reason": null
+    },
+    {
+      "path": "baseline_native/1600x720/resume/geode_119_leave_return.png",
+      "sha256": "3b0946d10c6b84b363208acdb8c92bad6f911bf842540ad60fdb78b8cd689478",
+      "bytes": 118468,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "state_id": "geode_119_leave_return",
+      "part": "resume",
+      "baseline_attempt": true,
+      "bounded_diagnostic": true,
+      "exclusion_reason": null
+    },
+    {
+      "path": "baseline_native/1600x720/resume/geode_119_reentry_room_armed.png",
+      "sha256": "b645b769d30b63d822f95cf3b0f2fc01e029ccd0af2b558a6f7b982d56a89e2d",
+      "bytes": 111059,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "state_id": "geode_119_reentry_room_armed",
+      "part": "resume",
+      "baseline_attempt": true,
+      "bounded_diagnostic": true,
+      "exclusion_reason": null
+    },
+    {
+      "path": "baseline_native/1600x720/resume/geode_119_reentry_task.png",
+      "sha256": "f69404dab8f3b171322d9664db3798a0543e5fc97f264b4c296ebe2e778b5506",
+      "bytes": 119974,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "state_id": "geode_119_reentry_task",
+      "part": "resume",
+      "baseline_attempt": true,
+      "bounded_diagnostic": true,
+      "exclusion_reason": null
+    },
+    {
+      "path": "baseline_native/1600x720/resume/geode_completed120_held.png",
+      "sha256": "c82ec5c20bcdbf40219f988e804e859e670c22ef8212f5aac37267279121ecc1",
+      "bytes": 118427,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "state_id": "geode_completed120_held",
+      "part": "resume",
+      "baseline_attempt": true,
+      "bounded_diagnostic": true,
+      "exclusion_reason": null
+    },
+    {
+      "path": "baseline_native/1600x720/resume/geode_completion_repeat_ignored.png",
+      "sha256": "820216e84a9f1e95576398dd5c32229f00ff200356a395eecd87e75c9b5b0216",
+      "bytes": 118516,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "state_id": "geode_completion_repeat_ignored",
+      "part": "resume",
+      "baseline_attempt": true,
+      "bounded_diagnostic": false,
+      "exclusion_reason": "Failed baseline downstream intended-completion labels did not achieve completion; actual state remains119 and later stacked re-entry is not a trustworthy reward/route view."
+    },
+    {
+      "path": "baseline_native/1600x720/resume/geode_completion_hold.png",
+      "sha256": "fcaf5c915bdfce27d39020080d77a31c1cbc978797091608552b1294b7dcd157",
+      "bytes": 118466,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "state_id": "geode_completion_hold",
+      "part": "resume",
+      "baseline_attempt": true,
+      "bounded_diagnostic": false,
+      "exclusion_reason": "Failed baseline downstream intended-completion labels did not achieve completion; actual state remains119 and later stacked re-entry is not a trustworthy reward/route view."
+    },
+    {
+      "path": "baseline_native/1600x720/resume/geode_completion_reward_return.png",
+      "sha256": "6c099fe1edbae5b3e47d3d613ce2969543fcb941eed4343b7211e21b854a026e",
+      "bytes": 118478,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "state_id": "geode_completion_reward_return",
+      "part": "resume",
+      "baseline_attempt": true,
+      "bounded_diagnostic": false,
+      "exclusion_reason": "Failed baseline downstream intended-completion labels did not achieve completion; actual state remains119 and later stacked re-entry is not a trustworthy reward/route view."
+    },
+    {
+      "path": "baseline_native/1600x720/resume/geode_post_reward_reentry_room.png",
+      "sha256": "bf026a3b2ce699f3782997e863d2e950191b9cff9434bcea97bfc9461b6aa905",
+      "bytes": 111023,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "state_id": "geode_post_reward_reentry_room",
+      "part": "resume",
+      "baseline_attempt": true,
+      "bounded_diagnostic": false,
+      "exclusion_reason": "Failed baseline downstream intended-completion labels did not achieve completion; actual state remains119 and later stacked re-entry is not a trustworthy reward/route view."
+    },
+    {
+      "path": "baseline_native/1600x720/resume/geode_post_reward_reentry_river.png",
+      "sha256": "2d41e120dd0f0c77e606c98757560daef5101b81ab86c527acf2d87cd8e7854e",
+      "bytes": 119800,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "state_id": "geode_post_reward_reentry_river",
+      "part": "resume",
+      "baseline_attempt": true,
+      "bounded_diagnostic": false,
+      "exclusion_reason": "Failed baseline downstream intended-completion labels did not achieve completion; actual state remains119 and later stacked re-entry is not a trustworthy reward/route view."
+    },
+    {
+      "path": "baseline_native/1600x720/resume/geode_replay_leave_return.png",
+      "sha256": "597fb3e707dbaff4fcb38910b260815d21330662639bb82f42df2fd523c48d0d",
+      "bytes": 118522,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "state_id": "geode_replay_leave_return",
+      "part": "resume",
+      "baseline_attempt": true,
+      "bounded_diagnostic": false,
+      "exclusion_reason": "Failed baseline downstream intended-completion labels did not achieve completion; actual state remains119 and later stacked re-entry is not a trustworthy reward/route view."
+    }
+  ],
+  "new_native_retained": 112,
+  "new_bounded_diagnostics": 100,
+  "excluded_failed_downstream_diagnostics": 12,
+  "prior_retained": 2002,
+  "prior_bounded": 1900,
+  "cumulative_retained": 2114,
+  "cumulative_bounded": 2000,
+  "count_unit": "Native diagnostic files,including retained expected-failed baseline; never artwork removals or acceptance."
+}

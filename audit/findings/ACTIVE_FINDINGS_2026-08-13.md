@@ -1705,3 +1705,26 @@ poses as broken motion.
 | closure | Blocked external as of 2026-08-30; no current packet or session exists. |
 | relationships | Typography-specific child of `MA-PERF-001`, `MA-CHILD-001`, and `MA-RELEASE-001`; blocks terminal closure of `MA-TYPE-001`–`006` where external evidence applies. |
 | history | 2026-08-30: evidence absence confirmed against historical `0ddbe656`; candidate machine checks do not supply an exact-APK/device/human matrix, so `BLOCKED_EXTERNAL` remains at the V0/V1 boundary. |
+
+## MA-PLAY-007
+
+| Field | Value |
+|---|---|
+| id | `MA-PLAY-007` |
+| title | Interrupted Geode opening at119 cannot reach the120 completion clamp. |
+| rule_ids | `DL-INT-02`, `DL-INT-04`, `DL-SAVE-04` |
+| domain / zone | Geologist original Canvas surface; legacy Opera completion/save/re-entry. |
+| source | Exact production baseline8a0db03f72735b67ebb581927051c92ca62eaef9; `_geode_drag` rejects clamped120 whenever current pull is119 or higher because the increment1 filter runs before completion. |
+| severity | P2 |
+| lifecycle | `FIXED_PENDING_VERIFICATION` |
+| verification | V2 exact source and expected-failing8px input regression; V4 original native diagnostics at two aspects preserve119 through leave/re-entry but cannot complete. All82 trusted native probes,import/medium and56 repaired native diagnostics pass; exact new topic-head CI,QA11/natural-route/device/child/owner acceptance remain pending. |
+| reproduction | Restore five released seam taps and pull119 or119.25; grab the right half and drag8px forward. At the baseline,pull stays unchanged and no geology award emits. The declared phase3 fixture skips earlier phases and normal Castle travel. |
+| child_impact | An interrupted almost-open stone can stay permanently incomplete despite another valid pull,blocking the visible action and reward. |
+| evidence | [R14 baseline regression](../../docs/handoffs/codex_flat_vector_art_2026-10-07/r14_geode_lifecycle/ENDPOINT_BASELINE.json),its exact log,and retained original scene/save manifests. Float-equality and initial wrong-signal harness errors are distinct from the reproduced endpoint defect. |
+| owner_decision | Existing point-by-point mission and no-lost-progress/one-finger contract authorize this bounded correction; no new creative or release decision. |
+| fix | Preserve the existing qualifying drag and all input geometry; apply small-increment filtering below the terminal clamp,then accept120 once. |
+| surrounding_tests | Restored119/119.25 passive,tap/backward negatives,fresh8px terminal drag,duplicate award suppression; normal-policy focus/leave,separate-process disk reload,119 re-entry,completion hold,reward/checkpoint clear and replay; full trusted suite; exact engine/two aspects. |
+| acceptance | Endpoint remains completable after interruption without passive/wrong-input award or duplicate reward; full current source/runtime and target-device/child/owner evidence required. This does not accept any flat-art replacement. |
+| closure | Open; no canonical closure or final art/route/device/child/owner acceptance. |
+| relationships | `MA-OPERA-012` caller/reward/route acceptance; `MA-VIS-006` art/style audit. `MA-SAVE-001` concerns unrelated Castle scratch state and is not repaired here. |
+| history | 2026-10-13: reproduced on exact8a0db03f with two original native aspects and expected-failing119/119.25 fresh8px microtest. Small terminal-filter correction and four trusted negative/once-only checks added. All82 local trusted probes and separate-process normal-policy two-aspect lifecycle pass after recorded pregate-wrapper timeout/native recovery; prior failures retained. No artwork acceptance; external verification/closure pending. |

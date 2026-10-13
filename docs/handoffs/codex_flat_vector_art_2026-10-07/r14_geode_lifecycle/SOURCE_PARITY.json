@@ -1,0 +1,42 @@
+{
+  "schema": 1,
+  "source_baseline": "8a0db03f72735b67ebb581927051c92ca62eaef9",
+  "normal_save_all_eight_hashes_unchanged": true,
+  "raw_production_census_count": 3236,
+  "raw_before_census_sha256": "3295e38b0a7484c952581c3893c5818a4b6bdd2d82766796f18fb9a1f42a3260",
+  "raw_after_census_sha256": "e31d4ac3fccdfffcc688f04d0b5772d935164a8882578db6a9dbc1326697b75e",
+  "exact_changes": [
+    {
+      "before": {
+        "path": "scripts/opera_geology_surface.gd",
+        "bytes": 34275,
+        "sha256": "14226227f7a961511057318173737ec7340b2fc80fdb644e5670f5bd399989a6"
+      },
+      "after": {
+        "path": "scripts/opera_geology_surface.gd",
+        "bytes": 33472,
+        "sha256": "0e245a1fb550c0c171775197b1d32de9deb2f1e9637f076fa1e248888583e397"
+      }
+    },
+    {
+      "before": {
+        "path": "scripts/probe_opera_2d.gd",
+        "bytes": 154598,
+        "sha256": "440ca7095d1800bbc641e05ff727ad47f403a2ad253f398fb570a86af6f598f0"
+      },
+      "after": {
+        "path": "scripts/probe_opera_2d.gd",
+        "bytes": 152730,
+        "sha256": "161d397d6e0cac1cf63a746a5641901fdcf0769ca30a3e2565d7755e358f0528"
+      }
+    }
+  ],
+  "changed_runtime_art_assets": [],
+  "immutable_original_context": "R13 original sources and R8 original captures; code delta is the terminal guard only,plus its trusted regression.",
+  "engine_process_launches": 4,
+  "baseline_engine_process_launches": 2,
+  "repaired_engine_process_launches": 2,
+  "repaired_native_captures": 56,
+  "baseline_native_retained": 56,
+  "candidate_images_generated": 0
+}

@@ -1,0 +1,57 @@
+{
+  "schema": 1,
+  "baseline": "8a0db03f72735b67ebb581927051c92ca62eaef9",
+  "source": "scripts/opera_geology_surface.gd",
+  "entire_file_equals_only_declared_terminal_guard_change": true,
+  "functions": [
+    {
+      "function": "_draw_geode",
+      "LF_sha256": "6471b0a20dc02d1997dbd078d689403256abbcdb6d71d8c7c137d708afad0b86",
+      "exact_unchanged": true
+    },
+    {
+      "function": "_geode_half_points",
+      "LF_sha256": "34eb31f263c7490c1f18668146ccd4101d6944f5886c84e6a89b5b7820dc495c",
+      "exact_unchanged": true
+    },
+    {
+      "function": "_draw_crystal_gallery",
+      "LF_sha256": "bc3ae12a1d474dbcd041ad729c927c73fe7c3e8013c6245685dfb74aa7c491e4",
+      "exact_unchanged": true
+    },
+    {
+      "function": "_draw_work_surface",
+      "LF_sha256": "f1f23a6ef0941331d49d87f724fff0363ccf307a05b52ff3589a89a74f207628",
+      "exact_unchanged": true
+    },
+    {
+      "function": "_drag",
+      "LF_sha256": "da0c1d9298b6bde149ce93ac514e3b0b07cde0f054150f149314edc26ad1cd7e",
+      "exact_unchanged": true
+    },
+    {
+      "function": "_press",
+      "LF_sha256": "52806d29e823b71be953c38064d50e607c02b1ecefdf3190f79636c521c910d2",
+      "exact_unchanged": true
+    },
+    {
+      "function": "_release",
+      "LF_sha256": "2b04929db560aeae42f1b2c586b5106c77527d81eabfeedac39ae47914f98fed",
+      "exact_unchanged": true
+    },
+    {
+      "function": "restore_progress",
+      "LF_sha256": "49593daf0dd4e435b6794bba76bb8383a28e86d64a2dd859ae1ccf08b16a0d16",
+      "exact_unchanged": true
+    },
+    {
+      "function": "_geode_right_rect",
+      "LF_sha256": "72588c067c0bad26bc296bc1672768b7b47b9e474a2ef5af0641872e1daf54e3",
+      "exact_unchanged": true
+    }
+  ],
+  "GEODE_constants_exact_unchanged": true,
+  "functional_geometry": "Existing invisible hit rectangles,seam centers/radius56,minimum drag2 and pull threshold120 remain behavior contract. Visible polygons/markers/board remain artwork; no source classification/removal credit.",
+  "changed_art_assets": [],
+  "accepted_removed": 0
+}

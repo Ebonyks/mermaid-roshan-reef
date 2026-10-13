@@ -1,6 +1,8 @@
-Current canonical evidence: [R13 Geode source/caller audit](r13_geode_source_closure/README.md), [registry](r13_geode_source_closure/per_piece.json), [coverage](r13_geode_source_closure/scene_coverage.json), [tally](r13_geode_source_closure/tally.json).
+Current canonical evidence: [R14 Geode terminal repair/lifecycle](r14_geode_lifecycle/README.md), [registry](r14_geode_lifecycle/per_piece.json), [coverage](r14_geode_lifecycle/scene_coverage.json), [tally](r14_geode_lifecycle/tally.json).
 
-# Full-game flat-vector audit — current R13 source closure
+# Full-game flat-vector audit — current R14 Geode lifecycle
+
+R14 repairs a reproduced terminal-input blocker and captures normal-policy save/reload/reward/re-entry.2000 bounded/2114 retained;225 known/30 families; zero artwork replacements/acceptance,whole-game denominator unknown. Previous R13 narrative remains historical below.
 
 R13 verifies the unused geode texture binding, three crystal-resource bindings/two potential draw roles and the remaining whole-unit action family gap. No new pixels/captures,production changes or acceptance.225 known/30 families,1900 bounded/2002 retained; whole-game denominator unknown. Earlier R12 narrative remains historical below.
 

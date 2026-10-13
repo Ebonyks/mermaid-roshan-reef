@@ -1,0 +1,40 @@
+{
+  "status": "PASS_WITH_EXTERNAL_ACCEPTANCE_OPEN",
+  "scope": "R14 two-file source correction plus additive diagnostic/canonical evidence. All82 trusted probes already pass; no source edit after that run. Machine publication gates do not establish art/route/QA11/device/child/owner acceptance.",
+  "full_suite": "FULL_VALIDATION.json",
+  "commands": [
+    {
+      "command": "python -B docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r14_geode_lifecycle\\validate.py",
+      "started_at_utc": "2026-10-13T13:46:58.619013+00:00",
+      "checked_at_utc": "2026-10-13T13:47:02.827016+00:00",
+      "exit_code": 0,
+      "result": "PASS",
+      "evidence": "gates.log"
+    },
+    {
+      "command": "python -B tools/audit_document_authority.py",
+      "started_at_utc": "2026-10-13T13:47:02.827960+00:00",
+      "checked_at_utc": "2026-10-13T13:47:22.815582+00:00",
+      "exit_code": 0,
+      "result": "PASS",
+      "evidence": "gates.log"
+    },
+    {
+      "command": "python -B tools/audit_development.py --base auto",
+      "started_at_utc": "2026-10-13T13:47:22.816597+00:00",
+      "checked_at_utc": "2026-10-13T13:47:27.445908+00:00",
+      "exit_code": 0,
+      "result": "PASS",
+      "evidence": "gates.log"
+    },
+    {
+      "command": "python -B tools/audit_game_2d.py --regression-gate",
+      "started_at_utc": "2026-10-13T13:47:27.447286+00:00",
+      "checked_at_utc": "2026-10-13T13:50:41.145641+00:00",
+      "exit_code": 0,
+      "result": "PASS",
+      "evidence": "gates.log"
+    }
+  ],
+  "medium": "UNSATISFIED; NO_REGRESSION; models0/production debt52/probe61/scene1/configuration1"
+}

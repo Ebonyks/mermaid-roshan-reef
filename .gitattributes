@@ -78,3 +78,6 @@ docs/handoffs/codex_flat_vector_art_2026-10-07/r12_geode_layered_reveal/GATES.lo
 # Preserve exact native R13 audit logs.
 docs/handoffs/codex_flat_vector_art_2026-10-07/r13_geode_source_closure/gates.log -text -diff
 docs/handoffs/codex_flat_vector_art_2026-10-07/r13_geode_source_closure/prepublication_failed_gates.log -text -diff
+
+# Preserve exact native R14 logs; do not trim diagnostic evidence.
+docs/handoffs/codex_flat_vector_art_2026-10-07/r14_geode_lifecycle/*.log -text -diff

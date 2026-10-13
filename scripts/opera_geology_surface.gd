@@ -504,7 +504,9 @@ func _geode_drag(at: Vector2) -> void:
 		return
 	var next_pull := clampf(geode_pull_start + at.x - _press_position.x,
 		0.0, GEODE_PULL_DISTANCE)
-	if next_pull <= geode_pull + 1.0:
+	# The clamped final pixel still completes after a real qualifying drag.
+	# Filtering it as jitter strands an interrupted opening at 119.
+	if next_pull <= geode_pull + 1.0 and next_pull < GEODE_PULL_DISTANCE:
 		return
 	geode_pull = next_pull
 	_note_material_change(at)
