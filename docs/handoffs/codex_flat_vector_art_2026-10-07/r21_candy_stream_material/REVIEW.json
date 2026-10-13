@@ -1,0 +1,72 @@
+{
+  "revision": "FV-AUDIT-20261013-R21",
+  "piece_id": "FV-E49ED1B88811",
+  "scope_id": "FVF-435230B3EA4A",
+  "family": "opera_candymaker",
+  "route": "opera.act.03/default SYRUP",
+  "source_revision": "29e90b7acbde7b2c0960979535960af8f0bd3df3",
+  "reviewer": "Codex direct image inspection; not human/owner approval",
+  "status": "FAILED_LOCAL_VISUAL_QC; NONRUNTIME_TRIAL_ONLY",
+  "ten_axes": {
+    "contour": "Irregular painted contours replace uniform line bands in the isolated trial, but source has a stronger S bend than the gently bowed brief; locally fails flow silhouette.",
+    "material": "Amber/copper translucent paint and broken cream reflections resemble the painted pool more closely than the old flat bands. Candidate is still unaccepted.",
+    "palette": "Warm honey-orange/ivory fits adjacent syrup and gold-rimmed ladle; source glow produces extra yellow around the flow.",
+    "light": "Upper-left reflections/right copper shade follow source references; broad emitted-looking halo is incongruent and fails local QC.",
+    "perspective": "Whole sprite uses rigid rotation+uniform scale between anchors; no parts/UV warp. Static curved ribbon cannot prove gravity/contact through every tilt.",
+    "scale": "683x1024 proportional export; native stream small at current panel size. No device/child readability or performance measurement.",
+    "contact": "Low held_08s uses R20 nearest visible opaque pool pixel. At held_02s no revealed opaque pool pixel,trial uses nominal endpoint and hangs in empty cavity: onset contact remains failed/open.",
+    "occlusion": "Stream draws before painted fill and ladle; mid-fill pool covers it. Existing ladle/fill stacking/wipe presentation remains separate weakness,not fixed or accepted.",
+    "readability": "Low-fill paint visible as a narrow bright ribbon; warm-on-warm contrast and glow need phone/child review after correction. No score assigned.",
+    "action_state": "Actual native passive/wrong/partial hold/drag/release/teardown sampled; release disables flow. One static flow image, no authored liquid performance/full-speed loop review. Whole-state/natural-route/missing-file/full award/reload/device/child/owner remain open."
+  },
+  "direct_source_images_viewed": [
+    "assets/opera/worlds/widgets/widget_pour_chef.png",
+    "assets/opera/worlds/widgets/widget_pour_chef_mover.png",
+    "assets/chapter2/birthday/chapter2_chef_batter_stirred.png",
+    "assets/kart/boost_ribbon.png",
+    "assets_src/imagegen/opera_candymaker_syrup_2026-08-10/candymaker_syrup_fill_alpha_native.png",
+    "assets/opera/worlds/widgets/widget_pour_candymaker_mover.png"
+  ],
+  "generated_original_viewed": "assets_src/flat_vector_candy_stream_20261013/stream_native.png",
+  "generated_normalized_viewed": "assets_src/flat_vector_candy_stream_20261013/stream_1024.png",
+  "prior_context_viewed": "r20_candy_stream_contact/native/1280x720/candidate/held_08s.png",
+  "direct_native_views": [
+    "native/1280x720/baseline/held_08s.png",
+    "native/1280x720/baseline/held_22s.png",
+    "native/1280x720/candidate/held_08s.png",
+    "native/1280x720/candidate/held_22s.png",
+    "native/1600x720/baseline/held_08s.png",
+    "native/1600x720/baseline/held_22s.png",
+    "native/1600x720/candidate/held_08s.png",
+    "native/1600x720/candidate/held_22s.png",
+    "native/1280x720/candidate/held_02s.png",
+    "native/1280x720/candidate/released.png",
+    "native/1600x720/candidate/held_02s.png",
+    "native/1600x720/candidate/released.png"
+  ],
+  "native_files": 48,
+  "unique_native_hashes": 45,
+  "calls": 1,
+  "call_cap": 1,
+  "blocked_next_quality_steps": [
+    "Retire glow without damaging painted antialias contour",
+    "Replace strong S silhouette with actual gravity/tilt-bound whole-flow drawings",
+    "Repair near-zero onset target/flow contact",
+    "Authored flow states and full-speed/frame-step action review",
+    "Retire production/missing-art fallbacks after acceptance",
+    "Natural route/full lifecycle/device/child/owner/performance"
+  ],
+  "acceptance": {
+    "candidate": "Local QC failed; no new owner-review queue",
+    "approved": null,
+    "integrated": null,
+    "runtime_verified_replacement": null,
+    "device": null,
+    "child": null,
+    "owner": null,
+    "accepted_removed": 0,
+    "QA11": null
+  },
+  "geometry_only_lookup": "FILL_CONTACT_ROWS exact immutable R20 alpha geometry; no new functional scope/art total",
+  "limits": "Declared script swap/re-arm dev-playtest firstphase;private SaveState BEFORE Main;raw Window inputs/timers,two aspects. No QA11/new production bytes/full motion/acceptance."
+}

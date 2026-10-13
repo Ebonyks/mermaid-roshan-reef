@@ -1,6 +1,12 @@
-Current canonical evidence: [R20 CandyMaker stream contact](r20_candy_stream_contact/README.md), [registry](r20_candy_stream_contact/per_piece.json), [coverage](r20_candy_stream_contact/scene_coverage.json), [tally](r20_candy_stream_contact/tally.json).
+Current canonical evidence: [R21 CandyMaker stream material](r21_candy_stream_material/README.md),[registry](r21_candy_stream_material/per_piece.json),[coverage](r21_candy_stream_material/scene_coverage.json),[tally](r21_candy_stream_material/tally.json).
 
-# Full-game flat-vector audit — current R20 stream contact study
+# Full-game flat-vector audit — current R21 material trial
+
+One generated painted stream draft fails local visual QC:glow,strong S contour,onset and static-flow gaps remain.48native event files/12views,2378bounded/2492retained;225known/30families,one existing hand sample pending,zero adoption/acceptedremoval,unknown global totals. [R20 contact study](r20_candy_stream_contact/README.md) remains immutable.
+
+Historical R20 routing: [R20 CandyMaker stream contact](r20_candy_stream_contact/README.md), [registry](r20_candy_stream_contact/per_piece.json), [coverage](r20_candy_stream_contact/scene_coverage.json), [tally](r20_candy_stream_contact/tally.json).
+
+# Historical R20 stream contact study
 
 R20 adds68 native state files and14 direct views for a source-alpha contact/occlusion trial. Original flat material and near-zero onset remain open; no generation,production adoption or art acceptance.2330 bounded/2444 retained;225 known/30 families,48 existing partial/9 families,one existing hand sample pending. Global totals remain unknown. [R19 hand context trial](r19_candy_pointer_reuse/README.md) and [R18 original CandyMaker context](r18_candy_pointer_context/README.md) remain immutable prior evidence.
 

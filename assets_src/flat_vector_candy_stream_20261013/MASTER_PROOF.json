@@ -1,0 +1,30 @@
+{
+  "crop": false,
+  "frames": 1,
+  "glow_removed": false,
+  "layers": 1,
+  "method": "bilinear",
+  "native_size": [
+    1024,
+    1536
+  ],
+  "normalized_size": [
+    683,
+    1024
+  ],
+  "part_separation": false,
+  "recolor": false,
+  "repaint": false,
+  "anchors": [
+    [
+      465.0,
+      61
+    ],
+    [
+      437.0,
+      964
+    ]
+  ],
+  "anchor_method": "First/last row with alpha>=128; mean opaque x. Whole drawing rigid rotation+uniformscale maps these actual endpoints. Not per-part warp.",
+  "native_roundtrip_rgba_equal": true
+}

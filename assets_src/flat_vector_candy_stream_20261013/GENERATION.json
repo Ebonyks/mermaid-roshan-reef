@@ -1,0 +1,34 @@
+{
+  "prompt": "Use case: illustration-story. Create ONE isolated whole flowing amber syrup ribbon sprite on a genuinely transparent background for the existing Mermaid Roshan CandyMaker scene. References: IMAGE_1 is the existing painted amber syrup's material, palette and reflected light ONLY; IMAGE_2 is the fixed ladle's material/light/style reference ONLY. Do not redraw these objects. Draw only the missing liquid flow, no mold, ladle, background or UI. Polished true 2D painted storybook appearance with soft brush facets, warm translucent honey-orange body, deeper copper amber shade on the right, irregular short ivory-gold reflections along the upper-left edge, gently uneven antialiased contours. Canonical sprite upright: one continuous narrow ribbon from upper-right to lower-right, both endpoints on the same vertical axis at about x=65% of canvas, top y=8%, bottom y=92%; the middle bows gently left toward x=45%. Ribbon thickness about 10% of endpoint-to-endpoint length, varying subtly as viscous liquid. Rounded cut flow endpoints for overlap under the ladle and into the pool; no dangling teardrop, splash, beads, separate particles or puddle. This whole drawing will be rotated and uniformly scaled from its two end anchors to the current ladle lip and painted pool. Keep the internal reflections broken and painted, not three uniform bands, not a candy cane, flat vector, outline icon, photo or 3D render. No text, checkerboard, watermark, frame or extra objects.",
+  "start": {
+    "current_time": "2026-10-13 20:30:33 UTC"
+  },
+  "end": {
+    "current_time": "2026-10-13 20:31:04 UTC"
+  },
+  "call_count": 1,
+  "cap": 1,
+  "tool": "built-in image_gen",
+  "model": null,
+  "seed": null,
+  "request_id": null,
+  "billing": null,
+  "revision": "FV-AUDIT-20261013-R21",
+  "piece_id": "FV-E49ED1B88811",
+  "purpose": "Named painted-flow gap,not novelty/full scene redraw",
+  "input_binding": "SOURCES.json at the R21 packet",
+  "source_acceptance_scope": "Existing current CandyMaker scene pixels as material/light references; no new owner review inferred",
+  "generated_native": {
+    "path": "assets_src/flat_vector_candy_stream_20261013/stream_native.png",
+    "sha256": "5c341dc39b61ff6085551aa28b0c1a22333d91a6f37d6120f8d0f31060bbd530",
+    "dimensions": [
+      1024,
+      1536
+    ]
+  },
+  "output_path_from_tool": "C:/Users/Peter/.codex/generated_images/01a119cc-74b1-7d23-b956-126129405418/exec-fe7568c1-3242-4f64-a9fd-71c89cdb3569.png",
+  "edits": "Aseprite single-layer single-frame native master/unchanged RGBA roundtrip; proportional bilinear683x1024 export. No cleanup,part separation,repaint,recolor or crop; glow retained.",
+  "license": "Project-commissioned built-in generated candidate; no protected originals altered; ASSET_LICENSES rows; source-review only",
+  "local_quality": "FAILED_LOCAL_VISUAL_QC",
+  "next_method": "Cap reached. Diagnose glow/S-bend/onset/static flow before a separately documented geometry-led corrective brief or authored whole-flow states; no silent retry."
+}

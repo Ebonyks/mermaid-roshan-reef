@@ -1,0 +1,27 @@
+{
+  "revision": "FV-AUDIT-20261013-R21",
+  "inherited_source_audit": "docs/handoffs/codex_flat_vector_art_2026-10-07/r20_candy_stream_contact/REUSE_AUDIT.json",
+  "source_revision": "29e90b7acbde7b2c0960979535960af8f0bd3df3",
+  "directly_viewed_images": [
+    "assets/opera/worlds/widgets/widget_pour_chef.png",
+    "assets/opera/worlds/widgets/widget_pour_chef_mover.png",
+    "assets/chapter2/birthday/chapter2_chef_batter_stirred.png",
+    "assets/kart/boost_ribbon.png",
+    "assets_src/imagegen/opera_candymaker_syrup_2026-08-10/candymaker_syrup_fill_alpha_native.png",
+    "assets/opera/worlds/widgets/widget_pour_candymaker_mover.png"
+  ],
+  "observations": {
+    "CandyMaker settled pool": "Usable material/lighting reference; scalloped shell reflection silhouette materially fails a flowing ribbon. Reusing it as a stream would carry unrelated mold/rim contours.",
+    "CandyMaker ladle": "Liquid is enclosed in bowl,no flowing ribbon; current vessel identity unchanged.",
+    "Chef source/mover": "Bowl/jug with settled cream batter,no separate flow. Cream batter fails amber translucent syrup identity.",
+    "Chapter2 stirred batter": "Rainbow spiral in lavender bowl,wrong material/silhouette; no flow.",
+    "Kart boost ribbon": "Three flat cyan/coral/lavender bands,bubbles; itself fails the painted syrup purpose.",
+    "Remaining named ribbon/fashion sources": "Costume/fabric roles,not liquid; names do not qualify reuse.",
+    "Prior upstream_endpoint_matte hits": "Roshan animation repair/matte purpose,not liquid; no artwork suitability inferred from substring."
+  },
+  "specific_failed_reuse_gap": "No suitable whole painted flowing amber ribbon in the inspected CandyMaker source family or directly inspected neighboring pour/flow candidates. Need one narrow gently bowed syrup ribbon with same amber translucency and irregular cream reflections. Not a global absence claim.",
+  "global_reuse_absence_proven": false,
+  "generation_call_cap": 1,
+  "planned_generation_calls": 1,
+  "existing_sources_preserved": true
+}

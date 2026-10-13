@@ -1,0 +1,73 @@
+{
+  "status": "PASS_WITH_ACCEPTANCE_OPEN",
+  "commands": [
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-B",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r21_candy_stream_material\\validate.py"
+      ],
+      "started_at_utc": "2026-10-13T20:43:26.399323+00:00",
+      "checked_at_utc": "2026-10-13T20:43:30.943896+00:00",
+      "exit_code": 0,
+      "result": "PASS",
+      "evidence": "gates.log"
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-B",
+        "tools/audit_document_authority.py"
+      ],
+      "started_at_utc": "2026-10-13T20:43:30.943948+00:00",
+      "checked_at_utc": "2026-10-13T20:43:40.278217+00:00",
+      "exit_code": 0,
+      "result": "PASS",
+      "evidence": "gates.log"
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-B",
+        "tools/audit_development.py",
+        "--base",
+        "auto"
+      ],
+      "started_at_utc": "2026-10-13T20:43:40.278264+00:00",
+      "checked_at_utc": "2026-10-13T20:43:44.848412+00:00",
+      "exit_code": 0,
+      "result": "PASS",
+      "evidence": "gates.log"
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-B",
+        "-m",
+        "unittest",
+        "tools.tests.test_audit_document_authority",
+        "tools.tests.test_audit_development"
+      ],
+      "started_at_utc": "2026-10-13T20:43:44.848461+00:00",
+      "checked_at_utc": "2026-10-13T20:43:55.355862+00:00",
+      "exit_code": 0,
+      "result": "PASS",
+      "evidence": "gates.log"
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-B",
+        "tools/audit_game_2d.py",
+        "--regression-gate"
+      ],
+      "started_at_utc": "2026-10-13T20:43:55.355933+00:00",
+      "checked_at_utc": "2026-10-13T20:46:15.102467+00:00",
+      "exit_code": 0,
+      "result": "PASS",
+      "evidence": "gates.log"
+    }
+  ],
+  "raw_log_sha256": "68f7a3417766149c39e4775537cdebf38006615364ad4137932c7e886e7b5d09",
+  "scope": "Native contact-only diagnostic/evidence over unchanged runtime; inherited R16 exact82 local trusted passes. No production runtime code/assets changed;one generated nonruntime source locally failsQC;new native trial captures. Strict medium/global/QA11/device/child/owner acceptance open."
+}
