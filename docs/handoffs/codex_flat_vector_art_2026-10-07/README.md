@@ -1,12 +1,8 @@
-Current canonical evidence: [R9 Geologist reuse trial](r9_geode_reuse/README.md), [registry](r9_geode_reuse/per_piece.json), [coverage](r9_geode_reuse/scene_coverage.json), [tally](r9_geode_reuse/tally.json). Frozen R8/R7/R6 remain scoped history.
+Current canonical evidence: [R10 Geode marker fit](r10_geode_marker_fit/README.md), [registry](r10_geode_marker_fit/per_piece.json), [coverage](r10_geode_marker_fit/scene_coverage.json), [tally](r10_geode_marker_fit/tally.json).
 
-# Flat-vector-art full-game audit — current R9 geode reuse trial
+# Full-game flat-vector audit — current R10 marker fit
 
-The R7 receipt CI failure and its bounded correction are recorded in [CI evidence](r7_ci_correction/README.md). Artwork counts and acceptance remain unchanged.
-
-Use [CURRENT.json](CURRENT.json) and the [R9 entry](r9_geode_reuse/README.md) for the current canonical registry,coverage,tally and backlog. R9 adds44 isolated preserved-source fit snapshots and one technical derivative trial; cumulative1752 bounded/1854 retained. No production adoption or acceptance. The [preserved R8 entry](r8_geode_context/README.md) adds44 current Geologist phase/input diagnostic captures and ten-axis source/state review; cumulative bounded captures1708,retained1810. The [preserved R7 entry](r7_craft_context/README.md) adds 80 bounded Craft captures, one whole fish design with three component roles, and two incomplete texture compositor scopes. There are 225 known design records in 30 families; 77 of 176 routes have partial context, zero complete, and zero accepted removals. The whole-game denominator remains unknown.
-
-Root JSON files and the original MANIFEST/REMOTE_VERIFICATION retain frozen R6 scope. Their manifest applies to immutable payload 4aceae967de9da7c8f479e358a008188ba1f6304, not later current-entry text. R7 has its own delta manifest and separately published receipt.
+R10 repairs closed-source/guide alignment in44 isolated actual-touch diagnostics,with unchanged production and source pixels. Cumulative1796 bounded/1898 retained;225 known designs/30 families,77/176 partial routes,zero complete/accepted removed. Unknown denominators and all acceptance remain open. [Preserved R9 source trial](r9_geode_reuse/README.md), [R8 context](r8_geode_context/README.md), [R7 Craft](r7_craft_context/README.md) and [CI correction](r7_ci_correction/README.md) retain exact historical scopes. Use [CURRENT.json](CURRENT.json); root JSON/manifests remain frozen R6.
 
 # Frozen R6 review snapshot
 

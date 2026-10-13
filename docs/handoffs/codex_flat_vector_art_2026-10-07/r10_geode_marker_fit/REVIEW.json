@@ -1,0 +1,132 @@
+{
+  "schema": 1,
+  "revision": "FV-AUDIT-20261013-R10",
+  "stable_piece_id": "FV-C1AB21410352",
+  "scope_id": "FVF-FAD33ED5C4F6",
+  "source_revision": "0c2732204bec7f882db26d835e2ce32ee12c7471",
+  "reviewer": "Codex direct diagnostic visual inspection",
+  "status": "MARKER_SOURCE_ALIGNMENT_REPAIRED_IN_ISOLATED_TRIAL_FAMILY_INCOMPLETE",
+  "native_file_count": 44,
+  "unique_native_sha256_count": 35,
+  "actually_viewed_unique_native": 5,
+  "viewed_native": [
+    {
+      "bytes": 226691,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "file": "geode_closed_ready.png",
+      "sha256": "b21efd1fb7c1a10f9392e537b867dfcf6dd14cb0c3df3f23b3d6f98fe1d36a99",
+      "path": "native/1280x720/geode_closed_ready.png",
+      "aspect": "1280x720",
+      "state_id": "geode_closed_ready",
+      "painted_closed_candidate_drawn": true
+    },
+    {
+      "bytes": 225071,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "file": "geode_seam02_released.png",
+      "sha256": "23a3c68ed148c8bb32ee330e6b79246795f7de1167b719bdc1e37704f033c490",
+      "path": "native/1280x720/geode_seam02_released.png",
+      "aspect": "1280x720",
+      "state_id": "geode_seam02_released",
+      "painted_closed_candidate_drawn": true
+    },
+    {
+      "bytes": 224002,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "file": "geode_all_seams_ready.png",
+      "sha256": "10cd1ce530b020b02055c27fd8ab1b648e3c1f2d872221c37458ddfa4285264b",
+      "path": "native/1280x720/geode_all_seams_ready.png",
+      "aspect": "1280x720",
+      "state_id": "geode_all_seams_ready",
+      "painted_closed_candidate_drawn": true
+    },
+    {
+      "bytes": 111263,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "file": "geode_partial_open_held.png",
+      "sha256": "ebe6dba777c0373c9c63956bf7fe38afdbba92625302e2087a962fd8d6a27ae2",
+      "path": "native/1280x720/geode_partial_open_held.png",
+      "aspect": "1280x720",
+      "state_id": "geode_partial_open_held",
+      "painted_closed_candidate_drawn": false
+    },
+    {
+      "bytes": 229356,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "file": "geode_closed_ready.png",
+      "sha256": "d6eb75192aa64f8a48f9222f24846e6be27830371c0b2b43fbc174518d6ee599",
+      "path": "native/1600x720/geode_closed_ready.png",
+      "aspect": "1600x720",
+      "state_id": "geode_closed_ready",
+      "painted_closed_candidate_drawn": true
+    }
+  ],
+  "derived_source_viewed": {
+    "path": "assets_src/flat_vector_geode_reuse_20261013/geode_closed_1024.png",
+    "bytes": 1022500,
+    "sha256": "b639c2cbe36b460bb29db5f0e459329f8b6b8266d205412c95e539e9b7dc95ff",
+    "role": "proportional technical candidate or processing/provenance record",
+    "runtime_bound": false
+  },
+  "all_ten_comparison_axes": {
+    "contour": "Painted closed shell has a thin irregular plum/indigo edge closer to the same-scene actors than the old12px ellipse. Its alpha128 support projects to about309x307,while the old ellipse is about440x260 before outline. Closed-only replacement would change silhouette at opening.",
+    "material": "Source retains painted lavender planes and dense speckles through whole-canvas normalization. More volumetric than the solid ellipse; small detail is busier than broad actor cloth/skin groups. Mounted phone/material acceptance remains pending.",
+    "palette": "Lavender/pink stone and blue-purple shadows share Roshan tail/hair and helper cool-clothing hues; warm board separates it. Source colors retained. No global recolor or palette score inferred.",
+    "light": "Upper-left authored highlights remain intact; current actors also carry painted directional light. The new closed state loses that finish on deliberately unchanged procedural opening control,showing why closed-only adoption is incomplete.",
+    "perspective": "Near-round frontal source is uniformly fit. Legacy opened halves remain a wide frontal ellipse. Separately opened painted candidate is not trialed or assumed to solve matched topology; no new art gap is declared from that untested assumption.",
+    "scale": "Same350square whole canvas now at575,165:20px left translation only. Alpha128 support about309x307 and input rectangle unchanged. All guides/outer halos lie within original56px input circles; maximum55.3px.",
+    "contact": "Actual raw touch presses/releases at all five visible guide centers succeed in order on both aspects,release-only acceptance preserved. Wrong/early/repeated/cancel/60px pull controls remain scoped diagnostics. No real hand/tool contact or child/device acceptance.",
+    "occlusion": "Direct views show guide centers following the painted crack; the prior left-offset guide1/3 defect is addressed in this closed-state prototype. Markers still cover crack detail and remain flat artwork. Same-scene actors stay visible; no complete layer/QA11 occlusion proof.",
+    "readability": "One painted mass and a crack-aligned vertical sequence,original22px circles preserved,halo radius31/width5. All visible circles/halos remain within original action reach. Yellow/cyan guides still dominate the source; phone/child comprehension and final guide-art replacement remain open.",
+    "action_state": "Painted source is shown only while pull=0. At positive pull the prototype intentionally shows unchanged production control; that branch is not a repaired candidate fallback. Complete matching closed/seamed/open/interior/settle family remains missing. No source-generation failure or global regression claimed."
+  },
+  "observations": [
+    {
+      "id": "GEODE-R10-MARKER-FIT",
+      "pieces": [
+        "FV-C1AB21410352",
+        "FV-4502C5860C45"
+      ],
+      "result": "Closed diagnostic source moved20left; crack-aligned guides accepted at actual displayed centers on both aspects. Entire33.5px outerhalo plus maximum21.8px center offset fits original56px target. No changed functional geometry or pixel editing."
+    },
+    {
+      "id": "GEODE-R10-FAMILY",
+      "pieces": [
+        "FV-C1AB21410352",
+        "FV-99DB2D71D276",
+        "FV-F7DB96881260",
+        "FV-4502C5860C45"
+      ],
+      "result": "Matched painted opening/interior still untrialed; deliberate old opening control remains diagnostic only. Flat guide art and board/backdrop remain open. No complete repair or accepted removal."
+    }
+  ],
+  "new_generation_calls": 0,
+  "runtime_changes": [],
+  "accepted_removed": 0,
+  "full_context_review_complete": false,
+  "acceptance_lanes": {
+    "approved_candidate": null,
+    "production_integration": null,
+    "runtime_verified_replacement": null,
+    "device": null,
+    "child": null,
+    "owner": null,
+    "QA11": null
+  },
+  "candidate_lane": "Existing closed technical sample refined,plus guide placement repair. No new source design/master/pixel file; original source and R9 technical derivative unchanged. Production/art acceptance remains pending."
+}

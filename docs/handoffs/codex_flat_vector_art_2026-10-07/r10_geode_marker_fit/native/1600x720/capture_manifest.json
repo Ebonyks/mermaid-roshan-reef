@@ -1,0 +1,2876 @@
+{
+	"aspect": [
+		1600,
+		720
+	],
+	"candidate_scope": "Uniform350square source shifted20left with guides on painted crack; geode_pull>0 explicitly renders legacy production control. No integration/complete opening/acceptance.",
+	"candidate_script_sha256": "d179cc5d6c404bcebf66583774a49bd3cc013292596a90d3f2b8d85eb27dde76",
+	"candidate_sha256": "b639c2cbe36b460bb29db5f0e459329f8b6b8266d205412c95e539e9b7dc95ff",
+	"capture_method": "same-process native viewport diagnostics",
+	"engine": {
+		"build": "official",
+		"hash": "ed1daf0bf001b61586d9930840f2f1394092c079",
+		"hex": 263938,
+		"major": 4,
+		"minor": 7,
+		"patch": 2,
+		"status": "stable",
+		"string": "4.7.2-stable (official)",
+		"timestamp": 0
+	},
+	"errors": [],
+	"normal_save_after": {
+		"": "47c287147713fac860e25dade59da95961204f9b3170f5e00b5843e11590ad1e",
+		".bak": "de9d0441ed4d74f01cc8778c1c21600351b1426017d33a5ce99e69b03e893c3a",
+		".bak.old": "absent",
+		".bak.tmp": "absent",
+		".old": "absent",
+		".tmp": "absent",
+		".tmp0": "absent",
+		".tmp1": "absent"
+	},
+	"normal_save_before": {
+		"": "47c287147713fac860e25dade59da95961204f9b3170f5e00b5843e11590ad1e",
+		".bak": "de9d0441ed4d74f01cc8778c1c21600351b1426017d33a5ce99e69b03e893c3a",
+		".bak.old": "absent",
+		".bak.tmp": "absent",
+		".old": "absent",
+		".tmp": "absent",
+		".tmp0": "absent",
+		".tmp1": "absent"
+	},
+	"quality": "speedy",
+	"renderer": "mobile",
+	"schema": "reef.geode_marker_fit_preview/1",
+	"scope_limits": "Fresh isolated SaveState; production Geologist dev_playtest lifecycle; declared GEODE phase fixture. Actual Window touch press/release/drag, five seam changes and partial opening only. No earlier-phase completion, natural route, full opening/reward, restart/re-entry, actual OS-focus/device, child, owner or DL-QA-11 acceptance.",
+	"source_revision": "0c2732204bec7f882db26d835e2ce32ee12c7471",
+	"states": [
+		{
+			"held": false,
+			"id": "geode_closed_ready",
+			"image": {
+				"bytes": 229356,
+				"dimensions": [
+					1600,
+					720
+				],
+				"file": "geode_closed_ready.png",
+				"sha256": "d6eb75192aa64f8a48f9222f24846e6be27830371c0b2b43fbc174518d6ee599"
+			},
+			"input": {
+				"entry": "OperaAct production start, dev_playtest; explicit phase_index=3 fixture followed by production _arm_phase/_open_task"
+			},
+			"mode": "geology_geode",
+			"painted_closed_candidate_drawn": true,
+			"phase_index": 3,
+			"presentation": {
+				"boot_splash_present": false,
+				"fade_alpha": 0.0,
+				"intro_active": false,
+				"intro_layer_present": false,
+				"medal_present": false,
+				"start_menu_active": false,
+				"start_menu_layer_present": false
+			},
+			"pull": 0.0,
+			"save_path": "C:\\Users\\Peter\\.codex\\visualizations\\2026\\10\\08\\01a119cc-74b1-7d23-b956-126129405418\\geode_marker_fit_20261013\\native/1600x720/profiles/geode/reef_save.json",
+			"seams": [
+				false,
+				false,
+				false,
+				false,
+				false
+			],
+			"surface_snapshot": {
+				"complete": false,
+				"mode": "geology_geode",
+				"pull": 0.0,
+				"seams": [
+					false,
+					false,
+					false,
+					false,
+					false
+				],
+				"stage": "GEODE_SEAM",
+				"version": 1
+			},
+			"surface_transform": "[X: (1.0, 0.0), Y: (0.0, 1.0), O: (160.0, 0.0)]",
+			"task_open": true,
+			"visible_nodes": [
+				{
+					"class": "ColorRect",
+					"global_rect": "[P: (0.0, 0.0), S: (1600.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaStageBleed",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/CareerWorldBackdrop",
+					"z_index": 0
+				},
+				{
+					"class": "ColorRect",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/@ColorRect@692",
+					"z_index": 0
+				},
+				{
+					"class": "TextureRect",
+					"global_rect": "[P: (190.0, 422.0), S: (250.0, 250.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/@TextureRect@695",
+					"texture": "",
+					"z_index": 0
+				},
+				{
+					"class": "TextureRect",
+					"global_rect": "[P: (238.0, 218.0), S: (176.0, 176.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/@TextureRect@696",
+					"texture": "res://assets/opera/worlds/actors/rival_detective.png",
+					"z_index": 0
+				},
+				{
+					"class": "ColorRect",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/@ColorRect@698",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/@ColorRect@698/CareerGestureSurface",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/StageCombatLayer",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/StageCombatFX",
+					"z_index": 0
+				}
+			]
+		},
+		{
+			"held": false,
+			"id": "geode_closed_passive_1s",
+			"image": {
+				"bytes": 229230,
+				"dimensions": [
+					1600,
+					720
+				],
+				"file": "geode_closed_passive_1s.png",
+				"sha256": "cdf3bde9beef287a786036ede4ace189a9c944cde62f6f095c170bd1b922d114"
+			},
+			"input": {
+				"method": "no input, one second"
+			},
+			"mode": "geology_geode",
+			"painted_closed_candidate_drawn": true,
+			"phase_index": 3,
+			"presentation": {
+				"boot_splash_present": false,
+				"fade_alpha": 0.0,
+				"intro_active": false,
+				"intro_layer_present": false,
+				"medal_present": false,
+				"start_menu_active": false,
+				"start_menu_layer_present": false
+			},
+			"pull": 0.0,
+			"save_path": "C:\\Users\\Peter\\.codex\\visualizations\\2026\\10\\08\\01a119cc-74b1-7d23-b956-126129405418\\geode_marker_fit_20261013\\native/1600x720/profiles/geode/reef_save.json",
+			"seams": [
+				false,
+				false,
+				false,
+				false,
+				false
+			],
+			"surface_snapshot": {
+				"complete": false,
+				"mode": "geology_geode",
+				"pull": 0.0,
+				"seams": [
+					false,
+					false,
+					false,
+					false,
+					false
+				],
+				"stage": "GEODE_SEAM",
+				"version": 1
+			},
+			"surface_transform": "[X: (1.0, 0.0), Y: (0.0, 1.0), O: (160.0, 0.0)]",
+			"task_open": true,
+			"visible_nodes": [
+				{
+					"class": "ColorRect",
+					"global_rect": "[P: (0.0, 0.0), S: (1600.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaStageBleed",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/CareerWorldBackdrop",
+					"z_index": 0
+				},
+				{
+					"class": "ColorRect",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/@ColorRect@692",
+					"z_index": 0
+				},
+				{
+					"class": "TextureRect",
+					"global_rect": "[P: (190.0, 422.0), S: (250.0, 250.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/@TextureRect@695",
+					"texture": "",
+					"z_index": 0
+				},
+				{
+					"class": "TextureRect",
+					"global_rect": "[P: (238.0, 218.0), S: (176.0, 176.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/@TextureRect@696",
+					"texture": "res://assets/opera/worlds/actors/rival_detective.png",
+					"z_index": 0
+				},
+				{
+					"class": "ColorRect",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/@ColorRect@698",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/@ColorRect@698/CareerGestureSurface",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/StageCombatLayer",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/StageCombatFX",
+					"z_index": 0
+				}
+			]
+		},
+		{
+			"held": false,
+			"id": "geode_wrong_tap",
+			"image": {
+				"bytes": 228963,
+				"dimensions": [
+					1600,
+					720
+				],
+				"file": "geode_wrong_tap.png",
+				"sha256": "eca9e147a2e08bb730aea250313f7ad77396258badfb61a1de67cf9e50d638fd"
+			},
+			"input": {
+				"local_point": "(570.0, 550.0)",
+				"method": "Window.push_input touch press/release"
+			},
+			"mode": "geology_geode",
+			"painted_closed_candidate_drawn": true,
+			"phase_index": 3,
+			"presentation": {
+				"boot_splash_present": false,
+				"fade_alpha": 0.0,
+				"intro_active": false,
+				"intro_layer_present": false,
+				"medal_present": false,
+				"start_menu_active": false,
+				"start_menu_layer_present": false
+			},
+			"pull": 0.0,
+			"save_path": "C:\\Users\\Peter\\.codex\\visualizations\\2026\\10\\08\\01a119cc-74b1-7d23-b956-126129405418\\geode_marker_fit_20261013\\native/1600x720/profiles/geode/reef_save.json",
+			"seams": [
+				false,
+				false,
+				false,
+				false,
+				false
+			],
+			"surface_snapshot": {
+				"complete": false,
+				"mode": "geology_geode",
+				"pull": 0.0,
+				"seams": [
+					false,
+					false,
+					false,
+					false,
+					false
+				],
+				"stage": "GEODE_SEAM",
+				"version": 1
+			},
+			"surface_transform": "[X: (1.0, 0.0), Y: (0.0, 1.0), O: (160.0, 0.0)]",
+			"task_open": true,
+			"visible_nodes": [
+				{
+					"class": "ColorRect",
+					"global_rect": "[P: (0.0, 0.0), S: (1600.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaStageBleed",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/CareerWorldBackdrop",
+					"z_index": 0
+				},
+				{
+					"class": "ColorRect",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/@ColorRect@692",
+					"z_index": 0
+				},
+				{
+					"class": "TextureRect",
+					"global_rect": "[P: (190.0, 422.0), S: (250.0, 250.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/@TextureRect@695",
+					"texture": "",
+					"z_index": 0
+				},
+				{
+					"class": "TextureRect",
+					"global_rect": "[P: (238.0, 218.0), S: (176.0, 176.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/@TextureRect@696",
+					"texture": "res://assets/opera/worlds/actors/rival_detective.png",
+					"z_index": 0
+				},
+				{
+					"class": "ColorRect",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/@ColorRect@698",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/@ColorRect@698/CareerGestureSurface",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/StageCombatLayer",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/StageCombatFX",
+					"z_index": 0
+				}
+			]
+		},
+		{
+			"held": true,
+			"id": "geode_early_pull_pressed",
+			"image": {
+				"bytes": 228963,
+				"dimensions": [
+					1600,
+					720
+				],
+				"file": "geode_early_pull_pressed.png",
+				"sha256": "eca9e147a2e08bb730aea250313f7ad77396258badfb61a1de67cf9e50d638fd"
+			},
+			"input": {},
+			"mode": "geology_geode",
+			"painted_closed_candidate_drawn": true,
+			"phase_index": 3,
+			"presentation": {
+				"boot_splash_present": false,
+				"fade_alpha": 0.0,
+				"intro_active": false,
+				"intro_layer_present": false,
+				"medal_present": false,
+				"start_menu_active": false,
+				"start_menu_layer_present": false
+			},
+			"pull": 0.0,
+			"save_path": "C:\\Users\\Peter\\.codex\\visualizations\\2026\\10\\08\\01a119cc-74b1-7d23-b956-126129405418\\geode_marker_fit_20261013\\native/1600x720/profiles/geode/reef_save.json",
+			"seams": [
+				false,
+				false,
+				false,
+				false,
+				false
+			],
+			"surface_snapshot": {
+				"complete": false,
+				"mode": "geology_geode",
+				"pull": 0.0,
+				"seams": [
+					false,
+					false,
+					false,
+					false,
+					false
+				],
+				"stage": "GEODE_SEAM",
+				"version": 1
+			},
+			"surface_transform": "[X: (1.0, 0.0), Y: (0.0, 1.0), O: (160.0, 0.0)]",
+			"task_open": true,
+			"visible_nodes": [
+				{
+					"class": "ColorRect",
+					"global_rect": "[P: (0.0, 0.0), S: (1600.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaStageBleed",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/CareerWorldBackdrop",
+					"z_index": 0
+				},
+				{
+					"class": "ColorRect",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/@ColorRect@692",
+					"z_index": 0
+				},
+				{
+					"class": "TextureRect",
+					"global_rect": "[P: (190.0, 422.0), S: (250.0, 250.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/@TextureRect@695",
+					"texture": "",
+					"z_index": 0
+				},
+				{
+					"class": "TextureRect",
+					"global_rect": "[P: (238.0, 218.0), S: (176.0, 176.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/@TextureRect@696",
+					"texture": "res://assets/opera/worlds/actors/rival_detective.png",
+					"z_index": 0
+				},
+				{
+					"class": "ColorRect",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/@ColorRect@698",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/@ColorRect@698/CareerGestureSurface",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/StageCombatLayer",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/StageCombatFX",
+					"z_index": 0
+				}
+			]
+		},
+		{
+			"held": true,
+			"id": "geode_early_pull_dragged",
+			"image": {
+				"bytes": 228971,
+				"dimensions": [
+					1600,
+					720
+				],
+				"file": "geode_early_pull_dragged.png",
+				"sha256": "3b5a957fc02230a72e653f8d82e37e8ff5e7cf8786f6c6e94a5a60b821ecd68f"
+			},
+			"input": {},
+			"mode": "geology_geode",
+			"painted_closed_candidate_drawn": true,
+			"phase_index": 3,
+			"presentation": {
+				"boot_splash_present": false,
+				"fade_alpha": 0.0,
+				"intro_active": false,
+				"intro_layer_present": false,
+				"medal_present": false,
+				"start_menu_active": false,
+				"start_menu_layer_present": false
+			},
+			"pull": 0.0,
+			"save_path": "C:\\Users\\Peter\\.codex\\visualizations\\2026\\10\\08\\01a119cc-74b1-7d23-b956-126129405418\\geode_marker_fit_20261013\\native/1600x720/profiles/geode/reef_save.json",
+			"seams": [
+				false,
+				false,
+				false,
+				false,
+				false
+			],
+			"surface_snapshot": {
+				"complete": false,
+				"mode": "geology_geode",
+				"pull": 0.0,
+				"seams": [
+					false,
+					false,
+					false,
+					false,
+					false
+				],
+				"stage": "GEODE_SEAM",
+				"version": 1
+			},
+			"surface_transform": "[X: (1.0, 0.0), Y: (0.0, 1.0), O: (160.0, 0.0)]",
+			"task_open": true,
+			"visible_nodes": [
+				{
+					"class": "ColorRect",
+					"global_rect": "[P: (0.0, 0.0), S: (1600.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaStageBleed",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/CareerWorldBackdrop",
+					"z_index": 0
+				},
+				{
+					"class": "ColorRect",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/@ColorRect@692",
+					"z_index": 0
+				},
+				{
+					"class": "TextureRect",
+					"global_rect": "[P: (190.0, 422.0), S: (250.0, 250.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/@TextureRect@695",
+					"texture": "",
+					"z_index": 0
+				},
+				{
+					"class": "TextureRect",
+					"global_rect": "[P: (238.0, 218.0), S: (176.0, 176.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/@TextureRect@696",
+					"texture": "res://assets/opera/worlds/actors/rival_detective.png",
+					"z_index": 0
+				},
+				{
+					"class": "ColorRect",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/@ColorRect@698",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/@ColorRect@698/CareerGestureSurface",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/StageCombatLayer",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/StageCombatFX",
+					"z_index": 0
+				}
+			]
+		},
+		{
+			"held": false,
+			"id": "geode_early_pull_released",
+			"image": {
+				"bytes": 228971,
+				"dimensions": [
+					1600,
+					720
+				],
+				"file": "geode_early_pull_released.png",
+				"sha256": "3b5a957fc02230a72e653f8d82e37e8ff5e7cf8786f6c6e94a5a60b821ecd68f"
+			},
+			"input": {},
+			"mode": "geology_geode",
+			"painted_closed_candidate_drawn": true,
+			"phase_index": 3,
+			"presentation": {
+				"boot_splash_present": false,
+				"fade_alpha": 0.0,
+				"intro_active": false,
+				"intro_layer_present": false,
+				"medal_present": false,
+				"start_menu_active": false,
+				"start_menu_layer_present": false
+			},
+			"pull": 0.0,
+			"save_path": "C:\\Users\\Peter\\.codex\\visualizations\\2026\\10\\08\\01a119cc-74b1-7d23-b956-126129405418\\geode_marker_fit_20261013\\native/1600x720/profiles/geode/reef_save.json",
+			"seams": [
+				false,
+				false,
+				false,
+				false,
+				false
+			],
+			"surface_snapshot": {
+				"complete": false,
+				"mode": "geology_geode",
+				"pull": 0.0,
+				"seams": [
+					false,
+					false,
+					false,
+					false,
+					false
+				],
+				"stage": "GEODE_SEAM",
+				"version": 1
+			},
+			"surface_transform": "[X: (1.0, 0.0), Y: (0.0, 1.0), O: (160.0, 0.0)]",
+			"task_open": true,
+			"visible_nodes": [
+				{
+					"class": "ColorRect",
+					"global_rect": "[P: (0.0, 0.0), S: (1600.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaStageBleed",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/CareerWorldBackdrop",
+					"z_index": 0
+				},
+				{
+					"class": "ColorRect",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/@ColorRect@692",
+					"z_index": 0
+				},
+				{
+					"class": "TextureRect",
+					"global_rect": "[P: (190.0, 422.0), S: (250.0, 250.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/@TextureRect@695",
+					"texture": "",
+					"z_index": 0
+				},
+				{
+					"class": "TextureRect",
+					"global_rect": "[P: (238.0, 218.0), S: (176.0, 176.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/@TextureRect@696",
+					"texture": "res://assets/opera/worlds/actors/rival_detective.png",
+					"z_index": 0
+				},
+				{
+					"class": "ColorRect",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/@ColorRect@698",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/@ColorRect@698/CareerGestureSurface",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/StageCombatLayer",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/StageCombatFX",
+					"z_index": 0
+				}
+			]
+		},
+		{
+			"held": true,
+			"id": "geode_seam00_pressed",
+			"image": {
+				"bytes": 228982,
+				"dimensions": [
+					1600,
+					720
+				],
+				"file": "geode_seam00_pressed.png",
+				"sha256": "b2e39352d900274c38fa904fd7d229fef73b969aa170c26b837161842b8b3a1a"
+			},
+			"input": {
+				"actual_visible_guide_touch": true,
+				"local_point": "(763.0, 216.0)",
+				"method": "Window.push_input touch press/release",
+				"original_hit_center": "(766.0, 216.0)",
+				"seam_index": 0
+			},
+			"mode": "geology_geode",
+			"painted_closed_candidate_drawn": true,
+			"phase_index": 3,
+			"presentation": {
+				"boot_splash_present": false,
+				"fade_alpha": 0.0,
+				"intro_active": false,
+				"intro_layer_present": false,
+				"medal_present": false,
+				"start_menu_active": false,
+				"start_menu_layer_present": false
+			},
+			"pull": 0.0,
+			"save_path": "C:\\Users\\Peter\\.codex\\visualizations\\2026\\10\\08\\01a119cc-74b1-7d23-b956-126129405418\\geode_marker_fit_20261013\\native/1600x720/profiles/geode/reef_save.json",
+			"seams": [
+				false,
+				false,
+				false,
+				false,
+				false
+			],
+			"surface_snapshot": {
+				"complete": false,
+				"mode": "geology_geode",
+				"pull": 0.0,
+				"seams": [
+					false,
+					false,
+					false,
+					false,
+					false
+				],
+				"stage": "GEODE_SEAM",
+				"version": 1
+			},
+			"surface_transform": "[X: (1.0, 0.0), Y: (0.0, 1.0), O: (160.0, 0.0)]",
+			"task_open": true,
+			"visible_nodes": [
+				{
+					"class": "ColorRect",
+					"global_rect": "[P: (0.0, 0.0), S: (1600.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaStageBleed",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/CareerWorldBackdrop",
+					"z_index": 0
+				},
+				{
+					"class": "ColorRect",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/@ColorRect@692",
+					"z_index": 0
+				},
+				{
+					"class": "TextureRect",
+					"global_rect": "[P: (190.0, 422.0), S: (250.0, 250.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/@TextureRect@695",
+					"texture": "",
+					"z_index": 0
+				},
+				{
+					"class": "TextureRect",
+					"global_rect": "[P: (238.0, 218.0), S: (176.0, 176.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/@TextureRect@696",
+					"texture": "res://assets/opera/worlds/actors/rival_detective.png",
+					"z_index": 0
+				},
+				{
+					"class": "ColorRect",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/@ColorRect@698",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/@ColorRect@698/CareerGestureSurface",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/StageCombatLayer",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/StageCombatFX",
+					"z_index": 0
+				}
+			]
+		},
+		{
+			"held": false,
+			"id": "geode_seam00_released",
+			"image": {
+				"bytes": 228466,
+				"dimensions": [
+					1600,
+					720
+				],
+				"file": "geode_seam00_released.png",
+				"sha256": "b0365543acceaa52b3d45bdd4e03a1fc90ed9c4c446e99eb2f166488a37ec60c"
+			},
+			"input": {
+				"actual_visible_guide_touch": true,
+				"local_point": "(763.0, 216.0)",
+				"method": "Window.push_input touch press/release",
+				"original_hit_center": "(766.0, 216.0)",
+				"seam_index": 0
+			},
+			"mode": "geology_geode",
+			"painted_closed_candidate_drawn": true,
+			"phase_index": 3,
+			"presentation": {
+				"boot_splash_present": false,
+				"fade_alpha": 0.0,
+				"intro_active": false,
+				"intro_layer_present": false,
+				"medal_present": false,
+				"start_menu_active": false,
+				"start_menu_layer_present": false
+			},
+			"pull": 0.0,
+			"save_path": "C:\\Users\\Peter\\.codex\\visualizations\\2026\\10\\08\\01a119cc-74b1-7d23-b956-126129405418\\geode_marker_fit_20261013\\native/1600x720/profiles/geode/reef_save.json",
+			"seams": [
+				true,
+				false,
+				false,
+				false,
+				false
+			],
+			"surface_snapshot": {
+				"complete": false,
+				"mode": "geology_geode",
+				"pull": 0.0,
+				"seams": [
+					true,
+					false,
+					false,
+					false,
+					false
+				],
+				"stage": "GEODE_SEAM",
+				"version": 1
+			},
+			"surface_transform": "[X: (1.0, 0.0), Y: (0.0, 1.0), O: (160.0, 0.0)]",
+			"task_open": true,
+			"visible_nodes": [
+				{
+					"class": "ColorRect",
+					"global_rect": "[P: (0.0, 0.0), S: (1600.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaStageBleed",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/CareerWorldBackdrop",
+					"z_index": 0
+				},
+				{
+					"class": "ColorRect",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/@ColorRect@692",
+					"z_index": 0
+				},
+				{
+					"class": "TextureRect",
+					"global_rect": "[P: (190.0, 422.0), S: (250.0, 250.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/@TextureRect@695",
+					"texture": "",
+					"z_index": 0
+				},
+				{
+					"class": "TextureRect",
+					"global_rect": "[P: (238.0, 218.0), S: (176.0, 176.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/@TextureRect@696",
+					"texture": "res://assets/opera/worlds/actors/rival_detective.png",
+					"z_index": 0
+				},
+				{
+					"class": "ColorRect",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/@ColorRect@698",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/@ColorRect@698/CareerGestureSurface",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/StageCombatLayer",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/StageCombatFX",
+					"z_index": 0
+				}
+			]
+		},
+		{
+			"held": true,
+			"id": "geode_seam01_pressed",
+			"image": {
+				"bytes": 228466,
+				"dimensions": [
+					1600,
+					720
+				],
+				"file": "geode_seam01_pressed.png",
+				"sha256": "b0365543acceaa52b3d45bdd4e03a1fc90ed9c4c446e99eb2f166488a37ec60c"
+			},
+			"input": {
+				"actual_visible_guide_touch": true,
+				"local_point": "(756.2, 278.0)",
+				"method": "Window.push_input touch press/release",
+				"original_hit_center": "(735.0, 278.0)",
+				"seam_index": 1
+			},
+			"mode": "geology_geode",
+			"painted_closed_candidate_drawn": true,
+			"phase_index": 3,
+			"presentation": {
+				"boot_splash_present": false,
+				"fade_alpha": 0.0,
+				"intro_active": false,
+				"intro_layer_present": false,
+				"medal_present": false,
+				"start_menu_active": false,
+				"start_menu_layer_present": false
+			},
+			"pull": 0.0,
+			"save_path": "C:\\Users\\Peter\\.codex\\visualizations\\2026\\10\\08\\01a119cc-74b1-7d23-b956-126129405418\\geode_marker_fit_20261013\\native/1600x720/profiles/geode/reef_save.json",
+			"seams": [
+				true,
+				false,
+				false,
+				false,
+				false
+			],
+			"surface_snapshot": {
+				"complete": false,
+				"mode": "geology_geode",
+				"pull": 0.0,
+				"seams": [
+					true,
+					false,
+					false,
+					false,
+					false
+				],
+				"stage": "GEODE_SEAM",
+				"version": 1
+			},
+			"surface_transform": "[X: (1.0, 0.0), Y: (0.0, 1.0), O: (160.0, 0.0)]",
+			"task_open": true,
+			"visible_nodes": [
+				{
+					"class": "ColorRect",
+					"global_rect": "[P: (0.0, 0.0), S: (1600.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaStageBleed",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/CareerWorldBackdrop",
+					"z_index": 0
+				},
+				{
+					"class": "ColorRect",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/@ColorRect@692",
+					"z_index": 0
+				},
+				{
+					"class": "TextureRect",
+					"global_rect": "[P: (190.0, 422.0), S: (250.0, 250.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/@TextureRect@695",
+					"texture": "",
+					"z_index": 0
+				},
+				{
+					"class": "TextureRect",
+					"global_rect": "[P: (238.0, 218.0), S: (176.0, 176.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/@TextureRect@696",
+					"texture": "res://assets/opera/worlds/actors/rival_detective.png",
+					"z_index": 0
+				},
+				{
+					"class": "ColorRect",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/@ColorRect@698",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/@ColorRect@698/CareerGestureSurface",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/StageCombatLayer",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/StageCombatFX",
+					"z_index": 0
+				}
+			]
+		},
+		{
+			"held": false,
+			"id": "geode_seam01_released",
+			"image": {
+				"bytes": 228244,
+				"dimensions": [
+					1600,
+					720
+				],
+				"file": "geode_seam01_released.png",
+				"sha256": "972adc8f9f9c9e9eab2cec2f39731290e9f9a6fd90f8ee2db2526b7dcc9a0908"
+			},
+			"input": {
+				"actual_visible_guide_touch": true,
+				"local_point": "(756.2, 278.0)",
+				"method": "Window.push_input touch press/release",
+				"original_hit_center": "(735.0, 278.0)",
+				"seam_index": 1
+			},
+			"mode": "geology_geode",
+			"painted_closed_candidate_drawn": true,
+			"phase_index": 3,
+			"presentation": {
+				"boot_splash_present": false,
+				"fade_alpha": 0.0,
+				"intro_active": false,
+				"intro_layer_present": false,
+				"medal_present": false,
+				"start_menu_active": false,
+				"start_menu_layer_present": false
+			},
+			"pull": 0.0,
+			"save_path": "C:\\Users\\Peter\\.codex\\visualizations\\2026\\10\\08\\01a119cc-74b1-7d23-b956-126129405418\\geode_marker_fit_20261013\\native/1600x720/profiles/geode/reef_save.json",
+			"seams": [
+				true,
+				true,
+				false,
+				false,
+				false
+			],
+			"surface_snapshot": {
+				"complete": false,
+				"mode": "geology_geode",
+				"pull": 0.0,
+				"seams": [
+					true,
+					true,
+					false,
+					false,
+					false
+				],
+				"stage": "GEODE_SEAM",
+				"version": 1
+			},
+			"surface_transform": "[X: (1.0, 0.0), Y: (0.0, 1.0), O: (160.0, 0.0)]",
+			"task_open": true,
+			"visible_nodes": [
+				{
+					"class": "ColorRect",
+					"global_rect": "[P: (0.0, 0.0), S: (1600.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaStageBleed",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/CareerWorldBackdrop",
+					"z_index": 0
+				},
+				{
+					"class": "ColorRect",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/@ColorRect@692",
+					"z_index": 0
+				},
+				{
+					"class": "TextureRect",
+					"global_rect": "[P: (190.0, 422.0), S: (250.0, 250.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/@TextureRect@695",
+					"texture": "",
+					"z_index": 0
+				},
+				{
+					"class": "TextureRect",
+					"global_rect": "[P: (238.0, 218.0), S: (176.0, 176.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/@TextureRect@696",
+					"texture": "res://assets/opera/worlds/actors/rival_detective.png",
+					"z_index": 0
+				},
+				{
+					"class": "ColorRect",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/@ColorRect@698",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/@ColorRect@698/CareerGestureSurface",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/StageCombatLayer",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/StageCombatFX",
+					"z_index": 0
+				}
+			]
+		},
+		{
+			"held": true,
+			"id": "geode_seam02_pressed",
+			"image": {
+				"bytes": 228244,
+				"dimensions": [
+					1600,
+					720
+				],
+				"file": "geode_seam02_pressed.png",
+				"sha256": "972adc8f9f9c9e9eab2cec2f39731290e9f9a6fd90f8ee2db2526b7dcc9a0908"
+			},
+			"input": {
+				"actual_visible_guide_touch": true,
+				"local_point": "(756.2, 340.0)",
+				"method": "Window.push_input touch press/release",
+				"original_hit_center": "(778.0, 340.0)",
+				"seam_index": 2
+			},
+			"mode": "geology_geode",
+			"painted_closed_candidate_drawn": true,
+			"phase_index": 3,
+			"presentation": {
+				"boot_splash_present": false,
+				"fade_alpha": 0.0,
+				"intro_active": false,
+				"intro_layer_present": false,
+				"medal_present": false,
+				"start_menu_active": false,
+				"start_menu_layer_present": false
+			},
+			"pull": 0.0,
+			"save_path": "C:\\Users\\Peter\\.codex\\visualizations\\2026\\10\\08\\01a119cc-74b1-7d23-b956-126129405418\\geode_marker_fit_20261013\\native/1600x720/profiles/geode/reef_save.json",
+			"seams": [
+				true,
+				true,
+				false,
+				false,
+				false
+			],
+			"surface_snapshot": {
+				"complete": false,
+				"mode": "geology_geode",
+				"pull": 0.0,
+				"seams": [
+					true,
+					true,
+					false,
+					false,
+					false
+				],
+				"stage": "GEODE_SEAM",
+				"version": 1
+			},
+			"surface_transform": "[X: (1.0, 0.0), Y: (0.0, 1.0), O: (160.0, 0.0)]",
+			"task_open": true,
+			"visible_nodes": [
+				{
+					"class": "ColorRect",
+					"global_rect": "[P: (0.0, 0.0), S: (1600.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaStageBleed",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/CareerWorldBackdrop",
+					"z_index": 0
+				},
+				{
+					"class": "ColorRect",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/@ColorRect@692",
+					"z_index": 0
+				},
+				{
+					"class": "TextureRect",
+					"global_rect": "[P: (190.0, 422.0), S: (250.0, 250.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/@TextureRect@695",
+					"texture": "",
+					"z_index": 0
+				},
+				{
+					"class": "TextureRect",
+					"global_rect": "[P: (238.0, 218.0), S: (176.0, 176.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/@TextureRect@696",
+					"texture": "res://assets/opera/worlds/actors/rival_detective.png",
+					"z_index": 0
+				},
+				{
+					"class": "ColorRect",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/@ColorRect@698",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/@ColorRect@698/CareerGestureSurface",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/StageCombatLayer",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/StageCombatFX",
+					"z_index": 0
+				}
+			]
+		},
+		{
+			"held": false,
+			"id": "geode_seam02_released",
+			"image": {
+				"bytes": 227832,
+				"dimensions": [
+					1600,
+					720
+				],
+				"file": "geode_seam02_released.png",
+				"sha256": "6e929d166bca390b461ae43ad103764db1850338879837fef8fc0d41d1451256"
+			},
+			"input": {
+				"actual_visible_guide_touch": true,
+				"local_point": "(756.2, 340.0)",
+				"method": "Window.push_input touch press/release",
+				"original_hit_center": "(778.0, 340.0)",
+				"seam_index": 2
+			},
+			"mode": "geology_geode",
+			"painted_closed_candidate_drawn": true,
+			"phase_index": 3,
+			"presentation": {
+				"boot_splash_present": false,
+				"fade_alpha": 0.0,
+				"intro_active": false,
+				"intro_layer_present": false,
+				"medal_present": false,
+				"start_menu_active": false,
+				"start_menu_layer_present": false
+			},
+			"pull": 0.0,
+			"save_path": "C:\\Users\\Peter\\.codex\\visualizations\\2026\\10\\08\\01a119cc-74b1-7d23-b956-126129405418\\geode_marker_fit_20261013\\native/1600x720/profiles/geode/reef_save.json",
+			"seams": [
+				true,
+				true,
+				true,
+				false,
+				false
+			],
+			"surface_snapshot": {
+				"complete": false,
+				"mode": "geology_geode",
+				"pull": 0.0,
+				"seams": [
+					true,
+					true,
+					true,
+					false,
+					false
+				],
+				"stage": "GEODE_SEAM",
+				"version": 1
+			},
+			"surface_transform": "[X: (1.0, 0.0), Y: (0.0, 1.0), O: (160.0, 0.0)]",
+			"task_open": true,
+			"visible_nodes": [
+				{
+					"class": "ColorRect",
+					"global_rect": "[P: (0.0, 0.0), S: (1600.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaStageBleed",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/CareerWorldBackdrop",
+					"z_index": 0
+				},
+				{
+					"class": "ColorRect",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/@ColorRect@692",
+					"z_index": 0
+				},
+				{
+					"class": "TextureRect",
+					"global_rect": "[P: (190.0, 422.0), S: (250.0, 250.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/@TextureRect@695",
+					"texture": "",
+					"z_index": 0
+				},
+				{
+					"class": "TextureRect",
+					"global_rect": "[P: (238.0, 218.0), S: (176.0, 176.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/@TextureRect@696",
+					"texture": "res://assets/opera/worlds/actors/rival_detective.png",
+					"z_index": 0
+				},
+				{
+					"class": "ColorRect",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/@ColorRect@698",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/@ColorRect@698/CareerGestureSurface",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/StageCombatLayer",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/StageCombatFX",
+					"z_index": 0
+				}
+			]
+		},
+		{
+			"held": true,
+			"id": "geode_seam03_pressed",
+			"image": {
+				"bytes": 227798,
+				"dimensions": [
+					1600,
+					720
+				],
+				"file": "geode_seam03_pressed.png",
+				"sha256": "8e1cdef7408404adc335be062b7d884f4df350c8ea7b715663eeaaabb96ea374"
+			},
+			"input": {
+				"actual_visible_guide_touch": true,
+				"local_point": "(755.8, 401.0)",
+				"method": "Window.push_input touch press/release",
+				"original_hit_center": "(744.0, 401.0)",
+				"seam_index": 3
+			},
+			"mode": "geology_geode",
+			"painted_closed_candidate_drawn": true,
+			"phase_index": 3,
+			"presentation": {
+				"boot_splash_present": false,
+				"fade_alpha": 0.0,
+				"intro_active": false,
+				"intro_layer_present": false,
+				"medal_present": false,
+				"start_menu_active": false,
+				"start_menu_layer_present": false
+			},
+			"pull": 0.0,
+			"save_path": "C:\\Users\\Peter\\.codex\\visualizations\\2026\\10\\08\\01a119cc-74b1-7d23-b956-126129405418\\geode_marker_fit_20261013\\native/1600x720/profiles/geode/reef_save.json",
+			"seams": [
+				true,
+				true,
+				true,
+				false,
+				false
+			],
+			"surface_snapshot": {
+				"complete": false,
+				"mode": "geology_geode",
+				"pull": 0.0,
+				"seams": [
+					true,
+					true,
+					true,
+					false,
+					false
+				],
+				"stage": "GEODE_SEAM",
+				"version": 1
+			},
+			"surface_transform": "[X: (1.0, 0.0), Y: (0.0, 1.0), O: (160.0, 0.0)]",
+			"task_open": true,
+			"visible_nodes": [
+				{
+					"class": "ColorRect",
+					"global_rect": "[P: (0.0, 0.0), S: (1600.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaStageBleed",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/CareerWorldBackdrop",
+					"z_index": 0
+				},
+				{
+					"class": "ColorRect",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/@ColorRect@692",
+					"z_index": 0
+				},
+				{
+					"class": "TextureRect",
+					"global_rect": "[P: (190.0, 422.0), S: (250.0, 250.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/@TextureRect@695",
+					"texture": "",
+					"z_index": 0
+				},
+				{
+					"class": "TextureRect",
+					"global_rect": "[P: (238.0, 218.0), S: (176.0, 176.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/@TextureRect@696",
+					"texture": "res://assets/opera/worlds/actors/rival_detective.png",
+					"z_index": 0
+				},
+				{
+					"class": "ColorRect",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/@ColorRect@698",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/@ColorRect@698/CareerGestureSurface",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/StageCombatLayer",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/StageCombatFX",
+					"z_index": 0
+				}
+			]
+		},
+		{
+			"held": false,
+			"id": "geode_seam03_released",
+			"image": {
+				"bytes": 227361,
+				"dimensions": [
+					1600,
+					720
+				],
+				"file": "geode_seam03_released.png",
+				"sha256": "a67864af850c9af93d83b0e3acfd17f3b1be6250e2ee6eabbdc5b0f6c23a3680"
+			},
+			"input": {
+				"actual_visible_guide_touch": true,
+				"local_point": "(755.8, 401.0)",
+				"method": "Window.push_input touch press/release",
+				"original_hit_center": "(744.0, 401.0)",
+				"seam_index": 3
+			},
+			"mode": "geology_geode",
+			"painted_closed_candidate_drawn": true,
+			"phase_index": 3,
+			"presentation": {
+				"boot_splash_present": false,
+				"fade_alpha": 0.0,
+				"intro_active": false,
+				"intro_layer_present": false,
+				"medal_present": false,
+				"start_menu_active": false,
+				"start_menu_layer_present": false
+			},
+			"pull": 0.0,
+			"save_path": "C:\\Users\\Peter\\.codex\\visualizations\\2026\\10\\08\\01a119cc-74b1-7d23-b956-126129405418\\geode_marker_fit_20261013\\native/1600x720/profiles/geode/reef_save.json",
+			"seams": [
+				true,
+				true,
+				true,
+				true,
+				false
+			],
+			"surface_snapshot": {
+				"complete": false,
+				"mode": "geology_geode",
+				"pull": 0.0,
+				"seams": [
+					true,
+					true,
+					true,
+					true,
+					false
+				],
+				"stage": "GEODE_SEAM",
+				"version": 1
+			},
+			"surface_transform": "[X: (1.0, 0.0), Y: (0.0, 1.0), O: (160.0, 0.0)]",
+			"task_open": true,
+			"visible_nodes": [
+				{
+					"class": "ColorRect",
+					"global_rect": "[P: (0.0, 0.0), S: (1600.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaStageBleed",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/CareerWorldBackdrop",
+					"z_index": 0
+				},
+				{
+					"class": "ColorRect",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/@ColorRect@692",
+					"z_index": 0
+				},
+				{
+					"class": "TextureRect",
+					"global_rect": "[P: (190.0, 422.0), S: (250.0, 250.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/@TextureRect@695",
+					"texture": "",
+					"z_index": 0
+				},
+				{
+					"class": "TextureRect",
+					"global_rect": "[P: (238.0, 218.0), S: (176.0, 176.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/@TextureRect@696",
+					"texture": "res://assets/opera/worlds/actors/rival_detective.png",
+					"z_index": 0
+				},
+				{
+					"class": "ColorRect",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/@ColorRect@698",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/@ColorRect@698/CareerGestureSurface",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/StageCombatLayer",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/StageCombatFX",
+					"z_index": 0
+				}
+			]
+		},
+		{
+			"held": true,
+			"id": "geode_seam04_pressed",
+			"image": {
+				"bytes": 227375,
+				"dimensions": [
+					1600,
+					720
+				],
+				"file": "geode_seam04_pressed.png",
+				"sha256": "7c1fb956375900b2962511b431423ff3cfc5afac7ace3645cf3de080ecd7df88"
+			},
+			"input": {
+				"actual_visible_guide_touch": true,
+				"local_point": "(751.0, 466.0)",
+				"method": "Window.push_input touch press/release",
+				"original_hit_center": "(770.0, 466.0)",
+				"seam_index": 4
+			},
+			"mode": "geology_geode",
+			"painted_closed_candidate_drawn": true,
+			"phase_index": 3,
+			"presentation": {
+				"boot_splash_present": false,
+				"fade_alpha": 0.0,
+				"intro_active": false,
+				"intro_layer_present": false,
+				"medal_present": false,
+				"start_menu_active": false,
+				"start_menu_layer_present": false
+			},
+			"pull": 0.0,
+			"save_path": "C:\\Users\\Peter\\.codex\\visualizations\\2026\\10\\08\\01a119cc-74b1-7d23-b956-126129405418\\geode_marker_fit_20261013\\native/1600x720/profiles/geode/reef_save.json",
+			"seams": [
+				true,
+				true,
+				true,
+				true,
+				false
+			],
+			"surface_snapshot": {
+				"complete": false,
+				"mode": "geology_geode",
+				"pull": 0.0,
+				"seams": [
+					true,
+					true,
+					true,
+					true,
+					false
+				],
+				"stage": "GEODE_SEAM",
+				"version": 1
+			},
+			"surface_transform": "[X: (1.0, 0.0), Y: (0.0, 1.0), O: (160.0, 0.0)]",
+			"task_open": true,
+			"visible_nodes": [
+				{
+					"class": "ColorRect",
+					"global_rect": "[P: (0.0, 0.0), S: (1600.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaStageBleed",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/CareerWorldBackdrop",
+					"z_index": 0
+				},
+				{
+					"class": "ColorRect",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/@ColorRect@692",
+					"z_index": 0
+				},
+				{
+					"class": "TextureRect",
+					"global_rect": "[P: (190.0, 422.0), S: (250.0, 250.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/@TextureRect@695",
+					"texture": "",
+					"z_index": 0
+				},
+				{
+					"class": "TextureRect",
+					"global_rect": "[P: (238.0, 218.0), S: (176.0, 176.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/@TextureRect@696",
+					"texture": "res://assets/opera/worlds/actors/rival_detective.png",
+					"z_index": 0
+				},
+				{
+					"class": "ColorRect",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/@ColorRect@698",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/@ColorRect@698/CareerGestureSurface",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/StageCombatLayer",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/StageCombatFX",
+					"z_index": 0
+				}
+			]
+		},
+		{
+			"held": false,
+			"id": "geode_seam04_released",
+			"image": {
+				"bytes": 226862,
+				"dimensions": [
+					1600,
+					720
+				],
+				"file": "geode_seam04_released.png",
+				"sha256": "0ae683266eabc96fb4e09cc2b9e51bca51d3e532d92fb435e555264af2654e82"
+			},
+			"input": {
+				"actual_visible_guide_touch": true,
+				"local_point": "(751.0, 466.0)",
+				"method": "Window.push_input touch press/release",
+				"original_hit_center": "(770.0, 466.0)",
+				"seam_index": 4
+			},
+			"mode": "geology_geode",
+			"painted_closed_candidate_drawn": true,
+			"phase_index": 3,
+			"presentation": {
+				"boot_splash_present": false,
+				"fade_alpha": 0.0,
+				"intro_active": false,
+				"intro_layer_present": false,
+				"medal_present": false,
+				"start_menu_active": false,
+				"start_menu_layer_present": false
+			},
+			"pull": 0.0,
+			"save_path": "C:\\Users\\Peter\\.codex\\visualizations\\2026\\10\\08\\01a119cc-74b1-7d23-b956-126129405418\\geode_marker_fit_20261013\\native/1600x720/profiles/geode/reef_save.json",
+			"seams": [
+				true,
+				true,
+				true,
+				true,
+				true
+			],
+			"surface_snapshot": {
+				"complete": false,
+				"mode": "geology_geode",
+				"pull": 0.0,
+				"seams": [
+					true,
+					true,
+					true,
+					true,
+					true
+				],
+				"stage": "GEODE_OPEN",
+				"version": 1
+			},
+			"surface_transform": "[X: (1.0, 0.0), Y: (0.0, 1.0), O: (160.0, 0.0)]",
+			"task_open": true,
+			"visible_nodes": [
+				{
+					"class": "ColorRect",
+					"global_rect": "[P: (0.0, 0.0), S: (1600.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaStageBleed",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/CareerWorldBackdrop",
+					"z_index": 0
+				},
+				{
+					"class": "ColorRect",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/@ColorRect@692",
+					"z_index": 0
+				},
+				{
+					"class": "TextureRect",
+					"global_rect": "[P: (190.0, 422.0), S: (250.0, 250.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/@TextureRect@695",
+					"texture": "",
+					"z_index": 0
+				},
+				{
+					"class": "TextureRect",
+					"global_rect": "[P: (238.0, 218.0), S: (176.0, 176.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/@TextureRect@696",
+					"texture": "res://assets/opera/worlds/actors/rival_detective.png",
+					"z_index": 0
+				},
+				{
+					"class": "ColorRect",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/@ColorRect@698",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/@ColorRect@698/CareerGestureSurface",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/StageCombatLayer",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/StageCombatFX",
+					"z_index": 0
+				}
+			]
+		},
+		{
+			"held": false,
+			"id": "geode_seam_repeat",
+			"image": {
+				"bytes": 226857,
+				"dimensions": [
+					1600,
+					720
+				],
+				"file": "geode_seam_repeat.png",
+				"sha256": "1ce707b114c0042bc7c9e7588482b8872db3638559a1840f3c91f6754f0d0cab"
+			},
+			"input": {
+				"method": "repeat first accepted seam; no extra completion"
+			},
+			"mode": "geology_geode",
+			"painted_closed_candidate_drawn": true,
+			"phase_index": 3,
+			"presentation": {
+				"boot_splash_present": false,
+				"fade_alpha": 0.0,
+				"intro_active": false,
+				"intro_layer_present": false,
+				"medal_present": false,
+				"start_menu_active": false,
+				"start_menu_layer_present": false
+			},
+			"pull": 0.0,
+			"save_path": "C:\\Users\\Peter\\.codex\\visualizations\\2026\\10\\08\\01a119cc-74b1-7d23-b956-126129405418\\geode_marker_fit_20261013\\native/1600x720/profiles/geode/reef_save.json",
+			"seams": [
+				true,
+				true,
+				true,
+				true,
+				true
+			],
+			"surface_snapshot": {
+				"complete": false,
+				"mode": "geology_geode",
+				"pull": 0.0,
+				"seams": [
+					true,
+					true,
+					true,
+					true,
+					true
+				],
+				"stage": "GEODE_OPEN",
+				"version": 1
+			},
+			"surface_transform": "[X: (1.0, 0.0), Y: (0.0, 1.0), O: (160.0, 0.0)]",
+			"task_open": true,
+			"visible_nodes": [
+				{
+					"class": "ColorRect",
+					"global_rect": "[P: (0.0, 0.0), S: (1600.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaStageBleed",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/CareerWorldBackdrop",
+					"z_index": 0
+				},
+				{
+					"class": "ColorRect",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/@ColorRect@692",
+					"z_index": 0
+				},
+				{
+					"class": "TextureRect",
+					"global_rect": "[P: (190.0, 422.0), S: (250.0, 250.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/@TextureRect@695",
+					"texture": "",
+					"z_index": 0
+				},
+				{
+					"class": "TextureRect",
+					"global_rect": "[P: (238.0, 218.0), S: (176.0, 176.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/@TextureRect@696",
+					"texture": "res://assets/opera/worlds/actors/rival_detective.png",
+					"z_index": 0
+				},
+				{
+					"class": "ColorRect",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/@ColorRect@698",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/@ColorRect@698/CareerGestureSurface",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/StageCombatLayer",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/StageCombatFX",
+					"z_index": 0
+				}
+			]
+		},
+		{
+			"held": false,
+			"id": "geode_all_seams_ready",
+			"image": {
+				"bytes": 226893,
+				"dimensions": [
+					1600,
+					720
+				],
+				"file": "geode_all_seams_ready.png",
+				"sha256": "9302e3385f7e6b7d2488305b4f126744a43cef013c92e2b0e4a308e96d926297"
+			},
+			"input": {},
+			"mode": "geology_geode",
+			"painted_closed_candidate_drawn": true,
+			"phase_index": 3,
+			"presentation": {
+				"boot_splash_present": false,
+				"fade_alpha": 0.0,
+				"intro_active": false,
+				"intro_layer_present": false,
+				"medal_present": false,
+				"start_menu_active": false,
+				"start_menu_layer_present": false
+			},
+			"pull": 0.0,
+			"save_path": "C:\\Users\\Peter\\.codex\\visualizations\\2026\\10\\08\\01a119cc-74b1-7d23-b956-126129405418\\geode_marker_fit_20261013\\native/1600x720/profiles/geode/reef_save.json",
+			"seams": [
+				true,
+				true,
+				true,
+				true,
+				true
+			],
+			"surface_snapshot": {
+				"complete": false,
+				"mode": "geology_geode",
+				"pull": 0.0,
+				"seams": [
+					true,
+					true,
+					true,
+					true,
+					true
+				],
+				"stage": "GEODE_OPEN",
+				"version": 1
+			},
+			"surface_transform": "[X: (1.0, 0.0), Y: (0.0, 1.0), O: (160.0, 0.0)]",
+			"task_open": true,
+			"visible_nodes": [
+				{
+					"class": "ColorRect",
+					"global_rect": "[P: (0.0, 0.0), S: (1600.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaStageBleed",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/CareerWorldBackdrop",
+					"z_index": 0
+				},
+				{
+					"class": "ColorRect",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/@ColorRect@692",
+					"z_index": 0
+				},
+				{
+					"class": "TextureRect",
+					"global_rect": "[P: (190.0, 422.0), S: (250.0, 250.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/@TextureRect@695",
+					"texture": "",
+					"z_index": 0
+				},
+				{
+					"class": "TextureRect",
+					"global_rect": "[P: (238.0, 218.0), S: (176.0, 176.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/@TextureRect@696",
+					"texture": "res://assets/opera/worlds/actors/rival_detective.png",
+					"z_index": 0
+				},
+				{
+					"class": "ColorRect",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/@ColorRect@698",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/@ColorRect@698/CareerGestureSurface",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/StageCombatLayer",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/StageCombatFX",
+					"z_index": 0
+				}
+			]
+		},
+		{
+			"held": true,
+			"id": "geode_partial_open_held",
+			"image": {
+				"bytes": 113981,
+				"dimensions": [
+					1600,
+					720
+				],
+				"file": "geode_partial_open_held.png",
+				"sha256": "13c989c5ae77cda0867136bdeb6f98ff5f3878a4c4c67e095ee12a212c4c3c21"
+			},
+			"input": {
+				"delta": [
+					60,
+					0
+				],
+				"method": "raw touch drag"
+			},
+			"mode": "geology_geode",
+			"painted_closed_candidate_drawn": false,
+			"phase_index": 3,
+			"presentation": {
+				"boot_splash_present": false,
+				"fade_alpha": 0.0,
+				"intro_active": false,
+				"intro_layer_present": false,
+				"medal_present": false,
+				"start_menu_active": false,
+				"start_menu_layer_present": false
+			},
+			"pull": 60.0,
+			"save_path": "C:\\Users\\Peter\\.codex\\visualizations\\2026\\10\\08\\01a119cc-74b1-7d23-b956-126129405418\\geode_marker_fit_20261013\\native/1600x720/profiles/geode/reef_save.json",
+			"seams": [
+				true,
+				true,
+				true,
+				true,
+				true
+			],
+			"surface_snapshot": {
+				"complete": false,
+				"mode": "geology_geode",
+				"pull": 60.0,
+				"seams": [
+					true,
+					true,
+					true,
+					true,
+					true
+				],
+				"stage": "GEODE_OPEN",
+				"version": 1
+			},
+			"surface_transform": "[X: (1.0, 0.0), Y: (0.0, 1.0), O: (160.0, 0.0)]",
+			"task_open": true,
+			"visible_nodes": [
+				{
+					"class": "ColorRect",
+					"global_rect": "[P: (0.0, 0.0), S: (1600.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaStageBleed",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/CareerWorldBackdrop",
+					"z_index": 0
+				},
+				{
+					"class": "ColorRect",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/@ColorRect@692",
+					"z_index": 0
+				},
+				{
+					"class": "TextureRect",
+					"global_rect": "[P: (190.0, 422.0), S: (250.0, 250.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/@TextureRect@695",
+					"texture": "",
+					"z_index": 0
+				},
+				{
+					"class": "TextureRect",
+					"global_rect": "[P: (238.0, 218.0), S: (176.0, 176.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/@TextureRect@696",
+					"texture": "res://assets/opera/worlds/actors/rival_detective.png",
+					"z_index": 0
+				},
+				{
+					"class": "ColorRect",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/@ColorRect@698",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/@ColorRect@698/CareerGestureSurface",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/StageCombatLayer",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/StageCombatFX",
+					"z_index": 0
+				}
+			]
+		},
+		{
+			"held": false,
+			"id": "geode_partial_open_released",
+			"image": {
+				"bytes": 113961,
+				"dimensions": [
+					1600,
+					720
+				],
+				"file": "geode_partial_open_released.png",
+				"sha256": "f01a18e769518c79bb3c07620f87f200aaf9f49caf9cd463dac2ee4a9e47c1cb"
+			},
+			"input": {},
+			"mode": "geology_geode",
+			"painted_closed_candidate_drawn": false,
+			"phase_index": 3,
+			"presentation": {
+				"boot_splash_present": false,
+				"fade_alpha": 0.0,
+				"intro_active": false,
+				"intro_layer_present": false,
+				"medal_present": false,
+				"start_menu_active": false,
+				"start_menu_layer_present": false
+			},
+			"pull": 60.0,
+			"save_path": "C:\\Users\\Peter\\.codex\\visualizations\\2026\\10\\08\\01a119cc-74b1-7d23-b956-126129405418\\geode_marker_fit_20261013\\native/1600x720/profiles/geode/reef_save.json",
+			"seams": [
+				true,
+				true,
+				true,
+				true,
+				true
+			],
+			"surface_snapshot": {
+				"complete": false,
+				"mode": "geology_geode",
+				"pull": 60.0,
+				"seams": [
+					true,
+					true,
+					true,
+					true,
+					true
+				],
+				"stage": "GEODE_OPEN",
+				"version": 1
+			},
+			"surface_transform": "[X: (1.0, 0.0), Y: (0.0, 1.0), O: (160.0, 0.0)]",
+			"task_open": true,
+			"visible_nodes": [
+				{
+					"class": "ColorRect",
+					"global_rect": "[P: (0.0, 0.0), S: (1600.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaStageBleed",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/CareerWorldBackdrop",
+					"z_index": 0
+				},
+				{
+					"class": "ColorRect",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/@ColorRect@692",
+					"z_index": 0
+				},
+				{
+					"class": "TextureRect",
+					"global_rect": "[P: (190.0, 422.0), S: (250.0, 250.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/@TextureRect@695",
+					"texture": "",
+					"z_index": 0
+				},
+				{
+					"class": "TextureRect",
+					"global_rect": "[P: (238.0, 218.0), S: (176.0, 176.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/@TextureRect@696",
+					"texture": "res://assets/opera/worlds/actors/rival_detective.png",
+					"z_index": 0
+				},
+				{
+					"class": "ColorRect",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/@ColorRect@698",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/@ColorRect@698/CareerGestureSurface",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/StageCombatLayer",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/StageCombatFX",
+					"z_index": 0
+				}
+			]
+		},
+		{
+			"held": true,
+			"id": "geode_cancel_pressed",
+			"image": {
+				"bytes": 113947,
+				"dimensions": [
+					1600,
+					720
+				],
+				"file": "geode_cancel_pressed.png",
+				"sha256": "1b86520d39c17aed09b245fb2035bae89fa589920f3c203c88c9fedd389f88bf"
+			},
+			"input": {},
+			"mode": "geology_geode",
+			"painted_closed_candidate_drawn": false,
+			"phase_index": 3,
+			"presentation": {
+				"boot_splash_present": false,
+				"fade_alpha": 0.0,
+				"intro_active": false,
+				"intro_layer_present": false,
+				"medal_present": false,
+				"start_menu_active": false,
+				"start_menu_layer_present": false
+			},
+			"pull": 60.0,
+			"save_path": "C:\\Users\\Peter\\.codex\\visualizations\\2026\\10\\08\\01a119cc-74b1-7d23-b956-126129405418\\geode_marker_fit_20261013\\native/1600x720/profiles/geode/reef_save.json",
+			"seams": [
+				true,
+				true,
+				true,
+				true,
+				true
+			],
+			"surface_snapshot": {
+				"complete": false,
+				"mode": "geology_geode",
+				"pull": 60.0,
+				"seams": [
+					true,
+					true,
+					true,
+					true,
+					true
+				],
+				"stage": "GEODE_OPEN",
+				"version": 1
+			},
+			"surface_transform": "[X: (1.0, 0.0), Y: (0.0, 1.0), O: (160.0, 0.0)]",
+			"task_open": true,
+			"visible_nodes": [
+				{
+					"class": "ColorRect",
+					"global_rect": "[P: (0.0, 0.0), S: (1600.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaStageBleed",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/CareerWorldBackdrop",
+					"z_index": 0
+				},
+				{
+					"class": "ColorRect",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/@ColorRect@692",
+					"z_index": 0
+				},
+				{
+					"class": "TextureRect",
+					"global_rect": "[P: (190.0, 422.0), S: (250.0, 250.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/@TextureRect@695",
+					"texture": "",
+					"z_index": 0
+				},
+				{
+					"class": "TextureRect",
+					"global_rect": "[P: (238.0, 218.0), S: (176.0, 176.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/@TextureRect@696",
+					"texture": "res://assets/opera/worlds/actors/rival_detective.png",
+					"z_index": 0
+				},
+				{
+					"class": "ColorRect",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/@ColorRect@698",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/@ColorRect@698/CareerGestureSurface",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/StageCombatLayer",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/StageCombatFX",
+					"z_index": 0
+				}
+			]
+		},
+		{
+			"held": false,
+			"id": "geode_cancel_focus_notification",
+			"image": {
+				"bytes": 113733,
+				"dimensions": [
+					1600,
+					720
+				],
+				"file": "geode_cancel_focus_notification.png",
+				"sha256": "e05d8262db41a5ba779e70c16c108436e52052a04d01bb32b6220d49e2a5012f"
+			},
+			"input": {
+				"method": "explicit surface focus-out notification; diagnostic, not observed OS focus loss"
+			},
+			"mode": "geology_geode",
+			"painted_closed_candidate_drawn": false,
+			"phase_index": 3,
+			"presentation": {
+				"boot_splash_present": false,
+				"fade_alpha": 0.0,
+				"intro_active": false,
+				"intro_layer_present": false,
+				"medal_present": false,
+				"start_menu_active": false,
+				"start_menu_layer_present": false
+			},
+			"pull": 60.0,
+			"save_path": "C:\\Users\\Peter\\.codex\\visualizations\\2026\\10\\08\\01a119cc-74b1-7d23-b956-126129405418\\geode_marker_fit_20261013\\native/1600x720/profiles/geode/reef_save.json",
+			"seams": [
+				true,
+				true,
+				true,
+				true,
+				true
+			],
+			"surface_snapshot": {
+				"complete": false,
+				"mode": "geology_geode",
+				"pull": 60.0,
+				"seams": [
+					true,
+					true,
+					true,
+					true,
+					true
+				],
+				"stage": "GEODE_OPEN",
+				"version": 1
+			},
+			"surface_transform": "[X: (1.0, 0.0), Y: (0.0, 1.0), O: (160.0, 0.0)]",
+			"task_open": true,
+			"visible_nodes": [
+				{
+					"class": "ColorRect",
+					"global_rect": "[P: (0.0, 0.0), S: (1600.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaStageBleed",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/CareerWorldBackdrop",
+					"z_index": 0
+				},
+				{
+					"class": "ColorRect",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/@ColorRect@692",
+					"z_index": 0
+				},
+				{
+					"class": "TextureRect",
+					"global_rect": "[P: (190.0, 422.0), S: (250.0, 250.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/@TextureRect@695",
+					"texture": "",
+					"z_index": 0
+				},
+				{
+					"class": "TextureRect",
+					"global_rect": "[P: (238.0, 218.0), S: (176.0, 176.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/@TextureRect@696",
+					"texture": "res://assets/opera/worlds/actors/rival_detective.png",
+					"z_index": 0
+				},
+				{
+					"class": "ColorRect",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/@ColorRect@698",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/@ColorRect@698/CareerGestureSurface",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/StageCombatLayer",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/@Node@690/@CanvasLayer@691/OperaCareerWorld2D/StageCombatFX",
+					"z_index": 0
+				}
+			]
+		}
+	]
+}

@@ -1,0 +1,157 @@
+{
+  "id": "flat-vector-geode-marker-fit-20261013",
+  "scope": "Repair isolated closed-source/marker fit via20px whole-image Canvas translation and crack-aligned guide positions; original functional seam points/radius/travel/pull unchanged. No pixel edits, generation or production integration.",
+  "baseline": "0c2732204bec7f882db26d835e2ce32ee12c7471",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-VIS-01",
+    "DL-VIS-02",
+    "DL-VIS-03",
+    "DL-VIS-04",
+    "DL-VIS-05",
+    "DL-VIS-06",
+    "DL-VIS-07",
+    "DL-VIS-08",
+    "DL-READ-02",
+    "DL-ASSET-01",
+    "DL-ASSET-02",
+    "DL-ASSET-03",
+    "DL-ASSET-04",
+    "DL-ASSET-05",
+    "DL-ASSET-06",
+    "DL-QA-11",
+    "DL-READ-06"
+  ],
+  "findings": [
+    "MA-VIS-006",
+    "MA-VIS-007",
+    "MA-VIS-008",
+    "MA-DOC-008",
+    "MA-OPERA-012"
+  ],
+  "files": [
+    ".gitattributes",
+    "ASSET_LICENSES.md",
+    "audit/MASTER_AUDIT_2026-08-09.md",
+    "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
+    "design/05_DOC_LEDGER.md",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/CURRENT.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/README.md",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r10_geode_marker_fit/CONGRUENCY_BACKLOG.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r10_geode_marker_fit/FIT_MEASUREMENTS.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r10_geode_marker_fit/GATES.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r10_geode_marker_fit/GATES.log",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r10_geode_marker_fit/LAUNCH.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r10_geode_marker_fit/MANIFEST.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r10_geode_marker_fit/PREFLIGHT.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r10_geode_marker_fit/PREVIOUS_HEAD_CI.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r10_geode_marker_fit/README.md",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r10_geode_marker_fit/RECEIPT_GATES.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r10_geode_marker_fit/REMOTE_VERIFICATION.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r10_geode_marker_fit/REUSE_JOB.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r10_geode_marker_fit/REVIEW.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r10_geode_marker_fit/SCRIPT_GATES.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r10_geode_marker_fit/SOURCES.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r10_geode_marker_fit/SOURCE_PARITY.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r10_geode_marker_fit/build_manifest.py",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r10_geode_marker_fit/candidate_geode_surface.gd",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r10_geode_marker_fit/capture.log",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r10_geode_marker_fit/capture_geode_trial.gd",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r10_geode_marker_fit/native/1280x720/capture_manifest.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r10_geode_marker_fit/native/1280x720/geode_all_seams_ready.png",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r10_geode_marker_fit/native/1280x720/geode_cancel_focus_notification.png",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r10_geode_marker_fit/native/1280x720/geode_cancel_pressed.png",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r10_geode_marker_fit/native/1280x720/geode_closed_passive_1s.png",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r10_geode_marker_fit/native/1280x720/geode_closed_ready.png",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r10_geode_marker_fit/native/1280x720/geode_early_pull_dragged.png",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r10_geode_marker_fit/native/1280x720/geode_early_pull_pressed.png",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r10_geode_marker_fit/native/1280x720/geode_early_pull_released.png",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r10_geode_marker_fit/native/1280x720/geode_partial_open_held.png",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r10_geode_marker_fit/native/1280x720/geode_partial_open_released.png",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r10_geode_marker_fit/native/1280x720/geode_seam00_pressed.png",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r10_geode_marker_fit/native/1280x720/geode_seam00_released.png",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r10_geode_marker_fit/native/1280x720/geode_seam01_pressed.png",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r10_geode_marker_fit/native/1280x720/geode_seam01_released.png",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r10_geode_marker_fit/native/1280x720/geode_seam02_pressed.png",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r10_geode_marker_fit/native/1280x720/geode_seam02_released.png",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r10_geode_marker_fit/native/1280x720/geode_seam03_pressed.png",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r10_geode_marker_fit/native/1280x720/geode_seam03_released.png",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r10_geode_marker_fit/native/1280x720/geode_seam04_pressed.png",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r10_geode_marker_fit/native/1280x720/geode_seam04_released.png",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r10_geode_marker_fit/native/1280x720/geode_seam_repeat.png",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r10_geode_marker_fit/native/1280x720/geode_wrong_tap.png",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r10_geode_marker_fit/native/1600x720/capture_manifest.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r10_geode_marker_fit/native/1600x720/geode_all_seams_ready.png",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r10_geode_marker_fit/native/1600x720/geode_cancel_focus_notification.png",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r10_geode_marker_fit/native/1600x720/geode_cancel_pressed.png",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r10_geode_marker_fit/native/1600x720/geode_closed_passive_1s.png",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r10_geode_marker_fit/native/1600x720/geode_closed_ready.png",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r10_geode_marker_fit/native/1600x720/geode_early_pull_dragged.png",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r10_geode_marker_fit/native/1600x720/geode_early_pull_pressed.png",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r10_geode_marker_fit/native/1600x720/geode_early_pull_released.png",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r10_geode_marker_fit/native/1600x720/geode_partial_open_held.png",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r10_geode_marker_fit/native/1600x720/geode_partial_open_released.png",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r10_geode_marker_fit/native/1600x720/geode_seam00_pressed.png",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r10_geode_marker_fit/native/1600x720/geode_seam00_released.png",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r10_geode_marker_fit/native/1600x720/geode_seam01_pressed.png",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r10_geode_marker_fit/native/1600x720/geode_seam01_released.png",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r10_geode_marker_fit/native/1600x720/geode_seam02_pressed.png",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r10_geode_marker_fit/native/1600x720/geode_seam02_released.png",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r10_geode_marker_fit/native/1600x720/geode_seam03_pressed.png",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r10_geode_marker_fit/native/1600x720/geode_seam03_released.png",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r10_geode_marker_fit/native/1600x720/geode_seam04_pressed.png",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r10_geode_marker_fit/native/1600x720/geode_seam04_released.png",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r10_geode_marker_fit/native/1600x720/geode_seam_repeat.png",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r10_geode_marker_fit/native/1600x720/geode_wrong_tap.png",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r10_geode_marker_fit/per_piece.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r10_geode_marker_fit/scene_coverage.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r10_geode_marker_fit/tally.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r10_geode_marker_fit/validate.py",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r10_geode_marker_fit/verify_remote.py"
+  ],
+  "validation": [
+    {
+      "command": "python -B docs/handoffs/codex_flat_vector_art_2026-10-07/r10_geode_marker_fit/validate.py",
+      "result": "PASS",
+      "evidence": "SOURCE_PARITY/FIT_MEASUREMENTS/LAUNCH/SCRIPT_GATES:44 snapshots,35uniquehashes,touch at5displayed centers on eachaspect;original input/pixels/saves unchanged."
+    },
+    {
+      "command": "python -B tools/audit_document_authority.py; python -B tools/audit_development.py --base auto; python -B tools/audit_game_2d.py --regression-gate",
+      "result": "PASS",
+      "evidence": "Final source/guide validator and mandatory document/development/shrink-only gates pass; R10 GATES binds final staged inputs. Debt remains52production/61probe/1scene/1configuration; UNSATISFIED. Final prose staged before last rescan."
+    },
+    {
+      "command": "Current exact remote CI",
+      "result": "PENDING",
+      "evidence": "Exact prior0c/run38361393842 cancelled; no assumed cause or green claim. Last completed full green remains f4/run38355219868. Unchanged production prior local82trustedpass stays scoped evidence; no art acceptance."
+    },
+    {
+      "command": "Anonymous manifest/all-required-file remote SHA verification",
+      "result": "PENDING",
+      "evidence": "Additive R10 manifest plus post-publication REMOTE_VERIFICATION receipt; required before final delivery."
+    }
+  ],
+  "acceptance_gaps": "Matched opening family,vector guides,QA11,natural full route/reward/return/reload,device/child/owner and unknown full-game inventory remain open. No integration or accepted removal.",
+  "references_used": [
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r9_geode_reuse/README.md",
+      "purpose": "Verified prior source/current-context and failed marker alignment"
+    },
+    {
+      "path": "ART_STYLE_GUIDE.md",
+      "purpose": "Current ledger-bound style authority with same-scene reference hashes in SOURCES"
+    },
+    {
+      "path": "audit/MASTER_AUDIT_2026-08-09.md",
+      "purpose": "Planning,task route and repair/acceptance rules"
+    }
+  ],
+  "lessons": [
+    {
+      "lesson": "Place visible guides on authored crack while bounding their full halo within preserved input reach; center-only agreement is insufficient. No crop or new source pixels needed.",
+      "write_back": "R10 FIT_MEASUREMENTS/REVIEW and stable-piece registry; DL-READ-06"
+    }
+  ]
+}
