@@ -1,0 +1,44 @@
+{
+  "schema": 1,
+  "job_id": "GEODE-OPEN-PAIR-REUSE-20261013-03",
+  "piece": "FV-C1AB21410352",
+  "verb": "Normalize preserved opened pair and evaluate endpoint fit against closed source and actual pull",
+  "sources": "DERIVATIVES.json,SOURCES.json and verified immutable R10 context",
+  "fixed": [
+    "Original pixels at native master",
+    "Aspect ratio/palette/light/whole contour",
+    "Characters/background/workbench/save keys",
+    "Original invisible input rectangle/targets/radius/tap tolerance/pull threshold; source pixels and350square scale",
+    "Opened source original pixels and prior generation/reject history"
+  ],
+  "moving": [
+    "Actual raw seam releases and pull2/30/60/90/119; static whole opened source deliberately constant,not authored motion"
+  ],
+  "entry": "Declared dev_playtest phase3,fresh separate SaveState",
+  "exit": "119px near-open release/cancel; below120 completion threshold; no reward",
+  "geometry": "FIT_MEASUREMENTS.json",
+  "tolerances": "Native decoded RGBA exact; unchanged source/input/save rules. Mounted source appearance and action continuity evaluated separately.",
+  "method": "Aseprite native-preserved/whole1024 proportional technical derivative; ignored endpoint-only Canvas mount,uniform height/bottom-fit. No crop,part separation,repaint,warp,new generation or Python pixel writes.",
+  "attempts": {
+    "local_closed_fit": 2,
+    "generated_new": 0,
+    "prior_closed_generation_attempt": 1,
+    "prior_opened_generation_attempt": 2,
+    "prior_history_preserved": true,
+    "local_open_pair_endpoint_fit": 1
+  },
+  "limits": {
+    "aseprite_process_seconds": 90,
+    "capture_process_seconds": 150,
+    "manual_pixel_cleanup_limit_minutes": 10,
+    "new_paid_calls": 0,
+    "new_spend": 0
+  },
+  "actual": "TECHNICAL_DERIVATION/LAUNCH/IMPORT/SCRIPT_GATES expose exact executed commands/times and preservation. No paid/new generation.",
+  "next": "Direct endpoint mount rejected. Build/evaluate source-preserving curved split/layered reveal with matched cavity registration; then full action/reload/natural route and all required acceptance. No new-art gap yet.",
+  "piece_ids": [
+    "FV-C1AB21410352",
+    "FV-99DB2D71D276",
+    "FV-F7DB96881260"
+  ]
+}

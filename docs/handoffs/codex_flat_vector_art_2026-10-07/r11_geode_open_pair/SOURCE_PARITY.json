@@ -1,0 +1,742 @@
+{
+  "schema": 1,
+  "baseline": "e8d0aa54b79d222f092534a053e4d716fc27067f",
+  "checked_at_utc": "2026-10-13T09:25:41.932276+00:00",
+  "source_census_files": 3236,
+  "source_census_definition": "Every raw production file under assets/scripts/scenes/shaders excluding .import/.uid plus project.godot; not full active reachability/QA11 closure.",
+  "raw_byte_changes": [],
+  "normal_save_hashes_unchanged_both_aspects": true,
+  "native_file_count": 52,
+  "unique_png_sha256_count": 45,
+  "captures": [
+    {
+      "bytes": 226639,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "file": "geode_closed_ready.png",
+      "sha256": "8f54147fcfe8319240d22c6ecc2f43896da02498d2c740a40184947c02878c6f",
+      "path": "native/1280x720/geode_closed_ready.png",
+      "aspect": "1280x720",
+      "state_id": "geode_closed_ready",
+      "painted_closed_candidate_drawn": true,
+      "painted_opened_endpoint_drawn": false
+    },
+    {
+      "bytes": 226527,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "file": "geode_closed_passive_1s.png",
+      "sha256": "fe5115222cfcb50da60b0528d8a26fa9a2a7824b6030153ba3d9b8081e8acb5c",
+      "path": "native/1280x720/geode_closed_passive_1s.png",
+      "aspect": "1280x720",
+      "state_id": "geode_closed_passive_1s",
+      "painted_closed_candidate_drawn": true,
+      "painted_opened_endpoint_drawn": false
+    },
+    {
+      "bytes": 226307,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "file": "geode_wrong_tap.png",
+      "sha256": "25f6e4cf79e9f3001931ae2eb82e4a0a7c6981bfbbadde68b020016123d6db59",
+      "path": "native/1280x720/geode_wrong_tap.png",
+      "aspect": "1280x720",
+      "state_id": "geode_wrong_tap",
+      "painted_closed_candidate_drawn": true,
+      "painted_opened_endpoint_drawn": false
+    },
+    {
+      "bytes": 226307,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "file": "geode_early_pull_pressed.png",
+      "sha256": "25f6e4cf79e9f3001931ae2eb82e4a0a7c6981bfbbadde68b020016123d6db59",
+      "path": "native/1280x720/geode_early_pull_pressed.png",
+      "aspect": "1280x720",
+      "state_id": "geode_early_pull_pressed",
+      "painted_closed_candidate_drawn": true,
+      "painted_opened_endpoint_drawn": false
+    },
+    {
+      "bytes": 226305,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "file": "geode_early_pull_dragged.png",
+      "sha256": "9d845a17754a1660eabcc86b8a2c77aba4f71a8fac396760004a417e3b92d561",
+      "path": "native/1280x720/geode_early_pull_dragged.png",
+      "aspect": "1280x720",
+      "state_id": "geode_early_pull_dragged",
+      "painted_closed_candidate_drawn": true,
+      "painted_opened_endpoint_drawn": false
+    },
+    {
+      "bytes": 226305,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "file": "geode_early_pull_released.png",
+      "sha256": "9d845a17754a1660eabcc86b8a2c77aba4f71a8fac396760004a417e3b92d561",
+      "path": "native/1280x720/geode_early_pull_released.png",
+      "aspect": "1280x720",
+      "state_id": "geode_early_pull_released",
+      "painted_closed_candidate_drawn": true,
+      "painted_opened_endpoint_drawn": false
+    },
+    {
+      "bytes": 226329,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "file": "geode_seam00_pressed.png",
+      "sha256": "f65cf65c6cced5f317c8c706a6eb98f2802122bbe402f819ef2eb4596167403d",
+      "path": "native/1280x720/geode_seam00_pressed.png",
+      "aspect": "1280x720",
+      "state_id": "geode_seam00_pressed",
+      "painted_closed_candidate_drawn": true,
+      "painted_opened_endpoint_drawn": false
+    },
+    {
+      "bytes": 225796,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "file": "geode_seam00_released.png",
+      "sha256": "03cc0c6465464bda4890fe2a3eb7a64e31e5ce91da13e37d9a66e56dc57ac587",
+      "path": "native/1280x720/geode_seam00_released.png",
+      "aspect": "1280x720",
+      "state_id": "geode_seam00_released",
+      "painted_closed_candidate_drawn": true,
+      "painted_opened_endpoint_drawn": false
+    },
+    {
+      "bytes": 225796,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "file": "geode_seam01_pressed.png",
+      "sha256": "03cc0c6465464bda4890fe2a3eb7a64e31e5ce91da13e37d9a66e56dc57ac587",
+      "path": "native/1280x720/geode_seam01_pressed.png",
+      "aspect": "1280x720",
+      "state_id": "geode_seam01_pressed",
+      "painted_closed_candidate_drawn": true,
+      "painted_opened_endpoint_drawn": false
+    },
+    {
+      "bytes": 225496,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "file": "geode_seam01_released.png",
+      "sha256": "408007baf575fa2b1b59dc64e7411577741b006c4a97e071c240b8d64384416f",
+      "path": "native/1280x720/geode_seam01_released.png",
+      "aspect": "1280x720",
+      "state_id": "geode_seam01_released",
+      "painted_closed_candidate_drawn": true,
+      "painted_opened_endpoint_drawn": false
+    },
+    {
+      "bytes": 225477,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "file": "geode_seam02_pressed.png",
+      "sha256": "5504a8e0bf60a0f6d8962f7a1ec5621f6635c0841e9c93318b5d2224c65f9a20",
+      "path": "native/1280x720/geode_seam02_pressed.png",
+      "aspect": "1280x720",
+      "state_id": "geode_seam02_pressed",
+      "painted_closed_candidate_drawn": true,
+      "painted_opened_endpoint_drawn": false
+    },
+    {
+      "bytes": 225055,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "file": "geode_seam02_released.png",
+      "sha256": "18292413d507184b946ef8a53f901a1c72050d244b37abe54021592fadd7a9b2",
+      "path": "native/1280x720/geode_seam02_released.png",
+      "aspect": "1280x720",
+      "state_id": "geode_seam02_released",
+      "painted_closed_candidate_drawn": true,
+      "painted_opened_endpoint_drawn": false
+    },
+    {
+      "bytes": 225071,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "file": "geode_seam03_pressed.png",
+      "sha256": "23a3c68ed148c8bb32ee330e6b79246795f7de1167b719bdc1e37704f033c490",
+      "path": "native/1280x720/geode_seam03_pressed.png",
+      "aspect": "1280x720",
+      "state_id": "geode_seam03_pressed",
+      "painted_closed_candidate_drawn": true,
+      "painted_opened_endpoint_drawn": false
+    },
+    {
+      "bytes": 224587,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "file": "geode_seam03_released.png",
+      "sha256": "1f69eb0518115025c045e507aba808e33336e810439baa81bbbc3e36e607c8a2",
+      "path": "native/1280x720/geode_seam03_released.png",
+      "aspect": "1280x720",
+      "state_id": "geode_seam03_released",
+      "painted_closed_candidate_drawn": true,
+      "painted_opened_endpoint_drawn": false
+    },
+    {
+      "bytes": 224590,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "file": "geode_seam04_pressed.png",
+      "sha256": "9a89783a39a9974add2ed27da2c8d1ae38400a3b7ff63bf7679d634b30fde03f",
+      "path": "native/1280x720/geode_seam04_pressed.png",
+      "aspect": "1280x720",
+      "state_id": "geode_seam04_pressed",
+      "painted_closed_candidate_drawn": true,
+      "painted_opened_endpoint_drawn": false
+    },
+    {
+      "bytes": 224008,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "file": "geode_seam04_released.png",
+      "sha256": "dbc31577ba21bcbb727c093a6f6a1824ec24793b8899f70ff8ce57bf251093d0",
+      "path": "native/1280x720/geode_seam04_released.png",
+      "aspect": "1280x720",
+      "state_id": "geode_seam04_released",
+      "painted_closed_candidate_drawn": true,
+      "painted_opened_endpoint_drawn": false
+    },
+    {
+      "bytes": 224006,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "file": "geode_seam_repeat.png",
+      "sha256": "59f62f641424921b62fbeca90b070debd4fe32dc5719c2cbae6cbe02e9561bd6",
+      "path": "native/1280x720/geode_seam_repeat.png",
+      "aspect": "1280x720",
+      "state_id": "geode_seam_repeat",
+      "painted_closed_candidate_drawn": true,
+      "painted_opened_endpoint_drawn": false
+    },
+    {
+      "bytes": 223988,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "file": "geode_all_seams_ready.png",
+      "sha256": "d2daffb8745661173b799624d28edf2df1afaaf1fd134d68205e3d1e8eb08398",
+      "path": "native/1280x720/geode_all_seams_ready.png",
+      "aspect": "1280x720",
+      "state_id": "geode_all_seams_ready",
+      "painted_closed_candidate_drawn": true,
+      "painted_opened_endpoint_drawn": false
+    },
+    {
+      "bytes": 308141,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "file": "geode_endpoint_pull002_held.png",
+      "sha256": "fc6918fac48353448fcced54db7ad5a5fab75a471029abbbd953c529f5f09014",
+      "path": "native/1280x720/geode_endpoint_pull002_held.png",
+      "aspect": "1280x720",
+      "state_id": "geode_endpoint_pull002_held",
+      "painted_closed_candidate_drawn": false,
+      "painted_opened_endpoint_drawn": true
+    },
+    {
+      "bytes": 308131,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "file": "geode_endpoint_pull030_held.png",
+      "sha256": "923e8b626b0f1f28bc3c593e5676f06eb8453c35cc08d4e453ab43918a43c592",
+      "path": "native/1280x720/geode_endpoint_pull030_held.png",
+      "aspect": "1280x720",
+      "state_id": "geode_endpoint_pull030_held",
+      "painted_closed_candidate_drawn": false,
+      "painted_opened_endpoint_drawn": true
+    },
+    {
+      "bytes": 308171,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "file": "geode_endpoint_pull060_held.png",
+      "sha256": "1f696d7a51ba7d3e009ba8b45c7cea2a225f1c8840422a4aba01371426390718",
+      "path": "native/1280x720/geode_endpoint_pull060_held.png",
+      "aspect": "1280x720",
+      "state_id": "geode_endpoint_pull060_held",
+      "painted_closed_candidate_drawn": false,
+      "painted_opened_endpoint_drawn": true
+    },
+    {
+      "bytes": 308184,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "file": "geode_endpoint_pull090_held.png",
+      "sha256": "6041167e07e2887b43dd20d87e8d874dbcc11886be1f1dceb1bf54f8894c1173",
+      "path": "native/1280x720/geode_endpoint_pull090_held.png",
+      "aspect": "1280x720",
+      "state_id": "geode_endpoint_pull090_held",
+      "painted_closed_candidate_drawn": false,
+      "painted_opened_endpoint_drawn": true
+    },
+    {
+      "bytes": 308328,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "file": "geode_endpoint_pull119_held.png",
+      "sha256": "0a9a8c8aea794fe13ec57189c5f9a9bde61b487befbd35d36b39c17d7ba925a5",
+      "path": "native/1280x720/geode_endpoint_pull119_held.png",
+      "aspect": "1280x720",
+      "state_id": "geode_endpoint_pull119_held",
+      "painted_closed_candidate_drawn": false,
+      "painted_opened_endpoint_drawn": true
+    },
+    {
+      "bytes": 308332,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "file": "geode_endpoint_pull119_released.png",
+      "sha256": "4ffefb755975dac72738e73cb1427626878f7aa786280e13e1f89ac354333685",
+      "path": "native/1280x720/geode_endpoint_pull119_released.png",
+      "aspect": "1280x720",
+      "state_id": "geode_endpoint_pull119_released",
+      "painted_closed_candidate_drawn": false,
+      "painted_opened_endpoint_drawn": true
+    },
+    {
+      "bytes": 308405,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "file": "geode_cancel_pressed.png",
+      "sha256": "bffdeddc3c8d8cc16bbe0e20754ecce804f0be25901491d831f8bd1b7eb69bb4",
+      "path": "native/1280x720/geode_cancel_pressed.png",
+      "aspect": "1280x720",
+      "state_id": "geode_cancel_pressed",
+      "painted_closed_candidate_drawn": false,
+      "painted_opened_endpoint_drawn": true
+    },
+    {
+      "bytes": 308310,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "file": "geode_cancel_focus_notification.png",
+      "sha256": "159b9edd3b50fca7cb1e9635837a62da7399c510ade64766eeba749ff2efe560",
+      "path": "native/1280x720/geode_cancel_focus_notification.png",
+      "aspect": "1280x720",
+      "state_id": "geode_cancel_focus_notification",
+      "painted_closed_candidate_drawn": false,
+      "painted_opened_endpoint_drawn": true
+    },
+    {
+      "bytes": 229390,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "file": "geode_closed_ready.png",
+      "sha256": "40187c8b56fbc164b5550775c758a30dea48c88d7fd736d4a5cc1d2f9e919758",
+      "path": "native/1600x720/geode_closed_ready.png",
+      "aspect": "1600x720",
+      "state_id": "geode_closed_ready",
+      "painted_closed_candidate_drawn": true,
+      "painted_opened_endpoint_drawn": false
+    },
+    {
+      "bytes": 229227,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "file": "geode_closed_passive_1s.png",
+      "sha256": "e94b020859d7a1531196a01787697c0be1761f69dc147258e4cb3350f2c6856e",
+      "path": "native/1600x720/geode_closed_passive_1s.png",
+      "aspect": "1600x720",
+      "state_id": "geode_closed_passive_1s",
+      "painted_closed_candidate_drawn": true,
+      "painted_opened_endpoint_drawn": false
+    },
+    {
+      "bytes": 228963,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "file": "geode_wrong_tap.png",
+      "sha256": "eca9e147a2e08bb730aea250313f7ad77396258badfb61a1de67cf9e50d638fd",
+      "path": "native/1600x720/geode_wrong_tap.png",
+      "aspect": "1600x720",
+      "state_id": "geode_wrong_tap",
+      "painted_closed_candidate_drawn": true,
+      "painted_opened_endpoint_drawn": false
+    },
+    {
+      "bytes": 228963,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "file": "geode_early_pull_pressed.png",
+      "sha256": "eca9e147a2e08bb730aea250313f7ad77396258badfb61a1de67cf9e50d638fd",
+      "path": "native/1600x720/geode_early_pull_pressed.png",
+      "aspect": "1600x720",
+      "state_id": "geode_early_pull_pressed",
+      "painted_closed_candidate_drawn": true,
+      "painted_opened_endpoint_drawn": false
+    },
+    {
+      "bytes": 228971,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "file": "geode_early_pull_dragged.png",
+      "sha256": "3b5a957fc02230a72e653f8d82e37e8ff5e7cf8786f6c6e94a5a60b821ecd68f",
+      "path": "native/1600x720/geode_early_pull_dragged.png",
+      "aspect": "1600x720",
+      "state_id": "geode_early_pull_dragged",
+      "painted_closed_candidate_drawn": true,
+      "painted_opened_endpoint_drawn": false
+    },
+    {
+      "bytes": 228971,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "file": "geode_early_pull_released.png",
+      "sha256": "3b5a957fc02230a72e653f8d82e37e8ff5e7cf8786f6c6e94a5a60b821ecd68f",
+      "path": "native/1600x720/geode_early_pull_released.png",
+      "aspect": "1600x720",
+      "state_id": "geode_early_pull_released",
+      "painted_closed_candidate_drawn": true,
+      "painted_opened_endpoint_drawn": false
+    },
+    {
+      "bytes": 228982,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "file": "geode_seam00_pressed.png",
+      "sha256": "b2e39352d900274c38fa904fd7d229fef73b969aa170c26b837161842b8b3a1a",
+      "path": "native/1600x720/geode_seam00_pressed.png",
+      "aspect": "1600x720",
+      "state_id": "geode_seam00_pressed",
+      "painted_closed_candidate_drawn": true,
+      "painted_opened_endpoint_drawn": false
+    },
+    {
+      "bytes": 228476,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "file": "geode_seam00_released.png",
+      "sha256": "51f2740637da6f8b8e60a52f0ee67964a56d610399f7ac074ce0063d740e771f",
+      "path": "native/1600x720/geode_seam00_released.png",
+      "aspect": "1600x720",
+      "state_id": "geode_seam00_released",
+      "painted_closed_candidate_drawn": true,
+      "painted_opened_endpoint_drawn": false
+    },
+    {
+      "bytes": 228466,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "file": "geode_seam01_pressed.png",
+      "sha256": "b0365543acceaa52b3d45bdd4e03a1fc90ed9c4c446e99eb2f166488a37ec60c",
+      "path": "native/1600x720/geode_seam01_pressed.png",
+      "aspect": "1600x720",
+      "state_id": "geode_seam01_pressed",
+      "painted_closed_candidate_drawn": true,
+      "painted_opened_endpoint_drawn": false
+    },
+    {
+      "bytes": 228230,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "file": "geode_seam01_released.png",
+      "sha256": "416d389622c382b26ceaf565163eb178154b010b7b56f1053d0405780ddac893",
+      "path": "native/1600x720/geode_seam01_released.png",
+      "aspect": "1600x720",
+      "state_id": "geode_seam01_released",
+      "painted_closed_candidate_drawn": true,
+      "painted_opened_endpoint_drawn": false
+    },
+    {
+      "bytes": 228244,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "file": "geode_seam02_pressed.png",
+      "sha256": "972adc8f9f9c9e9eab2cec2f39731290e9f9a6fd90f8ee2db2526b7dcc9a0908",
+      "path": "native/1600x720/geode_seam02_pressed.png",
+      "aspect": "1600x720",
+      "state_id": "geode_seam02_pressed",
+      "painted_closed_candidate_drawn": true,
+      "painted_opened_endpoint_drawn": false
+    },
+    {
+      "bytes": 227832,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "file": "geode_seam02_released.png",
+      "sha256": "6e929d166bca390b461ae43ad103764db1850338879837fef8fc0d41d1451256",
+      "path": "native/1600x720/geode_seam02_released.png",
+      "aspect": "1600x720",
+      "state_id": "geode_seam02_released",
+      "painted_closed_candidate_drawn": true,
+      "painted_opened_endpoint_drawn": false
+    },
+    {
+      "bytes": 227832,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "file": "geode_seam03_pressed.png",
+      "sha256": "6e929d166bca390b461ae43ad103764db1850338879837fef8fc0d41d1451256",
+      "path": "native/1600x720/geode_seam03_pressed.png",
+      "aspect": "1600x720",
+      "state_id": "geode_seam03_pressed",
+      "painted_closed_candidate_drawn": true,
+      "painted_opened_endpoint_drawn": false
+    },
+    {
+      "bytes": 227370,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "file": "geode_seam03_released.png",
+      "sha256": "14e6fe16786a15a03001b7d361a999a05ad4642964bfbaf3688db94b321394e6",
+      "path": "native/1600x720/geode_seam03_released.png",
+      "aspect": "1600x720",
+      "state_id": "geode_seam03_released",
+      "painted_closed_candidate_drawn": true,
+      "painted_opened_endpoint_drawn": false
+    },
+    {
+      "bytes": 227351,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "file": "geode_seam04_pressed.png",
+      "sha256": "5eca69be5902eddb55172c0f401fee25b282ef4fb7263cd4ba313d2245ff1975",
+      "path": "native/1600x720/geode_seam04_pressed.png",
+      "aspect": "1600x720",
+      "state_id": "geode_seam04_pressed",
+      "painted_closed_candidate_drawn": true,
+      "painted_opened_endpoint_drawn": false
+    },
+    {
+      "bytes": 226837,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "file": "geode_seam04_released.png",
+      "sha256": "0762610e5002e5183bb12a9177700d565dc21a6cb92599f8d77246acc11dd737",
+      "path": "native/1600x720/geode_seam04_released.png",
+      "aspect": "1600x720",
+      "state_id": "geode_seam04_released",
+      "painted_closed_candidate_drawn": true,
+      "painted_opened_endpoint_drawn": false
+    },
+    {
+      "bytes": 226862,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "file": "geode_seam_repeat.png",
+      "sha256": "0ae683266eabc96fb4e09cc2b9e51bca51d3e532d92fb435e555264af2654e82",
+      "path": "native/1600x720/geode_seam_repeat.png",
+      "aspect": "1600x720",
+      "state_id": "geode_seam_repeat",
+      "painted_closed_candidate_drawn": true,
+      "painted_opened_endpoint_drawn": false
+    },
+    {
+      "bytes": 226856,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "file": "geode_all_seams_ready.png",
+      "sha256": "8dd1ba50e744a97706fdda8d1156d84bdd402ae89db04d32a04b4d1da9d82aa1",
+      "path": "native/1600x720/geode_all_seams_ready.png",
+      "aspect": "1600x720",
+      "state_id": "geode_all_seams_ready",
+      "painted_closed_candidate_drawn": true,
+      "painted_opened_endpoint_drawn": false
+    },
+    {
+      "bytes": 311451,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "file": "geode_endpoint_pull002_held.png",
+      "sha256": "6dc3b57c2fd5760a6ab2fe5d87c154453d44646837ec3541283f51c8e417290b",
+      "path": "native/1600x720/geode_endpoint_pull002_held.png",
+      "aspect": "1600x720",
+      "state_id": "geode_endpoint_pull002_held",
+      "painted_closed_candidate_drawn": false,
+      "painted_opened_endpoint_drawn": true
+    },
+    {
+      "bytes": 311442,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "file": "geode_endpoint_pull030_held.png",
+      "sha256": "9368c9bec9d849873d69d3a84737407a7b1dee4c85d52a83374943e48492aee2",
+      "path": "native/1600x720/geode_endpoint_pull030_held.png",
+      "aspect": "1600x720",
+      "state_id": "geode_endpoint_pull030_held",
+      "painted_closed_candidate_drawn": false,
+      "painted_opened_endpoint_drawn": true
+    },
+    {
+      "bytes": 311486,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "file": "geode_endpoint_pull060_held.png",
+      "sha256": "224342ced3163c4e7ae06409a0c0f7b61c18228ae248c85c251292fc60707bcc",
+      "path": "native/1600x720/geode_endpoint_pull060_held.png",
+      "aspect": "1600x720",
+      "state_id": "geode_endpoint_pull060_held",
+      "painted_closed_candidate_drawn": false,
+      "painted_opened_endpoint_drawn": true
+    },
+    {
+      "bytes": 311496,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "file": "geode_endpoint_pull090_held.png",
+      "sha256": "dddd0d15945021107accb8bff3bb56ca9b3d42bbf9d1d9b4005b39ab882b9d99",
+      "path": "native/1600x720/geode_endpoint_pull090_held.png",
+      "aspect": "1600x720",
+      "state_id": "geode_endpoint_pull090_held",
+      "painted_closed_candidate_drawn": false,
+      "painted_opened_endpoint_drawn": true
+    },
+    {
+      "bytes": 311663,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "file": "geode_endpoint_pull119_held.png",
+      "sha256": "5b281ba50dcdb4f09c9206e916bcc30143e772341cabfda9117466eb68012a51",
+      "path": "native/1600x720/geode_endpoint_pull119_held.png",
+      "aspect": "1600x720",
+      "state_id": "geode_endpoint_pull119_held",
+      "painted_closed_candidate_drawn": false,
+      "painted_opened_endpoint_drawn": true
+    },
+    {
+      "bytes": 311662,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "file": "geode_endpoint_pull119_released.png",
+      "sha256": "c24e919f35759d4c58a886910d31a6b11a36154784edf772433ff7b2a26e8172",
+      "path": "native/1600x720/geode_endpoint_pull119_released.png",
+      "aspect": "1600x720",
+      "state_id": "geode_endpoint_pull119_released",
+      "painted_closed_candidate_drawn": false,
+      "painted_opened_endpoint_drawn": true
+    },
+    {
+      "bytes": 311597,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "file": "geode_cancel_pressed.png",
+      "sha256": "01b2bcb9855bd3e52ca9ce04daf1d5da56df4fd095e1f06997bed517281af3e2",
+      "path": "native/1600x720/geode_cancel_pressed.png",
+      "aspect": "1600x720",
+      "state_id": "geode_cancel_pressed",
+      "painted_closed_candidate_drawn": false,
+      "painted_opened_endpoint_drawn": true
+    },
+    {
+      "bytes": 311597,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "file": "geode_cancel_focus_notification.png",
+      "sha256": "01b2bcb9855bd3e52ca9ce04daf1d5da56df4fd095e1f06997bed517281af3e2",
+      "path": "native/1600x720/geode_cancel_focus_notification.png",
+      "aspect": "1600x720",
+      "state_id": "geode_cancel_focus_notification",
+      "painted_closed_candidate_drawn": false,
+      "painted_opened_endpoint_drawn": true
+    }
+  ],
+  "interpretation": "Actual event/gesture diagnostics; repeated identical pixels are retained event evidence,not authored animation or completion. Positive pull intentionally tests static endpoint-only direct reuse."
+}

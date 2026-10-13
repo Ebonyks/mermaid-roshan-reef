@@ -1,0 +1,36 @@
+{
+  "schema": 1,
+  "piece_ids": [
+    "FV-C1AB21410352",
+    "FV-99DB2D71D276",
+    "FV-F7DB96881260"
+  ],
+  "source": "assets_src/minigame_art_quality_2026-09-05/geode-open-alpha-attempt02/native.png",
+  "source_sha256": "0ca5e2572f5f306f3a46b75d5babf892fffd2cd65b16d0c5c7ee90426ae4bb2c",
+  "source_state": "SOURCE_CANDIDATE_RUNTIME_BLOCKED; prior attempts/rejects/scores unchanged",
+  "method": "Aseprite1.3.18.4,whole one-layer/native one-cel master decoded-exact roundtrip; proportional1024 bilinear resize only. Whole-pair endpoint is mounted after actual positive pull to test direct reuse and continuity limits; no fake in-between acting or acceptance.",
+  "limits": {
+    "aseprite_process_seconds": 90,
+    "capture_process_seconds": 150,
+    "new_generation_calls": 0,
+    "new_paid_spend": 0
+  },
+  "required_evidence": [
+    "Exact native Mobile/Speedy viewport states and input transitions",
+    "Source census before/after and same-scene reference hashes",
+    "All ten congruency axes and current reuse gap",
+    "Public manifest and anonymous exact-byte remote receipt",
+    "Full inventory and acceptance remain pending"
+  ],
+  "production_edits": [],
+  "acceptance_pending": [
+    "Matched closed/open topology/contact/motion",
+    "Flat guide artwork",
+    "Full natural route/reward/return/reload",
+    "QA11",
+    "device",
+    "child",
+    "owner",
+    "Whole-game inventory"
+  ]
+}
