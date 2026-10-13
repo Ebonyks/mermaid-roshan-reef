@@ -44,6 +44,7 @@
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r7_craft_context/ORIGIN_DEV_RECONCILIATION.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r7_craft_context/R6_EXACT_HEAD_CI.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r7_craft_context/README.md",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r7_craft_context/RECEIPT_GATES.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r7_craft_context/REMOTE_VERIFICATION.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r7_craft_context/REVIEW.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r7_craft_context/SOURCES.json",
@@ -178,8 +179,8 @@
     },
     {
       "command": "Exact anonymous remote verification of every declared R7 delta/source/history/authority dependency",
-      "result": "PENDING",
-      "evidence": "Post-push manifest/receipt required; no delivered claim before that receipt."
+      "result": "PASS",
+      "evidence": "REMOTE_VERIFICATION.json:147declared required files plus manifest anonymously fetched from exact revisions;49,865,401required bytes/SHA matched. Payloadc56f505f31c8e52b51f42492794b92c094bbf780; manifest SHAbf71e9c9d8e834a89835a46ef13a6a5dc9383d5c937722220fadc925ec6a30e4; checked 2026-10-13T04:29:24.604090+00:00. Public API independently verified repository public. No art/acceptance credit."
     },
     {
       "command": "ExactGodot4.7.2 --headless --import",
@@ -190,6 +191,11 @@
       "command": "Exact origin/dev831d0bbb reconciliation",
       "result": "PASS",
       "evidence": "ORIGIN_DEV_RECONCILIATION.json:299documentation-only changed files; zero runtime-source diff; ten named Craft runtime dependencies exact Git-byte equal. Luna study reviews grant no art/child acceptance. Current canonical finding additions retained as immutable refs; no existing lifecycle closed by this mission."
+    },
+    {
+      "command": "Post-publication receipt metadata document/coverage/2D gates",
+      "result": "PASS",
+      "evidence": "RECEIPT_GATES.json: document authority/development, immutable/source integrity and unchanged2D scanner passed. Existing3D debt remains UNSATISFIED; no source/count/acceptance change. Exact four metadata files verified remotely after this attestation push."
     }
   ],
   "acceptance_gaps": "No repair/integration/runtime-verified replacement. Natural/temporal/purchased/final-save/shared-caller/device/child/owner/QA11 and line attribution remain open; whole-game denominator unknown. MA lifecycle unchanged; active Garden editor not interrupted."

@@ -156,7 +156,16 @@
     }
   ],
   "role_and_family_counts_are_separate": true,
-  "publication": "ADDITIVE_R7_DELTA; exact remote verification pending",
+  "publication": {
+    "status": "EXACT_PUBLIC_PAYLOAD_VERIFIED",
+    "payload_revision": "c56f505f31c8e52b51f42492794b92c094bbf780",
+    "manifest_sha256": "bf71e9c9d8e834a89835a46ef13a6a5dc9383d5c937722220fadc925ec6a30e4",
+    "verified_required_files": 147,
+    "checked_at_utc": "2026-10-13T04:29:24.604090+00:00",
+    "access_mode": "Anonymous public HTTPS for manifest and every declared required file; public GitHub repo API independently checked; recipient can use the same unauthenticated access mode.",
+    "receipt": "REMOTE_VERIFICATION.json",
+    "scope": "Post-publication delivery attestation; source/count/acceptance fields unchanged from immutable payload."
+  },
   "independent_style_review": {
     "file": "ROOT_CONTEXT_REVIEW_20261012.json",
     "sha256": "ab19b2d0a681322a79dcc187cba397de51d6c5201c67f2970c430d2cadda55e6",

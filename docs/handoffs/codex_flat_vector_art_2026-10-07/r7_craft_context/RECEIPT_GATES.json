@@ -1,0 +1,51 @@
+{
+  "schema": 1,
+  "checked_at_utc": "2026-10-13T04:33:35.101030+00:00",
+  "status": "PASS",
+  "commands": [
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_document_authority.py"
+      ],
+      "returncode": 0,
+      "output_sha256": "f68dce853c1033c9f4f0d5ac820713fab1020716276720958539a72802f62fa6",
+      "output": "DOCAUTH|INVENTORY=709|LEDGER=709|ACTIVE=68|RECORDS=71\r\nDOCAUTH|RESULT|ALL OK\r\n"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_development.py",
+        "--base",
+        "auto"
+      ],
+      "returncode": 0,
+      "output_sha256": "fe1136f6488648e75036829fb4dde2405eb9ed57eec05f046fe441463c20d023",
+      "output": "AUDITDEV|BASE|e2b3c73789707aa49a91b4f42e2a9dd4b68225df\r\nAUDITDEV|RESULT|ALL OK\r\n"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_game_2d.py",
+        "--regression-gate"
+      ],
+      "returncode": 0,
+      "output_sha256": "763e51b38ed1cefc7a506b7148b9d6822c3a647d2fb45e1b64c8f22cb194e0ac",
+      "output": "GAME2D| DEBT| model_files=0| model_scan_coverage_files=0| active_export_model_files=0| model_import_sidecars=0| active_untracked_model_import_sidecars=0| model_archive_files=0| production_3d_files=52| probe_3d_files=61| scene_3d_files=1| configuration_3d_files=1| archive_now_model_files=0\r\nGAME2D| STATUS| UNSATISFIED\r\nGAME2D| RESULT| NO_REGRESSION - exact shrinking baseline; migration debt remains UNSATISFIED\r\n"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r7_craft_context\\validate.py"
+      ],
+      "returncode": 0,
+      "output_sha256": "a827546586118afa675242a260d14d6f2916fabfef129ec229f05b89fe17ad02",
+      "output": "R7|ALL OK|80native/5viewed/4observations;224frozen+1whole fish;77partial/0complete;unknown denominator;0accepted;6negative controls\r\n"
+    }
+  ],
+  "acceptance": "Receipt-only metadata. No runtime or creative acceptance."
+}
