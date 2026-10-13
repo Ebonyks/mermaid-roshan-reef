@@ -1,0 +1,153 @@
+{
+  "schema": "luna_playthrough_report/1",
+  "session_id": "L53",
+  "reviewer": {
+    "agent_id": "/root/luna_playtest_coordinator/luna_l53",
+    "model": "gpt-6-luna"
+  },
+  "baseline": "e2b3c73789707aa49a91b4f42e2a9dd4b68225df",
+  "focus": "Session handoffs and scene clip agency",
+  "runtime_receipt": "audit/cycles/luna-playtest-20261012/runtime/L53/attempt_1/receipt.json",
+  "evidence_kind": "INTERNAL_PROBE",
+  "route_status": {
+    "proven_scope": "The exact Godot 4.7.2 scripted story-clip probe passed: all 13 manifest clips were present, the real OGV started, Back and double-tap exits restored pause state, transformation queued before the epilogue/Day Two card, and clip-seen save state persisted (runtime/L53/attempt_1/probe.log: RESULT: PASS failures=0).",
+    "route_gaps": "This probe calls the boss-defeated and Day Two hooks directly after assigning Day One state (scripts/probe_day_one_story_clips.gd:119-137); it does not reach these moments through a visible child-played route. Playback is headless with a synthetic clock/input fixture, so no Mobile image, actual finger timing, audio, device, or child experience is proven."
+  },
+  "verdict": "INCOMPLETE",
+  "timing": {
+    "code_constants": [
+      {
+        "value": "Double-tap interval <= 450 ms; each tap held <= 350 ms; <= 24 px movement; taps within 80 px.",
+        "evidence": "scripts/day_one_story_clips.gd:12-16,176-197",
+        "scope": "Code thresholds; runtime fixture uses a deterministic synthetic millisecond clock, not a child or device measurement."
+      },
+      {
+        "value": "Playback timeout = manifest duration + 8 seconds (minimum 1 second plus margin).",
+        "evidence": "scripts/day_one_story_clips.gd:108-112",
+        "scope": "Fallback timer code; normal end uses VideoStreamPlayer.finished. No gameplay session duration is established."
+      }
+    ],
+    "gameplay_duration": null,
+    "assumptions": "Probe process-frame waits are test synchronization, not child-facing clip duration. The helper wall time is not gameplay time."
+  },
+  "tactile": {
+    "target_size": "The video fills a 16:9 aspect-fit area inside a full-screen overlay (scripts/day_one_story_clips.gd:84-107); there is no visible skip target to measure. Back is the alternate route. Physical target size on the Lenovo Tab M11 is unmeasured.",
+    "press_response": "One tap is consumed by the movie; a second short tap meeting the 450 ms/80 px limits skips on release. The helper verifies the completion callback once and pause restoration, not rendered response latency (scripts/day_one_story_clips.gd:176-197; story_movie_skip_cases.gd:25-34).",
+    "drag_hold_release": "A hold over 350 ms, drag over 24 px, canceled touch, or two simultaneous contacts invalidate the tap pair; the fixture checks each case (story_movie_skip_cases.gd:48-85).",
+    "ownership": "Input tracks a single contact and resets the pending pair when multiple contacts are present; device-emulated mouse events are discarded to avoid counting Android touch twice (scripts/day_one_story_clips.gd:132-168). Synthetic fixture only; real touch ownership is unmeasured.",
+    "cancellation": "Focus-out/background suspends playback and timer and clears pending taps; focus-in/resume starts a fresh pair (scripts/day_one_story_clips.gd:204-221; story_movie_skip_cases.gd:88-108). Back calls skip through the navigation stack (scripts/main.gd:6791-6798)."
+  },
+  "play_appeal": {
+    "agency": "Hypothesis: a self-paced double-tap or persistent Back route lets a child move through between-scene story beats when ready, while a single accidental tap does not cut the story short. No child tested that choice.",
+    "variety": "The manifest and hook map span opening, room arrivals/completions, rescue, rainbow route, boss arrival/transformation, and epilogue (scripts/probe_day_one_story_clips.gd:15-39). The probe confirms wiring, not felt variety.",
+    "world_response": "The clip overlay covers the castle and its voice caption; completion, skip, or cancellation restores covered layers (scripts/main.gd:6799-6812,6816-6835). Probe checks the handoff path, but no rendered transition was reviewed.",
+    "replay": "A clip is marked seen and queued for save immediately after successful setup; the same save will not replay it (scripts/main.gd:6783-6801). This supports once-only continuity, though an interruption just after start may consume the clip; child tolerance for that outcome is untested.",
+    "fun_score": null
+  },
+  "play_sequence": [
+    {
+      "beat": "Reach a Day One room arrival through the visible castle route; let its linked clip begin, then wait 2 rendered frames for playback startup.",
+      "inputs": "One finger selects the room. Do not tap the video during this beat.",
+      "grounding": "Room-to-clip map: scripts/main.gd:6846-6856; startup: scripts/day_one_story_clips.gd:123-127; probe startup waits: scripts/probe_day_one_story_clips.gd:108-115."
+    },
+    {
+      "beat": "During an arrival clip, tap once and wait 451 ms before the next tap; confirm it continues.",
+      "inputs": "One short tap, 451 ms pause, one short tap at the same point.",
+      "grounding": "The fixture advances the synthetic clock by DOUBLE_TAP_MS + 1 and asserts no skip: tools/tests/fixtures/story_movie_skip_cases.gd:35-40."
+    },
+    {
+      "beat": "Try a short tap pair 100 px apart; confirm the clip continues, then use the visible Back control once to exit.",
+      "inputs": "Two taps 100 px apart, then Back once.",
+      "grounding": "Distant taps do not skip in tools/tests/fixtures/story_movie_skip_cases.gd:42-46; Back is wired to preview.skip in scripts/main.gd:6791-6798."
+    },
+    {
+      "beat": "On a fresh clip, perform two short taps within 450 ms and 80 px; confirm it ends once and gameplay resumes.",
+      "inputs": "Two same-type taps; each press-release <=350 ms and movement <=24 px.",
+      "grounding": "Thresholds and release behavior: scripts/day_one_story_clips.gd:12-16,176-197; fixture once-only assertion: tools/tests/fixtures/story_movie_skip_cases.gd:25-34."
+    },
+    {
+      "beat": "Trigger the boss-defeated boundary through play; let the transformation clip finish or skip, then let the queued epilogue finish or skip before the Day Two card appears.",
+      "inputs": "Complete the boss action, then use Back once per clip if desired.",
+      "grounding": "Direct probe hook and transition assertions: scripts/probe_day_one_story_clips.gd:119-151; queued clip drain precedes transition: scripts/day_one_flow.gd:396-412. Visible gameplay route remains unproven here."
+    },
+    {
+      "beat": "Re-enter the same save and reach the same story moment; verify the seen clip does not replay and progress remains saved.",
+      "inputs": "No skip input required on the revisited clip; use the same save profile.",
+      "grounding": "Seen flag and queued save: scripts/main.gd:6783-6801; probe checks no replay and persisted IDs: scripts/probe_day_one_story_clips.gd:152-160."
+    }
+  ],
+  "observations": [
+    {
+      "title": "Exact-build probe verifies the clip lifecycle and story queue",
+      "classification": "CONFIRMED_RUNTIME",
+      "evidence": [
+        "audit/cycles/luna-playtest-20261012/runtime/L53/attempt_1/probe.log: DAY_ONE_STORY_CLIPS|RESULT: PASS failures=0; all 13 clips present and real OGV startup, skip-once, save persistence, transformation-to-epilogue handoff assertions pass.",
+        "scripts/probe_day_one_story_clips.gd:108-160: exercises a standalone player, then directly calls boss and Day Two hooks and checks queued card order and save state."
+      ],
+      "rules": ["DL-CIN-16", "DL-SAVE-04", "DL-QA-02"],
+      "existing_findings": [],
+      "reproduction": "Run the retained receipt command once; it completed with exit code 0 and no failure lines. The story boundary is injected in the probe, so this proves the tested lifecycle assertions, not the preceding gameplay route.",
+      "child_impact": "Ordered clips can connect room play and the transformation/epilogue without the Day Two card overtaking them; a child-visible route or comprehension is not established.",
+      "proposed_repair": "No runtime repair indicated by this probe. Keep the routed visual/device and child evidence separate from this scripted lifecycle pass.",
+      "acceptance_test": "On a fresh profile, reach the boss boundary through touch gameplay and capture transformation, queued epilogue, card handoff, and a save reload without direct state injection."
+    },
+    {
+      "title": "Skip is intentionally a precise double-tap or Back action",
+      "classification": "CONFIRMED_CODE",
+      "evidence": [
+        "scripts/day_one_story_clips.gd:12-16,176-197: 450 ms pair window, 350 ms maximum individual tap, 24 px motion tolerance, 80 px pair distance; one valid tap alone leaves playback running.",
+        "tools/tests/fixtures/story_movie_skip_cases.gd:25-85,110-124: checks one tap, emulated mouse, late/distant pair, hold, drag, multi-touch, cancellation and one-time completion."
+      ],
+      "rules": ["DL-AGE-02", "DL-UI-01", "DL-UI-04", "DL-QA-02"],
+      "existing_findings": [],
+      "reproduction": "Inspect the input handler and the shared fixture; the automated fixture passes under a synthetic clock. No physical touch was observed.",
+      "child_impact": "A clear Back control offers a conventional exit, while requiring two quick taps without an on-screen cue may be undiscoverable or too exact for some young children.",
+      "proposed_repair": "No change justified from source review alone; validate the existing Back affordance and the double-tap gesture with a child before considering an alternative.",
+      "acceptance_test": "On the target phone, verify a child can continue the clip after a stray tap and can discover one reliable skip route without adult instruction; record actual tap spacing and whether Back is found."
+    },
+    {
+      "title": "The overlay has no in-video skip prompt",
+      "classification": "CONFIRMED_CODE",
+      "evidence": [
+        "scripts/day_one_story_clips.gd:84-107 builds a black background, aspect-fit video, and player; no child-facing skip prompt/control is created in setup.",
+        "scripts/main.gd:6787-6798 places the story layer at 28 below game-wide Back at 29 and routes Back to skip; comments say taps on the clip are swallowed."
+      ],
+      "rules": ["DL-AGE-01", "DL-AGE-06", "DL-UI-01", "DL-UI-05"],
+      "existing_findings": [],
+      "reproduction": "Code inspection only. The probe asserts Back is wired and the overlay stops input; it does not capture or assess its visible affordance.",
+      "child_impact": "A child who wants to leave a long clip may need to notice and understand the separate Back control; the double-tap route has no visible teaching cue in the clip overlay.",
+      "proposed_repair": "Keep the current interface until a phone/child observation establishes whether the existing Back cue is discoverable; do not infer a defect from headless source inspection alone.",
+      "acceptance_test": "Show the running clip to a child unfamiliar with the gesture and observe whether they can either wait comfortably or find Back to return, without prompting."
+    },
+    {
+      "title": "Once-only persistence begins when playback starts",
+      "classification": "CONFIRMED_CODE",
+      "evidence": [
+        "scripts/main.gd:6794-6801: after successful setup, marks movie_id seen and queues a save before waiting for the finished signal.",
+        "scripts/day_one_story_clips.gd:204-221 pauses playback while app focus is lost; it does not clear the seen flag or replay on resume."
+      ],
+      "rules": ["DL-SAVE-04", "DL-UI-05", "DL-QA-05"],
+      "existing_findings": [],
+      "reproduction": "Source trace; the probe verifies seen persistence and focus suspension separately, but does not kill the app mid-clip and reload.",
+      "child_impact": "An interruption after clip start can leave the child with the story marked seen even if they watched only part of it; whether this creates confusion or is acceptable is unknown.",
+      "proposed_repair": "No repair proposed absent a reproduced harmful interruption case; test mid-clip app exit and re-entry on the target phone.",
+      "acceptance_test": "Start a clip, background or terminate the app at a recorded point, reopen the same save, and observe whether the child can continue the route without a confusing missing story beat or lost progress."
+    }
+  ],
+  "strengths": [
+    {
+      "claim": "A single tap does not accidentally skip the story; the tested completion paths restore the prior pause state once.",
+      "evidence": "tools/tests/fixtures/story_movie_skip_cases.gd:25-34; scripts/day_one_story_clips.gd:233-247."
+    },
+    {
+      "claim": "The transformation and epilogue queue before the Day Two card, and the story clip covers the castle layer while active.",
+      "evidence": "scripts/day_one_flow.gd:396-414; scripts/main.gd:6799-6812,6816-6835; scripted queue assertions in scripts/probe_day_one_story_clips.gd:119-151."
+    }
+  ],
+  "acceptance_gaps": [
+    "No routed-input proof through actual room completion, boss defeat and Day Two handoff; the probe injects state/hooks directly.",
+    "No Mobile-rendered evidence of the full-screen clip, Back visibility, aspect-fit bars or return seam.",
+    "No Lenovo Tab M11 touch latency, target dimensions, playback performance, audio audibility or interruption/reload evidence.",
+    "No observed-child evidence for skip discoverability, clip comfort, comprehension, agency, replay or fun; no owner acceptance is established."
+  ]
+}

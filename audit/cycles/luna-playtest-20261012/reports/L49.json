@@ -1,0 +1,226 @@
+{
+  "schema": "luna_playthrough_report/1",
+  "session_id": "L49",
+  "reviewer": {
+    "agent_id": "/root/luna_playtest_coordinator/luna_l49",
+    "model": "gpt-6-luna"
+  },
+  "baseline": "e2b3c73789707aa49a91b4f42e2a9dd4b68225df",
+  "focus": "Corrupt/truncated saves recovery and unknown keys",
+  "runtime_receipt": "audit/cycles/luna-playtest-20261012/runtime/L49/attempt_1/receipt.json",
+  "evidence_kind": "INTERNAL_PROBE",
+  "route_status": {
+    "proven_scope": "The unchanged probe_save_recovery completed its isolated save-fixture assertions on exact Godot 4.7.2-stable. It verifies backup creation, unknown-key round trips, truncation and typed/incomplete corruption fallback, field-local preference repair, future-schema protection, defaults for additive keys, and New Game archive restore.",
+    "route_gaps": "The probe instantiates ReefMain and writes test save files and damaged JSON directly; it does not open a player-facing Continue route, send touch input, kill/relaunch the real app, or observe recovery feedback. The save system is called by live startup via main.gd:1078 and routed through _write_save at :3296-3311, but those gameplay routes are outside this probe. MA-SAVE-001 remains open for castle interaction scratch progress and is outside this recovery focus."
+  },
+  "verdict": "INCOMPLETE",
+  "timing": {
+    "code_constants": [
+      {
+        "value": "The focused probe has no frame waits, timers, or input delays; its fixture setup and checks execute synchronously in _init.",
+        "evidence": "scripts/probe_save_recovery.gd:21-36, 123-131, 327-334",
+        "scope": "Harness execution only; not a gameplay duration."
+      },
+      {
+        "value": "Startup calls _load_save directly; failed writes set save_dirty and a 1.5-second retry delay.",
+        "evidence": "scripts/main.gd:1078; scripts/main.gd:3296-3311",
+        "scope": "Code timing policy, not measured user-visible latency; retry behavior was not exercised by this probe."
+      }
+    ],
+    "gameplay_duration": null,
+    "assumptions": "No gameplay or child-session duration is estimated. The receipt's 13.933-second wall time is test execution time only."
+  },
+  "tactile": {
+    "target_size": "Not measured; no UI target is touched in this save fixture probe.",
+    "press_response": "No press is sent. Startup load and the _write_save retry path are code-inspected, not latency-tested.",
+    "drag_hold_release": "No drag, hold, or release input is sent.",
+    "ownership": "No touch ownership or multitouch behavior is exercised.",
+    "cancellation": "No pause, focus loss, activity leave, or app termination is sent while an action is active."
+  },
+  "play_appeal": {
+    "agency": "Hypothesis: recovering the last complete progress lets a child keep her prior choices after a crash; no child experienced this run.",
+    "variety": "Not assessed; the probe does not enter a game activity.",
+    "world_response": "Recovery restores serialized values and repairs a JSON file, but this run does not inspect any visible world response or explanation.",
+    "replay": "Whether a child wants to return after recovery, or notices a replay loop, is unknown.",
+    "appeal_test": "On a Lenovo Tab M11 with an isolated test save, have an adult prepare a valid primary/backup pair containing one recognizable completed milestone and an unknown marker, then truncate only the primary and launch. Let the child use the visible Continue control without explanation. Record whether she recognizes the restored room/milestone, chooses to continue for 60 seconds, repeats or abandons the same action, and shows confusion or frustration; then verify the marker and progress survived. Repeat once with a clean save as control. Do not use a child's real save for fault injection.",
+    "fun_score": null
+  },
+  "play_sequence": [
+    {
+      "beat": 1,
+      "action": "The probe clears only its dedicated user:// fixture files, creates ReefMain and seeds pearls, dungeon progress, touch mode, and unknown dictionary/list fields; no process-frame wait occurs.",
+      "input": "No player input; direct fixture assignments.",
+      "evidence": "scripts/probe_save_recovery.gd:5-36"
+    },
+    {
+      "beat": 2,
+      "action": "It writes once and checks that the primary and .bak exist, schema version is set, and unknown dictionary/list fields remain.",
+      "input": "No player input; direct state.write_save().",
+      "evidence": "scripts/probe_save_recovery.gd:35-47"
+    },
+    {
+      "beat": 3,
+      "action": "It changes fixture values, writes again, verifies new primary plus prior-known-good backup, then constructs a fresh SaveState and confirms selected progress reloads.",
+      "input": "No player input; direct property mutations and method calls.",
+      "evidence": "scripts/probe_save_recovery.gd:49-71"
+    },
+    {
+      "beat": 4,
+      "action": "It replaces the primary with the exact text '{truncated}', then checks that the .bak is selected, pearls 17 and dungeon checkpoint 4 are recovered, and the primary becomes readable after repair.",
+      "input": "No player input; direct file fixture write and recovery calls.",
+      "evidence": "scripts/probe_save_recovery.gd:123-131; runtime/L49/attempt_1/probe.log: truncated-primary assertions"
+    },
+    {
+      "beat": 5,
+      "action": "It supplies a wrong-typed critical value and then a valid but incomplete document; both select the clean backup. A newer primary with invalid quality/touch preferences instead keeps its pearls and repairs touch mode to Hybrid.",
+      "input": "No player input; direct JSON fixture writes.",
+      "evidence": "scripts/probe_save_recovery.gd:133-161; runtime/L49/attempt_1/probe.log: typed recovery, incomplete fallback, noncritical repair assertions"
+    },
+    {
+      "beat": 6,
+      "action": "It presents a future-schema primary, requests a write, and verifies failure is reported while the file remains byte-for-byte unchanged; a future backup also wins over an older clean temp.",
+      "input": "No player input; direct file setup and write_save call.",
+      "evidence": "scripts/probe_save_recovery.gd:163-187; runtime/L49/attempt_1/probe.log: future-schema assertions"
+    },
+    {
+      "beat": 7,
+      "action": "It adds a future-version temp beside a current save, confirms writes still succeed, then removes newer-added fields from a current primary and checks defaults are restored without choosing an older backup.",
+      "input": "No player input; direct sidecar and save mutations.",
+      "evidence": "scripts/probe_save_recovery.gd:189-231; runtime/L49/attempt_1/probe.log: stale future temp and core-quartet assertions"
+    },
+    {
+      "beat": 8,
+      "action": "It creates a New Game archive, refuses a corrupt archive, then restores the clean archive transactionally while preserving unknown fields and advancing generation.",
+      "input": "No player input; direct fixture edits and archive method calls.",
+      "evidence": "scripts/probe_save_recovery.gd:292-325; runtime/L49/attempt_1/probe.log: archive restore assertions"
+    }
+  ],
+  "observations": [
+    {
+      "title": "A truncated primary recovers the prior complete save and repairs the primary",
+      "classification": "CONFIRMED_RUNTIME",
+      "evidence": [
+        "runtime/L49/attempt_1/receipt.json: PASS; exact engine 4.7.2.stable.official.ed1daf0bf, isolated profile, exit 0, no timeout or failure lines.",
+        "runtime/L49/attempt_1/probe.log: truncated primary found clean recovery copy; backup selected; pearls 17 and dungeon progress 4 restored; repaired primary readable.",
+        "scripts/probe_save_recovery.gd:123-131 writes '{truncated}' and asserts backup selection and repair."
+      ],
+      "rules": ["DL-SAVE-02", "DL-QA-02"],
+      "existing_findings": [],
+      "reproduction": "The one authorized L49 invocation completed with SAVE_RECOVERY|RESULT: ALL OK; the truncated-primary fixture assertions are logged.",
+      "child_impact": "This recovery case could protect a child's saved progress after an interrupted write; visible Continue and room restoration were not exercised.",
+      "proposed_repair": "No code repair indicated for the tested truncated-primary case. Keep the backup recovery path and test user-visible re-entry separately.",
+      "acceptance_test": "On target device, fault-inject a truncated primary into an isolated test profile with a known-good backup, launch, use visible Continue, and verify last acknowledged progress appears without an extra action or false reward."
+    },
+    {
+      "title": "Unknown save data survives writes and archive restoration",
+      "classification": "CONFIRMED_RUNTIME",
+      "evidence": [
+        "scripts/probe_save_recovery.gd:24-44 seeds and checks future_payload dictionary and future_list array.",
+        "scripts/probe_save_recovery.gd:163-177 checks a future_only_progress field is preserved byte-for-byte when the older writer refuses a write.",
+        "scripts/probe_save_recovery.gd:295-325 checks archive_unknown survives New Game archive and restore.",
+        "runtime/L49/attempt_1/probe.log: unknown dictionary/array, future save untouched, and archive unknown fields preserved assertions all pass."
+      ],
+      "rules": ["DL-SAVE-01", "DL-QA-02"],
+      "existing_findings": [],
+      "reproduction": "Run the retained L49 probe command and inspect the named unknown-field assertions; all reported OK.",
+      "child_impact": "Preserving fields from another build reduces risk of erasing progress this build does not understand; the child-visible impact is indirect and not observed.",
+      "proposed_repair": "No repair indicated in the covered paths. Continue treating unknown fields as part of the save document during normalization and transactional writes.",
+      "acceptance_test": "Round-trip unknown dictionary and array markers through write, backup recovery, and archive restore; verify exact values remain while known current-build fields normalize."
+    },
+    {
+      "title": "The probe checks field-local preference repair and avoids demoting newer progress",
+      "classification": "CONFIRMED_RUNTIME",
+      "evidence": [
+        "scripts/probe_save_recovery.gd:151-161 corrupts quality and touch_mode while setting pearls to 44; primary is retained and touch_mode normalizes to Hybrid.",
+        "scripts/save_state.gd:431-450 selects clean candidates by save_generation and retains a valid complete primary with clean progress even when a preference needs normalization.",
+        "runtime/L49/attempt_1/probe.log: noncritical damage keeps newer primary, pearls 44, invalid touch preference repairs to Hybrid."
+      ],
+      "rules": ["DL-SAVE-01", "DL-SAVE-02"],
+      "existing_findings": [],
+      "reproduction": "The exact preference_damage fixture selects TEST_PATH and verifies pearls 44 and touch_mode hybrid; its assertions pass in L49.",
+      "child_impact": "A damaged preference need not force loss of unrelated progress, but no settings screen or child-facing repair cue was viewed.",
+      "proposed_repair": "No repair indicated for these tested fields. Retain the distinction between recoverable preference damage and critical progression damage.",
+      "acceptance_test": "Inject one invalid noncritical preference alongside newer progress and a valid older backup; verify the newest progress remains, the preference defaults safely, and a separate critical-field corruption still recovers the backup."
+    },
+    {
+      "title": "Future schema writes are blocked without letting stale future sidecars disable current saves",
+      "classification": "CONFIRMED_RUNTIME",
+      "evidence": [
+        "scripts/save_state.gd:227-240 disables write_save when the selected document is future schema and returns false.",
+        "scripts/probe_save_recovery.gd:163-205 verifies the future primary stays byte-for-byte unchanged, future backup outranks an older clean temp, and a stale future temp does not block a current write.",
+        "runtime/L49/attempt_1/probe.log: all named future-schema and stale-future-temp assertions pass."
+      ],
+      "rules": ["DL-SAVE-01", "DL-SAVE-02", "DL-QA-02"],
+      "existing_findings": [],
+      "reproduction": "Probe creates future schema and stale-sidecar fixtures; exact primary, candidate and subsequent-write assertions pass.",
+      "child_impact": "The tested paths avoid silently replacing newer-build data or suppressing current-build saves because of an abandoned temp; the resulting in-memory progress may still be unsaved when writing against a future schema.",
+      "proposed_repair": "No repair indicated for selection/write protections covered here. Keep the existing save_dirty retry route visible to the caller when writes return false.",
+      "acceptance_test": "On disposable profiles, test a future primary, future backup plus older temp, and stale future temp beside a current primary; verify preservation, candidate order, reported write failure, and successful current save respectively."
+    },
+    {
+      "title": "Damaged and incomplete saves distinguish critical loss risk from additive defaults",
+      "classification": "CONFIRMED_RUNTIME",
+      "evidence": [
+        "scripts/probe_save_recovery.gd:133-149 verifies wrong-typed pearls and a syntactically valid but incomplete schema save both fall back to the clean backup.",
+        "scripts/probe_save_recovery.gd:207-230 verifies missing newer-added stickers, critters, and touch_mode default without demoting the primary or losing pearls 12.",
+        "runtime/L49/attempt_1/probe.log: wrong known type falls back, incomplete primary falls back, defaults restored, newest progress kept."
+      ],
+      "rules": ["DL-SAVE-01", "DL-SAVE-02", "DL-QA-02"],
+      "existing_findings": [],
+      "reproduction": "Run L49; inspect the wrong-type, incomplete, and core-quartet fixtures and their ALL OK log entries.",
+      "child_impact": "These code paths protect progress across schema growth and critical damage in their fixtures, though no actual legacy family save was opened in the UI.",
+      "proposed_repair": "No repair indicated for the tested schema cases. Keep new keys defaulted and preserve the frozen core completeness boundary.",
+      "acceptance_test": "Run a corpus of supported legacy saves and synthetic damaged copies through the player-facing startup path; verify added keys default, valid newer progress wins, and genuinely incomplete/critical saves use the last-known-good backup."
+    },
+    {
+      "title": "The focused recovery probe bypasses player input and app lifecycle routes",
+      "classification": "COVERAGE_GAP",
+      "evidence": [
+        "scripts/probe_save_recovery.gd:21-36 constructs ReefMain, seeds state and writes files directly; lines 123-325 mutate fixture files and call SaveState methods without UI input.",
+        "scripts/save_state.gd:98-122 loads selected data during startup and restores main state; scripts/main.gd:1078 calls _load_save.",
+        "scripts/main.gd:3296-3311 routes writes and retry state through the main game, but those caller behaviors are not driven by this probe.",
+        "runtime/L49/attempt_1/receipt.json: headless=true and rendered_mobile_acceptance=false."
+      ],
+      "rules": ["DL-QA-02", "DL-QA-04", "DL-QA-05", "DL-QA-07"],
+      "existing_findings": [],
+      "reproduction": "Read probe setup and fixture sections; no InputEvent, visible Continue tap, pause/focus event, or OS process restart appears in this test path.",
+      "child_impact": "It remains unknown whether a child can identify the recovery route, whether repaired progress is apparent, and whether touch/device timing feels responsive.",
+      "proposed_repair": "No source defect inferred. Add a routed device recovery check and observed child comprehension/appeal evidence as separate acceptance lanes.",
+      "acceptance_test": "On Lenovo Tab M11, trigger a controlled corrupt-primary/clean-backup startup in a disposable profile; let the child reach the resumed activity with touch only, then record taps, wait intervals, visible state, device pacing, and whether she chooses to continue."
+    },
+    {
+      "title": "Open castle interaction persistence finding is related but outside this recovery focus",
+      "classification": "CONFIRMED_CODE",
+      "evidence": [
+        "audit/findings/ACTIVE_FINDINGS_2026-08-13.md:1387-1405 records MA-SAVE-001 CONFIRMED_OPEN for visible castle interaction progress stored only in m.g scratch and absent from SaveState serialization.",
+        "audit/findings/ACTIVE_FINDINGS_2026-08-13.md:1406-1407 records the finding as open and related to the general append-only save contract.",
+        "scripts/save_state.gd:248-255 merges Day One, comfy-games, and Chapter Two serialization; no castle interaction serializer is merged in this write block.",
+        "design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md:1125-1130 require append-only keys, unknown-field preservation, and recoverable writes."
+      ],
+      "rules": ["DL-SAVE-01", "DL-SAVE-04"],
+      "existing_findings": ["MA-SAVE-001"],
+      "reproduction": "This is document and caller-scope context: inspect the canonical finding and the bounded SaveState serialization merge; L49 does not assert partial castle interaction state.",
+      "child_impact": "The existing finding describes visible partial castle work that can be lost on app kill or activity clear; this L49 run neither reproduces nor closes it.",
+      "proposed_repair": "Leave the canonical finding unchanged in this review; route it to the existing focused persistence work and test partial castle progress separately.",
+      "acceptance_test": "Use the existing MA-SAVE-001 acceptance: perform one of several castle interaction steps, kill/relaunch or leave/re-enter, and verify the step persists, remaining work is actionable, and legacy/unknown fields and rewards remain unchanged."
+    }
+  ],
+  "strengths": [
+    {
+      "claim": "The exact-build isolated probe covers backup recovery, unknown-field preservation, additive defaults, and safe handling of future schema documents.",
+      "evidence": "runtime/L49/attempt_1/receipt.json: PASS, no failure lines; runtime/L49/attempt_1/probe.log: all 60+ SAVE_RECOVERY assertions report OK and final result ALL OK."
+    },
+    {
+      "claim": "Critical data damage falls back while tested noncritical preference damage retains newer progress and repairs locally.",
+      "evidence": "scripts/probe_save_recovery.gd:133-161; runtime/L49/attempt_1/probe.log: wrong-known-type, incomplete-primary, noncritical-repair assertions."
+    }
+  ],
+  "acceptance_gaps": [
+    "INTERNAL_PROBE only: save files are created/mutated directly, with no routed UI corruption recovery or visible Continue input.",
+    "No real app kill/relaunch, pause, focus-loss, background/foreground, or app-suspension test.",
+    "No physical touch geometry, latency, Mobile render, performance, or audio evidence; headless receipt explicitly reports rendered_mobile_acceptance=false.",
+    "No child observation of recovery comprehension, agency, frustration, replay intent, or fun; play_appeal is a hypothesis.",
+    "MA-SAVE-001 remains CONFIRMED_OPEN for castle interaction scratch persistence; this probe does not cover that separate gap.",
+    "No owner acceptance established."
+  ]
+}

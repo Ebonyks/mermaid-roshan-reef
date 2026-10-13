@@ -1,0 +1,60 @@
+extends SceneTree
+## Standalone real viewport input fixture, not the Castle route or a device.
+
+var surface: OperaGestureSurface
+var failures: int = 0
+
+func _census() -> int:
+	var count: int = surface.pipe_tray.size()
+	if surface.pipe_drag_tile != "":
+		count += 1
+	for cell: int in range(surface.PIPE_COLS * surface.PIPE_ROWS):
+		if surface.PIPE_MOUTHS.has(String(surface.pipe_grid[cell])) and not surface.pipe_fixed[cell]:
+			count += 1
+	return count
+
+func _check(label: String, condition: bool) -> void:
+	print("PIPE_TOUCH_DIAGNOSTIC|", label, ": ", "OK" if condition else "FAIL")
+	if not condition:
+		failures += 1
+
+func _touch(index: int, pressed: bool, point: Vector2) -> void:
+	var event: InputEventScreenTouch = InputEventScreenTouch.new()
+	event.index = index
+	event.pressed = pressed
+	event.position = surface.get_global_transform_with_canvas() * point
+	get_root().push_input(event, true)
+	await process_frame
+	print("PIPE_TOUCH_DIAGNOSTIC|STATE|", JSON.stringify({"event_index": index, "pressed": pressed, "point": event.position, "held": surface.held, "owner": surface.active_touch_index, "carried": surface.pipe_drag_tile, "census": _census(), "mouse_filter": surface.mouse_filter, "visible": surface.is_visible_in_tree()}))
+
+func _init() -> void:
+	call_deferred("_run")
+
+func _run() -> void:
+	get_root().size = Vector2i(1280, 720)
+	surface = OperaGestureSurface.new()
+	surface.size = Vector2(852, 560)
+	get_root().add_child(surface)
+	surface.configure("pipe", Color.WHITE, 1, "")
+	surface.armed_only = false
+	surface.set_block_signals(true)
+	await process_frame
+	var initial: int = _census()
+	var tray: Vector2 = surface._pipe_tray_rect(0).get_center()
+	await _touch(7, true, tray)
+	_check("owner press carries exactly one tile", surface.held and surface.active_touch_index == 7 and surface.pipe_drag_tile != "" and _census() == initial)
+	var carried: String = surface.pipe_drag_tile
+	var remaining: int = surface.pipe_tray.size()
+	await _touch(9, true, surface._pipe_tray_rect(0).get_center())
+	_check("second finger cannot overwrite the carried tile", surface.active_touch_index == 7 and surface.pipe_drag_tile == carried and surface.pipe_tray.size() == remaining and _census() == initial)
+	await _touch(9, false, Vector2(10, 10))
+	_check("unowned release preserves the carry", surface.held and surface.pipe_drag_tile == carried and _census() == initial)
+	await _touch(7, false, surface._pipe_cell_rect(5).get_center())
+	_check("owner release places the original tile", carried != "" and not surface.held and String(surface.pipe_grid[5]) == carried and _census() == initial)
+	await _touch(7, true, surface._pipe_tray_rect(0).get_center())
+	await _touch(7, false, surface._pipe_cell_rect(6).get_center())
+	_check("next tile remains available and conserves the round", surface.pipe_tray.is_empty() and String(surface.pipe_grid[6]) == "H" and _census() == initial)
+	await create_timer(9.0).timeout
+	_check("round one remains completable after the second touch", surface.pipe_round >= 1)
+	print("PIPE_TOUCH_DIAGNOSTIC|RESULT: ", "PASS" if failures == 0 else "FAIL", " failures=", failures)
+	quit(0 if failures == 0 else 1)

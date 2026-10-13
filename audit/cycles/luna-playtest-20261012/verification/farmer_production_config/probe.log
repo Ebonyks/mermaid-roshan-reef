@@ -1,0 +1,20 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+ERROR: OperaCareerWorld2D: rejected invalid Chapter 2 phase override
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] setup (res://scripts/opera_career_world_2d.gd:704)
+       [1] start (res://scripts/opera_act.gd:78)
+       [2] start (res://scripts/opera_house.gd:256)
+       [3] _init (res://audit/cycles/luna-playtest-20261012/review_tools/chapter2_farmer_diagnostic.gd:26)
+FARMER_CONFIG_DIAGNOSTIC|{"armed_station":-1,"config_keys":["reward_policy","chapter2_story_career","chapter2_tutorial","run_context","win_line"],"director_allows_farmer":true,"explicit_phases_supplied":false,"fixture":"Injected post-boss chapter state; actual director/House/Act call chain; no supplied phase override.","has_surface":false,"house_reports_started":true,"phase_count":0,"station_count":0}
+FARMER_CONFIG_DIAGNOSTIC|Healthy first task: FAIL
+SCRIPT ERROR: Invalid assignment of property or key 'value' with value of type 'float' on a base object of type 'Nil'.
+   at: OperaCareerWorld2D.update_competition (res://scripts/opera_career_world_2d.gd:3770)
+   GDScript backtrace (most recent call first):
+       [0] update_competition (res://scripts/opera_career_world_2d.gd:3770)
+       [1] _process (res://scripts/opera_act.gd:94)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_timing_position' in base 'Nil'.
+   at: OperaCareerWorld2D._process (res://scripts/opera_career_world_2d.gd:4657)
+   GDScript backtrace (most recent call first):
+       [0] _process (res://scripts/opera_career_world_2d.gd:4657)

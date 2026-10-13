@@ -1,0 +1,22 @@
+{
+  "schema": "advisory_sensor/1",
+  "name": "opera-pacing",
+  "status": "CAPPED",
+  "reason": "at least one simulated run reached its cap",
+  "command": [
+    "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64_console.exe",
+    "--headless",
+    "--path",
+    "C:\\Users\\Peter\\.codex\\worktrees\\luna-playtest-20261012\\mermaid-roshan-reef",
+    "-s",
+    "scripts/probe_opera_balance.gd",
+    "--",
+    "--touch"
+  ],
+  "exit_code": 0,
+  "output_sha256": "db228f780d1168bf6da362c156888772470d6eaca197853fda5b6e9713d80995",
+  "required_outputs": [],
+  "started_ns": 1791856926828305500,
+  "finished_ns": 1791856967990323300,
+  "outputs": {}
+}

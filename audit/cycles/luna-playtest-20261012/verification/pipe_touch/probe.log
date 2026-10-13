@@ -1,0 +1,9 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+PIPE_TOUCH_DIAGNOSTIC|owner press carries exactly one tile: FAIL
+PIPE_TOUCH_DIAGNOSTIC|second finger cannot overwrite the carried tile: FAIL
+PIPE_TOUCH_DIAGNOSTIC|unowned release preserves the carry: FAIL
+PIPE_TOUCH_DIAGNOSTIC|owner release places the original tile: OK
+PIPE_TOUCH_DIAGNOSTIC|next tile remains available and conserves the round: FAIL
+PIPE_TOUCH_DIAGNOSTIC|round one remains completable after the second touch: FAIL
+PIPE_TOUCH_DIAGNOSTIC|RESULT: FAIL failures=5

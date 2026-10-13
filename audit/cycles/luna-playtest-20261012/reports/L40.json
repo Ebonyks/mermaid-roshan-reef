@@ -1,0 +1,117 @@
+{
+  "schema": "luna_playthrough_report/1",
+  "session_id": "L40",
+  "reviewer": {"agent_id": "/root/luna_playtest_coordinator/luna_l40", "model": "gpt-6-luna"},
+  "baseline": "e2b3c73789707aa49a91b4f42e2a9dd4b68225df",
+  "focus": "Dolls mechanic vs missing child route",
+  "runtime_receipt": "audit/cycles/luna-playtest-20261012/runtime/L40/attempt_1/receipt.json",
+  "evidence_kind": "INTERNAL_PROBE",
+  "route_status": {
+    "proven_scope": "The unchanged probe ran once on Godot 4.7.2-stable with an isolated profile and finished DOLLS|result: ALL OK. It verifies passive safe misses, mercy, routed synthetic screen press/drag/release, three intentional catches, medals/save/trophy, clean exit, and replay. Its entry is internal: it sets friend['found'] = true and invokes main._start_game(friend) directly (scripts/probe_dolls.gd:52,79), so it does not demonstrate a normal child route to Faron.",
+    "route_gaps": "Dolls is listed in the dormant row of the current matrix. The source registers Faron as a Dolls friend and has the game build/tick dispatch, but this session traced no live ordinary-world route that reveals and starts this activity from a fresh save (scripts/main.gd:796-802, 7873-7890, 7970-7984). No Mobile-rendered view, physical Lenovo Tab M11 input/latency, child comprehension/appeal, or owner acceptance was observed. Probe wall time is not play duration."
+  },
+  "verdict": "INCOMPLETE",
+  "timing": {
+    "code_constants": [
+      {"value": "The Dolls surface starts with a 0.18-second spawn timer; babies begin at y=-0.12, catch at y=0.74, and pillow-land at y=0.91 (scripts/games/dolls.gd:246; scripts/opera_nursery_catch.gd:20-21,131-149,172-203).", "scope": "At initial speed 0.205 normalized heights/s, estimated time from spawn to catch is about 4.2 simulated seconds and to pillow landing about 5.0 seconds; these calculations exclude frame scheduling and are not observed display timings."},
+      {"value": "Each press or drag refreshes the live-input gate to 2.0 seconds (scripts/opera_nursery_catch.gd:22,89-92,110-127).", "scope": "Source timer; no child cadence or device latency measured."},
+      {"value": "After two misses, later dolls spawn near the current cradle with an alternating 0.035-0.11 normalized offset and speed reduced from 0.205 by 0.011 per miss, down to 0.115 (scripts/opera_nursery_catch.gd:131-149).", "scope": "Code-defined mercy; perceived fairness unknown."},
+      {"value": "The assigned probe sets Engine.time_scale=6.0 and drives one frame at a time; its 17.181-second process wall time is recorded in the receipt (scripts/probe_dolls.gd:34-35; runtime/L40/attempt_1/receipt.json).", "scope": "Accelerated automated probe only, not game/session duration."}
+    ],
+    "gameplay_duration": null,
+    "assumptions": "No child-paced duration was observed. Source-time estimates are calculations from constants; the probe's accelerated runtime is not gameplay timing."
+  },
+  "tactile": {
+    "target_size": "The active Dolls surface is 1024×608 canvas pixels and is uniformly scaled down only as needed to fit the viewport with a 24-pixel margin (scripts/games/dolls.gd:13-14,261-278). Any press within its Control updates the cradle's normalized x, clamped to 0.10–0.90 (scripts/opera_nursery_catch.gd:44-46,89-108,110-127). This is a broad region in source coordinates; visible alignment and projected size were not measured on a device.",
+    "press_response": "A press immediately moves the catcher, refreshes its 2-second input window, and queues redraw. Each catch adds a settled baby, emits the catch signal and plays a success cue; the probe confirmed these state/callback effects (scripts/opera_nursery_catch.gd:89-92,152-159; scripts/games/dolls.gd:303-308; runtime/L40/attempt_1/probe.log). Rendered response speed and audible output were not observed.",
+    "drag_hold_release": "Screen drags continue to move the cradle; release leaves the current position but does not refresh the live window (scripts/opera_nursery_catch.gd:110-127). A catch requires fresh input while a doll crosses y=0.74 through the pillow threshold y=0.91 (scripts/opera_nursery_catch.gd:20-21,192-203). The probe routes press, repeated drag, and release events, but not a physical child's hold cadence.",
+    "ownership": "The Control stops mouse propagation and accepts active screen press/drag events (scripts/opera_nursery_catch.gd:44-46,110-127). Dolls also blocks world controls while it owns the stage and restores them on close (scripts/games/dolls.gd:201-203,329-347; probe.log confirms exclusive ownership). The focused probe did not test second-finger competition or touch-ID ownership.",
+    "cancellation": "The session verified neutral exit clears its stage and restores controls; stop() deactivates the catch surface and clears active fallers (scripts/games/dolls.gd:329-347; probe.log: neutral exit checks). Focus loss, pause during a held touch, and OS-canceled touch were not exercised."
+  },
+  "play_appeal": {
+    "agency": "Hypothesis: sliding the visible cradle to catch each sleepy doll offers a simple caretaker role with immediate visible progress. The code requires recent intentional movement at the catch point; whether a child understands that rule is unknown.",
+    "variety": "Hypothesis: dolls vary across lanes and sway, while a successful catch keeps a baby visible in Roshan's cradle. Since the fixed goal is three, the short loop may feel approachable; no child or rendered session tested this impression.",
+    "world_response": "The source draws picture pips, a pulsing cradle focus, a safe landing mat, falling dolls, and settled dolls; catches trigger success audio and misses call Faron's rate-limited miss line (scripts/games/dolls.gd:99-182,303-315). The probe confirms state and cue dispatch only, not visual quality or heard playback.",
+    "replay": "The internal probe proves clean re-entry and a better medal upgrade without a duplicate trophy. It does not establish a normal child-facing start route or a child's wish to replay.",
+    "fun_score": null,
+    "concrete_test_or_proposal": "On a consented Lenovo Tab M11 after a real visible route is available, start from fresh progress without an adult explaining controls. Observe whether the child discovers dragging the cradle, renews input near contact, understands the safe pillow landing, and chooses to replay after the three-baby finish. Record touch misses, whether the child follows a swaying/offset doll, and any spontaneous request to continue; do not infer appeal from probe completion."
+  },
+  "play_sequence": [
+    {"beat": 1, "input": "Reach Faron through a real visible route when one exists; let the child enter Dolls and inspect the moving baby and cradle without coaching.", "wait": "Wait for the spoken greeting and first doll; code initializes a 0.18-second spawn timer, but cue and rendered spawn latency are unmeasured.", "basis": "The probe directly sets found and calls _start_game, bypassing the ordinary route (scripts/probe_dolls.gd:52,79); build creates the three-catch surface and greeting (scripts/games/dolls.gd:189-255)."},
+    {"beat": 2, "input": "Let the child watch one doll fall without touching; watch for a pillow-safe landing and whether the child understands it can be caught next time.", "wait": "From y=-0.12 to pillow y=0.91 at speed 0.205 is about 5.0 simulated seconds, excluding scheduling; this is a source calculation, not measured screen time.", "basis": "The probe intentionally allows passive misses and confirms zero catches, unchanged progress, safe landings, and a Faron miss cue (scripts/probe_dolls.gd:79-150; runtime/L40/attempt_1/probe.log)."},
+    {"beat": 3, "input": "Invite no extra instruction; observe whether the child presses or drags the broad stage toward the falling doll, then continues moving near its lower crossing.", "wait": "A touch refreshes input for 2.0 seconds. Initial y=-0.12 to catch y=0.74 at speed 0.205 estimates about 4.2 simulated seconds after spawn; actual device timing is unknown.", "basis": "Press/drag mapping is scripts/opera_nursery_catch.gd:89-127; catch requires fresh input at y≥0.74 (scripts/opera_nursery_catch.gd:192-203)."},
+    {"beat": 4, "input": "After a caught doll, observe whether the child notices the doll settling with Roshan and the corresponding filled picture pip; allow the next doll to arrive.", "wait": "Spawns are scheduled at 1.02 seconds initially, then at least 0.64 seconds after a catch; timing is source time and not a measured display delay (scripts/opera_nursery_catch.gd:172-181).", "basis": "Settled dolls and three picture pips are drawn on the surface (scripts/games/dolls.gd:99-110,165-182); catch state and success cue are in scripts/opera_nursery_catch.gd:152-159 and scripts/games/dolls.gd:303-308."},
+    {"beat": 5, "input": "If two dolls have been missed, let the child try again and see whether the slower, nearer doll makes recovery understandable without adult help.", "wait": "After the second miss, allow the next spawn and its descent; exact delay depends on current spawn timer and frame progression.", "basis": "After two misses, the lane shifts near the catcher and speed decreases; a miss remains a safe landing and does not count (scripts/opera_nursery_catch.gd:131-149,161-170)."},
+    {"beat": 6, "input": "For the third catch, let the child use one finger to reposition, then release and watch the completion message and clean return to the world.", "wait": "Catch checks only while recent input remains live; after three catches _tick_dolls ends the activity (scripts/games/dolls.gd:317-327). Completion presentation duration is not measured here.", "basis": "The internal positive loop verifies routed press/drag/release, three catches, saved medal/trophy, and teardown (scripts/probe_dolls.gd:230-258; runtime/L40/attempt_1/probe.log)."},
+    {"beat": 7, "input": "After the finish, offer the child an unprompted choice to replay or leave; record the choice and any spontaneous enthusiasm or hesitation.", "wait": "For an automated re-entry the probe waits 90 process frames for reward layers, then 12 frames after starting; these are harness steps, not child-facing time (scripts/probe_dolls.gd:260-274).", "basis": "Replay starts a fresh surface and can improve the medal without duplicating the trophy (scripts/probe_dolls.gd:260-290; runtime/L40/attempt_1/probe.log)."}
+  ],
+  "observations": [
+    {
+      "title": "The catch loop is mechanically recoverable and requires intentional input",
+      "classification": "CONFIRMED_RUNTIME",
+      "evidence": ["scripts/probe_dolls.gd:79-150 starts an internally prepared run, waits through two misses, and checks no catches or save progress from passive play; runtime/L40/attempt_1/probe.log reports those assertions and DOLLS|result: ALL OK.", "scripts/opera_nursery_catch.gd:131-170 slows/retargets after misses and records safe landings without incrementing caught; :192-203 requires fresh input to catch.", "audit/cycles/luna-playtest-20261012/runtime/L40/attempt_1/receipt.json records PASS on Godot 4.7.2-stable, isolated profile, headless=true, rendered_mobile_acceptance=false."],
+      "rules": ["DL-AGE-03", "DL-AGE-04", "DL-AGE-05", "DL-AGE-06"],
+      "existing_findings": [],
+      "reproduction": "The probe waits for two misses with no input and asserts caught==0, no progress changes, and that the game remains active. It then uses routed screen events in the positive loop to steer and catch three dolls.",
+      "child_impact": "A mistake does not lose a doll or award progress, and later attempts are easier while still requiring deliberate steering. Whether the child can discover the timely drag needed remains unobserved.",
+      "proposed_repair": "No mechanical repair is established by this pass. Preserve safe landings and intentional catches; assess the instruction and input cadence in the real route with a child.",
+      "acceptance_test": "On the target device, observe an uncoached child through two safe misses and three catches. Confirm they understand the cradle action, recover independently, and receive immediate visible/audible response without passive progress."
+    },
+    {
+      "title": "The assigned probe tests routed touch events, but still constructs the run internally",
+      "classification": "CONFIRMED_RUNTIME",
+      "evidence": ["scripts/probe_dolls.gd:52 forces friend['found']=true and :79 calls main._start_game(friend), so this is not proof of the fresh-save world route.", "scripts/probe_dolls.gd:444-550 injects screen press, drag and release events through the viewport and checks the catcher position; runtime/L40/attempt_1/probe.log reports the three-doll verb assertion PASS.", "scripts/main.gd:796-802 declares Faron's Dolls friend; :7873-7890 dispatches the game when called, but this session did not establish a normally reachable interaction path."],
+      "rules": ["DL-AGE-01", "DL-AGE-06", "DL-QA-02", "DL-QA-05", "DL-QA-07"],
+      "existing_findings": ["MA-PLAY-001"],
+      "reproduction": "Read the focused setup and compare it with the dispatch code: the probe mutates found state and calls _start_game directly. Its injected input validates the surface after entry, not discovery/start from ordinary play.",
+      "child_impact": "A well-working optional activity is unavailable if a child cannot find and enter it through visible play. The assigned internal pass does not resolve whether this route gap exists in a shipping route.",
+      "proposed_repair": "No route implementation is claimed here. Trace the current production interaction graph and add an ordinary fresh-save route only if the missing route is confirmed in the authorized scope.",
+      "acceptance_test": "From a clean save, use only the normal game interface to encounter Faron, discover Dolls, enter, finish, leave and re-enter. Record every visible cue and input path, then collect separate device and child evidence."
+    },
+    {
+      "title": "A missing spoken recording for the three-catch objective is explicitly surfaced",
+      "classification": "CONFIRMED_CODE",
+      "evidence": ["scripts/games/dolls.gd:246-255 fixes the goal at three, records objective_recording_gap='faron_catch_three', keeps a visual pointer, and displays the text greeting.", "The source comment at scripts/games/dolls.gd:249-250 says the available Faron catch clip says five, so the semantically inaccurate clip is withheld.", "runtime/L40/attempt_1/probe.log reports the picture-first pointer remains while the exact goal clip is missing."],
+      "rules": ["DL-AGE-01", "DL-AGE-07", "DL-SND-01", "DL-QA-07"],
+      "existing_findings": ["MA-CHILD-001"],
+      "reproduction": "Inspect build() metadata and greeting, then verify the probe's missing-goal-clip assertion. No voice recording was modified or approved by this review.",
+      "child_impact": "The spoken cue may not communicate the precise three-catch goal; a child may rely on picture progress or the supplemental text, whose comprehension was not tested.",
+      "proposed_repair": "Keep the inaccurate five-count line withheld. Treat a correct three-count recording as an outstanding voice-authority dependency; the code currently retains the visual pointer and generic greeting.",
+      "acceptance_test": "With the approved exact-goal recording available, verify the child hears and understands the three-catch cue without reading, while the pointer and three picture pips agree with actual progress. Until then, report the voice gap separately."
+    },
+    {
+      "title": "Canvas fit and touch ownership have not been observed on the target display",
+      "classification": "COVERAGE_GAP",
+      "evidence": ["scripts/games/dolls.gd:261-278 scales the 1024×608 surface to fit the viewport and positions it centrally.", "scripts/opera_nursery_catch.gd:44-46 sets MOUSE_FILTER_STOP; :110-127 maps press/drag local x into cradle position.", "The probe validates source transforms with synthetic viewport events (scripts/probe_dolls.gd:444-550); receipt states headless=true and rendered_mobile_acceptance=false."],
+      "rules": ["DL-UI-03", "DL-UI-04", "DL-UI-05", "DL-QA-03", "DL-QA-04", "DL-QA-05", "DL-QA-07"],
+      "existing_findings": ["MA-CHILD-001", "MA-PLAY-001"],
+      "reproduction": "The assigned probe produces no Mobile rendering and does not inject competing fingers, touch cancellation, pause, or focus-loss input. Receipt and source identify the limits.",
+      "child_impact": "A surface can be generous in source coordinates yet still feel offset or small after aspect-ratio scaling. A finger or overlay ownership issue could make a correct gesture appear ignored; neither was established here.",
+      "proposed_repair": "No code change is supported by this headless result. Review the visible surface and input ownership on the supported aspect ratios and target phone.",
+      "acceptance_test": "On Lenovo Tab M11, compare the painted cradle and responsive surface at supported aspects. Try one-finger press, drag, release, second finger, canceled touch, pause and exit; verify the correct finger controls the cradle and no stale action triggers."
+    },
+    {
+      "title": "The internal replay proves medal improvement and exactly-once trophy behavior",
+      "classification": "CONFIRMED_RUNTIME",
+      "evidence": ["scripts/probe_dolls.gd:260-290 waits for reward cleanup, re-enters a fresh surface, completes a no-miss replay, and checks gold upgrade without a second trophy.", "runtime/L40/attempt_1/probe.log reports post-win re-entry, replay catches, medal upgrade and clean teardown all OK.", "scripts/games/dolls.gd:317-347 ends at three catches and tears down its surface/control ownership."],
+      "rules": ["DL-AGE-06", "DL-SAVE-01", "DL-SAVE-04", "DL-QA-02"],
+      "existing_findings": [],
+      "reproduction": "The probe completes the first run after misses, waits 90 accelerated process frames, starts again, and completes a clean replay; persistent medal improves and trophy count remains unchanged.",
+      "child_impact": "The code supports an optional replay with a better medal and avoids duplicate trophy rewards. The child-facing choice to replay, save reload and route return were not observed.",
+      "proposed_repair": "No save or replay defect is shown by these assertions; retain additive persistence and exactly-once rewards.",
+      "acceptance_test": "From the ordinary route, win and leave, reload the save, replay, and confirm progress is retained, a better medal can be earned, and no duplicate trophy appears. Observe whether the child chooses this voluntarily."
+    }
+  ],
+  "strengths": [
+    {"claim": "The small bounded Canvas stage uses approved nursery backdrop tiles and baby cutouts, avoids the rejected widget placeholders, and keeps the cradle and babies visible in its own draw order.", "evidence": "scripts/games/dolls.gd:99-182, 209-255; runtime/L40/attempt_1/probe.log entry/art/node assertions."},
+    {"claim": "No-input play cannot catch or mutate persistent progress; misses stay safe and later attempts use mercy.", "evidence": "scripts/probe_dolls.gd:79-150; scripts/opera_nursery_catch.gd:131-170; runtime/L40/attempt_1/probe.log."},
+    {"claim": "Routed synthetic one-finger press/drag/release completes the three-catch verb, and close/replay cleanup preserves world-control ownership.", "evidence": "scripts/probe_dolls.gd:230-258,260-290,444-550; runtime/L40/attempt_1/probe.log."}
+  ],
+  "acceptance_gaps": [
+    "Ordinary fresh-save route to Faron/Dolls was not demonstrated; probe sets friend state and starts the game directly.",
+    "Headless probe is not Mobile-rendered visual acceptance or Lenovo Tab M11 performance/latency evidence.",
+    "No child comprehension, discoverability, appeal, short-session pacing, or replay choice was observed.",
+    "The exact Faron three-catch voice recording remains explicitly absent; this review grants no recording approval.",
+    "No owner acceptance was performed."
+  ]
+}

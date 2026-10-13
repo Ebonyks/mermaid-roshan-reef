@@ -1,0 +1,43 @@
+{
+  "schema": "luna_mobile_capture/1",
+  "baseline": "e2b3c73789707aa49a91b4f42e2a9dd4b68225df",
+  "command": [
+    "C:/Users/Peter/Documents/mermaid-roshan-reef/tmp/godot-4.7.2/editor/Godot_v4.7.2-stable_win64_console.exe",
+    "--windowed",
+    "--path",
+    "C:\\Users\\Peter\\.codex\\worktrees\\luna-playtest-20261012\\mermaid-roshan-reef",
+    "--rendering-method",
+    "mobile",
+    "--resolution",
+    "1280x720",
+    "--audio-driver",
+    "Dummy",
+    "-s",
+    "audit/cycles/luna-playtest-20261012/review_tools/pool_burst_diagnostic.gd",
+    "--",
+    "--touch",
+    "--classic-touch-test"
+  ],
+  "started_utc": "2026-10-13T01:00:58.016748+00:00",
+  "status": "FAIL",
+  "probe_sha256": "f0483820319d3502171384aec705a1f33950b776697f17dbdf0b7d917a38dea7",
+  "base_probe_sha256": "6c591c328b517b71528d9129d11339888fd95abda23846a20068ca8047be98e6",
+  "diagnostic": true,
+  "story_clip_cancellation": true,
+  "mode": "pool_burst_repeat",
+  "declared_tap_interval_seconds": 0.3,
+  "engine_sha256": "c8f0a6bc45a19b33541501e57f6f7cd972ab18453743266339d495cbbe846643",
+  "save_profile_isolated": true,
+  "audio": "Dummy; not listening evidence",
+  "route_limit": "Existing fixture opens room/restores state directly; captured compositions only, not fresh-save navigation or child touch/fun proof.",
+  "exit_code": 1,
+  "wall_seconds": 24.918,
+  "log_sha256": "67a74a9ea727c905adbd25df729c8d339d94e620809f600c14bcbbf035778f4f",
+  "files": [
+    {
+      "path": "audit/cycles/luna-playtest-20261012/captures/pool_burst_repeat/burst_after.png",
+      "sha256": "62bf8d925c2894a0bcd4fe3f3d6278bec9e69e936006a593c61cbc0aa42881f4",
+      "bytes": 1533153
+    }
+  ]
+}

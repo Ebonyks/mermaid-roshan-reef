@@ -1,0 +1,212 @@
+{
+  "schema": "luna_playthrough_report/1",
+  "session_id": "L26",
+  "reviewer": {
+    "agent_id": "/root/luna_playtest_coordinator/luna_l26",
+    "model": "gpt-6-luna"
+  },
+  "baseline": "e2b3c73789707aa49a91b4f42e2a9dd4b68225df",
+  "focus": "Detective clue intention vs random tapping",
+  "runtime_receipt": "audit/cycles/luna-playtest-20261012/runtime/L26/attempt_1/receipt.json",
+  "evidence_kind": "INTERNAL_PROBE",
+  "route_status": {
+    "proven_scope": "The exact assigned probe instantiates an OperaAct and Detective career world, checks a painted magnifier-tower invitation, emits that hotspot's pressed signal, simulates authored route travel, verifies the search opens on arrival, and exercises clue/propless-search logic through direct internal calls. The matrix marks this career live, but this invocation does not traverse the normal Castle route or send routed touch events.",
+    "route_gaps": [
+      "fresh-save Castle-room route to Detective and visible exit/re-entry were not traversed; the probe directly constructs the act",
+      "no real screen touch/drag, multi-touch, native Mobile render, target-phone latency/frame pacing, or aspect-ratio review",
+      "no child observed for clue comprehension, wait tolerance, voluntary continuation/replay, or adult prompting",
+      "the Chapter Two birthday Detective candle phase is not the assigned probe's free-play clue-search sequence"
+    ]
+  },
+  "verdict": "PASS",
+  "timing": {
+    "source_constants": {
+      "scripts/opera_career_world_2d.gd:56-60": "The lens clue capture radius is 112 logical pixels and the idle clue hint delay is 12.0 seconds.",
+      "scripts/opera_career_world_2d.gd:4456-4476": "A clue must remain the current lens target for 0.45 seconds after player input before it is marked found and progress is sent.",
+      "scripts/opera_career_world_2d.gd:278-280": "The source also defines a separate Detective performance set (three SEARCH clues, CASE BOARD, CROWN), but this internal focused probe does not establish that those are sequential live tasks in the assigned route."
+    },
+    "estimates": [
+      "The source gives 0.45 seconds for a stable clue dwell and 12 seconds before the delayed hint; whole activity length depends on travel, dialogue, child pace, and time spent exploring.",
+      "The runner's 10.229-second wall time is tool execution, not gameplay or child-session duration."
+    ]
+  },
+  "tactile": {
+    "target_size": "The magnifier artwork is 420x420 logical pixels with a 130-pixel functional lens radius; the clue capture radius is 112 pixels (scripts/opera_career_world_2d.gd:55-57). The probe asserts lens-art and zoom-surface minimum dimensions (scripts/probe_opera_detective.gd:78-85), but does not measure a child's projected finger target or crowding on device.",
+    "press_response": "The source moves the lens on touch-down and every screen-drag event, and also supports left mouse press/drag (scripts/opera_career_world_2d.gd:4326-4339). The probe confirms direct hotspot-to-arrival state and a clue-to-trail transition, but its clue leg calls _set_lens_position and _tick_lens internally rather than delivering those input events (scripts/probe_opera_detective.gd:38-55, 106-125). No rendered-frame latency was measured.",
+    "drag_hold_release": "The intended gesture is one-finger sweep/drag, then keeping the glass centered on a clue for 0.45 seconds; source exposes a dwell progress arc (scripts/opera_career_world_2d.gd:4451-4476, 4576). Touch-up has no explicit special behavior in _lens_input; after the lens is moved over a clue, the dwell is time-based rather than requiring a sustained press. Real release comfort was not observed.",
+    "ownership": "The assigned probe validates its scripted route and internal clue state, not actual pointer ownership. The source handles screen-touch and screen-drag events, but no second-finger arbitration or touch-router interaction is asserted by this probe.",
+    "cancellation": "The probe calls act.cancel() during teardown (scripts/probe_opera_detective.gd:136-137), but does not interrupt a real drag, pause/focus-loss, or verify post-cancel lens state. These recovery paths remain unobserved here."
+  },
+  "play_appeal": {
+    "hypothesis": "The lens makes searching a painted room feel like an active investigation: the child can sweep freely, inspect non-clue details, then follow a light trail to the next clue. Separate clue, case-board, and spotlight tasks may keep the story moving, but repeated fixed dwell searches could start to feel like scanning rather than discovery.",
+    "fun_score": null,
+    "appeal_test": "On the intended phone, let a child hear the normal voice cue and watch the initial demonstration without naming the control. Observe whether they independently move the lens, pause over a glint, follow the next trail, and distinguish optional prop reactions from clue progress. After the three clue-search steps and transition to the case board, record adult prompts, accidental clue finds, visible delight/frustration, and whether the child asks to continue or replay; do not assign a numeric fun score."
+  },
+  "observations": [
+    {
+      "title": "The tested clue only advances after intentional lens dwell",
+      "classification": "CONFIRMED_RUNTIME",
+      "evidence": [
+        "scripts/probe_opera_detective.gd:106-125 disables the demo, advances the hint timer, internally positions the glass on the first clue, ticks it, and verifies one found clue plus a trail aimed at the next clue.",
+        "scripts/opera_career_world_2d.gd:4451-4476 only marks a clue found after it stays the lens target for 0.45 seconds with lens_demo false; arbitrary phase progress does not come from the room-object reaction path at :4371-4400.",
+        "audit/cycles/luna-playtest-20261012/runtime/L26/attempt_1/probe.log:11-14 records reachable clues, optional-prop no-progress, delayed glint, and next-step trail assertions passing; receipt confirms Godot 4.7.2 stable and headless execution."
+      ],
+      "rules": [
+        "DL-AGE-04",
+        "DL-AGE-05",
+        "DL-INT-06",
+        "DL-QA-02"
+      ],
+      "existing_findings": [],
+      "reproduction": "Run the assigned focused probe. In code, contrast the optional-prop response path at _try_lens_room_object with the only clue-progress path in _tick_lens; progress requires a found clue after the stable target dwell.",
+      "child_impact": "This preserves a meaningful difference between exploring the room and discovering a clue: an unrelated tap or prop reaction does not award case progress.",
+      "proposed_repair": "No repair indicated by this bounded probe. Confirm with routed touch that ordinary rapid taps do not accidentally hold the lens on a clue long enough to count.",
+      "acceptance_test": "A routed-input probe or target-device observation shows that wandering/tapping optional objects gives friendly feedback without clue progress, while centering the glass on a clue for the dwell produces one clue and points toward the next step."
+    },
+    {
+      "title": "The route cue and delayed clue help form a readable search loop in source",
+      "classification": "CONFIRMED_CODE",
+      "evidence": [
+        "scripts/probe_opera_detective.gd:29-63 checks the painted magnifier tower as the active first hotspot, safe authored walk, arrival-gated task opening, visible optical glass, and two-line missing-crown/search setup.",
+        "scripts/opera_career_world_2d.gd:4444-4450 makes the initial ghost demonstration travel to the actual next clue without scoring; :4435-4443 sets a delayed hint and voice cue; :4469-4476 draws the trail to the next clue and issues a success response.",
+        "audit/cycles/luna-playtest-20261012/runtime/L26/attempt_1/probe.log:2-7 records the scripted route, prompt setup, and installed voice-file checks passing."
+      ],
+      "rules": [
+        "DL-AGE-01",
+        "DL-AGE-06",
+        "DL-INT-02",
+        "DL-INT-06"
+      ],
+      "existing_findings": [
+        "MA-PLAY-001",
+        "MA-OPERA-004"
+      ],
+      "reproduction": "Follow the L26 probe setup and compare its hotspot, walk, arrival, prompt, and trail assertions with the demo/hint/success branches in the cited source.",
+      "child_impact": "A visible landmark, spoken story, non-scoring demonstration, and next-clue trail can connect the room movement with the search verb without requiring reading.",
+      "proposed_repair": "No source change indicated. Test whether the child sees and follows these cues at native phone scale; the internal probe does not show the rendered cue hierarchy or prove normal-route discoverability.",
+      "acceptance_test": "From a fresh save and normal Castle route, the child finds the Detective entry, taps its visible first station, waits for Roshan to arrive, then follows the spoken/demo clue cue and later trail without adult direction; record visuals and child response separately."
+    },
+    {
+      "title": "Optional prop feedback may blur the distinction between discovery and decoration",
+      "classification": "HYPOTHESIS",
+      "evidence": [
+        "scripts/probe_opera_detective.gd:95-105 deliberately checks that an ordinary room object reacts while phase_progress remains unchanged.",
+        "scripts/opera_career_world_2d.gd:4371-4400 gives nearby ordinary objects a pulse/burst and a chime, while :4461-4476 uses a separate dwell/completion response for clues.",
+        "audit/cycles/luna-playtest-20261012/runtime/L26/attempt_1/probe.log:10 records the ordinary-prop/no-progress contract passing."
+      ],
+      "rules": [
+        "DL-AGE-05",
+        "DL-INT-02",
+        "DL-MOT-04"
+      ],
+      "existing_findings": [],
+      "reproduction": "Move the lens over an ordinary prop and then over a required clue, comparing the immediate sound/visual reaction with the later clue completion and case-progress response.",
+      "child_impact": "Friendly feedback can invite exploration, but if the prop pulse/chime resembles clue confirmation too closely, random tapping may appear to work even though it does not advance the case.",
+      "proposed_repair": "Do not remove optional reactions based on source inspection alone. If a child confuses them with found clues, make clue-completion feedback more distinct while keeping decorative exploration kind.",
+      "acceptance_test": "In a no-reading phone observation, the child can tell which lens reactions are optional and which have advanced the clue trail, without adult explanation; verify that repeated ordinary-prop taps never move the phase."
+    },
+    {
+      "title": "The assigned probe bypasses real lens touch and only samples one clue success",
+      "classification": "COVERAGE_GAP",
+      "evidence": [
+        "scripts/probe_opera_detective.gd:116-125 calls _set_lens_position and _tick_lens directly for a single clue; it does not dispatch InputEventScreenTouch/InputEventScreenDrag through _lens_input.",
+        "scripts/opera_career_world_2d.gd:4326-4339 defines the actual touch-down/drag routing; :4451-4477 defines clue finding and its follow-on trail.",
+        "audit/cycles/luna-playtest-20261012/runtime/L26/attempt_1/receipt.json records status PASS, headless=true, rendered_mobile_acceptance=false, wall_clock_is_gameplay_timing=false; the probe log ends ALL OK at line 15."
+      ],
+      "rules": [
+        "DL-UI-01",
+        "DL-UI-03",
+        "DL-UI-04",
+        "DL-QA-02",
+        "DL-QA-04",
+        "DL-QA-05",
+        "DL-QA-07"
+      ],
+      "existing_findings": [
+        "MA-PLAY-001",
+        "MA-CHILD-001",
+        "MA-OPERA-004"
+      ],
+      "reproduction": "Compare the direct internal calls in the probe with _lens_input, and inspect the runner receipt's headless/rendered acceptance fields.",
+      "child_impact": "The source mechanism may be intentional, but current evidence cannot show whether real small-finger movement holds the lens reliably, whether dwell feedback is noticed, or whether delayed help arrives before the child gives up.",
+      "proposed_repair": "No runtime change from this coverage gap. Add a routed touch path and observe the bounded search with a child on the intended phone before deciding whether the controls or hint timing need revision.",
+      "acceptance_test": "A routed-input test uses one finger to sweep, stop, lift, and resume; the glass remains controllable, optional touches do not progress, clue dwell advances once, and cancellation/re-entry do not leave stale progress. Separately observe a consented child and collect phone-size/frame-pacing evidence."
+    },
+    {
+      "title": "The existing missing-crown narrative conflict can undermine clue intention",
+      "classification": "COVERAGE_GAP",
+      "evidence": [
+        "scripts/probe_opera_detective.gd:57-63 checks the missing-crown story sequence and voice keys but asserts no full-scene visual absence of the crown.",
+        "audit/findings/ACTIVE_FINDINGS_2026-08-13.md:541-555 (MA-OPERA-002) records the open source/runtime contradiction: the supposedly missing crown remains painted into the scene, with accepted healed-source/runtime evidence and owner review still absent.",
+        "audit/cycles/luna-playtest-20261012/runtime/L26/attempt_1/receipt.json confirms no rendered Mobile acceptance frame was produced."
+      ],
+      "rules": [
+        "DL-AGE-01",
+        "DL-INT-02",
+        "DL-QA-03",
+        "DL-QA-06"
+      ],
+      "existing_findings": [
+        "MA-OPERA-002",
+        "MA-OPERA-004"
+      ],
+      "reproduction": "Compare the probe's narrative/voice-only setup assertions with MA-OPERA-002's current reproduction and inspect the full rendered missing-crown state when authoritative current Mobile evidence is available.",
+      "child_impact": "If the child can see the crown before the search, the mystery's stated objective conflicts with the scene and clue hunting may feel arbitrary or already solved.",
+      "proposed_repair": "No independent art change from this review. Preserve the existing owner/provenance process and close the scene contradiction only with the required owned derivative, exact runtime capture, and owner review evidence.",
+      "acceptance_test": "At Mobile 1280x720, show the missing state with the crown absent and the truthful reveal with crown present; verify the clue prompts make sense in both states and retain source/provenance plus owner review."
+    }
+  ],
+  "strengths": [
+    {
+      "claim": "L26's probe asserts that optional prop inspection cannot increment case progress and that finding a clue creates a trail toward the next clue.",
+      "evidence": [
+        "scripts/probe_opera_detective.gd:95-125",
+        "audit/cycles/luna-playtest-20261012/runtime/L26/attempt_1/probe.log:10-14"
+      ]
+    },
+    {
+      "claim": "The intended opening supplies a painted magnifier station, authored route arrival, optical glass, and a two-voice setup before clue search opens.",
+      "evidence": [
+        "scripts/probe_opera_detective.gd:29-63",
+        "audit/cycles/luna-playtest-20261012/runtime/L26/attempt_1/probe.log:2-7"
+      ]
+    }
+  ],
+  "play_sequence": [
+    {
+      "beat": "Enter Detective from its normal Castle-room invitation and reach the magnifier tower.",
+      "input": "From a fresh save, use the visible room route. Tap the painted magnifier station once and lift; wait through Roshan authored walk and missing-crown/search voice sequence before touching the lens.",
+      "appeal_test": "Does the child recognize the station as the start of a search and wait to see what the magnifier does?"
+    },
+    {
+      "beat": "Follow the wordless lens demonstration toward its first clue.",
+      "input": "After the spoken cue, make no input for about two seconds while the demo moves; then touch down and drag the magnifier toward the indicated glint. Stop over it and wait at least half a second for a response.",
+      "appeal_test": "Does the child notice that the demonstration points to a clue without automatically completing it?"
+    },
+    {
+      "beat": "Inspect one ordinary room detail, then deliberately return to a clue.",
+      "input": "Drag the lens across one ordinary prop and lift; wait one second for its pulse/chime to finish. Then drag to a glint, stop the lens there for about half a second, and lift.",
+      "appeal_test": "Can the child distinguish an optional prop reaction from a clue-found response and follow the resulting trail?"
+    },
+    {
+      "beat": "Follow successive light trails through the required clue search.",
+      "input": "After each clue-found line, wait for the trail to appear, drag toward its endpoint, and stop over the next clue for about half a second. Lift between sweeps; repeat until the in-game search goal advances.",
+      "appeal_test": "Does the child use the trail as a helpful next-step cue, and do the repeated search gestures remain interesting?"
+    },
+    {
+      "beat": "Wait for the delayed hint if the child pauses or loses the clue.",
+      "input": "When the lens has not found a clue, leave it alone and wait up to about twelve seconds; if the glint appears, give no extra verbal instruction and let the child drag the lens to it and pause.",
+      "appeal_test": "Does the glint arrive soon enough to help without making the child feel the game solved the clue for them?"
+    },
+    {
+      "beat": "After the search result settles, observe the child next choice.",
+      "input": "Wait two seconds after the success response and trail settle, then make no adult suggestion. Let the child use the visible in-game continuation, room return, or replay option if presented.",
+      "appeal_test": "Does the child choose to continue the mystery, explore another detail, or ask to replay?"
+    }
+  ],
+  "acceptance_gaps": [
+    "The assigned headless internal probe passes, but it invokes one clue transition through direct state methods and does not test the actual touch-down/drag path or a full three-clue search.",
+    "The probe's missing-crown narration checks do not resolve MA-OPERA-002's visual contradiction; no authoritative current Mobile capture or owner review was collected.",
+    "Normal fresh-save route, real-device touch geometry/latency/frame pacing, child comprehension/enjoyment/replay, and owner acceptance remain unobserved; the receipt explicitly says rendered_mobile_acceptance=false."
+  ]
+}

@@ -1,0 +1,114 @@
+{
+  "schema": "luna_playthrough_report/1",
+  "session_id": "L44",
+  "reviewer": {
+    "agent_id": "/root/luna_playtest_coordinator/luna_l44",
+    "model": "gpt-6-luna"
+  },
+  "baseline": "e2b3c73789707aa49a91b4f42e2a9dd4b68225df",
+  "focus": "Sky Lagoon playground pacing and return",
+  "runtime_receipt": "audit/cycles/luna-playtest-20261012/runtime/L44/attempt_1/receipt.json",
+  "evidence_kind": "INTERNAL_PROBE",
+  "route_status": {
+    "proven": "The unchanged probe entered Sky Lagoon twice, waited 12 frames after first entry and 4 frames after each build, and verified a single CanvasLayer, no spatial descendants, twelve backdrop tiles, four playground/door target IDs, and synchronous removal of the previous layer before the replacement remained live (scripts/probe_l2_reenter.gd:48-93; receipt log).",
+    "gaps": "Probe setup directly sets pearl_count, friend wins, trophies, and plane departure, then invokes entry methods. It does not prove a child-visible route into the playground, toy activation/settle, external activity return, or actual touch/device rendering. The focused probe only exercises re-entry lifecycle."
+  },
+  "verdict": "INCOMPLETE",
+  "timing": {
+    "source_constants": {
+      "walking_speed_master_px_per_second": "790.0 (scripts/arena/sky_lagoon_promenade.gd:19)",
+      "arrival_radius_master_px": "28.0 (scripts/arena/sky_lagoon_promenade.gd:20)",
+      "deliberate_hold_before_follow_seconds": "0.20 (scripts/arena/sky_lagoon_promenade.gd:889-915)",
+      "play_seconds": "swing 5.6, slide 5.4, seesaw 5.8 (scripts/arena/sky_lagoon_promenade.gd:155)",
+      "settle_seconds": "0.34 (scripts/arena/sky_lagoon_promenade.gd:33)"
+    },
+    "session_estimate": "Not established by the probe. The animation durations above are code constants; total play time depends on travel, child pauses, and selections."
+  },
+  "tactile": {
+    "target_geometry": "Playground target radii are slide 118 master px, swing 110, seesaw 110; castle 128 (scripts/arena/sky_lagoon_promenade.gd:549-551, 602-603). Registration records the corresponding footprint metadata (scripts/arena/sky_lagoon_promenade.gd:714+). Actual screen-space sizes depend on camera scale; no device hit test was performed.",
+    "press_response": "A tap on a target first focuses it; a second tap on the same target activates it. A tap on open ground clears focus and sets a walk destination (scripts/arena/sky_lagoon_promenade.gd:344-363, 806-827).",
+    "drag_hold_release": "Drag cancels navigation/focus and sets a destination (scripts/arena/sky_lagoon_promenade.gd:365-371). In hybrid mode, holding open ground starts following after 0.20 s; reserved UI zones, animals and playground targets are excluded (scripts/arena/sky_lagoon_promenade.gd:889-915). Tap resolution on release is described in code comments; no physical touch tested.",
+    "ownership_cancellation": "Movement input cancels navigation/focus (scripts/arena/sky_lagoon_promenade.gd:935-967); explicit cancellation clears walk goal and selected action (scripts/arena/sky_lagoon_promenade.gd:372-380).",
+    "device_status": "No rendered Mobile or Lenovo Tab M11 touch/latency evidence in this headless run."
+  },
+  "play_appeal": {
+    "hypothesis": "I expect the visible slide, swing, and seesaw to invite a self-chosen short play loop: approach, tap twice, watch Roshan visibly use the selected toy, then move on or repeat. The four authored poses and equipment motion could make each choice feel distinct, while a long automatic action could reduce control for a preschooler.",
+    "concrete_appeal_test": "On the target tablet, give a child a short uncoached visit with all three toys visible; record whether the child independently approaches and activates more than one, watches or interrupts the full action, returns to a toy, and can leave for the castle without adult prompting. Ask for no numeric fun rating; capture the child's spontaneous words/actions and separate observer interpretation.",
+    "fun_score": null
+  },
+  "play_sequence": [
+    {"beat": 1, "wait": "2 frames, skip intro if active, then wait 2 frames (probe setup only)", "input": "Probe directly grants pearl total, friend wins, trophies, and departed-plane state, then calls _enter_level2(true); no child route is demonstrated (scripts/probe_l2_reenter.gd:48-64)."},
+    {"beat": 2, "wait": "12 frames", "input": "Observe first constructed stage; probe checks one Canvas layer, 12 tiles, four target IDs and no Node3D descendants (scripts/probe_l2_reenter.gd:64-75)."},
+    {"beat": 3, "wait": "4 frames", "input": "Probe calls _enter_level2(true) a second time without caller teardown; old layer must be invalid synchronously, new layer unique and target IDs preserved (scripts/probe_l2_reenter.gd:77-85)."},
+    {"beat": 4, "wait": "Code-path estimate: walk until arrival; speed is 790 master px/s with 28 px arrival radius", "input": "For a routed playthrough, tap open ground to walk toward a toy; runtime code clears any prior focus and updates route/camera (scripts/arena/sky_lagoon_promenade.gd:344-363, 935-967). Not exercised by L44 probe."},
+    {"beat": 5, "wait": "One tap, then one further tap after focus", "input": "First target tap focuses and labels PLAY; second tap activates toy (scripts/arena/sky_lagoon_promenade.gd:344-363, 820-866). Not exercised by L44 probe."},
+    {"beat": 6, "wait": "Up to 5.4-5.8 s action plus 0.34 s settle, per constants", "input": "Observe four-state Roshan animation and equipment response; after settle, test another toy or walk to the castle. The assigned probe does not test this sequence or return."}
+  ],
+  "observations": [
+    {
+      "title": "Re-entry replaces the prior promenade synchronously",
+      "classification": "CONFIRMED_RUNTIME",
+      "evidence": ["scripts/probe_l2_reenter.gd:64-93; attempt_1/probe.log reports REENTER canvas_first: OK, canvas_rebuild_no_stack: OK, ALL OK", "scripts/arena/sky_lagoon_promenade.gd:196-197,296-301"],
+      "rules": ["DL-SAVE-03", "DL-UI-05"],
+      "existing_findings": [],
+      "reproduction": "The probe builds once, re-enters with _enter_level2(true), and asserts the old root is already invalid and exactly one fresh stage exists.",
+      "child_impact": "Repeated arrival should not leave stacked input/render stages; actual perceived transition quality remains unobserved.",
+      "proposed_repair": "No repair indicated by this scoped assertion.",
+      "acceptance_test": "Keep the existing focused probe passing and add routed/device return evidence before claiming child-facing return acceptance."
+    },
+    {
+      "title": "Assigned probe bypasses the child-visible entry route",
+      "classification": "COVERAGE_GAP",
+      "evidence": ["scripts/probe_l2_reenter.gd:57-64 directly writes progression and invokes _enter_level2", "scripts/arena/sky_lagoon_promenade.gd:278-294 selects spawn and guidance based on entry state"],
+      "rules": ["DL-AGE-01", "DL-AGE-06", "DL-QA-01", "DL-QA-03"],
+      "existing_findings": ["MA-PLAY-003"],
+      "reproduction": "Read probe setup: prerequisite progress is assigned directly before entry; no menu/castle journey is enacted.",
+      "child_impact": "Whether a preschooler can find and understand the playground from the live game route remains unknown.",
+      "proposed_repair": "No gameplay repair inferred; gather a routed input session through the intended entry and toy approach.",
+      "acceptance_test": "Record the exact live route and visible/voice cues from entry through first toy, then verify on-device with a non-reading child."
+    },
+    {
+      "title": "Tap-to-focus then tap-to-play adds an extra selection step",
+      "classification": "CONFIRMED_CODE",
+      "evidence": ["scripts/arena/sky_lagoon_promenade.gd:344-363", "scripts/arena/sky_lagoon_promenade.gd:806-827"],
+      "rules": ["DL-AGE-01", "DL-AGE-02", "DL-INT-01", "DL-UI-01", "DL-UI-03"],
+      "existing_findings": ["MA-PLAY-003"],
+      "reproduction": "Tap a target once: _focus sets its id. Tap same target again: _activate runs. A new target or open-ground tap replaces/clears the focus.",
+      "child_impact": "The repeated tap may provide a clear deliberate choice, or may be mistaken for a missed first tap; child comprehension is unverified.",
+      "proposed_repair": "Keep as an explicit usability question until routed child observation identifies confusion; do not change based on code inspection alone.",
+      "acceptance_test": "Observe whether a child notices the selected cue and performs the second tap without adult prompting; include a nearby toy switch and open-ground cancellation trial."
+    },
+    {
+      "title": "Toy actions are long and temporarily suppress other touches",
+      "classification": "CONFIRMED_CODE",
+      "evidence": ["scripts/arena/sky_lagoon_promenade.gd:155", "scripts/arena/sky_lagoon_promenade.gd:1426-1455", "scripts/arena/sky_lagoon_promenade.gd:1492-1515", "scripts/arena/sky_lagoon_promenade.gd:344-346"],
+      "rules": ["DL-AGE-05", "DL-AGE-06", "DL-UI-05", "DL-MOT-03"],
+      "existing_findings": ["MA-PLAY-003"],
+      "reproduction": "Select a playground target twice to start its 5.4-5.8 second action; while lagoon_play_anim is nonempty, handle_touch consumes the input and tick advances the action, followed by a 0.34 second settle.",
+      "child_impact": "A child cannot immediately switch toys or navigate during the authored action; whether the hold feels rewarding or too passive needs observation.",
+      "proposed_repair": "Measure child attention/attempted interruption first; consider a safe skip/interrupt only if observed friction is confirmed and preserve a readable settle.",
+      "acceptance_test": "On device, time toy action and settle from rendered response; observe engagement and recovery when the child taps elsewhere mid-action."
+    },
+    {
+      "title": "Playground targets have generous master-space selection radii",
+      "classification": "CONFIRMED_CODE",
+      "evidence": ["scripts/arena/sky_lagoon_promenade.gd:537-551", "scripts/arena/sky_lagoon_promenade.gd:806-817", "scripts/arena/sky_lagoon_promenade.gd:714-729"],
+      "rules": ["DL-AGE-02", "DL-UI-03", "DL-INT-04"],
+      "existing_findings": ["MA-PLAY-003", "MA-VIS-002"],
+      "reproduction": "Inspect registered radius values: slide 118 px, swing and seesaw 110 px; _target_at resolves the closest target center within each radius.",
+      "child_impact": "Large touch areas may aid one-finger selection, while overlapping or scaled screen-space footprints could choose an adjacent toy; no actual hand/device evaluation occurred.",
+      "proposed_repair": "No change suggested absent a reproduced mis-target; compare rendered target footprint and adjacent-object selection on the Tab M11.",
+      "acceptance_test": "At each supported aspect on the target device, tap visible toy centers and edges with one finger; verify intended target wins and adjacent toys remain independently selectable."
+    }
+  ],
+  "strengths": [
+    {"claim": "A fresh build clears previous route/focus/animation state and creates a single true-Canvas stage.", "evidence": ["scripts/arena/sky_lagoon_promenade.gd:196-221,296-320", "scripts/probe_l2_reenter.gd:69-93; attempt_1/probe.log ALL OK"]},
+    {"claim": "Toy activation snaps Roshan onto the authored first contact pose immediately, avoiding a one-frame old-position flash.", "evidence": ["scripts/arena/sky_lagoon_promenade.gd:1426-1455"]},
+    {"claim": "Manual movement cancels the old selected action/navigation promise.", "evidence": ["scripts/arena/sky_lagoon_promenade.gd:372-380,935-967"]}
+  ],
+  "acceptance_gaps": [
+    "No routed child-input probe for toy approach, focus, activation, completion, exit, or return; probe direct state writes are internal setup only.",
+    "Headless scripted run does not establish requested Mobile visuals, one-finger tactile feel, actual Lenovo Tab M11 performance/latency, child comprehension/appeal, or owner acceptance (DL-QA-01..07).",
+    "Probe PASS proves only its listed re-entry assertions; it does not verify playground pacing or external-trip return."
+  ]
+}

@@ -1,0 +1,176 @@
+{
+  "schema": "luna_playthrough_report/1",
+  "session_id": "L11",
+  "reviewer": {
+    "agent_id": "/root/luna_playtest_coordinator/luna_l11",
+    "model": "gpt-6-luna"
+  },
+  "baseline": "e2b3c73789707aa49a91b4f42e2a9dd4b68225df",
+  "focus": "Baby Eagle rescue and re-entry",
+  "runtime_receipt": "audit/cycles/luna-playtest-20261012/runtime/L11/attempt_1/receipt.json",
+  "evidence_kind": "INTERNAL_PROBE",
+  "route_status": {
+    "proven_scope": "One invocation of the unchanged probe_stuffie on exact Godot 4.7.2-stable passed all assertions, including the focused rescue sequence: two separate Roshan-contact clears, half-rescue save/rebuild, second-clear completion, closing the unconfirmed adoption, re-entry, confirmation, and saved friend identity. The probe builds a fresh main instance, seeds the Day One director with bathroom and pool already complete, calls show_room('playroom', false), and places Roshan directly at each bunny contact foot. This is state/controller evidence for the rescue and re-entry behaviors, not proof of a fresh-save route or real touch dispatch.",
+    "gaps": "No fresh-save sequence through castle entry, prior rooms, playroom door, and rescue was demonstrated. The probe bypasses normal travel and touch-ray input for the rescue contacts, and its picker re-entry is driven by direct room rebuild. The headless receipt explicitly has rendered_mobile_acceptance=false. No Mobile visual inspection, actual Lenovo Tab M11 touch/latency/frame-pacing/audio check, observed child comprehension/fun, or owner acceptance was collected."
+  },
+  "verdict": "PASS",
+  "timing": {
+    "code_constants": [
+      "Roshan's room travel tween duration is clamp(distance / 520.0, 0.12, 0.85) seconds (scripts/arena/castle_rooms_25d.gd:2794-2816); no rescue-route distance was measured in this probe.",
+      "A cleared bunny's vanish tween lasts 0.24 seconds (scripts/arena/castle_rooms_25d.gd:4865-4874).",
+      "Baby Eagle's departure tween lasts 0.72 seconds, with fade delayed by 0.34 seconds before the picker handoff (scripts/arena/castle_rooms_25d.gd:4987-5003)."
+    ],
+    "gameplay_duration": null,
+    "assumptions": "These are code durations only. The scripted _settle frame counts and the helper's 17.943-second wall time are not measurements of child gameplay duration or perceived pacing."
+  },
+  "tactile": {
+    "target_size": "The rescue bunnies have no flat Button hotspots; the authored touch-route intent is to tap their visible cards and approach a world contact point. Each contact uses an 82×62 logical-unit ellipse (PLAYROOM_RESCUE_ITEMS in scripts/arena/castle_rooms_25d.gd:240-256; tested against the player foot in :4769-4797). No projected phone target or neighboring-target separation was measured.",
+    "press_response": "The probe verified state changes after placing Roshan at a bunny's contact foot, then verified the saved half-rescue and completion. It did not time a real press, travel, rendered pop, sound, or voice response. Code clears only when the player's current_stage_foot is inside the contact ellipse; the bunny then fades/scales out over 0.24 seconds (scripts/arena/castle_rooms_25d.gd:4769-4797, 4865-4874).",
+    "drag_hold_release": "No drag or hold is required by the rescue contact mechanic. The probe does not synthesize a drag, release, or raw touch ray for either bunny.",
+    "ownership": "No competing touch or second-finger gesture is exercised for the rescue itself. The controller is based on the player's position, so the probe's direct positioning cannot establish input ownership behavior.",
+    "cancellation": "The probe checks safe exit before adoption and playroom re-entry, but those steps invoke global Back and show_room directly; pause/focus loss, interruption during travel/pop, and cancellation through normal routed input were not exercised."
+  },
+  "play_appeal": {
+    "hypothesis": "The two adjacent pinning bunnies may make a short, legible repeated rescue, while the Eagle release and picker provide a changed payoff on the second action. Test with a child by asking them to complete the rescue from the spoken/pointer cue without coaching, then note whether they choose the second bunny, notice Eagle is free, and can resume or leave the offer without help. If they repeatedly stop after one bunny, improve the remaining-pin cue and progress feedback using existing approved art/voice before considering any new content.",
+    "agency": "Hypothesis: reaching two separate pinning bunnies gives the child two understandable rescue actions, and Baby Eagle's release follows the child's second contact. The probe proves the state ordering, not the child's understanding or feeling of agency.",
+    "variety": "Within this focus the two targets share the same contact-and-pop verb, with left/right progress and a distinct second-contact release/picker payoff. Whether the repeat feels satisfying rather than repetitive needs observed play.",
+    "world_response": "The code ties each clear to Roshan's world-space contact, plays the configured bunny sound and burst, and on completion voices that Baby Eagle is safe, shows a handoff, then animates Eagle into the picker (scripts/arena/castle_rooms_25d.gd:4845-4877, 4957-5003). The headless assertions do not establish the rendered/audible quality or timing of those responses.",
+    "replay": "A partial rescue is intended to survive room rebuild and save reload; the probe rebuilds the playroom after the left clear and verifies the cleared bunny does not respawn. After the rescue, backing out of the unconfirmed picker and re-entering reopens the Eagle offer; the probe confirms this. A process restart/fresh load across the rescue was not run in this focused sequence.",
+    "fun_score": null
+  },
+  "play_sequence": [
+    {
+      "beat": "Entry and cue",
+      "expected_action": "From a legitimately unlocked Day One route, enter the playroom; the unresolved room entry calls the voiced two-bunny rescue objective and adds a pulsing pointer above Baby Eagle.",
+      "wait_or_input_threshold": "No game-time estimate claimed. Source entry cue is requested by castle_rooms_25d.gd:1957-1965; pointer pulses in 0.42-second legs at :4947-4955.",
+      "evidence_limit": "L11 seeded prior room completion and used announce=false, so this entry/cue is code-traced, not runtime-demonstrated in L11."
+    },
+    {
+      "beat": "First input and approach",
+      "expected_action": "Tap the visible left or right pinning bunny card; the intended route moves Roshan toward that bunny's authored floor contact, with no separate rescue button.",
+      "wait_or_input_threshold": "No press/latency threshold measured. Travel tween code is clamp(distance / 520, 0.12, 0.85) seconds (castle_rooms_25d.gd:2794-2816).",
+      "evidence_limit": "The probe placed Roshan directly at the contact foot instead of dispatching this touch."
+    },
+    {
+      "beat": "First contact and payoff",
+      "expected_action": "At the selected bunny's 82×62 contact ellipse, that bunny pops and the other stays in place; the first pin alone must not free Eagle or open the picker.",
+      "wait_or_input_threshold": "Contact is checked each castle tick; vanish tween lasts 0.24 seconds (castle_rooms_25d.gd:4769-4797, 4865-4874).",
+      "evidence_limit": "The state ordering and half-save passed with direct positioning; pixels and perceived timing were not inspected."
+    },
+    {
+      "beat": "Repeat or wrong input",
+      "expected_action": "Tap the remaining visible bunny to repeat the same travel/contact verb. Tapping an unrelated playroom prop should not clear either rescue pin.",
+      "wait_or_input_threshold": "No wrong-touch dispatch was made in this probe; expected completion still requires the second distinct contact (castle_rooms_25d.gd:4957-4967).",
+      "evidence_limit": "Wrong-target routing and visible remaining-pin feedback need a routed-input/device run."
+    },
+    {
+      "beat": "Finish and choice",
+      "expected_action": "Second contact saves rescue completion, announces Eagle is safe, shows the next-room handoff, animates Eagle away, then opens the picker focused on Eagle.",
+      "wait_or_input_threshold": "Eagle tween is 0.72 seconds with the fade delayed 0.34 seconds (castle_rooms_25d.gd:4987-5003); voice/handoff dispatch is at :4977-4983.",
+      "evidence_limit": "The probe waited scripted frames and asserted picker state; no audible/rendered timing was observed."
+    },
+    {
+      "beat": "Exit and re-entry recovery",
+      "expected_action": "Use global Back before confirming; verify there is no forced companion choice, then leave and re-enter the playroom to reopen Eagle's offer. Confirm only when ready.",
+      "wait_or_input_threshold": "No time threshold; this is state-based. Reopen conditions are checked by castle_rooms_25d.gd:5017-5026.",
+      "evidence_limit": "L11 asserted Back and room rebuild directly; a visible route and process restart remain untested."
+    }
+  ],
+  "observations": [
+    {
+      "title": "The two rescue clears require Roshan to reach separate contact areas",
+      "classification": "CONFIRMED_RUNTIME",
+      "evidence": [
+        "scripts/arena/castle_rooms_25d.gd:4769-4797 checks the player's current stage foot against each bunny's contact ellipse before calling _explode_dust_bunny.",
+        "scripts/probe_stuffie.gd:173-188 verifies spawn proximity alone awards nothing, then positions Roshan at the left contact and checks only the left pin clears.",
+        "audit/cycles/luna-playtest-20261012/runtime/L11/attempt_1/probe.log:8-11 records the proximity/no-clear and one-bunny-only assertions as OK."
+      ],
+      "rules": ["DL-AGE-01", "DL-INT-02", "DL-INT-04", "DL-AGE-05", "DL-QA-02"],
+      "existing_findings": ["MA-PLAY-004", "MA-PLAY-003"],
+      "reproduction": "Read the contact test and direct _position_player_at_foot calls in scripts/probe_stuffie.gd:173-188; then compare with _check_dust_bunny_contacts in scripts/arena/castle_rooms_25d.gd:4769-4797.",
+      "child_impact": "The asserted state model prevents remote completion and gives each pin a separate local action. Since the probe teleports Roshan to the contact feet, it does not show that a child can discover the target, route Roshan there, or perceive the action as contact.",
+      "proposed_repair": "No code change indicated by this probe. Capture the actual visible touch-to-walk/contact route and observe child comprehension before claiming the embodied action is accepted.",
+      "acceptance_test": "From a normal playroom entry on the target phone, tap each visible bunny card, verify Roshan walks to the corresponding contact area before it pops, and verify far taps, canceled travel, and interruptions do not clear a pin."
+    },
+    {
+      "title": "A single rescued pin survives a playroom rebuild",
+      "classification": "CONFIRMED_RUNTIME",
+      "evidence": [
+        "scripts/arena/castle_rooms_25d.gd:4875-4879 writes the per-pin rescue bit before whole-rescue completion; :4910-4925 restores saved pin bits and excludes already-cleared pins when room items are rebuilt.",
+        "scripts/probe_stuffie.gd:192-207 clears the transient dictionary, rebuilds the playroom, and asserts the first bunny stays absent while the other remains.",
+        "audit/cycles/luna-playtest-20261012/runtime/L11/attempt_1/probe.log:12-13 reports both half-rescue persistence assertions OK."
+      ],
+      "rules": ["DL-AGE-03", "DL-SAVE-01", "DL-SAVE-04", "DL-QA-02"],
+      "existing_findings": ["MA-PLAY-001", "MA-PLAY-004"],
+      "reproduction": "The first clear writes the pin key, then the probe clears castle_dust_bunnies_cleared and calls show_room('playroom', false); the log confirms the cleared/remaining pair.",
+      "child_impact": "The code-level save path protects partial progress from a room rebuild, reducing the chance the child must repeat a completed rescue action. This leg does not prove persistence across a full application restart.",
+      "proposed_repair": "No repair indicated by the room-rebuild check. Retain an actual save-close-reopen acceptance leg for the full persistent route.",
+      "acceptance_test": "Clear one pin through normal routed input, exit the room and restart the app, then return and verify only the remaining pin is present and the first pin is still recorded."
+    },
+    {
+      "title": "The unconfirmed Eagle offer safely returns after backing out",
+      "classification": "CONFIRMED_RUNTIME",
+      "evidence": [
+        "scripts/arena/castle_rooms_25d.gd:5017-5026 reopens the offer only when the rescue is durably complete, Day One is active, Roshan has no companion, and the playroom is open.",
+        "scripts/probe_stuffie.gd:212-228 presses global Back before confirmation, rebuilds the playroom, and checks the Eagle selection returns without an adopted companion.",
+        "audit/cycles/luna-playtest-20261012/runtime/L11/attempt_1/probe.log:14-16 reports the safe-close and offer-re-entry assertions OK."
+      ],
+      "rules": ["DL-AGE-03", "DL-AGE-06", "DL-SAVE-04", "DL-QA-02"],
+      "existing_findings": ["MA-PLAY-001", "MA-CHILD-001"],
+      "reproduction": "Follow the probe's Back, room rebuild, and re-entry assertions at scripts/probe_stuffie.gd:212-228; the runtime log lines 14-16 show success.",
+      "child_impact": "The probe supports a recoverable choice: leaving the tutorial does not force adoption or lose the completed rescue, and the offer returns on playroom re-entry. It does not establish whether the Back control is visually understood by a child.",
+      "proposed_repair": "No repair indicated by this code/runtime assertion; retain the global Back affordance and verify its rendered discoverability separately.",
+      "acceptance_test": "On a displayed phone route, back out before choosing, leave and re-enter the playroom, and confirm the Eagle offer returns without changing companion ownership or losing rescue progress."
+    },
+    {
+      "title": "The passed rescue is not a fresh-save or normal-input route proof",
+      "classification": "COVERAGE_GAP",
+      "evidence": [
+        "scripts/probe_stuffie.gd:67-90 restores a Day One state with bathroom and pool already completed before the playroom is shown.",
+        "scripts/probe_stuffie.gd:173-188 and :199-207 call _position_player_at_foot directly for both rescue contacts; scripts/arena/castle_rooms_25d.gd:1876-1887 shows room entry is gated through DoorLanguage and day_one_try_enter_castle_room.",
+        "audit/cycles/luna-playtest-20261012/runtime/L11/attempt_1/receipt.json records SCRIPTED_PROBE, headless=true, rendered_mobile_acceptance=false, and status PASS; probe.log:1-2 identifies the fixture setup."
+      ],
+      "rules": ["DL-AGE-01", "DL-UI-01", "DL-UI-04", "DL-SAVE-04", "DL-QA-02", "DL-QA-03", "DL-QA-04", "DL-QA-05", "DL-QA-07"],
+      "existing_findings": ["MA-PLAY-001", "MA-PLAY-003", "MA-TOUCH-001", "MA-CHILD-001"],
+      "reproduction": "Inspect the probe's restore_state setup and direct positioning calls, then inspect the receipt and retained log. The probe proves its scripted state assertions, not the normal route or GUI touch dispatch.",
+      "child_impact": "A child may encounter a blocked door or fail to route Roshan to the rescue despite the scripted controller passing. The current evidence cannot determine whether that occurs or whether the visible cues solve it.",
+      "proposed_repair": "No defect is established by this coverage gap. Add a separately scoped routed-input/fresh-save leg before using this probe as proof of route reachability.",
+      "acceptance_test": "From a fresh save, exercise the actual prerequisite room progression, enter the playroom through its normal door, tap each visible bunny, and complete/back out/re-enter through visible controls on the target device while retaining exact save evidence."
+    },
+    {
+      "title": "Contact radius and feedback are unmeasured in phone pixels and perception",
+      "classification": "COVERAGE_GAP",
+      "evidence": [
+        "scripts/arena/castle_rooms_25d.gd:240-256 sets each pin contact radius to 82×62 logical units; :4769-4797 applies an elliptical distance test.",
+        "scripts/arena/castle_rooms_25d.gd:4856-4874 requests sound, burst and a 0.24-second vanish; :4977-5003 requests the completion voice, handoff, Eagle lift/fade and picker tutorial.",
+        "audit/cycles/luna-playtest-20261012/runtime/L11/attempt_1/receipt.json says headless=true and rendered_mobile_acceptance=false; probe.log:8-18 contains controller assertions without visual/audio or device measurements."
+      ],
+      "rules": ["DL-UI-03", "DL-AGE-07", "DL-MOT-04", "DL-QA-03", "DL-QA-04", "DL-QA-05", "DL-QA-07"],
+      "existing_findings": ["MA-TOUCH-001", "MA-CHILD-001", "MA-PLAY-004"],
+      "reproduction": "Read the authored contact radii and feedback calls, then note the receipt's headless and non-visual flags. No on-device or observed-child measure exists in this session.",
+      "child_impact": "The source defines a forgiving logical contact area and multiple response channels, but their phone projection, separation, visibility, audibility, and perceived responsiveness remain unknown.",
+      "proposed_repair": "No radius or timing change is justified from this probe. Measure projected contacts and observe response on the approved device before tuning.",
+      "acceptance_test": "Measure both visible card/contact areas and nearby controls on the Lenovo Tab M11; verify intended taps reliably approach and complete, nearby wrong taps do not clear a pin, and the pop/voice/handoff is visible and audible within the applicable response budget."
+    }
+  ],
+  "strengths": [
+    {
+      "claim": "The completion gate is genuinely two-step: neither spawn presence nor one cleared pin opens the offer, and the second pin unlocks it.",
+      "evidence": "scripts/arena/castle_rooms_25d.gd:4957-4978; scripts/probe_stuffie.gd:173-207; audit/cycles/luna-playtest-20261012/runtime/L11/attempt_1/probe.log:8-13."
+    },
+    {
+      "claim": "Closing the picker before confirmation is recoverable and does not force an adoption; the Eagle selection reappears on playroom re-entry.",
+      "evidence": "scripts/arena/castle_rooms_25d.gd:5017-5026; scripts/probe_stuffie.gd:212-228; audit/cycles/luna-playtest-20261012/runtime/L11/attempt_1/probe.log:14-16."
+    },
+    {
+      "claim": "The unchanged full Stuffie probe completed with ALL OK on the exact approved engine in an isolated profile.",
+      "evidence": "audit/cycles/luna-playtest-20261012/runtime/L11/attempt_1/receipt.json; audit/cycles/luna-playtest-20261012/runtime/L11/attempt_1/probe.log:1-81. This is scripted headless evidence only."
+    }
+  ],
+  "acceptance_gaps": [
+    "The probe pre-seeds bathroom and pool completion, so it does not establish fresh-save castle/playroom reachability.",
+    "Rescue contacts and re-entry are driven by direct helper/state calls; normal visible touch dispatch, travel, cancellation, and app-restart persistence were not demonstrated.",
+    "Headless execution provides no Mobile-rendered composition, projected phone target/separation, latency, frame pacing, or audio evidence.",
+    "No child comprehension, discoverability, comfort, play-duration, replay/fun, or owner acceptance evidence was collected."
+  ]
+}

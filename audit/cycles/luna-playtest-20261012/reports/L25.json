@@ -1,0 +1,179 @@
+{
+  "schema": "luna_playthrough_report/1",
+  "session_id": "L25",
+  "reviewer": {
+    "agent_id": "/root/luna_playtest_coordinator/luna_l25",
+    "model": "gpt-6-luna"
+  },
+  "baseline": "e2b3c73789707aa49a91b4f42e2a9dd4b68225df",
+  "focus": "Chef stirring and changing physical states",
+  "runtime_receipt": "audit/cycles/luna-playtest-20261012/runtime/L25/attempt_1/receipt.json",
+  "evidence_kind": "INTERNAL_PROBE",
+  "route_status": {
+    "proven_scope": "The assigned broad Opera probe constructs the Chef Canvas career and records the Chef phase, hotspot, passive-progress, actor-rest, and re-entry assertions as passing. For this focus, it checks that STIR is present with a two-rotation goal and that the Chef task stations are mapped and re-armed; it does not drive a live child's finger around the whisk or play the Chapter Two cake phases through to a finished result. The helper receipt confirms exact Godot 4.7.2 stable, an isolated profile, headless execution, and no rendered-Mobile acceptance.",
+    "route_gaps": [
+      "fresh-save Castle kitchen entry and visible human traversal of the mixing-bowl invitation",
+      "live MIX-to-STIR-to-BAKE-to-STACK-to-FROST Chapter Two sequence and persistent cake result",
+      "rendered Mobile captures, supported-aspect composition, phone-scale target reach, latency, and frame pacing",
+      "observed child comprehension, recovery, voluntary continuation or replay, voice audibility, and owner acceptance"
+    ]
+  },
+  "verdict": "PASS",
+  "timing": {
+    "source_constants": {
+      "scripts/chapter_two_career_scene_adapter.gd:21-26": "The Chapter Two Chef story orders MIX, STIR, BAKE, STACK, and FROST; STIR's goal is 2.0 rotation units.",
+      "scripts/opera_career_world_2d.gd:3571-3572": "When a phase goal is reached, its picture/cheer is held for 2.2 source seconds before phase advance is pending.",
+      "scripts/opera_chef_surface.gd:213-222": "The whisk pivot is (400,278), minimum circle radius is 12, and the crank action rectangle is 170x88 source pixels; phone projection and finger comfort were not measured."
+    },
+    "estimates": [
+      "A child's total cooking time cannot be derived from the phase goals because cue playback, travel, gesture pace, and rendered transitions were not observed.",
+      "The runner's 31.123-second wall time is probe execution time and is not gameplay duration."
+    ]
+  },
+  "tactile": {
+    "target_size": "Chef's circular surface is a broad control, with a 170x88 source-pixel crank action rectangle around its bowl pivot (scripts/opera_chef_surface.gd:213-222). The probe checks room hotspot bounds and that the one room interaction layer exists, but does not measure its projection on a phone or the child's finger occlusion; DL-UI-03 reach/compliance remains unverified.",
+    "press_response": "While a valid circular gesture is being sampled, the surface updates crank_rotation and queues redraw; the Chef drawing positions the whisk at that rotation (scripts/opera_gesture_surface.gd:1191-1207; scripts/opera_chef_surface.gd:90-103). The probe does not time a rendered response, so the two-frame target is unverified.",
+    "drag_hold_release": "The circle mechanic samples successive touch positions outside a 12-pixel pivot dead zone and emits progress for small same-direction angular steps; one reverse or oversized step is not credited (scripts/opera_gesture_surface.gd:1191-1205). The probe checks phase metadata and pacing bounds but never drags the Chef whisk, so lift/resume feel and whether children can sustain a comfortable loop remain untested.",
+    "ownership": "The scripted career-route checks pass for single touch, foreign-finger rejection, and queued object approach before task opening (runtime/L25/attempt_1/probe.log:138-149). These are internal test events, not physical touchscreen arbitration or child hand-ownership evidence.",
+    "cancellation": "Code retains phase_progress as accumulated accepted gesture amount and advances only at the phase goal; the probe checks clean career re-entry/teardown but not a finger lift or focus-loss during STIR (scripts/opera_career_world_2d.gd:3498-3529, 3559-3572; runtime/L25/attempt_1/probe.log:138-149)."
+  },
+  "play_appeal": {
+    "hypothesis": "The whisk follows the child's circular path, then the bowl changes from unstirred ribbons to a complete swirl at the earned milestone. That links hand movement to a food state and could make the next baking action feel like a consequence of the child's work. It may be satisfying if the bowl change is easy to notice; repeated circle drawing could also feel like meter-filling if the batter's visible state does not change during the gesture.",
+    "fun_score": null,
+    "appeal_test": "On the intended phone, use the normal spoken and pictorial route without naming the motion. Observe whether the child discovers the bowl, traces the whisk without adult hand-over-hand help, notices both the moving whisk and finished batter, and chooses to continue into baking or asks to stir again. Record adult prompts, interruptions, and voluntary replay; do not assign a numeric fun score."
+  },
+  "observations": [
+    {
+      "title": "Chef remains a five-step food-making sequence with a bounded stirring goal",
+      "classification": "CONFIRMED_RUNTIME",
+      "evidence": [
+        "scripts/chapter_two_career_scene_adapter.gd:21-26 defines MIX, STIR, BAKE, STACK, and FROST in order, with STIR's circle goal set to 2.0.",
+        "audit/cycles/luna-playtest-20261012/runtime/L25/attempt_1/probe.log:87-102 records Chef Canvas entry, no-passive-progress, the Chef job verb, STIR signature mechanic, rotation range, and retained rotation verb checks passing.",
+        "audit/cycles/luna-playtest-20261012/runtime/L25/attempt_1/receipt.json records PASS, exit code 0, no failure lines, exact Godot 4.7.2 stable, isolated profile, headless=true, rendered_mobile_acceptance=false."
+      ],
+      "rules": ["DL-AGE-01", "DL-AGE-02", "DL-AGE-06", "DL-INT-02", "DL-QA-02"],
+      "existing_findings": ["MA-PLAY-001", "MA-OPERA-012"],
+      "reproduction": "Run the assigned L25 helper once; inspect the Chef phase declaration and the matching PASS lines in the retained probe log. The probe asserts the two-rotation contract but does not perform that gesture.",
+      "child_impact": "The changing sequence can give a non-reader a recognizable beginning-to-finish food goal, while the two-rotation stir target may bound repetition. The scripted assertions cannot show whether the child understands the links or enjoys the action.",
+      "proposed_repair": "No code change is indicated by this scoped review. Observe the complete normal route before proposing mechanic changes.",
+      "acceptance_test": "From a fresh save, the child reaches the kitchen through its normal visible route, follows spoken/pictorial cues through all five Chef phases, sees the cake progress, and can leave or resume without adult/debug routing; capture device, child, and owner evidence separately."
+    },
+    {
+      "title": "Stirring gives immediate whisk motion and a distinct completed batter state",
+      "classification": "CONFIRMED_CODE",
+      "evidence": [
+        "scripts/opera_chef_surface.gd:90-103 keeps the bowl still, places the whisk tip from crank_rotation, and switches from the unstirred to stirred cake texture only when completion_accepted is true.",
+        "scripts/opera_gesture_surface.gd:1191-1207 follows successive pointer angles and queues redraw; only bounded same-direction angular changes emit circle progress.",
+        "scripts/opera_career_world_2d.gd:3508-3529 adds continuous gesture amount to phase_progress, updates the progress fill, and reports the result to the surface."
+      ],
+      "rules": ["DL-INT-02", "DL-AGE-05", "DL-MOT-03", "DL-MOT-04"],
+      "existing_findings": [],
+      "reproduction": "Trace the circle handler into _on_gesture and the Chef _draw branch. The physical transition is source-grounded, not witnessed in a rendered stir session during L25.",
+      "child_impact": "A moving whisk and earned batter change can connect the child's motion with a truthful cooking state; if only the final swap is noticeable, the in-progress action may feel detached from the mixture.",
+      "proposed_repair": "Keep the current authored art and state logic unless a rendered/device observation shows that the whisk or batter response is hard to see.",
+      "acceptance_test": "A target-device capture and touch session show the whisk tracking comfortable circular movement, partial progress surviving lifts, and the completed swirl appearing only after intentional stirring reaches its goal."
+    },
+    {
+      "title": "The room invitation is required before the task opens",
+      "classification": "CONFIRMED_RUNTIME",
+      "evidence": [
+        "scripts/opera_career_world_2d.gd:1894-1911 maps Chef MIX/STIR to the authored mixing-bowl station; :1991-2028 computes a route and starts approach/opening from the selected station.",
+        "scripts/opera_career_world_2d.gd:3471-3478 rejects ordinary gesture progress while task_open is false; only the trusted probe event can open the task internally.",
+        "audit/cycles/luna-playtest-20261012/runtime/L25/attempt_1/probe.log:116-149 passes closed-task, pictorial hotspot, STIR station, no-immediate-progress, route, and cancellation assertions."
+      ],
+      "rules": ["DL-AGE-01", "DL-INT-01", "DL-INT-02", "DL-UI-01", "DL-AGE-06"],
+      "existing_findings": ["MA-PLAY-001", "MA-OPERA-004", "MA-OPERA-012"],
+      "reproduction": "Review the scripted hotspot path checks and the station setup. They verify route contracts through test-controlled callbacks, not normal GUI discovery.",
+      "child_impact": "Keeping the task closed until its physical station is selected preserves a place-to-action link; visual salience and independent discovery remain unknown.",
+      "proposed_repair": "No repair is supported by this evidence. Inspect the kitchen invitation on device and only address an observed cue or approach failure.",
+      "acceptance_test": "A child independently notices and taps the mixing-bowl invitation, watches Roshan approach before the task opens, and can cancel or retarget without progress changing."
+    },
+    {
+      "title": "The two-rotation contract is tested as metadata rather than a stirred-food playthrough",
+      "classification": "COVERAGE_GAP",
+      "evidence": [
+        "scripts/probe_opera_2d.gd:593-607 checks that circle-mode phase goals are between 1.5 and 2.2 and that Chef retains STIR as its rotation verb; it does not synthesize circle input there.",
+        "scripts/probe_opera_2d.gd:853-861 drives twenty actor bounces and checks return to rest, not whisk movement or batter transformation.",
+        "audit/cycles/luna-playtest-20261012/runtime/L25/attempt_1/probe.log:100-102 confirms the contract checks; the receipt labels the invocation headless with rendered_mobile_acceptance=false."
+      ],
+      "rules": ["DL-QA-02", "DL-QA-03", "DL-QA-04", "DL-QA-05", "DL-QA-07"],
+      "existing_findings": ["MA-CHILD-001", "MA-OPERA-004", "MA-OPERA-012"],
+      "reproduction": "Compare the L25 Chef assertions to the explicit input-driving probe sections for other mechanics: the Chef branch changes actor transforms, while no L25 branch feeds pointer samples into the Chef circle handler.",
+      "child_impact": "The child may have trouble finding the bowl, drawing a loop, seeing partial change, or understanding why the stirred result appears; none of these outcomes is established by this headless run.",
+      "proposed_repair": "Do not change code solely to fill this evidence gap. Add a focused gesture-and-state probe or collect an approved rendered/device observation before triaging any concrete friction.",
+      "acceptance_test": "A focused input probe drives one-finger circular samples through _gui_input, checks progress/no-progress on reversal and completion at the goal, confirms the full batter texture change and clean lift; a separate phone/child session verifies visibility, comfortable reach, cue comprehension, and voluntary continuation."
+    },
+    {
+      "title": "Phone-scale tactile feel, voice, and child appeal remain unobserved",
+      "classification": "COVERAGE_GAP",
+      "evidence": [
+        "audit/cycles/luna-playtest-20261012/runtime/L25/attempt_1/receipt.json explicitly records headless=true and rendered_mobile_acceptance=false.",
+        "scripts/opera_chef_surface.gd:213-222 gives source geometry but no target-device projection or finger-occlusion measurement.",
+        "audit/findings/ACTIVE_FINDINGS_2026-08-13.md:397-417 (MA-PLAY-001), :559-580 (MA-OPERA-004), :651-672 (MA-OPERA-012), and :720-742 (MA-CHILD-001) retain their distinct route, visual, external, and child evidence gaps."
+      ],
+      "rules": ["DL-UI-03", "DL-AGE-07", "DL-QA-03", "DL-QA-04", "DL-QA-05", "DL-QA-07"],
+      "existing_findings": ["MA-PLAY-001", "MA-CHILD-001", "MA-OPERA-004", "MA-OPERA-012"],
+      "reproduction": "Inspect the receipt and findings cited above. The single internal probe contains no physical phone, rendered frame acceptance, child participant, or listening session.",
+      "child_impact": "A correct source-level gesture may still be hard to see, reach, sustain, or understand on the intended device, and no appeal conclusion can be drawn.",
+      "proposed_repair": "No product repair on this absence alone. Conduct the bounded target-device and consented child observation; triage only a specific observed problem.",
+      "acceptance_test": "On the intended phone, record normal-route discovery, rendered response, target reach, circle motion, partial-lift recovery, cue audibility, child prompts, completion, and voluntary next choice; keep visual, device, child, and owner acceptance separate."
+    }
+  ],
+  "strengths": [
+    {
+      "claim": "The Chef sequence connects several distinct hand actions to one persistent cake-making story.",
+      "evidence": ["scripts/chapter_two_career_scene_adapter.gd:21-26", "scripts/opera_chef_surface.gd:77-103"]
+    },
+    {
+      "claim": "The stirring surface moves the whisk while keeping the bowl fixed and replaces the batter state at completion.",
+      "evidence": ["scripts/opera_chef_surface.gd:90-103"]
+    },
+    {
+      "claim": "The assigned broad probe passes Chef's two-rotation, station, passive-safety, actor-rest, and scripted route assertions.",
+      "evidence": ["audit/cycles/luna-playtest-20261012/runtime/L25/attempt_1/probe.log:87-149", "audit/cycles/luna-playtest-20261012/runtime/L25/attempt_1/receipt.json"]
+    }
+  ],
+  "play_sequence": [
+    {
+      "beat": "Find the Chef invitation in the normal Castle kitchen route and reach the mixing bowl.",
+      "input": "Tap the visible bowl invitation once; wait for Roshan to finish walking and the station opening, then wait for the MIX voice cue before touching the bowl.",
+      "appeal_test": "Does the child identify the bowl as the next place to act and wait for Roshan to arrive?",
+      "basis": "scripts/opera_career_world_2d.gd:1894-1911 maps Chef phases to stations and :1991-2028 separates approach from task opening."
+    },
+    {
+      "beat": "Pour the ingredients into the mixing bowl.",
+      "input": "On the spoken/pictorial MIX cue, press and hold the pitcher control so the stream reaches the bowl; lift when the batter reaches its visible completed state, then wait for the completion picture and next phase invitation.",
+      "appeal_test": "Does the child see the bowl fill and connect the pour with the new batter state?",
+      "basis": "scripts/chapter_two_career_scene_adapter.gd:21-22 and scripts/opera_chef_surface.gd:80-89."
+    },
+    {
+      "beat": "Stir the batter with the whisk.",
+      "input": "Wait for the STIR cue; press on the bowl surface and keep one finger down while drawing broad circles around the bowl center in one direction. Continue until the stirred swirl appears; then lift and wait for the next cue.",
+      "appeal_test": "Does the whisk follow the finger clearly, and does the child notice that the batter changed because of the circles?",
+      "basis": "scripts/chapter_two_career_scene_adapter.gd:23; scripts/opera_gesture_surface.gd:1191-1207; scripts/opera_chef_surface.gd:90-103."
+    },
+    {
+      "beat": "Bake the batter and take the golden cake out.",
+      "input": "Wait for the oven cue and visual golden state; tap or press the mitt when invited, release, and wait for the baked tiers to appear and the next invitation.",
+      "appeal_test": "Does the child wait for the oven state before reaching for the mitt?",
+      "basis": "scripts/chapter_two_career_scene_adapter.gd:24 and scripts/opera_chef_surface.gd:104-107."
+    },
+    {
+      "beat": "Stack the cake tiers.",
+      "input": "Wait for the STACK cue; tap each visible tier/placement anchor one at a time, lifting between taps. Wait for the completed cake to settle before the frosting cue.",
+      "appeal_test": "Does the child understand that each placement builds the same cake rather than selecting an unrelated object?",
+      "basis": "scripts/chapter_two_career_scene_adapter.gd:25; scripts/opera_chef_surface.gd:109,124-151."
+    },
+    {
+      "beat": "Trace frosting across the stacked cake and see the result.",
+      "input": "Wait for the FROST cue; press on the frosting surface, drag along the visible ribbon path, and lift after the trace completes. Wait through the held finished picture and the normal return/exit choice.",
+      "appeal_test": "Does the child follow the ribbon and show interest in the completed cake or choose to continue/replay?",
+      "basis": "scripts/chapter_two_career_scene_adapter.gd:26; scripts/opera_chef_surface.gd:110-118; scripts/opera_career_world_2d.gd:3559-3572."
+    }
+  ],
+  "acceptance_gaps": [
+    "The one assigned internal probe passed, but its Chef stirring evidence is the two-rotation phase contract and broad world assertions; it did not feed a real circular pointer path through the Chef interaction or verify the cooked cake sequence end to end.",
+    "No fresh-save human traversal, Mobile-rendered capture, phone touch/latency/frame-pacing evidence, or child comprehension/appeal observation was collected. MA-PLAY-001, MA-CHILD-001, MA-OPERA-004, and MA-OPERA-012 remain at their existing lifecycle and scope.",
+    "The source declares spoken Chef prompts, but the run does not verify protected recording approval, intelligibility, audibility, or timing on device."
+  ]
+}

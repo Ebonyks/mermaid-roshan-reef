@@ -1,0 +1,219 @@
+{
+  "schema": "luna_playthrough_report/1",
+  "session_id": "L34",
+  "reviewer": {
+    "agent_id": "/root/luna_playtest_coordinator/luna_l34",
+    "model": "gpt-6-luna"
+  },
+  "baseline": "e2b3c73789707aa49a91b4f42e2a9dd4b68225df",
+  "focus": "Second finger rejection and held ownership",
+  "runtime_receipt": "audit/cycles/luna-playtest-20261012/runtime/L34/attempt_1/receipt.json",
+  "evidence_kind": "INTERNAL_PROBE",
+  "route_status": {
+    "proven_scope": "The retained Godot 4.7.2 probe instantiates main.tscn, skips intro, configures Hybrid mode, and passes focused scripted stick/world ownership, held-second-finger, release, overlay teardown, focus-out, and navigation parser assertions (probe.log: TOUCH_ROUTER|ALL OK).",
+    "route_gaps": "The focus test calls TouchUI._unhandled_input directly for multi-finger stick/world events and calls main methods directly for overlay and movement setup. A separate navigation leg uses Input.parse_input_event for raw single-touch navigation and ordinary GUI release. No complete child-visible route, physical multitouch, Mobile rendering, phone, or child session is established."
+  },
+  "verdict": "INCOMPLETE",
+  "timing": {
+    "code_constants": [
+      {
+        "value": "30 process frames",
+        "evidence": "scripts/probe_touch_router.gd:98-106",
+        "scope": "Probe wait after a slow second-finger press; headless rendered-frame time is not mapped to a child-facing duration."
+      },
+      {
+        "value": "TAP_SLOP = 22.0 canvas pixels; R = 78.0 canvas pixels; TAP_MS = 300 ms",
+        "evidence": "scripts/touch_ui.gd:92-94,231-246",
+        "scope": "Drag activation and clamped stick magnitude are code constants; their perceived threshold/feel was not tested on a device."
+      }
+    ],
+    "gameplay_duration": null,
+    "assumptions": "No child gameplay duration inferred. The helper's 10.979-second wall time is only probe execution time."
+  },
+  "tactile": {
+    "target_size": "Hybrid movement bay is checked for at least 390×300 base-canvas units in the probe (scripts/probe_touch_router.gd:39-42); physical millimetres, hand reach, and exact device projection are unmeasured. Global pause/menu hit bounds are not physically assessed.",
+    "press_response": "A movement-bay press leaves stick_vec neutral, then a drag past slop produces directional stick input (probe_touch_router.gd:45-62; touch_ui.gd:231-254). No visual response latency or physical touch response was observed.",
+    "drag_hold_release": "The probe drags finger 0, adds/release a world finger and tests another held world press for 30 process frames, then releases finger 0 and asserts neutral stick (probe_touch_router.gd:79-117, 137-145).",
+    "ownership": "Source keeps a stick owner index and maps each finger to an ownership kind; second finger world contact does not replace the stick in tested cases (touch_ui.gd:76, 688-738; probe_touch_router.gd:79-117).",
+    "cancellation": "Probe opens/closes a full-screen overlay while movement is held, omits the original up event, and verifies cleared owners and neutral controls; focus-out also clears owners (probe_touch_router.gd:148-160, 185-190; touch_ui.gd:514-535, 650-661)."
+  },
+  "play_appeal": {
+    "agency": "Hypothesis: a drag whose direction matches the desired travel, while another finger taps a world object, can make the controls feel responsive without forcing a second action button. The scripted pass cannot establish that the child understands or enjoys this.",
+    "variety": "The code supports concurrent movement and world interaction as separate owned routes, but this review did not sample the range of world actions.",
+    "world_response": "The probe confirms one simultaneous world tap is retained while stick input stays active; visual response, sound, and in-game meaning are not validated.",
+    "replay": "Not assessed in this narrow input-ownership session.",
+    "fun_score": null,
+    "concrete_appeal_test": "On a Lenovo Tab M11, invite the child to steer toward a visible destination with one finger while tapping a nearby visible object with a second finger; repeat once after showing only the in-game cue. Record whether Roshan keeps the intended travel direction, whether the object responds once, and whether the child spontaneously repeats or asks to continue. Do not coach beyond the initial cue."
+  },
+  "play_sequence": [
+    {
+      "beat": 1,
+      "wait": "5 process frames after skipping intro",
+      "input": "Press one finger at the center of movement_zone(); expect neutral stick and no world action.",
+      "evidence": "scripts/probe_touch_router.gd:32-59"
+    },
+    {
+      "beat": 2,
+      "wait": "1 process frame",
+      "input": "Drag that same finger 74 px right and 40 px up; expect stick engagement without action pulse or tap.",
+      "evidence": "scripts/probe_touch_router.gd:79-87"
+    },
+    {
+      "beat": 3,
+      "wait": "1 process frame",
+      "input": "While still holding the movement finger, press and release a second finger at open world_pos; expect one world tap while stick remains owned by finger 0.",
+      "evidence": "scripts/probe_touch_router.gd:89-100"
+    },
+    {
+      "beat": 4,
+      "wait": "30 process frames",
+      "input": "Press a third finger at action_center in open art without dragging; expect no invisible action and no change to the held stick.",
+      "evidence": "scripts/probe_touch_router.gd:104-117"
+    },
+    {
+      "beat": 5,
+      "wait": "1 process frame",
+      "input": "Release the third finger; expect action_down false. Then invoke the direct context-action pulse and consume exactly one action edge.",
+      "evidence": "scripts/probe_touch_router.gd:118-123"
+    },
+    {
+      "beat": 6,
+      "wait": "1 process frame",
+      "input": "Drag a different finger across open world space and release; expect no tap-to-move command and no pending touch left.",
+      "evidence": "scripts/probe_touch_router.gd:125-135"
+    },
+    {
+      "beat": 7,
+      "wait": "1 process frame",
+      "input": "Release the original movement finger; expect stick_vec to return to zero.",
+      "evidence": "scripts/probe_touch_router.gd:137-145"
+    },
+    {
+      "beat": 8,
+      "wait": "1 process frame after overlay close and after focus-out",
+      "input": "Hold/drag movement, open then close craft overlay without sending the original release, and separately send focus-out; expect no stale owner or motion.",
+      "evidence": "scripts/probe_touch_router.gd:148-160,185-190"
+    }
+  ],
+  "observations": [
+    {
+      "title": "A second world touch preserves an already-held movement owner",
+      "classification": "CONFIRMED_RUNTIME",
+      "evidence": [
+        "audit/cycles/luna-playtest-20261012/runtime/L34/attempt_1/probe.log: TOUCH_ROUTER|ALL OK; the probe's second-finger ownership assertions produced no failures.",
+        "scripts/probe_touch_router.gd:79-100 presses/drag finger 0, taps/releases finger 1, then verifies stick_vec remains engaged and touch_owners still contains finger 0.",
+        "scripts/touch_ui.gd:688-738 assigns independent owner entries and only drags the stick when the drag index matches _touch_idx."
+      ],
+      "rules": [
+        "DL-UI-04",
+        "DL-QA-02"
+      ],
+      "existing_findings": [
+        "MA-TOUCH-001"
+      ],
+      "reproduction": "Run the retained L34 receipt command; inspect the no-failure probe.log and the finger 0/finger 1 sequence in probe_touch_router.gd:79-100.",
+      "child_impact": "When a child steers while tapping an object, the extra touch should not redirect or cancel the held movement input in this tested router path.",
+      "proposed_repair": "No repair indicated by this focused assertion; retain device verification because synthetic events do not prove physical multitouch behavior.",
+      "acceptance_test": "On the target phone, hold movement, tap a visible world object with another finger, and verify travel direction remains stable and the object activates once."
+    },
+    {
+      "title": "A slow press on open world art does not become an invisible action",
+      "classification": "CONFIRMED_RUNTIME",
+      "evidence": [
+        "audit/cycles/luna-playtest-20261012/runtime/L34/attempt_1/probe.log: TOUCH_ROUTER|ALL OK.",
+        "scripts/probe_touch_router.gd:104-117 holds a world finger for 30 process frames and checks both action flags remain false while the original stick owner remains active.",
+        "scripts/touch_ui.gd:696-706 classifies non-stick touches as WORLD_INTERACT and creates pending world state rather than claiming ACTION."
+      ],
+      "rules": [
+        "DL-UI-01",
+        "DL-UI-04"
+      ],
+      "existing_findings": [
+        "MA-TOUCH-001"
+      ],
+      "reproduction": "Repeat the probe's finger 6 press at action_center while finger 0 remains held; after 30 process frames the assertions require no action_down/action_just and retained stick ownership.",
+      "child_impact": "A child resting a finger on open artwork should not accidentally trigger an action simply because the contact lasts.",
+      "proposed_repair": "No code repair indicated in this tested Hybrid route.",
+      "acceptance_test": "On device, hold a second finger on a non-interactive patch of open art while steering; verify nothing activates until the child makes a meaningful action."
+    },
+    {
+      "title": "Overlay teardown and focus loss clear held touch state",
+      "classification": "CONFIRMED_RUNTIME",
+      "evidence": [
+        "audit/cycles/luna-playtest-20261012/runtime/L34/attempt_1/probe.log: TOUCH_ROUTER|ALL OK.",
+        "scripts/probe_touch_router.gd:148-160 opens and closes Craft while omitting the original release, then checks world_controls_enabled, touch_owners, and stick_vec.",
+        "scripts/probe_touch_router.gd:185-190 sends NOTIFICATION_APPLICATION_FOCUS_OUT and checks neutral stick/action and empty owners; scripts/touch_ui.gd:514-535 clears owner and gesture state."
+      ],
+      "rules": [
+        "DL-UI-05",
+        "DL-QA-02"
+      ],
+      "existing_findings": [
+        "MA-TOUCH-001"
+      ],
+      "reproduction": "Run the retained L34 probe; its overlay leg deliberately omits touch-up before closing and its final focus-out leg asserts no stale held state.",
+      "child_impact": "An interrupted overlay or app focus change should not leave movement stuck when play resumes.",
+      "proposed_repair": "No repair indicated by these internal lifecycle assertions.",
+      "acceptance_test": "On the target phone, interrupt a held movement with an overlay transition and app focus loss; resume and verify Roshan is stationary until a fresh touch."
+    },
+    {
+      "title": "Raw touch navigation is checked through Godot input parsing, but route scope stays narrow",
+      "classification": "CONFIRMED_RUNTIME",
+      "evidence": [
+        "audit/cycles/luna-playtest-20261012/runtime/L34/attempt_1/probe.log: TOUCH_ROUTER|single-touch navigation parser matrix completed; TOUCH_ROUTER|ALL OK.",
+        "scripts/probe_touch_router.gd:194-245 exercises a parsed touch through navigation and ordinary GUI with mouse emulation on/off, including release over Back.",
+        "scripts/probe_touch_router.gd:29-34 skips intro and switches to Hybrid by direct method calls; the second-finger legs call touch._unhandled_input directly at :79-117."
+      ],
+      "rules": [
+        "DL-UI-04",
+        "DL-QA-02",
+        "DL-QA-05"
+      ],
+      "existing_findings": [
+        "MA-TOUCH-001"
+      ],
+      "reproduction": "Run the helper once as captured in the receipt; distinguish direct router events in the focused ownership legs from the separate parsed navigation matrix.",
+      "child_impact": "The focused evidence supports one ownership code path but does not show the child encountering the controls naturally or establish phone tactile feel.",
+      "proposed_repair": "Do not change the route based on this narrow pass; collect routed phone/child evidence for the existing ownership finding.",
+      "acceptance_test": "A child starts from the natural scene, discovers movement, uses a second finger on a visible target, interrupts with Back/overlay, and resumes without adult input or stuck motion; capture target-device trace."
+    },
+    {
+      "title": "The 390-by-300 canvas movement-bay floor is only a geometry assertion",
+      "classification": "COVERAGE_GAP",
+      "evidence": [
+        "scripts/probe_touch_router.gd:37-42 asserts action_zone is empty and movement_zone is at least 390×300 canvas units.",
+        "audit/cycles/luna-playtest-20261012/runtime/L34/attempt_1/receipt.json records headless=true and rendered_mobile_acceptance=false.",
+        "Design rule DL-UI-03 specifies child-facing touch targets should be at least 110×110 base-canvas pixels or equivalently generous projected hit regions."
+      ],
+      "rules": [
+        "DL-UI-03",
+        "DL-QA-03",
+        "DL-QA-04",
+        "DL-QA-05"
+      ],
+      "existing_findings": [
+        "MA-TOUCH-001"
+      ],
+      "reproduction": "Inspect L34 receipt and probe geometry checks; the run does not render or measure physical coordinates.",
+      "child_impact": "The bay may be mathematically large yet awkward to find or reach with one hand on the intended phone, especially if it is invisible during play.",
+      "proposed_repair": "No redesign is justified by this probe. Measure the rendered touch area at native phone scale and observe a child using it.",
+      "acceptance_test": "Capture the Mobile-rendered screen on the Lenovo Tab M11, map touch bounds to physical dimensions, and observe a child steering and performing a concurrent tap without hand repositioning or adult help."
+    }
+  ],
+  "strengths": [
+    {
+      "claim": "The tested router preserves independent stick and world-touch ownership, rejects an invisible slow world action, and clears held state after overlay and focus interruptions.",
+      "evidence": "scripts/probe_touch_router.gd:79-117,148-160,185-190; audit/cycles/luna-playtest-20261012/runtime/L34/attempt_1/probe.log: TOUCH_ROUTER|ALL OK."
+    },
+    {
+      "claim": "The separate raw-touch navigation matrix covers mouse-emulation on/off and verifies an ordinary GUI release ending over Back does not pop navigation.",
+      "evidence": "scripts/probe_touch_router.gd:194-245; probe.log: TOUCH_ROUTER|single-touch navigation parser matrix completed."
+    }
+  ],
+  "acceptance_gaps": [
+    "Second-finger focus legs dispatch synthetic events directly to TouchUI._unhandled_input; the run is not a physical touchscreen session.",
+    "No rendered Mobile capture or real device measurements establish hit bounds, latency, or frame pacing.",
+    "No child-comprehension, discovery, comfort, agency, replay, or fun evidence was collected; the appeal test above is prospective.",
+    "Existing MA-TOUCH-001 remains FIXED_PENDING_VERIFICATION pending exact target-phone and child evidence."
+  ]
+}

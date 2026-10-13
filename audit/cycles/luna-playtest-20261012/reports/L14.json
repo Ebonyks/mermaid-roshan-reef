@@ -1,0 +1,172 @@
+{
+  "schema": "luna_playthrough_report/1",
+  "session_id": "L14",
+  "reviewer": {
+    "agent_id": "/root/luna_playtest_coordinator/luna_l14",
+    "model": "gpt-6-luna"
+  },
+  "baseline": "e2b3c73789707aa49a91b4f42e2a9dd4b68225df",
+  "focus": "Day One voice/visual goal agreement",
+  "runtime_receipt": "audit/cycles/luna-playtest-20261012/runtime/L14/attempt_1/receipt.json",
+  "evidence_kind": "INTERNAL_PROBE",
+  "route_status": {
+    "proven_scope": "The one retained exact-Godot 4.7.2 headless run passed probe_day_one_voice: all 34 listed Day One required events resolved to their exact roshan_<event>.ogg filler paths and were classified as required; a repeated speaker prefix normalized correctly; generic talk resolved separately; generic talk did not replace a required line; and a second required line queued behind the first. The probe directly constructs ReefMain and AudioDirector and calls their resolver/voice methods.",
+    "route_gaps": "This is not a fresh-save or child-visible Day One route. It does not enter the castle, trigger a gameplay caller, render a pointer, play audible samples through a device, or prove cue-to-pointer timing. Current bathroom and pool callers use say_day_one_context with day1_* cue IDs via separate catalog/routing code (scripts/games/day_one_bathroom_cleanup.gd:809-813,935-945; scripts/games/day_one_pool_cleanup.gd:559-575), which this probe does not exercise. Headless output is not Mobile visual, target-device latency/audio, child-comprehension, or owner-acceptance evidence."
+  },
+  "verdict": "INCOMPLETE",
+  "timing": {
+    "code_constants": [
+      {
+        "value": "Contextual cue captions set the HUD message timer to 5.0 seconds when presented (scripts/audio_director.gd:102-110).",
+        "scope": "Code-defined caption lifetime only; L14 did not render the caption or measure speech duration or cue-to-pointer timing."
+      }
+    ],
+    "gameplay_duration": null,
+    "assumptions": "The helper's 10.542-second wall time in runtime/L14/attempt_1/receipt.json is isolated probe execution time, not gameplay duration. No audible timing was measured."
+  },
+  "tactile": {
+    "target_size": "L14 sends no touch input. The live bathroom prompt is attached to a transparent one-finger basket Button whose source position and size come from BASKET_POSITION/BASKET_BUTTON_SIZE (scripts/games/day_one_bathroom_cleanup.gd:724-734); no phone-projected target dimensions were measured in this review.",
+    "press_response": "Not measured. The probe invokes AudioDirector methods directly and records no rendered-frame response, visible cue, or physical input latency.",
+    "drag_hold_release": "No drag, hold, or release path is part of this voice probe. The child-facing bathroom basket action is a tap in source; no physical touch was tested.",
+    "ownership": "Not tested. The probe uses a synthetic voice pool and does not route touch through live Controls or test competing fingers.",
+    "cancellation": "Not tested through the live route. Speech teardown and focus/pause cancellation were outside this probe."
+  },
+  "play_appeal": {
+    "agency": "Hypothesis: a short spoken verb paired with an animated hand/pointer aimed at the matching object could help a non-reader choose an action without coaching. L14 verifies legacy cue selection/serialization, not that a child notices and follows the paired cue.",
+    "variety": "The assigned probe has no gameplay action variety. The callers inspected point from a basket instruction into a tap, then use distinct skimmer-sweep, waterfall-pull, and seahorse-tap-fast instructions; whether this progression feels varied is unobserved.",
+    "world_response": "Source routes current room prompts through a separate contextual cue catalog and leaves caller-owned visual guidance in place. The probe does not show or sound that response, so perceived world feedback remains untested.",
+    "replay": "Not tested. The probe neither leaves/re-enters a room nor tests contextual cue replay policies in a new visit.",
+    "fun_score": null,
+    "play_appeal_test": "On the approved phone, invite the intended child to follow the fresh Day One route with no reading or adult instruction. Observe whether the child connects each spoken verb to the pictured pointer/target, acts, and notices the changed object. Repeat the focused bathroom basket and pool stage cues after a room re-entry; record where speech is missed, obscured, repeated, or points at a different action. Ask the child to show which action they want to repeat, without assigning a numeric fun score."
+  },
+  "play_sequence": [
+    {
+      "beat": "Enter Day One through the ordinary visible route; make no input until the arrival/room prompt finishes.",
+      "input": "Tap the visible active door once when it is presented.",
+      "wait": "Wait for the spoken prompt and any pointer motion to finish before the next tap.",
+      "evidence_limit": "Proposed child/device observation sequence; not executed by L14."
+    },
+    {
+      "beat": "At the bathroom basket, compare the exact spoken basket instruction with the visible pointer and target.",
+      "input": "Tap the basket once.",
+      "wait": "Wait for the basket response and next cue; note whether the voice overlaps or pointer moves early."
+    },
+    {
+      "beat": "At the pool skimmer stage, check whether the spoken sweep instruction identifies the visible net and trash.",
+      "input": "Make one slow sweep through a visible piece of trash, then release.",
+      "wait": "Wait for the object response and next instruction before another sweep."
+    },
+    {
+      "beat": "At the waterfall stage, check the spoken downward-pull instruction against the animated guide and dirty lane.",
+      "input": "Drag one finger downward through a single lane and release.",
+      "wait": "Wait for lane feedback and speech completion; do not infer completion time from probe runtime."
+    },
+    {
+      "beat": "At the seahorse stage, check that the instruction names the visible rescue action and the seahorse remains the focal target.",
+      "input": "Tap the indicated target once, then follow the activity's allowed tap/hold action as shown.",
+      "wait": "Wait for the rescue response and next cue before repeating."
+    },
+    {
+      "beat": "After returning to a room, observe whether an actionable prompt repeats appropriately and still matches the visible target.",
+      "input": "Re-enter through the ordinary route, then tap only the target indicated by voice and pointer.",
+      "wait": "Allow the complete cue to finish; record replay and interruption behavior on-device."
+    }
+  ],
+  "observations": [
+    {
+      "title": "The retained probe resolves each listed required Day One legacy cue to its exact semantic Roshan file",
+      "classification": "CONFIRMED_RUNTIME",
+      "evidence": [
+        "scripts/probe_day_one_voice.gd:11-25 lists 34 required cue suffixes; :43-55 checks exact filler paths, required classification, prefix normalization, and generic-talk separation.",
+        "audit/cycles/luna-playtest-20261012/runtime/L14/attempt_1/probe.log:3-70 records every exact-path/classification assertion and the prefix/generic path checks as OK; :73 records RESULT: PASS failures=0.",
+        "audit/cycles/luna-playtest-20261012/runtime/L14/attempt_1/receipt.json records Godot 4.7.2.stable.official.ed1daf0bf, the frozen baseline, isolated profile, headless=true, and rendered_mobile_acceptance=false."
+      ],
+      "rules": ["DL-SND-01", "DL-SND-13", "DL-QA-02"],
+      "existing_findings": ["MA-ACCESS-001", "MA-AUDIO-001"],
+      "reproduction": "Use the retained attempt_1 receipt and log. The test resolves paths and calls required-event classification; it does not play those recordings to a human listener.",
+      "child_impact": "Exact key selection prevents the tested required objective from being silently replaced by the generic cheer path. Whether the words are intelligible, understood, or matched to a visible action remains unproven.",
+      "proposed_repair": "No resolver repair is indicated by these assertions. Continue exact semantic coverage review for current live contextual prompts and keep human/device acceptance separate.",
+      "acceptance_test": "For each live Day One objective, trigger the normal room route on the approved phone and verify its exact spoken instruction, synchronized visible target/pointer, and child action without relying on captions or adult explanation."
+    },
+    {
+      "title": "A generic acknowledgement cannot cut off the tested required bathroom prompt, and the next required line is serialized",
+      "classification": "CONFIRMED_RUNTIME",
+      "evidence": [
+        "scripts/probe_day_one_voice.gd:57-71 starts bathroom_basket_hint, calls talk, then queues bathroom_sink_scrub and checks active key, queue length, and retired-fallback exclusion.",
+        "scripts/audio_director.gd:265-283 gives required lines the objective channel and queues a second required event while the first remains active.",
+        "audit/cycles/luna-playtest-20261012/runtime/L14/attempt_1/probe.log:71-80 records generic non-interruption, queue size one, and retired fallback checks as OK."
+      ],
+      "rules": ["DL-SND-01", "DL-SND-03", "DL-AGE-01"],
+      "existing_findings": ["MA-ACCESS-001", "MA-AUDIO-001"],
+      "reproduction": "The probe's direct calls and assertions are at probe_day_one_voice.gd:59-71; matching passing output is in the L14 log lines 71-80.",
+      "child_impact": "The tested generic acknowledgement does not mask an objective instruction. The probe does not simulate room transitions, long lines, or a child responding while the next instruction is queued.",
+      "proposed_repair": "Keep objective speech serialization. Include interruption/transition cases in routed device review before treating the queue as accepted.",
+      "acceptance_test": "On-device, trigger a required prompt, immediately trigger a generic reaction and a subsequent objective, then verify one intelligible objective at a time, correct order, and no speech carried into the next room."
+    },
+    {
+      "title": "The probe does not exercise the separate contextual cue path used by current bathroom and pool prompts",
+      "classification": "COVERAGE_GAP",
+      "evidence": [
+        "scripts/games/day_one_bathroom_cleanup.gd:809-813 routes the basket hint through cue ID day1_bathroom_basket_hint; :935-945 forwards to say_day_one_context and shows its caption when spoken.",
+        "scripts/games/day_one_pool_cleanup.gd:559-575 routes the current skimmer, waterfall, and seahorse prompts through day1_pool_* contextual cue IDs.",
+        "scripts/day_one_contextual_voice_catalog.gd:44 and :95,105,108 show READY exact-path entries for the basket and the three pool hints; this catalog branch is not listed or exercised in probe_day_one_voice.gd:11-82.",
+        "scripts/audio_director.gd:124-177 implements separate catalog lookup, readiness/path checks, replay policy, playback, and caption presentation for contextual cues."
+      ],
+      "rules": ["DL-SND-01", "DL-SND-13", "DL-AGE-01", "DL-QA-02"],
+      "existing_findings": ["MA-ACCESS-001", "MA-CHILD-001"],
+      "reproduction": "Compare the live caller IDs at day_one_bathroom_cleanup.gd:809-813 and day_one_pool_cleanup.gd:563-575 with the required suffix table in probe_day_one_voice.gd:11-25. Inspect the distinct say_day_one_context implementation at audio_director.gd:124-177. This establishes missing coverage in L14, not a confirmed live failure.",
+      "child_impact": "The assigned passing assertions cannot establish that today's live room prompt actually resolves, is spoken, or matches its target. Catalog rows being READY are code/data evidence, not playback or comprehension evidence.",
+      "proposed_repair": "No production change is justified by this coverage gap. Add a routed probe case for current contextual cue callers that asserts exact key, visible pointer/target state, and one-event ordering, then retain device/child evidence as separate gates.",
+      "acceptance_test": "Trigger the bathroom basket and each pool phase through the ordinary route; verify the exact current cue begins with the relevant visible pointer, generic reactions do not replace it, and missing audio leaves only a supplemental caption plus the independently usable visual cue."
+    },
+    {
+      "title": "Bathroom's visual pointer is intentionally aimed at the basket, but L14 never compares it with the spoken instruction",
+      "classification": "COVERAGE_GAP",
+      "evidence": [
+        "scripts/games/day_one_bathroom_cleanup.gd:717-735 creates BasketPointer and a transparent one-finger tap button at the basket position; :747-755 keeps the pointer visible and positions it at BASKET_POSITION plus its pointer offset.",
+        "scripts/games/day_one_bathroom_cleanup.gd:809-813 requests the matching spoken instruction, 'Tap the cleaning basket.'",
+        "scripts/probe_day_one_voice.gd:34-76 constructs only ReefMain/AudioDirector, checks audio path/queue semantics, and contains no room scene or pointer assertion."
+      ],
+      "rules": ["DL-AGE-01", "DL-INT-01", "DL-SND-13", "DL-QA-03", "DL-QA-05"],
+      "existing_findings": ["MA-PLAY-001", "MA-CHILD-001"],
+      "reproduction": "Trace pointer setup/position in day_one_bathroom_cleanup.gd:717-755 and the spoken cue call at :809-813; compare with the isolated audio-only probe setup at probe_day_one_voice.gd:34-42.",
+      "child_impact": "Source intends voice and pointer to name/point at the same action, which is promising for a non-reader. No evidence here proves the pointer is visible at the right time in the rendered route or remains unambiguous to a child.",
+      "proposed_repair": "No change is justified from source inspection. Capture the live room and test cue/pointer alignment and finger occlusion on the target device.",
+      "acceptance_test": "On the approved phone, trigger the basket instruction and verify its spoken noun/action and pointer both identify the same large target before the child taps it without coaching."
+    },
+    {
+      "title": "The required-line queue is capped at two pending events, and overflow is silently ignored",
+      "classification": "CONFIRMED_CODE",
+      "evidence": [
+        "scripts/audio_director.gd:277-283 appends a different required event only while queue size is less than two, then returns without recording it when full.",
+        "scripts/audio_director.gd:353-363 flushes one queued item after the active required speech ends; the queue-capacity behavior is not tested by scripts/probe_day_one_voice.gd:57-68, which queues only one event."
+      ],
+      "rules": ["DL-SND-01", "DL-SND-03", "DL-AGE-01"],
+      "existing_findings": ["MA-ACCESS-001", "MA-AUDIO-001"],
+      "reproduction": "In a controlled test with the first required stream still playing, call _say for three distinct required events. Source lines 277-283 retain at most two queued entries; inspect the queue after the third call. This is a code-derived edge case, not observed as reachable in live Day One play.",
+      "child_impact": "If a real burst exceeds the bounded queue before earlier speech ends, a later instruction may be omitted. The intended route may never create that burst; no runtime defect is asserted without a routed reproduction.",
+      "proposed_repair": "First determine whether normal gameplay can produce three required events in one speech window. If reachable, coalesce/supersede by current objective or otherwise retain essential instruction deterministically; do not expand queue based on this isolated review alone.",
+      "acceptance_test": "Probe two and three required cues during a long active line and during room teardown; verify the intended current instruction is retained or explicitly superseded, order is sensible, and no stale cue plays after exit."
+    }
+  ],
+  "strengths": [
+    {
+      "claim": "Every cue in the probe's required Day One suffix table resolves to its exact filler path and remains classified as required on the tested engine.",
+      "evidence": "scripts/probe_day_one_voice.gd:11-55; audit/cycles/luna-playtest-20261012/runtime/L14/attempt_1/probe.log:3-70; receipt.json confirms exact engine and isolated headless run."
+    },
+    {
+      "claim": "The probe demonstrates the required objective speech is protected from generic talk interruption and that a second required cue is queued in order.",
+      "evidence": "scripts/probe_day_one_voice.gd:57-71; audit/cycles/luna-playtest-20261012/runtime/L14/attempt_1/probe.log:71-80."
+    },
+    {
+      "claim": "The bathroom source pairs the basket instruction with a visible pointer aimed at the same basket and a one-finger tap control.",
+      "evidence": "scripts/games/day_one_bathroom_cleanup.gd:717-755,809-813. This is source evidence only; L14 did not render or test the pairing."
+    }
+  ],
+  "acceptance_gaps": [
+    "The L14 probe is a direct controller/resolver test, not a fresh-save routed gameplay session.",
+    "Current bathroom/pool contextual cue IDs and say_day_one_context playback are not exercised by this probe.",
+    "No Mobile render, visual pointer synchronization, speaker audibility, human voice identity/intelligibility/mono review, cue latency, Lenovo Tab M11 measurement, or physical touch evidence was collected.",
+    "No intended-child observation establishes comprehension, discovery, comfort, replay preference, or play appeal; no owner acceptance is claimed."
+  ]
+}

@@ -1,0 +1,179 @@
+{
+  "schema": "luna_playthrough_report/1",
+  "session_id": "L37",
+  "reviewer": {
+    "agent_id": "/root/luna_playtest_coordinator/luna_l37",
+    "model": "gpt-6-luna"
+  },
+  "baseline": "e2b3c73789707aa49a91b4f42e2a9dd4b68225df",
+  "focus": "Pause resume held input and stale callbacks",
+  "runtime_receipt": "audit/cycles/luna-playtest-20261012/runtime/L37/attempt_1/receipt.json",
+  "evidence_kind": "INTERNAL_PROBE",
+  "route_status": {
+    "proven_scope": "The unchanged probe_ui_system passed once on exact Godot 4.7.2.stable.official.ed1daf0bf with an isolated save profile at the frozen baseline. Its pause section sets main.game and phase, calls main.toggle_pause() directly, checks pause state/layer and large menu targets, then calls main.toggle_pause() again and checks unpause/layer restoration. Source review also traced live global-navigation and cancellation handlers.",
+    "route_gaps": "The probe constructs this as a fixture: it sets Sky Lagoon root state directly and never presses the visible GlobalNavigationButton, the Resume button, or a gameplay target during the pause section. It does not send a held touch, release after resume, fire a delayed callback, or exercise activity teardown. The matrix's 'live' hint is not route evidence. No Mobile-rendered view, physical target phone, child session, or owner acceptance was observed."
+  },
+  "verdict": "INCOMPLETE",
+  "timing": {
+    "code_constants": [
+      {
+        "value": "Pause/resume probe has no settling wait between direct pause and resume calls; runner used 22.63 seconds wall time.",
+        "evidence": "scripts/probe_ui_system.gd:528-562; audit/cycles/luna-playtest-20261012/runtime/L37/attempt_1/receipt.json",
+        "scope": "The immediate calls prove state toggles and layer restoration only; the 22.63 seconds is test execution time, not gameplay duration or a pause-response measure."
+      },
+      {
+        "value": "Pause menu Resume button rect is 580x140 canvas pixels; corner navigation target is 112x112 canvas pixels.",
+        "evidence": "scripts/pause_menu.gd:25-30, 67-70",
+        "scope": "Probe asserts the Resume target is at least 300x140 and global navigation at least 112x112; these are source/canvas dimensions, not projected phone measurements."
+      }
+    ],
+    "gameplay_duration": null,
+    "assumptions": "No child-session or gameplay duration is estimated. Source waits and runner wall time do not represent a play session."
+  },
+  "tactile": {
+    "target_size": "Global navigation is authored as a 112x112 canvas target and the dominant Resume control as 580x140; the probe checks minimums of 112x112 and 300x140 respectively (scripts/pause_menu.gd:25-30, 67-70; scripts/probe_ui_system.gd:502-511, 531). Native phone millimetres, visual separation, and screen readability were not measured.",
+    "press_response": "Source connects GlobalNavigationButton.button_down to global_navigation_pressed and then NavigationController.press(); valid pause toggling cancels touches and presents the sheet (scripts/pause_menu.gd:25-30, 121-122, 165-194; scripts/navigation_controller.gd:60-85). The probe invokes main.toggle_pause() directly, so it does not measure touch-to-visible-frame response.",
+    "drag_hold_release": "PauseMenu.toggle_pause() cancels all TouchUI state on pause; Melody and Slide Race have explicit held-source pause callbacks. No hold, drag, release, or post-resume input was sent in L37 (scripts/pause_menu.gd:165-206; scripts/games/melody.gd:869-886; scripts/games/slide_race.gd:742-762).",
+    "ownership": "Main's pause wrapper cancels TouchUI state before delegating; the controller also cancels on its pause edge. Melody blocks a previously held source until release, and Slide Race moves held steering sources into a blocked set and clears active steering (scripts/main.gd:3769-3773; scripts/pause_menu.gd:165-182; scripts/games/melody.gd:869-886; scripts/games/slide_race.gd:742-762). These are source-level lifecycle protections, not routed-event proof.",
+    "cancellation": "The general TouchUI route is cancelled on pause and cleared again on resume; shop and fairy shooting additionally wait for release of a keyboard confirm source (scripts/pause_menu.gd:171-172, 195-206). This probe does not show that any stale callback is harmless after resumption or activity exit."
+  },
+  "play_appeal": {
+    "agency": "Hypothesis: a prominent Back to Play action plus optional picture-first collections may let a young player take a break and choose to return without treating pause as failure. L37 only checks control presence and scripted state toggles, so this is not observed child preference.",
+    "variety": "The sheet offers Resume, Stickers, Critters, Stuffie, and a context-dependent neutral Back; L37 verifies these menu targets exist but does not open them through the UI or assess whether the choices feel distinct.",
+    "world_response": "Pause source clears owned touch state and the tree pause state stops ordinary gameplay; no rendered character/world freeze, stale action, sound, or resume response was observed in this headless run.",
+    "replay": "Not assessed. Probe reopens no activity and does not test a voluntary return after leaving the sheet.",
+    "fun_score": null
+  },
+  "play_sequence": [
+    {
+      "beat": 1,
+      "input": "Use an ordinary, visible route to enter a live activity on the approved phone; begin one activity action that accepts a held source, then keep that same finger down.",
+      "wait": "Hold only until the activity visibly acknowledges the action; record actual elapsed time and frame count instead of assuming a duration.",
+      "grounding": "scripts/pause_menu.gd:177-181; scripts/games/melody.gd:869-886; scripts/games/slide_race.gd:742-762. The probe does not execute this beat."
+    },
+    {
+      "beat": 2,
+      "input": "In a separate technical pass, use a second finger to press the visible upper-left 112x112 Back/Menu control while the first activity finger remains held.",
+      "wait": "One button-down event; measure rendered frames from press to visible pause sheet on video.",
+      "grounding": "scripts/pause_menu.gd:25-30, 121-122; scripts/navigation_controller.gd:60-85; scripts/pause_menu.gd:165-182. Two-finger phone behavior was not tested by L37."
+    },
+    {
+      "beat": 3,
+      "input": "Keep the original activity finger down and wait while the menu is open; do not press Resume yet.",
+      "wait": "Wait exactly 2 seconds, then note whether any work, score, movement, or delayed action changes behind the sheet.",
+      "grounding": "The tree is paused and TouchUI is cancelled by scripts/pause_menu.gd:165-194; stale callbacks and two-second behavior remain unverified."
+    },
+    {
+      "beat": 4,
+      "input": "Tap the dominant Back to Play button once, keep the original finger down for one more second, then lift it.",
+      "wait": "One Resume tap; wait 1 second after resumption before lifting the old activity finger.",
+      "grounding": "Resume is connected to toggle_pause at scripts/pause_menu.gd:67-70; post-resume clearing is at :195-206. L37 calls the toggle method directly instead of pressing the button."
+    },
+    {
+      "beat": 5,
+      "input": "After both fingers are lifted, wait without input, then make one fresh intentional action on the same target.",
+      "wait": "Wait exactly 2 seconds idle; then one press/release, with video timing for acknowledgement and any unintended action during idle.",
+      "grounding": "Tests DL-UI-05 and DL-MOT-05 against the cancellation/release-latch code at scripts/pause_menu.gd:171-206 and melody.gd:869-886 or slide_race.gd:742-762."
+    },
+    {
+      "beat": 6,
+      "input": "In a separate child discovery session, show the ordinary pause sheet without explaining its labels; allow the child to choose Resume or one pictured collection option, then observe whether they return to play or voluntarily stop.",
+      "wait": "Allow 30 seconds for an unprompted choice; if the child acts, observe 60 seconds after returning, then stop when they choose to leave.",
+      "grounding": "The source choices are defined at scripts/pause_menu.gd:67-97. These proposed bounds are observation instructions, not durations observed in L37; do not use a technical second finger in the child session."
+    }
+  ],
+  "observations": [
+    {
+      "title": "The pause sheet cancels touch state before gameplay is paused",
+      "classification": "CONFIRMED_CODE",
+      "evidence": [
+        "scripts/pause_menu.gd:165-182 sets the pause edge, calls touch_ui.cancel_all_touches(), notifies Melody/Slide Race, then changes SceneTree.paused.",
+        "scripts/main.gd:3769-3773 also calls cancel_all_touches() before delegating to PauseMenu.toggle_pause()."
+      ],
+      "rules": ["DL-UI-05", "DL-SAVE-03"],
+      "existing_findings": ["MA-TOUCH-001"],
+      "reproduction": "Static source trace; L37 did not create a held pointer event or test a later callback.",
+      "child_impact": "If these cancellation paths work through the actual input route, a held action should not keep controlling the activity behind the pause sheet. A touch-route or downstream callback defect could still leave motion/action active.",
+      "proposed_repair": "No implementation change proposed from this source evidence. Keep lifecycle cancellation and verify the held-input route on the target device.",
+      "acceptance_test": "On the exact candidate phone, hold one activity action, open pause, wait 2 seconds, resume while the original finger is still down, lift, and observe 2 seconds idle. Confirm no delayed action, score, movement, or reward occurs; then verify one fresh intentional action still works."
+    },
+    {
+      "title": "Melody and Slide Race preserve release latches across pause",
+      "classification": "CONFIRMED_CODE",
+      "evidence": [
+        "scripts/games/melody.gd:869-886 blocks the active source on pause, resets press state, and retains a release latch; resume clears it only when no pause-release wait is pending.",
+        "scripts/games/slide_race.gd:742-762 moves active steer sources into a blocked set on pause, clears active steering, and retains the block until source release."
+      ],
+      "rules": ["DL-UI-04", "DL-UI-05", "DL-MOT-05", "DL-SAVE-03"],
+      "existing_findings": ["MA-TOUCH-001"],
+      "reproduction": "Source inspection only; probe_ui_system does not enter either game or send held-source input during pause.",
+      "child_impact": "The explicit release boundary is intended to prevent a held source from becoming a fresh note/steer action after the menu closes; device event ordering and actual feel remain unknown.",
+      "proposed_repair": "Preserve the release latch unless a routed test demonstrates a missed or duplicated input; do not infer a defect from the probe's narrower scope.",
+      "acceptance_test": "For Melody and Slide Race separately, hold one supported source, pause, resume without releasing it, then release and wait 2 seconds. Assert no note/steer/progress while blocked, then press once and confirm exactly one valid response. Include focus loss and re-entry in the broader phone matrix."
+    },
+    {
+      "title": "The trusted UI probe validates menu structure and pause state but not pause input",
+      "classification": "CONFIRMED_RUNTIME",
+      "evidence": [
+        "audit/cycles/luna-playtest-20261012/runtime/L37/attempt_1/receipt.json: PASS; exact Godot 4.7.2.stable.official.ed1daf0bf; isolated profile; exit_code 0; no failure lines.",
+        "audit/cycles/luna-playtest-20261012/runtime/L37/attempt_1/probe.log:130-142 checks menu layer, Resume size, storybook shell, and restored normal overlay order.",
+        "scripts/probe_ui_system.gd:494-528 sets Sky Lagoon root fixture and directly calls main.toggle_pause(); :560-562 directly calls it again and checks unpause/layer restoration."
+      ],
+      "rules": ["DL-QA-02", "DL-QA-03", "DL-QA-04", "DL-QA-05"],
+      "existing_findings": ["MA-TOUCH-001"],
+      "reproduction": "The assigned single run passed the named UI probe. The pause subsection uses direct method calls and contains no InputEventScreenTouch, held pointer, callback scheduling, or display capture.",
+      "child_impact": "The result supports pause-sheet structure and state toggling; it cannot show that the child can find or press the control, that held work remains cancelled, or that the sheet is visually legible on the phone.",
+      "proposed_repair": "Do not alter the existing probe to imply coverage. Add a separately scoped routed-input/device leg only if authorized study work can establish it without changing the existing assertion semantics.",
+      "acceptance_test": "Record an ordinary route on the intended phone: capture upper-left navigation press, visible sheet response in frames, held-action cancellation, Resume press, no stale action after lift/idle, and a successful fresh action; retain the child comprehension and preference observation separately."
+    },
+    {
+      "title": "Resume visibly prioritizes returning to play while collections remain optional",
+      "classification": "CONFIRMED_CODE",
+      "evidence": [
+        "scripts/pause_menu.gd:67-97 builds dominant 580x140 Back to Play, secondary Stickers/Critters/Stuffie tiles, and hidden-by-default neutral Back.",
+        "scripts/probe_ui_system.gd:531-548 checks the Resume and secondary targets plus neutral exit semantics; runtime probe.log:131-140 records the related menu assertions."
+      ],
+      "rules": ["DL-AGE-02", "DL-AGE-06", "DL-UI-03", "DL-UI-06"],
+      "existing_findings": [],
+      "reproduction": "Source and existing UI assertions; no child selected a control in this review.",
+      "child_impact": "A large direct return choice may support interruption recovery. Text-heavy labels and choice competition still need non-reader and phone-size observation.",
+      "proposed_repair": "No code change proposed from the current evidence; test which control the child identifies and chooses without adult explanation.",
+      "acceptance_test": "At native phone aspect, present the menu after a real pause. Without naming buttons, ask no question and allow the child to act; record first touch, time to return, accidental neighboring choice, and whether the child voluntarily resumes play or chooses a book."
+    },
+    {
+      "title": "Stale callback safety is not covered by this pause section",
+      "classification": "COVERAGE_GAP",
+      "evidence": [
+        "scripts/probe_ui_system.gd:528-562 toggles pause synchronously and checks the tree paused flag and layer values; it does not queue or fire a delayed callback across pause/resume.",
+        "scripts/pause_menu.gd:165-206 handles pause/resume state and source release guards; no callback-generation token or delayed callback assertion is exercised by L37."
+      ],
+      "rules": ["DL-SAVE-02", "DL-SAVE-03", "DL-UI-05", "DL-QA-02"],
+      "existing_findings": [],
+      "reproduction": "Coverage observation from the existing probe; no stale callback defect is reproduced or alleged.",
+      "child_impact": "A callback that survives suspension could cause an unexpected action after the child believes play is paused or after they resume; this study supplies no evidence that such a callback currently fires.",
+      "proposed_repair": "Keep this as an acceptance gap, not a new defect. Exercise a real delayed action/temporary activity callback across pause, resume, and exit before considering code changes.",
+      "acceptance_test": "In one focused lifecycle test, schedule the activity's existing delayed action, pause before its deadline, wait past the deadline, resume, and then exit/re-enter once. Assert no gameplay effect or saved progress occurs while suspended or after teardown and that the next active action still works."
+    }
+  ],
+  "strengths": [
+    {
+      "claim": "The pause/resume and menu-layout section passes at the exact baseline, including paused state, pause-layer order, dominant Resume control, and restored unpaused layer.",
+      "evidence": "audit/cycles/luna-playtest-20261012/runtime/L37/attempt_1/receipt.json and probe.log:130-142; direct method fixture at scripts/probe_ui_system.gd:528-562. Internal probe evidence only."
+    },
+    {
+      "claim": "Pause code explicitly clears general touch ownership and gives Melody/Slide Race held sources a pause/release boundary.",
+      "evidence": "scripts/pause_menu.gd:165-206; scripts/games/melody.gd:869-886; scripts/games/slide_race.gd:742-762. Static source evidence; no routed touch result."
+    },
+    {
+      "claim": "Resume is the primary pause-sheet action and voluntary activity exit is labelled neutrally as Back.",
+      "evidence": "scripts/pause_menu.gd:67-97, 138-140; scripts/probe_ui_system.gd:531-548. Presence/size assertions do not establish child comprehension."
+    }
+  ],
+  "acceptance_gaps": [
+    "L37 is INTERNAL_PROBE: Sky Lagoon root fields are assigned directly and pause/resume are method calls, not routed screen touches.",
+    "No held finger, drag, release-after-resume, stale delayed callback, activity exit, focus-loss, or save/re-entry scenario was executed.",
+    "No Mobile-rendered capture, native phone touch geometry, response-frame latency, frame pacing, or audio audibility evidence.",
+    "No observed child comprehension, voluntary pause/resume choice, comfort, session duration, or appeal evidence; play appeal is a hypothesis only.",
+    "MA-TOUCH-001 remains FIXED_PENDING_VERIFICATION pending the exact target-phone held travel/drag/multitouch/focus-loss/pause/re-entry matrix; this L37 internal probe does not change its lifecycle."
+  ]
+}

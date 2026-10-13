@@ -1,0 +1,187 @@
+{
+  "schema": "luna_playthrough_report/1",
+  "session_id": "L41",
+  "reviewer": {
+    "agent_id": "/root/luna_playtest_coordinator/luna_l41",
+    "model": "gpt-6-luna"
+  },
+  "baseline": "e2b3c73789707aa49a91b4f42e2a9dd4b68225df",
+  "focus": "Seek tree cue and repeatability",
+  "runtime_receipt": "audit/cycles/luna-playtest-20261012/runtime/L41/attempt_1/receipt.json",
+  "evidence_kind": "INTERNAL_PROBE",
+  "route_status": {
+    "proven_scope": "The unchanged probe passed once on Godot 4.7.2-stable with an isolated save profile. It directly finds the Evie/Lamb-a' friend, sets its found flag, and calls _start_game, then exercises the Canvas activity with routed synthetic viewport touches; it does not establish ordinary child access (scripts/probe_seek.gd:44-45,79-84,523-545; runtime/L41/attempt_1/probe.log).",
+    "route_gaps": "The matrix marks standalone Seek dormant. Main retains the friend definition and start/tick dispatch, but the only non-probe _start_game call sites found are the dust-boss and rainbow-slide helpers; the visible Chapter Two Comfy hide-and-seek instead reveals Rumi, Baby Eagle, and Daddy through its own friend-button flow (scripts/main.gd:797-799,6753,7071-7081,7870-7895; scripts/comfy_games.gd:346-354,432-445). No normal route into this Evie/Lamb-a' four-tree game was traced. No Mobile-rendered acceptance, physical Lenovo Tab M11 latency/touch, child observation, or owner acceptance is claimed. Probe wall time is not play duration."
+  },
+  "verdict": "INCOMPLETE",
+  "timing": {
+    "code_constants": [
+      {
+        "value": "A correct find begins a 0.95-second reveal, then chooses another tree; the current tree is excluded from the next choice (scripts/games/seek.gd:6-7,301-313,331-366,653-675).",
+        "scope": "Authored simulation time; exact rendered/device timing and child pacing are unmeasured."
+      },
+      {
+        "value": "After 8 seconds without a find, Lamb-a' peeks during a 0.75-second portion of each 2.8-second phase; after 20 seconds assist strength is continuously full (scripts/games/seek.gd:431-441).",
+        "scope": "Source behavior, not a measured time-to-notice. The probe confirmed passive 60-second waiting does not auto-find or award."
+      },
+      {
+        "value": "Each wrong bush gets 0.55 seconds of rustle feedback. Four correct finds complete the round (scripts/games/seek.gd:6,320-323; runtime/L41/attempt_1/probe.log).",
+        "scope": "Authored simulation time; the probe runs Engine.time_scale=6.0 and advances synthetic ticks, so its 8.595-second wall duration is not game duration (scripts/probe_seek.gd:34-35; runtime/L41/attempt_1/receipt.json)."
+      }
+    ],
+    "gameplay_duration": null,
+    "assumptions": "No child-paced play duration was observed. All source timings are constants/logic, not stopwatch measurements on the device."
+  },
+  "tactile": {
+    "target_size": "The probe asserts four in-bounds, non-overlapping targets each at least 110×110 canvas pixels and injects at each target's center (scripts/probe_seek.gd:400-413,523-545). This is source-level/synthetic geometry evidence; projected finger fit on a phone was not observed.",
+    "press_response": "The stage accepts a screen-touch press inside a bush rect, emits bush_pressed, and accepts the event; the connected handler advances only on the active index (scripts/games/seek.gd:478-497,631-651). Probe logs confirm routed correct and incorrect touches, but not rendered latency or actual audio playback (runtime/L41/attempt_1/probe.log).",
+    "drag_hold_release": "No drag or hold verb is used; a tap press is sufficient. Probe helper sends press and release at the same screen-space point through viewport/surface transforms (scripts/games/seek.gd:478-497; scripts/probe_seek.gd:523-545).",
+    "ownership": "Seek adds one layer and blocks world controls under its own reason while active; probe checks sole ownership and unchanged world-stick state (scripts/games/seek.gd:579-585; scripts/probe_seek.gd:436-440,500-505; runtime/L41/attempt_1/probe.log).",
+    "cancellation": "The probe exercises neutral leave, subtree freeing, rebuild replacement, win teardown and replay cleanup. It does not test a held physical touch, second finger, pause/focus loss or OS cancellation (scripts/probe_seek.gd:177-195,207-237,271-320; runtime/L41/attempt_1/probe.log)."
+  },
+  "play_appeal": {
+    "agency": "Hypothesis: choosing which of four bushes to tap, with the active one visibly wobbling and a U-shaped pointer, gives a clear one-finger search action. The exact objective voice and child interpretation of the clue remain unproven.",
+    "variety": "Hypothesis: the active tree changes between finds and the hidden friend peek/reveal adds a small surprise, while the core verb stays the same for all four finds. The four-find probe loop supports repeatability mechanics, not whether a child wants another round.",
+    "world_response": "Probe assertions confirmed moving focus, an opaque animated peek, a harmless wrong-tree rustle, frame-swapped reveal/character reactions and picture-pip progress. This is state/assertion evidence; there is no accepted rendered Mobile capture or heard playback in this session (runtime/L41/attempt_1/probe.log; receipt rendered_mobile_acceptance=false).",
+    "replay": "The internal first run persists one trophy and bronze medal; a fresh replay can upgrade to gold without another trophy and tears down cleanly. Whether replay is discoverable or voluntarily chosen remains unobserved (scripts/probe_seek.gd:249-320; runtime/L41/attempt_1/probe.log).",
+    "fun_score": null,
+    "concrete_test_or_proposal": "After an ordinary visible route is restored, observe an uncoached child on Lenovo Tab M11 from fresh progress. Record whether they tap the moving tree without a reading prompt, whether a wrong-tree rustle redirects them without distress, whether the peek helps them recover, and whether after the four-find reward they independently choose to replay or leave. Capture the child's taps and spontaneous words/gestures, and separately check phone-size target fit, frame pacing, latency and cue audibility; do not infer appeal from this headless probe."
+  },
+  "play_sequence": [
+    {
+      "beat": 1,
+      "input": "Once a real child-facing route exists, enter Seek and initially let the child watch the four bushes and Evie/Roshan without coaching.",
+      "wait": "Wait 2.0 seconds for the opening cue and first focus movement; this is a suggested observation window, not measured startup latency.",
+      "basis": "The build creates a four-target surface, chooses the first tree and shows the instruction text; the probe checks opening cue geometry and actor state (scripts/games/seek.gd:579-603; scripts/probe_seek.gd:103-137)."
+    },
+    {
+      "beat": 2,
+      "input": "Keep hands off briefly; note whether the child notices the wiggling tree/U pointer and waits for a friend peek.",
+      "wait": "Observe through 8.0 seconds, then allow up to one 2.8-second peek cycle; peek appears for up to 0.75 seconds in each cycle after the 8-second threshold. Do not treat these code times as measured display times.",
+      "basis": "The focus is persistent and the assist transitions to periodic peek at 8 seconds and full peek at 20 seconds; the probe verifies passive waiting never wins or awards (scripts/games/seek.gd:431-441,515-526; scripts/probe_seek.gd:119-149)."
+    },
+    {
+      "beat": 3,
+      "input": "For a controlled adult QA pass only, tap one of the three inactive trees once; then observe the child's own next choice without prompting.",
+      "wait": "Observe the bounded 0.55-second wrong-tree rustle, then wait up to 2.8 seconds for the next peek window if needed.",
+      "basis": "Wrong input rustles the selected wrong cover and leaves found/help progress unchanged; the probe routed this wrong touch and checked its visible response (scripts/games/seek.gd:320-323,528-537,631-644; scripts/probe_seek.gd:151-173; runtime/L41/attempt_1/probe.log)."
+    },
+    {
+      "beat": 4,
+      "input": "Let the child tap the currently wiggling/U-marked bush once with one finger; do not tell them which tree.",
+      "wait": "Allow 0.95 seconds for the authored reveal before judging the next cue; check whether one pip fills and the child tracks the friend emerging above that cover.",
+      "basis": "Correct taps increment one find and begin the animated reveal; the probe confirms transformed routed input, near-peak opaque frames and four distinct targets (scripts/games/seek.gd:301-313,631-651; scripts/probe_seek.gd:442-521; runtime/L41/attempt_1/probe.log)."
+    },
+    {
+      "beat": 5,
+      "input": "After each reveal, let the child independently locate and tap the newly active tree; repeat until three pips are filled.",
+      "wait": "Wait 0.95 seconds after each correct tap for reveal/next-hide transition; no extra wait is required if the child identifies the next moving tree sooner.",
+      "basis": "Each reveal rotates to a tree other than the previous one; the focused probe completes all four with routed center taps, including rapid duplicate press guards (scripts/games/seek.gd:653-675; scripts/probe_seek.gd:442-521; runtime/L41/attempt_1/probe.log)."
+    },
+    {
+      "beat": 6,
+      "input": "On the fourth find, observe whether the child notices Lamb-a'/Evie's celebration and completion, then follows the exit/return without adult navigation.",
+      "wait": "Allow the fourth 0.95-second reveal and completion transition; exact reward-screen dwell and route return time are not measured here.",
+      "basis": "Four finds trigger _end_game(true); the probe confirms persisted first trophy/bronze and teardown/control restoration (scripts/games/seek.gd:6-7,606-628; scripts/probe_seek.gd:249-275; runtime/L41/attempt_1/probe.log)."
+    },
+    {
+      "beat": 7,
+      "input": "After a clean return, leave the next action open and record whether the child independently chooses to replay Seek or move on.",
+      "wait": "No game timer is imposed during this observation; do not use probe frame counts as child-session timing.",
+      "basis": "The internal probe re-enters from a fresh zeroed surface and verifies a fast replay can improve bronze to gold without duplicating the trophy (scripts/probe_seek.gd:284-320; runtime/L41/attempt_1/probe.log)."
+    }
+  ],
+  "observations": [
+    {
+      "title": "The standalone four-tree Seek activity has no proven ordinary entry route",
+      "classification": "COVERAGE_GAP",
+      "evidence": [
+        "The assigned matrix marks L41 route_state_hint dormant (audit/cycles/luna-playtest-20261012/matrix.json:290-295).",
+        "The probe manually sets friend['found'] and invokes _start_game(friend), bypassing a visible route (scripts/probe_seek.gd:44-45,79-84).",
+        "Main retains the Seek dispatch, but non-probe _start_game call sites in main.gd are the dust-boss and rainbow-slide helpers; the separate Comfy mode wires visible buttons for its own hidden friends (scripts/main.gd:6753,7071-7081,7870-7895; scripts/comfy_games.gd:346-354,432-445)."
+      ],
+      "rules": ["DL-AGE-01", "DL-AGE-06", "DL-QA-05", "DL-QA-07"],
+      "existing_findings": ["MA-PLAY-001"],
+      "reproduction": "Inspect all main.gd _start_game callers and the assigned probe setup. The probe starts Seek directly; no normal-world caller to this friend game appears in the inspected source. The matrix classifies the route as dormant.",
+      "child_impact": "A child cannot benefit from the otherwise-tested activity if they cannot discover and enter this standalone route. The distinct Chapter Two Comfy hide-and-seek is not evidence that this Evie/Lamb-a' Seek route works.",
+      "proposed_repair": "Do not change code based on this review alone. Intake the missing ordinary entry/re-entry route as a reachability candidate and assess it against MA-PLAY-001 before any scoped repair.",
+      "acceptance_test": "From fresh progress and an ordinary visible one-finger route, have a child reach the Evie/Lamb-a' four-tree activity, leave safely, return to the same world, re-enter, and resume without debug state changes or adult navigation."
+    },
+    {
+      "title": "The available prompt confirms the verb but the protected Evie objective recording is still missing",
+      "classification": "CONFIRMED_CODE",
+      "evidence": [
+        "Build displays the instruction to tap the wiggly tree while a source comment explicitly says the available Evie start recording lacks the exact tap verb (scripts/games/seek.gd:599-603).",
+        "The existing finding records the exact protected Evie recording gap and child comprehension acceptance requirement (audit/findings/ACTIVE_FINDINGS_2026-08-13.md:466-486).",
+        "The probe confirms the available generic Evie start clip is selected, not that it says the tree-tap instruction (scripts/probe_seek.gd:103-111; runtime/L41/attempt_1/probe.log)."
+      ],
+      "rules": ["DL-AGE-01", "DL-SND-01", "DL-SND-05", "DL-QA-05", "DL-QA-07"],
+      "existing_findings": ["MA-ACCESS-003", "MA-ACCESS-001"],
+      "reproduction": "Start the internal probe, listen to the Evie start cue in an actual device session, and compare it with the visible 'tap the wiggly tree' objective. This run only checks the selected resource path; it did not listen to audio.",
+      "child_impact": "The text tells a reader what to tap, and the wiggly tree/pointer support it, but a non-reader may still not know the requested action from the available voice cue alone. Device audibility and comprehension are untested.",
+      "proposed_repair": "Keep the existing protected source untouched. Resolve the authorized exact Evie objective recording under MA-ACCESS-003; preserve the coordinated visible pointer and existing speech path.",
+      "acceptance_test": "With authorized recording approval, verify the exact cue plays while the active tree and pointer are visible, is intelligible on the Lenovo Tab M11, and an observed child acts without reading or adult explanation."
+    },
+    {
+      "title": "Wrong-tree taps are bounded feedback without loss or progress",
+      "classification": "CONFIRMED_RUNTIME",
+      "evidence": [
+        "The probe routes a wrong bush touch and asserts rustle state, one wrong-tap count, unchanged found count, and no reset of help time; its follow-up samples a visible wobble/scale/tint peak (scripts/probe_seek.gd:151-174).",
+        "Wrong feedback lasts 0.55 seconds and does not fill pips; wrong handler only increments its diagnostic count, plays feedback and returns (scripts/games/seek.gd:320-323,528-537,631-644).",
+        "The exact run ended SEEK|result: ALL OK; receipt records headless=true, isolated_profile=true, rendered_mobile_acceptance=false (runtime/L41/attempt_1/probe.log; runtime/L41/attempt_1/receipt.json)."
+      ],
+      "rules": ["DL-AGE-03", "DL-AGE-05", "DL-INT-01", "DL-UI-03", "DL-QA-02"],
+      "existing_findings": [],
+      "reproduction": "The assigned probe selects the index after the active tree, routes a synthetic touch there, confirms no find/progress loss, and separately checks the peak visual feedback values.",
+      "child_impact": "A wrong choice has a short, visible response and does not punish or erase progress. Whether the child can distinguish helpful rustle from the target cue is not established without rendered/child review.",
+      "proposed_repair": "No mechanical defect is demonstrated; preserve the no-loss behavior and verify the two visual cues remain distinct on device.",
+      "acceptance_test": "On the supported phone, invite one wrong tap and one correct tap; confirm the wrong tree rustles briefly without a pip or lost progress, while the active tree's cue remains clear and usable."
+    },
+    {
+      "title": "The four-find loop supports clean repeat and exactly-once reward semantics",
+      "classification": "CONFIRMED_RUNTIME",
+      "evidence": [
+        "The first routed run reaches four finds, persists bronze and one trophy, then tears down; the replay starts zeroed, reaches four more finds, upgrades to gold, and keeps trophy count unchanged (scripts/probe_seek.gd:249-320).",
+        "The probe log reports all first-run, post-win re-entry, replay-upgrade and teardown assertions OK (runtime/L41/attempt_1/probe.log).",
+        "The loop uses four targets and the next active tree excludes the previous one; successful reveal triggers cheer/clap states (scripts/games/seek.gd:6-7,301-313,653-675)."
+      ],
+      "rules": ["DL-AGE-06", "DL-MOT-04", "DL-SAVE-01", "DL-SAVE-04", "DL-QA-02"],
+      "existing_findings": [],
+      "reproduction": "The assigned probe completes one slow first run, reads the saved medal/trophy state, re-enters the activity, completes a faster run and compares persistent state.",
+      "child_impact": "The mechanics can provide four successive reveals and a reason to improve a medal on replay without duplicate trophy farming. Child-paced completion, reward comprehension and voluntary replay are unknown.",
+      "proposed_repair": "No reward or teardown repair is indicated by this probe; preserve exactly-once trophy and better-medal replay behavior.",
+      "acceptance_test": "From a normal route, observe one complete round and voluntary replay; verify the child understands the filled pips/reward, the second round begins cleanly, a better medal persists and no second trophy is granted."
+    },
+    {
+      "title": "Generous source-space targets and synthetic routing still need device confirmation",
+      "classification": "COVERAGE_GAP",
+      "evidence": [
+        "The probe checks four non-overlapping in-bounds target rectangles at least 110×110 canvas pixels (scripts/probe_seek.gd:400-413).",
+        "Its tap helper converts a target center through surface and viewport transforms and sends synthetic press/release events (scripts/probe_seek.gd:523-545).",
+        "The exact receipt explicitly states headless=true and rendered_mobile_acceptance=false; DL-QA-04/05 require device and child evidence (runtime/L41/attempt_1/receipt.json; design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md:1253-1264)."
+      ],
+      "rules": ["DL-UI-03", "DL-UI-04", "DL-QA-03", "DL-QA-04", "DL-QA-05", "DL-QA-07"],
+      "existing_findings": ["MA-PLAY-001", "MA-CHILD-001"],
+      "reproduction": "Probe asserts the authored canvas rectangles and routes their centers; it does not render accepted Mobile captures or exercise actual fingers/aspect ratio on Lenovo Tab M11.",
+      "child_impact": "The code targets may be large in canvas coordinates yet their visible alignment, finger occlusion, latency, and child's ability to distinguish four options remain unknown.",
+      "proposed_repair": "No code change follows from synthetic geometry. Capture the exact route at supported device dimensions and observe the intended child before proposing hit-area/layout changes.",
+      "acceptance_test": "On Lenovo Tab M11, validate all four tree visuals and projected hit regions at the shipping aspect; observe uncoached one-finger taps, response latency, wrong-target recovery and play comfort."
+    }
+  ],
+  "strengths": [
+    {
+      "claim": "The isolated probe verifies persistent focus/assist, no-input no-win, harmless wrong taps, four routed one-finger finds, reward save, replay medal upgrade and cleanup.",
+      "evidence": "scripts/probe_seek.gd:119-195,249-320; runtime/L41/attempt_1/probe.log and receipt.json. This is internal headless evidence, not physical touch, child acceptance or Mobile visual acceptance."
+    },
+    {
+      "claim": "The stage uses the approved animated actor and meadow/tree artwork set, frame-swapped characters and a bounded Canvas subtree; the test excludes the retired vinyl/preview pair and legacy meadow models.",
+      "evidence": "scripts/games/seek.gd:11-26,48-150,152-238; scripts/probe_seek.gd:327-395,551-569; runtime/L41/attempt_1/probe.log. Art acceptance and owner review remain separate."
+    }
+  ],
+  "acceptance_gaps": [
+    "The assigned row is dormant; the probe manually prepares the friend and starts Seek, so no ordinary child route is proven.",
+    "The exact protected Evie 'tap the wiggly tree' recording remains blocked under MA-ACCESS-003; this session did not listen to the selected audio.",
+    "Headless execution is not accepted Mobile rendering, actual Lenovo Tab M11 latency/fit/audio evidence, or pause/focus/second-finger cancellation testing.",
+    "No child comprehension, comfort, play duration, fun, or voluntary replay was observed; no owner acceptance was performed."
+  ]
+}

@@ -1,0 +1,74 @@
+{
+  "schema": "luna_verifier_controls/1",
+  "checked_utc": "2026-10-13T01:36:25.354912+00:00",
+  "source_sha256": "8f2a878946a6c57adf471ced5c67800a10f5d275efedd01d31c4de6fe6947fa7",
+  "helper_sha256": "f8d133001b508647896a06c62e0eb824e8dcbdaf6b2d1b74fc058848006e9bd7",
+  "planned_assignments": 57,
+  "status": "PASS",
+  "cases": [
+    {
+      "case": "Valid scoped single session passes partial review",
+      "expected_exit": 0,
+      "actual_exit": 0,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "case": "Planned assignments cannot establish actual completed agents",
+      "expected_exit": 1,
+      "actual_exit": 1,
+      "errors": [
+        "Only 1 valid actual sessions of57",
+        "Coordinator has not confirmed57 completed agent sessions"
+      ],
+      "pass": true
+    },
+    {
+      "case": "Mutated raw log fails exact hash",
+      "expected_exit": 1,
+      "actual_exit": 1,
+      "errors": [
+        "L01.json: Runtime incomplete/log hash mismatch"
+      ],
+      "pass": true
+    },
+    {
+      "case": "PASS report cannot mask failed runtime",
+      "expected_exit": 1,
+      "actual_exit": 1,
+      "errors": [
+        "L01.json: Report masks failed runtime"
+      ],
+      "pass": true
+    },
+    {
+      "case": "Numeric child/product fun score is rejected",
+      "expected_exit": 1,
+      "actual_exit": 1,
+      "errors": [
+        "L01.json: Numeric fun score forbidden"
+      ],
+      "pass": true
+    },
+    {
+      "case": "Uninvoked agent identity is rejected",
+      "expected_exit": 1,
+      "actual_exit": 1,
+      "errors": [
+        "L01.json: Report identity absent from actual invocation manifest"
+      ],
+      "pass": true
+    },
+    {
+      "case": "Wrong frozen source baseline is rejected",
+      "expected_exit": 1,
+      "actual_exit": 1,
+      "errors": [
+        "L01.json: Schema/source mismatch"
+      ],
+      "pass": true
+    }
+  ],
+  "fixture_root": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef-luna-verifier-controls-w4b422tu",
+  "scope": "Disposable copied fixtures outside the repository; no real reports altered or counted. Evidence/count validator only, no gameplay/child acceptance."
+}

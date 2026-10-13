@@ -1,0 +1,190 @@
+{
+  "schema": "luna_playthrough_report/1",
+  "session_id": "L42",
+  "reviewer": {
+    "agent_id": "/root/luna_playtest_coordinator/luna_l42",
+    "model": "gpt-6-luna"
+  },
+  "baseline": "e2b3c73789707aa49a91b4f42e2a9dd4b68225df",
+  "focus": "Melody rhythm recovery and input variety",
+  "runtime_receipt": "audit/cycles/luna-playtest-20261012/runtime/L42/attempt_1/receipt.json",
+  "evidence_kind": "INTERNAL_PROBE",
+  "route_status": {
+    "proven_scope": "The unchanged probe passed once on official Godot 4.7.2-stable with an isolated profile. It sets up a fresh save, selects Daddy from FRIEND_DEFS, and calls _start_game directly; it then tests the production Melody controller with synthetic touch, key and pad events, plus leave, focus/pause recovery and replay (scripts/probe_melody.gd:136-153,184-195,2650-2656; runtime/L42/attempt_1/receipt.json; runtime/L42/attempt_1/probe.log:35-50,119-272).",
+    "route_gaps": "The matrix marks L42 dormant. The probe explicitly says Daddy's reef discovery/PLAY route retired on 2026-09-23 and launches directly; main.gd still contains a Daddy friend definition and the generic start dispatcher, but the remaining production _start_game callers are the dust-boss path and the rainbow-slide helper, not a visible Daddy route (audit/cycles/luna-playtest-20261012/matrix.json:298-303; scripts/probe_melody.gd:158-159,2650-2656; scripts/main.gd:797-804,6753,7071-7081,7870-7907). Thus the activity mechanics are internally exercised but ordinary discovery, entry, exit and re-entry are not proven for a child. No Mobile-rendered acceptance, physical Lenovo Tab M11 touch/latency/audio, child observation or owner acceptance is claimed. Probe wall time is not gameplay duration."
+  },
+  "verdict": "INCOMPLETE",
+  "timing": {
+    "code_constants": [
+      {
+        "value": "Each of seven notes moves on a 4.2-second repeating path; scoring resets the next note's cycle to zero (scripts/games/melody.gd:7-11,688-713,1261-1264).",
+        "scope": "Authored simulation timing only. The visible green-window duration depends on layout geometry; no device stopwatch or child-paced timing was measured."
+      },
+      {
+        "value": "A deliberate touch must begin while the note is in the green zone and within its 120x120 hit rectangle, then release while the note remains green and the touch remains in bounds; seven successful notes complete the round (scripts/games/melody.gd:9-11,1172-1193,1196-1225,1245-1264).",
+        "scope": "Code behavior corroborated by the probe. The probe uses Engine.time_scale=4.0 and waits by processing frames, so its 29.709-second wall time is not gameplay duration (scripts/probe_melody.gd:113-118; runtime/L42/attempt_1/receipt.json)."
+      },
+      {
+        "value": "The opening reveal tween is 0.25 seconds; a note that is missed recycles on the 4.2-second cycle without progress or penalty (scripts/main.gd:3032-3048; scripts/games/melody.gd:9,688-713; runtime/L42/attempt_1/probe.log:119-123).",
+        "scope": "Authored tween/cycle values, not observed display latency or child pacing."
+      }
+    ],
+    "gameplay_duration": null,
+    "assumptions": "No child session or end-to-end routed session was observed. The probe selects green frames programmatically and accelerates engine time; do not infer game duration from its wall time."
+  },
+  "tactile": {
+    "target_size": "Source uses an 84x84 visible note and 120x120 hit rectangle; the green zone is 160-190 canvas pixels square depending on viewport height (scripts/games/melody.gd:10-11,1087-1092,953-957). The probe checks target geometry and 1280x720/1280x800 layout, but receipt says headless=true and rendered_mobile_acceptance=false (scripts/probe_melody.gd:628-766; runtime/L42/attempt_1/receipt.json). Physical finger fit/occlusion remains unmeasured.",
+    "press_response": "Touch, keyboard Space, and pad A can arm the same note; progress occurs on the matching release only if the press was armed in green and the note is still green (scripts/games/melody.gd:717-747,1172-1225; scripts/probe_melody.gd:2207-2264; runtime/L42/attempt_1/probe.log:240-266). No rendered two-frame response or actual sound audibility was measured.",
+    "drag_hold_release": "A touch drag over 48 canvas pixels, outside the current 120x120 hit rect, or outside the green window disarms it; holding from an early pass into green cannot score (scripts/games/melody.gd:722-733; scripts/probe_melody.gd:1572-1582; runtime/L42/attempt_1/probe.log:123-124). A fresh press/release in green is the demonstrated child-facing verb. Actual finger drift tolerance is unknown.",
+    "ownership": "The controller accepts one held source at a time and requires the matching source and kind to finish it; the probe checks that unrelated key/pad/touch releases cannot finish another held source (scripts/games/melody.gd:1184-1193,1196-1225; scripts/probe_melody.gd:1584-1612,2237-2246; runtime/L42/attempt_1/probe.log:128-151). Synthetic source IDs do not prove Android multitouch behavior.",
+    "cancellation": "Probe checks neutral cancel/leave, pause and resume, focus/application loss and restoration, Android-style cancelled touch, overlay traffic, controller disconnect, stale-release rejection and clean re-entry (scripts/games/melody.gd:750-821,869-918; scripts/probe_melody.gd:1539-2206; runtime/L42/attempt_1/probe.log:125-239). All are scripted events; physical OS cancellation/focus behavior remains open."
+  },
+  "play_appeal": {
+    "agency": "Hypothesis: a child can choose when to tap the moving rainbow note, with the green zone and attached pointer naming both target and action. The authored objective is 'Tap each rainbow note in the green!' and the probe verifies the voice resource/path, but neither sound nor child interpretation was observed (scripts/games/melody.gd:47-48,683-685; scripts/probe_melody.gd:1469-1494; runtime/L42/attempt_1/probe.log:49-50).",
+    "variety": "Hypothesis: the seven colors and slightly rising chime pitch give a small changing payoff, while the core action remains the same timed tap/release for every note. The probe confirms ordered red-through-violet completion and the pitch update; whether seven repetitions feel rhythmic, repetitive or satisfying to a child is unknown (scripts/games/melody.gd:23-31,1245-1264; scripts/probe_melody.gd:2207-2264; runtime/L42/attempt_1/probe.log:240-247).",
+    "world_response": "The probe asserts one opaque Canvas layer, attached pointer/note state, seven ordered note colors, success chime requests, pips, and no fail/countdown/passive-completion path. The run is headless, so these are controller/geometry assertions rather than accepted Mobile visuals or heard playback (scripts/probe_melody.gd:569-628,1496-1538; runtime/L42/attempt_1/probe.log:49-50,57-68; runtime/L42/attempt_1/receipt.json).",
+    "replay": "Internally, a slow first completion awards bronze and one trophy; a fresh replay can upgrade to gold without another trophy. Whether a child finds Melody, understands the reward, or voluntarily replays is untested (scripts/probe_melody.gd:314-421; runtime/L42/attempt_1/probe.log:240-272).",
+    "fun_score": null,
+    "concrete_test_or_proposal": "After an ordinary visible route is restored, observe the intended child on the Lenovo Tab M11 without a reading prompt. Record whether they track the moving note and green window, whether they initiate taps without coaching, how they respond to a missed pass and the next 4.2-second cycle, whether the seven color/chime changes sustain interest, and whether they voluntarily replay or leave. Separately measure projected 120x120 target fit, touch drift, two-frame feedback, frame pacing and cue audibility; do not infer appeal from this probe."
+  },
+  "play_sequence": [
+    {
+      "beat": 1,
+      "input": "Once a real child-facing Daddy route exists, enter it and let the child watch the opening stage, Roshan, Daddy, pointer and first moving note without instruction.",
+      "wait": "Allow the authored 0.25-second reveal tween to clear, then observe until the next green crossing; the note path repeats every 4.2 seconds.",
+      "basis": "The production start uses a 0.25-second fade and Melody supplies the exact target+verb voice, pointer and green timing window (scripts/main.gd:3032-3048; scripts/games/melody.gd:47-48,657-685,688-713). This route is dormant and was not proven in the probe."
+    },
+    {
+      "beat": 2,
+      "input": "Invite one deliberate one-finger tap on the active note while it is inside the green zone; lift at the same location while it remains green.",
+      "wait": "Wait only for the next rendered frame to confirm progress; if the child misses the window, allow the note to complete its 4.2-second cycle before the next attempt.",
+      "basis": "The probe asserts one fresh in-green touch release scores exactly once; a missed full pass does not advance, reset, or fail (scripts/games/melody.gd:688-713,1196-1225; scripts/probe_melody.gd:1549-1570; runtime/L42/attempt_1/probe.log:119-123)."
+    },
+    {
+      "beat": 3,
+      "input": "Let the child follow the new note and repeat the same press-and-release action for notes two through four, without telling them the timing.",
+      "wait": "Each correct note starts a fresh 4.2-second cycle; observe each crossing and check for one new pip after each successful release.",
+      "basis": "Success advances the active note and resets cycle time; the note/pip sequence preserves the seven-color order (scripts/games/melody.gd:1156-1169,1245-1264; runtime/L42/attempt_1/probe.log:240-245)."
+    },
+    {
+      "beat": 4,
+      "input": "If a tap lands outside the active note or starts too early, let the child see the note pass and decide whether to try again; do not correct their hand.",
+      "wait": "Wait for the next 4.2-second note pass; the probe also holds one early touch across the green interval and confirms it does not score.",
+      "basis": "Wrong-point/early input and early-held input preserve progress and leave the activity live; no penalty is applied (scripts/games/melody.gd:722-733,1191-1193,1217-1225; scripts/probe_melody.gd:1539-1582; runtime/L42/attempt_1/probe.log:119-124)."
+    },
+    {
+      "beat": 5,
+      "input": "Continue with one tap-and-lift for notes five and six; record whether the child notices changing colors, rising chime pitch and filled pips.",
+      "wait": "Wait one 4.2-second cycle per missed note; after a correct release, the next note starts its own cycle immediately.",
+      "basis": "The controller keeps the same timing verb but changes the active note color and raises chime pitch as progress increases (scripts/games/melody.gd:23-31,1245-1264; runtime/L42/attempt_1/probe.log:244-247)."
+    },
+    {
+      "beat": 6,
+      "input": "On the seventh note, let the child make the final in-green press/release and observe whether they recognize Roshan/Daddy's completion response.",
+      "wait": "Allow one next rendered frame for the synchronous completion transition; the probe asserts completion at note seven without a timer or fail branch.",
+      "basis": "The last score calls the normal game-end path and completion cheer; the probe confirms no fail/timer branch (scripts/games/melody.gd:1254-1260; scripts/probe_melody.gd:2254-2264; runtime/L42/attempt_1/probe.log:246-249)."
+    },
+    {
+      "beat": 7,
+      "input": "After the reward, leave the child free to choose replay or the neutral Back exit; note the choice and whether they can return without adult/debug navigation.",
+      "wait": "Do not impose a timer on the child's decision. The probe's replay starts a new zero-of-seven stage; it is not evidence that the child can discover that route.",
+      "basis": "Probe checks clean pause-menu leave and clean replay with medal upgrade but no duplicate trophy (scripts/probe_melody.gd:227-270,287-320,314-421; runtime/L42/attempt_1/probe.log:178-184,237-272)."
+    }
+  ],
+  "observations": [
+    {
+      "title": "The Daddy Mermaid activity has no proven ordinary route after reef discovery retired",
+      "classification": "COVERAGE_GAP",
+      "evidence": [
+        "The assigned matrix marks L42 dormant (audit/cycles/luna-playtest-20261012/matrix.json:298-303).",
+        "The probe says the reef discovery/PLAY route to Daddy retired on 2026-09-23 and calls _start_game directly (scripts/probe_melody.gd:158-159,2650-2656).",
+        "Main retains Daddy in FRIEND_DEFS and Melody dispatch, but its only non-probe _start_game callers found here launch the dust boss or rainbow slide (scripts/main.gd:797-804,6753,7071-7081,7870-7907). The run itself verifies only direct start (runtime/L42/attempt_1/probe.log:43-50)."
+      ],
+      "rules": ["DL-AGE-01", "DL-AGE-06", "DL-SAVE-04", "DL-QA-05", "DL-QA-07"],
+      "existing_findings": ["MA-PLAY-001"],
+      "reproduction": "Inspect the matrix row, probe setup and all production _start_game call sites. The assigned probe calls _start_game(daddy_friend) after choosing its FRIEND_DEFS record; no production caller supplies that friend record, and the probe comment identifies the old reef route as retired.",
+      "child_impact": "The seven-note timing activity can be entered only by direct setup in this evidence. A child may not discover it through ordinary visible play, so its timing, recovery and replay mechanics cannot yet benefit them through the normal route.",
+      "proposed_repair": "Treat as route/reachability candidate under MA-PLAY-001. No runtime change is authorized by this review; determine the intended visible entry/return route before evaluating child access.",
+      "acceptance_test": "From a fresh save on an exact candidate, let the child find Daddy through visible one-finger cues, enter Melody, complete or leave safely, return to the world and re-enter without reading, cheats, progress loss or adult/debug navigation."
+    },
+    {
+      "title": "Seven notes repeat one timing verb while color and chime pitch supply the observed variation",
+      "classification": "HYPOTHESIS",
+      "evidence": [
+        "The game defines seven ordered colors and one repeated note cycle; a successful score raises chime pitch and resets the next note's cycle (scripts/games/melody.gd:7-31,1245-1264).",
+        "The probe drives seven successful touches and a replay mixing Space, pad A and touch; its `ALL OK` establishes route assertions and state, not whether the child perceives enough variety (scripts/probe_melody.gd:2207-2264; runtime/L42/attempt_1/probe.log:240-266)."
+      ],
+      "rules": ["DL-AGE-06", "DL-INT-02", "DL-MOT-04", "DL-QA-05", "DL-QA-07"],
+      "existing_findings": ["MA-CHILD-001"],
+      "reproduction": "Read _score_current_note and run the assigned probe. Each note uses the same timing-zone action; the active color, pip progress and pitch change with count. The probe contains no child or appeal measurement.",
+      "child_impact": "The color/pitch progression may make repeated catches feel like building a rainbow, or the identical action may feel repetitive. No child response or voluntary replay was observed, so neither interpretation is confirmed.",
+      "proposed_repair": "Do not add mechanic variation based on this hypothesis alone. Observe an uncoached child through the seven-note run and let their attention, comprehension and replay choice determine whether the current progression sustains interest.",
+      "acceptance_test": "During a routed child session, record whether the child independently tracks the changed note, anticipates the next pass, notices filled pips/color/chime changes, and voluntarily continues through seven notes or requests another round."
+    },
+    {
+      "title": "A missed or mistimed note recovers without punishment or passive completion",
+      "classification": "CONFIRMED_RUNTIME",
+      "evidence": [
+        "The probe asserts an early tap, a wrong-location tap during green, a complete passive missed pass, and an early-held touch crossing into green all leave progress unchanged and keep Melody live (scripts/probe_melody.gd:1539-1582; runtime/L42/attempt_1/probe.log:119-124).",
+        "The code arms only when press starts in green and, for touch, in the current hit rect; scoring requires same-source release while still green and still inside the touch hit rect (scripts/games/melody.gd:1172-1225).",
+        "The note recycles on a 4.2-second loop with no countdown/fail branch; probe asserts no passive completion (scripts/games/melody.gd:7,688-713,1245-1268; runtime/L42/attempt_1/probe.log:57-59,121-123)."
+      ],
+      "rules": ["DL-AGE-03", "DL-AGE-04", "DL-AGE-05", "DL-QA-02"],
+      "existing_findings": [],
+      "reproduction": "The focused probe waits for a non-green frame, taps early, taps outside the note during a green frame, waits through a full missed window, then holds from early into green. Each negative check confirms no award, failure or lost live state.",
+      "child_impact": "A missed opportunity costs time until the note cycles back but does not erase progress or end the activity. This is a forgiving recovery path in code; the child-facing emotional response and whether the wait feels too long remain unobserved.",
+      "proposed_repair": "Preserve this no-fail recovery. Device/child observation should check that the next moving note remains obvious after a miss and that waiting a cycle is comfortable.",
+      "acceptance_test": "On the actual device, deliberately let a child miss one pass without prompting; confirm they recognize another chance, recover independently, retain prior pips and do not interpret the miss as losing."
+    },
+    {
+      "title": "The source-space note target is generous, but phone fit and finger drift are not verified",
+      "classification": "COVERAGE_GAP",
+      "evidence": [
+        "The visible note is 84x84 while its active rectangle is 120x120; the probe checks layout and target geometry at 1280x720 and 1280x800 (scripts/games/melody.gd:10-11,953-957,1045-1092; scripts/probe_melody.gd:628-766).",
+        "Touch drag disarms after 48 pixels or when leaving the target/window; probe injects centered synthetic press/release events and checks state (scripts/games/melody.gd:722-733; scripts/probe_melody.gd:2207-2246).",
+        "Receipt states headless=true and rendered_mobile_acceptance=false; no physical touch or Lenovo Tab M11 result is present (runtime/L42/attempt_1/receipt.json)."
+      ],
+      "rules": ["DL-AGE-02", "DL-UI-03", "DL-UI-04", "DL-QA-03", "DL-QA-04", "DL-QA-07"],
+      "existing_findings": ["MA-TOUCH-001", "MA-CHILD-001"],
+      "reproduction": "The probe routes synthetic presses at the moving note center; source geometry gives a 120-pixel hit box and 48-pixel drag cancellation threshold. Neither actual thumb coverage nor natural finger drift is exercised.",
+      "child_impact": "A child may cover the small visible note while tapping or drift more than 48 pixels during the timed press; actual success rate and comfort on the intended phone are unknown.",
+      "proposed_repair": "No hit-area change follows from headless geometry alone. Check projected target size, finger occlusion and natural tap drift during the device session before proposing a source adjustment.",
+      "acceptance_test": "On the Lenovo Tab M11 at shipping aspect, measure the projected hit region and observe uncoached one-finger taps across all note positions, including a missed pass and natural finger drift; confirm response, comfort and ownership remain clear."
+    },
+    {
+      "title": "Pause, overlay and focus restoration clear held input without scoring stale releases",
+      "classification": "CONFIRMED_RUNTIME",
+      "evidence": [
+        "The probe holds touch/key/pad sources across pause, sends wrong-source releases, resumes, and verifies only the original source can clear its latch and no stale release scores (scripts/probe_melody.gd:1584-1665; runtime/L42/attempt_1/probe.log:125-170).",
+        "It also simulates standalone/nested focus/application loss, restore guards, controller disconnect and fresh-source recovery; all listed checks are `MELODY|OK` (scripts/probe_melody.gd:1892-2206; runtime/L42/attempt_1/probe.log:174-239).",
+        "The production controller tracks exact source tokens and neutralizes input on context loss/cancel (scripts/games/melody.gd:750-821; scripts/main.gd:3361-3396,3707-3733)."
+      ],
+      "rules": ["DL-UI-04", "DL-UI-05", "DL-AGE-03", "DL-QA-02", "DL-QA-04"],
+      "existing_findings": ["MA-TOUCH-001", "MA-CHILD-001"],
+      "reproduction": "The single run uses synthetic touch, key and pad events with real pause/resume controls and explicit focus/application notification calls, then asserts neutral cancellation and correct-source recovery.",
+      "child_impact": "The tested controller path avoids accidental scoring from stale or unrelated releases and permits a fresh gesture after recovery. Real Android lifecycle delivery and physical multitouch remain unverified.",
+      "proposed_repair": "No defect is demonstrated in the tested controller path. Keep the device matrix independent because scripted notifications do not prove Android's actual event ordering.",
+      "acceptance_test": "On device, hold a note press while pausing/backgrounding, resume with a second finger or unrelated control, and release the original owner; verify zero accidental score and that a fresh deliberate tap resumes play normally."
+    }
+  ],
+  "strengths": [
+    {
+      "claim": "A wrong or missed timing opportunity leaves the child in a live activity with progress preserved and another note pass available; passive waiting cannot complete it.",
+      "evidence": "scripts/games/melody.gd:688-713,1172-1225; scripts/probe_melody.gd:1539-1582; runtime/L42/attempt_1/probe.log:119-124. The probe was headless and not child-paced."
+    },
+    {
+      "claim": "A completed first round and replay use ordered seven-note progress; the first win grants one trophy, while a faster replay can improve the medal without repeating the trophy.",
+      "evidence": "scripts/probe_melody.gd:314-421; runtime/L42/attempt_1/probe.log:240-272. This is isolated internal persistence evidence, not child-visible route or reward comprehension."
+    },
+    {
+      "claim": "The probe exercises neutral teardown and restoration after pause/focus/overlay/controller loss, rejecting stale input and freeing the Canvas stage cleanly.",
+      "evidence": "scripts/probe_melody.gd:1539-2206,2267-2300; runtime/L42/attempt_1/probe.log:125-239. Physical phone behavior remains unverified."
+    }
+  ],
+  "acceptance_gaps": [
+    "The matrix marks Melody dormant; the probe selects Daddy and directly calls _start_game, and its source comment says the ordinary reef discovery/PLAY route retired.",
+    "Probe pass reflects a single accelerated, headless scripted run with synthetic touch/key/pad events; it is not Mobile visual acceptance or real touch latency/geometry on the Lenovo Tab M11.",
+    "No child comprehension, discoverability, comfort, response to missed timing, play duration, fun, voluntary replay or distress evidence was observed.",
+    "The probe does not substitute for device OS focus/background event ordering, actual audio audibility, or owner review."
+  ]
+}

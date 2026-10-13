@@ -1,0 +1,159 @@
+{
+  "schema": "luna_playthrough_report/1",
+  "session_id": "L55",
+  "reviewer": {
+    "agent_id": "/root/luna_playtest_coordinator/luna_l55",
+    "model": "gpt-6-luna"
+  },
+  "baseline": "e2b3c73789707aa49a91b4f42e2a9dd4b68225df",
+  "focus": "Fairy Conservatory door/Skyway start and return",
+  "runtime_receipt": "audit/cycles/luna-playtest-20261012/runtime/L55/attempt_1/receipt.json",
+  "evidence_kind": "INTERNAL_PROBE",
+  "route_status": {
+    "proven_scope": "At baseline e2b3c73789707aa49a91b4f42e2a9dd4b68225df, the isolated Godot 4.7.2 probe passed 18 assertions for Main Hall availability, dormant/revealed/open door state, reveal prerequisites, target/pointer cardinality, and hall camera preservation (runtime/L55/attempt_1/probe.log, RESULT=OK, failures=0). Source inspection confirms a Main Hall hotspot starts the handoff, ordered Skyway taps reach the Butterfly House, and Galaxy completion/exit reopens the Skyway return state.",
+    "route_gaps": "The probe directly instantiates ReefMain, forces Chapter 2 and Chapter 3 flags, and sets the hall camera offset; it does not press the visible door, enter the handoff, perform the three Skyway taps, enter/leave Butterfly World, or observe a full round trip (probe_fairy_conservatory_route.gd:26-54, 107-143). Thus this is internal probe evidence, not a child-visible routed traversal. A fresh normal-play route also depends on Chapter 2 completion; the probe does not establish that prerequisite is reachable in ordinary play."
+  },
+  "verdict": "INCOMPLETE",
+  "timing": {
+    "code_constants": [
+      {
+        "value": "Three ordered outbound waypoint taps; three reverse waypoint taps after Butterfly World",
+        "evidence": "scripts/arena/fairy_conservatory_handoff_2d.gd:29-33, 68-69, 371-395",
+        "scope": "Code-derived interaction count; no game-time wait is required or measured."
+      },
+      {
+        "value": "Chapter 3 design target: short transition stage, less than a minute",
+        "evidence": "design/FAIRY_CONSERVATORY_CHAPTER3_2026-08-30.md:119-143",
+        "scope": "Design intent only; not verified by play or a runtime timer."
+      }
+    ],
+    "gameplay_duration": null,
+    "assumptions": "No play duration inferred. Session helper wall time was 27.818 seconds and is probe execution time, not gameplay timing."
+  },
+  "tactile": {
+    "target_size": "Skyway waypoints use 112x112 logical units and the Butterfly House hotspot is 280x300 logical units (scripts/arena/fairy_conservatory_handoff_2d.gd:34-35). Main Hall reveal/open hotspot is clamped to at least 112x112 canvas units (scripts/arena/fairy_conservatory_door_2d.gd:255-263). Physical millimetres and aspect-ratio scaling were not checked on a phone.",
+    "press_response": "Code accepts screen-touch press events and transforms them into logical world coordinates (scripts/arena/fairy_conservatory_handoff_2d.gd:343-361). Waypoint taps advance only when inside the next target and call _ui_tap (scripts/arena/fairy_conservatory_handoff_2d.gd:364-395). No routed press latency or rendered response was measured.",
+    "drag_hold_release": "The handoff is tap-only; no drag or hold is needed. Only press events are handled by this script; release events do not advance route state (scripts/arena/fairy_conservatory_handoff_2d.gd:343-353).",
+    "ownership": "No multitouch ownership or second-finger behavior was asserted by this probe; source path handles press coordinates but does not declare per-pointer ownership (scripts/arena/fairy_conservatory_handoff_2d.gd:343-395).",
+    "cancellation": "No explicit route cancellation gesture is implemented in the handoff source. The global navigation finish callback receives back/exit, but its physical touch route was not exercised (scripts/arena/fairy_conservatory_handoff_2d.gd:404-409; scripts/main.gd:2173-2210)."
+  },
+  "play_appeal": {
+    "agency": "Hypothesis: three individually confirmed taps that move Roshan closer to a continuously visible Butterfly House may give a preschool player a clear sense of making the journey. The probe did not show or play the stage.",
+    "variety": "The route uses one repeated tap verb across three points, with changing character scale/position; whether the visual progression feels varied enough is unobserved.",
+    "world_response": "Code moves Roshan from (640,594) toward (640,330), with visible size shrinking from 134x172 to 76x98 across progress (scripts/arena/fairy_conservatory_handoff_2d.gd:36-40, 298-308). Actual visible quality is unverified.",
+    "replay": "Leaving or completing Butterfly World returns to a Skyway return state, then Main Hall context; the state path is in code but was not exercised by this probe (scripts/main.gd:2249-2277, 2340-2370).",
+    "concrete_test": "On the target phone, ask a child to enter from the revealed Main Hall door, follow the pointer to the house without coaching, then leave Butterfly World and find the path home. Record missed/extra taps, time-to-first-action, whether the child notices Roshan approaching the destination, whether the reverse trip remains understandable, and whether the child chooses to repeat it.",
+    "fun_score": null
+  },
+  "play_sequence": [
+    {
+      "beat": "Reach the eligible Main Hall after the Chapter 2 candle story; wait for the door reveal cue and pointer.",
+      "input": "Tap the Moonflower doorway once after it is visibly available.",
+      "wait": "Wait for the fade and Skyway scene to appear; duration is not specified in source."
+    },
+    {
+      "beat": "Begin the Rainbow Skyway walk with the pointer at the near path point.",
+      "input": "Tap the highlighted lower waypoint once.",
+      "wait": "Wait for Roshan's position/scale update and pointer to settle before the next tap."
+    },
+    {
+      "beat": "Continue toward the visible Butterfly House.",
+      "input": "Tap the next highlighted waypoint once, then tap the third highlighted waypoint once.",
+      "wait": "Wait for the house-state instruction after the third tap."
+    },
+    {
+      "beat": "Enter the destination.",
+      "input": "Tap the large Butterfly House hotspot once.",
+      "wait": "Wait for Butterfly World to open; its rescue is outside this focused review."
+    },
+    {
+      "beat": "Return from Butterfly World by back/exit or completion.",
+      "input": "Use the Butterfly World exit/back action.",
+      "wait": "Wait for the Skyway return state and its home instruction."
+    },
+    {
+      "beat": "Follow the rainbow back to the saved origin.",
+      "input": "Tap each of the three reverse highlighted waypoints once, in order.",
+      "wait": "Wait for the Main Hall to resume and the prior camera position to settle."
+    }
+  ],
+  "observations": [
+    {
+      "title": "Focused probe passes door policy and hall preservation checks",
+      "classification": "CONFIRMED_RUNTIME",
+      "evidence": [
+        "audit/cycles/luna-playtest-20261012/runtime/L55/attempt_1/receipt.json: status PASS, exit_code 0, exact Godot 4.7.2.stable.official.ed1daf0bf, isolated profile, rendered_mobile_acceptance false.",
+        "audit/cycles/luna-playtest-20261012/runtime/L55/attempt_1/probe.log: 18 FAIRYROUTE|OK assertions; RESULT=OK, failures=0.",
+        "scripts/probe_fairy_conservatory_route.gd:26-54 sets up ReefMain and directly forces fresh-state flags; :88-143 checks eligibility, one hotspot/pointer, saved door state and hall camera preservation."
+      ],
+      "rules": ["DL-QA-02", "DL-QA-07"],
+      "existing_findings": [],
+      "reproduction": "Run the retained command in the receipt; all probe assertions pass. The probe does not call visible GUI input or Skyway waypoint handlers.",
+      "child_impact": "This reduces uncertainty about state wiring and the tested hall seam, but cannot tell whether a child discovers or completes the route.",
+      "proposed_repair": "No code repair inferred from this internal pass; add the routed route and physical-device evidence before claiming child-facing route acceptance.",
+      "acceptance_test": "Use visible one-finger input from the Main Hall door through house entry and back to the same Hall camera context on the exact candidate build."
+    },
+    {
+      "title": "Main Hall hotspot opens a dedicated Skyway handoff in code",
+      "classification": "CONFIRMED_CODE",
+      "evidence": [
+        "scripts/arena/fairy_conservatory_door_2d.gd:284-300 guards repeated opening, saves reveal/open flags and invokes _start_fairy_conservatory_handoff after an eligible tap.",
+        "scripts/main.gd:2173-2209 captures route context, saves Chapter 3 door flags, pushes navigation and starts the handoff; :4815-4817 routes the compatibility court:galaxy caller through the handoff.",
+        "design/FAIRY_CONSERVATORY_CHAPTER3_2026-08-30.md:22-49, 76-84 defines the Main Hall→Skyway→Butterfly House sequence and exact Main Hall return authority."
+      ],
+      "rules": ["DL-AGE-01", "DL-INT-01", "DL-SAVE-04"],
+      "existing_findings": ["MA-PLAY-005"],
+      "reproduction": "Code inspection only. The probe stops after opening-state and hall-resume assertions; it never fires the hotspot pressed signal.",
+      "child_impact": "If Chapter 2's normal route does not deliver the required completed-story state, a correct door implementation may remain unavailable to a fresh player.",
+      "proposed_repair": "Preserve the visible door/handoff design; prove the Chapter 2 prerequisite and this entry in an ordinary fresh-profile traversal before changing implementation.",
+      "acceptance_test": "On a fresh profile, reach Main Hall through the normal story, complete the owner-directed prerequisite, and enter via the visible door without debug state mutation."
+    },
+    {
+      "title": "Skyway advances through three explicit taps with a large destination target",
+      "classification": "CONFIRMED_CODE",
+      "evidence": [
+        "scripts/arena/fairy_conservatory_handoff_2d.gd:29-35 declares three sequential waypoints, a 280x300 house region and 112x112 minimum waypoint target.",
+        "scripts/arena/fairy_conservatory_handoff_2d.gd:364-401 advances only on a tap within the next point, then enables the house and its entry callback; :412-430 provides stage-specific spoken/captioned instruction wiring.",
+        "design/FAIRY_CONSERVATORY_CHAPTER3_2026-08-30.md:119-143 states no timer/failure and three sequential one-finger targets."
+      ],
+      "rules": ["DL-AGE-02", "DL-AGE-03", "DL-UI-03", "DL-INT-02"],
+      "existing_findings": [],
+      "reproduction": "Source trace only. No waypoint or house tap is sent by probe_fairy_conservatory_route.gd.",
+      "child_impact": "Large targets and no penalty suggest forgiving play, while repeated taps may feel like a short sequence rather than free walking; child comprehension and appeal are unknown.",
+      "proposed_repair": "No change proposed from code evidence. Observe whether the child can identify the next point and notices Roshan approaching the persistent destination.",
+      "acceptance_test": "In-context phone capture and child observation confirm one-finger taps advance in order, off-target taps do no harm, the house remains visible, and the child can enter without reading or adult help."
+    },
+    {
+      "title": "Butterfly return and saved origin are wired but not traversed",
+      "classification": "COVERAGE_GAP",
+      "evidence": [
+        "scripts/main.gd:2211-2247 saves an origin tuple and suspends/resumes the Castle Hall when appropriate.",
+        "scripts/main.gd:2249-2277 routes house entry into Galaxy and restores the saved handoff context on back; :2340-2370 sends completion or exit back through the Skyway return stage.",
+        "scripts/arena/fairy_conservatory_handoff_2d.gd:67-70 initializes return mode at the final waypoint; :371-384 steps backward and calls the saved finish callback at the start."
+      ],
+      "rules": ["DL-SAVE-04", "DL-QA-02", "DL-QA-04", "DL-QA-05"],
+      "existing_findings": ["MA-PLAY-005"],
+      "reproduction": "No Butterfly World entry, back/completion action or reverse waypoint occurs in the retained L55 probe.",
+      "child_impact": "A child could lose the place they started from or misunderstand the route home if either return branch fails; this run gives no route-level assurance.",
+      "proposed_repair": "Keep the code path as a candidate; test both Butterfly exit and completion across save/re-entry and confirm the same hall room and camera offset return.",
+      "acceptance_test": "From Main Hall, complete a routed outward trip; exercise both Butterfly exit and completion; verify exact saved origin, return-waypoint order, door persistence and no progress loss."
+    }
+  ],
+  "strengths": [
+    {
+      "claim": "The focused runtime probe confirms the dormant door stays inert before its plot prerequisite, the eligible reveal/open state has one hotspot and cue, and the Main Hall camera offset survives the specific tested suspend/resume.",
+      "evidence": "audit/cycles/luna-playtest-20261012/runtime/L55/attempt_1/probe.log; scripts/probe_fairy_conservatory_route.gd:57-143. The probe manipulates flags directly, so this is state-contract evidence only."
+    },
+    {
+      "claim": "The inspected handoff uses three no-fail ordered touch targets and keeps the Butterfly House visible during the route; return is represented as a reverse waypoint state.",
+      "evidence": "scripts/arena/fairy_conservatory_handoff_2d.gd:29-35, 276-296, 364-395; design/FAIRY_CONSERVATORY_CHAPTER3_2026-08-30.md:119-143. Code/design only, not visual or child acceptance."
+    }
+  ],
+  "acceptance_gaps": [
+    "No routed GUI/touch traversal of the door, outbound Skyway, house hotspot, Butterfly exit/completion or return waypoints; probe setup directly edits progression flags.",
+    "No Mobile-rendered in-context visual evidence for door alignment, waypoint visibility, readable feedback, framing or supported aspect ratios.",
+    "No Lenovo Tab M11 physical target-size, latency, frame-pacing, orientation or multitouch evidence.",
+    "No observed-child evidence for route comprehension, non-reader discoverability, agency, appeal or willingness to replay.",
+    "The route's Chapter 2 prerequisite and fresh-play reachability remain unproven here under MA-PLAY-005; the focused probe grants no owner or release acceptance."
+  ]
+}

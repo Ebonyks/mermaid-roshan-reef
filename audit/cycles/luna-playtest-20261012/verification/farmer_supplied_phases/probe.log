@@ -1,0 +1,31 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+WARNING: Opera phase has no authored room object: farmer/GATHER STRAWBERRIES
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _assign_stations (res://scripts/opera_career_world_2d.gd:1910)
+       [1] _build_world (res://scripts/opera_career_world_2d.gd:1190)
+       [2] setup (res://scripts/opera_career_world_2d.gd:765)
+       [3] start (res://scripts/opera_act.gd:78)
+       [4] start (res://scripts/opera_house.gd:256)
+       [5] _init (res://audit/cycles/luna-playtest-20261012/review_tools/chapter2_farmer_diagnostic.gd:26)
+WARNING: Opera phase has no authored room object: farmer/FILL BASKET
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _assign_stations (res://scripts/opera_career_world_2d.gd:1910)
+       [1] _build_world (res://scripts/opera_career_world_2d.gd:1190)
+       [2] setup (res://scripts/opera_career_world_2d.gd:765)
+       [3] start (res://scripts/opera_act.gd:78)
+       [4] start (res://scripts/opera_house.gd:256)
+       [5] _init (res://audit/cycles/luna-playtest-20261012/review_tools/chapter2_farmer_diagnostic.gd:26)
+WARNING: Opera phase has no authored room object: farmer/DELIVER TO KITCHEN
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _assign_stations (res://scripts/opera_career_world_2d.gd:1910)
+       [1] _build_world (res://scripts/opera_career_world_2d.gd:1190)
+       [2] setup (res://scripts/opera_career_world_2d.gd:765)
+       [3] start (res://scripts/opera_act.gd:78)
+       [4] start (res://scripts/opera_house.gd:256)
+       [5] _init (res://audit/cycles/luna-playtest-20261012/review_tools/chapter2_farmer_diagnostic.gd:26)
+FARMER_CONFIG_DIAGNOSTIC|{"armed_station":-1,"config_keys":["reward_policy","chapter2_story_career","chapter2_tutorial","run_context","win_line","phase_overrides"],"director_allows_farmer":true,"explicit_phases_supplied":true,"fixture":"Injected post-boss chapter state; actual director/House/Act call chain; no supplied phase override.","has_surface":true,"house_reports_started":true,"phase_count":3,"station_count":5}
+FARMER_CONFIG_DIAGNOSTIC|Healthy first task: FAIL

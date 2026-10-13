@@ -1,0 +1,91 @@
+{
+  "schema": "luna_mobile_capture/1",
+  "baseline": "e2b3c73789707aa49a91b4f42e2a9dd4b68225df",
+  "command": [
+    "C:/Users/Peter/Documents/mermaid-roshan-reef/tmp/godot-4.7.2/editor/Godot_v4.7.2-stable_win64_console.exe",
+    "--windowed",
+    "--path",
+    "C:\\Users\\Peter\\.codex\\worktrees\\luna-playtest-20261012\\mermaid-roshan-reef",
+    "--rendering-method",
+    "mobile",
+    "--resolution",
+    "1280x720",
+    "--audio-driver",
+    "Dummy",
+    "-s",
+    "audit/cycles/luna-playtest-20261012/review_tools/pool_diagnostic.gd",
+    "--",
+    "--touch",
+    "--classic-touch-test"
+  ],
+  "started_utc": "2026-10-13T00:55:16.911184+00:00",
+  "status": "FAIL",
+  "probe_sha256": "66d3a646278b8b6c1727c6b057588f8e487f6d6a111c3f78331fcba263fae552",
+  "base_probe_sha256": "6c591c328b517b71528d9129d11339888fd95abda23846a20068ca8047be98e6",
+  "diagnostic": true,
+  "story_clip_cancellation": true,
+  "engine_sha256": "c8f0a6bc45a19b33541501e57f6f7cd972ab18453743266339d495cbbe846643",
+  "save_profile_isolated": true,
+  "audio": "Dummy; not listening evidence",
+  "route_limit": "Existing fixture opens room/restores state directly; captured compositions only, not fresh-save navigation or child touch/fun proof.",
+  "exit_code": 1,
+  "wall_seconds": 35.655,
+  "log_sha256": "6206de100ad7859d1c64064f1f64f54f0e238c4a53f5387148e00b541bbacd6a",
+  "files": [
+    {
+      "path": "audit/cycles/luna-playtest-20261012/captures/pool_diagnostic/00_dirty_arrival.png",
+      "sha256": "a9b7baacf309fbc1925d4c59e9afd7f0c9964e57b734a1c2458d66e7972f6789",
+      "bytes": 1379675
+    },
+    {
+      "path": "audit/cycles/luna-playtest-20261012/captures/pool_diagnostic/00a_roshan_approaching_trash.png",
+      "sha256": "4d3e42a859636a9acfb0e4f3b87110ed6a04cb8ae588131d6b5dbf5651f26df5",
+      "bytes": 1380474
+    },
+    {
+      "path": "audit/cycles/luna-playtest-20261012/captures/pool_diagnostic/00b_roshan_scooping_trash.png",
+      "sha256": "a0b5794db7a7cea392bd6bb6b05728bbe63af0aba040351c931f1672068097bc",
+      "bytes": 1379081
+    },
+    {
+      "path": "audit/cycles/luna-playtest-20261012/captures/pool_diagnostic/01_skimmer_catch.png",
+      "sha256": "f9d54f0d69e5596b6644eb1fc61c0f6d23f3d9b0ff2861b41c23393e8b015413",
+      "bytes": 1377345
+    },
+    {
+      "path": "audit/cycles/luna-playtest-20261012/captures/pool_diagnostic/02_pool_clear_waterfall_dirty.png",
+      "sha256": "47d9de09cd9d75853a7c38f20b7140c4125f894804870f0cf0e793b0e8280e58",
+      "bytes": 1421580
+    },
+    {
+      "path": "audit/cycles/luna-playtest-20261012/captures/pool_diagnostic/03_waterfall_scrub.png",
+      "sha256": "2b3f9e1bdbf784b7b537c370e24bdd52817a935686d07808531436c98032cfa8",
+      "bytes": 1422129
+    },
+    {
+      "path": "audit/cycles/luna-playtest-20261012/captures/pool_diagnostic/04_waterfall_clear_static.png",
+      "sha256": "48e507f5ef77acb1282aa59265b0460a06be32f5100e4055e10a0583e97635b7",
+      "bytes": 1417880
+    },
+    {
+      "path": "audit/cycles/luna-playtest-20261012/captures/pool_diagnostic/05_seahorse_tug_midway.png",
+      "sha256": "1193f0d3f18f23800986d1b4d4b64b478259f23e28169bd5346255712131fedc",
+      "bytes": 1413088
+    },
+    {
+      "path": "audit/cycles/luna-playtest-20261012/captures/pool_diagnostic/06_seahorse_trash_release.png",
+      "sha256": "a1c0bd5c8a70265e324a75c5d54658eb87c5ab28cea597f7162fd867db32c130",
+      "bytes": 1408811
+    },
+    {
+      "path": "audit/cycles/luna-playtest-20261012/captures/pool_diagnostic/07_rainbow_reveal_active.png",
+      "sha256": "4906a63c686c9d73698c6acb41055b8635fd6cf5811a96eb47c1ad27f70f42ce",
+      "bytes": 1521698
+    },
+    {
+      "path": "audit/cycles/luna-playtest-20261012/captures/pool_diagnostic/08_clean_pool_reveal.png",
+      "sha256": "779765a0573f6436732a9fa94415dc7539809d72e1cd49c6ff4682c6c071ad91",
+      "bytes": 1521866
+    }
+  ]
+}

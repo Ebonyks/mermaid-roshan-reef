@@ -1,0 +1,150 @@
+{
+  "schema": "luna_playthrough_report/1",
+  "session_id": "L01",
+  "reviewer": {
+    "agent_id": "/root/luna_playtest_coordinator/luna_l01",
+    "model": "gpt-6-luna"
+  },
+  "baseline": "e2b3c73789707aa49a91b4f42e2a9dd4b68225df",
+  "focus": "Fresh Day One entry and cues",
+  "runtime_receipt": "audit/cycles/luna-playtest-20261012/runtime/L01/attempt_1/receipt.json",
+  "evidence_kind": "INTERNAL_PROBE",
+  "route_status": {
+    "proven_scope": "The exact Godot 4.7.2 probe passed its director policy, room-unlock, save-normalization and source-wiring assertions (probe log RESULT: PASS, failures=0).",
+    "route_gaps": "The probe creates ReefMain without running the heavyweight world boot, writes bathroom and later room/boss state directly, and never enters through the fresh start menu, renders the castle cue, or accepts routed touch input. No fresh child-visible Day One route is established by this run."
+  },
+  "verdict": "INCOMPLETE",
+  "timing": {
+    "code_constants": [
+      {
+        "value": "NEW_GAME_HOLD_SECONDS = 0.8 seconds",
+        "evidence": "scripts/start_menu.gd:10,369-376",
+        "scope": "Existing-save confirmation only; fresh save bypasses the hold confirmation."
+      },
+      {
+        "value": "NEW_GAME_ARM_DELAY_SECONDS = 1.5 seconds",
+        "evidence": "scripts/start_menu.gd:11,352-357",
+        "scope": "Existing-save confirmation only; delays enabling START NEW."
+      }
+    ],
+    "gameplay_duration": null,
+    "assumptions": "No gameplay/session duration inferred. Helper wall time was 20.727 seconds and is probe execution time, not play time."
+  },
+  "tactile": {
+    "target_size": "The Continue and New Game buttons are each 340x118 design-canvas units at 1280x720 (scripts/start_menu.gd:82-88). Physical millimetres and phone-scale hit geometry are unmeasured.",
+    "press_response": "Button pressed signals call the menu handlers in code (scripts/start_menu.gd:84-88); rendered-frame latency and touch feel were not tested.",
+    "drag_hold_release": "Fresh no-save New Game is an ordinary button press. Existing-save START NEW is disabled during a 1.5-second arm delay, then requires a 0.8-second hold; release before completion cancels and resets the fill (scripts/start_menu.gd:352-387). No routed pointer trace was observed.",
+    "ownership": "No touch ownership assertions are made for this classic scripted probe.",
+    "cancellation": "Early release cancels the existing-save hold via serial invalidation and resets the progress fill (scripts/start_menu.gd:369-387); runtime touch cancellation was not exercised."
+  },
+  "play_appeal": {
+    "agency": "Hypothesis: a direct New Game action on a fresh save can make the entry feel immediate; actual handoff and agency were not observed.",
+    "variety": "The opening leads from the authored arrival into a gated main hall and first bathroom route in code, but variety was not experienced in this probe.",
+    "world_response": "Hypothesis: the golden rainbow-door instruction and door dressing can make next-step routing legible; no rendered response was inspected.",
+    "replay": "Not assessed in this fresh-entry scope.",
+    "fun_score": null
+  },
+  "observations": [
+    {
+      "title": "Integration probe passes policy and wiring checks, with direct state setup",
+      "classification": "CONFIRMED_RUNTIME",
+      "evidence": [
+        "audit/cycles/luna-playtest-20261012/runtime/L01/attempt_1/probe.log: DAY_ONE_INTEGRATION|RESULT: PASS failures=0; 12 policy/save checks and required-source wiring checks report OK.",
+        "scripts/probe_day_one_integration.gd:40-42 constructs ReefMain and DayOneDirector directly; :51-79 assigns bathroom flags and completes later room/boss state directly.",
+        "scripts/probe_day_one_integration.gd:2-4 states the heavyweight world boot is not run."
+      ],
+      "rules": [
+        "DL-QA-02",
+        "DL-QA-05"
+      ],
+      "existing_findings": [
+        "MA-PLAY-001"
+      ],
+      "reproduction": "Run the retained L01 receipt command; result is PASS with no failure lines. Inspect the probe setup to see state changes are injected rather than reached through menus or touch.",
+      "child_impact": "This pass reduces uncertainty about state policy and wiring, but cannot tell whether a child can find or complete the fresh entry route.",
+      "proposed_repair": "No code repair inferred from this probe. Add a separate fresh-profile routed-input/device evidence lane before claiming the entry route proven.",
+      "acceptance_test": "From an actually fresh profile, capture the visible start-menu action through castle arrival, spoken/visual cue, and first-room entry using touch only; preserve the exact build and route trace."
+    },
+    {
+      "title": "Fresh-save Day One launch path is present in code but unexercised here",
+      "classification": "COVERAGE_GAP",
+      "evidence": [
+        "scripts/start_menu.gd:346-350 performs new-game save setup, sets the one-shot Day One marker, and reloads the scene.",
+        "scripts/start_menu.gd:58-88 builds visible Continue and New Game controls; New Game is 340x118 design units.",
+        "scripts/main.gd:3319-3345 routes the marked launch through start_day_one and initializes day_one_active; scripts/main.gd:5767-5793 opens the castle main hall and discovers the dirty castle."
+      ],
+      "rules": [
+        "DL-AGE-01",
+        "DL-AGE-06",
+        "DL-SAVE-04",
+        "DL-QA-05"
+      ],
+      "existing_findings": [
+        "MA-PLAY-001"
+      ],
+      "reproduction": "No fresh save or visible menu interaction occurs in probe_day_one_integration.gd; it instantiates ReefMain directly.",
+      "child_impact": "A missing handoff, confusing first choice, or stalled transition could strand a non-reader despite passing policy assertions.",
+      "proposed_repair": "Retain the current route unless an actual fresh-profile traversal finds a defect; collect the route evidence through the visible controls.",
+      "acceptance_test": "A fresh install reaches the castle and first room from the visible menu with one-finger input, no debug calls, and no lost progress; record interruptions and re-entry behavior."
+    },
+    {
+      "title": "Castle arrival has a spoken and visual next-door instruction in code",
+      "classification": "CONFIRMED_CODE",
+      "evidence": [
+        "scripts/main.gd:5793-5806 discovers the castle and calls say_day_one_context with cue day1_arrival_castle and caption 'Follow the one golden rainbow door! Foggy doors are resting until it is their turn.'",
+        "scripts/day_one_contextual_voice_catalog.gd:19 contains day1_arrival_castle with status READY and route arrival.",
+        "scripts/audio_director.gd:124-178 resolves the cue, checks route/resource readiness, plays the stream and presents the caption; missing/unready resources retain the caption instead."
+      ],
+      "rules": [
+        "DL-AGE-01",
+        "DL-MOT-04"
+      ],
+      "existing_findings": [
+        "MA-ACCESS-001",
+        "MA-PLAY-001"
+      ],
+      "reproduction": "Code trace only; L01 log contains no audio-playback, caption-display, pointer-position, or listening assertion.",
+      "child_impact": "If the voice is inaudible or the golden-door cue is visually unclear at phone size, the child may need an adult to choose the next room.",
+      "proposed_repair": "No cue change proposed from code inspection. Verify this exact voice and pointer in the running fresh route and confirm the applicable recording authority separately.",
+      "acceptance_test": "On the target phone, enter the castle with captions unread and verify the approved exact voice is audible, the corresponding golden door is unmistakable, and the child chooses it without adult instruction."
+    },
+    {
+      "title": "Existing-save New Game protection adds a deliberate press-and-hold step",
+      "classification": "CONFIRMED_CODE",
+      "evidence": [
+        "scripts/start_menu.gd:252-257 wires START NEW press/release handlers; :10-11 declares a 0.8-second hold and 1.5-second arm delay.",
+        "scripts/start_menu.gd:10-11 declares the 0.8-second hold and 1.5-second arm delay.",
+        "scripts/start_menu.gd:278-300 adds PRESS AND HOLD caption and a fill bar; :352-387 delays enabling START NEW and cancels on early release."
+      ],
+      "rules": [
+        "DL-AGE-02",
+        "DL-AGE-03",
+        "DL-UI-03"
+      ],
+      "existing_findings": [
+        "MA-PLAY-001"
+      ],
+      "reproduction": "Code inspection only; behavior is conditional on an existing saved game and was not part of the probe assertions.",
+      "child_impact": "The hold protects saved progress, while a delayed disabled button and adult-oriented caption may make a returning child wait or rely on an adult to proceed.",
+      "proposed_repair": "Keep the current progress protection; verify the visual fill clearly teaches the hold and offers a clear Keep Game exit on device.",
+      "acceptance_test": "On a device with an existing save, confirm a quick tap cannot erase progress, the hold affordance is visible, early release cancels, and the child can continue the saved adventure without adult instruction."
+    }
+  ],
+  "strengths": [
+    {
+      "claim": "The exact-build internal probe confirms room gating, ordered progression, and protection against bypassing the real boss defeat before Day Two.",
+      "evidence": "audit/cycles/luna-playtest-20261012/runtime/L01/attempt_1/probe.log: policy checks 'only physical bathroom route starts unlocked', 'completion advances the physical castle route', and 'Day Two cannot bypass the real boss defeat' are OK."
+    },
+    {
+      "claim": "The fresh launch and castle arrival code provide a one-shot Day One mode handoff and a paired spoken/captioned castle direction.",
+      "evidence": "scripts/start_menu.gd:346-350; scripts/main.gd:3319-3345, 5793-5806; scripts/day_one_contextual_voice_catalog.gd:19. Code-path strength only; not route or device acceptance."
+    }
+  ],
+  "acceptance_gaps": [
+    "No routed-input or GUI traversal from fresh start menu to castle and first room; this scripted probe is internal only.",
+    "No Mobile-rendered capture or confirmation of pointer/door alignment at supported aspect ratios.",
+    "No target-phone latency, physical hit-size, frame pacing, or audio audibility evidence.",
+    "No observed-child evidence for comprehension, discoverability, comfort, session duration, agency, or fun.",
+    "The catalog marks the arrival cue READY, but this run does not establish recording approval, playback, or owner acceptance."
+  ]
+}

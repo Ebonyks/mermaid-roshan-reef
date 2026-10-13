@@ -1,0 +1,215 @@
+{
+  "schema": "luna_playthrough_report/1",
+  "session_id": "L39",
+  "reviewer": {
+    "agent_id": "/root/luna_playtest_coordinator/luna_l39",
+    "model": "gpt-6-luna"
+  },
+  "baseline": "e2b3c73789707aa49a91b4f42e2a9dd4b68225df",
+  "focus": "Fetch mechanic vs missing child route",
+  "runtime_receipt": "audit/cycles/luna-playtest-20261012/runtime/L39/attempt_1/receipt.json",
+  "evidence_kind": "INTERNAL_PROBE",
+  "route_status": {
+    "proven_scope": "The unchanged probe_fetch run passed on Godot 4.7.2.stable.official.ed1daf0bf. Its retained log records aim → fly → fetch → pickup → return twice and END game= won=true at frame 312 with zero misses.",
+    "route_gaps": "This is a dormant activity, not a demonstrated child route. main.gd builds friends as a data-only roster after retiring the reef friend pillars (1984-1995); the probe itself selects the fetch record and calls _start_game directly (probe_fetch.gd:13-22). The only _start_game call sites reviewed are the Day One dust-boss handoff and the Chapter Two rainbow-slide helper (main.gd:6753, 7080), neither of which launches Fetch. No visible Wacky/Chuck entry, routed touch, natural exit/re-entry, or ordinary save lifecycle was exercised.",
+    "normal_route_status": "DORMANT; source mechanics exist behind the internal launcher, but child reachability is not shown by the minigame catalog row or this probe."
+  },
+  "verdict": "INCOMPLETE",
+  "timing": {
+    "code_constants": [
+      {
+        "value": "Aim sweep angular rate = 0.9 * pow(0.72, miss_count) radians per game second; safe-side sweep width is 1.25 initially, 0.85 at two misses, and 0.55 at three or more misses.",
+        "evidence": "scripts/games/fetch.gd:219-229",
+        "scope": "Code values only. The green interval varies with miss count and is not a fixed child wait."
+      },
+      {
+        "value": "pickup_t starts at 0.8 seconds; ball attaches at pickup_t <= 0.35 seconds; Chuck movement is capped at 40 world units per game second.",
+        "evidence": "scripts/games/fetch.gd:292-298, 303-316",
+        "scope": "Source constants, not observed real-time timing; the probe runs Engine.time_scale = 6."
+      }
+    ],
+    "gameplay_duration": null,
+    "assumptions": "No child-session duration or seconds-per-probe-frame estimate is reported. The helper's 10.469-second wall time is only probe execution time."
+  },
+  "tactile": {
+    "target_size": "No routed touch target was measured. The game labels the action THROW in the aim phase (scripts/main.gd:8375-8385); physical hit size and phone projection remain unknown.",
+    "press_response": "In code, the action press starts the ball's fly phase and hides the arrow in the same tick (scripts/games/fetch.gd:246-256). The headless run does not establish rendered-frame response or device latency.",
+    "drag_hold_release": "No drag or release gesture is authored for aiming; the player waits for the moving safe cue and presses THROW. The handler reads the action as a held level while aim is active (scripts/games/fetch.gd:246-249); probe_fetch forces action_down false outside aim (probe_fetch.gd:32-36), so held-through-flight behavior is untested.",
+    "ownership": "No pointer/touch ownership is exercised. Probe input is assignment to touch_ui.action_down, not an InputEventScreenTouch trace (probe_fetch.gd:32-36).",
+    "cancellation": "Pause, focus-loss, exit cancellation and stale-action behavior are not asserted by probe_fetch."
+  },
+  "play_appeal": {
+    "agency": "Hypothesis: choosing a safe throw moment gives a simple, repeatable choice; the probe's synthetic tap schedule does not establish that a child reads the cue or feels in control.",
+    "variety": "Two rounds repeat the same throw-and-retrieve loop. A splash widens and slows the safe area, but there is no distinct second verb or authored dog acting visible in the inspected source.",
+    "world_response": "Hypothesis: the shrinking safe-side challenge and a visible, animated Chuck could make the throw feel connected to a friend. Current source creates an empty Node3D Chuck root with a null AnimationPlayer, so the visible retrieval response is not established.",
+    "replay": "Not assessed; this probe ends when the second round wins and does not test an ordinary child-facing replay or return route.",
+    "fun_score": null
+  },
+  "play_sequence": {
+    "scope": "The first six beats reconstruct the exact probe stimulus and phase waits, not a child playthrough. The last two state the concrete routed appeal test still needed.",
+    "beats": [
+      {
+        "beat": 1,
+        "wait": "Probe waits two process_frame calls after instantiating main, calls _skip_intro, waits one process_frame, directly selects the fetch friend record, then calls _start_game and waits one process_frame (probe_fetch.gd:4-22).",
+        "input": "No routed user input; direct internal launch.",
+        "expected": "Initial aim phase; the retained log records f=1 phase=aim round=0 miss=0."
+      },
+      {
+        "beat": 2,
+        "wait": "While phase is aim, sample every frame; use the current aim_dir and frame counter. No fixed human wait is defined by the source.",
+        "input": "Set touch_ui.action_down true exactly when aim_dir is nonzero, aim_dir.x < 0.1, and fcount % 12 < 6; otherwise false (probe_fetch.gd:32-36). This is synthetic held state, not a tap event.",
+        "expected": "First throw; log changes to fly at f=65."
+      },
+      {
+        "beat": 3,
+        "wait": "Release the synthetic action immediately after aim; wait for the ball landing and fetch/pickup/return phases, with no input during those phases (probe_fetch.gd:35-37).",
+        "input": "None until phase returns to aim.",
+        "expected": "Log records fetch at f=102, pickup at f=108, return at f=128, then aim round=1 at f=140."
+      },
+      {
+        "beat": 4,
+        "wait": "Again sample aim_dir once per frame; safe cue dwell is continuous and miss-dependent (fetch.gd:219-245).",
+        "input": "Repeat the same exact action_down condition as beat 2; release outside aim.",
+        "expected": "Second throw; log changes to fly at f=234."
+      },
+      {
+        "beat": 5,
+        "wait": "Wait without action through landing, pickup and return (probe_fetch.gd:35-37).",
+        "input": "None while not aiming.",
+        "expected": "Log records fetch at f=271, pickup at f=282, return at f=302, then win at f=312."
+      },
+      {
+        "beat": 6,
+        "wait": "For a future child test, wait for the visible green/safe arrow and its transition chime; no fixed seconds are promised.",
+        "input": "One brief finger press on the visible THROW control; lift before the ball lands.",
+        "expected": "Determine whether the child connects the cue to the throw without reading the caption or adult prompting; not tested here."
+      },
+      {
+        "beat": 7,
+        "wait": "If the child throws into the lake, wait through the splash message and for the next aim cue.",
+        "input": "No corrective input during the splash; then one new press when the safe cue appears.",
+        "expected": "Determine whether the child stays willing to retry and understands the broadened safe area; no miss path occurred in this probe."
+      },
+      {
+        "beat": 8,
+        "wait": "After retrieving the second ball, allow the friend response and return/exit choice to appear.",
+        "input": "No adult prompt; observe whether the child asks to play again or chooses a clear exit.",
+        "expected": "Concrete appeal test: with the live route exposed, have a non-reader play the full two-round loop on the target phone, including one natural miss if it occurs; note cue comprehension, voluntary retry/replay, confusion, and any adult help. No such child test was run."
+      }
+    ]
+  },
+  "observations": [
+    {
+      "title": "The exact probe reaches both fetch returns through its synthetic schedule",
+      "classification": "CONFIRMED_RUNTIME",
+      "evidence": [
+        "audit/cycles/luna-playtest-20261012/runtime/L39/attempt_1/receipt.json: status PASS; exact Godot version 4.7.2.stable.official.ed1daf0bf; isolated profile; headless=true; rendered_mobile_acceptance=false.",
+        "audit/cycles/luna-playtest-20261012/runtime/L39/attempt_1/probe.log: f=1 aim; f=65 fly; f=102 fetch; f=108 pickup; f=128 return; f=140 aim round=1; f=234 fly; f=271 fetch; f=282 pickup; f=302 return; END game= won=true frames=312.",
+        "scripts/probe_fetch.gd:23-40 shows the bounded loop, aim-only input schedule, terminal win check and 40-second frame cap."
+      ],
+      "rules": ["DL-QA-02", "DL-AGE-04"],
+      "existing_findings": [],
+      "reproduction": "Use the retained attempt_1 receipt command; the single authorized run exited 0 with no failure lines and the log ended won=true. The script sets Engine.time_scale=6 and synthesizes action_down, so this is a mechanic/state-transition pass only.",
+      "child_impact": "This proves the scripted safe throws can complete two rounds. It does not prove that a child can find the route, make the timed choice, or understand the resulting ball movement.",
+      "proposed_repair": "Do not change the mechanic based on this pass. First establish a child-visible route and collect routed/device evidence.",
+      "acceptance_test": "A fresh ordinary profile enters via a visible route; a routed one-finger test observes both intentional safe throws and at least one zero-input leg, then confirms only intentional play completes."
+    },
+    {
+      "title": "The probe bypasses the ordinary route and touch system",
+      "classification": "COVERAGE_GAP",
+      "evidence": [
+        "scripts/probe_fetch.gd:13-22 searches main.friends, chooses the fetch record and invokes main._start_game(fr) directly.",
+        "scripts/probe_fetch.gd:32-36 assigns touch_ui.action_down from aim_dir and frame count rather than dispatching a touch event.",
+        "scripts/main.gd:1984-1995 describes and builds the friend roster as data-only after reef pillars/beacons were retired; main.gd:7870-7887 starts the requested game only after receiving a record.",
+        "scripts/main.gd:6753 and :7080 are the reviewed _start_game call sites: Day One's dust-boss handoff and the rainbow-slide helper, not Fetch."
+      ],
+      "rules": ["DL-AGE-01", "DL-AGE-06", "DL-UI-01", "DL-SAVE-04", "DL-QA-02", "DL-QA-05"],
+      "existing_findings": [],
+      "reproduction": "Inspect the direct friend-record selection and _start_game call in probe_fetch.gd; trace current _start_game call sites and the data-only friend roster. The master scorecard also marks Fetch dormant and recommends a Canvas timing surface (MASTER_AUDIT_2026-08-09.md:601-605). No exact active finding for a current Fetch child route was found; MA-2D-002 overlaps its spatial implementation, not this reachability assertion.",
+      "child_impact": "A child cannot benefit from a passing internal mechanic probe if no ordinary play surface exposes Wacky and Chuck or launches their game.",
+      "proposed_repair": "Keep Fetch explicitly dormant until there is an authorized, child-visible entry and return path; then review the complete interaction in that route before claiming it is playable.",
+      "acceptance_test": "On a fresh profile with no debug calls, reach Fetch through an ordinary visible route using one finger, hear/see its instruction, complete or kindly retry, leave, and re-enter with progress and other activities preserved."
+    },
+    {
+      "title": "Chuck's runtime root has no visible body or animation player",
+      "classification": "CONFIRMED_CODE",
+      "evidence": [
+        "scripts/games/fetch.gd:172-180 creates a bare Node3D root, adds it to main, stores it as chuck, and explicitly stores chuck_ap as null; no visual child is constructed in this block.",
+        "scripts/games/fetch.gd:195-198 only plays an animation when the stored player is non-null and has that animation.",
+        "scripts/games/fetch.gd:289-322 describes and computes pickup, carrying and return around the Chuck root, then advances the round."
+      ],
+      "rules": ["DL-INT-02", "DL-MOT-01", "DL-MOT-03", "DL-QA-03", "DL-QA-06"],
+      "existing_findings": ["MA-2D-002"],
+      "reproduction": "Source inspection: the only Chuck node in FetchGame.build is Node3D.new() with no mesh/sprite child; chuck_ap is null, making _chuck_play a no-op. This runtime has no captured visual state.",
+      "child_impact": "The described dog pickup/run/wag cannot currently be verified as visible, so ball motion may look detached or self-propelled and the friend payoff may be missing.",
+      "proposed_repair": "When Fetch is commissioned for conversion, use an approved suitable Chuck source in the true-2D Canvas implementation and give each pickup/carry/return a readable contact and settle state; preserve protected friend art.",
+      "acceptance_test": "At runtime, frame-step and play at full speed through throw, pickup, carrying and return; Chuck must visibly contact and carry the ball with stable identity and readable endpoints, then pass actual phone and owner review."
+    },
+    {
+      "title": "Current mechanic remains a spatial 3D arena rather than accepted 2D play",
+      "classification": "CONFIRMED_CODE",
+      "evidence": [
+        "scripts/games/fetch.gd:11-17 creates MeshInstance3D, BoxMesh and StandardMaterial3D snow/lake surfaces; :182-189 creates a 3D arrow.",
+        "scripts/main.gd:8708-8738 builds the shared spatial arena and fetch-specific 3D environment.",
+        "audit/MASTER_AUDIT_2026-08-09.md:601-605 labels Fetch dormant and calls for a generous one-finger Canvas timing surface; active parent finding MA-2D-002 remains IN_PROGRESS."
+      ],
+      "rules": ["DL-MED-01", "DL-MED-03", "DL-AGE-02", "DL-UI-01", "DL-QA-09"],
+      "existing_findings": ["MA-2D-002"],
+      "reproduction": "Trace FetchGame.build and _enter_arena for game=fetch; both use Node3D/MeshInstance3D and spatial material/environment code. No Canvas implementation was found for this route.",
+      "child_impact": "The spatial aim and swimming-era setup carries device and tactile/readability risk under the project's true-2D and one-finger requirements; no target-device evidence is available for it.",
+      "proposed_repair": "Do not revive the legacy spatial implementation. Any future authorized Fetch work should rebuild the bounded timing verb on Canvas using the accepted medium and art rules.",
+      "acceptance_test": "The converted Canvas activity must pass focused input/progression/passive/teardown/save probes, aspect-ratio runtime captures, actual M11 touch/performance checks, and separate child/owner reviews."
+    },
+    {
+      "title": "Mercy widens the safe throw while preserving the child's next action",
+      "classification": "CONFIRMED_CODE",
+      "evidence": [
+        "scripts/games/fetch.gd:219-228 reduces sweep rate after each miss and makes the safe sweep width 0.55 after three misses.",
+        "scripts/games/fetch.gd:281-286 gives a kind shake-off retry line after three splashes and returns to aim; it does not throw automatically.",
+        "scripts/games/fetch.gd:246-252 requires the action press before entering fly."
+      ],
+      "rules": ["DL-AGE-03", "DL-AGE-04", "DL-AGE-05"],
+      "existing_findings": [],
+      "reproduction": "Code path only; the L39 probe had zero misses and did not execute the splash or three-miss assist branches.",
+      "child_impact": "If the cue is legible, the forgiving widening window can preserve a route after a miss without removing the child's choice to press again. Child comprehension and appeal are untested.",
+      "proposed_repair": "Retain the no-punishment, non-automatic mercy design during any future authorized conversion; verify the messages and cue in context.",
+      "acceptance_test": "Through routed touch, intentionally make one and then three safe-side misses; confirm kind feedback, slower/wider cue, continued child-controlled throws, and no loss or automatic win."
+    },
+    {
+      "title": "The cue has visual and audio components in code, but its child meaning is unverified",
+      "classification": "COVERAGE_GAP",
+      "evidence": [
+        "scripts/games/fetch.gd:190 presents the text instruction to avoid the lake and press on green; :231-245 colors and swells the arrow and plays a chime on transition to safe snow.",
+        "scripts/main.gd:8375-8385 labels the contextual action THROW during aim.",
+        "The L39 log contains phase changes only; it has no rendered capture, audio playback assertion or routed touch trace."
+      ],
+      "rules": ["DL-AGE-01", "DL-AGE-02", "DL-AGE-07", "DL-MOT-04", "DL-QA-03", "DL-QA-04", "DL-QA-05"],
+      "existing_findings": [],
+      "reproduction": "Inspect the arrow/cue path and the log. The probe's synthetic condition uses aim_dir.x < 0.1 directly, so it does not show that a player can distinguish the green safe window or hear the chime.",
+      "child_impact": "If green/red or the chime is hard to notice at phone scale, a non-reader may throw randomly or need an adult to interpret the caption.",
+      "proposed_repair": "No cue redesign is justified by code alone. Validate the current redundant cue on the actual device through the authorized live route before proposing a change.",
+      "acceptance_test": "With captions ignored, the child independently points to or presses on the safe cue, sees the ball land on snow, and can recover after a miss; separately verify two-frame response and audible cue on the target phone."
+    }
+  ],
+  "strengths": [
+    {
+      "claim": "The safe cue combines a changing visual arrow with a transition chime, and the action is explicitly labeled THROW in aim.",
+      "evidence": "scripts/games/fetch.gd:231-245; scripts/main.gd:8375-8385. Code evidence only; cue legibility, audio audibility and child comprehension were not measured."
+    },
+    {
+      "claim": "The mercy branch slows/widens the safe interval after misses but still waits for an intentional action press, preserving a completion choice.",
+      "evidence": "scripts/games/fetch.gd:219-252, 281-286. The L39 probe completed with zero misses, so miss recovery is source-only evidence."
+    },
+    {
+      "claim": "The internal happy path advanced through two complete round states and terminated with a win without changing the probe or production source.",
+      "evidence": "audit/cycles/luna-playtest-20261012/runtime/L39/attempt_1/probe.log: phase trace and END game= won=true frames=312."
+    }
+  ],
+  "acceptance_gaps": [
+    "Fetch remains dormant: no ordinary child-visible route or routed-input proof was found; the probe launches it by direct internal method call.",
+    "The passing probe forces action_down from simulation state and does not test genuine touch targeting, ownership, hold-through-transition, release, pause/focus loss or cancellation.",
+    "Chuck has a bare spatial root and null animation player in this source; no rendered capture establishes a visible pickup/carry/return payoff.",
+    "Current implementation is spatial 3D legacy debt; strict true-2D, Mobile visual, phone hit geometry, latency, frame pacing and audio audibility remain unproven.",
+    "No child observation establishes cue comprehension, discoverability, comfort, session length, voluntary retry/replay or appeal; no owner acceptance is implied."
+  ]
+}

@@ -1,0 +1,181 @@
+{
+  "schema": "luna_playthrough_report/1",
+  "session_id": "L52",
+  "reviewer": {
+    "agent_id": "/root/luna_playtest_coordinator/luna_l52",
+    "model": "gpt-6-luna"
+  },
+  "baseline": "e2b3c73789707aa49a91b4f42e2a9dd4b68225df",
+  "focus": "Adversarial wrong touch vs intentional action",
+  "runtime_receipt": "audit/cycles/luna-playtest-20261012/runtime/L52/attempt_1/receipt.json",
+  "evidence_kind": "INTERNAL_PROBE",
+  "route_status": {
+    "proven_scope": "The exact Godot 4.7.2 probe instantiated 25 fresh main scenes and passed its checks for assisted travel direction/physical movement, manual cancellation, blocked-route relinquishment, selected interaction registry/return routes, and Hybrid/Classic reset. Receipt and probe.log record TOUCH_ADVERSARY|ALL 25 SCENARIO RUNS CLEAR.",
+    "route_gaps": "No touch input is dispatched by this probe: its _touch_tap helper at scripts/probe_touch_adversary.gd:210-220 has no call site. It sets movement through TapMoveDirector.start, calls _on_touch_manual_move directly, and directly invokes promenade focus/activation, Crown activation, and northern return. The assigned wrong-touch-versus-intentional-touch behavior and child-visible routes are therefore not exercised. The level-two legs also set progression flags and enter stages through internal methods. No Mobile rendering, physical phone touch, child play, comprehension, or appeal evidence was collected."
+  },
+  "verdict": "INCOMPLETE",
+  "timing": {
+    "code_constants": [
+      {
+        "value": "TAP_SLOP = 22.0 canvas pixels; R = 78.0 canvas pixels; TAP_MS = 300 ms; JUMP_HOLD_MS = 140 ms",
+        "evidence": "scripts/touch_ui.gd:92-95",
+        "scope": "These are router constants; this session did not send touch events to measure how the thresholds feel or behave on the phone."
+      },
+      {
+        "value": "Up to 180 process frames; early-motion sample at travel_frame == 99",
+        "evidence": "scripts/probe_touch_adversary.gd:69-78",
+        "scope": "The probe restores Engine.time_scale to 1 for the assisted travel check. The frame-99 check is approximately 1.7 seconds only under the source comment's nominal 60 fps assumption; no device time was measured."
+      },
+      {
+        "value": "Three blocked-route ticks of 1.2 seconds each",
+        "evidence": "scripts/probe_touch_adversary.gd:91-97",
+        "scope": "These are direct TapMoveDirector ticks, not elapsed child play time."
+      }
+    ],
+    "gameplay_duration": null,
+    "assumptions": "The 135.241-second receipt wall time is probe execution time and is not gameplay duration. No estimate of a child's session length is supported."
+  },
+  "tactile": {
+    "target_size": "The probe checks that movement_zone encloses rest_zone grown by 18 canvas units at scripts/probe_touch_adversary.gd:41-48. It does not measure rendered target boundaries, physical size, or wrong-touch discrimination.",
+    "press_response": "No press was routed through TouchUI in this probe, so press latency and wrong-versus-intentional response remain untested. In source, an unmoved Hybrid world press is held pending and emits world_touched on release unless consumed (scripts/touch_ui.gd:688-722).",
+    "drag_hold_release": "The probe does not dispatch press, drag, hold, or release events. Source classifies movement after displacement exceeds 22 canvas pixels and clamps movement magnitude at 78 pixels (scripts/touch_ui.gd:231-246).",
+    "ownership": "Source assigns each Hybrid touch a STICK, ACTION, or WORLD_INTERACT owner and keeps the stick tied to its owning index (scripts/touch_ui.gd:688-740); L52 did not exercise these event branches.",
+    "cancellation": "The probe confirms that a direct manual-movement callback cancels assisted travel and that mode changes clear Hybrid focus/assist (scripts/probe_touch_adversary.gd:87-97,193-200). It does not send a touch release, focus loss, pause, or overlay interruption."
+  },
+  "play_appeal": {
+    "agency": "Hypothesis: a clear distinction between tapping a visible target and dragging to steer could let a young player choose either action without an extra confirmation step. This probe establishes neither the child's understanding nor perceived control.",
+    "variety": "The source supports tap, hold, drag, movement-bay steering, and selected world interaction routes, but this session exercised no routed gesture variety.",
+    "world_response": "The internal checks verify assisted travel state and selected route destinations, not what the player sees or hears after a touch.",
+    "replay": "Not assessed; the probe resets scenes and mode state for regression coverage rather than observing voluntary replay.",
+    "fun_score": null,
+    "concrete_appeal_test": "On a Lenovo Tab M11 at the normal scene entry, show one visible destination and one nearby interactable. Give one neutral spoken cue, then let the child tap the destination, wait for Roshan's response, and try the nearby object. Repeat once with the cue removed. Record whether each action is distinguishable, whether unintended travel or activation occurs, whether the child retries after a miss, and whether they spontaneously repeat or ask to continue; do not coach beyond that cue."
+  },
+  "play_sequence": [
+    {
+      "beat": 1,
+      "wait": "2 process frames after each fresh scene is added, then 4 process frames after _skip_intro()",
+      "input": "The probe calls _set_touch_mode(\"hybrid\", false) and populates interactables. No child touch is generated.",
+      "evidence": "scripts/probe_touch_adversary.gd:22-35"
+    },
+    {
+      "beat": 2,
+      "wait": "Up to 180 process frames at Engine.time_scale 1; inspect motion at travel_frame 99",
+      "input": "The probe calls TapMoveDirector.start(target), where target is 18 world units from the player at a run-specific angle; it checks that desired direction points toward target and travel reduces distance.",
+      "evidence": "scripts/probe_touch_adversary.gd:53-86"
+    },
+    {
+      "beat": 3,
+      "wait": "No additional wait before the cancellation assertion",
+      "input": "The probe starts a second target 22 world units away, calls _on_touch_manual_move() directly, and expects touch_auto_active to become false; this is a callback check, not a finger drag.",
+      "evidence": "scripts/probe_touch_adversary.gd:87-90"
+    },
+    {
+      "beat": 4,
+      "wait": "3 direct ticks of 1.2 seconds",
+      "input": "The probe starts an obstructed target 32 world units to the right and expects assisted movement to relinquish control after its recovery attempts.",
+      "evidence": "scripts/probe_touch_adversary.gd:91-97"
+    },
+    {
+      "beat": 5,
+      "wait": "12 process frames after internal level-two entry, then 4 frames after direct focus/activation",
+      "input": "For run_index modulo 4 equal to 1, the probe finds a promenade target and directly calls _focus(target) then _activate(target); it checks that the game remains level2. No visible target is touched.",
+      "evidence": "scripts/probe_touch_adversary.gd:111-140"
+    },
+    {
+      "beat": 6,
+      "wait": "8 frames after level-two entry, 12 after castle entry, and up to a 3000 ms internal Crown deadline",
+      "input": "For run_index modulo 4 equal to 2, the probe sets progression state, enters the castle internally, directly shows/activates main_hall, checks the Crown award, then exits through a method call.",
+      "evidence": "scripts/probe_touch_adversary.gd:141-182"
+    },
+    {
+      "beat": 7,
+      "wait": "12 process frames after northern entry, then 10 after direct return activation",
+      "input": "For run_index modulo 4 equal to 3, the probe enters Northern Kingdom internally, directly activates north:return, and checks the phase returns to promenade.",
+      "evidence": "scripts/probe_touch_adversary.gd:183-191"
+    },
+    {
+      "beat": 8,
+      "wait": "No additional wait",
+      "input": "Each run switches to Classic then Hybrid and checks that explicit interaction state clears and Hybrid can be restored.",
+      "evidence": "scripts/probe_touch_adversary.gd:193-200"
+    }
+  ],
+  "observations": [
+    {
+      "title": "The assisted-travel regression checks pass across 25 fresh instances",
+      "classification": "CONFIRMED_RUNTIME",
+      "evidence": [
+        "audit/cycles/luna-playtest-20261012/runtime/L52/attempt_1/receipt.json: status PASS, exact engine Godot 4.7.2.stable.official.ed1daf0bf, exit_code 0, failure_lines empty, rendered_mobile_acceptance false.",
+        "audit/cycles/luna-playtest-20261012/runtime/L52/attempt_1/probe.log: TOUCH_ADVERSARY|RUN 01..25|CLEAR and TOUCH_ADVERSARY|ALL 25 SCENARIO RUNS CLEAR.",
+        "scripts/probe_touch_adversary.gd:53-97 checks target direction, early physical movement, reduced distance, direct manual cancellation, and blocked-route relinquishment."
+      ],
+      "rules": ["DL-UI-01", "DL-UI-04", "DL-QA-02"],
+      "existing_findings": ["MA-TOUCH-001"],
+      "reproduction": "Use the retained receipt command and inspect the 25 clear lines in probe.log alongside the direct TapMoveDirector and callback assertions at scripts/probe_touch_adversary.gd:53-97.",
+      "child_impact": "The checked internal travel path points toward a requested target, cancels on a manual-movement callback, and relinquishes a blocked route. This reduces one code-level risk but says nothing about whether a child can initiate those transitions reliably by touch.",
+      "proposed_repair": "No repair is indicated by these passing internal assertions; retain the separate physical-device verification required by MA-TOUCH-001.",
+      "acceptance_test": "On the target phone, tap a visible destination, interrupt the assisted travel with an intentional drag, and test a blocked destination; verify expected travel begins promptly, manual movement cancels it, and the player does not continue pushing indefinitely."
+    },
+    {
+      "title": "The assigned probe does not send wrong or intentional touch events",
+      "classification": "COVERAGE_GAP",
+      "evidence": [
+        "scripts/probe_touch_adversary.gd:210-220 defines _touch_tap, but rg finds no call site; the function itself would call TouchUI._unhandled_input directly rather than route an event through the viewport.",
+        "scripts/probe_touch_adversary.gd:58,87-95 calls TapMoveDirector.start, _on_touch_manual_move, and tick directly; these are the exercised movement paths.",
+        "audit/cycles/luna-playtest-20261012/runtime/L52/attempt_1/receipt.json identifies probe_touch_adversary and reports only headless scripted execution."
+      ],
+      "rules": ["DL-AGE-02", "DL-UI-01", "DL-UI-04", "DL-QA-02", "DL-QA-04", "DL-QA-05"],
+      "existing_findings": ["MA-TOUCH-001"],
+      "reproduction": "Inspect the full probe call sites: _touch_tap is only defined at line 210; no call invokes it. Compare with the direct internal calls at lines 58, 87-95. The retained run log has no touch-event scenario output.",
+      "child_impact": "The central assigned question—whether an accidental touch is rejected while an intentional touch acts—remains unanswered. A green probe cannot show that a child discovers the one-finger grammar or avoids a wrong action.",
+      "proposed_repair": "No source change is justified by this coverage gap alone. Add a focused routed-input test in a separately authorized test task that sends intended and wrong touch coordinates through the actual viewport route and asserts one truthful outcome per gesture.",
+      "acceptance_test": "At the exact candidate build, send correct and wrong touch presses/drags/releases through the viewport at both a visible target and open art; assert wrong touches cause no progress, intentional touches progress exactly once, and touch ownership cleans up after lift. Then repeat with a child on the target phone."
+    },
+    {
+      "title": "Movement and world actions share the lower-left press region, with tap-versus-drag decided by 22-pixel slop",
+      "classification": "HYPOTHESIS",
+      "evidence": [
+        "scripts/touch_ui.gd:231-246 changes a stick press into movement after displacement exceeds TAP_SLOP (22.0), while smaller movement remains neutral.",
+        "scripts/touch_ui.gd:277-293 emits a world_touched event for an unmoved Hybrid stick release, so this shared zone behaves as a world tap until it crosses the movement threshold.",
+        "scripts/touch_ui.gd:688-722 assigns the original press to STICK or WORLD_INTERACT and emits only the corresponding terminal action. L52 did not exercise these branches."
+      ],
+      "rules": ["DL-AGE-02", "DL-UI-01", "DL-UI-03", "DL-UI-04"],
+      "existing_findings": ["MA-TOUCH-001"],
+      "reproduction": "This is a source-based candidate, not a reproduced defect: touch the lower-left movement bay on a rendered build with a slight drift, then compare response below and above 22 canvas pixels. No such event occurred in L52.",
+      "child_impact": "A child with hand jitter could experience a tap as movement, or a movement attempt as a world tap near the threshold. Whether this is confusing depends on rendered geometry and physical device scaling, which remain unknown.",
+      "proposed_repair": "Do not alter the routing based on code inspection alone. Measure the rendered rest ring and projected threshold on the target phone, and observe whether a child can intentionally choose tap versus drag without repeated correction.",
+      "acceptance_test": "On a native-size Tab M11 capture, measure the movement bay and rest-ring bounds; record taps with controlled sub-22px jitter, drags just above 22px, and ordinary child attempts. Confirm clear distinct responses, generous targets, and no unintended travel/action before considering a source change."
+    },
+    {
+      "title": "Level-two destination checks use internal setup and activation, not a normal visible route",
+      "classification": "COVERAGE_GAP",
+      "evidence": [
+        "scripts/probe_touch_adversary.gd:111-140 sets level2_done_once, calls _enter_level2_now, then invokes _focus and _activate directly.",
+        "scripts/probe_touch_adversary.gd:141-191 enters castle/Northern routes with internal methods and directly activates Crown/return callbacks; no screen coordinate or InputEvent is sent.",
+        "audit/findings/ACTIVE_FINDINGS_2026-08-13.md:973-991 records MA-PLAY-005 as CONFIRMED_OPEN for Chapter Two story-career normal-route reachability; this L52 probe neither tests nor resolves that finding."
+      ],
+      "rules": ["DL-AGE-01", "DL-AGE-06", "DL-INT-01", "DL-QA-02", "DL-QA-05"],
+      "existing_findings": ["MA-PLAY-005"],
+      "reproduction": "Inspect the modulo route branches at scripts/probe_touch_adversary.gd:111-191 and note their state seeding/direct method calls. The receipt's PASS confirms those scripted assertions only.",
+      "child_impact": "These checks support route callback consistency after internal entry, but do not show that a non-reader can see, reach, or activate the route. MA-PLAY-005's story-career reachability blocker remains separate and open.",
+      "proposed_repair": "Keep the finding lifecycle unchanged. Verify actual route entry and visible coordinates with a fresh-save routed-input session after the separate MA-PLAY-005 repair work.",
+      "acceptance_test": "From a normal fresh-save route, capture the rendered destination, send the child's actual touch through the viewport, and verify the visible target enters and exits the intended stage without setting progression flags or calling activation methods in the test."
+    }
+  ],
+  "strengths": [
+    {
+      "claim": "The regression probe checks direct assisted movement direction, progress toward the target, manual-cancel response, and blocked-route relinquishment over 25 fresh instances.",
+      "evidence": "scripts/probe_touch_adversary.gd:53-97; audit/cycles/luna-playtest-20261012/runtime/L52/attempt_1/probe.log: TOUCH_ADVERSARY|ALL 25 SCENARIO RUNS CLEAR."
+    },
+    {
+      "claim": "The router source explicitly separates touch ownership and terminal behavior, including press-consumed world interactions, unmoved world taps, and moved world gestures.",
+      "evidence": "scripts/touch_ui.gd:688-740. These branches are source evidence only in L52 because the probe dispatches no touch events."
+    }
+  ],
+  "acceptance_gaps": [
+    "L52 is an INTERNAL_PROBE despite its hybrid-touch invocation flags: the assigned probe never calls its _touch_tap helper and does not send any touch event.",
+    "No actual viewport-routed touch proves correct versus wrong action behavior, press latency, drag/hold/release feel, or cancellation under interruption.",
+    "The run is headless; no rendered Mobile screen, physical hit-size projection, frame pacing, target-device input, child comprehension/comfort/agency/replay, or owner acceptance was observed.",
+    "MA-TOUCH-001 remains FIXED_PENDING_VERIFICATION for target-phone evidence. MA-PLAY-005 remains CONFIRMED_OPEN and was not tested by this report."
+  ]
+}

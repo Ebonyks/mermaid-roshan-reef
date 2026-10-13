@@ -1,0 +1,83 @@
+{
+  "schema": "luna_verifier_controls/1",
+  "checked_utc": "2026-10-13T02:27:30.994482+00:00",
+  "source_sha256": "598cbc420de2532b386b078e2aa44f0d585f32177f2be7171521d45d7cdc602d",
+  "helper_sha256": "f1d1ca6a5e54b54ba8572ba0eeeccfc2702681376795710f9f5d40d5a765fba7",
+  "planned_assignments": 57,
+  "status": "PASS",
+  "cases": [
+    {
+      "case": "Valid scoped single session passes partial review",
+      "expected_exit": 0,
+      "actual_exit": 0,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "case": "Planned assignments cannot establish actual completed agents",
+      "expected_exit": 1,
+      "actual_exit": 1,
+      "errors": [
+        "Only 1 valid actual sessions of57",
+        "Coordinator has not confirmed57 completed agent sessions"
+      ],
+      "pass": true
+    },
+    {
+      "case": "Mutated raw log fails exact hash",
+      "expected_exit": 1,
+      "actual_exit": 1,
+      "errors": [
+        "L01.json: Runtime incomplete/log hash mismatch"
+      ],
+      "pass": true
+    },
+    {
+      "case": "PASS report cannot mask failed runtime",
+      "expected_exit": 1,
+      "actual_exit": 1,
+      "errors": [
+        "L01.json: Report masks failed runtime"
+      ],
+      "pass": true
+    },
+    {
+      "case": "Numeric child/product fun score is rejected",
+      "expected_exit": 1,
+      "actual_exit": 1,
+      "errors": [
+        "L01.json: Numeric fun score forbidden"
+      ],
+      "pass": true
+    },
+    {
+      "case": "Uninvoked agent identity is rejected",
+      "expected_exit": 1,
+      "actual_exit": 1,
+      "errors": [
+        "L01.json: Report identity absent from actual invocation manifest"
+      ],
+      "pass": true
+    },
+    {
+      "case": "Wrong frozen source baseline is rejected",
+      "expected_exit": 1,
+      "actual_exit": 1,
+      "errors": [
+        "L01.json: Schema/source mismatch"
+      ],
+      "pass": true
+    },
+    {
+      "case": "Prose cannot masquerade as structured finding IDs",
+      "expected_exit": 1,
+      "actual_exit": 1,
+      "errors": [
+        "L01.json: Observation existing_findings must be an ID array"
+      ],
+      "pass": true
+    }
+  ],
+  "fixture_root": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef-luna-verifier-controls-fyjzin71",
+  "scope": "Disposable copied fixtures outside the repository; no real reports altered or counted. Evidence/count validator only, no gameplay/child acceptance."
+}

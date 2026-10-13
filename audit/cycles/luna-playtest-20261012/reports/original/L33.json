@@ -1,0 +1,165 @@
+{
+  "schema": "luna_playthrough_report/1",
+  "session_id": "L33",
+  "reviewer": {
+    "agent_id": "/root/luna_playtest_coordinator/luna_l33",
+    "model": "gpt-6-luna"
+  },
+  "baseline": "e2b3c73789707aa49a91b4f42e2a9dd4b68225df",
+  "focus": "Swipe continuity rapid retarget and release",
+  "runtime_receipt": "audit/cycles/luna-playtest-20261012/runtime/L33/attempt_1/receipt.json",
+  "evidence_kind": "INTERNAL_PROBE",
+  "route_status": {
+    "proven_scope": "The scripted probe instantiated the normal main scene and actual TouchUI router in hybrid mode, then tested thumb-bay directional agreement, lower-left tap-versus-drag behavior, and Sky Lagoon promenade travel after explicitly granting progression state.",
+    "route_gaps": "Not a fresh-save child route: the probe directly clears Day One routing and writes pearl/friend/trophy/departure progression before entering the Lagoon. No GUI exploration, target-phone touch, displayed Mobile review, child session, or owner acceptance was performed. The headless suite does not synthesize the pointer signal used by hold-to-travel, so this pass does not prove that behavior."
+  },
+  "verdict": "PASS",
+  "timing": {
+    "source": "scripts/touch_ui.gd:93,237-244,275-289; scripts/probe_touch_stress.gd:211-243,318-378",
+    "gameplay_estimate": "Assumption: 40 process frames is about 1.33 s at the 30 fps target, 60 frames about 2 s, and the route wait cap of 400 frames about 13.3 s. These are code-window estimates, not observed child-session or device durations. The 18.003 s helper wall time is not gameplay timing.",
+    "probe_windows": "The probe samples 120 bay gestures with one frame after press, one after drag and one after release; travel holds last 40 frames and drags can poll up to 60 frames before a further travel poll capped at 400 frames."
+  },
+  "tactile": {
+    "target_size": "The tested movement region is a broad lower-left movement_zone, sampled 30 px inside its bounds; this probe does not measure the phone-projected size or other child-facing targets.",
+    "press_response": "A movement-zone press alone leaves stick_vec at zero in the tested agreement loop. On release without a drag, hybrid mode sends the original press point to world_touched, so this region remains a world tap surface.",
+    "drag_hold_release": "Drag direction is derived from finger displacement beyond TAP_SLOP=22 px, normalized and clamped at radius R; release clears stick_vec and owner state in tested cases. Probe holds the finger down for 40 frames and direction drags 150 screen px.",
+    "ownership": "The router tracks owners by finger index; the stress probe's randomized churn checks for leaked owners/stick/action state, but this particular focused probe does not establish real multi-touch behavior on hardware.",
+    "cancellation": "Focused route checks cover manual steering and pause cancellation of a pending Lagoon goal/focus. Focus loss and real device cancellation were not exercised here."
+  },
+  "play_appeal": {
+    "hypothesis": "The movement region has a forgiving grammar: press-and-release can tap the world, while a deliberate drag steers in the direction the finger travels. This could make quick exploration feel immediate and recoverable, especially if a child sees Roshan respond promptly.",
+    "agency_variety_world_response_replay": "The code and probe support distinct tap, hold, and drag travel cases and verify the route responds; they do not establish that the child understands the gesture difference, enjoys it, or wants to replay it.",
+    "fun_score": null,
+    "concrete_appeal_test": "On the target Lenovo Tab M11, ask the child to move Roshan to a visible Lagoon friend, then let them choose whether to tap or drag. Observe whether they intentionally retarget left then right, notice the travel direction matches the finger, and release without adult prompting; repeat once after leaving and returning. Record native video/input trace and child comprehension separately."
+  },
+  "play_sequence": [
+    {
+      "beat": "Probe initializes the real main scene; waits 2 process frames, skips the intro, waits 5 frames, explicitly configures progression and hybrid touch, then enters the Lagoon and waits 10 frames plus input readiness.",
+      "input": "No user touch; scripted setup directly sets progression values.",
+      "appeal_test": "This establishes tested mechanics only; it does not show the child can reach this route from a fresh save."
+    },
+    {
+      "beat": "Agreement grid: 5 columns × 3 rows × 8 directions; each case presses, waits 1 frame, checks no premature steering, drags 90 px, waits 1 frame, then releases and waits 1 frame.",
+      "input": "One synthetic finger; eight cardinal/diagonal directions sampled inside movement_zone.",
+      "appeal_test": "Direction stays aligned across the whole bay, with no movement before the drag."
+    },
+    {
+      "beat": "Bay tap/drag distinction: press and release at the bay center, wait 1 frame; then press, drag 80 px right, release, and wait 1 frame.",
+      "input": "A stationary release, followed by a separate drag gesture.",
+      "appeal_test": "The first gesture emits exactly one world tap; the drag steers without also becoming a tap."
+    },
+    {
+      "beat": "Travel retarget: tap at screen x=.12,y=.78; then .25,.78; then .18,.40; then .72,.40, waiting for travel up to 400 frames per case.",
+      "input": "Each case resets the promenade and sends a fresh down/up at open ground.",
+      "appeal_test": "Roshan travels left from left-side taps and right from the right-side tap, without measurable wrong-way excursion."
+    },
+    {
+      "beat": "Hold in bay: press at x=.25,y=.78 and keep down for 40 frames, then release; route travel is observed for up to 400 frames.",
+      "input": "Stationary one-finger hold, then release.",
+      "appeal_test": "The held case continues in the intended direction without a visible target shifting under the sampled point."
+    },
+    {
+      "beat": "Drag retarget: press at x=.25,y=.78, wait 1 frame, drag 150 px left or right, poll up to 60 frames, release, and observe travel up to 400 frames.",
+      "input": "Two separate one-finger drags, one left and one right.",
+      "appeal_test": "Travel direction follows each stroke, and the same movement does not accidentally invoke a world tap."
+    },
+    {
+      "beat": "Slow world press: press near the lower-right corner, hold for 90 frames while checking action flags every frame, then release and wait 1 frame.",
+      "input": "Stationary world touch; no movement or second finger.",
+      "appeal_test": "A long ordinary press does not silently trigger the former hidden medallion action."
+    },
+    {
+      "beat": "Stress and recovery: the probe runs navigation cancellation and Classic Lagoon checks, then churns 240 randomized touch events and verifies the router returns to rest.",
+      "input": "Synthetic randomized events including multi-finger churn; exact randomized per-event timing is code-driven.",
+      "appeal_test": "No inverted direction, stuck action/stick, leaked owner, or resumed stale travel goal is reported by the focused checks."
+    }
+  ],
+  "observations": [
+    {
+      "title": "Hybrid stick direction follows the press point across the full thumb bay",
+      "classification": "CONFIRMED_RUNTIME",
+      "evidence": ["scripts/touch_ui.gd:197-210", "scripts/probe_touch_stress.gd:51-72,83-112", "audit/cycles/luna-playtest-20261012/runtime/L33/attempt_1/probe.log:2"],
+      "rules": ["DL-UI-01", "DL-UI-04", "DL-QA-02"],
+      "existing_findings": ["MA-TOUCH-001 (related; remains FIXED_PENDING_VERIFICATION)"],
+      "reproduction": "Run the L33 helper once; it reports 120 bay gestures with direction agreement 1.0000. Probe checks no steering on press, matching steering after drag, and zero stick after release.",
+      "child_impact": "Consistent direction can make exploratory movement predictable; this headless result cannot establish finger comfort or perceived responsiveness.",
+      "proposed_repair": "No code repair indicated by this evidence; retain the finger-anchored origin behavior.",
+      "acceptance_test": "Repeat sampled left/right and diagonal presses on the intended phone at native aspect with video/input trace; observe for wrong-way movement and child comprehension."
+    },
+    {
+      "title": "Movement-bay press release remains a world tap unless the finger crosses the drag threshold",
+      "classification": "CONFIRMED_RUNTIME",
+      "evidence": ["scripts/touch_ui.gd:231-247,283-289", "scripts/probe_touch_stress.gd:120-143", "audit/cycles/luna-playtest-20261012/runtime/L33/attempt_1/probe.log:3"],
+      "rules": ["DL-UI-01", "DL-UI-04"],
+      "existing_findings": [],
+      "reproduction": "The probe sends a stationary bay down/up and then a distinct down/80 px drag/up; it confirms tap fallthrough on the former and no leaked tap on the latter.",
+      "child_impact": "The shared bay can support both direct world selection and steering, which may reduce dead zones; a child may still need visual demonstration to discover the distinction.",
+      "proposed_repair": "No repair indicated by the focused evidence; maintain the tap-versus-drag separation.",
+      "acceptance_test": "Observe a child use a visible world target within the bay, then steer by dragging, without text instruction or accidental double action."
+    },
+    {
+      "title": "Left/right tap, hold and drag travel cases respond without wrong-way movement",
+      "classification": "CONFIRMED_RUNTIME",
+      "evidence": ["scripts/probe_touch_stress.gd:182-188,193-253", "audit/cycles/luna-playtest-20261012/runtime/L33/attempt_1/probe.log:5-11"],
+      "rules": ["DL-AGE-07", "DL-UI-01", "DL-QA-02"],
+      "existing_findings": ["MA-TOUCH-001 (related)"],
+      "reproduction": "The probe passes far-left, left-of-former-anchor, left-high, right, held-left, drag-left and drag-right cases; each measured wrong-way excursion is 0.000 master px and reported progress exceeds the probe's minimum.",
+      "child_impact": "The tested mappings appear directionally predictable in the scripted Lagoon setup. Rendered-frame response and a child's interpretation remain unobserved.",
+      "proposed_repair": "No repair indicated for these focused cases.",
+      "acceptance_test": "Record each gesture on the target device; verify visual response within the two-rendered-frame requirement and invite child-directed rapid left/right retargeting."
+    },
+    {
+      "title": "Long stationary world press does not invoke the hidden context action",
+      "classification": "CONFIRMED_RUNTIME",
+      "evidence": ["scripts/probe_touch_stress.gd:260-274", "audit/cycles/luna-playtest-20261012/runtime/L33/attempt_1/probe.log:12"],
+      "rules": ["DL-UI-01", "DL-UI-04"],
+      "existing_findings": [],
+      "reproduction": "Press at screen minus (120,120), hold for 90 process frames, inspect action_down/action_just every frame, release and inspect again; the probe reports direct-touch-only behavior.",
+      "child_impact": "Reduces risk that an exploratory pause becomes an unintended action; physical latency and displayed feedback were not assessed.",
+      "proposed_repair": "No repair indicated by this check.",
+      "acceptance_test": "On-device, let a child pause on open world art for several seconds and confirm no unseen command fires."
+    },
+    {
+      "title": "Navigation cancellation and randomized churn return the tested router to rest",
+      "classification": "CONFIRMED_RUNTIME",
+      "evidence": ["scripts/probe_touch_stress.gd:276-377,430-486", "scripts/touch_ui.gd:520-535,798-804", "audit/cycles/luna-playtest-20261012/runtime/L33/attempt_1/probe.log:13-15"],
+      "rules": ["DL-UI-04", "DL-UI-05", "DL-QA-02"],
+      "existing_findings": ["MA-TOUCH-001 (lifecycle remains pending device verification)"],
+      "reproduction": "Focused navigation case clears goal/focus when manually steered or paused; a separate 240-event randomized churn gate reports agreement and router hygiene.",
+      "child_impact": "The probe found no stuck state in its generated event sequence; it does not reproduce native app focus loss, Android pause, or physical multi-touch timing.",
+      "proposed_repair": "No repair indicated by this machine evidence; preserve the pending target-phone lifecycle matrix.",
+      "acceptance_test": "On the target phone, repeat held travel, direction changes, a second finger, background/focus loss, pause, release and resume, recording ownership and any duplicate action."
+    },
+    {
+      "title": "Focused probe bypasses the fresh-save route and cannot verify child-facing appeal",
+      "classification": "COVERAGE_GAP",
+      "evidence": ["scripts/probe_touch_stress.gd:55-72,155-173", "audit/cycles/luna-playtest-20261012/runtime/L33/attempt_1/receipt.json:8-20"],
+      "rules": ["DL-AGE-01", "DL-AGE-06", "DL-QA-03", "DL-QA-04", "DL-QA-05", "DL-QA-07"],
+      "existing_findings": ["MA-TOUCH-001", "MA-PLAY-001"],
+      "reproduction": "The probe skips the intro, clears Day One routing, assigns pearl/friend/trophy progression, and enters level 2 directly. Receipt confirms headless execution and rendered_mobile_acceptance=false.",
+      "child_impact": "This result cannot show whether a non-reader reaches the mechanic, recognizes which gesture to use, or enjoys/replays it.",
+      "proposed_repair": "No implementation change from this review; gather fresh-route, target-device, visual and observed-child evidence before changing status or claiming acceptance.",
+      "acceptance_test": "Run a fresh-save route and a separately recorded phone/child session; retain device build, input trace, displayed capture and observed comprehension/replay notes."
+    }
+  ],
+  "strengths": [
+    {
+      "claim": "A single press point produces no immediate steering; direction engages on a drag and cleans up on release.",
+      "evidence": ["scripts/probe_touch_stress.gd:83-112", "audit/cycles/luna-playtest-20261012/runtime/L33/attempt_1/probe.log:2"]
+    },
+    {
+      "claim": "The broad hybrid movement bay stays usable as a world-tap surface when the finger does not drag.",
+      "evidence": ["scripts/touch_ui.gd:283-289", "audit/cycles/luna-playtest-20261012/runtime/L33/attempt_1/probe.log:3"]
+    },
+    {
+      "claim": "Focused tap, hold and drag mappings all reached the intended side in this synthetic Lagoon run.",
+      "evidence": ["audit/cycles/luna-playtest-20261012/runtime/L33/attempt_1/probe.log:5-11"]
+    }
+  ],
+  "acceptance_gaps": [
+    "No fresh-save visible route was established; the probe writes progression state internally.",
+    "No Mobile-rendered capture, physical Lenovo Tab M11 touch trace, latency/frame pacing, or native focus-loss run was produced.",
+    "No child comprehension, tactile comfort, play appeal, or replay observation; owner acceptance remains separate.",
+    "The hold-to-travel pointer path is explicitly outside what headless synthetic screen touches prove."
+  ]
+}

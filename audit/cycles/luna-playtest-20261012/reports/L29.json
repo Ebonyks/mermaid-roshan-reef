@@ -1,0 +1,165 @@
+{
+  "schema": "luna_playthrough_report/1",
+  "session_id": "L29",
+  "reviewer": {
+    "agent_id": "/root/luna_playtest_coordinator/luna_l29",
+    "model": "gpt-6-luna"
+  },
+  "baseline": "e2b3c73789707aa49a91b4f42e2a9dd4b68225df",
+  "focus": "Painter pictured creativity and repeat value",
+  "runtime_receipt": "audit/cycles/luna-playtest-20261012/runtime/L29/attempt_1/receipt.json",
+  "evidence_kind": "INTERNAL_PROBE",
+  "route_status": {
+    "proven_scope": "The single L29 helper invocation used Godot 4.7.2-stable with an isolated profile and unchanged probe_opera_2d. Its 1,440 checks passed. Painter-specific checks cover Canvas setup, three stage hotspot bindings and geometry, passive-safe approach/opening, free-position STAMPS, phase completion lifecycle, and exit cleanup (probe log lines 796-868).",
+    "route_gaps": "This is an internal scripted probe: it builds OperaCareerWorld2D fixtures and directly configures surfaces/phase state, rather than starting a fresh-save Chapter Two route or delivering a real finger through the visible room. The run never performs a continuous PAINT stroke, actually clears paint_reveal, submits five routed stamps, or hangs the selected picture via the ordinary route. Master finding MA-PLAY-005 says normal-play story careers and all free-play Opera cards are blocked behind Chapter Two progression; so the matrix live hint does not establish fresh-save Painter reachability. Headless probe success gives no rendered Mobile, phone, child, audio-audibility, or owner acceptance.",
+    "ordinary_entry": "Painter has room/job definitions in scripts/opera_career_world_2d.gd:320-323 and scripts/opera_house.gd:93-97. No normal entry was exercised; MA-PLAY-005 remains CONFIRMED_OPEN in the current active findings."
+  },
+  "verdict": "INCOMPLETE",
+  "timing": {
+    "source_constants": [
+      {
+        "value": "Stage PAINT goal 1.0, STAMPS goal 5.0, GALLERY goal 1.0; the source strings voice a sunrise reveal, five free stamps, and choosing a frame.",
+        "evidence": "scripts/opera_career_world_2d.gd:320-323"
+      },
+      {
+        "value": "Paint reveal uses a 10 by 6 grid with 0.62 required coverage; _paint_required_cells rounds this to 38 cells. The drag brush marks a cross of up to five cells per sample.",
+        "evidence": "scripts/opera_gesture_surface.gd:186-188,4722-4723,4743-4758"
+      },
+      {
+        "value": "A completed generic surface phase keeps its result for 2.2 seconds. Non-final phase transition gap is 1.0 seconds; entering the finale is 2.6 seconds (Painter stage has three phases and GALLERY is last).",
+        "evidence": "scripts/opera_career_world_2d.gd:2460-2468,3559-3573; scripts/opera_career_world_2d.gd:320-323"
+      }
+    ],
+    "estimated_activity_duration": null,
+    "assumptions": "No gameplay duration is inferred. The helper wall time was about 43 seconds and is probe execution only. Paint stroke time, travel/arrival, spoken line length, touch latency, and voluntary replay are unmeasured. Wait only for the authored cue/state to finish where no fixed travel duration is given."
+  },
+  "tactile": {
+    "target_size": "The internal probe asserts each Painter PAINT/STAMPS/GALLERY hotspot art, glow and touch target do not clip and remain clear of Roshan (probe_opera_2d.gd assertions reflected in runtime log lines 826-834). It does not report projected hit dimensions on the target phone. Paint canvas is a centered square bounded by 46% of surface width and 72% of surface height (opera_gesture_surface.gd:4714-4718).",
+    "press_response": "Code begins paint only on a press inside the canvas; a drag across new cells gives brief positive feedback and signals completion when 38 of 60 cells are covered (opera_gesture_surface.gd:4730-4732,4762-4787). No real routed stroke ran in L29.",
+    "drag_hold_release": "Paint is drag-based; a stationary press adds no coverage, and release clears paint_dragging (opera_gesture_surface.gd:4762-4791). The grid-spaced interpolation should prevent gaps in quick drags by code inspection, not measured touch testing.",
+    "ownership": "The generic surface records the active touch index and ignores foreign presses/drags while held (opera_gesture_surface.gd:1249-1267). The probe's Painter room checks include foreign-finger rejection during approach (runtime log line 842); no physical multitouch behavior was measured.",
+    "cancellation": "The room probe checks canceling a pending touch clears movement/action (runtime log line 844). It does not test canceling an in-progress paint stroke, pause/focus loss during paint, or lifecycle re-entry after a partially revealed image."
+  },
+  "play_appeal": {
+    "hypothesis": "A cloudy veil that visibly gives way to a sunrise could make the child's own hand motion feel consequential, and unrestricted stamp placement leaves room for personal choices. A second play may feel different if the child changes where stamps go. The current code fixes the revealed picture and the five-stamp count, so repeat value depends on whether placement and the celebration feel expressive enough; neither child delight nor a desire to replay was observed.",
+    "fun_score": null
+  },
+  "play_sequence": [
+    {
+      "beat": "Reach the easel",
+      "input": "From a fresh test save that can reach the Painter room, let Roshan's room cue finish, then tap the currently invited easel once. Do not tap the painting remotely while she is walking.",
+      "wait": "Wait for authored approach and the object-opening flourish; source does not give a fixed travel duration.",
+      "expected": "The PAINT hotspot opens the phase only after arrival; the probe asserts the hotspot starts a route and not immediate progress (runtime log lines 826-828, 848-854).",
+      "grounding": "scripts/opera_career_world_2d.gd:320-323,1991-2029; scripts/probe_opera_2d.gd:848-854"
+    },
+    {
+      "beat": "Reveal the sunrise",
+      "input": "Press inside the cloudy square and drag one finger in broad horizontal and vertical passes until the underlying picture is clear; lift after each pass and continue from remaining cloudy regions if needed.",
+      "wait": "No fixed stroke duration. After the phase completes, let the finished picture hold for 2.2 seconds; allow the 2.6-second finale-entry gap when GALLERY is next.",
+      "expected": "Only new crossed cells count; a stationary press does not fill the board. At 38 of 60 cells the sunrise reveal completes.",
+      "grounding": "scripts/opera_gesture_surface.gd:4722-4723,4730-4787; scripts/opera_career_world_2d.gd:2460-2468,3559-3573"
+    },
+    {
+      "beat": "Choose five finishing stamps",
+      "input": "Tap five separated places of your choice on the stamp surface, waiting for each stamp to appear before the next tap.",
+      "wait": "Wait for each visual response, then allow the 2.2-second completed-picture hold and the 2.6-second finale-entry gap.",
+      "expected": "All five stamps can be placed by the child; the runtime probe confirms stamp coordinates are not forced to authored anchors (log line 816).",
+      "grounding": "scripts/opera_career_world_2d.gd:322,2460-2468,3559-3573; scripts/probe_opera_2d.gd:983-993"
+    },
+    {
+      "beat": "Hang the picture",
+      "input": "Tap the one glowing gallery frame once to hang the sunrise; wait for the chosen-frame response rather than tapping repeatedly.",
+      "wait": "Wait for the selection cue and completed result to settle; no additional fixed hang duration is established by this review.",
+      "expected": "The gallery choice ends the painting sequence with the selected frame cue; source maps GALLERY to choice and goal 1.0.",
+      "grounding": "scripts/opera_career_world_2d.gd:323; scripts/opera_gesture_surface.gd:2898-2927"
+    },
+    {
+      "beat": "Check agency and repeat appeal",
+      "input": "Without suggesting another turn, observe whether the child points out a mark they chose, asks to repaint/stamp again, or leaves. If they choose replay, offer the route again and let them place the five stamps differently.",
+      "wait": "Allow the child to finish their thought or leave at their own pace; do not use runner wall time as session length.",
+      "expected": "Record whether the child can explain/show a personal choice and initiates replay without adult prompting. This is a proposed child acceptance check, not evidence from L29.",
+      "grounding": "scripts/opera_career_world_2d.gd:320-323; design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md:1246-1267"
+    }
+  ],
+  "observations": [
+    {
+      "title": "Painter's three-act picture has distinct reveal, free placement, and gallery verbs",
+      "classification": "CONFIRMED_CODE",
+      "evidence": [
+        "scripts/opera_career_world_2d.gd:320-323 (PAINT, STAMPS, GALLERY order, voice prompts and goals)",
+        "scripts/opera_career_world_2d.gd:418 (paint phase-to-room-object bindings)",
+        "scripts/opera_gesture_surface.gd:4722-4787 (coverage-based reveal and completion signal)"
+      ],
+      "rules": ["DL-AGE-01", "DL-AGE-02", "DL-AGE-05", "DL-INT-02", "DL-MOT-04"],
+      "existing_findings": ["MA-PLAY-005", "MA-OPERA-012"],
+      "reproduction": "Read the Painter free-play phase table and paint reveal implementation at the cited lines. The L29 probe independently asserts the Painter stage phases/hotspots and free stamp placement, but does not perform the paint stroke.",
+      "child_impact": "A changing picture and optional stamp locations could communicate that the child's own movements and choices matter. The fixed underlying sunrise may limit how much the finished work feels authored by the child.",
+      "proposed_repair": "No code defect established in this review. Keep the fixed sunrise as the pictured goal and use a child session to determine whether free stamp placement provides enough creative ownership.",
+      "acceptance_test": "On a phone, let an uncoached child reveal the sunrise, place five stamps, and hang it. Confirm the child can tell by picture and response that their stroke revealed the art and their locations placed the stamps; separately observe voluntary replay."
+    },
+    {
+      "title": "Paint reveal rewards motion over stationary mashing",
+      "classification": "CONFIRMED_CODE",
+      "evidence": [
+        "scripts/opera_gesture_surface.gd:4730-4732 (press starts only inside the square canvas)",
+        "scripts/opera_gesture_surface.gd:4743-4758 (cross-shaped local brush)",
+        "scripts/opera_gesture_surface.gd:4762-4787 (interpolated drag marks cells, signals at required coverage)",
+        "scripts/opera_gesture_surface.gd:4789-4791 (release stops painting)"
+      ],
+      "rules": ["DL-AGE-02", "DL-AGE-04", "DL-AGE-05", "DL-INT-02", "DL-INT-06"],
+      "existing_findings": [],
+      "reproduction": "Source inspection shows coverage changes only along a drag of at least two local pixels; the passive demonstration does not fill the board. L29 did not route a paint gesture, so this finding is code-grounded only.",
+      "child_impact": "A child must move a finger and can stop/restart a partial reveal rather than win by waiting. The interaction may be demanding if the canvas projection or finger travel is awkward on a small phone.",
+      "proposed_repair": "No repair indicated from source alone; check response visibility and whether the required coverage is comfortable on target hardware.",
+      "acceptance_test": "Use routed one-finger inputs on the target phone: verify stationary hold adds no cells, small drags reveal cells promptly, lift/re-touch continues, and completion reveals the full sunrise without accidental edge clipping."
+    },
+    {
+      "title": "The probe verifies free stamp placement and room lifecycle",
+      "classification": "CONFIRMED_RUNTIME",
+      "evidence": [
+        "scripts/probe_opera_2d.gd:983-993 (direct test press at 31% x, 62% y and no target anchor)",
+        "audit/cycles/luna-playtest-20261012/runtime/L29/attempt_1/probe.log:796-868 (Painter setup, phase, hotspot, input lifecycle, completion and exit assertions)",
+        "audit/cycles/luna-playtest-20261012/runtime/L29/attempt_1/probe.log:1440 (ALL OK)",
+        "audit/cycles/luna-playtest-20261012/runtime/L29/attempt_1/receipt.json (Godot 4.7.2-stable, isolated profile, attempt 1 PASS, headless, rendered_mobile_acceptance=false)"
+      ],
+      "rules": ["DL-INT-01", "DL-INT-04", "DL-UI-03", "DL-UI-04", "DL-QA-02"],
+      "existing_findings": ["MA-OPERA-012"],
+      "reproduction": "The one L29 helper invocation runs the unchanged probe_opera_2d. It passes the stated checks; the Painter stamp assertion calls the surface press/release methods directly, not Android touch routing.",
+      "child_impact": "The code preserves free finger placement and the room makes the current phase's object available; neither establishes physical target size, visual discoverability, latency, or effortless placement for a preschooler.",
+      "proposed_repair": "No change indicated by this probe. Preserve the probe evidence as internal regression coverage and obtain routed device evidence for the creative activity.",
+      "acceptance_test": "On the target device, enter from the actual Painter room, use real touch for five visibly separate stamp locations, confirm each placement response, then cancel and replay to verify the active touch and current phase recover safely."
+    },
+    {
+      "title": "Paint reveal and fresh-save route remain unproven",
+      "classification": "COVERAGE_GAP",
+      "evidence": [
+        "scripts/probe_opera_2d.gd:935-975 (probe directly configures each phase surface and fakes completion with set_fill/accept_completion)",
+        "audit/cycles/luna-playtest-20261012/runtime/L29/attempt_1/probe.log:818-854 (Painter fixture and room-level touch checks, not a routed paint drag)",
+        "audit/findings/ACTIVE_FINDINGS_2026-08-13.md:973-996 (MA-PLAY-005: open P0 fresh-save Chapter Two career-route blocker)"
+      ],
+      "rules": ["DL-AGE-01", "DL-AGE-06", "DL-SAVE-04", "DL-INT-12", "DL-QA-02", "DL-QA-03", "DL-QA-04", "DL-QA-05", "DL-QA-07"],
+      "existing_findings": ["MA-PLAY-005", "MA-OPERA-012"],
+      "reproduction": "Read the probe loop: it configures the surface, waits one frame, calls set_fill(1.0), and calls accept_completion(). No `_paint_press`, `_paint_drag`, normal room entry, or GALLERY selection is exercised. The helper passed but its receipt explicitly marks headless and rendered_mobile_acceptance=false.",
+      "child_impact": "A child may not reach Painter on a fresh save under the open route finding; if reached, this run cannot establish whether the painted picture is legible, actions are understood, or play is appealing enough to repeat.",
+      "proposed_repair": "No new defect claim from this isolated L29 review. Retain MA-PLAY-005 as a route blocker and add real routed paint reveal coverage when its authorized repair work is undertaken; obtain phone and child evidence before acceptance.",
+      "acceptance_test": "After ordinary access is restored, a trusted routed-input probe should cover normal Painter room arrival, a partial release and resumed drag to reveal completion, five distinct stamps, GALLERY choice, pause/cancel/re-entry, and passive non-completion. Then observe an uncoached child on the Lenovo Tab M11 for comprehension, comfort, latency, and self-initiated replay; report owner review separately."
+    }
+  ],
+  "strengths": [
+    {
+      "strength": "The job has a coherent picture-first arc: revealing a sunrise, choosing stamp locations, then hanging the picture, with the current phase bound to a named room object.",
+      "evidence": "scripts/opera_career_world_2d.gd:320-323,418; runtime/L29/attempt_1/probe.log:826-834"
+    },
+    {
+      "strength": "The code uses one-finger ownership and the probe checks that Painter's approach is passive-safe and returns touch control on exit.",
+      "evidence": "scripts/opera_gesture_surface.gd:1249-1267; runtime/L29/attempt_1/probe.log:838-868"
+    }
+  ],
+  "acceptance_gaps": [
+    "The scripted PASS is internal fixture evidence; normal fresh-save route reachability remains blocked by MA-PLAY-005 and ordinary Painter entry was not run.",
+    "No actual routed PAINT drag, partial release/resume, paint coverage completion, five live stamps, GALLERY choice, or repeat loop was exercised in this session.",
+    "No rendered Mobile visual capture, target-phone hit projection, touch latency/frame pacing, or voice audibility evidence was collected (DL-QA-03, DL-QA-04).",
+    "No observed child evidence for non-reader comprehension, creative agency, comfort, session length, or voluntary replay, and no owner acceptance (DL-QA-05, DL-QA-06).",
+    "The probe PASS does not close MA-PLAY-005 or MA-OPERA-012 and does not satisfy the game-wide audit."
+  ]
+}
