@@ -1,6 +1,12 @@
-Current canonical evidence: [R21 CandyMaker stream material](r21_candy_stream_material/README.md),[registry](r21_candy_stream_material/per_piece.json),[coverage](r21_candy_stream_material/scene_coverage.json),[tally](r21_candy_stream_material/tally.json).
+Current canonical evidence: [R22 CandyMaker onset contact](r22_candy_stream_onset/README.md), [registry](r22_candy_stream_onset/per_piece.json), [coverage](r22_candy_stream_onset/scene_coverage.json), [tally](r22_candy_stream_onset/tally.json).
 
-# Full-game flat-vector audit — current R21 material trial
+# Full-game flat-vector audit — current R22 contact trial
+
+Source-mask onset and same-column handoff improved in an isolated preview using unchanged R21 art; contour/action still fail local QC.78 new native files/18 views;2456 bounded/2570 retained.225 known/30 families,zero accepted removals;whole-game inventory and acceptance remain open.
+
+Historical R21 routing: [R21 CandyMaker stream material](r21_candy_stream_material/README.md),[registry](r21_candy_stream_material/per_piece.json),[coverage](r21_candy_stream_material/scene_coverage.json),[tally](r21_candy_stream_material/tally.json).
+
+# Historical R21 material trial
 
 One generated painted stream draft fails local visual QC:strong S contour,onset and static-flow gaps remain.48native event files/12views,2378bounded/2492retained;225known/30families,one existing hand sample pending,zero adoption/acceptedremoval,unknown global totals. [R20 contact study](r20_candy_stream_contact/README.md) remains immutable.
 
