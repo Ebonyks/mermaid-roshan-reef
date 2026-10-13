@@ -1,0 +1,55 @@
+{
+  "schema": 1,
+  "source_revision": "6cde8aeae04aaedcc0b1ff22a05ef93ab9bf666f",
+  "reviewed_at_utc": "2026-10-08T13:43:06.441018+00:00",
+  "sources": [
+    {
+      "path": "audit/MASTER_AUDIT_2026-08-09.md",
+      "working_sha256": "ffe61c3f563b291926324baa5f78b9e38c4758b13b626515438e5777e7738c55"
+    },
+    {
+      "path": "design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md",
+      "working_sha256": "6c73d8ffc89ffa99b8dbf2972365a190003914a60fc6807df166c0056cbff6b8"
+    },
+    {
+      "path": "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
+      "working_sha256": "86be254e07897ee6bbdeff5178db439f5e0b758437cb27daedc8389daf299602"
+    },
+    {
+      "path": "design/05_DOC_LEDGER.md",
+      "working_sha256": "d8286cf9d076c7f3184e8fa1001795e744114d85c80c23d7731d3da69e7d6747"
+    },
+    {
+      "path": "design/AUDIT_DEVELOPMENT_CONTRACT.md",
+      "working_sha256": "e2e97157a029efb6abfd123f9cf438f6dd5e777c6bcfac7ea4912aad64fcbd13"
+    }
+  ],
+  "finding_lifecycles": [
+    {
+      "id": "MA-DOC-008",
+      "lifecycle_row": "| lifecycle | `CONFIRMED_OPEN` |",
+      "unchanged_from_HEAD": true
+    },
+    {
+      "id": "MA-VIS-006",
+      "lifecycle_row": "| lifecycle | `CONFIRMED_OPEN` |",
+      "unchanged_from_HEAD": true
+    },
+    {
+      "id": "MA-VIS-007",
+      "lifecycle_row": "| lifecycle | `FIXED_PENDING_VERIFICATION` |",
+      "unchanged_from_HEAD": true
+    },
+    {
+      "id": "MA-VIS-008",
+      "lifecycle_row": "| lifecycle | `CONFIRMED_OPEN` |",
+      "unchanged_from_HEAD": true
+    },
+    {
+      "id": "MA-OPERA-012",
+      "lifecycle_row": "| lifecycle | `FIXED_PENDING_VERIFICATION` |",
+      "unchanged_from_HEAD": true
+    }
+  ],
+  "decision": "Source-entry review only,no domain authority/owner rule/runtime changes;DL-AUTH05-07 and impact rules remain applied. No visual classification or dormant-art exemption."
+}

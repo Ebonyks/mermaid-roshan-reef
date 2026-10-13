@@ -1,0 +1,158 @@
+{
+  "status": "PASS",
+  "commands": [
+    {
+      "command": [
+        "python",
+        "-B",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\validate_picture_review.py",
+        "--stress"
+      ],
+      "returncode": 0,
+      "start_utc": "2026-10-13T01:22:05.326074+00:00",
+      "end_utc": "2026-10-13T01:22:08.617100+00:00"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\validate_packet.py",
+        "--stress"
+      ],
+      "returncode": 0,
+      "start_utc": "2026-10-13T01:22:08.617194+00:00",
+      "end_utc": "2026-10-13T01:22:10.101105+00:00"
+    },
+    {
+      "command": [
+        "python",
+        "-m",
+        "gdtoolkit.parser",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\root_picture_review_20261012\\harnesses\\root_capture_picture_context_20261012.gd"
+      ],
+      "returncode": 0,
+      "start_utc": "2026-10-13T01:22:10.101225+00:00",
+      "end_utc": "2026-10-13T01:22:11.187211+00:00"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/lint_inference.py",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\root_picture_review_20261012\\harnesses\\root_capture_picture_context_20261012.gd"
+      ],
+      "returncode": 0,
+      "start_utc": "2026-10-13T01:22:11.187317+00:00",
+      "end_utc": "2026-10-13T01:22:11.372148+00:00"
+    },
+    {
+      "command": [
+        "C:/Users/Peter/AppData/Local/Programs/MermaidReefTools/Godot/4.7.2/godot_console.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef",
+        "--check-only",
+        "--script",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\root_picture_review_20261012\\harnesses\\root_capture_picture_context_20261012.gd"
+      ],
+      "returncode": 0,
+      "start_utc": "2026-10-13T01:22:11.372251+00:00",
+      "end_utc": "2026-10-13T01:22:20.638276+00:00"
+    },
+    {
+      "command": [
+        "python",
+        "-m",
+        "gdtoolkit.parser",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\root_picture_review_20261012\\harnesses\\root_capture_picture_context_fresh_20261012.gd"
+      ],
+      "returncode": 0,
+      "start_utc": "2026-10-13T01:22:20.638376+00:00",
+      "end_utc": "2026-10-13T01:22:21.711761+00:00"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/lint_inference.py",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\root_picture_review_20261012\\harnesses\\root_capture_picture_context_fresh_20261012.gd"
+      ],
+      "returncode": 0,
+      "start_utc": "2026-10-13T01:22:21.711860+00:00",
+      "end_utc": "2026-10-13T01:22:21.877404+00:00"
+    },
+    {
+      "command": [
+        "C:/Users/Peter/AppData/Local/Programs/MermaidReefTools/Godot/4.7.2/godot_console.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef",
+        "--check-only",
+        "--script",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\root_picture_review_20261012\\harnesses\\root_capture_picture_context_fresh_20261012.gd"
+      ],
+      "returncode": 0,
+      "start_utc": "2026-10-13T01:22:21.877501+00:00",
+      "end_utc": "2026-10-13T01:22:31.955525+00:00"
+    },
+    {
+      "command": [
+        "python",
+        "-m",
+        "gdtoolkit.parser",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\root_picture_review_20261012\\harnesses\\root_capture_picture_context_guarded_20261012.gd"
+      ],
+      "returncode": 0,
+      "start_utc": "2026-10-13T01:22:31.955626+00:00",
+      "end_utc": "2026-10-13T01:22:33.059151+00:00"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/lint_inference.py",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\root_picture_review_20261012\\harnesses\\root_capture_picture_context_guarded_20261012.gd"
+      ],
+      "returncode": 0,
+      "start_utc": "2026-10-13T01:22:33.059243+00:00",
+      "end_utc": "2026-10-13T01:22:33.255762+00:00"
+    },
+    {
+      "command": [
+        "C:/Users/Peter/AppData/Local/Programs/MermaidReefTools/Godot/4.7.2/godot_console.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef",
+        "--check-only",
+        "--script",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\root_picture_review_20261012\\harnesses\\root_capture_picture_context_guarded_20261012.gd"
+      ],
+      "returncode": 0,
+      "start_utc": "2026-10-13T01:22:33.255852+00:00",
+      "end_utc": "2026-10-13T01:22:43.060655+00:00"
+    }
+  ],
+  "log": "publication_diagnostics/picture_validation.log",
+  "log_sha256": "1f066cf310d8e4fb822a0d00b43e408f2727603b35d4766ddcef591d5e556e3e",
+  "acceptance": "Machine only;no new visual/device/child/owner acceptance",
+  "scope_disposition_recheck": [
+    {
+      "command": [
+        "python",
+        "-B",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\validate_picture_review.py",
+        "--stress"
+      ],
+      "returncode": 0
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\validate_packet.py",
+        "--stress"
+      ],
+      "returncode": 0
+    }
+  ]
+}

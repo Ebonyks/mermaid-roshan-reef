@@ -1,0 +1,739 @@
+{
+	"aspect": [
+		1600,
+		720
+	],
+	"capture_method": "same-process viewport",
+	"engine": {
+		"build": "official",
+		"hash": "ed1daf0bf001b61586d9930840f2f1394092c079",
+		"hex": 263938,
+		"major": 4,
+		"minor": 7,
+		"patch": 2,
+		"status": "stable",
+		"string": "4.7.2-stable (official)",
+		"timestamp": 0
+	},
+	"errors": [],
+	"normal_save_after": {
+		"": "47c287147713fac860e25dade59da95961204f9b3170f5e00b5843e11590ad1e",
+		".bak": "de9d0441ed4d74f01cc8778c1c21600351b1426017d33a5ce99e69b03e893c3a",
+		".bak.old": "absent",
+		".bak.tmp": "absent",
+		".old": "absent",
+		".tmp": "absent",
+		".tmp0": "absent",
+		".tmp1": "absent"
+	},
+	"normal_save_before": {
+		"": "47c287147713fac860e25dade59da95961204f9b3170f5e00b5843e11590ad1e",
+		".bak": "de9d0441ed4d74f01cc8778c1c21600351b1426017d33a5ce99e69b03e893c3a",
+		".bak.old": "absent",
+		".bak.tmp": "absent",
+		".old": "absent",
+		".tmp": "absent",
+		".tmp0": "absent",
+		".tmp1": "absent"
+	},
+	"quality": "speedy",
+	"renderer": "mobile",
+	"schema": "reef.root_picture_context/1",
+	"scope_limits": "Fresh Main and SaveState per game; direct guarded API entry; ready stills only, no natural castle route, action/save/motion/device/child/owner acceptance.",
+	"source_revision": "6cde8aeae04aaedcc0b1ff22a05ef93ab9bf666f",
+	"states": [
+		{
+			"grown": 0,
+			"id": "garden_fresh_ready",
+			"image": {
+				"bytes": 1085362,
+				"dimensions": [
+					1600,
+					720
+				],
+				"file": "garden_fresh_ready.png",
+				"sha256": "5663f9427042e20664154f9c119fc2fbb23cf0e26855898151378f87925a9e95"
+			},
+			"input": {
+				"entry": "production _mg2d_open API; fresh Main and isolated save per game; direct route fixture"
+			},
+			"kind": "garden",
+			"main_hud_visible": true,
+			"save_path": "C:\\Users\\Peter\\.codex\\visualizations\\2026\\10\\08\\01a119c6-5602-7523-92db-1d320ca62bdf\\root_picture_fresh_20261013T005252/1600x720/profiles/garden/reef_save.json",
+			"stage": [
+				0,
+				0,
+				0,
+				0,
+				0
+			],
+			"visible_nodes": [
+				{
+					"class": "Control",
+					"global_rect": "[P: (0.0, 0.0), S: (1600.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@1772/@Control@1773",
+					"z_index": 0
+				},
+				{
+					"class": "TextureRect",
+					"global_rect": "[P: (0.0, 0.0), S: (1600.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@1772/@Control@1773/@TextureRect@1774",
+					"texture": "",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@1772/@Control@1773/@Control@1775",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@1772/@Control@1773/@Control@1775/PictureGameFeedbackLayer",
+					"z_index": 20
+				},
+				{
+					"class": "Panel",
+					"global_rect": "[P: (184.0, 18.0), S: (880.0, 112.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@1772/@Control@1773/@Control@1775/PictureGameStorybookHeader",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (204.0, 45.0), S: (82.0, 60.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@1772/@Control@1773/@Control@1775/PictureGameStorybookHeader/PictureGameShellCrest",
+					"z_index": 0
+				},
+				{
+					"class": "Label",
+					"global_rect": "[P: (298.0, 30.0), S: (734.0, 94.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@1772/@Control@1773/@Control@1775/@Label@1777",
+					"z_index": 0
+				},
+				{
+					"class": "TextureRect",
+					"global_rect": "[P: (200.0, 163.0), S: (144.0, 144.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@1772/@Control@1773/@Control@1775/@TextureRect@1778",
+					"texture": "res://assets/mg/sun.png",
+					"z_index": 0
+				},
+				{
+					"class": "Panel",
+					"global_rect": "[P: (40.0, 640.0), S: (1520.0, 500.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@1772/@Control@1773/@Control@1775/@Panel@1779",
+					"z_index": 0
+				},
+				{
+					"class": "Panel",
+					"global_rect": "[P: (283.2, 807.2), S: (646.0, 456.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@1772/@Control@1773/@Control@1775/@Panel@1779/@Panel@1780",
+					"z_index": 0
+				},
+				{
+					"class": "Panel",
+					"global_rect": "[P: (265.0, 600.0), S: (150.0, 100.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@1772/@Control@1773/@Control@1775/@Panel@1781",
+					"z_index": 0
+				},
+				{
+					"class": "Panel",
+					"global_rect": "[P: (285.48, 614.08), S: (54.40001, 38.4)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@1772/@Control@1773/@Control@1775/@Panel@1781/@Panel@1782",
+					"z_index": 0
+				},
+				{
+					"class": "Button",
+					"disabled": false,
+					"global_rect": "[P: (270.0, 530.0), S: (140.0, 140.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@1772/@Control@1773/@Control@1775/@Button@1784",
+					"z_index": 0
+				},
+				{
+					"class": "TextureRect",
+					"global_rect": "[P: (314.0, 592.0), S: (52.0, 52.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@1772/@Control@1773/@Control@1775/@Button@1784/@TextureRect@1783",
+					"texture": "res://assets/mg/seed.png",
+					"z_index": 0
+				},
+				{
+					"class": "Panel",
+					"global_rect": "[P: (505.0, 600.0), S: (150.0, 100.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@1772/@Control@1773/@Control@1775/@Panel@1785",
+					"z_index": 0
+				},
+				{
+					"class": "Panel",
+					"global_rect": "[P: (525.48, 614.08), S: (54.40001, 38.4)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@1772/@Control@1773/@Control@1775/@Panel@1785/@Panel@1786",
+					"z_index": 0
+				},
+				{
+					"class": "Button",
+					"disabled": false,
+					"global_rect": "[P: (510.0, 530.0), S: (140.0, 140.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@1772/@Control@1773/@Control@1775/@Button@1788",
+					"z_index": 0
+				},
+				{
+					"class": "TextureRect",
+					"global_rect": "[P: (554.0, 592.0), S: (52.0, 52.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@1772/@Control@1773/@Control@1775/@Button@1788/@TextureRect@1787",
+					"texture": "res://assets/mg/seed.png",
+					"z_index": 0
+				},
+				{
+					"class": "Panel",
+					"global_rect": "[P: (745.0, 600.0), S: (150.0, 100.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@1772/@Control@1773/@Control@1775/@Panel@1789",
+					"z_index": 0
+				},
+				{
+					"class": "Panel",
+					"global_rect": "[P: (765.48, 614.08), S: (54.40001, 38.4)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@1772/@Control@1773/@Control@1775/@Panel@1789/@Panel@1790",
+					"z_index": 0
+				},
+				{
+					"class": "Button",
+					"disabled": false,
+					"global_rect": "[P: (750.0, 530.0), S: (140.0, 140.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@1772/@Control@1773/@Control@1775/@Button@1792",
+					"z_index": 0
+				},
+				{
+					"class": "TextureRect",
+					"global_rect": "[P: (794.0, 592.0), S: (52.0, 52.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@1772/@Control@1773/@Control@1775/@Button@1792/@TextureRect@1791",
+					"texture": "res://assets/mg/seed.png",
+					"z_index": 0
+				},
+				{
+					"class": "Panel",
+					"global_rect": "[P: (985.0, 600.0), S: (150.0, 100.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@1772/@Control@1773/@Control@1775/@Panel@1793",
+					"z_index": 0
+				},
+				{
+					"class": "Panel",
+					"global_rect": "[P: (1005.48, 614.08), S: (54.40001, 38.4)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@1772/@Control@1773/@Control@1775/@Panel@1793/@Panel@1794",
+					"z_index": 0
+				},
+				{
+					"class": "Button",
+					"disabled": false,
+					"global_rect": "[P: (990.0, 530.0), S: (140.0, 140.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@1772/@Control@1773/@Control@1775/@Button@1796",
+					"z_index": 0
+				},
+				{
+					"class": "TextureRect",
+					"global_rect": "[P: (1034.0, 592.0), S: (52.0, 52.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@1772/@Control@1773/@Control@1775/@Button@1796/@TextureRect@1795",
+					"texture": "res://assets/mg/seed.png",
+					"z_index": 0
+				},
+				{
+					"class": "Panel",
+					"global_rect": "[P: (1225.0, 600.0), S: (150.0, 100.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@1772/@Control@1773/@Control@1775/@Panel@1797",
+					"z_index": 0
+				},
+				{
+					"class": "Panel",
+					"global_rect": "[P: (1245.48, 614.08), S: (54.40001, 38.4)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@1772/@Control@1773/@Control@1775/@Panel@1797/@Panel@1798",
+					"z_index": 0
+				},
+				{
+					"class": "Button",
+					"disabled": false,
+					"global_rect": "[P: (1230.0, 530.0), S: (140.0, 140.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@1772/@Control@1773/@Control@1775/@Button@1800",
+					"z_index": 0
+				},
+				{
+					"class": "TextureRect",
+					"global_rect": "[P: (1274.0, 592.0), S: (52.0, 52.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@1772/@Control@1773/@Control@1775/@Button@1800/@TextureRect@1799",
+					"texture": "res://assets/mg/seed.png",
+					"z_index": 0
+				},
+				{
+					"class": "TextureRect",
+					"global_rect": "[P: (1220.0, 180.0), S: (180.0, 230.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@1772/@Control@1773/@Control@1775/@TextureRect@1801",
+					"texture": "res://assets/characters/roshan_25d/roshan_base.png",
+					"z_index": 0
+				},
+				{
+					"class": "TextureRect",
+					"global_rect": "[P: (1141.848, 276.5305), S: (130.0, 137.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@1772/@Control@1773/@Control@1775/@TextureRect@1802",
+					"texture": "res://assets/mg/wateringcan.png",
+					"z_index": 0
+				},
+				{
+					"class": "TextureRect",
+					"global_rect": "[P: (415.0, 175.0), S: (90.0, 90.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@1772/@Control@1773/@Control@1775/@TextureRect@1803",
+					"texture": "res://assets/mg/butterfly.png",
+					"z_index": 0
+				},
+				{
+					"class": "TextureRect",
+					"global_rect": "[P: (765.0, 175.0), S: (90.0, 90.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@1772/@Control@1773/@Control@1775/@TextureRect@1804",
+					"texture": "res://assets/mg/butterfly.png",
+					"z_index": 0
+				},
+				{
+					"class": "TextureRect",
+					"global_rect": "[P: (1115.0, 175.0), S: (90.0, 90.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@1772/@Control@1773/@Control@1775/@TextureRect@1805",
+					"texture": "res://assets/mg/butterfly.png",
+					"z_index": 0
+				}
+			],
+			"won": false
+		},
+		{
+			"grown": 0,
+			"id": "snowman_fresh_ready",
+			"image": {
+				"bytes": 1391009,
+				"dimensions": [
+					1600,
+					720
+				],
+				"file": "snowman_fresh_ready.png",
+				"sha256": "00aaf9698b02272c7e03e2d8a825dcd2d5ad5e4c03e486148c5bc2c4444a9a7b"
+			},
+			"input": {
+				"entry": "production _mg2d_open API; fresh Main and isolated save per game; direct route fixture"
+			},
+			"kind": "snowman",
+			"main_hud_visible": true,
+			"save_path": "C:\\Users\\Peter\\.codex\\visualizations\\2026\\10\\08\\01a119c6-5602-7523-92db-1d320ca62bdf\\root_picture_fresh_20261013T005252/1600x720/profiles/snowman/reef_save.json",
+			"stage": [],
+			"visible_nodes": [
+				{
+					"class": "Control",
+					"global_rect": "[P: (0.0, 0.0), S: (1600.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@2145/@Control@2146",
+					"z_index": 0
+				},
+				{
+					"class": "TextureRect",
+					"global_rect": "[P: (0.0, 0.0), S: (1600.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@2145/@Control@2146/@TextureRect@2147",
+					"texture": "",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@2145/@Control@2146/@Control@2148",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@2145/@Control@2146/@Control@2148/PictureGameFeedbackLayer",
+					"z_index": 20
+				},
+				{
+					"class": "Panel",
+					"global_rect": "[P: (184.0, 18.0), S: (880.0, 112.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@2145/@Control@2146/@Control@2148/PictureGameStorybookHeader",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (204.0, 45.0), S: (82.0, 60.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@2145/@Control@2146/@Control@2148/PictureGameStorybookHeader/PictureGameShellCrest",
+					"z_index": 0
+				},
+				{
+					"class": "Label",
+					"global_rect": "[P: (298.0, 30.0), S: (734.0, 94.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@2145/@Control@2146/@Control@2148/@Label@2150",
+					"z_index": 0
+				},
+				{
+					"class": "Panel",
+					"global_rect": "[P: (100.0, 280.0), S: (1400.0, 1400.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@2145/@Control@2146/@Control@2148/@Panel@2151",
+					"z_index": 0
+				},
+				{
+					"class": "Panel",
+					"global_rect": "[P: (324.0, 434.0), S: (595.0, 420.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@2145/@Control@2146/@Control@2148/@Panel@2151/@Panel@2152",
+					"z_index": 0
+				},
+				{
+					"class": "Label",
+					"global_rect": "[P: (415.0, 146.0), S: (770.0, 144.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@2145/@Control@2146/@Control@2148/@Label@2153",
+					"z_index": 0
+				},
+				{
+					"class": "Label",
+					"global_rect": "[P: (160.0, 0.0), S: (110.0, 230.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@2145/@Control@2146/@Control@2148/@Label@2154",
+					"z_index": 0
+				},
+				{
+					"class": "Panel",
+					"global_rect": "[P: (554.0, 474.0), S: (52.0, 52.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@2145/@Control@2146/@Control@2148/@Panel@2155",
+					"z_index": 0
+				},
+				{
+					"class": "Panel",
+					"global_rect": "[P: (562.32, 479.72), S: (22.1, 15.6)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@2145/@Control@2146/@Control@2148/@Panel@2155/@Panel@2156",
+					"z_index": 0
+				}
+			],
+			"won": false
+		},
+		{
+			"grown": 0,
+			"id": "trampoline_fresh_ready",
+			"image": {
+				"bytes": 1368039,
+				"dimensions": [
+					1600,
+					720
+				],
+				"file": "trampoline_fresh_ready.png",
+				"sha256": "96e0336da36e37562129605853908f127e1cd6fb533b48a3987fdb041d25ede8"
+			},
+			"input": {
+				"entry": "production _mg2d_open API; fresh Main and isolated save per game; direct route fixture"
+			},
+			"kind": "trampoline",
+			"main_hud_visible": true,
+			"save_path": "C:\\Users\\Peter\\.codex\\visualizations\\2026\\10\\08\\01a119c6-5602-7523-92db-1d320ca62bdf\\root_picture_fresh_20261013T005252/1600x720/profiles/trampoline/reef_save.json",
+			"stage": [],
+			"visible_nodes": [
+				{
+					"class": "Control",
+					"global_rect": "[P: (0.0, 0.0), S: (1600.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@2496/@Control@2497",
+					"z_index": 0
+				},
+				{
+					"class": "TextureRect",
+					"global_rect": "[P: (0.0, 0.0), S: (1600.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@2496/@Control@2497/@TextureRect@2498",
+					"texture": "",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@2496/@Control@2497/@Control@2499",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@2496/@Control@2497/@Control@2499/PictureGameFeedbackLayer",
+					"z_index": 20
+				},
+				{
+					"class": "Panel",
+					"global_rect": "[P: (184.0, 18.0), S: (880.0, 112.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@2496/@Control@2497/@Control@2499/PictureGameStorybookHeader",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (204.0, 45.0), S: (82.0, 60.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@2496/@Control@2497/@Control@2499/PictureGameStorybookHeader/PictureGameShellCrest",
+					"z_index": 0
+				},
+				{
+					"class": "Label",
+					"global_rect": "[P: (298.0, 30.0), S: (734.0, 94.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@2496/@Control@2497/@Control@2499/@Label@2501",
+					"z_index": 0
+				},
+				{
+					"class": "TextureRect",
+					"global_rect": "[P: (730.0, 20.0), S: (140.0, 140.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@2496/@Control@2497/@Control@2499/@TextureRect@2502",
+					"texture": "res://assets/mg/star.png",
+					"z_index": 0
+				},
+				{
+					"class": "Panel",
+					"global_rect": "[P: (600.0, 492.0), S: (400.0, 56.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@2496/@Control@2497/@Control@2499/@Panel@2503",
+					"z_index": 0
+				},
+				{
+					"class": "Panel",
+					"global_rect": "[P: (664.0, 536.0), S: (170.0, 120.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@2496/@Control@2497/@Control@2499/@Panel@2503/@Panel@2504",
+					"z_index": 0
+				},
+				{
+					"class": "TextureRect",
+					"global_rect": "[P: (725.0, 335.0), S: (150.0, 190.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@2496/@Control@2497/@Control@2499/@TextureRect@2505",
+					"texture": "res://assets/characters/roshan_25d/roshan_base.png",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (600.0, 430.0), S: (400.0, 140.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@2496/@Control@2497/@Control@2499/TrampolineArtTarget",
+					"z_index": 0
+				}
+			],
+			"won": false
+		},
+		{
+			"grown": 0,
+			"id": "xmas_fresh_ready",
+			"image": {
+				"bytes": 1176400,
+				"dimensions": [
+					1600,
+					720
+				],
+				"file": "xmas_fresh_ready.png",
+				"sha256": "d501b51cf4e81d7075821912d00cfbad09750a7621c3f84c84400dd857d101ba"
+			},
+			"input": {
+				"entry": "production _mg2d_open API; fresh Main and isolated save per game; direct route fixture"
+			},
+			"kind": "xmas",
+			"main_hud_visible": true,
+			"save_path": "C:\\Users\\Peter\\.codex\\visualizations\\2026\\10\\08\\01a119c6-5602-7523-92db-1d320ca62bdf\\root_picture_fresh_20261013T005252/1600x720/profiles/xmas/reef_save.json",
+			"stage": [],
+			"visible_nodes": [
+				{
+					"class": "Control",
+					"global_rect": "[P: (0.0, 0.0), S: (1600.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@2845/@Control@2846",
+					"z_index": 0
+				},
+				{
+					"class": "TextureRect",
+					"global_rect": "[P: (0.0, 0.0), S: (1600.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@2845/@Control@2846/@TextureRect@2847",
+					"texture": "",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@2845/@Control@2846/@Control@2848",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@2845/@Control@2846/@Control@2848/PictureGameFeedbackLayer",
+					"z_index": 20
+				},
+				{
+					"class": "Panel",
+					"global_rect": "[P: (184.0, 18.0), S: (880.0, 112.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@2845/@Control@2846/@Control@2848/PictureGameStorybookHeader",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (204.0, 45.0), S: (82.0, 60.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@2845/@Control@2846/@Control@2848/PictureGameStorybookHeader/PictureGameShellCrest",
+					"z_index": 0
+				},
+				{
+					"class": "Label",
+					"global_rect": "[P: (298.0, 30.0), S: (734.0, 88.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@2845/@Control@2846/@Control@2848/@Label@2850",
+					"z_index": 0
+				},
+				{
+					"class": "TextureRect",
+					"global_rect": "[P: (590.0, 150.0), S: (420.0, 560.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@2845/@Control@2846/@Control@2848/@TextureRect@2851",
+					"texture": "res://assets/mg/xtree.png",
+					"z_index": 0
+				},
+				{
+					"class": "Button",
+					"disabled": false,
+					"global_rect": "[P: (285.0, 605.0), S: (110.0, 110.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@2845/@Control@2846/@Control@2848/@Button@2853",
+					"z_index": 0
+				},
+				{
+					"class": "TextureRect",
+					"global_rect": "[P: (285.0, 605.0), S: (110.0, 110.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@2845/@Control@2846/@Control@2848/@Button@2853/@TextureRect@2852",
+					"texture": "res://assets/mg/orn1.png",
+					"z_index": 0
+				},
+				{
+					"class": "Button",
+					"disabled": false,
+					"global_rect": "[P: (435.0, 605.0), S: (110.0, 110.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@2845/@Control@2846/@Control@2848/@Button@2855",
+					"z_index": 0
+				},
+				{
+					"class": "TextureRect",
+					"global_rect": "[P: (435.0, 605.0), S: (110.0, 110.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@2845/@Control@2846/@Control@2848/@Button@2855/@TextureRect@2854",
+					"texture": "res://assets/mg/orn2.png",
+					"z_index": 0
+				},
+				{
+					"class": "Button",
+					"disabled": false,
+					"global_rect": "[P: (585.0, 605.0), S: (110.0, 110.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@2845/@Control@2846/@Control@2848/@Button@2857",
+					"z_index": 0
+				},
+				{
+					"class": "TextureRect",
+					"global_rect": "[P: (585.0, 605.0), S: (110.0, 110.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@2845/@Control@2846/@Control@2848/@Button@2857/@TextureRect@2856",
+					"texture": "res://assets/mg/orn3.png",
+					"z_index": 0
+				},
+				{
+					"class": "Button",
+					"disabled": false,
+					"global_rect": "[P: (735.0, 605.0), S: (110.0, 110.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@2845/@Control@2846/@Control@2848/@Button@2859",
+					"z_index": 0
+				},
+				{
+					"class": "TextureRect",
+					"global_rect": "[P: (735.0, 605.0), S: (110.0, 110.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@2845/@Control@2846/@Control@2848/@Button@2859/@TextureRect@2858",
+					"texture": "res://assets/mg/orn4.png",
+					"z_index": 0
+				},
+				{
+					"class": "Button",
+					"disabled": false,
+					"global_rect": "[P: (885.0, 605.0), S: (110.0, 110.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@2845/@Control@2846/@Control@2848/@Button@2861",
+					"z_index": 0
+				},
+				{
+					"class": "TextureRect",
+					"global_rect": "[P: (885.0, 605.0), S: (110.0, 110.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@2845/@Control@2846/@Control@2848/@Button@2861/@TextureRect@2860",
+					"texture": "res://assets/mg/orn5.png",
+					"z_index": 0
+				},
+				{
+					"class": "Button",
+					"disabled": true,
+					"global_rect": "[P: (1145.0, 595.0), S: (130.0, 130.0)]",
+					"modulate": "(0.5, 0.5, 0.5, 1.0)",
+					"path": "/root/Main/@CanvasLayer@2845/@Control@2846/@Control@2848/@Button@2863",
+					"z_index": 0
+				},
+				{
+					"class": "TextureRect",
+					"global_rect": "[P: (1145.0, 595.0), S: (130.0, 130.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@2845/@Control@2846/@Control@2848/@Button@2863/@TextureRect@2862",
+					"texture": "res://assets/book/friendship_flower.png",
+					"z_index": 0
+				}
+			],
+			"won": false
+		}
+	]
+}

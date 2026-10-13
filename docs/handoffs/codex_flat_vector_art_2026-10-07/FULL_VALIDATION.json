@@ -1,0 +1,514 @@
+{
+  "schema": "reef.full_validation/1",
+  "recorded_at_utc": "2026-10-13T01:53:26.566121+00:00",
+  "status": "PASS_PROBE_BY_PROBE_WITH_RECORDED_RETRIES",
+  "approved_engine": "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+  "engine_version": "4.7.2.stable.official.ed1daf0bf",
+  "source_baseline": "e2b3c73789707aa49a91b4f42e2a9dd4b68225df",
+  "runtime_diff": [],
+  "pre_probe_static_import_and_2d_gates": "PASS: unchangedci exits before probe loop on anypregate failure;fulltranscriptreachesallrequiredtrustedprobes. Finaldoc/2Dgatesseparatelyrecorded aftermetadatachanges.",
+  "original_full_ci_exit": 1,
+  "original_full_ci_log_sha256": "6df00817f4ca89f2acc6aa9ce46624f031d262a1971cc5a2df563c9be445292f",
+  "trusted_required": 82,
+  "trusted_passed": 82,
+  "same_source_native_retries": 4,
+  "rows": [
+    {
+      "probe": "probe_reef_districts",
+      "result": "PASS",
+      "evidence": "publication_diagnostics/full_local_ci.log",
+      "initial_process_exit": 0
+    },
+    {
+      "probe": "probe_ocean_kingdoms",
+      "result": "PASS",
+      "evidence": "publication_diagnostics/full_local_ci.log",
+      "initial_process_exit": 0
+    },
+    {
+      "probe": "probe_audit",
+      "result": "PASS_AFTER_SAME_SOURCE_NATIVE_RETRY",
+      "initial_process_exit": 127,
+      "evidence": "publication_diagnostics/retry_probe_audit.log",
+      "log_sha256": "2d03a057e4764f2b61f5aff2f94735ad7d10b8b868e0dfda83a774c8e33f36b0"
+    },
+    {
+      "probe": "probe_passive",
+      "result": "PASS",
+      "evidence": "publication_diagnostics/full_local_ci.log",
+      "initial_process_exit": 0
+    },
+    {
+      "probe": "probe_living_world",
+      "result": "PASS",
+      "evidence": "publication_diagnostics/full_local_ci.log",
+      "initial_process_exit": 0
+    },
+    {
+      "probe": "probe_load",
+      "result": "PASS",
+      "evidence": "publication_diagnostics/full_local_ci.log",
+      "initial_process_exit": 0
+    },
+    {
+      "probe": "probe_rank",
+      "result": "PASS",
+      "evidence": "publication_diagnostics/full_local_ci.log",
+      "initial_process_exit": 0
+    },
+    {
+      "probe": "probe_save_recovery",
+      "result": "PASS",
+      "evidence": "publication_diagnostics/full_local_ci.log",
+      "initial_process_exit": 0
+    },
+    {
+      "probe": "probe_galaxy_state",
+      "result": "PASS",
+      "evidence": "publication_diagnostics/full_local_ci.log",
+      "initial_process_exit": 0
+    },
+    {
+      "probe": "probe_collection",
+      "result": "PASS",
+      "evidence": "publication_diagnostics/full_local_ci.log",
+      "initial_process_exit": 0
+    },
+    {
+      "probe": "probe_mg2d",
+      "result": "PASS",
+      "evidence": "publication_diagnostics/full_local_ci.log",
+      "initial_process_exit": 0
+    },
+    {
+      "probe": "probe_fetch",
+      "result": "PASS",
+      "evidence": "publication_diagnostics/full_local_ci.log",
+      "initial_process_exit": 0
+    },
+    {
+      "probe": "probe_melody",
+      "result": "PASS",
+      "evidence": "publication_diagnostics/full_local_ci.log",
+      "initial_process_exit": 0
+    },
+    {
+      "probe": "probe_dolls",
+      "result": "PASS",
+      "evidence": "publication_diagnostics/full_local_ci.log",
+      "initial_process_exit": 0
+    },
+    {
+      "probe": "probe_seek",
+      "result": "PASS",
+      "evidence": "publication_diagnostics/full_local_ci.log",
+      "initial_process_exit": 0
+    },
+    {
+      "probe": "probe_audio",
+      "result": "PASS",
+      "evidence": "publication_diagnostics/full_local_ci.log",
+      "initial_process_exit": 0
+    },
+    {
+      "probe": "probe_dance",
+      "result": "PASS_AFTER_SAME_SOURCE_NATIVE_RETRY",
+      "initial_process_exit": 127,
+      "evidence": "publication_diagnostics/retry_probe_dance.log",
+      "log_sha256": "e9d68243d211c408223d1196cf163535148aa1e6ee06258eef1fba2a6f60ad6e"
+    },
+    {
+      "probe": "probe_l2",
+      "result": "PASS",
+      "evidence": "publication_diagnostics/full_local_ci.log",
+      "initial_process_exit": 0
+    },
+    {
+      "probe": "probe_l2_living_cards",
+      "result": "PASS",
+      "evidence": "publication_diagnostics/full_local_ci.log",
+      "initial_process_exit": 0
+    },
+    {
+      "probe": "probe_sky_lagoon_animals",
+      "result": "PASS",
+      "evidence": "publication_diagnostics/full_local_ci.log",
+      "initial_process_exit": 0
+    },
+    {
+      "probe": "probe_l2_reenter",
+      "result": "PASS",
+      "evidence": "publication_diagnostics/full_local_ci.log",
+      "initial_process_exit": 0
+    },
+    {
+      "probe": "probe_crown",
+      "result": "PASS",
+      "evidence": "publication_diagnostics/full_local_ci.log",
+      "initial_process_exit": 0
+    },
+    {
+      "probe": "probe_throne",
+      "result": "PASS",
+      "evidence": "publication_diagnostics/full_local_ci.log",
+      "initial_process_exit": 0
+    },
+    {
+      "probe": "probe_northern",
+      "result": "PASS",
+      "evidence": "publication_diagnostics/full_local_ci.log",
+      "initial_process_exit": 0
+    },
+    {
+      "probe": "probe_human_art_audit",
+      "result": "PASS",
+      "evidence": "publication_diagnostics/full_local_ci.log",
+      "initial_process_exit": 0
+    },
+    {
+      "probe": "probe_train",
+      "result": "PASS",
+      "evidence": "publication_diagnostics/full_local_ci.log",
+      "initial_process_exit": 0
+    },
+    {
+      "probe": "probe_verbs",
+      "result": "PASS",
+      "evidence": "publication_diagnostics/full_local_ci.log",
+      "initial_process_exit": 0
+    },
+    {
+      "probe": "probe_skins",
+      "result": "PASS",
+      "evidence": "publication_diagnostics/full_local_ci.log",
+      "initial_process_exit": 0
+    },
+    {
+      "probe": "probe_touch_router",
+      "result": "PASS",
+      "evidence": "publication_diagnostics/full_local_ci.log",
+      "initial_process_exit": 0
+    },
+    {
+      "probe": "probe_touch_stress",
+      "result": "PASS",
+      "evidence": "publication_diagnostics/full_local_ci.log",
+      "initial_process_exit": 0
+    },
+    {
+      "probe": "probe_interaction",
+      "result": "PASS",
+      "evidence": "publication_diagnostics/full_local_ci.log",
+      "initial_process_exit": 0
+    },
+    {
+      "probe": "probe_touch_adversary",
+      "result": "PASS_AFTER_SAME_SOURCE_NATIVE_RETRY",
+      "initial_process_exit": 127,
+      "evidence": "publication_diagnostics/retry_probe_touch_adversary.log",
+      "log_sha256": "7dce7b16bedf0a78e23f3951656cebf93faf911ab4ab7ef1e163c81feb2a5643"
+    },
+    {
+      "probe": "probe_touch_look",
+      "result": "PASS",
+      "evidence": "publication_diagnostics/full_local_ci.log",
+      "initial_process_exit": 0
+    },
+    {
+      "probe": "probe_ui_system",
+      "result": "PASS",
+      "evidence": "publication_diagnostics/full_local_ci.log",
+      "initial_process_exit": 0
+    },
+    {
+      "probe": "probe_voice",
+      "result": "PASS",
+      "evidence": "publication_diagnostics/full_local_ci.log",
+      "initial_process_exit": 0
+    },
+    {
+      "probe": "probe_day_one_voice",
+      "result": "PASS",
+      "evidence": "publication_diagnostics/full_local_ci.log",
+      "initial_process_exit": 0
+    },
+    {
+      "probe": "probe_day_one_d8_revisits",
+      "result": "PASS",
+      "evidence": "publication_diagnostics/full_local_ci.log",
+      "initial_process_exit": 0
+    },
+    {
+      "probe": "probe_day_one_handoffs",
+      "result": "PASS",
+      "evidence": "publication_diagnostics/full_local_ci.log",
+      "initial_process_exit": 0
+    },
+    {
+      "probe": "probe_kart_feel",
+      "result": "PASS",
+      "evidence": "publication_diagnostics/full_local_ci.log",
+      "initial_process_exit": 0
+    },
+    {
+      "probe": "probe_combat",
+      "result": "PASS",
+      "evidence": "publication_diagnostics/full_local_ci.log",
+      "initial_process_exit": 0
+    },
+    {
+      "probe": "probe_dust_bunny",
+      "result": "PASS",
+      "evidence": "publication_diagnostics/full_local_ci.log",
+      "initial_process_exit": 0
+    },
+    {
+      "probe": "probe_dust_bunny_boss",
+      "result": "PASS",
+      "evidence": "publication_diagnostics/full_local_ci.log",
+      "initial_process_exit": 0
+    },
+    {
+      "probe": "probe_dust_boss",
+      "result": "PASS_AFTER_SAME_SOURCE_NATIVE_RETRY",
+      "initial_process_exit": 127,
+      "evidence": "publication_diagnostics/retry_probe_dust_boss.log",
+      "log_sha256": "82f38563767cd2281954d8fdd08270757a51514000351daa842f0c5b7db5faa3"
+    },
+    {
+      "probe": "probe_hit",
+      "result": "PASS",
+      "evidence": "publication_diagnostics/full_local_ci.log",
+      "initial_process_exit": 0
+    },
+    {
+      "probe": "probe_partner",
+      "result": "PASS",
+      "evidence": "publication_diagnostics/full_local_ci.log",
+      "initial_process_exit": 0
+    },
+    {
+      "probe": "probe_combat_tutorial",
+      "result": "PASS",
+      "evidence": "publication_diagnostics/full_local_ci.log",
+      "initial_process_exit": 0
+    },
+    {
+      "probe": "probe_imp_ai",
+      "result": "PASS",
+      "evidence": "publication_diagnostics/full_local_ci.log",
+      "initial_process_exit": 0
+    },
+    {
+      "probe": "probe_mic",
+      "result": "PASS",
+      "evidence": "publication_diagnostics/full_local_ci.log",
+      "initial_process_exit": 0
+    },
+    {
+      "probe": "probe_stuffie",
+      "result": "PASS",
+      "evidence": "publication_diagnostics/full_local_ci.log",
+      "initial_process_exit": 0
+    },
+    {
+      "probe": "probe_dungeon",
+      "result": "PASS",
+      "evidence": "publication_diagnostics/full_local_ci.log",
+      "initial_process_exit": 0
+    },
+    {
+      "probe": "probe_ember",
+      "result": "PASS",
+      "evidence": "publication_diagnostics/full_local_ci.log",
+      "initial_process_exit": 0
+    },
+    {
+      "probe": "probe_opera",
+      "result": "PASS",
+      "evidence": "publication_diagnostics/full_local_ci.log",
+      "initial_process_exit": 0
+    },
+    {
+      "probe": "probe_opera_2d",
+      "result": "PASS",
+      "evidence": "publication_diagnostics/full_local_ci.log",
+      "initial_process_exit": 0
+    },
+    {
+      "probe": "probe_opera_diegetic_paths",
+      "result": "PASS",
+      "evidence": "publication_diagnostics/full_local_ci.log",
+      "initial_process_exit": 0
+    },
+    {
+      "probe": "probe_opera_detective",
+      "result": "PASS",
+      "evidence": "publication_diagnostics/full_local_ci.log",
+      "initial_process_exit": 0
+    },
+    {
+      "probe": "probe_opera_pipe",
+      "result": "PASS",
+      "evidence": "publication_diagnostics/full_local_ci.log",
+      "initial_process_exit": 0
+    },
+    {
+      "probe": "probe_opera_nursery",
+      "result": "PASS",
+      "evidence": "publication_diagnostics/full_local_ci.log",
+      "initial_process_exit": 0
+    },
+    {
+      "probe": "probe_opera_gesture_quality",
+      "result": "PASS",
+      "evidence": "publication_diagnostics/full_local_ci.log",
+      "initial_process_exit": 0
+    },
+    {
+      "probe": "probe_kitchen_props",
+      "result": "PASS",
+      "evidence": "publication_diagnostics/full_local_ci.log",
+      "initial_process_exit": 0
+    },
+    {
+      "probe": "probe_bathroom_props",
+      "result": "PASS",
+      "evidence": "publication_diagnostics/full_local_ci.log",
+      "initial_process_exit": 0
+    },
+    {
+      "probe": "probe_castle_door_language",
+      "result": "PASS",
+      "evidence": "publication_diagnostics/full_local_ci.log",
+      "initial_process_exit": 0
+    },
+    {
+      "probe": "probe_bathroom_integration",
+      "result": "PASS",
+      "evidence": "publication_diagnostics/full_local_ci.log",
+      "initial_process_exit": 0
+    },
+    {
+      "probe": "probe_day_one_bathroom_bunny",
+      "result": "PASS",
+      "evidence": "publication_diagnostics/full_local_ci.log",
+      "initial_process_exit": 0
+    },
+    {
+      "probe": "probe_day_one_bathroom_cleanup",
+      "result": "PASS",
+      "evidence": "publication_diagnostics/full_local_ci.log",
+      "initial_process_exit": 0
+    },
+    {
+      "probe": "probe_day_one_bathroom_movie_handoff",
+      "result": "PASS",
+      "evidence": "publication_diagnostics/full_local_ci.log",
+      "initial_process_exit": 0
+    },
+    {
+      "probe": "probe_day_one_director",
+      "result": "PASS",
+      "evidence": "publication_diagnostics/full_local_ci.log",
+      "initial_process_exit": 0
+    },
+    {
+      "probe": "probe_day_one_integration",
+      "result": "PASS",
+      "evidence": "publication_diagnostics/full_local_ci.log",
+      "initial_process_exit": 0
+    },
+    {
+      "probe": "probe_day_one_pool_cleanup",
+      "result": "PASS",
+      "evidence": "publication_diagnostics/full_local_ci.log",
+      "initial_process_exit": 0
+    },
+    {
+      "probe": "probe_day_one_art_attack_state",
+      "result": "PASS",
+      "evidence": "publication_diagnostics/full_local_ci.log",
+      "initial_process_exit": 0
+    },
+    {
+      "probe": "probe_day_one_castle_dressing",
+      "result": "PASS",
+      "evidence": "publication_diagnostics/full_local_ci.log",
+      "initial_process_exit": 0
+    },
+    {
+      "probe": "probe_day_one_story_clips",
+      "result": "PASS",
+      "evidence": "publication_diagnostics/full_local_ci.log",
+      "initial_process_exit": 0
+    },
+    {
+      "probe": "probe_chapter2",
+      "result": "PASS",
+      "evidence": "publication_diagnostics/full_local_ci.log",
+      "initial_process_exit": 0
+    },
+    {
+      "probe": "probe_chapter2_farmer_resume",
+      "result": "PASS",
+      "evidence": "publication_diagnostics/full_local_ci.log",
+      "initial_process_exit": 0
+    },
+    {
+      "probe": "probe_chapter2_lawn",
+      "result": "PASS",
+      "evidence": "publication_diagnostics/full_local_ci.log",
+      "initial_process_exit": 0
+    },
+    {
+      "probe": "probe_alpha_milestone_save",
+      "result": "PASS",
+      "evidence": "publication_diagnostics/full_local_ci.log",
+      "initial_process_exit": 0
+    },
+    {
+      "probe": "probe_dust_boss_balance",
+      "result": "PASS",
+      "evidence": "publication_diagnostics/full_local_ci.log",
+      "initial_process_exit": 0
+    },
+    {
+      "probe": "probe_start_menu_routing",
+      "result": "PASS",
+      "evidence": "publication_diagnostics/full_local_ci.log",
+      "initial_process_exit": 0
+    },
+    {
+      "probe": "probe_start_menu_new_game",
+      "result": "PASS",
+      "evidence": "publication_diagnostics/full_local_ci.log",
+      "initial_process_exit": 0
+    },
+    {
+      "probe": "probe_castle_pool_life_2d",
+      "result": "PASS",
+      "evidence": "publication_diagnostics/full_local_ci.log",
+      "initial_process_exit": 0
+    },
+    {
+      "probe": "probe_castle_pearl_art",
+      "result": "PASS",
+      "evidence": "publication_diagnostics/full_local_ci.log",
+      "initial_process_exit": 0
+    },
+    {
+      "probe": "probe_fairy_art",
+      "result": "PASS",
+      "evidence": "publication_diagnostics/full_local_ci.log",
+      "initial_process_exit": 0
+    },
+    {
+      "probe": "probe_props",
+      "result": "PASS",
+      "evidence": "publication_diagnostics/full_local_ci.log",
+      "initial_process_exit": 0
+    }
+  ],
+  "limit": "Original Bash CI failure remains recorded;native sameengine/args/profile retries satisfy permitted probe-by-probe lane,not an unmodifiedCI green claim. Prematurecode127causeunestablished. No probe/gate changes. No creative/device/child/owner acceptance."
+}

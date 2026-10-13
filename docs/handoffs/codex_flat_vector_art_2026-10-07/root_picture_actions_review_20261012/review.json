@@ -1,0 +1,4443 @@
+{
+  "schema": "reef.root_picture_action_review/1",
+  "recorded_at_utc": "2026-10-13T01:45:34.767258+00:00",
+  "source_revision": "6cde8aeae04aaedcc0b1ff22a05ef93ab9bf666f",
+  "reviewer": "Root Codex independent inspection; not owner/child/device acceptance",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-VIS-01",
+    "DL-VIS-02",
+    "DL-VIS-03",
+    "DL-VIS-04",
+    "DL-VIS-05",
+    "DL-VIS-06",
+    "DL-VIS-07",
+    "DL-VIS-08",
+    "DL-ASSET-01",
+    "DL-ASSET-02",
+    "DL-ASSET-03",
+    "DL-ASSET-04",
+    "DL-ASSET-05",
+    "DL-ASSET-06",
+    "DL-MOT-14",
+    "DL-MOT-15",
+    "DL-MOT-16"
+  ],
+  "related_findings": [
+    "MA-VIS-006",
+    "MA-VIS-007",
+    "MA-VIS-008",
+    "MA-DOC-008"
+  ],
+  "capture_count": 146,
+  "independently_viewed_unique_native_count": 12,
+  "reviewed_capture_paths": [
+    "captures/partial_buttons/1280x720/trampoline_bounce1_apex.png",
+    "captures/partial_buttons/1280x720/trampoline_bounce2_apex.png",
+    "captures/partial_buttons/1280x720/trampoline_bounce3_apex.png",
+    "captures/partial_buttons/1280x720/xmas_ornament5_placed.png",
+    "captures/partial_buttons/1280x720/xmas_flower_payoff.png",
+    "captures/bounded_snow/1280x720/snow_ball3_stacked.png",
+    "captures/bounded_snow/1280x720/snow_chase_entry.png",
+    "captures/bounded_snow/1600x720/snow_ball1_growing.png",
+    "captures/completed_snow_fixture/1280x720/snow_bite1.png",
+    "captures/completed_snow_fixture/1280x720/snow_bite2.png",
+    "captures/completed_snow_fixture/1280x720/snow_bite3.png",
+    "captures/completed_snow_fixture/1280x720/snow_carrot_collected_payoff.png"
+  ],
+  "captures": [
+    {
+      "path": "captures/partial_buttons/1280x720/snowman_fresh_ready.png",
+      "run_role": "partial_buttons",
+      "state_id": "snowman_fresh_ready",
+      "aspect": "1280x720",
+      "sha256": "ab4a4ecb6ad4168e058c3708c5c3d3e1a83c64739a158acaae308f819998fe26",
+      "run_returncode": 1,
+      "phase": "roll",
+      "balls": 0,
+      "face": 0,
+      "bites": 0,
+      "won": false,
+      "presentation": {
+        "boot_splash_present": false,
+        "fade_alpha": 0.0,
+        "intro_active": false,
+        "intro_layer_present": false,
+        "medal_present": false,
+        "start_menu_active": false,
+        "start_menu_layer_present": false
+      },
+      "input": {
+        "entry": "production _mg2d_open API; fresh Main and isolated save per game; direct route fixture"
+      },
+      "scope_limit": "FAIL: Snowman mouse circles did not progress. Trampoline three taps and Xmas six taps progressed, with guarded native states retained. This is not a green combined run."
+    },
+    {
+      "path": "captures/partial_buttons/1280x720/snow_ball1_growing.png",
+      "run_role": "partial_buttons",
+      "state_id": "snow_ball1_growing",
+      "aspect": "1280x720",
+      "sha256": "4c7fb0633f41482d1b344b0b2d7df490a1ce21d5dedd480c1c70db55c302fda5",
+      "run_returncode": 1,
+      "phase": "roll",
+      "balls": 0,
+      "face": 0,
+      "bites": 0,
+      "won": false,
+      "presentation": {
+        "boot_splash_present": false,
+        "fade_alpha": 0.0,
+        "intro_active": false,
+        "intro_layer_present": false,
+        "medal_present": false,
+        "start_menu_active": false,
+        "start_menu_layer_present": false
+      },
+      "input": {
+        "angle_step": 0.130899693899575,
+        "method": "raw mouse circle gesture",
+        "observed_rot_acc": 0.0,
+        "steps": 48
+      },
+      "scope_limit": "FAIL: Snowman mouse circles did not progress. Trampoline three taps and Xmas six taps progressed, with guarded native states retained. This is not a green combined run."
+    },
+    {
+      "path": "captures/partial_buttons/1280x720/trampoline_fresh_ready.png",
+      "run_role": "partial_buttons",
+      "state_id": "trampoline_fresh_ready",
+      "aspect": "1280x720",
+      "sha256": "403d520a5861e2f7b861af93f1f1f9dc2586b6dcc5215107616a8a8a2258011c",
+      "run_returncode": 1,
+      "phase": "",
+      "balls": 0,
+      "face": 0,
+      "bites": 0,
+      "won": false,
+      "presentation": {
+        "boot_splash_present": false,
+        "fade_alpha": 0.0,
+        "intro_active": false,
+        "intro_layer_present": false,
+        "medal_present": false,
+        "start_menu_active": false,
+        "start_menu_layer_present": false
+      },
+      "input": {
+        "entry": "production _mg2d_open API; fresh Main and isolated save per game; direct route fixture"
+      },
+      "scope_limit": "FAIL: Snowman mouse circles did not progress. Trampoline three taps and Xmas six taps progressed, with guarded native states retained. This is not a green combined run."
+    },
+    {
+      "path": "captures/partial_buttons/1280x720/trampoline_bounce1_apex.png",
+      "run_role": "partial_buttons",
+      "state_id": "trampoline_bounce1_apex",
+      "aspect": "1280x720",
+      "sha256": "2252bb489233304cf298420d101c9fc58f00dd6497497b19430edb6f1c4d427d",
+      "run_returncode": 1,
+      "phase": "",
+      "balls": 0,
+      "face": 0,
+      "bites": 0,
+      "won": false,
+      "presentation": {
+        "boot_splash_present": false,
+        "fade_alpha": 0.0,
+        "intro_active": false,
+        "intro_layer_present": false,
+        "medal_present": false,
+        "start_menu_active": false,
+        "start_menu_layer_present": false
+      },
+      "input": {
+        "method": "Input.parse_input_event raw mouse press/release",
+        "position": "(640.0, 500.0)",
+        "target_rect": "[P: (440.0, 430.0), S: (400.0, 140.0)]"
+      },
+      "scope_limit": "FAIL: Snowman mouse circles did not progress. Trampoline three taps and Xmas six taps progressed, with guarded native states retained. This is not a green combined run."
+    },
+    {
+      "path": "captures/partial_buttons/1280x720/trampoline_bounce1_settle.png",
+      "run_role": "partial_buttons",
+      "state_id": "trampoline_bounce1_settle",
+      "aspect": "1280x720",
+      "sha256": "84b1a44ebf5aae982469f8bca5646db4ab6c64bb2a575346f34d0e188d5bfbf6",
+      "run_returncode": 1,
+      "phase": "",
+      "balls": 0,
+      "face": 0,
+      "bites": 0,
+      "won": false,
+      "presentation": {
+        "boot_splash_present": false,
+        "fade_alpha": 0.0,
+        "intro_active": false,
+        "intro_layer_present": false,
+        "medal_present": false,
+        "start_menu_active": false,
+        "start_menu_layer_present": false
+      },
+      "input": {
+        "method": "Input.parse_input_event raw mouse press/release",
+        "position": "(640.0, 500.0)",
+        "target_rect": "[P: (440.0, 430.0), S: (400.0, 140.0)]"
+      },
+      "scope_limit": "FAIL: Snowman mouse circles did not progress. Trampoline three taps and Xmas six taps progressed, with guarded native states retained. This is not a green combined run."
+    },
+    {
+      "path": "captures/partial_buttons/1280x720/trampoline_bounce2_apex.png",
+      "run_role": "partial_buttons",
+      "state_id": "trampoline_bounce2_apex",
+      "aspect": "1280x720",
+      "sha256": "fe04bdd41fb57452241855eadbb6665a8461694a4f2558bb7b81f17460b0b6b4",
+      "run_returncode": 1,
+      "phase": "",
+      "balls": 0,
+      "face": 0,
+      "bites": 0,
+      "won": false,
+      "presentation": {
+        "boot_splash_present": false,
+        "fade_alpha": 0.0,
+        "intro_active": false,
+        "intro_layer_present": false,
+        "medal_present": false,
+        "start_menu_active": false,
+        "start_menu_layer_present": false
+      },
+      "input": {
+        "method": "Input.parse_input_event raw mouse press/release",
+        "position": "(640.0, 500.0)",
+        "target_rect": "[P: (440.0, 430.0), S: (400.0, 140.0)]"
+      },
+      "scope_limit": "FAIL: Snowman mouse circles did not progress. Trampoline three taps and Xmas six taps progressed, with guarded native states retained. This is not a green combined run."
+    },
+    {
+      "path": "captures/partial_buttons/1280x720/trampoline_bounce2_settle.png",
+      "run_role": "partial_buttons",
+      "state_id": "trampoline_bounce2_settle",
+      "aspect": "1280x720",
+      "sha256": "c8a18d1185763f14cdfeb99bb274dc909a16b01bf0f59a1fd845c2424a4c5947",
+      "run_returncode": 1,
+      "phase": "",
+      "balls": 0,
+      "face": 0,
+      "bites": 0,
+      "won": false,
+      "presentation": {
+        "boot_splash_present": false,
+        "fade_alpha": 0.0,
+        "intro_active": false,
+        "intro_layer_present": false,
+        "medal_present": false,
+        "start_menu_active": false,
+        "start_menu_layer_present": false
+      },
+      "input": {
+        "method": "Input.parse_input_event raw mouse press/release",
+        "position": "(640.0, 500.0)",
+        "target_rect": "[P: (440.0, 430.0), S: (400.0, 140.0)]"
+      },
+      "scope_limit": "FAIL: Snowman mouse circles did not progress. Trampoline three taps and Xmas six taps progressed, with guarded native states retained. This is not a green combined run."
+    },
+    {
+      "path": "captures/partial_buttons/1280x720/trampoline_bounce3_apex.png",
+      "run_role": "partial_buttons",
+      "state_id": "trampoline_bounce3_apex",
+      "aspect": "1280x720",
+      "sha256": "cdd34b0dc88fc1a47eeaaec02c7d4bd726f0a51c36aef478bc314d2c164c5ca3",
+      "run_returncode": 1,
+      "phase": "",
+      "balls": 0,
+      "face": 0,
+      "bites": 0,
+      "won": false,
+      "presentation": {
+        "boot_splash_present": false,
+        "fade_alpha": 0.0,
+        "intro_active": false,
+        "intro_layer_present": false,
+        "medal_present": false,
+        "start_menu_active": false,
+        "start_menu_layer_present": false
+      },
+      "input": {
+        "method": "Input.parse_input_event raw mouse press/release",
+        "position": "(640.0, 500.0)",
+        "target_rect": "[P: (440.0, 430.0), S: (400.0, 140.0)]"
+      },
+      "scope_limit": "FAIL: Snowman mouse circles did not progress. Trampoline three taps and Xmas six taps progressed, with guarded native states retained. This is not a green combined run."
+    },
+    {
+      "path": "captures/partial_buttons/1280x720/trampoline_bounce3_settle.png",
+      "run_role": "partial_buttons",
+      "state_id": "trampoline_bounce3_settle",
+      "aspect": "1280x720",
+      "sha256": "052ab130d40f86898a65f88f0d4780bfa043e871f2c4d7b9bb17d3c43b8a9d34",
+      "run_returncode": 1,
+      "phase": "",
+      "balls": 0,
+      "face": 0,
+      "bites": 0,
+      "won": true,
+      "presentation": {
+        "boot_splash_present": false,
+        "fade_alpha": 0.0,
+        "intro_active": false,
+        "intro_layer_present": false,
+        "medal_present": true,
+        "start_menu_active": false,
+        "start_menu_layer_present": false
+      },
+      "input": {
+        "method": "Input.parse_input_event raw mouse press/release",
+        "position": "(640.0, 500.0)",
+        "target_rect": "[P: (440.0, 430.0), S: (400.0, 140.0)]"
+      },
+      "scope_limit": "FAIL: Snowman mouse circles did not progress. Trampoline three taps and Xmas six taps progressed, with guarded native states retained. This is not a green combined run."
+    },
+    {
+      "path": "captures/partial_buttons/1280x720/xmas_fresh_ready.png",
+      "run_role": "partial_buttons",
+      "state_id": "xmas_fresh_ready",
+      "aspect": "1280x720",
+      "sha256": "1b711fa70ef6be4a4b20d757cd098f04057bab496b49a8ab32a236e72da9e2a1",
+      "run_returncode": 1,
+      "phase": "",
+      "balls": 0,
+      "face": 0,
+      "bites": 0,
+      "won": false,
+      "presentation": {
+        "boot_splash_present": false,
+        "fade_alpha": 0.0,
+        "intro_active": false,
+        "intro_layer_present": false,
+        "medal_present": false,
+        "start_menu_active": false,
+        "start_menu_layer_present": false
+      },
+      "input": {
+        "entry": "production _mg2d_open API; fresh Main and isolated save per game; direct route fixture"
+      },
+      "scope_limit": "FAIL: Snowman mouse circles did not progress. Trampoline three taps and Xmas six taps progressed, with guarded native states retained. This is not a green combined run."
+    },
+    {
+      "path": "captures/partial_buttons/1280x720/xmas_ornament1_placed.png",
+      "run_role": "partial_buttons",
+      "state_id": "xmas_ornament1_placed",
+      "aspect": "1280x720",
+      "sha256": "a525592f29731dc572856a9b5b1d40db76be4e8b74b716584a92d49915849bd0",
+      "run_returncode": 1,
+      "phase": "",
+      "balls": 0,
+      "face": 0,
+      "bites": 0,
+      "won": false,
+      "presentation": {
+        "boot_splash_present": false,
+        "fade_alpha": 0.0,
+        "intro_active": false,
+        "intro_layer_present": false,
+        "medal_present": false,
+        "start_menu_active": false,
+        "start_menu_layer_present": false
+      },
+      "input": {
+        "method": "Input.parse_input_event raw mouse press/release",
+        "position": "(180.0, 660.0)",
+        "target_rect": "[P: (125.0, 605.0), S: (110.0, 110.0)]"
+      },
+      "scope_limit": "FAIL: Snowman mouse circles did not progress. Trampoline three taps and Xmas six taps progressed, with guarded native states retained. This is not a green combined run."
+    },
+    {
+      "path": "captures/partial_buttons/1280x720/xmas_ornament2_placed.png",
+      "run_role": "partial_buttons",
+      "state_id": "xmas_ornament2_placed",
+      "aspect": "1280x720",
+      "sha256": "10bdc51517d871b53a04907e70d4778e0f9271901dc5b8f187c5faefb8bb42b2",
+      "run_returncode": 1,
+      "phase": "",
+      "balls": 0,
+      "face": 0,
+      "bites": 0,
+      "won": false,
+      "presentation": {
+        "boot_splash_present": false,
+        "fade_alpha": 0.0,
+        "intro_active": false,
+        "intro_layer_present": false,
+        "medal_present": false,
+        "start_menu_active": false,
+        "start_menu_layer_present": false
+      },
+      "input": {
+        "method": "Input.parse_input_event raw mouse press/release",
+        "position": "(330.0, 660.0)",
+        "target_rect": "[P: (275.0, 605.0), S: (110.0, 110.0)]"
+      },
+      "scope_limit": "FAIL: Snowman mouse circles did not progress. Trampoline three taps and Xmas six taps progressed, with guarded native states retained. This is not a green combined run."
+    },
+    {
+      "path": "captures/partial_buttons/1280x720/xmas_ornament3_placed.png",
+      "run_role": "partial_buttons",
+      "state_id": "xmas_ornament3_placed",
+      "aspect": "1280x720",
+      "sha256": "af25a40f74281c40a53c980821c6700c873990ad677ab6522e7b8c0cec306a59",
+      "run_returncode": 1,
+      "phase": "",
+      "balls": 0,
+      "face": 0,
+      "bites": 0,
+      "won": false,
+      "presentation": {
+        "boot_splash_present": false,
+        "fade_alpha": 0.0,
+        "intro_active": false,
+        "intro_layer_present": false,
+        "medal_present": false,
+        "start_menu_active": false,
+        "start_menu_layer_present": false
+      },
+      "input": {
+        "method": "Input.parse_input_event raw mouse press/release",
+        "position": "(480.0, 660.0)",
+        "target_rect": "[P: (425.0, 605.0), S: (110.0, 110.0)]"
+      },
+      "scope_limit": "FAIL: Snowman mouse circles did not progress. Trampoline three taps and Xmas six taps progressed, with guarded native states retained. This is not a green combined run."
+    },
+    {
+      "path": "captures/partial_buttons/1280x720/xmas_ornament4_placed.png",
+      "run_role": "partial_buttons",
+      "state_id": "xmas_ornament4_placed",
+      "aspect": "1280x720",
+      "sha256": "3dadc74f9882975ddba903369d913e94789e0db4ab2ead5acc7022bc69950a61",
+      "run_returncode": 1,
+      "phase": "",
+      "balls": 0,
+      "face": 0,
+      "bites": 0,
+      "won": false,
+      "presentation": {
+        "boot_splash_present": false,
+        "fade_alpha": 0.0,
+        "intro_active": false,
+        "intro_layer_present": false,
+        "medal_present": false,
+        "start_menu_active": false,
+        "start_menu_layer_present": false
+      },
+      "input": {
+        "method": "Input.parse_input_event raw mouse press/release",
+        "position": "(630.0, 660.0)",
+        "target_rect": "[P: (575.0, 605.0), S: (110.0, 110.0)]"
+      },
+      "scope_limit": "FAIL: Snowman mouse circles did not progress. Trampoline three taps and Xmas six taps progressed, with guarded native states retained. This is not a green combined run."
+    },
+    {
+      "path": "captures/partial_buttons/1280x720/xmas_ornament5_placed.png",
+      "run_role": "partial_buttons",
+      "state_id": "xmas_ornament5_placed",
+      "aspect": "1280x720",
+      "sha256": "29e58ad02ae81d6cb6d46df526a4a8a0a466f1f9cab564e18ce447086208b189",
+      "run_returncode": 1,
+      "phase": "",
+      "balls": 0,
+      "face": 0,
+      "bites": 0,
+      "won": false,
+      "presentation": {
+        "boot_splash_present": false,
+        "fade_alpha": 0.0,
+        "intro_active": false,
+        "intro_layer_present": false,
+        "medal_present": false,
+        "start_menu_active": false,
+        "start_menu_layer_present": false
+      },
+      "input": {
+        "method": "Input.parse_input_event raw mouse press/release",
+        "position": "(780.0, 660.0)",
+        "target_rect": "[P: (725.0, 605.0), S: (110.0, 110.0)]"
+      },
+      "scope_limit": "FAIL: Snowman mouse circles did not progress. Trampoline three taps and Xmas six taps progressed, with guarded native states retained. This is not a green combined run."
+    },
+    {
+      "path": "captures/partial_buttons/1280x720/xmas_flower_payoff.png",
+      "run_role": "partial_buttons",
+      "state_id": "xmas_flower_payoff",
+      "aspect": "1280x720",
+      "sha256": "ad03cbb0eefa11724f969be54c081eaf7a57d1d097662cf89cf3146f9e1e80fb",
+      "run_returncode": 1,
+      "phase": "",
+      "balls": 0,
+      "face": 0,
+      "bites": 0,
+      "won": true,
+      "presentation": {
+        "boot_splash_present": false,
+        "fade_alpha": 0.0,
+        "intro_active": false,
+        "intro_layer_present": false,
+        "medal_present": true,
+        "start_menu_active": false,
+        "start_menu_layer_present": false
+      },
+      "input": {
+        "method": "Input.parse_input_event raw mouse press/release",
+        "position": "(1050.0, 660.0)",
+        "target_rect": "[P: (985.0, 595.0), S: (130.0, 130.0)]"
+      },
+      "scope_limit": "FAIL: Snowman mouse circles did not progress. Trampoline three taps and Xmas six taps progressed, with guarded native states retained. This is not a green combined run."
+    },
+    {
+      "path": "captures/partial_buttons/1600x720/snowman_fresh_ready.png",
+      "run_role": "partial_buttons",
+      "state_id": "snowman_fresh_ready",
+      "aspect": "1600x720",
+      "sha256": "b7d4799d18c9976c535937c1d3ce506f8efd0821ee963d333d40e447b6581a0e",
+      "run_returncode": 1,
+      "phase": "roll",
+      "balls": 0,
+      "face": 0,
+      "bites": 0,
+      "won": false,
+      "presentation": {
+        "boot_splash_present": false,
+        "fade_alpha": 0.0,
+        "intro_active": false,
+        "intro_layer_present": false,
+        "medal_present": false,
+        "start_menu_active": false,
+        "start_menu_layer_present": false
+      },
+      "input": {
+        "entry": "production _mg2d_open API; fresh Main and isolated save per game; direct route fixture"
+      },
+      "scope_limit": "FAIL: Snowman mouse circles did not progress. Trampoline three taps and Xmas six taps progressed, with guarded native states retained. This is not a green combined run."
+    },
+    {
+      "path": "captures/partial_buttons/1600x720/snow_ball1_growing.png",
+      "run_role": "partial_buttons",
+      "state_id": "snow_ball1_growing",
+      "aspect": "1600x720",
+      "sha256": "77f4e5ffd43d64f9f23cdfbf3c79a751ff880032cb1e8d3ae4fe496470809120",
+      "run_returncode": 1,
+      "phase": "roll",
+      "balls": 0,
+      "face": 0,
+      "bites": 0,
+      "won": false,
+      "presentation": {
+        "boot_splash_present": false,
+        "fade_alpha": 0.0,
+        "intro_active": false,
+        "intro_layer_present": false,
+        "medal_present": false,
+        "start_menu_active": false,
+        "start_menu_layer_present": false
+      },
+      "input": {
+        "angle_step": 0.130899693899575,
+        "method": "raw mouse circle gesture",
+        "observed_rot_acc": 0.0,
+        "steps": 48
+      },
+      "scope_limit": "FAIL: Snowman mouse circles did not progress. Trampoline three taps and Xmas six taps progressed, with guarded native states retained. This is not a green combined run."
+    },
+    {
+      "path": "captures/partial_buttons/1600x720/trampoline_fresh_ready.png",
+      "run_role": "partial_buttons",
+      "state_id": "trampoline_fresh_ready",
+      "aspect": "1600x720",
+      "sha256": "4deb7ae4f3da476c18a9cd8cf6ebe13c32937433b3edb82a1ad6d014bea639a8",
+      "run_returncode": 1,
+      "phase": "",
+      "balls": 0,
+      "face": 0,
+      "bites": 0,
+      "won": false,
+      "presentation": {
+        "boot_splash_present": false,
+        "fade_alpha": 0.0,
+        "intro_active": false,
+        "intro_layer_present": false,
+        "medal_present": false,
+        "start_menu_active": false,
+        "start_menu_layer_present": false
+      },
+      "input": {
+        "entry": "production _mg2d_open API; fresh Main and isolated save per game; direct route fixture"
+      },
+      "scope_limit": "FAIL: Snowman mouse circles did not progress. Trampoline three taps and Xmas six taps progressed, with guarded native states retained. This is not a green combined run."
+    },
+    {
+      "path": "captures/partial_buttons/1600x720/trampoline_bounce1_apex.png",
+      "run_role": "partial_buttons",
+      "state_id": "trampoline_bounce1_apex",
+      "aspect": "1600x720",
+      "sha256": "52a24c926826a7cdbc84f43435370fa74c02b4e61b2b12d097d7ce3994474f4a",
+      "run_returncode": 1,
+      "phase": "",
+      "balls": 0,
+      "face": 0,
+      "bites": 0,
+      "won": false,
+      "presentation": {
+        "boot_splash_present": false,
+        "fade_alpha": 0.0,
+        "intro_active": false,
+        "intro_layer_present": false,
+        "medal_present": false,
+        "start_menu_active": false,
+        "start_menu_layer_present": false
+      },
+      "input": {
+        "method": "Input.parse_input_event raw mouse press/release",
+        "position": "(800.0, 500.0)",
+        "target_rect": "[P: (600.0, 430.0), S: (400.0, 140.0)]"
+      },
+      "scope_limit": "FAIL: Snowman mouse circles did not progress. Trampoline three taps and Xmas six taps progressed, with guarded native states retained. This is not a green combined run."
+    },
+    {
+      "path": "captures/partial_buttons/1600x720/trampoline_bounce1_settle.png",
+      "run_role": "partial_buttons",
+      "state_id": "trampoline_bounce1_settle",
+      "aspect": "1600x720",
+      "sha256": "9597b2b7c177bdd6524fd65d1878aafb4f77ae4e62d1c0a7451eaec586ceac48",
+      "run_returncode": 1,
+      "phase": "",
+      "balls": 0,
+      "face": 0,
+      "bites": 0,
+      "won": false,
+      "presentation": {
+        "boot_splash_present": false,
+        "fade_alpha": 0.0,
+        "intro_active": false,
+        "intro_layer_present": false,
+        "medal_present": false,
+        "start_menu_active": false,
+        "start_menu_layer_present": false
+      },
+      "input": {
+        "method": "Input.parse_input_event raw mouse press/release",
+        "position": "(800.0, 500.0)",
+        "target_rect": "[P: (600.0, 430.0), S: (400.0, 140.0)]"
+      },
+      "scope_limit": "FAIL: Snowman mouse circles did not progress. Trampoline three taps and Xmas six taps progressed, with guarded native states retained. This is not a green combined run."
+    },
+    {
+      "path": "captures/partial_buttons/1600x720/trampoline_bounce2_apex.png",
+      "run_role": "partial_buttons",
+      "state_id": "trampoline_bounce2_apex",
+      "aspect": "1600x720",
+      "sha256": "0a2ad2d0bcd0d6e1453bd68490122b0a74cef3c27d021a9ed9833ee02b5a7cc6",
+      "run_returncode": 1,
+      "phase": "",
+      "balls": 0,
+      "face": 0,
+      "bites": 0,
+      "won": false,
+      "presentation": {
+        "boot_splash_present": false,
+        "fade_alpha": 0.0,
+        "intro_active": false,
+        "intro_layer_present": false,
+        "medal_present": false,
+        "start_menu_active": false,
+        "start_menu_layer_present": false
+      },
+      "input": {
+        "method": "Input.parse_input_event raw mouse press/release",
+        "position": "(800.0, 500.0)",
+        "target_rect": "[P: (600.0, 430.0), S: (400.0, 140.0)]"
+      },
+      "scope_limit": "FAIL: Snowman mouse circles did not progress. Trampoline three taps and Xmas six taps progressed, with guarded native states retained. This is not a green combined run."
+    },
+    {
+      "path": "captures/partial_buttons/1600x720/trampoline_bounce2_settle.png",
+      "run_role": "partial_buttons",
+      "state_id": "trampoline_bounce2_settle",
+      "aspect": "1600x720",
+      "sha256": "91872c61929b7601bedb2dfcd66b39c0e82e7696c63ac9e6a7ec777c1618a800",
+      "run_returncode": 1,
+      "phase": "",
+      "balls": 0,
+      "face": 0,
+      "bites": 0,
+      "won": false,
+      "presentation": {
+        "boot_splash_present": false,
+        "fade_alpha": 0.0,
+        "intro_active": false,
+        "intro_layer_present": false,
+        "medal_present": false,
+        "start_menu_active": false,
+        "start_menu_layer_present": false
+      },
+      "input": {
+        "method": "Input.parse_input_event raw mouse press/release",
+        "position": "(800.0, 500.0)",
+        "target_rect": "[P: (600.0, 430.0), S: (400.0, 140.0)]"
+      },
+      "scope_limit": "FAIL: Snowman mouse circles did not progress. Trampoline three taps and Xmas six taps progressed, with guarded native states retained. This is not a green combined run."
+    },
+    {
+      "path": "captures/partial_buttons/1600x720/trampoline_bounce3_apex.png",
+      "run_role": "partial_buttons",
+      "state_id": "trampoline_bounce3_apex",
+      "aspect": "1600x720",
+      "sha256": "2707a2d490cb11de18a84a2cb3b6430cffcfce2040d2116132f0a95142d9e469",
+      "run_returncode": 1,
+      "phase": "",
+      "balls": 0,
+      "face": 0,
+      "bites": 0,
+      "won": false,
+      "presentation": {
+        "boot_splash_present": false,
+        "fade_alpha": 0.0,
+        "intro_active": false,
+        "intro_layer_present": false,
+        "medal_present": false,
+        "start_menu_active": false,
+        "start_menu_layer_present": false
+      },
+      "input": {
+        "method": "Input.parse_input_event raw mouse press/release",
+        "position": "(800.0, 500.0)",
+        "target_rect": "[P: (600.0, 430.0), S: (400.0, 140.0)]"
+      },
+      "scope_limit": "FAIL: Snowman mouse circles did not progress. Trampoline three taps and Xmas six taps progressed, with guarded native states retained. This is not a green combined run."
+    },
+    {
+      "path": "captures/partial_buttons/1600x720/trampoline_bounce3_settle.png",
+      "run_role": "partial_buttons",
+      "state_id": "trampoline_bounce3_settle",
+      "aspect": "1600x720",
+      "sha256": "bd6700a41d707c35e38d206778467a8a4806a9b8844615409ec91e4201fcdb79",
+      "run_returncode": 1,
+      "phase": "",
+      "balls": 0,
+      "face": 0,
+      "bites": 0,
+      "won": true,
+      "presentation": {
+        "boot_splash_present": false,
+        "fade_alpha": 0.0,
+        "intro_active": false,
+        "intro_layer_present": false,
+        "medal_present": true,
+        "start_menu_active": false,
+        "start_menu_layer_present": false
+      },
+      "input": {
+        "method": "Input.parse_input_event raw mouse press/release",
+        "position": "(800.0, 500.0)",
+        "target_rect": "[P: (600.0, 430.0), S: (400.0, 140.0)]"
+      },
+      "scope_limit": "FAIL: Snowman mouse circles did not progress. Trampoline three taps and Xmas six taps progressed, with guarded native states retained. This is not a green combined run."
+    },
+    {
+      "path": "captures/partial_buttons/1600x720/xmas_fresh_ready.png",
+      "run_role": "partial_buttons",
+      "state_id": "xmas_fresh_ready",
+      "aspect": "1600x720",
+      "sha256": "fc29697a1118c04b4ca00a584d72094caa54dee905e4b8bde5ad4c53fb3d2789",
+      "run_returncode": 1,
+      "phase": "",
+      "balls": 0,
+      "face": 0,
+      "bites": 0,
+      "won": false,
+      "presentation": {
+        "boot_splash_present": false,
+        "fade_alpha": 0.0,
+        "intro_active": false,
+        "intro_layer_present": false,
+        "medal_present": false,
+        "start_menu_active": false,
+        "start_menu_layer_present": false
+      },
+      "input": {
+        "entry": "production _mg2d_open API; fresh Main and isolated save per game; direct route fixture"
+      },
+      "scope_limit": "FAIL: Snowman mouse circles did not progress. Trampoline three taps and Xmas six taps progressed, with guarded native states retained. This is not a green combined run."
+    },
+    {
+      "path": "captures/partial_buttons/1600x720/xmas_ornament1_placed.png",
+      "run_role": "partial_buttons",
+      "state_id": "xmas_ornament1_placed",
+      "aspect": "1600x720",
+      "sha256": "7a85c145a4732ea7d46140794141f9f11ad90189ebaf37f9092a18e72add723e",
+      "run_returncode": 1,
+      "phase": "",
+      "balls": 0,
+      "face": 0,
+      "bites": 0,
+      "won": false,
+      "presentation": {
+        "boot_splash_present": false,
+        "fade_alpha": 0.0,
+        "intro_active": false,
+        "intro_layer_present": false,
+        "medal_present": false,
+        "start_menu_active": false,
+        "start_menu_layer_present": false
+      },
+      "input": {
+        "method": "Input.parse_input_event raw mouse press/release",
+        "position": "(340.0, 660.0)",
+        "target_rect": "[P: (285.0, 605.0), S: (110.0, 110.0)]"
+      },
+      "scope_limit": "FAIL: Snowman mouse circles did not progress. Trampoline three taps and Xmas six taps progressed, with guarded native states retained. This is not a green combined run."
+    },
+    {
+      "path": "captures/partial_buttons/1600x720/xmas_ornament2_placed.png",
+      "run_role": "partial_buttons",
+      "state_id": "xmas_ornament2_placed",
+      "aspect": "1600x720",
+      "sha256": "66486504386e5dcf1800742a6dbd12c46f0302e76b56d4b10c1a2e552f13d949",
+      "run_returncode": 1,
+      "phase": "",
+      "balls": 0,
+      "face": 0,
+      "bites": 0,
+      "won": false,
+      "presentation": {
+        "boot_splash_present": false,
+        "fade_alpha": 0.0,
+        "intro_active": false,
+        "intro_layer_present": false,
+        "medal_present": false,
+        "start_menu_active": false,
+        "start_menu_layer_present": false
+      },
+      "input": {
+        "method": "Input.parse_input_event raw mouse press/release",
+        "position": "(490.0, 660.0)",
+        "target_rect": "[P: (435.0, 605.0), S: (110.0, 110.0)]"
+      },
+      "scope_limit": "FAIL: Snowman mouse circles did not progress. Trampoline three taps and Xmas six taps progressed, with guarded native states retained. This is not a green combined run."
+    },
+    {
+      "path": "captures/partial_buttons/1600x720/xmas_ornament3_placed.png",
+      "run_role": "partial_buttons",
+      "state_id": "xmas_ornament3_placed",
+      "aspect": "1600x720",
+      "sha256": "8f7a2afe585166d70c1c6d49f75fdea32cd944799606261fad0e7b22e93c8007",
+      "run_returncode": 1,
+      "phase": "",
+      "balls": 0,
+      "face": 0,
+      "bites": 0,
+      "won": false,
+      "presentation": {
+        "boot_splash_present": false,
+        "fade_alpha": 0.0,
+        "intro_active": false,
+        "intro_layer_present": false,
+        "medal_present": false,
+        "start_menu_active": false,
+        "start_menu_layer_present": false
+      },
+      "input": {
+        "method": "Input.parse_input_event raw mouse press/release",
+        "position": "(640.0, 660.0)",
+        "target_rect": "[P: (585.0, 605.0), S: (110.0, 110.0)]"
+      },
+      "scope_limit": "FAIL: Snowman mouse circles did not progress. Trampoline three taps and Xmas six taps progressed, with guarded native states retained. This is not a green combined run."
+    },
+    {
+      "path": "captures/partial_buttons/1600x720/xmas_ornament4_placed.png",
+      "run_role": "partial_buttons",
+      "state_id": "xmas_ornament4_placed",
+      "aspect": "1600x720",
+      "sha256": "85fa69aa01a0880f3bf3e69d4a7bb45720e09209d63fbd4c5757b2e6bdd689bd",
+      "run_returncode": 1,
+      "phase": "",
+      "balls": 0,
+      "face": 0,
+      "bites": 0,
+      "won": false,
+      "presentation": {
+        "boot_splash_present": false,
+        "fade_alpha": 0.0,
+        "intro_active": false,
+        "intro_layer_present": false,
+        "medal_present": false,
+        "start_menu_active": false,
+        "start_menu_layer_present": false
+      },
+      "input": {
+        "method": "Input.parse_input_event raw mouse press/release",
+        "position": "(790.0, 660.0)",
+        "target_rect": "[P: (735.0, 605.0), S: (110.0, 110.0)]"
+      },
+      "scope_limit": "FAIL: Snowman mouse circles did not progress. Trampoline three taps and Xmas six taps progressed, with guarded native states retained. This is not a green combined run."
+    },
+    {
+      "path": "captures/partial_buttons/1600x720/xmas_ornament5_placed.png",
+      "run_role": "partial_buttons",
+      "state_id": "xmas_ornament5_placed",
+      "aspect": "1600x720",
+      "sha256": "e5faff8c437bb92e645f9995dd43f7194dc945b8dd1527724406c7d30c67f84e",
+      "run_returncode": 1,
+      "phase": "",
+      "balls": 0,
+      "face": 0,
+      "bites": 0,
+      "won": false,
+      "presentation": {
+        "boot_splash_present": false,
+        "fade_alpha": 0.0,
+        "intro_active": false,
+        "intro_layer_present": false,
+        "medal_present": false,
+        "start_menu_active": false,
+        "start_menu_layer_present": false
+      },
+      "input": {
+        "method": "Input.parse_input_event raw mouse press/release",
+        "position": "(940.0, 660.0)",
+        "target_rect": "[P: (885.0, 605.0), S: (110.0, 110.0)]"
+      },
+      "scope_limit": "FAIL: Snowman mouse circles did not progress. Trampoline three taps and Xmas six taps progressed, with guarded native states retained. This is not a green combined run."
+    },
+    {
+      "path": "captures/partial_buttons/1600x720/xmas_flower_payoff.png",
+      "run_role": "partial_buttons",
+      "state_id": "xmas_flower_payoff",
+      "aspect": "1600x720",
+      "sha256": "bd75fe2a2b83076de86dbfed64e37205a7fcc6980336edf2ff93acf9d737776f",
+      "run_returncode": 1,
+      "phase": "",
+      "balls": 0,
+      "face": 0,
+      "bites": 0,
+      "won": true,
+      "presentation": {
+        "boot_splash_present": false,
+        "fade_alpha": 0.0,
+        "intro_active": false,
+        "intro_layer_present": false,
+        "medal_present": true,
+        "start_menu_active": false,
+        "start_menu_layer_present": false
+      },
+      "input": {
+        "method": "Input.parse_input_event raw mouse press/release",
+        "position": "(1210.0, 660.0)",
+        "target_rect": "[P: (1145.0, 595.0), S: (130.0, 130.0)]"
+      },
+      "scope_limit": "FAIL: Snowman mouse circles did not progress. Trampoline three taps and Xmas six taps progressed, with guarded native states retained. This is not a green combined run."
+    },
+    {
+      "path": "captures/rejected_mouse/1280x720/snowman_fresh_ready.png",
+      "run_role": "rejected_mouse",
+      "state_id": "snowman_fresh_ready",
+      "aspect": "1280x720",
+      "sha256": "5731a867063ea1929ade85a18dcd85f6471b2cc0e4f42fe9c23480a319ea96ab",
+      "run_returncode": 1,
+      "phase": "roll",
+      "balls": 0,
+      "face": 0,
+      "bites": 0,
+      "won": false,
+      "presentation": {
+        "boot_splash_present": false,
+        "fade_alpha": 0.0,
+        "intro_active": false,
+        "intro_layer_present": false,
+        "medal_present": false,
+        "start_menu_active": false,
+        "start_menu_layer_present": false
+      },
+      "input": {
+        "entry": "production _mg2d_open API; fresh Main and isolated save per game; direct route fixture"
+      },
+      "scope_limit": "FAIL: viewport local mouse remains outside rolling region; missing direct-entry picture tick also applies. Diagnostic only, not game defect."
+    },
+    {
+      "path": "captures/rejected_mouse/1280x720/snow_ball1_growing.png",
+      "run_role": "rejected_mouse",
+      "state_id": "snow_ball1_growing",
+      "aspect": "1280x720",
+      "sha256": "dd54ad07d3f7b6b1c4990b12d5c914f594e353b51dd4eb6027c3f334401ba879",
+      "run_returncode": 1,
+      "phase": "roll",
+      "balls": 0,
+      "face": 0,
+      "bites": 0,
+      "won": false,
+      "presentation": {
+        "boot_splash_present": false,
+        "fade_alpha": 0.0,
+        "intro_active": false,
+        "intro_layer_present": false,
+        "medal_present": false,
+        "start_menu_active": false,
+        "start_menu_layer_present": false
+      },
+      "input": {
+        "angle_step": 0.130899693899575,
+        "expected_stage_mouse": "(570.0, 500.0)",
+        "method": "raw mouse circle gesture",
+        "observed_rot_acc": 0.0,
+        "observed_stage_mouse": "(4691.0, 863.0)",
+        "steps": 48
+      },
+      "scope_limit": "FAIL: viewport local mouse remains outside rolling region; missing direct-entry picture tick also applies. Diagnostic only, not game defect."
+    },
+    {
+      "path": "captures/rejected_mouse/1600x720/snowman_fresh_ready.png",
+      "run_role": "rejected_mouse",
+      "state_id": "snowman_fresh_ready",
+      "aspect": "1600x720",
+      "sha256": "f75b9e0599c60ebf2d2b888e57067706ad61e2fcd6c069b1950ebd275fe4a5ee",
+      "run_returncode": 1,
+      "phase": "roll",
+      "balls": 0,
+      "face": 0,
+      "bites": 0,
+      "won": false,
+      "presentation": {
+        "boot_splash_present": false,
+        "fade_alpha": 0.0,
+        "intro_active": false,
+        "intro_layer_present": false,
+        "medal_present": false,
+        "start_menu_active": false,
+        "start_menu_layer_present": false
+      },
+      "input": {
+        "entry": "production _mg2d_open API; fresh Main and isolated save per game; direct route fixture"
+      },
+      "scope_limit": "FAIL: viewport local mouse remains outside rolling region; missing direct-entry picture tick also applies. Diagnostic only, not game defect."
+    },
+    {
+      "path": "captures/rejected_mouse/1600x720/snow_ball1_growing.png",
+      "run_role": "rejected_mouse",
+      "state_id": "snow_ball1_growing",
+      "aspect": "1600x720",
+      "sha256": "f1a568013ff917b1259c61d5caf6e4f981a5910250f4fdc094d7c4a533056e4a",
+      "run_returncode": 1,
+      "phase": "roll",
+      "balls": 0,
+      "face": 0,
+      "bites": 0,
+      "won": false,
+      "presentation": {
+        "boot_splash_present": false,
+        "fade_alpha": 0.0,
+        "intro_active": false,
+        "intro_layer_present": false,
+        "medal_present": false,
+        "start_menu_active": false,
+        "start_menu_layer_present": false
+      },
+      "input": {
+        "angle_step": 0.130899693899575,
+        "expected_stage_mouse": "(570.0, 500.0)",
+        "method": "raw mouse circle gesture",
+        "observed_rot_acc": 0.0,
+        "observed_stage_mouse": "(4531.0, 863.0)",
+        "steps": 48
+      },
+      "scope_limit": "FAIL: viewport local mouse remains outside rolling region; missing direct-entry picture tick also applies. Diagnostic only, not game defect."
+    },
+    {
+      "path": "captures/rejected_axes_no_tick/1280x720/snowman_fresh_ready.png",
+      "run_role": "rejected_axes_no_tick",
+      "state_id": "snowman_fresh_ready",
+      "aspect": "1280x720",
+      "sha256": "625e6ab84560ef75d12c51e6d7b571485a81a4df17a3aae3a460c4a4e9eb8668",
+      "run_returncode": 1,
+      "phase": "roll",
+      "balls": 0,
+      "face": 0,
+      "bites": 0,
+      "won": false,
+      "presentation": {
+        "boot_splash_present": false,
+        "fade_alpha": 0.0,
+        "intro_active": false,
+        "intro_layer_present": false,
+        "medal_present": false,
+        "start_menu_active": false,
+        "start_menu_layer_present": false
+      },
+      "input": {
+        "entry": "production _mg2d_open API; fresh Main and isolated save per game; direct route fixture"
+      },
+      "scope_limit": "FAIL: raw-axis route entered, but direct-entry fixture did not schedule the production picture tick. Diagnostic only."
+    },
+    {
+      "path": "captures/rejected_axes_no_tick/1280x720/snow_ball1_growing.png",
+      "run_role": "rejected_axes_no_tick",
+      "state_id": "snow_ball1_growing",
+      "aspect": "1280x720",
+      "sha256": "e9b05ff22548088a12d901db358fc786c0000fb1db2b29dc1a749f7e0aec6aa8",
+      "run_returncode": 1,
+      "phase": "roll",
+      "balls": 0,
+      "face": 0,
+      "bites": 0,
+      "won": false,
+      "presentation": {
+        "boot_splash_present": false,
+        "fade_alpha": 0.0,
+        "intro_active": false,
+        "intro_layer_present": false,
+        "medal_present": false,
+        "start_menu_active": false,
+        "start_menu_layer_present": false
+      },
+      "input": {
+        "angle_step": 0.130899693899575,
+        "fixture": "synthetic unmapped-controller mode joy_has_unmapped=true; no physical controller",
+        "method": "Window.push_input raw joypad axis pairs",
+        "motor_assist": false,
+        "observed_rot_acc": 0.0,
+        "steps": 48
+      },
+      "scope_limit": "FAIL: raw-axis route entered, but direct-entry fixture did not schedule the production picture tick. Diagnostic only."
+    },
+    {
+      "path": "captures/rejected_axes_no_tick/1600x720/snowman_fresh_ready.png",
+      "run_role": "rejected_axes_no_tick",
+      "state_id": "snowman_fresh_ready",
+      "aspect": "1600x720",
+      "sha256": "cca9062e6c3d2faae5378c9a1b71e635b7380ad3ee3d4e283c09bebc0f9bd6b6",
+      "run_returncode": 1,
+      "phase": "roll",
+      "balls": 0,
+      "face": 0,
+      "bites": 0,
+      "won": false,
+      "presentation": {
+        "boot_splash_present": false,
+        "fade_alpha": 0.0,
+        "intro_active": false,
+        "intro_layer_present": false,
+        "medal_present": false,
+        "start_menu_active": false,
+        "start_menu_layer_present": false
+      },
+      "input": {
+        "entry": "production _mg2d_open API; fresh Main and isolated save per game; direct route fixture"
+      },
+      "scope_limit": "FAIL: raw-axis route entered, but direct-entry fixture did not schedule the production picture tick. Diagnostic only."
+    },
+    {
+      "path": "captures/rejected_axes_no_tick/1600x720/snow_ball1_growing.png",
+      "run_role": "rejected_axes_no_tick",
+      "state_id": "snow_ball1_growing",
+      "aspect": "1600x720",
+      "sha256": "e9f3e3e8a8d9bd60924d3e36ab3e6dba19aeeabe8a42b898dd2d33aa4f06d03e",
+      "run_returncode": 1,
+      "phase": "roll",
+      "balls": 0,
+      "face": 0,
+      "bites": 0,
+      "won": false,
+      "presentation": {
+        "boot_splash_present": false,
+        "fade_alpha": 0.0,
+        "intro_active": false,
+        "intro_layer_present": false,
+        "medal_present": false,
+        "start_menu_active": false,
+        "start_menu_layer_present": false
+      },
+      "input": {
+        "angle_step": 0.130899693899575,
+        "fixture": "synthetic unmapped-controller mode joy_has_unmapped=true; no physical controller",
+        "method": "Window.push_input raw joypad axis pairs",
+        "motor_assist": false,
+        "observed_rot_acc": 0.0,
+        "steps": 48
+      },
+      "scope_limit": "FAIL: raw-axis route entered, but direct-entry fixture did not schedule the production picture tick. Diagnostic only."
+    },
+    {
+      "path": "captures/bounded_snow/1280x720/snowman_fresh_ready.png",
+      "run_role": "bounded_snow",
+      "state_id": "snowman_fresh_ready",
+      "aspect": "1280x720",
+      "sha256": "24680dd6844f7ae26f7529a4cf92f7e18ff18bcc247b4539a69c9c77977513d4",
+      "run_returncode": 0,
+      "phase": "roll",
+      "balls": 0,
+      "face": 0,
+      "bites": 0,
+      "won": false,
+      "presentation": {
+        "boot_splash_present": false,
+        "fade_alpha": 0.0,
+        "intro_active": false,
+        "intro_layer_present": false,
+        "medal_present": false,
+        "start_menu_active": false,
+        "start_menu_layer_present": false
+      },
+      "input": {
+        "entry": "production _mg2d_open API; fresh Main and isolated save per game; direct route fixture"
+      },
+      "scope_limit": "PASS: raw axis circles plus three face taps through chase entry, using declared synthetic unmapped-controller mode and standalone production-tick bridge. No natural route or phone-touch acceptance."
+    },
+    {
+      "path": "captures/bounded_snow/1280x720/snow_ball1_growing.png",
+      "run_role": "bounded_snow",
+      "state_id": "snow_ball1_growing",
+      "aspect": "1280x720",
+      "sha256": "02a010231f6582034a485a8e747c0d843e4327a09955ad3c21b0b26265116fad",
+      "run_returncode": 0,
+      "phase": "roll",
+      "balls": 0,
+      "face": 0,
+      "bites": 0,
+      "won": false,
+      "presentation": {
+        "boot_splash_present": false,
+        "fade_alpha": 0.0,
+        "intro_active": false,
+        "intro_layer_present": false,
+        "medal_present": false,
+        "start_menu_active": false,
+        "start_menu_layer_present": false
+      },
+      "input": {
+        "angle_step": 0.130899693899575,
+        "fixture": "synthetic unmapped-controller mode joy_has_unmapped=true; no physical controller; diagnostic Node schedules production _tick_mg2d once per actual process frame because direct API fixture bypasses Lagoon scheduler",
+        "method": "Window.push_input raw joypad axis pairs",
+        "motor_assist": false,
+        "observed_rot_acc": 6.28318530717959,
+        "steps": 48
+      },
+      "scope_limit": "PASS: raw axis circles plus three face taps through chase entry, using declared synthetic unmapped-controller mode and standalone production-tick bridge. No natural route or phone-touch acceptance."
+    },
+    {
+      "path": "captures/bounded_snow/1280x720/snow_ball1_stacked.png",
+      "run_role": "bounded_snow",
+      "state_id": "snow_ball1_stacked",
+      "aspect": "1280x720",
+      "sha256": "df9346062f78066bed886ddba97d9b0562fdd21fd99dd54fcc2192ee160eaabf",
+      "run_returncode": 0,
+      "phase": "roll",
+      "balls": 1,
+      "face": 0,
+      "bites": 0,
+      "won": false,
+      "presentation": {
+        "boot_splash_present": false,
+        "fade_alpha": 0.0,
+        "intro_active": false,
+        "intro_layer_present": false,
+        "medal_present": false,
+        "start_menu_active": false,
+        "start_menu_layer_present": false
+      },
+      "input": {
+        "fixture": "synthetic unmapped-controller mode joy_has_unmapped=true; no physical controller; diagnostic Node schedules production _tick_mg2d once per actual process frame because direct API fixture bypasses Lagoon scheduler",
+        "method": "Window.push_input raw joypad axis pairs",
+        "motor_assist": false,
+        "steps": 143
+      },
+      "scope_limit": "PASS: raw axis circles plus three face taps through chase entry, using declared synthetic unmapped-controller mode and standalone production-tick bridge. No natural route or phone-touch acceptance."
+    },
+    {
+      "path": "captures/bounded_snow/1280x720/snow_ball2_growing.png",
+      "run_role": "bounded_snow",
+      "state_id": "snow_ball2_growing",
+      "aspect": "1280x720",
+      "sha256": "57ae10abfe1be2f6ec7a751489c4834b54ebe9b8b57826f0afdd56265d7e714d",
+      "run_returncode": 0,
+      "phase": "roll",
+      "balls": 1,
+      "face": 0,
+      "bites": 0,
+      "won": false,
+      "presentation": {
+        "boot_splash_present": false,
+        "fade_alpha": 0.0,
+        "intro_active": false,
+        "intro_layer_present": false,
+        "medal_present": false,
+        "start_menu_active": false,
+        "start_menu_layer_present": false
+      },
+      "input": {
+        "angle_step": 0.130899693899575,
+        "fixture": "synthetic unmapped-controller mode joy_has_unmapped=true; no physical controller; diagnostic Node schedules production _tick_mg2d once per actual process frame because direct API fixture bypasses Lagoon scheduler",
+        "method": "Window.push_input raw joypad axis pairs",
+        "motor_assist": false,
+        "observed_rot_acc": 6.28318530717959,
+        "steps": 48
+      },
+      "scope_limit": "PASS: raw axis circles plus three face taps through chase entry, using declared synthetic unmapped-controller mode and standalone production-tick bridge. No natural route or phone-touch acceptance."
+    },
+    {
+      "path": "captures/bounded_snow/1280x720/snow_ball2_stacked.png",
+      "run_role": "bounded_snow",
+      "state_id": "snow_ball2_stacked",
+      "aspect": "1280x720",
+      "sha256": "9d1c9debbff4541477f9ce347a19e91f1a12d53c97447588a17451cb2fe32429",
+      "run_returncode": 0,
+      "phase": "roll",
+      "balls": 2,
+      "face": 0,
+      "bites": 0,
+      "won": false,
+      "presentation": {
+        "boot_splash_present": false,
+        "fade_alpha": 0.0,
+        "intro_active": false,
+        "intro_layer_present": false,
+        "medal_present": false,
+        "start_menu_active": false,
+        "start_menu_layer_present": false
+      },
+      "input": {
+        "fixture": "synthetic unmapped-controller mode joy_has_unmapped=true; no physical controller; diagnostic Node schedules production _tick_mg2d once per actual process frame because direct API fixture bypasses Lagoon scheduler",
+        "method": "Window.push_input raw joypad axis pairs",
+        "motor_assist": false,
+        "steps": 119
+      },
+      "scope_limit": "PASS: raw axis circles plus three face taps through chase entry, using declared synthetic unmapped-controller mode and standalone production-tick bridge. No natural route or phone-touch acceptance."
+    },
+    {
+      "path": "captures/bounded_snow/1280x720/snow_ball3_growing.png",
+      "run_role": "bounded_snow",
+      "state_id": "snow_ball3_growing",
+      "aspect": "1280x720",
+      "sha256": "665324bbeaa51a5925db68ebbc708a77a48065f4727e9df78405f3f7ee3abb7c",
+      "run_returncode": 0,
+      "phase": "roll",
+      "balls": 2,
+      "face": 0,
+      "bites": 0,
+      "won": false,
+      "presentation": {
+        "boot_splash_present": false,
+        "fade_alpha": 0.0,
+        "intro_active": false,
+        "intro_layer_present": false,
+        "medal_present": false,
+        "start_menu_active": false,
+        "start_menu_layer_present": false
+      },
+      "input": {
+        "angle_step": 0.130899693899575,
+        "fixture": "synthetic unmapped-controller mode joy_has_unmapped=true; no physical controller; diagnostic Node schedules production _tick_mg2d once per actual process frame because direct API fixture bypasses Lagoon scheduler",
+        "method": "Window.push_input raw joypad axis pairs",
+        "motor_assist": false,
+        "observed_rot_acc": 6.28318530717959,
+        "steps": 48
+      },
+      "scope_limit": "PASS: raw axis circles plus three face taps through chase entry, using declared synthetic unmapped-controller mode and standalone production-tick bridge. No natural route or phone-touch acceptance."
+    },
+    {
+      "path": "captures/bounded_snow/1280x720/snow_ball3_stacked.png",
+      "run_role": "bounded_snow",
+      "state_id": "snow_ball3_stacked",
+      "aspect": "1280x720",
+      "sha256": "dfbbf79c449bf3eaeb6450ded4007644e370116a7a8a5433068cf54307cb857c",
+      "run_returncode": 0,
+      "phase": "face",
+      "balls": 3,
+      "face": 0,
+      "bites": 0,
+      "won": false,
+      "presentation": {
+        "boot_splash_present": false,
+        "fade_alpha": 0.0,
+        "intro_active": false,
+        "intro_layer_present": false,
+        "medal_present": false,
+        "start_menu_active": false,
+        "start_menu_layer_present": false
+      },
+      "input": {
+        "fixture": "synthetic unmapped-controller mode joy_has_unmapped=true; no physical controller; diagnostic Node schedules production _tick_mg2d once per actual process frame because direct API fixture bypasses Lagoon scheduler",
+        "method": "Window.push_input raw joypad axis pairs",
+        "motor_assist": false,
+        "steps": 95
+      },
+      "scope_limit": "PASS: raw axis circles plus three face taps through chase entry, using declared synthetic unmapped-controller mode and standalone production-tick bridge. No natural route or phone-touch acceptance."
+    },
+    {
+      "path": "captures/bounded_snow/1280x720/snow_face1_placed.png",
+      "run_role": "bounded_snow",
+      "state_id": "snow_face1_placed",
+      "aspect": "1280x720",
+      "sha256": "2643b9c5cb1b39ff0c47257a39b2418f8ab150cb36a66092b7a796c04a0140ff",
+      "run_returncode": 0,
+      "phase": "face",
+      "balls": 3,
+      "face": 1,
+      "bites": 0,
+      "won": false,
+      "presentation": {
+        "boot_splash_present": false,
+        "fade_alpha": 0.0,
+        "intro_active": false,
+        "intro_layer_present": false,
+        "medal_present": false,
+        "start_menu_active": false,
+        "start_menu_layer_present": false
+      },
+      "input": {
+        "method": "Input.parse_input_event raw mouse press/release",
+        "position": "(360.0, 600.0)",
+        "target_rect": "[P: (285.0, 545.0), S: (150.0, 110.0)]"
+      },
+      "scope_limit": "PASS: raw axis circles plus three face taps through chase entry, using declared synthetic unmapped-controller mode and standalone production-tick bridge. No natural route or phone-touch acceptance."
+    },
+    {
+      "path": "captures/bounded_snow/1280x720/snow_face2_placed.png",
+      "run_role": "bounded_snow",
+      "state_id": "snow_face2_placed",
+      "aspect": "1280x720",
+      "sha256": "dd19981260f656fee3ebff85307c0f0726c441fcd2faf3c5b02df5b3c165ed35",
+      "run_returncode": 0,
+      "phase": "face",
+      "balls": 3,
+      "face": 2,
+      "bites": 0,
+      "won": false,
+      "presentation": {
+        "boot_splash_present": false,
+        "fade_alpha": 0.0,
+        "intro_active": false,
+        "intro_layer_present": false,
+        "medal_present": false,
+        "start_menu_active": false,
+        "start_menu_layer_present": false
+      },
+      "input": {
+        "method": "Input.parse_input_event raw mouse press/release",
+        "position": "(220.0, 600.0)",
+        "target_rect": "[P: (165.0, 545.0), S: (110.0, 110.0)]"
+      },
+      "scope_limit": "PASS: raw axis circles plus three face taps through chase entry, using declared synthetic unmapped-controller mode and standalone production-tick bridge. No natural route or phone-touch acceptance."
+    },
+    {
+      "path": "captures/bounded_snow/1280x720/snow_face3_placed.png",
+      "run_role": "bounded_snow",
+      "state_id": "snow_face3_placed",
+      "aspect": "1280x720",
+      "sha256": "c9d64271e5165fcb3d250d7ae63cbc5e98b20fb81f06e03c4cd26efedb4aba1b",
+      "run_returncode": 0,
+      "phase": "chase",
+      "balls": 3,
+      "face": 3,
+      "bites": 0,
+      "won": false,
+      "presentation": {
+        "boot_splash_present": false,
+        "fade_alpha": 0.0,
+        "intro_active": false,
+        "intro_layer_present": false,
+        "medal_present": false,
+        "start_menu_active": false,
+        "start_menu_layer_present": false
+      },
+      "input": {
+        "method": "Input.parse_input_event raw mouse press/release",
+        "position": "(500.0, 600.0)",
+        "target_rect": "[P: (445.0, 545.0), S: (110.0, 110.0)]"
+      },
+      "scope_limit": "PASS: raw axis circles plus three face taps through chase entry, using declared synthetic unmapped-controller mode and standalone production-tick bridge. No natural route or phone-touch acceptance."
+    },
+    {
+      "path": "captures/bounded_snow/1280x720/snow_chase_entry.png",
+      "run_role": "bounded_snow",
+      "state_id": "snow_chase_entry",
+      "aspect": "1280x720",
+      "sha256": "a2c03f5cf951533788cb1d477152a6ddf0809223c2c7218a25016880f82d69c8",
+      "run_returncode": 0,
+      "phase": "chase",
+      "balls": 3,
+      "face": 3,
+      "bites": 0,
+      "won": false,
+      "presentation": {
+        "boot_splash_present": false,
+        "fade_alpha": 0.0,
+        "intro_active": false,
+        "intro_layer_present": false,
+        "medal_present": false,
+        "start_menu_active": false,
+        "start_menu_layer_present": false
+      },
+      "input": {
+        "chase_followthrough": "not exercised",
+        "method": "production transition after three actual face taps"
+      },
+      "scope_limit": "PASS: raw axis circles plus three face taps through chase entry, using declared synthetic unmapped-controller mode and standalone production-tick bridge. No natural route or phone-touch acceptance."
+    },
+    {
+      "path": "captures/bounded_snow/1600x720/snowman_fresh_ready.png",
+      "run_role": "bounded_snow",
+      "state_id": "snowman_fresh_ready",
+      "aspect": "1600x720",
+      "sha256": "52c7cd0cfc5d3939d55d3f71e971748ce528b66f5b0468e0fb6aec843cc8d7b2",
+      "run_returncode": 0,
+      "phase": "roll",
+      "balls": 0,
+      "face": 0,
+      "bites": 0,
+      "won": false,
+      "presentation": {
+        "boot_splash_present": false,
+        "fade_alpha": 0.0,
+        "intro_active": false,
+        "intro_layer_present": false,
+        "medal_present": false,
+        "start_menu_active": false,
+        "start_menu_layer_present": false
+      },
+      "input": {
+        "entry": "production _mg2d_open API; fresh Main and isolated save per game; direct route fixture"
+      },
+      "scope_limit": "PASS: raw axis circles plus three face taps through chase entry, using declared synthetic unmapped-controller mode and standalone production-tick bridge. No natural route or phone-touch acceptance."
+    },
+    {
+      "path": "captures/bounded_snow/1600x720/snow_ball1_growing.png",
+      "run_role": "bounded_snow",
+      "state_id": "snow_ball1_growing",
+      "aspect": "1600x720",
+      "sha256": "e6fcc85cdaa430a0bab04be19607f207cad15d18d4382f31c6b37f57c4f9215e",
+      "run_returncode": 0,
+      "phase": "roll",
+      "balls": 0,
+      "face": 0,
+      "bites": 0,
+      "won": false,
+      "presentation": {
+        "boot_splash_present": false,
+        "fade_alpha": 0.0,
+        "intro_active": false,
+        "intro_layer_present": false,
+        "medal_present": false,
+        "start_menu_active": false,
+        "start_menu_layer_present": false
+      },
+      "input": {
+        "angle_step": 0.130899693899575,
+        "fixture": "synthetic unmapped-controller mode joy_has_unmapped=true; no physical controller; diagnostic Node schedules production _tick_mg2d once per actual process frame because direct API fixture bypasses Lagoon scheduler",
+        "method": "Window.push_input raw joypad axis pairs",
+        "motor_assist": false,
+        "observed_rot_acc": 6.28318530717959,
+        "steps": 48
+      },
+      "scope_limit": "PASS: raw axis circles plus three face taps through chase entry, using declared synthetic unmapped-controller mode and standalone production-tick bridge. No natural route or phone-touch acceptance."
+    },
+    {
+      "path": "captures/bounded_snow/1600x720/snow_ball1_stacked.png",
+      "run_role": "bounded_snow",
+      "state_id": "snow_ball1_stacked",
+      "aspect": "1600x720",
+      "sha256": "f6fb8dd49ed32df45812f05c7819f9d6af5348d3713a42d1de07936fe28005da",
+      "run_returncode": 0,
+      "phase": "roll",
+      "balls": 1,
+      "face": 0,
+      "bites": 0,
+      "won": false,
+      "presentation": {
+        "boot_splash_present": false,
+        "fade_alpha": 0.0,
+        "intro_active": false,
+        "intro_layer_present": false,
+        "medal_present": false,
+        "start_menu_active": false,
+        "start_menu_layer_present": false
+      },
+      "input": {
+        "fixture": "synthetic unmapped-controller mode joy_has_unmapped=true; no physical controller; diagnostic Node schedules production _tick_mg2d once per actual process frame because direct API fixture bypasses Lagoon scheduler",
+        "method": "Window.push_input raw joypad axis pairs",
+        "motor_assist": false,
+        "steps": 143
+      },
+      "scope_limit": "PASS: raw axis circles plus three face taps through chase entry, using declared synthetic unmapped-controller mode and standalone production-tick bridge. No natural route or phone-touch acceptance."
+    },
+    {
+      "path": "captures/bounded_snow/1600x720/snow_ball2_growing.png",
+      "run_role": "bounded_snow",
+      "state_id": "snow_ball2_growing",
+      "aspect": "1600x720",
+      "sha256": "55717b66424a96ec1936e133c2098b7bcb465b8167263ab3a0c11111023b6490",
+      "run_returncode": 0,
+      "phase": "roll",
+      "balls": 1,
+      "face": 0,
+      "bites": 0,
+      "won": false,
+      "presentation": {
+        "boot_splash_present": false,
+        "fade_alpha": 0.0,
+        "intro_active": false,
+        "intro_layer_present": false,
+        "medal_present": false,
+        "start_menu_active": false,
+        "start_menu_layer_present": false
+      },
+      "input": {
+        "angle_step": 0.130899693899575,
+        "fixture": "synthetic unmapped-controller mode joy_has_unmapped=true; no physical controller; diagnostic Node schedules production _tick_mg2d once per actual process frame because direct API fixture bypasses Lagoon scheduler",
+        "method": "Window.push_input raw joypad axis pairs",
+        "motor_assist": false,
+        "observed_rot_acc": 6.28318530717959,
+        "steps": 48
+      },
+      "scope_limit": "PASS: raw axis circles plus three face taps through chase entry, using declared synthetic unmapped-controller mode and standalone production-tick bridge. No natural route or phone-touch acceptance."
+    },
+    {
+      "path": "captures/bounded_snow/1600x720/snow_ball2_stacked.png",
+      "run_role": "bounded_snow",
+      "state_id": "snow_ball2_stacked",
+      "aspect": "1600x720",
+      "sha256": "6327a9af6bff812685d23f6bba9f502303c7526be8f5365ef0781a79de2b8791",
+      "run_returncode": 0,
+      "phase": "roll",
+      "balls": 2,
+      "face": 0,
+      "bites": 0,
+      "won": false,
+      "presentation": {
+        "boot_splash_present": false,
+        "fade_alpha": 0.0,
+        "intro_active": false,
+        "intro_layer_present": false,
+        "medal_present": false,
+        "start_menu_active": false,
+        "start_menu_layer_present": false
+      },
+      "input": {
+        "fixture": "synthetic unmapped-controller mode joy_has_unmapped=true; no physical controller; diagnostic Node schedules production _tick_mg2d once per actual process frame because direct API fixture bypasses Lagoon scheduler",
+        "method": "Window.push_input raw joypad axis pairs",
+        "motor_assist": false,
+        "steps": 119
+      },
+      "scope_limit": "PASS: raw axis circles plus three face taps through chase entry, using declared synthetic unmapped-controller mode and standalone production-tick bridge. No natural route or phone-touch acceptance."
+    },
+    {
+      "path": "captures/bounded_snow/1600x720/snow_ball3_growing.png",
+      "run_role": "bounded_snow",
+      "state_id": "snow_ball3_growing",
+      "aspect": "1600x720",
+      "sha256": "44f0f2c98fb1fc5e5ea1df210958363c8cb96c41ffa3fac5ffacfa620be1b72d",
+      "run_returncode": 0,
+      "phase": "roll",
+      "balls": 2,
+      "face": 0,
+      "bites": 0,
+      "won": false,
+      "presentation": {
+        "boot_splash_present": false,
+        "fade_alpha": 0.0,
+        "intro_active": false,
+        "intro_layer_present": false,
+        "medal_present": false,
+        "start_menu_active": false,
+        "start_menu_layer_present": false
+      },
+      "input": {
+        "angle_step": 0.130899693899575,
+        "fixture": "synthetic unmapped-controller mode joy_has_unmapped=true; no physical controller; diagnostic Node schedules production _tick_mg2d once per actual process frame because direct API fixture bypasses Lagoon scheduler",
+        "method": "Window.push_input raw joypad axis pairs",
+        "motor_assist": false,
+        "observed_rot_acc": 6.28318530717959,
+        "steps": 48
+      },
+      "scope_limit": "PASS: raw axis circles plus three face taps through chase entry, using declared synthetic unmapped-controller mode and standalone production-tick bridge. No natural route or phone-touch acceptance."
+    },
+    {
+      "path": "captures/bounded_snow/1600x720/snow_ball3_stacked.png",
+      "run_role": "bounded_snow",
+      "state_id": "snow_ball3_stacked",
+      "aspect": "1600x720",
+      "sha256": "2d33c5bf3bf0d3ccdcec2d5574ce5ae2d0bf3bb66dd09ed47baa258c3d43f108",
+      "run_returncode": 0,
+      "phase": "face",
+      "balls": 3,
+      "face": 0,
+      "bites": 0,
+      "won": false,
+      "presentation": {
+        "boot_splash_present": false,
+        "fade_alpha": 0.0,
+        "intro_active": false,
+        "intro_layer_present": false,
+        "medal_present": false,
+        "start_menu_active": false,
+        "start_menu_layer_present": false
+      },
+      "input": {
+        "fixture": "synthetic unmapped-controller mode joy_has_unmapped=true; no physical controller; diagnostic Node schedules production _tick_mg2d once per actual process frame because direct API fixture bypasses Lagoon scheduler",
+        "method": "Window.push_input raw joypad axis pairs",
+        "motor_assist": false,
+        "steps": 95
+      },
+      "scope_limit": "PASS: raw axis circles plus three face taps through chase entry, using declared synthetic unmapped-controller mode and standalone production-tick bridge. No natural route or phone-touch acceptance."
+    },
+    {
+      "path": "captures/bounded_snow/1600x720/snow_face1_placed.png",
+      "run_role": "bounded_snow",
+      "state_id": "snow_face1_placed",
+      "aspect": "1600x720",
+      "sha256": "2cd4634b9cce3a5caaa637616a0609b71060fae60b138aca04a436669448c99d",
+      "run_returncode": 0,
+      "phase": "face",
+      "balls": 3,
+      "face": 1,
+      "bites": 0,
+      "won": false,
+      "presentation": {
+        "boot_splash_present": false,
+        "fade_alpha": 0.0,
+        "intro_active": false,
+        "intro_layer_present": false,
+        "medal_present": false,
+        "start_menu_active": false,
+        "start_menu_layer_present": false
+      },
+      "input": {
+        "method": "Input.parse_input_event raw mouse press/release",
+        "position": "(520.0, 600.0)",
+        "target_rect": "[P: (445.0, 545.0), S: (150.0, 110.0)]"
+      },
+      "scope_limit": "PASS: raw axis circles plus three face taps through chase entry, using declared synthetic unmapped-controller mode and standalone production-tick bridge. No natural route or phone-touch acceptance."
+    },
+    {
+      "path": "captures/bounded_snow/1600x720/snow_face2_placed.png",
+      "run_role": "bounded_snow",
+      "state_id": "snow_face2_placed",
+      "aspect": "1600x720",
+      "sha256": "4cc9ea4585b3e7548e6730851d2003128558f37484f9bdc21f6adffda9d8bb80",
+      "run_returncode": 0,
+      "phase": "face",
+      "balls": 3,
+      "face": 2,
+      "bites": 0,
+      "won": false,
+      "presentation": {
+        "boot_splash_present": false,
+        "fade_alpha": 0.0,
+        "intro_active": false,
+        "intro_layer_present": false,
+        "medal_present": false,
+        "start_menu_active": false,
+        "start_menu_layer_present": false
+      },
+      "input": {
+        "method": "Input.parse_input_event raw mouse press/release",
+        "position": "(380.0, 600.0)",
+        "target_rect": "[P: (325.0, 545.0), S: (110.0, 110.0)]"
+      },
+      "scope_limit": "PASS: raw axis circles plus three face taps through chase entry, using declared synthetic unmapped-controller mode and standalone production-tick bridge. No natural route or phone-touch acceptance."
+    },
+    {
+      "path": "captures/bounded_snow/1600x720/snow_face3_placed.png",
+      "run_role": "bounded_snow",
+      "state_id": "snow_face3_placed",
+      "aspect": "1600x720",
+      "sha256": "d44cbd0b4f67c0e3c0b8d422b6fe506b54e15348e533b0008c9ac4745a719d53",
+      "run_returncode": 0,
+      "phase": "chase",
+      "balls": 3,
+      "face": 3,
+      "bites": 0,
+      "won": false,
+      "presentation": {
+        "boot_splash_present": false,
+        "fade_alpha": 0.0,
+        "intro_active": false,
+        "intro_layer_present": false,
+        "medal_present": false,
+        "start_menu_active": false,
+        "start_menu_layer_present": false
+      },
+      "input": {
+        "method": "Input.parse_input_event raw mouse press/release",
+        "position": "(660.0, 600.0)",
+        "target_rect": "[P: (605.0, 545.0), S: (110.0, 110.0)]"
+      },
+      "scope_limit": "PASS: raw axis circles plus three face taps through chase entry, using declared synthetic unmapped-controller mode and standalone production-tick bridge. No natural route or phone-touch acceptance."
+    },
+    {
+      "path": "captures/bounded_snow/1600x720/snow_chase_entry.png",
+      "run_role": "bounded_snow",
+      "state_id": "snow_chase_entry",
+      "aspect": "1600x720",
+      "sha256": "9bd4222343f26be4be219c1efa1c3bd1c18b8e3d357d7efda80b438de87b17da",
+      "run_returncode": 0,
+      "phase": "chase",
+      "balls": 3,
+      "face": 3,
+      "bites": 0,
+      "won": false,
+      "presentation": {
+        "boot_splash_present": false,
+        "fade_alpha": 0.0,
+        "intro_active": false,
+        "intro_layer_present": false,
+        "medal_present": false,
+        "start_menu_active": false,
+        "start_menu_layer_present": false
+      },
+      "input": {
+        "chase_followthrough": "not exercised",
+        "method": "production transition after three actual face taps"
+      },
+      "scope_limit": "PASS: raw axis circles plus three face taps through chase entry, using declared synthetic unmapped-controller mode and standalone production-tick bridge. No natural route or phone-touch acceptance."
+    },
+    {
+      "path": "captures/rejected_hold_right/1280x720/snowman_fresh_ready.png",
+      "run_role": "rejected_hold_right",
+      "state_id": "snowman_fresh_ready",
+      "aspect": "1280x720",
+      "sha256": "f602d3525d6f2669ae20bc7cc31f3c022a725f961e0c11a5667e6dc722af0941",
+      "run_returncode": 1,
+      "phase": "roll",
+      "balls": 0,
+      "face": 0,
+      "bites": 0,
+      "won": false,
+      "presentation": {
+        "boot_splash_present": false,
+        "fade_alpha": 0.0,
+        "intro_active": false,
+        "intro_layer_present": false,
+        "medal_present": false,
+        "start_menu_active": false,
+        "start_menu_layer_present": false
+      },
+      "input": {
+        "entry": "production _mg2d_open API; fresh Main and isolated save per game; direct route fixture"
+      },
+      "scope_limit": "FAIL: held-right test caught one bite, then failed to follow direction changes within cap. Diagnostic input-policy limit, not production defect."
+    },
+    {
+      "path": "captures/rejected_hold_right/1280x720/snow_ball1_growing.png",
+      "run_role": "rejected_hold_right",
+      "state_id": "snow_ball1_growing",
+      "aspect": "1280x720",
+      "sha256": "59a857ff696d4b3203c58a8ace03dee2832c078deaf5621fad307b0953a7d113",
+      "run_returncode": 1,
+      "phase": "roll",
+      "balls": 0,
+      "face": 0,
+      "bites": 0,
+      "won": false,
+      "presentation": {
+        "boot_splash_present": false,
+        "fade_alpha": 0.0,
+        "intro_active": false,
+        "intro_layer_present": false,
+        "medal_present": false,
+        "start_menu_active": false,
+        "start_menu_layer_present": false
+      },
+      "input": {
+        "angle_step": 0.130899693899575,
+        "fixture": "synthetic unmapped-controller mode joy_has_unmapped=true; no physical controller; diagnostic Node schedules production _tick_mg2d once per actual process frame because direct API fixture bypasses Lagoon scheduler",
+        "method": "Window.push_input raw joypad axis pairs",
+        "motor_assist": false,
+        "observed_rot_acc": 6.28318530717959,
+        "steps": 48
+      },
+      "scope_limit": "FAIL: held-right test caught one bite, then failed to follow direction changes within cap. Diagnostic input-policy limit, not production defect."
+    },
+    {
+      "path": "captures/rejected_hold_right/1280x720/snow_ball1_stacked.png",
+      "run_role": "rejected_hold_right",
+      "state_id": "snow_ball1_stacked",
+      "aspect": "1280x720",
+      "sha256": "fb4080a6554a173ac868de5d6f7aa5f8518d32feccfe7769691c69701d74ca08",
+      "run_returncode": 1,
+      "phase": "roll",
+      "balls": 1,
+      "face": 0,
+      "bites": 0,
+      "won": false,
+      "presentation": {
+        "boot_splash_present": false,
+        "fade_alpha": 0.0,
+        "intro_active": false,
+        "intro_layer_present": false,
+        "medal_present": false,
+        "start_menu_active": false,
+        "start_menu_layer_present": false
+      },
+      "input": {
+        "fixture": "synthetic unmapped-controller mode joy_has_unmapped=true; no physical controller; diagnostic Node schedules production _tick_mg2d once per actual process frame because direct API fixture bypasses Lagoon scheduler",
+        "method": "Window.push_input raw joypad axis pairs",
+        "motor_assist": false,
+        "steps": 143
+      },
+      "scope_limit": "FAIL: held-right test caught one bite, then failed to follow direction changes within cap. Diagnostic input-policy limit, not production defect."
+    },
+    {
+      "path": "captures/rejected_hold_right/1280x720/snow_ball2_growing.png",
+      "run_role": "rejected_hold_right",
+      "state_id": "snow_ball2_growing",
+      "aspect": "1280x720",
+      "sha256": "c75d6f525be685cd14326313941f396cd1085a871997c5ce222e9cf2b7b107d8",
+      "run_returncode": 1,
+      "phase": "roll",
+      "balls": 1,
+      "face": 0,
+      "bites": 0,
+      "won": false,
+      "presentation": {
+        "boot_splash_present": false,
+        "fade_alpha": 0.0,
+        "intro_active": false,
+        "intro_layer_present": false,
+        "medal_present": false,
+        "start_menu_active": false,
+        "start_menu_layer_present": false
+      },
+      "input": {
+        "angle_step": 0.130899693899575,
+        "fixture": "synthetic unmapped-controller mode joy_has_unmapped=true; no physical controller; diagnostic Node schedules production _tick_mg2d once per actual process frame because direct API fixture bypasses Lagoon scheduler",
+        "method": "Window.push_input raw joypad axis pairs",
+        "motor_assist": false,
+        "observed_rot_acc": 6.28318530717959,
+        "steps": 48
+      },
+      "scope_limit": "FAIL: held-right test caught one bite, then failed to follow direction changes within cap. Diagnostic input-policy limit, not production defect."
+    },
+    {
+      "path": "captures/rejected_hold_right/1280x720/snow_ball2_stacked.png",
+      "run_role": "rejected_hold_right",
+      "state_id": "snow_ball2_stacked",
+      "aspect": "1280x720",
+      "sha256": "3fa5f0c49c3e7d43605c3bed7a8b250133974c7efc0bec9e1e6337e54a1f327c",
+      "run_returncode": 1,
+      "phase": "roll",
+      "balls": 2,
+      "face": 0,
+      "bites": 0,
+      "won": false,
+      "presentation": {
+        "boot_splash_present": false,
+        "fade_alpha": 0.0,
+        "intro_active": false,
+        "intro_layer_present": false,
+        "medal_present": false,
+        "start_menu_active": false,
+        "start_menu_layer_present": false
+      },
+      "input": {
+        "fixture": "synthetic unmapped-controller mode joy_has_unmapped=true; no physical controller; diagnostic Node schedules production _tick_mg2d once per actual process frame because direct API fixture bypasses Lagoon scheduler",
+        "method": "Window.push_input raw joypad axis pairs",
+        "motor_assist": false,
+        "steps": 119
+      },
+      "scope_limit": "FAIL: held-right test caught one bite, then failed to follow direction changes within cap. Diagnostic input-policy limit, not production defect."
+    },
+    {
+      "path": "captures/rejected_hold_right/1280x720/snow_ball3_growing.png",
+      "run_role": "rejected_hold_right",
+      "state_id": "snow_ball3_growing",
+      "aspect": "1280x720",
+      "sha256": "82ba5347d9b40d91910d4698b5a1abc3bdc20095762708f1ba5fb781bb807cb7",
+      "run_returncode": 1,
+      "phase": "roll",
+      "balls": 2,
+      "face": 0,
+      "bites": 0,
+      "won": false,
+      "presentation": {
+        "boot_splash_present": false,
+        "fade_alpha": 0.0,
+        "intro_active": false,
+        "intro_layer_present": false,
+        "medal_present": false,
+        "start_menu_active": false,
+        "start_menu_layer_present": false
+      },
+      "input": {
+        "angle_step": 0.130899693899575,
+        "fixture": "synthetic unmapped-controller mode joy_has_unmapped=true; no physical controller; diagnostic Node schedules production _tick_mg2d once per actual process frame because direct API fixture bypasses Lagoon scheduler",
+        "method": "Window.push_input raw joypad axis pairs",
+        "motor_assist": false,
+        "observed_rot_acc": 6.28318530717959,
+        "steps": 48
+      },
+      "scope_limit": "FAIL: held-right test caught one bite, then failed to follow direction changes within cap. Diagnostic input-policy limit, not production defect."
+    },
+    {
+      "path": "captures/rejected_hold_right/1280x720/snow_ball3_stacked.png",
+      "run_role": "rejected_hold_right",
+      "state_id": "snow_ball3_stacked",
+      "aspect": "1280x720",
+      "sha256": "a00f4fac641479ab0bfba9ae28c3284675140a8e20cb05107c969eafca59d5bd",
+      "run_returncode": 1,
+      "phase": "face",
+      "balls": 3,
+      "face": 0,
+      "bites": 0,
+      "won": false,
+      "presentation": {
+        "boot_splash_present": false,
+        "fade_alpha": 0.0,
+        "intro_active": false,
+        "intro_layer_present": false,
+        "medal_present": false,
+        "start_menu_active": false,
+        "start_menu_layer_present": false
+      },
+      "input": {
+        "fixture": "synthetic unmapped-controller mode joy_has_unmapped=true; no physical controller; diagnostic Node schedules production _tick_mg2d once per actual process frame because direct API fixture bypasses Lagoon scheduler",
+        "method": "Window.push_input raw joypad axis pairs",
+        "motor_assist": false,
+        "steps": 95
+      },
+      "scope_limit": "FAIL: held-right test caught one bite, then failed to follow direction changes within cap. Diagnostic input-policy limit, not production defect."
+    },
+    {
+      "path": "captures/rejected_hold_right/1280x720/snow_face1_placed.png",
+      "run_role": "rejected_hold_right",
+      "state_id": "snow_face1_placed",
+      "aspect": "1280x720",
+      "sha256": "03e238903bc5cd228a67e3219d7ab6c94e526e4f9075a9579dd9cd5ea2a096c2",
+      "run_returncode": 1,
+      "phase": "face",
+      "balls": 3,
+      "face": 1,
+      "bites": 0,
+      "won": false,
+      "presentation": {
+        "boot_splash_present": false,
+        "fade_alpha": 0.0,
+        "intro_active": false,
+        "intro_layer_present": false,
+        "medal_present": false,
+        "start_menu_active": false,
+        "start_menu_layer_present": false
+      },
+      "input": {
+        "method": "Input.parse_input_event raw mouse press/release",
+        "position": "(360.0, 600.0)",
+        "target_rect": "[P: (285.0, 545.0), S: (150.0, 110.0)]"
+      },
+      "scope_limit": "FAIL: held-right test caught one bite, then failed to follow direction changes within cap. Diagnostic input-policy limit, not production defect."
+    },
+    {
+      "path": "captures/rejected_hold_right/1280x720/snow_face2_placed.png",
+      "run_role": "rejected_hold_right",
+      "state_id": "snow_face2_placed",
+      "aspect": "1280x720",
+      "sha256": "f05078894b18efc8eb9d35d4963fc9d6ff23c32c4a1d2358c16d458ee04ceb71",
+      "run_returncode": 1,
+      "phase": "face",
+      "balls": 3,
+      "face": 2,
+      "bites": 0,
+      "won": false,
+      "presentation": {
+        "boot_splash_present": false,
+        "fade_alpha": 0.0,
+        "intro_active": false,
+        "intro_layer_present": false,
+        "medal_present": false,
+        "start_menu_active": false,
+        "start_menu_layer_present": false
+      },
+      "input": {
+        "method": "Input.parse_input_event raw mouse press/release",
+        "position": "(220.0, 600.0)",
+        "target_rect": "[P: (165.0, 545.0), S: (110.0, 110.0)]"
+      },
+      "scope_limit": "FAIL: held-right test caught one bite, then failed to follow direction changes within cap. Diagnostic input-policy limit, not production defect."
+    },
+    {
+      "path": "captures/rejected_hold_right/1280x720/snow_face3_placed.png",
+      "run_role": "rejected_hold_right",
+      "state_id": "snow_face3_placed",
+      "aspect": "1280x720",
+      "sha256": "850c4a12ef45cca626bbd107765d3b9c5562764073e2a372aaf31e6f513069f6",
+      "run_returncode": 1,
+      "phase": "chase",
+      "balls": 3,
+      "face": 3,
+      "bites": 0,
+      "won": false,
+      "presentation": {
+        "boot_splash_present": false,
+        "fade_alpha": 0.0,
+        "intro_active": false,
+        "intro_layer_present": false,
+        "medal_present": false,
+        "start_menu_active": false,
+        "start_menu_layer_present": false
+      },
+      "input": {
+        "method": "Input.parse_input_event raw mouse press/release",
+        "position": "(500.0, 600.0)",
+        "target_rect": "[P: (445.0, 545.0), S: (110.0, 110.0)]"
+      },
+      "scope_limit": "FAIL: held-right test caught one bite, then failed to follow direction changes within cap. Diagnostic input-policy limit, not production defect."
+    },
+    {
+      "path": "captures/rejected_hold_right/1280x720/snow_chase_entry.png",
+      "run_role": "rejected_hold_right",
+      "state_id": "snow_chase_entry",
+      "aspect": "1280x720",
+      "sha256": "a17bdc61c5363512645bd59f2e032c48868a659f31d60453489eeca4364995f9",
+      "run_returncode": 1,
+      "phase": "chase",
+      "balls": 3,
+      "face": 3,
+      "bites": 0,
+      "won": false,
+      "presentation": {
+        "boot_splash_present": false,
+        "fade_alpha": 0.0,
+        "intro_active": false,
+        "intro_layer_present": false,
+        "medal_present": false,
+        "start_menu_active": false,
+        "start_menu_layer_present": false
+      },
+      "input": {
+        "chase_followthrough": "held raw right axis follows",
+        "method": "production transition after three actual face taps"
+      },
+      "scope_limit": "FAIL: held-right test caught one bite, then failed to follow direction changes within cap. Diagnostic input-policy limit, not production defect."
+    },
+    {
+      "path": "captures/rejected_hold_right/1280x720/snow_bite1.png",
+      "run_role": "rejected_hold_right",
+      "state_id": "snow_bite1",
+      "aspect": "1280x720",
+      "sha256": "73692d3730c13f25ce20e5ff4697748e2a57bb8bbe06e21025ae4cae2637550f",
+      "run_returncode": 1,
+      "phase": "chase",
+      "balls": 3,
+      "face": 3,
+      "bites": 1,
+      "won": false,
+      "presentation": {
+        "boot_splash_present": false,
+        "fade_alpha": 0.0,
+        "intro_active": false,
+        "intro_layer_present": false,
+        "medal_present": false,
+        "start_menu_active": false,
+        "start_menu_layer_present": false
+      },
+      "input": {
+        "fixture": "synthetic unmapped-controller mode and standalone production-tick bridge",
+        "method": "raw right-axis event then actual process-frame polling",
+        "steps": 189
+      },
+      "scope_limit": "FAIL: held-right test caught one bite, then failed to follow direction changes within cap. Diagnostic input-policy limit, not production defect."
+    },
+    {
+      "path": "captures/rejected_hold_right/1600x720/snowman_fresh_ready.png",
+      "run_role": "rejected_hold_right",
+      "state_id": "snowman_fresh_ready",
+      "aspect": "1600x720",
+      "sha256": "4a80f9fcbc929bdca0f2a1a0fd6d55733d8f26d62728cf8fb72097d222e84257",
+      "run_returncode": 1,
+      "phase": "roll",
+      "balls": 0,
+      "face": 0,
+      "bites": 0,
+      "won": false,
+      "presentation": {
+        "boot_splash_present": false,
+        "fade_alpha": 0.0,
+        "intro_active": false,
+        "intro_layer_present": false,
+        "medal_present": false,
+        "start_menu_active": false,
+        "start_menu_layer_present": false
+      },
+      "input": {
+        "entry": "production _mg2d_open API; fresh Main and isolated save per game; direct route fixture"
+      },
+      "scope_limit": "FAIL: held-right test caught one bite, then failed to follow direction changes within cap. Diagnostic input-policy limit, not production defect."
+    },
+    {
+      "path": "captures/rejected_hold_right/1600x720/snow_ball1_growing.png",
+      "run_role": "rejected_hold_right",
+      "state_id": "snow_ball1_growing",
+      "aspect": "1600x720",
+      "sha256": "91790cfc9b3d8e88b245bee10aea360bd6b778b28dc35aa33e49916bafc1a958",
+      "run_returncode": 1,
+      "phase": "roll",
+      "balls": 0,
+      "face": 0,
+      "bites": 0,
+      "won": false,
+      "presentation": {
+        "boot_splash_present": false,
+        "fade_alpha": 0.0,
+        "intro_active": false,
+        "intro_layer_present": false,
+        "medal_present": false,
+        "start_menu_active": false,
+        "start_menu_layer_present": false
+      },
+      "input": {
+        "angle_step": 0.130899693899575,
+        "fixture": "synthetic unmapped-controller mode joy_has_unmapped=true; no physical controller; diagnostic Node schedules production _tick_mg2d once per actual process frame because direct API fixture bypasses Lagoon scheduler",
+        "method": "Window.push_input raw joypad axis pairs",
+        "motor_assist": false,
+        "observed_rot_acc": 6.28318530717959,
+        "steps": 48
+      },
+      "scope_limit": "FAIL: held-right test caught one bite, then failed to follow direction changes within cap. Diagnostic input-policy limit, not production defect."
+    },
+    {
+      "path": "captures/rejected_hold_right/1600x720/snow_ball1_stacked.png",
+      "run_role": "rejected_hold_right",
+      "state_id": "snow_ball1_stacked",
+      "aspect": "1600x720",
+      "sha256": "c3d761fe0071aed1659297541eac1276763d871d815908bb4899c96a3d09681a",
+      "run_returncode": 1,
+      "phase": "roll",
+      "balls": 1,
+      "face": 0,
+      "bites": 0,
+      "won": false,
+      "presentation": {
+        "boot_splash_present": false,
+        "fade_alpha": 0.0,
+        "intro_active": false,
+        "intro_layer_present": false,
+        "medal_present": false,
+        "start_menu_active": false,
+        "start_menu_layer_present": false
+      },
+      "input": {
+        "fixture": "synthetic unmapped-controller mode joy_has_unmapped=true; no physical controller; diagnostic Node schedules production _tick_mg2d once per actual process frame because direct API fixture bypasses Lagoon scheduler",
+        "method": "Window.push_input raw joypad axis pairs",
+        "motor_assist": false,
+        "steps": 143
+      },
+      "scope_limit": "FAIL: held-right test caught one bite, then failed to follow direction changes within cap. Diagnostic input-policy limit, not production defect."
+    },
+    {
+      "path": "captures/rejected_hold_right/1600x720/snow_ball2_growing.png",
+      "run_role": "rejected_hold_right",
+      "state_id": "snow_ball2_growing",
+      "aspect": "1600x720",
+      "sha256": "fa7d9c80489a6e6080f3b220920450311f3aad471ffc853a4e9df793f0510e50",
+      "run_returncode": 1,
+      "phase": "roll",
+      "balls": 1,
+      "face": 0,
+      "bites": 0,
+      "won": false,
+      "presentation": {
+        "boot_splash_present": false,
+        "fade_alpha": 0.0,
+        "intro_active": false,
+        "intro_layer_present": false,
+        "medal_present": false,
+        "start_menu_active": false,
+        "start_menu_layer_present": false
+      },
+      "input": {
+        "angle_step": 0.130899693899575,
+        "fixture": "synthetic unmapped-controller mode joy_has_unmapped=true; no physical controller; diagnostic Node schedules production _tick_mg2d once per actual process frame because direct API fixture bypasses Lagoon scheduler",
+        "method": "Window.push_input raw joypad axis pairs",
+        "motor_assist": false,
+        "observed_rot_acc": 6.28318530717959,
+        "steps": 48
+      },
+      "scope_limit": "FAIL: held-right test caught one bite, then failed to follow direction changes within cap. Diagnostic input-policy limit, not production defect."
+    },
+    {
+      "path": "captures/rejected_hold_right/1600x720/snow_ball2_stacked.png",
+      "run_role": "rejected_hold_right",
+      "state_id": "snow_ball2_stacked",
+      "aspect": "1600x720",
+      "sha256": "1ce50e81026be881fe2786e0d26ca2c8d23cf4bc07223ce4ac0dc192ec6672c5",
+      "run_returncode": 1,
+      "phase": "roll",
+      "balls": 2,
+      "face": 0,
+      "bites": 0,
+      "won": false,
+      "presentation": {
+        "boot_splash_present": false,
+        "fade_alpha": 0.0,
+        "intro_active": false,
+        "intro_layer_present": false,
+        "medal_present": false,
+        "start_menu_active": false,
+        "start_menu_layer_present": false
+      },
+      "input": {
+        "fixture": "synthetic unmapped-controller mode joy_has_unmapped=true; no physical controller; diagnostic Node schedules production _tick_mg2d once per actual process frame because direct API fixture bypasses Lagoon scheduler",
+        "method": "Window.push_input raw joypad axis pairs",
+        "motor_assist": false,
+        "steps": 119
+      },
+      "scope_limit": "FAIL: held-right test caught one bite, then failed to follow direction changes within cap. Diagnostic input-policy limit, not production defect."
+    },
+    {
+      "path": "captures/rejected_hold_right/1600x720/snow_ball3_growing.png",
+      "run_role": "rejected_hold_right",
+      "state_id": "snow_ball3_growing",
+      "aspect": "1600x720",
+      "sha256": "03fbe24d680a4d38f78bd4489130d51443a3728a636a17a02d78b4a964bbfb4c",
+      "run_returncode": 1,
+      "phase": "roll",
+      "balls": 2,
+      "face": 0,
+      "bites": 0,
+      "won": false,
+      "presentation": {
+        "boot_splash_present": false,
+        "fade_alpha": 0.0,
+        "intro_active": false,
+        "intro_layer_present": false,
+        "medal_present": false,
+        "start_menu_active": false,
+        "start_menu_layer_present": false
+      },
+      "input": {
+        "angle_step": 0.130899693899575,
+        "fixture": "synthetic unmapped-controller mode joy_has_unmapped=true; no physical controller; diagnostic Node schedules production _tick_mg2d once per actual process frame because direct API fixture bypasses Lagoon scheduler",
+        "method": "Window.push_input raw joypad axis pairs",
+        "motor_assist": false,
+        "observed_rot_acc": 6.28318530717959,
+        "steps": 48
+      },
+      "scope_limit": "FAIL: held-right test caught one bite, then failed to follow direction changes within cap. Diagnostic input-policy limit, not production defect."
+    },
+    {
+      "path": "captures/rejected_hold_right/1600x720/snow_ball3_stacked.png",
+      "run_role": "rejected_hold_right",
+      "state_id": "snow_ball3_stacked",
+      "aspect": "1600x720",
+      "sha256": "65e61f595c8b1437ec7c9034b96d7c814ac18045e5afb3a3fcb348656ec94362",
+      "run_returncode": 1,
+      "phase": "face",
+      "balls": 3,
+      "face": 0,
+      "bites": 0,
+      "won": false,
+      "presentation": {
+        "boot_splash_present": false,
+        "fade_alpha": 0.0,
+        "intro_active": false,
+        "intro_layer_present": false,
+        "medal_present": false,
+        "start_menu_active": false,
+        "start_menu_layer_present": false
+      },
+      "input": {
+        "fixture": "synthetic unmapped-controller mode joy_has_unmapped=true; no physical controller; diagnostic Node schedules production _tick_mg2d once per actual process frame because direct API fixture bypasses Lagoon scheduler",
+        "method": "Window.push_input raw joypad axis pairs",
+        "motor_assist": false,
+        "steps": 95
+      },
+      "scope_limit": "FAIL: held-right test caught one bite, then failed to follow direction changes within cap. Diagnostic input-policy limit, not production defect."
+    },
+    {
+      "path": "captures/rejected_hold_right/1600x720/snow_face1_placed.png",
+      "run_role": "rejected_hold_right",
+      "state_id": "snow_face1_placed",
+      "aspect": "1600x720",
+      "sha256": "4b7ff5adf5bc7bda3ac7e20d71a5f1448d020f73e84f26f58dff413bc7bf4418",
+      "run_returncode": 1,
+      "phase": "face",
+      "balls": 3,
+      "face": 1,
+      "bites": 0,
+      "won": false,
+      "presentation": {
+        "boot_splash_present": false,
+        "fade_alpha": 0.0,
+        "intro_active": false,
+        "intro_layer_present": false,
+        "medal_present": false,
+        "start_menu_active": false,
+        "start_menu_layer_present": false
+      },
+      "input": {
+        "method": "Input.parse_input_event raw mouse press/release",
+        "position": "(520.0, 600.0)",
+        "target_rect": "[P: (445.0, 545.0), S: (150.0, 110.0)]"
+      },
+      "scope_limit": "FAIL: held-right test caught one bite, then failed to follow direction changes within cap. Diagnostic input-policy limit, not production defect."
+    },
+    {
+      "path": "captures/rejected_hold_right/1600x720/snow_face2_placed.png",
+      "run_role": "rejected_hold_right",
+      "state_id": "snow_face2_placed",
+      "aspect": "1600x720",
+      "sha256": "b3e3f9d750ddfb535ba61ac93ace424c061dd9f77c9ed7953250e895f4039041",
+      "run_returncode": 1,
+      "phase": "face",
+      "balls": 3,
+      "face": 2,
+      "bites": 0,
+      "won": false,
+      "presentation": {
+        "boot_splash_present": false,
+        "fade_alpha": 0.0,
+        "intro_active": false,
+        "intro_layer_present": false,
+        "medal_present": false,
+        "start_menu_active": false,
+        "start_menu_layer_present": false
+      },
+      "input": {
+        "method": "Input.parse_input_event raw mouse press/release",
+        "position": "(380.0, 600.0)",
+        "target_rect": "[P: (325.0, 545.0), S: (110.0, 110.0)]"
+      },
+      "scope_limit": "FAIL: held-right test caught one bite, then failed to follow direction changes within cap. Diagnostic input-policy limit, not production defect."
+    },
+    {
+      "path": "captures/rejected_hold_right/1600x720/snow_face3_placed.png",
+      "run_role": "rejected_hold_right",
+      "state_id": "snow_face3_placed",
+      "aspect": "1600x720",
+      "sha256": "0174a0e81918a6abd0c83662ec0eeba40bdf5297323c3ac17685271460e9ff3f",
+      "run_returncode": 1,
+      "phase": "chase",
+      "balls": 3,
+      "face": 3,
+      "bites": 0,
+      "won": false,
+      "presentation": {
+        "boot_splash_present": false,
+        "fade_alpha": 0.0,
+        "intro_active": false,
+        "intro_layer_present": false,
+        "medal_present": false,
+        "start_menu_active": false,
+        "start_menu_layer_present": false
+      },
+      "input": {
+        "method": "Input.parse_input_event raw mouse press/release",
+        "position": "(660.0, 600.0)",
+        "target_rect": "[P: (605.0, 545.0), S: (110.0, 110.0)]"
+      },
+      "scope_limit": "FAIL: held-right test caught one bite, then failed to follow direction changes within cap. Diagnostic input-policy limit, not production defect."
+    },
+    {
+      "path": "captures/rejected_hold_right/1600x720/snow_chase_entry.png",
+      "run_role": "rejected_hold_right",
+      "state_id": "snow_chase_entry",
+      "aspect": "1600x720",
+      "sha256": "dae328178c9ebab4ab0b8d597719bd34d7c26b8e4fa8dfd696929230c274e993",
+      "run_returncode": 1,
+      "phase": "chase",
+      "balls": 3,
+      "face": 3,
+      "bites": 0,
+      "won": false,
+      "presentation": {
+        "boot_splash_present": false,
+        "fade_alpha": 0.0,
+        "intro_active": false,
+        "intro_layer_present": false,
+        "medal_present": false,
+        "start_menu_active": false,
+        "start_menu_layer_present": false
+      },
+      "input": {
+        "chase_followthrough": "held raw right axis follows",
+        "method": "production transition after three actual face taps"
+      },
+      "scope_limit": "FAIL: held-right test caught one bite, then failed to follow direction changes within cap. Diagnostic input-policy limit, not production defect."
+    },
+    {
+      "path": "captures/rejected_hold_right/1600x720/snow_bite1.png",
+      "run_role": "rejected_hold_right",
+      "state_id": "snow_bite1",
+      "aspect": "1600x720",
+      "sha256": "7aa59d496d53b546b9519b02f94ff15b23c26eec235e08fbe476452c6325bbee",
+      "run_returncode": 1,
+      "phase": "chase",
+      "balls": 3,
+      "face": 3,
+      "bites": 1,
+      "won": false,
+      "presentation": {
+        "boot_splash_present": false,
+        "fade_alpha": 0.0,
+        "intro_active": false,
+        "intro_layer_present": false,
+        "medal_present": false,
+        "start_menu_active": false,
+        "start_menu_layer_present": false
+      },
+      "input": {
+        "fixture": "synthetic unmapped-controller mode and standalone production-tick bridge",
+        "method": "raw right-axis event then actual process-frame polling",
+        "steps": 217
+      },
+      "scope_limit": "FAIL: held-right test caught one bite, then failed to follow direction changes within cap. Diagnostic input-policy limit, not production defect."
+    },
+    {
+      "path": "captures/rejected_frame_expectation/1280x720/snowman_fresh_ready.png",
+      "run_role": "rejected_frame_expectation",
+      "state_id": "snowman_fresh_ready",
+      "aspect": "1280x720",
+      "sha256": "0b8d851245210e190e667ddac2e2f75eeed2a69f60dbdac855507608a7d48d63",
+      "run_returncode": 1,
+      "phase": "roll",
+      "balls": 0,
+      "face": 0,
+      "bites": 0,
+      "won": false,
+      "presentation": {
+        "boot_splash_present": false,
+        "fade_alpha": 0.0,
+        "intro_active": false,
+        "intro_layer_present": false,
+        "medal_present": false,
+        "start_menu_active": false,
+        "start_menu_layer_present": false
+      },
+      "input": {
+        "entry": "production _mg2d_open API; fresh Main and isolated save per game; direct route fixture"
+      },
+      "scope_limit": "FAIL: all bites/carrot completed; third-bite capture evaluated its own medal expectation before frame_post_draw advanced into payoff. Timing-expectation error preserved."
+    },
+    {
+      "path": "captures/rejected_frame_expectation/1280x720/snow_ball1_growing.png",
+      "run_role": "rejected_frame_expectation",
+      "state_id": "snow_ball1_growing",
+      "aspect": "1280x720",
+      "sha256": "16745682d0dbd62b98a9cd01fa75476984dd2d710aa6954a503e8014d28061fa",
+      "run_returncode": 1,
+      "phase": "roll",
+      "balls": 0,
+      "face": 0,
+      "bites": 0,
+      "won": false,
+      "presentation": {
+        "boot_splash_present": false,
+        "fade_alpha": 0.0,
+        "intro_active": false,
+        "intro_layer_present": false,
+        "medal_present": false,
+        "start_menu_active": false,
+        "start_menu_layer_present": false
+      },
+      "input": {
+        "angle_step": 0.130899693899575,
+        "fixture": "synthetic unmapped-controller mode joy_has_unmapped=true; no physical controller; diagnostic Node schedules production _tick_mg2d once per actual process frame because direct API fixture bypasses Lagoon scheduler",
+        "method": "Window.push_input raw joypad axis pairs",
+        "motor_assist": false,
+        "observed_rot_acc": 6.28318530717959,
+        "steps": 48
+      },
+      "scope_limit": "FAIL: all bites/carrot completed; third-bite capture evaluated its own medal expectation before frame_post_draw advanced into payoff. Timing-expectation error preserved."
+    },
+    {
+      "path": "captures/rejected_frame_expectation/1280x720/snow_ball1_stacked.png",
+      "run_role": "rejected_frame_expectation",
+      "state_id": "snow_ball1_stacked",
+      "aspect": "1280x720",
+      "sha256": "9d33be4bb56ff4820abb7a036e7d11330eb713229bf157bc3b426e9e0a61a457",
+      "run_returncode": 1,
+      "phase": "roll",
+      "balls": 1,
+      "face": 0,
+      "bites": 0,
+      "won": false,
+      "presentation": {
+        "boot_splash_present": false,
+        "fade_alpha": 0.0,
+        "intro_active": false,
+        "intro_layer_present": false,
+        "medal_present": false,
+        "start_menu_active": false,
+        "start_menu_layer_present": false
+      },
+      "input": {
+        "fixture": "synthetic unmapped-controller mode joy_has_unmapped=true; no physical controller; diagnostic Node schedules production _tick_mg2d once per actual process frame because direct API fixture bypasses Lagoon scheduler",
+        "method": "Window.push_input raw joypad axis pairs",
+        "motor_assist": false,
+        "steps": 143
+      },
+      "scope_limit": "FAIL: all bites/carrot completed; third-bite capture evaluated its own medal expectation before frame_post_draw advanced into payoff. Timing-expectation error preserved."
+    },
+    {
+      "path": "captures/rejected_frame_expectation/1280x720/snow_ball2_growing.png",
+      "run_role": "rejected_frame_expectation",
+      "state_id": "snow_ball2_growing",
+      "aspect": "1280x720",
+      "sha256": "83443782a022d7d0fe5f0940c186abc65a2d84ff697326d8b6544d91174f01b0",
+      "run_returncode": 1,
+      "phase": "roll",
+      "balls": 1,
+      "face": 0,
+      "bites": 0,
+      "won": false,
+      "presentation": {
+        "boot_splash_present": false,
+        "fade_alpha": 0.0,
+        "intro_active": false,
+        "intro_layer_present": false,
+        "medal_present": false,
+        "start_menu_active": false,
+        "start_menu_layer_present": false
+      },
+      "input": {
+        "angle_step": 0.130899693899575,
+        "fixture": "synthetic unmapped-controller mode joy_has_unmapped=true; no physical controller; diagnostic Node schedules production _tick_mg2d once per actual process frame because direct API fixture bypasses Lagoon scheduler",
+        "method": "Window.push_input raw joypad axis pairs",
+        "motor_assist": false,
+        "observed_rot_acc": 6.28318530717959,
+        "steps": 48
+      },
+      "scope_limit": "FAIL: all bites/carrot completed; third-bite capture evaluated its own medal expectation before frame_post_draw advanced into payoff. Timing-expectation error preserved."
+    },
+    {
+      "path": "captures/rejected_frame_expectation/1280x720/snow_ball2_stacked.png",
+      "run_role": "rejected_frame_expectation",
+      "state_id": "snow_ball2_stacked",
+      "aspect": "1280x720",
+      "sha256": "c59d583787f792885d9cabfbbd853fe86c513215d88a422c911d47f1a433be3d",
+      "run_returncode": 1,
+      "phase": "roll",
+      "balls": 2,
+      "face": 0,
+      "bites": 0,
+      "won": false,
+      "presentation": {
+        "boot_splash_present": false,
+        "fade_alpha": 0.0,
+        "intro_active": false,
+        "intro_layer_present": false,
+        "medal_present": false,
+        "start_menu_active": false,
+        "start_menu_layer_present": false
+      },
+      "input": {
+        "fixture": "synthetic unmapped-controller mode joy_has_unmapped=true; no physical controller; diagnostic Node schedules production _tick_mg2d once per actual process frame because direct API fixture bypasses Lagoon scheduler",
+        "method": "Window.push_input raw joypad axis pairs",
+        "motor_assist": false,
+        "steps": 119
+      },
+      "scope_limit": "FAIL: all bites/carrot completed; third-bite capture evaluated its own medal expectation before frame_post_draw advanced into payoff. Timing-expectation error preserved."
+    },
+    {
+      "path": "captures/rejected_frame_expectation/1280x720/snow_ball3_growing.png",
+      "run_role": "rejected_frame_expectation",
+      "state_id": "snow_ball3_growing",
+      "aspect": "1280x720",
+      "sha256": "f8e80e01596b6c12f4001706971b2c48f74c91880fb3f3b65aee56f15604a5fa",
+      "run_returncode": 1,
+      "phase": "roll",
+      "balls": 2,
+      "face": 0,
+      "bites": 0,
+      "won": false,
+      "presentation": {
+        "boot_splash_present": false,
+        "fade_alpha": 0.0,
+        "intro_active": false,
+        "intro_layer_present": false,
+        "medal_present": false,
+        "start_menu_active": false,
+        "start_menu_layer_present": false
+      },
+      "input": {
+        "angle_step": 0.130899693899575,
+        "fixture": "synthetic unmapped-controller mode joy_has_unmapped=true; no physical controller; diagnostic Node schedules production _tick_mg2d once per actual process frame because direct API fixture bypasses Lagoon scheduler",
+        "method": "Window.push_input raw joypad axis pairs",
+        "motor_assist": false,
+        "observed_rot_acc": 6.28318530717959,
+        "steps": 48
+      },
+      "scope_limit": "FAIL: all bites/carrot completed; third-bite capture evaluated its own medal expectation before frame_post_draw advanced into payoff. Timing-expectation error preserved."
+    },
+    {
+      "path": "captures/rejected_frame_expectation/1280x720/snow_ball3_stacked.png",
+      "run_role": "rejected_frame_expectation",
+      "state_id": "snow_ball3_stacked",
+      "aspect": "1280x720",
+      "sha256": "e138911cab48544b8b0305257a42861ca09b044c8c92d7c1bb7fa4758cb01c52",
+      "run_returncode": 1,
+      "phase": "face",
+      "balls": 3,
+      "face": 0,
+      "bites": 0,
+      "won": false,
+      "presentation": {
+        "boot_splash_present": false,
+        "fade_alpha": 0.0,
+        "intro_active": false,
+        "intro_layer_present": false,
+        "medal_present": false,
+        "start_menu_active": false,
+        "start_menu_layer_present": false
+      },
+      "input": {
+        "fixture": "synthetic unmapped-controller mode joy_has_unmapped=true; no physical controller; diagnostic Node schedules production _tick_mg2d once per actual process frame because direct API fixture bypasses Lagoon scheduler",
+        "method": "Window.push_input raw joypad axis pairs",
+        "motor_assist": false,
+        "steps": 95
+      },
+      "scope_limit": "FAIL: all bites/carrot completed; third-bite capture evaluated its own medal expectation before frame_post_draw advanced into payoff. Timing-expectation error preserved."
+    },
+    {
+      "path": "captures/rejected_frame_expectation/1280x720/snow_face1_placed.png",
+      "run_role": "rejected_frame_expectation",
+      "state_id": "snow_face1_placed",
+      "aspect": "1280x720",
+      "sha256": "3217a5dcfdf4c03a74f48e9beadcf9d654d3bdd8f881e9b98fb635598813ba41",
+      "run_returncode": 1,
+      "phase": "face",
+      "balls": 3,
+      "face": 1,
+      "bites": 0,
+      "won": false,
+      "presentation": {
+        "boot_splash_present": false,
+        "fade_alpha": 0.0,
+        "intro_active": false,
+        "intro_layer_present": false,
+        "medal_present": false,
+        "start_menu_active": false,
+        "start_menu_layer_present": false
+      },
+      "input": {
+        "method": "Input.parse_input_event raw mouse press/release",
+        "position": "(360.0, 600.0)",
+        "target_rect": "[P: (285.0, 545.0), S: (150.0, 110.0)]"
+      },
+      "scope_limit": "FAIL: all bites/carrot completed; third-bite capture evaluated its own medal expectation before frame_post_draw advanced into payoff. Timing-expectation error preserved."
+    },
+    {
+      "path": "captures/rejected_frame_expectation/1280x720/snow_face2_placed.png",
+      "run_role": "rejected_frame_expectation",
+      "state_id": "snow_face2_placed",
+      "aspect": "1280x720",
+      "sha256": "2d7f88a9a7d623f0cfcf6b2886319e75ed3122f318ffc625a58df551c0413088",
+      "run_returncode": 1,
+      "phase": "face",
+      "balls": 3,
+      "face": 2,
+      "bites": 0,
+      "won": false,
+      "presentation": {
+        "boot_splash_present": false,
+        "fade_alpha": 0.0,
+        "intro_active": false,
+        "intro_layer_present": false,
+        "medal_present": false,
+        "start_menu_active": false,
+        "start_menu_layer_present": false
+      },
+      "input": {
+        "method": "Input.parse_input_event raw mouse press/release",
+        "position": "(220.0, 600.0)",
+        "target_rect": "[P: (165.0, 545.0), S: (110.0, 110.0)]"
+      },
+      "scope_limit": "FAIL: all bites/carrot completed; third-bite capture evaluated its own medal expectation before frame_post_draw advanced into payoff. Timing-expectation error preserved."
+    },
+    {
+      "path": "captures/rejected_frame_expectation/1280x720/snow_face3_placed.png",
+      "run_role": "rejected_frame_expectation",
+      "state_id": "snow_face3_placed",
+      "aspect": "1280x720",
+      "sha256": "10356ee83f7dfff0fc03578f8e9c3d696a52d3de6179276fa0ca9d6c06ccd410",
+      "run_returncode": 1,
+      "phase": "chase",
+      "balls": 3,
+      "face": 3,
+      "bites": 0,
+      "won": false,
+      "presentation": {
+        "boot_splash_present": false,
+        "fade_alpha": 0.0,
+        "intro_active": false,
+        "intro_layer_present": false,
+        "medal_present": false,
+        "start_menu_active": false,
+        "start_menu_layer_present": false
+      },
+      "input": {
+        "method": "Input.parse_input_event raw mouse press/release",
+        "position": "(500.0, 600.0)",
+        "target_rect": "[P: (445.0, 545.0), S: (110.0, 110.0)]"
+      },
+      "scope_limit": "FAIL: all bites/carrot completed; third-bite capture evaluated its own medal expectation before frame_post_draw advanced into payoff. Timing-expectation error preserved."
+    },
+    {
+      "path": "captures/rejected_frame_expectation/1280x720/snow_chase_entry.png",
+      "run_role": "rejected_frame_expectation",
+      "state_id": "snow_chase_entry",
+      "aspect": "1280x720",
+      "sha256": "4652608098afc053ce0d1a9c458fe93d32e0021441cdf57a5d3238fbc309da5c",
+      "run_returncode": 1,
+      "phase": "chase",
+      "balls": 3,
+      "face": 3,
+      "bites": 0,
+      "won": false,
+      "presentation": {
+        "boot_splash_present": false,
+        "fade_alpha": 0.0,
+        "intro_active": false,
+        "intro_layer_present": false,
+        "medal_present": false,
+        "start_menu_active": false,
+        "start_menu_layer_present": false
+      },
+      "input": {
+        "chase_followthrough": "guided raw x-axis followthrough follows",
+        "method": "production transition after three actual face taps"
+      },
+      "scope_limit": "FAIL: all bites/carrot completed; third-bite capture evaluated its own medal expectation before frame_post_draw advanced into payoff. Timing-expectation error preserved."
+    },
+    {
+      "path": "captures/rejected_frame_expectation/1280x720/snow_bite1.png",
+      "run_role": "rejected_frame_expectation",
+      "state_id": "snow_bite1",
+      "aspect": "1280x720",
+      "sha256": "8248e0461629896fa5bb69087320513e3372dc111a5ed2005a8e20ca3a640ed9",
+      "run_returncode": 1,
+      "phase": "chase",
+      "balls": 3,
+      "face": 3,
+      "bites": 1,
+      "won": false,
+      "presentation": {
+        "boot_splash_present": false,
+        "fade_alpha": 0.0,
+        "intro_active": false,
+        "intro_layer_present": false,
+        "medal_present": false,
+        "start_menu_active": false,
+        "start_menu_layer_present": false
+      },
+      "input": {
+        "fixture": "synthetic unmapped-controller mode and standalone production-tick bridge",
+        "method": "guided raw x-axis events track live run_x, neutral within35px; actual process-frame polling",
+        "steps": 211
+      },
+      "scope_limit": "FAIL: all bites/carrot completed; third-bite capture evaluated its own medal expectation before frame_post_draw advanced into payoff. Timing-expectation error preserved."
+    },
+    {
+      "path": "captures/rejected_frame_expectation/1280x720/snow_bite2.png",
+      "run_role": "rejected_frame_expectation",
+      "state_id": "snow_bite2",
+      "aspect": "1280x720",
+      "sha256": "196368c20eb7ce4d3065db715f57d7c0d52ec9a5cb8e5337935592474252d294",
+      "run_returncode": 1,
+      "phase": "chase",
+      "balls": 3,
+      "face": 3,
+      "bites": 2,
+      "won": false,
+      "presentation": {
+        "boot_splash_present": false,
+        "fade_alpha": 0.0,
+        "intro_active": false,
+        "intro_layer_present": false,
+        "medal_present": false,
+        "start_menu_active": false,
+        "start_menu_layer_present": false
+      },
+      "input": {
+        "fixture": "synthetic unmapped-controller mode and standalone production-tick bridge",
+        "method": "guided raw x-axis events track live run_x, neutral within35px; actual process-frame polling",
+        "steps": 336
+      },
+      "scope_limit": "FAIL: all bites/carrot completed; third-bite capture evaluated its own medal expectation before frame_post_draw advanced into payoff. Timing-expectation error preserved."
+    },
+    {
+      "path": "captures/rejected_frame_expectation/1280x720/snow_bite3.png",
+      "run_role": "rejected_frame_expectation",
+      "state_id": "snow_bite3",
+      "aspect": "1280x720",
+      "sha256": "15b1b8dab35a71445c3be5b30aa8c37b51f8313b3d9e9bf522893094261f76cf",
+      "run_returncode": 1,
+      "phase": "done",
+      "balls": 3,
+      "face": 3,
+      "bites": 3,
+      "won": true,
+      "presentation": {
+        "boot_splash_present": false,
+        "fade_alpha": 0.0,
+        "intro_active": false,
+        "intro_layer_present": false,
+        "medal_present": true,
+        "start_menu_active": false,
+        "start_menu_layer_present": false
+      },
+      "input": {
+        "fixture": "synthetic unmapped-controller mode and standalone production-tick bridge",
+        "method": "guided raw x-axis events track live run_x, neutral within35px; actual process-frame polling",
+        "steps": 461
+      },
+      "scope_limit": "FAIL: all bites/carrot completed; third-bite capture evaluated its own medal expectation before frame_post_draw advanced into payoff. Timing-expectation error preserved."
+    },
+    {
+      "path": "captures/rejected_frame_expectation/1280x720/snow_carrot_collected_payoff.png",
+      "run_role": "rejected_frame_expectation",
+      "state_id": "snow_carrot_collected_payoff",
+      "aspect": "1280x720",
+      "sha256": "1bcaf467955d07bdcbfcbb2871e5b08fe196e8045baab01d7a9e5b82b1cb8412",
+      "run_returncode": 1,
+      "phase": "done",
+      "balls": 3,
+      "face": 3,
+      "bites": 3,
+      "won": true,
+      "presentation": {
+        "boot_splash_present": false,
+        "fade_alpha": 0.0,
+        "intro_active": false,
+        "intro_layer_present": false,
+        "medal_present": true,
+        "start_menu_active": false,
+        "start_menu_layer_present": false
+      },
+      "input": {
+        "fixture": "synthetic unmapped-controller mode and standalone production-tick bridge",
+        "method": "production chase/carrot transition from guided raw x-axis events",
+        "steps": 461
+      },
+      "scope_limit": "FAIL: all bites/carrot completed; third-bite capture evaluated its own medal expectation before frame_post_draw advanced into payoff. Timing-expectation error preserved."
+    },
+    {
+      "path": "captures/rejected_frame_expectation/1600x720/snowman_fresh_ready.png",
+      "run_role": "rejected_frame_expectation",
+      "state_id": "snowman_fresh_ready",
+      "aspect": "1600x720",
+      "sha256": "ce774b91b7873d7641b6b281c89ba06cbbafc4e78b17ecd2fd480e271d44266d",
+      "run_returncode": 1,
+      "phase": "roll",
+      "balls": 0,
+      "face": 0,
+      "bites": 0,
+      "won": false,
+      "presentation": {
+        "boot_splash_present": false,
+        "fade_alpha": 0.0,
+        "intro_active": false,
+        "intro_layer_present": false,
+        "medal_present": false,
+        "start_menu_active": false,
+        "start_menu_layer_present": false
+      },
+      "input": {
+        "entry": "production _mg2d_open API; fresh Main and isolated save per game; direct route fixture"
+      },
+      "scope_limit": "FAIL: all bites/carrot completed; third-bite capture evaluated its own medal expectation before frame_post_draw advanced into payoff. Timing-expectation error preserved."
+    },
+    {
+      "path": "captures/rejected_frame_expectation/1600x720/snow_ball1_growing.png",
+      "run_role": "rejected_frame_expectation",
+      "state_id": "snow_ball1_growing",
+      "aspect": "1600x720",
+      "sha256": "fe7d62acf120c804c611389eafddb093ace806b153b52124dd77123ca1639243",
+      "run_returncode": 1,
+      "phase": "roll",
+      "balls": 0,
+      "face": 0,
+      "bites": 0,
+      "won": false,
+      "presentation": {
+        "boot_splash_present": false,
+        "fade_alpha": 0.0,
+        "intro_active": false,
+        "intro_layer_present": false,
+        "medal_present": false,
+        "start_menu_active": false,
+        "start_menu_layer_present": false
+      },
+      "input": {
+        "angle_step": 0.130899693899575,
+        "fixture": "synthetic unmapped-controller mode joy_has_unmapped=true; no physical controller; diagnostic Node schedules production _tick_mg2d once per actual process frame because direct API fixture bypasses Lagoon scheduler",
+        "method": "Window.push_input raw joypad axis pairs",
+        "motor_assist": false,
+        "observed_rot_acc": 6.28318530717959,
+        "steps": 48
+      },
+      "scope_limit": "FAIL: all bites/carrot completed; third-bite capture evaluated its own medal expectation before frame_post_draw advanced into payoff. Timing-expectation error preserved."
+    },
+    {
+      "path": "captures/rejected_frame_expectation/1600x720/snow_ball1_stacked.png",
+      "run_role": "rejected_frame_expectation",
+      "state_id": "snow_ball1_stacked",
+      "aspect": "1600x720",
+      "sha256": "f98ffb39435b649557d23dce32328f4c4b7f7a84e616c29219c4e38f7f1486ee",
+      "run_returncode": 1,
+      "phase": "roll",
+      "balls": 1,
+      "face": 0,
+      "bites": 0,
+      "won": false,
+      "presentation": {
+        "boot_splash_present": false,
+        "fade_alpha": 0.0,
+        "intro_active": false,
+        "intro_layer_present": false,
+        "medal_present": false,
+        "start_menu_active": false,
+        "start_menu_layer_present": false
+      },
+      "input": {
+        "fixture": "synthetic unmapped-controller mode joy_has_unmapped=true; no physical controller; diagnostic Node schedules production _tick_mg2d once per actual process frame because direct API fixture bypasses Lagoon scheduler",
+        "method": "Window.push_input raw joypad axis pairs",
+        "motor_assist": false,
+        "steps": 143
+      },
+      "scope_limit": "FAIL: all bites/carrot completed; third-bite capture evaluated its own medal expectation before frame_post_draw advanced into payoff. Timing-expectation error preserved."
+    },
+    {
+      "path": "captures/rejected_frame_expectation/1600x720/snow_ball2_growing.png",
+      "run_role": "rejected_frame_expectation",
+      "state_id": "snow_ball2_growing",
+      "aspect": "1600x720",
+      "sha256": "d34d39defea0a0219c9deb3849171b2e2cf5d5213894af8b31021e8196d1fb82",
+      "run_returncode": 1,
+      "phase": "roll",
+      "balls": 1,
+      "face": 0,
+      "bites": 0,
+      "won": false,
+      "presentation": {
+        "boot_splash_present": false,
+        "fade_alpha": 0.0,
+        "intro_active": false,
+        "intro_layer_present": false,
+        "medal_present": false,
+        "start_menu_active": false,
+        "start_menu_layer_present": false
+      },
+      "input": {
+        "angle_step": 0.130899693899575,
+        "fixture": "synthetic unmapped-controller mode joy_has_unmapped=true; no physical controller; diagnostic Node schedules production _tick_mg2d once per actual process frame because direct API fixture bypasses Lagoon scheduler",
+        "method": "Window.push_input raw joypad axis pairs",
+        "motor_assist": false,
+        "observed_rot_acc": 6.28318530717959,
+        "steps": 48
+      },
+      "scope_limit": "FAIL: all bites/carrot completed; third-bite capture evaluated its own medal expectation before frame_post_draw advanced into payoff. Timing-expectation error preserved."
+    },
+    {
+      "path": "captures/rejected_frame_expectation/1600x720/snow_ball2_stacked.png",
+      "run_role": "rejected_frame_expectation",
+      "state_id": "snow_ball2_stacked",
+      "aspect": "1600x720",
+      "sha256": "721006d635db29b4888fb1b4c2cfee60ae9c139f5aa900d68ee0fdbce106f801",
+      "run_returncode": 1,
+      "phase": "roll",
+      "balls": 2,
+      "face": 0,
+      "bites": 0,
+      "won": false,
+      "presentation": {
+        "boot_splash_present": false,
+        "fade_alpha": 0.0,
+        "intro_active": false,
+        "intro_layer_present": false,
+        "medal_present": false,
+        "start_menu_active": false,
+        "start_menu_layer_present": false
+      },
+      "input": {
+        "fixture": "synthetic unmapped-controller mode joy_has_unmapped=true; no physical controller; diagnostic Node schedules production _tick_mg2d once per actual process frame because direct API fixture bypasses Lagoon scheduler",
+        "method": "Window.push_input raw joypad axis pairs",
+        "motor_assist": false,
+        "steps": 119
+      },
+      "scope_limit": "FAIL: all bites/carrot completed; third-bite capture evaluated its own medal expectation before frame_post_draw advanced into payoff. Timing-expectation error preserved."
+    },
+    {
+      "path": "captures/rejected_frame_expectation/1600x720/snow_ball3_growing.png",
+      "run_role": "rejected_frame_expectation",
+      "state_id": "snow_ball3_growing",
+      "aspect": "1600x720",
+      "sha256": "bb48cf2a3c06e69519da6fb608dfd8d5415e5d774252a0dbb9a9a7c8088ac89a",
+      "run_returncode": 1,
+      "phase": "roll",
+      "balls": 2,
+      "face": 0,
+      "bites": 0,
+      "won": false,
+      "presentation": {
+        "boot_splash_present": false,
+        "fade_alpha": 0.0,
+        "intro_active": false,
+        "intro_layer_present": false,
+        "medal_present": false,
+        "start_menu_active": false,
+        "start_menu_layer_present": false
+      },
+      "input": {
+        "angle_step": 0.130899693899575,
+        "fixture": "synthetic unmapped-controller mode joy_has_unmapped=true; no physical controller; diagnostic Node schedules production _tick_mg2d once per actual process frame because direct API fixture bypasses Lagoon scheduler",
+        "method": "Window.push_input raw joypad axis pairs",
+        "motor_assist": false,
+        "observed_rot_acc": 6.28318530717959,
+        "steps": 48
+      },
+      "scope_limit": "FAIL: all bites/carrot completed; third-bite capture evaluated its own medal expectation before frame_post_draw advanced into payoff. Timing-expectation error preserved."
+    },
+    {
+      "path": "captures/rejected_frame_expectation/1600x720/snow_ball3_stacked.png",
+      "run_role": "rejected_frame_expectation",
+      "state_id": "snow_ball3_stacked",
+      "aspect": "1600x720",
+      "sha256": "39b8ca3fc5278f5c9387a167189d435b064132e2da182024d6544f3fd4b2b84f",
+      "run_returncode": 1,
+      "phase": "face",
+      "balls": 3,
+      "face": 0,
+      "bites": 0,
+      "won": false,
+      "presentation": {
+        "boot_splash_present": false,
+        "fade_alpha": 0.0,
+        "intro_active": false,
+        "intro_layer_present": false,
+        "medal_present": false,
+        "start_menu_active": false,
+        "start_menu_layer_present": false
+      },
+      "input": {
+        "fixture": "synthetic unmapped-controller mode joy_has_unmapped=true; no physical controller; diagnostic Node schedules production _tick_mg2d once per actual process frame because direct API fixture bypasses Lagoon scheduler",
+        "method": "Window.push_input raw joypad axis pairs",
+        "motor_assist": false,
+        "steps": 95
+      },
+      "scope_limit": "FAIL: all bites/carrot completed; third-bite capture evaluated its own medal expectation before frame_post_draw advanced into payoff. Timing-expectation error preserved."
+    },
+    {
+      "path": "captures/rejected_frame_expectation/1600x720/snow_face1_placed.png",
+      "run_role": "rejected_frame_expectation",
+      "state_id": "snow_face1_placed",
+      "aspect": "1600x720",
+      "sha256": "0697b58fff161ce2c95681909ca8ccfe0314b5406f13c5e95c29fdbfaafefaa8",
+      "run_returncode": 1,
+      "phase": "face",
+      "balls": 3,
+      "face": 1,
+      "bites": 0,
+      "won": false,
+      "presentation": {
+        "boot_splash_present": false,
+        "fade_alpha": 0.0,
+        "intro_active": false,
+        "intro_layer_present": false,
+        "medal_present": false,
+        "start_menu_active": false,
+        "start_menu_layer_present": false
+      },
+      "input": {
+        "method": "Input.parse_input_event raw mouse press/release",
+        "position": "(520.0, 600.0)",
+        "target_rect": "[P: (445.0, 545.0), S: (150.0, 110.0)]"
+      },
+      "scope_limit": "FAIL: all bites/carrot completed; third-bite capture evaluated its own medal expectation before frame_post_draw advanced into payoff. Timing-expectation error preserved."
+    },
+    {
+      "path": "captures/rejected_frame_expectation/1600x720/snow_face2_placed.png",
+      "run_role": "rejected_frame_expectation",
+      "state_id": "snow_face2_placed",
+      "aspect": "1600x720",
+      "sha256": "5ed513e59db174bc02a3de323c50eaab2d91197e7726b3ab277dc747e0aebd02",
+      "run_returncode": 1,
+      "phase": "face",
+      "balls": 3,
+      "face": 2,
+      "bites": 0,
+      "won": false,
+      "presentation": {
+        "boot_splash_present": false,
+        "fade_alpha": 0.0,
+        "intro_active": false,
+        "intro_layer_present": false,
+        "medal_present": false,
+        "start_menu_active": false,
+        "start_menu_layer_present": false
+      },
+      "input": {
+        "method": "Input.parse_input_event raw mouse press/release",
+        "position": "(380.0, 600.0)",
+        "target_rect": "[P: (325.0, 545.0), S: (110.0, 110.0)]"
+      },
+      "scope_limit": "FAIL: all bites/carrot completed; third-bite capture evaluated its own medal expectation before frame_post_draw advanced into payoff. Timing-expectation error preserved."
+    },
+    {
+      "path": "captures/rejected_frame_expectation/1600x720/snow_face3_placed.png",
+      "run_role": "rejected_frame_expectation",
+      "state_id": "snow_face3_placed",
+      "aspect": "1600x720",
+      "sha256": "5f5792b9b8680224530e8e56c688baa297a8621ed52d49694654e922dca5c96c",
+      "run_returncode": 1,
+      "phase": "chase",
+      "balls": 3,
+      "face": 3,
+      "bites": 0,
+      "won": false,
+      "presentation": {
+        "boot_splash_present": false,
+        "fade_alpha": 0.0,
+        "intro_active": false,
+        "intro_layer_present": false,
+        "medal_present": false,
+        "start_menu_active": false,
+        "start_menu_layer_present": false
+      },
+      "input": {
+        "method": "Input.parse_input_event raw mouse press/release",
+        "position": "(660.0, 600.0)",
+        "target_rect": "[P: (605.0, 545.0), S: (110.0, 110.0)]"
+      },
+      "scope_limit": "FAIL: all bites/carrot completed; third-bite capture evaluated its own medal expectation before frame_post_draw advanced into payoff. Timing-expectation error preserved."
+    },
+    {
+      "path": "captures/rejected_frame_expectation/1600x720/snow_chase_entry.png",
+      "run_role": "rejected_frame_expectation",
+      "state_id": "snow_chase_entry",
+      "aspect": "1600x720",
+      "sha256": "d6f3d53b0cec7f2229553ca9e6f90d8ca243642df2a98b98d8994c3ab82c07a5",
+      "run_returncode": 1,
+      "phase": "chase",
+      "balls": 3,
+      "face": 3,
+      "bites": 0,
+      "won": false,
+      "presentation": {
+        "boot_splash_present": false,
+        "fade_alpha": 0.0,
+        "intro_active": false,
+        "intro_layer_present": false,
+        "medal_present": false,
+        "start_menu_active": false,
+        "start_menu_layer_present": false
+      },
+      "input": {
+        "chase_followthrough": "guided raw x-axis followthrough follows",
+        "method": "production transition after three actual face taps"
+      },
+      "scope_limit": "FAIL: all bites/carrot completed; third-bite capture evaluated its own medal expectation before frame_post_draw advanced into payoff. Timing-expectation error preserved."
+    },
+    {
+      "path": "captures/rejected_frame_expectation/1600x720/snow_bite1.png",
+      "run_role": "rejected_frame_expectation",
+      "state_id": "snow_bite1",
+      "aspect": "1600x720",
+      "sha256": "49db9bb50040544550c818af688a557a82765a5064558af1a813b4dae3723866",
+      "run_returncode": 1,
+      "phase": "chase",
+      "balls": 3,
+      "face": 3,
+      "bites": 1,
+      "won": false,
+      "presentation": {
+        "boot_splash_present": false,
+        "fade_alpha": 0.0,
+        "intro_active": false,
+        "intro_layer_present": false,
+        "medal_present": false,
+        "start_menu_active": false,
+        "start_menu_layer_present": false
+      },
+      "input": {
+        "fixture": "synthetic unmapped-controller mode and standalone production-tick bridge",
+        "method": "guided raw x-axis events track live run_x, neutral within35px; actual process-frame polling",
+        "steps": 217
+      },
+      "scope_limit": "FAIL: all bites/carrot completed; third-bite capture evaluated its own medal expectation before frame_post_draw advanced into payoff. Timing-expectation error preserved."
+    },
+    {
+      "path": "captures/rejected_frame_expectation/1600x720/snow_bite2.png",
+      "run_role": "rejected_frame_expectation",
+      "state_id": "snow_bite2",
+      "aspect": "1600x720",
+      "sha256": "dd6d6448a013a94a67d497432fd0bcf691dc240332cd26e567db498427ef71e5",
+      "run_returncode": 1,
+      "phase": "chase",
+      "balls": 3,
+      "face": 3,
+      "bites": 2,
+      "won": false,
+      "presentation": {
+        "boot_splash_present": false,
+        "fade_alpha": 0.0,
+        "intro_active": false,
+        "intro_layer_present": false,
+        "medal_present": false,
+        "start_menu_active": false,
+        "start_menu_layer_present": false
+      },
+      "input": {
+        "fixture": "synthetic unmapped-controller mode and standalone production-tick bridge",
+        "method": "guided raw x-axis events track live run_x, neutral within35px; actual process-frame polling",
+        "steps": 336
+      },
+      "scope_limit": "FAIL: all bites/carrot completed; third-bite capture evaluated its own medal expectation before frame_post_draw advanced into payoff. Timing-expectation error preserved."
+    },
+    {
+      "path": "captures/rejected_frame_expectation/1600x720/snow_bite3.png",
+      "run_role": "rejected_frame_expectation",
+      "state_id": "snow_bite3",
+      "aspect": "1600x720",
+      "sha256": "99f4b4d15161ded14017b3febd36e061c574d6d21adc2410334749324251186d",
+      "run_returncode": 1,
+      "phase": "done",
+      "balls": 3,
+      "face": 3,
+      "bites": 3,
+      "won": true,
+      "presentation": {
+        "boot_splash_present": false,
+        "fade_alpha": 0.0,
+        "intro_active": false,
+        "intro_layer_present": false,
+        "medal_present": true,
+        "start_menu_active": false,
+        "start_menu_layer_present": false
+      },
+      "input": {
+        "fixture": "synthetic unmapped-controller mode and standalone production-tick bridge",
+        "method": "guided raw x-axis events track live run_x, neutral within35px; actual process-frame polling",
+        "steps": 456
+      },
+      "scope_limit": "FAIL: all bites/carrot completed; third-bite capture evaluated its own medal expectation before frame_post_draw advanced into payoff. Timing-expectation error preserved."
+    },
+    {
+      "path": "captures/rejected_frame_expectation/1600x720/snow_carrot_collected_payoff.png",
+      "run_role": "rejected_frame_expectation",
+      "state_id": "snow_carrot_collected_payoff",
+      "aspect": "1600x720",
+      "sha256": "f8437d5f1aaaf3d383186d784397355917c9331e7054e21391efed2d4dfa11a1",
+      "run_returncode": 1,
+      "phase": "done",
+      "balls": 3,
+      "face": 3,
+      "bites": 3,
+      "won": true,
+      "presentation": {
+        "boot_splash_present": false,
+        "fade_alpha": 0.0,
+        "intro_active": false,
+        "intro_layer_present": false,
+        "medal_present": true,
+        "start_menu_active": false,
+        "start_menu_layer_present": false
+      },
+      "input": {
+        "fixture": "synthetic unmapped-controller mode and standalone production-tick bridge",
+        "method": "production chase/carrot transition from guided raw x-axis events",
+        "steps": 456
+      },
+      "scope_limit": "FAIL: all bites/carrot completed; third-bite capture evaluated its own medal expectation before frame_post_draw advanced into payoff. Timing-expectation error preserved."
+    },
+    {
+      "path": "captures/completed_snow_fixture/1280x720/snowman_fresh_ready.png",
+      "run_role": "completed_snow_fixture",
+      "state_id": "snowman_fresh_ready",
+      "aspect": "1280x720",
+      "sha256": "35d1cd8e873f3ef3d8fb2328801f7d4e29cada8b791e98d4ef75402206a08abe",
+      "run_returncode": 0,
+      "phase": "roll",
+      "balls": 0,
+      "face": 0,
+      "bites": 0,
+      "won": false,
+      "presentation": {
+        "boot_splash_present": false,
+        "fade_alpha": 0.0,
+        "intro_active": false,
+        "intro_layer_present": false,
+        "medal_present": false,
+        "start_menu_active": false,
+        "start_menu_layer_present": false
+      },
+      "input": {
+        "entry": "production _mg2d_open API; fresh Main and isolated save per game; direct route fixture"
+      },
+      "scope_limit": "PASS: all growth, stack, face, chase, three bites and carrot payoff through guided raw input, synthetic unmapped-controller mode and production-tick bridge. Zero progress-counter assignment; no device/child/owner/natural-route acceptance."
+    },
+    {
+      "path": "captures/completed_snow_fixture/1280x720/snow_ball1_growing.png",
+      "run_role": "completed_snow_fixture",
+      "state_id": "snow_ball1_growing",
+      "aspect": "1280x720",
+      "sha256": "529649e771ed9992d349c29a9499d8df0bc622be0794ff9cf927c12e539039ec",
+      "run_returncode": 0,
+      "phase": "roll",
+      "balls": 0,
+      "face": 0,
+      "bites": 0,
+      "won": false,
+      "presentation": {
+        "boot_splash_present": false,
+        "fade_alpha": 0.0,
+        "intro_active": false,
+        "intro_layer_present": false,
+        "medal_present": false,
+        "start_menu_active": false,
+        "start_menu_layer_present": false
+      },
+      "input": {
+        "angle_step": 0.130899693899575,
+        "fixture": "synthetic unmapped-controller mode joy_has_unmapped=true; no physical controller; diagnostic Node schedules production _tick_mg2d once per actual process frame because direct API fixture bypasses Lagoon scheduler",
+        "method": "Window.push_input raw joypad axis pairs",
+        "motor_assist": false,
+        "observed_rot_acc": 6.28318530717959,
+        "steps": 48
+      },
+      "scope_limit": "PASS: all growth, stack, face, chase, three bites and carrot payoff through guided raw input, synthetic unmapped-controller mode and production-tick bridge. Zero progress-counter assignment; no device/child/owner/natural-route acceptance."
+    },
+    {
+      "path": "captures/completed_snow_fixture/1280x720/snow_ball1_stacked.png",
+      "run_role": "completed_snow_fixture",
+      "state_id": "snow_ball1_stacked",
+      "aspect": "1280x720",
+      "sha256": "0430ac10cd51fbca4d7e2006cfd03afeab54a571e7fbbd8aad820f0a32557df3",
+      "run_returncode": 0,
+      "phase": "roll",
+      "balls": 1,
+      "face": 0,
+      "bites": 0,
+      "won": false,
+      "presentation": {
+        "boot_splash_present": false,
+        "fade_alpha": 0.0,
+        "intro_active": false,
+        "intro_layer_present": false,
+        "medal_present": false,
+        "start_menu_active": false,
+        "start_menu_layer_present": false
+      },
+      "input": {
+        "fixture": "synthetic unmapped-controller mode joy_has_unmapped=true; no physical controller; diagnostic Node schedules production _tick_mg2d once per actual process frame because direct API fixture bypasses Lagoon scheduler",
+        "method": "Window.push_input raw joypad axis pairs",
+        "motor_assist": false,
+        "steps": 143
+      },
+      "scope_limit": "PASS: all growth, stack, face, chase, three bites and carrot payoff through guided raw input, synthetic unmapped-controller mode and production-tick bridge. Zero progress-counter assignment; no device/child/owner/natural-route acceptance."
+    },
+    {
+      "path": "captures/completed_snow_fixture/1280x720/snow_ball2_growing.png",
+      "run_role": "completed_snow_fixture",
+      "state_id": "snow_ball2_growing",
+      "aspect": "1280x720",
+      "sha256": "29f8fc4502489f2661827d4b1897b56c88768134ed9e4027343b089099da948a",
+      "run_returncode": 0,
+      "phase": "roll",
+      "balls": 1,
+      "face": 0,
+      "bites": 0,
+      "won": false,
+      "presentation": {
+        "boot_splash_present": false,
+        "fade_alpha": 0.0,
+        "intro_active": false,
+        "intro_layer_present": false,
+        "medal_present": false,
+        "start_menu_active": false,
+        "start_menu_layer_present": false
+      },
+      "input": {
+        "angle_step": 0.130899693899575,
+        "fixture": "synthetic unmapped-controller mode joy_has_unmapped=true; no physical controller; diagnostic Node schedules production _tick_mg2d once per actual process frame because direct API fixture bypasses Lagoon scheduler",
+        "method": "Window.push_input raw joypad axis pairs",
+        "motor_assist": false,
+        "observed_rot_acc": 6.28318530717959,
+        "steps": 48
+      },
+      "scope_limit": "PASS: all growth, stack, face, chase, three bites and carrot payoff through guided raw input, synthetic unmapped-controller mode and production-tick bridge. Zero progress-counter assignment; no device/child/owner/natural-route acceptance."
+    },
+    {
+      "path": "captures/completed_snow_fixture/1280x720/snow_ball2_stacked.png",
+      "run_role": "completed_snow_fixture",
+      "state_id": "snow_ball2_stacked",
+      "aspect": "1280x720",
+      "sha256": "bf25090bd1a8de002b8783ef65d2bbdf7edacc6ca9ff1e6ae0bc8abef530dbb4",
+      "run_returncode": 0,
+      "phase": "roll",
+      "balls": 2,
+      "face": 0,
+      "bites": 0,
+      "won": false,
+      "presentation": {
+        "boot_splash_present": false,
+        "fade_alpha": 0.0,
+        "intro_active": false,
+        "intro_layer_present": false,
+        "medal_present": false,
+        "start_menu_active": false,
+        "start_menu_layer_present": false
+      },
+      "input": {
+        "fixture": "synthetic unmapped-controller mode joy_has_unmapped=true; no physical controller; diagnostic Node schedules production _tick_mg2d once per actual process frame because direct API fixture bypasses Lagoon scheduler",
+        "method": "Window.push_input raw joypad axis pairs",
+        "motor_assist": false,
+        "steps": 119
+      },
+      "scope_limit": "PASS: all growth, stack, face, chase, three bites and carrot payoff through guided raw input, synthetic unmapped-controller mode and production-tick bridge. Zero progress-counter assignment; no device/child/owner/natural-route acceptance."
+    },
+    {
+      "path": "captures/completed_snow_fixture/1280x720/snow_ball3_growing.png",
+      "run_role": "completed_snow_fixture",
+      "state_id": "snow_ball3_growing",
+      "aspect": "1280x720",
+      "sha256": "db8d789a5a3120bd5dbca9287273e8db3c7d3f5ea25870abd7a343dc862a8766",
+      "run_returncode": 0,
+      "phase": "roll",
+      "balls": 2,
+      "face": 0,
+      "bites": 0,
+      "won": false,
+      "presentation": {
+        "boot_splash_present": false,
+        "fade_alpha": 0.0,
+        "intro_active": false,
+        "intro_layer_present": false,
+        "medal_present": false,
+        "start_menu_active": false,
+        "start_menu_layer_present": false
+      },
+      "input": {
+        "angle_step": 0.130899693899575,
+        "fixture": "synthetic unmapped-controller mode joy_has_unmapped=true; no physical controller; diagnostic Node schedules production _tick_mg2d once per actual process frame because direct API fixture bypasses Lagoon scheduler",
+        "method": "Window.push_input raw joypad axis pairs",
+        "motor_assist": false,
+        "observed_rot_acc": 6.28318530717959,
+        "steps": 48
+      },
+      "scope_limit": "PASS: all growth, stack, face, chase, three bites and carrot payoff through guided raw input, synthetic unmapped-controller mode and production-tick bridge. Zero progress-counter assignment; no device/child/owner/natural-route acceptance."
+    },
+    {
+      "path": "captures/completed_snow_fixture/1280x720/snow_ball3_stacked.png",
+      "run_role": "completed_snow_fixture",
+      "state_id": "snow_ball3_stacked",
+      "aspect": "1280x720",
+      "sha256": "f92244d78f82e56368b88a78c77bc32c9b2e3cbbf20d619831f078303fd5973f",
+      "run_returncode": 0,
+      "phase": "face",
+      "balls": 3,
+      "face": 0,
+      "bites": 0,
+      "won": false,
+      "presentation": {
+        "boot_splash_present": false,
+        "fade_alpha": 0.0,
+        "intro_active": false,
+        "intro_layer_present": false,
+        "medal_present": false,
+        "start_menu_active": false,
+        "start_menu_layer_present": false
+      },
+      "input": {
+        "fixture": "synthetic unmapped-controller mode joy_has_unmapped=true; no physical controller; diagnostic Node schedules production _tick_mg2d once per actual process frame because direct API fixture bypasses Lagoon scheduler",
+        "method": "Window.push_input raw joypad axis pairs",
+        "motor_assist": false,
+        "steps": 95
+      },
+      "scope_limit": "PASS: all growth, stack, face, chase, three bites and carrot payoff through guided raw input, synthetic unmapped-controller mode and production-tick bridge. Zero progress-counter assignment; no device/child/owner/natural-route acceptance."
+    },
+    {
+      "path": "captures/completed_snow_fixture/1280x720/snow_face1_placed.png",
+      "run_role": "completed_snow_fixture",
+      "state_id": "snow_face1_placed",
+      "aspect": "1280x720",
+      "sha256": "4000f1794b1e5af525a8ba58706b34cf4ca56e0eddb8955314a103012f1b9596",
+      "run_returncode": 0,
+      "phase": "face",
+      "balls": 3,
+      "face": 1,
+      "bites": 0,
+      "won": false,
+      "presentation": {
+        "boot_splash_present": false,
+        "fade_alpha": 0.0,
+        "intro_active": false,
+        "intro_layer_present": false,
+        "medal_present": false,
+        "start_menu_active": false,
+        "start_menu_layer_present": false
+      },
+      "input": {
+        "method": "Input.parse_input_event raw mouse press/release",
+        "position": "(360.0, 600.0)",
+        "target_rect": "[P: (285.0, 545.0), S: (150.0, 110.0)]"
+      },
+      "scope_limit": "PASS: all growth, stack, face, chase, three bites and carrot payoff through guided raw input, synthetic unmapped-controller mode and production-tick bridge. Zero progress-counter assignment; no device/child/owner/natural-route acceptance."
+    },
+    {
+      "path": "captures/completed_snow_fixture/1280x720/snow_face2_placed.png",
+      "run_role": "completed_snow_fixture",
+      "state_id": "snow_face2_placed",
+      "aspect": "1280x720",
+      "sha256": "7a2bb6b05e3af2acd78a28018ae1e8c1e70a14d408121777e7b619331bd4df9a",
+      "run_returncode": 0,
+      "phase": "face",
+      "balls": 3,
+      "face": 2,
+      "bites": 0,
+      "won": false,
+      "presentation": {
+        "boot_splash_present": false,
+        "fade_alpha": 0.0,
+        "intro_active": false,
+        "intro_layer_present": false,
+        "medal_present": false,
+        "start_menu_active": false,
+        "start_menu_layer_present": false
+      },
+      "input": {
+        "method": "Input.parse_input_event raw mouse press/release",
+        "position": "(220.0, 600.0)",
+        "target_rect": "[P: (165.0, 545.0), S: (110.0, 110.0)]"
+      },
+      "scope_limit": "PASS: all growth, stack, face, chase, three bites and carrot payoff through guided raw input, synthetic unmapped-controller mode and production-tick bridge. Zero progress-counter assignment; no device/child/owner/natural-route acceptance."
+    },
+    {
+      "path": "captures/completed_snow_fixture/1280x720/snow_face3_placed.png",
+      "run_role": "completed_snow_fixture",
+      "state_id": "snow_face3_placed",
+      "aspect": "1280x720",
+      "sha256": "76eb68c3f247f512462c7b47214f133f27e9ca5814bf33cbc095c4bf74c23755",
+      "run_returncode": 0,
+      "phase": "chase",
+      "balls": 3,
+      "face": 3,
+      "bites": 0,
+      "won": false,
+      "presentation": {
+        "boot_splash_present": false,
+        "fade_alpha": 0.0,
+        "intro_active": false,
+        "intro_layer_present": false,
+        "medal_present": false,
+        "start_menu_active": false,
+        "start_menu_layer_present": false
+      },
+      "input": {
+        "method": "Input.parse_input_event raw mouse press/release",
+        "position": "(500.0, 600.0)",
+        "target_rect": "[P: (445.0, 545.0), S: (110.0, 110.0)]"
+      },
+      "scope_limit": "PASS: all growth, stack, face, chase, three bites and carrot payoff through guided raw input, synthetic unmapped-controller mode and production-tick bridge. Zero progress-counter assignment; no device/child/owner/natural-route acceptance."
+    },
+    {
+      "path": "captures/completed_snow_fixture/1280x720/snow_chase_entry.png",
+      "run_role": "completed_snow_fixture",
+      "state_id": "snow_chase_entry",
+      "aspect": "1280x720",
+      "sha256": "564a28f0e01c1e7a95147e584377a3cdbb1992203a15399b62b2947ff16f4c9f",
+      "run_returncode": 0,
+      "phase": "chase",
+      "balls": 3,
+      "face": 3,
+      "bites": 0,
+      "won": false,
+      "presentation": {
+        "boot_splash_present": false,
+        "fade_alpha": 0.0,
+        "intro_active": false,
+        "intro_layer_present": false,
+        "medal_present": false,
+        "start_menu_active": false,
+        "start_menu_layer_present": false
+      },
+      "input": {
+        "chase_followthrough": "guided raw x-axis followthrough follows",
+        "method": "production transition after three actual face taps"
+      },
+      "scope_limit": "PASS: all growth, stack, face, chase, three bites and carrot payoff through guided raw input, synthetic unmapped-controller mode and production-tick bridge. Zero progress-counter assignment; no device/child/owner/natural-route acceptance."
+    },
+    {
+      "path": "captures/completed_snow_fixture/1280x720/snow_bite1.png",
+      "run_role": "completed_snow_fixture",
+      "state_id": "snow_bite1",
+      "aspect": "1280x720",
+      "sha256": "01000dff5c15af07176397615c565ee152dd07602987d30dfeb703511f8f5717",
+      "run_returncode": 0,
+      "phase": "chase",
+      "balls": 3,
+      "face": 3,
+      "bites": 1,
+      "won": false,
+      "presentation": {
+        "boot_splash_present": false,
+        "fade_alpha": 0.0,
+        "intro_active": false,
+        "intro_layer_present": false,
+        "medal_present": false,
+        "start_menu_active": false,
+        "start_menu_layer_present": false
+      },
+      "input": {
+        "fixture": "synthetic unmapped-controller mode and standalone production-tick bridge",
+        "medal_transition_guard": "third bite may reach carrot payoff between sampling and frame_post_draw",
+        "method": "guided raw x-axis events track live run_x, neutral within35px; actual process-frame polling",
+        "steps": 196
+      },
+      "scope_limit": "PASS: all growth, stack, face, chase, three bites and carrot payoff through guided raw input, synthetic unmapped-controller mode and production-tick bridge. Zero progress-counter assignment; no device/child/owner/natural-route acceptance."
+    },
+    {
+      "path": "captures/completed_snow_fixture/1280x720/snow_bite2.png",
+      "run_role": "completed_snow_fixture",
+      "state_id": "snow_bite2",
+      "aspect": "1280x720",
+      "sha256": "47494dbe2f1beb530c57318bc99173fe7228a8e57acdae1234f86099eda82dd3",
+      "run_returncode": 0,
+      "phase": "chase",
+      "balls": 3,
+      "face": 3,
+      "bites": 2,
+      "won": false,
+      "presentation": {
+        "boot_splash_present": false,
+        "fade_alpha": 0.0,
+        "intro_active": false,
+        "intro_layer_present": false,
+        "medal_present": false,
+        "start_menu_active": false,
+        "start_menu_layer_present": false
+      },
+      "input": {
+        "fixture": "synthetic unmapped-controller mode and standalone production-tick bridge",
+        "medal_transition_guard": "third bite may reach carrot payoff between sampling and frame_post_draw",
+        "method": "guided raw x-axis events track live run_x, neutral within35px; actual process-frame polling",
+        "steps": 314
+      },
+      "scope_limit": "PASS: all growth, stack, face, chase, three bites and carrot payoff through guided raw input, synthetic unmapped-controller mode and production-tick bridge. Zero progress-counter assignment; no device/child/owner/natural-route acceptance."
+    },
+    {
+      "path": "captures/completed_snow_fixture/1280x720/snow_bite3.png",
+      "run_role": "completed_snow_fixture",
+      "state_id": "snow_bite3",
+      "aspect": "1280x720",
+      "sha256": "806e7934b6de992bc251e8eb7658700e49963e983b13b3bb922f3b680a08456e",
+      "run_returncode": 0,
+      "phase": "done",
+      "balls": 3,
+      "face": 3,
+      "bites": 3,
+      "won": true,
+      "presentation": {
+        "boot_splash_present": false,
+        "fade_alpha": 0.0,
+        "intro_active": false,
+        "intro_layer_present": false,
+        "medal_present": true,
+        "start_menu_active": false,
+        "start_menu_layer_present": false
+      },
+      "input": {
+        "fixture": "synthetic unmapped-controller mode and standalone production-tick bridge",
+        "medal_transition_guard": "third bite may reach carrot payoff between sampling and frame_post_draw",
+        "method": "guided raw x-axis events track live run_x, neutral within35px; actual process-frame polling",
+        "steps": 436
+      },
+      "scope_limit": "PASS: all growth, stack, face, chase, three bites and carrot payoff through guided raw input, synthetic unmapped-controller mode and production-tick bridge. Zero progress-counter assignment; no device/child/owner/natural-route acceptance."
+    },
+    {
+      "path": "captures/completed_snow_fixture/1280x720/snow_carrot_collected_payoff.png",
+      "run_role": "completed_snow_fixture",
+      "state_id": "snow_carrot_collected_payoff",
+      "aspect": "1280x720",
+      "sha256": "db7a8bf83586a3fcfb80ae695d3fba4428745ce3384873bbd587df8016e1dfa9",
+      "run_returncode": 0,
+      "phase": "done",
+      "balls": 3,
+      "face": 3,
+      "bites": 3,
+      "won": true,
+      "presentation": {
+        "boot_splash_present": false,
+        "fade_alpha": 0.0,
+        "intro_active": false,
+        "intro_layer_present": false,
+        "medal_present": true,
+        "start_menu_active": false,
+        "start_menu_layer_present": false
+      },
+      "input": {
+        "fixture": "synthetic unmapped-controller mode and standalone production-tick bridge",
+        "method": "production chase/carrot transition from guided raw x-axis events",
+        "steps": 436
+      },
+      "scope_limit": "PASS: all growth, stack, face, chase, three bites and carrot payoff through guided raw input, synthetic unmapped-controller mode and production-tick bridge. Zero progress-counter assignment; no device/child/owner/natural-route acceptance."
+    },
+    {
+      "path": "captures/completed_snow_fixture/1600x720/snowman_fresh_ready.png",
+      "run_role": "completed_snow_fixture",
+      "state_id": "snowman_fresh_ready",
+      "aspect": "1600x720",
+      "sha256": "50d4d3afea169c6859f0df8990ad00f2301897c2071fda34800e6cbd1fc8fd2c",
+      "run_returncode": 0,
+      "phase": "roll",
+      "balls": 0,
+      "face": 0,
+      "bites": 0,
+      "won": false,
+      "presentation": {
+        "boot_splash_present": false,
+        "fade_alpha": 0.0,
+        "intro_active": false,
+        "intro_layer_present": false,
+        "medal_present": false,
+        "start_menu_active": false,
+        "start_menu_layer_present": false
+      },
+      "input": {
+        "entry": "production _mg2d_open API; fresh Main and isolated save per game; direct route fixture"
+      },
+      "scope_limit": "PASS: all growth, stack, face, chase, three bites and carrot payoff through guided raw input, synthetic unmapped-controller mode and production-tick bridge. Zero progress-counter assignment; no device/child/owner/natural-route acceptance."
+    },
+    {
+      "path": "captures/completed_snow_fixture/1600x720/snow_ball1_growing.png",
+      "run_role": "completed_snow_fixture",
+      "state_id": "snow_ball1_growing",
+      "aspect": "1600x720",
+      "sha256": "aed3cde08deb9f4d2101af9e9df953ff9ba09a1f373224746c6543cecc26bce4",
+      "run_returncode": 0,
+      "phase": "roll",
+      "balls": 0,
+      "face": 0,
+      "bites": 0,
+      "won": false,
+      "presentation": {
+        "boot_splash_present": false,
+        "fade_alpha": 0.0,
+        "intro_active": false,
+        "intro_layer_present": false,
+        "medal_present": false,
+        "start_menu_active": false,
+        "start_menu_layer_present": false
+      },
+      "input": {
+        "angle_step": 0.130899693899575,
+        "fixture": "synthetic unmapped-controller mode joy_has_unmapped=true; no physical controller; diagnostic Node schedules production _tick_mg2d once per actual process frame because direct API fixture bypasses Lagoon scheduler",
+        "method": "Window.push_input raw joypad axis pairs",
+        "motor_assist": false,
+        "observed_rot_acc": 6.28318530717959,
+        "steps": 48
+      },
+      "scope_limit": "PASS: all growth, stack, face, chase, three bites and carrot payoff through guided raw input, synthetic unmapped-controller mode and production-tick bridge. Zero progress-counter assignment; no device/child/owner/natural-route acceptance."
+    },
+    {
+      "path": "captures/completed_snow_fixture/1600x720/snow_ball1_stacked.png",
+      "run_role": "completed_snow_fixture",
+      "state_id": "snow_ball1_stacked",
+      "aspect": "1600x720",
+      "sha256": "b43b78b2a6019020927785f67da5eaa4b90c7d4edb7bb45264e2f8efd0dd628f",
+      "run_returncode": 0,
+      "phase": "roll",
+      "balls": 1,
+      "face": 0,
+      "bites": 0,
+      "won": false,
+      "presentation": {
+        "boot_splash_present": false,
+        "fade_alpha": 0.0,
+        "intro_active": false,
+        "intro_layer_present": false,
+        "medal_present": false,
+        "start_menu_active": false,
+        "start_menu_layer_present": false
+      },
+      "input": {
+        "fixture": "synthetic unmapped-controller mode joy_has_unmapped=true; no physical controller; diagnostic Node schedules production _tick_mg2d once per actual process frame because direct API fixture bypasses Lagoon scheduler",
+        "method": "Window.push_input raw joypad axis pairs",
+        "motor_assist": false,
+        "steps": 143
+      },
+      "scope_limit": "PASS: all growth, stack, face, chase, three bites and carrot payoff through guided raw input, synthetic unmapped-controller mode and production-tick bridge. Zero progress-counter assignment; no device/child/owner/natural-route acceptance."
+    },
+    {
+      "path": "captures/completed_snow_fixture/1600x720/snow_ball2_growing.png",
+      "run_role": "completed_snow_fixture",
+      "state_id": "snow_ball2_growing",
+      "aspect": "1600x720",
+      "sha256": "d9d7cf97bf7dc6d0ec8908deccfbe82315d834ffa97a244215262bb36e930f88",
+      "run_returncode": 0,
+      "phase": "roll",
+      "balls": 1,
+      "face": 0,
+      "bites": 0,
+      "won": false,
+      "presentation": {
+        "boot_splash_present": false,
+        "fade_alpha": 0.0,
+        "intro_active": false,
+        "intro_layer_present": false,
+        "medal_present": false,
+        "start_menu_active": false,
+        "start_menu_layer_present": false
+      },
+      "input": {
+        "angle_step": 0.130899693899575,
+        "fixture": "synthetic unmapped-controller mode joy_has_unmapped=true; no physical controller; diagnostic Node schedules production _tick_mg2d once per actual process frame because direct API fixture bypasses Lagoon scheduler",
+        "method": "Window.push_input raw joypad axis pairs",
+        "motor_assist": false,
+        "observed_rot_acc": 6.28318530717959,
+        "steps": 48
+      },
+      "scope_limit": "PASS: all growth, stack, face, chase, three bites and carrot payoff through guided raw input, synthetic unmapped-controller mode and production-tick bridge. Zero progress-counter assignment; no device/child/owner/natural-route acceptance."
+    },
+    {
+      "path": "captures/completed_snow_fixture/1600x720/snow_ball2_stacked.png",
+      "run_role": "completed_snow_fixture",
+      "state_id": "snow_ball2_stacked",
+      "aspect": "1600x720",
+      "sha256": "713f2eaf96809288ccd9f442dd8e438120e4897024523aa82d644652f62339ac",
+      "run_returncode": 0,
+      "phase": "roll",
+      "balls": 2,
+      "face": 0,
+      "bites": 0,
+      "won": false,
+      "presentation": {
+        "boot_splash_present": false,
+        "fade_alpha": 0.0,
+        "intro_active": false,
+        "intro_layer_present": false,
+        "medal_present": false,
+        "start_menu_active": false,
+        "start_menu_layer_present": false
+      },
+      "input": {
+        "fixture": "synthetic unmapped-controller mode joy_has_unmapped=true; no physical controller; diagnostic Node schedules production _tick_mg2d once per actual process frame because direct API fixture bypasses Lagoon scheduler",
+        "method": "Window.push_input raw joypad axis pairs",
+        "motor_assist": false,
+        "steps": 119
+      },
+      "scope_limit": "PASS: all growth, stack, face, chase, three bites and carrot payoff through guided raw input, synthetic unmapped-controller mode and production-tick bridge. Zero progress-counter assignment; no device/child/owner/natural-route acceptance."
+    },
+    {
+      "path": "captures/completed_snow_fixture/1600x720/snow_ball3_growing.png",
+      "run_role": "completed_snow_fixture",
+      "state_id": "snow_ball3_growing",
+      "aspect": "1600x720",
+      "sha256": "9f6db4a574f666158e08c92f852c87687aad17c52962b65e25051e92e02ca2bd",
+      "run_returncode": 0,
+      "phase": "roll",
+      "balls": 2,
+      "face": 0,
+      "bites": 0,
+      "won": false,
+      "presentation": {
+        "boot_splash_present": false,
+        "fade_alpha": 0.0,
+        "intro_active": false,
+        "intro_layer_present": false,
+        "medal_present": false,
+        "start_menu_active": false,
+        "start_menu_layer_present": false
+      },
+      "input": {
+        "angle_step": 0.130899693899575,
+        "fixture": "synthetic unmapped-controller mode joy_has_unmapped=true; no physical controller; diagnostic Node schedules production _tick_mg2d once per actual process frame because direct API fixture bypasses Lagoon scheduler",
+        "method": "Window.push_input raw joypad axis pairs",
+        "motor_assist": false,
+        "observed_rot_acc": 6.28318530717959,
+        "steps": 48
+      },
+      "scope_limit": "PASS: all growth, stack, face, chase, three bites and carrot payoff through guided raw input, synthetic unmapped-controller mode and production-tick bridge. Zero progress-counter assignment; no device/child/owner/natural-route acceptance."
+    },
+    {
+      "path": "captures/completed_snow_fixture/1600x720/snow_ball3_stacked.png",
+      "run_role": "completed_snow_fixture",
+      "state_id": "snow_ball3_stacked",
+      "aspect": "1600x720",
+      "sha256": "9e72b1fde030b23c899adcec5b6c2c8d5b2d8dbf653ee4867206c2a70d294389",
+      "run_returncode": 0,
+      "phase": "face",
+      "balls": 3,
+      "face": 0,
+      "bites": 0,
+      "won": false,
+      "presentation": {
+        "boot_splash_present": false,
+        "fade_alpha": 0.0,
+        "intro_active": false,
+        "intro_layer_present": false,
+        "medal_present": false,
+        "start_menu_active": false,
+        "start_menu_layer_present": false
+      },
+      "input": {
+        "fixture": "synthetic unmapped-controller mode joy_has_unmapped=true; no physical controller; diagnostic Node schedules production _tick_mg2d once per actual process frame because direct API fixture bypasses Lagoon scheduler",
+        "method": "Window.push_input raw joypad axis pairs",
+        "motor_assist": false,
+        "steps": 95
+      },
+      "scope_limit": "PASS: all growth, stack, face, chase, three bites and carrot payoff through guided raw input, synthetic unmapped-controller mode and production-tick bridge. Zero progress-counter assignment; no device/child/owner/natural-route acceptance."
+    },
+    {
+      "path": "captures/completed_snow_fixture/1600x720/snow_face1_placed.png",
+      "run_role": "completed_snow_fixture",
+      "state_id": "snow_face1_placed",
+      "aspect": "1600x720",
+      "sha256": "84f576143d83f0830d5a0228b92b6e8f96b9a39a58988b66cfaaac9404132e35",
+      "run_returncode": 0,
+      "phase": "face",
+      "balls": 3,
+      "face": 1,
+      "bites": 0,
+      "won": false,
+      "presentation": {
+        "boot_splash_present": false,
+        "fade_alpha": 0.0,
+        "intro_active": false,
+        "intro_layer_present": false,
+        "medal_present": false,
+        "start_menu_active": false,
+        "start_menu_layer_present": false
+      },
+      "input": {
+        "method": "Input.parse_input_event raw mouse press/release",
+        "position": "(520.0, 600.0)",
+        "target_rect": "[P: (445.0, 545.0), S: (150.0, 110.0)]"
+      },
+      "scope_limit": "PASS: all growth, stack, face, chase, three bites and carrot payoff through guided raw input, synthetic unmapped-controller mode and production-tick bridge. Zero progress-counter assignment; no device/child/owner/natural-route acceptance."
+    },
+    {
+      "path": "captures/completed_snow_fixture/1600x720/snow_face2_placed.png",
+      "run_role": "completed_snow_fixture",
+      "state_id": "snow_face2_placed",
+      "aspect": "1600x720",
+      "sha256": "f8f6327f7672c6d7e01e42550b8b8fda4bfa7ca32a9027dc57d900a03232e3bb",
+      "run_returncode": 0,
+      "phase": "face",
+      "balls": 3,
+      "face": 2,
+      "bites": 0,
+      "won": false,
+      "presentation": {
+        "boot_splash_present": false,
+        "fade_alpha": 0.0,
+        "intro_active": false,
+        "intro_layer_present": false,
+        "medal_present": false,
+        "start_menu_active": false,
+        "start_menu_layer_present": false
+      },
+      "input": {
+        "method": "Input.parse_input_event raw mouse press/release",
+        "position": "(380.0, 600.0)",
+        "target_rect": "[P: (325.0, 545.0), S: (110.0, 110.0)]"
+      },
+      "scope_limit": "PASS: all growth, stack, face, chase, three bites and carrot payoff through guided raw input, synthetic unmapped-controller mode and production-tick bridge. Zero progress-counter assignment; no device/child/owner/natural-route acceptance."
+    },
+    {
+      "path": "captures/completed_snow_fixture/1600x720/snow_face3_placed.png",
+      "run_role": "completed_snow_fixture",
+      "state_id": "snow_face3_placed",
+      "aspect": "1600x720",
+      "sha256": "fa1a0360f4de5a401227372b95af8e882881173e428699d9b5882fb69cad4709",
+      "run_returncode": 0,
+      "phase": "chase",
+      "balls": 3,
+      "face": 3,
+      "bites": 0,
+      "won": false,
+      "presentation": {
+        "boot_splash_present": false,
+        "fade_alpha": 0.0,
+        "intro_active": false,
+        "intro_layer_present": false,
+        "medal_present": false,
+        "start_menu_active": false,
+        "start_menu_layer_present": false
+      },
+      "input": {
+        "method": "Input.parse_input_event raw mouse press/release",
+        "position": "(660.0, 600.0)",
+        "target_rect": "[P: (605.0, 545.0), S: (110.0, 110.0)]"
+      },
+      "scope_limit": "PASS: all growth, stack, face, chase, three bites and carrot payoff through guided raw input, synthetic unmapped-controller mode and production-tick bridge. Zero progress-counter assignment; no device/child/owner/natural-route acceptance."
+    },
+    {
+      "path": "captures/completed_snow_fixture/1600x720/snow_chase_entry.png",
+      "run_role": "completed_snow_fixture",
+      "state_id": "snow_chase_entry",
+      "aspect": "1600x720",
+      "sha256": "5cf7c302fc790e9e4b76db3e34f63daa30777d4ca6bcc91047bbb3a82d7d83ba",
+      "run_returncode": 0,
+      "phase": "chase",
+      "balls": 3,
+      "face": 3,
+      "bites": 0,
+      "won": false,
+      "presentation": {
+        "boot_splash_present": false,
+        "fade_alpha": 0.0,
+        "intro_active": false,
+        "intro_layer_present": false,
+        "medal_present": false,
+        "start_menu_active": false,
+        "start_menu_layer_present": false
+      },
+      "input": {
+        "chase_followthrough": "guided raw x-axis followthrough follows",
+        "method": "production transition after three actual face taps"
+      },
+      "scope_limit": "PASS: all growth, stack, face, chase, three bites and carrot payoff through guided raw input, synthetic unmapped-controller mode and production-tick bridge. Zero progress-counter assignment; no device/child/owner/natural-route acceptance."
+    },
+    {
+      "path": "captures/completed_snow_fixture/1600x720/snow_bite1.png",
+      "run_role": "completed_snow_fixture",
+      "state_id": "snow_bite1",
+      "aspect": "1600x720",
+      "sha256": "ecd10871590d65f1c9094e94a1b4d9ee784055f389f3915a518c919215454776",
+      "run_returncode": 0,
+      "phase": "chase",
+      "balls": 3,
+      "face": 3,
+      "bites": 1,
+      "won": false,
+      "presentation": {
+        "boot_splash_present": false,
+        "fade_alpha": 0.0,
+        "intro_active": false,
+        "intro_layer_present": false,
+        "medal_present": false,
+        "start_menu_active": false,
+        "start_menu_layer_present": false
+      },
+      "input": {
+        "fixture": "synthetic unmapped-controller mode and standalone production-tick bridge",
+        "medal_transition_guard": "third bite may reach carrot payoff between sampling and frame_post_draw",
+        "method": "guided raw x-axis events track live run_x, neutral within35px; actual process-frame polling",
+        "steps": 220
+      },
+      "scope_limit": "PASS: all growth, stack, face, chase, three bites and carrot payoff through guided raw input, synthetic unmapped-controller mode and production-tick bridge. Zero progress-counter assignment; no device/child/owner/natural-route acceptance."
+    },
+    {
+      "path": "captures/completed_snow_fixture/1600x720/snow_bite2.png",
+      "run_role": "completed_snow_fixture",
+      "state_id": "snow_bite2",
+      "aspect": "1600x720",
+      "sha256": "9653cd7b8fa8c072a51d1c31a5f3b0704430e54e38455a549662e158d834bca7",
+      "run_returncode": 0,
+      "phase": "chase",
+      "balls": 3,
+      "face": 3,
+      "bites": 2,
+      "won": false,
+      "presentation": {
+        "boot_splash_present": false,
+        "fade_alpha": 0.0,
+        "intro_active": false,
+        "intro_layer_present": false,
+        "medal_present": false,
+        "start_menu_active": false,
+        "start_menu_layer_present": false
+      },
+      "input": {
+        "fixture": "synthetic unmapped-controller mode and standalone production-tick bridge",
+        "medal_transition_guard": "third bite may reach carrot payoff between sampling and frame_post_draw",
+        "method": "guided raw x-axis events track live run_x, neutral within35px; actual process-frame polling",
+        "steps": 337
+      },
+      "scope_limit": "PASS: all growth, stack, face, chase, three bites and carrot payoff through guided raw input, synthetic unmapped-controller mode and production-tick bridge. Zero progress-counter assignment; no device/child/owner/natural-route acceptance."
+    },
+    {
+      "path": "captures/completed_snow_fixture/1600x720/snow_bite3.png",
+      "run_role": "completed_snow_fixture",
+      "state_id": "snow_bite3",
+      "aspect": "1600x720",
+      "sha256": "570e5fe1cf248a1be99a84c9caa7704a2a55e112be12bfdfacc70717ccdf65d0",
+      "run_returncode": 0,
+      "phase": "done",
+      "balls": 3,
+      "face": 3,
+      "bites": 3,
+      "won": true,
+      "presentation": {
+        "boot_splash_present": false,
+        "fade_alpha": 0.0,
+        "intro_active": false,
+        "intro_layer_present": false,
+        "medal_present": true,
+        "start_menu_active": false,
+        "start_menu_layer_present": false
+      },
+      "input": {
+        "fixture": "synthetic unmapped-controller mode and standalone production-tick bridge",
+        "medal_transition_guard": "third bite may reach carrot payoff between sampling and frame_post_draw",
+        "method": "guided raw x-axis events track live run_x, neutral within35px; actual process-frame polling",
+        "steps": 459
+      },
+      "scope_limit": "PASS: all growth, stack, face, chase, three bites and carrot payoff through guided raw input, synthetic unmapped-controller mode and production-tick bridge. Zero progress-counter assignment; no device/child/owner/natural-route acceptance."
+    },
+    {
+      "path": "captures/completed_snow_fixture/1600x720/snow_carrot_collected_payoff.png",
+      "run_role": "completed_snow_fixture",
+      "state_id": "snow_carrot_collected_payoff",
+      "aspect": "1600x720",
+      "sha256": "c6576458b7dda11ff0dcc3961bda2801258c8aba38369e367f6883d17713a764",
+      "run_returncode": 0,
+      "phase": "done",
+      "balls": 3,
+      "face": 3,
+      "bites": 3,
+      "won": true,
+      "presentation": {
+        "boot_splash_present": false,
+        "fade_alpha": 0.0,
+        "intro_active": false,
+        "intro_layer_present": false,
+        "medal_present": true,
+        "start_menu_active": false,
+        "start_menu_layer_present": false
+      },
+      "input": {
+        "fixture": "synthetic unmapped-controller mode and standalone production-tick bridge",
+        "method": "production chase/carrot transition from guided raw x-axis events",
+        "steps": 459
+      },
+      "scope_limit": "PASS: all growth, stack, face, chase, three bites and carrot payoff through guided raw input, synthetic unmapped-controller mode and production-tick bridge. Zero progress-counter assignment; no device/child/owner/natural-route acceptance."
+    }
+  ],
+  "observations": [
+    {
+      "id": "ROOTACT-01",
+      "title": "Snow field and ball material across action",
+      "existing_piece_ids": [
+        "FV-55B5EF60A12C",
+        "FV-C99F706798D3"
+      ],
+      "classification": "Confirmed visible procedural art",
+      "observation": "Rolling and stacked balls remain flat white rounded panels with generic rims/shadows over a large grey panel ground.",
+      "same_scene_comparison": "The approved painted carrot, coal, Roshan and source-book snow surfaces carry authored contours, material and light. Coal is intentionally angular/dark; snow should remain soft/cool.",
+      "proposed_update": "Reuse a suitable clean painted snowball and calm snowy ground if found. Otherwise name only those gaps, drawing one coherent ball family for rolling, three stack sizes and eating states. Retain child construction and separate face placement.",
+      "source_or_native_evidence": [
+        "captures/bounded_snow/1600x720/snow_ball1_growing.png",
+        "captures/bounded_snow/1280x720/snow_ball3_stacked.png",
+        "assets/book/hall/p_snowman.jpg"
+      ],
+      "limits": "Reference page protected and unchanged; context fixture does not establish natural route, phone touch or full-speed motion acceptance.",
+      "status": "OPEN_CONTEXT_REVIEW",
+      "accepted_removals": 0
+    },
+    {
+      "id": "ROOTACT-02",
+      "title": "Snowman stacked support/contact",
+      "existing_piece_ids": [
+        "FV-C99F706798D3"
+      ],
+      "classification": "Source and visual contact candidate",
+      "observation": "The top sphere reads as separated from the middle by a narrow gap/dark seam.",
+      "same_scene_comparison": "Current source centers210/385 with radii72/98 yield a5px separation between head bottom282 and middle top287 before rims/shadows; the lower pair overlap. Painted snowbook volumes join as one supported stack.",
+      "proposed_update": "Review painted contact footprints and stable stacking anchors together. Repair support readability rather than placing an unrelated new sticker over each generic disc. Keep three independently constructed balls and face anchors coherent.",
+      "source_or_native_evidence": [
+        "scripts/games/picture_games.gd:_mg_snow_new_ball/_mg_snow_ball_done",
+        "captures/bounded_snow/1280x720/snow_ball3_stacked.png"
+      ],
+      "limits": "5px is source geometry, not a measured pixel gap or child verdict. All scaling, stack transition and chase occlusions require review.",
+      "status": "OPEN_CONTEXT_REVIEW",
+      "accepted_removals": 0
+    },
+    {
+      "id": "ROOTACT-03",
+      "title": "Coal eye reuse",
+      "existing_piece_ids": [
+        "FV-0FCB49F07274"
+      ],
+      "classification": "Existing painted raster; no automatic vector defect",
+      "observation": "The live coal is the later painted Pass35 card, not the historical orthographic render.",
+      "same_scene_comparison": "Dark irregular facets, indigo contour and subtle surface marks fit the painted carrot family while distinguishing hard coal from soft snow. Repeated eyes use the same whole card.",
+      "proposed_update": "Prefer retaining current approved coal and review its size/contact inside the new snow-head material. Audit card-frame presentation separately; no novelty redraw commissioned.",
+      "source_or_native_evidence": [
+        "ASSET_LICENSES.md historical row161 and superseding row224",
+        "assets/mg/coal.png",
+        "captures/bounded_snow/1280x720/snow_chase_entry.png"
+      ],
+      "limits": "42x42 face rects and110px tap cards have different readability needs. Device/child/owner acceptance remains open.",
+      "status": "OPEN_CONTEXT_REVIEW",
+      "accepted_removals": 0
+    },
+    {
+      "id": "ROOTACT-04",
+      "title": "Snowman bite acting/contact",
+      "existing_piece_ids": [
+        "FV-C99F706798D3"
+      ],
+      "classification": "Existing presentation gap; requires animation/contact context",
+      "observation": "Balls disappear using scale(1.3,0.2) over0.18s. Third/head eating occurs high above Roshan’s fixed chase height, and the last head can remain briefly as a thin white oval during the payoff.",
+      "same_scene_comparison": "The detailed Roshan card remains at chase center y470 while the head begins at y210. Better snow texture alone does not establish a readable eating/contact action.",
+      "proposed_update": "Audit the entire bite transition and authored contact/settle cues before accepting a new ball family. Any needed character action uses approved identity states and a bounded2D animation job card, preserving the existing chase/catch objective and source provenance.",
+      "source_or_native_evidence": [
+        "scripts/games/picture_games.gd:_mg_snow_chase_phase/_mg_tick_snow_chase",
+        "captures/completed_snow_fixture/1280x720/snow_bite2.png",
+        "captures/completed_snow_fixture/1280x720/snow_bite3.png",
+        "captures/completed_snow_fixture/1280x720/snow_carrot_collected_payoff.png"
+      ],
+      "limits": "Stills and source establish a presentation concern, not a reviewed full-motion verdict. No character pixels or gameplay mechanics changed.",
+      "status": "OPEN_CONTEXT_REVIEW",
+      "accepted_removals": 0
+    },
+    {
+      "id": "ROOTACT-05",
+      "title": "Xmas completed topper obscured by reward",
+      "existing_piece_ids": [
+        "FV-E9E82E0C6703"
+      ],
+      "classification": "Source and native confirmed reward-placement defect",
+      "observation": "The medal card covers nearly the entire newly placed friendship-flower topper.",
+      "same_scene_comparison": "The detailed tree and five ornaments are readable before completion. The meaningful new sixth object is covered at the exact payoff.",
+      "proposed_update": "Preserve tree, ornaments and protected flower. Give the one-owner medal a per-caller placement or sequencing that lets the child see the complete decorated tree/topper; replacing only its material at the same bounds is insufficient.",
+      "source_or_native_evidence": [
+        "captures/partial_buttons/1280x720/xmas_ornament5_placed.png",
+        "captures/partial_buttons/1280x720/xmas_flower_payoff.png",
+        "Source flower rect570,135/140x130; medal rect490,140/300x230; medal2.2s and picture close1.6s"
+      ],
+      "limits": "No source image edit or new tree commissioned. Full lifetime, reentry and phone safe-area checks still required.",
+      "status": "OPEN_CONTEXT_REVIEW",
+      "accepted_removals": 0
+    },
+    {
+      "id": "ROOTACT-06",
+      "title": "Trampoline objective/header placement",
+      "existing_piece_ids": [
+        "FV-C6F64FAA2F32",
+        "FV-E9E82E0C6703"
+      ],
+      "classification": "Native confirmed target/header overlap",
+      "observation": "The large painted objective star sits over the instruction panel through all three bounce apex captures. The detached mat highlight remains below the pad.",
+      "same_scene_comparison": "Roshan, star and proposed trampoline need a clear shared play space; the header should not compete with the object she reaches.",
+      "proposed_update": "Use the protected trampoline page as source appearance/context direction for a blue padded frame and dark mesh. Inventory a complete reusable mat, otherwise derive or draw only the clean isolated pad gap. Test header/target spacing and mat contact at every bounce, preserving one-finger input and the existing three-bounce objective.",
+      "source_or_native_evidence": [
+        "captures/partial_buttons/1280x720/trampoline_bounce1_apex.png",
+        "captures/partial_buttons/1280x720/trampoline_bounce2_apex.png",
+        "captures/partial_buttons/1280x720/trampoline_bounce3_apex.png",
+        "assets/book/hall/p_trampoline.jpg"
+      ],
+      "limits": "Book people and overlapping mats cannot be copied blindly into the current playable object. Original remains protected. Full-speed jump/landing review is pending.",
+      "status": "OPEN_CONTEXT_REVIEW",
+      "accepted_removals": 0
+    },
+    {
+      "id": "ROOTACT-07",
+      "title": "Xmas flower enabled-state appearance",
+      "existing_piece_ids": [
+        "FV-E1D26D3057A3"
+      ],
+      "classification": "Protected-source presentation candidate",
+      "observation": "The enabled flower uses modulate(1.3,1.3,1.0), which makes it paler/brighter than its source card and neighboring ornaments.",
+      "same_scene_comparison": "The disabled flower starts at0.5 grey; five placed ornaments retain their authored jewel/material appearance.",
+      "proposed_update": "Preserve the protected flower pixels and audit a separate compatible selection/ready cue around it instead of relying on a source-color wash. Keep locked/enabled distinction and exact unlock behavior.",
+      "source_or_native_evidence": [
+        "captures/partial_buttons/1280x720/xmas_ornament5_placed.png",
+        "scripts/games/picture_games.gd:_mg_build_xmas/_mg_xmas_tap"
+      ],
+      "limits": "Presentation proposal only; no permission inferred to restyle the protected flower.",
+      "status": "OPEN_CONTEXT_REVIEW",
+      "accepted_removals": 0
+    },
+    {
+      "id": "ROOTACT-08",
+      "title": "Sticker reward icons and reward overlap",
+      "existing_piece_ids": [],
+      "classification": "Visible progress/decorative glyph art plus ordinary text",
+      "observation": "Snowman sticker and carrot sticker toasts use emoji artwork. The carrot toast crosses the top of the medal card during payoff.",
+      "same_scene_comparison": "Painted coal/carrot gameplay objects have stable project identity; emoji appearance depends on the platform/font rather than the authored scene family.",
+      "proposed_update": "Inventory authored sticker-icon reuse. Treat the decorative/progress icon separately from ordinary label text, and audit the two simultaneous reward surfaces for hierarchy/overlap while preserving every save key and award trigger.",
+      "source_or_native_evidence": [
+        "scripts/main.gd:STICKER_DEFS/award_sticker/_sticker_toast",
+        "captures/bounded_snow/1280x720/snow_chase_entry.png",
+        "captures/completed_snow_fixture/1280x720/snow_carrot_collected_payoff.png"
+      ],
+      "limits": "Bind exact glyph and caller roles to the existing glyph inventory before adding counts. Device font/render evidence remains pending.",
+      "status": "OPEN_CONTEXT_REVIEW",
+      "accepted_removals": 0
+    }
+  ],
+  "observation_count": 8,
+  "reuse_inventory": [
+    {
+      "path": "assets/book/hall/p_snowman.jpg",
+      "sha256": "9e23b21708b64d2a3b11dde1357acd60af649762fadcce895f66572c69d07b61",
+      "dimensions": [
+        514,
+        720
+      ],
+      "inspected": true,
+      "modifications": "NONE",
+      "fit_limit": "Protected source appearance reference. No exact source-to-compound-cutout derivation proved here; existing snow scene includes people/face/buttons and differs from rolling/empty-ball phases."
+    },
+    {
+      "path": "assets/book/hall/p_trampoline.jpg",
+      "sha256": "f1f4c14f5035fb17d5a42434a5e2bc7a019901f56f0f9d50d0c22e2adad77e1d",
+      "dimensions": [
+        514,
+        720
+      ],
+      "inspected": true,
+      "modifications": "NONE",
+      "fit_limit": "Protected source appearance reference. Blue padded frames/dark mesh are relevant; foreground people and occluded mats prevent blind direct reuse."
+    },
+    {
+      "path": "assets/mg/snowman.png",
+      "sha256": "25abadf1ebd8135265ea75d5d188178b0ea624504b8802b5140f1613402ae743",
+      "dimensions": [
+        291,
+        520
+      ],
+      "inspected": true,
+      "modifications": "NONE",
+      "fit_limit": "Inspected compound cutout includes Roshan fragment, damaged head, face/buttons; not a ready clean rolling/stack ball. Generic license row93 does not by itself establish exact derivation."
+    },
+    {
+      "path": "assets/art35/cards/mg/snowman_snowman.png",
+      "sha256": "38353438e8545c50947cab4b08960c412d49cc4f5b976fd452af72e0db132b31",
+      "dimensions": [
+        256,
+        512
+      ],
+      "inspected": true,
+      "modifications": "NONE",
+      "fit_limit": "Inspected smaller variant of the same compound motif, not a cleaner independent state; bytes differ."
+    },
+    {
+      "path": "assets/mg/coal.png",
+      "sha256": "acd4349097fbd42f6be2d889eee95129a71fba349dd984c8a1b9a202362ab57e",
+      "dimensions": [
+        804,
+        755
+      ],
+      "inspected": true,
+      "modifications": "NONE",
+      "fit_limit": "Inspected painted Pass35 whole coal card. Preserve unless exact scene/phone review identifies a named gap; historical orthographic row is superseded for these current pixels."
+    }
+  ],
+  "evidence_lanes": {
+    "implementation": "UNCHANGED",
+    "machine": "Harness syntax/type/engine compilation passes separately. Execution histories preserve failed runs; bounded snow and completed snow fixture pass. All6452 runtime sources and normal-save suffix fingerprints unchanged. Not full production CI.",
+    "visual": "Eight bounded context observations and12 unique independently viewed native frames.",
+    "device": "PENDING",
+    "child": "PENDING",
+    "owner": "PENDING",
+    "full_game_inventory": "PENDING",
+    "accepted_removals": 0
+  },
+  "scope_limits": [
+    "All entries direct production API fixtures, not natural castle/Lagoon child route.",
+    "Snowman explicitly sets synthetic unmapped-controller environment and schedules unchanged _tick_mg2d once per actual Node process frame; no progress-counter assignment.",
+    "Guided chase inputs track live run_x and do not establish preschool control usability.",
+    "No exact human motion/contact review, phone performance, pause/save/resume/fallback closure or art acceptance.",
+    "Original failed attempts remain failed; successful revised capture does not rewrite history.",
+    "No creative image edits, new generation or runtime change.",
+    "Local staging only until published with complete hashes and exact remote access verification."
+  ]
+}

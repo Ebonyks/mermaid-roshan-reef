@@ -1,0 +1,198 @@
+{
+  "source_revision": "6cde8aeae04aaedcc0b1ff22a05ef93ab9bf666f",
+  "draft_status": "HANDOFF_BLOCKED;R5 unchanged;approval pending",
+  "no_acceptance": true,
+  "commands": [
+    {
+      "id": "gdparser",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-B",
+        "-m",
+        "gdtoolkit.parser",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-art-audit-20261007\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\live_v6\\capture_menu.gd",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-art-audit-20261007\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\live_v6\\capture_touch.gd"
+      ],
+      "started_utc": "2026-10-08T11:15:38.721360+00:00",
+      "elapsed_seconds": 0.932,
+      "exit_code": 0,
+      "result": "PASS",
+      "log_path": "docs/handoffs/codex_flat_vector_art_2026-10-07/live_v6/diagnostics/gate-gdparser.log",
+      "log_sha256": "a3680b6601c39b586ea892ad2bbaa58a7f72b62a64f73917b09aa8c5f188110e",
+      "tail": "\nSTDERR\n"
+    },
+    {
+      "id": "inference",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-B",
+        "tools/lint_inference.py",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-art-audit-20261007\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\live_v6\\capture_menu.gd",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-art-audit-20261007\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\live_v6\\capture_touch.gd"
+      ],
+      "started_utc": "2026-10-08T11:15:39.654150+00:00",
+      "elapsed_seconds": 0.133,
+      "exit_code": 0,
+      "result": "PASS",
+      "log_path": "docs/handoffs/codex_flat_vector_art_2026-10-07/live_v6/diagnostics/gate-inference.log",
+      "log_sha256": "a3680b6601c39b586ea892ad2bbaa58a7f72b62a64f73917b09aa8c5f188110e",
+      "tail": "\nSTDERR\n"
+    },
+    {
+      "id": "menu_analyzer",
+      "command": [
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64_console.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-art-audit-20261007\\mermaid-roshan-reef",
+        "--check-only",
+        "-s",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-art-audit-20261007\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\live_v6\\capture_menu.gd"
+      ],
+      "started_utc": "2026-10-08T11:15:39.787474+00:00",
+      "elapsed_seconds": 7.032,
+      "exit_code": 0,
+      "result": "PASS",
+      "log_path": "docs/handoffs/codex_flat_vector_art_2026-10-07/live_v6/diagnostics/gate-menu_analyzer.log",
+      "log_sha256": "d5458f424780c2301542d69e131d504a8f695308d53c91d4f0b740a6d50c54c7",
+      "tail": "Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org\r\n\r\n\nSTDERR\n"
+    },
+    {
+      "id": "touch_analyzer",
+      "command": [
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64_console.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-art-audit-20261007\\mermaid-roshan-reef",
+        "--check-only",
+        "-s",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-art-audit-20261007\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\live_v6\\capture_touch.gd"
+      ],
+      "started_utc": "2026-10-08T11:15:46.819935+00:00",
+      "elapsed_seconds": 6.65,
+      "exit_code": 0,
+      "result": "PASS",
+      "log_path": "docs/handoffs/codex_flat_vector_art_2026-10-07/live_v6/diagnostics/gate-touch_analyzer.log",
+      "log_sha256": "d5458f424780c2301542d69e131d504a8f695308d53c91d4f0b740a6d50c54c7",
+      "tail": "Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org\r\n\r\n\nSTDERR\n"
+    },
+    {
+      "id": "r5_integrity",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-B",
+        "docs/handoffs/codex_flat_vector_art_2026-10-07/live_v5/validate.py",
+        "--stress"
+      ],
+      "started_utc": "2026-10-08T11:15:53.471190+00:00",
+      "elapsed_seconds": 12.515,
+      "exit_code": 0,
+      "result": "PASS",
+      "log_path": "docs/handoffs/codex_flat_vector_art_2026-10-07/live_v6/diagnostics/gate-r5_integrity.log",
+      "log_sha256": "515e8f6cbaa3265f1dcc4c3aa1262e7250df00103792378f3bb1dc5336244ed0",
+      "tail": "LIVE5|RESULT|ALL OK;250 frames,6 matrices,23 namedinstances,43 partialentries,363 unresolvedscopes\r\nLIVE5|STRESS|PASS14/14 falsifications rejected\r\n\nSTDERR\n"
+    },
+    {
+      "id": "r6_integrity",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-B",
+        "docs/handoffs/codex_flat_vector_art_2026-10-07/live_v6/validate.py",
+        "--stress"
+      ],
+      "started_utc": "2026-10-08T11:16:05.987180+00:00",
+      "elapsed_seconds": 51.054,
+      "exit_code": 0,
+      "result": "PASS",
+      "log_path": "docs/handoffs/codex_flat_vector_art_2026-10-07/live_v6/diagnostics/gate-r6_integrity.log",
+      "log_sha256": "c02edd9a64d71dda385647616dd65d855cb6324537683e94950f08d59bd808c4",
+      "tail": "LIVE6|ALL OK|150native,4matrices,35briefs,31finite-menu-objects,45partial,362unresolved;R5unchanged;noacceptance\r\nLIVE6|STRESS|11/11rejected [('renderer', True), ('source_revision', True), ('display_server', True), ('missing native state', True), ('save mutation', True), ('hidden art visibility', True), ('missing source closure', True), ('section hash', True), ('original hash', True), ('path escape', True), ('duplicate section', True)]\r\n\nSTDERR\n"
+    },
+    {
+      "id": "authority_tests",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-B",
+        "-m",
+        "unittest",
+        "tools.tests.test_audit_document_authority",
+        "tools.tests.test_audit_development"
+      ],
+      "started_utc": "2026-10-08T11:16:57.042768+00:00",
+      "elapsed_seconds": 9.505,
+      "exit_code": 0,
+      "result": "PASS",
+      "log_path": "docs/handoffs/codex_flat_vector_art_2026-10-07/live_v6/diagnostics/gate-authority_tests.log",
+      "log_sha256": "13d095cb44a617d871b0d0d4efcc73effb9a3ebf8de3c8717b5858e6e6d559af",
+      "tail": "DOCAUTH|STRESS|6/6\r\n\nSTDERR\n......................................................\r\n----------------------------------------------------------------------\r\nRan 54 tests in 9.061s\r\n\r\nOK\r\n"
+    },
+    {
+      "id": "document_authority",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-B",
+        "tools/audit_document_authority.py"
+      ],
+      "started_utc": "2026-10-08T11:17:06.550939+00:00",
+      "elapsed_seconds": 9.04,
+      "exit_code": 0,
+      "result": "PASS",
+      "log_path": "docs/handoffs/codex_flat_vector_art_2026-10-07/live_v6/diagnostics/gate-document_authority.log",
+      "log_sha256": "68f1d6ffa04ae5e52307af26bdaeec45f09e2bea6c550b7f3cc68af6643a5c1b",
+      "tail": "DOCAUTH|INVENTORY=693|LEDGER=693|ACTIVE=68|RECORDS=71\r\nDOCAUTH|RESULT|ALL OK\r\n\nSTDERR\n"
+    },
+    {
+      "id": "development_coverage",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-B",
+        "tools/audit_development.py",
+        "--base",
+        "auto"
+      ],
+      "started_utc": "2026-10-08T11:17:15.591714+00:00",
+      "elapsed_seconds": 2.369,
+      "exit_code": 0,
+      "result": "PASS",
+      "log_path": "docs/handoffs/codex_flat_vector_art_2026-10-07/live_v6/diagnostics/gate-development_coverage.log",
+      "log_sha256": "307ab3b37f48904d3fc04fdd40f6b020a015d4d28d0bf3ceec2ce92094086ff6",
+      "tail": "AUDITDEV|BASE|a0219865061cb4ac8a88d30924f33f24e934a3ae\r\nAUDITDEV|RESULT|ALL OK\r\n\nSTDERR\n"
+    },
+    {
+      "id": "unchanged_2d_regression",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-B",
+        "tools/audit_game_2d.py",
+        "--regression-gate"
+      ],
+      "started_utc": "2026-10-08T11:17:17.961675+00:00",
+      "elapsed_seconds": 93.005,
+      "exit_code": 1,
+      "result": "FAIL",
+      "log_path": "docs/handoffs/codex_flat_vector_art_2026-10-07/live_v6/diagnostics/gate-unchanged_2d_regression.log",
+      "log_sha256": "41723668584add93054bacdf3dd684a3d917dc7e5caae3e80ef0392bcab0e13f",
+      "tail": "GAME2D| FAIL| G2D101| docs/handoffs/codex_flat_vector_art_2026-10-07/live_v5/companion/1280x720/capture_manifest.json| current model binary fingerprint debt is missing from the shrinking manifest\r\nGAME2D| FAIL| G2D101| docs/handoffs/codex_flat_vector_art_2026-10-07/live_v5/companion/1280x720/capture_manifest.json| current model signature scan-coverage debt is missing from the shrinking manifest\r\nGAME2D| FAIL| G2D101| docs/handoffs/codex_flat_vector_art_2026-10-07/live_v5/companion/1280x720/capture_manifest.json| current tracked repository model file debt is missing from the shrinking manifest\r\nGAME2D| FAIL| G2D101| docs/handoffs/codex_flat_vector_art_2026-10-07/live_v5/companion/1600x720/capture_manifest.json| current model binary fingerprint debt is missing from the shrinking manifest\r\nGAME2D| FAIL| G2D101| docs/handoffs/codex_flat_vector_art_2026-10-07/live_v5/companion/1600x720/capture_manifest.json| current model signature scan-coverage debt is missing from the shrinking manifest\r\nGAME2D| FAIL| G2D101| docs/handoffs/codex_flat_vector_art_2026-10-07/live_v5/companion/1600x720/capture_manifest.json| current tracked repository model file debt is missing from the shrinking manifest\r\nGAME2D| FAIL| G2D101| docs/handoffs/codex_flat_vector_art_2026-10-07/live_v5/logo/1280x720/capture_manifest.json| current model binary fingerprint debt is missing from the shrinking manifest\r\nGAME2D| FAIL| G2D101| docs/handoffs/codex_flat_vector_art_2026-10-07/live_v5/logo/1280x720/capture_manifest.json| current model signature scan-coverage debt is missing from the shrinking manifest\r\nGAME2D| FAIL| G2D101| docs/handoffs/codex_flat_vector_art_2026-10-07/live_v5/logo/1280x720/capture_manifest.json| current tracked repository model file debt is missing from the shrinking manifest\r\nGAME2D| FAIL| G2D101| docs/handoffs/codex_flat_vector_art_2026-10-07/live_v5/logo/1600x720/capture_manifest.json| current model binary fingerprint debt is missing from the shrinking manifest\r\nGAME2D| FAIL| G2D101| docs/handoffs/codex_flat_vector_art_2026-10-07/live_v5/logo/1600x720/capture_manifest.json| current model signature scan-coverage debt is missing from the shrinking manifest\r\nGAME2D| FAIL| G2D101| docs/handoffs/codex_flat_vector_art_2026-10-07/live_v5/logo/1600x720/capture_manifest.json| current tracked repository model file debt is missing from the shrinking manifest\r\nGAME2D| FAIL| G2D101| docs/handoffs/codex_flat_vector_art_2026-10-07/live_v5/scope_dispositions.json| current model binary fingerprint debt is missing from the shrinking manifest\r\nGAME2D| FAIL| G2D101| docs/handoffs/codex_flat_vector_art_2026-10-07/live_v5/scope_dispositions.json| current model signature scan-coverage debt is missing from the shrinking manifest\r\nGAME2D| FAIL| G2D101| docs/handoffs/codex_flat_vector_art_2026-10-07/live_v5/scope_dispositions.json| current tracked repository model file debt is missing from the shrinking manifest\r\nGAME2D| DEBT| model_files=5| model_scan_coverage_files=5| active_export_model_files=0| model_import_sidecars=0| active_untracked_model_import_sidecars=0| model_archive_files=0| production_3d_files=52| probe_3d_files=61| scene_3d_files=1| configuration_3d_files=1| archive_now_model_files=0\r\nGAME2D| STATUS| UNSATISFIED\r\nGAME2D| RESULT| FAIL - manifest drift (15 finding(s)); 2D contract remains UNSATISFIED\r\n\nSTDERR\n"
+    }
+  ],
+  "summary": {
+    "passed": 9,
+    "failed": 1,
+    "failure": "Unchanged 2D regression scanner rejects five original R5 JSON files above its 4MiB cap; no fix, manifest exception, scanner change or prior evidence rewrite applied.",
+    "full_trusted_suite_at_R5": "Not run: exact-head CI37763184180 stopped at this gate.",
+    "acceptance": "Diagnostic/source integrity only; no DL-QA-11, device, child, owner, replacement or goal completion."
+  },
+  "completion_review": {
+    "recorded_utc": "2026-10-08T11:22:11.358532+00:00",
+    "record_kind": "Summary of final tool results after draft navigation/history edits; not a raw process log",
+    "document_authority": "PASS:INVENTORY693/LEDGER693/ACTIVE68/RECORDS71;ALL OK",
+    "development_coverage": "PASS:--base auto resolveda0219865061cb4ac8a88d30924f33f24e934a3ae;ALL OK",
+    "git_diff_check": "PASS:exit0;CRLF normalization notices only",
+    "originals": "All five R5 original metadata files and R5 validator equal HEAD byte-for-byte; hashes match preservation proof",
+    "production": "git diff92c9fe70319ef46bfaa8f61348a6f51512141ec3 -- scripts scenes assets shaders project.godot empty",
+    "R6_files_over_4MiB": [],
+    "approval": "No human approval received for the rejected prior-handoff representation revision",
+    "publication": "R6 is uncommitted/unpublished;R5 remains latest remotely verified receipt",
+    "goal": "ACTIVE;full inventory/replacements/device/child/owner evidence incomplete"
+  }
+}

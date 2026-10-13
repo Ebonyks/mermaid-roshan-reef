@@ -1,0 +1,387 @@
+extends SceneTree
+# Deterministic ownership/rollback contract for the reversible touch router.
+# Run with -- --touch.
+
+var main: Node3D
+var touch: CanvasLayer
+var taps: Array[Vector2] = []
+var fingers: Dictionary = {}
+var failures := 0
+var navigation_closed_routes: Array[String] = []
+
+func _init() -> void:
+	call_deferred("_run")
+
+
+func _run() -> void:
+	# Configure the real input window after SceneTree initialization; before
+	# that point the headless driver resets it to 64x64 and drops these taps.
+	root.size = Vector2i(1280, 720)
+	root.content_scale_size = Vector2i(1280, 720)
+	var scene: PackedScene = load("res://scenes/main.tscn")
+	main = scene.instantiate()
+	get_root().add_child(main)
+	await process_frame
+	await process_frame
+	if main.has_method("_skip_intro"):
+		main._skip_intro()
+	await _frames(5)
+	touch = main.touch_ui
+	if touch == null or not touch.wants_touch():
+		_bad("touch UI unavailable; run with -- --touch")
+		_finish()
+		return
+	main._set_touch_mode("hybrid", false)
+	touch.world_touched.connect(_record_tap)
+
+	var move_zone: Rect2 = touch.movement_zone()
+	var action_zone: Rect2 = touch.action_zone()
+	if action_zone.size != Vector2.ZERO:
+		_bad("removed action overlay still reserves a screen rectangle: %s" % action_zone)
+	if move_zone.size.x < 390.0 or move_zone.size.y < 300.0:
+		_bad("movement thumb bay is too small: %s" % move_zone)
+	var move_start: Vector2 = move_zone.get_center()
+	# DIRECTION AGREEMENT (owner report 2026-08-03). The thumb bay draws no pad,
+	# so the stick anchors on the finger and a drag's direction IS the commanded
+	# direction — asserted at both ends of the bay and in the middle, because the
+	# old fixed anchor sat at the bay's far left and made most of it push right.
+	for probe_x: float in [move_zone.position.x + 40.0, move_zone.get_center().x,
+			move_zone.end.x - 40.0]:
+		var bay_press := Vector2(probe_x, move_zone.get_center().y)
+		_down(8, bay_press)
+		await process_frame
+		if not (touch.stick_vec as Vector2).is_zero_approx():
+			_bad("a press with no drag pushed the stick at x=%.0f: %s" \
+				% [probe_x, touch.stick_vec])
+		_drag(8, bay_press + Vector2(-70.0, 0.0))
+		await process_frame
+		if (touch.stick_vec as Vector2).x > -0.45:
+			_bad("dragging LEFT at x=%.0f did not steer left: %s" \
+				% [probe_x, touch.stick_vec])
+		_up(8, fingers[8])
+		await process_frame
+	# The bay is an accessibility stick, not a hole in the world: a press there
+	# that never became a drag still reaches the world as a tap.
+	var bay_taps: int = taps.size()
+	_down(9, move_start)
+	_up(9, move_start)
+	await process_frame
+	if taps.size() != bay_taps + 1:
+		_bad("a tap in the thumb bay was swallowed instead of reaching the world")
+	# Hold-to-travel clients read the emulated pointer, which knows nothing about
+	# ownership. Only the thumb bay and global navigation reserve fixed screen
+	# space; the removed action medallion must leave the artwork touchable.
+	var former_action_point := Vector2(1160.0, 620.0)
+	if touch.reserved_zone_hit(former_action_point):
+		_bad("removed action medallion left a bottom-right dead zone")
+	if not touch.reserved_zone_hit(move_start):
+		_bad("holding inside the thumb bay is not reserved from hold-to-travel")
+	main._tap_move_ref().cancel("probe reset")
+	main._interaction_ref().clear_focus()
+	taps.clear()
+	var world_pos := Vector2(
+		get_root().get_viewport().get_visible_rect().size.x * 0.58,
+		get_root().get_viewport().get_visible_rect().size.y * 0.30)
+	if touch.reserved_zone_hit(world_pos):
+		_bad("open world space is wrongly reserved from hold-to-travel")
+
+	# One-finger movement: no action pulse and no accidental world command.
+	_down(0, move_start)
+	_drag(0, move_start + Vector2(74.0, -40.0))
+	await process_frame
+	if (touch.stick_vec as Vector2).length() < 0.45:
+		_bad("hybrid stick did not engage")
+	if bool(touch.action_just) or not taps.is_empty():
+		_bad("movement leaked into action/world tap")
+
+	# A simultaneous world tap keeps its own owner while movement remains live.
+	_down(1, world_pos)
+	_up(1, world_pos)
+	await process_frame
+	if taps.size() != 1 or taps[0].distance_to(world_pos) > 0.1:
+		_bad("simultaneous world tap was lost or moved")
+	if (touch.stick_vec as Vector2).length() < 0.45:
+		_bad("world tap stole movement ownership")
+	# A second-finger activation that does not change scenes must not cancel
+	# the left-stick owner. (World transitions intentionally clear all input.)
+	main._activate_touch_interactable("court:star:0")
+	if (touch.stick_vec as Vector2).length() < 0.45 or not touch.touch_owners.has(0):
+		_bad("non-transition activation stole held movement")
+
+	# A slow press on open art must remain inert until release; Hybrid has no
+	# invisible hold-anywhere action.
+	touch.consume_action()
+	var action_center: Vector2 = world_pos + Vector2(150.0, 90.0)
+	_down(6, action_center)
+	await _frames(30)
+	if bool(touch.action_down) or bool(touch.action_just):
+		_bad("slow world press triggered an invisible action")
+	if (touch.stick_vec as Vector2).length() < 0.45 or not touch.touch_owners.has(0):
+		_bad("second-finger world press stole the held stick")
+	_up(6, action_center)
+	await process_frame
+	if bool(touch.action_down):
+		_bad("world press left action held after release")
+	touch.consume_action()
+	touch.pulse_context_action(action_center)
+	if not bool(touch.consume_action_just()):
+		_bad("direct scene-tap context action did not produce one edge")
+
+	# A swipe over the world is neither a tap command nor leaked finger state.
+	var tap_count_before_drag: int = taps.size()
+	_down(4, world_pos + Vector2(-40.0, 0.0))
+	_drag(4, world_pos + Vector2(40.0, 0.0))
+	_up(4, fingers[4])
+	await process_frame
+	if taps.size() != tap_count_before_drag:
+		_bad("world drag leaked a tap-to-move command")
+	if not touch._world_pend.is_empty():
+		_bad("world drag left stale pending touch state")
+
+	_up(0, fingers[0])
+	await process_frame
+	if not (touch.stick_vec as Vector2).is_zero_approx():
+		_bad("stick remained active after release")
+
+	# Compatibility labels cannot resurrect a visible target.
+	touch.set_action_label("PLAY")
+	if touch.find_child("ActionShellMedallion", true, false) != null:
+		_bad("set_action_label resurrected the action overlay")
+
+	# A full-screen overlay can swallow the original finger-up. Opening and
+	# closing it must still clear the stick owner and restore neutral controls.
+	_down(5, move_start)
+	_drag(5, move_start + Vector2(76.0, -22.0))
+	main._open_craft_studio()
+	await process_frame
+	if touch.world_controls_enabled or not touch.touch_owners.is_empty() or not (touch.stick_vec as Vector2).is_zero_approx():
+		_bad("opening overlay stranded held movement state")
+	if touch.find_child("ActionShellMedallion", true, false) != null:
+		_bad("world action overlay occludes a full-screen activity")
+	# The release is intentionally omitted: this simulates a Control consuming
+	# it before the gameplay router sees it.
+	main._close_craft()
+	await process_frame
+	if not touch.world_controls_enabled or not touch.touch_owners.is_empty() or not (touch.stick_vec as Vector2).is_zero_approx():
+		_bad("closing overlay restored stale held movement")
+
+	# Manual steering cancels assisted travel immediately.
+	main._tap_move_ref().start(main.player.position + Vector3(30.0, 0.0, 0.0))
+	_down(2, move_start)
+	_drag(2, move_start + Vector2(80.0, 0.0))
+	await process_frame
+	if bool(main.touch_auto_active):
+		_bad("manual movement did not cancel assisted movement")
+	_up(2, fingers[2])
+
+	# A selected world point must drive the authored swim loop for the whole
+	# physical approach. Begin during an idle gesture to catch pose-priority
+	# regressions where Roshan slides toward the tap in a held frame.
+	main.player.play_verb("look")
+	var swim_start: Vector3 = main.player.position
+	var swim_forward := Vector3(
+		sin(float(main.player.yaw)), 0.0,
+		cos(float(main.player.yaw)))
+	main._tap_move_ref().start(swim_start + swim_forward * 16.0)
+	var observed_swim_frames: Dictionary = {}
+	for swim_test_frame in range(100):
+		await process_frame
+		var sheet: String = String(main.player.classic_sprite_sheet)
+		if sheet == "swim_front" or sheet == "swim_back":
+			observed_swim_frames[int(main.player.classic_sprite.frame)] = true
+		if not bool(main.touch_auto_active) and swim_test_frame > 12:
+			break
+	var swim_distance: float = Vector2(
+		main.player.position.x - swim_start.x,
+		main.player.position.z - swim_start.z).length()
+	if swim_distance < 1.5:
+		_bad("tap-to-move swim animation test did not physically move Roshan")
+	if observed_swim_frames.size() < 2:
+		_bad("tap-to-move did not display a looping swim atlas: %s" \
+			% observed_swim_frames)
+	main._tap_move_ref().cancel("probe complete")
+	main.player.verb = ""
+
+	# Priority dispatch: the sole global control is claimed in _input before
+	# ordinary GUI routing. Cover parsed physical touch plus direct mouse input.
+	main.game = "level2"
+	main.g["phase"] = "promenade"
+	main._navigation_set_root("sky_lagoon")
+	main._pause_ref().sync_global_navigation()
+	await _probe_single_touch_navigation()
+	var pause_center: Vector2 = touch.pause_zone().get_center()
+	_dispatch_mouse(pause_center, true)
+	await process_frame
+	if not main.get_tree().paused or main.pause_panel == null or not main.pause_panel.visible:
+		_bad("screen-dispatched Menu press did not open the Menu sheet")
+	_dispatch_mouse(pause_center, false)
+	await process_frame
+	_dispatch_mouse(pause_center, true)
+	await process_frame
+	if main.get_tree().paused:
+		_bad("screen-dispatched Back press did not close the Menu sheet")
+	_dispatch_mouse(pause_center, false)
+	await process_frame
+	main.game = ""
+
+	# Runtime rollback: Classic produces no world taps and restores tap-action.
+	main._set_touch_mode("classic", false)
+	var tap_count: int = taps.size()
+	touch.consume_action()
+	_down(3, world_pos)
+	_up(3, world_pos)
+	await process_frame
+	if taps.size() != tap_count:
+		_bad("Classic leaked a Hybrid world tap")
+	if not bool(touch.consume_action_just()):
+		_bad("Classic tap-action rollback is missing")
+
+	touch.notification(Node.NOTIFICATION_APPLICATION_FOCUS_OUT)
+	await process_frame
+	if not (touch.stick_vec as Vector2).is_zero_approx() or bool(touch.action_down) or not touch.touch_owners.is_empty():
+		_bad("focus loss left owned touch state behind")
+	_finish()
+
+
+func _probe_single_touch_navigation() -> void:
+	# Exercise the real engine parser and global Button together. Calling only
+	# TouchUI._input bypasses the emulated mouse/GUI half of a physical touch.
+	var previous_emulation: bool = Input.emulate_mouse_from_touch
+	for emulate: bool in [true, false]:
+		Input.emulate_mouse_from_touch = emulate
+		main._navigation_ref().clear()
+		navigation_closed_routes.clear()
+		main._navigation_push("router_parent", self,
+			_record_navigation_close.bind("parent"))
+		main._navigation_push("router_child", self,
+			_record_navigation_close.bind("child"))
+		var center: Vector2 = touch.pause_zone().get_center()
+		_parse_navigation_touch(center, true)
+		await _frames(2)
+		if navigation_closed_routes != ["child"] \
+				or String(main._navigation_ref().top_id()) != "router_parent":
+			_bad("one raw touch popped more than one route with mouse emulation=%s: %s" \
+				% [emulate, navigation_closed_routes])
+		_parse_navigation_touch(center, false)
+		await _frames(2)
+		if navigation_closed_routes != ["child"]:
+			_bad("navigation finger release popped another route with emulation=%s" % emulate)
+		_parse_navigation_touch(center, true)
+		await _frames(2)
+		_parse_navigation_touch(center, false)
+		await _frames(2)
+		if navigation_closed_routes != ["child", "parent"]:
+			_bad("second deliberate navigation touch did not pop exactly its parent: %s" \
+				% [navigation_closed_routes])
+		if main.get_tree().paused:
+			_bad("a single navigation touch leaked through to the root Menu")
+			main._pause_ref().toggle_pause()
+	await _probe_ordinary_gui_touch()
+	Input.emulate_mouse_from_touch = previous_emulation
+	main._navigation_ref().clear()
+	print("TOUCH_ROUTER|single-touch navigation parser matrix completed")
+
+
+func _probe_ordinary_gui_touch() -> void:
+	# Navigation owns only its press. Ordinary GUI still receives emulated
+	# touch and can release a finger that ends over Back without navigating.
+	Input.emulate_mouse_from_touch = true
+	var overlay := CanvasLayer.new()
+	overlay.layer = 100
+	root.add_child(overlay)
+	var button := Button.new()
+	button.position = Vector2(280.0, 220.0)
+	button.size = Vector2(160.0, 100.0)
+	overlay.add_child(button)
+	var counts: Array[int] = [0, 0]
+	button.button_down.connect(func() -> void: counts[0] += 1)
+	button.button_up.connect(func() -> void: counts[1] += 1)
+	main._navigation_push("router_gui_parent", self,
+		_record_navigation_close.bind("gui_parent"))
+	navigation_closed_routes.clear()
+	var start: Vector2 = button.get_global_rect().get_center()
+	var finish: Vector2 = touch.pause_zone().get_center()
+	_parse_navigation_touch(start, true)
+	await _frames(2)
+	var drag := InputEventScreenDrag.new()
+	drag.index = 0
+	drag.position = finish
+	drag.relative = finish - start
+	Input.parse_input_event(drag)
+	_parse_navigation_touch(finish, false)
+	await _frames(2)
+	if counts != [1, 1] or button.is_pressed() \
+			or not navigation_closed_routes.is_empty():
+		_bad("ordinary GUI drag-release onto Back lost ownership: %s, routes=%s" \
+			% [counts, navigation_closed_routes])
+	_parse_navigation_touch(start, true)
+	await _frames(2)
+	_parse_navigation_touch(start, false)
+	await _frames(2)
+	if counts != [2, 2] or button.is_pressed():
+		_bad("ordinary GUI touch no longer works after navigation: %s" % [counts])
+	main._navigation_ref().clear()
+	overlay.queue_free()
+	await process_frame
+
+
+func _record_navigation_close(route_id: String) -> void:
+	navigation_closed_routes.append(route_id)
+
+
+func _parse_navigation_touch(point: Vector2, pressed: bool) -> void:
+	var event := InputEventScreenTouch.new()
+	event.index = 0
+	event.position = point
+	event.pressed = pressed
+	Input.parse_input_event(event)
+
+func _record_tap(pos: Vector2) -> void:
+	taps.append(pos)
+
+func _down(index: int, pos: Vector2) -> void:
+	fingers[index] = pos
+	var event := InputEventScreenTouch.new()
+	event.index = index
+	event.position = pos
+	event.pressed = true
+	touch._unhandled_input(event)
+
+func _drag(index: int, pos: Vector2) -> void:
+	var event := InputEventScreenDrag.new()
+	event.index = index
+	event.position = pos
+	event.relative = pos - (fingers[index] as Vector2)
+	fingers[index] = pos
+	touch._unhandled_input(event)
+
+func _up(index: int, pos: Vector2) -> void:
+	var event := InputEventScreenTouch.new()
+	event.index = index
+	event.position = pos
+	event.pressed = false
+	touch._unhandled_input(event)
+
+func _dispatch_mouse(pos: Vector2, pressed: bool) -> void:
+	var event := InputEventMouseButton.new()
+	event.device = 0
+	event.button_index = MOUSE_BUTTON_LEFT
+	event.position = pos
+	event.pressed = pressed
+	touch._input(event)
+
+func _frames(count: int) -> void:
+	for frame_index in range(count):
+		await process_frame
+
+func _bad(message: String) -> void:
+	failures += 1
+	print("TOUCH_ROUTER|FAIL ", message)
+
+func _finish() -> void:
+	if failures == 0:
+		print("TOUCH_ROUTER|ALL OK")
+		quit()
+	else:
+		print("TOUCH_ROUTER|FAIL %d issue(s)" % failures)
+		quit(1)

@@ -1,0 +1,252 @@
+{
+  "schema": 1,
+  "source_revision": "6cde8aeae04aaedcc0b1ff22a05ef93ab9bf666f",
+  "status": "DRAFT_HANDOFF_BLOCKED_NO_BRANCH_GREEN_CLAIM",
+  "commands": [
+    {
+      "id": "initial_integrity_after_source_fix",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-B",
+        "docs\\handoffs\\codex_flat_vector_art_2026-10-07\\live_v6\\promenade\\validate.py",
+        "--stress"
+      ],
+      "result": "FAIL",
+      "exit_code": 1,
+      "started_at_utc": "2026-10-08T14:27:44.654366+00:00",
+      "ended_at_utc": "2026-10-08T14:28:01.203831+00:00",
+      "log": "diagnostics/initial-integrity_after_source_fix.log",
+      "log_sha256": "f372fc6a8af5e22ddd3529d9864a9fead53d039980e681f5b34f693d0b202e3a",
+      "log_bytes": 606,
+      "superseded_by": "integrity;validator corrected float32 tolerance for observed0.449999988 source idle alpha0.45;native/source bytes unchanged"
+    },
+    {
+      "id": "pre_review_integrity",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-B",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-art-audit-20261007\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\live_v6\\promenade\\validate.py",
+        "--stress"
+      ],
+      "result": "PASS",
+      "exit_code": 0,
+      "started_at_utc": "2026-10-08T14:29:24.592476+00:00",
+      "ended_at_utc": "2026-10-08T14:29:49.973666+00:00",
+      "log": "diagnostics/pre_review_integrity.log",
+      "log_sha256": "41b1869e90aa9e47f4caf2061ce32cb174ecf25194163c22fe671b2f75dfdc2d",
+      "log_bytes": 1859,
+      "superseded_by": "integrity_review;final review adds duplicate-context and source-scope authority falsification controls"
+    },
+    {
+      "id": "parser",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-B",
+        "-m",
+        "gdtoolkit.parser",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-art-audit-20261007\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\live_v6\\capture_promenade.gd"
+      ],
+      "result": "PASS",
+      "exit_code": 0,
+      "started_at_utc": "2026-10-08T14:29:24.592804+00:00",
+      "ended_at_utc": "2026-10-08T14:29:25.622219+00:00",
+      "log": "diagnostics/gate-parser.log",
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "log_bytes": 0
+    },
+    {
+      "id": "inference",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-B",
+        "tools/lint_inference.py",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-art-audit-20261007\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\live_v6\\capture_promenade.gd"
+      ],
+      "result": "PASS",
+      "exit_code": 0,
+      "started_at_utc": "2026-10-08T14:29:24.593201+00:00",
+      "ended_at_utc": "2026-10-08T14:29:24.722187+00:00",
+      "log": "diagnostics/gate-inference.log",
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "log_bytes": 0
+    },
+    {
+      "id": "analyzer",
+      "command": [
+        "C:/Users/Peter/AppData/Local/Programs/MermaidReefTools/Godot/4.7.2/godot_console.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-art-audit-20261007\\mermaid-roshan-reef",
+        "--check-only",
+        "-s",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-art-audit-20261007\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\live_v6\\capture_promenade.gd"
+      ],
+      "result": "PASS",
+      "exit_code": 0,
+      "started_at_utc": "2026-10-08T14:29:24.593457+00:00",
+      "ended_at_utc": "2026-10-08T14:29:32.652072+00:00",
+      "log": "diagnostics/gate-analyzer.log",
+      "log_sha256": "83cf0b082206af2aa236c83064fbcfa76be1e00a4aa3558574b2f65965d9481c",
+      "log_bytes": 75
+    },
+    {
+      "id": "authority_tests",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-B",
+        "-m",
+        "unittest",
+        "tools.tests.test_audit_document_authority",
+        "tools.tests.test_audit_development"
+      ],
+      "result": "PASS",
+      "exit_code": 0,
+      "started_at_utc": "2026-10-08T14:29:24.723163+00:00",
+      "ended_at_utc": "2026-10-08T14:29:36.698743+00:00",
+      "log": "diagnostics/gate-authority_tests.log",
+      "log_sha256": "4a75ee5171edb739b0c70963f2cffb0f01200b9ffde21b5a6aead47154e22aef",
+      "log_bytes": 179
+    },
+    {
+      "id": "doc_authority",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-B",
+        "tools/audit_document_authority.py"
+      ],
+      "result": "PASS",
+      "exit_code": 0,
+      "started_at_utc": "2026-10-08T14:29:25.623321+00:00",
+      "ended_at_utc": "2026-10-08T14:29:36.698601+00:00",
+      "log": "diagnostics/gate-doc_authority.log",
+      "log_sha256": "5056fa7c5d8a3d61fe6ee245250da6a87dfaea862817e0902b642a64f8f3fff4",
+      "log_bytes": 78
+    },
+    {
+      "id": "audit_development",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-B",
+        "tools/audit_development.py",
+        "--base",
+        "auto"
+      ],
+      "result": "PASS",
+      "exit_code": 0,
+      "started_at_utc": "2026-10-08T14:29:32.653185+00:00",
+      "ended_at_utc": "2026-10-08T14:29:35.948158+00:00",
+      "log": "diagnostics/gate-audit_development.log",
+      "log_sha256": "f6d66d39bb6de57288b435b49d33a2891504449d9936c74badb9c1640ca7e2a5",
+      "log_bytes": 80
+    },
+    {
+      "id": "2d_regression",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-B",
+        "tools/audit_game_2d.py",
+        "--regression-gate"
+      ],
+      "result": "FAIL",
+      "exit_code": 1,
+      "started_at_utc": "2026-10-08T14:29:35.949164+00:00",
+      "ended_at_utc": "2026-10-08T14:30:49.658922+00:00",
+      "log": "diagnostics/gate-2d_regression.log",
+      "log_sha256": "14a315a2888333b488c44d27e1cc8950b303135856386ef4c64ffa77e47b8f31",
+      "log_bytes": 3332
+    },
+    {
+      "id": "whitespace",
+      "command": [
+        "git",
+        "diff",
+        "--check"
+      ],
+      "result": "PASS",
+      "exit_code": 0,
+      "started_at_utc": "2026-10-08T14:29:36.699868+00:00",
+      "ended_at_utc": "2026-10-08T14:29:37.016291+00:00",
+      "log": "diagnostics/gate-whitespace.log",
+      "log_sha256": "5cee5c92dd3e1561c74b179cfae7bd1fc6851e7eb0b0d27a67874cdacb9f341c",
+      "log_bytes": 632
+    },
+    {
+      "id": "production_unchanged",
+      "command": [
+        "git",
+        "diff",
+        "--exit-code",
+        "92c9fe70319ef46bfaa8f61348a6f51512141ec3",
+        "--",
+        "scripts",
+        "scenes",
+        "resources",
+        "assets",
+        "shaders",
+        "project.godot"
+      ],
+      "result": "PASS",
+      "exit_code": 0,
+      "started_at_utc": "2026-10-08T14:29:36.699983+00:00",
+      "ended_at_utc": "2026-10-08T14:29:36.863455+00:00",
+      "log": "diagnostics/gate-production_unchanged.log",
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "log_bytes": 0
+    },
+    {
+      "id": "integrity_review",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-B",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-art-audit-20261007\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\live_v6\\promenade\\validate.py",
+        "--stress"
+      ],
+      "result": "PASS",
+      "exit_code": 0,
+      "started_at_utc": "2026-10-08T14:33:25.175111+00:00",
+      "ended_at_utc": "2026-10-08T14:33:46.985752+00:00",
+      "log": "diagnostics/gate-integrity_review.log",
+      "log_sha256": "c871bde13d6cb2ae6817f647c306556f6ede402923f43dac00b30b57f427a636",
+      "log_bytes": 2309
+    }
+  ],
+  "full_trusted_godot_suite": "NOT_RUN_UNCHANGED_PRODUCTION_KNOWN_RED_BRANCH_2D_GATE",
+  "acceptance": false,
+  "visual_device_child_owner": "NOT_ACCEPTED",
+  "2d_failures_identical_to_dormant_slice": true,
+  "rejected_integrity_falsifications": 22,
+  "completion_checks": [
+    {
+      "id": "doc_authority_final",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-B",
+        "tools/audit_document_authority.py"
+      ],
+      "result": "PASS",
+      "exit_code": 0,
+      "started_at_utc": "2026-10-08T14:33:47.859134+00:00",
+      "ended_at_utc": "2026-10-08T14:33:56.620941+00:00",
+      "log": "diagnostics/gate-doc_authority_final.log",
+      "log_sha256": "5056fa7c5d8a3d61fe6ee245250da6a87dfaea862817e0902b642a64f8f3fff4",
+      "log_bytes": 78
+    },
+    {
+      "id": "audit_development_final",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-B",
+        "tools/audit_development.py",
+        "--base",
+        "auto"
+      ],
+      "result": "PASS",
+      "exit_code": 0,
+      "started_at_utc": "2026-10-08T14:33:47.859434+00:00",
+      "ended_at_utc": "2026-10-08T14:33:50.349148+00:00",
+      "log": "diagnostics/gate-audit_development_final.log",
+      "log_sha256": "f6d66d39bb6de57288b435b49d33a2891504449d9936c74badb9c1640ca7e2a5",
+      "log_bytes": 80
+    }
+  ]
+}

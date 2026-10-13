@@ -1,0 +1,100 @@
+{
+  "baseline": "92c9fe70319ef46bfaa8f61348a6f51512141ec3",
+  "checked_at_utc": "2026-10-08T04:47:01.714766+00:00",
+  "evidence_limits": "Four actual source-image inspections plus source tracing; no new live runtime/device/child/owner acceptance or origin-method determination. Flat look does not prove vector origin.",
+  "observations": [
+    {
+      "id": "ROOT-GARDEN-01",
+      "paths": [
+        "assets/mg/wateringcan.png"
+      ],
+      "caller": "scripts/games/picture_games.gd:_mg_build_garden, source line 606",
+      "evidence": "LOCAL_SOURCE_VISUALLY_INSPECTED_AND_CALLER_TRACED",
+      "weakness": "Low-resolution 272x286 pink can has rough source contour/detail compared with nearby polished painted props. Surrounding green/cream scene RGB exists under alpha0; current visible scene contamination is unproved, not a confirmed defect.",
+      "proposal": "Preserve valid existing alpha and inspect the actual can at 130x137 in the garden with HUD. Compare scene-specific material/detail and alpha filtering to suitable existing painted tools. Reuse or commission only a confirmed contextual quality gap; do not strip already-transparent exterior pixels or repaint solely to clear hidden RGB.",
+      "source_sha256_git_blob_bytes": {
+        "assets/mg/wateringcan.png": "dfcd93a98e83b7b0419602db828e6895fd4884bf0df800e9ecf4ed96c436f6e9"
+      },
+      "history": [
+        {
+          "assessment": "Initial raw source view showed surrounding scene RGB; alpha-composited contact sheet and pixel inspection show exterior scene pixels are transparent. Visible contamination was not established and must not drive a generation job."
+        }
+      ],
+      "alpha_evidence": {
+        "mode": "RGBA",
+        "dimensions": [
+          272,
+          286
+        ],
+        "alpha_extrema": [
+          0,
+          255
+        ],
+        "alpha_bbox": [
+          5,
+          5,
+          268,
+          282
+        ],
+        "four_corners_alpha": 0,
+        "outside_pixel_240_20_alpha": 0,
+        "composite_reference": "Dedicated audit source_reuse_and_gaps.png; no source modifications"
+      }
+    },
+    {
+      "id": "ROOT-GARDEN-02",
+      "paths": [
+        "assets/mg/k_sprout.png"
+      ],
+      "caller": "scripts/games/picture_games.gd:_mg_garden_tap, source line 633",
+      "evidence": "LOCAL_SOURCE_VISUALLY_INSPECTED_AND_CALLER_TRACED",
+      "weakness": "Simple two-leaf sprout has broad smooth fills, angular contour and a separate-looking soil oval; lacks the painted material/detail in neighbouring storybook art.",
+      "proposal": "Draw the sprout from the actual planted seed/soil context with one consistent rooting/pivot, rounded painted leaves and grounded stem. Its authored growth states should lead naturally to all five flower outcomes; preserve 512px canvas and current stem-bottom alignment or update layout from measured derivative bounds.",
+      "source_sha256_git_blob_bytes": {
+        "assets/mg/k_sprout.png": "d7542d8d812a28ddce435c8acf3a103df85e5af59178ad05c9bdb5fef1ed0926"
+      }
+    },
+    {
+      "id": "ROOT-GARDEN-03",
+      "paths": [
+        "assets/mg/k_flower1.png",
+        "assets/mg/flower.png",
+        "assets/mg/flower2.png",
+        "assets/mg/k_flower2.png",
+        "assets/mg/flower3.png"
+      ],
+      "caller": "scripts/games/picture_games.gd:_mg_build_garden line 572; _mg_garden_tap line 642 dynamic loading",
+      "evidence": "flower.png CURRENT_LOCAL_SOURCE_VISUALLY_INSPECTED; other four retain historical weakness and CURRENT_CALLER_TRACE_PENDING_IMAGE_REVIEW",
+      "weakness": "Inspected flower.png uses simple flat pastel petal/stem masses and angular contour. All five listed flowers are current distinct outcomes; unused flower4.png is not a reason to commission a sixth.",
+      "proposal": "Individually draw five distinguishable mature species/outcomes from the same garden context, palette, scale, soil contact and shared seed-to-sprout sequence. Keep different silhouettes and rewarded outcome identities, then review side by side and planted in actual scene.",
+      "source_sha256_git_blob_bytes": {
+        "assets/mg/k_flower1.png": "c4edbd641f0cc13e96378b7468f56711b7dd79bb9f90013bfbe66588472fb35e",
+        "assets/mg/flower.png": "2753083d4e30f5f6e8b49949e0eb50497b5b03d37691df7e3b6b6deddb79880d",
+        "assets/mg/flower2.png": "1ab22c71a550c94c71fcab769c6f1b47f1d73c1ff792775fdc1f9c365ac77a09",
+        "assets/mg/k_flower2.png": "522130ad5c354b1a80aa9734feb025d23c4551af6796cd89f9664d2c0750553d",
+        "assets/mg/flower3.png": "46e05838998044aa1fb36738719fe769521d4b727d891c6062f5ec4cbbe56352"
+      }
+    },
+    {
+      "id": "ROOT-GARDEN-04",
+      "paths": [
+        "assets/mg/carrot.png"
+      ],
+      "caller": "scripts/games/picture_games.gd:_mg_snow_face_phase line410 and _mg_snow_face line428 load the PAINTED farmer carrot, rotated -135 degrees. No current snowman consumer of assets/mg/carrot.png is present.",
+      "evidence": "LOCAL_FLAT_SOURCE_VISUALLY_INSPECTED; CURRENT_SNOWMAN_CALLER_PROVES_PAINTED_REUSE_ALREADY",
+      "weakness": "Tiny thin flat orange triangle with a few vertical marks, substantially weaker than inspected painted carrot widget.",
+      "proposal": "Preserve the original; catalogue this weak source as leftover/unproved other-consumer art. Current snowman already reuses assets/opera/worlds/widgets/widget_target_farmer_piece_0.png with face-specific orientation and measured display bounds, so no new snowman carrot drawing is justified. Review current rotation/contact if needed without inferring acceptance.",
+      "source_sha256_git_blob_bytes": {
+        "assets/mg/carrot.png": "b4c35bee6de1a161f6891396a3b903d22893f772919bbbfe5832e5256e834a8f"
+      },
+      "history": [
+        {
+          "assessment": "Initial snowman-use inference was explicitly unproved; exact caller inspection corrects it.",
+          "weak_source_retained": true
+        }
+      ],
+      "status": "INACTIVE_SOURCE_CANDIDATE_NOT_REDRAW_TASK",
+      "current_runtime_reuse": "assets/opera/worlds/widgets/widget_target_farmer_piece_0.png"
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "C:\Users\Peter\.codex\worktrees\flat-vector-art-audit-20261007\mermaid-roshan-reef\docs\handoffs\codex_flat_vector_art_2026-10-07\live_v6\party_props\validate.py", line 137, in <module>
+    parser=argparse.ArgumentParser();parser.add_argument('--stress',action='store_true');args=parser.parse_args();check()
+                                                                                                                  ~~~~~^^
+  File "C:\Users\Peter\.codex\worktrees\flat-vector-art-audit-20261007\mermaid-roshan-reef\docs\handoffs\codex_flat_vector_art_2026-10-07\live_v6\party_props\validate.py", line 45, in check
+    scan=get('CALLER_PROOFS.json');corpus,refs=caller_scan();assert scan['corpus']==corpus and scan['references']==refs and scan['measured_corpus_count']==349==len(corpus) and len(refs)==107 and len(scan['tokens'])==19
+                                                                                                                            ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+KeyError: 'measured_corpus_count'

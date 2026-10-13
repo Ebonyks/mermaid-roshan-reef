@@ -1,0 +1,270 @@
+["python", "-B", "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\live_v6\\dormant_routes\\validate.py", "--stress"]
+{
+  "status": "PASS",
+  "measured_source_files": 349,
+  "identifier_occurrences": 382,
+  "exact_source_proofs": 46,
+  "source_route_reviews": 6,
+  "retained_friend_scope_backlog": 27,
+  "source_role_briefs": 37,
+  "new_frames": 0,
+  "visual_classifications_added": 0,
+  "acceptance": false,
+  "falsification_controls": [
+    {
+      "control": "inflated_native_frames",
+      "rejected": true,
+      "reason": "('native_frames_added', 'source-only claim drift')"
+    },
+    {
+      "control": "false_visual_classification",
+      "rejected": true,
+      "reason": "('classified_visual_scopes', 'source-only claim drift')"
+    },
+    {
+      "control": "false_all_game_total",
+      "rejected": true,
+      "reason": "('all_game_individual_piece_total', 'source-only claim drift')"
+    },
+    {
+      "control": "omitted_deferred_launch",
+      "rejected": true,
+      "reason": "reference closure drift"
+    },
+    {
+      "control": "archive_mislabeled_production",
+      "rejected": true,
+      "reason": "reference closure drift"
+    },
+    {
+      "control": "missing_source_corpus_file",
+      "rejected": true,
+      "reason": "source corpus drift"
+    },
+    {
+      "control": "dormancy_exemption",
+      "rejected": true,
+      "reason": ""
+    },
+    {
+      "control": "accepted_child_via_parent",
+      "rejected": true,
+      "reason": ""
+    },
+    {
+      "control": "source_bands_claimed_visible",
+      "rejected": true,
+      "reason": ""
+    },
+    {
+      "control": "dormant_entry_complete",
+      "rejected": true,
+      "reason": "prior native status/capture altered"
+    },
+    {
+      "control": "archive_early_return_changed",
+      "rejected": true,
+      "reason": "archived source mismatch"
+    }
+  ]
+}
+
+EXIT 0
+["python", "-B", "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\live_v6\\hud_fashion\\validate.py", "--stress"]
+HUD_FASHION_INTEGRITY PASS:208 native;6 matrices;79 catalog contexts;57 role briefs;16 reviewed boards;47 partial entries;9 classified scopes;360 unresolved;13 falsifications rejected. Diagnostic only;no runtime/creative acceptance.
+
+EXIT 0
+["python", "-B", "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\live_v6\\party_props\\validate.py", "--stress"]
+PARTY_PROPS|PASS|54 native/4 boards/20 sources/349 corpus/107 refs/11 hats/35 counted roles;1488/68 partial/13 classified;no acceptance
+PARTY_PROPS|PASS|reject false_all_game_individual_piece_total
+PARTY_PROPS|PASS|reject false_accepted_removals
+PARTY_PROPS|PASS|reject false_DL_QA_11
+PARTY_PROPS|PASS|reject false_visual_device_child_owner_acceptance
+PARTY_PROPS|PASS|reject false_publication
+PARTY_PROPS|PASS|reject false_partial_entries
+PARTY_PROPS|PASS|reject false_new_scope_classifications
+PARTY_PROPS|PASS|reject source_hash
+PARTY_PROPS|PASS|reject caller_omission
+PARTY_PROPS|PASS|reject dormant_as_current
+PARTY_PROPS|PASS|reject missing_duplicate_hat
+PARTY_PROPS|PASS|reject hat_geometry
+PARTY_PROPS|PASS|reject hat_color
+PARTY_PROPS|PASS|reject hat_attachment
+PARTY_PROPS|PASS|reject fault_as_natural
+PARTY_PROPS|PASS|reject save_mutation
+PARTY_PROPS|PASS|reject signature_omission
+PARTY_PROPS|PASS|reject artifact_path_escape
+PARTY_PROPS|PASS|reject native_hash
+PARTY_PROPS|PASS|reject board_missing_cell
+PARTY_PROPS|PASS|reject review_absent
+PARTY_PROPS|PASS|reject role_exemption
+PARTY_PROPS|PASS|reject scope_inflation
+PARTY_PROPS|PASS|reject coverage_duplicate
+PARTY_PROPS|PASS|reject reuse_accepted
+PARTY_PROPS|PASS|25 integrity falsifications rejected
+
+EXIT 0
+["python", "-B", "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\live_v6\\promenade\\validate.py", "--stress"]
+{
+  "status": "PASS",
+  "native_processes": 8,
+  "native_frames": 256,
+  "boards": 16,
+  "source_files": 6444,
+  "caller_corpus": 349,
+  "caller_refs": 11,
+  "source_proofs": 14,
+  "flat_cue_roles": 10,
+  "inventory_classified_scopes": 2,
+  "cumulative_frames": 1434,
+  "partial_entries": 66,
+  "classified_scopes": 12,
+  "unresolved_scopes": 357,
+  "acceptance": false,
+  "falsifications": [
+    {
+      "case": "unique_total_inflation",
+      "result": "REJECTED"
+    },
+    {
+      "case": "false_accepted_removal",
+      "result": "REJECTED"
+    },
+    {
+      "case": "false_QA11_closure",
+      "result": "REJECTED"
+    },
+    {
+      "case": "omit_visible_raster_role",
+      "result": "REJECTED"
+    },
+    {
+      "case": "functional_mask_exemption",
+      "result": "REJECTED"
+    },
+    {
+      "case": "detach_native_binding",
+      "result": "REJECTED"
+    },
+    {
+      "case": "old_helper_instance_count",
+      "result": "REJECTED"
+    },
+    {
+      "case": "partial_to_complete",
+      "result": "REJECTED"
+    },
+    {
+      "case": "PNG_style_exemption",
+      "result": "REJECTED"
+    },
+    {
+      "case": "detach_board_review",
+      "result": "REJECTED"
+    },
+    {
+      "case": "detach_native_observation",
+      "result": "REJECTED"
+    },
+    {
+      "case": "duplicate_native_matrix",
+      "result": "REJECTED"
+    },
+    {
+      "case": "duplicate_observation_hides_state",
+      "result": "REJECTED"
+    },
+    {
+      "case": "duplicate_board_hides_context",
+      "result": "REJECTED"
+    },
+    {
+      "case": "wrong_scope_source_authority",
+      "result": "REJECTED"
+    },
+    {
+      "case": "functional_helper_exemption",
+      "result": "REJECTED"
+    },
+    {
+      "case": "active_layout_missing",
+      "result": "REJECTED"
+    },
+    {
+      "case": "story_parity_drift",
+      "result": "REJECTED"
+    },
+    {
+      "case": "3D_current_camera",
+      "result": "REJECTED"
+    },
+    {
+      "case": "hidden_normal_HUD",
+      "result": "REJECTED"
+    },
+    {
+      "case": "wrong_pointer_vertices",
+      "result": "REJECTED"
+    },
+    {
+      "case": "normal_save_mutation",
+      "result": "REJECTED"
+    }
+  ],
+  "rejected_falsifications": 22
+}
+
+EXIT 0
+["python", "-B", "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\live_v6\\room_routes\\validate.py", "--stress"]
+{
+  "result": "PASS_DIAGNOSTIC_INTEGRITY_ONLY",
+  "native_frames": 216,
+  "boards": 14,
+  "pointer_entries": 30,
+  "source_owner_returns": 30,
+  "caller_role_briefs": 48,
+  "flat_caller_context_roles": 25,
+  "classified_scopes": 10,
+  "unresolved_scopes": 359,
+  "partial_entries": 62,
+  "falsifications_rejected": [
+    "engine",
+    "source set",
+    "save drift",
+    "saved marker",
+    "wrong owner room",
+    "dev launcher",
+    "hidden hit target",
+    "missing caller role",
+    "flat exempted",
+    "wrong pressed draw mode",
+    "visible functional style",
+    "detached route observations",
+    "inflated catalogue coverage"
+  ],
+  "new_replacement_pixels": 0,
+  "DL_QA_11": "NOT_ACCEPTED",
+  "device_child_owner": "NOT_ACCEPTED"
+}
+
+EXIT 0
+["python", "-B", "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\live_v6\\validate.py", "--stress"]
+LIVE6|ALL OK|150native,4matrices,35briefs,31finite-menu-objects,45partial,362unresolved;R5unchanged;noacceptance
+LIVE6|STRESS|11/11rejected [('renderer', True), ('source_revision', True), ('display_server', True), ('missing native state', True), ('save mutation', True), ('hidden art visibility', True), ('missing source closure', True), ('section hash', True), ('original hash', True), ('path escape', True), ('duplicate section', True)]
+
+EXIT 0
+["python", "-B", "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\validate_packet.py", "--stress"]
+PACKET|ALL OK|224named designs;164overlapping flat roles;76partial/0complete;351unresolved;20review observations;0removals
+PACKET|STRESS|7/7rejected ['fake_denominator', 'fake_removal', 'duplicate_design', 'scope_inflation', 'complete_screen', 'foreign_review_id', 'owner_acceptance']
+
+EXIT 0
+["python", "-B", "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\validate_picture_review.py", "--stress"]
+PICTURE|ALL OK|52retained/44bounded/8rejected;24viewed;17observations/15IDs;76partial/0complete;0removed
+PICTURE|STRESS|8/8false-count/acceptance/clean-context claims rejected
+
+EXIT 0
+["python", "-B", "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\validate_action_review.py", "--stress"]
+ACTION|ALL OK|146retained/52successful/94failed;12viewed/8observations/6IDs;6452same-source;scopes countedonce;0removed
+ACTION|STRESS|6/6 inflated progress or acceptance claims rejected
+
+EXIT 0

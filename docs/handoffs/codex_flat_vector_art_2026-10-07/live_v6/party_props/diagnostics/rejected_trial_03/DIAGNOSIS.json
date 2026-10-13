@@ -1,0 +1,20 @@
+{
+  "recorded_at_utc": "2026-10-08T15:00:23.976011+00:00",
+  "status": "REJECTED_NO_COUNTS",
+  "reason": "All 27 ordered native states passed; fixed eleven-hat assertion failed because name-only PartyHat selector omitted two Godot-renamed duplicate hats. The visible_canvas record contains all eleven polygons. No game mutation.",
+  "excluded_native_frames": 27,
+  "harness_sha256": "6ad22a76c3ea2553fc052035c0747560cee4b4efc3c0a9e7882a4894cf215013",
+  "exit_code": 1,
+  "normal_save_files_unchanged": {
+    "": "47c287147713fac860e25dade59da95961204f9b3170f5e00b5843e11590ad1e",
+    ".bak": "de9d0441ed4d74f01cc8778c1c21600351b1426017d33a5ce99e69b03e893c3a",
+    ".bak.old": "absent",
+    ".bak.tmp": "absent",
+    ".old": "absent",
+    ".tmp": "absent",
+    ".tmp0": "absent",
+    ".tmp1": "absent"
+  },
+  "runtime_fingerprint_checks": "PASS in native log; source fingerprint before/after equal",
+  "next_step": "Diagnostic selector finds all Polygon2D descendants and binds exact triangle/line geometry; retain eleven expected hats."
+}

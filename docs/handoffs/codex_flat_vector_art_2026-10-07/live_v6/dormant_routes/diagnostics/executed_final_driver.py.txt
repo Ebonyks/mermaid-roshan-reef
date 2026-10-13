@@ -1,0 +1,14 @@
+from pathlib import Path
+import subprocess,json,sys,datetime,hashlib,concurrent.futures
+R=Path.cwd();P=R/'docs/handoffs/codex_flat_vector_art_2026-10-07/live_v6/dormant_routes';D=P/'diagnostics'
+checks=[('doc_authority_final',[sys.executable,'-B','tools/audit_document_authority.py']),('audit_development_final',[sys.executable,'-B','tools/audit_development.py','--base','auto'])]
+def run(item):
+ name,cmd=item;start=datetime.datetime.now(datetime.timezone.utc).isoformat();r=subprocess.run(cmd,cwd=R,stdout=subprocess.PIPE,stderr=subprocess.STDOUT);end=datetime.datetime.now(datetime.timezone.utc).isoformat();p=D/('gate-'+name+'.log');p.write_bytes(r.stdout);print(r.stdout.decode('utf-8',errors='replace'),flush=True)
+ return {'id':name,'command':cmd,'result':'PASS' if r.returncode==0 else 'FAIL','exit_code':r.returncode,'started_at_utc':start,'ended_at_utc':end,'log':str(p.relative_to(P)).replace('\\','/'),'log_sha256':hashlib.sha256(r.stdout).hexdigest(),'log_bytes':len(r.stdout)}
+with concurrent.futures.ThreadPoolExecutor(max_workers=2) as ex:results=list(ex.map(run,checks))
+assert all(r['exit_code']==0 for r in results)
+p=P/'GATES.json';g=json.loads(p.read_text(encoding='utf-8'));g['completion_checks']=results
+for row in g['commands']:
+ if row['id']=='doc_authority':row['superseded_by']='doc_authority_final;initial GATES.json link check ran before receipt creation'
+p.write_text(json.dumps(g,ensure_ascii=False,indent=2)+'\n',encoding='utf-8',newline='\n')
+print('completion checks PASS;fullbranch2D and publication remain blocked',flush=True)

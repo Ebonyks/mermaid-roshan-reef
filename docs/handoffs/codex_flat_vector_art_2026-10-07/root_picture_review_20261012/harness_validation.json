@@ -1,0 +1,123 @@
+{
+  "schema": 1,
+  "gates": [
+    {
+      "command": [
+        "python",
+        "-m",
+        "gdtoolkit.parser",
+        "C:\\Users\\Peter\\.codex\\visualizations\\2026\\10\\08\\01a119c6-5602-7523-92db-1d320ca62bdf\\root_capture_picture_context_20261012.gd"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "scope": "Diagnostic capture harness only; not full game regression or art acceptance."
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-art-audit-20261007\\mermaid-roshan-reef\\tools\\lint_inference.py",
+        "C:\\Users\\Peter\\.codex\\visualizations\\2026\\10\\08\\01a119c6-5602-7523-92db-1d320ca62bdf\\root_capture_picture_context_20261012.gd"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "scope": "Diagnostic capture harness only; not full game regression or art acceptance."
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-art-audit-20261007\\mermaid-roshan-reef",
+        "--check-only",
+        "-s",
+        "C:\\Users\\Peter\\.codex\\visualizations\\2026\\10\\08\\01a119c6-5602-7523-92db-1d320ca62bdf\\root_capture_picture_context_20261012.gd"
+      ],
+      "returncode": 0,
+      "stdout": "Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org\n\n",
+      "stderr": "",
+      "scope": "Diagnostic capture harness only; not full game regression or art acceptance."
+    },
+    {
+      "command": [
+        "python",
+        "-m",
+        "gdtoolkit.parser",
+        "C:\\Users\\Peter\\.codex\\visualizations\\2026\\10\\08\\01a119c6-5602-7523-92db-1d320ca62bdf\\root_capture_picture_context_fresh_20261012.gd"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "scope": "Diagnostic capture harness only; not full game regression or art acceptance."
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-art-audit-20261007\\mermaid-roshan-reef\\tools\\lint_inference.py",
+        "C:\\Users\\Peter\\.codex\\visualizations\\2026\\10\\08\\01a119c6-5602-7523-92db-1d320ca62bdf\\root_capture_picture_context_fresh_20261012.gd"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "scope": "Diagnostic capture harness only; not full game regression or art acceptance."
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-art-audit-20261007\\mermaid-roshan-reef",
+        "--check-only",
+        "-s",
+        "C:\\Users\\Peter\\.codex\\visualizations\\2026\\10\\08\\01a119c6-5602-7523-92db-1d320ca62bdf\\root_capture_picture_context_fresh_20261012.gd"
+      ],
+      "returncode": 0,
+      "stdout": "Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org\n\n",
+      "stderr": "",
+      "scope": "Diagnostic capture harness only; not full game regression or art acceptance."
+    },
+    {
+      "command": [
+        "python",
+        "-m",
+        "gdtoolkit.parser",
+        "C:\\Users\\Peter\\.codex\\visualizations\\2026\\10\\08\\01a119c6-5602-7523-92db-1d320ca62bdf\\root_capture_picture_context_guarded_20261012.gd"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "scope": "Diagnostic capture harness only; not full game regression or art acceptance."
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-art-audit-20261007\\mermaid-roshan-reef\\tools\\lint_inference.py",
+        "C:\\Users\\Peter\\.codex\\visualizations\\2026\\10\\08\\01a119c6-5602-7523-92db-1d320ca62bdf\\root_capture_picture_context_guarded_20261012.gd"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "scope": "Diagnostic capture harness only; not full game regression or art acceptance."
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-art-audit-20261007\\mermaid-roshan-reef",
+        "--check-only",
+        "-s",
+        "C:\\Users\\Peter\\.codex\\visualizations\\2026\\10\\08\\01a119c6-5602-7523-92db-1d320ca62bdf\\root_capture_picture_context_guarded_20261012.gd"
+      ],
+      "returncode": 0,
+      "stdout": "Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org\n\n",
+      "stderr": "",
+      "scope": "Diagnostic capture harness only; not full game regression or art acceptance."
+    }
+  ],
+  "all_pass": true
+}

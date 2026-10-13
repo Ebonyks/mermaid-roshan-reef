@@ -1,0 +1,45 @@
+{
+  "schema": 1,
+  "trials": [
+    {
+      "id": "run-20261008T113621",
+      "result": "REJECTED",
+      "case": "fashion1280",
+      "native_frames": 84,
+      "included_in_capture_counts": false,
+      "reason": "Practice labels phase1/phase2/finished had unchanged phase0 actual progress; tail/finish targets absent. All gallery person/slot/page bindings matched, but the full trial failed. No selective phase acceptance.",
+      "source_files": "tmp/flat-vector-hud-fashion-20261008/runs/run-20261008T113621-*; exact rejected harness capture_hud_fashion.v1.gd.txt preserved",
+      "next_action": "v2 adds actual pointer motion before each click, exact phase/person/slot assertions and hover_pressed style records; stronger state binding may expose a genuine source/UI blocker instead of false success."
+    },
+    {
+      "id": "run-20261008T114214",
+      "result": "REJECTED",
+      "case": "fashion1280",
+      "native_frames": 84,
+      "included_in_capture_counts": false,
+      "reason": "Pointer motion and strict phase assertions still showed phase0 after the garden choice; later phase targets absent. Source/callback cause was not proved; no new gameplay defect inferred from this trial.",
+      "next_action": "Record actual pressed signal bindings and separate actual pointer behavior from saved display variants."
+    },
+    {
+      "id": "run-20261008T114610",
+      "result": "REJECTED",
+      "case": "fashion1280",
+      "native_frames": 85,
+      "included_in_capture_counts": false,
+      "reason": "Invalid isolated story-complete-only seed was cleared by canonical save normalization; practice button was absent after real load. This is a fixture error, not a save/game defect.",
+      "next_action": "v4 seeds the declared canonical legacy past-party checkpoint and splits catalog/practice/HUD matrices; normal child saves untouched."
+    },
+    {
+      "id": "run-20261008T115052",
+      "result": "REJECTED",
+      "case": "fashion1280",
+      "native_frames": 79,
+      "included_in_capture_counts": false,
+      "reason": "Native manifest passed, but native process logged SCRIPT ERROR after fixture release accessed a freed Button. Driver correctly rejected entire trial.",
+      "next_action": "v5 stores point before teardown/yields and releases by coordinates. All six accepted processes exit0 without script errors."
+    }
+  ],
+  "excluded_native_frames": 332,
+  "native_pngs_in_packet": false,
+  "reason": "Preserved logs and exact rejected harnesses, not rejected imagery or falsified native facts"
+}

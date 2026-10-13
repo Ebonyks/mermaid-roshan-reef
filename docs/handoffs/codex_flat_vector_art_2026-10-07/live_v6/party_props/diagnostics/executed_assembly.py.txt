@@ -1,0 +1,26 @@
+from pathlib import Path
+import json,hashlib,shutil,math
+from PIL import Image,ImageDraw
+R=Path.cwd();P=R/'docs/handoffs/codex_flat_vector_art_2026-10-07/live_v6/party_props';RUN=R/'tmp/flat-vector-party-props-20261008/runs/run-20261008T150059-launch.json'
+def sha(b):return hashlib.sha256(b).hexdigest()
+def dump(n,j): (P/n).write_text(json.dumps(j,indent=2,ensure_ascii=False)+'\n',encoding='utf-8',newline='\n')
+launch=json.loads(RUN.read_text());frames=[];boards=[];matrix=json.loads((P/'EXPECTED_MATRIX.json').read_text())['party_props']
+assert len(launch)==2
+for rec in launch:
+ assert rec['exit_code']==0 and rec['parent_normal_save_unchanged_after_exit']
+ a=rec['aspect'];src=Path(rec['out']);d=P/'native'/a;d.mkdir(parents=True,exist_ok=True)
+ m=json.loads((src/'capture_manifest.json').read_text());assert m['result']=='PASS' and m['failures']==0 and m['expected_ids']==matrix
+ shutil.copyfile(src/'capture_manifest.json',d/'capture_manifest.json');shutil.copyfile(Path(rec['log']),d/'native.log');rec['packet_manifest']='native/'+a+'/capture_manifest.json';rec['packet_log']='native/'+a+'/native.log'
+ for row in m['states']:
+  assert row['status']=='PASS';s=src/row['image']['file'];assert sha(s.read_bytes())==row['image']['sha256'];shutil.copyfile(s,d/s.name)
+  frames.append({'aspect':a,'state':row['id'],'path':(d/s.name).relative_to(P).as_posix(),'sha256':row['image']['sha256'],'dimensions':[row['image']['width'],row['image']['height']],'sequence':row['sequence'],'fixture_method':row['actual']['fixture_method']})
+ for part,start in enumerate(range(0,len(matrix),16),1):
+  block=[x for x in frames if x['aspect']==a][start:start+16];bh=24+220*math.ceil(len(block)/4);im=Image.new('RGB',(1280,bh),(28,30,39));draw=ImageDraw.Draw(im);draw.text((8,5),f'Party props | {a} | part {part} | diagnostic fixtures, no acceptance',fill='white');cells=[]
+  for k,row in enumerate(block):
+   x=(k%4)*320;y=24+(k//4)*220
+   with Image.open(P/row['path']) as native:
+    native.load();thumb=native.convert('RGB');thumb.thumbnail((320,180),Image.Resampling.LANCZOS);ox=x+(320-thumb.width)//2;oy=y+(180-thumb.height)//2;im.paste(thumb,(ox,oy))
+   draw.text((x+5,y+183),row['state'],fill='white');cells.append({'state':row['state'],'source':row['path'],'source_sha256':row['sha256'],'source_dimensions':row['dimensions'],'thumbnail_bounds':[ox,oy,thumb.width,thumb.height],'mapping':'Whole-canvas proportional preview with letterboxing;native unchanged.'})
+  name=f'boards/party_props_{a}_{part:02d}.png';(P/'boards').mkdir(exist_ok=True);im.save(P/name);boards.append({'aspect':a,'part':part,'path':name,'sha256':sha((P/name).read_bytes()),'dimensions':[1280,bh],'cells':cells})
+dump('CAPTURE_LAUNCH.json',launch);dump('CAPTURES.json',{'schema':1,'frames':frames,'count':len(frames),'count_unit':'native_diagnostic_stills_not_unique_art','method_limits':'Normalized saved checkpoints;component API milestone/lit fixtures;in-memory resource faults. No earned natural progression, full motion or acceptance.'});dump('BOARDS.json',{'schema':1,'boards':boards})
+print('ASSEMBLED',len(frames),'frames',len(boards),'boards',sum((P/x['path']).stat().st_size for x in frames),'nativebytes')

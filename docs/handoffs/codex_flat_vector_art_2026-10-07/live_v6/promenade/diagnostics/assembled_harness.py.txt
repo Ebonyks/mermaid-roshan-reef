@@ -1,0 +1,247 @@
+from pathlib import Path
+import json
+R=Path.cwd();B=R/'docs/handoffs/codex_flat_vector_art_2026-10-07/live_v6';P=B/'promenade';P.mkdir(exist_ok=True);T=R/'tmp/flat-vector-promenade-20261008';T.mkdir(exist_ok=True)
+s=(B/'capture_room_routes.gd').read_text(encoding='utf-8')
+header=s[:s.index('const EXPECTED_IDS')].replace('independent Castle room-route','additive current promenade').replace('"scripts": [".gd", ".uid"]','"scripts": [".gd", ".uid", ".json"]')
+util=s[s.index('func _init()'):s.index('func _snapshot()')]
+util+=s[s.index('func _set_aspect('):s.index('func _run()')]
+util=util.replace('sha256_runtime_roots_room_routes_v1','sha256_runtime_roots_promenade_v1')
+ids=['saved_entry','runway_arrival','runway_departed','runway_saved_reentry','playground_overview']
+for t in ['slide','swing','seesaw']:ids += [t+'_'+v for v in ['idle','pressed','focus','focus_late','ground_cancel','pause_resumed','action','settled']]
+ids+=['castle_idle','castle_focus','castle_ground_cancel']
+assert len(ids)==32
+matrix={c:ids for c in ['post_day','post_night','dayone_day','dayone_night']}
+(P/'EXPECTED_MATRIX.json').write_text(json.dumps(matrix,indent=2)+'\n',encoding='utf-8',newline='\n')
+variables='''const EXPECTED_IDS: Array[String] = IDS_PLACEHOLDER
+var failures: int = 0
+var capture_root := ""
+var aspect_size := Vector2i.ZERO
+var run_case := ""
+var capture_main: ReefMain
+var promenade: SkyLagoonPromenade
+var isolated_save := ""
+var states: Array[Dictionary] = []
+var checks: Array[Dictionary] = []
+var capture_source_signature: Dictionary = {}
+var normal_save_before: Dictionary = {}
+var want_night := false
+var want_dayone := false
+var setup_trace: Array[Dictionary] = []
+'''.replace('IDS_PLACEHOLDER',json.dumps(ids))
+custom='''
+func _v(v: Vector2) -> Array[float]:
+	return [v.x,v.y]
+
+func _c(c: Color) -> Array[float]:
+	return [c.r,c.g,c.b,c.a]
+
+func _cue_record(target: Dictionary) -> Dictionary:
+	var node: Node2D = target.get("node") as Node2D
+	var glow: Sprite2D = target.get("highlight") as Sprite2D
+	var tex: Texture2D = glow.texture
+	var texture := {"class":tex.get_class(),"path":tex.resource_path,"width":tex.get_width(),"height":tex.get_height()}
+	if tex is GradientTexture2D:
+		var gradient: GradientTexture2D = tex as GradientTexture2D
+		var colors: Array = []
+		var offsets: Array = []
+		for color: Color in gradient.gradient.colors:
+			colors.append(_c(color))
+		for value: float in gradient.gradient.offsets:
+			offsets.append(value)
+		texture.merge({"fill":gradient.fill,"fill_from":_v(gradient.fill_from),"fill_to":_v(gradient.fill_to),"gradient_colors":colors,"gradient_offsets":offsets})
+	var children: Array[Dictionary] = []
+	for child: Node in glow.get_children():
+		if child is Polygon2D:
+			var poly: Polygon2D = child as Polygon2D
+			var points: Array = []
+			var screen: Array = []
+			for point: Vector2 in poly.polygon:
+				points.append(_v(point))
+				screen.append(_v(poly.get_global_transform_with_canvas()*point))
+			children.append({"name":String(poly.name),"path":String(capture_main.get_path_to(poly)),"points":points,"screen_points":screen,"color":_c(poly.color),"visible":poly.is_visible_in_tree(),"role":String(poly.get_meta("canvas_layer_role",""))})
+	return {"id":String(target.get("id","")),"kind":String(target.get("kind","")),"node_path":String(capture_main.get_path_to(node)),"node_master":_v(node.position),"node_screen":_v(promenade.screen_from_master(node.position)),"hit_radius_px":float(target.get("radius_px",0)),"glow_path":String(capture_main.get_path_to(glow)),"glow_master":_v(glow.position),"glow_modulate":_c(glow.modulate),"glow_scale":_v(glow.scale),"glow_visible":glow.is_visible_in_tree(),"texture":texture,"children":children,"focus_cue_role":String(glow.get_meta("focus_cue_role","")),"pointer_tip":_v(glow.get_meta("pointer_tip_local",Vector2.ZERO) as Vector2)}
+
+func _snapshot() -> Dictionary:
+	var m: ReefMain = capture_main
+	var canvas: Array[Dictionary] = []
+	_collect_visible(m,canvas)
+	var targets: Array[Dictionary] = []
+	for value: Variant in m.g.get("lagoon_promenade_targets",[]):
+		targets.append(_cue_record(value as Dictionary))
+	var play: Dictionary = m.g.get("lagoon_play_anim",{}) as Dictionary
+	return {"save_path":m._save_state.save_path,"game":m.game,"phase":String(m.g.get("phase","")),"tree_paused":paused,"start_menu_active":m.start_menu_active,"intro_active":m.intro_active,"story_clip_present":is_instance_valid(m._day_one_story_clip),"fade_alpha":m.fade_rect.color.a*m.fade_rect.modulate.a*m.fade_rect.self_modulate.a if m.fade_rect!=null and m.fade_rect.visible else 0.0,"night":m.is_night,"plays":m.plays,"day_one_active":m.day_one_is_active(),"plane_departed_save":bool(m.save_data.get("lagoon_plane_departed",false)),"route_master_x":promenade.master_route_x(),"focus":String(m.g.get("lagoon_promenade_focus","")),"focus_t":float(m.g.get("lagoon_promenade_focus_t",0)),"action_label":promenade.action_label(),"play_kind":String(play.get("kind","")),"play_phase":String(play.get("phase","")),"play_t":float(play.get("t",0)),"targets":targets,"visible_canvas":canvas,"touch":_touch_record(),"normal_hud_visible":m.hud_layer.visible,"player_hidden":not m.player.visible,"camera2d_current":root.get_viewport().get_camera_2d()==promenade.camera_2d(),"camera3d_current":root.get_viewport().get_camera_3d()!=null,"save_generation":m.save_generation,"firefly_count":(m.g.get("lagoon_night_fireflies",[]) as Array).size(),"castle_armed":bool(m.g.get("lagoon_castle_armed",false))}
+
+func _capture(id: String,expect: Dictionary) -> void:
+	await _frames(3)
+	await RenderingServer.frame_post_draw
+	var actual := _snapshot()
+	var valid: bool = actual["save_path"]==isolated_save and actual["game"]=="level2" and actual["phase"]=="promenade" and not actual["tree_paused"] and not actual["start_menu_active"] and not actual["intro_active"] and not actual["story_clip_present"] and float(actual["fade_alpha"])<=0.001 and actual["night"]==want_night and actual["day_one_active"]==want_dayone and actual["camera2d_current"] and not actual["camera3d_current"] and actual["player_hidden"]
+	for key: String in expect:
+		valid = valid and actual.get(key)==expect[key]
+	var image: Image = root.get_viewport().get_texture().get_image()
+	var path := capture_root.path_join(id+".png")
+	_check("capture path fresh "+id,not FileAccess.file_exists(path))
+	var err: Error = image.save_png(path)
+	valid = valid and not image.is_empty() and image.get_size()==aspect_size and err==OK
+	_check("native state/image "+id,valid,str(expect))
+	var file: FileAccess = FileAccess.open(path,FileAccess.READ)
+	states.append({"id":id,"sequence":states.size(),"expected":expect,"actual":actual,"status":"PASS" if valid else "FAIL","image":{"file":id+".png","width":image.get_width(),"height":image.get_height(),"bytes":file.get_length(),"sha256":FileAccess.get_sha256(path)}})
+	file.close()
+
+func _tap(point: Vector2) -> void:
+	var motion := InputEventMouseMotion.new()
+	motion.position=point
+	motion.global_position=point
+	root.push_input(motion,true)
+	await _frames(1)
+	_mouse_point(point,true)
+	await _frames(2)
+	_mouse_point(point,false)
+	await _frames(3)
+
+func _target(id: String) -> Dictionary:
+	for value: Variant in capture_main.g.get("lagoon_promenade_targets",[]):
+		var target: Dictionary = value as Dictionary
+		if String(target.get("id",""))==id:
+			return target
+	return {}
+
+func _place(master_x: float) -> void:
+	promenade.set_master_route_x(master_x)
+	setup_trace.append({"operation":"production set_master_route_x","declared_programmatic_fixture":true,"master_x":master_x})
+	await _frames(3)
+
+func _saved_reentry(departed: bool) -> void:
+	var m: ReefMain = capture_main
+	m.save_data["lagoon_plane_departed"]=departed
+	m.plays=1 if want_night else 0
+	m._write_save()
+	m._save_state.load_save()
+	m._apply_quality("speedy")
+	m._set_touch_mode("hybrid",false)
+	_check("saved play parity/dayone/plane",m.is_night==want_night and m.day_one_is_active()==want_dayone and bool(m.save_data.get("lagoon_plane_departed",false))==departed)
+	m._enter_level2_now(false,false,false)
+	promenade=m._lagoon_promenade_ref()
+	await _frames(12)
+	setup_trace.append({"operation":"isolated write/load and production current Sky entry","declared_programmatic_fixture":true,"plays_input":1 if want_night else 0,"night_loaded":m.is_night,"plane_saved":departed,"dayone_loaded":m.day_one_is_active(),"generation":m.save_generation})
+
+func _run_matrix() -> void:
+	var m: ReefMain = capture_main
+	await _capture("saved_entry",{})
+	await _place(610.0)
+	await _capture("runway_arrival",{"plane_departed_save":false})
+	# The production plane controller earns and writes its ordinary7second departure.
+	await _wait(7.3)
+	await _capture("runway_departed",{"plane_departed_save":true})
+	await _saved_reentry(true)
+	await _place(610.0)
+	await _capture("runway_saved_reentry",{"plane_departed_save":true})
+	await _place(3072.0)
+	await _capture("playground_overview",{})
+	for id: String in ["slide","swing","seesaw"]:
+		var target: Dictionary = _target(id)
+		var node: Node2D = target.get("node") as Node2D
+		await _place(node.position.x)
+		promenade.cancel_navigation()
+		await _capture(id+"_idle",{"focus":"","play_kind":""})
+		var point: Vector2 = promenade.screen_from_master(node.position)
+		var move := InputEventMouseMotion.new()
+		move.position=point
+		move.global_position=point
+		root.push_input(move,true)
+		_mouse_point(point,true)
+		await _frames(2)
+		await _capture(id+"_pressed",{"focus":""})
+		_mouse_point(point,false)
+		await _frames(3)
+		await _capture(id+"_focus",{"focus":id,"action_label":"PLAY"})
+		await _wait(0.45)
+		await _capture(id+"_focus_late",{"focus":id,"action_label":"PLAY"})
+		await _tap(Vector2(aspect_size.x*0.70,690))
+		await _capture(id+"_ground_cancel",{"focus":"","action_label":"JUMP"})
+		point=promenade.screen_from_master(node.position)
+		await _tap(point)
+		_check("raw refocus before pause "+id,String(m.g.get("lagoon_promenade_focus",""))==id)
+		m.toggle_pause()
+		await _frames(2)
+		m.toggle_pause()
+		await _frames(3)
+		await _capture(id+"_pause_resumed",{"focus":"","action_label":"JUMP"})
+		point=promenade.screen_from_master(node.position)
+		await _tap(point)
+		await _tap(point)
+		await _wait(0.2)
+		await _capture(id+"_action",{"focus":"","play_kind":id,"play_phase":"action"})
+		var deadline: int = Time.get_ticks_msec()+12000
+		while not (m.g.get("lagoon_play_anim",{}) as Dictionary).is_empty() and Time.get_ticks_msec()<deadline:
+			await process_frame
+		_check("ordinary action naturally settled "+id,(m.g.get("lagoon_play_anim",{}) as Dictionary).is_empty())
+		await _capture(id+"_settled",{"focus":"","play_kind":""})
+	await _place(4905.0)
+	promenade.cancel_navigation()
+	await _capture("castle_idle",{"focus":""})
+	var gate: Dictionary = _target("castle_gate")
+	var gate_node: Node2D = gate.get("node") as Node2D
+	await _tap(promenade.screen_from_master(gate_node.position))
+	await _capture("castle_focus",{"focus":"castle_gate","action_label":"ENTER"})
+	await _tap(Vector2(aspect_size.x*0.25,690))
+	await _capture("castle_ground_cancel",{"focus":"","action_label":"JUMP"})
+
+func _run() -> void:
+	run_case=OS.get_environment("LIVE6P_CASE")
+	capture_root=OS.get_environment("LIVE6P_OUT")
+	var aspect := OS.get_environment("LIVE6P_ASPECT").split("x")
+	if aspect.size()!=2 or run_case not in ["post_day","post_night","dayone_day","dayone_night"] or capture_root.is_empty():
+		quit(1)
+		return
+	want_night=run_case.ends_with("night")
+	want_dayone=run_case.begins_with("dayone")
+	aspect_size=Vector2i(int(aspect[0]),int(aspect[1]))
+	if aspect_size not in [Vector2i(1280,720),Vector2i(1600,720)] or not _exact_engine() or DisplayServer.get_name()=="headless" or RenderingServer.get_current_rendering_method()!="mobile" or DirAccess.dir_exists_absolute(capture_root):
+		quit(1)
+		return
+	DirAccess.make_dir_recursive_absolute(capture_root)
+	isolated_save=capture_root.get_base_dir().path_join("profiles").path_join(capture_root.get_file()).path_join("reef_save.json")
+	DirAccess.make_dir_recursive_absolute(isolated_save.get_base_dir())
+	_check("fresh profile",not FileAccess.file_exists(isolated_save))
+	normal_save_before=_normal_save_fingerprints()
+	capture_source_signature=_source_signature()
+	var scene: PackedScene = load("res://scenes/main.tscn") as PackedScene
+	capture_main=scene.instantiate() as ReefMain
+	capture_main._save_state=SaveState.new(capture_main,isolated_save)
+	root.add_child(capture_main)
+	capture_main._apply_quality("speedy")
+	await _frames(6)
+	_check("exact native viewport",await _set_aspect(aspect_size))
+	var m: ReefMain = capture_main
+	m._start_menu_ref()._dismiss_menu()
+	await _frames(3)
+	m._day_one_cancel_story_clips()
+	m.intro_active=false
+	if not want_dayone:
+		m.day_one_giant_dust_bunny_boss_defeated=true
+		m._chapter_two_ref().restore_state({"day_one_giant_dust_bunny_boss_defeated":true,"chapter2_party_piece_mask":ChapterTwoPartyPlan.ALL_PARTY_MASK,"chapter2_ember_king_crashed":true,"chapter2_party_started":true,"chapter2_lawn_started":false})
+	m._day_one_ref().restore_state({"day_one_active":want_dayone,"day_one_giant_dust_bunny_boss_defeated":not want_dayone,"day_one_arrival_plane_media_seen":true})
+	await _saved_reentry(false)
+	await _run_matrix()
+	paused=false
+	capture_main.queue_free()
+	capture_main=null
+	await _frames(8)
+	var normal_after := _normal_save_fingerprints()
+	var source_after := _source_signature()
+	_check("normal saves unchanged",normal_save_before==normal_after)
+	_check("measured source list unchanged",capture_source_signature["sha256"]==source_after["sha256"])
+	var actual_ids: Array[String] = []
+	for row: Dictionary in states:
+		actual_ids.append(String(row["id"]))
+	_check("exact ordered matrix",actual_ids==EXPECTED_IDS)
+	var manifest := {"schema":"reef.flat_vector.promenade.v1","source_revision":OS.get_environment("GITHUB_SHA"),"run_case":run_case,"engine":_engine_contract(),"renderer":RenderingServer.get_current_rendering_method(),"display_server":DisplayServer.get_name(),"quality":"speedy","aspect":[aspect_size.x,aspect_size.y],"harness_sha256":FileAccess.get_sha256(get_script().resource_path),"source_signature":capture_source_signature,"source_unchanged":capture_source_signature["sha256"]==source_after["sha256"],"save_isolation":{"before":normal_save_before,"after":normal_after,"unchanged":normal_save_before==normal_after,"fresh_fixture_save":isolated_save,"normal_save_file":ProjectSettings.globalize_path("user://reef_save.json")},"setup_trace":setup_trace,"checks":checks,"expected_ids":EXPECTED_IDS,"states":states,"failures":failures,"result":"PASS" if failures==0 else "FAIL","scope":"Diagnostic current promenade source-native context only. Programmatic normalized saved checkpoints and camera route positions;actual raw focus/cancel/play,source-owned pause and natural plane departure/ride settle. Normal HUD preserved. No QA11 independent active closure,complete animation/contact,device/child/owner acceptance."}
+	var out := FileAccess.open(capture_root.path_join("capture_manifest.json"),FileAccess.WRITE)
+	out.store_string(JSON.stringify(manifest,"\\t",true)+"\\n")
+	out.close()
+	print("LIVE6|RESULT|%s|states=%d" %[manifest["result"],states.size()])
+	quit(0 if failures==0 else 1)
+'''
+(B/'capture_promenade.gd').write_text(header+variables+'\n'+util+custom,encoding='utf-8',newline='\n')
+print('harness written;32 states x4savedvariants x2aspects planned')

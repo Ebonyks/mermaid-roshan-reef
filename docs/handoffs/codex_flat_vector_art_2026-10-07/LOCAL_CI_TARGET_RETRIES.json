@@ -1,0 +1,144 @@
+{
+  "schema": 1,
+  "original_full_ci": "publication_diagnostics/full_local_ci.log",
+  "scope": "Same approved engine/runtime/source,args and fresh isolatedAPPDATA profiles;nativeWindows returncodes,not waiver of original failures. Original fullsuite stillrunning.",
+  "results": [
+    {
+      "probe": "probe_audit",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef",
+        "-s",
+        "scripts/probe_audit.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "isolated_profile": "C:\\Users\\Peter\\AppData\\Local\\Temp\\r6-probe_audit-tn__79pg",
+      "start_utc": "2026-10-13T01:33:49.209497+00:00",
+      "end_utc": "2026-10-13T01:34:27.723942+00:00",
+      "native_windows_returncode": 0,
+      "timed_out": false,
+      "log": "publication_diagnostics/retry_probe_audit.log",
+      "log_sha256": "2d03a057e4764f2b61f5aff2f94735ad7d10b8b868e0dfda83a774c8e33f36b0",
+      "failure_lines": [],
+      "verdict_tail": [
+        "AUDIT|Level 2 entry: OK",
+        "AUDIT|Level 2 three-screen promenade: OK targets=4",
+        "AUDIT|Level 2 castle Sprite2D stage: OK game=level2 phase=hall mg_kind= stars_got=0 l2_open=false",
+        "AUDIT|retired 3D castle absent: OK",
+        "AUDIT|castle physical doors plus single global Back: OK",
+        "AUDIT|Royal Hall Crown finish: OK",
+        "AUDIT|save file: OK",
+        "AUDIT|retired reef finale stays dormant: OK",
+        "AUDIT|persisted wins: 5/5",
+        "AUDIT|total wall time: 16.4s"
+      ]
+    },
+    {
+      "probe": "probe_dance",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef",
+        "-s",
+        "scripts/probe_dance.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "isolated_profile": "C:\\Users\\Peter\\AppData\\Local\\Temp\\r6-probe_dance-znlisrbc",
+      "start_utc": "2026-10-13T01:34:27.734280+00:00",
+      "end_utc": "2026-10-13T01:34:36.908303+00:00",
+      "native_windows_returncode": 0,
+      "timed_out": false,
+      "log": "publication_diagnostics/retry_probe_dance.log",
+      "log_sha256": "e9d68243d211c408223d1196cf163535148aa1e6ee06258eef1fba2a6f60ad6e",
+      "failure_lines": [],
+      "verdict_tail": [
+        "Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org",
+        "",
+        "DANCE|open: OK 44-note beginner chart",
+        "DANCE|forgiveness: OK exploratory tap is harmless",
+        "DANCE|input: OK touch/keyboard lane path judges all arrows",
+        "DANCE|songs: OK existing-song selector rebuilt the chart",
+        "DANCE|close: OK world resumed with no passive reward",
+        "DANCE|castle: OK castle is open with zero butterflies",
+        "DANCE|rug: OK Butterfly Castle rug launches rhythm engine",
+        "DANCE|result: ALL OK"
+      ]
+    },
+    {
+      "probe": "probe_touch_adversary",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef",
+        "-s",
+        "scripts/probe_touch_adversary.gd",
+        "--",
+        "--touch",
+        "--hybrid-touch-test"
+      ],
+      "isolated_profile": "C:\\Users\\Peter\\AppData\\Local\\Temp\\r6-probe_touch_adversary-prx2k74t",
+      "start_utc": "2026-10-13T01:39:13.558974+00:00",
+      "end_utc": "2026-10-13T01:40:22.453450+00:00",
+      "native_windows_returncode": 0,
+      "timed_out": false,
+      "log": "publication_diagnostics/retry_probe_touch_adversary.log",
+      "log_sha256": "7dce7b16bedf0a78e23f3951656cebf93faf911ab4ab7ef1e163c81feb2a5643",
+      "failure_lines": [],
+      "verdict_tail": [
+        "TOUCH_ADVERSARY|RUN 17|CLEAR \u2014 no automated touch concern",
+        "TOUCH_ADVERSARY|RUN 18|CLEAR \u2014 no automated touch concern",
+        "TOUCH_ADVERSARY|RUN 19|CLEAR \u2014 no automated touch concern",
+        "TOUCH_ADVERSARY|RUN 20|CLEAR \u2014 no automated touch concern",
+        "TOUCH_ADVERSARY|RUN 21|CLEAR \u2014 no automated touch concern",
+        "TOUCH_ADVERSARY|RUN 22|CLEAR \u2014 no automated touch concern",
+        "TOUCH_ADVERSARY|RUN 23|CLEAR \u2014 no automated touch concern",
+        "TOUCH_ADVERSARY|RUN 24|CLEAR \u2014 no automated touch concern",
+        "TOUCH_ADVERSARY|RUN 25|CLEAR \u2014 no automated touch concern",
+        "TOUCH_ADVERSARY|ALL 25 SCENARIO RUNS CLEAR"
+      ]
+    },
+    {
+      "probe": "probe_dust_boss",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef",
+        "-s",
+        "scripts/probe_dust_boss.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "isolated_profile": "C:\\Users\\Peter\\AppData\\Local\\Temp\\r6-probe_dust_boss-taukrtzs",
+      "start_utc": "2026-10-13T01:40:22.460383+00:00",
+      "end_utc": "2026-10-13T01:41:09.529138+00:00",
+      "native_windows_returncode": 0,
+      "timed_out": false,
+      "log": "publication_diagnostics/retry_probe_dust_boss.log",
+      "log_sha256": "82f38563767cd2281954d8fdd08270757a51514000351daa842f0c5b7db5faa3",
+      "failure_lines": [],
+      "verdict_tail": [
+        "DUSTBOSS|live tells keep their captured target while the player moves: OK",
+        "DUSTBOSS|a visible 2D telegraph accompanies live danger: OK",
+        "DUSTBOSS|hybrid head touch can land a real counter: OK",
+        "DUSTBOSS|one fresh counter edge per opening returns Day Two to Canvas: OK",
+        "DUSTBOSS|Day Two route does not depend on menu launch: OK",
+        "DUSTBOSS|the earned final round survives interruption: OK",
+        "DUSTBOSS|completion grants the base reward exactly once: OK",
+        "DUSTBOSS|completion saves defeat and begins Day Two: OK",
+        "DUSTBOSS|Day Two and reward cannot duplicate: OK",
+        "DUSTBOSS|result: ALL OK"
+      ]
+    }
+  ],
+  "accepted_removed": 0
+}

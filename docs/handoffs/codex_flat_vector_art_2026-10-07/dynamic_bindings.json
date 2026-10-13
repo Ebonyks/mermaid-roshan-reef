@@ -1,0 +1,1367 @@
+{
+  "schema": "reef.flat_vector_audit/1",
+  "baseline": "92c9fe70319ef46bfaa8f61348a6f51512141ec3",
+  "bindings": [
+    {
+      "path": "scripts/arena/castle_fixture_rigs.gd",
+      "line": 13,
+      "scope": "FILE_SCOPE",
+      "expression": "\"res://assets/flats/castle/interactions_v4/background_tiles/\"",
+      "disposition": "DYNAMIC_BINDING_REQUIRES_RUNTIME_ENUMERATION"
+    },
+    {
+      "path": "scripts/arena/castle_rooms_25d.gd",
+      "line": 8,
+      "scope": "FILE_SCOPE",
+      "expression": "const ROOM_ART := \"res://assets/flats/castle/rooms/\"",
+      "disposition": "DYNAMIC_BINDING_REQUIRES_RUNTIME_ENUMERATION"
+    },
+    {
+      "path": "scripts/arena/castle_rooms_25d.gd",
+      "line": 9,
+      "scope": "FILE_SCOPE",
+      "expression": "const INTERACTION_ART := \"res://assets/flats/castle/interactions/\"",
+      "disposition": "DYNAMIC_BINDING_REQUIRES_RUNTIME_ENUMERATION"
+    },
+    {
+      "path": "scripts/arena/castle_rooms_25d.gd",
+      "line": 10,
+      "scope": "FILE_SCOPE",
+      "expression": "const DREAM_HOUSE_ART := \"res://assets/flats/castle/dream_house/\"",
+      "disposition": "DYNAMIC_BINDING_REQUIRES_RUNTIME_ENUMERATION"
+    },
+    {
+      "path": "scripts/arena/castle_rooms_25d.gd",
+      "line": 13,
+      "scope": "FILE_SCOPE",
+      "expression": "\"res://assets/flats/castle/main_hall_redraw_2026-08-03/\"",
+      "disposition": "DYNAMIC_BINDING_REQUIRES_RUNTIME_ENUMERATION"
+    },
+    {
+      "path": "scripts/arena/castle_rooms_25d.gd",
+      "line": 204,
+      "scope": "FILE_SCOPE",
+      "expression": "\"tex_path\": \"res://assets/castle/dirty_cleanup_2d/critters/\"",
+      "disposition": "DYNAMIC_BINDING_REQUIRES_RUNTIME_ENUMERATION"
+    },
+    {
+      "path": "scripts/arena/castle_rooms_25d.gd",
+      "line": 213,
+      "scope": "FILE_SCOPE",
+      "expression": "\"tex_path\": \"res://assets/castle/dirty_cleanup_2d/critters/\"",
+      "disposition": "DYNAMIC_BINDING_REQUIRES_RUNTIME_ENUMERATION"
+    },
+    {
+      "path": "scripts/arena/castle_rooms_25d.gd",
+      "line": 222,
+      "scope": "FILE_SCOPE",
+      "expression": "\"tex_path\": \"res://assets/castle/dirty_cleanup_2d/critters/\"",
+      "disposition": "DYNAMIC_BINDING_REQUIRES_RUNTIME_ENUMERATION"
+    },
+    {
+      "path": "scripts/arena/castle_rooms_25d.gd",
+      "line": 240,
+      "scope": "FILE_SCOPE",
+      "expression": "\"tex_path\": \"res://assets/castle/dirty_cleanup_2d/critters/\"",
+      "disposition": "DYNAMIC_BINDING_REQUIRES_RUNTIME_ENUMERATION"
+    },
+    {
+      "path": "scripts/arena/castle_rooms_25d.gd",
+      "line": 250,
+      "scope": "FILE_SCOPE",
+      "expression": "\"tex_path\": \"res://assets/castle/dirty_cleanup_2d/critters/\"",
+      "disposition": "DYNAMIC_BINDING_REQUIRES_RUNTIME_ENUMERATION"
+    },
+    {
+      "path": "scripts/arena/castle_rooms_25d.gd",
+      "line": 4228,
+      "scope": "_play_item_sfx",
+      "expression": "path = \"res://\" + path if path.begins_with(\"assets/audio/\") \t\t\telse \"res://assets/audio/\" + path",
+      "disposition": "DYNAMIC_BINDING_REQUIRES_RUNTIME_ENUMERATION"
+    },
+    {
+      "path": "scripts/arena/castle_rooms_25d.gd",
+      "line": 5082,
+      "scope": "sync_castle_companion_card",
+      "expression": "asset_paths.append(\"res://assets/mg/\" \\",
+      "disposition": "DYNAMIC_BINDING_REQUIRES_RUNTIME_ENUMERATION"
+    },
+    {
+      "path": "scripts/audio_director.gd",
+      "line": 15,
+      "scope": "FILE_SCOPE",
+      "expression": "const FILLER_VOICE_DIR := \"res://assets/audio/voices/filler_v1/\"",
+      "disposition": "DYNAMIC_BINDING_REQUIRES_RUNTIME_ENUMERATION"
+    },
+    {
+      "path": "scripts/audio_director.gd",
+      "line": 16,
+      "scope": "FILE_SCOPE",
+      "expression": "const LEGACY_VOICE_DIR := \"res://assets/audio/voices/\"",
+      "disposition": "DYNAMIC_BINDING_REQUIRES_RUNTIME_ENUMERATION"
+    },
+    {
+      "path": "scripts/audio_director.gd",
+      "line": 203,
+      "scope": "_voice_path",
+      "expression": "var fashion_path := \"res://assets/audio/fashion/\" + key + \".ogg\"",
+      "disposition": "DYNAMIC_BINDING_REQUIRES_RUNTIME_ENUMERATION"
+    },
+    {
+      "path": "scripts/audio_director.gd",
+      "line": 206,
+      "scope": "_voice_path",
+      "expression": "var lawn_path := \"res://assets/audio/chapter2_lawn/\" + key + \".ogg\"",
+      "disposition": "DYNAMIC_BINDING_REQUIRES_RUNTIME_ENUMERATION"
+    },
+    {
+      "path": "scripts/audio_director.gd",
+      "line": 209,
+      "scope": "_voice_path",
+      "expression": "var tree_book_path := \"res://assets/audio/arborist_tree_book/\" + key + \".ogg\"",
+      "disposition": "DYNAMIC_BINDING_REQUIRES_RUNTIME_ENUMERATION"
+    },
+    {
+      "path": "scripts/audio_director.gd",
+      "line": 212,
+      "scope": "_voice_path",
+      "expression": "var teacher_path := \"res://assets/audio/teacher/\" + key + \".ogg\"",
+      "disposition": "DYNAMIC_BINDING_REQUIRES_RUNTIME_ENUMERATION"
+    },
+    {
+      "path": "scripts/audio_director.gd",
+      "line": 215,
+      "scope": "_voice_path",
+      "expression": "teacher_path = \"res://assets/audio/teacher/\" + event_suffix + \".ogg\"",
+      "disposition": "DYNAMIC_BINDING_REQUIRES_RUNTIME_ENUMERATION"
+    },
+    {
+      "path": "scripts/audio_director.gd",
+      "line": 629,
+      "scope": "_tick_ambience_duck",
+      "expression": "const SFX_ROOT := \"res://assets/audio/sfx/\"",
+      "disposition": "DYNAMIC_BINDING_REQUIRES_RUNTIME_ENUMERATION"
+    },
+    {
+      "path": "scripts/audio_director.gd",
+      "line": 700,
+      "scope": "_play_music",
+      "expression": "var mpath := \"res://assets/audio/music/\" + fname + \".ogg\"",
+      "disposition": "DYNAMIC_BINDING_REQUIRES_RUNTIME_ENUMERATION"
+    },
+    {
+      "path": "scripts/castle_career_routes.gd",
+      "line": 9,
+      "scope": "FILE_SCOPE",
+      "expression": "const CREST_ROOT := \"res://assets/opera/worlds/ui/crests/\"",
+      "disposition": "DYNAMIC_BINDING_REQUIRES_RUNTIME_ENUMERATION"
+    },
+    {
+      "path": "scripts/castle_career_routes.gd",
+      "line": 10,
+      "scope": "FILE_SCOPE",
+      "expression": "const ACTOR_ROOT := \"res://assets/opera/worlds/actors/\"",
+      "disposition": "DYNAMIC_BINDING_REQUIRES_RUNTIME_ENUMERATION"
+    },
+    {
+      "path": "scripts/chapter_two_lawn_finale_2d.gd",
+      "line": 156,
+      "scope": "_build_art",
+      "expression": "\"res://assets/characters/friends/%s.%s\" % [GUEST_FILES[index],",
+      "disposition": "DYNAMIC_BINDING_REQUIRES_RUNTIME_ENUMERATION"
+    },
+    {
+      "path": "scripts/chapter_two_party_table_2d.gd",
+      "line": 14,
+      "scope": "FILE_SCOPE",
+      "expression": "const PROP_ROOT := \"res://assets/opera/worlds/props/\"",
+      "disposition": "DYNAMIC_BINDING_REQUIRES_RUNTIME_ENUMERATION"
+    },
+    {
+      "path": "scripts/companion.gd",
+      "line": 170,
+      "scope": "_stuffie_cutout",
+      "expression": "var body_tex: Texture2D = load(\"res://assets/mg/\" + String(layer_names[1]) + \".png\")",
+      "disposition": "DYNAMIC_BINDING_REQUIRES_RUNTIME_ENUMERATION"
+    },
+    {
+      "path": "scripts/companion.gd",
+      "line": 178,
+      "scope": "_stuffie_cutout",
+      "expression": "var tex: Texture2D = load(\"res://assets/mg/\" + String(layer_names[layer_index]) + \".png\")",
+      "disposition": "DYNAMIC_BINDING_REQUIRES_RUNTIME_ENUMERATION"
+    },
+    {
+      "path": "scripts/companion.gd",
+      "line": 954,
+      "scope": "_add_creature_preview",
+      "expression": "var probe_path := \"res://assets/mg/\" + String(layer_names[li]) + \".png\"",
+      "disposition": "DYNAMIC_BINDING_REQUIRES_RUNTIME_ENUMERATION"
+    },
+    {
+      "path": "scripts/companion.gd",
+      "line": 965,
+      "scope": "_add_creature_preview",
+      "expression": "var tex_path := \"res://assets/mg/\" + String(layer_names[int(draw_order[i])]) + \".png\"",
+      "disposition": "DYNAMIC_BINDING_REQUIRES_RUNTIME_ENUMERATION"
+    },
+    {
+      "path": "scripts/craft_studio.gd",
+      "line": 29,
+      "scope": "_craft_build_preview",
+      "expression": "texture_rect.texture = load(\"res://assets/mg/\" + order[i] + \".png\")",
+      "disposition": "DYNAMIC_BINDING_REQUIRES_RUNTIME_ENUMERATION"
+    },
+    {
+      "path": "scripts/day_one_story_clips.gd",
+      "line": 11,
+      "scope": "FILE_SCOPE",
+      "expression": "const CLIP_ROOT: String = \"res://assets/cinematics/day_one_story/\"",
+      "disposition": "DYNAMIC_BINDING_REQUIRES_RUNTIME_ENUMERATION"
+    },
+    {
+      "path": "scripts/dust_bunny_boss_sprite.gd",
+      "line": 23,
+      "scope": "FILE_SCOPE",
+      "expression": "const SHEET_ROOT := \"res://assets/sprites/dust_bunnies/boss/\"",
+      "disposition": "DYNAMIC_BINDING_REQUIRES_RUNTIME_ENUMERATION"
+    },
+    {
+      "path": "scripts/dust_bunny_sprite.gd",
+      "line": 13,
+      "scope": "FILE_SCOPE",
+      "expression": "const SHEET_ROOT := \"res://assets/sprites/dust_bunnies/\"",
+      "disposition": "DYNAMIC_BINDING_REQUIRES_RUNTIME_ENUMERATION"
+    },
+    {
+      "path": "scripts/fairy_restoration_prototype.gd",
+      "line": 295,
+      "scope": "_say",
+      "expression": "var path: String = \"res://assets/prototypes/fairy_restoration/voices/%s.ogg\" % key",
+      "disposition": "DYNAMIC_BINDING_REQUIRES_RUNTIME_ENUMERATION"
+    },
+    {
+      "path": "scripts/fashion_outfit_renderer.gd",
+      "line": 4,
+      "scope": "FILE_SCOPE",
+      "expression": "const ROOT := \"res://assets/fashion/outfits/\"",
+      "disposition": "DYNAMIC_BINDING_REQUIRES_RUNTIME_ENUMERATION"
+    },
+    {
+      "path": "scripts/fashion_parts.gd",
+      "line": 100,
+      "scope": "composed_path",
+      "expression": "var path: String = \"res://assets/fashion/slots_v1/cache/\" + String(spec[\"family_id\"]) + \"/\" + signature + \"-\" + str(texture.get_instance_id()) + \".tres\"",
+      "disposition": "DYNAMIC_BINDING_REQUIRES_RUNTIME_ENUMERATION"
+    },
+    {
+      "path": "scripts/fashion_skin_engine.gd",
+      "line": 26,
+      "scope": "family",
+      "expression": "if \"res://\" + String(entry.get(\"source\", \"\")) == source or source.begins_with(\"res://assets/fashion/slots_v1/cache/\" + key + \"/\"):",
+      "disposition": "DYNAMIC_BINDING_REQUIRES_RUNTIME_ENUMERATION"
+    },
+    {
+      "path": "scripts/fashion_wardrobe.gd",
+      "line": 294,
+      "scope": "_unlock_picture",
+      "expression": "if kind in [\"chef\",\"painter\"]: return \"res://assets/opera/worlds/ui/crests/opera_crest_\"+kind+\".png\"",
+      "disposition": "DYNAMIC_BINDING_REQUIRES_RUNTIME_ENUMERATION"
+    },
+    {
+      "path": "scripts/fx_water.gd",
+      "line": 94,
+      "scope": "card",
+      "expression": "var atlas_path: String = \"res://assets/sprites/fx_water/fx_water_\" + kind + \"_atlas.png\"",
+      "disposition": "DYNAMIC_BINDING_REQUIRES_RUNTIME_ENUMERATION"
+    },
+    {
+      "path": "scripts/games/dance_engine.gd",
+      "line": 237,
+      "scope": "_start_song",
+      "expression": "var stream: AudioStream = load(\"res://assets/audio/music/%s.ogg\" % String(song[\"track\"]))",
+      "disposition": "DYNAMIC_BINDING_REQUIRES_RUNTIME_ENUMERATION"
+    },
+    {
+      "path": "scripts/games/picture_games.gd",
+      "line": 642,
+      "scope": "_mg_garden_tap",
+      "expression": "tex.texture = load(\"res://assets/mg/\" + String((m.mg[\"flowers\"] as Array)[i]) + \".png\")",
+      "disposition": "DYNAMIC_BINDING_REQUIRES_RUNTIME_ENUMERATION"
+    },
+    {
+      "path": "scripts/games/picture_games.gd",
+      "line": 771,
+      "scope": "_mg_build_xmas",
+      "expression": "var o := _mg_artbtn(\"res://assets/mg/orn\" + str(i + 1) + \".png\", Vector2(180 + float(i) * 150, 660), Vector2(110, 110))",
+      "disposition": "DYNAMIC_BINDING_REQUIRES_RUNTIME_ENUMERATION"
+    },
+    {
+      "path": "scripts/games/picture_games.gd",
+      "line": 786,
+      "scope": "_mg_xmas_tap",
+      "expression": "_mg_sprite(\"res://assets/mg/orn\" + str(i + 1) + \".png\", spots[i], Vector2(70, 70))",
+      "disposition": "DYNAMIC_BINDING_REQUIRES_RUNTIME_ENUMERATION"
+    },
+    {
+      "path": "scripts/main.gd",
+      "line": 607,
+      "scope": "_begin_100_celebration",
+      "expression": "const GTA := \"res://assets/terrain/\"",
+      "disposition": "DYNAMIC_BINDING_REQUIRES_RUNTIME_ENUMERATION"
+    },
+    {
+      "path": "scripts/main.gd",
+      "line": 5861,
+      "scope": "_hang_portrait",
+      "expression": "pm.albedo_texture = load(\"res://assets/book/hall/\" + art + \".jpg\")",
+      "disposition": "DYNAMIC_BINDING_REQUIRES_RUNTIME_ENUMERATION"
+    },
+    {
+      "path": "scripts/main.gd",
+      "line": 7202,
+      "scope": "_make_creature_node",
+      "expression": "lb.texture = load(\"res://assets/mg/\" + String(ln[1]) + \".png\")",
+      "disposition": "DYNAMIC_BINDING_REQUIRES_RUNTIME_ENUMERATION"
+    },
+    {
+      "path": "scripts/main.gd",
+      "line": 7206,
+      "scope": "_make_creature_node",
+      "expression": "la.texture = load(\"res://assets/mg/\" + String(ln[0]) + \".png\")",
+      "disposition": "DYNAMIC_BINDING_REQUIRES_RUNTIME_ENUMERATION"
+    },
+    {
+      "path": "scripts/main.gd",
+      "line": 7210,
+      "scope": "_make_creature_node",
+      "expression": "ll.texture = load(\"res://assets/mg/\" + String(ln[2]) + \".png\")",
+      "disposition": "DYNAMIC_BINDING_REQUIRES_RUNTIME_ENUMERATION"
+    },
+    {
+      "path": "scripts/opera_career_world_2d.gd",
+      "line": 362,
+      "scope": "_ballet_voice_length_seconds",
+      "expression": "\"res://assets/audio/voices/filler_v1/roshan_\" + event + \".ogg\",",
+      "disposition": "DYNAMIC_BINDING_REQUIRES_RUNTIME_ENUMERATION"
+    },
+    {
+      "path": "scripts/opera_career_world_2d.gd",
+      "line": 363,
+      "scope": "_ballet_voice_length_seconds",
+      "expression": "\"res://assets/audio/voices/roshan_\" + event + \".ogg\",",
+      "disposition": "DYNAMIC_BINDING_REQUIRES_RUNTIME_ENUMERATION"
+    },
+    {
+      "path": "scripts/opera_career_world_2d.gd",
+      "line": 1248,
+      "scope": "_build_world",
+      "expression": "prop_path = \"res://assets/opera/worlds/props/%s\" % prop_file",
+      "disposition": "DYNAMIC_BINDING_REQUIRES_RUNTIME_ENUMERATION"
+    },
+    {
+      "path": "scripts/opera_gesture_surface.gd",
+      "line": 760,
+      "scope": "_load_widget_set",
+      "expression": "var prefix := \"res://assets/opera/worlds/widgets/widget_%s\" % visual_context",
+      "disposition": "DYNAMIC_BINDING_REQUIRES_RUNTIME_ENUMERATION"
+    },
+    {
+      "path": "scripts/opera_hotspot_catalog.gd",
+      "line": 320,
+      "scope": "_allowed_runtime_path",
+      "expression": "return path.begins_with(\"res://assets/opera/worlds/widgets/\") \\",
+      "disposition": "DYNAMIC_BINDING_REQUIRES_RUNTIME_ENUMERATION"
+    },
+    {
+      "path": "scripts/opera_hotspot_catalog.gd",
+      "line": 321,
+      "scope": "_allowed_runtime_path",
+      "expression": "or path.begins_with(\"res://assets/opera/worlds/hotspots/\") \\",
+      "disposition": "DYNAMIC_BINDING_REQUIRES_RUNTIME_ENUMERATION"
+    },
+    {
+      "path": "scripts/opera_house_venue_2d.gd",
+      "line": 11,
+      "scope": "FILE_SCOPE",
+      "expression": "\"res://assets/flats/castle/opera_house_venue_2d/background_tiles/\"",
+      "disposition": "DYNAMIC_BINDING_REQUIRES_RUNTIME_ENUMERATION"
+    },
+    {
+      "path": "scripts/opera_tree_book_test.gd",
+      "line": 7,
+      "scope": "FILE_SCOPE",
+      "expression": "const ART := \"res://assets/opera/tree_book_test/\"",
+      "disposition": "DYNAMIC_BINDING_REQUIRES_RUNTIME_ENUMERATION"
+    },
+    {
+      "path": "scripts/opera_tree_book_test.gd",
+      "line": 230,
+      "scope": "shutdown",
+      "expression": "if player.stream != null and player.stream.resource_path.begins_with(\"res://assets/audio/arborist_tree_book/\"):",
+      "disposition": "DYNAMIC_BINDING_REQUIRES_RUNTIME_ENUMERATION"
+    },
+    {
+      "path": "scripts/opera_tree_book_test.gd",
+      "line": 275,
+      "scope": "_say",
+      "expression": "var path := \"res://assets/audio/arborist_tree_book/roshan_arborist_tree_book_\" + cue + \".ogg\"",
+      "disposition": "DYNAMIC_BINDING_REQUIRES_RUNTIME_ENUMERATION"
+    },
+    {
+      "path": "scripts/opera_world_backdrop_2d.gd",
+      "line": 25,
+      "scope": "FILE_SCOPE",
+      "expression": "const SKY_LAGOON_ROOT := \"res://assets/flats/sky_lagoon/main/\"",
+      "disposition": "DYNAMIC_BINDING_REQUIRES_RUNTIME_ENUMERATION"
+    },
+    {
+      "path": "scripts/opera_world_backdrop_2d.gd",
+      "line": 114,
+      "scope": "_load_stuffie_room_tiles",
+      "expression": "var path := \"res://assets/flats/castle/rooms/background_tiles/\" \\",
+      "disposition": "DYNAMIC_BINDING_REQUIRES_RUNTIME_ENUMERATION"
+    },
+    {
+      "path": "scripts/story_art.gd",
+      "line": 3,
+      "scope": "FILE_SCOPE",
+      "expression": "const STORY_ROOT := \"res://assets/props/story/\"",
+      "disposition": "DYNAMIC_BINDING_REQUIRES_RUNTIME_ENUMERATION"
+    }
+  ],
+  "fallback_mentions": [
+    {
+      "path": "scripts/arena/castle_fixture_rigs.gd",
+      "line": 87,
+      "scope": "native_source_item_uses_fallback_paint",
+      "source": "func native_source_item_uses_fallback_paint(",
+      "status": "NEEDS_CONTEXT_REVIEW"
+    },
+    {
+      "path": "scripts/arena/castle_fixture_rigs.gd",
+      "line": 327,
+      "scope": "_valid_native_v4_entry",
+      "source": "or bool(behavior.get(\"generic_transform_fallback\", true)):",
+      "status": "NEEDS_CONTEXT_REVIEW"
+    },
+    {
+      "path": "scripts/arena/castle_fixture_rigs.gd",
+      "line": 976,
+      "scope": "_vector2",
+      "source": "func _vector2(value: Variant, fallback: Vector2) -> Vector2:",
+      "status": "NEEDS_CONTEXT_REVIEW"
+    },
+    {
+      "path": "scripts/arena/castle_fixture_rigs.gd",
+      "line": 981,
+      "scope": "_vector2",
+      "source": "return fallback",
+      "status": "NEEDS_CONTEXT_REVIEW"
+    },
+    {
+      "path": "scripts/arena/castle_fixture_rigs.gd",
+      "line": 984,
+      "scope": "_layer_color",
+      "source": "func _layer_color(layer: Dictionary, key: String, fallback: Color) -> Color:",
+      "status": "NEEDS_CONTEXT_REVIEW"
+    },
+    {
+      "path": "scripts/arena/castle_fixture_rigs.gd",
+      "line": 991,
+      "scope": "_layer_color",
+      "source": "return fallback",
+      "status": "NEEDS_CONTEXT_REVIEW"
+    },
+    {
+      "path": "scripts/arena/castle_rooms_25d.gd",
+      "line": 3201,
+      "scope": "_add_touch_item",
+      "source": "if fixture_rigs.native_source_item_uses_fallback_paint(room_id, item_id):",
+      "status": "NEEDS_CONTEXT_REVIEW"
+    },
+    {
+      "path": "scripts/arena/castle_rooms_25d.gd",
+      "line": 3370,
+      "scope": "_add_touch_item",
+      "source": "piece.set_meta(\"generic_transform_fallback\",",
+      "status": "NEEDS_CONTEXT_REVIEW"
+    },
+    {
+      "path": "scripts/arena/castle_rooms_25d.gd",
+      "line": 3371,
+      "scope": "_add_touch_item",
+      "source": "bool(animation_behavior.get(\"generic_transform_fallback\",",
+      "status": "NEEDS_CONTEXT_REVIEW"
+    },
+    {
+      "path": "scripts/arena/castle_rooms_25d.gd",
+      "line": 3605,
+      "scope": "_reachable_item_foot",
+      "source": "func _reachable_item_foot(item_id: String, fallback: Vector2) -> Vector2:",
+      "status": "NEEDS_CONTEXT_REVIEW"
+    },
+    {
+      "path": "scripts/arena/castle_rooms_25d.gd",
+      "line": 3608,
+      "scope": "_reachable_item_foot",
+      "source": "return fallback",
+      "status": "NEEDS_CONTEXT_REVIEW"
+    },
+    {
+      "path": "scripts/arena/castle_rooms_25d.gd",
+      "line": 3609,
+      "scope": "_reachable_item_foot",
+      "source": "return record.get(\"route_contact\", fallback) as Vector2",
+      "status": "NEEDS_CONTEXT_REVIEW"
+    },
+    {
+      "path": "scripts/arena/castle_rooms_25d.gd",
+      "line": 4551,
+      "scope": "_v2_vector2",
+      "source": "func _v2_vector2(value: Variant, fallback: Vector2) -> Vector2:",
+      "status": "NEEDS_CONTEXT_REVIEW"
+    },
+    {
+      "path": "scripts/arena/castle_rooms_25d.gd",
+      "line": 4556,
+      "scope": "_v2_vector2",
+      "source": "return fallback",
+      "status": "NEEDS_CONTEXT_REVIEW"
+    },
+    {
+      "path": "scripts/arena/courtyard_train.gd",
+      "line": 178,
+      "scope": "_build_track",
+      "source": "var fallback_tie := BoxMesh.new()",
+      "status": "NEEDS_CONTEXT_REVIEW"
+    },
+    {
+      "path": "scripts/arena/courtyard_train.gd",
+      "line": 179,
+      "scope": "_build_track",
+      "source": "fallback_tie.size = Vector3(4.6, 0.2, 1.1)",
+      "status": "NEEDS_CONTEXT_REVIEW"
+    },
+    {
+      "path": "scripts/arena/courtyard_train.gd",
+      "line": 180,
+      "scope": "_build_track",
+      "source": "fallback_tie.material = _train_mat(Color(0.50, 0.36, 0.22))",
+      "status": "NEEDS_CONTEXT_REVIEW"
+    },
+    {
+      "path": "scripts/arena/courtyard_train.gd",
+      "line": 181,
+      "scope": "_build_track",
+      "source": "tie_mesh = fallback_tie",
+      "status": "NEEDS_CONTEXT_REVIEW"
+    },
+    {
+      "path": "scripts/arena/fairy_conservatory_handoff_2d.gd",
+      "line": 88,
+      "scope": "start",
+      "source": "_backdrop.name = \"HandoffBackdropFallback\"",
+      "status": "NEEDS_CONTEXT_REVIEW"
+    },
+    {
+      "path": "scripts/boss_splash_2d.gd",
+      "line": 97,
+      "scope": "_build_backdrop",
+      "source": "var fallback := ColorRect.new()",
+      "status": "NEEDS_CONTEXT_REVIEW"
+    },
+    {
+      "path": "scripts/boss_splash_2d.gd",
+      "line": 98,
+      "scope": "_build_backdrop",
+      "source": "fallback.name = \"BossSplashFallbackField\"",
+      "status": "NEEDS_CONTEXT_REVIEW"
+    },
+    {
+      "path": "scripts/boss_splash_2d.gd",
+      "line": 99,
+      "scope": "_build_backdrop",
+      "source": "fallback.position = Vector2.ZERO",
+      "status": "NEEDS_CONTEXT_REVIEW"
+    },
+    {
+      "path": "scripts/boss_splash_2d.gd",
+      "line": 100,
+      "scope": "_build_backdrop",
+      "source": "fallback.size = CANVAS_SIZE",
+      "status": "NEEDS_CONTEXT_REVIEW"
+    },
+    {
+      "path": "scripts/boss_splash_2d.gd",
+      "line": 101,
+      "scope": "_build_backdrop",
+      "source": "fallback.color = Color(\"#BFCBE0\")",
+      "status": "NEEDS_CONTEXT_REVIEW"
+    },
+    {
+      "path": "scripts/boss_splash_2d.gd",
+      "line": 102,
+      "scope": "_build_backdrop",
+      "source": "fallback.mouse_filter = Control.MOUSE_FILTER_IGNORE",
+      "status": "NEEDS_CONTEXT_REVIEW"
+    },
+    {
+      "path": "scripts/boss_splash_2d.gd",
+      "line": 103,
+      "scope": "_build_backdrop",
+      "source": "_stage.add_child(fallback)",
+      "status": "NEEDS_CONTEXT_REVIEW"
+    },
+    {
+      "path": "scripts/castle_career_routes.gd",
+      "line": 264,
+      "scope": "_rebuild_room",
+      "source": "var fallback_path := ACTOR_ROOT + \"roshan_%s.png\" % costume",
+      "status": "NEEDS_CONTEXT_REVIEW"
+    },
+    {
+      "path": "scripts/castle_career_routes.gd",
+      "line": 265,
+      "scope": "_rebuild_room",
+      "source": "var fallback: Texture2D = load(fallback_path) as Texture2D \\",
+      "status": "NEEDS_CONTEXT_REVIEW"
+    },
+    {
+      "path": "scripts/castle_career_routes.gd",
+      "line": 266,
+      "scope": "_rebuild_room",
+      "source": "if ResourceLoader.exists(fallback_path) else null",
+      "status": "NEEDS_CONTEXT_REVIEW"
+    },
+    {
+      "path": "scripts/castle_career_routes.gd",
+      "line": 267,
+      "scope": "_rebuild_room",
+      "source": "actor.texture = OperaRoshanActor.idle_frame(costume, fallback)",
+      "status": "NEEDS_CONTEXT_REVIEW"
+    },
+    {
+      "path": "scripts/chapter_two_career_scene_adapter.gd",
+      "line": 79,
+      "scope": "phase_set",
+      "source": "var fallback := {\"finale_start\": 0, \"scene_id\": \"chapter2_%s\" % career, \"phases\": []}",
+      "status": "NEEDS_CONTEXT_REVIEW"
+    },
+    {
+      "path": "scripts/chapter_two_career_scene_adapter.gd",
+      "line": 80,
+      "scope": "phase_set",
+      "source": "return (PHASE_SETS.get(career, fallback) as Dictionary).duplicate(true)",
+      "status": "NEEDS_CONTEXT_REVIEW"
+    },
+    {
+      "path": "scripts/chapter_two_giant_cake_2d.gd",
+      "line": 876,
+      "scope": "_state_bool",
+      "source": "func _state_bool(state: Dictionary, key: String, fallback: bool) -> bool:",
+      "status": "NEEDS_CONTEXT_REVIEW"
+    },
+    {
+      "path": "scripts/chapter_two_giant_cake_2d.gd",
+      "line": 877,
+      "scope": "_state_bool",
+      "source": "var value: Variant = state.get(key, fallback)",
+      "status": "NEEDS_CONTEXT_REVIEW"
+    },
+    {
+      "path": "scripts/day_one_bathroom_movie_handoff.gd",
+      "line": 30,
+      "scope": "FILE_SCOPE",
+      "source": "var fallback_count: int = 0",
+      "status": "NEEDS_CONTEXT_REVIEW"
+    },
+    {
+      "path": "scripts/day_one_bathroom_movie_handoff.gd",
+      "line": 131,
+      "scope": "audit_snapshot",
+      "source": "\"fallback_count\": fallback_count,",
+      "status": "NEEDS_CONTEXT_REVIEW"
+    },
+    {
+      "path": "scripts/day_one_bathroom_movie_handoff.gd",
+      "line": 151,
+      "scope": "_start_validated",
+      "source": "fallback_count += 1",
+      "status": "NEEDS_CONTEXT_REVIEW"
+    },
+    {
+      "path": "scripts/day_one_bathroom_movie_handoff.gd",
+      "line": 152,
+      "scope": "_start_validated",
+      "source": "return _result(\"fallback\", true)",
+      "status": "NEEDS_CONTEXT_REVIEW"
+    },
+    {
+      "path": "scripts/day_one_bathroom_movie_handoff.gd",
+      "line": 209,
+      "scope": "_result",
+      "source": "\"fallback_count\": fallback_count,",
+      "status": "NEEDS_CONTEXT_REVIEW"
+    },
+    {
+      "path": "scripts/day_one_director.gd",
+      "line": 802,
+      "scope": "_as_bool",
+      "source": "func _as_bool(value: Variant, fallback: bool) -> bool:",
+      "status": "NEEDS_CONTEXT_REVIEW"
+    },
+    {
+      "path": "scripts/day_one_director.gd",
+      "line": 803,
+      "scope": "_as_bool",
+      "source": "return _as_bool_static(value, fallback)",
+      "status": "NEEDS_CONTEXT_REVIEW"
+    },
+    {
+      "path": "scripts/day_one_director.gd",
+      "line": 806,
+      "scope": "_as_bool_static",
+      "source": "static func _as_bool_static(value: Variant, fallback: bool) -> bool:",
+      "status": "NEEDS_CONTEXT_REVIEW"
+    },
+    {
+      "path": "scripts/day_one_director.gd",
+      "line": 817,
+      "scope": "_as_bool_static",
+      "source": "return fallback",
+      "status": "NEEDS_CONTEXT_REVIEW"
+    },
+    {
+      "path": "scripts/dungeon_art.gd",
+      "line": 54,
+      "scope": "FILE_SCOPE",
+      "source": "const FALLBACK_PART_ART := {",
+      "status": "NEEDS_CONTEXT_REVIEW"
+    },
+    {
+      "path": "scripts/dungeon_art.gd",
+      "line": 85,
+      "scope": "FILE_SCOPE",
+      "source": "const FALLBACK_ROLE_SIZE := {",
+      "status": "NEEDS_CONTEXT_REVIEW"
+    },
+    {
+      "path": "scripts/dungeon_art.gd",
+      "line": 119,
+      "scope": "spawn",
+      "source": "var fallback_parts: Array[String] = []",
+      "status": "NEEDS_CONTEXT_REVIEW"
+    },
+    {
+      "path": "scripts/dungeon_art.gd",
+      "line": 122,
+      "scope": "spawn",
+      "source": "fallback_parts = [\"EmberArena\" if theme == \"ember\" else \"DungeonArena\"]",
+      "status": "NEEDS_CONTEXT_REVIEW"
+    },
+    {
+      "path": "scripts/dungeon_art.gd",
+      "line": 124,
+      "scope": "spawn",
+      "source": "fallback_parts = [\"DungeonDoor\", \"ShellDoor\"]",
+      "status": "NEEDS_CONTEXT_REVIEW"
+    },
+    {
+      "path": "scripts/dungeon_art.gd",
+      "line": 126,
+      "scope": "spawn",
+      "source": "fallback_parts = [\"Imp\"]",
+      "status": "NEEDS_CONTEXT_REVIEW"
+    },
+    {
+      "path": "scripts/dungeon_art.gd",
+      "line": 128,
+      "scope": "spawn",
+      "source": "fallback_parts = [\"Head\", \"Shell\"]",
+      "status": "NEEDS_CONTEXT_REVIEW"
+    },
+    {
+      "path": "scripts/dungeon_art.gd",
+      "line": 130,
+      "scope": "spawn",
+      "source": "fallback_parts = [\"Basket\"]",
+      "status": "NEEDS_CONTEXT_REVIEW"
+    },
+    {
+      "path": "scripts/dungeon_art.gd",
+      "line": 132,
+      "scope": "spawn",
+      "source": "fallback_parts = [\"Projectile\"]",
+      "status": "NEEDS_CONTEXT_REVIEW"
+    },
+    {
+      "path": "scripts/dungeon_art.gd",
+      "line": 134,
+      "scope": "spawn",
+      "source": "fallback_parts = [\"CrystalPedestal\"]",
+      "status": "NEEDS_CONTEXT_REVIEW"
+    },
+    {
+      "path": "scripts/dungeon_art.gd",
+      "line": 136,
+      "scope": "spawn",
+      "source": "fallback_parts = [\"Lantern\", \"Glow\"]",
+      "status": "NEEDS_CONTEXT_REVIEW"
+    },
+    {
+      "path": "scripts/dungeon_art.gd",
+      "line": 138,
+      "scope": "spawn",
+      "source": "fallback_parts = [\"Statue\"]",
+      "status": "NEEDS_CONTEXT_REVIEW"
+    },
+    {
+      "path": "scripts/dungeon_art.gd",
+      "line": 140,
+      "scope": "spawn",
+      "source": "fallback_parts = [\"Stone\"]",
+      "status": "NEEDS_CONTEXT_REVIEW"
+    },
+    {
+      "path": "scripts/dungeon_art.gd",
+      "line": 142,
+      "scope": "spawn",
+      "source": "fallback_parts.assign(PICTOGRAM_NODES.values())",
+      "status": "NEEDS_CONTEXT_REVIEW"
+    },
+    {
+      "path": "scripts/dungeon_art.gd",
+      "line": 144,
+      "scope": "spawn",
+      "source": "fallback_parts = [\"CluePlaque\"]",
+      "status": "NEEDS_CONTEXT_REVIEW"
+    },
+    {
+      "path": "scripts/dungeon_art.gd",
+      "line": 146,
+      "scope": "spawn",
+      "source": "fallback_parts = [\"Beak\"]",
+      "status": "NEEDS_CONTEXT_REVIEW"
+    },
+    {
+      "path": "scripts/dungeon_art.gd",
+      "line": 148,
+      "scope": "spawn",
+      "source": "fallback_parts = [\"Spark\"]",
+      "status": "NEEDS_CONTEXT_REVIEW"
+    },
+    {
+      "path": "scripts/dungeon_art.gd",
+      "line": 150,
+      "scope": "spawn",
+      "source": "fallback_parts = [\"Pearl\"]",
+      "status": "NEEDS_CONTEXT_REVIEW"
+    },
+    {
+      "path": "scripts/dungeon_art.gd",
+      "line": 151,
+      "scope": "spawn",
+      "source": "for part_name: String in fallback_parts:",
+      "status": "NEEDS_CONTEXT_REVIEW"
+    },
+    {
+      "path": "scripts/dungeon_art.gd",
+      "line": 153,
+      "scope": "spawn",
+      "source": "var art_path: String = String(FALLBACK_PART_ART.get(art_key,",
+      "status": "NEEDS_CONTEXT_REVIEW"
+    },
+    {
+      "path": "scripts/dungeon_art.gd",
+      "line": 155,
+      "scope": "spawn",
+      "source": "var fallback_size: float = float(FALLBACK_ROLE_SIZE.get(role, 2.0))",
+      "status": "NEEDS_CONTEXT_REVIEW"
+    },
+    {
+      "path": "scripts/dungeon_art.gd",
+      "line": 156,
+      "scope": "spawn",
+      "source": "var part := STORY_ART.crossed_card(art_path, fallback_size)",
+      "status": "NEEDS_CONTEXT_REVIEW"
+    },
+    {
+      "path": "scripts/dungeon_art.gd",
+      "line": 159,
+      "scope": "spawn",
+      "source": "surface.name = \"Tint_Fallback\"",
+      "status": "NEEDS_CONTEXT_REVIEW"
+    },
+    {
+      "path": "scripts/ember_fortress.gd",
+      "line": 62,
+      "scope": "FILE_SCOPE",
+      "source": "const FALLBACK_ART := {",
+      "status": "NEEDS_CONTEXT_REVIEW"
+    },
+    {
+      "path": "scripts/ember_fortress.gd",
+      "line": 79,
+      "scope": "FILE_SCOPE",
+      "source": "const FALLBACK_NODE_NAMES := {",
+      "status": "NEEDS_CONTEXT_REVIEW"
+    },
+    {
+      "path": "scripts/ember_fortress.gd",
+      "line": 310,
+      "scope": "_build_planet",
+      "source": "push_warning(\"Ember planet kit missing; using the procedural safety fallback\")",
+      "status": "NEEDS_CONTEXT_REVIEW"
+    },
+    {
+      "path": "scripts/ember_fortress.gd",
+      "line": 572,
+      "scope": "_authored_prop",
+      "source": "elif FALLBACK_ART.has(path):",
+      "status": "NEEDS_CONTEXT_REVIEW"
+    },
+    {
+      "path": "scripts/ember_fortress.gd",
+      "line": 573,
+      "scope": "_authored_prop",
+      "source": "model = STORY_ART.crossed_card(String(FALLBACK_ART[path]), target_long)",
+      "status": "NEEDS_CONTEXT_REVIEW"
+    },
+    {
+      "path": "scripts/ember_fortress.gd",
+      "line": 574,
+      "scope": "_authored_prop",
+      "source": "model.name = String(FALLBACK_NODE_NAMES.get(path, path.capitalize()))",
+      "status": "NEEDS_CONTEXT_REVIEW"
+    },
+    {
+      "path": "scripts/fashion_parts.gd",
+      "line": 23,
+      "scope": "selected",
+      "source": "var fallback: String = person + \"_original\" if slot == \"body\" else slot + \"_original\"",
+      "status": "NEEDS_CONTEXT_REVIEW"
+    },
+    {
+      "path": "scripts/fashion_parts.gd",
+      "line": 24,
+      "scope": "selected",
+      "source": "var legacy: Variant = main.character_outfits.get(person, fallback) if slot == \"body\" else fallback",
+      "status": "NEEDS_CONTEXT_REVIEW"
+    },
+    {
+      "path": "scripts/fashion_parts.gd",
+      "line": 31,
+      "scope": "selected",
+      "source": "return fallback",
+      "status": "NEEDS_CONTEXT_REVIEW"
+    },
+    {
+      "path": "scripts/games/day_one_pool_cleanup.gd",
+      "line": 21,
+      "scope": "FILE_SCOPE",
+      "source": "const WATERFALL_FALLBACK_CENTER := Vector2(461.875, 216.25)",
+      "status": "NEEDS_CONTEXT_REVIEW"
+    },
+    {
+      "path": "scripts/games/day_one_pool_cleanup.gd",
+      "line": 22,
+      "scope": "FILE_SCOPE",
+      "source": "const WATERFALL_FALLBACK_SIZE := Vector2(162.5, 220.0)",
+      "status": "NEEDS_CONTEXT_REVIEW"
+    },
+    {
+      "path": "scripts/games/day_one_pool_cleanup.gd",
+      "line": 23,
+      "scope": "FILE_SCOPE",
+      "source": "const SEAHORSE_FALLBACK_CENTER := Vector2(921.875, 245.625)",
+      "status": "NEEDS_CONTEXT_REVIEW"
+    },
+    {
+      "path": "scripts/games/day_one_pool_cleanup.gd",
+      "line": 24,
+      "scope": "FILE_SCOPE",
+      "source": "const SEAHORSE_FALLBACK_SIZE := Vector2(208.75, 241.25)",
+      "status": "NEEDS_CONTEXT_REVIEW"
+    },
+    {
+      "path": "scripts/games/day_one_pool_cleanup.gd",
+      "line": 590,
+      "scope": "_waterfall_fixture_center",
+      "source": "return WATERFALL_FALLBACK_CENTER",
+      "status": "NEEDS_CONTEXT_REVIEW"
+    },
+    {
+      "path": "scripts/games/day_one_pool_cleanup.gd",
+      "line": 599,
+      "scope": "_waterfall_fixture_size",
+      "source": "return WATERFALL_FALLBACK_SIZE",
+      "status": "NEEDS_CONTEXT_REVIEW"
+    },
+    {
+      "path": "scripts/games/day_one_pool_cleanup.gd",
+      "line": 605,
+      "scope": "_seahorse_fixture_center",
+      "source": "return SEAHORSE_FALLBACK_CENTER",
+      "status": "NEEDS_CONTEXT_REVIEW"
+    },
+    {
+      "path": "scripts/games/day_one_pool_cleanup.gd",
+      "line": 614,
+      "scope": "_seahorse_fixture_size",
+      "source": "return SEAHORSE_FALLBACK_SIZE",
+      "status": "NEEDS_CONTEXT_REVIEW"
+    },
+    {
+      "path": "scripts/games/side_scroll.gd",
+      "line": 411,
+      "scope": "route_y",
+      "source": "func route_y(cfg: Dictionary, x: float, fallback: float) -> float:",
+      "status": "NEEDS_CONTEXT_REVIEW"
+    },
+    {
+      "path": "scripts/games/side_scroll.gd",
+      "line": 415,
+      "scope": "route_y",
+      "source": "return fallback",
+      "status": "NEEDS_CONTEXT_REVIEW"
+    },
+    {
+      "path": "scripts/games/slide_race.gd",
+      "line": 1345,
+      "scope": "_build_slide",
+      "source": "fish = m._check_star(fpos)   # fallback if the model is missing",
+      "status": "NEEDS_CONTEXT_REVIEW"
+    },
+    {
+      "path": "scripts/main.gd",
+      "line": 821,
+      "scope": "_begin_100_celebration",
+      "source": "var joy_ev_axis := {}      # raw axis index -> latest value (event-driven fallback)",
+      "status": "NEEDS_CONTEXT_REVIEW"
+    },
+    {
+      "path": "scripts/main.gd",
+      "line": 6523,
+      "scope": "_start_day_one_bathroom_movie_handoff",
+      "source": "elif status == \"fallback\":",
+      "status": "NEEDS_CONTEXT_REVIEW"
+    },
+    {
+      "path": "scripts/main.gd",
+      "line": 6630,
+      "scope": "_sync_day_one_pool_route",
+      "source": "if status == \"fallback\":",
+      "status": "NEEDS_CONTEXT_REVIEW"
+    },
+    {
+      "path": "scripts/opera_gesture_surface.gd",
+      "line": 1663,
+      "scope": "_draw_long_push",
+      "source": "var fallback_rect := _long_push_mover_rect(widget_fill)",
+      "status": "NEEDS_CONTEXT_REVIEW"
+    },
+    {
+      "path": "scripts/opera_gesture_surface.gd",
+      "line": 1664,
+      "scope": "_draw_long_push",
+      "source": "draw_circle(fallback_rect.get_center(), fallback_rect.size.x * 0.34,",
+      "status": "NEEDS_CONTEXT_REVIEW"
+    },
+    {
+      "path": "scripts/opera_gesture_surface.gd",
+      "line": 3912,
+      "scope": "_draw_magic_cabinet",
+      "source": "var fallback_reveal_alpha := clampf(",
+      "status": "NEEDS_CONTEXT_REVIEW"
+    },
+    {
+      "path": "scripts/opera_gesture_surface.gd",
+      "line": 3918,
+      "scope": "_draw_magic_cabinet",
+      "source": "Color(0.78, 0.98, 1.0, fallback_reveal_alpha))",
+      "status": "NEEDS_CONTEXT_REVIEW"
+    },
+    {
+      "path": "scripts/opera_gesture_surface.gd",
+      "line": 3924,
+      "scope": "_draw_magic_cabinet",
+      "source": "]), Color(0.88, 0.99, 1.0, fallback_reveal_alpha))",
+      "status": "NEEDS_CONTEXT_REVIEW"
+    },
+    {
+      "path": "scripts/opera_gesture_surface.gd",
+      "line": 3929,
+      "scope": "_draw_magic_cabinet",
+      "source": "]), Color(0.68, 0.91, 0.96, fallback_reveal_alpha))",
+      "status": "NEEDS_CONTEXT_REVIEW"
+    },
+    {
+      "path": "scripts/opera_gesture_surface.gd",
+      "line": 3931,
+      "scope": "_draw_magic_cabinet",
+      "source": "Color(0.20, 0.18, 0.35, fallback_reveal_alpha))",
+      "status": "NEEDS_CONTEXT_REVIEW"
+    },
+    {
+      "path": "scripts/opera_imp_clips.gd",
+      "line": 29,
+      "scope": "_value",
+      "source": "static func _value(id: String, key: String, fallback: float = 0.0) -> float:",
+      "status": "NEEDS_CONTEXT_REVIEW"
+    },
+    {
+      "path": "scripts/opera_imp_clips.gd",
+      "line": 31,
+      "scope": "_value",
+      "source": "return float(clip.get(key, fallback))",
+      "status": "NEEDS_CONTEXT_REVIEW"
+    },
+    {
+      "path": "scripts/opera_mastery.gd",
+      "line": 158,
+      "scope": "_read_bounded_int",
+      "source": "maximum: int, fallback: int) -> int:",
+      "status": "NEEDS_CONTEXT_REVIEW"
+    },
+    {
+      "path": "scripts/opera_mastery.gd",
+      "line": 160,
+      "scope": "_read_bounded_int",
+      "source": "return fallback",
+      "status": "NEEDS_CONTEXT_REVIEW"
+    },
+    {
+      "path": "scripts/opera_mastery.gd",
+      "line": 163,
+      "scope": "_read_bounded_int",
+      "source": "return integer if integer >= minimum and integer <= maximum else fallback",
+      "status": "NEEDS_CONTEXT_REVIEW"
+    },
+    {
+      "path": "scripts/opera_mastery.gd",
+      "line": 169,
+      "scope": "_read_bounded_int",
+      "source": "return fallback",
+      "status": "NEEDS_CONTEXT_REVIEW"
+    },
+    {
+      "path": "scripts/opera_roshan_actor.gd",
+      "line": 42,
+      "scope": "FILE_SCOPE",
+      "source": "var _fallback: Texture2D = null",
+      "status": "NEEDS_CONTEXT_REVIEW"
+    },
+    {
+      "path": "scripts/opera_roshan_actor.gd",
+      "line": 51,
+      "scope": "idle_frame",
+      "source": "static func idle_frame(career: String, fallback: Texture2D = null) -> Texture2D:",
+      "status": "NEEDS_CONTEXT_REVIEW"
+    },
+    {
+      "path": "scripts/opera_roshan_actor.gd",
+      "line": 58,
+      "scope": "idle_frame",
+      "source": "return fallback",
+      "status": "NEEDS_CONTEXT_REVIEW"
+    },
+    {
+      "path": "scripts/opera_roshan_actor.gd",
+      "line": 61,
+      "scope": "idle_frame",
+      "source": "return fallback",
+      "status": "NEEDS_CONTEXT_REVIEW"
+    },
+    {
+      "path": "scripts/opera_roshan_actor.gd",
+      "line": 65,
+      "scope": "idle_frame",
+      "source": "return fallback",
+      "status": "NEEDS_CONTEXT_REVIEW"
+    },
+    {
+      "path": "scripts/opera_roshan_actor.gd",
+      "line": 76,
+      "scope": "setup",
+      "source": "func setup(target: TextureRect, career: String, fallback: Texture2D) -> void:",
+      "status": "NEEDS_CONTEXT_REVIEW"
+    },
+    {
+      "path": "scripts/opera_roshan_actor.gd",
+      "line": 77,
+      "scope": "setup",
+      "source": "_restore_fallback()",
+      "status": "NEEDS_CONTEXT_REVIEW"
+    },
+    {
+      "path": "scripts/opera_roshan_actor.gd",
+      "line": 79,
+      "scope": "setup",
+      "source": "_fallback = fallback if fallback != null else (",
+      "status": "NEEDS_CONTEXT_REVIEW"
+    },
+    {
+      "path": "scripts/opera_roshan_actor.gd",
+      "line": 96,
+      "scope": "setup",
+      "source": "_restore_fallback()",
+      "status": "NEEDS_CONTEXT_REVIEW"
+    },
+    {
+      "path": "scripts/opera_roshan_actor.gd",
+      "line": 106,
+      "scope": "setup",
+      "source": "_restore_fallback()",
+      "status": "NEEDS_CONTEXT_REVIEW"
+    },
+    {
+      "path": "scripts/opera_roshan_actor.gd",
+      "line": 140,
+      "scope": "play",
+      "source": "_restore_fallback()",
+      "status": "NEEDS_CONTEXT_REVIEW"
+    },
+    {
+      "path": "scripts/opera_roshan_actor.gd",
+      "line": 159,
+      "scope": "show_pose",
+      "source": "_restore_fallback()",
+      "status": "NEEDS_CONTEXT_REVIEW"
+    },
+    {
+      "path": "scripts/opera_roshan_actor.gd",
+      "line": 171,
+      "scope": "stop",
+      "source": "_restore_fallback()",
+      "status": "NEEDS_CONTEXT_REVIEW"
+    },
+    {
+      "path": "scripts/opera_roshan_actor.gd",
+      "line": 217,
+      "scope": "_play_pose_cheer",
+      "source": "_restore_fallback()",
+      "status": "NEEDS_CONTEXT_REVIEW"
+    },
+    {
+      "path": "scripts/opera_roshan_actor.gd",
+      "line": 235,
+      "scope": "_restore_fallback",
+      "source": "func _restore_fallback() -> void:",
+      "status": "NEEDS_CONTEXT_REVIEW"
+    },
+    {
+      "path": "scripts/opera_roshan_actor.gd",
+      "line": 237,
+      "scope": "_restore_fallback",
+      "source": "_target.texture = _fallback",
+      "status": "NEEDS_CONTEXT_REVIEW"
+    },
+    {
+      "path": "scripts/opera_stage_paths.gd",
+      "line": 550,
+      "scope": "to_screen",
+      "source": "const FALLBACK_PATH := [",
+      "status": "NEEDS_CONTEXT_REVIEW"
+    },
+    {
+      "path": "scripts/opera_stage_paths.gd",
+      "line": 554,
+      "scope": "to_screen",
+      "source": "const FALLBACK_STATION_T := [0.10, 0.34, 0.58, 0.82]",
+      "status": "NEEDS_CONTEXT_REVIEW"
+    },
+    {
+      "path": "scripts/opera_stage_paths.gd",
+      "line": 558,
+      "scope": "path_points",
+      "source": "var raw: Array = (PATHS.get(career, {}) as Dictionary).get(\"path\", FALLBACK_PATH)",
+      "status": "NEEDS_CONTEXT_REVIEW"
+    },
+    {
+      "path": "scripts/opera_stage_paths.gd",
+      "line": 570,
+      "scope": "stations",
+      "source": "for index in range(FALLBACK_STATION_T.size()):",
+      "status": "NEEDS_CONTEXT_REVIEW"
+    },
+    {
+      "path": "scripts/opera_stage_paths.gd",
+      "line": 573,
+      "scope": "stations",
+      "source": "points, float(FALLBACK_STATION_T[index]))",
+      "status": "NEEDS_CONTEXT_REVIEW"
+    },
+    {
+      "path": "scripts/opera_tree_book_test.gd",
+      "line": 72,
+      "scope": "_ready",
+      "source": "font = ThemeDB.fallback_font",
+      "status": "NEEDS_CONTEXT_REVIEW"
+    },
+    {
+      "path": "scripts/reef_districts.gd",
+      "line": 235,
+      "scope": "scatter_point",
+      "source": "for fallback: Vector2 in choices:",
+      "status": "NEEDS_CONTEXT_REVIEW"
+    },
+    {
+      "path": "scripts/reef_districts.gd",
+      "line": 236,
+      "scope": "scatter_point",
+      "source": "if habitat_point_allowed(habitat, fallback):",
+      "status": "NEEDS_CONTEXT_REVIEW"
+    },
+    {
+      "path": "scripts/reef_districts.gd",
+      "line": 237,
+      "scope": "scatter_point",
+      "source": "p = fallback",
+      "status": "NEEDS_CONTEXT_REVIEW"
+    },
+    {
+      "path": "scripts/storybook_ui.gd",
+      "line": 30,
+      "scope": "FILE_SCOPE",
+      "source": "const TYPOGRAPHY_FALLBACK_AUTHORITY: String = \"MISSING\"",
+      "status": "NEEDS_CONTEXT_REVIEW"
+    },
+    {
+      "path": "scripts/storybook_ui.gd",
+      "line": 89,
+      "scope": "typography_role",
+      "source": "token[\"fallback_authority\"] = TYPOGRAPHY_FALLBACK_AUTHORITY",
+      "status": "NEEDS_CONTEXT_REVIEW"
+    },
+    {
+      "path": "scripts/storybook_ui.gd",
+      "line": 104,
+      "scope": "_apply_typography",
+      "source": "control.set_meta(\"typography_fallback_authority\", TYPOGRAPHY_FALLBACK_AUTHORITY)",
+      "status": "NEEDS_CONTEXT_REVIEW"
+    },
+    {
+      "path": "scripts/teacher_lesson_plan.gd",
+      "line": 195,
+      "scope": "_safe_int",
+      "source": "fallback: int) -> int:",
+      "status": "NEEDS_CONTEXT_REVIEW"
+    },
+    {
+      "path": "scripts/teacher_lesson_plan.gd",
+      "line": 197,
+      "scope": "_safe_int",
+      "source": "return fallback",
+      "status": "NEEDS_CONTEXT_REVIEW"
+    },
+    {
+      "path": "scripts/teacher_lesson_plan.gd",
+      "line": 200,
+      "scope": "_safe_int",
+      "source": "return fallback",
+      "status": "NEEDS_CONTEXT_REVIEW"
+    }
+  ],
+  "note": "This is an overinclusive expression inventory. Neither string roots nor source mentions prove current draw-path visibility."
+}

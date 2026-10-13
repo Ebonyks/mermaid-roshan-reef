@@ -1,0 +1,1856 @@
+{
+	"aspect": [
+		1600,
+		720
+	],
+	"capture_method": "same-process viewport",
+	"engine": {
+		"build": "official",
+		"hash": "ed1daf0bf001b61586d9930840f2f1394092c079",
+		"hex": 263938,
+		"major": 4,
+		"minor": 7,
+		"patch": 2,
+		"status": "stable",
+		"string": "4.7.2-stable (official)",
+		"timestamp": 0
+	},
+	"errors": [],
+	"normal_save_after": {
+		"": "47c287147713fac860e25dade59da95961204f9b3170f5e00b5843e11590ad1e",
+		".bak": "de9d0441ed4d74f01cc8778c1c21600351b1426017d33a5ce99e69b03e893c3a",
+		".bak.old": "absent",
+		".bak.tmp": "absent",
+		".old": "absent",
+		".tmp": "absent",
+		".tmp0": "absent",
+		".tmp1": "absent"
+	},
+	"normal_save_before": {
+		"": "47c287147713fac860e25dade59da95961204f9b3170f5e00b5843e11590ad1e",
+		".bak": "de9d0441ed4d74f01cc8778c1c21600351b1426017d33a5ce99e69b03e893c3a",
+		".bak.old": "absent",
+		".bak.tmp": "absent",
+		".old": "absent",
+		".tmp": "absent",
+		".tmp0": "absent",
+		".tmp1": "absent"
+	},
+	"quality": "speedy",
+	"renderer": "mobile",
+	"schema": "reef.root_picture_context/1",
+	"scope_limits": "Fresh Main and SaveState per game; direct guarded API entry; bounded actual raw-axis/button events plus sampled states; explicit standalone picture production-tick scheduling fixture, not natural Lagoon route; no natural castle route, save/resume, complete motion, device/child/owner acceptance.",
+	"source_revision": "6cde8aeae04aaedcc0b1ff22a05ef93ab9bf666f",
+	"states": [
+		{
+			"balls": 0,
+			"bites": 0,
+			"bounces": 0,
+			"face": 0,
+			"grown": 0,
+			"id": "snowman_fresh_ready",
+			"image": {
+				"bytes": 98566,
+				"dimensions": [
+					1600,
+					720
+				],
+				"file": "snowman_fresh_ready.png",
+				"sha256": "52c7cd0cfc5d3939d55d3f71e971748ce528b66f5b0468e0fb6aec843cc8d7b2"
+			},
+			"input": {
+				"entry": "production _mg2d_open API; fresh Main and isolated save per game; direct route fixture"
+			},
+			"kind": "snowman",
+			"main_hud_visible": true,
+			"own_medal_expected": false,
+			"phase": "roll",
+			"placed": 0,
+			"presentation": {
+				"boot_splash_present": false,
+				"fade_alpha": 0.0,
+				"intro_active": false,
+				"intro_layer_present": false,
+				"medal_present": false,
+				"start_menu_active": false,
+				"start_menu_layer_present": false
+			},
+			"save_path": "C:\\Users\\Peter\\.codex\\visualizations\\2026\\10\\08\\01a119c6-5602-7523-92db-1d320ca62bdf\\root_snow_bridge_v4_20261013T012443/1600x720/profiles/snowman/reef_save.json",
+			"stage": [],
+			"visible_nodes": [
+				{
+					"class": "Control",
+					"global_rect": "[P: (0.0, 0.0), S: (1600.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@742/@Control@743",
+					"z_index": 0
+				},
+				{
+					"class": "TextureRect",
+					"global_rect": "[P: (0.0, 0.0), S: (1600.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@742/@Control@743/@TextureRect@744",
+					"texture": "",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@742/@Control@743/@Control@745",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@742/@Control@743/@Control@745/PictureGameFeedbackLayer",
+					"z_index": 20
+				},
+				{
+					"class": "Panel",
+					"global_rect": "[P: (184.0, 18.0), S: (880.0, 112.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@742/@Control@743/@Control@745/PictureGameStorybookHeader",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (204.0, 45.0), S: (82.0, 60.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@742/@Control@743/@Control@745/PictureGameStorybookHeader/PictureGameShellCrest",
+					"z_index": 0
+				},
+				{
+					"class": "Label",
+					"global_rect": "[P: (298.0, 30.0), S: (734.0, 94.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@742/@Control@743/@Control@745/@Label@747",
+					"z_index": 0
+				},
+				{
+					"class": "Panel",
+					"global_rect": "[P: (100.0, 280.0), S: (1400.0, 1400.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@742/@Control@743/@Control@745/@Panel@748",
+					"z_index": 0
+				},
+				{
+					"class": "Panel",
+					"global_rect": "[P: (324.0, 434.0), S: (595.0, 420.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@742/@Control@743/@Control@745/@Panel@748/@Panel@749",
+					"z_index": 0
+				},
+				{
+					"class": "Label",
+					"global_rect": "[P: (410.4035, 145.5224), S: (779.1931, 145.7192)]",
+					"modulate": "(1.0, 1.0, 1.0, 0.8097)",
+					"path": "/root/Main/@CanvasLayer@742/@Control@743/@Control@745/@Label@750",
+					"z_index": 0
+				},
+				{
+					"class": "Label",
+					"global_rect": "[P: (635.6634, 461.5126), S: (110.0, 230.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@742/@Control@743/@Control@745/@Label@751",
+					"z_index": 0
+				},
+				{
+					"class": "Panel",
+					"global_rect": "[P: (554.0, 474.0), S: (52.0, 52.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@742/@Control@743/@Control@745/@Panel@752",
+					"z_index": 0
+				},
+				{
+					"class": "Panel",
+					"global_rect": "[P: (562.32, 479.72), S: (22.1, 15.6)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@742/@Control@743/@Control@745/@Panel@752/@Panel@753",
+					"z_index": 0
+				}
+			],
+			"won": false
+		},
+		{
+			"balls": 0,
+			"bites": 0,
+			"bounces": 0,
+			"face": 0,
+			"grown": 0,
+			"id": "snow_ball1_growing",
+			"image": {
+				"bytes": 104135,
+				"dimensions": [
+					1600,
+					720
+				],
+				"file": "snow_ball1_growing.png",
+				"sha256": "e6fcc85cdaa430a0bab04be19607f207cad15d18d4382f31c6b37f57c4f9215e"
+			},
+			"input": {
+				"angle_step": 0.130899693899575,
+				"fixture": "synthetic unmapped-controller mode joy_has_unmapped=true; no physical controller; diagnostic Node schedules production _tick_mg2d once per actual process frame because direct API fixture bypasses Lagoon scheduler",
+				"method": "Window.push_input raw joypad axis pairs",
+				"motor_assist": false,
+				"observed_rot_acc": 6.28318530717959,
+				"steps": 48
+			},
+			"kind": "snowman",
+			"main_hud_visible": true,
+			"own_medal_expected": false,
+			"phase": "roll",
+			"placed": 0,
+			"presentation": {
+				"boot_splash_present": false,
+				"fade_alpha": 0.0,
+				"intro_active": false,
+				"intro_layer_present": false,
+				"medal_present": false,
+				"start_menu_active": false,
+				"start_menu_layer_present": false
+			},
+			"save_path": "C:\\Users\\Peter\\.codex\\visualizations\\2026\\10\\08\\01a119c6-5602-7523-92db-1d320ca62bdf\\root_snow_bridge_v4_20261013T012443/1600x720/profiles/snowman/reef_save.json",
+			"stage": [],
+			"visible_nodes": [
+				{
+					"class": "Control",
+					"global_rect": "[P: (0.0, 0.0), S: (1600.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@742/@Control@743",
+					"z_index": 0
+				},
+				{
+					"class": "TextureRect",
+					"global_rect": "[P: (0.0, 0.0), S: (1600.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@742/@Control@743/@TextureRect@744",
+					"texture": "",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@742/@Control@743/@Control@745",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@742/@Control@743/@Control@745/PictureGameFeedbackLayer",
+					"z_index": 20
+				},
+				{
+					"class": "Panel",
+					"global_rect": "[P: (184.0, 18.0), S: (880.0, 112.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@742/@Control@743/@Control@745/PictureGameStorybookHeader",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (204.0, 45.0), S: (82.0, 60.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@742/@Control@743/@Control@745/PictureGameStorybookHeader/PictureGameShellCrest",
+					"z_index": 0
+				},
+				{
+					"class": "Label",
+					"global_rect": "[P: (298.0, 30.0), S: (734.0, 94.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@742/@Control@743/@Control@745/@Label@747",
+					"z_index": 0
+				},
+				{
+					"class": "Panel",
+					"global_rect": "[P: (100.0, 280.0), S: (1400.0, 1400.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@742/@Control@743/@Control@745/@Panel@748",
+					"z_index": 0
+				},
+				{
+					"class": "Panel",
+					"global_rect": "[P: (324.0, 434.0), S: (595.0, 420.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@742/@Control@743/@Control@745/@Panel@748/@Panel@749",
+					"z_index": 0
+				},
+				{
+					"class": "Label",
+					"global_rect": "[P: (412.5684, 145.7474), S: (774.8633, 144.9095)]",
+					"modulate": "(1.0, 1.0, 1.0, 0.7816)",
+					"path": "/root/Main/@CanvasLayer@742/@Control@743/@Control@745/@Label@750",
+					"z_index": 0
+				},
+				{
+					"class": "Label",
+					"global_rect": "[P: (602.8471, 559.0032), S: (110.0002, 230.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@742/@Control@743/@Control@745/@Label@751",
+					"z_index": 0
+				},
+				{
+					"class": "Panel",
+					"global_rect": "[P: (521.3334, 441.3333), S: (117.3333, 117.3333)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@742/@Control@743/@Control@745/@Panel@752",
+					"z_index": 0
+				},
+				{
+					"class": "Panel",
+					"global_rect": "[P: (540.1067, 454.24), S: (49.86667, 35.2)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@742/@Control@743/@Control@745/@Panel@752/@Panel@753",
+					"z_index": 0
+				}
+			],
+			"won": false
+		},
+		{
+			"balls": 1,
+			"bites": 0,
+			"bounces": 0,
+			"face": 0,
+			"grown": 0,
+			"id": "snow_ball1_stacked",
+			"image": {
+				"bytes": 115584,
+				"dimensions": [
+					1600,
+					720
+				],
+				"file": "snow_ball1_stacked.png",
+				"sha256": "f6fb8dd49ed32df45812f05c7819f9d6af5348d3713a42d1de07936fe28005da"
+			},
+			"input": {
+				"fixture": "synthetic unmapped-controller mode joy_has_unmapped=true; no physical controller; diagnostic Node schedules production _tick_mg2d once per actual process frame because direct API fixture bypasses Lagoon scheduler",
+				"method": "Window.push_input raw joypad axis pairs",
+				"motor_assist": false,
+				"steps": 143
+			},
+			"kind": "snowman",
+			"main_hud_visible": true,
+			"own_medal_expected": false,
+			"phase": "roll",
+			"placed": 0,
+			"presentation": {
+				"boot_splash_present": false,
+				"fade_alpha": 0.0,
+				"intro_active": false,
+				"intro_layer_present": false,
+				"medal_present": false,
+				"start_menu_active": false,
+				"start_menu_layer_present": false
+			},
+			"save_path": "C:\\Users\\Peter\\.codex\\visualizations\\2026\\10\\08\\01a119c6-5602-7523-92db-1d320ca62bdf\\root_snow_bridge_v4_20261013T012443/1600x720/profiles/snowman/reef_save.json",
+			"stage": [],
+			"visible_nodes": [
+				{
+					"class": "Control",
+					"global_rect": "[P: (0.0, 0.0), S: (1600.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@742/@Control@743",
+					"z_index": 0
+				},
+				{
+					"class": "TextureRect",
+					"global_rect": "[P: (0.0, 0.0), S: (1600.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@742/@Control@743/@TextureRect@744",
+					"texture": "",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@742/@Control@743/@Control@745",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@742/@Control@743/@Control@745/PictureGameFeedbackLayer",
+					"z_index": 20
+				},
+				{
+					"class": "Panel",
+					"global_rect": "[P: (184.0, 18.0), S: (880.0, 112.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@742/@Control@743/@Control@745/PictureGameStorybookHeader",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (204.0, 45.0), S: (82.0, 60.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@742/@Control@743/@Control@745/PictureGameStorybookHeader/PictureGameShellCrest",
+					"z_index": 0
+				},
+				{
+					"class": "Label",
+					"global_rect": "[P: (298.0, 30.0), S: (734.0, 94.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@742/@Control@743/@Control@745/@Label@747",
+					"z_index": 0
+				},
+				{
+					"class": "Panel",
+					"global_rect": "[P: (100.0, 280.0), S: (1400.0, 1400.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@742/@Control@743/@Control@745/@Panel@748",
+					"z_index": 0
+				},
+				{
+					"class": "Panel",
+					"global_rect": "[P: (324.0, 434.0), S: (595.0, 420.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@742/@Control@743/@Control@745/@Panel@748/@Panel@749",
+					"z_index": 0
+				},
+				{
+					"class": "Label",
+					"global_rect": "[P: (415.1271, 146.0132), S: (769.7457, 143.9525)]",
+					"modulate": "(1.0, 1.0, 1.0, 0.7483)",
+					"path": "/root/Main/@CanvasLayer@742/@Control@743/@Control@745/@Label@750",
+					"z_index": 0
+				},
+				{
+					"class": "Label",
+					"global_rect": "[P: (548.0255, 370.0941), S: (110.0002, 229.9997)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@742/@Control@743/@Control@745/@Label@751",
+					"z_index": 0
+				},
+				{
+					"class": "Panel",
+					"global_rect": "[P: (1016.0, 436.0), S: (248.0002, 248.0001)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@742/@Control@743/@Control@745/@Panel@752",
+					"z_index": 0
+				},
+				{
+					"class": "Panel",
+					"global_rect": "[P: (1055.68, 463.28), S: (105.4, 74.4)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@742/@Control@743/@Control@745/@Panel@752/@Panel@753",
+					"z_index": 0
+				},
+				{
+					"class": "Panel",
+					"global_rect": "[P: (554.0, 474.0), S: (52.0, 52.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@742/@Control@743/@Control@745/@Panel@766",
+					"z_index": 0
+				},
+				{
+					"class": "Panel",
+					"global_rect": "[P: (562.32, 479.72), S: (22.1, 15.6)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@742/@Control@743/@Control@745/@Panel@766/@Panel@767",
+					"z_index": 0
+				}
+			],
+			"won": false
+		},
+		{
+			"balls": 1,
+			"bites": 0,
+			"bounces": 0,
+			"face": 0,
+			"grown": 0,
+			"id": "snow_ball2_growing",
+			"image": {
+				"bytes": 118688,
+				"dimensions": [
+					1600,
+					720
+				],
+				"file": "snow_ball2_growing.png",
+				"sha256": "55717b66424a96ec1936e133c2098b7bcb465b8167263ab3a0c11111023b6490"
+			},
+			"input": {
+				"angle_step": 0.130899693899575,
+				"fixture": "synthetic unmapped-controller mode joy_has_unmapped=true; no physical controller; diagnostic Node schedules production _tick_mg2d once per actual process frame because direct API fixture bypasses Lagoon scheduler",
+				"method": "Window.push_input raw joypad axis pairs",
+				"motor_assist": false,
+				"observed_rot_acc": 6.28318530717959,
+				"steps": 48
+			},
+			"kind": "snowman",
+			"main_hud_visible": true,
+			"own_medal_expected": false,
+			"phase": "roll",
+			"placed": 0,
+			"presentation": {
+				"boot_splash_present": false,
+				"fade_alpha": 0.0,
+				"intro_active": false,
+				"intro_layer_present": false,
+				"medal_present": false,
+				"start_menu_active": false,
+				"start_menu_layer_present": false
+			},
+			"save_path": "C:\\Users\\Peter\\.codex\\visualizations\\2026\\10\\08\\01a119c6-5602-7523-92db-1d320ca62bdf\\root_snow_bridge_v4_20261013T012443/1600x720/profiles/snowman/reef_save.json",
+			"stage": [],
+			"visible_nodes": [
+				{
+					"class": "Control",
+					"global_rect": "[P: (0.0, 0.0), S: (1600.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@742/@Control@743",
+					"z_index": 0
+				},
+				{
+					"class": "TextureRect",
+					"global_rect": "[P: (0.0, 0.0), S: (1600.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@742/@Control@743/@TextureRect@744",
+					"texture": "",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@742/@Control@743/@Control@745",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@742/@Control@743/@Control@745/PictureGameFeedbackLayer",
+					"z_index": 20
+				},
+				{
+					"class": "Panel",
+					"global_rect": "[P: (184.0, 18.0), S: (880.0, 112.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@742/@Control@743/@Control@745/PictureGameStorybookHeader",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (204.0, 45.0), S: (82.0, 60.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@742/@Control@743/@Control@745/PictureGameStorybookHeader/PictureGameShellCrest",
+					"z_index": 0
+				},
+				{
+					"class": "Label",
+					"global_rect": "[P: (298.0, 30.0), S: (734.0, 94.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@742/@Control@743/@Control@745/@Label@747",
+					"z_index": 0
+				},
+				{
+					"class": "Panel",
+					"global_rect": "[P: (100.0, 280.0), S: (1400.0, 1400.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@742/@Control@743/@Control@745/@Panel@748",
+					"z_index": 0
+				},
+				{
+					"class": "Panel",
+					"global_rect": "[P: (324.0, 434.0), S: (595.0, 420.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@742/@Control@743/@Control@745/@Panel@748/@Panel@749",
+					"z_index": 0
+				},
+				{
+					"class": "Label",
+					"global_rect": "[P: (406.8992, 145.1584), S: (786.2017, 147.0299)]",
+					"modulate": "(1.0, 1.0, 1.0, 0.8552)",
+					"path": "/root/Main/@CanvasLayer@742/@Control@743/@Control@745/@Label@750",
+					"z_index": 0
+				},
+				{
+					"class": "Label",
+					"global_rect": "[P: (644.4479, 389.3686), S: (110.0004, 229.9997)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@742/@Control@743/@Control@745/@Label@751",
+					"z_index": 0
+				},
+				{
+					"class": "Panel",
+					"global_rect": "[P: (1016.0, 436.0), S: (248.0002, 248.0001)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@742/@Control@743/@Control@745/@Panel@752",
+					"z_index": 0
+				},
+				{
+					"class": "Panel",
+					"global_rect": "[P: (1055.68, 463.28), S: (105.4, 74.4)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@742/@Control@743/@Control@745/@Panel@752/@Panel@753",
+					"z_index": 0
+				},
+				{
+					"class": "Panel",
+					"global_rect": "[P: (525.2, 445.2), S: (109.6, 109.6)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@742/@Control@743/@Control@745/@Panel@766",
+					"z_index": 0
+				},
+				{
+					"class": "Panel",
+					"global_rect": "[P: (542.736, 457.256), S: (46.58, 32.88)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@742/@Control@743/@Control@745/@Panel@766/@Panel@767",
+					"z_index": 0
+				}
+			],
+			"won": false
+		},
+		{
+			"balls": 2,
+			"bites": 0,
+			"bounces": 0,
+			"face": 0,
+			"grown": 0,
+			"id": "snow_ball2_stacked",
+			"image": {
+				"bytes": 120685,
+				"dimensions": [
+					1600,
+					720
+				],
+				"file": "snow_ball2_stacked.png",
+				"sha256": "6327a9af6bff812685d23f6bba9f502303c7526be8f5365ef0781a79de2b8791"
+			},
+			"input": {
+				"fixture": "synthetic unmapped-controller mode joy_has_unmapped=true; no physical controller; diagnostic Node schedules production _tick_mg2d once per actual process frame because direct API fixture bypasses Lagoon scheduler",
+				"method": "Window.push_input raw joypad axis pairs",
+				"motor_assist": false,
+				"steps": 119
+			},
+			"kind": "snowman",
+			"main_hud_visible": true,
+			"own_medal_expected": false,
+			"phase": "roll",
+			"placed": 0,
+			"presentation": {
+				"boot_splash_present": false,
+				"fade_alpha": 0.0,
+				"intro_active": false,
+				"intro_layer_present": false,
+				"medal_present": false,
+				"start_menu_active": false,
+				"start_menu_layer_present": false
+			},
+			"save_path": "C:\\Users\\Peter\\.codex\\visualizations\\2026\\10\\08\\01a119c6-5602-7523-92db-1d320ca62bdf\\root_snow_bridge_v4_20261013T012443/1600x720/profiles/snowman/reef_save.json",
+			"stage": [],
+			"visible_nodes": [
+				{
+					"class": "Control",
+					"global_rect": "[P: (0.0, 0.0), S: (1600.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@742/@Control@743",
+					"z_index": 0
+				},
+				{
+					"class": "TextureRect",
+					"global_rect": "[P: (0.0, 0.0), S: (1600.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@742/@Control@743/@TextureRect@744",
+					"texture": "",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@742/@Control@743/@Control@745",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@742/@Control@743/@Control@745/PictureGameFeedbackLayer",
+					"z_index": 20
+				},
+				{
+					"class": "Panel",
+					"global_rect": "[P: (184.0, 18.0), S: (880.0, 112.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@742/@Control@743/@Control@745/PictureGameStorybookHeader",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (204.0, 45.0), S: (82.0, 60.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@742/@Control@743/@Control@745/PictureGameStorybookHeader/PictureGameShellCrest",
+					"z_index": 0
+				},
+				{
+					"class": "Label",
+					"global_rect": "[P: (298.0, 30.0), S: (734.0, 94.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@742/@Control@743/@Control@745/@Label@747",
+					"z_index": 0
+				},
+				{
+					"class": "Panel",
+					"global_rect": "[P: (100.0, 280.0), S: (1400.0, 1400.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@742/@Control@743/@Control@745/@Panel@748",
+					"z_index": 0
+				},
+				{
+					"class": "Panel",
+					"global_rect": "[P: (324.0, 434.0), S: (595.0, 420.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@742/@Control@743/@Control@745/@Panel@748/@Panel@749",
+					"z_index": 0
+				},
+				{
+					"class": "Label",
+					"global_rect": "[P: (434.1442, 147.989), S: (731.7115, 136.8396)]",
+					"modulate": "(1.0, 1.0, 1.0, 0.5014)",
+					"path": "/root/Main/@CanvasLayer@742/@Control@743/@Control@745/@Label@750",
+					"z_index": 0
+				},
+				{
+					"class": "Label",
+					"global_rect": "[P: (488.4155, 508.8909), S: (110.0004, 229.9995)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@742/@Control@743/@Control@745/@Label@751",
+					"z_index": 0
+				},
+				{
+					"class": "Panel",
+					"global_rect": "[P: (1016.0, 436.0), S: (248.0002, 248.0001)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@742/@Control@743/@Control@745/@Panel@752",
+					"z_index": 0
+				},
+				{
+					"class": "Panel",
+					"global_rect": "[P: (1055.68, 463.28), S: (105.4, 74.4)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@742/@Control@743/@Control@745/@Panel@752/@Panel@753",
+					"z_index": 0
+				},
+				{
+					"class": "Panel",
+					"global_rect": "[P: (1042.0, 287.0), S: (195.9998, 196.0001)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@742/@Control@743/@Control@745/@Panel@766",
+					"z_index": 0
+				},
+				{
+					"class": "Panel",
+					"global_rect": "[P: (1073.36, 308.56), S: (83.3, 58.8)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@742/@Control@743/@Control@745/@Panel@766/@Panel@767",
+					"z_index": 0
+				},
+				{
+					"class": "Panel",
+					"global_rect": "[P: (554.0, 474.0), S: (52.0, 52.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@742/@Control@743/@Control@745/@Panel@778",
+					"z_index": 0
+				},
+				{
+					"class": "Panel",
+					"global_rect": "[P: (562.32, 479.72), S: (22.1, 15.6)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@742/@Control@743/@Control@745/@Panel@778/@Panel@779",
+					"z_index": 0
+				}
+			],
+			"won": false
+		},
+		{
+			"balls": 2,
+			"bites": 0,
+			"bounces": 0,
+			"face": 0,
+			"grown": 0,
+			"id": "snow_ball3_growing",
+			"image": {
+				"bytes": 126643,
+				"dimensions": [
+					1600,
+					720
+				],
+				"file": "snow_ball3_growing.png",
+				"sha256": "44f0f2c98fb1fc5e5ea1df210958363c8cb96c41ffa3fac5ffacfa620be1b72d"
+			},
+			"input": {
+				"angle_step": 0.130899693899575,
+				"fixture": "synthetic unmapped-controller mode joy_has_unmapped=true; no physical controller; diagnostic Node schedules production _tick_mg2d once per actual process frame because direct API fixture bypasses Lagoon scheduler",
+				"method": "Window.push_input raw joypad axis pairs",
+				"motor_assist": false,
+				"observed_rot_acc": 6.28318530717959,
+				"steps": 48
+			},
+			"kind": "snowman",
+			"main_hud_visible": true,
+			"own_medal_expected": false,
+			"phase": "roll",
+			"placed": 0,
+			"presentation": {
+				"boot_splash_present": false,
+				"fade_alpha": 0.0,
+				"intro_active": false,
+				"intro_layer_present": false,
+				"medal_present": false,
+				"start_menu_active": false,
+				"start_menu_layer_present": false
+			},
+			"save_path": "C:\\Users\\Peter\\.codex\\visualizations\\2026\\10\\08\\01a119c6-5602-7523-92db-1d320ca62bdf\\root_snow_bridge_v4_20261013T012443/1600x720/profiles/snowman/reef_save.json",
+			"stage": [],
+			"visible_nodes": [
+				{
+					"class": "Control",
+					"global_rect": "[P: (0.0, 0.0), S: (1600.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@742/@Control@743",
+					"z_index": 0
+				},
+				{
+					"class": "TextureRect",
+					"global_rect": "[P: (0.0, 0.0), S: (1600.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@742/@Control@743/@TextureRect@744",
+					"texture": "",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@742/@Control@743/@Control@745",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@742/@Control@743/@Control@745/PictureGameFeedbackLayer",
+					"z_index": 20
+				},
+				{
+					"class": "Panel",
+					"global_rect": "[P: (184.0, 18.0), S: (880.0, 112.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@742/@Control@743/@Control@745/PictureGameStorybookHeader",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (204.0, 45.0), S: (82.0, 60.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@742/@Control@743/@Control@745/PictureGameStorybookHeader/PictureGameShellCrest",
+					"z_index": 0
+				},
+				{
+					"class": "Label",
+					"global_rect": "[P: (298.0, 30.0), S: (734.0, 94.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@742/@Control@743/@Control@745/@Label@747",
+					"z_index": 0
+				},
+				{
+					"class": "Panel",
+					"global_rect": "[P: (100.0, 280.0), S: (1400.0, 1400.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@742/@Control@743/@Control@745/@Panel@748",
+					"z_index": 0
+				},
+				{
+					"class": "Panel",
+					"global_rect": "[P: (324.0, 434.0), S: (595.0, 420.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@742/@Control@743/@Control@745/@Panel@748/@Panel@749",
+					"z_index": 0
+				},
+				{
+					"class": "Label",
+					"global_rect": "[P: (397.8087, 144.2139), S: (804.3825, 150.43)]",
+					"modulate": "(1.0, 1.0, 1.0, 0.9733)",
+					"path": "/root/Main/@CanvasLayer@742/@Control@743/@Control@745/@Label@750",
+					"z_index": 0
+				},
+				{
+					"class": "Label",
+					"global_rect": "[P: (450.4428, 420.3081), S: (110.0004, 229.9996)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@742/@Control@743/@Control@745/@Label@751",
+					"z_index": 0
+				},
+				{
+					"class": "Panel",
+					"global_rect": "[P: (1016.0, 436.0), S: (248.0002, 248.0001)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@742/@Control@743/@Control@745/@Panel@752",
+					"z_index": 0
+				},
+				{
+					"class": "Panel",
+					"global_rect": "[P: (1055.68, 463.28), S: (105.4, 74.4)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@742/@Control@743/@Control@745/@Panel@752/@Panel@753",
+					"z_index": 0
+				},
+				{
+					"class": "Panel",
+					"global_rect": "[P: (1042.0, 287.0), S: (195.9998, 196.0001)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@742/@Control@743/@Control@745/@Panel@766",
+					"z_index": 0
+				},
+				{
+					"class": "Panel",
+					"global_rect": "[P: (1073.36, 308.56), S: (83.3, 58.8)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@742/@Control@743/@Control@745/@Panel@766/@Panel@767",
+					"z_index": 0
+				},
+				{
+					"class": "Panel",
+					"global_rect": "[P: (531.0, 451.0), S: (98.0, 98.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@742/@Control@743/@Control@745/@Panel@778",
+					"z_index": 0
+				},
+				{
+					"class": "Panel",
+					"global_rect": "[P: (546.68, 461.78), S: (41.65, 29.4)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@742/@Control@743/@Control@745/@Panel@778/@Panel@779",
+					"z_index": 0
+				}
+			],
+			"won": false
+		},
+		{
+			"balls": 3,
+			"bites": 0,
+			"bounces": 0,
+			"face": 0,
+			"grown": 0,
+			"id": "snow_ball3_stacked",
+			"image": {
+				"bytes": 134316,
+				"dimensions": [
+					1600,
+					720
+				],
+				"file": "snow_ball3_stacked.png",
+				"sha256": "2d33c5bf3bf0d3ccdcec2d5574ce5ae2d0bf3bb66dd09ed47baa258c3d43f108"
+			},
+			"input": {
+				"fixture": "synthetic unmapped-controller mode joy_has_unmapped=true; no physical controller; diagnostic Node schedules production _tick_mg2d once per actual process frame because direct API fixture bypasses Lagoon scheduler",
+				"method": "Window.push_input raw joypad axis pairs",
+				"motor_assist": false,
+				"steps": 95
+			},
+			"kind": "snowman",
+			"main_hud_visible": true,
+			"own_medal_expected": false,
+			"phase": "face",
+			"placed": 0,
+			"presentation": {
+				"boot_splash_present": false,
+				"fade_alpha": 0.0,
+				"intro_active": false,
+				"intro_layer_present": false,
+				"medal_present": false,
+				"start_menu_active": false,
+				"start_menu_layer_present": false
+			},
+			"save_path": "C:\\Users\\Peter\\.codex\\visualizations\\2026\\10\\08\\01a119c6-5602-7523-92db-1d320ca62bdf\\root_snow_bridge_v4_20261013T012443/1600x720/profiles/snowman/reef_save.json",
+			"stage": [],
+			"visible_nodes": [
+				{
+					"class": "Control",
+					"global_rect": "[P: (0.0, 0.0), S: (1600.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@742/@Control@743",
+					"z_index": 0
+				},
+				{
+					"class": "TextureRect",
+					"global_rect": "[P: (0.0, 0.0), S: (1600.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@742/@Control@743/@TextureRect@744",
+					"texture": "",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@742/@Control@743/@Control@745",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@742/@Control@743/@Control@745/PictureGameFeedbackLayer",
+					"z_index": 20
+				},
+				{
+					"class": "Panel",
+					"global_rect": "[P: (184.0, 18.0), S: (880.0, 112.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@742/@Control@743/@Control@745/PictureGameStorybookHeader",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (204.0, 45.0), S: (82.0, 60.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@742/@Control@743/@Control@745/PictureGameStorybookHeader/PictureGameShellCrest",
+					"z_index": 0
+				},
+				{
+					"class": "Label",
+					"global_rect": "[P: (298.0, 30.0), S: (734.0, 94.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@742/@Control@743/@Control@745/@Label@747",
+					"z_index": 0
+				},
+				{
+					"class": "Panel",
+					"global_rect": "[P: (100.0, 280.0), S: (1400.0, 1400.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@742/@Control@743/@Control@745/@Panel@748",
+					"z_index": 0
+				},
+				{
+					"class": "Panel",
+					"global_rect": "[P: (324.0, 434.0), S: (595.0, 420.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@742/@Control@743/@Control@745/@Panel@748/@Panel@749",
+					"z_index": 0
+				},
+				{
+					"class": "Panel",
+					"global_rect": "[P: (1016.0, 436.0), S: (248.0002, 248.0001)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@742/@Control@743/@Control@745/@Panel@752",
+					"z_index": 0
+				},
+				{
+					"class": "Panel",
+					"global_rect": "[P: (1055.68, 463.28), S: (105.4, 74.4)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@742/@Control@743/@Control@745/@Panel@752/@Panel@753",
+					"z_index": 0
+				},
+				{
+					"class": "Panel",
+					"global_rect": "[P: (1042.0, 287.0), S: (195.9998, 196.0001)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@742/@Control@743/@Control@745/@Panel@766",
+					"z_index": 0
+				},
+				{
+					"class": "Panel",
+					"global_rect": "[P: (1073.36, 308.56), S: (83.3, 58.8)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@742/@Control@743/@Control@745/@Panel@766/@Panel@767",
+					"z_index": 0
+				},
+				{
+					"class": "Panel",
+					"global_rect": "[P: (1068.0, 138.0), S: (144.0, 144.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@742/@Control@743/@Control@745/@Panel@778",
+					"z_index": 0
+				},
+				{
+					"class": "Panel",
+					"global_rect": "[P: (1091.04, 153.84), S: (61.2, 43.2)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@742/@Control@743/@Control@745/@Panel@778/@Panel@779",
+					"z_index": 0
+				},
+				{
+					"class": "Button",
+					"disabled": false,
+					"global_rect": "[P: (445.0, 545.0), S: (150.0, 110.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@742/@Control@743/@Control@745/@Button@791",
+					"z_index": 0
+				},
+				{
+					"class": "TextureRect",
+					"global_rect": "[P: (445.0, 545.0), S: (150.0, 110.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@742/@Control@743/@Control@745/@Button@791/@TextureRect@790",
+					"texture": "res://assets/opera/worlds/widgets/widget_target_farmer_piece_0.png",
+					"z_index": 0
+				},
+				{
+					"class": "Button",
+					"disabled": false,
+					"global_rect": "[P: (325.0, 545.0), S: (110.0, 110.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@742/@Control@743/@Control@745/@Button@793",
+					"z_index": 0
+				},
+				{
+					"class": "TextureRect",
+					"global_rect": "[P: (325.0, 545.0), S: (110.0, 110.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@742/@Control@743/@Control@745/@Button@793/@TextureRect@792",
+					"texture": "res://assets/mg/coal.png",
+					"z_index": 0
+				},
+				{
+					"class": "Button",
+					"disabled": false,
+					"global_rect": "[P: (605.0, 545.0), S: (110.0, 110.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@742/@Control@743/@Control@745/@Button@795",
+					"z_index": 0
+				},
+				{
+					"class": "TextureRect",
+					"global_rect": "[P: (605.0, 545.0), S: (110.0, 110.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@742/@Control@743/@Control@745/@Button@795/@TextureRect@794",
+					"texture": "res://assets/mg/coal.png",
+					"z_index": 0
+				}
+			],
+			"won": false
+		},
+		{
+			"balls": 3,
+			"bites": 0,
+			"bounces": 0,
+			"face": 1,
+			"grown": 0,
+			"id": "snow_face1_placed",
+			"image": {
+				"bytes": 127036,
+				"dimensions": [
+					1600,
+					720
+				],
+				"file": "snow_face1_placed.png",
+				"sha256": "2cd4634b9cce3a5caaa637616a0609b71060fae60b138aca04a436669448c99d"
+			},
+			"input": {
+				"method": "Input.parse_input_event raw mouse press/release",
+				"position": "(520.0, 600.0)",
+				"target_rect": "[P: (445.0, 545.0), S: (150.0, 110.0)]"
+			},
+			"kind": "snowman",
+			"main_hud_visible": true,
+			"own_medal_expected": false,
+			"phase": "face",
+			"placed": 0,
+			"presentation": {
+				"boot_splash_present": false,
+				"fade_alpha": 0.0,
+				"intro_active": false,
+				"intro_layer_present": false,
+				"medal_present": false,
+				"start_menu_active": false,
+				"start_menu_layer_present": false
+			},
+			"save_path": "C:\\Users\\Peter\\.codex\\visualizations\\2026\\10\\08\\01a119c6-5602-7523-92db-1d320ca62bdf\\root_snow_bridge_v4_20261013T012443/1600x720/profiles/snowman/reef_save.json",
+			"stage": [],
+			"visible_nodes": [
+				{
+					"class": "Control",
+					"global_rect": "[P: (0.0, 0.0), S: (1600.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@742/@Control@743",
+					"z_index": 0
+				},
+				{
+					"class": "TextureRect",
+					"global_rect": "[P: (0.0, 0.0), S: (1600.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@742/@Control@743/@TextureRect@744",
+					"texture": "",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@742/@Control@743/@Control@745",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@742/@Control@743/@Control@745/PictureGameFeedbackLayer",
+					"z_index": 20
+				},
+				{
+					"class": "Panel",
+					"global_rect": "[P: (184.0, 18.0), S: (880.0, 112.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@742/@Control@743/@Control@745/PictureGameStorybookHeader",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (204.0, 45.0), S: (82.0, 60.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@742/@Control@743/@Control@745/PictureGameStorybookHeader/PictureGameShellCrest",
+					"z_index": 0
+				},
+				{
+					"class": "Label",
+					"global_rect": "[P: (298.0, 30.0), S: (734.0, 94.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@742/@Control@743/@Control@745/@Label@747",
+					"z_index": 0
+				},
+				{
+					"class": "Panel",
+					"global_rect": "[P: (100.0, 280.0), S: (1400.0, 1400.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@742/@Control@743/@Control@745/@Panel@748",
+					"z_index": 0
+				},
+				{
+					"class": "Panel",
+					"global_rect": "[P: (324.0, 434.0), S: (595.0, 420.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@742/@Control@743/@Control@745/@Panel@748/@Panel@749",
+					"z_index": 0
+				},
+				{
+					"class": "Panel",
+					"global_rect": "[P: (1016.0, 436.0), S: (248.0002, 248.0001)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@742/@Control@743/@Control@745/@Panel@752",
+					"z_index": 0
+				},
+				{
+					"class": "Panel",
+					"global_rect": "[P: (1055.68, 463.28), S: (105.4, 74.4)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@742/@Control@743/@Control@745/@Panel@752/@Panel@753",
+					"z_index": 0
+				},
+				{
+					"class": "Panel",
+					"global_rect": "[P: (1042.0, 287.0), S: (195.9998, 196.0001)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@742/@Control@743/@Control@745/@Panel@766",
+					"z_index": 0
+				},
+				{
+					"class": "Panel",
+					"global_rect": "[P: (1073.36, 308.56), S: (83.3, 58.8)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@742/@Control@743/@Control@745/@Panel@766/@Panel@767",
+					"z_index": 0
+				},
+				{
+					"class": "Panel",
+					"global_rect": "[P: (1068.0, 138.0), S: (144.0, 144.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@742/@Control@743/@Control@745/@Panel@778",
+					"z_index": 0
+				},
+				{
+					"class": "Panel",
+					"global_rect": "[P: (1091.04, 153.84), S: (61.2, 43.2)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@742/@Control@743/@Control@745/@Panel@778/@Panel@779",
+					"z_index": 0
+				},
+				{
+					"class": "Button",
+					"disabled": false,
+					"global_rect": "[P: (325.0, 545.0), S: (110.0, 110.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@742/@Control@743/@Control@745/@Button@793",
+					"z_index": 0
+				},
+				{
+					"class": "TextureRect",
+					"global_rect": "[P: (325.0, 545.0), S: (110.0, 110.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@742/@Control@743/@Control@745/@Button@793/@TextureRect@792",
+					"texture": "res://assets/mg/coal.png",
+					"z_index": 0
+				},
+				{
+					"class": "Button",
+					"disabled": false,
+					"global_rect": "[P: (605.0, 545.0), S: (110.0, 110.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@742/@Control@743/@Control@745/@Button@795",
+					"z_index": 0
+				},
+				{
+					"class": "TextureRect",
+					"global_rect": "[P: (605.0, 545.0), S: (110.0, 110.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@742/@Control@743/@Control@745/@Button@795/@TextureRect@794",
+					"texture": "res://assets/mg/coal.png",
+					"z_index": 0
+				},
+				{
+					"class": "TextureRect",
+					"global_rect": "[P: (1152.374, 278.8008), S: (94.99999, 60.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@742/@Control@743/@Control@745/@TextureRect@797",
+					"texture": "res://assets/opera/worlds/widgets/widget_target_farmer_piece_0.png",
+					"z_index": 0
+				}
+			],
+			"won": false
+		},
+		{
+			"balls": 3,
+			"bites": 0,
+			"bounces": 0,
+			"face": 2,
+			"grown": 0,
+			"id": "snow_face2_placed",
+			"image": {
+				"bytes": 128416,
+				"dimensions": [
+					1600,
+					720
+				],
+				"file": "snow_face2_placed.png",
+				"sha256": "4cc9ea4585b3e7548e6730851d2003128558f37484f9bdc21f6adffda9d8bb80"
+			},
+			"input": {
+				"method": "Input.parse_input_event raw mouse press/release",
+				"position": "(380.0, 600.0)",
+				"target_rect": "[P: (325.0, 545.0), S: (110.0, 110.0)]"
+			},
+			"kind": "snowman",
+			"main_hud_visible": true,
+			"own_medal_expected": false,
+			"phase": "face",
+			"placed": 0,
+			"presentation": {
+				"boot_splash_present": false,
+				"fade_alpha": 0.0,
+				"intro_active": false,
+				"intro_layer_present": false,
+				"medal_present": false,
+				"start_menu_active": false,
+				"start_menu_layer_present": false
+			},
+			"save_path": "C:\\Users\\Peter\\.codex\\visualizations\\2026\\10\\08\\01a119c6-5602-7523-92db-1d320ca62bdf\\root_snow_bridge_v4_20261013T012443/1600x720/profiles/snowman/reef_save.json",
+			"stage": [],
+			"visible_nodes": [
+				{
+					"class": "Control",
+					"global_rect": "[P: (0.0, 0.0), S: (1600.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@742/@Control@743",
+					"z_index": 0
+				},
+				{
+					"class": "TextureRect",
+					"global_rect": "[P: (0.0, 0.0), S: (1600.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@742/@Control@743/@TextureRect@744",
+					"texture": "",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@742/@Control@743/@Control@745",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@742/@Control@743/@Control@745/PictureGameFeedbackLayer",
+					"z_index": 20
+				},
+				{
+					"class": "Panel",
+					"global_rect": "[P: (184.0, 18.0), S: (880.0, 112.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@742/@Control@743/@Control@745/PictureGameStorybookHeader",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (204.0, 45.0), S: (82.0, 60.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@742/@Control@743/@Control@745/PictureGameStorybookHeader/PictureGameShellCrest",
+					"z_index": 0
+				},
+				{
+					"class": "Label",
+					"global_rect": "[P: (298.0, 30.0), S: (734.0, 94.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@742/@Control@743/@Control@745/@Label@747",
+					"z_index": 0
+				},
+				{
+					"class": "Panel",
+					"global_rect": "[P: (100.0, 280.0), S: (1400.0, 1400.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@742/@Control@743/@Control@745/@Panel@748",
+					"z_index": 0
+				},
+				{
+					"class": "Panel",
+					"global_rect": "[P: (324.0, 434.0), S: (595.0, 420.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@742/@Control@743/@Control@745/@Panel@748/@Panel@749",
+					"z_index": 0
+				},
+				{
+					"class": "Panel",
+					"global_rect": "[P: (1016.0, 436.0), S: (248.0002, 248.0001)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@742/@Control@743/@Control@745/@Panel@752",
+					"z_index": 0
+				},
+				{
+					"class": "Panel",
+					"global_rect": "[P: (1055.68, 463.28), S: (105.4, 74.4)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@742/@Control@743/@Control@745/@Panel@752/@Panel@753",
+					"z_index": 0
+				},
+				{
+					"class": "Panel",
+					"global_rect": "[P: (1042.0, 287.0), S: (195.9998, 196.0001)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@742/@Control@743/@Control@745/@Panel@766",
+					"z_index": 0
+				},
+				{
+					"class": "Panel",
+					"global_rect": "[P: (1073.36, 308.56), S: (83.3, 58.8)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@742/@Control@743/@Control@745/@Panel@766/@Panel@767",
+					"z_index": 0
+				},
+				{
+					"class": "Panel",
+					"global_rect": "[P: (1068.0, 138.0), S: (144.0, 144.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@742/@Control@743/@Control@745/@Panel@778",
+					"z_index": 0
+				},
+				{
+					"class": "Panel",
+					"global_rect": "[P: (1091.04, 153.84), S: (61.2, 43.2)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@742/@Control@743/@Control@745/@Panel@778/@Panel@779",
+					"z_index": 0
+				},
+				{
+					"class": "Button",
+					"disabled": false,
+					"global_rect": "[P: (605.0, 545.0), S: (110.0, 110.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@742/@Control@743/@Control@745/@Button@795",
+					"z_index": 0
+				},
+				{
+					"class": "TextureRect",
+					"global_rect": "[P: (605.0, 545.0), S: (110.0, 110.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@742/@Control@743/@Control@745/@Button@795/@TextureRect@794",
+					"texture": "res://assets/mg/coal.png",
+					"z_index": 0
+				},
+				{
+					"class": "TextureRect",
+					"global_rect": "[P: (1152.374, 278.8008), S: (94.99999, 60.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@742/@Control@743/@Control@745/@TextureRect@797",
+					"texture": "res://assets/opera/worlds/widgets/widget_target_farmer_piece_0.png",
+					"z_index": 0
+				},
+				{
+					"class": "TextureRect",
+					"global_rect": "[P: (1095.0, 171.0), S: (42.0, 42.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@742/@Control@743/@Control@745/@TextureRect@798",
+					"texture": "res://assets/mg/coal.png",
+					"z_index": 0
+				}
+			],
+			"won": false
+		},
+		{
+			"balls": 3,
+			"bites": 0,
+			"bounces": 0,
+			"face": 3,
+			"grown": 0,
+			"id": "snow_face3_placed",
+			"image": {
+				"bytes": 142305,
+				"dimensions": [
+					1600,
+					720
+				],
+				"file": "snow_face3_placed.png",
+				"sha256": "d44cbd0b4f67c0e3c0b8d422b6fe506b54e15348e533b0008c9ac4745a719d53"
+			},
+			"input": {
+				"method": "Input.parse_input_event raw mouse press/release",
+				"position": "(660.0, 600.0)",
+				"target_rect": "[P: (605.0, 545.0), S: (110.0, 110.0)]"
+			},
+			"kind": "snowman",
+			"main_hud_visible": true,
+			"own_medal_expected": false,
+			"phase": "chase",
+			"placed": 0,
+			"presentation": {
+				"boot_splash_present": false,
+				"fade_alpha": 0.0,
+				"intro_active": false,
+				"intro_layer_present": false,
+				"medal_present": false,
+				"start_menu_active": false,
+				"start_menu_layer_present": false
+			},
+			"save_path": "C:\\Users\\Peter\\.codex\\visualizations\\2026\\10\\08\\01a119c6-5602-7523-92db-1d320ca62bdf\\root_snow_bridge_v4_20261013T012443/1600x720/profiles/snowman/reef_save.json",
+			"stage": [],
+			"visible_nodes": [
+				{
+					"class": "Control",
+					"global_rect": "[P: (0.0, 0.0), S: (1600.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@742/@Control@743",
+					"z_index": 0
+				},
+				{
+					"class": "TextureRect",
+					"global_rect": "[P: (0.0, 0.0), S: (1600.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@742/@Control@743/@TextureRect@744",
+					"texture": "",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@742/@Control@743/@Control@745",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@742/@Control@743/@Control@745/PictureGameFeedbackLayer",
+					"z_index": 20
+				},
+				{
+					"class": "Panel",
+					"global_rect": "[P: (184.0, 18.0), S: (880.0, 112.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@742/@Control@743/@Control@745/PictureGameStorybookHeader",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (204.0, 45.0), S: (82.0, 60.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@742/@Control@743/@Control@745/PictureGameStorybookHeader/PictureGameShellCrest",
+					"z_index": 0
+				},
+				{
+					"class": "Label",
+					"global_rect": "[P: (298.0, 30.0), S: (734.0, 88.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@742/@Control@743/@Control@745/@Label@747",
+					"z_index": 0
+				},
+				{
+					"class": "Panel",
+					"global_rect": "[P: (100.0, 280.0), S: (1400.0, 1400.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@742/@Control@743/@Control@745/@Panel@748",
+					"z_index": 0
+				},
+				{
+					"class": "Panel",
+					"global_rect": "[P: (324.0, 434.0), S: (595.0, 420.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@742/@Control@743/@Control@745/@Panel@748/@Panel@749",
+					"z_index": 0
+				},
+				{
+					"class": "Panel",
+					"global_rect": "[P: (1050.708, 436.0), S: (248.0002, 248.0001)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@742/@Control@743/@Control@745/@Panel@752",
+					"z_index": 0
+				},
+				{
+					"class": "Panel",
+					"global_rect": "[P: (1089.775, 464.1508), S: (105.4, 74.4)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@742/@Control@743/@Control@745/@Panel@752/@Panel@753",
+					"z_index": 0
+				},
+				{
+					"class": "Panel",
+					"global_rect": "[P: (1076.708, 287.0), S: (195.9997, 196.0001)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@742/@Control@743/@Control@745/@Panel@766",
+					"z_index": 0
+				},
+				{
+					"class": "Panel",
+					"global_rect": "[P: (1107.584, 309.2483), S: (83.3, 58.8)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@742/@Control@743/@Control@745/@Panel@766/@Panel@767",
+					"z_index": 0
+				},
+				{
+					"class": "Panel",
+					"global_rect": "[P: (1102.708, 138.0), S: (143.9999, 144.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@742/@Control@743/@Control@745/@Panel@778",
+					"z_index": 0
+				},
+				{
+					"class": "Panel",
+					"global_rect": "[P: (1125.392, 154.3457), S: (61.2, 43.2)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@742/@Control@743/@Control@745/@Panel@778/@Panel@779",
+					"z_index": 0
+				},
+				{
+					"class": "TextureRect",
+					"global_rect": "[P: (1185.868, 279.061), S: (94.99994, 60.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@742/@Control@743/@Control@745/@TextureRect@797",
+					"texture": "res://assets/opera/worlds/widgets/widget_target_farmer_piece_0.png",
+					"z_index": 0
+				},
+				{
+					"class": "TextureRect",
+					"global_rect": "[P: (1129.708, 171.0), S: (42.0, 42.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@742/@Control@743/@Control@745/@TextureRect@798",
+					"texture": "res://assets/mg/coal.png",
+					"z_index": 0
+				},
+				{
+					"class": "TextureRect",
+					"global_rect": "[P: (1177.708, 171.0), S: (41.99994, 42.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@742/@Control@743/@Control@745/@TextureRect@799",
+					"texture": "res://assets/mg/coal.png",
+					"z_index": 0
+				},
+				{
+					"class": "TextureRect",
+					"global_rect": "[P: (320.0, 380.0), S: (140.0, 180.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@742/@Control@743/@Control@745/@TextureRect@803",
+					"texture": "res://assets/characters/roshan_25d/roshan_base.png",
+					"z_index": 0
+				}
+			],
+			"won": false
+		},
+		{
+			"balls": 3,
+			"bites": 0,
+			"bounces": 0,
+			"face": 3,
+			"grown": 0,
+			"id": "snow_chase_entry",
+			"image": {
+				"bytes": 139753,
+				"dimensions": [
+					1600,
+					720
+				],
+				"file": "snow_chase_entry.png",
+				"sha256": "9bd4222343f26be4be219c1efa1c3bd1c18b8e3d357d7efda80b438de87b17da"
+			},
+			"input": {
+				"chase_followthrough": "not exercised",
+				"method": "production transition after three actual face taps"
+			},
+			"kind": "snowman",
+			"main_hud_visible": true,
+			"own_medal_expected": false,
+			"phase": "chase",
+			"placed": 0,
+			"presentation": {
+				"boot_splash_present": false,
+				"fade_alpha": 0.0,
+				"intro_active": false,
+				"intro_layer_present": false,
+				"medal_present": false,
+				"start_menu_active": false,
+				"start_menu_layer_present": false
+			},
+			"save_path": "C:\\Users\\Peter\\.codex\\visualizations\\2026\\10\\08\\01a119c6-5602-7523-92db-1d320ca62bdf\\root_snow_bridge_v4_20261013T012443/1600x720/profiles/snowman/reef_save.json",
+			"stage": [],
+			"visible_nodes": [
+				{
+					"class": "Control",
+					"global_rect": "[P: (0.0, 0.0), S: (1600.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@742/@Control@743",
+					"z_index": 0
+				},
+				{
+					"class": "TextureRect",
+					"global_rect": "[P: (0.0, 0.0), S: (1600.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@742/@Control@743/@TextureRect@744",
+					"texture": "",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@742/@Control@743/@Control@745",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@742/@Control@743/@Control@745/PictureGameFeedbackLayer",
+					"z_index": 20
+				},
+				{
+					"class": "Panel",
+					"global_rect": "[P: (184.0, 18.0), S: (880.0, 112.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@742/@Control@743/@Control@745/PictureGameStorybookHeader",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (204.0, 45.0), S: (82.0, 60.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@742/@Control@743/@Control@745/PictureGameStorybookHeader/PictureGameShellCrest",
+					"z_index": 0
+				},
+				{
+					"class": "Label",
+					"global_rect": "[P: (298.0, 30.0), S: (734.0, 88.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@742/@Control@743/@Control@745/@Label@747",
+					"z_index": 0
+				},
+				{
+					"class": "Panel",
+					"global_rect": "[P: (100.0, 280.0), S: (1400.0, 1400.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@742/@Control@743/@Control@745/@Panel@748",
+					"z_index": 0
+				},
+				{
+					"class": "Panel",
+					"global_rect": "[P: (324.0, 434.0), S: (595.0, 420.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@742/@Control@743/@Control@745/@Panel@748/@Panel@749",
+					"z_index": 0
+				},
+				{
+					"class": "Panel",
+					"global_rect": "[P: (1069.771, 436.0), S: (248.0002, 248.0001)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@742/@Control@743/@Control@745/@Panel@752",
+					"z_index": 0
+				},
+				{
+					"class": "Panel",
+					"global_rect": "[P: (1107.519, 465.8961), S: (105.4, 74.4)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@742/@Control@743/@Control@745/@Panel@752/@Panel@753",
+					"z_index": 0
+				},
+				{
+					"class": "Panel",
+					"global_rect": "[P: (1095.771, 287.0), S: (195.9997, 196.0001)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@742/@Control@743/@Control@745/@Panel@766",
+					"z_index": 0
+				},
+				{
+					"class": "Panel",
+					"global_rect": "[P: (1125.604, 310.6276), S: (83.3, 58.8)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@742/@Control@743/@Control@745/@Panel@766/@Panel@767",
+					"z_index": 0
+				},
+				{
+					"class": "Panel",
+					"global_rect": "[P: (1121.771, 138.0), S: (143.9999, 144.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@742/@Control@743/@Control@745/@Panel@778",
+					"z_index": 0
+				},
+				{
+					"class": "Panel",
+					"global_rect": "[P: (1143.689, 155.359), S: (61.2, 43.2)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@742/@Control@743/@Control@745/@Panel@778/@Panel@779",
+					"z_index": 0
+				},
+				{
+					"class": "TextureRect",
+					"global_rect": "[P: (1202.418, 279.511), S: (94.99994, 60.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@742/@Control@743/@Control@745/@TextureRect@797",
+					"texture": "res://assets/opera/worlds/widgets/widget_target_farmer_piece_0.png",
+					"z_index": 0
+				},
+				{
+					"class": "TextureRect",
+					"global_rect": "[P: (1148.771, 171.0), S: (42.00006, 42.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@742/@Control@743/@Control@745/@TextureRect@798",
+					"texture": "res://assets/mg/coal.png",
+					"z_index": 0
+				},
+				{
+					"class": "TextureRect",
+					"global_rect": "[P: (1196.771, 171.0), S: (42.0, 42.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@742/@Control@743/@Control@745/@TextureRect@799",
+					"texture": "res://assets/mg/coal.png",
+					"z_index": 0
+				},
+				{
+					"class": "TextureRect",
+					"global_rect": "[P: (320.0, 380.0), S: (140.0, 180.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@742/@Control@743/@Control@745/@TextureRect@803",
+					"texture": "res://assets/characters/roshan_25d/roshan_base.png",
+					"z_index": 0
+				}
+			],
+			"won": false
+		}
+	]
+}

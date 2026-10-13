@@ -1,0 +1,238 @@
+{
+  "scripts/touch_ui.gd": {
+    "sha256": "c25d51407589b841126f872172b7f628805259e6d2190e1a8347ec863378ef04",
+    "lines": [
+      {
+        "line": 106,
+        "method": "_ready",
+        "source": "\t_stick_hint = _circle(Color(0.28, 0.42, 0.62, 0.48), 90.0, StorybookUI.MINT, 7)"
+      },
+      {
+        "line": 113,
+        "method": "_ready",
+        "source": "\t_stick_hint.visible = false"
+      },
+      {
+        "line": 125,
+        "method": "_ready",
+        "source": "\t_base = _circle(Color(0.28, 0.42, 0.62, 0.58), 105.0, StorybookUI.MINT, 7)"
+      },
+      {
+        "line": 126,
+        "method": "_ready",
+        "source": "\t_knob = _circle(Color(0.64, 1.0, 0.84, 0.86), 46.0, StorybookUI.INK, 4)"
+      },
+      {
+        "line": 127,
+        "method": "_ready",
+        "source": "\t_base.visible = false"
+      },
+      {
+        "line": 128,
+        "method": "_ready",
+        "source": "\t_knob.visible = false"
+      },
+      {
+        "line": 156,
+        "method": "_process",
+        "source": "\t\t\t\t_flash(_pend[idx][\"pos\"])"
+      },
+      {
+        "line": 164,
+        "method": "_circle",
+        "source": "func _circle(col: Color, rad: float, outline: Color = Color.TRANSPARENT, border_width: int = 0) -> Panel:"
+      },
+      {
+        "line": 189,
+        "method": "_flash",
+        "source": "func _flash(pos: Vector2) -> void:"
+      },
+      {
+        "line": 190,
+        "method": "_flash",
+        "source": "\tvar flash := _circle(Color(1.0, 0.95, 0.5, 0.5), 55.0)"
+      },
+      {
+        "line": 222,
+        "method": "_press",
+        "source": "\t\t_stick_hint.visible = false"
+      },
+      {
+        "line": 227,
+        "method": "_press",
+        "source": "\t_base.visible = false"
+      },
+      {
+        "line": 228,
+        "method": "_press",
+        "source": "\t_knob.visible = false"
+      },
+      {
+        "line": 279,
+        "method": "_release_stick",
+        "source": "\t\t\t_flash(_press_pos)"
+      },
+      {
+        "line": 282,
+        "method": "_release_stick",
+        "source": "\t\t\t_flash(_origin)"
+      },
+      {
+        "line": 291,
+        "method": "_release_stick",
+        "source": "\t\t_flash(_press_pos)"
+      },
+      {
+        "line": 303,
+        "method": "_rest_stick",
+        "source": "\t\t_base.visible = false"
+      },
+      {
+        "line": 305,
+        "method": "_rest_stick",
+        "source": "\t\t_knob.visible = false"
+      },
+      {
+        "line": 307,
+        "method": "_rest_stick",
+        "source": "\t\t_stick_hint.visible = false"
+      },
+      {
+        "line": 613,
+        "method": "pulse_context_action",
+        "source": "\t_flash(screen_pos)"
+      },
+      {
+        "line": 706,
+        "method": "_hybrid_unhandled_input",
+        "source": "\t\t\t\t\t_flash(touch.position)"
+      },
+      {
+        "line": 717,
+        "method": "_hybrid_unhandled_input",
+        "source": "\t\t\t\t\t_flash(touch.position)"
+      },
+      {
+        "line": 760,
+        "method": "_hybrid_unhandled_input",
+        "source": "\t\t\t\t\t_flash(mouse_button.position)"
+      },
+      {
+        "line": 771,
+        "method": "_hybrid_unhandled_input",
+        "source": "\t\t\t\t\t_flash(mouse_button.position)"
+      },
+      {
+        "line": 825,
+        "method": "_classic_unhandled_input",
+        "source": "\t\t\t\t_flash(touch.position)"
+      }
+    ]
+  },
+  "scripts/opera_job_playtest_menu.gd": {
+    "sha256": "836d71b493cea9e63c4e398234752adb0e59a1c7c6f791c88c68dfccb5ee2a3b",
+    "lines": [
+      {
+        "line": 37,
+        "method": "open",
+        "source": "\t\t_build_menu()"
+      },
+      {
+        "line": 127,
+        "method": "_owns_venue",
+        "source": "func _owns_venue() -> bool:"
+      },
+      {
+        "line": 136,
+        "method": "_build_menu",
+        "source": "func _build_menu() -> void:"
+      },
+      {
+        "line": 138,
+        "method": "_build_menu",
+        "source": "\tpaper.color = StorybookUI.PAPER"
+      },
+      {
+        "line": 156,
+        "method": "_build_menu",
+        "source": "\tfor slot: int in range(OperaHouse.LIVE_ACT_INDICES.size()):"
+      },
+      {
+        "line": 157,
+        "method": "_build_menu",
+        "source": "\t\tvar act_index: int = OperaHouse.LIVE_ACT_INDICES[slot]"
+      },
+      {
+        "line": 170,
+        "method": "_build_menu",
+        "source": "\t\tStorybookUI.style_picture_button(button)"
+      },
+      {
+        "line": 175,
+        "method": "_build_menu",
+        "source": "\t\tpicture.name = \"JobPicture\""
+      },
+      {
+        "line": 178,
+        "method": "_build_menu",
+        "source": "\t\tvar file := String(CastleCareerRoutes.CAREER_CREST_FILES.get(costume, \"\"))"
+      },
+      {
+        "line": 186,
+        "method": "_build_menu",
+        "source": "\t\tlabel.text = \"Astronaut\" if costume == \"astronaut\" \\"
+      }
+    ]
+  },
+  "scripts/castle_career_routes.gd": {
+    "sha256": "c5de38d8126c96aae9e999780113edafff05601a22934443e67053edcd8e18d8",
+    "lines": []
+  },
+  "scripts/opera_house_venue_2d.gd": {
+    "sha256": "d53f37314ef459d0ec886566ad092c415fe54a1058aef3d637440a743fb51a63",
+    "lines": [
+      {
+        "line": 97,
+        "method": "setup",
+        "source": "\t_build_playtest_elevator()"
+      },
+      {
+        "line": 111,
+        "method": "close",
+        "source": "\t\tjob_playtest_menu.shutdown()"
+      },
+      {
+        "line": 470,
+        "method": "_build_playtest_elevator",
+        "source": "func _build_playtest_elevator() -> void:"
+      },
+      {
+        "line": 473,
+        "method": "_build_playtest_elevator",
+        "source": "\tjob_playtest_menu = OperaJobPlaytestMenu.new()"
+      },
+      {
+        "line": 474,
+        "method": "_build_playtest_elevator",
+        "source": "\tjob_playtest_menu.setup(m, self)"
+      },
+      {
+        "line": 486,
+        "method": "_build_playtest_elevator",
+        "source": "\televator.pressed.connect(job_playtest_menu.open)"
+      }
+    ]
+  },
+  "scripts/storybook_ui.gd": {
+    "sha256": "137404cf953e2f40b0a21924c22e8f5a7bd63aee3e7f81ae71543cceefbdab31",
+    "lines": []
+  },
+  "scripts/main.gd": {
+    "sha256": "841efbfa74a61ed14775fa7c2b19e6ff7f54b0a2c4af04d1b08c345440d6f880",
+    "lines": []
+  },
+  "scripts/save_state.gd": {
+    "sha256": "34ed8239321ee3f2362b3718d4d0e6f9467e7c500e54b7dec78333ccbf90c884",
+    "lines": []
+  }
+}

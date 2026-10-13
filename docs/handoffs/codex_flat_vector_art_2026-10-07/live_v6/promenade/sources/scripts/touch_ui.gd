@@ -1,0 +1,1003 @@
+extends CanvasLayer
+# Touch controls (Android/tablet):
+#   HYBRID (default): point-to-interact with no persistent on-screen controls;
+#   taps on unclaimed world space are emitted for select/approach/move. Active
+#   games may translate that same direct scene tap into their context action.
+#   CLASSIC (rollback): the shipped drag-anywhere stick, tap action and
+#   second-finger camera path is retained below.
+# World taps remain in _unhandled_input so overlays receive first claim.
+# The single global Back/Menu control is claimed in _input so it cannot become
+# inert when another Control overlaps it.
+# A touch has one owner for its lifetime; ownership never changes mid-gesture.
+
+signal world_touched(pos: Vector2)
+signal manual_move_started
+signal manual_move_ended
+
+enum TouchOwner {
+	NONE,
+	UI,
+	STICK,
+	ACTION,
+	WORLD_INTERACT,
+	WORLD_MOVE,
+}
+
+var stick_vec := Vector2.ZERO
+var action_down := false
+var action_just := false
+var control_mode := "hybrid"
+var touch_owners: Dictionary = {}
+var world_controls_enabled := true
+var encounter_press: Callable = Callable()
+var encounter_cancel: Callable = Callable()
+var encounter_motion: Callable = Callable()
+var _encounter_finger: int = -1
+
+# ---- drag channel (owner 2026-07-25) ----
+# Some acts are played by DRAGGING a finger across the screen rather than by
+# swimming and tapping — painting, scrubbing, tracing, lens-dragging. While
+# drag_mode is on, the first finger reports its absolute screen position here
+# instead of raising the virtual stick, so the act reads a stroke, not a
+# direction. Everything else (second-finger jump, pause) is untouched.
+var drag_mode := false
+var drag_active := false
+var drag_pos := Vector2.ZERO
+var drag_started := false          # set for one read on touch-down
+
+# ---- combat press-fire (combat wing 2026-08) ----
+# main installs a probe so hit engines can claim a world press the moment
+# the finger LANDS — an enemy pop must never wait out the release half of a
+# preschooler's grabby tap. A claimed press marks its pend record consumed,
+# which suppresses the release-side world_touched (no double fire). Hybrid owns
+# combat taps. Classic stays unchanged except that an active Sky Canvas short
+# tap supplies its visible target coordinate on release.
+var world_press_probe: Callable = Callable()
+# fires when a consumed (press-fired) world touch lifts, so a held CHARGE
+# attack knows to release; also fired defensively on _clear_touch_state
+var world_press_release: Callable = Callable()
+# ---- combat SLICE (combat wing 2026-08-04) ----
+# A world touch that TRAVELS is a swipe of the blade. It is reported on lift as
+# (start, end); a moved world touch never emitted world_touched anyway, so the
+# slice costs no existing behaviour. world_press_drag fires once when a press
+# first breaks slop, which cancels any charge the press started — one finger,
+# one verb.
+var world_press_drag: Callable = Callable()
+var world_drag_end: Callable = Callable()
+# fires on focus loss / state reset: a held charge is thrown AWAY (no damage),
+# unlike a deliberate lift which releases it. Opening the pause menu must not
+# land a hit (alpha audit 2026-08-05).
+var world_press_cancel: Callable = Callable()
+
+var _root: Control
+var _base: Panel
+var _knob: Panel
+var _stick_hint: Panel    # fixed ghost wheel teaching the bottom-left thumb bay
+var _touch_idx := -1      # the finger that owns the stick
+var _jump_fingers := {}   # extra fingers currently HELD as jump (swim up while held)
+var _action_fingers := {}
+var _pend := {}           # extra fingers not yet classified: idx -> {"pos", "ms"}
+var _world_pend := {}
+var _look_idx := -1       # the finger that owns the camera peek
+var _look_dx := 0.0       # accumulated camera-drag pixels, consumed by the
+var _look_dy := 0.0       # active camera owner (player.gd or galaxy.gd)
+var _origin := Vector2.ZERO
+var _press_pos := Vector2.ZERO
+var _moved := false
+var _manual_emitted := false
+var _press_ms := 0
+var _pulse := 0.0
+var _action_edge_frames := 0
+
+const R := 78.0
+const TAP_SLOP := 22.0
+const TAP_MS := 300
+const JUMP_HOLD_MS := 140
+
+func _ready() -> void:
+	layer = 9
+	process_mode = Node.PROCESS_MODE_ALWAYS
+	_root = Control.new()
+	_root.set_anchors_preset(Control.PRESET_FULL_RECT)
+	_root.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	add_child(_root)
+	# A fixed ghost wheel teaches the bottom-left ownership before the first
+	# drag; the real drag-anywhere stick still appears under the finger.
+	_stick_hint = _circle(Color(0.28, 0.42, 0.62, 0.48), 90.0, StorybookUI.MINT, 7)
+	_stick_hint.name = "TouchShellPad"
+	_stick_hint.set_anchors_preset(Control.PRESET_BOTTOM_LEFT)
+	_stick_hint.offset_left = 26.0
+	_stick_hint.offset_top = -206.0
+	_stick_hint.offset_right = 206.0
+	_stick_hint.offset_bottom = -26.0
+	_stick_hint.visible = false
+	_root.add_child(_stick_hint)
+	var hint_arrows := Label.new()
+	hint_arrows.name = "TouchDirectionHints"
+	hint_arrows.text = "▲\n◀   ▶\n▼"
+	hint_arrows.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	hint_arrows.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	hint_arrows.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+	hint_arrows.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	StorybookUI.style_label(hint_arrows, 27, StorybookUI.PEARL_BLUE, 6)
+	_stick_hint.add_child(hint_arrows)
+	StorybookUI.add_shell_crest(_stick_hint, Rect2(55, 128, 70, 50), "TouchPadShellCrest")
+	_base = _circle(Color(0.28, 0.42, 0.62, 0.58), 105.0, StorybookUI.MINT, 7)
+	_knob = _circle(Color(0.64, 1.0, 0.84, 0.86), 46.0, StorybookUI.INK, 4)
+	_base.visible = false
+	_knob.visible = false
+	_root.add_child(_base)
+	_root.add_child(_knob)
+	call_deferred("_rest_stick")
+	# The fixed jump/action bubble is retired. World taps and activity-owned
+	# gestures remain the child-facing vocabulary: tap points, drag travels, and
+	# a deliberate hold performs the context action.
+	set_mode(control_mode)
+
+func _process(delta: float) -> void:
+	if get_tree().paused:
+		var main: Node = get_parent()
+		if main != null and main.has_method(
+				"_retire_paused_slide_canvas_restore_boundary"):
+			main.call("_retire_paused_slide_canvas_restore_boundary")
+	if _pulse > 0.0:
+		_pulse -= delta
+		if _pulse <= 0.0 and _jump_fingers.is_empty() and _action_fingers.is_empty():
+			action_down = false
+	# Classic retains its short second-finger hold. Hybrid has no invisible
+	# hold-anywhere command; direct scene taps are routed by ReefMain.
+	if control_mode == "classic" and not _pend.is_empty():
+		var now := Time.get_ticks_msec()
+		for idx: Variant in _pend.keys():
+			if now - int(_pend[idx]["ms"]) >= JUMP_HOLD_MS:
+				_jump_fingers[idx] = true
+				action_down = true
+				_arm_action_edge()
+				_flash(_pend[idx]["pos"])
+				_pend.erase(idx)
+	if action_just:
+		if _action_edge_frames > 0:
+			_action_edge_frames -= 1
+		else:
+			action_just = false
+
+func _circle(col: Color, rad: float, outline: Color = Color.TRANSPARENT, border_width: int = 0) -> Panel:
+	var p := Panel.new()
+	var sb := StyleBoxFlat.new()
+	sb.bg_color = col
+	sb.set_corner_radius_all(int(rad))
+	if border_width > 0:
+		sb.border_color = outline
+		sb.set_border_width_all(border_width)
+	p.add_theme_stylebox_override("panel", sb)
+	p.size = Vector2(rad * 2.0, rad * 2.0)
+	p.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	return p
+
+func _jump_pulse() -> void:
+	action_down = true
+	_arm_action_edge()
+	_pulse = 0.18
+
+func _arm_action_edge() -> void:
+	# action_just is an input edge, not a remembered wish. Two child-process
+	# frames let the parent consume it regardless of scene-tree process order,
+	# then it expires so an old press cannot launch a newly focused activity.
+	action_just = true
+	_action_edge_frames = 2
+
+func _flash(pos: Vector2) -> void:
+	var flash := _circle(Color(1.0, 0.95, 0.5, 0.5), 55.0)
+	flash.position = pos - flash.size * 0.5
+	_root.add_child(flash)
+	var tw := flash.create_tween()
+	tw.tween_property(flash, "modulate:a", 0.0, 0.35)
+	tw.tween_callback(flash.queue_free)
+
+func _press(pos: Vector2, idx: int) -> void:
+	_touch_idx = idx
+	# THE STICK ORIGIN IS ALWAYS THE FINGER (owner report 2026-08-03: "touching
+	# the left side of the screen sometimes moves right, in Sky Lagoon").
+	# Hybrid used to anchor the origin to a fixed bottom-left ring instead. That
+	# ring is never drawn (see _rest_stick), yet movement_zone() claims the whole
+	# lower-left third of the phone — so on a 1600x720 handset roughly three
+	# quarters of the thumb bay lay to the RIGHT of the invisible anchor and
+	# shoved Roshan right the instant it was touched, with nothing on screen to
+	# explain why. A finger-anchored origin makes the drag direction and the
+	# travel direction the same thing everywhere in the bay. Classic already
+	# worked this way; the two paths now agree.
+	_origin = pos
+	_press_pos = pos
+	if drag_mode:
+		# the finger paints instead of steering — no stick, no tap-to-jump
+		drag_active = true
+		drag_started = true
+		drag_pos = pos
+		stick_vec = Vector2.ZERO
+		return
+	_moved = false
+	_manual_emitted = false
+	_press_ms = Time.get_ticks_msec()
+	if _stick_hint != null:
+		_stick_hint.visible = false
+	_base.position = _origin - _base.size * 0.5
+	_knob.position = _origin - _knob.size * 0.5
+	_base.modulate.a = 1.0
+	_knob.modulate.a = 1.0
+	_base.visible = false
+	_knob.visible = false
+	stick_vec = Vector2.ZERO
+
+func _drag(pos: Vector2) -> void:
+	if drag_mode:
+		drag_active = true
+		drag_pos = pos
+		stick_vec = Vector2.ZERO
+		return
+	var off: Vector2 = pos - _origin
+	if not _moved and off.length() > TAP_SLOP:
+		_moved = true
+	if off.length() > R:
+		off = off.normalized() * R
+	if _moved and off.length() > 0.0:
+		var mag := clampf((off.length() - TAP_SLOP) / (R - TAP_SLOP), 0.0, 1.0)
+		stick_vec = off.normalized() * mag
+	else:
+		stick_vec = Vector2.ZERO
+	_knob.position = _origin + off - _knob.size * 0.5
+	# Both saved touch modes are real movement inputs. Emitting this only for
+	# Hybrid left Canvas navigation/focus armed when a returning Classic user
+	# took the stick, so an off-screen PLAY/ENTER could fire afterwards.
+	if not _manual_emitted and stick_vec.length() > 0.05:
+		_manual_emitted = true
+		manual_move_started.emit()
+
+func _classic_world_tap_active() -> bool:
+	# Classic remains unchanged throughout the spatial game. Sky Lagoon is the
+	# deliberate exception because its Canvas toys, castle and one-tap Reef route
+	# are selected by the released screen coordinate rather than a blind hop.
+	var main: Node = get_parent()
+	if main == null or String(main.get("game")) != "level2":
+		return false
+	var state: Variant = main.get("g")
+	return state is Dictionary and String((state as Dictionary).get("phase", "")) \
+		== "promenade"
+
+func _release_stick() -> void:
+	if drag_mode:
+		drag_active = false
+		_touch_idx = -1
+		stick_vec = Vector2.ZERO
+		return
+	# A short Classic press normally remains the shipped jump/action. The Canvas
+	# promenade needs the actual target coordinate, so it receives the same
+	# unmoved release exactly once and decides between focus, play, Reef or travel.
+	if control_mode == "classic" and not _moved \
+			and (Time.get_ticks_msec() - _press_ms) <= TAP_MS:
+		if _classic_world_tap_active():
+			world_touched.emit(_press_pos)
+			_flash(_press_pos)
+		else:
+			_jump_pulse()
+			_flash(_origin)
+	elif control_mode == "hybrid" and not _moved:
+		# The thumb bay is an accessibility stick, not a hole in the world. A
+		# press that never became a drag is still a tap on whatever is painted
+		# underneath, so tap-to-travel and tap-to-select keep working in the
+		# lower-left corner exactly as they do everywhere else. No TAP_MS gate:
+		# a four-year-old's deliberate press is slow, and the world-tap owner
+		# elsewhere in this router has no time limit either.
+		world_touched.emit(_press_pos)
+		_flash(_press_pos)
+	if _manual_emitted:
+		manual_move_ended.emit()
+	_touch_idx = -1
+	_manual_emitted = false
+	stick_vec = Vector2.ZERO
+	_rest_stick()
+
+func _rest_stick() -> void:
+	# Point-to-interact keeps the screen clear. Gesture steering remains available
+	# to legacy movement activities without drawing a virtual stick.
+	if _base != null:
+		_base.visible = false
+	if _knob != null:
+		_knob.visible = false
+	if _stick_hint != null:
+		_stick_hint.visible = false
+
+func rest_zone() -> Rect2:
+	var vs: Vector2 = _root.size
+	if vs == Vector2.ZERO:
+		vs = get_viewport().get_visible_rect().size
+	return Rect2(Vector2(60.0, vs.y - 280.0), Vector2(220.0, 220.0))
+
+func movement_zone() -> Rect2:
+	# The whole lower-left thumb bay accepts the stick, while the resting ring
+	# teaches the preferred landing spot without reserving a second control bay.
+	var vs: Vector2 = _root.size
+	if vs == Vector2.ZERO:
+		vs = get_viewport().get_visible_rect().size
+	if encounter_press.is_valid():
+		return Rect2() # No hidden movement pad steals world targets.
+	return Rect2(0.0, vs.y * 0.52, maxf(390.0, vs.x * 0.34), vs.y * 0.48)
+
+func action_zone() -> Rect2:
+	return Rect2()
+
+func pause_zone() -> Rect2:
+	var main: Node = get_parent()
+	if main != null:
+		var navigation := main.find_child(
+			"GlobalNavigationButton", true, false) as Control
+		if navigation != null:
+			return navigation.get_global_rect() if navigation.visible else Rect2()
+	var vs: Vector2 = _root.size
+	if vs == Vector2.ZERO:
+		vs = get_viewport().get_visible_rect().size
+	return Rect2(Vector2.ZERO, Vector2(148.0, 148.0))
+
+func _pause_zone_owned_by_melody_overlay() -> bool:
+	var main: Node = get_parent()
+	return main != null and main.has_method("_melody_overlay_owns_input") \
+		and bool(main.call("_melody_overlay_owns_input"))
+
+
+func _pause_zone_owned_by_canvas_overlay() -> bool:
+	if _pause_zone_owned_by_melody_overlay():
+		return true
+	var main: Node = get_parent()
+	return main != null and main.has_method("_slide_canvas_overlay_owns_input") \
+		and bool(main.call("_slide_canvas_overlay_owns_input"))
+
+func _forward_paused_melody_release(ev: InputEvent) -> void:
+	# ReefMain does not process input while SceneTree.paused, but this persistent
+	# layer does. Relay only terminal source lifts so Main can retire its global
+	# Melody entry census even during an ordinary Reef pause. A live Melody stage
+	# also performs its exact neutral release there. Never claim the event: the
+	# visible Pause GUI remains its owner.
+	if not get_tree().paused:
+		return
+	var released := false
+	if ev is InputEventScreenTouch:
+		released = not (ev as InputEventScreenTouch).pressed
+	elif ev is InputEventMouseButton:
+		var mouse_button := ev as InputEventMouseButton
+		released = mouse_button.device != InputEvent.DEVICE_ID_EMULATION \
+			and mouse_button.button_index == MOUSE_BUTTON_LEFT \
+			and not mouse_button.pressed
+	elif ev is InputEventKey:
+		var key := ev as InputEventKey
+		released = key.physical_keycode in [KEY_SPACE, KEY_ENTER, KEY_KP_ENTER] \
+			and not key.pressed
+	elif ev is InputEventJoypadButton:
+		var button := ev as InputEventJoypadButton
+		released = button.button_index in [JOY_BUTTON_A, JOY_BUTTON_B,
+			JOY_BUTTON_X, JOY_BUTTON_Y] and not button.pressed
+	if not released:
+		return
+	var main: Node = get_parent()
+	if main != null and main.has_method("_retire_paused_melody_release"):
+		main.call("_retire_paused_melody_release", ev)
+
+
+func _forward_paused_slide_canvas_release(ev: InputEvent) -> void:
+	# Directional keys, d-pad and the left axis have a different terminal
+	# vocabulary than Melody's action buttons. Let Main classify the event and
+	# retire only its exact slide source; never claim it from the Pause GUI.
+	if not get_tree().paused:
+		return
+	var main: Node = get_parent()
+	if main != null and main.has_method("_retire_paused_slide_canvas_release"):
+		main.call("_retire_paused_slide_canvas_release", ev)
+
+
+func _retire_consumed_canvas_entry_release(ev: InputEvent) -> void:
+	# Hybrid stick/action terminals are handled here before ReefMain's _input can
+	# observe them. Retire only the matching pre-entry census tokens; live opaque
+	# controllers disable these world controls and keep their normal route.
+	var main: Node = get_parent()
+	if main != null and main.has_method(
+			"_retire_touch_ui_consumed_entry_release"):
+		main.call("_retire_touch_ui_consumed_entry_release", ev)
+
+func _consume_blocked_melody_context_input(ev: InputEvent) -> bool:
+	# Main is pausable, but this relay and the Pause Canvas are always-processing.
+	# While the OS context is absent, consume queued physical vocabulary before a
+	# focused Resume/Leave control or the corner gear can act on stale input. The
+	# one-tick restored guard also sinks unpaused events, but deliberately yields
+	# to an already-open Pause sheet so its real Resume control cannot deadlock.
+	var main: Node = get_parent()
+	if main == null or String(main.get("game")) != "melody" \
+			or not main.has_method("_melody_input_context_lost") \
+			or not main.has_method("_melody_input_context_blocks_input"):
+		return false
+	var os_context_lost: bool = bool(main.call("_melody_input_context_lost"))
+	var context_blocked: bool = bool(
+		main.call("_melody_input_context_blocks_input"))
+	if not os_context_lost and (not context_blocked or get_tree().paused):
+		return false
+	var physical_event: bool = ev is InputEventScreenTouch \
+		or ev is InputEventScreenDrag \
+		or ev is InputEventMouseButton \
+		or ev is InputEventMouseMotion \
+		or ev is InputEventKey \
+		or ev is InputEventJoypadButton \
+		or ev is InputEventJoypadMotion \
+		or ev is InputEventAction
+	if not physical_event:
+		return false
+	get_viewport().set_input_as_handled()
+	return true
+
+
+func _consume_blocked_slide_canvas_context_input(ev: InputEvent) -> bool:
+	# Main is pausable, so this always-processing layer owns the fail-closed seam
+	# while focus/background is absent and during the first restored active tick.
+	var main: Node = get_parent()
+	if main == null or not main.has_method("_slide_canvas_fish_route_active") \
+			or not bool(main.call("_slide_canvas_fish_route_active")) \
+			or not main.has_method("_slide_canvas_input_context_lost") \
+			or not main.has_method("_slide_canvas_input_context_blocks_input"):
+		return false
+	var os_context_lost: bool = bool(
+		main.call("_slide_canvas_input_context_lost"))
+	var context_blocked: bool = bool(
+		main.call("_slide_canvas_input_context_blocks_input"))
+	var poll_restore_waiting: bool = main.has_method(
+		"_slide_canvas_poll_restore_waiting") \
+		and bool(main.call("_slide_canvas_poll_restore_waiting"))
+	if not os_context_lost and not context_blocked \
+			and not poll_restore_waiting:
+		return false
+	var physical_event: bool = ev is InputEventScreenTouch \
+		or ev is InputEventScreenDrag \
+		or ev is InputEventMouseButton \
+		or ev is InputEventMouseMotion \
+		or ev is InputEventKey \
+		or ev is InputEventJoypadButton \
+		or ev is InputEventJoypadMotion \
+		or ev is InputEventAction
+	if not physical_event:
+		return false
+	if poll_restore_waiting and main.has_method(
+			"_record_slide_canvas_poll_level"):
+		main.call("_record_slide_canvas_poll_level", ev)
+	get_viewport().set_input_as_handled()
+	return true
+
+
+func _consume_slide_canvas_return_guard_input(ev: InputEvent) -> bool:
+	# This layer keeps receiving input while SceneTree is paused, so it mirrors
+	# Main's broad return census before sinking the held gameplay vocabulary.
+	# Duplicate observation while unpaused is idempotent; terminal releases win.
+	var main: Node = get_parent()
+	if main == null or not main.has_method("_slide_canvas_return_guard_active") \
+			or not main.has_method("_slide_canvas_fish_route_active"):
+		return false
+	var canvas_or_return: bool = bool(
+		main.call("_slide_canvas_fish_route_active")) \
+		or bool(main.call("_slide_canvas_return_guard_active"))
+	if not canvas_or_return:
+		return false
+	if main.has_method("_observe_slide_canvas_return_source"):
+		main.call("_observe_slide_canvas_return_source", ev)
+	if not bool(main.call("_slide_canvas_return_guard_active")):
+		return false
+	var physical_event: bool = ev is InputEventScreenTouch \
+		or ev is InputEventScreenDrag \
+		or ev is InputEventMouseButton \
+		or ev is InputEventMouseMotion \
+		or ev is InputEventKey \
+		or ev is InputEventJoypadButton \
+		or ev is InputEventJoypadMotion \
+		or ev is InputEventAction
+	if not physical_event:
+		return false
+	get_viewport().set_input_as_handled()
+	return true
+
+func reserved_zone_hit(pos: Vector2) -> bool:
+	# True when this router already owns a press at this screen point. Stages
+	# that read the EMULATED MOUSE directly for hold-to-travel must ask first:
+	# that pointer knows nothing about touch ownership, so the thumb bay remains
+	# reserved while the removed bottom-right action medallion leaves no dead
+	# rectangle over the artwork.
+	if not wants_touch() or not world_controls_enabled:
+		return false
+	if pause_zone().has_point(pos):
+		return true
+	if control_mode != "hybrid":
+		return false
+	return movement_zone().has_point(pos)
+
+func _clear_touch_state() -> void:
+	_encounter_finger = -1
+	if encounter_cancel.is_valid():
+		encounter_cancel.call()
+	if world_press_cancel.is_valid():
+		world_press_cancel.call()   # thrown away, not fired: no surprise damage
+	elif world_press_release.is_valid():
+		world_press_release.call()
+	drag_active = false
+	drag_started = false
+	_touch_idx = -1
+	_look_idx = -1
+	_jump_fingers.clear()
+	_action_fingers.clear()
+	_pend.clear()
+	_world_pend.clear()
+	touch_owners.clear()
+	stick_vec = Vector2.ZERO
+	action_down = false
+	action_just = false
+	_action_edge_frames = 0
+	_look_dx = 0.0
+	_look_dy = 0.0
+	_moved = false
+	_manual_emitted = false
+	_press_pos = Vector2.ZERO
+	_pulse = 0.0
+	_rest_stick()
+
+func set_mode(next_mode: String) -> void:
+	control_mode = "classic" if next_mode == "classic" else "hybrid"
+	_clear_touch_state()
+
+func set_world_controls_enabled(enabled: bool) -> void:
+	if world_controls_enabled == enabled:
+		if not enabled:
+			_clear_touch_state()
+		return
+	world_controls_enabled = enabled
+	_clear_touch_state()
+func set_encounter_controls(press: Callable = Callable(), cancel: Callable = Callable(),
+		motion: Callable = Callable()) -> void:
+	_clear_touch_state()
+	encounter_press = press
+	encounter_cancel = cancel
+	encounter_motion = motion
+
+func _encounter_unhandled_input(event: InputEvent) -> void:
+	# Motion belongs only to the original finger and never emits a new press.
+	if event is InputEventScreenDrag:
+		var drag := event as InputEventScreenDrag
+		if drag.index == _encounter_finger and encounter_motion.is_valid():
+			encounter_motion.call(drag.position)
+		get_viewport().set_input_as_handled()
+		return
+	if event is InputEventMouseMotion:
+		var motion := event as InputEventMouseMotion
+		if motion.device != InputEvent.DEVICE_ID_EMULATION \
+				and _encounter_finger == 99 and encounter_motion.is_valid():
+			encounter_motion.call(motion.position)
+		get_viewport().set_input_as_handled()
+		return
+	var finger: int = -1
+	var pressed: bool = false
+	var point := Vector2.ZERO
+	if event is InputEventScreenTouch:
+		var touch := event as InputEventScreenTouch
+		finger = touch.index
+		pressed = touch.pressed
+		point = touch.position
+	elif event is InputEventMouseButton:
+		var mouse := event as InputEventMouseButton
+		if mouse.device == InputEvent.DEVICE_ID_EMULATION or mouse.button_index != MOUSE_BUTTON_LEFT:
+			return
+		finger = 99
+		pressed = mouse.pressed
+		point = mouse.position
+	else:
+		return
+	if pressed and _encounter_finger == -1:
+		_encounter_finger = finger
+		touch_owners[finger] = TouchOwner.WORLD_INTERACT
+		encounter_press.call(point)
+	elif not pressed and finger == _encounter_finger:
+		_encounter_finger = -1
+		touch_owners.erase(finger)
+	get_viewport().set_input_as_handled()
+
+func cancel_all_touches() -> void:
+	_clear_touch_state()
+
+func clear_action_edge() -> void:
+	action_just = false
+	_action_edge_frames = 0
+
+func pulse_context_action(screen_pos: Vector2) -> void:
+	if control_mode != "hybrid" or not world_controls_enabled:
+		return
+	_jump_pulse()
+	_flash(screen_pos)
+
+func _on_action_button_down() -> void:
+	if control_mode != "hybrid" or not world_controls_enabled:
+		return
+	action_down = true
+	_arm_action_edge()
+	_pulse = 0.0
+
+func _on_action_button_up() -> void:
+	if control_mode == "hybrid":
+		action_down = false
+
+func consume_action() -> void:
+	action_down = false
+	clear_action_edge()
+	_pulse = 0.0
+	_rest_stick()
+
+func _request_navigation() -> void:
+	var m: Node = get_parent()
+	# Start advances the always-processing story intro via ReefMain. Do not
+	# also raise the pause sheet over that same press.
+	if m != null and bool(m.get("intro_active")):
+		return
+	if m != null and m.has_method("_pause_ref"):
+		_clear_touch_state()
+		var navigation: Object = m.call("_pause_ref") as Object
+		if navigation != null and navigation.has_method(
+				"global_navigation_pressed"):
+			navigation.call("global_navigation_pressed")
+
+func _flush_parent_save() -> void:
+	var main: Node = get_parent()
+	if main != null and main.has_method("_write_save"):
+		main.call("_write_save")
+
+func _notification(what: int) -> void:
+	if what == NOTIFICATION_APPLICATION_FOCUS_OUT:
+		_clear_touch_state()
+	elif what == NOTIFICATION_APPLICATION_PAUSED:
+		_clear_touch_state()
+		_flush_parent_save()
+	elif what == NOTIFICATION_WM_GO_BACK_REQUEST:
+		_clear_touch_state()
+		_flush_parent_save()
+		_request_navigation()
+	elif what == NOTIFICATION_WM_CLOSE_REQUEST:
+		_clear_touch_state()
+		_flush_parent_save()
+
+func _unhandled_input(ev: InputEvent) -> void:
+	if not wants_touch() or not world_controls_enabled:
+		return
+	if encounter_press.is_valid():
+		_encounter_unhandled_input(ev)
+		return
+	if control_mode == "hybrid":
+		_hybrid_unhandled_input(ev)
+	else:
+		_classic_unhandled_input(ev)
+
+func _action_hit(_pos: Vector2) -> bool:
+	return false
+
+func _claim_action(finger_index: int) -> void:
+	touch_owners[finger_index] = TouchOwner.ACTION
+	_action_fingers[finger_index] = true
+	_on_action_button_down()
+
+func _release_action(finger_index: int) -> void:
+	_action_fingers.erase(finger_index)
+	if _action_fingers.is_empty():
+		_on_action_button_up()
+
+func _hybrid_unhandled_input(ev: InputEvent) -> void:
+	if ev is InputEventScreenTouch:
+		var touch := ev as InputEventScreenTouch
+		if touch.pressed:
+			if _action_hit(touch.position):
+				_claim_action(touch.index)
+			elif _touch_idx == -1 and movement_zone().has_point(touch.position):
+				touch_owners[touch.index] = TouchOwner.STICK
+				_press(touch.position, touch.index)
+			else:
+				touch_owners[touch.index] = TouchOwner.WORLD_INTERACT
+				_world_pend[touch.index] = {
+					"pos": touch.position,
+					"moved": false,
+					"ms": Time.get_ticks_msec(),
+				}
+				if world_press_probe.is_valid() and bool(world_press_probe.call(touch.position)):
+					_world_pend[touch.index]["consumed"] = true
+					_flash(touch.position)
+		else:
+			var owner: int = int(touch_owners.get(touch.index, TouchOwner.NONE))
+			if owner == TouchOwner.STICK and touch.index == _touch_idx:
+				_release_stick()
+			elif owner == TouchOwner.ACTION:
+				_release_action(touch.index)
+			elif (owner == TouchOwner.WORLD_INTERACT or owner == TouchOwner.WORLD_MOVE) and _world_pend.has(touch.index):
+				var world_data: Dictionary = _world_pend[touch.index]
+				if owner == TouchOwner.WORLD_INTERACT and not bool(world_data.get("moved", false)) and not bool(world_data.get("consumed", false)):
+					world_touched.emit(touch.position)
+					_flash(touch.position)
+				if bool(world_data.get("consumed", false)) and world_press_release.is_valid():
+					world_press_release.call()
+				_world_swipe(world_data, touch.position)
+				_world_pend.erase(touch.index)
+			touch_owners.erase(touch.index)
+	elif ev is InputEventScreenDrag:
+		var drag := ev as InputEventScreenDrag
+		var owner: int = int(touch_owners.get(drag.index, TouchOwner.NONE))
+		if owner == TouchOwner.STICK and drag.index == _touch_idx:
+			_drag(drag.position)
+		elif (owner == TouchOwner.WORLD_INTERACT or owner == TouchOwner.WORLD_MOVE) \
+				and _world_pend.has(drag.index):
+			var world_data: Dictionary = _world_pend[drag.index]
+			world_data["last"] = drag.position
+			if (drag.position - (world_data["pos"] as Vector2)).length() > TAP_SLOP:
+				# only the finger that press-fired may cancel its own charge —
+				# a sibling finger wobbling 22px elsewhere must not (alpha
+				# audit 2026-08-05: any second finger killed every held charge)
+				if not bool(world_data.get("moved", false)) and bool(world_data.get("consumed", false)) \
+						and world_press_drag.is_valid():
+					world_press_drag.call()   # a travelling finger is not a charge
+				world_data["moved"] = true
+				touch_owners[drag.index] = TouchOwner.WORLD_MOVE
+	elif ev is InputEventMouseButton:
+		var mouse_button := ev as InputEventMouseButton
+		if mouse_button.device == InputEvent.DEVICE_ID_EMULATION or mouse_button.button_index != MOUSE_BUTTON_LEFT:
+			return
+		if mouse_button.pressed:
+			if _action_hit(mouse_button.position):
+				_claim_action(99)
+			elif _touch_idx == -1 and movement_zone().has_point(mouse_button.position):
+				touch_owners[99] = TouchOwner.STICK
+				_press(mouse_button.position, 99)
+			else:
+				touch_owners[99] = TouchOwner.WORLD_INTERACT
+				_world_pend[99] = {
+					"pos": mouse_button.position,
+					"moved": false,
+					"ms": Time.get_ticks_msec(),
+				}
+				if world_press_probe.is_valid() and bool(world_press_probe.call(mouse_button.position)):
+					_world_pend[99]["consumed"] = true
+					_flash(mouse_button.position)
+		else:
+			var owner: int = int(touch_owners.get(99, TouchOwner.NONE))
+			if owner == TouchOwner.STICK and _touch_idx == 99:
+				_release_stick()
+			elif owner == TouchOwner.ACTION:
+				_release_action(99)
+			elif (owner == TouchOwner.WORLD_INTERACT or owner == TouchOwner.WORLD_MOVE) and _world_pend.has(99):
+				var world_data: Dictionary = _world_pend[99]
+				if owner == TouchOwner.WORLD_INTERACT and not bool(world_data.get("moved", false)) and not bool(world_data.get("consumed", false)):
+					world_touched.emit(mouse_button.position)
+					_flash(mouse_button.position)
+				if bool(world_data.get("consumed", false)) and world_press_release.is_valid():
+					world_press_release.call()
+				_world_swipe(world_data, mouse_button.position)
+				_world_pend.erase(99)
+			touch_owners.erase(99)
+	elif ev is InputEventMouseMotion and touch_owners.get(99, TouchOwner.NONE) == TouchOwner.STICK:
+		var mouse_motion := ev as InputEventMouseMotion
+		if mouse_motion.device != InputEvent.DEVICE_ID_EMULATION:
+			_drag(mouse_motion.position)
+	elif ev is InputEventMouseMotion and touch_owners.get(99, TouchOwner.NONE) in \
+			[TouchOwner.WORLD_INTERACT, TouchOwner.WORLD_MOVE]:
+		var world_motion := ev as InputEventMouseMotion
+		if world_motion.device != InputEvent.DEVICE_ID_EMULATION and _world_pend.has(99):
+			var world_data: Dictionary = _world_pend[99]
+			world_data["last"] = world_motion.position
+			if (world_motion.position - (world_data["pos"] as Vector2)).length() > TAP_SLOP:
+				if not bool(world_data.get("moved", false)) and world_press_drag.is_valid():
+					world_press_drag.call()
+				world_data["moved"] = true
+				touch_owners[99] = TouchOwner.WORLD_MOVE
+
+# A world touch that travelled is reported to the combat layer as a swipe.
+# Non-combat drags simply find no hit engine listening and cost nothing.
+# A stroke that press-fired on an enemy already spent itself as tap+charge —
+# it never doubles as a slash on lift (one stroke, one verb; without this a
+# single drag over an enemy dealt tap 1 + slice 2 in one gesture).
+func _world_swipe(world_data: Dictionary, end_pos: Vector2) -> void:
+	if not bool(world_data.get("moved", false)) or not world_drag_end.is_valid():
+		return
+	if bool(world_data.get("consumed", false)):
+		return
+	world_drag_end.call(world_data.get("pos", end_pos) as Vector2,
+		world_data.get("last", end_pos) as Vector2)
+
+# Reversible shipped input path. Keep behavioral edits to this method out of the
+# hybrid experiment so selecting Classic is a genuine runtime rollback outside
+# the Sky Lagoon. The Canvas promenade is the one intentional exception: its
+# visible toys and Reef route need the finger position, so an unmoved Classic
+# press is routed to that world on release instead of becoming a blind jump.
+func _classic_unhandled_input(ev: InputEvent) -> void:
+	if ev is InputEventScreenTouch:
+		var touch := ev as InputEventScreenTouch
+		if touch.pressed:
+			if _touch_idx == -1:
+				_press(touch.position, touch.index)
+			elif touch.index != _touch_idx:
+				_pend[touch.index] = {"pos": touch.position, "ms": Time.get_ticks_msec()}
+		else:
+			if touch.index == _touch_idx:
+				_release_stick()
+			elif _pend.has(touch.index):
+				_pend.erase(touch.index)
+				_jump_pulse()
+				_flash(touch.position)
+			elif touch.index == _look_idx:
+				_look_idx = -1
+			elif _jump_fingers.has(touch.index):
+				_jump_fingers.erase(touch.index)
+				if _jump_fingers.is_empty() and _pulse <= 0.0:
+					action_down = false
+	elif ev is InputEventScreenDrag:
+		var drag := ev as InputEventScreenDrag
+		if drag.index == _touch_idx:
+			_drag(drag.position)
+		elif _pend.has(drag.index):
+			if (drag.position - (_pend[drag.index]["pos"] as Vector2)).length() > TAP_SLOP:
+				_pend.erase(drag.index)
+				if _look_idx == -1:
+					_look_idx = drag.index
+				else:
+					_jump_fingers[drag.index] = true
+					action_down = true
+					_arm_action_edge()
+		elif drag.index == _look_idx:
+			_look_dx += drag.relative.x
+			_look_dy += drag.relative.y
+	elif ev is InputEventMouseButton:
+		var mouse_button := ev as InputEventMouseButton
+		if mouse_button.device == InputEvent.DEVICE_ID_EMULATION:
+			return
+		if mouse_button.button_index == MOUSE_BUTTON_LEFT:
+			if mouse_button.pressed and _touch_idx == -1:
+				_press(mouse_button.position, 99)
+			elif not mouse_button.pressed and _touch_idx == 99:
+				_release_stick()
+	elif ev is InputEventMouseMotion and _touch_idx == 99:
+		var mouse_motion := ev as InputEventMouseMotion
+		if mouse_motion.device == InputEvent.DEVICE_ID_EMULATION:
+			return
+		_drag(mouse_motion.position)
+
+func set_action_label(_text: String) -> void:
+	# Activity controllers retain this compatibility call, but Hybrid uses the
+	# activity's visible scene rather than an overlay label.
+	pass
+
+func consume_action_just() -> bool:
+	var just_pressed := action_just
+	clear_action_edge()
+	return just_pressed
+
+func set_drag_mode(on: bool) -> void:
+	drag_mode = on
+	drag_active = false
+	drag_started = false
+	stick_vec = Vector2.ZERO
+	if on:
+		_touch_idx = -1
+		_rest_stick()
+
+func consume_drag_started() -> bool:
+	var j := drag_started
+	drag_started = false
+	return j
+
+func look_active() -> bool:
+	return control_mode == "classic" and _look_idx != -1
+
+func consume_look() -> Vector2:
+	var look := Vector2(clampf(_look_dx, -120.0, 120.0), clampf(_look_dy, -120.0, 120.0))
+	_look_dx = 0.0
+	_look_dy = 0.0
+	return look
+
+func _input(ev: InputEvent) -> void:
+	if _consume_slide_canvas_return_guard_input(ev):
+		return
+	if _consume_blocked_melody_context_input(ev):
+		return
+	if _consume_blocked_slide_canvas_context_input(ev):
+		return
+	_forward_paused_melody_release(ev)
+	_forward_paused_slide_canvas_release(ev)
+	# These fixed controls must win before ordinary GUI routing. Overlay
+	# builders disable world_controls_enabled, so their own buttons still keep
+	# the whole screen while open.
+	if wants_touch() and ev is InputEventScreenTouch:
+		var touch := ev as InputEventScreenTouch
+		if touch.pressed and pause_zone().has_point(touch.position):
+			_request_navigation()
+			get_viewport().set_input_as_handled()
+			return
+		if control_mode == "hybrid" and world_controls_enabled:
+			if touch.pressed:
+				if _action_hit(touch.position):
+					_claim_action(touch.index)
+					get_viewport().set_input_as_handled()
+					return
+
+			else:
+				var owner: int = int(touch_owners.get(touch.index, TouchOwner.NONE))
+				if owner == TouchOwner.STICK and touch.index == _touch_idx:
+					_retire_consumed_canvas_entry_release(touch)
+					_release_stick()
+					touch_owners.erase(touch.index)
+					get_viewport().set_input_as_handled()
+					return
+				if owner == TouchOwner.ACTION:
+					_retire_consumed_canvas_entry_release(touch)
+					_release_action(touch.index)
+					touch_owners.erase(touch.index)
+					get_viewport().set_input_as_handled()
+					return
+	elif wants_touch() and ev is InputEventScreenDrag and control_mode == "hybrid" \
+			and world_controls_enabled:
+		var drag := ev as InputEventScreenDrag
+		if touch_owners.get(drag.index, TouchOwner.NONE) == TouchOwner.STICK \
+				and drag.index == _touch_idx:
+			_drag(drag.position)
+			get_viewport().set_input_as_handled()
+			return
+	elif wants_touch() and ev is InputEventMouseButton:
+		var mouse_button := ev as InputEventMouseButton
+		# Godot emits the emulated mouse press BEFORE its original touch. The
+		# priority raw-touch route owns navigation; letting this copy reach the
+		# global Button would pop one route in GUI and another on the raw touch.
+		# Keep emulation everywhere else for ordinary activity controls.
+		if mouse_button.device == InputEvent.DEVICE_ID_EMULATION \
+				and mouse_button.button_index == MOUSE_BUTTON_LEFT \
+				and mouse_button.pressed \
+				and pause_zone().has_point(mouse_button.position):
+			get_viewport().set_input_as_handled()
+			return
+		if mouse_button.device != InputEvent.DEVICE_ID_EMULATION \
+				and mouse_button.button_index == MOUSE_BUTTON_LEFT:
+			if mouse_button.pressed and pause_zone().has_point(mouse_button.position):
+				_request_navigation()
+				get_viewport().set_input_as_handled()
+				return
+			if control_mode == "hybrid" and world_controls_enabled:
+				if mouse_button.pressed and _action_hit(mouse_button.position):
+					_claim_action(99)
+					get_viewport().set_input_as_handled()
+					return
+				if not mouse_button.pressed and touch_owners.get(99, TouchOwner.NONE) == TouchOwner.STICK:
+					_retire_consumed_canvas_entry_release(mouse_button)
+					_release_stick()
+					touch_owners.erase(99)
+					get_viewport().set_input_as_handled()
+					return
+				if not mouse_button.pressed and touch_owners.get(99, TouchOwner.NONE) == TouchOwner.ACTION:
+					_retire_consumed_canvas_entry_release(mouse_button)
+					_release_action(99)
+					touch_owners.erase(99)
+					get_viewport().set_input_as_handled()
+					return
+	elif wants_touch() and ev is InputEventMouseMotion and control_mode == "hybrid" \
+			and world_controls_enabled and touch_owners.get(99, TouchOwner.NONE) == TouchOwner.STICK:
+		var mouse_motion := ev as InputEventMouseMotion
+		if mouse_motion.device != InputEvent.DEVICE_ID_EMULATION:
+			_drag(mouse_motion.position)
+			get_viewport().set_input_as_handled()
+			return
+	var toggle := false
+	if ev is InputEventKey and (ev as InputEventKey).pressed and not (ev as InputEventKey).echo:
+		if (ev as InputEventKey).physical_keycode == KEY_ESCAPE:
+			toggle = true
+	elif ev is InputEventJoypadButton and (ev as InputEventJoypadButton).pressed:
+		if (ev as InputEventJoypadButton).button_index == JOY_BUTTON_START:
+			toggle = true
+	if toggle:
+		_request_navigation()
+
+static func wants_touch() -> bool:
+	# Touch-first game: editor/debug desktop runs take the touch path too, so the
+	# mouse drives the same stick/tap code the phone uses. `--no-touch` restores
+	# the bare desktop scheme for probes that need it.
+	if "--no-touch" in OS.get_cmdline_user_args():
+		return false
+	return DisplayServer.is_touchscreen_available() or OS.has_feature("mobile") \
+		or OS.has_feature("pc") or OS.has_feature("editor") or OS.is_debug_build() \
+		or "--touch" in OS.get_cmdline_user_args()

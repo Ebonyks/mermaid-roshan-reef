@@ -1,0 +1,251 @@
+{
+  "schema": "reef.flat_vector_shaders/1",
+  "baseline": "92c9fe70319ef46bfaa8f61348a6f51512141ec3",
+  "shaders": [
+    {
+      "path": "assets/shaders/butterfly_flap.gdshader",
+      "sha256_lf": "15159390acb37bf6080bb79f2915309799895e1c93a2e0e3626f7e1010d4ac39",
+      "shader_type": [
+        "spatial"
+      ],
+      "static_consumers": [
+        {
+          "path": "scripts/arena/sky_lagoon.gd",
+          "line": 819,
+          "expression": "# assets/shaders/butterfly_flap.gdshader) hovering over the meadow"
+        },
+        {
+          "path": "scripts/arena/sky_lagoon.gd",
+          "line": 820,
+          "expression": "var flap_sh = load(\"res://assets/shaders/butterfly_flap.gdshader\")"
+        }
+      ],
+      "status": "NEEDS_CONTEXT_REVIEW",
+      "disposition": "Visible procedural dirt/water/ripple/material is art/effect review; invisible masks are functional. Spatial shaders retain separate shrinking 3D debt. No current visual exemption."
+    },
+    {
+      "path": "assets/shaders/castle_fixture_water.gdshader",
+      "sha256_lf": "168cb9fe89d06e11101b4dcc5084247158c7411463f3c3e168493453e64431aa",
+      "shader_type": [
+        "canvas_item"
+      ],
+      "static_consumers": [
+        {
+          "path": "scripts/arena/castle_fixture_rigs.gd",
+          "line": 25,
+          "expression": "const WATER_SHADER := preload(\"res://assets/shaders/castle_fixture_water.gdshader\")"
+        }
+      ],
+      "status": "NEEDS_CONTEXT_REVIEW",
+      "disposition": "Visible procedural dirt/water/ripple/material is art/effect review; invisible masks are functional. Spatial shaders retain separate shrinking 3D debt. No current visual exemption."
+    },
+    {
+      "path": "assets/shaders/cel.gdshader",
+      "sha256_lf": "f3a644c5151c4f73e96d170a1f7a9a77357c8f61b849e7c91d34199bd42344df",
+      "shader_type": [
+        "spatial"
+      ],
+      "static_consumers": [
+        {
+          "path": "scripts/dev_mode.gd",
+          "line": 440,
+          "expression": "# extends the gen2 cel pipeline (cel.gdshader + hull outline next_pass) to"
+        },
+        {
+          "path": "scripts/dev_mode.gd",
+          "line": 449,
+          "expression": "var cel_shader: Shader = load(\"res://assets/shaders/cel.gdshader\")"
+        },
+        {
+          "path": "scripts/main.gd",
+          "line": 1108,
+          "expression": "cel.shader = load(\"res://assets/shaders/cel.gdshader\")"
+        },
+        {
+          "path": "scripts/main.gd",
+          "line": 2873,
+          "expression": "func _cel_replace(root: Node, outline: ShaderMaterial, shader_path: String = \"res://assets/shaders/cel.gdshader\") -> void:"
+        }
+      ],
+      "status": "NEEDS_CONTEXT_REVIEW",
+      "disposition": "Visible procedural dirt/water/ripple/material is art/effect review; invisible masks are functional. Spatial shaders retain separate shrinking 3D debt. No current visual exemption."
+    },
+    {
+      "path": "assets/shaders/cel_post.gdshader",
+      "sha256_lf": "16213824dcc8619266c688325096c19b0edc22af6cd24c44dbd0232d74283ad2",
+      "shader_type": [
+        "spatial"
+      ],
+      "static_consumers": [
+        {
+          "path": "scripts/main.gd",
+          "line": 2866,
+          "expression": "mat.shader = load(\"res://assets/shaders/cel_post.gdshader\")"
+        }
+      ],
+      "status": "NEEDS_CONTEXT_REVIEW",
+      "disposition": "Visible procedural dirt/water/ripple/material is art/effect review; invisible masks are functional. Spatial shaders retain separate shrinking 3D debt. No current visual exemption."
+    },
+    {
+      "path": "assets/shaders/coral_flow.gdshader",
+      "sha256_lf": "2b84fb4c545873d6bd36ba59e2bf3894b2d7419c797fdea0254c5475a2d3c634",
+      "shader_type": [
+        "spatial"
+      ],
+      "static_consumers": [
+        {
+          "path": "scripts/main.gd",
+          "line": 1113,
+          "expression": "flow.shader = load(\"res://assets/shaders/coral_flow.gdshader\")"
+        }
+      ],
+      "status": "NEEDS_CONTEXT_REVIEW",
+      "disposition": "Visible procedural dirt/water/ripple/material is art/effect review; invisible masks are functional. Spatial shaders retain separate shrinking 3D debt. No current visual exemption."
+    },
+    {
+      "path": "assets/shaders/creature_sway.gdshader",
+      "sha256_lf": "f7986237a1051ccd5bd41fc067819d581206f499e86c5f14ab80767abd3a75d9",
+      "shader_type": [
+        "spatial"
+      ],
+      "static_consumers": [
+        {
+          "path": "scripts/main.gd",
+          "line": 1755,
+          "expression": "# swimming creatures: statics brought alive by creature_sway.gdshader"
+        },
+        {
+          "path": "scripts/main.gd",
+          "line": 1760,
+          "expression": "# per-species SWIM profile: [mode, speed, amount] for creature_sway.gdshader"
+        },
+        {
+          "path": "scripts/main.gd",
+          "line": 5370,
+          "expression": "sm.shader = load(\"res://assets/shaders/creature_sway.gdshader\")"
+        }
+      ],
+      "status": "NEEDS_CONTEXT_REVIEW",
+      "disposition": "Visible procedural dirt/water/ripple/material is art/effect review; invisible masks are functional. Spatial shaders retain separate shrinking 3D debt. No current visual exemption."
+    },
+    {
+      "path": "assets/shaders/outline.gdshader",
+      "sha256_lf": "0a82390bd1c9c99f3ac1fa11c4a3c2b3b21ecfaac123fecfd169523ba68448ff",
+      "shader_type": [
+        "spatial"
+      ],
+      "static_consumers": [
+        {
+          "path": "scripts/main.gd",
+          "line": 5445,
+          "expression": "_gen2_outline.shader = load(\"res://assets/shaders/outline.gdshader\")"
+        }
+      ],
+      "status": "NEEDS_CONTEXT_REVIEW",
+      "disposition": "Visible procedural dirt/water/ripple/material is art/effect review; invisible masks are functional. Spatial shaders retain separate shrinking 3D debt. No current visual exemption."
+    },
+    {
+      "path": "assets/shaders/swing_sway.gdshader",
+      "sha256_lf": "60a46db7897f30488cb878d90e0b4f85fa9467c3bbef6e3d4a3f7dea7d9fd707",
+      "shader_type": [
+        "spatial"
+      ],
+      "static_consumers": [
+        {
+          "path": "scripts/main.gd",
+          "line": 5308,
+          "expression": "# only (legs + ground rails stay rigid). See swing_sway.gdshader."
+        },
+        {
+          "path": "scripts/main.gd",
+          "line": 5309,
+          "expression": "var sway_sh: Shader = load(\"res://assets/shaders/swing_sway.gdshader\")"
+        }
+      ],
+      "status": "NEEDS_CONTEXT_REVIEW",
+      "disposition": "Visible procedural dirt/water/ripple/material is art/effect review; invisible masks are functional. Spatial shaders retain separate shrinking 3D debt. No current visual exemption."
+    },
+    {
+      "path": "assets/shaders/toon_water.gdshader",
+      "sha256_lf": "3d2ae460384740d6abeb1a76e548f878fed7e2ac655b410ef29e3cf1bba25107",
+      "shader_type": [
+        "spatial"
+      ],
+      "static_consumers": [
+        {
+          "path": "scripts/main.gd",
+          "line": 1521,
+          "expression": "m.shader = load(\"res://assets/shaders/toon_water.gdshader\")"
+        }
+      ],
+      "status": "NEEDS_CONTEXT_REVIEW",
+      "disposition": "Visible procedural dirt/water/ripple/material is art/effect review; invisible masks are functional. Spatial shaders retain separate shrinking 3D debt. No current visual exemption."
+    },
+    {
+      "path": "disabled_addons/tessarakkt.oceanfft/shaders/IgnoreTextureAlpha.gdshader",
+      "sha256_lf": "4b8a2725289a201804ab4a38cd3a9c9e143cac552bea709b16b2af07e301da9e",
+      "shader_type": [
+        "canvas_item"
+      ],
+      "static_consumers": [],
+      "status": "NEEDS_CONTEXT_REVIEW",
+      "disposition": "Visible procedural dirt/water/ripple/material is art/effect review; invisible masks are functional. Spatial shaders retain separate shrinking 3D debt. No current visual exemption."
+    },
+    {
+      "path": "disabled_addons/tessarakkt.oceanfft/shaders/SplashParticles.gdshader",
+      "sha256_lf": "55f96b55e6d4c9ab10c40526d2c0a53d8d9898f39678c80a18e3981a2b4503d3",
+      "shader_type": [
+        "particles"
+      ],
+      "static_consumers": [],
+      "status": "NEEDS_CONTEXT_REVIEW",
+      "disposition": "Visible procedural dirt/water/ripple/material is art/effect review; invisible masks are functional. Spatial shaders retain separate shrinking 3D debt. No current visual exemption."
+    },
+    {
+      "path": "disabled_addons/tessarakkt.oceanfft/shaders/SurfaceVisual.gdshader",
+      "sha256_lf": "04c7f02aea69b4d8a9abede614efab5560a8d74aa4594ac1a9eb4f03f47b8d06",
+      "shader_type": [
+        "spatial"
+      ],
+      "static_consumers": [],
+      "status": "NEEDS_CONTEXT_REVIEW",
+      "disposition": "Visible procedural dirt/water/ripple/material is art/effect review; invisible masks are functional. Spatial shaders retain separate shrinking 3D debt. No current visual exemption."
+    },
+    {
+      "path": "disabled_addons/tessarakkt.oceanfft/shaders/UnderwaterParticles.gdshader",
+      "sha256_lf": "2918d076ad200b81317c0e66259009cda4a459c3db2a6c269dfeaf5018a937b8",
+      "shader_type": [
+        "particles"
+      ],
+      "static_consumers": [],
+      "status": "NEEDS_CONTEXT_REVIEW",
+      "disposition": "Visible procedural dirt/water/ripple/material is art/effect review; invisible masks are functional. Spatial shaders retain separate shrinking 3D debt. No current visual exemption."
+    },
+    {
+      "path": "disabled_addons/tessarakkt.oceanfft/shaders/UnderwaterPostProc.gdshader",
+      "sha256_lf": "c0d2da5bb2191d5b9232ba88a36d4cff8451df2672b5263b7fe683245de98a36",
+      "shader_type": [
+        "canvas_item"
+      ],
+      "static_consumers": [],
+      "status": "NEEDS_CONTEXT_REVIEW",
+      "disposition": "Visible procedural dirt/water/ripple/material is art/effect review; invisible masks are functional. Spatial shaders retain separate shrinking 3D debt. No current visual exemption."
+    },
+    {
+      "path": "shaders/castle_fixture_bloom.gdshader",
+      "sha256_lf": "6ac290838d538b96bbae9657e4771083c567ce153c1c2b1c7763cdc7eb6ab986",
+      "shader_type": [
+        "canvas_item"
+      ],
+      "static_consumers": [
+        {
+          "path": "scripts/arena/castle_rooms_25d.gd",
+          "line": 28,
+          "expression": "\"res://shaders/castle_fixture_bloom.gdshader\")"
+        }
+      ],
+      "status": "NEEDS_CONTEXT_REVIEW",
+      "disposition": "Visible procedural dirt/water/ripple/material is art/effect review; invisible masks are functional. Spatial shaders retain separate shrinking 3D debt. No current visual exemption."
+    }
+  ]
+}

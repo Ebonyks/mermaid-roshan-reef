@@ -1,0 +1,296 @@
+class_name FashionWardrobe
+extends RefCounted
+## Clothing overlays use the existing wardrobe lifetime and navigation owner.
+## Durable state belongs to ReefMain. UI references live in its existing wd.
+const PERSON := "fashion_person"
+const PAGE := "fashion_page"
+const SLOT := "fashion_slot"
+const PARTY := "fashion_party"
+const PRACTICE := "fashion_practice"
+const PAINTED_PANEL: Texture2D = preload("res://assets/fashion/skin_engine_v2/ui/wardrobe_panel.png")
+const PAINTED_CARD: Texture2D = preload("res://assets/fashion/skin_engine_v2/ui/wardrobe_card.png")
+var m: ReefMain
+
+func _init(main: ReefMain) -> void:
+	m = main
+
+func open(party: bool = false) -> void:
+	m._wardrobe_ref()._close_wardrobe()
+	m._wardrobe_ref()._open_wardrobe_shell()
+	m.wardrobe_layer.set_meta("fashion_fixed_preview", true)
+	FashionDesigner.refresh_unlocks(m)
+	m.wd[PERSON] = "roshan"
+	m.wd[PAGE] = 0
+	m.wd[SLOT] = "body"
+	m.wd[PARTY] = party
+	m.wd[PRACTICE] = false
+	_build()
+	_cue("party_dress" if party else "choose")
+
+func _cue(event: String) -> void:
+	m._audio_ref()._stop_active_speech()
+	m._say("roshan", "fashion_" + event)
+
+func _button(stage: Control, id: String, rect: Rect2, caption: String,
+		callback: Callable, portrait: Texture2D = null) -> Button:
+	var button := Button.new()
+	button.name = id
+	button.position = rect.position
+	button.size = rect.size
+	button.custom_minimum_size = rect.size
+	button.text = caption
+	StorybookUI.style_picture_button(button, StorybookUI.PAPER,
+		StorybookUI.PURPLE, 30, StorybookUI.ROLE_CHILD_CONTROL, 30)
+	for state: String in ["normal", "hover", "pressed", "focus"]:
+		var painted := StyleBoxTexture.new()
+		painted.texture = PAINTED_CARD
+		painted.texture_margin_left = 36
+		painted.texture_margin_right = 36
+		painted.texture_margin_top = 36
+		painted.texture_margin_bottom = 36
+		painted.content_margin_left = 12
+		painted.content_margin_right = 12
+		painted.content_margin_top = 12
+		painted.content_margin_bottom = 12
+		painted.modulate_color = Color(1.0,0.86,0.64) if state in ["pressed","focus"] else (Color(1.0,0.95,0.83) if state == "hover" else Color.WHITE)
+		button.add_theme_stylebox_override(state, painted)
+	if portrait != null:
+		var art := TextureRect.new()
+		art.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+		art.texture = portrait
+		art.position = Vector2(20, 14) if rect.size.y <= 110 else Vector2(20, 32)
+		art.size = rect.size - Vector2(40, 45 if rect.size.y <= 110 else 86)
+		art.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+		art.mouse_filter = Control.MOUSE_FILTER_IGNORE
+		button.add_child(art)
+		button.text = ""
+		var label := Label.new()
+		label.text = caption
+		label.position = Vector2(0, rect.size.y - 40)
+		label.size = Vector2(rect.size.x, 35)
+		label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+		label.mouse_filter = Control.MOUSE_FILTER_IGNORE
+		StorybookUI.style_label(label, 30, StorybookUI.INK, 2)
+		button.add_child(label)
+	button.pressed.connect(callback)
+	stage.add_child(button)
+	return button
+
+func _build() -> void:
+	var stage: Control = m.wd.get("stage") as Control
+	if stage == null:
+		return
+	var previous: Tween = m.wd.get("feedback_tween") as Tween
+	if previous != null and previous.is_valid():
+		previous.kill()
+	for child: Node in stage.get_children():
+		stage.remove_child(child)
+		child.queue_free()
+	var panel := TextureRect.new()
+	panel.texture = PAINTED_PANEL
+	panel.position = Vector2(28,18)
+	panel.size = Vector2(1224,684)
+	panel.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+	panel.stretch_mode = TextureRect.STRETCH_SCALE
+	panel.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	stage.add_child(panel)
+	var party: bool = bool(m.wd[PARTY])
+	var practice: bool = bool(m.wd[PRACTICE])
+	var person: String = String(m.wd[PERSON])
+	var phase: int = FashionDesigner.next_disguise_phase(m)
+	if practice and phase < 3: m.wd[SLOT] = ["body","tail","head"][phase]
+	var title := Label.new()
+	title.text = "Party dress" if party else ("Disguise play" if practice else ("Dress up: " + String(FashionDesigner.character(person).get("name", "")) if person in ["roshan","rumi","daddy_mermaid"] else "Our clothes"))
+	title.position = Vector2(165, 22)
+	title.size = Vector2(800, 64)
+	StorybookUI.style_label(title, 42, StorybookUI.INK, 4)
+	stage.add_child(title)
+	if not party and not practice:
+		for index: int in range(FashionParts.PEOPLE.size()):
+			var id: String = FashionParts.PEOPLE[index]
+			var pick := _button(stage, "FashionCharacter_" + id,
+				Rect2(66 + index * 160, 138, 140, 156), String(FashionDesigner.character(id)["name"]),
+				_select_person.bind(id), FashionParts.face(m, id))
+			pick.set_meta("selected", person == id)
+			if person == id:
+				pick.text = "" # Selection lives on the frame, never multiply-tints the art.
+				pick.add_theme_stylebox_override("normal", pick.get_theme_stylebox("pressed"))
+	var preview := TextureRect.new()
+	preview.name = "FashionCurrentLook"
+	preview.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+	preview.texture = FashionOutfitRenderer.portrait(m, person)
+	preview.position = Vector2(85, 290)
+	preview.size = Vector2(445, 284)
+	preview.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+	preview.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+	preview.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	stage.add_child(preview)
+	m.wd["preview"] = preview
+	m.wd["fashion_fit_rect"] = FashionSkinEngine.fit_rect(person,preview,String(m.wd.get(SLOT,"body")))
+	var dressing: FashionDressingInput = null
+	if not practice and person in ["roshan","rumi","daddy_mermaid"]:
+		dressing = FashionDressingInput.new()
+		stage.add_child(dressing)
+		dressing.setup(m,self)
+		m.wd["dressing_input"] = dressing
+	var feedback := Control.new()
+	feedback.name = "WardrobeFeedbackLayer"
+	feedback.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	feedback.z_index = 20
+	stage.add_child(feedback)
+	m.wd["feedback_layer"] = feedback
+	var slot: String = String(m.wd.get(SLOT,"body"))
+	if not practice:
+		for index: int in range(FashionParts.SLOTS.size()):
+			var part: String = FashionParts.SLOTS[index]
+			var selected_id: String = FashionParts.selected(m,person,part)
+			if String(FashionDesigner.outfit(selected_id).get("kind","")) == "original":
+				selected_id = "head_royal_v1" if part == "head" else (FashionDesigner.PARTY_DRESS if part == "body" else "tail_star_v1")
+			var tab := _button(stage,"FashionSlot_"+part,Rect2(625+index*190,138,180,156),part.capitalize(),_select_slot.bind(part),FashionParts.icon(selected_id))
+			if slot == part:
+				tab.add_theme_stylebox_override("normal",tab.get_theme_stylebox("pressed"))
+	var entries: Array[Dictionary] = FashionParts.items(person,slot)
+	if party and slot == "body":
+		entries = [FashionDesigner.outfit(FashionDesigner.PARTY_DRESS)]
+	elif practice:
+		if phase >= 3:
+			m.wd[PRACTICE] = false
+			_build()
+			_cue("done")
+			return
+		var sample := TextureRect.new()
+		sample.name = "FashionGoalPicture"
+		sample.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+		sample.texture = FashionParts.goal(m,"rumi" if phase == 1 else "roshan",{"head":"head_pearl_v1" if phase == 2 else "head_original","body":"rumi_garden_v1" if phase == 1 else "roshan_garden_v1","tail":"tail_strawberry_v1" if phase >= 1 else "tail_original"})
+		sample.position = Vector2(625, 110)
+		sample.size = Vector2(160, 184)
+		sample.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+		sample.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+		sample.mouse_filter = Control.MOUSE_FILTER_IGNORE
+		stage.add_child(sample)
+		entries = [FashionDesigner.outfit("roshan_ribbon_v1"),
+			FashionDesigner.outfit(FashionDesigner.PARTY_DRESS),
+			FashionDesigner.outfit("roshan_garden_v1")]
+		if phase == 1:
+			entries = [FashionDesigner.outfit("tail_star_v1"),FashionDesigner.outfit("tail_blossom_v1"),FashionDesigner.outfit("tail_strawberry_v1")]
+		if phase == 2:
+			entries = [{"id": "finish_bow", "kind": "pearl", "label": "Bow"}]
+		var goal_piece := TextureRect.new()
+		goal_piece.name = "FashionGoalPiece"
+		goal_piece.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+		goal_piece.texture = FashionSkinEngine.garment(["roshan_garden_v1","tail_strawberry_v1","head_pearl_v1"][phase])
+		goal_piece.position = Vector2(825,110)
+		goal_piece.size = Vector2(160,184)
+		goal_piece.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+		goal_piece.mouse_filter = Control.MOUSE_FILTER_IGNORE
+		stage.add_child(goal_piece)
+	var start: int = 0 if practice or (party and slot == "body") else int(m.wd[PAGE]) * 3
+	for index: int in range(start, mini(start + 3, entries.size())):
+		var entry: Dictionary = entries[index]
+		var id: String = String(entry["id"])
+		var locked: bool = id != "finish_bow" and not FashionDesigner.owned(m, id)
+		var source_id: String = "head_pearl_v1" if id == "finish_bow" else id
+		var clothing: Texture2D = FashionParts.icon(source_id)
+		var card := _button(stage, "FashionOutfit_" + id,
+			Rect2(625 + (index - start) * 190, 302, 180, 256),
+			"Original" if String(entry["kind"]) == "original" else ("🔒" if locked else ("✔" if FashionParts.selected(m, person, slot) == id else "")),
+			_pick.bind(id), clothing if clothing != null else FashionOutfitRenderer.portrait(m, person, source_id))
+		if dressing != null and not locked and clothing != null:
+			card.gui_input.connect(dressing.card_input.bind(id,card))
+		card.set_meta("locked", locked)
+		if locked:
+			var unlock_picture := TextureRect.new()
+			unlock_picture.name = "FashionUnlockSourcePicture"
+			unlock_picture.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+			unlock_picture.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+			var source: String = _unlock_picture(String(entry["kind"]))
+			unlock_picture.texture = load(source) as Texture2D
+			unlock_picture.position = Vector2(110, 190)
+			unlock_picture.size = Vector2(54, 54)
+			unlock_picture.mouse_filter = Control.MOUSE_FILTER_IGNORE
+			card.add_child(unlock_picture)
+		if practice or (party and slot == "body"):
+			var pointer := Label.new()
+			pointer.name = "FashionVisualPointer"
+			pointer.text = "👇"
+			pointer.position = Vector2(card.position.x + 60, 265)
+			StorybookUI.style_label(pointer, 45, StorybookUI.GOLD, 3)
+			stage.add_child(pointer)
+	if not practice and not (party and slot == "body"):
+		_button(stage, "FashionPreviousPage", Rect2(650, 577, 132, 110), "◀",
+			_page.bind(-1))
+		_button(stage, "FashionNextPage", Rect2(800, 577, 132, 110), "▶",
+			_page.bind(1))
+		if not party and FashionDesigner.practice_available(m):
+			_button(stage, "FashionDisguisePlay", Rect2(75, 577, 210, 110), "Disguise",
+				_start_practice, FashionSkinEngine.garment("roshan_garden_disguise_v1"))
+	_button(stage, "FashionFinish", Rect2(1040, 577, 165, 110), "✔",
+		m._wardrobe_ref()._close_wardrobe)
+
+func _select_person(id: String) -> void:
+	m.wd[PERSON] = id
+	m.wd[PAGE] = 0
+	_build()
+	_cue("choose")
+
+func _select_slot(slot: String) -> void:
+	m.wd[SLOT] = slot
+	m.wd[PAGE] = 0
+	_build()
+	_cue("choose")
+
+func _page(direction: int) -> void:
+	var count: int = FashionParts.items(String(m.wd[PERSON]),String(m.wd.get(SLOT,"body"))).size()
+	m.wd[PAGE] = posmod(int(m.wd[PAGE]) + direction, ceili(count / 3.0))
+	_build()
+
+func _help() -> void:
+	if bool(m.wd[PARTY]):
+		_cue("party_dress")
+	elif bool(m.wd[PRACTICE]):
+		_cue(["role_pick", "blend_pick", "finish_piece"][FashionDesigner.next_disguise_phase(m)])
+	else:
+		_cue("choose")
+
+func _start_practice() -> void:
+	m.wd[PRACTICE] = true
+	m.wd[PAGE] = 0
+	m.wd[SLOT] = "body"
+	m.wd[PERSON] = "roshan"
+	_build()
+	_help()
+
+func _pick(id: String) -> void:
+	if not (m.wd.get("fashion_drag", {}) as Dictionary).is_empty():
+		return
+	if bool(m.wd[PRACTICE]):
+		var phase: int = FashionDesigner.next_disguise_phase(m)
+		if not FashionDesigner.complete_disguise_phase(m, phase, id, true):
+			_cue("help")
+			return
+		_build()
+		if FashionDesigner.next_disguise_phase(m) < 3:
+			_help()
+		return
+	if not FashionDesigner.owned(m, id):
+		var kind: String = String(FashionDesigner.outfit(id).get("kind", ""))
+		if kind in ["chef","painter"]:
+			m._audio_ref()._stop_active_speech()
+			m._say("roshan","chapter2_route_"+kind)
+		else:
+			_cue("locked_party" if kind == "party" else ("locked_disguise" if kind == "disguise" else "locked_garden"))
+		return
+	FashionDesigner.equip(m, String(m.wd[PERSON]), id, true)
+	if bool(m.wd[PARTY]) and FashionDesigner.party_dressed(m):
+		m._wardrobe_ref()._close_wardrobe()
+		m.call_deferred("_start_chapter2_lawn")
+		return
+	_build()
+	m._wardrobe_ref()._wardrobe_feedback_burst()
+	_cue("changed")
+
+func _unlock_picture(kind: String) -> String:
+	if kind == "party": return ChapterTwoGiantCake2D.FINAL_CAKE_TEXTURE
+	if kind in ["chef","painter"]: return "res://assets/opera/worlds/ui/crests/opera_crest_"+kind+".png"
+	if kind == "disguise": return "res://assets/fashion/skin_engine_v2/garments/ribbon.png"
+	return "res://assets/chapter2/birthday/sky_lagoon_strawberry_single.png"

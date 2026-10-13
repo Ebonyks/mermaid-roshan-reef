@@ -1,0 +1,87 @@
+{
+  "schema": 1,
+  "revision": "FV-AUDIT-20261007-R6",
+  "branch": "codex/flat-vector-r6-20261012",
+  "repository": "https://github.com/Ebonyks/mermaid-roshan-reef",
+  "base": "e2b3c73789707aa49a91b4f42e2a9dd4b68225df",
+  "capture_source": "6cde8aeae04aaedcc0b1ff22a05ef93ab9bf666f",
+  "status": "READY_FOR_COMMIT_AND_EXACT_REMOTE_VERIFICATION",
+  "R5_original_paths_changed": [],
+  "R5_reader_changed": false,
+  "scanner_changed": false,
+  "new_R6_section_indexes": [
+    {
+      "path": "live_v6/promenade/EXACT_OBSERVATIONS.json",
+      "original_bytes": 4308961,
+      "original_sha256": "c0da0d31d9a6af9a471337f1610fc564fedc60b63932b29920dbdd709d90809b",
+      "sections": 5
+    }
+  ],
+  "copied_historical_native_references": 140,
+  "new_art_generations": 0,
+  "runtime_changes": [],
+  "gate_results": [
+    {
+      "record": "FULL_VALIDATION.json",
+      "status": "PASS_PROBE_BY_PROBE_WITH_RECORDED_RETRIES",
+      "original_Bash_CI": "FAIL_EXIT_1;four127exits;unknowncausepreserved"
+    },
+    {
+      "record": "LOCAL_ACTION_VALIDATION.json",
+      "status": "PASS",
+      "checks": 24
+    },
+    {
+      "record": "FINAL_GATES.json",
+      "status": "PASS"
+    },
+    {
+      "record": "publication_diagnostics/final_2d.log",
+      "status": "NO_REGRESSION; UNSATISFIED remains"
+    },
+    {
+      "record": "LOCAL_CI_FAILURE_DIAGNOSIS.json",
+      "status": "original Bash FAIL retained; permitted probe-by-probe PASS separately"
+    },
+    {
+      "record": "PICTURE_IMPORT_PREFLIGHT.json",
+      "status": "exact license snapshot preserved in literal sections; actual source whitespace retained as evidence"
+    }
+  ],
+  "remote_verification": "REQUIRED_POST_PUBLICATION_RECEIPT;NOT_YET_CLAIMED",
+  "acceptance": "NOT_CLAIMED",
+  "root_independent_review": "ROOT_CONTEXT_REVIEW_20261012.json",
+  "extra_prior_native_copies": [
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/live_v6/prior_native/live_v2/1280x720/opera_act_17_geologist_from_library.png",
+      "source": "docs/handoffs/codex_flat_vector_art_2026-10-07/live_v2/1280x720/opera_act_17_geologist_from_library.png",
+      "sha256": "863f3ae56a5922fee60f5d469c2e17fa557c713b1f92551d1bd6fc9aaa8dd90c"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/live_v6/prior_native/live_v3/castle/1280x720/rest_dining_room.png",
+      "source": "docs/handoffs/codex_flat_vector_art_2026-10-07/live_v3/castle/1280x720/rest_dining_room.png",
+      "sha256": "05423cdde0a828ac2d9333c7398533d0fd0f30c2150069e1200c080fa5f41fef"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/live_v6/prior_native/live_v3/castle/1280x720/rest_family_gallery.png",
+      "source": "docs/handoffs/codex_flat_vector_art_2026-10-07/live_v3/castle/1280x720/rest_family_gallery.png",
+      "sha256": "6c722d5172a0372dde8d19933b7ae24fa67c24f5d0e3d329674a4003414bd328"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/live_v6/prior_native/live_v3/castle/1280x720/rest_movie_lounge.png",
+      "source": "docs/handoffs/codex_flat_vector_art_2026-10-07/live_v3/castle/1280x720/rest_movie_lounge.png",
+      "sha256": "09fb68813726516fab0fb80d348635f4ed37307943982f2430ddeafcd668d663"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/live_v6/prior_native/live_v3/castle/1280x720/rest_royal_bedroom.png",
+      "source": "docs/handoffs/codex_flat_vector_art_2026-10-07/live_v3/castle/1280x720/rest_royal_bedroom.png",
+      "sha256": "5231933ab53511b53d90a696080a7ec8849aead83a85f15a3a30f45bfc131fd6"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/live_v6/prior_native/live_v3/castle/1280x720/rest_sleepover_bedroom.png",
+      "source": "docs/handoffs/codex_flat_vector_art_2026-10-07/live_v3/castle/1280x720/rest_sleepover_bedroom.png",
+      "sha256": "3cf527c5680250e4ca83d01e08ef53e9a31ecdf20f7d4e27a5d638a2a0993155"
+    }
+  ],
+  "prepared_garden_job": "GARDEN_CLAY_POT_BINDING.json;stable FVR-5A761C05C31C;zero generation"
+}

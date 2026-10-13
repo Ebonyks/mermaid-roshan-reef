@@ -1,0 +1,85 @@
+{
+  "schema": "reef.root_static_art_job/1",
+  "created_at_utc": "2026-10-13T01:54:28.100720+00:00",
+  "review_id": "ROOTPIC-02",
+  "canonical_piece_id": "PENDING_AGENT_BINDING",
+  "source_scope_id": "FVF-535EDBF3F803",
+  "source_revision": "6cde8aeae04aaedcc0b1ff22a05ef93ab9bf666f",
+  "source_call": "scripts/games/picture_games.gd:582, five instances of one pot design",
+  "status": "PREPARED_NOT_GENERATED",
+  "intent": "generate missing whole-object clay-pot raster candidate; no scene redraw",
+  "method": "imagegen built-in; no API/CLI fallback",
+  "generation_cap_calls": 2,
+  "used_calls": 0,
+  "required_precondition": "Current Garden context review published and remotely verified on the authorized durable audit branch.",
+  "gap": "Inspected existing relevant Garden/palm sources do not provide a ready clean, shallow, warm-clay pot matching current150x100 slot/soil anchor. This is a bounded named gap, not a claim that every unnamed source master has been visually exhausted.",
+  "input_refs": [
+    {
+      "path": "C:\\Users\\Peter\\.codex\\visualizations\\2026\\10\\08\\01a119c6-5602-7523-92db-1d320ca62bdf\\root_picture_guarded_20261013T005623\\1280x720\\garden_fresh_ready.png",
+      "sha256": "d9f4ecac12780b9eb247647f1a9ee7ddc3e697bbbb271057d64b2b2f5635feec",
+      "role": "Current actual scene layout/context only; do not reproduce HUD, characters, seeds, sun, butterflies, can, ground or backdrop in output"
+    },
+    {
+      "path": "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-art-audit-20261007\\mermaid-roshan-reef\\assets\\mg\\seed.png",
+      "sha256": "d300ccc7bfd03d100cfa94221addd99dc95f4866a0dfe6f32becf12fec4179cc",
+      "role": "Approved painted surface/contour/light reference; do not draw a seed"
+    },
+    {
+      "path": "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-art-audit-20261007\\mermaid-roshan-reef\\assets\\props\\story\\flower_coral.png",
+      "sha256": "816c23a8a51e20ff9837cbbe7631375178b7bda0f3ed9d0a807cbfd23403d724",
+      "role": "Approved painted storybook contour/style reference; no flower/leaf/root output"
+    }
+  ],
+  "reuse_inspections": [
+    {
+      "path": "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-art-audit-20261007\\mermaid-roshan-reef\\assets\\book\\hall\\p_garden.jpg",
+      "sha256": "15ad84db35c564ed44d4395eaac29cad1fcdfb5444646d6d572bb43b9e414ec2",
+      "result": "Protected existing Garden scene; larger teal/tree pots, no ready clean shallow warm-clay pot for current five seed slots"
+    },
+    {
+      "path": "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-art-audit-20261007\\mermaid-roshan-reef\\assets_src\\concepts\\opera_house_flat\\cards\\opera_front_of_house_potted_palm.png",
+      "sha256": "5b9cee53ff637f28c77decc83e923a46e9737cd679401c0081408c3109db905b",
+      "result": "Painted ornate shell palm planter; whole prop has foliage, pedestal, pearl/gold adornment and incompatible occupancy. Exact source acceptance/derivative fit not established. Preserve design, do not randomly recolor or strip into clay pot."
+    }
+  ],
+  "invariants": {
+    "repeated_instances": 5,
+    "visible_target_size": [
+      150,
+      100
+    ],
+    "slot_centers": [
+      180,
+      420,
+      660,
+      900,
+      1140
+    ],
+    "pot_source_position_y": 600,
+    "plant_soil_y": 615,
+    "seed_touch_size": [
+      140,
+      140
+    ],
+    "sprout_art_rect": [
+      148,
+      148
+    ],
+    "flower_art_rect": [
+      228,
+      228
+    ],
+    "source_plant_bottom_fraction": 0.881,
+    "protected_originals": "UNCHANGED",
+    "approved_characters": "UNCHANGED"
+  },
+  "acceptance_needed": [
+    "Actual alpha/native dimensions and edge quality",
+    "Contour/material/palette/light congruency with existing painted seed/sun/Roshan/butterfly/can",
+    "Exact planted contact through five seeds, shared sprout, five mature outcomes, pop/settle/payoff and both aspects",
+    "Input/voice/save/one-owner regression and applicable source gates",
+    "Mobile/Speedy import/overdraw/device/child/owner evidence separately"
+  ],
+  "prompt": "Use case: illustration-story.\nAsset type: one transparent RGBA whole-object game sprite, a small soil-filled clay flowerpot for Mermaid Roshan's existing Garden growth game.\nInput images: Image1 is scene context and slot geometry only. Image2 is painted seed material/light/contour reference only. Image3 is the existing polished painted storybook style reference only. None is an edit target.\nPrimary request: draw exactly one squat, open terracotta clay flowerpot, with dark soft soil visible inside a shallow elliptical rim. Preserve the simple warm terracotta identity and low viewing angle of the current five brown pots. The same new pot will be repeated in those five existing slots beneath the preserved seeds/sprouts/flowers.\nStyle/medium: polished hand-painted2D children's storybook raster art, compatible with the referenced Mermaid Roshan props: authored slightly irregular contours, gentle matte clay volume, restrained brush texture and subtle indigo-brown contour. Gentle light from upper left. Richer material than a uniform vector fill; avoid a glossy3D render or photorealism.\nComposition: one complete isolated pot, unobstructed, no plant. Wide shallow silhouette roughly3:2 width:height. It will appear150x100px. Soil entry center is near the upper15% of the visible pot height so the existing stem can enter it without floating. Rounded bowl below the rim, softly resting base/contact shadow. Center the single whole object with modest transparent margins on a square canvas; target1024x1024 output.\nPalette: warm clay centered near#C76B47, earthy dark soil, compatible soft warm highlights and restrained indigo shadows. No pearl/gold ornamentation, feet, handles or unrelated redesign.\nConstraints: actual transparent background, clean antialiased alpha; no text, watermark, grid, multiple variants, extra pot, seed, sprout, flower, leaf, character, sky, grass, background or UI. Preserve the approved characters and source artwork; this output is only the named missing pot.",
+  "accepted_removals": 0
+}

@@ -1,0 +1,82 @@
+from pathlib import Path
+import json,hashlib,shutil,subprocess,sys,math,textwrap,re
+from PIL import Image,ImageDraw,ImageFont
+R=Path.cwd();S=R/'tmp/flat-vector-room-routes-20261008';P=R/'docs/handoffs/codex_flat_vector_art_2026-10-07';C=P/'live_v6';O=C/'room_routes';REV='6cde8aeae04aaedcc0b1ff22a05ef93ab9bf666f';RUN='run-20261008T125148'
+sys.path.insert(0,str(C));from json_evidence import shard_json,read_json
+sha=lambda b:hashlib.sha256(b).hexdigest()
+def dump(p,d):p.parent.mkdir(parents=True,exist_ok=True);p.write_text(json.dumps(d,ensure_ascii=False,indent=2)+'\n',encoding='utf8',newline='\n')
+def rel(p):return p.relative_to(O).as_posix()
+assert not O.exists();O.mkdir();(C/'capture_room_routes.gd').write_bytes((S/'capture_room_routes.gd').read_bytes());D=O/'diagnostics';D.mkdir()
+for f in ['EXPECTED_MATRIX.json','SOURCE_PREFLIGHT.json']:shutil.copyfile(S/f,O/f)
+shutil.copyfile(S/'run_capture.py',D/'executed_driver.py.txt')
+launch=json.loads((S/'runs'/f'{RUN}-launch.json').read_text());assert len(launch)==4;dump(D/'native_launch.json',launch)
+records=[];sections=[];native={};boards=[];font=ImageFont.truetype('C:/Windows/Fonts/arial.ttf',15)
+for item in launch:
+ case,aspect=item['case'],item['aspect'];src=Path(item['out']);dest=O/case/aspect;dest.mkdir(parents=True)
+ b=(src/'capture_manifest.json').read_bytes();m=json.loads(b);assert item['exit_code']==0 and item['parent_normal_save_unchanged_after_exit'] and m['result']=='PASS' and m['failures']==0 and all(x['pass'] for x in m['checks']);assert m['harness_sha256']==sha((C/'capture_room_routes.gd').read_bytes());native[case,aspect]=m
+ shutil.copyfile(src/'capture_manifest.json',dest/'capture_manifest.json');shutil.copyfile(item['log'],dest/'native.log')
+ if len(b)>4*1024*1024:sections.append({'case':case,'aspect':aspect,'index':rel(dest/'capture_manifest.json'),**shard_json(dest/'capture_manifest.json',{'native_stage':str(src),'original_sha256':sha(b),'role':'New R6-only metadata; literal byte-preserving sections'})})
+ for st in m['states']:
+  f=st['image'];a=src/f['file'];q=dest/f['file'];data=a.read_bytes();assert sha(data)==f['sha256'] and len(data)==f['bytes'];assert list(Image.open(a).size)==m['aspect'];q.write_bytes(data);records.append({'case':case,'aspect':aspect,'state':st['id'],'path':rel(q),'sha256':f['sha256'],'bytes':f['bytes'],'dimensions':m['aspect'],'metadata':rel(dest/'capture_manifest.json')})
+ for bi in range(math.ceil(len(m['states'])/16)):
+  selected=m['states'][bi*16:(bi+1)*16];im=Image.new('RGB',(1600,1124),(27,21,48));draw=ImageDraw.Draw(im);draw.text((12,6),f'R6 CASTLE ROOM ROUTES | {case} {aspect} | native diagnostic thumbnails | {bi+1}',font=font,fill='white');bindings=[]
+  for i,st in enumerate(selected):
+   x=(i%4)*400;y=32+(i//4)*273;a=Image.open(dest/st['image']['file']).convert('RGB');a.thumbnail((400,225),Image.Resampling.LANCZOS);im.paste(a,(x+(400-a.width)//2,y));draw.text((x+6,y+230),'\n'.join(textwrap.wrap(st['id'].replace('_',' '),44)[:2]),font=font,fill='white');bindings.append({'state':st['id'],'native_path':rel(dest/st['image']['file']),'sha256':st['image']['sha256'],'tile':i})
+  q=O/'boards'/f'{case}_{aspect}_{bi+1:02d}.jpg';q.parent.mkdir(exist_ok=True);im.save(q,quality=94,subsampling=0);boards.append({'path':rel(q),'sha256':sha(q.read_bytes()),'dimensions':list(im.size),'bindings':bindings,'purpose':'Contact sheet review only; no replacement/generation pixels','visual_review':'PENDING'})
+assert len(records)==216 and len(boards)==14
+dump(O/'NATIVE_INDEX.json',{'schema':1,'run_id':RUN,'source_revision':REV,'native_frames':216,'records':records,'normal_child_saves_unchanged':True,'new_replacement_pixels':0,'device_child_owner_acceptance':False});dump(O/'METADATA_SECTIONS.json',{'schema':1,'representations':sections,'prior_R5_files_changed':False});dump(O/'BOARDS.json',{'schema':1,'boards':boards,'total':14})
+paths=list(json.loads((S/'SOURCE_PREFLIGHT.json').read_text())['source_hashes'])+['scripts/opera_roshan_actor.gd','scripts/opera_career_world_2d.gd','scripts/arena/castle_rooms_25d.gd','design/reference/games.json'];proofs=[]
+for p in paths:
+ b=subprocess.check_output(['git','show',REV+':'+p]);q=O/'sources'/p;q.parent.mkdir(parents=True,exist_ok=True);q.write_bytes(b);proofs.append({'path':p,'packet_path':rel(q),'git_lf_sha256':sha(b),'working_tree_sha256':sha((R/p).read_bytes()),'revision':REV})
+dump(O/'SOURCE_PROOFS.json',{'schema':1,'revision':REV,'sources':proofs,'limits':'Exact bounded current production/catalogue source proofs; catalogue supporting-current; no independent full active closure'})
+source=(R/'scripts/castle_career_routes.gd').read_text();region=source.split('const ROOM_ACT_INDICES := {',1)[1].split('\n}',1)[0];rooms={k:[int(v) for v in re.findall(r'\d+',a)] for k,a in re.findall(r'"([^"]+)": \[([^]]+)\]',region)}
+acts={int(a):b for a,b in re.findall(r'"save_bit": (\d+),[^\n]+ "career": "[^"]+",\n\s*"costume": "([^"]+)"',(R/'scripts/opera_house.gd').read_text())};assert len(acts)==15
+briefs=[];textures=set()
+for room,indices in rooms.items():
+ if room=='opera_hall':continue
+ for act in indices:
+  for role in ['frame','CareerPearl','RoshanActor','CareerCrest']:
+   bindings=[]
+   for aspect in ['1280x720','1600x720']:
+    for sid in [f'cards_unplayed_{room}_idle',f'cards_completed_{room}_idle']+[f'cards_{room}_{act:02d}_{v}' for v in ['hover','pressed','focus']]:
+     st=next(s for s in native['cards',aspect]['states'] if s['id']==sid);button=next(b for b in st['actual']['room_routes']['buttons'] if b['act']==act);value=button['styles'] if role=='frame' else button[role];bindings.append({'aspect':aspect,'case':'cards','state':sid,'image_sha256':st['image']['sha256'],'node':button['path']+('' if role=='frame' else '/'+role),'observed':value,'draw_mode':button['draw_mode']})
+   flat=role in ['frame','CareerPearl'] or (act==16 and role=='CareerCrest');classification='FLAT_VISIBLE_ART_PENDING_REPLACEMENT' if flat else 'PAINTED_RASTER_OR_ATLAS_SOURCE_CANDIDATE_PENDING_ACCEPTANCE'
+   briefs.append({'instance_id':f'R6-ROOM-{act:02d}-{role}','act_index':act,'career':acts[act],'room':room,'role':role,'classification':classification,'source_scope':'FVF-90C03A06AE1C' if role in ['frame','CareerPearl'] else None,'source':'scripts/castle_career_routes.gd194–310','weakness':'Uniform rounded card frame/pearl; saved marker colors change without painted material' if role in ['frame','CareerPearl'] else ('Geologist SVG crest is flat geometric illustration' if flat else 'Current painted identity retained; raster format alone is not visual acceptance'),'painted_direction':'Reuse source-bound painted wardrobe/task frames or a painted pearl marker with both completion states, preserving154x154 touch rail, actor/crest identity and source colors' if role in ['frame','CareerPearl'] else ('Inspect existing crystal/facet artwork for bounded same-identity reuse; never redesign the character' if flat else 'Retain current authored character/crest and review exact family/atlas context'),'bindings':bindings,'instance_count_limit':'Finite caller-context role across12 Castle cards; not unique design count/all-game total','remaining':'Natural story/earned wins/reward, fallback theme/font, full acting atlas, DL-QA-11 and device/child/owner'} )
+   if role in ['RoshanActor','CareerCrest']:
+    t=bindings[0]['observed']['texture']
+    while t.get('atlas'):t=t['atlas']
+    if t.get('path','').startswith('res://'):textures.add(t['path'][6:])
+assert len(briefs)==48 and sum(x['classification'].startswith('FLAT_') for x in briefs)==25
+dump(O/'INSTANCE_BRIEFS.json',{'schema':1,'briefs':briefs,'total':48,'flat_caller_role_contexts':25,'painted_source_candidates':23,'actual_all_game_individual_piece_total':None,'no_replacement_pixels':True,'panel_style_global_scope_still_unresolved':True})
+reuse=[]
+for p in sorted(textures|{'assets/fashion/skin_engine_v2/ui/wardrobe_card.png','assets/opera/worlds/ui/task_card_frame.png','assets/art35/cards/style3/crystal_facet_crystal_facet.png'}):
+ f=R/p;b=f.read_bytes();size=list(Image.open(f).size) if f.suffix.lower()!='.svg' else None;reuse.append({'path':p,'sha256':sha(b),'dimensions':size,'immutable_source_url':f'https://github.com/Ebonyks/mermaid-roshan-reef/blob/{REV}/{p}','source_status':'Existing licensed source candidate; review/reuse scope not acceptance','modification':'NONE;source preserved','purpose':'Current actor/crest or bounded painted-frame/crystal reuse candidate'})
+dump(O/'REUSE_INVENTORY.json',{'schema':1,'sources':reuse,'total':len(reuse),'generation_calls':0,'all_candidates_only':True})
+observations=[]
+for aspect in ['1280x720','1600x720']:
+ for act,career in acts.items():
+  trip=[]
+  for v in ['before','entered','returned']:
+   st=next(s for s in native['entry',aspect]['states'] if s['id']==f'route_{act:02d}_{v}');trip.append({'state':st['id'],'image_sha256':st['image']['sha256'],'actual':st['actual']['room_routes'],'castle_room':st['actual']['castle_room'],'game':st['actual']['game']})
+  observations.append({'aspect':aspect,'act_index':act,'career':career,'room':next(k for k,v in rooms.items() if act in v),'method':'Native raw pointer Button press/release from real card/painted door; source owner _leave_early for return','states':trip,'limits':'Programmatic room/normalized checkpoint seed; no natural door travel/lesson/win/device acceptance'})
+dump(O/'EXACT_OBSERVATIONS.json',{'schema':1,'routes':observations,'total_pointer_entries':30,'total_source_owner_returns':30,'source_style_calls':'All five _outline_style calls are transparent fill/border,width0; native draw modes0/1/2 observed. Inherited hover_pressed source style remains an unproved fallback outside this helper scope.','normal_child_saves_unchanged':True,'actual_all_game_individual_piece_total':None})
+# Preserve R2 phase methods and byte identities; add no new frames for reused history.
+legacy=[]
+for aspect in ['1280x720','1600x720']:
+ p=P/'live_v2'/aspect/'opera_capture_manifest.json';m=json.loads(p.read_text())
+ for st in m['states']:
+  if st['kind']=='career_phase_fixture':
+   q=p.parent/st['image']['file'];assert sha(q.read_bytes())==st['image']['sha256'];legacy.append({'aspect':aspect,'act_index':st['expected_state']['act_index'],'phase_index':st['expected_state']['phase_index'],'state':st['id'],'path':q.relative_to(P).as_posix(),'sha256':st['image']['sha256'],'input':st['input'],'revision':m['source_revision']})
+assert len(legacy)==140
+r=subprocess.run(['git','diff','--name-only','44a36776ab3db0d9078aacf09eca144fde342330',REV,'--','scripts','scenes','assets','shaders','project.godot'],capture_output=True,text=True);assert r.returncode==0 and not r.stdout
+dump(O/'EARLIER_PHASE_BINDINGS.json',{'schema':1,'source_revision':'44a36776ab3db0d9078aacf09eca144fde342330','current_revision':REV,'production_diff_paths':[],'phase_fixture_frames':legacy,'source_methods_preserved':True,'no_current_or_natural_progression_relabeling':True,'limit':'Earlier direct phase selection/arm/open is diagnostic history, not a natural closed progression, new frame or accepted runtime state'})
+# Additive overlay, historical slice facts unchanged.
+cov=json.loads((C/'hud_fashion/CUMULATIVE_COVERAGE.json').read_text());
+for row in cov['entries']:
+ if row['id'] in ['game.'+x for x in acts.values()]:
+  career=row['id'][5:];act=next(a for a,b in acts.items() if b==career);row['status']='PARTIAL_CURRENT_MOBILE_DIAGNOSTIC';row['captures']=[{'aspect':a,'path':f'live_v6/room_routes/entry/{a}/route_{act:02d}_{v}.png'} for a in ['1280x720','1600x720'] for v in ['before','entered','returned']];row['route_or_saved_variants_complete']=False;row['remaining_states']=['Natural complete action/contact/payoff and earned save/reload','Actual door travel, Chapter2 locked/sequence and re-entry/focus/device variants','Full dynamic/raster/theme/glyph/instance disposition','DL-QA-11 and device/child/owner acceptance'];row['route_method']='Programmatic room checkpoint; actual pointer entry; declared owner leave';row['earlier_phase_evidence']='live_v6/room_routes/EARLIER_PHASE_BINDINGS.json'
+cov['partial_entries']=sum(x['status'].startswith('PARTIAL_') for x in cov['entries']);assert cov['partial_entries']==62;cov['note']='R6 room-route additive staged overlay;62/176 partial,zero complete; overlapping aliases are not new games. R2 direct phase evidence remains diagnostic history.';dump(O/'CUMULATIVE_COVERAGE.json',cov)
+dump(O/'MACHINE.json',{'schema':1,'source_revision':REV,'production_baseline':'92c9fe70319ef46bfaa8f61348a6f51512141ec3','engine':'Godot4.7.2-stable official','renderer':'Mobile','quality':'Speedy','aspects':['1280x720','1600x720'],'matrices_per_aspect':{'cards':63,'entry':45},'new_native_frames':216,'cumulative_staged_frames':1178,'R6_total_staged_new_frames':574,'partial_entries':62,'complete_entries':0,'scope_classification':'PENDING exact helper/source-native review','normal_child_saves_unchanged':True,'source_fingerprint_files':6442,'source_fingerprint_algorithm':'sha256_runtime_roots_room_routes_v1','closure_limit':'Measured runtime-root suffix list is not independently proven full active dependency closure','finite_card_roles':48,'flat_caller_roles':25,'source_painted_candidates':23,'actual_all_game_individual_piece_total':None,'replacements':0,'accepted_removals':0,'publication':'UNPUBLISHED_DRAFT_PENDING_PRIOR_METADATA_APPROVAL','DL_QA_11':'NOT_ACCEPTED','device_child_owner':'NOT_ACCEPTED'})
+dump(O/'ASSEMBLY_PROVENANCE.json',{'schema':1,'native':'216 original same-process PNGs copied byte-for-byte with exact native metadata; sectioned only new R6 logical metadata preserves original bytes','contact_sheets':'14 deterministic review thumbnails from those native PNGs; no generation/source-art edits','manual':'48 caller role briefs and staged catalogue overlay are interpretations bound to native snapshots; not native-produced observations or accepted pieces','R5':'Original five JSONs and validator untouched; no scanner/gate changes','runtime':'No source/runtime/pixel change; no paid calls or creative acceptance'})
+imp=R/'design/audit_impacts/flat-vector-touch-playtest-review-20261008.json';d=json.loads(imp.read_text());d['files']=sorted(set(d['files']+[p.relative_to(R).as_posix() for p in O.rglob('*') if p.is_file()]+[(C/'capture_room_routes.gd').relative_to(R).as_posix()]));imp.write_text(json.dumps(d,ensure_ascii=False,indent=2)+'\n',encoding='utf8',newline='\n')
+print(json.dumps({'native_frames':216,'boards':14,'briefs':48,'flat_roles':25,'reuse_sources':len(reuse),'sectioned_metadata':len(sections),'partial_entries':62,'source_proofs':len(proofs),'output':str(O)}))

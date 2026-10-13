@@ -1,0 +1,55 @@
+{
+  "schema": 1,
+  "source_revision": "6cde8aeae04aaedcc0b1ff22a05ef93ab9bf666f",
+  "reviewed_at_utc": "2026-10-08T16:21:17.896545+00:00",
+  "sources": [
+    {
+      "path": "audit/MASTER_AUDIT_2026-08-09.md",
+      "working_sha256": "34213d83b5baf5386ba1c5368dcace296e16fd9da13fac4a92f68b2ce8cda185"
+    },
+    {
+      "path": "design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md",
+      "working_sha256": "6c73d8ffc89ffa99b8dbf2972365a190003914a60fc6807df166c0056cbff6b8"
+    },
+    {
+      "path": "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
+      "working_sha256": "60860779e8202840e5e8909115b16fe53e1b9bf27c8cea471934073f0019d188"
+    },
+    {
+      "path": "design/05_DOC_LEDGER.md",
+      "working_sha256": "a784f7ebba6456941c512948f120f83d84ba81b7110ca7f5a4a5b7a201b7dd8c"
+    },
+    {
+      "path": "design/AUDIT_DEVELOPMENT_CONTRACT.md",
+      "working_sha256": "e2e97157a029efb6abfd123f9cf438f6dd5e777c6bcfac7ea4912aad64fcbd13"
+    }
+  ],
+  "finding_lifecycles": [
+    {
+      "id": "MA-DOC-008",
+      "lifecycle_row": "| lifecycle | `CONFIRMED_OPEN` |",
+      "unchanged_from_HEAD": true
+    },
+    {
+      "id": "MA-VIS-006",
+      "lifecycle_row": "| lifecycle | `CONFIRMED_OPEN` |",
+      "unchanged_from_HEAD": true
+    },
+    {
+      "id": "MA-VIS-007",
+      "lifecycle_row": "| lifecycle | `FIXED_PENDING_VERIFICATION` |",
+      "unchanged_from_HEAD": true
+    },
+    {
+      "id": "MA-VIS-008",
+      "lifecycle_row": "| lifecycle | `CONFIRMED_OPEN` |",
+      "unchanged_from_HEAD": true
+    },
+    {
+      "id": "MA-OPERA-012",
+      "lifecycle_row": "| lifecycle | `FIXED_PENDING_VERIFICATION` |",
+      "unchanged_from_HEAD": true
+    }
+  ],
+  "decision": "One finite hat ART inventory classification,35selected flat roles,new54native context;source/API/fault limits retained. No runtime/replacement/closure. MA-PLAY005 remains route-prerequisite evidence,not repaired. Full inventory/QA11/device/child/owner/publication open."
+}

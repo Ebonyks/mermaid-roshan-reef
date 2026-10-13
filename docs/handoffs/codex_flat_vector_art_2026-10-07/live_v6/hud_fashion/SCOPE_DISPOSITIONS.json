@@ -1,0 +1,1817 @@
+{
+  "schema": 1,
+  "new_dispositions": [
+    {
+      "source_scope_id": "FVF-C8A0BAF33B80",
+      "source_revision": "6cde8aeae04aaedcc0b1ff22a05ef93ab9bf666f",
+      "source_sha256": "b6e905824a4b60461181deda525c816fc790613479e9321d12ae7f71df666a33",
+      "source_range": [
+        3019,
+        3031
+      ],
+      "status": "DISPOSITIONED_FUNCTIONAL_TRANSITION_COVER",
+      "named_instance_count": 1,
+      "classification": "FUNCTIONAL_UNIFORM_BLACK_REBUILD_COVER",
+      "art_replacement_count": 0,
+      "proof": "Exact plain ColorRect source, layer30 full viewport and native RGB0/alpha255 on both held frames; source fade0.25s. No illustrative geometry or art added. Timing/device use not accepted.",
+      "bindings": [
+        {
+          "aspect": "1280x720",
+          "state": "hud_fade_black_held",
+          "image_sha256": "0b37fe2b760522c6101c70c0322547ae6c9dcca72424fd596870988e00b13196",
+          "node": {
+            "canvas_layer": 30,
+            "class": "ColorRect",
+            "clip_contents": false,
+            "color": "(0.0, 0.0, 0.0, 1.0)",
+            "font": {
+              "class": "FontFile",
+              "fallbacks": [],
+              "family": "Open Sans SemiBold",
+              "path": "",
+              "source_limit": "Embedded/OS runtime font; no standalone source path exposed; Android fallback and exact font licensing unresolved.",
+              "style": "SemiBold"
+            },
+            "font_size": 16,
+            "modulate": "(1.0, 1.0, 1.0, 1.0)",
+            "mouse_filter": 0,
+            "path": "@CanvasLayer@25/@ColorRect@26",
+            "properties": {},
+            "rect": "[P: (0.0, 0.0), S: (1280.0, 720.0)]",
+            "self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+            "styles": {},
+            "typography_role": "",
+            "z_index": 0
+          },
+          "fade_alpha": 1.0,
+          "channel_extrema": [
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              0
+            ],
+            [
+              255,
+              255
+            ]
+          ],
+          "uniform_opaque_black": true,
+          "declared_hold": "Existing production fade tween paused/resumed by fixture to inspect cover; no-op callback; natural stall/device timing not proved"
+        },
+        {
+          "aspect": "1280x720",
+          "state": "hud_fade_revealing",
+          "image_sha256": "c440e3fb96906631a985511c2378bf62e7af7f5faf4114eb4bf0f1e6b27fcf16",
+          "node": {
+            "canvas_layer": 30,
+            "class": "ColorRect",
+            "clip_contents": false,
+            "color": "(0.0, 0.0, 0.0, 1.0)",
+            "font": {
+              "class": "FontFile",
+              "fallbacks": [],
+              "family": "Open Sans SemiBold",
+              "path": "",
+              "source_limit": "Embedded/OS runtime font; no standalone source path exposed; Android fallback and exact font licensing unresolved.",
+              "style": "SemiBold"
+            },
+            "font_size": 16,
+            "modulate": "(1.0, 1.0, 1.0, 0.8183)",
+            "mouse_filter": 0,
+            "path": "@CanvasLayer@25/@ColorRect@26",
+            "properties": {},
+            "rect": "[P: (0.0, 0.0), S: (1280.0, 720.0)]",
+            "self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+            "styles": {},
+            "typography_role": "",
+            "z_index": 0
+          },
+          "fade_alpha": 0.818261325359344,
+          "channel_extrema": [
+            [
+              0,
+              46
+            ],
+            [
+              0,
+              46
+            ],
+            [
+              0,
+              46
+            ],
+            [
+              255,
+              255
+            ]
+          ],
+          "uniform_opaque_black": false,
+          "declared_hold": "Existing production fade tween paused/resumed by fixture to inspect cover; no-op callback; natural stall/device timing not proved"
+        },
+        {
+          "aspect": "1280x720",
+          "state": "hud_fade_restored",
+          "image_sha256": "a86fc84beaa19d9d8ffbadaaf562d59e95dc8c41d30bd3a7a095076896284841",
+          "node": {
+            "canvas_layer": 30,
+            "class": "ColorRect",
+            "clip_contents": false,
+            "color": "(0.0, 0.0, 0.0, 1.0)",
+            "font": {
+              "class": "FontFile",
+              "fallbacks": [],
+              "family": "Open Sans SemiBold",
+              "path": "",
+              "source_limit": "Embedded/OS runtime font; no standalone source path exposed; Android fallback and exact font licensing unresolved.",
+              "style": "SemiBold"
+            },
+            "font_size": 16,
+            "modulate": "(1.0, 1.0, 1.0, 0.0)",
+            "mouse_filter": 2,
+            "path": "@CanvasLayer@25/@ColorRect@26",
+            "properties": {},
+            "rect": "[P: (0.0, 0.0), S: (1280.0, 720.0)]",
+            "self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+            "styles": {},
+            "typography_role": "",
+            "z_index": 0
+          },
+          "fade_alpha": 0.0,
+          "channel_extrema": [
+            [
+              0,
+              255
+            ],
+            [
+              0,
+              255
+            ],
+            [
+              0,
+              255
+            ],
+            [
+              255,
+              255
+            ]
+          ],
+          "uniform_opaque_black": false,
+          "declared_hold": "Existing production fade tween paused/resumed by fixture to inspect cover; no-op callback; natural stall/device timing not proved"
+        },
+        {
+          "aspect": "1600x720",
+          "state": "hud_fade_black_held",
+          "image_sha256": "18968bfb241c1ea8f7e0c29839bb6fc321d126e4ebd6b2e75402ff7104213d67",
+          "node": {
+            "canvas_layer": 30,
+            "class": "ColorRect",
+            "clip_contents": false,
+            "color": "(0.0, 0.0, 0.0, 1.0)",
+            "font": {
+              "class": "FontFile",
+              "fallbacks": [],
+              "family": "Open Sans SemiBold",
+              "path": "",
+              "source_limit": "Embedded/OS runtime font; no standalone source path exposed; Android fallback and exact font licensing unresolved.",
+              "style": "SemiBold"
+            },
+            "font_size": 16,
+            "modulate": "(1.0, 1.0, 1.0, 1.0)",
+            "mouse_filter": 0,
+            "path": "@CanvasLayer@25/@ColorRect@26",
+            "properties": {},
+            "rect": "[P: (0.0, 0.0), S: (1600.0, 720.0)]",
+            "self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+            "styles": {},
+            "typography_role": "",
+            "z_index": 0
+          },
+          "fade_alpha": 1.0,
+          "channel_extrema": [
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              0
+            ],
+            [
+              255,
+              255
+            ]
+          ],
+          "uniform_opaque_black": true,
+          "declared_hold": "Existing production fade tween paused/resumed by fixture to inspect cover; no-op callback; natural stall/device timing not proved"
+        },
+        {
+          "aspect": "1600x720",
+          "state": "hud_fade_revealing",
+          "image_sha256": "730bfd5b030940f7108caebe696f5b15f1c24e6ab6191cea6716ccd67fd65b99",
+          "node": {
+            "canvas_layer": 30,
+            "class": "ColorRect",
+            "clip_contents": false,
+            "color": "(0.0, 0.0, 0.0, 1.0)",
+            "font": {
+              "class": "FontFile",
+              "fallbacks": [],
+              "family": "Open Sans SemiBold",
+              "path": "",
+              "source_limit": "Embedded/OS runtime font; no standalone source path exposed; Android fallback and exact font licensing unresolved.",
+              "style": "SemiBold"
+            },
+            "font_size": 16,
+            "modulate": "(1.0, 1.0, 1.0, 0.7231)",
+            "mouse_filter": 0,
+            "path": "@CanvasLayer@25/@ColorRect@26",
+            "properties": {},
+            "rect": "[P: (0.0, 0.0), S: (1600.0, 720.0)]",
+            "self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+            "styles": {},
+            "typography_role": "",
+            "z_index": 0
+          },
+          "fade_alpha": 0.723050653934479,
+          "channel_extrema": [
+            [
+              0,
+              71
+            ],
+            [
+              0,
+              71
+            ],
+            [
+              0,
+              71
+            ],
+            [
+              255,
+              255
+            ]
+          ],
+          "uniform_opaque_black": false,
+          "declared_hold": "Existing production fade tween paused/resumed by fixture to inspect cover; no-op callback; natural stall/device timing not proved"
+        },
+        {
+          "aspect": "1600x720",
+          "state": "hud_fade_restored",
+          "image_sha256": "7ba82106f3a4779063c969b6148f1fc1a75a7c6f90f8f05f58bab079b235cece",
+          "node": {
+            "canvas_layer": 30,
+            "class": "ColorRect",
+            "clip_contents": false,
+            "color": "(0.0, 0.0, 0.0, 1.0)",
+            "font": {
+              "class": "FontFile",
+              "fallbacks": [],
+              "family": "Open Sans SemiBold",
+              "path": "",
+              "source_limit": "Embedded/OS runtime font; no standalone source path exposed; Android fallback and exact font licensing unresolved.",
+              "style": "SemiBold"
+            },
+            "font_size": 16,
+            "modulate": "(1.0, 1.0, 1.0, 0.0)",
+            "mouse_filter": 2,
+            "path": "@CanvasLayer@25/@ColorRect@26",
+            "properties": {},
+            "rect": "[P: (0.0, 0.0), S: (1600.0, 720.0)]",
+            "self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+            "styles": {},
+            "typography_role": "",
+            "z_index": 0
+          },
+          "fade_alpha": 0.0,
+          "channel_extrema": [
+            [
+              0,
+              255
+            ],
+            [
+              0,
+              255
+            ],
+            [
+              0,
+              255
+            ],
+            [
+              255,
+              255
+            ]
+          ],
+          "uniform_opaque_black": false,
+          "declared_hold": "Existing production fade tween paused/resumed by fixture to inspect cover; no-op callback; natural stall/device timing not proved"
+        }
+      ],
+      "remaining": "Natural rebuild timing, device/child behavior and DL-QA-11 still missing; diagnostic no-op/held tween declared"
+    },
+    {
+      "source_scope_id": "FVF-8C02E5F13D1D",
+      "source_revision": "6cde8aeae04aaedcc0b1ff22a05ef93ab9bf666f",
+      "source_sha256": "0d7f4c5241f141ca4bbb9464f21aa5bd46545e1817b8b2638fea1caadf9f6573",
+      "source_range": [
+        161,
+        215
+      ],
+      "status": "SOURCE_SCOPE_INVENTORY_CLASSIFIED_NOT_REMOVED",
+      "named_instance_count": 14,
+      "flat_pending_replacement": 14,
+      "instances": [
+        {
+          "instance_id": "R6-WARDROBE-BURST-00",
+          "source_index": 0,
+          "classification": "FLAT_VISIBLE_ART_PENDING_REPLACEMENT",
+          "bindings": [
+            {
+              "aspect": "1280x720",
+              "state": "fashion_launcher_feedback",
+              "image_sha256": "50bcfe4bd76056c898b1bef0ddbf9d0bfdec47cef057b3cfd713b5a44bbcd9fa",
+              "node": "@CanvasLayer@364/@Control@365/StorybookStage/WardrobeFeedbackLayer/WardrobePreviewFeedbackBurst/@Polygon2D@372",
+              "polygon": "[(0.0, -14.0), (4.0, -4.0), (14.0, 0.0), (4.0, 4.0), (0.0, 14.0), (-4.0, 4.0), (-14.0, 0.0), (-4.0, -4.0)]",
+              "color": "(1.0, 0.78, 0.3, 0.98)",
+              "rotation": 0.0,
+              "position": "(61.54013, 0.0)",
+              "scale": "(0.676853, 0.676853)",
+              "modulate": "(1.0, 1.0, 1.0, 0.8281)"
+            },
+            {
+              "aspect": "1280x720",
+              "state": "fashion_roshan_ribbon_picked",
+              "image_sha256": "52203e851b07ff8ca6ac1d95c873da8251eed7172d4abc46df0ad765fe9c152d",
+              "node": "@CanvasLayer@1125/@Control@1126/StorybookStage/WardrobeFeedbackLayer/WardrobePreviewFeedbackBurst/@Polygon2D@1883",
+              "polygon": "[(0.0, -14.0), (4.0, -4.0), (14.0, 0.0), (4.0, 4.0), (0.0, 14.0), (-4.0, 4.0), (-14.0, 0.0), (-4.0, -4.0)]",
+              "color": "(1.0, 0.78, 0.3, 0.98)",
+              "rotation": 0.0,
+              "position": "(99.5441, 0.0)",
+              "scale": "(0.584277, 0.584277)",
+              "modulate": "(1.0, 1.0, 1.0, 0.6738)"
+            },
+            {
+              "aspect": "1280x720",
+              "state": "fashion_rumi_ribbon_picked",
+              "image_sha256": "9ca348651ebf553b774bb0e10527818e4f34284c06b76702c73d7307fcee6251",
+              "node": "@CanvasLayer@1125/@Control@1126/StorybookStage/WardrobeFeedbackLayer/WardrobePreviewFeedbackBurst/@Polygon2D@1960",
+              "polygon": "[(0.0, -14.0), (4.0, -4.0), (14.0, 0.0), (4.0, 4.0), (0.0, 14.0), (-4.0, 4.0), (-14.0, 0.0), (-4.0, -4.0)]",
+              "color": "(1.0, 0.78, 0.3, 0.98)",
+              "rotation": 0.0,
+              "position": "(103.2391, 0.0)",
+              "scale": "(0.574118, 0.574118)",
+              "modulate": "(1.0, 1.0, 1.0, 0.6569)"
+            },
+            {
+              "aspect": "1280x720",
+              "state": "fashion_daddy_mermaid_ribbon_picked",
+              "image_sha256": "c9380df906667bcb32b36c0c12df1e73c9d3eb3d459454acade249596334c364",
+              "node": "@CanvasLayer@1125/@Control@1126/StorybookStage/WardrobeFeedbackLayer/WardrobePreviewFeedbackBurst/@Polygon2D@2037",
+              "polygon": "[(0.0, -14.0), (4.0, -4.0), (14.0, 0.0), (4.0, 4.0), (0.0, 14.0), (-4.0, 4.0), (-14.0, 0.0), (-4.0, -4.0)]",
+              "color": "(1.0, 0.78, 0.3, 0.98)",
+              "rotation": 0.0,
+              "position": "(99.77803, 0.0)",
+              "scale": "(0.583641, 0.583641)",
+              "modulate": "(1.0, 1.0, 1.0, 0.6727)"
+            },
+            {
+              "aspect": "1600x720",
+              "state": "fashion_launcher_feedback",
+              "image_sha256": "140a289a5f44f7532be812f97ea802571192dc20b0b732898352d896bdb9b558",
+              "node": "@CanvasLayer@364/@Control@365/StorybookStage/WardrobeFeedbackLayer/WardrobePreviewFeedbackBurst/@Polygon2D@372",
+              "polygon": "[(0.0, -14.0), (4.0, -4.0), (14.0, 0.0), (4.0, 4.0), (0.0, 14.0), (-4.0, 4.0), (-14.0, 0.0), (-4.0, -4.0)]",
+              "color": "(1.0, 0.78, 0.3, 0.98)",
+              "rotation": 0.0,
+              "position": "(61.87234, 0.0)",
+              "scale": "(0.676119, 0.676119)",
+              "modulate": "(1.0, 1.0, 1.0, 0.8269)"
+            },
+            {
+              "aspect": "1600x720",
+              "state": "fashion_roshan_ribbon_picked",
+              "image_sha256": "61f0aa21d76e496f46022f3ec2a5bf90a9453b611dfc35faf04bdf087622e670",
+              "node": "@CanvasLayer@1125/@Control@1126/StorybookStage/WardrobeFeedbackLayer/WardrobePreviewFeedbackBurst/@Polygon2D@1883",
+              "polygon": "[(0.0, -14.0), (4.0, -4.0), (14.0, 0.0), (4.0, 4.0), (0.0, 14.0), (-4.0, 4.0), (-14.0, 0.0), (-4.0, -4.0)]",
+              "color": "(1.0, 0.78, 0.3, 0.98)",
+              "rotation": 0.0,
+              "position": "(103.0482, 0.0)",
+              "scale": "(0.574649, 0.574649)",
+              "modulate": "(1.0, 1.0, 1.0, 0.6577)"
+            },
+            {
+              "aspect": "1600x720",
+              "state": "fashion_rumi_ribbon_picked",
+              "image_sha256": "241e840ff7d2ff89615626a4e9c0bcdbabeac3f237625a3cb5bd085dca22dd68",
+              "node": "@CanvasLayer@1125/@Control@1126/StorybookStage/WardrobeFeedbackLayer/WardrobePreviewFeedbackBurst/@Polygon2D@1960",
+              "polygon": "[(0.0, -14.0), (4.0, -4.0), (14.0, 0.0), (4.0, 4.0), (0.0, 14.0), (-4.0, 4.0), (-14.0, 0.0), (-4.0, -4.0)]",
+              "color": "(1.0, 0.78, 0.3, 0.98)",
+              "rotation": 0.0,
+              "position": "(105.1395, 0.0)",
+              "scale": "(0.568789, 0.568789)",
+              "modulate": "(1.0, 1.0, 1.0, 0.648)"
+            },
+            {
+              "aspect": "1600x720",
+              "state": "fashion_daddy_mermaid_ribbon_picked",
+              "image_sha256": "c756f2c24979d9cfcd826a536b83fa724a3b15b5eab4d8e517e97e98af9cf167",
+              "node": "@CanvasLayer@1125/@Control@1126/StorybookStage/WardrobeFeedbackLayer/WardrobePreviewFeedbackBurst/@Polygon2D@2037",
+              "polygon": "[(0.0, -14.0), (4.0, -4.0), (14.0, 0.0), (4.0, 4.0), (0.0, 14.0), (-4.0, 4.0), (-14.0, 0.0), (-4.0, -4.0)]",
+              "color": "(1.0, 0.78, 0.3, 0.98)",
+              "rotation": 0.0,
+              "position": "(100.7721, 0.0)",
+              "scale": "(0.580929, 0.580929)",
+              "modulate": "(1.0, 1.0, 1.0, 0.6682)"
+            }
+          ],
+          "count_unit": "named role/index in one active14-sparkle burst; repeated lifetime instances unbounded",
+          "replacement_count": 1
+        },
+        {
+          "instance_id": "R6-WARDROBE-BURST-01",
+          "source_index": 1,
+          "classification": "FLAT_VISIBLE_ART_PENDING_REPLACEMENT",
+          "bindings": [
+            {
+              "aspect": "1280x720",
+              "state": "fashion_launcher_feedback",
+              "image_sha256": "50bcfe4bd76056c898b1bef0ddbf9d0bfdec47cef057b3cfd713b5a44bbcd9fa",
+              "node": "@CanvasLayer@364/@Control@365/StorybookStage/WardrobeFeedbackLayer/WardrobePreviewFeedbackBurst/@Polygon2D@373",
+              "polygon": "[(0.0, -14.0), (4.0, -4.0), (14.0, 0.0), (4.0, 4.0), (0.0, 14.0), (-4.0, 4.0), (-14.0, 0.0), (-4.0, -4.0)]",
+              "color": "(0.7, 0.97, 1.0, 1.0)",
+              "rotation": 0.538798928260803,
+              "position": "(57.13739, 34.15662)",
+              "scale": "(0.759662, 0.759662)",
+              "modulate": "(1.0, 1.0, 1.0, 0.8281)"
+            },
+            {
+              "aspect": "1280x720",
+              "state": "fashion_roshan_ribbon_picked",
+              "image_sha256": "52203e851b07ff8ca6ac1d95c873da8251eed7172d4abc46df0ad765fe9c152d",
+              "node": "@CanvasLayer@1125/@Control@1126/StorybookStage/WardrobeFeedbackLayer/WardrobePreviewFeedbackBurst/@Polygon2D@1884",
+              "polygon": "[(0.0, -14.0), (4.0, -4.0), (14.0, 0.0), (4.0, 4.0), (0.0, 14.0), (-4.0, 4.0), (-14.0, 0.0), (-4.0, -4.0)]",
+              "color": "(0.7, 0.97, 1.0, 1.0)",
+              "rotation": 0.538798928260803,
+              "position": "(92.93958, 55.55911)",
+              "scale": "(0.651656, 0.651656)",
+              "modulate": "(1.0, 1.0, 1.0, 0.6738)"
+            },
+            {
+              "aspect": "1280x720",
+              "state": "fashion_rumi_ribbon_picked",
+              "image_sha256": "9ca348651ebf553b774bb0e10527818e4f34284c06b76702c73d7307fcee6251",
+              "node": "@CanvasLayer@1125/@Control@1126/StorybookStage/WardrobeFeedbackLayer/WardrobePreviewFeedbackBurst/@Polygon2D@1961",
+              "polygon": "[(0.0, -14.0), (4.0, -4.0), (14.0, 0.0), (4.0, 4.0), (0.0, 14.0), (-4.0, 4.0), (-14.0, 0.0), (-4.0, -4.0)]",
+              "color": "(0.7, 0.97, 1.0, 1.0)",
+              "rotation": 0.538798928260803,
+              "position": "(96.42055, 57.64003)",
+              "scale": "(0.639804, 0.639804)",
+              "modulate": "(1.0, 1.0, 1.0, 0.6569)"
+            },
+            {
+              "aspect": "1280x720",
+              "state": "fashion_daddy_mermaid_ribbon_picked",
+              "image_sha256": "c9380df906667bcb32b36c0c12df1e73c9d3eb3d459454acade249596334c364",
+              "node": "@CanvasLayer@1125/@Control@1126/StorybookStage/WardrobeFeedbackLayer/WardrobePreviewFeedbackBurst/@Polygon2D@2038",
+              "polygon": "[(0.0, -14.0), (4.0, -4.0), (14.0, 0.0), (4.0, 4.0), (0.0, 14.0), (-4.0, 4.0), (-14.0, 0.0), (-4.0, -4.0)]",
+              "color": "(0.7, 0.97, 1.0, 1.0)",
+              "rotation": 0.538798928260803,
+              "position": "(93.15996, 55.69085)",
+              "scale": "(0.650915, 0.650915)",
+              "modulate": "(1.0, 1.0, 1.0, 0.6727)"
+            },
+            {
+              "aspect": "1600x720",
+              "state": "fashion_launcher_feedback",
+              "image_sha256": "140a289a5f44f7532be812f97ea802571192dc20b0b732898352d896bdb9b558",
+              "node": "@CanvasLayer@364/@Control@365/StorybookStage/WardrobeFeedbackLayer/WardrobePreviewFeedbackBurst/@Polygon2D@373",
+              "polygon": "[(0.0, -14.0), (4.0, -4.0), (14.0, 0.0), (4.0, 4.0), (0.0, 14.0), (-4.0, 4.0), (-14.0, 0.0), (-4.0, -4.0)]",
+              "color": "(0.7, 0.97, 1.0, 1.0)",
+              "rotation": 0.538798928260803,
+              "position": "(57.45035, 34.34372)",
+              "scale": "(0.758805, 0.758805)",
+              "modulate": "(1.0, 1.0, 1.0, 0.8269)"
+            },
+            {
+              "aspect": "1600x720",
+              "state": "fashion_roshan_ribbon_picked",
+              "image_sha256": "61f0aa21d76e496f46022f3ec2a5bf90a9453b611dfc35faf04bdf087622e670",
+              "node": "@CanvasLayer@1125/@Control@1126/StorybookStage/WardrobeFeedbackLayer/WardrobePreviewFeedbackBurst/@Polygon2D@1884",
+              "polygon": "[(0.0, -14.0), (4.0, -4.0), (14.0, 0.0), (4.0, 4.0), (0.0, 14.0), (-4.0, 4.0), (-14.0, 0.0), (-4.0, -4.0)]",
+              "color": "(0.7, 0.97, 1.0, 1.0)",
+              "rotation": 0.538798928260803,
+              "position": "(96.24063, 57.53247)",
+              "scale": "(0.640424, 0.640424)",
+              "modulate": "(1.0, 1.0, 1.0, 0.6577)"
+            },
+            {
+              "aspect": "1600x720",
+              "state": "fashion_rumi_ribbon_picked",
+              "image_sha256": "241e840ff7d2ff89615626a4e9c0bcdbabeac3f237625a3cb5bd085dca22dd68",
+              "node": "@CanvasLayer@1125/@Control@1126/StorybookStage/WardrobeFeedbackLayer/WardrobePreviewFeedbackBurst/@Polygon2D@1961",
+              "polygon": "[(0.0, -14.0), (4.0, -4.0), (14.0, 0.0), (4.0, 4.0), (0.0, 14.0), (-4.0, 4.0), (-14.0, 0.0), (-4.0, -4.0)]",
+              "color": "(0.7, 0.97, 1.0, 1.0)",
+              "rotation": 0.538798928260803,
+              "position": "(98.2108, 58.71024)",
+              "scale": "(0.633588, 0.633588)",
+              "modulate": "(1.0, 1.0, 1.0, 0.648)"
+            },
+            {
+              "aspect": "1600x720",
+              "state": "fashion_daddy_mermaid_ribbon_picked",
+              "image_sha256": "c756f2c24979d9cfcd826a536b83fa724a3b15b5eab4d8e517e97e98af9cf167",
+              "node": "@CanvasLayer@1125/@Control@1126/StorybookStage/WardrobeFeedbackLayer/WardrobePreviewFeedbackBurst/@Polygon2D@2038",
+              "polygon": "[(0.0, -14.0), (4.0, -4.0), (14.0, 0.0), (4.0, 4.0), (0.0, 14.0), (-4.0, 4.0), (-14.0, 0.0), (-4.0, -4.0)]",
+              "color": "(0.7, 0.97, 1.0, 1.0)",
+              "rotation": 0.538798928260803,
+              "position": "(94.09642, 56.25066)",
+              "scale": "(0.647751, 0.647751)",
+              "modulate": "(1.0, 1.0, 1.0, 0.6682)"
+            }
+          ],
+          "count_unit": "named role/index in one active14-sparkle burst; repeated lifetime instances unbounded",
+          "replacement_count": 1
+        },
+        {
+          "instance_id": "R6-WARDROBE-BURST-02",
+          "source_index": 2,
+          "classification": "FLAT_VISIBLE_ART_PENDING_REPLACEMENT",
+          "bindings": [
+            {
+              "aspect": "1280x720",
+              "state": "fashion_launcher_feedback",
+              "image_sha256": "50bcfe4bd76056c898b1bef0ddbf9d0bfdec47cef057b3cfd713b5a44bbcd9fa",
+              "node": "@CanvasLayer@364/@Control@365/StorybookStage/WardrobeFeedbackLayer/WardrobePreviewFeedbackBurst/@Polygon2D@374",
+              "polygon": "[(0.0, -14.0), (4.0, -4.0), (14.0, 0.0), (4.0, 4.0), (0.0, 14.0), (-4.0, 4.0), (-14.0, 0.0), (-4.0, -4.0)]",
+              "color": "(1.0, 0.62, 0.88, 1.0)",
+              "rotation": 0.897597908973694,
+              "position": "(44.63984, 55.97659)",
+              "scale": "(0.842471, 0.842471)",
+              "modulate": "(1.0, 1.0, 1.0, 0.8281)"
+            },
+            {
+              "aspect": "1280x720",
+              "state": "fashion_roshan_ribbon_picked",
+              "image_sha256": "52203e851b07ff8ca6ac1d95c873da8251eed7172d4abc46df0ad765fe9c152d",
+              "node": "@CanvasLayer@1125/@Control@1126/StorybookStage/WardrobeFeedbackLayer/WardrobePreviewFeedbackBurst/@Polygon2D@1885",
+              "polygon": "[(0.0, -14.0), (4.0, -4.0), (14.0, 0.0), (4.0, 4.0), (0.0, 14.0), (-4.0, 4.0), (-14.0, 0.0), (-4.0, -4.0)]",
+              "color": "(1.0, 0.62, 0.88, 1.0)",
+              "rotation": 0.897597908973694,
+              "position": "(72.95836, 91.48689)",
+              "scale": "(0.719036, 0.719036)",
+              "modulate": "(1.0, 1.0, 1.0, 0.6738)"
+            },
+            {
+              "aspect": "1280x720",
+              "state": "fashion_rumi_ribbon_picked",
+              "image_sha256": "9ca348651ebf553b774bb0e10527818e4f34284c06b76702c73d7307fcee6251",
+              "node": "@CanvasLayer@1125/@Control@1126/StorybookStage/WardrobeFeedbackLayer/WardrobePreviewFeedbackBurst/@Polygon2D@1962",
+              "polygon": "[(0.0, -14.0), (4.0, -4.0), (14.0, 0.0), (4.0, 4.0), (0.0, 14.0), (-4.0, 4.0), (-14.0, 0.0), (-4.0, -4.0)]",
+              "color": "(1.0, 0.62, 0.88, 1.0)",
+              "rotation": 0.897597908973694,
+              "position": "(75.71171, 94.93948)",
+              "scale": "(0.70549, 0.70549)",
+              "modulate": "(1.0, 1.0, 1.0, 0.6569)"
+            },
+            {
+              "aspect": "1280x720",
+              "state": "fashion_daddy_mermaid_ribbon_picked",
+              "image_sha256": "c9380df906667bcb32b36c0c12df1e73c9d3eb3d459454acade249596334c364",
+              "node": "@CanvasLayer@1125/@Control@1126/StorybookStage/WardrobeFeedbackLayer/WardrobePreviewFeedbackBurst/@Polygon2D@2039",
+              "polygon": "[(0.0, -14.0), (4.0, -4.0), (14.0, 0.0), (4.0, 4.0), (0.0, 14.0), (-4.0, 4.0), (-14.0, 0.0), (-4.0, -4.0)]",
+              "color": "(1.0, 0.62, 0.88, 1.0)",
+              "rotation": 0.897597908973694,
+              "position": "(73.13268, 91.70547)",
+              "scale": "(0.718188, 0.718188)",
+              "modulate": "(1.0, 1.0, 1.0, 0.6727)"
+            },
+            {
+              "aspect": "1600x720",
+              "state": "fashion_launcher_feedback",
+              "image_sha256": "140a289a5f44f7532be812f97ea802571192dc20b0b732898352d896bdb9b558",
+              "node": "@CanvasLayer@364/@Control@365/StorybookStage/WardrobeFeedbackLayer/WardrobePreviewFeedbackBurst/@Polygon2D@374",
+              "polygon": "[(0.0, -14.0), (4.0, -4.0), (14.0, 0.0), (4.0, 4.0), (0.0, 14.0), (-4.0, 4.0), (-14.0, 0.0), (-4.0, -4.0)]",
+              "color": "(1.0, 0.62, 0.88, 1.0)",
+              "rotation": 0.897597908973694,
+              "position": "(44.88738, 56.287)",
+              "scale": "(0.841492, 0.841492)",
+              "modulate": "(1.0, 1.0, 1.0, 0.8269)"
+            },
+            {
+              "aspect": "1600x720",
+              "state": "fashion_roshan_ribbon_picked",
+              "image_sha256": "61f0aa21d76e496f46022f3ec2a5bf90a9453b611dfc35faf04bdf087622e670",
+              "node": "@CanvasLayer@1125/@Control@1126/StorybookStage/WardrobeFeedbackLayer/WardrobePreviewFeedbackBurst/@Polygon2D@1885",
+              "polygon": "[(0.0, -14.0), (4.0, -4.0), (14.0, 0.0), (4.0, 4.0), (0.0, 14.0), (-4.0, 4.0), (-14.0, 0.0), (-4.0, -4.0)]",
+              "color": "(1.0, 0.62, 0.88, 1.0)",
+              "rotation": 0.897597908973694,
+              "position": "(75.5694, 94.76103)",
+              "scale": "(0.706199, 0.706199)",
+              "modulate": "(1.0, 1.0, 1.0, 0.6577)"
+            },
+            {
+              "aspect": "1600x720",
+              "state": "fashion_rumi_ribbon_picked",
+              "image_sha256": "241e840ff7d2ff89615626a4e9c0bcdbabeac3f237625a3cb5bd085dca22dd68",
+              "node": "@CanvasLayer@1125/@Control@1126/StorybookStage/WardrobeFeedbackLayer/WardrobePreviewFeedbackBurst/@Polygon2D@1962",
+              "polygon": "[(0.0, -14.0), (4.0, -4.0), (14.0, 0.0), (4.0, 4.0), (0.0, 14.0), (-4.0, 4.0), (-14.0, 0.0), (-4.0, -4.0)]",
+              "color": "(1.0, 0.62, 0.88, 1.0)",
+              "rotation": 0.897597908973694,
+              "position": "(77.12775, 96.71513)",
+              "scale": "(0.698386, 0.698386)",
+              "modulate": "(1.0, 1.0, 1.0, 0.648)"
+            },
+            {
+              "aspect": "1600x720",
+              "state": "fashion_daddy_mermaid_ribbon_picked",
+              "image_sha256": "c756f2c24979d9cfcd826a536b83fa724a3b15b5eab4d8e517e97e98af9cf167",
+              "node": "@CanvasLayer@1125/@Control@1126/StorybookStage/WardrobeFeedbackLayer/WardrobePreviewFeedbackBurst/@Polygon2D@2039",
+              "polygon": "[(0.0, -14.0), (4.0, -4.0), (14.0, 0.0), (4.0, 4.0), (0.0, 14.0), (-4.0, 4.0), (-14.0, 0.0), (-4.0, -4.0)]",
+              "color": "(1.0, 0.62, 0.88, 1.0)",
+              "rotation": 0.897597908973694,
+              "position": "(73.87338, 92.63429)",
+              "scale": "(0.714572, 0.714572)",
+              "modulate": "(1.0, 1.0, 1.0, 0.6682)"
+            }
+          ],
+          "count_unit": "named role/index in one active14-sparkle burst; repeated lifetime instances unbounded",
+          "replacement_count": 1
+        },
+        {
+          "instance_id": "R6-WARDROBE-BURST-03",
+          "source_index": 3,
+          "classification": "FLAT_VISIBLE_ART_PENDING_REPLACEMENT",
+          "bindings": [
+            {
+              "aspect": "1280x720",
+              "state": "fashion_launcher_feedback",
+              "image_sha256": "50bcfe4bd76056c898b1bef0ddbf9d0bfdec47cef057b3cfd713b5a44bbcd9fa",
+              "node": "@CanvasLayer@364/@Control@365/StorybookStage/WardrobeFeedbackLayer/WardrobePreviewFeedbackBurst/@Polygon2D@375",
+              "polygon": "[(0.0, -14.0), (4.0, -4.0), (14.0, 0.0), (4.0, 4.0), (0.0, 14.0), (-4.0, 4.0), (-14.0, 0.0), (-4.0, -4.0)]",
+              "color": "(0.97, 0.95, 1.0, 1.0)",
+              "rotation": 1.4363968372345,
+              "position": "(8.246083, 60.98516)",
+              "scale": "(0.676853, 0.676853)",
+              "modulate": "(1.0, 1.0, 1.0, 0.8281)"
+            },
+            {
+              "aspect": "1280x720",
+              "state": "fashion_roshan_ribbon_picked",
+              "image_sha256": "52203e851b07ff8ca6ac1d95c873da8251eed7172d4abc46df0ad765fe9c152d",
+              "node": "@CanvasLayer@1125/@Control@1126/StorybookStage/WardrobeFeedbackLayer/WardrobePreviewFeedbackBurst/@Polygon2D@1886",
+              "polygon": "[(0.0, -14.0), (4.0, -4.0), (14.0, 0.0), (4.0, 4.0), (0.0, 14.0), (-4.0, 4.0), (-14.0, 0.0), (-4.0, -4.0)]",
+              "color": "(0.97, 0.95, 1.0, 1.0)",
+              "rotation": 1.4363968372345,
+              "position": "(13.33843, 98.64641)",
+              "scale": "(0.584277, 0.584277)",
+              "modulate": "(1.0, 1.0, 1.0, 0.6738)"
+            },
+            {
+              "aspect": "1280x720",
+              "state": "fashion_rumi_ribbon_picked",
+              "image_sha256": "9ca348651ebf553b774bb0e10527818e4f34284c06b76702c73d7307fcee6251",
+              "node": "@CanvasLayer@1125/@Control@1126/StorybookStage/WardrobeFeedbackLayer/WardrobePreviewFeedbackBurst/@Polygon2D@1963",
+              "polygon": "[(0.0, -14.0), (4.0, -4.0), (14.0, 0.0), (4.0, 4.0), (0.0, 14.0), (-4.0, 4.0), (-14.0, 0.0), (-4.0, -4.0)]",
+              "color": "(0.97, 0.95, 1.0, 1.0)",
+              "rotation": 1.4363968372345,
+              "position": "(13.83355, 102.3081)",
+              "scale": "(0.574118, 0.574118)",
+              "modulate": "(1.0, 1.0, 1.0, 0.6569)"
+            },
+            {
+              "aspect": "1280x720",
+              "state": "fashion_daddy_mermaid_ribbon_picked",
+              "image_sha256": "c9380df906667bcb32b36c0c12df1e73c9d3eb3d459454acade249596334c364",
+              "node": "@CanvasLayer@1125/@Control@1126/StorybookStage/WardrobeFeedbackLayer/WardrobePreviewFeedbackBurst/@Polygon2D@2040",
+              "polygon": "[(0.0, -14.0), (4.0, -4.0), (14.0, 0.0), (4.0, 4.0), (0.0, 14.0), (-4.0, 4.0), (-14.0, 0.0), (-4.0, -4.0)]",
+              "color": "(0.97, 0.95, 1.0, 1.0)",
+              "rotation": 1.4363968372345,
+              "position": "(13.36978, 98.87823)",
+              "scale": "(0.583641, 0.583641)",
+              "modulate": "(1.0, 1.0, 1.0, 0.6727)"
+            },
+            {
+              "aspect": "1600x720",
+              "state": "fashion_launcher_feedback",
+              "image_sha256": "140a289a5f44f7532be812f97ea802571192dc20b0b732898352d896bdb9b558",
+              "node": "@CanvasLayer@364/@Control@365/StorybookStage/WardrobeFeedbackLayer/WardrobePreviewFeedbackBurst/@Polygon2D@375",
+              "polygon": "[(0.0, -14.0), (4.0, -4.0), (14.0, 0.0), (4.0, 4.0), (0.0, 14.0), (-4.0, 4.0), (-14.0, 0.0), (-4.0, -4.0)]",
+              "color": "(0.97, 0.95, 1.0, 1.0)",
+              "rotation": 1.4363968372345,
+              "position": "(8.290598, 61.31437)",
+              "scale": "(0.676119, 0.676119)",
+              "modulate": "(1.0, 1.0, 1.0, 0.8269)"
+            },
+            {
+              "aspect": "1600x720",
+              "state": "fashion_roshan_ribbon_picked",
+              "image_sha256": "61f0aa21d76e496f46022f3ec2a5bf90a9453b611dfc35faf04bdf087622e670",
+              "node": "@CanvasLayer@1125/@Control@1126/StorybookStage/WardrobeFeedbackLayer/WardrobePreviewFeedbackBurst/@Polygon2D@1886",
+              "polygon": "[(0.0, -14.0), (4.0, -4.0), (14.0, 0.0), (4.0, 4.0), (0.0, 14.0), (-4.0, 4.0), (-14.0, 0.0), (-4.0, -4.0)]",
+              "color": "(0.97, 0.95, 1.0, 1.0)",
+              "rotation": 1.4363968372345,
+              "position": "(13.80796, 102.1189)",
+              "scale": "(0.574649, 0.574649)",
+              "modulate": "(1.0, 1.0, 1.0, 0.6577)"
+            },
+            {
+              "aspect": "1600x720",
+              "state": "fashion_rumi_ribbon_picked",
+              "image_sha256": "241e840ff7d2ff89615626a4e9c0bcdbabeac3f237625a3cb5bd085dca22dd68",
+              "node": "@CanvasLayer@1125/@Control@1126/StorybookStage/WardrobeFeedbackLayer/WardrobePreviewFeedbackBurst/@Polygon2D@1963",
+              "polygon": "[(0.0, -14.0), (4.0, -4.0), (14.0, 0.0), (4.0, 4.0), (0.0, 14.0), (-4.0, 4.0), (-14.0, 0.0), (-4.0, -4.0)]",
+              "color": "(0.97, 0.95, 1.0, 1.0)",
+              "rotation": 1.4363968372345,
+              "position": "(14.08819, 104.1913)",
+              "scale": "(0.568789, 0.568789)",
+              "modulate": "(1.0, 1.0, 1.0, 0.648)"
+            },
+            {
+              "aspect": "1600x720",
+              "state": "fashion_daddy_mermaid_ribbon_picked",
+              "image_sha256": "c756f2c24979d9cfcd826a536b83fa724a3b15b5eab4d8e517e97e98af9cf167",
+              "node": "@CanvasLayer@1125/@Control@1126/StorybookStage/WardrobeFeedbackLayer/WardrobePreviewFeedbackBurst/@Polygon2D@2040",
+              "polygon": "[(0.0, -14.0), (4.0, -4.0), (14.0, 0.0), (4.0, 4.0), (0.0, 14.0), (-4.0, 4.0), (-14.0, 0.0), (-4.0, -4.0)]",
+              "color": "(0.97, 0.95, 1.0, 1.0)",
+              "rotation": 1.4363968372345,
+              "position": "(13.50298, 99.86331)",
+              "scale": "(0.580929, 0.580929)",
+              "modulate": "(1.0, 1.0, 1.0, 0.6682)"
+            }
+          ],
+          "count_unit": "named role/index in one active14-sparkle burst; repeated lifetime instances unbounded",
+          "replacement_count": 1
+        },
+        {
+          "instance_id": "R6-WARDROBE-BURST-04",
+          "source_index": 4,
+          "classification": "FLAT_VISIBLE_ART_PENDING_REPLACEMENT",
+          "bindings": [
+            {
+              "aspect": "1280x720",
+              "state": "fashion_launcher_feedback",
+              "image_sha256": "50bcfe4bd76056c898b1bef0ddbf9d0bfdec47cef057b3cfd713b5a44bbcd9fa",
+              "node": "@CanvasLayer@364/@Control@365/StorybookStage/WardrobeFeedbackLayer/WardrobePreviewFeedbackBurst/@Polygon2D@376",
+              "polygon": "[(0.0, -14.0), (4.0, -4.0), (14.0, 0.0), (4.0, 4.0), (0.0, 14.0), (-4.0, 4.0), (-14.0, 0.0), (-4.0, -4.0)]",
+              "color": "(1.0, 0.78, 0.3, 0.98)",
+              "rotation": 1.79519581794739,
+              "position": "(-14.81287, 64.89941)",
+              "scale": "(0.759662, 0.759662)",
+              "modulate": "(1.0, 1.0, 1.0, 0.8281)"
+            },
+            {
+              "aspect": "1280x720",
+              "state": "fashion_roshan_ribbon_picked",
+              "image_sha256": "52203e851b07ff8ca6ac1d95c873da8251eed7172d4abc46df0ad765fe9c152d",
+              "node": "@CanvasLayer@1125/@Control@1126/StorybookStage/WardrobeFeedbackLayer/WardrobePreviewFeedbackBurst/@Polygon2D@1887",
+              "polygon": "[(0.0, -14.0), (4.0, -4.0), (14.0, 0.0), (4.0, 4.0), (0.0, 14.0), (-4.0, 4.0), (-14.0, 0.0), (-4.0, -4.0)]",
+              "color": "(1.0, 0.78, 0.3, 0.98)",
+              "rotation": 1.79519581794739,
+              "position": "(-24.09459, 105.5653)",
+              "scale": "(0.651656, 0.651656)",
+              "modulate": "(1.0, 1.0, 1.0, 0.6738)"
+            },
+            {
+              "aspect": "1280x720",
+              "state": "fashion_rumi_ribbon_picked",
+              "image_sha256": "9ca348651ebf553b774bb0e10527818e4f34284c06b76702c73d7307fcee6251",
+              "node": "@CanvasLayer@1125/@Control@1126/StorybookStage/WardrobeFeedbackLayer/WardrobePreviewFeedbackBurst/@Polygon2D@1964",
+              "polygon": "[(0.0, -14.0), (4.0, -4.0), (14.0, 0.0), (4.0, 4.0), (0.0, 14.0), (-4.0, 4.0), (-14.0, 0.0), (-4.0, -4.0)]",
+              "color": "(1.0, 0.78, 0.3, 0.98)",
+              "rotation": 1.79519581794739,
+              "position": "(-24.99703, 109.5191)",
+              "scale": "(0.639804, 0.639804)",
+              "modulate": "(1.0, 1.0, 1.0, 0.6569)"
+            },
+            {
+              "aspect": "1280x720",
+              "state": "fashion_daddy_mermaid_ribbon_picked",
+              "image_sha256": "c9380df906667bcb32b36c0c12df1e73c9d3eb3d459454acade249596334c364",
+              "node": "@CanvasLayer@1125/@Control@1126/StorybookStage/WardrobeFeedbackLayer/WardrobePreviewFeedbackBurst/@Polygon2D@2041",
+              "polygon": "[(0.0, -14.0), (4.0, -4.0), (14.0, 0.0), (4.0, 4.0), (0.0, 14.0), (-4.0, 4.0), (-14.0, 0.0), (-4.0, -4.0)]",
+              "color": "(1.0, 0.78, 0.3, 0.98)",
+              "rotation": 1.79519581794739,
+              "position": "(-24.15172, 105.8156)",
+              "scale": "(0.650915, 0.650915)",
+              "modulate": "(1.0, 1.0, 1.0, 0.6727)"
+            },
+            {
+              "aspect": "1600x720",
+              "state": "fashion_launcher_feedback",
+              "image_sha256": "140a289a5f44f7532be812f97ea802571192dc20b0b732898352d896bdb9b558",
+              "node": "@CanvasLayer@364/@Control@365/StorybookStage/WardrobeFeedbackLayer/WardrobePreviewFeedbackBurst/@Polygon2D@376",
+              "polygon": "[(0.0, -14.0), (4.0, -4.0), (14.0, 0.0), (4.0, 4.0), (0.0, 14.0), (-4.0, 4.0), (-14.0, 0.0), (-4.0, -4.0)]",
+              "color": "(1.0, 0.78, 0.3, 0.98)",
+              "rotation": 1.79519581794739,
+              "position": "(-14.89401, 65.2549)",
+              "scale": "(0.758805, 0.758805)",
+              "modulate": "(1.0, 1.0, 1.0, 0.8269)"
+            },
+            {
+              "aspect": "1600x720",
+              "state": "fashion_roshan_ribbon_picked",
+              "image_sha256": "61f0aa21d76e496f46022f3ec2a5bf90a9453b611dfc35faf04bdf087622e670",
+              "node": "@CanvasLayer@1125/@Control@1126/StorybookStage/WardrobeFeedbackLayer/WardrobePreviewFeedbackBurst/@Polygon2D@1887",
+              "polygon": "[(0.0, -14.0), (4.0, -4.0), (14.0, 0.0), (4.0, 4.0), (0.0, 14.0), (-4.0, 4.0), (-14.0, 0.0), (-4.0, -4.0)]",
+              "color": "(1.0, 0.78, 0.3, 0.98)",
+              "rotation": 1.79519581794739,
+              "position": "(-24.95039, 109.3148)",
+              "scale": "(0.640424, 0.640424)",
+              "modulate": "(1.0, 1.0, 1.0, 0.6577)"
+            },
+            {
+              "aspect": "1600x720",
+              "state": "fashion_rumi_ribbon_picked",
+              "image_sha256": "241e840ff7d2ff89615626a4e9c0bcdbabeac3f237625a3cb5bd085dca22dd68",
+              "node": "@CanvasLayer@1125/@Control@1126/StorybookStage/WardrobeFeedbackLayer/WardrobePreviewFeedbackBurst/@Polygon2D@1964",
+              "polygon": "[(0.0, -14.0), (4.0, -4.0), (14.0, 0.0), (4.0, 4.0), (0.0, 14.0), (-4.0, 4.0), (-14.0, 0.0), (-4.0, -4.0)]",
+              "color": "(1.0, 0.78, 0.3, 0.98)",
+              "rotation": 1.79519581794739,
+              "position": "(-25.46115, 111.5526)",
+              "scale": "(0.633588, 0.633588)",
+              "modulate": "(1.0, 1.0, 1.0, 0.648)"
+            },
+            {
+              "aspect": "1600x720",
+              "state": "fashion_daddy_mermaid_ribbon_picked",
+              "image_sha256": "c756f2c24979d9cfcd826a536b83fa724a3b15b5eab4d8e517e97e98af9cf167",
+              "node": "@CanvasLayer@1125/@Control@1126/StorybookStage/WardrobeFeedbackLayer/WardrobePreviewFeedbackBurst/@Polygon2D@2041",
+              "polygon": "[(0.0, -14.0), (4.0, -4.0), (14.0, 0.0), (4.0, 4.0), (0.0, 14.0), (-4.0, 4.0), (-14.0, 0.0), (-4.0, -4.0)]",
+              "color": "(1.0, 0.78, 0.3, 0.98)",
+              "rotation": 1.79519581794739,
+              "position": "(-24.3945, 106.8793)",
+              "scale": "(0.647751, 0.647751)",
+              "modulate": "(1.0, 1.0, 1.0, 0.6682)"
+            }
+          ],
+          "count_unit": "named role/index in one active14-sparkle burst; repeated lifetime instances unbounded",
+          "replacement_count": 1
+        },
+        {
+          "instance_id": "R6-WARDROBE-BURST-05",
+          "source_index": 5,
+          "classification": "FLAT_VISIBLE_ART_PENDING_REPLACEMENT",
+          "bindings": [
+            {
+              "aspect": "1280x720",
+              "state": "fashion_launcher_feedback",
+              "image_sha256": "50bcfe4bd76056c898b1bef0ddbf9d0bfdec47cef057b3cfd713b5a44bbcd9fa",
+              "node": "@CanvasLayer@364/@Control@365/StorybookStage/WardrobeFeedbackLayer/WardrobePreviewFeedbackBurst/@Polygon2D@377",
+              "polygon": "[(0.0, -14.0), (4.0, -4.0), (14.0, 0.0), (4.0, 4.0), (0.0, 14.0), (-4.0, 4.0), (-14.0, 0.0), (-4.0, -4.0)]",
+              "color": "(0.7, 0.97, 1.0, 1.0)",
+              "rotation": 2.33399486541748,
+              "position": "(-49.49026, 51.73787)",
+              "scale": "(0.842471, 0.842471)",
+              "modulate": "(1.0, 1.0, 1.0, 0.8281)"
+            },
+            {
+              "aspect": "1280x720",
+              "state": "fashion_roshan_ribbon_picked",
+              "image_sha256": "52203e851b07ff8ca6ac1d95c873da8251eed7172d4abc46df0ad765fe9c152d",
+              "node": "@CanvasLayer@1125/@Control@1126/StorybookStage/WardrobeFeedbackLayer/WardrobePreviewFeedbackBurst/@Polygon2D@1888",
+              "polygon": "[(0.0, -14.0), (4.0, -4.0), (14.0, 0.0), (4.0, 4.0), (0.0, 14.0), (-4.0, 4.0), (-14.0, 0.0), (-4.0, -4.0)]",
+              "color": "(0.7, 0.97, 1.0, 1.0)",
+              "rotation": 2.33399486541748,
+              "position": "(-80.88578, 84.55922)",
+              "scale": "(0.719036, 0.719036)",
+              "modulate": "(1.0, 1.0, 1.0, 0.6738)"
+            },
+            {
+              "aspect": "1280x720",
+              "state": "fashion_rumi_ribbon_picked",
+              "image_sha256": "9ca348651ebf553b774bb0e10527818e4f34284c06b76702c73d7307fcee6251",
+              "node": "@CanvasLayer@1125/@Control@1126/StorybookStage/WardrobeFeedbackLayer/WardrobePreviewFeedbackBurst/@Polygon2D@1965",
+              "polygon": "[(0.0, -14.0), (4.0, -4.0), (14.0, 0.0), (4.0, 4.0), (0.0, 14.0), (-4.0, 4.0), (-14.0, 0.0), (-4.0, -4.0)]",
+              "color": "(0.7, 0.97, 1.0, 1.0)",
+              "rotation": 2.33399486541748,
+              "position": "(-83.93829, 87.75037)",
+              "scale": "(0.70549, 0.70549)",
+              "modulate": "(1.0, 1.0, 1.0, 0.6569)"
+            },
+            {
+              "aspect": "1280x720",
+              "state": "fashion_daddy_mermaid_ribbon_picked",
+              "image_sha256": "c9380df906667bcb32b36c0c12df1e73c9d3eb3d459454acade249596334c364",
+              "node": "@CanvasLayer@1125/@Control@1126/StorybookStage/WardrobeFeedbackLayer/WardrobePreviewFeedbackBurst/@Polygon2D@2042",
+              "polygon": "[(0.0, -14.0), (4.0, -4.0), (14.0, 0.0), (4.0, 4.0), (0.0, 14.0), (-4.0, 4.0), (-14.0, 0.0), (-4.0, -4.0)]",
+              "color": "(0.7, 0.97, 1.0, 1.0)",
+              "rotation": 2.33399486541748,
+              "position": "(-81.07903, 84.76125)",
+              "scale": "(0.718188, 0.718188)",
+              "modulate": "(1.0, 1.0, 1.0, 0.6727)"
+            },
+            {
+              "aspect": "1600x720",
+              "state": "fashion_launcher_feedback",
+              "image_sha256": "140a289a5f44f7532be812f97ea802571192dc20b0b732898352d896bdb9b558",
+              "node": "@CanvasLayer@364/@Control@365/StorybookStage/WardrobeFeedbackLayer/WardrobePreviewFeedbackBurst/@Polygon2D@377",
+              "polygon": "[(0.0, -14.0), (4.0, -4.0), (14.0, 0.0), (4.0, 4.0), (0.0, 14.0), (-4.0, 4.0), (-14.0, 0.0), (-4.0, -4.0)]",
+              "color": "(0.7, 0.97, 1.0, 1.0)",
+              "rotation": 2.33399486541748,
+              "position": "(-49.7647, 52.02478)",
+              "scale": "(0.841492, 0.841492)",
+              "modulate": "(1.0, 1.0, 1.0, 0.8269)"
+            },
+            {
+              "aspect": "1600x720",
+              "state": "fashion_roshan_ribbon_picked",
+              "image_sha256": "61f0aa21d76e496f46022f3ec2a5bf90a9453b611dfc35faf04bdf087622e670",
+              "node": "@CanvasLayer@1125/@Control@1126/StorybookStage/WardrobeFeedbackLayer/WardrobePreviewFeedbackBurst/@Polygon2D@1888",
+              "polygon": "[(0.0, -14.0), (4.0, -4.0), (14.0, 0.0), (4.0, 4.0), (0.0, 14.0), (-4.0, 4.0), (-14.0, 0.0), (-4.0, -4.0)]",
+              "color": "(0.7, 0.97, 1.0, 1.0)",
+              "rotation": 2.33399486541748,
+              "position": "(-83.78053, 87.58543)",
+              "scale": "(0.706199, 0.706199)",
+              "modulate": "(1.0, 1.0, 1.0, 0.6577)"
+            },
+            {
+              "aspect": "1600x720",
+              "state": "fashion_rumi_ribbon_picked",
+              "image_sha256": "241e840ff7d2ff89615626a4e9c0bcdbabeac3f237625a3cb5bd085dca22dd68",
+              "node": "@CanvasLayer@1125/@Control@1126/StorybookStage/WardrobeFeedbackLayer/WardrobePreviewFeedbackBurst/@Polygon2D@1965",
+              "polygon": "[(0.0, -14.0), (4.0, -4.0), (14.0, 0.0), (4.0, 4.0), (0.0, 14.0), (-4.0, 4.0), (-14.0, 0.0), (-4.0, -4.0)]",
+              "color": "(0.7, 0.97, 1.0, 1.0)",
+              "rotation": 2.33399486541748,
+              "position": "(-85.50819, 89.39156)",
+              "scale": "(0.698386, 0.698386)",
+              "modulate": "(1.0, 1.0, 1.0, 0.648)"
+            },
+            {
+              "aspect": "1600x720",
+              "state": "fashion_daddy_mermaid_ribbon_picked",
+              "image_sha256": "c756f2c24979d9cfcd826a536b83fa724a3b15b5eab4d8e517e97e98af9cf167",
+              "node": "@CanvasLayer@1125/@Control@1126/StorybookStage/WardrobeFeedbackLayer/WardrobePreviewFeedbackBurst/@Polygon2D@2042",
+              "polygon": "[(0.0, -14.0), (4.0, -4.0), (14.0, 0.0), (4.0, 4.0), (0.0, 14.0), (-4.0, 4.0), (-14.0, 0.0), (-4.0, -4.0)]",
+              "color": "(0.7, 0.97, 1.0, 1.0)",
+              "rotation": 2.33399486541748,
+              "position": "(-81.90022, 85.61974)",
+              "scale": "(0.714572, 0.714572)",
+              "modulate": "(1.0, 1.0, 1.0, 0.6682)"
+            }
+          ],
+          "count_unit": "named role/index in one active14-sparkle burst; repeated lifetime instances unbounded",
+          "replacement_count": 1
+        },
+        {
+          "instance_id": "R6-WARDROBE-BURST-06",
+          "source_index": 6,
+          "classification": "FLAT_VISIBLE_ART_PENDING_REPLACEMENT",
+          "bindings": [
+            {
+              "aspect": "1280x720",
+              "state": "fashion_launcher_feedback",
+              "image_sha256": "50bcfe4bd76056c898b1bef0ddbf9d0bfdec47cef057b3cfd713b5a44bbcd9fa",
+              "node": "@CanvasLayer@364/@Control@365/StorybookStage/WardrobeFeedbackLayer/WardrobePreviewFeedbackBurst/@Polygon2D@378",
+              "polygon": "[(0.0, -14.0), (4.0, -4.0), (14.0, 0.0), (4.0, 4.0), (0.0, 14.0), (-4.0, 4.0), (-14.0, 0.0), (-4.0, -4.0)]",
+              "color": "(1.0, 0.62, 0.88, 1.0)",
+              "rotation": 2.69279360771179,
+              "position": "(-55.44574, 26.70126)",
+              "scale": "(0.676853, 0.676853)",
+              "modulate": "(1.0, 1.0, 1.0, 0.8281)"
+            },
+            {
+              "aspect": "1280x720",
+              "state": "fashion_roshan_ribbon_picked",
+              "image_sha256": "52203e851b07ff8ca6ac1d95c873da8251eed7172d4abc46df0ad765fe9c152d",
+              "node": "@CanvasLayer@1125/@Control@1126/StorybookStage/WardrobeFeedbackLayer/WardrobePreviewFeedbackBurst/@Polygon2D@1889",
+              "polygon": "[(0.0, -14.0), (4.0, -4.0), (14.0, 0.0), (4.0, 4.0), (0.0, 14.0), (-4.0, 4.0), (-14.0, 0.0), (-4.0, -4.0)]",
+              "color": "(1.0, 0.62, 0.88, 1.0)",
+              "rotation": 2.69279360771179,
+              "position": "(-89.68613, 43.19056)",
+              "scale": "(0.584277, 0.584277)",
+              "modulate": "(1.0, 1.0, 1.0, 0.6738)"
+            },
+            {
+              "aspect": "1280x720",
+              "state": "fashion_rumi_ribbon_picked",
+              "image_sha256": "9ca348651ebf553b774bb0e10527818e4f34284c06b76702c73d7307fcee6251",
+              "node": "@CanvasLayer@1125/@Control@1126/StorybookStage/WardrobeFeedbackLayer/WardrobePreviewFeedbackBurst/@Polygon2D@1966",
+              "polygon": "[(0.0, -14.0), (4.0, -4.0), (14.0, 0.0), (4.0, 4.0), (0.0, 14.0), (-4.0, 4.0), (-14.0, 0.0), (-4.0, -4.0)]",
+              "color": "(1.0, 0.62, 0.88, 1.0)",
+              "rotation": 2.69279360771179,
+              "position": "(-93.01525, 44.79378)",
+              "scale": "(0.574118, 0.574118)",
+              "modulate": "(1.0, 1.0, 1.0, 0.6569)"
+            },
+            {
+              "aspect": "1280x720",
+              "state": "fashion_daddy_mermaid_ribbon_picked",
+              "image_sha256": "c9380df906667bcb32b36c0c12df1e73c9d3eb3d459454acade249596334c364",
+              "node": "@CanvasLayer@1125/@Control@1126/StorybookStage/WardrobeFeedbackLayer/WardrobePreviewFeedbackBurst/@Polygon2D@2043",
+              "polygon": "[(0.0, -14.0), (4.0, -4.0), (14.0, 0.0), (4.0, 4.0), (0.0, 14.0), (-4.0, 4.0), (-14.0, 0.0), (-4.0, -4.0)]",
+              "color": "(1.0, 0.62, 0.88, 1.0)",
+              "rotation": 2.69279360771179,
+              "position": "(-89.8969, 43.29206)",
+              "scale": "(0.583641, 0.583641)",
+              "modulate": "(1.0, 1.0, 1.0, 0.6727)"
+            },
+            {
+              "aspect": "1600x720",
+              "state": "fashion_launcher_feedback",
+              "image_sha256": "140a289a5f44f7532be812f97ea802571192dc20b0b732898352d896bdb9b558",
+              "node": "@CanvasLayer@364/@Control@365/StorybookStage/WardrobeFeedbackLayer/WardrobePreviewFeedbackBurst/@Polygon2D@378",
+              "polygon": "[(0.0, -14.0), (4.0, -4.0), (14.0, 0.0), (4.0, 4.0), (0.0, 14.0), (-4.0, 4.0), (-14.0, 0.0), (-4.0, -4.0)]",
+              "color": "(1.0, 0.62, 0.88, 1.0)",
+              "rotation": 2.69279360771179,
+              "position": "(-55.74505, 26.8454)",
+              "scale": "(0.676119, 0.676119)",
+              "modulate": "(1.0, 1.0, 1.0, 0.8269)"
+            },
+            {
+              "aspect": "1600x720",
+              "state": "fashion_roshan_ribbon_picked",
+              "image_sha256": "61f0aa21d76e496f46022f3ec2a5bf90a9453b611dfc35faf04bdf087622e670",
+              "node": "@CanvasLayer@1125/@Control@1126/StorybookStage/WardrobeFeedbackLayer/WardrobePreviewFeedbackBurst/@Polygon2D@1889",
+              "polygon": "[(0.0, -14.0), (4.0, -4.0), (14.0, 0.0), (4.0, 4.0), (0.0, 14.0), (-4.0, 4.0), (-14.0, 0.0), (-4.0, -4.0)]",
+              "color": "(1.0, 0.62, 0.88, 1.0)",
+              "rotation": 2.69279360771179,
+              "position": "(-92.84319, 44.71092)",
+              "scale": "(0.574649, 0.574649)",
+              "modulate": "(1.0, 1.0, 1.0, 0.6577)"
+            },
+            {
+              "aspect": "1600x720",
+              "state": "fashion_rumi_ribbon_picked",
+              "image_sha256": "241e840ff7d2ff89615626a4e9c0bcdbabeac3f237625a3cb5bd085dca22dd68",
+              "node": "@CanvasLayer@1125/@Control@1126/StorybookStage/WardrobeFeedbackLayer/WardrobePreviewFeedbackBurst/@Polygon2D@1966",
+              "polygon": "[(0.0, -14.0), (4.0, -4.0), (14.0, 0.0), (4.0, 4.0), (0.0, 14.0), (-4.0, 4.0), (-14.0, 0.0), (-4.0, -4.0)]",
+              "color": "(1.0, 0.62, 0.88, 1.0)",
+              "rotation": 2.69279360771179,
+              "position": "(-94.72741, 45.61831)",
+              "scale": "(0.568789, 0.568789)",
+              "modulate": "(1.0, 1.0, 1.0, 0.648)"
+            },
+            {
+              "aspect": "1600x720",
+              "state": "fashion_daddy_mermaid_ribbon_picked",
+              "image_sha256": "c756f2c24979d9cfcd826a536b83fa724a3b15b5eab4d8e517e97e98af9cf167",
+              "node": "@CanvasLayer@1125/@Control@1126/StorybookStage/WardrobeFeedbackLayer/WardrobePreviewFeedbackBurst/@Polygon2D@2043",
+              "polygon": "[(0.0, -14.0), (4.0, -4.0), (14.0, 0.0), (4.0, 4.0), (0.0, 14.0), (-4.0, 4.0), (-14.0, 0.0), (-4.0, -4.0)]",
+              "color": "(1.0, 0.62, 0.88, 1.0)",
+              "rotation": 2.69279360771179,
+              "position": "(-90.7925, 43.72336)",
+              "scale": "(0.580929, 0.580929)",
+              "modulate": "(1.0, 1.0, 1.0, 0.6682)"
+            }
+          ],
+          "count_unit": "named role/index in one active14-sparkle burst; repeated lifetime instances unbounded",
+          "replacement_count": 1
+        },
+        {
+          "instance_id": "R6-WARDROBE-BURST-07",
+          "source_index": 7,
+          "classification": "FLAT_VISIBLE_ART_PENDING_REPLACEMENT",
+          "bindings": [
+            {
+              "aspect": "1280x720",
+              "state": "fashion_launcher_feedback",
+              "image_sha256": "50bcfe4bd76056c898b1bef0ddbf9d0bfdec47cef057b3cfd713b5a44bbcd9fa",
+              "node": "@CanvasLayer@364/@Control@365/StorybookStage/WardrobeFeedbackLayer/WardrobePreviewFeedbackBurst/@Polygon2D@379",
+              "polygon": "[(0.0, -14.0), (4.0, -4.0), (14.0, 0.0), (4.0, 4.0), (0.0, 14.0), (-4.0, 4.0), (-14.0, 0.0), (-4.0, -4.0)]",
+              "color": "(0.97, 0.95, 1.0, 1.0)",
+              "rotation": 3.23159265518188,
+              "position": "(-66.29901, -5.983075)",
+              "scale": "(0.759662, 0.759662)",
+              "modulate": "(1.0, 1.0, 1.0, 0.8281)"
+            },
+            {
+              "aspect": "1280x720",
+              "state": "fashion_roshan_ribbon_picked",
+              "image_sha256": "52203e851b07ff8ca6ac1d95c873da8251eed7172d4abc46df0ad765fe9c152d",
+              "node": "@CanvasLayer@1125/@Control@1126/StorybookStage/WardrobeFeedbackLayer/WardrobePreviewFeedbackBurst/@Polygon2D@1890",
+              "polygon": "[(0.0, -14.0), (4.0, -4.0), (14.0, 0.0), (4.0, 4.0), (0.0, 14.0), (-4.0, 4.0), (-14.0, 0.0), (-4.0, -4.0)]",
+              "color": "(0.97, 0.95, 1.0, 1.0)",
+              "rotation": 3.23159265518188,
+              "position": "(-107.8419, -9.73206)",
+              "scale": "(0.651656, 0.651656)",
+              "modulate": "(1.0, 1.0, 1.0, 0.6738)"
+            },
+            {
+              "aspect": "1280x720",
+              "state": "fashion_rumi_ribbon_picked",
+              "image_sha256": "9ca348651ebf553b774bb0e10527818e4f34284c06b76702c73d7307fcee6251",
+              "node": "@CanvasLayer@1125/@Control@1126/StorybookStage/WardrobeFeedbackLayer/WardrobePreviewFeedbackBurst/@Polygon2D@1967",
+              "polygon": "[(0.0, -14.0), (4.0, -4.0), (14.0, 0.0), (4.0, 4.0), (0.0, 14.0), (-4.0, 4.0), (-14.0, 0.0), (-4.0, -4.0)]",
+              "color": "(0.97, 0.95, 1.0, 1.0)",
+              "rotation": 3.23159265518188,
+              "position": "(-111.881, -10.09657)",
+              "scale": "(0.639804, 0.639804)",
+              "modulate": "(1.0, 1.0, 1.0, 0.6569)"
+            },
+            {
+              "aspect": "1280x720",
+              "state": "fashion_daddy_mermaid_ribbon_picked",
+              "image_sha256": "c9380df906667bcb32b36c0c12df1e73c9d3eb3d459454acade249596334c364",
+              "node": "@CanvasLayer@1125/@Control@1126/StorybookStage/WardrobeFeedbackLayer/WardrobePreviewFeedbackBurst/@Polygon2D@2044",
+              "polygon": "[(0.0, -14.0), (4.0, -4.0), (14.0, 0.0), (4.0, 4.0), (0.0, 14.0), (-4.0, 4.0), (-14.0, 0.0), (-4.0, -4.0)]",
+              "color": "(0.97, 0.95, 1.0, 1.0)",
+              "rotation": 3.23159265518188,
+              "position": "(-108.0976, -9.755136)",
+              "scale": "(0.650915, 0.650915)",
+              "modulate": "(1.0, 1.0, 1.0, 0.6727)"
+            },
+            {
+              "aspect": "1600x720",
+              "state": "fashion_launcher_feedback",
+              "image_sha256": "140a289a5f44f7532be812f97ea802571192dc20b0b732898352d896bdb9b558",
+              "node": "@CanvasLayer@364/@Control@365/StorybookStage/WardrobeFeedbackLayer/WardrobePreviewFeedbackBurst/@Polygon2D@379",
+              "polygon": "[(0.0, -14.0), (4.0, -4.0), (14.0, 0.0), (4.0, 4.0), (0.0, 14.0), (-4.0, 4.0), (-14.0, 0.0), (-4.0, -4.0)]",
+              "color": "(0.97, 0.95, 1.0, 1.0)",
+              "rotation": 3.23159265518188,
+              "position": "(-66.66216, -6.015847)",
+              "scale": "(0.758805, 0.758805)",
+              "modulate": "(1.0, 1.0, 1.0, 0.8269)"
+            },
+            {
+              "aspect": "1600x720",
+              "state": "fashion_roshan_ribbon_picked",
+              "image_sha256": "61f0aa21d76e496f46022f3ec2a5bf90a9453b611dfc35faf04bdf087622e670",
+              "node": "@CanvasLayer@1125/@Control@1126/StorybookStage/WardrobeFeedbackLayer/WardrobePreviewFeedbackBurst/@Polygon2D@1890",
+              "polygon": "[(0.0, -14.0), (4.0, -4.0), (14.0, 0.0), (4.0, 4.0), (0.0, 14.0), (-4.0, 4.0), (-14.0, 0.0), (-4.0, -4.0)]",
+              "color": "(0.97, 0.95, 1.0, 1.0)",
+              "rotation": 3.23159265518188,
+              "position": "(-111.6722, -10.07773)",
+              "scale": "(0.640424, 0.640424)",
+              "modulate": "(1.0, 1.0, 1.0, 0.6577)"
+            },
+            {
+              "aspect": "1600x720",
+              "state": "fashion_rumi_ribbon_picked",
+              "image_sha256": "241e840ff7d2ff89615626a4e9c0bcdbabeac3f237625a3cb5bd085dca22dd68",
+              "node": "@CanvasLayer@1125/@Control@1126/StorybookStage/WardrobeFeedbackLayer/WardrobePreviewFeedbackBurst/@Polygon2D@1967",
+              "polygon": "[(0.0, -14.0), (4.0, -4.0), (14.0, 0.0), (4.0, 4.0), (0.0, 14.0), (-4.0, 4.0), (-14.0, 0.0), (-4.0, -4.0)]",
+              "color": "(0.97, 0.95, 1.0, 1.0)",
+              "rotation": 3.23159265518188,
+              "position": "(-113.9583, -10.28403)",
+              "scale": "(0.633588, 0.633588)",
+              "modulate": "(1.0, 1.0, 1.0, 0.648)"
+            },
+            {
+              "aspect": "1600x720",
+              "state": "fashion_daddy_mermaid_ribbon_picked",
+              "image_sha256": "c756f2c24979d9cfcd826a536b83fa724a3b15b5eab4d8e517e97e98af9cf167",
+              "node": "@CanvasLayer@1125/@Control@1126/StorybookStage/WardrobeFeedbackLayer/WardrobePreviewFeedbackBurst/@Polygon2D@2044",
+              "polygon": "[(0.0, -14.0), (4.0, -4.0), (14.0, 0.0), (4.0, 4.0), (0.0, 14.0), (-4.0, 4.0), (-14.0, 0.0), (-4.0, -4.0)]",
+              "color": "(0.97, 0.95, 1.0, 1.0)",
+              "rotation": 3.23159265518188,
+              "position": "(-109.1842, -9.853196)",
+              "scale": "(0.647751, 0.647751)",
+              "modulate": "(1.0, 1.0, 1.0, 0.6682)"
+            }
+          ],
+          "count_unit": "named role/index in one active14-sparkle burst; repeated lifetime instances unbounded",
+          "replacement_count": 1
+        },
+        {
+          "instance_id": "R6-WARDROBE-BURST-08",
+          "source_index": 8,
+          "classification": "FLAT_VISIBLE_ART_PENDING_REPLACEMENT",
+          "bindings": [
+            {
+              "aspect": "1280x720",
+              "state": "fashion_launcher_feedback",
+              "image_sha256": "50bcfe4bd76056c898b1bef0ddbf9d0bfdec47cef057b3cfd713b5a44bbcd9fa",
+              "node": "@CanvasLayer@364/@Control@365/StorybookStage/WardrobeFeedbackLayer/WardrobePreviewFeedbackBurst/@Polygon2D@380",
+              "polygon": "[(0.0, -14.0), (4.0, -4.0), (14.0, 0.0), (4.0, 4.0), (0.0, 14.0), (-4.0, 4.0), (-14.0, 0.0), (-4.0, -4.0)]",
+              "color": "(1.0, 0.78, 0.3, 0.98)",
+              "rotation": 3.59039163589478,
+              "position": "(-64.50642, -31.06466)",
+              "scale": "(0.842471, 0.842471)",
+              "modulate": "(1.0, 1.0, 1.0, 0.8281)"
+            },
+            {
+              "aspect": "1280x720",
+              "state": "fashion_roshan_ribbon_picked",
+              "image_sha256": "52203e851b07ff8ca6ac1d95c873da8251eed7172d4abc46df0ad765fe9c152d",
+              "node": "@CanvasLayer@1125/@Control@1126/StorybookStage/WardrobeFeedbackLayer/WardrobePreviewFeedbackBurst/@Polygon2D@1891",
+              "polygon": "[(0.0, -14.0), (4.0, -4.0), (14.0, 0.0), (4.0, 4.0), (0.0, 14.0), (-4.0, 4.0), (-14.0, 0.0), (-4.0, -4.0)]",
+              "color": "(1.0, 0.78, 0.3, 0.98)",
+              "rotation": 3.59039163589478,
+              "position": "(-105.4279, -50.77139)",
+              "scale": "(0.719036, 0.719036)",
+              "modulate": "(1.0, 1.0, 1.0, 0.6738)"
+            },
+            {
+              "aspect": "1280x720",
+              "state": "fashion_rumi_ribbon_picked",
+              "image_sha256": "9ca348651ebf553b774bb0e10527818e4f34284c06b76702c73d7307fcee6251",
+              "node": "@CanvasLayer@1125/@Control@1126/StorybookStage/WardrobeFeedbackLayer/WardrobePreviewFeedbackBurst/@Polygon2D@1968",
+              "polygon": "[(0.0, -14.0), (4.0, -4.0), (14.0, 0.0), (4.0, 4.0), (0.0, 14.0), (-4.0, 4.0), (-14.0, 0.0), (-4.0, -4.0)]",
+              "color": "(1.0, 0.78, 0.3, 0.98)",
+              "rotation": 3.59039163589478,
+              "position": "(-109.4066, -52.68743)",
+              "scale": "(0.70549, 0.70549)",
+              "modulate": "(1.0, 1.0, 1.0, 0.6569)"
+            },
+            {
+              "aspect": "1280x720",
+              "state": "fashion_daddy_mermaid_ribbon_picked",
+              "image_sha256": "c9380df906667bcb32b36c0c12df1e73c9d3eb3d459454acade249596334c364",
+              "node": "@CanvasLayer@1125/@Control@1126/StorybookStage/WardrobeFeedbackLayer/WardrobePreviewFeedbackBurst/@Polygon2D@2045",
+              "polygon": "[(0.0, -14.0), (4.0, -4.0), (14.0, 0.0), (4.0, 4.0), (0.0, 14.0), (-4.0, 4.0), (-14.0, 0.0), (-4.0, -4.0)]",
+              "color": "(1.0, 0.78, 0.3, 0.98)",
+              "rotation": 3.59039163589478,
+              "position": "(-105.6798, -50.89269)",
+              "scale": "(0.718188, 0.718188)",
+              "modulate": "(1.0, 1.0, 1.0, 0.6727)"
+            },
+            {
+              "aspect": "1600x720",
+              "state": "fashion_launcher_feedback",
+              "image_sha256": "140a289a5f44f7532be812f97ea802571192dc20b0b732898352d896bdb9b558",
+              "node": "@CanvasLayer@364/@Control@365/StorybookStage/WardrobeFeedbackLayer/WardrobePreviewFeedbackBurst/@Polygon2D@380",
+              "polygon": "[(0.0, -14.0), (4.0, -4.0), (14.0, 0.0), (4.0, 4.0), (0.0, 14.0), (-4.0, 4.0), (-14.0, 0.0), (-4.0, -4.0)]",
+              "color": "(1.0, 0.78, 0.3, 0.98)",
+              "rotation": 3.59039163589478,
+              "position": "(-64.86414, -31.23693)",
+              "scale": "(0.841492, 0.841492)",
+              "modulate": "(1.0, 1.0, 1.0, 0.8269)"
+            },
+            {
+              "aspect": "1600x720",
+              "state": "fashion_roshan_ribbon_picked",
+              "image_sha256": "61f0aa21d76e496f46022f3ec2a5bf90a9453b611dfc35faf04bdf087622e670",
+              "node": "@CanvasLayer@1125/@Control@1126/StorybookStage/WardrobeFeedbackLayer/WardrobePreviewFeedbackBurst/@Polygon2D@1891",
+              "polygon": "[(0.0, -14.0), (4.0, -4.0), (14.0, 0.0), (4.0, 4.0), (0.0, 14.0), (-4.0, 4.0), (-14.0, 0.0), (-4.0, -4.0)]",
+              "color": "(1.0, 0.78, 0.3, 0.98)",
+              "rotation": 3.59039163589478,
+              "position": "(-109.2009, -52.5884)",
+              "scale": "(0.706199, 0.706199)",
+              "modulate": "(1.0, 1.0, 1.0, 0.6577)"
+            },
+            {
+              "aspect": "1600x720",
+              "state": "fashion_rumi_ribbon_picked",
+              "image_sha256": "241e840ff7d2ff89615626a4e9c0bcdbabeac3f237625a3cb5bd085dca22dd68",
+              "node": "@CanvasLayer@1125/@Control@1126/StorybookStage/WardrobeFeedbackLayer/WardrobePreviewFeedbackBurst/@Polygon2D@1968",
+              "polygon": "[(0.0, -14.0), (4.0, -4.0), (14.0, 0.0), (4.0, 4.0), (0.0, 14.0), (-4.0, 4.0), (-14.0, 0.0), (-4.0, -4.0)]",
+              "color": "(1.0, 0.78, 0.3, 0.98)",
+              "rotation": 3.59039163589478,
+              "position": "(-111.4528, -53.67285)",
+              "scale": "(0.698386, 0.698386)",
+              "modulate": "(1.0, 1.0, 1.0, 0.648)"
+            },
+            {
+              "aspect": "1600x720",
+              "state": "fashion_daddy_mermaid_ribbon_picked",
+              "image_sha256": "c756f2c24979d9cfcd826a536b83fa724a3b15b5eab4d8e517e97e98af9cf167",
+              "node": "@CanvasLayer@1125/@Control@1126/StorybookStage/WardrobeFeedbackLayer/WardrobePreviewFeedbackBurst/@Polygon2D@2045",
+              "polygon": "[(0.0, -14.0), (4.0, -4.0), (14.0, 0.0), (4.0, 4.0), (0.0, 14.0), (-4.0, 4.0), (-14.0, 0.0), (-4.0, -4.0)]",
+              "color": "(1.0, 0.78, 0.3, 0.98)",
+              "rotation": 3.59039163589478,
+              "position": "(-106.7501, -51.40815)",
+              "scale": "(0.714572, 0.714572)",
+              "modulate": "(1.0, 1.0, 1.0, 0.6682)"
+            }
+          ],
+          "count_unit": "named role/index in one active14-sparkle burst; repeated lifetime instances unbounded",
+          "replacement_count": 1
+        },
+        {
+          "instance_id": "R6-WARDROBE-BURST-09",
+          "source_index": 9,
+          "classification": "FLAT_VISIBLE_ART_PENDING_REPLACEMENT",
+          "bindings": [
+            {
+              "aspect": "1280x720",
+              "state": "fashion_launcher_feedback",
+              "image_sha256": "50bcfe4bd76056c898b1bef0ddbf9d0bfdec47cef057b3cfd713b5a44bbcd9fa",
+              "node": "@CanvasLayer@364/@Control@365/StorybookStage/WardrobeFeedbackLayer/WardrobePreviewFeedbackBurst/@Polygon2D@381",
+              "polygon": "[(0.0, -14.0), (4.0, -4.0), (14.0, 0.0), (4.0, 4.0), (0.0, 14.0), (-4.0, 4.0), (-14.0, 0.0), (-4.0, -4.0)]",
+              "color": "(0.7, 0.97, 1.0, 1.0)",
+              "rotation": 4.12919044494629,
+              "position": "(-33.88993, -51.36788)",
+              "scale": "(0.676853, 0.676853)",
+              "modulate": "(1.0, 1.0, 1.0, 0.8281)"
+            },
+            {
+              "aspect": "1280x720",
+              "state": "fashion_roshan_ribbon_picked",
+              "image_sha256": "52203e851b07ff8ca6ac1d95c873da8251eed7172d4abc46df0ad765fe9c152d",
+              "node": "@CanvasLayer@1125/@Control@1126/StorybookStage/WardrobeFeedbackLayer/WardrobePreviewFeedbackBurst/@Polygon2D@1892",
+              "polygon": "[(0.0, -14.0), (4.0, -4.0), (14.0, 0.0), (4.0, 4.0), (0.0, 14.0), (-4.0, 4.0), (-14.0, 0.0), (-4.0, -4.0)]",
+              "color": "(0.7, 0.97, 1.0, 1.0)",
+              "rotation": 4.12919044494629,
+              "position": "(-54.81858, -83.09001)",
+              "scale": "(0.584277, 0.584277)",
+              "modulate": "(1.0, 1.0, 1.0, 0.6738)"
+            },
+            {
+              "aspect": "1280x720",
+              "state": "fashion_rumi_ribbon_picked",
+              "image_sha256": "9ca348651ebf553b774bb0e10527818e4f34284c06b76702c73d7307fcee6251",
+              "node": "@CanvasLayer@1125/@Control@1126/StorybookStage/WardrobeFeedbackLayer/WardrobePreviewFeedbackBurst/@Polygon2D@1969",
+              "polygon": "[(0.0, -14.0), (4.0, -4.0), (14.0, 0.0), (4.0, 4.0), (0.0, 14.0), (-4.0, 4.0), (-14.0, 0.0), (-4.0, -4.0)]",
+              "color": "(0.7, 0.97, 1.0, 1.0)",
+              "rotation": 4.12919044494629,
+              "position": "(-56.85343, -86.17428)",
+              "scale": "(0.574118, 0.574118)",
+              "modulate": "(1.0, 1.0, 1.0, 0.6569)"
+            },
+            {
+              "aspect": "1280x720",
+              "state": "fashion_daddy_mermaid_ribbon_picked",
+              "image_sha256": "c9380df906667bcb32b36c0c12df1e73c9d3eb3d459454acade249596334c364",
+              "node": "@CanvasLayer@1125/@Control@1126/StorybookStage/WardrobeFeedbackLayer/WardrobePreviewFeedbackBurst/@Polygon2D@2046",
+              "polygon": "[(0.0, -14.0), (4.0, -4.0), (14.0, 0.0), (4.0, 4.0), (0.0, 14.0), (-4.0, 4.0), (-14.0, 0.0), (-4.0, -4.0)]",
+              "color": "(0.7, 0.97, 1.0, 1.0)",
+              "rotation": 4.12919044494629,
+              "position": "(-54.94741, -83.28527)",
+              "scale": "(0.583641, 0.583641)",
+              "modulate": "(1.0, 1.0, 1.0, 0.6727)"
+            },
+            {
+              "aspect": "1600x720",
+              "state": "fashion_launcher_feedback",
+              "image_sha256": "140a289a5f44f7532be812f97ea802571192dc20b0b732898352d896bdb9b558",
+              "node": "@CanvasLayer@364/@Control@365/StorybookStage/WardrobeFeedbackLayer/WardrobePreviewFeedbackBurst/@Polygon2D@381",
+              "polygon": "[(0.0, -14.0), (4.0, -4.0), (14.0, 0.0), (4.0, 4.0), (0.0, 14.0), (-4.0, 4.0), (-14.0, 0.0), (-4.0, -4.0)]",
+              "color": "(0.7, 0.97, 1.0, 1.0)",
+              "rotation": 4.12919044494629,
+              "position": "(-34.07288, -51.64519)",
+              "scale": "(0.676119, 0.676119)",
+              "modulate": "(1.0, 1.0, 1.0, 0.8269)"
+            },
+            {
+              "aspect": "1600x720",
+              "state": "fashion_roshan_ribbon_picked",
+              "image_sha256": "61f0aa21d76e496f46022f3ec2a5bf90a9453b611dfc35faf04bdf087622e670",
+              "node": "@CanvasLayer@1125/@Control@1126/StorybookStage/WardrobeFeedbackLayer/WardrobePreviewFeedbackBurst/@Polygon2D@1892",
+              "polygon": "[(0.0, -14.0), (4.0, -4.0), (14.0, 0.0), (4.0, 4.0), (0.0, 14.0), (-4.0, 4.0), (-14.0, 0.0), (-4.0, -4.0)]",
+              "color": "(0.7, 0.97, 1.0, 1.0)",
+              "rotation": 4.12919044494629,
+              "position": "(-56.74826, -86.01487)",
+              "scale": "(0.574649, 0.574649)",
+              "modulate": "(1.0, 1.0, 1.0, 0.6577)"
+            },
+            {
+              "aspect": "1600x720",
+              "state": "fashion_rumi_ribbon_picked",
+              "image_sha256": "241e840ff7d2ff89615626a4e9c0bcdbabeac3f237625a3cb5bd085dca22dd68",
+              "node": "@CanvasLayer@1125/@Control@1126/StorybookStage/WardrobeFeedbackLayer/WardrobePreviewFeedbackBurst/@Polygon2D@1969",
+              "polygon": "[(0.0, -14.0), (4.0, -4.0), (14.0, 0.0), (4.0, 4.0), (0.0, 14.0), (-4.0, 4.0), (-14.0, 0.0), (-4.0, -4.0)]",
+              "color": "(0.7, 0.97, 1.0, 1.0)",
+              "rotation": 4.12919044494629,
+              "position": "(-57.89995, -87.76051)",
+              "scale": "(0.568789, 0.568789)",
+              "modulate": "(1.0, 1.0, 1.0, 0.648)"
+            },
+            {
+              "aspect": "1600x720",
+              "state": "fashion_daddy_mermaid_ribbon_picked",
+              "image_sha256": "c756f2c24979d9cfcd826a536b83fa724a3b15b5eab4d8e517e97e98af9cf167",
+              "node": "@CanvasLayer@1125/@Control@1126/StorybookStage/WardrobeFeedbackLayer/WardrobePreviewFeedbackBurst/@Polygon2D@2046",
+              "polygon": "[(0.0, -14.0), (4.0, -4.0), (14.0, 0.0), (4.0, 4.0), (0.0, 14.0), (-4.0, 4.0), (-14.0, 0.0), (-4.0, -4.0)]",
+              "color": "(0.7, 0.97, 1.0, 1.0)",
+              "rotation": 4.12919044494629,
+              "position": "(-55.49483, -84.11501)",
+              "scale": "(0.580929, 0.580929)",
+              "modulate": "(1.0, 1.0, 1.0, 0.6682)"
+            }
+          ],
+          "count_unit": "named role/index in one active14-sparkle burst; repeated lifetime instances unbounded",
+          "replacement_count": 1
+        },
+        {
+          "instance_id": "R6-WARDROBE-BURST-10",
+          "source_index": 10,
+          "classification": "FLAT_VISIBLE_ART_PENDING_REPLACEMENT",
+          "bindings": [
+            {
+              "aspect": "1280x720",
+              "state": "fashion_launcher_feedback",
+              "image_sha256": "50bcfe4bd76056c898b1bef0ddbf9d0bfdec47cef057b3cfd713b5a44bbcd9fa",
+              "node": "@CanvasLayer@364/@Control@365/StorybookStage/WardrobeFeedbackLayer/WardrobePreviewFeedbackBurst/@Polygon2D@382",
+              "polygon": "[(0.0, -14.0), (4.0, -4.0), (14.0, 0.0), (4.0, 4.0), (0.0, 14.0), (-4.0, 4.0), (-14.0, 0.0), (-4.0, -4.0)]",
+              "color": "(1.0, 0.62, 0.88, 1.0)",
+              "rotation": 4.48798942565918,
+              "position": "(-14.81287, -64.89941)",
+              "scale": "(0.759662, 0.759662)",
+              "modulate": "(1.0, 1.0, 1.0, 0.8281)"
+            },
+            {
+              "aspect": "1280x720",
+              "state": "fashion_roshan_ribbon_picked",
+              "image_sha256": "52203e851b07ff8ca6ac1d95c873da8251eed7172d4abc46df0ad765fe9c152d",
+              "node": "@CanvasLayer@1125/@Control@1126/StorybookStage/WardrobeFeedbackLayer/WardrobePreviewFeedbackBurst/@Polygon2D@1893",
+              "polygon": "[(0.0, -14.0), (4.0, -4.0), (14.0, 0.0), (4.0, 4.0), (0.0, 14.0), (-4.0, 4.0), (-14.0, 0.0), (-4.0, -4.0)]",
+              "color": "(1.0, 0.62, 0.88, 1.0)",
+              "rotation": 4.48798942565918,
+              "position": "(-24.09459, -105.5653)",
+              "scale": "(0.651656, 0.651656)",
+              "modulate": "(1.0, 1.0, 1.0, 0.6738)"
+            },
+            {
+              "aspect": "1280x720",
+              "state": "fashion_rumi_ribbon_picked",
+              "image_sha256": "9ca348651ebf553b774bb0e10527818e4f34284c06b76702c73d7307fcee6251",
+              "node": "@CanvasLayer@1125/@Control@1126/StorybookStage/WardrobeFeedbackLayer/WardrobePreviewFeedbackBurst/@Polygon2D@1970",
+              "polygon": "[(0.0, -14.0), (4.0, -4.0), (14.0, 0.0), (4.0, 4.0), (0.0, 14.0), (-4.0, 4.0), (-14.0, 0.0), (-4.0, -4.0)]",
+              "color": "(1.0, 0.62, 0.88, 1.0)",
+              "rotation": 4.48798942565918,
+              "position": "(-24.99703, -109.5191)",
+              "scale": "(0.639804, 0.639804)",
+              "modulate": "(1.0, 1.0, 1.0, 0.6569)"
+            },
+            {
+              "aspect": "1280x720",
+              "state": "fashion_daddy_mermaid_ribbon_picked",
+              "image_sha256": "c9380df906667bcb32b36c0c12df1e73c9d3eb3d459454acade249596334c364",
+              "node": "@CanvasLayer@1125/@Control@1126/StorybookStage/WardrobeFeedbackLayer/WardrobePreviewFeedbackBurst/@Polygon2D@2047",
+              "polygon": "[(0.0, -14.0), (4.0, -4.0), (14.0, 0.0), (4.0, 4.0), (0.0, 14.0), (-4.0, 4.0), (-14.0, 0.0), (-4.0, -4.0)]",
+              "color": "(1.0, 0.62, 0.88, 1.0)",
+              "rotation": 4.48798942565918,
+              "position": "(-24.15172, -105.8156)",
+              "scale": "(0.650915, 0.650915)",
+              "modulate": "(1.0, 1.0, 1.0, 0.6727)"
+            },
+            {
+              "aspect": "1600x720",
+              "state": "fashion_launcher_feedback",
+              "image_sha256": "140a289a5f44f7532be812f97ea802571192dc20b0b732898352d896bdb9b558",
+              "node": "@CanvasLayer@364/@Control@365/StorybookStage/WardrobeFeedbackLayer/WardrobePreviewFeedbackBurst/@Polygon2D@382",
+              "polygon": "[(0.0, -14.0), (4.0, -4.0), (14.0, 0.0), (4.0, 4.0), (0.0, 14.0), (-4.0, 4.0), (-14.0, 0.0), (-4.0, -4.0)]",
+              "color": "(1.0, 0.62, 0.88, 1.0)",
+              "rotation": 4.48798942565918,
+              "position": "(-14.89401, -65.2549)",
+              "scale": "(0.758805, 0.758805)",
+              "modulate": "(1.0, 1.0, 1.0, 0.8269)"
+            },
+            {
+              "aspect": "1600x720",
+              "state": "fashion_roshan_ribbon_picked",
+              "image_sha256": "61f0aa21d76e496f46022f3ec2a5bf90a9453b611dfc35faf04bdf087622e670",
+              "node": "@CanvasLayer@1125/@Control@1126/StorybookStage/WardrobeFeedbackLayer/WardrobePreviewFeedbackBurst/@Polygon2D@1893",
+              "polygon": "[(0.0, -14.0), (4.0, -4.0), (14.0, 0.0), (4.0, 4.0), (0.0, 14.0), (-4.0, 4.0), (-14.0, 0.0), (-4.0, -4.0)]",
+              "color": "(1.0, 0.62, 0.88, 1.0)",
+              "rotation": 4.48798942565918,
+              "position": "(-24.95039, -109.3148)",
+              "scale": "(0.640424, 0.640424)",
+              "modulate": "(1.0, 1.0, 1.0, 0.6577)"
+            },
+            {
+              "aspect": "1600x720",
+              "state": "fashion_rumi_ribbon_picked",
+              "image_sha256": "241e840ff7d2ff89615626a4e9c0bcdbabeac3f237625a3cb5bd085dca22dd68",
+              "node": "@CanvasLayer@1125/@Control@1126/StorybookStage/WardrobeFeedbackLayer/WardrobePreviewFeedbackBurst/@Polygon2D@1970",
+              "polygon": "[(0.0, -14.0), (4.0, -4.0), (14.0, 0.0), (4.0, 4.0), (0.0, 14.0), (-4.0, 4.0), (-14.0, 0.0), (-4.0, -4.0)]",
+              "color": "(1.0, 0.62, 0.88, 1.0)",
+              "rotation": 4.48798942565918,
+              "position": "(-25.46115, -111.5526)",
+              "scale": "(0.633588, 0.633588)",
+              "modulate": "(1.0, 1.0, 1.0, 0.648)"
+            },
+            {
+              "aspect": "1600x720",
+              "state": "fashion_daddy_mermaid_ribbon_picked",
+              "image_sha256": "c756f2c24979d9cfcd826a536b83fa724a3b15b5eab4d8e517e97e98af9cf167",
+              "node": "@CanvasLayer@1125/@Control@1126/StorybookStage/WardrobeFeedbackLayer/WardrobePreviewFeedbackBurst/@Polygon2D@2047",
+              "polygon": "[(0.0, -14.0), (4.0, -4.0), (14.0, 0.0), (4.0, 4.0), (0.0, 14.0), (-4.0, 4.0), (-14.0, 0.0), (-4.0, -4.0)]",
+              "color": "(1.0, 0.62, 0.88, 1.0)",
+              "rotation": 4.48798942565918,
+              "position": "(-24.3945, -106.8793)",
+              "scale": "(0.647751, 0.647751)",
+              "modulate": "(1.0, 1.0, 1.0, 0.6682)"
+            }
+          ],
+          "count_unit": "named role/index in one active14-sparkle burst; repeated lifetime instances unbounded",
+          "replacement_count": 1
+        },
+        {
+          "instance_id": "R6-WARDROBE-BURST-11",
+          "source_index": 11,
+          "classification": "FLAT_VISIBLE_ART_PENDING_REPLACEMENT",
+          "bindings": [
+            {
+              "aspect": "1280x720",
+              "state": "fashion_launcher_feedback",
+              "image_sha256": "50bcfe4bd76056c898b1bef0ddbf9d0bfdec47cef057b3cfd713b5a44bbcd9fa",
+              "node": "@CanvasLayer@364/@Control@365/StorybookStage/WardrobeFeedbackLayer/WardrobePreviewFeedbackBurst/@Polygon2D@383",
+              "polygon": "[(0.0, -14.0), (4.0, -4.0), (14.0, 0.0), (4.0, 4.0), (0.0, 14.0), (-4.0, 4.0), (-14.0, 0.0), (-4.0, -4.0)]",
+              "color": "(0.97, 0.95, 1.0, 1.0)",
+              "rotation": 5.02678823471069,
+              "position": "(22.14096, -68.08723)",
+              "scale": "(0.842471, 0.842471)",
+              "modulate": "(1.0, 1.0, 1.0, 0.8281)"
+            },
+            {
+              "aspect": "1280x720",
+              "state": "fashion_roshan_ribbon_picked",
+              "image_sha256": "52203e851b07ff8ca6ac1d95c873da8251eed7172d4abc46df0ad765fe9c152d",
+              "node": "@CanvasLayer@1125/@Control@1126/StorybookStage/WardrobeFeedbackLayer/WardrobePreviewFeedbackBurst/@Polygon2D@1894",
+              "polygon": "[(0.0, -14.0), (4.0, -4.0), (14.0, 0.0), (4.0, 4.0), (0.0, 14.0), (-4.0, 4.0), (-14.0, 0.0), (-4.0, -4.0)]",
+              "color": "(0.97, 0.95, 1.0, 1.0)",
+              "rotation": 5.02678823471069,
+              "position": "(36.1867, -111.2802)",
+              "scale": "(0.719036, 0.719036)",
+              "modulate": "(1.0, 1.0, 1.0, 0.6738)"
+            },
+            {
+              "aspect": "1280x720",
+              "state": "fashion_rumi_ribbon_picked",
+              "image_sha256": "9ca348651ebf553b774bb0e10527818e4f34284c06b76702c73d7307fcee6251",
+              "node": "@CanvasLayer@1125/@Control@1126/StorybookStage/WardrobeFeedbackLayer/WardrobePreviewFeedbackBurst/@Polygon2D@1971",
+              "polygon": "[(0.0, -14.0), (4.0, -4.0), (14.0, 0.0), (4.0, 4.0), (0.0, 14.0), (-4.0, 4.0), (-14.0, 0.0), (-4.0, -4.0)]",
+              "color": "(0.97, 0.95, 1.0, 1.0)",
+              "rotation": 5.02678823471069,
+              "position": "(37.55233, -115.4798)",
+              "scale": "(0.70549, 0.70549)",
+              "modulate": "(1.0, 1.0, 1.0, 0.6569)"
+            },
+            {
+              "aspect": "1280x720",
+              "state": "fashion_daddy_mermaid_ribbon_picked",
+              "image_sha256": "c9380df906667bcb32b36c0c12df1e73c9d3eb3d459454acade249596334c364",
+              "node": "@CanvasLayer@1125/@Control@1126/StorybookStage/WardrobeFeedbackLayer/WardrobePreviewFeedbackBurst/@Polygon2D@2048",
+              "polygon": "[(0.0, -14.0), (4.0, -4.0), (14.0, 0.0), (4.0, 4.0), (0.0, 14.0), (-4.0, 4.0), (-14.0, 0.0), (-4.0, -4.0)]",
+              "color": "(0.97, 0.95, 1.0, 1.0)",
+              "rotation": 5.02678823471069,
+              "position": "(36.27316, -111.5461)",
+              "scale": "(0.718188, 0.718188)",
+              "modulate": "(1.0, 1.0, 1.0, 0.6727)"
+            },
+            {
+              "aspect": "1600x720",
+              "state": "fashion_launcher_feedback",
+              "image_sha256": "140a289a5f44f7532be812f97ea802571192dc20b0b732898352d896bdb9b558",
+              "node": "@CanvasLayer@364/@Control@365/StorybookStage/WardrobeFeedbackLayer/WardrobePreviewFeedbackBurst/@Polygon2D@383",
+              "polygon": "[(0.0, -14.0), (4.0, -4.0), (14.0, 0.0), (4.0, 4.0), (0.0, 14.0), (-4.0, 4.0), (-14.0, 0.0), (-4.0, -4.0)]",
+              "color": "(0.97, 0.95, 1.0, 1.0)",
+              "rotation": 5.02678823471069,
+              "position": "(22.26375, -68.4648)",
+              "scale": "(0.841492, 0.841492)",
+              "modulate": "(1.0, 1.0, 1.0, 0.8269)"
+            },
+            {
+              "aspect": "1600x720",
+              "state": "fashion_roshan_ribbon_picked",
+              "image_sha256": "61f0aa21d76e496f46022f3ec2a5bf90a9453b611dfc35faf04bdf087622e670",
+              "node": "@CanvasLayer@1125/@Control@1126/StorybookStage/WardrobeFeedbackLayer/WardrobePreviewFeedbackBurst/@Polygon2D@1894",
+              "polygon": "[(0.0, -14.0), (4.0, -4.0), (14.0, 0.0), (4.0, 4.0), (0.0, 14.0), (-4.0, 4.0), (-14.0, 0.0), (-4.0, -4.0)]",
+              "color": "(0.97, 0.95, 1.0, 1.0)",
+              "rotation": 5.02678823471069,
+              "position": "(37.48175, -115.2628)",
+              "scale": "(0.706199, 0.706199)",
+              "modulate": "(1.0, 1.0, 1.0, 0.6577)"
+            },
+            {
+              "aspect": "1600x720",
+              "state": "fashion_rumi_ribbon_picked",
+              "image_sha256": "241e840ff7d2ff89615626a4e9c0bcdbabeac3f237625a3cb5bd085dca22dd68",
+              "node": "@CanvasLayer@1125/@Control@1126/StorybookStage/WardrobeFeedbackLayer/WardrobePreviewFeedbackBurst/@Polygon2D@1971",
+              "polygon": "[(0.0, -14.0), (4.0, -4.0), (14.0, 0.0), (4.0, 4.0), (0.0, 14.0), (-4.0, 4.0), (-14.0, 0.0), (-4.0, -4.0)]",
+              "color": "(0.97, 0.95, 1.0, 1.0)",
+              "rotation": 5.02678823471069,
+              "position": "(38.25468, -117.6396)",
+              "scale": "(0.698386, 0.698386)",
+              "modulate": "(1.0, 1.0, 1.0, 0.648)"
+            },
+            {
+              "aspect": "1600x720",
+              "state": "fashion_daddy_mermaid_ribbon_picked",
+              "image_sha256": "c756f2c24979d9cfcd826a536b83fa724a3b15b5eab4d8e517e97e98af9cf167",
+              "node": "@CanvasLayer@1125/@Control@1126/StorybookStage/WardrobeFeedbackLayer/WardrobePreviewFeedbackBurst/@Polygon2D@2048",
+              "polygon": "[(0.0, -14.0), (4.0, -4.0), (14.0, 0.0), (4.0, 4.0), (0.0, 14.0), (-4.0, 4.0), (-14.0, 0.0), (-4.0, -4.0)]",
+              "color": "(0.97, 0.95, 1.0, 1.0)",
+              "rotation": 5.02678823471069,
+              "position": "(36.64054, -112.6759)",
+              "scale": "(0.714572, 0.714572)",
+              "modulate": "(1.0, 1.0, 1.0, 0.6682)"
+            }
+          ],
+          "count_unit": "named role/index in one active14-sparkle burst; repeated lifetime instances unbounded",
+          "replacement_count": 1
+        },
+        {
+          "instance_id": "R6-WARDROBE-BURST-12",
+          "source_index": 12,
+          "classification": "FLAT_VISIBLE_ART_PENDING_REPLACEMENT",
+          "bindings": [
+            {
+              "aspect": "1280x720",
+              "state": "fashion_launcher_feedback",
+              "image_sha256": "50bcfe4bd76056c898b1bef0ddbf9d0bfdec47cef057b3cfd713b5a44bbcd9fa",
+              "node": "@CanvasLayer@364/@Control@365/StorybookStage/WardrobeFeedbackLayer/WardrobePreviewFeedbackBurst/@Polygon2D@384",
+              "polygon": "[(0.0, -14.0), (4.0, -4.0), (14.0, 0.0), (4.0, 4.0), (0.0, 14.0), (-4.0, 4.0), (-14.0, 0.0), (-4.0, -4.0)]",
+              "color": "(1.0, 0.78, 0.3, 0.98)",
+              "rotation": 5.38558721542358,
+              "position": "(38.36964, -48.11401)",
+              "scale": "(0.676853, 0.676853)",
+              "modulate": "(1.0, 1.0, 1.0, 0.8281)"
+            },
+            {
+              "aspect": "1280x720",
+              "state": "fashion_roshan_ribbon_picked",
+              "image_sha256": "52203e851b07ff8ca6ac1d95c873da8251eed7172d4abc46df0ad765fe9c152d",
+              "node": "@CanvasLayer@1125/@Control@1126/StorybookStage/WardrobeFeedbackLayer/WardrobePreviewFeedbackBurst/@Polygon2D@1895",
+              "polygon": "[(0.0, -14.0), (4.0, -4.0), (14.0, 0.0), (4.0, 4.0), (0.0, 14.0), (-4.0, 4.0), (-14.0, 0.0), (-4.0, -4.0)]",
+              "color": "(1.0, 0.78, 0.3, 0.98)",
+              "rotation": 5.38558721542358,
+              "position": "(62.06473, -77.82671)",
+              "scale": "(0.584277, 0.584277)",
+              "modulate": "(1.0, 1.0, 1.0, 0.6738)"
+            },
+            {
+              "aspect": "1280x720",
+              "state": "fashion_rumi_ribbon_picked",
+              "image_sha256": "9ca348651ebf553b774bb0e10527818e4f34284c06b76702c73d7307fcee6251",
+              "node": "@CanvasLayer@1125/@Control@1126/StorybookStage/WardrobeFeedbackLayer/WardrobePreviewFeedbackBurst/@Polygon2D@1972",
+              "polygon": "[(0.0, -14.0), (4.0, -4.0), (14.0, 0.0), (4.0, 4.0), (0.0, 14.0), (-4.0, 4.0), (-14.0, 0.0), (-4.0, -4.0)]",
+              "color": "(1.0, 0.78, 0.3, 0.98)",
+              "rotation": 5.38558721542358,
+              "position": "(64.36855, -80.71561)",
+              "scale": "(0.574118, 0.574118)",
+              "modulate": "(1.0, 1.0, 1.0, 0.6569)"
+            },
+            {
+              "aspect": "1280x720",
+              "state": "fashion_daddy_mermaid_ribbon_picked",
+              "image_sha256": "c9380df906667bcb32b36c0c12df1e73c9d3eb3d459454acade249596334c364",
+              "node": "@CanvasLayer@1125/@Control@1126/StorybookStage/WardrobeFeedbackLayer/WardrobePreviewFeedbackBurst/@Polygon2D@2049",
+              "polygon": "[(0.0, -14.0), (4.0, -4.0), (14.0, 0.0), (4.0, 4.0), (0.0, 14.0), (-4.0, 4.0), (-14.0, 0.0), (-4.0, -4.0)]",
+              "color": "(1.0, 0.78, 0.3, 0.98)",
+              "rotation": 5.38558721542358,
+              "position": "(62.21058, -78.00961)",
+              "scale": "(0.583641, 0.583641)",
+              "modulate": "(1.0, 1.0, 1.0, 0.6727)"
+            },
+            {
+              "aspect": "1600x720",
+              "state": "fashion_launcher_feedback",
+              "image_sha256": "140a289a5f44f7532be812f97ea802571192dc20b0b732898352d896bdb9b558",
+              "node": "@CanvasLayer@364/@Control@365/StorybookStage/WardrobeFeedbackLayer/WardrobePreviewFeedbackBurst/@Polygon2D@384",
+              "polygon": "[(0.0, -14.0), (4.0, -4.0), (14.0, 0.0), (4.0, 4.0), (0.0, 14.0), (-4.0, 4.0), (-14.0, 0.0), (-4.0, -4.0)]",
+              "color": "(1.0, 0.78, 0.3, 0.98)",
+              "rotation": 5.38558721542358,
+              "position": "(38.57677, -48.37374)",
+              "scale": "(0.676119, 0.676119)",
+              "modulate": "(1.0, 1.0, 1.0, 0.8269)"
+            },
+            {
+              "aspect": "1600x720",
+              "state": "fashion_roshan_ribbon_picked",
+              "image_sha256": "61f0aa21d76e496f46022f3ec2a5bf90a9453b611dfc35faf04bdf087622e670",
+              "node": "@CanvasLayer@1125/@Control@1126/StorybookStage/WardrobeFeedbackLayer/WardrobePreviewFeedbackBurst/@Polygon2D@1895",
+              "polygon": "[(0.0, -14.0), (4.0, -4.0), (14.0, 0.0), (4.0, 4.0), (0.0, 14.0), (-4.0, 4.0), (-14.0, 0.0), (-4.0, -4.0)]",
+              "color": "(1.0, 0.78, 0.3, 0.98)",
+              "rotation": 5.38558721542358,
+              "position": "(64.24948, -80.5663)",
+              "scale": "(0.574649, 0.574649)",
+              "modulate": "(1.0, 1.0, 1.0, 0.6577)"
+            },
+            {
+              "aspect": "1600x720",
+              "state": "fashion_rumi_ribbon_picked",
+              "image_sha256": "241e840ff7d2ff89615626a4e9c0bcdbabeac3f237625a3cb5bd085dca22dd68",
+              "node": "@CanvasLayer@1125/@Control@1126/StorybookStage/WardrobeFeedbackLayer/WardrobePreviewFeedbackBurst/@Polygon2D@1972",
+              "polygon": "[(0.0, -14.0), (4.0, -4.0), (14.0, 0.0), (4.0, 4.0), (0.0, 14.0), (-4.0, 4.0), (-14.0, 0.0), (-4.0, -4.0)]",
+              "color": "(1.0, 0.78, 0.3, 0.98)",
+              "rotation": 5.38558721542358,
+              "position": "(65.5534, -82.20136)",
+              "scale": "(0.568789, 0.568789)",
+              "modulate": "(1.0, 1.0, 1.0, 0.648)"
+            },
+            {
+              "aspect": "1600x720",
+              "state": "fashion_daddy_mermaid_ribbon_picked",
+              "image_sha256": "c756f2c24979d9cfcd826a536b83fa724a3b15b5eab4d8e517e97e98af9cf167",
+              "node": "@CanvasLayer@1125/@Control@1126/StorybookStage/WardrobeFeedbackLayer/WardrobePreviewFeedbackBurst/@Polygon2D@2049",
+              "polygon": "[(0.0, -14.0), (4.0, -4.0), (14.0, 0.0), (4.0, 4.0), (0.0, 14.0), (-4.0, 4.0), (-14.0, 0.0), (-4.0, -4.0)]",
+              "color": "(1.0, 0.78, 0.3, 0.98)",
+              "rotation": 5.38558721542358,
+              "position": "(62.83036, -78.78678)",
+              "scale": "(0.580929, 0.580929)",
+              "modulate": "(1.0, 1.0, 1.0, 0.6682)"
+            }
+          ],
+          "count_unit": "named role/index in one active14-sparkle burst; repeated lifetime instances unbounded",
+          "replacement_count": 1
+        },
+        {
+          "instance_id": "R6-WARDROBE-BURST-13",
+          "source_index": 13,
+          "classification": "FLAT_VISIBLE_ART_PENDING_REPLACEMENT",
+          "bindings": [
+            {
+              "aspect": "1280x720",
+              "state": "fashion_launcher_feedback",
+              "image_sha256": "50bcfe4bd76056c898b1bef0ddbf9d0bfdec47cef057b3cfd713b5a44bbcd9fa",
+              "node": "@CanvasLayer@364/@Control@365/StorybookStage/WardrobeFeedbackLayer/WardrobePreviewFeedbackBurst/@Polygon2D@385",
+              "polygon": "[(0.0, -14.0), (4.0, -4.0), (14.0, 0.0), (4.0, 4.0), (0.0, 14.0), (-4.0, 4.0), (-14.0, 0.0), (-4.0, -4.0)]",
+              "color": "(0.7, 0.97, 1.0, 1.0)",
+              "rotation": 5.92438650131226,
+              "position": "(62.3293, -23.3755)",
+              "scale": "(0.759662, 0.759662)",
+              "modulate": "(1.0, 1.0, 1.0, 0.8281)"
+            },
+            {
+              "aspect": "1280x720",
+              "state": "fashion_roshan_ribbon_picked",
+              "image_sha256": "52203e851b07ff8ca6ac1d95c873da8251eed7172d4abc46df0ad765fe9c152d",
+              "node": "@CanvasLayer@1125/@Control@1126/StorybookStage/WardrobeFeedbackLayer/WardrobePreviewFeedbackBurst/@Polygon2D@1896",
+              "polygon": "[(0.0, -14.0), (4.0, -4.0), (14.0, 0.0), (4.0, 4.0), (0.0, 14.0), (-4.0, 4.0), (-14.0, 0.0), (-4.0, -4.0)]",
+              "color": "(0.7, 0.97, 1.0, 1.0)",
+              "rotation": 5.92438650131226,
+              "position": "(101.3847, -38.02255)",
+              "scale": "(0.651656, 0.651656)",
+              "modulate": "(1.0, 1.0, 1.0, 0.6738)"
+            },
+            {
+              "aspect": "1280x720",
+              "state": "fashion_rumi_ribbon_picked",
+              "image_sha256": "9ca348651ebf553b774bb0e10527818e4f34284c06b76702c73d7307fcee6251",
+              "node": "@CanvasLayer@1125/@Control@1126/StorybookStage/WardrobeFeedbackLayer/WardrobePreviewFeedbackBurst/@Polygon2D@1973",
+              "polygon": "[(0.0, -14.0), (4.0, -4.0), (14.0, 0.0), (4.0, 4.0), (0.0, 14.0), (-4.0, 4.0), (-14.0, 0.0), (-4.0, -4.0)]",
+              "color": "(0.7, 0.97, 1.0, 1.0)",
+              "rotation": 5.92438650131226,
+              "position": "(105.182, -39.44665)",
+              "scale": "(0.639804, 0.639804)",
+              "modulate": "(1.0, 1.0, 1.0, 0.6569)"
+            },
+            {
+              "aspect": "1280x720",
+              "state": "fashion_daddy_mermaid_ribbon_picked",
+              "image_sha256": "c9380df906667bcb32b36c0c12df1e73c9d3eb3d459454acade249596334c364",
+              "node": "@CanvasLayer@1125/@Control@1126/StorybookStage/WardrobeFeedbackLayer/WardrobePreviewFeedbackBurst/@Polygon2D@2050",
+              "polygon": "[(0.0, -14.0), (4.0, -4.0), (14.0, 0.0), (4.0, 4.0), (0.0, 14.0), (-4.0, 4.0), (-14.0, 0.0), (-4.0, -4.0)]",
+              "color": "(0.7, 0.97, 1.0, 1.0)",
+              "rotation": 5.92438650131226,
+              "position": "(101.6251, -38.11271)",
+              "scale": "(0.650915, 0.650915)",
+              "modulate": "(1.0, 1.0, 1.0, 0.6727)"
+            },
+            {
+              "aspect": "1600x720",
+              "state": "fashion_launcher_feedback",
+              "image_sha256": "140a289a5f44f7532be812f97ea802571192dc20b0b732898352d896bdb9b558",
+              "node": "@CanvasLayer@364/@Control@365/StorybookStage/WardrobeFeedbackLayer/WardrobePreviewFeedbackBurst/@Polygon2D@385",
+              "polygon": "[(0.0, -14.0), (4.0, -4.0), (14.0, 0.0), (4.0, 4.0), (0.0, 14.0), (-4.0, 4.0), (-14.0, 0.0), (-4.0, -4.0)]",
+              "color": "(0.7, 0.97, 1.0, 1.0)",
+              "rotation": 5.92438650131226,
+              "position": "(62.67071, -23.50354)",
+              "scale": "(0.758805, 0.758805)",
+              "modulate": "(1.0, 1.0, 1.0, 0.8269)"
+            },
+            {
+              "aspect": "1600x720",
+              "state": "fashion_roshan_ribbon_picked",
+              "image_sha256": "61f0aa21d76e496f46022f3ec2a5bf90a9453b611dfc35faf04bdf087622e670",
+              "node": "@CanvasLayer@1125/@Control@1126/StorybookStage/WardrobeFeedbackLayer/WardrobePreviewFeedbackBurst/@Polygon2D@1896",
+              "polygon": "[(0.0, -14.0), (4.0, -4.0), (14.0, 0.0), (4.0, 4.0), (0.0, 14.0), (-4.0, 4.0), (-14.0, 0.0), (-4.0, -4.0)]",
+              "color": "(0.7, 0.97, 1.0, 1.0)",
+              "rotation": 5.92438650131226,
+              "position": "(104.9858, -39.37305)",
+              "scale": "(0.640424, 0.640424)",
+              "modulate": "(1.0, 1.0, 1.0, 0.6577)"
+            },
+            {
+              "aspect": "1600x720",
+              "state": "fashion_rumi_ribbon_picked",
+              "image_sha256": "241e840ff7d2ff89615626a4e9c0bcdbabeac3f237625a3cb5bd085dca22dd68",
+              "node": "@CanvasLayer@1125/@Control@1126/StorybookStage/WardrobeFeedbackLayer/WardrobePreviewFeedbackBurst/@Polygon2D@1973",
+              "polygon": "[(0.0, -14.0), (4.0, -4.0), (14.0, 0.0), (4.0, 4.0), (0.0, 14.0), (-4.0, 4.0), (-14.0, 0.0), (-4.0, -4.0)]",
+              "color": "(0.7, 0.97, 1.0, 1.0)",
+              "rotation": 5.92438650131226,
+              "position": "(107.1349, -40.17906)",
+              "scale": "(0.633588, 0.633588)",
+              "modulate": "(1.0, 1.0, 1.0, 0.648)"
+            },
+            {
+              "aspect": "1600x720",
+              "state": "fashion_daddy_mermaid_ribbon_picked",
+              "image_sha256": "c756f2c24979d9cfcd826a536b83fa724a3b15b5eab4d8e517e97e98af9cf167",
+              "node": "@CanvasLayer@1125/@Control@1126/StorybookStage/WardrobeFeedbackLayer/WardrobePreviewFeedbackBurst/@Polygon2D@2050",
+              "polygon": "[(0.0, -14.0), (4.0, -4.0), (14.0, 0.0), (4.0, 4.0), (0.0, 14.0), (-4.0, 4.0), (-14.0, 0.0), (-4.0, -4.0)]",
+              "color": "(0.7, 0.97, 1.0, 1.0)",
+              "rotation": 5.92438650131226,
+              "position": "(102.6467, -38.49582)",
+              "scale": "(0.647751, 0.647751)",
+              "modulate": "(1.0, 1.0, 1.0, 0.6682)"
+            }
+          ],
+          "count_unit": "named role/index in one active14-sparkle burst; repeated lifetime instances unbounded",
+          "replacement_count": 1
+        }
+      ],
+      "caller_proof": "CALLER_PROOFS.json; production calls scripts/wardrobe_ui.gd231 and scripts/fashion_wardrobe.gd289. Both legacy and three fashion person contexts captured on two aspects.",
+      "repeated_instances_total": null,
+      "proof": "Source14 iterations, one eight-point filled Polygon2D per index, four-color palette, deterministic transform/endpoints; previous burst removed/killed,0.68s fade/free. New capture8 bursts each14; settle frames have0.",
+      "remaining": "All14 visible roles must become painted art; save variants, loop/motion/device/child/owner review and strict Canvas proof remain open"
+    }
+  ],
+  "inherited_classified_scopes": 7,
+  "total_inventory_classified_scopes": 9,
+  "unresolved_source_scopes": 360,
+  "actual_all_game_individual_piece_total": null,
+  "new_replacements": 0,
+  "accepted_removals": 0,
+  "finite_art_role_note": "R5 63 + core menu17 + burst14 =94 named flat roles within six classified art scopes.14 burst roles repeat across lifetimes; this is not an all-game total or unique texture count."
+}

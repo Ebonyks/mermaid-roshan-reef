@@ -1,0 +1,69 @@
+{
+  "status": "PASS",
+  "measured_source_files": 349,
+  "identifier_occurrences": 382,
+  "exact_source_proofs": 46,
+  "source_route_reviews": 6,
+  "retained_friend_scope_backlog": 27,
+  "source_role_briefs": 37,
+  "new_frames": 0,
+  "visual_classifications_added": 0,
+  "acceptance": false,
+  "falsification_controls": [
+    {
+      "control": "inflated_native_frames",
+      "rejected": true,
+      "reason": "('native_frames_added', 'source-only claim drift')"
+    },
+    {
+      "control": "false_visual_classification",
+      "rejected": true,
+      "reason": "('classified_visual_scopes', 'source-only claim drift')"
+    },
+    {
+      "control": "false_all_game_total",
+      "rejected": true,
+      "reason": "('all_game_individual_piece_total', 'source-only claim drift')"
+    },
+    {
+      "control": "omitted_deferred_launch",
+      "rejected": true,
+      "reason": "reference closure drift"
+    },
+    {
+      "control": "archive_mislabeled_production",
+      "rejected": true,
+      "reason": "reference closure drift"
+    },
+    {
+      "control": "missing_source_corpus_file",
+      "rejected": true,
+      "reason": "source corpus drift"
+    },
+    {
+      "control": "dormancy_exemption",
+      "rejected": true,
+      "reason": ""
+    },
+    {
+      "control": "accepted_child_via_parent",
+      "rejected": true,
+      "reason": ""
+    },
+    {
+      "control": "source_bands_claimed_visible",
+      "rejected": true,
+      "reason": ""
+    },
+    {
+      "control": "dormant_entry_complete",
+      "rejected": true,
+      "reason": "prior native status/capture altered"
+    },
+    {
+      "control": "archive_early_return_changed",
+      "rejected": true,
+      "reason": "archived source mismatch"
+    }
+  ]
+}

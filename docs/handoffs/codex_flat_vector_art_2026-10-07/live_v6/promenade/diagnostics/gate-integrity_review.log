@@ -1,0 +1,108 @@
+{
+  "status": "PASS",
+  "native_processes": 8,
+  "native_frames": 256,
+  "boards": 16,
+  "source_files": 6444,
+  "caller_corpus": 349,
+  "caller_refs": 11,
+  "source_proofs": 14,
+  "flat_cue_roles": 10,
+  "inventory_classified_scopes": 2,
+  "cumulative_frames": 1434,
+  "partial_entries": 66,
+  "classified_scopes": 12,
+  "unresolved_scopes": 357,
+  "acceptance": false,
+  "falsifications": [
+    {
+      "case": "unique_total_inflation",
+      "result": "REJECTED"
+    },
+    {
+      "case": "false_accepted_removal",
+      "result": "REJECTED"
+    },
+    {
+      "case": "false_QA11_closure",
+      "result": "REJECTED"
+    },
+    {
+      "case": "omit_visible_raster_role",
+      "result": "REJECTED"
+    },
+    {
+      "case": "functional_mask_exemption",
+      "result": "REJECTED"
+    },
+    {
+      "case": "detach_native_binding",
+      "result": "REJECTED"
+    },
+    {
+      "case": "old_helper_instance_count",
+      "result": "REJECTED"
+    },
+    {
+      "case": "partial_to_complete",
+      "result": "REJECTED"
+    },
+    {
+      "case": "PNG_style_exemption",
+      "result": "REJECTED"
+    },
+    {
+      "case": "detach_board_review",
+      "result": "REJECTED"
+    },
+    {
+      "case": "detach_native_observation",
+      "result": "REJECTED"
+    },
+    {
+      "case": "duplicate_native_matrix",
+      "result": "REJECTED"
+    },
+    {
+      "case": "duplicate_observation_hides_state",
+      "result": "REJECTED"
+    },
+    {
+      "case": "duplicate_board_hides_context",
+      "result": "REJECTED"
+    },
+    {
+      "case": "wrong_scope_source_authority",
+      "result": "REJECTED"
+    },
+    {
+      "case": "functional_helper_exemption",
+      "result": "REJECTED"
+    },
+    {
+      "case": "active_layout_missing",
+      "result": "REJECTED"
+    },
+    {
+      "case": "story_parity_drift",
+      "result": "REJECTED"
+    },
+    {
+      "case": "3D_current_camera",
+      "result": "REJECTED"
+    },
+    {
+      "case": "hidden_normal_HUD",
+      "result": "REJECTED"
+    },
+    {
+      "case": "wrong_pointer_vertices",
+      "result": "REJECTED"
+    },
+    {
+      "case": "normal_save_mutation",
+      "result": "REJECTED"
+    }
+  ],
+  "rejected_falsifications": 22
+}

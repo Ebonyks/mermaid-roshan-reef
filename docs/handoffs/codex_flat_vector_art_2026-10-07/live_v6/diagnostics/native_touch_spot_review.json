@@ -1,0 +1,35 @@
+{
+  "schema": 1,
+  "review_type": "targeted full native PNG inspection; not independent DL-QA-11 measurement",
+  "reviewed_utc": "2026-10-08T11:18:48.164263+00:00",
+  "reviewer": "Codex",
+  "frames": [
+    {
+      "path": "touch/1280x720/touch_hybrid_world_release_after_hold.png",
+      "sha256": "9e359f01a2d674c3758f58a0c8a0fd5d69e27ab176fff7e05aea7678082841fb",
+      "observation": "Visible translucent yellow disc at the recorded world point after long Hybrid hold/release."
+    },
+    {
+      "path": "touch/1280x720/touch_hybrid_world_flash_settled.png",
+      "sha256": "003867aa0b5cf91debf9c7ac99b7c040e73cf0b55795b6e6e0b6aa8e299691d1",
+      "observation": "No yellow disc visible at the recorded world point after the 0.42s wait."
+    },
+    {
+      "path": "touch/1600x720/touch_hybrid_world_shorttap_settled.png",
+      "sha256": "b77e084589609ad49438aa2d71eaa266791b710ac54652218879d9ab668bda0c",
+      "observation": "No yellow disc visible after short Hybrid tap and wait in the wide frame."
+    },
+    {
+      "path": "touch/1600x720/touch_classic_world_release_after_hold.png",
+      "sha256": "4e0c119cd0963afa1c82cf68c63af4d719fc9926c6326458be9675a8d18d7645",
+      "observation": "No yellow disc visible after Classic hold exceeding 300ms; consistent with the source branch."
+    }
+  ],
+  "resolved_diagnostic_question": "Tiny contact-board thumbnails raised a possible persistent-flash concern. Inspection of these original full native PNGs does not show a stale yellow disc in the two inspected settle frames. Moving scenery/camera and captions differ between states; no pixel equality, continuous fade, all-state visual proof or device acceptance is inferred.",
+  "remaining": [
+    "Complete independent live target/visibility/occlusion evidence",
+    "All touch contexts/call sites/repeated flashes and second-finger variants",
+    "Native Android timing/overdraw/30fps, child and owner review"
+  ],
+  "acceptance": false
+}

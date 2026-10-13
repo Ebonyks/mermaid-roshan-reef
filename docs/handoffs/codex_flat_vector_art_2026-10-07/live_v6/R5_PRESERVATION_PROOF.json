@@ -1,0 +1,56 @@
+{
+  "schema": 1,
+  "checked_at_source": "6cde8aeae04aaedcc0b1ff22a05ef93ab9bf666f",
+  "immutable_original_revision": "5e5140fb0f0b636825354b6db8d28da0e9c07446",
+  "automatic_review_rejection": "Historical R5 rewrite rejected;this separate derivative leaves all originals and validator untouched",
+  "checks": [
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/live_v5/companion/1280x720/capture_manifest.json",
+      "unchanged_R5_original": true,
+      "immutable_source_matches": true,
+      "reconstructed_bytes_sha256": "eb532b588c51f292cde11dabcb9069399b95da0df7880df7d75d4971f4d6e75c",
+      "original_bytes": 4901682,
+      "section_count": 5,
+      "derivative_index": "r5_derivatives/companion/1280x720/capture_manifest.json"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/live_v5/companion/1600x720/capture_manifest.json",
+      "unchanged_R5_original": true,
+      "immutable_source_matches": true,
+      "reconstructed_bytes_sha256": "1618c7455b47a98f4242dd9b8586f2d3ece8674d4eb6d8f24e53993f1c006b39",
+      "original_bytes": 4897322,
+      "section_count": 5,
+      "derivative_index": "r5_derivatives/companion/1600x720/capture_manifest.json"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/live_v5/logo/1280x720/capture_manifest.json",
+      "unchanged_R5_original": true,
+      "immutable_source_matches": true,
+      "reconstructed_bytes_sha256": "354296d7d31b89090ce152a9bda8afb21a625e74640bfe2e9fac40afdb114ed5",
+      "original_bytes": 7149973,
+      "section_count": 7,
+      "derivative_index": "r5_derivatives/logo/1280x720/capture_manifest.json"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/live_v5/logo/1600x720/capture_manifest.json",
+      "unchanged_R5_original": true,
+      "immutable_source_matches": true,
+      "reconstructed_bytes_sha256": "21a2935c77587a3a30e1af59cc098f01c213a0b8e58b66b71bdb9216f03d4bb9",
+      "original_bytes": 7248343,
+      "section_count": 7,
+      "derivative_index": "r5_derivatives/logo/1600x720/capture_manifest.json"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/live_v5/scope_dispositions.json",
+      "unchanged_R5_original": true,
+      "immutable_source_matches": true,
+      "reconstructed_bytes_sha256": "4c9cc1a55cd3152863bee9e85400ef8f0283be604c404215ec7386678503f1ef",
+      "original_bytes": 4384284,
+      "section_count": 5,
+      "derivative_index": "r5_derivatives/scope_dispositions.json"
+    }
+  ],
+  "scanner_source_unchanged": true,
+  "historical_proposal_rejected": "After approval/low-risk authorization review, replace only five current-branch large R5 metadata containers with these byte-exact indexes/sections and teach its read_json adapter. Existing immutable GitHub original bytes remain available;no snapshot facts,pixels,source hashes,gates or prior receipts change.",
+  "current_revision_strategy": "R6-only additive packet on fresh origin/dev branch codex/flat-vector-r6-20261012. Original R5 paths/reader remain unchanged on immutable archive;newR6readers inspectliteral derivatives and verifyoriginalGitHubbytes. Scanner/gates untouched."
+}

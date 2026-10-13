@@ -1,0 +1,11 @@
+Traceback (most recent call last):
+  File "C:\Users\Peter\.codex\worktrees\flat-vector-r6-20261012\mermaid-roshan-reef\docs\handoffs\codex_flat_vector_art_2026-10-07\live_v6\hud_fashion\validate.py", line 149, in <module>
+    ap=argparse.ArgumentParser();ap.add_argument('--stress',action='store_true');args=ap.parse_args();validate(args.stress)
+                                                                                                      ~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\Peter\.codex\worktrees\flat-vector-r6-20261012\mermaid-roshan-reef\docs\handoffs\codex_flat_vector_art_2026-10-07\live_v6\hud_fashion\validate.py", line 109, in validate
+    p=Path(name);need(not p.is_absolute() and '..' not in p.parts,'unsafe source name');q=root/p;need(q.is_file() and sha(q.read_bytes())==digest,'runtime source hash '+name);hashes[name]=digest
+                                                                                                 ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Peter\.codex\worktrees\flat-vector-r6-20261012\mermaid-roshan-reef\docs\handoffs\codex_flat_vector_art_2026-10-07\live_v6\hud_fashion\validate.py", line 17, in need
+    if not ok:raise ValueError(why)
+              ^^^^^^^^^^^^^^^^^^^^^
+ValueError: runtime source hash assets/aquatic/Rock2_nano_cliff_Rock2_1.png.import

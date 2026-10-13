@@ -1,0 +1,14 @@
+Traceback (most recent call last):
+  File "C:\Users\Peter\.codex\worktrees\flat-vector-r6-20261012\mermaid-roshan-reef\docs\handoffs\codex_flat_vector_art_2026-10-07\live_v6\room_routes\validate.py", line 102, in <module>
+    p=argparse.ArgumentParser();p.add_argument('--stress',action='store_true');a=p.parse_args();print(json.dumps(validate(a.stress),indent=2))
+                                                                                                                 ~~~~~~~~^^^^^^^^^^
+  File "C:\Users\Peter\.codex\worktrees\flat-vector-r6-20261012\mermaid-roshan-reef\docs\handoffs\codex_flat_vector_art_2026-10-07\live_v6\room_routes\validate.py", line 72, in validate
+    for p,digest in first['files'].items():need(sha((root()/p).read_bytes())==digest,'current measured source changed '+p)
+                                                    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Peter\AppData\Local\Python\pythoncore-3.13-64\Lib\pathlib\_abc.py", line 625, in read_bytes
+    with self.open(mode='rb') as f:
+         ~~~~~~~~~^^^^^^^^^^^
+  File "C:\Users\Peter\AppData\Local\Python\pythoncore-3.13-64\Lib\pathlib\_local.py", line 537, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\assets\\audio\\arborist_tree_book\\roshan_arborist_tree_book_carry.ogg.import'

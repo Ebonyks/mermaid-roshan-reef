@@ -1,0 +1,55 @@
+{
+  "schema": 1,
+  "scopes": [
+    {
+      "scope_id": "FVF-3D0E22645108",
+      "source": "scripts/arena/sky_lagoon_promenade.gd",
+      "function": "_affordance_diamond_texture",
+      "lines": [
+        769,
+        785
+      ],
+      "status": "SOURCE_SCOPE_INVENTORY_CLASSIFIED_NOT_REMOVED",
+      "fully_dispositioned_for_inventory": true,
+      "finite_named_flat_role_instances": 3,
+      "individual_unique_design_count": null,
+      "source_calls": "Only _register_target playground branch;three fixed production callers:slide,swing,seesaw. No production appearance fallback in these helpers.",
+      "variants": "Exact source fixed geometry;native idle/pressed/selected early+late/cancel/pause/action/settled atfour saved day/night story variants,two aspects. Source tint/scale wave remains continuous;full-speed action/contact and device/human acceptance absent.",
+      "bindings": [
+        "promenade.slide.ring",
+        "promenade.swing.ring",
+        "promenade.seesaw.ring"
+      ],
+      "acceptance": false,
+      "source_evidence": "SOURCE_PROOFS.json;CALLER_PROOFS.json",
+      "runtime_evidence": "CAPTURES.json;EXACT_OBSERVATIONS.json;VISUAL_REVIEW.json"
+    },
+    {
+      "scope_id": "FVF-CE72B2B6035D",
+      "source": "scripts/arena/sky_lagoon_promenade.gd",
+      "function": "_add_affordance_pointer",
+      "lines": [
+        786,
+        805
+      ],
+      "status": "SOURCE_SCOPE_INVENTORY_CLASSIFIED_NOT_REMOVED",
+      "fully_dispositioned_for_inventory": true,
+      "finite_named_flat_role_instances": 6,
+      "individual_unique_design_count": null,
+      "source_calls": "Only _register_target playground branch;three fixed production callers:slide,swing,seesaw. No production appearance fallback in these helpers.",
+      "variants": "Exact source fixed geometry;native idle/pressed/selected early+late/cancel/pause/action/settled atfour saved day/night story variants,two aspects. Source tint/scale wave remains continuous;full-speed action/contact and device/human acceptance absent.",
+      "bindings": [
+        "promenade.slide.pointer_outline",
+        "promenade.slide.pointer_fill",
+        "promenade.swing.pointer_outline",
+        "promenade.swing.pointer_fill",
+        "promenade.seesaw.pointer_outline",
+        "promenade.seesaw.pointer_fill"
+      ],
+      "acceptance": false,
+      "source_evidence": "SOURCE_PROOFS.json;CALLER_PROOFS.json",
+      "runtime_evidence": "CAPTURES.json;EXACT_OBSERVATIONS.json;VISUAL_REVIEW.json"
+    }
+  ],
+  "classification_only": true
+}

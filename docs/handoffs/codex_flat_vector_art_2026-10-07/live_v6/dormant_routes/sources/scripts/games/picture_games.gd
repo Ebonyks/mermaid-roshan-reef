@@ -1,0 +1,797 @@
+class_name PictureGames
+extends RefCounted
+# Phase 7.4b: mechanical extraction of the 2D picture-game suite from
+# main.gd (snowman build/face/chase, garden, trampoline, retired slide screen,
+# xmas, plus the shared mg2d canvas helpers and win/close flow). All
+# state stays on main (m.*); received by reference.
+
+var m: ReefMain
+var open_generation := 0
+
+func _init(main: ReefMain) -> void:
+	m = main
+
+func _mg2d_open(kind: String) -> void:
+	if m.mg_kind != "":
+		return
+	if kind == "slide":
+		m._l2_start_slide()   # the rainbow slide uses the full Lagoon playground, never the retired card screen
+		return
+	m._navigation_push("picture_game", self,
+		Callable(self, "_mg2d_close"))
+	open_generation += 1
+	m._set_world_controls_enabled(false, "picture_game")
+	m.mg_kind = kind
+	m.mg = {"t": 0.0, "btns": [], "music_return": m.cur_track}
+	m._play_music("picture_" + kind)
+	if m.mg2d_layer == null:
+		m.mg2d_layer = CanvasLayer.new()
+		m.mg2d_layer.layer = 7
+		m.add_child(m.mg2d_layer)
+	m.mg2d_root = Control.new()
+	m.mg2d_root.set_anchors_preset(Control.PRESET_FULL_RECT)
+	m.mg2d_layer.add_child(m.mg2d_root)
+	m.mg2d_layer.visible = true
+	# clean themed gradient background (no busy book page behind the toys)
+	var themes := {
+		"snowman": [Color(0.50, 0.66, 0.86), Color(0.88, 0.94, 1.0)],
+		"garden": [Color(0.45, 0.78, 0.95), Color(0.7, 0.92, 0.6)],
+		"trampoline": [Color(0.45, 0.72, 1.0), Color(0.86, 0.95, 1.0)],
+		"slide": [Color(0.55, 0.7, 1.0), Color(1.0, 0.85, 0.92)],
+		"xmas": [Color(0.10, 0.18, 0.30), Color(0.25, 0.40, 0.48)]}
+	var grad := Gradient.new()
+	grad.set_color(0, themes[kind][0])
+	grad.set_color(1, themes[kind][1])
+	var gt := GradientTexture2D.new()
+	gt.gradient = grad
+	gt.fill_from = Vector2(0, 0)
+	gt.fill_to = Vector2(0, 1)
+	gt.width = 64
+	gt.height = 64
+	var bg := TextureRect.new()
+	bg.texture = gt
+	bg.set_anchors_preset(Control.PRESET_FULL_RECT)
+	bg.stretch_mode = TextureRect.STRETCH_SCALE
+	m.mg2d_root.add_child(bg)
+	# responsive 1280x720 stage, scaled + centred to any screen (fixes landscape)
+	m.mg2d_stage = Control.new()
+	m.mg2d_stage.size = Vector2(1280, 720)
+	var vp: Vector2 = m.get_viewport().get_visible_rect().size
+	var sc: float = minf(vp.x / 1280.0, vp.y / 720.0)
+	m.mg2d_stage.scale = Vector2(sc, sc)
+	m.mg2d_stage.position = (vp - Vector2(1280, 720) * sc) * 0.5
+	m.mg2d_root.add_child(m.mg2d_stage)
+	# All picture-game feedback lives above the play pieces on this stage. The
+	# layer and every tween below it die with the stage on close or re-entry.
+	var feedback_layer := Control.new()
+	feedback_layer.name = "PictureGameFeedbackLayer"
+	feedback_layer.size = m.mg2d_stage.size
+	feedback_layer.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	feedback_layer.z_index = 20
+	m.mg2d_stage.add_child(feedback_layer)
+	m.mg["feedback_layer"] = feedback_layer
+	m.mg["feedback_tweens"] = []
+	m.mg["feedback_events"] = {}
+	var header := StorybookUI.add_hud_panel(m.mg2d_stage,
+		Rect2(24, 18, 880, 112), StorybookUI.PURPLE,
+		Color(0.94, 0.98, 1.0, 0.97), 34)
+	header.name = "PictureGameStorybookHeader"
+	StorybookUI.add_shell_crest(header, Rect2(20, 27, 82, 60),
+		"PictureGameShellCrest")
+	# Word-wrapped labels need an explicit content box; an empty label starts
+	# at zero width and otherwise displays the later objective one letter wide.
+	var objective := _mg_label("", 34, Vector2(138, 30))
+	objective.size = Vector2(734, 88)
+	objective.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+	m.mg["hud"] = objective
+	m.mg["xbtn"] = null
+	if kind == "snowman": _mg_build_snowman()
+	elif kind == "garden": _mg_build_garden()
+	elif kind == "trampoline": _mg_build_trampoline()
+	elif kind == "slide": _mg_build_slide()
+	elif kind == "xmas": _mg_build_xmas()
+
+
+func _mg_label(txt: String, size: int, pos: Vector2) -> Label:
+	var l := Label.new()
+	l.text = txt
+	StorybookUI.style_hud_label(l, size, StorybookUI.INK, 4)
+	l.position = pos
+	m.mg2d_stage.add_child(l)
+	return l
+
+
+func _mg_circle(pos: Vector2, r: float, col: Color) -> Panel:
+	var p := Panel.new()
+	var sb := StyleBoxFlat.new()
+	sb.bg_color = col
+	sb.set_corner_radius_all(int(r))
+	sb.shadow_color = Color(0, 0, 0, 0.28)
+	sb.shadow_size = 8
+	sb.shadow_offset = Vector2(0, 5)
+	sb.border_color = col.darkened(0.22)              # soft rim for roundness
+	sb.set_border_width_all(maxi(2, int(r * 0.05)))
+	p.add_theme_stylebox_override("panel", sb)
+	p.size = Vector2(r * 2.0, r * 2.0)
+	p.position = pos - Vector2(r, r)
+	m.mg2d_stage.add_child(p)
+	# glossy highlight (upper-left) gives the ball a soft rounded sheen
+	var hl := Panel.new()
+	var hsb := StyleBoxFlat.new()
+	hsb.bg_color = Color(1, 1, 1, 0.38)
+	hsb.set_corner_radius_all(int(r * 0.5))
+	hl.add_theme_stylebox_override("panel", hsb)
+	hl.size = Vector2(r * 0.85, r * 0.6)
+	hl.position = Vector2(r * 0.32, r * 0.22)
+	hl.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	p.add_child(hl)
+	return p
+
+
+func _mg_sprite(path: String, pos: Vector2, sz: Vector2) -> TextureRect:
+	var t := TextureRect.new()
+	t.texture = load(path)
+	t.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+	t.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+	t.size = sz
+	t.position = pos - sz * 0.5
+	m.mg2d_stage.add_child(t)
+	return t
+
+
+func _mg_artbtn(path: String, pos: Vector2, sz: Vector2) -> Button:
+	var b := Button.new()
+	b.position = pos - sz * 0.5
+	b.custom_minimum_size = sz
+	b.size = sz
+	StorybookUI.style_picture_button(b, Color(0.94, 0.98, 1.0, 0.90),
+		StorybookUI.PURPLE, maxi(24, int(minf(sz.x, sz.y) * 0.22)))
+	var t := TextureRect.new()
+	t.texture = load(path)
+	t.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+	t.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+	t.set_anchors_preset(Control.PRESET_FULL_RECT)
+	t.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	b.add_child(t)
+	m.mg2d_stage.add_child(b)
+	(m.mg["btns"] as Array).append(b)
+	return b
+
+
+func _mg2d_feedback_burst(at: Vector2, col: Color, feedback_kind: String,
+		element_count: int = 8, radius: float = 90.0,
+		duration: float = 0.55) -> void:
+	if m.mg2d_stage == null or not is_instance_valid(m.mg2d_stage):
+		return
+	var layer: Control = m.mg.get("feedback_layer") as Control
+	if layer == null or not is_instance_valid(layer):
+		return
+	# One win burst replaces the old world bursts plus falling confetti. Action
+	# feedback is capped at three short bursts so rapid preschool tapping cannot
+	# create an unbounded transparent-overdraw cloud on the target phone.
+	var active_count := 0
+	for old_value in layer.get_children():
+		var old_burst := old_value as Control
+		if old_burst != null and old_burst.visible:
+			if feedback_kind == "win":
+				old_burst.visible = false
+				old_burst.queue_free()
+			else:
+				active_count += 1
+	if feedback_kind != "win":
+		while active_count >= 3:
+			for old_value in layer.get_children():
+				var old_burst := old_value as Control
+				if old_burst != null and old_burst.visible:
+					old_burst.visible = false
+					old_burst.queue_free()
+					active_count -= 1
+					break
+	var count := clampi(element_count, 4, 18)
+	var travel := clampf(radius, 40.0, 320.0)
+	var lifetime := clampf(duration, 0.35, 0.9)
+	var burst := Control.new()
+	burst.name = "PictureGameFeedbackBurst"
+	burst.position = at
+	burst.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	burst.set_meta("feedback_kind", feedback_kind)
+	burst.set_meta("visible_elements", count)
+	layer.add_child(burst)
+	var star_points := PackedVector2Array([
+		Vector2(0, -13), Vector2(4, -4), Vector2(13, 0), Vector2(4, 4),
+		Vector2(0, 13), Vector2(-4, 4), Vector2(-13, 0), Vector2(-4, -4)])
+	for i in range(count):
+		var angle := TAU * float(i) / float(count) + 0.12 * float(i % 2)
+		var direction := Vector2(cos(angle), sin(angle))
+		var sparkle := Polygon2D.new()
+		sparkle.polygon = star_points
+		sparkle.color = Color.from_hsv(float(i) / float(count), 0.62, 1.0) \
+			if feedback_kind == "win" else col.lerp(Color.WHITE, 0.14 * float(i % 3))
+		sparkle.position = direction * 8.0
+		sparkle.rotation = angle
+		sparkle.scale = Vector2.ONE * (0.75 + 0.12 * float(i % 3))
+		sparkle.set_meta("feedback_endpoint", direction * travel * (0.72 + 0.14 * float(i % 3)))
+		burst.add_child(sparkle)
+	var burst_tween := burst.create_tween()
+	var first_property := true
+	for sparkle_value in burst.get_children():
+		var sparkle := sparkle_value as Polygon2D
+		if sparkle == null:
+			continue
+		var endpoint: Vector2 = sparkle.get_meta("feedback_endpoint")
+		if first_property:
+			burst_tween.tween_property(sparkle, "position", endpoint, lifetime) \
+				.set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
+			first_property = false
+		else:
+			burst_tween.parallel().tween_property(sparkle, "position", endpoint, lifetime) \
+				.set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
+		burst_tween.parallel().tween_property(
+			sparkle, "scale", Vector2(0.18, 0.18), lifetime)
+		burst_tween.parallel().tween_property(sparkle, "modulate:a", 0.0, lifetime)
+	burst_tween.tween_callback(burst.queue_free)
+	var tracked: Array = m.mg.get("feedback_tweens", [])
+	for i in range(tracked.size() - 1, -1, -1):
+		var old_tween := tracked[i] as Tween
+		if old_tween == null or not old_tween.is_valid():
+			tracked.remove_at(i)
+	tracked.append(burst_tween)
+	m.mg["feedback_tweens"] = tracked
+	var events: Dictionary = m.mg.get("feedback_events", {})
+	events[feedback_kind] = int(events.get(feedback_kind, 0)) + 1
+	m.mg["feedback_events"] = events
+
+
+func _mg2d_win(msg: String) -> void:
+	m._reward(false)   # RewardDirector: same chime run on every win
+	if m.mg_kind == "snowman":
+		m.award_sticker("snowman")
+	if bool(m.mg.get("won", false)):
+		return
+	m.mg["won"] = true
+	m._medal_ref().award_from_mg2d(m.mg_kind, m.mg)
+	m.show_msg("Roshan", msg, "win")
+	m.pearl_count += 2
+	m._update_hud()
+	m._write_save()
+	# Keep the completed garden visible: its buttons also own the flower art.
+	# Other completed games hide their spare input controls during the payoff.
+	for b in (m.mg.get("btns", []) as Array):
+		if is_instance_valid(b):
+			b.disabled = true
+			b.visible = m.mg_kind == "garden"
+	if m.mg.get("xbtn") != null and is_instance_valid(m.mg["xbtn"]):
+		(m.mg["xbtn"] as Button).visible = false
+	if m.mg2d_stage != null and is_instance_valid(m.mg2d_stage):
+		(m.mg["hud"] as Label).visible = false
+		var banner := _mg_label("\u2b50  Yay! You did it!  \u2b50", 46, Vector2(138, 30))
+		banner.size = Vector2(734, 88)
+		banner.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+		banner.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+		banner.add_theme_color_override("font_color", Color(1.0, 0.95, 0.4))
+		_mg2d_feedback_burst(Vector2(640, 345), Color(1.0, 0.9, 0.35),
+			"win", 18, 300.0, 0.9)
+		# The close tween belongs to the stage, and both identifiers bind its
+		# callback to this exact opening. It cannot outlive the stage or close a
+		# newer picture game after Back/Pause and re-entry.
+		var winning_root: Control = m.mg2d_root
+		var winning_generation: int = open_generation
+		var close_tween := m.mg2d_stage.create_tween()
+		close_tween.tween_interval(1.6)
+		close_tween.tween_callback(
+			_mg2d_finish_win.bind(winning_root, winning_generation))
+		m.mg["close_tween"] = close_tween
+
+
+func _mg2d_finish_win(expected_root: Control, expected_generation: int) -> void:
+	if expected_generation != open_generation or m.mg2d_root != expected_root:
+		return
+	m.mg.erase("close_tween")
+	_mg2d_close(expected_generation)
+
+
+func _mg2d_close(expected_generation: int = -1) -> void:
+	m._navigation_remove("picture_game")
+	# A win schedules this close after its celebration. The child may use Back
+	# (or Pause -> Leave) and open another picture first. A delayed callback may
+	# only close the exact opening that won, never the child's newer activity.
+	if expected_generation >= 0 and expected_generation != open_generation:
+		return
+	open_generation += 1
+	var owns_music_return: bool = m.mg.has("music_return")
+	var music_return: String = String(m.mg.get("music_return", ""))
+	var close_tween := m.mg.get("close_tween") as Tween
+	if close_tween != null and close_tween.is_valid():
+		close_tween.kill()
+	for tween_value in (m.mg.get("feedback_tweens", []) as Array):
+		var feedback_tween := tween_value as Tween
+		if feedback_tween != null and feedback_tween.is_valid():
+			feedback_tween.kill()
+	if m.mg2d_root != null and is_instance_valid(m.mg2d_root):
+		m.mg2d_root.queue_free()
+	m.mg2d_root = null
+	m.mg2d_stage = null
+	if m.mg2d_layer != null:
+		m.mg2d_layer.visible = false
+	m.mg_kind = ""
+	m.mg = {}
+	if owns_music_return:
+		m._play_music(music_return if music_return != "" else "level2")
+	m.mg_cool = 8.0
+	m._set_world_controls_enabled(true, "picture_game")
+
+# ---- SNOWMAN: ROLL the snow into balls (stick circles / finger circles),
+# ---- watch each ball grow, then stack it and place the face ----
+
+
+func _mg_build_snowman() -> void:
+	m.mg["phase"] = "roll"
+	m.mg["balls"] = 0
+	m.mg["face"] = 0
+	m.mg["motor_assist"] = false
+	(m.mg["hud"] as Label).text = "Spin the stick - or draw circles with your finger!"
+	# ground
+	_mg_circle(Vector2(640, 980), 700.0, Color(0.95, 0.97, 1.0, 0.5))
+	m.mg["body"] = []   # stacked balls (centre-right)
+	# the big flashing call-to-action
+	var fl := _mg_label("ROLL UP THE SNOWBALLS!", 52, Vector2(255, 146))
+	fl.size = Vector2(770, 80)
+	fl.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	fl.add_theme_color_override("font_color", Color(1.0, 0.95, 0.4))
+	fl.pivot_offset = Vector2(385, 40)
+	m.mg["flash"] = fl
+	# orbiting hint arrow showing the circular motion
+	var ar := _mg_label("↻", 84, Vector2(0, 0))
+	ar.size = Vector2(110, 110)
+	ar.add_theme_color_override("font_color", Color(0.5, 0.75, 1.0))
+	m.mg["hint_arrow"] = ar
+	_mg_snow_new_ball()
+
+
+func _mg_snow_new_ball() -> void:
+	var done: int = int(m.mg["balls"])                      # balls finished so far
+	var ball = _mg_circle(m.SNOW_ROLL_C, 26.0, Color(0.97, 0.99, 1.0))
+	m.mg["roll_ball"] = ball
+	m.mg["final_r"] = 150.0 - float(done + 1) * 26.0        # 124, 98, 72
+	m.mg["rot_need"] = (3.0 - float(done) * 0.5) * TAU      # 3 / 2.5 / 2 full circles
+	m.mg["rot_acc"] = 0.0
+	m.mg["rot_prev"] = 0.0
+	m.mg["prev_ang"] = null
+	m.mg["stall"] = 0.0
+	m.mg["stall_acc"] = 0.0
+
+
+func _mg_snow_ball_size(ball: Panel, r: float, center: Vector2) -> void:
+	ball.size = Vector2(r * 2.0, r * 2.0)
+	ball.position = center - Vector2(r, r)
+	var sb = ball.get_theme_stylebox("panel") as StyleBoxFlat
+	if sb != null:
+		sb.set_corner_radius_all(int(r))
+		sb.set_border_width_all(maxi(2, int(r * 0.05)))
+	if ball.get_child_count() > 0:
+		var hl = ball.get_child(0) as Panel
+		if hl != null:
+			hl.size = Vector2(r * 0.85, r * 0.6)
+			hl.position = Vector2(r * 0.32, r * 0.22)
+			var hsb = hl.get_theme_stylebox("panel") as StyleBoxFlat
+			if hsb != null:
+				hsb.set_corner_radius_all(int(r * 0.5))
+
+
+func _mg_snow_ball_done() -> void:
+	var b: int = int(m.mg["balls"]) + 1
+	m.mg["balls"] = b
+	var ball: Panel = m.mg["roll_ball"]
+	m.mg.erase("roll_ball")
+	var r: float = float(m.mg["final_r"])
+	var bc := Vector2(980, 560.0 - float(b - 1) * 175.0)
+	var tw = ball.create_tween()
+	tw.tween_property(ball, "position", bc - Vector2(r, r), 0.5).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
+	(m.mg["body"] as Array).append(ball)
+	if m.chime != null:
+		m.chime.pitch_scale = 1.0 + float(b) * 0.15
+		m.chime.play()
+	_mg2d_feedback_burst(bc, Color(0.8, 0.92, 1.0),
+		"snowball_settle", 10, 96.0, 0.55)
+	if b >= 3:
+		m.mg["head_pos"] = bc
+		if m.mg.has("flash") and is_instance_valid(m.mg["flash"]):
+			(m.mg["flash"] as Label).visible = false
+		if m.mg.has("hint_arrow") and is_instance_valid(m.mg["hint_arrow"]):
+			(m.mg["hint_arrow"] as Label).visible = false
+		_mg_snow_face_phase()
+	else:
+		_mg_snow_new_ball()
+
+
+func _mg_snow_face_phase() -> void:
+	m.mg["phase"] = "face"
+	(m.mg["hud"] as Label).text = "Now give him a face! Tap the carrot and coal."
+	var carrot := _mg_artbtn("res://assets/opera/worlds/widgets/widget_target_farmer_piece_0.png", Vector2(360, 600), Vector2(150, 110))
+	carrot.pressed.connect(func(): _mg_snow_face("carrot", carrot))
+	for i in range(2):
+		var coal := _mg_artbtn("res://assets/mg/coal.png",
+			Vector2(220 + float(i) * 280, 600), StorybookUI.MIN_TOUCH)
+		var idx := i
+		coal.pressed.connect(func(): _mg_snow_face("coal" + str(idx), coal))
+
+
+func _mg_snow_face(_part: String, b: Button) -> void:
+	if m.mg_kind != "snowman" or String(m.mg["phase"]) != "face" or not b.visible:
+		return
+	b.visible = false
+	var head: Vector2 = m.mg.get("head_pos", Vector2(980, 210))
+	var bit: TextureRect
+	if _part == "carrot":
+		bit = _mg_sprite("res://assets/opera/worlds/widgets/widget_target_farmer_piece_0.png", head + Vector2(0, 14), Vector2(95, 60))
+		# Reuse the painted whole carrot, pointed outward from the face.
+		# Keep the existing center, bounds and collection anchor unchanged.
+		bit.pivot_offset = bit.size * 0.5
+		bit.rotation_degrees = -135.0
+		bit.set_meta("snowman_authored_rotation", bit.rotation)
+		m.mg["carrot_bit"] = bit
+	elif _part == "coal0":
+		bit = _mg_sprite("res://assets/mg/coal.png", head + Vector2(-24, -18), Vector2(42, 42))
+	else:
+		bit = _mg_sprite("res://assets/mg/coal.png", head + Vector2(24, -18), Vector2(42, 42))
+	if not m.mg.has("face_bits"):
+		m.mg["face_bits"] = []
+	(m.mg["face_bits"] as Array).append(bit)
+	m.mg["face"] = int(m.mg["face"]) + 1
+	if int(m.mg["face"]) >= 3:
+		m.award_sticker("snowman")
+		_mg_snow_chase_phase()
+
+
+func _mg_snow_chase_phase() -> void:
+	# HE'S ALIVE! The snowman makes a run for it — chase him down and EAT him,
+	# biggest snowball first, until only the carrot is left. Nom nom.
+	m.mg["phase"] = "chase"
+	m.mg["run_x"] = 980.0
+	m.mg["bite_cool"] = 1.0
+	m.mg["bites"] = 0
+	(m.mg["hud"] as Label).text = "He's ALIVE! Chase him and EAT him!  ← →"
+	if m.voice != null:
+		m.voice.pitch_scale = 1.4
+		m._play_success_yay(m.voice.pitch_scale)
+	var rosh = _mg_sprite(m.skin_sprite_path(), Vector2(160, 470), Vector2(140, 180))
+	m.mg["chaser"] = rosh
+	m.mg["chaser_x"] = 230.0
+
+
+func _mg_snow_runner_bits() -> Array:
+	var bits: Array = []
+	for bv in m.mg.get("body", []):
+		if is_instance_valid(bv):
+			bits.append(bv)
+	for fv in m.mg.get("face_bits", []):
+		if is_instance_valid(fv):
+			bits.append(fv)
+	return bits
+
+
+func _mg_tick_snow_chase(delta: float) -> void:
+	# chaser: stick / arrows / mouse-touch x (same controls as the dolls catcher)
+	var mx := 0.0
+	if Input.is_physical_key_pressed(KEY_LEFT) or Input.is_physical_key_pressed(KEY_A):
+		mx -= 1.0
+	if Input.is_physical_key_pressed(KEY_RIGHT) or Input.is_physical_key_pressed(KEY_D):
+		mx += 1.0
+	var jx: float = m.joy_axis(JOY_AXIS_LEFT_X)
+	if absf(jx) > 0.2:
+		mx += jx
+	if m.touch_ui != null and absf((m.touch_ui.stick_vec as Vector2).x) > 0.15:
+		mx += (m.touch_ui.stick_vec as Vector2).x
+	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) and m.mg2d_stage != null:
+		var tx: float = m.mg2d_stage.get_local_mouse_position().x
+		mx = clampf((tx - float(m.mg["chaser_x"])) / 120.0, -1.0, 1.0)
+	m.mg["chaser_x"] = clampf(float(m.mg["chaser_x"]) + mx * 540.0 * delta, 90.0, 1190.0)
+	var chaser: TextureRect = m.mg["chaser"]
+	if is_instance_valid(chaser):
+		chaser.position.x = float(m.mg["chaser_x"]) - 70.0
+		chaser.flip_h = mx < -0.05
+	m.mg["bite_cool"] = maxf(0.0, float(m.mg["bite_cool"]) - delta)
+	var cx: float = float(m.mg["chaser_x"])
+	var rx: float = float(m.mg["run_x"])
+	if String(m.mg["phase"]) == "chase":
+		# the snowman flees (faster with every bite), pinned to the stage
+		var bites: int = int(m.mg["bites"])
+		var flee: float = signf(rx - cx)
+		if flee == 0.0:
+			flee = 1.0
+		var spd: float = 250.0 + float(bites) * 90.0
+		var nrx: float = rx + flee * spd * delta + sin(float(m.mg["t"]) * 3.0) * 40.0 * delta
+		if nrx < 110.0 or nrx > 1170.0:
+			nrx = clampf(nrx, 110.0, 1170.0)
+		var dx: float = nrx - rx
+		m.mg["run_x"] = nrx
+		for bit in _mg_snow_runner_bits():
+			var runner_bit := bit as Control
+			runner_bit.position.x += dx
+			var authored_rotation: float = float(
+				runner_bit.get_meta("snowman_authored_rotation", 0.0))
+			runner_bit.rotation = authored_rotation \
+				+ sin(float(m.mg["t"]) * 10.0) * 0.08   # frantic waddle
+		# CHOMP: catch him and the biggest snowball disappears
+		if float(m.mg["bite_cool"]) <= 0.0 and absf(nrx - cx) < 95.0:
+			m.mg["bite_cool"] = 0.9
+			m.mg["bites"] = bites + 1
+			if m.chime != null:
+				m.chime.pitch_scale = 0.62 + float(bites) * 0.08
+				m.chime.play()
+			(m.mg["hud"] as Label).text = ["CHOMP!", "NOM NOM!", "CRUNCH!"][mini(bites, 2)] + "  Keep eating!"
+			var body: Array = m.mg.get("body", [])
+			if not body.is_empty():
+				var ball: Panel = body.pop_front()   # biggest (bottom) first
+				if is_instance_valid(ball):
+					var bt = ball.create_tween()
+					bt.tween_property(ball, "scale", Vector2(1.3, 0.2), 0.18)
+					bt.tween_callback(ball.queue_free)
+			if int(m.mg["bites"]) >= 3:
+				# only the carrot survives — it drops to the snow
+				m.mg["phase"] = "carrot"
+				(m.mg["hud"] as Label).text = "He's all gone... but the CARROT! Grab it!"
+				for fv in m.mg.get("face_bits", []):
+					if is_instance_valid(fv) and fv != m.mg.get("carrot_bit"):
+						(fv as Control).queue_free()
+				var car: TextureRect = m.mg.get("carrot_bit")
+				if is_instance_valid(car):
+					var ct := car.create_tween()
+					ct.tween_property(car, "position", Vector2(float(m.mg["run_x"]) - 47.0, 560.0), 0.5).set_trans(Tween.TRANS_BOUNCE).set_ease(Tween.EASE_OUT)
+	elif String(m.mg["phase"]) == "carrot":
+		var car2: TextureRect = m.mg.get("carrot_bit")
+		if is_instance_valid(car2) and absf((car2.position.x + 47.0) - cx) < 75.0:
+			# Stop polling the carrot during the victory-close tween. Leaving the
+			# phase on "carrot" retries a queued-free node every frame.
+			m.mg["phase"] = "done"
+			m.mg.erase("carrot_bit")
+			car2.queue_free()
+			if m.chime != null:
+				m.chime.pitch_scale = 1.5
+				m.chime.play()
+			m.award_sticker("carrot")
+			_mg2d_win("CRUNCH! Best snowman snack EVER!")
+
+# ---- GARDEN: tap sprouts to grow them into flowers ----
+
+
+# The plant art (k_sprout + all five flower PNGs) shares one 512x512 layout:
+# the drawing occupies only the middle of the canvas (~54% wide for the sprout,
+# ~44% for flowers, ~72-75% tall) with its stem bottom at 88% of the canvas.
+# Sizing rects by DESIRED VISIBLE height and pinning the stem bottom to the pot
+# soil line is what keeps the growth stages looking planted instead of floating.
+const GARDEN_SOIL_Y := 615.0        # where stems visually enter the pot
+const GARDEN_ART_BOTTOM := 0.881    # stem bottom fraction of the 512px canvas
+const GARDEN_SPROUT_RECT := 148.0   # -> ~105px of visible sprout
+const GARDEN_FLOWER_RECT := 228.0   # -> ~170px of visible flower
+
+
+func _mg_build_garden() -> void:
+	m.mg["grown"] = 0
+	m.mg["stage"] = [0, 0, 0, 0, 0]
+	m.mg["flowers"] = ["k_flower1", "flower", "flower2", "k_flower2", "flower3"]   # each plant ends as a DIFFERENT flower
+	(m.mg["hud"] as Label).text = "Tap each seed to make it grow into a FLOWER!"
+	_mg_sprite("res://assets/mg/sun.png", Vector2(112, 235), Vector2(144, 144))
+	# a soft grassy mound across the bottom
+	var mound := _mg_circle(Vector2(640, 1050), 760.0, Color(0.5, 0.78, 0.45))
+	mound.size.y = 500.0
+	mound.position = Vector2(-120, 640)
+	# five clay pots, each starting as a SEED
+	for i in range(5):
+		var x := 180.0 + float(i) * 240.0
+		var potm := _mg_circle(Vector2(x, 640), 64.0, Color(0.78, 0.42, 0.28))
+		potm.size = Vector2(150, 100)
+		potm.position = Vector2(x - 75, 600)
+		# tap forgiveness: the Button (invisible, flat) is 140x140 so near-misses
+		# still count, with a small 52px seed resting on the pot rim (a seed must
+		# read SMALLER than the sprout and flower it grows into). Seeds sit 240px
+		# apart, so 140px hit areas can never overlap (100px clear gap).
+		var sp := _mg_artbtn("res://assets/mg/seed.png", Vector2(x, 600), Vector2(140, 140))
+		# The plant is the touch object. Keep its hit area generous without
+		# growing a rectangular button panel between the stem and the soil.
+		sp.flat = true
+		for state_name in ["normal", "hover", "pressed", "disabled"]:
+			sp.add_theme_stylebox_override(state_name, StyleBoxEmpty.new())
+		var seed_tex := sp.get_child(0) as TextureRect
+		seed_tex.set_anchors_preset(Control.PRESET_CENTER)
+		seed_tex.size = Vector2(52, 52)
+		seed_tex.position = Vector2((140.0 - 52.0) * 0.5, 88.0 - 52.0 * 0.5)   # centered, resting on the soil line
+		sp.set_meta("hx", x)
+		var idx := i
+		sp.pressed.connect(func(): _mg_garden_tap(idx, sp))
+	# Roshan watering, watching over the garden — raised clear of pot 5's
+	# fully-grown flower (rect top 414) and the pink can from the book art
+	# tilted so its rose pours toward her flowers
+	_mg_sprite(m.skin_sprite_path(), Vector2(1150, 295), Vector2(180, 230))
+	var can := _mg_sprite("res://assets/mg/wateringcan.png", Vector2(1022, 362), Vector2(130, 137))
+	can.pivot_offset = can.size * 0.5
+	can.rotation = 0.32
+	# a couple of drifting butterflies
+	for bi in range(3):
+		var bf := _mg_sprite("res://assets/mg/butterfly.png", Vector2(300 + float(bi) * 350, 220), Vector2(90, 90))
+		bf.set_meta("bf", float(bi))
+
+
+func _mg_garden_tap(i: int, b: Button) -> void:
+	if m.mg_kind != "garden":
+		return
+	var st: Array = m.mg["stage"]
+	if int(st[i]) >= 2:
+		return
+	st[i] = int(st[i]) + 1
+	var x: float = b.get_meta("hx")
+	var tex = b.get_child(0) as TextureRect
+	if int(st[i]) == 1:
+		# seed -> seedling (same small sprout for every plant); the art fills the
+		# button again from here on (the seed stage kept it small inside the
+		# oversized 140px hit area). Rect sized so the visible sprout is ~105px
+		# tall with its stem bottom pinned to the pot soil line.
+		# set_anchors_and_offsets_preset, NOT set_anchors_preset: the latter
+		# keeps the current rect (it only rewrites anchors), which left the art
+		# frozen at seed size — the original "seeds bigger than flowers" bug.
+		tex.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+		tex.texture = load("res://assets/mg/k_sprout.png")
+		b.size = Vector2(GARDEN_SPROUT_RECT, GARDEN_SPROUT_RECT)
+		b.custom_minimum_size = b.size
+		b.position = Vector2(x - GARDEN_SPROUT_RECT * 0.5, GARDEN_SOIL_Y - GARDEN_SPROUT_RECT * GARDEN_ART_BOTTOM)
+		_mg2d_feedback_burst(Vector2(x, GARDEN_SOIL_Y - 82.0),
+			Color(0.4, 0.8, 0.7), "garden_growth", 8, 74.0, 0.5)
+	else:
+		# seedling -> a distinct flower, with a happy pop; ~170px of visible
+		# flower rooted on the same soil line (seed < sprout < flower)
+		tex.texture = load("res://assets/mg/" + String((m.mg["flowers"] as Array)[i]) + ".png")
+		b.size = Vector2(GARDEN_FLOWER_RECT, GARDEN_FLOWER_RECT)
+		b.custom_minimum_size = b.size
+		b.position = Vector2(x - GARDEN_FLOWER_RECT * 0.5, GARDEN_SOIL_Y - GARDEN_FLOWER_RECT * GARDEN_ART_BOTTOM)
+		b.pivot_offset = b.size * 0.5
+		b.disabled = true
+		var tw = b.create_tween()
+		tw.tween_property(b, "scale", Vector2(1.2, 1.2), 0.12)
+		tw.tween_property(b, "scale", Vector2(1.0, 1.0), 0.12)
+		m.mg["grown"] = int(m.mg["grown"]) + 1
+		if int(m.mg["grown"]) >= 5:
+			_mg2d_win("Look at my beautiful flower garden!")
+		else:
+			_mg2d_feedback_burst(Vector2(x, GARDEN_SOIL_Y - 112.0),
+				Color(0.5, 0.76, 1.0), "garden_growth", 10, 88.0, 0.55)
+
+# ---- TRAMPOLINE: tap the trampoline art to jump up to the star ----
+
+
+func _mg_build_trampoline() -> void:
+	m.mg["bounces"] = 0
+	m.mg["star_y"] = 90.0
+	(m.mg["hud"] as Label).text = "Tap the trampoline to bounce up and TOUCH the star!"
+	m.mg["star"] = _mg_sprite("res://assets/mg/star.png", Vector2(640, 90), Vector2(140, 140))
+	# trampoline (kept high enough for a clear 1280x720 landscape silhouette)
+	var tramp := _mg_circle(Vector2(640, 520), 200.0, Color(0.25, 0.5, 0.85))
+	tramp.size.y = 56.0
+	tramp.position = Vector2(640 - 200, 492)
+	tramp.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	m.mg["rest_y"] = 430.0
+	m.mg["roshan"] = _mg_sprite(m.skin_sprite_path(), Vector2(640, 430), Vector2(150, 190))
+	var tramp_target := Control.new()
+	tramp_target.name = "TrampolineArtTarget"
+	tramp_target.position = Vector2(440.0, 430.0)
+	tramp_target.size = Vector2(400.0, 140.0)
+	tramp_target.mouse_filter = Control.MOUSE_FILTER_STOP
+	tramp_target.gui_input.connect(_mg_trampoline_gui_input)
+	m.mg2d_stage.add_child(tramp_target)
+	m.mg["trampoline_target"] = tramp_target
+
+
+func _mg_trampoline_gui_input(event: InputEvent) -> void:
+	if event is InputEventScreenTouch:
+		var touch := event as InputEventScreenTouch
+		if touch.pressed:
+			_mg_tramp_tap()
+	elif event is InputEventMouseButton:
+		var mouse_button := event as InputEventMouseButton
+		if mouse_button.device != InputEvent.DEVICE_ID_EMULATION \
+				and mouse_button.button_index == MOUSE_BUTTON_LEFT \
+				and mouse_button.pressed:
+			_mg_tramp_tap()
+
+
+func _mg_tramp_tap() -> void:
+	if m.mg_kind != "trampoline":
+		return
+	m.mg["bounces"] = int(m.mg["bounces"]) + 1
+	var r: TextureRect = m.mg["roshan"]
+	var rest_y: float = float(m.mg.get("rest_y", 430.0))
+	var star_y: float = float(m.mg.get("star_y", 90.0))
+	# each bounce reaches higher; Roshan only WINS when her sprite actually reaches the star
+	var apex_center: float = rest_y - float(m.mg["bounces"]) * 85.0
+	var sprite_top: float = apex_center - 95.0
+	var reached: bool = sprite_top <= star_y + 35.0
+	if reached:
+		apex_center = star_y + 110.0   # land her right at the star
+	var rest_top: float = rest_y - 95.0
+	var tw = r.create_tween()
+	tw.tween_property(r, "position:y", apex_center - 95.0, 0.25).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
+	tw.tween_property(r, "position:y", rest_top, 0.3).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_IN)
+	if reached:
+		tw.tween_callback(func(): _mg2d_win("Boing! I touched the star!"))
+
+# ---- SLIDE: tap GO, ride the rainbow slide ----
+
+
+func _mg_build_slide() -> void:
+	m.mg["phase"] = "ready"
+	(m.mg["hud"] as Label).text = "Tap the rainbow slide!"
+	# the rainbow slide bands (diagonal)
+	var cols := [Color(0.9, 0.2, 0.3), Color(1.0, 0.6, 0.2), Color(1.0, 0.9, 0.3), Color(0.3, 0.8, 0.4), Color(0.3, 0.6, 1.0), Color(0.6, 0.4, 0.9)]
+	for i in range(cols.size()):
+		var band := ColorRect.new()
+		band.color = cols[i]
+		band.size = Vector2(1500, 60)
+		band.position = Vector2(-100, 150 + float(i) * 58.0)
+		band.rotation = 0.5
+		m.mg2d_stage.add_child(band)
+	m.mg["roshan"] = _mg_sprite(m.skin_sprite_path(), Vector2(160, 150), Vector2(140, 180))
+	var slide_target := Control.new()
+	slide_target.name = "RainbowSlideArtTarget"
+	slide_target.position = Vector2(120.0, 140.0)
+	slide_target.size = Vector2(1040.0, 450.0)
+	slide_target.mouse_filter = Control.MOUSE_FILTER_STOP
+	slide_target.gui_input.connect(_mg_slide_gui_input)
+	m.mg2d_stage.add_child(slide_target)
+	m.mg["slide_target"] = slide_target
+
+
+func _mg_slide_gui_input(event: InputEvent) -> void:
+	if event is InputEventScreenTouch:
+		var touch := event as InputEventScreenTouch
+		if touch.pressed:
+			_mg_slide_go()
+	elif event is InputEventMouseButton:
+		var mouse_button := event as InputEventMouseButton
+		if mouse_button.device != InputEvent.DEVICE_ID_EMULATION \
+				and mouse_button.button_index == MOUSE_BUTTON_LEFT \
+				and mouse_button.pressed:
+			_mg_slide_go()
+
+
+func _mg_slide_go() -> void:
+	if m.mg_kind != "slide" or String(m.mg["phase"]) != "ready":
+		return
+	m.mg["phase"] = "ride"
+	m.mg["ride_t"] = 0.0
+	(m.mg["btns"] as Array)[0].visible = false
+
+# ---- XMAS: tap ornaments onto the tree, friendship flower on top ----
+
+
+func _mg_build_xmas() -> void:
+	m.mg["placed"] = 0
+	(m.mg["hud"] as Label).text = "Tap the ornaments onto the tree!"
+	_mg_sprite("res://assets/mg/xtree.png", Vector2(640, 430), Vector2(420, 560))
+	m.mg["orn_spots"] = [Vector2(640, 300), Vector2(580, 400), Vector2(700, 400), Vector2(600, 520), Vector2(700, 520)]
+	for i in range(5):
+		var o := _mg_artbtn("res://assets/mg/orn" + str(i + 1) + ".png", Vector2(180 + float(i) * 150, 660), Vector2(110, 110))
+		var idx := i
+		o.pressed.connect(func(): _mg_xmas_tap(idx, o))
+	var fl := _mg_artbtn("res://assets/book/friendship_flower.png", Vector2(1050, 660), Vector2(130, 130))
+	fl.disabled = true
+	fl.modulate = Color(0.5, 0.5, 0.5)
+	fl.pressed.connect(_mg_xmas_flower)
+	m.mg["flowerbtn"] = fl
+
+
+func _mg_xmas_tap(i: int, b: Button) -> void:
+	if m.mg_kind != "xmas" or not b.visible:
+		return
+	b.visible = false
+	var spots: Array = m.mg["orn_spots"]
+	_mg_sprite("res://assets/mg/orn" + str(i + 1) + ".png", spots[i], Vector2(70, 70))
+	m.mg["placed"] = int(m.mg["placed"]) + 1
+	if int(m.mg["placed"]) >= 5:
+		(m.mg["flowerbtn"] as Button).disabled = false
+		(m.mg["flowerbtn"] as Button).modulate = Color(1.3, 1.3, 1.0)
+
+
+func _mg_xmas_flower() -> void:
+	if m.mg_kind != "xmas" or int(m.mg["placed"]) < 5:
+		return
+	_mg_sprite("res://assets/book/friendship_flower.png", Vector2(640, 200), Vector2(140, 130))
+	_mg2d_win("The friendship flower on top! It is beautiful!")

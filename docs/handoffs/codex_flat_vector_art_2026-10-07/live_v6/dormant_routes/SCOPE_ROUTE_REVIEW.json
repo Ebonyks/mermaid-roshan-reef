@@ -1,0 +1,109 @@
+{
+  "schema": 1,
+  "scopes": [
+    {
+      "scope_id": "FVF-3F1F73EDCAD1",
+      "path": "scripts/craft_studio.gd",
+      "function": "_open_craft_studio",
+      "lines": [
+        40,
+        156
+      ],
+      "source_route_review": "NO_NORMAL_DISPLAY_ENTRY_FOUND_RETAINED_API",
+      "status": "SOURCE_ROUTE_REVIEW_ONLY_VISUAL_UNRESOLVED",
+      "fully_dispositioned_for_inventory": false,
+      "individual_piece_count": null,
+      "current_visible_piece_count": null,
+      "observation": "Flat ColorRect backdrop; title/pearl/kind/lock/part/finish pictorial glyphs; three kind,three part and one finish buttons call shared StorybookUI styles;preview panel and ornaments are shared helper calls. Three recolored asset layers are built by _craft_build_preview outside this scope. Eight swatches and a conditional rainbow use _craft_rebuild_palette. Shared helpers/assets remain independently reachable elsewhere.",
+      "evidence": "SOURCE_PROOFS.json;REFERENCE_SCAN.json;ROUTE_REVIEW.json",
+      "remaining": "All helper/fallback/asset role attribution,appropriate current contexts,exact human review,device/child/owner acceptance."
+    },
+    {
+      "scope_id": "FVF-3F9F842B7BA3",
+      "path": "scripts/craft_studio.gd",
+      "function": "_style_swatch",
+      "lines": [
+        195,
+        212
+      ],
+      "source_route_review": "NO_NORMAL_DISPLAY_ENTRY_FOUND_RETAINED_API",
+      "status": "SOURCE_ROUTE_REVIEW_ONLY_VISUAL_UNRESOLVED",
+      "fully_dispositioned_for_inventory": false,
+      "individual_piece_count": null,
+      "current_visible_piece_count": null,
+      "observation": "Eight palette-button caller contexts per rebuild; selected/unselected border4/8, corner34,shadow7; normal/hover/focus reuse fill,pressed darkens0.12. Disabled/hover_pressed inherited fallback not reviewed. Swatches encode color choice: eventual painted replacement must preserve colors and child discrimination.",
+      "evidence": "SOURCE_PROOFS.json;REFERENCE_SCAN.json;ROUTE_REVIEW.json",
+      "remaining": "All helper/fallback/asset role attribution,appropriate current contexts,exact human review,device/child/owner acceptance."
+    },
+    {
+      "scope_id": "FVF-8A1564966D4B",
+      "path": "scripts/games/picture_games.gd",
+      "function": "_mg2d_open",
+      "lines": [
+        14,
+        94
+      ],
+      "source_route_review": "NO_NORMAL_DISPLAY_ENTRY_FOUND_RETAINED_API",
+      "status": "SOURCE_ROUTE_REVIEW_ONLY_VISUAL_UNRESOLVED",
+      "fully_dispositioned_for_inventory": false,
+      "individual_piece_count": null,
+      "current_visible_piece_count": null,
+      "observation": "64x64 GradientTexture2D stretched to viewport,four usable kind themes and a bypassed slide theme. Shared header panel and shell crest remain separate global scopes. Label words do not become an art-piece count. Picture children and fallback/helper states unreviewed.",
+      "evidence": "SOURCE_PROOFS.json;REFERENCE_SCAN.json;ROUTE_REVIEW.json",
+      "remaining": "All helper/fallback/asset role attribution,appropriate current contexts,exact human review,device/child/owner acceptance."
+    },
+    {
+      "scope_id": "FVF-535EDBF3F803",
+      "path": "scripts/games/picture_games.gd",
+      "function": "_mg_circle",
+      "lines": [
+        104,
+        130
+      ],
+      "source_route_review": "NO_NORMAL_DISPLAY_ENTRY_FOUND_RETAINED_API",
+      "status": "SOURCE_ROUTE_REVIEW_ONLY_VISUAL_UNRESOLVED",
+      "fully_dispositioned_for_inventory": false,
+      "individual_piece_count": null,
+      "current_visible_piece_count": null,
+      "observation": "Each invocation builds a flat circular Panel rim/shadow and white rounded highlight child. Literal roles: snow ground,snowball,garden mound,repeated pots,trampoline. Repeated caller/runtime totals not unique designs; exact usage/occlusion/variants not fully reviewed.",
+      "evidence": "SOURCE_PROOFS.json;REFERENCE_SCAN.json;ROUTE_REVIEW.json",
+      "remaining": "All helper/fallback/asset role attribution,appropriate current contexts,exact human review,device/child/owner acceptance."
+    },
+    {
+      "scope_id": "FVF-F5F7A8DE4736",
+      "path": "scripts/games/picture_games.gd",
+      "function": "_mg2d_feedback_burst",
+      "lines": [
+        161,
+        244
+      ],
+      "source_route_review": "NO_NORMAL_DISPLAY_ENTRY_FOUND_RETAINED_API",
+      "status": "SOURCE_ROUTE_REVIEW_ONLY_VISUAL_UNRESOLVED",
+      "fully_dispositioned_for_inventory": false,
+      "individual_piece_count": null,
+      "current_visible_piece_count": null,
+      "observation": "Flat four-point glints use eight polygon vertices,4-18 per burst(default8),at most three visible action bursts before pruning;win hides old bursts. Lifetime0.35-0.9,scale/position/alpha tweens. Bounded instantaneous count does not bound lifetime instances; motion/loop/contact/device review absent.",
+      "evidence": "SOURCE_PROOFS.json;REFERENCE_SCAN.json;ROUTE_REVIEW.json",
+      "remaining": "All helper/fallback/asset role attribution,appropriate current contexts,exact human review,device/child/owner acceptance."
+    },
+    {
+      "scope_id": "FVF-355A4498233C",
+      "path": "scripts/games/picture_games.gd",
+      "function": "_mg_build_slide",
+      "lines": [
+        719,
+        741
+      ],
+      "source_route_review": "BYPASSED_OPENER_BRANCH_RETAINED_API",
+      "status": "SOURCE_ROUTE_REVIEW_ONLY_VISUAL_UNRESOLVED",
+      "fully_dispositioned_for_inventory": false,
+      "individual_piece_count": null,
+      "current_visible_piece_count": null,
+      "observation": "Six ColorRect diagonal rainbow bands; Roshan raster sprite from skin_sprite_path;1040x450 empty Control hit target is functionally invisible within this source. The decorative bands remain potential flat art and are not six current visible pieces. Opener early-return bypass is independently bound.",
+      "evidence": "SOURCE_PROOFS.json;REFERENCE_SCAN.json;ROUTE_REVIEW.json",
+      "remaining": "All helper/fallback/asset role attribution,appropriate current contexts,exact human review,device/child/owner acceptance."
+    }
+  ],
+  "visual_classification_added": 0,
+  "no_dormancy_exemption": true
+}

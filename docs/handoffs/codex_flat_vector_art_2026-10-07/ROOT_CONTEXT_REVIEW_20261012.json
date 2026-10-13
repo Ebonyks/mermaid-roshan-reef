@@ -1,0 +1,747 @@
+{
+  "schema": "reef.context_congruency_review/1",
+  "id": "ROOT-CONGRUENCY-20261012-R1",
+  "recorded_at_utc": "2026-10-13T00:44:10.876689+00:00",
+  "reviewer": "Codex root assistant; independent of dedicated audit agent; not owner/child/device acceptance",
+  "scope": "Point-by-point same-scene style review of existing Geologist, Teacher, five Castle shells, developer-menu/HUD/fashion and party captures; audit evidence only, no runtime or replacement pixels",
+  "production_baseline": "92c9fe70319ef46bfaa8f61348a6f51512141ec3",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-VIS-01",
+    "DL-VIS-02",
+    "DL-VIS-03",
+    "DL-VIS-04",
+    "DL-VIS-05",
+    "DL-VIS-06",
+    "DL-VIS-07",
+    "DL-VIS-08",
+    "DL-READ-01",
+    "DL-READ-02",
+    "DL-READ-03",
+    "DL-READ-04",
+    "DL-READ-05",
+    "DL-LAY-03",
+    "DL-LAY-04",
+    "DL-LAY-05",
+    "DL-LAY-07",
+    "DL-UI-03",
+    "DL-UI-06",
+    "DL-ASSET-01",
+    "DL-ASSET-02",
+    "DL-ASSET-03",
+    "DL-ASSET-06",
+    "DL-PERF-03"
+  ],
+  "findings": [
+    "MA-VIS-006",
+    "MA-VIS-007",
+    "MA-VIS-008",
+    "MA-DOC-008"
+  ],
+  "review_dimensions": [
+    "subject/silhouette and semantic identity",
+    "contour and material/value bands",
+    "state-local palette and lighting",
+    "perspective/scale/support/contact",
+    "single pixel ownership and occlusion",
+    "phone-size hierarchy with actual HUD",
+    "same-object/action-state continuity and same-scene sibling consistency"
+  ],
+  "observations": [
+    {
+      "review_id": "CONG-UI-MENU",
+      "piece_ids": [
+        "FV-E9E82E0C6703",
+        "FV-2ABD73BAFFE0",
+        "FV-E1D26D3057A3"
+      ],
+      "topic": "Opera developer-menu paper and fifteen card surfaces",
+      "native_capture_refs": [
+        "live_v6/menu/1280x720/menu_open.png",
+        "live_v6/menu/1600x720/menu_open.png",
+        "live_v6/menu/1280x720/menu_focus_17.png"
+      ],
+      "same_scene_comparison": "Compare each flat card with the twelve gold-shell occupational medallions inside this same menu. The painted wardrobe frame/card elsewhere in the same game is a reuse candidate, not a same-scene acceptance substitute.",
+      "congruency_findings": {
+        "material": "Uniform pale fills, crisp indigo outlines and offset blurred shadows differ from the crests’ painted relief, fine contour variation and warm material bands.",
+        "palette": "Pale aqua and plum already agree with the game; a palette redesign is unnecessary.",
+        "hierarchy": "The gold focus perimeter is readable. Keep that distinct state when changing its material. At wide aspect, a pale central sheet has hard vertical edges against dark side margins; frame/background treatment needs explicit context disposition."
+      },
+      "proposed_update": "Reuse suitable painted paper and restrained frame materials, preserving every 224x152 button mapping and input state. Fit the artwork to the touch rect without shrinking targets. Retain the existing occupational symbols and ordinary supplemental text.",
+      "remaining_evidence": "Hover, pressed, disabled and hover_pressed routing/visibility must be bound per caller; Android touch/font, independent runtime and owner acceptance remain open.",
+      "review_status": "WEAKNESS_CONTEXT_REVIEW; no replacement acceptance",
+      "accepted_removed": false
+    },
+    {
+      "review_id": "CONG-UI-GEOLOGIST-CREST",
+      "piece_ids": [],
+      "topic": "Geologist menu crest",
+      "native_capture_refs": [
+        "live_v6/menu/1280x720/menu_open.png"
+      ],
+      "same_scene_comparison": "Same row as the painted Racer and Pop Star occupational medallions; all twelve medallions supply a directly visible contour/material/frame comparison.",
+      "congruency_findings": {
+        "shape": "The two sharply faceted crystals and trapezoidal stone base are a flat vector illustration.",
+        "material": "Opaque single-color faces lack the softly painted bands and shell/gold presentation of the neighboring badges.",
+        "readability": "Its silhouette is clear at 80px; retain that simple specimen recognition while improving finish."
+      },
+      "proposed_update": "Find an approved painted specimen first. If the exact-purpose search fails, author one coherent crystal-specimen badge from Geologist’s eventual scene/material context and the neighboring crest treatment. Keep the specimen subject; do not replace it with an unrelated character.",
+      "remaining_evidence": "No exhaustive painted-specimen reuse closure or generated sample yet; style, native alpha, exact 80px readability and both-aspect interaction states remain unaccepted.",
+      "review_status": "WEAKNESS_CONTEXT_REVIEW; no replacement acceptance",
+      "accepted_removed": false
+    },
+    {
+      "review_id": "CONG-UI-NURSERY-TEACHER",
+      "piece_ids": [],
+      "topic": "Nursery and Teacher menu picture consistency",
+      "native_capture_refs": [
+        "live_v6/menu/1280x720/menu_open.png"
+      ],
+      "same_scene_comparison": "The mobile and complete Teacher figure sit beside twelve oval occupational medallions.",
+      "congruency_findings": {
+        "format": "These two pictures are already painted, so this observation does not make them vector-removal targets.",
+        "scale": "The small Teacher figure has much less occupied area than the neighboring crest, and the mobile has fine suspended components at 80px.",
+        "congruency": "Subject meaning is appropriate; the framing/occupied-area difference deserves child-size comparison rather than automatic identity redraw."
+      },
+      "proposed_update": "Preserve existing subject pixels and inspect a non-destructive matching frame/fit if needed. Do not redraw accepted art simply to force an oval format.",
+      "remaining_evidence": "Actual child recognition and same-scene native size testing remain open; zero replacements counted.",
+      "review_status": "WEAKNESS_CONTEXT_REVIEW; no replacement acceptance",
+      "accepted_removed": false
+    },
+    {
+      "review_id": "CONG-UI-NAVIGATION",
+      "piece_ids": [
+        "FV-2ABD73BAFFE0"
+      ],
+      "topic": "Flat global navigation chrome",
+      "native_capture_refs": [
+        "live_v6/menu/1280x720/menu_open.png",
+        "live_v6/hud_fashion/fashion/1280x720/fashion_starter_entry.png",
+        "live_v6/hud_fashion/hud/1280x720/hud_idle.png"
+      ],
+      "same_scene_comparison": "Compare the upper-left constant-color disc with wardrobe’s painted shell/pearl frame and with the shaded playground/castle in the HUD scene.",
+      "congruency_findings": {
+        "material": "The disc, ring and shadow are visibly different from the surrounding painted materials.",
+        "hierarchy": "The large simple silhouette is easy to find; replacing art must preserve that hierarchy and target.",
+        "semantics": "Back arrow and menu bars describe different routes; an attractive reset/return garment icon cannot be substituted without checking meaning."
+      },
+      "proposed_update": "Inventory existing painted navigation controls; use a context-matched shell/paper button family with separate correct Back/menu symbols. Keep hit areas and input lifecycle behavior.",
+      "remaining_evidence": "Decorative glyph versus ordinary text disposition, every overlay/caller, focus/pressed states and phone acceptance remain open.",
+      "review_status": "WEAKNESS_CONTEXT_REVIEW; no replacement acceptance",
+      "accepted_removed": false
+    },
+    {
+      "review_id": "CONG-UI-HUD-CAPTION",
+      "piece_ids": [
+        "FV-E9E82E0C6703"
+      ],
+      "topic": "Shared caption/HUD panel",
+      "native_capture_refs": [
+        "live_v6/hud_fashion/hud/1280x720/hud_idle.png",
+        "live_v6/party_props/native/1280x720/main_hall_ready.png"
+      ],
+      "same_scene_comparison": "The exterior scene has painted stone, water, castle and plants; Main Hall has painted carved doors, cake and table.",
+      "congruency_findings": {
+        "material": "A pale translucent rounded rectangle and indigo border remain flat UI art over the detailed painted world.",
+        "occlusion": "In Main Hall the top caption covers the upper cake area; the final review must include the candle/party action with the actual HUD.",
+        "palette": "Lavender/cream agree with the room family; preserve quiet high-key contrast and avoid adding ornate detail around required instructions."
+      },
+      "proposed_update": "Prefer existing calm painted paper/frame material and fit it to the caption role. Review actual action composition before changing position, opacity or scale. Do not use a broad full-screen decorative replacement.",
+      "remaining_evidence": "HUD hidden/visible caller differences, natural timing, voice/pointer, device fill cost and owner/child acceptance remain open.",
+      "review_status": "WEAKNESS_CONTEXT_REVIEW; no replacement acceptance",
+      "accepted_removed": false
+    },
+    {
+      "review_id": "CONG-WARDROBE-STARS",
+      "piece_ids": [],
+      "topic": "Fourteen wardrobe reward-star roles",
+      "native_capture_refs": [
+        "live_v6/hud_fashion/fashion/1280x720/fashion_roshan_ribbon_picked.png"
+      ],
+      "same_scene_comparison": "Same-scene Roshan’s satin/scaled colors, painted ribbon, and pearl/gold frame are the comparison anchors.",
+      "congruency_findings": {
+        "material": "Small pastel eight-point stars are uniformly filled polygons beside painted satin and gold.",
+        "palette": "The current aqua, pink, gold and cream accents already complement the ribbon and iridescent tail.",
+        "hierarchy": "The scattered burst stays outside the face in this sample; replacement size/alpha/cadence must not increase distraction or overdraw."
+      },
+      "proposed_update": "Inspect existing painted sparkle artwork for the same brief before generating. Replace the complete star objects, preserve the bounded burst envelope and fade/settle behavior, and do not add separate layered rims/glows.",
+      "remaining_evidence": "One sampled burst moment is not full transition/seam proof; all people/callers, cancellation, endpoint, runtime cost and final acceptance remain open.",
+      "review_status": "WEAKNESS_CONTEXT_REVIEW; no replacement acceptance",
+      "accepted_removed": false
+    },
+    {
+      "review_id": "CONG-PARTY-HATS",
+      "piece_ids": [],
+      "topic": "Eleven birthday hat instances",
+      "native_capture_refs": [
+        "live_v6/party_props/native/1280x720/lawn_ready.png"
+      ],
+      "same_scene_comparison": "Each hat is compared with its own protected guest portrait or Rumi plus the painted cake, candle and tabletop in this same lawn.",
+      "congruency_findings": {
+        "shape": "Constant-fill triangle, dark straight outline and white stripe read as geometric symbols rather than cloth/paper cones.",
+        "material": "The flat hats differ from the painted portrait contours and cake’s grouped value bands.",
+        "contact": "Cone bases need head-specific resting/occlusion checks; several tips and bases are oversized or visually detached in the diagnostic composition.",
+        "identity": "The protected guests intentionally retain different source styles. Do not repaint those portraits to force uniformity."
+      },
+      "proposed_update": "Treat fill/outline/stripe as parts of one whole painted hat, not three independently generated assets. Inventory a true birthday-cone source; a magician’s top hat has the wrong subject. If absent, make a coherent hat family and fit each complete hat to its head while preserving guest pixels and declared palette.",
+      "remaining_evidence": "Eleven placements and 33 draw-role contexts are distinct units, not 33 unique designs. Head contact and occlusion need exact bounds and natural party/action review; protected portraits remain unchanged.",
+      "review_status": "WEAKNESS_CONTEXT_REVIEW; no replacement acceptance",
+      "accepted_removed": false
+    },
+    {
+      "review_id": "CONG-PARTY-TABLE",
+      "piece_ids": [],
+      "topic": "Main Hall flat table surround and cake contact ellipse",
+      "native_capture_refs": [
+        "live_v6/party_props/native/1280x720/main_hall_ready.png",
+        "live_v6/party_props/native/1280x720/table_restored.png",
+        "live_v6/party_props/native/1280x720/lawn_ready.png"
+      ],
+      "same_scene_comparison": "Compare the broad yellow rounded panel and uniform ellipse against the already painted dining table, cake pedestal and carved Main Hall fixtures. Lawn supplies a different supported cake/table composition.",
+      "congruency_findings": {
+        "material": "The large yellow panel masks the room with a flat field despite a painted table already being present.",
+        "contact": "In Main Hall the cake pedestal visibly ends above the table’s upper rim, with a large separate ellipse above the table. Treat this as a captured staging weakness, not a reason to redraw cake or table.",
+        "occlusion": "The panel obscures part of Roshan in the captured Main Hall fixture.",
+        "ownership": "The ignition rocket and retained summary rocket are both visible; verify intended semantic ownership before removing either."
+      },
+      "proposed_update": "Reuse the painted table and cake; remove or replace only the flat surround and ellipse after context/source review. Align the complete cake/pedestal to the real tabletop and use one coherent contact treatment. Review actual HUD and plot action, not just a posed still.",
+      "remaining_evidence": "Saved checkpoints and component calls are declared fixtures, not naturally earned party progression. Full ignition/Ember/contact sequence, duplicate-role intent, phone overdraw and owner acceptance remain open.",
+      "review_status": "WEAKNESS_CONTEXT_REVIEW; no replacement acceptance",
+      "accepted_removed": false
+    },
+    {
+      "review_id": "CONG-CASTLE-ROYAL",
+      "piece_ids": [
+        "FV-6A93EB8DB0B8",
+        "FV-4E38B4F52104",
+        "FV-B8CE0DD0E36C"
+      ],
+      "topic": "Royal Bedroom architectural shell",
+      "native_capture_refs": [
+        "live_v3/castle/1280x720/rest_royal_bedroom.png"
+      ],
+      "same_scene_comparison": "The carved canopy bed, shell wardrobe, nightstand and book cushion are painted in the same room.",
+      "congruency_findings": {
+        "material": "Large uniform ceiling, columns, inset/arch and rug fields have hard geometric edges beside soft painted, carved furniture/cards.",
+        "palette": "The existing plum, cream and turquoise grouping is compatible; the main defect is finish and structural integration rather than a need for a new palette.",
+        "perspective": "Retain one coherent floor/support plane and match furniture contact; the repeated straight grid is visibly more mechanical than the painted object contours.",
+        "ownership": "Existing furniture and interactive cards must remain separately owned once, without duplicated painted copies in a replacement background."
+      },
+      "proposed_update": "Preserve the central moon window, single canopy-bed staging and warm pink/turquoise textile hierarchy. Give ceiling/columns/window/rug bounded painted material that agrees with those furniture edges; do not invent new props.",
+      "remaining_evidence": "These are rest-route captures with suppressed ordinary HUD and no motion/contact/save-state coverage. Native 2048x2048-per-screen master, unchanged source objects, phone hierarchy, action/occlusion and final acceptance remain required.",
+      "review_status": "WEAKNESS_CONTEXT_REVIEW; no replacement acceptance",
+      "accepted_removed": false
+    },
+    {
+      "review_id": "CONG-CASTLE-SLEEPOVER",
+      "piece_ids": [
+        "FV-794E9BBC4E61",
+        "FV-DC5F1DA5FED1",
+        "FV-34445F8B894C"
+      ],
+      "topic": "Sleepover Bedroom architectural shell",
+      "native_capture_refs": [
+        "live_v3/castle/1280x720/rest_sleepover_bedroom.png"
+      ],
+      "same_scene_comparison": "Three painted beds carry star, moon and cloud identities; the gold shell pendant establishes the material family.",
+      "congruency_findings": {
+        "material": "Large uniform ceiling, columns, inset/arch and rug fields have hard geometric edges beside soft painted, carved furniture/cards.",
+        "palette": "The existing plum, cream and turquoise grouping is compatible; the main defect is finish and structural integration rather than a need for a new palette.",
+        "perspective": "Retain one coherent floor/support plane and match furniture contact; the repeated straight grid is visibly more mechanical than the painted object contours.",
+        "ownership": "Existing furniture and interactive cards must remain separately owned once, without duplicated painted copies in a replacement background."
+      },
+      "proposed_update": "Preserve the three separate alcoves and bed identities/order. Paint the alcove/column/rug surfaces using the beds’ plum/cream/gold language, retaining a quiet field behind each pillow and a coherent floor plane.",
+      "remaining_evidence": "These are rest-route captures with suppressed ordinary HUD and no motion/contact/save-state coverage. Native 2048x2048-per-screen master, unchanged source objects, phone hierarchy, action/occlusion and final acceptance remain required.",
+      "review_status": "WEAKNESS_CONTEXT_REVIEW; no replacement acceptance",
+      "accepted_removed": false
+    },
+    {
+      "review_id": "CONG-CASTLE-DINING",
+      "piece_ids": [
+        "FV-1848A46F07C2",
+        "FV-2D5C7DBE66E2",
+        "FV-DDC9D4DD50F9"
+      ],
+      "topic": "Dining Room architectural shell",
+      "native_capture_refs": [
+        "live_v3/castle/1280x720/rest_dining_room.png"
+      ],
+      "same_scene_comparison": "Painted oval wood table, two turquoise stools, shell crockery cabinet and pendant light establish wood/ceramic/metal values.",
+      "congruency_findings": {
+        "material": "Large uniform ceiling, columns, inset/arch and rug fields have hard geometric edges beside soft painted, carved furniture/cards.",
+        "palette": "The existing plum, cream and turquoise grouping is compatible; the main defect is finish and structural integration rather than a need for a new palette.",
+        "perspective": "Retain one coherent floor/support plane and match furniture contact; the repeated straight grid is visibly more mechanical than the painted object contours.",
+        "ownership": "Existing furniture and interactive cards must remain separately owned once, without duplicated painted copies in a replacement background."
+      },
+      "proposed_update": "Keep furniture, Farmer route and one central arch. Replace flat structural surfaces and overbearing grid treatment with matching painted architecture/floor; retain table/stool support and walk lane.",
+      "remaining_evidence": "These are rest-route captures with suppressed ordinary HUD and no motion/contact/save-state coverage. Native 2048x2048-per-screen master, unchanged source objects, phone hierarchy, action/occlusion and final acceptance remain required.",
+      "review_status": "WEAKNESS_CONTEXT_REVIEW; no replacement acceptance",
+      "accepted_removed": false
+    },
+    {
+      "review_id": "CONG-CASTLE-MOVIE",
+      "piece_ids": [
+        "FV-59881865F63C",
+        "FV-F71C445636A0",
+        "FV-DE6A6ED53E68"
+      ],
+      "topic": "Movie Lounge architectural shell",
+      "native_capture_refs": [
+        "live_v3/castle/1280x720/rest_movie_lounge.png"
+      ],
+      "same_scene_comparison": "Painted plum/gold screen surround and rainbow-cloud seats provide the local contours and material.",
+      "congruency_findings": {
+        "material": "Large uniform ceiling, columns, inset/arch and rug fields have hard geometric edges beside soft painted, carved furniture/cards.",
+        "palette": "The existing plum, cream and turquoise grouping is compatible; the main defect is finish and structural integration rather than a need for a new palette.",
+        "perspective": "Retain one coherent floor/support plane and match furniture contact; the repeated straight grid is visibly more mechanical than the painted object contours.",
+        "ownership": "Existing furniture and interactive cards must remain separately owned once, without duplicated painted copies in a replacement background."
+      },
+      "proposed_update": "Preserve the screen, displayed protected picture, cloud seats and Racer route. Paint the remaining shell and floor quietly around that screen; do not redraw the protected display or add a rival focal mural.",
+      "remaining_evidence": "These are rest-route captures with suppressed ordinary HUD and no motion/contact/save-state coverage. Native 2048x2048-per-screen master, unchanged source objects, phone hierarchy, action/occlusion and final acceptance remain required.",
+      "review_status": "WEAKNESS_CONTEXT_REVIEW; no replacement acceptance",
+      "accepted_removed": false
+    },
+    {
+      "review_id": "CONG-CASTLE-GALLERY",
+      "piece_ids": [
+        "FV-D9B2595DE0B6",
+        "FV-C628227FA1F2",
+        "FV-AC96A9DA2FB4"
+      ],
+      "topic": "Family Gallery architectural shell",
+      "native_capture_refs": [
+        "live_v3/castle/1280x720/rest_family_gallery.png"
+      ],
+      "same_scene_comparison": "Four existing painted shell/gold doors and activity emblems are strong immediate same-scene references.",
+      "congruency_findings": {
+        "material": "Large uniform ceiling, columns, inset/arch and rug fields have hard geometric edges beside soft painted, carved furniture/cards.",
+        "palette": "The existing plum, cream and turquoise grouping is compatible; the main defect is finish and structural integration rather than a need for a new palette.",
+        "perspective": "Retain one coherent floor/support plane and match furniture contact; the repeated straight grid is visibly more mechanical than the painted object contours.",
+        "ownership": "Existing furniture and interactive cards must remain separately owned once, without duplicated painted copies in a replacement background."
+      },
+      "proposed_update": "Preserve the exact four-door order, symbols and card footprints. Paint only the large flat outer panel/arches/columns/floor-rug fields to agree with those carved frames. Avoid a second set of painted doors behind the interactive cards.",
+      "remaining_evidence": "These are rest-route captures with suppressed ordinary HUD and no motion/contact/save-state coverage. Native 2048x2048-per-screen master, unchanged source objects, phone hierarchy, action/occlusion and final acceptance remain required.",
+      "review_status": "WEAKNESS_CONTEXT_REVIEW; no replacement acceptance",
+      "accepted_removed": false
+    },
+    {
+      "review_id": "CONG-GEOLOGY-CAVE",
+      "piece_ids": [
+        "FV-14664183159D"
+      ],
+      "topic": "Geology cave/world",
+      "native_capture_refs": [
+        "live_v2/1280x720/opera_act_17_geologist_from_library.png"
+      ],
+      "same_scene_comparison": "Painted explorer Roshan and the existing Detective helper establish detailed contours and broad shaded clothing; the fossil slab, specimen trays and crystals share the current cave staging.",
+      "congruency_findings": {
+        "material": "Five broad flat wall bands, rectangular slab/trays, crystal polygons and spotlight cones lack the painted depth of the actors.",
+        "palette": "Cool plum/aqua and small mineral accents fit the world; preserve these relationships instead of random cave restyling.",
+        "hierarchy": "Three empty specimen trays and the slab/crystal grouping need to remain subordinate to the live actionable object."
+      },
+      "proposed_update": "Inventory accepted cave/stone sources, then paint only the documented missing cave/material components in their existing spatial/story roles. Draw crystal/slab/tray subjects as coherent objects and preserve all interactive placements. Retire flat backdrop/spotlight fallbacks after equivalent route proof.",
+      "remaining_evidence": "Entry still only; full gameplay state, layer ownership, native coverage, helper/actor identity scope and device/owner acceptance remain open.",
+      "review_status": "WEAKNESS_CONTEXT_REVIEW; no replacement acceptance",
+      "accepted_removed": false
+    },
+    {
+      "review_id": "CONG-GEOLOGY-BENCH",
+      "piece_ids": [
+        "FV-A6CE3E284202"
+      ],
+      "topic": "Shared Geologist workbench",
+      "native_capture_refs": [
+        "live_v2/1280x720/opera_phase_17_geologist_00.png",
+        "live_v2/1280x720/opera_phase_17_geologist_01.png",
+        "live_v2/1280x720/opera_phase_17_geologist_02.png",
+        "live_v2/1280x720/opera_phase_17_geologist_03.png"
+      ],
+      "same_scene_comparison": "Painted whole explorer Roshan and Detective helper persist beside the same large ochre/plum surface in all four tasks.",
+      "congruency_findings": {
+        "material": "A nearly full-height ochre rectangle with geometric rounded rim and corner circles contrasts with the actors’ varied painted surfaces.",
+        "consistency": "All four phases need the same table/material, perspective, lighting and support conventions. Independent random scene redraws would break their shared workshop."
+      },
+      "proposed_update": "Reuse a fitting approved tabletop/material if present; otherwise author one context-bound quiet workshop surface with the same 860x490 work rect and consistent object lighting. Keep each specialist task independently actionable.",
+      "remaining_evidence": "All four current views are rest/open fixtures; action states, alpha/ownership, full HUD and phone evidence remain required.",
+      "review_status": "WEAKNESS_CONTEXT_REVIEW; no replacement acceptance",
+      "accepted_removed": false
+    },
+    {
+      "review_id": "CONG-GEOLOGY-RIVER",
+      "piece_ids": [
+        "FV-DA16E1E99C6D",
+        "FV-4120D0DEF44C"
+      ],
+      "topic": "River dry grid and endpoint pools",
+      "native_capture_refs": [
+        "live_v2/1280x720/opera_phase_17_geologist_00.png"
+      ],
+      "same_scene_comparison": "The two endpoint circles sit on the same workbench beside painted actors.",
+      "congruency_findings": {
+        "shape": "The pools read as concentric target disks; this reviewer initially mistook them for lens-like UI before checking _draw_river.",
+        "material": "The dry-cell dots, opaque pool rims and single-value faces lack riverbank/water cues.",
+        "semantics": "This is the untouched river grid; connected/wet channel behavior is not visible in the inspected frame."
+      },
+      "proposed_update": "Give the source/sink calm painted spring/basin identity and the sand/soil a scene-matched surface. Preserve arbitrary connected excavation; derive all connected water variants from a coherent material system rather than unrelated tile drawings.",
+      "remaining_evidence": "FV-16448353CDDD flowing channel remains source-only in this root review. Arbitrary topology, dry isolated holes, endpoints and action/contact must be captured before accepting material replacement.",
+      "review_status": "WEAKNESS_CONTEXT_REVIEW; no replacement acceptance",
+      "accepted_removed": false
+    },
+    {
+      "review_id": "CONG-GEOLOGY-FOSSIL",
+      "piece_ids": [
+        "FV-4E515D6F7A64"
+      ],
+      "topic": "Fossil dirt cover",
+      "native_capture_refs": [
+        "live_v2/1280x720/opera_phase_17_geologist_01.png"
+      ],
+      "same_scene_comparison": "The uniform brown excavation rectangle lies above the same quiet ochre workbench and beside painted explorer/helper.",
+      "congruency_findings": {
+        "material": "The hidden fossil is covered by a hard rectangular field of indistinguishable flat cells.",
+        "semantics": "No revealed fossil or fragment can be judged from this fully covered starting state."
+      },
+      "proposed_update": "Use one coherent painted dust/soil texture with a functional non-art reveal mask, preserving scrub geometry. Match the stone slab/fossil states to this same task rather than redrawing each revealed fragment as a separate unrelated object.",
+      "remaining_evidence": "Reveal/three-piece matching, painted brush contact, exact fossil identity and fallback variants remain unreviewed here; no fragment acceptance claimed.",
+      "review_status": "WEAKNESS_CONTEXT_REVIEW; no replacement acceptance",
+      "accepted_removed": false
+    },
+    {
+      "review_id": "CONG-GEOLOGY-PAN",
+      "piece_ids": [
+        "FV-F2DE53A80AA7",
+        "FV-819BC170AF16",
+        "FV-1E16581A6287"
+      ],
+      "topic": "Mineral-washing pan",
+      "native_capture_refs": [
+        "live_v2/1280x720/opera_phase_17_geologist_02.png"
+      ],
+      "same_scene_comparison": "Painted explorer/helper and the shared workbench are the same-scene anchors; the pan is the primary working prop.",
+      "congruency_findings": {
+        "material": "Nested dark/ochre/aqua ellipses and uniform gold pellets read as diagram art.",
+        "perspective": "The pan opening is horizontally elliptical; a replacement must preserve this viewed plane and wash/contact area.",
+        "hierarchy": "Fine grain details cannot obscure reversal movement or the mineral reveal."
+      },
+      "proposed_update": "After exact-purpose reuse search, supply the named missing complete pan with broad metal/wood bands and coherent water/sand/mineral states. Keep all nine reversal semantics and stable pan bounds; avoid layered unrelated rims/stickers.",
+      "remaining_evidence": "PAN_PATH is empty in current inspected source. Sand/wash/reveal/reversal states, alpha support, whole-prop continuity and runtime/device acceptance remain open.",
+      "review_status": "WEAKNESS_CONTEXT_REVIEW; no replacement acceptance",
+      "accepted_removed": false
+    },
+    {
+      "review_id": "CONG-GEOLOGY-GEODE",
+      "piece_ids": [
+        "FV-C1AB21410352",
+        "FV-4502C5860C45"
+      ],
+      "topic": "Geode closed shell and seam cues",
+      "native_capture_refs": [
+        "live_v2/1280x720/opera_phase_17_geologist_03.png"
+      ],
+      "same_scene_comparison": "The geode sits on the same workshop surface; painted actors provide the contour/value family.",
+      "congruency_findings": {
+        "material": "A broad purple oval, dark outline and straight center line lack stone/crystal material.",
+        "hierarchy": "Five large yellow disks dominate the specimen; necessary cues need a quieter context-matched treatment without disappearing.",
+        "continuity": "The closed shell, split halves and crystal interior must describe the very same specimen."
+      },
+      "proposed_update": "Find a suitable accepted specimen or author the named missing single geode family. Bind closed/open halves/interior to one geometry, palette, light and pivot; render each complete state and preserve tap seam/pull controls.",
+      "remaining_evidence": "GEODE_PATH is empty. FV-99DB2D71D276 open halves and FV-F7DB96881260 gallery are not reviewed in this starting-state frame. Source-gap and action/contact evidence remain open.",
+      "review_status": "WEAKNESS_CONTEXT_REVIEW; no replacement acceptance",
+      "accepted_removed": false
+    },
+    {
+      "review_id": "CONG-TEACHER-LESSON",
+      "piece_ids": [
+        "FV-811B30EC9ED5",
+        "FV-3DF34F8DBE3A"
+      ],
+      "topic": "Teacher pattern-board tokens",
+      "native_capture_refs": [
+        "live_v2/1280x720/opera_phase_18_teacher_00.png"
+      ],
+      "same_scene_comparison": "The painted library stonework/books/shell lamps and complete Teacher Roshan are same-scene style anchors. Compare repeated tokens with one another within the same question.",
+      "congruency_findings": {
+        "material": "Plain paper/panel fills and opaque circles/triangles with geometric indigo strokes contrast with painted stone, metal and clothing.",
+        "semantics": "Circle/triangle silhouettes, cyan/gold colors and left-to-right pattern are the lesson, so material improvement must not blur distinctions or change answers.",
+        "consistency": "Every repeated instance of a shape/color must use the same authored token. A individually random redraw for each repeated token would introduce false lesson differences."
+      },
+      "proposed_update": "Use tangible painted tile/paper/bead materials with broad clean colored faces and identical semantic silhouettes. Reuse calm existing paper/frame art where it fits. Author missing shape variants as one consistent classroom set, retaining hit geometry, order, voice and pointer.",
+      "remaining_evidence": "Only the displayed pattern question reviewed here. Other levels/shapes/colors, COUNT/ADD/MATCH, hints, correct/disabled states, natural input/save and phone/child/owner review remain open.",
+      "review_status": "WEAKNESS_CONTEXT_REVIEW; no replacement acceptance",
+      "accepted_removed": false
+    }
+  ],
+  "capture_bindings": [
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/live_v2/1280x720/opera_act_17_geologist_from_library.png",
+      "sha256": "863f3ae56a5922fee60f5d469c2e17fa557c713b1f92551d1bd6fc9aaa8dd90c",
+      "bytes": 109933,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "review_method": "Full native image displayed by view_image and inspected by root assistant; no image editing",
+      "scope": "Existing diagnostic desktop Mobile/Speedy evidence; fixture and source-closure limits preserved"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/live_v2/1280x720/opera_phase_17_geologist_00.png",
+      "sha256": "56f59d6bfbb759e9118f97c491e38a54faa1d6ceafcfbc7d65276ec7ccb92cc4",
+      "bytes": 101404,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "review_method": "Full native image displayed by view_image and inspected by root assistant; no image editing",
+      "scope": "Existing diagnostic desktop Mobile/Speedy evidence; fixture and source-closure limits preserved"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/live_v2/1280x720/opera_phase_17_geologist_01.png",
+      "sha256": "970e682958ddfcc0e0672ce20fc56ca2aafc531ebb16ffc62e008a11655a641f",
+      "bytes": 97072,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "review_method": "Full native image displayed by view_image and inspected by root assistant; no image editing",
+      "scope": "Existing diagnostic desktop Mobile/Speedy evidence; fixture and source-closure limits preserved"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/live_v2/1280x720/opera_phase_17_geologist_02.png",
+      "sha256": "74df8702542f33af5e2ee915212b2581e669847100c92f23187a85c4d15b9770",
+      "bytes": 119804,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "review_method": "Full native image displayed by view_image and inspected by root assistant; no image editing",
+      "scope": "Existing diagnostic desktop Mobile/Speedy evidence; fixture and source-closure limits preserved"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/live_v2/1280x720/opera_phase_17_geologist_03.png",
+      "sha256": "86f53b59d446f33008da83fdf1c8e6d47f7df63b219d544b08f6820af0f151c7",
+      "bytes": 121615,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "review_method": "Full native image displayed by view_image and inspected by root assistant; no image editing",
+      "scope": "Existing diagnostic desktop Mobile/Speedy evidence; fixture and source-closure limits preserved"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/live_v2/1280x720/opera_phase_18_teacher_00.png",
+      "sha256": "339137b925577bc4f96af97affbbf7b836b0c131d893e30b2070e47524b90a82",
+      "bytes": 580674,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "review_method": "Full native image displayed by view_image and inspected by root assistant; no image editing",
+      "scope": "Existing diagnostic desktop Mobile/Speedy evidence; fixture and source-closure limits preserved"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/live_v3/castle/1280x720/rest_dining_room.png",
+      "sha256": "05423cdde0a828ac2d9333c7398533d0fd0f30c2150069e1200c080fa5f41fef",
+      "bytes": 781500,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "review_method": "Full native image displayed by view_image and inspected by root assistant; no image editing",
+      "scope": "Existing diagnostic desktop Mobile/Speedy evidence; fixture and source-closure limits preserved"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/live_v3/castle/1280x720/rest_family_gallery.png",
+      "sha256": "6c722d5172a0372dde8d19933b7ae24fa67c24f5d0e3d329674a4003414bd328",
+      "bytes": 684249,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "review_method": "Full native image displayed by view_image and inspected by root assistant; no image editing",
+      "scope": "Existing diagnostic desktop Mobile/Speedy evidence; fixture and source-closure limits preserved"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/live_v3/castle/1280x720/rest_movie_lounge.png",
+      "sha256": "09fb68813726516fab0fb80d348635f4ed37307943982f2430ddeafcd668d663",
+      "bytes": 856668,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "review_method": "Full native image displayed by view_image and inspected by root assistant; no image editing",
+      "scope": "Existing diagnostic desktop Mobile/Speedy evidence; fixture and source-closure limits preserved"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/live_v3/castle/1280x720/rest_royal_bedroom.png",
+      "sha256": "5231933ab53511b53d90a696080a7ec8849aead83a85f15a3a30f45bfc131fd6",
+      "bytes": 776508,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "review_method": "Full native image displayed by view_image and inspected by root assistant; no image editing",
+      "scope": "Existing diagnostic desktop Mobile/Speedy evidence; fixture and source-closure limits preserved"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/live_v3/castle/1280x720/rest_sleepover_bedroom.png",
+      "sha256": "3cf527c5680250e4ca83d01e08ef53e9a31ecdf20f7d4e27a5d638a2a0993155",
+      "bytes": 547338,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "review_method": "Full native image displayed by view_image and inspected by root assistant; no image editing",
+      "scope": "Existing diagnostic desktop Mobile/Speedy evidence; fixture and source-closure limits preserved"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/live_v6/hud_fashion/fashion/1280x720/fashion_roshan_ribbon_picked.png",
+      "sha256": "52203e851b07ff8ca6ac1d95c873da8251eed7172d4abc46df0ad765fe9c152d",
+      "bytes": 1035588,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "review_method": "Full native image displayed by view_image and inspected by root assistant; no image editing",
+      "scope": "Existing diagnostic desktop Mobile/Speedy evidence; fixture and source-closure limits preserved"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/live_v6/hud_fashion/fashion/1280x720/fashion_starter_entry.png",
+      "sha256": "8f4d1991b86009943df9e4e35293522d2b0e7b2805a5927a732e234ddf3adc9d",
+      "bytes": 1011564,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "review_method": "Full native image displayed by view_image and inspected by root assistant; no image editing",
+      "scope": "Existing diagnostic desktop Mobile/Speedy evidence; fixture and source-closure limits preserved"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/live_v6/hud_fashion/hud/1280x720/hud_idle.png",
+      "sha256": "6e0166ca3f00cbac5041e258c30c3b93625c43d25c39b707b50b1b054201e25f",
+      "bytes": 1724265,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "review_method": "Full native image displayed by view_image and inspected by root assistant; no image editing",
+      "scope": "Existing diagnostic desktop Mobile/Speedy evidence; fixture and source-closure limits preserved"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/live_v6/menu/1280x720/menu_focus_17.png",
+      "sha256": "6e4b38eec330cc6a2b046faea520f895986d600c89d0cc5b5f127d2ac4334c8c",
+      "bytes": 351011,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "review_method": "Full native image displayed by view_image and inspected by root assistant; no image editing",
+      "scope": "Existing diagnostic desktop Mobile/Speedy evidence; fixture and source-closure limits preserved"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/live_v6/menu/1280x720/menu_open.png",
+      "sha256": "308b7cbb6b3aceecad4f8a83532a9cdd3e78cc0f2976976ce50064ad9f9b3f26",
+      "bytes": 348622,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "review_method": "Full native image displayed by view_image and inspected by root assistant; no image editing",
+      "scope": "Existing diagnostic desktop Mobile/Speedy evidence; fixture and source-closure limits preserved"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/live_v6/menu/1600x720/menu_open.png",
+      "sha256": "74fc3bcd4f58e7f379a627360c7ca82833bf6a01e3160166608ef8ccc981e5c4",
+      "bytes": 359603,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "review_method": "Full native image displayed by view_image and inspected by root assistant; no image editing",
+      "scope": "Existing diagnostic desktop Mobile/Speedy evidence; fixture and source-closure limits preserved"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/live_v6/party_props/native/1280x720/lawn_ready.png",
+      "sha256": "9ef1d224d581b2d1302a9d13bec8d4c0cf849a03550f281bb1954deefcbabccd",
+      "bytes": 1694788,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "review_method": "Full native image displayed by view_image and inspected by root assistant; no image editing",
+      "scope": "Existing diagnostic desktop Mobile/Speedy evidence; fixture and source-closure limits preserved"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/live_v6/party_props/native/1280x720/main_hall_ready.png",
+      "sha256": "8ddbaf2afa86270d5fc1b47c1d604598d16903edfc09d8f48f0cbcee03f2f605",
+      "bytes": 1407599,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "review_method": "Full native image displayed by view_image and inspected by root assistant; no image editing",
+      "scope": "Existing diagnostic desktop Mobile/Speedy evidence; fixture and source-closure limits preserved"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/live_v6/party_props/native/1280x720/table_restored.png",
+      "sha256": "c84a216547cf805560c4fce5fef4e88dd3e088bb02571997a0e15bd0251df800",
+      "bytes": 1407624,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "review_method": "Full native image displayed by view_image and inspected by root assistant; no image editing",
+      "scope": "Existing diagnostic desktop Mobile/Speedy evidence; fixture and source-closure limits preserved"
+    }
+  ],
+  "source_bindings": [
+    {
+      "path": "scripts/opera_geology_surface.gd",
+      "sha256": "14226227f7a961511057318173737ec7340b2fc80fdb644e5670f5bd399989a6",
+      "role": "Source inspection",
+      "modified": false
+    },
+    {
+      "path": "scripts/chapter_two_party_table_2d.gd",
+      "sha256": "afc04626075f6a6be6747e2d8b2da2c1cb22640e202d01da7a06b766c6631f11",
+      "role": "Source inspection",
+      "modified": false
+    },
+    {
+      "path": "assets/fashion/skin_engine_v2/ui/wardrobe_panel.png",
+      "sha256": "b533b95074f1466ee0519448c992de89d5683432f7a994c4de2628659da7f1ef",
+      "role": "Reuse candidate only; no independent isolated pixel inspection in this review",
+      "modified": false
+    },
+    {
+      "path": "assets/fashion/skin_engine_v2/ui/wardrobe_card.png",
+      "sha256": "ab4926b5c99c3c6db0efcb4a20a75a9128276e085189bf51f947025659525893",
+      "role": "Reuse candidate only; no independent isolated pixel inspection in this review",
+      "modified": false
+    },
+    {
+      "path": "assets/opera/worlds/props/fx_stolen_sparkle.png",
+      "sha256": "fad456ad3641cf67e194945ba9208108cd1f0cf9f35b8ee10516e18bc88eb772",
+      "role": "Reuse candidate only; no independent isolated pixel inspection in this review",
+      "modified": false
+    }
+  ],
+  "counting_limit": "Observation counts, source draw-role counts and distinct design counts differ. These notes update context, not replacement/removal totals. No full-game denominator inferred.",
+  "correction_history": [
+    {
+      "issue": "Initial Geologist river endpoint misread as lens-like board",
+      "correction": "Inspected _draw_river and all four phase images; circles are river pools. Original message to dedicated agent corrected; no capture-label defect inferred."
+    }
+  ],
+  "acceptance": {
+    "replaced": 0,
+    "accepted_removed": 0,
+    "full_game_inventory_complete": false,
+    "new_runtime_verification": false,
+    "device": null,
+    "child": null,
+    "owner": null,
+    "publication": "LOCAL_REVIEW_STAGING; dedicated agent must include it in a remotely verified material packet before claiming external handoff"
+  }
+}

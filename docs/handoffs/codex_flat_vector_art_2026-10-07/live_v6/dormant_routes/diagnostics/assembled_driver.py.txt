@@ -1,0 +1,87 @@
+from pathlib import Path
+import json,hashlib,subprocess,re,datetime
+R=Path.cwd(); B=R/'docs/handoffs/codex_flat_vector_art_2026-10-07'; P=B/'live_v6/dormant_routes'; T=R/'tmp/flat-vector-dormant-routes-20261008'; P.mkdir(parents=True,exist_ok=True);T.mkdir(parents=True,exist_ok=True)
+H='6cde8aeae04aaedcc0b1ff22a05ef93ab9bf666f'
+def sha(b): return hashlib.sha256(b).hexdigest()
+def put(n,d):
+ p=P/n;p.parent.mkdir(parents=True,exist_ok=True);p.write_text(json.dumps(d,ensure_ascii=False,indent=2)+'\n',encoding='utf-8',newline='\n')
+def load(p): return json.loads(p.read_text(encoding='utf-8'))
+tracked=subprocess.check_output(['git','ls-files','-z'],cwd=R).decode().split('\0')
+corpus=[]; refs=[]
+tokens=['_open_craft_studio','_craft_ref','CraftStudio','_style_swatch','_mg2d_open','_mg_build_slide','_mg_circle','_mg2d_feedback_burst','PictureGames','_build_pearl_castle','_hang_portrait','_touch_open_picture','_l2_start_slide','_start_game','_start_game_now','wall_pics','PIC_GAME','DollsNurserySurface','DollsGame','FetchGame','MelodyGame','SeekGame','ShopGame','SlideRaceGame','TreasureGame','ProsceniumCanvas','FishSteerCueCanvas','FishStageTrimCanvas','SeekMeadowSurface']
+pattern=re.compile(r'\b(?:'+ '|'.join(map(re.escape,tokens))+r')\b')
+for name in sorted(tracked):
+ p=R/name
+ if not p.is_file() or name.startswith(('docs/','audit/','design/','assets_src/','disabled_addons/')) or p.suffix not in {'.gd','.tscn','.tres','.godot','.gdshader'}: continue
+ b=p.read_bytes();s=b.decode('utf-8-sig');corpus.append({'path':name,'working_sha256':sha(b),'bytes':len(b)})
+ for i,line in enumerate(s.splitlines(),1):
+  found=sorted(set(pattern.findall(line)))
+  if found: refs.append({'path':name,'line':i,'tokens':found,'text':line,'lane':'HISTORICAL_BACKUP_REFERENCE' if name.startswith('backups/') else ('TEST_PROBE' if '/probe' in '/'+name else 'PRODUCTION_SOURCE')})
+put('REFERENCE_SCAN.json',{'schema':1,'revision':H,'tokens':tokens,'corpus_count':len(corpus),'corpus':corpus,'references':refs,'method':'Exact identifier lexical scan,including quoted method names and scene/resource text. Comments/definitions are retained; the scan is not a call graph or active dependency closure. Dynamically assembled names cannot be disproved by this scan.'})
+paths=set(r['path'] for r in refs)
+paths.update(['scripts/save_state.gd','scripts/arena/sky_lagoon_promenade.gd','scripts/opera_nursery_catch.gd','scripts/storybook_ui.gd','scripts/living_world_catalog.gd','design/reference/games.json'])
+proof=[]
+for name in sorted(paths):
+ p=R/name
+ if not p.exists(): raise RuntimeError(name)
+ b=subprocess.check_output(['git','show',H+':'+name],cwd=R);q=P/'sources'/name;q.parent.mkdir(parents=True,exist_ok=True);q.write_bytes(b)
+ proof.append({'path':name,'packet_path':'sources/'+name,'git_lf_sha256':sha(b),'working_tree_sha256':sha(p.read_bytes()),'revision':H})
+put('SOURCE_PROOFS.json',{'schema':1,'revision':H,'sources':proof,'limits':'Exact Git source and working-byte proofs; no active-target/dependency/display or device acceptance.'})
+# Explicit route evidence is independent of catalogue assertions.
+routes=[
+ {'id':'craft_studio','catalogue_entries':['overlay.craft_studio','ui.craft','game.craft_studio'],'normal_route':'NO_NORMAL_DISPLAY_ENTRY_FOUND_IN_REVIEWED_SOURCE','retained_api':'ReefMain._open_craft_studio -> _craft_ref -> CraftStudio._open_craft_studio; three probe callers. _init only stores main; no automatic build.','source_anchors':[['scripts/main.gd',7283,7295],['scripts/craft_studio.gd',14,15],['scripts/probe_audit.gd',5239,5239],['scripts/probe_touch_router.gd',155,155],['scripts/probe_ui_system.gd',564,564]],'limits':'Earlier R4 forced-API craft captures retain partial diagnostic status; absent normal entry is not removal or visual closure.'},
+ {'id':'picture_suite','catalogue_entries':['picture.snowman','picture.garden','picture.trampoline','picture.xmas','picture.slide','game.pic_snowman','game.pic_garden','game.pic_trampoline','game.pic_xmas','game.pic_slide'],'normal_route':'NO_NORMAL_DISPLAY_ENTRY_FOUND_IN_REVIEWED_SOURCE','retained_api':'ReefMain._mg2d_open -> PictureGames._mg2d_open. Four game builders remain API-reachable; slide is diverted before old picture-screen build.','source_anchors':[['scripts/main.gd',4926,4990],['scripts/main.gd',5189,5194],['scripts/main.gd',5581,5585],['scripts/arena/sky_lagoon_promenade.gd',196,202],['scripts/arena/sky_lagoon.gd',347,348],['scripts/arena/sky_lagoon.gd',404,407],['scripts/games/picture_games.gd',14,19],['scripts/games/picture_games.gd',88,92]],'limits':'Current Canvas promenade replaces old court entry and returns before old tick. Retained portrait interaction is not a fresh normal route. Unknown dynamic callers and unreviewed API states remain limits.'},
+ {'id':'retired_picture_slide_builder','catalogue_entries':['picture.slide','game.pic_slide'],'normal_route':'BYPASSED_BY_EARLY_RETURN_IN_ORDINARY_OPENER','retained_api':'_mg_build_slide remains a callable method. Its only literal source call is the later kind==slide branch at91; kind==slide exits at17-19. _l2_start_slide instead starts legacy race. Current promenade local slide has another owner.','source_anchors':[['scripts/games/picture_games.gd',14,19],['scripts/games/picture_games.gd',88,92],['scripts/games/picture_games.gd',719,739],['scripts/main.gd',7071,7080]],'limits':'No claim of deletion, API inaccessibility, zero potential art, acceptance or normal-display native proof.'},
+ {'id':'retained_friend_games','catalogue_entries':['minigame.fetch','minigame.dolls','minigame.seek','minigame.shop','minigame.treasure','minigame.melody','game.dolls','game.seek','game.melody','game.slide_fish','game.fetch','game.shop','game.treasure','game.slide_penguin'],'normal_route':'SOURCE_CATALOGUE_DORMANCY_SUPPORTED_BY_REVIEWED_LITERAL_LAUNCHERS','retained_api':'_start_game_now dispatches each family. The reviewed literal production _start_game callers include dust_boss_fr,legacy race slide and deferred fairy_fr(game=fairyshoot); none names the eight dormant friend entries. Probes retain other games. SaveState does not restore an active legacy game launch.','source_anchors':[['scripts/main.gd',738,738],['scripts/main.gd',2340,2350],['scripts/main.gd',7870,7910],['scripts/day_one_flow.gd',404,409],['scripts/main.gd',7078,7080]],'limits':'27 drawing scopes remain unresolved. Shared helpers require their own callers; source dormancy is not globally inactive dependency proof. DollsNurserySurface extends the currently reused OperaNurseryCatch parent; that does not make the Dolls child draw live.'}
+]
+coverage=load(B/'live_v6/room_routes/CUMULATIVE_COVERAGE.json');valid={r['id'] for r in coverage['entries']}
+for route in routes: route['catalogue_entries']=[x for x in route['catalogue_entries'] if x in valid]
+put('ROUTE_REVIEW.json',{'schema':1,'revision':H,'routes':routes,'native_frames_added':0,'route_method':'Static exact-source review only; no retired activity launched; no claim of runtime complete closure.'})
+scope_ids=['FVF-3F1F73EDCAD1','FVF-3F9F842B7BA3','FVF-8A1564966D4B','FVF-535EDBF3F803','FVF-F5F7A8DE4736','FVF-355A4498233C']
+raw=load(B/'source_scopes.json')['scopes']; six=[r for r in raw if r['id'] in scope_ids]
+assert len(six)==6
+observations={
+ scope_ids[0]:'Flat ColorRect backdrop; title/pearl/kind/lock/part/finish pictorial glyphs; three kind,three part and one finish buttons call shared StorybookUI styles;preview panel and ornaments are shared helper calls. Three recolored asset layers are built by _craft_build_preview outside this scope. Eight swatches and a conditional rainbow use _craft_rebuild_palette. Shared helpers/assets remain independently reachable elsewhere.',
+ scope_ids[1]:'Eight palette-button caller contexts per rebuild; selected/unselected border4/8, corner34,shadow7; normal/hover/focus reuse fill,pressed darkens0.12. Disabled/hover_pressed inherited fallback not reviewed. Swatches encode color choice: eventual painted replacement must preserve colors and child discrimination.',
+ scope_ids[2]:'64x64 GradientTexture2D stretched to viewport,four usable kind themes and a bypassed slide theme. Shared header panel and shell crest remain separate global scopes. Label words do not become an art-piece count. Picture children and fallback/helper states unreviewed.',
+ scope_ids[3]:'Each invocation builds a flat circular Panel rim/shadow and white rounded highlight child. Literal roles: snow ground,snowball,garden mound,repeated pots,trampoline. Repeated caller/runtime totals not unique designs; exact usage/occlusion/variants not fully reviewed.',
+ scope_ids[4]:'Flat four-point glints use eight polygon vertices,4-18 per burst(default8),at most three visible action bursts before pruning;win hides old bursts. Lifetime0.35-0.9,scale/position/alpha tweens. Bounded instantaneous count does not bound lifetime instances; motion/loop/contact/device review absent.',
+ scope_ids[5]:'Six ColorRect diagonal rainbow bands; Roshan raster sprite from skin_sprite_path;1040x450 empty Control hit target is functionally invisible within this source. The decorative bands remain potential flat art and are not six current visible pieces. Opener early-return bypass is independently bound.'}
+scopes=[]
+for r in six:
+ scopes.append({'scope_id':r['id'],'path':r['path'],'function':r['scope'],'lines':[r['start_line'],r['end_line']],'source_route_review':'BYPASSED_OPENER_BRANCH_RETAINED_API' if r['id']==scope_ids[5] else 'NO_NORMAL_DISPLAY_ENTRY_FOUND_RETAINED_API','status':'SOURCE_ROUTE_REVIEW_ONLY_VISUAL_UNRESOLVED','fully_dispositioned_for_inventory':False,'individual_piece_count':None,'current_visible_piece_count':None,'observation':observations[r['id']],'evidence':'SOURCE_PROOFS.json;REFERENCE_SCAN.json;ROUTE_REVIEW.json','remaining':'All helper/fallback/asset role attribution,appropriate current contexts,exact human review,device/child/owner acceptance.'})
+put('SCOPE_ROUTE_REVIEW.json',{'schema':1,'scopes':scopes,'visual_classification_added':0,'no_dormancy_exemption':True})
+friend_paths={'scripts/games/'+x+'.gd' for x in ['dolls','fetch','melody','seek','shop','slide_race','treasure']}
+friend=[{'scope_id':r['id'],'path':r['path'],'function':r['scope'],'lines':[r['start_line'],r['end_line']],'source_route_status':'RETAINED_API_FAMILY_SOURCE_REVIEW_ONLY','fully_dispositioned':False,'individual_piece_count':None,'required_action':'Enumerate exact draw roles and all shared/current callers; retain visual/fallback/motion review. Do not instantiate retired spatial builders to imply normal reachability.'} for r in raw if r['path'] in friend_paths]
+assert len(friend)==27
+put('FRIEND_SCOPE_BACKLOG.json',{'schema':1,'scope_count':len(friend),'scopes':friend,'inheritance_limit':'DollsNurserySurface is a child of OperaNurseryCatch,constructed only inside DollsGame. Current parent reuse does not make child overrides current gameplay.'})
+roles=[]
+def role(id,scope,kind,line,desc,multiplicity=None):
+ roles.append({'id':id,'scope_id':scope,'kind':kind,'line':line,'source_description':desc,'source_multiplicity':multiplicity,'current_visible_individual_piece_count':None,'source_only':True,'replacement_or_acceptance':False})
+role('craft.backdrop',scope_ids[0],'FLAT_ART_SOURCE_CANDIDATE',59,'Full-canvas teal fill; frame/navigation context must decide compositional/background role.')
+for id,line,desc,num in [('title',68,'✦ decorative title marker',1),('pearl',74,'◉ pearl illustration next to number',1),('kind',80,'◉/♧/♢ kind symbols; names/words separate',3),('lock',90,'▣ and up to3 repeated ◉ symbols on locked choices;exact saved combinations pending',None),('parts',117,'●/◒/✦ body/fins/detail symbols',3),('finish',145,'≋◉✦ finish pictograms;word SWIM separate',1)]: role('craft.glyph.'+id,scope_ids[0],'PICTORIAL_GLYPH_SOURCE_CANDIDATE',line,desc,num)
+for id,line,desc,num in [('kind_frames',97,'Three shared kind-button surfaces;locked/secondary states',3),('preview_frame',108,'Shared purple/white preview panel plus adorn helper;not globally dormant',1),('part_frames',127,'Three shared secondary part-button surfaces',3),('finish_frame',149,'Shared primary finish-button surface',1)]: role('craft.'+id,scope_ids[0],'SHARED_STYLE_CALLER_SOURCE_CANDIDATE',line,desc,num)
+for i in range(8): role('craft.swatch.'+str(i),scope_ids[1],'FLAT_COLOR_CHOICE_SOURCE_CANDIDATE',195,'Palette index'+str(i)+';selected/pressed variants preserve intended color choice.',1)
+role('craft.rainbow',scope_ids[0],'ADJACENT_HELPER_GLYPH_SOURCE_CANDIDATE',190,'Conditional 🌈 button built outside audited function span at162-193;not ninth unconditional palette color.',1)
+role('craft.preview_layers',scope_ids[0],'ADJACENT_RASTER_LAYER_SOURCE_CANDIDATE',17,'_craft_build_preview creates3 recolored TextureRects from CREATURE_LAYERS with optional layer_fx. File extension/style acceptance not inferred.',3)
+role('picture.gradient',scope_ids[2],'FLAT_BACKGROUND_SOURCE_CANDIDATE',45,'64x64 gradient stretched full-screen;four API themes,slide theme bypassed.',None)
+role('picture.header',scope_ids[2],'SHARED_STYLE_CALLER_SOURCE_CANDIDATE',75,'HUD panel and shell crest separate shared helper roles;unresolved global scopes.',None)
+for id,line,desc in [('snow_ground',334,'Snow ground circular surface'),('snowball',353,'Snowball circular surface'),('garden_mound',576,'Garden mound circular surface'),('garden_pots',582,'Repeated garden pots'),('trampoline',667,'Trampoline circular surface')]: role('picture.circle.'+id,scope_ids[3],'FLAT_ART_SOURCE_CANDIDATE',line,desc+' plus white highlight child;exact API visibility unresolved.')
+role('picture.feedback',scope_ids[4],'DYNAMIC_FLAT_ART_SOURCE_CANDIDATE',200,'Eight-vertex four-point glints;4-18 per transient burst,instantaneous action-burstcap3,lifetime count unbounded.',None)
+for i in range(6): role('picture.retired_slide.band.'+str(i),scope_ids[5],'BYPASSED_FLAT_ART_SOURCE_CANDIDATE',723,'Diagonal rainbow ColorRect index'+str(i)+';ordinary opener bypasses builder;not accepted or removed.',1)
+role('picture.retired_slide.roshan',scope_ids[5],'BYPASSED_RASTER_SOURCE_CANDIDATE',731,'Skin-path Roshan raster;all skin variants/identity unresolved.',1)
+role('picture.retired_slide.hit',scope_ids[5],'BYPASSED_FUNCTIONAL_EMPTY_CONTROL',732,'Empty non-drawing Control for input;source inspection supports invisible geometry only,this is not a global scope exemption.',1)
+put('SOURCE_ROLE_BRIEFS.json',{'schema':1,'role_briefs':roles,'count_unit':'Source caller/role descriptions;not new current-visible/unique art objects. Adjacent helper roles are explicitly outside exact source-scope spans.','all_game_individual_piece_total':None})
+# Current displayed coverage/classification counters deliberately stay frozen.
+cs=load(B/'live_v6/room_routes/CUMULATIVE_SCOPES.json')
+for row in cs['scopes']:
+ if row['scope_id'] in scope_ids: row['source_route_review']=next(s for s in scopes if s['scope_id']==row['scope_id'])['source_route_review'];row['source_route_evidence']='dormant_routes/SCOPE_ROUTE_REVIEW.json'
+cs['note']='Source-only route overlay:6 exact route reviews and27 retained friend-scope backlog rows add no visual classification.10 inventory-classified,359 unresolved;21 partial-native scopes retained. No dormancy exemption or all-game piece total.'
+put('CUMULATIVE_SCOPES.json',cs)
+for row in coverage['entries']:
+ matched=[r['id'] for r in routes if row['id'] in r['catalogue_entries']]
+ if matched: row['source_route_reviews']=matched;row['source_route_review_evidence']='dormant_routes/ROUTE_REVIEW.json'
+coverage['note']='Source-only route overlay;1178 native frames retained,62/176 partial,zero complete. All previous capture statuses preserved. Absence of a normal source entry does not complete a catalogue entry or grant accepted removal.'
+put('CUMULATIVE_COVERAGE.json',coverage)
+put('MACHINE.json',{'schema':1,'source_revision':H,'method':'SOURCE_ONLY_NO_NATIVE_RUN','native_frames_added':0,'cumulative_staged_frames':1178,'R6_total_staged_new_frames':574,'overlapping_entries':176,'partial_entries':62,'complete_entries':0,'source_route_reviewed_scopes':6,'friend_scope_backlog':27,'classified_visual_scopes':10,'unresolved_scopes':359,'source_role_briefs':len(roles),'affected_overlapping_catalogue_entries':len({x for r in routes for x in r['catalogue_entries']}),'current_visible_new_art_instances':None,'all_game_individual_piece_total':None,'flat_role_contexts_prior_native_slices':119,'replacements':0,'accepted_removals':0,'visual_device_child_owner_acceptance':False,'DL_QA_11':False,'publication':'UNPUBLISHED_HANDOFF_BLOCKED','limits':'Lexical source review cannot prove dynamic caller/active dependency closure. No dormant forced-native capture,production change,old handoff rewrite or newly authored pixels.'})
+print(json.dumps({'packet':str(P),'corpus':len(corpus),'references':len(refs),'sources':len(proof),'roles':len(roles),'aliases':len({x for r in routes for x in r['catalogue_entries']})}))

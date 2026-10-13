@@ -1,0 +1,358 @@
+{
+  "schema": 1,
+  "scope_count": 27,
+  "scopes": [
+    {
+      "scope_id": "FVF-4B2840DD2509",
+      "path": "scripts/games/dolls.gd",
+      "function": "DollsNurserySurface._ready",
+      "lines": [
+        32,
+        52
+      ],
+      "source_route_status": "RETAINED_API_FAMILY_SOURCE_REVIEW_ONLY",
+      "fully_dispositioned": false,
+      "individual_piece_count": null,
+      "required_action": "Enumerate exact draw roles and all shared/current callers; retain visual/fallback/motion review. Do not instantiate retired spatial builders to imply normal reachability."
+    },
+    {
+      "scope_id": "FVF-23D30F694F3A",
+      "path": "scripts/games/dolls.gd",
+      "function": "DollsNurserySurface._draw",
+      "lines": [
+        99,
+        184
+      ],
+      "source_route_status": "RETAINED_API_FAMILY_SOURCE_REVIEW_ONLY",
+      "fully_dispositioned": false,
+      "individual_piece_count": null,
+      "required_action": "Enumerate exact draw roles and all shared/current callers; retain visual/fallback/motion review. Do not instantiate retired spatial builders to imply normal reachability."
+    },
+    {
+      "scope_id": "FVF-DABC1D5253A1",
+      "path": "scripts/games/dolls.gd",
+      "function": "build",
+      "lines": [
+        189,
+        260
+      ],
+      "source_route_status": "RETAINED_API_FAMILY_SOURCE_REVIEW_ONLY",
+      "fully_dispositioned": false,
+      "individual_piece_count": null,
+      "required_action": "Enumerate exact draw roles and all shared/current callers; retain visual/fallback/motion review. Do not instantiate retired spatial builders to imply normal reachability."
+    },
+    {
+      "scope_id": "FVF-921B44E597DA",
+      "path": "scripts/games/fetch.gd",
+      "function": "build",
+      "lines": [
+        11,
+        191
+      ],
+      "source_route_status": "RETAINED_API_FAMILY_SOURCE_REVIEW_ONLY",
+      "fully_dispositioned": false,
+      "individual_piece_count": null,
+      "required_action": "Enumerate exact draw roles and all shared/current callers; retain visual/fallback/motion review. Do not instantiate retired spatial builders to imply normal reachability."
+    },
+    {
+      "scope_id": "FVF-DA74517277FC",
+      "path": "scripts/games/melody.gd",
+      "function": "ProsceniumCanvas._draw",
+      "lines": [
+        123,
+        164
+      ],
+      "source_route_status": "RETAINED_API_FAMILY_SOURCE_REVIEW_ONLY",
+      "fully_dispositioned": false,
+      "individual_piece_count": null,
+      "required_action": "Enumerate exact draw roles and all shared/current callers; retain visual/fallback/motion review. Do not instantiate retired spatial builders to imply normal reachability."
+    },
+    {
+      "scope_id": "FVF-5BBAA81CE305",
+      "path": "scripts/games/melody.gd",
+      "function": "ProsceniumCanvas._polygon",
+      "lines": [
+        165,
+        179
+      ],
+      "source_route_status": "RETAINED_API_FAMILY_SOURCE_REVIEW_ONLY",
+      "fully_dispositioned": false,
+      "individual_piece_count": null,
+      "required_action": "Enumerate exact draw roles and all shared/current callers; retain visual/fallback/motion review. Do not instantiate retired spatial builders to imply normal reachability."
+    },
+    {
+      "scope_id": "FVF-57B3D0268873",
+      "path": "scripts/games/melody.gd",
+      "function": "FootlightsCanvas.setup",
+      "lines": [
+        180,
+        192
+      ],
+      "source_route_status": "RETAINED_API_FAMILY_SOURCE_REVIEW_ONLY",
+      "fully_dispositioned": false,
+      "individual_piece_count": null,
+      "required_action": "Enumerate exact draw roles and all shared/current callers; retain visual/fallback/motion review. Do not instantiate retired spatial builders to imply normal reachability."
+    },
+    {
+      "scope_id": "FVF-6ECD16CBB03A",
+      "path": "scripts/games/melody.gd",
+      "function": "FootlightsCanvas._draw",
+      "lines": [
+        203,
+        221
+      ],
+      "source_route_status": "RETAINED_API_FAMILY_SOURCE_REVIEW_ONLY",
+      "fully_dispositioned": false,
+      "individual_piece_count": null,
+      "required_action": "Enumerate exact draw roles and all shared/current callers; retain visual/fallback/motion review. Do not instantiate retired spatial builders to imply normal reachability."
+    },
+    {
+      "scope_id": "FVF-7E146BFC2271",
+      "path": "scripts/games/melody.gd",
+      "function": "StageStarCanvas.setup",
+      "lines": [
+        222,
+        232
+      ],
+      "source_route_status": "RETAINED_API_FAMILY_SOURCE_REVIEW_ONLY",
+      "fully_dispositioned": false,
+      "individual_piece_count": null,
+      "required_action": "Enumerate exact draw roles and all shared/current callers; retain visual/fallback/motion review. Do not instantiate retired spatial builders to imply normal reachability."
+    },
+    {
+      "scope_id": "FVF-C14E910D3911",
+      "path": "scripts/games/melody.gd",
+      "function": "StageStarCanvas._draw",
+      "lines": [
+        241,
+        252
+      ],
+      "source_route_status": "RETAINED_API_FAMILY_SOURCE_REVIEW_ONLY",
+      "fully_dispositioned": false,
+      "individual_piece_count": null,
+      "required_action": "Enumerate exact draw roles and all shared/current callers; retain visual/fallback/motion review. Do not instantiate retired spatial builders to imply normal reachability."
+    },
+    {
+      "scope_id": "FVF-50ED9D649692",
+      "path": "scripts/games/melody.gd",
+      "function": "TimingZoneCanvas.setup",
+      "lines": [
+        272,
+        282
+      ],
+      "source_route_status": "RETAINED_API_FAMILY_SOURCE_REVIEW_ONLY",
+      "fully_dispositioned": false,
+      "individual_piece_count": null,
+      "required_action": "Enumerate exact draw roles and all shared/current callers; retain visual/fallback/motion review. Do not instantiate retired spatial builders to imply normal reachability."
+    },
+    {
+      "scope_id": "FVF-131F475F9E4C",
+      "path": "scripts/games/melody.gd",
+      "function": "TimingZoneCanvas._draw",
+      "lines": [
+        301,
+        336
+      ],
+      "source_route_status": "RETAINED_API_FAMILY_SOURCE_REVIEW_ONLY",
+      "fully_dispositioned": false,
+      "individual_piece_count": null,
+      "required_action": "Enumerate exact draw roles and all shared/current callers; retain visual/fallback/motion review. Do not instantiate retired spatial builders to imply normal reachability."
+    },
+    {
+      "scope_id": "FVF-A58918EEE602",
+      "path": "scripts/games/melody.gd",
+      "function": "PointerCanvas.setup",
+      "lines": [
+        337,
+        369
+      ],
+      "source_route_status": "RETAINED_API_FAMILY_SOURCE_REVIEW_ONLY",
+      "fully_dispositioned": false,
+      "individual_piece_count": null,
+      "required_action": "Enumerate exact draw roles and all shared/current callers; retain visual/fallback/motion review. Do not instantiate retired spatial builders to imply normal reachability."
+    },
+    {
+      "scope_id": "FVF-3142D1CF2762",
+      "path": "scripts/games/melody.gd",
+      "function": "RainbowNoteCanvas.setup",
+      "lines": [
+        434,
+        453
+      ],
+      "source_route_status": "RETAINED_API_FAMILY_SOURCE_REVIEW_ONLY",
+      "fully_dispositioned": false,
+      "individual_piece_count": null,
+      "required_action": "Enumerate exact draw roles and all shared/current callers; retain visual/fallback/motion review. Do not instantiate retired spatial builders to imply normal reachability."
+    },
+    {
+      "scope_id": "FVF-5C7199B078E3",
+      "path": "scripts/games/melody.gd",
+      "function": "RainbowNoteCanvas._draw",
+      "lines": [
+        461,
+        487
+      ],
+      "source_route_status": "RETAINED_API_FAMILY_SOURCE_REVIEW_ONLY",
+      "fully_dispositioned": false,
+      "individual_piece_count": null,
+      "required_action": "Enumerate exact draw roles and all shared/current callers; retain visual/fallback/motion review. Do not instantiate retired spatial builders to imply normal reachability."
+    },
+    {
+      "scope_id": "FVF-C33D763412A1",
+      "path": "scripts/games/melody.gd",
+      "function": "ProgressPipCanvas.setup",
+      "lines": [
+        488,
+        504
+      ],
+      "source_route_status": "RETAINED_API_FAMILY_SOURCE_REVIEW_ONLY",
+      "fully_dispositioned": false,
+      "individual_piece_count": null,
+      "required_action": "Enumerate exact draw roles and all shared/current callers; retain visual/fallback/motion review. Do not instantiate retired spatial builders to imply normal reachability."
+    },
+    {
+      "scope_id": "FVF-CFB3F02098DE",
+      "path": "scripts/games/melody.gd",
+      "function": "ProgressPipCanvas._draw",
+      "lines": [
+        513,
+        579
+      ],
+      "source_route_status": "RETAINED_API_FAMILY_SOURCE_REVIEW_ONLY",
+      "fully_dispositioned": false,
+      "individual_piece_count": null,
+      "required_action": "Enumerate exact draw roles and all shared/current callers; retain visual/fallback/motion review. Do not instantiate retired spatial builders to imply normal reachability."
+    },
+    {
+      "scope_id": "FVF-4F8C4D874C00",
+      "path": "scripts/games/melody.gd",
+      "function": "build",
+      "lines": [
+        593,
+        687
+      ],
+      "source_route_status": "RETAINED_API_FAMILY_SOURCE_REVIEW_ONLY",
+      "fully_dispositioned": false,
+      "individual_piece_count": null,
+      "required_action": "Enumerate exact draw roles and all shared/current callers; retain visual/fallback/motion review. Do not instantiate retired spatial builders to imply normal reachability."
+    },
+    {
+      "scope_id": "FVF-B32B3AE43EBE",
+      "path": "scripts/games/seek.gd",
+      "function": "SeekMeadowSurface._draw",
+      "lines": [
+        500,
+        551
+      ],
+      "source_route_status": "RETAINED_API_FAMILY_SOURCE_REVIEW_ONLY",
+      "fully_dispositioned": false,
+      "individual_piece_count": null,
+      "required_action": "Enumerate exact draw roles and all shared/current callers; retain visual/fallback/motion review. Do not instantiate retired spatial builders to imply normal reachability."
+    },
+    {
+      "scope_id": "FVF-F9E294BAD54B",
+      "path": "scripts/games/shop.gd",
+      "function": "_build_shop_cabin",
+      "lines": [
+        11,
+        211
+      ],
+      "source_route_status": "RETAINED_API_FAMILY_SOURCE_REVIEW_ONLY",
+      "fully_dispositioned": false,
+      "individual_piece_count": null,
+      "required_action": "Enumerate exact draw roles and all shared/current callers; retain visual/fallback/motion review. Do not instantiate retired spatial builders to imply normal reachability."
+    },
+    {
+      "scope_id": "FVF-4022D9117E84",
+      "path": "scripts/games/slide_race.gd",
+      "function": "FishSteerCueCanvas._draw",
+      "lines": [
+        83,
+        112
+      ],
+      "source_route_status": "RETAINED_API_FAMILY_SOURCE_REVIEW_ONLY",
+      "fully_dispositioned": false,
+      "individual_piece_count": null,
+      "required_action": "Enumerate exact draw roles and all shared/current callers; retain visual/fallback/motion review. Do not instantiate retired spatial builders to imply normal reachability."
+    },
+    {
+      "scope_id": "FVF-3C2B06F21E1A",
+      "path": "scripts/games/slide_race.gd",
+      "function": "FishStageTrimCanvas._draw",
+      "lines": [
+        125,
+        186
+      ],
+      "source_route_status": "RETAINED_API_FAMILY_SOURCE_REVIEW_ONLY",
+      "fully_dispositioned": false,
+      "individual_piece_count": null,
+      "required_action": "Enumerate exact draw roles and all shared/current callers; retain visual/fallback/motion review. Do not instantiate retired spatial builders to imply normal reachability."
+    },
+    {
+      "scope_id": "FVF-1AB8F1319A6B",
+      "path": "scripts/games/slide_race.gd",
+      "function": "_build_canvas_fish",
+      "lines": [
+        215,
+        351
+      ],
+      "source_route_status": "RETAINED_API_FAMILY_SOURCE_REVIEW_ONLY",
+      "fully_dispositioned": false,
+      "individual_piece_count": null,
+      "required_action": "Enumerate exact draw roles and all shared/current callers; retain visual/fallback/motion review. Do not instantiate retired spatial builders to imply normal reachability."
+    },
+    {
+      "scope_id": "FVF-F30D4EC47CD6",
+      "path": "scripts/games/slide_race.gd",
+      "function": "_build_playplace",
+      "lines": [
+        1057,
+        1195
+      ],
+      "source_route_status": "RETAINED_API_FAMILY_SOURCE_REVIEW_ONLY",
+      "fully_dispositioned": false,
+      "individual_piece_count": null,
+      "required_action": "Enumerate exact draw roles and all shared/current callers; retain visual/fallback/motion review. Do not instantiate retired spatial builders to imply normal reachability."
+    },
+    {
+      "scope_id": "FVF-29D38140A24C",
+      "path": "scripts/games/slide_race.gd",
+      "function": "_slide_plank",
+      "lines": [
+        1196,
+        1216
+      ],
+      "source_route_status": "RETAINED_API_FAMILY_SOURCE_REVIEW_ONLY",
+      "fully_dispositioned": false,
+      "individual_piece_count": null,
+      "required_action": "Enumerate exact draw roles and all shared/current callers; retain visual/fallback/motion review. Do not instantiate retired spatial builders to imply normal reachability."
+    },
+    {
+      "scope_id": "FVF-BB082F001AB3",
+      "path": "scripts/games/slide_race.gd",
+      "function": "_build_slide",
+      "lines": [
+        1239,
+        1361
+      ],
+      "source_route_status": "RETAINED_API_FAMILY_SOURCE_REVIEW_ONLY",
+      "fully_dispositioned": false,
+      "individual_piece_count": null,
+      "required_action": "Enumerate exact draw roles and all shared/current callers; retain visual/fallback/motion review. Do not instantiate retired spatial builders to imply normal reachability."
+    },
+    {
+      "scope_id": "FVF-5525E0DEF737",
+      "path": "scripts/games/treasure.gd",
+      "function": "_build_cavern",
+      "lines": [
+        11,
+        106
+      ],
+      "source_route_status": "RETAINED_API_FAMILY_SOURCE_REVIEW_ONLY",
+      "fully_dispositioned": false,
+      "individual_piece_count": null,
+      "required_action": "Enumerate exact draw roles and all shared/current callers; retain visual/fallback/motion review. Do not instantiate retired spatial builders to imply normal reachability."
+    }
+  ],
+  "inheritance_limit": "DollsNurserySurface is a child of OperaNurseryCatch,constructed only inside DollsGame. Current parent reuse does not make child overrides current gameplay."
+}

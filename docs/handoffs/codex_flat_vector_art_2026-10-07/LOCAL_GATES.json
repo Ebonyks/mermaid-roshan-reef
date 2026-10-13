@@ -1,0 +1,122 @@
+[
+  {
+    "id": "r6_core",
+    "command": [
+      "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+      "-B",
+      "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\live_v6\\validate.py",
+      "--stress"
+    ],
+    "exit_code": 1,
+    "result": "FAIL",
+    "started_at_utc": "2026-10-13T00:47:39.772280+00:00",
+    "ended_at_utc": "2026-10-13T00:47:42.917333+00:00",
+    "log": "publication_diagnostics/r6_core.log",
+    "log_sha256": "fa455178fc531e27ad78d48817d49dec1bbac4d731ff1181cabace349be0f94b"
+  },
+  {
+    "id": "r6_hud_fashion",
+    "command": [
+      "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+      "-B",
+      "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\live_v6\\hud_fashion\\validate.py",
+      "--stress"
+    ],
+    "exit_code": 1,
+    "result": "FAIL",
+    "started_at_utc": "2026-10-13T00:47:39.772842+00:00",
+    "ended_at_utc": "2026-10-13T00:47:42.987494+00:00",
+    "log": "publication_diagnostics/r6_hud_fashion.log",
+    "log_sha256": "463770b44540df3fc227385497cadb408a4bc03c3216cf08620f84053eaef6c2"
+  },
+  {
+    "id": "r6_room_routes",
+    "command": [
+      "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+      "-B",
+      "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\live_v6\\room_routes\\validate.py",
+      "--stress"
+    ],
+    "exit_code": 1,
+    "result": "FAIL",
+    "started_at_utc": "2026-10-13T00:47:39.773378+00:00",
+    "ended_at_utc": "2026-10-13T00:47:43.636791+00:00",
+    "log": "publication_diagnostics/r6_room_routes.log",
+    "log_sha256": "d2b02d5017701fbd41f0374d8890ef9195cd871fa984902bdd16b73f96ccef38"
+  },
+  {
+    "id": "r6_dormant_routes",
+    "command": [
+      "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+      "-B",
+      "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\live_v6\\dormant_routes\\validate.py",
+      "--stress"
+    ],
+    "exit_code": 0,
+    "result": "PASS",
+    "started_at_utc": "2026-10-13T00:47:39.773647+00:00",
+    "ended_at_utc": "2026-10-13T00:48:58.300974+00:00",
+    "log": "publication_diagnostics/r6_dormant_routes.log",
+    "log_sha256": "f08a3e50ad8412eb121c798b8de74ed4e9570eb4169aa139f6954cecd4d2af09"
+  },
+  {
+    "id": "r6_promenade",
+    "command": [
+      "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+      "-B",
+      "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\live_v6\\promenade\\validate.py",
+      "--stress"
+    ],
+    "exit_code": 1,
+    "result": "FAIL",
+    "started_at_utc": "2026-10-13T00:47:42.917650+00:00",
+    "ended_at_utc": "2026-10-13T00:48:27.688025+00:00",
+    "log": "publication_diagnostics/r6_promenade.log",
+    "log_sha256": "004af986bb8889b774abb2db37abc260461c2d940b9d96bd06bbcf9614f0cbec"
+  },
+  {
+    "id": "r6_party_props",
+    "command": [
+      "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+      "-B",
+      "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\live_v6\\party_props\\validate.py",
+      "--stress"
+    ],
+    "exit_code": 1,
+    "result": "FAIL",
+    "started_at_utc": "2026-10-13T00:47:42.987713+00:00",
+    "ended_at_utc": "2026-10-13T00:48:27.688846+00:00",
+    "log": "publication_diagnostics/r6_party_props.log",
+    "log_sha256": "ed9ae54048ed3b02600c0582cead44d986dff99628f62a06b0c460e855416dd7"
+  },
+  {
+    "id": "document_authority",
+    "command": [
+      "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+      "-B",
+      "tools/audit_document_authority.py"
+    ],
+    "exit_code": 1,
+    "result": "FAIL",
+    "started_at_utc": "2026-10-13T00:47:43.637009+00:00",
+    "ended_at_utc": "2026-10-13T00:48:01.767715+00:00",
+    "log": "publication_diagnostics/document_authority.log",
+    "log_sha256": "295ca297e3fff4d9df24e2e5ca4cda0154a95e835bc8001c3997c3932f2eaaa3"
+  },
+  {
+    "id": "audit_development",
+    "command": [
+      "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+      "-B",
+      "tools/audit_development.py",
+      "--base",
+      "auto"
+    ],
+    "exit_code": 1,
+    "result": "FAIL",
+    "started_at_utc": "2026-10-13T00:48:01.767892+00:00",
+    "ended_at_utc": "2026-10-13T00:48:04.338919+00:00",
+    "log": "publication_diagnostics/audit_development.log",
+    "log_sha256": "195a220f45866214e7d0a5bf27e8a695ebe0691441e8b406cf4fc72e99314e90"
+  }
+]

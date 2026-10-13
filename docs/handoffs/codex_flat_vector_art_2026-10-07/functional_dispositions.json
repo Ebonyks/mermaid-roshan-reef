@@ -1,0 +1,42 @@
+{
+  "schema": "reef.flat_vector_functional/1",
+  "baseline": "92c9fe70319ef46bfaa8f61348a6f51512141ec3",
+  "dispositions": [
+    {
+      "scope_id": "FVF-34483F3B30AC",
+      "path": "scripts/arena/castle_rooms_25d.gd",
+      "line": 1298,
+      "disposition": "EXEMPT_FUNCTIONAL_PART_ONLY",
+      "role": "Transition input cover and narrow letterbox bands",
+      "limit": "Only the transition/band geometry; named art inside the same builder is not exempt. Bounds must be verified; hidden full-screen fill remains overdraw retirement work."
+    },
+    {
+      "scope_id": "FVF-471B59681C27",
+      "path": "scripts/arena/castle_rooms_25d.gd",
+      "line": 1403,
+      "disposition": "EXEMPT_FUNCTIONAL_PART_ONLY",
+      "role": "Transition input cover and narrow letterbox bands",
+      "limit": "Only the transition/band geometry; named art inside the same builder is not exempt. Bounds must be verified; hidden full-screen fill remains overdraw retirement work."
+    },
+    {
+      "scope_id": "FVF-C8A0BAF33B80",
+      "path": "scripts/main.gd",
+      "line": 3019,
+      "disposition": "EXEMPT_FUNCTIONAL_PART_ONLY",
+      "role": "Transition fade/input isolation",
+      "limit": "Plain fade covering during transition only; no implied art or full-screen hidden-layer exemption."
+    }
+  ],
+  "excluded_infrastructure": [
+    "Invisible collision/hit regions",
+    "Selection/mask geometry used without visible art",
+    "Ordinary engine font rasterization and text layout"
+  ],
+  "explicit_review_required": [
+    "Visible UI frames/buttons/ornaments",
+    "Progress icons/glyphs and effects",
+    "Shader-rendered visible water/dirt/material",
+    "Child-authored saved logo/drawing marks; preserve content while reviewing presentation"
+  ],
+  "note": "EXEMPT_FUNCTIONAL_PART_ONLY never approves every primitive in its source scope. No removal/reset of child content is commissioned."
+}

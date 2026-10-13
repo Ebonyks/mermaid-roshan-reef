@@ -1,0 +1,21 @@
+from pathlib import Path
+import subprocess,json,hashlib,concurrent.futures,datetime,sys
+root=Path.cwd();out=root/'docs/handoffs/codex_flat_vector_art_2026-10-07/live_v6/room_routes';core=out.parent;py=sys.executable
+resolve=subprocess.run([py,'-B','tools/resolve_godot.py'],cwd=root,capture_output=True,text=True,encoding='utf8');
+if resolve.returncode:raise RuntimeError(resolve.stdout+resolve.stderr)
+godot=resolve.stdout.strip().splitlines()[-1];print('Godot resolver selected',godot,flush=True)
+rel=core.relative_to(root).as_posix();oroot=out.relative_to(root).as_posix()
+commands=[('gdparser',[py,'-B','-m','gdtoolkit.parser',rel+'/capture_room_routes.gd']),('inference',[py,'-B','tools/lint_inference.py',rel+'/capture_room_routes.gd']),('godot_analyzer',[godot,'--headless','--path',str(root),'--check-only','-s',rel+'/capture_room_routes.gd']),('room_route_integrity',[py,'-B',oroot+'/validate.py','--stress']),('core_integrity',[py,'-B',rel+'/validate.py','--stress']),('hud_fashion_integrity',[py,'-B',rel+'/hud_fashion/validate.py','--stress']),('authority_tests',[py,'-B','-m','unittest','tools.tests.test_audit_document_authority','tools.tests.test_audit_development']),('document_authority',[py,'-B','tools/audit_document_authority.py']),('audit_development',[py,'-B','tools/audit_development.py','--base','auto']),('unchanged_2d_regression',[py,'-B','tools/audit_game_2d.py','--regression-gate']),('diff_whitespace',['git','diff','--check']),('production_unchanged',['git','diff','92c9fe70319ef46bfaa8f61348a6f51512141ec3','--','scripts','scenes','assets','shaders','project.godot'])]
+paths=[]
+for name,cmd in commands:
+ p=out/'diagnostics'/('gate-'+name+'.log');p.touch(exist_ok=False);paths.append(p)
+(out/'GATES.json').write_text(json.dumps({'schema':1,'source_revision':'6cde8aeae04aaedcc0b1ff22a05ef93ab9bf666f','status':'PENDING_CURRENT_LOCAL_GATES','no_acceptance':True,'commands':[{'id':n,'command':c,'result':'PENDING'} for n,c in commands]},indent=2)+'\n',encoding='utf8')
+imp=root/'design/audit_impacts/flat-vector-touch-playtest-review-20261008.json';d=json.loads(imp.read_text());d['files']=sorted(set(d['files']+[p.relative_to(root).as_posix() for p in paths]+[(out/'GATES.json').relative_to(root).as_posix()]));imp.write_text(json.dumps(d,ensure_ascii=False,indent=2)+'\n',encoding='utf8',newline='\n')
+def run(task):
+ name,cmd=task;started=datetime.datetime.now(datetime.timezone.utc).isoformat();r=subprocess.run(cmd,cwd=root,stdout=subprocess.PIPE,stderr=subprocess.STDOUT,creationflags=subprocess.CREATE_NO_WINDOW,timeout=300);p=out/'diagnostics'/('gate-'+name+'.log');p.write_bytes(r.stdout);result='PASS' if r.returncode==0 else 'FAIL';
+ if name=='production_unchanged' and r.stdout:result='FAIL'
+ row={'id':name,'command':cmd,'result':result,'exit_code':r.returncode,'started_at_utc':started,'ended_at_utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'log':p.relative_to(out).as_posix(),'log_sha256':hashlib.sha256(r.stdout).hexdigest(),'log_bytes':len(r.stdout)};print(name,result,'exit',r.returncode,flush=True);return row
+with concurrent.futures.ThreadPoolExecutor(max_workers=3) as ex:
+ rows=list(ex.map(run,commands))
+packet={'schema':1,'source_revision':'6cde8aeae04aaedcc0b1ff22a05ef93ab9bf666f','status':'DRAFT_HANDOFF_BLOCKED_NO_BRANCH_GREEN_CLAIM','no_acceptance':True,'commands':rows,'summary':{'focused_checks': 'PASS' if all(r['result']=='PASS' for r in rows if r['id']!='unchanged_2d_regression') else 'FAIL','unchanged_2d_regression':next(r['result'] for r in rows if r['id']=='unchanged_2d_regression'),'expected_existing_blocker':'Five unchanged oversized R5JSON files exceed scanner4MiBcap. No scanner exemption,gate weakening or R5 rewrite.','publication':'PENDING_EXPLICIT_APPROVAL;no commit/push/integration/remote verification for R6','full_suite':'NOT_RUN;known blocking2Dgate prevents green branch acceptance','runtime_device_child_owner':'NOT_ACCEPTED'}}
+(out/'GATES.json').write_text(json.dumps(packet,ensure_ascii=False,indent=2)+'\n',encoding='utf8',newline='\n');print(json.dumps(packet['summary']),flush=True)

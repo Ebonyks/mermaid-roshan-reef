@@ -1,0 +1,185 @@
+{
+  "schema": 1,
+  "revision": "6cde8aeae04aaedcc0b1ff22a05ef93ab9bf666f",
+  "routes": [
+    {
+      "id": "craft_studio",
+      "catalogue_entries": [
+        "overlay.craft_studio",
+        "ui.craft",
+        "game.craft_studio"
+      ],
+      "normal_route": "NO_NORMAL_DISPLAY_ENTRY_FOUND_IN_REVIEWED_SOURCE",
+      "retained_api": "ReefMain._open_craft_studio -> _craft_ref -> CraftStudio._open_craft_studio; three probe callers. _init only stores main; no automatic build.",
+      "source_anchors": [
+        [
+          "scripts/main.gd",
+          7283,
+          7295
+        ],
+        [
+          "scripts/craft_studio.gd",
+          14,
+          15
+        ],
+        [
+          "scripts/probe_audit.gd",
+          5239,
+          5239
+        ],
+        [
+          "scripts/probe_touch_router.gd",
+          155,
+          155
+        ],
+        [
+          "scripts/probe_ui_system.gd",
+          564,
+          564
+        ]
+      ],
+      "limits": "Earlier R4 forced-API craft captures retain partial diagnostic status; absent normal entry is not removal or visual closure."
+    },
+    {
+      "id": "picture_suite",
+      "catalogue_entries": [
+        "picture.snowman",
+        "picture.garden",
+        "picture.trampoline",
+        "picture.xmas",
+        "game.pic_snowman",
+        "game.pic_garden",
+        "game.pic_trampoline",
+        "game.pic_xmas",
+        "game.pic_slide"
+      ],
+      "normal_route": "NO_NORMAL_DISPLAY_ENTRY_FOUND_IN_REVIEWED_SOURCE",
+      "retained_api": "ReefMain._mg2d_open -> PictureGames._mg2d_open. Four game builders remain API-reachable; slide is diverted before old picture-screen build.",
+      "source_anchors": [
+        [
+          "scripts/main.gd",
+          4926,
+          4990
+        ],
+        [
+          "scripts/main.gd",
+          5189,
+          5194
+        ],
+        [
+          "scripts/main.gd",
+          5581,
+          5585
+        ],
+        [
+          "scripts/arena/sky_lagoon_promenade.gd",
+          196,
+          202
+        ],
+        [
+          "scripts/arena/sky_lagoon.gd",
+          347,
+          348
+        ],
+        [
+          "scripts/arena/sky_lagoon.gd",
+          404,
+          407
+        ],
+        [
+          "scripts/games/picture_games.gd",
+          14,
+          19
+        ],
+        [
+          "scripts/games/picture_games.gd",
+          88,
+          92
+        ]
+      ],
+      "limits": "Current Canvas promenade replaces old court entry and returns before old tick. Retained portrait interaction is not a fresh normal route. Unknown dynamic callers and unreviewed API states remain limits."
+    },
+    {
+      "id": "retired_picture_slide_builder",
+      "catalogue_entries": [
+        "game.pic_slide"
+      ],
+      "normal_route": "BYPASSED_BY_EARLY_RETURN_IN_ORDINARY_OPENER",
+      "retained_api": "_mg_build_slide remains a callable method. Its only literal source call is the later kind==slide branch at91; kind==slide exits at17-19. _l2_start_slide instead starts legacy race. Current promenade local slide has another owner.",
+      "source_anchors": [
+        [
+          "scripts/games/picture_games.gd",
+          14,
+          19
+        ],
+        [
+          "scripts/games/picture_games.gd",
+          88,
+          92
+        ],
+        [
+          "scripts/games/picture_games.gd",
+          719,
+          739
+        ],
+        [
+          "scripts/main.gd",
+          7071,
+          7080
+        ]
+      ],
+      "limits": "No claim of deletion, API inaccessibility, zero potential art, acceptance or normal-display native proof."
+    },
+    {
+      "id": "retained_friend_games",
+      "catalogue_entries": [
+        "minigame.fetch",
+        "minigame.dolls",
+        "minigame.seek",
+        "minigame.shop",
+        "minigame.treasure",
+        "minigame.melody",
+        "game.dolls",
+        "game.seek",
+        "game.melody",
+        "game.slide_fish",
+        "game.fetch",
+        "game.shop",
+        "game.treasure",
+        "game.slide_penguin"
+      ],
+      "normal_route": "SOURCE_CATALOGUE_DORMANCY_SUPPORTED_BY_REVIEWED_LITERAL_LAUNCHERS",
+      "retained_api": "_start_game_now dispatches each family. The reviewed literal production _start_game callers include dust_boss_fr,legacy race slide and deferred fairy_fr(game=fairyshoot); none names the eight dormant friend entries. Probes retain other games. SaveState does not restore an active legacy game launch.",
+      "source_anchors": [
+        [
+          "scripts/main.gd",
+          738,
+          738
+        ],
+        [
+          "scripts/main.gd",
+          2340,
+          2350
+        ],
+        [
+          "scripts/main.gd",
+          7870,
+          7910
+        ],
+        [
+          "scripts/day_one_flow.gd",
+          404,
+          409
+        ],
+        [
+          "scripts/main.gd",
+          7078,
+          7080
+        ]
+      ],
+      "limits": "27 drawing scopes remain unresolved. Shared helpers require their own callers; source dormancy is not globally inactive dependency proof. DollsNurserySurface extends the currently reused OperaNurseryCatch parent; that does not make the Dolls child draw live."
+    }
+  ],
+  "native_frames_added": 0,
+  "route_method": "Static exact-source review only; no retired activity launched; no claim of runtime complete closure."
+}

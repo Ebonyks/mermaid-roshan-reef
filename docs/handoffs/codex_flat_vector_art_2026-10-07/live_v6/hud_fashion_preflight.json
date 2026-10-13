@@ -1,0 +1,1054 @@
+{
+  "schema": 1,
+  "source_revision": "6cde8aeae04aaedcc0b1ff22a05ef93ab9bf666f",
+  "source_proofs": [
+    {
+      "path": "scripts/main.gd",
+      "working_sha256": "841efbfa74a61ed14775fa7c2b19e6ff7f54b0a2c4af04d1b08c345440d6f880",
+      "git_lf_sha256": "b6e905824a4b60461181deda525c816fc790613479e9321d12ae7f71df666a33",
+      "head_blob": "133de89c2622485a42392a12d9c0a91128a73e88"
+    },
+    {
+      "path": "scripts/save_state.gd",
+      "working_sha256": "34ed8239321ee3f2362b3718d4d0e6f9467e7c500e54b7dec78333ccbf90c884",
+      "git_lf_sha256": "de380b088c8dcdd4623804d44a8fe35be5bfe7f8095cdcff1ca40c24e2c9c9b9",
+      "head_blob": "72ae0a5d607a1bfcac4decad6ba851e053af64a1"
+    },
+    {
+      "path": "scripts/storybook_ui.gd",
+      "working_sha256": "137404cf953e2f40b0a21924c22e8f5a7bd63aee3e7f81ae71543cceefbdab31",
+      "git_lf_sha256": "839e53d6893347808341523d4e4b58e3727cc4fd4cd698726c92d494edce0fa7",
+      "head_blob": "c35cd4f5c83143057274d7de1470a4f4da5e4862"
+    },
+    {
+      "path": "scripts/wardrobe_ui.gd",
+      "working_sha256": "c347d851000a66a7069c262babf26658fe85b983d6179c6e1f33ac033acf1e29",
+      "git_lf_sha256": "0d7f4c5241f141ca4bbb9464f21aa5bd46545e1817b8b2638fea1caadf9f6573",
+      "head_blob": "a87c7a938c172d6245c01c59dfebc1d2526fee61"
+    },
+    {
+      "path": "scripts/fashion_wardrobe.gd",
+      "working_sha256": "cc9c554b873300b4f4eea0708e2be7fafd7ebe757a0ce5b9eb24e4b59e580105",
+      "git_lf_sha256": "fbdedcca120066389563d5b678da30de83012737b1a14958cbe0306118c0cd59",
+      "head_blob": "3c25581f7b21d414f45e90e338a089a452aeaff5"
+    },
+    {
+      "path": "scripts/fashion_designer.gd",
+      "working_sha256": "3c58920d570f9c9776d888101bc36c490d970918fb56994614f55b6f9eeb431c",
+      "git_lf_sha256": "f3c6165baa08f6e99f21d4d02782d1b1f1658ad348aae0e79a4f79740442165d",
+      "head_blob": "d71980af034e8a3844f81dc3c5fd7675b19537e0"
+    },
+    {
+      "path": "scripts/fashion_parts.gd",
+      "working_sha256": "ec6853f1bd1b6b0f7e92e0c66f104bbb916a4070c3dbccbdf96c7e26fe336e8a",
+      "git_lf_sha256": "d5b440608b63510446196233ef5fb559c006b0a90c5dcee74516e84dba5e1cfc",
+      "head_blob": "b9a9a6528f9bc7430e2efe17d91795c72bd1771e"
+    },
+    {
+      "path": "scripts/fashion_dressing_input.gd",
+      "working_sha256": "2e3ae6c38722d2b7b3f3383aaf55745b154eea6598a5ccd516bb58c23116365a",
+      "git_lf_sha256": "45d02a87cf842a5deb427f15269f776cb4c430b0272ceea7add8d037df7ceadf",
+      "head_blob": "81ea51143995081e5de2ab335f92f41309fc433b"
+    },
+    {
+      "path": "scripts/fashion_skin_engine.gd",
+      "working_sha256": "e566e5c56698272523baf278bada941d2b28f3737183bf63065235a6ef9cb0fc",
+      "git_lf_sha256": "e94b42966c75092835dc134b0dc4b1eb59f432655b266a0dc1aa82580d9f95ad",
+      "head_blob": "4d681516953eb2b8f28701a07e0931bdc30b89ed"
+    },
+    {
+      "path": "scripts/fashion_outfit_renderer.gd",
+      "working_sha256": "2c2bfedf1fc3b3e1e0b4dd78d12908929c963b52eefccacaaf358f9ade3d96f0",
+      "git_lf_sha256": "cb37b3ed5df0ccba26b54f146021ddcad1f9f6693fb32b48b9bbda6a3ca96b93",
+      "head_blob": "afce62572dadb5ec4364f44bd044323a3ca80632"
+    },
+    {
+      "path": "scripts/fashion_skin_catalog.gd",
+      "working_sha256": "162615d544259e58b24a7f7f599fd2b2e7077535e919b95abea38e93f5710127",
+      "git_lf_sha256": "c71d558cff766d25cd7835657f7e0e10ebe268d8e74a7b4c2e083b8b28adf548",
+      "head_blob": "23fec0055e3cb127120e0e4054755c3a538249e1"
+    },
+    {
+      "path": "assets/fashion/skin_engine_v2/catalog.tres",
+      "working_sha256": "58c3a41d61bc5a01bc3f43f632462681ad9c9fc1b132db3767398a2ebcd02756",
+      "git_lf_sha256": "250279580460de47d6e1e9310d467ed0cd1a838800a473c26c0d07e1e6518c35",
+      "head_blob": "027f4be0afa7eab5816dd583050023c608a668c8"
+    },
+    {
+      "path": "assets/fashion/slots_v1/catalog.tres",
+      "working_sha256": "58040ed6b53e691af79d2c2197994a591f39357120cb59e80f6224c4ba8cb56e",
+      "git_lf_sha256": "55c3686f675b0c951bf5c7a52e17e1d9127f2eddb55d2371aa7e967ce6b1c4ba",
+      "head_blob": "9db9c878446bdf54120e8a3f046b6163bee3765a"
+    },
+    {
+      "path": "scripts/chapter_two_director.gd",
+      "working_sha256": "41be997e2e367343a85106bcf30f619be497baa59052eece81889e302b20ca71",
+      "git_lf_sha256": "b87490ac66083cee44ba3f469c9c8cbfa158930167614169e0f63759f8b3f70b",
+      "head_blob": "cb7847073c740585ebe339bb968772cb615367ea"
+    },
+    {
+      "path": "scripts/chapter_two_party_plan.gd",
+      "working_sha256": "c8fa0ff7f2f16d54085e920e3ad5ebc5c5a4e6c4d4afc85d98c702c900886dfa",
+      "git_lf_sha256": "50ffb004ac24a4827caed4e4899e999f7d37c7713c88eb3d1c778a766c54ec61",
+      "head_blob": "b11066cd4360269d789bd4ee7785a9d80723f744"
+    },
+    {
+      "path": "scripts/chapter_two_ember_encounter.gd",
+      "working_sha256": "5ba372295472500b5d0d552202c9e257ee1be1027446eb7ecc9b460d590177ae",
+      "git_lf_sha256": "964356fb569fc6fe8b8de90b4003284bc99cc58a4074b4cc2245a8be168b7a42",
+      "head_blob": "29889d903249faa99b14e93b287a7c324f677836"
+    }
+  ],
+  "current_picker_people": [
+    "roshan",
+    "rumi",
+    "daddy_mermaid"
+  ],
+  "current_slots": [
+    "head",
+    "body",
+    "tail"
+  ],
+  "persistent_character_roster": [
+    "roshan",
+    "rumi",
+    "baby_eagle",
+    "daddy_mermaid",
+    "rainbow_dust_bunny"
+  ],
+  "current_catalog_pages": [
+    {
+      "person": "roshan",
+      "slot": "head",
+      "count": 9,
+      "items": [
+        "head_original",
+        "head_royal_v1",
+        "head_pearl_v1",
+        "head_star_v1",
+        "head_blossom_v1",
+        "head_winter_v1",
+        "head_strawberry_v1",
+        "head_chef_v1",
+        "head_painter_v1"
+      ],
+      "pages": [
+        [
+          "head_original",
+          "head_royal_v1",
+          "head_pearl_v1"
+        ],
+        [
+          "head_star_v1",
+          "head_blossom_v1",
+          "head_winter_v1"
+        ],
+        [
+          "head_strawberry_v1",
+          "head_chef_v1",
+          "head_painter_v1"
+        ]
+      ]
+    },
+    {
+      "person": "roshan",
+      "slot": "body",
+      "count": 11,
+      "items": [
+        "roshan_original",
+        "roshan_ribbon_v1",
+        "roshan_party_dress_v1",
+        "roshan_garden_v1",
+        "roshan_garden_disguise_v1",
+        "body_star_v1",
+        "body_blossom_v1",
+        "body_winter_v1",
+        "body_strawberry_v1",
+        "body_chef_v1",
+        "body_painter_v1"
+      ],
+      "pages": [
+        [
+          "roshan_original",
+          "roshan_ribbon_v1",
+          "roshan_party_dress_v1"
+        ],
+        [
+          "roshan_garden_v1",
+          "roshan_garden_disguise_v1",
+          "body_star_v1"
+        ],
+        [
+          "body_blossom_v1",
+          "body_winter_v1",
+          "body_strawberry_v1"
+        ],
+        [
+          "body_chef_v1",
+          "body_painter_v1"
+        ]
+      ]
+    },
+    {
+      "person": "roshan",
+      "slot": "tail",
+      "count": 7,
+      "items": [
+        "tail_original",
+        "tail_star_v1",
+        "tail_blossom_v1",
+        "tail_winter_v1",
+        "tail_strawberry_v1",
+        "tail_chef_v1",
+        "tail_painter_v1"
+      ],
+      "pages": [
+        [
+          "tail_original",
+          "tail_star_v1",
+          "tail_blossom_v1"
+        ],
+        [
+          "tail_winter_v1",
+          "tail_strawberry_v1",
+          "tail_chef_v1"
+        ],
+        [
+          "tail_painter_v1"
+        ]
+      ]
+    },
+    {
+      "person": "rumi",
+      "slot": "head",
+      "count": 9,
+      "items": [
+        "head_original",
+        "head_royal_v1",
+        "head_pearl_v1",
+        "head_star_v1",
+        "head_blossom_v1",
+        "head_winter_v1",
+        "head_strawberry_v1",
+        "head_chef_v1",
+        "head_painter_v1"
+      ],
+      "pages": [
+        [
+          "head_original",
+          "head_royal_v1",
+          "head_pearl_v1"
+        ],
+        [
+          "head_star_v1",
+          "head_blossom_v1",
+          "head_winter_v1"
+        ],
+        [
+          "head_strawberry_v1",
+          "head_chef_v1",
+          "head_painter_v1"
+        ]
+      ]
+    },
+    {
+      "person": "rumi",
+      "slot": "body",
+      "count": 10,
+      "items": [
+        "rumi_original",
+        "rumi_ribbon_v1",
+        "rumi_party_v1",
+        "rumi_garden_v1",
+        "body_star_v1",
+        "body_blossom_v1",
+        "body_winter_v1",
+        "body_strawberry_v1",
+        "body_chef_v1",
+        "body_painter_v1"
+      ],
+      "pages": [
+        [
+          "rumi_original",
+          "rumi_ribbon_v1",
+          "rumi_party_v1"
+        ],
+        [
+          "rumi_garden_v1",
+          "body_star_v1",
+          "body_blossom_v1"
+        ],
+        [
+          "body_winter_v1",
+          "body_strawberry_v1",
+          "body_chef_v1"
+        ],
+        [
+          "body_painter_v1"
+        ]
+      ]
+    },
+    {
+      "person": "rumi",
+      "slot": "tail",
+      "count": 7,
+      "items": [
+        "tail_original",
+        "tail_star_v1",
+        "tail_blossom_v1",
+        "tail_winter_v1",
+        "tail_strawberry_v1",
+        "tail_chef_v1",
+        "tail_painter_v1"
+      ],
+      "pages": [
+        [
+          "tail_original",
+          "tail_star_v1",
+          "tail_blossom_v1"
+        ],
+        [
+          "tail_winter_v1",
+          "tail_strawberry_v1",
+          "tail_chef_v1"
+        ],
+        [
+          "tail_painter_v1"
+        ]
+      ]
+    },
+    {
+      "person": "daddy_mermaid",
+      "slot": "head",
+      "count": 9,
+      "items": [
+        "head_original",
+        "head_royal_v1",
+        "head_pearl_v1",
+        "head_star_v1",
+        "head_blossom_v1",
+        "head_winter_v1",
+        "head_strawberry_v1",
+        "head_chef_v1",
+        "head_painter_v1"
+      ],
+      "pages": [
+        [
+          "head_original",
+          "head_royal_v1",
+          "head_pearl_v1"
+        ],
+        [
+          "head_star_v1",
+          "head_blossom_v1",
+          "head_winter_v1"
+        ],
+        [
+          "head_strawberry_v1",
+          "head_chef_v1",
+          "head_painter_v1"
+        ]
+      ]
+    },
+    {
+      "person": "daddy_mermaid",
+      "slot": "body",
+      "count": 10,
+      "items": [
+        "daddy_mermaid_original",
+        "daddy_mermaid_ribbon_v1",
+        "daddy_mermaid_party_v1",
+        "daddy_mermaid_garden_v1",
+        "body_star_v1",
+        "body_blossom_v1",
+        "body_winter_v1",
+        "body_strawberry_v1",
+        "body_chef_v1",
+        "body_painter_v1"
+      ],
+      "pages": [
+        [
+          "daddy_mermaid_original",
+          "daddy_mermaid_ribbon_v1",
+          "daddy_mermaid_party_v1"
+        ],
+        [
+          "daddy_mermaid_garden_v1",
+          "body_star_v1",
+          "body_blossom_v1"
+        ],
+        [
+          "body_winter_v1",
+          "body_strawberry_v1",
+          "body_chef_v1"
+        ],
+        [
+          "body_painter_v1"
+        ]
+      ]
+    },
+    {
+      "person": "daddy_mermaid",
+      "slot": "tail",
+      "count": 7,
+      "items": [
+        "tail_original",
+        "tail_star_v1",
+        "tail_blossom_v1",
+        "tail_winter_v1",
+        "tail_strawberry_v1",
+        "tail_chef_v1",
+        "tail_painter_v1"
+      ],
+      "pages": [
+        [
+          "tail_original",
+          "tail_star_v1",
+          "tail_blossom_v1"
+        ],
+        [
+          "tail_winter_v1",
+          "tail_strawberry_v1",
+          "tail_chef_v1"
+        ],
+        [
+          "tail_painter_v1"
+        ]
+      ]
+    }
+  ],
+  "page_count": 30,
+  "source_observations": [
+    {
+      "id": "FASHION_CURRENT_ROSTER",
+      "fact": "FashionWardrobe._build loops FashionParts.PEOPLE (three IDs); older five-character CHARACTERS/save/render roster is distinct."
+    },
+    {
+      "id": "FASHION_SURFACES",
+      "fact": "Normal/hover/pressed/focus states are existing painted StyleBoxTexture; inherited disabled flat style needs reachability review; no button disabled assignment exists in this builder."
+    },
+    {
+      "id": "FASHION_GLYPHS",
+      "fact": "Source uses lock/check/triangular arrows/down-finger for pictured UI art; PNG garment/card art is only a provisional style/reuse candidate."
+    },
+    {
+      "id": "FASHION_BURST",
+      "fact": "Each actual burst constructs fourteen flat Polygon2D eight-point sparkles; repeated bursts cancel prior tween and remove prior burst. Transient occurrence total is unbounded."
+    },
+    {
+      "id": "HUD_OBJECTIVE",
+      "fact": "Objective card is a flat StorybookUI frame with painted TextureRect or label fallback, plus three sparkle emoji. Current production _set_objective call sites pass empty emoji; fallback source capability is not current visible glyph proof."
+    },
+    {
+      "id": "HUD_HIDDEN",
+      "fact": "HudStatusTray and pearl/star labels are initialized hidden; full caller/property review and native proof remain separate."
+    },
+    {
+      "id": "HUD_SAVE",
+      "fact": "SaveState has warnings/errors and persistent state APIs but no dedicated child save toast/panel found in its exact source. The broad ui.save_hud coverage entry should retain HUD/context and failed-write gaps, not invent a save popup."
+    },
+    {
+      "id": "FADE_FUNCTIONAL",
+      "fact": "One uniform black full-viewport ColorRect at CanvasLayer30 covers synchronous rebuilds and blocks input, then reveals over0.25s. Functional classification requires actual endpoint/context proof; no scope is newly closed by this source preflight."
+    },
+    {
+      "id": "FASHION_INHERITED_HOVER_PRESSED",
+      "fact": "StorybookUI.style_picture_button creates a StyleBoxFlat hover_pressed override. FashionWardrobe._button replaces only normal/hover/pressed/focus with painted textures, leaving hover_pressed and disabled flat. The rerun now records both actual draw state and hover_pressed style; visible context proof pending."
+    }
+  ],
+  "classification": "CURRENT_NATIVE_DIAGNOSTIC_REVIEW;47/176 partial entries with additive overlay; no complete entry or accepted art",
+  "new_replacement_pixels": 0,
+  "publication": "R6 draft remains unpublished/HANDOFF_BLOCKED",
+  "source_fingerprint_review": {
+    "historical_native_contract": "v2 asset suffix list omitted .tres catalogs and .ogv clips;6427 is the measured list, not independent proof of complete runtime dependency coverage",
+    "new_extension_contract": "v3 includes .tres/.res and .ogv alongside previous runtime source suffixes; exact measured count pending native run",
+    "historical_claim_limit": "Preserve R2-R6 native original facts/bytes. Supplement with this explicit limitation; no prior native hash list is retroactively rewritten and no DL-QA-11 acceptance is claimed.",
+    "bound_catalog_sources": "Both current fashion .tres files are independently HEAD-bound in source_proofs."
+  },
+  "production_caller_property_search": {
+    "excluded": "probe*.gd/test*.gd and *test_case* (recorded exact production caller search, not a runtime dependency waiver)",
+    "needles": [
+      "_set_objective(",
+      "obj_card.visible",
+      "hud_game.visible",
+      "hud_pearls.visible",
+      "hud_stars.visible",
+      "HudStatusTray",
+      "_wardrobe_feedback_burst(",
+      "FashionParts.PEOPLE",
+      "FashionCharacter_",
+      "fashion_drag",
+      "NOTIFICATION_WM_WINDOW_FOCUS_OUT",
+      "fade_rect.",
+      "_fade_cut(",
+      "FashionOutfit_",
+      "FashionVisualPointer"
+    ],
+    "files": [
+      {
+        "path": "scripts/fashion_designer.gd",
+        "working_sha256": "3c58920d570f9c9776d888101bc36c490d970918fb56994614f55b6f9eeb431c",
+        "head_lf_sha256": "f3c6165baa08f6e99f21d4d02782d1b1f1658ad348aae0e79a4f79740442165d"
+      },
+      {
+        "path": "scripts/fashion_dressing_input.gd",
+        "working_sha256": "2e3ae6c38722d2b7b3f3383aaf55745b154eea6598a5ccd516bb58c23116365a",
+        "head_lf_sha256": "45d02a87cf842a5deb427f15269f776cb4c430b0272ceea7add8d037df7ceadf"
+      },
+      {
+        "path": "scripts/fashion_skin_engine.gd",
+        "working_sha256": "e566e5c56698272523baf278bada941d2b28f3737183bf63065235a6ef9cb0fc",
+        "head_lf_sha256": "e94b42966c75092835dc134b0dc4b1eb59f432655b266a0dc1aa82580d9f95ad"
+      },
+      {
+        "path": "scripts/fashion_wardrobe.gd",
+        "working_sha256": "cc9c554b873300b4f4eea0708e2be7fafd7ebe757a0ce5b9eb24e4b59e580105",
+        "head_lf_sha256": "fbdedcca120066389563d5b678da30de83012737b1a14958cbe0306118c0cd59"
+      },
+      {
+        "path": "scripts/games/dust_boss.gd",
+        "working_sha256": "0d6f2acbbeaccb13d751ca3e10d5422f0ee33be372d83bb90827836ae9b85917",
+        "head_lf_sha256": "05f9174e05c0c00ee09cf21c8e70e251c3afbed8e35b9f9526e200de65869a0d"
+      },
+      {
+        "path": "scripts/games/melody.gd",
+        "working_sha256": "72e2322c3d1e87132a1cc3e16091a4f61364a2af70a2ea9dab78b2f285254fca",
+        "head_lf_sha256": "a2477bc6fd21454c69480b290ccc13892e6938e4d1abf534051380dd84e5712e"
+      },
+      {
+        "path": "scripts/games/slide_race.gd",
+        "working_sha256": "2886cc3d0720e293af303f23b8b8935cc31e79613c7e0e68f0db45521fbb580b",
+        "head_lf_sha256": "2293c08bd2a056b2e5819f2406fc9ca42f5cc734e700552eab29642555f44b8f"
+      },
+      {
+        "path": "scripts/living_world.gd",
+        "working_sha256": "1bcddb315971b88ccc01381463ebf545a5e00940c7654ebcf80fd29e27bf2e4c",
+        "head_lf_sha256": "97c0e9dd7d6d660ec5b6386179233714c6772b06fe7b3b6dcd26262852c071fe"
+      },
+      {
+        "path": "scripts/main.gd",
+        "working_sha256": "841efbfa74a61ed14775fa7c2b19e6ff7f54b0a2c4af04d1b08c345440d6f880",
+        "head_lf_sha256": "b6e905824a4b60461181deda525c816fc790613479e9321d12ae7f71df666a33"
+      },
+      {
+        "path": "scripts/opera_boxing_surface.gd",
+        "working_sha256": "32ec41c72dc8c23fc3d7667eb8f69a77c34eaca9c1b6aad45635e85317b07489",
+        "head_lf_sha256": "321da2219887b07f3efcd142c3015bfcf027ef21a5eb1755e877dc2ff5a71170"
+      },
+      {
+        "path": "scripts/opera_job_playtest_menu.gd",
+        "working_sha256": "836d71b493cea9e63c4e398234752adb0e59a1c7c6f791c88c68dfccb5ee2a3b",
+        "head_lf_sha256": "e77790fb2b9bd2ff35d7c9b5856d77a7af1d8c9a5cc228cf8b8d363ec3884375"
+      },
+      {
+        "path": "scripts/opera_route_presentation.gd",
+        "working_sha256": "c7d6c94df382d14fa75cb18416647f1f540ae912756b8bba0c2962ae07b6867e",
+        "head_lf_sha256": "dd353ac7377557900f15d3b98a317f8ad5da33a5f6d4d0b4635f8b50740ecad4"
+      },
+      {
+        "path": "scripts/pause_menu.gd",
+        "working_sha256": "28ad120339ff9f178f57cb59d820ea208a6d7aad988d56ea72d3afb64099423c",
+        "head_lf_sha256": "2afc6103f8a750c437c1aa23c94419191a0b303cdec54aabd9345b560a5646b0"
+      },
+      {
+        "path": "scripts/wardrobe_ui.gd",
+        "working_sha256": "c347d851000a66a7069c262babf26658fe85b983d6179c6e1f33ac033acf1e29",
+        "head_lf_sha256": "0d7f4c5241f141ca4bbb9464f21aa5bd46545e1817b8b2638fea1caadf9f6573"
+      }
+    ],
+    "matches": [
+      {
+        "path": "scripts/fashion_designer.gd",
+        "line": 71,
+        "text": "\tif character_id in FashionParts.PEOPLE:"
+      },
+      {
+        "path": "scripts/fashion_designer.gd",
+        "line": 118,
+        "text": "\tvar changed: bool = FashionParts.selected(main, character_id, slot) != id if character_id in FashionParts.PEOPLE else main.character_outfits.get(character_id, \"\") != id"
+      },
+      {
+        "path": "scripts/fashion_designer.gd",
+        "line": 119,
+        "text": "\tif character_id in FashionParts.PEOPLE:"
+      },
+      {
+        "path": "scripts/fashion_dressing_input.gd",
+        "line": 35,
+        "text": "\tif not (m.wd.get(\"fashion_drag\", {}) as Dictionary).is_empty():"
+      },
+      {
+        "path": "scripts/fashion_dressing_input.gd",
+        "line": 55,
+        "text": "\tm.wd[\"fashion_drag\"] = {\"pointer\":_pointer(event),\"id\":id,\"start\":global,\"last\":global,\"moved\":false,\"ghost\":ghost}"
+      },
+      {
+        "path": "scripts/fashion_dressing_input.gd",
+        "line": 62,
+        "text": "\tvar drag: Dictionary = m.wd.get(\"fashion_drag\", {}) as Dictionary"
+      },
+      {
+        "path": "scripts/fashion_dressing_input.gd",
+        "line": 104,
+        "text": "\tvar drag: Dictionary = m.wd.get(\"fashion_drag\", {}) as Dictionary"
+      },
+      {
+        "path": "scripts/fashion_dressing_input.gd",
+        "line": 110,
+        "text": "\tm.wd[\"fashion_drag\"] = {}"
+      },
+      {
+        "path": "scripts/fashion_dressing_input.gd",
+        "line": 113,
+        "text": "\tif what == NOTIFICATION_WM_WINDOW_FOCUS_OUT or what == NOTIFICATION_APPLICATION_PAUSED:"
+      },
+      {
+        "path": "scripts/fashion_skin_engine.gd",
+        "line": 46,
+        "text": "\tif person in FashionParts.PEOPLE:"
+      },
+      {
+        "path": "scripts/fashion_wardrobe.gd",
+        "line": 109,
+        "text": "\t\tfor index: int in range(FashionParts.PEOPLE.size()):"
+      },
+      {
+        "path": "scripts/fashion_wardrobe.gd",
+        "line": 110,
+        "text": "\t\t\tvar id: String = FashionParts.PEOPLE[index]"
+      },
+      {
+        "path": "scripts/fashion_wardrobe.gd",
+        "line": 111,
+        "text": "\t\t\tvar pick := _button(stage, \"FashionCharacter_\" + id,"
+      },
+      {
+        "path": "scripts/fashion_wardrobe.gd",
+        "line": 194,
+        "text": "\t\tvar card := _button(stage, \"FashionOutfit_\" + id,"
+      },
+      {
+        "path": "scripts/fashion_wardrobe.gd",
+        "line": 214,
+        "text": "\t\t\tpointer.name = \"FashionVisualPointer\""
+      },
+      {
+        "path": "scripts/fashion_wardrobe.gd",
+        "line": 264,
+        "text": "\tif not (m.wd.get(\"fashion_drag\", {}) as Dictionary).is_empty():"
+      },
+      {
+        "path": "scripts/fashion_wardrobe.gd",
+        "line": 289,
+        "text": "\tm._wardrobe_ref()._wardrobe_feedback_burst()"
+      },
+      {
+        "path": "scripts/living_world.gd",
+        "line": 286,
+        "text": "\tif m.fade_rect != null and m.fade_rect.modulate.a > 0.02:"
+      },
+      {
+        "path": "scripts/main.gd",
+        "line": 2024,
+        "text": "\t_fade_cut(_start_kart_game_now.bind(reversed, ground))"
+      },
+      {
+        "path": "scripts/main.gd",
+        "line": 2147,
+        "text": "\t_fade_cut(_start_galaxy_now)"
+      },
+      {
+        "path": "scripts/main.gd",
+        "line": 2171,
+        "text": "\t_fade_cut(_start_fairy_conservatory_handoff_now.bind(returning_from_butterfly))"
+      },
+      {
+        "path": "scripts/main.gd",
+        "line": 2531,
+        "text": "\t_fade_cut(_start_dungeon_now)"
+      },
+      {
+        "path": "scripts/main.gd",
+        "line": 2708,
+        "text": "\t_fade_cut(_start_opera_now)"
+      },
+      {
+        "path": "scripts/main.gd",
+        "line": 2730,
+        "text": "\t_fade_cut(_start_opera_now)"
+      },
+      {
+        "path": "scripts/main.gd",
+        "line": 2766,
+        "text": "\t\topera_hud_game_was_visible = hud_game != null and hud_game.visible"
+      },
+      {
+        "path": "scripts/main.gd",
+        "line": 2767,
+        "text": "\t\topera_obj_was_visible = obj_card != null and obj_card.visible"
+      },
+      {
+        "path": "scripts/main.gd",
+        "line": 2771,
+        "text": "\t\t\thud_game.visible = false"
+      },
+      {
+        "path": "scripts/main.gd",
+        "line": 2773,
+        "text": "\t\t\tobj_card.visible = false"
+      },
+      {
+        "path": "scripts/main.gd",
+        "line": 2838,
+        "text": "\t\t\thud_game.visible = opera_hud_game_was_visible"
+      },
+      {
+        "path": "scripts/main.gd",
+        "line": 2840,
+        "text": "\t\t\tobj_card.visible = opera_obj_was_visible"
+      },
+      {
+        "path": "scripts/main.gd",
+        "line": 2925,
+        "text": "\tstatus_panel.name = \"HudStatusTray\""
+      },
+      {
+        "path": "scripts/main.gd",
+        "line": 2936,
+        "text": "\thud_pearls.visible = false"
+      },
+      {
+        "path": "scripts/main.gd",
+        "line": 2938,
+        "text": "\thud_stars.visible = false"
+      },
+      {
+        "path": "scripts/main.gd",
+        "line": 2949,
+        "text": "\thud_game.visible = false"
+      },
+      {
+        "path": "scripts/main.gd",
+        "line": 2967,
+        "text": "\tobj_card.visible = false"
+      },
+      {
+        "path": "scripts/main.gd",
+        "line": 2992,
+        "text": "func _set_objective(key: String, tex: Texture2D, emoji: String) -> void:"
+      },
+      {
+        "path": "scripts/main.gd",
+        "line": 2996,
+        "text": "\t\tobj_card.visible = false"
+      },
+      {
+        "path": "scripts/main.gd",
+        "line": 3003,
+        "text": "\t\t\tobj_card.visible = false"
+      },
+      {
+        "path": "scripts/main.gd",
+        "line": 3007,
+        "text": "\tobj_card.visible = true"
+      },
+      {
+        "path": "scripts/main.gd",
+        "line": 3026,
+        "text": "\tfade_rect.color = Color.BLACK"
+      },
+      {
+        "path": "scripts/main.gd",
+        "line": 3027,
+        "text": "\tfade_rect.mouse_filter = Control.MOUSE_FILTER_IGNORE"
+      },
+      {
+        "path": "scripts/main.gd",
+        "line": 3028,
+        "text": "\tfade_rect.modulate.a = 0.0"
+      },
+      {
+        "path": "scripts/main.gd",
+        "line": 3030,
+        "text": "\tfade_rect.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)"
+      },
+      {
+        "path": "scripts/main.gd",
+        "line": 3032,
+        "text": "func _fade_cut(cb: Callable) -> void:"
+      },
+      {
+        "path": "scripts/main.gd",
+        "line": 3043,
+        "text": "\tfade_rect.mouse_filter = Control.MOUSE_FILTER_STOP"
+      },
+      {
+        "path": "scripts/main.gd",
+        "line": 3044,
+        "text": "\tfade_rect.modulate.a = 1.0"
+      },
+      {
+        "path": "scripts/main.gd",
+        "line": 3410,
+        "text": "\treturn fade_rect == null or (fade_rect.modulate.a <= 0.02 \\"
+      },
+      {
+        "path": "scripts/main.gd",
+        "line": 3411,
+        "text": "\t\tand fade_rect.mouse_filter == Control.MOUSE_FILTER_IGNORE)"
+      },
+      {
+        "path": "scripts/main.gd",
+        "line": 3852,
+        "text": "\tif fade_rect != null and fade_rect.modulate.a > 0.02:"
+      },
+      {
+        "path": "scripts/main.gd",
+        "line": 3867,
+        "text": "\tif fade_rect != null and fade_rect.modulate.a > 0.02:"
+      },
+      {
+        "path": "scripts/main.gd",
+        "line": 4151,
+        "text": "\tif fade_rect != null and (fade_rect.modulate.a > 0.02 \\"
+      },
+      {
+        "path": "scripts/main.gd",
+        "line": 4152,
+        "text": "\t\t\tor fade_rect.mouse_filter != Control.MOUSE_FILTER_IGNORE):"
+      },
+      {
+        "path": "scripts/main.gd",
+        "line": 4696,
+        "text": "\t\tfade_rect.mouse_filter = Control.MOUSE_FILTER_IGNORE"
+      },
+      {
+        "path": "scripts/main.gd",
+        "line": 4924,
+        "text": "\t_fade_cut(_enter_level2_now.bind(from_castle, from_north, at_ocean_gate_hub))"
+      },
+      {
+        "path": "scripts/main.gd",
+        "line": 4987,
+        "text": "\t\t_set_objective(\"\", null, \"\")"
+      },
+      {
+        "path": "scripts/main.gd",
+        "line": 4993,
+        "text": "\t_fade_cut(_enter_northern_kingdom_now)"
+      },
+      {
+        "path": "scripts/main.gd",
+        "line": 5765,
+        "text": "\t_fade_cut(_enter_castle_interior_now.bind(from_back))"
+      },
+      {
+        "path": "scripts/main.gd",
+        "line": 6882,
+        "text": "\t\t\t\t\t_set_objective(\"chapter2_library_detective\","
+      },
+      {
+        "path": "scripts/main.gd",
+        "line": 6887,
+        "text": "\t\t\t\t\t_set_objective(\"chapter2_stuffie_ballet\","
+      },
+      {
+        "path": "scripts/main.gd",
+        "line": 6894,
+        "text": "\t\t\t\t\t_set_objective(\"chapter2_main_hall_party\","
+      },
+      {
+        "path": "scripts/main.gd",
+        "line": 6899,
+        "text": "\t\t\t\t\t_set_objective(\"chapter2_main_hall_party\","
+      },
+      {
+        "path": "scripts/main.gd",
+        "line": 6906,
+        "text": "\t\t\t\t\t_set_objective(\"\", null, \"\")"
+      },
+      {
+        "path": "scripts/main.gd",
+        "line": 6931,
+        "text": "\t\t\t_set_objective(\"chapter2_main_hall_party\","
+      },
+      {
+        "path": "scripts/main.gd",
+        "line": 6942,
+        "text": "\t\t\t_set_objective(\"chapter3_north_fire_mountain\","
+      },
+      {
+        "path": "scripts/main.gd",
+        "line": 6961,
+        "text": "\t_set_objective(\"chapter2_party_prep_\" + career_name, load(icon_path) as Texture2D, \"\")"
+      },
+      {
+        "path": "scripts/main.gd",
+        "line": 7340,
+        "text": "\t\t_fade_cut(_day_one_reorient_after_exit_now)"
+      },
+      {
+        "path": "scripts/main.gd",
+        "line": 7342,
+        "text": "\t\t_fade_cut(_exit_level2_now)"
+      },
+      {
+        "path": "scripts/main.gd",
+        "line": 7346,
+        "text": "\t_fade_cut(_exit_level2_now)"
+      },
+      {
+        "path": "scripts/main.gd",
+        "line": 7871,
+        "text": "\t_fade_cut(_start_game_now.bind(fr))"
+      },
+      {
+        "path": "scripts/main.gd",
+        "line": 8225,
+        "text": "\t\thud_game.visible = false"
+      },
+      {
+        "path": "scripts/main.gd",
+        "line": 8812,
+        "text": "\t_fade_cut(_leave_arena_now)"
+      },
+      {
+        "path": "scripts/opera_boxing_surface.gd",
+        "line": 299,
+        "text": "\t\t\tor what == NOTIFICATION_WM_WINDOW_FOCUS_OUT:"
+      },
+      {
+        "path": "scripts/opera_job_playtest_menu.gd",
+        "line": 133,
+        "text": "\t\tand (m.fade_rect == null or m.fade_rect.modulate.a <= 0.02)"
+      },
+      {
+        "path": "scripts/opera_route_presentation.gd",
+        "line": 10,
+        "text": "\t\tm.opera_hud_game_was_visible = m.hud_game != null and m.hud_game.visible"
+      },
+      {
+        "path": "scripts/opera_route_presentation.gd",
+        "line": 11,
+        "text": "\t\tm.opera_obj_was_visible = m.obj_card != null and m.obj_card.visible"
+      },
+      {
+        "path": "scripts/opera_route_presentation.gd",
+        "line": 15,
+        "text": "\t\t\tm.hud_game.visible = false"
+      },
+      {
+        "path": "scripts/opera_route_presentation.gd",
+        "line": 17,
+        "text": "\t\t\tm.obj_card.visible = false"
+      },
+      {
+        "path": "scripts/pause_menu.gd",
+        "line": 117,
+        "text": "\treturn m.fade_rect != null and m.fade_rect.visible \\"
+      },
+      {
+        "path": "scripts/pause_menu.gd",
+        "line": 118,
+        "text": "\t\tand (m.fade_rect.color.a * m.fade_rect.modulate.a > 0.01 \\"
+      },
+      {
+        "path": "scripts/pause_menu.gd",
+        "line": 119,
+        "text": "\t\t\tor m.fade_rect.mouse_filter == Control.MOUSE_FILTER_STOP)"
+      },
+      {
+        "path": "scripts/wardrobe_ui.gd",
+        "line": 161,
+        "text": "func _wardrobe_feedback_burst() -> void:"
+      },
+      {
+        "path": "scripts/wardrobe_ui.gd",
+        "line": 231,
+        "text": "\t_wardrobe_feedback_burst()"
+      },
+      {
+        "path": "scripts/games/dust_boss.gd",
+        "line": 782,
+        "text": "\tm.hud_game.visible = false"
+      },
+      {
+        "path": "scripts/games/melody.gd",
+        "line": 1272,
+        "text": "\treturn m.fade_rect == null or m.fade_rect.modulate.a <= 0.02"
+      },
+      {
+        "path": "scripts/games/slide_race.gd",
+        "line": 1034,
+        "text": "\treturn m.fade_rect == null or (m.fade_rect.modulate.a <= 0.02 \\"
+      },
+      {
+        "path": "scripts/games/slide_race.gd",
+        "line": 1035,
+        "text": "\t\tand m.fade_rect.mouse_filter == Control.MOUSE_FILTER_IGNORE)"
+      }
+    ],
+    "notes": [
+      "_set_objective production callers use empty fallback emoji or clear the card; generated/source capabilities are not actual visible glyph evidence.",
+      "Pearl/star labels have only false visibility assignments; name-based tray accesses and aliases require retained source review.",
+      "Fashion wardrobe source never assigns button.disabled; no live forced disabled-state art proof yet.",
+      "Shared feedback appears in legacy skin pick and FashionWardrobe._pick; each native burst has fourteen authored code polygons, repeated occurrence total is not an all-game piece count.",
+      "Fade cover also gates input and transition lifecycle; uniform functional pixels are reviewed separately from art."
+    ]
+  },
+  "native_trials": [
+    {
+      "id": "run-20261008T113621",
+      "result": "REJECTED",
+      "case": "fashion1280",
+      "native_frames": 84,
+      "included_in_capture_counts": false,
+      "reason": "Practice labels phase1/phase2/finished had unchanged phase0 actual progress; tail/finish targets absent. All gallery person/slot/page bindings matched, but the full trial failed. No selective phase acceptance.",
+      "source_files": "tmp/flat-vector-hud-fashion-20261008/runs/run-20261008T113621-*; exact rejected harness capture_hud_fashion.v1.gd.txt preserved",
+      "next_action": "v2 adds actual pointer motion before each click, exact phase/person/slot assertions and hover_pressed style records; stronger state binding may expose a genuine source/UI blocker instead of false success."
+    },
+    {
+      "id": "run-20261008T114214",
+      "result": "REJECTED",
+      "case": "fashion1280",
+      "native_frames": 84,
+      "included_in_capture_counts": false,
+      "reason": "Pointer motion and strict phase assertions still showed phase0 after the garden choice; later phase targets absent. Source/callback cause was not proved; no new gameplay defect inferred from this trial.",
+      "next_action": "Record actual pressed signal bindings and separate actual pointer behavior from saved display variants."
+    },
+    {
+      "id": "run-20261008T114610",
+      "result": "REJECTED",
+      "case": "fashion1280",
+      "native_frames": 85,
+      "included_in_capture_counts": false,
+      "reason": "Invalid isolated story-complete-only seed was cleared by canonical save normalization; practice button was absent after real load. This is a fixture error, not a save/game defect.",
+      "next_action": "v4 seeds the declared canonical legacy past-party checkpoint and splits catalog/practice/HUD matrices; normal child saves untouched."
+    },
+    {
+      "id": "run-20261008T115052",
+      "result": "REJECTED",
+      "case": "fashion1280",
+      "native_frames": 79,
+      "included_in_capture_counts": false,
+      "reason": "Native manifest passed, but native process logged SCRIPT ERROR after fixture release accessed a freed Button. Driver correctly rejected entire trial.",
+      "next_action": "v5 stores point before teardown/yields and releases by coordinates. All six accepted processes exit0 without script errors."
+    }
+  ],
+  "declared_fixture_seeds": {
+    "catalog_unlocked": "Explicit FashionDesigner.grant in the isolated fixture profile for every current catalog item; not earned progression. Starter profile remains separate.",
+    "practice": "Seed day_one boss-defeated, full existing eight-career party mask, legacy party-start/king-crash checkpoint and no-lawn variant; ChapterTwoDirector normalizes it and SaveState writes/loads it. Per-phase completed masks0/1/3/7 are explicitly seeded display variants, not wins.",
+    "wardrobe_drag": "Actual pointer press/motion plus declared WM_WINDOW_FOCUS_OUT notification; existing production cancellation handler runs.",
+    "fade": "Actual _fade_cut with no-op callback; pause/resume its existing reveal tween solely to capture functional black/reveal/restored endpoints.",
+    "hud": "Invoke current ChapterTwo event/cue methods and seed only the isolated party-piece mask to inspect each live objective picture. No natural progression claim."
+  },
+  "native_extension": {
+    "run_id": "run-20261008T115435",
+    "native_frames": 208,
+    "source_fingerprint_files": 6442,
+    "source_fingerprint_algorithm": "sha256_runtime_roots_hud_fashion_v3",
+    "normal_child_save_unchanged": true,
+    "result": "DIAGNOSTIC_NATIVE_MATRICES_PASS",
+    "index": "hud_fashion/NATIVE_INDEX.json"
+  }
+}

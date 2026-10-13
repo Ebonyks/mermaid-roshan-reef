@@ -1,0 +1,7 @@
+Traceback (most recent call last):
+  File "C:\Users\Peter\.codex\worktrees\flat-vector-art-audit-20261007\mermaid-roshan-reef\docs\handoffs\codex_flat_vector_art_2026-10-07\live_v6\promenade\validate.py", line 219, in <module>
+    result=check()
+  File "C:\Users\Peter\.codex\worktrees\flat-vector-art-audit-20261007\mermaid-roshan-reef\docs\handoffs\codex_flat_vector_art_2026-10-07\live_v6\promenade\validate.py", line 86, in check
+    assert '_add_affordance_pointer(glow, Vector2(0.0, 128.0))' in code or '_add_affordance_pointer(glow, Vector2(0, 128))' in code
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError

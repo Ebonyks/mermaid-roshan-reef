@@ -1,0 +1,28 @@
+{
+  "schema": 1,
+  "baseline": "6cde8aeae04aaedcc0b1ff22a05ef93ab9bf666f",
+  "expected_frames_per_aspect": {
+    "cards": 63,
+    "entry": 45
+  },
+  "source_hashes": {
+    "scripts/castle_career_routes.gd": "c5de38d8126c96aae9e999780113edafff05601a22934443e67053edcd8e18d8",
+    "scripts/opera_house_venue_2d.gd": "d53f37314ef459d0ec886566ad092c415fe54a1058aef3d637440a743fb51a63",
+    "scripts/opera_house.gd": "09a70ca5f9abd836f66a2327e62553b8d603f9318845c404d7d3527fee953910",
+    "scripts/opera_act.gd": "eddaa34b8dccd17f41f744176a1ceef6c38c788b200a66995438d42c74a78a63",
+    "scripts/main.gd": "841efbfa74a61ed14775fa7c2b19e6ff7f54b0a2c4af04d1b08c345440d6f880",
+    "scripts/save_state.gd": "34ed8239321ee3f2362b3718d4d0e6f9467e7c500e54b7dec78333ccbf90c884",
+    "scripts/storybook_ui.gd": "137404cf953e2f40b0a21924c22e8f5a7bd63aee3e7f81ae71543cceefbdab31",
+    "scripts/chapter_two_director.gd": "41be997e2e367343a85106bcf30f619be497baa59052eece81889e302b20ca71",
+    "scripts/chapter_two_party_plan.gd": "c8fa0ff7f2f16d54085e920e3ad5ebc5c5a4e6c4d4afc85d98c702c900886dfa"
+  },
+  "limits": [
+    "Programmatic room selection and normalized isolated story/checkpoint seed",
+    "Raw pointer launches; owner leave callback explicitly declared",
+    "Completion markers saved fixtures; no win/lesson progression",
+    "Measured source signature is not independently proven full active closure",
+    "No runtime files/replacement pixels/R5 representation changes",
+    "Diagnostic only; no DL-QA-11/device/child/owner acceptance"
+  ],
+  "harness_sha256": "36ae3141daf3745a228d8228e28784b1ac7062fd1b7cb9c5703fc50506d94363"
+}

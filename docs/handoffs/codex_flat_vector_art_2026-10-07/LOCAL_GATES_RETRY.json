@@ -1,0 +1,122 @@
+[
+  {
+    "id": "retry_r6_core",
+    "command": [
+      "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+      "-B",
+      "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\live_v6\\validate.py",
+      "--stress"
+    ],
+    "exit_code": 1,
+    "result": "FAIL",
+    "started_at_utc": "2026-10-13T00:54:13.268485+00:00",
+    "ended_at_utc": "2026-10-13T00:54:14.653880+00:00",
+    "log": "publication_diagnostics/retry_r6_core.log",
+    "log_sha256": "77572eab697d73885232933308e956f1d77967b13ad7f686fcbaf967388b49df"
+  },
+  {
+    "id": "retry_r6_hud_fashion",
+    "command": [
+      "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+      "-B",
+      "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\live_v6\\hud_fashion\\validate.py",
+      "--stress"
+    ],
+    "exit_code": 1,
+    "result": "FAIL",
+    "started_at_utc": "2026-10-13T00:54:13.268810+00:00",
+    "ended_at_utc": "2026-10-13T00:54:15.608992+00:00",
+    "log": "publication_diagnostics/retry_r6_hud_fashion.log",
+    "log_sha256": "38427776451dddc3eaaedbf6296e5c0d84986c38ddf0ccdf18097ed5aaaa6d8d"
+  },
+  {
+    "id": "retry_r6_room_routes",
+    "command": [
+      "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+      "-B",
+      "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\live_v6\\room_routes\\validate.py",
+      "--stress"
+    ],
+    "exit_code": 1,
+    "result": "FAIL",
+    "started_at_utc": "2026-10-13T00:54:13.269438+00:00",
+    "ended_at_utc": "2026-10-13T00:54:16.641692+00:00",
+    "log": "publication_diagnostics/retry_r6_room_routes.log",
+    "log_sha256": "6d5a67f3d78213ade9aae20e49f3a2a3e94760f2961eec1bada8f5b9a86df299"
+  },
+  {
+    "id": "retry_r6_dormant_routes",
+    "command": [
+      "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+      "-B",
+      "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\live_v6\\dormant_routes\\validate.py",
+      "--stress"
+    ],
+    "exit_code": 0,
+    "result": "PASS",
+    "started_at_utc": "2026-10-13T00:54:14.654102+00:00",
+    "ended_at_utc": "2026-10-13T00:56:14.499944+00:00",
+    "log": "publication_diagnostics/retry_r6_dormant_routes.log",
+    "log_sha256": "f08a3e50ad8412eb121c798b8de74ed4e9570eb4169aa139f6954cecd4d2af09"
+  },
+  {
+    "id": "retry_r6_promenade",
+    "command": [
+      "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+      "-B",
+      "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\live_v6\\promenade\\validate.py",
+      "--stress"
+    ],
+    "exit_code": 1,
+    "result": "FAIL",
+    "started_at_utc": "2026-10-13T00:54:15.609209+00:00",
+    "ended_at_utc": "2026-10-13T00:54:51.331032+00:00",
+    "log": "publication_diagnostics/retry_r6_promenade.log",
+    "log_sha256": "9e179900dba4449f59ecccb1d5db0066f00d667a534a6ebc3ddb439898ec0b1b"
+  },
+  {
+    "id": "retry_r6_party_props",
+    "command": [
+      "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+      "-B",
+      "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\live_v6\\party_props\\validate.py",
+      "--stress"
+    ],
+    "exit_code": 1,
+    "result": "FAIL",
+    "started_at_utc": "2026-10-13T00:54:16.641877+00:00",
+    "ended_at_utc": "2026-10-13T00:54:51.202153+00:00",
+    "log": "publication_diagnostics/retry_r6_party_props.log",
+    "log_sha256": "ed9ae54048ed3b02600c0582cead44d986dff99628f62a06b0c460e855416dd7"
+  },
+  {
+    "id": "packet_integrity",
+    "command": [
+      "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+      "-B",
+      "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\validate_packet.py",
+      "--stress"
+    ],
+    "exit_code": 0,
+    "result": "PASS",
+    "started_at_utc": "2026-10-13T00:54:51.202510+00:00",
+    "ended_at_utc": "2026-10-13T00:54:54.297065+00:00",
+    "log": "publication_diagnostics/packet_integrity.log",
+    "log_sha256": "998bde4f6e7575541e5086d2973a8a85f75a28e961bd918ab9b6414b787c51df"
+  },
+  {
+    "id": "2d_regression",
+    "command": [
+      "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+      "-B",
+      "tools/audit_game_2d.py",
+      "--regression-gate"
+    ],
+    "exit_code": 0,
+    "result": "PASS",
+    "started_at_utc": "2026-10-13T00:54:51.331202+00:00",
+    "ended_at_utc": "2026-10-13T01:00:51.215122+00:00",
+    "log": "publication_diagnostics/2d_regression.log",
+    "log_sha256": "763e51b38ed1cefc7a506b7148b9d6822c3a647d2fb45e1b64c8f22cb194e0ac"
+  }
+]

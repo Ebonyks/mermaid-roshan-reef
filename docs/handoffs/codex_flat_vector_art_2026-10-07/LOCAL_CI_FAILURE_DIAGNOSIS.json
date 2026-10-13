@@ -1,0 +1,36 @@
+{
+  "schema": 1,
+  "source_revision": "e2b3c73789707aa49a91b4f42e2a9dd4b68225df",
+  "engine": "4.7.2.stable.official.ed1daf0bf",
+  "initial_full_ci": "COMPLETED_FAIL_EXIT_1",
+  "known_failed_probes": [
+    {
+      "probe": "probe_audit",
+      "process_exit": 127,
+      "failure_reason": "UNKNOWN; original run did not complete, no substantive assertion failure recorded",
+      "same_source_native_retry": "PASS; see LOCAL_CI_TARGET_RETRIES.json"
+    },
+    {
+      "probe": "probe_dance",
+      "process_exit": 127,
+      "failure_reason": "UNKNOWN; original run did not complete, no substantive assertion failure recorded",
+      "same_source_native_retry": "PASS; see LOCAL_CI_TARGET_RETRIES.json"
+    },
+    {
+      "probe": "probe_touch_adversary",
+      "process_exit": 127,
+      "failure_reason": "UNKNOWN; original run did not complete, no substantive assertion failure recorded",
+      "same_source_native_retry": "PASS; see LOCAL_CI_TARGET_RETRIES.json"
+    },
+    {
+      "probe": "probe_dust_boss",
+      "process_exit": 127,
+      "failure_reason": "UNKNOWN; original run did not complete, no substantive assertion failure recorded",
+      "same_source_native_retry": "PASS; see LOCAL_CI_TARGET_RETRIES.json"
+    }
+  ],
+  "diagnostic_log": "publication_diagnostics/full_local_ci.log",
+  "next_action": "All four exact same-source native retries completed with zero exit and all required assertions. AGENTS.md permits probe-by-probe validation; FULL_VALIDATION.json verifies all82 trusted probes. Preserve original Bash CI FAIL and unknown127 cause.",
+  "publication": "REQUIRED_NATIVE_PROBE_LANE_PASS; final packet/document/2D gates and remote verification separately required",
+  "acceptance": "NONE"
+}

@@ -1,0 +1,41 @@
+* -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+review/*.svg whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+# Preserve literal native diagnostic logs without treating line endings as source edits.
+live_v2/*.log -diff
+live_v3/**/*.log -diff
+live_v4/**/*.log -diff
+# Preserve exact executed capture harness bytes,including their final blank line.
+live_v4/capture_*.gd whitespace=blank-at-eol,space-before-tab,cr-at-eol,-blank-at-eof
+live_v4/diagnostics/*.gd.txt whitespace=blank-at-eol,space-before-tab,cr-at-eol,-blank-at-eof
+
+live_v5/capture_*.gd whitespace=blank-at-eol,space-before-tab,cr-at-eol,-blank-at-eof
+live_v5/diagnostics/*.gd.txt whitespace=blank-at-eol,space-before-tab,cr-at-eol,-blank-at-eof
+live_v5/**/*.log -diff
+
+live_v6/capture_*.gd whitespace=blank-at-eol,space-before-tab,cr-at-eol,-blank-at-eof
+live_v6/diagnostics/*.gd.txt whitespace=blank-at-eol,space-before-tab,cr-at-eol,-blank-at-eof
+live_v6/**/*.log -diff
+
+live_v6/hud_fashion/diagnostics/*.gd.txt whitespace=blank-at-eol,space-before-tab,cr-at-eol,-blank-at-eof
+live_v6/hud_fashion/sources/**/*.gd whitespace=blank-at-eol,space-before-tab,cr-at-eol,-blank-at-eof
+
+live_v6/room_routes/sources/**/*.gd whitespace=blank-at-eol,space-before-tab,cr-at-eol,-blank-at-eof
+
+live_v6/dormant_routes/sources/**/*.gd whitespace=blank-at-eol,space-before-tab,cr-at-eol,-blank-at-eof
+live_v6/promenade/sources/**/*.gd whitespace=blank-at-eol,space-before-tab,cr-at-eol,-blank-at-eof
+
+live_v6/party_props/sources/**/*.gd whitespace=blank-at-eol,space-before-tab,cr-at-eol,-blank-at-eof
+
+live_v6/*.gd whitespace=blank-at-eol,space-before-tab,cr-at-eol,-blank-at-eof
+live_v6/**/*.json.txt -diff
+
+# CRLF in literal captured metadata/log/source bytes is retained for SHA evidence.
+# cr-at-eol accepts only the newline; actual trailing spaces remain errors.
+root_picture_review_20261012/harnesses/*.gd whitespace=blank-at-eol,space-before-tab,cr-at-eol,-blank-at-eof
+root_picture_actions_review_20261012/harnesses/*.gd whitespace=blank-at-eol,space-before-tab,cr-at-eol,-blank-at-eof
+publication_diagnostics/*.log -diff
+root_picture_review_20261012/receipts/*.log -diff
+root_picture_actions_review_20261012/receipts/*.log -diff
+
+# Literal pre-existing working license snapshot split mid-line; preserve exact bytes.
+picture_source_license_snapshot/*.md.txt -diff

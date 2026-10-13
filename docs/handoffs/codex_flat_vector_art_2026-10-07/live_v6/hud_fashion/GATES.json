@@ -1,0 +1,269 @@
+{
+  "schema": 1,
+  "source_revision": "6cde8aeae04aaedcc0b1ff22a05ef93ab9bf666f",
+  "status": "DRAFT_HANDOFF_BLOCKED_NO_BRANCH_GREEN_CLAIM",
+  "no_acceptance": true,
+  "commands": [
+    {
+      "id": "gdparser",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-B",
+        "-m",
+        "gdtoolkit.parser",
+        "docs/handoffs/codex_flat_vector_art_2026-10-07/live_v6/capture_hud_fashion.gd"
+      ],
+      "result": "PASS",
+      "exit_code": 0,
+      "started_at_utc": "2026-10-08T12:25:45.950116+00:00",
+      "ended_at_utc": "2026-10-08T12:25:47.002997+00:00",
+      "log": "diagnostics/gate-gdparser.log",
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "log_bytes": 0
+    },
+    {
+      "id": "inference",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-B",
+        "tools/lint_inference.py",
+        "docs/handoffs/codex_flat_vector_art_2026-10-07/live_v6/capture_hud_fashion.gd"
+      ],
+      "result": "PASS",
+      "exit_code": 0,
+      "started_at_utc": "2026-10-08T12:25:45.950291+00:00",
+      "ended_at_utc": "2026-10-08T12:25:46.090315+00:00",
+      "log": "diagnostics/gate-inference.log",
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "log_bytes": 0
+    },
+    {
+      "id": "godot_analyzer",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-art-audit-20261007\\mermaid-roshan-reef",
+        "--check-only",
+        "-s",
+        "docs/handoffs/codex_flat_vector_art_2026-10-07/live_v6/capture_hud_fashion.gd"
+      ],
+      "result": "PASS",
+      "exit_code": 0,
+      "started_at_utc": "2026-10-08T12:25:45.950531+00:00",
+      "ended_at_utc": "2026-10-08T12:25:54.515719+00:00",
+      "log": "diagnostics/gate-godot_analyzer.log",
+      "log_sha256": "83cf0b082206af2aa236c83064fbcfa76be1e00a4aa3558574b2f65965d9481c",
+      "log_bytes": 75
+    },
+    {
+      "id": "hud_fashion_integrity",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-B",
+        "docs/handoffs/codex_flat_vector_art_2026-10-07/live_v6/hud_fashion/validate.py",
+        "--stress"
+      ],
+      "result": "PASS",
+      "exit_code": 0,
+      "started_at_utc": "2026-10-08T12:25:46.090516+00:00",
+      "ended_at_utc": "2026-10-08T12:26:07.315561+00:00",
+      "log": "diagnostics/gate-hud_fashion_integrity.log",
+      "log_sha256": "ba09874322e1431a0f1ba115c31896ee5cbe6ed942f24213c2e07f121ff6c456",
+      "log_bytes": 234
+    },
+    {
+      "id": "core_integrity",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-B",
+        "docs/handoffs/codex_flat_vector_art_2026-10-07/live_v6/validate.py",
+        "--stress"
+      ],
+      "result": "PASS",
+      "exit_code": 0,
+      "started_at_utc": "2026-10-08T12:25:47.003166+00:00",
+      "ended_at_utc": "2026-10-08T12:26:44.429615+00:00",
+      "log": "diagnostics/gate-core_integrity.log",
+      "log_sha256": "7385e33b078951d5124cc7d874cf217f67c85ec1b22c8237f3f0f6ff0e4289d1",
+      "log_bytes": 441
+    },
+    {
+      "id": "authority_tests",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-B",
+        "-m",
+        "unittest",
+        "tools.tests.test_audit_document_authority",
+        "tools.tests.test_audit_development"
+      ],
+      "result": "PASS",
+      "exit_code": 0,
+      "started_at_utc": "2026-10-08T12:25:54.515855+00:00",
+      "ended_at_utc": "2026-10-08T12:26:05.500710+00:00",
+      "log": "diagnostics/gate-authority_tests.log",
+      "log_sha256": "dfc67963e8e11810779f6651e110b4542576ce95cb6af48dab1652ea10fb165b",
+      "log_bytes": 179
+    },
+    {
+      "id": "document_authority",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-B",
+        "tools/audit_document_authority.py"
+      ],
+      "result": "PASS",
+      "exit_code": 0,
+      "started_at_utc": "2026-10-08T12:26:05.500860+00:00",
+      "ended_at_utc": "2026-10-08T12:26:15.478256+00:00",
+      "log": "diagnostics/gate-document_authority.log",
+      "log_sha256": "e417a5a85b7ad74c48c8cb77cf60e9c5ff208ebe030b1e1f39242e8bb0cdc04d",
+      "log_bytes": 78
+    },
+    {
+      "id": "audit_development",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-B",
+        "tools/audit_development.py",
+        "--base",
+        "auto"
+      ],
+      "result": "PASS",
+      "exit_code": 0,
+      "started_at_utc": "2026-10-08T12:26:07.315731+00:00",
+      "ended_at_utc": "2026-10-08T12:26:10.126593+00:00",
+      "log": "diagnostics/gate-audit_development.log",
+      "log_sha256": "f6d66d39bb6de57288b435b49d33a2891504449d9936c74badb9c1640ca7e2a5",
+      "log_bytes": 80
+    },
+    {
+      "id": "unchanged_2d_regression",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-B",
+        "tools/audit_game_2d.py",
+        "--regression-gate"
+      ],
+      "result": "FAIL",
+      "exit_code": 1,
+      "started_at_utc": "2026-10-08T12:26:10.126733+00:00",
+      "ended_at_utc": "2026-10-08T12:26:59.461123+00:00",
+      "log": "diagnostics/gate-unchanged_2d_regression.log",
+      "log_sha256": "14a315a2888333b488c44d27e1cc8950b303135856386ef4c64ffa77e47b8f31",
+      "log_bytes": 3332
+    },
+    {
+      "id": "diff_whitespace",
+      "command": [
+        "git",
+        "diff",
+        "--check"
+      ],
+      "result": "PASS",
+      "exit_code": 0,
+      "started_at_utc": "2026-10-08T12:26:15.478606+00:00",
+      "ended_at_utc": "2026-10-08T12:26:15.772592+00:00",
+      "log": "diagnostics/gate-diff_whitespace.log",
+      "log_sha256": "5cee5c92dd3e1561c74b179cfae7bd1fc6851e7eb0b0d27a67874cdacb9f341c",
+      "log_bytes": 632
+    },
+    {
+      "id": "production_unchanged",
+      "command": [
+        "git",
+        "diff",
+        "92c9fe70319ef46bfaa8f61348a6f51512141ec3",
+        "--",
+        "scripts",
+        "scenes",
+        "assets",
+        "shaders",
+        "project.godot"
+      ],
+      "result": "PASS",
+      "exit_code": 0,
+      "started_at_utc": "2026-10-08T12:26:15.772781+00:00",
+      "ended_at_utc": "2026-10-08T12:26:15.892991+00:00",
+      "log": "diagnostics/gate-production_unchanged.log",
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "log_bytes": 0
+    }
+  ],
+  "summary": {
+    "focused_checks": "PASS",
+    "unchanged_2d_regression": "FAIL",
+    "expected_existing_blocker": "Five unchanged oversized R5JSON files exceed scanner4MiBcap. No scanner exemption,gate weakening or R5 rewrite.",
+    "publication": "PENDING_EXPLICIT_APPROVAL;no commit/push/integration/remote verification for R6",
+    "full_suite": "NOT_RUN;known blocking2Dgate prevents green branch acceptance",
+    "runtime_device_child_owner": "NOT_ACCEPTED",
+    "final_review": "PASS"
+  },
+  "completion_review": [
+    {
+      "id": "integrity_after_review",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-B",
+        "docs/handoffs/codex_flat_vector_art_2026-10-07/live_v6/hud_fashion/validate.py",
+        "--stress"
+      ],
+      "result": "PASS",
+      "exit_code": 0,
+      "started_at_utc": "2026-10-08T12:31:45.054388+00:00",
+      "ended_at_utc": "2026-10-08T12:32:03.595505+00:00",
+      "log": "diagnostics/gate-integrity_after_review.log",
+      "log_sha256": "9386b90f5a5b7be21147309f620e2432db702d673082950a56b3c83de3549a72",
+      "log_bytes": 234
+    },
+    {
+      "id": "authority_after_review",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-B",
+        "tools/audit_document_authority.py"
+      ],
+      "result": "PASS",
+      "exit_code": 0,
+      "started_at_utc": "2026-10-08T12:32:03.595713+00:00",
+      "ended_at_utc": "2026-10-08T12:32:11.701738+00:00",
+      "log": "diagnostics/gate-authority_after_review.log",
+      "log_sha256": "e417a5a85b7ad74c48c8cb77cf60e9c5ff208ebe030b1e1f39242e8bb0cdc04d",
+      "log_bytes": 78
+    },
+    {
+      "id": "coverage_after_review",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-B",
+        "tools/audit_development.py",
+        "--base",
+        "auto"
+      ],
+      "result": "PASS",
+      "exit_code": 0,
+      "started_at_utc": "2026-10-08T12:32:11.701886+00:00",
+      "ended_at_utc": "2026-10-08T12:32:14.008556+00:00",
+      "log": "diagnostics/gate-coverage_after_review.log",
+      "log_sha256": "f6d66d39bb6de57288b435b49d33a2891504449d9936c74badb9c1640ca7e2a5",
+      "log_bytes": 80
+    },
+    {
+      "id": "whitespace_after_review",
+      "command": [
+        "git",
+        "diff",
+        "--check"
+      ],
+      "result": "PASS",
+      "exit_code": 0,
+      "started_at_utc": "2026-10-08T12:32:14.008666+00:00",
+      "ended_at_utc": "2026-10-08T12:32:14.251024+00:00",
+      "log": "diagnostics/gate-whitespace_after_review.log",
+      "log_sha256": "5cee5c92dd3e1561c74b179cfae7bd1fc6851e7eb0b0d27a67874cdacb9f341c",
+      "log_bytes": 632
+    }
+  ],
+  "validator_sha256_at_review": "61b8192c63614811b9bedc3dbef60ae033114f703e0ad502340ad11935db0bbf"
+}

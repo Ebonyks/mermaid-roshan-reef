@@ -1,0 +1,7 @@
+Traceback (most recent call last):
+  File "C:\Users\Peter\.codex\worktrees\flat-vector-r6-20261012\mermaid-roshan-reef\docs\handoffs\codex_flat_vector_art_2026-10-07\live_v6\promenade\validate.py", line 239, in <module>
+    result=check()
+  File "C:\Users\Peter\.codex\worktrees\flat-vector-r6-20261012\mermaid-roshan-reef\docs\handoffs\codex_flat_vector_art_2026-10-07\live_v6\promenade\validate.py", line 112, in check
+    assert n["source_signature"]==signature and n["source_unchanged"] is True,"native source fingerprint missing/drift"
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: native source fingerprint missing/drift

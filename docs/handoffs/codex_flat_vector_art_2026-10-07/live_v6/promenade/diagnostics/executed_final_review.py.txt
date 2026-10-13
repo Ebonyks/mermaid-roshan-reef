@@ -1,0 +1,43 @@
+from pathlib import Path
+import subprocess,json,sys,hashlib,datetime,concurrent.futures
+R=Path.cwd();P=R/'docs/handoffs/codex_flat_vector_art_2026-10-07/live_v6/promenade';D=P/'diagnostics';H='6cde8aeae04aaedcc0b1ff22a05ef93ab9bf666f'
+def sha(b):return hashlib.sha256(b).hexdigest()
+def put(p,d):p.write_text(json.dumps(d,ensure_ascii=False,indent=2)+'\n',encoding='utf-8',newline='\n')
+def run(name,cmd):
+ start=datetime.datetime.now(datetime.timezone.utc).isoformat();r=subprocess.run(cmd,cwd=R,stdout=subprocess.PIPE,stderr=subprocess.STDOUT);end=datetime.datetime.now(datetime.timezone.utc).isoformat();path=D/('gate-'+name+'.log');path.write_bytes(r.stdout)
+ row={'id':name,'command':cmd,'result':'PASS' if r.returncode==0 else 'FAIL','exit_code':r.returncode,'started_at_utc':start,'ended_at_utc':end,'log':path.relative_to(P).as_posix(),'log_sha256':sha(r.stdout),'log_bytes':len(r.stdout)};print(name,row['result'],flush=True)
+ if r.returncode:print(r.stdout.decode('utf-8','replace')[-5000:],flush=True)
+ return row
+row=run('integrity_review',[sys.executable,'-B',str(P/'validate.py'),'--stress']);assert row['exit_code']==0
+integrity=json.loads((D/'gate-integrity_review.log').read_text(encoding='utf-8'));assert integrity['rejected_falsifications']==22
+q=P/'GATES.json';g=json.loads(q.read_text());g['commands'].append(row);g['status']='DRAFT_HANDOFF_BLOCKED_NO_BRANCH_GREEN_CLAIM'
+for old in g['commands']:
+ b=(P/old['log']).read_bytes();assert sha(b)==old['log_sha256'] and len(b)==old['log_bytes']
+ if old['id']=='2d_regression':assert old['result']=='FAIL'
+for name in ['parser','inference','analyzer','authority_tests','doc_authority','audit_development','whitespace','production_unchanged']:assert next(r for r in g['commands'] if r['id']==name)['result']=='PASS'
+new2d=(D/'gate-2d_regression.log').read_bytes();prior2d=(P.parent/'dormant_routes/diagnostics/gate-2d_regression.log').read_bytes();assert new2d==prior2d,'new2D coverage/debt failure differs from unchanged baseline'
+g['2d_failures_identical_to_dormant_slice']=True;g['rejected_integrity_falsifications']=22;put(q,g)
+r=json.loads((P/'R5_UNCHANGED_RECEIPT.json').read_text());r['checked_at_utc']=datetime.datetime.now(datetime.timezone.utc).isoformat()
+for f in r['files']:
+ b=(R/f['path']).read_bytes();assert b==subprocess.check_output(['git','show',H+':'+f['path']],cwd=R) and sha(b)==f['sha256']
+put(P/'R5_UNCHANGED_RECEIPT.json',r)
+licenses=(R/'ASSET_LICENSES.md').read_text(encoding='utf-8');caps=json.loads((P/'CAPTURES.json').read_text());boards=json.loads((P/'BOARDS.json').read_text())
+for f in caps['frames']+boards['boards']:
+ name=(P/f['path']).relative_to(R).as_posix();assert licenses.count('`'+name+'`')==1
+assert len(caps['frames'])+len(boards['boards'])==272
+q=P/'README.md';s=q.read_text(encoding='utf-8');s=s.replace('The unchanged fullbranch2D gate still fails closed','Focused parser/inference,exact official Godot analyzer,22 rejected integrity falsifications,54 authority/control tests,document authority,changed-file coverage,whitespace and production preservation pass. Initial validator spelling/float32-tolerance failures are retained as superseded diagnostics;native/source bytes are unchanged. The unchanged fullbranch2D gate still fails closed');q.write_text(s,encoding='utf-8',newline='\n')
+q=R/'design/audit_impacts/flat-vector-touch-playtest-review-20261008.json';i=json.loads(q.read_text())
+for v in i['validation']:
+ if v['command'].startswith('Promenade paired-aspect'):
+  v['result']='PASS';v['evidence']='docs/handoffs/codex_flat_vector_art_2026-10-07/live_v6/promenade/GATES.json;256 native frames/16 boards/10 flatroles/2 inventory ARTscopes/6444 source hashes/14 Gitproofs/22 rejected falsifications. Parser/inference/exactGodot4.7.2 analyzer,54 authoritytests,documentauthority/changedfilecoverage,whitespace and productiondiff PASS;no acceptance. Initial source-spelling/float32-tolerance validator failures archived.'
+i['validation'].append({'command':'Promenade fullbranch2D regression gate','result':'FAIL','evidence':'docs/handoffs/codex_flat_vector_art_2026-10-07/live_v6/promenade/diagnostics/gate-2d_regression.log;byte-identical to prior dormant_routes log,five unchanged R5JSON exceed4MiB/15 G2D101 rows,no new failure or scanner edit. Full trusted suite NOT_RUN;R5 files/reader six exactHEAD bytes unchanged in fresh receipt;publication blocked.'})
+i['files']=sorted(set(i['files'])|{p.relative_to(R).as_posix() for p in P.rglob('*') if p.is_file()});put(q,i)
+a=json.loads((D/'AUTHORITY_REVIEW.json').read_text());a['reviewed_at_utc']=datetime.datetime.now(datetime.timezone.utc).isoformat()
+for f in a['sources']:f['working_sha256']=sha((R/f['path']).read_bytes())
+put(D/'AUTHORITY_REVIEW.json',a)
+put(D/'FINAL_REVIEW.json',{'schema':1,'reviewed_at_utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'source_revision':H,'validator_sha256':sha((P/'validate.py').read_bytes()),'harness_sha256':sha((P.parent/'capture_promenade.gd').read_bytes()),'native_frames':256,'boards_inspected':16,'full_native_spots_inspected':4,'reuse_originals_inspected':5,'licenses_added':272,'rejected_falsifications':22,'R5_originals_and_reader_unchanged':True,'2d_gate_identical_to_prior_failure':True,'production_unchanged':True,'finding_lifecycles_unchanged':True,'comprehensive_inventory_complete':False,'publication':'UNPUBLISHED_HANDOFF_BLOCKED','independent_QA11_device_child_owner_acceptance':False,'replacements':0,'accepted_removals':0})
+checks=[('doc_authority_final',[sys.executable,'-B','tools/audit_document_authority.py']),('audit_development_final',[sys.executable,'-B','tools/audit_development.py','--base','auto'])]
+with concurrent.futures.ThreadPoolExecutor(max_workers=2) as ex:results=list(ex.map(lambda x:run(*x),checks))
+assert all(r['exit_code']==0 for r in results)
+g['completion_checks']=results;put(P/'GATES.json',g)
+print('final focused checksPASS;full2Dpublicationblocked;no acceptance',flush=True)

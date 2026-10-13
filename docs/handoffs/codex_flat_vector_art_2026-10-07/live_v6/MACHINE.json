@@ -1,0 +1,528 @@
+{
+  "schema": "reef.flat_vector.touch_playtest_machine.v1",
+  "runtime_git_revision": "6cde8aeae04aaedcc0b1ff22a05ef93ab9bf666f",
+  "runtime_baseline": "92c9fe70319ef46bfaa8f61348a6f51512141ec3",
+  "source_closure_files": 6427,
+  "capture_method": "Native same-process Windows Mobile viewport;fresh isolated save;synthetic actualGUI pointer/raw touch and actual mode save/load;closed guarded venue/menu transitions",
+  "engine": "4.7.2-stable official.ed1daf0bf",
+  "quality": "speedy",
+  "aspects": {
+    "1280x720": 75,
+    "1600x720": 75
+  },
+  "case_matrix": {
+    "menu": 49,
+    "touch": 26
+  },
+  "sources": [
+    {
+      "path": "assets/characters/roshan_25d/roshan_base.png",
+      "revision": "6cde8aeae04aaedcc0b1ff22a05ef93ab9bf666f",
+      "git_blob_sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab",
+      "worktree_sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab"
+    },
+    {
+      "path": "assets/characters/roshan_25d/roshan_directional.png",
+      "revision": "6cde8aeae04aaedcc0b1ff22a05ef93ab9bf666f",
+      "git_blob_sha256": "2bcc6212dddaddedb5823ba095caff1cbecdb762d5bbdc76726d3d5b0e3ee85a",
+      "worktree_sha256": "2bcc6212dddaddedb5823ba095caff1cbecdb762d5bbdc76726d3d5b0e3ee85a"
+    },
+    {
+      "path": "assets/flats/castle/interactions_v2/opera_hall_chandelier_sheet.png",
+      "revision": "6cde8aeae04aaedcc0b1ff22a05ef93ab9bf666f",
+      "git_blob_sha256": "38b6620d345e81d504c6920d2d8023ac74a009a6c3b519fe2811432880a39039",
+      "worktree_sha256": "38b6620d345e81d504c6920d2d8023ac74a009a6c3b519fe2811432880a39039"
+    },
+    {
+      "path": "assets/flats/castle/interactions_v2/opera_hall_curtains_sheet.png",
+      "revision": "6cde8aeae04aaedcc0b1ff22a05ef93ab9bf666f",
+      "git_blob_sha256": "320be4a41135d84aba6ceee474f2a10f59db74872b37cfe68ec0f44a0c65c63c",
+      "worktree_sha256": "320be4a41135d84aba6ceee474f2a10f59db74872b37cfe68ec0f44a0c65c63c"
+    },
+    {
+      "path": "assets/flats/castle/interactions_v2/opera_hall_footlights_sheet.png",
+      "revision": "6cde8aeae04aaedcc0b1ff22a05ef93ab9bf666f",
+      "git_blob_sha256": "699e608b3f33f183a1e73feef52ab70aa92abbf997da30ac7ddc7169aee485f9",
+      "worktree_sha256": "699e608b3f33f183a1e73feef52ab70aa92abbf997da30ac7ddc7169aee485f9"
+    },
+    {
+      "path": "assets/flats/castle/interactions_v2/opera_hall_stage_star_sheet.png",
+      "revision": "6cde8aeae04aaedcc0b1ff22a05ef93ab9bf666f",
+      "git_blob_sha256": "70e56a65be9f2a02e2efba36971ea97a6c3c4ee4836bf3a19fc89074eafd42b9",
+      "worktree_sha256": "70e56a65be9f2a02e2efba36971ea97a6c3c4ee4836bf3a19fc89074eafd42b9"
+    },
+    {
+      "path": "assets/flats/castle/interactions_v4/background_tiles/room_opera_hall_background_r0_c0.png",
+      "revision": "6cde8aeae04aaedcc0b1ff22a05ef93ab9bf666f",
+      "git_blob_sha256": "a18cd59488570b1d5316f5583d7dee778e2dd5395b5aeeff0ef92967a76ed0a4",
+      "worktree_sha256": "a18cd59488570b1d5316f5583d7dee778e2dd5395b5aeeff0ef92967a76ed0a4"
+    },
+    {
+      "path": "assets/flats/castle/interactions_v4/background_tiles/room_opera_hall_background_r0_c1.png",
+      "revision": "6cde8aeae04aaedcc0b1ff22a05ef93ab9bf666f",
+      "git_blob_sha256": "d6a48b9e9171f0f4aa1163e8925b9c57e77afca8567adefd4af9fb67af9cc1e3",
+      "worktree_sha256": "d6a48b9e9171f0f4aa1163e8925b9c57e77afca8567adefd4af9fb67af9cc1e3"
+    },
+    {
+      "path": "assets/flats/castle/interactions_v4/background_tiles/room_opera_hall_background_r0_c2.png",
+      "revision": "6cde8aeae04aaedcc0b1ff22a05ef93ab9bf666f",
+      "git_blob_sha256": "63a66a417833a9764c5b6f4bc742b0c043e3cb99edd9616941dd53b8ab807773",
+      "worktree_sha256": "63a66a417833a9764c5b6f4bc742b0c043e3cb99edd9616941dd53b8ab807773"
+    },
+    {
+      "path": "assets/flats/castle/interactions_v4/background_tiles/room_opera_hall_background_r0_c3.png",
+      "revision": "6cde8aeae04aaedcc0b1ff22a05ef93ab9bf666f",
+      "git_blob_sha256": "642ab06337bb726b1fb736ffa10c6b94aadf01550ca1f12ba30421d6a0a4dd86",
+      "worktree_sha256": "642ab06337bb726b1fb736ffa10c6b94aadf01550ca1f12ba30421d6a0a4dd86"
+    },
+    {
+      "path": "assets/flats/castle/interactions_v4/background_tiles/room_opera_hall_background_r1_c0.png",
+      "revision": "6cde8aeae04aaedcc0b1ff22a05ef93ab9bf666f",
+      "git_blob_sha256": "422727d745628b237acba5135660f27d8989556abd19168f90bcec869d079a08",
+      "worktree_sha256": "422727d745628b237acba5135660f27d8989556abd19168f90bcec869d079a08"
+    },
+    {
+      "path": "assets/flats/castle/interactions_v4/background_tiles/room_opera_hall_background_r1_c1.png",
+      "revision": "6cde8aeae04aaedcc0b1ff22a05ef93ab9bf666f",
+      "git_blob_sha256": "1c75abdeb9b718c55d320b30fb6d5050bca09ff7e01a500156e567d9e9590004",
+      "worktree_sha256": "1c75abdeb9b718c55d320b30fb6d5050bca09ff7e01a500156e567d9e9590004"
+    },
+    {
+      "path": "assets/flats/castle/interactions_v4/background_tiles/room_opera_hall_background_r1_c2.png",
+      "revision": "6cde8aeae04aaedcc0b1ff22a05ef93ab9bf666f",
+      "git_blob_sha256": "bdc4d61551082d74e530eb39b46639904b7c372a39daec5255a038da44dc49db",
+      "worktree_sha256": "bdc4d61551082d74e530eb39b46639904b7c372a39daec5255a038da44dc49db"
+    },
+    {
+      "path": "assets/flats/castle/interactions_v4/background_tiles/room_opera_hall_background_r1_c3.png",
+      "revision": "6cde8aeae04aaedcc0b1ff22a05ef93ab9bf666f",
+      "git_blob_sha256": "afb10ec7e107b1f2c1d0c6be9ab5244997401d12f41c589365a50d58e481215f",
+      "worktree_sha256": "afb10ec7e107b1f2c1d0c6be9ab5244997401d12f41c589365a50d58e481215f"
+    },
+    {
+      "path": "assets/flats/castle/interactions_v4/sheets/opera_hall_pearl_sconce_left_sheet.png",
+      "revision": "6cde8aeae04aaedcc0b1ff22a05ef93ab9bf666f",
+      "git_blob_sha256": "e8c73093bcdc361ae92d37b116388d1502cbd5d23b9c3886daec82c0e4a6a149",
+      "worktree_sha256": "e8c73093bcdc361ae92d37b116388d1502cbd5d23b9c3886daec82c0e4a6a149"
+    },
+    {
+      "path": "assets/flats/castle/interactions_v4/sheets/opera_hall_pearl_sconce_right_sheet.png",
+      "revision": "6cde8aeae04aaedcc0b1ff22a05ef93ab9bf666f",
+      "git_blob_sha256": "2af91d024deee21895882b1b66beaaedbd051d1b69327b9d171f4ac55660a46f",
+      "worktree_sha256": "2af91d024deee21895882b1b66beaaedbd051d1b69327b9d171f4ac55660a46f"
+    },
+    {
+      "path": "assets/flats/castle/opera_house_venue_2d/background_tiles/room_opera_house_venue_background_r0_c0.png",
+      "revision": "6cde8aeae04aaedcc0b1ff22a05ef93ab9bf666f",
+      "git_blob_sha256": "4033aee34bc754a09f7a6f7ee458254a29e324d279c24ed0281d7f9554c9cc66",
+      "worktree_sha256": "4033aee34bc754a09f7a6f7ee458254a29e324d279c24ed0281d7f9554c9cc66"
+    },
+    {
+      "path": "assets/flats/castle/opera_house_venue_2d/background_tiles/room_opera_house_venue_background_r0_c1.png",
+      "revision": "6cde8aeae04aaedcc0b1ff22a05ef93ab9bf666f",
+      "git_blob_sha256": "de71e10cda26a3f5833e450d7559a262e97218b994a1cba42bb2d3444daa208e",
+      "worktree_sha256": "de71e10cda26a3f5833e450d7559a262e97218b994a1cba42bb2d3444daa208e"
+    },
+    {
+      "path": "assets/flats/castle/opera_house_venue_2d/background_tiles/room_opera_house_venue_background_r0_c2.png",
+      "revision": "6cde8aeae04aaedcc0b1ff22a05ef93ab9bf666f",
+      "git_blob_sha256": "f74cd2ada8d3c796916e1009a9c0d9fda15a915ab097ebb34f7b5f994e9df684",
+      "worktree_sha256": "f74cd2ada8d3c796916e1009a9c0d9fda15a915ab097ebb34f7b5f994e9df684"
+    },
+    {
+      "path": "assets/flats/castle/opera_house_venue_2d/background_tiles/room_opera_house_venue_background_r0_c3.png",
+      "revision": "6cde8aeae04aaedcc0b1ff22a05ef93ab9bf666f",
+      "git_blob_sha256": "229206b066610908e3f2bd23a7b07e823b2490755d567f73277d54e2a5d57ee9",
+      "worktree_sha256": "229206b066610908e3f2bd23a7b07e823b2490755d567f73277d54e2a5d57ee9"
+    },
+    {
+      "path": "assets/flats/castle/opera_house_venue_2d/background_tiles/room_opera_house_venue_background_r1_c0.png",
+      "revision": "6cde8aeae04aaedcc0b1ff22a05ef93ab9bf666f",
+      "git_blob_sha256": "4551b82106bc09c8df186d1f02b2c34125aed239182dd567b34f0fbf55bea42c",
+      "worktree_sha256": "4551b82106bc09c8df186d1f02b2c34125aed239182dd567b34f0fbf55bea42c"
+    },
+    {
+      "path": "assets/flats/castle/opera_house_venue_2d/background_tiles/room_opera_house_venue_background_r1_c1.png",
+      "revision": "6cde8aeae04aaedcc0b1ff22a05ef93ab9bf666f",
+      "git_blob_sha256": "376690e68c355c92a39678f0a049a7dcf08fd96adcd77bc754fe3e52857fd7e8",
+      "worktree_sha256": "376690e68c355c92a39678f0a049a7dcf08fd96adcd77bc754fe3e52857fd7e8"
+    },
+    {
+      "path": "assets/flats/castle/opera_house_venue_2d/background_tiles/room_opera_house_venue_background_r1_c2.png",
+      "revision": "6cde8aeae04aaedcc0b1ff22a05ef93ab9bf666f",
+      "git_blob_sha256": "ff8ee50d01722ab63488263735cf346439196c224fdaf6f5e6341d623f6b871a",
+      "worktree_sha256": "ff8ee50d01722ab63488263735cf346439196c224fdaf6f5e6341d623f6b871a"
+    },
+    {
+      "path": "assets/flats/castle/opera_house_venue_2d/background_tiles/room_opera_house_venue_background_r1_c3.png",
+      "revision": "6cde8aeae04aaedcc0b1ff22a05ef93ab9bf666f",
+      "git_blob_sha256": "534ad3861872663ff7fb9fd02ff5664a96cd51020e73072efbde7eb9441717ed",
+      "worktree_sha256": "534ad3861872663ff7fb9fd02ff5664a96cd51020e73072efbde7eb9441717ed"
+    },
+    {
+      "path": "assets/flats/castle/rooms/room_actor_shadow.png",
+      "revision": "6cde8aeae04aaedcc0b1ff22a05ef93ab9bf666f",
+      "git_blob_sha256": "642aa3bdc6ef1be14febfd7855963da80071febd9ea7b69101261d6632ee3604",
+      "worktree_sha256": "642aa3bdc6ef1be14febfd7855963da80071febd9ea7b69101261d6632ee3604"
+    },
+    {
+      "path": "assets/flats/castle/rooms/room_opera_hall_front_left.png",
+      "revision": "6cde8aeae04aaedcc0b1ff22a05ef93ab9bf666f",
+      "git_blob_sha256": "ab63cdf1faf7ccb82a7af7a39928d8fea613d087ab6a38fc85187d765e7177c7",
+      "worktree_sha256": "ab63cdf1faf7ccb82a7af7a39928d8fea613d087ab6a38fc85187d765e7177c7"
+    },
+    {
+      "path": "assets/flats/castle/rooms/room_opera_hall_front_right.png",
+      "revision": "6cde8aeae04aaedcc0b1ff22a05ef93ab9bf666f",
+      "git_blob_sha256": "2606a8de371ac70a3573c99fd5cd328b9492ad58a461cbf74bb2ee8c390cbc1d",
+      "worktree_sha256": "2606a8de371ac70a3573c99fd5cd328b9492ad58a461cbf74bb2ee8c390cbc1d"
+    },
+    {
+      "path": "assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r0_c0.png",
+      "revision": "6cde8aeae04aaedcc0b1ff22a05ef93ab9bf666f",
+      "git_blob_sha256": "5addf12c775f697d89b5f7227485155616558c5c2c3c4b29accc89fd9a93fcdb",
+      "worktree_sha256": "5addf12c775f697d89b5f7227485155616558c5c2c3c4b29accc89fd9a93fcdb"
+    },
+    {
+      "path": "assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r0_c1.png",
+      "revision": "6cde8aeae04aaedcc0b1ff22a05ef93ab9bf666f",
+      "git_blob_sha256": "ae962d17088df75e6f3db9fd632a1c2f105d91a902996cd5ac5aba184f82fc1d",
+      "worktree_sha256": "ae962d17088df75e6f3db9fd632a1c2f105d91a902996cd5ac5aba184f82fc1d"
+    },
+    {
+      "path": "assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r0_c2.png",
+      "revision": "6cde8aeae04aaedcc0b1ff22a05ef93ab9bf666f",
+      "git_blob_sha256": "a5e0dc1e71031ade14059722885bf7905d88f3ea45e9b04e5994cb09ece88850",
+      "worktree_sha256": "a5e0dc1e71031ade14059722885bf7905d88f3ea45e9b04e5994cb09ece88850"
+    },
+    {
+      "path": "assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r0_c3.png",
+      "revision": "6cde8aeae04aaedcc0b1ff22a05ef93ab9bf666f",
+      "git_blob_sha256": "b423c7c320377e15a38d684d4cec4499c81fa9a31e20bdf4d7dbf051d63c1959",
+      "worktree_sha256": "b423c7c320377e15a38d684d4cec4499c81fa9a31e20bdf4d7dbf051d63c1959"
+    },
+    {
+      "path": "assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r0_c4.png",
+      "revision": "6cde8aeae04aaedcc0b1ff22a05ef93ab9bf666f",
+      "git_blob_sha256": "bb674934980b1b3e70dfe4e2fcb0f866e61f0ac6eefc3414b398a6da654f86ac",
+      "worktree_sha256": "bb674934980b1b3e70dfe4e2fcb0f866e61f0ac6eefc3414b398a6da654f86ac"
+    },
+    {
+      "path": "assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r0_c5.png",
+      "revision": "6cde8aeae04aaedcc0b1ff22a05ef93ab9bf666f",
+      "git_blob_sha256": "563cdab3a65bd22518350c441cffd6f0f1173ab51df7d70cf09c11b4c151035c",
+      "worktree_sha256": "563cdab3a65bd22518350c441cffd6f0f1173ab51df7d70cf09c11b4c151035c"
+    },
+    {
+      "path": "assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r1_c0.png",
+      "revision": "6cde8aeae04aaedcc0b1ff22a05ef93ab9bf666f",
+      "git_blob_sha256": "60b2ca6fb0ed517929a7dcdaa19cc9cf13a61cb27d7a7700c396383c85418a3a",
+      "worktree_sha256": "60b2ca6fb0ed517929a7dcdaa19cc9cf13a61cb27d7a7700c396383c85418a3a"
+    },
+    {
+      "path": "assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r1_c1.png",
+      "revision": "6cde8aeae04aaedcc0b1ff22a05ef93ab9bf666f",
+      "git_blob_sha256": "2fb96fa18f1e9ccec77ba4f1fd162223385fdfaa230f57647f0240de27ca1400",
+      "worktree_sha256": "2fb96fa18f1e9ccec77ba4f1fd162223385fdfaa230f57647f0240de27ca1400"
+    },
+    {
+      "path": "assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r1_c2.png",
+      "revision": "6cde8aeae04aaedcc0b1ff22a05ef93ab9bf666f",
+      "git_blob_sha256": "2c095349af8d05bb11e43f2115406ce55f583eb885f2abf5b7b4faf7cb8b1e28",
+      "worktree_sha256": "2c095349af8d05bb11e43f2115406ce55f583eb885f2abf5b7b4faf7cb8b1e28"
+    },
+    {
+      "path": "assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r1_c3.png",
+      "revision": "6cde8aeae04aaedcc0b1ff22a05ef93ab9bf666f",
+      "git_blob_sha256": "1f84c75cdfc85923b2a18011e50ac60e78145ed6a9703f7c99ae26592bb6edb7",
+      "worktree_sha256": "1f84c75cdfc85923b2a18011e50ac60e78145ed6a9703f7c99ae26592bb6edb7"
+    },
+    {
+      "path": "assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r1_c4.png",
+      "revision": "6cde8aeae04aaedcc0b1ff22a05ef93ab9bf666f",
+      "git_blob_sha256": "72e54d1d6a1fbfbeba326670c0d0c640d582b0a60f89d95db77ebcec1257e9c4",
+      "worktree_sha256": "72e54d1d6a1fbfbeba326670c0d0c640d582b0a60f89d95db77ebcec1257e9c4"
+    },
+    {
+      "path": "assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r1_c5.png",
+      "revision": "6cde8aeae04aaedcc0b1ff22a05ef93ab9bf666f",
+      "git_blob_sha256": "6ef1dd25a1ea4ee998886d6e0c5a824ef915dddb2cff786ffad5520ba0aa2e21",
+      "worktree_sha256": "6ef1dd25a1ea4ee998886d6e0c5a824ef915dddb2cff786ffad5520ba0aa2e21"
+    },
+    {
+      "path": "assets/opera/worlds/actors/roshan_teacher.png",
+      "revision": "6cde8aeae04aaedcc0b1ff22a05ef93ab9bf666f",
+      "git_blob_sha256": "5f63276e14d55969d6103c8cbf94fce6a0154c5e4900a44f9ea485885b7bcb7a",
+      "worktree_sha256": "5f63276e14d55969d6103c8cbf94fce6a0154c5e4900a44f9ea485885b7bcb7a"
+    },
+    {
+      "path": "assets/opera/worlds/ui/crests/goal_nursery.png",
+      "revision": "6cde8aeae04aaedcc0b1ff22a05ef93ab9bf666f",
+      "git_blob_sha256": "718ccbdf8fde5589e72b530c2321c2b3074ed0c30d2c1057119056a2a3cb2a90",
+      "worktree_sha256": "718ccbdf8fde5589e72b530c2321c2b3074ed0c30d2c1057119056a2a3cb2a90"
+    },
+    {
+      "path": "assets/opera/worlds/ui/crests/opera_crest_ballerina.png",
+      "revision": "6cde8aeae04aaedcc0b1ff22a05ef93ab9bf666f",
+      "git_blob_sha256": "d3d0c73d798688a21459b14f8a5ee3f8985578286b7a7e03e9b6ac68e917d2c3",
+      "worktree_sha256": "d3d0c73d798688a21459b14f8a5ee3f8985578286b7a7e03e9b6ac68e917d2c3"
+    },
+    {
+      "path": "assets/opera/worlds/ui/crests/opera_crest_boxer.png",
+      "revision": "6cde8aeae04aaedcc0b1ff22a05ef93ab9bf666f",
+      "git_blob_sha256": "f9500790099a13e1dfb4f87b24946cf18595749e3e1cb2f418476b60565c92c6",
+      "worktree_sha256": "f9500790099a13e1dfb4f87b24946cf18595749e3e1cb2f418476b60565c92c6"
+    },
+    {
+      "path": "assets/opera/worlds/ui/crests/opera_crest_candy.png",
+      "revision": "6cde8aeae04aaedcc0b1ff22a05ef93ab9bf666f",
+      "git_blob_sha256": "c187cc488f971484ddaaf4fa74a81a04853f583897e27bfb4d4830c9afd04855",
+      "worktree_sha256": "c187cc488f971484ddaaf4fa74a81a04853f583897e27bfb4d4830c9afd04855"
+    },
+    {
+      "path": "assets/opera/worlds/ui/crests/opera_crest_chef.png",
+      "revision": "6cde8aeae04aaedcc0b1ff22a05ef93ab9bf666f",
+      "git_blob_sha256": "55ab3093ca9f7e9df0bfb5011980727b140648ce0f10974c6ee8392928f77288",
+      "worktree_sha256": "55ab3093ca9f7e9df0bfb5011980727b140648ce0f10974c6ee8392928f77288"
+    },
+    {
+      "path": "assets/opera/worlds/ui/crests/opera_crest_detective.png",
+      "revision": "6cde8aeae04aaedcc0b1ff22a05ef93ab9bf666f",
+      "git_blob_sha256": "2629170fadce37aa7f252364865bd81a3a21ce86214b1b858751a9fc31471e50",
+      "worktree_sha256": "2629170fadce37aa7f252364865bd81a3a21ce86214b1b858751a9fc31471e50"
+    },
+    {
+      "path": "assets/opera/worlds/ui/crests/opera_crest_doctor.png",
+      "revision": "6cde8aeae04aaedcc0b1ff22a05ef93ab9bf666f",
+      "git_blob_sha256": "5cc937a104099e4afa5174069191eca6299ed7c3fa5fb68439858fe1d04da3ba",
+      "worktree_sha256": "5cc937a104099e4afa5174069191eca6299ed7c3fa5fb68439858fe1d04da3ba"
+    },
+    {
+      "path": "assets/opera/worlds/ui/crests/opera_crest_engineer.png",
+      "revision": "6cde8aeae04aaedcc0b1ff22a05ef93ab9bf666f",
+      "git_blob_sha256": "f9668419f298ab616132f8d9f70b144eae78a88f7cb0ae68b7c785ce495f9f97",
+      "worktree_sha256": "f9668419f298ab616132f8d9f70b144eae78a88f7cb0ae68b7c785ce495f9f97"
+    },
+    {
+      "path": "assets/opera/worlds/ui/crests/opera_crest_farmer.png",
+      "revision": "6cde8aeae04aaedcc0b1ff22a05ef93ab9bf666f",
+      "git_blob_sha256": "7abaa9242ffa314369b8fd7b02632f09898ae456a4adc24ff296f3ef9232e2c6",
+      "worktree_sha256": "7abaa9242ffa314369b8fd7b02632f09898ae456a4adc24ff296f3ef9232e2c6"
+    },
+    {
+      "path": "assets/opera/worlds/ui/crests/opera_crest_geologist.svg",
+      "revision": "6cde8aeae04aaedcc0b1ff22a05ef93ab9bf666f",
+      "git_blob_sha256": "14023de6e1338fb209b06be58dc37574060c3a22bcb08f3506843389620c2f50",
+      "worktree_sha256": "09ba5403d9d5bfbafec397f884fec4c725e50b3ba643c6ab66e4dd346d16b150"
+    },
+    {
+      "path": "assets/opera/worlds/ui/crests/opera_crest_magician.png",
+      "revision": "6cde8aeae04aaedcc0b1ff22a05ef93ab9bf666f",
+      "git_blob_sha256": "2907ff717d532d0b1e757fd6ec56f1434ee1f787e443c18567fc6edef06cbf26",
+      "worktree_sha256": "2907ff717d532d0b1e757fd6ec56f1434ee1f787e443c18567fc6edef06cbf26"
+    },
+    {
+      "path": "assets/opera/worlds/ui/crests/opera_crest_painter.png",
+      "revision": "6cde8aeae04aaedcc0b1ff22a05ef93ab9bf666f",
+      "git_blob_sha256": "5e60ba5490ba69ac3b6aa398ecc7057047863bd9d7ac64e233054116917d020b",
+      "worktree_sha256": "5e60ba5490ba69ac3b6aa398ecc7057047863bd9d7ac64e233054116917d020b"
+    },
+    {
+      "path": "assets/opera/worlds/ui/crests/opera_crest_racer.png",
+      "revision": "6cde8aeae04aaedcc0b1ff22a05ef93ab9bf666f",
+      "git_blob_sha256": "a4b7e5bb13e634cafb43bad25319fc1031991382313e52a07d3a10234a83214e",
+      "worktree_sha256": "a4b7e5bb13e634cafb43bad25319fc1031991382313e52a07d3a10234a83214e"
+    },
+    {
+      "path": "assets/opera/worlds/ui/crests/opera_crest_singer.png",
+      "revision": "6cde8aeae04aaedcc0b1ff22a05ef93ab9bf666f",
+      "git_blob_sha256": "53350f9cd08eae0f0452c751ec74e4b59bade67e680f5e12c3d1258af7a7232d",
+      "worktree_sha256": "53350f9cd08eae0f0452c751ec74e4b59bade67e680f5e12c3d1258af7a7232d"
+    },
+    {
+      "path": "assets/props/story/play_swing_frame.png",
+      "revision": "6cde8aeae04aaedcc0b1ff22a05ef93ab9bf666f",
+      "git_blob_sha256": "a2098346be89be32ff1b559a8db96fbc95a9ab29c7ef3d7bb451059e2ef05592",
+      "worktree_sha256": "a2098346be89be32ff1b559a8db96fbc95a9ab29c7ef3d7bb451059e2ef05592"
+    },
+    {
+      "path": "assets/props/story/play_swing_seat.png",
+      "revision": "6cde8aeae04aaedcc0b1ff22a05ef93ab9bf666f",
+      "git_blob_sha256": "b3e6933400d83ece5e58ff62f23a052b3e1a5ce3ef788f66752e1f8f8fd0db7b",
+      "worktree_sha256": "b3e6933400d83ece5e58ff62f23a052b3e1a5ce3ef788f66752e1f8f8fd0db7b"
+    },
+    {
+      "path": "assets/sprites/sky_lagoon/animals/hare_idle_atlas.png",
+      "revision": "6cde8aeae04aaedcc0b1ff22a05ef93ab9bf666f",
+      "git_blob_sha256": "723a3a473845c506aeb45fe1ff1b5da5ea4794495dbd4c7a4946918016fa63ff",
+      "worktree_sha256": "723a3a473845c506aeb45fe1ff1b5da5ea4794495dbd4c7a4946918016fa63ff"
+    },
+    {
+      "path": "assets/sprites/sky_lagoon/animals/raccoon_idle_atlas.png",
+      "revision": "6cde8aeae04aaedcc0b1ff22a05ef93ab9bf666f",
+      "git_blob_sha256": "3ed12de88641330134844cdc37927aecf022ae74187f4b4deb2193a3c282d9dc",
+      "worktree_sha256": "3ed12de88641330134844cdc37927aecf022ae74187f4b4deb2193a3c282d9dc"
+    },
+    {
+      "path": "assets/sprites/sky_lagoon/sky_lagoon_castle_door_focus_v1.png",
+      "revision": "6cde8aeae04aaedcc0b1ff22a05ef93ab9bf666f",
+      "git_blob_sha256": "fddab0ef204be19a8fce65221f3801ba69497d289b0f012f029076a099feb25c",
+      "worktree_sha256": "fddab0ef204be19a8fce65221f3801ba69497d289b0f012f029076a099feb25c"
+    },
+    {
+      "path": "assets/sprites/sky_lagoon/sky_lagoon_castle_four_tower_v4.png",
+      "revision": "6cde8aeae04aaedcc0b1ff22a05ef93ab9bf666f",
+      "git_blob_sha256": "08e3b8503520f3657e7f788bc74c967b76692f5dd292e0971495677f0e695a42",
+      "worktree_sha256": "08e3b8503520f3657e7f788bc74c967b76692f5dd292e0971495677f0e695a42"
+    },
+    {
+      "path": "assets/sprites/sky_lagoon/sky_lagoon_cloud_single_v1.png",
+      "revision": "6cde8aeae04aaedcc0b1ff22a05ef93ab9bf666f",
+      "git_blob_sha256": "c7c708694ff729e703271b40bf68cd23913d1c43485bf4b614fb0681cfb9cfdb",
+      "worktree_sha256": "c7c708694ff729e703271b40bf68cd23913d1c43485bf4b614fb0681cfb9cfdb"
+    },
+    {
+      "path": "assets/sprites/sky_lagoon/sky_lagoon_contact_shadow.png",
+      "revision": "6cde8aeae04aaedcc0b1ff22a05ef93ab9bf666f",
+      "git_blob_sha256": "2daa0ae7a46d359880f7aa1a28496ec0881abf227ee6260deeb6b035773aa6f6",
+      "worktree_sha256": "2daa0ae7a46d359880f7aa1a28496ec0881abf227ee6260deeb6b035773aa6f6"
+    },
+    {
+      "path": "assets/sprites/sky_lagoon/sky_lagoon_plane_v5_hd_grade.png",
+      "revision": "6cde8aeae04aaedcc0b1ff22a05ef93ab9bf666f",
+      "git_blob_sha256": "850d9614c299df94e08553754d45376de5851445923bb2ab249ab655ea931dde",
+      "worktree_sha256": "850d9614c299df94e08553754d45376de5851445923bb2ab249ab655ea931dde"
+    },
+    {
+      "path": "assets/sprites/sky_lagoon/sky_lagoon_seesaw_v5_fitted.png",
+      "revision": "6cde8aeae04aaedcc0b1ff22a05ef93ab9bf666f",
+      "git_blob_sha256": "e39464f3eb3d8bc275ddd4788dfe4eb50db2147d9e20d7bbd1c4ed02d51d6129",
+      "worktree_sha256": "e39464f3eb3d8bc275ddd4788dfe4eb50db2147d9e20d7bbd1c4ed02d51d6129"
+    },
+    {
+      "path": "assets/sprites/sky_lagoon/sky_lagoon_slide_v3_compact.png",
+      "revision": "6cde8aeae04aaedcc0b1ff22a05ef93ab9bf666f",
+      "git_blob_sha256": "3b917608d9e3067d9fe68bbd260eba045acc0a15074795f4649f40ee0c69a3e4",
+      "worktree_sha256": "3b917608d9e3067d9fe68bbd260eba045acc0a15074795f4649f40ee0c69a3e4"
+    },
+    {
+      "path": "assets/sprites/sky_lagoon/sky_lagoon_smoke_wisp_v2.png",
+      "revision": "6cde8aeae04aaedcc0b1ff22a05ef93ab9bf666f",
+      "git_blob_sha256": "ff0c49869ff0152323282b0228c2f76494ad2381ba64c0e535a68c8bc229e007",
+      "worktree_sha256": "ff0c49869ff0152323282b0228c2f76494ad2381ba64c0e535a68c8bc229e007"
+    },
+    {
+      "path": "assets/sprites/sky_lagoon/sky_lagoon_tree_sticker_slender_v1.png",
+      "revision": "6cde8aeae04aaedcc0b1ff22a05ef93ab9bf666f",
+      "git_blob_sha256": "d82ceecb13213d903f228d143ae77b69cbdb80cb293fa1995bc855719791b7e8",
+      "worktree_sha256": "d82ceecb13213d903f228d143ae77b69cbdb80cb293fa1995bc855719791b7e8"
+    },
+    {
+      "path": "scripts/arena/castle_rooms_25d.gd",
+      "revision": "6cde8aeae04aaedcc0b1ff22a05ef93ab9bf666f",
+      "git_blob_sha256": "50c723043680c987cc959d9bfbbcad94cfb62162f24d305d3f058c0d2de05176",
+      "worktree_sha256": "7eabec5e061e767ef0c42dce173d9d812bd5fb155de4222987595951a7fc8f5a"
+    },
+    {
+      "path": "scripts/attack_customizer.gd",
+      "revision": "6cde8aeae04aaedcc0b1ff22a05ef93ab9bf666f",
+      "git_blob_sha256": "b47bbfc164cc8508354bece86096245a2152fe627f5dbfed8440ec54db5198e0",
+      "worktree_sha256": "768d7f410b4d0af59f140a8f86ca0262d795fbb614d9bd0326ebc56c4befba6f"
+    },
+    {
+      "path": "scripts/castle_career_routes.gd",
+      "revision": "6cde8aeae04aaedcc0b1ff22a05ef93ab9bf666f",
+      "git_blob_sha256": "d2e9f24b10bf6b25bc7fd71c76630a6e88b8d8f3134db9b01139203fba925bb5",
+      "worktree_sha256": "c5de38d8126c96aae9e999780113edafff05601a22934443e67053edcd8e18d8"
+    },
+    {
+      "path": "scripts/castle_logo_studio.gd",
+      "revision": "6cde8aeae04aaedcc0b1ff22a05ef93ab9bf666f",
+      "git_blob_sha256": "5afe612eb11261818b760b0f04b6b6a995000a23b27e31aa228c0a04e63dc52a",
+      "worktree_sha256": "ca9867cc2cbdad56a8b37090de08835755474eabc6f8da168f7e8cf809052988"
+    },
+    {
+      "path": "scripts/chapter_two_room_plot.gd",
+      "revision": "6cde8aeae04aaedcc0b1ff22a05ef93ab9bf666f",
+      "git_blob_sha256": "9eef1ece57be88ac9d01d85a5181ad1c258e6ff00f6b9a6cb3d7a86393d6e10d",
+      "worktree_sha256": "bdae21ffe3236f331906b2b16600c7bcaedfe6926195e6dbfaa5cd76f0ed1235"
+    },
+    {
+      "path": "scripts/fashion_outfit_renderer.gd",
+      "revision": "6cde8aeae04aaedcc0b1ff22a05ef93ab9bf666f",
+      "git_blob_sha256": "cb37b3ed5df0ccba26b54f146021ddcad1f9f6693fb32b48b9bbda6a3ca96b93",
+      "worktree_sha256": "2c2bfedf1fc3b3e1e0b4dd78d12908929c963b52eefccacaaf358f9ade3d96f0"
+    },
+    {
+      "path": "scripts/fashion_skin_engine.gd",
+      "revision": "6cde8aeae04aaedcc0b1ff22a05ef93ab9bf666f",
+      "git_blob_sha256": "e94b42966c75092835dc134b0dc4b1eb59f432655b266a0dc1aa82580d9f95ad",
+      "worktree_sha256": "e566e5c56698272523baf278bada941d2b28f3737183bf63065235a6ef9cb0fc"
+    },
+    {
+      "path": "scripts/living_world_canvas.gd",
+      "revision": "6cde8aeae04aaedcc0b1ff22a05ef93ab9bf666f",
+      "git_blob_sha256": "f18a8324cd3eb43eac0dae0ae09efbbb86f6bd3af65e7e74e44d8c197f351e6e",
+      "worktree_sha256": "80b0e4ed487dfd84bed69418d8943291384f4a9c5173fa68ec3fc2062ec6f7f4"
+    },
+    {
+      "path": "scripts/main.gd",
+      "revision": "6cde8aeae04aaedcc0b1ff22a05ef93ab9bf666f",
+      "git_blob_sha256": "b6e905824a4b60461181deda525c816fc790613479e9321d12ae7f71df666a33",
+      "worktree_sha256": "841efbfa74a61ed14775fa7c2b19e6ff7f54b0a2c4af04d1b08c345440d6f880"
+    },
+    {
+      "path": "scripts/opera_house_venue_2d.gd",
+      "revision": "6cde8aeae04aaedcc0b1ff22a05ef93ab9bf666f",
+      "git_blob_sha256": "cdb1c43991cd3a63cddb2a063be105435a343e469f84e4b49da93c10c45f1243",
+      "worktree_sha256": "d53f37314ef459d0ec886566ad092c415fe54a1058aef3d637440a743fb51a63"
+    },
+    {
+      "path": "scripts/opera_job_playtest_menu.gd",
+      "revision": "6cde8aeae04aaedcc0b1ff22a05ef93ab9bf666f",
+      "git_blob_sha256": "e77790fb2b9bd2ff35d7c9b5856d77a7af1d8c9a5cc228cf8b8d363ec3884375",
+      "worktree_sha256": "836d71b493cea9e63c4e398234752adb0e59a1c7c6f791c88c68dfccb5ee2a3b"
+    },
+    {
+      "path": "scripts/probe_stuffie.gd",
+      "revision": "6cde8aeae04aaedcc0b1ff22a05ef93ab9bf666f",
+      "git_blob_sha256": "6a70cad9c8b4a992061af670a4d75c7db1afab671a7a1f6b2ecea9d0ea899286",
+      "worktree_sha256": "b40ea5b8b14ddb5dd9ac9e28c59b020a9cfe28701663a649277421d93dc0cc39"
+    },
+    {
+      "path": "scripts/save_state.gd",
+      "revision": "6cde8aeae04aaedcc0b1ff22a05ef93ab9bf666f",
+      "git_blob_sha256": "de380b088c8dcdd4623804d44a8fe35be5bfe7f8095cdcff1ca40c24e2c9c9b9",
+      "worktree_sha256": "34ed8239321ee3f2362b3718d4d0e6f9467e7c500e54b7dec78333ccbf90c884"
+    },
+    {
+      "path": "scripts/storybook_ui.gd",
+      "revision": "6cde8aeae04aaedcc0b1ff22a05ef93ab9bf666f",
+      "git_blob_sha256": "839e53d6893347808341523d4e4b58e3727cc4fd4cd698726c92d494edce0fa7",
+      "worktree_sha256": "137404cf953e2f40b0a21924c22e8f5a7bd63aee3e7f81ae71543cceefbdab31"
+    },
+    {
+      "path": "scripts/touch_ui.gd",
+      "revision": "6cde8aeae04aaedcc0b1ff22a05ef93ab9bf666f",
+      "git_blob_sha256": "a6f45679ff9738d6079078ba9cf5c623618a50a740e4fde2387385352029868d",
+      "worktree_sha256": "c25d51407589b841126f872172b7f628805259e6d2190e1a8347ec863378ef04"
+    },
+    {
+      "path": "tools/godot_baseline.json",
+      "revision": "6cde8aeae04aaedcc0b1ff22a05ef93ab9bf666f",
+      "git_blob_sha256": "7fe925d2d12927d152a27f3a614ff62c9b0e6fe02991396a6837e8f5c06d0f5b",
+      "worktree_sha256": "9616e50b3ed535e038dc04c6e389140066b3354f79b4b437b60c0e2571e4676b"
+    }
+  ],
+  "normal_child_save_unchanged": true,
+  "source_unchanged": true,
+  "inherited_regression": "Earlier82/82 local source-byte suite inherited on exact production92c9 comparison. Exact R5CI37763184180 fails closed at scanner coverage;trusted suite did not run. R6 modularizes diagnosticJSON transparently;scanner remains unchanged.",
+  "font_limit": "Native OpenSansSemiBold embedded theme;exact per-glyph OS/Android fallback/font licensing remains unresolved",
+  "acceptance": {
+    "replacements": 0,
+    "accepted_removals": 0,
+    "full_current_inventory": false,
+    "device_child_owner": null,
+    "dl_qa_11_live_target_pass": false
+  }
+}

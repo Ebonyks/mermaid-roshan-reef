@@ -1,0 +1,836 @@
+class_name DayOneDirector
+extends RefCounted
+
+## Small, standalone state owner for the castle's Day One onboarding route.
+##
+## The director has no dependency on scenes or assets. It receives ReefMain as
+## its typed state owner; a caller can connect `hook_event` and merge
+## `serialize_state()` into its existing save document. Every persisted field
+## is additive and namespaced.
+
+signal hook_event(event_name: String, payload: Dictionary)
+
+const ROOM_ORDER: Array[String] = ["bathroom", "pool", "stuffie", "art"]
+const ROOM_DEFINITIONS: Dictionary = {
+	"bathroom": {
+		"index": 0,
+		"title": "Bubble Bathroom",
+		"kind": "tutorial",
+		"activity_id": "bathroom_tutorial",
+	},
+	"pool": {
+		"index": 1,
+		"title": "Sparkle Pool",
+		"kind": "activity",
+		"activity_id": "pool_activity",
+	},
+	"stuffie": {
+		"index": 2,
+		"title": "Stuffie Room",
+		"kind": "activity",
+		"activity_id": "stuffie_activity",
+	},
+	"art": {
+		"index": 3,
+		"title": "Art Room",
+		"kind": "activity",
+		"activity_id": "art_activity",
+	},
+}
+
+const EVENT_ARRIVAL_PLANE_MEDIA: String = "arrival_plane_media"
+const EVENT_DIRTY_CASTLE_DISCOVERY: String = "dirty_castle_discovery"
+const EVENT_GROK_VIDEO_2: String = "grok_video_2"
+const EVENT_DUST_BUNNY_CLEANUP: String = "dust_bunny_cleanup"
+const EVENT_ART_DESK_UNLOCKED: String = "art_desk_unlocked"
+const EVENT_ART_CUSTOMIZATION_COMPLETED: String = "art_customization_completed"
+const EVENT_BOSS_DOOR_GLOW: String = "boss_door_glow"
+const EVENT_GIANT_DUST_BUNNY_BOSS: String = "giant_dust_bunny_boss"
+const EVENT_GIANT_DUST_BUNNY_BOSS_DEFEATED: String = \
+	"giant_dust_bunny_boss_defeated"
+const EVENT_DAY_TWO_BEGINS: String = "day_two_begins"
+const ART_MATERIAL_IDS: Array[String] = [
+	"brushes", "pink_paint", "blue_paint", "paint_cups",
+]
+const ART_GRIME_IDS: Array[String] = [
+	"left_counter", "desk_counter", "right_counter",
+]
+
+const SAVE_KEYS: Array[String] = [
+	"day_one_active",
+	"day_one_current_room",
+	"day_one_completed_rooms",
+	"day_one_cleaned_rooms",
+	"day_one_jobs_locked",
+	"day_one_opera_enabled",
+	"day_one_arrival_plane_media_seen",
+	"day_one_dirty_castle_discovered",
+	"day_one_grok_video_2_seen",
+	"day_one_boss_door_glow",
+	"day_one_giant_dust_bunny_boss_triggered",
+	"day_one_giant_dust_bunny_boss_defeated",
+	"day_one_bathroom_cleanup_step",
+	"day_one_bathroom_supply_hunt_step",
+	"day_one_bathroom_tools_authorized",
+	"day_one_bathroom_tub_drained",
+	"day_one_bathroom_toilet_cleaned",
+	"day_one_pool_cleanup_step",
+	"day_one_pool_rumi_met",
+	"day_one_pool_skimmer_mask",
+	"day_one_pool_waterfall_mask",
+	"day_one_pool_seahorse_tugs",
+	"day_one_art_collected_materials",
+	"day_one_art_cleaned_grime",
+	"day_one_art_desk_unlocked",
+	"day_one_art_customization_completed",
+]
+
+var m: ReefMain
+
+# These are typed forwarding properties so existing main-side call sites can
+# keep asking the director for policy while the actual mutable state remains on
+# ReefMain, the single save/state owner.
+var day_one_active: bool:
+	get:
+		return m.day_one_active
+	set(value):
+		m.day_one_active = value
+var current_room_id: String:
+	get:
+		return m.day_one_current_room_id
+	set(value):
+		m.day_one_current_room_id = value
+var completed_rooms: Dictionary:
+	get:
+		return m.day_one_completed_rooms
+	set(value):
+		m.day_one_completed_rooms = value
+var cleaned_rooms: Dictionary:
+	get:
+		return m.day_one_cleaned_rooms
+	set(value):
+		m.day_one_cleaned_rooms = value
+var arrival_plane_media_seen: bool:
+	get:
+		return m.day_one_arrival_plane_media_seen
+	set(value):
+		m.day_one_arrival_plane_media_seen = value
+var dirty_castle_discovered: bool:
+	get:
+		return m.day_one_dirty_castle_discovered
+	set(value):
+		m.day_one_dirty_castle_discovered = value
+var grok_video_2_seen: bool:
+	get:
+		return m.day_one_grok_video_2_seen
+	set(value):
+		m.day_one_grok_video_2_seen = value
+var boss_door_glow: bool:
+	get:
+		return m.day_one_boss_door_glow
+	set(value):
+		m.day_one_boss_door_glow = value
+var giant_dust_bunny_boss_triggered: bool:
+	get:
+		return m.day_one_giant_dust_bunny_boss_triggered
+	set(value):
+		m.day_one_giant_dust_bunny_boss_triggered = value
+var giant_dust_bunny_boss_defeated: bool:
+	get:
+		return m.day_one_giant_dust_bunny_boss_defeated
+	set(value):
+		m.day_one_giant_dust_bunny_boss_defeated = value
+var bathroom_cleanup_step: int:
+	get:
+		return m.day_one_bathroom_cleanup_step
+	set(value):
+		m.day_one_bathroom_cleanup_step = value
+var bathroom_supply_hunt_step: int:
+	get:
+		return m.day_one_bathroom_supply_hunt_step
+	set(value):
+		m.day_one_bathroom_supply_hunt_step = value
+var bathroom_tools_authorized: bool:
+	get:
+		return m.day_one_bathroom_tools_authorized
+	set(value):
+		m.day_one_bathroom_tools_authorized = value
+var bathroom_tub_drained: bool:
+	get:
+		return m.day_one_bathroom_tub_drained
+	set(value):
+		m.day_one_bathroom_tub_drained = value
+var bathroom_toilet_cleaned: bool:
+	get:
+		return m.day_one_bathroom_toilet_cleaned
+	set(value):
+		m.day_one_bathroom_toilet_cleaned = value
+var pool_cleanup_step: int:
+	get:
+		return m.day_one_pool_cleanup_step
+	set(value):
+		m.day_one_pool_cleanup_step = value
+var pool_rumi_met: bool:
+	get:
+		return m.day_one_pool_rumi_met
+	set(value):
+		m.day_one_pool_rumi_met = value
+var pool_skimmer_mask: int:
+	get:
+		return m.day_one_pool_skimmer_mask
+	set(value):
+		m.day_one_pool_skimmer_mask = value
+var pool_waterfall_mask: int:
+	get:
+		return m.day_one_pool_waterfall_mask
+	set(value):
+		m.day_one_pool_waterfall_mask = value
+var pool_seahorse_tugs: int:
+	get:
+		return m.day_one_pool_seahorse_tugs
+	set(value):
+		m.day_one_pool_seahorse_tugs = value
+var art_collected_materials: Dictionary:
+	get:
+		return m.day_one_art_collected_materials
+	set(value):
+		m.day_one_art_collected_materials = value
+var art_cleaned_grime: Dictionary:
+	get:
+		return m.day_one_art_cleaned_grime
+	set(value):
+		m.day_one_art_cleaned_grime = value
+var art_desk_unlocked: bool:
+	get:
+		return m.day_one_art_desk_unlocked
+	set(value):
+		m.day_one_art_desk_unlocked = value
+var art_customization_completed: bool:
+	get:
+		return m.day_one_art_customization_completed
+	set(value):
+		m.day_one_art_customization_completed = value
+var day_one_event_seen: Dictionary:
+	get:
+		return m.day_one_event_seen
+	set(value):
+		m.day_one_event_seen = value
+var day_one_event_history: Array[Dictionary]:
+	get:
+		return m.day_one_event_history
+	set(value):
+		m.day_one_event_history = value
+
+
+func _init(main: ReefMain) -> void:
+	m = main
+	day_one_event_seen.clear()
+	day_one_event_history.clear()
+	_normalise_state({})
+
+
+func room_definitions() -> Dictionary:
+	return ROOM_DEFINITIONS.duplicate(true)
+
+
+func room_ids() -> Array[String]:
+	return ROOM_ORDER.duplicate()
+
+
+func room_status(room_id: String) -> String:
+	var id: String = _normalise_room_id(room_id)
+	if id == "":
+		return "unknown"
+	if bool(completed_rooms.get(id, false)):
+		return "completed"
+	if id == current_room_id:
+		return "current"
+	return "locked"
+
+
+func can_enter_room(room_id: String) -> bool:
+	var status: String = room_status(room_id)
+	return status == "completed" or status == "current"
+
+
+func unlocked_room_ids() -> Array[String]:
+	var unlocked: Array[String] = []
+	for room_id: String in ROOM_ORDER:
+		if can_enter_room(room_id):
+			unlocked.append(room_id)
+	return unlocked
+
+
+func is_room_completed(room_id: String) -> bool:
+	var id: String = _normalise_room_id(room_id)
+	return id != "" and bool(completed_rooms.get(id, false))
+
+
+func is_dust_bunny_cleaned(room_id: String) -> bool:
+	var id: String = _normalise_room_id(room_id)
+	return id != "" and bool(cleaned_rooms.get(id, false))
+
+
+func jobs_are_globally_locked() -> bool:
+	return day_one_active
+
+
+func is_job_unlocked(_job_id: String) -> bool:
+	return not jobs_are_globally_locked()
+
+
+func can_start_job(job_id: String) -> bool:
+	return is_job_unlocked(job_id)
+
+
+func is_opera_enabled() -> bool:
+	return not day_one_active
+
+
+func can_start_opera() -> bool:
+	return is_opera_enabled()
+
+
+## Placeholder interface for both tutorial and activity rooms. Completion is
+## accepted only for the current room; completed rooms remain visitable but do
+## not replay their completion hooks.
+func complete_activity(room_id: String, activity_id: String = "") -> bool:
+	var id: String = _normalise_room_id(room_id)
+	if id == "" or not can_enter_room(id) or is_room_completed(id):
+		return false
+	var definition: Dictionary = ROOM_DEFINITIONS.get(id, {}) as Dictionary
+	var expected_activity: String = String(definition.get("activity_id", ""))
+	if activity_id != "" and activity_id != expected_activity:
+		return false
+	return complete_room(id)
+
+
+func complete_tutorial(room_id: String) -> bool:
+	if not day_one_active:
+		return false
+	var id: String = _normalise_room_id(room_id)
+	if id == "":
+		return false
+	var definition: Dictionary = ROOM_DEFINITIONS.get(id, {}) as Dictionary
+	if String(definition.get("kind", "")) != "tutorial":
+		return false
+	return complete_activity(id, String(definition.get("activity_id", "")))
+
+
+func complete_placeholder(room_id: String, activity_id: String = "") -> bool:
+	return complete_activity(room_id, activity_id)
+
+
+func art_cleanup_complete() -> bool:
+	return _map_has_every_id(art_collected_materials, ART_MATERIAL_IDS) \
+		and _map_has_every_id(art_cleaned_grime, ART_GRIME_IDS)
+
+
+## Records one child-readable studio action. The maps intentionally remain
+## string->true dictionaries so arbitrary future props survive JSON round trips
+## without changing this director's schema.
+func record_art_cleanup(kind: String, item_id: String) -> bool:
+	var id: String = item_id.strip_edges().to_lower()
+	if id.is_empty():
+		return false
+	var action: String = kind.strip_edges().to_lower()
+	if action in ["material", "materials", "loose_material", "loose_materials"]:
+		art_collected_materials[id] = true
+	elif action in ["grime", "counter", "counter_grime", "cleaned_grime"]:
+		art_cleaned_grime[id] = true
+	else:
+		return false
+	if art_cleanup_complete() and not art_desk_unlocked:
+		art_desk_unlocked = true
+		_emit_once(EVENT_ART_DESK_UNLOCKED, {
+			"materials": _string_bool_map_to_array(art_collected_materials),
+			"grime": _string_bool_map_to_array(art_cleaned_grime),
+		})
+	return true
+
+
+func unlock_art_desk() -> bool:
+	if not art_cleanup_complete() or art_desk_unlocked:
+		return false
+	art_desk_unlocked = true
+	_emit_once(EVENT_ART_DESK_UNLOCKED, {})
+	return true
+
+
+func complete_art_customization() -> bool:
+	if not art_desk_unlocked or art_customization_completed:
+		return false
+	art_customization_completed = true
+	_emit_once(EVENT_ART_CUSTOMIZATION_COMPLETED, {})
+	return true
+
+
+func complete_art_studio() -> bool:
+	if not art_cleanup_complete() or not art_desk_unlocked \
+			or not art_customization_completed:
+		return false
+	return complete_activity("art", "art_activity")
+
+
+func complete_room(room_id: String) -> bool:
+	var id: String = _normalise_room_id(room_id)
+	if id == "" or id != current_room_id or is_room_completed(id):
+		return false
+	if id == "bathroom":
+		# Keep the room gate in the director as well as the UI seam. This
+		# prevents a direct activity/tutor call from skipping the basket and
+		# the two live cleaning gestures. A legacy save at supply step 2 is
+		# treated as already basket-authorized for compatibility.
+		if bathroom_supply_hunt_step >= 2:
+			bathroom_tools_authorized = true
+		if not bathroom_tools_authorized \
+				or bathroom_supply_hunt_step < 2 \
+				or bathroom_cleanup_step < 2 \
+				or not bathroom_toilet_cleaned:
+			return false
+		bathroom_cleanup_step = 3
+		bathroom_supply_hunt_step = 2
+		bathroom_tools_authorized = true
+	if id == "pool":
+		pool_cleanup_step = 4
+		pool_rumi_met = true
+		pool_skimmer_mask = 0x3F
+		pool_waterfall_mask = 0x07
+		pool_seahorse_tugs = 8
+	completed_rooms[id] = true
+	cleaned_rooms[id] = true
+	# Each room's cleanup is its own story beat (and story clip), so dedupe
+	# per room: keyed by event name alone, only the first room cleaned in an
+	# app session ever reached the hook.
+	_emit_once(EVENT_DUST_BUNNY_CLEANUP, {"room_id": id},
+		EVENT_DUST_BUNNY_CLEANUP + ":" + id)
+	_advance_current_room()
+	if _all_rooms_completed():
+		boss_door_glow = true
+		_emit_once(EVENT_BOSS_DOOR_GLOW, {"room_ids": ROOM_ORDER.duplicate()})
+	return true
+
+
+func trigger_arrival_plane_media() -> bool:
+	if arrival_plane_media_seen:
+		return false
+	arrival_plane_media_seen = true
+	_emit_once(EVENT_ARRIVAL_PLANE_MEDIA, {})
+	return true
+
+
+func discover_dirty_castle() -> bool:
+	var changed: bool = false
+	if not dirty_castle_discovered:
+		dirty_castle_discovered = true
+		_emit_once(EVENT_DIRTY_CASTLE_DISCOVERY, {})
+		changed = true
+	# Grok video #2 is the media hook paired with this discovery. It remains a
+	# separate event so a UI can show the discovery beat and video independently.
+	if not grok_video_2_seen:
+		grok_video_2_seen = true
+		_emit_once(EVENT_GROK_VIDEO_2, {"video_number": 2})
+		changed = true
+	return changed
+
+
+func trigger_grok_video_2() -> bool:
+	if grok_video_2_seen:
+		return false
+	grok_video_2_seen = true
+	_emit_once(EVENT_GROK_VIDEO_2, {"video_number": 2})
+	return true
+
+
+func trigger_giant_dust_bunny_boss() -> bool:
+	if not boss_door_glow or not _all_rooms_completed():
+		return false
+	if giant_dust_bunny_boss_triggered:
+		return false
+	giant_dust_bunny_boss_triggered = true
+	_emit_once(EVENT_GIANT_DUST_BUNNY_BOSS, {"room_id": "art"})
+	return true
+
+
+func complete_giant_dust_bunny_boss() -> bool:
+	if not day_one_active or not giant_dust_bunny_boss_triggered \
+			or giant_dust_bunny_boss_defeated or not _all_rooms_completed():
+		return false
+	giant_dust_bunny_boss_defeated = true
+	day_one_active = false
+	_emit_once(EVENT_GIANT_DUST_BUNNY_BOSS_DEFEATED, {
+		"room_ids": ROOM_ORDER.duplicate(),
+		"castle_clean": true,
+	})
+	return true
+
+
+## The first boss is the terminal Day One gate. This seam is intentionally
+## idempotent: replaying Grand Puff later remains a friendly rematch and can
+## never replay the day transition or relock jobs.
+func complete_day_one_after_boss() -> bool:
+	# Day Two presentation is downstream of the recorded giant-boss defeat.
+	# Never let an unlock-only caller deactivate Day One before that terminal
+	# event has started Chapter 2, and never emit the presentation twice.
+	if not giant_dust_bunny_boss_defeated \
+			or bool(day_one_event_seen.get(EVENT_DAY_TWO_BEGINS, false)):
+		return false
+	day_one_active = false
+	clear_day_one_routing()
+	_emit_once(EVENT_DAY_TWO_BEGINS, {
+		"jobs_unlocked": true,
+		"opera_enabled": true,
+	})
+	return true
+
+
+func clear_day_one_routing() -> void:
+	# Once Day Two begins, no stale Day One room may steer a later Continue.
+	current_room_id = ""
+	dirty_castle_discovered = false
+
+
+func event_history() -> Array[Dictionary]:
+	return day_one_event_history.duplicate(true)
+
+
+func drain_events() -> Array[Dictionary]:
+	var pending: Array[Dictionary] = day_one_event_history.duplicate(true)
+	day_one_event_history.clear()
+	return pending
+
+
+## Returns only additive Day One fields. The caller may merge this dictionary
+## into an existing save without changing any legacy key or schema version.
+func serialize_state() -> Dictionary:
+	return {
+		"day_one_active": day_one_active,
+		"day_one_current_room": current_room_id,
+		"day_one_completed_rooms": _room_map_to_array(completed_rooms),
+		"day_one_cleaned_rooms": _room_map_to_array(cleaned_rooms),
+		"day_one_jobs_locked": jobs_are_globally_locked(),
+		"day_one_opera_enabled": is_opera_enabled(),
+		"day_one_arrival_plane_media_seen": arrival_plane_media_seen,
+		"day_one_dirty_castle_discovered": dirty_castle_discovered,
+		"day_one_grok_video_2_seen": grok_video_2_seen,
+		"day_one_boss_door_glow": boss_door_glow,
+		"day_one_giant_dust_bunny_boss_triggered": \
+			giant_dust_bunny_boss_triggered,
+		"day_one_giant_dust_bunny_boss_defeated": \
+			giant_dust_bunny_boss_defeated,
+		"day_one_bathroom_cleanup_step": bathroom_cleanup_step,
+		"day_one_bathroom_supply_hunt_step": bathroom_supply_hunt_step,
+		"day_one_bathroom_tools_authorized": bathroom_tools_authorized,
+		"day_one_bathroom_tub_drained": bathroom_tub_drained,
+		"day_one_bathroom_toilet_cleaned": bathroom_toilet_cleaned,
+		"day_one_pool_cleanup_step": pool_cleanup_step,
+		"day_one_pool_rumi_met": pool_rumi_met,
+		"day_one_pool_skimmer_mask": pool_skimmer_mask,
+		"day_one_pool_waterfall_mask": pool_waterfall_mask,
+		"day_one_pool_seahorse_tugs": pool_seahorse_tugs,
+		"day_one_art_collected_materials": art_collected_materials.duplicate(true),
+		"day_one_art_cleaned_grime": art_cleaned_grime.duplicate(true),
+		"day_one_art_desk_unlocked": art_desk_unlocked,
+		"day_one_art_customization_completed": art_customization_completed,
+	}
+
+
+func restore_state(raw: Variant) -> void:
+	_normalise_state(raw as Dictionary if raw is Dictionary else {})
+	day_one_event_seen.clear()
+	day_one_event_history.clear()
+
+
+func _normalise_state(source: Dictionary) -> void:
+	var normalised: Dictionary = normalise_save_patch(source)
+	day_one_active = bool(normalised.get("day_one_active", true))
+	current_room_id = String(normalised.get("day_one_current_room", ""))
+	completed_rooms = _room_membership(normalised.get(
+		"day_one_completed_rooms", []))
+	cleaned_rooms = _room_membership(normalised.get("day_one_cleaned_rooms", []))
+	arrival_plane_media_seen = bool(normalised.get(
+		"day_one_arrival_plane_media_seen", false))
+	dirty_castle_discovered = bool(normalised.get(
+		"day_one_dirty_castle_discovered", false))
+	grok_video_2_seen = bool(normalised.get("day_one_grok_video_2_seen", false))
+	boss_door_glow = bool(normalised.get("day_one_boss_door_glow", false))
+	giant_dust_bunny_boss_triggered = bool(normalised.get(
+		"day_one_giant_dust_bunny_boss_triggered", false))
+	giant_dust_bunny_boss_defeated = bool(normalised.get(
+		"day_one_giant_dust_bunny_boss_defeated", false))
+	bathroom_cleanup_step = int(normalised.get(
+		"day_one_bathroom_cleanup_step", 0))
+	bathroom_supply_hunt_step = int(normalised.get(
+		"day_one_bathroom_supply_hunt_step", 0))
+	bathroom_tools_authorized = bool(normalised.get(
+		"day_one_bathroom_tools_authorized", bathroom_supply_hunt_step >= 2))
+	bathroom_tub_drained = bool(normalised.get(
+		"day_one_bathroom_tub_drained", bathroom_cleanup_step >= 2))
+	bathroom_toilet_cleaned = bool(normalised.get("day_one_bathroom_toilet_cleaned", false))
+	pool_cleanup_step = int(normalised.get("day_one_pool_cleanup_step", 0))
+	pool_rumi_met = bool(normalised.get("day_one_pool_rumi_met", false))
+	pool_skimmer_mask = int(normalised.get("day_one_pool_skimmer_mask", 0))
+	pool_waterfall_mask = int(normalised.get("day_one_pool_waterfall_mask", 0))
+	pool_seahorse_tugs = int(normalised.get("day_one_pool_seahorse_tugs", 0))
+	art_collected_materials = _string_bool_map(normalised.get(
+		"day_one_art_collected_materials", {}))
+	art_cleaned_grime = _string_bool_map(normalised.get(
+		"day_one_art_cleaned_grime", {}))
+	art_desk_unlocked = bool(normalised.get(
+		"day_one_art_desk_unlocked", false)) and art_cleanup_complete()
+	art_customization_completed = bool(normalised.get(
+		"day_one_art_customization_completed", false)) and art_desk_unlocked
+
+
+## SaveState can call this static helper without constructing a director (and
+## therefore without manufacturing a ReefMain). It accepts only the additive
+## Day One namespace and returns a complete, normalized Day One patch.
+static func normalise_save_patch(raw: Variant) -> Dictionary:
+	var source: Dictionary = raw as Dictionary if raw is Dictionary else {}
+	var candidates: Dictionary = _room_membership_static(source.get(
+		"day_one_completed_rooms", []))
+	var completed: Array[String] = []
+	for room_id: String in ROOM_ORDER:
+		if not bool(candidates.get(room_id, false)):
+			break
+		completed.append(room_id)
+	var cleaned: Array[String] = completed.duplicate()
+	var current: String = _normalise_room_id_static(String(
+		source.get("day_one_current_room", "")))
+	if current == "" and completed.size() < ROOM_ORDER.size():
+		current = ROOM_ORDER[completed.size()]
+	var grok_seen: bool = _as_bool_static(source.get(
+		"day_one_grok_video_2_seen", false), false)
+	var all_done: bool = completed.size() == ROOM_ORDER.size()
+	var saved_day_active: bool = _as_bool_static(source.get(
+		"day_one_active", true), true)
+	# The trigger is a runtime latch, not a saved completion. A save captured
+	# while the child is inside Grand Puff must reopen the Royal Hall door on the
+	# next process. Only the terminal Day Two state may retain the latch.
+	var boss_triggered: bool = all_done and not saved_day_active \
+		and _as_bool_static(source.get(
+			"day_one_giant_dust_bunny_boss_triggered", false), false)
+	# Origin/dev briefly shipped Day Two before the additive boss-defeated key.
+	# Backfill only that exact causal terminal: all four rooms completed, the
+	# boss explicitly triggered, and Day One explicitly inactive. Jobs-unlocked
+	# flags alone are not evidence and unrelated legacy saves remain untouched.
+	var legacy_terminal_day_two: bool = boss_triggered \
+		and source.has("day_one_active") \
+		and not _as_bool_static(source.get("day_one_active", true), true) \
+		and not source.has("day_one_giant_dust_bunny_boss_defeated")
+	var boss_defeated: bool = boss_triggered and (
+		_as_bool_static(source.get(
+			"day_one_giant_dust_bunny_boss_defeated", false), false) \
+		or legacy_terminal_day_two)
+	var day_active: bool = saved_day_active and not boss_defeated
+	if not day_active:
+		current = ""
+	var bathroom_done: bool = completed.has("bathroom")
+	var pool_done: bool = completed.has("pool")
+	var saved_bathroom_step: int = clampi(int(source.get(
+		"day_one_bathroom_cleanup_step", 3 if bathroom_done else 0)), 0, 3)
+	if bathroom_done:
+		saved_bathroom_step = 3
+	var saved_supply_hunt_step: int = clampi(int(source.get(
+		"day_one_bathroom_supply_hunt_step", 2 if bathroom_done else 0)), 0, 2)
+	if bathroom_done:
+		saved_supply_hunt_step = 2
+	var saved_tools_authorized: bool = _as_bool_static(source.get(
+		"day_one_bathroom_tools_authorized", saved_supply_hunt_step >= 2),
+		saved_supply_hunt_step >= 2)
+	if saved_supply_hunt_step >= 2:
+		saved_tools_authorized = true
+	var saved_tub_drained: bool = _as_bool_static(source.get(
+		"day_one_bathroom_tub_drained", saved_bathroom_step >= 2),
+		saved_bathroom_step >= 2)
+	if saved_bathroom_step >= 2:
+		saved_tub_drained = true
+	var saved_pool_step: int = clampi(int(source.get(
+		"day_one_pool_cleanup_step", 4 if pool_done else 0)), 0, 4)
+	if pool_done:
+		saved_pool_step = 4
+	var saved_skimmer_mask: int = int(source.get(
+		"day_one_pool_skimmer_mask", 0x3F if saved_pool_step >= 1 else 0)) & 0x3F
+	var saved_waterfall_mask: int = int(source.get(
+		"day_one_pool_waterfall_mask", 0x07 if saved_pool_step >= 2 else 0)) & 0x07
+	var saved_seahorse_tugs: int = clampi(int(source.get(
+		"day_one_pool_seahorse_tugs", 8 if saved_pool_step >= 4 else 0)), 0, 8)
+	var art_materials: Dictionary = _string_bool_map_static(source.get(
+		"day_one_art_collected_materials", {}))
+	var art_grime: Dictionary = _string_bool_map_static(source.get(
+		"day_one_art_cleaned_grime", {}))
+	var art_cleanup_done: bool = _map_has_every_id_static(
+		art_materials, ART_MATERIAL_IDS) and _map_has_every_id_static(
+		art_grime, ART_GRIME_IDS)
+	# The desk is a derived reward for finishing all seven cleanup actions.
+	# Deriving it on restore prevents a save written between the final scrub and
+	# the next frame from ever losing progress or trapping the child.
+	var art_desk: bool = art_cleanup_done
+	return {
+		"day_one_active": day_active,
+		"day_one_current_room": current,
+		"day_one_completed_rooms": completed,
+		"day_one_cleaned_rooms": cleaned,
+		"day_one_jobs_locked": day_active,
+		"day_one_opera_enabled": not day_active,
+		"day_one_arrival_plane_media_seen": _as_bool_static(source.get(
+			"day_one_arrival_plane_media_seen", false), false),
+		"day_one_dirty_castle_discovered": _as_bool_static(source.get(
+			"day_one_dirty_castle_discovered", false), false) or grok_seen,
+		"day_one_grok_video_2_seen": grok_seen,
+		"day_one_boss_door_glow": all_done,
+		"day_one_giant_dust_bunny_boss_triggered": boss_triggered,
+		"day_one_giant_dust_bunny_boss_defeated": boss_defeated,
+		"day_one_bathroom_cleanup_step": saved_bathroom_step,
+		"day_one_bathroom_supply_hunt_step": saved_supply_hunt_step,
+		"day_one_bathroom_tools_authorized": saved_tools_authorized,
+		"day_one_bathroom_tub_drained": saved_tub_drained,
+		"day_one_bathroom_toilet_cleaned": bathroom_done or saved_bathroom_step >= 3 or _as_bool_static(source.get("day_one_bathroom_toilet_cleaned", false), false),
+		"day_one_pool_cleanup_step": saved_pool_step,
+		"day_one_pool_rumi_met": pool_done or _as_bool_static(
+			source.get("day_one_pool_rumi_met", false), false),
+		"day_one_pool_skimmer_mask": saved_skimmer_mask,
+		"day_one_pool_waterfall_mask": saved_waterfall_mask,
+		"day_one_pool_seahorse_tugs": saved_seahorse_tugs,
+		"day_one_art_collected_materials": art_materials,
+		"day_one_art_cleaned_grime": art_grime,
+		"day_one_art_desk_unlocked": art_desk,
+		"day_one_art_customization_completed": art_desk and _as_bool_static(
+			source.get("day_one_art_customization_completed", false), false),
+	}
+
+
+func _advance_current_room() -> void:
+	current_room_id = _first_incomplete_room()
+
+
+func _first_incomplete_room() -> String:
+	for room_id: String in ROOM_ORDER:
+		if not bool(completed_rooms.get(room_id, false)):
+			return room_id
+	return ""
+
+
+func _all_rooms_completed() -> bool:
+	return completed_rooms.size() == ROOM_ORDER.size()
+
+
+func _normalise_room_id(value: String) -> String:
+	var id: String = value.strip_edges().to_lower()
+	return id if ROOM_DEFINITIONS.has(id) else ""
+
+
+func _room_membership(value: Variant) -> Dictionary:
+	var result: Dictionary = {}
+	if value is Dictionary:
+		for key: Variant in (value as Dictionary).keys():
+			var id: String = _normalise_room_id(String(key))
+			if id != "" and _as_bool((value as Dictionary).get(key, false), false):
+				result[id] = true
+	elif value is Array:
+		for entry: Variant in value as Array:
+			var id_from_entry: String = _normalise_room_id(String(entry))
+			if id_from_entry != "":
+				result[id_from_entry] = true
+	return result
+
+
+static func _room_membership_static(value: Variant) -> Dictionary:
+	var result: Dictionary = {}
+	if value is Dictionary:
+		var source: Dictionary = value as Dictionary
+		for key: Variant in source.keys():
+			var id: String = _normalise_room_id_static(String(key))
+			if id != "" and _as_bool_static(source.get(key, false), false):
+				result[id] = true
+	elif value is Array:
+		for entry: Variant in value as Array:
+			var id_from_entry: String = _normalise_room_id_static(String(entry))
+			if id_from_entry != "":
+				result[id_from_entry] = true
+	return result
+
+
+func _room_map_to_array(value: Dictionary) -> Array[String]:
+	var result: Array[String] = []
+	for room_id: String in ROOM_ORDER:
+		if bool(value.get(room_id, false)):
+			result.append(room_id)
+	return result
+
+
+func _string_bool_map(value: Variant) -> Dictionary:
+	return _string_bool_map_static(value)
+
+
+static func _string_bool_map_static(value: Variant) -> Dictionary:
+	var result: Dictionary = {}
+	if value is Dictionary:
+		var source: Dictionary = value as Dictionary
+		for key: Variant in source.keys():
+			var id: String = String(key).strip_edges().to_lower()
+			if not id.is_empty() and _as_bool_static(source.get(key, false), false):
+				result[id] = true
+	elif value is Array:
+		for entry: Variant in value as Array:
+			var id_from_entry: String = String(entry).strip_edges().to_lower()
+			if not id_from_entry.is_empty():
+				result[id_from_entry] = true
+	return result
+
+
+func _string_bool_map_to_array(value: Dictionary) -> Array[String]:
+	var result: Array[String] = []
+	for key: Variant in value.keys():
+		if bool(value.get(key, false)):
+			result.append(String(key))
+	return result
+
+
+func _map_has_every_id(value: Dictionary, required: Array[String]) -> bool:
+	return _map_has_every_id_static(value, required)
+
+
+static func _map_has_every_id_static(value: Dictionary,
+		required: Array[String]) -> bool:
+	for id: String in required:
+		if not bool(value.get(id, false)):
+			return false
+	return true
+
+
+func _as_bool(value: Variant, fallback: bool) -> bool:
+	return _as_bool_static(value, fallback)
+
+
+static func _as_bool_static(value: Variant, fallback: bool) -> bool:
+	if value is bool:
+		return bool(value)
+	if value is int or value is float:
+		return float(value) != 0.0
+	if value is String:
+		var text: String = String(value).strip_edges().to_lower()
+		if text in ["true", "yes", "on", "1"]:
+			return true
+		if text in ["false", "no", "off", "0", ""]:
+			return false
+	return fallback
+
+
+static func _normalise_room_id_static(value: String) -> String:
+	var id: String = value.strip_edges().to_lower()
+	return id if ROOM_DEFINITIONS.has(id) else ""
+
+
+func _emit_once(event_name: String, payload: Dictionary,
+		dedupe_key: String = "") -> void:
+	var seen_key: String = event_name if dedupe_key.is_empty() else dedupe_key
+	if bool(day_one_event_seen.get(seen_key, false)):
+		return
+	day_one_event_seen[seen_key] = true
+	var record: Dictionary = {
+		"event": event_name,
+		"payload": payload.duplicate(true),
+	}
+	day_one_event_history.append(record)
+	hook_event.emit(event_name, payload.duplicate(true))

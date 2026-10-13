@@ -1,0 +1,56 @@
+{
+  "schema": 1,
+  "checked_at_utc": "2026-10-08T16:20:19.654064+00:00",
+  "published_topic_revision": "6cde8aeae04aaedcc0b1ff22a05ef93ab9bf666f",
+  "origin_dev_revision": "245e9c543be771d297b60dafb91b8a3baf73e211",
+  "native_source_revision": "6cde8aeae04aaedcc0b1ff22a05ef93ab9bf666f",
+  "previous_dev_revision": "a0219865061cb4ac8a88d30924f33f24e934a3ae",
+  "integration_delta": [
+    "M\tASSET_LICENSES.md",
+    "A\tassets_src/castle/seasonal_halloween_whole_castle_20261008/generation.json",
+    "A\tassets_src/castle/seasonal_halloween_whole_castle_20261008/halloween_whole_castle_concept_v2.png",
+    "A\tassets_src/castle/seasonal_halloween_whole_castle_20261008/prompt.txt",
+    "A\tassets_src/castle/seasonal_halloween_whole_castle_20261008/references/seven_room_architecture_reference.png",
+    "A\tassets_src/castle/seasonal_halloween_whole_castle_20261008/verification/full_ci.log",
+    "A\tdesign/audit_impacts/whole-castle-halloween-concept-20261008.json"
+  ],
+  "runtime_delta": [],
+  "all_game_unique_total": null,
+  "accepted_removed": 0,
+  "regressions": null,
+  "published_files": [
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/per_piece.json",
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/6cde8aeae04aaedcc0b1ff22a05ef93ab9bf666f/docs/handoffs/codex_flat_vector_art_2026-10-07/per_piece.json",
+      "access_mode": "anonymous HTTPS",
+      "http_status": 200,
+      "bytes": 1085901,
+      "sha256": "5799a999f8a6c377ff362873be69e13bd36bf5f50c159c986f8b92c5118c12ac"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/scene_coverage.json",
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/6cde8aeae04aaedcc0b1ff22a05ef93ab9bf666f/docs/handoffs/codex_flat_vector_art_2026-10-07/scene_coverage.json",
+      "access_mode": "anonymous HTTPS",
+      "http_status": 200,
+      "bytes": 152865,
+      "sha256": "07a60638d9107eea771a3d9456c58a5ec4857c977575ce1d83ee18f765268bda"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/tally.json",
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/6cde8aeae04aaedcc0b1ff22a05ef93ab9bf666f/docs/handoffs/codex_flat_vector_art_2026-10-07/tally.json",
+      "access_mode": "anonymous HTTPS",
+      "http_status": 200,
+      "bytes": 4477,
+      "sha256": "55842275a63f988ec68ea973614403759d19bae1644538c4b5a1a39a0d44d6de"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/MANIFEST.json",
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/6cde8aeae04aaedcc0b1ff22a05ef93ab9bf666f/docs/handoffs/codex_flat_vector_art_2026-10-07/MANIFEST.json",
+      "access_mode": "anonymous HTTPS",
+      "http_status": 200,
+      "bytes": 343096,
+      "sha256": "93e98cde4d55c8140619275fdfe4b8d69ec08042537c9e877635b67c78da2dcf"
+    }
+  ],
+  "decision": "No published audit delta;dev additions are non-runtime Halloween references,not inspected/accepted by this task. Preserve published R5 register/tally and exact native snapshot. No known runtime change in integration delta;no game-wide regression/zero claim."
+}

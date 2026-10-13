@@ -1,0 +1,147 @@
+{
+  "schema": 1,
+  "sources": [
+    {
+      "path": "assets/castle/dirty_cleanup_2d/effects/fx_clean_ring.png",
+      "sha256": "f3472eaadd8cffc08d4ea9e0dcf8d4455b5a5e4eea16eb4721a0d945c7cbac62",
+      "dimensions": [
+        512,
+        512
+      ],
+      "mode": "RGBA",
+      "status": "REJECTED_VECTOR_STYLE_RASTER_LOOKALIKE",
+      "manual_source_inspected": true,
+      "observation": "Symmetric crisp beveled lilac hoop/four glossy glints;PNG extension does not meet the painted replacement brief.",
+      "license_rows": [
+        {
+          "line": 2653,
+          "text": "- `assets/castle/dirty_cleanup_2d/{targets/target_cloudy_mirror.png,targets/target_bath_soap_ring.png,targets/target_floor_scuff.png,tools/tool_star_sponge.png,effects/fx_clean_ring.png,effects/fx_soap_bubbles.png,effects/fx_wipe_swoosh.png}` — seven exact, lossless 512×512 project-original RGBA cutouts restored from audited commit `95132b6b310c34aa1d7fba5330d72f36fed9d4d7` for the Bubble Bathroom's first playable rescue. Source: OpenAI built-in image generation under the project's storybook direction; license: project original; URL: none. Modifications in this task: none. The existing Bubble Bath room plates, tiles, fixtures, and protected originals are reused unchanged."
+        }
+      ],
+      "modified": false,
+      "new_pixels": false,
+      "source_acceptance_limit": "Historical source approval/license grants no context fit/device/owner acceptance for this new role."
+    },
+    {
+      "path": "assets/sprites/fx_water/fx_water_ripple_ring_atlas.png",
+      "sha256": "5fbfa30a61fb0275274e7eef70a4d6df7f46a8cd9f7c209d2cd2305710a9700c",
+      "dimensions": [
+        1024,
+        512
+      ],
+      "mode": "RGBA",
+      "status": "REJECTED_STYLE_AND_CONTEXT_MISMATCH",
+      "manual_source_inspected": true,
+      "observation": "Smooth cel/vector-like elliptical water rings;ground-plane water orientation and timing cannot replace overhead toy-selection beacon.",
+      "license_rows": [
+        {
+          "line": 1677,
+          "text": "- `assets/sprites/fx_water/fx_water_ripple_ring_atlas.png` ? Source: accepted project-original ripple alpha master above; License: project original, all rights reserved; URL: N/A; Modifications: uniform 0.70 saturation grade plus whole-cell normalization to 1024?512, uniform 0.94 cell scale, 4?2 packing, and fixed-center alignment by `tools/build_water_fx_atlases.py`."
+        }
+      ],
+      "modified": false,
+      "new_pixels": false,
+      "source_acceptance_limit": "Historical source approval/license grants no context fit/device/owner acceptance for this new role."
+    },
+    {
+      "path": "assets/opera/worlds/props/fx_telegraph_ring.png",
+      "sha256": "12077afe02fa842d7e257d22110cc64df13a63510d2cd8c86fd4c7a06062572e",
+      "dimensions": [
+        512,
+        512
+      ],
+      "mode": "RGBA",
+      "status": "PAINTED_MATERIAL_CANDIDATE_PENDING_CONTEXT",
+      "manual_source_inspected": true,
+      "observation": "Broad brushed gold ring with visible brush variation. Spikes/telegraph meaning differ;small-size/full-composite contact and intent review needed before any derivative/integration.",
+      "license_rows": [
+        {
+          "line": 1601,
+          "text": "| assets/opera/worlds/props/fx_telegraph_ring.png | OpenAI built-in ImageGen using approved project imp/rival or FX style references | **Project-generated © Mermaid Roshan LLC, all rights reserved** | assets_src/imagegen/imp_animation_states_2026-08-02/PROMPTS.md | Accepted generated cutout; chroma removal, uniform whole-subject resize/placement and transparent padding to 512x512; prompt, hashes and QA in the linked packet |"
+        },
+        {
+          "line": 5606,
+          "text": "| `audit/day2_art_library_2026-09-30/previews/D2A-0400.webp` | `assets/opera/worlds/props/fx_telegraph_ring.png`; inherits source license/provenance | [Exact source](https://github.com/Ebonyks/mermaid-roshan-reef/blob/55032e88936b22723fd9af5282c61ba6696b3d43/assets/opera/worlds/props/fx_telegraph_ring.png) | Whole-canvas aspect-preserving thumbnail with original alpha; SVG source copied with LF line endings |"
+        }
+      ],
+      "modified": false,
+      "new_pixels": false,
+      "source_acceptance_limit": "Historical source approval/license grants no context fit/device/owner acceptance for this new role."
+    },
+    {
+      "path": "assets/opera/worlds/props/fx_stolen_sparkle.png",
+      "sha256": "fad456ad3641cf67e194945ba9208108cd1f0cf9f35b8ee10516e18bc88eb772",
+      "dimensions": [
+        128,
+        128
+      ],
+      "mode": "RGBA",
+      "status": "PAINTED_MOTIF_CANDIDATE_NOT_COMPLETE_POINTER",
+      "manual_source_inspected": true,
+      "observation": "Painted broad yellow star material,derived from assets/mg/star.png. Not a directional pointer;avoid changing pointing/contact/readability merely to reuse it.",
+      "license_rows": [
+        {
+          "line": 1605,
+          "text": "| assets/opera/worlds/props/fx_stolen_sparkle.png | Non-destructive derivative of approved project art `assets/mg/star.png` | **Project-generated © Mermaid Roshan LLC, all rights reserved** | assets_src/imagegen/imp_animation_states_2026-08-02/PROMPTS.md | Uniform whole-star resize and transparent-canvas padding to 128x128; no generated pixels |"
+        },
+        {
+          "line": 4670,
+          "text": "- `assets_src/characters/grand_puff_2026-09-13/references/counter_star.png` — source: `assets/opera/worlds/props/fx_stolen_sparkle.png`; license: project-owned Mermaid Roshan artwork, same terms as original; URL: none (local project source); modifications: none."
+        },
+        {
+          "line": 5604,
+          "text": "| `audit/day2_art_library_2026-09-30/previews/D2A-0398.webp` | `assets/opera/worlds/props/fx_stolen_sparkle.png`; inherits source license/provenance | [Exact source](https://github.com/Ebonyks/mermaid-roshan-reef/blob/55032e88936b22723fd9af5282c61ba6696b3d43/assets/opera/worlds/props/fx_stolen_sparkle.png) | Whole-canvas aspect-preserving thumbnail with original alpha; SVG source copied with LF line endings |"
+        }
+      ],
+      "modified": false,
+      "new_pixels": false,
+      "source_acceptance_limit": "Historical source approval/license grants no context fit/device/owner acceptance for this new role."
+    },
+    {
+      "path": "assets/sprites/sky_lagoon/sky_lagoon_castle_door_focus_v1.png",
+      "sha256": "fddab0ef204be19a8fce65221f3801ba69497d289b0f012f029076a099feb25c",
+      "dimensions": [
+        199,
+        228
+      ],
+      "mode": "RGBA",
+      "status": "CURRENT_VISIBLE_FLAT_MASK_ART_REQUIRES_REPLACEMENT",
+      "manual_source_inspected": true,
+      "observation": "Uniform white RGB arch mask with alpha edges;selected native tint creates opaque orange-red arch over painted door,obscuring panels. Source mask use is not invisible hit geometry. Fullnative Castle focus actually inspected.",
+      "rgb_extrema": {
+        "R": [
+          255,
+          255
+        ],
+        "G": [
+          255,
+          255
+        ],
+        "B": [
+          255,
+          255
+        ]
+      },
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "license_rows": [
+        {
+          "line": 658,
+          "text": "- `assets/sprites/sky_lagoon/sky_lagoon_castle_door_focus_v1.png` —"
+        },
+        {
+          "line": 2968,
+          "text": "- `assets_src/cinematics/d1_c01_lagoon_landing_castle_approach_visual_v1/handoff_art/objects/sky_lagoon_castle_door_focus_v1.png` — lossless packet copy of `assets/sprites/sky_lagoon/sky_lagoon_castle_door_focus_v1.png`; project-owned object/topology authority; original unchanged; non-runtime handoff reference only."
+        }
+      ],
+      "modified": false,
+      "new_pixels": false,
+      "source_acceptance_limit": "Existing source/license says nothing about accepting a visible flat-art exemption."
+    }
+  ],
+  "inspected_originals": 5,
+  "new_art": 0,
+  "gap": "No complete painted overhead directional ring+pointer has been established by this shortlist. Painted ring/star material may help after the comprehensive inventory is published;no generation/derivation initiated."
+}

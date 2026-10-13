@@ -1,0 +1,141 @@
+{
+  "schema": 1,
+  "status": "PASS",
+  "commands": [
+    {
+      "command": [
+        "python",
+        "-B",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\live_v6\\dormant_routes\\validate.py",
+        "--stress"
+      ],
+      "returncode": 0,
+      "checked_at_utc": "2026-10-13T02:05:54.736526+00:00",
+      "log": "publication_diagnostics/final_slices.log"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\live_v6\\hud_fashion\\validate.py",
+        "--stress"
+      ],
+      "returncode": 0,
+      "checked_at_utc": "2026-10-13T02:06:15.944066+00:00",
+      "log": "publication_diagnostics/final_slices.log"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\live_v6\\party_props\\validate.py",
+        "--stress"
+      ],
+      "returncode": 0,
+      "checked_at_utc": "2026-10-13T02:06:36.361246+00:00",
+      "log": "publication_diagnostics/final_slices.log"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\live_v6\\promenade\\validate.py",
+        "--stress"
+      ],
+      "returncode": 0,
+      "checked_at_utc": "2026-10-13T02:07:07.548495+00:00",
+      "log": "publication_diagnostics/final_slices.log"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\live_v6\\room_routes\\validate.py",
+        "--stress"
+      ],
+      "returncode": 0,
+      "checked_at_utc": "2026-10-13T02:07:29.965994+00:00",
+      "log": "publication_diagnostics/final_slices.log"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\live_v6\\validate.py",
+        "--stress"
+      ],
+      "returncode": 0,
+      "checked_at_utc": "2026-10-13T02:08:42.953471+00:00",
+      "log": "publication_diagnostics/final_slices.log"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\validate_packet.py",
+        "--stress"
+      ],
+      "returncode": 0,
+      "checked_at_utc": "2026-10-13T02:08:43.849385+00:00",
+      "log": "publication_diagnostics/final_slices.log"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\validate_picture_review.py",
+        "--stress"
+      ],
+      "returncode": 0,
+      "checked_at_utc": "2026-10-13T02:08:47.207207+00:00",
+      "log": "publication_diagnostics/final_slices.log"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\validate_action_review.py",
+        "--stress"
+      ],
+      "returncode": 0,
+      "checked_at_utc": "2026-10-13T02:08:51.129059+00:00",
+      "log": "publication_diagnostics/final_slices.log"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_game_2d.py",
+        "--regression-gate"
+      ],
+      "returncode": 0,
+      "checked_at_utc": "2026-10-13T02:10:55.782643+00:00",
+      "log": "publication_diagnostics/final_2d.log"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_document_authority.py"
+      ],
+      "returncode": 0,
+      "checked_at_utc": "2026-10-13T02:11:04.907990+00:00",
+      "log": "publication_diagnostics/final_document_authority.log"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_development.py",
+        "--base",
+        "auto"
+      ],
+      "returncode": 0,
+      "checked_at_utc": "2026-10-13T02:11:07.009950+00:00",
+      "log": "publication_diagnostics/final_audit_development.log"
+    }
+  ],
+  "2d_status": "UNSATISFIED; NO_REGRESSION does not remove existing debt",
+  "full_validation": "FULL_VALIDATION.json",
+  "art_acceptance": false
+}

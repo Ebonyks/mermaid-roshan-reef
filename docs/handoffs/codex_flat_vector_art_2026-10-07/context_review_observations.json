@@ -1,0 +1,188 @@
+{
+  "schema": "root_context_observations/1",
+  "baseline": "92c9fe70319ef46bfaa8f61348a6f51512141ec3",
+  "checked_at_utc": "2026-10-08T04:44:04.583244+00:00",
+  "claim_limits": "Source and seven local image inspections only. No new runtime captures, device or child review, owner visual acceptance, generated art or integrated replacement is claimed. Root IDs are supporting observation keys to map into primary FV register.",
+  "observations": [
+    {
+      "id": "ROOT-OBS-01",
+      "family": "Geologist river",
+      "evidence": "SOURCE_INSPECTED",
+      "sources": [
+        "scripts/opera_geology_surface.gd"
+      ],
+      "observed": "Excavation uses flat linked lines/circles; source spring, sink and wet/dry cells have code-drawn arcs and fills.",
+      "proposal": "Draw one scene-bound riverbed with painted soil, rock banks and water; author compatible dry-dug/connected-flowing channel states from that same scene. Keep arbitrary four-neighbour child excavation and masks, not only the suggested route. Match bank contact, current direction and cell transitions; runtime masking remains functional geometry.",
+      "source_sha256_git_blob_bytes": {
+        "scripts/opera_geology_surface.gd": "da96f3b7c07b2ecac796cbe21410499c4439937a21d4096fd918a611e02ba8be"
+      }
+    },
+    {
+      "id": "ROOT-OBS-02",
+      "family": "Geologist fossil",
+      "evidence": "SOURCE_INSPECTED",
+      "sources": [
+        "scripts/opera_geology_surface.gd",
+        "assets/opera/worlds/hotspots/geologist_fossil.svg"
+      ],
+      "observed": "A spiral-on-polygon SVG appears under opaque rectangular dirt cells, then splits into three draggable pieces.",
+      "proposal": "Draw a coherent fossil-bearing rock/slab in the geology workbench perspective, with real shell relief and painted granular covering. Derive the three matching fragments from one approved whole; preserve the scrub grid and snapping targets. No unrelated fossil per fragment.",
+      "source_sha256_git_blob_bytes": {
+        "scripts/opera_geology_surface.gd": "da96f3b7c07b2ecac796cbe21410499c4439937a21d4096fd918a611e02ba8be",
+        "assets/opera/worlds/hotspots/geologist_fossil.svg": "2031077dbe2018151e0b9324bd88699bf1a7a95e0195bf08e6bce7ac79a4544c"
+      }
+    },
+    {
+      "id": "ROOT-OBS-03",
+      "family": "Geologist pan",
+      "evidence": "SOURCE_INSPECTED",
+      "sources": [
+        "scripts/opera_geology_surface.gd"
+      ],
+      "observed": "PAN_PATH is empty. Active pan fallback uses nested ellipses, translucent water arcs, sand dots and geometric mineral drawings.",
+      "proposal": "One authored complete pan with rim thickness, metal/wood material, river water and sand in the exact overhead angle; matched washing/reveal states and existing sand/mineral masks. Preserve nine required reversals, visual travel and touch dimensions; use painted local ripples from a suitable inspected existing family.",
+      "source_sha256_git_blob_bytes": {
+        "scripts/opera_geology_surface.gd": "da96f3b7c07b2ecac796cbe21410499c4439937a21d4096fd918a611e02ba8be"
+      }
+    },
+    {
+      "id": "ROOT-OBS-04",
+      "family": "Geologist geode",
+      "evidence": "SOURCE_INSPECTED",
+      "sources": [
+        "scripts/opera_geology_surface.gd",
+        "assets/opera/worlds/props/goal_geologist.svg"
+      ],
+      "observed": "GEODE_PATH is empty. The shell halves are coloured polygons, seam dots and flat outline; opening exposes crystal SVG.",
+      "proposal": "Draw one complete closed geode and compatible left/right opening states, keeping the exact seam, matching mineral interiors, hand-scale and support/contact. Five seam targets and 120px pull stay unchanged. Derive both halves from one source identity; no unrelated crystals pasted over a second painted crystal copy.",
+      "source_sha256_git_blob_bytes": {
+        "scripts/opera_geology_surface.gd": "da96f3b7c07b2ecac796cbe21410499c4439937a21d4096fd918a611e02ba8be",
+        "assets/opera/worlds/props/goal_geologist.svg": "14023de6e1338fb209b06be58dc37574060c3a22bcb08f3506843389620c2f50"
+      }
+    },
+    {
+      "id": "ROOT-OBS-05",
+      "family": "Teacher board and counters",
+      "evidence": "SOURCE_INSPECTED",
+      "sources": [
+        "scripts/opera_teacher_surface.gd",
+        "assets/opera/worlds/hotspots/teacher_lesson_board.svg"
+      ],
+      "observed": "Board SVG uses flat beige panel and uniform shape tokens; the specialist draws lesson objects and choices.",
+      "proposal": "Draw the board as a tangible library teaching prop with painted pearl/wood framing and authored counting/pattern tokens. Keep circle/triangle discrimination, colours, identical item counts and lesson answers; brush texture cannot obscure educational shape or non-reader touch meaning.",
+      "source_sha256_git_blob_bytes": {
+        "scripts/opera_teacher_surface.gd": "cab2eee9f0bf1297296fef0a8650df7794214cfcb58fc379e44954f6153ec2ed",
+        "assets/opera/worlds/hotspots/teacher_lesson_board.svg": "c640d1697ae5aea4c948ab3abf2675866a96f8c1918821a8fbc63580516bee00"
+      }
+    },
+    {
+      "id": "ROOT-OBS-06",
+      "family": "Melody theatre",
+      "evidence": "SOURCE_INSPECTED",
+      "sources": [
+        "scripts/games/melody.gd"
+      ],
+      "observed": "ProsceniumCanvas uses left/right curtain, crown header and apron Polygon2Ds over existing Sky Lagoon background art.",
+      "proposal": "Draw curtains/header/apron for the existing Daddy-and-Roshan rainbow performance composition, with appropriate cloth drape, folds and support. Reuse existing Opera stage kit if it fits. Author note/rest/hit states preserving seven pitch-colour identities, 84px visual/120px touch bounds and timing.",
+      "source_sha256_git_blob_bytes": {
+        "scripts/games/melody.gd": "a2477bc6fd21454c69480b290ccc13892e6938e4d1abf534051380dd84e5712e"
+      }
+    },
+    {
+      "id": "ROOT-OBS-07",
+      "family": "Dolls nursery landing/catcher",
+      "evidence": "SOURCE_INSPECTED",
+      "sources": [
+        "scripts/games/dolls.gd"
+      ],
+      "observed": "Painted babies and nursery tiles are preserved, but mat, quilting, pips and U-shaped cradle focus remain procedural.",
+      "proposal": "Draw one padded storybook safety mat and broad cradle for the actual nursery floor perspective. Keep safe landing, broad moving catch region and no-fail mercy. Derive matched idle/selected/caught states; replace decorative pips with pictured progress as appropriate. Never resurrect rejected pillow-strip widgets.",
+      "source_sha256_git_blob_bytes": {
+        "scripts/games/dolls.gd": "a3cf7ffd6f6a7bcf1072fa1a753e465f742190f46d9809830589a2242c77c7e0"
+      }
+    },
+    {
+      "id": "ROOT-OBS-08",
+      "family": "Ember visitor placeholders",
+      "evidence": "SOURCE_INSPECTED_IDENTITY_GAP",
+      "sources": [
+        "scripts/chapter_two_party_table_2d.gd"
+      ],
+      "observed": "Scout/King/Prince are explicit identity_art_approved=false polygon silhouettes; CandleTakingArm is a separate thick Line2D.",
+      "proposal": "Find existing owner-authoritative Ember design and prepare whole-unit full-character poses for arrival, approach, grasp, carry and exit in the party scene. Preserve actual candle contact and source story. Missing accepted identity must be resolved, not invented; do not authorize a separate limb-only moving replacement.",
+      "source_sha256_git_blob_bytes": {
+        "scripts/chapter_two_party_table_2d.gd": "761014dc77166dea11e4fa0e963cdb72c5aa2dea3e53b05f3540306950e89f87"
+      }
+    },
+    {
+      "id": "ROOT-OBS-09",
+      "family": "Birthday candle fallback",
+      "evidence": "SOURCE_INSPECTED_DORMANT_FALLBACK",
+      "sources": [
+        "scripts/chapter_two_rainbow_candle_2d.gd",
+        "assets/chapter2/birthday/rainbow_candle_unlit.png",
+        "assets/chapter2/birthday/rainbow_candle_large_flame.png"
+      ],
+      "observed": "_draw returns when both accepted painted state sprites exist. Flat source candle is missing-import fallback, not confirmed normal visible art.",
+      "proposal": "Reuse accepted unlit/lit states; prove resource availability and retire flat fallback. No new candle drawing needed unless an actual named contextual gap survives review.",
+      "source_sha256_git_blob_bytes": {
+        "scripts/chapter_two_rainbow_candle_2d.gd": "12e1a75500e2cb4a535c075e3a32c54987a570f7d4bb5ffbdb64c3e35da3e62f",
+        "assets/chapter2/birthday/rainbow_candle_unlit.png": "bd1d4edd2b3e6d771c8fbdd83ea180db5efbafcaba996258d3f57dd8d1e0bd7f",
+        "assets/chapter2/birthday/rainbow_candle_large_flame.png": "2c00e80e57315283e2612fb301cc9e2ac0c519bab1e0bfa44b4ff3dc4b13ff68"
+      }
+    },
+    {
+      "id": "ROOT-OBS-10",
+      "family": "Existing painted reuse assets",
+      "evidence": "LOCAL_SOURCE_VISUALLY_INSPECTED_NOT_RUNTIME_ACCEPTED",
+      "sources": [
+        "assets/opera/worlds/widgets/widget_track_farmer_mover.png",
+        "assets/opera/worlds/widgets/widget_target_farmer_piece_0.png",
+        "assets/opera/worlds/widgets/widget_crank_chef_mover.png",
+        "assets/mg/fish_body.png",
+        "assets/mg/bird_body.png",
+        "assets/mg/star.png"
+      ],
+      "observed": "Pig, carrot, whisk, fish and star show authored contour/material detail and brush texture. Bird has shaded feather detail in grayscale as a colouring layer.",
+      "proposal": "Prefer reuse where scene angle, scale, lighting, motion and actual purpose fit; do not relabel grayscale colouring content as defective merely for lacking colour, or regenerate texture-bearing art for novelty.",
+      "source_sha256_git_blob_bytes": {
+        "assets/opera/worlds/widgets/widget_track_farmer_mover.png": "6cec921467c5c84d095ab260a6aa5aa1004102312d8eefa0fe8d485fc9c1af25",
+        "assets/opera/worlds/widgets/widget_target_farmer_piece_0.png": "9ec02fdd3e0ea6888ab3e3dce7f3a6436b752974798fd46fddf545a70f3e93dd",
+        "assets/opera/worlds/widgets/widget_crank_chef_mover.png": "aa05e3bc9f33264f3d424fd4ea0869870b7c4e3f5ce3aad92de5daf9830b85e0",
+        "assets/mg/fish_body.png": "219da6079daa8fdfc0bf854c3c37d9584d18c2b1f65ef60dc0e2fa24a8996a41",
+        "assets/mg/bird_body.png": "54fbb11c50c5d859b32aaca6fa1ecf8455253460691eabfd3eeacf4a91c12629",
+        "assets/mg/star.png": "3cc5d5cbc5d6e0df0540cdc00ef557b0c7ed6e566331035c4e75d5d971ef3b98"
+      }
+    },
+    {
+      "id": "ROOT-OBS-11",
+      "family": "Cel-like bush PNG",
+      "evidence": "LOCAL_SOURCE_VISUALLY_INSPECTED_CONTEXT_PENDING",
+      "sources": [
+        "assets/mg/k_bush2.png"
+      ],
+      "observed": "PNG has broad clean leaf shapes and cel-like flat masses, compared with strongly brush-textured fish/star assets.",
+      "proposal": "Mark vector-style-raster candidate, then inspect actual caller and acceptance scope. Seek use is already specifically superseded by DL-VIS-09; preserve the original and use accepted high-grade trees in that context. No blanket raster-format pass or global deletion.",
+      "source_sha256_git_blob_bytes": {
+        "assets/mg/k_bush2.png": "884023b2de46f0883458049dad9d031e1d33dcf9ecda567a0ed151d4292952f8"
+      }
+    },
+    {
+      "id": "ROOT-OBS-12",
+      "family": "Procedural backdrop and ambient motifs",
+      "evidence": "SOURCE_INSPECTED_CONTEXT_PENDING",
+      "sources": [
+        "scripts/opera_world_backdrop_2d.gd",
+        "scripts/living_world_canvas.gd",
+        "scripts/living_world_catalog.gd"
+      ],
+      "observed": "Backdrops can add code spotlights even over painted tiles; full vector sets remain missing-texture fallback. Geologist painting/tile asset filename search found none. Ambient families draw leaf, fish, cloud, butterfly, flame, music, heart, shell, crown, moon, crystal and similar shapes.",
+      "proposal": "Disposition overlay spotlights separately from hidden fallback sets; replace needed ambience with scene-bound existing painted local assets and remove decorative layers that compete with the task. Preserve quiet groups and idle-only semantics; do not add generic stickers to every scene.",
+      "source_sha256_git_blob_bytes": {
+        "scripts/opera_world_backdrop_2d.gd": "49a927c8183ed253b82d9893849dbdaf4af27f5ece52392588b3b287cf4932b4",
+        "scripts/living_world_canvas.gd": "f18a8324cd3eb43eac0dae0ae09efbbb86f6bd3af65e7e74e44d8c197f351e6e",
+        "scripts/living_world_catalog.gd": "2db85ea403333cd6b71fca87195b927a44b282d0233d79051b8bf0314f53ae2e"
+      }
+    }
+  ]
+}

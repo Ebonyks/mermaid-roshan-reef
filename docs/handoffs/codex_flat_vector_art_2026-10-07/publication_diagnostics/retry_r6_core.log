@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "C:\Users\Peter\.codex\worktrees\flat-vector-r6-20261012\mermaid-roshan-reef\docs\handoffs\codex_flat_vector_art_2026-10-07\live_v6\validate.py", line 92, in <module>
+    ap=argparse.ArgumentParser();ap.add_argument('--stress',action='store_true');args=ap.parse_args();check()
+                                                                                                      ~~~~~^^
+  File "C:\Users\Peter\.codex\worktrees\flat-vector-r6-20261012\mermaid-roshan-reef\docs\handoffs\codex_flat_vector_art_2026-10-07\live_v6\validate.py", line 49, in check
+    for name,h in m['source_signature']['files'].items():assert (R/name).is_file() and sha(R/name)==h, name
+                                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: assets/aquatic/Rock2_nano_cliff_Rock2_1.png.import

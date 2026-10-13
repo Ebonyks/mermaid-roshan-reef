@@ -1,0 +1,252 @@
+{
+  "schema": "reef.root_picture_scope_dispositions/1",
+  "recorded_at_utc": "2026-10-13T01:18:37.424501+00:00",
+  "review_scope": "Inventory classification and exact caller trace; no removal acceptance, no whole-game completeness claim",
+  "new_dispositions": [
+    {
+      "source_scope_id": "FVF-8A1564966D4B",
+      "source": {
+        "id": "FVF-8A1564966D4B",
+        "path": "scripts/games/picture_games.gd",
+        "scope": "_mg2d_open",
+        "start_line": 14,
+        "end_line": 94,
+        "primitive_site_ids": [
+          "FVS-FFA2C781F186"
+        ],
+        "source_sha256_lf": "5d7202ac46b0ca26752b74b959eb052f2889369932d697b8b8727ad368abc8f0",
+        "reachability": "POTENTIALLY_MAIN_REFERENCED",
+        "status": "NEEDS_CONTEXT_REVIEW",
+        "count_unit": "source_function_scope_not_art_piece",
+        "individual_piece_count": null,
+        "screen_coverage": null,
+        "required_action": "Trace guard and actual caller, enumerate named visual objects/states in phone-size current Mobile captures; split loops/helper scopes before accepting a piece total."
+      },
+      "source_revision": "6cde8aeae04aaedcc0b1ff22a05ef93ab9bf666f",
+      "source_sha256_lf_current": "5d7202ac46b0ca26752b74b959eb052f2889369932d697b8b8727ad368abc8f0",
+      "classification": "MIXED_VISIBLE_ART_AND_INVISIBLE_STAGE",
+      "status": "SOURCE_SCOPE_INVENTORY_CLASSIFIED_NOT_REMOVED",
+      "named_roles": [
+        {
+          "role": "Four currently routed gradient fields",
+          "callers": [
+            "snowman",
+            "garden",
+            "trampoline",
+            "xmas"
+          ],
+          "state": "Flat visible artwork; replacement pending"
+        },
+        {
+          "role": "Shared header panel/crest",
+          "state": "Visible authored material/ornament gap; helper consumer needs UI state review"
+        },
+        {
+          "role": "Stage, input/control and feedback owner containers",
+          "state": "Invisible structure only; do not render authored art"
+        }
+      ],
+      "branch_and_caller_proof": "_mg2d_open returns immediately for slide at lines17..19 and routes to _l2_start_slide. Every remaining named kind creates one gradient TextureRect and common StorybookUI header/crest before its builder. These containers do not blanket-exempt visible descendants.",
+      "limits": "Four fresh clean-ready callers captured at both aspects; opening/close/reentry/payoff and other helper state variants remain open.",
+      "accepted_removals": 0
+    },
+    {
+      "source_scope_id": "FVF-535EDBF3F803",
+      "source": {
+        "id": "FVF-535EDBF3F803",
+        "path": "scripts/games/picture_games.gd",
+        "scope": "_mg_circle",
+        "start_line": 104,
+        "end_line": 130,
+        "primitive_site_ids": [
+          "FVS-10CD9A00D814",
+          "FVS-E103B4248FD9"
+        ],
+        "source_sha256_lf": "5d7202ac46b0ca26752b74b959eb052f2889369932d697b8b8727ad368abc8f0",
+        "reachability": "POTENTIALLY_MAIN_REFERENCED",
+        "status": "NEEDS_CONTEXT_REVIEW",
+        "count_unit": "source_function_scope_not_art_piece",
+        "individual_piece_count": null,
+        "screen_coverage": null,
+        "required_action": "Trace guard and actual caller, enumerate named visual objects/states in phone-size current Mobile captures; split loops/helper scopes before accepting a piece total."
+      },
+      "source_revision": "6cde8aeae04aaedcc0b1ff22a05ef93ab9bf666f",
+      "source_sha256_lf_current": "5d7202ac46b0ca26752b74b959eb052f2889369932d697b8b8727ad368abc8f0",
+      "classification": "CONFIRMED_VISIBLE_PROCEDURAL_ART",
+      "status": "SOURCE_SCOPE_INVENTORY_CLASSIFIED_NOT_REMOVED",
+      "named_roles": [
+        {
+          "role": "Snowman snow field",
+          "caller_line": 334,
+          "instances": 1
+        },
+        {
+          "role": "Rolling-to-stacked snowball family",
+          "caller_line": 353,
+          "instances_per_complete_round": 3
+        },
+        {
+          "role": "Garden grass mound",
+          "caller_line": 576,
+          "instances": 1
+        },
+        {
+          "role": "Garden clay-pot family",
+          "caller_line": 582,
+          "instances": 5
+        },
+        {
+          "role": "Trampoline mat/frame",
+          "caller_line": 667,
+          "instances": 1
+        }
+      ],
+      "branch_and_caller_proof": "Full repository _mg_circle search finds only this definition and five call sites, all in PictureGames. Each returns one visible Panel with flat fill/rim/shadow and one highlight child. Five art role families;11 lifecycle object instances across the three game rounds. Component fill/rim/highlight are not separate commissioned pictures.",
+      "limits": "These exact source roles are inventory-classified; no helper-wide functional exemption. Dynamic rolling/stack/chase and all contact/motion states remain acceptance work.",
+      "accepted_removals": 0
+    },
+    {
+      "source_scope_id": "FVF-F5F7A8DE4736",
+      "source": {
+        "id": "FVF-F5F7A8DE4736",
+        "path": "scripts/games/picture_games.gd",
+        "scope": "_mg2d_feedback_burst",
+        "start_line": 161,
+        "end_line": 244,
+        "primitive_site_ids": [
+          "FVS-05626ADD06FD"
+        ],
+        "source_sha256_lf": "5d7202ac46b0ca26752b74b959eb052f2889369932d697b8b8727ad368abc8f0",
+        "reachability": "POTENTIALLY_MAIN_REFERENCED",
+        "status": "NEEDS_CONTEXT_REVIEW",
+        "count_unit": "source_function_scope_not_art_piece",
+        "individual_piece_count": null,
+        "screen_coverage": null,
+        "required_action": "Trace guard and actual caller, enumerate named visual objects/states in phone-size current Mobile captures; split loops/helper scopes before accepting a piece total."
+      },
+      "source_revision": "6cde8aeae04aaedcc0b1ff22a05ef93ab9bf666f",
+      "source_sha256_lf_current": "5d7202ac46b0ca26752b74b959eb052f2889369932d697b8b8727ad368abc8f0",
+      "classification": "CONFIRMED_VISIBLE_PROCEDURAL_ORNAMENT",
+      "status": "SOURCE_SCOPE_INVENTORY_CLASSIFIED_NOT_REMOVED",
+      "named_roles": [
+        {
+          "role": "All picture-game win burst",
+          "caller_line": 272,
+          "elements": 18,
+          "lifetime_seconds": 0.9
+        },
+        {
+          "role": "Snowball settle burst",
+          "caller_line": 394,
+          "elements": 10,
+          "lifetime_seconds": 0.55
+        },
+        {
+          "role": "Garden sprout-growth burst",
+          "caller_line": 637,
+          "elements": 8,
+          "lifetime_seconds": 0.5
+        },
+        {
+          "role": "Garden mature-growth burst",
+          "caller_line": 655,
+          "elements": 10,
+          "lifetime_seconds": 0.55
+        }
+      ],
+      "branch_and_caller_proof": "Full source search finds definition and exactly four call sites. Every element is a visible flat eight-point Polygon2D. Capacity clamped4..18, lifetime0.35..0.9, action concurrency<=3; win removes previous bursts. One authored sparkle family can cover these variants if exact timing/palette/readability is preserved.",
+      "limits": "Burst repeat count is state-dependent and is not the whole-game unique-art total. Full-speed effect, close/reentry, one-owner and device-overdraw review remain pending.",
+      "accepted_removals": 0
+    },
+    {
+      "source_scope_id": "FVF-355A4498233C",
+      "source": {
+        "id": "FVF-355A4498233C",
+        "path": "scripts/games/picture_games.gd",
+        "scope": "_mg_build_slide",
+        "start_line": 719,
+        "end_line": 741,
+        "primitive_site_ids": [
+          "FVS-5B1F66B4F844"
+        ],
+        "source_sha256_lf": "5d7202ac46b0ca26752b74b959eb052f2889369932d697b8b8727ad368abc8f0",
+        "reachability": "POTENTIALLY_MAIN_REFERENCED",
+        "status": "NEEDS_CONTEXT_REVIEW",
+        "count_unit": "source_function_scope_not_art_piece",
+        "individual_piece_count": null,
+        "screen_coverage": null,
+        "required_action": "Trace guard and actual caller, enumerate named visual objects/states in phone-size current Mobile captures; split loops/helper scopes before accepting a piece total."
+      },
+      "source_revision": "6cde8aeae04aaedcc0b1ff22a05ef93ab9bf666f",
+      "source_sha256_lf_current": "5d7202ac46b0ca26752b74b959eb052f2889369932d697b8b8727ad368abc8f0",
+      "classification": "RETIRED_UNREACHABLE_VIA_CURRENT_PRODUCTION_ENTRY",
+      "status": "SOURCE_SCOPE_INVENTORY_CLASSIFIED_NOT_REMOVED",
+      "named_roles": [
+        {
+          "role": "Six-band old picture-slide illustration",
+          "instances": 6,
+          "state": "Retired code; no current rendered art observed"
+        }
+      ],
+      "branch_and_caller_proof": "Repository search finds only definition at719 and conditional invocation at91 inside _mg2d_open. That same entry returns for kind==slide at17..19 before creating any picture canvas, calling _l2_start_slide instead. No other current script caller invokes _mg_build_slide. Do not bypass the early return just to capture retired art.",
+      "limits": "Source reachability evidence only. Actual live Lagoon slide still requires its own source/context audit and zero-art proof. Future route changes invalidate this disposition. No deleted pixels or removed-art count credited.",
+      "accepted_removals": 0
+    },
+    {
+      "source_scope_id": "FVF-B6D63EC4F8E0",
+      "source": {
+        "id": "FVF-B6D63EC4F8E0",
+        "path": "scripts/medal_system.gd",
+        "scope": "_celebrate",
+        "start_line": 187,
+        "end_line": 276,
+        "primitive_site_ids": [
+          "FVS-DE450EB2ED05"
+        ],
+        "source_sha256_lf": "585959372cbe4bf2e98d0830097b3b98c9519b52645516857a61ce22b489d36d",
+        "reachability": "POTENTIALLY_MAIN_REFERENCED",
+        "status": "NEEDS_CONTEXT_REVIEW",
+        "count_unit": "source_function_scope_not_art_piece",
+        "individual_piece_count": null,
+        "screen_coverage": null,
+        "required_action": "Trace guard and actual caller, enumerate named visual objects/states in phone-size current Mobile captures; split loops/helper scopes before accepting a piece total."
+      },
+      "source_revision": "6cde8aeae04aaedcc0b1ff22a05ef93ab9bf666f",
+      "source_sha256_lf_current": "585959372cbe4bf2e98d0830097b3b98c9519b52645516857a61ce22b489d36d",
+      "classification": "MIXED_VISIBLE_REWARD_ART_GLYPHS_AND_LIFECYCLE",
+      "status": "SOURCE_SCOPE_INVENTORY_CLASSIFIED_NOT_REMOVED",
+      "named_roles": [
+        {
+          "role": "One shared tier card material",
+          "rect": [
+            490,
+            140,
+            300,
+            230
+          ]
+        },
+        {
+          "role": "Tier medal and three-slot filled/empty star glyph row",
+          "state": "Decorative/progress glyph artwork requires concrete Android font/painted replacement review"
+        },
+        {
+          "role": "Perfect dustboss gem glyph",
+          "guard": "id==dustboss and stats.perfect_bonus"
+        },
+        {
+          "role": "Radial star ornament",
+          "elements_per_tier": [
+            8,
+            10,
+            12
+          ],
+          "state": "Flat Polygon2D family; not three separately drawn sets"
+        }
+      ],
+      "branch_and_caller_proof": "_celebrate retires old layer synchronously and creates CanvasLayer23 with visible StorybookUI card, medal/star glyphs, conditional gem and radial polygons. Source constant CELEBRATION_SECONDS=2.2; the card may legitimately remain after picture-game close/reentry within that interval. Bronze Garden context observed, other tiers and perfect branch source-only.",
+      "limits": "Only the lifecycle containers/teardown are functional. Visible card/glyph/star art remains pending; ordinary text-font exception does not cover progress icons. No evidence of indefinite stale overlay from0.7s reentry. All callers/tiers/Android fallback/device review still open.",
+      "accepted_removals": 0
+    }
+  ],
+  "related_review_sha256": "5eb465c1e48be3f665100a526ec05fa8620afd078bd4f462cf2b69c5c8ec78dc"
+}

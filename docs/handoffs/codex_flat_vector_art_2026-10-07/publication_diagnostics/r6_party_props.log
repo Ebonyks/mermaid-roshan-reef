@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "C:\Users\Peter\.codex\worktrees\flat-vector-r6-20261012\mermaid-roshan-reef\docs\handoffs\codex_flat_vector_art_2026-10-07\live_v6\party_props\validate.py", line 147, in <module>
+    parser=argparse.ArgumentParser();parser.add_argument('--stress',action='store_true');args=parser.parse_args();check()
+                                                                                                                  ~~~~~^^
+  File "C:\Users\Peter\.codex\worktrees\flat-vector-r6-20261012\mermaid-roshan-reef\docs\handoffs\codex_flat_vector_art_2026-10-07\live_v6\party_props\validate.py", line 54, in check
+    assert len(signature()['paths'])==6444 and signature()['sha256']=='0a2525e88036b450309f8434a232d9a34d91a8dcf0dbfa84fcaa8d5055527d3b'
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError

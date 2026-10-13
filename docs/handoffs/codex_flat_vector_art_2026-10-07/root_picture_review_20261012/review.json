@@ -1,0 +1,1184 @@
+{
+  "schema": "reef.root_picture_context_review/1",
+  "recorded_at_utc": "2026-10-13T01:11:47.599291+00:00",
+  "reviewer": "Root Codex independent visual inspection; not owner/child/device acceptance",
+  "source_revision": "6cde8aeae04aaedcc0b1ff22a05ef93ab9bf666f",
+  "runtime_baseline_revision": "92c9fe70319ef46bfaa8f61348a6f51512141ec3",
+  "task_scope": "Oct12 point-by-point same-scene art congruency review; Garden raw-pointer growth and four fresh picture ready states. No replacement pixels or production changes.",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-VIS-01",
+    "DL-VIS-02",
+    "DL-VIS-03",
+    "DL-VIS-04",
+    "DL-VIS-05",
+    "DL-VIS-06",
+    "DL-VIS-07",
+    "DL-VIS-08",
+    "DL-READ-01",
+    "DL-READ-02",
+    "DL-READ-03",
+    "DL-READ-04",
+    "DL-READ-05",
+    "DL-READ-06",
+    "DL-ASSET-01",
+    "DL-ASSET-02",
+    "DL-ASSET-03",
+    "DL-ASSET-04",
+    "DL-ASSET-05",
+    "DL-ASSET-06"
+  ],
+  "related_findings": [
+    "MA-VIS-006",
+    "MA-VIS-007",
+    "MA-VIS-008",
+    "MA-DOC-008"
+  ],
+  "capture_counts": {
+    "retained_native": 52,
+    "initial_action_native": 36,
+    "rejected_fresh_native": 8,
+    "guarded_ready_native": 8,
+    "actually_independently_viewed_unique": 24
+  },
+  "reviewed_capture_paths": [
+    "captures/action/1280x720/garden_seed_ready.png",
+    "captures/action/1280x720/garden_all_sprouts_settled.png",
+    "captures/action/1280x720/garden_complete_settled.png",
+    "captures/action/1600x720/garden_complete_settled.png",
+    "captures/action/1280x720/garden_sprout_00_active.png",
+    "captures/action/1280x720/garden_flower_00_active.png",
+    "captures/action/1280x720/garden_flower_01_active.png",
+    "captures/action/1280x720/garden_flower_02_active.png",
+    "captures/action/1280x720/garden_flower_03_active.png",
+    "captures/action/1280x720/garden_flower_04_active.png",
+    "captures/action/1280x720/trampoline_ready.png",
+    "captures/action/1280x720/xmas_ready.png",
+    "captures/rejected_fresh/1280x720/snowman_fresh_ready.png",
+    "captures/rejected_fresh/1280x720/trampoline_fresh_ready.png",
+    "captures/rejected_fresh/1280x720/xmas_fresh_ready.png",
+    "captures/rejected_fresh/1600x720/garden_fresh_ready.png",
+    "captures/guarded_ready/1280x720/garden_fresh_ready.png",
+    "captures/guarded_ready/1280x720/snowman_fresh_ready.png",
+    "captures/guarded_ready/1280x720/trampoline_fresh_ready.png",
+    "captures/guarded_ready/1280x720/xmas_fresh_ready.png",
+    "captures/guarded_ready/1600x720/garden_fresh_ready.png",
+    "captures/guarded_ready/1600x720/snowman_fresh_ready.png",
+    "captures/guarded_ready/1600x720/trampoline_fresh_ready.png",
+    "captures/guarded_ready/1600x720/xmas_fresh_ready.png"
+  ],
+  "captures": [
+    {
+      "path": "captures/action/1280x720/garden_seed_ready.png",
+      "state_id": "garden_seed_ready",
+      "aspect": "1280x720",
+      "run_role": "action",
+      "sha256": "0b21a16bbe8fb1f2311eae6ac0236946154689ded1d2be79d9e2c3f5bd78502f",
+      "source_revision": "6cde8aeae04aaedcc0b1ff22a05ef93ab9bf666f",
+      "presentation": null,
+      "scope_limit": "Bounded Garden raw-pointer action context. Reentry and subsequent games retain a legitimate temporary Garden medal; these four states per aspect are not clean ready views. No explicit boot/fade guards in this first harness."
+    },
+    {
+      "path": "captures/action/1280x720/garden_sprout_00_active.png",
+      "state_id": "garden_sprout_00_active",
+      "aspect": "1280x720",
+      "run_role": "action",
+      "sha256": "d446d745c35bd69136d0d5712ec2f7a73f45a07729dda5770d44800d0cf63e69",
+      "source_revision": "6cde8aeae04aaedcc0b1ff22a05ef93ab9bf666f",
+      "presentation": null,
+      "scope_limit": "Bounded Garden raw-pointer action context. Reentry and subsequent games retain a legitimate temporary Garden medal; these four states per aspect are not clean ready views. No explicit boot/fade guards in this first harness."
+    },
+    {
+      "path": "captures/action/1280x720/garden_sprout_01_active.png",
+      "state_id": "garden_sprout_01_active",
+      "aspect": "1280x720",
+      "run_role": "action",
+      "sha256": "8008d443bb5f8cb3326977526cd44b81b8d89ebb02c6f477d58721d635ba5c02",
+      "source_revision": "6cde8aeae04aaedcc0b1ff22a05ef93ab9bf666f",
+      "presentation": null,
+      "scope_limit": "Bounded Garden raw-pointer action context. Reentry and subsequent games retain a legitimate temporary Garden medal; these four states per aspect are not clean ready views. No explicit boot/fade guards in this first harness."
+    },
+    {
+      "path": "captures/action/1280x720/garden_sprout_02_active.png",
+      "state_id": "garden_sprout_02_active",
+      "aspect": "1280x720",
+      "run_role": "action",
+      "sha256": "83ce228ca97c492381892e0d861a72669ad254b6177ef0a222aa1e460773f2ee",
+      "source_revision": "6cde8aeae04aaedcc0b1ff22a05ef93ab9bf666f",
+      "presentation": null,
+      "scope_limit": "Bounded Garden raw-pointer action context. Reentry and subsequent games retain a legitimate temporary Garden medal; these four states per aspect are not clean ready views. No explicit boot/fade guards in this first harness."
+    },
+    {
+      "path": "captures/action/1280x720/garden_sprout_03_active.png",
+      "state_id": "garden_sprout_03_active",
+      "aspect": "1280x720",
+      "run_role": "action",
+      "sha256": "620a6b916482629c25e1d267335d09f7d760946d7c1ee659cd8a7f76e757c99b",
+      "source_revision": "6cde8aeae04aaedcc0b1ff22a05ef93ab9bf666f",
+      "presentation": null,
+      "scope_limit": "Bounded Garden raw-pointer action context. Reentry and subsequent games retain a legitimate temporary Garden medal; these four states per aspect are not clean ready views. No explicit boot/fade guards in this first harness."
+    },
+    {
+      "path": "captures/action/1280x720/garden_sprout_04_active.png",
+      "state_id": "garden_sprout_04_active",
+      "aspect": "1280x720",
+      "run_role": "action",
+      "sha256": "76ff21e22245823dcb7bfd3e281e808a78f2b54f49393fe48f6789be8ce1b6e3",
+      "source_revision": "6cde8aeae04aaedcc0b1ff22a05ef93ab9bf666f",
+      "presentation": null,
+      "scope_limit": "Bounded Garden raw-pointer action context. Reentry and subsequent games retain a legitimate temporary Garden medal; these four states per aspect are not clean ready views. No explicit boot/fade guards in this first harness."
+    },
+    {
+      "path": "captures/action/1280x720/garden_all_sprouts_settled.png",
+      "state_id": "garden_all_sprouts_settled",
+      "aspect": "1280x720",
+      "run_role": "action",
+      "sha256": "32ef2c99595600bc623cdaf3f90b3144169150e76488ef0252694e8ff24b0a9c",
+      "source_revision": "6cde8aeae04aaedcc0b1ff22a05ef93ab9bf666f",
+      "presentation": null,
+      "scope_limit": "Bounded Garden raw-pointer action context. Reentry and subsequent games retain a legitimate temporary Garden medal; these four states per aspect are not clean ready views. No explicit boot/fade guards in this first harness."
+    },
+    {
+      "path": "captures/action/1280x720/garden_flower_00_active.png",
+      "state_id": "garden_flower_00_active",
+      "aspect": "1280x720",
+      "run_role": "action",
+      "sha256": "2e6d5009dc13600266f502025582efd1b6a58bc6199faf628d3526ed9ee9c90f",
+      "source_revision": "6cde8aeae04aaedcc0b1ff22a05ef93ab9bf666f",
+      "presentation": null,
+      "scope_limit": "Bounded Garden raw-pointer action context. Reentry and subsequent games retain a legitimate temporary Garden medal; these four states per aspect are not clean ready views. No explicit boot/fade guards in this first harness."
+    },
+    {
+      "path": "captures/action/1280x720/garden_flower_01_active.png",
+      "state_id": "garden_flower_01_active",
+      "aspect": "1280x720",
+      "run_role": "action",
+      "sha256": "a6b9f490e1e2c96c3125313de7ade7801dd594ce5cd3e93a87037ceee595540d",
+      "source_revision": "6cde8aeae04aaedcc0b1ff22a05ef93ab9bf666f",
+      "presentation": null,
+      "scope_limit": "Bounded Garden raw-pointer action context. Reentry and subsequent games retain a legitimate temporary Garden medal; these four states per aspect are not clean ready views. No explicit boot/fade guards in this first harness."
+    },
+    {
+      "path": "captures/action/1280x720/garden_flower_02_active.png",
+      "state_id": "garden_flower_02_active",
+      "aspect": "1280x720",
+      "run_role": "action",
+      "sha256": "9705562ee7e55f0142eccfc28258738bf553e341f9112e08f06f20b6e61a3719",
+      "source_revision": "6cde8aeae04aaedcc0b1ff22a05ef93ab9bf666f",
+      "presentation": null,
+      "scope_limit": "Bounded Garden raw-pointer action context. Reentry and subsequent games retain a legitimate temporary Garden medal; these four states per aspect are not clean ready views. No explicit boot/fade guards in this first harness."
+    },
+    {
+      "path": "captures/action/1280x720/garden_flower_03_active.png",
+      "state_id": "garden_flower_03_active",
+      "aspect": "1280x720",
+      "run_role": "action",
+      "sha256": "5c2d5ac08e0198d97e93474bff5bd24ebbefa74c41a742f0c1a7f47c3105b740",
+      "source_revision": "6cde8aeae04aaedcc0b1ff22a05ef93ab9bf666f",
+      "presentation": null,
+      "scope_limit": "Bounded Garden raw-pointer action context. Reentry and subsequent games retain a legitimate temporary Garden medal; these four states per aspect are not clean ready views. No explicit boot/fade guards in this first harness."
+    },
+    {
+      "path": "captures/action/1280x720/garden_flower_04_active.png",
+      "state_id": "garden_flower_04_active",
+      "aspect": "1280x720",
+      "run_role": "action",
+      "sha256": "2460e431959b48112a5ff99375ad249dc19757767bec397a9b2fe8534fbc1e23",
+      "source_revision": "6cde8aeae04aaedcc0b1ff22a05ef93ab9bf666f",
+      "presentation": null,
+      "scope_limit": "Bounded Garden raw-pointer action context. Reentry and subsequent games retain a legitimate temporary Garden medal; these four states per aspect are not clean ready views. No explicit boot/fade guards in this first harness."
+    },
+    {
+      "path": "captures/action/1280x720/garden_complete_payoff.png",
+      "state_id": "garden_complete_payoff",
+      "aspect": "1280x720",
+      "run_role": "action",
+      "sha256": "f3b0ea3f15424a19bc15493da864ebb4a2ec12edbabd9dcab0c699eecacbbc27",
+      "source_revision": "6cde8aeae04aaedcc0b1ff22a05ef93ab9bf666f",
+      "presentation": null,
+      "scope_limit": "Bounded Garden raw-pointer action context. Reentry and subsequent games retain a legitimate temporary Garden medal; these four states per aspect are not clean ready views. No explicit boot/fade guards in this first harness."
+    },
+    {
+      "path": "captures/action/1280x720/garden_complete_settled.png",
+      "state_id": "garden_complete_settled",
+      "aspect": "1280x720",
+      "run_role": "action",
+      "sha256": "0aa66b3c2985c888e0b5cece751c6a11f548801116565dccde7f10dc92d30705",
+      "source_revision": "6cde8aeae04aaedcc0b1ff22a05ef93ab9bf666f",
+      "presentation": null,
+      "scope_limit": "Bounded Garden raw-pointer action context. Reentry and subsequent games retain a legitimate temporary Garden medal; these four states per aspect are not clean ready views. No explicit boot/fade guards in this first harness."
+    },
+    {
+      "path": "captures/action/1280x720/garden_reentry_seed_ready.png",
+      "state_id": "garden_reentry_seed_ready",
+      "aspect": "1280x720",
+      "run_role": "action",
+      "sha256": "21a1544de4c30522fb47e77d0273663dbf1a7662c8ba87bbac9e7d816ae2c2c8",
+      "source_revision": "6cde8aeae04aaedcc0b1ff22a05ef93ab9bf666f",
+      "presentation": null,
+      "scope_limit": "Bounded Garden raw-pointer action context. Reentry and subsequent games retain a legitimate temporary Garden medal; these four states per aspect are not clean ready views. No explicit boot/fade guards in this first harness."
+    },
+    {
+      "path": "captures/action/1280x720/snowman_ready.png",
+      "state_id": "snowman_ready",
+      "aspect": "1280x720",
+      "run_role": "action",
+      "sha256": "e144571fb87332d8e1004e7456123e0f6062877c852842024904015c5c776c6d",
+      "source_revision": "6cde8aeae04aaedcc0b1ff22a05ef93ab9bf666f",
+      "presentation": null,
+      "scope_limit": "Bounded Garden raw-pointer action context. Reentry and subsequent games retain a legitimate temporary Garden medal; these four states per aspect are not clean ready views. No explicit boot/fade guards in this first harness."
+    },
+    {
+      "path": "captures/action/1280x720/trampoline_ready.png",
+      "state_id": "trampoline_ready",
+      "aspect": "1280x720",
+      "run_role": "action",
+      "sha256": "02089a8e2152e1ea6fc89e2f40cdfee25d2adbfdef48e5439dfd2d449e2b3870",
+      "source_revision": "6cde8aeae04aaedcc0b1ff22a05ef93ab9bf666f",
+      "presentation": null,
+      "scope_limit": "Bounded Garden raw-pointer action context. Reentry and subsequent games retain a legitimate temporary Garden medal; these four states per aspect are not clean ready views. No explicit boot/fade guards in this first harness."
+    },
+    {
+      "path": "captures/action/1280x720/xmas_ready.png",
+      "state_id": "xmas_ready",
+      "aspect": "1280x720",
+      "run_role": "action",
+      "sha256": "e29ecf1f6863d6871594938e6b12c8bd470ece3b13a4f277b6eada631270102f",
+      "source_revision": "6cde8aeae04aaedcc0b1ff22a05ef93ab9bf666f",
+      "presentation": null,
+      "scope_limit": "Bounded Garden raw-pointer action context. Reentry and subsequent games retain a legitimate temporary Garden medal; these four states per aspect are not clean ready views. No explicit boot/fade guards in this first harness."
+    },
+    {
+      "path": "captures/action/1600x720/garden_seed_ready.png",
+      "state_id": "garden_seed_ready",
+      "aspect": "1600x720",
+      "run_role": "action",
+      "sha256": "17475071f2383c713d7dea4b64ef8b8b95e8e25c7909936b5441a4c24a5d84c3",
+      "source_revision": "6cde8aeae04aaedcc0b1ff22a05ef93ab9bf666f",
+      "presentation": null,
+      "scope_limit": "Bounded Garden raw-pointer action context. Reentry and subsequent games retain a legitimate temporary Garden medal; these four states per aspect are not clean ready views. No explicit boot/fade guards in this first harness."
+    },
+    {
+      "path": "captures/action/1600x720/garden_sprout_00_active.png",
+      "state_id": "garden_sprout_00_active",
+      "aspect": "1600x720",
+      "run_role": "action",
+      "sha256": "c31893030ed174c13eb7b5d9a1c18f767fedcb4483b122ec732e9a23b74b95aa",
+      "source_revision": "6cde8aeae04aaedcc0b1ff22a05ef93ab9bf666f",
+      "presentation": null,
+      "scope_limit": "Bounded Garden raw-pointer action context. Reentry and subsequent games retain a legitimate temporary Garden medal; these four states per aspect are not clean ready views. No explicit boot/fade guards in this first harness."
+    },
+    {
+      "path": "captures/action/1600x720/garden_sprout_01_active.png",
+      "state_id": "garden_sprout_01_active",
+      "aspect": "1600x720",
+      "run_role": "action",
+      "sha256": "14b745214c5803048b29856520a6b3fe2c8fd24b606f8979378842a127d75725",
+      "source_revision": "6cde8aeae04aaedcc0b1ff22a05ef93ab9bf666f",
+      "presentation": null,
+      "scope_limit": "Bounded Garden raw-pointer action context. Reentry and subsequent games retain a legitimate temporary Garden medal; these four states per aspect are not clean ready views. No explicit boot/fade guards in this first harness."
+    },
+    {
+      "path": "captures/action/1600x720/garden_sprout_02_active.png",
+      "state_id": "garden_sprout_02_active",
+      "aspect": "1600x720",
+      "run_role": "action",
+      "sha256": "b7fea5fca261466a7e4373dbff04ea1917f9c72e66de0e4c649efaca665b0426",
+      "source_revision": "6cde8aeae04aaedcc0b1ff22a05ef93ab9bf666f",
+      "presentation": null,
+      "scope_limit": "Bounded Garden raw-pointer action context. Reentry and subsequent games retain a legitimate temporary Garden medal; these four states per aspect are not clean ready views. No explicit boot/fade guards in this first harness."
+    },
+    {
+      "path": "captures/action/1600x720/garden_sprout_03_active.png",
+      "state_id": "garden_sprout_03_active",
+      "aspect": "1600x720",
+      "run_role": "action",
+      "sha256": "c9864fe3d4ee2366791773769ba9ef94b809dda9fcc6b9ec27bd09299e15f082",
+      "source_revision": "6cde8aeae04aaedcc0b1ff22a05ef93ab9bf666f",
+      "presentation": null,
+      "scope_limit": "Bounded Garden raw-pointer action context. Reentry and subsequent games retain a legitimate temporary Garden medal; these four states per aspect are not clean ready views. No explicit boot/fade guards in this first harness."
+    },
+    {
+      "path": "captures/action/1600x720/garden_sprout_04_active.png",
+      "state_id": "garden_sprout_04_active",
+      "aspect": "1600x720",
+      "run_role": "action",
+      "sha256": "a29953c562c99781b59b8a74d0fbef5f3a8ffc4a225e64b86cb851affe5dcc44",
+      "source_revision": "6cde8aeae04aaedcc0b1ff22a05ef93ab9bf666f",
+      "presentation": null,
+      "scope_limit": "Bounded Garden raw-pointer action context. Reentry and subsequent games retain a legitimate temporary Garden medal; these four states per aspect are not clean ready views. No explicit boot/fade guards in this first harness."
+    },
+    {
+      "path": "captures/action/1600x720/garden_all_sprouts_settled.png",
+      "state_id": "garden_all_sprouts_settled",
+      "aspect": "1600x720",
+      "run_role": "action",
+      "sha256": "253807d9326cad12d4a22b5e5c317caf7cffa795f87b2c8d449721802ed282ee",
+      "source_revision": "6cde8aeae04aaedcc0b1ff22a05ef93ab9bf666f",
+      "presentation": null,
+      "scope_limit": "Bounded Garden raw-pointer action context. Reentry and subsequent games retain a legitimate temporary Garden medal; these four states per aspect are not clean ready views. No explicit boot/fade guards in this first harness."
+    },
+    {
+      "path": "captures/action/1600x720/garden_flower_00_active.png",
+      "state_id": "garden_flower_00_active",
+      "aspect": "1600x720",
+      "run_role": "action",
+      "sha256": "150eb1d6520952ab60ecbc7fad1f0fedf86c5868bc060678b20e808b9db6676d",
+      "source_revision": "6cde8aeae04aaedcc0b1ff22a05ef93ab9bf666f",
+      "presentation": null,
+      "scope_limit": "Bounded Garden raw-pointer action context. Reentry and subsequent games retain a legitimate temporary Garden medal; these four states per aspect are not clean ready views. No explicit boot/fade guards in this first harness."
+    },
+    {
+      "path": "captures/action/1600x720/garden_flower_01_active.png",
+      "state_id": "garden_flower_01_active",
+      "aspect": "1600x720",
+      "run_role": "action",
+      "sha256": "7e588f76223cc68c81718fd72b4710f0f35a4b103afe186427e4c19f5c432553",
+      "source_revision": "6cde8aeae04aaedcc0b1ff22a05ef93ab9bf666f",
+      "presentation": null,
+      "scope_limit": "Bounded Garden raw-pointer action context. Reentry and subsequent games retain a legitimate temporary Garden medal; these four states per aspect are not clean ready views. No explicit boot/fade guards in this first harness."
+    },
+    {
+      "path": "captures/action/1600x720/garden_flower_02_active.png",
+      "state_id": "garden_flower_02_active",
+      "aspect": "1600x720",
+      "run_role": "action",
+      "sha256": "ba726fa735dc1814ad6ca92ba970bf8299193c8a918faf422c4764eacc266e84",
+      "source_revision": "6cde8aeae04aaedcc0b1ff22a05ef93ab9bf666f",
+      "presentation": null,
+      "scope_limit": "Bounded Garden raw-pointer action context. Reentry and subsequent games retain a legitimate temporary Garden medal; these four states per aspect are not clean ready views. No explicit boot/fade guards in this first harness."
+    },
+    {
+      "path": "captures/action/1600x720/garden_flower_03_active.png",
+      "state_id": "garden_flower_03_active",
+      "aspect": "1600x720",
+      "run_role": "action",
+      "sha256": "df9125b9bd29c7153da49c59777375c414ed1046969add74a6648709ad126ac3",
+      "source_revision": "6cde8aeae04aaedcc0b1ff22a05ef93ab9bf666f",
+      "presentation": null,
+      "scope_limit": "Bounded Garden raw-pointer action context. Reentry and subsequent games retain a legitimate temporary Garden medal; these four states per aspect are not clean ready views. No explicit boot/fade guards in this first harness."
+    },
+    {
+      "path": "captures/action/1600x720/garden_flower_04_active.png",
+      "state_id": "garden_flower_04_active",
+      "aspect": "1600x720",
+      "run_role": "action",
+      "sha256": "215db40f5ebd48bb6afae6be985df59b9e95e0065ed8ae46a47edcd56bb6b29f",
+      "source_revision": "6cde8aeae04aaedcc0b1ff22a05ef93ab9bf666f",
+      "presentation": null,
+      "scope_limit": "Bounded Garden raw-pointer action context. Reentry and subsequent games retain a legitimate temporary Garden medal; these four states per aspect are not clean ready views. No explicit boot/fade guards in this first harness."
+    },
+    {
+      "path": "captures/action/1600x720/garden_complete_payoff.png",
+      "state_id": "garden_complete_payoff",
+      "aspect": "1600x720",
+      "run_role": "action",
+      "sha256": "cf14574df498b8baa595ee782acf7d91e9baa5c55b4f6a90a265fde7937cadf3",
+      "source_revision": "6cde8aeae04aaedcc0b1ff22a05ef93ab9bf666f",
+      "presentation": null,
+      "scope_limit": "Bounded Garden raw-pointer action context. Reentry and subsequent games retain a legitimate temporary Garden medal; these four states per aspect are not clean ready views. No explicit boot/fade guards in this first harness."
+    },
+    {
+      "path": "captures/action/1600x720/garden_complete_settled.png",
+      "state_id": "garden_complete_settled",
+      "aspect": "1600x720",
+      "run_role": "action",
+      "sha256": "82d287255dc2520b32a028b5020098804edf8b0629d9a3e6ae047ef8829d49d5",
+      "source_revision": "6cde8aeae04aaedcc0b1ff22a05ef93ab9bf666f",
+      "presentation": null,
+      "scope_limit": "Bounded Garden raw-pointer action context. Reentry and subsequent games retain a legitimate temporary Garden medal; these four states per aspect are not clean ready views. No explicit boot/fade guards in this first harness."
+    },
+    {
+      "path": "captures/action/1600x720/garden_reentry_seed_ready.png",
+      "state_id": "garden_reentry_seed_ready",
+      "aspect": "1600x720",
+      "run_role": "action",
+      "sha256": "2c1aaf49395de478977a6e575e236432a441c202c306cab0374fbf945ac90c62",
+      "source_revision": "6cde8aeae04aaedcc0b1ff22a05ef93ab9bf666f",
+      "presentation": null,
+      "scope_limit": "Bounded Garden raw-pointer action context. Reentry and subsequent games retain a legitimate temporary Garden medal; these four states per aspect are not clean ready views. No explicit boot/fade guards in this first harness."
+    },
+    {
+      "path": "captures/action/1600x720/snowman_ready.png",
+      "state_id": "snowman_ready",
+      "aspect": "1600x720",
+      "run_role": "action",
+      "sha256": "bae698ec4c7f46e2a897dbdc514f157001f28b10d52e65479cb33099208374cd",
+      "source_revision": "6cde8aeae04aaedcc0b1ff22a05ef93ab9bf666f",
+      "presentation": null,
+      "scope_limit": "Bounded Garden raw-pointer action context. Reentry and subsequent games retain a legitimate temporary Garden medal; these four states per aspect are not clean ready views. No explicit boot/fade guards in this first harness."
+    },
+    {
+      "path": "captures/action/1600x720/trampoline_ready.png",
+      "state_id": "trampoline_ready",
+      "aspect": "1600x720",
+      "run_role": "action",
+      "sha256": "a3c5c84e06a08b5661956ccd98138eaf1b6742e1eec7be5ffd99dc0d90ceb26e",
+      "source_revision": "6cde8aeae04aaedcc0b1ff22a05ef93ab9bf666f",
+      "presentation": null,
+      "scope_limit": "Bounded Garden raw-pointer action context. Reentry and subsequent games retain a legitimate temporary Garden medal; these four states per aspect are not clean ready views. No explicit boot/fade guards in this first harness."
+    },
+    {
+      "path": "captures/action/1600x720/xmas_ready.png",
+      "state_id": "xmas_ready",
+      "aspect": "1600x720",
+      "run_role": "action",
+      "sha256": "7cf93ecfc34a52f1874b2b6d80d167df917d98a838efd1517f57997f37cc0b2d",
+      "source_revision": "6cde8aeae04aaedcc0b1ff22a05ef93ab9bf666f",
+      "presentation": null,
+      "scope_limit": "Bounded Garden raw-pointer action context. Reentry and subsequent games retain a legitimate temporary Garden medal; these four states per aspect are not clean ready views. No explicit boot/fade guards in this first harness."
+    },
+    {
+      "path": "captures/rejected_fresh/1280x720/garden_fresh_ready.png",
+      "state_id": "garden_fresh_ready",
+      "aspect": "1280x720",
+      "run_role": "rejected_fresh",
+      "sha256": "881af0f50eeb902296e4a3b88eba12294f5b4405e681cdc87a9d580d38d16b57",
+      "source_revision": "6cde8aeae04aaedcc0b1ff22a05ef93ab9bf666f",
+      "presentation": null,
+      "scope_limit": "Rejected as a clean-ready evidence batch: no BootSplashHandoff guard. Four inspected frames visibly contain the boot illustration over the game. Passing process exit does not accept presentation."
+    },
+    {
+      "path": "captures/rejected_fresh/1280x720/snowman_fresh_ready.png",
+      "state_id": "snowman_fresh_ready",
+      "aspect": "1280x720",
+      "run_role": "rejected_fresh",
+      "sha256": "16a1658d153958bce726b8e854e7744d2585e75426d49d85809c65dd3fcbc89f",
+      "source_revision": "6cde8aeae04aaedcc0b1ff22a05ef93ab9bf666f",
+      "presentation": null,
+      "scope_limit": "Rejected as a clean-ready evidence batch: no BootSplashHandoff guard. Four inspected frames visibly contain the boot illustration over the game. Passing process exit does not accept presentation."
+    },
+    {
+      "path": "captures/rejected_fresh/1280x720/trampoline_fresh_ready.png",
+      "state_id": "trampoline_fresh_ready",
+      "aspect": "1280x720",
+      "run_role": "rejected_fresh",
+      "sha256": "2bd0a31093c67c1da30d2e3561a3b7da28bce29530ee74fc09c7f1d3e9ee4a31",
+      "source_revision": "6cde8aeae04aaedcc0b1ff22a05ef93ab9bf666f",
+      "presentation": null,
+      "scope_limit": "Rejected as a clean-ready evidence batch: no BootSplashHandoff guard. Four inspected frames visibly contain the boot illustration over the game. Passing process exit does not accept presentation."
+    },
+    {
+      "path": "captures/rejected_fresh/1280x720/xmas_fresh_ready.png",
+      "state_id": "xmas_fresh_ready",
+      "aspect": "1280x720",
+      "run_role": "rejected_fresh",
+      "sha256": "deb1f181953a6612b0ffacc779314afeaa7470007f2a5d020fc7918d5c426212",
+      "source_revision": "6cde8aeae04aaedcc0b1ff22a05ef93ab9bf666f",
+      "presentation": null,
+      "scope_limit": "Rejected as a clean-ready evidence batch: no BootSplashHandoff guard. Four inspected frames visibly contain the boot illustration over the game. Passing process exit does not accept presentation."
+    },
+    {
+      "path": "captures/rejected_fresh/1600x720/garden_fresh_ready.png",
+      "state_id": "garden_fresh_ready",
+      "aspect": "1600x720",
+      "run_role": "rejected_fresh",
+      "sha256": "5663f9427042e20664154f9c119fc2fbb23cf0e26855898151378f87925a9e95",
+      "source_revision": "6cde8aeae04aaedcc0b1ff22a05ef93ab9bf666f",
+      "presentation": null,
+      "scope_limit": "Rejected as a clean-ready evidence batch: no BootSplashHandoff guard. Four inspected frames visibly contain the boot illustration over the game. Passing process exit does not accept presentation."
+    },
+    {
+      "path": "captures/rejected_fresh/1600x720/snowman_fresh_ready.png",
+      "state_id": "snowman_fresh_ready",
+      "aspect": "1600x720",
+      "run_role": "rejected_fresh",
+      "sha256": "00aaf9698b02272c7e03e2d8a825dcd2d5ad5e4c03e486148c5bc2c4444a9a7b",
+      "source_revision": "6cde8aeae04aaedcc0b1ff22a05ef93ab9bf666f",
+      "presentation": null,
+      "scope_limit": "Rejected as a clean-ready evidence batch: no BootSplashHandoff guard. Four inspected frames visibly contain the boot illustration over the game. Passing process exit does not accept presentation."
+    },
+    {
+      "path": "captures/rejected_fresh/1600x720/trampoline_fresh_ready.png",
+      "state_id": "trampoline_fresh_ready",
+      "aspect": "1600x720",
+      "run_role": "rejected_fresh",
+      "sha256": "96e0336da36e37562129605853908f127e1cd6fb533b48a3987fdb041d25ede8",
+      "source_revision": "6cde8aeae04aaedcc0b1ff22a05ef93ab9bf666f",
+      "presentation": null,
+      "scope_limit": "Rejected as a clean-ready evidence batch: no BootSplashHandoff guard. Four inspected frames visibly contain the boot illustration over the game. Passing process exit does not accept presentation."
+    },
+    {
+      "path": "captures/rejected_fresh/1600x720/xmas_fresh_ready.png",
+      "state_id": "xmas_fresh_ready",
+      "aspect": "1600x720",
+      "run_role": "rejected_fresh",
+      "sha256": "d501b51cf4e81d7075821912d00cfbad09750a7621c3f84c84400dd857d101ba",
+      "source_revision": "6cde8aeae04aaedcc0b1ff22a05ef93ab9bf666f",
+      "presentation": null,
+      "scope_limit": "Rejected as a clean-ready evidence batch: no BootSplashHandoff guard. Four inspected frames visibly contain the boot illustration over the game. Passing process exit does not accept presentation."
+    },
+    {
+      "path": "captures/guarded_ready/1280x720/garden_fresh_ready.png",
+      "state_id": "garden_fresh_ready",
+      "aspect": "1280x720",
+      "run_role": "guarded_ready",
+      "sha256": "d9f4ecac12780b9eb247647f1a9ee7ddc3e697bbbb271057d64b2b2f5635feec",
+      "source_revision": "6cde8aeae04aaedcc0b1ff22a05ef93ab9bf666f",
+      "presentation": {
+        "boot_splash_present": false,
+        "fade_alpha": 0.0,
+        "intro_active": false,
+        "intro_layer_present": false,
+        "medal_present": false,
+        "start_menu_active": false,
+        "start_menu_layer_present": false
+      },
+      "scope_limit": "Fresh Main/save per game; explicit boot/menu/intro/fade/medal guards. Eight clean ready stills independently viewed. No action sequence or natural route acceptance."
+    },
+    {
+      "path": "captures/guarded_ready/1280x720/snowman_fresh_ready.png",
+      "state_id": "snowman_fresh_ready",
+      "aspect": "1280x720",
+      "run_role": "guarded_ready",
+      "sha256": "09d6edc62822d3ae66aaafab057fbb4028f411dc87861714bce0b80b6c57be89",
+      "source_revision": "6cde8aeae04aaedcc0b1ff22a05ef93ab9bf666f",
+      "presentation": {
+        "boot_splash_present": false,
+        "fade_alpha": 0.0,
+        "intro_active": false,
+        "intro_layer_present": false,
+        "medal_present": false,
+        "start_menu_active": false,
+        "start_menu_layer_present": false
+      },
+      "scope_limit": "Fresh Main/save per game; explicit boot/menu/intro/fade/medal guards. Eight clean ready stills independently viewed. No action sequence or natural route acceptance."
+    },
+    {
+      "path": "captures/guarded_ready/1280x720/trampoline_fresh_ready.png",
+      "state_id": "trampoline_fresh_ready",
+      "aspect": "1280x720",
+      "run_role": "guarded_ready",
+      "sha256": "43e5b21945c5b21b5e58885952b4c8926c856ca03a49e211a635c7ea30396d07",
+      "source_revision": "6cde8aeae04aaedcc0b1ff22a05ef93ab9bf666f",
+      "presentation": {
+        "boot_splash_present": false,
+        "fade_alpha": 0.0,
+        "intro_active": false,
+        "intro_layer_present": false,
+        "medal_present": false,
+        "start_menu_active": false,
+        "start_menu_layer_present": false
+      },
+      "scope_limit": "Fresh Main/save per game; explicit boot/menu/intro/fade/medal guards. Eight clean ready stills independently viewed. No action sequence or natural route acceptance."
+    },
+    {
+      "path": "captures/guarded_ready/1280x720/xmas_fresh_ready.png",
+      "state_id": "xmas_fresh_ready",
+      "aspect": "1280x720",
+      "run_role": "guarded_ready",
+      "sha256": "02ad558bd9b485b85cdfc4a20401bc9149d38a750fca5603351062831c476275",
+      "source_revision": "6cde8aeae04aaedcc0b1ff22a05ef93ab9bf666f",
+      "presentation": {
+        "boot_splash_present": false,
+        "fade_alpha": 0.0,
+        "intro_active": false,
+        "intro_layer_present": false,
+        "medal_present": false,
+        "start_menu_active": false,
+        "start_menu_layer_present": false
+      },
+      "scope_limit": "Fresh Main/save per game; explicit boot/menu/intro/fade/medal guards. Eight clean ready stills independently viewed. No action sequence or natural route acceptance."
+    },
+    {
+      "path": "captures/guarded_ready/1600x720/garden_fresh_ready.png",
+      "state_id": "garden_fresh_ready",
+      "aspect": "1600x720",
+      "run_role": "guarded_ready",
+      "sha256": "139dc2dfb93577c6ed5ba3d5d852fe0092ec25293ea1f079b6f05c78db380ecc",
+      "source_revision": "6cde8aeae04aaedcc0b1ff22a05ef93ab9bf666f",
+      "presentation": {
+        "boot_splash_present": false,
+        "fade_alpha": 0.0,
+        "intro_active": false,
+        "intro_layer_present": false,
+        "medal_present": false,
+        "start_menu_active": false,
+        "start_menu_layer_present": false
+      },
+      "scope_limit": "Fresh Main/save per game; explicit boot/menu/intro/fade/medal guards. Eight clean ready stills independently viewed. No action sequence or natural route acceptance."
+    },
+    {
+      "path": "captures/guarded_ready/1600x720/snowman_fresh_ready.png",
+      "state_id": "snowman_fresh_ready",
+      "aspect": "1600x720",
+      "run_role": "guarded_ready",
+      "sha256": "353df67ae583ebe455b7ac47da42fe0c1d8a592cc7f2a35b04a53355f95f1476",
+      "source_revision": "6cde8aeae04aaedcc0b1ff22a05ef93ab9bf666f",
+      "presentation": {
+        "boot_splash_present": false,
+        "fade_alpha": 0.0,
+        "intro_active": false,
+        "intro_layer_present": false,
+        "medal_present": false,
+        "start_menu_active": false,
+        "start_menu_layer_present": false
+      },
+      "scope_limit": "Fresh Main/save per game; explicit boot/menu/intro/fade/medal guards. Eight clean ready stills independently viewed. No action sequence or natural route acceptance."
+    },
+    {
+      "path": "captures/guarded_ready/1600x720/trampoline_fresh_ready.png",
+      "state_id": "trampoline_fresh_ready",
+      "aspect": "1600x720",
+      "run_role": "guarded_ready",
+      "sha256": "39f5644d6a090b5ccfdfada3991aabf49afd6a8d9457e2b51ca1139011ab3801",
+      "source_revision": "6cde8aeae04aaedcc0b1ff22a05ef93ab9bf666f",
+      "presentation": {
+        "boot_splash_present": false,
+        "fade_alpha": 0.0,
+        "intro_active": false,
+        "intro_layer_present": false,
+        "medal_present": false,
+        "start_menu_active": false,
+        "start_menu_layer_present": false
+      },
+      "scope_limit": "Fresh Main/save per game; explicit boot/menu/intro/fade/medal guards. Eight clean ready stills independently viewed. No action sequence or natural route acceptance."
+    },
+    {
+      "path": "captures/guarded_ready/1600x720/xmas_fresh_ready.png",
+      "state_id": "xmas_fresh_ready",
+      "aspect": "1600x720",
+      "run_role": "guarded_ready",
+      "sha256": "500a91a3e7120732334de27fdf0daba5362a61f9f2faee034958e808f81b7514",
+      "source_revision": "6cde8aeae04aaedcc0b1ff22a05ef93ab9bf666f",
+      "presentation": {
+        "boot_splash_present": false,
+        "fade_alpha": 0.0,
+        "intro_active": false,
+        "intro_layer_present": false,
+        "medal_present": false,
+        "start_menu_active": false,
+        "start_menu_layer_present": false
+      },
+      "scope_limit": "Fresh Main/save per game; explicit boot/menu/intro/fade/medal guards. Eight clean ready stills independently viewed. No action sequence or natural route acceptance."
+    }
+  ],
+  "source_files": [
+    {
+      "path": "scripts/games/picture_games.gd",
+      "raw_sha256": "62466debfd47fe61b46840c36c88528769ee114e90d493460ef6b49fe0c75d74",
+      "lf_text_sha256": "5d7202ac46b0ca26752b74b959eb052f2889369932d697b8b8727ad368abc8f0"
+    },
+    {
+      "path": "scripts/medal_system.gd",
+      "raw_sha256": "73283aa72639210cb42f14c9d7445cd661cef37560ccb9a7aa3c635477e68584",
+      "lf_text_sha256": "585959372cbe4bf2e98d0830097b3b98c9519b52645516857a61ce22b489d36d"
+    },
+    {
+      "path": "scripts/storybook_ui.gd",
+      "raw_sha256": "137404cf953e2f40b0a21924c22e8f5a7bd63aee3e7f81ae71543cceefbdab31",
+      "lf_text_sha256": "839e53d6893347808341523d4e4b58e3727cc4fd4cd698726c92d494edce0fa7"
+    },
+    {
+      "path": "ASSET_LICENSES.md",
+      "raw_sha256": "3eeee323b4089cb1c51d27ceeb2be7a164c1165a238cda68f2236d6a577f3310",
+      "lf_text_sha256": "3eeee323b4089cb1c51d27ceeb2be7a164c1165a238cda68f2236d6a577f3310"
+    }
+  ],
+  "reuse_inventory": [
+    {
+      "role": "Exact alternate duplicate; no quality improvement",
+      "runtime": "assets/mg/k_sprout.png",
+      "alternate": "assets/art35/cards/mg/k_sprout_k_sprout.png",
+      "runtime_sha256": "d7542d8d812a28ddce435c8acf3a103df85e5af59178ad05c9bdb5fef1ed0926",
+      "alternate_sha256": "d7542d8d812a28ddce435c8acf3a103df85e5af59178ad05c9bdb5fef1ed0926",
+      "bytes_identical": true,
+      "authority": "ASSET_LICENSES.md orthographic Garden render row; existing raster art, not automatically flat-vector debt."
+    },
+    {
+      "role": "Exact alternate duplicate; no quality improvement",
+      "runtime": "assets/mg/k_flower1.png",
+      "alternate": "assets/art35/cards/mg/k_flower1_k_flower1.png",
+      "runtime_sha256": "c4edbd641f0cc13e96378b7468f56711b7dd79bb9f90013bfbe66588472fb35e",
+      "alternate_sha256": "c4edbd641f0cc13e96378b7468f56711b7dd79bb9f90013bfbe66588472fb35e",
+      "bytes_identical": true,
+      "authority": "ASSET_LICENSES.md orthographic Garden render row; existing raster art, not automatically flat-vector debt."
+    },
+    {
+      "role": "Exact alternate duplicate; no quality improvement",
+      "runtime": "assets/mg/flower.png",
+      "alternate": "assets/art35/cards/mg/flower_flower.png",
+      "runtime_sha256": "2753083d4e30f5f6e8b49949e0eb50497b5b03d37691df7e3b6b6deddb79880d",
+      "alternate_sha256": "2753083d4e30f5f6e8b49949e0eb50497b5b03d37691df7e3b6b6deddb79880d",
+      "bytes_identical": true,
+      "authority": "ASSET_LICENSES.md orthographic Garden render row; existing raster art, not automatically flat-vector debt."
+    },
+    {
+      "role": "Exact alternate duplicate; no quality improvement",
+      "runtime": "assets/mg/flower2.png",
+      "alternate": "assets/art35/cards/mg/flower2_flower2.png",
+      "runtime_sha256": "1ab22c71a550c94c71fcab769c6f1b47f1d73c1ff792775fdc1f9c365ac77a09",
+      "alternate_sha256": "1ab22c71a550c94c71fcab769c6f1b47f1d73c1ff792775fdc1f9c365ac77a09",
+      "bytes_identical": true,
+      "authority": "ASSET_LICENSES.md orthographic Garden render row; existing raster art, not automatically flat-vector debt."
+    },
+    {
+      "role": "Exact alternate duplicate; no quality improvement",
+      "runtime": "assets/mg/k_flower2.png",
+      "alternate": "assets/art35/cards/mg/k_flower2_k_flower2.png",
+      "runtime_sha256": "522130ad5c354b1a80aa9734feb025d23c4551af6796cd89f9664d2c0750553d",
+      "alternate_sha256": "522130ad5c354b1a80aa9734feb025d23c4551af6796cd89f9664d2c0750553d",
+      "bytes_identical": true,
+      "authority": "ASSET_LICENSES.md orthographic Garden render row; existing raster art, not automatically flat-vector debt."
+    },
+    {
+      "role": "Exact alternate duplicate; no quality improvement",
+      "runtime": "assets/mg/flower3.png",
+      "alternate": "assets/art35/cards/mg/flower3_flower3.png",
+      "runtime_sha256": "46e05838998044aa1fb36738719fe769521d4b727d891c6062f5ec4cbbe56352",
+      "alternate_sha256": "46e05838998044aa1fb36738719fe769521d4b727d891c6062f5ec4cbbe56352",
+      "bytes_identical": true,
+      "authority": "ASSET_LICENSES.md orthographic Garden render row; existing raster art, not automatically flat-vector debt."
+    },
+    {
+      "role": "Inspected approved painted reuse candidate; Garden fit not accepted",
+      "source": "assets/props/story/flower_coral.png",
+      "sha256": "816c23a8a51e20ff9837cbbe7631375178b7bda0f3ed9d0a807cbfd23403d724",
+      "dimensions": [
+        683,
+        1024
+      ],
+      "alpha_bbox": [
+        137,
+        47,
+        546,
+        977
+      ],
+      "authority": "ASSET_LICENSES.md Batch04 tropical/flower world-card row; original sheets under assets_src/style_review_batch_04/final.",
+      "fit_limit": "Flowers expose roots and differ in contour occupancy/flower species from current Garden outcomes. Whole-art reuse with non-destructive crop/matte and correct soil contact needs exact scene review. Detached leaf alone is not a complete sprout; avoid arbitrary plant assembly."
+    },
+    {
+      "role": "Inspected approved painted reuse candidate; Garden fit not accepted",
+      "source": "assets/props/story/flower_lavender.png",
+      "sha256": "650ffbfe85cb93d9b42d12f9b291ba25f35285f641b5221a6300fe474554438b",
+      "dimensions": [
+        683,
+        1024
+      ],
+      "alpha_bbox": [
+        129,
+        64,
+        549,
+        958
+      ],
+      "authority": "ASSET_LICENSES.md Batch04 tropical/flower world-card row; original sheets under assets_src/style_review_batch_04/final.",
+      "fit_limit": "Flowers expose roots and differ in contour occupancy/flower species from current Garden outcomes. Whole-art reuse with non-destructive crop/matte and correct soil contact needs exact scene review. Detached leaf alone is not a complete sprout; avoid arbitrary plant assembly."
+    },
+    {
+      "role": "Inspected approved painted reuse candidate; Garden fit not accepted",
+      "source": "assets/props/story/leaf_broad.png",
+      "sha256": "d459cbc137aee9ef6530b05e314e1f3e84ab2b72a46c334d47c8e6e21946af07",
+      "dimensions": [
+        269,
+        569
+      ],
+      "alpha_bbox": [
+        8,
+        8,
+        269,
+        561
+      ],
+      "authority": "ASSET_LICENSES.md Batch04 tropical/flower world-card row; original sheets under assets_src/style_review_batch_04/final.",
+      "fit_limit": "Flowers expose roots and differ in contour occupancy/flower species from current Garden outcomes. Whole-art reuse with non-destructive crop/matte and correct soil contact needs exact scene review. Detached leaf alone is not a complete sprout; avoid arbitrary plant assembly."
+    }
+  ],
+  "observations": [
+    {
+      "id": "ROOTPIC-01",
+      "title": "Garden grass mound",
+      "existing_piece_ids": [],
+      "classification": "Confirmed visible procedural artwork",
+      "observed_weakness": "A broad uniform green mound with hard rim/highlight has little authored material detail.",
+      "same_scene_comparison": "Painted sun, seed, butterflies and Roshan carry shaped light, material cues and authored contours. Green palette already belongs to the scene.",
+      "proposed_update": "Inventory existing calm painted grass/ground first. Reuse a cohesive whole ground strip or commission only the missing grassy base, preserving open negative space around five plants.",
+      "must_preserve": "Five slots and their unobstructed input envelopes; no added distracting props.",
+      "evidence_paths": [
+        "captures/guarded_ready/1280x720/garden_fresh_ready.png",
+        "captures/guarded_ready/1600x720/garden_fresh_ready.png"
+      ],
+      "limits": "New named-role registry binding required; not yet a new counted unique design.",
+      "status": "CONTEXT_REVIEW_OPEN",
+      "replacement_pixels": 0,
+      "runtime_integrations": 0,
+      "accepted_removals": 0
+    },
+    {
+      "id": "ROOTPIC-02",
+      "title": "Five Garden clay pots",
+      "existing_piece_ids": [],
+      "classification": "Confirmed visible procedural artwork",
+      "observed_weakness": "Five repeated flat rounded terracotta shapes with a generic white highlight do not clearly describe an open soil-filled pot.",
+      "same_scene_comparison": "Brown painted seeds have texture and shaded volume. The plants must root at the same soil line as these containers.",
+      "proposed_update": "Use one authored clay-pot design repeated five times, with a readable shallow opening/soil and restrained contact shadow. Inventory reusable containers before generation.",
+      "must_preserve": "150x100 visible envelope and slot spacing; soil/contact line at 615; preserve seed < sprout < flower hierarchy.",
+      "evidence_paths": [
+        "captures/guarded_ready/1280x720/garden_fresh_ready.png",
+        "captures/guarded_ready/1600x720/garden_fresh_ready.png"
+      ],
+      "limits": "Five instances of one family, not five independently generated designs. Recheck all growth states and occlusion.",
+      "status": "CONTEXT_REVIEW_OPEN",
+      "replacement_pixels": 0,
+      "runtime_integrations": 0,
+      "accepted_removals": 0
+    },
+    {
+      "id": "ROOTPIC-03",
+      "title": "Common Garden sprout",
+      "existing_piece_ids": [
+        "FV-2A7698EB514E"
+      ],
+      "classification": "Shaded raster style candidate; not automatically vector",
+      "observed_weakness": "Geometric rod stem and simple elliptical leaves have a simpler surface treatment than Roshan and the sun.",
+      "same_scene_comparison": "All five plants share this sprout and the same brown seed/pot family. Existing painted flower/leaf cards offer more authored contours but are not exact sprout replacements.",
+      "proposed_update": "Reuse a suitable complete seedling if found; otherwise draw one common sprout matching the scene’s gentle indigo contours, green family and soil entry. Do not randomly rebuild each sprout.",
+      "must_preserve": "One shared identity, 148x148 art rect, 0.881 stem-bottom mapping, approximately 105px visible height; root at soil.",
+      "evidence_paths": [
+        "captures/action/1280x720/garden_all_sprouts_settled.png",
+        "captures/action/1280x720/garden_sprout_00_active.png"
+      ],
+      "limits": "The art35 alternate is byte-identical; a detached broad leaf is not an accepted whole sprout.",
+      "status": "CONTEXT_REVIEW_OPEN",
+      "replacement_pixels": 0,
+      "runtime_integrations": 0,
+      "accepted_removals": 0
+    },
+    {
+      "id": "ROOTPIC-04",
+      "title": "Garden mature outcome 1 (k_flower1)",
+      "existing_piece_ids": [
+        "FV-0CE81E2C1213"
+      ],
+      "classification": "Shaded raster style candidate; not automatically vector",
+      "observed_weakness": "Simple shaded petal/leaf forms and rod stems feel less authored than the adjacent painted world cards.",
+      "same_scene_comparison": "Compare this exact outcome with the common sprout and the other four flowers as a coherent set, and with painted seed/sun/Roshan. Two approved painted flower cards are available but do not cover all five outcome identities.",
+      "proposed_update": "Audit whole-card reuse for this specific flower first. Where reuse fails, redraw the named outcome with compatible contours, soft painted surfaces and the same distinct blossom structure; review all five together before integration.",
+      "must_preserve": "Current slot/order, distinct five outcomes, 228x228 art rect, approximately 170px visible height, stable soil entry, 0.12s 1.2 pop then 0.12s settle.",
+      "evidence_paths": [
+        "captures/action/1280x720/garden_flower_00_active.png",
+        "captures/action/1280x720/garden_complete_settled.png",
+        "captures/action/1600x720/garden_complete_settled.png"
+      ],
+      "limits": "No blanket finding that all raster flowers are flat vector; art35 alternate is byte-identical; identity/fit/phone acceptance still open.",
+      "status": "CONTEXT_REVIEW_OPEN",
+      "replacement_pixels": 0,
+      "runtime_integrations": 0,
+      "accepted_removals": 0
+    },
+    {
+      "id": "ROOTPIC-05",
+      "title": "Garden mature outcome 2 (flower)",
+      "existing_piece_ids": [
+        "FV-80696B25F705"
+      ],
+      "classification": "Shaded raster style candidate; not automatically vector",
+      "observed_weakness": "Simple shaded petal/leaf forms and rod stems feel less authored than the adjacent painted world cards.",
+      "same_scene_comparison": "Compare this exact outcome with the common sprout and the other four flowers as a coherent set, and with painted seed/sun/Roshan. Two approved painted flower cards are available but do not cover all five outcome identities.",
+      "proposed_update": "Audit whole-card reuse for this specific flower first. Where reuse fails, redraw the named outcome with compatible contours, soft painted surfaces and the same distinct blossom structure; review all five together before integration.",
+      "must_preserve": "Current slot/order, distinct five outcomes, 228x228 art rect, approximately 170px visible height, stable soil entry, 0.12s 1.2 pop then 0.12s settle.",
+      "evidence_paths": [
+        "captures/action/1280x720/garden_flower_01_active.png",
+        "captures/action/1280x720/garden_complete_settled.png",
+        "captures/action/1600x720/garden_complete_settled.png"
+      ],
+      "limits": "No blanket finding that all raster flowers are flat vector; art35 alternate is byte-identical; identity/fit/phone acceptance still open.",
+      "status": "CONTEXT_REVIEW_OPEN",
+      "replacement_pixels": 0,
+      "runtime_integrations": 0,
+      "accepted_removals": 0
+    },
+    {
+      "id": "ROOTPIC-06",
+      "title": "Garden mature outcome 3 (flower2)",
+      "existing_piece_ids": [
+        "FV-712A4ED716EA"
+      ],
+      "classification": "Shaded raster style candidate; not automatically vector",
+      "observed_weakness": "Simple shaded petal/leaf forms and rod stems feel less authored than the adjacent painted world cards.",
+      "same_scene_comparison": "Compare this exact outcome with the common sprout and the other four flowers as a coherent set, and with painted seed/sun/Roshan. Two approved painted flower cards are available but do not cover all five outcome identities.",
+      "proposed_update": "Audit whole-card reuse for this specific flower first. Where reuse fails, redraw the named outcome with compatible contours, soft painted surfaces and the same distinct blossom structure; review all five together before integration.",
+      "must_preserve": "Current slot/order, distinct five outcomes, 228x228 art rect, approximately 170px visible height, stable soil entry, 0.12s 1.2 pop then 0.12s settle.",
+      "evidence_paths": [
+        "captures/action/1280x720/garden_flower_02_active.png",
+        "captures/action/1280x720/garden_complete_settled.png",
+        "captures/action/1600x720/garden_complete_settled.png"
+      ],
+      "limits": "No blanket finding that all raster flowers are flat vector; art35 alternate is byte-identical; identity/fit/phone acceptance still open.",
+      "status": "CONTEXT_REVIEW_OPEN",
+      "replacement_pixels": 0,
+      "runtime_integrations": 0,
+      "accepted_removals": 0
+    },
+    {
+      "id": "ROOTPIC-07",
+      "title": "Garden mature outcome 4 (k_flower2)",
+      "existing_piece_ids": [
+        "FV-D3FF54E92E64"
+      ],
+      "classification": "Shaded raster style candidate; not automatically vector",
+      "observed_weakness": "Simple shaded petal/leaf forms and rod stems feel less authored than the adjacent painted world cards.",
+      "same_scene_comparison": "Compare this exact outcome with the common sprout and the other four flowers as a coherent set, and with painted seed/sun/Roshan. Two approved painted flower cards are available but do not cover all five outcome identities.",
+      "proposed_update": "Audit whole-card reuse for this specific flower first. Where reuse fails, redraw the named outcome with compatible contours, soft painted surfaces and the same distinct blossom structure; review all five together before integration.",
+      "must_preserve": "Current slot/order, distinct five outcomes, 228x228 art rect, approximately 170px visible height, stable soil entry, 0.12s 1.2 pop then 0.12s settle.",
+      "evidence_paths": [
+        "captures/action/1280x720/garden_flower_03_active.png",
+        "captures/action/1280x720/garden_complete_settled.png",
+        "captures/action/1600x720/garden_complete_settled.png"
+      ],
+      "limits": "No blanket finding that all raster flowers are flat vector; art35 alternate is byte-identical; identity/fit/phone acceptance still open.",
+      "status": "CONTEXT_REVIEW_OPEN",
+      "replacement_pixels": 0,
+      "runtime_integrations": 0,
+      "accepted_removals": 0
+    },
+    {
+      "id": "ROOTPIC-08",
+      "title": "Garden mature outcome 5 (flower3)",
+      "existing_piece_ids": [
+        "FV-0B0A0AE1B9CF"
+      ],
+      "classification": "Shaded raster style candidate; not automatically vector",
+      "observed_weakness": "Simple shaded petal/leaf forms and rod stems feel less authored than the adjacent painted world cards.",
+      "same_scene_comparison": "Compare this exact outcome with the common sprout and the other four flowers as a coherent set, and with painted seed/sun/Roshan. Two approved painted flower cards are available but do not cover all five outcome identities.",
+      "proposed_update": "Audit whole-card reuse for this specific flower first. Where reuse fails, redraw the named outcome with compatible contours, soft painted surfaces and the same distinct blossom structure; review all five together before integration.",
+      "must_preserve": "Current slot/order, distinct five outcomes, 228x228 art rect, approximately 170px visible height, stable soil entry, 0.12s 1.2 pop then 0.12s settle.",
+      "evidence_paths": [
+        "captures/action/1280x720/garden_flower_04_active.png",
+        "captures/action/1280x720/garden_complete_settled.png",
+        "captures/action/1600x720/garden_complete_settled.png"
+      ],
+      "limits": "No blanket finding that all raster flowers are flat vector; art35 alternate is byte-identical; identity/fit/phone acceptance still open.",
+      "status": "CONTEXT_REVIEW_OPEN",
+      "replacement_pixels": 0,
+      "runtime_integrations": 0,
+      "accepted_removals": 0
+    },
+    {
+      "id": "ROOTPIC-09",
+      "title": "Garden watering can",
+      "existing_piece_ids": [
+        "FV-74CBBFCFD63F"
+      ],
+      "classification": "Raster finish/contact-fit candidate",
+      "observed_weakness": "The small pink can has a rougher contour/resolution than Roshan and floats nearby as a watching/watering cue.",
+      "same_scene_comparison": "Existing sun and seed have finer painted shaping. Palette already matches the pink/purple family.",
+      "proposed_update": "Preserve this can’s identity; check its best source master and non-destructive cleanup before requesting new pixels. Review readable spout orientation and intentional relation to Roshan/flowers.",
+      "must_preserve": "272x286 transparent raster; runtime 130x137 rect and 0.32 rotation; do not claim or fake a hand-held contact. Protected book art remains untouched.",
+      "evidence_paths": [
+        "captures/guarded_ready/1280x720/garden_fresh_ready.png",
+        "captures/guarded_ready/1600x720/garden_fresh_ready.png"
+      ],
+      "limits": "Alpha exterior is transparent; no white-background contamination defect was found.",
+      "status": "CONTEXT_REVIEW_OPEN",
+      "replacement_pixels": 0,
+      "runtime_integrations": 0,
+      "accepted_removals": 0
+    },
+    {
+      "id": "ROOTPIC-10",
+      "title": "Picture-game gradient fields",
+      "existing_piece_ids": [
+        "FV-BBB50149283E"
+      ],
+      "classification": "Confirmed generated flat field; material/context candidate",
+      "observed_weakness": "Large smooth gradients supply calm negative space but no authored scene material.",
+      "same_scene_comparison": "Garden uses warm painted props; Snowman needs snow; Trampoline uses Roshan/star; Xmas has a detailed cool tree/ornaments. Each needs its own environmental/paper context.",
+      "proposed_update": "Inventory calm existing backgrounds per game. Reuse or draw a context-specific painted field with restrained depth, keeping targets clear; do not put a random busy landscape behind every activity.",
+      "must_preserve": "HUD and all input envelopes; native background coverage/import/overdraw rules; source-specific scene identity.",
+      "evidence_paths": [
+        "captures/guarded_ready/1280x720/garden_fresh_ready.png",
+        "captures/guarded_ready/1600x720/garden_fresh_ready.png",
+        "captures/guarded_ready/1280x720/snowman_fresh_ready.png",
+        "captures/guarded_ready/1280x720/trampoline_fresh_ready.png",
+        "captures/guarded_ready/1280x720/xmas_fresh_ready.png"
+      ],
+      "limits": "Per-game callers require separate resolution; this is not coverage of Slide or every aspect/state.",
+      "status": "CONTEXT_REVIEW_OPEN",
+      "replacement_pixels": 0,
+      "runtime_integrations": 0,
+      "accepted_removals": 0
+    },
+    {
+      "id": "ROOTPIC-11",
+      "title": "Picture growth/win sparkle polygons",
+      "existing_piece_ids": [
+        "FV-E96CD69662D1"
+      ],
+      "classification": "Confirmed visible procedural ornament",
+      "observed_weakness": "Growth and win bursts are flat eight-point stars.",
+      "same_scene_comparison": "Nearby butterflies/sun and the large Trampoline star are authored raster art; a simple painted sparkle may fit without imitating the large objective star.",
+      "proposed_update": "Inspect reusable painted sparkles and share a small authored family; preserve palette and effect limits. Review the burst at full speed, settles and close/reentry.",
+      "must_preserve": "Action max three concurrent bursts; win replaces old bursts; 4..18 elements; 0.35..0.9s lifetime; existing one-owner feedback layer.",
+      "evidence_paths": [
+        "captures/action/1280x720/garden_sprout_00_active.png",
+        "captures/action/1280x720/garden_complete_payoff.png"
+      ],
+      "limits": "Stills do not validate complete motion/seams/phone overdraw.",
+      "status": "CONTEXT_REVIEW_OPEN",
+      "replacement_pixels": 0,
+      "runtime_integrations": 0,
+      "accepted_removals": 0
+    },
+    {
+      "id": "ROOTPIC-12",
+      "title": "Snowman snow field",
+      "existing_piece_ids": [
+        "FV-55B5EF60A12C"
+      ],
+      "classification": "Confirmed visible procedural artwork",
+      "observed_weakness": "Huge flattened/translucent rounded panels create grey bands and a large white highlight rather than a snowy ground surface.",
+      "same_scene_comparison": "The smaller rolling ball has the same generic style; future carrot/coal and action need a coherent snow family.",
+      "proposed_update": "Reuse a quiet painted snow ground if suitable; otherwise supply one snowy base with local snow grain and gentle cool shadows, preserving the rolling workspace.",
+      "must_preserve": "Rolling gestures, CTA/hint, stacking area and phase behavior.",
+      "evidence_paths": [
+        "captures/guarded_ready/1280x720/snowman_fresh_ready.png",
+        "captures/guarded_ready/1600x720/snowman_fresh_ready.png"
+      ],
+      "limits": "Ready stage only; no face/stack/chase source comparison accepted here.",
+      "status": "CONTEXT_REVIEW_OPEN",
+      "replacement_pixels": 0,
+      "runtime_integrations": 0,
+      "accepted_removals": 0
+    },
+    {
+      "id": "ROOTPIC-13",
+      "title": "Snowball rolling/stacked family",
+      "existing_piece_ids": [
+        "FV-C99F706798D3"
+      ],
+      "classification": "Confirmed visible procedural artwork",
+      "observed_weakness": "The ready ball is a generic flat white disc with border/shadow; growth and stacking need one coherent snow material.",
+      "same_scene_comparison": "Snow field currently shares generic panel treatment. Later face props are separate approved candidates, not substitutes for the child’s rolling action.",
+      "proposed_update": "Inspect existing complete snowball assets, otherwise draw one reusable snowball family compatible with snowy field; preserve dynamic size and contact.",
+      "must_preserve": "Start radius26; final radii124/98/72; circles accumulate3/2.5/2 turns; grow/stack/face/chase states and no automatic zero-input win.",
+      "evidence_paths": [
+        "captures/guarded_ready/1280x720/snowman_fresh_ready.png",
+        "captures/guarded_ready/1600x720/snowman_fresh_ready.png"
+      ],
+      "limits": "Growing/stacked family is source-bound only in this slice; full interaction capture remains required.",
+      "status": "CONTEXT_REVIEW_OPEN",
+      "replacement_pixels": 0,
+      "runtime_integrations": 0,
+      "accepted_removals": 0
+    },
+    {
+      "id": "ROOTPIC-14",
+      "title": "Trampoline mat/frame and detached highlight",
+      "existing_piece_ids": [
+        "FV-C6F64FAA2F32"
+      ],
+      "classification": "Confirmed visible procedural artwork/contact defect",
+      "observed_weakness": "Flat blue capsule lacks readable mat/frame material. Its large white child highlight hangs below the pad after the parent height is reduced to56.",
+      "same_scene_comparison": "Roshan and the objective star already have authored contours/lighting. Their palette can guide the mat without redrawing them.",
+      "proposed_update": "Inventory complete trampoline art; replace the capsule/highlight with one context-matched painted mat/frame with readable spring surface/support. Align Roshan’s intended rest/landing relationship and review each bounce.",
+      "must_preserve": "400x140 touch target at440,430; visible mat envelope440,492/400x56; current bounce input/rhythm, Roshan identity and large star objective.",
+      "evidence_paths": [
+        "captures/guarded_ready/1280x720/trampoline_fresh_ready.png",
+        "captures/guarded_ready/1600x720/trampoline_fresh_ready.png"
+      ],
+      "limits": "Rest/ready observations only. Star overlaps instruction panel in both aspects; solve spacing within existing objective behavior, not by deleting the target.",
+      "status": "CONTEXT_REVIEW_OPEN",
+      "replacement_pixels": 0,
+      "runtime_integrations": 0,
+      "accepted_removals": 0
+    },
+    {
+      "id": "ROOTPIC-15",
+      "title": "Xmas ornament card material",
+      "existing_piece_ids": [
+        "FV-E1D26D3057A3"
+      ],
+      "classification": "Confirmed visible flat frame; whole caller remains open",
+      "observed_weakness": "Uniform white rounded cards and dark rims are materially plainer than the detailed tree and ornaments.",
+      "same_scene_comparison": "Five ornaments share polished jewel/shell forms; the sixth flower is protected source artwork and disabled initially.",
+      "proposed_update": "Reuse one compatible painted card material across the five active ornaments and locked flower state while preserving distinct feedback states. Retain the existing undecorated tree and detachable components.",
+      "must_preserve": "110x110 ornament cards, protected friendship flower, disabled/enabled distinction, precise placement/one-finger input.",
+      "evidence_paths": [
+        "captures/guarded_ready/1280x720/xmas_fresh_ready.png",
+        "captures/guarded_ready/1600x720/xmas_fresh_ready.png"
+      ],
+      "limits": "No predecorated replacement tree; ready stills do not close placement/topper/payoff states.",
+      "status": "CONTEXT_REVIEW_OPEN",
+      "replacement_pixels": 0,
+      "runtime_integrations": 0,
+      "accepted_removals": 0
+    },
+    {
+      "id": "ROOTPIC-16",
+      "title": "Picture header and shell crest",
+      "existing_piece_ids": [
+        "FV-E9E82E0C6703",
+        "FV-AB474EF3699E"
+      ],
+      "classification": "Visible flat UI ornament/material; caller classification open",
+      "observed_weakness": "Pale rounded panel and line-only fan crest are plainer than the authored picture props. At1280 the fixed Back disc covers the crest; expanded width separates them.",
+      "same_scene_comparison": "All four picture games share the same header language and approved indigo palette.",
+      "proposed_update": "Audit a reusable painted paper/shell-header family and distinct Back presentation; test safe-area spacing at both aspects with exact actionable content and voice cues.",
+      "must_preserve": "Readable touch/navigation semantics, accessible contrast, current text/voice goals and non-overlapping input.",
+      "evidence_paths": [
+        "captures/guarded_ready/1280x720/garden_fresh_ready.png",
+        "captures/guarded_ready/1600x720/garden_fresh_ready.png"
+      ],
+      "limits": "Do not exempt all StyleBoxFlat callers as functional or redesign lesson content.",
+      "status": "CONTEXT_REVIEW_OPEN",
+      "replacement_pixels": 0,
+      "runtime_integrations": 0,
+      "accepted_removals": 0
+    },
+    {
+      "id": "ROOTPIC-17",
+      "title": "Garden medal card and starburst",
+      "existing_piece_ids": [],
+      "classification": "Confirmed visible procedural/glyph reward art",
+      "observed_weakness": "The cream tier card, bronze medal glyph, star row and radial flat stars use a different material treatment from nearby painted flowers.",
+      "same_scene_comparison": "Reward hierarchy should remain clearly distinguishable from plant-growth feedback and the large Trampoline objective star.",
+      "proposed_update": "Inventory existing painted medal/sparkle assets; preserve tier distinctions, a single bounded celebration owner and reward timing. Review the exact0..2.2s lifecycle and reentry.",
+      "must_preserve": "CELEBRATION_SECONDS=2.2; one Canvas celebration; bronze/silver/gold/perfect states and safe input.",
+      "evidence_paths": [
+        "captures/action/1280x720/garden_complete_settled.png",
+        "captures/action/1600x720/garden_complete_settled.png"
+      ],
+      "limits": "Immediate reentry after0.7s can legitimately show this still-live medal. No stale indefinite-overlay defect asserted. Bind medal source roles before adding new unique-design counts.",
+      "status": "CONTEXT_REVIEW_OPEN",
+      "replacement_pixels": 0,
+      "runtime_integrations": 0,
+      "accepted_removals": 0
+    }
+  ],
+  "observation_count": 17,
+  "piece_ids_bound": [
+    "FV-0B0A0AE1B9CF",
+    "FV-0CE81E2C1213",
+    "FV-2A7698EB514E",
+    "FV-55B5EF60A12C",
+    "FV-712A4ED716EA",
+    "FV-74CBBFCFD63F",
+    "FV-80696B25F705",
+    "FV-AB474EF3699E",
+    "FV-BBB50149283E",
+    "FV-C6F64FAA2F32",
+    "FV-C99F706798D3",
+    "FV-D3FF54E92E64",
+    "FV-E1D26D3057A3",
+    "FV-E96CD69662D1",
+    "FV-E9E82E0C6703"
+  ],
+  "evidence_lanes": {
+    "implementation": "UNCHANGED",
+    "machine": "Three harnesses parser/inference/engine checks pass; three execution receipts zero exit and6452 runtime sources unchanged; ordinary saves unchanged.",
+    "visual": "Bounded root inspection only;17 observations and24 unique viewed native captures.",
+    "device": "PENDING",
+    "child": "PENDING",
+    "owner": "PENDING",
+    "full_game_inventory": "PENDING",
+    "accepted_removals": 0
+  },
+  "scope_limits": [
+    "Synthetic direct API routes with fresh isolated profiles, not natural child play.",
+    "The first action run lacks explicit presentation guards; clean cross-game ready contexts use guarded run.",
+    "No complete motion, save/resume, fallback, all phase, phone performance or zero-art closure claim.",
+    "Images retain exact captured bytes; no creative image edits or generated replacements.",
+    "This directory is local staging only; publishing and exact anonymous GitHub verification are required before a delivered handoff claim."
+  ]
+}

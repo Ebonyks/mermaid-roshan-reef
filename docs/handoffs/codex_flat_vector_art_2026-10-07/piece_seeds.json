@@ -1,0 +1,2021 @@
+{
+  "schema": "reef.flat_vector_seeds/1",
+  "seeds": [
+    {
+      "family": "day_one",
+      "path": "scripts/arena/day_one_castle_grime.gd",
+      "function": "_draw_exterior_grime",
+      "name": "Exterior edge dirt bands",
+      "priority": "P1",
+      "status": "IDENTIFIED",
+      "note": "Dirty-state visibility guard must be captured. Pool repair is separately scoped; do not reintroduce its retired grime."
+    },
+    {
+      "family": "day_one",
+      "path": "scripts/arena/day_one_castle_grime.gd",
+      "function": "_draw_exterior_grime",
+      "name": "Exterior hanging grime drips",
+      "priority": "P1",
+      "status": "IDENTIFIED",
+      "note": "Dirty-state visibility guard must be captured. Pool repair is separately scoped; do not reintroduce its retired grime."
+    },
+    {
+      "family": "day_one",
+      "path": "scripts/arena/day_one_castle_grime.gd",
+      "function": "_draw_room_dressing",
+      "name": "Dirty room tint wash",
+      "priority": "P1",
+      "status": "IDENTIFIED",
+      "note": "MA-VIS-008; preserve room-specific authored dirt and Roshan identity. Record dirty/active-cleaning/clean states separately."
+    },
+    {
+      "family": "day_one",
+      "path": "scripts/arena/day_one_castle_grime.gd",
+      "function": "_draw_room_dressing",
+      "name": "Dirty room edge grime",
+      "priority": "P1",
+      "status": "IDENTIFIED",
+      "note": "MA-VIS-008; preserve room-specific authored dirt and Roshan identity. Record dirty/active-cleaning/clean states separately."
+    },
+    {
+      "family": "day_one",
+      "path": "scripts/arena/day_one_castle_grime.gd",
+      "function": "_draw_room_dressing",
+      "name": "Dirty room floor cracks",
+      "priority": "P1",
+      "status": "IDENTIFIED",
+      "note": "MA-VIS-008; preserve room-specific authored dirt and Roshan identity. Record dirty/active-cleaning/clean states separately."
+    },
+    {
+      "family": "shared_ambience",
+      "path": "scripts/living_world_canvas.gd",
+      "function": "_draw_motif",
+      "name": "Bubble motif",
+      "priority": "P1",
+      "status": "IDENTIFIED",
+      "note": "Scene catalogue owns stage, palette, quiet and idle-only routing. Needed accents use purpose-fitting authored art; remove competing decoration rather than adding a sticker quota."
+    },
+    {
+      "family": "shared_ambience",
+      "path": "scripts/living_world_canvas.gd",
+      "function": "_draw_motif",
+      "name": "Sea-frond motif",
+      "priority": "P1",
+      "status": "IDENTIFIED",
+      "note": "Scene catalogue owns stage, palette, quiet and idle-only routing. Needed accents use purpose-fitting authored art; remove competing decoration rather than adding a sticker quota."
+    },
+    {
+      "family": "shared_ambience",
+      "path": "scripts/living_world_canvas.gd",
+      "function": "_draw_motif",
+      "name": "Leaf motif",
+      "priority": "P1",
+      "status": "IDENTIFIED",
+      "note": "Scene catalogue owns stage, palette, quiet and idle-only routing. Needed accents use purpose-fitting authored art; remove competing decoration rather than adding a sticker quota."
+    },
+    {
+      "family": "shared_ambience",
+      "path": "scripts/living_world_canvas.gd",
+      "function": "_draw_motif",
+      "name": "Flower motif",
+      "priority": "P1",
+      "status": "IDENTIFIED",
+      "note": "Scene catalogue owns stage, palette, quiet and idle-only routing. Needed accents use purpose-fitting authored art; remove competing decoration rather than adding a sticker quota."
+    },
+    {
+      "family": "shared_ambience",
+      "path": "scripts/living_world_canvas.gd",
+      "function": "_draw_motif",
+      "name": "Fish motif",
+      "priority": "P1",
+      "status": "IDENTIFIED",
+      "note": "Scene catalogue owns stage, palette, quiet and idle-only routing. Needed accents use purpose-fitting authored art; remove competing decoration rather than adding a sticker quota."
+    },
+    {
+      "family": "shared_ambience",
+      "path": "scripts/living_world_canvas.gd",
+      "function": "_draw_motif",
+      "name": "Butterfly motif",
+      "priority": "P1",
+      "status": "IDENTIFIED",
+      "note": "Scene catalogue owns stage, palette, quiet and idle-only routing. Needed accents use purpose-fitting authored art; remove competing decoration rather than adding a sticker quota."
+    },
+    {
+      "family": "shared_ambience",
+      "path": "scripts/living_world_canvas.gd",
+      "function": "_draw_motif",
+      "name": "Cloud motif",
+      "priority": "P1",
+      "status": "IDENTIFIED",
+      "note": "Scene catalogue owns stage, palette, quiet and idle-only routing. Needed accents use purpose-fitting authored art; remove competing decoration rather than adding a sticker quota."
+    },
+    {
+      "family": "shared_ambience",
+      "path": "scripts/living_world_canvas.gd",
+      "function": "_draw_motif",
+      "name": "Ripple/wave motif",
+      "priority": "P1",
+      "status": "IDENTIFIED",
+      "note": "Scene catalogue owns stage, palette, quiet and idle-only routing. Needed accents use purpose-fitting authored art; remove competing decoration rather than adding a sticker quota."
+    },
+    {
+      "family": "shared_ambience",
+      "path": "scripts/living_world_canvas.gd",
+      "function": "_draw_motif",
+      "name": "Snow motif",
+      "priority": "P1",
+      "status": "IDENTIFIED",
+      "note": "Scene catalogue owns stage, palette, quiet and idle-only routing. Needed accents use purpose-fitting authored art; remove competing decoration rather than adding a sticker quota."
+    },
+    {
+      "family": "shared_ambience",
+      "path": "scripts/living_world_canvas.gd",
+      "function": "_draw_motif",
+      "name": "Lantern motif",
+      "priority": "P1",
+      "status": "IDENTIFIED",
+      "note": "Scene catalogue owns stage, palette, quiet and idle-only routing. Needed accents use purpose-fitting authored art; remove competing decoration rather than adding a sticker quota."
+    },
+    {
+      "family": "shared_ambience",
+      "path": "scripts/living_world_canvas.gd",
+      "function": "_draw_motif",
+      "name": "Flame motif",
+      "priority": "P1",
+      "status": "IDENTIFIED",
+      "note": "Scene catalogue owns stage, palette, quiet and idle-only routing. Needed accents use purpose-fitting authored art; remove competing decoration rather than adding a sticker quota."
+    },
+    {
+      "family": "shared_ambience",
+      "path": "scripts/living_world_canvas.gd",
+      "function": "_draw_motif",
+      "name": "Music-note motif",
+      "priority": "P1",
+      "status": "IDENTIFIED",
+      "note": "Scene catalogue owns stage, palette, quiet and idle-only routing. Needed accents use purpose-fitting authored art; remove competing decoration rather than adding a sticker quota."
+    },
+    {
+      "family": "shared_ambience",
+      "path": "scripts/living_world_canvas.gd",
+      "function": "_draw_motif",
+      "name": "Heart motif",
+      "priority": "P1",
+      "status": "IDENTIFIED",
+      "note": "Scene catalogue owns stage, palette, quiet and idle-only routing. Needed accents use purpose-fitting authored art; remove competing decoration rather than adding a sticker quota."
+    },
+    {
+      "family": "shared_ambience",
+      "path": "scripts/living_world_canvas.gd",
+      "function": "_draw_motif",
+      "name": "Shell motif",
+      "priority": "P1",
+      "status": "IDENTIFIED",
+      "note": "Scene catalogue owns stage, palette, quiet and idle-only routing. Needed accents use purpose-fitting authored art; remove competing decoration rather than adding a sticker quota."
+    },
+    {
+      "family": "shared_ambience",
+      "path": "scripts/living_world_canvas.gd",
+      "function": "_draw_motif",
+      "name": "Crown motif",
+      "priority": "P1",
+      "status": "IDENTIFIED",
+      "note": "Scene catalogue owns stage, palette, quiet and idle-only routing. Needed accents use purpose-fitting authored art; remove competing decoration rather than adding a sticker quota."
+    },
+    {
+      "family": "shared_ambience",
+      "path": "scripts/living_world_canvas.gd",
+      "function": "_draw_motif",
+      "name": "Moon motif",
+      "priority": "P1",
+      "status": "IDENTIFIED",
+      "note": "Scene catalogue owns stage, palette, quiet and idle-only routing. Needed accents use purpose-fitting authored art; remove competing decoration rather than adding a sticker quota."
+    },
+    {
+      "family": "shared_ambience",
+      "path": "scripts/living_world_canvas.gd",
+      "function": "_draw_motif",
+      "name": "Crystal motif",
+      "priority": "P1",
+      "status": "IDENTIFIED",
+      "note": "Scene catalogue owns stage, palette, quiet and idle-only routing. Needed accents use purpose-fitting authored art; remove competing decoration rather than adding a sticker quota."
+    },
+    {
+      "family": "shared_ambience",
+      "path": "scripts/living_world_canvas.gd",
+      "function": "_draw_sparkle",
+      "name": "Four-arm sparkle motif",
+      "priority": "P2",
+      "status": "IDENTIFIED",
+      "note": ""
+    },
+    {
+      "family": "opera_shared",
+      "path": "scripts/opera_world_backdrop_2d.gd",
+      "function": "_draw_stage_frame",
+      "name": "Proscenium side columns",
+      "priority": "P1",
+      "status": "NEEDS_CONTEXT_REVIEW",
+      "note": "Can be guarded behind accepted tiles. Trace current route before replacing."
+    },
+    {
+      "family": "opera_shared",
+      "path": "scripts/opera_world_backdrop_2d.gd",
+      "function": "_draw_stage_frame",
+      "name": "Curtain header and scallops",
+      "priority": "P1",
+      "status": "NEEDS_CONTEXT_REVIEW",
+      "note": "Can be guarded behind accepted tiles. Trace current route before replacing."
+    },
+    {
+      "family": "opera_shared",
+      "path": "scripts/opera_world_backdrop_2d.gd",
+      "function": "_draw_stage_frame",
+      "name": "Stage triangular framing",
+      "priority": "P1",
+      "status": "NEEDS_CONTEXT_REVIEW",
+      "note": "Can be guarded behind accepted tiles. Trace current route before replacing."
+    },
+    {
+      "family": "opera_shared",
+      "path": "scripts/opera_world_backdrop_2d.gd",
+      "function": "_draw_stage_frame",
+      "name": "Stage footlight pair",
+      "priority": "P1",
+      "status": "NEEDS_CONTEXT_REVIEW",
+      "note": "Can be guarded behind accepted tiles. Trace current route before replacing."
+    },
+    {
+      "family": "opera_shared",
+      "path": "scripts/opera_world_backdrop_2d.gd",
+      "function": "_draw_spotlights",
+      "name": "Left stage spotlight cone",
+      "priority": "P1",
+      "status": "IDENTIFIED",
+      "note": "Source adds geometric spotlights to some accepted painted backdrops; own fallback and overlay dispositions separately."
+    },
+    {
+      "family": "opera_shared",
+      "path": "scripts/opera_world_backdrop_2d.gd",
+      "function": "_draw_spotlights",
+      "name": "Right stage spotlight cone",
+      "priority": "P1",
+      "status": "IDENTIFIED",
+      "note": "Source adds geometric spotlights to some accepted painted backdrops; own fallback and overlay dispositions separately."
+    },
+    {
+      "family": "opera_chef",
+      "path": "scripts/opera_world_backdrop_2d.gd",
+      "function": "_draw_chef",
+      "name": "Kitchen cabinet and counter fallback",
+      "priority": "P2",
+      "status": "NEEDS_CONTEXT_REVIEW",
+      "note": "Fallback role family; child-visible parts and their counts are unresolved. Retirement needs accepted replacement availability, not a repaint of accepted background."
+    },
+    {
+      "family": "opera_detective",
+      "path": "scripts/opera_world_backdrop_2d.gd",
+      "function": "_draw_detective",
+      "name": "Library shelving and clue fallback",
+      "priority": "P2",
+      "status": "NEEDS_CONTEXT_REVIEW",
+      "note": "Fallback role family; child-visible parts and their counts are unresolved. Retirement needs accepted replacement availability, not a repaint of accepted background."
+    },
+    {
+      "family": "opera_ballerina",
+      "path": "scripts/opera_world_backdrop_2d.gd",
+      "function": "_draw_ballerina",
+      "name": "Dance-floor and ribbon fallback",
+      "priority": "P2",
+      "status": "NEEDS_CONTEXT_REVIEW",
+      "note": "Fallback role family; child-visible parts and their counts are unresolved. Retirement needs accepted replacement availability, not a repaint of accepted background."
+    },
+    {
+      "family": "opera_candy",
+      "path": "scripts/opera_world_backdrop_2d.gd",
+      "function": "_draw_candy",
+      "name": "Candy-factory table and sweets fallback",
+      "priority": "P2",
+      "status": "NEEDS_CONTEXT_REVIEW",
+      "note": "Fallback role family; child-visible parts and their counts are unresolved. Retirement needs accepted replacement availability, not a repaint of accepted background."
+    },
+    {
+      "family": "opera_doctor",
+      "path": "scripts/opera_world_backdrop_2d.gd",
+      "function": "_draw_doctor",
+      "name": "Doctor care-station fallback",
+      "priority": "P2",
+      "status": "NEEDS_CONTEXT_REVIEW",
+      "note": "Fallback role family; child-visible parts and their counts are unresolved. Retirement needs accepted replacement availability, not a repaint of accepted background."
+    },
+    {
+      "family": "opera_farmer",
+      "path": "scripts/opera_world_backdrop_2d.gd",
+      "function": "_draw_farmer",
+      "name": "Farm beds and herd fallback",
+      "priority": "P2",
+      "status": "NEEDS_CONTEXT_REVIEW",
+      "note": "Fallback role family; child-visible parts and their counts are unresolved. Retirement needs accepted replacement availability, not a repaint of accepted background."
+    },
+    {
+      "family": "opera_boxer",
+      "path": "scripts/opera_world_backdrop_2d.gd",
+      "function": "_draw_boxer",
+      "name": "Ring and belt fallback",
+      "priority": "P2",
+      "status": "NEEDS_CONTEXT_REVIEW",
+      "note": "Fallback role family; child-visible parts and their counts are unresolved. Retirement needs accepted replacement availability, not a repaint of accepted background."
+    },
+    {
+      "family": "opera_magician",
+      "path": "scripts/opera_world_backdrop_2d.gd",
+      "function": "_draw_magician",
+      "name": "Magic stage-prop fallback",
+      "priority": "P2",
+      "status": "NEEDS_CONTEXT_REVIEW",
+      "note": "Fallback role family; child-visible parts and their counts are unresolved. Retirement needs accepted replacement availability, not a repaint of accepted background."
+    },
+    {
+      "family": "opera_painter",
+      "path": "scripts/opera_world_backdrop_2d.gd",
+      "function": "_draw_painter",
+      "name": "Easel and paints fallback",
+      "priority": "P2",
+      "status": "NEEDS_CONTEXT_REVIEW",
+      "note": "Fallback role family; child-visible parts and their counts are unresolved. Retirement needs accepted replacement availability, not a repaint of accepted background."
+    },
+    {
+      "family": "opera_astronaut",
+      "path": "scripts/opera_world_backdrop_2d.gd",
+      "function": "_draw_astronaut",
+      "name": "Rocket repair-room fallback",
+      "priority": "P2",
+      "status": "NEEDS_CONTEXT_REVIEW",
+      "note": "Fallback role family; child-visible parts and their counts are unresolved. Retirement needs accepted replacement availability, not a repaint of accepted background."
+    },
+    {
+      "family": "opera_racer",
+      "path": "scripts/opera_world_backdrop_2d.gd",
+      "function": "_draw_racer",
+      "name": "Race-track fallback",
+      "priority": "P2",
+      "status": "NEEDS_CONTEXT_REVIEW",
+      "note": "Fallback role family; child-visible parts and their counts are unresolved. Retirement needs accepted replacement availability, not a repaint of accepted background."
+    },
+    {
+      "family": "opera_nursery",
+      "path": "scripts/opera_world_backdrop_2d.gd",
+      "function": "_draw_nursery",
+      "name": "Cradle-room fallback",
+      "priority": "P2",
+      "status": "NEEDS_CONTEXT_REVIEW",
+      "note": "Fallback role family; child-visible parts and their counts are unresolved. Retirement needs accepted replacement availability, not a repaint of accepted background."
+    },
+    {
+      "family": "opera_popstar",
+      "path": "scripts/opera_world_backdrop_2d.gd",
+      "function": "_draw_popstar",
+      "name": "Pop-stage fallback",
+      "priority": "P2",
+      "status": "NEEDS_CONTEXT_REVIEW",
+      "note": "Fallback role family; child-visible parts and their counts are unresolved. Retirement needs accepted replacement availability, not a repaint of accepted background."
+    },
+    {
+      "family": "opera_geologist",
+      "path": "scripts/opera_world_backdrop_2d.gd",
+      "function": "_draw_geologist",
+      "name": "Geology cave fallback",
+      "priority": "P1",
+      "status": "NEEDS_CONTEXT_REVIEW",
+      "note": "Fallback role family; child-visible parts and their counts are unresolved. Retirement needs accepted replacement availability, not a repaint of accepted background."
+    },
+    {
+      "family": "opera_farmer",
+      "path": "scripts/opera_world_backdrop_2d.gd",
+      "function": "_draw_sky_lagoon_farmer",
+      "name": "Farmer soil mound and rim",
+      "priority": "P1",
+      "status": "IDENTIFIED",
+      "note": ""
+    },
+    {
+      "family": "opera_shared",
+      "path": "scripts/opera_world_hotspot_2d.gd",
+      "function": "_draw_halo",
+      "name": "Hotspot outer glow",
+      "priority": "P1",
+      "status": "IDENTIFIED",
+      "note": ""
+    },
+    {
+      "family": "opera_shared",
+      "path": "scripts/opera_world_hotspot_2d.gd",
+      "function": "_draw_halo",
+      "name": "Hotspot orbit ring",
+      "priority": "P1",
+      "status": "IDENTIFIED",
+      "note": ""
+    },
+    {
+      "family": "opera_shared",
+      "path": "scripts/opera_world_hotspot_2d.gd",
+      "function": "_draw_halo",
+      "name": "Hotspot inner moving arc",
+      "priority": "P1",
+      "status": "IDENTIFIED",
+      "note": ""
+    },
+    {
+      "family": "opera_shared",
+      "path": "scripts/opera_world_hotspot_2d.gd",
+      "function": "_draw_halo",
+      "name": "Hotspot opening ring",
+      "priority": "P1",
+      "status": "IDENTIFIED",
+      "note": ""
+    },
+    {
+      "family": "opera_shared",
+      "path": "scripts/opera_world_hotspot_2d.gd",
+      "function": "_draw_sparkles",
+      "name": "Hotspot cross sparkle",
+      "priority": "P1",
+      "status": "IDENTIFIED",
+      "note": ""
+    },
+    {
+      "family": "opera_shared",
+      "path": "scripts/opera_world_hotspot_2d.gd",
+      "function": "_draw_object",
+      "name": "Hotspot ground shadow",
+      "priority": "P2",
+      "status": "NEEDS_CONTEXT_REVIEW",
+      "note": "Shadow may be functional support; visible material must receive explicit disposition. Painted texture drawing is retained."
+    },
+    {
+      "family": "opera_shared",
+      "path": "scripts/opera_world_hotspot_2d.gd",
+      "function": "_draw_object",
+      "name": "Missing-object sphere/highlight fallback",
+      "priority": "P2",
+      "status": "NEEDS_CONTEXT_REVIEW",
+      "note": "Shadow may be functional support; visible material must receive explicit disposition. Painted texture drawing is retained."
+    },
+    {
+      "family": "opera_shared",
+      "path": "scripts/opera_gesture_surface.gd",
+      "function": "_draw_clean_widget_playfield",
+      "name": "Widget playfield fill bands",
+      "priority": "P1",
+      "status": "NEEDS_CONTEXT_REVIEW",
+      "note": "Draw-path family: accepted painted inputs and visible generated primitives coexist; inspect guards, exact phase and contact before choosing reuse/removal. Do not redraw every texture drawn by this function."
+    },
+    {
+      "family": "opera_shared",
+      "path": "scripts/opera_gesture_surface.gd",
+      "function": "_draw_clean_widget_playfield",
+      "name": "Widget frame",
+      "priority": "P1",
+      "status": "NEEDS_CONTEXT_REVIEW",
+      "note": "Draw-path family: accepted painted inputs and visible generated primitives coexist; inspect guards, exact phase and contact before choosing reuse/removal. Do not redraw every texture drawn by this function."
+    },
+    {
+      "family": "opera_shared",
+      "path": "scripts/opera_gesture_surface.gd",
+      "function": "_draw_long_push",
+      "name": "Push track and target",
+      "priority": "P1",
+      "status": "NEEDS_CONTEXT_REVIEW",
+      "note": "Draw-path family: accepted painted inputs and visible generated primitives coexist; inspect guards, exact phase and contact before choosing reuse/removal. Do not redraw every texture drawn by this function."
+    },
+    {
+      "family": "opera_shared",
+      "path": "scripts/opera_gesture_surface.gd",
+      "function": "_draw_authored_trace_corridor",
+      "name": "Trace corridor and target markers",
+      "priority": "P1",
+      "status": "NEEDS_CONTEXT_REVIEW",
+      "note": "Draw-path family: accepted painted inputs and visible generated primitives coexist; inspect guards, exact phase and contact before choosing reuse/removal. Do not redraw every texture drawn by this function."
+    },
+    {
+      "family": "opera_chef",
+      "path": "scripts/opera_gesture_surface.gd",
+      "function": "_draw_trace_chef_subject",
+      "name": "Chef tracing subject",
+      "priority": "P1",
+      "status": "NEEDS_CONTEXT_REVIEW",
+      "note": "Draw-path family: accepted painted inputs and visible generated primitives coexist; inspect guards, exact phase and contact before choosing reuse/removal. Do not redraw every texture drawn by this function."
+    },
+    {
+      "family": "opera_ballerina",
+      "path": "scripts/opera_gesture_surface.gd",
+      "function": "_draw_trace_ballerina_subject",
+      "name": "Ballet tracing subject",
+      "priority": "P1",
+      "status": "NEEDS_CONTEXT_REVIEW",
+      "note": "Draw-path family: accepted painted inputs and visible generated primitives coexist; inspect guards, exact phase and contact before choosing reuse/removal. Do not redraw every texture drawn by this function."
+    },
+    {
+      "family": "opera_doctor",
+      "path": "scripts/opera_gesture_surface.gd",
+      "function": "_draw_trace_doctor_subject",
+      "name": "Doctor tracing subject",
+      "priority": "P1",
+      "status": "NEEDS_CONTEXT_REVIEW",
+      "note": "Draw-path family: accepted painted inputs and visible generated primitives coexist; inspect guards, exact phase and contact before choosing reuse/removal. Do not redraw every texture drawn by this function."
+    },
+    {
+      "family": "opera_magician",
+      "path": "scripts/opera_gesture_surface.gd",
+      "function": "_draw_trace_magician_subject",
+      "name": "Magic tracing subject",
+      "priority": "P1",
+      "status": "NEEDS_CONTEXT_REVIEW",
+      "note": "Draw-path family: accepted painted inputs and visible generated primitives coexist; inspect guards, exact phase and contact before choosing reuse/removal. Do not redraw every texture drawn by this function."
+    },
+    {
+      "family": "opera_magician",
+      "path": "scripts/opera_gesture_surface.gd",
+      "function": "_draw_magician_portal",
+      "name": "Portal charge rings",
+      "priority": "P1",
+      "status": "NEEDS_CONTEXT_REVIEW",
+      "note": "Draw-path family: accepted painted inputs and visible generated primitives coexist; inspect guards, exact phase and contact before choosing reuse/removal. Do not redraw every texture drawn by this function."
+    },
+    {
+      "family": "opera_magician",
+      "path": "scripts/opera_gesture_surface.gd",
+      "function": "_draw_magician_portal",
+      "name": "Portal star aperture",
+      "priority": "P1",
+      "status": "NEEDS_CONTEXT_REVIEW",
+      "note": "Draw-path family: accepted painted inputs and visible generated primitives coexist; inspect guards, exact phase and contact before choosing reuse/removal. Do not redraw every texture drawn by this function."
+    },
+    {
+      "family": "opera_racer",
+      "path": "scripts/opera_gesture_surface.gd",
+      "function": "_draw_racer_wheel",
+      "name": "Steering-wheel rim and spokes",
+      "priority": "P1",
+      "status": "NEEDS_CONTEXT_REVIEW",
+      "note": "Draw-path family: accepted painted inputs and visible generated primitives coexist; inspect guards, exact phase and contact before choosing reuse/removal. Do not redraw every texture drawn by this function."
+    },
+    {
+      "family": "opera_racer",
+      "path": "scripts/opera_gesture_surface.gd",
+      "function": "_draw_racer_kart_body",
+      "name": "Tuning kart body and wheels",
+      "priority": "P1",
+      "status": "NEEDS_CONTEXT_REVIEW",
+      "note": "Draw-path family: accepted painted inputs and visible generated primitives coexist; inspect guards, exact phase and contact before choosing reuse/removal. Do not redraw every texture drawn by this function."
+    },
+    {
+      "family": "opera_racer",
+      "path": "scripts/opera_gesture_surface.gd",
+      "function": "_draw_racer_tune",
+      "name": "Tuning component markers",
+      "priority": "P1",
+      "status": "NEEDS_CONTEXT_REVIEW",
+      "note": "Draw-path family: accepted painted inputs and visible generated primitives coexist; inspect guards, exact phase and contact before choosing reuse/removal. Do not redraw every texture drawn by this function."
+    },
+    {
+      "family": "opera_chef",
+      "path": "scripts/opera_gesture_surface.gd",
+      "function": "_draw_chef_crank",
+      "name": "Whisk/stir vessel fallback",
+      "priority": "P1",
+      "status": "NEEDS_CONTEXT_REVIEW",
+      "note": "Draw-path family: accepted painted inputs and visible generated primitives coexist; inspect guards, exact phase and contact before choosing reuse/removal. Do not redraw every texture drawn by this function."
+    },
+    {
+      "family": "opera_ballerina",
+      "path": "scripts/opera_gesture_surface.gd",
+      "function": "_draw_ballerina_crank",
+      "name": "Ribbon crank subject",
+      "priority": "P1",
+      "status": "NEEDS_CONTEXT_REVIEW",
+      "note": "Draw-path family: accepted painted inputs and visible generated primitives coexist; inspect guards, exact phase and contact before choosing reuse/removal. Do not redraw every texture drawn by this function."
+    },
+    {
+      "family": "opera_candymaker",
+      "path": "scripts/opera_gesture_surface.gd",
+      "function": "_draw_candymaker_crank",
+      "name": "Candy wrapping subject",
+      "priority": "P1",
+      "status": "NEEDS_CONTEXT_REVIEW",
+      "note": "Draw-path family: accepted painted inputs and visible generated primitives coexist; inspect guards, exact phase and contact before choosing reuse/removal. Do not redraw every texture drawn by this function."
+    },
+    {
+      "family": "opera_doctor",
+      "path": "scripts/opera_gesture_surface.gd",
+      "function": "_draw_doctor_crank",
+      "name": "Cast/bandage wrapping subject",
+      "priority": "P1",
+      "status": "NEEDS_CONTEXT_REVIEW",
+      "note": "Draw-path family: accepted painted inputs and visible generated primitives coexist; inspect guards, exact phase and contact before choosing reuse/removal. Do not redraw every texture drawn by this function."
+    },
+    {
+      "family": "opera_astronaut",
+      "path": "scripts/opera_gesture_surface.gd",
+      "function": "_draw_astronaut_crank",
+      "name": "Valve casing/flow subject",
+      "priority": "P1",
+      "status": "NEEDS_CONTEXT_REVIEW",
+      "note": "Draw-path family: accepted painted inputs and visible generated primitives coexist; inspect guards, exact phase and contact before choosing reuse/removal. Do not redraw every texture drawn by this function."
+    },
+    {
+      "family": "opera_popstar",
+      "path": "scripts/opera_gesture_surface.gd",
+      "function": "_draw_popstar_crank",
+      "name": "Microphone/sound control subject",
+      "priority": "P1",
+      "status": "NEEDS_CONTEXT_REVIEW",
+      "note": "Draw-path family: accepted painted inputs and visible generated primitives coexist; inspect guards, exact phase and contact before choosing reuse/removal. Do not redraw every texture drawn by this function."
+    },
+    {
+      "family": "opera_ballerina",
+      "path": "scripts/opera_gesture_surface.gd",
+      "function": "_draw_ballerina_blossom",
+      "name": "Ballet blossom charge subject",
+      "priority": "P1",
+      "status": "NEEDS_CONTEXT_REVIEW",
+      "note": "Draw-path family: accepted painted inputs and visible generated primitives coexist; inspect guards, exact phase and contact before choosing reuse/removal. Do not redraw every texture drawn by this function."
+    },
+    {
+      "family": "opera_astronaut",
+      "path": "scripts/opera_gesture_surface.gd",
+      "function": "_draw_astronaut_launch",
+      "name": "Launch charge rocket/exhaust",
+      "priority": "P1",
+      "status": "NEEDS_CONTEXT_REVIEW",
+      "note": "Draw-path family: accepted painted inputs and visible generated primitives coexist; inspect guards, exact phase and contact before choosing reuse/removal. Do not redraw every texture drawn by this function."
+    },
+    {
+      "family": "opera_popstar",
+      "path": "scripts/opera_gesture_surface.gd",
+      "function": "_draw_popstar_soundcheck",
+      "name": "Sound-check meter subject",
+      "priority": "P1",
+      "status": "NEEDS_CONTEXT_REVIEW",
+      "note": "Draw-path family: accepted painted inputs and visible generated primitives coexist; inspect guards, exact phase and contact before choosing reuse/removal. Do not redraw every texture drawn by this function."
+    },
+    {
+      "family": "opera_shared",
+      "path": "scripts/opera_gesture_surface.gd",
+      "function": "_draw_widget_family_ground",
+      "name": "Widget ground/support surface",
+      "priority": "P1",
+      "status": "NEEDS_CONTEXT_REVIEW",
+      "note": "Draw-path family: accepted painted inputs and visible generated primitives coexist; inspect guards, exact phase and contact before choosing reuse/removal. Do not redraw every texture drawn by this function."
+    },
+    {
+      "family": "opera_doctor",
+      "path": "scripts/opera_gesture_surface.gd",
+      "function": "_draw_doctor_basin_subject",
+      "name": "Hand-wash basin fallback",
+      "priority": "P1",
+      "status": "NEEDS_CONTEXT_REVIEW",
+      "note": "Draw-path family: accepted painted inputs and visible generated primitives coexist; inspect guards, exact phase and contact before choosing reuse/removal. Do not redraw every texture drawn by this function."
+    },
+    {
+      "family": "opera_candymaker",
+      "path": "scripts/opera_gesture_surface.gd",
+      "function": "_draw_candymaker_recipients",
+      "name": "Candy recipient framing",
+      "priority": "P1",
+      "status": "NEEDS_CONTEXT_REVIEW",
+      "note": "Draw-path family: accepted painted inputs and visible generated primitives coexist; inspect guards, exact phase and contact before choosing reuse/removal. Do not redraw every texture drawn by this function."
+    },
+    {
+      "family": "opera_shared",
+      "path": "scripts/opera_gesture_surface.gd",
+      "function": "_draw_anchored_targets",
+      "name": "Anchored target rims",
+      "priority": "P1",
+      "status": "NEEDS_CONTEXT_REVIEW",
+      "note": "Draw-path family: accepted painted inputs and visible generated primitives coexist; inspect guards, exact phase and contact before choosing reuse/removal. Do not redraw every texture drawn by this function."
+    },
+    {
+      "family": "opera_shared",
+      "path": "scripts/opera_gesture_surface.gd",
+      "function": "_draw_causal_backdrop",
+      "name": "Task backdrop top/bottom bands",
+      "priority": "P1",
+      "status": "NEEDS_CONTEXT_REVIEW",
+      "note": "Draw-path family: accepted painted inputs and visible generated primitives coexist; inspect guards, exact phase and contact before choosing reuse/removal. Do not redraw every texture drawn by this function."
+    },
+    {
+      "family": "opera_nursery",
+      "path": "scripts/opera_gesture_surface.gd",
+      "function": "_draw_nursery_feed_scene",
+      "name": "Baby feeding contact/fill accents",
+      "priority": "P1",
+      "status": "NEEDS_CONTEXT_REVIEW",
+      "note": "Draw-path family: accepted painted inputs and visible generated primitives coexist; inspect guards, exact phase and contact before choosing reuse/removal. Do not redraw every texture drawn by this function."
+    },
+    {
+      "family": "opera_nursery",
+      "path": "scripts/opera_gesture_surface.gd",
+      "function": "_draw_nursery_bedtime_scene",
+      "name": "Nursery bedtime sleep accents",
+      "priority": "P1",
+      "status": "NEEDS_CONTEXT_REVIEW",
+      "note": "Draw-path family: accepted painted inputs and visible generated primitives coexist; inspect guards, exact phase and contact before choosing reuse/removal. Do not redraw every texture drawn by this function."
+    },
+    {
+      "family": "opera_nursery",
+      "path": "scripts/opera_gesture_surface.gd",
+      "function": "_draw_nursery_burp_scene",
+      "name": "Nursery burp feedback",
+      "priority": "P1",
+      "status": "NEEDS_CONTEXT_REVIEW",
+      "note": "Draw-path family: accepted painted inputs and visible generated primitives coexist; inspect guards, exact phase and contact before choosing reuse/removal. Do not redraw every texture drawn by this function."
+    },
+    {
+      "family": "opera_magician",
+      "path": "scripts/opera_gesture_surface.gd",
+      "function": "_draw_magic_vanish_scene",
+      "name": "Magic disappearance accents",
+      "priority": "P1",
+      "status": "NEEDS_CONTEXT_REVIEW",
+      "note": "Draw-path family: accepted painted inputs and visible generated primitives coexist; inspect guards, exact phase and contact before choosing reuse/removal. Do not redraw every texture drawn by this function."
+    },
+    {
+      "family": "opera_detective",
+      "path": "scripts/opera_gesture_surface.gd",
+      "function": "_draw_clue_token",
+      "name": "Clue token illustrated fallback",
+      "priority": "P1",
+      "status": "NEEDS_CONTEXT_REVIEW",
+      "note": "Draw-path family: accepted painted inputs and visible generated primitives coexist; inspect guards, exact phase and contact before choosing reuse/removal. Do not redraw every texture drawn by this function."
+    },
+    {
+      "family": "opera_detective",
+      "path": "scripts/opera_gesture_surface.gd",
+      "function": "_draw_clue_board",
+      "name": "Case board frame and target sockets",
+      "priority": "P1",
+      "status": "NEEDS_CONTEXT_REVIEW",
+      "note": "Draw-path family: accepted painted inputs and visible generated primitives coexist; inspect guards, exact phase and contact before choosing reuse/removal. Do not redraw every texture drawn by this function."
+    },
+    {
+      "family": "opera_detective",
+      "path": "scripts/opera_gesture_surface.gd",
+      "function": "_draw_crown_chest",
+      "name": "Crown chest lock/feedback accents",
+      "priority": "P1",
+      "status": "NEEDS_CONTEXT_REVIEW",
+      "note": "Draw-path family: accepted painted inputs and visible generated primitives coexist; inspect guards, exact phase and contact before choosing reuse/removal. Do not redraw every texture drawn by this function."
+    },
+    {
+      "family": "opera_farmer",
+      "path": "scripts/opera_gesture_surface.gd",
+      "function": "_draw_garden_plant",
+      "name": "Farm plant growth fallback",
+      "priority": "P1",
+      "status": "NEEDS_CONTEXT_REVIEW",
+      "note": "Draw-path family: accepted painted inputs and visible generated primitives coexist; inspect guards, exact phase and contact before choosing reuse/removal. Do not redraw every texture drawn by this function."
+    },
+    {
+      "family": "opera_magician",
+      "path": "scripts/opera_gesture_surface.gd",
+      "function": "_draw_magic_cabinet",
+      "name": "Magic cabinet hinge/reveal accents",
+      "priority": "P1",
+      "status": "NEEDS_CONTEXT_REVIEW",
+      "note": "Draw-path family: accepted painted inputs and visible generated primitives coexist; inspect guards, exact phase and contact before choosing reuse/removal. Do not redraw every texture drawn by this function."
+    },
+    {
+      "family": "opera_nursery",
+      "path": "scripts/opera_gesture_surface.gd",
+      "function": "_draw_nursery_context",
+      "name": "Nursery context framing",
+      "priority": "P1",
+      "status": "NEEDS_CONTEXT_REVIEW",
+      "note": "Draw-path family: accepted painted inputs and visible generated primitives coexist; inspect guards, exact phase and contact before choosing reuse/removal. Do not redraw every texture drawn by this function."
+    },
+    {
+      "family": "opera_shared",
+      "path": "scripts/opera_gesture_surface.gd",
+      "function": "_draw_demo_finger",
+      "name": "Gesture demo finger",
+      "priority": "P1",
+      "status": "NEEDS_CONTEXT_REVIEW",
+      "note": "Draw-path family: accepted painted inputs and visible generated primitives coexist; inspect guards, exact phase and contact before choosing reuse/removal. Do not redraw every texture drawn by this function."
+    },
+    {
+      "family": "opera_doctor",
+      "path": "scripts/opera_gesture_surface.gd",
+      "function": "_draw_xray_scan",
+      "name": "X-ray scanner frame and scan accents",
+      "priority": "P1",
+      "status": "NEEDS_CONTEXT_REVIEW",
+      "note": "Draw-path family: accepted painted inputs and visible generated primitives coexist; inspect guards, exact phase and contact before choosing reuse/removal. Do not redraw every texture drawn by this function."
+    },
+    {
+      "family": "opera_popstar",
+      "path": "scripts/opera_gesture_surface.gd",
+      "function": "_draw_dance_capsule",
+      "name": "Dance note-pad capsule",
+      "priority": "P1",
+      "status": "NEEDS_CONTEXT_REVIEW",
+      "note": "Draw-path family: accepted painted inputs and visible generated primitives coexist; inspect guards, exact phase and contact before choosing reuse/removal. Do not redraw every texture drawn by this function."
+    },
+    {
+      "family": "opera_popstar",
+      "path": "scripts/opera_gesture_surface.gd",
+      "function": "_draw_dance_sequence",
+      "name": "Dance lane/progress accents",
+      "priority": "P1",
+      "status": "NEEDS_CONTEXT_REVIEW",
+      "note": "Draw-path family: accepted painted inputs and visible generated primitives coexist; inspect guards, exact phase and contact before choosing reuse/removal. Do not redraw every texture drawn by this function."
+    },
+    {
+      "family": "opera_candymaker",
+      "path": "scripts/opera_gesture_surface.gd",
+      "function": "_draw_candy_shape",
+      "name": "Candy token shapes",
+      "priority": "P1",
+      "status": "NEEDS_CONTEXT_REVIEW",
+      "note": "Draw-path family: accepted painted inputs and visible generated primitives coexist; inspect guards, exact phase and contact before choosing reuse/removal. Do not redraw every texture drawn by this function."
+    },
+    {
+      "family": "opera_candymaker",
+      "path": "scripts/opera_gesture_surface.gd",
+      "function": "_draw_candy_sort",
+      "name": "Candy chute/sort pads",
+      "priority": "P1",
+      "status": "NEEDS_CONTEXT_REVIEW",
+      "note": "Draw-path family: accepted painted inputs and visible generated primitives coexist; inspect guards, exact phase and contact before choosing reuse/removal. Do not redraw every texture drawn by this function."
+    },
+    {
+      "family": "opera_painter",
+      "path": "scripts/opera_gesture_surface.gd",
+      "function": "_draw_paint_reveal",
+      "name": "Painter progressive reveal accents",
+      "priority": "P1",
+      "status": "NEEDS_CONTEXT_REVIEW",
+      "note": "Draw-path family: accepted painted inputs and visible generated primitives coexist; inspect guards, exact phase and contact before choosing reuse/removal. Do not redraw every texture drawn by this function."
+    },
+    {
+      "family": "opera_farmer",
+      "path": "scripts/opera_gesture_surface.gd",
+      "function": "_draw_farm_arc_guide",
+      "name": "Vegetable toss arc guide",
+      "priority": "P1",
+      "status": "NEEDS_CONTEXT_REVIEW",
+      "note": "Draw-path family: accepted painted inputs and visible generated primitives coexist; inspect guards, exact phase and contact before choosing reuse/removal. Do not redraw every texture drawn by this function."
+    },
+    {
+      "family": "opera_farmer",
+      "path": "scripts/opera_gesture_surface.gd",
+      "function": "_draw_farm_munch_reaction",
+      "name": "Pig munch response",
+      "priority": "P1",
+      "status": "NEEDS_CONTEXT_REVIEW",
+      "note": "Draw-path family: accepted painted inputs and visible generated primitives coexist; inspect guards, exact phase and contact before choosing reuse/removal. Do not redraw every texture drawn by this function."
+    },
+    {
+      "family": "opera_farmer",
+      "path": "scripts/opera_gesture_surface.gd",
+      "function": "_draw_farm_lob",
+      "name": "Vegetable toss launcher framing",
+      "priority": "P1",
+      "status": "NEEDS_CONTEXT_REVIEW",
+      "note": "Draw-path family: accepted painted inputs and visible generated primitives coexist; inspect guards, exact phase and contact before choosing reuse/removal. Do not redraw every texture drawn by this function."
+    },
+    {
+      "family": "opera_boxer",
+      "path": "scripts/opera_gesture_surface.gd",
+      "function": "_draw_boxer_mitt",
+      "name": "Boxer practice mitt fallback",
+      "priority": "P1",
+      "status": "NEEDS_CONTEXT_REVIEW",
+      "note": "Draw-path family: accepted painted inputs and visible generated primitives coexist; inspect guards, exact phase and contact before choosing reuse/removal. Do not redraw every texture drawn by this function."
+    },
+    {
+      "family": "opera_boxer",
+      "path": "scripts/opera_gesture_surface.gd",
+      "function": "_draw_boxer_rhythm",
+      "name": "Boxer rhythm pads/beat accents",
+      "priority": "P1",
+      "status": "NEEDS_CONTEXT_REVIEW",
+      "note": "Draw-path family: accepted painted inputs and visible generated primitives coexist; inspect guards, exact phase and contact before choosing reuse/removal. Do not redraw every texture drawn by this function."
+    },
+    {
+      "family": "opera_shared",
+      "path": "scripts/opera_gesture_surface.gd",
+      "function": "_draw_imp",
+      "name": "Generic imp fallback",
+      "priority": "P1",
+      "status": "NEEDS_CONTEXT_REVIEW",
+      "note": "Draw-path family: accepted painted inputs and visible generated primitives coexist; inspect guards, exact phase and contact before choosing reuse/removal. Do not redraw every texture drawn by this function."
+    },
+    {
+      "family": "opera_magician",
+      "path": "scripts/opera_gesture_surface.gd",
+      "function": "_draw_shuffle_glide",
+      "name": "Magic shuffle motion guide",
+      "priority": "P1",
+      "status": "NEEDS_CONTEXT_REVIEW",
+      "note": "Draw-path family: accepted painted inputs and visible generated primitives coexist; inspect guards, exact phase and contact before choosing reuse/removal. Do not redraw every texture drawn by this function."
+    },
+    {
+      "family": "opera_astronaut",
+      "path": "scripts/opera_gesture_surface.gd",
+      "function": "_draw_pipe_tile",
+      "name": "Straight/curved/cross pipe tile family",
+      "priority": "P1",
+      "status": "NEEDS_CONTEXT_REVIEW",
+      "note": "Draw-path family: accepted painted inputs and visible generated primitives coexist; inspect guards, exact phase and contact before choosing reuse/removal. Do not redraw every texture drawn by this function."
+    },
+    {
+      "family": "opera_astronaut",
+      "path": "scripts/opera_gesture_surface.gd",
+      "function": "_draw_pipe",
+      "name": "Pipe board, socket and flow accents",
+      "priority": "P1",
+      "status": "NEEDS_CONTEXT_REVIEW",
+      "note": "Draw-path family: accepted painted inputs and visible generated primitives coexist; inspect guards, exact phase and contact before choosing reuse/removal. Do not redraw every texture drawn by this function."
+    },
+    {
+      "family": "opera_ballerina",
+      "path": "scripts/opera_gesture_surface.gd",
+      "function": "_draw_echo_star",
+      "name": "Echo-game star token",
+      "priority": "P1",
+      "status": "NEEDS_CONTEXT_REVIEW",
+      "note": "Draw-path family: accepted painted inputs and visible generated primitives coexist; inspect guards, exact phase and contact before choosing reuse/removal. Do not redraw every texture drawn by this function."
+    },
+    {
+      "family": "opera_ballerina",
+      "path": "scripts/opera_gesture_surface.gd",
+      "function": "_draw_echo",
+      "name": "Echo portrait/selection framing",
+      "priority": "P1",
+      "status": "NEEDS_CONTEXT_REVIEW",
+      "note": "Draw-path family: accepted painted inputs and visible generated primitives coexist; inspect guards, exact phase and contact before choosing reuse/removal. Do not redraw every texture drawn by this function."
+    },
+    {
+      "family": "opera_candymaker",
+      "path": "scripts/opera_gesture_surface.gd",
+      "function": "_draw_candymaker_pour_stream",
+      "name": "Syrup stream",
+      "priority": "P1",
+      "status": "NEEDS_CONTEXT_REVIEW",
+      "note": "Draw-path family: accepted painted inputs and visible generated primitives coexist; inspect guards, exact phase and contact before choosing reuse/removal. Do not redraw every texture drawn by this function."
+    },
+    {
+      "family": "opera_candymaker",
+      "path": "scripts/opera_gesture_surface.gd",
+      "function": "_draw_pour_scene",
+      "name": "Candy mold fill/contact fallback",
+      "priority": "P1",
+      "status": "NEEDS_CONTEXT_REVIEW",
+      "note": "Draw-path family: accepted painted inputs and visible generated primitives coexist; inspect guards, exact phase and contact before choosing reuse/removal. Do not redraw every texture drawn by this function."
+    },
+    {
+      "family": "opera_geologist",
+      "path": "scripts/opera_geology_surface.gd",
+      "function": "_draw_river",
+      "name": "Riverbed excavation cells",
+      "priority": "P1",
+      "status": "IDENTIFIED",
+      "note": "PAN_PATH and GEODE_PATH are empty at baseline; compatible states preserve arbitrary excavation, drag/snap, nine pan reversals, five seam targets and 120px pull."
+    },
+    {
+      "family": "opera_geologist",
+      "path": "scripts/opera_geology_surface.gd",
+      "function": "_draw_river",
+      "name": "River source/sink pools",
+      "priority": "P1",
+      "status": "IDENTIFIED",
+      "note": "PAN_PATH and GEODE_PATH are empty at baseline; compatible states preserve arbitrary excavation, drag/snap, nine pan reversals, five seam targets and 120px pull."
+    },
+    {
+      "family": "opera_geologist",
+      "path": "scripts/opera_geology_surface.gd",
+      "function": "_draw_river",
+      "name": "Connected flowing channel",
+      "priority": "P1",
+      "status": "IDENTIFIED",
+      "note": "PAN_PATH and GEODE_PATH are empty at baseline; compatible states preserve arbitrary excavation, drag/snap, nine pan reversals, five seam targets and 120px pull."
+    },
+    {
+      "family": "opera_geologist",
+      "path": "scripts/opera_geology_surface.gd",
+      "function": "_draw_fossil",
+      "name": "Fossil dirt-cover cells",
+      "priority": "P1",
+      "status": "IDENTIFIED",
+      "note": "PAN_PATH and GEODE_PATH are empty at baseline; compatible states preserve arbitrary excavation, drag/snap, nine pan reversals, five seam targets and 120px pull."
+    },
+    {
+      "family": "opera_geologist",
+      "path": "scripts/opera_geology_surface.gd",
+      "function": "_draw_fossil",
+      "name": "Fossil reveal slab and fragments",
+      "priority": "P1",
+      "status": "IDENTIFIED",
+      "note": "PAN_PATH and GEODE_PATH are empty at baseline; compatible states preserve arbitrary excavation, drag/snap, nine pan reversals, five seam targets and 120px pull."
+    },
+    {
+      "family": "opera_geologist",
+      "path": "scripts/opera_geology_surface.gd",
+      "function": "_draw_pan",
+      "name": "Washing pan rim/body",
+      "priority": "P1",
+      "status": "IDENTIFIED",
+      "note": "PAN_PATH and GEODE_PATH are empty at baseline; compatible states preserve arbitrary excavation, drag/snap, nine pan reversals, five seam targets and 120px pull."
+    },
+    {
+      "family": "opera_geologist",
+      "path": "scripts/opera_geology_surface.gd",
+      "function": "_draw_pan",
+      "name": "Pan water/wash accents",
+      "priority": "P1",
+      "status": "IDENTIFIED",
+      "note": "PAN_PATH and GEODE_PATH are empty at baseline; compatible states preserve arbitrary excavation, drag/snap, nine pan reversals, five seam targets and 120px pull."
+    },
+    {
+      "family": "opera_geologist",
+      "path": "scripts/opera_geology_surface.gd",
+      "function": "_draw_pan",
+      "name": "Pan sand covering",
+      "priority": "P1",
+      "status": "IDENTIFIED",
+      "note": "PAN_PATH and GEODE_PATH are empty at baseline; compatible states preserve arbitrary excavation, drag/snap, nine pan reversals, five seam targets and 120px pull."
+    },
+    {
+      "family": "opera_geologist",
+      "path": "scripts/opera_geology_surface.gd",
+      "function": "_draw_geode",
+      "name": "Geode closed shell",
+      "priority": "P1",
+      "status": "IDENTIFIED",
+      "note": "PAN_PATH and GEODE_PATH are empty at baseline; compatible states preserve arbitrary excavation, drag/snap, nine pan reversals, five seam targets and 120px pull."
+    },
+    {
+      "family": "opera_geologist",
+      "path": "scripts/opera_geology_surface.gd",
+      "function": "_draw_geode",
+      "name": "Geode matching opening halves",
+      "priority": "P1",
+      "status": "IDENTIFIED",
+      "note": "PAN_PATH and GEODE_PATH are empty at baseline; compatible states preserve arbitrary excavation, drag/snap, nine pan reversals, five seam targets and 120px pull."
+    },
+    {
+      "family": "opera_geologist",
+      "path": "scripts/opera_geology_surface.gd",
+      "function": "_draw_geode",
+      "name": "Geode seam targets",
+      "priority": "P1",
+      "status": "IDENTIFIED",
+      "note": "PAN_PATH and GEODE_PATH are empty at baseline; compatible states preserve arbitrary excavation, drag/snap, nine pan reversals, five seam targets and 120px pull."
+    },
+    {
+      "family": "opera_geologist",
+      "path": "scripts/opera_geology_surface.gd",
+      "function": "_draw_mineral",
+      "name": "Mineral specimen token",
+      "priority": "P1",
+      "status": "IDENTIFIED",
+      "note": "PAN_PATH and GEODE_PATH are empty at baseline; compatible states preserve arbitrary excavation, drag/snap, nine pan reversals, five seam targets and 120px pull."
+    },
+    {
+      "family": "opera_geologist",
+      "path": "scripts/opera_geology_surface.gd",
+      "function": "_draw_crystal_gallery",
+      "name": "Crystal gallery arrangement",
+      "priority": "P1",
+      "status": "IDENTIFIED",
+      "note": "PAN_PATH and GEODE_PATH are empty at baseline; compatible states preserve arbitrary excavation, drag/snap, nine pan reversals, five seam targets and 120px pull."
+    },
+    {
+      "family": "opera_geologist",
+      "path": "scripts/opera_geology_surface.gd",
+      "function": "_draw_work_surface",
+      "name": "Geology workbench surface",
+      "priority": "P1",
+      "status": "IDENTIFIED",
+      "note": "PAN_PATH and GEODE_PATH are empty at baseline; compatible states preserve arbitrary excavation, drag/snap, nine pan reversals, five seam targets and 120px pull."
+    },
+    {
+      "family": "opera_teacher",
+      "path": "scripts/opera_teacher_surface.gd",
+      "function": "_draw_hint_button",
+      "name": "Teacher hint button surface",
+      "priority": "P1",
+      "status": "IDENTIFIED",
+      "note": "Preserve exact shapes, counts, colors and answers. Painted material on the same semantic silhouettes; no decorative substitution."
+    },
+    {
+      "family": "opera_teacher",
+      "path": "scripts/opera_teacher_surface.gd",
+      "function": "_draw_pattern",
+      "name": "Teacher pattern row sockets",
+      "priority": "P1",
+      "status": "IDENTIFIED",
+      "note": "Preserve exact shapes, counts, colors and answers. Painted material on the same semantic silhouettes; no decorative substitution."
+    },
+    {
+      "family": "opera_teacher",
+      "path": "scripts/opera_teacher_surface.gd",
+      "function": "_draw_counting",
+      "name": "Teacher count/add/match answer surface",
+      "priority": "P1",
+      "status": "IDENTIFIED",
+      "note": "Preserve exact shapes, counts, colors and answers. Painted material on the same semantic silhouettes; no decorative substitution."
+    },
+    {
+      "family": "opera_teacher",
+      "path": "scripts/opera_teacher_surface.gd",
+      "function": "_draw_group",
+      "name": "Teacher counted dot/token family",
+      "priority": "P1",
+      "status": "IDENTIFIED",
+      "note": "Preserve exact shapes, counts, colors and answers. Painted material on the same semantic silhouettes; no decorative substitution."
+    },
+    {
+      "family": "opera_teacher",
+      "path": "scripts/opera_teacher_surface.gd",
+      "function": "_draw_shape",
+      "name": "Teacher circle/triangle/square lesson tokens",
+      "priority": "P1",
+      "status": "IDENTIFIED",
+      "note": "Preserve exact shapes, counts, colors and answers. Painted material on the same semantic silhouettes; no decorative substitution."
+    },
+    {
+      "family": "opera_teacher",
+      "path": "scripts/opera_teacher_surface.gd",
+      "function": "_draw_demo",
+      "name": "Teacher demo pointer",
+      "priority": "P1",
+      "status": "IDENTIFIED",
+      "note": "Preserve exact shapes, counts, colors and answers. Painted material on the same semantic silhouettes; no decorative substitution."
+    },
+    {
+      "family": "opera_boxer",
+      "path": "scripts/opera_boxing_surface.gd",
+      "function": "_draw_progress_lights",
+      "name": "Boxing progress lights",
+      "priority": "P1",
+      "status": "NEEDS_CONTEXT_REVIEW",
+      "note": "Keep painted actor/gloves where guards bind them; inspect tell, contact, recoil and settle as a complete action."
+    },
+    {
+      "family": "opera_boxer",
+      "path": "scripts/opera_boxing_surface.gd",
+      "function": "_draw_punch_lanes",
+      "name": "Boxing punch lanes",
+      "priority": "P1",
+      "status": "NEEDS_CONTEXT_REVIEW",
+      "note": "Keep painted actor/gloves where guards bind them; inspect tell, contact, recoil and settle as a complete action."
+    },
+    {
+      "family": "opera_boxer",
+      "path": "scripts/opera_boxing_surface.gd",
+      "function": "_draw_target",
+      "name": "Boxing target cue",
+      "priority": "P1",
+      "status": "NEEDS_CONTEXT_REVIEW",
+      "note": "Keep painted actor/gloves where guards bind them; inspect tell, contact, recoil and settle as a complete action."
+    },
+    {
+      "family": "opera_boxer",
+      "path": "scripts/opera_boxing_surface.gd",
+      "function": "_draw_counter",
+      "name": "Boxing counter guide",
+      "priority": "P1",
+      "status": "NEEDS_CONTEXT_REVIEW",
+      "note": "Keep painted actor/gloves where guards bind them; inspect tell, contact, recoil and settle as a complete action."
+    },
+    {
+      "family": "opera_boxer",
+      "path": "scripts/opera_boxing_surface.gd",
+      "function": "_draw_belt",
+      "name": "Belt target cue (painted belt retained)",
+      "priority": "P1",
+      "status": "NEEDS_CONTEXT_REVIEW",
+      "note": "Keep painted actor/gloves where guards bind them; inspect tell, contact, recoil and settle as a complete action."
+    },
+    {
+      "family": "opera_boxer",
+      "path": "scripts/opera_boxing_surface.gd",
+      "function": "_draw_glove",
+      "name": "Glove fallback",
+      "priority": "P1",
+      "status": "NEEDS_CONTEXT_REVIEW",
+      "note": "Keep painted actor/gloves where guards bind them; inspect tell, contact, recoil and settle as a complete action."
+    },
+    {
+      "family": "opera_boxer",
+      "path": "scripts/opera_boxing_surface.gd",
+      "function": "_draw_impact",
+      "name": "Boxing impact starburst",
+      "priority": "P1",
+      "status": "NEEDS_CONTEXT_REVIEW",
+      "note": "Keep painted actor/gloves where guards bind them; inspect tell, contact, recoil and settle as a complete action."
+    },
+    {
+      "family": "opera_boxer",
+      "path": "scripts/opera_boxing_surface.gd",
+      "function": "_draw_friendly_hit",
+      "name": "Friendly-hit feedback",
+      "priority": "P1",
+      "status": "NEEDS_CONTEXT_REVIEW",
+      "note": "Keep painted actor/gloves where guards bind them; inspect tell, contact, recoil and settle as a complete action."
+    },
+    {
+      "family": "opera_boxer",
+      "path": "scripts/opera_boxing_surface.gd",
+      "function": "_draw_demo",
+      "name": "Boxing demo hand",
+      "priority": "P1",
+      "status": "NEEDS_CONTEXT_REVIEW",
+      "note": "Keep painted actor/gloves where guards bind them; inspect tell, contact, recoil and settle as a complete action."
+    },
+    {
+      "family": "opera_ballerina",
+      "path": "scripts/opera_ballet_surface.gd",
+      "function": "_draw_shell_frame",
+      "name": "Ballet portrait shell frame",
+      "priority": "P1",
+      "status": "NEEDS_CONTEXT_REVIEW",
+      "note": "Keep reviewed held semantic poses and authored ribbon/twirl path; no atlas retiming or figure redraw."
+    },
+    {
+      "family": "opera_ballerina",
+      "path": "scripts/opera_ballet_surface.gd",
+      "function": "_draw_round_pearls",
+      "name": "Ballet round pearls",
+      "priority": "P1",
+      "status": "NEEDS_CONTEXT_REVIEW",
+      "note": "Keep reviewed held semantic poses and authored ribbon/twirl path; no atlas retiming or figure redraw."
+    },
+    {
+      "family": "opera_ballerina",
+      "path": "scripts/opera_ballet_surface.gd",
+      "function": "_draw_ribbon_game",
+      "name": "Ballet ribbon guide/trace",
+      "priority": "P1",
+      "status": "NEEDS_CONTEXT_REVIEW",
+      "note": "Keep reviewed held semantic poses and authored ribbon/twirl path; no atlas retiming or figure redraw."
+    },
+    {
+      "family": "opera_ballerina",
+      "path": "scripts/opera_ballet_surface.gd",
+      "function": "_draw_twirl_game",
+      "name": "Ballet twirl rim/guide",
+      "priority": "P1",
+      "status": "NEEDS_CONTEXT_REVIEW",
+      "note": "Keep reviewed held semantic poses and authored ribbon/twirl path; no atlas retiming or figure redraw."
+    },
+    {
+      "family": "opera_ballerina",
+      "path": "scripts/opera_ballet_surface.gd",
+      "function": "_draw_feedback",
+      "name": "Ballet response accents",
+      "priority": "P1",
+      "status": "NEEDS_CONTEXT_REVIEW",
+      "note": "Keep reviewed held semantic poses and authored ribbon/twirl path; no atlas retiming or figure redraw."
+    },
+    {
+      "family": "opera_ballerina",
+      "path": "scripts/opera_ballet_surface.gd",
+      "function": "_draw_ghost_finger",
+      "name": "Ballet ghost finger",
+      "priority": "P1",
+      "status": "NEEDS_CONTEXT_REVIEW",
+      "note": "Keep reviewed held semantic poses and authored ribbon/twirl path; no atlas retiming or figure redraw."
+    },
+    {
+      "family": "opera_ballerina",
+      "path": "scripts/opera_ballet_surface.gd",
+      "function": "_draw_completion_halo",
+      "name": "Ballet completion halo",
+      "priority": "P1",
+      "status": "NEEDS_CONTEXT_REVIEW",
+      "note": "Keep reviewed held semantic poses and authored ribbon/twirl path; no atlas retiming or figure redraw."
+    },
+    {
+      "family": "opera_racer",
+      "path": "scripts/opera_racer_surface.gd",
+      "function": "_draw_car",
+      "name": "Kart ground shadow",
+      "priority": "P1",
+      "status": "NEEDS_CONTEXT_REVIEW",
+      "note": ""
+    },
+    {
+      "family": "opera_racer",
+      "path": "scripts/opera_racer_surface.gd",
+      "function": "_draw_car",
+      "name": "Missing-kart body fallback",
+      "priority": "P1",
+      "status": "NEEDS_CONTEXT_REVIEW",
+      "note": ""
+    },
+    {
+      "family": "opera_racer",
+      "path": "scripts/opera_racer_surface.gd",
+      "function": "_draw_race_controls",
+      "name": "Steering-control frame",
+      "priority": "P1",
+      "status": "NEEDS_CONTEXT_REVIEW",
+      "note": ""
+    },
+    {
+      "family": "opera_racer",
+      "path": "scripts/opera_racer_surface.gd",
+      "function": "_draw_race_controls",
+      "name": "Turbo control frame",
+      "priority": "P1",
+      "status": "NEEDS_CONTEXT_REVIEW",
+      "note": ""
+    },
+    {
+      "family": "dolls",
+      "path": "scripts/games/dolls.gd",
+      "function": "_draw",
+      "name": "Nursery safety mat",
+      "priority": "P1",
+      "status": "IDENTIFIED",
+      "note": "Painted babies/background stay intact; preserve broad catcher/mercy, no-fail landing and selected-skin mounting. Mat is one whole authored design."
+    },
+    {
+      "family": "dolls",
+      "path": "scripts/games/dolls.gd",
+      "function": "_draw",
+      "name": "Nursery quilt seams and tufts",
+      "priority": "P1",
+      "status": "IDENTIFIED",
+      "note": "Painted babies/background stay intact; preserve broad catcher/mercy, no-fail landing and selected-skin mounting. Mat is one whole authored design."
+    },
+    {
+      "family": "dolls",
+      "path": "scripts/games/dolls.gd",
+      "function": "_draw",
+      "name": "Nursery cradle sling",
+      "priority": "P1",
+      "status": "IDENTIFIED",
+      "note": "Painted babies/background stay intact; preserve broad catcher/mercy, no-fail landing and selected-skin mounting. Mat is one whole authored design."
+    },
+    {
+      "family": "dolls",
+      "path": "scripts/games/dolls.gd",
+      "function": "_draw",
+      "name": "Cradle focus halo",
+      "priority": "P1",
+      "status": "IDENTIFIED",
+      "note": "Painted babies/background stay intact; preserve broad catcher/mercy, no-fail landing and selected-skin mounting. Mat is one whole authored design."
+    },
+    {
+      "family": "dolls",
+      "path": "scripts/games/dolls.gd",
+      "function": "_draw",
+      "name": "Caught-baby progress pips",
+      "priority": "P1",
+      "status": "IDENTIFIED",
+      "note": "Painted babies/background stay intact; preserve broad catcher/mercy, no-fail landing and selected-skin mounting. Mat is one whole authored design."
+    },
+    {
+      "family": "dolls",
+      "path": "scripts/games/dolls.gd",
+      "function": "_draw",
+      "name": "Safe-landing ring",
+      "priority": "P1",
+      "status": "IDENTIFIED",
+      "note": "Painted babies/background stay intact; preserve broad catcher/mercy, no-fail landing and selected-skin mounting. Mat is one whole authored design."
+    },
+    {
+      "family": "melody",
+      "path": "scripts/games/melody.gd",
+      "function": "FILE_SCOPE",
+      "name": "Left theatre curtain",
+      "priority": "P1",
+      "status": "IDENTIFIED",
+      "note": "Nested class construction exact lines in source_scopes. Seven pitch/color identities, 84px visual/120px touch footprints, timing and Daddy/Roshan source art are preserved."
+    },
+    {
+      "family": "melody",
+      "path": "scripts/games/melody.gd",
+      "function": "FILE_SCOPE",
+      "name": "Right theatre curtain",
+      "priority": "P1",
+      "status": "IDENTIFIED",
+      "note": "Nested class construction exact lines in source_scopes. Seven pitch/color identities, 84px visual/120px touch footprints, timing and Daddy/Roshan source art are preserved."
+    },
+    {
+      "family": "melody",
+      "path": "scripts/games/melody.gd",
+      "function": "FILE_SCOPE",
+      "name": "Theatre crown header",
+      "priority": "P1",
+      "status": "IDENTIFIED",
+      "note": "Nested class construction exact lines in source_scopes. Seven pitch/color identities, 84px visual/120px touch footprints, timing and Daddy/Roshan source art are preserved."
+    },
+    {
+      "family": "melody",
+      "path": "scripts/games/melody.gd",
+      "function": "FILE_SCOPE",
+      "name": "Theatre stage apron",
+      "priority": "P1",
+      "status": "IDENTIFIED",
+      "note": "Nested class construction exact lines in source_scopes. Seven pitch/color identities, 84px visual/120px touch footprints, timing and Daddy/Roshan source art are preserved."
+    },
+    {
+      "family": "melody",
+      "path": "scripts/games/melody.gd",
+      "function": "FILE_SCOPE",
+      "name": "Theatre bulbs",
+      "priority": "P1",
+      "status": "IDENTIFIED",
+      "note": "Nested class construction exact lines in source_scopes. Seven pitch/color identities, 84px visual/120px touch footprints, timing and Daddy/Roshan source art are preserved."
+    },
+    {
+      "family": "melody",
+      "path": "scripts/games/melody.gd",
+      "function": "FILE_SCOPE",
+      "name": "Rainbow note rail",
+      "priority": "P1",
+      "status": "IDENTIFIED",
+      "note": "Nested class construction exact lines in source_scopes. Seven pitch/color identities, 84px visual/120px touch footprints, timing and Daddy/Roshan source art are preserved."
+    },
+    {
+      "family": "melody",
+      "path": "scripts/games/melody.gd",
+      "function": "FILE_SCOPE",
+      "name": "Melody note token",
+      "priority": "P1",
+      "status": "IDENTIFIED",
+      "note": "Nested class construction exact lines in source_scopes. Seven pitch/color identities, 84px visual/120px touch footprints, timing and Daddy/Roshan source art are preserved."
+    },
+    {
+      "family": "melody",
+      "path": "scripts/games/melody.gd",
+      "function": "FILE_SCOPE",
+      "name": "Melody start button",
+      "priority": "P1",
+      "status": "IDENTIFIED",
+      "note": "Nested class construction exact lines in source_scopes. Seven pitch/color identities, 84px visual/120px touch footprints, timing and Daddy/Roshan source art are preserved."
+    },
+    {
+      "family": "melody",
+      "path": "scripts/games/melody.gd",
+      "function": "FILE_SCOPE",
+      "name": "Melody guide arrow/rings",
+      "priority": "P1",
+      "status": "IDENTIFIED",
+      "note": "Nested class construction exact lines in source_scopes. Seven pitch/color identities, 84px visual/120px touch footprints, timing and Daddy/Roshan source art are preserved."
+    },
+    {
+      "family": "melody",
+      "path": "scripts/games/melody.gd",
+      "function": "FILE_SCOPE",
+      "name": "Melody progress pip",
+      "priority": "P1",
+      "status": "IDENTIFIED",
+      "note": "Nested class construction exact lines in source_scopes. Seven pitch/color identities, 84px visual/120px touch footprints, timing and Daddy/Roshan source art are preserved."
+    },
+    {
+      "family": "melody",
+      "path": "scripts/games/melody.gd",
+      "function": "FILE_SCOPE",
+      "name": "Melody reward star",
+      "priority": "P1",
+      "status": "IDENTIFIED",
+      "note": "Nested class construction exact lines in source_scopes. Seven pitch/color identities, 84px visual/120px touch footprints, timing and Daddy/Roshan source art are preserved."
+    },
+    {
+      "family": "chapter2_party",
+      "path": "scripts/chapter_two_party_table_2d.gd",
+      "function": "_build_ember_visitor_stage",
+      "name": "Ember scout silhouette",
+      "priority": "P1",
+      "status": "BLOCKED",
+      "note": "Explicit identity_art_approved=false. Inventory authoritative existing whole-unit identity/pose art; missing exact accepted identity/contact state blocks its dependent replacement, not this audit publication."
+    },
+    {
+      "family": "chapter2_party",
+      "path": "scripts/chapter_two_party_table_2d.gd",
+      "function": "_build_ember_visitor_stage",
+      "name": "Ember King silhouette",
+      "priority": "P1",
+      "status": "BLOCKED",
+      "note": "Explicit identity_art_approved=false. Inventory authoritative existing whole-unit identity/pose art; missing exact accepted identity/contact state blocks its dependent replacement, not this audit publication."
+    },
+    {
+      "family": "chapter2_party",
+      "path": "scripts/chapter_two_party_table_2d.gd",
+      "function": "_build_ember_visitor_stage",
+      "name": "Ember Prince silhouette",
+      "priority": "P1",
+      "status": "BLOCKED",
+      "note": "Explicit identity_art_approved=false. Inventory authoritative existing whole-unit identity/pose art; missing exact accepted identity/contact state blocks its dependent replacement, not this audit publication."
+    },
+    {
+      "family": "chapter2_party",
+      "path": "scripts/chapter_two_party_table_2d.gd",
+      "function": "_build_ember_visitor_stage",
+      "name": "Candle-taking line arm",
+      "priority": "P1",
+      "status": "BLOCKED",
+      "note": "Explicit identity_art_approved=false. Inventory authoritative existing whole-unit identity/pose art; missing exact accepted identity/contact state blocks its dependent replacement, not this audit publication."
+    },
+    {
+      "family": "chapter2_party",
+      "path": "scripts/chapter_two_rainbow_candle_2d.gd",
+      "function": "_draw",
+      "name": "Missing-import vector candle fallback",
+      "priority": "P2",
+      "status": "REUSE_READY",
+      "note": "Normal path returns when both painted unlit/lit sprites exist. Accepted painted states remain; prove availability then retire fallback without regeneration."
+    },
+    {
+      "family": "shared_ui",
+      "path": "scripts/storybook_ui.gd",
+      "function": "panel_style",
+      "name": "Paper/shell panel fill and border",
+      "priority": "P1",
+      "status": "IDENTIFIED",
+      "note": "Visible UI art; retained functional Controls get authored texture/NinePatch material and pressed/focus states, preserving touch ownership and content margins."
+    },
+    {
+      "family": "shared_ui",
+      "path": "scripts/storybook_ui.gd",
+      "function": "style_button",
+      "name": "Button normal/hover/pressed/focus/disabled material",
+      "priority": "P1",
+      "status": "IDENTIFIED",
+      "note": ""
+    },
+    {
+      "family": "shared_ui",
+      "path": "scripts/storybook_ui.gd",
+      "function": "style_picture_button",
+      "name": "Picture-choice card normal/pressed/focus material",
+      "priority": "P1",
+      "status": "IDENTIFIED",
+      "note": ""
+    },
+    {
+      "family": "shared_ui",
+      "path": "scripts/shell_ornament.gd",
+      "function": "_draw",
+      "name": "UI shell ornament",
+      "priority": "P1",
+      "status": "IDENTIFIED",
+      "note": ""
+    },
+    {
+      "family": "shared_ui",
+      "path": "scripts/touch_ui.gd",
+      "function": "FILE_SCOPE",
+      "name": "Movement-pad/button material",
+      "priority": "P2",
+      "status": "NEEDS_CONTEXT_REVIEW",
+      "note": "Optional fallback movement remains functional; visible frame and art receive disposition, invisible hit regions do not count as art."
+    },
+    {
+      "family": "shared_ui",
+      "path": "scripts/start_menu.gd",
+      "function": "FILE_SCOPE",
+      "name": "Start-menu inset/sheen",
+      "priority": "P1",
+      "status": "NEEDS_CONTEXT_REVIEW",
+      "note": "Ordinary text and font rendering stay functional. Pictogram art must have phone-size semantic equivalents."
+    },
+    {
+      "family": "shared_ui",
+      "path": "scripts/start_menu.gd",
+      "function": "FILE_SCOPE",
+      "name": "Start-menu decorative sparkle",
+      "priority": "P1",
+      "status": "NEEDS_CONTEXT_REVIEW",
+      "note": "Ordinary text and font rendering stay functional. Pictogram art must have phone-size semantic equivalents."
+    },
+    {
+      "family": "shared_ui",
+      "path": "scripts/start_menu.gd",
+      "function": "FILE_SCOPE",
+      "name": "Start-menu hold/reset fill",
+      "priority": "P1",
+      "status": "NEEDS_CONTEXT_REVIEW",
+      "note": "Ordinary text and font rendering stay functional. Pictogram art must have phone-size semantic equivalents."
+    },
+    {
+      "family": "child_authored",
+      "path": "scripts/castle_logo_studio.gd",
+      "function": "FILE_SCOPE",
+      "name": "Saved logo symbol and color marks",
+      "priority": "P2",
+      "status": "NEEDS_CONTEXT_REVIEW",
+      "note": "Preserve saved child-authored identity and registered banner ownership. Paint presentation around it; child marks are authored content, not disposable placeholder art."
+    },
+    {
+      "family": "child_authored",
+      "path": "scripts/castle_logo_studio.gd",
+      "function": "FILE_SCOPE",
+      "name": "Logo studio choice material",
+      "priority": "P2",
+      "status": "NEEDS_CONTEXT_REVIEW",
+      "note": "Preserve saved child-authored identity and registered banner ownership. Paint presentation around it; child marks are authored content, not disposable placeholder art."
+    },
+    {
+      "family": "picture_games",
+      "path": "assets/mg/k_sprout.png",
+      "function": "FILE_SCOPE",
+      "name": "Garden common sprout",
+      "priority": "P1",
+      "status": "NEEDS_CONTEXT_REVIEW",
+      "note": "Raster extension supplies no visual exemption. Dated September audit is evidence; current slot-to-source/render pairing and source inspection decide replacement. Can material/edge suitability is separate from flatness; valid alpha retained and visible contamination unproved."
+    },
+    {
+      "family": "picture_games",
+      "path": "assets/mg/k_flower1.png",
+      "function": "FILE_SCOPE",
+      "name": "Garden mature result 1",
+      "priority": "P1",
+      "status": "NEEDS_CONTEXT_REVIEW",
+      "note": "Raster extension supplies no visual exemption. Dated September audit is evidence; current slot-to-source/render pairing and source inspection decide replacement. Can material/edge suitability is separate from flatness; valid alpha retained and visible contamination unproved."
+    },
+    {
+      "family": "picture_games",
+      "path": "assets/mg/flower.png",
+      "function": "FILE_SCOPE",
+      "name": "Garden mature result 2",
+      "priority": "P1",
+      "status": "NEEDS_CONTEXT_REVIEW",
+      "note": "Raster extension supplies no visual exemption. Dated September audit is evidence; current slot-to-source/render pairing and source inspection decide replacement. Can material/edge suitability is separate from flatness; valid alpha retained and visible contamination unproved."
+    },
+    {
+      "family": "picture_games",
+      "path": "assets/mg/flower2.png",
+      "function": "FILE_SCOPE",
+      "name": "Garden mature result 3",
+      "priority": "P1",
+      "status": "NEEDS_CONTEXT_REVIEW",
+      "note": "Raster extension supplies no visual exemption. Dated September audit is evidence; current slot-to-source/render pairing and source inspection decide replacement. Can material/edge suitability is separate from flatness; valid alpha retained and visible contamination unproved."
+    },
+    {
+      "family": "picture_games",
+      "path": "assets/mg/k_flower2.png",
+      "function": "FILE_SCOPE",
+      "name": "Garden mature result 4",
+      "priority": "P1",
+      "status": "NEEDS_CONTEXT_REVIEW",
+      "note": "Raster extension supplies no visual exemption. Dated September audit is evidence; current slot-to-source/render pairing and source inspection decide replacement. Can material/edge suitability is separate from flatness; valid alpha retained and visible contamination unproved."
+    },
+    {
+      "family": "picture_games",
+      "path": "assets/mg/flower3.png",
+      "function": "FILE_SCOPE",
+      "name": "Garden mature result 5",
+      "priority": "P1",
+      "status": "NEEDS_CONTEXT_REVIEW",
+      "note": "Raster extension supplies no visual exemption. Dated September audit is evidence; current slot-to-source/render pairing and source inspection decide replacement. Can material/edge suitability is separate from flatness; valid alpha retained and visible contamination unproved."
+    },
+    {
+      "family": "picture_games",
+      "path": "assets/mg/k_bush2.png",
+      "function": "FILE_SCOPE",
+      "name": "Flat leaf-mass bush",
+      "priority": "P1",
+      "status": "NEEDS_CONTEXT_REVIEW",
+      "note": "Raster extension supplies no visual exemption. Dated September audit is evidence; current slot-to-source/render pairing and source inspection decide replacement. Can material/edge suitability is separate from flatness; valid alpha retained and visible contamination unproved."
+    },
+    {
+      "family": "picture_games",
+      "path": "assets/mg/wateringcan.png",
+      "function": "FILE_SCOPE",
+      "name": "Garden watering can",
+      "priority": "P1",
+      "status": "NEEDS_CONTEXT_REVIEW",
+      "note": "Raster extension supplies no visual exemption. Dated September audit is evidence; current slot-to-source/render pairing and source inspection decide replacement. Can material/edge suitability is separate from flatness; valid alpha retained and visible contamination unproved."
+    },
+    {
+      "family": "castle_rooms",
+      "path": "assets_src/castle/dream_house_rooms_2k/room_royal_bedroom_background_master.png",
+      "function": "FILE_SCOPE",
+      "name": "Royal Bedroom: Ceiling and architectural shell",
+      "priority": "P1",
+      "status": "NEEDS_CONTEXT_REVIEW",
+      "note": "Source composite/historical scene evidence shows flat shell language. Verify current native tile ownership/fixture-rig route before changing any master; preserve strong painted furniture, geometry and perspective. Pixel bounds remain to be measured."
+    },
+    {
+      "family": "castle_rooms",
+      "path": "assets_src/castle/dream_house_rooms_2k/room_royal_bedroom_background_master.png",
+      "function": "FILE_SCOPE",
+      "name": "Royal Bedroom: Window/door inset",
+      "priority": "P1",
+      "status": "NEEDS_CONTEXT_REVIEW",
+      "note": "Source composite/historical scene evidence shows flat shell language. Verify current native tile ownership/fixture-rig route before changing any master; preserve strong painted furniture, geometry and perspective. Pixel bounds remain to be measured."
+    },
+    {
+      "family": "castle_rooms",
+      "path": "assets_src/castle/dream_house_rooms_2k/room_royal_bedroom_background_master.png",
+      "function": "FILE_SCOPE",
+      "name": "Royal Bedroom: Floor/rug design",
+      "priority": "P1",
+      "status": "NEEDS_CONTEXT_REVIEW",
+      "note": "Source composite/historical scene evidence shows flat shell language. Verify current native tile ownership/fixture-rig route before changing any master; preserve strong painted furniture, geometry and perspective. Pixel bounds remain to be measured."
+    },
+    {
+      "family": "castle_rooms",
+      "path": "assets_src/castle/dream_house_rooms_2k/room_sleepover_bedroom_background_master.png",
+      "function": "FILE_SCOPE",
+      "name": "Sleepover Bedroom: Ceiling and architectural shell",
+      "priority": "P1",
+      "status": "NEEDS_CONTEXT_REVIEW",
+      "note": "Source composite/historical scene evidence shows flat shell language. Verify current native tile ownership/fixture-rig route before changing any master; preserve strong painted furniture, geometry and perspective. Pixel bounds remain to be measured."
+    },
+    {
+      "family": "castle_rooms",
+      "path": "assets_src/castle/dream_house_rooms_2k/room_sleepover_bedroom_background_master.png",
+      "function": "FILE_SCOPE",
+      "name": "Sleepover Bedroom: Window/door inset",
+      "priority": "P1",
+      "status": "NEEDS_CONTEXT_REVIEW",
+      "note": "Source composite/historical scene evidence shows flat shell language. Verify current native tile ownership/fixture-rig route before changing any master; preserve strong painted furniture, geometry and perspective. Pixel bounds remain to be measured."
+    },
+    {
+      "family": "castle_rooms",
+      "path": "assets_src/castle/dream_house_rooms_2k/room_sleepover_bedroom_background_master.png",
+      "function": "FILE_SCOPE",
+      "name": "Sleepover Bedroom: Floor/rug design",
+      "priority": "P1",
+      "status": "NEEDS_CONTEXT_REVIEW",
+      "note": "Source composite/historical scene evidence shows flat shell language. Verify current native tile ownership/fixture-rig route before changing any master; preserve strong painted furniture, geometry and perspective. Pixel bounds remain to be measured."
+    },
+    {
+      "family": "castle_rooms",
+      "path": "assets_src/castle/dream_house_rooms_2k/room_movie_lounge_background_master.png",
+      "function": "FILE_SCOPE",
+      "name": "Movie Lounge: Ceiling and architectural shell",
+      "priority": "P1",
+      "status": "NEEDS_CONTEXT_REVIEW",
+      "note": "Source composite/historical scene evidence shows flat shell language. Verify current native tile ownership/fixture-rig route before changing any master; preserve strong painted furniture, geometry and perspective. Pixel bounds remain to be measured."
+    },
+    {
+      "family": "castle_rooms",
+      "path": "assets_src/castle/dream_house_rooms_2k/room_movie_lounge_background_master.png",
+      "function": "FILE_SCOPE",
+      "name": "Movie Lounge: Window/door inset",
+      "priority": "P1",
+      "status": "NEEDS_CONTEXT_REVIEW",
+      "note": "Source composite/historical scene evidence shows flat shell language. Verify current native tile ownership/fixture-rig route before changing any master; preserve strong painted furniture, geometry and perspective. Pixel bounds remain to be measured."
+    },
+    {
+      "family": "castle_rooms",
+      "path": "assets_src/castle/dream_house_rooms_2k/room_movie_lounge_background_master.png",
+      "function": "FILE_SCOPE",
+      "name": "Movie Lounge: Floor/rug design",
+      "priority": "P1",
+      "status": "NEEDS_CONTEXT_REVIEW",
+      "note": "Source composite/historical scene evidence shows flat shell language. Verify current native tile ownership/fixture-rig route before changing any master; preserve strong painted furniture, geometry and perspective. Pixel bounds remain to be measured."
+    },
+    {
+      "family": "castle_rooms",
+      "path": "assets_src/castle/dream_house_rooms_2k/room_dining_room_background_master.png",
+      "function": "FILE_SCOPE",
+      "name": "Dining Room: Ceiling and architectural shell",
+      "priority": "P1",
+      "status": "NEEDS_CONTEXT_REVIEW",
+      "note": "Source composite/historical scene evidence shows flat shell language. Verify current native tile ownership/fixture-rig route before changing any master; preserve strong painted furniture, geometry and perspective. Pixel bounds remain to be measured."
+    },
+    {
+      "family": "castle_rooms",
+      "path": "assets_src/castle/dream_house_rooms_2k/room_dining_room_background_master.png",
+      "function": "FILE_SCOPE",
+      "name": "Dining Room: Window/door inset",
+      "priority": "P1",
+      "status": "NEEDS_CONTEXT_REVIEW",
+      "note": "Source composite/historical scene evidence shows flat shell language. Verify current native tile ownership/fixture-rig route before changing any master; preserve strong painted furniture, geometry and perspective. Pixel bounds remain to be measured."
+    },
+    {
+      "family": "castle_rooms",
+      "path": "assets_src/castle/dream_house_rooms_2k/room_dining_room_background_master.png",
+      "function": "FILE_SCOPE",
+      "name": "Dining Room: Floor/rug design",
+      "priority": "P1",
+      "status": "NEEDS_CONTEXT_REVIEW",
+      "note": "Source composite/historical scene evidence shows flat shell language. Verify current native tile ownership/fixture-rig route before changing any master; preserve strong painted furniture, geometry and perspective. Pixel bounds remain to be measured."
+    },
+    {
+      "family": "castle_rooms",
+      "path": "assets_src/castle/dream_house_rooms_2k/room_family_gallery_background_master.png",
+      "function": "FILE_SCOPE",
+      "name": "Family Gallery: Ceiling and architectural shell",
+      "priority": "P1",
+      "status": "NEEDS_CONTEXT_REVIEW",
+      "note": "Source composite/historical scene evidence shows flat shell language. Verify current native tile ownership/fixture-rig route before changing any master; preserve strong painted furniture, geometry and perspective. Pixel bounds remain to be measured."
+    },
+    {
+      "family": "castle_rooms",
+      "path": "assets_src/castle/dream_house_rooms_2k/room_family_gallery_background_master.png",
+      "function": "FILE_SCOPE",
+      "name": "Family Gallery: Window/door inset",
+      "priority": "P1",
+      "status": "NEEDS_CONTEXT_REVIEW",
+      "note": "Source composite/historical scene evidence shows flat shell language. Verify current native tile ownership/fixture-rig route before changing any master; preserve strong painted furniture, geometry and perspective. Pixel bounds remain to be measured."
+    },
+    {
+      "family": "castle_rooms",
+      "path": "assets_src/castle/dream_house_rooms_2k/room_family_gallery_background_master.png",
+      "function": "FILE_SCOPE",
+      "name": "Family Gallery: Floor/rug design",
+      "priority": "P1",
+      "status": "NEEDS_CONTEXT_REVIEW",
+      "note": "Source composite/historical scene evidence shows flat shell language. Verify current native tile ownership/fixture-rig route before changing any master; preserve strong painted furniture, geometry and perspective. Pixel bounds remain to be measured."
+    },
+    {
+      "family": "literal_svg",
+      "path": "assets/opera/worlds/hotspots/geologist_fossil.svg",
+      "function": "FILE_SCOPE",
+      "name": "geologist fossil",
+      "priority": "P1",
+      "status": "IDENTIFIED",
+      "note": "Literal SVG source is flat candidate; painted hotspot presentation can suppress its actual pixels. Teacher and geology specialist consumers and crest route need individual visibility proof. Do not rasterize the same weakness."
+    },
+    {
+      "family": "literal_svg",
+      "path": "assets/opera/worlds/hotspots/geologist_layered_rock.svg",
+      "function": "FILE_SCOPE",
+      "name": "geologist layered rock",
+      "priority": "P1",
+      "status": "IDENTIFIED",
+      "note": "Literal SVG source is flat candidate; painted hotspot presentation can suppress its actual pixels. Teacher and geology specialist consumers and crest route need individual visibility proof. Do not rasterize the same weakness."
+    },
+    {
+      "family": "literal_svg",
+      "path": "assets/opera/worlds/hotspots/teacher_lesson_board.svg",
+      "function": "FILE_SCOPE",
+      "name": "teacher lesson board",
+      "priority": "P1",
+      "status": "IDENTIFIED",
+      "note": "Literal SVG source is flat candidate; painted hotspot presentation can suppress its actual pixels. Teacher and geology specialist consumers and crest route need individual visibility proof. Do not rasterize the same weakness."
+    },
+    {
+      "family": "literal_svg",
+      "path": "assets/opera/worlds/props/goal_geologist.svg",
+      "function": "FILE_SCOPE",
+      "name": "goal geologist",
+      "priority": "P1",
+      "status": "IDENTIFIED",
+      "note": "Literal SVG source is flat candidate; painted hotspot presentation can suppress its actual pixels. Teacher and geology specialist consumers and crest route need individual visibility proof. Do not rasterize the same weakness."
+    },
+    {
+      "family": "literal_svg",
+      "path": "assets/opera/worlds/ui/crests/opera_crest_geologist.svg",
+      "function": "FILE_SCOPE",
+      "name": "opera crest geologist",
+      "priority": "P1",
+      "status": "IDENTIFIED",
+      "note": "Literal SVG source is flat candidate; painted hotspot presentation can suppress its actual pixels. Teacher and geology specialist consumers and crest route need individual visibility proof. Do not rasterize the same weakness."
+    },
+    {
+      "family": "shared_ambience",
+      "path": "scripts/living_world_canvas.gd",
+      "function": "_draw_motif",
+      "name": "Curtain/ribbon/flag motif",
+      "priority": "P1",
+      "status": "IDENTIFIED",
+      "note": "Named motif branches retain stage-specific usage and palette; runtime context decides removal or suitable authored reuse."
+    },
+    {
+      "family": "shared_ambience",
+      "path": "scripts/living_world_canvas.gd",
+      "function": "_draw_motif",
+      "name": "Steam motif",
+      "priority": "P1",
+      "status": "IDENTIFIED",
+      "note": "Named motif branches retain stage-specific usage and palette; runtime context decides removal or suitable authored reuse."
+    },
+    {
+      "family": "shared_ambience",
+      "path": "scripts/living_world_canvas.gd",
+      "function": "_draw_motif",
+      "name": "Candy motif",
+      "priority": "P1",
+      "status": "IDENTIFIED",
+      "note": "Named motif branches retain stage-specific usage and palette; runtime context decides removal or suitable authored reuse."
+    },
+    {
+      "family": "shared_ambience",
+      "path": "scripts/living_world_canvas.gd",
+      "function": "_draw_motif",
+      "name": "Rocket motif",
+      "priority": "P1",
+      "status": "IDENTIFIED",
+      "note": "Named motif branches retain stage-specific usage and palette; runtime context decides removal or suitable authored reuse."
+    },
+    {
+      "family": "shared_ambience",
+      "path": "scripts/living_world_canvas.gd",
+      "function": "_draw_motif",
+      "name": "Book motif",
+      "priority": "P1",
+      "status": "IDENTIFIED",
+      "note": "Named motif branches retain stage-specific usage and palette; runtime context decides removal or suitable authored reuse."
+    },
+    {
+      "family": "shared_ambience",
+      "path": "scripts/living_world_canvas.gd",
+      "function": "_draw_motif",
+      "name": "Mushroom motif",
+      "priority": "P1",
+      "status": "IDENTIFIED",
+      "note": "Named motif branches retain stage-specific usage and palette; runtime context decides removal or suitable authored reuse."
+    },
+    {
+      "family": "shared_ambience",
+      "path": "scripts/living_world_canvas.gd",
+      "function": "_draw_motif",
+      "name": "Paw motif",
+      "priority": "P1",
+      "status": "IDENTIFIED",
+      "note": "Named motif branches retain stage-specific usage and palette; runtime context decides removal or suitable authored reuse."
+    },
+    {
+      "family": "shared_ambience",
+      "path": "scripts/living_world_canvas.gd",
+      "function": "_draw_motif",
+      "name": "Gear motif",
+      "priority": "P1",
+      "status": "IDENTIFIED",
+      "note": "Named motif branches retain stage-specific usage and palette; runtime context decides removal or suitable authored reuse."
+    },
+    {
+      "family": "shared_ambience",
+      "path": "scripts/living_world_canvas.gd",
+      "function": "_draw_motif",
+      "name": "Paint motif",
+      "priority": "P1",
+      "status": "IDENTIFIED",
+      "note": "Named motif branches retain stage-specific usage and palette; runtime context decides removal or suitable authored reuse."
+    },
+    {
+      "family": "picture_snowman",
+      "path": "scripts/games/picture_games.gd",
+      "function": "_mg_build_snowman",
+      "name": "Snowman ground snow field",
+      "priority": "P1",
+      "status": "IDENTIFIED",
+      "note": "Broad procedural snow field lacks scene-ground material; painted carrot and Roshan retained."
+    },
+    {
+      "family": "picture_snowman",
+      "path": "scripts/games/picture_games.gd",
+      "function": "_mg_snow_new_ball",
+      "name": "Snowball rolling/stacked family",
+      "priority": "P1",
+      "status": "IDENTIFIED",
+      "note": "StyleBoxFlat ball and separate highlight panels; authored material preserves rolling growth, three ball radii, stacking, chase motion and carrot nose angle."
+    },
+    {
+      "family": "picture_snowman",
+      "path": "scripts/games/picture_games.gd",
+      "function": "_mg_snow_face_phase",
+      "name": "Snowman coal eye token",
+      "priority": "P1",
+      "status": "NEEDS_CONTEXT_REVIEW",
+      "note": "Painted farmer carrot already active; coal circle token needs its own context disposition."
+    },
+    {
+      "family": "picture_trampoline",
+      "path": "scripts/games/picture_games.gd",
+      "function": "_mg_build_trampoline",
+      "name": "Trampoline pad/frame",
+      "priority": "P1",
+      "status": "IDENTIFIED",
+      "note": "Procedural blue round panel squashed into a bar. Match painted trampoline surface, supporting rim/legs and contact state; preserve 400x140 target and 0.25/0.3s bounce route. Painted star retained."
+    },
+    {
+      "family": "picture_slide",
+      "path": "scripts/games/picture_games.gd",
+      "function": "_mg_build_slide",
+      "name": "Six-band diagonal rainbow slide",
+      "priority": "P1",
+      "status": "IDENTIFIED",
+      "note": "Six rotated ColorRects imply a broad slide without authored material/support. Preserve rainbow order, 1040x450 target and current travel path; show one supported slide, not a new route."
+    },
+    {
+      "family": "picture_games",
+      "path": "scripts/games/picture_games.gd",
+      "function": "_mg2d_open",
+      "name": "Picture-game gradient backdrop",
+      "priority": "P2",
+      "status": "NEEDS_CONTEXT_REVIEW",
+      "note": "Generated GradientTexture is a visible scene backing; retain only with explicit functional or painted-material disposition after scene review."
+    },
+    {
+      "family": "picture_games",
+      "path": "scripts/games/picture_games.gd",
+      "function": "_mg2d_feedback_burst",
+      "name": "Picture-game star/sparkle burst",
+      "priority": "P2",
+      "status": "IDENTIFIED",
+      "note": "Polygon2D celebration must remain coherent with earned action and unobscured payoff; reuse painted local feedback or remove unnecessary burst."
+    }
+  ]
+}

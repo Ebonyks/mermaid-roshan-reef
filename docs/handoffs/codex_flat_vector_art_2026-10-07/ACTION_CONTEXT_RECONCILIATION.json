@@ -1,0 +1,47 @@
+{
+  "schema": "reef.action_context_reconciliation/1",
+  "source_review": "root_picture_actions_review_20261012/review.json",
+  "source_review_sha256": "54b167f9b14b4de7e79ca570a30828fcf48d394d54937376e7468461dd9399f1",
+  "source_manifest_sha256": "b59675c94e0f0e51d5ae9aa61a92a0072e912427bff454e75b5f78963a617570",
+  "source_payload_sha256": "b81a6159eb8b3b924f4e1d9c6363072027b9a4261fb09976cbaf36732fe8fb8f",
+  "verified_payload_files": 194,
+  "retained_native": 146,
+  "successful_fixture_native": 52,
+  "failed_run_native_separately_retained": 94,
+  "actually_independently_viewed_unique": 12,
+  "observations": 8,
+  "existing_piece_ids": [
+    "FV-0FCB49F07274",
+    "FV-55B5EF60A12C",
+    "FV-C6F64FAA2F32",
+    "FV-C99F706798D3",
+    "FV-E1D26D3057A3",
+    "FV-E9E82E0C6703"
+  ],
+  "supplementary_role": {
+    "id": "FVR-AE586168A8CD",
+    "role": "sticker_progress_glyph_and_reward_surface",
+    "source_path": "scripts/main.gd",
+    "source_function": "_sticker_toast",
+    "source_revision": "6cde8aeae04aaedcc0b1ff22a05ef93ab9bf666f",
+    "git_export_sha256": "b6e905824a4b60461181deda525c816fc790613479e9321d12ae7f71df666a33",
+    "source_lines": [
+      518,
+      524,
+      531
+    ],
+    "observation_id": "ROOTACT-08",
+    "classification": "VISIBLE_PROGRESS_GLYPH_AND_SURFACE_PARTIAL_CONTEXT",
+    "included_in_164_bounded_role_contexts": false,
+    "counted_as_new_unique_design": false,
+    "accepted_removed": 0
+  },
+  "source_dispositions_duplicate_of": "ROOT_PICTURE_SCOPE_DISPOSITIONS_20261012.json",
+  "new_scope_classification_count": 0,
+  "new_route_partial_count": 0,
+  "combined_named_records_with_partial_review": 44,
+  "count_limit": "Only52framesfromzero-exit bounded/completedsnowfixtures addedtogreenboundedcapturecount.94failed-runframes remaindiagnostics,includingTrampoline/Xmas guardedstates withsuccessful individualtap progress insidefailedcombinedruns. Nativecaptureevents are notuniquescreens/designs. Existing5source dispositions countedonce.",
+  "all_game_individual_piece_total": null,
+  "accepted_removed": 0,
+  "device_child_owner": "PENDING"
+}

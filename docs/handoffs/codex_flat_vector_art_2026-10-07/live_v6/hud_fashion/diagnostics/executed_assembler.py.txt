@@ -1,0 +1,64 @@
+from pathlib import Path
+import json,hashlib,shutil,subprocess,sys,math,textwrap
+from PIL import Image,ImageDraw,ImageFont
+ROOT=Path.cwd(); STAGE=ROOT/'tmp/flat-vector-hud-fashion-20261008'; CORE=ROOT/'docs/handoffs/codex_flat_vector_art_2026-10-07/live_v6'; OUT=CORE/'hud_fashion'
+sys.path.insert(0,str(CORE));from json_evidence import read_json,shard_json
+RUN='run-20261008T115435'; REV='6cde8aeae04aaedcc0b1ff22a05ef93ab9bf666f'
+def sha(b):return hashlib.sha256(b).hexdigest()
+def dump(p,d):p.parent.mkdir(parents=True,exist_ok=True);p.write_text(json.dumps(d,ensure_ascii=False,indent=2)+'\n',encoding='utf8',newline='\n')
+def rel(p):return p.relative_to(OUT).as_posix()
+assert not OUT.exists();OUT.mkdir()
+(CORE/'capture_hud_fashion.gd').write_bytes((STAGE/'capture_hud_fashion.gd').read_bytes())
+D=OUT/'diagnostics';D.mkdir();shutil.copyfile(STAGE/'run_capture.py',D/'executed_driver.py.txt');shutil.copyfile(STAGE/'EXPECTED_MATRIX.json',OUT/'EXPECTED_MATRIX.json')
+for i in range(1,5):shutil.copyfile(STAGE/f'capture_hud_fashion.v{i}.gd.txt',D/f'rejected_harness_v{i}.gd.txt')
+launch=json.loads((STAGE/'runs'/f'{RUN}-launch.json').read_text());dump(D/'native_launch.json',launch)
+pre=json.loads((CORE/'hud_fashion_preflight.json').read_text());proofs=[]
+for s in pre['source_proofs']:
+ b=subprocess.check_output(['git','show',f"{REV}:{s['path']}"]);assert sha(b)==s['git_lf_sha256'];q=OUT/'sources'/s['path'];q.parent.mkdir(parents=True,exist_ok=True);q.write_bytes(b);proofs.append({**s,'packet_path':rel(q),'packet_sha256':sha(b)})
+dump(OUT/'SOURCE_PROOFS.json',{'revision':REV,'sources':proofs,'scope':'16 exact source/catalog files; not independent full closure proof'})
+records=[];sections=[];states={};boards=[]
+font=ImageFont.truetype('C:/Windows/Fonts/arial.ttf',15)
+for item in launch:
+ case=item['case'];aspect=item['aspect'];src=Path(item['out']);dest=OUT/case/aspect;dest.mkdir(parents=True)
+ b=(src/'capture_manifest.json').read_bytes();m=json.loads(b);assert m['result']=='PASS' and not m['failures'] and all(c['pass'] for c in m['checks']);assert item['exit_code']==0 and item['parent_normal_save_unchanged_after_exit'];assert m['harness_sha256']==sha((CORE/'capture_hud_fashion.gd').read_bytes());assert m['source_revision']==REV and m['source_unchanged'] and m['save_isolation']['unchanged'];
+ shutil.copyfile(src/'capture_manifest.json',dest/'capture_manifest.json');shutil.copyfile(Path(item['log']),dest/'native.log');states[case,aspect]=m
+ if len(b)>4*1024*1024:sections.append({'case':case,'aspect':aspect,'index':rel(dest/'capture_manifest.json'),**shard_json(dest/'capture_manifest.json',{'ignored_native_run':src.as_posix(),'sha256':sha(b),'role':'new R6-only diagnostic; byte-exact native output'})})
+ for s in m['states']:
+  f=s['image'];a=src/f['file'];q=dest/f['file'];data=a.read_bytes();assert sha(data)==f['sha256'] and len(data)==f['bytes'];im=Image.open(a);assert list(im.size)==m['aspect'];q.write_bytes(data);records.append({'case':case,'aspect':aspect,'state':s['id'],'path':rel(q),'sha256':f['sha256'],'bytes':f['bytes'],'dimensions':list(im.size),'metadata':rel(dest/'capture_manifest.json')})
+ for bi in range(math.ceil(len(m['states'])/16)):
+  selected=m['states'][bi*16:(bi+1)*16];board=Image.new('RGB',(1600,1124),(27,21,48));draw=ImageDraw.Draw(board);draw.text((12,6),f'R6 HUD/FASHION | {case} {aspect} | native diagnostic thumbnails | {bi+1}',font=font,fill='white');bindings=[]
+  for i,s in enumerate(selected):
+   x=(i%4)*400;y=32+(i//4)*273;im=Image.open(dest/s['image']['file']).convert('RGB');im.thumbnail((400,225),Image.Resampling.LANCZOS);board.paste(im,(x+(400-im.width)//2,y));label=s['id'].replace('_',' ');draw.text((x+6,y+230),'\n'.join(textwrap.wrap(label,44)[:2]),font=font,fill='white');bindings.append({'state':s['id'],'native_path':rel(dest/s['image']['file']),'sha256':s['image']['sha256'],'tile':i})
+  q=OUT/'boards'/f'{case}_{aspect}_{bi+1:02d}.jpg';q.parent.mkdir(exist_ok=True);board.save(q,quality=94,subsampling=0);boards.append({'path':rel(q),'sha256':sha(q.read_bytes()),'dimensions':list(board.size),'bindings':bindings,'purpose':'diagnostic contact sheet only; no generation/replacement pixels','visual_review':'PENDING'})
+for trial in ['run-20261008T113621','run-20261008T114214','run-20261008T114610','run-20261008T115052']:
+ for f in (STAGE/'runs').glob(trial+'*.log'):shutil.copyfile(f,D/f.name)
+dump(OUT/'NATIVE_INDEX.json',{'schema':1,'run_id':RUN,'source_revision':REV,'native_frames':len(records),'records':records,'new_replacement_pixels':0,'normal_child_save_unchanged':True,'accepted_for_diagnostic_inventory_only':True,'full_runtime_device_child_owner_acceptance':False})
+dump(OUT/'METADATA_SECTIONS.json',{'schema':1,'representations':sections,'previous_R5_files_modified':False,'claim':'Only new R6 metadata is sectioned; native logical facts and every original byte preserved'})
+dump(OUT/'BOARDS.json',{'schema':1,'boards':boards,'total':len(boards)})
+# Bind finite per-catalog item contexts to exact current native cards/portraits.
+items=[]
+for group in pre['current_catalog_pages']:
+ for page,ids in enumerate(group['pages']):
+  for iid in ids:
+   bindings=[]
+   for aspect in ['1280x720','1600x720']:
+    for profile in ['starter','unlocked']:
+     sid=f"fashion_{profile}_{group['person']}_{group['slot']}_p{page:02d}";s=next(s for s in states['fashion',aspect]['states'] if s['id']==sid);nodes=s['actual']['visible_canvas'];card=next(n for n in nodes if n['path'].endswith('/FashionOutfit_'+iid));children=[n for n in nodes if n['path'].startswith(card['path']+'/') and n['class']=='TextureRect'];bindings.append({'aspect':aspect,'profile':profile,'state':sid,'image_sha256':s['image']['sha256'],'node':card['path'],'draw_mode':card['draw_mode'],'selected_style_class':card['styles'][{0:'normal',1:'pressed',2:'hover',3:'disabled',4:'hover_pressed'}[card['draw_mode']]]['class'],'portraits':[{'path':n['path'],'texture':n.get('texture')} for n in children]})
+   items.append({'id':'R6-FASHION-'+group['person']+'-'+group['slot']+'-'+iid,'person':group['person'],'slot':group['slot'],'item_id':iid,'source_page':page,'count_unit':'catalog item in one person/slot context; not all-game individual artwork count','classification':'RASTER_AND_COMPOSED_ART_CONTEXT_REVIEW_PENDING','bindings':bindings,'replacement':'Reuse shortlist only; PNG status never exempts a flat raster illustration; no replacements before full inventory publication','remaining':'Natural earned unlock, individual garment application/acting, fallback/glyph licensing, device/child/owner context acceptance'})
+assert len(items)==79
+# Native measured functional black cover and exact repeated14-art roles.
+fade=[];burst=[];practice=[];hud=[]
+for aspect in ['1280x720','1600x720']:
+ m=states['hud',aspect]
+ for sid in ['hud_fade_black_held','hud_fade_revealing','hud_fade_restored']:
+  s=next(s for s in m['states'] if s['id']==sid);nodes=[n for n in s['actual']['visible_canvas'] if n['class']=='ColorRect' and n['canvas_layer']==30];assert len(nodes)==1;n=nodes[0];image=Image.open(OUT/'hud'/aspect/s['image']['file']).convert('RGBA');ext=image.getextrema();fade.append({'aspect':aspect,'state':sid,'image_sha256':s['image']['sha256'],'node':n,'fade_alpha':s['actual']['fade_alpha'],'channel_extrema':[list(e) for e in ext],'uniform_opaque_black':ext==((0,0),(0,0),(0,0),(255,255)),'declared_hold':'Existing production fade tween paused/resumed by fixture to inspect cover; no-op callback; natural stall/device timing not proved'})
+ for sid in ['fashion_launcher_feedback','fashion_roshan_ribbon_picked','fashion_rumi_ribbon_picked','fashion_daddy_mermaid_ribbon_picked']:
+  s=next(s for s in states['fashion',aspect]['states'] if s['id']==sid);ns=[n for n in s['actual']['visible_canvas'] if 'WardrobePreviewFeedbackBurst/' in n['path'] and n['class']=='Polygon2D'];assert len(ns)==14 and s['actual']['hud_fashion']['burst_children']==14
+  burst.append({'aspect':aspect,'state':sid,'image_sha256':s['image']['sha256'],'instances':[{'source_index':i,**n} for i,n in enumerate(ns)]})
+ for s in states['practice',aspect]['states']:
+  cards=[n for n in s['actual']['visible_canvas'] if n['class']=='Button' and '/FashionOutfit_' in n['path']];practice.append({'aspect':aspect,'state':s['id'],'image_sha256':s['image']['sha256'],'mask':s['actual']['hud_fashion']['disguise_progress'].get('completed_mask'),'practice':s['actual']['hud_fashion']['practice'],'cards':[{'node':n['path'],'callbacks':n['pressed_callbacks']} for n in cards],'fixture':'saved display seed; only phase0-after-pointer is an actual attempted selection, not a seeded next phase'})
+ for s in m['states']:
+  f=s['actual']['hud_fashion'];ns=[n for n in s['actual']['visible_canvas'] if 'HudPictureTargetCard' in n['path'] or 'HudVoiceCaption' in n['path']];hud.append({'aspect':aspect,'state':s['id'],'image_sha256':s['image']['sha256'],'card_visible_in_tree':f['objective_card'].get('in_tree',False),'seen_t':f['objective_seen_t'],'icon':f['objective_texture'].get('texture'),'fallback':f['objective_fallback'].get('text'),'hidden_surfaces':{k:f[k] for k in ['status_tray','pearls','stars','sentence_objective']},'nodes':ns})
+dump(OUT/'EXACT_OBSERVATIONS.json',{'schema':1,'fade':fade,'bursts':burst,'practice_callbacks':practice,'hud':hud,'practice_lifetime_cause':'INFERENCE: temporary RefCounted owner loses its practice connections after replacing normal UI/input anchor; native facts prove missing _pick callbacks and unchanged progress, not independently isolated ownership root cause','probe_coverage_gap':'FashionPartsTestCase retains a local wardrobe owner, so its practice click check does not prove the ephemeral actual entry path','glyph_limit':'Windows embedded Open Sans SemiBold reported; per-codepoint Windows/Android fallback and licensing unresolved; pictorial glyphs remain art','style_limit':'Fashion normal/hover/pressed/focus use painted card texture; inherited disabled/hover_pressed are flat source capabilities. No accepted capture proves draw_mode3/4 usage; dormant attached styles are not counted as visible replacements yet','hud_hold_limit':'After4.1s objective remains visible with seen_t0 in this actual single-event fixture; natural route timing and user acceptance not proved'})
+dump(OUT/'CATALOG_CONTEXTS.json',{'schema':1,'entries':items,'total':79,'actual_all_game_individual_piece_total':None,'new_replacement_pixels':0})
+print(json.dumps({'frames':len(records),'boards':len(boards),'catalog_contexts':len(items),'metadata_sections':len(sections),'fade_black':[x['uniform_opaque_black'] for x in fade if x['state']=='hud_fade_black_held'],'out':str(OUT)}))

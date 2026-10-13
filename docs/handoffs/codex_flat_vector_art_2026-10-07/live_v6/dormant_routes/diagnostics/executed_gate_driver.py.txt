@@ -1,0 +1,10 @@
+from pathlib import Path
+import subprocess,json,sys,hashlib,datetime,concurrent.futures,os
+R=Path.cwd();P=R/'docs/handoffs/codex_flat_vector_art_2026-10-07/live_v6/dormant_routes';D=P/'diagnostics'
+commands=[('source_integrity',[sys.executable,'-B',str(P/'validate.py'),'--stress']),('authority_tests',[sys.executable,'-B','-m','unittest','tools.tests.test_audit_document_authority','tools.tests.test_audit_development']),('doc_authority',[sys.executable,'-B','tools/audit_document_authority.py']),('audit_development',[sys.executable,'-B','tools/audit_development.py','--base','auto']),('2d_regression',[sys.executable,'-B','tools/audit_game_2d.py','--regression-gate']),('whitespace',['git','diff','--check']),('production_unchanged',['git','diff','--exit-code','92c9fe70319ef46bfaa8f61348a6f51512141ec3','--','scripts','scenes','resources','assets','project.godot'])]
+def run(row):
+ name,cmd=row;start=datetime.datetime.now(datetime.timezone.utc).isoformat();r=subprocess.run(cmd,cwd=R,stdout=subprocess.PIPE,stderr=subprocess.STDOUT,env={**os.environ,'PYTHONUTF8':'1'});end=datetime.datetime.now(datetime.timezone.utc).isoformat();log=D/('gate-'+name+'.log');log.write_bytes(r.stdout)
+ result={'id':name,'command':cmd,'result':'PASS' if r.returncode==0 else 'FAIL','exit_code':r.returncode,'started_at_utc':start,'ended_at_utc':end,'log':str(log.relative_to(P)).replace('\\','/'),'log_sha256':hashlib.sha256(r.stdout).hexdigest(),'log_bytes':len(r.stdout)};print(name,result['result'],r.returncode,flush=True);return result
+with concurrent.futures.ThreadPoolExecutor(max_workers=4) as ex:results=list(ex.map(run,commands))
+(P/'GATES.json').write_text(json.dumps({'schema':1,'source_revision':'6cde8aeae04aaedcc0b1ff22a05ef93ab9bf666f','status':'DRAFT_HANDOFF_BLOCKED_NO_BRANCH_GREEN_CLAIM','commands':results,'full_godot_suite':'NOT_RUN_SOURCE_ONLY_SLICE_UNCHANGED_PRODUCTION_AND_KNOWN_RED_2D_GATE','visual_device_child_owner':'NOT_ACCEPTED','no_acceptance':True},ensure_ascii=False,indent=2)+'\n',encoding='utf-8',newline='\n')
+print('gate receipt complete',flush=True)
