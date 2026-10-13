@@ -196,8 +196,17 @@
   ],
   "role_and_family_counts_are_separate": true,
   "publication": {
-    "status": "PENDING_EXACT_PUBLICATION",
-    "receipt": "REMOTE_VERIFICATION.json"
+    "status": "EXACT_PUBLIC_PAYLOAD_VERIFIED",
+    "payload_revision": "9e7ba36427dcb85bedf3ecd920da9706f8eb8629",
+    "manifest_sha256": "5fe8e03e7a8cf86e5056251e33d3ad67f065e3a506d009fe44663fba056a4e0f",
+    "payload_sha256": "18fee46b43fbccb02d57cf4825d72bf36495725884178f2a6f80dbc0917654cd",
+    "verified_required_files": 127,
+    "verified_fetches_including_manifest": 128,
+    "required_bytes": 35182714,
+    "checked_at_utc": "2026-10-13T07:09:35.209848+00:00",
+    "access_mode": "Anonymous public HTTPS for manifest and every declared required file; public GitHub repo API independently checked; recipient can use the same unauthenticated access mode.",
+    "receipt": "REMOTE_VERIFICATION.json",
+    "scope": "Postpublication delivery only; source/candidate/count/acceptance fields unchanged from immutable payload. Four receipt metadata files require separate exact final-commit verification."
   },
   "independent_style_review": {
     "file": "ROOT_CONTEXT_REVIEW_20261012.json",
@@ -278,11 +287,16 @@
   "reference_resolution": "Inherited R6,R7 and R8 evidence retains the corresponding exact immutable base. geode_reuse_trial references resolve in R9; derivative project paths resolve through this R9 manifest. No inherited file is rebound by filename.",
   "unpublished_external_activity_limit": "Separate Garden production branch has no published revision at the verified reconciliation; its local candidate is outside this frozen verified tally. Generation/integration counts in this packet retain packet scope.",
   "current_ci": {
-    "status": "LATEST_PUBLISHED_HEAD_CI_PENDING",
-    "previous_r8_head": "f4de7b921298b0dac052df408af03bbb2b62132b",
-    "previous_r8_run": 38355219868,
-    "new_head_run": null,
-    "interpretation": "No production change; exact latest run must be tracked separately. No art/device/child/owner acceptance from machine checks."
+    "status": "LATEST_R9_RECEIPT_HEAD_CI_PENDING",
+    "preceding_r8_head": "f4de7b921298b0dac052df408af03bbb2b62132b",
+    "preceding_r8_run": 38355219868,
+    "preceding_r8_status": "completed",
+    "preceding_r8_conclusion": "success",
+    "preceding_snapshot": "REMOTE_VERIFICATION.json#preceding_r8_ci_snapshot",
+    "r9_payload_head": "9e7ba36427dcb85bedf3ecd920da9706f8eb8629",
+    "latest_receipt_head_run": null,
+    "local_final_staged_gates": "PASS; unchanged scanner/baseline",
+    "interpretation": "No production consumer/behavior change. Machine/delivery evidence never approves the technical candidate or resolves its matched-family/device/child/owner/QA11 gaps."
   },
   "inherited_r7_reference_base": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/c1e466a8a9e605f43b4c7a181b3d7b702d7677aa/docs/handoffs/codex_flat_vector_art_2026-10-07/r7_craft_context/",
   "inherited_r8_reference_base": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/f4de7b921298b0dac052df408af03bbb2b62132b/docs/handoffs/codex_flat_vector_art_2026-10-07/r8_geode_context/",

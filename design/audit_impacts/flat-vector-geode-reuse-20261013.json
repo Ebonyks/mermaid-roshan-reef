@@ -58,6 +58,7 @@
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r9_geode_reuse/PREFLIGHT.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r9_geode_reuse/PREVIOUS_HEAD_CI.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r9_geode_reuse/README.md",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r9_geode_reuse/RECEIPT_GATES.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r9_geode_reuse/REMOTE_VERIFICATION.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r9_geode_reuse/REUSE_JOB.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r9_geode_reuse/REVIEW.json",
@@ -143,9 +144,9 @@
       "evidence": "IMPORT.json return0;1102 tracked sidecars restored exact; no runtime art consumer changes."
     },
     {
-      "command": "Anonymous exact GitHub delivery",
-      "result": "PENDING",
-      "evidence": "Remote receipt required after sealing/publication."
+      "command": "Anonymous manifest and all127 required dependencies at exact Git revisions",
+      "result": "PASS",
+      "evidence": "REMOTE_VERIFICATION binds9e7ba36427dcb85bedf3ecd920da9706f8eb8629,127 files plus manifest,35182714 required bytes; public HTTP/SHA/length checked. Final receipt metadata is verified separately after publication."
     },
     {
       "command": "Final staged document/impact/unchanged medium/source-candidate gates",

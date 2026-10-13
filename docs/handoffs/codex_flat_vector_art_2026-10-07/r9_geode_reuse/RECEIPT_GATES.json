@@ -1,0 +1,65 @@
+{
+  "schema": 1,
+  "status": "PASS",
+  "started_at_utc": "2026-10-13T07:10:58.246048+00:00",
+  "checked_at_utc": "2026-10-13T07:12:05.701850+00:00",
+  "exact_staged_inputs": [
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r9_geode_reuse/REMOTE_VERIFICATION.json",
+      "bytes": 83817,
+      "sha256": "251853caf580be92bc3af42513da1bdea3feca2cf041154ed0769908d5be42f6"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r9_geode_reuse/tally.json",
+      "bytes": 15220,
+      "sha256": "981bea133a6c5c5529a0b613a5b881352f9fe966d19d219c8654b29b56d0885c"
+    },
+    {
+      "path": "design/audit_impacts/flat-vector-geode-reuse-20261013.json",
+      "bytes": 11276,
+      "sha256": "4c2b9b65baaf6f4da97489c5c5a2ad555eeb0951b5fc05f7c69d71c1f64d0eeb"
+    }
+  ],
+  "commands": [
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_document_authority.py"
+      ],
+      "returncode": 0,
+      "output": "DOCAUTH|INVENTORY=712|LEDGER=712|ACTIVE=68|RECORDS=71\nDOCAUTH|RESULT|ALL OK\n"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_development.py",
+        "--base",
+        "auto"
+      ],
+      "returncode": 0,
+      "output": "AUDITDEV|BASE|e2b3c73789707aa49a91b4f42e2a9dd4b68225df\nAUDITDEV|RESULT|ALL OK\n"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_game_2d.py",
+        "--regression-gate"
+      ],
+      "returncode": 0,
+      "output": "GAME2D| DEBT| model_files=0| model_scan_coverage_files=0| active_export_model_files=0| model_import_sidecars=0| active_untracked_model_import_sidecars=0| model_archive_files=0| production_3d_files=52| probe_3d_files=61| scene_3d_files=1| configuration_3d_files=1| archive_now_model_files=0\nGAME2D| STATUS| UNSATISFIED\nGAME2D| RESULT| NO_REGRESSION - exact shrinking baseline; migration debt remains UNSATISFIED\n"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r9_geode_reuse\\validate.py"
+      ],
+      "returncode": 0,
+      "output": "R9_REUSE|ALL OK|native RGBA preserved/1024 export/44 preview files;225 known/30 families;unknown denominators;zero acceptance;production unchanged\n"
+    }
+  ],
+  "interpretation": "Receipt/tally final prose staged before scan; no later evidence-sentence edit and no source/count/candidate acceptance change."
+}
