@@ -1,0 +1,43 @@
+{
+  "status": "FAIL",
+  "commands": [
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-B",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r37_current_source_inventory\\verify_source_inventory.py"
+      ],
+      "started_at_utc": "2026-10-14T17:12:19.563609+00:00",
+      "checked_at_utc": "2026-10-14T17:12:20.070498+00:00",
+      "exit_code": 0,
+      "execution": "FRESH",
+      "evidence": "gates.log"
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-B",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r37_current_source_inventory\\validate.py"
+      ],
+      "started_at_utc": "2026-10-14T17:12:20.070557+00:00",
+      "checked_at_utc": "2026-10-14T17:12:22.984121+00:00",
+      "exit_code": 0,
+      "execution": "FRESH",
+      "evidence": "gates.log"
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-B",
+        "tools/audit_document_authority.py"
+      ],
+      "started_at_utc": "2026-10-14T17:12:22.984166+00:00",
+      "checked_at_utc": "2026-10-14T17:12:35.569460+00:00",
+      "exit_code": 1,
+      "execution": "FRESH",
+      "evidence": "gates.log"
+    }
+  ],
+  "raw_log_sha256": "f74c6897ea465115ec86fbad654f8fdc1dfc8fdcad84bc60c2463e9e8ab2fa3c",
+  "scope": "Fresh source/canonical/document/impact/unittest andactual2Dregression. Actual priorR32full82/R35CI retainedatbyteidenticalproduction,notnewR37execution. Sourcecounts notartpieces;QA11/device/child/owner/globalclosure open."
+}

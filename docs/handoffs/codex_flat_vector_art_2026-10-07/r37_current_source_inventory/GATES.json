@@ -1,0 +1,125 @@
+{
+  "status": "PASS_SOURCE_ONLY_ACCEPTANCE_OPEN",
+  "commands": [
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-B",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r37_current_source_inventory\\verify_source_inventory.py"
+      ],
+      "started_at_utc": "2026-10-14T17:13:30.045884+00:00",
+      "checked_at_utc": "2026-10-14T17:13:30.563786+00:00",
+      "exit_code": 0,
+      "execution": "FRESH",
+      "evidence": "gates.log"
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-B",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r37_current_source_inventory\\validate.py"
+      ],
+      "started_at_utc": "2026-10-14T17:13:30.563845+00:00",
+      "checked_at_utc": "2026-10-14T17:13:33.372449+00:00",
+      "exit_code": 0,
+      "execution": "FRESH",
+      "evidence": "gates.log"
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-B",
+        "tools/audit_document_authority.py"
+      ],
+      "started_at_utc": "2026-10-14T17:13:33.372500+00:00",
+      "checked_at_utc": "2026-10-14T17:13:41.526934+00:00",
+      "exit_code": 0,
+      "execution": "FRESH",
+      "evidence": "gates.log"
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-B",
+        "tools/audit_development.py",
+        "--base",
+        "auto"
+      ],
+      "started_at_utc": "2026-10-14T17:13:41.526977+00:00",
+      "checked_at_utc": "2026-10-14T17:13:45.402440+00:00",
+      "exit_code": 0,
+      "execution": "FRESH",
+      "evidence": "gates.log"
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-B",
+        "-m",
+        "unittest",
+        "tools.tests.test_audit_document_authority",
+        "tools.tests.test_audit_development"
+      ],
+      "started_at_utc": "2026-10-14T17:13:45.402486+00:00",
+      "checked_at_utc": "2026-10-14T17:13:53.824875+00:00",
+      "exit_code": 0,
+      "execution": "FRESH",
+      "evidence": "gates.log"
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-B",
+        "tools/audit_game_2d.py",
+        "--regression-gate"
+      ],
+      "started_at_utc": "2026-10-14T17:13:53.824923+00:00",
+      "checked_at_utc": "2026-10-14T17:16:25.590278+00:00",
+      "exit_code": 0,
+      "execution": "FRESH",
+      "evidence": "gates.log"
+    }
+  ],
+  "raw_log_sha256": "0233e572643b49eceec44299197e2b4f8fc165a2a8d5b7a56beb4fff50a4be77",
+  "scope": "Fresh source/canonical/document/impact/unittest andactual2Dregression. Actual priorR32full82/R35CI retainedatbyteidenticalproduction,notnewR37execution. Sourcecounts notartpieces;QA11/device/child/owner/globalclosure open.",
+  "review_reconciliation_checks": [
+    {
+      "command": [
+        "python",
+        "-B",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r37_current_source_inventory\\validate.py"
+      ],
+      "started_at_utc": "2026-10-14T17:21:13.600330+00:00",
+      "exit_code": 0,
+      "sha256": "8db602ce50058092a279f7755fa1074c8e0f78135216c58512090bc87b64a51f",
+      "output": "R37_ALL_OK: exact1510inputGitbytes;369/348 frozenIDs;qualifiedmethods;sourceunits/canonicalhistory/unknowns/acceptance/sourceparity preserved. No runtime/visual acceptance.\r\n",
+      "scope": "Fresh source/document/coverage review at final routing andimpact facts"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_document_authority.py"
+      ],
+      "started_at_utc": "2026-10-14T17:21:17.069667+00:00",
+      "exit_code": 0,
+      "sha256": "6c4ba37d722dd40ee97690be488f7da5a5c44b939da7165731afc0dbcdf94034",
+      "output": "DOCAUTH|INVENTORY=740|LEDGER=740|ACTIVE=69|RECORDS=72\r\nDOCAUTH|RESULT|ALL OK\r\n",
+      "scope": "Fresh source/document/coverage review at final routing andimpact facts"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_development.py",
+        "--base",
+        "auto"
+      ],
+      "started_at_utc": "2026-10-14T17:21:25.770284+00:00",
+      "exit_code": 0,
+      "sha256": "fe1136f6488648e75036829fb4dde2405eb9ed57eec05f046fe441463c20d023",
+      "output": "AUDITDEV|BASE|e2b3c73789707aa49a91b4f42e2a9dd4b68225df\r\nAUDITDEV|RESULT|ALL OK\r\n",
+      "scope": "Fresh source/document/coverage review at final routing andimpact facts"
+    }
+  ]
+}

@@ -1,0 +1,85 @@
+{
+  "id": "flat-vector-current-source-inventory-20261014",
+  "scope": "Phase1 current source/resource/caller reconciliation across project code and exported resources. Parse current nonignored GDScript, preserve frozen369scope/348glyph IDs andseparate newly observed glyph/raster/style/source scopes. Bind current functions/callers/resource/UID references toexactsource hashes; comments andsourcecall counts never implyvisibleartwork orruntimeclosure. Identify missedglyph-only functions anddynamic/literal resource gaps for further context review. No runtime changes/newart/generation/engine orGPUuse/acceptedremoval.",
+  "baseline": "01f670d7ab4933fe2c2e6605bbca4ef2105f200f",
+  "rules": [
+    "DL-AUTH-01",
+    "DL-AUTH-02",
+    "DL-AUTH-04",
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-VIS-07",
+    "DL-VIS-08",
+    "DL-ASSET-01",
+    "DL-ASSET-03",
+    "DL-MED-02",
+    "DL-QA-11",
+    "DL-QA-14",
+    "DL-QA-15"
+  ],
+  "findings": [
+    "MA-VIS-006",
+    "MA-VIS-008",
+    "MA-DOC-007"
+  ],
+  "files": [
+    "audit/MASTER_AUDIT_2026-08-09.md",
+    "audit/MASTER_AUDIT_CHANGELOG_ROLLBACK_2026-08-10.md",
+    "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
+    "design/05_DOC_LEDGER.md",
+    "design/audit_impacts/flat-vector-current-source-inventory-20261014.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/CURRENT.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/README.md",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r37_current_source_inventory/.gdignore",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r37_current_source_inventory/CONGRUENCY_BACKLOG.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r37_current_source_inventory/CONTEXT_PREREQUISITE.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r37_current_source_inventory/CURRENT_SOURCE_INVENTORY.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r37_current_source_inventory/FAILED_INITIAL_GATES.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r37_current_source_inventory/FINAL_BYTE_RECEIPT.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r37_current_source_inventory/GATES.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r37_current_source_inventory/GLYPH_SCOPE_GAPS.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r37_current_source_inventory/MACHINE_BASELINE.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r37_current_source_inventory/MANIFEST.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r37_current_source_inventory/PLAN.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r37_current_source_inventory/README.md",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r37_current_source_inventory/RECEIPT_GATES.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r37_current_source_inventory/REMOTE_VERIFICATION.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r37_current_source_inventory/RESOURCE_CALLER_GRAPH.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r37_current_source_inventory/SOURCE_PARITY.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r37_current_source_inventory/SOURCE_REVIEW.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r37_current_source_inventory/SOURCE_SCOPE_RECONCILIATION.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r37_current_source_inventory/SOURCE_STRESS.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r37_current_source_inventory/SOURCE_SUMMARY.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r37_current_source_inventory/build_manifest.py",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r37_current_source_inventory/gates.log",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r37_current_source_inventory/gates_initial_failed.log",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r37_current_source_inventory/per_piece.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r37_current_source_inventory/receipt_gates.log",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r37_current_source_inventory/run_gates.py",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r37_current_source_inventory/scan_source_inventory.py",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r37_current_source_inventory/scene_coverage.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r37_current_source_inventory/tally.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r37_current_source_inventory/validate.py",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r37_current_source_inventory/verify_remote.py",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r37_current_source_inventory/verify_source_inventory.py"
+  ],
+  "validation": [
+    {
+      "command": "Current AST/source/resource/frozenID reconciliation and adversarialsourcecases",
+      "result": "PASS",
+      "evidence": "SOURCE_SUMMARY/SOURCE_STRESS:312 scripts parsed/18 actual syntax cases passed,all369 qualified frozen function IDs rebound;348 glyph IDs retained302 exact groups/46 gaps.814 broader syntax scopes536nonprobe278probe and90glyph-only scopes87nonprobe are candidates,notpieces. No disposition/capture/acceptance changes.17 current published context files verified before scanner implementation."
+    },
+    {
+      "command": "Canonical/document/impact/stress/actual2D gates",
+      "result": "PASS",
+      "evidence": "GATES.json:6 fresh zero-exit source/stress/canonical/docauthority740ledger740/impact/54unittests6stress/actual2DNO_REGRESSION gates. Strict2D UNSATISFIED0models52production61probe1scene1config;source/capture/acceptance units preserved. ActualR32full82/R35exactheadCI retainedatbyteidenticalproduction,notnewR37execution. Initialdocmissingfuture-receipt diagnostic failure retained andfixed beforepublication."
+    },
+    {
+      "command": "CompleteanonymousGithubpayload/finalmetadata/proof",
+      "result": "PENDING",
+      "evidence": "Mandatorydelivery;wholepiece/screen/regression totalsstayunknown."
+    }
+  ],
+  "acceptance_gaps": "Full dynamic/resource/native/caller/route closure andruntimevisual/device/child/owner evidence remainopen. All369frozenfunctionscopes and348glyphrows sourceunits,notartpiececounts. No approved/integrated/acceptedremoved changes."
+}

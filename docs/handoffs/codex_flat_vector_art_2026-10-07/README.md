@@ -1,10 +1,16 @@
-Current canonical evidence: [R36 ornament retirement](r36_menu_ornament_retirement/README.md), [registry](r36_menu_ornament_retirement/per_piece.json), [coverage](r36_menu_ornament_retirement/scene_coverage.json), [tally](r36_menu_ornament_retirement/tally.json).
+Current canonical evidence: [R37 source inventory](r37_current_source_inventory/README.md), [registry](r37_current_source_inventory/per_piece.json), [coverage](r37_current_source_inventory/scene_coverage.json), [tally](r37_current_source_inventory/tally.json).
 
-# Current R36 bounded menu ornament retirement
+# Current R37 source reconciliation
+
+All369 frozen primitive scopes rebound;312 GDScript files parsed. Broader syntax/glyph/resource candidates remain source units, not artwork removals. No captures or acceptance increment; whole-game denominator remains unknown.
+
+Historical R36 evidence: [R36 ornament retirement](r36_menu_ornament_retirement/README.md), [registry](r36_menu_ornament_retirement/per_piece.json), [coverage](r36_menu_ornament_retirement/scene_coverage.json), [tally](r36_menu_ornament_retirement/tally.json).
+
+# Historical R36 bounded menu ornament retirement
 
 31 redundantdecorative nodes retired fromthe isolatedpaintedmenu candidate;allacceptance/othercallers remainopen. 3197 bounded capture credits/4005 retained/808 excluded;56existingpartial/12families,78/176partial/98without/0complete;225knownroles/30families,0acceptedremoved,wholegame totalsunknown.
 
-Historical R35 routing: [R35 panel reuse](r36_menu_ornament_retirement/README.md), [registry](r36_menu_ornament_retirement/per_piece.json), [coverage](r36_menu_ornament_retirement/scene_coverage.json), [tally](r36_menu_ornament_retirement/tally.json).
+Historical R35 routing: [R35 panel reuse](r35_menu_panel_reuse/README.md), [registry](r35_menu_panel_reuse/per_piece.json), [coverage](r35_menu_panel_reuse/scene_coverage.json), [tally](r35_menu_panel_reuse/tally.json).
 
 # Historical R35 bounded panel material reuse
 

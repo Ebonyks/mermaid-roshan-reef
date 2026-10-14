@@ -1,0 +1,45 @@
+{
+  "revision": "FV-AUDIT-20261014-R37",
+  "baseline": "01f670d7ab4933fe2c2e6605bbca4ef2105f200f",
+  "origin_dev": "831d0bbb155b99d75ef0289cc5cc694e0ef00c1e",
+  "started_at_utc": "2026-10-14T16:39:45.416470+00:00",
+  "change_id": "CHG-044",
+  "scope": "Phase1 current source/resource/caller reconciliation across project code and exported resources. Parse current nonignored GDScript, preserve frozen369scope/348glyph IDs andseparate newly observed glyph/raster/style/source scopes. Bind current functions/callers/resource/UID references toexactsource hashes; comments andsourcecall counts never implyvisibleartwork orruntimeclosure. Identify missedglyph-only functions anddynamic/literal resource gaps for further context review. No runtime changes/newart/generation/engine orGPUuse/acceptedremoval.",
+  "rules": [
+    "DL-AUTH-01",
+    "DL-AUTH-02",
+    "DL-AUTH-04",
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-VIS-07",
+    "DL-VIS-08",
+    "DL-ASSET-01",
+    "DL-ASSET-03",
+    "DL-MED-02",
+    "DL-QA-11",
+    "DL-QA-14",
+    "DL-QA-15"
+  ],
+  "findings": [
+    "MA-VIS-006",
+    "MA-VIS-008",
+    "MA-DOC-007"
+  ],
+  "required_evidence": [
+    "ExactGit sourceinventory/hash and.gdignore/probe scopes; GDScript parser version/AST source spans andfailedparses explicit",
+    "Preservedfrozen369scopeIDs and348glyph IDs withcurrentfunction/source/line reconciliation; additionalmissedscopes keptseparate",
+    "Directliterals/UID/classname resource references andcallee hints; dynamic/missing/guard/reflection/runtime gaps remainexplicit",
+    "Adversarialcases provecomments excluded, glyph-onlyfunctions retained,formattedpaths/dynamicdispatch/unknownUID unresolved,sourcecounts notpieces",
+    "Freshnative-independent source/canonical/doc/impact/54test6stress and actual2Dregression gates; retainedactualR32full82/R35CIatunchangedproduction",
+    "MandatoryGithubfullpayload/allrequiredanonbytes plusfinalmetadata/proof",
+    "Nested class methods qualified and rebound to frozen IDs; shader/serialized full-line,inline andblock comments skipped by lexical scanner,not a native resource parser."
+  ],
+  "delivery": {
+    "repository": "Ebonyks/mermaid-roshan-reef",
+    "branch": "codex/flat-vector-r6-20261012",
+    "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r37_current_source_inventory",
+    "access_mode": "AnonymousimmutableHTTPS"
+  },
+  "independent_work": "Owner reviewpendingdoesnotpauseinventory; no sharedjobcanonical record orruntimefile writes."
+}

@@ -1,0 +1,43 @@
+{
+  "schema": "reef.current_source_inventory/1",
+  "baseline": "01f670d7ab4933fe2c2e6605bbca4ef2105f200f",
+  "checked_at_utc": "2026-10-14T17:06:59.421242+00:00",
+  "parser_package_version": "4.5.0",
+  "tracked_git_files": 30226,
+  "input_source_and_sidecar_files": 1510,
+  "parsed_gd_files": 312,
+  "parse_failures": 0,
+  "production_gd_files": 171,
+  "probe_gd_files": 141,
+  "frozen_source_scopes": 369,
+  "frozen_glyph_rows": 348,
+  "current_api_or_symbol_candidate_scopes": 1117,
+  "additional_source_candidate_scopes": 814,
+  "additional_nonprobe_source_candidate_scopes": 536,
+  "additional_probe_source_candidate_scopes": 278,
+  "additional_glyph_only_function_scopes": 90,
+  "additional_nonprobe_glyph_only_function_scopes": 87,
+  "current_symbol_string_rows": 380,
+  "literal_reference_rows": 1917,
+  "reference_resolution_counts": {
+    "EXACT_GIT_PATH_EXISTS_SOURCE_ONLY": 1699,
+    "UID_UNRESOLVED_OR_AMBIGUOUS": 1,
+    "COMMITTED_UID_SOURCE_MAPPING_ONLY": 1,
+    "DIRECTORY_PREFIX_RUNTIME_ENUMERATION_REQUIRED": 73,
+    "MISSING_LITERAL_PATH_OR_REFERENCE_FRAGMENT_NEEDS_REVIEW": 92,
+    "FORMATTED_OR_WILDCARD_PATH_RUNTIME_ENUMERATION_REQUIRED": 51
+  },
+  "caller_rows": 86233,
+  "caller_binding_counts": {
+    "BUILTIN_INHERITED_OR_DYNAMIC_UNRESOLVED": 68189,
+    "SAME_SCRIPT_NAME_POTENTIAL_ONLY": 17096,
+    "PROJECT_CLASS_NAME_POTENTIAL_ONLY": 948
+  },
+  "parse_status": "ALL_ENUMERATED_GDSCRIPT_PARSED",
+  "coverage_status": "SOURCE_ONLY_DYNAMIC_NATIVE_RUNTIME_CLOSURE_OPEN",
+  "individual_piece_total": null,
+  "accepted_removed": 0,
+  "mission_complete": false,
+  "role_limit": "Nonprobe/probe tags are filename categories,not proof of live or unreachable runtime. NonASCII symbol strings remain typography/pictogram candidates,notartpieces.",
+  "scope_limit": "Nonignored Git sources in scripts/scenes/assets/shaders/addons plusproject.godot. Probes kept separate. AST and lexical serialized/shader references do not prove active runtime reach, class/receiver binding, guard outcomes, raster appearance, font fallback or device/child/owner acceptance."
+}

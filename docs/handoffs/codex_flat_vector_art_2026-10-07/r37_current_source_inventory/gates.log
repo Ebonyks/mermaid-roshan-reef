@@ -1,0 +1,15 @@
+R37_SOURCE_STRESS 18 PASS
+R37_ALL_OK: exact1510inputGitbytes;369/348 frozenIDs;qualifiedmethods;sourceunits/canonicalhistory/unknowns/acceptance/sourceparity preserved. No runtime/visual acceptance.
+DOCAUTH|INVENTORY=740|LEDGER=740|ACTIVE=69|RECORDS=72
+DOCAUTH|RESULT|ALL OK
+AUDITDEV|BASE|e2b3c73789707aa49a91b4f42e2a9dd4b68225df
+AUDITDEV|RESULT|ALL OK
+......................................................
+----------------------------------------------------------------------
+Ran 54 tests in 8.098s
+
+OK
+DOCAUTH|STRESS|6/6
+GAME2D| DEBT| model_files=0| model_scan_coverage_files=0| active_export_model_files=0| model_import_sidecars=0| active_untracked_model_import_sidecars=0| model_archive_files=0| production_3d_files=52| probe_3d_files=61| scene_3d_files=1| configuration_3d_files=1| archive_now_model_files=0
+GAME2D| STATUS| UNSATISFIED
+GAME2D| RESULT| NO_REGRESSION - exact shrinking baseline; migration debt remains UNSATISFIED

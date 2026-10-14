@@ -1,0 +1,45 @@
+{
+  "status": "SOURCE_INSPECTED_ROLE_AND_RUNTIME_REVIEW_OPEN",
+  "baseline": "01f670d7ab4933fe2c2e6605bbca4ef2105f200f",
+  "review_scope": "Source inspection and source-only comparisons; no visual review, runtime captures or human acceptance claimed.",
+  "observations": [
+    {
+      "id": "FVSR-R37-QUALIFIED-FROZEN-SCOPES",
+      "evidence": "SOURCE_SCOPE_RECONCILIATION.json",
+      "finding": "All369 frozen primitive function scope IDs rebound to current qualified functions. Two source file hashes differ from frozen historical source; original IDs/dispositions remain unchanged. Initial23 unqualified-nested-method misses were scanner diagnostic errors, corrected before publication and covered by adversarial case."
+    },
+    {
+      "id": "FVSR-R37-GLYPH-ONLY-SCOPES",
+      "evidence": "GLYPH_SCOPE_GAPS.json",
+      "finding": "90 glyph-only source scopes outside the primitive register (87 nonprobe filenames). Typography/pictograms may already have glyph-row records; not90 newartpieces. StartMenu::_sync_option_labels belongs to current caller/font review; R31 MUSIC_OFF combiningmark box remains separately evidenced.",
+      "required_action": "Bind glyph role, actual font/fallback, state/receiver and current touch-route context; compare readability/scale/palette/contour with neighboring painted controls before repair."
+    },
+    {
+      "id": "FVSR-R37-FROZEN-GLYPH-GAPS",
+      "evidence": "GLYPH_SCOPE_GAPS.json",
+      "finding": "302 historical glyph rows rebound by exact string groups;46 fail exact grouping. This may reflect string grouping/line/category differences,not actual removal. IDs retained; no accepted removals."
+    },
+    {
+      "id": "FVSR-R37-RESOURCE-CALLERS",
+      "evidence": "RESOURCE_CALLER_GRAPH.json",
+      "finding": "Literal paths, UID sidecars and potential class/same-script names recorded with exact source hashes. Dynamic dispatch/native hooks/formatted paths/directory enumeration/guards and receiver typing remain unresolved; literal existence is not reachability."
+    }
+  ],
+  "known_role_records": 225,
+  "families": 30,
+  "bounded_capture_credits": 3197,
+  "retained_native": 4005,
+  "excluded_native": 808,
+  "new_current_captures": 0,
+  "inventory_dispositions": 18,
+  "remaining_frozen_scopes": 351,
+  "accepted_removed": 0,
+  "individual_piece_total": null,
+  "mission_complete": false,
+  "next_bounded_work": [
+    "Review _sync_option_labels glyph roles against published R31/menu state context and approved same-scene sources. Unknown global count must not indefinitely block this source-bound repair.",
+    "Explain46 historical glyph grouping gaps one file/caller at a time; preserve IDs and distinguish typography from artwork.",
+    "Trace direct/UID/formatted/directory/native callbacks to actually reached states; add current same-scene evidence before art replacement.",
+    "Continue craft creature compositor/family callers and unknown routes; device/child/owner/QA11 remain separate."
+  ]
+}
