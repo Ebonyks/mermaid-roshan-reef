@@ -1,5 +1,58 @@
 {
-  "status": "PENDING_POST_VERIFICATION_OR_PUBLICATION",
-  "accepted_removed": 0,
-  "mission_complete": false
+  "status": "PASS_SOURCE_ONLY_ACCEPTANCE_OPEN",
+  "commands": [
+    {
+      "command": [
+        "python",
+        "-B",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r40_craft_whole_fish_trial\\validate.py"
+      ],
+      "started_at_utc": "2026-10-14T22:25:24.526831+00:00",
+      "checked_at_utc": "2026-10-14T22:25:29.262211+00:00",
+      "exit_code": 0,
+      "execution": "FRESH",
+      "evidence": "receipt_gates.log"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_document_authority.py"
+      ],
+      "started_at_utc": "2026-10-14T22:25:29.262270+00:00",
+      "checked_at_utc": "2026-10-14T22:25:39.751017+00:00",
+      "exit_code": 0,
+      "execution": "FRESH",
+      "evidence": "receipt_gates.log"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_development.py",
+        "--base",
+        "auto"
+      ],
+      "started_at_utc": "2026-10-14T22:25:39.751066+00:00",
+      "checked_at_utc": "2026-10-14T22:25:44.302154+00:00",
+      "exit_code": 0,
+      "execution": "FRESH",
+      "evidence": "receipt_gates.log"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_game_2d.py",
+        "--regression-gate"
+      ],
+      "started_at_utc": "2026-10-14T22:25:46.285691+00:00",
+      "checked_at_utc": "2026-10-14T22:26:53.887110+00:00",
+      "exit_code": 0,
+      "execution": "FRESH_ALL_RECEIPT_PARTS_STAGED",
+      "evidence": "receipt_gates.log"
+    }
+  ],
+  "raw_log_sha256": "bc37dd3a2cdb06351b9b7eba48d798f8ab103bdbcb662bd395fd1a89eb76e728",
+  "scope": "3freshsource/document/impact checks+actualfresh2D complete stagedreceipt index/allparts scan. No new engine execution in this metadata gate. R40 GUI diagnostics and retained prior full82 remain separate; no visual acceptance."
 }
