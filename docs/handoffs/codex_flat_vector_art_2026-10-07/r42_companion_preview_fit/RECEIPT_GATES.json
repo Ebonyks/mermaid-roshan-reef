@@ -1,5 +1,58 @@
 {
-  "status": "PENDING_VERIFICATION",
-  "accepted_removed": 0,
-  "mission_complete": false
+  "status": "PASS_SOURCE_ONLY_ACCEPTANCE_OPEN",
+  "commands": [
+    {
+      "command": [
+        "python",
+        "-B",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r42_companion_preview_fit\\validate.py"
+      ],
+      "started_at_utc": "2026-10-14T23:51:53.930954+00:00",
+      "checked_at_utc": "2026-10-14T23:52:01.284181+00:00",
+      "exit_code": 0,
+      "execution": "FRESH",
+      "evidence": "receipt_gates.log"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_document_authority.py"
+      ],
+      "started_at_utc": "2026-10-14T23:52:01.284235+00:00",
+      "checked_at_utc": "2026-10-14T23:52:11.830622+00:00",
+      "exit_code": 0,
+      "execution": "FRESH",
+      "evidence": "receipt_gates.log"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_development.py",
+        "--base",
+        "auto"
+      ],
+      "started_at_utc": "2026-10-14T23:52:11.830669+00:00",
+      "checked_at_utc": "2026-10-14T23:52:16.142451+00:00",
+      "exit_code": 0,
+      "execution": "FRESH",
+      "evidence": "receipt_gates.log"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_game_2d.py",
+        "--regression-gate"
+      ],
+      "started_at_utc": "2026-10-14T23:52:18.200348+00:00",
+      "checked_at_utc": "2026-10-14T23:53:24.670520+00:00",
+      "exit_code": 0,
+      "execution": "FRESH_ALL_RECEIPT_PARTS_STAGED",
+      "evidence": "receipt_gates.log"
+    }
+  ],
+  "raw_log_sha256": "9810f302bfa00eced4e0516bb333081601dab8dcfb67156cac3eaabfab42a744",
+  "scope": "3freshsource/document/impact checks+actualfresh2D complete stagedreceipt index/allparts scan. No new engine execution in this metadata gate. R42 six supported GUI diagnostics and retained prior full82 remain separate; no visual acceptance."
 }

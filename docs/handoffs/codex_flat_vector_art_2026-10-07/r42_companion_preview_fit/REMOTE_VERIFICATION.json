@@ -1,5 +1,66 @@
 {
-  "status": "PENDING_VERIFICATION",
-  "accepted_removed": 0,
-  "mission_complete": false
+  "schema": "reef.bounded_audit_json_index/1",
+  "logical_schema": "reef.flat_vector_delta_receipt/1",
+  "logical_bytes": 7100038,
+  "logical_sha256": "ee800e4518616d54183b55f35ac64608144704e75d59dda5030921b3935e6d2f",
+  "fragment_count": 8,
+  "fragments": [
+    {
+      "path": "REMOTE_VERIFICATION.fragment0001.json",
+      "bytes": 1063859,
+      "sha256": "e09e25b1f482b7d713761b0c14f1c6051295130c5f4047ef60da4b999331e8c0",
+      "text_bytes": 1000000,
+      "text_sha256": "3e78e147f13182d0c3661e3120927ee9290810172541dafcf49c6f76b268ff51"
+    },
+    {
+      "path": "REMOTE_VERIFICATION.fragment0002.json",
+      "bytes": 1046324,
+      "sha256": "b6afa00464c7a2bc274f614b34964c082b28af19b2d45116e58c2bb98d2b6bf2",
+      "text_bytes": 1000000,
+      "text_sha256": "31592d9c70a776a9976e9d09d9add5649319aab8d98ba7fd6ddd391f1c1bcf02"
+    },
+    {
+      "path": "REMOTE_VERIFICATION.fragment0003.json",
+      "bytes": 1056199,
+      "sha256": "a666452d9a186a23092cd643eb9475aca6f36205c09a490d41d8451ca51af5a3",
+      "text_bytes": 1000000,
+      "text_sha256": "fc9fdec291bad36a721b71dc3a730d6390dabf648102a8decaded1ca224d7fff"
+    },
+    {
+      "path": "REMOTE_VERIFICATION.fragment0004.json",
+      "bytes": 1051117,
+      "sha256": "e8232f47ef6da8c8dbffe795cc95e2f62c0178b1b634a39cec68b3063d3cc3c8",
+      "text_bytes": 1000000,
+      "text_sha256": "d2774635414758594e623bc987a490e1cfd766792054a0032f0ee4d676fbc0f2"
+    },
+    {
+      "path": "REMOTE_VERIFICATION.fragment0005.json",
+      "bytes": 1058189,
+      "sha256": "bb4094fc6d055f8c931a3d64356977edfa220e2e2a04a757a0d07064c5ad4f9a",
+      "text_bytes": 1000000,
+      "text_sha256": "1cfb424133967b697079e7f1b8afd29a18ebd9aa1e6f27467945d1e145b682a3"
+    },
+    {
+      "path": "REMOTE_VERIFICATION.fragment0006.json",
+      "bytes": 1051495,
+      "sha256": "ce2c8a450279f9df8a2e13c0e1409bb63f6f8478ce78c50aa262ad6d48c5a4ed",
+      "text_bytes": 1000000,
+      "text_sha256": "14de46ed16e06791e382d16f2850c3c2780743e0aa3ab7950cb76c2d34450cfe"
+    },
+    {
+      "path": "REMOTE_VERIFICATION.fragment0007.json",
+      "bytes": 1051818,
+      "sha256": "4b1082d7a965750d228c6f0177df816eb9cb740e385862d76b69210e29d47d05",
+      "text_bytes": 1000000,
+      "text_sha256": "8a444a31ee09aa83a35f2917db61242cfa9b2dae5dc4b88f725c5151197e0731"
+    },
+    {
+      "path": "REMOTE_VERIFICATION.fragment0008.json",
+      "bytes": 105752,
+      "sha256": "2cad3f68c2a236127fb2c54ed23c1b56d0dc90514a7aef7b4282292231b7e6b6",
+      "text_bytes": 100038,
+      "text_sha256": "b3611b7233896bd18d819b5b3dec22bc0e872003b10d1dbaae87ee09c1138d2c"
+    }
+  ],
+  "scope": "Nonruntime source-audit text evidence;everypart scanned/hashed. LogicalJSON bytes preserved;no runtime/model/creative acceptance orauditor waiver."
 }
