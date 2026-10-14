@@ -1,4 +1,62 @@
 {
-  "status": "PENDING",
-  "scope": "Initializedbeforelinkedchecks; nofalseacceptance/delivery."
+  "status": "PASS_WITH_ACCEPTANCE_OPEN",
+  "commands": [
+    {
+      "command": [
+        "python",
+        "-B",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r34_menu_focus_repair\\validate.py"
+      ],
+      "started_at_utc": "2026-10-14T11:58:12.237695+00:00",
+      "checked_at_utc": "2026-10-14T11:58:23.433737+00:00",
+      "exit_code": 0,
+      "result": "PASS",
+      "execution": "FRESH",
+      "evidence": "receipt_gates.log"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_document_authority.py"
+      ],
+      "started_at_utc": "2026-10-14T11:58:23.433798+00:00",
+      "checked_at_utc": "2026-10-14T11:58:33.611277+00:00",
+      "exit_code": 0,
+      "result": "PASS",
+      "execution": "FRESH",
+      "evidence": "receipt_gates.log"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_development.py",
+        "--base",
+        "auto"
+      ],
+      "started_at_utc": "2026-10-14T11:58:33.611327+00:00",
+      "checked_at_utc": "2026-10-14T11:58:37.745109+00:00",
+      "exit_code": 0,
+      "result": "PASS",
+      "execution": "FRESH",
+      "evidence": "receipt_gates.log"
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-B",
+        "tools/audit_game_2d.py",
+        "--regression-gate"
+      ],
+      "started_at_utc": "2026-10-14T11:29:04.761403+00:00",
+      "checked_at_utc": "2026-10-14T11:31:28.212139+00:00",
+      "exit_code": 0,
+      "result": "PASS",
+      "evidence": "GATES.json/gates.log",
+      "execution": "RETAINED_ACTUAL_SAME_PRODUCTION"
+    }
+  ],
+  "raw_log_sha256": "73967060500e21bba71d2b265cb61efb44e48e1f3a33783f47e240587be301b9",
+  "scope": "3freshsource/document/impact checks+1explicitretainedactualstrict2Dregression atunchangedsource;namedfocuscandidate repaired/allacceptanceopen/allacceptanceopen. PriorR32full82retained,no newR34full82run."
 }
