@@ -1137,3 +1137,9 @@ release/device/child/owner authority retain precedence.
 | `docs/handoffs/codex_flat_vector_art_2026-10-07/r25_boxing_pointer_context/README.md` | 🔵 | `SUPPORTING_CURRENT`; R25 first-phase independent Boxing guide context. 30 corrected native / 12 current views, 13 source views; 30 initial aliased-metadata diagnostics preserved/excluded. 50 partial existing / 11 families; 2594 bounded / 2738 retained, 225 known / 30 families. No art/production change or acceptance; four modes and unknown full-game/QA11/device/child/owner gaps open. |
 
 | `docs/handoffs/codex_flat_vector_art_2026-10-07/r26_boxing_pointer_reuse/README.md` | 🔵 | `SUPPORTING_CURRENT`; R26 first-phase whole-hand Boxing reuse after verified R25 context. 30 native / 14 views; unchanged source/production. One unique source sample / three per-piece review requests. 2624 bounded / 2768 retained, 225 known / 30 families, 50 partial existing / 11 families. Zero adoption/acceptance; unknown full-game/QA11/device/child/owner open. |
+
+## Full-game flat-vector Teacher current-context audit — 2026-10-14 R27
+
+| Document | State | Scope |
+|---|---|---|
+| `docs/handoffs/codex_flat_vector_art_2026-10-07/r27_teacher_pointer_context/README.md` | 🔵 | `SUPPORTING_CURRENT`; bounded current independent Teacher guide context,84native/20views,79invalid-field diagnostics excluded;four tier0/sequence0 kinds only. Existing sources/functional geometry preserved,source-bound contrast/material and moving-target repair targets;no art replacement or creative/runtime/device/child/owner acceptance. |

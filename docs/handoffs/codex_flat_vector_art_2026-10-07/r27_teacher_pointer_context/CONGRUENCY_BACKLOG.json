@@ -1,0 +1,1529 @@
+{
+  "schema": 1,
+  "review": "ROOT_CONTEXT_REVIEW_20261012.json",
+  "scope": "current state-local weaknesses;full weakness inventory incomplete",
+  "observations": [
+    {
+      "review_id": "CONG-UI-MENU",
+      "piece_ids": [
+        "FV-E9E82E0C6703",
+        "FV-2ABD73BAFFE0",
+        "FV-E1D26D3057A3"
+      ],
+      "topic": "Opera developer-menu paper and fifteen card surfaces",
+      "same_scene_comparison": "Compare each flat card with the twelve gold-shell occupational medallions inside this same menu. The painted wardrobe frame/card elsewhere in the same game is a reuse candidate, not a same-scene acceptance substitute.",
+      "congruency_findings": {
+        "material": "Uniform pale fills, crisp indigo outlines and offset blurred shadows differ from the crests\u2019 painted relief, fine contour variation and warm material bands.",
+        "palette": "Pale aqua and plum already agree with the game; a palette redesign is unnecessary.",
+        "hierarchy": "The gold focus perimeter is readable. Keep that distinct state when changing its material. At wide aspect, a pale central sheet has hard vertical edges against dark side margins; frame/background treatment needs explicit context disposition."
+      },
+      "proposed_update": "Reuse suitable painted paper and restrained frame materials, preserving every 224x152 button mapping and input state. Fit the artwork to the touch rect without shrinking targets. Retain the existing occupational symbols and ordinary supplemental text.",
+      "remaining_evidence": "Hover, pressed, disabled and hover_pressed routing/visibility must be bound per caller; Android touch/font, independent runtime and owner acceptance remain open."
+    },
+    {
+      "review_id": "CONG-UI-GEOLOGIST-CREST",
+      "piece_ids": [],
+      "topic": "Geologist menu crest",
+      "same_scene_comparison": "Same row as the painted Racer and Pop Star occupational medallions; all twelve medallions supply a directly visible contour/material/frame comparison.",
+      "congruency_findings": {
+        "shape": "The two sharply faceted crystals and trapezoidal stone base are a flat vector illustration.",
+        "material": "Opaque single-color faces lack the softly painted bands and shell/gold presentation of the neighboring badges.",
+        "readability": "Its silhouette is clear at 80px; retain that simple specimen recognition while improving finish."
+      },
+      "proposed_update": "Find an approved painted specimen first. If the exact-purpose search fails, author one coherent crystal-specimen badge from Geologist\u2019s eventual scene/material context and the neighboring crest treatment. Keep the specimen subject; do not replace it with an unrelated character.",
+      "remaining_evidence": "No exhaustive painted-specimen reuse closure or generated sample yet; style, native alpha, exact 80px readability and both-aspect interaction states remain unaccepted."
+    },
+    {
+      "review_id": "CONG-UI-NURSERY-TEACHER",
+      "piece_ids": [],
+      "topic": "Nursery and Teacher menu picture consistency",
+      "same_scene_comparison": "The mobile and complete Teacher figure sit beside twelve oval occupational medallions.",
+      "congruency_findings": {
+        "format": "These two pictures are already painted, so this observation does not make them vector-removal targets.",
+        "scale": "The small Teacher figure has much less occupied area than the neighboring crest, and the mobile has fine suspended components at 80px.",
+        "congruency": "Subject meaning is appropriate; the framing/occupied-area difference deserves child-size comparison rather than automatic identity redraw."
+      },
+      "proposed_update": "Preserve existing subject pixels and inspect a non-destructive matching frame/fit if needed. Do not redraw accepted art simply to force an oval format.",
+      "remaining_evidence": "Actual child recognition and same-scene native size testing remain open; zero replacements counted."
+    },
+    {
+      "review_id": "CONG-UI-NAVIGATION",
+      "piece_ids": [
+        "FV-2ABD73BAFFE0"
+      ],
+      "topic": "Flat global navigation chrome",
+      "same_scene_comparison": "Compare the upper-left constant-color disc with wardrobe\u2019s painted shell/pearl frame and with the shaded playground/castle in the HUD scene.",
+      "congruency_findings": {
+        "material": "The disc, ring and shadow are visibly different from the surrounding painted materials.",
+        "hierarchy": "The large simple silhouette is easy to find; replacing art must preserve that hierarchy and target.",
+        "semantics": "Back arrow and menu bars describe different routes; an attractive reset/return garment icon cannot be substituted without checking meaning."
+      },
+      "proposed_update": "Inventory existing painted navigation controls; use a context-matched shell/paper button family with separate correct Back/menu symbols. Keep hit areas and input lifecycle behavior.",
+      "remaining_evidence": "Decorative glyph versus ordinary text disposition, every overlay/caller, focus/pressed states and phone acceptance remain open."
+    },
+    {
+      "review_id": "CONG-UI-HUD-CAPTION",
+      "piece_ids": [
+        "FV-E9E82E0C6703"
+      ],
+      "topic": "Shared caption/HUD panel",
+      "same_scene_comparison": "The exterior scene has painted stone, water, castle and plants; Main Hall has painted carved doors, cake and table.",
+      "congruency_findings": {
+        "material": "A pale translucent rounded rectangle and indigo border remain flat UI art over the detailed painted world.",
+        "occlusion": "In Main Hall the top caption covers the upper cake area; the final review must include the candle/party action with the actual HUD.",
+        "palette": "Lavender/cream agree with the room family; preserve quiet high-key contrast and avoid adding ornate detail around required instructions."
+      },
+      "proposed_update": "Prefer existing calm painted paper/frame material and fit it to the caption role. Review actual action composition before changing position, opacity or scale. Do not use a broad full-screen decorative replacement.",
+      "remaining_evidence": "HUD hidden/visible caller differences, natural timing, voice/pointer, device fill cost and owner/child acceptance remain open."
+    },
+    {
+      "review_id": "CONG-WARDROBE-STARS",
+      "piece_ids": [],
+      "topic": "Fourteen wardrobe reward-star roles",
+      "same_scene_comparison": "Same-scene Roshan\u2019s satin/scaled colors, painted ribbon, and pearl/gold frame are the comparison anchors.",
+      "congruency_findings": {
+        "material": "Small pastel eight-point stars are uniformly filled polygons beside painted satin and gold.",
+        "palette": "The current aqua, pink, gold and cream accents already complement the ribbon and iridescent tail.",
+        "hierarchy": "The scattered burst stays outside the face in this sample; replacement size/alpha/cadence must not increase distraction or overdraw."
+      },
+      "proposed_update": "Inspect existing painted sparkle artwork for the same brief before generating. Replace the complete star objects, preserve the bounded burst envelope and fade/settle behavior, and do not add separate layered rims/glows.",
+      "remaining_evidence": "One sampled burst moment is not full transition/seam proof; all people/callers, cancellation, endpoint, runtime cost and final acceptance remain open."
+    },
+    {
+      "review_id": "CONG-PARTY-HATS",
+      "piece_ids": [],
+      "topic": "Eleven birthday hat instances",
+      "same_scene_comparison": "Each hat is compared with its own protected guest portrait or Rumi plus the painted cake, candle and tabletop in this same lawn.",
+      "congruency_findings": {
+        "shape": "Constant-fill triangle, dark straight outline and white stripe read as geometric symbols rather than cloth/paper cones.",
+        "material": "The flat hats differ from the painted portrait contours and cake\u2019s grouped value bands.",
+        "contact": "Cone bases need head-specific resting/occlusion checks; several tips and bases are oversized or visually detached in the diagnostic composition.",
+        "identity": "The protected guests intentionally retain different source styles. Do not repaint those portraits to force uniformity."
+      },
+      "proposed_update": "Treat fill/outline/stripe as parts of one whole painted hat, not three independently generated assets. Inventory a true birthday-cone source; a magician\u2019s top hat has the wrong subject. If absent, make a coherent hat family and fit each complete hat to its head while preserving guest pixels and declared palette.",
+      "remaining_evidence": "Eleven placements and 33 draw-role contexts are distinct units, not 33 unique designs. Head contact and occlusion need exact bounds and natural party/action review; protected portraits remain unchanged."
+    },
+    {
+      "review_id": "CONG-PARTY-TABLE",
+      "piece_ids": [],
+      "topic": "Main Hall flat table surround and cake contact ellipse",
+      "same_scene_comparison": "Compare the broad yellow rounded panel and uniform ellipse against the already painted dining table, cake pedestal and carved Main Hall fixtures. Lawn supplies a different supported cake/table composition.",
+      "congruency_findings": {
+        "material": "The large yellow panel masks the room with a flat field despite a painted table already being present.",
+        "contact": "In Main Hall the cake pedestal visibly ends above the table\u2019s upper rim, with a large separate ellipse above the table. Treat this as a captured staging weakness, not a reason to redraw cake or table.",
+        "occlusion": "The panel obscures part of Roshan in the captured Main Hall fixture.",
+        "ownership": "The ignition rocket and retained summary rocket are both visible; verify intended semantic ownership before removing either."
+      },
+      "proposed_update": "Reuse the painted table and cake; remove or replace only the flat surround and ellipse after context/source review. Align the complete cake/pedestal to the real tabletop and use one coherent contact treatment. Review actual HUD and plot action, not just a posed still.",
+      "remaining_evidence": "Saved checkpoints and component calls are declared fixtures, not naturally earned party progression. Full ignition/Ember/contact sequence, duplicate-role intent, phone overdraw and owner acceptance remain open."
+    },
+    {
+      "review_id": "CONG-CASTLE-ROYAL",
+      "piece_ids": [
+        "FV-6A93EB8DB0B8",
+        "FV-4E38B4F52104",
+        "FV-B8CE0DD0E36C"
+      ],
+      "topic": "Royal Bedroom architectural shell",
+      "same_scene_comparison": "The carved canopy bed, shell wardrobe, nightstand and book cushion are painted in the same room.",
+      "congruency_findings": {
+        "material": "Large uniform ceiling, columns, inset/arch and rug fields have hard geometric edges beside soft painted, carved furniture/cards.",
+        "palette": "The existing plum, cream and turquoise grouping is compatible; the main defect is finish and structural integration rather than a need for a new palette.",
+        "perspective": "Retain one coherent floor/support plane and match furniture contact; the repeated straight grid is visibly more mechanical than the painted object contours.",
+        "ownership": "Existing furniture and interactive cards must remain separately owned once, without duplicated painted copies in a replacement background."
+      },
+      "proposed_update": "Preserve the central moon window, single canopy-bed staging and warm pink/turquoise textile hierarchy. Give ceiling/columns/window/rug bounded painted material that agrees with those furniture edges; do not invent new props.",
+      "remaining_evidence": "These are rest-route captures with suppressed ordinary HUD and no motion/contact/save-state coverage. Native 2048x2048-per-screen master, unchanged source objects, phone hierarchy, action/occlusion and final acceptance remain required."
+    },
+    {
+      "review_id": "CONG-CASTLE-SLEEPOVER",
+      "piece_ids": [
+        "FV-794E9BBC4E61",
+        "FV-DC5F1DA5FED1",
+        "FV-34445F8B894C"
+      ],
+      "topic": "Sleepover Bedroom architectural shell",
+      "same_scene_comparison": "Three painted beds carry star, moon and cloud identities; the gold shell pendant establishes the material family.",
+      "congruency_findings": {
+        "material": "Large uniform ceiling, columns, inset/arch and rug fields have hard geometric edges beside soft painted, carved furniture/cards.",
+        "palette": "The existing plum, cream and turquoise grouping is compatible; the main defect is finish and structural integration rather than a need for a new palette.",
+        "perspective": "Retain one coherent floor/support plane and match furniture contact; the repeated straight grid is visibly more mechanical than the painted object contours.",
+        "ownership": "Existing furniture and interactive cards must remain separately owned once, without duplicated painted copies in a replacement background."
+      },
+      "proposed_update": "Preserve the three separate alcoves and bed identities/order. Paint the alcove/column/rug surfaces using the beds\u2019 plum/cream/gold language, retaining a quiet field behind each pillow and a coherent floor plane.",
+      "remaining_evidence": "These are rest-route captures with suppressed ordinary HUD and no motion/contact/save-state coverage. Native 2048x2048-per-screen master, unchanged source objects, phone hierarchy, action/occlusion and final acceptance remain required."
+    },
+    {
+      "review_id": "CONG-CASTLE-DINING",
+      "piece_ids": [
+        "FV-1848A46F07C2",
+        "FV-2D5C7DBE66E2",
+        "FV-DDC9D4DD50F9"
+      ],
+      "topic": "Dining Room architectural shell",
+      "same_scene_comparison": "Painted oval wood table, two turquoise stools, shell crockery cabinet and pendant light establish wood/ceramic/metal values.",
+      "congruency_findings": {
+        "material": "Large uniform ceiling, columns, inset/arch and rug fields have hard geometric edges beside soft painted, carved furniture/cards.",
+        "palette": "The existing plum, cream and turquoise grouping is compatible; the main defect is finish and structural integration rather than a need for a new palette.",
+        "perspective": "Retain one coherent floor/support plane and match furniture contact; the repeated straight grid is visibly more mechanical than the painted object contours.",
+        "ownership": "Existing furniture and interactive cards must remain separately owned once, without duplicated painted copies in a replacement background."
+      },
+      "proposed_update": "Keep furniture, Farmer route and one central arch. Replace flat structural surfaces and overbearing grid treatment with matching painted architecture/floor; retain table/stool support and walk lane.",
+      "remaining_evidence": "These are rest-route captures with suppressed ordinary HUD and no motion/contact/save-state coverage. Native 2048x2048-per-screen master, unchanged source objects, phone hierarchy, action/occlusion and final acceptance remain required."
+    },
+    {
+      "review_id": "CONG-CASTLE-MOVIE",
+      "piece_ids": [
+        "FV-59881865F63C",
+        "FV-F71C445636A0",
+        "FV-DE6A6ED53E68"
+      ],
+      "topic": "Movie Lounge architectural shell",
+      "same_scene_comparison": "Painted plum/gold screen surround and rainbow-cloud seats provide the local contours and material.",
+      "congruency_findings": {
+        "material": "Large uniform ceiling, columns, inset/arch and rug fields have hard geometric edges beside soft painted, carved furniture/cards.",
+        "palette": "The existing plum, cream and turquoise grouping is compatible; the main defect is finish and structural integration rather than a need for a new palette.",
+        "perspective": "Retain one coherent floor/support plane and match furniture contact; the repeated straight grid is visibly more mechanical than the painted object contours.",
+        "ownership": "Existing furniture and interactive cards must remain separately owned once, without duplicated painted copies in a replacement background."
+      },
+      "proposed_update": "Preserve the screen, displayed protected picture, cloud seats and Racer route. Paint the remaining shell and floor quietly around that screen; do not redraw the protected display or add a rival focal mural.",
+      "remaining_evidence": "These are rest-route captures with suppressed ordinary HUD and no motion/contact/save-state coverage. Native 2048x2048-per-screen master, unchanged source objects, phone hierarchy, action/occlusion and final acceptance remain required."
+    },
+    {
+      "review_id": "CONG-CASTLE-GALLERY",
+      "piece_ids": [
+        "FV-D9B2595DE0B6",
+        "FV-C628227FA1F2",
+        "FV-AC96A9DA2FB4"
+      ],
+      "topic": "Family Gallery architectural shell",
+      "same_scene_comparison": "Four existing painted shell/gold doors and activity emblems are strong immediate same-scene references.",
+      "congruency_findings": {
+        "material": "Large uniform ceiling, columns, inset/arch and rug fields have hard geometric edges beside soft painted, carved furniture/cards.",
+        "palette": "The existing plum, cream and turquoise grouping is compatible; the main defect is finish and structural integration rather than a need for a new palette.",
+        "perspective": "Retain one coherent floor/support plane and match furniture contact; the repeated straight grid is visibly more mechanical than the painted object contours.",
+        "ownership": "Existing furniture and interactive cards must remain separately owned once, without duplicated painted copies in a replacement background."
+      },
+      "proposed_update": "Preserve the exact four-door order, symbols and card footprints. Paint only the large flat outer panel/arches/columns/floor-rug fields to agree with those carved frames. Avoid a second set of painted doors behind the interactive cards.",
+      "remaining_evidence": "These are rest-route captures with suppressed ordinary HUD and no motion/contact/save-state coverage. Native 2048x2048-per-screen master, unchanged source objects, phone hierarchy, action/occlusion and final acceptance remain required."
+    },
+    {
+      "review_id": "CONG-GEOLOGY-CAVE",
+      "piece_ids": [
+        "FV-14664183159D"
+      ],
+      "topic": "Geology cave/world",
+      "same_scene_comparison": "Painted explorer Roshan and the existing Detective helper establish detailed contours and broad shaded clothing; the fossil slab, specimen trays and crystals share the current cave staging.",
+      "congruency_findings": {
+        "material": "Five broad flat wall bands, rectangular slab/trays, crystal polygons and spotlight cones lack the painted depth of the actors.",
+        "palette": "Cool plum/aqua and small mineral accents fit the world; preserve these relationships instead of random cave restyling.",
+        "hierarchy": "Three empty specimen trays and the slab/crystal grouping need to remain subordinate to the live actionable object."
+      },
+      "proposed_update": "Inventory accepted cave/stone sources, then paint only the documented missing cave/material components in their existing spatial/story roles. Draw crystal/slab/tray subjects as coherent objects and preserve all interactive placements. Retire flat backdrop/spotlight fallbacks after equivalent route proof.",
+      "remaining_evidence": "Entry still only; full gameplay state, layer ownership, native coverage, helper/actor identity scope and device/owner acceptance remain open."
+    },
+    {
+      "review_id": "CONG-GEOLOGY-BENCH",
+      "piece_ids": [
+        "FV-A6CE3E284202"
+      ],
+      "topic": "Shared Geologist workbench",
+      "same_scene_comparison": "Painted whole explorer Roshan and Detective helper persist beside the same large ochre/plum surface in all four tasks.",
+      "congruency_findings": {
+        "material": "A nearly full-height ochre rectangle with geometric rounded rim and corner circles contrasts with the actors\u2019 varied painted surfaces.",
+        "consistency": "All four phases need the same table/material, perspective, lighting and support conventions. Independent random scene redraws would break their shared workshop."
+      },
+      "proposed_update": "Reuse a fitting approved tabletop/material if present; otherwise author one context-bound quiet workshop surface with the same 860x490 work rect and consistent object lighting. Keep each specialist task independently actionable.",
+      "remaining_evidence": "All four current views are rest/open fixtures; action states, alpha/ownership, full HUD and phone evidence remain required."
+    },
+    {
+      "review_id": "CONG-GEOLOGY-RIVER",
+      "piece_ids": [
+        "FV-DA16E1E99C6D",
+        "FV-4120D0DEF44C"
+      ],
+      "topic": "River dry grid and endpoint pools",
+      "same_scene_comparison": "The two endpoint circles sit on the same workbench beside painted actors.",
+      "congruency_findings": {
+        "shape": "The pools read as concentric target disks; this reviewer initially mistook them for lens-like UI before checking _draw_river.",
+        "material": "The dry-cell dots, opaque pool rims and single-value faces lack riverbank/water cues.",
+        "semantics": "This is the untouched river grid; connected/wet channel behavior is not visible in the inspected frame."
+      },
+      "proposed_update": "Give the source/sink calm painted spring/basin identity and the sand/soil a scene-matched surface. Preserve arbitrary connected excavation; derive all connected water variants from a coherent material system rather than unrelated tile drawings.",
+      "remaining_evidence": "FV-16448353CDDD flowing channel remains source-only in this root review. Arbitrary topology, dry isolated holes, endpoints and action/contact must be captured before accepting material replacement."
+    },
+    {
+      "review_id": "CONG-GEOLOGY-FOSSIL",
+      "piece_ids": [
+        "FV-4E515D6F7A64"
+      ],
+      "topic": "Fossil dirt cover",
+      "same_scene_comparison": "The uniform brown excavation rectangle lies above the same quiet ochre workbench and beside painted explorer/helper.",
+      "congruency_findings": {
+        "material": "The hidden fossil is covered by a hard rectangular field of indistinguishable flat cells.",
+        "semantics": "No revealed fossil or fragment can be judged from this fully covered starting state."
+      },
+      "proposed_update": "Use one coherent painted dust/soil texture with a functional non-art reveal mask, preserving scrub geometry. Match the stone slab/fossil states to this same task rather than redrawing each revealed fragment as a separate unrelated object.",
+      "remaining_evidence": "Reveal/three-piece matching, painted brush contact, exact fossil identity and fallback variants remain unreviewed here; no fragment acceptance claimed."
+    },
+    {
+      "review_id": "CONG-GEOLOGY-PAN",
+      "piece_ids": [
+        "FV-F2DE53A80AA7",
+        "FV-819BC170AF16",
+        "FV-1E16581A6287"
+      ],
+      "topic": "Mineral-washing pan",
+      "same_scene_comparison": "Painted explorer/helper and the shared workbench are the same-scene anchors; the pan is the primary working prop.",
+      "congruency_findings": {
+        "material": "Nested dark/ochre/aqua ellipses and uniform gold pellets read as diagram art.",
+        "perspective": "The pan opening is horizontally elliptical; a replacement must preserve this viewed plane and wash/contact area.",
+        "hierarchy": "Fine grain details cannot obscure reversal movement or the mineral reveal."
+      },
+      "proposed_update": "After exact-purpose reuse search, supply the named missing complete pan with broad metal/wood bands and coherent water/sand/mineral states. Keep all nine reversal semantics and stable pan bounds; avoid layered unrelated rims/stickers.",
+      "remaining_evidence": "PAN_PATH is empty in current inspected source. Sand/wash/reveal/reversal states, alpha support, whole-prop continuity and runtime/device acceptance remain open."
+    },
+    {
+      "review_id": "CONG-GEOLOGY-GEODE",
+      "piece_ids": [
+        "FV-C1AB21410352",
+        "FV-4502C5860C45"
+      ],
+      "topic": "Geode closed shell and seam cues",
+      "same_scene_comparison": "The geode sits on the same workshop surface; painted actors provide the contour/value family.",
+      "congruency_findings": {
+        "material": "A broad purple oval, dark outline and straight center line lack stone/crystal material.",
+        "hierarchy": "Five large yellow disks dominate the specimen; necessary cues need a quieter context-matched treatment without disappearing.",
+        "continuity": "The closed shell, split halves and crystal interior must describe the very same specimen."
+      },
+      "proposed_update": "Find a suitable accepted specimen or author the named missing single geode family. Bind closed/open halves/interior to one geometry, palette, light and pivot; render each complete state and preserve tap seam/pull controls.",
+      "remaining_evidence": "GEODE_PATH is empty. FV-99DB2D71D276 open halves and FV-F7DB96881260 gallery are not reviewed in this starting-state frame. Source-gap and action/contact evidence remain open."
+    },
+    {
+      "review_id": "CONG-TEACHER-LESSON",
+      "piece_ids": [
+        "FV-811B30EC9ED5",
+        "FV-3DF34F8DBE3A"
+      ],
+      "topic": "Teacher pattern-board tokens",
+      "same_scene_comparison": "The painted library stonework/books/shell lamps and complete Teacher Roshan are same-scene style anchors. Compare repeated tokens with one another within the same question.",
+      "congruency_findings": {
+        "material": "Plain paper/panel fills and opaque circles/triangles with geometric indigo strokes contrast with painted stone, metal and clothing.",
+        "semantics": "Circle/triangle silhouettes, cyan/gold colors and left-to-right pattern are the lesson, so material improvement must not blur distinctions or change answers.",
+        "consistency": "Every repeated instance of a shape/color must use the same authored token. A individually random redraw for each repeated token would introduce false lesson differences."
+      },
+      "proposed_update": "Use tangible painted tile/paper/bead materials with broad clean colored faces and identical semantic silhouettes. Reuse calm existing paper/frame art where it fits. Author missing shape variants as one consistent classroom set, retaining hit geometry, order, voice and pointer.",
+      "remaining_evidence": "Only the displayed pattern question reviewed here. Other levels/shapes/colors, COUNT/ADD/MATCH, hints, correct/disabled states, natural input/save and phone/child/owner review remain open."
+    }
+  ],
+  "grouping_rule": "One coherent artwork object per kit;draw layers/repeated tokens are not independent generation orders",
+  "approved": 0,
+  "integrated": 0,
+  "accepted_removed": 0,
+  "independent_picture_addendum": {
+    "review": "root_picture_review_20261012/review.json",
+    "reconciliation": "PICTURE_CONTEXT_RECONCILIATION.json",
+    "observations": [
+      {
+        "id": "ROOTPIC-01",
+        "title": "Garden grass mound",
+        "existing_piece_ids": [],
+        "classification": "Confirmed visible procedural artwork",
+        "observed_weakness": "A broad uniform green mound with hard rim/highlight has little authored material detail.",
+        "same_scene_comparison": "Painted sun, seed, butterflies and Roshan carry shaped light, material cues and authored contours. Green palette already belongs to the scene.",
+        "proposed_update": "Inventory existing calm painted grass/ground first. Reuse a cohesive whole ground strip or commission only the missing grassy base, preserving open negative space around five plants.",
+        "must_preserve": "Five slots and their unobstructed input envelopes; no added distracting props.",
+        "evidence_paths": [
+          "captures/guarded_ready/1280x720/garden_fresh_ready.png",
+          "captures/guarded_ready/1600x720/garden_fresh_ready.png"
+        ],
+        "limits": "New named-role registry binding required; not yet a new counted unique design.",
+        "status": "CONTEXT_REVIEW_OPEN",
+        "replacement_pixels": 0,
+        "runtime_integrations": 0,
+        "accepted_removals": 0
+      },
+      {
+        "id": "ROOTPIC-02",
+        "title": "Five Garden clay pots",
+        "existing_piece_ids": [],
+        "classification": "Confirmed visible procedural artwork",
+        "observed_weakness": "Five repeated flat rounded terracotta shapes with a generic white highlight do not clearly describe an open soil-filled pot.",
+        "same_scene_comparison": "Brown painted seeds have texture and shaded volume. The plants must root at the same soil line as these containers.",
+        "proposed_update": "Use one authored clay-pot design repeated five times, with a readable shallow opening/soil and restrained contact shadow. Inventory reusable containers before generation.",
+        "must_preserve": "150x100 visible envelope and slot spacing; soil/contact line at 615; preserve seed < sprout < flower hierarchy.",
+        "evidence_paths": [
+          "captures/guarded_ready/1280x720/garden_fresh_ready.png",
+          "captures/guarded_ready/1600x720/garden_fresh_ready.png"
+        ],
+        "limits": "Five instances of one family, not five independently generated designs. Recheck all growth states and occlusion.",
+        "status": "CONTEXT_REVIEW_OPEN",
+        "replacement_pixels": 0,
+        "runtime_integrations": 0,
+        "accepted_removals": 0
+      },
+      {
+        "id": "ROOTPIC-03",
+        "title": "Common Garden sprout",
+        "existing_piece_ids": [
+          "FV-2A7698EB514E"
+        ],
+        "classification": "Shaded raster style candidate; not automatically vector",
+        "observed_weakness": "Geometric rod stem and simple elliptical leaves have a simpler surface treatment than Roshan and the sun.",
+        "same_scene_comparison": "All five plants share this sprout and the same brown seed/pot family. Existing painted flower/leaf cards offer more authored contours but are not exact sprout replacements.",
+        "proposed_update": "Reuse a suitable complete seedling if found; otherwise draw one common sprout matching the scene\u2019s gentle indigo contours, green family and soil entry. Do not randomly rebuild each sprout.",
+        "must_preserve": "One shared identity, 148x148 art rect, 0.881 stem-bottom mapping, approximately 105px visible height; root at soil.",
+        "evidence_paths": [
+          "captures/action/1280x720/garden_all_sprouts_settled.png",
+          "captures/action/1280x720/garden_sprout_00_active.png"
+        ],
+        "limits": "The art35 alternate is byte-identical; a detached broad leaf is not an accepted whole sprout.",
+        "status": "CONTEXT_REVIEW_OPEN",
+        "replacement_pixels": 0,
+        "runtime_integrations": 0,
+        "accepted_removals": 0
+      },
+      {
+        "id": "ROOTPIC-04",
+        "title": "Garden mature outcome 1 (k_flower1)",
+        "existing_piece_ids": [
+          "FV-0CE81E2C1213"
+        ],
+        "classification": "Shaded raster style candidate; not automatically vector",
+        "observed_weakness": "Simple shaded petal/leaf forms and rod stems feel less authored than the adjacent painted world cards.",
+        "same_scene_comparison": "Compare this exact outcome with the common sprout and the other four flowers as a coherent set, and with painted seed/sun/Roshan. Two approved painted flower cards are available but do not cover all five outcome identities.",
+        "proposed_update": "Audit whole-card reuse for this specific flower first. Where reuse fails, redraw the named outcome with compatible contours, soft painted surfaces and the same distinct blossom structure; review all five together before integration.",
+        "must_preserve": "Current slot/order, distinct five outcomes, 228x228 art rect, approximately 170px visible height, stable soil entry, 0.12s 1.2 pop then 0.12s settle.",
+        "evidence_paths": [
+          "captures/action/1280x720/garden_flower_00_active.png",
+          "captures/action/1280x720/garden_complete_settled.png",
+          "captures/action/1600x720/garden_complete_settled.png"
+        ],
+        "limits": "No blanket finding that all raster flowers are flat vector; art35 alternate is byte-identical; identity/fit/phone acceptance still open.",
+        "status": "CONTEXT_REVIEW_OPEN",
+        "replacement_pixels": 0,
+        "runtime_integrations": 0,
+        "accepted_removals": 0
+      },
+      {
+        "id": "ROOTPIC-05",
+        "title": "Garden mature outcome 2 (flower)",
+        "existing_piece_ids": [
+          "FV-80696B25F705"
+        ],
+        "classification": "Shaded raster style candidate; not automatically vector",
+        "observed_weakness": "Simple shaded petal/leaf forms and rod stems feel less authored than the adjacent painted world cards.",
+        "same_scene_comparison": "Compare this exact outcome with the common sprout and the other four flowers as a coherent set, and with painted seed/sun/Roshan. Two approved painted flower cards are available but do not cover all five outcome identities.",
+        "proposed_update": "Audit whole-card reuse for this specific flower first. Where reuse fails, redraw the named outcome with compatible contours, soft painted surfaces and the same distinct blossom structure; review all five together before integration.",
+        "must_preserve": "Current slot/order, distinct five outcomes, 228x228 art rect, approximately 170px visible height, stable soil entry, 0.12s 1.2 pop then 0.12s settle.",
+        "evidence_paths": [
+          "captures/action/1280x720/garden_flower_01_active.png",
+          "captures/action/1280x720/garden_complete_settled.png",
+          "captures/action/1600x720/garden_complete_settled.png"
+        ],
+        "limits": "No blanket finding that all raster flowers are flat vector; art35 alternate is byte-identical; identity/fit/phone acceptance still open.",
+        "status": "CONTEXT_REVIEW_OPEN",
+        "replacement_pixels": 0,
+        "runtime_integrations": 0,
+        "accepted_removals": 0
+      },
+      {
+        "id": "ROOTPIC-06",
+        "title": "Garden mature outcome 3 (flower2)",
+        "existing_piece_ids": [
+          "FV-712A4ED716EA"
+        ],
+        "classification": "Shaded raster style candidate; not automatically vector",
+        "observed_weakness": "Simple shaded petal/leaf forms and rod stems feel less authored than the adjacent painted world cards.",
+        "same_scene_comparison": "Compare this exact outcome with the common sprout and the other four flowers as a coherent set, and with painted seed/sun/Roshan. Two approved painted flower cards are available but do not cover all five outcome identities.",
+        "proposed_update": "Audit whole-card reuse for this specific flower first. Where reuse fails, redraw the named outcome with compatible contours, soft painted surfaces and the same distinct blossom structure; review all five together before integration.",
+        "must_preserve": "Current slot/order, distinct five outcomes, 228x228 art rect, approximately 170px visible height, stable soil entry, 0.12s 1.2 pop then 0.12s settle.",
+        "evidence_paths": [
+          "captures/action/1280x720/garden_flower_02_active.png",
+          "captures/action/1280x720/garden_complete_settled.png",
+          "captures/action/1600x720/garden_complete_settled.png"
+        ],
+        "limits": "No blanket finding that all raster flowers are flat vector; art35 alternate is byte-identical; identity/fit/phone acceptance still open.",
+        "status": "CONTEXT_REVIEW_OPEN",
+        "replacement_pixels": 0,
+        "runtime_integrations": 0,
+        "accepted_removals": 0
+      },
+      {
+        "id": "ROOTPIC-07",
+        "title": "Garden mature outcome 4 (k_flower2)",
+        "existing_piece_ids": [
+          "FV-D3FF54E92E64"
+        ],
+        "classification": "Shaded raster style candidate; not automatically vector",
+        "observed_weakness": "Simple shaded petal/leaf forms and rod stems feel less authored than the adjacent painted world cards.",
+        "same_scene_comparison": "Compare this exact outcome with the common sprout and the other four flowers as a coherent set, and with painted seed/sun/Roshan. Two approved painted flower cards are available but do not cover all five outcome identities.",
+        "proposed_update": "Audit whole-card reuse for this specific flower first. Where reuse fails, redraw the named outcome with compatible contours, soft painted surfaces and the same distinct blossom structure; review all five together before integration.",
+        "must_preserve": "Current slot/order, distinct five outcomes, 228x228 art rect, approximately 170px visible height, stable soil entry, 0.12s 1.2 pop then 0.12s settle.",
+        "evidence_paths": [
+          "captures/action/1280x720/garden_flower_03_active.png",
+          "captures/action/1280x720/garden_complete_settled.png",
+          "captures/action/1600x720/garden_complete_settled.png"
+        ],
+        "limits": "No blanket finding that all raster flowers are flat vector; art35 alternate is byte-identical; identity/fit/phone acceptance still open.",
+        "status": "CONTEXT_REVIEW_OPEN",
+        "replacement_pixels": 0,
+        "runtime_integrations": 0,
+        "accepted_removals": 0
+      },
+      {
+        "id": "ROOTPIC-08",
+        "title": "Garden mature outcome 5 (flower3)",
+        "existing_piece_ids": [
+          "FV-0B0A0AE1B9CF"
+        ],
+        "classification": "Shaded raster style candidate; not automatically vector",
+        "observed_weakness": "Simple shaded petal/leaf forms and rod stems feel less authored than the adjacent painted world cards.",
+        "same_scene_comparison": "Compare this exact outcome with the common sprout and the other four flowers as a coherent set, and with painted seed/sun/Roshan. Two approved painted flower cards are available but do not cover all five outcome identities.",
+        "proposed_update": "Audit whole-card reuse for this specific flower first. Where reuse fails, redraw the named outcome with compatible contours, soft painted surfaces and the same distinct blossom structure; review all five together before integration.",
+        "must_preserve": "Current slot/order, distinct five outcomes, 228x228 art rect, approximately 170px visible height, stable soil entry, 0.12s 1.2 pop then 0.12s settle.",
+        "evidence_paths": [
+          "captures/action/1280x720/garden_flower_04_active.png",
+          "captures/action/1280x720/garden_complete_settled.png",
+          "captures/action/1600x720/garden_complete_settled.png"
+        ],
+        "limits": "No blanket finding that all raster flowers are flat vector; art35 alternate is byte-identical; identity/fit/phone acceptance still open.",
+        "status": "CONTEXT_REVIEW_OPEN",
+        "replacement_pixels": 0,
+        "runtime_integrations": 0,
+        "accepted_removals": 0
+      },
+      {
+        "id": "ROOTPIC-09",
+        "title": "Garden watering can",
+        "existing_piece_ids": [
+          "FV-74CBBFCFD63F"
+        ],
+        "classification": "Raster finish/contact-fit candidate",
+        "observed_weakness": "The small pink can has a rougher contour/resolution than Roshan and floats nearby as a watching/watering cue.",
+        "same_scene_comparison": "Existing sun and seed have finer painted shaping. Palette already matches the pink/purple family.",
+        "proposed_update": "Preserve this can\u2019s identity; check its best source master and non-destructive cleanup before requesting new pixels. Review readable spout orientation and intentional relation to Roshan/flowers.",
+        "must_preserve": "272x286 transparent raster; runtime 130x137 rect and 0.32 rotation; do not claim or fake a hand-held contact. Protected book art remains untouched.",
+        "evidence_paths": [
+          "captures/guarded_ready/1280x720/garden_fresh_ready.png",
+          "captures/guarded_ready/1600x720/garden_fresh_ready.png"
+        ],
+        "limits": "Alpha exterior is transparent; no white-background contamination defect was found.",
+        "status": "CONTEXT_REVIEW_OPEN",
+        "replacement_pixels": 0,
+        "runtime_integrations": 0,
+        "accepted_removals": 0
+      },
+      {
+        "id": "ROOTPIC-10",
+        "title": "Picture-game gradient fields",
+        "existing_piece_ids": [
+          "FV-BBB50149283E"
+        ],
+        "classification": "Confirmed generated flat field; material/context candidate",
+        "observed_weakness": "Large smooth gradients supply calm negative space but no authored scene material.",
+        "same_scene_comparison": "Garden uses warm painted props; Snowman needs snow; Trampoline uses Roshan/star; Xmas has a detailed cool tree/ornaments. Each needs its own environmental/paper context.",
+        "proposed_update": "Inventory calm existing backgrounds per game. Reuse or draw a context-specific painted field with restrained depth, keeping targets clear; do not put a random busy landscape behind every activity.",
+        "must_preserve": "HUD and all input envelopes; native background coverage/import/overdraw rules; source-specific scene identity.",
+        "evidence_paths": [
+          "captures/guarded_ready/1280x720/garden_fresh_ready.png",
+          "captures/guarded_ready/1600x720/garden_fresh_ready.png",
+          "captures/guarded_ready/1280x720/snowman_fresh_ready.png",
+          "captures/guarded_ready/1280x720/trampoline_fresh_ready.png",
+          "captures/guarded_ready/1280x720/xmas_fresh_ready.png"
+        ],
+        "limits": "Per-game callers require separate resolution; this is not coverage of Slide or every aspect/state.",
+        "status": "CONTEXT_REVIEW_OPEN",
+        "replacement_pixels": 0,
+        "runtime_integrations": 0,
+        "accepted_removals": 0
+      },
+      {
+        "id": "ROOTPIC-11",
+        "title": "Picture growth/win sparkle polygons",
+        "existing_piece_ids": [
+          "FV-E96CD69662D1"
+        ],
+        "classification": "Confirmed visible procedural ornament",
+        "observed_weakness": "Growth and win bursts are flat eight-point stars.",
+        "same_scene_comparison": "Nearby butterflies/sun and the large Trampoline star are authored raster art; a simple painted sparkle may fit without imitating the large objective star.",
+        "proposed_update": "Inspect reusable painted sparkles and share a small authored family; preserve palette and effect limits. Review the burst at full speed, settles and close/reentry.",
+        "must_preserve": "Action max three concurrent bursts; win replaces old bursts; 4..18 elements; 0.35..0.9s lifetime; existing one-owner feedback layer.",
+        "evidence_paths": [
+          "captures/action/1280x720/garden_sprout_00_active.png",
+          "captures/action/1280x720/garden_complete_payoff.png"
+        ],
+        "limits": "Stills do not validate complete motion/seams/phone overdraw.",
+        "status": "CONTEXT_REVIEW_OPEN",
+        "replacement_pixels": 0,
+        "runtime_integrations": 0,
+        "accepted_removals": 0
+      },
+      {
+        "id": "ROOTPIC-12",
+        "title": "Snowman snow field",
+        "existing_piece_ids": [
+          "FV-55B5EF60A12C"
+        ],
+        "classification": "Confirmed visible procedural artwork",
+        "observed_weakness": "Huge flattened/translucent rounded panels create grey bands and a large white highlight rather than a snowy ground surface.",
+        "same_scene_comparison": "The smaller rolling ball has the same generic style; future carrot/coal and action need a coherent snow family.",
+        "proposed_update": "Reuse a quiet painted snow ground if suitable; otherwise supply one snowy base with local snow grain and gentle cool shadows, preserving the rolling workspace.",
+        "must_preserve": "Rolling gestures, CTA/hint, stacking area and phase behavior.",
+        "evidence_paths": [
+          "captures/guarded_ready/1280x720/snowman_fresh_ready.png",
+          "captures/guarded_ready/1600x720/snowman_fresh_ready.png"
+        ],
+        "limits": "Ready stage only; no face/stack/chase source comparison accepted here.",
+        "status": "CONTEXT_REVIEW_OPEN",
+        "replacement_pixels": 0,
+        "runtime_integrations": 0,
+        "accepted_removals": 0
+      },
+      {
+        "id": "ROOTPIC-13",
+        "title": "Snowball rolling/stacked family",
+        "existing_piece_ids": [
+          "FV-C99F706798D3"
+        ],
+        "classification": "Confirmed visible procedural artwork",
+        "observed_weakness": "The ready ball is a generic flat white disc with border/shadow; growth and stacking need one coherent snow material.",
+        "same_scene_comparison": "Snow field currently shares generic panel treatment. Later face props are separate approved candidates, not substitutes for the child\u2019s rolling action.",
+        "proposed_update": "Inspect existing complete snowball assets, otherwise draw one reusable snowball family compatible with snowy field; preserve dynamic size and contact.",
+        "must_preserve": "Start radius26; final radii124/98/72; circles accumulate3/2.5/2 turns; grow/stack/face/chase states and no automatic zero-input win.",
+        "evidence_paths": [
+          "captures/guarded_ready/1280x720/snowman_fresh_ready.png",
+          "captures/guarded_ready/1600x720/snowman_fresh_ready.png"
+        ],
+        "limits": "Growing/stacked family is source-bound only in this slice; full interaction capture remains required.",
+        "status": "CONTEXT_REVIEW_OPEN",
+        "replacement_pixels": 0,
+        "runtime_integrations": 0,
+        "accepted_removals": 0
+      },
+      {
+        "id": "ROOTPIC-14",
+        "title": "Trampoline mat/frame and detached highlight",
+        "existing_piece_ids": [
+          "FV-C6F64FAA2F32"
+        ],
+        "classification": "Confirmed visible procedural artwork/contact defect",
+        "observed_weakness": "Flat blue capsule lacks readable mat/frame material. Its large white child highlight hangs below the pad after the parent height is reduced to56.",
+        "same_scene_comparison": "Roshan and the objective star already have authored contours/lighting. Their palette can guide the mat without redrawing them.",
+        "proposed_update": "Inventory complete trampoline art; replace the capsule/highlight with one context-matched painted mat/frame with readable spring surface/support. Align Roshan\u2019s intended rest/landing relationship and review each bounce.",
+        "must_preserve": "400x140 touch target at440,430; visible mat envelope440,492/400x56; current bounce input/rhythm, Roshan identity and large star objective.",
+        "evidence_paths": [
+          "captures/guarded_ready/1280x720/trampoline_fresh_ready.png",
+          "captures/guarded_ready/1600x720/trampoline_fresh_ready.png"
+        ],
+        "limits": "Rest/ready observations only. Star overlaps instruction panel in both aspects; solve spacing within existing objective behavior, not by deleting the target.",
+        "status": "CONTEXT_REVIEW_OPEN",
+        "replacement_pixels": 0,
+        "runtime_integrations": 0,
+        "accepted_removals": 0
+      },
+      {
+        "id": "ROOTPIC-15",
+        "title": "Xmas ornament card material",
+        "existing_piece_ids": [
+          "FV-E1D26D3057A3"
+        ],
+        "classification": "Confirmed visible flat frame; whole caller remains open",
+        "observed_weakness": "Uniform white rounded cards and dark rims are materially plainer than the detailed tree and ornaments.",
+        "same_scene_comparison": "Five ornaments share polished jewel/shell forms; the sixth flower is protected source artwork and disabled initially.",
+        "proposed_update": "Reuse one compatible painted card material across the five active ornaments and locked flower state while preserving distinct feedback states. Retain the existing undecorated tree and detachable components.",
+        "must_preserve": "110x110 ornament cards, protected friendship flower, disabled/enabled distinction, precise placement/one-finger input.",
+        "evidence_paths": [
+          "captures/guarded_ready/1280x720/xmas_fresh_ready.png",
+          "captures/guarded_ready/1600x720/xmas_fresh_ready.png"
+        ],
+        "limits": "No predecorated replacement tree; ready stills do not close placement/topper/payoff states.",
+        "status": "CONTEXT_REVIEW_OPEN",
+        "replacement_pixels": 0,
+        "runtime_integrations": 0,
+        "accepted_removals": 0
+      },
+      {
+        "id": "ROOTPIC-16",
+        "title": "Picture header and shell crest",
+        "existing_piece_ids": [
+          "FV-E9E82E0C6703",
+          "FV-AB474EF3699E"
+        ],
+        "classification": "Visible flat UI ornament/material; caller classification open",
+        "observed_weakness": "Pale rounded panel and line-only fan crest are plainer than the authored picture props. At1280 the fixed Back disc covers the crest; expanded width separates them.",
+        "same_scene_comparison": "All four picture games share the same header language and approved indigo palette.",
+        "proposed_update": "Audit a reusable painted paper/shell-header family and distinct Back presentation; test safe-area spacing at both aspects with exact actionable content and voice cues.",
+        "must_preserve": "Readable touch/navigation semantics, accessible contrast, current text/voice goals and non-overlapping input.",
+        "evidence_paths": [
+          "captures/guarded_ready/1280x720/garden_fresh_ready.png",
+          "captures/guarded_ready/1600x720/garden_fresh_ready.png"
+        ],
+        "limits": "Do not exempt all StyleBoxFlat callers as functional or redesign lesson content.",
+        "status": "CONTEXT_REVIEW_OPEN",
+        "replacement_pixels": 0,
+        "runtime_integrations": 0,
+        "accepted_removals": 0
+      },
+      {
+        "id": "ROOTPIC-17",
+        "title": "Garden medal card and starburst",
+        "existing_piece_ids": [],
+        "classification": "Confirmed visible procedural/glyph reward art",
+        "observed_weakness": "The cream tier card, bronze medal glyph, star row and radial flat stars use a different material treatment from nearby painted flowers.",
+        "same_scene_comparison": "Reward hierarchy should remain clearly distinguishable from plant-growth feedback and the large Trampoline objective star.",
+        "proposed_update": "Inventory existing painted medal/sparkle assets; preserve tier distinctions, a single bounded celebration owner and reward timing. Review the exact0..2.2s lifecycle and reentry.",
+        "must_preserve": "CELEBRATION_SECONDS=2.2; one Canvas celebration; bronze/silver/gold/perfect states and safe input.",
+        "evidence_paths": [
+          "captures/action/1280x720/garden_complete_settled.png",
+          "captures/action/1600x720/garden_complete_settled.png"
+        ],
+        "limits": "Immediate reentry after0.7s can legitimately show this still-live medal. No stale indefinite-overlay defect asserted. Bind medal source roles before adding new unique-design counts.",
+        "status": "CONTEXT_REVIEW_OPEN",
+        "replacement_pixels": 0,
+        "runtime_integrations": 0,
+        "accepted_removals": 0
+      }
+    ],
+    "count_rule": "Partial observations;source role bindings supplement164earliercallerroles withoutunique design inflation;noacceptance"
+  },
+  "independent_action_addendum": {
+    "review": "root_picture_actions_review_20261012/review.json",
+    "observations": [
+      {
+        "id": "ROOTACT-01",
+        "title": "Snow field and ball material across action",
+        "existing_piece_ids": [
+          "FV-55B5EF60A12C",
+          "FV-C99F706798D3"
+        ],
+        "classification": "Confirmed visible procedural art",
+        "observation": "Rolling and stacked balls remain flat white rounded panels with generic rims/shadows over a large grey panel ground.",
+        "same_scene_comparison": "The approved painted carrot, coal, Roshan and source-book snow surfaces carry authored contours, material and light. Coal is intentionally angular/dark; snow should remain soft/cool.",
+        "proposed_update": "Reuse a suitable clean painted snowball and calm snowy ground if found. Otherwise name only those gaps, drawing one coherent ball family for rolling, three stack sizes and eating states. Retain child construction and separate face placement.",
+        "source_or_native_evidence": [
+          "captures/bounded_snow/1600x720/snow_ball1_growing.png",
+          "captures/bounded_snow/1280x720/snow_ball3_stacked.png",
+          "assets/book/hall/p_snowman.jpg"
+        ],
+        "limits": "Reference page protected and unchanged; context fixture does not establish natural route, phone touch or full-speed motion acceptance.",
+        "status": "OPEN_CONTEXT_REVIEW",
+        "accepted_removals": 0
+      },
+      {
+        "id": "ROOTACT-02",
+        "title": "Snowman stacked support/contact",
+        "existing_piece_ids": [
+          "FV-C99F706798D3"
+        ],
+        "classification": "Source and visual contact candidate",
+        "observation": "The top sphere reads as separated from the middle by a narrow gap/dark seam.",
+        "same_scene_comparison": "Current source centers210/385 with radii72/98 yield a5px separation between head bottom282 and middle top287 before rims/shadows; the lower pair overlap. Painted snowbook volumes join as one supported stack.",
+        "proposed_update": "Review painted contact footprints and stable stacking anchors together. Repair support readability rather than placing an unrelated new sticker over each generic disc. Keep three independently constructed balls and face anchors coherent.",
+        "source_or_native_evidence": [
+          "scripts/games/picture_games.gd:_mg_snow_new_ball/_mg_snow_ball_done",
+          "captures/bounded_snow/1280x720/snow_ball3_stacked.png"
+        ],
+        "limits": "5px is source geometry, not a measured pixel gap or child verdict. All scaling, stack transition and chase occlusions require review.",
+        "status": "OPEN_CONTEXT_REVIEW",
+        "accepted_removals": 0
+      },
+      {
+        "id": "ROOTACT-03",
+        "title": "Coal eye reuse",
+        "existing_piece_ids": [
+          "FV-0FCB49F07274"
+        ],
+        "classification": "Existing painted raster; no automatic vector defect",
+        "observation": "The live coal is the later painted Pass35 card, not the historical orthographic render.",
+        "same_scene_comparison": "Dark irregular facets, indigo contour and subtle surface marks fit the painted carrot family while distinguishing hard coal from soft snow. Repeated eyes use the same whole card.",
+        "proposed_update": "Prefer retaining current approved coal and review its size/contact inside the new snow-head material. Audit card-frame presentation separately; no novelty redraw commissioned.",
+        "source_or_native_evidence": [
+          "ASSET_LICENSES.md historical row161 and superseding row224",
+          "assets/mg/coal.png",
+          "captures/bounded_snow/1280x720/snow_chase_entry.png"
+        ],
+        "limits": "42x42 face rects and110px tap cards have different readability needs. Device/child/owner acceptance remains open.",
+        "status": "OPEN_CONTEXT_REVIEW",
+        "accepted_removals": 0
+      },
+      {
+        "id": "ROOTACT-04",
+        "title": "Snowman bite acting/contact",
+        "existing_piece_ids": [
+          "FV-C99F706798D3"
+        ],
+        "classification": "Existing presentation gap; requires animation/contact context",
+        "observation": "Balls disappear using scale(1.3,0.2) over0.18s. Third/head eating occurs high above Roshan\u2019s fixed chase height, and the last head can remain briefly as a thin white oval during the payoff.",
+        "same_scene_comparison": "The detailed Roshan card remains at chase center y470 while the head begins at y210. Better snow texture alone does not establish a readable eating/contact action.",
+        "proposed_update": "Audit the entire bite transition and authored contact/settle cues before accepting a new ball family. Any needed character action uses approved identity states and a bounded2D animation job card, preserving the existing chase/catch objective and source provenance.",
+        "source_or_native_evidence": [
+          "scripts/games/picture_games.gd:_mg_snow_chase_phase/_mg_tick_snow_chase",
+          "captures/completed_snow_fixture/1280x720/snow_bite2.png",
+          "captures/completed_snow_fixture/1280x720/snow_bite3.png",
+          "captures/completed_snow_fixture/1280x720/snow_carrot_collected_payoff.png"
+        ],
+        "limits": "Stills and source establish a presentation concern, not a reviewed full-motion verdict. No character pixels or gameplay mechanics changed.",
+        "status": "OPEN_CONTEXT_REVIEW",
+        "accepted_removals": 0
+      },
+      {
+        "id": "ROOTACT-05",
+        "title": "Xmas completed topper obscured by reward",
+        "existing_piece_ids": [
+          "FV-E9E82E0C6703"
+        ],
+        "classification": "Source and native confirmed reward-placement defect",
+        "observation": "The medal card covers nearly the entire newly placed friendship-flower topper.",
+        "same_scene_comparison": "The detailed tree and five ornaments are readable before completion. The meaningful new sixth object is covered at the exact payoff.",
+        "proposed_update": "Preserve tree, ornaments and protected flower. Give the one-owner medal a per-caller placement or sequencing that lets the child see the complete decorated tree/topper; replacing only its material at the same bounds is insufficient.",
+        "source_or_native_evidence": [
+          "captures/partial_buttons/1280x720/xmas_ornament5_placed.png",
+          "captures/partial_buttons/1280x720/xmas_flower_payoff.png",
+          "Source flower rect570,135/140x130; medal rect490,140/300x230; medal2.2s and picture close1.6s"
+        ],
+        "limits": "No source image edit or new tree commissioned. Full lifetime, reentry and phone safe-area checks still required.",
+        "status": "OPEN_CONTEXT_REVIEW",
+        "accepted_removals": 0
+      },
+      {
+        "id": "ROOTACT-06",
+        "title": "Trampoline objective/header placement",
+        "existing_piece_ids": [
+          "FV-C6F64FAA2F32",
+          "FV-E9E82E0C6703"
+        ],
+        "classification": "Native confirmed target/header overlap",
+        "observation": "The large painted objective star sits over the instruction panel through all three bounce apex captures. The detached mat highlight remains below the pad.",
+        "same_scene_comparison": "Roshan, star and proposed trampoline need a clear shared play space; the header should not compete with the object she reaches.",
+        "proposed_update": "Use the protected trampoline page as source appearance/context direction for a blue padded frame and dark mesh. Inventory a complete reusable mat, otherwise derive or draw only the clean isolated pad gap. Test header/target spacing and mat contact at every bounce, preserving one-finger input and the existing three-bounce objective.",
+        "source_or_native_evidence": [
+          "captures/partial_buttons/1280x720/trampoline_bounce1_apex.png",
+          "captures/partial_buttons/1280x720/trampoline_bounce2_apex.png",
+          "captures/partial_buttons/1280x720/trampoline_bounce3_apex.png",
+          "assets/book/hall/p_trampoline.jpg"
+        ],
+        "limits": "Book people and overlapping mats cannot be copied blindly into the current playable object. Original remains protected. Full-speed jump/landing review is pending.",
+        "status": "OPEN_CONTEXT_REVIEW",
+        "accepted_removals": 0
+      },
+      {
+        "id": "ROOTACT-07",
+        "title": "Xmas flower enabled-state appearance",
+        "existing_piece_ids": [
+          "FV-E1D26D3057A3"
+        ],
+        "classification": "Protected-source presentation candidate",
+        "observation": "The enabled flower uses modulate(1.3,1.3,1.0), which makes it paler/brighter than its source card and neighboring ornaments.",
+        "same_scene_comparison": "The disabled flower starts at0.5 grey; five placed ornaments retain their authored jewel/material appearance.",
+        "proposed_update": "Preserve the protected flower pixels and audit a separate compatible selection/ready cue around it instead of relying on a source-color wash. Keep locked/enabled distinction and exact unlock behavior.",
+        "source_or_native_evidence": [
+          "captures/partial_buttons/1280x720/xmas_ornament5_placed.png",
+          "scripts/games/picture_games.gd:_mg_build_xmas/_mg_xmas_tap"
+        ],
+        "limits": "Presentation proposal only; no permission inferred to restyle the protected flower.",
+        "status": "OPEN_CONTEXT_REVIEW",
+        "accepted_removals": 0
+      },
+      {
+        "id": "ROOTACT-08",
+        "title": "Sticker reward icons and reward overlap",
+        "existing_piece_ids": [],
+        "classification": "Visible progress/decorative glyph art plus ordinary text",
+        "observation": "Snowman sticker and carrot sticker toasts use emoji artwork. The carrot toast crosses the top of the medal card during payoff.",
+        "same_scene_comparison": "Painted coal/carrot gameplay objects have stable project identity; emoji appearance depends on the platform/font rather than the authored scene family.",
+        "proposed_update": "Inventory authored sticker-icon reuse. Treat the decorative/progress icon separately from ordinary label text, and audit the two simultaneous reward surfaces for hierarchy/overlap while preserving every save key and award trigger.",
+        "source_or_native_evidence": [
+          "scripts/main.gd:STICKER_DEFS/award_sticker/_sticker_toast",
+          "captures/bounded_snow/1280x720/snow_chase_entry.png",
+          "captures/completed_snow_fixture/1280x720/snow_carrot_collected_payoff.png"
+        ],
+        "limits": "Bind exact glyph and caller roles to the existing glyph inventory before adding counts. Device font/render evidence remains pending.",
+        "status": "OPEN_CONTEXT_REVIEW",
+        "accepted_removals": 0
+      }
+    ],
+    "source_reconciliation": "ACTION_CONTEXT_RECONCILIATION.json",
+    "accepted_removed": 0
+  },
+  "craft_addendum": {
+    "review": "REVIEW.json",
+    "piece_id": "FVR-FE178DEED189",
+    "observations": [
+      {
+        "id": "CRAFT-01",
+        "piece_ids": [
+          "FVR-FE178DEED189"
+        ],
+        "issue": "Malformed whole-fish assembly",
+        "evidence": [
+          "captures/1280x720/craft_fresh_ready.png",
+          "captures/1600x720/craft_fresh_ready.png"
+        ],
+        "comparison": {
+          "contour": "Two fish silhouettes/two eyes; detached fins.",
+          "material": "Painted body/fin sheet versus hard geometric alternate cartoon.",
+          "palette": "Yellow-eye complete fish and blue/white second eye; independently tinted orange sheet.",
+          "light": "Broad painted top light versus separate glossy eye and fin highlights.",
+          "perspective": "Lateral body and unrelated fin-sheet layout lack coherent registration.",
+          "scale": "1024x387/985x1024/400square independently fitted into590x350.",
+          "contact": "Two lower fins visibly float below body at both aspects.",
+          "occlusion": "Later line/eye sibling covers body and middle fin.",
+          "readability": "Duplicate facial focus competes with one identity.",
+          "action_state": "Fresh defaults at both aspects; full motion/saved states absent."
+        },
+        "status": "OPEN_PARTIAL_CONTEXT; no repair or acceptance"
+      },
+      {
+        "id": "CRAFT-02",
+        "piece_ids": [
+          "FVR-FE178DEED189"
+        ],
+        "issue": "Visible flat-vector-style PNG overlay",
+        "evidence": [
+          "assets/mg/fish_line.png",
+          "captures/1280x720/craft_fresh_ready.png"
+        ],
+        "comparison": {
+          "contour": "Round body/triangular fins are visible geometric cartoon.",
+          "material": "Sparse dark outline lacks broad painted body modelling.",
+          "palette": "Dark grey line/blue-white eye mismatch indigo/yellow source body.",
+          "light": "Separately glossy eye.",
+          "perspective": "Circular fish outline incompatible with long body.",
+          "scale": "Line350square overlaps590wide body.",
+          "contact": "Geometric fins do not join authored anatomy.",
+          "occlusion": "Top outline intersects body.",
+          "readability": "Duplicate eye focus.",
+          "action_state": "Raster extension does not exempt visible flat art."
+        },
+        "status": "OPEN_PARTIAL_CONTEXT; no repair or acceptance"
+      },
+      {
+        "id": "CRAFT-03",
+        "piece_ids": [
+          "FVR-FE178DEED189"
+        ],
+        "issue": "Selected red darkens painted body",
+        "evidence": [
+          "captures/1280x720/craft_body_color00_selected.png"
+        ],
+        "comparison": {
+          "contour": "Source contour preserved.",
+          "material": "Multiplicative red makes modelling a dark mass.",
+          "palette": "Bright red swatch and stored0.92,0.26,0.30 yield mainly maroon/teal body.",
+          "light": "High-key source light/cool values multiplied together.",
+          "perspective": "Unchanged side view.",
+          "scale": "Same590x350 container.",
+          "contact": "Detached fins persist.",
+          "occlusion": "Untinted line unaffected by body choice.",
+          "readability": "Selected color weakly expressed across most body in this endpoint.",
+          "action_state": "One red-body endpoint independently viewed; eight colors captured but not accepted."
+        },
+        "status": "OPEN_PARTIAL_CONTEXT; no repair or acceptance"
+      },
+      {
+        "id": "CRAFT-04",
+        "piece_ids": [
+          "FVR-FE178DEED189"
+        ],
+        "issue": "Stored detail channel absent from preview rendering",
+        "evidence": [
+          "captures/1280x720/craft_third_color00_selected.png",
+          "scripts/craft_studio.gd:25",
+          "scripts/craft_studio.gd:255"
+        ],
+        "comparison": {
+          "contour": "Duplicate line/eye unchanged.",
+          "material": "Preview consumes body/accent/white, no craft_c3.",
+          "palette": "Third color stored by _craft_set; no named preview target consumes it.",
+          "light": "Untinted line/eye retained.",
+          "perspective": "No change inferred.",
+          "scale": "Same container.",
+          "contact": "Assembly unresolved.",
+          "occlusion": "Untinted top overlay remains.",
+          "readability": "Detail selection lacks a current visible ownership mapping.",
+          "action_state": "One detail-red endpoint plus source data flow; prior rainbow prevents controlled pixel-difference inference."
+        },
+        "status": "OPEN_PARTIAL_CONTEXT; no repair or acceptance"
+      }
+    ],
+    "caller_closure": "CALLER_CLOSURE.json",
+    "reuse_first": "Preserve approved/promoted whole fish body identity/contours; solve coherent whole-unit attachment and child-color mapping with declared derivatives before commissioning missing art. Preserve exact child values/rainbow flags/save keys; no arbitrary species redesign.",
+    "generation_calls": 0,
+    "repair_status": "PENDING"
+  },
+  "inherited_r6_reference_base": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/4aceae967de9da7c8f479e358a008188ba1f6304/docs/handoffs/codex_flat_vector_art_2026-10-07/",
+  "reference_resolution": {
+    "inherited": {
+      "inherited": {
+        "inherited": {
+          "inherited": {
+            "inherited": {
+              "inherited": {
+                "inherited": "Inherited fields retain exact per-revision reference bases; geode_cue_reuse/current_partial_context_union are immutable R15 evidence against inherited_r15_reference_base. pointer_candidate paths resolve beside current R16; original root/R5/R6 representations untouched.",
+                "R17": "SOURCE_AUDIT.json and current R17 fields resolve in this folder; inherited R16 fields/captures/reviews resolve at inherited_r16_reference_base or their prior explicit immutable bases. Earlier scope/history unchanged."
+              },
+              "R18": "New candy_pointer_context and CURRENT_PARTIAL_CONTEXT_UNION resolve here; old R17/R16/prior fields retain explicit inherited bases/immutable scopes."
+            },
+            "R19": "candy_pointer_reuse/REVIEW/CAPTURE_INDEX resolve here; previous candy_pointer_context and all prior overlays resolve beside their immutable inherited R18 or explicitly named earlier bases. R16 pointer_candidate keeps its original Geode-only scope. Historical references and unit totals remain unchanged."
+          },
+          "R20": "New candy_stream_contact/REVIEW/CAPTURE_INDEX/CONTACT_OBSERVATIONS resolve here; prior overlays retain immutable inherited R19 or earlier bases. R16/R19 hand remains one existing sample with two partial contexts; no new stream drawing."
+        },
+        "R21": "Only candy_stream_material/REVIEW/CAPTURE_INDEX/CANDIDATE_FILES resolve beside this packet. Earlier R20/prior overlays retain exact inherited immutable bases. Frozen registry/units/statuses unchanged."
+      },
+      "R22": "Only candy_stream_onset/REVIEW/CAPTURE_INDEX/CONTACT_OBSERVATIONS/EMPTY_FLOOR_COLUMNS resolve here;all prior overlays retain immutable inherited bases. No source registry/status/route promotion."
+    },
+    "R23": "Only ballet_pointer_context/REVIEW/CAPTURE_INDEX/CALLER_CLOSURE resolve beside this packet. Earlier overlays retain exact immutable bases;frozen registry/status/history unchanged."
+  },
+  "revision": "FV-AUDIT-20261014-R27",
+  "inherited_r7_reference_base": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/c1e466a8a9e605f43b4c7a181b3d7b702d7677aa/docs/handoffs/codex_flat_vector_art_2026-10-07/r7_craft_context/",
+  "geode_addendum": {
+    "file": "REVIEW.json",
+    "reuse_disposition": "REUSE_DISPOSITION.json",
+    "stable_piece_id": "FV-C1AB21410352",
+    "observations": [
+      "GEODE-R8-SHELL",
+      "GEODE-R8-STATE-FAMILY"
+    ],
+    "next": "Proportional technical reuse/mounted fit after public context verification; state-family completion remains blocking."
+  },
+  "inherited_r8_reference_base": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/f4de7b921298b0dac052df408af03bbb2b62132b/docs/handoffs/codex_flat_vector_art_2026-10-07/r8_geode_context/",
+  "geode_reuse_trial": {
+    "review": "REVIEW.json",
+    "derivatives": "DERIVATIVES.json",
+    "job": "REUSE_JOB.json",
+    "piece": "FV-C1AB21410352",
+    "source_size_addressed": true,
+    "remaining": [
+      "Marker/source alignment refinement",
+      "Matched painted closed/open/interior states",
+      "Natural/runtime/device/child/owner/QA11 evidence"
+    ],
+    "generation_gap": null,
+    "reason": "Current isolated closed-only fit does not establish that all suitable source reuse has failed."
+  },
+  "inherited_r9_reference_base": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/0c2732204bec7f882db26d835e2ce32ee12c7471/docs/handoffs/codex_flat_vector_art_2026-10-07/r9_geode_reuse/",
+  "geode_marker_fit": {
+    "evidence": "REVIEW.json",
+    "measurements": "FIT_MEASUREMENTS.json",
+    "source_revision": "0c2732204bec7f882db26d835e2ce32ee12c7471",
+    "status": "ISOLATED_MARKER_ALIGNMENT_REPAIR_FAMILY_INCOMPLETE",
+    "native_captures": 44,
+    "unique_png_hashes": 35,
+    "actually_viewed_unique": 5,
+    "original_input_geometry_preserved": true,
+    "whole_source_shift": [
+      -20,
+      0
+    ],
+    "new_generation_calls": 0,
+    "production_integration": null,
+    "accepted_removed": 0
+  },
+  "inherited_r10_reference_base": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/e8d0aa54b79d222f092534a053e4d716fc27067f/docs/handoffs/codex_flat_vector_art_2026-10-07/r10_geode_marker_fit/",
+  "geode_open_pair_trial": {
+    "evidence": "REVIEW.json",
+    "derivatives": "DERIVATIVES.json",
+    "measurements": "FIT_MEASUREMENTS.json",
+    "source_revision": "e8d0aa54b79d222f092534a053e4d716fc27067f",
+    "status": "SOURCE_TECHNICAL_NORMALIZATION_PASS_ENDPOINT_METHOD_ACTION_FAIL",
+    "native_captures": 52,
+    "unique_png_hashes": 45,
+    "actually_viewed_unique": 6,
+    "new_generation_calls": 0,
+    "production_integration": null,
+    "accepted_removed": 0,
+    "scope": "Underlying source not rejected wholesale; curved/local matched assembly still untested."
+  },
+  "inherited_r11_reference_base": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/c5d70079bc2b048a76f50edeabd8a2ff2a95bd24/docs/handoffs/codex_flat_vector_art_2026-10-07/r11_geode_open_pair/",
+  "geode_layered_reveal": {
+    "evidence": "REVIEW.json",
+    "derivatives": "DERIVATIVES.json",
+    "job": "REUSE_JOB.json",
+    "measurements": "FIT_MEASUREMENTS.json",
+    "source_revision": "c5d70079bc2b048a76f50edeabd8a2ff2a95bd24",
+    "status": "ISOLATED_PROGRESSIVE_REVEAL_CANDIDATE_CAP_FIT_INCOMPLETE",
+    "native_captures": 52,
+    "unique_png_hashes": 46,
+    "actually_viewed_unique": 6,
+    "new_generation_calls": 0,
+    "production_integration": null,
+    "accepted_removed": 0,
+    "scope": "R11 instantaneous endpoint method addressed by source-derived shell translation/gap reveal; straight cavity caps and full acceptance remain blocking."
+  },
+  "inherited_r12_reference_base": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/d26512b120500492be8e2694ac552a187f0091ca/docs/handoffs/codex_flat_vector_art_2026-10-07/r12_geode_layered_reveal/",
+  "geode_source_closure": {
+    "revision": "FV-AUDIT-20261013-R13",
+    "audit": "SOURCE_AUDIT.json",
+    "review": "REVIEW.json",
+    "status": "SOURCE_BINDINGS_VERIFIED_WHOLE_UNIT_ACTION_FAMILY_GAP_OPEN",
+    "native_captures_added": 0,
+    "source_only": true,
+    "loaded_geode_texture_has_draw_consumer": false,
+    "whole_unit_final_sprite": null,
+    "production_integration": null,
+    "accepted_removed": 0,
+    "global_inventory_complete": false,
+    "crystal_resource_bindings": 3,
+    "potential_texture_draw_roles": 2,
+    "hotspot_current_painted_presentation_skips_texture": true
+  },
+  "inherited_r13_reference_base": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/8a0db03f72735b67ebb581927051c92ca62eaef9/docs/handoffs/codex_flat_vector_art_2026-10-07/r13_geode_source_closure/",
+  "geode_lifecycle": {
+    "revision": "FV-AUDIT-20261013-R14",
+    "finding": "MA-PLAY-007",
+    "evidence": "REVIEW.json",
+    "captures": "CAPTURE_INDEX.json",
+    "lifecycle": "LIFECYCLE_FACTS.json",
+    "new_bounded_diagnostics": 100,
+    "new_native_retained": 112,
+    "excluded_failed_downstream": 12,
+    "status": "TERMINAL_GUARD_LOCAL_82_AND_NATIVE_LIFECYCLE_PASS_EXTERNAL_VERIFICATION_PENDING",
+    "runtime_behavior_change": "Fresh qualifying drag reaches120 from119/119.25; all art,input geometry/save keys unchanged.",
+    "replacement_integrated": 0,
+    "runtime_verified_art_replacement": 0,
+    "accepted_removed": 0,
+    "natural_castle_or_chapter2_route": false,
+    "QA11": null,
+    "device": null,
+    "child": null,
+    "owner": null,
+    "review_observations": [
+      {
+        "id": "R14-GEO-ENDPOINT",
+        "finding": "MA-PLAY-007",
+        "result": "Local native/8px regression red-to-green; complete required suite/remote head separately pending."
+      },
+      {
+        "id": "R14-GEO-CHEER-CONTACT",
+        "status": "OPEN_CONTEXT_OBSERVATION",
+        "evidence": "native/1280x720/resume/geode_completed120_held.png",
+        "weakness": "Roshan cheer overlaps the existing helper at the board left edge; stage/contact/occlusion review is incomplete. No new design count."
+      },
+      {
+        "id": "R14-GEO-CAPTION",
+        "status": "OPEN_CONTEXT_OBSERVATION",
+        "evidence": "native/1280x720/resume/geode_completion_reward_return.png",
+        "source": "scripts/opera_act.gd::_win",
+        "weakness": "Cooperative result path appends nursery team to the Geologist caption. Existing source behavior,not introduced by endpoint fix. Text/caller correction is separate from artwork removal and no new design count."
+      },
+      {
+        "id": "R14-GEO-ACTOR-CONTACT",
+        "status": "OPEN_CONTEXT_OBSERVATION",
+        "evidence": "native/1280x720/resume/geode_disk_resume060_task.png",
+        "weakness": "Fixture work pose remains away from the stone; skipped approach means no natural-route/contact acceptance. Actual child-accessed actor/action closure still needed. No new design count."
+      }
+    ]
+  },
+  "geode_cue_reuse": {
+    "revision": "FV-AUDIT-20261013-R15",
+    "evidence": "REVIEW.json",
+    "sources": "SOURCES.json",
+    "captures": "CAPTURE_INDEX.json",
+    "status": "WHOLE_STAR_REUSE_STUDY_FEEDBACK_AND_INHERITED_POINTER_GAPS_OPEN",
+    "native_captures": 44,
+    "unique_png_hashes": 32,
+    "actually_viewed_native": 5,
+    "generation_calls": 0,
+    "new_drawings": 0,
+    "production_integration": null,
+    "accepted_removed": 0,
+    "candidate_approval": null,
+    "runtime_verified_replacement": null,
+    "QA11": null,
+    "device": null,
+    "child": null,
+    "owner": null,
+    "review_observations": [
+      {
+        "id": "R15-GEO-DONE-ALPHA",
+        "status": "OPEN_METHOD_WEAKNESS",
+        "evidence": "native/1280x720/geode_all_seams_ready.png",
+        "weakness": "Completed alpha0.32 stars become muddy against the stone; revise feedback treatment before integration."
+      },
+      {
+        "id": "R15-GEO-DEMO-OVERLAY",
+        "status": "OPEN_INHERITED_ART_CALLER",
+        "evidence": "native/1280x720/geode_closed_ready.png",
+        "source": "scripts/opera_geology_surface.gd::_draw calls inherited OperaGestureSurface::_draw_demo_finger at scripts/opera_gesture_surface.gd:4239-4258",
+        "weakness": "Generic concentric circles/arc remain over painted star. Preserve truthful nonreader action guidance while replacing its artwork; do not simply disable pointer.",
+        "stable_piece_id": "FV-1DC9F18904A8",
+        "stable_scope_id": "FVF-6CF7C85C1B16"
+      },
+      {
+        "id": "R15-GEO-FEEDBACK-OVERLAY",
+        "status": "OPEN_INHERITED_ART_CALLER",
+        "evidence": "native/1280x720/geode_partial_open_released.png",
+        "source": "scripts/opera_geology_surface.gd::_draw at lines626-628",
+        "weakness": "Positive feedback flat circle survives candidate cue replacement.",
+        "stable_scope_id": "FVF-8D84B7D480FD"
+      },
+      {
+        "id": "R15-GEO-REWARD-SEMANTICS",
+        "status": "UNREVIEWED_CHILD_SEMANTICS",
+        "evidence": "native/1280x720/geode_closed_ready.png",
+        "weakness": "Stars can suggest collecting rewards rather than tapping a stone seam; no owner/child interpretation inferred."
+      }
+    ]
+  },
+  "inherited_r14_reference_base": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/42ef9083c07d15e0436ad981d23a35c6309871c8/docs/handoffs/codex_flat_vector_art_2026-10-07/r14_geode_lifecycle/",
+  "pointer_candidate": {
+    "revision": "FV-AUDIT-20261013-R16",
+    "context": "opera.act.16/geology_geode",
+    "evidence": "REVIEW.json",
+    "sources": "SOURCES.json",
+    "derivatives": "DERIVATIVES.json",
+    "captures": "CAPTURE_INDEX.json",
+    "status": "VISUAL_REVIEW_PENDING",
+    "candidate_path": "assets_src/flat_vector_pointer_20261013/pointer_1024.png",
+    "generated_calls": 1,
+    "whole_drawings": 1,
+    "new_design_ID": false,
+    "native_captures": 94,
+    "actually_viewed_native": 9,
+    "production_integration": null,
+    "runtime_verified_art_replacement": null,
+    "accepted_removed": 0,
+    "QA11": null,
+    "device": null,
+    "child": null,
+    "owner": null,
+    "scope_limit": "Geode-specific candidate,not global shared-pointer review/adoption; original per-piece status/frozen source totals retained.",
+    "observations": [
+      {
+        "id": "R16-POINTER-PAINT",
+        "result": "PARTIAL_AGENT_CONTEXT_REVIEW",
+        "evidence": "native/1280x720/geode_closed_ready.png",
+        "change": "Whole painted hand replaces abstract demo circle/arc only in ignored Geode prototype; no gameplay adoption."
+      },
+      {
+        "id": "R16-POINTER-REGISTRATION",
+        "result": "LOCAL_MEASURED_CONTRACT_PASS",
+        "evidence": "DERIVATIVES.json and native capture manifests",
+        "change": "One-layer/one-frame hand74px; measured opaque fingertip and unchanged target/trajectory; no part layers or native source repaint."
+      },
+      {
+        "id": "R16-POINTER-CALLERS",
+        "status": "OPEN_SCOPE",
+        "evidence": "REVIEW.json",
+        "gap": "Shared pointer is used by15 live career routes. Only Geode seam/pull contexts tested;14 other routes and generic fallback/missing-art policy remain unreviewed."
+      },
+      {
+        "id": "R16-GEO-OTHER-ART",
+        "status": "OPEN_INHERITED_ART",
+        "evidence": "native/1280x720/geode_partial_open_released.png",
+        "gap": "R15 completed-star contrast,reward semantics and positive-feedback circle plus original shell/crystal/cave/board/Back art remain incomplete."
+      }
+    ]
+  },
+  "inherited_r15_reference_base": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/1910dc272025ca53b049f559245eb0c4ee8675fb/docs/handoffs/codex_flat_vector_art_2026-10-07/r15_geode_cue_reuse/",
+  "inherited_r16_reference_base": "docs/handoffs/codex_flat_vector_art_2026-10-07/r16_pointer_candidate",
+  "pointer_caller_closure": {
+    "revision": "FV-AUDIT-20261013-R17",
+    "status": "BOUNDED_SOURCE_CALLER_MAP_VERIFIED_CONTEXT_CLOSURE_OPEN",
+    "piece_id": "FV-1DC9F18904A8",
+    "scope_id": "FVF-6CF7C85C1B16",
+    "live_career_routes": 15,
+    "current_constant_phase_rows": 61,
+    "shared_helper_player_routes": 12,
+    "shared_helper_constant_phase_rows": 49,
+    "independent_player_routes": 3,
+    "independent_constant_phase_rows": 12,
+    "old_hand_source_reference_files": 16,
+    "native_captures_added": 0,
+    "new_design_ids": 0,
+    "accepted_removed": 0,
+    "evidence": "SOURCE_AUDIT.json",
+    "source_only": true,
+    "source_revision": "182f2e522a330b89bf7329b26516583160f343e0",
+    "independent_piece_ids": [
+      "FV-D2EA0464919A",
+      "FV-DAA9072B905A",
+      "FV-E1049E4945A3"
+    ],
+    "global_caller_closure_complete": false,
+    "context_review_complete": false
+  },
+  "inherited_r17_reference_base": "docs/handoffs/codex_flat_vector_art_2026-10-07/r17_pointer_callers",
+  "candy_pointer_context": {
+    "revision": "FV-AUDIT-20261013-R18",
+    "evidence": "REVIEW.json",
+    "source_revision": "90d19ceddb20d624f134a3429dfa2afd25e5faaa",
+    "piece_ids": [
+      "FV-1DC9F18904A8",
+      "FV-E49ED1B88811"
+    ],
+    "route": "opera.act.03/SYRUP",
+    "native_captures_added": 62,
+    "actually_viewed_native": 8,
+    "source_images_viewed": 5,
+    "status": "PARTIAL_NORMAL_AND_NULL_HAND_CONTEXT",
+    "null_hand_fault_injection": true,
+    "production_integration": null,
+    "accepted_removed": 0,
+    "QA11": null,
+    "device": null,
+    "child": null,
+    "owner": null,
+    "next_source_reuse": "Existing R16 painted hand,no new generation; Candy-specific fit still needs native candidate review."
+  },
+  "inherited_r18_reference_base": "docs/handoffs/codex_flat_vector_art_2026-10-07/r18_candy_pointer_context",
+  "candy_pointer_reuse": {
+    "revision": "FV-AUDIT-20261013-R19",
+    "evidence": "REVIEW.json",
+    "captures": "CAPTURE_INDEX.json",
+    "source_revision": "73caf71ad24f1e2471ee8bc4353a60bcfc497e37",
+    "piece_id": "FV-1DC9F18904A8",
+    "route": "opera.act.03/SYRUP",
+    "candidate_path": "assets_src/flat_vector_pointer_20261013/pointer_1024.png",
+    "candidate_sha256": "7e80a06704e21d780e66692c68d1226ea3b9a88544e927ba293b49ed1d3451ec",
+    "status": "CANDY_CONTEXT_CANDIDATE_REVIEW_PENDING",
+    "native_captures_added": 62,
+    "actually_viewed_native": 8,
+    "new_generation_calls": 0,
+    "new_drawing_samples": 0,
+    "existing_drawing_samples": 1,
+    "whole_texture_trial": true,
+    "old_hand_field_null_trial": true,
+    "candidate_packaging_failure_verified": false,
+    "production_integration": null,
+    "runtime_verified_art_replacement": null,
+    "accepted_removed": 0,
+    "QA11": null,
+    "device": null,
+    "child": null,
+    "owner": null,
+    "limits": "Declared derived-script swap/re-arm at defaultfirstphase in isolated dev-playtest production entry,raw Window touch/drag/release and actual passive timers. Private SaveState BEFORE adding Main; normal8save hashes unchanged;teardown. No natural Castle/Chapter2,full completion/reward,save reload,re-entry/OSfocus or full loop/movie evidence."
+  },
+  "inherited_r19_reference_base": "docs/handoffs/codex_flat_vector_art_2026-10-07/r19_candy_pointer_reuse",
+  "candy_stream_contact": {
+    "revision": "FV-AUDIT-20261013-R20",
+    "source_revision": "f2b91f6ecfee41adc9c1300a67bdd9cafbe08b17",
+    "evidence": "REVIEW.json",
+    "captures": "CAPTURE_INDEX.json",
+    "observations": "CONTACT_OBSERVATIONS.json",
+    "piece_id": "FV-E49ED1B88811",
+    "scope_id": "FVF-435230B3EA4A",
+    "route": "opera.act.03/SYRUP",
+    "status": "CONTACT_ONLY_NONRUNTIME_TRIAL; MATERIAL_AND_ONSET_OPEN",
+    "native_captures_added": 68,
+    "unique_image_sha256": 54,
+    "actually_viewed_native": 14,
+    "direct_source_images_viewed": 6,
+    "new_generated_calls": 0,
+    "new_drawing_samples": 0,
+    "functional_geometry_lookups": 1,
+    "production_integration": null,
+    "runtime_verified_art_replacement": null,
+    "accepted_removed": 0,
+    "QA11": null,
+    "device": null,
+    "child": null,
+    "owner": null
+  },
+  "inherited_r20_reference_base": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/29e90b7acbde7b2c0960979535960af8f0bd3df3/docs/handoffs/codex_flat_vector_art_2026-10-07/r20_candy_stream_contact",
+  "candy_stream_material": {
+    "revision": "FV-AUDIT-20261013-R21",
+    "source_revision": "29e90b7acbde7b2c0960979535960af8f0bd3df3",
+    "piece_id": "FV-E49ED1B88811",
+    "scope_id": "FVF-435230B3EA4A",
+    "evidence": "REVIEW.json",
+    "captures": "CAPTURE_INDEX.json",
+    "candidate": "assets_src/flat_vector_candy_stream_20261013/stream_1024.png",
+    "status": "FAILED_LOCAL_VISUAL_QC; NONRUNTIME_TRIAL_ONLY",
+    "new_generated_drawings": 1,
+    "new_generation_calls": 1,
+    "new_local_qc_failed_candidates": 1,
+    "new_samples_awaiting_owner_review": 0,
+    "native_captures_added": 48,
+    "unique_image_sha256": 45,
+    "actually_viewed_native": 12,
+    "new_design_ids": 0,
+    "production_integration": null,
+    "runtime_verified_art_replacement": null,
+    "QA11": null,
+    "device": null,
+    "child": null,
+    "owner": null,
+    "accepted_removed": 0,
+    "alpha_assessment_correction": "ALPHA_INSPECTION.json;hidden RGB glow is transparent,no rendered halo failure. Contour/onset/action QC and all acceptance lanes remain open."
+  },
+  "inherited_r21_reference_base": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/fa6402f4b1dd382c0d32c740eb034d67a6ac72f8/docs/handoffs/codex_flat_vector_art_2026-10-07/r21_candy_stream_material/",
+  "candy_stream_onset": {
+    "revision": "FV-AUDIT-20261013-R22",
+    "source_revision": "fa6402f4b1dd382c0d32c740eb034d67a6ac72f8",
+    "piece_id": "FV-E49ED1B88811",
+    "scope_id": "FVF-435230B3EA4A",
+    "evidence": "REVIEW.json",
+    "captures": "CAPTURE_INDEX.json",
+    "contact_observations": "CONTACT_OBSERVATIONS.json",
+    "candidate": "assets_src/flat_vector_candy_stream_20261013/stream_1024.png",
+    "status": "CONTACT_TRIAL_IMPROVED; INHERITED_STREAM_CONTOUR_ACTION_FAILED_LOCAL_QC; NONRUNTIME_ONLY",
+    "new_generated_drawings": 0,
+    "new_generation_calls": 0,
+    "new_samples_awaiting_owner_review": 0,
+    "native_captures_added": 78,
+    "unique_image_sha256": 72,
+    "actually_viewed_native": 18,
+    "new_design_ids": 0,
+    "production_integration": null,
+    "runtime_verified_art_replacement": null,
+    "QA11": null,
+    "device": null,
+    "child": null,
+    "owner": null,
+    "accepted_removed": 0,
+    "functional_geometry": "EMPTY_FLOOR_COLUMNS RGB mask constraint;separate from artwork count;not a new source scope"
+  },
+  "inherited_r22_reference_base": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/45cb1b26b9bcf16ac1bd5142cc5c38085b631dee/docs/handoffs/codex_flat_vector_art_2026-10-07/r22_candy_stream_onset/",
+  "ballet_pointer_context": {
+    "revision": "FV-AUDIT-20261013-R23",
+    "source_revision": "45cb1b26b9bcf16ac1bd5142cc5c38085b631dee",
+    "piece_id": "FV-D2EA0464919A",
+    "scope_id": "FVF-CEAD9700B93C",
+    "route": "opera.act.02",
+    "evidence": "REVIEW.json",
+    "captures": "CAPTURE_INDEX.json",
+    "caller_closure": "CALLER_CLOSURE.json",
+    "status": "PARTIAL_CURRENT_CONTEXT_AUDIT; VISIBLE_PROCEDURAL_GUIDE_REQUIRES_REPLACEMENT",
+    "native_captures_added": 54,
+    "unique_image_sha256": 54,
+    "actually_viewed_native": 18,
+    "current_phase_contexts": 3,
+    "new_design_ids": 0,
+    "new_art_drawings": 0,
+    "new_generation_calls": 0,
+    "new_samples_awaiting_review": 0,
+    "production_integration": null,
+    "runtime_verified_art_replacement": null,
+    "QA11": null,
+    "device": null,
+    "child": null,
+    "owner": null,
+    "accepted_removed": 0
+  },
+  "inherited_r23_reference_base": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/900e9efabcbb35cb3dd688c1c54a1dcf6c7e47a7/docs/handoffs/codex_flat_vector_art_2026-10-07/r23_ballet_pointer_context/",
+  "ballet_pointer_reuse": {
+    "revision": "FV-AUDIT-20261013-R24",
+    "source_revision": "900e9efabcbb35cb3dd688c1c54a1dcf6c7e47a7",
+    "piece_id": "FV-D2EA0464919A",
+    "scope_id": "FVF-CEAD9700B93C",
+    "family": "opera_ballerina",
+    "route": "opera.act.02",
+    "evidence": "REVIEW.json",
+    "captures": "CAPTURE_INDEX.json",
+    "provenance": "REUSE_PROVENANCE.json",
+    "status": "WHOLE_SOURCE_REUSE_TRIAL; PER_PIECE_HUMAN_REVIEW_PENDING",
+    "native_captures_added": 54,
+    "unique_image_sha256": 54,
+    "actually_viewed_native": 18,
+    "current_phase_contexts": 3,
+    "new_design_ids": 0,
+    "new_art_drawings": 0,
+    "new_generation_calls": 0,
+    "unique_source_samples_added": 0,
+    "existing_unique_hand_samples": 1,
+    "production_integration": null,
+    "runtime_verified_art_replacement": null,
+    "QA11": null,
+    "device": null,
+    "child": null,
+    "owner": null,
+    "accepted_removed": 0
+  },
+  "inherited_r24_reference_base": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/ef975b9e92903ee61c585f9230c26f1dcb06641c/docs/handoffs/codex_flat_vector_art_2026-10-07/r24_ballet_pointer_reuse/",
+  "boxing_pointer_context": {
+    "revision": "FV-AUDIT-20261014-R25",
+    "source_revision": "ef975b9e92903ee61c585f9230c26f1dcb06641c",
+    "piece_id": "FV-DAA9072B905A",
+    "scope_id": "FVF-22152D4FD26C",
+    "family": "opera_boxer",
+    "route": "opera.act.07",
+    "evidence": "REVIEW.json",
+    "captures": "CAPTURE_INDEX.json",
+    "caller_closure": "CALLER_CLOSURE.json",
+    "status": "PARTIAL_CURRENT_FIRST_PHASE_CONTEXT;VISIBLE_PROCEDURAL_GUIDE_REQUIRES_REPLACEMENT",
+    "current_phase_contexts": 1,
+    "source_phase_count": 5,
+    "native_captures_added": 30,
+    "native_retained_added": 60,
+    "native_excluded_added": 30,
+    "unique_image_sha256": 30,
+    "actually_viewed_native": 12,
+    "new_design_ids": 0,
+    "new_art_drawings": 0,
+    "new_generation_calls": 0,
+    "new_samples_awaiting_review": 0,
+    "production_integration": null,
+    "runtime_verified_art_replacement": null,
+    "QA11": null,
+    "device": null,
+    "child": null,
+    "owner": null,
+    "accepted_removed": 0
+  },
+  "inherited_r25_reference_base": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/f27aa76d1c1e0bd48be0dfc2985f9ecda928ec88/docs/handoffs/codex_flat_vector_art_2026-10-07/r25_boxing_pointer_context/",
+  "boxing_pointer_reuse": {
+    "revision": "FV-AUDIT-20261014-R26",
+    "source_revision": "f27aa76d1c1e0bd48be0dfc2985f9ecda928ec88",
+    "piece_id": "FV-DAA9072B905A",
+    "scope_id": "FVF-22152D4FD26C",
+    "family": "opera_boxer",
+    "route": "opera.act.07",
+    "evidence": "REVIEW.json",
+    "captures": "CAPTURE_INDEX.json",
+    "provenance": "REUSE_PROVENANCE.json",
+    "status": "PARTIAL_WHOLE_SOURCE_REUSE_FIT;PER_PIECE_HUMAN_REVIEW_PENDING",
+    "current_phase_contexts": 1,
+    "source_phase_count": 5,
+    "native_captures_added": 30,
+    "unique_image_sha256": 30,
+    "actually_viewed_native": 14,
+    "new_design_ids": 0,
+    "new_art_drawings": 0,
+    "new_generation_calls": 0,
+    "unique_source_samples_added": 0,
+    "existing_unique_hand_samples": 1,
+    "production_integration": null,
+    "runtime_verified_art_replacement": null,
+    "QA11": null,
+    "device": null,
+    "child": null,
+    "owner": null,
+    "accepted_removed": 0
+  },
+  "teacher_pointer_context": {
+    "revision": "FV-AUDIT-20261014-R27",
+    "source_revision": "b5c061dfd5bc36b405bd38aa0ac141eba277a012",
+    "piece_id": "FV-E1049E4945A3",
+    "scope_id": "FVF-B09A6204B303",
+    "family": "opera_teacher",
+    "route": "opera.act.17",
+    "evidence": "REVIEW.json",
+    "captures": "CAPTURE_INDEX.json",
+    "caller_closure": "CALLER_CLOSURE.json",
+    "contact_alignment": "CONTACT_ALIGNMENT.json",
+    "status": "PARTIAL_CURRENT_FOUR_KIND_CONTEXT;PROCEDURAL_GUIDE_AND_MOVING_TARGET_ALIGNMENT_REQUIRE_REPAIR",
+    "current_phase_contexts": 4,
+    "source_phase_count": 4,
+    "tier": 0,
+    "sequence": 0,
+    "native_captures_added": 84,
+    "native_retained_added": 163,
+    "native_excluded_added": 79,
+    "unique_image_sha256": 84,
+    "actually_viewed_native": 20,
+    "new_design_ids": 0,
+    "new_art_drawings": 0,
+    "new_generation_calls": 0,
+    "new_samples_awaiting_review": 0,
+    "production_integration": null,
+    "runtime_verified_art_replacement": null,
+    "QA11": null,
+    "device": null,
+    "child": null,
+    "owner": null,
+    "accepted_removed": 0
+  },
+  "inherited_r26_reference_base": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/b5c061dfd5bc36b405bd38aa0ac141eba277a012/docs/handoffs/codex_flat_vector_art_2026-10-07/r26_boxing_pointer_reuse/"
+}

@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "C:\Users\Peter\.codex\worktrees\flat-vector-r6-20261012\mermaid-roshan-reef\docs\handoffs\codex_flat_vector_art_2026-10-07\r27_teacher_pointer_context\validate.py", line 58, in <module>
+    assert len(U['records'])==51 and len({x['family'] for x in U['records']})==12 and {x['id'] for x in U['records']}=={x['id'] for x in old['records']}|{'FV-E1049E4945A3'} and not U['full_context_review_complete']
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError

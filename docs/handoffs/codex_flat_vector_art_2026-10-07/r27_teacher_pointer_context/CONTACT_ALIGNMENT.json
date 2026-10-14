@@ -1,0 +1,47 @@
+{
+  "schema": "reef.teacher_pointer_contact/1",
+  "piece_id": "FV-E1049E4945A3",
+  "source_revision": "b5c061dfd5bc36b405bd38aa0ac141eba277a012",
+  "state": "join_moving",
+  "source_functions": [
+    "scripts/opera_teacher_surface.gd::_draw_counting",
+    "scripts/opera_teacher_surface.gd::_draw_demo"
+  ],
+  "observations": [
+    {
+      "capture": "native/1280x720/phase_02/join_moving.png",
+      "sha256": "49c4e249168f10920d331faeffdc294f692357104f4a98085768a6e9727af0e4",
+      "join_t": 0.112816,
+      "first_counter_draw_center_local": [
+        663.33524,
+        291.4102
+      ],
+      "guide_center_local": [
+        711.0,
+        290.0
+      ],
+      "center_offset_local_pixels": 47.68561638374406,
+      "counter_taps_blocked": true,
+      "measurement_method": "Source _draw_counting interpolation evaluated with same capture state;not QA11 GPU target projection or frame-time claim"
+    },
+    {
+      "capture": "native/1600x720/phase_02/join_moving.png",
+      "sha256": "8cd7a9c66c5031fe424b0455361fc6cc10fe411307f40b38ef4d62aa5609e49b",
+      "join_t": 0.0975000000000001,
+      "first_counter_draw_center_local": [
+        669.80625,
+        291.21875
+      ],
+      "guide_center_local": [
+        711.0,
+        290.0
+      ],
+      "center_offset_local_pixels": 41.21177490262949,
+      "counter_taps_blocked": true,
+      "measurement_method": "Source _draw_counting interpolation evaluated with same capture state;not QA11 GPU target projection or frame-time claim"
+    }
+  ],
+  "status": "SOURCE_BOUND_VISIBLE_GUIDE_MISALIGNMENT_REPAIR_TARGET",
+  "regression_status": "Baseline weakness;no new production change. Global regression total remainsunknown",
+  "acceptance": null
+}

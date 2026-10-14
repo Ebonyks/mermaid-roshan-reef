@@ -1,0 +1,36 @@
+{
+  "status": "RESOLVED",
+  "missing_assumed_paths": [
+    "scripts/opera_world_tiles.gd",
+    "scripts/opera_world_catalog.gd",
+    "scripts/castle.gd",
+    "scripts/arena/castle_hall.gd"
+  ],
+  "failure": "Adding assumed castle_hall source at frozen head returned git-show exit128;no production mutation,source record not written by failed operation. Earlier rg lookups missing assumed scripts.",
+  "actual_sources": [
+    "scripts/opera_world_backdrop_2d.gd",
+    "scripts/castle_career_routes.gd",
+    "scripts/arena/castle_rooms_25d.gd",
+    "scripts/opera_stage_paths.gd"
+  ],
+  "source_binding_count": 36,
+  "acceptance_inferred": false,
+  "runtime_fixture_failure": {
+    "field": "finished",
+    "reason": "Boxing specialist field absent on Teacher. Native analyzer passed; runtime diagnostic rejected.",
+    "initial_launch_returncode": 4294967295,
+    "retained_excluded_native_count": 79,
+    "preserved": "initial_invalid_field/",
+    "repair": "Remove unsupported observation/assertion,retain source solved/completion/phase-progress gates;fresh nativeprofiles."
+  },
+  "union_reconciliation_failure": {
+    "preserved_log": "prepublication_failed_union.log",
+    "reason": "Assumed independent Teacher guide added a newfamily;actual stable-ID union alreadycontains2Teacherroles.",
+    "corrected_partial_counts": {
+      "existing_named_records": 51,
+      "existing_families": 11
+    },
+    "new_partial_family_count": 0,
+    "validator_guard": "Validate family cardinality from records,not sourcehelpercount"
+  }
+}
