@@ -1,5 +1,59 @@
 {
-  "status": "PENDING_POST_VERIFICATION_OR_PUBLICATION",
-  "accepted_removed": 0,
-  "mission_complete": false
+  "schema": "reef.bounded_audit_json_index/1",
+  "logical_schema": "reef.flat_vector_delta_receipt/1",
+  "logical_bytes": 6740415,
+  "logical_sha256": "07bac71b3262ffc3fa7ba32456828da95eebf625780adcacd7ab79a03b28fb7e",
+  "fragment_count": 7,
+  "fragments": [
+    {
+      "path": "REMOTE_VERIFICATION.fragment0001.json",
+      "bytes": 1063859,
+      "sha256": "de9ec0deb140b88b689fe6927dab6241542d8561ec5d639c9fccb074b75476a4",
+      "text_bytes": 1000000,
+      "text_sha256": "1d64a435adf5f7c75ec7dec71e247679c5ca43ac3cfd95c0bf59b6eb484bfe53"
+    },
+    {
+      "path": "REMOTE_VERIFICATION.fragment0002.json",
+      "bytes": 1046324,
+      "sha256": "88e03aee85421aa191b99b68577d373c87a82d415930d0fca5310461c0605b92",
+      "text_bytes": 1000000,
+      "text_sha256": "06965bf42053184289ef960e5711d55af5a3faae9e70b29fb3fac314b9c03a2d"
+    },
+    {
+      "path": "REMOTE_VERIFICATION.fragment0003.json",
+      "bytes": 1056199,
+      "sha256": "8d977c6c10d55ebe58007ced029e50999933a4d9d44881b8cb8c7c098c17f0ca",
+      "text_bytes": 1000000,
+      "text_sha256": "dd4e06c9d0a867b7e21ab521131b8f87485a1e04f3d29693c5db950e2bba1f07"
+    },
+    {
+      "path": "REMOTE_VERIFICATION.fragment0004.json",
+      "bytes": 1051117,
+      "sha256": "bbdb81e4d6369353adf5359763053a098c6a593f2d7be1cefc6c9020772370d8",
+      "text_bytes": 1000000,
+      "text_sha256": "880ef1efd8ab97f4a066c2a2c70cf45f642da6b32944993802cdd6a99838f16c"
+    },
+    {
+      "path": "REMOTE_VERIFICATION.fragment0005.json",
+      "bytes": 1058386,
+      "sha256": "5bea4e5bcee5cba3ac9dc2b632e4ca2df480fe273028535cac0e562ca63e6715",
+      "text_bytes": 1000000,
+      "text_sha256": "f1697a6d8bdbc7d19895540a341f3ea9775e36dd4ce51e5c454065687c39f82a"
+    },
+    {
+      "path": "REMOTE_VERIFICATION.fragment0006.json",
+      "bytes": 1050597,
+      "sha256": "71d2f26fdcc03d3c029559c674c1f22cccfa332af8b2a40ecf788459fa35af9d",
+      "text_bytes": 1000000,
+      "text_sha256": "9b605c0d000c0cccf597313a7a7ee502a49d306a68d00deced2981ff09b76d57"
+    },
+    {
+      "path": "REMOTE_VERIFICATION.fragment0007.json",
+      "bytes": 779858,
+      "sha256": "1dcdb40aabdc702393457229c0e31120e7801f5b7886a6e25b7c30ff42750b25",
+      "text_bytes": 740415,
+      "text_sha256": "176d6d6158edeec8894609047204d68d1ad5971ed11c35d025787c89a4a0553a"
+    }
+  ],
+  "scope": "Nonruntime source-audit text evidence;everypart scanned/hashed. LogicalJSON bytes preserved;no runtime/model/creative acceptance orauditor waiver."
 }

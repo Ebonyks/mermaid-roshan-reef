@@ -1,5 +1,58 @@
 {
-  "status": "PENDING_POST_VERIFICATION_OR_PUBLICATION",
-  "accepted_removed": 0,
-  "mission_complete": false
+  "status": "PASS_SOURCE_ONLY_ACCEPTANCE_OPEN",
+  "commands": [
+    {
+      "command": [
+        "python",
+        "-B",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r41_companion_context\\validate.py"
+      ],
+      "started_at_utc": "2026-10-14T23:21:30.146418+00:00",
+      "checked_at_utc": "2026-10-14T23:21:36.589853+00:00",
+      "exit_code": 0,
+      "execution": "FRESH",
+      "evidence": "receipt_gates.log"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_document_authority.py"
+      ],
+      "started_at_utc": "2026-10-14T23:21:36.589951+00:00",
+      "checked_at_utc": "2026-10-14T23:21:46.184703+00:00",
+      "exit_code": 0,
+      "execution": "FRESH",
+      "evidence": "receipt_gates.log"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_development.py",
+        "--base",
+        "auto"
+      ],
+      "started_at_utc": "2026-10-14T23:21:46.184757+00:00",
+      "checked_at_utc": "2026-10-14T23:21:50.429114+00:00",
+      "exit_code": 0,
+      "execution": "FRESH",
+      "evidence": "receipt_gates.log"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_game_2d.py",
+        "--regression-gate"
+      ],
+      "started_at_utc": "2026-10-14T23:21:52.421049+00:00",
+      "checked_at_utc": "2026-10-14T23:22:54.991569+00:00",
+      "exit_code": 0,
+      "execution": "FRESH_ALL_RECEIPT_PARTS_STAGED",
+      "evidence": "receipt_gates.log"
+    }
+  ],
+  "raw_log_sha256": "8880d45bc7bd4419c29093f1ac9599e959fa90eb99ae7d6868df88a682d6f395",
+  "scope": "3freshsource/document/impact checks+actualfresh2D complete stagedreceipt index/allparts scan. No new engine execution in this metadata gate. R41 six supported GUI diagnostics and retained prior full82 remain separate; no visual acceptance."
 }
