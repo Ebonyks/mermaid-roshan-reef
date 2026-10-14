@@ -675,10 +675,17 @@
   ],
   "role_and_family_counts_are_separate": true,
   "publication": {
-    "status": "PENDING_R27_PUBLICATION",
+    "status": "ALL_DECLARED_DEPENDENCIES_VERIFIED",
+    "revision": "60a057c1dda25c34f308bf3e8e95c5e568d81710",
+    "manifest_sha256": "23c946c23415161028f241cc57e7f4f4d8df31de24b4bd13267f7bdabf579728",
+    "payload_sha256": "f27807fbc44f0c1c61c2a183519c97ba7cb98e7a77a06a2900f29cd38419f82e",
+    "required_file_count": 2659,
+    "required_bytes": 1169942851,
+    "access_mode": "Anonymous public HTTPS for manifest and every declared required file; public GitHub repo API independently checked; recipient can use the same unauthenticated access mode.",
+    "checked_at_utc": "2026-10-14T03:19:20.550417+00:00",
     "manifest": "MANIFEST.json",
     "receipt": "REMOTE_VERIFICATION.json",
-    "creative_acceptance": false
+    "post_payload_metadata": "All8listed finalfiles,including2required traceability additions,are anonymous exact-byte-verified at finalreceipt head afterpush. Sealedmanifest remains exact60a057c1andits2659dependencies. Publication/diagnostic passes are not acceptance."
   },
   "independent_style_review": {
     "file": "ROOT_CONTEXT_REVIEW_20261012.json",
@@ -826,9 +833,31 @@
   },
   "unpublished_external_activity_limit": "Separate Garden production branch has no published revision at the verified reconciliation; its local candidate is outside this frozen verified tally. Generation/integration counts in this packet retain packet scope.",
   "current_ci": {
-    "status": "R27_NOT_YET_PUBLISHED",
-    "exact_head_result": null,
-    "note": "Newsamebranch pushesmaycanceloldruns;not countedgreen."
+    "checked_at_utc": "2026-10-14T03:22:46.780035+00:00",
+    "runs": [
+      {
+        "conclusion": "",
+        "databaseId": 38505516251,
+        "headSha": "60a057c1dda25c34f308bf3e8e95c5e568d81710",
+        "status": "in_progress",
+        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/38505516251"
+      },
+      {
+        "conclusion": "success",
+        "databaseId": 38499658027,
+        "headSha": "b5c061dfd5bc36b405bd38aa0ac141eba277a012",
+        "status": "completed",
+        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/38499658027"
+      },
+      {
+        "conclusion": "cancelled",
+        "databaseId": 38498801398,
+        "headSha": "1c5a5825f18506bec0a08afe7f374e927656c0ee",
+        "status": "completed",
+        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/38498801398"
+      }
+    ],
+    "scope": "Exact head statuses only;R27receipt CIstartsafterpush. PreviousR26exactb5receipt isgreen;notcreative/device/child/owner acceptance."
   },
   "inherited_r7_reference_base": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/c1e466a8a9e605f43b4c7a181b3d7b702d7677aa/docs/handoffs/codex_flat_vector_art_2026-10-07/r7_craft_context/",
   "inherited_r8_reference_base": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/f4de7b921298b0dac052df408af03bbb2b62132b/docs/handoffs/codex_flat_vector_art_2026-10-07/r8_geode_context/",
@@ -1447,5 +1476,12 @@
     "headSha": "1c5a5825f18506bec0a08afe7f374e927656c0ee",
     "status": "completed",
     "url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/38498801398"
+  },
+  "change_record": {
+    "id": "CHG-034",
+    "path": "audit/MASTER_AUDIT_CHANGELOG_ROLLBACK_2026-08-10.md",
+    "payload_revision": "60a057c1dda25c34f308bf3e8e95c5e568d81710",
+    "capture_contract": "CAPTURE_CONTRACT.json",
+    "acceptance_inferred": false
   }
 }

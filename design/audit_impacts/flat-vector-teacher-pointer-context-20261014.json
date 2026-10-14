@@ -25,7 +25,9 @@
     "DL-VIS-05",
     "DL-QA-12",
     "DL-INT-09",
-    "DL-UI-04"
+    "DL-UI-04",
+    "DL-QA-14",
+    "DL-QA-15"
   ],
   "findings": [
     "MA-VIS-006",
@@ -249,7 +251,9 @@
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r27_teacher_pointer_context/script_gates.log",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r27_teacher_pointer_context/tally.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r27_teacher_pointer_context/validate.py",
-    "docs/handoffs/codex_flat_vector_art_2026-10-07/r27_teacher_pointer_context/verify_remote.py"
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r27_teacher_pointer_context/verify_remote.py",
+    "audit/MASTER_AUDIT_CHANGELOG_ROLLBACK_2026-08-10.md",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r27_teacher_pointer_context/CAPTURE_CONTRACT.json"
   ],
   "validation": [
     {
@@ -273,9 +277,14 @@
       "evidence": "docs/handoffs/codex_flat_vector_art_2026-10-07/r27_teacher_pointer_context/GATES.json and gates.log;all5commands exit0;54tests+6stress. Strict2D52production/61probe/1scene/1configuration remainsUNSATISFIED,NO_REGRESSION."
     },
     {
+      "command": "Independent native contract proof:ordered current state IDs,sourcebaseline,uniquehash/nonblank frame/presentation/private save/native owner checks",
+      "result": "PASS",
+      "evidence": "docs/handoffs/codex_flat_vector_art_2026-10-07/r27_teacher_pointer_context/CAPTURE_CONTRACT.json;completion-time QA15 source review and stable CHG-034 record required before finalreceipt.;8ordered matrices/84unique source-bound nonblank outputs andnative owner/private save/presentation gates pass;CHG-034records exactpayload60a057c1,scope/pathbenefit/risk/dependency/evidence anddocumentation rollback. No authoritative QA11/human acceptance.;CAPTURE_CONTRACT sha256 94b46bbec5af5abd76a56aab92372a2ab871ff7c79f483f8fdfc0b636904db4d"
+    },
+    {
       "command": "GitHub exactpublished manifest/everyfile anonymous SHA256 andfinalmetadatareceipt gates",
-      "result": "PENDING",
-      "evidence": "docs/handoffs/codex_flat_vector_art_2026-10-07/r27_teacher_pointer_context/REMOTE_VERIFICATION.json andRECEIPT_GATES.json;not yet published"
+      "result": "PASS",
+      "evidence": "docs/handoffs/codex_flat_vector_art_2026-10-07/r27_teacher_pointer_context/REMOTE_VERIFICATION.json andRECEIPT_GATES.json;not yet published;payload60a057c1 anonymouslyverified2659required files/1169942851bytes plusmanifest,manifestsha23c946c23415161028f241cc57e7f4f4d8df31de24b4bd13267f7bdabf579728,payloadshaf27807fbc44f0c1c61c2a183519c97ba7cb98e7a77a06a2900f29cd38419f82e. Final8metadata bytes/receiptgates pending."
     }
   ],
   "acceptance_gaps": "Whole-game denominator/current screens/regressions unknown; full inventory/caller coverage/higher Teacher tiers and sequences/natural route/reward/reentry/save/focus/QA11/device/child/owner/source approval/fallback retirement all remain open.",

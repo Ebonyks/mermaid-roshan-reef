@@ -1,0 +1,2152 @@
+{
+  "schema": "reef.teacher_capture_contract/1",
+  "status": "PASS_DIAGNOSTIC_ONLY",
+  "source_revision": "b5c061dfd5bc36b405bd38aa0ac141eba277a012",
+  "checked_at_utc": "2026-10-14T03:21:17.502302+00:00",
+  "script_sha256": "f27ca5f75294fddfe5b0919d488e43a7e5749fcdf3c908fbc85b2c6bf61d3b42",
+  "exact_check_python": "from pathlib import Path\nimport json,hashlib\nfrom PIL import Image\nP=Path('docs/handoffs/codex_flat_vector_art_2026-10-07/r27_teacher_pointer_context');BASE='b5c061dfd5bc36b405bd38aa0ac141eba277a012'\ndef rd(f):return json.loads(f.read_text(encoding='utf-8'))\ncommon=['opened_04s','passive_96s','wrong_choice_pressed','wrong_choice_released','hint_pressed','hint_released']\nexpected={0:common+['final_partial'],1:common+['counter0_pressed','counter0_released','counter0_repeat_pressed','counter0_repeat_released','count_answer_wrong_pressed','count_answer_wrong_released','final_partial'],2:common+['join_pressed','join_released','join_moving','join_settled','counter0_pressed','counter0_released','counter0_repeat_pressed','counter0_repeat_released','final_partial'],3:common+['final_partial']}\nidx=rd(P/'CAPTURE_INDEX.json');rows={x['path']:x for x in idx['files'] if x['scope']=='CURRENT_BOUNDED_CONTEXT'};assert len(rows)==84 and len({x['sha256'] for x in rows.values()})==84\nlaunch=rd(P/'LAUNCH.json');assert launch['returncode']==0 and launch['environment']['ROOTPIC_REV']==BASE and 'corrected_native' in launch['environment']['ROOTPIC_OUT'] and not launch['production_source_edits']\nassert Path('.godot/r27_capture_teacher_context.gd').read_bytes()==(P/'capture_teacher_context.gd').read_bytes()\nassert b'ERROR:' not in (P/'native_capture.log').read_bytes() and b'SCRIPT ERROR' not in (P/'native_capture.log').read_bytes()\nreports=[];seen=set();profiles=set()\nfor f in sorted((P/'native').rglob('capture_manifest.json')):\n d=rd(f);phase=d['phase'];assert d['source_revision']==BASE and d['errors']==[] and d['teardown_verified'] and d['normal_save_before']==d['normal_save_after'] and len(d['normal_save_before'])==8\n assert [x['id'] for x in d['states']]==expected[phase]\n aspect=d['aspect'];assert aspect in [[1280,720],[1600,720]] and d['renderer']=='mobile' and d['quality']=='speedy'\n frame_rows=[]\n for x in d['states']:\n  path=(f.parent/x['image']['file']).relative_to(P).as_posix();assert path not in seen and path in rows;seen.add(path);profiles.add(x['save_path']);b=(P/path).read_bytes();assert hashlib.sha256(b).hexdigest()==rows[path]['sha256']==x['image']['sha256'] and len(b)==rows[path]['bytes']==x['image']['bytes']\n  im=Image.open(P/path).convert('RGB');assert list(im.size)==aspect==x['image']['dimensions'];extrema=im.getextrema();assert max(hi-lo for lo,hi in extrema)>100\n  a=x['presentation'];assert not any(a[k] for k in ['boot_splash_present','start_menu_active','start_menu_layer_present','intro_active','intro_layer_present','medal_present']) and a['fade_alpha']<=0.02\n  assert x['phase_index']==phase and x['task_open'] and not x['solved'] and not x['completion_accepted'] and x['phase_progress']==0.0\n  assert x['actor_visible'] and x['actor_atlas']=='res://assets/opera/worlds/actors/animation/roshan_teacher_sheet_a.png' and len(x['backdrop_tiles'])==8\n  assert '/profiles/teacher/' in x['save_path'].replace(chr(92),'/') and 'corrected_native' in x['save_path']\n  frame_rows.append({'path':path,'sha256':rows[path]['sha256'],'bytes':len(b),'dimensions':aspect,'channel_extrema':extrema})\n reports.append({'manifest':f.relative_to(P).as_posix(),'manifest_sha256':hashlib.sha256(f.read_bytes()).hexdigest(),'phase':phase,'aspect':aspect,'ordered_ids':expected[phase],'frames':frame_rows,'normal_save_hashes_unchanged':True,'teardown':True})\nassert len(reports)==8 and len(seen)==84 and len(profiles)==8 and seen==set(rows)\nprint('R27_CAPTURE_CONTRACT_PASS:8ordered matrices/84unique nonblank sourcebound native frames;fresh private profiles,normal8hashes unchanged;0phasecompletion;diagnostic only.')\n",
+  "reports": [
+    {
+      "manifest": "native/1280x720/phase_00/capture_manifest.json",
+      "manifest_sha256": "9373726730fc654edf43e5a657121d4992168a1594700bd4ea98ef0be5ab6402",
+      "phase": 0,
+      "aspect": [
+        1280,
+        720
+      ],
+      "ordered_ids": [
+        "opened_04s",
+        "passive_96s",
+        "wrong_choice_pressed",
+        "wrong_choice_released",
+        "hint_pressed",
+        "hint_released",
+        "final_partial"
+      ],
+      "frames": [
+        {
+          "path": "native/1280x720/phase_00/opened_04s.png",
+          "sha256": "25da3d0c37bf090cf0c8c8baf92514fb9c09ac7e591057828f7f9b2a6c0bde5a",
+          "bytes": 579951,
+          "dimensions": [
+            1280,
+            720
+          ],
+          "channel_extrema": [
+            [
+              5,
+              255
+            ],
+            [
+              1,
+              255
+            ],
+            [
+              0,
+              255
+            ]
+          ]
+        },
+        {
+          "path": "native/1280x720/phase_00/passive_96s.png",
+          "sha256": "dafb162c46600c1a18c1b45b9876737108aecea73bc4e2c48ab324d851faafbb",
+          "bytes": 584289,
+          "dimensions": [
+            1280,
+            720
+          ],
+          "channel_extrema": [
+            [
+              5,
+              255
+            ],
+            [
+              1,
+              255
+            ],
+            [
+              0,
+              255
+            ]
+          ]
+        },
+        {
+          "path": "native/1280x720/phase_00/wrong_choice_pressed.png",
+          "sha256": "d07a4dee2f4329b5fa39122c59bfd1c26808eeb0c6740423bef21b94f4a17f7d",
+          "bytes": 584361,
+          "dimensions": [
+            1280,
+            720
+          ],
+          "channel_extrema": [
+            [
+              5,
+              255
+            ],
+            [
+              1,
+              255
+            ],
+            [
+              0,
+              255
+            ]
+          ]
+        },
+        {
+          "path": "native/1280x720/phase_00/wrong_choice_released.png",
+          "sha256": "94b23d3ecc489e9a761a28ee9a8aa9b1b2c43d70bff0b891dfd5486b5fed8c60",
+          "bytes": 584269,
+          "dimensions": [
+            1280,
+            720
+          ],
+          "channel_extrema": [
+            [
+              5,
+              255
+            ],
+            [
+              1,
+              255
+            ],
+            [
+              0,
+              255
+            ]
+          ]
+        },
+        {
+          "path": "native/1280x720/phase_00/hint_pressed.png",
+          "sha256": "2ca4b928fcd4afc22e6c91ff46e2744ec34b3ed4de574ca14ac51c0da596a539",
+          "bytes": 583815,
+          "dimensions": [
+            1280,
+            720
+          ],
+          "channel_extrema": [
+            [
+              5,
+              255
+            ],
+            [
+              1,
+              255
+            ],
+            [
+              0,
+              255
+            ]
+          ]
+        },
+        {
+          "path": "native/1280x720/phase_00/hint_released.png",
+          "sha256": "4adb446ec73ce024359e66519e7851f6b57bfc775c37c339291e50b047a4acaa",
+          "bytes": 584331,
+          "dimensions": [
+            1280,
+            720
+          ],
+          "channel_extrema": [
+            [
+              5,
+              255
+            ],
+            [
+              1,
+              255
+            ],
+            [
+              0,
+              255
+            ]
+          ]
+        },
+        {
+          "path": "native/1280x720/phase_00/final_partial.png",
+          "sha256": "88fcba3698adcfe58683cacb917e18e839d80f8a087e2aa0a137773142d33fb0",
+          "bytes": 584533,
+          "dimensions": [
+            1280,
+            720
+          ],
+          "channel_extrema": [
+            [
+              5,
+              255
+            ],
+            [
+              1,
+              255
+            ],
+            [
+              0,
+              255
+            ]
+          ]
+        }
+      ],
+      "normal_save_hashes_unchanged": true,
+      "teardown": true
+    },
+    {
+      "manifest": "native/1280x720/phase_01/capture_manifest.json",
+      "manifest_sha256": "7120d9d63b26b6d5d642139e9531a75f818fa0aba805a13f135fe3112067bf7e",
+      "phase": 1,
+      "aspect": [
+        1280,
+        720
+      ],
+      "ordered_ids": [
+        "opened_04s",
+        "passive_96s",
+        "wrong_choice_pressed",
+        "wrong_choice_released",
+        "hint_pressed",
+        "hint_released",
+        "counter0_pressed",
+        "counter0_released",
+        "counter0_repeat_pressed",
+        "counter0_repeat_released",
+        "count_answer_wrong_pressed",
+        "count_answer_wrong_released",
+        "final_partial"
+      ],
+      "frames": [
+        {
+          "path": "native/1280x720/phase_01/opened_04s.png",
+          "sha256": "07963d819210493e4b3759a869738756c7439b87abea4389a401f101d30fe3cd",
+          "bytes": 573365,
+          "dimensions": [
+            1280,
+            720
+          ],
+          "channel_extrema": [
+            [
+              5,
+              255
+            ],
+            [
+              1,
+              255
+            ],
+            [
+              0,
+              255
+            ]
+          ]
+        },
+        {
+          "path": "native/1280x720/phase_01/passive_96s.png",
+          "sha256": "0be7a868198042dd59486a03f9418c5956c1d9665d55a635b6e1153c136ff68a",
+          "bytes": 573146,
+          "dimensions": [
+            1280,
+            720
+          ],
+          "channel_extrema": [
+            [
+              5,
+              255
+            ],
+            [
+              1,
+              255
+            ],
+            [
+              0,
+              255
+            ]
+          ]
+        },
+        {
+          "path": "native/1280x720/phase_01/wrong_choice_pressed.png",
+          "sha256": "811bd2544a8a0bb47c9e17460c290b8db81759674be0afd033aae64f6f90f2eb",
+          "bytes": 572998,
+          "dimensions": [
+            1280,
+            720
+          ],
+          "channel_extrema": [
+            [
+              5,
+              255
+            ],
+            [
+              1,
+              255
+            ],
+            [
+              0,
+              255
+            ]
+          ]
+        },
+        {
+          "path": "native/1280x720/phase_01/wrong_choice_released.png",
+          "sha256": "f02abc26f09c85ebc1170976e2edd4562c70fdcb6ed3bccfae57a84394b9e9ac",
+          "bytes": 572766,
+          "dimensions": [
+            1280,
+            720
+          ],
+          "channel_extrema": [
+            [
+              5,
+              255
+            ],
+            [
+              1,
+              255
+            ],
+            [
+              0,
+              255
+            ]
+          ]
+        },
+        {
+          "path": "native/1280x720/phase_01/hint_pressed.png",
+          "sha256": "b00221ea825bae9644c9c239112104ab1aea658319ddc5cfb76211bbafeb182f",
+          "bytes": 572722,
+          "dimensions": [
+            1280,
+            720
+          ],
+          "channel_extrema": [
+            [
+              5,
+              255
+            ],
+            [
+              1,
+              255
+            ],
+            [
+              0,
+              255
+            ]
+          ]
+        },
+        {
+          "path": "native/1280x720/phase_01/hint_released.png",
+          "sha256": "dfe1412b2abc5350f947a349125d793012ac027084278947cf7dd6469a7d2e3b",
+          "bytes": 573098,
+          "dimensions": [
+            1280,
+            720
+          ],
+          "channel_extrema": [
+            [
+              5,
+              255
+            ],
+            [
+              1,
+              255
+            ],
+            [
+              0,
+              255
+            ]
+          ]
+        },
+        {
+          "path": "native/1280x720/phase_01/counter0_pressed.png",
+          "sha256": "76d12900e9b1ca33f174c6409650773b373d0e7d8ddcae14adbfa7c5ac622088",
+          "bytes": 573221,
+          "dimensions": [
+            1280,
+            720
+          ],
+          "channel_extrema": [
+            [
+              5,
+              255
+            ],
+            [
+              1,
+              255
+            ],
+            [
+              0,
+              255
+            ]
+          ]
+        },
+        {
+          "path": "native/1280x720/phase_01/counter0_released.png",
+          "sha256": "0365cb7bbe9a2a5a85f5a17fbc834cedfdbef83e8383eac42a54f2a2cd3ca646",
+          "bytes": 574451,
+          "dimensions": [
+            1280,
+            720
+          ],
+          "channel_extrema": [
+            [
+              5,
+              255
+            ],
+            [
+              1,
+              255
+            ],
+            [
+              0,
+              255
+            ]
+          ]
+        },
+        {
+          "path": "native/1280x720/phase_01/counter0_repeat_pressed.png",
+          "sha256": "4dc271efa5c53559216a30da23a431a05d303631fbcd486f10b78f17a8fe61a9",
+          "bytes": 574436,
+          "dimensions": [
+            1280,
+            720
+          ],
+          "channel_extrema": [
+            [
+              5,
+              255
+            ],
+            [
+              1,
+              255
+            ],
+            [
+              0,
+              255
+            ]
+          ]
+        },
+        {
+          "path": "native/1280x720/phase_01/counter0_repeat_released.png",
+          "sha256": "194b301659218c1144e564333fb7573b8f0c082080c386222365e1eb079141ba",
+          "bytes": 574377,
+          "dimensions": [
+            1280,
+            720
+          ],
+          "channel_extrema": [
+            [
+              5,
+              255
+            ],
+            [
+              1,
+              255
+            ],
+            [
+              0,
+              255
+            ]
+          ]
+        },
+        {
+          "path": "native/1280x720/phase_01/count_answer_wrong_pressed.png",
+          "sha256": "affe6b4f15cef7b7484800f6222d0ac0af1cd588c04f89759ade1224cc25da3d",
+          "bytes": 574200,
+          "dimensions": [
+            1280,
+            720
+          ],
+          "channel_extrema": [
+            [
+              5,
+              255
+            ],
+            [
+              1,
+              255
+            ],
+            [
+              0,
+              255
+            ]
+          ]
+        },
+        {
+          "path": "native/1280x720/phase_01/count_answer_wrong_released.png",
+          "sha256": "26be0c191e655826f647a0e85eb90a5e265e0dea8f621b38484f6051aea99c43",
+          "bytes": 574080,
+          "dimensions": [
+            1280,
+            720
+          ],
+          "channel_extrema": [
+            [
+              5,
+              255
+            ],
+            [
+              1,
+              255
+            ],
+            [
+              0,
+              255
+            ]
+          ]
+        },
+        {
+          "path": "native/1280x720/phase_01/final_partial.png",
+          "sha256": "166ce09170992519a0ae2d5216194034ee7da02db5cd25260703624efe1093b2",
+          "bytes": 574061,
+          "dimensions": [
+            1280,
+            720
+          ],
+          "channel_extrema": [
+            [
+              5,
+              255
+            ],
+            [
+              1,
+              255
+            ],
+            [
+              0,
+              255
+            ]
+          ]
+        }
+      ],
+      "normal_save_hashes_unchanged": true,
+      "teardown": true
+    },
+    {
+      "manifest": "native/1280x720/phase_02/capture_manifest.json",
+      "manifest_sha256": "8d39b67355577025d5484fcfb8acaa05299df4c6f6813c674d8647c7480c46f3",
+      "phase": 2,
+      "aspect": [
+        1280,
+        720
+      ],
+      "ordered_ids": [
+        "opened_04s",
+        "passive_96s",
+        "wrong_choice_pressed",
+        "wrong_choice_released",
+        "hint_pressed",
+        "hint_released",
+        "join_pressed",
+        "join_released",
+        "join_moving",
+        "join_settled",
+        "counter0_pressed",
+        "counter0_released",
+        "counter0_repeat_pressed",
+        "counter0_repeat_released",
+        "final_partial"
+      ],
+      "frames": [
+        {
+          "path": "native/1280x720/phase_02/opened_04s.png",
+          "sha256": "04d1a663e413cb60f7594b380c3e1fb21cc8bfbb93bd7634fa606efe6b2213e9",
+          "bytes": 581659,
+          "dimensions": [
+            1280,
+            720
+          ],
+          "channel_extrema": [
+            [
+              5,
+              255
+            ],
+            [
+              1,
+              255
+            ],
+            [
+              0,
+              255
+            ]
+          ]
+        },
+        {
+          "path": "native/1280x720/phase_02/passive_96s.png",
+          "sha256": "8e633996c8e4a7d0781a9e8f55df80329cff26b2f54ea8e934dfdbe2937337c7",
+          "bytes": 581626,
+          "dimensions": [
+            1280,
+            720
+          ],
+          "channel_extrema": [
+            [
+              5,
+              255
+            ],
+            [
+              1,
+              255
+            ],
+            [
+              0,
+              255
+            ]
+          ]
+        },
+        {
+          "path": "native/1280x720/phase_02/wrong_choice_pressed.png",
+          "sha256": "522dcf3be2e749607304b8c112c34779148403b09f50641bd0bb5110faa1fca7",
+          "bytes": 581872,
+          "dimensions": [
+            1280,
+            720
+          ],
+          "channel_extrema": [
+            [
+              5,
+              255
+            ],
+            [
+              1,
+              255
+            ],
+            [
+              0,
+              255
+            ]
+          ]
+        },
+        {
+          "path": "native/1280x720/phase_02/wrong_choice_released.png",
+          "sha256": "856cb9ebac03c2261fa9c2e378825cf77c9737d1d8c231b5e7a42a911e855ade",
+          "bytes": 582069,
+          "dimensions": [
+            1280,
+            720
+          ],
+          "channel_extrema": [
+            [
+              5,
+              255
+            ],
+            [
+              1,
+              255
+            ],
+            [
+              0,
+              255
+            ]
+          ]
+        },
+        {
+          "path": "native/1280x720/phase_02/hint_pressed.png",
+          "sha256": "67aea29280d5fd7c4a72ead03248629ebb8d8c76dff43d25aefca92a44e64296",
+          "bytes": 582105,
+          "dimensions": [
+            1280,
+            720
+          ],
+          "channel_extrema": [
+            [
+              5,
+              255
+            ],
+            [
+              1,
+              255
+            ],
+            [
+              0,
+              255
+            ]
+          ]
+        },
+        {
+          "path": "native/1280x720/phase_02/hint_released.png",
+          "sha256": "8e1cc0d929338967ba0beaa6c44652f36ebd8930a116c197034b812fdaa8d194",
+          "bytes": 581885,
+          "dimensions": [
+            1280,
+            720
+          ],
+          "channel_extrema": [
+            [
+              5,
+              255
+            ],
+            [
+              1,
+              255
+            ],
+            [
+              0,
+              255
+            ]
+          ]
+        },
+        {
+          "path": "native/1280x720/phase_02/join_pressed.png",
+          "sha256": "18c7857e918006e985561d5ee4d4bf2708b2c7c3048132ed71372dffae5c2402",
+          "bytes": 581652,
+          "dimensions": [
+            1280,
+            720
+          ],
+          "channel_extrema": [
+            [
+              5,
+              255
+            ],
+            [
+              1,
+              255
+            ],
+            [
+              0,
+              255
+            ]
+          ]
+        },
+        {
+          "path": "native/1280x720/phase_02/join_released.png",
+          "sha256": "2819a46418c4dc6b761792a43c88351eae88409547646fddf4c54d8c2c4d1939",
+          "bytes": 571911,
+          "dimensions": [
+            1280,
+            720
+          ],
+          "channel_extrema": [
+            [
+              5,
+              255
+            ],
+            [
+              1,
+              255
+            ],
+            [
+              0,
+              255
+            ]
+          ]
+        },
+        {
+          "path": "native/1280x720/phase_02/join_moving.png",
+          "sha256": "49c4e249168f10920d331faeffdc294f692357104f4a98085768a6e9727af0e4",
+          "bytes": 572158,
+          "dimensions": [
+            1280,
+            720
+          ],
+          "channel_extrema": [
+            [
+              5,
+              255
+            ],
+            [
+              1,
+              255
+            ],
+            [
+              0,
+              255
+            ]
+          ]
+        },
+        {
+          "path": "native/1280x720/phase_02/join_settled.png",
+          "sha256": "fb3a5fdac07787b76b102f15de2eba0e6e020725aea5856c90de82088b96de53",
+          "bytes": 571247,
+          "dimensions": [
+            1280,
+            720
+          ],
+          "channel_extrema": [
+            [
+              5,
+              255
+            ],
+            [
+              1,
+              255
+            ],
+            [
+              0,
+              255
+            ]
+          ]
+        },
+        {
+          "path": "native/1280x720/phase_02/counter0_pressed.png",
+          "sha256": "406fffe13609d602c34f028b053687eaa83b98a7159fb437763ccfc4dbb35b51",
+          "bytes": 571121,
+          "dimensions": [
+            1280,
+            720
+          ],
+          "channel_extrema": [
+            [
+              5,
+              255
+            ],
+            [
+              1,
+              255
+            ],
+            [
+              0,
+              255
+            ]
+          ]
+        },
+        {
+          "path": "native/1280x720/phase_02/counter0_released.png",
+          "sha256": "346d15b09d8a8500b83e57967349897a74276137dd2dcffd418f60496872b7fb",
+          "bytes": 571876,
+          "dimensions": [
+            1280,
+            720
+          ],
+          "channel_extrema": [
+            [
+              5,
+              255
+            ],
+            [
+              1,
+              255
+            ],
+            [
+              0,
+              255
+            ]
+          ]
+        },
+        {
+          "path": "native/1280x720/phase_02/counter0_repeat_pressed.png",
+          "sha256": "065958fd2ccd8e4f888f155c56b1a0d71db51a2e33aafd6c11413679dd44b579",
+          "bytes": 571918,
+          "dimensions": [
+            1280,
+            720
+          ],
+          "channel_extrema": [
+            [
+              5,
+              255
+            ],
+            [
+              1,
+              255
+            ],
+            [
+              0,
+              255
+            ]
+          ]
+        },
+        {
+          "path": "native/1280x720/phase_02/counter0_repeat_released.png",
+          "sha256": "91e593ebcac3a63642abb94b476743cc52057f013493dc4dcdd0565011bee7c6",
+          "bytes": 572009,
+          "dimensions": [
+            1280,
+            720
+          ],
+          "channel_extrema": [
+            [
+              5,
+              255
+            ],
+            [
+              1,
+              255
+            ],
+            [
+              0,
+              255
+            ]
+          ]
+        },
+        {
+          "path": "native/1280x720/phase_02/final_partial.png",
+          "sha256": "d58a95b1f3e87b11b5e4f8ba99fb51259041d74e2fe45a0854581fb55af26508",
+          "bytes": 572114,
+          "dimensions": [
+            1280,
+            720
+          ],
+          "channel_extrema": [
+            [
+              5,
+              255
+            ],
+            [
+              1,
+              255
+            ],
+            [
+              0,
+              255
+            ]
+          ]
+        }
+      ],
+      "normal_save_hashes_unchanged": true,
+      "teardown": true
+    },
+    {
+      "manifest": "native/1280x720/phase_03/capture_manifest.json",
+      "manifest_sha256": "13bfda8eb375676d3f27d48d7bf7ac6741d1ba81fdc13d20bb99c9666c57d99f",
+      "phase": 3,
+      "aspect": [
+        1280,
+        720
+      ],
+      "ordered_ids": [
+        "opened_04s",
+        "passive_96s",
+        "wrong_choice_pressed",
+        "wrong_choice_released",
+        "hint_pressed",
+        "hint_released",
+        "final_partial"
+      ],
+      "frames": [
+        {
+          "path": "native/1280x720/phase_03/opened_04s.png",
+          "sha256": "f3ba04af584eaa14834e8bc6c89ccdc6ed457c8c75b99364e8f6a9517c2e363c",
+          "bytes": 573807,
+          "dimensions": [
+            1280,
+            720
+          ],
+          "channel_extrema": [
+            [
+              5,
+              255
+            ],
+            [
+              1,
+              255
+            ],
+            [
+              0,
+              255
+            ]
+          ]
+        },
+        {
+          "path": "native/1280x720/phase_03/passive_96s.png",
+          "sha256": "159798e5ded5df9544cc0f8c3db8189aa6479887b753e0cb18650e40d07fb9d7",
+          "bytes": 577878,
+          "dimensions": [
+            1280,
+            720
+          ],
+          "channel_extrema": [
+            [
+              5,
+              255
+            ],
+            [
+              1,
+              255
+            ],
+            [
+              0,
+              255
+            ]
+          ]
+        },
+        {
+          "path": "native/1280x720/phase_03/wrong_choice_pressed.png",
+          "sha256": "74248abe325acdbd7db194a37006b8ac5793d997b5cae2cf4d7f4be9e1a7353f",
+          "bytes": 577977,
+          "dimensions": [
+            1280,
+            720
+          ],
+          "channel_extrema": [
+            [
+              5,
+              255
+            ],
+            [
+              1,
+              255
+            ],
+            [
+              0,
+              255
+            ]
+          ]
+        },
+        {
+          "path": "native/1280x720/phase_03/wrong_choice_released.png",
+          "sha256": "5dd76d5d3416767f0be8a5e970ab3912dbd7375a1fdfb0eabc942b29f538b070",
+          "bytes": 577748,
+          "dimensions": [
+            1280,
+            720
+          ],
+          "channel_extrema": [
+            [
+              5,
+              255
+            ],
+            [
+              1,
+              255
+            ],
+            [
+              0,
+              255
+            ]
+          ]
+        },
+        {
+          "path": "native/1280x720/phase_03/hint_pressed.png",
+          "sha256": "ab0d8e158548f2fe7cf7c7cc57fd7874c812295276745740976ef4c048af12cd",
+          "bytes": 577489,
+          "dimensions": [
+            1280,
+            720
+          ],
+          "channel_extrema": [
+            [
+              5,
+              255
+            ],
+            [
+              1,
+              255
+            ],
+            [
+              0,
+              255
+            ]
+          ]
+        },
+        {
+          "path": "native/1280x720/phase_03/hint_released.png",
+          "sha256": "57f93bcf88244d93a94f18bc585d86c4f3202a9ce777010f087a3b17900421fd",
+          "bytes": 578034,
+          "dimensions": [
+            1280,
+            720
+          ],
+          "channel_extrema": [
+            [
+              5,
+              255
+            ],
+            [
+              1,
+              255
+            ],
+            [
+              0,
+              255
+            ]
+          ]
+        },
+        {
+          "path": "native/1280x720/phase_03/final_partial.png",
+          "sha256": "24749fe699745e6476e6a51ff1d4a7dbe415053cb02480b8bdac2b53bdaf46a0",
+          "bytes": 578227,
+          "dimensions": [
+            1280,
+            720
+          ],
+          "channel_extrema": [
+            [
+              5,
+              255
+            ],
+            [
+              1,
+              255
+            ],
+            [
+              0,
+              255
+            ]
+          ]
+        }
+      ],
+      "normal_save_hashes_unchanged": true,
+      "teardown": true
+    },
+    {
+      "manifest": "native/1600x720/phase_00/capture_manifest.json",
+      "manifest_sha256": "e064157bd964a080c45daa6fa9ab7fce89ac6c491fd7057aa3fbd3293affd25e",
+      "phase": 0,
+      "aspect": [
+        1600,
+        720
+      ],
+      "ordered_ids": [
+        "opened_04s",
+        "passive_96s",
+        "wrong_choice_pressed",
+        "wrong_choice_released",
+        "hint_pressed",
+        "hint_released",
+        "final_partial"
+      ],
+      "frames": [
+        {
+          "path": "native/1600x720/phase_00/opened_04s.png",
+          "sha256": "71aacabdd11df656cd9d20099f8f0e2e2b1af471e2f9c56ac3cb451f7d6d2542",
+          "bytes": 607418,
+          "dimensions": [
+            1600,
+            720
+          ],
+          "channel_extrema": [
+            [
+              5,
+              255
+            ],
+            [
+              1,
+              255
+            ],
+            [
+              0,
+              255
+            ]
+          ]
+        },
+        {
+          "path": "native/1600x720/phase_00/passive_96s.png",
+          "sha256": "16b3ed763bea6406fad95ec51a7089e252502bddd2426715d007cd476d372f61",
+          "bytes": 611486,
+          "dimensions": [
+            1600,
+            720
+          ],
+          "channel_extrema": [
+            [
+              5,
+              255
+            ],
+            [
+              1,
+              255
+            ],
+            [
+              0,
+              255
+            ]
+          ]
+        },
+        {
+          "path": "native/1600x720/phase_00/wrong_choice_pressed.png",
+          "sha256": "bfd8b217fdfb603c4be148c5b69f1a0be74705a5d1a6cd79d674a1b6b467a46e",
+          "bytes": 611611,
+          "dimensions": [
+            1600,
+            720
+          ],
+          "channel_extrema": [
+            [
+              5,
+              255
+            ],
+            [
+              1,
+              255
+            ],
+            [
+              0,
+              255
+            ]
+          ]
+        },
+        {
+          "path": "native/1600x720/phase_00/wrong_choice_released.png",
+          "sha256": "0aeafe9d846067deedeed1825b2c686d736efe6e91faaf02478f025506d1a5f3",
+          "bytes": 611478,
+          "dimensions": [
+            1600,
+            720
+          ],
+          "channel_extrema": [
+            [
+              5,
+              255
+            ],
+            [
+              1,
+              255
+            ],
+            [
+              0,
+              255
+            ]
+          ]
+        },
+        {
+          "path": "native/1600x720/phase_00/hint_pressed.png",
+          "sha256": "c9b64218b0cccfc1f84e786d6ab482f08845f8b6bb9a0f8588ead0ea7c19d8a6",
+          "bytes": 611127,
+          "dimensions": [
+            1600,
+            720
+          ],
+          "channel_extrema": [
+            [
+              5,
+              255
+            ],
+            [
+              1,
+              255
+            ],
+            [
+              0,
+              255
+            ]
+          ]
+        },
+        {
+          "path": "native/1600x720/phase_00/hint_released.png",
+          "sha256": "3e2bb99d3bc012294deadfe7516026463e18ff9f8b2e734156e6e6a8ee9c6b8f",
+          "bytes": 611666,
+          "dimensions": [
+            1600,
+            720
+          ],
+          "channel_extrema": [
+            [
+              5,
+              255
+            ],
+            [
+              1,
+              255
+            ],
+            [
+              0,
+              255
+            ]
+          ]
+        },
+        {
+          "path": "native/1600x720/phase_00/final_partial.png",
+          "sha256": "8397e7890464ee1abd5c2c0a5edd38817776200d32a91ed1896fbc8203bc7949",
+          "bytes": 611814,
+          "dimensions": [
+            1600,
+            720
+          ],
+          "channel_extrema": [
+            [
+              5,
+              255
+            ],
+            [
+              1,
+              255
+            ],
+            [
+              0,
+              255
+            ]
+          ]
+        }
+      ],
+      "normal_save_hashes_unchanged": true,
+      "teardown": true
+    },
+    {
+      "manifest": "native/1600x720/phase_01/capture_manifest.json",
+      "manifest_sha256": "3ceca5350589869d2f626bcdc54fefb3e03916636ee14a51a25cec5cfc70876f",
+      "phase": 1,
+      "aspect": [
+        1600,
+        720
+      ],
+      "ordered_ids": [
+        "opened_04s",
+        "passive_96s",
+        "wrong_choice_pressed",
+        "wrong_choice_released",
+        "hint_pressed",
+        "hint_released",
+        "counter0_pressed",
+        "counter0_released",
+        "counter0_repeat_pressed",
+        "counter0_repeat_released",
+        "count_answer_wrong_pressed",
+        "count_answer_wrong_released",
+        "final_partial"
+      ],
+      "frames": [
+        {
+          "path": "native/1600x720/phase_01/opened_04s.png",
+          "sha256": "af42d6ea7ac35bb491bf0794f37696f7e911f23ead41c42f04739f321f58d812",
+          "bytes": 600683,
+          "dimensions": [
+            1600,
+            720
+          ],
+          "channel_extrema": [
+            [
+              5,
+              255
+            ],
+            [
+              1,
+              255
+            ],
+            [
+              0,
+              255
+            ]
+          ]
+        },
+        {
+          "path": "native/1600x720/phase_01/passive_96s.png",
+          "sha256": "200b0277ed7a555d6c1bf96f9b317baa020ea86d5fdc1ce2961f4565c0eb8047",
+          "bytes": 600458,
+          "dimensions": [
+            1600,
+            720
+          ],
+          "channel_extrema": [
+            [
+              5,
+              255
+            ],
+            [
+              1,
+              255
+            ],
+            [
+              0,
+              255
+            ]
+          ]
+        },
+        {
+          "path": "native/1600x720/phase_01/wrong_choice_pressed.png",
+          "sha256": "432dc956cfcf559f913a9456adcb7e354cb2d77fd3274b28991a59ab7cedf437",
+          "bytes": 600271,
+          "dimensions": [
+            1600,
+            720
+          ],
+          "channel_extrema": [
+            [
+              5,
+              255
+            ],
+            [
+              1,
+              255
+            ],
+            [
+              0,
+              255
+            ]
+          ]
+        },
+        {
+          "path": "native/1600x720/phase_01/wrong_choice_released.png",
+          "sha256": "e9fa8296a0a3d5903e3f5c81117375ffeb8d6f491042329184d8cda29b5f1850",
+          "bytes": 600029,
+          "dimensions": [
+            1600,
+            720
+          ],
+          "channel_extrema": [
+            [
+              5,
+              255
+            ],
+            [
+              1,
+              255
+            ],
+            [
+              0,
+              255
+            ]
+          ]
+        },
+        {
+          "path": "native/1600x720/phase_01/hint_pressed.png",
+          "sha256": "fa2011d2f2e9276a90007fabd6ffcb0100b0a78f6909e1b7880afc75208ee2a9",
+          "bytes": 599972,
+          "dimensions": [
+            1600,
+            720
+          ],
+          "channel_extrema": [
+            [
+              5,
+              255
+            ],
+            [
+              1,
+              255
+            ],
+            [
+              0,
+              255
+            ]
+          ]
+        },
+        {
+          "path": "native/1600x720/phase_01/hint_released.png",
+          "sha256": "391bcb0c17c3386dc00346768f0be20d3a876a53282ff134f23f573e9fb06408",
+          "bytes": 600365,
+          "dimensions": [
+            1600,
+            720
+          ],
+          "channel_extrema": [
+            [
+              5,
+              255
+            ],
+            [
+              1,
+              255
+            ],
+            [
+              0,
+              255
+            ]
+          ]
+        },
+        {
+          "path": "native/1600x720/phase_01/counter0_pressed.png",
+          "sha256": "5d6cf018b284e20fea07fba0144b5f5c788cbe28f7b2a3b67717993dfe7ebd58",
+          "bytes": 600561,
+          "dimensions": [
+            1600,
+            720
+          ],
+          "channel_extrema": [
+            [
+              5,
+              255
+            ],
+            [
+              1,
+              255
+            ],
+            [
+              0,
+              255
+            ]
+          ]
+        },
+        {
+          "path": "native/1600x720/phase_01/counter0_released.png",
+          "sha256": "639ee3b7ac8033453500b9ba70c963d4bed4f5cda94f42c578b622e8eabef8ca",
+          "bytes": 601838,
+          "dimensions": [
+            1600,
+            720
+          ],
+          "channel_extrema": [
+            [
+              5,
+              255
+            ],
+            [
+              1,
+              255
+            ],
+            [
+              0,
+              255
+            ]
+          ]
+        },
+        {
+          "path": "native/1600x720/phase_01/counter0_repeat_pressed.png",
+          "sha256": "dec4cbca0e9e214471e78d67c499c3fa495f9b4773f79d6447943603b1424329",
+          "bytes": 601779,
+          "dimensions": [
+            1600,
+            720
+          ],
+          "channel_extrema": [
+            [
+              5,
+              255
+            ],
+            [
+              1,
+              255
+            ],
+            [
+              0,
+              255
+            ]
+          ]
+        },
+        {
+          "path": "native/1600x720/phase_01/counter0_repeat_released.png",
+          "sha256": "f9f7d2ec7954eb7eb61041ce124e31713bd14520d741e0a04f9badd640f37b3d",
+          "bytes": 601671,
+          "dimensions": [
+            1600,
+            720
+          ],
+          "channel_extrema": [
+            [
+              5,
+              255
+            ],
+            [
+              1,
+              255
+            ],
+            [
+              0,
+              255
+            ]
+          ]
+        },
+        {
+          "path": "native/1600x720/phase_01/count_answer_wrong_pressed.png",
+          "sha256": "05f240d1a8926f0f25d5e2c047195957c9e7555937bb48f2bb256328c00070bc",
+          "bytes": 601523,
+          "dimensions": [
+            1600,
+            720
+          ],
+          "channel_extrema": [
+            [
+              5,
+              255
+            ],
+            [
+              1,
+              255
+            ],
+            [
+              0,
+              255
+            ]
+          ]
+        },
+        {
+          "path": "native/1600x720/phase_01/count_answer_wrong_released.png",
+          "sha256": "f39f2e3c4bfeae55bf929d5b6c5155bdf635163e7b088f3de07168ee53663214",
+          "bytes": 601495,
+          "dimensions": [
+            1600,
+            720
+          ],
+          "channel_extrema": [
+            [
+              5,
+              255
+            ],
+            [
+              1,
+              255
+            ],
+            [
+              0,
+              255
+            ]
+          ]
+        },
+        {
+          "path": "native/1600x720/phase_01/final_partial.png",
+          "sha256": "2b123c34a5512100c5ae4ccb470e0701a58796821a8c0531cf1da0f67a8e7cea",
+          "bytes": 601404,
+          "dimensions": [
+            1600,
+            720
+          ],
+          "channel_extrema": [
+            [
+              5,
+              255
+            ],
+            [
+              1,
+              255
+            ],
+            [
+              0,
+              255
+            ]
+          ]
+        }
+      ],
+      "normal_save_hashes_unchanged": true,
+      "teardown": true
+    },
+    {
+      "manifest": "native/1600x720/phase_02/capture_manifest.json",
+      "manifest_sha256": "85744fc7d431e22ff6a8bd1bd2a89244dc9df60e191b0240e3604c420971bd28",
+      "phase": 2,
+      "aspect": [
+        1600,
+        720
+      ],
+      "ordered_ids": [
+        "opened_04s",
+        "passive_96s",
+        "wrong_choice_pressed",
+        "wrong_choice_released",
+        "hint_pressed",
+        "hint_released",
+        "join_pressed",
+        "join_released",
+        "join_moving",
+        "join_settled",
+        "counter0_pressed",
+        "counter0_released",
+        "counter0_repeat_pressed",
+        "counter0_repeat_released",
+        "final_partial"
+      ],
+      "frames": [
+        {
+          "path": "native/1600x720/phase_02/opened_04s.png",
+          "sha256": "5be55a7c7c10db1164be9f6ffbec1ee0f743c52f7333421747018c1f6faebf1d",
+          "bytes": 609157,
+          "dimensions": [
+            1600,
+            720
+          ],
+          "channel_extrema": [
+            [
+              5,
+              255
+            ],
+            [
+              1,
+              255
+            ],
+            [
+              0,
+              255
+            ]
+          ]
+        },
+        {
+          "path": "native/1600x720/phase_02/passive_96s.png",
+          "sha256": "0bfa4ff3ac97998b0cc756039934f3a199558c6f8633601294cf79f2ec09bc12",
+          "bytes": 609191,
+          "dimensions": [
+            1600,
+            720
+          ],
+          "channel_extrema": [
+            [
+              5,
+              255
+            ],
+            [
+              1,
+              255
+            ],
+            [
+              0,
+              255
+            ]
+          ]
+        },
+        {
+          "path": "native/1600x720/phase_02/wrong_choice_pressed.png",
+          "sha256": "b925ce9c9e9b476ed6a7ba143289e50e3d25e540466a3a8763a5fcbea7729083",
+          "bytes": 609379,
+          "dimensions": [
+            1600,
+            720
+          ],
+          "channel_extrema": [
+            [
+              5,
+              255
+            ],
+            [
+              1,
+              255
+            ],
+            [
+              0,
+              255
+            ]
+          ]
+        },
+        {
+          "path": "native/1600x720/phase_02/wrong_choice_released.png",
+          "sha256": "ddb41c34236e7c8726470eb428b9d1a34424cfd2bef5313540d4941865bc170e",
+          "bytes": 609570,
+          "dimensions": [
+            1600,
+            720
+          ],
+          "channel_extrema": [
+            [
+              5,
+              255
+            ],
+            [
+              1,
+              255
+            ],
+            [
+              0,
+              255
+            ]
+          ]
+        },
+        {
+          "path": "native/1600x720/phase_02/hint_pressed.png",
+          "sha256": "e070a997c8c026a3b57962a53c0c4d55d0101941bd38d352ba0a4a112b1e0f68",
+          "bytes": 609607,
+          "dimensions": [
+            1600,
+            720
+          ],
+          "channel_extrema": [
+            [
+              5,
+              255
+            ],
+            [
+              1,
+              255
+            ],
+            [
+              0,
+              255
+            ]
+          ]
+        },
+        {
+          "path": "native/1600x720/phase_02/hint_released.png",
+          "sha256": "fc1ab02118b960b0eae04b7169c9f94af657bede9c9574bceddd67fa904be830",
+          "bytes": 609264,
+          "dimensions": [
+            1600,
+            720
+          ],
+          "channel_extrema": [
+            [
+              5,
+              255
+            ],
+            [
+              1,
+              255
+            ],
+            [
+              0,
+              255
+            ]
+          ]
+        },
+        {
+          "path": "native/1600x720/phase_02/join_pressed.png",
+          "sha256": "6957e8b6aa7f40275282b3d47b4d5a447968b5b368d4d74a154dcb4b6b0661e0",
+          "bytes": 609146,
+          "dimensions": [
+            1600,
+            720
+          ],
+          "channel_extrema": [
+            [
+              5,
+              255
+            ],
+            [
+              1,
+              255
+            ],
+            [
+              0,
+              255
+            ]
+          ]
+        },
+        {
+          "path": "native/1600x720/phase_02/join_released.png",
+          "sha256": "75b99ca3906b04e8db5092102f851e4d9729524dec4ea1bcca3439ac53280580",
+          "bytes": 599232,
+          "dimensions": [
+            1600,
+            720
+          ],
+          "channel_extrema": [
+            [
+              5,
+              255
+            ],
+            [
+              1,
+              255
+            ],
+            [
+              0,
+              255
+            ]
+          ]
+        },
+        {
+          "path": "native/1600x720/phase_02/join_moving.png",
+          "sha256": "8cd7a9c66c5031fe424b0455361fc6cc10fe411307f40b38ef4d62aa5609e49b",
+          "bytes": 599424,
+          "dimensions": [
+            1600,
+            720
+          ],
+          "channel_extrema": [
+            [
+              5,
+              255
+            ],
+            [
+              1,
+              255
+            ],
+            [
+              0,
+              255
+            ]
+          ]
+        },
+        {
+          "path": "native/1600x720/phase_02/join_settled.png",
+          "sha256": "b6449629eb7800cf9f3a956dfeec7b1daaedbde9e95054e79f9168c017dccccc",
+          "bytes": 598648,
+          "dimensions": [
+            1600,
+            720
+          ],
+          "channel_extrema": [
+            [
+              5,
+              255
+            ],
+            [
+              1,
+              255
+            ],
+            [
+              0,
+              255
+            ]
+          ]
+        },
+        {
+          "path": "native/1600x720/phase_02/counter0_pressed.png",
+          "sha256": "77957a3b25edc78df7a303d1384ac51513888c3f529e9ef7be6a29f52dd0bc5f",
+          "bytes": 598464,
+          "dimensions": [
+            1600,
+            720
+          ],
+          "channel_extrema": [
+            [
+              5,
+              255
+            ],
+            [
+              1,
+              255
+            ],
+            [
+              0,
+              255
+            ]
+          ]
+        },
+        {
+          "path": "native/1600x720/phase_02/counter0_released.png",
+          "sha256": "de43051a6f5c5407f824d3cf9c740862c38d742a14137039aaed669d475ff4f7",
+          "bytes": 599273,
+          "dimensions": [
+            1600,
+            720
+          ],
+          "channel_extrema": [
+            [
+              5,
+              255
+            ],
+            [
+              1,
+              255
+            ],
+            [
+              0,
+              255
+            ]
+          ]
+        },
+        {
+          "path": "native/1600x720/phase_02/counter0_repeat_pressed.png",
+          "sha256": "c43e7e9732dcfcb23cc41e0fd25a4ab6936f4c674acb926aa195834cc7634741",
+          "bytes": 599329,
+          "dimensions": [
+            1600,
+            720
+          ],
+          "channel_extrema": [
+            [
+              5,
+              255
+            ],
+            [
+              1,
+              255
+            ],
+            [
+              0,
+              255
+            ]
+          ]
+        },
+        {
+          "path": "native/1600x720/phase_02/counter0_repeat_released.png",
+          "sha256": "bb8d8bc7522366652fa3a2124a017a5791ebe8a70514be54095d308dfaa646c8",
+          "bytes": 599368,
+          "dimensions": [
+            1600,
+            720
+          ],
+          "channel_extrema": [
+            [
+              5,
+              255
+            ],
+            [
+              1,
+              255
+            ],
+            [
+              0,
+              255
+            ]
+          ]
+        },
+        {
+          "path": "native/1600x720/phase_02/final_partial.png",
+          "sha256": "ad3442199ce123e770641d380e6b1aeb33129eb9fdedf8d35596d82b2765ab1a",
+          "bytes": 599514,
+          "dimensions": [
+            1600,
+            720
+          ],
+          "channel_extrema": [
+            [
+              5,
+              255
+            ],
+            [
+              1,
+              255
+            ],
+            [
+              0,
+              255
+            ]
+          ]
+        }
+      ],
+      "normal_save_hashes_unchanged": true,
+      "teardown": true
+    },
+    {
+      "manifest": "native/1600x720/phase_03/capture_manifest.json",
+      "manifest_sha256": "8eb358fef38f2386c6a1bf5e95bfbb2f2ce45bb22dc07def014c1e29f2caeb33",
+      "phase": 3,
+      "aspect": [
+        1600,
+        720
+      ],
+      "ordered_ids": [
+        "opened_04s",
+        "passive_96s",
+        "wrong_choice_pressed",
+        "wrong_choice_released",
+        "hint_pressed",
+        "hint_released",
+        "final_partial"
+      ],
+      "frames": [
+        {
+          "path": "native/1600x720/phase_03/opened_04s.png",
+          "sha256": "2b8e7f04f7d5c77594286361708f866a78c6c6cf7af1ebee5f1b03d268f55185",
+          "bytes": 601257,
+          "dimensions": [
+            1600,
+            720
+          ],
+          "channel_extrema": [
+            [
+              5,
+              255
+            ],
+            [
+              1,
+              255
+            ],
+            [
+              0,
+              255
+            ]
+          ]
+        },
+        {
+          "path": "native/1600x720/phase_03/passive_96s.png",
+          "sha256": "3388f1c6c7222b67ed14e1e58b233b71a1c91668369eb57d9c8eb22de30a4ca1",
+          "bytes": 605326,
+          "dimensions": [
+            1600,
+            720
+          ],
+          "channel_extrema": [
+            [
+              5,
+              255
+            ],
+            [
+              1,
+              255
+            ],
+            [
+              0,
+              255
+            ]
+          ]
+        },
+        {
+          "path": "native/1600x720/phase_03/wrong_choice_pressed.png",
+          "sha256": "d5913086a4f9e5606c2979a9424801b5cb563c86ec4373a792aeba07303036fa",
+          "bytes": 605356,
+          "dimensions": [
+            1600,
+            720
+          ],
+          "channel_extrema": [
+            [
+              5,
+              255
+            ],
+            [
+              1,
+              255
+            ],
+            [
+              0,
+              255
+            ]
+          ]
+        },
+        {
+          "path": "native/1600x720/phase_03/wrong_choice_released.png",
+          "sha256": "46086a777dedb67b06063f578670ad3a1a7f602027d2ad3735fe5d1ddd666e4d",
+          "bytes": 605176,
+          "dimensions": [
+            1600,
+            720
+          ],
+          "channel_extrema": [
+            [
+              5,
+              255
+            ],
+            [
+              1,
+              255
+            ],
+            [
+              0,
+              255
+            ]
+          ]
+        },
+        {
+          "path": "native/1600x720/phase_03/hint_pressed.png",
+          "sha256": "e8703f5aef843926c50200209bff6ae421f5ff9aa928db5d0bf426758e2f51b7",
+          "bytes": 604819,
+          "dimensions": [
+            1600,
+            720
+          ],
+          "channel_extrema": [
+            [
+              5,
+              255
+            ],
+            [
+              1,
+              255
+            ],
+            [
+              0,
+              255
+            ]
+          ]
+        },
+        {
+          "path": "native/1600x720/phase_03/hint_released.png",
+          "sha256": "32d4e23347a3be68a5be5e327a87778d70657a09c593bc7c27afcbcedf848ab2",
+          "bytes": 605411,
+          "dimensions": [
+            1600,
+            720
+          ],
+          "channel_extrema": [
+            [
+              5,
+              255
+            ],
+            [
+              1,
+              255
+            ],
+            [
+              0,
+              255
+            ]
+          ]
+        },
+        {
+          "path": "native/1600x720/phase_03/final_partial.png",
+          "sha256": "a0db5ee97cff15c142e6761e087f04bd2800c16854ec30005bdbc2b44efd5f25",
+          "bytes": 605619,
+          "dimensions": [
+            1600,
+            720
+          ],
+          "channel_extrema": [
+            [
+              5,
+              255
+            ],
+            [
+              1,
+              255
+            ],
+            [
+              0,
+              255
+            ]
+          ]
+        }
+      ],
+      "normal_save_hashes_unchanged": true,
+      "teardown": true
+    }
+  ],
+  "frame_count": 84,
+  "unique_frame_count": 84,
+  "private_profile_count": 8,
+  "human_visual_acceptance": null,
+  "QA11": null,
+  "limits": "Independent ordered/hash/nonblank/presentation/save/nativeowner checks of the bounded matrix;no fresh random QA11 target challenge,full active dependency closure,GPU sourceprojection or naturalroute/device/child/owner evidence. Initial79invalidfield framesexcluded."
+}

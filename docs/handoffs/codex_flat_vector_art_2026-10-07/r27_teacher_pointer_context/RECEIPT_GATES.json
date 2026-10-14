@@ -1,4 +1,58 @@
 {
-  "status": "PENDING",
-  "creative_acceptance": false
+  "status": "PASS_WITH_ACCEPTANCE_OPEN",
+  "commands": [
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-B",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r27_teacher_pointer_context\\validate.py"
+      ],
+      "started_at_utc": "2026-10-14T03:22:47.104755+00:00",
+      "checked_at_utc": "2026-10-14T03:22:54.235116+00:00",
+      "exit_code": 0,
+      "result": "PASS",
+      "evidence": "receipt_gates.log"
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-B",
+        "tools/audit_document_authority.py"
+      ],
+      "started_at_utc": "2026-10-14T03:22:54.235175+00:00",
+      "checked_at_utc": "2026-10-14T03:23:17.710089+00:00",
+      "exit_code": 0,
+      "result": "PASS",
+      "evidence": "receipt_gates.log"
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-B",
+        "tools/audit_development.py",
+        "--base",
+        "auto"
+      ],
+      "started_at_utc": "2026-10-14T03:23:17.710145+00:00",
+      "checked_at_utc": "2026-10-14T03:23:24.917184+00:00",
+      "exit_code": 0,
+      "result": "PASS",
+      "evidence": "receipt_gates.log"
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-B",
+        "tools/audit_game_2d.py",
+        "--regression-gate"
+      ],
+      "started_at_utc": "2026-10-14T03:23:24.917235+00:00",
+      "checked_at_utc": "2026-10-14T03:27:21.516153+00:00",
+      "exit_code": 0,
+      "result": "PASS",
+      "evidence": "receipt_gates.log"
+    }
+  ],
+  "raw_log_sha256": "52757caffd5c9b3ef23d131513cf0ef51b1ab10330a382c4f4ea580878b61f68",
+  "scope": "Nonruntime Teacher four-kind source-bound context diagnostic;production/source pixels unchanged;inherited R16 exact82 trusted native passes. New fixture checks separate;no art generation/replacement/acceptance. Global/QA11/device/child/owner remain open."
 }
