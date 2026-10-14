@@ -1,6 +1,12 @@
-Current canonical evidence: [R41 companion context](r41_companion_context/README.md), [registry](r41_companion_context/per_piece.json), [coverage](r41_companion_context/scene_coverage.json), [tally](r41_companion_context/tally.json).
+Current canonical evidence: [R42 companion fit trial](r42_companion_preview_fit/README.md), [registry](r42_companion_preview_fit/per_piece.json), [coverage](r42_companion_preview_fit/scene_coverage.json), [tally](r42_companion_preview_fit/tally.json).
 
-# Current R41 companion consumer audit
+# Current R42 companion fit trial
+
+Six supported isolated cases/40 exact live boxes pass;original production/art unchanged.230roles/31families,0accepted removals/globalunknown. Third-color/title/style/contact/ambient and inventory/acceptance lanes remainopen.
+
+Historical R41 evidence: [R41 companion context](r41_companion_context/README.md), [registry](r41_companion_context/per_piece.json), [coverage](r41_companion_context/scene_coverage.json), [tally](r41_companion_context/tally.json).
+
+# Historical R41 companion consumer audit
 
 Current fit/third-color/style failures documented:6 supported native cases/167 retained/56 credits;230 known roles/31 families,0 accepted removals/global totals unknown. Original sources/production unchanged; fit repair next, all required acceptance open.
 

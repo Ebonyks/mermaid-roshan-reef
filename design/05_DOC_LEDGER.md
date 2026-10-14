@@ -1080,7 +1080,7 @@ release/device/child/owner authority retain precedence.
 | `docs/handoffs/codex_flat_vector_art_2026-10-07/live_v6/README.md` | 🔵 | `SUPPORTING_CURRENT`; R6 diagnostic evidence on a separate origin/dev topic branch.980 new/1584 cumulative bounded frames,1686 retained including102 excluded diagnostics;76/176 partial,zero complete,18 inventory-classified/351 unresolved scopes;unknown unique all-game artwork total.44 existing named records have partial independent review. Historical slice totals and blocked draft states remain scoped to Oct8. No R5 rewrite,source exemption,pixel replacement,acceptance,closure or release authority; publication receipt separately required. |
 | `docs/handoffs/codex_flat_vector_art_2026-10-07/live_v6/room_routes/README.md` | 🔵 | `SUPPORTING_CURRENT`; R6 diagnostic evidence on a separate origin/dev topic branch.980 new/1584 cumulative bounded frames,1686 retained including102 excluded diagnostics;76/176 partial,zero complete,18 inventory-classified/351 unresolved scopes;unknown unique all-game artwork total.44 existing named records have partial independent review. Historical slice totals and blocked draft states remain scoped to Oct8. No R5 rewrite,source exemption,pixel replacement,acceptance,closure or release authority; publication receipt separately required. |
 | `docs/handoffs/codex_flat_vector_art_2026-10-07/PRODUCTION_BACKLOG.md` | 🔵 | `SUPPORTING_CURRENT`; R6 diagnostic evidence on a separate origin/dev topic branch.980 new/1584 cumulative bounded frames,1686 retained including102 excluded diagnostics;76/176 partial,zero complete,18 inventory-classified/351 unresolved scopes;unknown unique all-game artwork total.44 existing named records have partial independent review. Historical slice totals and blocked draft states remain scoped to Oct8. No R5 rewrite,source exemption,pixel replacement,acceptance,closure or release authority; publication receipt separately required. |
-| `docs/handoffs/codex_flat_vector_art_2026-10-07/README.md` | 🔵 | `SUPPORTING_CURRENT`;mutable R41 companion consumer/fit/third/style routing.230 role records/31 families,0 accepted removals/global unknown;historical packets preserved. |
+| `docs/handoffs/codex_flat_vector_art_2026-10-07/README.md` | 🔵 | `SUPPORTING_CURRENT`;mutable R42 companion fit-trial routing.230role records/31families,0accepted/globalunknown;historical packets preserved. |
 
 ## R7 Craft context addendum (2026-10-12)
 
@@ -1227,3 +1227,9 @@ release/device/child/owner authority retain precedence.
 | Document | Status | Scope |
 |---|---|---|
 | `docs/handoffs/codex_flat_vector_art_2026-10-07/r41_companion_context/README.md` | 🔵 | `SUPPORTING_CURRENT`;source baseline de44f9bb,6 supported native cases/167 retained/56 credits/111 exclusions.3 new identity roles;8 actual minimum-size bad/fixed-order pairs and third-color decoded ROI invariance atboth aspects. No source pixels/production/art/acceptance change;230 roles/31 families,all global/natural/QA11/device/child/owner gaps open. |
+
+## Companion preview-fit trial — 2026-10-14 R42
+
+| Document | Status | Scope |
+|---|---|---|
+| `docs/handoffs/codex_flat_vector_art_2026-10-07/r42_companion_preview_fit/README.md` | 🔵 | `SUPPORTING_CURRENT`;baseline ef3b12fc,6 ignored native cases/100retained/56credits/44exclusions.40 exact live boxes and8 bad/fixed-order pairs;12current+4prior directviews. No production/art acceptance change;Mewsha third/title/style/contact/ambient/callers/inventory/QA11/device/child/owner remainopen. |

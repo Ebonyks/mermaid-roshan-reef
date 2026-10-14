@@ -156,3 +156,7 @@ docs/handoffs/codex_flat_vector_art_2026-10-07/r40_craft_whole_fish_trial/*.log 
 # R41 preserve exact raw native/diagnostic/gate log bytes;no production exclusions.
 docs/handoffs/codex_flat_vector_art_2026-10-07/r41_companion_context/**/*.log -text -diff
 docs/handoffs/codex_flat_vector_art_2026-10-07/r41_companion_context/*.log -text -diff
+
+# R42 exact native and gate log preservation.
+docs/handoffs/codex_flat_vector_art_2026-10-07/r42_companion_preview_fit/**/*.log -text -diff
+docs/handoffs/codex_flat_vector_art_2026-10-07/r42_companion_preview_fit/*.log -text -diff
