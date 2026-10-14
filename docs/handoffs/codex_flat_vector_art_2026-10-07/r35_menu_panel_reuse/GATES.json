@@ -1,0 +1,115 @@
+{
+  "status": "PASS_WITH_ACCEPTANCE_OPEN",
+  "commands": [
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-m",
+        "gdtoolkit.parser",
+        "docs/handoffs/codex_flat_vector_art_2026-10-07/r35_menu_panel_reuse/capture_menu_panel_reuse.gd"
+      ],
+      "started_at_utc": "2026-10-14T12:18:36.639090+00:00",
+      "checked_at_utc": "2026-10-14T12:18:37.512936+00:00",
+      "exit_code": 0,
+      "result": "PASS",
+      "evidence": "gates.log"
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-B",
+        "tools/lint_inference.py",
+        "docs/handoffs/codex_flat_vector_art_2026-10-07/r35_menu_panel_reuse/capture_menu_panel_reuse.gd"
+      ],
+      "started_at_utc": "2026-10-14T12:18:37.513002+00:00",
+      "checked_at_utc": "2026-10-14T12:18:37.631857+00:00",
+      "exit_code": 0,
+      "result": "PASS",
+      "evidence": "gates.log"
+    },
+    {
+      "command": [
+        "C:/Users/Peter/AppData/Local/Programs/MermaidReefTools/Godot/4.7.2/godot_console.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef",
+        "--check-only",
+        "--script",
+        "docs/handoffs/codex_flat_vector_art_2026-10-07/r35_menu_panel_reuse/capture_menu_panel_reuse.gd"
+      ],
+      "started_at_utc": "2026-10-14T12:18:37.631913+00:00",
+      "checked_at_utc": "2026-10-14T12:18:44.633187+00:00",
+      "exit_code": 0,
+      "result": "PASS",
+      "evidence": "gates.log"
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-B",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r35_menu_panel_reuse\\validate.py"
+      ],
+      "started_at_utc": "2026-10-14T12:18:44.633263+00:00",
+      "checked_at_utc": "2026-10-14T12:19:00.331063+00:00",
+      "exit_code": 0,
+      "result": "PASS",
+      "evidence": "gates.log"
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-B",
+        "tools/audit_document_authority.py"
+      ],
+      "started_at_utc": "2026-10-14T12:19:00.331138+00:00",
+      "checked_at_utc": "2026-10-14T12:19:10.942773+00:00",
+      "exit_code": 0,
+      "result": "PASS",
+      "evidence": "gates.log"
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-B",
+        "tools/audit_development.py",
+        "--base",
+        "auto"
+      ],
+      "started_at_utc": "2026-10-14T12:19:10.942822+00:00",
+      "checked_at_utc": "2026-10-14T12:19:15.365423+00:00",
+      "exit_code": 0,
+      "result": "PASS",
+      "evidence": "gates.log"
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-B",
+        "-m",
+        "unittest",
+        "tools.tests.test_audit_document_authority",
+        "tools.tests.test_audit_development"
+      ],
+      "started_at_utc": "2026-10-14T12:19:15.365484+00:00",
+      "checked_at_utc": "2026-10-14T12:19:27.008904+00:00",
+      "exit_code": 0,
+      "result": "PASS",
+      "evidence": "gates.log"
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-B",
+        "tools/audit_game_2d.py",
+        "--regression-gate"
+      ],
+      "started_at_utc": "2026-10-14T12:19:27.008965+00:00",
+      "checked_at_utc": "2026-10-14T12:21:04.108434+00:00",
+      "exit_code": 0,
+      "result": "PASS",
+      "evidence": "gates.log"
+    }
+  ],
+  "raw_log_sha256": "3118b64a5ae7ef5eac52798832310b3663c2cba36dd9a86941f0fe93de17c04d",
+  "scope": "R35threepanelmaterial repairinisolatedcandidate,126native/38beforefixturecontext/12originalnodecomparisons/panelsourcecallercensus;neighborcongruencyopen. RetainedR32actualfull82 atunchangedproduction,no newfull82run. AllQA11/device/child/owner/globalinventory acceptanceopen."
+}

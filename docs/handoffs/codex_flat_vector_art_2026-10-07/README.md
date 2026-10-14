@@ -1,6 +1,12 @@
-Current canonical evidence: [R34 focus repair](r34_menu_focus_repair/README.md), [registry](r34_menu_focus_repair/per_piece.json), [coverage](r34_menu_focus_repair/scene_coverage.json), [tally](r34_menu_focus_repair/tally.json).
+Current canonical evidence: [R35 panel reuse](r35_menu_panel_reuse/README.md), [registry](r35_menu_panel_reuse/per_piece.json), [coverage](r35_menu_panel_reuse/scene_coverage.json), [tally](r35_menu_panel_reuse/tally.json).
 
-# Current R34 bounded focus repair
+# Current R35 bounded panel material reuse
+
+Three original menu panels use existing painted material in an isolated candidate; proceduralneighbors/style/acceptance remainopen. 3125 bounded capture credits/3875 retained/750 excluded;56existingpartial/12families,78/176partial/98without/0complete;225knownroles/30families,0acceptedremoved,wholegame totalsunknown.
+
+Historical R34 routing: [R34 focus repair](r34_menu_focus_repair/README.md), [registry](r34_menu_focus_repair/per_piece.json), [coverage](r34_menu_focus_repair/scene_coverage.json), [tally](r34_menu_focus_repair/tally.json).
+
+# Historical R34 bounded focus repair
 
 The isolated candidate removes the R33 paper seam; original art/production/input geometry preserved.126 native/16views, 3053 bounded capture credits/3749 retained/696 excluded;56existingpartial/12families,78/176partial/98without/0complete;225knownroles/30families,0acceptedremoved,wholegame totalsunknown.
 
