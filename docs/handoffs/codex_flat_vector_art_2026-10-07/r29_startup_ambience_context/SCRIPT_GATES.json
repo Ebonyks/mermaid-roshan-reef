@@ -1,0 +1,35 @@
+[
+  {
+    "command": [
+      "python",
+      "-m",
+      "gdtoolkit.parser",
+      "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r29_startup_ambience_context\\capture_startup.gd"
+    ],
+    "exit_code": 0,
+    "checked_at_utc": "2026-10-14T04:49:01.020753+00:00"
+  },
+  {
+    "command": [
+      "python",
+      "-B",
+      "tools/lint_inference.py",
+      "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r29_startup_ambience_context\\capture_startup.gd"
+    ],
+    "exit_code": 0,
+    "checked_at_utc": "2026-10-14T04:49:01.180396+00:00"
+  },
+  {
+    "command": [
+      "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+      "--headless",
+      "--path",
+      "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef",
+      "--check-only",
+      "--script",
+      "res://.godot/r29_capture_startup.gd"
+    ],
+    "exit_code": 0,
+    "checked_at_utc": "2026-10-14T04:49:13.701352+00:00"
+  }
+]

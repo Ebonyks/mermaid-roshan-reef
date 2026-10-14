@@ -1,6 +1,12 @@
-Current canonical evidence: [R28Teacher handreuse](r28_teacher_pointer_reuse/README.md), [registry](r28_teacher_pointer_reuse/per_piece.json), [coverage](r28_teacher_pointer_reuse/scene_coverage.json), [tally](r28_teacher_pointer_reuse/tally.json).
+Current canonical evidence: [R29 startup ambience](r29_startup_ambience_context/README.md), [registry](r29_startup_ambience_context/per_piece.json), [coverage](r29_startup_ambience_context/scene_coverage.json), [tally](r29_startup_ambience_context/tally.json).
 
-# Current R28Teacher wholehand trial
+# Current R29 normal startup route correction
+
+Actual display proves procedural bubble/sparkle/moon live aboveStartMenu;moon crossesOptions.16native/16views;54existingpartial/12families,78/176partial/98without,2748bounded/3031retained.100catalogue/300source slots notscreens/pieces.0artadoption/acceptance;unknownwhole-gameinventory.
+
+Historical R28 routing: [R28Teacher handreuse](r28_teacher_pointer_reuse/README.md), [registry](r28_teacher_pointer_reuse/per_piece.json), [coverage](r28_teacher_pointer_reuse/scene_coverage.json), [tally](r28_teacher_pointer_reuse/tally.json).
+
+# Historical R28Teacher wholehand trial
 
 84retained/24uniquecontext images,60duplicateviews excluded;20inspections/18unique. Clearer existing-hand silhouette,guide waits duringcounterjoin;human/device approval open.51partialexisting/11families,2732bounded/3015retained,225known/30families;1hand/4perpiece requests. Zero acceptedremovals,unknown fullinventory.
 

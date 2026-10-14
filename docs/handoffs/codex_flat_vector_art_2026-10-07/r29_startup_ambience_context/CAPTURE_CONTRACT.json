@@ -1,0 +1,17 @@
+{
+  "schema": "reef.native_capture_contract/1",
+  "status": "PASS_DIAGNOSTIC_ONLY",
+  "fixture_hash": "9c77eab849fee5629ded3718f2435cdb03f56fa8aabb1903d86ea4bb1a311ac2",
+  "normal_save_profiles": 8,
+  "natural_entry": true,
+  "headless_or_route_override": false,
+  "ordered_native_manifests": 2,
+  "retained_event_frame_count": 16,
+  "credited_unique_frame_count": 16,
+  "exact_check_python": "from pathlib import Path\nimport json,hashlib\nfrom PIL import Image,ImageStat\nP=Path('docs/handoffs/codex_flat_vector_art_2026-10-07/r29_startup_ambience_context')\nexpected=['normal_startup','continuous_2s','idle_00','idle_25','idle_50','idle_75','idle_settled','background_touch_released']\nrows=[]\nfor f in sorted((P/'native').glob('*/capture_manifest.json')):\n d=json.loads(f.read_text());e=d['engine'];assert [e['major'],e['minor'],e['patch'],e['status'],e['build'],e['hash']]==[4,7,2,'stable','official','ed1daf0bf001b61586d9930840f2f1394092c079']\n assert d['rendering_method']=='mobile' and d['display_server']!='headless' and d['quality']=='speedy' and not d['errors'] and not d['teardown_main_valid']\n assert d['normal_save_before']==d['normal_save_after']==d['normal_save_after_teardown'] and len(d['normal_save_before'])==8\n assert [x['id'] for x in d['states']]==expected and len(d['catalogue'])==100\n assert '/profiles/startup/' in d['private_profile_path'].replace('\\\\','/')\n previous=-1.0\n for x in d['states']:\n  assert x['elapsed_seconds']>previous;previous=x['elapsed_seconds'];pres=x['presentation']\n  assert pres['start_menu_active'] and pres['start_menu_layer_present'] and pres['intro_active'] and not pres['intro_overlay_present'] and not pres['boot_splash_present'] and pres['fade_alpha']<=.02\n  assert x['active_stage']==x['resolved_stage']=='intro.storybook' and x['layer_visible'] and x['canvas_visible'] and x['layer_index']==21 and not x['suspended'] and x['quiet_group_nodes']==0 and x['probe_stage_override']=='' and x['quality']=='speedy'\n  assert x['background']['visible'] and x['background']['texture']=='res://assets/ui/boot_splash_mermaid_roshan.png' and x['background']['texture_sha256']=='d5127c4a6227baab05343dc10692e2f76f1dd59f22ca24a22329de402dbb8044'\n  assert any(a['path'].endswith('/StartMenu') and a['layer']==20 and a['visible'] for a in x['layers'])\n  q=f.parent/x['image']['file'];b=q.read_bytes();assert hashlib.sha256(b).hexdigest()==x['image']['sha256'] and len(b)==x['image']['bytes']\n  im=Image.open(q).convert('RGB');assert list(im.size)==d['aspect']==x['image']['dimensions'] and min(ImageStat.Stat(im).stddev)>20;rows.append(x['image']['sha256'])\n for i,p in enumerate([0,.25,.5,.75]):\n  x=d['states'][i+2];assert p<=x['canvas_event_progress']<p+.04 and x['event_count']==1\n assert d['states'][2]['idle_time']>=22 and d['states'][0]['event_count']==0 and d['states'][6]['canvas_event_progress']==-1 and d['states'][-1]['event_count']==1 and d['states'][-1]['idle_time']<.3\nassert len(rows)==len(set(rows))==16\n",
+  "QA11": null,
+  "device": null,
+  "child": null,
+  "owner": null,
+  "scope": "Actual desktop4.7.2MobileSpeedy pixels/foreground owners/nonblank/sourcehash/private-profile/order/teardown/duplicates. QA15 bounded diagnostic consistency;not whole-game assurance,QA11 orhumanacceptance."
+}

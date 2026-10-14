@@ -1,0 +1,116 @@
+{
+  "schema": "reef.flat_vector_context_review/1",
+  "revision": "FV-AUDIT-20261014-R29",
+  "source_revision": "4c5ffcaf73b4b730b266d5bf415fd662bf6084f1",
+  "piece_ids": [
+    "FV-286EA25FDB27",
+    "FV-D4719703FA36",
+    "FV-2FA8B6B257A3"
+  ],
+  "family": "shared_ambience",
+  "route": "intro.storybook on ui.start",
+  "source_images_directly_viewed": [
+    "assets/ui/boot_splash_mermaid_roshan.png"
+  ],
+  "same_scene_reference": {
+    "path": "assets/ui/boot_splash_mermaid_roshan.png",
+    "revision": "4c5ffcaf73b4b730b266d5bf415fd662bf6084f1",
+    "sha256": "d5127c4a6227baab05343dc10692e2f76f1dd59f22ca24a22329de402dbb8044",
+    "bytes": 1848681,
+    "role": "Same-scene painted boot background source preserved",
+    "current_worktree_raw_sha256": "d5127c4a6227baab05343dc10692e2f76f1dd59f22ca24a22329de402dbb8044",
+    "acceptance_scope": "Existing production source/author-comment scope;preserved unchanged. No new current visual/device/child/owner acceptance established."
+  },
+  "direct_native_views": [
+    "native/1280x720/normal_startup.png",
+    "native/1280x720/continuous_2s.png",
+    "native/1280x720/idle_00.png",
+    "native/1280x720/idle_25.png",
+    "native/1280x720/idle_50.png",
+    "native/1280x720/idle_75.png",
+    "native/1280x720/idle_settled.png",
+    "native/1280x720/background_touch_released.png",
+    "native/1600x720/normal_startup.png",
+    "native/1600x720/continuous_2s.png",
+    "native/1600x720/idle_00.png",
+    "native/1600x720/idle_25.png",
+    "native/1600x720/idle_50.png",
+    "native/1600x720/idle_75.png",
+    "native/1600x720/idle_settled.png",
+    "native/1600x720/background_touch_released.png"
+  ],
+  "ten_axes": {
+    "contour": {
+      "bubble": "Uniformcircle outlines vsbackgroundpearlyrims/soft reflections",
+      "sparkle": "Hardfourpointpolygon vsfinepaintedluminousglints",
+      "moon": "Flatdisk/twodots/outline visibleoverOptions"
+    },
+    "material": {
+      "bubble": "Transparentflatfill/uniformarc lacksiridescentrim",
+      "sparkle": "Flatpurplefill/outline",
+      "moon": "Flatcream/ochrecoin,noauthoredsurface"
+    },
+    "palette": {
+      "bubble": "Paleblue/darkoutline,faintoverwater,clearbluegutter",
+      "sparkle": "Pale pinkpurple/darkoutline,clearbluegutter",
+      "moon": "Yellowtan/brownedge overlaypaleOptions"
+    },
+    "light": {
+      "bubble": "Onedrawnglint vscoloredpaintedreflections",
+      "sparkle": "25percentalpha withoutline,notsoftglow",
+      "moon": "Sineopacity,notacceptedlighting"
+    },
+    "perspective": {
+      "bubble": "HUDplane independentbackgrounddepth",
+      "sparkle": "HUDplane independentbackgrounddepth",
+      "moon": "Riseat84percentviewportx,notillustratedsky"
+    },
+    "scale": {
+      "bubble": "17/8localradiuspair scaledabout.82,~28pxlargecircle",
+      "sparkle": "54localheight scaledabout.68,~37px",
+      "moon": "46localdiameter times.92 (~42px),Optionssymbol/textscale"
+    },
+    "contact": {
+      "bubble": "Floatingambientneedsnosupport",
+      "sparkle": "Floatinglightneedsnosupport",
+      "moon": "No scene supportneeded;crossesOptionsregion,noinputowner"
+    },
+    "occlusion": {
+      "bubble": "Layer21aboveStartMenu20 overlayspaintedfamily scene",
+      "sparkle": "Layer21;widephonegutter outsidepaintedbackground",
+      "moon": "Native25/50/75percentviews crossOptionspanel/icon/text,notbuttonfeedback"
+    },
+    "readability": {
+      "bubble": "Subtle16:9;flatoutlineobviouswidegutter",
+      "sparkle": "Flatpolygonobviouswidegutter,noninteractive",
+      "moon": "Optionsbusier/partlyobscured;child/owner effectunreviewed"
+    },
+    "action_state": {
+      "bubble": "Actualcontinuousdrift/sway,fullloopsopen",
+      "sparkle": "Actualcontinuousrotation/sway,fullactingreviewopen",
+      "moon": "Natural22secondidle3.3secrise,0/25/50/75/settled;rawbackgroundtouch resetsidle,noaward/noforcedtimer. QA11/devicechildopen"
+    }
+  },
+  "observed_weakness": "CurrentnormalStartMenushowsproceduralbubble/sparkle/passivemoon;moon crossesOptions. Historicalretiredstage exclusionincorrect;separateIntroOverlaylabelnotproof ambienceretired.",
+  "source_reuse_first": {
+    "preferred_bounded_repair": "Reuseunchangedpaintedbootbackground;retire redundant procedural ambience whileStartMenuownsdisplay,includingidlemoon. Paintedbubbles/glints alreadyprovide setting;nonewdrawingneeded.",
+    "generation_required": false,
+    "inventory_queries": [
+      "Currentroot asset/source inventory",
+      "rg --files assets assets_src filteredbubble/sparkle/moon/glint/star",
+      "Directsame-scene bootbackground inspection"
+    ],
+    "scope": "Path searchalone notapproval;no replacementasset selected,generation orruntimeedit inR29. Othercatalogue callerclosure remainsopen."
+  },
+  "production_integration": null,
+  "accepted_removed": 0,
+  "acceptance": {
+    "current_bounded_desktop_capture": "ACTUAL_NATIVE_CONTEXT_ONLY",
+    "QA11": null,
+    "runtime_art_replacement": null,
+    "device": null,
+    "child": null,
+    "owner": null
+  },
+  "remaining_repair": "After anonymous exactcontext publication,apply scopedStartMenuambience suspension/retirement preservingpaintedbackground/input/saves;verifyactual menu/transition/otherstage behavior andfullapplicable engine gates."
+}

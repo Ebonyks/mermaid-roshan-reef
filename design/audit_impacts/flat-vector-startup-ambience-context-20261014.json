@@ -1,0 +1,122 @@
+{
+  "id": "flat-vector-startup-ambience-context-20261014",
+  "scope": "Bounded current normal display StartMenu/intro.storybook ambient audit and read-only 100-stage catalogue slot census. Verify actual natural selector/layers/passive idle event at two aspects in new private profiles, not forced IntroOverlay or debug override. Preserve frozen registry bodies; add explicit current-route correction and source-only motif-slot mapping. No generation, runtime/source-art edits or acceptance.",
+  "baseline": "4c5ffcaf73b4b730b266d5bf415fd662bf6084f1",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-VIS-01",
+    "DL-VIS-03",
+    "DL-VIS-06",
+    "DL-VIS-07",
+    "DL-VIS-08",
+    "DL-ASSET-01",
+    "DL-ASSET-03",
+    "DL-ASSET-04",
+    "DL-ASSET-05",
+    "DL-ASSET-06",
+    "DL-QA-11",
+    "DL-QA-12",
+    "DL-QA-14",
+    "DL-QA-15",
+    "DL-READ-02",
+    "DL-READ-06",
+    "DL-SAVE-04"
+  ],
+  "findings": [
+    "MA-VIS-006",
+    "MA-VIS-008",
+    "MA-DOC-008",
+    "MA-DOC-007"
+  ],
+  "files": [
+    ".gitattributes",
+    "ASSET_LICENSES.md",
+    "audit/MASTER_AUDIT_2026-08-09.md",
+    "audit/MASTER_AUDIT_CHANGELOG_ROLLBACK_2026-08-10.md",
+    "design/05_DOC_LEDGER.md",
+    "design/audit_impacts/flat-vector-startup-ambience-context-20261014.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/CURRENT.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/README.md",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r29_startup_ambience_context/.gdignore",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r29_startup_ambience_context/CAPTURE_CONTRACT.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r29_startup_ambience_context/CAPTURE_INDEX.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r29_startup_ambience_context/CATALOGUE_SOURCE_CENSUS.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r29_startup_ambience_context/CONGRUENCY_BACKLOG.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r29_startup_ambience_context/CURRENT_PARTIAL_CONTEXT_UNION.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r29_startup_ambience_context/GATES.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r29_startup_ambience_context/LAUNCH.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r29_startup_ambience_context/MANIFEST.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r29_startup_ambience_context/PLAN.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r29_startup_ambience_context/README.md",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r29_startup_ambience_context/RECEIPT_GATES.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r29_startup_ambience_context/REMOTE_VERIFICATION.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r29_startup_ambience_context/REVIEW.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r29_startup_ambience_context/ROUTE_CORRECTION.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r29_startup_ambience_context/SCRIPT_GATES.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r29_startup_ambience_context/SETUP_RECOVERY.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r29_startup_ambience_context/SOURCES.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r29_startup_ambience_context/assemble.py",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r29_startup_ambience_context/build_manifest.py",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r29_startup_ambience_context/capture_startup.gd",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r29_startup_ambience_context/gates.log",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r29_startup_ambience_context/native/1280x720/background_touch_released.png",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r29_startup_ambience_context/native/1280x720/capture_manifest.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r29_startup_ambience_context/native/1280x720/continuous_2s.png",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r29_startup_ambience_context/native/1280x720/idle_00.png",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r29_startup_ambience_context/native/1280x720/idle_25.png",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r29_startup_ambience_context/native/1280x720/idle_50.png",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r29_startup_ambience_context/native/1280x720/idle_75.png",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r29_startup_ambience_context/native/1280x720/idle_settled.png",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r29_startup_ambience_context/native/1280x720/normal_startup.png",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r29_startup_ambience_context/native/1600x720/background_touch_released.png",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r29_startup_ambience_context/native/1600x720/capture_manifest.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r29_startup_ambience_context/native/1600x720/continuous_2s.png",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r29_startup_ambience_context/native/1600x720/idle_00.png",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r29_startup_ambience_context/native/1600x720/idle_25.png",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r29_startup_ambience_context/native/1600x720/idle_50.png",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r29_startup_ambience_context/native/1600x720/idle_75.png",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r29_startup_ambience_context/native/1600x720/idle_settled.png",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r29_startup_ambience_context/native/1600x720/normal_startup.png",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r29_startup_ambience_context/native_capture.log",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r29_startup_ambience_context/per_piece.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r29_startup_ambience_context/receipt_gates.log",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r29_startup_ambience_context/run_gates.py",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r29_startup_ambience_context/scene_coverage.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r29_startup_ambience_context/script_gates.log",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r29_startup_ambience_context/tally.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r29_startup_ambience_context/validate.py",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r29_startup_ambience_context/verify_remote.py"
+  ],
+  "validation": [
+    {
+      "command": "Exact source/native fixture/parser/inference/official analyzer/capture consistency",
+      "result": "PASS",
+      "evidence": "R29SOURCES/SCRIPT_GATES/LAUNCH/CAPTURE_CONTRACT;10bindings/3scriptchecks0,actualnative0;16distinctimages/16views,2privateprofiles,normal8hashesunchanged;noforcedroute/event"
+    },
+    {
+      "command": "Runtime import/full trusted suite repeat",
+      "result": "NOT_APPLICABLE",
+      "evidence": "Production/sourcepixels unchanged;PNGs under.gdignore. InheritedR16actual82trustednativepasses retained;3newscript/newnativechecks separate"
+    },
+    {
+      "command": "Source/capture/canonical/documentauthority/auditdevelopment/54tests+6stress/strict2Dregression",
+      "result": "PASS",
+      "evidence": "R29GATES.json/gates.log:all5commands0;54tests+6stress;strict2D NO_REGRESSION/UNSATISFIED,52production/61probe/1scene/1config. Exactauto auditbase e2b3c73789707aa49a91b4f42e2a9dd4b68225df;tasksourcebase4c5ffcaf,origin/dev831d0bbb."
+    },
+    {
+      "command": "Exact GitHub manifest/every dependency/finalmetadata anonymousbytes",
+      "result": "PENDING",
+      "evidence": "R29REMOTE_VERIFICATION/RECEIPT_GATES/FINAL_BYTE_RECEIPT to publish/verify"
+    }
+  ],
+  "acceptance_gaps": "Unknown full inventory/visible screen/piece/regression totals; existing nonruntime hand candidates pending owner; all natural-route variants/fallback/runtime/QA11/device/child/owner/zero-art remain open.",
+  "change_record": "CHG-036",
+  "lessons": [
+    {
+      "lesson": "Retained IntroOverlay and active intro_activeflag share a catalogue stage;retiredscene labels must notexclude current visibleambience. Cataloguecounts notscreens/pieces.",
+      "write_back": "docs/handoffs/codex_flat_vector_art_2026-10-07/r29_startup_ambience_context/ROUTE_CORRECTION.json"
+    }
+  ]
+}

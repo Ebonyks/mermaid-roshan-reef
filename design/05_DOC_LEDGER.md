@@ -1149,3 +1149,9 @@ release/device/child/owner authority retain precedence.
 | Document | State | Scope |
 |---|---|---|
 | `docs/handoffs/codex_flat_vector_art_2026-10-07/r28_teacher_pointer_reuse/README.md` | 🔵 | `SUPPORTING_CURRENT`; nonruntimeexistinghand Teachertrial after51verifiedcontextfiles.84eventimages/24uniquecredits,60duplicateexcluded,20views/18unique;fourkindtier0sequence0 only. Sourcepixels/production unchanged,guidewaitswhilejoininputblocked;source/human/QA11/device/child/owner acceptance open. |
+
+## Full-game flat-vector current startup ambience — 2026-10-14 R29
+
+| Document | State | Scope |
+|---|---|---|
+| `docs/handoffs/codex_flat_vector_art_2026-10-07/r29_startup_ambience_context/README.md` | 🔵 | `SUPPORTING_CURRENT`; naturaldisplayStartMenu selectsintro.storybook ambience;separateIntroOverlay retainsheadlessstartup scope.16native/direct views;flatmoon crossesOptions.54existingpartial/12families,78/176partial/98without,2748bounded/3031retained.100catalogue/300slots sourceonly;0art/runtimeedit/acceptance. Fullinventory/QA11/device/child/owner remainopen. |
