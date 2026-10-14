@@ -60,6 +60,7 @@
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r33_menu_material_reuse/RECEIPT_GATES.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r33_menu_material_reuse/REMOTE_VERIFICATION.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r33_menu_material_reuse/REVIEW.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r33_menu_material_reuse/ROUTE_AUTHORITY_RECONCILIATION.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r33_menu_material_reuse/SETUP_RECOVERY.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r33_menu_material_reuse/SIDECAR_GUARD.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r33_menu_material_reuse/SOURCES.json",
@@ -372,6 +373,11 @@
       "command": "Final6metadata exactanonymous remote byteverification and canonicalproof gates",
       "result": "PASS",
       "evidence": "FINAL_BYTE_RECEIPT.json binds exactreceiptc8a212d77d8f2855bf1b1a72cd4de0251f32e1d6/all6metadata bytes/anonGET at2026-10-14T10:32:10.142269+00:00,publicpayloadd3f55adf7ddc8319275ea0fc50fb6a136b8bc360. Ownproof/impact bytes separately checked afterpush. Cleanworktree/devreconciled; focuslocalQCFAIL,0acceptedremoved/allhuman/QA11/globalinventoryopen."
+    },
+    {
+      "command": "Currentrootledger routing and finalizedtally proof reconciliation",
+      "result": "PASS",
+      "evidence": "ROUTE_AUTHORITY_RECONCILIATION.json:4fresh source/canonical/docauthority/auditcoverage/diffchecks0;rootrow/tally now exactcurrent facts,priorproof actuallyanonverified. Sameproduction,focuslocalQCFAIL/globalaccepted0. Updated4files actualanonymousbytes separatelychecked afterpush."
     }
   ],
   "acceptance_gaps": "Unknown whole-game denominator/routes, shared material callers, source/menu visual authority, QA11 same-process closed proof, actual device/child/owner and current CI/integration remain open. Zero accepted removed. Exactremaininglocalfocusdefect blocksadoption;materialkind/disabled contrast,flatpanels/pearls/shell/holdfill/MusicOFFglyph andallcallerclosureopen.",

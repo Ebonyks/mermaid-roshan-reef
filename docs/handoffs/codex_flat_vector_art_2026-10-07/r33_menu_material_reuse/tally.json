@@ -825,7 +825,29 @@
     "access_mode": "Anonymous public HTTPS for manifest and every declared required file; public GitHub repo API independently checked; recipient can use the same unauthenticated access mode.",
     "manifest": "MANIFEST.json",
     "receipt": "REMOTE_VERIFICATION.json",
-    "final_metadata_status": "PENDING_RECEIPT_HEAD_BYTES_AND_CANONICAL_PROOF"
+    "final_metadata_status": "FINAL6_METADATA_AND_CANONICAL_PROOF_ANONYMOUSLY_VERIFIED",
+    "receipt_revision": "c8a212d77d8f2855bf1b1a72cd4de0251f32e1d6",
+    "canonical_proof_revision": "d0cd0d232a5034b325d015d34c8ed408682779c0",
+    "canonical_proof_checked_at_utc": "2026-10-14T10:32:46.170404+00:00",
+    "canonical_proof_checks": [
+      {
+        "path": "design/audit_impacts/flat-vector-menu-material-reuse-20261014.json",
+        "revision": "d0cd0d232a5034b325d015d34c8ed408682779c0",
+        "bytes": 43927,
+        "sha256": "7423968ad25549e2c2cbc381ace746b0efdb57a1ccfc4a5583209b03d7f9acf3",
+        "http_status": 200,
+        "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/d0cd0d232a5034b325d015d34c8ed408682779c0/design/audit_impacts/flat-vector-menu-material-reuse-20261014.json"
+      },
+      {
+        "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r33_menu_material_reuse/FINAL_BYTE_RECEIPT.json",
+        "revision": "d0cd0d232a5034b325d015d34c8ed408682779c0",
+        "bytes": 5372,
+        "sha256": "1f5175d6d486e10befebf6f4211af032da8b5cf58557f06620aa4359e6706c0f",
+        "http_status": 200,
+        "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/d0cd0d232a5034b325d015d34c8ed408682779c0/docs/handoffs/codex_flat_vector_art_2026-10-07/r33_menu_material_reuse/FINAL_BYTE_RECEIPT.json"
+      }
+    ],
+    "route_authority_reconciliation": "ROUTE_AUTHORITY_RECONCILIATION.json"
   },
   "independent_style_review": {
     "file": "ROOT_CONTEXT_REVIEW_20261012.json",

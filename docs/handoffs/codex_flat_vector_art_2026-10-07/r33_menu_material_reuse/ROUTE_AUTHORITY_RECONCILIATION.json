@@ -1,0 +1,139 @@
+{
+  "schema": "reef.flat_vector_route_authority_reconciliation/1",
+  "source_baseline": "d0cd0d232a5034b325d015d34c8ed408682779c0",
+  "change_id": "CHG-040",
+  "reason": "RootREADME current routing changed to R33; ledger oldmutableR16 description needed exactcurrentfactupdate. Tally previously kept pendingfinalmetadata because proof could only be checked after receiptpush; now records actualfinished proof.",
+  "verified_prior_canonical_proof": {
+    "status": "EXACT_ANONYMOUS_REMOTE_BYTES_VERIFIED",
+    "revision": "d0cd0d232a5034b325d015d34c8ed408682779c0",
+    "checked_at_utc": "2026-10-14T10:32:46.170404+00:00",
+    "access_mode": "Anonymous public HTTPS GET and exact Git byte/SHA256 comparison",
+    "checks": [
+      {
+        "path": "design/audit_impacts/flat-vector-menu-material-reuse-20261014.json",
+        "revision": "d0cd0d232a5034b325d015d34c8ed408682779c0",
+        "bytes": 43927,
+        "sha256": "7423968ad25549e2c2cbc381ace746b0efdb57a1ccfc4a5583209b03d7f9acf3",
+        "http_status": 200,
+        "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/d0cd0d232a5034b325d015d34c8ed408682779c0/design/audit_impacts/flat-vector-menu-material-reuse-20261014.json"
+      },
+      {
+        "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r33_menu_material_reuse/FINAL_BYTE_RECEIPT.json",
+        "revision": "d0cd0d232a5034b325d015d34c8ed408682779c0",
+        "bytes": 5372,
+        "sha256": "1f5175d6d486e10befebf6f4211af032da8b5cf58557f06620aa4359e6706c0f",
+        "http_status": 200,
+        "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/d0cd0d232a5034b325d015d34c8ed408682779c0/docs/handoffs/codex_flat_vector_art_2026-10-07/r33_menu_material_reuse/FINAL_BYTE_RECEIPT.json"
+      }
+    ],
+    "payload_revision": "d3f55adf7ddc8319275ea0fc50fb6a136b8bc360",
+    "receipt_revision": "c8a212d77d8f2855bf1b1a72cd4de0251f32e1d6",
+    "clean_worktree": true,
+    "current_ci_snapshot": {
+      "checked_at_utc": "2026-10-14T10:32:46.511599+00:00",
+      "runs": [
+        {
+          "conclusion": "",
+          "databaseId": 38550251908,
+          "headSha": "c8a212d77d8f2855bf1b1a72cd4de0251f32e1d6",
+          "status": "pending",
+          "url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/38550251908"
+        },
+        {
+          "conclusion": "",
+          "databaseId": 38549862802,
+          "headSha": "d3f55adf7ddc8319275ea0fc50fb6a136b8bc360",
+          "status": "in_progress",
+          "url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/38549862802"
+        },
+        {
+          "conclusion": "cancelled",
+          "databaseId": 38545091432,
+          "headSha": "ecb9839a374d3260161a19d44039325d561a3509",
+          "status": "completed",
+          "url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/38545091432"
+        },
+        {
+          "conclusion": "cancelled",
+          "databaseId": 38544338967,
+          "headSha": "fbd071ae416680b44c70f45f3086b86cbdec096e",
+          "status": "completed",
+          "url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/38544338967"
+        }
+      ],
+      "scope": "Observed exactheads only; pending/cancelled notgreen/artacceptance. Currentproduction is byteidenticalR32actualfull82; no R33newfull82 execution."
+    },
+    "accepted_removed": 0,
+    "mission_complete": false
+  },
+  "ledger_old_row": "| `docs/handoffs/codex_flat_vector_art_2026-10-07/README.md` | \ud83d\udd35 | `SUPPORTING_CURRENT`; mutable R16 routing.225 known/30 families,2138 bounded/2252 retained; one Geode-context whole-hand sample awaiting review,zero art integration/acceptance. Frozen source snapshots/history retained; unknown global totals and external lanes open. |",
+  "ledger_current_row": "| `docs/handoffs/codex_flat_vector_art_2026-10-07/README.md` | \ud83d\udd35 | `SUPPORTING_CURRENT`; mutable routing to current R33 canonical per-piece/scene/tally evidence.225known/30families,3020bounded/3623retained/603excluded,56existingpartial/12families,78/176partial/0complete/98without. Bounded painted-button paddingfit repaired in isolatedreuse trial;focuslocalQCFAIL,nointegration/acceptedremoval. Frozen/historical packets and unknown whole-game totals retained. Payload/receipt/byteproof are separate immutable records;QA11/device/child/owner remain open. |",
+  "expected_updated_facts": [
+    {
+      "path": "design/05_DOC_LEDGER.md",
+      "bytes": 232777,
+      "sha256": "371284dc7a4634051b4873af8dd02f143e938173c638e9d6de48674feb1318b4"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r33_menu_material_reuse/tally.json",
+      "bytes": 89981,
+      "sha256": "ebe4d587899f2c644479fe86b66ac6dd18279132085e59b36126a4df1460e3a7"
+    }
+  ],
+  "source_pixels_or_production_changed": false,
+  "accepted_removed": 0,
+  "mission_complete": false,
+  "QA11": null,
+  "device": null,
+  "child": null,
+  "owner": null,
+  "publication_scope": "Updatedfact bytes plus this record/impact are anonymously checked at exactnewGithead afterpush; no recursiveselfhash in thisrecord.",
+  "fresh_validation": [
+    {
+      "command": [
+        "python",
+        "-B",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r33_menu_material_reuse\\validate.py"
+      ],
+      "exit_code": 0,
+      "raw_output": "R33_SOURCE_NATIVE_CANONICAL_PASS:30beforefixturecontext;122current+122failedretained/72credits/172excluded;16currentviews;all6materialstates/8normalhashes/sourcepixel-preserved/originalGUIgeometry/shortcancel/Continue/teardown.3020bounded3623retained603excluded;focuslocalQCFAIL/notintegrationready,0acceptedremoved/unknownwholegame/QA11devicechildownerOPEN.\r\n",
+      "raw_sha256": "6c561b6c776323ca117d4bba15411b350839a273a169062af394a3f5d8756e89",
+      "checked_at_utc": "2026-10-14T10:35:12.574387+00:00"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_document_authority.py"
+      ],
+      "exit_code": 0,
+      "raw_output": "DOCAUTH|INVENTORY=736|LEDGER=736|ACTIVE=69|RECORDS=72\r\nDOCAUTH|RESULT|ALL OK\r\n",
+      "raw_sha256": "c46c75da2cf2f080fbc6653e4706a3e9761edb9318d1d5cfb9cf2df0445a28e2",
+      "checked_at_utc": "2026-10-14T10:35:27.523310+00:00"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_development.py",
+        "--base",
+        "auto"
+      ],
+      "exit_code": 0,
+      "raw_output": "AUDITDEV|BASE|e2b3c73789707aa49a91b4f42e2a9dd4b68225df\r\nAUDITDEV|RESULT|ALL OK\r\n",
+      "raw_sha256": "fe1136f6488648e75036829fb4dde2405eb9ed57eec05f046fe441463c20d023",
+      "checked_at_utc": "2026-10-14T10:35:32.422868+00:00"
+    },
+    {
+      "command": [
+        "git",
+        "diff",
+        "--check"
+      ],
+      "exit_code": 0,
+      "raw_output": "warning: in the working copy of 'design/05_DOC_LEDGER.md', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'design/audit_impacts/flat-vector-menu-material-reuse-20261014.json', LF will be replaced by CRLF the next time Git touches it\n",
+      "raw_sha256": "2ea4ccbb69b4f7edef70eb439c990521bc170a14308bf94937cee418209cd98a",
+      "checked_at_utc": "2026-10-14T10:35:32.678377+00:00"
+    }
+  ]
+}
