@@ -1,4 +1,61 @@
 {
-  "status": "PENDING",
-  "scope": "Initialized for required navigation; no verification pass claimed."
+  "status": "PASS_SOURCE_ONLY_ACCEPTANCE_OPEN",
+  "commands": [
+    {
+      "command": [
+        "python",
+        "-B",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r37_current_source_inventory\\validate.py"
+      ],
+      "started_at_utc": "2026-10-14T17:25:35.656049+00:00",
+      "checked_at_utc": "2026-10-14T17:25:38.467601+00:00",
+      "exit_code": 0,
+      "result": "PASS",
+      "execution": "FRESH",
+      "evidence": "receipt_gates.log"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_document_authority.py"
+      ],
+      "started_at_utc": "2026-10-14T17:25:38.467656+00:00",
+      "checked_at_utc": "2026-10-14T17:25:46.443793+00:00",
+      "exit_code": 0,
+      "result": "PASS",
+      "execution": "FRESH",
+      "evidence": "receipt_gates.log"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_development.py",
+        "--base",
+        "auto"
+      ],
+      "started_at_utc": "2026-10-14T17:25:46.443845+00:00",
+      "checked_at_utc": "2026-10-14T17:25:50.239695+00:00",
+      "exit_code": 0,
+      "result": "PASS",
+      "execution": "FRESH",
+      "evidence": "receipt_gates.log"
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-B",
+        "tools/audit_game_2d.py",
+        "--regression-gate"
+      ],
+      "started_at_utc": "2026-10-14T17:13:53.824923+00:00",
+      "checked_at_utc": "2026-10-14T17:16:25.590278+00:00",
+      "exit_code": 0,
+      "execution": "RETAINED_ACTUAL_SAME_PRODUCTION",
+      "evidence": "GATES.json/gates.log"
+    }
+  ],
+  "raw_log_sha256": "97f1ca3255db047a1d0b918234d5d3c2b5147127c69df895f7ee8c1ced8048e6",
+  "scope": "3freshsource/document/impact checks+1explicitretainedactual2Dregression atunchangedsource. PriorR32full82/R35CI retained,no newR37engine run. Allruntime/QA11/device/child/owner/globalclosure open."
 }
