@@ -286,12 +286,17 @@
     {
       "command": "Source/canonical/native/docauthority/coverage/54tests+6stress/strict2D regression gates",
       "result": "PASS",
-      "evidence": "R32 GATES5exit0:independent current source/native/canonical/full82 verifier,DOCAUTH735/735,AUDITDEV allOK,54tests+6stress,strict2D NO_REGRESSION/UNSATISFIED;0model/52prod3D/61probe3D/1scene/1config. No actualoverdraw/device/child/owner orQA11 acceptance."
+      "evidence": "Actual current R32GATES5zeroexit: source/canonical/native/full82 verifier,DOCAUTH735/735,AUDITDEV allOK,54tests+6stress,strict2D NO_REGRESSION/UNSATISFIED. Receipt3freshsource/doc/coverage+1retainedactualsame-source2D evidence separately passes."
     },
     {
       "command": "Publicmanifest/everydependency/finalmetadata exactanonymous bytes",
+      "result": "PASS",
+      "evidence": "Exactpayload2354ee4c5b62ee1adb80ae194f0e37a1ad459e2d:anonymous manifest+all3707required files/1705054005bytes,manifestSHAa83599c194f90fcb8753ade96ec1ab31516967edb9288f6819098ae33cdc4411,payloadSHA7afeab4692fc0b6fb0284664237965c1be7aad9b385bc9d481e6e782d2a008da,checked2026-10-14T09:36:07.799143+00:00. Finalmetadata/owncanonicalproof checks remainseparate."
+    },
+    {
+      "command": "Final receipt-head metadata and own canonical proof anonymous exact bytes",
       "result": "PENDING",
-      "evidence": "R32 publication pending"
+      "evidence": "Performed afterreceipt/proof pushes;not inferred frompayload."
     }
   ],
   "acceptance_gaps": "Sourcebound2menu role retirements not acceptedgamewide artwork. All required human/device/child/owner/QA11/globalinventory/state/caller gates remain separately open; glyph bug remainsunrepaired."
