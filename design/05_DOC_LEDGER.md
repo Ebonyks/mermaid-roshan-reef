@@ -1161,3 +1161,9 @@ release/device/child/owner authority retain precedence.
 | Document | State | Scope |
 |---|---|---|
 | `docs/handoffs/codex_flat_vector_art_2026-10-07/r30_startup_ambience_retirement/README.md` | 🔵 | `SUPPORTING_CURRENT`; boundedproductioncandidate retires3sharedambience roles onlywhileStartMenu active;57publishedcontextfiles verifiedbeforeedit,meaningfulbaselinefails/fixedchecks/full82nativepass.78currentnative/18views,124failedexcluded;3retiredstartuproles notglobalacceptedremovals.2826bounded/3233retained,54existingpartial/12families,78/176partial/98without;unknownfullinventory/QA11/device/child/owner open. |
+
+## Startup UI current context — 2026-10-14 R31
+
+| Document | State | Scope |
+|---|---|---|
+| `docs/handoffs/codex_flat_vector_art_2026-10-07/r31_startup_ui_context/README.md` | 🔵 | `SUPPORTING_CURRENT`;2existing menu roles partial,52native/12views/5sourceviews. MUSIC_OFF tofu reproduced;MIC_OFF adjacent slash/no box observed. Primary diagnostics not packaged fallback proof. Production/art unchanged;56partial existing/12families,2878bounded/3285retained,78/176partial/98without,0acceptedremoved. Inventory/QA11/device/child/owner open. |

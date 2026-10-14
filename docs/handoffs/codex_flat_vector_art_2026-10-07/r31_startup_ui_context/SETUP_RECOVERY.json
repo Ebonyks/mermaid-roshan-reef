@@ -1,0 +1,8 @@
+{
+  "initial_assembly_exit": 1,
+  "error": "Nested Python triple-quoted source collided with README triple quotes; outer parse SyntaxError before any helper creation or assembly mutation. Subsequent requested helper launch failed missing file.",
+  "correction": "Save actual helper via literal PowerShell here-string directly, no nested source-string quoting.",
+  "native_capture_affected": false,
+  "production_affected": false,
+  "new_failed_native_frames": 0
+}

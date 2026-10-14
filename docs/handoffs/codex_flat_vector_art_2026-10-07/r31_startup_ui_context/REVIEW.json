@@ -1,0 +1,64 @@
+{
+  "schema": "reef.flat_vector_context_review/1",
+  "revision": "FV-AUDIT-20261014-R31",
+  "source_baseline": "849a7de5fa65270d354cb7973ded63b464668988",
+  "piece_ids": [
+    "FV-276E68E0A9DA",
+    "FV-619466CA433F"
+  ],
+  "family": "shared_ui",
+  "ten_axes": {
+    "contour": "FV-276E68E0A9DA uses a uniform rounded2px inset/capsule sheen. FV-619466CA433F repeats a sharp symmetric font star. Same-scene painted pearl/cloud/reflection contours are irregular; the current ornaments have no painted contour variation. Scoped comparison, no owner score.",
+    "material": "Constant StyleBoxFlat border and white strip read as smooth UI coating. Backdrop pearls have authored value bands. Existing paper sources offer painted grain; bounded fit and state contrast remain untested.",
+    "palette": "Insets use GOLD/PEARL_BLUE alpha.58; sheen whitealpha.24;stars sameaccent. Cool/warm hues resemble backdrop pearls while local surfaces are uniform. No recolor of approved splash proposed.",
+    "light": "Fixed strip y12 and sparkle alpha.32..1 over1.3s each way. Synthetic UI highlights differ from painted reflected light. Capture timing is not an authored-motion/loop-seam acceptance claim.",
+    "perspective": "UI frontal2D over receding painted rail. Functional frontal geometry remains intentional, while visible coating/ornaments still fall under the zero-flat-art mission. No3D addition.",
+    "scale": "Options buttons430x100; ordinary340x118/210x104. Sheen source x42,widthmax36 orwidth-84,height10; star30x30/font20 atwidth-48,y8. Wide stage shifts horizontally. Repeated instances are not new designs.",
+    "contact": "Ornaments are children of real Button controls; inset/sheen/star ignore mouse input. Actual ScreenTouch reaches original owners. Invisible hit geometry remains separately retained; no world contact needed.",
+    "occlusion": "Opaque Options covers right background/underlying menu, dim wash lowers scene values. No LivingWorld overlay appears afterR30. Strips/stars stay within inspected button bounds; QA11 shape/order/alpha challenge remains missing.",
+    "readability": "MUSIC_OFF displays U+0338 tofu in all4profiles. MIC_OFF displays slash beside microphone, no box observed. Options text30px, but critical state meaning lacks authored/pinned/device/child evidence. Primary FontFile.has_char false even for rendered symbols is not composite coverage.",
+    "action_state": "13ordered GUI states in4profiles: natural menu, Options press/release, MusicOFF/ON, MicOFF/ON, close. Speedy only; no Sparkly/reset/hold/naturalreentry/OSfocus/save-reload. Normal8hashes/earnedprogress/marker/teardown pass."
+  },
+  "direct_native_views": [
+    "native/1280x720/fresh/normal_startup.png",
+    "native/1280x720/fresh/options_open_released.png",
+    "native/1280x720/fresh/music_off_released.png",
+    "native/1280x720/fresh/mic_off_released.png",
+    "native/1600x720/saved_legacy/normal_startup.png",
+    "native/1600x720/saved_legacy/music_off_released.png",
+    "native/1600x720/saved_legacy/mic_off_released.png",
+    "native/1600x720/saved_legacy/music_off_pressed.png",
+    "native/1280x720/saved_legacy/music_off_released.png",
+    "native/1280x720/saved_legacy/mic_off_released.png",
+    "native/1600x720/fresh/music_off_released.png",
+    "native/1600x720/fresh/mic_off_released.png"
+  ],
+  "same_scene_reference": {
+    "path": "assets/ui/boot_splash_mermaid_roshan.png",
+    "revision": "849a7de5fa65270d354cb7973ded63b464668988",
+    "bytes": 1848681,
+    "sha256": "d5127c4a6227baab05343dc10692e2f76f1dd59f22ca24a22329de402dbb8044",
+    "native_read_bytes": 1848681,
+    "native_read_sha256": "d5127c4a6227baab05343dc10692e2f76f1dd59f22ca24a22329de402dbb8044",
+    "LF_canonical_parity": true,
+    "role": "Current source/state owner or inspected same-scene/reuse reference; inclusion is not acceptance",
+    "dimensions": [
+      1024,
+      576
+    ],
+    "mode": "RGBA"
+  },
+  "same_scene_controls": "Native ui_nodes bind visible text/geometry/font measurements and ornament geometry; SOURCES binds exact scene/owners/background.",
+  "source_reuse": "REUSE_AUDIT.json:5inspected candidates,none adopted/redrawn",
+  "review_scope": "Partial model/native/source comparison only; phone-squint/device/child/owner and5/5 remain open.",
+  "approved": 0,
+  "integrated": 0,
+  "runtime_verified_art": 0,
+  "accepted_removed": 0,
+  "acceptance": {
+    "QA11": null,
+    "device": null,
+    "child": null,
+    "owner": null
+  }
+}

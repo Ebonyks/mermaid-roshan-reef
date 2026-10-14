@@ -1,0 +1,68 @@
+{
+  "revision": "FV-AUDIT-20261014-R31",
+  "baseline": "849a7de5fa65270d354cb7973ded63b464668988",
+  "origin_dev": "831d0bbb155b99d75ef0289cc5cc694e0ef00c1e",
+  "started_at_utc": "2026-10-14T07:59:50.322682+00:00",
+  "scope": "Bounded current StartMenu/Options native context and source-reuse audit of existing inset/sheen and decorative sparkle; retain FVO-R30-MUSIC-OFF-GLYPH and investigate sibling mic-off combining slash. No production, art-pixel or trusted-probe edits. Publish context before dependent repair. Other UI roles/states/callers remain incomplete.",
+  "piece_ids": [
+    "FV-276E68E0A9DA",
+    "FV-619466CA433F"
+  ],
+  "family": "shared_ui",
+  "observation_ids": [
+    "FVO-R30-MUSIC-OFF-GLYPH",
+    "FVO-R31-MIC-OFF-GLYPH"
+  ],
+  "new_named_art_designs": 0,
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-VIS-01",
+    "DL-VIS-02",
+    "DL-VIS-03",
+    "DL-VIS-05",
+    "DL-VIS-07",
+    "DL-VIS-08",
+    "DL-READ-02",
+    "DL-READ-03",
+    "DL-ASSET-01",
+    "DL-ASSET-03",
+    "DL-ASSET-04",
+    "DL-ASSET-05",
+    "DL-ASSET-06",
+    "DL-MED-02",
+    "DL-TYPE-01",
+    "DL-TYPE-03",
+    "DL-TYPE-04",
+    "DL-TYPE-06",
+    "DL-TYPE-07",
+    "DL-TYPE-11",
+    "DL-TYPE-12",
+    "DL-QA-11",
+    "DL-QA-14",
+    "DL-QA-15"
+  ],
+  "findings": [
+    "MA-VIS-006",
+    "MA-VIS-008",
+    "MA-TYPE-001",
+    "MA-TYPE-004"
+  ],
+  "required_evidence": [
+    "Exact baseline/current dev/CI/source hashes and additive stable-ID history",
+    "Official4.7.2 Mobile/Speedy native2aspects fresh/saved private profiles, real raw engine GUI touch ordered controls with all normal8save hashes unchanged",
+    "Current actual font has_char/nonASCII coverage and missing-codepoint diagnostic; source/engine absence of deterministic fallback remains explicit",
+    "Ten-axis same-scene comparison, inspected reuse candidates with acceptance limits, raw unedited views and source hashes",
+    "Source/canonical/capture/document/impact/2D regression gates; retained full82local and exact baseline green CI separately identified, no new full82 execution",
+    "GitHub commit/push/full manifest dependency anonymous verification/final metadata proof; all art/QA11/device/child/owner/global denominators remain open"
+  ],
+  "delivery": {
+    "repository": "Ebonyks/mermaid-roshan-reef",
+    "branch": "codex/flat-vector-r6-20261012",
+    "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r31_startup_ui_context",
+    "access_mode": "Anonymous public immutable HTTPS byte/SHA256 check of every required file"
+  },
+  "change_id": "CHG-038",
+  "bounded_next_step": "Repair only after this current context is published/verified and the authored state-cue reuse/acceptance scope is resolved; unknown whole-game denominator alone is not a repair blocker."
+}

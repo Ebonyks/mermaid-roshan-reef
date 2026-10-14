@@ -1,0 +1,85 @@
+{
+  "status": "PASS_WITH_ACCEPTANCE_OPEN",
+  "commands": [
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-B",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r31_startup_ui_context\\validate.py"
+      ],
+      "started_at_utc": "2026-10-14T08:12:47.416357+00:00",
+      "checked_at_utc": "2026-10-14T08:12:50.680284+00:00",
+      "exit_code": 0,
+      "result": "PASS",
+      "evidence": "gates.log"
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-B",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r30_startup_ambience_retirement\\validate.py"
+      ],
+      "started_at_utc": "2026-10-14T08:12:50.680346+00:00",
+      "checked_at_utc": "2026-10-14T08:12:59.247020+00:00",
+      "exit_code": 0,
+      "result": "PASS",
+      "evidence": "gates.log"
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-B",
+        "tools/audit_document_authority.py"
+      ],
+      "started_at_utc": "2026-10-14T08:12:59.247077+00:00",
+      "checked_at_utc": "2026-10-14T08:13:10.217990+00:00",
+      "exit_code": 0,
+      "result": "PASS",
+      "evidence": "gates.log"
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-B",
+        "tools/audit_development.py",
+        "--base",
+        "auto"
+      ],
+      "started_at_utc": "2026-10-14T08:13:10.218031+00:00",
+      "checked_at_utc": "2026-10-14T08:13:14.418756+00:00",
+      "exit_code": 0,
+      "result": "PASS",
+      "evidence": "gates.log"
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-B",
+        "-m",
+        "unittest",
+        "tools.tests.test_audit_document_authority",
+        "tools.tests.test_audit_development"
+      ],
+      "started_at_utc": "2026-10-14T08:13:14.418803+00:00",
+      "checked_at_utc": "2026-10-14T08:13:25.897144+00:00",
+      "exit_code": 0,
+      "result": "PASS",
+      "evidence": "gates.log"
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-B",
+        "tools/audit_game_2d.py",
+        "--regression-gate"
+      ],
+      "started_at_utc": "2026-10-14T08:13:25.897227+00:00",
+      "checked_at_utc": "2026-10-14T08:15:49.497112+00:00",
+      "exit_code": 0,
+      "result": "PASS",
+      "evidence": "gates.log"
+    }
+  ],
+  "raw_log_sha256": "f5952281dbdfeaeca54f4ea6154f5936dbe4ada373a07099916e937c7c2c7332",
+  "scope": "Current bounded UI context only,52native/12views/5sourceviews. Retained exact unchanged R30 full82 validation separately rechecked,no new82 execution. Frozen0artacceptance,globalinventory/QA11/device/child/owner open."
+}

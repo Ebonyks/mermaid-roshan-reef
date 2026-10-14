@@ -1,0 +1,145 @@
+{
+  "revision": "FV-AUDIT-20261014-R31",
+  "actually_viewed_source_images": 5,
+  "candidates": [
+    {
+      "path": "assets/opera/worlds/props/goal_popstar.png",
+      "revision": "849a7de5fa65270d354cb7973ded63b464668988",
+      "bytes": 119818,
+      "sha256": "0a81e7c108234c4770730761704dcf16ca9b5c1d97b3ffee0c306c1c85e8c95a",
+      "native_read_bytes": 119818,
+      "native_read_sha256": "0a81e7c108234c4770730761704dcf16ca9b5c1d97b3ffee0c306c1c85e8c95a",
+      "LF_canonical_parity": true,
+      "role": "Current source/state owner or inspected same-scene/reuse reference; inclusion is not acceptance",
+      "dimensions": [
+        512,
+        512
+      ],
+      "mode": "RGBA",
+      "actually_inspected": true,
+      "disposition": "POTENTIAL_REUSE_WITH_NAMED_FIT_AND_ACCEPTANCE_GAPS",
+      "review": "Existing painted512square microphone stand. Coral/gold shell matches scene pearl materials; whole fixture is too detailed at30px and lacks OFF state. Potential isolated cue; no new menu acceptance."
+    },
+    {
+      "path": "assets/opera/worlds/ui/task_card_frame.png",
+      "revision": "849a7de5fa65270d354cb7973ded63b464668988",
+      "bytes": 705728,
+      "sha256": "63e9d511853f68509cca571ef1d0198fa21f1593d6979278afb76ab2c0061d51",
+      "native_read_bytes": 705728,
+      "native_read_sha256": "63e9d511853f68509cca571ef1d0198fa21f1593d6979278afb76ab2c0061d51",
+      "LF_canonical_parity": true,
+      "role": "Current source/state owner or inspected same-scene/reuse reference; inclusion is not acceptance",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "actually_inspected": true,
+      "disposition": "POTENTIAL_REUSE_WITH_NAMED_FIT_AND_ACCEPTANCE_GAPS",
+      "review": "Existing1024square shell/pearl border. Scene-compatible motifs, but dense squareframe deforms/dominates430x100 directstretch. Component reuse possible; no all-reuse-failed claim."
+    },
+    {
+      "path": "assets/fashion/skin_engine_v2/ui/wardrobe_card.png",
+      "revision": "849a7de5fa65270d354cb7973ded63b464668988",
+      "bytes": 69345,
+      "sha256": "ab4926b5c99c3c6db0efcb4a20a75a9128276e085189bf51f947025659525893",
+      "native_read_bytes": 69345,
+      "native_read_sha256": "ab4926b5c99c3c6db0efcb4a20a75a9128276e085189bf51f947025659525893",
+      "LF_canonical_parity": true,
+      "role": "Current source/state owner or inspected same-scene/reuse reference; inclusion is not acceptance",
+      "dimensions": [
+        236,
+        256
+      ],
+      "mode": "RGBA",
+      "actually_inspected": true,
+      "disposition": "POTENTIAL_REUSE_WITH_NAMED_FIT_AND_ACCEPTANCE_GAPS",
+      "review": "Existing256square painted paper/lavender/gold frame. Calm surface may support shared button material; direct430x100 stretch distorts corners.9slice/statecolors/nativefit and approval untested."
+    },
+    {
+      "path": "assets/fashion/skin_engine_v2/ui/wardrobe_panel.png",
+      "revision": "849a7de5fa65270d354cb7973ded63b464668988",
+      "bytes": 686645,
+      "sha256": "b533b95074f1466ee0519448c992de89d5683432f7a994c4de2628659da7f1ef",
+      "native_read_bytes": 686645,
+      "native_read_sha256": "b533b95074f1466ee0519448c992de89d5683432f7a994c4de2628659da7f1ef",
+      "LF_canonical_parity": true,
+      "role": "Current source/state owner or inspected same-scene/reuse reference; inclusion is not acceptance",
+      "dimensions": [
+        1024,
+        566
+      ],
+      "mode": "RGBA",
+      "actually_inspected": true,
+      "disposition": "POTENTIAL_REUSE_WITH_NAMED_FIT_AND_ACCEPTANCE_GAPS",
+      "review": "Existing1024wide painted paper/lavender shell panel; proportion closer to launch/Options panels. No edit performed; fit/content/state contrast untested. Fashion candidate presence is not menu owner approval."
+    },
+    {
+      "path": "assets_src/concepts/opera_house_flat/cards/opera_floor3_microphone.png",
+      "revision": "849a7de5fa65270d354cb7973ded63b464668988",
+      "bytes": 79744,
+      "sha256": "c10b37e8109b58bf54422967162206a68c9d4c4855462bb81f2bf63bcd849643",
+      "native_read_bytes": 79744,
+      "native_read_sha256": "c10b37e8109b58bf54422967162206a68c9d4c4855462bb81f2bf63bcd849643",
+      "LF_canonical_parity": true,
+      "role": "Current source/state owner or inspected same-scene/reuse reference; inclusion is not acceptance",
+      "dimensions": [
+        256,
+        256
+      ],
+      "mode": "RGB",
+      "actually_inspected": true,
+      "disposition": "POTENTIAL_REUSE_WITH_NAMED_FIT_AND_ACCEPTANCE_GAPS",
+      "review": "Preserved256square concept; dark rectangle and extra glints require isolation/alpha/sourceacceptance/licensing work. Not approved delivery pixels; no new generation justified."
+    }
+  ],
+  "approved_menu_replacements": 0,
+  "source_budget_decision": "No generation. Try existing paper/frame adaptation and microphone isolation before declaring a missing-art gap. Authored musicON/OFF pictogram and deterministic fallback remain unresolved.",
+  "inventory_method": "Bounded rg filename searches for music/mic/sound/mute/speaker/note/font plus current UI/Opera/fashion families; not exhaustive global source/reachability census.",
+  "acceptance_limit": "Runtime presence/source listing does not approve new menu use; existing provenance and acceptance scope must be rechecked before derivation.",
+  "license_inventory_scope": "Existing ASSET_LICENSES records retain their original source-specific terms and hashes. This context audit redistributes only original already-public immutable dependencies, creates only diagnostic captures, and performs no derivative/import. Source-license/acceptance confirmation for a future new menu derivative remains required.",
+  "existing_license_rows": [
+    {
+      "path": "assets/opera/worlds/props/goal_popstar.png",
+      "matching_rows": [
+        "- `assets_src/cinematics/chapter2_lawn_2026-09-06/references/microphone.png` \u2014 unchanged archive copy of `assets/opera/worlds/props/goal_popstar.png`; inherits its existing source license and project rights; no protected original modified. Actual minigame handoff reference only.",
+        "- `assets_src/cinematics/chapter2_lawn_scale_v2_2026-09-06/references/microphone.png` - source: `assets/opera/worlds/props/goal_popstar.png`; project-owned original, all rights reserved; URL: https://github.com/Ebonyks/mermaid-roshan-reef ; byte-identical approved reference copy; SHA-256/dimensions in archive manifest.",
+        "| `audit/day2_art_library_2026-09-30/previews/D2A-0413.webp` | `assets/opera/worlds/props/goal_popstar.png`; inherits source license/provenance | [Exact source](https://github.com/Ebonyks/mermaid-roshan-reef/blob/55032e88936b22723fd9af5282c61ba6696b3d43/assets/opera/worlds/props/goal_popstar.png) | Whole-canvas aspect-preserving thumbnail with original alpha; SVG source copied with LF line endings |"
+      ],
+      "exact_path_row_found": true,
+      "scope": "Existing rows reproduced as evidence; source scope/license and new menu use not granted by this audit."
+    },
+    {
+      "path": "assets/opera/worlds/ui/task_card_frame.png",
+      "matching_rows": [
+        "- `assets/opera/worlds/ui/task_card_frame.png` - project-authored runtime derivative/composite from project-owned Opera art; no external source.",
+        "| `audit/day2_art_library_2026-09-30/previews/D2A-0439.webp` | `assets/opera/worlds/ui/task_card_frame.png`; inherits source license/provenance | [Exact source](https://github.com/Ebonyks/mermaid-roshan-reef/blob/55032e88936b22723fd9af5282c61ba6696b3d43/assets/opera/worlds/ui/task_card_frame.png) | Whole-canvas aspect-preserving thumbnail with original alpha; SVG source copied with LF line endings |"
+      ],
+      "exact_path_row_found": true,
+      "scope": "Existing rows reproduced as evidence; source scope/license and new menu use not granted by this audit."
+    },
+    {
+      "path": "assets/fashion/skin_engine_v2/ui/wardrobe_card.png",
+      "matching_rows": [
+        "| `assets/fashion/skin_engine_v2/ui/wardrobe_card.png` | Approved character sources plus painted garments; skin_engine_v2/derivations.json and generation_briefs.json | Project-owned source derivation; original source licensing retained, generated clothing under applicable OpenAI terms | `assets_src/fashion_designer/skin_engine_v2/generation_briefs.json` | Lossless separate assembled texture; pose/frame geometry preserved; Daddy clean-alpha exception declared |"
+      ],
+      "exact_path_row_found": true,
+      "scope": "Existing rows reproduced as evidence; source scope/license and new menu use not granted by this audit."
+    },
+    {
+      "path": "assets/fashion/skin_engine_v2/ui/wardrobe_panel.png",
+      "matching_rows": [
+        "| `assets/fashion/skin_engine_v2/ui/wardrobe_panel.png` | Approved character sources plus painted garments; skin_engine_v2/derivations.json and generation_briefs.json | Project-owned source derivation; original source licensing retained, generated clothing under applicable OpenAI terms | `assets_src/fashion_designer/skin_engine_v2/generation_briefs.json` | Lossless separate assembled texture; pose/frame geometry preserved; Daddy clean-alpha exception declared |"
+      ],
+      "exact_path_row_found": true,
+      "scope": "Existing rows reproduced as evidence; source scope/license and new menu use not granted by this audit."
+    },
+    {
+      "path": "assets_src/concepts/opera_house_flat/cards/opera_floor3_microphone.png",
+      "matching_rows": [],
+      "exact_path_row_found": false,
+      "scope": "Existing rows reproduced as evidence; source scope/license and new menu use not granted by this audit."
+    }
+  ],
+  "explicit_provenance_gap": "Preserved microphone concept has no exact-path license row in this bounded lookup; group licensing/source acceptance must be resolved before using its pixels. No derivative/generation is undertaken."
+}

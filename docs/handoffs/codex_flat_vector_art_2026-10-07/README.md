@@ -1,6 +1,12 @@
-Current canonical evidence: [R30 startup retirement](r30_startup_ambience_retirement/README.md), [registry](r30_startup_ambience_retirement/per_piece.json), [coverage](r30_startup_ambience_retirement/scene_coverage.json), [tally](r30_startup_ambience_retirement/tally.json).
+Current canonical evidence: [R31 startup UI context](r31_startup_ui_context/README.md), [registry](r31_startup_ui_context/per_piece.json), [coverage](r31_startup_ui_context/scene_coverage.json), [tally](r31_startup_ui_context/tally.json).
 
-# Current R30 bounded production retirement
+# Current R31 bounded UI audit
+
+Twoexisting menu roles add partial context;MusicOFF tofu reproduced,micOFF adjacent slash separate.52native/12views/5sourceviews,productionunchanged.56partial existing/12families,2878bounded/3285retained,0acceptedremoved;fullinventory/acceptanceopen.
+
+Historical R30 routing: [R30 startup retirement](r30_startup_ambience_retirement/README.md), [registry](r30_startup_ambience_retirement/per_piece.json), [coverage](r30_startup_ambience_retirement/scene_coverage.json), [tally](r30_startup_ambience_retirement/tally.json).
+
+# Historical R30 bounded production retirement
 
 Threeproceduralstartuproles retiredwhilemenuownsdisplay;existingpaintedbackground reused.78currentnative/18views,124failedexcluded;82trustednativeprobes pass.2826bounded/3233retained/407excluded;54existingpartial/12families,78/176partial/98without,0globalacceptedremoved. Wholegameinventory/device/child/owner/QA11 remainopen.
 
