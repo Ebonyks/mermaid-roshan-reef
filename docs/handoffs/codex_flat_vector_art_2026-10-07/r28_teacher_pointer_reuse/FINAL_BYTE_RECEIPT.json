@@ -1,0 +1,145 @@
+{
+  "status": "PASS",
+  "receipt_revision": "4edbfa9d5304ee5631cc634fcdf2d4e13999f9f2",
+  "payload_revision": "da40a0457494bb3214847b03b67a196012907aec",
+  "checked_at_utc": "2026-10-14T04:17:52.203262+00:00",
+  "access_mode": "anonymous public HTTPS;exact6final metadata byte comparisons",
+  "checks": [
+    {
+      "path": "design/audit_impacts/flat-vector-teacher-pointer-reuse-20261014.json",
+      "revision": "4edbfa9d5304ee5631cc634fcdf2d4e13999f9f2",
+      "bytes": 18601,
+      "sha256": "c6d15c8f7ef131048944e6ec61a2a5227e4f1438fbaf62675f491586a595c4b3",
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/4edbfa9d5304ee5631cc634fcdf2d4e13999f9f2/design/audit_impacts/flat-vector-teacher-pointer-reuse-20261014.json",
+      "http_status": 200
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r28_teacher_pointer_reuse/REMOTE_VERIFICATION.json",
+      "revision": "4edbfa9d5304ee5631cc634fcdf2d4e13999f9f2",
+      "bytes": 1874418,
+      "sha256": "292ef7181ef498d5b7cfe8d778810812d9a7dab8c277523b84a3f6fa31996236",
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/4edbfa9d5304ee5631cc634fcdf2d4e13999f9f2/docs/handoffs/codex_flat_vector_art_2026-10-07/r28_teacher_pointer_reuse/REMOTE_VERIFICATION.json",
+      "http_status": 200
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r28_teacher_pointer_reuse/tally.json",
+      "revision": "4edbfa9d5304ee5631cc634fcdf2d4e13999f9f2",
+      "bytes": 69257,
+      "sha256": "3f618efb6b9a3ab685f5b0434f7d60ce0eca752dce5e679880c560ffe69a4fe9",
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/4edbfa9d5304ee5631cc634fcdf2d4e13999f9f2/docs/handoffs/codex_flat_vector_art_2026-10-07/r28_teacher_pointer_reuse/tally.json",
+      "http_status": 200
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r28_teacher_pointer_reuse/RECEIPT_GATES.json",
+      "revision": "4edbfa9d5304ee5631cc634fcdf2d4e13999f9f2",
+      "bytes": 2150,
+      "sha256": "125b1630b9325881534c593b21951f6f62408b176ec320256ce47648d21344ce",
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/4edbfa9d5304ee5631cc634fcdf2d4e13999f9f2/docs/handoffs/codex_flat_vector_art_2026-10-07/r28_teacher_pointer_reuse/RECEIPT_GATES.json",
+      "http_status": 200
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r28_teacher_pointer_reuse/receipt_gates.log",
+      "revision": "4edbfa9d5304ee5631cc634fcdf2d4e13999f9f2",
+      "bytes": 971,
+      "sha256": "0c0c75cfbdde0508a85fce76b342e70f8ebc74838bee8076f332b51451ef474d",
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/4edbfa9d5304ee5631cc634fcdf2d4e13999f9f2/docs/handoffs/codex_flat_vector_art_2026-10-07/r28_teacher_pointer_reuse/receipt_gates.log",
+      "http_status": 200
+    },
+    {
+      "path": "audit/MASTER_AUDIT_CHANGELOG_ROLLBACK_2026-08-10.md",
+      "revision": "4edbfa9d5304ee5631cc634fcdf2d4e13999f9f2",
+      "bytes": 145841,
+      "sha256": "f17c9fe362ce12679f642f28166257292a68f20d5e2a978ddea9c13daf44ccc3",
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/4edbfa9d5304ee5631cc634fcdf2d4e13999f9f2/audit/MASTER_AUDIT_CHANGELOG_ROLLBACK_2026-08-10.md",
+      "http_status": 200
+    }
+  ],
+  "origin_dev": "831d0bbb155b99d75ef0289cc5cc694e0ef00c1e",
+  "worktree_clean": true,
+  "production_diff": [
+    "scripts/opera_geology_surface.gd",
+    "scripts/probe_opera_2d.gd"
+  ],
+  "ci": [
+    {
+      "conclusion": "",
+      "databaseId": 38510650066,
+      "headSha": "4edbfa9d5304ee5631cc634fcdf2d4e13999f9f2",
+      "status": "pending",
+      "url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/38510650066"
+    },
+    {
+      "conclusion": "",
+      "databaseId": 38509888049,
+      "headSha": "da40a0457494bb3214847b03b67a196012907aec",
+      "status": "in_progress",
+      "url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/38509888049"
+    },
+    {
+      "conclusion": "cancelled",
+      "databaseId": 38506875813,
+      "headSha": "36b97a183c75ca897d7fd52fe9d54d4f44edda2a",
+      "status": "completed",
+      "url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/38506875813"
+    }
+  ],
+  "accepted_removed": 0,
+  "mission_complete": false,
+  "payload_verification": {
+    "status": "ALL_DECLARED_DEPENDENCIES_VERIFIED",
+    "revision": "da40a0457494bb3214847b03b67a196012907aec",
+    "manifest_sha256": "1222afda28b1763e091f4b1c1cd1cb7f57dbae5ce4d71661a31598b1a4cdffa1",
+    "payload_sha256": "7cb7d17c5aa3369bbd00063bd5fc0f9c0cac56e562b06af1355981c5f2fb8de7",
+    "required_file_count": 2816,
+    "required_bytes": 1232763964,
+    "checked_at_utc": "2026-10-14T04:10:13.718849+00:00",
+    "access_mode": "Anonymous public HTTPS for manifest and every declared required file; public GitHub repo API independently checked; recipient can use the same unauthenticated access mode.",
+    "complete_receipt_url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/4edbfa9d5304ee5631cc634fcdf2d4e13999f9f2/docs/handoffs/codex_flat_vector_art_2026-10-07/r28_teacher_pointer_reuse/REMOTE_VERIFICATION.json"
+  },
+  "scope": "Canonical archived anonymous exactbyte proof:2816payload dependencies+manifest atda40a045,6finalmetadata files at4edbfa9d. Thisproof/impactwrapper separatelybyteverified afterpublication;0creative/QA11/device/child/owner acceptance.",
+  "proof_publication_checks": [
+    {
+      "command": [
+        "python",
+        "-B",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r28_teacher_pointer_reuse\\validate.py"
+      ],
+      "exit_code": 0,
+      "stdout": "R28_CAPTURE_CONTRACT_PASS:8ordered matrices/84retained,24unique credited nonblank sourcebound native frames;fresh private profiles,normal8hashes unchanged;0phasecompletion;diagnostic only.\nR28_SOURCE_NATIVE_CANONICAL_PASS:40sourcebindings,51before-edit publiccontext files;84retained/24uniquecredit/60duplicateexcluded;20views/18unique;1hand/4piececontexts,0artadoption/acceptance,unknown totals.\n",
+      "checked_at_utc": "2026-10-14T04:22:47.002265+00:00"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_document_authority.py"
+      ],
+      "exit_code": 0,
+      "stdout": "DOCAUTH|INVENTORY=731|LEDGER=731|ACTIVE=69|RECORDS=72\nDOCAUTH|RESULT|ALL OK\n",
+      "checked_at_utc": "2026-10-14T04:23:00.717538+00:00"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_development.py",
+        "--base",
+        "auto"
+      ],
+      "exit_code": 0,
+      "stdout": "AUDITDEV|BASE|e2b3c73789707aa49a91b4f42e2a9dd4b68225df\nAUDITDEV|RESULT|ALL OK\n",
+      "checked_at_utc": "2026-10-14T04:23:07.081015+00:00"
+    },
+    {
+      "command": [
+        "git",
+        "diff",
+        "--check"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "checked_at_utc": "2026-10-14T04:23:07.368999+00:00"
+    }
+  ],
+  "unchanged_gate_scope": "Proofmetadata only;passed officialnative/script/source/document54tests+6stress andstrict2D finalreceipt NO_REGRESSION remainunchanged. No runtime/sourcepixels orapproval."
+}
