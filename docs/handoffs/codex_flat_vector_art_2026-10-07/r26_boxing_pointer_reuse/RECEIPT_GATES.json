@@ -1,4 +1,58 @@
 {
-  "status": "PENDING",
-  "scope": "Initialized before document navigation gates; no pass/delivery claimed."
+  "status": "PASS_WITH_ACCEPTANCE_OPEN",
+  "commands": [
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-B",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r26_boxing_pointer_reuse\\validate.py"
+      ],
+      "started_at_utc": "2026-10-14T02:06:17.160486+00:00",
+      "checked_at_utc": "2026-10-14T02:06:24.160449+00:00",
+      "exit_code": 0,
+      "result": "PASS",
+      "evidence": "receipt_gates.log"
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-B",
+        "tools/audit_document_authority.py"
+      ],
+      "started_at_utc": "2026-10-14T02:06:24.160501+00:00",
+      "checked_at_utc": "2026-10-14T02:06:35.225301+00:00",
+      "exit_code": 0,
+      "result": "PASS",
+      "evidence": "receipt_gates.log"
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-B",
+        "tools/audit_development.py",
+        "--base",
+        "auto"
+      ],
+      "started_at_utc": "2026-10-14T02:06:35.225357+00:00",
+      "checked_at_utc": "2026-10-14T02:06:39.557683+00:00",
+      "exit_code": 0,
+      "result": "PASS",
+      "evidence": "receipt_gates.log"
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-B",
+        "tools/audit_game_2d.py",
+        "--regression-gate"
+      ],
+      "started_at_utc": "2026-10-14T02:06:39.557751+00:00",
+      "checked_at_utc": "2026-10-14T02:07:52.681283+00:00",
+      "exit_code": 0,
+      "result": "PASS",
+      "evidence": "receipt_gates.log"
+    }
+  ],
+  "raw_log_sha256": "d210a71f42a94b58deedb46eed9cfd4cf793ee305fcaf844c5ae4ae7bed0edbb",
+  "scope": "Nonruntime Boxing first-phase whole-source reuse diagnostic;production/source pixels unchanged;inherited R16 exact82 trusted native passes. New fixture checks separate;no art generation/replacement/acceptance. Global/QA11/device/child/owner remain open."
 }
