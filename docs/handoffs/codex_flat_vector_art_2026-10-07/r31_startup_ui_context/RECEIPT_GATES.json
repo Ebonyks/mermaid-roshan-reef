@@ -1,4 +1,64 @@
 {
-  "status": "PENDING",
-  "scope": "Initialized before document gates;no false PASS/publication."
+  "status": "PASS_WITH_ACCEPTANCE_OPEN",
+  "commands": [
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-B",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r31_startup_ui_context\\validate.py"
+      ],
+      "started_at_utc": "2026-10-14T08:23:24.013780+00:00",
+      "checked_at_utc": "2026-10-14T08:23:27.679164+00:00",
+      "exit_code": 0,
+      "result": "PASS",
+      "evidence": "receipt_gates.log",
+      "execution": "FRESH"
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-B",
+        "tools/audit_document_authority.py"
+      ],
+      "started_at_utc": "2026-10-14T08:23:27.679215+00:00",
+      "checked_at_utc": "2026-10-14T08:23:39.742904+00:00",
+      "exit_code": 0,
+      "result": "PASS",
+      "evidence": "receipt_gates.log",
+      "execution": "FRESH"
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-B",
+        "tools/audit_development.py",
+        "--base",
+        "auto"
+      ],
+      "started_at_utc": "2026-10-14T08:23:39.742966+00:00",
+      "checked_at_utc": "2026-10-14T08:23:44.058791+00:00",
+      "exit_code": 0,
+      "result": "PASS",
+      "evidence": "receipt_gates.log",
+      "execution": "FRESH"
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-B",
+        "tools/audit_game_2d.py",
+        "--regression-gate"
+      ],
+      "started_at_utc": "2026-10-14T08:13:25.897227+00:00",
+      "checked_at_utc": "2026-10-14T08:15:49.497112+00:00",
+      "exit_code": 0,
+      "result": "PASS",
+      "evidence": "GATES.json/gates.log at immutablepayload;production byteidentical confirmedbyfresh sourcecheck",
+      "execution": "RETAINED_ACTUAL_EXECUTION",
+      "immutable_evidence_revision": "1b79269f78d53dda01c2d54c2e8aa36f8604b006",
+      "note": "No new2D run claimed for metadata-only update."
+    }
+  ],
+  "raw_log_sha256": "2a4f0807cb3bc31ded039cc8b3ffa48628ee3ea9f22dd7b418ea305b11a2968e",
+  "scope": "3fresh source/canonical/document/change checks plus1retained actual2D check atbyteidentical production;no newfull82or2Dexecution. Finalmetadata bytechecks afterpush;globalartacceptance/denominators open."
 }

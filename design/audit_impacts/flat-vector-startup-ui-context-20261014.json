@@ -152,8 +152,13 @@
     },
     {
       "command": "Public GitHub manifest and every dependency/finalmetadata bytes",
+      "result": "PASS",
+      "evidence": "Anonymous immutable payload1b79269f78d53dda01c2d54c2e8aa36f8604b006:manifest plus3430required files/1585534814bytes,manifestSHA48043712642a10ebe3646528b443e81a7ad4e744b11705337e423bfb0ddd7117,payloadSHA97bf894ebadb174a0cef2d42bc0f7a83dfa811d3c17f02414531f0ee49aaedfc;checked2026-10-14T08:22:12.679881+00:00. Final receipt/proof metadata separately pending."
+    },
+    {
+      "command": "Final receipt-head metadata and own canonical proof anonymous exact bytes",
       "result": "PENDING",
-      "evidence": "R31 REMOTE/RECEIPT/FINAL_BYTE_RECEIPT tocomplete"
+      "evidence": "Performed afterreceipt/proof pushes;not inferred frompayload."
     }
   ],
   "acceptance_gaps": "Context-only diagnostic; no accepted art or repair, no full state/caller/global inventory, no QA11/device/child/owner; missing packaged glyph/state cue acceptance remains open."
