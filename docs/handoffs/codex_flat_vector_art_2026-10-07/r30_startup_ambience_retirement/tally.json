@@ -750,9 +750,17 @@
   ],
   "role_and_family_counts_are_separate": true,
   "publication": {
-    "status": "PENDING_EXACT_REMOTE_BYTES",
+    "status": "ALL_DECLARED_DEPENDENCIES_VERIFIED",
+    "revision": "b6606504598fc0d32736918c9a23f7af102f7eb7",
+    "manifest_sha256": "23f88cff190cb77aeca480045196afa88cbd7113fbd950e56c02599658b1580b",
+    "payload_sha256": "1ba55c511d2efd28ca4762f2e74b614ad94b5095ae247325324c6a5159a0c9ad",
+    "required_file_count": 3284,
+    "required_bytes": 1519773950,
+    "access_mode": "Anonymous public HTTPS for manifest and every declared required file; public GitHub repo API independently checked; recipient can use the same unauthenticated access mode.",
+    "checked_at_utc": "2026-10-14T06:41:41.584227+00:00",
     "manifest": "MANIFEST.json",
-    "receipt": "REMOTE_VERIFICATION.json"
+    "receipt": "REMOTE_VERIFICATION.json",
+    "post_payload_metadata": "Sealed b6606504payload keepsits exactbytes. Final6metadata separatelyverified atreceipt-head;canonicalFINAL_BYTE_RECEIPT binds thoseexactchecks. Publication notart/device/child/owner acceptance."
   },
   "independent_style_review": {
     "file": "ROOT_CONTEXT_REVIEW_20261012.json",
@@ -1556,8 +1564,9 @@
   "change_record": {
     "id": "CHG-037",
     "path": "audit/MASTER_AUDIT_CHANGELOG_ROLLBACK_2026-08-10.md",
-    "source_payload_pending": true,
-    "acceptance_inferred": false
+    "source_payload_pending": false,
+    "acceptance_inferred": false,
+    "payload_revision": "b6606504598fc0d32736918c9a23f7af102f7eb7"
   },
   "teacher_pointer_reuse": {
     "revision": "FV-AUDIT-20261014-R28",
@@ -1689,31 +1698,31 @@
     "scope": "Actualprior exacthead CI state; pending/cancellednotgreen. NewR29exacthead pending;unchangedproduction/R16native evidence separate."
   },
   "current_ci_snapshot": {
-    "checked_at_utc": "2026-10-14T05:20:13.737232+00:00",
+    "checked_at_utc": "2026-10-14T06:43:48.216993+00:00",
     "runs": [
       {
         "conclusion": "",
-        "databaseId": 38515678671,
-        "headSha": "774388254d0e7d93284dc621a2ce30af172ac696",
+        "databaseId": 38523374177,
+        "headSha": "b6606504598fc0d32736918c9a23f7af102f7eb7",
         "status": "in_progress",
-        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/38515678671"
+        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/38523374177"
       },
       {
         "conclusion": "success",
-        "databaseId": 38511115807,
-        "headSha": "4c5ffcaf73b4b730b266d5bf415fd662bf6084f1",
+        "databaseId": 38516494135,
+        "headSha": "fdf41220b8cfe16f129741e364b2ea75f4e5e7f1",
         "status": "completed",
-        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/38511115807"
+        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/38516494135"
       },
       {
         "conclusion": "cancelled",
-        "databaseId": 38510650066,
-        "headSha": "4edbfa9d5304ee5631cc634fcdf2d4e13999f9f2",
+        "databaseId": 38516182857,
+        "headSha": "ceebf28229b63b7fb3e70cf4e563a0b61f344fcc",
         "status": "completed",
-        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/38510650066"
+        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/38516182857"
       }
     ],
-    "scope": "Currentexacthead machineCI;pending/cancellednotgreen. No devmerge/release/artacceptance."
+    "scope": "CurrentexactheadCI only;pending/cancellednotgreen. Localall82newsourcepassed;no dev/masterintegration orartacceptance."
   },
   "inherited_r29_reference_base": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/fdf41220b8cfe16f129741e364b2ea75f4e5e7f1/docs/handoffs/codex_flat_vector_art_2026-10-07/r29_startup_ambience_context",
   "startup_ambience_retirement": {
@@ -1746,7 +1755,8 @@
     "device": null,
     "child": null,
     "owner": null,
-    "all_other_consumers_closed": false
+    "all_other_consumers_closed": false,
+    "production_candidate_revision": "b6606504598fc0d32736918c9a23f7af102f7eb7"
   },
   "current_retirement_acceptance_lanes": {
     "bounded_startup_roles_implemented": 3,
