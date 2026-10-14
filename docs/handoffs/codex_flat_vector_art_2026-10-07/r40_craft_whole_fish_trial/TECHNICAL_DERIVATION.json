@@ -1,0 +1,125 @@
+{
+  "started_at_utc": "2026-10-14T20:57:01.969918+00:00",
+  "completed_at_utc": "2026-10-14T20:57:02.961412+00:00",
+  "command": [
+    "C:/Program Files/Aseprite/Aseprite.exe",
+    "--batch",
+    "--script-param",
+    "source=C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\assets_src\\flat_vector_craft_fish_20261014\\whole_fish_native.png",
+    "--script-param",
+    "native_master=C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\assets_src\\flat_vector_craft_fish_20261014\\whole_fish_native.aseprite",
+    "--script-param",
+    "native_roundtrip=C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\assets_src\\flat_vector_craft_fish_20261014\\native_roundtrip.png",
+    "--script-param",
+    "normalized_master=C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\assets_src\\flat_vector_craft_fish_20261014\\whole_fish_1024.aseprite",
+    "--script-param",
+    "output=C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\assets_src\\flat_vector_craft_fish_20261014\\whole_fish_1024.png",
+    "--script-param",
+    "proof=C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\assets_src\\flat_vector_craft_fish_20261014\\MASTER_PROOF.json",
+    "--script",
+    "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\assets_src\\flat_vector_craft_fish_20261014\\bridge_fish.lua"
+  ],
+  "exit_code": 0,
+  "program_version": "Aseprite1.3.18.4-x64",
+  "native_roundtrip_rgba_identical": true,
+  "native_source_preserved": true,
+  "normalized_size": [
+    1024,
+    1024
+  ],
+  "normalized_mode": "RGBA",
+  "alpha_extrema": [
+    0,
+    254
+  ],
+  "alpha_boxes_by_threshold": {
+    "1": [
+      11,
+      263,
+      1012,
+      951
+    ],
+    "8": [
+      13,
+      265,
+      1011,
+      828
+    ],
+    "32": [
+      13,
+      265,
+      1010,
+      828
+    ],
+    "64": [
+      14,
+      265,
+      1010,
+      828
+    ],
+    "128": [
+      14,
+      266,
+      1010,
+      827
+    ],
+    "220": [
+      14,
+      266,
+      1010,
+      827
+    ]
+  },
+  "method": "Uniformbilinear whole-canvas1254\u21921024;one complete layer/cel retained. No sourcepart separation,painting,recolor,warp,crop orPythonpixelprocessing. Engine sourcealpha ROI/palette selectors later are functional geometry only.",
+  "files": [
+    {
+      "path": "assets_src/flat_vector_craft_fish_20261014/.gdignore",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "assets_src/flat_vector_craft_fish_20261014/aseprite.log",
+      "bytes": 67,
+      "sha256": "cc9207639f7eb1868f9a878e934de968db37b0d14700800f647edbba539325a4"
+    },
+    {
+      "path": "assets_src/flat_vector_craft_fish_20261014/bridge_fish.lua",
+      "bytes": 1307,
+      "sha256": "cf93a2c7b2f85cf975406c26c491ea6f289ed765ce944ef99ba37575185e8ef9"
+    },
+    {
+      "path": "assets_src/flat_vector_craft_fish_20261014/MASTER_PROOF.json",
+      "bytes": 186,
+      "sha256": "43cdec55e69c3d8fb06f18ac93d10960030d77716dfba017df2d62858be18d0c"
+    },
+    {
+      "path": "assets_src/flat_vector_craft_fish_20261014/native_roundtrip.png",
+      "bytes": 976444,
+      "sha256": "f5844053a6a918b8bb6958a0909bb21361d9182fcce944695dc350fd75ae5378"
+    },
+    {
+      "path": "assets_src/flat_vector_craft_fish_20261014/whole_fish_1024.aseprite",
+      "bytes": 949090,
+      "sha256": "7c40791bd0fe12c5169b6717cd158687b9d13e98e936007a3ee5a8d6036af9b0"
+    },
+    {
+      "path": "assets_src/flat_vector_craft_fish_20261014/whole_fish_1024.png",
+      "bytes": 658767,
+      "sha256": "e679ca27ac100dc536308e23c906913b6e1563b5e51cc5a63a8f6a246906b21b"
+    },
+    {
+      "path": "assets_src/flat_vector_craft_fish_20261014/whole_fish_native.aseprite",
+      "bytes": 1392918,
+      "sha256": "c212281651fdcb547357398c73adea175625b025ca9817003ec9c40c8bd0b63f"
+    },
+    {
+      "path": "assets_src/flat_vector_craft_fish_20261014/whole_fish_native.png",
+      "bytes": 1019811,
+      "sha256": "377ccfbfbd4a3c069817912aef7270f0f3ed92c1c8cb8ea618d3353396d4c058"
+    }
+  ],
+  "source_master_acceptance": false,
+  "approved": 0,
+  "integrated": 0,
+  "accepted_removed": 0
+}

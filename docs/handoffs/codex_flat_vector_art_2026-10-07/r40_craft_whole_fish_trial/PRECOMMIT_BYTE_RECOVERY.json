@@ -1,0 +1,18 @@
+{
+  "status": "STAGED_BYTE_MISMATCH_DETECTED_BEFORE_COMMIT_PRESERVE_RAW_LOGS_AND_RESEAL",
+  "baseline": "69dfac241fb2bc3a51bbab138d4ddde952d60899",
+  "first_path": "assets_src/flat_vector_craft_fish_20261014/aseprite.log",
+  "working_bytes": 67,
+  "staged_bytes": 66,
+  "repair": "Scoped .gitattributes -text -diff for this source family and new R40 audit logs, following existing packet convention; no raw log normalization, production rules or frozen evidence changed. Full exact staged-byte check required again.",
+  "accepted_removed": 0,
+  "complete_precommit_mismatches": [
+    {
+      "path": "assets_src/flat_vector_craft_fish_20261014/aseprite.log",
+      "working_bytes": 67,
+      "staged_bytes": 66,
+      "working_CRLF": 1,
+      "working_CRCRLF": 0
+    }
+  ]
+}

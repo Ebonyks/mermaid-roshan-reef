@@ -1,0 +1,94 @@
+{
+  "schema": "reef.craft_whole_fish_generation/1",
+  "piece_id": "FVR-FE178DEED189",
+  "baseline": "69dfac241fb2bc3a51bbab138d4ddde952d60899",
+  "status": "ONE_BUILTIN_NATIVE_CANDIDATE_LOCAL_QA_PENDING",
+  "attempt": 1,
+  "attempt_cap": 1,
+  "calls_used": 1,
+  "call_started_at_utc": "2026-10-14T20:48:36.827158+00:00",
+  "wall_cap_seconds": 300,
+  "cleanup_cap_minutes": 15,
+  "prompt_path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r40_craft_whole_fish_trial/PROMPT.txt",
+  "prompt_sha256": "7f828b724f11ad993724b722d0329a1b0a7ed5b9a14c0a9f2f8695a938ae4db1",
+  "references": [
+    {
+      "path": "assets/mg/fish_body.png",
+      "revision": "69dfac241fb2bc3a51bbab138d4ddde952d60899",
+      "bytes": 499234,
+      "sha256": "219da6079daa8fdfc0bf854c3c37d9584d18c2b1f65ef60dc0e2fa24a8996a41",
+      "role": "edit_target_identity",
+      "original_modified": false
+    },
+    {
+      "path": "assets/mg/fish_fins.png",
+      "revision": "69dfac241fb2bc3a51bbab138d4ddde952d60899",
+      "bytes": 964497,
+      "sha256": "52bbe03e05baed1092d4c17c881132311dc99772cb6deb038ace858fdc13c30e",
+      "role": "supporting_fin_material_shape_only",
+      "original_modified": false
+    }
+  ],
+  "context": {
+    "published_revision": "69dfac241fb2bc3a51bbab138d4ddde952d60899",
+    "review": "r39_craft_compositor_context/COMPOSITOR_REVIEW.json",
+    "input_role": "Current scene constraints in text only; gameplay PNG is not bound as generation pixels"
+  },
+  "tool": "builtin image_gen.imagegen",
+  "workflow": "Bounded source-preserving whole-fish missing-fin repair; new single-drawing candidate, originals unchanged",
+  "transparent_background": true,
+  "model_revision": null,
+  "seed": null,
+  "provider_request_id": null,
+  "billing_or_credits": null,
+  "provider_limits": "Record actual exposed metadata only. Builtin billing/model/seed/request may be hidden; no fabricated costs, IDs or per-frame provenance. No CLI/external paid fallback.",
+  "native_output": {
+    "path": "assets_src/flat_vector_craft_fish_20261014/whole_fish_native.png",
+    "original_default_path": "C:\\Users\\Peter\\.codex\\generated_images\\01a119cc-74b1-7d23-b956-126129405418\\exec-64540a11-a773-46e9-8b44-9ac63ea5bb08.png",
+    "bytes": 1019811,
+    "sha256": "377ccfbfbd4a3c069817912aef7270f0f3ed92c1c8cb8ea618d3353396d4c058",
+    "dimensions": [
+      1254,
+      1254
+    ],
+    "mode": "RGBA",
+    "alpha_extrema": [
+      0,
+      255
+    ],
+    "alpha_bbox": [
+      14,
+      85,
+      1240,
+      1207
+    ],
+    "corner_alpha": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "native_bytes_preserved": true,
+    "runtime_eligible_without_derivative": false,
+    "limit": "Builtin returned1254square despiteprompt1024; preserve native asnonruntime source and create antialiased1024 technicalderivative before runtime-shaped trial."
+  },
+  "approved": 0,
+  "integrated": 0,
+  "accepted_removed": 0,
+  "owner": null,
+  "device": null,
+  "child": null,
+  "QA11": null,
+  "call_completed_at_utc": "2026-10-14T20:55:23.180729+00:00",
+  "reported_provider_metadata": {
+    "exposed": "image_url/output_hint only",
+    "model_revision": null,
+    "seed": null,
+    "provider_request_id": null,
+    "billing_or_credits": null
+  },
+  "generation_calls_used": 1,
+  "scope_review": {
+    "direct_visual_observation": "One connected complete fish, single visible golden eye, seated dorsal/pectoral/pelvic/anal fins, painted source identity largely preserved. Dorsal bigger than requested and pearl-like anal-fin dot retained. Source-specific style/identity/anatomy human review and scene/motion/palette/device still open."
+  }
+}

@@ -1,6 +1,12 @@
-Current canonical evidence: [R39 Craft context](r39_craft_compositor_context/README.md), [registry](r39_craft_compositor_context/per_piece.json), [coverage](r39_craft_compositor_context/scene_coverage.json), [tally](r39_craft_compositor_context/tally.json).
+Current canonical evidence: [R40 whole fish trial](r40_craft_whole_fish_trial/README.md), [registry](r40_craft_whole_fish_trial/per_piece.json), [coverage](r40_craft_whole_fish_trial/scene_coverage.json), [tally](r40_craft_whole_fish_trial/tally.json).
 
-# Current R39 Craft compositor audit
+# Current R40 source-only fish candidate
+
+One complete painted fish sample awaits review;8 current native cases,607 retained/152 credited.227 known roles/30 families,zero accepted removals/global totals unknown. No production change or downstream/human acceptance.
+
+Historical R39 evidence: [R39 Craft context](r39_craft_compositor_context/README.md), [registry](r39_craft_compositor_context/per_piece.json), [coverage](r39_craft_compositor_context/scene_coverage.json), [tally](r39_craft_compositor_context/tally.json).
+
+# Historical R39 Craft compositor audit
 
 Eight successful current GUI profile/aspect cases; fish double-eye/detached-fin/tint and Detail preview gaps documented.227 known roles/30 families,3497 bounded/4425 retained/928 excluded,zero accepted removals/global totals unknown. Natural downstream callers and acceptance remain open.
 

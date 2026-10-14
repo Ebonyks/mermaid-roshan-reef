@@ -1,0 +1,47 @@
+{
+  "status": "PASS_CURRENT_FIXTURE_SYNTAX_ONLY",
+  "commands": [
+    {
+      "command": [
+        "python",
+        "-m",
+        "gdtoolkit.parser",
+        "docs/handoffs/codex_flat_vector_art_2026-10-07/r40_craft_whole_fish_trial/capture_whole_fish.gd",
+        "docs/handoffs/codex_flat_vector_art_2026-10-07/r40_craft_whole_fish_trial/craft_whole_fish_trial.gd"
+      ],
+      "exit_code": 0,
+      "checked_at_utc": "2026-10-14T21:28:15.006009+00:00",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_utf8": ""
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/lint_inference.py",
+        "docs/handoffs/codex_flat_vector_art_2026-10-07/r40_craft_whole_fish_trial/capture_whole_fish.gd",
+        "docs/handoffs/codex_flat_vector_art_2026-10-07/r40_craft_whole_fish_trial/craft_whole_fish_trial.gd"
+      ],
+      "exit_code": 0,
+      "checked_at_utc": "2026-10-14T21:28:15.105256+00:00",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_utf8": ""
+    },
+    {
+      "command": [
+        "C:/Users/Peter/AppData/Local/Programs/MermaidReefTools/Godot/4.7.2/godot_console.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef",
+        "--check-only",
+        "--script",
+        "res://docs/handoffs/codex_flat_vector_art_2026-10-07/r40_craft_whole_fish_trial/capture_whole_fish.gd"
+      ],
+      "exit_code": 0,
+      "checked_at_utc": "2026-10-14T21:28:22.505762+00:00",
+      "stdout_sha256": "83cf0b082206af2aa236c83064fbcfa76be1e00a4aa3558574b2f65965d9481c",
+      "stdout_utf8": "Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org\r\n\r\n"
+    }
+  ],
+  "scope": "Currentextendedfixture/all8palette/storedgene syntax; native shader/palette/style/device/owner checks still independent."
+}

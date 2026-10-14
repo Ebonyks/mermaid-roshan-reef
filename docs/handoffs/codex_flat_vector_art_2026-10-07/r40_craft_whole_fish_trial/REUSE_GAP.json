@@ -1,0 +1,21 @@
+{
+  "status": "DIRECT_SOURCE_REUSE_NOT_SUFFICIENT_WHOLE_DRAWING_REPAIR_REQUIRED",
+  "piece_id": "FVR-FE178DEED189",
+  "baseline": "69dfac241fb2bc3a51bbab138d4ddde952d60899",
+  "prior_reuse_inventory": "docs/handoffs/codex_flat_vector_art_2026-10-07/r39_craft_compositor_context/SOURCE_REUSE.json",
+  "specific_gap": "The existing painted body has face/body/caudal tail but no dorsal,near-sidepectoral,pelvicoranalfin. Fin source isfourdisconnectedparts inportraitsheet. Directrenderingormoving/stackingthese aspartlayersviolatesODR-SPRITE-WHOLE-UNIT-20261007; currentindependentfits producefloatingfins andflatline eye, verifiedinR39. Bodyalone woulddiscardintendedfinanatomy/artrole anddoesnotmeet thebrief. No suitableexistingcomplete connectedfish inreviewed sourceswithsameidentity/contact/palettepurpose.",
+  "failed_reuse": [
+    "Direct three-layer currentfish: actualR39doubleeye/detachedfin/contact/stylefailure",
+    "Bodyonly: missing intendedfinanatomy andfinmaterialrole,not a faithfulcomplete substitute",
+    "Directfin-sheetmount orsourcepartlayerassembly: disconnectedparts/whole-unitownercontract failure",
+    "Batch04 flatoval/triangle/body-fins: violateszero-flatvectorgoal",
+    "Giantfish/whaleandpastelclownfish: differentidentity/proportions/style/color-purpose"
+  ],
+  "eligible_method": "One builtin precise-object edit ofpaintedbody usingfin appearance/support reference; requestone completeauthoredwholefish, notlayer output ornewscene/identity. No protectedsource edit; newversionednonruntimeRGBAcandidateonly.",
+  "new_art_needed_scope": "Only the missing complete connected wholefish drawing; no redesign/fullscene regeneration/palettevariantcampaign. Runtimepalette must preservewhole texture/paintedvalues ratherthanartpartlayers.",
+  "drawing_required_for_final": null,
+  "approved": 0,
+  "integrated": 0,
+  "accepted_removed": 0,
+  "generation_cap": 1
+}
