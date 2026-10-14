@@ -253,7 +253,8 @@
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r27_teacher_pointer_context/validate.py",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r27_teacher_pointer_context/verify_remote.py",
     "audit/MASTER_AUDIT_CHANGELOG_ROLLBACK_2026-08-10.md",
-    "docs/handoffs/codex_flat_vector_art_2026-10-07/r27_teacher_pointer_context/CAPTURE_CONTRACT.json"
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r27_teacher_pointer_context/CAPTURE_CONTRACT.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r27_teacher_pointer_context/FINAL_BYTE_RECEIPT.json"
   ],
   "validation": [
     {
@@ -285,6 +286,11 @@
       "command": "GitHub exactpublished manifest/everyfile anonymous SHA256 andfinalmetadatareceipt gates",
       "result": "PASS",
       "evidence": "docs/handoffs/codex_flat_vector_art_2026-10-07/r27_teacher_pointer_context/REMOTE_VERIFICATION.json andRECEIPT_GATES.json;not yet published;payload60a057c1 anonymouslyverified2659required files/1169942851bytes plusmanifest,manifestsha23c946c23415161028f241cc57e7f4f4d8df31de24b4bd13267f7bdabf579728,payloadshaf27807fbc44f0c1c61c2a183519c97ba7cb98e7a77a06a2900f29cd38419f82e. Final8metadata bytes/receiptgates pending."
+    },
+    {
+      "command": "Publish self-contained final byte-verification receipt;exact source/native validator,documentauthority,auditdevelopment anddiffcheck;verify2published metadata blobs anonymously",
+      "result": "PASS",
+      "evidence": "docs/handoffs/codex_flat_vector_art_2026-10-07/r27_teacher_pointer_context/FINAL_BYTE_RECEIPT.json binds alreadyverified28cc2d01and60a057c1,all8metadata hashes/time/accessmode. No runtime/sourcepixels changed;passed final4receipt gates andpayload54tests+6stress retain scope.;4publication checks exit0;proof/rawstdout recorded inFINAL_BYTE_RECEIPT.json. Remote blob comparisons performed immediately afterpush."
     }
   ],
   "acceptance_gaps": "Whole-game denominator/current screens/regressions unknown; full inventory/caller coverage/higher Teacher tiers and sequences/natural route/reward/reentry/save/focus/QA11/device/child/owner/source approval/fallback retirement all remain open.",
