@@ -45,6 +45,7 @@
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r29_startup_ambience_context/CATALOGUE_SOURCE_CENSUS.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r29_startup_ambience_context/CONGRUENCY_BACKLOG.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r29_startup_ambience_context/CURRENT_PARTIAL_CONTEXT_UNION.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r29_startup_ambience_context/FINAL_BYTE_RECEIPT.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r29_startup_ambience_context/GATES.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r29_startup_ambience_context/LAUNCH.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r29_startup_ambience_context/MANIFEST.json",
@@ -109,6 +110,11 @@
       "command": "Exact GitHub manifest and every declared dependency anonymousbytes;finalmetadata separately verified",
       "result": "PASS",
       "evidence": "R29REMOTE_VERIFICATION.json:payload774388254d0e7d93284dc621a2ce30af172ac696,2903required/1270687779bytes plusmanifest;manifestsha6cf290f6337cd7412e7b949880a1d342cddb3935936d3bd69ecf3b77e17ee5f7,payloadsha40f3b46fffac6aebab2bd65c0a6c4a7605fd3d85ebd8c0a39c1bbefd2a79adcf. Final6metadata pending independentreceipt-head verification."
+    },
+    {
+      "command": "Publish canonical final-byte proof;source/canonical/document/diff gates,then2anonymous blobchecks",
+      "result": "PASS",
+      "evidence": "FINAL_BYTE_RECEIPT binds verified77438825payload/ceebf282receipt,all6metadata hashes/time/accessmode;newproof+impact checked afterpush. Metadataonly,unchangedproduction/sourcepixels. Fourpublication gates0,rawoutputs inproof;2remote checks performedimmediatelyafterpush."
     }
   ],
   "acceptance_gaps": "Unknown full inventory/visible screen/piece/regression totals; existing nonruntime hand candidates pending owner; all natural-route variants/fallback/runtime/QA11/device/child/owner/zero-art remain open.",
