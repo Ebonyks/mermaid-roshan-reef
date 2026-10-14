@@ -1,4 +1,65 @@
 {
-  "status": "PENDING",
-  "scope": "Initialized before linked-document checks;no pass/publication/acceptance"
+  "status": "PASS_WITH_ACCEPTANCE_OPEN",
+  "commands": [
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-B",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r29_startup_ambience_context\\validate.py"
+      ],
+      "started_at_utc": "2026-10-14T05:20:13.743539+00:00",
+      "checked_at_utc": "2026-10-14T05:20:16.185269+00:00",
+      "exit_code": 0,
+      "result": "PASS",
+      "evidence": "receipt_gates.log",
+      "execution_scope": "Fresh finalmetadata source/canonical/document check"
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-B",
+        "tools/audit_document_authority.py"
+      ],
+      "started_at_utc": "2026-10-14T05:20:16.185329+00:00",
+      "checked_at_utc": "2026-10-14T05:20:31.181922+00:00",
+      "exit_code": 0,
+      "result": "PASS",
+      "evidence": "receipt_gates.log",
+      "execution_scope": "Fresh finalmetadata source/canonical/document check"
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-B",
+        "tools/audit_development.py",
+        "--base",
+        "auto"
+      ],
+      "started_at_utc": "2026-10-14T05:20:31.181971+00:00",
+      "checked_at_utc": "2026-10-14T05:20:38.502143+00:00",
+      "exit_code": 0,
+      "result": "PASS",
+      "evidence": "receipt_gates.log",
+      "execution_scope": "Fresh finalmetadata source/canonical/document check"
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-B",
+        "tools/audit_game_2d.py",
+        "--regression-gate"
+      ],
+      "started_at_utc": "2026-10-14T05:06:37.917317+00:00",
+      "checked_at_utc": "2026-10-14T05:12:36.398828+00:00",
+      "exit_code": 0,
+      "result": "PASS",
+      "evidence": "GATES.json/gates.log",
+      "execution_scope": "RETAINED_ACTUAL_PASS_AT_SOURCE_IDENTICAL_BASE;notre-executed forreceiptmetadata",
+      "retained_source_baseline": "4c5ffcaf73b4b730b266d5bf415fd662bf6084f1"
+    }
+  ],
+  "fresh_command_count": 3,
+  "retained_actual_pass_count": 1,
+  "raw_log_sha256": "badd378b8903eda497e9b2bf43c6508e3f42103576c39232377b3064a104a995",
+  "scope": "Threefresh source/canonical/document gates;actual completed2Dpass retained becauseallproduction/sourcepixels identical. Native/script/54tests+6stress alreadypassed. Retention is not a new machine run or creative/QA11/device/child/owner acceptance."
 }
