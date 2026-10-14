@@ -1,0 +1,105 @@
+{
+  "status": "EXACT_ANONYMOUS_REMOTE_BYTES_VERIFIED",
+  "revision": "c8a212d77d8f2855bf1b1a72cd4de0251f32e1d6",
+  "checked_at_utc": "2026-10-14T10:32:10.142269+00:00",
+  "access_mode": "Anonymous public HTTPS GET and exact Git byte/SHA256 comparison",
+  "checks": [
+    {
+      "path": "audit/MASTER_AUDIT_CHANGELOG_ROLLBACK_2026-08-10.md",
+      "revision": "c8a212d77d8f2855bf1b1a72cd4de0251f32e1d6",
+      "bytes": 157639,
+      "sha256": "ced260b0e405cba9df7c2d0490500e22dd7eafa6d49bbbd312c8decc29515faf",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/c8a212d77d8f2855bf1b1a72cd4de0251f32e1d6/audit/MASTER_AUDIT_CHANGELOG_ROLLBACK_2026-08-10.md"
+    },
+    {
+      "path": "design/audit_impacts/flat-vector-menu-material-reuse-20261014.json",
+      "revision": "c8a212d77d8f2855bf1b1a72cd4de0251f32e1d6",
+      "bytes": 43319,
+      "sha256": "d9bb35758f19ce3fd360c5772532635f98b44ea36eb16819e385eb193aa55b04",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/c8a212d77d8f2855bf1b1a72cd4de0251f32e1d6/design/audit_impacts/flat-vector-menu-material-reuse-20261014.json"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r33_menu_material_reuse/RECEIPT_GATES.json",
+      "revision": "c8a212d77d8f2855bf1b1a72cd4de0251f32e1d6",
+      "bytes": 2013,
+      "sha256": "f8eff504f228110a3cf8dc93d4409199434ad198d6b75077b966dd2cf0a65e10",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/c8a212d77d8f2855bf1b1a72cd4de0251f32e1d6/docs/handoffs/codex_flat_vector_art_2026-10-07/r33_menu_material_reuse/RECEIPT_GATES.json"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r33_menu_material_reuse/REMOTE_VERIFICATION.json",
+      "revision": "c8a212d77d8f2855bf1b1a72cd4de0251f32e1d6",
+      "bytes": 2760572,
+      "sha256": "7d41760d5f14295cf101f94da3468d0249a157f6eef5a8d6a3edfd6b2a977f88",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/c8a212d77d8f2855bf1b1a72cd4de0251f32e1d6/docs/handoffs/codex_flat_vector_art_2026-10-07/r33_menu_material_reuse/REMOTE_VERIFICATION.json"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r33_menu_material_reuse/receipt_gates.log",
+      "revision": "c8a212d77d8f2855bf1b1a72cd4de0251f32e1d6",
+      "bytes": 635,
+      "sha256": "629a34e340c25fe5e2391bf90bf72776a463d8d495b08b06bd4a340dc9627729",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/c8a212d77d8f2855bf1b1a72cd4de0251f32e1d6/docs/handoffs/codex_flat_vector_art_2026-10-07/r33_menu_material_reuse/receipt_gates.log"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r33_menu_material_reuse/tally.json",
+      "revision": "c8a212d77d8f2855bf1b1a72cd4de0251f32e1d6",
+      "bytes": 88599,
+      "sha256": "4720fba8e46e0f6c9ffbc0ab985c42c80d6d41be4e87564082c655ce01b3fe40",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/c8a212d77d8f2855bf1b1a72cd4de0251f32e1d6/docs/handoffs/codex_flat_vector_art_2026-10-07/r33_menu_material_reuse/tally.json"
+    }
+  ],
+  "payload_revision": "d3f55adf7ddc8319275ea0fc50fb6a136b8bc360",
+  "manifest_sha256": "cdf2aa6be8cdc23675aeb49c835043c773cc2a8577091fe9d194384ed85842f1",
+  "payload_sha256": "b9b480be8125340f6fad6be408d0a8a64fd5825ea7a1d615b73955e8e133c88c",
+  "required_file_count": 4058,
+  "required_bytes": 2024712453,
+  "clean_worktree": true,
+  "reconciled_origin_dev": "831d0bbb155b99d75ef0289cc5cc694e0ef00c1e",
+  "current_ci_snapshot": {
+    "checked_at_utc": "2026-10-14T10:32:12.849411+00:00",
+    "runs": [
+      {
+        "conclusion": "",
+        "databaseId": 38550251908,
+        "headSha": "c8a212d77d8f2855bf1b1a72cd4de0251f32e1d6",
+        "status": "pending",
+        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/38550251908"
+      },
+      {
+        "conclusion": "",
+        "databaseId": 38549862802,
+        "headSha": "d3f55adf7ddc8319275ea0fc50fb6a136b8bc360",
+        "status": "in_progress",
+        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/38549862802"
+      },
+      {
+        "conclusion": "cancelled",
+        "databaseId": 38545091432,
+        "headSha": "ecb9839a374d3260161a19d44039325d561a3509",
+        "status": "completed",
+        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/38545091432"
+      },
+      {
+        "conclusion": "cancelled",
+        "databaseId": 38544338967,
+        "headSha": "fbd071ae416680b44c70f45f3086b86cbdec096e",
+        "status": "completed",
+        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/38544338967"
+      }
+    ],
+    "scope": "Observed exactheads only; pending/cancelled notgreen/artacceptance. Currentproduction is byteidenticalR32actualfull82; no R33newfull82 execution."
+  },
+  "candidate_status": "PARTIAL_FIT_REPAIR_LOCAL_QC_FAIL_FOCUS_NOT_INTEGRATION_READY",
+  "accepted_removed": 0,
+  "QA11": null,
+  "device": null,
+  "child": null,
+  "owner": null,
+  "mission_complete": false,
+  "scope": "Canonical final6metadata receipt at exacthead; its ownlaterproof/impact bytes checked separately after proofcommit, no recursiveselfhash."
+}
