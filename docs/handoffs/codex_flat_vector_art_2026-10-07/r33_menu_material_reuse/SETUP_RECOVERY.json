@@ -1,0 +1,5 @@
+{
+  "issue": "First assembly stopped before masterindex/ledger/finding/license edits because Windows default CP1252 could not read master audit UTF8 punctuation.",
+  "correction": "All assembly read_text uses explicitUTF8; reset only newly generated rootREADME to exact taskbaseline before rerun to prevent duplicateheading. No production/assets/native data modified.",
+  "capture_failure": false
+}

@@ -1,0 +1,11 @@
+# R33: source-preserving menu material fit study
+
+The existing painted wardrobe card now fills the original eight StartMenu targets in an isolated trial. The first whole-texture 36-pixel slice visibly shrank the targets and cut corner details. A Godot texture region trims only outside alpha0/1 padding before the same nine-slice; source PNGs and production code remain unchanged. [Fit repair](FIT_REPAIR.json), [source hashes](SOURCES.json), [ten-axis review](REVIEW.json).
+
+The current candidate is **not integration-ready**: tinted border-only focus leaves a hard rectangular paper center. Kind-color distinction, disabled readability, other callers, flat panel/pearls/shell/hold-fill and MusicOFF glyph remain open. Reuse is still viable; this is not an all-reuse-failed verdict or permission to generate replacement art.
+
+[30 published current context/source files](CONTEXT_PREREQUISITE.json) were anonymously verified before fixture edits. [Native evidence](CAPTURE_INDEX.json):122 current ordered official4.7.2 Mobile/Speedy snapshots across fresh/legacy-saved at1280x720/1600x720, plus122 initial failed-fit snapshots retained/excluded;16 current direct views/3 initial views. All six material resources are recorded; declared style substitutions/focus are diagnostic. Actual engine ScreenTouch covers Options/music/mic, short-hold cancel/KeepGame/Continue; original control bounds, text/fonts, earned saves and normal8hashes are checked separately. [Capture contract](CAPTURE_CONTRACT.json), [machine/document gates](GATES.json), [sidecar guard](SIDECAR_GUARD.json).
+
+[Tally](tally.json):72new bounded credits/244retained/172excluded;3020bounded/3623retained/603excluded cumulative.56existingpartial/12families,78/176partial/98without/0complete;0acceptedremoved,wholegame totalsunknown. One existing namedrole/sharedUI family; no new drawing, generation, approval, productionintegration or accepted removal. Previous R32 all82 native passes are retained evidence at unchanged production, not a new R33full82 run. Current CI is separate.
+
+[Manifest](MANIFEST.json), [anonymous public receipt](REMOTE_VERIFICATION.json), [receipt checks](RECEIPT_GATES.json). Whole-game inventory, QA11 same-process closed visual proof, device/child/owner acceptance remain open. No dev/master delivery or completion claimed.

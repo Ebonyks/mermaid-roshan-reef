@@ -1,0 +1,133 @@
+{
+  "status": "PASS_WITH_ACCEPTANCE_OPEN",
+  "commands": [
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-m",
+        "gdtoolkit.parser",
+        "docs/handoffs/codex_flat_vector_art_2026-10-07/r33_menu_material_reuse/capture_menu_material_reuse.gd",
+        "docs/handoffs/codex_flat_vector_art_2026-10-07/r33_menu_material_reuse/initial_capture_menu_material_reuse.gd"
+      ],
+      "started_at_utc": "2026-10-14T10:18:35.437410+00:00",
+      "checked_at_utc": "2026-10-14T10:18:36.436888+00:00",
+      "exit_code": 0,
+      "result": "PASS",
+      "evidence": "gates.log"
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-B",
+        "tools/lint_inference.py",
+        "docs/handoffs/codex_flat_vector_art_2026-10-07/r33_menu_material_reuse/capture_menu_material_reuse.gd",
+        "docs/handoffs/codex_flat_vector_art_2026-10-07/r33_menu_material_reuse/initial_capture_menu_material_reuse.gd"
+      ],
+      "started_at_utc": "2026-10-14T10:18:36.436959+00:00",
+      "checked_at_utc": "2026-10-14T10:18:36.561817+00:00",
+      "exit_code": 0,
+      "result": "PASS",
+      "evidence": "gates.log"
+    },
+    {
+      "command": [
+        "C:/Users/Peter/AppData/Local/Programs/MermaidReefTools/Godot/4.7.2/godot_console.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef",
+        "--check-only",
+        "--script",
+        "docs/handoffs/codex_flat_vector_art_2026-10-07/r33_menu_material_reuse/capture_menu_material_reuse.gd"
+      ],
+      "started_at_utc": "2026-10-14T10:18:36.561888+00:00",
+      "checked_at_utc": "2026-10-14T10:18:44.164460+00:00",
+      "exit_code": 0,
+      "result": "PASS",
+      "evidence": "gates.log"
+    },
+    {
+      "command": [
+        "C:/Users/Peter/AppData/Local/Programs/MermaidReefTools/Godot/4.7.2/godot_console.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef",
+        "--check-only",
+        "--script",
+        "docs/handoffs/codex_flat_vector_art_2026-10-07/r33_menu_material_reuse/initial_capture_menu_material_reuse.gd"
+      ],
+      "started_at_utc": "2026-10-14T10:18:44.164515+00:00",
+      "checked_at_utc": "2026-10-14T10:18:51.160730+00:00",
+      "exit_code": 0,
+      "result": "PASS",
+      "evidence": "gates.log"
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-B",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r33_menu_material_reuse\\validate.py"
+      ],
+      "started_at_utc": "2026-10-14T10:18:51.160787+00:00",
+      "checked_at_utc": "2026-10-14T10:18:59.769776+00:00",
+      "exit_code": 0,
+      "result": "PASS",
+      "evidence": "gates.log"
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-B",
+        "tools/audit_document_authority.py"
+      ],
+      "started_at_utc": "2026-10-14T10:18:59.769829+00:00",
+      "checked_at_utc": "2026-10-14T10:19:10.386070+00:00",
+      "exit_code": 0,
+      "result": "PASS",
+      "evidence": "gates.log"
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-B",
+        "tools/audit_development.py",
+        "--base",
+        "auto"
+      ],
+      "started_at_utc": "2026-10-14T10:19:10.386117+00:00",
+      "checked_at_utc": "2026-10-14T10:19:14.550684+00:00",
+      "exit_code": 0,
+      "result": "PASS",
+      "evidence": "gates.log"
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-B",
+        "-m",
+        "unittest",
+        "tools.tests.test_audit_document_authority",
+        "tools.tests.test_audit_development"
+      ],
+      "started_at_utc": "2026-10-14T10:19:14.550758+00:00",
+      "checked_at_utc": "2026-10-14T10:19:26.072810+00:00",
+      "exit_code": 0,
+      "result": "PASS",
+      "evidence": "gates.log"
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-B",
+        "tools/audit_game_2d.py",
+        "--regression-gate"
+      ],
+      "started_at_utc": "2026-10-14T10:19:26.072889+00:00",
+      "checked_at_utc": "2026-10-14T10:21:24.659733+00:00",
+      "exit_code": 0,
+      "result": "PASS",
+      "evidence": "gates.log"
+    }
+  ],
+  "raw_log_sha256": "c909fb5b959cb0f6fe4b23db839c3cbe38cc3709c774bd2c87a1b4ecb4ec9474",
+  "scope": "R33nonruntimeexistingmaterial paddingfit/failedfocus;122current+122failed,72credits/172excluded;30beforefixturecontext. PrioractualR32full82 atunchangedproduction retained, no newfull82 execution. Currentnative/parser/source/doc/2D checks do not acceptart/QA11/device/child/owner/globalinventory."
+}

@@ -2068,3 +2068,11 @@ CHG-038 published payload `1b79269f78d53dda01c2d54c2e8aa36f8604b006`: manifest a
 - Rollback class: boundedsource retirement plusmeaningful regression; clean dedicated `codex/rollback-chg-039`,inspect smallestinverse/source callers andrerunfocused/full/document gates. Preserve immutableoldpackets andneverrestore unacceptedartasfallback/protected/save change.
 
 CHG-039 published payload `2354ee4c5b62ee1adb80ae194f0e37a1ad459e2d`: manifest and every3707required file/1705054005bytes anonymously verified at `2026-10-14T09:36:07.799143+00:00`, manifestSHA `a83599c194f90fcb8753ade96ec1ab31516967edb9288f6819098ae33cdc4411`, payloadSHA `7afeab4692fc0b6fb0284664237965c1be7aad9b385bc9d481e6e782d2a008da`.94currentnative/70unique/24duplicateexcluded/12views11unique,56existingpartial/12families,2948bounded/3379retained/431excluded;0acceptedremoved andwholeinventory/QA11/device/child/owner remainopen. Current doc/capture/source gates pass,54tests+6stress,2D NO_REGRESSION/UNSATISFIED. Actual current R32 all82strictzeroexit/native/source gates pass;priorR31CIcancelled andcurrentR32CI/finalmetadata remainseparate.
+
+## Menu painted-material fit — CHG-040
+
+- Planned at `ecb9839a374d3260161a19d44039325d561a3509`; fresh origin/dev `831d0bbb155b99d75ef0289cc5cc694e0ef00c1e`. Exact publication commits appended after delivery.
+- Scope: existing FV-2ABD73BAFFE0 StartMenu eight-button source reuse;nonruntime texture-region/nine-slice padding repair after30verifiedcurrentcontextfiles. Sourcepixels/production untouched;focuspaperrectangle localQCFAIL,notintegration-ready.
+- Benefit: establish a real source-bound painted fit and named remaining state weakness without spending generationbudget. Risks: weak kind/disabled/focus contrast, double-counting diagnostic frames, expanding source/menu approval.
+- Dependencies/evidence: [R33plan](../docs/handoffs/codex_flat_vector_art_2026-10-07/r33_menu_material_reuse/PLAN.json), [impact](../design/audit_impacts/flat-vector-menu-material-reuse-20261014.json), source/native/context/document gates. Wholegame/QA11/device/child/owner open.
+- Rollback class: additive nonruntime candidate/audit/navigation. Plan read-only on clean dedicated `codex/rollback-chg-040`;inspectmetadata/candidate diff andrerunsource/document/impact gates. Preserve immutablefailures/history;no runtime/save/protectedsource inverse.

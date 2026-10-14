@@ -1,0 +1,37 @@
+{
+  "status": "INITIAL_TRIAL_FAILED_LOCAL_FIT_RETAINED",
+  "initial_native_files": 122,
+  "initial_context_credit": 0,
+  "initial_fixture_sha256": "a9369705d7111d21d50ddd47a93fadd5ca510b9fe15094d42016889252442058",
+  "failure": "Whole texture36pixel slice retains~25px transparent top/bottom and cuts corner motifs; displayed surface about49px of100px control; no production adoption.",
+  "repair": "StyleBoxTexture regionRect10,23,222,209 then36pixel nine-slice; source unchanged, no newPNG/image editing. Region excludes only alpha0/1 pixels including stray y8 pixel. Focus draws border only; pressed/hover_pressed draw inset2px. All original functional control/content/font geometry retained.",
+  "source_sha256": "ab4926b5c99c3c6db0efcb4a20a75a9128276e085189bf51f947025659525893",
+  "texture_dimensions": [
+    236,
+    256
+  ],
+  "full_nonzero_alpha_bbox": [
+    9,
+    8,
+    232,
+    232
+  ],
+  "selected_alpha_greater_than_1_bbox": [
+    10,
+    23,
+    232,
+    232
+  ],
+  "outside_region_max_alpha": 1,
+  "isolated_trial_only": true,
+  "QA11": null,
+  "human_device_child_owner": null,
+  "current_status": "PADDING_FIT_PARTIALLY_REPAIRED_FOCUS_PAPER_RECT_FAIL",
+  "current_native_files": 122,
+  "remaining_focus_evidence": "native/1280x720/fresh/declared_actual_focus.png",
+  "analytic_visible_height_for_100px_target": {
+    "initial_whole_texture_alpha_gt8": 49,
+    "region_alpha_gt8_approximately": 96,
+    "scope": "Diagnostic nine-slice coordinate mapping confirmed by direct native views; not QA11 decodedsourceprojectedshape proof."
+  }
+}

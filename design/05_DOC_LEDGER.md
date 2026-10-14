@@ -1173,3 +1173,9 @@ release/device/child/owner authority retain precedence.
 | Document | State | Scope |
 |---|---|---|
 | `docs/handoffs/codex_flat_vector_art_2026-10-07/r32_startup_ui_retirement/README.md` | 🔵 | `SUPPORTING_CURRENT`;2StartMenu ornament roles retiredincandidate after87verifiedcontextfiles;8control bounds/16pearls preserved.94native/70unique/24duplicatesexcluded/12views. Current full82/focused/import/machine evidence tracked separately,not acceptance.2948bounded/3379retained,56existingpartial/12families,78/176partial/98without;0acceptedremoved,unknownfullinventory/QA11/device/child/owner open. |
+
+## Menu material source fit — 2026-10-14 R33
+
+| Document | State | Scope |
+|---|---|---|
+| `docs/handoffs/codex_flat_vector_art_2026-10-07/r33_menu_material_reuse/README.md` | 🔵 | `SUPPORTING_CURRENT`;existingpaintedcard36nine-slice regionpaddingfit repairedinisolatedtrial;focuslocalQCFAIL,noadoption.122current+122failedretained,16currentviews,source/productionunchanged. 72new bounded credits/244retained/172excluded;3020bounded/3623retained/603excluded cumulative.56existingpartial/12families,78/176partial/98without/0complete;0acceptedremoved,wholegame totalsunknown. All QA11/device/child/owner acceptance open. |

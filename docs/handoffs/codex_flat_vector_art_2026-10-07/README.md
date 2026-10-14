@@ -1,6 +1,12 @@
-Current canonical evidence: [R32 startup ornament retirement](r32_startup_ui_retirement/README.md), [registry](r32_startup_ui_retirement/per_piece.json), [coverage](r32_startup_ui_retirement/scene_coverage.json), [tally](r32_startup_ui_retirement/tally.json).
+Current canonical evidence: [R33menu material reuse](r33_menu_material_reuse/README.md), [registry](r33_menu_material_reuse/per_piece.json), [coverage](r33_menu_material_reuse/scene_coverage.json), [tally](r33_menu_material_reuse/tally.json).
 
-# Current R32 bounded production retirement
+# Current R33 bounded material study
+
+Paddingfit repairedinisolatedtexture-regiontrial;focus paperrectangle localQCFAIL,nointegration.122current/122initialfailed retained,16currentviews,sourcepixels/productionunchanged. 72new bounded credits/244retained/172excluded;3020bounded/3623retained/603excluded cumulative.56existingpartial/12families,78/176partial/98without/0complete;0acceptedremoved,wholegame totalsunknown.
+
+Historical R32 routing: [R32 startup ornament retirement](r32_startup_ui_retirement/README.md), [registry](r32_startup_ui_retirement/per_piece.json), [coverage](r32_startup_ui_retirement/scene_coverage.json), [tally](r32_startup_ui_retirement/tally.json).
+
+# Historical R32 bounded production retirement
 
 Two menu-role emitters retired;8controls/16pearls retained,87contextfiles verifiedbeforeedit.94native/70unique/24duplicateexcluded/12views.2948bounded/3379retained/431excluded;56existingpartial/12families,78/176partial/98without.0acceptedremoved;fullinventory/QA11/device/child/owner open.
 

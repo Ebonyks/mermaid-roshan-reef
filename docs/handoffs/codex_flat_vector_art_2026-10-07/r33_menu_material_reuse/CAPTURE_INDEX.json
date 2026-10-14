@@ -1,0 +1,3628 @@
+{
+  "schema": "reef.flat_vector_current_capture_index/1",
+  "native_file_count": 122,
+  "retained_native_added": 244,
+  "initial_failed_fit_native": 122,
+  "current_unique_sha256_count": 76,
+  "current_bounded_file_count": 72,
+  "excluded_diagnostic_native": 172,
+  "excluded_failed_fit_native": 122,
+  "excluded_current_duplicate_or_prior": 50,
+  "directly_viewed_count": 16,
+  "directly_viewed_unique_count": 14,
+  "directly_viewed_native_files": [
+    "native/1280x720/fresh/original_source_baseline.png",
+    "native/1280x720/fresh/normal_startup.png",
+    "native/1280x720/fresh/declared_style_normal.png",
+    "native/1280x720/fresh/declared_actual_focus.png",
+    "native/1280x720/fresh/music_off_released.png",
+    "native/1280x720/fresh/music_off_pressed.png",
+    "native/1280x720/fresh/declared_style_disabled.png",
+    "native/1280x720/fresh/declared_style_pressed.png",
+    "native/1600x720/saved_legacy/mic_off_released.png",
+    "native/1600x720/saved_legacy/newgame_armed.png",
+    "native/1600x720/saved_legacy/newgame_short_hold.png",
+    "native/1600x720/saved_legacy/newgame_hold_cancelled.png",
+    "native/1600x720/saved_legacy/keep_saved_released.png",
+    "native/1600x720/saved_legacy/declared_menu_reentry.png",
+    "native/1600x720/saved_legacy/natural_continue_world.png",
+    "native/1600x720/fresh/declared_style_hover.png"
+  ],
+  "initial_failed_fit_view_count": 3,
+  "initial_failed_fit_view_files": [
+    "initial_36_native/1280x720/fresh/normal_startup.png",
+    "initial_36_native/1280x720/fresh/declared_actual_focus.png",
+    "initial_36_native/1280x720/fresh/music_off_released.png"
+  ],
+  "frames": [
+    {
+      "path": "initial_36_native/1280x720/fresh/original_source_baseline.png",
+      "state": "original_source_baseline",
+      "aspect": [
+        1280,
+        720
+      ],
+      "variant": "fresh",
+      "bytes": 1380233,
+      "sha256": "832bbab25c622336a14091ccfc0d7f5bdfb2533425174e80126e632002559c73",
+      "context_credit": false,
+      "exclusion_reason": "INITIAL_FAILED_FIT",
+      "isolated_candidate_active": false,
+      "duplicate_of": null
+    },
+    {
+      "path": "initial_36_native/1280x720/fresh/normal_startup.png",
+      "state": "normal_startup",
+      "aspect": [
+        1280,
+        720
+      ],
+      "variant": "fresh",
+      "bytes": 1461664,
+      "sha256": "d855d3df180489ab5e3e032000595bb6a4d58b1bde87af02b6e146129204eda7",
+      "context_credit": false,
+      "exclusion_reason": "INITIAL_FAILED_FIT",
+      "isolated_candidate_active": true,
+      "duplicate_of": null
+    },
+    {
+      "path": "initial_36_native/1280x720/fresh/declared_style_normal.png",
+      "state": "declared_style_normal",
+      "aspect": [
+        1280,
+        720
+      ],
+      "variant": "fresh",
+      "bytes": 1462447,
+      "sha256": "7dab1ba26a0aca72d84b0b2060dda94f22c52aa826c4ffd37881e61edce03270",
+      "context_credit": false,
+      "exclusion_reason": "INITIAL_FAILED_FIT",
+      "isolated_candidate_active": true,
+      "duplicate_of": null
+    },
+    {
+      "path": "initial_36_native/1280x720/fresh/declared_style_hover.png",
+      "state": "declared_style_hover",
+      "aspect": [
+        1280,
+        720
+      ],
+      "variant": "fresh",
+      "bytes": 1462177,
+      "sha256": "f5faca4fec37eae18a66520cfbcdef4e81a3188e5a3e190d11d9d5bb6f2742ce",
+      "context_credit": false,
+      "exclusion_reason": "INITIAL_FAILED_FIT",
+      "isolated_candidate_active": true,
+      "duplicate_of": null
+    },
+    {
+      "path": "initial_36_native/1280x720/fresh/declared_style_pressed.png",
+      "state": "declared_style_pressed",
+      "aspect": [
+        1280,
+        720
+      ],
+      "variant": "fresh",
+      "bytes": 1461457,
+      "sha256": "e7641bfdfe99445d49a23dfddcff988136095f279ed7f68e3d13390e6f2c7b6c",
+      "context_credit": false,
+      "exclusion_reason": "INITIAL_FAILED_FIT",
+      "isolated_candidate_active": true,
+      "duplicate_of": null
+    },
+    {
+      "path": "initial_36_native/1280x720/fresh/declared_style_hover_pressed.png",
+      "state": "declared_style_hover_pressed",
+      "aspect": [
+        1280,
+        720
+      ],
+      "variant": "fresh",
+      "bytes": 1461457,
+      "sha256": "e7641bfdfe99445d49a23dfddcff988136095f279ed7f68e3d13390e6f2c7b6c",
+      "context_credit": false,
+      "exclusion_reason": "INITIAL_FAILED_FIT",
+      "isolated_candidate_active": true,
+      "duplicate_of": null
+    },
+    {
+      "path": "initial_36_native/1280x720/fresh/declared_style_focus.png",
+      "state": "declared_style_focus",
+      "aspect": [
+        1280,
+        720
+      ],
+      "variant": "fresh",
+      "bytes": 1461457,
+      "sha256": "e7641bfdfe99445d49a23dfddcff988136095f279ed7f68e3d13390e6f2c7b6c",
+      "context_credit": false,
+      "exclusion_reason": "INITIAL_FAILED_FIT",
+      "isolated_candidate_active": true,
+      "duplicate_of": null
+    },
+    {
+      "path": "initial_36_native/1280x720/fresh/declared_style_disabled.png",
+      "state": "declared_style_disabled",
+      "aspect": [
+        1280,
+        720
+      ],
+      "variant": "fresh",
+      "bytes": 1459253,
+      "sha256": "e7dbdcb7b194e6c00fbfbb37838333786c00033345a27bf8b5188e6ec77b60b2",
+      "context_credit": false,
+      "exclusion_reason": "INITIAL_FAILED_FIT",
+      "isolated_candidate_active": true,
+      "duplicate_of": null
+    },
+    {
+      "path": "initial_36_native/1280x720/fresh/declared_actual_focus.png",
+      "state": "declared_actual_focus",
+      "aspect": [
+        1280,
+        720
+      ],
+      "variant": "fresh",
+      "bytes": 1461664,
+      "sha256": "d855d3df180489ab5e3e032000595bb6a4d58b1bde87af02b6e146129204eda7",
+      "context_credit": false,
+      "exclusion_reason": "INITIAL_FAILED_FIT",
+      "isolated_candidate_active": true,
+      "duplicate_of": null
+    },
+    {
+      "path": "initial_36_native/1280x720/fresh/passive_2s.png",
+      "state": "passive_2s",
+      "aspect": [
+        1280,
+        720
+      ],
+      "variant": "fresh",
+      "bytes": 1462447,
+      "sha256": "7dab1ba26a0aca72d84b0b2060dda94f22c52aa826c4ffd37881e61edce03270",
+      "context_credit": false,
+      "exclusion_reason": "INITIAL_FAILED_FIT",
+      "isolated_candidate_active": true,
+      "duplicate_of": null
+    },
+    {
+      "path": "initial_36_native/1280x720/fresh/options_open_pressed.png",
+      "state": "options_open_pressed",
+      "aspect": [
+        1280,
+        720
+      ],
+      "variant": "fresh",
+      "bytes": 1462021,
+      "sha256": "70c45075a2db0911f896b42f645feabec4308b4b736eaa8e0f31400fbe73b6ff",
+      "context_credit": false,
+      "exclusion_reason": "INITIAL_FAILED_FIT",
+      "isolated_candidate_active": true,
+      "duplicate_of": null
+    },
+    {
+      "path": "initial_36_native/1280x720/fresh/options_open_released.png",
+      "state": "options_open_released",
+      "aspect": [
+        1280,
+        720
+      ],
+      "variant": "fresh",
+      "bytes": 806933,
+      "sha256": "5de317098ff36629d39edce0da6cb99b54a0e4d4d6c70de244325e6211bf05f4",
+      "context_credit": false,
+      "exclusion_reason": "INITIAL_FAILED_FIT",
+      "isolated_candidate_active": true,
+      "duplicate_of": null
+    },
+    {
+      "path": "initial_36_native/1280x720/fresh/music_off_pressed.png",
+      "state": "music_off_pressed",
+      "aspect": [
+        1280,
+        720
+      ],
+      "variant": "fresh",
+      "bytes": 806835,
+      "sha256": "b42d78f1c71e5b2eea3ad2a66dfba3ebfd8801e44be1bc3a25c65d5dd92c9d36",
+      "context_credit": false,
+      "exclusion_reason": "INITIAL_FAILED_FIT",
+      "isolated_candidate_active": true,
+      "duplicate_of": null
+    },
+    {
+      "path": "initial_36_native/1280x720/fresh/music_off_released.png",
+      "state": "music_off_released",
+      "aspect": [
+        1280,
+        720
+      ],
+      "variant": "fresh",
+      "bytes": 810948,
+      "sha256": "ccd3a91ee116d0c59a604fa7ec10bbb344b90350fd89e6376429b677e2461a1b",
+      "context_credit": false,
+      "exclusion_reason": "INITIAL_FAILED_FIT",
+      "isolated_candidate_active": true,
+      "duplicate_of": null
+    },
+    {
+      "path": "initial_36_native/1280x720/fresh/music_on_pressed.png",
+      "state": "music_on_pressed",
+      "aspect": [
+        1280,
+        720
+      ],
+      "variant": "fresh",
+      "bytes": 810413,
+      "sha256": "1aaab5f68e50157fce86c84c7f35732d2ae5363a4c5947de8da0faac84a5dfdb",
+      "context_credit": false,
+      "exclusion_reason": "INITIAL_FAILED_FIT",
+      "isolated_candidate_active": true,
+      "duplicate_of": null
+    },
+    {
+      "path": "initial_36_native/1280x720/fresh/music_on_released.png",
+      "state": "music_on_released",
+      "aspect": [
+        1280,
+        720
+      ],
+      "variant": "fresh",
+      "bytes": 811330,
+      "sha256": "f025104e6441b3155630ba4955bba60a79237e418f1175d4458b53fdfb94dd9f",
+      "context_credit": false,
+      "exclusion_reason": "INITIAL_FAILED_FIT",
+      "isolated_candidate_active": true,
+      "duplicate_of": null
+    },
+    {
+      "path": "initial_36_native/1280x720/fresh/mic_off_pressed.png",
+      "state": "mic_off_pressed",
+      "aspect": [
+        1280,
+        720
+      ],
+      "variant": "fresh",
+      "bytes": 810712,
+      "sha256": "268cc7379bce5724e589d96a87d843ce78dc9eb9596982de37b12b92dea9df82",
+      "context_credit": false,
+      "exclusion_reason": "INITIAL_FAILED_FIT",
+      "isolated_candidate_active": true,
+      "duplicate_of": null
+    },
+    {
+      "path": "initial_36_native/1280x720/fresh/mic_off_released.png",
+      "state": "mic_off_released",
+      "aspect": [
+        1280,
+        720
+      ],
+      "variant": "fresh",
+      "bytes": 810931,
+      "sha256": "2cf14cf6f744fcf6829e5e3ffbdb856a92ed992c38ab9949181e1fb553d0b2d8",
+      "context_credit": false,
+      "exclusion_reason": "INITIAL_FAILED_FIT",
+      "isolated_candidate_active": true,
+      "duplicate_of": null
+    },
+    {
+      "path": "initial_36_native/1280x720/fresh/mic_on_pressed.png",
+      "state": "mic_on_pressed",
+      "aspect": [
+        1280,
+        720
+      ],
+      "variant": "fresh",
+      "bytes": 810539,
+      "sha256": "37c880d4e0cc4af0088a9024dd3bea5f23e0b24090ac996ab35b8424841d88ed",
+      "context_credit": false,
+      "exclusion_reason": "INITIAL_FAILED_FIT",
+      "isolated_candidate_active": true,
+      "duplicate_of": null
+    },
+    {
+      "path": "initial_36_native/1280x720/fresh/mic_on_released.png",
+      "state": "mic_on_released",
+      "aspect": [
+        1280,
+        720
+      ],
+      "variant": "fresh",
+      "bytes": 811307,
+      "sha256": "8212a632eca5074cafa9066786ec8f343774ece3f7fa04c324233d69e43da263",
+      "context_credit": false,
+      "exclusion_reason": "INITIAL_FAILED_FIT",
+      "isolated_candidate_active": true,
+      "duplicate_of": null
+    },
+    {
+      "path": "initial_36_native/1280x720/fresh/options_close_pressed.png",
+      "state": "options_close_pressed",
+      "aspect": [
+        1280,
+        720
+      ],
+      "variant": "fresh",
+      "bytes": 810444,
+      "sha256": "f11c4d3e7a90dea17cf39f7176e3c7671802fed52991e34008a9dbda6a9ada1c",
+      "context_credit": false,
+      "exclusion_reason": "INITIAL_FAILED_FIT",
+      "isolated_candidate_active": true,
+      "duplicate_of": null
+    },
+    {
+      "path": "initial_36_native/1280x720/fresh/options_close_released.png",
+      "state": "options_close_released",
+      "aspect": [
+        1280,
+        720
+      ],
+      "variant": "fresh",
+      "bytes": 1452556,
+      "sha256": "3196832ceb5a997ab74ca85dba2f2d689211b386e954a1f103ee14d2ac75c50e",
+      "context_credit": false,
+      "exclusion_reason": "INITIAL_FAILED_FIT",
+      "isolated_candidate_active": true,
+      "duplicate_of": null
+    },
+    {
+      "path": "initial_36_native/1280x720/fresh/declared_focus_out.png",
+      "state": "declared_focus_out",
+      "aspect": [
+        1280,
+        720
+      ],
+      "variant": "fresh",
+      "bytes": 1452556,
+      "sha256": "3196832ceb5a997ab74ca85dba2f2d689211b386e954a1f103ee14d2ac75c50e",
+      "context_credit": false,
+      "exclusion_reason": "INITIAL_FAILED_FIT",
+      "isolated_candidate_active": true,
+      "duplicate_of": null
+    },
+    {
+      "path": "initial_36_native/1280x720/fresh/declared_focus_in.png",
+      "state": "declared_focus_in",
+      "aspect": [
+        1280,
+        720
+      ],
+      "variant": "fresh",
+      "bytes": 1452556,
+      "sha256": "3196832ceb5a997ab74ca85dba2f2d689211b386e954a1f103ee14d2ac75c50e",
+      "context_credit": false,
+      "exclusion_reason": "INITIAL_FAILED_FIT",
+      "isolated_candidate_active": true,
+      "duplicate_of": null
+    },
+    {
+      "path": "initial_36_native/1280x720/saved_legacy/original_source_baseline.png",
+      "state": "original_source_baseline",
+      "aspect": [
+        1280,
+        720
+      ],
+      "variant": "saved_legacy",
+      "bytes": 1383598,
+      "sha256": "9ce4a2fd5540c0a300974ea597a2dc42e626d061b4c2c57efd0a83459046fff2",
+      "context_credit": false,
+      "exclusion_reason": "INITIAL_FAILED_FIT",
+      "isolated_candidate_active": false,
+      "duplicate_of": null
+    },
+    {
+      "path": "initial_36_native/1280x720/saved_legacy/normal_startup.png",
+      "state": "normal_startup",
+      "aspect": [
+        1280,
+        720
+      ],
+      "variant": "saved_legacy",
+      "bytes": 1465483,
+      "sha256": "f54cb2458807803bdd09bf2e12c7eaf6beafa2d480e6b5af97e663a448a59b9d",
+      "context_credit": false,
+      "exclusion_reason": "INITIAL_FAILED_FIT",
+      "isolated_candidate_active": true,
+      "duplicate_of": null
+    },
+    {
+      "path": "initial_36_native/1280x720/saved_legacy/declared_style_normal.png",
+      "state": "declared_style_normal",
+      "aspect": [
+        1280,
+        720
+      ],
+      "variant": "saved_legacy",
+      "bytes": 1465483,
+      "sha256": "f54cb2458807803bdd09bf2e12c7eaf6beafa2d480e6b5af97e663a448a59b9d",
+      "context_credit": false,
+      "exclusion_reason": "INITIAL_FAILED_FIT",
+      "isolated_candidate_active": true,
+      "duplicate_of": null
+    },
+    {
+      "path": "initial_36_native/1280x720/saved_legacy/declared_style_hover.png",
+      "state": "declared_style_hover",
+      "aspect": [
+        1280,
+        720
+      ],
+      "variant": "saved_legacy",
+      "bytes": 1465025,
+      "sha256": "ebf658a2a427927e8d43fff18a61849eb1ba250ae59ef94de1115445bdb522f0",
+      "context_credit": false,
+      "exclusion_reason": "INITIAL_FAILED_FIT",
+      "isolated_candidate_active": true,
+      "duplicate_of": null
+    },
+    {
+      "path": "initial_36_native/1280x720/saved_legacy/declared_style_pressed.png",
+      "state": "declared_style_pressed",
+      "aspect": [
+        1280,
+        720
+      ],
+      "variant": "saved_legacy",
+      "bytes": 1453820,
+      "sha256": "f5ccecd5038ab666ecec4bf6cae9f0cf9a7ff2105c33fe5a93879dcb7d6fe6b6",
+      "context_credit": false,
+      "exclusion_reason": "INITIAL_FAILED_FIT",
+      "isolated_candidate_active": true,
+      "duplicate_of": null
+    },
+    {
+      "path": "initial_36_native/1280x720/saved_legacy/declared_style_hover_pressed.png",
+      "state": "declared_style_hover_pressed",
+      "aspect": [
+        1280,
+        720
+      ],
+      "variant": "saved_legacy",
+      "bytes": 1453820,
+      "sha256": "f5ccecd5038ab666ecec4bf6cae9f0cf9a7ff2105c33fe5a93879dcb7d6fe6b6",
+      "context_credit": false,
+      "exclusion_reason": "INITIAL_FAILED_FIT",
+      "isolated_candidate_active": true,
+      "duplicate_of": null
+    },
+    {
+      "path": "initial_36_native/1280x720/saved_legacy/declared_style_focus.png",
+      "state": "declared_style_focus",
+      "aspect": [
+        1280,
+        720
+      ],
+      "variant": "saved_legacy",
+      "bytes": 1453820,
+      "sha256": "f5ccecd5038ab666ecec4bf6cae9f0cf9a7ff2105c33fe5a93879dcb7d6fe6b6",
+      "context_credit": false,
+      "exclusion_reason": "INITIAL_FAILED_FIT",
+      "isolated_candidate_active": true,
+      "duplicate_of": null
+    },
+    {
+      "path": "initial_36_native/1280x720/saved_legacy/declared_style_disabled.png",
+      "state": "declared_style_disabled",
+      "aspect": [
+        1280,
+        720
+      ],
+      "variant": "saved_legacy",
+      "bytes": 1463111,
+      "sha256": "db0b937fe17ead7e2305ab860dafca3cd43213da028d0e625eaa60a7420d4590",
+      "context_credit": false,
+      "exclusion_reason": "INITIAL_FAILED_FIT",
+      "isolated_candidate_active": true,
+      "duplicate_of": null
+    },
+    {
+      "path": "initial_36_native/1280x720/saved_legacy/declared_actual_focus.png",
+      "state": "declared_actual_focus",
+      "aspect": [
+        1280,
+        720
+      ],
+      "variant": "saved_legacy",
+      "bytes": 1465610,
+      "sha256": "11c110bcbee5b76942e67e10ad350f838b02e6474e0a54b1b13c93385e6184b6",
+      "context_credit": false,
+      "exclusion_reason": "INITIAL_FAILED_FIT",
+      "isolated_candidate_active": true,
+      "duplicate_of": null
+    },
+    {
+      "path": "initial_36_native/1280x720/saved_legacy/passive_2s.png",
+      "state": "passive_2s",
+      "aspect": [
+        1280,
+        720
+      ],
+      "variant": "saved_legacy",
+      "bytes": 1452556,
+      "sha256": "3196832ceb5a997ab74ca85dba2f2d689211b386e954a1f103ee14d2ac75c50e",
+      "context_credit": false,
+      "exclusion_reason": "INITIAL_FAILED_FIT",
+      "isolated_candidate_active": true,
+      "duplicate_of": null
+    },
+    {
+      "path": "initial_36_native/1280x720/saved_legacy/options_open_pressed.png",
+      "state": "options_open_pressed",
+      "aspect": [
+        1280,
+        720
+      ],
+      "variant": "saved_legacy",
+      "bytes": 1452104,
+      "sha256": "d3f35937452147a7de05afb7e26f380ed3f1539ff03477fc49d9282337a4d82a",
+      "context_credit": false,
+      "exclusion_reason": "INITIAL_FAILED_FIT",
+      "isolated_candidate_active": true,
+      "duplicate_of": null
+    },
+    {
+      "path": "initial_36_native/1280x720/saved_legacy/options_open_released.png",
+      "state": "options_open_released",
+      "aspect": [
+        1280,
+        720
+      ],
+      "variant": "saved_legacy",
+      "bytes": 810730,
+      "sha256": "5c184303d6185dd8fc4314cded89ef614814f3921db5862b09ba54663aaacde2",
+      "context_credit": false,
+      "exclusion_reason": "INITIAL_FAILED_FIT",
+      "isolated_candidate_active": true,
+      "duplicate_of": null
+    },
+    {
+      "path": "initial_36_native/1280x720/saved_legacy/music_off_pressed.png",
+      "state": "music_off_pressed",
+      "aspect": [
+        1280,
+        720
+      ],
+      "variant": "saved_legacy",
+      "bytes": 810709,
+      "sha256": "04e377cd79c37286efa29bd59a9cb48754a288a3dd958b76cd25fcea7b1549f6",
+      "context_credit": false,
+      "exclusion_reason": "INITIAL_FAILED_FIT",
+      "isolated_candidate_active": true,
+      "duplicate_of": null
+    },
+    {
+      "path": "initial_36_native/1280x720/saved_legacy/music_off_released.png",
+      "state": "music_off_released",
+      "aspect": [
+        1280,
+        720
+      ],
+      "variant": "saved_legacy",
+      "bytes": 810948,
+      "sha256": "ccd3a91ee116d0c59a604fa7ec10bbb344b90350fd89e6376429b677e2461a1b",
+      "context_credit": false,
+      "exclusion_reason": "INITIAL_FAILED_FIT",
+      "isolated_candidate_active": true,
+      "duplicate_of": null
+    },
+    {
+      "path": "initial_36_native/1280x720/saved_legacy/music_on_pressed.png",
+      "state": "music_on_pressed",
+      "aspect": [
+        1280,
+        720
+      ],
+      "variant": "saved_legacy",
+      "bytes": 810413,
+      "sha256": "1aaab5f68e50157fce86c84c7f35732d2ae5363a4c5947de8da0faac84a5dfdb",
+      "context_credit": false,
+      "exclusion_reason": "INITIAL_FAILED_FIT",
+      "isolated_candidate_active": true,
+      "duplicate_of": null
+    },
+    {
+      "path": "initial_36_native/1280x720/saved_legacy/music_on_released.png",
+      "state": "music_on_released",
+      "aspect": [
+        1280,
+        720
+      ],
+      "variant": "saved_legacy",
+      "bytes": 811330,
+      "sha256": "f025104e6441b3155630ba4955bba60a79237e418f1175d4458b53fdfb94dd9f",
+      "context_credit": false,
+      "exclusion_reason": "INITIAL_FAILED_FIT",
+      "isolated_candidate_active": true,
+      "duplicate_of": null
+    },
+    {
+      "path": "initial_36_native/1280x720/saved_legacy/mic_off_pressed.png",
+      "state": "mic_off_pressed",
+      "aspect": [
+        1280,
+        720
+      ],
+      "variant": "saved_legacy",
+      "bytes": 810712,
+      "sha256": "268cc7379bce5724e589d96a87d843ce78dc9eb9596982de37b12b92dea9df82",
+      "context_credit": false,
+      "exclusion_reason": "INITIAL_FAILED_FIT",
+      "isolated_candidate_active": true,
+      "duplicate_of": null
+    },
+    {
+      "path": "initial_36_native/1280x720/saved_legacy/mic_off_released.png",
+      "state": "mic_off_released",
+      "aspect": [
+        1280,
+        720
+      ],
+      "variant": "saved_legacy",
+      "bytes": 810931,
+      "sha256": "2cf14cf6f744fcf6829e5e3ffbdb856a92ed992c38ab9949181e1fb553d0b2d8",
+      "context_credit": false,
+      "exclusion_reason": "INITIAL_FAILED_FIT",
+      "isolated_candidate_active": true,
+      "duplicate_of": null
+    },
+    {
+      "path": "initial_36_native/1280x720/saved_legacy/mic_on_pressed.png",
+      "state": "mic_on_pressed",
+      "aspect": [
+        1280,
+        720
+      ],
+      "variant": "saved_legacy",
+      "bytes": 810539,
+      "sha256": "37c880d4e0cc4af0088a9024dd3bea5f23e0b24090ac996ab35b8424841d88ed",
+      "context_credit": false,
+      "exclusion_reason": "INITIAL_FAILED_FIT",
+      "isolated_candidate_active": true,
+      "duplicate_of": null
+    },
+    {
+      "path": "initial_36_native/1280x720/saved_legacy/mic_on_released.png",
+      "state": "mic_on_released",
+      "aspect": [
+        1280,
+        720
+      ],
+      "variant": "saved_legacy",
+      "bytes": 811307,
+      "sha256": "8212a632eca5074cafa9066786ec8f343774ece3f7fa04c324233d69e43da263",
+      "context_credit": false,
+      "exclusion_reason": "INITIAL_FAILED_FIT",
+      "isolated_candidate_active": true,
+      "duplicate_of": null
+    },
+    {
+      "path": "initial_36_native/1280x720/saved_legacy/options_close_pressed.png",
+      "state": "options_close_pressed",
+      "aspect": [
+        1280,
+        720
+      ],
+      "variant": "saved_legacy",
+      "bytes": 810444,
+      "sha256": "f11c4d3e7a90dea17cf39f7176e3c7671802fed52991e34008a9dbda6a9ada1c",
+      "context_credit": false,
+      "exclusion_reason": "INITIAL_FAILED_FIT",
+      "isolated_candidate_active": true,
+      "duplicate_of": null
+    },
+    {
+      "path": "initial_36_native/1280x720/saved_legacy/options_close_released.png",
+      "state": "options_close_released",
+      "aspect": [
+        1280,
+        720
+      ],
+      "variant": "saved_legacy",
+      "bytes": 1452556,
+      "sha256": "3196832ceb5a997ab74ca85dba2f2d689211b386e954a1f103ee14d2ac75c50e",
+      "context_credit": false,
+      "exclusion_reason": "INITIAL_FAILED_FIT",
+      "isolated_candidate_active": true,
+      "duplicate_of": null
+    },
+    {
+      "path": "initial_36_native/1280x720/saved_legacy/declared_focus_out.png",
+      "state": "declared_focus_out",
+      "aspect": [
+        1280,
+        720
+      ],
+      "variant": "saved_legacy",
+      "bytes": 1452556,
+      "sha256": "3196832ceb5a997ab74ca85dba2f2d689211b386e954a1f103ee14d2ac75c50e",
+      "context_credit": false,
+      "exclusion_reason": "INITIAL_FAILED_FIT",
+      "isolated_candidate_active": true,
+      "duplicate_of": null
+    },
+    {
+      "path": "initial_36_native/1280x720/saved_legacy/declared_focus_in.png",
+      "state": "declared_focus_in",
+      "aspect": [
+        1280,
+        720
+      ],
+      "variant": "saved_legacy",
+      "bytes": 1452556,
+      "sha256": "3196832ceb5a997ab74ca85dba2f2d689211b386e954a1f103ee14d2ac75c50e",
+      "context_credit": false,
+      "exclusion_reason": "INITIAL_FAILED_FIT",
+      "isolated_candidate_active": true,
+      "duplicate_of": null
+    },
+    {
+      "path": "initial_36_native/1280x720/saved_legacy/newgame_request_pressed.png",
+      "state": "newgame_request_pressed",
+      "aspect": [
+        1280,
+        720
+      ],
+      "variant": "saved_legacy",
+      "bytes": 1465422,
+      "sha256": "326d1a07a36c04021cff0d594446ef97aa661a24dd174ffb1da7d5179a18719a",
+      "context_credit": false,
+      "exclusion_reason": "INITIAL_FAILED_FIT",
+      "isolated_candidate_active": true,
+      "duplicate_of": null
+    },
+    {
+      "path": "initial_36_native/1280x720/saved_legacy/newgame_request_released.png",
+      "state": "newgame_request_released",
+      "aspect": [
+        1280,
+        720
+      ],
+      "variant": "saved_legacy",
+      "bytes": 726580,
+      "sha256": "50972fd809b7ffd99266a02e6fc955f4e9be94aa2ee9ad547c97b3fddf343837",
+      "context_credit": false,
+      "exclusion_reason": "INITIAL_FAILED_FIT",
+      "isolated_candidate_active": true,
+      "duplicate_of": null
+    },
+    {
+      "path": "initial_36_native/1280x720/saved_legacy/newgame_armed.png",
+      "state": "newgame_armed",
+      "aspect": [
+        1280,
+        720
+      ],
+      "variant": "saved_legacy",
+      "bytes": 731422,
+      "sha256": "2694689f92a40cde4fcec140ae294ac0e0163bd66363327aa6a302ab8694e0ff",
+      "context_credit": false,
+      "exclusion_reason": "INITIAL_FAILED_FIT",
+      "isolated_candidate_active": true,
+      "duplicate_of": null
+    },
+    {
+      "path": "initial_36_native/1280x720/saved_legacy/newgame_short_hold.png",
+      "state": "newgame_short_hold",
+      "aspect": [
+        1280,
+        720
+      ],
+      "variant": "saved_legacy",
+      "bytes": 726797,
+      "sha256": "2ae30f4b8de1810ea75b7cffa638bd71dca5f5697fb133d2f42744ebe5a6366b",
+      "context_credit": false,
+      "exclusion_reason": "INITIAL_FAILED_FIT",
+      "isolated_candidate_active": true,
+      "duplicate_of": null
+    },
+    {
+      "path": "initial_36_native/1280x720/saved_legacy/newgame_hold_cancelled.png",
+      "state": "newgame_hold_cancelled",
+      "aspect": [
+        1280,
+        720
+      ],
+      "variant": "saved_legacy",
+      "bytes": 729762,
+      "sha256": "6c58788e2d62cbc26bbf486c38746af678660478358b70106256cee1caacaf89",
+      "context_credit": false,
+      "exclusion_reason": "INITIAL_FAILED_FIT",
+      "isolated_candidate_active": true,
+      "duplicate_of": null
+    },
+    {
+      "path": "initial_36_native/1280x720/saved_legacy/keep_saved_pressed.png",
+      "state": "keep_saved_pressed",
+      "aspect": [
+        1280,
+        720
+      ],
+      "variant": "saved_legacy",
+      "bytes": 728476,
+      "sha256": "8155b73ee884366fc181ad1e4b80e2230da28831212860710fbe612e1cceab95",
+      "context_credit": false,
+      "exclusion_reason": "INITIAL_FAILED_FIT",
+      "isolated_candidate_active": true,
+      "duplicate_of": null
+    },
+    {
+      "path": "initial_36_native/1280x720/saved_legacy/keep_saved_released.png",
+      "state": "keep_saved_released",
+      "aspect": [
+        1280,
+        720
+      ],
+      "variant": "saved_legacy",
+      "bytes": 1465483,
+      "sha256": "f54cb2458807803bdd09bf2e12c7eaf6beafa2d480e6b5af97e663a448a59b9d",
+      "context_credit": false,
+      "exclusion_reason": "INITIAL_FAILED_FIT",
+      "isolated_candidate_active": true,
+      "duplicate_of": null
+    },
+    {
+      "path": "initial_36_native/1280x720/saved_legacy/continue_pressed.png",
+      "state": "continue_pressed",
+      "aspect": [
+        1280,
+        720
+      ],
+      "variant": "saved_legacy",
+      "bytes": 1465286,
+      "sha256": "35acf13c53b3329355135750a320dad796d6063332377353ac1c3788e21e7abb",
+      "context_credit": false,
+      "exclusion_reason": "INITIAL_FAILED_FIT",
+      "isolated_candidate_active": true,
+      "duplicate_of": null
+    },
+    {
+      "path": "initial_36_native/1280x720/saved_legacy/natural_continue_world.png",
+      "state": "natural_continue_world",
+      "aspect": [
+        1280,
+        720
+      ],
+      "variant": "saved_legacy",
+      "bytes": 1571938,
+      "sha256": "562867e2acfc8d05a67b04875c26facf6970d6c3183aefabbe409a8b37009175",
+      "context_credit": false,
+      "exclusion_reason": "INITIAL_FAILED_FIT",
+      "isolated_candidate_active": true,
+      "duplicate_of": null
+    },
+    {
+      "path": "initial_36_native/1280x720/saved_legacy/declared_menu_reentry.png",
+      "state": "declared_menu_reentry",
+      "aspect": [
+        1280,
+        720
+      ],
+      "variant": "saved_legacy",
+      "bytes": 1465483,
+      "sha256": "f54cb2458807803bdd09bf2e12c7eaf6beafa2d480e6b5af97e663a448a59b9d",
+      "context_credit": false,
+      "exclusion_reason": "INITIAL_FAILED_FIT",
+      "isolated_candidate_active": true,
+      "duplicate_of": null
+    },
+    {
+      "path": "initial_36_native/1280x720/saved_legacy/reentry_idle_1s.png",
+      "state": "reentry_idle_1s",
+      "aspect": [
+        1280,
+        720
+      ],
+      "variant": "saved_legacy",
+      "bytes": 1465483,
+      "sha256": "f54cb2458807803bdd09bf2e12c7eaf6beafa2d480e6b5af97e663a448a59b9d",
+      "context_credit": false,
+      "exclusion_reason": "INITIAL_FAILED_FIT",
+      "isolated_candidate_active": true,
+      "duplicate_of": null
+    },
+    {
+      "path": "initial_36_native/1280x720/saved_legacy/continue_again_pressed.png",
+      "state": "continue_again_pressed",
+      "aspect": [
+        1280,
+        720
+      ],
+      "variant": "saved_legacy",
+      "bytes": 1465286,
+      "sha256": "35acf13c53b3329355135750a320dad796d6063332377353ac1c3788e21e7abb",
+      "context_credit": false,
+      "exclusion_reason": "INITIAL_FAILED_FIT",
+      "isolated_candidate_active": true,
+      "duplicate_of": null
+    },
+    {
+      "path": "initial_36_native/1280x720/saved_legacy/natural_continue_after_reentry.png",
+      "state": "natural_continue_after_reentry",
+      "aspect": [
+        1280,
+        720
+      ],
+      "variant": "saved_legacy",
+      "bytes": 1571870,
+      "sha256": "e758ab9eb5bbd07df6b6ba9a434ae951f8880b9904539fe2f638d2ad4806407b",
+      "context_credit": false,
+      "exclusion_reason": "INITIAL_FAILED_FIT",
+      "isolated_candidate_active": true,
+      "duplicate_of": null
+    },
+    {
+      "path": "initial_36_native/1600x720/fresh/original_source_baseline.png",
+      "state": "original_source_baseline",
+      "aspect": [
+        1600,
+        720
+      ],
+      "variant": "fresh",
+      "bytes": 1393615,
+      "sha256": "a40accaa35620c4b5893c774b6bf4107c61d7ff8d7ed59e5f016958a4f1c8b2e",
+      "context_credit": false,
+      "exclusion_reason": "INITIAL_FAILED_FIT",
+      "isolated_candidate_active": false,
+      "duplicate_of": null
+    },
+    {
+      "path": "initial_36_native/1600x720/fresh/normal_startup.png",
+      "state": "normal_startup",
+      "aspect": [
+        1600,
+        720
+      ],
+      "variant": "fresh",
+      "bytes": 1475740,
+      "sha256": "debd9dab6286d037812cf54081048852ac8308a122bb767cbedbb142909e3f34",
+      "context_credit": false,
+      "exclusion_reason": "INITIAL_FAILED_FIT",
+      "isolated_candidate_active": true,
+      "duplicate_of": null
+    },
+    {
+      "path": "initial_36_native/1600x720/fresh/declared_style_normal.png",
+      "state": "declared_style_normal",
+      "aspect": [
+        1600,
+        720
+      ],
+      "variant": "fresh",
+      "bytes": 1476603,
+      "sha256": "0657581b709dd2190b365aaa84ec386028f7f79f0ca33520c1fae26d6ec2c6d9",
+      "context_credit": false,
+      "exclusion_reason": "INITIAL_FAILED_FIT",
+      "isolated_candidate_active": true,
+      "duplicate_of": null
+    },
+    {
+      "path": "initial_36_native/1600x720/fresh/declared_style_hover.png",
+      "state": "declared_style_hover",
+      "aspect": [
+        1600,
+        720
+      ],
+      "variant": "fresh",
+      "bytes": 1476304,
+      "sha256": "aa4303c68d9e669e98bbc1a94b9a01f5e61acbdc63d3bd30403152df101a08c9",
+      "context_credit": false,
+      "exclusion_reason": "INITIAL_FAILED_FIT",
+      "isolated_candidate_active": true,
+      "duplicate_of": null
+    },
+    {
+      "path": "initial_36_native/1600x720/fresh/declared_style_pressed.png",
+      "state": "declared_style_pressed",
+      "aspect": [
+        1600,
+        720
+      ],
+      "variant": "fresh",
+      "bytes": 1475510,
+      "sha256": "64bc78ae8bdac620e718e87ad2c7f610b235dfd7eea625cfa5c44d2d7bb41c4e",
+      "context_credit": false,
+      "exclusion_reason": "INITIAL_FAILED_FIT",
+      "isolated_candidate_active": true,
+      "duplicate_of": null
+    },
+    {
+      "path": "initial_36_native/1600x720/fresh/declared_style_hover_pressed.png",
+      "state": "declared_style_hover_pressed",
+      "aspect": [
+        1600,
+        720
+      ],
+      "variant": "fresh",
+      "bytes": 1475510,
+      "sha256": "64bc78ae8bdac620e718e87ad2c7f610b235dfd7eea625cfa5c44d2d7bb41c4e",
+      "context_credit": false,
+      "exclusion_reason": "INITIAL_FAILED_FIT",
+      "isolated_candidate_active": true,
+      "duplicate_of": null
+    },
+    {
+      "path": "initial_36_native/1600x720/fresh/declared_style_focus.png",
+      "state": "declared_style_focus",
+      "aspect": [
+        1600,
+        720
+      ],
+      "variant": "fresh",
+      "bytes": 1475510,
+      "sha256": "64bc78ae8bdac620e718e87ad2c7f610b235dfd7eea625cfa5c44d2d7bb41c4e",
+      "context_credit": false,
+      "exclusion_reason": "INITIAL_FAILED_FIT",
+      "isolated_candidate_active": true,
+      "duplicate_of": null
+    },
+    {
+      "path": "initial_36_native/1600x720/fresh/declared_style_disabled.png",
+      "state": "declared_style_disabled",
+      "aspect": [
+        1600,
+        720
+      ],
+      "variant": "fresh",
+      "bytes": 1473297,
+      "sha256": "abfb5aced966b01e4e3eee9e13caa12376a8b9dcf137015f7fd01eaff9eb9cec",
+      "context_credit": false,
+      "exclusion_reason": "INITIAL_FAILED_FIT",
+      "isolated_candidate_active": true,
+      "duplicate_of": null
+    },
+    {
+      "path": "initial_36_native/1600x720/fresh/declared_actual_focus.png",
+      "state": "declared_actual_focus",
+      "aspect": [
+        1600,
+        720
+      ],
+      "variant": "fresh",
+      "bytes": 1475740,
+      "sha256": "debd9dab6286d037812cf54081048852ac8308a122bb767cbedbb142909e3f34",
+      "context_credit": false,
+      "exclusion_reason": "INITIAL_FAILED_FIT",
+      "isolated_candidate_active": true,
+      "duplicate_of": null
+    },
+    {
+      "path": "initial_36_native/1600x720/fresh/passive_2s.png",
+      "state": "passive_2s",
+      "aspect": [
+        1600,
+        720
+      ],
+      "variant": "fresh",
+      "bytes": 1476603,
+      "sha256": "0657581b709dd2190b365aaa84ec386028f7f79f0ca33520c1fae26d6ec2c6d9",
+      "context_credit": false,
+      "exclusion_reason": "INITIAL_FAILED_FIT",
+      "isolated_candidate_active": true,
+      "duplicate_of": null
+    },
+    {
+      "path": "initial_36_native/1600x720/fresh/options_open_pressed.png",
+      "state": "options_open_pressed",
+      "aspect": [
+        1600,
+        720
+      ],
+      "variant": "fresh",
+      "bytes": 1476063,
+      "sha256": "766e6e9717414445048c9704107d8ae67585a18eb7b505a0e6a336995fcc0bc6",
+      "context_credit": false,
+      "exclusion_reason": "INITIAL_FAILED_FIT",
+      "isolated_candidate_active": true,
+      "duplicate_of": null
+    },
+    {
+      "path": "initial_36_native/1600x720/fresh/options_open_released.png",
+      "state": "options_open_released",
+      "aspect": [
+        1600,
+        720
+      ],
+      "variant": "fresh",
+      "bytes": 818780,
+      "sha256": "7f79b9487e0bcf37bc8006caeac4c08ac78ba96394418537eaa268a1dafeab21",
+      "context_credit": false,
+      "exclusion_reason": "INITIAL_FAILED_FIT",
+      "isolated_candidate_active": true,
+      "duplicate_of": null
+    },
+    {
+      "path": "initial_36_native/1600x720/fresh/music_off_pressed.png",
+      "state": "music_off_pressed",
+      "aspect": [
+        1600,
+        720
+      ],
+      "variant": "fresh",
+      "bytes": 818637,
+      "sha256": "3da576c2e0f7a974b93c891da0d95c5ec0c011eaded7842b35ae42698d480651",
+      "context_credit": false,
+      "exclusion_reason": "INITIAL_FAILED_FIT",
+      "isolated_candidate_active": true,
+      "duplicate_of": null
+    },
+    {
+      "path": "initial_36_native/1600x720/fresh/music_off_released.png",
+      "state": "music_off_released",
+      "aspect": [
+        1600,
+        720
+      ],
+      "variant": "fresh",
+      "bytes": 822773,
+      "sha256": "83bc44ab1a909c139818cc7c3d9d07e7fbe1ced3fdce9e915980a17408707807",
+      "context_credit": false,
+      "exclusion_reason": "INITIAL_FAILED_FIT",
+      "isolated_candidate_active": true,
+      "duplicate_of": null
+    },
+    {
+      "path": "initial_36_native/1600x720/fresh/music_on_pressed.png",
+      "state": "music_on_pressed",
+      "aspect": [
+        1600,
+        720
+      ],
+      "variant": "fresh",
+      "bytes": 822179,
+      "sha256": "e41fcc2dbcedcef59f2a04a7095da06b3abd4c343fbbe6a4fbabe348be4075cd",
+      "context_credit": false,
+      "exclusion_reason": "INITIAL_FAILED_FIT",
+      "isolated_candidate_active": true,
+      "duplicate_of": null
+    },
+    {
+      "path": "initial_36_native/1600x720/fresh/music_on_released.png",
+      "state": "music_on_released",
+      "aspect": [
+        1600,
+        720
+      ],
+      "variant": "fresh",
+      "bytes": 823088,
+      "sha256": "6769d2df9dfdf3dbc35313a350092a3fa9d191bee7215bb3a6091790ca8deb67",
+      "context_credit": false,
+      "exclusion_reason": "INITIAL_FAILED_FIT",
+      "isolated_candidate_active": true,
+      "duplicate_of": null
+    },
+    {
+      "path": "initial_36_native/1600x720/fresh/mic_off_pressed.png",
+      "state": "mic_off_pressed",
+      "aspect": [
+        1600,
+        720
+      ],
+      "variant": "fresh",
+      "bytes": 822694,
+      "sha256": "8cbd637f5fb80813549e1db219bdecb878c5479a904bb4be587933df26fa6f98",
+      "context_credit": false,
+      "exclusion_reason": "INITIAL_FAILED_FIT",
+      "isolated_candidate_active": true,
+      "duplicate_of": null
+    },
+    {
+      "path": "initial_36_native/1600x720/fresh/mic_off_released.png",
+      "state": "mic_off_released",
+      "aspect": [
+        1600,
+        720
+      ],
+      "variant": "fresh",
+      "bytes": 822915,
+      "sha256": "5ae920524439b6b8a84cdb150358a362267f7f67b1b2ee93f41f5b0a8858239a",
+      "context_credit": false,
+      "exclusion_reason": "INITIAL_FAILED_FIT",
+      "isolated_candidate_active": true,
+      "duplicate_of": null
+    },
+    {
+      "path": "initial_36_native/1600x720/fresh/mic_on_pressed.png",
+      "state": "mic_on_pressed",
+      "aspect": [
+        1600,
+        720
+      ],
+      "variant": "fresh",
+      "bytes": 822489,
+      "sha256": "038850e09c431d8122e9b5a2776b2637e3f98df9b912040ab2f688084542c2df",
+      "context_credit": false,
+      "exclusion_reason": "INITIAL_FAILED_FIT",
+      "isolated_candidate_active": true,
+      "duplicate_of": null
+    },
+    {
+      "path": "initial_36_native/1600x720/fresh/mic_on_released.png",
+      "state": "mic_on_released",
+      "aspect": [
+        1600,
+        720
+      ],
+      "variant": "fresh",
+      "bytes": 823127,
+      "sha256": "18f3a6524fdef96a6ecf1e1bb84ebd137115e8138d5eadfcad38162ac6ac5bef",
+      "context_credit": false,
+      "exclusion_reason": "INITIAL_FAILED_FIT",
+      "isolated_candidate_active": true,
+      "duplicate_of": null
+    },
+    {
+      "path": "initial_36_native/1600x720/fresh/options_close_pressed.png",
+      "state": "options_close_pressed",
+      "aspect": [
+        1600,
+        720
+      ],
+      "variant": "fresh",
+      "bytes": 822240,
+      "sha256": "e1cfa89c44ef4afdac4f38ee1c8b9df65de1c8012f4e08ff139381fc5b9a2b4e",
+      "context_credit": false,
+      "exclusion_reason": "INITIAL_FAILED_FIT",
+      "isolated_candidate_active": true,
+      "duplicate_of": null
+    },
+    {
+      "path": "initial_36_native/1600x720/fresh/options_close_released.png",
+      "state": "options_close_released",
+      "aspect": [
+        1600,
+        720
+      ],
+      "variant": "fresh",
+      "bytes": 1466594,
+      "sha256": "58d8c543afc72443169ecaf86300bb7836706acf2b877b729760425544d49e87",
+      "context_credit": false,
+      "exclusion_reason": "INITIAL_FAILED_FIT",
+      "isolated_candidate_active": true,
+      "duplicate_of": null
+    },
+    {
+      "path": "initial_36_native/1600x720/fresh/declared_focus_out.png",
+      "state": "declared_focus_out",
+      "aspect": [
+        1600,
+        720
+      ],
+      "variant": "fresh",
+      "bytes": 1466594,
+      "sha256": "58d8c543afc72443169ecaf86300bb7836706acf2b877b729760425544d49e87",
+      "context_credit": false,
+      "exclusion_reason": "INITIAL_FAILED_FIT",
+      "isolated_candidate_active": true,
+      "duplicate_of": null
+    },
+    {
+      "path": "initial_36_native/1600x720/fresh/declared_focus_in.png",
+      "state": "declared_focus_in",
+      "aspect": [
+        1600,
+        720
+      ],
+      "variant": "fresh",
+      "bytes": 1466594,
+      "sha256": "58d8c543afc72443169ecaf86300bb7836706acf2b877b729760425544d49e87",
+      "context_credit": false,
+      "exclusion_reason": "INITIAL_FAILED_FIT",
+      "isolated_candidate_active": true,
+      "duplicate_of": null
+    },
+    {
+      "path": "initial_36_native/1600x720/saved_legacy/original_source_baseline.png",
+      "state": "original_source_baseline",
+      "aspect": [
+        1600,
+        720
+      ],
+      "variant": "saved_legacy",
+      "bytes": 1396949,
+      "sha256": "f26e1d1342fdc282efea9a5f43af7e84cc50d219ad009e325c05ceb09ccb2d27",
+      "context_credit": false,
+      "exclusion_reason": "INITIAL_FAILED_FIT",
+      "isolated_candidate_active": false,
+      "duplicate_of": null
+    },
+    {
+      "path": "initial_36_native/1600x720/saved_legacy/normal_startup.png",
+      "state": "normal_startup",
+      "aspect": [
+        1600,
+        720
+      ],
+      "variant": "saved_legacy",
+      "bytes": 1479795,
+      "sha256": "bd1c78c6119a96260b1e1f9dda3166a6d8194fd94d994c9912812b217be6eb8c",
+      "context_credit": false,
+      "exclusion_reason": "INITIAL_FAILED_FIT",
+      "isolated_candidate_active": true,
+      "duplicate_of": null
+    },
+    {
+      "path": "initial_36_native/1600x720/saved_legacy/declared_style_normal.png",
+      "state": "declared_style_normal",
+      "aspect": [
+        1600,
+        720
+      ],
+      "variant": "saved_legacy",
+      "bytes": 1479795,
+      "sha256": "bd1c78c6119a96260b1e1f9dda3166a6d8194fd94d994c9912812b217be6eb8c",
+      "context_credit": false,
+      "exclusion_reason": "INITIAL_FAILED_FIT",
+      "isolated_candidate_active": true,
+      "duplicate_of": null
+    },
+    {
+      "path": "initial_36_native/1600x720/saved_legacy/declared_style_hover.png",
+      "state": "declared_style_hover",
+      "aspect": [
+        1600,
+        720
+      ],
+      "variant": "saved_legacy",
+      "bytes": 1479236,
+      "sha256": "81a0a12fb33ddbd5e8512170d6899f9248c953257eecd6c801cb9b89270c17f9",
+      "context_credit": false,
+      "exclusion_reason": "INITIAL_FAILED_FIT",
+      "isolated_candidate_active": true,
+      "duplicate_of": null
+    },
+    {
+      "path": "initial_36_native/1600x720/saved_legacy/declared_style_pressed.png",
+      "state": "declared_style_pressed",
+      "aspect": [
+        1600,
+        720
+      ],
+      "variant": "saved_legacy",
+      "bytes": 1467819,
+      "sha256": "55fe4f5e02d129f9e978dd98ce1955bf8c5088e04d65e51923bca479c2d0a90e",
+      "context_credit": false,
+      "exclusion_reason": "INITIAL_FAILED_FIT",
+      "isolated_candidate_active": true,
+      "duplicate_of": null
+    },
+    {
+      "path": "initial_36_native/1600x720/saved_legacy/declared_style_hover_pressed.png",
+      "state": "declared_style_hover_pressed",
+      "aspect": [
+        1600,
+        720
+      ],
+      "variant": "saved_legacy",
+      "bytes": 1467819,
+      "sha256": "55fe4f5e02d129f9e978dd98ce1955bf8c5088e04d65e51923bca479c2d0a90e",
+      "context_credit": false,
+      "exclusion_reason": "INITIAL_FAILED_FIT",
+      "isolated_candidate_active": true,
+      "duplicate_of": null
+    },
+    {
+      "path": "initial_36_native/1600x720/saved_legacy/declared_style_focus.png",
+      "state": "declared_style_focus",
+      "aspect": [
+        1600,
+        720
+      ],
+      "variant": "saved_legacy",
+      "bytes": 1467819,
+      "sha256": "55fe4f5e02d129f9e978dd98ce1955bf8c5088e04d65e51923bca479c2d0a90e",
+      "context_credit": false,
+      "exclusion_reason": "INITIAL_FAILED_FIT",
+      "isolated_candidate_active": true,
+      "duplicate_of": null
+    },
+    {
+      "path": "initial_36_native/1600x720/saved_legacy/declared_style_disabled.png",
+      "state": "declared_style_disabled",
+      "aspect": [
+        1600,
+        720
+      ],
+      "variant": "saved_legacy",
+      "bytes": 1477283,
+      "sha256": "314f59a6df520e18352bccf8dd632609f90385ef2a3eab909d922e89381c2220",
+      "context_credit": false,
+      "exclusion_reason": "INITIAL_FAILED_FIT",
+      "isolated_candidate_active": true,
+      "duplicate_of": null
+    },
+    {
+      "path": "initial_36_native/1600x720/saved_legacy/declared_actual_focus.png",
+      "state": "declared_actual_focus",
+      "aspect": [
+        1600,
+        720
+      ],
+      "variant": "saved_legacy",
+      "bytes": 1479929,
+      "sha256": "2384f4f1fb3d115814482a2d927ccc80c9961dd7797b5bb356f2212fd56e5d29",
+      "context_credit": false,
+      "exclusion_reason": "INITIAL_FAILED_FIT",
+      "isolated_candidate_active": true,
+      "duplicate_of": null
+    },
+    {
+      "path": "initial_36_native/1600x720/saved_legacy/passive_2s.png",
+      "state": "passive_2s",
+      "aspect": [
+        1600,
+        720
+      ],
+      "variant": "saved_legacy",
+      "bytes": 1466594,
+      "sha256": "58d8c543afc72443169ecaf86300bb7836706acf2b877b729760425544d49e87",
+      "context_credit": false,
+      "exclusion_reason": "INITIAL_FAILED_FIT",
+      "isolated_candidate_active": true,
+      "duplicate_of": null
+    },
+    {
+      "path": "initial_36_native/1600x720/saved_legacy/options_open_pressed.png",
+      "state": "options_open_pressed",
+      "aspect": [
+        1600,
+        720
+      ],
+      "variant": "saved_legacy",
+      "bytes": 1466209,
+      "sha256": "85cb0a83512c98f31d89beaa56aadb19f32ce849bc528bb7fa59864bcd41c0ab",
+      "context_credit": false,
+      "exclusion_reason": "INITIAL_FAILED_FIT",
+      "isolated_candidate_active": true,
+      "duplicate_of": null
+    },
+    {
+      "path": "initial_36_native/1600x720/saved_legacy/options_open_released.png",
+      "state": "options_open_released",
+      "aspect": [
+        1600,
+        720
+      ],
+      "variant": "saved_legacy",
+      "bytes": 822600,
+      "sha256": "17061c54bb460b0f0d916ce7fdd0d4e70883f3fb2eb7e41a7402ef04641f6071",
+      "context_credit": false,
+      "exclusion_reason": "INITIAL_FAILED_FIT",
+      "isolated_candidate_active": true,
+      "duplicate_of": null
+    },
+    {
+      "path": "initial_36_native/1600x720/saved_legacy/music_off_pressed.png",
+      "state": "music_off_pressed",
+      "aspect": [
+        1600,
+        720
+      ],
+      "variant": "saved_legacy",
+      "bytes": 822535,
+      "sha256": "3c9cf0b390bd9f0e5b592935a1613b23b914f21014a1ddfd6ea89e31cae8d859",
+      "context_credit": false,
+      "exclusion_reason": "INITIAL_FAILED_FIT",
+      "isolated_candidate_active": true,
+      "duplicate_of": null
+    },
+    {
+      "path": "initial_36_native/1600x720/saved_legacy/music_off_released.png",
+      "state": "music_off_released",
+      "aspect": [
+        1600,
+        720
+      ],
+      "variant": "saved_legacy",
+      "bytes": 822773,
+      "sha256": "83bc44ab1a909c139818cc7c3d9d07e7fbe1ced3fdce9e915980a17408707807",
+      "context_credit": false,
+      "exclusion_reason": "INITIAL_FAILED_FIT",
+      "isolated_candidate_active": true,
+      "duplicate_of": null
+    },
+    {
+      "path": "initial_36_native/1600x720/saved_legacy/music_on_pressed.png",
+      "state": "music_on_pressed",
+      "aspect": [
+        1600,
+        720
+      ],
+      "variant": "saved_legacy",
+      "bytes": 822179,
+      "sha256": "e41fcc2dbcedcef59f2a04a7095da06b3abd4c343fbbe6a4fbabe348be4075cd",
+      "context_credit": false,
+      "exclusion_reason": "INITIAL_FAILED_FIT",
+      "isolated_candidate_active": true,
+      "duplicate_of": null
+    },
+    {
+      "path": "initial_36_native/1600x720/saved_legacy/music_on_released.png",
+      "state": "music_on_released",
+      "aspect": [
+        1600,
+        720
+      ],
+      "variant": "saved_legacy",
+      "bytes": 823088,
+      "sha256": "6769d2df9dfdf3dbc35313a350092a3fa9d191bee7215bb3a6091790ca8deb67",
+      "context_credit": false,
+      "exclusion_reason": "INITIAL_FAILED_FIT",
+      "isolated_candidate_active": true,
+      "duplicate_of": null
+    },
+    {
+      "path": "initial_36_native/1600x720/saved_legacy/mic_off_pressed.png",
+      "state": "mic_off_pressed",
+      "aspect": [
+        1600,
+        720
+      ],
+      "variant": "saved_legacy",
+      "bytes": 822694,
+      "sha256": "8cbd637f5fb80813549e1db219bdecb878c5479a904bb4be587933df26fa6f98",
+      "context_credit": false,
+      "exclusion_reason": "INITIAL_FAILED_FIT",
+      "isolated_candidate_active": true,
+      "duplicate_of": null
+    },
+    {
+      "path": "initial_36_native/1600x720/saved_legacy/mic_off_released.png",
+      "state": "mic_off_released",
+      "aspect": [
+        1600,
+        720
+      ],
+      "variant": "saved_legacy",
+      "bytes": 822915,
+      "sha256": "5ae920524439b6b8a84cdb150358a362267f7f67b1b2ee93f41f5b0a8858239a",
+      "context_credit": false,
+      "exclusion_reason": "INITIAL_FAILED_FIT",
+      "isolated_candidate_active": true,
+      "duplicate_of": null
+    },
+    {
+      "path": "initial_36_native/1600x720/saved_legacy/mic_on_pressed.png",
+      "state": "mic_on_pressed",
+      "aspect": [
+        1600,
+        720
+      ],
+      "variant": "saved_legacy",
+      "bytes": 822489,
+      "sha256": "038850e09c431d8122e9b5a2776b2637e3f98df9b912040ab2f688084542c2df",
+      "context_credit": false,
+      "exclusion_reason": "INITIAL_FAILED_FIT",
+      "isolated_candidate_active": true,
+      "duplicate_of": null
+    },
+    {
+      "path": "initial_36_native/1600x720/saved_legacy/mic_on_released.png",
+      "state": "mic_on_released",
+      "aspect": [
+        1600,
+        720
+      ],
+      "variant": "saved_legacy",
+      "bytes": 823127,
+      "sha256": "18f3a6524fdef96a6ecf1e1bb84ebd137115e8138d5eadfcad38162ac6ac5bef",
+      "context_credit": false,
+      "exclusion_reason": "INITIAL_FAILED_FIT",
+      "isolated_candidate_active": true,
+      "duplicate_of": null
+    },
+    {
+      "path": "initial_36_native/1600x720/saved_legacy/options_close_pressed.png",
+      "state": "options_close_pressed",
+      "aspect": [
+        1600,
+        720
+      ],
+      "variant": "saved_legacy",
+      "bytes": 822240,
+      "sha256": "e1cfa89c44ef4afdac4f38ee1c8b9df65de1c8012f4e08ff139381fc5b9a2b4e",
+      "context_credit": false,
+      "exclusion_reason": "INITIAL_FAILED_FIT",
+      "isolated_candidate_active": true,
+      "duplicate_of": null
+    },
+    {
+      "path": "initial_36_native/1600x720/saved_legacy/options_close_released.png",
+      "state": "options_close_released",
+      "aspect": [
+        1600,
+        720
+      ],
+      "variant": "saved_legacy",
+      "bytes": 1466594,
+      "sha256": "58d8c543afc72443169ecaf86300bb7836706acf2b877b729760425544d49e87",
+      "context_credit": false,
+      "exclusion_reason": "INITIAL_FAILED_FIT",
+      "isolated_candidate_active": true,
+      "duplicate_of": null
+    },
+    {
+      "path": "initial_36_native/1600x720/saved_legacy/declared_focus_out.png",
+      "state": "declared_focus_out",
+      "aspect": [
+        1600,
+        720
+      ],
+      "variant": "saved_legacy",
+      "bytes": 1466594,
+      "sha256": "58d8c543afc72443169ecaf86300bb7836706acf2b877b729760425544d49e87",
+      "context_credit": false,
+      "exclusion_reason": "INITIAL_FAILED_FIT",
+      "isolated_candidate_active": true,
+      "duplicate_of": null
+    },
+    {
+      "path": "initial_36_native/1600x720/saved_legacy/declared_focus_in.png",
+      "state": "declared_focus_in",
+      "aspect": [
+        1600,
+        720
+      ],
+      "variant": "saved_legacy",
+      "bytes": 1466594,
+      "sha256": "58d8c543afc72443169ecaf86300bb7836706acf2b877b729760425544d49e87",
+      "context_credit": false,
+      "exclusion_reason": "INITIAL_FAILED_FIT",
+      "isolated_candidate_active": true,
+      "duplicate_of": null
+    },
+    {
+      "path": "initial_36_native/1600x720/saved_legacy/newgame_request_pressed.png",
+      "state": "newgame_request_pressed",
+      "aspect": [
+        1600,
+        720
+      ],
+      "variant": "saved_legacy",
+      "bytes": 1479708,
+      "sha256": "5213d41e7a70bb7860c5465585f5e029084e88bdfe739b4e3dae4bded83af167",
+      "context_credit": false,
+      "exclusion_reason": "INITIAL_FAILED_FIT",
+      "isolated_candidate_active": true,
+      "duplicate_of": null
+    },
+    {
+      "path": "initial_36_native/1600x720/saved_legacy/newgame_request_released.png",
+      "state": "newgame_request_released",
+      "aspect": [
+        1600,
+        720
+      ],
+      "variant": "saved_legacy",
+      "bytes": 738825,
+      "sha256": "c787d58e4f92619f6ad2793da2027daf0282e80fedf2d121fe17ea8f907f0665",
+      "context_credit": false,
+      "exclusion_reason": "INITIAL_FAILED_FIT",
+      "isolated_candidate_active": true,
+      "duplicate_of": null
+    },
+    {
+      "path": "initial_36_native/1600x720/saved_legacy/newgame_armed.png",
+      "state": "newgame_armed",
+      "aspect": [
+        1600,
+        720
+      ],
+      "variant": "saved_legacy",
+      "bytes": 743533,
+      "sha256": "590b080c13e74a5298acd71db1052725d9a9637dd660065dbd679425c9b91047",
+      "context_credit": false,
+      "exclusion_reason": "INITIAL_FAILED_FIT",
+      "isolated_candidate_active": true,
+      "duplicate_of": null
+    },
+    {
+      "path": "initial_36_native/1600x720/saved_legacy/newgame_short_hold.png",
+      "state": "newgame_short_hold",
+      "aspect": [
+        1600,
+        720
+      ],
+      "variant": "saved_legacy",
+      "bytes": 738795,
+      "sha256": "8458cc6fde72a9bd213d37e8f7aec511b3d6962a202ccb3496b1d15fb6d2a5c9",
+      "context_credit": false,
+      "exclusion_reason": "INITIAL_FAILED_FIT",
+      "isolated_candidate_active": true,
+      "duplicate_of": null
+    },
+    {
+      "path": "initial_36_native/1600x720/saved_legacy/newgame_hold_cancelled.png",
+      "state": "newgame_hold_cancelled",
+      "aspect": [
+        1600,
+        720
+      ],
+      "variant": "saved_legacy",
+      "bytes": 740957,
+      "sha256": "a560af37937d0f836e8a490e3e1d6e17e7fc2d15a8241943d3cd727c88318b02",
+      "context_credit": false,
+      "exclusion_reason": "INITIAL_FAILED_FIT",
+      "isolated_candidate_active": true,
+      "duplicate_of": null
+    },
+    {
+      "path": "initial_36_native/1600x720/saved_legacy/keep_saved_pressed.png",
+      "state": "keep_saved_pressed",
+      "aspect": [
+        1600,
+        720
+      ],
+      "variant": "saved_legacy",
+      "bytes": 740333,
+      "sha256": "77d982590b2a10850d556add8c9b0885720b54121c56d55f9554f59f1325a375",
+      "context_credit": false,
+      "exclusion_reason": "INITIAL_FAILED_FIT",
+      "isolated_candidate_active": true,
+      "duplicate_of": null
+    },
+    {
+      "path": "initial_36_native/1600x720/saved_legacy/keep_saved_released.png",
+      "state": "keep_saved_released",
+      "aspect": [
+        1600,
+        720
+      ],
+      "variant": "saved_legacy",
+      "bytes": 1479795,
+      "sha256": "bd1c78c6119a96260b1e1f9dda3166a6d8194fd94d994c9912812b217be6eb8c",
+      "context_credit": false,
+      "exclusion_reason": "INITIAL_FAILED_FIT",
+      "isolated_candidate_active": true,
+      "duplicate_of": null
+    },
+    {
+      "path": "initial_36_native/1600x720/saved_legacy/continue_pressed.png",
+      "state": "continue_pressed",
+      "aspect": [
+        1600,
+        720
+      ],
+      "variant": "saved_legacy",
+      "bytes": 1479532,
+      "sha256": "83921e2a1829c7225dd03942c42c210ee3295287e455eb6dc608cd1d18f00d1e",
+      "context_credit": false,
+      "exclusion_reason": "INITIAL_FAILED_FIT",
+      "isolated_candidate_active": true,
+      "duplicate_of": null
+    },
+    {
+      "path": "initial_36_native/1600x720/saved_legacy/natural_continue_world.png",
+      "state": "natural_continue_world",
+      "aspect": [
+        1600,
+        720
+      ],
+      "variant": "saved_legacy",
+      "bytes": 2043751,
+      "sha256": "03944cd5211bcae9a33421c009aec21febd446dc041c86a236ef8f197ef98a98",
+      "context_credit": false,
+      "exclusion_reason": "INITIAL_FAILED_FIT",
+      "isolated_candidate_active": true,
+      "duplicate_of": null
+    },
+    {
+      "path": "initial_36_native/1600x720/saved_legacy/declared_menu_reentry.png",
+      "state": "declared_menu_reentry",
+      "aspect": [
+        1600,
+        720
+      ],
+      "variant": "saved_legacy",
+      "bytes": 1479795,
+      "sha256": "bd1c78c6119a96260b1e1f9dda3166a6d8194fd94d994c9912812b217be6eb8c",
+      "context_credit": false,
+      "exclusion_reason": "INITIAL_FAILED_FIT",
+      "isolated_candidate_active": true,
+      "duplicate_of": null
+    },
+    {
+      "path": "initial_36_native/1600x720/saved_legacy/reentry_idle_1s.png",
+      "state": "reentry_idle_1s",
+      "aspect": [
+        1600,
+        720
+      ],
+      "variant": "saved_legacy",
+      "bytes": 1479795,
+      "sha256": "bd1c78c6119a96260b1e1f9dda3166a6d8194fd94d994c9912812b217be6eb8c",
+      "context_credit": false,
+      "exclusion_reason": "INITIAL_FAILED_FIT",
+      "isolated_candidate_active": true,
+      "duplicate_of": null
+    },
+    {
+      "path": "initial_36_native/1600x720/saved_legacy/continue_again_pressed.png",
+      "state": "continue_again_pressed",
+      "aspect": [
+        1600,
+        720
+      ],
+      "variant": "saved_legacy",
+      "bytes": 1479532,
+      "sha256": "83921e2a1829c7225dd03942c42c210ee3295287e455eb6dc608cd1d18f00d1e",
+      "context_credit": false,
+      "exclusion_reason": "INITIAL_FAILED_FIT",
+      "isolated_candidate_active": true,
+      "duplicate_of": null
+    },
+    {
+      "path": "initial_36_native/1600x720/saved_legacy/natural_continue_after_reentry.png",
+      "state": "natural_continue_after_reentry",
+      "aspect": [
+        1600,
+        720
+      ],
+      "variant": "saved_legacy",
+      "bytes": 2043761,
+      "sha256": "dd5797db94782bc8d79840db2a9f26ff6f1daf4365ce21f88c6112ac41f1669a",
+      "context_credit": false,
+      "exclusion_reason": "INITIAL_FAILED_FIT",
+      "isolated_candidate_active": true,
+      "duplicate_of": null
+    },
+    {
+      "path": "native/1280x720/fresh/original_source_baseline.png",
+      "state": "original_source_baseline",
+      "aspect": [
+        1280,
+        720
+      ],
+      "variant": "fresh",
+      "bytes": 1380233,
+      "sha256": "832bbab25c622336a14091ccfc0d7f5bdfb2533425174e80126e632002559c73",
+      "context_credit": false,
+      "exclusion_reason": "IDENTICAL_PRIOR_R32_CONTEXT",
+      "isolated_candidate_active": false,
+      "duplicate_of": "immutableR32/native/1280x720/fresh/passive_26s.png"
+    },
+    {
+      "path": "native/1280x720/fresh/normal_startup.png",
+      "state": "normal_startup",
+      "aspect": [
+        1280,
+        720
+      ],
+      "variant": "fresh",
+      "bytes": 1467153,
+      "sha256": "502d900c7e0ac5d4323e14b68692ccf758f1d1c5a95130bb8d9e1e41ac3a2ada",
+      "context_credit": true,
+      "exclusion_reason": null,
+      "isolated_candidate_active": true
+    },
+    {
+      "path": "native/1280x720/fresh/declared_style_normal.png",
+      "state": "declared_style_normal",
+      "aspect": [
+        1280,
+        720
+      ],
+      "variant": "fresh",
+      "bytes": 1468958,
+      "sha256": "2766d52b0d57d718fe8a08460074abfed866026483971c098d2a7acb8b71e30b",
+      "context_credit": true,
+      "exclusion_reason": null,
+      "isolated_candidate_active": true
+    },
+    {
+      "path": "native/1280x720/fresh/declared_style_hover.png",
+      "state": "declared_style_hover",
+      "aspect": [
+        1280,
+        720
+      ],
+      "variant": "fresh",
+      "bytes": 1468147,
+      "sha256": "81acaeffaa1dc50a4579c8657128503581859590f1387c55c7c7b202699c3c20",
+      "context_credit": true,
+      "exclusion_reason": null,
+      "isolated_candidate_active": true
+    },
+    {
+      "path": "native/1280x720/fresh/declared_style_pressed.png",
+      "state": "declared_style_pressed",
+      "aspect": [
+        1280,
+        720
+      ],
+      "variant": "fresh",
+      "bytes": 1466446,
+      "sha256": "91a0d3a99d76eb6d13591dbfe3c503d604074003e244c3bd0567e79aed47cbd5",
+      "context_credit": true,
+      "exclusion_reason": null,
+      "isolated_candidate_active": true
+    },
+    {
+      "path": "native/1280x720/fresh/declared_style_hover_pressed.png",
+      "state": "declared_style_hover_pressed",
+      "aspect": [
+        1280,
+        720
+      ],
+      "variant": "fresh",
+      "bytes": 1466446,
+      "sha256": "91a0d3a99d76eb6d13591dbfe3c503d604074003e244c3bd0567e79aed47cbd5",
+      "context_credit": false,
+      "exclusion_reason": "DUPLICATE_CURRENT_EVENT",
+      "isolated_candidate_active": true,
+      "duplicate_of": "native/1280x720/fresh/declared_style_pressed.png"
+    },
+    {
+      "path": "native/1280x720/fresh/declared_style_focus.png",
+      "state": "declared_style_focus",
+      "aspect": [
+        1280,
+        720
+      ],
+      "variant": "fresh",
+      "bytes": 1465790,
+      "sha256": "2aad107328d78a2c6367206d1ac8b65baa811f4b71435ba76a24443f8de0b314",
+      "context_credit": true,
+      "exclusion_reason": null,
+      "isolated_candidate_active": true
+    },
+    {
+      "path": "native/1280x720/fresh/declared_style_disabled.png",
+      "state": "declared_style_disabled",
+      "aspect": [
+        1280,
+        720
+      ],
+      "variant": "fresh",
+      "bytes": 1462285,
+      "sha256": "84e25ecee2437133b89285bfe2b5bcbc0c16c003011e6c66361f4641642dc437",
+      "context_credit": true,
+      "exclusion_reason": null,
+      "isolated_candidate_active": true
+    },
+    {
+      "path": "native/1280x720/fresh/declared_actual_focus.png",
+      "state": "declared_actual_focus",
+      "aspect": [
+        1280,
+        720
+      ],
+      "variant": "fresh",
+      "bytes": 1467153,
+      "sha256": "502d900c7e0ac5d4323e14b68692ccf758f1d1c5a95130bb8d9e1e41ac3a2ada",
+      "context_credit": false,
+      "exclusion_reason": "DUPLICATE_CURRENT_EVENT",
+      "isolated_candidate_active": true,
+      "duplicate_of": "native/1280x720/fresh/normal_startup.png"
+    },
+    {
+      "path": "native/1280x720/fresh/passive_2s.png",
+      "state": "passive_2s",
+      "aspect": [
+        1280,
+        720
+      ],
+      "variant": "fresh",
+      "bytes": 1468958,
+      "sha256": "2766d52b0d57d718fe8a08460074abfed866026483971c098d2a7acb8b71e30b",
+      "context_credit": false,
+      "exclusion_reason": "DUPLICATE_CURRENT_EVENT",
+      "isolated_candidate_active": true,
+      "duplicate_of": "native/1280x720/fresh/declared_style_normal.png"
+    },
+    {
+      "path": "native/1280x720/fresh/options_open_pressed.png",
+      "state": "options_open_pressed",
+      "aspect": [
+        1280,
+        720
+      ],
+      "variant": "fresh",
+      "bytes": 1467868,
+      "sha256": "01bf191a434cbf886bce922d595c2f5565f24ab84d3c758b5e1039524067da29",
+      "context_credit": true,
+      "exclusion_reason": null,
+      "isolated_candidate_active": true
+    },
+    {
+      "path": "native/1280x720/fresh/options_open_released.png",
+      "state": "options_open_released",
+      "aspect": [
+        1280,
+        720
+      ],
+      "variant": "fresh",
+      "bytes": 868262,
+      "sha256": "cba3f35927c847a5a90bda1d1a3e63ed8f9ceffbcab8445e0c526e1ae18a9dd7",
+      "context_credit": true,
+      "exclusion_reason": null,
+      "isolated_candidate_active": true
+    },
+    {
+      "path": "native/1280x720/fresh/music_off_pressed.png",
+      "state": "music_off_pressed",
+      "aspect": [
+        1280,
+        720
+      ],
+      "variant": "fresh",
+      "bytes": 867034,
+      "sha256": "99f0e9482092a81534529b1f991ede90b679e8945679b7822318511164004735",
+      "context_credit": true,
+      "exclusion_reason": null,
+      "isolated_candidate_active": true
+    },
+    {
+      "path": "native/1280x720/fresh/music_off_released.png",
+      "state": "music_off_released",
+      "aspect": [
+        1280,
+        720
+      ],
+      "variant": "fresh",
+      "bytes": 871194,
+      "sha256": "f8f52fb7c8e25f6a5c2b1386d42f5c60e885296ee1c63d5478592aa2f4336601",
+      "context_credit": true,
+      "exclusion_reason": null,
+      "isolated_candidate_active": true
+    },
+    {
+      "path": "native/1280x720/fresh/music_on_pressed.png",
+      "state": "music_on_pressed",
+      "aspect": [
+        1280,
+        720
+      ],
+      "variant": "fresh",
+      "bytes": 868639,
+      "sha256": "58e20aab3ef4b69b3e97b787896d1b6dbedb4d9c060b3ca6696144328aafdac8",
+      "context_credit": true,
+      "exclusion_reason": null,
+      "isolated_candidate_active": true
+    },
+    {
+      "path": "native/1280x720/fresh/music_on_released.png",
+      "state": "music_on_released",
+      "aspect": [
+        1280,
+        720
+      ],
+      "variant": "fresh",
+      "bytes": 871505,
+      "sha256": "1ed8f40120f5128985d063a424221e26ea67b96191a1bc1e7a059ea310941e18",
+      "context_credit": true,
+      "exclusion_reason": null,
+      "isolated_candidate_active": true
+    },
+    {
+      "path": "native/1280x720/fresh/mic_off_pressed.png",
+      "state": "mic_off_pressed",
+      "aspect": [
+        1280,
+        720
+      ],
+      "variant": "fresh",
+      "bytes": 868947,
+      "sha256": "c83b167e012553eb2e1d00cb62d09b150adbbfd52372096cbf7430ad075651ae",
+      "context_credit": true,
+      "exclusion_reason": null,
+      "isolated_candidate_active": true
+    },
+    {
+      "path": "native/1280x720/fresh/mic_off_released.png",
+      "state": "mic_off_released",
+      "aspect": [
+        1280,
+        720
+      ],
+      "variant": "fresh",
+      "bytes": 871355,
+      "sha256": "e3b97af62a6c963ffb325539f7ec8fecec6d9a14d06d802263545c33666faae9",
+      "context_credit": true,
+      "exclusion_reason": null,
+      "isolated_candidate_active": true
+    },
+    {
+      "path": "native/1280x720/fresh/mic_on_pressed.png",
+      "state": "mic_on_pressed",
+      "aspect": [
+        1280,
+        720
+      ],
+      "variant": "fresh",
+      "bytes": 868769,
+      "sha256": "95a848d021ec1c26a30e1a0a2a008f869c05941baec30c7d6f9359dcf4581b29",
+      "context_credit": true,
+      "exclusion_reason": null,
+      "isolated_candidate_active": true
+    },
+    {
+      "path": "native/1280x720/fresh/mic_on_released.png",
+      "state": "mic_on_released",
+      "aspect": [
+        1280,
+        720
+      ],
+      "variant": "fresh",
+      "bytes": 871531,
+      "sha256": "1d77a3bac153639271c0792d0eb350d56a46c2307216efefbfd162b7a872b451",
+      "context_credit": true,
+      "exclusion_reason": null,
+      "isolated_candidate_active": true
+    },
+    {
+      "path": "native/1280x720/fresh/options_close_pressed.png",
+      "state": "options_close_pressed",
+      "aspect": [
+        1280,
+        720
+      ],
+      "variant": "fresh",
+      "bytes": 871324,
+      "sha256": "d7a9938e14bbc86df7409ab42872b6b6ff789f29b1e86f573bf227eb4dfc9cb8",
+      "context_credit": true,
+      "exclusion_reason": null,
+      "isolated_candidate_active": true
+    },
+    {
+      "path": "native/1280x720/fresh/options_close_released.png",
+      "state": "options_close_released",
+      "aspect": [
+        1280,
+        720
+      ],
+      "variant": "fresh",
+      "bytes": 1445250,
+      "sha256": "c62bcf630311a7201b8b6c64658da39ba8750c2570492b3059f6a3c5d2e71494",
+      "context_credit": true,
+      "exclusion_reason": null,
+      "isolated_candidate_active": true
+    },
+    {
+      "path": "native/1280x720/fresh/declared_focus_out.png",
+      "state": "declared_focus_out",
+      "aspect": [
+        1280,
+        720
+      ],
+      "variant": "fresh",
+      "bytes": 1445250,
+      "sha256": "c62bcf630311a7201b8b6c64658da39ba8750c2570492b3059f6a3c5d2e71494",
+      "context_credit": false,
+      "exclusion_reason": "DUPLICATE_CURRENT_EVENT",
+      "isolated_candidate_active": true,
+      "duplicate_of": "native/1280x720/fresh/options_close_released.png"
+    },
+    {
+      "path": "native/1280x720/fresh/declared_focus_in.png",
+      "state": "declared_focus_in",
+      "aspect": [
+        1280,
+        720
+      ],
+      "variant": "fresh",
+      "bytes": 1445250,
+      "sha256": "c62bcf630311a7201b8b6c64658da39ba8750c2570492b3059f6a3c5d2e71494",
+      "context_credit": false,
+      "exclusion_reason": "DUPLICATE_CURRENT_EVENT",
+      "isolated_candidate_active": true,
+      "duplicate_of": "native/1280x720/fresh/options_close_released.png"
+    },
+    {
+      "path": "native/1280x720/saved_legacy/original_source_baseline.png",
+      "state": "original_source_baseline",
+      "aspect": [
+        1280,
+        720
+      ],
+      "variant": "saved_legacy",
+      "bytes": 1383598,
+      "sha256": "9ce4a2fd5540c0a300974ea597a2dc42e626d061b4c2c57efd0a83459046fff2",
+      "context_credit": false,
+      "exclusion_reason": "IDENTICAL_PRIOR_R32_CONTEXT",
+      "isolated_candidate_active": false,
+      "duplicate_of": "immutableR32/native/1280x720/saved_legacy/reentry_idle_1s.png"
+    },
+    {
+      "path": "native/1280x720/saved_legacy/normal_startup.png",
+      "state": "normal_startup",
+      "aspect": [
+        1280,
+        720
+      ],
+      "variant": "saved_legacy",
+      "bytes": 1468067,
+      "sha256": "6c7ba9c098c8f0cc2afb2ee0d70fd98ef6dae7336a8ef13a783325cf89904b74",
+      "context_credit": true,
+      "exclusion_reason": null,
+      "isolated_candidate_active": true
+    },
+    {
+      "path": "native/1280x720/saved_legacy/declared_style_normal.png",
+      "state": "declared_style_normal",
+      "aspect": [
+        1280,
+        720
+      ],
+      "variant": "saved_legacy",
+      "bytes": 1468067,
+      "sha256": "6c7ba9c098c8f0cc2afb2ee0d70fd98ef6dae7336a8ef13a783325cf89904b74",
+      "context_credit": false,
+      "exclusion_reason": "DUPLICATE_CURRENT_EVENT",
+      "isolated_candidate_active": true,
+      "duplicate_of": "native/1280x720/saved_legacy/normal_startup.png"
+    },
+    {
+      "path": "native/1280x720/saved_legacy/declared_style_hover.png",
+      "state": "declared_style_hover",
+      "aspect": [
+        1280,
+        720
+      ],
+      "variant": "saved_legacy",
+      "bytes": 1471865,
+      "sha256": "228eea41dc13fa979b6ec89bf511a9d2872703b2a77cae87511c11886263aff5",
+      "context_credit": true,
+      "exclusion_reason": null,
+      "isolated_candidate_active": true
+    },
+    {
+      "path": "native/1280x720/saved_legacy/declared_style_pressed.png",
+      "state": "declared_style_pressed",
+      "aspect": [
+        1280,
+        720
+      ],
+      "variant": "saved_legacy",
+      "bytes": 1455733,
+      "sha256": "6901ce970099f488e2767a83dbe79b53329c5bf3031de05bb8ec86dda58dc13f",
+      "context_credit": true,
+      "exclusion_reason": null,
+      "isolated_candidate_active": true
+    },
+    {
+      "path": "native/1280x720/saved_legacy/declared_style_hover_pressed.png",
+      "state": "declared_style_hover_pressed",
+      "aspect": [
+        1280,
+        720
+      ],
+      "variant": "saved_legacy",
+      "bytes": 1455733,
+      "sha256": "6901ce970099f488e2767a83dbe79b53329c5bf3031de05bb8ec86dda58dc13f",
+      "context_credit": false,
+      "exclusion_reason": "DUPLICATE_CURRENT_EVENT",
+      "isolated_candidate_active": true,
+      "duplicate_of": "native/1280x720/saved_legacy/declared_style_pressed.png"
+    },
+    {
+      "path": "native/1280x720/saved_legacy/declared_style_focus.png",
+      "state": "declared_style_focus",
+      "aspect": [
+        1280,
+        720
+      ],
+      "variant": "saved_legacy",
+      "bytes": 1451512,
+      "sha256": "0c930d7d5cca6c81d786111de72c0d85af312d497fa1ca08f3744f7d0e8a3b23",
+      "context_credit": true,
+      "exclusion_reason": null,
+      "isolated_candidate_active": true
+    },
+    {
+      "path": "native/1280x720/saved_legacy/declared_style_disabled.png",
+      "state": "declared_style_disabled",
+      "aspect": [
+        1280,
+        720
+      ],
+      "variant": "saved_legacy",
+      "bytes": 1468556,
+      "sha256": "1a7210a9621db2f9e7f7a971065fb09d7d7c160c826146aa9ca281c814b0ef4c",
+      "context_credit": true,
+      "exclusion_reason": null,
+      "isolated_candidate_active": true
+    },
+    {
+      "path": "native/1280x720/saved_legacy/declared_actual_focus.png",
+      "state": "declared_actual_focus",
+      "aspect": [
+        1280,
+        720
+      ],
+      "variant": "saved_legacy",
+      "bytes": 1468197,
+      "sha256": "17eed6857f6126ea1edeff6f2b279383ccfcc26d17ed5ae701de1809c561aed8",
+      "context_credit": true,
+      "exclusion_reason": null,
+      "isolated_candidate_active": true
+    },
+    {
+      "path": "native/1280x720/saved_legacy/passive_2s.png",
+      "state": "passive_2s",
+      "aspect": [
+        1280,
+        720
+      ],
+      "variant": "saved_legacy",
+      "bytes": 1445250,
+      "sha256": "c62bcf630311a7201b8b6c64658da39ba8750c2570492b3059f6a3c5d2e71494",
+      "context_credit": false,
+      "exclusion_reason": "DUPLICATE_CURRENT_EVENT",
+      "isolated_candidate_active": true,
+      "duplicate_of": "native/1280x720/fresh/options_close_released.png"
+    },
+    {
+      "path": "native/1280x720/saved_legacy/options_open_pressed.png",
+      "state": "options_open_pressed",
+      "aspect": [
+        1280,
+        720
+      ],
+      "variant": "saved_legacy",
+      "bytes": 1444244,
+      "sha256": "6ad8d3fdf12732b75f1bc1a14ea8a49a56e8a3c35920b9460e7d05fb507384d1",
+      "context_credit": true,
+      "exclusion_reason": null,
+      "isolated_candidate_active": true
+    },
+    {
+      "path": "native/1280x720/saved_legacy/options_open_released.png",
+      "state": "options_open_released",
+      "aspect": [
+        1280,
+        720
+      ],
+      "variant": "saved_legacy",
+      "bytes": 870256,
+      "sha256": "51b0c83e2d519c77e0453d010123979ea92fdbb3e4d9df6df965a8c27f24f248",
+      "context_credit": true,
+      "exclusion_reason": null,
+      "isolated_candidate_active": true
+    },
+    {
+      "path": "native/1280x720/saved_legacy/music_off_pressed.png",
+      "state": "music_off_pressed",
+      "aspect": [
+        1280,
+        720
+      ],
+      "variant": "saved_legacy",
+      "bytes": 868937,
+      "sha256": "b9c015a707887f7645bd14c72b7cc385717aca5ebb584079c862d0d962bb0799",
+      "context_credit": true,
+      "exclusion_reason": null,
+      "isolated_candidate_active": true
+    },
+    {
+      "path": "native/1280x720/saved_legacy/music_off_released.png",
+      "state": "music_off_released",
+      "aspect": [
+        1280,
+        720
+      ],
+      "variant": "saved_legacy",
+      "bytes": 871194,
+      "sha256": "f8f52fb7c8e25f6a5c2b1386d42f5c60e885296ee1c63d5478592aa2f4336601",
+      "context_credit": false,
+      "exclusion_reason": "DUPLICATE_CURRENT_EVENT",
+      "isolated_candidate_active": true,
+      "duplicate_of": "native/1280x720/fresh/music_off_released.png"
+    },
+    {
+      "path": "native/1280x720/saved_legacy/music_on_pressed.png",
+      "state": "music_on_pressed",
+      "aspect": [
+        1280,
+        720
+      ],
+      "variant": "saved_legacy",
+      "bytes": 868639,
+      "sha256": "58e20aab3ef4b69b3e97b787896d1b6dbedb4d9c060b3ca6696144328aafdac8",
+      "context_credit": false,
+      "exclusion_reason": "DUPLICATE_CURRENT_EVENT",
+      "isolated_candidate_active": true,
+      "duplicate_of": "native/1280x720/fresh/music_on_pressed.png"
+    },
+    {
+      "path": "native/1280x720/saved_legacy/music_on_released.png",
+      "state": "music_on_released",
+      "aspect": [
+        1280,
+        720
+      ],
+      "variant": "saved_legacy",
+      "bytes": 871505,
+      "sha256": "1ed8f40120f5128985d063a424221e26ea67b96191a1bc1e7a059ea310941e18",
+      "context_credit": false,
+      "exclusion_reason": "DUPLICATE_CURRENT_EVENT",
+      "isolated_candidate_active": true,
+      "duplicate_of": "native/1280x720/fresh/music_on_released.png"
+    },
+    {
+      "path": "native/1280x720/saved_legacy/mic_off_pressed.png",
+      "state": "mic_off_pressed",
+      "aspect": [
+        1280,
+        720
+      ],
+      "variant": "saved_legacy",
+      "bytes": 868947,
+      "sha256": "c83b167e012553eb2e1d00cb62d09b150adbbfd52372096cbf7430ad075651ae",
+      "context_credit": false,
+      "exclusion_reason": "DUPLICATE_CURRENT_EVENT",
+      "isolated_candidate_active": true,
+      "duplicate_of": "native/1280x720/fresh/mic_off_pressed.png"
+    },
+    {
+      "path": "native/1280x720/saved_legacy/mic_off_released.png",
+      "state": "mic_off_released",
+      "aspect": [
+        1280,
+        720
+      ],
+      "variant": "saved_legacy",
+      "bytes": 871355,
+      "sha256": "e3b97af62a6c963ffb325539f7ec8fecec6d9a14d06d802263545c33666faae9",
+      "context_credit": false,
+      "exclusion_reason": "DUPLICATE_CURRENT_EVENT",
+      "isolated_candidate_active": true,
+      "duplicate_of": "native/1280x720/fresh/mic_off_released.png"
+    },
+    {
+      "path": "native/1280x720/saved_legacy/mic_on_pressed.png",
+      "state": "mic_on_pressed",
+      "aspect": [
+        1280,
+        720
+      ],
+      "variant": "saved_legacy",
+      "bytes": 868769,
+      "sha256": "95a848d021ec1c26a30e1a0a2a008f869c05941baec30c7d6f9359dcf4581b29",
+      "context_credit": false,
+      "exclusion_reason": "DUPLICATE_CURRENT_EVENT",
+      "isolated_candidate_active": true,
+      "duplicate_of": "native/1280x720/fresh/mic_on_pressed.png"
+    },
+    {
+      "path": "native/1280x720/saved_legacy/mic_on_released.png",
+      "state": "mic_on_released",
+      "aspect": [
+        1280,
+        720
+      ],
+      "variant": "saved_legacy",
+      "bytes": 871531,
+      "sha256": "1d77a3bac153639271c0792d0eb350d56a46c2307216efefbfd162b7a872b451",
+      "context_credit": false,
+      "exclusion_reason": "DUPLICATE_CURRENT_EVENT",
+      "isolated_candidate_active": true,
+      "duplicate_of": "native/1280x720/fresh/mic_on_released.png"
+    },
+    {
+      "path": "native/1280x720/saved_legacy/options_close_pressed.png",
+      "state": "options_close_pressed",
+      "aspect": [
+        1280,
+        720
+      ],
+      "variant": "saved_legacy",
+      "bytes": 871324,
+      "sha256": "d7a9938e14bbc86df7409ab42872b6b6ff789f29b1e86f573bf227eb4dfc9cb8",
+      "context_credit": false,
+      "exclusion_reason": "DUPLICATE_CURRENT_EVENT",
+      "isolated_candidate_active": true,
+      "duplicate_of": "native/1280x720/fresh/options_close_pressed.png"
+    },
+    {
+      "path": "native/1280x720/saved_legacy/options_close_released.png",
+      "state": "options_close_released",
+      "aspect": [
+        1280,
+        720
+      ],
+      "variant": "saved_legacy",
+      "bytes": 1445250,
+      "sha256": "c62bcf630311a7201b8b6c64658da39ba8750c2570492b3059f6a3c5d2e71494",
+      "context_credit": false,
+      "exclusion_reason": "DUPLICATE_CURRENT_EVENT",
+      "isolated_candidate_active": true,
+      "duplicate_of": "native/1280x720/fresh/options_close_released.png"
+    },
+    {
+      "path": "native/1280x720/saved_legacy/declared_focus_out.png",
+      "state": "declared_focus_out",
+      "aspect": [
+        1280,
+        720
+      ],
+      "variant": "saved_legacy",
+      "bytes": 1445250,
+      "sha256": "c62bcf630311a7201b8b6c64658da39ba8750c2570492b3059f6a3c5d2e71494",
+      "context_credit": false,
+      "exclusion_reason": "DUPLICATE_CURRENT_EVENT",
+      "isolated_candidate_active": true,
+      "duplicate_of": "native/1280x720/fresh/options_close_released.png"
+    },
+    {
+      "path": "native/1280x720/saved_legacy/declared_focus_in.png",
+      "state": "declared_focus_in",
+      "aspect": [
+        1280,
+        720
+      ],
+      "variant": "saved_legacy",
+      "bytes": 1445250,
+      "sha256": "c62bcf630311a7201b8b6c64658da39ba8750c2570492b3059f6a3c5d2e71494",
+      "context_credit": false,
+      "exclusion_reason": "DUPLICATE_CURRENT_EVENT",
+      "isolated_candidate_active": true,
+      "duplicate_of": "native/1280x720/fresh/options_close_released.png"
+    },
+    {
+      "path": "native/1280x720/saved_legacy/newgame_request_pressed.png",
+      "state": "newgame_request_pressed",
+      "aspect": [
+        1280,
+        720
+      ],
+      "variant": "saved_legacy",
+      "bytes": 1473199,
+      "sha256": "2437ceba3b1cd1eb550a53b27fbe332d339a2bf16d78a22ddf6002884136e2af",
+      "context_credit": true,
+      "exclusion_reason": null,
+      "isolated_candidate_active": true
+    },
+    {
+      "path": "native/1280x720/saved_legacy/newgame_request_released.png",
+      "state": "newgame_request_released",
+      "aspect": [
+        1280,
+        720
+      ],
+      "variant": "saved_legacy",
+      "bytes": 758673,
+      "sha256": "87fdd1ef7ebca2a50fb6384ea8528c604f0fac3d116584482def1a8566924b59",
+      "context_credit": true,
+      "exclusion_reason": null,
+      "isolated_candidate_active": true
+    },
+    {
+      "path": "native/1280x720/saved_legacy/newgame_armed.png",
+      "state": "newgame_armed",
+      "aspect": [
+        1280,
+        720
+      ],
+      "variant": "saved_legacy",
+      "bytes": 763252,
+      "sha256": "6b65771ff57d8f18cbc44fca2ccfbd0df6109787f9b83b1651f7492d6e1f224a",
+      "context_credit": true,
+      "exclusion_reason": null,
+      "isolated_candidate_active": true
+    },
+    {
+      "path": "native/1280x720/saved_legacy/newgame_short_hold.png",
+      "state": "newgame_short_hold",
+      "aspect": [
+        1280,
+        720
+      ],
+      "variant": "saved_legacy",
+      "bytes": 757712,
+      "sha256": "48a4c5cbb535bf0f024284a9416d2735f3aa3c7940034d6df960a6a481fbca56",
+      "context_credit": true,
+      "exclusion_reason": null,
+      "isolated_candidate_active": true
+    },
+    {
+      "path": "native/1280x720/saved_legacy/newgame_hold_cancelled.png",
+      "state": "newgame_hold_cancelled",
+      "aspect": [
+        1280,
+        720
+      ],
+      "variant": "saved_legacy",
+      "bytes": 760624,
+      "sha256": "be38ab9206f80ac217125ec9cd6157d77379e51cdc89a360c41e06d82e1d6b70",
+      "context_credit": true,
+      "exclusion_reason": null,
+      "isolated_candidate_active": true
+    },
+    {
+      "path": "native/1280x720/saved_legacy/keep_saved_pressed.png",
+      "state": "keep_saved_pressed",
+      "aspect": [
+        1280,
+        720
+      ],
+      "variant": "saved_legacy",
+      "bytes": 759442,
+      "sha256": "a0314b816c7dbaa302ec6ab768d37c0658177b5a2de5c8106150bdc986deed47",
+      "context_credit": true,
+      "exclusion_reason": null,
+      "isolated_candidate_active": true
+    },
+    {
+      "path": "native/1280x720/saved_legacy/keep_saved_released.png",
+      "state": "keep_saved_released",
+      "aspect": [
+        1280,
+        720
+      ],
+      "variant": "saved_legacy",
+      "bytes": 1468067,
+      "sha256": "6c7ba9c098c8f0cc2afb2ee0d70fd98ef6dae7336a8ef13a783325cf89904b74",
+      "context_credit": false,
+      "exclusion_reason": "DUPLICATE_CURRENT_EVENT",
+      "isolated_candidate_active": true,
+      "duplicate_of": "native/1280x720/saved_legacy/normal_startup.png"
+    },
+    {
+      "path": "native/1280x720/saved_legacy/continue_pressed.png",
+      "state": "continue_pressed",
+      "aspect": [
+        1280,
+        720
+      ],
+      "variant": "saved_legacy",
+      "bytes": 1473126,
+      "sha256": "f3b2a18ca38b03067b78b98986aae815a773d7c980fc79a65b0fc1b55e950766",
+      "context_credit": true,
+      "exclusion_reason": null,
+      "isolated_candidate_active": true
+    },
+    {
+      "path": "native/1280x720/saved_legacy/natural_continue_world.png",
+      "state": "natural_continue_world",
+      "aspect": [
+        1280,
+        720
+      ],
+      "variant": "saved_legacy",
+      "bytes": 1571968,
+      "sha256": "d239ab04deaa9eba0eaf3b0fd5a1ea74051f782a655ddad889d13315571bb506",
+      "context_credit": true,
+      "exclusion_reason": null,
+      "isolated_candidate_active": true
+    },
+    {
+      "path": "native/1280x720/saved_legacy/declared_menu_reentry.png",
+      "state": "declared_menu_reentry",
+      "aspect": [
+        1280,
+        720
+      ],
+      "variant": "saved_legacy",
+      "bytes": 1468067,
+      "sha256": "6c7ba9c098c8f0cc2afb2ee0d70fd98ef6dae7336a8ef13a783325cf89904b74",
+      "context_credit": false,
+      "exclusion_reason": "DUPLICATE_CURRENT_EVENT",
+      "isolated_candidate_active": true,
+      "duplicate_of": "native/1280x720/saved_legacy/normal_startup.png"
+    },
+    {
+      "path": "native/1280x720/saved_legacy/reentry_idle_1s.png",
+      "state": "reentry_idle_1s",
+      "aspect": [
+        1280,
+        720
+      ],
+      "variant": "saved_legacy",
+      "bytes": 1468067,
+      "sha256": "6c7ba9c098c8f0cc2afb2ee0d70fd98ef6dae7336a8ef13a783325cf89904b74",
+      "context_credit": false,
+      "exclusion_reason": "DUPLICATE_CURRENT_EVENT",
+      "isolated_candidate_active": true,
+      "duplicate_of": "native/1280x720/saved_legacy/normal_startup.png"
+    },
+    {
+      "path": "native/1280x720/saved_legacy/continue_again_pressed.png",
+      "state": "continue_again_pressed",
+      "aspect": [
+        1280,
+        720
+      ],
+      "variant": "saved_legacy",
+      "bytes": 1473126,
+      "sha256": "f3b2a18ca38b03067b78b98986aae815a773d7c980fc79a65b0fc1b55e950766",
+      "context_credit": false,
+      "exclusion_reason": "DUPLICATE_CURRENT_EVENT",
+      "isolated_candidate_active": true,
+      "duplicate_of": "native/1280x720/saved_legacy/continue_pressed.png"
+    },
+    {
+      "path": "native/1280x720/saved_legacy/natural_continue_after_reentry.png",
+      "state": "natural_continue_after_reentry",
+      "aspect": [
+        1280,
+        720
+      ],
+      "variant": "saved_legacy",
+      "bytes": 1571860,
+      "sha256": "2eb7e2b93d56eae2a5a0aae1ab2dd8302b53de559ab24894eb68508d7e2d4eb8",
+      "context_credit": true,
+      "exclusion_reason": null,
+      "isolated_candidate_active": true
+    },
+    {
+      "path": "native/1600x720/fresh/original_source_baseline.png",
+      "state": "original_source_baseline",
+      "aspect": [
+        1600,
+        720
+      ],
+      "variant": "fresh",
+      "bytes": 1393615,
+      "sha256": "a40accaa35620c4b5893c774b6bf4107c61d7ff8d7ed59e5f016958a4f1c8b2e",
+      "context_credit": false,
+      "exclusion_reason": "IDENTICAL_PRIOR_R32_CONTEXT",
+      "isolated_candidate_active": false,
+      "duplicate_of": "immutableR32/native/1600x720/fresh/passive_26s.png"
+    },
+    {
+      "path": "native/1600x720/fresh/normal_startup.png",
+      "state": "normal_startup",
+      "aspect": [
+        1600,
+        720
+      ],
+      "variant": "fresh",
+      "bytes": 1481431,
+      "sha256": "7cff70b3d99d41d01ea7f1092d0ac6dbdd159d59e6a4404877ea7ca6a91a18e3",
+      "context_credit": true,
+      "exclusion_reason": null,
+      "isolated_candidate_active": true
+    },
+    {
+      "path": "native/1600x720/fresh/declared_style_normal.png",
+      "state": "declared_style_normal",
+      "aspect": [
+        1600,
+        720
+      ],
+      "variant": "fresh",
+      "bytes": 1483350,
+      "sha256": "53d0a4659fcaf6586b9dcab5dd278ac9d3240e7f3f18ea989a923d67d09212a2",
+      "context_credit": true,
+      "exclusion_reason": null,
+      "isolated_candidate_active": true
+    },
+    {
+      "path": "native/1600x720/fresh/declared_style_hover.png",
+      "state": "declared_style_hover",
+      "aspect": [
+        1600,
+        720
+      ],
+      "variant": "fresh",
+      "bytes": 1482446,
+      "sha256": "1f80e8a3eab44d1c2f64bdc03900e2986709288fb6b48f7ca813b8ec3b557723",
+      "context_credit": true,
+      "exclusion_reason": null,
+      "isolated_candidate_active": true
+    },
+    {
+      "path": "native/1600x720/fresh/declared_style_pressed.png",
+      "state": "declared_style_pressed",
+      "aspect": [
+        1600,
+        720
+      ],
+      "variant": "fresh",
+      "bytes": 1480620,
+      "sha256": "eb3aea58194cb1ca2fc464f03e68bb882dceaf8a2eccf22123475e9f573ac6be",
+      "context_credit": true,
+      "exclusion_reason": null,
+      "isolated_candidate_active": true
+    },
+    {
+      "path": "native/1600x720/fresh/declared_style_hover_pressed.png",
+      "state": "declared_style_hover_pressed",
+      "aspect": [
+        1600,
+        720
+      ],
+      "variant": "fresh",
+      "bytes": 1480620,
+      "sha256": "eb3aea58194cb1ca2fc464f03e68bb882dceaf8a2eccf22123475e9f573ac6be",
+      "context_credit": false,
+      "exclusion_reason": "DUPLICATE_CURRENT_EVENT",
+      "isolated_candidate_active": true,
+      "duplicate_of": "native/1600x720/fresh/declared_style_pressed.png"
+    },
+    {
+      "path": "native/1600x720/fresh/declared_style_focus.png",
+      "state": "declared_style_focus",
+      "aspect": [
+        1600,
+        720
+      ],
+      "variant": "fresh",
+      "bytes": 1479960,
+      "sha256": "79f155853006dc04232da0b25c9c4771ada088d0a15e049e360eef7b3856be19",
+      "context_credit": true,
+      "exclusion_reason": null,
+      "isolated_candidate_active": true
+    },
+    {
+      "path": "native/1600x720/fresh/declared_style_disabled.png",
+      "state": "declared_style_disabled",
+      "aspect": [
+        1600,
+        720
+      ],
+      "variant": "fresh",
+      "bytes": 1476483,
+      "sha256": "05ccedb9f28f3890e7f49d4ba80236540ba3ea2753a9d393ed183cba665b4fd6",
+      "context_credit": true,
+      "exclusion_reason": null,
+      "isolated_candidate_active": true
+    },
+    {
+      "path": "native/1600x720/fresh/declared_actual_focus.png",
+      "state": "declared_actual_focus",
+      "aspect": [
+        1600,
+        720
+      ],
+      "variant": "fresh",
+      "bytes": 1481431,
+      "sha256": "7cff70b3d99d41d01ea7f1092d0ac6dbdd159d59e6a4404877ea7ca6a91a18e3",
+      "context_credit": false,
+      "exclusion_reason": "DUPLICATE_CURRENT_EVENT",
+      "isolated_candidate_active": true,
+      "duplicate_of": "native/1600x720/fresh/normal_startup.png"
+    },
+    {
+      "path": "native/1600x720/fresh/passive_2s.png",
+      "state": "passive_2s",
+      "aspect": [
+        1600,
+        720
+      ],
+      "variant": "fresh",
+      "bytes": 1483350,
+      "sha256": "53d0a4659fcaf6586b9dcab5dd278ac9d3240e7f3f18ea989a923d67d09212a2",
+      "context_credit": false,
+      "exclusion_reason": "DUPLICATE_CURRENT_EVENT",
+      "isolated_candidate_active": true,
+      "duplicate_of": "native/1600x720/fresh/declared_style_normal.png"
+    },
+    {
+      "path": "native/1600x720/fresh/options_open_pressed.png",
+      "state": "options_open_pressed",
+      "aspect": [
+        1600,
+        720
+      ],
+      "variant": "fresh",
+      "bytes": 1482225,
+      "sha256": "b90e90ce16efe0dc86e570e4c156f92d39a39bc152fe7942b09d688dfdfb12d7",
+      "context_credit": true,
+      "exclusion_reason": null,
+      "isolated_candidate_active": true
+    },
+    {
+      "path": "native/1600x720/fresh/options_open_released.png",
+      "state": "options_open_released",
+      "aspect": [
+        1600,
+        720
+      ],
+      "variant": "fresh",
+      "bytes": 881121,
+      "sha256": "642a0db5ea5f52f0ee90e346d9ae04cc6bd2f9dfe725fab4789339f6df2ee310",
+      "context_credit": true,
+      "exclusion_reason": null,
+      "isolated_candidate_active": true
+    },
+    {
+      "path": "native/1600x720/fresh/music_off_pressed.png",
+      "state": "music_off_pressed",
+      "aspect": [
+        1600,
+        720
+      ],
+      "variant": "fresh",
+      "bytes": 879842,
+      "sha256": "2b21cf101ed40efc666882bfb038e81e05fbc423f5c28f937f00a3c23edfa9ae",
+      "context_credit": true,
+      "exclusion_reason": null,
+      "isolated_candidate_active": true
+    },
+    {
+      "path": "native/1600x720/fresh/music_off_released.png",
+      "state": "music_off_released",
+      "aspect": [
+        1600,
+        720
+      ],
+      "variant": "fresh",
+      "bytes": 883859,
+      "sha256": "6d8401cbb9ccfb9bd42897a44d61d1e37cda7f27c4438d0731ef9186c102ff1a",
+      "context_credit": true,
+      "exclusion_reason": null,
+      "isolated_candidate_active": true
+    },
+    {
+      "path": "native/1600x720/fresh/music_on_pressed.png",
+      "state": "music_on_pressed",
+      "aspect": [
+        1600,
+        720
+      ],
+      "variant": "fresh",
+      "bytes": 881462,
+      "sha256": "ae648e68003ae1697c1e641d158b81fb1793a4d36cb89ecf9947cbf4f64d2e7e",
+      "context_credit": true,
+      "exclusion_reason": null,
+      "isolated_candidate_active": true
+    },
+    {
+      "path": "native/1600x720/fresh/music_on_released.png",
+      "state": "music_on_released",
+      "aspect": [
+        1600,
+        720
+      ],
+      "variant": "fresh",
+      "bytes": 884198,
+      "sha256": "04f40192fefb149cf581850e556a41de30d64e36a4d956227cfccd8ff411fd95",
+      "context_credit": true,
+      "exclusion_reason": null,
+      "isolated_candidate_active": true
+    },
+    {
+      "path": "native/1600x720/fresh/mic_off_pressed.png",
+      "state": "mic_off_pressed",
+      "aspect": [
+        1600,
+        720
+      ],
+      "variant": "fresh",
+      "bytes": 881658,
+      "sha256": "6b4da1d28949e410041783655c0fea0268182d1fa2c6af1136193ade6c6f61fd",
+      "context_credit": true,
+      "exclusion_reason": null,
+      "isolated_candidate_active": true
+    },
+    {
+      "path": "native/1600x720/fresh/mic_off_released.png",
+      "state": "mic_off_released",
+      "aspect": [
+        1600,
+        720
+      ],
+      "variant": "fresh",
+      "bytes": 884064,
+      "sha256": "9564ed730bba1aed2bb4d71ee54556458cbc7a35dcafdeb74729ff3c48ebfaff",
+      "context_credit": true,
+      "exclusion_reason": null,
+      "isolated_candidate_active": true
+    },
+    {
+      "path": "native/1600x720/fresh/mic_on_pressed.png",
+      "state": "mic_on_pressed",
+      "aspect": [
+        1600,
+        720
+      ],
+      "variant": "fresh",
+      "bytes": 881472,
+      "sha256": "9ae9a271f37c5a9a40c7d471114d57d89221f86d65eab9d9f8a39a9a0b255ea8",
+      "context_credit": true,
+      "exclusion_reason": null,
+      "isolated_candidate_active": true
+    },
+    {
+      "path": "native/1600x720/fresh/mic_on_released.png",
+      "state": "mic_on_released",
+      "aspect": [
+        1600,
+        720
+      ],
+      "variant": "fresh",
+      "bytes": 884248,
+      "sha256": "259ed3bbb33935cb2fc98f3cba4f438933b67c162df07eaad236e4573b0284f8",
+      "context_credit": true,
+      "exclusion_reason": null,
+      "isolated_candidate_active": true
+    },
+    {
+      "path": "native/1600x720/fresh/options_close_pressed.png",
+      "state": "options_close_pressed",
+      "aspect": [
+        1600,
+        720
+      ],
+      "variant": "fresh",
+      "bytes": 884130,
+      "sha256": "5d647f3d755218d2f3d586a62460cf2c92d7efa5ddb90fb70b01ec968c9680fc",
+      "context_credit": true,
+      "exclusion_reason": null,
+      "isolated_candidate_active": true
+    },
+    {
+      "path": "native/1600x720/fresh/options_close_released.png",
+      "state": "options_close_released",
+      "aspect": [
+        1600,
+        720
+      ],
+      "variant": "fresh",
+      "bytes": 1459240,
+      "sha256": "321ddeb70883975fd413ab7feba71055d649644cfce1890a63ea121b40def649",
+      "context_credit": true,
+      "exclusion_reason": null,
+      "isolated_candidate_active": true
+    },
+    {
+      "path": "native/1600x720/fresh/declared_focus_out.png",
+      "state": "declared_focus_out",
+      "aspect": [
+        1600,
+        720
+      ],
+      "variant": "fresh",
+      "bytes": 1459240,
+      "sha256": "321ddeb70883975fd413ab7feba71055d649644cfce1890a63ea121b40def649",
+      "context_credit": false,
+      "exclusion_reason": "DUPLICATE_CURRENT_EVENT",
+      "isolated_candidate_active": true,
+      "duplicate_of": "native/1600x720/fresh/options_close_released.png"
+    },
+    {
+      "path": "native/1600x720/fresh/declared_focus_in.png",
+      "state": "declared_focus_in",
+      "aspect": [
+        1600,
+        720
+      ],
+      "variant": "fresh",
+      "bytes": 1459240,
+      "sha256": "321ddeb70883975fd413ab7feba71055d649644cfce1890a63ea121b40def649",
+      "context_credit": false,
+      "exclusion_reason": "DUPLICATE_CURRENT_EVENT",
+      "isolated_candidate_active": true,
+      "duplicate_of": "native/1600x720/fresh/options_close_released.png"
+    },
+    {
+      "path": "native/1600x720/saved_legacy/original_source_baseline.png",
+      "state": "original_source_baseline",
+      "aspect": [
+        1600,
+        720
+      ],
+      "variant": "saved_legacy",
+      "bytes": 1396949,
+      "sha256": "f26e1d1342fdc282efea9a5f43af7e84cc50d219ad009e325c05ceb09ccb2d27",
+      "context_credit": false,
+      "exclusion_reason": "IDENTICAL_PRIOR_R32_CONTEXT",
+      "isolated_candidate_active": false,
+      "duplicate_of": "immutableR32/native/1600x720/saved_legacy/reentry_idle_1s.png"
+    },
+    {
+      "path": "native/1600x720/saved_legacy/normal_startup.png",
+      "state": "normal_startup",
+      "aspect": [
+        1600,
+        720
+      ],
+      "variant": "saved_legacy",
+      "bytes": 1482493,
+      "sha256": "c45ac1b1fd82056762dc73c19c4e3d69dfea2fd868dd036efeb389da721f3411",
+      "context_credit": true,
+      "exclusion_reason": null,
+      "isolated_candidate_active": true
+    },
+    {
+      "path": "native/1600x720/saved_legacy/declared_style_normal.png",
+      "state": "declared_style_normal",
+      "aspect": [
+        1600,
+        720
+      ],
+      "variant": "saved_legacy",
+      "bytes": 1482493,
+      "sha256": "c45ac1b1fd82056762dc73c19c4e3d69dfea2fd868dd036efeb389da721f3411",
+      "context_credit": false,
+      "exclusion_reason": "DUPLICATE_CURRENT_EVENT",
+      "isolated_candidate_active": true,
+      "duplicate_of": "native/1600x720/saved_legacy/normal_startup.png"
+    },
+    {
+      "path": "native/1600x720/saved_legacy/declared_style_hover.png",
+      "state": "declared_style_hover",
+      "aspect": [
+        1600,
+        720
+      ],
+      "variant": "saved_legacy",
+      "bytes": 1486245,
+      "sha256": "78b454c6158271e12e63b626198dd73710dc244ea7c95b342dc0bb83000fd397",
+      "context_credit": true,
+      "exclusion_reason": null,
+      "isolated_candidate_active": true
+    },
+    {
+      "path": "native/1600x720/saved_legacy/declared_style_pressed.png",
+      "state": "declared_style_pressed",
+      "aspect": [
+        1600,
+        720
+      ],
+      "variant": "saved_legacy",
+      "bytes": 1469750,
+      "sha256": "74212391a2e904f0c4d616a83b4ace5c3f8130279e7a160ac2f75a723d634068",
+      "context_credit": true,
+      "exclusion_reason": null,
+      "isolated_candidate_active": true
+    },
+    {
+      "path": "native/1600x720/saved_legacy/declared_style_hover_pressed.png",
+      "state": "declared_style_hover_pressed",
+      "aspect": [
+        1600,
+        720
+      ],
+      "variant": "saved_legacy",
+      "bytes": 1469750,
+      "sha256": "74212391a2e904f0c4d616a83b4ace5c3f8130279e7a160ac2f75a723d634068",
+      "context_credit": false,
+      "exclusion_reason": "DUPLICATE_CURRENT_EVENT",
+      "isolated_candidate_active": true,
+      "duplicate_of": "native/1600x720/saved_legacy/declared_style_pressed.png"
+    },
+    {
+      "path": "native/1600x720/saved_legacy/declared_style_focus.png",
+      "state": "declared_style_focus",
+      "aspect": [
+        1600,
+        720
+      ],
+      "variant": "saved_legacy",
+      "bytes": 1465592,
+      "sha256": "8f7cc1da4076401c8160bd820aafb22bf6a2b3469b9bac9f12d407ff3a425482",
+      "context_credit": true,
+      "exclusion_reason": null,
+      "isolated_candidate_active": true
+    },
+    {
+      "path": "native/1600x720/saved_legacy/declared_style_disabled.png",
+      "state": "declared_style_disabled",
+      "aspect": [
+        1600,
+        720
+      ],
+      "variant": "saved_legacy",
+      "bytes": 1482825,
+      "sha256": "277d7fae1ebae28979e9a0a5bb06ae74252917ade85d9dd4896c1b83679afa32",
+      "context_credit": true,
+      "exclusion_reason": null,
+      "isolated_candidate_active": true
+    },
+    {
+      "path": "native/1600x720/saved_legacy/declared_actual_focus.png",
+      "state": "declared_actual_focus",
+      "aspect": [
+        1600,
+        720
+      ],
+      "variant": "saved_legacy",
+      "bytes": 1482638,
+      "sha256": "864f11a7cf96d208f831bf2af2e039d09c96ff7cfe1dc5d14d0be1601ce017e8",
+      "context_credit": true,
+      "exclusion_reason": null,
+      "isolated_candidate_active": true
+    },
+    {
+      "path": "native/1600x720/saved_legacy/passive_2s.png",
+      "state": "passive_2s",
+      "aspect": [
+        1600,
+        720
+      ],
+      "variant": "saved_legacy",
+      "bytes": 1459240,
+      "sha256": "321ddeb70883975fd413ab7feba71055d649644cfce1890a63ea121b40def649",
+      "context_credit": false,
+      "exclusion_reason": "DUPLICATE_CURRENT_EVENT",
+      "isolated_candidate_active": true,
+      "duplicate_of": "native/1600x720/fresh/options_close_released.png"
+    },
+    {
+      "path": "native/1600x720/saved_legacy/options_open_pressed.png",
+      "state": "options_open_pressed",
+      "aspect": [
+        1600,
+        720
+      ],
+      "variant": "saved_legacy",
+      "bytes": 1458192,
+      "sha256": "acf7565df533ef5e38a12a82afe0b91fba2417131ec271e94c0d12d9a11427cb",
+      "context_credit": true,
+      "exclusion_reason": null,
+      "isolated_candidate_active": true
+    },
+    {
+      "path": "native/1600x720/saved_legacy/options_open_released.png",
+      "state": "options_open_released",
+      "aspect": [
+        1600,
+        720
+      ],
+      "variant": "saved_legacy",
+      "bytes": 883097,
+      "sha256": "64abe953c4bb2d460df0ac0ae100cc730a293cac127200e21dc80acab5b0fc43",
+      "context_credit": true,
+      "exclusion_reason": null,
+      "isolated_candidate_active": true
+    },
+    {
+      "path": "native/1600x720/saved_legacy/music_off_pressed.png",
+      "state": "music_off_pressed",
+      "aspect": [
+        1600,
+        720
+      ],
+      "variant": "saved_legacy",
+      "bytes": 881760,
+      "sha256": "4848e2d1c9d57bdcc8690fc026c1dc6685fdc7ac45a4c152a5e06871c413bc9f",
+      "context_credit": true,
+      "exclusion_reason": null,
+      "isolated_candidate_active": true
+    },
+    {
+      "path": "native/1600x720/saved_legacy/music_off_released.png",
+      "state": "music_off_released",
+      "aspect": [
+        1600,
+        720
+      ],
+      "variant": "saved_legacy",
+      "bytes": 883859,
+      "sha256": "6d8401cbb9ccfb9bd42897a44d61d1e37cda7f27c4438d0731ef9186c102ff1a",
+      "context_credit": false,
+      "exclusion_reason": "DUPLICATE_CURRENT_EVENT",
+      "isolated_candidate_active": true,
+      "duplicate_of": "native/1600x720/fresh/music_off_released.png"
+    },
+    {
+      "path": "native/1600x720/saved_legacy/music_on_pressed.png",
+      "state": "music_on_pressed",
+      "aspect": [
+        1600,
+        720
+      ],
+      "variant": "saved_legacy",
+      "bytes": 881462,
+      "sha256": "ae648e68003ae1697c1e641d158b81fb1793a4d36cb89ecf9947cbf4f64d2e7e",
+      "context_credit": false,
+      "exclusion_reason": "DUPLICATE_CURRENT_EVENT",
+      "isolated_candidate_active": true,
+      "duplicate_of": "native/1600x720/fresh/music_on_pressed.png"
+    },
+    {
+      "path": "native/1600x720/saved_legacy/music_on_released.png",
+      "state": "music_on_released",
+      "aspect": [
+        1600,
+        720
+      ],
+      "variant": "saved_legacy",
+      "bytes": 884198,
+      "sha256": "04f40192fefb149cf581850e556a41de30d64e36a4d956227cfccd8ff411fd95",
+      "context_credit": false,
+      "exclusion_reason": "DUPLICATE_CURRENT_EVENT",
+      "isolated_candidate_active": true,
+      "duplicate_of": "native/1600x720/fresh/music_on_released.png"
+    },
+    {
+      "path": "native/1600x720/saved_legacy/mic_off_pressed.png",
+      "state": "mic_off_pressed",
+      "aspect": [
+        1600,
+        720
+      ],
+      "variant": "saved_legacy",
+      "bytes": 881658,
+      "sha256": "6b4da1d28949e410041783655c0fea0268182d1fa2c6af1136193ade6c6f61fd",
+      "context_credit": false,
+      "exclusion_reason": "DUPLICATE_CURRENT_EVENT",
+      "isolated_candidate_active": true,
+      "duplicate_of": "native/1600x720/fresh/mic_off_pressed.png"
+    },
+    {
+      "path": "native/1600x720/saved_legacy/mic_off_released.png",
+      "state": "mic_off_released",
+      "aspect": [
+        1600,
+        720
+      ],
+      "variant": "saved_legacy",
+      "bytes": 884064,
+      "sha256": "9564ed730bba1aed2bb4d71ee54556458cbc7a35dcafdeb74729ff3c48ebfaff",
+      "context_credit": false,
+      "exclusion_reason": "DUPLICATE_CURRENT_EVENT",
+      "isolated_candidate_active": true,
+      "duplicate_of": "native/1600x720/fresh/mic_off_released.png"
+    },
+    {
+      "path": "native/1600x720/saved_legacy/mic_on_pressed.png",
+      "state": "mic_on_pressed",
+      "aspect": [
+        1600,
+        720
+      ],
+      "variant": "saved_legacy",
+      "bytes": 881472,
+      "sha256": "9ae9a271f37c5a9a40c7d471114d57d89221f86d65eab9d9f8a39a9a0b255ea8",
+      "context_credit": false,
+      "exclusion_reason": "DUPLICATE_CURRENT_EVENT",
+      "isolated_candidate_active": true,
+      "duplicate_of": "native/1600x720/fresh/mic_on_pressed.png"
+    },
+    {
+      "path": "native/1600x720/saved_legacy/mic_on_released.png",
+      "state": "mic_on_released",
+      "aspect": [
+        1600,
+        720
+      ],
+      "variant": "saved_legacy",
+      "bytes": 884248,
+      "sha256": "259ed3bbb33935cb2fc98f3cba4f438933b67c162df07eaad236e4573b0284f8",
+      "context_credit": false,
+      "exclusion_reason": "DUPLICATE_CURRENT_EVENT",
+      "isolated_candidate_active": true,
+      "duplicate_of": "native/1600x720/fresh/mic_on_released.png"
+    },
+    {
+      "path": "native/1600x720/saved_legacy/options_close_pressed.png",
+      "state": "options_close_pressed",
+      "aspect": [
+        1600,
+        720
+      ],
+      "variant": "saved_legacy",
+      "bytes": 884130,
+      "sha256": "5d647f3d755218d2f3d586a62460cf2c92d7efa5ddb90fb70b01ec968c9680fc",
+      "context_credit": false,
+      "exclusion_reason": "DUPLICATE_CURRENT_EVENT",
+      "isolated_candidate_active": true,
+      "duplicate_of": "native/1600x720/fresh/options_close_pressed.png"
+    },
+    {
+      "path": "native/1600x720/saved_legacy/options_close_released.png",
+      "state": "options_close_released",
+      "aspect": [
+        1600,
+        720
+      ],
+      "variant": "saved_legacy",
+      "bytes": 1459240,
+      "sha256": "321ddeb70883975fd413ab7feba71055d649644cfce1890a63ea121b40def649",
+      "context_credit": false,
+      "exclusion_reason": "DUPLICATE_CURRENT_EVENT",
+      "isolated_candidate_active": true,
+      "duplicate_of": "native/1600x720/fresh/options_close_released.png"
+    },
+    {
+      "path": "native/1600x720/saved_legacy/declared_focus_out.png",
+      "state": "declared_focus_out",
+      "aspect": [
+        1600,
+        720
+      ],
+      "variant": "saved_legacy",
+      "bytes": 1459240,
+      "sha256": "321ddeb70883975fd413ab7feba71055d649644cfce1890a63ea121b40def649",
+      "context_credit": false,
+      "exclusion_reason": "DUPLICATE_CURRENT_EVENT",
+      "isolated_candidate_active": true,
+      "duplicate_of": "native/1600x720/fresh/options_close_released.png"
+    },
+    {
+      "path": "native/1600x720/saved_legacy/declared_focus_in.png",
+      "state": "declared_focus_in",
+      "aspect": [
+        1600,
+        720
+      ],
+      "variant": "saved_legacy",
+      "bytes": 1459240,
+      "sha256": "321ddeb70883975fd413ab7feba71055d649644cfce1890a63ea121b40def649",
+      "context_credit": false,
+      "exclusion_reason": "DUPLICATE_CURRENT_EVENT",
+      "isolated_candidate_active": true,
+      "duplicate_of": "native/1600x720/fresh/options_close_released.png"
+    },
+    {
+      "path": "native/1600x720/saved_legacy/newgame_request_pressed.png",
+      "state": "newgame_request_pressed",
+      "aspect": [
+        1600,
+        720
+      ],
+      "variant": "saved_legacy",
+      "bytes": 1487457,
+      "sha256": "4a507f0b19bf5fb4fd1af1e2d3e1cf7041390614e67237dcc28dce7a33c6852e",
+      "context_credit": true,
+      "exclusion_reason": null,
+      "isolated_candidate_active": true
+    },
+    {
+      "path": "native/1600x720/saved_legacy/newgame_request_released.png",
+      "state": "newgame_request_released",
+      "aspect": [
+        1600,
+        720
+      ],
+      "variant": "saved_legacy",
+      "bytes": 771431,
+      "sha256": "2ed76407bc70a4b911287fcd34926827f3596e5592bbc89c78f447825095ec40",
+      "context_credit": true,
+      "exclusion_reason": null,
+      "isolated_candidate_active": true
+    },
+    {
+      "path": "native/1600x720/saved_legacy/newgame_armed.png",
+      "state": "newgame_armed",
+      "aspect": [
+        1600,
+        720
+      ],
+      "variant": "saved_legacy",
+      "bytes": 775584,
+      "sha256": "8a6cbcde28154582b25c71b8b454bb2d8842c6d7b4f446d46579f881d9541b70",
+      "context_credit": true,
+      "exclusion_reason": null,
+      "isolated_candidate_active": true
+    },
+    {
+      "path": "native/1600x720/saved_legacy/newgame_short_hold.png",
+      "state": "newgame_short_hold",
+      "aspect": [
+        1600,
+        720
+      ],
+      "variant": "saved_legacy",
+      "bytes": 769970,
+      "sha256": "d7df921be846077ff08f4d395206eff2523896bf32c51312cfe0eaba8f0e98b6",
+      "context_credit": true,
+      "exclusion_reason": null,
+      "isolated_candidate_active": true
+    },
+    {
+      "path": "native/1600x720/saved_legacy/newgame_hold_cancelled.png",
+      "state": "newgame_hold_cancelled",
+      "aspect": [
+        1600,
+        720
+      ],
+      "variant": "saved_legacy",
+      "bytes": 772963,
+      "sha256": "0068ef87e59b23a4b431172e9659d239d8511bec31402cc079a9bcfe41160de6",
+      "context_credit": true,
+      "exclusion_reason": null,
+      "isolated_candidate_active": true
+    },
+    {
+      "path": "native/1600x720/saved_legacy/keep_saved_pressed.png",
+      "state": "keep_saved_pressed",
+      "aspect": [
+        1600,
+        720
+      ],
+      "variant": "saved_legacy",
+      "bytes": 771560,
+      "sha256": "ca7ca25d2f2f1297408513930ab52a67d4720b609fe861712e0ff7a8d01d916c",
+      "context_credit": true,
+      "exclusion_reason": null,
+      "isolated_candidate_active": true
+    },
+    {
+      "path": "native/1600x720/saved_legacy/keep_saved_released.png",
+      "state": "keep_saved_released",
+      "aspect": [
+        1600,
+        720
+      ],
+      "variant": "saved_legacy",
+      "bytes": 1482493,
+      "sha256": "c45ac1b1fd82056762dc73c19c4e3d69dfea2fd868dd036efeb389da721f3411",
+      "context_credit": false,
+      "exclusion_reason": "DUPLICATE_CURRENT_EVENT",
+      "isolated_candidate_active": true,
+      "duplicate_of": "native/1600x720/saved_legacy/normal_startup.png"
+    },
+    {
+      "path": "native/1600x720/saved_legacy/continue_pressed.png",
+      "state": "continue_pressed",
+      "aspect": [
+        1600,
+        720
+      ],
+      "variant": "saved_legacy",
+      "bytes": 1487381,
+      "sha256": "c94a2ee72c5ee8397569d633e2018485eb8cab1f58e067983d13bdbb2eee6b86",
+      "context_credit": true,
+      "exclusion_reason": null,
+      "isolated_candidate_active": true
+    },
+    {
+      "path": "native/1600x720/saved_legacy/natural_continue_world.png",
+      "state": "natural_continue_world",
+      "aspect": [
+        1600,
+        720
+      ],
+      "variant": "saved_legacy",
+      "bytes": 2043718,
+      "sha256": "d4422cb2af15b242c910443f981696f054e1729744143aa17b2aaf2faae9d75f",
+      "context_credit": true,
+      "exclusion_reason": null,
+      "isolated_candidate_active": true
+    },
+    {
+      "path": "native/1600x720/saved_legacy/declared_menu_reentry.png",
+      "state": "declared_menu_reentry",
+      "aspect": [
+        1600,
+        720
+      ],
+      "variant": "saved_legacy",
+      "bytes": 1482493,
+      "sha256": "c45ac1b1fd82056762dc73c19c4e3d69dfea2fd868dd036efeb389da721f3411",
+      "context_credit": false,
+      "exclusion_reason": "DUPLICATE_CURRENT_EVENT",
+      "isolated_candidate_active": true,
+      "duplicate_of": "native/1600x720/saved_legacy/normal_startup.png"
+    },
+    {
+      "path": "native/1600x720/saved_legacy/reentry_idle_1s.png",
+      "state": "reentry_idle_1s",
+      "aspect": [
+        1600,
+        720
+      ],
+      "variant": "saved_legacy",
+      "bytes": 1482493,
+      "sha256": "c45ac1b1fd82056762dc73c19c4e3d69dfea2fd868dd036efeb389da721f3411",
+      "context_credit": false,
+      "exclusion_reason": "DUPLICATE_CURRENT_EVENT",
+      "isolated_candidate_active": true,
+      "duplicate_of": "native/1600x720/saved_legacy/normal_startup.png"
+    },
+    {
+      "path": "native/1600x720/saved_legacy/continue_again_pressed.png",
+      "state": "continue_again_pressed",
+      "aspect": [
+        1600,
+        720
+      ],
+      "variant": "saved_legacy",
+      "bytes": 1487381,
+      "sha256": "c94a2ee72c5ee8397569d633e2018485eb8cab1f58e067983d13bdbb2eee6b86",
+      "context_credit": false,
+      "exclusion_reason": "DUPLICATE_CURRENT_EVENT",
+      "isolated_candidate_active": true,
+      "duplicate_of": "native/1600x720/saved_legacy/continue_pressed.png"
+    },
+    {
+      "path": "native/1600x720/saved_legacy/natural_continue_after_reentry.png",
+      "state": "natural_continue_after_reentry",
+      "aspect": [
+        1600,
+        720
+      ],
+      "variant": "saved_legacy",
+      "bytes": 2043727,
+      "sha256": "936d2af9d351da818dabd66959158cdeb40f1506c393bb09ffb1296f95d41617",
+      "context_credit": true,
+      "exclusion_reason": null,
+      "isolated_candidate_active": true
+    }
+  ],
+  "exclusion_scope": "All122 initialfailedfit excluded. Current byte repeats and identical priorR32 captures excluded from newcredits; historical credit units otherwise preserved. This is not a whole-history uniqueimage census."
+}
