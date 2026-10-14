@@ -1,0 +1,89 @@
+{
+  "revision": "FV-AUDIT-20261014-R28",
+  "source_revision": "36b97a183c75ca897d7fd52fe9d54d4f44edda2a",
+  "piece_id": "FV-E1049E4945A3",
+  "scope_id": "FVF-B09A6204B303",
+  "route": "opera.act.17",
+  "family": "opera_teacher",
+  "current_phase_count": 4,
+  "current_modes": [
+    "teacher_pattern",
+    "teacher_count",
+    "teacher_add",
+    "teacher_match"
+  ],
+  "source_call_sites": [
+    {
+      "path": "scripts/opera_teacher_surface.gd",
+      "function": "_draw",
+      "line": 293,
+      "callee": "_draw_demo",
+      "guard": "not solved; _draw_demo branches on joined/counted/help_visible,not demo_active"
+    }
+  ],
+  "phase_table": {
+    "path": "scripts/opera_career_world_2d.gd",
+    "lines": [
+      264,
+      268
+    ]
+  },
+  "factory": {
+    "path": "scripts/opera_career_world_2d.gd",
+    "lines": [
+      1284,
+      1300
+    ],
+    "class": "OperaTeacherSurface"
+  },
+  "lesson_binding": {
+    "path": "scripts/opera_career_world_2d.gd",
+    "lines": [
+      2576,
+      2588
+    ],
+    "generator": "scripts/teacher_lesson_plan.gd"
+  },
+  "natural_launch_source": {
+    "path": "scripts/castle_career_routes.gd",
+    "line": 23,
+    "room": "library",
+    "slots": [
+      1,
+      16,
+      17
+    ],
+    "runtime_natural_launch_proven": false
+  },
+  "background": {
+    "path": "scripts/opera_world_backdrop_2d.gd",
+    "selection": "teacher uses8Library interaction tiles,early return;not world_teacher painting",
+    "runtime_tiles_in_capture": true
+  },
+  "actor": {
+    "path": "scripts/opera_roshan_actor.gd",
+    "atlas": "assets/opera/worlds/actors/animation/roshan_teacher_sheet_a.png",
+    "runtime_animator_sheet_in_capture": true
+  },
+  "current_native_phase_contexts": 4,
+  "tier": 0,
+  "sequence": 0,
+  "full_caller_coverage_complete": false,
+  "remaining": [
+    "Higher tiers/quantities/shapes/rotatinganswer/sequences",
+    "Natural Library arrival/hotspot/open/fullcompleted lessons/reward/return",
+    "Solvedcelebration/restore/focus/touchcancel/multitouch",
+    "Actualvoice/listening andfullactiveclosure/QA11",
+    "Device/child/owner acceptance",
+    "Fallbackretirement"
+  ],
+  "functional_geometry": "InputchoiceRects/counter_positions/joinhitradii/transform/touchowner andsavekeys preserved;no artworkremoval credit.",
+  "draw_only_trial": {
+    "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r28_teacher_pointer_reuse/candidate_teacher_surface.gd",
+    "input_policy_inherited": true,
+    "production_changed": false,
+    "eligible_offsets": true,
+    "join_policy": "Waituntilcounter inputeligible",
+    "QA11": null
+  }
+}

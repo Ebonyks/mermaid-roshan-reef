@@ -1143,3 +1143,9 @@ release/device/child/owner authority retain precedence.
 | Document | State | Scope |
 |---|---|---|
 | `docs/handoffs/codex_flat_vector_art_2026-10-07/r27_teacher_pointer_context/README.md` | 🔵 | `SUPPORTING_CURRENT`; bounded current independent Teacher guide context,84native/20views,79invalid-field diagnostics excluded;four tier0/sequence0 kinds only. Existing sources/functional geometry preserved,source-bound contrast/material and moving-target repair targets;no art replacement or creative/runtime/device/child/owner acceptance. |
+
+## Full-game flat-vector Teacher whole-source reuse — 2026-10-14 R28
+
+| Document | State | Scope |
+|---|---|---|
+| `docs/handoffs/codex_flat_vector_art_2026-10-07/r28_teacher_pointer_reuse/README.md` | 🔵 | `SUPPORTING_CURRENT`; nonruntimeexistinghand Teachertrial after51verifiedcontextfiles.84eventimages/24uniquecredits,60duplicateexcluded,20views/18unique;fourkindtier0sequence0 only. Sourcepixels/production unchanged,guidewaitswhilejoininputblocked;source/human/QA11/device/child/owner acceptance open. |

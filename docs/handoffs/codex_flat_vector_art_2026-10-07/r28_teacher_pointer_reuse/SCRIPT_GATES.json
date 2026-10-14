@@ -1,0 +1,70 @@
+[
+  {
+    "command": [
+      "python",
+      "-B",
+      "-m",
+      "gdtoolkit.parser",
+      "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r28_teacher_pointer_reuse\\candidate_teacher_surface.gd"
+    ],
+    "exit_code": 0,
+    "checked_at_utc": "2026-10-14T03:43:08.409882+00:00"
+  },
+  {
+    "command": [
+      "python",
+      "-B",
+      "tools/lint_inference.py",
+      "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r28_teacher_pointer_reuse\\candidate_teacher_surface.gd"
+    ],
+    "exit_code": 0,
+    "checked_at_utc": "2026-10-14T03:43:08.569985+00:00"
+  },
+  {
+    "command": [
+      "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+      "--headless",
+      "--path",
+      "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef",
+      "--check-only",
+      "--script",
+      "res://.godot/r28_teacher_pointer_surface.gd"
+    ],
+    "exit_code": 0,
+    "checked_at_utc": "2026-10-14T03:43:10.285174+00:00"
+  },
+  {
+    "command": [
+      "python",
+      "-B",
+      "-m",
+      "gdtoolkit.parser",
+      "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r28_teacher_pointer_reuse\\capture_teacher_reuse.gd"
+    ],
+    "exit_code": 0,
+    "checked_at_utc": "2026-10-14T03:43:11.195788+00:00"
+  },
+  {
+    "command": [
+      "python",
+      "-B",
+      "tools/lint_inference.py",
+      "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r28_teacher_pointer_reuse\\capture_teacher_reuse.gd"
+    ],
+    "exit_code": 0,
+    "checked_at_utc": "2026-10-14T03:43:11.330959+00:00"
+  },
+  {
+    "command": [
+      "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+      "--headless",
+      "--path",
+      "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef",
+      "--check-only",
+      "--script",
+      "res://.godot/r28_capture_teacher_reuse.gd"
+    ],
+    "exit_code": 0,
+    "checked_at_utc": "2026-10-14T03:43:20.641460+00:00"
+  }
+]

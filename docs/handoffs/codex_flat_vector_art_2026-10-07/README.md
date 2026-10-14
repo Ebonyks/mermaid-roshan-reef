@@ -1,6 +1,12 @@
-Current canonical evidence: [R27 Teacher guide context](r27_teacher_pointer_context/README.md), [registry](r27_teacher_pointer_context/per_piece.json), [coverage](r27_teacher_pointer_context/scene_coverage.json), [tally](r27_teacher_pointer_context/tally.json).
+Current canonical evidence: [R28Teacher handreuse](r28_teacher_pointer_reuse/README.md), [registry](r28_teacher_pointer_reuse/per_piece.json), [coverage](r28_teacher_pointer_reuse/scene_coverage.json), [tally](r28_teacher_pointer_reuse/tally.json).
 
-# Current R27 Teacher four-kind guide context
+# Current R28Teacher wholehand trial
+
+84retained/24uniquecontext images,60duplicateviews excluded;20inspections/18unique. Clearer existing-hand silhouette,guide waits duringcounterjoin;human/device approval open.51partialexisting/11families,2732bounded/3015retained,225known/30families;1hand/4perpiece requests. Zero acceptedremovals,unknown fullinventory.
+
+Historical R27routing: [R27 Teacher guide context](r27_teacher_pointer_context/README.md), [registry](r27_teacher_pointer_context/per_piece.json), [coverage](r27_teacher_pointer_context/scene_coverage.json), [tally](r27_teacher_pointer_context/tally.json).
+
+# Historical R27 Teacher four-kind guide context
 
 84corrected native/20direct views;79initial invalid-field diagnostics excluded.51partial existing/11families;2708bounded/2931retained,225known/30families. Source-bound moving-counter guide misalignment and lowcontrast/material repair targets;no art/production change oraccepted removal. Unknown inventory and allacceptance remain open.
 
