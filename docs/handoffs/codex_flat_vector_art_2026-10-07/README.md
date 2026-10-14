@@ -1,6 +1,12 @@
-Current canonical evidence: [R35 panel reuse](r35_menu_panel_reuse/README.md), [registry](r35_menu_panel_reuse/per_piece.json), [coverage](r35_menu_panel_reuse/scene_coverage.json), [tally](r35_menu_panel_reuse/tally.json).
+Current canonical evidence: [R36 ornament retirement](r36_menu_ornament_retirement/README.md), [registry](r36_menu_ornament_retirement/per_piece.json), [coverage](r36_menu_ornament_retirement/scene_coverage.json), [tally](r36_menu_ornament_retirement/tally.json).
 
-# Current R35 bounded panel material reuse
+# Current R36 bounded menu ornament retirement
+
+31 redundantdecorative nodes retired fromthe isolatedpaintedmenu candidate;allacceptance/othercallers remainopen. 3197 bounded capture credits/4005 retained/808 excluded;56existingpartial/12families,78/176partial/98without/0complete;225knownroles/30families,0acceptedremoved,wholegame totalsunknown.
+
+Historical R35 routing: [R35 panel reuse](r36_menu_ornament_retirement/README.md), [registry](r36_menu_ornament_retirement/per_piece.json), [coverage](r36_menu_ornament_retirement/scene_coverage.json), [tally](r36_menu_ornament_retirement/tally.json).
+
+# Historical R35 bounded panel material reuse
 
 Three original menu panels use existing painted material in an isolated candidate; proceduralneighbors/style/acceptance remainopen. 3125 bounded capture credits/3875 retained/750 excluded;56existingpartial/12families,78/176partial/98without/0complete;225knownroles/30families,0acceptedremoved,wholegame totalsunknown.
 

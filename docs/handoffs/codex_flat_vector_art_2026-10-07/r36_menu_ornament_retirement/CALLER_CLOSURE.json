@@ -1,0 +1,236 @@
+{
+  "schema": "reef.shared_ui_bounded_panel_caller_census/1",
+  "baseline": "9730f40bbe725b71e2655653d04d5fea5d27bf34",
+  "piece_id": "FV-AB474EF3699E",
+  "direct_literal_shared_style_calls": 17,
+  "source_files": 12,
+  "helper_counts": {
+    "adorn_panel": 12,
+    "add_shell_crest": 3,
+    "add_pearl": 2
+  },
+  "production_calls": 17,
+  "probe_calls": 0,
+  "calls": [
+    {
+      "path": "scripts/castle_logo_studio.gd",
+      "line": 248,
+      "function": "open",
+      "helper": "adorn_panel",
+      "source_revision": "9730f40bbe725b71e2655653d04d5fea5d27bf34",
+      "source_sha256": "5afe612eb11261818b760b0f04b6b6a995000a23b27e31aa228c0a04e63dc52a",
+      "source_text": "StorybookUI.adorn_panel(stage, preview_rect, \"CastleLogo\")",
+      "scope": "production",
+      "runtime_callers_or_route_coverage": "UNREVIEWED_SCOPE_NOT_CLOSED"
+    },
+    {
+      "path": "scripts/collection_system.gd",
+      "line": 332,
+      "function": "_draw_book",
+      "helper": "adorn_panel",
+      "source_revision": "9730f40bbe725b71e2655653d04d5fea5d27bf34",
+      "source_sha256": "876bb4901406034dfa6a3bf4d319383261e04a45fbedfe120d97c8eb2d24eb3a",
+      "source_text": "StorybookUI.adorn_panel(stage, Rect2(34, 24, 1212, 672), \"CritterBook\")",
+      "scope": "production",
+      "runtime_callers_or_route_coverage": "UNREVIEWED_SCOPE_NOT_CLOSED"
+    },
+    {
+      "path": "scripts/companion.gd",
+      "line": 303,
+      "function": "_draw_care_menu",
+      "helper": "adorn_panel",
+      "source_revision": "9730f40bbe725b71e2655653d04d5fea5d27bf34",
+      "source_sha256": "0baeb7256a209b5266ebdf48cdccb7af6497b30fd0666021c597eced6e04d269",
+      "source_text": "StorybookUI.adorn_panel(stage_control, care_rect, \"StuffieCare\")",
+      "scope": "production",
+      "runtime_callers_or_route_coverage": "UNREVIEWED_SCOPE_NOT_CLOSED"
+    },
+    {
+      "path": "scripts/craft_studio.gd",
+      "line": 110,
+      "function": "_open_craft_studio",
+      "helper": "adorn_panel",
+      "source_revision": "9730f40bbe725b71e2655653d04d5fea5d27bf34",
+      "source_sha256": "fd97af6efaeaf4b3949b94f921a71064b753c383d5adcf6e49395a487018de57",
+      "source_text": "StorybookUI.adorn_panel(stage, preview_rect, \"Craft\")",
+      "scope": "production",
+      "runtime_callers_or_route_coverage": "UNREVIEWED_SCOPE_NOT_CLOSED"
+    },
+    {
+      "path": "scripts/dev_mode.gd",
+      "line": 1049,
+      "function": "_build_ui",
+      "helper": "add_shell_crest",
+      "source_revision": "9730f40bbe725b71e2655653d04d5fea5d27bf34",
+      "source_sha256": "ff65b0693736fad7123a0ee54c48b4ca2e9c96a7c83c157c7da88ae29e016a5c",
+      "source_text": "StorybookUI.add_shell_crest(panel, Rect2(166, -4, 92, 66),",
+      "scope": "production",
+      "runtime_callers_or_route_coverage": "UNREVIEWED_SCOPE_NOT_CLOSED"
+    },
+    {
+      "path": "scripts/games/picture_games.gd",
+      "line": 79,
+      "function": "_mg2d_open",
+      "helper": "add_shell_crest",
+      "source_revision": "9730f40bbe725b71e2655653d04d5fea5d27bf34",
+      "source_sha256": "5d7202ac46b0ca26752b74b959eb052f2889369932d697b8b8727ad368abc8f0",
+      "source_text": "StorybookUI.add_shell_crest(header, Rect2(20, 27, 82, 60),",
+      "scope": "production",
+      "runtime_callers_or_route_coverage": "UNREVIEWED_SCOPE_NOT_CLOSED"
+    },
+    {
+      "path": "scripts/intro_overlay.gd",
+      "line": 51,
+      "function": "_build_intro",
+      "helper": "adorn_panel",
+      "source_revision": "9730f40bbe725b71e2655653d04d5fea5d27bf34",
+      "source_sha256": "d39288491fd4e37024905faa11c66eee0e3a98d7de1cb340ca703c8a907ff2eb",
+      "source_text": "StorybookUI.adorn_panel(stage, book_rect, \"Intro\")",
+      "scope": "production",
+      "runtime_callers_or_route_coverage": "UNREVIEWED_SCOPE_NOT_CLOSED"
+    },
+    {
+      "path": "scripts/mic_input.gd",
+      "line": 674,
+      "function": "_build_teach_layer",
+      "helper": "adorn_panel",
+      "source_revision": "9730f40bbe725b71e2655653d04d5fea5d27bf34",
+      "source_sha256": "02d0af4179486e1a1b43d197917b1eb015caa7ca355cdea9783b281c22810532",
+      "source_text": "StorybookUI.adorn_panel(root, shell_rect, \"MicTeach\")",
+      "scope": "production",
+      "runtime_callers_or_route_coverage": "UNREVIEWED_SCOPE_NOT_CLOSED"
+    },
+    {
+      "path": "scripts/pause_menu.gd",
+      "line": 61,
+      "function": "_build_pause",
+      "helper": "adorn_panel",
+      "source_revision": "9730f40bbe725b71e2655653d04d5fea5d27bf34",
+      "source_sha256": "2afc6103f8a750c437c1aa23c94419191a0b303cdec54aabd9345b560a5646b0",
+      "source_text": "StorybookUI.adorn_panel(m.pause_panel, shell_rect, \"Menu\")",
+      "scope": "production",
+      "runtime_callers_or_route_coverage": "UNREVIEWED_SCOPE_NOT_CLOSED"
+    },
+    {
+      "path": "scripts/start_menu.gd",
+      "line": 84,
+      "function": "build",
+      "helper": "adorn_panel",
+      "source_revision": "9730f40bbe725b71e2655653d04d5fea5d27bf34",
+      "source_sha256": "5d1d60ca2a72bbcb8130034de7fe4e72ab4e69085d26f35c3ebcbc9c57610a57",
+      "source_text": "StorybookUI.adorn_panel(stage, launch_rect, \"StartMenu\")",
+      "scope": "production",
+      "runtime_callers_or_route_coverage": "UNREVIEWED_SCOPE_NOT_CLOSED"
+    },
+    {
+      "path": "scripts/start_menu.gd",
+      "line": 127,
+      "function": "_add_button_finish",
+      "helper": "add_pearl",
+      "source_revision": "9730f40bbe725b71e2655653d04d5fea5d27bf34",
+      "source_sha256": "5d1d60ca2a72bbcb8130034de7fe4e72ab4e69085d26f35c3ebcbc9c57610a57",
+      "source_text": "StorybookUI.add_pearl(button, Vector2(20.0, button.size.y * 0.5), 12.0,",
+      "scope": "production",
+      "runtime_callers_or_route_coverage": "UNREVIEWED_SCOPE_NOT_CLOSED"
+    },
+    {
+      "path": "scripts/start_menu.gd",
+      "line": 129,
+      "function": "_add_button_finish",
+      "helper": "add_pearl",
+      "source_revision": "9730f40bbe725b71e2655653d04d5fea5d27bf34",
+      "source_sha256": "5d1d60ca2a72bbcb8130034de7fe4e72ab4e69085d26f35c3ebcbc9c57610a57",
+      "source_text": "StorybookUI.add_pearl(button, Vector2(button.size.x - 20.0, button.size.y * 0.5), 12.0,",
+      "scope": "production",
+      "runtime_callers_or_route_coverage": "UNREVIEWED_SCOPE_NOT_CLOSED"
+    },
+    {
+      "path": "scripts/start_menu.gd",
+      "line": 144,
+      "function": "_build_options",
+      "helper": "adorn_panel",
+      "source_revision": "9730f40bbe725b71e2655653d04d5fea5d27bf34",
+      "source_sha256": "5d1d60ca2a72bbcb8130034de7fe4e72ab4e69085d26f35c3ebcbc9c57610a57",
+      "source_text": "StorybookUI.adorn_panel(_options_root, shell_rect, \"StartOptions\")",
+      "scope": "production",
+      "runtime_callers_or_route_coverage": "UNREVIEWED_SCOPE_NOT_CLOSED"
+    },
+    {
+      "path": "scripts/start_menu.gd",
+      "line": 182,
+      "function": "_build_new_game_confirmation",
+      "helper": "adorn_panel",
+      "source_revision": "9730f40bbe725b71e2655653d04d5fea5d27bf34",
+      "source_sha256": "5d1d60ca2a72bbcb8130034de7fe4e72ab4e69085d26f35c3ebcbc9c57610a57",
+      "source_text": "StorybookUI.adorn_panel(_confirm_root, shell_rect, \"StartNewGame\")",
+      "scope": "production",
+      "runtime_callers_or_route_coverage": "UNREVIEWED_SCOPE_NOT_CLOSED"
+    },
+    {
+      "path": "scripts/touch_ui.gd",
+      "line": 124,
+      "function": "_ready",
+      "helper": "add_shell_crest",
+      "source_revision": "9730f40bbe725b71e2655653d04d5fea5d27bf34",
+      "source_sha256": "a6f45679ff9738d6079078ba9cf5c623618a50a740e4fde2387385352029868d",
+      "source_text": "StorybookUI.add_shell_crest(_stick_hint, Rect2(55, 128, 70, 50), \"TouchPadShellCrest\")",
+      "scope": "production",
+      "runtime_callers_or_route_coverage": "UNREVIEWED_SCOPE_NOT_CLOSED"
+    },
+    {
+      "path": "scripts/wardrobe_ui.gd",
+      "line": 64,
+      "function": "_open_wardrobe",
+      "helper": "adorn_panel",
+      "source_revision": "9730f40bbe725b71e2655653d04d5fea5d27bf34",
+      "source_sha256": "0d7f4c5241f141ca4bbb9464f21aa5bd46545e1817b8b2638fea1caadf9f6573",
+      "source_text": "StorybookUI.adorn_panel(stage, wardrobe_rect, \"Wardrobe\")",
+      "scope": "production",
+      "runtime_callers_or_route_coverage": "UNREVIEWED_SCOPE_NOT_CLOSED"
+    },
+    {
+      "path": "scripts/wardrobe_ui.gd",
+      "line": 248,
+      "function": "_open_stickers",
+      "helper": "adorn_panel",
+      "source_revision": "9730f40bbe725b71e2655653d04d5fea5d27bf34",
+      "source_sha256": "0d7f4c5241f141ca4bbb9464f21aa5bd46545e1817b8b2638fea1caadf9f6573",
+      "source_text": "StorybookUI.adorn_panel(stage, book_rect, \"StickerBook\")",
+      "scope": "production",
+      "runtime_callers_or_route_coverage": "UNREVIEWED_SCOPE_NOT_CLOSED"
+    }
+  ],
+  "additional_shared_self_helper_calls": [
+    {
+      "path": "scripts/storybook_ui.gd",
+      "line": 206,
+      "helper": "add_shell_crest",
+      "source_text": "add_shell_crest(parent, Rect2("
+    },
+    {
+      "path": "scripts/storybook_ui.gd",
+      "line": 209,
+      "helper": "add_pearl",
+      "source_text": "add_pearl(parent, rect.position + Vector2(28.0, 31.0), 18.0, prefix + \"PearlTL\")"
+    },
+    {
+      "path": "scripts/storybook_ui.gd",
+      "line": 210,
+      "helper": "add_pearl",
+      "source_text": "add_pearl(parent, Vector2(rect.end.x - 28.0, rect.position.y + 31.0), 18.0, prefix + \"PearlTR\")"
+    },
+    {
+      "path": "scripts/storybook_ui.gd",
+      "line": 211,
+      "helper": "add_pearl",
+      "source_text": "add_pearl(parent, Vector2(rect.position.x + 32.0, rect.end.y - 30.0), 14.0, prefix + \"PearlBL\")"
+    },
+    {
+      "path": "scripts/storybook_ui.gd",
+      "line": 212,
+      "helper": "add_pearl",
+      "source_text": "add_pearl(parent, rect.end - Vector2(32.0, 30.0), 14.0, prefix + \"PearlBR\")"
+    }
+  ],
+  "closure": "SOURCE_CENSUS_PARTIAL:17qualifiedliteraladorn_panel/add_shell_crest/add_pearl calls/12sourcefiles plus5knownunqualifiedselfhelpers. Dynamic/custom/resource/otherUI/callerroute/state/devicecoverage incomplete. These source counts are notpieces/screens. R36isolatedretirement only31nameddecorative StartMenu instances,allotherproductioncallers unchanged."
+}

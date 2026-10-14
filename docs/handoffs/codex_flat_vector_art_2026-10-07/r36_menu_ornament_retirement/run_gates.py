@@ -1,0 +1,18 @@
+"""Run applicable evidence/document gates,retaining exact command bytes."""
+from pathlib import Path
+import subprocess,json,hashlib,datetime,sys
+P=Path(__file__).resolve().parent;R=P.parents[3];receipt='--receipt' in sys.argv
+G='C:/Users/Peter/AppData/Local/Programs/MermaidReefTools/Godot/4.7.2/godot_console.exe'
+fixture=(P/'capture_menu_ornament_retirement.gd').relative_to(R).as_posix()
+commands=[[sys.executable,'-m','gdtoolkit.parser',fixture],[sys.executable,'-B','tools/lint_inference.py',fixture],[G,'--headless','--path',str(R),'--check-only','--script',fixture],[sys.executable,'-B',str(P/'validate.py')],[sys.executable,'-B','tools/audit_document_authority.py'],[sys.executable,'-B','tools/audit_development.py','--base','auto']]
+if not receipt:commands.append([sys.executable,'-B','-m','unittest','tools.tests.test_audit_document_authority','tools.tests.test_audit_development'])
+commands.append([sys.executable,'-B','tools/audit_game_2d.py','--regression-gate'])
+log=P/('receipt_gates.log' if receipt else 'gates.log');rows=[]
+report=P/('RECEIPT_GATES.json' if receipt else 'GATES.json')
+if not report.exists():report.write_text(json.dumps({'status':'PENDING','scope':'Report initialized before linked-document checks; no pass claimed'})+'\n',encoding='utf-8',newline='\n')
+with log.open('wb') as out:
+ for cmd in commands:
+  start=datetime.datetime.now(datetime.timezone.utc).isoformat();print('START',cmd[-2:],flush=True);q=subprocess.run(cmd,cwd=R,stdout=subprocess.PIPE,stderr=subprocess.STDOUT);out.write(q.stdout);out.flush();rows.append({'command':cmd,'started_at_utc':start,'checked_at_utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'exit_code':q.returncode,'result':'PASS' if q.returncode==0 else 'FAIL','evidence':log.name});print('RESULT',q.returncode,flush=True)
+  if q.returncode:break
+result={'status':'PASS_WITH_ACCEPTANCE_OPEN' if all(x['exit_code']==0 for x in rows) else 'FAIL','commands':rows,'raw_log_sha256':hashlib.sha256(log.read_bytes()).hexdigest(),'scope':'R36ornamentretirement inisolatedpaintedcandidate,130native/37beforefixturecontext/31nonblockingdecorativenodes/ornamentsourcecallercensus;allacceptanceopen. RetainedR32actualfull82 atunchangedproduction,no newfull82run. AllQA11/device/child/owner/globalinventory acceptanceopen.'}
+(P/('RECEIPT_GATES.json' if receipt else 'GATES.json')).write_text(json.dumps(result,indent=2)+'\n',encoding='utf-8',newline='\n');sys.exit(0 if result['status'].startswith('PASS') else 1)

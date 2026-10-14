@@ -1,0 +1,24 @@
+{
+  "source_baseline": "9730f40bbe725b71e2655653d04d5fea5d27bf34",
+  "production_diff_from_baseline": [],
+  "retained_full82": {
+    "revision": "ecb9839a374d3260161a19d44039325d561a3509",
+    "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r32_startup_ui_retirement/FULL_VALIDATION.json",
+    "bytes": 73369,
+    "sha256": "11cb51a77e7f1197e9dd0fb80d6c6ae07ce417b309b735e4cccfc212e58192e8",
+    "status": "PASS_ALL_82_TRUSTED_NATIVE",
+    "scope": "ActualR32all82native strictzeroexit at byteidenticalcurrentproduction;no R35newfull82execution. R35fixture/currentnative/source/doc/strict2D fresh/scoped."
+  },
+  "source_originals_unchanged": true,
+  "new_generation_calls": 0,
+  "historical_R34_scope": "ActualR32full82atbyteidenticalproduction isretained,notnewR34execution. CurrentR34fixture/native/source/document/strict2D checks arefresh/scoped.",
+  "current_R36_scope": "ActualR32full82retained atunchangedproduction; freshR36fixture/native/source/doc/strict2D gates,nonewfull82execution.",
+  "historical_R35_scope": "ActualR32full82retained atunchangedproduction;freshR35fixture/parser/analyzer/native/source/doc/strict2D,not newfull82.",
+  "retained_remote_ci": {
+    "path": "RETAINED_R35_CI.json",
+    "source_revision": "9730f40bbe725b71e2655653d04d5fea5d27bf34",
+    "run_id": 38564196515,
+    "status": "success",
+    "scope": "RetainedexactR35headProbeSuite/area-musicCI success;unchangedproduction,notnewR36execution andnotart/device/child/owner acceptance."
+  }
+}

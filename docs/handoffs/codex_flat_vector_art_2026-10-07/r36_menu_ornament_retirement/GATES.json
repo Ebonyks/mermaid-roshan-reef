@@ -1,0 +1,158 @@
+{
+  "status": "PASS_WITH_ACCEPTANCE_OPEN",
+  "commands": [
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-m",
+        "gdtoolkit.parser",
+        "docs/handoffs/codex_flat_vector_art_2026-10-07/r36_menu_ornament_retirement/capture_menu_ornament_retirement.gd"
+      ],
+      "started_at_utc": "2026-10-14T15:11:38.627021+00:00",
+      "checked_at_utc": "2026-10-14T15:11:39.847120+00:00",
+      "exit_code": 0,
+      "result": "PASS",
+      "evidence": "gates.log"
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-B",
+        "tools/lint_inference.py",
+        "docs/handoffs/codex_flat_vector_art_2026-10-07/r36_menu_ornament_retirement/capture_menu_ornament_retirement.gd"
+      ],
+      "started_at_utc": "2026-10-14T15:11:39.847204+00:00",
+      "checked_at_utc": "2026-10-14T15:11:40.000659+00:00",
+      "exit_code": 0,
+      "result": "PASS",
+      "evidence": "gates.log"
+    },
+    {
+      "command": [
+        "C:/Users/Peter/AppData/Local/Programs/MermaidReefTools/Godot/4.7.2/godot_console.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef",
+        "--check-only",
+        "--script",
+        "docs/handoffs/codex_flat_vector_art_2026-10-07/r36_menu_ornament_retirement/capture_menu_ornament_retirement.gd"
+      ],
+      "started_at_utc": "2026-10-14T15:11:40.000731+00:00",
+      "checked_at_utc": "2026-10-14T15:11:53.392649+00:00",
+      "exit_code": 0,
+      "result": "PASS",
+      "evidence": "gates.log"
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-B",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r36_menu_ornament_retirement\\validate.py"
+      ],
+      "started_at_utc": "2026-10-14T15:11:53.392709+00:00",
+      "checked_at_utc": "2026-10-14T15:12:21.161874+00:00",
+      "exit_code": 0,
+      "result": "PASS",
+      "evidence": "gates.log"
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-B",
+        "tools/audit_document_authority.py"
+      ],
+      "started_at_utc": "2026-10-14T15:12:21.161924+00:00",
+      "checked_at_utc": "2026-10-14T15:12:38.678438+00:00",
+      "exit_code": 0,
+      "result": "PASS",
+      "evidence": "gates.log"
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-B",
+        "tools/audit_development.py",
+        "--base",
+        "auto"
+      ],
+      "started_at_utc": "2026-10-14T15:12:38.678481+00:00",
+      "checked_at_utc": "2026-10-14T15:12:43.750577+00:00",
+      "exit_code": 0,
+      "result": "PASS",
+      "evidence": "gates.log"
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-B",
+        "-m",
+        "unittest",
+        "tools.tests.test_audit_document_authority",
+        "tools.tests.test_audit_development"
+      ],
+      "started_at_utc": "2026-10-14T15:12:43.750635+00:00",
+      "checked_at_utc": "2026-10-14T15:12:56.812345+00:00",
+      "exit_code": 0,
+      "result": "PASS",
+      "evidence": "gates.log"
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-B",
+        "tools/audit_game_2d.py",
+        "--regression-gate"
+      ],
+      "started_at_utc": "2026-10-14T15:12:56.812400+00:00",
+      "checked_at_utc": "2026-10-14T15:16:39.258765+00:00",
+      "exit_code": 0,
+      "result": "PASS",
+      "evidence": "gates.log"
+    }
+  ],
+  "raw_log_sha256": "a2b802f96f832f5a3f7eb0f3112edce292695ff7490a5f5dec825a94e5baa380",
+  "scope": "R36ornamentretirement inisolatedpaintedcandidate,130native/37beforefixturecontext/31nonblockingdecorativenodes/ornamentsourcecallercensus;allacceptanceopen. RetainedR32actualfull82 atunchangedproduction,no newfull82run. AllQA11/device/child/owner/globalinventory acceptanceopen.",
+  "review_reconciliation_checks": [
+    {
+      "command": [
+        "python",
+        "-B",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r36_menu_ornament_retirement\\validate.py"
+      ],
+      "started_at_utc": "2026-10-14T15:20:22.677682+00:00",
+      "checked_at_utc": "2026-10-14T15:20:43.409415+00:00",
+      "exit_code": 0,
+      "sha256": "6c54f71319c022842c1c67615a4f7531d8226eb4e56d8ac4eb7016270da31c56",
+      "output": "R36_SOURCE_NATIVE_CANONICAL_PASS:37publishedcontext/130native/ 72 newcredits/ 58 excluded/16views;31decorativeMOUSE_IGNOREtargets3crests28dots presentbefore/absentafter perbuild,controls/fonts/panels/privateprogress/normal8hashes/teardown/sourcepixels preserved. Ornamentcaller 17 / 12 partial.0acceptedremoved/globalinventory/source/menu/QA11devicechildowneropen.\r\n",
+      "scope": "Freshreview source/doc/impact check aftercurrentrouting andCHG043reconciliation"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_document_authority.py"
+      ],
+      "started_at_utc": "2026-10-14T15:20:43.411148+00:00",
+      "checked_at_utc": "2026-10-14T15:21:09.085482+00:00",
+      "exit_code": 0,
+      "sha256": "6525ce72d762bd78d94653b3fe4aeb73076ef2cb7ab3916c1af9a6cf9b5c56e4",
+      "output": "DOCAUTH|INVENTORY=739|LEDGER=739|ACTIVE=69|RECORDS=72\r\nDOCAUTH|RESULT|ALL OK\r\n",
+      "scope": "Freshreview source/doc/impact check aftercurrentrouting andCHG043reconciliation"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_development.py",
+        "--base",
+        "auto"
+      ],
+      "started_at_utc": "2026-10-14T15:21:09.100167+00:00",
+      "checked_at_utc": "2026-10-14T15:21:17.072135+00:00",
+      "exit_code": 0,
+      "sha256": "fe1136f6488648e75036829fb4dde2405eb9ed57eec05f046fe441463c20d023",
+      "output": "AUDITDEV|BASE|e2b3c73789707aa49a91b4f42e2a9dd4b68225df\r\nAUDITDEV|RESULT|ALL OK\r\n",
+      "scope": "Freshreview source/doc/impact check aftercurrentrouting andCHG043reconciliation"
+    }
+  ]
+}

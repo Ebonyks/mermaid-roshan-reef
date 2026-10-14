@@ -1,0 +1,1722 @@
+{
+  "schema": "reef.flat_vector_current_capture_index/1",
+  "native_file_count": 130,
+  "retained_native_added": 130,
+  "current_unique_sha256_count": 80,
+  "current_bounded_file_count": 72,
+  "excluded_diagnostic_native": 58,
+  "excluded_failed_run_native": 0,
+  "frames": [
+    {
+      "path": "native/1280x720/fresh/original_source_baseline.png",
+      "state": "original_source_baseline",
+      "aspect": [
+        1280,
+        720
+      ],
+      "variant": "fresh",
+      "bytes": 1380233,
+      "sha256": "832bbab25c622336a14091ccfc0d7f5bdfb2533425174e80126e632002559c73",
+      "context_credit": false,
+      "exclusion_reason": "IDENTICAL_PRIOR_CONTEXT"
+    },
+    {
+      "path": "native/1280x720/fresh/painted_before_retirement.png",
+      "state": "painted_before_retirement",
+      "aspect": [
+        1280,
+        720
+      ],
+      "variant": "fresh",
+      "bytes": 1479417,
+      "sha256": "a6f89fb78e79e079018195f4a5f72990ab56c008af00030f1668482f5df08766",
+      "context_credit": false,
+      "exclusion_reason": "IDENTICAL_PRIOR_CONTEXT"
+    },
+    {
+      "path": "native/1280x720/fresh/normal_startup.png",
+      "state": "normal_startup",
+      "aspect": [
+        1280,
+        720
+      ],
+      "variant": "fresh",
+      "bytes": 1473449,
+      "sha256": "6672ea9a1aa252b051684209b6798ad9ad40be94e73cd452e8d7ab5c1ad0cbb0",
+      "context_credit": true,
+      "exclusion_reason": null
+    },
+    {
+      "path": "native/1280x720/fresh/declared_style_normal.png",
+      "state": "declared_style_normal",
+      "aspect": [
+        1280,
+        720
+      ],
+      "variant": "fresh",
+      "bytes": 1475655,
+      "sha256": "943e2b09120b22d64823a5b7ee44125732fe449fabba06108b1a5e48bc0551af",
+      "context_credit": true,
+      "exclusion_reason": null
+    },
+    {
+      "path": "native/1280x720/fresh/declared_style_hover.png",
+      "state": "declared_style_hover",
+      "aspect": [
+        1280,
+        720
+      ],
+      "variant": "fresh",
+      "bytes": 1474835,
+      "sha256": "f51bbe1bfc186ebde92158903031075858bffc8b1605b982cb78df031cef2bb6",
+      "context_credit": true,
+      "exclusion_reason": null
+    },
+    {
+      "path": "native/1280x720/fresh/declared_style_pressed.png",
+      "state": "declared_style_pressed",
+      "aspect": [
+        1280,
+        720
+      ],
+      "variant": "fresh",
+      "bytes": 1473194,
+      "sha256": "4f93abba7d8f97d0956aca324adb661a6bb11d3c6bfbccabe1c322177daa728b",
+      "context_credit": true,
+      "exclusion_reason": null
+    },
+    {
+      "path": "native/1280x720/fresh/declared_style_hover_pressed.png",
+      "state": "declared_style_hover_pressed",
+      "aspect": [
+        1280,
+        720
+      ],
+      "variant": "fresh",
+      "bytes": 1473194,
+      "sha256": "4f93abba7d8f97d0956aca324adb661a6bb11d3c6bfbccabe1c322177daa728b",
+      "context_credit": false,
+      "exclusion_reason": "DUPLICATE_CURRENT_EVENT"
+    },
+    {
+      "path": "native/1280x720/fresh/declared_style_focus.png",
+      "state": "declared_style_focus",
+      "aspect": [
+        1280,
+        720
+      ],
+      "variant": "fresh",
+      "bytes": 1473276,
+      "sha256": "c86db58c19d4f121dd6beb74ffcb3f0f9f506d1d337f46b210487b630b5cdddb",
+      "context_credit": true,
+      "exclusion_reason": null
+    },
+    {
+      "path": "native/1280x720/fresh/declared_style_disabled.png",
+      "state": "declared_style_disabled",
+      "aspect": [
+        1280,
+        720
+      ],
+      "variant": "fresh",
+      "bytes": 1467772,
+      "sha256": "e6cd78817f3b225bdbf3bfbccb635316d6c79718a3c0c68f12be8df5f801e0f8",
+      "context_credit": true,
+      "exclusion_reason": null
+    },
+    {
+      "path": "native/1280x720/fresh/declared_actual_focus.png",
+      "state": "declared_actual_focus",
+      "aspect": [
+        1280,
+        720
+      ],
+      "variant": "fresh",
+      "bytes": 1473449,
+      "sha256": "6672ea9a1aa252b051684209b6798ad9ad40be94e73cd452e8d7ab5c1ad0cbb0",
+      "context_credit": false,
+      "exclusion_reason": "DUPLICATE_CURRENT_EVENT"
+    },
+    {
+      "path": "native/1280x720/fresh/passive_2s.png",
+      "state": "passive_2s",
+      "aspect": [
+        1280,
+        720
+      ],
+      "variant": "fresh",
+      "bytes": 1475655,
+      "sha256": "943e2b09120b22d64823a5b7ee44125732fe449fabba06108b1a5e48bc0551af",
+      "context_credit": false,
+      "exclusion_reason": "DUPLICATE_CURRENT_EVENT"
+    },
+    {
+      "path": "native/1280x720/fresh/options_open_pressed.png",
+      "state": "options_open_pressed",
+      "aspect": [
+        1280,
+        720
+      ],
+      "variant": "fresh",
+      "bytes": 1475615,
+      "sha256": "83b4f21b92f6dc6f46b60bbedca60ad460353842f543c8196182e081698983a4",
+      "context_credit": true,
+      "exclusion_reason": null
+    },
+    {
+      "path": "native/1280x720/fresh/options_open_released.png",
+      "state": "options_open_released",
+      "aspect": [
+        1280,
+        720
+      ],
+      "variant": "fresh",
+      "bytes": 958750,
+      "sha256": "2558fac4ce68b3c80f7d765da83549ffb12c2ff6ed8d09651b9c492d66478393",
+      "context_credit": true,
+      "exclusion_reason": null
+    },
+    {
+      "path": "native/1280x720/fresh/declared_music_focus.png",
+      "state": "declared_music_focus",
+      "aspect": [
+        1280,
+        720
+      ],
+      "variant": "fresh",
+      "bytes": 958750,
+      "sha256": "2558fac4ce68b3c80f7d765da83549ffb12c2ff6ed8d09651b9c492d66478393",
+      "context_credit": false,
+      "exclusion_reason": "DUPLICATE_CURRENT_EVENT"
+    },
+    {
+      "path": "native/1280x720/fresh/music_off_pressed.png",
+      "state": "music_off_pressed",
+      "aspect": [
+        1280,
+        720
+      ],
+      "variant": "fresh",
+      "bytes": 957774,
+      "sha256": "19752c66bfbbdff1f25a1192c6d54db220aa74b8c362cbb4c229a135b13a28c9",
+      "context_credit": true,
+      "exclusion_reason": null
+    },
+    {
+      "path": "native/1280x720/fresh/music_off_released.png",
+      "state": "music_off_released",
+      "aspect": [
+        1280,
+        720
+      ],
+      "variant": "fresh",
+      "bytes": 957461,
+      "sha256": "bdcba2e32f21bfd3204bee5b23f7a977e11c62945f1d623aaf13dafc5389cb56",
+      "context_credit": true,
+      "exclusion_reason": null
+    },
+    {
+      "path": "native/1280x720/fresh/music_on_pressed.png",
+      "state": "music_on_pressed",
+      "aspect": [
+        1280,
+        720
+      ],
+      "variant": "fresh",
+      "bytes": 955633,
+      "sha256": "df28347e599786d542e16bd21a221c847446c86e91d7de0dd7a076203b8c5109",
+      "context_credit": true,
+      "exclusion_reason": null
+    },
+    {
+      "path": "native/1280x720/fresh/music_on_released.png",
+      "state": "music_on_released",
+      "aspect": [
+        1280,
+        720
+      ],
+      "variant": "fresh",
+      "bytes": 957756,
+      "sha256": "48c011e1483d535d977c61932fbc1eba12204e685094dc432f99430d9f551a8d",
+      "context_credit": true,
+      "exclusion_reason": null
+    },
+    {
+      "path": "native/1280x720/fresh/mic_off_pressed.png",
+      "state": "mic_off_pressed",
+      "aspect": [
+        1280,
+        720
+      ],
+      "variant": "fresh",
+      "bytes": 955955,
+      "sha256": "3525dee84216bd61881b1360839cc1d17413fdc55ad2407cb8cc13f772ab6990",
+      "context_credit": true,
+      "exclusion_reason": null
+    },
+    {
+      "path": "native/1280x720/fresh/mic_off_released.png",
+      "state": "mic_off_released",
+      "aspect": [
+        1280,
+        720
+      ],
+      "variant": "fresh",
+      "bytes": 957493,
+      "sha256": "f06fba3e7a51ebc5bcaf2fe8b853379376e8547be0338b894c8ed15cdccb099b",
+      "context_credit": true,
+      "exclusion_reason": null
+    },
+    {
+      "path": "native/1280x720/fresh/mic_on_pressed.png",
+      "state": "mic_on_pressed",
+      "aspect": [
+        1280,
+        720
+      ],
+      "variant": "fresh",
+      "bytes": 955705,
+      "sha256": "1e7dc5107be93887cb23f99f309a78ebf91e46968bb9b2170e4643e00d4ff355",
+      "context_credit": true,
+      "exclusion_reason": null
+    },
+    {
+      "path": "native/1280x720/fresh/mic_on_released.png",
+      "state": "mic_on_released",
+      "aspect": [
+        1280,
+        720
+      ],
+      "variant": "fresh",
+      "bytes": 957805,
+      "sha256": "16f10696f6deca0f615e196c818f022e5d1f267e60949f093bfa9aa1a87365f7",
+      "context_credit": true,
+      "exclusion_reason": null
+    },
+    {
+      "path": "native/1280x720/fresh/options_close_pressed.png",
+      "state": "options_close_pressed",
+      "aspect": [
+        1280,
+        720
+      ],
+      "variant": "fresh",
+      "bytes": 958238,
+      "sha256": "7377205ba444bd8aa1a71cf327dab567ad81fcddc8091ea8712a802d32ae35c4",
+      "context_credit": true,
+      "exclusion_reason": null
+    },
+    {
+      "path": "native/1280x720/fresh/options_close_released.png",
+      "state": "options_close_released",
+      "aspect": [
+        1280,
+        720
+      ],
+      "variant": "fresh",
+      "bytes": 1450794,
+      "sha256": "8ce2f28c62e40842273fb00f3e0ba80e209ff48762441f3e0124f27593ea43c8",
+      "context_credit": true,
+      "exclusion_reason": null
+    },
+    {
+      "path": "native/1280x720/fresh/declared_focus_out.png",
+      "state": "declared_focus_out",
+      "aspect": [
+        1280,
+        720
+      ],
+      "variant": "fresh",
+      "bytes": 1450794,
+      "sha256": "8ce2f28c62e40842273fb00f3e0ba80e209ff48762441f3e0124f27593ea43c8",
+      "context_credit": false,
+      "exclusion_reason": "DUPLICATE_CURRENT_EVENT"
+    },
+    {
+      "path": "native/1280x720/fresh/declared_focus_in.png",
+      "state": "declared_focus_in",
+      "aspect": [
+        1280,
+        720
+      ],
+      "variant": "fresh",
+      "bytes": 1450794,
+      "sha256": "8ce2f28c62e40842273fb00f3e0ba80e209ff48762441f3e0124f27593ea43c8",
+      "context_credit": false,
+      "exclusion_reason": "DUPLICATE_CURRENT_EVENT"
+    },
+    {
+      "path": "native/1280x720/saved_legacy/original_source_baseline.png",
+      "state": "original_source_baseline",
+      "aspect": [
+        1280,
+        720
+      ],
+      "variant": "saved_legacy",
+      "bytes": 1383598,
+      "sha256": "9ce4a2fd5540c0a300974ea597a2dc42e626d061b4c2c57efd0a83459046fff2",
+      "context_credit": false,
+      "exclusion_reason": "IDENTICAL_PRIOR_CONTEXT"
+    },
+    {
+      "path": "native/1280x720/saved_legacy/painted_before_retirement.png",
+      "state": "painted_before_retirement",
+      "aspect": [
+        1280,
+        720
+      ],
+      "variant": "saved_legacy",
+      "bytes": 1486586,
+      "sha256": "2c403e2e4483b4e875990635f6b60633bdd5a35ddb405777c5f3b6fc5b52f666",
+      "context_credit": false,
+      "exclusion_reason": "IDENTICAL_PRIOR_CONTEXT"
+    },
+    {
+      "path": "native/1280x720/saved_legacy/normal_startup.png",
+      "state": "normal_startup",
+      "aspect": [
+        1280,
+        720
+      ],
+      "variant": "saved_legacy",
+      "bytes": 1480774,
+      "sha256": "5df221f5c930e1e6f9ca5bf82aa830d88701e985c595662a6f377282482645a3",
+      "context_credit": true,
+      "exclusion_reason": null
+    },
+    {
+      "path": "native/1280x720/saved_legacy/declared_style_normal.png",
+      "state": "declared_style_normal",
+      "aspect": [
+        1280,
+        720
+      ],
+      "variant": "saved_legacy",
+      "bytes": 1480774,
+      "sha256": "5df221f5c930e1e6f9ca5bf82aa830d88701e985c595662a6f377282482645a3",
+      "context_credit": false,
+      "exclusion_reason": "DUPLICATE_CURRENT_EVENT"
+    },
+    {
+      "path": "native/1280x720/saved_legacy/declared_style_hover.png",
+      "state": "declared_style_hover",
+      "aspect": [
+        1280,
+        720
+      ],
+      "variant": "saved_legacy",
+      "bytes": 1479327,
+      "sha256": "eb6a44549aa6eb508fafda33f882c27aff1229fdf5663e87e3ef210efdf6cded",
+      "context_credit": true,
+      "exclusion_reason": null
+    },
+    {
+      "path": "native/1280x720/saved_legacy/declared_style_pressed.png",
+      "state": "declared_style_pressed",
+      "aspect": [
+        1280,
+        720
+      ],
+      "variant": "saved_legacy",
+      "bytes": 1462123,
+      "sha256": "4345280f4b8ca6a9cbbdb8b562383309587746b5844a574480b97f80098ebf77",
+      "context_credit": true,
+      "exclusion_reason": null
+    },
+    {
+      "path": "native/1280x720/saved_legacy/declared_style_hover_pressed.png",
+      "state": "declared_style_hover_pressed",
+      "aspect": [
+        1280,
+        720
+      ],
+      "variant": "saved_legacy",
+      "bytes": 1462123,
+      "sha256": "4345280f4b8ca6a9cbbdb8b562383309587746b5844a574480b97f80098ebf77",
+      "context_credit": false,
+      "exclusion_reason": "DUPLICATE_CURRENT_EVENT"
+    },
+    {
+      "path": "native/1280x720/saved_legacy/declared_style_focus.png",
+      "state": "declared_style_focus",
+      "aspect": [
+        1280,
+        720
+      ],
+      "variant": "saved_legacy",
+      "bytes": 1453475,
+      "sha256": "48809a3c16fe7100e8809b4b9d686b06d37d6b48f04b5bba6856ddb9259f963e",
+      "context_credit": true,
+      "exclusion_reason": null
+    },
+    {
+      "path": "native/1280x720/saved_legacy/declared_style_disabled.png",
+      "state": "declared_style_disabled",
+      "aspect": [
+        1280,
+        720
+      ],
+      "variant": "saved_legacy",
+      "bytes": 1474550,
+      "sha256": "22e067daccf27c67ada2603816aeae55b3485b890d695ffafb25c68514815456",
+      "context_credit": true,
+      "exclusion_reason": null
+    },
+    {
+      "path": "native/1280x720/saved_legacy/declared_actual_focus.png",
+      "state": "declared_actual_focus",
+      "aspect": [
+        1280,
+        720
+      ],
+      "variant": "saved_legacy",
+      "bytes": 1480948,
+      "sha256": "2cec4baba2205359e58cbebfb89df485d305c940dd9ab25591a3e4e52d457099",
+      "context_credit": true,
+      "exclusion_reason": null
+    },
+    {
+      "path": "native/1280x720/saved_legacy/passive_2s.png",
+      "state": "passive_2s",
+      "aspect": [
+        1280,
+        720
+      ],
+      "variant": "saved_legacy",
+      "bytes": 1450794,
+      "sha256": "8ce2f28c62e40842273fb00f3e0ba80e209ff48762441f3e0124f27593ea43c8",
+      "context_credit": false,
+      "exclusion_reason": "DUPLICATE_CURRENT_EVENT"
+    },
+    {
+      "path": "native/1280x720/saved_legacy/options_open_pressed.png",
+      "state": "options_open_pressed",
+      "aspect": [
+        1280,
+        720
+      ],
+      "variant": "saved_legacy",
+      "bytes": 1450811,
+      "sha256": "713d0a6906e5a43fd8d3fd0e5b1c2949cfaded484d3718ef4d7a6fa85da9ec27",
+      "context_credit": true,
+      "exclusion_reason": null
+    },
+    {
+      "path": "native/1280x720/saved_legacy/options_open_released.png",
+      "state": "options_open_released",
+      "aspect": [
+        1280,
+        720
+      ],
+      "variant": "saved_legacy",
+      "bytes": 956936,
+      "sha256": "a0e3a3c400a439db3df2b426966236b6db8caea8eefba63ad8ed7e248ce14de8",
+      "context_credit": true,
+      "exclusion_reason": null
+    },
+    {
+      "path": "native/1280x720/saved_legacy/declared_music_focus.png",
+      "state": "declared_music_focus",
+      "aspect": [
+        1280,
+        720
+      ],
+      "variant": "saved_legacy",
+      "bytes": 956936,
+      "sha256": "a0e3a3c400a439db3df2b426966236b6db8caea8eefba63ad8ed7e248ce14de8",
+      "context_credit": false,
+      "exclusion_reason": "DUPLICATE_CURRENT_EVENT"
+    },
+    {
+      "path": "native/1280x720/saved_legacy/music_off_pressed.png",
+      "state": "music_off_pressed",
+      "aspect": [
+        1280,
+        720
+      ],
+      "variant": "saved_legacy",
+      "bytes": 955948,
+      "sha256": "255ca0812973d34a60d99bba4f11ff1d049ceaa52ded30d22229c6f4d27e31e2",
+      "context_credit": true,
+      "exclusion_reason": null
+    },
+    {
+      "path": "native/1280x720/saved_legacy/music_off_released.png",
+      "state": "music_off_released",
+      "aspect": [
+        1280,
+        720
+      ],
+      "variant": "saved_legacy",
+      "bytes": 957461,
+      "sha256": "bdcba2e32f21bfd3204bee5b23f7a977e11c62945f1d623aaf13dafc5389cb56",
+      "context_credit": false,
+      "exclusion_reason": "DUPLICATE_CURRENT_EVENT"
+    },
+    {
+      "path": "native/1280x720/saved_legacy/music_on_pressed.png",
+      "state": "music_on_pressed",
+      "aspect": [
+        1280,
+        720
+      ],
+      "variant": "saved_legacy",
+      "bytes": 955633,
+      "sha256": "df28347e599786d542e16bd21a221c847446c86e91d7de0dd7a076203b8c5109",
+      "context_credit": false,
+      "exclusion_reason": "DUPLICATE_CURRENT_EVENT"
+    },
+    {
+      "path": "native/1280x720/saved_legacy/music_on_released.png",
+      "state": "music_on_released",
+      "aspect": [
+        1280,
+        720
+      ],
+      "variant": "saved_legacy",
+      "bytes": 957756,
+      "sha256": "48c011e1483d535d977c61932fbc1eba12204e685094dc432f99430d9f551a8d",
+      "context_credit": false,
+      "exclusion_reason": "DUPLICATE_CURRENT_EVENT"
+    },
+    {
+      "path": "native/1280x720/saved_legacy/mic_off_pressed.png",
+      "state": "mic_off_pressed",
+      "aspect": [
+        1280,
+        720
+      ],
+      "variant": "saved_legacy",
+      "bytes": 955955,
+      "sha256": "3525dee84216bd61881b1360839cc1d17413fdc55ad2407cb8cc13f772ab6990",
+      "context_credit": false,
+      "exclusion_reason": "DUPLICATE_CURRENT_EVENT"
+    },
+    {
+      "path": "native/1280x720/saved_legacy/mic_off_released.png",
+      "state": "mic_off_released",
+      "aspect": [
+        1280,
+        720
+      ],
+      "variant": "saved_legacy",
+      "bytes": 957493,
+      "sha256": "f06fba3e7a51ebc5bcaf2fe8b853379376e8547be0338b894c8ed15cdccb099b",
+      "context_credit": false,
+      "exclusion_reason": "DUPLICATE_CURRENT_EVENT"
+    },
+    {
+      "path": "native/1280x720/saved_legacy/mic_on_pressed.png",
+      "state": "mic_on_pressed",
+      "aspect": [
+        1280,
+        720
+      ],
+      "variant": "saved_legacy",
+      "bytes": 955705,
+      "sha256": "1e7dc5107be93887cb23f99f309a78ebf91e46968bb9b2170e4643e00d4ff355",
+      "context_credit": false,
+      "exclusion_reason": "DUPLICATE_CURRENT_EVENT"
+    },
+    {
+      "path": "native/1280x720/saved_legacy/mic_on_released.png",
+      "state": "mic_on_released",
+      "aspect": [
+        1280,
+        720
+      ],
+      "variant": "saved_legacy",
+      "bytes": 957805,
+      "sha256": "16f10696f6deca0f615e196c818f022e5d1f267e60949f093bfa9aa1a87365f7",
+      "context_credit": false,
+      "exclusion_reason": "DUPLICATE_CURRENT_EVENT"
+    },
+    {
+      "path": "native/1280x720/saved_legacy/options_close_pressed.png",
+      "state": "options_close_pressed",
+      "aspect": [
+        1280,
+        720
+      ],
+      "variant": "saved_legacy",
+      "bytes": 958238,
+      "sha256": "7377205ba444bd8aa1a71cf327dab567ad81fcddc8091ea8712a802d32ae35c4",
+      "context_credit": false,
+      "exclusion_reason": "DUPLICATE_CURRENT_EVENT"
+    },
+    {
+      "path": "native/1280x720/saved_legacy/options_close_released.png",
+      "state": "options_close_released",
+      "aspect": [
+        1280,
+        720
+      ],
+      "variant": "saved_legacy",
+      "bytes": 1450794,
+      "sha256": "8ce2f28c62e40842273fb00f3e0ba80e209ff48762441f3e0124f27593ea43c8",
+      "context_credit": false,
+      "exclusion_reason": "DUPLICATE_CURRENT_EVENT"
+    },
+    {
+      "path": "native/1280x720/saved_legacy/declared_focus_out.png",
+      "state": "declared_focus_out",
+      "aspect": [
+        1280,
+        720
+      ],
+      "variant": "saved_legacy",
+      "bytes": 1450794,
+      "sha256": "8ce2f28c62e40842273fb00f3e0ba80e209ff48762441f3e0124f27593ea43c8",
+      "context_credit": false,
+      "exclusion_reason": "DUPLICATE_CURRENT_EVENT"
+    },
+    {
+      "path": "native/1280x720/saved_legacy/declared_focus_in.png",
+      "state": "declared_focus_in",
+      "aspect": [
+        1280,
+        720
+      ],
+      "variant": "saved_legacy",
+      "bytes": 1450794,
+      "sha256": "8ce2f28c62e40842273fb00f3e0ba80e209ff48762441f3e0124f27593ea43c8",
+      "context_credit": false,
+      "exclusion_reason": "DUPLICATE_CURRENT_EVENT"
+    },
+    {
+      "path": "native/1280x720/saved_legacy/newgame_request_pressed.png",
+      "state": "newgame_request_pressed",
+      "aspect": [
+        1280,
+        720
+      ],
+      "variant": "saved_legacy",
+      "bytes": 1480886,
+      "sha256": "d27ce034cee4994a4a12c707b3d33cf02248e59b5fd609dddda59e9ff4fb5a75",
+      "context_credit": true,
+      "exclusion_reason": null
+    },
+    {
+      "path": "native/1280x720/saved_legacy/newgame_request_released.png",
+      "state": "newgame_request_released",
+      "aspect": [
+        1280,
+        720
+      ],
+      "variant": "saved_legacy",
+      "bytes": 874643,
+      "sha256": "c5de12bf0da166d950e4f211857ba7706a345b0b454646bf8b9135bc54c6eef1",
+      "context_credit": true,
+      "exclusion_reason": null
+    },
+    {
+      "path": "native/1280x720/saved_legacy/newgame_armed.png",
+      "state": "newgame_armed",
+      "aspect": [
+        1280,
+        720
+      ],
+      "variant": "saved_legacy",
+      "bytes": 882822,
+      "sha256": "6241310e96f73217aa579b97ec2157aa3718b0ea0d4556243007a51e14cee793",
+      "context_credit": true,
+      "exclusion_reason": null
+    },
+    {
+      "path": "native/1280x720/saved_legacy/newgame_short_hold.png",
+      "state": "newgame_short_hold",
+      "aspect": [
+        1280,
+        720
+      ],
+      "variant": "saved_legacy",
+      "bytes": 872041,
+      "sha256": "81ce3ca188cb92740693bedce306d1f97ff661e1d872f5b6a89d1fe069f8c1ca",
+      "context_credit": true,
+      "exclusion_reason": null
+    },
+    {
+      "path": "native/1280x720/saved_legacy/newgame_hold_cancelled.png",
+      "state": "newgame_hold_cancelled",
+      "aspect": [
+        1280,
+        720
+      ],
+      "variant": "saved_legacy",
+      "bytes": 873242,
+      "sha256": "22a8c0940646631bf996d442ff9f996f486311d0ac4424c7f528dba6d7d0fd0e",
+      "context_credit": true,
+      "exclusion_reason": null
+    },
+    {
+      "path": "native/1280x720/saved_legacy/keep_saved_pressed.png",
+      "state": "keep_saved_pressed",
+      "aspect": [
+        1280,
+        720
+      ],
+      "variant": "saved_legacy",
+      "bytes": 873193,
+      "sha256": "1d6989b6b9d13b8067f4829d6a4d53fc4bb19f7d1fbc8f96cb11c3dba7208f0a",
+      "context_credit": true,
+      "exclusion_reason": null
+    },
+    {
+      "path": "native/1280x720/saved_legacy/keep_saved_released.png",
+      "state": "keep_saved_released",
+      "aspect": [
+        1280,
+        720
+      ],
+      "variant": "saved_legacy",
+      "bytes": 1480774,
+      "sha256": "5df221f5c930e1e6f9ca5bf82aa830d88701e985c595662a6f377282482645a3",
+      "context_credit": false,
+      "exclusion_reason": "DUPLICATE_CURRENT_EVENT"
+    },
+    {
+      "path": "native/1280x720/saved_legacy/continue_pressed.png",
+      "state": "continue_pressed",
+      "aspect": [
+        1280,
+        720
+      ],
+      "variant": "saved_legacy",
+      "bytes": 1480724,
+      "sha256": "7da894b7faed0e5aad59c02336970cb4bc31b615eac6b2a01c9b650cb9eedb53",
+      "context_credit": true,
+      "exclusion_reason": null
+    },
+    {
+      "path": "native/1280x720/saved_legacy/natural_continue_world.png",
+      "state": "natural_continue_world",
+      "aspect": [
+        1280,
+        720
+      ],
+      "variant": "saved_legacy",
+      "bytes": 1571933,
+      "sha256": "fd73a00f02e8af345a335dcf7a194f3ff5a50e1aa7fcb6be61df9f4bd760dbeb",
+      "context_credit": true,
+      "exclusion_reason": null
+    },
+    {
+      "path": "native/1280x720/saved_legacy/declared_menu_reentry.png",
+      "state": "declared_menu_reentry",
+      "aspect": [
+        1280,
+        720
+      ],
+      "variant": "saved_legacy",
+      "bytes": 1480774,
+      "sha256": "5df221f5c930e1e6f9ca5bf82aa830d88701e985c595662a6f377282482645a3",
+      "context_credit": false,
+      "exclusion_reason": "DUPLICATE_CURRENT_EVENT"
+    },
+    {
+      "path": "native/1280x720/saved_legacy/reentry_idle_1s.png",
+      "state": "reentry_idle_1s",
+      "aspect": [
+        1280,
+        720
+      ],
+      "variant": "saved_legacy",
+      "bytes": 1480774,
+      "sha256": "5df221f5c930e1e6f9ca5bf82aa830d88701e985c595662a6f377282482645a3",
+      "context_credit": false,
+      "exclusion_reason": "DUPLICATE_CURRENT_EVENT"
+    },
+    {
+      "path": "native/1280x720/saved_legacy/continue_again_pressed.png",
+      "state": "continue_again_pressed",
+      "aspect": [
+        1280,
+        720
+      ],
+      "variant": "saved_legacy",
+      "bytes": 1480724,
+      "sha256": "7da894b7faed0e5aad59c02336970cb4bc31b615eac6b2a01c9b650cb9eedb53",
+      "context_credit": false,
+      "exclusion_reason": "DUPLICATE_CURRENT_EVENT"
+    },
+    {
+      "path": "native/1280x720/saved_legacy/natural_continue_after_reentry.png",
+      "state": "natural_continue_after_reentry",
+      "aspect": [
+        1280,
+        720
+      ],
+      "variant": "saved_legacy",
+      "bytes": 1571919,
+      "sha256": "1a0f1a3e7859623fdfb12132d12eed779d109f1c9a8593f77e950c236341e8fc",
+      "context_credit": true,
+      "exclusion_reason": null
+    },
+    {
+      "path": "native/1600x720/fresh/original_source_baseline.png",
+      "state": "original_source_baseline",
+      "aspect": [
+        1600,
+        720
+      ],
+      "variant": "fresh",
+      "bytes": 1393615,
+      "sha256": "a40accaa35620c4b5893c774b6bf4107c61d7ff8d7ed59e5f016958a4f1c8b2e",
+      "context_credit": false,
+      "exclusion_reason": "IDENTICAL_PRIOR_CONTEXT"
+    },
+    {
+      "path": "native/1600x720/fresh/painted_before_retirement.png",
+      "state": "painted_before_retirement",
+      "aspect": [
+        1600,
+        720
+      ],
+      "variant": "fresh",
+      "bytes": 1493547,
+      "sha256": "dbf6e213d491e109ca7b68b8ca49c6e8c63263fd5488f99f214d3d53001aa811",
+      "context_credit": false,
+      "exclusion_reason": "IDENTICAL_PRIOR_CONTEXT"
+    },
+    {
+      "path": "native/1600x720/fresh/normal_startup.png",
+      "state": "normal_startup",
+      "aspect": [
+        1600,
+        720
+      ],
+      "variant": "fresh",
+      "bytes": 1487648,
+      "sha256": "ff390c3fd8a94d68fac0b37fccfdb7ed58f1356d22e28ab2e7ca3b492d38f987",
+      "context_credit": true,
+      "exclusion_reason": null
+    },
+    {
+      "path": "native/1600x720/fresh/declared_style_normal.png",
+      "state": "declared_style_normal",
+      "aspect": [
+        1600,
+        720
+      ],
+      "variant": "fresh",
+      "bytes": 1489801,
+      "sha256": "0429d88b1e174199995dc5414a4e6841a9a8f0996e5b09d0cc3d620325b4e902",
+      "context_credit": true,
+      "exclusion_reason": null
+    },
+    {
+      "path": "native/1600x720/fresh/declared_style_hover.png",
+      "state": "declared_style_hover",
+      "aspect": [
+        1600,
+        720
+      ],
+      "variant": "fresh",
+      "bytes": 1488989,
+      "sha256": "7304d55483b25f7ef4443afb195512e6496eb312c4958e7828ee0d5685127dde",
+      "context_credit": true,
+      "exclusion_reason": null
+    },
+    {
+      "path": "native/1600x720/fresh/declared_style_pressed.png",
+      "state": "declared_style_pressed",
+      "aspect": [
+        1600,
+        720
+      ],
+      "variant": "fresh",
+      "bytes": 1487255,
+      "sha256": "020dff408c9e2aa5bb1ea31f2208a234438c3455f949f2b70da98afe2cd7c7ad",
+      "context_credit": true,
+      "exclusion_reason": null
+    },
+    {
+      "path": "native/1600x720/fresh/declared_style_hover_pressed.png",
+      "state": "declared_style_hover_pressed",
+      "aspect": [
+        1600,
+        720
+      ],
+      "variant": "fresh",
+      "bytes": 1487255,
+      "sha256": "020dff408c9e2aa5bb1ea31f2208a234438c3455f949f2b70da98afe2cd7c7ad",
+      "context_credit": false,
+      "exclusion_reason": "DUPLICATE_CURRENT_EVENT"
+    },
+    {
+      "path": "native/1600x720/fresh/declared_style_focus.png",
+      "state": "declared_style_focus",
+      "aspect": [
+        1600,
+        720
+      ],
+      "variant": "fresh",
+      "bytes": 1487411,
+      "sha256": "f1b26ce3d6103d0abe5f2d3ab2ad7a0280fbc8f1643b8782164045c3140c2ec5",
+      "context_credit": true,
+      "exclusion_reason": null
+    },
+    {
+      "path": "native/1600x720/fresh/declared_style_disabled.png",
+      "state": "declared_style_disabled",
+      "aspect": [
+        1600,
+        720
+      ],
+      "variant": "fresh",
+      "bytes": 1481894,
+      "sha256": "5b28a99fa89ada8bb79f2dd5411f5797f6161d72b630792753ef4754907d0e54",
+      "context_credit": true,
+      "exclusion_reason": null
+    },
+    {
+      "path": "native/1600x720/fresh/declared_actual_focus.png",
+      "state": "declared_actual_focus",
+      "aspect": [
+        1600,
+        720
+      ],
+      "variant": "fresh",
+      "bytes": 1487648,
+      "sha256": "ff390c3fd8a94d68fac0b37fccfdb7ed58f1356d22e28ab2e7ca3b492d38f987",
+      "context_credit": false,
+      "exclusion_reason": "DUPLICATE_CURRENT_EVENT"
+    },
+    {
+      "path": "native/1600x720/fresh/passive_2s.png",
+      "state": "passive_2s",
+      "aspect": [
+        1600,
+        720
+      ],
+      "variant": "fresh",
+      "bytes": 1489801,
+      "sha256": "0429d88b1e174199995dc5414a4e6841a9a8f0996e5b09d0cc3d620325b4e902",
+      "context_credit": false,
+      "exclusion_reason": "DUPLICATE_CURRENT_EVENT"
+    },
+    {
+      "path": "native/1600x720/fresh/options_open_pressed.png",
+      "state": "options_open_pressed",
+      "aspect": [
+        1600,
+        720
+      ],
+      "variant": "fresh",
+      "bytes": 1489844,
+      "sha256": "2fa316f6f9124207199e7e7b62bc459a5f26de27d02812a5978ae2021a8ea778",
+      "context_credit": true,
+      "exclusion_reason": null
+    },
+    {
+      "path": "native/1600x720/fresh/options_open_released.png",
+      "state": "options_open_released",
+      "aspect": [
+        1600,
+        720
+      ],
+      "variant": "fresh",
+      "bytes": 973330,
+      "sha256": "a13d37eb2510c5751034c3ba9b3f6ad074acb1c2a3ca2a3fb912f1aad75093df",
+      "context_credit": true,
+      "exclusion_reason": null
+    },
+    {
+      "path": "native/1600x720/fresh/declared_music_focus.png",
+      "state": "declared_music_focus",
+      "aspect": [
+        1600,
+        720
+      ],
+      "variant": "fresh",
+      "bytes": 973330,
+      "sha256": "a13d37eb2510c5751034c3ba9b3f6ad074acb1c2a3ca2a3fb912f1aad75093df",
+      "context_credit": false,
+      "exclusion_reason": "DUPLICATE_CURRENT_EVENT"
+    },
+    {
+      "path": "native/1600x720/fresh/music_off_pressed.png",
+      "state": "music_off_pressed",
+      "aspect": [
+        1600,
+        720
+      ],
+      "variant": "fresh",
+      "bytes": 972307,
+      "sha256": "c57fb9c2ded614f7189d67224d7767fd12c65814f634d9a5c50021cdf3102bef",
+      "context_credit": true,
+      "exclusion_reason": null
+    },
+    {
+      "path": "native/1600x720/fresh/music_off_released.png",
+      "state": "music_off_released",
+      "aspect": [
+        1600,
+        720
+      ],
+      "variant": "fresh",
+      "bytes": 972031,
+      "sha256": "04826e2cbc56ebabec0395e3df3fd3560ba20a077937ec6dfdee7223857d27a2",
+      "context_credit": true,
+      "exclusion_reason": null
+    },
+    {
+      "path": "native/1600x720/fresh/music_on_pressed.png",
+      "state": "music_on_pressed",
+      "aspect": [
+        1600,
+        720
+      ],
+      "variant": "fresh",
+      "bytes": 970076,
+      "sha256": "2366b3aad88fa54b6c1ee3ff61edbb0a187566e81b12a02199a44dbccd74b6fb",
+      "context_credit": true,
+      "exclusion_reason": null
+    },
+    {
+      "path": "native/1600x720/fresh/music_on_released.png",
+      "state": "music_on_released",
+      "aspect": [
+        1600,
+        720
+      ],
+      "variant": "fresh",
+      "bytes": 972290,
+      "sha256": "a2285bb9378ee9f5aaada1f60f30827f805bd6f174d21a9330c66d1a0ed6ea6b",
+      "context_credit": true,
+      "exclusion_reason": null
+    },
+    {
+      "path": "native/1600x720/fresh/mic_off_pressed.png",
+      "state": "mic_off_pressed",
+      "aspect": [
+        1600,
+        720
+      ],
+      "variant": "fresh",
+      "bytes": 970346,
+      "sha256": "3b7052f24f7408620d7b0d97caec551c8c6e9258f7d64b32cdab1483152717c6",
+      "context_credit": true,
+      "exclusion_reason": null
+    },
+    {
+      "path": "native/1600x720/fresh/mic_off_released.png",
+      "state": "mic_off_released",
+      "aspect": [
+        1600,
+        720
+      ],
+      "variant": "fresh",
+      "bytes": 972010,
+      "sha256": "38d91065c18f7187cc06a3fd8b78141b370de07b790a74a142a1cab91a136e88",
+      "context_credit": true,
+      "exclusion_reason": null
+    },
+    {
+      "path": "native/1600x720/fresh/mic_on_pressed.png",
+      "state": "mic_on_pressed",
+      "aspect": [
+        1600,
+        720
+      ],
+      "variant": "fresh",
+      "bytes": 970017,
+      "sha256": "80bbf5ae180199535380ea6e17352406a80331815b8c80b99f323f2a87cb7eb3",
+      "context_credit": true,
+      "exclusion_reason": null
+    },
+    {
+      "path": "native/1600x720/fresh/mic_on_released.png",
+      "state": "mic_on_released",
+      "aspect": [
+        1600,
+        720
+      ],
+      "variant": "fresh",
+      "bytes": 972342,
+      "sha256": "d8e42838def5a21be0e59ff6e00d7de6388e29f055f9f95964b831b0a49f6919",
+      "context_credit": true,
+      "exclusion_reason": null
+    },
+    {
+      "path": "native/1600x720/fresh/options_close_pressed.png",
+      "state": "options_close_pressed",
+      "aspect": [
+        1600,
+        720
+      ],
+      "variant": "fresh",
+      "bytes": 972828,
+      "sha256": "ab9f03b449e95d525ec72967d6185d3191593b6439b3bb91d0bbd06235fc4588",
+      "context_credit": true,
+      "exclusion_reason": null
+    },
+    {
+      "path": "native/1600x720/fresh/options_close_released.png",
+      "state": "options_close_released",
+      "aspect": [
+        1600,
+        720
+      ],
+      "variant": "fresh",
+      "bytes": 1464676,
+      "sha256": "56c38298dd68e1cc49bf12ff98e2c96763fb18f15b0b1d9e31607798c5ce7ed9",
+      "context_credit": true,
+      "exclusion_reason": null
+    },
+    {
+      "path": "native/1600x720/fresh/declared_focus_out.png",
+      "state": "declared_focus_out",
+      "aspect": [
+        1600,
+        720
+      ],
+      "variant": "fresh",
+      "bytes": 1464676,
+      "sha256": "56c38298dd68e1cc49bf12ff98e2c96763fb18f15b0b1d9e31607798c5ce7ed9",
+      "context_credit": false,
+      "exclusion_reason": "DUPLICATE_CURRENT_EVENT"
+    },
+    {
+      "path": "native/1600x720/fresh/declared_focus_in.png",
+      "state": "declared_focus_in",
+      "aspect": [
+        1600,
+        720
+      ],
+      "variant": "fresh",
+      "bytes": 1464676,
+      "sha256": "56c38298dd68e1cc49bf12ff98e2c96763fb18f15b0b1d9e31607798c5ce7ed9",
+      "context_credit": false,
+      "exclusion_reason": "DUPLICATE_CURRENT_EVENT"
+    },
+    {
+      "path": "native/1600x720/saved_legacy/original_source_baseline.png",
+      "state": "original_source_baseline",
+      "aspect": [
+        1600,
+        720
+      ],
+      "variant": "saved_legacy",
+      "bytes": 1396949,
+      "sha256": "f26e1d1342fdc282efea9a5f43af7e84cc50d219ad009e325c05ceb09ccb2d27",
+      "context_credit": false,
+      "exclusion_reason": "IDENTICAL_PRIOR_CONTEXT"
+    },
+    {
+      "path": "native/1600x720/saved_legacy/painted_before_retirement.png",
+      "state": "painted_before_retirement",
+      "aspect": [
+        1600,
+        720
+      ],
+      "variant": "saved_legacy",
+      "bytes": 1500665,
+      "sha256": "8dc183ba8fd37791693acfb28d156073348fa566f5976ee8b59968bbbaf93dbf",
+      "context_credit": false,
+      "exclusion_reason": "IDENTICAL_PRIOR_CONTEXT"
+    },
+    {
+      "path": "native/1600x720/saved_legacy/normal_startup.png",
+      "state": "normal_startup",
+      "aspect": [
+        1600,
+        720
+      ],
+      "variant": "saved_legacy",
+      "bytes": 1494970,
+      "sha256": "21fc7d7a0ac435f8a40885c46482f2e2bd21c35a24bb63d59a05306a53fa0a18",
+      "context_credit": true,
+      "exclusion_reason": null
+    },
+    {
+      "path": "native/1600x720/saved_legacy/declared_style_normal.png",
+      "state": "declared_style_normal",
+      "aspect": [
+        1600,
+        720
+      ],
+      "variant": "saved_legacy",
+      "bytes": 1494970,
+      "sha256": "21fc7d7a0ac435f8a40885c46482f2e2bd21c35a24bb63d59a05306a53fa0a18",
+      "context_credit": false,
+      "exclusion_reason": "DUPLICATE_CURRENT_EVENT"
+    },
+    {
+      "path": "native/1600x720/saved_legacy/declared_style_hover.png",
+      "state": "declared_style_hover",
+      "aspect": [
+        1600,
+        720
+      ],
+      "variant": "saved_legacy",
+      "bytes": 1493484,
+      "sha256": "33b397842e51b6d0b810a1112d7dcc604a206c009656d9008189310e0b728de8",
+      "context_credit": true,
+      "exclusion_reason": null
+    },
+    {
+      "path": "native/1600x720/saved_legacy/declared_style_pressed.png",
+      "state": "declared_style_pressed",
+      "aspect": [
+        1600,
+        720
+      ],
+      "variant": "saved_legacy",
+      "bytes": 1476066,
+      "sha256": "f72e88009f4e640f46da2489bafb672748fe0a7d63d2bbda6ea595e1d0a1a5c7",
+      "context_credit": true,
+      "exclusion_reason": null
+    },
+    {
+      "path": "native/1600x720/saved_legacy/declared_style_hover_pressed.png",
+      "state": "declared_style_hover_pressed",
+      "aspect": [
+        1600,
+        720
+      ],
+      "variant": "saved_legacy",
+      "bytes": 1476066,
+      "sha256": "f72e88009f4e640f46da2489bafb672748fe0a7d63d2bbda6ea595e1d0a1a5c7",
+      "context_credit": false,
+      "exclusion_reason": "DUPLICATE_CURRENT_EVENT"
+    },
+    {
+      "path": "native/1600x720/saved_legacy/declared_style_focus.png",
+      "state": "declared_style_focus",
+      "aspect": [
+        1600,
+        720
+      ],
+      "variant": "saved_legacy",
+      "bytes": 1467189,
+      "sha256": "95075c3a93aef1b5fbc28356a9d2f395db55bf14652beb4027c3dcd387d6e72b",
+      "context_credit": true,
+      "exclusion_reason": null
+    },
+    {
+      "path": "native/1600x720/saved_legacy/declared_style_disabled.png",
+      "state": "declared_style_disabled",
+      "aspect": [
+        1600,
+        720
+      ],
+      "variant": "saved_legacy",
+      "bytes": 1488770,
+      "sha256": "2377f5caf6ab30b020f064ca57530c8ec92b6071f460d92677748335fa19753f",
+      "context_credit": true,
+      "exclusion_reason": null
+    },
+    {
+      "path": "native/1600x720/saved_legacy/declared_actual_focus.png",
+      "state": "declared_actual_focus",
+      "aspect": [
+        1600,
+        720
+      ],
+      "variant": "saved_legacy",
+      "bytes": 1495171,
+      "sha256": "9a02ac56f51e3af5fc8d244848d79e44efa6741df70e85ab5e1452ae2381e420",
+      "context_credit": true,
+      "exclusion_reason": null
+    },
+    {
+      "path": "native/1600x720/saved_legacy/passive_2s.png",
+      "state": "passive_2s",
+      "aspect": [
+        1600,
+        720
+      ],
+      "variant": "saved_legacy",
+      "bytes": 1464676,
+      "sha256": "56c38298dd68e1cc49bf12ff98e2c96763fb18f15b0b1d9e31607798c5ce7ed9",
+      "context_credit": false,
+      "exclusion_reason": "DUPLICATE_CURRENT_EVENT"
+    },
+    {
+      "path": "native/1600x720/saved_legacy/options_open_pressed.png",
+      "state": "options_open_pressed",
+      "aspect": [
+        1600,
+        720
+      ],
+      "variant": "saved_legacy",
+      "bytes": 1464679,
+      "sha256": "3800ba5af591f0cae57a1ed8fbff245289a2bc0e3f2cbc61d6798894a57ac165",
+      "context_credit": true,
+      "exclusion_reason": null
+    },
+    {
+      "path": "native/1600x720/saved_legacy/options_open_released.png",
+      "state": "options_open_released",
+      "aspect": [
+        1600,
+        720
+      ],
+      "variant": "saved_legacy",
+      "bytes": 971530,
+      "sha256": "19e5391af6cb608f1edbe2fa59e9792d177ee662b16d38d04e7abb8142de0cc0",
+      "context_credit": true,
+      "exclusion_reason": null
+    },
+    {
+      "path": "native/1600x720/saved_legacy/declared_music_focus.png",
+      "state": "declared_music_focus",
+      "aspect": [
+        1600,
+        720
+      ],
+      "variant": "saved_legacy",
+      "bytes": 971530,
+      "sha256": "19e5391af6cb608f1edbe2fa59e9792d177ee662b16d38d04e7abb8142de0cc0",
+      "context_credit": false,
+      "exclusion_reason": "DUPLICATE_CURRENT_EVENT"
+    },
+    {
+      "path": "native/1600x720/saved_legacy/music_off_pressed.png",
+      "state": "music_off_pressed",
+      "aspect": [
+        1600,
+        720
+      ],
+      "variant": "saved_legacy",
+      "bytes": 970418,
+      "sha256": "caab52b29246cd6a8db64f56926d0dbd9ae426cfad257dbe7bcc882dad9dca23",
+      "context_credit": true,
+      "exclusion_reason": null
+    },
+    {
+      "path": "native/1600x720/saved_legacy/music_off_released.png",
+      "state": "music_off_released",
+      "aspect": [
+        1600,
+        720
+      ],
+      "variant": "saved_legacy",
+      "bytes": 972031,
+      "sha256": "04826e2cbc56ebabec0395e3df3fd3560ba20a077937ec6dfdee7223857d27a2",
+      "context_credit": false,
+      "exclusion_reason": "DUPLICATE_CURRENT_EVENT"
+    },
+    {
+      "path": "native/1600x720/saved_legacy/music_on_pressed.png",
+      "state": "music_on_pressed",
+      "aspect": [
+        1600,
+        720
+      ],
+      "variant": "saved_legacy",
+      "bytes": 970076,
+      "sha256": "2366b3aad88fa54b6c1ee3ff61edbb0a187566e81b12a02199a44dbccd74b6fb",
+      "context_credit": false,
+      "exclusion_reason": "DUPLICATE_CURRENT_EVENT"
+    },
+    {
+      "path": "native/1600x720/saved_legacy/music_on_released.png",
+      "state": "music_on_released",
+      "aspect": [
+        1600,
+        720
+      ],
+      "variant": "saved_legacy",
+      "bytes": 972290,
+      "sha256": "a2285bb9378ee9f5aaada1f60f30827f805bd6f174d21a9330c66d1a0ed6ea6b",
+      "context_credit": false,
+      "exclusion_reason": "DUPLICATE_CURRENT_EVENT"
+    },
+    {
+      "path": "native/1600x720/saved_legacy/mic_off_pressed.png",
+      "state": "mic_off_pressed",
+      "aspect": [
+        1600,
+        720
+      ],
+      "variant": "saved_legacy",
+      "bytes": 970346,
+      "sha256": "3b7052f24f7408620d7b0d97caec551c8c6e9258f7d64b32cdab1483152717c6",
+      "context_credit": false,
+      "exclusion_reason": "DUPLICATE_CURRENT_EVENT"
+    },
+    {
+      "path": "native/1600x720/saved_legacy/mic_off_released.png",
+      "state": "mic_off_released",
+      "aspect": [
+        1600,
+        720
+      ],
+      "variant": "saved_legacy",
+      "bytes": 972010,
+      "sha256": "38d91065c18f7187cc06a3fd8b78141b370de07b790a74a142a1cab91a136e88",
+      "context_credit": false,
+      "exclusion_reason": "DUPLICATE_CURRENT_EVENT"
+    },
+    {
+      "path": "native/1600x720/saved_legacy/mic_on_pressed.png",
+      "state": "mic_on_pressed",
+      "aspect": [
+        1600,
+        720
+      ],
+      "variant": "saved_legacy",
+      "bytes": 970017,
+      "sha256": "80bbf5ae180199535380ea6e17352406a80331815b8c80b99f323f2a87cb7eb3",
+      "context_credit": false,
+      "exclusion_reason": "DUPLICATE_CURRENT_EVENT"
+    },
+    {
+      "path": "native/1600x720/saved_legacy/mic_on_released.png",
+      "state": "mic_on_released",
+      "aspect": [
+        1600,
+        720
+      ],
+      "variant": "saved_legacy",
+      "bytes": 972342,
+      "sha256": "d8e42838def5a21be0e59ff6e00d7de6388e29f055f9f95964b831b0a49f6919",
+      "context_credit": false,
+      "exclusion_reason": "DUPLICATE_CURRENT_EVENT"
+    },
+    {
+      "path": "native/1600x720/saved_legacy/options_close_pressed.png",
+      "state": "options_close_pressed",
+      "aspect": [
+        1600,
+        720
+      ],
+      "variant": "saved_legacy",
+      "bytes": 972828,
+      "sha256": "ab9f03b449e95d525ec72967d6185d3191593b6439b3bb91d0bbd06235fc4588",
+      "context_credit": false,
+      "exclusion_reason": "DUPLICATE_CURRENT_EVENT"
+    },
+    {
+      "path": "native/1600x720/saved_legacy/options_close_released.png",
+      "state": "options_close_released",
+      "aspect": [
+        1600,
+        720
+      ],
+      "variant": "saved_legacy",
+      "bytes": 1464676,
+      "sha256": "56c38298dd68e1cc49bf12ff98e2c96763fb18f15b0b1d9e31607798c5ce7ed9",
+      "context_credit": false,
+      "exclusion_reason": "DUPLICATE_CURRENT_EVENT"
+    },
+    {
+      "path": "native/1600x720/saved_legacy/declared_focus_out.png",
+      "state": "declared_focus_out",
+      "aspect": [
+        1600,
+        720
+      ],
+      "variant": "saved_legacy",
+      "bytes": 1464676,
+      "sha256": "56c38298dd68e1cc49bf12ff98e2c96763fb18f15b0b1d9e31607798c5ce7ed9",
+      "context_credit": false,
+      "exclusion_reason": "DUPLICATE_CURRENT_EVENT"
+    },
+    {
+      "path": "native/1600x720/saved_legacy/declared_focus_in.png",
+      "state": "declared_focus_in",
+      "aspect": [
+        1600,
+        720
+      ],
+      "variant": "saved_legacy",
+      "bytes": 1464676,
+      "sha256": "56c38298dd68e1cc49bf12ff98e2c96763fb18f15b0b1d9e31607798c5ce7ed9",
+      "context_credit": false,
+      "exclusion_reason": "DUPLICATE_CURRENT_EVENT"
+    },
+    {
+      "path": "native/1600x720/saved_legacy/newgame_request_pressed.png",
+      "state": "newgame_request_pressed",
+      "aspect": [
+        1600,
+        720
+      ],
+      "variant": "saved_legacy",
+      "bytes": 1495092,
+      "sha256": "fd0c64c6eec50a5c4fb88f6f6927a589310ca174129c3c8400a40201bf0bafea",
+      "context_credit": true,
+      "exclusion_reason": null
+    },
+    {
+      "path": "native/1600x720/saved_legacy/newgame_request_released.png",
+      "state": "newgame_request_released",
+      "aspect": [
+        1600,
+        720
+      ],
+      "variant": "saved_legacy",
+      "bytes": 889193,
+      "sha256": "96b964fe234ba0e5a2218b14cca9af1b818e56d33290117f212f82d66489bc02",
+      "context_credit": true,
+      "exclusion_reason": null
+    },
+    {
+      "path": "native/1600x720/saved_legacy/newgame_armed.png",
+      "state": "newgame_armed",
+      "aspect": [
+        1600,
+        720
+      ],
+      "variant": "saved_legacy",
+      "bytes": 897115,
+      "sha256": "522006626aeccb2c84f279159233cd4c5c8bd1f83ff5e459abc2a5c12f710c67",
+      "context_credit": true,
+      "exclusion_reason": null
+    },
+    {
+      "path": "native/1600x720/saved_legacy/newgame_short_hold.png",
+      "state": "newgame_short_hold",
+      "aspect": [
+        1600,
+        720
+      ],
+      "variant": "saved_legacy",
+      "bytes": 886359,
+      "sha256": "e133630bbf2d9da8bea9686f6bdb3c31ff91516a24bc8022b65e2c2b65545b5c",
+      "context_credit": true,
+      "exclusion_reason": null
+    },
+    {
+      "path": "native/1600x720/saved_legacy/newgame_hold_cancelled.png",
+      "state": "newgame_hold_cancelled",
+      "aspect": [
+        1600,
+        720
+      ],
+      "variant": "saved_legacy",
+      "bytes": 887674,
+      "sha256": "0b5998e491a6115631eb81e34d880af9889a3d21b3c5a048d80007359f2633e1",
+      "context_credit": true,
+      "exclusion_reason": null
+    },
+    {
+      "path": "native/1600x720/saved_legacy/keep_saved_pressed.png",
+      "state": "keep_saved_pressed",
+      "aspect": [
+        1600,
+        720
+      ],
+      "variant": "saved_legacy",
+      "bytes": 887569,
+      "sha256": "99ee76f41b354ddfc386f952f820a0cf1ecc680ab8dbaf0f2964a041e005ba10",
+      "context_credit": true,
+      "exclusion_reason": null
+    },
+    {
+      "path": "native/1600x720/saved_legacy/keep_saved_released.png",
+      "state": "keep_saved_released",
+      "aspect": [
+        1600,
+        720
+      ],
+      "variant": "saved_legacy",
+      "bytes": 1494970,
+      "sha256": "21fc7d7a0ac435f8a40885c46482f2e2bd21c35a24bb63d59a05306a53fa0a18",
+      "context_credit": false,
+      "exclusion_reason": "DUPLICATE_CURRENT_EVENT"
+    },
+    {
+      "path": "native/1600x720/saved_legacy/continue_pressed.png",
+      "state": "continue_pressed",
+      "aspect": [
+        1600,
+        720
+      ],
+      "variant": "saved_legacy",
+      "bytes": 1494858,
+      "sha256": "99dd55bc0a87f7f850c6a8b16d75fdae2c997900c7601c5eaeed019ed19cd3c6",
+      "context_credit": true,
+      "exclusion_reason": null
+    },
+    {
+      "path": "native/1600x720/saved_legacy/natural_continue_world.png",
+      "state": "natural_continue_world",
+      "aspect": [
+        1600,
+        720
+      ],
+      "variant": "saved_legacy",
+      "bytes": 2043765,
+      "sha256": "96463bcaa0329672a6dd1fda007499017c0bc9ecb80af533ff64a8f5d5d73f72",
+      "context_credit": true,
+      "exclusion_reason": null
+    },
+    {
+      "path": "native/1600x720/saved_legacy/declared_menu_reentry.png",
+      "state": "declared_menu_reentry",
+      "aspect": [
+        1600,
+        720
+      ],
+      "variant": "saved_legacy",
+      "bytes": 1494970,
+      "sha256": "21fc7d7a0ac435f8a40885c46482f2e2bd21c35a24bb63d59a05306a53fa0a18",
+      "context_credit": false,
+      "exclusion_reason": "DUPLICATE_CURRENT_EVENT"
+    },
+    {
+      "path": "native/1600x720/saved_legacy/reentry_idle_1s.png",
+      "state": "reentry_idle_1s",
+      "aspect": [
+        1600,
+        720
+      ],
+      "variant": "saved_legacy",
+      "bytes": 1494970,
+      "sha256": "21fc7d7a0ac435f8a40885c46482f2e2bd21c35a24bb63d59a05306a53fa0a18",
+      "context_credit": false,
+      "exclusion_reason": "DUPLICATE_CURRENT_EVENT"
+    },
+    {
+      "path": "native/1600x720/saved_legacy/continue_again_pressed.png",
+      "state": "continue_again_pressed",
+      "aspect": [
+        1600,
+        720
+      ],
+      "variant": "saved_legacy",
+      "bytes": 1494858,
+      "sha256": "99dd55bc0a87f7f850c6a8b16d75fdae2c997900c7601c5eaeed019ed19cd3c6",
+      "context_credit": false,
+      "exclusion_reason": "DUPLICATE_CURRENT_EVENT"
+    },
+    {
+      "path": "native/1600x720/saved_legacy/natural_continue_after_reentry.png",
+      "state": "natural_continue_after_reentry",
+      "aspect": [
+        1600,
+        720
+      ],
+      "variant": "saved_legacy",
+      "bytes": 2043728,
+      "sha256": "92673db04019d4394b7f241b068b8da027d57e55c498b8ba1d712e1c72aef774",
+      "context_credit": true,
+      "exclusion_reason": null
+    }
+  ],
+  "directly_viewed_count": 16,
+  "directly_viewed_unique_count": 16,
+  "directly_viewed_native_files": [
+    "native/1280x720/fresh/painted_before_retirement.png",
+    "native/1280x720/fresh/normal_startup.png",
+    "native/1280x720/saved_legacy/painted_before_retirement.png",
+    "native/1280x720/saved_legacy/normal_startup.png",
+    "native/1600x720/fresh/painted_before_retirement.png",
+    "native/1600x720/fresh/normal_startup.png",
+    "native/1600x720/saved_legacy/painted_before_retirement.png",
+    "native/1600x720/saved_legacy/normal_startup.png",
+    "native/1280x720/fresh/options_open_released.png",
+    "native/1280x720/saved_legacy/options_open_released.png",
+    "native/1600x720/fresh/options_open_released.png",
+    "native/1600x720/saved_legacy/options_open_released.png",
+    "native/1280x720/saved_legacy/newgame_armed.png",
+    "native/1600x720/saved_legacy/newgame_armed.png",
+    "native/1600x720/saved_legacy/newgame_short_hold.png",
+    "native/1280x720/saved_legacy/natural_continue_world.png"
+  ],
+  "exclusion_scope": "Exact current PNG byte duplicates and identicalR35/R33/R32 contexts excluded from new credits. Historical units preserved;not wholehistory unique image/artpiece census."
+}
