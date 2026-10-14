@@ -1,0 +1,151 @@
+{
+  "status": "PASS_DIAGNOSTIC_SOURCE_ACCEPTANCE_OPEN",
+  "commands": [
+    {
+      "command": [
+        "python",
+        "-m",
+        "gdtoolkit.parser",
+        "docs/handoffs/codex_flat_vector_art_2026-10-07/r41_companion_context/capture_companion_context.gd",
+        "docs/handoffs/codex_flat_vector_art_2026-10-07/r41_companion_context/probe_preview_size_order.gd"
+      ],
+      "exit_code": 0,
+      "checked_at_utc": "2026-10-14T23:01:34.210000+00:00",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "evidence": "gates.log"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/lint_inference.py",
+        "docs/handoffs/codex_flat_vector_art_2026-10-07/r41_companion_context/capture_companion_context.gd",
+        "docs/handoffs/codex_flat_vector_art_2026-10-07/r41_companion_context/probe_preview_size_order.gd"
+      ],
+      "exit_code": 0,
+      "checked_at_utc": "2026-10-14T23:01:34.313918+00:00",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "evidence": "gates.log"
+    },
+    {
+      "command": [
+        "C:/Users/Peter/AppData/Local/Programs/MermaidReefTools/Godot/4.7.2/godot_console.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef",
+        "--check-only",
+        "--script",
+        "res://docs/handoffs/codex_flat_vector_art_2026-10-07/r41_companion_context/capture_companion_context.gd"
+      ],
+      "exit_code": 0,
+      "checked_at_utc": "2026-10-14T23:01:42.789558+00:00",
+      "stdout_sha256": "83cf0b082206af2aa236c83064fbcfa76be1e00a4aa3558574b2f65965d9481c",
+      "evidence": "gates.log"
+    },
+    {
+      "command": [
+        "C:/Users/Peter/AppData/Local/Programs/MermaidReefTools/Godot/4.7.2/godot_console.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef",
+        "--script",
+        "res://docs/handoffs/codex_flat_vector_art_2026-10-07/r41_companion_context/probe_preview_size_order.gd"
+      ],
+      "exit_code": 0,
+      "checked_at_utc": "2026-10-14T23:01:43.368023+00:00",
+      "stdout_sha256": "94c238a3992c9cc8fe84bd39565ba902d56bc3eaa327269c29b62fe7fb9f6be9",
+      "evidence": "gates.log"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r41_companion_context\\validate.py"
+      ],
+      "exit_code": 0,
+      "checked_at_utc": "2026-10-14T23:01:50.563825+00:00",
+      "stdout_sha256": "187fb2f19516737cdd531692ddf4cff0ec56174dd5274256b4b830efeb4c2331",
+      "evidence": "gates.log"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_document_authority.py"
+      ],
+      "exit_code": 0,
+      "checked_at_utc": "2026-10-14T23:02:01.505619+00:00",
+      "stdout_sha256": "3a93b640095b8033db2f301bc442916e1aa96d628693e98d86c42c5ceafa1a10",
+      "evidence": "gates.log"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_development.py",
+        "--base",
+        "auto"
+      ],
+      "exit_code": 0,
+      "checked_at_utc": "2026-10-14T23:02:06.767831+00:00",
+      "stdout_sha256": "fe1136f6488648e75036829fb4dde2405eb9ed57eec05f046fe441463c20d023",
+      "evidence": "gates.log"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "-m",
+        "unittest",
+        "tools.tests.test_audit_document_authority",
+        "tools.tests.test_audit_development"
+      ],
+      "exit_code": 0,
+      "checked_at_utc": "2026-10-14T23:02:17.652018+00:00",
+      "stdout_sha256": "5c22e93a55fa1c8cb8dbfe07c803de76e73e2315da22121bde9c78e7e2785b26",
+      "evidence": "gates.log"
+    }
+  ],
+  "raw_log_sha256": "b55a9824729e4a0b23e4a100b2de4027067bdcb10e57aced079efe8cde0a5dbd",
+  "scope": "Fresh fixture/parser/inference/official Godot4.7.2/helperindependent numeric/seed/master/capture integrity checks/canonical/doc/coverage/54unit tests;6 supported actual native GUI diagnostic cases separately retained. Staged/committed2D gates follow. Prior R32full82/R35CI retained at unchanged production, not new full suite.",
+  "review_reconciliation_checks": [
+    {
+      "command": [
+        "python",
+        "-B",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r41_companion_context\\validate.py"
+      ],
+      "checked_at_utc": "2026-10-14T23:03:17.431930+00:00",
+      "exit_code": 0,
+      "sha256": "187fb2f19516737cdd531692ddf4cff0ec56174dd5274256b4b830efeb4c2331",
+      "output": "R41_SOURCE_NATIVE_CANONICAL_PASS 167retained/56credits/111excluded;6supportedcurrent;14current10priorviews;8bad/fixedorderpairs;16thirdROIinvariant;4039sidecars;230roles31families;accepted0/globalunknown\r\n",
+      "scope": "Freshreview after sourceglyph/accounting/boundedformat/currentauthority facts"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_document_authority.py"
+      ],
+      "checked_at_utc": "2026-10-14T23:03:26.961333+00:00",
+      "exit_code": 0,
+      "sha256": "3a93b640095b8033db2f301bc442916e1aa96d628693e98d86c42c5ceafa1a10",
+      "output": "DOCAUTH|INVENTORY=744|LEDGER=744|ACTIVE=69|RECORDS=72\r\nDOCAUTH|RESULT|ALL OK\r\n",
+      "scope": "Freshreview after sourceglyph/accounting/boundedformat/currentauthority facts"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_development.py",
+        "--base",
+        "auto"
+      ],
+      "checked_at_utc": "2026-10-14T23:03:31.431291+00:00",
+      "exit_code": 0,
+      "sha256": "fe1136f6488648e75036829fb4dde2405eb9ed57eec05f046fe441463c20d023",
+      "output": "AUDITDEV|BASE|e2b3c73789707aa49a91b4f42e2a9dd4b68225df\r\nAUDITDEV|RESULT|ALL OK\r\n",
+      "scope": "Freshreview after sourceglyph/accounting/boundedformat/currentauthority facts"
+    }
+  ]
+}

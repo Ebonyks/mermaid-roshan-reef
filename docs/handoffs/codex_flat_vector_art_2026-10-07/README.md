@@ -1,6 +1,12 @@
-Current canonical evidence: [R40 whole fish trial](r40_craft_whole_fish_trial/README.md), [registry](r40_craft_whole_fish_trial/per_piece.json), [coverage](r40_craft_whole_fish_trial/scene_coverage.json), [tally](r40_craft_whole_fish_trial/tally.json).
+Current canonical evidence: [R41 companion context](r41_companion_context/README.md), [registry](r41_companion_context/per_piece.json), [coverage](r41_companion_context/scene_coverage.json), [tally](r41_companion_context/tally.json).
 
-# Current R40 source-only fish candidate
+# Current R41 companion consumer audit
+
+Current fit/third-color/style failures documented:6 supported native cases/167 retained/56 credits;230 known roles/31 families,0 accepted removals/global totals unknown. Original sources/production unchanged; fit repair next, all required acceptance open.
+
+Historical R40 evidence: [R40 whole fish trial](r40_craft_whole_fish_trial/README.md), [registry](r40_craft_whole_fish_trial/per_piece.json), [coverage](r40_craft_whole_fish_trial/scene_coverage.json), [tally](r40_craft_whole_fish_trial/tally.json).
+
+# Historical R40 source-only fish candidate
 
 One complete painted fish sample awaits review;8 current native cases,607 retained/152 credited.227 known roles/30 families,zero accepted removals/global totals unknown. No production change or downstream/human acceptance.
 

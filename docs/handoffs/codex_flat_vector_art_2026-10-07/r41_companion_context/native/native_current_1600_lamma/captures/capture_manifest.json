@@ -1,0 +1,2500 @@
+{
+	"actual_child_data": false,
+	"adopted_colors": [
+		"fffcf2",
+		"ffcce0",
+		"f2ebf7"
+	],
+	"aspect": [
+		1600,
+		720
+	],
+	"engine": {
+		"build": "official",
+		"hash": "ed1daf0bf001b61586d9930840f2f1394092c079",
+		"hex": 263938,
+		"major": 4,
+		"minor": 7,
+		"patch": 2,
+		"status": "stable",
+		"string": "4.7.2-stable (official)",
+		"timestamp": 0
+	},
+	"errors": [],
+	"identity": "lamma",
+	"normal_after": {
+		"": "47c287147713fac860e25dade59da95961204f9b3170f5e00b5843e11590ad1e",
+		".bak": "de9d0441ed4d74f01cc8778c1c21600351b1426017d33a5ce99e69b03e893c3a",
+		".bak.old": "absent",
+		".bak.tmp": "absent",
+		".old": "absent",
+		".tmp": "absent",
+		".tmp0": "absent",
+		".tmp1": "absent"
+	},
+	"normal_before": {
+		"": "47c287147713fac860e25dade59da95961204f9b3170f5e00b5843e11590ad1e",
+		".bak": "de9d0441ed4d74f01cc8778c1c21600351b1426017d33a5ce99e69b03e893c3a",
+		".bak.old": "absent",
+		".bak.tmp": "absent",
+		".old": "absent",
+		".tmp": "absent",
+		".tmp0": "absent",
+		".tmp1": "absent"
+	},
+	"quality": "speedy",
+	"renderer": "mobile",
+	"schema": "reef.companion_context/1",
+	"scope_limits": "Guarded direct syntheticcurrent GUI/private save plusactuallevel2/Castleentry calls;notnaturalplay/phone touch/completecontinuousmotion/device/child/owner/QA11 orfullcallerclosure. Originalproduction/sourcepixels unchanged;no candidateadoption/newart.",
+	"source_revision": "de44f9bb67ae7cb41a33d6eba25d56d9ed074f21",
+	"states": [
+		{
+			"actual_child_data": false,
+			"care_open": false,
+			"care_points": 8,
+			"castle_card": {
+				"child_count": 1,
+				"color_tokens": [
+					"fffcf2",
+					"ffcce0",
+					"f2ebf7"
+				],
+				"identity": "lamma",
+				"position": "(313.8756, 449.378)",
+				"scale": "(0.76555, 0.76555)",
+				"source_asset_paths": [
+					"res://assets/sprites/stuffie_studio/lamma.png"
+				],
+				"source_object_id": "castle:companion:lamma",
+				"visible": true,
+				"z_index": 221
+			},
+			"castle_room_id": "main_hall",
+			"companion_colors": [],
+			"companion_id": "lamma",
+			"custom_fish": [
+				[
+					0.9,
+					0.3,
+					0.3,
+					1.0,
+					0.8,
+					0.2
+				],
+				[
+					0.2,
+					0.7,
+					0.8,
+					0.9,
+					0.3,
+					0.4,
+					1.0,
+					0.0
+				]
+			],
+			"custom_friends": [
+				[
+					"cat",
+					0.95,
+					0.7,
+					0.85,
+					0.6,
+					0.4,
+					0.9
+				],
+				[
+					"bird",
+					1.0,
+					0.85,
+					0.3,
+					0.3,
+					0.8,
+					0.9,
+					0.0,
+					1.0
+				],
+				[
+					"cat",
+					0.95,
+					0.7,
+					0.85,
+					0.6,
+					0.4,
+					0.9,
+					1.0,
+					0.0,
+					0.97,
+					0.96,
+					0.93
+				]
+			],
+			"game": "level2",
+			"game_phase": "hall",
+			"id": "castle_card_default_colors",
+			"image": {
+				"bytes": 1753809,
+				"dimensions": [
+					1600,
+					720
+				],
+				"file": "castle_card_default_colors.png",
+				"sha256": "4a31f8466ba71bb91f32cf8424dd8160b8ce897b7fbc3ac3c50904c42975ef41"
+			},
+			"input": {
+				"entry": "actual productionlevel2 thenCastleentry;private defaultcoat,same-scene reference beforepalette"
+			},
+			"nodes": [
+				{
+					"class": "Control",
+					"global_rect": "[P: (0.0, 0.0), S: (1600.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@367/CastleRooms25D",
+					"z_index": 0
+				},
+				{
+					"class": "ColorRect",
+					"global_rect": "[P: (0.0, 0.0), S: (161.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@367/CastleRooms25D/CastleLetterboxBackdrop",
+					"z_index": -2000
+				},
+				{
+					"class": "ColorRect",
+					"global_rect": "[P: (1439.0, 0.0), S: (161.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@367/CastleRooms25D/CastleLetterboxBackdropFar",
+					"z_index": -2000
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@367/CastleRooms25D/StorybookStage",
+					"z_index": 0
+				},
+				{
+					"class": "Node2D",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@367/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld",
+					"z_index": -1000
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@367/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/MainHallTile_r0_c0",
+					"source_asset_path": "",
+					"texture": "res://assets/flats/castle/main_hall_redraw_2026-08-03/tiles/main_hall_room_led_r0_c0.png",
+					"z_index": 0
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@367/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/MainHallTile_r0_c1",
+					"source_asset_path": "",
+					"texture": "res://assets/flats/castle/main_hall_redraw_2026-08-03/tiles/main_hall_room_led_r0_c1.png",
+					"z_index": 0
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@367/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/MainHallTile_r0_c2",
+					"source_asset_path": "",
+					"texture": "res://assets/flats/castle/main_hall_redraw_2026-08-03/tiles/main_hall_room_led_r0_c2.png",
+					"z_index": 0
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@367/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/MainHallTile_r0_c3",
+					"source_asset_path": "",
+					"texture": "res://assets/flats/castle/main_hall_redraw_2026-08-03/tiles/main_hall_room_led_r0_c3.png",
+					"z_index": 0
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@367/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/MainHallTile_r0_c4",
+					"source_asset_path": "",
+					"texture": "res://assets/flats/castle/main_hall_redraw_2026-08-03/tiles/main_hall_room_led_r0_c4.png",
+					"z_index": 0
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@367/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/MainHallTile_r1_c0",
+					"source_asset_path": "",
+					"texture": "res://assets/flats/castle/main_hall_redraw_2026-08-03/tiles/main_hall_room_led_r1_c0.png",
+					"z_index": 0
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@367/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/MainHallTile_r1_c1",
+					"source_asset_path": "",
+					"texture": "res://assets/flats/castle/main_hall_redraw_2026-08-03/tiles/main_hall_room_led_r1_c1.png",
+					"z_index": 0
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@367/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/MainHallTile_r1_c2",
+					"source_asset_path": "",
+					"texture": "res://assets/flats/castle/main_hall_redraw_2026-08-03/tiles/main_hall_room_led_r1_c2.png",
+					"z_index": 0
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@367/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/MainHallTile_r1_c3",
+					"source_asset_path": "",
+					"texture": "res://assets/flats/castle/main_hall_redraw_2026-08-03/tiles/main_hall_room_led_r1_c3.png",
+					"z_index": 0
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@367/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/MainHallTile_r1_c4",
+					"source_asset_path": "",
+					"texture": "res://assets/flats/castle/main_hall_redraw_2026-08-03/tiles/main_hall_room_led_r1_c4.png",
+					"z_index": 0
+				},
+				{
+					"class": "Node2D",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@367/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/TouchableRoomProps",
+					"z_index": 0
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@367/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/TouchableRoomProps/Animated_sleepy_bunny",
+					"source_asset_path": "",
+					"texture": "res://assets/castle/dirty_cleanup_2d/critters/dust_bunnies/dust_bunny_sleepy.png",
+					"z_index": 265
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@367/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/TouchableRoomProps/Animated_shell_bunny",
+					"source_asset_path": "",
+					"texture": "res://assets/castle/dirty_cleanup_2d/critters/dust_bunnies/dust_bunny_shell_hide.png",
+					"z_index": 305
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (473.8756, 449.378), S: (119.4258, 119.4258)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@367/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/TouchableRoomProps/CastleCompanionCard",
+					"z_index": 221
+				},
+				{
+					"class": "TextureRect",
+					"global_rect": "[P: (473.8756, 449.378), S: (119.4258, 119.4258)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@367/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/TouchableRoomProps/CastleCompanionCard/CompanionArt_0",
+					"scale": "(1.0, 1.0)",
+					"stretch_mode": 5,
+					"texture": "res://assets/sprites/stuffie_studio/lamma.png",
+					"texture_size": "(949.0, 1024.0)",
+					"z_index": 0
+				},
+				{
+					"class": "Node2D",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@367/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/RoomMidground",
+					"z_index": 0
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@367/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/RoomMidground/HallDoorSign_family_gallery",
+					"source_asset_path": "",
+					"texture": "res://assets/flats/castle/main_hall_redraw_2026-08-03/signs/sign_family_gallery.png",
+					"z_index": 68
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@367/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/RoomMidground/HallDoorSign_opera_hall",
+					"source_asset_path": "",
+					"texture": "res://assets/flats/castle/main_hall_redraw_2026-08-03/signs/sign_opera_hall.png",
+					"z_index": 68
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@367/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/RoomMidground/HallDoorSign_library",
+					"source_asset_path": "",
+					"texture": "res://assets/flats/castle/main_hall_redraw_2026-08-03/signs/sign_library.png",
+					"z_index": 68
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@367/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/RoomMidground/HallDoorSign_kitchen",
+					"source_asset_path": "",
+					"texture": "res://assets/flats/castle/main_hall_redraw_2026-08-03/signs/sign_kitchen.png",
+					"z_index": 68
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@367/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/RoomMidground/MoonflowerConservatoryDoor",
+					"source_asset_path": "res://assets/flats/castle/fairy_conservatory/moonflower_door_closed.png",
+					"texture": "res://assets/flats/castle/fairy_conservatory/moonflower_door_closed.png",
+					"z_index": 70
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(0.24, 0.25, 0.48, 0.58)",
+					"path": "/root/Main/@CanvasLayer@367/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/RoshanContactShadow",
+					"source_asset_path": "",
+					"texture": "res://assets/flats/castle/rooms/room_actor_shadow.png",
+					"z_index": 216
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@367/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/RoshanCutout",
+					"source_asset_path": "",
+					"texture": "res://assets/characters/roshan_25d/roshan_directional.png",
+					"z_index": 220
+				},
+				{
+					"class": "Node2D",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@367/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/RoomForeground",
+					"z_index": 0
+				},
+				{
+					"class": "Node2D",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@367/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/TouchablePropEffects",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (0.0, 0.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@367/CastleRooms25D/StorybookStage/TouchablePropHotspots",
+					"z_index": 24
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (0.0, 0.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@367/CastleRooms25D/StorybookStage/MainHallDoorHotspots",
+					"z_index": 25
+				},
+				{
+					"class": "Button",
+					"disabled": false,
+					"global_rect": "[P: (320.7656, 229.6651), S: (122.488, 233.4928)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@367/CastleRooms25D/StorybookStage/MainHallDoorHotspots/HallDoor_family_gallery",
+					"text": "",
+					"z_index": 0
+				},
+				{
+					"class": "Button",
+					"disabled": false,
+					"global_rect": "[P: (829.8564, 137.799), S: (229.665, 325.3589)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@367/CastleRooms25D/StorybookStage/MainHallDoorHotspots/HallDoor_opera_hall",
+					"text": "",
+					"z_index": 0
+				},
+				{
+					"class": "Button",
+					"disabled": false,
+					"global_rect": "[P: (450.9091, 229.6651), S: (122.488, 233.4928)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@367/CastleRooms25D/StorybookStage/MainHallDoorHotspots/HallDoor_library",
+					"text": "",
+					"z_index": 0
+				},
+				{
+					"class": "Button",
+					"disabled": false,
+					"global_rect": "[P: (577.2249, 229.6651), S: (122.488, 233.4928)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@367/CastleRooms25D/StorybookStage/MainHallDoorHotspots/HallDoor_kitchen",
+					"text": "",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@367/CastleRooms25D/StorybookStage/ChapterTwoRoomPlot",
+					"z_index": 46
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@367/CastleRooms25D/StorybookStage/ComfyGamesCastleLayer",
+					"z_index": 28
+				}
+			],
+			"pick_colors": [],
+			"pick_id": "",
+			"pick_slot": 0,
+			"picker_open": false,
+			"presentation": {
+				"boot_splash_present": false,
+				"fade_alpha": 0.0,
+				"intro_active": false,
+				"intro_layer_present": false,
+				"medal_present": false,
+				"start_menu_active": false,
+				"start_menu_layer_present": false
+			},
+			"stuffie_wins": {
+				"friend_lamma": true,
+				"rescued_eagle": true
+			},
+			"ticks_msec": 9949
+		},
+		{
+			"actual_child_data": false,
+			"care_open": false,
+			"care_points": 8,
+			"castle_card": {},
+			"castle_room_id": "main_hall",
+			"companion_colors": [],
+			"companion_id": "lamma",
+			"custom_fish": [
+				[
+					0.9,
+					0.3,
+					0.3,
+					1.0,
+					0.8,
+					0.2
+				],
+				[
+					0.2,
+					0.7,
+					0.8,
+					0.9,
+					0.3,
+					0.4,
+					1.0,
+					0.0
+				]
+			],
+			"custom_friends": [
+				[
+					"cat",
+					0.95,
+					0.7,
+					0.85,
+					0.6,
+					0.4,
+					0.9
+				],
+				[
+					"bird",
+					1.0,
+					0.85,
+					0.3,
+					0.3,
+					0.8,
+					0.9,
+					0.0,
+					1.0
+				],
+				[
+					"cat",
+					0.95,
+					0.7,
+					0.85,
+					0.6,
+					0.4,
+					0.9,
+					1.0,
+					0.0,
+					0.97,
+					0.96,
+					0.93
+				]
+			],
+			"game": "level2",
+			"game_phase": "promenade",
+			"id": "picker_default",
+			"image": {
+				"bytes": 607917,
+				"dimensions": [
+					1600,
+					720
+				],
+				"file": "picker_default.png",
+				"sha256": "b06950ed73e3c8cbd03699db9515ad319630633bf912201d5eb1b9f8b1c621dc"
+			},
+			"input": {
+				"entry": "guarded production open_picker studio;private synthetic seed,not natural route"
+			},
+			"nodes": [
+				{
+					"class": "Control",
+					"global_rect": "[P: (0.0, 0.0), S: (1600.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@393/@Control@394",
+					"z_index": 0
+				},
+				{
+					"class": "ColorRect",
+					"global_rect": "[P: (0.0, 0.0), S: (1600.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@393/@Control@394/@ColorRect@395",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@393/@Control@394/StorybookStage",
+					"z_index": 0
+				},
+				{
+					"class": "Panel",
+					"global_rect": "[P: (194.0, 24.0), S: (1212.0, 672.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@393/@Control@394/StorybookStage/@Panel@396",
+					"z_index": 0
+				},
+				{
+					"class": "Label",
+					"global_rect": "[P: (230.0, 34.0), S: (1.0, 174.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@393/@Control@394/StorybookStage/@Label@397",
+					"z_index": 0
+				},
+				{
+					"class": "Button",
+					"disabled": false,
+					"global_rect": "[P: (240.0, 130.0), S: (330.0, 225.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@393/@Control@394/StorybookStage/StuffieCard_lamma",
+					"text": "",
+					"z_index": 0
+				},
+				{
+					"class": "TextureRect",
+					"global_rect": "[P: (252.0, 142.0), S: (949.0, 1024.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@393/@Control@394/StorybookStage/StuffieCard_lamma/@TextureRect@398",
+					"scale": "(1.0, 1.0)",
+					"stretch_mode": 5,
+					"texture": "res://assets/sprites/stuffie_studio/lamma.png",
+					"texture_size": "(949.0, 1024.0)",
+					"z_index": 0
+				},
+				{
+					"class": "Label",
+					"global_rect": "[P: (412.0, 154.0), S: (150.0, 150.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@393/@Control@394/StorybookStage/StuffieCard_lamma/@Label@399",
+					"z_index": 0
+				},
+				{
+					"class": "Label",
+					"global_rect": "[P: (412.0, 298.0), S: (1.0, 102.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@393/@Control@394/StorybookStage/StuffieCard_lamma/@Label@400",
+					"z_index": 0
+				},
+				{
+					"class": "Panel",
+					"global_rect": "[P: (620.0, 130.0), S: (330.0, 330.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@393/@Control@394/StorybookStage/StuffiePreviewCard",
+					"z_index": 0
+				},
+				{
+					"class": "TextureRect",
+					"global_rect": "[P: (634.0, 144.0), S: (949.0, 1024.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@393/@Control@394/StorybookStage/StuffiePreviewCard/@TextureRect@402",
+					"scale": "(1.0, 1.0)",
+					"stretch_mode": 5,
+					"texture": "res://assets/sprites/stuffie_studio/lamma.png",
+					"texture_size": "(949.0, 1024.0)",
+					"z_index": 0
+				},
+				{
+					"class": "Label",
+					"global_rect": "[P: (990.0, 240.0), S: (400.0, 120.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@393/@Control@394/StorybookStage/@Label@403",
+					"z_index": 0
+				},
+				{
+					"class": "Button",
+					"disabled": false,
+					"global_rect": "[P: (620.0, 500.0), S: (330.0, 150.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@393/@Control@394/StorybookStage/StuffieConfirmButton",
+					"text": "🎨  SAVE COLORS!",
+					"z_index": 0
+				}
+			],
+			"pick_colors": [
+				"fffcf2",
+				"ffcce0",
+				"f2ebf7"
+			],
+			"pick_id": "lamma",
+			"pick_slot": 0,
+			"picker_open": true,
+			"presentation": {
+				"boot_splash_present": false,
+				"fade_alpha": 0.0,
+				"intro_active": false,
+				"intro_layer_present": false,
+				"medal_present": false,
+				"start_menu_active": false,
+				"start_menu_layer_present": false
+			},
+			"stuffie_wins": {
+				"friend_lamma": true,
+				"rescued_eagle": true
+			},
+			"ticks_msec": 10581
+		},
+		{
+			"actual_child_data": false,
+			"care_open": false,
+			"care_points": 8,
+			"castle_card": {},
+			"castle_room_id": "main_hall",
+			"companion_colors": [],
+			"companion_id": "lamma",
+			"custom_fish": [
+				[
+					0.9,
+					0.3,
+					0.3,
+					1.0,
+					0.8,
+					0.2
+				],
+				[
+					0.2,
+					0.7,
+					0.8,
+					0.9,
+					0.3,
+					0.4,
+					1.0,
+					0.0
+				]
+			],
+			"custom_friends": [
+				[
+					"cat",
+					0.95,
+					0.7,
+					0.85,
+					0.6,
+					0.4,
+					0.9
+				],
+				[
+					"bird",
+					1.0,
+					0.85,
+					0.3,
+					0.3,
+					0.8,
+					0.9,
+					0.0,
+					1.0
+				],
+				[
+					"cat",
+					0.95,
+					0.7,
+					0.85,
+					0.6,
+					0.4,
+					0.9,
+					1.0,
+					0.0,
+					0.97,
+					0.96,
+					0.93
+				]
+			],
+			"game": "level2",
+			"game_phase": "promenade",
+			"id": "nonpaintable_identity_guard",
+			"image": {
+				"bytes": 608142,
+				"dimensions": [
+					1600,
+					720
+				],
+				"file": "nonpaintable_identity_guard.png",
+				"sha256": "f7ec505492afe7786d4eb4b9c7492c538c5c4a9be7e55c5ee1f6de98bc576f17"
+			},
+			"input": {},
+			"nodes": [
+				{
+					"class": "Control",
+					"global_rect": "[P: (0.0, 0.0), S: (1600.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@393/@Control@394",
+					"z_index": 0
+				},
+				{
+					"class": "ColorRect",
+					"global_rect": "[P: (0.0, 0.0), S: (1600.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@393/@Control@394/@ColorRect@395",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@393/@Control@394/StorybookStage",
+					"z_index": 0
+				},
+				{
+					"class": "Panel",
+					"global_rect": "[P: (194.0, 24.0), S: (1212.0, 672.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@393/@Control@394/StorybookStage/@Panel@396",
+					"z_index": 0
+				},
+				{
+					"class": "Label",
+					"global_rect": "[P: (230.0, 34.0), S: (1.0, 174.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@393/@Control@394/StorybookStage/@Label@397",
+					"z_index": 0
+				},
+				{
+					"class": "Button",
+					"disabled": false,
+					"global_rect": "[P: (240.0, 130.0), S: (330.0, 225.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@393/@Control@394/StorybookStage/StuffieCard_lamma",
+					"text": "",
+					"z_index": 0
+				},
+				{
+					"class": "TextureRect",
+					"global_rect": "[P: (252.0, 142.0), S: (949.0, 1024.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@393/@Control@394/StorybookStage/StuffieCard_lamma/@TextureRect@398",
+					"scale": "(1.0, 1.0)",
+					"stretch_mode": 5,
+					"texture": "res://assets/sprites/stuffie_studio/lamma.png",
+					"texture_size": "(949.0, 1024.0)",
+					"z_index": 0
+				},
+				{
+					"class": "Label",
+					"global_rect": "[P: (412.0, 154.0), S: (150.0, 150.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@393/@Control@394/StorybookStage/StuffieCard_lamma/@Label@399",
+					"z_index": 0
+				},
+				{
+					"class": "Label",
+					"global_rect": "[P: (412.0, 298.0), S: (1.0, 102.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@393/@Control@394/StorybookStage/StuffieCard_lamma/@Label@400",
+					"z_index": 0
+				},
+				{
+					"class": "Panel",
+					"global_rect": "[P: (620.0, 130.0), S: (330.0, 330.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@393/@Control@394/StorybookStage/StuffiePreviewCard",
+					"z_index": 0
+				},
+				{
+					"class": "TextureRect",
+					"global_rect": "[P: (634.0, 144.0), S: (949.0, 1024.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@393/@Control@394/StorybookStage/StuffiePreviewCard/@TextureRect@402",
+					"scale": "(1.0, 1.0)",
+					"stretch_mode": 5,
+					"texture": "res://assets/sprites/stuffie_studio/lamma.png",
+					"texture_size": "(949.0, 1024.0)",
+					"z_index": 0
+				},
+				{
+					"class": "Label",
+					"global_rect": "[P: (990.0, 240.0), S: (400.0, 120.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@393/@Control@394/StorybookStage/@Label@403",
+					"z_index": 0
+				},
+				{
+					"class": "Button",
+					"disabled": false,
+					"global_rect": "[P: (620.0, 500.0), S: (330.0, 150.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@393/@Control@394/StorybookStage/StuffieConfirmButton",
+					"text": "🎨  SAVE COLORS!",
+					"z_index": 0
+				}
+			],
+			"pick_colors": [
+				"fffcf2",
+				"ffcce0",
+				"f2ebf7"
+			],
+			"pick_id": "lamma",
+			"pick_slot": 0,
+			"picker_open": true,
+			"presentation": {
+				"boot_splash_present": false,
+				"fade_alpha": 0.0,
+				"intro_active": false,
+				"intro_layer_present": false,
+				"medal_present": false,
+				"start_menu_active": false,
+				"start_menu_layer_present": false
+			},
+			"stuffie_wins": {
+				"friend_lamma": true,
+				"rescued_eagle": true
+			},
+			"ticks_msec": 10776
+		},
+		{
+			"actual_child_data": false,
+			"care_open": false,
+			"care_points": 8,
+			"castle_card": {},
+			"castle_room_id": "main_hall",
+			"companion_colors": [
+				"fffcf2",
+				"ffcce0",
+				"f2ebf7"
+			],
+			"companion_id": "lamma",
+			"custom_fish": [
+				[
+					0.9,
+					0.3,
+					0.3,
+					1.0,
+					0.8,
+					0.2
+				],
+				[
+					0.2,
+					0.7,
+					0.8,
+					0.9,
+					0.3,
+					0.4,
+					1.0,
+					0.0
+				]
+			],
+			"custom_friends": [
+				[
+					"cat",
+					0.95,
+					0.7,
+					0.85,
+					0.6,
+					0.4,
+					0.9
+				],
+				[
+					"bird",
+					1.0,
+					0.85,
+					0.3,
+					0.3,
+					0.8,
+					0.9,
+					0.0,
+					1.0
+				],
+				[
+					"cat",
+					0.95,
+					0.7,
+					0.85,
+					0.6,
+					0.4,
+					0.9,
+					1.0,
+					0.0,
+					0.97,
+					0.96,
+					0.93
+				]
+			],
+			"game": "level2",
+			"game_phase": "promenade",
+			"id": "confirmed_teardown",
+			"image": {
+				"bytes": 2159752,
+				"dimensions": [
+					1600,
+					720
+				],
+				"file": "confirmed_teardown.png",
+				"sha256": "a7a17bfcc1fd0b144145d6d6beb4f9c1a00f256f31c6ea5c6459f1490f634124"
+			},
+			"input": {
+				"art_context_credit": false,
+				"reason": "Only persistence/lifetime evidence"
+			},
+			"nodes": [],
+			"pick_colors": [
+				"fffcf2",
+				"ffcce0",
+				"f2ebf7"
+			],
+			"pick_id": "lamma",
+			"pick_slot": 0,
+			"picker_open": false,
+			"presentation": {
+				"boot_splash_present": false,
+				"fade_alpha": 0.0,
+				"intro_active": false,
+				"intro_layer_present": false,
+				"medal_present": false,
+				"start_menu_active": false,
+				"start_menu_layer_present": false
+			},
+			"stuffie_wins": {
+				"friend_lamma": true,
+				"rescued_eagle": true
+			},
+			"ticks_msec": 11524
+		},
+		{
+			"actual_child_data": false,
+			"care_open": true,
+			"care_points": 8,
+			"castle_card": {},
+			"castle_room_id": "main_hall",
+			"companion_colors": [
+				"fffcf2",
+				"ffcce0",
+				"f2ebf7"
+			],
+			"companion_id": "lamma",
+			"custom_fish": [
+				[
+					0.9,
+					0.3,
+					0.3,
+					1.0,
+					0.8,
+					0.2
+				],
+				[
+					0.2,
+					0.7,
+					0.8,
+					0.9,
+					0.3,
+					0.4,
+					1.0,
+					0.0
+				]
+			],
+			"custom_friends": [
+				[
+					"cat",
+					0.95,
+					0.7,
+					0.85,
+					0.6,
+					0.4,
+					0.9
+				],
+				[
+					"bird",
+					1.0,
+					0.85,
+					0.3,
+					0.3,
+					0.8,
+					0.9,
+					0.0,
+					1.0
+				],
+				[
+					"cat",
+					0.95,
+					0.7,
+					0.85,
+					0.6,
+					0.4,
+					0.9,
+					1.0,
+					0.0,
+					0.97,
+					0.96,
+					0.93
+				]
+			],
+			"game": "level2",
+			"game_phase": "promenade",
+			"id": "care_saved_colors",
+			"image": {
+				"bytes": 655603,
+				"dimensions": [
+					1600,
+					720
+				],
+				"file": "care_saved_colors.png",
+				"sha256": "165122323e35cc1a599e021600096de851d3a0a42d22d8c98850a49afbdac39e"
+			},
+			"input": {
+				"entry": "actual productionguarded care entry;no manual guard bypass"
+			},
+			"nodes": [
+				{
+					"class": "Control",
+					"global_rect": "[P: (0.0, 0.0), S: (1600.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@405/@Control@406",
+					"z_index": 0
+				},
+				{
+					"class": "ColorRect",
+					"global_rect": "[P: (0.0, 0.0), S: (1600.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@405/@Control@406/@ColorRect@407",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@405/@Control@406/StorybookStage",
+					"z_index": 0
+				},
+				{
+					"class": "Panel",
+					"global_rect": "[P: (198.0, 24.0), S: (1204.0, 672.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@405/@Control@406/StorybookStage/StuffieCareShell",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (742.0, 2.0), S: (116.0, 82.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@405/@Control@406/StorybookStage/StuffieCareShellCrest",
+					"z_index": 0
+				},
+				{
+					"class": "Panel",
+					"global_rect": "[P: (217.0, 46.0), S: (18.0, 18.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@405/@Control@406/StorybookStage/StuffieCarePearlTL",
+					"z_index": 0
+				},
+				{
+					"class": "Panel",
+					"global_rect": "[P: (1365.0, 46.0), S: (18.0, 18.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@405/@Control@406/StorybookStage/StuffieCarePearlTR",
+					"z_index": 0
+				},
+				{
+					"class": "Panel",
+					"global_rect": "[P: (223.0, 659.0), S: (14.0, 14.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@405/@Control@406/StorybookStage/StuffieCarePearlBL",
+					"z_index": 0
+				},
+				{
+					"class": "Panel",
+					"global_rect": "[P: (1363.0, 659.0), S: (14.0, 14.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@405/@Control@406/StorybookStage/StuffieCarePearlBR",
+					"z_index": 0
+				},
+				{
+					"class": "Label",
+					"global_rect": "[P: (232.0, 42.0), S: (720.0, 70.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@405/@Control@406/StorybookStage/@Label@409",
+					"z_index": 0
+				},
+				{
+					"class": "Panel",
+					"global_rect": "[P: (232.0, 138.0), S: (350.0, 360.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@405/@Control@406/StorybookStage/@Panel@410",
+					"z_index": 0
+				},
+				{
+					"class": "TextureRect",
+					"global_rect": "[P: (248.0, 154.0), S: (949.0, 1024.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@405/@Control@406/StorybookStage/@Panel@410/@TextureRect@411",
+					"scale": "(1.0, 1.0)",
+					"stretch_mode": 5,
+					"texture": "res://assets/sprites/stuffie_studio/lamma.png",
+					"texture_size": "(949.0, 1024.0)",
+					"z_index": 0
+				},
+				{
+					"class": "Label",
+					"global_rect": "[P: (232.0, 496.0), S: (350.0, 50.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@405/@Control@406/StorybookStage/StuffieGrowthPips",
+					"z_index": 0
+				},
+				{
+					"class": "Label",
+					"global_rect": "[P: (232.0, 536.0), S: (350.0, 44.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@405/@Control@406/StorybookStage/StuffieHeartProgress",
+					"z_index": 0
+				},
+				{
+					"class": "Button",
+					"disabled": true,
+					"global_rect": "[P: (252.0, 576.0), S: (310.0, 112.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@405/@Control@406/StorybookStage/StuffieSwitchButton",
+					"text": "🎨  CHANGE",
+					"z_index": 0
+				},
+				{
+					"class": "Panel",
+					"global_rect": "[P: (626.0, 138.0), S: (698.0, 176.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@405/@Control@406/StorybookStage/@Panel@412",
+					"z_index": 0
+				},
+				{
+					"class": "Label",
+					"global_rect": "[P: (646.0, 150.0), S: (658.0, 152.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@405/@Control@406/StorybookStage/@Panel@412/StuffieCurrentNeed",
+					"z_index": 0
+				},
+				{
+					"class": "Button",
+					"disabled": false,
+					"global_rect": "[P: (626.0, 344.0), S: (126.0, 132.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@405/@Control@406/StorybookStage/StuffieCareAction_feed",
+					"text": "🍎",
+					"z_index": 0
+				},
+				{
+					"class": "Button",
+					"disabled": false,
+					"global_rect": "[P: (766.0, 344.0), S: (126.0, 132.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@405/@Control@406/StorybookStage/StuffieCareAction_nap",
+					"text": "💤",
+					"z_index": 0
+				},
+				{
+					"class": "Button",
+					"disabled": false,
+					"global_rect": "[P: (906.0, 344.0), S: (126.0, 132.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@405/@Control@406/StorybookStage/StuffieCareAction_bath",
+					"text": "🫧",
+					"z_index": 0
+				},
+				{
+					"class": "Button",
+					"disabled": false,
+					"global_rect": "[P: (1046.0, 344.0), S: (126.0, 132.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@405/@Control@406/StorybookStage/StuffieCareAction_cuddle",
+					"text": "❤",
+					"z_index": 0
+				},
+				{
+					"class": "Button",
+					"disabled": false,
+					"global_rect": "[P: (1186.0, 344.0), S: (126.0, 132.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@405/@Control@406/StorybookStage/StuffieCareAction_play",
+					"text": "🎾",
+					"z_index": 0
+				},
+				{
+					"class": "Label",
+					"global_rect": "[P: (626.0, 500.0), S: (698.0, 66.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@405/@Control@406/StorybookStage/@Label@413",
+					"z_index": 0
+				},
+				{
+					"class": "Label",
+					"global_rect": "[P: (626.0, 584.0), S: (698.0, 70.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@405/@Control@406/StorybookStage/@Label@414",
+					"z_index": 0
+				}
+			],
+			"pick_colors": [
+				"fffcf2",
+				"ffcce0",
+				"f2ebf7"
+			],
+			"pick_id": "lamma",
+			"pick_slot": 0,
+			"picker_open": false,
+			"presentation": {
+				"boot_splash_present": false,
+				"fade_alpha": 0.0,
+				"intro_active": false,
+				"intro_layer_present": false,
+				"medal_present": false,
+				"start_menu_active": false,
+				"start_menu_layer_present": false
+			},
+			"stuffie_wins": {
+				"friend_lamma": true,
+				"rescued_eagle": true
+			},
+			"ticks_msec": 11902
+		},
+		{
+			"actual_child_data": false,
+			"care_open": false,
+			"care_points": 8,
+			"castle_card": {
+				"child_count": 1,
+				"color_tokens": [
+					"fffcf2",
+					"ffcce0",
+					"f2ebf7"
+				],
+				"identity": "lamma",
+				"position": "(313.8756, 449.378)",
+				"scale": "(0.76555, 0.76555)",
+				"source_asset_paths": [
+					"res://assets/sprites/stuffie_studio/lamma.png"
+				],
+				"source_object_id": "castle:companion:lamma",
+				"visible": true,
+				"z_index": 221
+			},
+			"castle_room_id": "main_hall",
+			"companion_colors": [
+				"fffcf2",
+				"ffcce0",
+				"f2ebf7"
+			],
+			"companion_id": "lamma",
+			"custom_fish": [
+				[
+					0.9,
+					0.3,
+					0.3,
+					1.0,
+					0.8,
+					0.2
+				],
+				[
+					0.2,
+					0.7,
+					0.8,
+					0.9,
+					0.3,
+					0.4,
+					1.0,
+					0.0
+				]
+			],
+			"custom_friends": [
+				[
+					"cat",
+					0.95,
+					0.7,
+					0.85,
+					0.6,
+					0.4,
+					0.9
+				],
+				[
+					"bird",
+					1.0,
+					0.85,
+					0.3,
+					0.3,
+					0.8,
+					0.9,
+					0.0,
+					1.0
+				],
+				[
+					"cat",
+					0.95,
+					0.7,
+					0.85,
+					0.6,
+					0.4,
+					0.9,
+					1.0,
+					0.0,
+					0.97,
+					0.96,
+					0.93
+				]
+			],
+			"game": "level2",
+			"game_phase": "hall",
+			"id": "castle_card_saved_colors",
+			"image": {
+				"bytes": 1753819,
+				"dimensions": [
+					1600,
+					720
+				],
+				"file": "castle_card_saved_colors.png",
+				"sha256": "065ee3d13b48b7332677f22a345b2101a3ed5eb23d2c30bb68ba2a1338e31339"
+			},
+			"input": {
+				"entry": "production _enter_level2_now then _enter_castle_interior_now;syntheticcheckpoint,notnaturalroute"
+			},
+			"nodes": [
+				{
+					"class": "Control",
+					"global_rect": "[P: (0.0, 0.0), S: (1600.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@438/CastleRooms25D",
+					"z_index": 0
+				},
+				{
+					"class": "ColorRect",
+					"global_rect": "[P: (0.0, 0.0), S: (161.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@438/CastleRooms25D/CastleLetterboxBackdrop",
+					"z_index": -2000
+				},
+				{
+					"class": "ColorRect",
+					"global_rect": "[P: (1439.0, 0.0), S: (161.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@438/CastleRooms25D/CastleLetterboxBackdropFar",
+					"z_index": -2000
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@438/CastleRooms25D/StorybookStage",
+					"z_index": 0
+				},
+				{
+					"class": "Node2D",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@438/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld",
+					"z_index": -1000
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@438/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/MainHallTile_r0_c0",
+					"source_asset_path": "",
+					"texture": "res://assets/flats/castle/main_hall_redraw_2026-08-03/tiles/main_hall_room_led_r0_c0.png",
+					"z_index": 0
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@438/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/MainHallTile_r0_c1",
+					"source_asset_path": "",
+					"texture": "res://assets/flats/castle/main_hall_redraw_2026-08-03/tiles/main_hall_room_led_r0_c1.png",
+					"z_index": 0
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@438/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/MainHallTile_r0_c2",
+					"source_asset_path": "",
+					"texture": "res://assets/flats/castle/main_hall_redraw_2026-08-03/tiles/main_hall_room_led_r0_c2.png",
+					"z_index": 0
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@438/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/MainHallTile_r0_c3",
+					"source_asset_path": "",
+					"texture": "res://assets/flats/castle/main_hall_redraw_2026-08-03/tiles/main_hall_room_led_r0_c3.png",
+					"z_index": 0
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@438/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/MainHallTile_r0_c4",
+					"source_asset_path": "",
+					"texture": "res://assets/flats/castle/main_hall_redraw_2026-08-03/tiles/main_hall_room_led_r0_c4.png",
+					"z_index": 0
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@438/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/MainHallTile_r1_c0",
+					"source_asset_path": "",
+					"texture": "res://assets/flats/castle/main_hall_redraw_2026-08-03/tiles/main_hall_room_led_r1_c0.png",
+					"z_index": 0
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@438/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/MainHallTile_r1_c1",
+					"source_asset_path": "",
+					"texture": "res://assets/flats/castle/main_hall_redraw_2026-08-03/tiles/main_hall_room_led_r1_c1.png",
+					"z_index": 0
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@438/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/MainHallTile_r1_c2",
+					"source_asset_path": "",
+					"texture": "res://assets/flats/castle/main_hall_redraw_2026-08-03/tiles/main_hall_room_led_r1_c2.png",
+					"z_index": 0
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@438/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/MainHallTile_r1_c3",
+					"source_asset_path": "",
+					"texture": "res://assets/flats/castle/main_hall_redraw_2026-08-03/tiles/main_hall_room_led_r1_c3.png",
+					"z_index": 0
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@438/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/MainHallTile_r1_c4",
+					"source_asset_path": "",
+					"texture": "res://assets/flats/castle/main_hall_redraw_2026-08-03/tiles/main_hall_room_led_r1_c4.png",
+					"z_index": 0
+				},
+				{
+					"class": "Node2D",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@438/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/TouchableRoomProps",
+					"z_index": 0
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@438/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/TouchableRoomProps/Animated_sleepy_bunny",
+					"source_asset_path": "",
+					"texture": "res://assets/castle/dirty_cleanup_2d/critters/dust_bunnies/dust_bunny_sleepy.png",
+					"z_index": 265
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@438/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/TouchableRoomProps/Animated_shell_bunny",
+					"source_asset_path": "",
+					"texture": "res://assets/castle/dirty_cleanup_2d/critters/dust_bunnies/dust_bunny_shell_hide.png",
+					"z_index": 305
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (473.8756, 449.378), S: (119.4258, 119.4258)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@438/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/TouchableRoomProps/CastleCompanionCard",
+					"z_index": 221
+				},
+				{
+					"class": "TextureRect",
+					"global_rect": "[P: (473.8756, 449.378), S: (119.4258, 119.4258)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@438/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/TouchableRoomProps/CastleCompanionCard/CompanionArt_0",
+					"scale": "(1.0, 1.0)",
+					"stretch_mode": 5,
+					"texture": "res://assets/sprites/stuffie_studio/lamma.png",
+					"texture_size": "(949.0, 1024.0)",
+					"z_index": 0
+				},
+				{
+					"class": "Node2D",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@438/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/RoomMidground",
+					"z_index": 0
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@438/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/RoomMidground/HallDoorSign_family_gallery",
+					"source_asset_path": "",
+					"texture": "res://assets/flats/castle/main_hall_redraw_2026-08-03/signs/sign_family_gallery.png",
+					"z_index": 68
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@438/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/RoomMidground/HallDoorSign_opera_hall",
+					"source_asset_path": "",
+					"texture": "res://assets/flats/castle/main_hall_redraw_2026-08-03/signs/sign_opera_hall.png",
+					"z_index": 68
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@438/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/RoomMidground/HallDoorSign_library",
+					"source_asset_path": "",
+					"texture": "res://assets/flats/castle/main_hall_redraw_2026-08-03/signs/sign_library.png",
+					"z_index": 68
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@438/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/RoomMidground/HallDoorSign_kitchen",
+					"source_asset_path": "",
+					"texture": "res://assets/flats/castle/main_hall_redraw_2026-08-03/signs/sign_kitchen.png",
+					"z_index": 68
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@438/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/RoomMidground/MoonflowerConservatoryDoor",
+					"source_asset_path": "res://assets/flats/castle/fairy_conservatory/moonflower_door_closed.png",
+					"texture": "res://assets/flats/castle/fairy_conservatory/moonflower_door_closed.png",
+					"z_index": 70
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(0.24, 0.25, 0.48, 0.58)",
+					"path": "/root/Main/@CanvasLayer@438/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/RoshanContactShadow",
+					"source_asset_path": "",
+					"texture": "res://assets/flats/castle/rooms/room_actor_shadow.png",
+					"z_index": 216
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@438/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/RoshanCutout",
+					"source_asset_path": "",
+					"texture": "res://assets/characters/roshan_25d/roshan_directional.png",
+					"z_index": 220
+				},
+				{
+					"class": "Node2D",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@438/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/RoomForeground",
+					"z_index": 0
+				},
+				{
+					"class": "Node2D",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@438/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/TouchablePropEffects",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (0.0, 0.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@438/CastleRooms25D/StorybookStage/TouchablePropHotspots",
+					"z_index": 24
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (0.0, 0.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@438/CastleRooms25D/StorybookStage/MainHallDoorHotspots",
+					"z_index": 25
+				},
+				{
+					"class": "Button",
+					"disabled": false,
+					"global_rect": "[P: (320.7656, 229.6651), S: (122.488, 233.4928)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@438/CastleRooms25D/StorybookStage/MainHallDoorHotspots/HallDoor_family_gallery",
+					"text": "",
+					"z_index": 0
+				},
+				{
+					"class": "Button",
+					"disabled": false,
+					"global_rect": "[P: (829.8564, 137.799), S: (229.665, 325.3589)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@438/CastleRooms25D/StorybookStage/MainHallDoorHotspots/HallDoor_opera_hall",
+					"text": "",
+					"z_index": 0
+				},
+				{
+					"class": "Button",
+					"disabled": false,
+					"global_rect": "[P: (450.9091, 229.6651), S: (122.488, 233.4928)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@438/CastleRooms25D/StorybookStage/MainHallDoorHotspots/HallDoor_library",
+					"text": "",
+					"z_index": 0
+				},
+				{
+					"class": "Button",
+					"disabled": false,
+					"global_rect": "[P: (577.2249, 229.6651), S: (122.488, 233.4928)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@438/CastleRooms25D/StorybookStage/MainHallDoorHotspots/HallDoor_kitchen",
+					"text": "",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@438/CastleRooms25D/StorybookStage/ChapterTwoRoomPlot",
+					"z_index": 46
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@438/CastleRooms25D/StorybookStage/ComfyGamesCastleLayer",
+					"z_index": 28
+				}
+			],
+			"pick_colors": [
+				"fffcf2",
+				"ffcce0",
+				"f2ebf7"
+			],
+			"pick_id": "lamma",
+			"pick_slot": 0,
+			"picker_open": false,
+			"presentation": {
+				"boot_splash_present": false,
+				"fade_alpha": 0.0,
+				"intro_active": false,
+				"intro_layer_present": false,
+				"medal_present": false,
+				"start_menu_active": false,
+				"start_menu_layer_present": false
+			},
+			"stuffie_wins": {
+				"friend_lamma": true,
+				"rescued_eagle": true
+			},
+			"ticks_msec": 13148
+		},
+		{
+			"actual_child_data": false,
+			"care_open": false,
+			"care_points": 8,
+			"castle_card": {
+				"child_count": 1,
+				"color_tokens": [
+					"fffcf2",
+					"ffcce0",
+					"f2ebf7"
+				],
+				"identity": "lamma",
+				"position": "(313.8756, 449.378)",
+				"scale": "(0.76555, 0.76555)",
+				"source_asset_paths": [
+					"res://assets/sprites/stuffie_studio/lamma.png"
+				],
+				"source_object_id": "castle:companion:lamma",
+				"visible": true,
+				"z_index": 221
+			},
+			"castle_room_id": "main_hall",
+			"companion_colors": [
+				"fffcf2",
+				"ffcce0",
+				"f2ebf7"
+			],
+			"companion_id": "lamma",
+			"custom_fish": [
+				[
+					0.9,
+					0.3,
+					0.3,
+					1.0,
+					0.8,
+					0.2
+				],
+				[
+					0.2,
+					0.7,
+					0.8,
+					0.9,
+					0.3,
+					0.4,
+					1.0,
+					0.0
+				]
+			],
+			"custom_friends": [
+				[
+					"cat",
+					0.95,
+					0.7,
+					0.85,
+					0.6,
+					0.4,
+					0.9
+				],
+				[
+					"bird",
+					1.0,
+					0.85,
+					0.3,
+					0.3,
+					0.8,
+					0.9,
+					0.0,
+					1.0
+				],
+				[
+					"cat",
+					0.95,
+					0.7,
+					0.85,
+					0.6,
+					0.4,
+					0.9,
+					1.0,
+					0.0,
+					0.97,
+					0.96,
+					0.93
+				]
+			],
+			"game": "level2",
+			"game_phase": "hall",
+			"id": "castle_card_idle_later",
+			"image": {
+				"bytes": 1753449,
+				"dimensions": [
+					1600,
+					720
+				],
+				"file": "castle_card_idle_later.png",
+				"sha256": "c81eaa006c42aaeed04ac686daa27563ece4758ca2c3777798b1ed9541279b9e"
+			},
+			"input": {
+				"continuous_motion_review": false,
+				"method": "sameprocess laternativeviewport"
+			},
+			"nodes": [
+				{
+					"class": "Control",
+					"global_rect": "[P: (0.0, 0.0), S: (1600.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@438/CastleRooms25D",
+					"z_index": 0
+				},
+				{
+					"class": "ColorRect",
+					"global_rect": "[P: (0.0, 0.0), S: (161.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@438/CastleRooms25D/CastleLetterboxBackdrop",
+					"z_index": -2000
+				},
+				{
+					"class": "ColorRect",
+					"global_rect": "[P: (1439.0, 0.0), S: (161.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@438/CastleRooms25D/CastleLetterboxBackdropFar",
+					"z_index": -2000
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@438/CastleRooms25D/StorybookStage",
+					"z_index": 0
+				},
+				{
+					"class": "Node2D",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@438/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld",
+					"z_index": -1000
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@438/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/MainHallTile_r0_c0",
+					"source_asset_path": "",
+					"texture": "res://assets/flats/castle/main_hall_redraw_2026-08-03/tiles/main_hall_room_led_r0_c0.png",
+					"z_index": 0
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@438/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/MainHallTile_r0_c1",
+					"source_asset_path": "",
+					"texture": "res://assets/flats/castle/main_hall_redraw_2026-08-03/tiles/main_hall_room_led_r0_c1.png",
+					"z_index": 0
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@438/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/MainHallTile_r0_c2",
+					"source_asset_path": "",
+					"texture": "res://assets/flats/castle/main_hall_redraw_2026-08-03/tiles/main_hall_room_led_r0_c2.png",
+					"z_index": 0
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@438/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/MainHallTile_r0_c3",
+					"source_asset_path": "",
+					"texture": "res://assets/flats/castle/main_hall_redraw_2026-08-03/tiles/main_hall_room_led_r0_c3.png",
+					"z_index": 0
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@438/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/MainHallTile_r0_c4",
+					"source_asset_path": "",
+					"texture": "res://assets/flats/castle/main_hall_redraw_2026-08-03/tiles/main_hall_room_led_r0_c4.png",
+					"z_index": 0
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@438/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/MainHallTile_r1_c0",
+					"source_asset_path": "",
+					"texture": "res://assets/flats/castle/main_hall_redraw_2026-08-03/tiles/main_hall_room_led_r1_c0.png",
+					"z_index": 0
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@438/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/MainHallTile_r1_c1",
+					"source_asset_path": "",
+					"texture": "res://assets/flats/castle/main_hall_redraw_2026-08-03/tiles/main_hall_room_led_r1_c1.png",
+					"z_index": 0
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@438/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/MainHallTile_r1_c2",
+					"source_asset_path": "",
+					"texture": "res://assets/flats/castle/main_hall_redraw_2026-08-03/tiles/main_hall_room_led_r1_c2.png",
+					"z_index": 0
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@438/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/MainHallTile_r1_c3",
+					"source_asset_path": "",
+					"texture": "res://assets/flats/castle/main_hall_redraw_2026-08-03/tiles/main_hall_room_led_r1_c3.png",
+					"z_index": 0
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@438/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/MainHallTile_r1_c4",
+					"source_asset_path": "",
+					"texture": "res://assets/flats/castle/main_hall_redraw_2026-08-03/tiles/main_hall_room_led_r1_c4.png",
+					"z_index": 0
+				},
+				{
+					"class": "Node2D",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@438/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/TouchableRoomProps",
+					"z_index": 0
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@438/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/TouchableRoomProps/Animated_sleepy_bunny",
+					"source_asset_path": "",
+					"texture": "res://assets/castle/dirty_cleanup_2d/critters/dust_bunnies/dust_bunny_sleepy.png",
+					"z_index": 265
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@438/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/TouchableRoomProps/Animated_shell_bunny",
+					"source_asset_path": "",
+					"texture": "res://assets/castle/dirty_cleanup_2d/critters/dust_bunnies/dust_bunny_shell_hide.png",
+					"z_index": 305
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (473.8756, 449.378), S: (119.4258, 119.4258)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@438/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/TouchableRoomProps/CastleCompanionCard",
+					"z_index": 221
+				},
+				{
+					"class": "TextureRect",
+					"global_rect": "[P: (473.8756, 449.378), S: (119.4258, 119.4258)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@438/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/TouchableRoomProps/CastleCompanionCard/CompanionArt_0",
+					"scale": "(1.0, 1.0)",
+					"stretch_mode": 5,
+					"texture": "res://assets/sprites/stuffie_studio/lamma.png",
+					"texture_size": "(949.0, 1024.0)",
+					"z_index": 0
+				},
+				{
+					"class": "Node2D",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@438/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/RoomMidground",
+					"z_index": 0
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@438/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/RoomMidground/HallDoorSign_family_gallery",
+					"source_asset_path": "",
+					"texture": "res://assets/flats/castle/main_hall_redraw_2026-08-03/signs/sign_family_gallery.png",
+					"z_index": 68
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@438/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/RoomMidground/HallDoorSign_opera_hall",
+					"source_asset_path": "",
+					"texture": "res://assets/flats/castle/main_hall_redraw_2026-08-03/signs/sign_opera_hall.png",
+					"z_index": 68
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@438/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/RoomMidground/HallDoorSign_library",
+					"source_asset_path": "",
+					"texture": "res://assets/flats/castle/main_hall_redraw_2026-08-03/signs/sign_library.png",
+					"z_index": 68
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@438/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/RoomMidground/HallDoorSign_kitchen",
+					"source_asset_path": "",
+					"texture": "res://assets/flats/castle/main_hall_redraw_2026-08-03/signs/sign_kitchen.png",
+					"z_index": 68
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@438/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/RoomMidground/MoonflowerConservatoryDoor",
+					"source_asset_path": "res://assets/flats/castle/fairy_conservatory/moonflower_door_closed.png",
+					"texture": "res://assets/flats/castle/fairy_conservatory/moonflower_door_closed.png",
+					"z_index": 70
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(0.24, 0.25, 0.48, 0.58)",
+					"path": "/root/Main/@CanvasLayer@438/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/RoshanContactShadow",
+					"source_asset_path": "",
+					"texture": "res://assets/flats/castle/rooms/room_actor_shadow.png",
+					"z_index": 216
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@438/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/RoshanCutout",
+					"source_asset_path": "",
+					"texture": "res://assets/characters/roshan_25d/roshan_directional.png",
+					"z_index": 220
+				},
+				{
+					"class": "Node2D",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@438/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/RoomForeground",
+					"z_index": 0
+				},
+				{
+					"class": "Node2D",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@438/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/TouchablePropEffects",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (0.0, 0.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@438/CastleRooms25D/StorybookStage/TouchablePropHotspots",
+					"z_index": 24
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (0.0, 0.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@438/CastleRooms25D/StorybookStage/MainHallDoorHotspots",
+					"z_index": 25
+				},
+				{
+					"class": "Button",
+					"disabled": false,
+					"global_rect": "[P: (320.7656, 229.6651), S: (122.488, 233.4928)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@438/CastleRooms25D/StorybookStage/MainHallDoorHotspots/HallDoor_family_gallery",
+					"text": "",
+					"z_index": 0
+				},
+				{
+					"class": "Button",
+					"disabled": false,
+					"global_rect": "[P: (829.8564, 137.799), S: (229.665, 325.3589)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@438/CastleRooms25D/StorybookStage/MainHallDoorHotspots/HallDoor_opera_hall",
+					"text": "",
+					"z_index": 0
+				},
+				{
+					"class": "Button",
+					"disabled": false,
+					"global_rect": "[P: (450.9091, 229.6651), S: (122.488, 233.4928)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@438/CastleRooms25D/StorybookStage/MainHallDoorHotspots/HallDoor_library",
+					"text": "",
+					"z_index": 0
+				},
+				{
+					"class": "Button",
+					"disabled": false,
+					"global_rect": "[P: (577.2249, 229.6651), S: (122.488, 233.4928)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@438/CastleRooms25D/StorybookStage/MainHallDoorHotspots/HallDoor_kitchen",
+					"text": "",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@438/CastleRooms25D/StorybookStage/ChapterTwoRoomPlot",
+					"z_index": 46
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@438/CastleRooms25D/StorybookStage/ComfyGamesCastleLayer",
+					"z_index": 28
+				}
+			],
+			"pick_colors": [
+				"fffcf2",
+				"ffcce0",
+				"f2ebf7"
+			],
+			"pick_id": "lamma",
+			"pick_slot": 0,
+			"picker_open": false,
+			"presentation": {
+				"boot_splash_present": false,
+				"fade_alpha": 0.0,
+				"intro_active": false,
+				"intro_layer_present": false,
+				"medal_present": false,
+				"start_menu_active": false,
+				"start_menu_layer_present": false
+			},
+			"stuffie_wins": {
+				"friend_lamma": true,
+				"rescued_eagle": true
+			},
+			"ticks_msec": 13799
+		},
+		{
+			"actual_child_data": false,
+			"care_open": false,
+			"care_points": 8,
+			"castle_card": {},
+			"castle_room_id": "main_hall",
+			"companion_colors": [
+				"fffcf2",
+				"ffcce0",
+				"f2ebf7"
+			],
+			"companion_id": "lamma",
+			"custom_fish": [
+				[
+					0.9,
+					0.3,
+					0.3,
+					1.0,
+					0.8,
+					0.2
+				],
+				[
+					0.2,
+					0.7,
+					0.8,
+					0.9,
+					0.3,
+					0.4,
+					1.0,
+					0.0
+				]
+			],
+			"custom_friends": [
+				[
+					"cat",
+					0.95,
+					0.7,
+					0.85,
+					0.6,
+					0.4,
+					0.9
+				],
+				[
+					"bird",
+					1.0,
+					0.85,
+					0.3,
+					0.3,
+					0.8,
+					0.9,
+					0.0,
+					1.0
+				],
+				[
+					"cat",
+					0.95,
+					0.7,
+					0.85,
+					0.6,
+					0.4,
+					0.9,
+					1.0,
+					0.0,
+					0.97,
+					0.96,
+					0.93
+				]
+			],
+			"game": "",
+			"game_phase": "",
+			"id": "reloaded_picker_saved_colors",
+			"image": {
+				"bytes": 276275,
+				"dimensions": [
+					1600,
+					720
+				],
+				"file": "reloaded_picker_saved_colors.png",
+				"sha256": "9cfb132f6a0a9ad52e83f1f24d3e9ff01ad5c1607465c63e59751b85bda51640"
+			},
+			"input": {
+				"entry": "fresh production Main/SaveState reload fromactual emittedprivate save"
+			},
+			"nodes": [
+				{
+					"class": "Control",
+					"global_rect": "[P: (0.0, 0.0), S: (1600.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@787/@Control@788",
+					"z_index": 0
+				},
+				{
+					"class": "ColorRect",
+					"global_rect": "[P: (0.0, 0.0), S: (1600.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@787/@Control@788/@ColorRect@789",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@787/@Control@788/StorybookStage",
+					"z_index": 0
+				},
+				{
+					"class": "Panel",
+					"global_rect": "[P: (194.0, 24.0), S: (1212.0, 672.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@787/@Control@788/StorybookStage/@Panel@790",
+					"z_index": 0
+				},
+				{
+					"class": "Label",
+					"global_rect": "[P: (230.0, 34.0), S: (1.0, 174.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@787/@Control@788/StorybookStage/@Label@791",
+					"z_index": 0
+				},
+				{
+					"class": "Button",
+					"disabled": false,
+					"global_rect": "[P: (240.0, 130.0), S: (330.0, 225.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@787/@Control@788/StorybookStage/StuffieCard_lamma",
+					"text": "",
+					"z_index": 0
+				},
+				{
+					"class": "TextureRect",
+					"global_rect": "[P: (252.0, 142.0), S: (949.0, 1024.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@787/@Control@788/StorybookStage/StuffieCard_lamma/@TextureRect@792",
+					"scale": "(1.0, 1.0)",
+					"stretch_mode": 5,
+					"texture": "res://assets/sprites/stuffie_studio/lamma.png",
+					"texture_size": "(949.0, 1024.0)",
+					"z_index": 0
+				},
+				{
+					"class": "Label",
+					"global_rect": "[P: (412.0, 154.0), S: (150.0, 150.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@787/@Control@788/StorybookStage/StuffieCard_lamma/@Label@793",
+					"z_index": 0
+				},
+				{
+					"class": "Label",
+					"global_rect": "[P: (412.0, 298.0), S: (1.0, 102.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@787/@Control@788/StorybookStage/StuffieCard_lamma/@Label@794",
+					"z_index": 0
+				},
+				{
+					"class": "Panel",
+					"global_rect": "[P: (620.0, 130.0), S: (330.0, 330.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@787/@Control@788/StorybookStage/StuffiePreviewCard",
+					"z_index": 0
+				},
+				{
+					"class": "TextureRect",
+					"global_rect": "[P: (634.0, 144.0), S: (949.0, 1024.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@787/@Control@788/StorybookStage/StuffiePreviewCard/@TextureRect@796",
+					"scale": "(1.0, 1.0)",
+					"stretch_mode": 5,
+					"texture": "res://assets/sprites/stuffie_studio/lamma.png",
+					"texture_size": "(949.0, 1024.0)",
+					"z_index": 0
+				},
+				{
+					"class": "Label",
+					"global_rect": "[P: (990.0, 240.0), S: (400.0, 120.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@787/@Control@788/StorybookStage/@Label@797",
+					"z_index": 0
+				},
+				{
+					"class": "Button",
+					"disabled": false,
+					"global_rect": "[P: (620.0, 500.0), S: (330.0, 150.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/@CanvasLayer@787/@Control@788/StorybookStage/StuffieConfirmButton",
+					"text": "🎨  SAVE COLORS!",
+					"z_index": 0
+				}
+			],
+			"pick_colors": [
+				"fffcf2",
+				"ffcce0",
+				"f2ebf7"
+			],
+			"pick_id": "lamma",
+			"pick_slot": 0,
+			"picker_open": true,
+			"presentation": {
+				"boot_splash_present": false,
+				"fade_alpha": 0.0,
+				"intro_active": false,
+				"intro_layer_present": false,
+				"medal_present": false,
+				"start_menu_active": false,
+				"start_menu_layer_present": false
+			},
+			"stuffie_wins": {
+				"friend_lamma": true,
+				"rescued_eagle": true
+			},
+			"ticks_msec": 14974
+		},
+		{
+			"actual_child_data": false,
+			"care_open": false,
+			"care_points": 8,
+			"castle_card": {},
+			"castle_room_id": "main_hall",
+			"companion_colors": [
+				"fffcf2",
+				"ffcce0",
+				"f2ebf7"
+			],
+			"companion_id": "lamma",
+			"custom_fish": [
+				[
+					0.9,
+					0.3,
+					0.3,
+					1.0,
+					0.8,
+					0.2
+				],
+				[
+					0.2,
+					0.7,
+					0.8,
+					0.9,
+					0.3,
+					0.4,
+					1.0,
+					0.0
+				]
+			],
+			"custom_friends": [
+				[
+					"cat",
+					0.95,
+					0.7,
+					0.85,
+					0.6,
+					0.4,
+					0.9
+				],
+				[
+					"bird",
+					1.0,
+					0.85,
+					0.3,
+					0.3,
+					0.8,
+					0.9,
+					0.0,
+					1.0
+				],
+				[
+					"cat",
+					0.95,
+					0.7,
+					0.85,
+					0.6,
+					0.4,
+					0.9,
+					1.0,
+					0.0,
+					0.97,
+					0.96,
+					0.93
+				]
+			],
+			"game": "",
+			"game_phase": "",
+			"id": "reentry_cancel_teardown",
+			"image": {
+				"bytes": 662133,
+				"dimensions": [
+					1600,
+					720
+				],
+				"file": "reentry_cancel_teardown.png",
+				"sha256": "efe7d888608d4373a9154064939d7af23351cca5c6d4cec8e11252b26c1f08b1"
+			},
+			"input": {
+				"art_context_credit": false,
+				"reason": "Only lifetime evidence"
+			},
+			"nodes": [],
+			"pick_colors": [
+				"fffcf2",
+				"ffcce0",
+				"f2ebf7"
+			],
+			"pick_id": "lamma",
+			"pick_slot": 0,
+			"picker_open": false,
+			"presentation": {
+				"boot_splash_present": false,
+				"fade_alpha": 0.0,
+				"intro_active": false,
+				"intro_layer_present": false,
+				"medal_present": false,
+				"start_menu_active": false,
+				"start_menu_layer_present": false
+			},
+			"stuffie_wins": {
+				"friend_lamma": true,
+				"rescued_eagle": true
+			},
+			"ticks_msec": 15321
+		}
+	],
+	"synthetic_seed": {
+		"care_points": 8,
+		"companion": "lamma",
+		"companion_colors": [],
+		"crafts": {},
+		"custom_fish": [
+			[
+				0.9,
+				0.3,
+				0.3,
+				1.0,
+				0.8,
+				0.2
+			],
+			[
+				0.2,
+				0.7,
+				0.8,
+				0.9,
+				0.3,
+				0.4,
+				1,
+				0
+			]
+		],
+		"custom_friends": [
+			[
+				"cat",
+				0.95,
+				0.7,
+				0.85,
+				0.6,
+				0.4,
+				0.9
+			],
+			[
+				"bird",
+				1.0,
+				0.85,
+				0.3,
+				0.3,
+				0.8,
+				0.9,
+				0,
+				1
+			],
+			[
+				"cat",
+				0.95,
+				0.7,
+				0.85,
+				0.6,
+				0.4,
+				0.9,
+				1,
+				0,
+				0.97,
+				0.96,
+				0.93
+			]
+		],
+		"found": {},
+		"mic": false,
+		"music": false,
+		"pearls": 23,
+		"pearls_ever": 23,
+		"plays": 0,
+		"quality": "speedy",
+		"schema_version": 1,
+		"stickers": {},
+		"stuffie_wins": {
+			"friend_lamma": true,
+			"rescued_eagle": true
+		},
+		"won": {}
+	}
+}

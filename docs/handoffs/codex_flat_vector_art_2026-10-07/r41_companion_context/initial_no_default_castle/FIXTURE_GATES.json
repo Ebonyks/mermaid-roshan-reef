@@ -1,0 +1,44 @@
+{
+  "status": "PASS_SYNTAX_ONLY",
+  "commands": [
+    {
+      "command": [
+        "python",
+        "-m",
+        "gdtoolkit.parser",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r41_companion_context\\capture_companion_context.gd"
+      ],
+      "exit_code": 0,
+      "checked_at_utc": "2026-10-14T22:36:17.166910+00:00",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_utf8": ""
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/lint_inference.py",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r41_companion_context\\capture_companion_context.gd"
+      ],
+      "exit_code": 0,
+      "checked_at_utc": "2026-10-14T22:36:17.271493+00:00",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_utf8": ""
+    },
+    {
+      "command": [
+        "C:/Users/Peter/AppData/Local/Programs/MermaidReefTools/Godot/4.7.2/godot_console.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef",
+        "--check-only",
+        "--script",
+        "res://docs/handoffs/codex_flat_vector_art_2026-10-07/r41_companion_context/capture_companion_context.gd"
+      ],
+      "exit_code": 0,
+      "checked_at_utc": "2026-10-14T22:36:24.286819+00:00",
+      "stdout_sha256": "83cf0b082206af2aa236c83064fbcfa76be1e00a4aa3558574b2f65965d9481c",
+      "stdout_utf8": "Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org\r\n\r\n"
+    }
+  ]
+}
