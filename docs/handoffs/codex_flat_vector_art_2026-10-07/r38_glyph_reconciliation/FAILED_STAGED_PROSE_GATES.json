@@ -1,0 +1,97 @@
+{
+  "status": "FAIL",
+  "commands": [
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-B",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r37_current_source_inventory\\verify_source_inventory.py"
+      ],
+      "started_at_utc": "2026-10-14T18:18:28.089630+00:00",
+      "checked_at_utc": "2026-10-14T18:18:28.767447+00:00",
+      "exit_code": 0,
+      "execution": "FRESH",
+      "evidence": "gates.log"
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-B",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r38_glyph_reconciliation\\verify_glyphs.py"
+      ],
+      "started_at_utc": "2026-10-14T18:18:28.767514+00:00",
+      "checked_at_utc": "2026-10-14T18:18:29.380102+00:00",
+      "exit_code": 0,
+      "execution": "FRESH",
+      "evidence": "gates.log"
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-B",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r38_glyph_reconciliation\\validate.py"
+      ],
+      "started_at_utc": "2026-10-14T18:18:29.380153+00:00",
+      "checked_at_utc": "2026-10-14T18:18:32.429704+00:00",
+      "exit_code": 0,
+      "execution": "FRESH",
+      "evidence": "gates.log"
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-B",
+        "tools/audit_document_authority.py"
+      ],
+      "started_at_utc": "2026-10-14T18:18:32.429760+00:00",
+      "checked_at_utc": "2026-10-14T18:18:42.709859+00:00",
+      "exit_code": 0,
+      "execution": "FRESH",
+      "evidence": "gates.log"
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-B",
+        "tools/audit_development.py",
+        "--base",
+        "auto"
+      ],
+      "started_at_utc": "2026-10-14T18:18:42.709912+00:00",
+      "checked_at_utc": "2026-10-14T18:18:46.949931+00:00",
+      "exit_code": 0,
+      "execution": "FRESH",
+      "evidence": "gates.log"
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-B",
+        "-m",
+        "unittest",
+        "tools.tests.test_audit_document_authority",
+        "tools.tests.test_audit_development"
+      ],
+      "started_at_utc": "2026-10-14T18:18:46.949982+00:00",
+      "checked_at_utc": "2026-10-14T18:18:57.061187+00:00",
+      "exit_code": 0,
+      "execution": "FRESH",
+      "evidence": "gates.log"
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-B",
+        "tools/audit_game_2d.py",
+        "--regression-gate"
+      ],
+      "started_at_utc": "2026-10-14T18:18:57.061264+00:00",
+      "checked_at_utc": "2026-10-14T18:19:56.249425+00:00",
+      "exit_code": 1,
+      "execution": "FRESH",
+      "evidence": "gates.log"
+    }
+  ],
+  "raw_log_sha256": "51e957c23129ae6b541b6b28a9268844774f6637c3091fe2f1ab6e9cf4218985",
+  "scope": "Fresh R37parser/source18cases/R38glyph14cases/exactbounded11cases/canonical/document/impact/unittest andactualstaged2Dregression. Actual priorR32full82/R35CI retainedatbyteidenticalproduction,notnewR38execution. Sourcecounts notartpieces;QA11/device/child/owner/globalclosure open."
+}

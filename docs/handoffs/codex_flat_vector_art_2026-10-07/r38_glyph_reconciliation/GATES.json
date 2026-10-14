@@ -1,0 +1,143 @@
+{
+  "status": "PASS_SOURCE_ONLY_ACCEPTANCE_OPEN",
+  "commands": [
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-B",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r37_current_source_inventory\\verify_source_inventory.py"
+      ],
+      "started_at_utc": "2026-10-14T18:18:28.089630+00:00",
+      "checked_at_utc": "2026-10-14T18:18:28.767447+00:00",
+      "exit_code": 0,
+      "execution": "FRESH",
+      "evidence": "gates.log"
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-B",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r38_glyph_reconciliation\\verify_glyphs.py"
+      ],
+      "started_at_utc": "2026-10-14T18:18:28.767514+00:00",
+      "checked_at_utc": "2026-10-14T18:18:29.380102+00:00",
+      "exit_code": 0,
+      "execution": "FRESH",
+      "evidence": "gates.log"
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-B",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r38_glyph_reconciliation\\validate.py"
+      ],
+      "started_at_utc": "2026-10-14T18:18:29.380153+00:00",
+      "checked_at_utc": "2026-10-14T18:18:32.429704+00:00",
+      "exit_code": 0,
+      "execution": "FRESH",
+      "evidence": "gates.log"
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-B",
+        "tools/audit_document_authority.py"
+      ],
+      "started_at_utc": "2026-10-14T18:18:32.429760+00:00",
+      "checked_at_utc": "2026-10-14T18:18:42.709859+00:00",
+      "exit_code": 0,
+      "execution": "FRESH",
+      "evidence": "gates.log"
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-B",
+        "tools/audit_development.py",
+        "--base",
+        "auto"
+      ],
+      "started_at_utc": "2026-10-14T18:18:42.709912+00:00",
+      "checked_at_utc": "2026-10-14T18:18:46.949931+00:00",
+      "exit_code": 0,
+      "execution": "FRESH",
+      "evidence": "gates.log"
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-B",
+        "-m",
+        "unittest",
+        "tools.tests.test_audit_document_authority",
+        "tools.tests.test_audit_development"
+      ],
+      "started_at_utc": "2026-10-14T18:18:46.949982+00:00",
+      "checked_at_utc": "2026-10-14T18:18:57.061187+00:00",
+      "exit_code": 0,
+      "execution": "FRESH",
+      "evidence": "gates.log"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_game_2d.py",
+        "--regression-gate"
+      ],
+      "started_at_utc": "2026-10-14T18:25:29.094792+00:00",
+      "checked_at_utc": "2026-10-14T18:26:26.684538+00:00",
+      "exit_code": 0,
+      "log_sha256": "763e51b38ed1cefc7a506b7148b9d6822c3a647d2fb45e1b64c8f22cb194e0ac",
+      "evidence": "staged_2d_repair.log",
+      "scope": "Actual complete staged/tracked scan. Oversizedevidence coveredbyboundedformat without auditor/manifest change. Prose token spacing correction doesnot alter API/runtime code.",
+      "execution": "FRESH_AFTER_FULL_STAGE_FORMAT_REPAIR"
+    }
+  ],
+  "raw_log_sha256": null,
+  "scope": "6 fresh passing R37/R38source/canonical/doc/impact/unit commands plusactualcomplete staged/tracked 2Drepair gate. Earlier actual failures retained;auditor/manifest unchanged. Role/font/runtime/QA11/device/child/owner acceptance remainsopen.",
+  "logs": [
+    "gates_staged_prose_failed.log",
+    "staged_2d_repair.log"
+  ],
+  "review_reconciliation_checks": [
+    {
+      "command": [
+        "python",
+        "-B",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r38_glyph_reconciliation\\validate.py"
+      ],
+      "checked_at_utc": "2026-10-14T18:33:54.433060+00:00",
+      "exit_code": 0,
+      "sha256": "d12fc7983610fd47ef78f37499fbe607c5fe1254758a2c6f518c0f60a2ee58d8",
+      "output": "R38_ALL_OK:348 frozenIDs/sourcepositions;exact76Gitinputs/347current+1prior source retirement;no source/context/acceptance count conflation;225/30/captures/primitive dispositions preserved. Runtime/role/font/device/child/owner open.\r\n",
+      "scope": "Freshreview after sourceglyph/accounting/boundedformat/currentauthority facts"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_document_authority.py"
+      ],
+      "checked_at_utc": "2026-10-14T18:34:03.415738+00:00",
+      "exit_code": 0,
+      "sha256": "762634d8bef745395ba67ac5392e3786fb8468d4e8991b5b38e0a6456737c0f6",
+      "output": "DOCAUTH|INVENTORY=741|LEDGER=741|ACTIVE=69|RECORDS=72\r\nDOCAUTH|RESULT|ALL OK\r\n",
+      "scope": "Freshreview after sourceglyph/accounting/boundedformat/currentauthority facts"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_development.py",
+        "--base",
+        "auto"
+      ],
+      "checked_at_utc": "2026-10-14T18:34:11.283316+00:00",
+      "exit_code": 0,
+      "sha256": "fe1136f6488648e75036829fb4dde2405eb9ed57eec05f046fe441463c20d023",
+      "output": "AUDITDEV|BASE|e2b3c73789707aa49a91b4f42e2a9dd4b68225df\r\nAUDITDEV|RESULT|ALL OK\r\n",
+      "scope": "Freshreview after sourceglyph/accounting/boundedformat/currentauthority facts"
+    }
+  ]
+}

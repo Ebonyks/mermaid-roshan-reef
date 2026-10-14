@@ -7,8 +7,10 @@ from lark import Tree,Token
 P=Path(__file__).resolve().parent;R=P.parents[3];H=P.parent;BASE='01f670d7ab4933fe2c2e6605bbca4ef2105f200f'
 def sha(b):return hashlib.sha256(b).hexdigest()
 def ident(prefix,*parts):return prefix+'-'+sha('|'.join(str(x) for x in parts).encode())[:12].upper()
-def wr(name,d):(P/name).write_text(json.dumps(d,indent=2)+'\n',encoding='utf-8',newline='\n')
-def rd(path):return json.loads(path.read_text(encoding='utf-8'))
+def wr(name,d):_bounded.write_document(P/name,d)
+import importlib.util
+_bounded_spec=importlib.util.spec_from_file_location('bounded_audit_json',P.parent/'r38_glyph_reconciliation/bounded_json.py');_bounded=importlib.util.module_from_spec(_bounded_spec);_bounded_spec.loader.exec_module(_bounded)
+def rd(path):return _bounded.read_document(path)
 def parse_script(path,raw):
  text=raw.decode('utf-8-sig');lines=text.splitlines();tree=parser.parse(text,gather_metadata=True)
  funcs=[];classes=[];strings=[];calls=[]

@@ -3,7 +3,9 @@ from pathlib import Path
 from collections import Counter
 import json,hashlib,subprocess
 P=Path(__file__).resolve().parent;R=P.parents[3];H=P.parent;O=H/'r36_menu_ornament_retirement';BASE='01f670d7ab4933fe2c2e6605bbca4ef2105f200f'
-def rd(p):return json.loads(p.read_text(encoding='utf-8'))
+import importlib.util
+_bounded_spec=importlib.util.spec_from_file_location('bounded_audit_json',P.parent/'r38_glyph_reconciliation/bounded_json.py');_bounded=importlib.util.module_from_spec(_bounded_spec);_bounded_spec.loader.exec_module(_bounded)
+def rd(p):return _bounded.read_document(p)
 def sha(b):return hashlib.sha256(b).hexdigest()
 def git(*a,**kw):return subprocess.check_output(['git',*a],cwd=R,stderr=subprocess.PIPE,**kw)
 s=rd(P/'SOURCE_SUMMARY.json');inv=rd(P/'CURRENT_SOURCE_INVENTORY.json');rec=rd(P/'SOURCE_SCOPE_RECONCILIATION.json');gly=rd(P/'GLYPH_SCOPE_GAPS.json');graph=rd(P/'RESOURCE_CALLER_GRAPH.json');stress=rd(P/'SOURCE_STRESS.json');assert s['baseline']==BASE and s['parse_failures']==0 and not inv['parse_failure_records']

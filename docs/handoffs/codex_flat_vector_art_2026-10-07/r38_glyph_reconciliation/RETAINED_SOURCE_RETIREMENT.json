@@ -1,0 +1,26 @@
+{
+  "status": "PRIOR_BOUNDED_SOURCE_RETIREMENT_ONLY_NOT_ART_ACCEPTANCE",
+  "records": [
+    {
+      "id": "FVG-868EDDAC69D5",
+      "known_piece_id": "FV-619466CA433F",
+      "before_revision": "a587e4ec5e82dbc86d52115ba41f3ae37e2e24f1",
+      "retirement_payload_revision": "2354ee4c5b62ee1adb80ae194f0e37a1ad459e2d",
+      "current_revision": "8f48a0003a8a098658a3414414bd3da3c94f29c2",
+      "path": "scripts/start_menu.gd",
+      "before_sha256": "2eb3a55dba1db6e223de967df6465e137d7bfcfa5309cd770a36ff7a3833f771",
+      "retired_source_sha256": "5d1d60ca2a72bbcb8130034de7fe4e72ab4e69085d26f35c3ebcbc9c57610a57",
+      "current_source_sha256": "5d1d60ca2a72bbcb8130034de7fe4e72ab4e69085d26f35c3ebcbc9c57610a57",
+      "exact_diff_utf8": "diff --git a/scripts/start_menu.gd b/scripts/start_menu.gd\nindex a869c43c..02f419b7 100644\n--- a/scripts/start_menu.gd\n+++ b/scripts/start_menu.gd\n@@ -122,57 +122,12 @@ func _menu_button(\n \t_add_button_finish(button, kind)\n \treturn button\n \n-func _add_button_finish(button: Button, kind: String) -> void:\n-\t# Keep the established button silhouette and fill. A fine inset contour,\n-\t# tiny pearls and one slow sparkle add title-screen polish without forcing\n-\t# a large square illustration into a wide, shallow control.\n-\tvar accent: Color = StorybookUI.GOLD if kind == \"gold\" else StorybookUI.PEARL_BLUE\n-\tvar inset := Panel.new()\n-\tinset.name = String(button.name) + \"InsetHighlight\"\n-\tinset.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)\n-\tinset.offset_left = 8.0\n-\tinset.offset_top = 8.0\n-\tinset.offset_right = -8.0\n-\tinset.offset_bottom = -8.0\n-\tinset.mouse_filter = Control.MOUSE_FILTER_IGNORE\n-\tvar inset_style := StyleBoxFlat.new()\n-\tinset_style.bg_color = Color(1.0, 1.0, 1.0, 0.0)\n-\tinset_style.border_color = Color(accent.r, accent.g, accent.b, 0.58)\n-\tinset_style.set_border_width_all(2)\n-\tinset_style.set_corner_radius_all(30)\n-\tinset.add_theme_stylebox_override(\"panel\", inset_style)\n-\tbutton.add_child(inset)\n-\n-\tvar sheen := Panel.new()\n-\tsheen.name = String(button.name) + \"PearlSheen\"\n-\tsheen.position = Vector2(42.0, 12.0)\n-\tsheen.size = Vector2(maxf(36.0, button.size.x - 84.0), 10.0)\n-\tsheen.mouse_filter = Control.MOUSE_FILTER_IGNORE\n-\tvar sheen_style := StyleBoxFlat.new()\n-\tsheen_style.bg_color = Color(1.0, 1.0, 1.0, 0.24)\n-\tsheen_style.set_corner_radius_all(5)\n-\tsheen.add_theme_stylebox_override(\"panel\", sheen_style)\n-\tbutton.add_child(sheen)\n-\n+func _add_button_finish(button: Button, _kind: String) -> void:\n+\t# Retain the existing pearl ornaments on the established touch controls.\n \tStorybookUI.add_pearl(button, Vector2(20.0, button.size.y * 0.5), 12.0,\n \t\tString(button.name) + \"PearlLeft\")\n \tStorybookUI.add_pearl(button, Vector2(button.size.x - 20.0, button.size.y * 0.5), 12.0,\n \t\tString(button.name) + \"PearlRight\")\n-\tvar sparkle := Label.new()\n-\tsparkle.name = String(button.name) + \"Sparkle\"\n-\tsparkle.text = \"\u2726\"\n-\tsparkle.position = Vector2(button.size.x - 48.0, 8.0)\n-\tsparkle.size = Vector2(30.0, 30.0)\n-\tsparkle.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER\n-\tsparkle.vertical_alignment = VERTICAL_ALIGNMENT_CENTER\n-\tsparkle.mouse_filter = Control.MOUSE_FILTER_IGNORE\n-\tStorybookUI.style_label(sparkle, 20, accent, 2)\n-\tbutton.add_child(sparkle)\n-\tvar twinkle := sparkle.create_tween().set_loops()\n-\ttwinkle.tween_property(sparkle, \"modulate:a\", 0.32, 1.3) \\\n-\t\t.set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)\n-\ttwinkle.tween_property(sparkle, \"modulate:a\", 1.0, 1.3) \\\n-\t\t.set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)\n \n func _build_options(stage: Control) -> void:\n \t_options_root = Control.new()\n",
+      "diff_sha256_utf8": "af266ceb6185f145bf0804ddab4def28346444133f9ee5727224cc7b3f22170b",
+      "retained_review": {
+        "revision": "ecb9839a374d3260161a19d44039325d561a3509",
+        "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r32_startup_ui_retirement/REVIEW.json"
+      },
+      "scope": "Already-published bounded menu source statement retirement; no new/accepted artwork removal,global caller/device/child/owner/QA11 acceptance staysopen."
+    }
+  ],
+  "new_source_retirements": 0,
+  "accepted_removed": 0,
+  "individual_piece_total": null
+}

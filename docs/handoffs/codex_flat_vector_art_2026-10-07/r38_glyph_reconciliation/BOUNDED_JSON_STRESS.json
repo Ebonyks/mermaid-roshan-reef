@@ -1,0 +1,52 @@
+{
+  "status": "PASS_EXACT_LOGICAL_BYTES_NO_MODEL_AUDIT_WAIVER",
+  "case_count": 11,
+  "cases": [
+    {
+      "case": "UTF8 exact logical-byte roundtrip",
+      "result": "PASS"
+    },
+    {
+      "case": "everyphysical part below unchanged4MiB scan cap",
+      "result": "PASS"
+    },
+    {
+      "case": "part corruption fails closed",
+      "result": "PASS"
+    },
+    {
+      "case": "missing part fails closed",
+      "result": "PASS"
+    },
+    {
+      "case": "path traversal fails closed",
+      "result": "PASS"
+    },
+    {
+      "case": "duplicate part fails closed",
+      "result": "PASS"
+    },
+    {
+      "case": "model-shaped JSON cannot enter audit-fragment writer",
+      "result": "PASS"
+    },
+    {
+      "case": "duplicate control keys fail closed",
+      "result": "PASS"
+    },
+    {
+      "case": "original immutable logicalbytes preserved CURRENT_SOURCE_INVENTORY.json",
+      "result": "PASS"
+    },
+    {
+      "case": "original immutable logicalbytes preserved RESOURCE_CALLER_GRAPH.json",
+      "result": "PASS"
+    },
+    {
+      "case": "original immutable logicalbytes preserved REMOTE_VERIFICATION.json",
+      "result": "PASS"
+    }
+  ],
+  "helper_sha256": "1ac1f7675089bb9ca6cbc66d99087fb6c1f8e15926f84ca8101ea993d503be86",
+  "scope": "Physicalbudget,exactlogicaldata andcorrupt/missing/duplicate/traversal/model-shape negatives. Staged model audit andremotephysicalbytes separatelyrequired."
+}

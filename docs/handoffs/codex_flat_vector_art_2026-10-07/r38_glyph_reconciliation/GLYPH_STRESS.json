@@ -1,0 +1,65 @@
+{
+  "status": "PASS_GLYPH_SOURCE_ONLY_NO_RUNTIME_OR_ART_ACCEPTANCE",
+  "case_count": 14,
+  "cases": [
+    {
+      "case": "comments do not become glyph occurrences",
+      "result": "PASS"
+    },
+    {
+      "case": "ordered repeated pair literals retain multiplicity",
+      "result": "PASS"
+    },
+    {
+      "case": "identity binds ordered duplicate positions",
+      "result": "PASS"
+    },
+    {
+      "case": "escaped newline raw lexeme and decoded value distinct",
+      "result": "PASS"
+    },
+    {
+      "case": "punctuation-shaped glyph remains source candidate",
+      "result": "PASS"
+    },
+    {
+      "case": "same glyph in different function cannot retire or replace original scope",
+      "result": "PASS"
+    },
+    {
+      "case": "scoped line shift and statement subset preserve exact literal",
+      "result": "PASS"
+    },
+    {
+      "case": "multiple current same-scope groups remain ambiguous",
+      "result": "PASS"
+    },
+    {
+      "case": "missing historical source never silently binds current",
+      "result": "PASS"
+    },
+    {
+      "case": "class-qualified glyph scopes remain distinct",
+      "result": "PASS"
+    },
+    {
+      "case": "Unicode projection declares omitted ASCII and count conservation",
+      "result": "PASS"
+    },
+    {
+      "case": "all frozen glyph IDs and order preserved",
+      "result": "PASS"
+    },
+    {
+      "case": "all348 source rows accounted with347 current and1 retained prior retirement",
+      "result": "PASS"
+    },
+    {
+      "case": "global artwork and screen totals remain unknown with zero new acceptance",
+      "result": "PASS"
+    }
+  ],
+  "reconciler_sha256": "5635292d74d3793cfaa66abf9cb1596620c5dcc84c2a74e6459c15ba5d8fdfeb",
+  "glyph_summary_sha256": "aa65f2c2d6cfa6069e698d2f018ae5936a83103032acc77e1c4c9ec6e06b2423",
+  "scope": "Syntax/source binding,scope/order/escape/duplicate/projection/failclosed invariants;not font/runtime/style/child/device/owner acceptance."
+}

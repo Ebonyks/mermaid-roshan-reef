@@ -1,0 +1,14 @@
+{
+  "command": [
+    "python",
+    "-B",
+    "tools/audit_game_2d.py",
+    "--regression-gate"
+  ],
+  "started_at_utc": "2026-10-14T18:25:29.094792+00:00",
+  "checked_at_utc": "2026-10-14T18:26:26.684538+00:00",
+  "exit_code": 0,
+  "log_sha256": "763e51b38ed1cefc7a506b7148b9d6822c3a647d2fb45e1b64c8f22cb194e0ac",
+  "evidence": "staged_2d_repair.log",
+  "scope": "Actual complete staged/tracked scan. Oversizedevidence coveredbyboundedformat without auditor/manifest change. Prose token spacing correction doesnot alter API/runtime code."
+}

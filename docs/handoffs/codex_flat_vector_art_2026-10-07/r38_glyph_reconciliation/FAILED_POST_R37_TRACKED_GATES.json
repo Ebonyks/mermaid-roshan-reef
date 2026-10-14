@@ -1,0 +1,85 @@
+{
+  "status": "FAIL",
+  "commands": [
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-B",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r38_glyph_reconciliation\\verify_glyphs.py"
+      ],
+      "started_at_utc": "2026-10-14T17:52:40.791026+00:00",
+      "checked_at_utc": "2026-10-14T17:52:41.374361+00:00",
+      "exit_code": 0,
+      "execution": "FRESH",
+      "evidence": "gates.log"
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-B",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r38_glyph_reconciliation\\validate.py"
+      ],
+      "started_at_utc": "2026-10-14T17:52:41.374415+00:00",
+      "checked_at_utc": "2026-10-14T17:52:42.357893+00:00",
+      "exit_code": 0,
+      "execution": "FRESH",
+      "evidence": "gates.log"
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-B",
+        "tools/audit_document_authority.py"
+      ],
+      "started_at_utc": "2026-10-14T17:52:42.357945+00:00",
+      "checked_at_utc": "2026-10-14T17:52:51.723980+00:00",
+      "exit_code": 0,
+      "execution": "FRESH",
+      "evidence": "gates.log"
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-B",
+        "tools/audit_development.py",
+        "--base",
+        "auto"
+      ],
+      "started_at_utc": "2026-10-14T17:52:51.724027+00:00",
+      "checked_at_utc": "2026-10-14T17:52:55.460394+00:00",
+      "exit_code": 0,
+      "execution": "FRESH",
+      "evidence": "gates.log"
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-B",
+        "-m",
+        "unittest",
+        "tools.tests.test_audit_document_authority",
+        "tools.tests.test_audit_development"
+      ],
+      "started_at_utc": "2026-10-14T17:52:55.460444+00:00",
+      "checked_at_utc": "2026-10-14T17:53:04.857049+00:00",
+      "exit_code": 0,
+      "execution": "FRESH",
+      "evidence": "gates.log"
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-B",
+        "tools/audit_game_2d.py",
+        "--regression-gate"
+      ],
+      "started_at_utc": "2026-10-14T17:53:04.857104+00:00",
+      "checked_at_utc": "2026-10-14T17:54:53.526745+00:00",
+      "exit_code": 1,
+      "execution": "FRESH",
+      "evidence": "gates.log"
+    }
+  ],
+  "raw_log_sha256": "af0f204d2f3cd9c0b763248f0a7e8d60693c41b49f49b28a9247048c8475bb63",
+  "scope": "Fresh source/canonical/document/impact/unittest andactual2Dregression. Actual priorR32full82/R35CI retainedatbyteidenticalproduction,notnewR38execution. Sourcecounts notartpieces;QA11/device/child/owner/globalclosure open."
+}
