@@ -1,4 +1,62 @@
 {
-  "status": "PENDING",
-  "scope": "Initializedbeforelinkedchecks; no visualacceptance or deliveryclaimed."
+  "status": "PASS_WITH_ACCEPTANCE_OPEN",
+  "commands": [
+    {
+      "command": [
+        "python",
+        "-B",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r33_menu_material_reuse\\validate.py"
+      ],
+      "started_at_utc": "2026-10-14T10:31:38.422789+00:00",
+      "checked_at_utc": "2026-10-14T10:31:47.621986+00:00",
+      "exit_code": 0,
+      "result": "PASS",
+      "execution": "FRESH",
+      "evidence": "receipt_gates.log"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_document_authority.py"
+      ],
+      "started_at_utc": "2026-10-14T10:31:47.622055+00:00",
+      "checked_at_utc": "2026-10-14T10:31:57.731605+00:00",
+      "exit_code": 0,
+      "result": "PASS",
+      "execution": "FRESH",
+      "evidence": "receipt_gates.log"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_development.py",
+        "--base",
+        "auto"
+      ],
+      "started_at_utc": "2026-10-14T10:31:57.731658+00:00",
+      "checked_at_utc": "2026-10-14T10:32:02.033437+00:00",
+      "exit_code": 0,
+      "result": "PASS",
+      "execution": "FRESH",
+      "evidence": "receipt_gates.log"
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-B",
+        "tools/audit_game_2d.py",
+        "--regression-gate"
+      ],
+      "started_at_utc": "2026-10-14T10:19:26.072889+00:00",
+      "checked_at_utc": "2026-10-14T10:21:24.659733+00:00",
+      "exit_code": 0,
+      "result": "PASS",
+      "evidence": "GATES.json/gates.log",
+      "execution": "RETAINED_ACTUAL_SAME_PRODUCTION"
+    }
+  ],
+  "raw_log_sha256": "629a34e340c25fe5e2391bf90bf72776a463d8d495b08b06bd4a340dc9627729",
+  "scope": "3freshsource/document/impact checks+1explicitretainedactualstrict2Dregression atunchangedsource;focuslocalQCFAIL/allacceptanceopen. PriorR32full82retained,no newR33full82run."
 }
