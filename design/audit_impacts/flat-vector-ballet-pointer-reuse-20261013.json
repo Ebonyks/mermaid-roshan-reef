@@ -144,6 +144,11 @@
       "command": "Inherited R16FULL_VALIDATION82exact approved trusted native probes;R24new source/native/document/54tests+6stress/strictmedium NO_REGRESSION",
       "result": "PASS",
       "evidence": "docs/handoffs/codex_flat_vector_art_2026-10-07/r24_ballet_pointer_reuse/GATES.json"
+    },
+    {
+      "command": "Post-publication source/document/medium receipt gates",
+      "result": "PASS",
+      "evidence": "docs/handoffs/codex_flat_vector_art_2026-10-07/r24_ballet_pointer_reuse/RECEIPT_GATES.json"
     }
   ],
   "acceptance_gaps": "Nonruntime unaccepted reused source. No new source pixels/calls/authored performance,production integration,missing-package fallback retirement,natural full route,QA11/device/child/owner or zero-art/global completion.",
@@ -165,5 +170,6 @@
       "purpose": "Exact published independent Ballet source/context prerequisite;R17 caller closure remains inherited."
     }
   ],
-  "publication_state": "READY_TO_PUBLISH;all prerequisites and local applicable gates passed;anonymous all-byte verification pending"
+  "publication_state": "ALL_DECLARED_DEPENDENCIES_VERIFIED;2129files879989370bytes+manifest anonymous exactpayload16683b55;final metadata verify separately afterreceipt push",
+  "publication_receipt": "docs/handoffs/codex_flat_vector_art_2026-10-07/r24_ballet_pointer_reuse/REMOTE_VERIFICATION.json"
 }

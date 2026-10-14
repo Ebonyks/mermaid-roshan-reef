@@ -606,9 +606,17 @@
   ],
   "role_and_family_counts_are_separate": true,
   "publication": {
-    "status": "PENDING_REMOTE_BYTE_VERIFICATION",
+    "status": "ALL_DECLARED_DEPENDENCIES_VERIFIED",
+    "revision": "16683b55bff30241cba099d5cd021a14b211cd95",
+    "manifest_sha256": "1db4d589a7d5541e27fde5236ca4bdfd18802e8781f2b393de779469ebc86c52",
+    "payload_sha256": "81b31b1b09c6628ad9360b470bdaee0950ab3c35830e99ba8ef24b4986beccf2",
+    "required_file_count": 2129,
+    "required_bytes": 879989370,
+    "access_mode": "Anonymous public HTTPS for manifest and every declared required file; public GitHub repo API independently checked; recipient can use the same unauthenticated access mode.",
+    "checked_at_utc": "2026-10-14T00:04:15.719197+00:00",
     "manifest": "MANIFEST.json",
-    "receipt": "REMOTE_VERIFICATION.json"
+    "receipt": "REMOTE_VERIFICATION.json",
+    "post_payload_metadata": "These5post-payload metadata files are separately anonymously verified against their final Git receipt commit after push. The sealed manifest binds payload16683b55bff30241cba099d5cd021a14b211cd95;creative acceptance remains open."
   },
   "independent_style_review": {
     "file": "ROOT_CONTEXT_REVIEW_20261012.json",
@@ -757,11 +765,11 @@
   "unpublished_external_activity_limit": "Separate Garden production branch has no published revision at the verified reconciliation; its local candidate is outside this frozen verified tally. Generation/integration counts in this packet retain packet scope.",
   "current_ci": {
     "conclusion": "",
-    "headSha": "e1234f2c4ee0ddfbf45e3578e524a269b6909383",
+    "databaseId": 38487916503,
+    "headSha": "16683b55bff30241cba099d5cd021a14b211cd95",
     "status": "in_progress",
-    "url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/38481566554",
-    "databaseId": 38481566554,
-    "checked_at_utc": "2026-10-13T23:08:27.724355+00:00"
+    "url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/38487916503",
+    "checked_at_utc": "2026-10-14T00:05:05.033938+00:00"
   },
   "inherited_r7_reference_base": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/c1e466a8a9e605f43b4c7a181b3d7b702d7677aa/docs/handoffs/codex_flat_vector_art_2026-10-07/r7_craft_context/",
   "inherited_r8_reference_base": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/f4de7b921298b0dac052df408af03bbb2b62132b/docs/handoffs/codex_flat_vector_art_2026-10-07/r8_geode_context/",
