@@ -1,0 +1,92 @@
+{
+  "revision": "FV-AUDIT-20261014-R25",
+  "source_revision": "ef975b9e92903ee61c585f9230c26f1dcb06641c",
+  "piece_id": "FV-DAA9072B905A",
+  "scope_id": "FVF-22152D4FD26C",
+  "route": "opera.act.07",
+  "independent_of_shared_pointer": true,
+  "current_phase_count": 5,
+  "current_modes": [
+    "boxing_guide",
+    "boxing_jab",
+    "boxing_guard",
+    "boxing_imp",
+    "boxing_belt"
+  ],
+  "first_phase_current_native": "native/;both aspects/15states each",
+  "other_mode_contexts": {
+    "boxing_jab": null,
+    "boxing_guard": null,
+    "boxing_imp": null,
+    "boxing_belt": null
+  },
+  "source_call_sites": [
+    {
+      "path": "scripts/opera_boxing_surface.gd",
+      "line": 642,
+      "caller": "_draw",
+      "callee": "_draw_demo",
+      "guard": "demo_active and not completion_accepted"
+    }
+  ],
+  "current_phase_rows": [
+    {
+      "name": "GLOVE GUIDE",
+      "mode": "boxing_guide",
+      "widget": "",
+      "source_line": 307,
+      "phase_index": 0,
+      "pointer_branch": "INDEPENDENT_PROCEDURAL_GUIDE",
+      "missing_texture": "No hand texture dependency for this independent guide; other art fallbacks unreviewed"
+    },
+    {
+      "name": "JAB PRACTICE",
+      "mode": "boxing_jab",
+      "widget": "",
+      "source_line": 308,
+      "phase_index": 1,
+      "pointer_branch": "INDEPENDENT_PROCEDURAL_GUIDE",
+      "missing_texture": "No hand texture dependency for this independent guide; other art fallbacks unreviewed"
+    },
+    {
+      "name": "SOFT GUARD",
+      "mode": "boxing_guard",
+      "widget": "",
+      "source_line": 309,
+      "phase_index": 2,
+      "pointer_branch": "INDEPENDENT_PROCEDURAL_GUIDE",
+      "missing_texture": "No hand texture dependency for this independent guide; other art fallbacks unreviewed"
+    },
+    {
+      "name": "TITLE IMP",
+      "mode": "boxing_imp",
+      "widget": "",
+      "source_line": 310,
+      "phase_index": 3,
+      "pointer_branch": "INDEPENDENT_PROCEDURAL_GUIDE",
+      "missing_texture": "No hand texture dependency for this independent guide; other art fallbacks unreviewed"
+    },
+    {
+      "name": "BELT",
+      "mode": "boxing_belt",
+      "widget": "",
+      "source_line": 311,
+      "phase_index": 4,
+      "pointer_branch": "INDEPENDENT_PROCEDURAL_GUIDE",
+      "missing_texture": "No hand texture dependency for this independent guide; other art fallbacks unreviewed"
+    }
+  ],
+  "current_source_behavior": {
+    "note_input": "Press hides guide via inherited demo_active=false;doesnot require existinghandtexture",
+    "wrong_release": "Nonaccepted movedglove emits0,restarts demo",
+    "5_and_10_second_assist": "Can restart demo;never acceptedprogress",
+    "hand_cycle": "2.4seconds perhand;4.8second alternatingcycle;guide/guard/belt targets differ bymode",
+    "guide_source_primitives": 4,
+    "texture_target_limit": "_target_texture loads rastercircle butcurrent _draw_target uses primitives,not thistexture",
+    "glove_roles_limit": "_draw_glove compoundcircle/rect fills are separate artworkIDs;existing painted mittpair stays fused reference",
+    "fallbacks_retired": false
+  },
+  "production_changes": [],
+  "full_caller_coverage_complete": false,
+  "QA11": null
+}

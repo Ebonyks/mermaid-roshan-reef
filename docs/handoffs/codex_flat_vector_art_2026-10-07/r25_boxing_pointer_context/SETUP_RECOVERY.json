@@ -1,0 +1,16 @@
+{
+  "status": "CORRECTED_BEFORE_NATIVE_RUN",
+  "absent_assumed_path": "assets_src/flat_vector_pointer_20261013/pointer_master.aseprite",
+  "git_show_exit": 128,
+  "actual_preserved_export_master": "assets_src/flat_vector_pointer_20261013/pointer_1024.aseprite",
+  "scope": "No missing provenance invented or source edits;resolved actual path via rg --files.",
+  "snapshot_alias_failure": {
+    "source": "initial_aliased_state/capture_boxing_context.gd",
+    "captures": "initial_aliased_state/native",
+    "retained_files": 30,
+    "excluded_bounded_context_files": 30,
+    "cause": "Capture dictionary held mutable _guide_done array;serialized after gesture,so early rows incorrectly showed latertrue. Runtime source untouched.",
+    "correction": "Deep duplicate the actual guide_done Array at each capture,then rerun fresh native/private profiles. Do not fabricate historical metadata.",
+    "initial_source_images_and_native_views": "Five source images and12first-run native files directly inspected;pixel observations remain diagnostic,aliased metadata excluded."
+  }
+}

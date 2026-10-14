@@ -1,4 +1,10 @@
-Current canonical evidence: [R24 Ballet hand reuse](r24_ballet_pointer_reuse/README.md), [registry](r24_ballet_pointer_reuse/per_piece.json), [coverage](r24_ballet_pointer_reuse/scene_coverage.json), [tally](r24_ballet_pointer_reuse/tally.json).
+Current canonical evidence: [R25 Boxing guide context](r25_boxing_pointer_context/README.md), [registry](r25_boxing_pointer_context/per_piece.json), [coverage](r25_boxing_pointer_context/scene_coverage.json), [tally](r25_boxing_pointer_context/tally.json).
+
+# Current R25 Boxing first-phase context
+
+30 corrected native files / 12 inspected current views; 30 initial aliased-metadata diagnostics retained separately. 50 existing partial records / 11 families; 2,594 bounded / 2,738 retained. 225 known records / 30 families; zero art adoption/accepted removal. Four other modes, complete routes and all acceptance remain open; unknown global inventory.
+
+Historical R24 routing: [R24 Ballet hand reuse](r24_ballet_pointer_reuse/README.md), [registry](r24_ballet_pointer_reuse/per_piece.json), [coverage](r24_ballet_pointer_reuse/scene_coverage.json), [tally](r24_ballet_pointer_reuse/tally.json).
 
 # Full-game flat-vector audit — current R24 Ballet reuse trial
 
