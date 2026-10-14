@@ -1,0 +1,13 @@
+{
+  "issue": "Copied validator preparation replaced prefix==30 for35contextfiles, changingold3020creditassertion to3520. Independentlyassembledcurrentcount is3053. First shellinline correctionfailedsyntaxbeforeanyedit.",
+  "correction": "Exact expectedcounter3053 equals3020old+33newverifiedcredits. No source/native/tally data or comparisonthreshold changed.",
+  "capture_failure": false,
+  "additional_issue": "Samecopiedprefix had changedknownfamily30assertion to35; caughtbeforepublication andrestored30 fromunchangedfrozen29+Craft1. FailedsetupGATES/log preserved.",
+  "retained_failed_gate": "validator_setup_failed_GATES.json",
+  "retained_failed_log": "validator_setup_failed_gates.log",
+  "comparison_thresholds_or_tally_changed": false,
+  "retained_path_issue": "Aftercorrectingcounterliterals,verifier stilllookedfor FULL_VALIDATION inR33folder althoughactualfull82belongsR32. Bound actualMACHINE_BASELINE exactrevision/path/bytes/SHA instead; no newR33/R34full82claim. FailedsecondsetupGATES/log preserved.",
+  "embedded_patch_issue": "Gitwhitespacecheck treated unifieddiff contextprefixes ascodeindent. Scopedattribute didnotchange effectivepolicy,so itwasremoved. Exactrawpatch wrappedinJSON string; decodedbytes/SHA matchoriginalgeneratedgitdiff. Allsource whitespacegates retained.",
+  "embedded_patch_sha256": "589e3a27b61b545415dc94f799a130be6049dd49afad192b422b0b2fb50f944d",
+  "preserved_patch": "CANDIDATE_CHANGE.json"
+}

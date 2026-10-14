@@ -1,0 +1,115 @@
+{
+  "status": "PASS_WITH_ACCEPTANCE_OPEN",
+  "commands": [
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-m",
+        "gdtoolkit.parser",
+        "docs/handoffs/codex_flat_vector_art_2026-10-07/r34_menu_focus_repair/capture_menu_focus_repair.gd"
+      ],
+      "started_at_utc": "2026-10-14T11:28:16.227543+00:00",
+      "checked_at_utc": "2026-10-14T11:28:17.051792+00:00",
+      "exit_code": 0,
+      "result": "PASS",
+      "evidence": "gates.log"
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-B",
+        "tools/lint_inference.py",
+        "docs/handoffs/codex_flat_vector_art_2026-10-07/r34_menu_focus_repair/capture_menu_focus_repair.gd"
+      ],
+      "started_at_utc": "2026-10-14T11:28:17.051867+00:00",
+      "checked_at_utc": "2026-10-14T11:28:17.175164+00:00",
+      "exit_code": 0,
+      "result": "PASS",
+      "evidence": "gates.log"
+    },
+    {
+      "command": [
+        "C:/Users/Peter/AppData/Local/Programs/MermaidReefTools/Godot/4.7.2/godot_console.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef",
+        "--check-only",
+        "--script",
+        "docs/handoffs/codex_flat_vector_art_2026-10-07/r34_menu_focus_repair/capture_menu_focus_repair.gd"
+      ],
+      "started_at_utc": "2026-10-14T11:28:17.175220+00:00",
+      "checked_at_utc": "2026-10-14T11:28:24.286935+00:00",
+      "exit_code": 0,
+      "result": "PASS",
+      "evidence": "gates.log"
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-B",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r34_menu_focus_repair\\validate.py"
+      ],
+      "started_at_utc": "2026-10-14T11:28:24.286990+00:00",
+      "checked_at_utc": "2026-10-14T11:28:35.866252+00:00",
+      "exit_code": 0,
+      "result": "PASS",
+      "evidence": "gates.log"
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-B",
+        "tools/audit_document_authority.py"
+      ],
+      "started_at_utc": "2026-10-14T11:28:35.866299+00:00",
+      "checked_at_utc": "2026-10-14T11:28:47.189577+00:00",
+      "exit_code": 0,
+      "result": "PASS",
+      "evidence": "gates.log"
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-B",
+        "tools/audit_development.py",
+        "--base",
+        "auto"
+      ],
+      "started_at_utc": "2026-10-14T11:28:47.189629+00:00",
+      "checked_at_utc": "2026-10-14T11:28:52.311829+00:00",
+      "exit_code": 0,
+      "result": "PASS",
+      "evidence": "gates.log"
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-B",
+        "-m",
+        "unittest",
+        "tools.tests.test_audit_document_authority",
+        "tools.tests.test_audit_development"
+      ],
+      "started_at_utc": "2026-10-14T11:28:52.311879+00:00",
+      "checked_at_utc": "2026-10-14T11:29:04.761345+00:00",
+      "exit_code": 0,
+      "result": "PASS",
+      "evidence": "gates.log"
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-B",
+        "tools/audit_game_2d.py",
+        "--regression-gate"
+      ],
+      "started_at_utc": "2026-10-14T11:29:04.761403+00:00",
+      "checked_at_utc": "2026-10-14T11:31:28.212139+00:00",
+      "exit_code": 0,
+      "result": "PASS",
+      "evidence": "gates.log"
+    }
+  ],
+  "raw_log_sha256": "367596df560b8767295bf7378a28f38e2a80c7ffab2a3438bcf5b4aa01380072",
+  "scope": "R34namedfocus seam repairinisolatedcandidate,126native33credits93excluded/35beforefixturecontext/fourbaselinecurrentpaper comparisons/33directcalls17files. RetainedR32actualfull82 atunchangedproduction,no newfull82run. AllQA11/device/child/owner/globalinventory acceptanceopen."
+}

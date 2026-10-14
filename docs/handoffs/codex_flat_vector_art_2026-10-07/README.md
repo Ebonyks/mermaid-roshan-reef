@@ -1,6 +1,12 @@
-Current canonical evidence: [R33menu material reuse](r33_menu_material_reuse/README.md), [registry](r33_menu_material_reuse/per_piece.json), [coverage](r33_menu_material_reuse/scene_coverage.json), [tally](r33_menu_material_reuse/tally.json).
+Current canonical evidence: [R34 focus repair](r34_menu_focus_repair/README.md), [registry](r34_menu_focus_repair/per_piece.json), [coverage](r34_menu_focus_repair/scene_coverage.json), [tally](r34_menu_focus_repair/tally.json).
 
-# Current R33 bounded material study
+# Current R34 bounded focus repair
+
+The isolated candidate removes the R33 paper seam; original art/production/input geometry preserved.126 native/16views, 3053 bounded capture credits/3749 retained/696 excluded;56existingpartial/12families,78/176partial/98without/0complete;225knownroles/30families,0acceptedremoved,wholegame totalsunknown.
+
+Historical R33 routing: [R33menu material reuse](r33_menu_material_reuse/README.md), [registry](r33_menu_material_reuse/per_piece.json), [coverage](r33_menu_material_reuse/scene_coverage.json), [tally](r33_menu_material_reuse/tally.json).
+
+# Historical R33 bounded material study
 
 Paddingfit repairedinisolatedtexture-regiontrial;focus paperrectangle localQCFAIL,nointegration.122current/122initialfailed retained,16currentviews,sourcepixels/productionunchanged. 72new bounded credits/244retained/172excluded;3020bounded/3623retained/603excluded cumulative.56existingpartial/12families,78/176partial/98without/0complete;0acceptedremoved,wholegame totalsunknown.
 

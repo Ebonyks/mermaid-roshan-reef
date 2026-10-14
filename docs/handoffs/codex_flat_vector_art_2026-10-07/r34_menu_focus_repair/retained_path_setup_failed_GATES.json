@@ -1,0 +1,61 @@
+{
+  "status": "FAIL",
+  "commands": [
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-m",
+        "gdtoolkit.parser",
+        "docs/handoffs/codex_flat_vector_art_2026-10-07/r34_menu_focus_repair/capture_menu_focus_repair.gd"
+      ],
+      "started_at_utc": "2026-10-14T11:24:39.191938+00:00",
+      "checked_at_utc": "2026-10-14T11:24:40.135377+00:00",
+      "exit_code": 0,
+      "result": "PASS",
+      "evidence": "gates.log"
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-B",
+        "tools/lint_inference.py",
+        "docs/handoffs/codex_flat_vector_art_2026-10-07/r34_menu_focus_repair/capture_menu_focus_repair.gd"
+      ],
+      "started_at_utc": "2026-10-14T11:24:40.135441+00:00",
+      "checked_at_utc": "2026-10-14T11:24:40.250450+00:00",
+      "exit_code": 0,
+      "result": "PASS",
+      "evidence": "gates.log"
+    },
+    {
+      "command": [
+        "C:/Users/Peter/AppData/Local/Programs/MermaidReefTools/Godot/4.7.2/godot_console.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef",
+        "--check-only",
+        "--script",
+        "docs/handoffs/codex_flat_vector_art_2026-10-07/r34_menu_focus_repair/capture_menu_focus_repair.gd"
+      ],
+      "started_at_utc": "2026-10-14T11:24:40.250497+00:00",
+      "checked_at_utc": "2026-10-14T11:24:49.311775+00:00",
+      "exit_code": 0,
+      "result": "PASS",
+      "evidence": "gates.log"
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-B",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r34_menu_focus_repair\\validate.py"
+      ],
+      "started_at_utc": "2026-10-14T11:24:49.311859+00:00",
+      "checked_at_utc": "2026-10-14T11:25:02.812173+00:00",
+      "exit_code": 1,
+      "result": "FAIL",
+      "evidence": "gates.log"
+    }
+  ],
+  "raw_log_sha256": "a1cdb919b150b6110c8e6c421edbb9712bb13bc18586a98682908a8c1240ea45",
+  "scope": "R34namedfocus seam repairinisolatedcandidate,126native33credits93excluded/35beforefixturecontext/fourbaselinecurrentpaper comparisons/33directcalls17files. RetainedR32actualfull82 atunchangedproduction,no newfull82run. AllQA11/device/child/owner/globalinventory acceptanceopen."
+}
