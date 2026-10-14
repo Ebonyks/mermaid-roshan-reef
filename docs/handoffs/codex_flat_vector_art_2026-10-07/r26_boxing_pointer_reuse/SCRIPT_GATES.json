@@ -1,0 +1,74 @@
+[
+  {
+    "command": [
+      "python",
+      "-m",
+      "gdtoolkit.parser",
+      "docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r26_boxing_pointer_reuse\\candidate_boxing_surface.gd"
+    ],
+    "exit_code": 0,
+    "output": "",
+    "checked_at_utc": "2026-10-14T01:47:32.916020+00:00"
+  },
+  {
+    "command": [
+      "python",
+      "-B",
+      "tools/lint_inference.py",
+      "docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r26_boxing_pointer_reuse\\candidate_boxing_surface.gd"
+    ],
+    "exit_code": 0,
+    "output": "",
+    "checked_at_utc": "2026-10-14T01:47:33.020076+00:00"
+  },
+  {
+    "command": [
+      "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+      "--headless",
+      "--path",
+      "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef",
+      "--check-only",
+      "--script",
+      "res://.godot/r26_boxing_pointer_surface.gd"
+    ],
+    "exit_code": 0,
+    "output": "Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org\r\n\r\n",
+    "checked_at_utc": "2026-10-14T01:47:34.073814+00:00"
+  },
+  {
+    "command": [
+      "python",
+      "-m",
+      "gdtoolkit.parser",
+      "docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r26_boxing_pointer_reuse\\capture_boxing_reuse.gd"
+    ],
+    "exit_code": 0,
+    "output": "",
+    "checked_at_utc": "2026-10-14T01:47:34.842401+00:00"
+  },
+  {
+    "command": [
+      "python",
+      "-B",
+      "tools/lint_inference.py",
+      "docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r26_boxing_pointer_reuse\\capture_boxing_reuse.gd"
+    ],
+    "exit_code": 0,
+    "output": "",
+    "checked_at_utc": "2026-10-14T01:47:34.951695+00:00"
+  },
+  {
+    "command": [
+      "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+      "--headless",
+      "--path",
+      "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef",
+      "--check-only",
+      "--script",
+      "res://.godot/r26_capture_boxing_reuse.gd"
+    ],
+    "exit_code": 0,
+    "output": "Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org\r\n\r\n",
+    "checked_at_utc": "2026-10-14T01:47:42.977366+00:00"
+  }
+]

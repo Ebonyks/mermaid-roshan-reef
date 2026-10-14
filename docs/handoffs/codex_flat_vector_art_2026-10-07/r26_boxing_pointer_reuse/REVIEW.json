@@ -1,0 +1,82 @@
+{
+  "revision": "FV-AUDIT-20261014-R26",
+  "source_revision": "f27aa76d1c1e0bd48be0dfc2985f9ecda928ec88",
+  "piece_id": "FV-DAA9072B905A",
+  "scope_id": "FVF-22152D4FD26C",
+  "family": "opera_boxer",
+  "route": "opera.act.07",
+  "status": "PARTIAL_WHOLE_SOURCE_REUSE_FIT;PER_PIECE_HUMAN_REVIEW_PENDING",
+  "reviewer": "Codex direct native image inspection;nohuman acceptance",
+  "ten_axes": {
+    "contour": "Existing articulated finger/palm silhouette reads more clearly as pointing than the R25circle/ring guide in inspected views. Entire originalhand used;no contour edit/newdesign.",
+    "material": "Authored cream/coral paint andlavender shading sit closer to the painted shell/paddedmitt/leather neighborhood than uniformdot/ring. Large separate flatgloves/rings remain andreceive no replacementcredit.",
+    "palette": "Unchanged R16cream/coral/lavender fits warm shell/pearl details andpastelroom. No recolor or approvedcharacter identity redesign.",
+    "light": "Rigid handrotation carries its fixedpainted highlight/shadow. Room/prop light congruency andtargetdevice output unaccepted;no synthetic relighting.",
+    "perspective": "Screen-space fingertip travels along the original smooth 2.4second perhand/4.8second alternating demo ray. Wholehandrotation=rayangle-PI/2;no mirroring/deformation or worldperspective edits.",
+    "scale": "Uniform82px source square/alpha0.96. Visible longhand silhouette roughlyreplaces the old70px ringfootprint while beingnarrower. Hand is small beside largegloves;phone/child readability unaccepted.",
+    "contact": "Exact helper callbacktip error0 recorded for bothhand rays;sourcefingertip UV(.44580078125,.90625). Callback can be stale whenhidden/between redraws;not QA11/GPU projection. Actual backward/45percent drags0,target1of2 units preserved.",
+    "occlusion": "Removing onlythe old guidecircle/ring/route-line leaves more paintedmitt detail visible. Hand stilloverlaps glove atstart andpart ofmitt nearcontact. Large independent targetrings/acceptedglove/puff remain. No fulltrajectory/fourmode clearance.",
+    "readability": "Pointing shape andgesture clearer in these desktopviews. Sourcehand smaller/narrower thanold circle andlarge proceduralgloves;child/phone comprehension notestablished. Originalpunchlanes/targetrings/HUD unresolved.",
+    "action_state": "Actual bothhand demo,5second assistreset,wronginput,45percent forwarddrag,oneleft target/release/teardown retained. Guidehidden onpress andduringacceptedinput;wrongrelease restarts it. Callbackstate whenhidden ishistorical. No secondglove/fullphase/award/naturalroute/reload/reentry/focus/four siblingmodes/human/device."
+  },
+  "direct_native_views": [
+    "native/1280x720/phase_00/opened_demo_04s.png",
+    "native/1280x720/phase_00/demo_left_12s.png",
+    "native/1280x720/phase_00/demo_left_22s.png",
+    "native/1280x720/phase_00/demo_right_38s.png",
+    "native/1280x720/phase_00/wrong_moved.png",
+    "native/1280x720/phase_00/correct_target.png",
+    "native/1280x720/phase_00/post_release_04s.png",
+    "native/1600x720/phase_00/opened_demo_04s.png",
+    "native/1600x720/phase_00/demo_left_12s.png",
+    "native/1600x720/phase_00/demo_left_22s.png",
+    "native/1600x720/phase_00/demo_right_38s.png",
+    "native/1600x720/phase_00/wrong_moved.png",
+    "native/1600x720/phase_00/correct_target.png",
+    "native/1600x720/phase_00/post_release_04s.png"
+  ],
+  "native_files": 30,
+  "unique_native_hashes": 30,
+  "inherited_source_visual_review": {
+    "revision": "f27aa76d1c1e0bd48be0dfc2985f9ecda928ec88",
+    "evidence": "docs/handoffs/codex_flat_vector_art_2026-10-07/r25_boxing_pointer_context/REVIEW.json",
+    "images": [
+      "assets/opera/worlds/backdrops/world_boxer.png",
+      "assets/opera/worlds/actors/animation/roshan_boxer_sheet_a.png",
+      "assets/opera/worlds/widgets/widget_track_boxer_mover.png",
+      "assets/opera/worlds/widgets/widget_target_boxer_mark.png",
+      "assets_src/flat_vector_pointer_20261013/pointer_1024.png",
+      "assets/opera/worlds/backdrops/stage_boxer_c0r0.png",
+      "assets/opera/worlds/backdrops/stage_boxer_c1r0.png",
+      "assets/opera/worlds/backdrops/stage_boxer_c0r1.png",
+      "assets/opera/worlds/backdrops/stage_boxer_c1r1.png",
+      "assets/opera/worlds/backdrops/world_boxer_c0r0.png",
+      "assets/opera/worlds/backdrops/world_boxer_c1r0.png",
+      "assets/opera/worlds/backdrops/world_boxer_c0r1.png",
+      "assets/opera/worlds/backdrops/world_boxer_c1r1.png"
+    ],
+    "scope": "13previously directly inspected sources;exact current hashes/20published prerequisites verified before R26. No new sourceview count."
+  },
+  "new_generation_calls": 0,
+  "new_art_drawings": 0,
+  "acceptance": {
+    "candidate": null,
+    "approved": null,
+    "integrated": null,
+    "runtime_verified_replacement": null,
+    "QA11": null,
+    "device": null,
+    "child": null,
+    "owner": null,
+    "accepted_removed": 0
+  },
+  "remaining_weaknesses": [
+    "Glove/start andmitt/contact overlap andphone readability open",
+    "Four otherBoxing modes andfull trajectory/secondglove/fullphase missing",
+    "Productionguide/original trial missing-source fallback notretired",
+    "Other flatgloves,targets,lanes,feedback andHUD remain",
+    "QA11/naturalroute/save-load/reentry/focus/device/child/owner missing",
+    "Whole-game unique piece/screen inventory unknown"
+  ],
+  "next_bounded_step": "Continue the independent Teacher guide currentcontext/caller inventory or fourBoxing siblingmodes while source/context human review remains pending;no unacceptedsource adoption."
+}

@@ -1,4 +1,10 @@
-Current canonical evidence: [R25 Boxing guide context](r25_boxing_pointer_context/README.md), [registry](r25_boxing_pointer_context/per_piece.json), [coverage](r25_boxing_pointer_context/scene_coverage.json), [tally](r25_boxing_pointer_context/tally.json).
+Current canonical evidence: [R26 Boxing hand reuse](r26_boxing_pointer_reuse/README.md), [registry](r26_boxing_pointer_reuse/per_piece.json), [coverage](r26_boxing_pointer_reuse/scene_coverage.json), [tally](r26_boxing_pointer_reuse/tally.json).
+
+# Current R26 Boxing whole-hand trial
+
+30 native files / 14 inspected views; existing source only, no generation or runtime adoption. One unique hand source / three per-piece context review requests. 50 partial existing / 11 families, 2624 bounded / 2768 retained, 225 known / 30 families. Zero accepted removals; unknown whole-game inventory and all acceptance remain open.
+
+Historical R25 routing: [R25 Boxing guide context](r25_boxing_pointer_context/README.md), [registry](r25_boxing_pointer_context/per_piece.json), [coverage](r25_boxing_pointer_context/scene_coverage.json), [tally](r25_boxing_pointer_context/tally.json).
 
 # Current R25 Boxing first-phase context
 
