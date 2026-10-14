@@ -1,6 +1,12 @@
-Current canonical evidence: [R38 glyph source](r38_glyph_reconciliation/README.md), [registry](r38_glyph_reconciliation/per_piece.json), [coverage](r38_glyph_reconciliation/scene_coverage.json), [tally](r38_glyph_reconciliation/tally.json).
+Current canonical evidence: [R39 Craft context](r39_craft_compositor_context/README.md), [registry](r39_craft_compositor_context/per_piece.json), [coverage](r39_craft_compositor_context/scene_coverage.json), [tally](r39_craft_compositor_context/tally.json).
 
-# Current R38 glyph-source reconciliation
+# Current R39 Craft compositor audit
+
+Eight successful current GUI profile/aspect cases; fish double-eye/detached-fin/tint and Detail preview gaps documented.227 known roles/30 families,3497 bounded/4425 retained/928 excluded,zero accepted removals/global totals unknown. Natural downstream callers and acceptance remain open.
+
+Historical R38 evidence: [R38 glyph source](r38_glyph_reconciliation/README.md), [registry](r38_glyph_reconciliation/per_piece.json), [coverage](r38_glyph_reconciliation/scene_coverage.json), [tally](r38_glyph_reconciliation/tally.json).
+
+# Historical R38 glyph-source reconciliation
 
 All348 frozen glyph IDs source-accounted:347 current bindings/1 retainedprior R32source retirement.46prior exact-group gaps resolved without artwork acceptance.225knownroles/30families,captures/statuses unchanged,accepted0/globaldenominator unknown.
 

@@ -1,0 +1,28 @@
+{
+  "status": "RETAINED_ACTUAL_MACHINE_EVIDENCE_AT_BYTE_IDENTICAL_PRODUCTION",
+  "baseline": "9d19fdc1f0ebdcac8c11d75adc56926bc43d136f",
+  "origin_dev": "831d0bbb155b99d75ef0289cc5cc694e0ef00c1e",
+  "retained_full_validation": {
+    "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r32_startup_ui_retirement/FULL_VALIDATION.json",
+    "revision": "ecb9839a374d3260161a19d44039325d561a3509",
+    "bytes": 73369,
+    "sha256": "11cb51a77e7f1197e9dd0fb80d6c6ae07ce417b309b735e4cccfc212e58192e8",
+    "scope": "Actual prior R32 full82/import evidence; no new R37 full82 execution."
+  },
+  "retained_ci": {
+    "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r36_menu_ornament_retirement/RETAINED_R35_CI.json",
+    "revision": "01f670d7ab4933fe2c2e6605bbca4ef2105f200f",
+    "run_id": 38564196515,
+    "headSha": "9730f40bbe725b71e2655653d04d5fea5d27bf34",
+    "status": "success",
+    "sha256": "3b1b495a44d513f1277b94727297d6e336cf20911fdf66bc44ed930b82e23f6b",
+    "scope": "Actual exact R35 CI at same production; not R37 exact-head CI."
+  },
+  "source_parser": "gdtoolkit 4.5.0 is a syntax tool package version; not a Godot engine baseline. Godot baseline remains exactly4.7.2 official Mobile/Speedy.",
+  "QA11": null,
+  "device": null,
+  "child": null,
+  "owner": null,
+  "accepted_removed": 0,
+  "scope": "R39 nonruntime audit/native isolated fixture; production/protected sources unchanged; actual R32full82/R35CI retained at byte-identical production, not new full-suite execution."
+}

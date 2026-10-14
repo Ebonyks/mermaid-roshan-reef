@@ -1,0 +1,161 @@
+{
+  "status": "INITIAL_FIXTURE_NUMERIC_TYPE_MISMATCH_RETAINED_NO_SAVE_LOSS_OBSERVED",
+  "initial_fixture": {
+    "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r39_craft_compositor_context/capture_craft_context_initial.gd",
+    "sha256": "8a21d2bb6f5f6dc03161ce1f180dba751c96b5453895404d7e92909a437c2477"
+  },
+  "current_fixture": {
+    "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r39_craft_compositor_context/capture_craft_context.gd",
+    "sha256": "00e87e69998c09e167ef120c727883ea65ecc3601fe3cf8b098004e40b79b42d"
+  },
+  "failed_attempt": "native_attempt1_1280_saved_fish",
+  "failed_attempt_captures": 41,
+  "original_errors": [
+    "legacy row changed saved_fishcustom_fish1",
+    "legacy row changed saved_fishcustom_friends1",
+    "legacy row changed saved_fishcustom_friends2",
+    "legacy row changed saved_fishcustom_fish1",
+    "legacy row changed saved_fishcustom_friends1",
+    "legacy row changed saved_fishcustom_friends2",
+    "legacy row changed saved_fishcustom_fish1",
+    "legacy row changed saved_fishcustom_friends1",
+    "legacy row changed saved_fishcustom_friends2"
+  ],
+  "seed": {
+    "crafts": {},
+    "custom_fish": [
+      [
+        0.9,
+        0.3,
+        0.3,
+        1.0,
+        0.8,
+        0.2
+      ],
+      [
+        0.2,
+        0.7,
+        0.8,
+        0.9,
+        0.3,
+        0.4,
+        1,
+        0
+      ]
+    ],
+    "custom_friends": [
+      [
+        "cat",
+        0.95,
+        0.7,
+        0.85,
+        0.6,
+        0.4,
+        0.9
+      ],
+      [
+        "bird",
+        1.0,
+        0.85,
+        0.3,
+        0.3,
+        0.8,
+        0.9,
+        0,
+        1
+      ],
+      [
+        "cat",
+        0.95,
+        0.7,
+        0.85,
+        0.6,
+        0.4,
+        0.9,
+        1,
+        0,
+        0.97,
+        0.96,
+        0.93
+      ]
+    ],
+    "found": {},
+    "mic": false,
+    "music": false,
+    "pearls": 23,
+    "pearls_ever": 23,
+    "plays": 0,
+    "quality": "speedy",
+    "schema_version": 1,
+    "stickers": {},
+    "won": {}
+  },
+  "initial_loaded_custom_fish": [
+    [
+      0.9,
+      0.3,
+      0.3,
+      1.0,
+      0.8,
+      0.2
+    ],
+    [
+      0.2,
+      0.7,
+      0.8,
+      0.9,
+      0.3,
+      0.4,
+      1.0,
+      0.0
+    ]
+  ],
+  "initial_loaded_custom_friends": [
+    [
+      "cat",
+      0.95,
+      0.7,
+      0.85,
+      0.6,
+      0.4,
+      0.9
+    ],
+    [
+      "bird",
+      1.0,
+      0.85,
+      0.3,
+      0.3,
+      0.8,
+      0.9,
+      0.0,
+      1.0
+    ],
+    [
+      "cat",
+      0.95,
+      0.7,
+      0.85,
+      0.6,
+      0.4,
+      0.9,
+      1.0,
+      0.0,
+      0.97,
+      0.96,
+      0.93
+    ]
+  ],
+  "JSON_value_equality": true,
+  "normal_save_unchanged": true,
+  "fix": "Onlyfixture legacy row comparison:JSON flags mayload asfloat notint;value/length/kind/flag semantics exact,colour tolerance1e-6. Production behavior andsave serializer untouched. Existingfresh42capture case notrerun;legacy case receivesone newattempt,failed41retainedandexcludedfromnew contextcredits.",
+  "second_fixture_failure": {
+    "reason": "Conditional array literal produces Array, cannot assign to Array[int] at native execution despite check-only pass",
+    "attempt": "native_attempt2_1280_saved_fish",
+    "exit_code": 1,
+    "fixture_before_sha256": "00e87e69998c09e167ef120c727883ea65ecc3601fe3cf8b098004e40b79b42d",
+    "fixture_after_sha256": "4837432a4aea038b18144a9d916f0b37816ff431116dce239063d9bf0beb51d2",
+    "fix": "Use untyped element Array for the two-index numeric-role list; preserve exact numeric value comparisons and color tolerance",
+    "production_save_source_edited": false
+  }
+}

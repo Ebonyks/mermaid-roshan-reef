@@ -1,0 +1,583 @@
+{
+  "schema": "reef.craft_compositor_source_audit/1",
+  "baseline": "9d19fdc1f0ebdcac8c11d75adc56926bc43d136f",
+  "stable_whole_assembly_id": "FVR-FE178DEED189",
+  "frozen_primitive_register_unchanged": true,
+  "source_texture_scopes": [
+    {
+      "id": "FVT-CCF43BC8DE55",
+      "path": "scripts/craft_studio.gd",
+      "function": "_craft_build_preview",
+      "source_revision": "9d19fdc1f0ebdcac8c11d75adc56926bc43d136f",
+      "file_sha256": "fd97af6efaeaf4b3949b94f921a71064b753c383d5adcf6e49395a487018de57",
+      "function_sha256_lf": "ec5c69afe9e119faf5e5d990b50db6d14326236f3bebce84b3e548f6e2383079",
+      "lines": [
+        17,
+        39
+      ],
+      "role": "Craft actual GUI three TextureRect layers; current native underreview",
+      "body_utf8": "func _craft_build_preview() -> void:\n\tif m.craft_fishbox == null:\n\t\treturn\n\tfor child: Node in m.craft_fishbox.get_children():\n\t\tchild.queue_free()\n\tvar layers: Array = m.CREATURE_LAYERS.get(m.craft_kind, m.CREATURE_LAYERS[\"fish\"])\n\tvar order := [String(layers[1]), String(layers[0]), String(layers[2])]\n\tvar roles := [\"body\", \"accent\", \"line\"]\n\tvar colors := [m.craft_body, Color(m.craft_fins.r, m.craft_fins.g, m.craft_fins.b, 1.0), Color.WHITE]\n\tvar rainbows := [m.craft_body_rb, m.craft_fins_rb, false]\n\tfor i in range(3):\n\t\tvar texture_rect := TextureRect.new()\n\t\ttexture_rect.texture = load(\"res://assets/mg/\" + order[i] + \".png\")\n\t\ttexture_rect.expand_mode = TextureRect.EXPAND_IGNORE_SIZE\n\t\ttexture_rect.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED\n\t\ttexture_rect.size = m.craft_fishbox.size\n\t\ttexture_rect.modulate = colors[i]\n\t\ttexture_rect.mouse_filter = Control.MOUSE_FILTER_IGNORE\n\t\ttexture_rect.set_meta(\"role\", roles[i])\n\t\tm.craft_fishbox.add_child(texture_rect)\n\t\tif roles[i] != \"line\":\n\t\t\tm._layer_fx(texture_rect, roles[i], colors[i], rainbows[i], m.craft_kind)\n\n",
+      "runtime_context_complete": false,
+      "individual_piece_total": null
+    },
+    {
+      "id": "FVT-318E934BB0DA",
+      "path": "scripts/main.gd",
+      "function": "_make_creature_node",
+      "source_revision": "9d19fdc1f0ebdcac8c11d75adc56926bc43d136f",
+      "file_sha256": "b6e905824a4b60461181deda525c816fc790613479e9321d12ae7f71df666a33",
+      "function_sha256_lf": "421d7cdc2041bbc2b23311c610db0c55228283a162ea45136a902d5e2021354b",
+      "lines": [
+        7168,
+        7218
+      ],
+      "role": "Shared spatial fallback/legacy gen2 lookup; true2D migration and runtimeclosure open",
+      "body_utf8": "func _make_creature_node(kind: String, body: Color, accent: Color, body_rb: bool = false, acc_rb: bool = false, third: Color = Color(0, 0, 0, 0)) -> Node3D:\n\tif CRAFT_RIGGED.has(kind):\n\t\tvar rspec: Array = CRAFT_RIGGED[kind]\n\t\tvar c3: Color = third if third.a > 0.0 else (rspec[2] as Color)\n\t\tvar rn := _gen2_creature_rigged(String(rspec[0]), float(rspec[1]), body, accent, c3)\n\t\tif rn != null:\n\t\t\tif body_rb or acc_rb:\n\t\t\t\trn.tree_entered.connect(_start_gen2_rainbow.bind(rn, body_rb, acc_rb), CONNECT_ONE_SHOT)\n\t\t\treturn rn\n\tif CRAFT_GEN2.has(kind):\n\t\tvar spec: Array = CRAFT_GEN2[kind]\n\t\tvar pf := _gen2_creature(String(spec[0]), Vector3.ZERO, float(spec[1]))\n\t\tif pf != null:\n\t\t\tremove_child(pf)   # _gen2_prop parents to main; callers re-parent\n\t\t\tfor mi in _all_meshes(pf):\n\t\t\t\tvar mesh: Mesh = mi.mesh\n\t\t\t\tif mesh == null:\n\t\t\t\t\tcontinue\n\t\t\t\tfor si in range(mesh.get_surface_count()):\n\t\t\t\t\tvar sm2: Material = mi.get_surface_override_material(si)\n\t\t\t\t\tif sm2 is ShaderMaterial:\n\t\t\t\t\t\t(sm2 as ShaderMaterial).set_shader_parameter(\"paint_mix\", 1.0)\n\t\t\t\t\t\t(sm2 as ShaderMaterial).set_shader_parameter(\"paint_body\", body)\n\t\t\t\t\t\t(sm2 as ShaderMaterial).set_shader_parameter(\"paint_fin\", accent)\n\t\t\tpf.set_meta(\"gen2\", true)   # base at origin (billboards are center-origin)\n\t\t\tif body_rb or acc_rb:\n\t\t\t\tpf.tree_entered.connect(_start_gen2_rainbow.bind(pf, body_rb, acc_rb), CONNECT_ONE_SHOT)\n\t\t\treturn pf\n\tvar ln: Array = CREATURE_LAYERS.get(kind, CREATURE_LAYERS[\"fish\"])\n\tvar root := Node3D.new()\n\t# inner pivot so the idle animation never fights whoever owns root position\n\tvar anim := Node3D.new()\n\troot.add_child(anim)\n\tvar lb := Sprite3D.new()\n\tlb.texture = load(\"res://assets/mg/\" + String(ln[1]) + \".png\")\n\tlb.billboard = BaseMaterial3D.BILLBOARD_ENABLED; lb.pixel_size = 0.02; lb.render_priority = 0\n\tanim.add_child(lb)\n\tvar la := Sprite3D.new()\n\tla.texture = load(\"res://assets/mg/\" + String(ln[0]) + \".png\")\n\tla.billboard = BaseMaterial3D.BILLBOARD_ENABLED; la.pixel_size = 0.02; la.render_priority = 1\n\tanim.add_child(la)\n\tvar ll := Sprite3D.new()\n\tll.texture = load(\"res://assets/mg/\" + String(ln[2]) + \".png\")\n\tll.billboard = BaseMaterial3D.BILLBOARD_ENABLED; ll.pixel_size = 0.02; ll.render_priority = 2\n\tanim.add_child(ll)\n\t# colors + idle tweens can only start inside the tree, hence the deferred\n\t# hook (create_tween() errors outside it; this also restores the craft\n\t# tints the billboard fallback would otherwise render pure white)\n\troot.tree_entered.connect(_creature_spawned.bind(lb, la, anim, body, accent, body_rb, acc_rb, kind), CONNECT_ONE_SHOT)\n\treturn root\n\n",
+      "runtime_context_complete": false,
+      "individual_piece_total": null
+    },
+    {
+      "id": "FVT-70C480B97686",
+      "path": "scripts/companion.gd",
+      "function": "_stuffie_cutout",
+      "source_revision": "9d19fdc1f0ebdcac8c11d75adc56926bc43d136f",
+      "file_sha256": "0baeb7256a209b5266ebdf48cdccb7af6497b30fd0666021c597eced6e04d269",
+      "function_sha256_lf": "2532ee0e0d8ef1e48e1d6da88eb506ac21f7a814ed45d5396fe57f4eb2d294a5",
+      "lines": [
+        146,
+        198
+      ],
+      "role": "Paintable stuffie fallback uses sameCREATURE_LAYERS;direct sourcepaintable flags guard",
+      "body_utf8": "func _stuffie_cutout(d: Dictionary, c: Array[Color], target_height: float) -> Node3D:\n\t# Stuffies are deliberately flat storybook cutouts. This replaces the\n\t# retired GLB path for the follower, battle copy, and Studio display.\n\tvar root := Node3D.new()\n\troot.name = \"StuffieCutout_\" + String(d.get(\"id\", \"friend\"))\n\tvar anim := Node3D.new()\n\tanim.name = \"StorybookBob\"\n\troot.add_child(anim)\n\tif d.has(\"sprite\"):\n\t\tvar direct_tex: Texture2D = load(FashionOutfitRenderer.path(m, String(d[\"sprite\"])))\n\t\tif direct_tex == null:\n\t\t\treturn null\n\t\tvar direct := Sprite3D.new()\n\t\tdirect.name = \"StorybookSprite\"\n\t\tdirect.texture = direct_tex\n\t\tdirect.billboard = BaseMaterial3D.BILLBOARD_ENABLED\n\t\tdirect.pixel_size = target_height / maxf(float(direct_tex.get_height()), 1.0)\n\t\tdirect.render_priority = 2\n\t\tanim.add_child(direct)\n\telse:\n\t\tvar kind := String(d.get(\"kind\", \"\"))\n\t\tif not m.CREATURE_LAYERS.has(kind):\n\t\t\treturn null\n\t\tvar layer_names: Array = m.CREATURE_LAYERS[kind]\n\t\tvar body_tex: Texture2D = load(\"res://assets/mg/\" + String(layer_names[1]) + \".png\")\n\t\tif body_tex == null:\n\t\t\treturn null\n\t\tvar pixel: float = target_height / maxf(float(body_tex.get_height()), 1.0)\n\t\tvar draw_order: Array = [1, 0, 2]\n\t\tvar tints: Array[Color] = [c[0], c[1], Color.WHITE]\n\t\tfor i in range(draw_order.size()):\n\t\t\tvar layer_index: int = int(draw_order[i])\n\t\t\tvar tex: Texture2D = load(\"res://assets/mg/\" + String(layer_names[layer_index]) + \".png\")\n\t\t\tif tex == null:\n\t\t\t\tcontinue\n\t\t\tvar layer := Sprite3D.new()\n\t\t\tlayer.name = \"StorybookLayer_%d\" % i\n\t\t\tlayer.texture = tex\n\t\t\tlayer.billboard = BaseMaterial3D.BILLBOARD_ENABLED\n\t\t\tlayer.pixel_size = pixel\n\t\t\tlayer.render_priority = i\n\t\t\tlayer.modulate = tints[i]\n\t\t\tanim.add_child(layer)\n\troot.set_meta(\"storybook_sprite\", true)\n\treturn root\n\n# ===================== per-frame tick (called from main._process) =====================\n\n# The stuffie follows EVERYWHERE (owner 2026-07-19/21: all of the time \u2014\n# it kept vanishing in levels an allow-list never heard of). Inverted to a\n# HIDE-list mirroring player.gd's self-driven modes: only engines that own\n# the player/camera themselves (racers, stages, battles, room sequencers)\n# park the stuffie, so every new explorable level follows by default.\n",
+      "runtime_context_complete": false,
+      "individual_piece_total": null
+    },
+    {
+      "id": "FVT-E9042EE6F8BF",
+      "path": "scripts/companion.gd",
+      "function": "_add_creature_preview",
+      "source_revision": "9d19fdc1f0ebdcac8c11d75adc56926bc43d136f",
+      "file_sha256": "0baeb7256a209b5266ebdf48cdccb7af6497b30fd0666021c597eced6e04d269",
+      "function_sha256_lf": "19bf1e4cc613b9e740b71705d01bda0831c3305d125007157e15bd6ebc2298de",
+      "lines": [
+        920,
+        978
+      ],
+      "role": "Stuffie/card preview three layers withreference fit;runtime caller states open",
+      "body_utf8": "func _add_creature_preview(parent: Control, d: Dictionary, box_pos: Vector2, box_size: Vector2, body: Color, accent: Color) -> void:\n\t# layered book-art preview (assets/mg fish/cat/bird sheets), live-tinted \u2014\n\t# the same sheets the craft creatures use, so the paint matches in-world.\n\t# The sheets are large illustrations: FIT them into the given box (uniform\n\t# scale, centered) instead of trusting any fixed scale, and paint in the\n\t# in-world order \u2014 body first, accent OVER it, ink line on top.\n\tparent.clip_contents = true\n\tif d.has(\"sprite\"):\n\t\tvar direct := TextureRect.new()\n\t\tdirect.texture = load(FashionOutfitRenderer.path(m, String(d[\"sprite\"])))\n\t\tdirect.position = box_pos\n\t\tdirect.size = box_size\n\t\tdirect.expand_mode = TextureRect.EXPAND_IGNORE_SIZE\n\t\tdirect.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED\n\t\tdirect.mouse_filter = Control.MOUSE_FILTER_IGNORE\n\t\tparent.add_child(direct)\n\t\treturn\n\tif not m.CREATURE_LAYERS.has(String(d.get(\"kind\", \"\"))):\n\t\tvar face := Label.new()\n\t\tface.text = String(d.get(\"emoji\", \"\ud83e\uddf8\"))\n\t\tface.add_theme_font_size_override(\"font_size\", int(minf(box_size.x, box_size.y) * 0.62))\n\t\tface.position = box_pos\n\t\tface.size = box_size\n\t\tface.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER\n\t\tface.vertical_alignment = VERTICAL_ALIGNMENT_CENTER\n\t\tface.mouse_filter = Control.MOUSE_FILTER_IGNORE\n\t\tparent.add_child(face)\n\t\treturn\n\tvar kind := String(d[\"kind\"])\n\tvar layer_names: Array = m.CREATURE_LAYERS.get(kind, m.CREATURE_LAYERS[\"fish\"])\n\tvar draw_order: Array = [1, 0, 2]   # body, accent, line (matches _make_creature_node)\n\tvar tints: Array[Color] = [body, accent, Color.WHITE]\n\tvar ref_tex: Texture2D = null\n\tfor li in range(3):\n\t\tvar probe_path := \"res://assets/mg/\" + String(layer_names[li]) + \".png\"\n\t\tif ResourceLoader.exists(probe_path):\n\t\t\tref_tex = load(FashionOutfitRenderer.path(m, probe_path))\n\t\t\tbreak\n\tif ref_tex == null:\n\t\treturn\n\tvar ts: Vector2 = ref_tex.get_size()\n\tvar fit: float = minf(box_size.x / maxf(ts.x, 1.0), box_size.y / maxf(ts.y, 1.0))\n\tvar origin: Vector2 = box_pos + (box_size - ts * fit) * 0.5\n\tparent.clip_contents = true   # nothing ever spills over the card/frame edge\n\tfor i in range(3):\n\t\tvar tex_path := \"res://assets/mg/\" + String(layer_names[int(draw_order[i])]) + \".png\"\n\t\tif not ResourceLoader.exists(tex_path):\n\t\t\tcontinue\n\t\tvar tr := TextureRect.new()\n\t\ttr.texture = load(FashionOutfitRenderer.path(m, tex_path))\n\t\ttr.position = origin\n\t\ttr.scale = Vector2.ONE * fit\n\t\ttr.modulate = tints[i]\n\t\ttr.mouse_filter = Control.MOUSE_FILTER_IGNORE\n\t\tparent.add_child(tr)\n\n# ---------- the Stuffie Studio: six display cubbies, a care/upgrade table,\n# ---------- and a separate toy chest for choosing the active friend ----------\n\n",
+      "runtime_context_complete": false,
+      "individual_piece_total": null
+    },
+    {
+      "id": "FVT-060E5952E2B5",
+      "path": "scripts/arena/castle_rooms_25d.gd",
+      "function": "sync_castle_companion_card",
+      "source_revision": "9d19fdc1f0ebdcac8c11d75adc56926bc43d136f",
+      "file_sha256": "50c723043680c987cc959d9bfbbcad94cfb62162f24d305d3f058c0d2de05176",
+      "function_sha256_lf": "a83cbde4fa0f21840bfc8c5aac1cc2879a6201dae73c116bacccd12d4ecb49bf",
+      "lines": [
+        5029,
+        5123
+      ],
+      "role": "ActualCanvas companioncard three layers forpaintable fallback;explicitapprovedsingle BabyEagle exception",
+      "body_utf8": "func sync_castle_companion_card() -> void:\n\t# This is deliberately a single true-2D reward card in the castle's existing\n\t# Canvas staging layer. It is not the broader spatial follower and never owns\n\t# a tween callback or a second per-frame instance.\n\tif m.castle_room_item_visual_layer == null \\\n\t\t\tor not is_instance_valid(m.castle_room_item_visual_layer) \\\n\t\t\tor m.companion_id == \"\":\n\t\tif m.castle_companion_card != null \\\n\t\t\t\tand is_instance_valid(m.castle_companion_card):\n\t\t\tm.castle_companion_card.visible = false\n\t\treturn\n\tvar definition: Dictionary = m._companion_ref().active_def()\n\tif definition.is_empty():\n\t\treturn\n\tvar card: Control = m.castle_companion_card\n\tif card == null or not is_instance_valid(card):\n\t\tcard = Control.new()\n\t\tcard.name = \"CastleCompanionCard\"\n\t\tcard.size = CASTLE_COMPANION_CARD_SIZE\n\t\tcard.mouse_filter = Control.MOUSE_FILTER_IGNORE\n\t\tcard.set_meta(\"source_asset_role\", \"companion_card\")\n\t\tcard.set_meta(\"castle_canvas_only\", true)\n\t\tm.castle_companion_card = card\n\t\tm.castle_room_item_visual_layer.add_child(card)\n\tvar identity: String = String(card.get_meta(\"companion_id\", \"\"))\n\tvar saved_colors: Array = card.get_meta(\"companion_colors\", []) as Array\n\tvar saved_outfit: Variant = m.character_outfits.get(\"baby_eagle\", \"\")\n\tvar eagle_outfit: String = saved_outfit if saved_outfit is String else \"\"\n\tvar current_colors: Array[Color] = m._companion_ref().colors()\n\tvar color_tokens: Array[String] = []\n\tfor color: Color in current_colors:\n\t\tcolor_tokens.append(color.to_html(false))\n\tif identity != m.companion_id or saved_colors != color_tokens or String(card.get_meta(\"fashion_outfit\", \"\")) != eagle_outfit:\n\t\tfor child: Node in card.get_children():\n\t\t\tchild.free()\n\t\tvar asset_paths: Array[String] = []\n\t\tvar tints: Array[Color] = []\n\t\t# Baby Eagle uses the approved non-paintable isolate everywhere.\n\t\t# Preserve the authored identity and colours on this Canvas card.\n\t\tif m.companion_id == \"eagle\":\n\t\t\tasset_paths.append(\"res://assets/characters/companions/baby_eagle.png\")\n\t\t\ttints.append(Color.WHITE)\n\t\telif definition.has(\"sprite\"):\n\t\t\tasset_paths.append(String(definition[\"sprite\"]))\n\t\t\ttints.append(Color.WHITE)\n\t\telse:\n\t\t\tvar layer_names: Array = m.CREATURE_LAYERS.get(\n\t\t\t\tString(definition.get(\"kind\", \"\")), []) as Array\n\t\t\tvar draw_order: Array[int] = [1, 0, 2]\n\t\t\tvar ordered_tints: Array[Color] = [current_colors[0],\n\t\t\t\tcurrent_colors[1], Color.WHITE]\n\t\t\tfor draw_index: int in draw_order:\n\t\t\t\tif draw_index >= 0 and draw_index < layer_names.size():\n\t\t\t\t\tasset_paths.append(\"res://assets/mg/\" \\\n\t\t\t\t\t\t+ String(layer_names[draw_index]) + \".png\")\n\t\t\t\t\ttints.append(ordered_tints[asset_paths.size() - 1])\n\t\tfor index: int in range(asset_paths.size()):\n\t\t\tvar texture: Texture2D = load(FashionOutfitRenderer.path(m, asset_paths[index])) as Texture2D\n\t\t\tif texture == null:\n\t\t\t\tcontinue\n\t\t\tvar visual := TextureRect.new()\n\t\t\tvisual.name = \"CompanionArt_%d\" % index\n\t\t\tvisual.position = Vector2.ZERO\n\t\t\tvisual.size = CASTLE_COMPANION_CARD_SIZE\n\t\t\tvisual.texture = texture\n\t\t\tvisual.expand_mode = TextureRect.EXPAND_IGNORE_SIZE\n\t\t\tvisual.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED\n\t\t\tvisual.modulate = tints[index]\n\t\t\tvisual.mouse_filter = Control.MOUSE_FILTER_IGNORE\n\t\t\tcard.add_child(visual)\n\t\tcard.set_meta(\"companion_id\", m.companion_id)\n\t\tcard.set_meta(\"fashion_outfit\", eagle_outfit)\n\t\tcard.set_meta(\"companion_colors\", color_tokens)\n\t\tcard.set_meta(\"source_object_id\", \"castle:companion:\" + m.companion_id)\n\t\tcard.set_meta(\"source_asset_paths\", asset_paths)\n\t\tcard.set_meta(\"source_asset_path\", asset_paths[0] \\\n\t\t\tif not asset_paths.is_empty() else \"\")\n\tvar player: Sprite2D = m.castle_room_player_sprite\n\tif player == null or not is_instance_valid(player):\n\t\treturn\n\tvar foot: Vector2 = player.get_meta(\"current_stage_foot\",\n\t\tplayer.get_meta(\"stage_foot\", Vector2.ZERO)) as Vector2\n\tvar depth_z: float = float(player.get_meta(\"depth_z\", PLAYER_FRONT_Z))\n\tvar canvas_scale: float = HALL_STAGE_SCALE if _is_wide_hall() else ART_TO_STAGE\n\tvar card_center: Vector2 = _hall_art_to_world(\n\t\t\tfoot + Vector2(108.0, -100.0), depth_z) \\\n\t\t\tif _is_wide_hall() else _stage_to_world(\n\t\t\tfoot + Vector2(108.0, -100.0), depth_z)\n\tcard.scale = Vector2.ONE * canvas_scale\n\tcard.position = card_center - CASTLE_COMPANION_CARD_SIZE \\\n\t\t\t* canvas_scale * 0.5\n\tcard.z_index = player.z_index + 1\n\tcard.visible = is_open()\n\n\n",
+      "runtime_context_complete": false,
+      "individual_piece_total": null
+    }
+  ],
+  "texture_scope_source_count": 5,
+  "old_texture_scope_source_count": 2,
+  "additional_source_texture_scope_count": 3,
+  "source_calls": [
+    {
+      "path": "scripts/arena/castle_rooms_25d.gd",
+      "function": "_position_player_at_foot",
+      "line": 2810,
+      "expression": "sync_castle_companion_card()",
+      "callee": "sync_castle_companion_card",
+      "source_revision": "9d19fdc1f0ebdcac8c11d75adc56926bc43d136f",
+      "source_sha256_lf": "50c723043680c987cc959d9bfbbcad94cfb62162f24d305d3f058c0d2de05176",
+      "probe_named": false,
+      "binding_limit": "Exact AST sourceexpression;guard/receiver/native/reach/runtime appearances notclosed."
+    },
+    {
+      "path": "scripts/arena/castle_rooms_25d.gd",
+      "function": "_position_hall_player_at_foot",
+      "line": 2868,
+      "expression": "sync_castle_companion_card()",
+      "callee": "sync_castle_companion_card",
+      "source_revision": "9d19fdc1f0ebdcac8c11d75adc56926bc43d136f",
+      "source_sha256_lf": "50c723043680c987cc959d9bfbbcad94cfb62162f24d305d3f058c0d2de05176",
+      "probe_named": false,
+      "binding_limit": "Exact AST sourceexpression;guard/receiver/native/reach/runtime appearances notclosed."
+    },
+    {
+      "path": "scripts/arena/castle_rooms_25d.gd",
+      "function": "_set_player_current_foot",
+      "line": 4698,
+      "expression": "sync_castle_companion_card()",
+      "callee": "sync_castle_companion_card",
+      "source_revision": "9d19fdc1f0ebdcac8c11d75adc56926bc43d136f",
+      "source_sha256_lf": "50c723043680c987cc959d9bfbbcad94cfb62162f24d305d3f058c0d2de05176",
+      "probe_named": false,
+      "binding_limit": "Exact AST sourceexpression;guard/receiver/native/reach/runtime appearances notclosed."
+    },
+    {
+      "path": "scripts/arena/sky_lagoon.gd",
+      "function": "_build_pearl_castle",
+      "line": 665,
+      "expression": "m._make_creature_node(String(cf2[0]), Color(cf2[1], cf2[2], cf2[3]), Color(cf2[4], cf2[5], cf2[6]), body_rb, acc_rb, c3)",
+      "callee": "m._make_creature_node",
+      "source_revision": "9d19fdc1f0ebdcac8c11d75adc56926bc43d136f",
+      "source_sha256_lf": "c3b81b4d6b2cb500c8d4e1f6ff2e4064a8b9c7ca4c8b0010c20236ccbb2e0395",
+      "probe_named": false,
+      "binding_limit": "Exact AST sourceexpression;guard/receiver/native/reach/runtime appearances notclosed."
+    },
+    {
+      "path": "scripts/companion.gd",
+      "function": "creature_for",
+      "line": 131,
+      "expression": "_stuffie_cutout(d, c, 3.8)",
+      "callee": "_stuffie_cutout",
+      "source_revision": "9d19fdc1f0ebdcac8c11d75adc56926bc43d136f",
+      "source_sha256_lf": "0baeb7256a209b5266ebdf48cdccb7af6497b30fd0666021c597eced6e04d269",
+      "probe_named": false,
+      "binding_limit": "Exact AST sourceexpression;guard/receiver/native/reach/runtime appearances notclosed."
+    },
+    {
+      "path": "scripts/companion.gd",
+      "function": "_draw_care_menu",
+      "line": 312,
+      "expression": "_add_creature_preview(preview, d, Vector2(16, 16), Vector2(318, 328), current_colors[0], current_colors[1])",
+      "callee": "_add_creature_preview",
+      "source_revision": "9d19fdc1f0ebdcac8c11d75adc56926bc43d136f",
+      "source_sha256_lf": "0baeb7256a209b5266ebdf48cdccb7af6497b30fd0666021c597eced6e04d269",
+      "probe_named": false,
+      "binding_limit": "Exact AST sourceexpression;guard/receiver/native/reach/runtime appearances notclosed."
+    },
+    {
+      "path": "scripts/companion.gd",
+      "function": "_draw_picker",
+      "line": 790,
+      "expression": "_add_creature_preview(card, d, Vector2(12, 12), Vector2(150, step - 50.0),\n\t\t\t(d[\"body\"] as Color), (d[\"accent\"] as Color))",
+      "callee": "_add_creature_preview",
+      "source_revision": "9d19fdc1f0ebdcac8c11d75adc56926bc43d136f",
+      "source_sha256_lf": "0baeb7256a209b5266ebdf48cdccb7af6497b30fd0666021c597eced6e04d269",
+      "probe_named": false,
+      "binding_limit": "Exact AST sourceexpression;guard/receiver/native/reach/runtime appearances notclosed."
+    },
+    {
+      "path": "scripts/companion.gd",
+      "function": "_draw_picker",
+      "line": 813,
+      "expression": "_add_creature_preview(preview_panel, pick_def, Vector2(14, 14), Vector2(302, 302), pc0, pc1)",
+      "callee": "_add_creature_preview",
+      "source_revision": "9d19fdc1f0ebdcac8c11d75adc56926bc43d136f",
+      "source_sha256_lf": "0baeb7256a209b5266ebdf48cdccb7af6497b30fd0666021c597eced6e04d269",
+      "probe_named": false,
+      "binding_limit": "Exact AST sourceexpression;guard/receiver/native/reach/runtime appearances notclosed."
+    },
+    {
+      "path": "scripts/companion.gd",
+      "function": "_build_room",
+      "line": 1150,
+      "expression": "_stuffie_cutout(d, _room_colors(id), 2.4)",
+      "callee": "_stuffie_cutout",
+      "source_revision": "9d19fdc1f0ebdcac8c11d75adc56926bc43d136f",
+      "source_sha256_lf": "0baeb7256a209b5266ebdf48cdccb7af6497b30fd0666021c597eced6e04d269",
+      "probe_named": false,
+      "binding_limit": "Exact AST sourceexpression;guard/receiver/native/reach/runtime appearances notclosed."
+    },
+    {
+      "path": "scripts/games/shop.gd",
+      "function": "_build_shop_cabin",
+      "line": 155,
+      "expression": "m._make_creature_node(\"fish\",\n\t\t\tm.AQ_COLORS.get(String(ta[\"model\"]), Color(0.4, 0.75, 0.7)),\n\t\t\tm.AQ_COLORS.get(String(ta[\"model\"]), Color(0.4, 0.75, 0.7)).lightened(0.2))",
+      "callee": "m._make_creature_node",
+      "source_revision": "9d19fdc1f0ebdcac8c11d75adc56926bc43d136f",
+      "source_sha256_lf": "62ce2b2bf2a8319b7f0e86a7856436b5072f662be1c0477d6d7a79b0e45f7585",
+      "probe_named": false,
+      "binding_limit": "Exact AST sourceexpression;guard/receiver/native/reach/runtime appearances notclosed."
+    },
+    {
+      "path": "scripts/main.gd",
+      "function": "_place_aq",
+      "line": 1799,
+      "expression": "_make_creature_node(\"fish\", AQ_COLORS.get(model, Color(0.4, 0.75, 0.7)),\n\t\t\tAQ_COLORS.get(model, Color(0.4, 0.75, 0.7)).lightened(0.2))",
+      "callee": "_make_creature_node",
+      "source_revision": "9d19fdc1f0ebdcac8c11d75adc56926bc43d136f",
+      "source_sha256_lf": "b6e905824a4b60461181deda525c816fc790613479e9321d12ae7f71df666a33",
+      "probe_named": false,
+      "binding_limit": "Exact AST sourceexpression;guard/receiver/native/reach/runtime appearances notclosed."
+    },
+    {
+      "path": "scripts/probe_audit.gd",
+      "function": "_audit_storybook_ui",
+      "line": 5239,
+      "expression": "main._open_craft_studio()",
+      "callee": "main._open_craft_studio",
+      "source_revision": "9d19fdc1f0ebdcac8c11d75adc56926bc43d136f",
+      "source_sha256_lf": "79ef070b36b4188c2995a9dab0e0df99efd7469937267b4ac49cd58e2bd0d4cb",
+      "probe_named": true,
+      "binding_limit": "Exact AST sourceexpression;guard/receiver/native/reach/runtime appearances notclosed."
+    },
+    {
+      "path": "scripts/probe_creatures.gd",
+      "function": "_init",
+      "line": 32,
+      "expression": "main._make_creature_node(\"fish\", Color(0.4, 0.7, 1.0), Color(1.0, 0.6, 0.2))",
+      "callee": "main._make_creature_node",
+      "source_revision": "9d19fdc1f0ebdcac8c11d75adc56926bc43d136f",
+      "source_sha256_lf": "1c8456acf2f44413c109ffc67714959e7d900c8fdaeaac3b4c461522d94af033",
+      "probe_named": true,
+      "binding_limit": "Exact AST sourceexpression;guard/receiver/native/reach/runtime appearances notclosed."
+    },
+    {
+      "path": "scripts/probe_creatures.gd",
+      "function": "_init",
+      "line": 33,
+      "expression": "main._make_creature_node(\"fish\", Color(1, 1, 1), Color(1.0, 0.9, 0.3), true, false)",
+      "callee": "main._make_creature_node",
+      "source_revision": "9d19fdc1f0ebdcac8c11d75adc56926bc43d136f",
+      "source_sha256_lf": "1c8456acf2f44413c109ffc67714959e7d900c8fdaeaac3b4c461522d94af033",
+      "probe_named": true,
+      "binding_limit": "Exact AST sourceexpression;guard/receiver/native/reach/runtime appearances notclosed."
+    },
+    {
+      "path": "scripts/probe_creatures.gd",
+      "function": "_init",
+      "line": 34,
+      "expression": "main._make_creature_node(\"cat\", Color(0.95, 0.7, 0.85), Color(0.6, 0.4, 0.9))",
+      "callee": "main._make_creature_node",
+      "source_revision": "9d19fdc1f0ebdcac8c11d75adc56926bc43d136f",
+      "source_sha256_lf": "1c8456acf2f44413c109ffc67714959e7d900c8fdaeaac3b4c461522d94af033",
+      "probe_named": true,
+      "binding_limit": "Exact AST sourceexpression;guard/receiver/native/reach/runtime appearances notclosed."
+    },
+    {
+      "path": "scripts/probe_creatures.gd",
+      "function": "_init",
+      "line": 35,
+      "expression": "main._make_creature_node(\"bird\", Color(1.0, 0.85, 0.3), Color(0.3, 0.8, 0.9))",
+      "callee": "main._make_creature_node",
+      "source_revision": "9d19fdc1f0ebdcac8c11d75adc56926bc43d136f",
+      "source_sha256_lf": "1c8456acf2f44413c109ffc67714959e7d900c8fdaeaac3b4c461522d94af033",
+      "probe_named": true,
+      "binding_limit": "Exact AST sourceexpression;guard/receiver/native/reach/runtime appearances notclosed."
+    },
+    {
+      "path": "scripts/probe_touch_router.gd",
+      "function": "_run",
+      "line": 155,
+      "expression": "main._open_craft_studio()",
+      "callee": "main._open_craft_studio",
+      "source_revision": "9d19fdc1f0ebdcac8c11d75adc56926bc43d136f",
+      "source_sha256_lf": "508a7b07ebc81c20504de626d4385544cc4440333785c85cec7e2c3916a6e334",
+      "probe_named": true,
+      "binding_limit": "Exact AST sourceexpression;guard/receiver/native/reach/runtime appearances notclosed."
+    },
+    {
+      "path": "scripts/probe_ui_system.gd",
+      "function": "_init",
+      "line": 564,
+      "expression": "main._open_craft_studio()",
+      "callee": "main._open_craft_studio",
+      "source_revision": "9d19fdc1f0ebdcac8c11d75adc56926bc43d136f",
+      "source_sha256_lf": "871337431bb6f9518cd5e40e4b8bd41688303d013872841e2f24ab9faa2a1e2f",
+      "probe_named": true,
+      "binding_limit": "Exact AST sourceexpression;guard/receiver/native/reach/runtime appearances notclosed."
+    }
+  ],
+  "call_unit": "AST expressions/probe tags,not piece/instance/screens orfull runtime closure",
+  "textures": [
+    {
+      "path": "assets/mg/bird_accent.png",
+      "source_revision": "9d19fdc1f0ebdcac8c11d75adc56926bc43d136f",
+      "bytes": 125626,
+      "sha256": "9ce0108266bb439919465ef2f196aa92ce195c318ac636d2156de7d581eea457",
+      "dimensions": [
+        308,
+        520
+      ],
+      "mode": "RGBA",
+      "alpha_bbox": [
+        36,
+        6,
+        307,
+        340
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "nonzero_alpha_pixels": 26699,
+      "provenance_scope": "ASSET_LICENSES broad mg wildcard;fishbody/fins explicitapprovedBatch04 row. Exactnative derivative/master/prompt attribution remainsseparate;no newapproval inferred.",
+      "visible_style_review": "SOURCE_VIEW_PENDING_IN_CONTEXT"
+    },
+    {
+      "path": "assets/mg/bird_body.png",
+      "source_revision": "9d19fdc1f0ebdcac8c11d75adc56926bc43d136f",
+      "bytes": 120881,
+      "sha256": "54fbb11c50c5d859b32aaca6fa1ecf8455253460691eabfd3eeacf4a91c12629",
+      "dimensions": [
+        308,
+        520
+      ],
+      "mode": "RGBA",
+      "alpha_bbox": [
+        0,
+        0,
+        308,
+        520
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "nonzero_alpha_pixels": 77813,
+      "provenance_scope": "ASSET_LICENSES broad mg wildcard;fishbody/fins explicitapprovedBatch04 row. Exactnative derivative/master/prompt attribution remainsseparate;no newapproval inferred.",
+      "visible_style_review": "SOURCE_VIEW_PENDING_IN_CONTEXT"
+    },
+    {
+      "path": "assets/mg/bird_line.png",
+      "source_revision": "9d19fdc1f0ebdcac8c11d75adc56926bc43d136f",
+      "bytes": 72,
+      "sha256": "a54ddc4b657b5217f40ee975d30077fa269b6628960cf372a159d634f3e84c1e",
+      "dimensions": [
+        8,
+        8
+      ],
+      "mode": "RGBA",
+      "alpha_bbox": null,
+      "alpha_extrema": [
+        0,
+        0
+      ],
+      "nonzero_alpha_pixels": 0,
+      "provenance_scope": "ASSET_LICENSES broad mg wildcard;fishbody/fins explicitapprovedBatch04 row. Exactnative derivative/master/prompt attribution remainsseparate;no newapproval inferred.",
+      "visible_style_review": "SOURCE_VIEW_PENDING_IN_CONTEXT"
+    },
+    {
+      "path": "assets/mg/cat_accent.png",
+      "source_revision": "9d19fdc1f0ebdcac8c11d75adc56926bc43d136f",
+      "bytes": 124395,
+      "sha256": "1e2dc4203082d14c0b80e108bf9102edfb4c81904392bdc48a3aa33e373d56d0",
+      "dimensions": [
+        340,
+        520
+      ],
+      "mode": "RGBA",
+      "alpha_bbox": [
+        27,
+        50,
+        248,
+        442
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "nonzero_alpha_pixels": 19193,
+      "provenance_scope": "ASSET_LICENSES broad mg wildcard;fishbody/fins explicitapprovedBatch04 row. Exactnative derivative/master/prompt attribution remainsseparate;no newapproval inferred.",
+      "visible_style_review": "SOURCE_VIEW_PENDING_IN_CONTEXT"
+    },
+    {
+      "path": "assets/mg/cat_body.png",
+      "source_revision": "9d19fdc1f0ebdcac8c11d75adc56926bc43d136f",
+      "bytes": 119756,
+      "sha256": "6011c4e2debce40e92f55812d91f5e28f918748abf472f05f1ea70b456f224ed",
+      "dimensions": [
+        340,
+        520
+      ],
+      "mode": "RGBA",
+      "alpha_bbox": [
+        0,
+        0,
+        340,
+        520
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "nonzero_alpha_pixels": 122588,
+      "provenance_scope": "ASSET_LICENSES broad mg wildcard;fishbody/fins explicitapprovedBatch04 row. Exactnative derivative/master/prompt attribution remainsseparate;no newapproval inferred.",
+      "visible_style_review": "SOURCE_VIEW_PENDING_IN_CONTEXT"
+    },
+    {
+      "path": "assets/mg/cat_line.png",
+      "source_revision": "9d19fdc1f0ebdcac8c11d75adc56926bc43d136f",
+      "bytes": 72,
+      "sha256": "a54ddc4b657b5217f40ee975d30077fa269b6628960cf372a159d634f3e84c1e",
+      "dimensions": [
+        8,
+        8
+      ],
+      "mode": "RGBA",
+      "alpha_bbox": null,
+      "alpha_extrema": [
+        0,
+        0
+      ],
+      "nonzero_alpha_pixels": 0,
+      "provenance_scope": "ASSET_LICENSES broad mg wildcard;fishbody/fins explicitapprovedBatch04 row. Exactnative derivative/master/prompt attribution remainsseparate;no newapproval inferred.",
+      "visible_style_review": "SOURCE_VIEW_PENDING_IN_CONTEXT"
+    },
+    {
+      "path": "assets/mg/fish_body.png",
+      "source_revision": "9d19fdc1f0ebdcac8c11d75adc56926bc43d136f",
+      "bytes": 499234,
+      "sha256": "219da6079daa8fdfc0bf854c3c37d9584d18c2b1f65ef60dc0e2fa24a8996a41",
+      "dimensions": [
+        1024,
+        387
+      ],
+      "mode": "RGBA",
+      "alpha_bbox": [
+        16,
+        16,
+        1008,
+        371
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "nonzero_alpha_pixels": 224093,
+      "provenance_scope": "ASSET_LICENSES broad mg wildcard;fishbody/fins explicitapprovedBatch04 row. Exactnative derivative/master/prompt attribution remainsseparate;no newapproval inferred.",
+      "visible_style_review": "PAINTED_BODY_OR_FIN_SHEET_SOURCE_OBSERVED_CURRENT_COMPOSITE_REVIEW_REQUIRED"
+    },
+    {
+      "path": "assets/mg/fish_fins.png",
+      "source_revision": "9d19fdc1f0ebdcac8c11d75adc56926bc43d136f",
+      "bytes": 964497,
+      "sha256": "52bbe03e05baed1092d4c17c881132311dc99772cb6deb038ace858fdc13c30e",
+      "dimensions": [
+        985,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha_bbox": [
+        17,
+        17,
+        968,
+        1007
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "nonzero_alpha_pixels": 451858,
+      "provenance_scope": "ASSET_LICENSES broad mg wildcard;fishbody/fins explicitapprovedBatch04 row. Exactnative derivative/master/prompt attribution remainsseparate;no newapproval inferred.",
+      "visible_style_review": "PAINTED_BODY_OR_FIN_SHEET_SOURCE_OBSERVED_CURRENT_COMPOSITE_REVIEW_REQUIRED"
+    },
+    {
+      "path": "assets/mg/fish_line.png",
+      "source_revision": "9d19fdc1f0ebdcac8c11d75adc56926bc43d136f",
+      "bytes": 12778,
+      "sha256": "955f754a758c542034188e49d1a87e0c1a88cd21632888b862a884cf81bf16ef",
+      "dimensions": [
+        400,
+        400
+      ],
+      "mode": "RGBA",
+      "alpha_bbox": [
+        51,
+        62,
+        376,
+        294
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "nonzero_alpha_pixels": 17307,
+      "provenance_scope": "ASSET_LICENSES broad mg wildcard;fishbody/fins explicitapprovedBatch04 row. Exactnative derivative/master/prompt attribution remainsseparate;no newapproval inferred.",
+      "visible_style_review": "FLAT_RASTER_OUTLINE_CARTOON_FISH_OVERLAY_SOURCE_OBSERVED"
+    }
+  ],
+  "license_authority": {
+    "revision": "9d19fdc1f0ebdcac8c11d75adc56926bc43d136f",
+    "path": "ASSET_LICENSES.md",
+    "sha256": "bade3d4f2a2bf75db61ebc4d2740952f75fddc563e88c3295711be9b9c232fa1",
+    "rows": [
+      {
+        "line": 93,
+        "text": "| assets/mg/*.png | drawn/generated for this project (PIL) from book-art motifs | \u00a9 Mermaid Roshan LLC derivatives / project original | \u2014 | craft zone masks, minigame art |"
+      },
+      {
+        "line": 163,
+        "text": "| assets/terrain/leaf.png, grass.jpg, beachball.png, flower.png, flower2.png; assets/mg/rainbow_swatch.png, fish_body.png, fish_fins.png | Approved OpenAI ChatGPT Batch 04 review art promoted by project tooling | **Project-generated art** | assets_src/style_review_batch_04/final/ | normalized to at most 1024px; registered craft layers and source-style terrain inventory; generated/promoted 2026-07-14 to 2026-07-15 |"
+      },
+      {
+        "line": 224,
+        "text": "| assets/mg/sun.png, tree.png, coal.png, star.png, butterfly.png, fish_body.png, fish_fins.png, k_bush2.png, xtree.png, orn1.png, orn2.png, orn3.png, orn4.png, orn5.png | OpenAI ChatGPT built-in image generation guided by `ART_STYLE_GUIDE.md` and the source-book motif analysis | **Project-generated art** | `assets_src/imagegen/pass35_2026-07-16/chroma/`; `ART_PASS35_PROMPTS.md` | Separate chroma generations; corner-sampled green/magenta alpha removal, despill, tight crop, normalized to at most 1024 px; previous files mirrored in `backups/art_pre_pass35_2026-07-16/`; generated 2026-07-16. |"
+      }
+    ]
+  },
+  "prior_r7_exclusion_correction": {
+    "path": "scripts/stuffie_battle.gd",
+    "historical_reference": "r7_craft_context/CALLER_CLOSURE.json",
+    "original_scope_preserved": true,
+    "corrected_current_source": "make_creature\u2192creature_for\u2192_stuffie_cutout usesCREATURE_LAYERS forpaintableMewsha. R7exclusion isnotvalid forsharedlayerinventory. Direct nonpaintable BabyEagle/Lamma sourceguards remainseparate;actualruntime/battle states notreviewed."
+  },
+  "third_control_source_limit": "Craftpreview colors/body-accent-line doesnotreadcraft_c3;third choice storedforcat/bird12fieldgene andnotfish8fieldgene. ActualUI behavior/context andsave assertions recordedseparately,notacceptedmechanicalrepair.",
+  "remaining_closure": [
+    "NaturalcastleCraft route",
+    "Shop/species/missing-art fallback andlegacyspatial consumers",
+    "Companion/Stuffie/castlecard paintable/direct sourceguards,third/default/replay/action states",
+    "Completecontinuousmotion/contact/projection/decodedshape/QA11/device/child/owner andwhole-unit artacceptance"
+  ],
+  "approved": 0,
+  "integrated": 0,
+  "accepted_removed": 0,
+  "all_game_art_total": null,
+  "mission_complete": false,
+  "license_current_correction": {
+    "evidence": "SOURCE_REUSE.json",
+    "rows": [
+      224,
+      225
+    ],
+    "reason": "Later Pass35 explicit license matches current painted fish. Earlier Batch04 row remains historical; its source pixels do not match current body/fins."
+  },
+  "source_file_hash_mode": "Exact Git source bytes / LF canonical checkout",
+  "source_checkout_parity": [
+    {
+      "path": "scripts/craft_studio.gd",
+      "git_revision": "9d19fdc1f0ebdcac8c11d75adc56926bc43d136f",
+      "git_blob_sha256": "fd97af6efaeaf4b3949b94f921a71064b753c383d5adcf6e49395a487018de57",
+      "worktree_raw_sha256": "e07c6b99b46e399f6025738309843875b9fb827f5b15aa239347771f945604b3",
+      "mode": "LF canonical equals exact Git blob; current raw bytes differ only by checkout CRLF"
+    },
+    {
+      "path": "scripts/main.gd",
+      "git_revision": "9d19fdc1f0ebdcac8c11d75adc56926bc43d136f",
+      "git_blob_sha256": "b6e905824a4b60461181deda525c816fc790613479e9321d12ae7f71df666a33",
+      "worktree_raw_sha256": "841efbfa74a61ed14775fa7c2b19e6ff7f54b0a2c4af04d1b08c345440d6f880",
+      "mode": "LF canonical equals exact Git blob; current raw bytes differ only by checkout CRLF"
+    },
+    {
+      "path": "scripts/companion.gd",
+      "git_revision": "9d19fdc1f0ebdcac8c11d75adc56926bc43d136f",
+      "git_blob_sha256": "0baeb7256a209b5266ebdf48cdccb7af6497b30fd0666021c597eced6e04d269",
+      "worktree_raw_sha256": "dc8622d6ae0a8c2802357ad46cab7b5b6fe9939ccd0c5b01abe49eba7126af72",
+      "mode": "LF canonical equals exact Git blob; current raw bytes differ only by checkout CRLF"
+    },
+    {
+      "path": "scripts/companion.gd",
+      "git_revision": "9d19fdc1f0ebdcac8c11d75adc56926bc43d136f",
+      "git_blob_sha256": "0baeb7256a209b5266ebdf48cdccb7af6497b30fd0666021c597eced6e04d269",
+      "worktree_raw_sha256": "dc8622d6ae0a8c2802357ad46cab7b5b6fe9939ccd0c5b01abe49eba7126af72",
+      "mode": "LF canonical equals exact Git blob; current raw bytes differ only by checkout CRLF"
+    },
+    {
+      "path": "scripts/arena/castle_rooms_25d.gd",
+      "git_revision": "9d19fdc1f0ebdcac8c11d75adc56926bc43d136f",
+      "git_blob_sha256": "50c723043680c987cc959d9bfbbcad94cfb62162f24d305d3f058c0d2de05176",
+      "worktree_raw_sha256": "7eabec5e061e767ef0c42dce173d9d812bd5fb155de4222987595951a7fc8f5a",
+      "mode": "LF canonical equals exact Git blob; current raw bytes differ only by checkout CRLF"
+    }
+  ]
+}

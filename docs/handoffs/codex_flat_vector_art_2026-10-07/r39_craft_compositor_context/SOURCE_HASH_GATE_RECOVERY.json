@@ -1,0 +1,7 @@
+{
+  "status": "EXACT_GIT_AND_LF_SOURCE_PARITY_PROVEN",
+  "failure": "Validator compared LF Git source fingerprints to raw checkout CRLF bytes",
+  "production_changes": false,
+  "evidence": "SOURCE_AUDIT.source_checkout_parity",
+  "fix": "Require both exact Git blob SHA and LF canonical worktree SHA; retain raw worktree fingerprints. No source/hash tolerance other than documented CRLF conversion."
+}
