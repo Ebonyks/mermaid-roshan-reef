@@ -1,0 +1,25 @@
+{
+  "status": "EXPECTED_BASELINE_FAILURE_VERIFIED",
+  "baseline": "a587e4ec5e82dbc86d52115ba41f3ae37e2e24f1",
+  "command": [
+    "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+    "--headless",
+    "--path",
+    "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef",
+    "-s",
+    "res://scripts/probe_start_menu_new_game.gd",
+    "--",
+    "--touch",
+    "--classic-touch-test"
+  ],
+  "exit_code": 1,
+  "actual_failure_rows": [
+    "START_MENU_NEW_GAME|all menu controls retire redundant inset sheen and sparkle: FAIL",
+    "START_MENU_NEW_GAME|RESULT: FAIL failures=1"
+  ],
+  "expected_failed_checks": 1,
+  "runtime_menu_sha256": "c00fe34a6f4218d790a3f23d768800fed93210cd886b297adb62552964ec5bfb",
+  "meaningful_preservation_check": "All8existingcontrols bounds and16nonblockingpearls pass before sourceedit; all existing hold/archive/reload checks pass.",
+  "raw_log_sha256": "97f94953031ff3e932cdfc7c4f736fbc74bb290cfe5ee8048205ac160b462fd1",
+  "checked_at_utc": "2026-10-14T08:54:39.949313+00:00"
+}

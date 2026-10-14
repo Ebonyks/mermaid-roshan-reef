@@ -1,0 +1,55 @@
+{
+  "revision": "FV-AUDIT-20261014-R32",
+  "observations": [
+    {
+      "id": "FVO-R30-MUSIC-OFF-GLYPH",
+      "status": "CURRENT_NATIVE_REPRODUCED;UNREPAIRED",
+      "source": "scripts/start_menu.gd:459 _sync_option_labels",
+      "codepoints": [
+        "U+266B",
+        "U+0338"
+      ],
+      "captures": [
+        "native/1280x720/fresh/music_off_released.png",
+        "native/1280x720/saved_legacy/music_off_released.png",
+        "native/1600x720/fresh/music_off_released.png",
+        "native/1600x720/saved_legacy/music_off_released.png"
+      ],
+      "observation": "Missing-glyph box beside note all4OFF profiles; ON note visible. Unchanged source, not proven R30 regression.",
+      "new_art_design_id": null,
+      "regression_count": null,
+      "repair_constraint": "Preserve non-reader state cue with approved authored/pinned icon or exact font/fallback proof. Removing slash alone leaves ON/OFF dependent on words.",
+      "current_R32_captures": [
+        "native/1280x720/fresh/music_off_released.png",
+        "native/1600x720/saved_legacy/music_off_released.png"
+      ],
+      "source_implementation_unchanged": true
+    },
+    {
+      "id": "FVO-R31-MIC-OFF-GLYPH",
+      "status": "CURRENT_NATIVE_CONTEXT;NO_MISSING_BOX_OBSERVED",
+      "source": "scripts/start_menu.gd:465 _sync_option_labels",
+      "codepoints": [
+        "U+1F3A4",
+        "U+0338"
+      ],
+      "captures": [
+        "native/1280x720/fresh/mic_off_released.png",
+        "native/1280x720/saved_legacy/mic_off_released.png",
+        "native/1600x720/fresh/mic_off_released.png",
+        "native/1600x720/saved_legacy/mic_off_released.png"
+      ],
+      "observation": "Separate diagonal stroke beside microphone in4OFFprofiles, no tofu box observed; semantic phone recognition and packaged fallback unreviewed.",
+      "new_art_design_id": null,
+      "regression_count": null,
+      "current_R32_captures": [
+        "native/1280x720/fresh/mic_off_released.png",
+        "native/1600x720/saved_legacy/mic_off_released.png"
+      ],
+      "source_implementation_unchanged": true
+    }
+  ],
+  "new_named_art_design_records": 0,
+  "distinct_screen_total": null,
+  "inherited_exact_R31_observations_base": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/a587e4ec5e82dbc86d52115ba41f3ae37e2e24f1/docs/handoffs/codex_flat_vector_art_2026-10-07/r31_startup_ui_context"
+}

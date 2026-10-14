@@ -1,0 +1,46 @@
+{
+  "piece_ids": [
+    "FV-276E68E0A9DA",
+    "FV-619466CA433F"
+  ],
+  "source_baseline": "a587e4ec5e82dbc86d52115ba41f3ae37e2e24f1",
+  "helper": "scripts/start_menu.gd:_add_button_finish",
+  "remaining_production_callers": [
+    {
+      "function": "_menu_button",
+      "call": "_add_button_finish(button,kind)",
+      "caller_count": 1,
+      "known_controls": 8,
+      "source_all8_menu_control_names": [
+        "StartMenuContinueButton",
+        "StartMenuNewGameButton",
+        "StartMenuOptionsTab",
+        "StartMenuMusicButton",
+        "StartMenuQualityButton",
+        "StartMenuMicButton",
+        "StartMenuKeepGameButton",
+        "StartMenuConfirmNewGameButton"
+      ]
+    }
+  ],
+  "retired_constructors": [
+    "InsetHighlight Panel/StyleBoxFlat",
+    "PearlSheen Panel/StyleBoxFlat",
+    "Sparkle Label/tween"
+  ],
+  "constructors_removed_per_control": 3,
+  "source_constructed_nodes_removed": 24,
+  "source_tweens_removed": 8,
+  "source_menu_diff": {
+    "added_lines": 2,
+    "removed_lines": 47,
+    "net_removed": 45
+  },
+  "trusted_probe_added_lines": 32,
+  "retained": "Helper remains2arg API with unused _kind;originaltwopearl calls/positions andentireallothermenu code byte-identical LFtext.",
+  "current_production_emitters_for_these2StartMenu_roles": 0,
+  "construction_measure_scope": "Source-constructor/helper8call expansion,not24pieces or actual simultaneouslyvisible/GPUfill budget.",
+  "native_counterpart": "Everycurrentmenu-layer capturehasno retiredsuffixnodes,realcontrol routes/pearls survive.",
+  "global_art_acceptance": false,
+  "whole_ui_zero_flat_art": false
+}

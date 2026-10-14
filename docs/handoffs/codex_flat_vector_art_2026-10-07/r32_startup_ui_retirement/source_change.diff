@@ -1,0 +1,114 @@
+diff --git a/scripts/probe_start_menu_new_game.gd b/scripts/probe_start_menu_new_game.gd
+index 108aa3b9..9dd8b3ef 100644
+--- a/scripts/probe_start_menu_new_game.gd
++++ b/scripts/probe_start_menu_new_game.gd
+@@ -35,6 +35,7 @@ func _init() -> void:
+ 	main._build_start_menu()
+ 	await _frames(3)
+ 	var menu_layer: Node = main.start_menu_layer
++	_probe_menu_ornaments(menu_layer)
+ 	var new_game := _find_button(menu_layer, "StartMenuNewGameButton")
+ 	var confirm := menu_layer.find_child("StartMenuNewGameConfirmation", true, false) as Control \
+ 		if menu_layer != null else null
+@@ -124,6 +125,37 @@ func _probe_reload_into_day_one(fresh_generation: int) -> void:
+ 		main._day_one_ref().completed_rooms.is_empty())
+ 
+ 
++func _probe_menu_ornaments(menu_layer: Node) -> void:
++	var controls: Dictionary = {
++		"StartMenuContinueButton": Rect2(290, 548, 340, 118),
++		"StartMenuNewGameButton": Rect2(650, 548, 340, 118),
++		"StartMenuOptionsTab": Rect2(1044, 594, 210, 104),
++		"StartMenuMusicButton": Rect2(715, 205, 430, 100),
++		"StartMenuQualityButton": Rect2(715, 325, 430, 100),
++		"StartMenuMicButton": Rect2(715, 445, 430, 100),
++		"StartMenuKeepGameButton": Rect2(320, 420, 300, 118),
++		"StartMenuConfirmNewGameButton": Rect2(660, 420, 300, 118),
++	}
++	var retired: bool = true
++	var controls_preserved: bool = true
++	for node_name: String in controls:
++		var button: Button = _find_button(menu_layer, node_name)
++		if button == null:
++			controls_preserved = false
++			continue
++		var expected: Rect2 = controls[node_name]
++		controls_preserved = controls_preserved and button.position == expected.position \
++			and button.size == expected.size
++		for suffix: String in ["PearlLeft", "PearlRight"]:
++			var pearl := button.get_node_or_null(node_name + suffix) as Control
++			controls_preserved = controls_preserved and pearl != null \
++				and pearl.mouse_filter == Control.MOUSE_FILTER_IGNORE
++		for suffix: String in ["InsetHighlight", "PearlSheen", "Sparkle"]:
++			retired = retired and button.get_node_or_null(node_name + suffix) == null
++	_check("all eight menu controls retain bounds and nonblocking pearls", controls_preserved)
++	_check("all menu controls retire redundant inset sheen and sparkle", retired)
++
++
+ func _seed_existing_save() -> void:
+ 	var file := FileAccess.open(probe_save_path, FileAccess.WRITE)
+ 	file.store_string(JSON.stringify({
+diff --git a/scripts/start_menu.gd b/scripts/start_menu.gd
+index a869c43c..02f419b7 100644
+--- a/scripts/start_menu.gd
++++ b/scripts/start_menu.gd
+@@ -122,57 +122,12 @@ func _menu_button(
+ 	_add_button_finish(button, kind)
+ 	return button
+ 
+-func _add_button_finish(button: Button, kind: String) -> void:
+-	# Keep the established button silhouette and fill. A fine inset contour,
+-	# tiny pearls and one slow sparkle add title-screen polish without forcing
+-	# a large square illustration into a wide, shallow control.
+-	var accent: Color = StorybookUI.GOLD if kind == "gold" else StorybookUI.PEARL_BLUE
+-	var inset := Panel.new()
+-	inset.name = String(button.name) + "InsetHighlight"
+-	inset.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+-	inset.offset_left = 8.0
+-	inset.offset_top = 8.0
+-	inset.offset_right = -8.0
+-	inset.offset_bottom = -8.0
+-	inset.mouse_filter = Control.MOUSE_FILTER_IGNORE
+-	var inset_style := StyleBoxFlat.new()
+-	inset_style.bg_color = Color(1.0, 1.0, 1.0, 0.0)
+-	inset_style.border_color = Color(accent.r, accent.g, accent.b, 0.58)
+-	inset_style.set_border_width_all(2)
+-	inset_style.set_corner_radius_all(30)
+-	inset.add_theme_stylebox_override("panel", inset_style)
+-	button.add_child(inset)
+-
+-	var sheen := Panel.new()
+-	sheen.name = String(button.name) + "PearlSheen"
+-	sheen.position = Vector2(42.0, 12.0)
+-	sheen.size = Vector2(maxf(36.0, button.size.x - 84.0), 10.0)
+-	sheen.mouse_filter = Control.MOUSE_FILTER_IGNORE
+-	var sheen_style := StyleBoxFlat.new()
+-	sheen_style.bg_color = Color(1.0, 1.0, 1.0, 0.24)
+-	sheen_style.set_corner_radius_all(5)
+-	sheen.add_theme_stylebox_override("panel", sheen_style)
+-	button.add_child(sheen)
+-
++func _add_button_finish(button: Button, _kind: String) -> void:
++	# Retain the existing pearl ornaments on the established touch controls.
+ 	StorybookUI.add_pearl(button, Vector2(20.0, button.size.y * 0.5), 12.0,
+ 		String(button.name) + "PearlLeft")
+ 	StorybookUI.add_pearl(button, Vector2(button.size.x - 20.0, button.size.y * 0.5), 12.0,
+ 		String(button.name) + "PearlRight")
+-	var sparkle := Label.new()
+-	sparkle.name = String(button.name) + "Sparkle"
+-	sparkle.text = "✦"
+-	sparkle.position = Vector2(button.size.x - 48.0, 8.0)
+-	sparkle.size = Vector2(30.0, 30.0)
+-	sparkle.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+-	sparkle.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+-	sparkle.mouse_filter = Control.MOUSE_FILTER_IGNORE
+-	StorybookUI.style_label(sparkle, 20, accent, 2)
+-	button.add_child(sparkle)
+-	var twinkle := sparkle.create_tween().set_loops()
+-	twinkle.tween_property(sparkle, "modulate:a", 0.32, 1.3) \
+-		.set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+-	twinkle.tween_property(sparkle, "modulate:a", 1.0, 1.3) \
+-		.set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+ 
+ func _build_options(stage: Control) -> void:
+ 	_options_root = Control.new()

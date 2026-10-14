@@ -1,0 +1,8 @@
+{
+  "initial_UID_check_exit": 1,
+  "cause": "Raw UID bytes compared against LF-normalized Git blobs;84have preserved CRLF. No actual UID/source mutation.",
+  "correction": "85raw UID bytes equal prior preserved bytes; exact LF-canonical current-baseline parity separately checked with85explicit working/Git hashes;no UID rewrite.",
+  "failed_native_frames": 0,
+  "native_exit": 0,
+  "production_changed_by_correction": false
+}

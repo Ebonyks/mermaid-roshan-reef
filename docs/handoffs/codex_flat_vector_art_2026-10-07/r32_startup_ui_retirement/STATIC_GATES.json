@@ -1,0 +1,40 @@
+{
+  "status": "PASS",
+  "commands": [
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_godot_baseline.py",
+        "--godot",
+        "C:/Users/Peter/AppData/Local/Programs/MermaidReefTools/Godot/4.7.2/godot_console.exe"
+      ],
+      "exit_code": 0,
+      "result": "PASS",
+      "checked_at_utc": "2026-10-14T09:10:08.071924+00:00"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_probe_parity.py"
+      ],
+      "exit_code": 0,
+      "result": "PASS",
+      "checked_at_utc": "2026-10-14T09:10:08.344068+00:00"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/gold_star.py",
+        "--check"
+      ],
+      "exit_code": 0,
+      "result": "PASS",
+      "checked_at_utc": "2026-10-14T09:10:10.650975+00:00"
+    }
+  ],
+  "raw_log_sha256": "13f6242bd96da3a12fdc93bc6f93422874ae54b3d83cb779c3be25e780ff33d7",
+  "scope": "Actual current engine/parity/goldstar catalogue machine gates only; stale scores/device/human review remain open."
+}

@@ -35,6 +35,7 @@ func _init() -> void:
 	main._build_start_menu()
 	await _frames(3)
 	var menu_layer: Node = main.start_menu_layer
+	_probe_menu_ornaments(menu_layer)
 	var new_game := _find_button(menu_layer, "StartMenuNewGameButton")
 	var confirm := menu_layer.find_child("StartMenuNewGameConfirmation", true, false) as Control \
 		if menu_layer != null else null
@@ -122,6 +123,37 @@ func _probe_reload_into_day_one(fresh_generation: int) -> void:
 		main.save_generation == fresh_generation)
 	_check("the fresh Day One has no finished rooms",
 		main._day_one_ref().completed_rooms.is_empty())
+
+
+func _probe_menu_ornaments(menu_layer: Node) -> void:
+	var controls: Dictionary = {
+		"StartMenuContinueButton": Rect2(290, 548, 340, 118),
+		"StartMenuNewGameButton": Rect2(650, 548, 340, 118),
+		"StartMenuOptionsTab": Rect2(1044, 594, 210, 104),
+		"StartMenuMusicButton": Rect2(715, 205, 430, 100),
+		"StartMenuQualityButton": Rect2(715, 325, 430, 100),
+		"StartMenuMicButton": Rect2(715, 445, 430, 100),
+		"StartMenuKeepGameButton": Rect2(320, 420, 300, 118),
+		"StartMenuConfirmNewGameButton": Rect2(660, 420, 300, 118),
+	}
+	var retired: bool = true
+	var controls_preserved: bool = true
+	for node_name: String in controls:
+		var button: Button = _find_button(menu_layer, node_name)
+		if button == null:
+			controls_preserved = false
+			continue
+		var expected: Rect2 = controls[node_name]
+		controls_preserved = controls_preserved and button.position == expected.position \
+			and button.size == expected.size
+		for suffix: String in ["PearlLeft", "PearlRight"]:
+			var pearl := button.get_node_or_null(node_name + suffix) as Control
+			controls_preserved = controls_preserved and pearl != null \
+				and pearl.mouse_filter == Control.MOUSE_FILTER_IGNORE
+		for suffix: String in ["InsetHighlight", "PearlSheen", "Sparkle"]:
+			retired = retired and button.get_node_or_null(node_name + suffix) == null
+	_check("all eight menu controls retain bounds and nonblocking pearls", controls_preserved)
+	_check("all menu controls retire redundant inset sheen and sparkle", retired)
 
 
 func _seed_existing_save() -> void:

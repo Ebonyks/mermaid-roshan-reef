@@ -122,57 +122,12 @@ func _menu_button(
 	_add_button_finish(button, kind)
 	return button
 
-func _add_button_finish(button: Button, kind: String) -> void:
-	# Keep the established button silhouette and fill. A fine inset contour,
-	# tiny pearls and one slow sparkle add title-screen polish without forcing
-	# a large square illustration into a wide, shallow control.
-	var accent: Color = StorybookUI.GOLD if kind == "gold" else StorybookUI.PEARL_BLUE
-	var inset := Panel.new()
-	inset.name = String(button.name) + "InsetHighlight"
-	inset.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
-	inset.offset_left = 8.0
-	inset.offset_top = 8.0
-	inset.offset_right = -8.0
-	inset.offset_bottom = -8.0
-	inset.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	var inset_style := StyleBoxFlat.new()
-	inset_style.bg_color = Color(1.0, 1.0, 1.0, 0.0)
-	inset_style.border_color = Color(accent.r, accent.g, accent.b, 0.58)
-	inset_style.set_border_width_all(2)
-	inset_style.set_corner_radius_all(30)
-	inset.add_theme_stylebox_override("panel", inset_style)
-	button.add_child(inset)
-
-	var sheen := Panel.new()
-	sheen.name = String(button.name) + "PearlSheen"
-	sheen.position = Vector2(42.0, 12.0)
-	sheen.size = Vector2(maxf(36.0, button.size.x - 84.0), 10.0)
-	sheen.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	var sheen_style := StyleBoxFlat.new()
-	sheen_style.bg_color = Color(1.0, 1.0, 1.0, 0.24)
-	sheen_style.set_corner_radius_all(5)
-	sheen.add_theme_stylebox_override("panel", sheen_style)
-	button.add_child(sheen)
-
+func _add_button_finish(button: Button, _kind: String) -> void:
+	# Retain the existing pearl ornaments on the established touch controls.
 	StorybookUI.add_pearl(button, Vector2(20.0, button.size.y * 0.5), 12.0,
 		String(button.name) + "PearlLeft")
 	StorybookUI.add_pearl(button, Vector2(button.size.x - 20.0, button.size.y * 0.5), 12.0,
 		String(button.name) + "PearlRight")
-	var sparkle := Label.new()
-	sparkle.name = String(button.name) + "Sparkle"
-	sparkle.text = "✦"
-	sparkle.position = Vector2(button.size.x - 48.0, 8.0)
-	sparkle.size = Vector2(30.0, 30.0)
-	sparkle.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-	sparkle.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
-	sparkle.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	StorybookUI.style_label(sparkle, 20, accent, 2)
-	button.add_child(sparkle)
-	var twinkle := sparkle.create_tween().set_loops()
-	twinkle.tween_property(sparkle, "modulate:a", 0.32, 1.3) \
-		.set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
-	twinkle.tween_property(sparkle, "modulate:a", 1.0, 1.3) \
-		.set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
 
 func _build_options(stage: Control) -> void:
 	_options_root = Control.new()

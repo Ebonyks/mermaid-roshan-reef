@@ -1,0 +1,30 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+START_MENU_NEW_GAME|seeded save counts as an adventure to keep: OK
+START_MENU_NEW_GAME|all eight menu controls retain bounds and nonblocking pearls: OK
+START_MENU_NEW_GAME|all menu controls retire redundant inset sheen and sparkle: OK
+START_MENU_NEW_GAME|start menu, confirm sheet and START NEW exist: OK
+START_MENU_NEW_GAME|START NEW names the hold gesture for a grown-up: OK
+START_MENU_NEW_GAME|START NEW carries a hold progress bar: OK
+START_MENU_NEW_GAME|NEW GAME opens the confirm sheet: OK
+START_MENU_NEW_GAME|hold caption is visible on the confirm sheet: OK
+START_MENU_NEW_GAME|START NEW starts disarmed: OK
+START_MENU_NEW_GAME|a tap on the disarmed START NEW changes nothing: OK
+START_MENU_NEW_GAME|START NEW arms after its delay: OK
+START_MENU_NEW_GAME|the pointer press reached START NEW: OK
+START_MENU_NEW_GAME|the bar fills while START NEW is held: OK
+START_MENU_NEW_GAME|a quick tap never starts a new game: OK
+START_MENU_NEW_GAME|a lifted press empties the bar: OK
+START_MENU_NEW_GAME|a lifted press pulses the hold caption: OK
+ERROR: Parameter "current_scene" is null.
+   at: reload_current_scene (scene/main/scene_tree.cpp:1749)
+START_MENU_NEW_GAME|a full hold fills the bar: OK
+START_MENU_NEW_GAME|a full hold installs a fresh save: OK
+START_MENU_NEW_GAME|a full hold keeps the old adventure in the grown-up archive: OK
+START_MENU_NEW_GAME|a full hold routes the reload into Day One: OK
+START_MENU_NEW_GAME|a completed hold does not pulse the tap hint: OK
+START_MENU_NEW_GAME|the reloaded game skips the menu and starts Day One: OK
+START_MENU_NEW_GAME|the reload consumes its one-shot marker: OK
+START_MENU_NEW_GAME|the reloaded game runs on the fresh save: OK
+START_MENU_NEW_GAME|the fresh Day One has no finished rooms: OK
+START_MENU_NEW_GAME|RESULT: PASS failures=0

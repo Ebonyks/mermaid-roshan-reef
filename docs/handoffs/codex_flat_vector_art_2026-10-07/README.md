@@ -1,6 +1,12 @@
-Current canonical evidence: [R31 startup UI context](r31_startup_ui_context/README.md), [registry](r31_startup_ui_context/per_piece.json), [coverage](r31_startup_ui_context/scene_coverage.json), [tally](r31_startup_ui_context/tally.json).
+Current canonical evidence: [R32 startup ornament retirement](r32_startup_ui_retirement/README.md), [registry](r32_startup_ui_retirement/per_piece.json), [coverage](r32_startup_ui_retirement/scene_coverage.json), [tally](r32_startup_ui_retirement/tally.json).
 
-# Current R31 bounded UI audit
+# Current R32 bounded production retirement
+
+Two menu-role emitters retired;8controls/16pearls retained,87contextfiles verifiedbeforeedit.94native/70unique/24duplicateexcluded/12views.2948bounded/3379retained/431excluded;56existingpartial/12families,78/176partial/98without.0acceptedremoved;fullinventory/QA11/device/child/owner open.
+
+Historical R31 routing: [R31 startup UI context](r31_startup_ui_context/README.md), [registry](r31_startup_ui_context/per_piece.json), [coverage](r31_startup_ui_context/scene_coverage.json), [tally](r31_startup_ui_context/tally.json).
+
+# Historical R31 bounded UI audit
 
 Twoexisting menu roles add partial context;MusicOFF tofu reproduced,micOFF adjacent slash separate.52native/12views/5sourceviews,productionunchanged.56partial existing/12families,2878bounded/3285retained,0acceptedremoved;fullinventory/acceptanceopen.
 

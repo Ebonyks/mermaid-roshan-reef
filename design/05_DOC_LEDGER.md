@@ -1167,3 +1167,9 @@ release/device/child/owner authority retain precedence.
 | Document | State | Scope |
 |---|---|---|
 | `docs/handoffs/codex_flat_vector_art_2026-10-07/r31_startup_ui_context/README.md` | 🔵 | `SUPPORTING_CURRENT`;2existing menu roles partial,52native/12views/5sourceviews. MUSIC_OFF tofu reproduced;MIC_OFF adjacent slash/no box observed. Primary diagnostics not packaged fallback proof. Production/art unchanged;56partial existing/12families,2878bounded/3285retained,78/176partial/98without,0acceptedremoved. Inventory/QA11/device/child/owner open. |
+
+## Startup ornament retirement — 2026-10-14 R32
+
+| Document | State | Scope |
+|---|---|---|
+| `docs/handoffs/codex_flat_vector_art_2026-10-07/r32_startup_ui_retirement/README.md` | 🔵 | `SUPPORTING_CURRENT`;2StartMenu ornament roles retiredincandidate after87verifiedcontextfiles;8control bounds/16pearls preserved.94native/70unique/24duplicatesexcluded/12views. Current full82/focused/import/machine evidence tracked separately,not acceptance.2948bounded/3379retained,56existingpartial/12families,78/176partial/98without;0acceptedremoved,unknownfullinventory/QA11/device/child/owner open. |

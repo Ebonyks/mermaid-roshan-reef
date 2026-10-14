@@ -1,0 +1,2792 @@
+{
+  "schema": "reef.flat_vector_current_capture_index/1",
+  "native_file_count": 94,
+  "current_bounded_file_count": 70,
+  "current_unique_sha256_count": 70,
+  "retained_native_added": 94,
+  "excluded_duplicate_file_count": 24,
+  "excluded_failed_run_native": 0,
+  "directly_viewed_count": 12,
+  "directly_viewed_unique_count": 11,
+  "directly_viewed_native_files": [
+    "native/1280x720/fresh/normal_startup.png",
+    "native/1600x720/saved_legacy/normal_startup.png",
+    "native/1280x720/fresh/music_off_released.png",
+    "native/1600x720/saved_legacy/mic_off_released.png",
+    "native/1280x720/saved_legacy/newgame_armed.png",
+    "native/1280x720/saved_legacy/newgame_short_hold.png",
+    "native/1600x720/saved_legacy/newgame_hold_cancelled.png",
+    "native/1600x720/saved_legacy/declared_menu_reentry.png",
+    "native/1280x720/saved_legacy/natural_continue_world.png",
+    "native/1600x720/saved_legacy/natural_continue_after_reentry.png",
+    "native/1280x720/saved_legacy/music_off_pressed.png",
+    "native/1600x720/fresh/passive_26s.png"
+  ],
+  "frames": [
+    {
+      "path": "native/1280x720/fresh/normal_startup.png",
+      "state": "normal_startup",
+      "variant": "fresh",
+      "aspect": [
+        1280,
+        720
+      ],
+      "sha256": "832bbab25c622336a14091ccfc0d7f5bdfb2533425174e80126e632002559c73",
+      "bytes": 1380233,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "channel_stddev": [
+        74.27389341007704,
+        60.687474594106355,
+        65.53414416186621
+      ],
+      "source_baseline": "a587e4ec5e82dbc86d52115ba41f3ae37e2e24f1",
+      "expect_menu": true,
+      "context_credit": true
+    },
+    {
+      "path": "native/1280x720/fresh/passive_2s.png",
+      "state": "passive_2s",
+      "variant": "fresh",
+      "aspect": [
+        1280,
+        720
+      ],
+      "sha256": "832bbab25c622336a14091ccfc0d7f5bdfb2533425174e80126e632002559c73",
+      "bytes": 1380233,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "channel_stddev": [
+        74.27389341007704,
+        60.687474594106355,
+        65.53414416186621
+      ],
+      "source_baseline": "a587e4ec5e82dbc86d52115ba41f3ae37e2e24f1",
+      "expect_menu": true,
+      "context_credit": false,
+      "duplicate_of": "native/1280x720/fresh/normal_startup.png"
+    },
+    {
+      "path": "native/1280x720/fresh/passive_26s.png",
+      "state": "passive_26s",
+      "variant": "fresh",
+      "aspect": [
+        1280,
+        720
+      ],
+      "sha256": "832bbab25c622336a14091ccfc0d7f5bdfb2533425174e80126e632002559c73",
+      "bytes": 1380233,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "channel_stddev": [
+        74.27389341007704,
+        60.687474594106355,
+        65.53414416186621
+      ],
+      "source_baseline": "a587e4ec5e82dbc86d52115ba41f3ae37e2e24f1",
+      "expect_menu": true,
+      "context_credit": false,
+      "duplicate_of": "native/1280x720/fresh/normal_startup.png"
+    },
+    {
+      "path": "native/1280x720/fresh/options_open_pressed.png",
+      "state": "options_open_pressed",
+      "variant": "fresh",
+      "aspect": [
+        1280,
+        720
+      ],
+      "sha256": "4b3c898bd22f8089bb43a9f09b794b85340f3118bd3baffc0365ed1bab62bbcb",
+      "bytes": 1383311,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "channel_stddev": [
+        73.59042850623247,
+        60.327766135996775,
+        64.71385129190227
+      ],
+      "source_baseline": "a587e4ec5e82dbc86d52115ba41f3ae37e2e24f1",
+      "expect_menu": true,
+      "context_credit": true
+    },
+    {
+      "path": "native/1280x720/fresh/options_open_released.png",
+      "state": "options_open_released",
+      "variant": "fresh",
+      "aspect": [
+        1280,
+        720
+      ],
+      "sha256": "c7ca4449187b22709847d82f93b1145cc27f85cf56cb49353c045fe901766062",
+      "bytes": 727515,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "channel_stddev": [
+        80.19961234464222,
+        80.09721936860677,
+        70.59741022868333
+      ],
+      "source_baseline": "a587e4ec5e82dbc86d52115ba41f3ae37e2e24f1",
+      "expect_menu": true,
+      "context_credit": true
+    },
+    {
+      "path": "native/1280x720/fresh/music_off_pressed.png",
+      "state": "music_off_pressed",
+      "variant": "fresh",
+      "aspect": [
+        1280,
+        720
+      ],
+      "sha256": "8ec32b1086ede5dbd01f8f19fff2b47f19be25c8c3bf1d992b54c7377b3194d6",
+      "bytes": 726695,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "channel_stddev": [
+        78.66449734507941,
+        79.47962720434549,
+        69.72831815449916
+      ],
+      "source_baseline": "a587e4ec5e82dbc86d52115ba41f3ae37e2e24f1",
+      "expect_menu": true,
+      "context_credit": true
+    },
+    {
+      "path": "native/1280x720/fresh/music_off_released.png",
+      "state": "music_off_released",
+      "variant": "fresh",
+      "aspect": [
+        1280,
+        720
+      ],
+      "sha256": "5839e725b050c8cc5db1d993d0eb087a892e22757dd790e46e4be0ad03100842",
+      "bytes": 729410,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "channel_stddev": [
+        80.31789761938182,
+        80.06160568613697,
+        70.72186256262694
+      ],
+      "source_baseline": "a587e4ec5e82dbc86d52115ba41f3ae37e2e24f1",
+      "expect_menu": true,
+      "context_credit": true
+    },
+    {
+      "path": "native/1280x720/fresh/music_on_pressed.png",
+      "state": "music_on_pressed",
+      "variant": "fresh",
+      "aspect": [
+        1280,
+        720
+      ],
+      "sha256": "5d74c1bb3c3fa6ac7f19a70383f5bad576bd13b3d456aec38280086d10e6bfaa",
+      "bytes": 729549,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "channel_stddev": [
+        78.5322488943054,
+        78.9354365854934,
+        69.45267542619317
+      ],
+      "source_baseline": "a587e4ec5e82dbc86d52115ba41f3ae37e2e24f1",
+      "expect_menu": true,
+      "context_credit": true
+    },
+    {
+      "path": "native/1280x720/fresh/music_on_released.png",
+      "state": "music_on_released",
+      "variant": "fresh",
+      "aspect": [
+        1280,
+        720
+      ],
+      "sha256": "6466c7b5e9fdb575c9d7df1009fefc3d32899a26395389a6ede6ff91c53a2ac0",
+      "bytes": 729693,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "channel_stddev": [
+        80.35783467485436,
+        80.08886616138837,
+        70.77323177295969
+      ],
+      "source_baseline": "a587e4ec5e82dbc86d52115ba41f3ae37e2e24f1",
+      "expect_menu": true,
+      "context_credit": true
+    },
+    {
+      "path": "native/1280x720/fresh/mic_off_pressed.png",
+      "state": "mic_off_pressed",
+      "variant": "fresh",
+      "aspect": [
+        1280,
+        720
+      ],
+      "sha256": "ec73841423ae2e2728d767873d1cc513538026993af11b0d87ee8c3fce451161",
+      "bytes": 729507,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "channel_stddev": [
+        78.15751705808415,
+        79.60634931915659,
+        71.29483517388155
+      ],
+      "source_baseline": "a587e4ec5e82dbc86d52115ba41f3ae37e2e24f1",
+      "expect_menu": true,
+      "context_credit": true
+    },
+    {
+      "path": "native/1280x720/fresh/mic_off_released.png",
+      "state": "mic_off_released",
+      "variant": "fresh",
+      "aspect": [
+        1280,
+        720
+      ],
+      "sha256": "23bf78a9e2a007d9de057e1c4127181afddc0e62fcc9992c1efcd3fee16d4f34",
+      "bytes": 730277,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "channel_stddev": [
+        79.55970551872728,
+        80.020154275281,
+        70.39596879073225
+      ],
+      "source_baseline": "a587e4ec5e82dbc86d52115ba41f3ae37e2e24f1",
+      "expect_menu": true,
+      "context_credit": true
+    },
+    {
+      "path": "native/1280x720/fresh/mic_on_pressed.png",
+      "state": "mic_on_pressed",
+      "variant": "fresh",
+      "aspect": [
+        1280,
+        720
+      ],
+      "sha256": "9118c621667cb32a2006a2a2c7b09b34b9c8007c833e27e763c365b7ac6ec70f",
+      "bytes": 729640,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "channel_stddev": [
+        78.15278621548347,
+        79.60925453782315,
+        71.29377936199195
+      ],
+      "source_baseline": "a587e4ec5e82dbc86d52115ba41f3ae37e2e24f1",
+      "expect_menu": true,
+      "context_credit": true
+    },
+    {
+      "path": "native/1280x720/fresh/mic_on_released.png",
+      "state": "mic_on_released",
+      "variant": "fresh",
+      "aspect": [
+        1280,
+        720
+      ],
+      "sha256": "a8dd6a911b4f63454aa2857e725a439de116774cc0b1c163a49e247a3ce17c2c",
+      "bytes": 730260,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "channel_stddev": [
+        79.56860884931157,
+        80.01936635230572,
+        70.39510896816954
+      ],
+      "source_baseline": "a587e4ec5e82dbc86d52115ba41f3ae37e2e24f1",
+      "expect_menu": true,
+      "context_credit": true
+    },
+    {
+      "path": "native/1280x720/fresh/options_close_pressed.png",
+      "state": "options_close_pressed",
+      "variant": "fresh",
+      "aspect": [
+        1280,
+        720
+      ],
+      "sha256": "4acc0bfd6dfe5bf7836e1d24d57d38843f1a1c7cb8afc0f9e133618662429904",
+      "bytes": 729365,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "channel_stddev": [
+        79.31836715031366,
+        79.66351127807589,
+        70.46454173873754
+      ],
+      "source_baseline": "a587e4ec5e82dbc86d52115ba41f3ae37e2e24f1",
+      "expect_menu": true,
+      "context_credit": true
+    },
+    {
+      "path": "native/1280x720/fresh/options_close_released.png",
+      "state": "options_close_released",
+      "variant": "fresh",
+      "aspect": [
+        1280,
+        720
+      ],
+      "sha256": "c9b0bba83005eee3c2aef75ed3cb431c0b44187b981912c2928cabe1552fff55",
+      "bytes": 1384560,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "channel_stddev": [
+        73.80499657856656,
+        63.55683350068576,
+        65.6754193144972
+      ],
+      "source_baseline": "a587e4ec5e82dbc86d52115ba41f3ae37e2e24f1",
+      "expect_menu": true,
+      "context_credit": true
+    },
+    {
+      "path": "native/1280x720/fresh/declared_focus_out.png",
+      "state": "declared_focus_out",
+      "variant": "fresh",
+      "aspect": [
+        1280,
+        720
+      ],
+      "sha256": "c9b0bba83005eee3c2aef75ed3cb431c0b44187b981912c2928cabe1552fff55",
+      "bytes": 1384560,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "channel_stddev": [
+        73.80499657856656,
+        63.55683350068576,
+        65.6754193144972
+      ],
+      "source_baseline": "a587e4ec5e82dbc86d52115ba41f3ae37e2e24f1",
+      "expect_menu": true,
+      "context_credit": false,
+      "duplicate_of": "native/1280x720/fresh/options_close_released.png"
+    },
+    {
+      "path": "native/1280x720/fresh/declared_focus_in.png",
+      "state": "declared_focus_in",
+      "variant": "fresh",
+      "aspect": [
+        1280,
+        720
+      ],
+      "sha256": "c9b0bba83005eee3c2aef75ed3cb431c0b44187b981912c2928cabe1552fff55",
+      "bytes": 1384560,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "channel_stddev": [
+        73.80499657856656,
+        63.55683350068576,
+        65.6754193144972
+      ],
+      "source_baseline": "a587e4ec5e82dbc86d52115ba41f3ae37e2e24f1",
+      "expect_menu": true,
+      "context_credit": false,
+      "duplicate_of": "native/1280x720/fresh/options_close_released.png"
+    },
+    {
+      "path": "native/1280x720/saved_legacy/normal_startup.png",
+      "state": "normal_startup",
+      "variant": "saved_legacy",
+      "aspect": [
+        1280,
+        720
+      ],
+      "sha256": "9ce4a2fd5540c0a300974ea597a2dc42e626d061b4c2c57efd0a83459046fff2",
+      "bytes": 1383598,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "channel_stddev": [
+        75.99403643498266,
+        63.17556209979708,
+        67.88465047790349
+      ],
+      "source_baseline": "a587e4ec5e82dbc86d52115ba41f3ae37e2e24f1",
+      "expect_menu": true,
+      "context_credit": true
+    },
+    {
+      "path": "native/1280x720/saved_legacy/passive_2s.png",
+      "state": "passive_2s",
+      "variant": "saved_legacy",
+      "aspect": [
+        1280,
+        720
+      ],
+      "sha256": "9ce4a2fd5540c0a300974ea597a2dc42e626d061b4c2c57efd0a83459046fff2",
+      "bytes": 1383598,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "channel_stddev": [
+        75.99403643498266,
+        63.17556209979708,
+        67.88465047790349
+      ],
+      "source_baseline": "a587e4ec5e82dbc86d52115ba41f3ae37e2e24f1",
+      "expect_menu": true,
+      "context_credit": false,
+      "duplicate_of": "native/1280x720/saved_legacy/normal_startup.png"
+    },
+    {
+      "path": "native/1280x720/saved_legacy/passive_26s.png",
+      "state": "passive_26s",
+      "variant": "saved_legacy",
+      "aspect": [
+        1280,
+        720
+      ],
+      "sha256": "9ce4a2fd5540c0a300974ea597a2dc42e626d061b4c2c57efd0a83459046fff2",
+      "bytes": 1383598,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "channel_stddev": [
+        75.99403643498266,
+        63.17556209979708,
+        67.88465047790349
+      ],
+      "source_baseline": "a587e4ec5e82dbc86d52115ba41f3ae37e2e24f1",
+      "expect_menu": true,
+      "context_credit": false,
+      "duplicate_of": "native/1280x720/saved_legacy/normal_startup.png"
+    },
+    {
+      "path": "native/1280x720/saved_legacy/options_open_pressed.png",
+      "state": "options_open_pressed",
+      "variant": "saved_legacy",
+      "aspect": [
+        1280,
+        720
+      ],
+      "sha256": "9abd62405f4b0e795f713af5db044c75b5211c35c15cd85cd6a7e2de4aa93727",
+      "bytes": 1387739,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "channel_stddev": [
+        75.37495575739064,
+        62.88268899187219,
+        67.09214082626455
+      ],
+      "source_baseline": "a587e4ec5e82dbc86d52115ba41f3ae37e2e24f1",
+      "expect_menu": true,
+      "context_credit": true
+    },
+    {
+      "path": "native/1280x720/saved_legacy/options_open_released.png",
+      "state": "options_open_released",
+      "variant": "saved_legacy",
+      "aspect": [
+        1280,
+        720
+      ],
+      "sha256": "d499f393c9eb33df089713d4e78bd033d43fb688448329cc94e2c28632868ade",
+      "bytes": 729452,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "channel_stddev": [
+        79.52299900316157,
+        79.64870798299631,
+        70.97718529597002
+      ],
+      "source_baseline": "a587e4ec5e82dbc86d52115ba41f3ae37e2e24f1",
+      "expect_menu": true,
+      "context_credit": true
+    },
+    {
+      "path": "native/1280x720/saved_legacy/music_off_pressed.png",
+      "state": "music_off_pressed",
+      "variant": "saved_legacy",
+      "aspect": [
+        1280,
+        720
+      ],
+      "sha256": "34c4e7545a385b02dd734c5daae348b96cb4881097db432f4e6241fddb50d865",
+      "bytes": 728621,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "channel_stddev": [
+        78.00291494210975,
+        79.0398618287032,
+        70.1141189626765
+      ],
+      "source_baseline": "a587e4ec5e82dbc86d52115ba41f3ae37e2e24f1",
+      "expect_menu": true,
+      "context_credit": true
+    },
+    {
+      "path": "native/1280x720/saved_legacy/music_off_released.png",
+      "state": "music_off_released",
+      "variant": "saved_legacy",
+      "aspect": [
+        1280,
+        720
+      ],
+      "sha256": "379b4da8194b7838cbc2423d9bcfe1717ecd848e260c077bcb8655dd07528294",
+      "bytes": 728157,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "channel_stddev": [
+        79.75105250979273,
+        80.15881173939371,
+        71.34217329154428
+      ],
+      "source_baseline": "a587e4ec5e82dbc86d52115ba41f3ae37e2e24f1",
+      "expect_menu": true,
+      "context_credit": true
+    },
+    {
+      "path": "native/1280x720/saved_legacy/music_on_pressed.png",
+      "state": "music_on_pressed",
+      "variant": "saved_legacy",
+      "aspect": [
+        1280,
+        720
+      ],
+      "sha256": "30eb880c66f2dd80359e66f514755760927ff0059b6d8e18219af5882b8bbcee",
+      "bytes": 728308,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "channel_stddev": [
+        77.97941434931595,
+        79.02822794651897,
+        70.08109474093459
+      ],
+      "source_baseline": "a587e4ec5e82dbc86d52115ba41f3ae37e2e24f1",
+      "expect_menu": true,
+      "context_credit": true
+    },
+    {
+      "path": "native/1280x720/saved_legacy/music_on_released.png",
+      "state": "music_on_released",
+      "variant": "saved_legacy",
+      "aspect": [
+        1280,
+        720
+      ],
+      "sha256": "533382a27a92678901a3a557f208c2886614efc544eed46bda48bb6d8c568cad",
+      "bytes": 728442,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "channel_stddev": [
+        79.7899618070151,
+        80.18640336265938,
+        71.39360087837828
+      ],
+      "source_baseline": "a587e4ec5e82dbc86d52115ba41f3ae37e2e24f1",
+      "expect_menu": true,
+      "context_credit": true
+    },
+    {
+      "path": "native/1280x720/saved_legacy/mic_off_pressed.png",
+      "state": "mic_off_pressed",
+      "variant": "saved_legacy",
+      "aspect": [
+        1280,
+        720
+      ],
+      "sha256": "a5979e75b934ab6e5776b1b9d0175ab4bf7545087f5482d5f12a2d7b5d88d6cf",
+      "bytes": 728260,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "channel_stddev": [
+        77.60257356618408,
+        79.69969547185362,
+        71.91632996247147
+      ],
+      "source_baseline": "a587e4ec5e82dbc86d52115ba41f3ae37e2e24f1",
+      "expect_menu": true,
+      "context_credit": true
+    },
+    {
+      "path": "native/1280x720/saved_legacy/mic_off_released.png",
+      "state": "mic_off_released",
+      "variant": "saved_legacy",
+      "aspect": [
+        1280,
+        720
+      ],
+      "sha256": "62d9497e6180f460799dd0da0d7fe9105d6e729b2b5b01a39d9ad1b182f9610d",
+      "bytes": 729009,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "channel_stddev": [
+        79.00512344188863,
+        80.11484869950453,
+        71.02659567140323
+      ],
+      "source_baseline": "a587e4ec5e82dbc86d52115ba41f3ae37e2e24f1",
+      "expect_menu": true,
+      "context_credit": true
+    },
+    {
+      "path": "native/1280x720/saved_legacy/mic_on_pressed.png",
+      "state": "mic_on_pressed",
+      "variant": "saved_legacy",
+      "aspect": [
+        1280,
+        720
+      ],
+      "sha256": "fac347311bceaeabce364df832913aae50f343d63acb64bc36dabf192ac342c4",
+      "bytes": 728390,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "channel_stddev": [
+        77.59797652335591,
+        79.70257211240882,
+        71.9153794139056
+      ],
+      "source_baseline": "a587e4ec5e82dbc86d52115ba41f3ae37e2e24f1",
+      "expect_menu": true,
+      "context_credit": true
+    },
+    {
+      "path": "native/1280x720/saved_legacy/mic_on_released.png",
+      "state": "mic_on_released",
+      "variant": "saved_legacy",
+      "aspect": [
+        1280,
+        720
+      ],
+      "sha256": "c745f34ec34f993d376f5f58a588543bef27cf66db4ea8ee0f2b536eb91964b2",
+      "bytes": 728994,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "channel_stddev": [
+        79.01388368305986,
+        80.11409602987224,
+        71.02566600487114
+      ],
+      "source_baseline": "a587e4ec5e82dbc86d52115ba41f3ae37e2e24f1",
+      "expect_menu": true,
+      "context_credit": true
+    },
+    {
+      "path": "native/1280x720/saved_legacy/options_close_pressed.png",
+      "state": "options_close_pressed",
+      "variant": "saved_legacy",
+      "aspect": [
+        1280,
+        720
+      ],
+      "sha256": "8610ffecc46895d5e5045f51980e69a2c899a2b8fcceb3fbf8df86084d4f119b",
+      "bytes": 728119,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "channel_stddev": [
+        78.76166526994892,
+        79.75773387006325,
+        71.08987437691349
+      ],
+      "source_baseline": "a587e4ec5e82dbc86d52115ba41f3ae37e2e24f1",
+      "expect_menu": true,
+      "context_credit": true
+    },
+    {
+      "path": "native/1280x720/saved_legacy/options_close_released.png",
+      "state": "options_close_released",
+      "variant": "saved_legacy",
+      "aspect": [
+        1280,
+        720
+      ],
+      "sha256": "d0ec425b21600f2494ab329f7a1c85576b3c5fdaf171fba554654a59c7db0e34",
+      "bytes": 1385732,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "channel_stddev": [
+        75.7480160307536,
+        63.42736170268189,
+        67.64986476962683
+      ],
+      "source_baseline": "a587e4ec5e82dbc86d52115ba41f3ae37e2e24f1",
+      "expect_menu": true,
+      "context_credit": true
+    },
+    {
+      "path": "native/1280x720/saved_legacy/declared_focus_out.png",
+      "state": "declared_focus_out",
+      "variant": "saved_legacy",
+      "aspect": [
+        1280,
+        720
+      ],
+      "sha256": "d0ec425b21600f2494ab329f7a1c85576b3c5fdaf171fba554654a59c7db0e34",
+      "bytes": 1385732,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "channel_stddev": [
+        75.7480160307536,
+        63.42736170268189,
+        67.64986476962683
+      ],
+      "source_baseline": "a587e4ec5e82dbc86d52115ba41f3ae37e2e24f1",
+      "expect_menu": true,
+      "context_credit": false,
+      "duplicate_of": "native/1280x720/saved_legacy/options_close_released.png"
+    },
+    {
+      "path": "native/1280x720/saved_legacy/declared_focus_in.png",
+      "state": "declared_focus_in",
+      "variant": "saved_legacy",
+      "aspect": [
+        1280,
+        720
+      ],
+      "sha256": "d0ec425b21600f2494ab329f7a1c85576b3c5fdaf171fba554654a59c7db0e34",
+      "bytes": 1385732,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "channel_stddev": [
+        75.7480160307536,
+        63.42736170268189,
+        67.64986476962683
+      ],
+      "source_baseline": "a587e4ec5e82dbc86d52115ba41f3ae37e2e24f1",
+      "expect_menu": true,
+      "context_credit": false,
+      "duplicate_of": "native/1280x720/saved_legacy/options_close_released.png"
+    },
+    {
+      "path": "native/1280x720/saved_legacy/newgame_request_pressed.png",
+      "state": "newgame_request_pressed",
+      "variant": "saved_legacy",
+      "aspect": [
+        1280,
+        720
+      ],
+      "sha256": "adb76d7a9491f3282dc825eb127de23546dfa7e8616cd5c092ff3bdaf0bb60ee",
+      "bytes": 1384533,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "channel_stddev": [
+        75.05492531043458,
+        62.59410197367052,
+        66.67235236295267
+      ],
+      "source_baseline": "a587e4ec5e82dbc86d52115ba41f3ae37e2e24f1",
+      "expect_menu": true,
+      "context_credit": true
+    },
+    {
+      "path": "native/1280x720/saved_legacy/newgame_request_released.png",
+      "state": "newgame_request_released",
+      "variant": "saved_legacy",
+      "aspect": [
+        1280,
+        720
+      ],
+      "sha256": "7e935af4d046c01de2276f8422767ff795da7c832f627cbe44456d4938c25c0e",
+      "bytes": 670164,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "channel_stddev": [
+        89.01178901363214,
+        85.2114011033265,
+        77.82675930532632
+      ],
+      "source_baseline": "a587e4ec5e82dbc86d52115ba41f3ae37e2e24f1",
+      "expect_menu": true,
+      "context_credit": true
+    },
+    {
+      "path": "native/1280x720/saved_legacy/newgame_armed.png",
+      "state": "newgame_armed",
+      "variant": "saved_legacy",
+      "aspect": [
+        1280,
+        720
+      ],
+      "sha256": "571bb1c00e6527356b48876a4dbc87614c53ac5bc6b204470b073340bd4cb620",
+      "bytes": 671820,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "channel_stddev": [
+        91.76896225997989,
+        88.17391278822559,
+        80.7799536401262
+      ],
+      "source_baseline": "a587e4ec5e82dbc86d52115ba41f3ae37e2e24f1",
+      "expect_menu": true,
+      "context_credit": true
+    },
+    {
+      "path": "native/1280x720/saved_legacy/newgame_short_hold.png",
+      "state": "newgame_short_hold",
+      "variant": "saved_legacy",
+      "aspect": [
+        1280,
+        720
+      ],
+      "sha256": "bde56d3a6b5b9e1cfd38de0616e88316c2312428cd2c96dc223af71f3cbd318a",
+      "bytes": 671705,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "channel_stddev": [
+        90.7669319623137,
+        87.52932217208722,
+        79.84853186861957
+      ],
+      "source_baseline": "a587e4ec5e82dbc86d52115ba41f3ae37e2e24f1",
+      "expect_menu": true,
+      "context_credit": true
+    },
+    {
+      "path": "native/1280x720/saved_legacy/newgame_hold_cancelled.png",
+      "state": "newgame_hold_cancelled",
+      "variant": "saved_legacy",
+      "aspect": [
+        1280,
+        720
+      ],
+      "sha256": "932fac3a4c51b9531722270b15636a69ae900c8bb9b11c992af72a5713916c32",
+      "bytes": 673833,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "channel_stddev": [
+        91.95582508030857,
+        88.41035614923956,
+        80.76553397134782
+      ],
+      "source_baseline": "a587e4ec5e82dbc86d52115ba41f3ae37e2e24f1",
+      "expect_menu": true,
+      "context_credit": true
+    },
+    {
+      "path": "native/1280x720/saved_legacy/keep_saved_pressed.png",
+      "state": "keep_saved_pressed",
+      "variant": "saved_legacy",
+      "aspect": [
+        1280,
+        720
+      ],
+      "sha256": "f90d8a7d04fa8ce4feb20522a1e7ff3f29a4391a7fd7994e2922b1cb5d2a9781",
+      "bytes": 672914,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "channel_stddev": [
+        90.45317605621106,
+        88.01264945204099,
+        81.17865632958637
+      ],
+      "source_baseline": "a587e4ec5e82dbc86d52115ba41f3ae37e2e24f1",
+      "expect_menu": true,
+      "context_credit": true
+    },
+    {
+      "path": "native/1280x720/saved_legacy/keep_saved_released.png",
+      "state": "keep_saved_released",
+      "variant": "saved_legacy",
+      "aspect": [
+        1280,
+        720
+      ],
+      "sha256": "9ce4a2fd5540c0a300974ea597a2dc42e626d061b4c2c57efd0a83459046fff2",
+      "bytes": 1383598,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "channel_stddev": [
+        75.99403643498266,
+        63.17556209979708,
+        67.88465047790349
+      ],
+      "source_baseline": "a587e4ec5e82dbc86d52115ba41f3ae37e2e24f1",
+      "expect_menu": true,
+      "context_credit": false,
+      "duplicate_of": "native/1280x720/saved_legacy/normal_startup.png"
+    },
+    {
+      "path": "native/1280x720/saved_legacy/continue_pressed.png",
+      "state": "continue_pressed",
+      "variant": "saved_legacy",
+      "aspect": [
+        1280,
+        720
+      ],
+      "sha256": "c792ed1cdd00d2f12fa7100fef53ddefa225673f485f2d6ee5dd363fe52f5497",
+      "bytes": 1386302,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "channel_stddev": [
+        74.70538559276383,
+        63.20659098906347,
+        68.01187634890171
+      ],
+      "source_baseline": "a587e4ec5e82dbc86d52115ba41f3ae37e2e24f1",
+      "expect_menu": true,
+      "context_credit": true
+    },
+    {
+      "path": "native/1280x720/saved_legacy/natural_continue_world.png",
+      "state": "natural_continue_world",
+      "variant": "saved_legacy",
+      "aspect": [
+        1280,
+        720
+      ],
+      "sha256": "9693201f1c7edd4ab9f57053cf9c78ce1878058f39a9da6e2a1dbf89140fa4d8",
+      "bytes": 1571958,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "channel_stddev": [
+        71.3946191736073,
+        51.509795251505466,
+        75.84448580382193
+      ],
+      "source_baseline": "a587e4ec5e82dbc86d52115ba41f3ae37e2e24f1",
+      "expect_menu": false,
+      "context_credit": true
+    },
+    {
+      "path": "native/1280x720/saved_legacy/declared_menu_reentry.png",
+      "state": "declared_menu_reentry",
+      "variant": "saved_legacy",
+      "aspect": [
+        1280,
+        720
+      ],
+      "sha256": "9ce4a2fd5540c0a300974ea597a2dc42e626d061b4c2c57efd0a83459046fff2",
+      "bytes": 1383598,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "channel_stddev": [
+        75.99403643498266,
+        63.17556209979708,
+        67.88465047790349
+      ],
+      "source_baseline": "a587e4ec5e82dbc86d52115ba41f3ae37e2e24f1",
+      "expect_menu": true,
+      "context_credit": false,
+      "duplicate_of": "native/1280x720/saved_legacy/normal_startup.png"
+    },
+    {
+      "path": "native/1280x720/saved_legacy/reentry_idle_1s.png",
+      "state": "reentry_idle_1s",
+      "variant": "saved_legacy",
+      "aspect": [
+        1280,
+        720
+      ],
+      "sha256": "9ce4a2fd5540c0a300974ea597a2dc42e626d061b4c2c57efd0a83459046fff2",
+      "bytes": 1383598,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "channel_stddev": [
+        75.99403643498266,
+        63.17556209979708,
+        67.88465047790349
+      ],
+      "source_baseline": "a587e4ec5e82dbc86d52115ba41f3ae37e2e24f1",
+      "expect_menu": true,
+      "context_credit": false,
+      "duplicate_of": "native/1280x720/saved_legacy/normal_startup.png"
+    },
+    {
+      "path": "native/1280x720/saved_legacy/continue_again_pressed.png",
+      "state": "continue_again_pressed",
+      "variant": "saved_legacy",
+      "aspect": [
+        1280,
+        720
+      ],
+      "sha256": "c792ed1cdd00d2f12fa7100fef53ddefa225673f485f2d6ee5dd363fe52f5497",
+      "bytes": 1386302,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "channel_stddev": [
+        74.70538559276383,
+        63.20659098906347,
+        68.01187634890171
+      ],
+      "source_baseline": "a587e4ec5e82dbc86d52115ba41f3ae37e2e24f1",
+      "expect_menu": true,
+      "context_credit": false,
+      "duplicate_of": "native/1280x720/saved_legacy/continue_pressed.png"
+    },
+    {
+      "path": "native/1280x720/saved_legacy/natural_continue_after_reentry.png",
+      "state": "natural_continue_after_reentry",
+      "variant": "saved_legacy",
+      "aspect": [
+        1280,
+        720
+      ],
+      "sha256": "7087dc7eea9896fe1f760bb3c9c61c56803560a01a2f74f38e0b5cf635fae799",
+      "bytes": 1571908,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "channel_stddev": [
+        71.39443281178934,
+        51.51006377134036,
+        75.84426353449048
+      ],
+      "source_baseline": "a587e4ec5e82dbc86d52115ba41f3ae37e2e24f1",
+      "expect_menu": false,
+      "context_credit": true
+    },
+    {
+      "path": "native/1600x720/fresh/normal_startup.png",
+      "state": "normal_startup",
+      "variant": "fresh",
+      "aspect": [
+        1600,
+        720
+      ],
+      "sha256": "a40accaa35620c4b5893c774b6bf4107c61d7ff8d7ed59e5f016958a4f1c8b2e",
+      "bytes": 1393615,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "channel_stddev": [
+        80.75316185523192,
+        54.48050614628603,
+        61.25442506388719
+      ],
+      "source_baseline": "a587e4ec5e82dbc86d52115ba41f3ae37e2e24f1",
+      "expect_menu": true,
+      "context_credit": true
+    },
+    {
+      "path": "native/1600x720/fresh/passive_2s.png",
+      "state": "passive_2s",
+      "variant": "fresh",
+      "aspect": [
+        1600,
+        720
+      ],
+      "sha256": "a40accaa35620c4b5893c774b6bf4107c61d7ff8d7ed59e5f016958a4f1c8b2e",
+      "bytes": 1393615,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "channel_stddev": [
+        80.75316185523192,
+        54.48050614628603,
+        61.25442506388719
+      ],
+      "source_baseline": "a587e4ec5e82dbc86d52115ba41f3ae37e2e24f1",
+      "expect_menu": true,
+      "context_credit": false,
+      "duplicate_of": "native/1600x720/fresh/normal_startup.png"
+    },
+    {
+      "path": "native/1600x720/fresh/passive_26s.png",
+      "state": "passive_26s",
+      "variant": "fresh",
+      "aspect": [
+        1600,
+        720
+      ],
+      "sha256": "a40accaa35620c4b5893c774b6bf4107c61d7ff8d7ed59e5f016958a4f1c8b2e",
+      "bytes": 1393615,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "channel_stddev": [
+        80.75316185523192,
+        54.48050614628603,
+        61.25442506388719
+      ],
+      "source_baseline": "a587e4ec5e82dbc86d52115ba41f3ae37e2e24f1",
+      "expect_menu": true,
+      "context_credit": false,
+      "duplicate_of": "native/1600x720/fresh/normal_startup.png"
+    },
+    {
+      "path": "native/1600x720/fresh/options_open_pressed.png",
+      "state": "options_open_pressed",
+      "variant": "fresh",
+      "aspect": [
+        1600,
+        720
+      ],
+      "sha256": "13198801e9f7022404ac5eed28048b3135e93aa5626679533e09801435f550dd",
+      "bytes": 1396651,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "channel_stddev": [
+        80.02411274792458,
+        54.130733554476095,
+        60.54795633077214
+      ],
+      "source_baseline": "a587e4ec5e82dbc86d52115ba41f3ae37e2e24f1",
+      "expect_menu": true,
+      "context_credit": true
+    },
+    {
+      "path": "native/1600x720/fresh/options_open_released.png",
+      "state": "options_open_released",
+      "variant": "fresh",
+      "aspect": [
+        1600,
+        720
+      ],
+      "sha256": "4269ea6080fda0bf9f61cd188e0a26ad1d263ba77276352ca42cd3b05328b32f",
+      "bytes": 738497,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "channel_stddev": [
+        78.55462872864915,
+        72.02272357327988,
+        69.55425929648621
+      ],
+      "source_baseline": "a587e4ec5e82dbc86d52115ba41f3ae37e2e24f1",
+      "expect_menu": true,
+      "context_credit": true
+    },
+    {
+      "path": "native/1600x720/fresh/music_off_pressed.png",
+      "state": "music_off_pressed",
+      "variant": "fresh",
+      "aspect": [
+        1600,
+        720
+      ],
+      "sha256": "ea2368144e59f58a582ec1005c11d7661f96d776761aa42ff7ef07a380ae3f96",
+      "bytes": 737654,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "channel_stddev": [
+        77.05011746446954,
+        71.52074322585712,
+        68.7810974281454
+      ],
+      "source_baseline": "a587e4ec5e82dbc86d52115ba41f3ae37e2e24f1",
+      "expect_menu": true,
+      "context_credit": true
+    },
+    {
+      "path": "native/1600x720/fresh/music_off_released.png",
+      "state": "music_off_released",
+      "variant": "fresh",
+      "aspect": [
+        1600,
+        720
+      ],
+      "sha256": "35c3d6caea3f5a4a650f049274ac1964a80fa5cc7506cb5c612d1867e4a7fa91",
+      "bytes": 740445,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "channel_stddev": [
+        78.67564099862126,
+        71.93407733987368,
+        69.46907676025926
+      ],
+      "source_baseline": "a587e4ec5e82dbc86d52115ba41f3ae37e2e24f1",
+      "expect_menu": true,
+      "context_credit": true
+    },
+    {
+      "path": "native/1600x720/fresh/music_on_pressed.png",
+      "state": "music_on_pressed",
+      "variant": "fresh",
+      "aspect": [
+        1600,
+        720
+      ],
+      "sha256": "528a98cbdda669dfa7d5a71d2f0b2d662e4c51f49b2f7af44e5837b98187043e",
+      "bytes": 740590,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "channel_stddev": [
+        76.95338342659622,
+        70.98935266284897,
+        68.49354413796748
+      ],
+      "source_baseline": "a587e4ec5e82dbc86d52115ba41f3ae37e2e24f1",
+      "expect_menu": true,
+      "context_credit": true
+    },
+    {
+      "path": "native/1600x720/fresh/music_on_released.png",
+      "state": "music_on_released",
+      "variant": "fresh",
+      "aspect": [
+        1600,
+        720
+      ],
+      "sha256": "6210f681aee36db2953b462e3920a9cbb481c9dfafec53feefd2f816ed07979e",
+      "bytes": 740780,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "channel_stddev": [
+        78.7213822617414,
+        71.95486643162302,
+        69.50178298414161
+      ],
+      "source_baseline": "a587e4ec5e82dbc86d52115ba41f3ae37e2e24f1",
+      "expect_menu": true,
+      "context_credit": true
+    },
+    {
+      "path": "native/1600x720/fresh/mic_off_pressed.png",
+      "state": "mic_off_pressed",
+      "variant": "fresh",
+      "aspect": [
+        1600,
+        720
+      ],
+      "sha256": "f8daaed93b2d1c5ec1d5feec00b4116a531948b07ae9720d0a36205272fd01f7",
+      "bytes": 740561,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "channel_stddev": [
+        76.64208341407698,
+        71.57243036847352,
+        69.82544901566283
+      ],
+      "source_baseline": "a587e4ec5e82dbc86d52115ba41f3ae37e2e24f1",
+      "expect_menu": true,
+      "context_credit": true
+    },
+    {
+      "path": "native/1600x720/fresh/mic_off_released.png",
+      "state": "mic_off_released",
+      "variant": "fresh",
+      "aspect": [
+        1600,
+        720
+      ],
+      "sha256": "287ec5d40003b6d672957197c0019eb452bbcfa41e1a3c4a6fea949d75fc07fc",
+      "bytes": 741312,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "channel_stddev": [
+        77.88112182047357,
+        71.92219933306734,
+        69.06929619621103
+      ],
+      "source_baseline": "a587e4ec5e82dbc86d52115ba41f3ae37e2e24f1",
+      "expect_menu": true,
+      "context_credit": true
+    },
+    {
+      "path": "native/1600x720/fresh/mic_on_pressed.png",
+      "state": "mic_on_pressed",
+      "variant": "fresh",
+      "aspect": [
+        1600,
+        720
+      ],
+      "sha256": "36cd2321f5c0b08762e854796d7bf613b8e8c7f40ad6421e4359816d10732c79",
+      "bytes": 740670,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "channel_stddev": [
+        76.63658381336329,
+        71.57527241331276,
+        69.82285805300565
+      ],
+      "source_baseline": "a587e4ec5e82dbc86d52115ba41f3ae37e2e24f1",
+      "expect_menu": true,
+      "context_credit": true
+    },
+    {
+      "path": "native/1600x720/fresh/mic_on_released.png",
+      "state": "mic_on_released",
+      "variant": "fresh",
+      "aspect": [
+        1600,
+        720
+      ],
+      "sha256": "91b122761a4be1a2ecfac141cdccc2b47f8ea1613ebf100f7da5d7a2c5230747",
+      "bytes": 741305,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "channel_stddev": [
+        77.89042831754456,
+        71.92115661275842,
+        69.06998343643141
+      ],
+      "source_baseline": "a587e4ec5e82dbc86d52115ba41f3ae37e2e24f1",
+      "expect_menu": true,
+      "context_credit": true
+    },
+    {
+      "path": "native/1600x720/fresh/options_close_pressed.png",
+      "state": "options_close_pressed",
+      "variant": "fresh",
+      "aspect": [
+        1600,
+        720
+      ],
+      "sha256": "937ef9eb2450e2eaf6499729463e867d6295aa6704a8d780d63a0c6c208de714",
+      "bytes": 740459,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "channel_stddev": [
+        77.68809006399773,
+        71.61373057211338,
+        69.20943637294057
+      ],
+      "source_baseline": "a587e4ec5e82dbc86d52115ba41f3ae37e2e24f1",
+      "expect_menu": true,
+      "context_credit": true
+    },
+    {
+      "path": "native/1600x720/fresh/options_close_released.png",
+      "state": "options_close_released",
+      "variant": "fresh",
+      "aspect": [
+        1600,
+        720
+      ],
+      "sha256": "2f03aa16ee3ca841c70f9e10b87d8438c240e1f09125082ddbeb51ab03868d2b",
+      "bytes": 1397928,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "channel_stddev": [
+        80.35017575513663,
+        57.150803314860774,
+        61.17170660404871
+      ],
+      "source_baseline": "a587e4ec5e82dbc86d52115ba41f3ae37e2e24f1",
+      "expect_menu": true,
+      "context_credit": true
+    },
+    {
+      "path": "native/1600x720/fresh/declared_focus_out.png",
+      "state": "declared_focus_out",
+      "variant": "fresh",
+      "aspect": [
+        1600,
+        720
+      ],
+      "sha256": "2f03aa16ee3ca841c70f9e10b87d8438c240e1f09125082ddbeb51ab03868d2b",
+      "bytes": 1397928,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "channel_stddev": [
+        80.35017575513663,
+        57.150803314860774,
+        61.17170660404871
+      ],
+      "source_baseline": "a587e4ec5e82dbc86d52115ba41f3ae37e2e24f1",
+      "expect_menu": true,
+      "context_credit": false,
+      "duplicate_of": "native/1600x720/fresh/options_close_released.png"
+    },
+    {
+      "path": "native/1600x720/fresh/declared_focus_in.png",
+      "state": "declared_focus_in",
+      "variant": "fresh",
+      "aspect": [
+        1600,
+        720
+      ],
+      "sha256": "2f03aa16ee3ca841c70f9e10b87d8438c240e1f09125082ddbeb51ab03868d2b",
+      "bytes": 1397928,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "channel_stddev": [
+        80.35017575513663,
+        57.150803314860774,
+        61.17170660404871
+      ],
+      "source_baseline": "a587e4ec5e82dbc86d52115ba41f3ae37e2e24f1",
+      "expect_menu": true,
+      "context_credit": false,
+      "duplicate_of": "native/1600x720/fresh/options_close_released.png"
+    },
+    {
+      "path": "native/1600x720/saved_legacy/normal_startup.png",
+      "state": "normal_startup",
+      "variant": "saved_legacy",
+      "aspect": [
+        1600,
+        720
+      ],
+      "sha256": "f26e1d1342fdc282efea9a5f43af7e84cc50d219ad009e325c05ceb09ccb2d27",
+      "bytes": 1396949,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "channel_stddev": [
+        82.87728175738644,
+        56.827061503401595,
+        62.928807107761834
+      ],
+      "source_baseline": "a587e4ec5e82dbc86d52115ba41f3ae37e2e24f1",
+      "expect_menu": true,
+      "context_credit": true
+    },
+    {
+      "path": "native/1600x720/saved_legacy/passive_2s.png",
+      "state": "passive_2s",
+      "variant": "saved_legacy",
+      "aspect": [
+        1600,
+        720
+      ],
+      "sha256": "f26e1d1342fdc282efea9a5f43af7e84cc50d219ad009e325c05ceb09ccb2d27",
+      "bytes": 1396949,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "channel_stddev": [
+        82.87728175738644,
+        56.827061503401595,
+        62.928807107761834
+      ],
+      "source_baseline": "a587e4ec5e82dbc86d52115ba41f3ae37e2e24f1",
+      "expect_menu": true,
+      "context_credit": false,
+      "duplicate_of": "native/1600x720/saved_legacy/normal_startup.png"
+    },
+    {
+      "path": "native/1600x720/saved_legacy/passive_26s.png",
+      "state": "passive_26s",
+      "variant": "saved_legacy",
+      "aspect": [
+        1600,
+        720
+      ],
+      "sha256": "f26e1d1342fdc282efea9a5f43af7e84cc50d219ad009e325c05ceb09ccb2d27",
+      "bytes": 1396949,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "channel_stddev": [
+        82.87728175738644,
+        56.827061503401595,
+        62.928807107761834
+      ],
+      "source_baseline": "a587e4ec5e82dbc86d52115ba41f3ae37e2e24f1",
+      "expect_menu": true,
+      "context_credit": false,
+      "duplicate_of": "native/1600x720/saved_legacy/normal_startup.png"
+    },
+    {
+      "path": "native/1600x720/saved_legacy/options_open_pressed.png",
+      "state": "options_open_pressed",
+      "variant": "saved_legacy",
+      "aspect": [
+        1600,
+        720
+      ],
+      "sha256": "d35b6c0b7f406d4e046245c36b774db3acc5812d17591d3909ab0ae145a27640",
+      "bytes": 1401246,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "channel_stddev": [
+        82.19539684554127,
+        56.530154260294644,
+        62.24055674854543
+      ],
+      "source_baseline": "a587e4ec5e82dbc86d52115ba41f3ae37e2e24f1",
+      "expect_menu": true,
+      "context_credit": true
+    },
+    {
+      "path": "native/1600x720/saved_legacy/options_open_released.png",
+      "state": "options_open_released",
+      "variant": "saved_legacy",
+      "aspect": [
+        1600,
+        720
+      ],
+      "sha256": "ab60a8db0b90d8306da22540927d630d59d94226e0895024e2bc6b4854238914",
+      "bytes": 740474,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "channel_stddev": [
+        78.24025900933044,
+        71.58854899744784,
+        69.90106628771498
+      ],
+      "source_baseline": "a587e4ec5e82dbc86d52115ba41f3ae37e2e24f1",
+      "expect_menu": true,
+      "context_credit": true
+    },
+    {
+      "path": "native/1600x720/saved_legacy/music_off_pressed.png",
+      "state": "music_off_pressed",
+      "variant": "saved_legacy",
+      "aspect": [
+        1600,
+        720
+      ],
+      "sha256": "130931aaf8d3b35c49158e99c4c2d44384aaa15b87c659490cbc7add5471edc6",
+      "bytes": 739672,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "channel_stddev": [
+        76.74802376810945,
+        71.09221972628576,
+        69.13263868478317
+      ],
+      "source_baseline": "a587e4ec5e82dbc86d52115ba41f3ae37e2e24f1",
+      "expect_menu": true,
+      "context_credit": true
+    },
+    {
+      "path": "native/1600x720/saved_legacy/music_off_released.png",
+      "state": "music_off_released",
+      "variant": "saved_legacy",
+      "aspect": [
+        1600,
+        720
+      ],
+      "sha256": "eca852fd33d0027b8a92575aae88d2849dcb034c45a2af0330402a7c8adc6ee2",
+      "bytes": 739238,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "channel_stddev": [
+        78.42777135172292,
+        72.03277492949428,
+        70.08204927816472
+      ],
+      "source_baseline": "a587e4ec5e82dbc86d52115ba41f3ae37e2e24f1",
+      "expect_menu": true,
+      "context_credit": true
+    },
+    {
+      "path": "native/1600x720/saved_legacy/music_on_pressed.png",
+      "state": "music_on_pressed",
+      "variant": "saved_legacy",
+      "aspect": [
+        1600,
+        720
+      ],
+      "sha256": "faca8d5ddb0831fa14793455fa40e5a3ce6862c689d5948ac8fcd5cf4cebc116",
+      "bytes": 739358,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "channel_stddev": [
+        76.71750762004037,
+        71.08523520133656,
+        69.11314048826767
+      ],
+      "source_baseline": "a587e4ec5e82dbc86d52115ba41f3ae37e2e24f1",
+      "expect_menu": true,
+      "context_credit": true
+    },
+    {
+      "path": "native/1600x720/saved_legacy/music_on_released.png",
+      "state": "music_on_released",
+      "variant": "saved_legacy",
+      "aspect": [
+        1600,
+        720
+      ],
+      "sha256": "bf656cfe85e5d12b03cfa1ee119b1c211b90569d5e47d2a345086364bf9266d4",
+      "bytes": 739554,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "channel_stddev": [
+        78.47280365989714,
+        72.05379493714844,
+        70.11479847208041
+      ],
+      "source_baseline": "a587e4ec5e82dbc86d52115ba41f3ae37e2e24f1",
+      "expect_menu": true,
+      "context_credit": true
+    },
+    {
+      "path": "native/1600x720/saved_legacy/mic_off_pressed.png",
+      "state": "mic_off_pressed",
+      "variant": "saved_legacy",
+      "aspect": [
+        1600,
+        720
+      ],
+      "sha256": "578d38e1e1e8eb62fec3581bbdaad08a0603b5d9abec0a6c295ed6a2e2901eae",
+      "bytes": 739330,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "channel_stddev": [
+        76.40561097347128,
+        71.66848363275373,
+        70.43932329895031
+      ],
+      "source_baseline": "a587e4ec5e82dbc86d52115ba41f3ae37e2e24f1",
+      "expect_menu": true,
+      "context_credit": true
+    },
+    {
+      "path": "native/1600x720/saved_legacy/mic_off_released.png",
+      "state": "mic_off_released",
+      "variant": "saved_legacy",
+      "aspect": [
+        1600,
+        720
+      ],
+      "sha256": "a5551009f09c12a6b4d69b31670348183da9241f62cebad6a7ff4612c5f7c157",
+      "bytes": 740108,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "channel_stddev": [
+        77.64224433836232,
+        72.01908925135153,
+        69.69065746695173
+      ],
+      "source_baseline": "a587e4ec5e82dbc86d52115ba41f3ae37e2e24f1",
+      "expect_menu": true,
+      "context_credit": true
+    },
+    {
+      "path": "native/1600x720/saved_legacy/mic_on_pressed.png",
+      "state": "mic_on_pressed",
+      "variant": "saved_legacy",
+      "aspect": [
+        1600,
+        720
+      ],
+      "sha256": "963873bc70c707ba741bf3987d03c118cffebe03c10794a65f897128aae3fcec",
+      "bytes": 739443,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "channel_stddev": [
+        76.40020331724226,
+        71.67130395083846,
+        70.4368177376871
+      ],
+      "source_baseline": "a587e4ec5e82dbc86d52115ba41f3ae37e2e24f1",
+      "expect_menu": true,
+      "context_credit": true
+    },
+    {
+      "path": "native/1600x720/saved_legacy/mic_on_released.png",
+      "state": "mic_on_released",
+      "variant": "saved_legacy",
+      "aspect": [
+        1600,
+        720
+      ],
+      "sha256": "a2947ec2b056f7a6726903cb1f561f767b2840ca9dfcabfd757c28a7ee6dcb6d",
+      "bytes": 740099,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "channel_stddev": [
+        77.65144558507824,
+        72.01807236931828,
+        69.69128804432103
+      ],
+      "source_baseline": "a587e4ec5e82dbc86d52115ba41f3ae37e2e24f1",
+      "expect_menu": true,
+      "context_credit": true
+    },
+    {
+      "path": "native/1600x720/saved_legacy/options_close_pressed.png",
+      "state": "options_close_pressed",
+      "variant": "saved_legacy",
+      "aspect": [
+        1600,
+        720
+      ],
+      "sha256": "eaf50688c9dece70f4c25adfab56b1cfd271704f4bac65dc7f040069646120bf",
+      "bytes": 739230,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "channel_stddev": [
+        77.44834352409391,
+        71.71040000169945,
+        69.82649732517687
+      ],
+      "source_baseline": "a587e4ec5e82dbc86d52115ba41f3ae37e2e24f1",
+      "expect_menu": true,
+      "context_credit": true
+    },
+    {
+      "path": "native/1600x720/saved_legacy/options_close_released.png",
+      "state": "options_close_released",
+      "variant": "saved_legacy",
+      "aspect": [
+        1600,
+        720
+      ],
+      "sha256": "45a247ec4f84c31e5e2ba3acd2c1f0d83df8bccd75e915436891dd25be1039b2",
+      "bytes": 1399248,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "channel_stddev": [
+        82.54536858748644,
+        57.03189929697995,
+        62.66929922839307
+      ],
+      "source_baseline": "a587e4ec5e82dbc86d52115ba41f3ae37e2e24f1",
+      "expect_menu": true,
+      "context_credit": true
+    },
+    {
+      "path": "native/1600x720/saved_legacy/declared_focus_out.png",
+      "state": "declared_focus_out",
+      "variant": "saved_legacy",
+      "aspect": [
+        1600,
+        720
+      ],
+      "sha256": "45a247ec4f84c31e5e2ba3acd2c1f0d83df8bccd75e915436891dd25be1039b2",
+      "bytes": 1399248,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "channel_stddev": [
+        82.54536858748644,
+        57.03189929697995,
+        62.66929922839307
+      ],
+      "source_baseline": "a587e4ec5e82dbc86d52115ba41f3ae37e2e24f1",
+      "expect_menu": true,
+      "context_credit": false,
+      "duplicate_of": "native/1600x720/saved_legacy/options_close_released.png"
+    },
+    {
+      "path": "native/1600x720/saved_legacy/declared_focus_in.png",
+      "state": "declared_focus_in",
+      "variant": "saved_legacy",
+      "aspect": [
+        1600,
+        720
+      ],
+      "sha256": "45a247ec4f84c31e5e2ba3acd2c1f0d83df8bccd75e915436891dd25be1039b2",
+      "bytes": 1399248,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "channel_stddev": [
+        82.54536858748644,
+        57.03189929697995,
+        62.66929922839307
+      ],
+      "source_baseline": "a587e4ec5e82dbc86d52115ba41f3ae37e2e24f1",
+      "expect_menu": true,
+      "context_credit": false,
+      "duplicate_of": "native/1600x720/saved_legacy/options_close_released.png"
+    },
+    {
+      "path": "native/1600x720/saved_legacy/newgame_request_pressed.png",
+      "state": "newgame_request_pressed",
+      "variant": "saved_legacy",
+      "aspect": [
+        1600,
+        720
+      ],
+      "sha256": "4b43267ec7db357c843bbc3d3adb4269f7d998c7100bae26e6508418bddc8c9a",
+      "bytes": 1397936,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "channel_stddev": [
+        81.89489654674578,
+        56.26594969826319,
+        61.9074739476849
+      ],
+      "source_baseline": "a587e4ec5e82dbc86d52115ba41f3ae37e2e24f1",
+      "expect_menu": true,
+      "context_credit": true
+    },
+    {
+      "path": "native/1600x720/saved_legacy/newgame_request_released.png",
+      "state": "newgame_request_released",
+      "variant": "saved_legacy",
+      "aspect": [
+        1600,
+        720
+      ],
+      "sha256": "bf06f07613c076952fb15459dfde257f74141da543775c458bb8e57317de0981",
+      "bytes": 681572,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "channel_stddev": [
+        84.96676182218052,
+        77.01185981732046,
+        76.47455861306098
+      ],
+      "source_baseline": "a587e4ec5e82dbc86d52115ba41f3ae37e2e24f1",
+      "expect_menu": true,
+      "context_credit": true
+    },
+    {
+      "path": "native/1600x720/saved_legacy/newgame_armed.png",
+      "state": "newgame_armed",
+      "variant": "saved_legacy",
+      "aspect": [
+        1600,
+        720
+      ],
+      "sha256": "cd58b0196984f4a3c1da55a3b1aceb87e885b41ba4b3420478a3fa87cb9ada4d",
+      "bytes": 683480,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "channel_stddev": [
+        87.73746929080514,
+        79.4750093499253,
+        78.45086318313878
+      ],
+      "source_baseline": "a587e4ec5e82dbc86d52115ba41f3ae37e2e24f1",
+      "expect_menu": true,
+      "context_credit": true
+    },
+    {
+      "path": "native/1600x720/saved_legacy/newgame_short_hold.png",
+      "state": "newgame_short_hold",
+      "variant": "saved_legacy",
+      "aspect": [
+        1600,
+        720
+      ],
+      "sha256": "988caf539853f7c968deca27c1dfc6d7a8ab0c4efdcbd41d0a44fa5721c387eb",
+      "bytes": 682821,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "channel_stddev": [
+        86.73725278998472,
+        78.95321141147207,
+        77.69860463294869
+      ],
+      "source_baseline": "a587e4ec5e82dbc86d52115ba41f3ae37e2e24f1",
+      "expect_menu": true,
+      "context_credit": true
+    },
+    {
+      "path": "native/1600x720/saved_legacy/newgame_hold_cancelled.png",
+      "state": "newgame_hold_cancelled",
+      "variant": "saved_legacy",
+      "aspect": [
+        1600,
+        720
+      ],
+      "sha256": "faa0b1df0329b124d0b82d262131f74b5a7e7fa08df964ba95cf6fb195dd96a4",
+      "bytes": 685492,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "channel_stddev": [
+        87.89861282597391,
+        79.67685555981006,
+        78.40065440998227
+      ],
+      "source_baseline": "a587e4ec5e82dbc86d52115ba41f3ae37e2e24f1",
+      "expect_menu": true,
+      "context_credit": true
+    },
+    {
+      "path": "native/1600x720/saved_legacy/keep_saved_pressed.png",
+      "state": "keep_saved_pressed",
+      "variant": "saved_legacy",
+      "aspect": [
+        1600,
+        720
+      ],
+      "sha256": "d724e8bdbd755898cc90b79c4f47c018201199760156564d0a135667183d737d",
+      "bytes": 684060,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "channel_stddev": [
+        86.45811516277443,
+        79.37081651801861,
+        78.66902529760955
+      ],
+      "source_baseline": "a587e4ec5e82dbc86d52115ba41f3ae37e2e24f1",
+      "expect_menu": true,
+      "context_credit": true
+    },
+    {
+      "path": "native/1600x720/saved_legacy/keep_saved_released.png",
+      "state": "keep_saved_released",
+      "variant": "saved_legacy",
+      "aspect": [
+        1600,
+        720
+      ],
+      "sha256": "f26e1d1342fdc282efea9a5f43af7e84cc50d219ad009e325c05ceb09ccb2d27",
+      "bytes": 1396949,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "channel_stddev": [
+        82.87728175738644,
+        56.827061503401595,
+        62.928807107761834
+      ],
+      "source_baseline": "a587e4ec5e82dbc86d52115ba41f3ae37e2e24f1",
+      "expect_menu": true,
+      "context_credit": false,
+      "duplicate_of": "native/1600x720/saved_legacy/normal_startup.png"
+    },
+    {
+      "path": "native/1600x720/saved_legacy/continue_pressed.png",
+      "state": "continue_pressed",
+      "variant": "saved_legacy",
+      "aspect": [
+        1600,
+        720
+      ],
+      "sha256": "dc7d40ab33723be904a2d81f4017f2c676e713ec19cecd676b036a266604365d",
+      "bytes": 1399782,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "channel_stddev": [
+        81.61524828035147,
+        56.819294973653285,
+        62.967940768135556
+      ],
+      "source_baseline": "a587e4ec5e82dbc86d52115ba41f3ae37e2e24f1",
+      "expect_menu": true,
+      "context_credit": true
+    },
+    {
+      "path": "native/1600x720/saved_legacy/natural_continue_world.png",
+      "state": "natural_continue_world",
+      "variant": "saved_legacy",
+      "aspect": [
+        1600,
+        720
+      ],
+      "sha256": "896b50540d664d5dca8a834c586d187a5a683b61ba0899cb7e793f4132ba52fc",
+      "bytes": 2043751,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "channel_stddev": [
+        71.45184426755446,
+        54.16344784402491,
+        78.10701300649824
+      ],
+      "source_baseline": "a587e4ec5e82dbc86d52115ba41f3ae37e2e24f1",
+      "expect_menu": false,
+      "context_credit": true
+    },
+    {
+      "path": "native/1600x720/saved_legacy/declared_menu_reentry.png",
+      "state": "declared_menu_reentry",
+      "variant": "saved_legacy",
+      "aspect": [
+        1600,
+        720
+      ],
+      "sha256": "f26e1d1342fdc282efea9a5f43af7e84cc50d219ad009e325c05ceb09ccb2d27",
+      "bytes": 1396949,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "channel_stddev": [
+        82.87728175738644,
+        56.827061503401595,
+        62.928807107761834
+      ],
+      "source_baseline": "a587e4ec5e82dbc86d52115ba41f3ae37e2e24f1",
+      "expect_menu": true,
+      "context_credit": false,
+      "duplicate_of": "native/1600x720/saved_legacy/normal_startup.png"
+    },
+    {
+      "path": "native/1600x720/saved_legacy/reentry_idle_1s.png",
+      "state": "reentry_idle_1s",
+      "variant": "saved_legacy",
+      "aspect": [
+        1600,
+        720
+      ],
+      "sha256": "f26e1d1342fdc282efea9a5f43af7e84cc50d219ad009e325c05ceb09ccb2d27",
+      "bytes": 1396949,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "channel_stddev": [
+        82.87728175738644,
+        56.827061503401595,
+        62.928807107761834
+      ],
+      "source_baseline": "a587e4ec5e82dbc86d52115ba41f3ae37e2e24f1",
+      "expect_menu": true,
+      "context_credit": false,
+      "duplicate_of": "native/1600x720/saved_legacy/normal_startup.png"
+    },
+    {
+      "path": "native/1600x720/saved_legacy/continue_again_pressed.png",
+      "state": "continue_again_pressed",
+      "variant": "saved_legacy",
+      "aspect": [
+        1600,
+        720
+      ],
+      "sha256": "dc7d40ab33723be904a2d81f4017f2c676e713ec19cecd676b036a266604365d",
+      "bytes": 1399782,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "channel_stddev": [
+        81.61524828035147,
+        56.819294973653285,
+        62.967940768135556
+      ],
+      "source_baseline": "a587e4ec5e82dbc86d52115ba41f3ae37e2e24f1",
+      "expect_menu": true,
+      "context_credit": false,
+      "duplicate_of": "native/1600x720/saved_legacy/continue_pressed.png"
+    },
+    {
+      "path": "native/1600x720/saved_legacy/natural_continue_after_reentry.png",
+      "state": "natural_continue_after_reentry",
+      "variant": "saved_legacy",
+      "aspect": [
+        1600,
+        720
+      ],
+      "sha256": "545af9a90858cb32edb11ed29faf1e9a11b58ad80ee2617676e906f3a96e6ec5",
+      "bytes": 2043768,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "channel_stddev": [
+        71.45213465608879,
+        54.16359894610786,
+        78.10710546358827
+      ],
+      "source_baseline": "a587e4ec5e82dbc86d52115ba41f3ae37e2e24f1",
+      "expect_menu": false,
+      "context_credit": true
+    }
+  ],
+  "excluded_duplicate_views": [
+    {
+      "path": "native/1280x720/fresh/passive_2s.png",
+      "state": "passive_2s",
+      "variant": "fresh",
+      "aspect": [
+        1280,
+        720
+      ],
+      "sha256": "832bbab25c622336a14091ccfc0d7f5bdfb2533425174e80126e632002559c73",
+      "bytes": 1380233,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "channel_stddev": [
+        74.27389341007704,
+        60.687474594106355,
+        65.53414416186621
+      ],
+      "source_baseline": "a587e4ec5e82dbc86d52115ba41f3ae37e2e24f1",
+      "expect_menu": true,
+      "context_credit": false,
+      "duplicate_of": "native/1280x720/fresh/normal_startup.png"
+    },
+    {
+      "path": "native/1280x720/fresh/passive_26s.png",
+      "state": "passive_26s",
+      "variant": "fresh",
+      "aspect": [
+        1280,
+        720
+      ],
+      "sha256": "832bbab25c622336a14091ccfc0d7f5bdfb2533425174e80126e632002559c73",
+      "bytes": 1380233,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "channel_stddev": [
+        74.27389341007704,
+        60.687474594106355,
+        65.53414416186621
+      ],
+      "source_baseline": "a587e4ec5e82dbc86d52115ba41f3ae37e2e24f1",
+      "expect_menu": true,
+      "context_credit": false,
+      "duplicate_of": "native/1280x720/fresh/normal_startup.png"
+    },
+    {
+      "path": "native/1280x720/fresh/declared_focus_out.png",
+      "state": "declared_focus_out",
+      "variant": "fresh",
+      "aspect": [
+        1280,
+        720
+      ],
+      "sha256": "c9b0bba83005eee3c2aef75ed3cb431c0b44187b981912c2928cabe1552fff55",
+      "bytes": 1384560,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "channel_stddev": [
+        73.80499657856656,
+        63.55683350068576,
+        65.6754193144972
+      ],
+      "source_baseline": "a587e4ec5e82dbc86d52115ba41f3ae37e2e24f1",
+      "expect_menu": true,
+      "context_credit": false,
+      "duplicate_of": "native/1280x720/fresh/options_close_released.png"
+    },
+    {
+      "path": "native/1280x720/fresh/declared_focus_in.png",
+      "state": "declared_focus_in",
+      "variant": "fresh",
+      "aspect": [
+        1280,
+        720
+      ],
+      "sha256": "c9b0bba83005eee3c2aef75ed3cb431c0b44187b981912c2928cabe1552fff55",
+      "bytes": 1384560,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "channel_stddev": [
+        73.80499657856656,
+        63.55683350068576,
+        65.6754193144972
+      ],
+      "source_baseline": "a587e4ec5e82dbc86d52115ba41f3ae37e2e24f1",
+      "expect_menu": true,
+      "context_credit": false,
+      "duplicate_of": "native/1280x720/fresh/options_close_released.png"
+    },
+    {
+      "path": "native/1280x720/saved_legacy/passive_2s.png",
+      "state": "passive_2s",
+      "variant": "saved_legacy",
+      "aspect": [
+        1280,
+        720
+      ],
+      "sha256": "9ce4a2fd5540c0a300974ea597a2dc42e626d061b4c2c57efd0a83459046fff2",
+      "bytes": 1383598,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "channel_stddev": [
+        75.99403643498266,
+        63.17556209979708,
+        67.88465047790349
+      ],
+      "source_baseline": "a587e4ec5e82dbc86d52115ba41f3ae37e2e24f1",
+      "expect_menu": true,
+      "context_credit": false,
+      "duplicate_of": "native/1280x720/saved_legacy/normal_startup.png"
+    },
+    {
+      "path": "native/1280x720/saved_legacy/passive_26s.png",
+      "state": "passive_26s",
+      "variant": "saved_legacy",
+      "aspect": [
+        1280,
+        720
+      ],
+      "sha256": "9ce4a2fd5540c0a300974ea597a2dc42e626d061b4c2c57efd0a83459046fff2",
+      "bytes": 1383598,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "channel_stddev": [
+        75.99403643498266,
+        63.17556209979708,
+        67.88465047790349
+      ],
+      "source_baseline": "a587e4ec5e82dbc86d52115ba41f3ae37e2e24f1",
+      "expect_menu": true,
+      "context_credit": false,
+      "duplicate_of": "native/1280x720/saved_legacy/normal_startup.png"
+    },
+    {
+      "path": "native/1280x720/saved_legacy/declared_focus_out.png",
+      "state": "declared_focus_out",
+      "variant": "saved_legacy",
+      "aspect": [
+        1280,
+        720
+      ],
+      "sha256": "d0ec425b21600f2494ab329f7a1c85576b3c5fdaf171fba554654a59c7db0e34",
+      "bytes": 1385732,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "channel_stddev": [
+        75.7480160307536,
+        63.42736170268189,
+        67.64986476962683
+      ],
+      "source_baseline": "a587e4ec5e82dbc86d52115ba41f3ae37e2e24f1",
+      "expect_menu": true,
+      "context_credit": false,
+      "duplicate_of": "native/1280x720/saved_legacy/options_close_released.png"
+    },
+    {
+      "path": "native/1280x720/saved_legacy/declared_focus_in.png",
+      "state": "declared_focus_in",
+      "variant": "saved_legacy",
+      "aspect": [
+        1280,
+        720
+      ],
+      "sha256": "d0ec425b21600f2494ab329f7a1c85576b3c5fdaf171fba554654a59c7db0e34",
+      "bytes": 1385732,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "channel_stddev": [
+        75.7480160307536,
+        63.42736170268189,
+        67.64986476962683
+      ],
+      "source_baseline": "a587e4ec5e82dbc86d52115ba41f3ae37e2e24f1",
+      "expect_menu": true,
+      "context_credit": false,
+      "duplicate_of": "native/1280x720/saved_legacy/options_close_released.png"
+    },
+    {
+      "path": "native/1280x720/saved_legacy/keep_saved_released.png",
+      "state": "keep_saved_released",
+      "variant": "saved_legacy",
+      "aspect": [
+        1280,
+        720
+      ],
+      "sha256": "9ce4a2fd5540c0a300974ea597a2dc42e626d061b4c2c57efd0a83459046fff2",
+      "bytes": 1383598,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "channel_stddev": [
+        75.99403643498266,
+        63.17556209979708,
+        67.88465047790349
+      ],
+      "source_baseline": "a587e4ec5e82dbc86d52115ba41f3ae37e2e24f1",
+      "expect_menu": true,
+      "context_credit": false,
+      "duplicate_of": "native/1280x720/saved_legacy/normal_startup.png"
+    },
+    {
+      "path": "native/1280x720/saved_legacy/declared_menu_reentry.png",
+      "state": "declared_menu_reentry",
+      "variant": "saved_legacy",
+      "aspect": [
+        1280,
+        720
+      ],
+      "sha256": "9ce4a2fd5540c0a300974ea597a2dc42e626d061b4c2c57efd0a83459046fff2",
+      "bytes": 1383598,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "channel_stddev": [
+        75.99403643498266,
+        63.17556209979708,
+        67.88465047790349
+      ],
+      "source_baseline": "a587e4ec5e82dbc86d52115ba41f3ae37e2e24f1",
+      "expect_menu": true,
+      "context_credit": false,
+      "duplicate_of": "native/1280x720/saved_legacy/normal_startup.png"
+    },
+    {
+      "path": "native/1280x720/saved_legacy/reentry_idle_1s.png",
+      "state": "reentry_idle_1s",
+      "variant": "saved_legacy",
+      "aspect": [
+        1280,
+        720
+      ],
+      "sha256": "9ce4a2fd5540c0a300974ea597a2dc42e626d061b4c2c57efd0a83459046fff2",
+      "bytes": 1383598,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "channel_stddev": [
+        75.99403643498266,
+        63.17556209979708,
+        67.88465047790349
+      ],
+      "source_baseline": "a587e4ec5e82dbc86d52115ba41f3ae37e2e24f1",
+      "expect_menu": true,
+      "context_credit": false,
+      "duplicate_of": "native/1280x720/saved_legacy/normal_startup.png"
+    },
+    {
+      "path": "native/1280x720/saved_legacy/continue_again_pressed.png",
+      "state": "continue_again_pressed",
+      "variant": "saved_legacy",
+      "aspect": [
+        1280,
+        720
+      ],
+      "sha256": "c792ed1cdd00d2f12fa7100fef53ddefa225673f485f2d6ee5dd363fe52f5497",
+      "bytes": 1386302,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "channel_stddev": [
+        74.70538559276383,
+        63.20659098906347,
+        68.01187634890171
+      ],
+      "source_baseline": "a587e4ec5e82dbc86d52115ba41f3ae37e2e24f1",
+      "expect_menu": true,
+      "context_credit": false,
+      "duplicate_of": "native/1280x720/saved_legacy/continue_pressed.png"
+    },
+    {
+      "path": "native/1600x720/fresh/passive_2s.png",
+      "state": "passive_2s",
+      "variant": "fresh",
+      "aspect": [
+        1600,
+        720
+      ],
+      "sha256": "a40accaa35620c4b5893c774b6bf4107c61d7ff8d7ed59e5f016958a4f1c8b2e",
+      "bytes": 1393615,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "channel_stddev": [
+        80.75316185523192,
+        54.48050614628603,
+        61.25442506388719
+      ],
+      "source_baseline": "a587e4ec5e82dbc86d52115ba41f3ae37e2e24f1",
+      "expect_menu": true,
+      "context_credit": false,
+      "duplicate_of": "native/1600x720/fresh/normal_startup.png"
+    },
+    {
+      "path": "native/1600x720/fresh/passive_26s.png",
+      "state": "passive_26s",
+      "variant": "fresh",
+      "aspect": [
+        1600,
+        720
+      ],
+      "sha256": "a40accaa35620c4b5893c774b6bf4107c61d7ff8d7ed59e5f016958a4f1c8b2e",
+      "bytes": 1393615,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "channel_stddev": [
+        80.75316185523192,
+        54.48050614628603,
+        61.25442506388719
+      ],
+      "source_baseline": "a587e4ec5e82dbc86d52115ba41f3ae37e2e24f1",
+      "expect_menu": true,
+      "context_credit": false,
+      "duplicate_of": "native/1600x720/fresh/normal_startup.png"
+    },
+    {
+      "path": "native/1600x720/fresh/declared_focus_out.png",
+      "state": "declared_focus_out",
+      "variant": "fresh",
+      "aspect": [
+        1600,
+        720
+      ],
+      "sha256": "2f03aa16ee3ca841c70f9e10b87d8438c240e1f09125082ddbeb51ab03868d2b",
+      "bytes": 1397928,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "channel_stddev": [
+        80.35017575513663,
+        57.150803314860774,
+        61.17170660404871
+      ],
+      "source_baseline": "a587e4ec5e82dbc86d52115ba41f3ae37e2e24f1",
+      "expect_menu": true,
+      "context_credit": false,
+      "duplicate_of": "native/1600x720/fresh/options_close_released.png"
+    },
+    {
+      "path": "native/1600x720/fresh/declared_focus_in.png",
+      "state": "declared_focus_in",
+      "variant": "fresh",
+      "aspect": [
+        1600,
+        720
+      ],
+      "sha256": "2f03aa16ee3ca841c70f9e10b87d8438c240e1f09125082ddbeb51ab03868d2b",
+      "bytes": 1397928,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "channel_stddev": [
+        80.35017575513663,
+        57.150803314860774,
+        61.17170660404871
+      ],
+      "source_baseline": "a587e4ec5e82dbc86d52115ba41f3ae37e2e24f1",
+      "expect_menu": true,
+      "context_credit": false,
+      "duplicate_of": "native/1600x720/fresh/options_close_released.png"
+    },
+    {
+      "path": "native/1600x720/saved_legacy/passive_2s.png",
+      "state": "passive_2s",
+      "variant": "saved_legacy",
+      "aspect": [
+        1600,
+        720
+      ],
+      "sha256": "f26e1d1342fdc282efea9a5f43af7e84cc50d219ad009e325c05ceb09ccb2d27",
+      "bytes": 1396949,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "channel_stddev": [
+        82.87728175738644,
+        56.827061503401595,
+        62.928807107761834
+      ],
+      "source_baseline": "a587e4ec5e82dbc86d52115ba41f3ae37e2e24f1",
+      "expect_menu": true,
+      "context_credit": false,
+      "duplicate_of": "native/1600x720/saved_legacy/normal_startup.png"
+    },
+    {
+      "path": "native/1600x720/saved_legacy/passive_26s.png",
+      "state": "passive_26s",
+      "variant": "saved_legacy",
+      "aspect": [
+        1600,
+        720
+      ],
+      "sha256": "f26e1d1342fdc282efea9a5f43af7e84cc50d219ad009e325c05ceb09ccb2d27",
+      "bytes": 1396949,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "channel_stddev": [
+        82.87728175738644,
+        56.827061503401595,
+        62.928807107761834
+      ],
+      "source_baseline": "a587e4ec5e82dbc86d52115ba41f3ae37e2e24f1",
+      "expect_menu": true,
+      "context_credit": false,
+      "duplicate_of": "native/1600x720/saved_legacy/normal_startup.png"
+    },
+    {
+      "path": "native/1600x720/saved_legacy/declared_focus_out.png",
+      "state": "declared_focus_out",
+      "variant": "saved_legacy",
+      "aspect": [
+        1600,
+        720
+      ],
+      "sha256": "45a247ec4f84c31e5e2ba3acd2c1f0d83df8bccd75e915436891dd25be1039b2",
+      "bytes": 1399248,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "channel_stddev": [
+        82.54536858748644,
+        57.03189929697995,
+        62.66929922839307
+      ],
+      "source_baseline": "a587e4ec5e82dbc86d52115ba41f3ae37e2e24f1",
+      "expect_menu": true,
+      "context_credit": false,
+      "duplicate_of": "native/1600x720/saved_legacy/options_close_released.png"
+    },
+    {
+      "path": "native/1600x720/saved_legacy/declared_focus_in.png",
+      "state": "declared_focus_in",
+      "variant": "saved_legacy",
+      "aspect": [
+        1600,
+        720
+      ],
+      "sha256": "45a247ec4f84c31e5e2ba3acd2c1f0d83df8bccd75e915436891dd25be1039b2",
+      "bytes": 1399248,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "channel_stddev": [
+        82.54536858748644,
+        57.03189929697995,
+        62.66929922839307
+      ],
+      "source_baseline": "a587e4ec5e82dbc86d52115ba41f3ae37e2e24f1",
+      "expect_menu": true,
+      "context_credit": false,
+      "duplicate_of": "native/1600x720/saved_legacy/options_close_released.png"
+    },
+    {
+      "path": "native/1600x720/saved_legacy/keep_saved_released.png",
+      "state": "keep_saved_released",
+      "variant": "saved_legacy",
+      "aspect": [
+        1600,
+        720
+      ],
+      "sha256": "f26e1d1342fdc282efea9a5f43af7e84cc50d219ad009e325c05ceb09ccb2d27",
+      "bytes": 1396949,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "channel_stddev": [
+        82.87728175738644,
+        56.827061503401595,
+        62.928807107761834
+      ],
+      "source_baseline": "a587e4ec5e82dbc86d52115ba41f3ae37e2e24f1",
+      "expect_menu": true,
+      "context_credit": false,
+      "duplicate_of": "native/1600x720/saved_legacy/normal_startup.png"
+    },
+    {
+      "path": "native/1600x720/saved_legacy/declared_menu_reentry.png",
+      "state": "declared_menu_reentry",
+      "variant": "saved_legacy",
+      "aspect": [
+        1600,
+        720
+      ],
+      "sha256": "f26e1d1342fdc282efea9a5f43af7e84cc50d219ad009e325c05ceb09ccb2d27",
+      "bytes": 1396949,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "channel_stddev": [
+        82.87728175738644,
+        56.827061503401595,
+        62.928807107761834
+      ],
+      "source_baseline": "a587e4ec5e82dbc86d52115ba41f3ae37e2e24f1",
+      "expect_menu": true,
+      "context_credit": false,
+      "duplicate_of": "native/1600x720/saved_legacy/normal_startup.png"
+    },
+    {
+      "path": "native/1600x720/saved_legacy/reentry_idle_1s.png",
+      "state": "reentry_idle_1s",
+      "variant": "saved_legacy",
+      "aspect": [
+        1600,
+        720
+      ],
+      "sha256": "f26e1d1342fdc282efea9a5f43af7e84cc50d219ad009e325c05ceb09ccb2d27",
+      "bytes": 1396949,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "channel_stddev": [
+        82.87728175738644,
+        56.827061503401595,
+        62.928807107761834
+      ],
+      "source_baseline": "a587e4ec5e82dbc86d52115ba41f3ae37e2e24f1",
+      "expect_menu": true,
+      "context_credit": false,
+      "duplicate_of": "native/1600x720/saved_legacy/normal_startup.png"
+    },
+    {
+      "path": "native/1600x720/saved_legacy/continue_again_pressed.png",
+      "state": "continue_again_pressed",
+      "variant": "saved_legacy",
+      "aspect": [
+        1600,
+        720
+      ],
+      "sha256": "dc7d40ab33723be904a2d81f4017f2c676e713ec19cecd676b036a266604365d",
+      "bytes": 1399782,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "channel_stddev": [
+        81.61524828035147,
+        56.819294973653285,
+        62.967940768135556
+      ],
+      "source_baseline": "a587e4ec5e82dbc86d52115ba41f3ae37e2e24f1",
+      "expect_menu": true,
+      "context_credit": false,
+      "duplicate_of": "native/1600x720/saved_legacy/continue_pressed.png"
+    }
+  ],
+  "scope": "94ordered native state/event files retained;70new exactPNGhash credits and24duplicateviews excluded onlywithinthisnewrun. Historicalunits preserved;notwholegameunique-image/design count."
+}
