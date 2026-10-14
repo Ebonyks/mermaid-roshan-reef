@@ -1,0 +1,23 @@
+{
+  "schema": "reef.flat_vector_scoped_observations/1",
+  "revision": "FV-AUDIT-20261014-R30",
+  "observations": [
+    {
+      "id": "FVO-R30-MUSIC-OFF-GLYPH",
+      "status": "CURRENT_NATIVE_OBSERVATION;SOURCE_UNCHANGED_IN_R30",
+      "source": "scripts/start_menu.gd:459 _sync_option_labels",
+      "literal_codepoints": [
+        "U+266B",
+        "U+0338"
+      ],
+      "captures": [
+        "native/1600x720/saved_legacy/music_off_released.png"
+      ],
+      "observation": "CombiningU+0338 forslashedmusic symbolappearsas missing-glyphbox inactualOptionsMUSIC_OFF capture. Notnewretirementregression;existing glyph/typography closure remainsopen.",
+      "new_art_design_id": null,
+      "whole_game_regression_count": null,
+      "repair": "Source-bound type/icon reuse repair afterpublishedexactcontext;do notfabricate acceptance orsourcefileratio verdict."
+    }
+  ],
+  "new_named_art_design_records": 0
+}

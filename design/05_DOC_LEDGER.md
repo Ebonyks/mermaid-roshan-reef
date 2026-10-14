@@ -1155,3 +1155,9 @@ release/device/child/owner authority retain precedence.
 | Document | State | Scope |
 |---|---|---|
 | `docs/handoffs/codex_flat_vector_art_2026-10-07/r29_startup_ambience_context/README.md` | 🔵 | `SUPPORTING_CURRENT`; naturaldisplayStartMenu selectsintro.storybook ambience;separateIntroOverlay retainsheadlessstartup scope.16native/direct views;flatmoon crossesOptions.54existingpartial/12families,78/176partial/98without,2748bounded/3031retained.100catalogue/300slots sourceonly;0art/runtimeedit/acceptance. Fullinventory/QA11/device/child/owner remainopen. |
+
+## Full-game flat-vector startup retirement — 2026-10-14 R30
+
+| Document | State | Scope |
+|---|---|---|
+| `docs/handoffs/codex_flat_vector_art_2026-10-07/r30_startup_ambience_retirement/README.md` | 🔵 | `SUPPORTING_CURRENT`; boundedproductioncandidate retires3sharedambience roles onlywhileStartMenu active;57publishedcontextfiles verifiedbeforeedit,meaningfulbaselinefails/fixedchecks/full82nativepass.78currentnative/18views,124failedexcluded;3retiredstartuproles notglobalacceptedremovals.2826bounded/3233retained,54existingpartial/12families,78/176partial/98without;unknownfullinventory/QA11/device/child/owner open. |

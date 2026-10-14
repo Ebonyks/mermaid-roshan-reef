@@ -1,0 +1,73 @@
+{
+  "status": "PASS_WITH_ACCEPTANCE_OPEN",
+  "commands": [
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-B",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r30_startup_ambience_retirement\\validate.py"
+      ],
+      "started_at_utc": "2026-10-14T06:23:32.343316+00:00",
+      "checked_at_utc": "2026-10-14T06:23:43.520459+00:00",
+      "exit_code": 0,
+      "result": "PASS",
+      "evidence": "gates.log"
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-B",
+        "tools/audit_document_authority.py"
+      ],
+      "started_at_utc": "2026-10-14T06:23:43.520530+00:00",
+      "checked_at_utc": "2026-10-14T06:24:02.442130+00:00",
+      "exit_code": 0,
+      "result": "PASS",
+      "evidence": "gates.log"
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-B",
+        "tools/audit_development.py",
+        "--base",
+        "auto"
+      ],
+      "started_at_utc": "2026-10-14T06:24:02.442183+00:00",
+      "checked_at_utc": "2026-10-14T06:24:07.785784+00:00",
+      "exit_code": 0,
+      "result": "PASS",
+      "evidence": "gates.log"
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-B",
+        "-m",
+        "unittest",
+        "tools.tests.test_audit_document_authority",
+        "tools.tests.test_audit_development"
+      ],
+      "started_at_utc": "2026-10-14T06:24:07.785840+00:00",
+      "checked_at_utc": "2026-10-14T06:24:23.725869+00:00",
+      "exit_code": 0,
+      "result": "PASS",
+      "evidence": "gates.log"
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-B",
+        "tools/audit_game_2d.py",
+        "--regression-gate"
+      ],
+      "started_at_utc": "2026-10-14T06:24:23.725925+00:00",
+      "checked_at_utc": "2026-10-14T06:27:48.080486+00:00",
+      "exit_code": 0,
+      "result": "PASS",
+      "evidence": "gates.log"
+    }
+  ],
+  "raw_log_sha256": "d0eb35fa948785e20cc3a9e5fe76be705757cf3a00993d5e4d97fbb505e12bc5",
+  "scope": "BoundedproductionStartMenu ambience retirement;newfull82trustednativezeroexit/import/focused/native4profiles pass. No newart/sourcepixels;3retiredstartuproles notgloballyacceptedremovals,QA11/device/child/owner/fullinventory open."
+}

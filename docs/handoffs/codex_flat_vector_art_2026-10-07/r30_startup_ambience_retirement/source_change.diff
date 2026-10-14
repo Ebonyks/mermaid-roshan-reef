@@ -1,0 +1,69 @@
+diff --git a/scripts/living_world.gd b/scripts/living_world.gd
+index 67c829bb..ddefe5b9 100644
+--- a/scripts/living_world.gd
++++ b/scripts/living_world.gd
+@@ -281,6 +281,10 @@ func _held_input_active() -> bool:
+ func _suspended() -> bool:
+ 	if m.get_tree() == null or m.get_tree().paused:
+ 		return true
++	# The painted launch menu owns its presentation. Its intro_active input
++	# guard does not make the retained intro ornaments part of the menu art.
++	if m.start_menu_active:
++		return true
+ 	if m.get_tree().has_group(QUIET_GROUP):
+ 		return true
+ 	if m.fade_rect != null and m.fade_rect.modulate.a > 0.02:
+diff --git a/scripts/probe_living_world.gd b/scripts/probe_living_world.gd
+index 6c46e46a..10f3e50b 100644
+--- a/scripts/probe_living_world.gd
++++ b/scripts/probe_living_world.gd
+@@ -36,6 +36,7 @@ func _init() -> void:
+ 	director.setup()
+ 	_probe_inventory()
+ 	_probe_quiet_group()
++	_probe_launch_menu_quiet()
+ 	await _probe_opera_sparse_stage_routing()
+ 	_probe_all_stage_runtime()
+ 	_probe_real_input_reset()
+@@ -154,6 +155,41 @@ func _probe_quiet_group() -> void:
+ 		"before=%s during=%s" % [before, during])
+ 
+ 
++func _probe_launch_menu_quiet() -> void:
++	# The real launch menu borrows intro_active for its input guard. It must
++	# not inherit the retained intro's procedural ornaments above its buttons.
++	var saved_fade: Color = main.fade_rect.modulate
++	main.fade_rect.modulate.a = 0.0
++	director.deactivate()
++	var event_count: int = main.living_event_count
++	var before_progress: Dictionary = _progress_snapshot()
++	main._build_start_menu()
++	director.tick(0.01)
++	_check("launch menu suspends procedural ambience",
++		main.start_menu_active and main.intro_active
++		and director._suspended() and not main.living_layer.visible)
++	director.tick(120.0)
++	_check("launch menu long idle draws no accent or passive event",
++		not main.living_layer.visible and main.living_idle_time == 0.0
++		and main.living_event_time < 0.0
++		and main.living_event_count == event_count
++		and _progress_unchanged(before_progress))
++	main._start_menu_ref()._dismiss_menu()
++	director.tick(0.02)
++	_check("leaving launch menu restores the sibling world ambience",
++		not main.start_menu_active and not main.intro_active
++		and not director._suspended() and main.living_layer.visible
++		and main.living_stage_id != "" and main.living_stage_id != "intro.storybook")
++	main._build_start_menu()
++	director.tick(0.02)
++	_check("launch menu reentry retires accents again",
++		director._suspended() and not main.living_layer.visible
++		and main.living_idle_time == 0.0 and main.living_event_time < 0.0)
++	main._start_menu_ref()._dismiss_menu()
++	director.tick(0.02)
++	main.fade_rect.modulate = saved_fade
++
++
+ func _probe_opera_sparse_stage_routing() -> void:
+ 	main._enter_castle_interior_now()
+ 	# `_enter_castle_interior_now()` is normally called from an already-active

@@ -1,0 +1,43 @@
+{
+  "status": "PASS",
+  "commands": [
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_godot_baseline.py",
+        "--godot",
+        "C:/Users/Peter/AppData/Local/Programs/MermaidReefTools/Godot/4.7.2/godot_console.exe"
+      ],
+      "started_at_utc": "2026-10-14T05:59:01.585321+00:00",
+      "checked_at_utc": "2026-10-14T05:59:02.044598+00:00",
+      "exit_code": 0,
+      "result": "PASS"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_probe_parity.py"
+      ],
+      "started_at_utc": "2026-10-14T05:59:02.044655+00:00",
+      "checked_at_utc": "2026-10-14T05:59:02.325674+00:00",
+      "exit_code": 0,
+      "result": "PASS"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/gold_star.py",
+        "--check"
+      ],
+      "started_at_utc": "2026-10-14T05:59:02.325722+00:00",
+      "checked_at_utc": "2026-10-14T05:59:05.512999+00:00",
+      "exit_code": 0,
+      "result": "PASS"
+    }
+  ],
+  "raw_log_sha256": "13f6242bd96da3a12fdc93bc6f93422874ae54b3d83cb779c3be25e780ff33d7",
+  "scope": "Exactengine/parity/catalogue structuralmachine gates;stalegold-star assessments do notbecome current/accepted scores"
+}

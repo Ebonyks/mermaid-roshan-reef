@@ -1,0 +1,33 @@
+{
+  "status": "EXPECTED_BASELINE_FAILURE_VERIFIED",
+  "command": [
+    "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+    "--headless",
+    "--path",
+    "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef",
+    "-s",
+    "res://scripts/probe_living_world.gd",
+    "--",
+    "--touch",
+    "--classic-touch-test"
+  ],
+  "source_baseline": "fdf41220b8cfe16f129741e364b2ea75f4e5e7f1",
+  "started_at_utc": "2026-10-14T05:35:02.987231+00:00",
+  "checked_at_utc": "2026-10-14T05:35:20.346170+00:00",
+  "exit_code": 1,
+  "expected_failure_rows": [
+    "launch menu suspends procedural ambience: FAIL",
+    "launch menu long idle draws no accent or passive event: FAIL",
+    "launch menu reentry retires accents again: FAIL"
+  ],
+  "actual_failure_rows": [
+    "LIVING|launch menu suspends procedural ambience: FAIL",
+    "LIVING|launch menu long idle draws no accent or passive event: FAIL",
+    "LIVING|launch menu reentry retires accents again: FAIL",
+    "LIVING|result: FAIL"
+  ],
+  "unchanged_production_director_sha256": "1bcddb315971b88ccc01381463ebf545a5e00940c7654ebcf80fd29e27bf2e4c",
+  "new_regression_probe_sha256": "1f932458f0792ba0dc94b8022d2d0955c1f649ffa3f90bc495453f5070fff0eb",
+  "private_profile": "C:\\Users\\Peter\\.codex\\visualizations\\2026\\10\\08\\01a119cc-74b1-7d23-b956-126129405418\\startup_ambience_retirement_20261014\\baseline_profile",
+  "scope": "Added meaningful test againstunchangedproduction;expected baselinefail,notpassingmachineevidence orhumanacceptance"
+}

@@ -1,0 +1,118 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+DAY_ONE_BATHROOM|bathroom entry is automatically dirty and interactive: OK
+DAY_ONE_BATHROOM|separate dirty room plate and animated bunny are true 2D: OK
+DAY_ONE_BATHROOM|rescue has no passive win or fail state: OK
+DAY_ONE_BATHROOM|bathroom uses exact contextual cues for basket and supplies: OK
+DAY_ONE_BATHROOM|bathroom cleaning uses exact cues for every stage: OK
+DAY_ONE_BATHROOM|bathroom has no generic voice fallback in scoped owners: OK
+DAY_ONE_BATHROOM|rescue owns one pulsing front-right basket: OK
+DAY_ONE_BATHROOM|basket contains sponge and brush, never cleaner: OK
+DAY_ONE_BATHROOM|no magnifier or cabinet search route exists: OK
+DAY_ONE_BATHROOM|basket tap has spoken and visual invitation: OK
+DAY_ONE_BATHROOM|ordinary HUD and room hotspots stay out of rescue: OK
+DAY_ONE_BATHROOM|Canvas-only node tree: OK
+DAY_ONE_BATHROOM|normal room affordances are suppressed during rescue: OK
+DAY_ONE_BATHROOM|passive time cannot collect a supply: OK
+DAY_ONE_BATHROOM|runtime asset room_bubble_bath_dirty_day_one.png: OK
+DAY_ONE_BATHROOM|runtime asset room_bubble_bath_dirty_drained_day_one.png: OK
+DAY_ONE_BATHROOM|runtime asset cleanup_basket.png: OK
+DAY_ONE_BATHROOM|runtime asset tool_star_sponge.png: OK
+DAY_ONE_BATHROOM|runtime asset magic_cleaning_brush.png: OK
+DAY_ONE_BATHROOM|runtime asset ghost_hand.png: OK
+DAY_ONE_BATHROOM|runtime asset fx_stolen_sparkle.png: OK
+DAY_ONE_BATHROOM|runtime asset fx_soap_bubbles.png: OK
+DAY_ONE_BATHROOM|runtime asset target_bath_soap_ring.png: OK
+DAY_ONE_BATHROOM|runtime asset tool_star_sponge.png: OK
+DAY_ONE_BATHROOM|runtime asset fx_wipe_swoosh.png: OK
+DAY_ONE_BATHROOM|runtime asset target_sink_grime_v1.png: OK
+DAY_ONE_BATHROOM|runtime asset target_tub_grime_v1.png: OK
+DAY_ONE_BATHROOM|runtime asset dust_bunny_swimming.png: OK
+DAY_ONE_BATHROOM|real basket tap starts the rescue handoff: OK
+DAY_ONE_BATHROOM|sponge travels from basket toward the sink: OK
+DAY_ONE_BATHROOM|basket tap does not expose a magnifier or cabinet target: OK
+DAY_ONE_BATHROOM|hunt handoff opens the sink gesture without a fail state: OK
+DAY_ONE_BATHROOM|supply hunt does not unlock the pool: OK
+DAY_ONE_BATHROOM|partial bathroom completion is rejected: OK
+DAY_ONE_BATHROOM|rejected pool overlay remains absent: OK
+DAY_ONE_BATHROOM|teardown frees hunt: OK
+DAY_ONE_BATHROOM|normal room affordances restore after rescue teardown: OK
+DAY_ONE_BATHROOM|re-entry restores the next unfinished brush gesture: OK
+DAY_ONE_BATHROOM|cleanup persistence is monotonic on re-entry: OK
+DAY_ONE_BATHROOM|sink artwork stays dirty before intentional scrubbing: OK
+DAY_ONE_BATHROOM|demonstration leaves the fixture dirt untouched: OK
+DAY_ONE_BATHROOM|holding still cannot erase dirt: OK
+DAY_ONE_BATHROOM|second finger cannot erase the owned fixture: OK
+DAY_ONE_BATHROOM|partial sink touch removes dirt before completion: OK
+DAY_ONE_BATHROOM|sink scrubbing reveals contact pixels and leaves untouched dirt: OK
+DAY_ONE_BATHROOM|focus loss cancels rubbing without undoing visible feedback: OK
+DAY_ONE_BATHROOM|room sink scrub records completion: OK
+DAY_ONE_BATHROOM|completed sink replaces baked dirty pixels immediately: OK
+DAY_ONE_BATHROOM|clean sink cutout follows the fixture and excludes rectangular scenery: OK
+DAY_ONE_BATHROOM|saved sink resumes clean while the tub stays dirty: OK
+DAY_ONE_BATHROOM|resumed tub still requires its own drain tap: OK
+DAY_ONE_BATHROOM|drained replacement preserves clean sink pixels: OK
+DAY_ONE_BATHROOM|draining and the tub demonstration do not scrub dirt: OK
+DAY_ONE_BATHROOM|partial tub rubbing reveals only its local path: OK
+DAY_ONE_BATHROOM|completed tub scrub clears all remaining fixture dirt: OK
+DAY_ONE_BATHROOM|busy press is buffered while the finger is down: OK
+DAY_ONE_BATHROOM|release clears a busy touch buffer: OK
+DAY_ONE_BATHROOM|released busy press cannot start a later gesture: OK
+DAY_ONE_BATHROOM|held busy press starts the gesture when travel clears: OK
+DAY_ONE_BATHROOM|sink phase has a visible one-finger pointer: OK
+DAY_ONE_BATHROOM|sink phase shows a circle demo and travelling sponge: OK
+DAY_ONE_BATHROOM|passive wait does not advance sink: OK
+DAY_ONE_BATHROOM|still held finger and passive time cannot win: OK
+DAY_ONE_BATHROOM|sink early motion does not complete: OK
+DAY_ONE_BATHROOM|partial grime progress is monotonic and visibly unfinished: OK
+DAY_ONE_BATHROOM|circular sink scrub needs arc, distance, and valid motion time: OK
+DAY_ONE_BATHROOM|sink grime fades away and tub grime becomes the next target: OK
+DAY_ONE_BATHROOM|sink completion leaves a clean visible basin: OK
+DAY_ONE_BATHROOM|cleanup persistence is monotonic: OK
+DAY_ONE_BATHROOM|lifted sink touch starts part 0: OK
+DAY_ONE_BATHROOM|lifted sink motion banks across a 0.5s lift 0: OK
+DAY_ONE_BATHROOM|lifted sink touch starts part 1: OK
+DAY_ONE_BATHROOM|lifted sink motion banks across a 0.5s lift 1: OK
+DAY_ONE_BATHROOM|lifted sink touch starts part 2: OK
+DAY_ONE_BATHROOM|lifted sink motion banks across a 0.5s lift 2: OK
+DAY_ONE_BATHROOM|three 0.8s sink touches with 0.5s lifts complete: OK
+DAY_ONE_BATHROOM|focus loss clears a held busy press fail-closed: OK
+DAY_ONE_BATHROOM|first idle re-prompt is not early: OK
+DAY_ONE_BATHROOM|first idle re-prompt fires by five seconds: OK
+DAY_ONE_BATHROOM|idle re-prompts repeat every twelve seconds with a cap: OK
+DAY_ONE_BATHROOM|idle re-prompt cap is stable: OK
+DAY_ONE_BATHROOM|re-entry resumes tub after sink: OK
+DAY_ONE_BATHROOM|tub phase asks for one clear drain tap before brushing: OK
+DAY_ONE_BATHROOM|passive wait does not advance tub: OK
+DAY_ONE_BATHROOM|live tub tap starts one bounded comic reaction: OK
+DAY_ONE_BATHROOM|bunny reaction spins once and shouts No without advancing: OK
+DAY_ONE_BATHROOM|drain reaction enables the demonstrated tub brush: OK
+DAY_ONE_BATHROOM|circular sink motion cannot complete the tub: OK
+DAY_ONE_BATHROOM|back-and-forth tub brush needs reversals, distance, and time: OK
+DAY_ONE_BATHROOM|two-to-three forgiving tub strokes are enough: OK
+DAY_ONE_BATHROOM|tub grime fades away after the final scrub: OK
+DAY_ONE_BATHROOM|tub completion waits for toilet cleaning: OK
+DAY_ONE_BATHROOM|toilet approach starts without holding a finger: OK
+DAY_ONE_BATHROOM|Roshan visibly approaches before the scrub invitation: OK
+DAY_ONE_BATHROOM|other fixtures cannot start toilet cleaning: OK
+DAY_ONE_BATHROOM|generous toilet target accepts one finger: OK
+DAY_ONE_BATHROOM|second finger cannot steal toilet gesture: OK
+DAY_ONE_BATHROOM|prearrival circles bank no arc distance or scrub time: OK
+DAY_ONE_BATHROOM|short touch release cannot strand Roshan before scrubbing: OK
+DAY_ONE_BATHROOM|Roshan arrives with brush attached to hand: OK
+DAY_ONE_BATHROOM|automatic approach and demonstration never clean the toilet: OK
+DAY_ONE_BATHROOM|partial toilet save stays unfinished: OK
+DAY_ONE_BATHROOM|intentional toilet circle saves clean state: OK
+DAY_ONE_BATHROOM|toilet clean state survives save restore: OK
+DAY_ONE_BATHROOM|completed legacy bathrooms stay completed: OK
+DAY_ONE_BATHROOM|focus loss cancels held toilet input and suspends approach: OK
+DAY_ONE_BATHROOM|focus return cannot resume toilet approach while still paused: OK
+DAY_ONE_BATHROOM|resumed toilet staging arrives without reviving a held scrub: OK
+DAY_ONE_BATHROOM|pause preserves partial scrub but stale drag cannot add progress: OK
+DAY_ONE_BATHROOM|toilet teardown cannot complete an unfinished scrub: OK
+DAY_ONE_BATHROOM|cleaning completion emits exactly once: OK
+DAY_ONE_BATHROOM|finale has whole-room sparkle and pool pointer seam: OK
+DAY_ONE_BATHROOM|cleaning exposes no fail state: OK
+DAY_ONE_BATHROOM|cleaning gestures are reachable, Canvas-only, and budgeted 2-5s: OK
+DAY_ONE_BATHROOM|interrupted completed tub re-emits completion once: OK
+DAY_ONE_BATHROOM|RESULT: PASS checks_failed=0

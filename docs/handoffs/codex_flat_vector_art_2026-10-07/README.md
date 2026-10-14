@@ -1,6 +1,12 @@
-Current canonical evidence: [R29 startup ambience](r29_startup_ambience_context/README.md), [registry](r29_startup_ambience_context/per_piece.json), [coverage](r29_startup_ambience_context/scene_coverage.json), [tally](r29_startup_ambience_context/tally.json).
+Current canonical evidence: [R30 startup retirement](r30_startup_ambience_retirement/README.md), [registry](r30_startup_ambience_retirement/per_piece.json), [coverage](r30_startup_ambience_retirement/scene_coverage.json), [tally](r30_startup_ambience_retirement/tally.json).
 
-# Current R29 normal startup route correction
+# Current R30 bounded production retirement
+
+Threeproceduralstartuproles retiredwhilemenuownsdisplay;existingpaintedbackground reused.78currentnative/18views,124failedexcluded;82trustednativeprobes pass.2826bounded/3233retained/407excluded;54existingpartial/12families,78/176partial/98without,0globalacceptedremoved. Wholegameinventory/device/child/owner/QA11 remainopen.
+
+Historical R29 routing: [R29 startup ambience](r29_startup_ambience_context/README.md), [registry](r29_startup_ambience_context/per_piece.json), [coverage](r29_startup_ambience_context/scene_coverage.json), [tally](r29_startup_ambience_context/tally.json).
+
+# Historical R29 normal startup route correction
 
 Actual display proves procedural bubble/sparkle/moon live aboveStartMenu;moon crossesOptions.16native/16views;54existingpartial/12families,78/176partial/98without,2748bounded/3031retained.100catalogue/300source slots notscreens/pieces.0artadoption/acceptance;unknownwhole-gameinventory.
 

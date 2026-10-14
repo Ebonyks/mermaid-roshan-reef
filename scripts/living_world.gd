@@ -281,6 +281,10 @@ func _held_input_active() -> bool:
 func _suspended() -> bool:
 	if m.get_tree() == null or m.get_tree().paused:
 		return true
+	# The painted launch menu owns its presentation. Its intro_active input
+	# guard does not make the retained intro ornaments part of the menu art.
+	if m.start_menu_active:
+		return true
 	if m.get_tree().has_group(QUIET_GROUP):
 		return true
 	if m.fade_rect != null and m.fade_rect.modulate.a > 0.02:

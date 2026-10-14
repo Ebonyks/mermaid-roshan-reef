@@ -1,0 +1,2295 @@
+{
+	"all_game_reachability_complete": false,
+	"aspect": [
+		1280,
+		720
+	],
+	"display_server": "Windows",
+	"engine": {
+		"build": "official",
+		"hash": "ed1daf0bf001b61586d9930840f2f1394092c079",
+		"hex": 263938,
+		"major": 4,
+		"minor": 7,
+		"patch": 2,
+		"status": "stable",
+		"string": "4.7.2-stable (official)",
+		"timestamp": 0
+	},
+	"errors": [],
+	"final_progress": {
+		"chapter2_job_phase_masks": [
+			0,
+			0,
+			0,
+			0,
+			0,
+			0,
+			0,
+			0
+		],
+		"found": [],
+		"opera_stars": 0,
+		"pearls": 0,
+		"r30_keep_marker": null,
+		"won": []
+	},
+	"fixture": "Natural scene/newprivateSaveState BEFOREMain;rawviewporttouch input;explicit focus/reentry diagnostics labelled. No IntroOverlaybuild/probeStageoverride/scriptSwap/newart",
+	"human_acceptance": null,
+	"initial_progress": {
+		"chapter2_job_phase_masks": [
+			0,
+			0,
+			0,
+			0,
+			0,
+			0,
+			0,
+			0
+		],
+		"found": [],
+		"opera_stars": 0,
+		"pearls": 0,
+		"r30_keep_marker": null,
+		"won": []
+	},
+	"normal_save_after": {
+		"": "47c287147713fac860e25dade59da95961204f9b3170f5e00b5843e11590ad1e",
+		".bak": "de9d0441ed4d74f01cc8778c1c21600351b1426017d33a5ce99e69b03e893c3a",
+		".bak.old": "absent",
+		".bak.tmp": "absent",
+		".old": "absent",
+		".tmp": "absent",
+		".tmp0": "absent",
+		".tmp1": "absent"
+	},
+	"normal_save_after_teardown": {
+		"": "47c287147713fac860e25dade59da95961204f9b3170f5e00b5843e11590ad1e",
+		".bak": "de9d0441ed4d74f01cc8778c1c21600351b1426017d33a5ce99e69b03e893c3a",
+		".bak.old": "absent",
+		".bak.tmp": "absent",
+		".old": "absent",
+		".tmp": "absent",
+		".tmp0": "absent",
+		".tmp1": "absent"
+	},
+	"normal_save_before": {
+		"": "47c287147713fac860e25dade59da95961204f9b3170f5e00b5843e11590ad1e",
+		".bak": "de9d0441ed4d74f01cc8778c1c21600351b1426017d33a5ce99e69b03e893c3a",
+		".bak.old": "absent",
+		".bak.tmp": "absent",
+		".old": "absent",
+		".tmp": "absent",
+		".tmp0": "absent",
+		".tmp1": "absent"
+	},
+	"private_profile_path": "C:\\Users\\Peter\\.codex\\visualizations\\2026\\10\\08\\01a119cc-74b1-7d23-b956-126129405418\\startup_ambience_retirement_20261014\\native_final/1280x720/fresh/profiles/startup/reef_save.json",
+	"production_director_sha256": "734eeec8505d3c4ed625d123d66672c10330633f9e435cabae376c8cbebba5da",
+	"quality": "speedy",
+	"regression_probe_sha256": "1f932458f0792ba0dc94b8022d2d0955c1f649ffa3f90bc495453f5070fff0eb",
+	"rendering_method": "mobile",
+	"schema": "reef.startup_ambience_retirement_native/1",
+	"source_baseline": "fdf41220b8cfe16f129741e364b2ea75f4e5e7f1",
+	"states": [
+		{
+			"active_stage": "",
+			"background": {
+				"global_rect": "[P: (0.0, 0.0), S: (1280.0, 720.0)]",
+				"node": "/root/Main/StartMenu/StartMenuRoot/StartMenuBackground",
+				"sha256": "d5127c4a6227baab05343dc10692e2f76f1dd59f22ca24a22329de402dbb8044",
+				"texture": "res://assets/ui/boot_splash_mermaid_roshan.png",
+				"visible": true
+			},
+			"buttons": [
+				{
+					"disabled": true,
+					"name": "StartMenuContinueButton",
+					"pressed": false,
+					"rect": "[P: (290.0, 548.0), S: (340.0, 118.0)]",
+					"visible": true
+				},
+				{
+					"disabled": false,
+					"name": "StartMenuNewGameButton",
+					"pressed": false,
+					"rect": "[P: (650.0, 548.0), S: (340.0, 118.0)]",
+					"visible": true
+				},
+				{
+					"disabled": false,
+					"name": "StartMenuOptionsTab",
+					"pressed": false,
+					"rect": "[P: (1044.0, 594.0), S: (210.0, 104.0)]",
+					"visible": true
+				},
+				{
+					"disabled": false,
+					"name": "StartMenuMusicButton",
+					"pressed": false,
+					"rect": "[P: (715.0, 205.0), S: (430.0, 100.0)]",
+					"visible": false
+				},
+				{
+					"disabled": false,
+					"name": "StartMenuKeepGameButton",
+					"pressed": false,
+					"rect": "[P: (320.0, 420.0), S: (300.0, 118.0)]",
+					"visible": false
+				},
+				{
+					"disabled": false,
+					"name": "StartMenuConfirmNewGameButton",
+					"pressed": false,
+					"rect": "[P: (660.0, 420.0), S: (300.0, 118.0)]",
+					"visible": false
+				}
+			],
+			"canvas_event_progress": -1.0,
+			"canvas_visible": false,
+			"confirmation_visible": false,
+			"day_one_active": true,
+			"elapsed_seconds": 1.425,
+			"event_count": 0,
+			"event_time": -1.0,
+			"expect_menu": true,
+			"game": "",
+			"has_saved_game": false,
+			"id": "normal_startup",
+			"idle_time": 0.0,
+			"image": {
+				"bytes": 1384840,
+				"dimensions": [
+					1280,
+					720
+				],
+				"file": "normal_startup.png",
+				"sha256": "68913050b77d5a113ef17f6946d457fabcc3062c3be7370f1573d5cd413c8827"
+			},
+			"input": {},
+			"layer_index": 1,
+			"layer_visible": false,
+			"layers": [
+				{
+					"layer": 0,
+					"path": "/root/Main/@CanvasLayer@16",
+					"visible": true
+				},
+				{
+					"layer": 30,
+					"path": "/root/Main/@CanvasLayer@25",
+					"visible": true
+				},
+				{
+					"layer": 1,
+					"path": "/root/Main/LivingWorldLayer",
+					"visible": false
+				},
+				{
+					"layer": 9,
+					"path": "/root/Main/@CanvasLayer@37",
+					"visible": true
+				},
+				{
+					"layer": 20,
+					"path": "/root/Main/@CanvasLayer@41",
+					"visible": false
+				},
+				{
+					"layer": 29,
+					"path": "/root/Main/GlobalNavigationLayer",
+					"visible": true
+				},
+				{
+					"layer": 12,
+					"path": "/root/Main/@CanvasLayer@311",
+					"visible": true
+				},
+				{
+					"layer": 20,
+					"path": "/root/Main/StartMenu",
+					"visible": true
+				}
+			],
+			"new_game_hold_active": false,
+			"options_visible": false,
+			"phase": "",
+			"presentation": {
+				"boot_splash_present": false,
+				"fade_alpha": 0.0,
+				"intro_active": true,
+				"intro_overlay_present": false,
+				"start_menu_active": true,
+				"start_menu_layer_present": true
+			},
+			"probe_stage_override": "",
+			"progress": {
+				"chapter2_job_phase_masks": [
+					0,
+					0,
+					0,
+					0,
+					0,
+					0,
+					0,
+					0
+				],
+				"found": [],
+				"opera_stars": 0,
+				"pearls": 0,
+				"r30_keep_marker": null,
+				"won": []
+			},
+			"quality": "speedy",
+			"resolved_stage": "intro.storybook",
+			"save_path": "C:\\Users\\Peter\\.codex\\visualizations\\2026\\10\\08\\01a119cc-74b1-7d23-b956-126129405418\\startup_ambience_retirement_20261014\\native_final/1280x720/fresh/profiles/startup/reef_save.json",
+			"stored_progress_maps": {
+				"found": {},
+				"won": {}
+			},
+			"suspended": true,
+			"variant": "fresh"
+		},
+		{
+			"active_stage": "",
+			"background": {
+				"global_rect": "[P: (0.0, 0.0), S: (1280.0, 720.0)]",
+				"node": "/root/Main/StartMenu/StartMenuRoot/StartMenuBackground",
+				"sha256": "d5127c4a6227baab05343dc10692e2f76f1dd59f22ca24a22329de402dbb8044",
+				"texture": "res://assets/ui/boot_splash_mermaid_roshan.png",
+				"visible": true
+			},
+			"buttons": [
+				{
+					"disabled": true,
+					"name": "StartMenuContinueButton",
+					"pressed": false,
+					"rect": "[P: (290.0, 548.0), S: (340.0, 118.0)]",
+					"visible": true
+				},
+				{
+					"disabled": false,
+					"name": "StartMenuNewGameButton",
+					"pressed": false,
+					"rect": "[P: (650.0, 548.0), S: (340.0, 118.0)]",
+					"visible": true
+				},
+				{
+					"disabled": false,
+					"name": "StartMenuOptionsTab",
+					"pressed": false,
+					"rect": "[P: (1044.0, 594.0), S: (210.0, 104.0)]",
+					"visible": true
+				},
+				{
+					"disabled": false,
+					"name": "StartMenuMusicButton",
+					"pressed": false,
+					"rect": "[P: (715.0, 205.0), S: (430.0, 100.0)]",
+					"visible": false
+				},
+				{
+					"disabled": false,
+					"name": "StartMenuKeepGameButton",
+					"pressed": false,
+					"rect": "[P: (320.0, 420.0), S: (300.0, 118.0)]",
+					"visible": false
+				},
+				{
+					"disabled": false,
+					"name": "StartMenuConfirmNewGameButton",
+					"pressed": false,
+					"rect": "[P: (660.0, 420.0), S: (300.0, 118.0)]",
+					"visible": false
+				}
+			],
+			"canvas_event_progress": -1.0,
+			"canvas_visible": false,
+			"confirmation_visible": false,
+			"day_one_active": true,
+			"elapsed_seconds": 3.611,
+			"event_count": 0,
+			"event_time": -1.0,
+			"expect_menu": true,
+			"game": "",
+			"has_saved_game": false,
+			"id": "passive_2s",
+			"idle_time": 0.0,
+			"image": {
+				"bytes": 1384880,
+				"dimensions": [
+					1280,
+					720
+				],
+				"file": "passive_2s.png",
+				"sha256": "63146ecf109076b46acd8115e869a73890bd3a11a581b8df0c854b45afb39336"
+			},
+			"input": {},
+			"layer_index": 1,
+			"layer_visible": false,
+			"layers": [
+				{
+					"layer": 0,
+					"path": "/root/Main/@CanvasLayer@16",
+					"visible": true
+				},
+				{
+					"layer": 30,
+					"path": "/root/Main/@CanvasLayer@25",
+					"visible": true
+				},
+				{
+					"layer": 1,
+					"path": "/root/Main/LivingWorldLayer",
+					"visible": false
+				},
+				{
+					"layer": 9,
+					"path": "/root/Main/@CanvasLayer@37",
+					"visible": true
+				},
+				{
+					"layer": 20,
+					"path": "/root/Main/@CanvasLayer@41",
+					"visible": false
+				},
+				{
+					"layer": 29,
+					"path": "/root/Main/GlobalNavigationLayer",
+					"visible": true
+				},
+				{
+					"layer": 12,
+					"path": "/root/Main/@CanvasLayer@311",
+					"visible": true
+				},
+				{
+					"layer": 20,
+					"path": "/root/Main/StartMenu",
+					"visible": true
+				}
+			],
+			"new_game_hold_active": false,
+			"options_visible": false,
+			"phase": "",
+			"presentation": {
+				"boot_splash_present": false,
+				"fade_alpha": 0.0,
+				"intro_active": true,
+				"intro_overlay_present": false,
+				"start_menu_active": true,
+				"start_menu_layer_present": true
+			},
+			"probe_stage_override": "",
+			"progress": {
+				"chapter2_job_phase_masks": [
+					0,
+					0,
+					0,
+					0,
+					0,
+					0,
+					0,
+					0
+				],
+				"found": [],
+				"opera_stars": 0,
+				"pearls": 0,
+				"r30_keep_marker": null,
+				"won": []
+			},
+			"quality": "speedy",
+			"resolved_stage": "intro.storybook",
+			"save_path": "C:\\Users\\Peter\\.codex\\visualizations\\2026\\10\\08\\01a119cc-74b1-7d23-b956-126129405418\\startup_ambience_retirement_20261014\\native_final/1280x720/fresh/profiles/startup/reef_save.json",
+			"stored_progress_maps": {
+				"found": {},
+				"won": {}
+			},
+			"suspended": true,
+			"variant": "fresh"
+		},
+		{
+			"active_stage": "",
+			"background": {
+				"global_rect": "[P: (0.0, 0.0), S: (1280.0, 720.0)]",
+				"node": "/root/Main/StartMenu/StartMenuRoot/StartMenuBackground",
+				"sha256": "d5127c4a6227baab05343dc10692e2f76f1dd59f22ca24a22329de402dbb8044",
+				"texture": "res://assets/ui/boot_splash_mermaid_roshan.png",
+				"visible": true
+			},
+			"buttons": [
+				{
+					"disabled": true,
+					"name": "StartMenuContinueButton",
+					"pressed": false,
+					"rect": "[P: (290.0, 548.0), S: (340.0, 118.0)]",
+					"visible": true
+				},
+				{
+					"disabled": false,
+					"name": "StartMenuNewGameButton",
+					"pressed": false,
+					"rect": "[P: (650.0, 548.0), S: (340.0, 118.0)]",
+					"visible": true
+				},
+				{
+					"disabled": false,
+					"name": "StartMenuOptionsTab",
+					"pressed": false,
+					"rect": "[P: (1044.0, 594.0), S: (210.0, 104.0)]",
+					"visible": true
+				},
+				{
+					"disabled": false,
+					"name": "StartMenuMusicButton",
+					"pressed": false,
+					"rect": "[P: (715.0, 205.0), S: (430.0, 100.0)]",
+					"visible": false
+				},
+				{
+					"disabled": false,
+					"name": "StartMenuKeepGameButton",
+					"pressed": false,
+					"rect": "[P: (320.0, 420.0), S: (300.0, 118.0)]",
+					"visible": false
+				},
+				{
+					"disabled": false,
+					"name": "StartMenuConfirmNewGameButton",
+					"pressed": false,
+					"rect": "[P: (660.0, 420.0), S: (300.0, 118.0)]",
+					"visible": false
+				}
+			],
+			"canvas_event_progress": -1.0,
+			"canvas_visible": false,
+			"confirmation_visible": false,
+			"day_one_active": true,
+			"elapsed_seconds": 27.791,
+			"event_count": 0,
+			"event_time": -1.0,
+			"expect_menu": true,
+			"game": "",
+			"has_saved_game": false,
+			"id": "passive_26s",
+			"idle_time": 0.0,
+			"image": {
+				"bytes": 1384840,
+				"dimensions": [
+					1280,
+					720
+				],
+				"file": "passive_26s.png",
+				"sha256": "249d742acce1737aa432dae0dc0dc97093fba87d9507d1533ecb9afa75b7133b"
+			},
+			"input": {},
+			"layer_index": 1,
+			"layer_visible": false,
+			"layers": [
+				{
+					"layer": 0,
+					"path": "/root/Main/@CanvasLayer@16",
+					"visible": true
+				},
+				{
+					"layer": 30,
+					"path": "/root/Main/@CanvasLayer@25",
+					"visible": true
+				},
+				{
+					"layer": 1,
+					"path": "/root/Main/LivingWorldLayer",
+					"visible": false
+				},
+				{
+					"layer": 9,
+					"path": "/root/Main/@CanvasLayer@37",
+					"visible": true
+				},
+				{
+					"layer": 20,
+					"path": "/root/Main/@CanvasLayer@41",
+					"visible": false
+				},
+				{
+					"layer": 29,
+					"path": "/root/Main/GlobalNavigationLayer",
+					"visible": true
+				},
+				{
+					"layer": 12,
+					"path": "/root/Main/@CanvasLayer@311",
+					"visible": true
+				},
+				{
+					"layer": 20,
+					"path": "/root/Main/StartMenu",
+					"visible": true
+				}
+			],
+			"new_game_hold_active": false,
+			"options_visible": false,
+			"phase": "",
+			"presentation": {
+				"boot_splash_present": false,
+				"fade_alpha": 0.0,
+				"intro_active": true,
+				"intro_overlay_present": false,
+				"start_menu_active": true,
+				"start_menu_layer_present": true
+			},
+			"probe_stage_override": "",
+			"progress": {
+				"chapter2_job_phase_masks": [
+					0,
+					0,
+					0,
+					0,
+					0,
+					0,
+					0,
+					0
+				],
+				"found": [],
+				"opera_stars": 0,
+				"pearls": 0,
+				"r30_keep_marker": null,
+				"won": []
+			},
+			"quality": "speedy",
+			"resolved_stage": "intro.storybook",
+			"save_path": "C:\\Users\\Peter\\.codex\\visualizations\\2026\\10\\08\\01a119cc-74b1-7d23-b956-126129405418\\startup_ambience_retirement_20261014\\native_final/1280x720/fresh/profiles/startup/reef_save.json",
+			"stored_progress_maps": {
+				"found": {},
+				"won": {}
+			},
+			"suspended": true,
+			"variant": "fresh"
+		},
+		{
+			"active_stage": "",
+			"background": {
+				"global_rect": "[P: (0.0, 0.0), S: (1280.0, 720.0)]",
+				"node": "/root/Main/StartMenu/StartMenuRoot/StartMenuBackground",
+				"sha256": "d5127c4a6227baab05343dc10692e2f76f1dd59f22ca24a22329de402dbb8044",
+				"texture": "res://assets/ui/boot_splash_mermaid_roshan.png",
+				"visible": true
+			},
+			"buttons": [
+				{
+					"disabled": true,
+					"name": "StartMenuContinueButton",
+					"pressed": false,
+					"rect": "[P: (290.0, 548.0), S: (340.0, 118.0)]",
+					"visible": true
+				},
+				{
+					"disabled": false,
+					"name": "StartMenuNewGameButton",
+					"pressed": false,
+					"rect": "[P: (650.0, 548.0), S: (340.0, 118.0)]",
+					"visible": true
+				},
+				{
+					"disabled": false,
+					"name": "StartMenuOptionsTab",
+					"pressed": true,
+					"rect": "[P: (1044.0, 594.0), S: (210.0, 104.0)]",
+					"visible": true
+				},
+				{
+					"disabled": false,
+					"name": "StartMenuMusicButton",
+					"pressed": false,
+					"rect": "[P: (715.0, 205.0), S: (430.0, 100.0)]",
+					"visible": false
+				},
+				{
+					"disabled": false,
+					"name": "StartMenuKeepGameButton",
+					"pressed": false,
+					"rect": "[P: (320.0, 420.0), S: (300.0, 118.0)]",
+					"visible": false
+				},
+				{
+					"disabled": false,
+					"name": "StartMenuConfirmNewGameButton",
+					"pressed": false,
+					"rect": "[P: (660.0, 420.0), S: (300.0, 118.0)]",
+					"visible": false
+				}
+			],
+			"canvas_event_progress": -1.0,
+			"canvas_visible": false,
+			"confirmation_visible": false,
+			"day_one_active": true,
+			"elapsed_seconds": 28.097,
+			"event_count": 0,
+			"event_time": -1.0,
+			"expect_menu": true,
+			"game": "",
+			"has_saved_game": false,
+			"id": "options_open_pressed",
+			"idle_time": 0.0,
+			"image": {
+				"bytes": 1388287,
+				"dimensions": [
+					1280,
+					720
+				],
+				"file": "options_open_pressed.png",
+				"sha256": "20ee11824113ef818bd6cacd26e51877346306fd974f7ddc071cbab5f984f270"
+			},
+			"input": {
+				"button": "StartMenuOptionsTab",
+				"event": "raw engine touch0 press",
+				"point": [
+					1149.0,
+					646.0
+				]
+			},
+			"layer_index": 1,
+			"layer_visible": false,
+			"layers": [
+				{
+					"layer": 0,
+					"path": "/root/Main/@CanvasLayer@16",
+					"visible": true
+				},
+				{
+					"layer": 30,
+					"path": "/root/Main/@CanvasLayer@25",
+					"visible": true
+				},
+				{
+					"layer": 1,
+					"path": "/root/Main/LivingWorldLayer",
+					"visible": false
+				},
+				{
+					"layer": 9,
+					"path": "/root/Main/@CanvasLayer@37",
+					"visible": true
+				},
+				{
+					"layer": 20,
+					"path": "/root/Main/@CanvasLayer@41",
+					"visible": false
+				},
+				{
+					"layer": 29,
+					"path": "/root/Main/GlobalNavigationLayer",
+					"visible": true
+				},
+				{
+					"layer": 12,
+					"path": "/root/Main/@CanvasLayer@311",
+					"visible": true
+				},
+				{
+					"layer": 20,
+					"path": "/root/Main/StartMenu",
+					"visible": true
+				}
+			],
+			"new_game_hold_active": false,
+			"options_visible": false,
+			"phase": "",
+			"presentation": {
+				"boot_splash_present": false,
+				"fade_alpha": 0.0,
+				"intro_active": true,
+				"intro_overlay_present": false,
+				"start_menu_active": true,
+				"start_menu_layer_present": true
+			},
+			"probe_stage_override": "",
+			"progress": {
+				"chapter2_job_phase_masks": [
+					0,
+					0,
+					0,
+					0,
+					0,
+					0,
+					0,
+					0
+				],
+				"found": [],
+				"opera_stars": 0,
+				"pearls": 0,
+				"r30_keep_marker": null,
+				"won": []
+			},
+			"quality": "speedy",
+			"resolved_stage": "intro.storybook",
+			"save_path": "C:\\Users\\Peter\\.codex\\visualizations\\2026\\10\\08\\01a119cc-74b1-7d23-b956-126129405418\\startup_ambience_retirement_20261014\\native_final/1280x720/fresh/profiles/startup/reef_save.json",
+			"stored_progress_maps": {
+				"found": {},
+				"won": {}
+			},
+			"suspended": true,
+			"variant": "fresh"
+		},
+		{
+			"active_stage": "",
+			"background": {
+				"global_rect": "[P: (0.0, 0.0), S: (1280.0, 720.0)]",
+				"node": "/root/Main/StartMenu/StartMenuRoot/StartMenuBackground",
+				"sha256": "d5127c4a6227baab05343dc10692e2f76f1dd59f22ca24a22329de402dbb8044",
+				"texture": "res://assets/ui/boot_splash_mermaid_roshan.png",
+				"visible": true
+			},
+			"buttons": [
+				{
+					"disabled": true,
+					"name": "StartMenuContinueButton",
+					"pressed": false,
+					"rect": "[P: (290.0, 548.0), S: (340.0, 118.0)]",
+					"visible": true
+				},
+				{
+					"disabled": false,
+					"name": "StartMenuNewGameButton",
+					"pressed": false,
+					"rect": "[P: (650.0, 548.0), S: (340.0, 118.0)]",
+					"visible": true
+				},
+				{
+					"disabled": false,
+					"name": "StartMenuOptionsTab",
+					"pressed": false,
+					"rect": "[P: (1044.0, 594.0), S: (210.0, 104.0)]",
+					"visible": true
+				},
+				{
+					"disabled": false,
+					"name": "StartMenuMusicButton",
+					"pressed": false,
+					"rect": "[P: (715.0, 205.0), S: (430.0, 100.0)]",
+					"visible": true
+				},
+				{
+					"disabled": false,
+					"name": "StartMenuKeepGameButton",
+					"pressed": false,
+					"rect": "[P: (320.0, 420.0), S: (300.0, 118.0)]",
+					"visible": false
+				},
+				{
+					"disabled": false,
+					"name": "StartMenuConfirmNewGameButton",
+					"pressed": false,
+					"rect": "[P: (660.0, 420.0), S: (300.0, 118.0)]",
+					"visible": false
+				}
+			],
+			"canvas_event_progress": -1.0,
+			"canvas_visible": false,
+			"confirmation_visible": false,
+			"day_one_active": true,
+			"elapsed_seconds": 28.372,
+			"event_count": 0,
+			"event_time": -1.0,
+			"expect_menu": true,
+			"game": "",
+			"has_saved_game": false,
+			"id": "options_open_released",
+			"idle_time": 0.0,
+			"image": {
+				"bytes": 735120,
+				"dimensions": [
+					1280,
+					720
+				],
+				"file": "options_open_released.png",
+				"sha256": "5a4af92d2318384b8a0410f53cb32becdbbed7772e56d3a970b461d7ba445bd7"
+			},
+			"input": {
+				"button": "StartMenuOptionsTab",
+				"event": "raw engine touch0 release",
+				"point": [
+					1149.0,
+					646.0
+				]
+			},
+			"layer_index": 1,
+			"layer_visible": false,
+			"layers": [
+				{
+					"layer": 0,
+					"path": "/root/Main/@CanvasLayer@16",
+					"visible": true
+				},
+				{
+					"layer": 30,
+					"path": "/root/Main/@CanvasLayer@25",
+					"visible": true
+				},
+				{
+					"layer": 1,
+					"path": "/root/Main/LivingWorldLayer",
+					"visible": false
+				},
+				{
+					"layer": 9,
+					"path": "/root/Main/@CanvasLayer@37",
+					"visible": true
+				},
+				{
+					"layer": 20,
+					"path": "/root/Main/@CanvasLayer@41",
+					"visible": false
+				},
+				{
+					"layer": 29,
+					"path": "/root/Main/GlobalNavigationLayer",
+					"visible": true
+				},
+				{
+					"layer": 12,
+					"path": "/root/Main/@CanvasLayer@311",
+					"visible": true
+				},
+				{
+					"layer": 20,
+					"path": "/root/Main/StartMenu",
+					"visible": true
+				}
+			],
+			"new_game_hold_active": false,
+			"options_visible": true,
+			"phase": "",
+			"presentation": {
+				"boot_splash_present": false,
+				"fade_alpha": 0.0,
+				"intro_active": true,
+				"intro_overlay_present": false,
+				"start_menu_active": true,
+				"start_menu_layer_present": true
+			},
+			"probe_stage_override": "",
+			"progress": {
+				"chapter2_job_phase_masks": [
+					0,
+					0,
+					0,
+					0,
+					0,
+					0,
+					0,
+					0
+				],
+				"found": [],
+				"opera_stars": 0,
+				"pearls": 0,
+				"r30_keep_marker": null,
+				"won": []
+			},
+			"quality": "speedy",
+			"resolved_stage": "intro.storybook",
+			"save_path": "C:\\Users\\Peter\\.codex\\visualizations\\2026\\10\\08\\01a119cc-74b1-7d23-b956-126129405418\\startup_ambience_retirement_20261014\\native_final/1280x720/fresh/profiles/startup/reef_save.json",
+			"stored_progress_maps": {
+				"found": {},
+				"won": {}
+			},
+			"suspended": true,
+			"variant": "fresh"
+		},
+		{
+			"active_stage": "",
+			"background": {
+				"global_rect": "[P: (0.0, 0.0), S: (1280.0, 720.0)]",
+				"node": "/root/Main/StartMenu/StartMenuRoot/StartMenuBackground",
+				"sha256": "d5127c4a6227baab05343dc10692e2f76f1dd59f22ca24a22329de402dbb8044",
+				"texture": "res://assets/ui/boot_splash_mermaid_roshan.png",
+				"visible": true
+			},
+			"buttons": [
+				{
+					"disabled": true,
+					"name": "StartMenuContinueButton",
+					"pressed": false,
+					"rect": "[P: (290.0, 548.0), S: (340.0, 118.0)]",
+					"visible": true
+				},
+				{
+					"disabled": false,
+					"name": "StartMenuNewGameButton",
+					"pressed": false,
+					"rect": "[P: (650.0, 548.0), S: (340.0, 118.0)]",
+					"visible": true
+				},
+				{
+					"disabled": false,
+					"name": "StartMenuOptionsTab",
+					"pressed": false,
+					"rect": "[P: (1044.0, 594.0), S: (210.0, 104.0)]",
+					"visible": true
+				},
+				{
+					"disabled": false,
+					"name": "StartMenuMusicButton",
+					"pressed": true,
+					"rect": "[P: (715.0, 205.0), S: (430.0, 100.0)]",
+					"visible": true
+				},
+				{
+					"disabled": false,
+					"name": "StartMenuKeepGameButton",
+					"pressed": false,
+					"rect": "[P: (320.0, 420.0), S: (300.0, 118.0)]",
+					"visible": false
+				},
+				{
+					"disabled": false,
+					"name": "StartMenuConfirmNewGameButton",
+					"pressed": false,
+					"rect": "[P: (660.0, 420.0), S: (300.0, 118.0)]",
+					"visible": false
+				}
+			],
+			"canvas_event_progress": -1.0,
+			"canvas_visible": false,
+			"confirmation_visible": false,
+			"day_one_active": true,
+			"elapsed_seconds": 28.636,
+			"event_count": 0,
+			"event_time": -1.0,
+			"expect_menu": true,
+			"game": "",
+			"has_saved_game": false,
+			"id": "music_off_pressed",
+			"idle_time": 0.0,
+			"image": {
+				"bytes": 734667,
+				"dimensions": [
+					1280,
+					720
+				],
+				"file": "music_off_pressed.png",
+				"sha256": "7e286ea7dba9a4e6976abb3fcc3de5b01e763cb63d2a6ca0fc730e343c1b79a7"
+			},
+			"input": {
+				"button": "StartMenuMusicButton",
+				"event": "raw engine touch0 press",
+				"point": [
+					930.0,
+					255.0
+				]
+			},
+			"layer_index": 1,
+			"layer_visible": false,
+			"layers": [
+				{
+					"layer": 0,
+					"path": "/root/Main/@CanvasLayer@16",
+					"visible": true
+				},
+				{
+					"layer": 30,
+					"path": "/root/Main/@CanvasLayer@25",
+					"visible": true
+				},
+				{
+					"layer": 1,
+					"path": "/root/Main/LivingWorldLayer",
+					"visible": false
+				},
+				{
+					"layer": 9,
+					"path": "/root/Main/@CanvasLayer@37",
+					"visible": true
+				},
+				{
+					"layer": 20,
+					"path": "/root/Main/@CanvasLayer@41",
+					"visible": false
+				},
+				{
+					"layer": 29,
+					"path": "/root/Main/GlobalNavigationLayer",
+					"visible": true
+				},
+				{
+					"layer": 12,
+					"path": "/root/Main/@CanvasLayer@311",
+					"visible": true
+				},
+				{
+					"layer": 20,
+					"path": "/root/Main/StartMenu",
+					"visible": true
+				}
+			],
+			"new_game_hold_active": false,
+			"options_visible": true,
+			"phase": "",
+			"presentation": {
+				"boot_splash_present": false,
+				"fade_alpha": 0.0,
+				"intro_active": true,
+				"intro_overlay_present": false,
+				"start_menu_active": true,
+				"start_menu_layer_present": true
+			},
+			"probe_stage_override": "",
+			"progress": {
+				"chapter2_job_phase_masks": [
+					0,
+					0,
+					0,
+					0,
+					0,
+					0,
+					0,
+					0
+				],
+				"found": [],
+				"opera_stars": 0,
+				"pearls": 0,
+				"r30_keep_marker": null,
+				"won": []
+			},
+			"quality": "speedy",
+			"resolved_stage": "intro.storybook",
+			"save_path": "C:\\Users\\Peter\\.codex\\visualizations\\2026\\10\\08\\01a119cc-74b1-7d23-b956-126129405418\\startup_ambience_retirement_20261014\\native_final/1280x720/fresh/profiles/startup/reef_save.json",
+			"stored_progress_maps": {
+				"found": {},
+				"won": {}
+			},
+			"suspended": true,
+			"variant": "fresh"
+		},
+		{
+			"active_stage": "",
+			"background": {
+				"global_rect": "[P: (0.0, 0.0), S: (1280.0, 720.0)]",
+				"node": "/root/Main/StartMenu/StartMenuRoot/StartMenuBackground",
+				"sha256": "d5127c4a6227baab05343dc10692e2f76f1dd59f22ca24a22329de402dbb8044",
+				"texture": "res://assets/ui/boot_splash_mermaid_roshan.png",
+				"visible": true
+			},
+			"buttons": [
+				{
+					"disabled": false,
+					"name": "StartMenuContinueButton",
+					"pressed": false,
+					"rect": "[P: (290.0, 548.0), S: (340.0, 118.0)]",
+					"visible": true
+				},
+				{
+					"disabled": false,
+					"name": "StartMenuNewGameButton",
+					"pressed": false,
+					"rect": "[P: (650.0, 548.0), S: (340.0, 118.0)]",
+					"visible": true
+				},
+				{
+					"disabled": false,
+					"name": "StartMenuOptionsTab",
+					"pressed": false,
+					"rect": "[P: (1044.0, 594.0), S: (210.0, 104.0)]",
+					"visible": true
+				},
+				{
+					"disabled": false,
+					"name": "StartMenuMusicButton",
+					"pressed": false,
+					"rect": "[P: (715.0, 205.0), S: (430.0, 100.0)]",
+					"visible": true
+				},
+				{
+					"disabled": false,
+					"name": "StartMenuKeepGameButton",
+					"pressed": false,
+					"rect": "[P: (320.0, 420.0), S: (300.0, 118.0)]",
+					"visible": false
+				},
+				{
+					"disabled": false,
+					"name": "StartMenuConfirmNewGameButton",
+					"pressed": false,
+					"rect": "[P: (660.0, 420.0), S: (300.0, 118.0)]",
+					"visible": false
+				}
+			],
+			"canvas_event_progress": -1.0,
+			"canvas_visible": false,
+			"confirmation_visible": false,
+			"day_one_active": true,
+			"elapsed_seconds": 28.942,
+			"event_count": 0,
+			"event_time": -1.0,
+			"expect_menu": true,
+			"game": "",
+			"has_saved_game": true,
+			"id": "music_off_released",
+			"idle_time": 0.0,
+			"image": {
+				"bytes": 736955,
+				"dimensions": [
+					1280,
+					720
+				],
+				"file": "music_off_released.png",
+				"sha256": "be0aeda960b63fcf5e40a565c9fea5b7780d0652cf446d4aa5d7ca09ce4dcbf7"
+			},
+			"input": {
+				"button": "StartMenuMusicButton",
+				"event": "raw engine touch0 release",
+				"point": [
+					930.0,
+					255.0
+				]
+			},
+			"layer_index": 1,
+			"layer_visible": false,
+			"layers": [
+				{
+					"layer": 0,
+					"path": "/root/Main/@CanvasLayer@16",
+					"visible": true
+				},
+				{
+					"layer": 30,
+					"path": "/root/Main/@CanvasLayer@25",
+					"visible": true
+				},
+				{
+					"layer": 1,
+					"path": "/root/Main/LivingWorldLayer",
+					"visible": false
+				},
+				{
+					"layer": 9,
+					"path": "/root/Main/@CanvasLayer@37",
+					"visible": true
+				},
+				{
+					"layer": 20,
+					"path": "/root/Main/@CanvasLayer@41",
+					"visible": false
+				},
+				{
+					"layer": 29,
+					"path": "/root/Main/GlobalNavigationLayer",
+					"visible": true
+				},
+				{
+					"layer": 12,
+					"path": "/root/Main/@CanvasLayer@311",
+					"visible": true
+				},
+				{
+					"layer": 20,
+					"path": "/root/Main/StartMenu",
+					"visible": true
+				}
+			],
+			"new_game_hold_active": false,
+			"options_visible": true,
+			"phase": "",
+			"presentation": {
+				"boot_splash_present": false,
+				"fade_alpha": 0.0,
+				"intro_active": true,
+				"intro_overlay_present": false,
+				"start_menu_active": true,
+				"start_menu_layer_present": true
+			},
+			"probe_stage_override": "",
+			"progress": {
+				"chapter2_job_phase_masks": [
+					0,
+					0,
+					0,
+					0,
+					0,
+					0,
+					0,
+					0
+				],
+				"found": [],
+				"opera_stars": 0,
+				"pearls": 0,
+				"r30_keep_marker": null,
+				"won": []
+			},
+			"quality": "speedy",
+			"resolved_stage": "intro.storybook",
+			"save_path": "C:\\Users\\Peter\\.codex\\visualizations\\2026\\10\\08\\01a119cc-74b1-7d23-b956-126129405418\\startup_ambience_retirement_20261014\\native_final/1280x720/fresh/profiles/startup/reef_save.json",
+			"stored_progress_maps": {
+				"found": {
+					"Daddy Mermaid": false,
+					"Evie and Lamb-a'": false,
+					"Faron": false,
+					"Harper and Fiona": false,
+					"Wacky and Chuck": false
+				},
+				"won": {
+					"Daddy Mermaid": false,
+					"Evie and Lamb-a'": false,
+					"Faron": false,
+					"Harper and Fiona": false,
+					"Wacky and Chuck": false
+				}
+			},
+			"suspended": true,
+			"variant": "fresh"
+		},
+		{
+			"active_stage": "",
+			"background": {
+				"global_rect": "[P: (0.0, 0.0), S: (1280.0, 720.0)]",
+				"node": "/root/Main/StartMenu/StartMenuRoot/StartMenuBackground",
+				"sha256": "d5127c4a6227baab05343dc10692e2f76f1dd59f22ca24a22329de402dbb8044",
+				"texture": "res://assets/ui/boot_splash_mermaid_roshan.png",
+				"visible": true
+			},
+			"buttons": [
+				{
+					"disabled": false,
+					"name": "StartMenuContinueButton",
+					"pressed": false,
+					"rect": "[P: (290.0, 548.0), S: (340.0, 118.0)]",
+					"visible": true
+				},
+				{
+					"disabled": false,
+					"name": "StartMenuNewGameButton",
+					"pressed": false,
+					"rect": "[P: (650.0, 548.0), S: (340.0, 118.0)]",
+					"visible": true
+				},
+				{
+					"disabled": false,
+					"name": "StartMenuOptionsTab",
+					"pressed": false,
+					"rect": "[P: (1044.0, 594.0), S: (210.0, 104.0)]",
+					"visible": true
+				},
+				{
+					"disabled": false,
+					"name": "StartMenuMusicButton",
+					"pressed": true,
+					"rect": "[P: (715.0, 205.0), S: (430.0, 100.0)]",
+					"visible": true
+				},
+				{
+					"disabled": false,
+					"name": "StartMenuKeepGameButton",
+					"pressed": false,
+					"rect": "[P: (320.0, 420.0), S: (300.0, 118.0)]",
+					"visible": false
+				},
+				{
+					"disabled": false,
+					"name": "StartMenuConfirmNewGameButton",
+					"pressed": false,
+					"rect": "[P: (660.0, 420.0), S: (300.0, 118.0)]",
+					"visible": false
+				}
+			],
+			"canvas_event_progress": -1.0,
+			"canvas_visible": false,
+			"confirmation_visible": false,
+			"day_one_active": true,
+			"elapsed_seconds": 29.233,
+			"event_count": 0,
+			"event_time": -1.0,
+			"expect_menu": true,
+			"game": "",
+			"has_saved_game": true,
+			"id": "music_on_pressed",
+			"idle_time": 0.0,
+			"image": {
+				"bytes": 737194,
+				"dimensions": [
+					1280,
+					720
+				],
+				"file": "music_on_pressed.png",
+				"sha256": "bbba51a7f2585f54e9235afb7c43990e72f8cead83524dd4c0764a5515138c3b"
+			},
+			"input": {
+				"button": "StartMenuMusicButton",
+				"event": "raw engine touch0 press",
+				"point": [
+					930.0,
+					255.0
+				]
+			},
+			"layer_index": 1,
+			"layer_visible": false,
+			"layers": [
+				{
+					"layer": 0,
+					"path": "/root/Main/@CanvasLayer@16",
+					"visible": true
+				},
+				{
+					"layer": 30,
+					"path": "/root/Main/@CanvasLayer@25",
+					"visible": true
+				},
+				{
+					"layer": 1,
+					"path": "/root/Main/LivingWorldLayer",
+					"visible": false
+				},
+				{
+					"layer": 9,
+					"path": "/root/Main/@CanvasLayer@37",
+					"visible": true
+				},
+				{
+					"layer": 20,
+					"path": "/root/Main/@CanvasLayer@41",
+					"visible": false
+				},
+				{
+					"layer": 29,
+					"path": "/root/Main/GlobalNavigationLayer",
+					"visible": true
+				},
+				{
+					"layer": 12,
+					"path": "/root/Main/@CanvasLayer@311",
+					"visible": true
+				},
+				{
+					"layer": 20,
+					"path": "/root/Main/StartMenu",
+					"visible": true
+				}
+			],
+			"new_game_hold_active": false,
+			"options_visible": true,
+			"phase": "",
+			"presentation": {
+				"boot_splash_present": false,
+				"fade_alpha": 0.0,
+				"intro_active": true,
+				"intro_overlay_present": false,
+				"start_menu_active": true,
+				"start_menu_layer_present": true
+			},
+			"probe_stage_override": "",
+			"progress": {
+				"chapter2_job_phase_masks": [
+					0,
+					0,
+					0,
+					0,
+					0,
+					0,
+					0,
+					0
+				],
+				"found": [],
+				"opera_stars": 0,
+				"pearls": 0,
+				"r30_keep_marker": null,
+				"won": []
+			},
+			"quality": "speedy",
+			"resolved_stage": "intro.storybook",
+			"save_path": "C:\\Users\\Peter\\.codex\\visualizations\\2026\\10\\08\\01a119cc-74b1-7d23-b956-126129405418\\startup_ambience_retirement_20261014\\native_final/1280x720/fresh/profiles/startup/reef_save.json",
+			"stored_progress_maps": {
+				"found": {
+					"Daddy Mermaid": false,
+					"Evie and Lamb-a'": false,
+					"Faron": false,
+					"Harper and Fiona": false,
+					"Wacky and Chuck": false
+				},
+				"won": {
+					"Daddy Mermaid": false,
+					"Evie and Lamb-a'": false,
+					"Faron": false,
+					"Harper and Fiona": false,
+					"Wacky and Chuck": false
+				}
+			},
+			"suspended": true,
+			"variant": "fresh"
+		},
+		{
+			"active_stage": "",
+			"background": {
+				"global_rect": "[P: (0.0, 0.0), S: (1280.0, 720.0)]",
+				"node": "/root/Main/StartMenu/StartMenuRoot/StartMenuBackground",
+				"sha256": "d5127c4a6227baab05343dc10692e2f76f1dd59f22ca24a22329de402dbb8044",
+				"texture": "res://assets/ui/boot_splash_mermaid_roshan.png",
+				"visible": true
+			},
+			"buttons": [
+				{
+					"disabled": false,
+					"name": "StartMenuContinueButton",
+					"pressed": false,
+					"rect": "[P: (290.0, 548.0), S: (340.0, 118.0)]",
+					"visible": true
+				},
+				{
+					"disabled": false,
+					"name": "StartMenuNewGameButton",
+					"pressed": false,
+					"rect": "[P: (650.0, 548.0), S: (340.0, 118.0)]",
+					"visible": true
+				},
+				{
+					"disabled": false,
+					"name": "StartMenuOptionsTab",
+					"pressed": false,
+					"rect": "[P: (1044.0, 594.0), S: (210.0, 104.0)]",
+					"visible": true
+				},
+				{
+					"disabled": false,
+					"name": "StartMenuMusicButton",
+					"pressed": false,
+					"rect": "[P: (715.0, 205.0), S: (430.0, 100.0)]",
+					"visible": true
+				},
+				{
+					"disabled": false,
+					"name": "StartMenuKeepGameButton",
+					"pressed": false,
+					"rect": "[P: (320.0, 420.0), S: (300.0, 118.0)]",
+					"visible": false
+				},
+				{
+					"disabled": false,
+					"name": "StartMenuConfirmNewGameButton",
+					"pressed": false,
+					"rect": "[P: (660.0, 420.0), S: (300.0, 118.0)]",
+					"visible": false
+				}
+			],
+			"canvas_event_progress": -1.0,
+			"canvas_visible": false,
+			"confirmation_visible": false,
+			"day_one_active": true,
+			"elapsed_seconds": 29.551,
+			"event_count": 0,
+			"event_time": -1.0,
+			"expect_menu": true,
+			"game": "",
+			"has_saved_game": true,
+			"id": "music_on_released",
+			"idle_time": 0.0,
+			"image": {
+				"bytes": 737202,
+				"dimensions": [
+					1280,
+					720
+				],
+				"file": "music_on_released.png",
+				"sha256": "2f335380e051b873eb12a589dfe58c2424884c98001dc314766b3c558dbc5a37"
+			},
+			"input": {
+				"button": "StartMenuMusicButton",
+				"event": "raw engine touch0 release",
+				"point": [
+					930.0,
+					255.0
+				]
+			},
+			"layer_index": 1,
+			"layer_visible": false,
+			"layers": [
+				{
+					"layer": 0,
+					"path": "/root/Main/@CanvasLayer@16",
+					"visible": true
+				},
+				{
+					"layer": 30,
+					"path": "/root/Main/@CanvasLayer@25",
+					"visible": true
+				},
+				{
+					"layer": 1,
+					"path": "/root/Main/LivingWorldLayer",
+					"visible": false
+				},
+				{
+					"layer": 9,
+					"path": "/root/Main/@CanvasLayer@37",
+					"visible": true
+				},
+				{
+					"layer": 20,
+					"path": "/root/Main/@CanvasLayer@41",
+					"visible": false
+				},
+				{
+					"layer": 29,
+					"path": "/root/Main/GlobalNavigationLayer",
+					"visible": true
+				},
+				{
+					"layer": 12,
+					"path": "/root/Main/@CanvasLayer@311",
+					"visible": true
+				},
+				{
+					"layer": 20,
+					"path": "/root/Main/StartMenu",
+					"visible": true
+				}
+			],
+			"new_game_hold_active": false,
+			"options_visible": true,
+			"phase": "",
+			"presentation": {
+				"boot_splash_present": false,
+				"fade_alpha": 0.0,
+				"intro_active": true,
+				"intro_overlay_present": false,
+				"start_menu_active": true,
+				"start_menu_layer_present": true
+			},
+			"probe_stage_override": "",
+			"progress": {
+				"chapter2_job_phase_masks": [
+					0,
+					0,
+					0,
+					0,
+					0,
+					0,
+					0,
+					0
+				],
+				"found": [],
+				"opera_stars": 0,
+				"pearls": 0,
+				"r30_keep_marker": null,
+				"won": []
+			},
+			"quality": "speedy",
+			"resolved_stage": "intro.storybook",
+			"save_path": "C:\\Users\\Peter\\.codex\\visualizations\\2026\\10\\08\\01a119cc-74b1-7d23-b956-126129405418\\startup_ambience_retirement_20261014\\native_final/1280x720/fresh/profiles/startup/reef_save.json",
+			"stored_progress_maps": {
+				"found": {
+					"Daddy Mermaid": false,
+					"Evie and Lamb-a'": false,
+					"Faron": false,
+					"Harper and Fiona": false,
+					"Wacky and Chuck": false
+				},
+				"won": {
+					"Daddy Mermaid": false,
+					"Evie and Lamb-a'": false,
+					"Faron": false,
+					"Harper and Fiona": false,
+					"Wacky and Chuck": false
+				}
+			},
+			"suspended": true,
+			"variant": "fresh"
+		},
+		{
+			"active_stage": "",
+			"background": {
+				"global_rect": "[P: (0.0, 0.0), S: (1280.0, 720.0)]",
+				"node": "/root/Main/StartMenu/StartMenuRoot/StartMenuBackground",
+				"sha256": "d5127c4a6227baab05343dc10692e2f76f1dd59f22ca24a22329de402dbb8044",
+				"texture": "res://assets/ui/boot_splash_mermaid_roshan.png",
+				"visible": true
+			},
+			"buttons": [
+				{
+					"disabled": false,
+					"name": "StartMenuContinueButton",
+					"pressed": false,
+					"rect": "[P: (290.0, 548.0), S: (340.0, 118.0)]",
+					"visible": true
+				},
+				{
+					"disabled": false,
+					"name": "StartMenuNewGameButton",
+					"pressed": false,
+					"rect": "[P: (650.0, 548.0), S: (340.0, 118.0)]",
+					"visible": true
+				},
+				{
+					"disabled": false,
+					"name": "StartMenuOptionsTab",
+					"pressed": false,
+					"rect": "[P: (1044.0, 594.0), S: (210.0, 104.0)]",
+					"visible": true
+				},
+				{
+					"disabled": false,
+					"name": "StartMenuMusicButton",
+					"pressed": false,
+					"rect": "[P: (715.0, 205.0), S: (430.0, 100.0)]",
+					"visible": true
+				},
+				{
+					"disabled": false,
+					"name": "StartMenuKeepGameButton",
+					"pressed": false,
+					"rect": "[P: (320.0, 420.0), S: (300.0, 118.0)]",
+					"visible": false
+				},
+				{
+					"disabled": false,
+					"name": "StartMenuConfirmNewGameButton",
+					"pressed": false,
+					"rect": "[P: (660.0, 420.0), S: (300.0, 118.0)]",
+					"visible": false
+				}
+			],
+			"canvas_event_progress": -1.0,
+			"canvas_visible": false,
+			"confirmation_visible": false,
+			"day_one_active": true,
+			"elapsed_seconds": 29.848,
+			"event_count": 0,
+			"event_time": -1.0,
+			"expect_menu": true,
+			"game": "",
+			"has_saved_game": true,
+			"id": "options_close_pressed",
+			"idle_time": 0.0,
+			"image": {
+				"bytes": 736854,
+				"dimensions": [
+					1280,
+					720
+				],
+				"file": "options_close_pressed.png",
+				"sha256": "6c46d14744022cc995764ae9b42d19f0ecbc1805a9e8da908cd0761af3b3e455"
+			},
+			"input": {
+				"button": "StartMenuOptionsCloseButton",
+				"event": "raw engine touch0 press",
+				"point": [
+					1130.0,
+					146.0
+				]
+			},
+			"layer_index": 1,
+			"layer_visible": false,
+			"layers": [
+				{
+					"layer": 0,
+					"path": "/root/Main/@CanvasLayer@16",
+					"visible": true
+				},
+				{
+					"layer": 30,
+					"path": "/root/Main/@CanvasLayer@25",
+					"visible": true
+				},
+				{
+					"layer": 1,
+					"path": "/root/Main/LivingWorldLayer",
+					"visible": false
+				},
+				{
+					"layer": 9,
+					"path": "/root/Main/@CanvasLayer@37",
+					"visible": true
+				},
+				{
+					"layer": 20,
+					"path": "/root/Main/@CanvasLayer@41",
+					"visible": false
+				},
+				{
+					"layer": 29,
+					"path": "/root/Main/GlobalNavigationLayer",
+					"visible": true
+				},
+				{
+					"layer": 12,
+					"path": "/root/Main/@CanvasLayer@311",
+					"visible": true
+				},
+				{
+					"layer": 20,
+					"path": "/root/Main/StartMenu",
+					"visible": true
+				}
+			],
+			"new_game_hold_active": false,
+			"options_visible": true,
+			"phase": "",
+			"presentation": {
+				"boot_splash_present": false,
+				"fade_alpha": 0.0,
+				"intro_active": true,
+				"intro_overlay_present": false,
+				"start_menu_active": true,
+				"start_menu_layer_present": true
+			},
+			"probe_stage_override": "",
+			"progress": {
+				"chapter2_job_phase_masks": [
+					0,
+					0,
+					0,
+					0,
+					0,
+					0,
+					0,
+					0
+				],
+				"found": [],
+				"opera_stars": 0,
+				"pearls": 0,
+				"r30_keep_marker": null,
+				"won": []
+			},
+			"quality": "speedy",
+			"resolved_stage": "intro.storybook",
+			"save_path": "C:\\Users\\Peter\\.codex\\visualizations\\2026\\10\\08\\01a119cc-74b1-7d23-b956-126129405418\\startup_ambience_retirement_20261014\\native_final/1280x720/fresh/profiles/startup/reef_save.json",
+			"stored_progress_maps": {
+				"found": {
+					"Daddy Mermaid": false,
+					"Evie and Lamb-a'": false,
+					"Faron": false,
+					"Harper and Fiona": false,
+					"Wacky and Chuck": false
+				},
+				"won": {
+					"Daddy Mermaid": false,
+					"Evie and Lamb-a'": false,
+					"Faron": false,
+					"Harper and Fiona": false,
+					"Wacky and Chuck": false
+				}
+			},
+			"suspended": true,
+			"variant": "fresh"
+		},
+		{
+			"active_stage": "",
+			"background": {
+				"global_rect": "[P: (0.0, 0.0), S: (1280.0, 720.0)]",
+				"node": "/root/Main/StartMenu/StartMenuRoot/StartMenuBackground",
+				"sha256": "d5127c4a6227baab05343dc10692e2f76f1dd59f22ca24a22329de402dbb8044",
+				"texture": "res://assets/ui/boot_splash_mermaid_roshan.png",
+				"visible": true
+			},
+			"buttons": [
+				{
+					"disabled": false,
+					"name": "StartMenuContinueButton",
+					"pressed": false,
+					"rect": "[P: (290.0, 548.0), S: (340.0, 118.0)]",
+					"visible": true
+				},
+				{
+					"disabled": false,
+					"name": "StartMenuNewGameButton",
+					"pressed": false,
+					"rect": "[P: (650.0, 548.0), S: (340.0, 118.0)]",
+					"visible": true
+				},
+				{
+					"disabled": false,
+					"name": "StartMenuOptionsTab",
+					"pressed": false,
+					"rect": "[P: (1044.0, 594.0), S: (210.0, 104.0)]",
+					"visible": true
+				},
+				{
+					"disabled": false,
+					"name": "StartMenuMusicButton",
+					"pressed": false,
+					"rect": "[P: (715.0, 205.0), S: (430.0, 100.0)]",
+					"visible": false
+				},
+				{
+					"disabled": false,
+					"name": "StartMenuKeepGameButton",
+					"pressed": false,
+					"rect": "[P: (320.0, 420.0), S: (300.0, 118.0)]",
+					"visible": false
+				},
+				{
+					"disabled": false,
+					"name": "StartMenuConfirmNewGameButton",
+					"pressed": false,
+					"rect": "[P: (660.0, 420.0), S: (300.0, 118.0)]",
+					"visible": false
+				}
+			],
+			"canvas_event_progress": -1.0,
+			"canvas_visible": false,
+			"confirmation_visible": false,
+			"day_one_active": true,
+			"elapsed_seconds": 30.195,
+			"event_count": 0,
+			"event_time": -1.0,
+			"expect_menu": true,
+			"game": "",
+			"has_saved_game": true,
+			"id": "options_close_released",
+			"idle_time": 0.0,
+			"image": {
+				"bytes": 1388591,
+				"dimensions": [
+					1280,
+					720
+				],
+				"file": "options_close_released.png",
+				"sha256": "2e0d6c9389719bd9bd3e541294c95be4c061b9d1d36523e7820813f2bd209a12"
+			},
+			"input": {
+				"button": "StartMenuOptionsCloseButton",
+				"event": "raw engine touch0 release",
+				"point": [
+					1130.0,
+					146.0
+				]
+			},
+			"layer_index": 1,
+			"layer_visible": false,
+			"layers": [
+				{
+					"layer": 0,
+					"path": "/root/Main/@CanvasLayer@16",
+					"visible": true
+				},
+				{
+					"layer": 30,
+					"path": "/root/Main/@CanvasLayer@25",
+					"visible": true
+				},
+				{
+					"layer": 1,
+					"path": "/root/Main/LivingWorldLayer",
+					"visible": false
+				},
+				{
+					"layer": 9,
+					"path": "/root/Main/@CanvasLayer@37",
+					"visible": true
+				},
+				{
+					"layer": 20,
+					"path": "/root/Main/@CanvasLayer@41",
+					"visible": false
+				},
+				{
+					"layer": 29,
+					"path": "/root/Main/GlobalNavigationLayer",
+					"visible": true
+				},
+				{
+					"layer": 12,
+					"path": "/root/Main/@CanvasLayer@311",
+					"visible": true
+				},
+				{
+					"layer": 20,
+					"path": "/root/Main/StartMenu",
+					"visible": true
+				}
+			],
+			"new_game_hold_active": false,
+			"options_visible": false,
+			"phase": "",
+			"presentation": {
+				"boot_splash_present": false,
+				"fade_alpha": 0.0,
+				"intro_active": true,
+				"intro_overlay_present": false,
+				"start_menu_active": true,
+				"start_menu_layer_present": true
+			},
+			"probe_stage_override": "",
+			"progress": {
+				"chapter2_job_phase_masks": [
+					0,
+					0,
+					0,
+					0,
+					0,
+					0,
+					0,
+					0
+				],
+				"found": [],
+				"opera_stars": 0,
+				"pearls": 0,
+				"r30_keep_marker": null,
+				"won": []
+			},
+			"quality": "speedy",
+			"resolved_stage": "intro.storybook",
+			"save_path": "C:\\Users\\Peter\\.codex\\visualizations\\2026\\10\\08\\01a119cc-74b1-7d23-b956-126129405418\\startup_ambience_retirement_20261014\\native_final/1280x720/fresh/profiles/startup/reef_save.json",
+			"stored_progress_maps": {
+				"found": {
+					"Daddy Mermaid": false,
+					"Evie and Lamb-a'": false,
+					"Faron": false,
+					"Harper and Fiona": false,
+					"Wacky and Chuck": false
+				},
+				"won": {
+					"Daddy Mermaid": false,
+					"Evie and Lamb-a'": false,
+					"Faron": false,
+					"Harper and Fiona": false,
+					"Wacky and Chuck": false
+				}
+			},
+			"suspended": true,
+			"variant": "fresh"
+		},
+		{
+			"active_stage": "",
+			"background": {
+				"global_rect": "[P: (0.0, 0.0), S: (1280.0, 720.0)]",
+				"node": "/root/Main/StartMenu/StartMenuRoot/StartMenuBackground",
+				"sha256": "d5127c4a6227baab05343dc10692e2f76f1dd59f22ca24a22329de402dbb8044",
+				"texture": "res://assets/ui/boot_splash_mermaid_roshan.png",
+				"visible": true
+			},
+			"buttons": [
+				{
+					"disabled": false,
+					"name": "StartMenuContinueButton",
+					"pressed": false,
+					"rect": "[P: (290.0, 548.0), S: (340.0, 118.0)]",
+					"visible": true
+				},
+				{
+					"disabled": false,
+					"name": "StartMenuNewGameButton",
+					"pressed": false,
+					"rect": "[P: (650.0, 548.0), S: (340.0, 118.0)]",
+					"visible": true
+				},
+				{
+					"disabled": false,
+					"name": "StartMenuOptionsTab",
+					"pressed": false,
+					"rect": "[P: (1044.0, 594.0), S: (210.0, 104.0)]",
+					"visible": true
+				},
+				{
+					"disabled": false,
+					"name": "StartMenuMusicButton",
+					"pressed": false,
+					"rect": "[P: (715.0, 205.0), S: (430.0, 100.0)]",
+					"visible": false
+				},
+				{
+					"disabled": false,
+					"name": "StartMenuKeepGameButton",
+					"pressed": false,
+					"rect": "[P: (320.0, 420.0), S: (300.0, 118.0)]",
+					"visible": false
+				},
+				{
+					"disabled": false,
+					"name": "StartMenuConfirmNewGameButton",
+					"pressed": false,
+					"rect": "[P: (660.0, 420.0), S: (300.0, 118.0)]",
+					"visible": false
+				}
+			],
+			"canvas_event_progress": -1.0,
+			"canvas_visible": false,
+			"confirmation_visible": false,
+			"day_one_active": true,
+			"elapsed_seconds": 30.546,
+			"event_count": 0,
+			"event_time": -1.0,
+			"expect_menu": true,
+			"game": "",
+			"has_saved_game": true,
+			"id": "declared_focus_out",
+			"idle_time": 0.0,
+			"image": {
+				"bytes": 1388604,
+				"dimensions": [
+					1280,
+					720
+				],
+				"file": "declared_focus_out.png",
+				"sha256": "8ab078f937eec8c4b9cc62a2fc4e3bfeedc22a055d21e9f95e9ce99e1fa76ac7"
+			},
+			"input": {
+				"scope": "Explicit engine notification diagnostic,not actualOS/device focus"
+			},
+			"layer_index": 1,
+			"layer_visible": false,
+			"layers": [
+				{
+					"layer": 0,
+					"path": "/root/Main/@CanvasLayer@16",
+					"visible": true
+				},
+				{
+					"layer": 30,
+					"path": "/root/Main/@CanvasLayer@25",
+					"visible": true
+				},
+				{
+					"layer": 1,
+					"path": "/root/Main/LivingWorldLayer",
+					"visible": false
+				},
+				{
+					"layer": 9,
+					"path": "/root/Main/@CanvasLayer@37",
+					"visible": true
+				},
+				{
+					"layer": 20,
+					"path": "/root/Main/@CanvasLayer@41",
+					"visible": false
+				},
+				{
+					"layer": 29,
+					"path": "/root/Main/GlobalNavigationLayer",
+					"visible": true
+				},
+				{
+					"layer": 12,
+					"path": "/root/Main/@CanvasLayer@311",
+					"visible": true
+				},
+				{
+					"layer": 20,
+					"path": "/root/Main/StartMenu",
+					"visible": true
+				}
+			],
+			"new_game_hold_active": false,
+			"options_visible": false,
+			"phase": "",
+			"presentation": {
+				"boot_splash_present": false,
+				"fade_alpha": 0.0,
+				"intro_active": true,
+				"intro_overlay_present": false,
+				"start_menu_active": true,
+				"start_menu_layer_present": true
+			},
+			"probe_stage_override": "",
+			"progress": {
+				"chapter2_job_phase_masks": [
+					0,
+					0,
+					0,
+					0,
+					0,
+					0,
+					0,
+					0
+				],
+				"found": [],
+				"opera_stars": 0,
+				"pearls": 0,
+				"r30_keep_marker": null,
+				"won": []
+			},
+			"quality": "speedy",
+			"resolved_stage": "intro.storybook",
+			"save_path": "C:\\Users\\Peter\\.codex\\visualizations\\2026\\10\\08\\01a119cc-74b1-7d23-b956-126129405418\\startup_ambience_retirement_20261014\\native_final/1280x720/fresh/profiles/startup/reef_save.json",
+			"stored_progress_maps": {
+				"found": {
+					"Daddy Mermaid": false,
+					"Evie and Lamb-a'": false,
+					"Faron": false,
+					"Harper and Fiona": false,
+					"Wacky and Chuck": false
+				},
+				"won": {
+					"Daddy Mermaid": false,
+					"Evie and Lamb-a'": false,
+					"Faron": false,
+					"Harper and Fiona": false,
+					"Wacky and Chuck": false
+				}
+			},
+			"suspended": true,
+			"variant": "fresh"
+		},
+		{
+			"active_stage": "",
+			"background": {
+				"global_rect": "[P: (0.0, 0.0), S: (1280.0, 720.0)]",
+				"node": "/root/Main/StartMenu/StartMenuRoot/StartMenuBackground",
+				"sha256": "d5127c4a6227baab05343dc10692e2f76f1dd59f22ca24a22329de402dbb8044",
+				"texture": "res://assets/ui/boot_splash_mermaid_roshan.png",
+				"visible": true
+			},
+			"buttons": [
+				{
+					"disabled": false,
+					"name": "StartMenuContinueButton",
+					"pressed": false,
+					"rect": "[P: (290.0, 548.0), S: (340.0, 118.0)]",
+					"visible": true
+				},
+				{
+					"disabled": false,
+					"name": "StartMenuNewGameButton",
+					"pressed": false,
+					"rect": "[P: (650.0, 548.0), S: (340.0, 118.0)]",
+					"visible": true
+				},
+				{
+					"disabled": false,
+					"name": "StartMenuOptionsTab",
+					"pressed": false,
+					"rect": "[P: (1044.0, 594.0), S: (210.0, 104.0)]",
+					"visible": true
+				},
+				{
+					"disabled": false,
+					"name": "StartMenuMusicButton",
+					"pressed": false,
+					"rect": "[P: (715.0, 205.0), S: (430.0, 100.0)]",
+					"visible": false
+				},
+				{
+					"disabled": false,
+					"name": "StartMenuKeepGameButton",
+					"pressed": false,
+					"rect": "[P: (320.0, 420.0), S: (300.0, 118.0)]",
+					"visible": false
+				},
+				{
+					"disabled": false,
+					"name": "StartMenuConfirmNewGameButton",
+					"pressed": false,
+					"rect": "[P: (660.0, 420.0), S: (300.0, 118.0)]",
+					"visible": false
+				}
+			],
+			"canvas_event_progress": -1.0,
+			"canvas_visible": false,
+			"confirmation_visible": false,
+			"day_one_active": true,
+			"elapsed_seconds": 30.902,
+			"event_count": 0,
+			"event_time": -1.0,
+			"expect_menu": true,
+			"game": "",
+			"has_saved_game": true,
+			"id": "declared_focus_in",
+			"idle_time": 0.0,
+			"image": {
+				"bytes": 1388638,
+				"dimensions": [
+					1280,
+					720
+				],
+				"file": "declared_focus_in.png",
+				"sha256": "aa24f995d2fe18aed1a5f1c7d7951435b43dc366aee71b97a007e6160f4e1005"
+			},
+			"input": {
+				"scope": "Explicit engine notification diagnostic,not actualOS/device focus"
+			},
+			"layer_index": 1,
+			"layer_visible": false,
+			"layers": [
+				{
+					"layer": 0,
+					"path": "/root/Main/@CanvasLayer@16",
+					"visible": true
+				},
+				{
+					"layer": 30,
+					"path": "/root/Main/@CanvasLayer@25",
+					"visible": true
+				},
+				{
+					"layer": 1,
+					"path": "/root/Main/LivingWorldLayer",
+					"visible": false
+				},
+				{
+					"layer": 9,
+					"path": "/root/Main/@CanvasLayer@37",
+					"visible": true
+				},
+				{
+					"layer": 20,
+					"path": "/root/Main/@CanvasLayer@41",
+					"visible": false
+				},
+				{
+					"layer": 29,
+					"path": "/root/Main/GlobalNavigationLayer",
+					"visible": true
+				},
+				{
+					"layer": 12,
+					"path": "/root/Main/@CanvasLayer@311",
+					"visible": true
+				},
+				{
+					"layer": 20,
+					"path": "/root/Main/StartMenu",
+					"visible": true
+				}
+			],
+			"new_game_hold_active": false,
+			"options_visible": false,
+			"phase": "",
+			"presentation": {
+				"boot_splash_present": false,
+				"fade_alpha": 0.0,
+				"intro_active": true,
+				"intro_overlay_present": false,
+				"start_menu_active": true,
+				"start_menu_layer_present": true
+			},
+			"probe_stage_override": "",
+			"progress": {
+				"chapter2_job_phase_masks": [
+					0,
+					0,
+					0,
+					0,
+					0,
+					0,
+					0,
+					0
+				],
+				"found": [],
+				"opera_stars": 0,
+				"pearls": 0,
+				"r30_keep_marker": null,
+				"won": []
+			},
+			"quality": "speedy",
+			"resolved_stage": "intro.storybook",
+			"save_path": "C:\\Users\\Peter\\.codex\\visualizations\\2026\\10\\08\\01a119cc-74b1-7d23-b956-126129405418\\startup_ambience_retirement_20261014\\native_final/1280x720/fresh/profiles/startup/reef_save.json",
+			"stored_progress_maps": {
+				"found": {
+					"Daddy Mermaid": false,
+					"Evie and Lamb-a'": false,
+					"Faron": false,
+					"Harper and Fiona": false,
+					"Wacky and Chuck": false
+				},
+				"won": {
+					"Daddy Mermaid": false,
+					"Evie and Lamb-a'": false,
+					"Faron": false,
+					"Harper and Fiona": false,
+					"Wacky and Chuck": false
+				}
+			},
+			"suspended": true,
+			"variant": "fresh"
+		}
+	],
+	"teardown_main_valid": false,
+	"variant": "fresh"
+}

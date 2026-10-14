@@ -36,6 +36,7 @@ func _init() -> void:
 	director.setup()
 	_probe_inventory()
 	_probe_quiet_group()
+	_probe_launch_menu_quiet()
 	await _probe_opera_sparse_stage_routing()
 	_probe_all_stage_runtime()
 	_probe_real_input_reset()
@@ -152,6 +153,41 @@ func _probe_quiet_group() -> void:
 	_check("a quiet-group activity pauses the ambient layer only while mounted",
 		during and director._suspended() == before,
 		"before=%s during=%s" % [before, during])
+
+
+func _probe_launch_menu_quiet() -> void:
+	# The real launch menu borrows intro_active for its input guard. It must
+	# not inherit the retained intro's procedural ornaments above its buttons.
+	var saved_fade: Color = main.fade_rect.modulate
+	main.fade_rect.modulate.a = 0.0
+	director.deactivate()
+	var event_count: int = main.living_event_count
+	var before_progress: Dictionary = _progress_snapshot()
+	main._build_start_menu()
+	director.tick(0.01)
+	_check("launch menu suspends procedural ambience",
+		main.start_menu_active and main.intro_active
+		and director._suspended() and not main.living_layer.visible)
+	director.tick(120.0)
+	_check("launch menu long idle draws no accent or passive event",
+		not main.living_layer.visible and main.living_idle_time == 0.0
+		and main.living_event_time < 0.0
+		and main.living_event_count == event_count
+		and _progress_unchanged(before_progress))
+	main._start_menu_ref()._dismiss_menu()
+	director.tick(0.02)
+	_check("leaving launch menu restores the sibling world ambience",
+		not main.start_menu_active and not main.intro_active
+		and not director._suspended() and main.living_layer.visible
+		and main.living_stage_id != "" and main.living_stage_id != "intro.storybook")
+	main._build_start_menu()
+	director.tick(0.02)
+	_check("launch menu reentry retires accents again",
+		director._suspended() and not main.living_layer.visible
+		and main.living_idle_time == 0.0 and main.living_event_time < 0.0)
+	main._start_menu_ref()._dismiss_menu()
+	director.tick(0.02)
+	main.fade_rect.modulate = saved_fade
 
 
 func _probe_opera_sparse_stage_routing() -> void:

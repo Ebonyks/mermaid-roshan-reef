@@ -1,0 +1,79 @@
+{
+  "status": "PASS",
+  "commands": [
+    {
+      "command": [
+        "python",
+        "-m",
+        "gdtoolkit.parser",
+        "scripts/living_world.gd",
+        "scripts/probe_living_world.gd"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-14T05:37:46.277588+00:00",
+      "checked_at_utc": "2026-10-14T05:37:47.791897+00:00"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/lint_inference.py",
+        "scripts/living_world.gd",
+        "scripts/probe_living_world.gd"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-14T05:37:47.791957+00:00",
+      "checked_at_utc": "2026-10-14T05:37:47.983315+00:00"
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef",
+        "--check-only",
+        "--script",
+        "res://scripts/living_world.gd"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-14T05:37:47.983376+00:00",
+      "checked_at_utc": "2026-10-14T05:38:01.731137+00:00"
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef",
+        "--check-only",
+        "--script",
+        "res://scripts/probe_living_world.gd"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-14T05:38:01.731188+00:00",
+      "checked_at_utc": "2026-10-14T05:38:14.752796+00:00"
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef",
+        "-s",
+        "res://scripts/probe_living_world.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-14T05:38:14.756686+00:00",
+      "checked_at_utc": "2026-10-14T05:38:35.820296+00:00",
+      "result": "PASS",
+      "isolated_profile": true
+    }
+  ],
+  "raw_log_sha256": "ecd5e0f54e8a80823ffb4d072c45333a7a276cb97968a3fec6e409f914089460",
+  "production_director_sha256": "734eeec8505d3c4ed625d123d66672c10330633f9e435cabae376c8cbebba5da",
+  "regression_probe_sha256": "1f932458f0792ba0dc94b8022d2d0955c1f649ffa3f90bc495453f5070fff0eb",
+  "scope": "Meaningful baseline failures nowpass onrealmenu flag andsibling/reentry paths;all100stage source/probe paths unchanged. Machineonly,notvisual/device/humanacceptance"
+}
