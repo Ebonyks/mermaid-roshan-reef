@@ -1,6 +1,58 @@
 {
-  "status": "PENDING_POST_VERIFICATION_OR_PUBLICATION",
-  "scope": "Initialized validnavigation;no pass claimed.",
-  "accepted_removed": 0,
-  "mission_complete": false
+  "status": "PASS_SOURCE_ONLY_ACCEPTANCE_OPEN",
+  "commands": [
+    {
+      "command": [
+        "python",
+        "-B",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r38_glyph_reconciliation\\validate.py"
+      ],
+      "started_at_utc": "2026-10-14T18:41:16.070147+00:00",
+      "checked_at_utc": "2026-10-14T18:41:19.995929+00:00",
+      "exit_code": 0,
+      "execution": "FRESH",
+      "evidence": "receipt_gates.log"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_document_authority.py"
+      ],
+      "started_at_utc": "2026-10-14T18:41:19.995989+00:00",
+      "checked_at_utc": "2026-10-14T18:41:30.226446+00:00",
+      "exit_code": 0,
+      "execution": "FRESH",
+      "evidence": "receipt_gates.log"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_development.py",
+        "--base",
+        "auto"
+      ],
+      "started_at_utc": "2026-10-14T18:41:30.226512+00:00",
+      "checked_at_utc": "2026-10-14T18:41:34.534312+00:00",
+      "exit_code": 0,
+      "execution": "FRESH",
+      "evidence": "receipt_gates.log"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_game_2d.py",
+        "--regression-gate"
+      ],
+      "started_at_utc": "2026-10-14T18:41:36.345686+00:00",
+      "checked_at_utc": "2026-10-14T18:42:37.994884+00:00",
+      "exit_code": 0,
+      "execution": "FRESH_ALL_RECEIPT_PARTS_STAGED",
+      "evidence": "receipt_gates.log"
+    }
+  ],
+  "raw_log_sha256": "f568bf2e0260045a0e04f15733196576c71077f7f89e7944c021171548f68e4b",
+  "scope": "3freshsource/document/impact checks+actualfresh2D complete stagedreceipt index/allparts scan. No newengine/visual acceptance. Priorfull82 retained."
 }

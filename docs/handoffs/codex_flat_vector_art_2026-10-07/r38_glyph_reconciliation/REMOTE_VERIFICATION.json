@@ -1,6 +1,45 @@
 {
-  "status": "PENDING_POST_VERIFICATION_OR_PUBLICATION",
-  "scope": "Initialized validnavigation;no pass claimed.",
-  "accepted_removed": 0,
-  "mission_complete": false
+  "schema": "reef.bounded_audit_json_index/1",
+  "logical_schema": "reef.flat_vector_delta_receipt/1",
+  "logical_bytes": 4369758,
+  "logical_sha256": "04b58bd42b9ec2034af850785780f29d6a2cad2296a99df3fd94b2362fd9851a",
+  "fragment_count": 5,
+  "fragments": [
+    {
+      "path": "REMOTE_VERIFICATION.fragment0001.json",
+      "bytes": 1062985,
+      "sha256": "6381c3d2c94339288d1e293400204f12894a11ff170ddf9350322ed59f4562ec",
+      "text_bytes": 1000000,
+      "text_sha256": "a54699d6d72386834557ed89009b456cb4aa4594c0c424c24e53d4b2b9806a7a"
+    },
+    {
+      "path": "REMOTE_VERIFICATION.fragment0002.json",
+      "bytes": 1056086,
+      "sha256": "ea2c1db3f901d83e2dd35ea4f2a095b662a85be7f60c7235d59247bba4815535",
+      "text_bytes": 1000000,
+      "text_sha256": "0847f0989dcd1cc216ba671f5b7aa5b39e73ad7b804dfc419c19794c31bf699e"
+    },
+    {
+      "path": "REMOTE_VERIFICATION.fragment0003.json",
+      "bytes": 1057367,
+      "sha256": "d145120ac0c068f02782c2400d082eb8bba72095c5a221cf6c3806cf8c68758f",
+      "text_bytes": 1000000,
+      "text_sha256": "e69b74121cc30806d57beec8c5b82906abfc77afb3160afce006f01287afdeb3"
+    },
+    {
+      "path": "REMOTE_VERIFICATION.fragment0004.json",
+      "bytes": 1053661,
+      "sha256": "71f5da686c977088fb1648851625cc84790f3f0103f441b45ac26e4e933b7102",
+      "text_bytes": 1000000,
+      "text_sha256": "670a46161a07c9a58f07e3fdebaec9cedecabe0575fb1628851ccb5a051ff07d"
+    },
+    {
+      "path": "REMOTE_VERIFICATION.fragment0005.json",
+      "bytes": 390365,
+      "sha256": "7b25a9d239bd22a88361c7052a1e65980d778f3e94574aae86e31bfe796188f1",
+      "text_bytes": 369758,
+      "text_sha256": "c9b00ee76ca5313642bfb9de8eb2b2757894e9d14126594a6cc2d2759412766f"
+    }
+  ],
+  "scope": "Nonruntime source-audit text evidence;everypart scanned/hashed. LogicalJSON bytes preserved;no runtime/model/creative acceptance orauditor waiver."
 }
