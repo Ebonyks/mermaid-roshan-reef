@@ -1,0 +1,214 @@
+{
+  "schema": "reef.flat_vector_final_byte_receipt/1",
+  "status": "PAYLOAD_ALL_DEPENDENCIES_AND_FINAL_RECEIPT_METADATA_VERIFIED",
+  "revision": "FV-AUDIT-20261014-R32",
+  "repository": "Ebonyks/mermaid-roshan-reef",
+  "branch": "codex/flat-vector-r6-20261012",
+  "source_baseline": "a587e4ec5e82dbc86d52115ba41f3ae37e2e24f1",
+  "payload_revision": "2354ee4c5b62ee1adb80ae194f0e37a1ad459e2d",
+  "receipt_metadata_revision": "fbd071ae416680b44c70f45f3086b86cbdec096e",
+  "manifest_path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r32_startup_ui_retirement/MANIFEST.json",
+  "manifest_sha256": "a83599c194f90fcb8753ade96ec1ab31516967edb9288f6819098ae33cdc4411",
+  "payload_sha256": "7afeab4692fc0b6fb0284664237965c1be7aad9b385bc9d481e6e782d2a008da",
+  "required_file_count": 3707,
+  "required_bytes": 1705054005,
+  "payload_verification_at_utc": "2026-10-14T09:36:07.799143+00:00",
+  "payload_access_mode": "Anonymous public HTTPS for manifest and every declared required file; public GitHub repo API independently checked; recipient can use the same unauthenticated access mode.",
+  "payload_receipt_path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r32_startup_ui_retirement/REMOTE_VERIFICATION.json",
+  "final_metadata_checked_at_utc": "2026-10-14T09:42:42.524356+00:00",
+  "final_metadata_access_mode": "Anonymous public immutable GitHub HTTPS fullGET exactGitblobbytes/SHA256,notauthenticated-only",
+  "final_metadata_file_count": 6,
+  "final_metadata_checks": [
+    {
+      "path": "audit/MASTER_AUDIT_CHANGELOG_ROLLBACK_2026-08-10.md",
+      "revision": "fbd071ae416680b44c70f45f3086b86cbdec096e",
+      "http_status": 200,
+      "bytes": 155593,
+      "sha256": "f09022c7f25e35c74efecfcbc87817e0bbec418d5b2ca891c63606fcc27ab259",
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/fbd071ae416680b44c70f45f3086b86cbdec096e/audit/MASTER_AUDIT_CHANGELOG_ROLLBACK_2026-08-10.md"
+    },
+    {
+      "path": "design/audit_impacts/flat-vector-startup-ui-retirement-20261014.json",
+      "revision": "fbd071ae416680b44c70f45f3086b86cbdec096e",
+      "http_status": 200,
+      "bytes": 30468,
+      "sha256": "123399e80a33b1a9104b4bd5cffe45ea26e878101c87e45c63b81d07873e9561",
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/fbd071ae416680b44c70f45f3086b86cbdec096e/design/audit_impacts/flat-vector-startup-ui-retirement-20261014.json"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r32_startup_ui_retirement/RECEIPT_GATES.json",
+      "revision": "fbd071ae416680b44c70f45f3086b86cbdec096e",
+      "http_status": 200,
+      "bytes": 2426,
+      "sha256": "40eb695c62b1bb003b34cf6328bb942d93244acced29469182426df62186141a",
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/fbd071ae416680b44c70f45f3086b86cbdec096e/docs/handoffs/codex_flat_vector_art_2026-10-07/r32_startup_ui_retirement/RECEIPT_GATES.json"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r32_startup_ui_retirement/REMOTE_VERIFICATION.json",
+      "revision": "fbd071ae416680b44c70f45f3086b86cbdec096e",
+      "http_status": 200,
+      "bytes": 2504413,
+      "sha256": "ed6b47c5d3f91e81ed8310159178c5f07313fad0a9df2b2c19031f026605496f",
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/fbd071ae416680b44c70f45f3086b86cbdec096e/docs/handoffs/codex_flat_vector_art_2026-10-07/r32_startup_ui_retirement/REMOTE_VERIFICATION.json"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r32_startup_ui_retirement/receipt_gates.log",
+      "revision": "fbd071ae416680b44c70f45f3086b86cbdec096e",
+      "http_status": 200,
+      "bytes": 415,
+      "sha256": "8711b77fbcba0138ffc8dfad9efbfc780861d0178e93944c29c206ffca2fab7c",
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/fbd071ae416680b44c70f45f3086b86cbdec096e/docs/handoffs/codex_flat_vector_art_2026-10-07/r32_startup_ui_retirement/receipt_gates.log"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r32_startup_ui_retirement/tally.json",
+      "revision": "fbd071ae416680b44c70f45f3086b86cbdec096e",
+      "http_status": 200,
+      "bytes": 85233,
+      "sha256": "e0787b5cf553f2ea180ee9b7e767a0421b34194b68c1b205abd137c8a602b916",
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/fbd071ae416680b44c70f45f3086b86cbdec096e/docs/handoffs/codex_flat_vector_art_2026-10-07/r32_startup_ui_retirement/tally.json"
+    }
+  ],
+  "current_dev": "831d0bbb155b99d75ef0289cc5cc694e0ef00c1e",
+  "clean_worktree_before_proof": true,
+  "ci_snapshot_at_receipt_byte_check": [
+    {
+      "conclusion": "",
+      "databaseId": 38544338967,
+      "headSha": "fbd071ae416680b44c70f45f3086b86cbdec096e",
+      "status": "pending",
+      "url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/38544338967"
+    },
+    {
+      "conclusion": "",
+      "databaseId": 38543317331,
+      "headSha": "2354ee4c5b62ee1adb80ae194f0e37a1ad459e2d",
+      "status": "in_progress",
+      "url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/38543317331"
+    },
+    {
+      "conclusion": "cancelled",
+      "databaseId": 38535427792,
+      "headSha": "a587e4ec5e82dbc86d52115ba41f3ae37e2e24f1",
+      "status": "completed",
+      "url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/38535427792"
+    }
+  ],
+  "current_proof_CI": "Own proof head remains pending until an exact actual run completes;cancelled/pending notgreen/integration authority",
+  "implementation": {
+    "bounded_current_StartMenu_role_retirements": 2,
+    "stable_piece_ids": [
+      "FV-276E68E0A9DA",
+      "FV-619466CA433F"
+    ],
+    "family": "shared_ui",
+    "current_role_emitters": 0,
+    "preserved_controls": 8,
+    "preserved_pearl_nodes": 16,
+    "constructed_adornment_nodes_removed": 24,
+    "source_tweens_removed": 8,
+    "source_menu_lines_added": 2,
+    "source_menu_lines_removed": 47,
+    "trusted_probe_lines_added": 32,
+    "new_assets_drawings_generation_calls": 0,
+    "protected_original_changes": 0,
+    "source_condition": "Only _add_button_finish body changed;fixed2arg helper retains original2pearl calls;allother menu code exactly LFidentical.",
+    "source_closure": "CALLER_CLOSURE.json",
+    "actual_full82": "FULL_VALIDATION.json:all82currentnativepasses/zeroexit/failclosedlogs;normal8hashespreserved",
+    "import_guard": "IMPORT1913tracked.import presnapshot/1102restored;separate85UIDrawpreserved/exactGitLFguard,84newline-only/1998combinedsamecategories"
+  },
+  "bounded_context": {
+    "native_files": 94,
+    "unique_PNG_hashes": 70,
+    "duplicate_views_retained_excluded": 24,
+    "direct_native_views": 12,
+    "direct_native_unique_hashes": 11,
+    "existing_named_records_with_partial_context": 56,
+    "families_with_partial_context": 12,
+    "bounded_historical_capture_credits": 2948,
+    "retained_native_files": 3379,
+    "excluded_historical_native_files": 431,
+    "partial_overlapping_route_entries": 78,
+    "route_entries_without_current_slice": 98,
+    "complete_route_entries": 0,
+    "new_named_designs": 0,
+    "R30_prior_bounded_startup_role_retirements": 3,
+    "summed_menu_scope_role_retirements": 5,
+    "role_retirement_scope": "Knownroles inoneStartMenu scope,not5acceptedglobaldesignremovals",
+    "global_approved": 0,
+    "global_integrated_artwork": 0,
+    "global_runtime_verified_artwork": 0,
+    "accepted_removed": 0
+  },
+  "remaining": [
+    "Baseflatbutton/panel/pearls/shell ornaments/ghosthand/holdfill/semanticglyph roles",
+    "Unchanged MUSIC_OFF tofu/MIC_OFF adjacent slash",
+    "Fullinventory unknown/351primitive scopes/twocompositors/routeandstate gaps",
+    "QA11actual sameprocesschallenge/sourceclosure/shape/order/targettouch,actualdevice/performance/child/owner acceptance",
+    "Strict2DstillUNSATISFIED/NO_REGRESSION,0model52prod3D61probe3D1scene1config"
+  ],
+  "acceptance": {
+    "all_game_individual_piece_total": null,
+    "distinct_screen_total": null,
+    "regression_total": null,
+    "QA11": null,
+    "device": null,
+    "child": null,
+    "owner": null,
+    "whole_game_complete": false,
+    "mission_status": "OPEN_UNKNOWN_INVENTORY_AND_ACCEPTANCE_GAPS"
+  },
+  "proof_self_hash_rule": "Ownproof/currentimpact are anonymously fetched afterpushing against exactGitblobs. Ownrevision/hash cannotbe recursivelyembedded;thisrecord bindsverified predecessor payload/6metadata hashes.",
+  "proof_document_path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r32_startup_ui_retirement/FINAL_BYTE_RECEIPT.json",
+  "material_changed_files_in_proof_commit": [
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r32_startup_ui_retirement/FINAL_BYTE_RECEIPT.json",
+    "design/audit_impacts/flat-vector-startup-ui-retirement-20261014.json"
+  ],
+  "proof_prepublication_gates": [
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-B",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r32_startup_ui_retirement\\validate.py"
+      ],
+      "exit_code": 0,
+      "checked_at_utc": "2026-10-14T09:45:54.177187+00:00",
+      "raw_output_sha256": "c1c3a0bc6bb098db320b2a2ba4839a4f93199d0d5997e5396ee0e76cd1dd5ebf",
+      "complete_output": "R32_SOURCE_NATIVE_CANONICAL_FULL82_PASS:87beforeeditcontext/94native70unique24duplicate/8normalhashes/oldGUIgeometry/retired2roles,82trustedstrictzeroexit;2948bounded3379retained431excluded,56existingpartial12families,0acceptedremoved/globaltotalsunknown.\r\n"
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-B",
+        "tools/audit_document_authority.py"
+      ],
+      "exit_code": 0,
+      "checked_at_utc": "2026-10-14T09:46:04.126049+00:00",
+      "raw_output_sha256": "3f04c7b8053c16df2b9d229591c377d90f365ad875e9155316a661ad33e290e6",
+      "complete_output": "DOCAUTH|INVENTORY=735|LEDGER=735|ACTIVE=69|RECORDS=72\r\nDOCAUTH|RESULT|ALL OK\r\n"
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-B",
+        "tools/audit_development.py",
+        "--base",
+        "auto"
+      ],
+      "exit_code": 0,
+      "checked_at_utc": "2026-10-14T09:46:08.061223+00:00",
+      "raw_output_sha256": "fe1136f6488648e75036829fb4dde2405eb9ed57eec05f046fe441463c20d023",
+      "complete_output": "AUDITDEV|BASE|e2b3c73789707aa49a91b4f42e2a9dd4b68225df\r\nAUDITDEV|RESULT|ALL OK\r\n"
+    },
+    {
+      "command": [
+        "git",
+        "diff",
+        "--check"
+      ],
+      "exit_code": 0,
+      "checked_at_utc": "2026-10-14T09:46:08.266179+00:00",
+      "raw_output_sha256": "54986d77702c7a5388b66595f8b162ce7a84d5826d0598590ff0399c6e231963",
+      "complete_output": "warning: in the working copy of 'design/audit_impacts/flat-vector-startup-ui-retirement-20261014.json', LF will be replaced by CRLF the next time Git touches it\n"
+    }
+  ]
+}
