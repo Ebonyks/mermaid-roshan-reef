@@ -629,9 +629,17 @@
   ],
   "role_and_family_counts_are_separate": true,
   "publication": {
-    "status": "PENDING_REMOTE_BYTE_VERIFICATION",
+    "status": "ALL_DECLARED_DEPENDENCIES_VERIFIED",
+    "revision": "466b7047ba30fbbae310815ede97e97d812c0088",
+    "manifest_sha256": "8ed057c199ffd4953e628b60646583e8a84d045bad22bb49c0644bbc4d0018cc",
+    "payload_sha256": "cce7a26f1ee3ff6860760de8e0ab483346ed0f3e0638c0784c92568e514d5d9b",
+    "required_file_count": 2306,
+    "required_bytes": 995707334,
+    "access_mode": "Anonymous public HTTPS for manifest and every declared required file; public GitHub repo API independently checked; recipient can use the same unauthenticated access mode.",
+    "checked_at_utc": "2026-10-14T00:59:11.004921+00:00",
     "manifest": "MANIFEST.json",
-    "receipt": "REMOTE_VERIFICATION.json"
+    "receipt": "REMOTE_VERIFICATION.json",
+    "post_payload_metadata": "These5post-payload metadata files separately anonymous-byte-verified at the final receipt Git commit afterpush. Sealed manifest retains payload466b7047;publication is not acceptance."
   },
   "independent_style_review": {
     "file": "ROOT_CONTEXT_REVIEW_20261012.json",
@@ -779,11 +787,12 @@
   },
   "unpublished_external_activity_limit": "Separate Garden production branch has no published revision at the verified reconciliation; its local candidate is outside this frozen verified tally. Generation/integration counts in this packet retain packet scope.",
   "current_ci": {
-    "status": "NOT_PUBLISHED",
-    "headSha": null,
-    "conclusion": null,
-    "url": null,
-    "scope": "R25 local gates separate;exact GitHub head/status recorded after publication."
+    "conclusion": "",
+    "databaseId": 38493115959,
+    "headSha": "466b7047ba30fbbae310815ede97e97d812c0088",
+    "status": "in_progress",
+    "url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/38493115959",
+    "checked_at_utc": "2026-10-14T01:01:43.411016+00:00"
   },
   "inherited_r7_reference_base": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/c1e466a8a9e605f43b4c7a181b3d7b702d7677aa/docs/handoffs/codex_flat_vector_art_2026-10-07/r7_craft_context/",
   "inherited_r8_reference_base": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/f4de7b921298b0dac052df408af03bbb2b62132b/docs/handoffs/codex_flat_vector_art_2026-10-07/r8_geode_context/",
@@ -1269,11 +1278,20 @@
     "accepted_removed": 0
   },
   "prior_r24_receipt_ci": {
-    "conclusion": "",
+    "conclusion": "cancelled",
     "databaseId": 38488488920,
     "headSha": "ef975b9e92903ee61c585f9230c26f1dcb06641c",
-    "status": "in_progress",
+    "status": "completed",
     "url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/38488488920",
-    "checked_at_utc": "2026-10-14T00:54:42.457974+00:00"
-  }
+    "checked_at_utc": "2026-10-14T01:01:44.522529+00:00"
+  },
+  "prior_r24_payload_ci": {
+    "conclusion": "cancelled",
+    "databaseId": 38487916503,
+    "headSha": "16683b55bff30241cba099d5cd021a14b211cd95",
+    "status": "completed",
+    "url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/38487916503",
+    "checked_at_utc": "2026-10-14T01:01:45.507732+00:00"
+  },
+  "ci_supersession_scope": "Existing probes.yml groups byGitref andcancel-in-progress=true. R24runs cancelled afterR25push;not green or acceptance. R25payload/currentfinalreceiptCI tracked separately;do not merge unprobed work."
 }
