@@ -1,0 +1,78 @@
+{
+  "revision": "FV-AUDIT-20261013-R24",
+  "piece_id": "FV-D2EA0464919A",
+  "scope_id": "FVF-CEAD9700B93C",
+  "family": "opera_ballerina",
+  "route": "opera.act.02",
+  "source_revision": "900e9efabcbb35cb3dd688c1c54a1dcf6c7e47a7",
+  "reviewer": "Codex direct native image inspection; no human acceptance",
+  "status": "PARTIAL_REUSE_FIT; HUMAN_CONTEXT_REVIEW_PENDING",
+  "ten_axes": {
+    "contour": "The existing articulated whole hand replaces the trial-only circle/stem silhouette. Its painted finger/palm contour reads as a pointer in the inspected samples; no source contour edits or new design.",
+    "material": "Cream/coral paint with lavender shading is closer to the same-scene painted Roshan,stage flowers and music-box relief than the original uniform disc/stem. This is a qualitative partial inspection,no acceptance score.",
+    "palette": "Existing cream/coral/lavender colors sit within the Ballet gold/pink/lavender neighborhood. No recolor or approved identity redesign.",
+    "light": "Whole source retains its authored highlight/shadow; rigid rotation rotates those bands with the guide. Directional agreement with stage/world lighting and phone rendering remain unaccepted.",
+    "perspective": "Rigid140degree screen-space orientation aligns the fingertip upper-left and palm lower-right with the old diagonal stem. No scene/character perspective changes or deformation.",
+    "scale": "Uniform98idle/88pressed source squares,alpha0.96. Visible painted silhouette is narrower than the old large circle/halo. Phone contrast/size and complete motion endpoints remain open.",
+    "contact": "Fingertip UV(.44580078125,.90625) remains at the inherited authoritative demo point;last callback records have0 tip-error. This records source geometry,not QA11 projection/GPU/contact/child acceptance.",
+    "occlusion": "In18 inspected views the pose faces remain clearer than in R23 circle/stem samples;rotated palm still covers portions of costume,arms or tail. No full pose-round/trajectory occlusion clearance.",
+    "readability": "Articulated hand is more recognizable as a pointer in these desktop captures. Smaller silhouette and body overlap require actual child/phone/human review;neighboring flat frames/ribbon/ring/HUD remain visible and unresolved.",
+    "action_state": "Inherited actual demo timers,passive/wrong input,one pose choice,two bounded ribbon/twirl drags and release/teardown captured at both aspects. Guide hidden during real ribbon/twirl input and returns on release;callback metadata can be stale while hidden. Static whole hand is a UI guide,not authored character acting or full motion verification."
+  },
+  "direct_native_views": [
+    "native/1280x720/phase_00/opened_demo_04s.png",
+    "native/1280x720/phase_00/demo_press_12s.png",
+    "native/1280x720/phase_00/correct_moved.png",
+    "native/1280x720/phase_01/opened_demo_04s.png",
+    "native/1280x720/phase_01/demo_press_12s.png",
+    "native/1280x720/phase_01/correct_released.png",
+    "native/1280x720/phase_02/opened_demo_04s.png",
+    "native/1280x720/phase_02/demo_press_12s.png",
+    "native/1280x720/phase_02/correct_released.png",
+    "native/1600x720/phase_00/opened_demo_04s.png",
+    "native/1600x720/phase_00/demo_press_12s.png",
+    "native/1600x720/phase_00/correct_moved.png",
+    "native/1600x720/phase_01/opened_demo_04s.png",
+    "native/1600x720/phase_01/demo_press_12s.png",
+    "native/1600x720/phase_01/correct_released.png",
+    "native/1600x720/phase_02/opened_demo_04s.png",
+    "native/1600x720/phase_02/demo_press_12s.png",
+    "native/1600x720/phase_02/correct_released.png"
+  ],
+  "native_files": 54,
+  "unique_native_hashes": 54,
+  "new_generation_calls": 0,
+  "new_art_drawings": 0,
+  "inherited_source_visual_review": {
+    "revision": "900e9efabcbb35cb3dd688c1c54a1dcf6c7e47a7",
+    "evidence": "docs/handoffs/codex_flat_vector_art_2026-10-07/r23_ballet_pointer_context/REVIEW.json",
+    "images": [
+      "assets/opera/worlds/backdrops/world_ballerina.png",
+      "assets/opera/worlds/actors/animation/roshan_ballerina_sheet_a.png",
+      "assets/opera/worlds/props/goal_ballerina.png",
+      "assets_src/flat_vector_pointer_20261013/pointer_1024.png"
+    ],
+    "scope": "Previously directly viewed R23 sources;R24 preserves exact source hashes. No claim of additional new source views."
+  },
+  "remaining_weaknesses": [
+    "Full pose rounds,ribbon andtwirl trajectories/award missing",
+    "Body overlap and phone/child readability open",
+    "Missing-source trial fallback and production original guide remain",
+    "Full caller,natural-route,reentry/reload/focus and QA11 missing",
+    "Other scene procedural/raster-lookalike art remains",
+    "Whole-game denominator unknown"
+  ],
+  "acceptance": {
+    "candidate": null,
+    "approved": null,
+    "integrated": null,
+    "runtime_verified_replacement": null,
+    "QA11": null,
+    "device": null,
+    "child": null,
+    "owner": null,
+    "accepted_removed": 0
+  },
+  "limits": "Nonruntime unaccepted reused source. No new source pixels/calls/authored performance,production integration,missing-package fallback retirement,natural full route,QA11/device/child/owner or zero-art/global completion.",
+  "next_bounded_step": "Complete independent Boxing or Teacher guide current context/caller inventory while human review of this source/context stays pending; do not adopt unaccepted source into runtime."
+}

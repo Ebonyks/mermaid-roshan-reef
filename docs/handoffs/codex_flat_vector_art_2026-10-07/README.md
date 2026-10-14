@@ -1,4 +1,10 @@
-Current canonical evidence: [R23 Ballet guide context](r23_ballet_pointer_context/README.md), [registry](r23_ballet_pointer_context/per_piece.json), [coverage](r23_ballet_pointer_context/scene_coverage.json), [tally](r23_ballet_pointer_context/tally.json).
+Current canonical evidence: [R24 Ballet hand reuse](r24_ballet_pointer_reuse/README.md), [registry](r24_ballet_pointer_reuse/per_piece.json), [coverage](r24_ballet_pointer_reuse/scene_coverage.json), [tally](r24_ballet_pointer_reuse/tally.json).
+
+# Full-game flat-vector audit — current R24 Ballet reuse trial
+
+54native files/18 inspected views,existing whole hand only. Pose faces clearer in samples;body overlap and human/device review remain open.2564bounded/2678retained;225known/30families,49partial existing/10families. One unique hand sample,two separate per-piece context review requests. Zero accepted removal,unknown whole-game inventory.
+
+Historical R23 routing: [R23 Ballet guide context](r23_ballet_pointer_context/README.md), [registry](r23_ballet_pointer_context/per_piece.json), [coverage](r23_ballet_pointer_context/scene_coverage.json), [tally](r23_ballet_pointer_context/tally.json).
 
 # Full-game flat-vector audit — current R23 independent Ballet context
 
