@@ -950,10 +950,19 @@
   ],
   "role_and_family_counts_are_separate": true,
   "publication": {
-    "status": "PAYLOAD_PUBLICATION_PENDING",
+    "status": "PAYLOAD_AND_ALL_DECLARED_DEPENDENCIES_ANONYMOUSLY_VERIFIED",
+    "payload_revision": "05159caa2bd1c7c338c38cc04d3772e86471a551",
+    "required_file_count": 7181,
+    "required_bytes": 3038868333,
+    "manifest_sha256": "f3685e4de8351efc7f941795fc4b28df44077eb5adeff5c6c2903458231b12c2",
+    "payload_sha256": "bb558718479a49ca114e45ac6d9d019facbeab2924280bed09f804424f54780a",
+    "checked_at_utc": "2026-10-14T20:32:30.139612+00:00",
+    "access_mode": "Anonymous public HTTPS for manifest and every declared required file; public GitHub repo API independently checked; recipient can use the same unauthenticated access mode.",
     "manifest": "MANIFEST.json",
     "receipt": "REMOTE_VERIFICATION.json",
-    "creative_acceptance": false
+    "receipt_logical_sha256": "6c44689b37f683e9db0757dc89a1334150670965172f64ca1b99541302966d12",
+    "receipt_fragment_count": 5,
+    "final_metadata_status": "POST_RECEIPT_INDEX_AND_ALL_PARTS_CANONICAL_PROOF_RECORDED_SEPARATELY_IN_FINAL_BYTE_RECEIPT_JSON"
   },
   "independent_style_review": {
     "file": "ROOT_CONTEXT_REVIEW_20261012.json",
@@ -1772,7 +1781,8 @@
   "change_record": {
     "id": "CHG-046",
     "impact": "design/audit_impacts/flat-vector-craft-compositor-context-20261014.json",
-    "source_payload_pending": true
+    "source_payload_pending": false,
+    "payload_revision": "05159caa2bd1c7c338c38cc04d3772e86471a551"
   },
   "teacher_pointer_reuse": {
     "revision": "FV-AUDIT-20261014-R28",
@@ -1904,9 +1914,38 @@
     "scope": "Actualprior exacthead CI state; pending/cancellednotgreen. NewR29exacthead pending;unchangedproduction/R16native evidence separate."
   },
   "current_ci_snapshot": {
-    "status": "RETAINED_PRIOR_HEAD_ONLY_R39_NOT_PUBLISHED",
-    "retained_evidence": "MACHINE_BASELINE.json",
-    "scope": "R39 native ignored fixture is new diagnostic evidence; prior R32full82/R35CI retained at unchanged production, not new full-suite/visual acceptance."
+    "checked_at_utc": "2026-10-14T20:33:36.915078+00:00",
+    "runs": [
+      {
+        "conclusion": "",
+        "databaseId": 38632453137,
+        "headSha": "05159caa2bd1c7c338c38cc04d3772e86471a551",
+        "status": "in_progress",
+        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/38632453137"
+      },
+      {
+        "conclusion": "cancelled",
+        "databaseId": 38617622750,
+        "headSha": "9d19fdc1f0ebdcac8c11d75adc56926bc43d136f",
+        "status": "completed",
+        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/38617622750"
+      },
+      {
+        "conclusion": "cancelled",
+        "databaseId": 38617558087,
+        "headSha": "e2ace98a7899a2243d3b93b69bdb4ca20ba83318",
+        "status": "completed",
+        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/38617558087"
+      },
+      {
+        "conclusion": "cancelled",
+        "databaseId": 38616683775,
+        "headSha": "4822680d134b522850d8772cef858908335e534d",
+        "status": "completed",
+        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/38616683775"
+      }
+    ],
+    "scope": "Observed exactheads only;pending/cancelled notgreen/artacceptance. PriorR32actualfull82/R35CI retainedatbyteidenticalproduction,notnewR39engine execution. Source/capture/role counts separate; downstream runtime and acceptance open."
   },
   "inherited_r29_reference_base": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/fdf41220b8cfe16f129741e364b2ea75f4e5e7f1/docs/handoffs/codex_flat_vector_art_2026-10-07/r29_startup_ambience_context",
   "startup_ambience_retirement": {

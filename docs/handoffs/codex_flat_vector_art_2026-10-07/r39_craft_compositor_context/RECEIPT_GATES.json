@@ -1,5 +1,58 @@
 {
-  "status": "PENDING_POST_VERIFICATION_OR_PUBLICATION",
-  "accepted_removed": 0,
-  "mission_complete": false
+  "status": "PASS_SOURCE_ONLY_ACCEPTANCE_OPEN",
+  "commands": [
+    {
+      "command": [
+        "python",
+        "-B",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r39_craft_compositor_context\\validate.py"
+      ],
+      "started_at_utc": "2026-10-14T20:33:38.446091+00:00",
+      "checked_at_utc": "2026-10-14T20:33:40.220183+00:00",
+      "exit_code": 0,
+      "execution": "FRESH",
+      "evidence": "receipt_gates.log"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_document_authority.py"
+      ],
+      "started_at_utc": "2026-10-14T20:33:40.220257+00:00",
+      "checked_at_utc": "2026-10-14T20:33:49.579574+00:00",
+      "exit_code": 0,
+      "execution": "FRESH",
+      "evidence": "receipt_gates.log"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_development.py",
+        "--base",
+        "auto"
+      ],
+      "started_at_utc": "2026-10-14T20:33:49.579679+00:00",
+      "checked_at_utc": "2026-10-14T20:33:53.968013+00:00",
+      "exit_code": 0,
+      "execution": "FRESH",
+      "evidence": "receipt_gates.log"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_game_2d.py",
+        "--regression-gate"
+      ],
+      "started_at_utc": "2026-10-14T20:33:55.728149+00:00",
+      "checked_at_utc": "2026-10-14T20:34:56.616066+00:00",
+      "exit_code": 0,
+      "execution": "FRESH_ALL_RECEIPT_PARTS_STAGED",
+      "evidence": "receipt_gates.log"
+    }
+  ],
+  "raw_log_sha256": "efadfcc98ccbd2625b8642e8ec15117f8db1469b630b575b94ea0dd0c1d97705",
+  "scope": "3freshsource/document/impact checks+actualfresh2D complete stagedreceipt index/allparts scan. No new engine execution in this metadata gate. R39 GUI diagnostics and retained prior full82 remain separate; no visual acceptance."
 }

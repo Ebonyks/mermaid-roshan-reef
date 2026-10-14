@@ -1,5 +1,45 @@
 {
-  "status": "PENDING_POST_VERIFICATION_OR_PUBLICATION",
-  "accepted_removed": 0,
-  "mission_complete": false
+  "schema": "reef.bounded_audit_json_index/1",
+  "logical_schema": "reef.flat_vector_delta_receipt/1",
+  "logical_bytes": 4800869,
+  "logical_sha256": "6c44689b37f683e9db0757dc89a1334150670965172f64ca1b99541302966d12",
+  "fragment_count": 5,
+  "fragments": [
+    {
+      "path": "REMOTE_VERIFICATION.fragment0001.json",
+      "bytes": 1063859,
+      "sha256": "ad6b4cc95a6785420bd3717e18c9d241247559abb139724298fc8a2e44b7ef24",
+      "text_bytes": 1000000,
+      "text_sha256": "9d3d26579e7b50330fa8859f34c69377c896c90746c7ec0b61f1bdefaa54e464"
+    },
+    {
+      "path": "REMOTE_VERIFICATION.fragment0002.json",
+      "bytes": 1056566,
+      "sha256": "dffe98b522927b2144a8cade8d3573e68b3591931b0a99c9086eb2f209044d43",
+      "text_bytes": 1000000,
+      "text_sha256": "14cc73ecb2181043e18cade04fe19854907715e1722efc9eb457a9d147882992"
+    },
+    {
+      "path": "REMOTE_VERIFICATION.fragment0003.json",
+      "bytes": 1058464,
+      "sha256": "2d0a3836b9fd001c5fad47925d6e742ef73a0b4b6e76f6a92a1d85a51c0c0bf2",
+      "text_bytes": 1000000,
+      "text_sha256": "bc83e5bb4bf0e3a3a3d374deda4e0fe3c607bf4f1fdf67ed1b600d348f5eb731"
+    },
+    {
+      "path": "REMOTE_VERIFICATION.fragment0004.json",
+      "bytes": 1050523,
+      "sha256": "44b7764ce1efd82b3ff1e0fdf2462c271b1712ad83b84bc32ec30266e0287d55",
+      "text_bytes": 1000000,
+      "text_sha256": "e52b30e4692ec3216319cbb4d89d7217f1a5f3a43f61d844dacdacd369b323a3"
+    },
+    {
+      "path": "REMOTE_VERIFICATION.fragment0005.json",
+      "bytes": 844968,
+      "sha256": "225c28e10b04dd6c4e0ace7d04d31dd9b1a3a39fffabe62258916cc0192e1c77",
+      "text_bytes": 800869,
+      "text_sha256": "6aaa683ff9f9133c765e9f0d374472be9d1af3e12b36d7bd4db922bd2b780bbc"
+    }
+  ],
+  "scope": "Nonruntime source-audit text evidence;everypart scanned/hashed. LogicalJSON bytes preserved;no runtime/model/creative acceptance orauditor waiver."
 }
