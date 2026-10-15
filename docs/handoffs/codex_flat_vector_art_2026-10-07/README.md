@@ -1,3 +1,9 @@
+Current canonical evidence: [R65 Wardrobe cached frame/fit refinement](r65_wardrobe_cached_fit/README.md), [registry](r65_wardrobe_cached_fit/per_piece.json), [coverage](r65_wardrobe_cached_fit/scene_coverage.json), [tally](r65_wardrobe_cached_fit/tally.json).
+
+Ignored candidate225checks/R64control50;304events239bounded65excluded. Thin contour/focus/source-use/phone/QA11/child/owner remain open.0production/newart/removal/globalunknown.
+
+## Historical entry text retained below
+
 Current canonical evidence: [R64 painted wardrobe material/heading reuse candidate](r64_wardrobe_material_reuse/README.md), [registry](r64_wardrobe_material_reuse/per_piece.json), [coverage](r64_wardrobe_material_reuse/scene_coverage.json), [tally](r64_wardrobe_material_reuse/tally.json).
 
 Ignored candidate219checks+sourcecontrol49;402events231bounded171excluded;88partial88without0complete unchanged. Padding/portrait/source-use/QA11/device/child/owner remain open;0production adoption/art/removal/global denominator unknown.

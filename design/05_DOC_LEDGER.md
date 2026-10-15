@@ -1337,3 +1337,7 @@ release/device/child/owner authority retain precedence.
 | `docs/handoffs/codex_flat_vector_art_2026-10-07/r64_wardrobe_material_reuse/README.md` | 🔵 | `SUPPORTING_CURRENT`; ignored Wardrobe painted-material/title source-reuse candidate219checks/sourcecontrol49;402native231bounded171excluded. Prior control observer/v1fit failures retained;131sampled candidate material states.88partial88without0complete unchanged; no production/sourcePNG/identity adoption or creative/device/child/owner/removal credit. |
 
 | `docs/handoffs/codex_flat_vector_art_2026-10-07/r64_wardrobe_material_reuse/REPRODUCTION.md` | 🔵 | `SUPPORTING_CURRENT`; R64 exact ignored subclass/base/profile/native/byte guard and partial source-control lineage. Reproduction does not accept source reuse, alpha projection, QA11, freshOS, physical device, child or owner. |
+
+| `docs/handoffs/codex_flat_vector_art_2026-10-07/r65_wardrobe_cached_fit/README.md` | 🔵 | `SUPPORTING_CURRENT`; ignored cached Wardrobe frame/fit225candidate50R64control checks;304native239bounded65excluded. Original targets/portraits preserved; thin contour/focus/source-use/phone/QA11/child/owner open. No production/newart/removal. |
+
+| `docs/handoffs/codex_flat_vector_art_2026-10-07/r65_wardrobe_cached_fit/REPRODUCTION.md` | 🔵 | `SUPPORTING_CURRENT`; final5fixtures/privateprofiles/nativeguards; initialbuilders scaffolding. NoQA11/freshOS/device/creative/child/owner acceptance. |

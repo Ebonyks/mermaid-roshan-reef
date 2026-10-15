@@ -1,0 +1,346 @@
+{
+  "source_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+  "candidate_checks": 225,
+  "control_checks": 50,
+  "early_close_marks": [
+    {
+      "before_burst_count": 1,
+      "id": "back_during_huluu_burst",
+      "old_burst_id": 216241540123,
+      "old_burst_valid_after": false,
+      "owned_frame_ids": [
+        206057770104,
+        206091324546,
+        206124878995,
+        206158433438,
+        206191987883
+      ],
+      "source_closed": true,
+      "source_tween_valid_after": false,
+      "source_tween_valid_before": true,
+      "surviving_frame_ids_after_12frames": [],
+      "use_done": false,
+      "wardrobe_block_after": false
+    },
+    {
+      "before_burst_count": 1,
+      "id": "done_during_classic_burst",
+      "old_burst_id": 232582548512,
+      "old_burst_valid_after": false,
+      "owned_frame_ids": [
+        223321525376,
+        223355079836,
+        223388634227,
+        223422188723,
+        223455743164
+      ],
+      "source_closed": true,
+      "source_tween_valid_after": false,
+      "source_tween_valid_before": true,
+      "surviving_frame_ids_after_12frames": [],
+      "use_done": true,
+      "wardrobe_block_after": false
+    }
+  ],
+  "retired_owner_observations": [
+    {
+      "case": "attempt1_cached_fit_candidate_locked_1280",
+      "cache_before": {
+        "duplicate_paint_skips": 5,
+        "frame_nodes_created": 10,
+        "inherited_open_allocations_not_removed_or_profiled": true,
+        "paint_scans": 3,
+        "resource_ids": {
+          "empty": -9223371851365872321,
+          "hover": -9223371851399426667,
+          "parent": -9223371851349096925,
+          "warm": -9223371851382649450,
+          "white": -9223371851416204345
+        },
+        "source_refreshes": 6,
+        "style_creations": 5,
+        "sync_writes": 10
+      },
+      "owner_valid_after_3frames": false,
+      "scope": "Observed weak owner lifetime; no strong test reference retained, not a global leak/profile proof."
+    },
+    {
+      "case": "attempt1_cached_fit_candidate_locked_1280",
+      "cache_before": {
+        "duplicate_paint_skips": 2,
+        "frame_nodes_created": 10,
+        "inherited_open_allocations_not_removed_or_profiled": true,
+        "paint_scans": 3,
+        "resource_ids": {
+          "empty": -9223371718792311590,
+          "hover": -9223371718825865783,
+          "parent": -9223371718775534199,
+          "warm": -9223371718809088566,
+          "white": -9223371718842643547
+        },
+        "source_refreshes": 3,
+        "style_creations": 5,
+        "sync_writes": 6
+      },
+      "owner_valid_after_3frames": false,
+      "scope": "Observed weak owner lifetime; no strong test reference retained, not a global leak/profile proof."
+    },
+    {
+      "case": "attempt1_cached_fit_candidate_locked_1600",
+      "cache_before": {
+        "duplicate_paint_skips": 5,
+        "frame_nodes_created": 10,
+        "inherited_open_allocations_not_removed_or_profiled": true,
+        "paint_scans": 3,
+        "resource_ids": {
+          "empty": -9223371851365874126,
+          "hover": -9223371851399426667,
+          "parent": -9223371851349096925,
+          "warm": -9223371851382649450,
+          "white": -9223371851416204345
+        },
+        "source_refreshes": 6,
+        "style_creations": 5,
+        "sync_writes": 10
+      },
+      "owner_valid_after_3frames": false,
+      "scope": "Observed weak owner lifetime; no strong test reference retained, not a global leak/profile proof."
+    },
+    {
+      "case": "attempt1_cached_fit_candidate_locked_1600",
+      "cache_before": {
+        "duplicate_paint_skips": 2,
+        "frame_nodes_created": 10,
+        "inherited_open_allocations_not_removed_or_profiled": true,
+        "paint_scans": 3,
+        "resource_ids": {
+          "empty": -9223371718775534374,
+          "hover": -9223371718809088567,
+          "parent": -9223371718758756983,
+          "warm": -9223371718792311350,
+          "white": -9223371718825866331
+        },
+        "source_refreshes": 3,
+        "style_creations": 5,
+        "sync_writes": 6
+      },
+      "owner_valid_after_3frames": false,
+      "scope": "Observed weak owner lifetime; no strong test reference retained, not a global leak/profile proof."
+    },
+    {
+      "case": "attempt1_cached_fit_candidate_teardown_locked_1280",
+      "cache_before": {
+        "duplicate_paint_skips": 2,
+        "frame_nodes_created": 10,
+        "inherited_open_allocations_not_removed_or_profiled": true,
+        "paint_scans": 4,
+        "resource_ids": {
+          "empty": -9223371850979998157,
+          "hover": -9223371851013550698,
+          "parent": -9223371850963220957,
+          "warm": -9223371850996773481,
+          "white": -9223371851030328376
+        },
+        "source_refreshes": 4,
+        "style_creations": 5,
+        "sync_writes": 8
+      },
+      "owner_valid_after_3frames": false,
+      "scope": "Observed weak owner lifetime; no strong test reference retained, not a global leak/profile proof."
+    },
+    {
+      "case": "attempt1_cached_fit_candidate_unlocked_1280",
+      "cache_before": {
+        "duplicate_paint_skips": 5,
+        "frame_nodes_created": 10,
+        "inherited_open_allocations_not_removed_or_profiled": true,
+        "paint_scans": 4,
+        "resource_ids": {
+          "empty": -9223371851281986241,
+          "hover": -9223371851315540587,
+          "parent": -9223371851265210845,
+          "warm": -9223371851298763370,
+          "white": -9223371851332318265
+        },
+        "source_refreshes": 7,
+        "style_creations": 5,
+        "sync_writes": 10
+      },
+      "owner_valid_after_3frames": false,
+      "scope": "Observed weak owner lifetime; no strong test reference retained, not a global leak/profile proof."
+    },
+    {
+      "case": "attempt1_cached_fit_candidate_unlocked_1280",
+      "cache_before": {
+        "duplicate_paint_skips": 2,
+        "frame_nodes_created": 10,
+        "inherited_open_allocations_not_removed_or_profiled": true,
+        "paint_scans": 3,
+        "resource_ids": {
+          "empty": -9223371717903119385,
+          "hover": -9223371717936673340,
+          "parent": -9223371717886342142,
+          "warm": -9223371717919896123,
+          "white": -9223371717953451099
+        },
+        "source_refreshes": 3,
+        "style_creations": 5,
+        "sync_writes": 6
+      },
+      "owner_valid_after_3frames": false,
+      "scope": "Observed weak owner lifetime; no strong test reference retained, not a global leak/profile proof."
+    },
+    {
+      "case": "attempt1_cached_fit_candidate_unlocked_1600",
+      "cache_before": {
+        "duplicate_paint_skips": 5,
+        "frame_nodes_created": 10,
+        "inherited_open_allocations_not_removed_or_profiled": true,
+        "paint_scans": 4,
+        "resource_ids": {
+          "empty": -9223371851281986241,
+          "hover": -9223371851315540587,
+          "parent": -9223371851265210845,
+          "warm": -9223371851298763370,
+          "white": -9223371851332318265
+        },
+        "source_refreshes": 7,
+        "style_creations": 5,
+        "sync_writes": 10
+      },
+      "owner_valid_after_3frames": false,
+      "scope": "Observed weak owner lifetime; no strong test reference retained, not a global leak/profile proof."
+    },
+    {
+      "case": "attempt1_cached_fit_candidate_unlocked_1600",
+      "cache_before": {
+        "duplicate_paint_skips": 2,
+        "frame_nodes_created": 10,
+        "inherited_open_allocations_not_removed_or_profiled": true,
+        "paint_scans": 3,
+        "resource_ids": {
+          "empty": -9223371717836010522,
+          "hover": -9223371717869564459,
+          "parent": -9223371717819234781,
+          "warm": -9223371717852787242,
+          "white": -9223371717886342235
+        },
+        "source_refreshes": 3,
+        "style_creations": 5,
+        "sync_writes": 6
+      },
+      "owner_valid_after_3frames": false,
+      "scope": "Observed weak owner lifetime; no strong test reference retained, not a global leak/profile proof."
+    },
+    {
+      "case": "attempt1_r64_control_locked_1280",
+      "cache_before": {},
+      "owner_valid_after_3frames": false,
+      "scope": "Observed weak owner lifetime; no strong test reference retained, not a global leak/profile proof."
+    },
+    {
+      "case": "attempt1_r64_control_locked_1280",
+      "cache_before": {},
+      "owner_valid_after_3frames": false,
+      "scope": "Observed weak owner lifetime; no strong test reference retained, not a global leak/profile proof."
+    }
+  ],
+  "cache_epochs": [
+    {
+      "case": "attempt1_cached_fit_candidate_locked_1280",
+      "resource_ids": {
+        "empty": -9223371851365872321,
+        "hover": -9223371851399426667,
+        "parent": -9223371851349096925,
+        "warm": -9223371851382649450,
+        "white": -9223371851416204345
+      }
+    },
+    {
+      "case": "attempt1_cached_fit_candidate_locked_1280",
+      "resource_ids": {
+        "empty": -9223371718792311590,
+        "hover": -9223371718825865783,
+        "parent": -9223371718775534199,
+        "warm": -9223371718809088566,
+        "white": -9223371718842643547
+      }
+    },
+    {
+      "case": "attempt1_cached_fit_candidate_locked_1600",
+      "resource_ids": {
+        "empty": -9223371851365874126,
+        "hover": -9223371851399426667,
+        "parent": -9223371851349096925,
+        "warm": -9223371851382649450,
+        "white": -9223371851416204345
+      }
+    },
+    {
+      "case": "attempt1_cached_fit_candidate_locked_1600",
+      "resource_ids": {
+        "empty": -9223371718775534374,
+        "hover": -9223371718809088567,
+        "parent": -9223371718758756983,
+        "warm": -9223371718792311350,
+        "white": -9223371718825866331
+      }
+    },
+    {
+      "case": "attempt1_cached_fit_candidate_teardown_locked_1280",
+      "resource_ids": {
+        "empty": -9223371850979998157,
+        "hover": -9223371851013550698,
+        "parent": -9223371850963220957,
+        "warm": -9223371850996773481,
+        "white": -9223371851030328376
+      }
+    },
+    {
+      "case": "attempt1_cached_fit_candidate_unlocked_1280",
+      "resource_ids": {
+        "empty": -9223371851281986241,
+        "hover": -9223371851315540587,
+        "parent": -9223371851265210845,
+        "warm": -9223371851298763370,
+        "white": -9223371851332318265
+      }
+    },
+    {
+      "case": "attempt1_cached_fit_candidate_unlocked_1280",
+      "resource_ids": {
+        "empty": -9223371717903119385,
+        "hover": -9223371717936673340,
+        "parent": -9223371717886342142,
+        "warm": -9223371717919896123,
+        "white": -9223371717953451099
+      }
+    },
+    {
+      "case": "attempt1_cached_fit_candidate_unlocked_1600",
+      "resource_ids": {
+        "empty": -9223371851281986241,
+        "hover": -9223371851315540587,
+        "parent": -9223371851265210845,
+        "warm": -9223371851298763370,
+        "white": -9223371851332318265
+      }
+    },
+    {
+      "case": "attempt1_cached_fit_candidate_unlocked_1600",
+      "resource_ids": {
+        "empty": -9223371717836010522,
+        "hover": -9223371717869564459,
+        "parent": -9223371717819234781,
+        "warm": -9223371717852787242,
+        "white": -9223371717886342235
+      }
+    }
+  ],
+  "runtime_files": 4420,
+  "initialized_sidecars": 4041,
+  "normal_save_names": 8,
+  "normal_save_access": "Hash-only; no actual child data copied/read/seeded. Synthetic private profiles only.",
+  "production_changes": [],
+  "scope": "Observed original-input disposal of five frame nodes at Back/Done and weak owner lifetime after same-engine retirement. Not a global leak/profile/performance proof, freshOS or physical device evidence."
+}

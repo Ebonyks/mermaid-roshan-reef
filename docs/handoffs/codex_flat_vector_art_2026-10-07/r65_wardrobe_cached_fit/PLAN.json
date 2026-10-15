@@ -1,0 +1,115 @@
+{
+  "revision": "FV-AUDIT-20261015-R65",
+  "change_id": "CHG-072",
+  "baseline": "6647c56cb0c05f0130557f022abf5d421b4cc871",
+  "source_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+  "previous_goal_turn_classification": "PROGRESS:R64payloadc8604d31/receipt2191e83f/final6647c56c;588files349738301B+metadata8/own2verified.219candidate49controlchecks;402native231bounded171excluded;fitted title/material candidate, padding/cost gaps explicit.0production/adoption/removal/globalunknown.",
+  "scope": "Ignored R65 refinement of R64 candidate only. Existing sourcePNG/portraits/identities unchanged. Keep original5button hit rectangles/positions and3look portraits96x94at10,8. Move row text inset from12to36. Replace each visible ButtonStylebox with one owned painted childPanel behindparent, mouseIGNORE; source card completealphaRegion9,8,223,224/36pxsource nine-slice rendered at3xdrawsize and uniform1/3scale, verticalvisualbounds expand7px each, preserving authored border ratios while making effective12pxborders and enough paper for originalportraits. Button6style states use shared invisible StyleBoxEmpty, not flatfill/hidden wash; actual visible frame is StyleBoxTexture on child. GUIstate signals only, no perframe processing or source pressed callback replacement. Cache3immutable frame colorstyles+oneemptyinputstyle+oneparentpanelstyle perowner; reuseWHITEforpreview, no newcandidate style allocation on source refresh/reopen. Mechanical currentD _wardrobe_refresh clone removes allocating style_picture_button only, retains all preview/selected/locked/text/modulate semantics and typography/meta effects explicitly. R64open visualbody retained except cachedpanel/getters, no duplicate open repaint; inherited pick/save/feedback/Done/close remains currentD. Exact R64control uses unchanged published owner, same new observer/inputs. Candidate4locked/unlocked1280/1600fullflows plus source-bound originalR63behavior33+material/geometry/cache tests, nativehover/focusdiagnostic and candidateearlyclose with5frame-node disposal/cache lifetime observations. No production/runtimefiles/sourcePNG/savekeys/identity/choice/clock/progress/camera changes; no newart/generation or newalias/status/removalcredit. Originalcaption/toast/preview/protectedlegacylook/feedback/glyph/roomraster/fullcaller/inventory/QA11/device/child/owner remainopen. Texture/source/style/newuse remainprovisional. Cache counters/resourceIDs prove bounded allocation only, not phonecost/overdraw/FPS acceptance.",
+  "rules": [
+    "DL-AUTH-01",
+    "DL-AUTH-02",
+    "DL-AUTH-04",
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-MED-01",
+    "DL-MED-02",
+    "DL-MED-04",
+    "DL-MED-05",
+    "DL-MED-09",
+    "DL-ASSET-01",
+    "DL-ASSET-03",
+    "DL-ASSET-05",
+    "DL-ASSET-06",
+    "DL-READ-01",
+    "DL-READ-02",
+    "DL-READ-05",
+    "DL-UI-01",
+    "DL-UI-03",
+    "DL-UI-04",
+    "DL-SAVE-01",
+    "DL-SAVE-02",
+    "DL-SAVE-03",
+    "DL-SAVE-04",
+    "DL-QA-01",
+    "DL-QA-02",
+    "DL-QA-03",
+    "DL-QA-07",
+    "DL-QA-09",
+    "DL-QA-10",
+    "DL-QA-11",
+    "DL-QA-14",
+    "DL-QA-15",
+    "DL-LAY-03",
+    "DL-LAY-08",
+    "DL-PERF-03"
+  ],
+  "findings": [
+    "MA-VIS-006",
+    "MA-VIS-008",
+    "MA-DOC-007",
+    "MA-2D-002"
+  ],
+  "stable_piece_ids": [
+    "FV-E9E82E0C6703",
+    "FV-2ABD73BAFFE0",
+    "FV-AB474EF3699E"
+  ],
+  "addressed_observation_ids": [
+    "FVOBS-WARDROBE-R64-PADDING-FIT",
+    "FVOBS-WARDROBE-R64-RESOURCE-COST"
+  ],
+  "required_evidence": [
+    "Exact published R64 currentcontext/prototype/resource/failed-history and sourceframe references anonymouslyverified before fixture. Inventory found23runtime basename matches, no suitable widepaintedUI frame beyond same family; retain scope/sourceapproval limits.",
+    "Parser/inference/exactofficial4.7.2Mobile before native; runtime4420/initializedsidecars4041/normal8hash guards, sequential owned handles to terminal.",
+    "Original33behavior assertions plus unchanged target/portrait rectangles, preserved source refresh semantics, resourceID/counters/states, actual source callbacks; sameprofiles/classicrestore/reload/childentry/Back/Done.",
+    "4candidate profiles/aspects, R64control and liveclose adjunct; actualwholeframes/transparentdiagnostic frame geometry ifneeded, not fresh-runtime/QA11. No stale/editedcapture or count-as-art claim.",
+    "Before/after native style10axes, same-scene source/capturehashes, visibleframe/sampling/drawgeometry/typography metrics; testpadding vs actualdrawnframe withoutshrinking readability/hitrects.",
+    "Resource reuse measuredseparately from inheritedbaseopen style allocations/newchildnodes/phoneGPUcost. No unmeasuredperformanceclaim; no newcreativeacceptance.",
+    "All changedfiles impact/document coverage,54document tests6stress, actual staged+committed2D perpush, exactanonymous payload/metadata/finalsource/cleanref verification."
+  ],
+  "planned_cases": [
+    {
+      "refined": false,
+      "unlocked": false,
+      "width": 1280
+    },
+    {
+      "refined": true,
+      "unlocked": false,
+      "width": 1280
+    },
+    {
+      "refined": true,
+      "unlocked": false,
+      "width": 1600
+    },
+    {
+      "refined": true,
+      "unlocked": true,
+      "width": 1280
+    },
+    {
+      "refined": true,
+      "unlocked": true,
+      "width": 1600
+    },
+    {
+      "refined": true,
+      "unlocked": false,
+      "width": 1280,
+      "earlyclose": true
+    }
+  ],
+  "delivery": {
+    "repository": "Ebonyks/mermaid-roshan-reef",
+    "branch": "codex/flat-vector-r6-20261012",
+    "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r65_wardrobe_cached_fit",
+    "access_mode": "Anonymous public immutable HTTPS"
+  },
+  "generation_calls": 0,
+  "new_drawing_samples": 0,
+  "accepted_removed": 0,
+  "mission_complete": false,
+  "started_at_utc": "2026-10-15T20:59:49.081638+00:00"
+}
