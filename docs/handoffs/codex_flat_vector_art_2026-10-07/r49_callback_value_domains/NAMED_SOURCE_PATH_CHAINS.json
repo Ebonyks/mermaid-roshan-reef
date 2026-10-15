@@ -1,0 +1,357 @@
+{
+  "baseline": "61d12c5b7d29cd106a817d8d0064aa60f48f3ed2",
+  "status": "NINE_NAMED_SOURCE_PATHS_BOUND_FULL_CLOSURE_OPEN",
+  "chains": [
+    {
+      "port_id": "FVP-5FA6C9E6E469",
+      "invocation_ids": [
+        "FVC-63B3AE65BF2E"
+      ],
+      "stored_field": "castle_royal_hall_event_entry",
+      "named_target": {
+        "path": "scripts/day_one_flow.gd",
+        "revision": "61d12c5b7d29cd106a817d8d0064aa60f48f3ed2",
+        "function": "_day_one_trigger_boss",
+        "file_sha256": "913cfc362e1a2a9cc3a73ed0e1d3e491b73731d335c51af3f2f3753bb98a10e1",
+        "body_sha256": "3cb735ffa499300440b9cae143d182eb7831d767f3968fb55ed7a696286115df",
+        "start_line": 392,
+        "end_line": 395
+      },
+      "write_caller_evidence_ids": [
+        "FVW-C7FDAF076BDF",
+        "FVW-1EFF9F66D8BF",
+        "FVW-AD2D03BF6184"
+      ],
+      "steps": [
+        "DayOneFlow passes its bound _day_one_trigger_boss method with the named event ID",
+        "CastleRooms validates and stores the passed Callable on the referenced Main field",
+        "Default activation copies the callback locally, clears the one-shot hook, then invokes the local",
+        "Source relation only in this revision; no new Royal Hall runtime test"
+      ],
+      "conditional_scope": "Only when the shown receiver/owner path is the active path and no intervening alternate mutation changes it",
+      "all_alias_write_caller_resource_runtime_domains_closed": false
+    },
+    {
+      "port_id": "FVP-7790A08CB7C7",
+      "invocation_ids": [
+        "FVC-98FDB9ECE230"
+      ],
+      "stored_field": "encounter_cancel",
+      "named_target": {
+        "path": "scripts/games/dust_boss.gd",
+        "revision": "61d12c5b7d29cd106a817d8d0064aa60f48f3ed2",
+        "function": "_cancel_world_move",
+        "file_sha256": "05f9174e05c0c00ee09cf21c8e70e251c3afbed8e35b9f9526e200de65869a0d",
+        "body_sha256": "29a5a86acaeb645c1af8449951b729cbca48b3b4ca2a099c5a17104c3467193c",
+        "start_line": 652,
+        "end_line": 656
+      },
+      "write_caller_evidence_ids": [
+        "FVW-F7A09DC753B2",
+        "FVW-16DCBB8551EB",
+        "FVW-68F58E075224",
+        "FVW-3CE0CBB224F4"
+      ],
+      "steps": [
+        "DustBoss._stage_open passes three named bound methods to the shared component",
+        "Setter clears the prior input owner before storing parameters",
+        "DustBoss.stage_close uses empty Callable defaults to reset the three fields",
+        "Actual headless component protocol proof uses synthetic receivers; it does not execute DustBoss/Main"
+      ],
+      "conditional_scope": "Only when the shown receiver/owner path is the active path and no intervening alternate mutation changes it",
+      "all_alias_write_caller_resource_runtime_domains_closed": false
+    },
+    {
+      "port_id": "FVP-CFA9A07B6CE2",
+      "invocation_ids": [
+        "FVC-8C0B365D7CE9"
+      ],
+      "stored_field": "world_press_cancel",
+      "named_target": {
+        "path": "scripts/main.gd",
+        "revision": "61d12c5b7d29cd106a817d8d0064aa60f48f3ed2",
+        "function": "_on_world_press_cancel",
+        "file_sha256": "b6e905824a4b60461181deda525c816fc790613479e9321d12ae7f71df666a33",
+        "body_sha256": "17357189b299851695f48df8068ee3030b26d686a77124fde994979643c36fb3",
+        "start_line": 4552,
+        "end_line": 4565
+      },
+      "write_caller_evidence_ids": [
+        "FVW-F7A09DC753B2",
+        "FVW-D56184007EB8"
+      ],
+      "steps": [
+        "Main._ready explicitly constructs the TouchUI component",
+        "Main._init_touch_experiment directly stores Callable(self, named Main method) on that source path",
+        "TouchUI invokes the selected field only if valid"
+      ],
+      "conditional_scope": "Only when the shown receiver/owner path is the active path and no intervening alternate mutation changes it",
+      "all_alias_write_caller_resource_runtime_domains_closed": false
+    },
+    {
+      "port_id": "FVP-B89567729BAE",
+      "invocation_ids": [
+        "FVC-898DF0BC7B99",
+        "FVC-BC833AC084EC",
+        "FVC-07F706108658"
+      ],
+      "stored_field": "world_press_release",
+      "named_target": {
+        "path": "scripts/main.gd",
+        "revision": "61d12c5b7d29cd106a817d8d0064aa60f48f3ed2",
+        "function": "_on_world_press_release",
+        "file_sha256": "b6e905824a4b60461181deda525c816fc790613479e9321d12ae7f71df666a33",
+        "body_sha256": "54d28a192efc635b17c9789d12a9f5307ae2b0a901e7e9c9ec61c3edc1a416c2",
+        "start_line": 4504,
+        "end_line": 4520
+      },
+      "write_caller_evidence_ids": [
+        "FVW-F7A09DC753B2",
+        "FVW-048963CF8033"
+      ],
+      "steps": [
+        "Main._ready explicitly constructs the TouchUI component",
+        "Main._init_touch_experiment directly stores Callable(self, named Main method) on that source path",
+        "TouchUI invokes the selected field only if valid"
+      ],
+      "conditional_scope": "Only when the shown receiver/owner path is the active path and no intervening alternate mutation changes it",
+      "all_alias_write_caller_resource_runtime_domains_closed": false
+    },
+    {
+      "port_id": "FVP-309CA50D4DB5",
+      "invocation_ids": [
+        "FVC-A255FBD2CA5C",
+        "FVC-B14BF80BE11C"
+      ],
+      "stored_field": "encounter_motion",
+      "named_target": {
+        "path": "scripts/games/dust_boss.gd",
+        "revision": "61d12c5b7d29cd106a817d8d0064aa60f48f3ed2",
+        "function": "on_world_drag",
+        "file_sha256": "05f9174e05c0c00ee09cf21c8e70e251c3afbed8e35b9f9526e200de65869a0d",
+        "body_sha256": "b0112ba435ae3a60f11007cb57bc3e5af3fe301b8669e2f53e860d4167871552",
+        "start_line": 640,
+        "end_line": 647
+      },
+      "write_caller_evidence_ids": [
+        "FVW-F7A09DC753B2",
+        "FVW-16DCBB8551EB",
+        "FVW-B15C118876CD",
+        "FVW-3CE0CBB224F4"
+      ],
+      "steps": [
+        "DustBoss._stage_open passes three named bound methods to the shared component",
+        "Setter clears the prior input owner before storing parameters",
+        "DustBoss.stage_close uses empty Callable defaults to reset the three fields",
+        "Actual headless component protocol proof uses synthetic receivers; it does not execute DustBoss/Main"
+      ],
+      "conditional_scope": "Only when the shown receiver/owner path is the active path and no intervening alternate mutation changes it",
+      "all_alias_write_caller_resource_runtime_domains_closed": false
+    },
+    {
+      "port_id": "FVP-E09CA2E303CF",
+      "invocation_ids": [
+        "FVC-670083E248DC"
+      ],
+      "stored_field": "encounter_press",
+      "named_target": {
+        "path": "scripts/games/dust_boss.gd",
+        "revision": "61d12c5b7d29cd106a817d8d0064aa60f48f3ed2",
+        "function": "on_world_tap",
+        "file_sha256": "05f9174e05c0c00ee09cf21c8e70e251c3afbed8e35b9f9526e200de65869a0d",
+        "body_sha256": "3fdc96f7c45057a250975b40f87e4c6e041abd6cdc9f4b9a312d75003b643fd4",
+        "start_line": 611,
+        "end_line": 634
+      },
+      "write_caller_evidence_ids": [
+        "FVW-F7A09DC753B2",
+        "FVW-16DCBB8551EB",
+        "FVW-37F7E6B74FDB",
+        "FVW-3CE0CBB224F4"
+      ],
+      "steps": [
+        "DustBoss._stage_open passes three named bound methods to the shared component",
+        "Setter clears the prior input owner before storing parameters",
+        "DustBoss.stage_close uses empty Callable defaults to reset the three fields",
+        "Actual headless component protocol proof uses synthetic receivers; it does not execute DustBoss/Main"
+      ],
+      "conditional_scope": "Only when the shown receiver/owner path is the active path and no intervening alternate mutation changes it",
+      "all_alias_write_caller_resource_runtime_domains_closed": false
+    },
+    {
+      "port_id": "FVP-3049DAEF898B",
+      "invocation_ids": [
+        "FVC-DD12A02E7B0E",
+        "FVC-65AF9D2BB726"
+      ],
+      "stored_field": "world_press_probe",
+      "named_target": {
+        "path": "scripts/main.gd",
+        "revision": "61d12c5b7d29cd106a817d8d0064aa60f48f3ed2",
+        "function": "_on_world_press",
+        "file_sha256": "b6e905824a4b60461181deda525c816fc790613479e9321d12ae7f71df666a33",
+        "body_sha256": "2f4276005488a30ebb2f07b7a9c4e1a203da0a33b557d065a162f370e3930d3d",
+        "start_line": 4469,
+        "end_line": 4503
+      },
+      "write_caller_evidence_ids": [
+        "FVW-F7A09DC753B2",
+        "FVW-BE01A1572889"
+      ],
+      "steps": [
+        "Main._ready explicitly constructs the TouchUI component",
+        "Main._init_touch_experiment directly stores Callable(self, named Main method) on that source path",
+        "TouchUI invokes the selected field only if valid"
+      ],
+      "conditional_scope": "Only when the shown receiver/owner path is the active path and no intervening alternate mutation changes it",
+      "all_alias_write_caller_resource_runtime_domains_closed": false
+    },
+    {
+      "port_id": "FVP-A9A347158707",
+      "invocation_ids": [
+        "FVC-8BD10C7A998F",
+        "FVC-E91A4B7657E7"
+      ],
+      "stored_field": "world_press_drag",
+      "named_target": {
+        "path": "scripts/main.gd",
+        "revision": "61d12c5b7d29cd106a817d8d0064aa60f48f3ed2",
+        "function": "_on_world_press_drag",
+        "file_sha256": "b6e905824a4b60461181deda525c816fc790613479e9321d12ae7f71df666a33",
+        "body_sha256": "69f0f28184c1ad574e8d54462e078430c1c49897da0f2d64d0f9042e992ab80a",
+        "start_line": 4532,
+        "end_line": 4551
+      },
+      "write_caller_evidence_ids": [
+        "FVW-F7A09DC753B2",
+        "FVW-AF69D659ACFF"
+      ],
+      "steps": [
+        "Main._ready explicitly constructs the TouchUI component",
+        "Main._init_touch_experiment directly stores Callable(self, named Main method) on that source path",
+        "TouchUI invokes the selected field only if valid"
+      ],
+      "conditional_scope": "Only when the shown receiver/owner path is the active path and no intervening alternate mutation changes it",
+      "all_alias_write_caller_resource_runtime_domains_closed": false
+    },
+    {
+      "port_id": "FVP-6B3111116611",
+      "invocation_ids": [
+        "FVC-C224A6F65CB1"
+      ],
+      "stored_field": "world_drag_end",
+      "named_target": {
+        "path": "scripts/main.gd",
+        "revision": "61d12c5b7d29cd106a817d8d0064aa60f48f3ed2",
+        "function": "_on_world_drag_end",
+        "file_sha256": "b6e905824a4b60461181deda525c816fc790613479e9321d12ae7f71df666a33",
+        "body_sha256": "bc851b2a8b6571a007ed329aa09a63dc38914a54c1e7e794a014d2067026f602",
+        "start_line": 4566,
+        "end_line": 4586
+      },
+      "write_caller_evidence_ids": [
+        "FVW-F7A09DC753B2",
+        "FVW-D10FA6E35F88"
+      ],
+      "steps": [
+        "Main._ready explicitly constructs the TouchUI component",
+        "Main._init_touch_experiment directly stores Callable(self, named Main method) on that source path",
+        "TouchUI invokes the selected field only if valid"
+      ],
+      "conditional_scope": "Only when the shown receiver/owner path is the active path and no intervening alternate mutation changes it",
+      "all_alias_write_caller_resource_runtime_domains_closed": false
+    }
+  ],
+  "source_order_evidence": [
+    {
+      "path": "scripts/touch_ui.gd",
+      "revision": "61d12c5b7d29cd106a817d8d0064aa60f48f3ed2",
+      "function": "set_encounter_controls",
+      "file_sha256": "a6f45679ff9738d6079078ba9cf5c623618a50a740e4fde2387385352029868d",
+      "body_sha256": "9a5f962be74c010f145dcfa88304af8b1202d8beb9d3214517ccfc07f539e2ac",
+      "start_line": 554,
+      "end_line": 560,
+      "body": "func set_encounter_controls(press: Callable = Callable(), cancel: Callable = Callable(),\n\t\tmotion: Callable = Callable()) -> void:\n\t_clear_touch_state()\n\tencounter_press = press\n\tencounter_cancel = cancel\n\tencounter_motion = motion\n"
+    },
+    {
+      "path": "scripts/arena/castle_rooms_25d.gd",
+      "revision": "61d12c5b7d29cd106a817d8d0064aa60f48f3ed2",
+      "function": "arm_royal_hall_event",
+      "file_sha256": "50c723043680c987cc959d9bfbbcad94cfb62162f24d305d3f058c0d2de05176",
+      "body_sha256": "a4b5f7bfd88675c5ef11a64584f1e02a8f698a19660aa8aeadbde812397da512",
+      "start_line": 3040,
+      "end_line": 3057,
+      "body": "func arm_royal_hall_event(event_id: String, entry: Callable) -> bool:\n\t# Future boss/story controllers can arm this runtime-only hook. They retain\n\t# ownership of save data and of any room/arena transition performed by the\n\t# callback; this doorway consumes the hook exactly once before invoking it.\n\t# Built-in progression ids are derived from main's save state and never own\n\t# a custom callback. Rejecting them here prevents a valid callable from being\n\t# shadowed by the built-in match branches at arrival.\n\tif event_id.is_empty() or event_id == ROYAL_HALL_CROWN_EVENT \\\n\t\t\tor event_id == ROYAL_HALL_COMPANION_EVENT \\\n\t\t\tor event_id == ROYAL_HALL_TUTORIAL_EVENT \\\n\t\t\tor not entry.is_valid():\n\t\treturn false\n\tm.castle_royal_hall_event_generation += 1\n\tm.castle_royal_hall_event_id = event_id\n\tm.castle_royal_hall_event_entry = entry\n\t_tick_royal_hall_mist(0.0)\n\treturn true\n"
+    },
+    {
+      "path": "scripts/arena/castle_rooms_25d.gd",
+      "revision": "61d12c5b7d29cd106a817d8d0064aa60f48f3ed2",
+      "function": "_force_clear_royal_hall_event",
+      "file_sha256": "50c723043680c987cc959d9bfbbcad94cfb62162f24d305d3f058c0d2de05176",
+      "body_sha256": "9b73776c2adcdeb56fa38edac44d9831196abf42bd2733859ed4b68071d55dd5",
+      "start_line": 3073,
+      "end_line": 3084,
+      "body": "func _force_clear_royal_hall_event() -> bool:\n\t# Private teardown helper for this controller and structural probes. Runtime\n\t# event owners must use clear_royal_hall_event() with their generation token.\n\tif m.castle_royal_hall_event_id.is_empty() \\\n\t\t\tand not m.castle_royal_hall_event_entry.is_valid():\n\t\treturn false\n\tm.castle_royal_hall_event_generation += 1\n\tm.castle_royal_hall_event_id = \"\"\n\tm.castle_royal_hall_event_entry = Callable()\n\t_tick_royal_hall_mist(0.0)\n\treturn true\n"
+    },
+    {
+      "path": "scripts/arena/castle_rooms_25d.gd",
+      "revision": "61d12c5b7d29cd106a817d8d0064aa60f48f3ed2",
+      "function": "_activate_royal_hall_event",
+      "file_sha256": "50c723043680c987cc959d9bfbbcad94cfb62162f24d305d3f058c0d2de05176",
+      "body_sha256": "22f1dddf3423447b7e423fb7b97a1e5c780a4c44b2c0332ac8b6de408633a75d",
+      "start_line": 5413,
+      "end_line": 5457,
+      "body": "func _activate_royal_hall_event(arrival_generation: int,\n\t\texpected_event_id: String, expected_event_generation: int,\n\t\texpected_foot: Vector2) -> void:\n\tif not m.castle_royal_hall_arrival_pending \\\n\t\t\tor arrival_generation != m.castle_royal_hall_arrival_generation:\n\t\treturn\n\tm.castle_royal_hall_arrival_pending = false\n\tif not is_open() or not m.castle_room_layer.visible \\\n\t\t\tor not _is_wide_hall() \\\n\t\t\tor m.castle_room_player_sprite == null:\n\t\treturn\n\tvar current_foot: Vector2 = m.castle_room_player_sprite.get_meta(\n\t\t\"current_stage_foot\", Vector2.INF) as Vector2\n\tif current_foot.distance_to(expected_foot) > 72.0:\n\t\treturn\n\tvar event_id: String = _royal_hall_event_id()\n\tif event_id != expected_event_id \\\n\t\t\tor m.castle_royal_hall_event_generation \\\n\t\t\t\t!= expected_event_generation:\n\t\treturn\n\tif event_id.is_empty():\n\t\tm.castle_royal_hall_mist_flutter_time = ROYAL_HALL_MIST_FLUTTER_SECONDS\n\t\tif m.castle_royal_hall_feedback_cool <= 0.0:\n\t\t\tm.castle_royal_hall_feedback_cool = 2.8\n\t\t\t_play_item_sfx(\"castle/curtain_swish.ogg\", 0.84)\n\t\t\tm.show_msg(\"Roshan\",\n\t\t\t\t\"The royal mist is resting. It will float away for a special royal adventure!\",\n\t\t\t\t\"talk\")\n\t\treturn\n\tmatch event_id:\n\t\tROYAL_HALL_CROWN_EVENT:\n\t\t\t_award_crown()\n\t\t\t_offer_companion_at_royal_hall()\n\t\tROYAL_HALL_COMPANION_EVENT:\n\t\t\t_offer_companion_at_royal_hall()\n\t\tROYAL_HALL_TUTORIAL_EVENT:\n\t\t\t_start_combat_tutorial()\n\t\t_:\n\t\t\tvar entry: Callable = m.castle_royal_hall_event_entry\n\t\t\t# Consume the one-shot hook before calling into its owner. That owner can\n\t\t\t# safely arm the next event during the callback without this gate erasing it.\n\t\t\tclear_royal_hall_event(event_id, expected_event_generation)\n\t\t\tif entry.is_valid():\n\t\t\t\tentry.call()\n"
+    }
+  ],
+  "all_API_caller_evidence_ids": [
+    "FVW-C7FDAF076BDF",
+    "FVW-3CE0CBB224F4",
+    "FVW-16DCBB8551EB",
+    "FVW-1CE43C6261E3",
+    "FVW-24160042C613",
+    "FVW-4E7ED8749A0E",
+    "FVW-84DAC0EEB3ED",
+    "FVW-CC00B77EBFB8",
+    "FVW-EF871B4F1E12",
+    "FVW-1961EDCB3AD0",
+    "FVW-96C87C9C9356",
+    "FVW-1D5FE7BB21CC",
+    "FVW-2F634B8F3C04",
+    "FVW-FA053B9396BF",
+    "FVW-2274D63FDBD4"
+  ],
+  "probe_only_API_caller_ids": [
+    "FVW-1CE43C6261E3",
+    "FVW-24160042C613",
+    "FVW-4E7ED8749A0E",
+    "FVW-84DAC0EEB3ED",
+    "FVW-CC00B77EBFB8",
+    "FVW-EF871B4F1E12",
+    "FVW-1961EDCB3AD0",
+    "FVW-96C87C9C9356",
+    "FVW-1D5FE7BB21CC",
+    "FVW-2F634B8F3C04",
+    "FVW-FA053B9396BF",
+    "FVW-2274D63FDBD4"
+  ],
+  "probe_limit": "12 probe_throne API sites include arbitrary synthetic bindings, invalid IDs/defaults and rearm; kept as alternate callers, not normal gameplay or closed domains.",
+  "mutation_risks": {
+    "computed_index_writes": 523,
+    "indirect_invocations": 338,
+    "mutator_shaped_calls": 25,
+    "unknown_property_names": 6,
+    "unknown_property_groups": [
+      "FairyConservatoryDoor._set_flag key",
+      "DungeonLevel progress_field/done_field",
+      "probe_passive snapshot keys"
+    ],
+    "limits": "Literal selected callback/resource symbol absence is not alias/native/generated-string absence. Receiver overrides, setter method values, external scripts/resources and save/input route states remain open."
+  },
+  "R45_invocation_ID_parity": 338,
+  "selected_invocation_sites": 14,
+  "outside_selected_subset": 43,
+  "full_runtime_domains_open": 57,
+  "new_artwork_credit": 0,
+  "accepted_removed": 0
+}

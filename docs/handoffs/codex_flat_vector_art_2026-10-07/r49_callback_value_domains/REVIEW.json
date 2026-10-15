@@ -1,0 +1,131 @@
+{
+  "status": "PARTIAL_SOURCE_BINDING_PROGRESS_FULL_CLOSURE_AND_ART_ACCEPTANCE_OPEN",
+  "baseline": "61d12c5b7d29cd106a817d8d0064aa60f48f3ed2",
+  "source_references": [
+    {
+      "path": "scripts/main.gd",
+      "revision": "61d12c5b7d29cd106a817d8d0064aa60f48f3ed2",
+      "sha256": "b6e905824a4b60461181deda525c816fc790613479e9321d12ae7f71df666a33",
+      "bytes": 370822,
+      "role": "Main owner/construction and five world callbacks"
+    },
+    {
+      "path": "scripts/touch_ui.gd",
+      "revision": "61d12c5b7d29cd106a817d8d0064aa60f48f3ed2",
+      "sha256": "a6f45679ff9738d6079078ba9cf5c623618a50a740e4fde2387385352029868d",
+      "bytes": 39214,
+      "role": "Actual unmodified shared input component"
+    },
+    {
+      "path": "scripts/games/dust_boss.gd",
+      "revision": "61d12c5b7d29cd106a817d8d0064aa60f48f3ed2",
+      "sha256": "05f9174e05c0c00ee09cf21c8e70e251c3afbed8e35b9f9526e200de65869a0d",
+      "bytes": 42786,
+      "role": "Three named encounter callbacks and reset caller"
+    },
+    {
+      "path": "scripts/day_one_flow.gd",
+      "revision": "61d12c5b7d29cd106a817d8d0064aa60f48f3ed2",
+      "sha256": "913cfc362e1a2a9cc3a73ed0e1d3e491b73731d335c51af3f2f3753bb98a10e1",
+      "bytes": 17269,
+      "role": "Named Day One Royal Hall event caller"
+    },
+    {
+      "path": "scripts/arena/castle_rooms_25d.gd",
+      "revision": "61d12c5b7d29cd106a817d8d0064aa60f48f3ed2",
+      "sha256": "50c723043680c987cc959d9bfbbcad94cfb62162f24d305d3f058c0d2de05176",
+      "bytes": 242528,
+      "role": "Validated event storage/one-shot dispatch"
+    },
+    {
+      "path": "scripts/probe_throne.gd",
+      "revision": "61d12c5b7d29cd106a817d8d0064aa60f48f3ed2",
+      "sha256": "e1f37bcc4c328caa013d6d24ded2154ce47a5a5f884e5926a2508a1dc0c64a15",
+      "bytes": 21411,
+      "role": "Twelve retained alternate API callers; not normal routes"
+    },
+    {
+      "path": "scripts/probe_passive.gd",
+      "revision": "61d12c5b7d29cd106a817d8d0064aa60f48f3ed2",
+      "sha256": "e266e523af5c629f98ca8b52acfd931de7659b455a58634ccde6a917f3b50e97",
+      "bytes": 18681,
+      "role": "Computed snapshot setter risk"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r48_grand_puff_context/REVIEW.json",
+      "revision": "61d12c5b7d29cd106a817d8d0064aa60f48f3ed2",
+      "sha256": "57ebc6d521e60a80ca05d833e61fc21d258756db5a572fb39f5bc0b80b48e2c2",
+      "bytes": 37017,
+      "role": "Retained R48 visual/context evidence; no new visual review or capture credit"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r48_grand_puff_context/CONGRUENCY_BACKLOG.json",
+      "revision": "61d12c5b7d29cd106a817d8d0064aa60f48f3ed2",
+      "sha256": "6c0f4d576c5a4765a62e8367714a67976c8e6e7384fe36dc535ac163d905c415",
+      "bytes": 142004,
+      "role": "Retained R48 visual/context evidence; no new visual review or capture credit"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r48_grand_puff_context/CAPTURE_INDEX.json",
+      "revision": "61d12c5b7d29cd106a817d8d0064aa60f48f3ed2",
+      "sha256": "c31914ec812426b9f8313ca5de8eb5051256ddf051a02566e238e8d35a3deaa1",
+      "bytes": 26642,
+      "role": "Retained R48 visual/context evidence; no new visual review or capture credit"
+    },
+    {
+      "path": "scripts/arena/fairy_conservatory_door_2d.gd",
+      "revision": "61d12c5b7d29cd106a817d8d0064aa60f48f3ed2",
+      "bytes": 10043,
+      "sha256": "ae6e1ad07979c97bd7c474c546a64a12ccd4c944719ec886fdd76f7fae165089",
+      "role": "Computed property name setter risk"
+    },
+    {
+      "path": "scripts/dungeon_level.gd",
+      "revision": "61d12c5b7d29cd106a817d8d0064aa60f48f3ed2",
+      "bytes": 9176,
+      "sha256": "2c5e69c04cab123a42810ecb99e943a4e3f5d362f754236177db3569d222f8ab",
+      "role": "Computed progress/done property setter risks"
+    }
+  ],
+  "named_path_review": "Five Main literal Callable bindings, three DustBoss method references mapped through TouchUI setter parameters/default reset, and DayOneFlow Royal Hall hook mapped through stored field/local copy/clear-before-call. All 9 preserved port groups/14 sites reviewed against exact source excerpts/AST and method-body hashes. These finite named paths do not prove all current writers/callers/aliases.",
+  "source_files": 312,
+  "AST_rows": 922,
+  "indirect_invocations_with_preserved_R45_ids": 338,
+  "named_writes": 11,
+  "API_callers": 15,
+  "probe_API_callers": 12,
+  "computed_index_write_risks": 523,
+  "mutator_shaped_calls": 25,
+  "unknown_property_name_risks": 6,
+  "resource_symbol_scan": {
+    "files": 17,
+    "literal_selected_symbol_hits": 0,
+    "opaque_files": 0,
+    "global_absence_proved": false
+  },
+  "actual_engine_evidence": {
+    "version": "4.7.2 stable official ed1daf0bf",
+    "mode": "headless; requested/reported Mobile does not prove rendered Mobile behavior",
+    "component": "Unchanged TouchUI methods with synthetic RefCounted targets",
+    "checks_passed": 21,
+    "game_instantiated": false,
+    "normal_save_suffixes_unchanged": 8,
+    "sidecars_unchanged": 4039,
+    "evidence": "engine/attempt1/COMPONENT_PROOF.json; RESULT.json; engine.log"
+  },
+  "source_path_bindings_added": 14,
+  "outside_subset": 43,
+  "full_runtime_R45_callback_domains_still_open": 57,
+  "new_artwork": 0,
+  "new_captures": 0,
+  "new_route_or_context_credit": 0,
+  "new_visual_style_acceptance": false,
+  "prior_same_scene_style_evidence": "R48 Grand Puff contour/material/palette/light/scale/contact/occlusion/readability/action-state observations retained at exact baseline; no new art or scene pixels for visual congruency review in R49. Existing weakness backlog remains open.",
+  "reuse_or_generation_decision": "No new artwork requested or generated; no failed-reuse gap claimed. Existing source art, exhausted sample caps and protected originals unchanged.",
+  "full_compositor_closures": 0,
+  "device": null,
+  "child": null,
+  "owner": null,
+  "accepted_removed": 0,
+  "mission_complete": false
+}

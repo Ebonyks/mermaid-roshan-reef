@@ -1,0 +1,203 @@
+{
+	"accepted_removed": 0,
+	"art_captures": 0,
+	"checks": [
+		{
+			"detail": {
+				"encounter_cancel": false,
+				"encounter_motion": false,
+				"encounter_press": false,
+				"world_drag_end": false,
+				"world_press_cancel": false,
+				"world_press_drag": false,
+				"world_press_probe": false,
+				"world_press_release": false
+			},
+			"id": "all_eight_callbacks_default_empty",
+			"pass": true
+		},
+		{
+			"detail": {
+				"events": [
+					"cancel"
+				]
+			},
+			"id": "setter_cancels_previous_world_hold_before_binding",
+			"pass": true
+		},
+		{
+			"detail": {},
+			"id": "setter_preserves_exact_object_and_method_identity",
+			"pass": true
+		},
+		{
+			"detail": {},
+			"id": "second_finger_cannot_replace_primary_press",
+			"pass": true
+		},
+		{
+			"detail": {},
+			"id": "foreign_finger_motion_is_ignored",
+			"pass": true
+		},
+		{
+			"detail": {},
+			"id": "primary_finger_motion_routes_to_bound_method",
+			"pass": true
+		},
+		{
+			"detail": {},
+			"id": "foreign_release_does_not_release_primary",
+			"pass": true
+		},
+		{
+			"detail": {},
+			"id": "primary_release_clears_owner_without_new_press",
+			"pass": true
+		},
+		{
+			"detail": {},
+			"id": "emulated_mouse_does_not_duplicate_touch",
+			"pass": true
+		},
+		{
+			"detail": {},
+			"id": "real_mouse_press_motion_release_routes_same_protocol",
+			"pass": true
+		},
+		{
+			"detail": {},
+			"id": "rebind_calls_old_encounter_and_world_cancels_before_new_owner",
+			"pass": true
+		},
+		{
+			"detail": {},
+			"id": "new_presses_reach_new_owner_only",
+			"pass": true
+		},
+		{
+			"detail": {},
+			"id": "default_reset_empties_all_encounter_callbacks",
+			"pass": true
+		},
+		{
+			"detail": {},
+			"id": "reset_delivers_old_cancel_once",
+			"pass": true
+		},
+		{
+			"detail": {
+				"events": [
+					"probe",
+					"drag",
+					"release"
+				]
+			},
+			"id": "consumed_touch_delivers_probe_drag_release_without_swipe",
+			"pass": true
+		},
+		{
+			"detail": {
+				"events": [
+					"probe",
+					"drag",
+					"release"
+				]
+			},
+			"id": "consumed_mouse_delivers_probe_drag_release_without_swipe",
+			"pass": true
+		},
+		{
+			"detail": {
+				"events": [
+					"probe",
+					"finish_drag"
+				]
+			},
+			"id": "unconsumed_drag_reaches_swipe_callback_once",
+			"pass": true
+		},
+		{
+			"detail": {},
+			"id": "world_cancel_has_priority_over_release_on_reset",
+			"pass": true
+		},
+		{
+			"detail": {},
+			"id": "world_release_is_reset_fallback_when_cancel_empty",
+			"pass": true
+		},
+		{
+			"detail": {},
+			"id": "bound_literal_remains_callback_data_in_actual_component",
+			"pass": true
+		},
+		{
+			"detail": {
+				"after": {
+					"": "47c287147713fac860e25dade59da95961204f9b3170f5e00b5843e11590ad1e",
+					".bak": "de9d0441ed4d74f01cc8778c1c21600351b1426017d33a5ce99e69b03e893c3a",
+					".bak.old": "absent",
+					".bak.tmp": "absent",
+					".old": "absent",
+					".tmp": "absent",
+					".tmp0": "absent",
+					".tmp1": "absent"
+				},
+				"before": {
+					"": "47c287147713fac860e25dade59da95961204f9b3170f5e00b5843e11590ad1e",
+					".bak": "de9d0441ed4d74f01cc8778c1c21600351b1426017d33a5ce99e69b03e893c3a",
+					".bak.old": "absent",
+					".bak.tmp": "absent",
+					".old": "absent",
+					".tmp": "absent",
+					".tmp0": "absent",
+					".tmp1": "absent"
+				}
+			},
+			"id": "normal_eight_save_suffix_hashes_unchanged",
+			"pass": true
+		}
+	],
+	"display": "headless",
+	"engine": {
+		"build": "official",
+		"hash": "ed1daf0bf001b61586d9930840f2f1394092c079",
+		"hex": 263938,
+		"major": 4,
+		"minor": 7,
+		"patch": 2,
+		"status": "stable",
+		"string": "4.7.2-stable (official)",
+		"timestamp": 0
+	},
+	"errors": [],
+	"fixture_sha256": "086cc6edda320081a97c7ec5a2a3f6ac6cdad7022111a7ff249cecd4190037cd",
+	"game_instantiated": false,
+	"mission_complete": false,
+	"normal_after": {
+		"": "47c287147713fac860e25dade59da95961204f9b3170f5e00b5843e11590ad1e",
+		".bak": "de9d0441ed4d74f01cc8778c1c21600351b1426017d33a5ce99e69b03e893c3a",
+		".bak.old": "absent",
+		".bak.tmp": "absent",
+		".old": "absent",
+		".tmp": "absent",
+		".tmp0": "absent",
+		".tmp1": "absent"
+	},
+	"normal_before": {
+		"": "47c287147713fac860e25dade59da95961204f9b3170f5e00b5843e11590ad1e",
+		".bak": "de9d0441ed4d74f01cc8778c1c21600351b1426017d33a5ce99e69b03e893c3a",
+		".bak.old": "absent",
+		".bak.tmp": "absent",
+		".old": "absent",
+		".tmp": "absent",
+		".tmp0": "absent",
+		".tmp1": "absent"
+	},
+	"renderer_reported": "mobile",
+	"renderer_requested": "mobile",
+	"schema": "reef.callback_component_evidence/1",
+	"scope": "Actual unchanged TouchUI component methods with synthetic receivers in headless SceneTree. No Main/game instance, game render, art/route or QA11/device/child/owner acceptance.",
+	"source_revision": "61d12c5b7d29cd106a817d8d0064aa60f48f3ed2"
+}

@@ -1,0 +1,308 @@
+{
+  "schema": 1,
+  "baseline": "61d12c5b7d29cd106a817d8d0064aa60f48f3ed2",
+  "analyzer_sha256": "0d9f81df69f0267c464d09a635e05e8c751631764608039fd1e92ad0aa234dac",
+  "r45_helper_sha256": "7ff28c9594a15aced665e3bb2113b8f6feb8eb5ab9e9e9e87824b9c1f8657162",
+  "ports": [
+    {
+      "port_id": "FVP-5FA6C9E6E469",
+      "source_path": "scripts/arena/castle_rooms_25d.gd",
+      "stored_field": "castle_royal_hall_event_entry",
+      "invocation_ids": [
+        "FVC-63B3AE65BF2E"
+      ],
+      "invocation_lines": [
+        5456
+      ],
+      "status": "NAMED_SOURCE_PATH_VALUE_DOMAIN_BOUND_FULL_CLOSURE_OPEN",
+      "standard_target": {
+        "path": "scripts/day_one_flow.gd",
+        "revision": "61d12c5b7d29cd106a817d8d0064aa60f48f3ed2",
+        "function": "_day_one_trigger_boss",
+        "file_sha256": "913cfc362e1a2a9cc3a73ed0e1d3e491b73731d335c51af3f2f3753bb98a10e1",
+        "body_sha256": "3cb735ffa499300440b9cae143d182eb7831d767f3968fb55ed7a696286115df",
+        "start_line": 392,
+        "end_line": 395
+      },
+      "empty_inactive_default": true,
+      "source_evidence_ids": [
+        "FVW-1EFF9F66D8BF",
+        "FVW-AD2D03BF6184",
+        "FVW-C7FDAF076BDF",
+        "FVW-6C6488E66869",
+        "FVW-1CE43C6261E3",
+        "FVW-24160042C613",
+        "FVW-4E7ED8749A0E",
+        "FVW-84DAC0EEB3ED",
+        "FVW-CC00B77EBFB8",
+        "FVW-EF871B4F1E12",
+        "FVW-1961EDCB3AD0",
+        "FVW-96C87C9C9356",
+        "FVW-1D5FE7BB21CC",
+        "FVW-2F634B8F3C04",
+        "FVW-FA053B9396BF",
+        "FVW-2274D63FDBD4"
+      ],
+      "source_path_scope": "Main constructed TouchUI plus Main._init_touch_experiment five direct bindings; DustBoss stage-open/reset sets three encounter slots; DayOneFlow arms Royal Hall hook. Test/probe and alternate writes stay in census. Source excerpt evidence must be reviewed, not inferred as normal reachability.",
+      "full_write_caller_value_closure": false,
+      "native_alias_resource_runtime_closure": false
+    },
+    {
+      "port_id": "FVP-7790A08CB7C7",
+      "source_path": "scripts/touch_ui.gd",
+      "stored_field": "encounter_cancel",
+      "invocation_ids": [
+        "FVC-98FDB9ECE230"
+      ],
+      "invocation_lines": [
+        517
+      ],
+      "status": "NAMED_SOURCE_PATH_VALUE_DOMAIN_BOUND_FULL_CLOSURE_OPEN",
+      "standard_target": {
+        "path": "scripts/games/dust_boss.gd",
+        "revision": "61d12c5b7d29cd106a817d8d0064aa60f48f3ed2",
+        "function": "_cancel_world_move",
+        "file_sha256": "05f9174e05c0c00ee09cf21c8e70e251c3afbed8e35b9f9526e200de65869a0d",
+        "body_sha256": "29a5a86acaeb645c1af8449951b729cbca48b3b4ca2a099c5a17104c3467193c",
+        "start_line": 652,
+        "end_line": 656
+      },
+      "empty_inactive_default": true,
+      "source_evidence_ids": [
+        "FVW-3CE0CBB224F4",
+        "FVW-16DCBB8551EB",
+        "FVW-440B9030FA9B",
+        "FVW-68F58E075224"
+      ],
+      "source_path_scope": "Main constructed TouchUI plus Main._init_touch_experiment five direct bindings; DustBoss stage-open/reset sets three encounter slots; DayOneFlow arms Royal Hall hook. Test/probe and alternate writes stay in census. Source excerpt evidence must be reviewed, not inferred as normal reachability.",
+      "full_write_caller_value_closure": false,
+      "native_alias_resource_runtime_closure": false
+    },
+    {
+      "port_id": "FVP-CFA9A07B6CE2",
+      "source_path": "scripts/touch_ui.gd",
+      "stored_field": "world_press_cancel",
+      "invocation_ids": [
+        "FVC-8C0B365D7CE9"
+      ],
+      "invocation_lines": [
+        519
+      ],
+      "status": "NAMED_SOURCE_PATH_VALUE_DOMAIN_BOUND_FULL_CLOSURE_OPEN",
+      "standard_target": {
+        "path": "scripts/main.gd",
+        "revision": "61d12c5b7d29cd106a817d8d0064aa60f48f3ed2",
+        "function": "_on_world_press_cancel",
+        "file_sha256": "b6e905824a4b60461181deda525c816fc790613479e9321d12ae7f71df666a33",
+        "body_sha256": "17357189b299851695f48df8068ee3030b26d686a77124fde994979643c36fb3",
+        "start_line": 4552,
+        "end_line": 4565
+      },
+      "empty_inactive_default": true,
+      "source_evidence_ids": [
+        "FVW-D56184007EB8",
+        "FVW-A5849A50E28A"
+      ],
+      "source_path_scope": "Main constructed TouchUI plus Main._init_touch_experiment five direct bindings; DustBoss stage-open/reset sets three encounter slots; DayOneFlow arms Royal Hall hook. Test/probe and alternate writes stay in census. Source excerpt evidence must be reviewed, not inferred as normal reachability.",
+      "full_write_caller_value_closure": false,
+      "native_alias_resource_runtime_closure": false
+    },
+    {
+      "port_id": "FVP-B89567729BAE",
+      "source_path": "scripts/touch_ui.gd",
+      "stored_field": "world_press_release",
+      "invocation_ids": [
+        "FVC-898DF0BC7B99",
+        "FVC-BC833AC084EC",
+        "FVC-07F706108658"
+      ],
+      "invocation_lines": [
+        521,
+        719,
+        773
+      ],
+      "status": "NAMED_SOURCE_PATH_VALUE_DOMAIN_BOUND_FULL_CLOSURE_OPEN",
+      "standard_target": {
+        "path": "scripts/main.gd",
+        "revision": "61d12c5b7d29cd106a817d8d0064aa60f48f3ed2",
+        "function": "_on_world_press_release",
+        "file_sha256": "b6e905824a4b60461181deda525c816fc790613479e9321d12ae7f71df666a33",
+        "body_sha256": "54d28a192efc635b17c9789d12a9f5307ae2b0a901e7e9c9ec61c3edc1a416c2",
+        "start_line": 4504,
+        "end_line": 4520
+      },
+      "empty_inactive_default": true,
+      "source_evidence_ids": [
+        "FVW-048963CF8033",
+        "FVW-430ADACDF594"
+      ],
+      "source_path_scope": "Main constructed TouchUI plus Main._init_touch_experiment five direct bindings; DustBoss stage-open/reset sets three encounter slots; DayOneFlow arms Royal Hall hook. Test/probe and alternate writes stay in census. Source excerpt evidence must be reviewed, not inferred as normal reachability.",
+      "full_write_caller_value_closure": false,
+      "native_alias_resource_runtime_closure": false
+    },
+    {
+      "port_id": "FVP-309CA50D4DB5",
+      "source_path": "scripts/touch_ui.gd",
+      "stored_field": "encounter_motion",
+      "invocation_ids": [
+        "FVC-A255FBD2CA5C",
+        "FVC-B14BF80BE11C"
+      ],
+      "invocation_lines": [
+        566,
+        573
+      ],
+      "status": "NAMED_SOURCE_PATH_VALUE_DOMAIN_BOUND_FULL_CLOSURE_OPEN",
+      "standard_target": {
+        "path": "scripts/games/dust_boss.gd",
+        "revision": "61d12c5b7d29cd106a817d8d0064aa60f48f3ed2",
+        "function": "on_world_drag",
+        "file_sha256": "05f9174e05c0c00ee09cf21c8e70e251c3afbed8e35b9f9526e200de65869a0d",
+        "body_sha256": "b0112ba435ae3a60f11007cb57bc3e5af3fe301b8669e2f53e860d4167871552",
+        "start_line": 640,
+        "end_line": 647
+      },
+      "empty_inactive_default": true,
+      "source_evidence_ids": [
+        "FVW-3CE0CBB224F4",
+        "FVW-16DCBB8551EB",
+        "FVW-64B8C7A581F1",
+        "FVW-B15C118876CD"
+      ],
+      "source_path_scope": "Main constructed TouchUI plus Main._init_touch_experiment five direct bindings; DustBoss stage-open/reset sets three encounter slots; DayOneFlow arms Royal Hall hook. Test/probe and alternate writes stay in census. Source excerpt evidence must be reviewed, not inferred as normal reachability.",
+      "full_write_caller_value_closure": false,
+      "native_alias_resource_runtime_closure": false
+    },
+    {
+      "port_id": "FVP-E09CA2E303CF",
+      "source_path": "scripts/touch_ui.gd",
+      "stored_field": "encounter_press",
+      "invocation_ids": [
+        "FVC-670083E248DC"
+      ],
+      "invocation_lines": [
+        596
+      ],
+      "status": "NAMED_SOURCE_PATH_VALUE_DOMAIN_BOUND_FULL_CLOSURE_OPEN",
+      "standard_target": {
+        "path": "scripts/games/dust_boss.gd",
+        "revision": "61d12c5b7d29cd106a817d8d0064aa60f48f3ed2",
+        "function": "on_world_tap",
+        "file_sha256": "05f9174e05c0c00ee09cf21c8e70e251c3afbed8e35b9f9526e200de65869a0d",
+        "body_sha256": "3fdc96f7c45057a250975b40f87e4c6e041abd6cdc9f4b9a312d75003b643fd4",
+        "start_line": 611,
+        "end_line": 634
+      },
+      "empty_inactive_default": true,
+      "source_evidence_ids": [
+        "FVW-3CE0CBB224F4",
+        "FVW-16DCBB8551EB",
+        "FVW-9B8F90699E9E",
+        "FVW-37F7E6B74FDB"
+      ],
+      "source_path_scope": "Main constructed TouchUI plus Main._init_touch_experiment five direct bindings; DustBoss stage-open/reset sets three encounter slots; DayOneFlow arms Royal Hall hook. Test/probe and alternate writes stay in census. Source excerpt evidence must be reviewed, not inferred as normal reachability.",
+      "full_write_caller_value_closure": false,
+      "native_alias_resource_runtime_closure": false
+    },
+    {
+      "port_id": "FVP-3049DAEF898B",
+      "source_path": "scripts/touch_ui.gd",
+      "stored_field": "world_press_probe",
+      "invocation_ids": [
+        "FVC-DD12A02E7B0E",
+        "FVC-65AF9D2BB726"
+      ],
+      "invocation_lines": [
+        704,
+        758
+      ],
+      "status": "NAMED_SOURCE_PATH_VALUE_DOMAIN_BOUND_FULL_CLOSURE_OPEN",
+      "standard_target": {
+        "path": "scripts/main.gd",
+        "revision": "61d12c5b7d29cd106a817d8d0064aa60f48f3ed2",
+        "function": "_on_world_press",
+        "file_sha256": "b6e905824a4b60461181deda525c816fc790613479e9321d12ae7f71df666a33",
+        "body_sha256": "2f4276005488a30ebb2f07b7a9c4e1a203da0a33b557d065a162f370e3930d3d",
+        "start_line": 4469,
+        "end_line": 4503
+      },
+      "empty_inactive_default": true,
+      "source_evidence_ids": [
+        "FVW-BE01A1572889",
+        "FVW-70F9ED078AA4"
+      ],
+      "source_path_scope": "Main constructed TouchUI plus Main._init_touch_experiment five direct bindings; DustBoss stage-open/reset sets three encounter slots; DayOneFlow arms Royal Hall hook. Test/probe and alternate writes stay in census. Source excerpt evidence must be reviewed, not inferred as normal reachability.",
+      "full_write_caller_value_closure": false,
+      "native_alias_resource_runtime_closure": false
+    },
+    {
+      "port_id": "FVP-A9A347158707",
+      "source_path": "scripts/touch_ui.gd",
+      "stored_field": "world_press_drag",
+      "invocation_ids": [
+        "FVC-8BD10C7A998F",
+        "FVC-E91A4B7657E7"
+      ],
+      "invocation_lines": [
+        738,
+        789
+      ],
+      "status": "NAMED_SOURCE_PATH_VALUE_DOMAIN_BOUND_FULL_CLOSURE_OPEN",
+      "standard_target": {
+        "path": "scripts/main.gd",
+        "revision": "61d12c5b7d29cd106a817d8d0064aa60f48f3ed2",
+        "function": "_on_world_press_drag",
+        "file_sha256": "b6e905824a4b60461181deda525c816fc790613479e9321d12ae7f71df666a33",
+        "body_sha256": "69f0f28184c1ad574e8d54462e078430c1c49897da0f2d64d0f9042e992ab80a",
+        "start_line": 4532,
+        "end_line": 4551
+      },
+      "empty_inactive_default": true,
+      "source_evidence_ids": [
+        "FVW-AF69D659ACFF",
+        "FVW-EB1B4D464DF4"
+      ],
+      "source_path_scope": "Main constructed TouchUI plus Main._init_touch_experiment five direct bindings; DustBoss stage-open/reset sets three encounter slots; DayOneFlow arms Royal Hall hook. Test/probe and alternate writes stay in census. Source excerpt evidence must be reviewed, not inferred as normal reachability.",
+      "full_write_caller_value_closure": false,
+      "native_alias_resource_runtime_closure": false
+    },
+    {
+      "port_id": "FVP-6B3111116611",
+      "source_path": "scripts/touch_ui.gd",
+      "stored_field": "world_drag_end",
+      "invocation_ids": [
+        "FVC-C224A6F65CB1"
+      ],
+      "invocation_lines": [
+        803
+      ],
+      "status": "NAMED_SOURCE_PATH_VALUE_DOMAIN_BOUND_FULL_CLOSURE_OPEN",
+      "standard_target": {
+        "path": "scripts/main.gd",
+        "revision": "61d12c5b7d29cd106a817d8d0064aa60f48f3ed2",
+        "function": "_on_world_drag_end",
+        "file_sha256": "b6e905824a4b60461181deda525c816fc790613479e9321d12ae7f71df666a33",
+        "body_sha256": "bc851b2a8b6571a007ed329aa09a63dc38914a54c1e7e794a014d2067026f602",
+        "start_line": 4566,
+        "end_line": 4586
+      },
+      "empty_inactive_default": true,
+      "source_evidence_ids": [
+        "FVW-D10FA6E35F88",
+        "FVW-40E51855C314"
+      ],
+      "source_path_scope": "Main constructed TouchUI plus Main._init_touch_experiment five direct bindings; DustBoss stage-open/reset sets three encounter slots; DayOneFlow arms Royal Hall hook. Test/probe and alternate writes stay in census. Source excerpt evidence must be reviewed, not inferred as normal reachability.",
+      "full_write_caller_value_closure": false,
+      "native_alias_resource_runtime_closure": false
+    }
+  ],
+  "selected_port_groups": 9,
+  "selected_invocation_sites": 14,
+  "named_source_path_method_targets": 9,
+  "original_R45_pending_invocations": 57,
+  "R45_sites_outside_this_traced_subset": 43,
+  "full_runtime_domains_still_open": 57,
+  "new_artwork_or_capture_credit": 0,
+  "accepted_removed": 0,
+  "limits": "The fourteen named standard-path value bindings do not close aliases, arbitrary external writes/native/resource reachability, per-route dispatch, full compositor closure or runtime/QA11/art acceptance."
+}

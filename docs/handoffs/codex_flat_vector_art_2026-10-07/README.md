@@ -1,6 +1,10 @@
-Current canonical evidence: [R48 Grand Puff context](r48_grand_puff_context/README.md), [registry](r48_grand_puff_context/per_piece.json), [coverage](r48_grand_puff_context/scene_coverage.json), [tally](r48_grand_puff_context/tally.json).
+Current canonical evidence: [R49 callback source-path domains](r49_callback_value_domains/README.md), [registry](r49_callback_value_domains/per_piece.json), [coverage](r49_callback_value_domains/scene_coverage.json), [tally](r49_callback_value_domains/tally.json).
 
-# Current R48 Grand Puff context
+Nine named source paths /14 invocation sites traced; all57 full runtime callback domains remain open. No new art/capture/route credit.240 known roles/32 families,0 accepted/global unknown.
+
+Historical R48 evidence: [R48 Grand Puff context](r48_grand_puff_context/README.md), [registry](r48_grand_puff_context/per_piece.json), [coverage](r48_grand_puff_context/scene_coverage.json), [tally](r48_grand_puff_context/tally.json).
+
+# Historical R48 Grand Puff context
 
 Two actual source-assisted portal/encounter cases; 60 native / 56 bounded / 4 excluded. Five new caller roles, 240 known records / 32 families. 83 partial catalogue entries / 93 without / zero complete. Global totals and all acceptance remain open.
 

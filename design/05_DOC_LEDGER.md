@@ -1080,7 +1080,7 @@ release/device/child/owner authority retain precedence.
 | `docs/handoffs/codex_flat_vector_art_2026-10-07/live_v6/README.md` | 🔵 | `SUPPORTING_CURRENT`; R6 diagnostic evidence on a separate origin/dev topic branch.980 new/1584 cumulative bounded frames,1686 retained including102 excluded diagnostics;76/176 partial,zero complete,18 inventory-classified/351 unresolved scopes;unknown unique all-game artwork total.44 existing named records have partial independent review. Historical slice totals and blocked draft states remain scoped to Oct8. No R5 rewrite,source exemption,pixel replacement,acceptance,closure or release authority; publication receipt separately required. |
 | `docs/handoffs/codex_flat_vector_art_2026-10-07/live_v6/room_routes/README.md` | 🔵 | `SUPPORTING_CURRENT`; R6 diagnostic evidence on a separate origin/dev topic branch.980 new/1584 cumulative bounded frames,1686 retained including102 excluded diagnostics;76/176 partial,zero complete,18 inventory-classified/351 unresolved scopes;unknown unique all-game artwork total.44 existing named records have partial independent review. Historical slice totals and blocked draft states remain scoped to Oct8. No R5 rewrite,source exemption,pixel replacement,acceptance,closure or release authority; publication receipt separately required. |
 | `docs/handoffs/codex_flat_vector_art_2026-10-07/PRODUCTION_BACKLOG.md` | 🔵 | `SUPPORTING_CURRENT`; R6 diagnostic evidence on a separate origin/dev topic branch.980 new/1584 cumulative bounded frames,1686 retained including102 excluded diagnostics;76/176 partial,zero complete,18 inventory-classified/351 unresolved scopes;unknown unique all-game artwork total.44 existing named records have partial independent review. Historical slice totals and blocked draft states remain scoped to Oct8. No R5 rewrite,source exemption,pixel replacement,acceptance,closure or release authority; publication receipt separately required. |
-| `docs/handoffs/codex_flat_vector_art_2026-10-07/README.md` | 🔵 | `SUPPORTING_CURRENT`; mutable R48 Grand Puff current source/portal/encounter routing; 240 roles/32 families, 0 accepted/global unknown; immutable history retained. |
+| `docs/handoffs/codex_flat_vector_art_2026-10-07/README.md` | 🔵 | `SUPPORTING_CURRENT`; mutable R49 callback source-path evidence routing;240 roles/32 families,0 accepted/global unknown; immutable history retained. |
 
 ## R7 Craft context addendum (2026-10-12)
 
@@ -1269,3 +1269,9 @@ release/device/child/owner authority retain precedence.
 | Document | Status | Scope |
 |---|---|---|
 | `docs/handoffs/codex_flat_vector_art_2026-10-07/r48_grand_puff_context/README.md` | 🔵 | `SUPPORTING_CURRENT`; baseline677ee7b7, two original portal/source-assisted pointer encounter cases at both Mobile aspects.60native/56bounded/4excluded,12actual native views/3source views; five caller roles,240known/32families,83partial/93without/0complete. Painted-source clipping/occlusion/quiet-veil disposition remain open. No runtime/art/generation/acceptance change; all natural/Canvas/QA11/device/child/owner/global gaps open. |
+
+## Callback source-path domains — 2026-10-15 R49
+
+| Document | State | Authority and scope |
+|---|---|---|
+| `docs/handoffs/codex_flat_vector_art_2026-10-07/r49_callback_value_domains/README.md` | 🔵 | `SUPPORTING_CURRENT`; baseline61d12c5b.312 scripts/922 AST rows,9 named source paths/14 invocation sites;all57 full runtime callback domains remain open.21 actual headless component checks,18 adversarial tests; no new game render/art/runtime change or acceptance.240 known roles/32 families,0 accepted/global unknown; frozen/history retained. |
