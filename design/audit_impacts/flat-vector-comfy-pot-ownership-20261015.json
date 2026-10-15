@@ -108,6 +108,7 @@
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r56_comfy_pot_ownership/CONTACT_PRECHECK.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r56_comfy_pot_ownership/CONTEXT_PREREQUISITE.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r56_comfy_pot_ownership/CURRENT_PARTIAL_CONTEXT_UNION.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r56_comfy_pot_ownership/DELIVERY_TRANSPORT.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r56_comfy_pot_ownership/FINAL_BYTE_RECEIPT.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r56_comfy_pot_ownership/FIXTURE_PRECHECK.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r56_comfy_pot_ownership/FIXTURE_REPAIR_HISTORY.json",
@@ -118,6 +119,7 @@
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r56_comfy_pot_ownership/OWNERSHIP_AND_REUSE_RESULT.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r56_comfy_pot_ownership/PLAN.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r56_comfy_pot_ownership/README.md",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r56_comfy_pot_ownership/RECEIPT_GATES.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r56_comfy_pot_ownership/REMOTE_VERIFICATION.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r56_comfy_pot_ownership/REPRODUCTION.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r56_comfy_pot_ownership/REVIEW.json",
@@ -282,6 +284,7 @@
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r56_comfy_pot_ownership/native/attempt4_pot_ownership_1600/repeat_completed_underlay.png",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r56_comfy_pot_ownership/per_piece.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r56_comfy_pot_ownership/pot_checkpoint.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r56_comfy_pot_ownership/receipt_gates.log",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r56_comfy_pot_ownership/run_native.py",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r56_comfy_pot_ownership/scene_coverage.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r56_comfy_pot_ownership/tally.json",
@@ -301,8 +304,8 @@
     },
     {
       "command": "Published payload/direct refs/receipt/final byte proof",
-      "result": "PENDING",
-      "evidence": "Same durable authorized public topic."
+      "result": "PASS",
+      "evidence": "Exact payload 21eb18b6f3d20633a7162f1b7ad961dfb26a7709: all 405 direct R56/source/canonical dependencies / 265750754 bytes anonymously verified at 2026-10-15T13:12:50.712880+00:00; manifestSHA 9f4e69da670ac1d0b1845c3c5cb4c9b297c3f048eb7b3eccf02aa732eb22ad41. Historical parent transitive verification retains its exact prior receipt/time. Final metadata verified separately; no creative or mission acceptance."
     }
   ],
   "acceptance_gaps": "No production implementation, new art or removal. Full game inventory/caller/fallback, independent object ownership, actual stirring action, natural journey/OS lifecycle/QA11/device/child/owner/strict2D/performance remain open."

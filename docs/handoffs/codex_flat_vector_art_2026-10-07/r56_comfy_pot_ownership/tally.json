@@ -20,7 +20,7 @@
     "INACTIVE_ARCHIVE"
   ],
   "mission_status": "ACTIVE; zero-vector removal NOT achieved",
-  "phase": "R56 current pot ownership and scoped retained-source fit; publication pending",
+  "phase": "R56 original Comfy pot ownership and scoped reuse published and anonymously verified; no adoption or accepted removal; whole-game denominator unknown",
   "named_piece_records": 224,
   "named_family_count": 29,
   "named_status_counts": {
@@ -1593,7 +1593,28 @@
   ],
   "role_and_family_counts_are_separate": true,
   "publication": {
-    "status": "PENDING_EXACT_REMOTE_VERIFICATION"
+    "status": "PAYLOAD_AND_ALL_DIRECT_DEPENDENCIES_ANONYMOUSLY_VERIFIED",
+    "payload_revision": "21eb18b6f3d20633a7162f1b7ad961dfb26a7709",
+    "required_file_count": 405,
+    "required_bytes": 265750754,
+    "manifest_sha256": "9f4e69da670ac1d0b1845c3c5cb4c9b297c3f048eb7b3eccf02aa732eb22ad41",
+    "manifest_logical_sha256": "9f4e69da670ac1d0b1845c3c5cb4c9b297c3f048eb7b3eccf02aa732eb22ad41",
+    "manifest_physical_file_count": 1,
+    "payload_sha256": "85421066a32099bb491d091d2e1a7c9f030d97b3d06bff7e198581dc9c97b051",
+    "checked_at_utc": "2026-10-15T13:12:50.712880+00:00",
+    "access_mode": "Anonymous public immutable HTTPS GET for every required file plus manifest index/allparts; exact byte/length/SHA256. Public repo API independently checked.",
+    "manifest": "MANIFEST.json",
+    "receipt": "REMOTE_VERIFICATION.json",
+    "receipt_logical_sha256": "5f1472de13c0bb5f66faf07b6a5387d48b5d5b6c2367150196b571d5fa94b135",
+    "historical_dependency_scope": {
+      "payload": "02ebffa85fe2b1cd1fb01ad6382cfe27397e3038",
+      "receipt": "0ca59fadba2abb5a17833e3de4ecdfb15d145924",
+      "final_proof": "49704228df9ca9cbff4b559a80a6c9d465665da0",
+      "historical_direct_required_file_count": 411,
+      "historical_direct_required_bytes": 299518934,
+      "freshly_reverified_transitive_payload": false
+    },
+    "final_metadata_status": "Final proof separately binds receipt/gates/current metadata and later own proof/impact bytes"
   },
   "independent_style_review": {
     "file": "ROOT_CONTEXT_REVIEW_20261012.json",
@@ -2442,7 +2463,8 @@
   "change_record": {
     "id": "CHG-063",
     "impact": "design/audit_impacts/flat-vector-comfy-pot-ownership-20261015.json",
-    "source_payload_pending": true
+    "source_payload_pending": false,
+    "payload_revision": "21eb18b6f3d20633a7162f1b7ad961dfb26a7709"
   },
   "teacher_pointer_reuse": {
     "revision": "FV-AUDIT-20261014-R28",
@@ -2574,35 +2596,35 @@
     "scope": "Actualprior exacthead CI state; pending/cancellednotgreen. NewR29exacthead pending;unchangedproduction/R16native evidence separate."
   },
   "current_ci_snapshot": {
-    "checked_at_utc": "2026-10-15T12:20:26.712534+00:00",
+    "checked_at_utc": "2026-10-15T13:13:19.249346+00:00",
     "runs": [
       {
         "conclusion": "",
-        "databaseId": 38733778464,
-        "headSha": "02ebffa85fe2b1cd1fb01ad6382cfe27397e3038",
+        "databaseId": 38740752637,
+        "headSha": "21eb18b6f3d20633a7162f1b7ad961dfb26a7709",
         "status": "pending",
-        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/38733778464"
+        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/38740752637"
       },
       {
         "conclusion": "",
-        "databaseId": 38728115233,
-        "headSha": "d464dfd07cf53563a3fa3b729624bd12909c751d",
+        "databaseId": 38734556323,
+        "headSha": "49704228df9ca9cbff4b559a80a6c9d465665da0",
         "status": "in_progress",
-        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/38728115233"
+        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/38734556323"
       },
       {
         "conclusion": "cancelled",
-        "databaseId": 38727785340,
-        "headSha": "0960260567b60255ae7a6d9a06c0cb54e61199e6",
+        "databaseId": 38734212226,
+        "headSha": "0ca59fadba2abb5a17833e3de4ecdfb15d145924",
         "status": "completed",
-        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/38727785340"
+        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/38734212226"
       },
       {
         "conclusion": "cancelled",
-        "databaseId": 38727344150,
-        "headSha": "c8235022c5b327f5cfbe8a1f464663c0d1229a45",
+        "databaseId": 38733778464,
+        "headSha": "02ebffa85fe2b1cd1fb01ad6382cfe27397e3038",
         "status": "completed",
-        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/38727344150"
+        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/38733778464"
       }
     ],
     "scope": "Exact observed heads only;pending/cancelled is not green. No new full82,release,device/child/owner orcreative acceptance."
