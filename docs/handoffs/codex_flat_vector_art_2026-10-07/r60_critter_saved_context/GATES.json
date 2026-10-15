@@ -1,0 +1,131 @@
+{
+  "status": "PASS_CRITTER_SAVED_CONTEXT_ACCEPTANCE_OPEN",
+  "commands": [
+    {
+      "command": [
+        "python",
+        "-m",
+        "gdtoolkit.parser",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r60_critter_saved_context\\capture_critter_saved.gd",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r60_critter_saved_context\\query_collection.gd",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r60_critter_saved_context\\native\\attempt1_critter_saved_full_1280\\fixture_source.gd",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r60_critter_saved_context\\native\\attempt1_critter_saved_full_1600\\fixture_source.gd",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r60_critter_saved_context\\native\\attempt1_critter_saved_partial_1280\\fixture_source.gd",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r60_critter_saved_context\\native\\attempt1_critter_saved_partial_1600\\fixture_source.gd"
+      ],
+      "exit_code": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "checked_at_utc": "2026-10-15T16:36:50.265068+00:00"
+    },
+    {
+      "command": [
+        "python",
+        "tools/lint_inference.py",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r60_critter_saved_context\\capture_critter_saved.gd",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r60_critter_saved_context\\query_collection.gd",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r60_critter_saved_context\\native\\attempt1_critter_saved_full_1280\\fixture_source.gd",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r60_critter_saved_context\\native\\attempt1_critter_saved_full_1600\\fixture_source.gd",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r60_critter_saved_context\\native\\attempt1_critter_saved_partial_1280\\fixture_source.gd",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r60_critter_saved_context\\native\\attempt1_critter_saved_partial_1600\\fixture_source.gd"
+      ],
+      "exit_code": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "checked_at_utc": "2026-10-15T16:36:51.147405+00:00"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r60_critter_saved_context\\validate.py"
+      ],
+      "exit_code": 0,
+      "sha256": "8686c30f4595b49d989a12955d319f1d8c30da9d81f6149235f37dd6d5f6db13",
+      "checked_at_utc": "2026-10-15T16:37:11.160574+00:00"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_document_authority.py"
+      ],
+      "exit_code": 0,
+      "sha256": "4a6c0c7b7a8eaca2bda9d9f5d85981b36a8d82cb42b373da9a3f292b8585b0b6",
+      "checked_at_utc": "2026-10-15T16:37:27.987203+00:00"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_development.py",
+        "--base",
+        "auto"
+      ],
+      "exit_code": 0,
+      "sha256": "fe1136f6488648e75036829fb4dde2405eb9ed57eec05f046fe441463c20d023",
+      "checked_at_utc": "2026-10-15T16:37:36.295668+00:00"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "-m",
+        "unittest",
+        "tools.tests.test_audit_document_authority",
+        "tools.tests.test_audit_development"
+      ],
+      "exit_code": 0,
+      "sha256": "0ed681f4d0faa92cb4fd55c99078e9f3cacaf64ffe81fe406d412860fca7ce7f",
+      "checked_at_utc": "2026-10-15T16:37:49.110887+00:00"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_document_authority.py",
+        "--stress"
+      ],
+      "exit_code": 0,
+      "sha256": "f6dae08cdab672a16e9630b84cfc9cfbb91c9ce905958c736a197b38d21dcf29",
+      "checked_at_utc": "2026-10-15T16:37:50.568142+00:00"
+    }
+  ],
+  "raw_log_sha256": "2dccf8f96693e731c8f78e35182d98122bb9ad23c7baf9f6b6c8c5c848cf88b0",
+  "scope": "Four native saved-state cases140checks/148files140bounded8excluded;80book480card1440label observations;16pure queries312scripts.54document tests/6stress. No original UI changes/acquisition/alias/native/QA11/device/child/owner/art acceptance.",
+  "review_reconciliation_checks": [
+    {
+      "command": [
+        "python",
+        "-B",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r60_critter_saved_context\\validate.py"
+      ],
+      "exit_code": 0,
+      "sha256": "8686c30f4595b49d989a12955d319f1d8c30da9d81f6149235f37dd6d5f6db13",
+      "output": "R60_VALIDATED148native140bounded8excluded140checks;80book480cards1440labels16purequeries312source;CURRENT history/frozen exact;0art/alias/globalunknown\r\n",
+      "checked_at_utc": "2026-10-15T16:39:16.820532+00:00"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_document_authority.py"
+      ],
+      "exit_code": 0,
+      "sha256": "4a6c0c7b7a8eaca2bda9d9f5d85981b36a8d82cb42b373da9a3f292b8585b0b6",
+      "output": "DOCAUTH|INVENTORY=763|LEDGER=763|ACTIVE=69|RECORDS=72\r\nDOCAUTH|RESULT|ALL OK\r\n",
+      "checked_at_utc": "2026-10-15T16:39:26.919024+00:00"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_development.py",
+        "--base",
+        "auto"
+      ],
+      "exit_code": 0,
+      "sha256": "fe1136f6488648e75036829fb4dde2405eb9ed57eec05f046fe441463c20d023",
+      "output": "AUDITDEV|BASE|e2b3c73789707aa49a91b4f42e2a9dd4b68225df\r\nAUDITDEV|RESULT|ALL OK\r\n",
+      "checked_at_utc": "2026-10-15T16:39:34.293718+00:00"
+    }
+  ]
+}

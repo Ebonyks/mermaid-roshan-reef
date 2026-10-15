@@ -1,0 +1,34 @@
+{
+  "source_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+  "files": [
+    {
+      "path": "assets/props/gen2/clownfish_side.png",
+      "exact_rows": [
+        "| assets/props/gen2/clownfish_side.png | derived: side render of assets/props/gen2/clownfish.glb (project Gemini+Meshy art) | project-owned | \u2014 | sprite for the ambient school quads |"
+      ]
+    },
+    {
+      "path": "assets/props/story/ladybug.png",
+      "exact_rows": []
+    },
+    {
+      "path": "assets/props/story/beetle.png",
+      "exact_rows": []
+    },
+    {
+      "path": "assets/fairy/sprites/bug_moth.png",
+      "exact_rows": []
+    },
+    {
+      "path": "assets/art35/cards/mg/butterfly_butterfly.png",
+      "exact_rows": []
+    }
+  ],
+  "limit": "Exact-row absence does not imply no license. Story/fairy grouped rows establish project-generated family provenance; new Critter purpose/identity/owner acceptance and exact master derivation still require review. art35 heading describes historical GLB cutouts, not direct PNG acceptance. Never revive3D resources.",
+  "grouped_rows": {
+    "assets/props/story/ladybug.png": "| assets/props/story/mushroom_red.png, mushroom_tan_cluster.png, fruit_apple.png, fruit_banana.png, fruit_orange.png, fruit_melon.png, beetle.png, ladybug.png | OpenAI ChatGPT score-3 object and insect rebuild | **Project-generated art** | assets_src/style_review_score3/ | border-connected chroma removal; complete role-separated cards; <=1024px; generated 2026-07-15 |",
+    "assets/props/story/beetle.png": "| assets/props/story/mushroom_red.png, mushroom_tan_cluster.png, fruit_apple.png, fruit_banana.png, fruit_orange.png, fruit_melon.png, beetle.png, ladybug.png | OpenAI ChatGPT score-3 object and insect rebuild | **Project-generated art** | assets_src/style_review_score3/ | border-connected chroma removal; complete role-separated cards; <=1024px; generated 2026-07-15 |",
+    "assets/fairy/sprites/bug_moth.png": "| assets/fairy/sprites/{bug_jewel,bug_moth,bug_firefly,boss_leaf,boss_seed,boss_sprout,boss_bud,boss_opening,boss_bloom}.png | Fairy Pond V2 illustrated subjects converted from export-excluded transparent masters to runtime Sprite3D cards | **Project-generated art** | assets_src/fairy_v2/runtime_textures/*.png; tools/process_fairy_readability_art.py | nine RGBA 1024x1024 2D sprite cards with transparent padding; former GLB reliefs retired; published 2026-07-27 |"
+  },
+  "card_family_historical_scope": "## assets/art35/cards/**/*.glb (135 storybook-cutout conversions)\n- Source: the project's own flat card art (assets_src/style_review_*,\n  assets_src/imagegen chroma pass, assets/props/gen2, assets/mg), converted\n  to alpha-clipped extruded cutout GLBs by tools/convert_flat_cards_to_glb.py\n  (Blender); NPOT textures resized to POT <=1024 during conversion\n- License: project original (derivatives of already-licensed project art)\n- Modifications: card mesh + solidify extrusion; texture resize where needed\n"
+}

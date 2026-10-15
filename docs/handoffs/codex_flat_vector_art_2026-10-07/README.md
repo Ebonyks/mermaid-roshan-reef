@@ -1,3 +1,9 @@
+Current canonical evidence: [R60 original saved Critter Book context](r60_critter_saved_context/README.md), [registry](r60_critter_saved_context/per_piece.json), [coverage](r60_critter_saved_context/scene_coverage.json), [tally](r60_critter_saved_context/tally.json).
+
+Saved partial6/full18 profiles,2Mobile aspects140checks148native140bounded8excluded;16pure queries312script caller facts. Existing animal reuse shortlist; source/new-purpose acceptance pending,0art/adoption/removal. CURRENT metadata synchronized;240roles32families85partial91without0complete/global unknown.
+
+## Historical entry text retained below
+
 Current canonical evidence: [R59 Critter Book layout/reuse candidate](r59_critter_book_reuse/README.md), [registry](r59_critter_book_reuse/per_piece.json), [coverage](r59_critter_book_reuse/scene_coverage.json), [tally](r59_critter_book_reuse/tally.json).
 
 Unapproved ignored fixture only:104checks/340native128bounded212excluded; positive text bounds, painted source reuse and source-bound redraw ornament hiding.0new art/adoption/approval/removal.240roles32families/85partial91without0complete/global unknown.

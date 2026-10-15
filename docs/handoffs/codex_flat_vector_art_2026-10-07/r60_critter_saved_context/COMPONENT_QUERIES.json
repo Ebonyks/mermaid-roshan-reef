@@ -1,0 +1,319 @@
+{
+	"definitions": [
+		{
+			"category": "fish",
+			"category_icon": "🐟",
+			"context": "ocean",
+			"habitat": "reef",
+			"habitat_icon": "🌊",
+			"id": "coral_clownfish",
+			"name": "Coral Clownfish"
+		},
+		{
+			"category": "fish",
+			"category_icon": "🐟",
+			"context": "ocean",
+			"habitat": "reef",
+			"habitat_icon": "🌊",
+			"id": "pearl_seahorse",
+			"name": "Pearl Seahorse"
+		},
+		{
+			"category": "fish",
+			"category_icon": "🐟",
+			"context": "ocean",
+			"habitat": "reef",
+			"habitat_icon": "🌊",
+			"id": "rainbow_angelfish",
+			"name": "Rainbow Angelfish"
+		},
+		{
+			"category": "fish",
+			"category_icon": "🐟",
+			"context": "lagoon",
+			"habitat": "river",
+			"habitat_icon": "💧",
+			"id": "sky_koi",
+			"name": "Sky Koi"
+		},
+		{
+			"category": "fish",
+			"category_icon": "🐟",
+			"context": "lagoon",
+			"habitat": "river",
+			"habitat_icon": "💧",
+			"id": "cloud_minnow",
+			"name": "Cloud Minnow"
+		},
+		{
+			"category": "fish",
+			"category_icon": "🐟",
+			"context": "lagoon",
+			"habitat": "alpine",
+			"habitat_icon": "❄",
+			"id": "frostfin",
+			"name": "Frostfin"
+		},
+		{
+			"category": "insect",
+			"category_icon": "🦋",
+			"context": "lagoon",
+			"habitat": "meadow",
+			"habitat_icon": "🌸",
+			"id": "coral_ladybug",
+			"name": "Coral Ladybug"
+		},
+		{
+			"category": "insect",
+			"category_icon": "🦋",
+			"context": "lagoon",
+			"habitat": "river",
+			"habitat_icon": "💧",
+			"id": "blue_dragonfly",
+			"name": "Blue Dragonfly"
+		},
+		{
+			"category": "insect",
+			"category_icon": "🦋",
+			"context": "lagoon",
+			"habitat": "meadow",
+			"habitat_icon": "🌸",
+			"id": "moon_moth",
+			"name": "Moon Moth"
+		},
+		{
+			"category": "insect",
+			"category_icon": "🦋",
+			"context": "lagoon",
+			"habitat": "meadow",
+			"habitat_icon": "🌸",
+			"id": "honeybee",
+			"name": "Honeybee"
+		},
+		{
+			"category": "insect",
+			"category_icon": "🦋",
+			"context": "lagoon",
+			"habitat": "alpine",
+			"habitat_icon": "❄",
+			"id": "snow_beetle",
+			"name": "Snow Beetle"
+		},
+		{
+			"category": "insect",
+			"category_icon": "🦋",
+			"context": "lagoon",
+			"habitat": "alpine",
+			"habitat_icon": "❄",
+			"id": "crystal_butterfly",
+			"name": "Crystal Butterfly"
+		},
+		{
+			"category": "bird",
+			"category_icon": "🐦",
+			"context": "lagoon",
+			"habitat": "meadow",
+			"habitat_icon": "🌸",
+			"id": "lagoon_bluebird",
+			"name": "Lagoon Bluebird"
+		},
+		{
+			"category": "bird",
+			"category_icon": "🐦",
+			"context": "lagoon",
+			"habitat": "meadow",
+			"habitat_icon": "🌸",
+			"id": "ruby_hummingbird",
+			"name": "Ruby Hummingbird"
+		},
+		{
+			"category": "bird",
+			"category_icon": "🐦",
+			"context": "lagoon",
+			"habitat": "river",
+			"habitat_icon": "💧",
+			"id": "river_kingfisher",
+			"name": "River Kingfisher"
+		},
+		{
+			"category": "bird",
+			"category_icon": "🐦",
+			"context": "lagoon",
+			"habitat": "river",
+			"habitat_icon": "💧",
+			"id": "cloud_puffin",
+			"name": "Cloud Puffin"
+		},
+		{
+			"category": "bird",
+			"category_icon": "🐦",
+			"context": "lagoon",
+			"habitat": "alpine",
+			"habitat_icon": "❄",
+			"id": "snowy_owl",
+			"name": "Snowy Owl"
+		},
+		{
+			"category": "bird",
+			"category_icon": "🐦",
+			"context": "lagoon",
+			"habitat": "alpine",
+			"habitat_icon": "❄",
+			"id": "aurora_tern",
+			"name": "Aurora Tern"
+		}
+	],
+	"display": "headless",
+	"engine": {
+		"build": "official",
+		"hash": "ed1daf0bf001b61586d9930840f2f1394092c079",
+		"hex": 263938,
+		"major": 4,
+		"minor": 7,
+		"patch": 2,
+		"status": "stable",
+		"string": "4.7.2-stable (official)",
+		"timestamp": 0
+	},
+	"failures": 0,
+	"native_frames": 0,
+	"queries": [
+		{
+			"actual": "ocean",
+			"expected": "ocean",
+			"game": "",
+			"kind": "context_predicate",
+			"pass": true,
+			"phase": ""
+		},
+		{
+			"actual": "lagoon",
+			"expected": "lagoon",
+			"game": "level2",
+			"kind": "context_predicate",
+			"pass": true,
+			"phase": "court"
+		},
+		{
+			"actual": "",
+			"expected": "",
+			"game": "level2",
+			"kind": "context_predicate",
+			"pass": true,
+			"phase": "promenade"
+		},
+		{
+			"actual": "",
+			"expected": "",
+			"game": "level2",
+			"kind": "context_predicate",
+			"pass": true,
+			"phase": "interior"
+		},
+		{
+			"actual": "",
+			"expected": "",
+			"game": "level2",
+			"kind": "context_predicate",
+			"pass": true,
+			"phase": "hall"
+		},
+		{
+			"actual": "",
+			"expected": "",
+			"game": "critters",
+			"kind": "context_predicate",
+			"pass": true,
+			"phase": ""
+		},
+		{
+			"actual": "",
+			"expected": "",
+			"game": "north",
+			"kind": "context_predicate",
+			"pass": true,
+			"phase": ""
+		},
+		{
+			"actual": "",
+			"expected": "",
+			"game": "fetch",
+			"kind": "context_predicate",
+			"pass": true,
+			"phase": ""
+		},
+		{
+			"actual": 6,
+			"category": "",
+			"expected": 6,
+			"input_unchanged": true,
+			"kind": "caught_count_read",
+			"mode": "partial",
+			"pass": true
+		},
+		{
+			"actual": 2,
+			"category": "fish",
+			"expected": 2,
+			"input_unchanged": true,
+			"kind": "caught_count_read",
+			"mode": "partial",
+			"pass": true
+		},
+		{
+			"actual": 2,
+			"category": "insect",
+			"expected": 2,
+			"input_unchanged": true,
+			"kind": "caught_count_read",
+			"mode": "partial",
+			"pass": true
+		},
+		{
+			"actual": 2,
+			"category": "bird",
+			"expected": 2,
+			"input_unchanged": true,
+			"kind": "caught_count_read",
+			"mode": "partial",
+			"pass": true
+		},
+		{
+			"actual": 18,
+			"category": "",
+			"expected": 18,
+			"input_unchanged": true,
+			"kind": "caught_count_read",
+			"mode": "full",
+			"pass": true
+		},
+		{
+			"actual": 6,
+			"category": "fish",
+			"expected": 6,
+			"input_unchanged": true,
+			"kind": "caught_count_read",
+			"mode": "full",
+			"pass": true
+		},
+		{
+			"actual": 6,
+			"category": "insect",
+			"expected": 6,
+			"input_unchanged": true,
+			"kind": "caught_count_read",
+			"mode": "full",
+			"pass": true
+		},
+		{
+			"actual": 6,
+			"category": "bird",
+			"expected": 6,
+			"input_unchanged": true,
+			"kind": "caught_count_read",
+			"mode": "full",
+			"pass": true
+		}
+	],
+	"scope": "Bare Main outside tree; no ready/process, world spawn/catch/action, save IO or rendering. Original read queries on declared synthetic inputs only. Predicate output never proves game.critters origin, normal catch route, source/native closure or art/medium acceptance."
+}

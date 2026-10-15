@@ -1,0 +1,64 @@
+{
+  "source_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+  "source_census": "COLLECTION_SOURCE_CENSUS.json",
+  "component": "COMPONENT_QUERIES.json",
+  "counts": {
+    "files": 312,
+    "calls": 35,
+    "symbols": 16,
+    "functions": 26
+  },
+  "query_count": 16,
+  "bounded_source_facts": [
+    {
+      "paths": [
+        "scripts/save_state.gd:160",
+        "scripts/save_state.gd:312",
+        "scripts/save_state.gd:707"
+      ],
+      "fact": "critters normalized as Dictionary, loaded to Main and copied to next save. Native private seeded6/18input and unknownfalse species key survive actual source load/browse/reload; acquisition is not demonstrated."
+    },
+    {
+      "paths": [
+        "scripts/main.gd:4979",
+        "scripts/arena/sky_lagoon_promenade.gd:198",
+        "scripts/main.gd:4989"
+      ],
+      "fact": "Current Sky entry builds Canvas promenade, which sets phase promenade before cleanup collection.tick. Original _context returns empty for level2/promenade."
+    },
+    {
+      "paths": [
+        "scripts/main.gd:8295",
+        "scripts/main.gd:8308"
+      ],
+      "fact": "Current _process Sky Canvas branch returns before generic collection.tick. Generic tick remains in other paths; this is not proof all dynamic/catch routes are unreachable."
+    },
+    {
+      "paths": [
+        "scripts/collection_system.gd:73",
+        "scripts/collection_system.gd:150",
+        "scripts/collection_system.gd:246"
+      ],
+      "fact": "Original context predicate returns ocean for empty game and lagoon for level2/court; other inputs empty. Legacy spawn usesLabel3D category markers/stars and requires valid row for catch. No spawn/catch executed here."
+    },
+    {
+      "paths": [
+        "scripts/probe_collection.gd:28",
+        "scripts/probe_collection.gd:46"
+      ],
+      "fact": "Trusted probe explicitly spawns ocean, repositions player and changes action_down; it is a component/probe path, not normal acquisition. Its all-species2D-safe label checks only DEFS.size==18, not medium/style identity."
+    },
+    {
+      "paths": [
+        "scripts/pause_menu.gd:82",
+        "scripts/collection_system.gd:280"
+      ],
+      "fact": "Current actual Pause Critters opens saved collection independently of game token; captured game remains level2/phasehall."
+    }
+  ],
+  "game_critters_alias": "Origin/semantic contract remains unresolved. Component synthetic game=critters returns empty _context; neither that nor book capture proves alias identity or unreachable status.85partial91without0complete unchanged.",
+  "full_dispatch_native_resource_domain_closed": false,
+  "new_context_alias_credits": 0,
+  "accepted_removed": 0,
+  "mission_complete": false
+}

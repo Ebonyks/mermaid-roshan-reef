@@ -1,0 +1,482 @@
+{
+  "revision": "FV-AUDIT-20261015-R60",
+  "source_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+  "inspection_type": "ASSISTANT_VISUAL_INSPECTION_ONLY_NOT_HUMAN_OWNER_ACCEPTANCE",
+  "native_direct_views": [
+    {
+      "path": "native/attempt1_critter_saved_partial_1280/fish_ready.png",
+      "sha256": "ab5f8f93c9ebd42608acda1f74d6be0ee2d8a47ad38759aac0b88baa80d1d6fd"
+    },
+    {
+      "path": "native/attempt1_critter_saved_partial_1280/bird_settled.png",
+      "sha256": "571da61194c8f8358e2d16bf1566337af20678a22ae04a1416c7520d3801bf48"
+    },
+    {
+      "path": "native/attempt1_critter_saved_partial_1280/insect_settled.png",
+      "sha256": "88716aceee74c8665de9c727ce18ebc29edb63cde2dfd296e10149ab029f2188"
+    },
+    {
+      "path": "native/attempt1_critter_saved_partial_1280/same_category_repeat_settled.png",
+      "sha256": "c677a73667fe2da59f8c6a81288aab01cac3925eb7f0d02cc1737b86b0bec2d3"
+    },
+    {
+      "path": "native/attempt1_critter_saved_partial_1600/fish_ready.png",
+      "sha256": "2d6041f162a4201d5d92d0ed4b9983fdf1eda96725f5b7a07f43261c930682f4"
+    },
+    {
+      "path": "native/attempt1_critter_saved_partial_1600/insect_settled.png",
+      "sha256": "c2b3e28c69a6d9fdd1f5417b138c09eceb921f4c7d5defc9d87b102363a09fb7"
+    },
+    {
+      "path": "native/attempt1_critter_saved_partial_1600/bird_settled.png",
+      "sha256": "85de37001b59e05bf0424b309fc3cee8b3ca591a216e35673374bff5678f9ae8"
+    },
+    {
+      "path": "native/attempt1_critter_saved_full_1280/fish_ready.png",
+      "sha256": "e86117b601c95c9406084a645933b2111457a853d771f1099939a0c48aa83ebe"
+    },
+    {
+      "path": "native/attempt1_critter_saved_full_1280/insect_settled.png",
+      "sha256": "fefaee2890dc76eea01248bae3de67cb385c850bd1396ce85f7999d4f9b70a5a"
+    },
+    {
+      "path": "native/attempt1_critter_saved_full_1280/bird_settled.png",
+      "sha256": "46231aed839c6060d11dd8b3a4a006aa3fb6ec07549b469d27472648aa6b8b04"
+    },
+    {
+      "path": "native/attempt1_critter_saved_full_1280/initial_menu_released.png",
+      "sha256": "e45076d9b108a8d4caa1c4177e1375b5d54279d3654a7e42d6b75c69a056dc01"
+    },
+    {
+      "path": "native/attempt1_critter_saved_full_1600/fish_ready.png",
+      "sha256": "bbbdd0cccd1cf37161dfcde7dd21de439eca0291912c3fc8259ab254a8313e18"
+    },
+    {
+      "path": "native/attempt1_critter_saved_full_1600/insect_settled.png",
+      "sha256": "5d4cab0aa45dd414161167dfc841eaa217ed1bae88bdc2336795ef20f5558d0e"
+    },
+    {
+      "path": "native/attempt1_critter_saved_full_1600/bird_settled.png",
+      "sha256": "c2bf1b2f70da590fd46050b4e0e2718c09e0228bad7e2e7d5ad4b2a8e45c0e1c"
+    }
+  ],
+  "source_direct_views": [
+    {
+      "path": "assets/props/gen2/clownfish_side.png",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 75169,
+      "sha256": "0b9df739ab132f88178f1ac2052a3b8a4a7c9497ba1456eb151c8849989cba88",
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/assets/props/gen2/clownfish_side.png",
+      "http_status": 200
+    },
+    {
+      "path": "assets/props/story/ladybug.png",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 909131,
+      "sha256": "3e6d069fd02460ac730ba0fa18902f7f98d7390f21067500899d8e0f638a3fc2",
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/assets/props/story/ladybug.png",
+      "http_status": 200
+    },
+    {
+      "path": "assets/props/story/beetle.png",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 935703,
+      "sha256": "ca22b14e04c5cbcf42535ebd5ac8ebe7bc9676b9313dc6484e5d6bcdbd7b9688",
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/assets/props/story/beetle.png",
+      "http_status": 200
+    },
+    {
+      "path": "assets/fairy/sprites/bug_moth.png",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 471911,
+      "sha256": "c707462c283b254d1380afe18bd899035853620c5215931cd528cb855d1b327f",
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/assets/fairy/sprites/bug_moth.png",
+      "http_status": 200
+    },
+    {
+      "path": "assets/art35/cards/mg/butterfly_butterfly.png",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 749717,
+      "sha256": "26d56d72f6a8655fd991e560c20b21ebc9e51a94c66f8315e26a412ce9132c74",
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/assets/art35/cards/mg/butterfly_butterfly.png",
+      "http_status": 200
+    }
+  ],
+  "same_scene_reference_hashes": [
+    {
+      "revision": "2e2464a742885d0d0803870ffea9dfdd51b49889",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r59_critter_book_reuse/native/attempt4_critter_reuse_layout_1280/bird_settled.png",
+      "sha256": "d242d801066af74adc511a5b0d291e7812cc4916d239a529cd674787cf1bc878",
+      "bytes": 245140,
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/2e2464a742885d0d0803870ffea9dfdd51b49889/docs/handoffs/codex_flat_vector_art_2026-10-07/r59_critter_book_reuse/native/attempt4_critter_reuse_layout_1280/bird_settled.png"
+    },
+    {
+      "revision": "2e2464a742885d0d0803870ffea9dfdd51b49889",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r59_critter_book_reuse/native/attempt4_critter_reuse_layout_1600/fish_ready.png",
+      "sha256": "a810d8818ef7edf5bca4f73fa07c61a265a91cdc472d469c81f02af85fad594d",
+      "bytes": 383927,
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/2e2464a742885d0d0803870ffea9dfdd51b49889/docs/handoffs/codex_flat_vector_art_2026-10-07/r59_critter_book_reuse/native/attempt4_critter_reuse_layout_1600/fish_ready.png"
+    },
+    {
+      "revision": "2e2464a742885d0d0803870ffea9dfdd51b49889",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r59_critter_book_reuse/native/attempt4_critter_reuse_painted_1280/bird_settled.png",
+      "sha256": "3946b1f31a4e8135a6584baeafa185054fa6416edb2421a407401c4f8e420b0b",
+      "bytes": 848038,
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/2e2464a742885d0d0803870ffea9dfdd51b49889/docs/handoffs/codex_flat_vector_art_2026-10-07/r59_critter_book_reuse/native/attempt4_critter_reuse_painted_1280/bird_settled.png"
+    },
+    {
+      "revision": "2e2464a742885d0d0803870ffea9dfdd51b49889",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r59_critter_book_reuse/native/attempt4_critter_reuse_painted_1280/category_bird_pressed.png",
+      "sha256": "f26fa5fdb13d6209323523cc5f545ad2eced19186a37941f4c78f45c6abfc5e8",
+      "bytes": 853194,
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/2e2464a742885d0d0803870ffea9dfdd51b49889/docs/handoffs/codex_flat_vector_art_2026-10-07/r59_critter_book_reuse/native/attempt4_critter_reuse_painted_1280/category_bird_pressed.png"
+    },
+    {
+      "revision": "2e2464a742885d0d0803870ffea9dfdd51b49889",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r59_critter_book_reuse/native/attempt4_critter_reuse_painted_1280/fish_ready.png",
+      "sha256": "01a1dff0db6d6c303009d3a836c16ec73ed77d7327a0ac5c7f712440d00eed67",
+      "bytes": 844333,
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/2e2464a742885d0d0803870ffea9dfdd51b49889/docs/handoffs/codex_flat_vector_art_2026-10-07/r59_critter_book_reuse/native/attempt4_critter_reuse_painted_1280/fish_ready.png"
+    },
+    {
+      "revision": "2e2464a742885d0d0803870ffea9dfdd51b49889",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r59_critter_book_reuse/native/attempt4_critter_reuse_painted_1600/category_bird_pressed.png",
+      "sha256": "f826094cd57b6c24009b0dfdb1b85e08f8a544cb05559cd1e23fc47f2bddc58e",
+      "bytes": 1003608,
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/2e2464a742885d0d0803870ffea9dfdd51b49889/docs/handoffs/codex_flat_vector_art_2026-10-07/r59_critter_book_reuse/native/attempt4_critter_reuse_painted_1600/category_bird_pressed.png"
+    },
+    {
+      "revision": "2e2464a742885d0d0803870ffea9dfdd51b49889",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r59_critter_book_reuse/native/attempt4_critter_reuse_painted_1600/fish_ready.png",
+      "sha256": "ef035c8fa1ef5ba81366c80ae448e7e0bbc48802d3ed358148efb4b1742d29b9",
+      "bytes": 994248,
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/2e2464a742885d0d0803870ffea9dfdd51b49889/docs/handoffs/codex_flat_vector_art_2026-10-07/r59_critter_book_reuse/native/attempt4_critter_reuse_painted_1600/fish_ready.png"
+    },
+    {
+      "revision": "431c165647f4dcca4aec0e4ccada517534ead513",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r58_critter_book_context/native/attempt2_critter_book_1280/bird_settled.png",
+      "sha256": "df89db0c2133ecd75e0061023bb658e434d1a007a0c89d0a3f2b6b8a9deca5aa",
+      "bytes": 235898,
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/431c165647f4dcca4aec0e4ccada517534ead513/docs/handoffs/codex_flat_vector_art_2026-10-07/r58_critter_book_context/native/attempt2_critter_book_1280/bird_settled.png"
+    },
+    {
+      "revision": "431c165647f4dcca4aec0e4ccada517534ead513",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r58_critter_book_context/native/attempt2_critter_book_1280/book_application_resume_notification.png",
+      "sha256": "e37629ec21fb65668438d7d9cd13f3c47946c8583d52fe98f33ff00189653edc",
+      "bytes": 231612,
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/431c165647f4dcca4aec0e4ccada517534ead513/docs/handoffs/codex_flat_vector_art_2026-10-07/r58_critter_book_context/native/attempt2_critter_book_1280/book_application_resume_notification.png"
+    },
+    {
+      "revision": "431c165647f4dcca4aec0e4ccada517534ead513",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r58_critter_book_context/native/attempt2_critter_book_1280/fish_ready.png",
+      "sha256": "0e9470a46628d85f6b8409e4d3520155351d4c3da51adb78634d0f64610832e4",
+      "bytes": 231599,
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/431c165647f4dcca4aec0e4ccada517534ead513/docs/handoffs/codex_flat_vector_art_2026-10-07/r58_critter_book_context/native/attempt2_critter_book_1280/fish_ready.png"
+    },
+    {
+      "revision": "431c165647f4dcca4aec0e4ccada517534ead513",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r58_critter_book_context/native/attempt2_critter_book_1280/initial_menu_released.png",
+      "sha256": "b2e30128c1f347caf0980dd37f17f0f548ad6220a76e5e6e6a46a18974ed8a14",
+      "bytes": 556720,
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/431c165647f4dcca4aec0e4ccada517534ead513/docs/handoffs/codex_flat_vector_art_2026-10-07/r58_critter_book_context/native/attempt2_critter_book_1280/initial_menu_released.png"
+    },
+    {
+      "revision": "431c165647f4dcca4aec0e4ccada517534ead513",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r58_critter_book_context/native/attempt2_critter_book_1280/reopen_fish_ready.png",
+      "sha256": "b4ac419f747f5b0fdc834402bcb3447e226dc2c11f4767fa6a0a8cbde84f3d34",
+      "bytes": 231589,
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/431c165647f4dcca4aec0e4ccada517534ead513/docs/handoffs/codex_flat_vector_art_2026-10-07/r58_critter_book_context/native/attempt2_critter_book_1280/reopen_fish_ready.png"
+    },
+    {
+      "revision": "431c165647f4dcca4aec0e4ccada517534ead513",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r58_critter_book_context/native/attempt2_critter_book_1600/bird_settled.png",
+      "sha256": "e9551d6abf991a6684d7e1fb93b6fb6539274c4150e6977f36613c1b78dd9083",
+      "bytes": 374739,
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/431c165647f4dcca4aec0e4ccada517534ead513/docs/handoffs/codex_flat_vector_art_2026-10-07/r58_critter_book_context/native/attempt2_critter_book_1600/bird_settled.png"
+    },
+    {
+      "revision": "431c165647f4dcca4aec0e4ccada517534ead513",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r58_critter_book_context/native/attempt2_critter_book_1600/fish_ready.png",
+      "sha256": "659473a573eab0e545b09c9af3d407f0c7f1adfc38bea4c02767d84230e81c18",
+      "bytes": 370875,
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/431c165647f4dcca4aec0e4ccada517534ead513/docs/handoffs/codex_flat_vector_art_2026-10-07/r58_critter_book_context/native/attempt2_critter_book_1600/fish_ready.png"
+    },
+    {
+      "revision": "431c165647f4dcca4aec0e4ccada517534ead513",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r58_critter_book_context/native/attempt2_critter_book_1600/initial_back_released.png",
+      "sha256": "b31fd53d61ea21ee9b2235dbdae0740a15e044fd90eadf5149338395955733ef",
+      "bytes": 1754984,
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/431c165647f4dcca4aec0e4ccada517534ead513/docs/handoffs/codex_flat_vector_art_2026-10-07/r58_critter_book_context/native/attempt2_critter_book_1600/initial_back_released.png"
+    },
+    {
+      "revision": "431c165647f4dcca4aec0e4ccada517534ead513",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r58_critter_book_context/native/attempt3_critter_passive_1280/book_after_10_real_seconds.png",
+      "sha256": "ec9edb84626e5a52f61f15eb19bcde9edc8f0673bb3b9b4825154427b3639f46",
+      "bytes": 227534,
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/431c165647f4dcca4aec0e4ccada517534ead513/docs/handoffs/codex_flat_vector_art_2026-10-07/r58_critter_book_context/native/attempt3_critter_passive_1280/book_after_10_real_seconds.png"
+    },
+    {
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "path": "assets/characters/roshan_25d/roshan_base.png",
+      "sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab",
+      "bytes": 50051,
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/assets/characters/roshan_25d/roshan_base.png"
+    },
+    {
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "path": "assets/characters/roshan_25d/roshan_directional.png",
+      "sha256": "2bcc6212dddaddedb5823ba095caff1cbecdb762d5bbdc76726d3d5b0e3ee85a",
+      "bytes": 396741,
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/assets/characters/roshan_25d/roshan_directional.png"
+    },
+    {
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "path": "assets/fashion/skin_engine_v2/ui/wardrobe_card.png",
+      "sha256": "ab4926b5c99c3c6db0efcb4a20a75a9128276e085189bf51f947025659525893",
+      "bytes": 69345,
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/assets/fashion/skin_engine_v2/ui/wardrobe_card.png"
+    },
+    {
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "path": "assets/fashion/skin_engine_v2/ui/wardrobe_panel.png",
+      "sha256": "b533b95074f1466ee0519448c992de89d5683432f7a994c4de2628659da7f1ef",
+      "bytes": 686645,
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/assets/fashion/skin_engine_v2/ui/wardrobe_panel.png"
+    },
+    {
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "path": "assets/flats/castle/main_hall_redraw_2026-08-03/tiles/main_hall_room_led_r0_c0.png",
+      "sha256": "317cdef9249c73bae64d8b0e7c6590a78b5a4f71d3187a2c32e5fa435150c1cb",
+      "bytes": 1096542,
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/assets/flats/castle/main_hall_redraw_2026-08-03/tiles/main_hall_room_led_r0_c0.png"
+    },
+    {
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "path": "assets/flats/castle/main_hall_redraw_2026-08-03/tiles/main_hall_room_led_r0_c1.png",
+      "sha256": "2584ed2636652871e5a7eeb3400243a61a2676cf966b9e9f652463f424467e22",
+      "bytes": 1046054,
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/assets/flats/castle/main_hall_redraw_2026-08-03/tiles/main_hall_room_led_r0_c1.png"
+    },
+    {
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "path": "assets/flats/castle/main_hall_redraw_2026-08-03/tiles/main_hall_room_led_r0_c2.png",
+      "sha256": "ee46dfa20f4de0140c8dbfb56eacba2d59acdb8eff684c0c45422fd34862b892",
+      "bytes": 1077160,
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/assets/flats/castle/main_hall_redraw_2026-08-03/tiles/main_hall_room_led_r0_c2.png"
+    },
+    {
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "path": "assets/flats/castle/main_hall_redraw_2026-08-03/tiles/main_hall_room_led_r0_c3.png",
+      "sha256": "802731a92762c849f9c0597b2e75a6dbc0336dbf60032ee9290867cd4ce7d1a1",
+      "bytes": 945248,
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/assets/flats/castle/main_hall_redraw_2026-08-03/tiles/main_hall_room_led_r0_c3.png"
+    },
+    {
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "path": "assets/flats/castle/main_hall_redraw_2026-08-03/tiles/main_hall_room_led_r0_c4.png",
+      "sha256": "9bfa44736244ae50fda10461c48cc0ee0cf35f195dd6e3b59364c6c9756cfc82",
+      "bytes": 996041,
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/assets/flats/castle/main_hall_redraw_2026-08-03/tiles/main_hall_room_led_r0_c4.png"
+    },
+    {
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "path": "assets/flats/castle/main_hall_redraw_2026-08-03/tiles/main_hall_room_led_r0_c5.png",
+      "sha256": "d1e4652e644bd5354c5bd779242f885cc58ad0f2a6adc61dff4105d7417fc0ae",
+      "bytes": 1049188,
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/assets/flats/castle/main_hall_redraw_2026-08-03/tiles/main_hall_room_led_r0_c5.png"
+    },
+    {
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "path": "assets/flats/castle/main_hall_redraw_2026-08-03/tiles/main_hall_room_led_r0_c6.png",
+      "sha256": "17e74663ad7b95414453e106265258642f51b820001a99e0f1882352a96012da",
+      "bytes": 1022595,
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/assets/flats/castle/main_hall_redraw_2026-08-03/tiles/main_hall_room_led_r0_c6.png"
+    },
+    {
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "path": "assets/flats/castle/main_hall_redraw_2026-08-03/tiles/main_hall_room_led_r0_c7.png",
+      "sha256": "0fa83e2c10c68d7c86e97b8d6a8ef19eebc7a01fa8f87a05aeb8a312037209b0",
+      "bytes": 1088604,
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/assets/flats/castle/main_hall_redraw_2026-08-03/tiles/main_hall_room_led_r0_c7.png"
+    },
+    {
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "path": "assets/flats/castle/main_hall_redraw_2026-08-03/tiles/main_hall_room_led_r1_c0.png",
+      "sha256": "d1e3eab5aa9ce34c9b136343c03709b707e775883177c51244fe1b1dc56d74ec",
+      "bytes": 1094261,
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/assets/flats/castle/main_hall_redraw_2026-08-03/tiles/main_hall_room_led_r1_c0.png"
+    },
+    {
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "path": "assets/flats/castle/main_hall_redraw_2026-08-03/tiles/main_hall_room_led_r1_c1.png",
+      "sha256": "e775495278b8fbcadca429dececa5445fe6dc5d8327f9758966ac4a5ae615129",
+      "bytes": 1110588,
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/assets/flats/castle/main_hall_redraw_2026-08-03/tiles/main_hall_room_led_r1_c1.png"
+    },
+    {
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "path": "assets/flats/castle/main_hall_redraw_2026-08-03/tiles/main_hall_room_led_r1_c2.png",
+      "sha256": "c2abbd83f3fce093addd9250c1930ee57d86f4c21e170b2d454121d12b723ea5",
+      "bytes": 1093857,
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/assets/flats/castle/main_hall_redraw_2026-08-03/tiles/main_hall_room_led_r1_c2.png"
+    },
+    {
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "path": "assets/flats/castle/main_hall_redraw_2026-08-03/tiles/main_hall_room_led_r1_c3.png",
+      "sha256": "3b5ba5dd85ba1bf5969be08a191957e2eb476e741b717aa0e7fb843eb0aee40d",
+      "bytes": 1035767,
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/assets/flats/castle/main_hall_redraw_2026-08-03/tiles/main_hall_room_led_r1_c3.png"
+    },
+    {
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "path": "assets/flats/castle/main_hall_redraw_2026-08-03/tiles/main_hall_room_led_r1_c4.png",
+      "sha256": "9e180247910d843b535998ad1167371b1990834279a26119714743af59a11203",
+      "bytes": 1059965,
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/assets/flats/castle/main_hall_redraw_2026-08-03/tiles/main_hall_room_led_r1_c4.png"
+    },
+    {
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "path": "assets/flats/castle/main_hall_redraw_2026-08-03/tiles/main_hall_room_led_r1_c5.png",
+      "sha256": "31b6d8a5dfef47c575b63f953c98240c826f5007ef1fa406ef17a853630ff808",
+      "bytes": 1101365,
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/assets/flats/castle/main_hall_redraw_2026-08-03/tiles/main_hall_room_led_r1_c5.png"
+    },
+    {
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "path": "assets/flats/castle/main_hall_redraw_2026-08-03/tiles/main_hall_room_led_r1_c6.png",
+      "sha256": "0068537a79a205fa50f3747b37735c591f876ceac92d685abaa3d6f57605c92c",
+      "bytes": 1103927,
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/assets/flats/castle/main_hall_redraw_2026-08-03/tiles/main_hall_room_led_r1_c6.png"
+    },
+    {
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "path": "assets/flats/castle/main_hall_redraw_2026-08-03/tiles/main_hall_room_led_r1_c7.png",
+      "sha256": "24a11eb0c82e09c3968f59c8f7418f9628e787ba0c0d1ab53b5ff4a282b98d41",
+      "bytes": 1069770,
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/assets/flats/castle/main_hall_redraw_2026-08-03/tiles/main_hall_room_led_r1_c7.png"
+    },
+    {
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "path": "assets_src/fashion_designer/skin_engine_v2/native/wardrobe_card.png",
+      "sha256": "9848c5b057285cd86e74ed16748cc124ad81e52b7d83105b0241585dda40ef88",
+      "bytes": 1551769,
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/assets_src/fashion_designer/skin_engine_v2/native/wardrobe_card.png"
+    },
+    {
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "path": "assets_src/fashion_designer/skin_engine_v2/native/wardrobe_panel.png",
+      "sha256": "c25dd53475668208eb662944964b0198a44afbf8e392d8255d30c7fb70f7375c",
+      "bytes": 1917020,
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/assets_src/fashion_designer/skin_engine_v2/native/wardrobe_panel.png"
+    }
+  ],
+  "stable_existing_piece_ids": [
+    "FV-E9E82E0C6703",
+    "FV-2ABD73BAFFE0",
+    "FV-AB474EF3699E"
+  ],
+  "glyph_sites": [
+    "FVG-19B880B613E4",
+    "FVG-ABB4CE6C85C9",
+    "FVG-3C4113536B0F",
+    "FVG-0FE159C1A4B4"
+  ],
+  "comparison": {
+    "contour": "Current uniform rounded mint/violet panels, geometric shell/pearls and category-glyph cutouts contrast with MainHall painted doors/crowns. Existing painted ladybug/beetle have irregular painted contours; their new-use/alpha/phone fit remains untested.",
+    "material": "Caught card backgrounds remain uniform fields and shadows. Emoji category art lacks the room painted paper/gold/stone texture; nominal PNG or mesh-derived fish can remain flat-style raster lookalikes. Painted source brush grain is visible but not acceptance.",
+    "palette": "Caught source colors differ by species, but all share category icon palette. The Ladybug coral/black source relates to its source red/coral card; beetle turquoise differs from Snow Beetle. No recolor/relight performed.",
+    "light": "Source Castle authored highlights are retained. Native glyphs/flat fills have independent shading vocabulary. Reuse candidates preserve their own source light; no lighting/code/pixels changed.",
+    "perspective": "Original frontal book UI; source insect drawings are oblique/dorsal cards. Their silhouette must be tested at actual small UI scale without3D staging or new models.",
+    "scale": "Original cards356x192, icon96square/font68, caught name220x74/font29, habitat300x54/font28. Full/partial source keys bound; main title/help remain1px wide fromR58. Desktop captures do not establish phone readability.",
+    "contact": "Book is a UI overlay, no ground-support claim. Catch world/contact/action not performed. Native Menu/tabs/same-category repeat/Back remain original owners; no artificial collection award around capture.",
+    "occlusion": "Original Castle caption layer27 temporarily covers original book25/category area; source flags/timer unassigned. R58 separate natural10s expiry evidence retained. Source title/help bounds remain weak; R59 layer reorder is unadopted.",
+    "readability": "All18species names/partial unknown states are source-bound.3generic pictures intentionally identify category; do not invent18portrait requirement. Whether names/colors suffice for the non-reader remains unproved, not an automatic species-art defect. Long names wrap in original source; FontFile empty resource path does not identify actual shaped fallback. Phone/child/owner evidence remains open.",
+    "action_state": "4native saved6/18cases at2aspects140checks,80book snapshots480cards1440labels.16pure read queries/312script AST facts separate. Original repeat/browse/reopen/save reload preserved; new natural acquisition/full freshOS/QA11/device/child/owner not proved."
+  },
+  "observations": [
+    {
+      "id": "FVOBS-CRITTERBOOK-SPECIES-ICONS",
+      "status": "CURRENT_CATEGORY_PICTOGRAM_ROLE_BOUND_STYLE_REUSE_REVIEW_REQUIRED",
+      "glyph_site": "FVG-19B880B613E4",
+      "facts": "Source intentionally uses one CATEGORY_ICON per category for all caught cards:6fish share blue fish,6insects butterfly,6birds red bird. This field is a category/status indicator, not18species portraits. Preserve that purpose when replacing visible flat pictograms; repeated art is not itself a defect or18-piece denominator. Names/color differentiate saved species; non-reader recognition remains an unproved usability lane.",
+      "evidence": [
+        {
+          "path": "native/attempt1_critter_saved_full_1280/fish_ready.png",
+          "sha256": "e86117b601c95c9406084a645933b2111457a853d771f1099939a0c48aa83ebe"
+        },
+        {
+          "path": "native/attempt1_critter_saved_full_1280/insect_settled.png",
+          "sha256": "fefaee2890dc76eea01248bae3de67cb385c850bd1396ce85f7999d4f9b70a5a"
+        },
+        {
+          "path": "native/attempt1_critter_saved_full_1280/bird_settled.png",
+          "sha256": "46231aed839c6060d11dd8b3a4a006aa3fb6ec07549b469d27472648aa6b8b04"
+        }
+      ],
+      "next": "Preserve category/status semantics. Review a suitable existing painted category image first; no18portrait requirement or new generation inferred."
+    },
+    {
+      "id": "FVOBS-CRITTERBOOK-CAUGHT-ROLE-BOUNDS",
+      "status": "CURRENT_CONSUMERS_BOUND_FOR_NEXT_CANDIDATE_REPAIR",
+      "facts": "Source child positions icon(22,23)/name(122,30)/habitat(28,134) independently bind full/partial labels. R59 fixture recognizes only literal Mystery Friend and ?; its caught names/icons fall into habitat layout branch. This is a source-demonstrated candidate coverage gap, not a newly rendered R59 failure claim.",
+      "evidence": "SAVED_CARD_BINDINGS.json",
+      "next": "After R60 publication, inspect R59 in these exact saved contexts and repair by original source role/instance geometry, not text-value tests."
+    },
+    {
+      "id": "FVOBS-CRITTERBOOK-CANONICAL-POINTER",
+      "status": "METADATA_REPAIR_IN_THIS_REVISION",
+      "facts": "CURRENT.json last updated R56 payload21eb18b6 while root README/master pointR59. Preserve schema/history/frozen arrays; synchronize existing metadata pointer toR60."
+    }
+  ],
+  "new_roles": 0,
+  "new_families": 0,
+  "new_alias_credits": 0,
+  "approved": 0,
+  "integrated": 0,
+  "runtime_verified_replacements": 0,
+  "accepted_removed": 0,
+  "human_reviews": [],
+  "QA11": null,
+  "device": null,
+  "child": null,
+  "owner": null,
+  "mission_complete": false
+}

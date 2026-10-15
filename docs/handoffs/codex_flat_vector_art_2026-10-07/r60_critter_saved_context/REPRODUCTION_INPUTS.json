@@ -1,0 +1,20 @@
+{
+  "baseline": {
+    "revision": "2e2464a742885d0d0803870ffea9dfdd51b49889",
+    "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r51_farmer_context/RUNTIME_BYTE_BASELINE.json",
+    "sha256": "60e556d68dcd3e826407e7a4f15341a52e2b7fa5216c67907ca68d521de335e7",
+    "actual_staging_raw_exact": true
+  },
+  "fixtures": [
+    {
+      "path": "capture_critter_saved.gd",
+      "sha256": "b535f8347498b2f53c2858ced77902196fa7dd5f3c0e8add930e5834f12407c8"
+    },
+    {
+      "path": "query_collection.gd",
+      "sha256": "fc73bbe52ce30558c6e559c79101a9cac2b85d8a532d62c9ca38647fad9dd8b3"
+    }
+  ],
+  "setup": "Use clean exact source5120b6d5 and published initialized4420runtime/4041sidecar/normal8hash baseline, exact official4.7.2. Copy fixtures to ignored export/flat_vector_r60, baseline to runner staging POST_IMPORT_BASELINE.json. R60_COLLECTION_MODE partial/full and R60_TEST_WIDTH1280/1600, fresh output dirs; parser/inference/exactcheck-only before each changed fixture. Seed only private fresh profile before original Main ready; original Menu/tabs/Back and saved data consumer thereafter. Pure component is a bare Main outside tree, separately guarded. Never run legacy catch/spawn helper to manufacture reachability.",
+  "acceptance": "Native desktopMobile/actualSpeedy/time1/Dummy audio, source seeds and read queries are bounded evidence, not natural catch route/device/audio/child/owner/QA11 or creative acceptance."
+}
