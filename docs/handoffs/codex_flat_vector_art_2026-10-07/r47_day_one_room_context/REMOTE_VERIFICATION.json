@@ -1,5 +1,73 @@
 {
-  "status": "PENDING_ACTUAL_EXECUTION_OR_REMOTE_VERIFICATION",
-  "record": "REMOTE_VERIFICATION.json",
-  "mission_complete": false
+  "schema": "reef.bounded_audit_json_index/1",
+  "logical_schema": "reef.flat_vector_delta_receipt/1",
+  "logical_bytes": 8177623,
+  "logical_sha256": "5e7dbfb115a86247032427dc0db93d5ac465b8f472974c56a3e790e454d62b66",
+  "fragment_count": 9,
+  "fragments": [
+    {
+      "path": "REMOTE_VERIFICATION.fragment0001.json",
+      "bytes": 1068292,
+      "sha256": "55b8017a56ed58c74eb6095ffdd99c15c689fda2e93bf267aa16595ad85854fd",
+      "text_bytes": 1000000,
+      "text_sha256": "1e042665d1779efd0c5970ea0446ec799e33c57595aaec9d5d65fc3eaabd9903"
+    },
+    {
+      "path": "REMOTE_VERIFICATION.fragment0002.json",
+      "bytes": 1049912,
+      "sha256": "d0550ee78e7e08eec2448026efd1e8600ff5bbb55618927141192ed63e2c6b33",
+      "text_bytes": 1000000,
+      "text_sha256": "b969df52fdd7337465e40e59603064731683eb032e5bc919a699adbc215f960d"
+    },
+    {
+      "path": "REMOTE_VERIFICATION.fragment0003.json",
+      "bytes": 1060198,
+      "sha256": "5758936a19845cf74c3432470465e2fab6d388a2d826917c968605080688d67a",
+      "text_bytes": 1000000,
+      "text_sha256": "cf82552378368df91b3c98d793de02fe8bff37ea2ca0d1079916ff41e8a8b5ce"
+    },
+    {
+      "path": "REMOTE_VERIFICATION.fragment0004.json",
+      "bytes": 1056425,
+      "sha256": "8465c171e9a99c150ecf7e51e5526e194dcd8a1639989cb1d8dacc179398707b",
+      "text_bytes": 1000000,
+      "text_sha256": "253da2101f5b0e671c2b7f7267d7ca0ef528e2b952b5f0eb4d557e831ed4be3c"
+    },
+    {
+      "path": "REMOTE_VERIFICATION.fragment0005.json",
+      "bytes": 1061285,
+      "sha256": "077a8769211ae3786b2e4619b81bf739ccba1b092cd537b7a58e63da6b45d99c",
+      "text_bytes": 1000000,
+      "text_sha256": "6816c156cffd87fee4c4478ba62547950faaa9bf25ab8795e39d380c552a631a"
+    },
+    {
+      "path": "REMOTE_VERIFICATION.fragment0006.json",
+      "bytes": 1059335,
+      "sha256": "55186f36425f289408af3fb7003b5e659576a8fc2673a07ab430b233aeac049d",
+      "text_bytes": 1000000,
+      "text_sha256": "ea9f3c66f9cc06906ed8dc5fc570420130ee46d7cd0e2579398db6a3e438bce0"
+    },
+    {
+      "path": "REMOTE_VERIFICATION.fragment0007.json",
+      "bytes": 1055811,
+      "sha256": "135e4e3c2b6c2d59341e575494bfb7937a87a5d013c2d920faa5abbd88a22075",
+      "text_bytes": 1000000,
+      "text_sha256": "7867d7ebf4e4f1c94be8a074be3813a1441bb1e03c43b35dba5e4805ff7ba22c"
+    },
+    {
+      "path": "REMOTE_VERIFICATION.fragment0008.json",
+      "bytes": 1059072,
+      "sha256": "cec4b1af7abf4fd6d87ddc098ca82042cc02e0c79f6ca02cc88b920793124c78",
+      "text_bytes": 1000000,
+      "text_sha256": "1b94afe1fd0316cf3b1c7ec435e11e2786fe427dd103ab4058f2dc75b05ff942"
+    },
+    {
+      "path": "REMOTE_VERIFICATION.fragment0009.json",
+      "bytes": 188441,
+      "sha256": "f48415b52d339bf680492b1dd8f9ee6b4328961819092b54e58fdb1bdade3720",
+      "text_bytes": 177623,
+      "text_sha256": "7480ca869ea95650ae522ea722fd32a47eb0097f39fdda328a65df7b313b29eb"
+    }
+  ],
+  "scope": "Nonruntime source-audit text evidence;everypart scanned/hashed. LogicalJSON bytes preserved;no runtime/model/creative acceptance orauditor waiver."
 }
