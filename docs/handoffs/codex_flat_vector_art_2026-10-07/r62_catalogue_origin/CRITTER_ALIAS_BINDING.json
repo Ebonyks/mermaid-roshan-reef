@@ -1,0 +1,679 @@
+{
+  "catalogue_id": "game.critters",
+  "module": "scripts/collection_system.gd",
+  "semantics": "Catalogue subsystem record includes collection/acquisition and saved Critter Book; evidence below binds only saved-book consumer. The catalogue label alone does not prove a Main.game token; dynamic domains remain open.",
+  "main_reference": {
+    "function": "_collection_ref",
+    "start_line": 3274,
+    "end_line": 3282,
+    "sha256_lf": "761eb9057d7b9d1682a0e93119dc34651d53c5a23389ea370c96beb32fe134b7",
+    "text": "func _collection_ref() -> CollectionSystem:\n\tif _collection_system == null:\n\t\t_collection_system = CollectionSystemLogic.new(self)\n\treturn _collection_system\n\n# ---- the stuffed-friend companion wing lives in scripts/companion.gd\n# ---- (state stays here; CompanionSystem receives main by reference)\nvar _companion_system: CompanionSystem = null\n\n"
+  },
+  "pause_function_range": [
+    11,
+    106
+  ],
+  "button_callback": "\tvar critter_btn := _pause_btn(\"🐟   CRITTERS\",\n\t\tRect2(650, 265, 280, 132), \"secondary\")\n\tcritter_btn.name = \"MenuCritterBookButton\"\n\tcritter_btn.pressed.connect(func():\n\t\ttoggle_pause()\n\t\tm._collection_ref().open_book())\n",
+  "button_callback_sha256_lf": "5605cb579302831edbc368a4a671c0470dca23d07cfb46af9eff0bfd7f6d825a",
+  "open_book": {
+    "function": "open_book",
+    "start_line": 280,
+    "end_line": 305,
+    "sha256_lf": "ea2bf76b8eb7b7beec41f73c132746a0221d7f4e473575480252e30bdd5b56df",
+    "text": "func open_book() -> void:\n\tif m.collection_layer != null:\n\t\treturn\n\tm._navigation_push(\"critter_book\", self,\n\t\tCallable(self, \"close_book\"))\n\tm._set_world_controls_enabled(false, \"collection\")\n\tm.collection_layer = CanvasLayer.new()\n\tm.collection_layer.layer = 25\n\tm.add_child(m.collection_layer)\n\tvar root_control := Control.new()\n\troot_control.set_anchors_preset(Control.PRESET_FULL_RECT)\n\tm.collection_layer.add_child(root_control)\n\tvar dim := ColorRect.new()\n\tdim.set_anchors_preset(Control.PRESET_FULL_RECT)\n\tdim.color = StorybookUI.DIM\n\troot_control.add_child(dim)\n\tvar viewport_size: Vector2 = m.get_viewport().get_visible_rect().size\n\tvar stage := StorybookUI.add_stage(root_control, viewport_size)\n\tm.collection_stage = stage\n\tif m.player != null:\n\t\tm.player.vel = Vector3.ZERO\n\tm.collection_category = \"fish\"\n\t_draw_book()\n\tm._say(\"roshan\", \"collection_book_open\")\n\n\n"
+  },
+  "draw_book": {
+    "function": "_draw_book",
+    "start_line": 320,
+    "end_line": 390,
+    "sha256_lf": "ad5e1cb93257df71bbd449963f2f2f7bd3bb6a4baaf3620edfef923b09661fe0",
+    "text": "func _draw_book() -> void:\n\tvar stage: Control = m.collection_stage\n\tif stage == null or not is_instance_valid(stage):\n\t\treturn\n\tfor child: Node in stage.get_children():\n\t\tchild.queue_free()\n\tvar panel := Panel.new()\n\tpanel.position = Vector2(34, 24)\n\tpanel.size = Vector2(1212, 672)\n\tvar panel_style := StorybookUI.panel_style(StorybookUI.MINT, Color(0.91, 0.97, 1.0, 0.99), 48, 5)\n\tpanel.add_theme_stylebox_override(\"panel\", panel_style)\n\tstage.add_child(panel)\n\tStorybookUI.adorn_panel(stage, Rect2(34, 24, 1212, 672), \"CritterBook\")\n\n\tvar title := Label.new()\n\ttitle.text = \"🐚  My Critter Book   %d / %d\" % [caught_count(), TOTAL]\n\tStorybookUI.style_label(title, 46, StorybookUI.INK, 4)\n\ttitle.position = Vector2(70, 34)\n\tstage.add_child(title)\n\n\tfor i in range(CATEGORY_ORDER.size()):\n\t\tvar category: String = CATEGORY_ORDER[i]\n\t\tvar tab := Button.new()\n\t\ttab.text = \"%s  %d / 6\" % [String(CATEGORY_ICON[category]), caught_count(category)]\n\t\ttab.add_theme_font_size_override(\"font_size\", 30)\n\t\ttab.position = Vector2(88 + float(i) * 270.0, 92)\n\t\ttab.custom_minimum_size = Vector2(242, 110)\n\t\tStorybookUI.style_button(tab, \"selected\" if category == m.collection_category else \"secondary\", 30, 28)\n\t\ttab.pressed.connect(_switch_category.bind(category))\n\t\tstage.add_child(tab)\n\n\tvar visible_defs: Array[Dictionary] = []\n\tfor d: Dictionary in DEFS:\n\t\tif String(d[\"category\"]) == m.collection_category:\n\t\t\tvisible_defs.append(d)\n\tfor i in range(visible_defs.size()):\n\t\tvar d: Dictionary = visible_defs[i]\n\t\tvar caught: bool = bool(m.critter_collection.get(String(d[\"id\"]), false))\n\t\tvar card_color: Color = d[\"color\"]\n\t\tvar card_fill: Color = card_color.lightened(0.58) if caught else Color(0.88, 0.90, 0.98, 0.96)\n\t\tvar card := StorybookUI.add_panel(stage, Rect2(82 + float(i % 3) * 388.0, 212 + float(i / 3) * 208.0, 356, 192), card_color if caught else StorybookUI.LAVENDER, card_fill, 24)\n\t\tcard.name = \"CritterCard_%s\" % String(d[\"id\"])\n\t\tvar icon := Label.new()\n\t\ticon.text = String(CATEGORY_ICON[m.collection_category]) if caught else \"?\"\n\t\tStorybookUI.style_label(icon, 68, StorybookUI.INK, 3)\n\t\ticon.position = Vector2(22, 23)\n\t\ticon.size = Vector2(96, 96)\n\t\ticon.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER\n\t\tcard.add_child(icon)\n\t\tvar name_label := Label.new()\n\t\tname_label.text = String(d[\"name\"]) if caught else \"Mystery Friend\"\n\t\tStorybookUI.style_label(name_label, 29 if caught else 25, StorybookUI.INK if caught else StorybookUI.MUTED, 2)\n\t\tname_label.position = Vector2(122, 30)\n\t\tname_label.size = Vector2(220, 74)\n\t\tname_label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART\n\t\tcard.add_child(name_label)\n\t\tvar habitat := Label.new()\n\t\tvar habitat_id := String(d[\"habitat\"])\n\t\thabitat.text = \"%s  %s\" % [String(HABITAT_ICON[habitat_id]), String(HABITAT_LABEL[habitat_id])]\n\t\tStorybookUI.style_label(habitat, 28, StorybookUI.INK_SOFT, 2,\n\t\t\tStorybookUI.ROLE_STATUS)\n\t\thabitat.position = Vector2(28, 134)\n\t\thabitat.size = Vector2(300, 54)\n\t\thabitat.max_lines_visible = 2\n\t\tcard.add_child(habitat)\n\n\tvar help := Label.new()\n\thelp.text = \"✦  Swim close to a sparkling critter, then tap CATCH!  ✦\"\n\tStorybookUI.style_label(help, 25, StorybookUI.INK_SOFT, 2)\n\thelp.position = Vector2(230, 638)\n\tstage.add_child(help)\n"
+  },
+  "acquisition_context": {
+    "function": "_context",
+    "start_line": 73,
+    "end_line": 80,
+    "sha256_lf": "a1b4584ca8ae93a1b08aa19c0a664c5d8ab354e12e732ea8fc366e42178c0b33",
+    "text": "func _context() -> String:\n\tif m.game == \"\":\n\t\treturn \"ocean\"\n\tif m.game == \"level2\" and String(m.g.get(\"phase\", \"court\")) == \"court\":\n\t\treturn \"lagoon\"\n\treturn \"\"\n\n\n"
+  },
+  "overlap": "ui.collection explicitly names same module in original audit list. Retain both catalogue IDs; do not merge or treat acquisition as a shown book state.",
+  "partial_only": true,
+  "acquisition_closed": false,
+  "normal_route_closed": false,
+  "QA11": null,
+  "device": null,
+  "child": null,
+  "owner": null,
+  "source_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+  "source_hashes": {
+    "scripts/main.gd": "77bddeb59b215fd2d993f6c124ef67e49314d992d00cbc7c1b9231e9c157c417",
+    "scripts/pause_menu.gd": "2afc6103f8a750c437c1aa23c94419191a0b303cdec54aabd9345b560a5646b0",
+    "scripts/collection_system.gd": "876bb4901406034dfa6a3bf4d319383261e04a45fbedfe120d97c8eb2d24eb3a"
+  },
+  "original_saved_book_cases": [
+    {
+      "revision": "d0f2e17433557d5775463f44576fe7ebf03cf3df",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r60_critter_saved_context/native/attempt1_critter_saved_partial_1280/capture_manifest.json",
+      "sha256": "f5ceac1ec34a46dbcd1f36570f0081b29a5e9b9b19962d59e910c3e770522904",
+      "saved_mode": "partial",
+      "aspect": [
+        1280,
+        720
+      ],
+      "checks": 35,
+      "book_state_observations": 20,
+      "already_counted_native_event_files": 37,
+      "reused_book_states": [
+        {
+          "id": "initial_book_released",
+          "sha256": "aafdd390d5f182a03bd62472ef710554a2b4d53fccbdb6496b7d15a4dfd511b9",
+          "navigation_top": "critter_book",
+          "game": "level2",
+          "phase": "hall"
+        },
+        {
+          "id": "fish_ready",
+          "sha256": "ab5f8f93c9ebd42608acda1f74d6be0ee2d8a47ad38759aac0b88baa80d1d6fd",
+          "navigation_top": "critter_book",
+          "game": "level2",
+          "phase": "hall"
+        },
+        {
+          "id": "same_category_repeat_pressed",
+          "sha256": "a45103572a6163a5735d6b0c4059bbbfdabeb280aecdf9e0e0ff13775b3ff215",
+          "navigation_top": "critter_book",
+          "game": "level2",
+          "phase": "hall"
+        },
+        {
+          "id": "same_category_repeat_released",
+          "sha256": "a22eb6e000e324bcf8ce1f4b4674a997639330404ae821e79bd994ab07cf3230",
+          "navigation_top": "critter_book",
+          "game": "level2",
+          "phase": "hall"
+        },
+        {
+          "id": "same_category_repeat_settled",
+          "sha256": "c677a73667fe2da59f8c6a81288aab01cac3925eb7f0d02cc1737b86b0bec2d3",
+          "navigation_top": "critter_book",
+          "game": "level2",
+          "phase": "hall"
+        },
+        {
+          "id": "category_insect_pressed",
+          "sha256": "4603c2946f85cc68f17e80e19df1ad6893af2bde1dbdb396590c8e36d762f4cd",
+          "navigation_top": "critter_book",
+          "game": "level2",
+          "phase": "hall"
+        },
+        {
+          "id": "category_insect_released",
+          "sha256": "ae70135bb80aa756ca591cec458ff6e01f4143d72614b5ae20c7fcc7704693b7",
+          "navigation_top": "critter_book",
+          "game": "level2",
+          "phase": "hall"
+        },
+        {
+          "id": "insect_settled",
+          "sha256": "88716aceee74c8665de9c727ce18ebc29edb63cde2dfd296e10149ab029f2188",
+          "navigation_top": "critter_book",
+          "game": "level2",
+          "phase": "hall"
+        },
+        {
+          "id": "category_bird_pressed",
+          "sha256": "7d9f63a242e0c56af660e5fd4945b1417fcc87f5560ee3c6e6dde84cee2e4172",
+          "navigation_top": "critter_book",
+          "game": "level2",
+          "phase": "hall"
+        },
+        {
+          "id": "category_bird_released",
+          "sha256": "f6931cfc4a1b03824d363744632ea5e5b06ec5f3f3e8003cc6d241ab7f8555ed",
+          "navigation_top": "critter_book",
+          "game": "level2",
+          "phase": "hall"
+        },
+        {
+          "id": "bird_settled",
+          "sha256": "571da61194c8f8358e2d16bf1566337af20678a22ae04a1416c7520d3801bf48",
+          "navigation_top": "critter_book",
+          "game": "level2",
+          "phase": "hall"
+        },
+        {
+          "id": "category_fish_pressed",
+          "sha256": "b6715c5c4a8f6d517696845fc21fa935f4a4f941c19b50084b190ece23b93635",
+          "navigation_top": "critter_book",
+          "game": "level2",
+          "phase": "hall"
+        },
+        {
+          "id": "category_fish_released",
+          "sha256": "b01b879f380e8f1cafa0b192fc2fc9453220b5446c1a6bca5eebeb311a7922b5",
+          "navigation_top": "critter_book",
+          "game": "level2",
+          "phase": "hall"
+        },
+        {
+          "id": "fish_settled",
+          "sha256": "10dc52b4fda6c1412b0fc7e9eb398acaa4e2374750b1881f3b092ee857687478",
+          "navigation_top": "critter_book",
+          "game": "level2",
+          "phase": "hall"
+        },
+        {
+          "id": "book_application_pause_notification",
+          "sha256": "0771109ba9bd58594151e7868b7ba4f36bf2ddb9ef57d618c73a309f8ab75a0a",
+          "navigation_top": "critter_book",
+          "game": "level2",
+          "phase": "hall"
+        },
+        {
+          "id": "book_application_resume_notification",
+          "sha256": "449ded845f1c45ce790efc518b8ecab72b70d656aa5b82d0c8013e7aea423c3b",
+          "navigation_top": "critter_book",
+          "game": "level2",
+          "phase": "hall"
+        },
+        {
+          "id": "reopen_book_released",
+          "sha256": "2bbfca74a562fc4ecf324d1071839a8e54dc009c0cbed43be863c6831c7b0fcc",
+          "navigation_top": "critter_book",
+          "game": "level2",
+          "phase": "hall"
+        },
+        {
+          "id": "reopen_fish_ready",
+          "sha256": "48b73d295b6839f1aaa887de40336345000f5c04edacbd3cc86530cf70d51e7e",
+          "navigation_top": "critter_book",
+          "game": "level2",
+          "phase": "hall"
+        },
+        {
+          "id": "reload_book_released",
+          "sha256": "2902ee914487f6060e8d52a3d8d6760cd9441943bc188edb011ba5974ed9dbc9",
+          "navigation_top": "critter_book",
+          "game": "level2",
+          "phase": "hall"
+        },
+        {
+          "id": "fresh_main_book_fish",
+          "sha256": "316b67764e6bdd6916b3af54595225417655796ebc7c0a5439d1d57fa7f9d67d",
+          "navigation_top": "critter_book",
+          "game": "level2",
+          "phase": "hall"
+        }
+      ]
+    },
+    {
+      "revision": "d0f2e17433557d5775463f44576fe7ebf03cf3df",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r60_critter_saved_context/native/attempt1_critter_saved_partial_1600/capture_manifest.json",
+      "sha256": "182fbd8ec942c1193dfc64c6544ca212b4ecc84b5677142428fe06874bf539f9",
+      "saved_mode": "partial",
+      "aspect": [
+        1600,
+        720
+      ],
+      "checks": 35,
+      "book_state_observations": 20,
+      "already_counted_native_event_files": 37,
+      "reused_book_states": [
+        {
+          "id": "initial_book_released",
+          "sha256": "51ec0d7cee6d71892517a3d63da9dba9b814cfffe21a51df0071f97095da9858",
+          "navigation_top": "critter_book",
+          "game": "level2",
+          "phase": "hall"
+        },
+        {
+          "id": "fish_ready",
+          "sha256": "2d6041f162a4201d5d92d0ed4b9983fdf1eda96725f5b7a07f43261c930682f4",
+          "navigation_top": "critter_book",
+          "game": "level2",
+          "phase": "hall"
+        },
+        {
+          "id": "same_category_repeat_pressed",
+          "sha256": "e1c16917fd5213834b29c8b2bb19a9b16a75b4bde5e1962e8301b4c6674e4bc8",
+          "navigation_top": "critter_book",
+          "game": "level2",
+          "phase": "hall"
+        },
+        {
+          "id": "same_category_repeat_released",
+          "sha256": "0fc3113466ac7ecce8a118dc14b38af0951614e8e8415d5502a725ced713e465",
+          "navigation_top": "critter_book",
+          "game": "level2",
+          "phase": "hall"
+        },
+        {
+          "id": "same_category_repeat_settled",
+          "sha256": "cb598269d511a4daf341e1433efeeef8462ca87e378d9197f014424f36a5aa9b",
+          "navigation_top": "critter_book",
+          "game": "level2",
+          "phase": "hall"
+        },
+        {
+          "id": "category_insect_pressed",
+          "sha256": "d225f4addaff2f30e9ae0550c67e7aa1f2c903cbc50f2ab0e85d5dfc2a625a93",
+          "navigation_top": "critter_book",
+          "game": "level2",
+          "phase": "hall"
+        },
+        {
+          "id": "category_insect_released",
+          "sha256": "a4e499319e804a09387efa0493479c63e0d9c8e7789ee7026fd43839fed862e4",
+          "navigation_top": "critter_book",
+          "game": "level2",
+          "phase": "hall"
+        },
+        {
+          "id": "insect_settled",
+          "sha256": "c2b3e28c69a6d9fdd1f5417b138c09eceb921f4c7d5defc9d87b102363a09fb7",
+          "navigation_top": "critter_book",
+          "game": "level2",
+          "phase": "hall"
+        },
+        {
+          "id": "category_bird_pressed",
+          "sha256": "3aa678c8bee0c6807536ea4630cc2a5252ff8c1086ba8172477d447d5fcfbbc5",
+          "navigation_top": "critter_book",
+          "game": "level2",
+          "phase": "hall"
+        },
+        {
+          "id": "category_bird_released",
+          "sha256": "375a9cc1833ffc07fb372ec47599224be022c3336a82e98dba7e6827fbb00cc3",
+          "navigation_top": "critter_book",
+          "game": "level2",
+          "phase": "hall"
+        },
+        {
+          "id": "bird_settled",
+          "sha256": "85de37001b59e05bf0424b309fc3cee8b3ca591a216e35673374bff5678f9ae8",
+          "navigation_top": "critter_book",
+          "game": "level2",
+          "phase": "hall"
+        },
+        {
+          "id": "category_fish_pressed",
+          "sha256": "0b891d4dbc56af4a131b241941e6f555301b2392841ab1cabd336e319b3c008e",
+          "navigation_top": "critter_book",
+          "game": "level2",
+          "phase": "hall"
+        },
+        {
+          "id": "category_fish_released",
+          "sha256": "9448e95222450b81d3e6b9821b747aaa7d1caf22b633071740d9eb878bc031c7",
+          "navigation_top": "critter_book",
+          "game": "level2",
+          "phase": "hall"
+        },
+        {
+          "id": "fish_settled",
+          "sha256": "a79d2752a974c9f9715facf7e5d1e7d610936e4a7ff44824ef9ba777a92a4354",
+          "navigation_top": "critter_book",
+          "game": "level2",
+          "phase": "hall"
+        },
+        {
+          "id": "book_application_pause_notification",
+          "sha256": "107bb15b07bb40ebc22222decb0207a61f3eb60c938be48152fe6e058dd86a1f",
+          "navigation_top": "critter_book",
+          "game": "level2",
+          "phase": "hall"
+        },
+        {
+          "id": "book_application_resume_notification",
+          "sha256": "4dfcd35da6d064f2307b7bf5d1ca193897083442056e49c24a9bbdf96c7a93ec",
+          "navigation_top": "critter_book",
+          "game": "level2",
+          "phase": "hall"
+        },
+        {
+          "id": "reopen_book_released",
+          "sha256": "f87a3efc0f1f3defdeea808ad61c20348806da59b7cb21216c1351ec9efde5a2",
+          "navigation_top": "critter_book",
+          "game": "level2",
+          "phase": "hall"
+        },
+        {
+          "id": "reopen_fish_ready",
+          "sha256": "00ad5bad761a015475c11601e913da9eb17a57fa412c58ffdabc25afe066a003",
+          "navigation_top": "critter_book",
+          "game": "level2",
+          "phase": "hall"
+        },
+        {
+          "id": "reload_book_released",
+          "sha256": "bc41e7f26a4e9275f8c9181f6249a56d26bc133588465880c2b2434a8529afb8",
+          "navigation_top": "critter_book",
+          "game": "level2",
+          "phase": "hall"
+        },
+        {
+          "id": "fresh_main_book_fish",
+          "sha256": "b58873a698eafa0d0d2b951d3ebff65295c60c5cae9e3dca27b97e4990db1bc0",
+          "navigation_top": "critter_book",
+          "game": "level2",
+          "phase": "hall"
+        }
+      ]
+    },
+    {
+      "revision": "d0f2e17433557d5775463f44576fe7ebf03cf3df",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r60_critter_saved_context/native/attempt1_critter_saved_full_1280/capture_manifest.json",
+      "sha256": "2981c8636eb7fb1e424c32dc209a6f3dc604d4dccf8036e1feb9c3f7f5a64778",
+      "saved_mode": "full",
+      "aspect": [
+        1280,
+        720
+      ],
+      "checks": 35,
+      "book_state_observations": 20,
+      "already_counted_native_event_files": 37,
+      "reused_book_states": [
+        {
+          "id": "initial_book_released",
+          "sha256": "dacfb165275fc8e8d5e6be0f54071ebc4ee883f7fcf4b08398abbd98b956f504",
+          "navigation_top": "critter_book",
+          "game": "level2",
+          "phase": "hall"
+        },
+        {
+          "id": "fish_ready",
+          "sha256": "e86117b601c95c9406084a645933b2111457a853d771f1099939a0c48aa83ebe",
+          "navigation_top": "critter_book",
+          "game": "level2",
+          "phase": "hall"
+        },
+        {
+          "id": "same_category_repeat_pressed",
+          "sha256": "ff6bb36a391064d1476264343d2b7822762702edda22ee82db9d5a0d52517760",
+          "navigation_top": "critter_book",
+          "game": "level2",
+          "phase": "hall"
+        },
+        {
+          "id": "same_category_repeat_released",
+          "sha256": "a7f90fc84391703ac3f048d35791402eb05be73f79904b35678c8387240c2ccf",
+          "navigation_top": "critter_book",
+          "game": "level2",
+          "phase": "hall"
+        },
+        {
+          "id": "same_category_repeat_settled",
+          "sha256": "cdbd5c764cfd8b2762c9e19bdf3e1053a55fbf84c438bf355b6e4641af2f9b1f",
+          "navigation_top": "critter_book",
+          "game": "level2",
+          "phase": "hall"
+        },
+        {
+          "id": "category_insect_pressed",
+          "sha256": "2f47e0380410fdcfa007a25f3a293f737d0ee0843d495ff84dbb16deef63b9d7",
+          "navigation_top": "critter_book",
+          "game": "level2",
+          "phase": "hall"
+        },
+        {
+          "id": "category_insect_released",
+          "sha256": "a3a19f6b0f7b1031981b4cf2c139bb52737e86f1e036dab4adcd2746e520db0b",
+          "navigation_top": "critter_book",
+          "game": "level2",
+          "phase": "hall"
+        },
+        {
+          "id": "insect_settled",
+          "sha256": "fefaee2890dc76eea01248bae3de67cb385c850bd1396ce85f7999d4f9b70a5a",
+          "navigation_top": "critter_book",
+          "game": "level2",
+          "phase": "hall"
+        },
+        {
+          "id": "category_bird_pressed",
+          "sha256": "653e8518e1339a5db524a45936ccf135e42ae1d7620f81c0aebb71d5e249c010",
+          "navigation_top": "critter_book",
+          "game": "level2",
+          "phase": "hall"
+        },
+        {
+          "id": "category_bird_released",
+          "sha256": "211d311f941b618412373b70054835f89abeb476dc2267768f18fe117f1b977c",
+          "navigation_top": "critter_book",
+          "game": "level2",
+          "phase": "hall"
+        },
+        {
+          "id": "bird_settled",
+          "sha256": "46231aed839c6060d11dd8b3a4a006aa3fb6ec07549b469d27472648aa6b8b04",
+          "navigation_top": "critter_book",
+          "game": "level2",
+          "phase": "hall"
+        },
+        {
+          "id": "category_fish_pressed",
+          "sha256": "8d2ded31d1b9d1d4d1e72b93bdd583b07b47b5b4f2b23d1d3b89d892696ccfa7",
+          "navigation_top": "critter_book",
+          "game": "level2",
+          "phase": "hall"
+        },
+        {
+          "id": "category_fish_released",
+          "sha256": "480233a3956f57746bf3ca1698f4a4b49830aa83812881c3d63100e1bc9ef8d0",
+          "navigation_top": "critter_book",
+          "game": "level2",
+          "phase": "hall"
+        },
+        {
+          "id": "fish_settled",
+          "sha256": "f23d71efc751846dd3cc987bb8cdc922772461709589aa7399a15bc1a8469cab",
+          "navigation_top": "critter_book",
+          "game": "level2",
+          "phase": "hall"
+        },
+        {
+          "id": "book_application_pause_notification",
+          "sha256": "2d7ac164e24c23091e91a1ab58513f1b216bcfbc1575f3895b886b32f5b1f4c4",
+          "navigation_top": "critter_book",
+          "game": "level2",
+          "phase": "hall"
+        },
+        {
+          "id": "book_application_resume_notification",
+          "sha256": "9acf9ecab73131b5b2b97b9648f5f7d71e9b205f17e0816fda40d9cc316cd12a",
+          "navigation_top": "critter_book",
+          "game": "level2",
+          "phase": "hall"
+        },
+        {
+          "id": "reopen_book_released",
+          "sha256": "bc41abb07c2c6d8da38ba4f43112a58df46e48f6411d41d242884c887d38176b",
+          "navigation_top": "critter_book",
+          "game": "level2",
+          "phase": "hall"
+        },
+        {
+          "id": "reopen_fish_ready",
+          "sha256": "cce15e82f9b63a9e256d936badd80094927e55495c4307a5f95b19ed7261e98e",
+          "navigation_top": "critter_book",
+          "game": "level2",
+          "phase": "hall"
+        },
+        {
+          "id": "reload_book_released",
+          "sha256": "f19fd99dad2d9a141603cb2148c5d710c121ef0f085aa4c7c271575fe6b48a3a",
+          "navigation_top": "critter_book",
+          "game": "level2",
+          "phase": "hall"
+        },
+        {
+          "id": "fresh_main_book_fish",
+          "sha256": "e44e133e578dc8ec85c615d6c37854f150da6eaf880abdcf8ce915515a4b1633",
+          "navigation_top": "critter_book",
+          "game": "level2",
+          "phase": "hall"
+        }
+      ]
+    },
+    {
+      "revision": "d0f2e17433557d5775463f44576fe7ebf03cf3df",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r60_critter_saved_context/native/attempt1_critter_saved_full_1600/capture_manifest.json",
+      "sha256": "5d3482bd273fefbcc8e2340aea55624cd37177690a589a79c06b748a6ee38a9d",
+      "saved_mode": "full",
+      "aspect": [
+        1600,
+        720
+      ],
+      "checks": 35,
+      "book_state_observations": 20,
+      "already_counted_native_event_files": 37,
+      "reused_book_states": [
+        {
+          "id": "initial_book_released",
+          "sha256": "a9426c1ac789f8547691179632868e747dcdee498e0b2498db0f263803dd4d82",
+          "navigation_top": "critter_book",
+          "game": "level2",
+          "phase": "hall"
+        },
+        {
+          "id": "fish_ready",
+          "sha256": "bbbdd0cccd1cf37161dfcde7dd21de439eca0291912c3fc8259ab254a8313e18",
+          "navigation_top": "critter_book",
+          "game": "level2",
+          "phase": "hall"
+        },
+        {
+          "id": "same_category_repeat_pressed",
+          "sha256": "164a3824b1390bc5d8c53071d8a0c32fc51a5af83e4970256e99f19779347147",
+          "navigation_top": "critter_book",
+          "game": "level2",
+          "phase": "hall"
+        },
+        {
+          "id": "same_category_repeat_released",
+          "sha256": "4f4b4a08a9ba7b97afb92fc4166133bed0063592f39b5e6ece39c9f55bbd9d15",
+          "navigation_top": "critter_book",
+          "game": "level2",
+          "phase": "hall"
+        },
+        {
+          "id": "same_category_repeat_settled",
+          "sha256": "f654b8f7336f22dc7c5d4254c306ce791a8fe86ebed36ce1a2efe8fa66614764",
+          "navigation_top": "critter_book",
+          "game": "level2",
+          "phase": "hall"
+        },
+        {
+          "id": "category_insect_pressed",
+          "sha256": "fa18606d22cf03bff4c39fa078a1ee5d48c3eb7b2f4538cc09bc773a270e5021",
+          "navigation_top": "critter_book",
+          "game": "level2",
+          "phase": "hall"
+        },
+        {
+          "id": "category_insect_released",
+          "sha256": "913b2b918f1e2fc0e2d4274308ccbf1811c929d6c2f33194a8ddd20a350e7956",
+          "navigation_top": "critter_book",
+          "game": "level2",
+          "phase": "hall"
+        },
+        {
+          "id": "insect_settled",
+          "sha256": "5d4cab0aa45dd414161167dfc841eaa217ed1bae88bdc2336795ef20f5558d0e",
+          "navigation_top": "critter_book",
+          "game": "level2",
+          "phase": "hall"
+        },
+        {
+          "id": "category_bird_pressed",
+          "sha256": "ceccc57d4dece3fab6f042e95e023243842daa1fb291ad91299604e515317f4d",
+          "navigation_top": "critter_book",
+          "game": "level2",
+          "phase": "hall"
+        },
+        {
+          "id": "category_bird_released",
+          "sha256": "7d7b830dc3f9557638971552e85abbbeabc6a30a5d6f5163fe332e69d2d500bf",
+          "navigation_top": "critter_book",
+          "game": "level2",
+          "phase": "hall"
+        },
+        {
+          "id": "bird_settled",
+          "sha256": "c2bf1b2f70da590fd46050b4e0e2718c09e0228bad7e2e7d5ad4b2a8e45c0e1c",
+          "navigation_top": "critter_book",
+          "game": "level2",
+          "phase": "hall"
+        },
+        {
+          "id": "category_fish_pressed",
+          "sha256": "76e619c7f661e6b6af247b6fb2aefd8d88b7a6eceb0d2a23867d91e84c150e9d",
+          "navigation_top": "critter_book",
+          "game": "level2",
+          "phase": "hall"
+        },
+        {
+          "id": "category_fish_released",
+          "sha256": "9d16ddf522cc1c29be2c5b5a018b781caddfd0ca6fc210322c5f1b6064e8ce81",
+          "navigation_top": "critter_book",
+          "game": "level2",
+          "phase": "hall"
+        },
+        {
+          "id": "fish_settled",
+          "sha256": "be9b240ef7eeccf1a734fed374ad5ded3d7da9d1327d3f8c0defe835550b8b49",
+          "navigation_top": "critter_book",
+          "game": "level2",
+          "phase": "hall"
+        },
+        {
+          "id": "book_application_pause_notification",
+          "sha256": "91a94e3f7fec0dd0470c2ef800d1ed593367b84620fa279e084b3866be64e07b",
+          "navigation_top": "critter_book",
+          "game": "level2",
+          "phase": "hall"
+        },
+        {
+          "id": "book_application_resume_notification",
+          "sha256": "502e5e072dbd1fbc09fe5ff35d023102db3a79874ac584c8f460ae47fe394c1f",
+          "navigation_top": "critter_book",
+          "game": "level2",
+          "phase": "hall"
+        },
+        {
+          "id": "reopen_book_released",
+          "sha256": "e559fb4ba1e387c5632404d40a79b21152f237c417d2912ad7799f2702fcc447",
+          "navigation_top": "critter_book",
+          "game": "level2",
+          "phase": "hall"
+        },
+        {
+          "id": "reopen_fish_ready",
+          "sha256": "6b4c0c62dce5207da58593481ce920ffb27d0554716da8cf6a682222789e9191",
+          "navigation_top": "critter_book",
+          "game": "level2",
+          "phase": "hall"
+        },
+        {
+          "id": "reload_book_released",
+          "sha256": "05bfe41bae89b6907ccdf782b26e3970e86a9cb66db1e7971292a865c83e04de",
+          "navigation_top": "critter_book",
+          "game": "level2",
+          "phase": "hall"
+        },
+        {
+          "id": "fresh_main_book_fish",
+          "sha256": "677b724914c55c1ffa5ea4eb860c5d3aacc8fcd1626af5ca287759422dc61bf6",
+          "navigation_top": "critter_book",
+          "game": "level2",
+          "phase": "hall"
+        }
+      ]
+    }
+  ],
+  "existing_book_states": 80,
+  "new_native_frames": 0,
+  "new_artwork_credit": 0,
+  "new_partial_alias_credit": "game.critters"
+}

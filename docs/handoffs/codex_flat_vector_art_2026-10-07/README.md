@@ -1,3 +1,9 @@
+Current canonical evidence: [R62 catalogue origins and explicit Critter Book binding](r62_catalogue_origin/README.md), [registry](r62_catalogue_origin/per_piece.json), [coverage](r62_catalogue_origin/scene_coverage.json), [tally](r62_catalogue_origin/tally.json).
+
+176IDs reconstructed from original published collector;60game-prefixed labels are reference-catalogue IDs, not guaranteedMain.game values. Explicit original/current source and existing R60saved consumer bind game.critters partially:86partial90without0complete.0newnative/art/adoption/removal/global unknown.
+
+## Historical entry text retained below
+
 Current canonical evidence: [R61 caught-role and painted insect category candidate](r61_critter_saved_reuse/README.md), [registry](r61_critter_saved_reuse/per_piece.json), [coverage](r61_critter_saved_reuse/scene_coverage.json), [tally](r61_critter_saved_reuse/tally.json).
 
 Ignored candidate only:172final checks/control43/excluded negative36.222native175bounded47excluded;0new art/adoption/removal/global unknown. Source/current-new-use/phone/device/child/owner acceptance open.

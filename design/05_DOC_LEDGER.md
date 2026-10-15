@@ -1327,3 +1327,5 @@ release/device/child/owner authority retain precedence.
 | `docs/handoffs/codex_flat_vector_art_2026-10-07/r60_critter_saved_context/README.md` | 🔵 | `SUPPORTING_CURRENT`; source5120b6d5 original saved6/18Critter Book profiles2Mobile aspects140checks148native140bounded8excluded;16pure queries312script caller census. Generic species-icons/source reuse gaps; CURRENT metadata corrected,0art/alias/removal/global unknown. |
 
 | `docs/handoffs/codex_flat_vector_art_2026-10-07/r61_critter_saved_reuse/README.md` | 🔵 | `SUPPORTING_CURRENT`; source5120b6d5 ignored caught-role/painted insect category candidate172checks/control43/excluded negative36;222native175bounded47excluded. No source PNG/production/adoption/acceptance; global denominator unknown. |
+
+| `docs/handoffs/codex_flat_vector_art_2026-10-07/r62_catalogue_origin/README.md` | 🔵 | `SUPPORTING_CURRENT`; original176ID construction and60reference-label origins, explicit current/source/existing R60saved-book partial binding only.86partial90without0complete;0newnative/art/accepted removal. Historical hash mismatch is not automatic runtime regression; global denominator/acceptance remain open. |

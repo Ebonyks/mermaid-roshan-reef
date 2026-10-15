@@ -1,0 +1,12 @@
+{
+  "revision": "FV-AUDIT-20261015-R62",
+  "baseline": "d0f2e17433557d5775463f44576fe7ebf03cf3df",
+  "audited_source_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+  "original_source_revision": "92c9fe70319ef46bfaa8f61348a6f51512141ec3",
+  "original_collector_revision": "5e5140fb0f0b636825354b6db8d28da0e9c07446",
+  "analyzer": "audit_catalogue_origin.py",
+  "analyzer_sha256": "61943a1a6d44fd9ab94f6521e9c89dd2582877b34f9532549e954d9ee4219199",
+  "tests": "test_catalogue_origin.py",
+  "setup": "Use clone of this repo with exact pinned Git objects available. Run python -B audit_catalogue_origin.py from this packet; it reads immutableGit source/catalogue and existing originalR60native manifests, safely parses published historical script text with ast.parse/literal_eval, writes only this nonruntime audit packet. Historical source .py.txt files are preserved raw bytes and never executed. Run python -B test_catalogue_origin.py and validate.py. Current saved-book evidence is reused with exact sourceD/frame hashes, not recaptured.",
+  "acceptance": "No new Godot process/asset import/save operation/production source or pixel edits. Source origin and existing-book partial mapping do not establish whole routes, acquisition, QA11/device/child/owner or creative acceptance."
+}

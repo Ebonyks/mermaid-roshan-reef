@@ -1,0 +1,2230 @@
+{
+  "schema": "reef.catalogue_origin/1",
+  "revision": "FV-AUDIT-20261015-R62",
+  "original_published_collector": {
+    "revision": "5e5140fb0f0b636825354b6db8d28da0e9c07446",
+    "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/build_review_packet.py",
+    "sha256": "70aecf93acc182e66de7ffd6f0c97e89600d44f3cf3d2d9ce11a8f04f0ca37a0",
+    "executed": false,
+    "recipe": {
+      "ui": [
+        [
+          "start",
+          "Start/options/reset",
+          "scripts/start_menu.gd"
+        ],
+        [
+          "intro",
+          "Intro/book pages",
+          "scripts/intro_overlay.gd"
+        ],
+        [
+          "pause",
+          "Pause/options/back",
+          "scripts/pause_menu.gd"
+        ],
+        [
+          "save_hud",
+          "HUD/objectives/save/transition",
+          "scripts/main.gd"
+        ],
+        [
+          "touch",
+          "Fallback touch controls",
+          "scripts/touch_ui.gd"
+        ],
+        [
+          "craft",
+          "Craft studio",
+          "scripts/craft_studio.gd"
+        ],
+        [
+          "wardrobe",
+          "Wardrobe",
+          "scripts/wardrobe_ui.gd"
+        ],
+        [
+          "collection",
+          "Sticker/collection book",
+          "scripts/collection_system.gd"
+        ],
+        [
+          "logo",
+          "Castle logo studio",
+          "scripts/castle_logo_studio.gd"
+        ],
+        [
+          "attack",
+          "Attack customizer",
+          "scripts/attack_customizer.gd"
+        ],
+        [
+          "fashion",
+          "Fashion Designer and head/body/tail dress-up",
+          "scripts/fashion_wardrobe.gd"
+        ],
+        [
+          "job_playtest",
+          "Temporary Opera elevator job menu",
+          "scripts/opera_job_playtest_menu.gd"
+        ]
+      ],
+      "stage_pattern": "\\s*\\[\"([\\w.]+)\",\\s*\"([^\"]+)\",\\s*(.*)",
+      "game_prefix": "game.",
+      "game_loop_lines": [
+        37,
+        38
+      ],
+      "ui_assignment_line": 34,
+      "game_id_expression": "'game.' + g['id']"
+    }
+  },
+  "declared_original_source_revision": "92c9fe70319ef46bfaa8f61348a6f51512141ec3",
+  "current_source_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+  "frozen_id_count": 176,
+  "origin_counts": {
+    "REGISTERED_STAGE_ROW": 100,
+    "AUDIT_AUTHORED_UI_OVERLAY": 12,
+    "REFERENCE_GAME_CATALOGUE_LABEL": 60,
+    "GIT_SCENE_PATH": 4
+  },
+  "rows": [
+    {
+      "id": "intro.storybook",
+      "origin_kind": "REGISTERED_STAGE_ROW",
+      "origin_path": "scripts/living_world_catalog.gd",
+      "origin_line": 14,
+      "declared_name": "Storybook Introduction",
+      "caller_expression": "\"scripts/main.gd:_build_intro; scripts/intro_overlay.gd\",",
+      "limits": "Literal source row; neither fresh rendered stage nor complete dynamic/native route."
+    },
+    {
+      "id": "reef.pearl_plaza",
+      "origin_kind": "REGISTERED_STAGE_ROW",
+      "origin_path": "scripts/living_world_catalog.gd",
+      "origin_line": 20,
+      "declared_name": "Pearl Plaza",
+      "caller_expression": "\"scripts/reef_districts.gd:REGION_CENTERS.pearl; build_macro_structures/build_flora\",",
+      "limits": "Literal source row; neither fresh rendered stage nor complete dynamic/native route."
+    },
+    {
+      "id": "reef.kelp_gardens",
+      "origin_kind": "REGISTERED_STAGE_ROW",
+      "origin_path": "scripts/living_world_catalog.gd",
+      "origin_line": 24,
+      "declared_name": "Norwegian Kelp Gardens",
+      "caller_expression": "\"scripts/reef_districts.gd:REGION_CENTERS.kelp; build_groves/build_flora\",",
+      "limits": "Literal source row; neither fresh rendered stage nor complete dynamic/native route."
+    },
+    {
+      "id": "reef.wreck_canyon",
+      "origin_kind": "REGISTERED_STAGE_ROW",
+      "origin_path": "scripts/living_world_catalog.gd",
+      "origin_line": 28,
+      "declared_name": "Wreck Canyon",
+      "caller_expression": "\"scripts/reef_districts.gd:REGION_CENTERS.wreck; build_macro_structures\",",
+      "limits": "Literal source row; neither fresh rendered stage nor complete dynamic/native route."
+    },
+    {
+      "id": "reef.moon_pool",
+      "origin_kind": "REGISTERED_STAGE_ROW",
+      "origin_path": "scripts/living_world_catalog.gd",
+      "origin_line": 32,
+      "declared_name": "Moon Pool Grotto",
+      "caller_expression": "\"scripts/reef_districts.gd:REGION_CENTERS.moon; build_macro_structures/build_flora\",",
+      "limits": "Literal source row; neither fresh rendered stage nor complete dynamic/native route."
+    },
+    {
+      "id": "reef.rainbow_bazaar",
+      "origin_kind": "REGISTERED_STAGE_ROW",
+      "origin_path": "scripts/living_world_catalog.gd",
+      "origin_line": 36,
+      "declared_name": "Rainbow Bazaar Flats",
+      "caller_expression": "\"scripts/reef_districts.gd:REGION_CENTERS.rainbow; build_flora\",",
+      "limits": "Literal source row; neither fresh rendered stage nor complete dynamic/native route."
+    },
+    {
+      "id": "reef.ice_shelf",
+      "origin_kind": "REGISTERED_STAGE_ROW",
+      "origin_path": "scripts/living_world_catalog.gd",
+      "origin_line": 40,
+      "declared_name": "Norwegian Ice Shelf",
+      "caller_expression": "\"scripts/reef_districts.gd:REGION_CENTERS.ice; build_macro_structures/build_flora\",",
+      "limits": "Literal source row; neither fresh rendered stage nor complete dynamic/native route."
+    },
+    {
+      "id": "sky.promenade_runway",
+      "origin_kind": "REGISTERED_STAGE_ROW",
+      "origin_path": "scripts/living_world_catalog.gd",
+      "origin_line": 46,
+      "declared_name": "Sky Lagoon Promenade — Runway Shore",
+      "caller_expression": "\"scripts/arena/sky_lagoon_promenade.gd:_build_runway_screen/_build_ambient_life\",",
+      "limits": "Literal source row; neither fresh rendered stage nor complete dynamic/native route."
+    },
+    {
+      "id": "sky.promenade_playground",
+      "origin_kind": "REGISTERED_STAGE_ROW",
+      "origin_path": "scripts/living_world_catalog.gd",
+      "origin_line": 50,
+      "declared_name": "Sky Lagoon Promenade — Playground Lawn",
+      "caller_expression": "\"scripts/arena/sky_lagoon_promenade.gd:_build_playground_screen/_build_ambient_life\",",
+      "limits": "Literal source row; neither fresh rendered stage nor complete dynamic/native route."
+    },
+    {
+      "id": "sky.promenade_castle",
+      "origin_kind": "REGISTERED_STAGE_ROW",
+      "origin_path": "scripts/living_world_catalog.gd",
+      "origin_line": 54,
+      "declared_name": "Sky Lagoon Promenade — Castle Approach",
+      "caller_expression": "\"scripts/arena/sky_lagoon_promenade.gd:_build_castle_screen/_build_ambient_life\",",
+      "limits": "Literal source row; neither fresh rendered stage nor complete dynamic/native route."
+    },
+    {
+      "id": "sky.gatehouse",
+      "origin_kind": "REGISTERED_STAGE_ROW",
+      "origin_path": "scripts/living_world_catalog.gd",
+      "origin_line": 60,
+      "declared_name": "Sky Lagoon Ocean Gatehouse",
+      "caller_expression": "\"scripts/arena/sky_lagoon.gd:_build_ocean_kingdom_gates\",",
+      "limits": "Literal source row; neither fresh rendered stage nor complete dynamic/native route."
+    },
+    {
+      "id": "sky.courtyard",
+      "origin_kind": "REGISTERED_STAGE_ROW",
+      "origin_path": "scripts/living_world_catalog.gd",
+      "origin_line": 64,
+      "declared_name": "Sky Lagoon Main Courtyard",
+      "caller_expression": "\"scripts/arena/sky_lagoon.gd:_build_lagoon_terrain/_build_pearl_castle\",",
+      "limits": "Literal source row; neither fresh rendered stage nor complete dynamic/native route."
+    },
+    {
+      "id": "sky.playground",
+      "origin_kind": "REGISTERED_STAGE_ROW",
+      "origin_path": "scripts/living_world_catalog.gd",
+      "origin_line": 68,
+      "declared_name": "Sky Lagoon East Playground",
+      "caller_expression": "\"scripts/arena/sky_lagoon.gd:_build_pearl_castle; g.toys\",",
+      "limits": "Literal source row; neither fresh rendered stage nor complete dynamic/native route."
+    },
+    {
+      "id": "sky.fairy_pond",
+      "origin_kind": "REGISTERED_STAGE_ROW",
+      "origin_path": "scripts/living_world_catalog.gd",
+      "origin_line": 72,
+      "declared_name": "Sky Lagoon Fairy Pond",
+      "caller_expression": "\"scripts/arena/sky_lagoon.gd:_build_fairy_pond\",",
+      "limits": "Literal source row; neither fresh rendered stage nor complete dynamic/native route."
+    },
+    {
+      "id": "sky.castle_exterior",
+      "origin_kind": "REGISTERED_STAGE_ROW",
+      "origin_path": "scripts/living_world_catalog.gd",
+      "origin_line": 76,
+      "declared_name": "Pearl Castle Exterior",
+      "caller_expression": "\"scripts/arena/sky_lagoon.gd:_build_pearl_castle; g.entry/g.back_entry\",",
+      "limits": "Literal source row; neither fresh rendered stage nor complete dynamic/native route."
+    },
+    {
+      "id": "sky.rainbow_junction",
+      "origin_kind": "REGISTERED_STAGE_ROW",
+      "origin_path": "scripts/living_world_catalog.gd",
+      "origin_line": 80,
+      "declared_name": "Rainbow Junction",
+      "caller_expression": "\"scripts/arena/sky_lagoon.gd:_build_pearl_castle; kart_legA/kart_legB/bw_portal_pos/ember_portal_pos\",",
+      "limits": "Literal source row; neither fresh rendered stage nor complete dynamic/native route."
+    },
+    {
+      "id": "sky.alpine_village",
+      "origin_kind": "REGISTERED_STAGE_ROW",
+      "origin_path": "scripts/living_world_catalog.gd",
+      "origin_line": 84,
+      "declared_name": "Alpine Christmas Village",
+      "caller_expression": "\"scripts/arena/sky_lagoon.gd:_build_christmas_village\",",
+      "limits": "Literal source row; neither fresh rendered stage nor complete dynamic/native route."
+    },
+    {
+      "id": "sky.alpine_mountain",
+      "origin_kind": "REGISTERED_STAGE_ROW",
+      "origin_path": "scripts/living_world_catalog.gd",
+      "origin_line": 88,
+      "declared_name": "Alpine Mountain and Magic Cave",
+      "caller_expression": "\"scripts/arena/sky_lagoon.gd:_build_alpine_mountain/_build_alpine_snowfield\",",
+      "limits": "Literal source row; neither fresh rendered stage nor complete dynamic/native route."
+    },
+    {
+      "id": "north.mountain_pass",
+      "origin_kind": "REGISTERED_STAGE_ROW",
+      "origin_path": "scripts/living_world_catalog.gd",
+      "origin_line": 94,
+      "declared_name": "Northern Mountain Pass and Fjords",
+      "caller_expression": "\"scripts/arena/northern_kingdom.gd:_build_mountain_pass/_build_fjords\",",
+      "limits": "Literal source row; neither fresh rendered stage nor complete dynamic/native route."
+    },
+    {
+      "id": "north.magic_forest",
+      "origin_kind": "REGISTERED_STAGE_ROW",
+      "origin_path": "scripts/living_world_catalog.gd",
+      "origin_line": 98,
+      "declared_name": "Northern Magic Forest",
+      "caller_expression": "\"scripts/arena/northern_kingdom.gd:_build_magic_forest/_build_forest_pois\",",
+      "limits": "Literal source row; neither fresh rendered stage nor complete dynamic/native route."
+    },
+    {
+      "id": "north.spirit_clearing_a",
+      "origin_kind": "REGISTERED_STAGE_ROW",
+      "origin_path": "scripts/living_world_catalog.gd",
+      "origin_line": 102,
+      "declared_name": "Rose Spirit Clearing",
+      "caller_expression": "\"scripts/arena/northern_kingdom.gd:_build_spirit_clearings; CLEARING_A\",",
+      "limits": "Literal source row; neither fresh rendered stage nor complete dynamic/native route."
+    },
+    {
+      "id": "north.spirit_clearing_b",
+      "origin_kind": "REGISTERED_STAGE_ROW",
+      "origin_path": "scripts/living_world_catalog.gd",
+      "origin_line": 106,
+      "declared_name": "Frost Spirit Clearing",
+      "caller_expression": "\"scripts/arena/northern_kingdom.gd:_build_spirit_clearings; CLEARING_B\",",
+      "limits": "Literal source row; neither fresh rendered stage nor complete dynamic/native route."
+    },
+    {
+      "id": "north.riverside_town",
+      "origin_kind": "REGISTERED_STAGE_ROW",
+      "origin_path": "scripts/living_world_catalog.gd",
+      "origin_line": 110,
+      "declared_name": "Northern Riverside Town and Mill",
+      "caller_expression": "\"scripts/arena/northern_kingdom.gd:_build_town/_build_mill\",",
+      "limits": "Literal source row; neither fresh rendered stage nor complete dynamic/native route."
+    },
+    {
+      "id": "north.ice_castle_exterior",
+      "origin_kind": "REGISTERED_STAGE_ROW",
+      "origin_path": "scripts/living_world_catalog.gd",
+      "origin_line": 114,
+      "declared_name": "Northern Ice Castle Exterior",
+      "caller_expression": "\"scripts/arena/northern_kingdom.gd:_build_castle\",",
+      "limits": "Literal source row; neither fresh rendered stage nor complete dynamic/native route."
+    },
+    {
+      "id": "north.grand_hall",
+      "origin_kind": "REGISTERED_STAGE_ROW",
+      "origin_path": "scripts/living_world_catalog.gd",
+      "origin_line": 118,
+      "declared_name": "Northern Ice Castle Grand Hall",
+      "caller_expression": "\"scripts/arena/northern_kingdom.gd:_build_grand_hall; g.north_hall_center\",",
+      "limits": "Literal source row; neither fresh rendered stage nor complete dynamic/native route."
+    },
+    {
+      "id": "overlay.craft_studio",
+      "origin_kind": "REGISTERED_STAGE_ROW",
+      "origin_path": "scripts/living_world_catalog.gd",
+      "origin_line": 125,
+      "declared_name": "Creature Craft Studio",
+      "caller_expression": "\"scripts/craft_studio.gd; ReefMain.craft_layer\",",
+      "limits": "Literal source row; neither fresh rendered stage nor complete dynamic/native route."
+    },
+    {
+      "id": "overlay.wardrobe",
+      "origin_kind": "REGISTERED_STAGE_ROW",
+      "origin_path": "scripts/living_world_catalog.gd",
+      "origin_line": 129,
+      "declared_name": "Royal Wardrobe",
+      "caller_expression": "\"scripts/wardrobe_ui.gd; ReefMain.wardrobe_layer\",",
+      "limits": "Literal source row; neither fresh rendered stage nor complete dynamic/native route."
+    },
+    {
+      "id": "overlay.sticker_book",
+      "origin_kind": "REGISTERED_STAGE_ROW",
+      "origin_path": "scripts/living_world_catalog.gd",
+      "origin_line": 133,
+      "declared_name": "Sticker Book",
+      "caller_expression": "\"scripts/main.gd:_open_sticker_book; ReefMain.stickers_layer\",",
+      "limits": "Literal source row; neither fresh rendered stage nor complete dynamic/native route."
+    },
+    {
+      "id": "overlay.critter_book",
+      "origin_kind": "REGISTERED_STAGE_ROW",
+      "origin_path": "scripts/living_world_catalog.gd",
+      "origin_line": 139,
+      "declared_name": "Critter Collection Book",
+      "caller_expression": "\"scripts/collection_system.gd; ReefMain.collection_layer\",",
+      "limits": "Literal source row; neither fresh rendered stage nor complete dynamic/native route."
+    },
+    {
+      "id": "overlay.companion_picker",
+      "origin_kind": "REGISTERED_STAGE_ROW",
+      "origin_path": "scripts/living_world_catalog.gd",
+      "origin_line": 143,
+      "declared_name": "Stuffie Companion Picker",
+      "caller_expression": "\"scripts/companion.gd; ReefMain.companion_layer\",",
+      "limits": "Literal source row; neither fresh rendered stage nor complete dynamic/native route."
+    },
+    {
+      "id": "overlay.companion_care",
+      "origin_kind": "REGISTERED_STAGE_ROW",
+      "origin_path": "scripts/living_world_catalog.gd",
+      "origin_line": 147,
+      "declared_name": "Stuffie Care Menu and Moment",
+      "caller_expression": "\"scripts/companion.gd:open_care_menu/_draw_care_menu; ReefMain.companion_care_layer\",",
+      "limits": "Literal source row; neither fresh rendered stage nor complete dynamic/native route."
+    },
+    {
+      "id": "minigame.fetch",
+      "origin_kind": "REGISTERED_STAGE_ROW",
+      "origin_path": "scripts/living_world_catalog.gd",
+      "origin_line": 153,
+      "declared_name": "Wacky and Chuck Fetch Arena",
+      "caller_expression": "\"scripts/games/fetch.gd; scripts/main.gd:_start_game_now\",",
+      "limits": "Literal source row; neither fresh rendered stage nor complete dynamic/native route."
+    },
+    {
+      "id": "minigame.dolls",
+      "origin_kind": "REGISTERED_STAGE_ROW",
+      "origin_path": "scripts/living_world_catalog.gd",
+      "origin_line": 157,
+      "declared_name": "Sleepy Dolls Nursery",
+      "caller_expression": "\"scripts/games/dolls.gd; scripts/main.gd:_start_game_now\",",
+      "limits": "Literal source row; neither fresh rendered stage nor complete dynamic/native route."
+    },
+    {
+      "id": "minigame.brawl",
+      "origin_kind": "REGISTERED_STAGE_ROW",
+      "origin_path": "scripts/living_world_catalog.gd",
+      "origin_line": 161,
+      "declared_name": "Toy Castle Brawl",
+      "caller_expression": "\"scripts/games/fairy.gd; scripts/main.gd:_start_game_now game=brawl\",",
+      "limits": "Literal source row; neither fresh rendered stage nor complete dynamic/native route."
+    },
+    {
+      "id": "minigame.seek",
+      "origin_kind": "REGISTERED_STAGE_ROW",
+      "origin_path": "scripts/living_world_catalog.gd",
+      "origin_line": 165,
+      "declared_name": "Hide-and-Seek Garden",
+      "caller_expression": "\"scripts/games/seek.gd; scripts/main.gd:_start_game_now\",",
+      "limits": "Literal source row; neither fresh rendered stage nor complete dynamic/native route."
+    },
+    {
+      "id": "minigame.race_sunset",
+      "origin_kind": "REGISTERED_STAGE_ROW",
+      "origin_path": "scripts/living_world_catalog.gd",
+      "origin_line": 169,
+      "declared_name": "Sunset Swim Race",
+      "caller_expression": "\"scripts/games/slide_race.gd; scripts/main.gd:_start_game_now game=race\",",
+      "limits": "Literal source row; neither fresh rendered stage nor complete dynamic/native route."
+    },
+    {
+      "id": "minigame.shop",
+      "origin_kind": "REGISTERED_STAGE_ROW",
+      "origin_path": "scripts/living_world_catalog.gd",
+      "origin_line": 173,
+      "declared_name": "Pearl Shop",
+      "caller_expression": "\"scripts/games/shop.gd; scripts/main.gd:_start_game_now\",",
+      "limits": "Literal source row; neither fresh rendered stage nor complete dynamic/native route."
+    },
+    {
+      "id": "minigame.treasure",
+      "origin_kind": "REGISTERED_STAGE_ROW",
+      "origin_path": "scripts/living_world_catalog.gd",
+      "origin_line": 177,
+      "declared_name": "Secret Cave Treasure Hunt",
+      "caller_expression": "\"scripts/games/treasure.gd; scripts/main.gd:_start_game_now\",",
+      "limits": "Literal source row; neither fresh rendered stage nor complete dynamic/native route."
+    },
+    {
+      "id": "minigame.melody",
+      "origin_kind": "REGISTERED_STAGE_ROW",
+      "origin_path": "scripts/living_world_catalog.gd",
+      "origin_line": 181,
+      "declared_name": "Rainbow Melody Stage",
+      "caller_expression": "\"scripts/games/melody.gd; scripts/main.gd:_start_game_now\",",
+      "limits": "Literal source row; neither fresh rendered stage nor complete dynamic/native route."
+    },
+    {
+      "id": "minigame.slide_ice",
+      "origin_kind": "REGISTERED_STAGE_ROW",
+      "origin_path": "scripts/living_world_catalog.gd",
+      "origin_line": 185,
+      "declared_name": "Penguin Ice Slide",
+      "caller_expression": "\"scripts/games/slide_race.gd; g.fr.theme=ice\",",
+      "limits": "Literal source row; neither fresh rendered stage nor complete dynamic/native route."
+    },
+    {
+      "id": "minigame.slide_rainbow",
+      "origin_kind": "REGISTERED_STAGE_ROW",
+      "origin_path": "scripts/living_world_catalog.gd",
+      "origin_line": 189,
+      "declared_name": "Rainbow Fish Slide",
+      "caller_expression": "\"scripts/games/slide_race.gd; g.fr.theme=rainbow\",",
+      "limits": "Literal source row; neither fresh rendered stage nor complete dynamic/native route."
+    },
+    {
+      "id": "minigame.fairy_flight",
+      "origin_kind": "REGISTERED_STAGE_ROW",
+      "origin_path": "scripts/living_world_catalog.gd",
+      "origin_line": 193,
+      "declared_name": "Fairy Pond Flight Panels",
+      "caller_expression": "\"scripts/games/fairy.gd; game=fairyshoot phase=fly\",",
+      "limits": "Literal source row; neither fresh rendered stage nor complete dynamic/native route."
+    },
+    {
+      "id": "minigame.fairy_boss",
+      "origin_kind": "REGISTERED_STAGE_ROW",
+      "origin_path": "scripts/living_world_catalog.gd",
+      "origin_line": 197,
+      "declared_name": "Fairy Flower Clearing",
+      "caller_expression": "\"scripts/games/fairy.gd; game=fairyshoot phase=boss_*\",",
+      "limits": "Literal source row; neither fresh rendered stage nor complete dynamic/native route."
+    },
+    {
+      "id": "picture.snowman",
+      "origin_kind": "REGISTERED_STAGE_ROW",
+      "origin_path": "scripts/living_world_catalog.gd",
+      "origin_line": 203,
+      "declared_name": "Snowman Picture Game",
+      "caller_expression": "\"scripts/games/picture_games.gd:start_snowman\",",
+      "limits": "Literal source row; neither fresh rendered stage nor complete dynamic/native route."
+    },
+    {
+      "id": "picture.garden",
+      "origin_kind": "REGISTERED_STAGE_ROW",
+      "origin_path": "scripts/living_world_catalog.gd",
+      "origin_line": 207,
+      "declared_name": "Garden Picture Game",
+      "caller_expression": "\"scripts/games/picture_games.gd:start_garden\",",
+      "limits": "Literal source row; neither fresh rendered stage nor complete dynamic/native route."
+    },
+    {
+      "id": "picture.trampoline",
+      "origin_kind": "REGISTERED_STAGE_ROW",
+      "origin_path": "scripts/living_world_catalog.gd",
+      "origin_line": 211,
+      "declared_name": "Trampoline Picture Game",
+      "caller_expression": "\"scripts/games/picture_games.gd:start_trampoline\",",
+      "limits": "Literal source row; neither fresh rendered stage nor complete dynamic/native route."
+    },
+    {
+      "id": "picture.xmas",
+      "origin_kind": "REGISTERED_STAGE_ROW",
+      "origin_path": "scripts/living_world_catalog.gd",
+      "origin_line": 215,
+      "declared_name": "Christmas Picture Game",
+      "caller_expression": "\"scripts/games/picture_games.gd:start_xmas\",",
+      "limits": "Literal source row; neither fresh rendered stage nor complete dynamic/native route."
+    },
+    {
+      "id": "dance.rhythm_stage",
+      "origin_kind": "REGISTERED_STAGE_ROW",
+      "origin_path": "scripts/living_world_catalog.gd",
+      "origin_line": 221,
+      "declared_name": "Rhythm Dance Stage",
+      "caller_expression": "\"scripts/games/dance_engine.gd\",",
+      "limits": "Literal source row; neither fresh rendered stage nor complete dynamic/native route."
+    },
+    {
+      "id": "kart.ocean_circuit",
+      "origin_kind": "REGISTERED_STAGE_ROW",
+      "origin_path": "scripts/living_world_catalog.gd",
+      "origin_line": 227,
+      "declared_name": "Ocean Kart Circuit",
+      "caller_expression": "\"scripts/kart.gd:_build_track/_build_ocean_props; kart_ground=terrain\",",
+      "limits": "Literal source row; neither fresh rendered stage nor complete dynamic/native route."
+    },
+    {
+      "id": "kart.rainbow_road",
+      "origin_kind": "REGISTERED_STAGE_ROW",
+      "origin_path": "scripts/living_world_catalog.gd",
+      "origin_line": 231,
+      "declared_name": "Floating Rainbow Road",
+      "caller_expression": "\"scripts/kart.gd:_build_track/_build_butterfly_world; kart_ground=float\",",
+      "limits": "Literal source row; neither fresh rendered stage nor complete dynamic/native route."
+    },
+    {
+      "id": "galaxy.butterfly_garden",
+      "origin_kind": "REGISTERED_STAGE_ROW",
+      "origin_path": "scripts/living_world_catalog.gd",
+      "origin_line": 237,
+      "declared_name": "Butterfly Garden Planet",
+      "caller_expression": "\"scripts/galaxy.gd:_build_planet/_build_decor; _mode=planet\",",
+      "limits": "Literal source row; neither fresh rendered stage nor complete dynamic/native route."
+    },
+    {
+      "id": "galaxy.star_hall",
+      "origin_kind": "REGISTERED_STAGE_ROW",
+      "origin_path": "scripts/living_world_catalog.gd",
+      "origin_line": 241,
+      "declared_name": "Butterfly Castle Star Hall",
+      "caller_expression": "\"scripts/galaxy.gd:_build_hall; _mode=hall\",",
+      "limits": "Literal source row; neither fresh rendered stage nor complete dynamic/native route."
+    },
+    {
+      "id": "combat.ice_berry",
+      "origin_kind": "REGISTERED_STAGE_ROW",
+      "origin_path": "scripts/living_world_catalog.gd",
+      "origin_line": 247,
+      "declared_name": "Ice-Berry Combat Arena",
+      "caller_expression": "\"scripts/combat_arena.gd:start kind=ice\",",
+      "limits": "Literal source row; neither fresh rendered stage nor complete dynamic/native route."
+    },
+    {
+      "id": "combat.pepper",
+      "origin_kind": "REGISTERED_STAGE_ROW",
+      "origin_path": "scripts/living_world_catalog.gd",
+      "origin_line": 251,
+      "declared_name": "Pepper Combat Arena",
+      "caller_expression": "\"scripts/combat_arena.gd:start kind=fire\",",
+      "limits": "Literal source row; neither fresh rendered stage nor complete dynamic/native route."
+    },
+    {
+      "id": "stuffie.sparring_den",
+      "origin_kind": "REGISTERED_STAGE_ROW",
+      "origin_path": "scripts/living_world_catalog.gd",
+      "origin_line": 257,
+      "declared_name": "Stuffie Sparring Den",
+      "caller_expression": "\"scripts/stuffie_battle.gd:_build_arena\",",
+      "limits": "Literal source row; neither fresh rendered stage nor complete dynamic/native route."
+    },
+    {
+      "id": "ember.fortress_planet",
+      "origin_kind": "REGISTERED_STAGE_ROW",
+      "origin_path": "scripts/living_world_catalog.gd",
+      "origin_line": 263,
+      "declared_name": "Ember Fortress Planet",
+      "caller_expression": "\"scripts/ember_fortress.gd:_build_planet/_build_fortress\",",
+      "limits": "Literal source row; neither fresh rendered stage nor complete dynamic/native route."
+    },
+    {
+      "id": "dungeon.ice.00",
+      "origin_kind": "REGISTERED_STAGE_ROW",
+      "origin_path": "scripts/living_world_catalog.gd",
+      "origin_line": 276,
+      "declared_name": "Frozen Foyer",
+      "caller_expression": "\"scripts/dungeon_level.gd:ROOMS[0]; scripts/combat_arena.gd\",",
+      "limits": "Literal source row; neither fresh rendered stage nor complete dynamic/native route."
+    },
+    {
+      "id": "dungeon.ice.01",
+      "origin_kind": "REGISTERED_STAGE_ROW",
+      "origin_path": "scripts/living_world_catalog.gd",
+      "origin_line": 280,
+      "declared_name": "Crystal Chimes",
+      "caller_expression": "\"scripts/dungeon_level.gd:ROOMS[1]; scripts/dungeon_puzzle_room.gd\",",
+      "limits": "Literal source row; neither fresh rendered stage nor complete dynamic/native route."
+    },
+    {
+      "id": "dungeon.ice.02",
+      "origin_kind": "REGISTERED_STAGE_ROW",
+      "origin_path": "scripts/living_world_catalog.gd",
+      "origin_line": 284,
+      "declared_name": "Frozen River",
+      "caller_expression": "\"scripts/dungeon_level.gd:ROOMS[2]; scripts/dungeon_puzzle_room.gd\",",
+      "limits": "Literal source row; neither fresh rendered stage nor complete dynamic/native route."
+    },
+    {
+      "id": "dungeon.ice.03",
+      "origin_kind": "REGISTERED_STAGE_ROW",
+      "origin_path": "scripts/living_world_catalog.gd",
+      "origin_line": 288,
+      "declared_name": "Popcorn Ambush",
+      "caller_expression": "\"scripts/dungeon_level.gd:ROOMS[3]; scripts/combat_arena.gd\",",
+      "limits": "Literal source row; neither fresh rendered stage nor complete dynamic/native route."
+    },
+    {
+      "id": "dungeon.ice.04",
+      "origin_kind": "REGISTERED_STAGE_ROW",
+      "origin_path": "scripts/living_world_catalog.gd",
+      "origin_line": 292,
+      "declared_name": "Pepper Lanterns",
+      "caller_expression": "\"scripts/dungeon_level.gd:ROOMS[4]; scripts/dungeon_puzzle_room.gd\",",
+      "limits": "Literal source row; neither fresh rendered stage nor complete dynamic/native route."
+    },
+    {
+      "id": "dungeon.ice.05",
+      "origin_kind": "REGISTERED_STAGE_ROW",
+      "origin_path": "scripts/living_world_catalog.gd",
+      "origin_line": 296,
+      "declared_name": "Turtle Gallery",
+      "caller_expression": "\"scripts/dungeon_level.gd:ROOMS[5]; scripts/dungeon_puzzle_room.gd\",",
+      "limits": "Literal source row; neither fresh rendered stage nor complete dynamic/native route."
+    },
+    {
+      "id": "dungeon.ice.06",
+      "origin_kind": "REGISTERED_STAGE_ROW",
+      "origin_path": "scripts/living_world_catalog.gd",
+      "origin_line": 300,
+      "declared_name": "Claw Guardian",
+      "caller_expression": "\"scripts/dungeon_level.gd:ROOMS[6]; scripts/combat_arena.gd\",",
+      "limits": "Literal source row; neither fresh rendered stage nor complete dynamic/native route."
+    },
+    {
+      "id": "dungeon.ice.07",
+      "origin_kind": "REGISTERED_STAGE_ROW",
+      "origin_path": "scripts/living_world_catalog.gd",
+      "origin_line": 304,
+      "declared_name": "Moon Rune Vault",
+      "caller_expression": "\"scripts/dungeon_level.gd:ROOMS[7]; scripts/dungeon_puzzle_room.gd\",",
+      "limits": "Literal source row; neither fresh rendered stage nor complete dynamic/native route."
+    },
+    {
+      "id": "dungeon.ice.08",
+      "origin_kind": "REGISTERED_STAGE_ROW",
+      "origin_path": "scripts/living_world_catalog.gd",
+      "origin_line": 308,
+      "declared_name": "Elemental Door",
+      "caller_expression": "\"scripts/dungeon_level.gd:ROOMS[8]; scripts/dungeon_puzzle_room.gd\",",
+      "limits": "Literal source row; neither fresh rendered stage nor complete dynamic/native route."
+    },
+    {
+      "id": "dungeon.ice.09",
+      "origin_kind": "REGISTERED_STAGE_ROW",
+      "origin_path": "scripts/living_world_catalog.gd",
+      "origin_line": 312,
+      "declared_name": "Dragon-Turtle Throne",
+      "caller_expression": "\"scripts/dungeon_level.gd:ROOMS[9]; scripts/combat_arena.gd\",",
+      "limits": "Literal source row; neither fresh rendered stage nor complete dynamic/native route."
+    },
+    {
+      "id": "dungeon.ember.00",
+      "origin_kind": "REGISTERED_STAGE_ROW",
+      "origin_path": "scripts/living_world_catalog.gd",
+      "origin_line": 321,
+      "declared_name": "Cinder Gate Imps",
+      "caller_expression": "\"scripts/ember_fortress.gd:ROOMS[0]; scripts/combat_arena.gd\",",
+      "limits": "Literal source row; neither fresh rendered stage nor complete dynamic/native route."
+    },
+    {
+      "id": "dungeon.ember.01",
+      "origin_kind": "REGISTERED_STAGE_ROW",
+      "origin_path": "scripts/living_world_catalog.gd",
+      "origin_line": 325,
+      "declared_name": "Lava Stepping Stones",
+      "caller_expression": "\"scripts/ember_fortress.gd:ROOMS[1]; scripts/dungeon_puzzle_room.gd\",",
+      "limits": "Literal source row; neither fresh rendered stage nor complete dynamic/native route."
+    },
+    {
+      "id": "dungeon.ember.02",
+      "origin_kind": "REGISTERED_STAGE_ROW",
+      "origin_path": "scripts/living_world_catalog.gd",
+      "origin_line": 329,
+      "declared_name": "Ember Chimes",
+      "caller_expression": "\"scripts/ember_fortress.gd:ROOMS[2]; scripts/dungeon_puzzle_room.gd\",",
+      "limits": "Literal source row; neither fresh rendered stage nor complete dynamic/native route."
+    },
+    {
+      "id": "dungeon.ember.03",
+      "origin_kind": "REGISTERED_STAGE_ROW",
+      "origin_path": "scripts/living_world_catalog.gd",
+      "origin_line": 333,
+      "declared_name": "Ash Imp Ambush",
+      "caller_expression": "\"scripts/ember_fortress.gd:ROOMS[3]; scripts/combat_arena.gd\",",
+      "limits": "Literal source row; neither fresh rendered stage nor complete dynamic/native route."
+    },
+    {
+      "id": "dungeon.ember.04",
+      "origin_kind": "REGISTERED_STAGE_ROW",
+      "origin_path": "scripts/living_world_catalog.gd",
+      "origin_line": 337,
+      "declared_name": "Door of Fire and Ice",
+      "caller_expression": "\"scripts/ember_fortress.gd:ROOMS[4]; scripts/dungeon_puzzle_room.gd\",",
+      "limits": "Literal source row; neither fresh rendered stage nor complete dynamic/native route."
+    },
+    {
+      "id": "dungeon.ember.05",
+      "origin_kind": "REGISTERED_STAGE_ROW",
+      "origin_path": "scripts/living_world_catalog.gd",
+      "origin_line": 341,
+      "declared_name": "The Molten Throne",
+      "caller_expression": "\"scripts/ember_fortress.gd:ROOMS[5]; scripts/combat_arena.gd\",",
+      "limits": "Literal source row; neither fresh rendered stage nor complete dynamic/native route."
+    },
+    {
+      "id": "castle.room.main_hall",
+      "origin_kind": "REGISTERED_STAGE_ROW",
+      "origin_path": "scripts/living_world_catalog.gd",
+      "origin_line": 353,
+      "declared_name": "Pearl Castle Main Hall",
+      "caller_expression": "source,",
+      "limits": "Literal source row; neither fresh rendered stage nor complete dynamic/native route."
+    },
+    {
+      "id": "castle.room.opera_hall",
+      "origin_kind": "REGISTERED_STAGE_ROW",
+      "origin_path": "scripts/living_world_catalog.gd",
+      "origin_line": 357,
+      "declared_name": "Pearl Castle Opera Hall",
+      "caller_expression": "source,",
+      "limits": "Literal source row; neither fresh rendered stage nor complete dynamic/native route."
+    },
+    {
+      "id": "castle.room.kitchen",
+      "origin_kind": "REGISTERED_STAGE_ROW",
+      "origin_path": "scripts/living_world_catalog.gd",
+      "origin_line": 361,
+      "declared_name": "Pearl Castle Royal Kitchen",
+      "caller_expression": "source,",
+      "limits": "Literal source row; neither fresh rendered stage nor complete dynamic/native route."
+    },
+    {
+      "id": "castle.room.library",
+      "origin_kind": "REGISTERED_STAGE_ROW",
+      "origin_path": "scripts/living_world_catalog.gd",
+      "origin_line": 365,
+      "declared_name": "Pearl Castle Royal Library",
+      "caller_expression": "source,",
+      "limits": "Literal source row; neither fresh rendered stage nor complete dynamic/native route."
+    },
+    {
+      "id": "castle.room.playroom",
+      "origin_kind": "REGISTERED_STAGE_ROW",
+      "origin_path": "scripts/living_world_catalog.gd",
+      "origin_line": 369,
+      "declared_name": "Pearl Castle Stuffie Playroom",
+      "caller_expression": "source,",
+      "limits": "Literal source row; neither fresh rendered stage nor complete dynamic/native route."
+    },
+    {
+      "id": "castle.room.craft_room",
+      "origin_kind": "REGISTERED_STAGE_ROW",
+      "origin_path": "scripts/living_world_catalog.gd",
+      "origin_line": 373,
+      "declared_name": "Pearl Castle Craft Room",
+      "caller_expression": "source,",
+      "limits": "Literal source row; neither fresh rendered stage nor complete dynamic/native route."
+    },
+    {
+      "id": "castle.room.mermaid_pool",
+      "origin_kind": "REGISTERED_STAGE_ROW",
+      "origin_path": "scripts/living_world_catalog.gd",
+      "origin_line": 377,
+      "declared_name": "Pearl Castle Mermaid Pool",
+      "caller_expression": "source,",
+      "limits": "Literal source row; neither fresh rendered stage nor complete dynamic/native route."
+    },
+    {
+      "id": "castle.room.bubble_bath",
+      "origin_kind": "REGISTERED_STAGE_ROW",
+      "origin_path": "scripts/living_world_catalog.gd",
+      "origin_line": 381,
+      "declared_name": "Pearl Castle Bubble Bath",
+      "caller_expression": "source,",
+      "limits": "Literal source row; neither fresh rendered stage nor complete dynamic/native route."
+    },
+    {
+      "id": "castle.room.family_gallery",
+      "origin_kind": "REGISTERED_STAGE_ROW",
+      "origin_path": "scripts/living_world_catalog.gd",
+      "origin_line": 385,
+      "declared_name": "Pearl Castle Family Gallery",
+      "caller_expression": "source,",
+      "limits": "Literal source row; neither fresh rendered stage nor complete dynamic/native route."
+    },
+    {
+      "id": "castle.room.dining_room",
+      "origin_kind": "REGISTERED_STAGE_ROW",
+      "origin_path": "scripts/living_world_catalog.gd",
+      "origin_line": 389,
+      "declared_name": "Pearl Castle Family Dining Room",
+      "caller_expression": "source,",
+      "limits": "Literal source row; neither fresh rendered stage nor complete dynamic/native route."
+    },
+    {
+      "id": "castle.room.royal_bedroom",
+      "origin_kind": "REGISTERED_STAGE_ROW",
+      "origin_path": "scripts/living_world_catalog.gd",
+      "origin_line": 393,
+      "declared_name": "Pearl Castle Royal Bedroom",
+      "caller_expression": "source,",
+      "limits": "Literal source row; neither fresh rendered stage nor complete dynamic/native route."
+    },
+    {
+      "id": "castle.room.sleepover_bedroom",
+      "origin_kind": "REGISTERED_STAGE_ROW",
+      "origin_path": "scripts/living_world_catalog.gd",
+      "origin_line": 397,
+      "declared_name": "Pearl Castle Sleepover Bedroom",
+      "caller_expression": "source,",
+      "limits": "Literal source row; neither fresh rendered stage nor complete dynamic/native route."
+    },
+    {
+      "id": "castle.room.movie_lounge",
+      "origin_kind": "REGISTERED_STAGE_ROW",
+      "origin_path": "scripts/living_world_catalog.gd",
+      "origin_line": 401,
+      "declared_name": "Pearl Castle Cloud Movie Lounge",
+      "caller_expression": "source,",
+      "limits": "Literal source row; neither fresh rendered stage nor complete dynamic/native route."
+    },
+    {
+      "id": "opera.act.00",
+      "origin_kind": "REGISTERED_STAGE_ROW",
+      "origin_path": "scripts/living_world_catalog.gd",
+      "origin_line": 412,
+      "declared_name": "The Great Cake Show",
+      "caller_expression": "\"scripts/opera_house.gd:ACTS[0]; scripts/opera_career_world_2d.gd\",",
+      "limits": "Literal source row; neither fresh rendered stage nor complete dynamic/native route."
+    },
+    {
+      "id": "opera.act.01",
+      "origin_kind": "REGISTERED_STAGE_ROW",
+      "origin_path": "scripts/living_world_catalog.gd",
+      "origin_line": 416,
+      "declared_name": "The Missing Tiara",
+      "caller_expression": "\"scripts/opera_house.gd:ACTS[1]; scripts/opera_career_world_2d.gd\",",
+      "limits": "Literal source row; neither fresh rendered stage nor complete dynamic/native route."
+    },
+    {
+      "id": "opera.act.02",
+      "origin_kind": "REGISTERED_STAGE_ROW",
+      "origin_path": "scripts/living_world_catalog.gd",
+      "origin_line": 420,
+      "declared_name": "The Dance Recital",
+      "caller_expression": "\"scripts/opera_house.gd:ACTS[2]; scripts/opera_career_world_2d.gd\",",
+      "limits": "Literal source row; neither fresh rendered stage nor complete dynamic/native route."
+    },
+    {
+      "id": "opera.act.03",
+      "origin_kind": "REGISTERED_STAGE_ROW",
+      "origin_path": "scripts/living_world_catalog.gd",
+      "origin_line": 424,
+      "declared_name": "The Candy Parade",
+      "caller_expression": "\"scripts/opera_house.gd:ACTS[3]; scripts/opera_career_world_2d.gd\",",
+      "limits": "Literal source row; neither fresh rendered stage nor complete dynamic/native route."
+    },
+    {
+      "id": "opera.act.05",
+      "origin_kind": "REGISTERED_STAGE_ROW",
+      "origin_path": "scripts/living_world_catalog.gd",
+      "origin_line": 428,
+      "declared_name": "The Stuffie Surgeon Relay",
+      "caller_expression": "\"scripts/opera_house.gd:ACTS[5]; scripts/opera_career_world_2d.gd\",",
+      "limits": "Literal source row; neither fresh rendered stage nor complete dynamic/native route."
+    },
+    {
+      "id": "opera.act.06",
+      "origin_kind": "REGISTERED_STAGE_ROW",
+      "origin_path": "scripts/living_world_catalog.gd",
+      "origin_line": 432,
+      "declared_name": "The Piggy Picnic",
+      "caller_expression": "\"scripts/opera_house.gd:ACTS[6]; scripts/opera_career_world_2d.gd\",",
+      "limits": "Literal source row; neither fresh rendered stage nor complete dynamic/native route."
+    },
+    {
+      "id": "opera.act.07",
+      "origin_kind": "REGISTERED_STAGE_ROW",
+      "origin_path": "scripts/living_world_catalog.gd",
+      "origin_line": 436,
+      "declared_name": "The Championship Bout",
+      "caller_expression": "\"scripts/opera_house.gd:ACTS[7]; scripts/opera_career_world_2d.gd\",",
+      "limits": "Literal source row; neither fresh rendered stage nor complete dynamic/native route."
+    },
+    {
+      "id": "opera.act.08",
+      "origin_kind": "REGISTERED_STAGE_ROW",
+      "origin_path": "scripts/living_world_catalog.gd",
+      "origin_line": 440,
+      "declared_name": "The Magic Hat Trick",
+      "caller_expression": "\"scripts/opera_house.gd:ACTS[8]; scripts/opera_career_world_2d.gd\",",
+      "limits": "Literal source row; neither fresh rendered stage nor complete dynamic/native route."
+    },
+    {
+      "id": "opera.act.10",
+      "origin_kind": "REGISTERED_STAGE_ROW",
+      "origin_path": "scripts/living_world_catalog.gd",
+      "origin_line": 444,
+      "declared_name": "Paint the Sunrise",
+      "caller_expression": "\"scripts/opera_house.gd:ACTS[10]; scripts/opera_career_world_2d.gd\",",
+      "limits": "Literal source row; neither fresh rendered stage nor complete dynamic/native route."
+    },
+    {
+      "id": "opera.act.11",
+      "origin_kind": "REGISTERED_STAGE_ROW",
+      "origin_path": "scripts/living_world_catalog.gd",
+      "origin_line": 448,
+      "declared_name": "The Bubble Rocket",
+      "caller_expression": "\"scripts/opera_house.gd:ACTS[11]; scripts/opera_career_world_2d.gd\",",
+      "limits": "Literal source row; neither fresh rendered stage nor complete dynamic/native route."
+    },
+    {
+      "id": "opera.act.12",
+      "origin_kind": "REGISTERED_STAGE_ROW",
+      "origin_path": "scripts/living_world_catalog.gd",
+      "origin_line": 452,
+      "declared_name": "The Opera Grand Prix",
+      "caller_expression": "\"scripts/opera_house.gd:ACTS[12]; scripts/opera_career_world_2d.gd\",",
+      "limits": "Literal source row; neither fresh rendered stage nor complete dynamic/native route."
+    },
+    {
+      "id": "opera.act.13",
+      "origin_kind": "REGISTERED_STAGE_ROW",
+      "origin_path": "scripts/living_world_catalog.gd",
+      "origin_line": 456,
+      "declared_name": "The Starlight Concert",
+      "caller_expression": "\"scripts/opera_house.gd:ACTS[13]; scripts/opera_career_world_2d.gd\",",
+      "limits": "Literal source row; neither fresh rendered stage nor complete dynamic/native route."
+    },
+    {
+      "id": "opera.act.15",
+      "origin_kind": "REGISTERED_STAGE_ROW",
+      "origin_path": "scripts/living_world_catalog.gd",
+      "origin_line": 460,
+      "declared_name": "The Moonbeam Nursery",
+      "caller_expression": "\"scripts/opera_house.gd:ACTS[15]; scripts/opera_career_world_2d.gd\",",
+      "limits": "Literal source row; neither fresh rendered stage nor complete dynamic/native route."
+    },
+    {
+      "id": "opera.act.16",
+      "origin_kind": "REGISTERED_STAGE_ROW",
+      "origin_path": "scripts/living_world_catalog.gd",
+      "origin_line": 464,
+      "declared_name": "The Crystal Cave Discovery",
+      "caller_expression": "\"scripts/opera_house.gd:ACTS[16]; scripts/opera_career_world_2d.gd\",",
+      "limits": "Literal source row; neither fresh rendered stage nor complete dynamic/native route."
+    },
+    {
+      "id": "opera.act.17",
+      "origin_kind": "REGISTERED_STAGE_ROW",
+      "origin_path": "scripts/living_world_catalog.gd",
+      "origin_line": 468,
+      "declared_name": "The Learning Circle",
+      "caller_expression": "\"scripts/opera_house.gd:ACTS[17]; scripts/opera_career_world_2d.gd\",",
+      "limits": "Literal source row; neither fresh rendered stage nor complete dynamic/native route."
+    },
+    {
+      "id": "ui.start",
+      "origin_kind": "AUDIT_AUTHORED_UI_OVERLAY",
+      "origin_path": "build_review_packet.py",
+      "origin_line": 34,
+      "declared_name": "Start/options/reset",
+      "declared_module": "scripts/start_menu.gd",
+      "limits": "Explicit audit list and source module; does not establish every display/lifecycle path."
+    },
+    {
+      "id": "ui.intro",
+      "origin_kind": "AUDIT_AUTHORED_UI_OVERLAY",
+      "origin_path": "build_review_packet.py",
+      "origin_line": 34,
+      "declared_name": "Intro/book pages",
+      "declared_module": "scripts/intro_overlay.gd",
+      "limits": "Explicit audit list and source module; does not establish every display/lifecycle path."
+    },
+    {
+      "id": "ui.pause",
+      "origin_kind": "AUDIT_AUTHORED_UI_OVERLAY",
+      "origin_path": "build_review_packet.py",
+      "origin_line": 34,
+      "declared_name": "Pause/options/back",
+      "declared_module": "scripts/pause_menu.gd",
+      "limits": "Explicit audit list and source module; does not establish every display/lifecycle path."
+    },
+    {
+      "id": "ui.save_hud",
+      "origin_kind": "AUDIT_AUTHORED_UI_OVERLAY",
+      "origin_path": "build_review_packet.py",
+      "origin_line": 34,
+      "declared_name": "HUD/objectives/save/transition",
+      "declared_module": "scripts/main.gd",
+      "limits": "Explicit audit list and source module; does not establish every display/lifecycle path."
+    },
+    {
+      "id": "ui.touch",
+      "origin_kind": "AUDIT_AUTHORED_UI_OVERLAY",
+      "origin_path": "build_review_packet.py",
+      "origin_line": 34,
+      "declared_name": "Fallback touch controls",
+      "declared_module": "scripts/touch_ui.gd",
+      "limits": "Explicit audit list and source module; does not establish every display/lifecycle path."
+    },
+    {
+      "id": "ui.craft",
+      "origin_kind": "AUDIT_AUTHORED_UI_OVERLAY",
+      "origin_path": "build_review_packet.py",
+      "origin_line": 34,
+      "declared_name": "Craft studio",
+      "declared_module": "scripts/craft_studio.gd",
+      "limits": "Explicit audit list and source module; does not establish every display/lifecycle path."
+    },
+    {
+      "id": "ui.wardrobe",
+      "origin_kind": "AUDIT_AUTHORED_UI_OVERLAY",
+      "origin_path": "build_review_packet.py",
+      "origin_line": 34,
+      "declared_name": "Wardrobe",
+      "declared_module": "scripts/wardrobe_ui.gd",
+      "limits": "Explicit audit list and source module; does not establish every display/lifecycle path."
+    },
+    {
+      "id": "ui.collection",
+      "origin_kind": "AUDIT_AUTHORED_UI_OVERLAY",
+      "origin_path": "build_review_packet.py",
+      "origin_line": 34,
+      "declared_name": "Sticker/collection book",
+      "declared_module": "scripts/collection_system.gd",
+      "limits": "Explicit audit list and source module; does not establish every display/lifecycle path."
+    },
+    {
+      "id": "ui.logo",
+      "origin_kind": "AUDIT_AUTHORED_UI_OVERLAY",
+      "origin_path": "build_review_packet.py",
+      "origin_line": 34,
+      "declared_name": "Castle logo studio",
+      "declared_module": "scripts/castle_logo_studio.gd",
+      "limits": "Explicit audit list and source module; does not establish every display/lifecycle path."
+    },
+    {
+      "id": "ui.attack",
+      "origin_kind": "AUDIT_AUTHORED_UI_OVERLAY",
+      "origin_path": "build_review_packet.py",
+      "origin_line": 34,
+      "declared_name": "Attack customizer",
+      "declared_module": "scripts/attack_customizer.gd",
+      "limits": "Explicit audit list and source module; does not establish every display/lifecycle path."
+    },
+    {
+      "id": "ui.fashion",
+      "origin_kind": "AUDIT_AUTHORED_UI_OVERLAY",
+      "origin_path": "build_review_packet.py",
+      "origin_line": 34,
+      "declared_name": "Fashion Designer and head/body/tail dress-up",
+      "declared_module": "scripts/fashion_wardrobe.gd",
+      "limits": "Explicit audit list and source module; does not establish every display/lifecycle path."
+    },
+    {
+      "id": "ui.job_playtest",
+      "origin_kind": "AUDIT_AUTHORED_UI_OVERLAY",
+      "origin_path": "build_review_packet.py",
+      "origin_line": 34,
+      "declared_name": "Temporary Opera elevator job menu",
+      "declared_module": "scripts/opera_job_playtest_menu.gd",
+      "limits": "Explicit audit list and source module; does not establish every display/lifecycle path."
+    },
+    {
+      "id": "game.day_one_pool",
+      "origin_kind": "REFERENCE_GAME_CATALOGUE_LABEL",
+      "origin_path": "design/reference/games.json",
+      "catalogue_index": 0,
+      "catalogue_id": "day_one_pool",
+      "declared_name": "Mermaid Pool cleanup (Day One)",
+      "declared_family": "day_one",
+      "declared_sources": [
+        "scripts/games/day_one_pool_cleanup.gd",
+        "scripts/games/pool_skimmer_activity.gd",
+        "scripts/games/pool_waterfall_activity.gd",
+        "scripts/games/pool_seahorse_rescue_activity.gd",
+        "scripts/day_one_contact_action_2d.gd"
+      ],
+      "declared_hosts": [
+        "scripts/day_one_director.gd",
+        "scripts/arena/castle_rooms_25d.gd",
+        "scripts/main.gd",
+        "scripts/day_one_flow.gd",
+        "scripts/arena/day_one_castle_dressing.gd",
+        "scripts/living_world.gd",
+        "scripts/games/day_one_dust_bunny_swimmer.gd"
+      ],
+      "limits": "Reference catalogue label, not a promise Main.game equals its suffix. Historical route/state/scores remain assertions at their recorded scope."
+    },
+    {
+      "id": "game.day_one_bathroom",
+      "origin_kind": "REFERENCE_GAME_CATALOGUE_LABEL",
+      "origin_path": "design/reference/games.json",
+      "catalogue_index": 1,
+      "catalogue_id": "day_one_bathroom",
+      "declared_name": "Bubble Bathroom cleanup (Day One)",
+      "declared_family": "day_one",
+      "declared_sources": [
+        "scripts/games/day_one_bathroom_cleanup.gd",
+        "scripts/games/day_one_bathroom_cleaning.gd",
+        "scripts/games/day_one_fixture_scrub.gd",
+        "scripts/games/day_one_bathroom_toilet.gd",
+        "scripts/games/day_one_dust_bunny_swimmer.gd",
+        "scripts/day_one_bathroom_movie_handoff.gd"
+      ],
+      "declared_hosts": [
+        "scripts/day_one_director.gd",
+        "scripts/main.gd",
+        "scripts/day_one_flow.gd"
+      ],
+      "limits": "Reference catalogue label, not a promise Main.game equals its suffix. Historical route/state/scores remain assertions at their recorded scope."
+    },
+    {
+      "id": "game.day_one_playroom",
+      "origin_kind": "REFERENCE_GAME_CATALOGUE_LABEL",
+      "origin_path": "design/reference/games.json",
+      "catalogue_index": 2,
+      "catalogue_id": "day_one_playroom",
+      "declared_name": "Free Baby Eagle (Day One)",
+      "declared_family": "day_one",
+      "declared_sources": [
+        "scripts/arena/castle_rooms_25d.gd"
+      ],
+      "declared_hosts": [],
+      "limits": "Reference catalogue label, not a promise Main.game equals its suffix. Historical route/state/scores remain assertions at their recorded scope."
+    },
+    {
+      "id": "game.day_one_craft_room",
+      "origin_kind": "REFERENCE_GAME_CATALOGUE_LABEL",
+      "origin_path": "design/reference/games.json",
+      "catalogue_index": 3,
+      "catalogue_id": "day_one_craft_room",
+      "declared_name": "Craft Room tidy (Day One)",
+      "declared_family": "day_one",
+      "declared_sources": [
+        "scripts/day_one_art_studio.gd"
+      ],
+      "declared_hosts": [
+        "scripts/attack_customizer.gd",
+        "scripts/day_one_director.gd",
+        "scripts/main.gd",
+        "scripts/day_one_flow.gd"
+      ],
+      "limits": "Reference catalogue label, not a promise Main.game equals its suffix. Historical route/state/scores remain assertions at their recorded scope."
+    },
+    {
+      "id": "game.grand_puff",
+      "origin_kind": "REFERENCE_GAME_CATALOGUE_LABEL",
+      "origin_path": "design/reference/games.json",
+      "catalogue_index": 4,
+      "catalogue_id": "grand_puff",
+      "declared_name": "Grand Puff in the Dusty Attic (Day One boss)",
+      "declared_family": "day_one",
+      "declared_sources": [
+        "scripts/games/dust_boss.gd",
+        "scripts/games/dust_boss_patterns.gd",
+        "scripts/dust_bunny_boss_sprite.gd",
+        "scripts/boss_encounter_2d.gd",
+        "scripts/dust_boss_lesson_2d.gd",
+        "scripts/dust_boss_telegraph_2d.gd",
+        "scripts/boss_splash_2d.gd",
+        "scripts/games/octagon_stage.gd"
+      ],
+      "declared_hosts": [
+        "scripts/encounter_profile_2d.gd",
+        "scripts/main.gd",
+        "scripts/day_one_flow.gd"
+      ],
+      "limits": "Reference catalogue label, not a promise Main.game equals its suffix. Historical route/state/scores remain assertions at their recorded scope."
+    },
+    {
+      "id": "game.chapter2_party",
+      "origin_kind": "REFERENCE_GAME_CATALOGUE_LABEL",
+      "origin_path": "design/reference/games.json",
+      "catalogue_index": 5,
+      "catalogue_id": "chapter2_party",
+      "declared_name": "Birthday party preparation (Chapter 2)",
+      "declared_family": "chapter_two",
+      "declared_sources": [
+        "scripts/chapter_two_director.gd",
+        "scripts/chapter_two_party_plan.gd",
+        "scripts/chapter_two_room_plot.gd",
+        "scripts/chapter_two_party_table_2d.gd",
+        "scripts/chapter_two_giant_cake_2d.gd",
+        "scripts/opera_chef_surface.gd",
+        "scripts/chapter_two_rainbow_candle_2d.gd",
+        "scripts/chapter_two_career_scene_adapter.gd",
+        "scripts/chapter_two_voice_catalog.gd",
+        "scripts/day_two_transition_2d.gd"
+      ],
+      "declared_hosts": [
+        "scripts/main.gd",
+        "scripts/opera_career_world_2d.gd",
+        "scripts/opera_house.gd"
+      ],
+      "limits": "Reference catalogue label, not a promise Main.game equals its suffix. Historical route/state/scores remain assertions at their recorded scope."
+    },
+    {
+      "id": "game.chapter2_lawn",
+      "origin_kind": "REFERENCE_GAME_CATALOGUE_LABEL",
+      "origin_path": "design/reference/games.json",
+      "catalogue_index": 6,
+      "catalogue_id": "chapter2_lawn",
+      "declared_name": "Birthday lawn and Ember King (Chapter 2 finale)",
+      "declared_family": "chapter_two",
+      "declared_sources": [
+        "scripts/chapter_two_lawn_finale_2d.gd",
+        "scripts/chapter_two_ember_encounter.gd"
+      ],
+      "declared_hosts": [
+        "scripts/main.gd"
+      ],
+      "limits": "Reference catalogue label, not a promise Main.game equals its suffix. Historical route/state/scores remain assertions at their recorded scope."
+    },
+    {
+      "id": "game.boxer",
+      "origin_kind": "REFERENCE_GAME_CATALOGUE_LABEL",
+      "origin_path": "design/reference/games.json",
+      "catalogue_index": 7,
+      "catalogue_id": "boxer",
+      "declared_name": "Boxer",
+      "declared_family": "opera_career",
+      "declared_sources": [
+        "scripts/opera_boxing_surface.gd"
+      ],
+      "declared_hosts": [
+        "scripts/opera_career_world_2d.gd",
+        "scripts/opera_gesture_surface.gd",
+        "scripts/opera_house.gd",
+        "scripts/opera_act.gd",
+        "scripts/castle_career_routes.gd",
+        "scripts/main.gd"
+      ],
+      "limits": "Reference catalogue label, not a promise Main.game equals its suffix. Historical route/state/scores remain assertions at their recorded scope."
+    },
+    {
+      "id": "game.teacher",
+      "origin_kind": "REFERENCE_GAME_CATALOGUE_LABEL",
+      "origin_path": "design/reference/games.json",
+      "catalogue_index": 8,
+      "catalogue_id": "teacher",
+      "declared_name": "Teacher",
+      "declared_family": "opera_career",
+      "declared_sources": [
+        "scripts/opera_teacher_surface.gd",
+        "scripts/teacher_lesson_plan.gd"
+      ],
+      "declared_hosts": [
+        "scripts/opera_career_world_2d.gd",
+        "scripts/opera_gesture_surface.gd",
+        "scripts/opera_house.gd",
+        "scripts/opera_act.gd",
+        "scripts/castle_career_routes.gd",
+        "scripts/main.gd"
+      ],
+      "limits": "Reference catalogue label, not a promise Main.game equals its suffix. Historical route/state/scores remain assertions at their recorded scope."
+    },
+    {
+      "id": "game.racer",
+      "origin_kind": "REFERENCE_GAME_CATALOGUE_LABEL",
+      "origin_path": "design/reference/games.json",
+      "catalogue_index": 9,
+      "catalogue_id": "racer",
+      "declared_name": "Racecar Driver",
+      "declared_family": "opera_career",
+      "declared_sources": [
+        "scripts/opera_racer_surface.gd",
+        "scripts/kart_driving.gd"
+      ],
+      "declared_hosts": [
+        "scripts/opera_career_world_2d.gd",
+        "scripts/opera_gesture_surface.gd",
+        "scripts/opera_house.gd",
+        "scripts/opera_act.gd",
+        "scripts/castle_career_routes.gd",
+        "scripts/main.gd"
+      ],
+      "limits": "Reference catalogue label, not a promise Main.game equals its suffix. Historical route/state/scores remain assertions at their recorded scope."
+    },
+    {
+      "id": "game.magician",
+      "origin_kind": "REFERENCE_GAME_CATALOGUE_LABEL",
+      "origin_path": "design/reference/games.json",
+      "catalogue_index": 10,
+      "catalogue_id": "magician",
+      "declared_name": "Magician",
+      "declared_family": "opera_career",
+      "declared_sources": [
+        "scripts/opera_career_world_2d.gd"
+      ],
+      "declared_hosts": [
+        "scripts/opera_career_world_2d.gd",
+        "scripts/opera_gesture_surface.gd",
+        "scripts/opera_house.gd",
+        "scripts/opera_act.gd",
+        "scripts/castle_career_routes.gd",
+        "scripts/main.gd"
+      ],
+      "limits": "Reference catalogue label, not a promise Main.game equals its suffix. Historical route/state/scores remain assertions at their recorded scope."
+    },
+    {
+      "id": "game.nursery",
+      "origin_kind": "REFERENCE_GAME_CATALOGUE_LABEL",
+      "origin_path": "design/reference/games.json",
+      "catalogue_index": 11,
+      "catalogue_id": "nursery",
+      "declared_name": "Nursery Nurse",
+      "declared_family": "opera_career",
+      "declared_sources": [
+        "scripts/opera_nursery_catch.gd"
+      ],
+      "declared_hosts": [
+        "scripts/opera_career_world_2d.gd",
+        "scripts/opera_gesture_surface.gd",
+        "scripts/opera_house.gd",
+        "scripts/opera_act.gd",
+        "scripts/castle_career_routes.gd",
+        "scripts/main.gd"
+      ],
+      "limits": "Reference catalogue label, not a promise Main.game equals its suffix. Historical route/state/scores remain assertions at their recorded scope."
+    },
+    {
+      "id": "game.popstar",
+      "origin_kind": "REFERENCE_GAME_CATALOGUE_LABEL",
+      "origin_path": "design/reference/games.json",
+      "catalogue_index": 12,
+      "catalogue_id": "popstar",
+      "declared_name": "Pop Star",
+      "declared_family": "opera_career",
+      "declared_sources": [
+        "scripts/opera_performance_plan.gd",
+        "scripts/opera_performance_overlay.gd"
+      ],
+      "declared_hosts": [
+        "scripts/opera_career_world_2d.gd",
+        "scripts/opera_gesture_surface.gd",
+        "scripts/opera_house.gd",
+        "scripts/opera_act.gd",
+        "scripts/castle_career_routes.gd",
+        "scripts/main.gd"
+      ],
+      "limits": "Reference catalogue label, not a promise Main.game equals its suffix. Historical route/state/scores remain assertions at their recorded scope."
+    },
+    {
+      "id": "game.ballerina",
+      "origin_kind": "REFERENCE_GAME_CATALOGUE_LABEL",
+      "origin_path": "design/reference/games.json",
+      "catalogue_index": 13,
+      "catalogue_id": "ballerina",
+      "declared_name": "Ballerina",
+      "declared_family": "opera_career",
+      "declared_sources": [
+        "scripts/opera_ballet_surface.gd"
+      ],
+      "declared_hosts": [
+        "scripts/opera_career_world_2d.gd",
+        "scripts/opera_gesture_surface.gd",
+        "scripts/opera_house.gd",
+        "scripts/opera_act.gd",
+        "scripts/castle_career_routes.gd",
+        "scripts/main.gd"
+      ],
+      "limits": "Reference catalogue label, not a promise Main.game equals its suffix. Historical route/state/scores remain assertions at their recorded scope."
+    },
+    {
+      "id": "game.candymaker",
+      "origin_kind": "REFERENCE_GAME_CATALOGUE_LABEL",
+      "origin_path": "design/reference/games.json",
+      "catalogue_index": 14,
+      "catalogue_id": "candymaker",
+      "declared_name": "Candy Maker",
+      "declared_family": "opera_career",
+      "declared_sources": [
+        "scripts/opera_career_world_2d.gd"
+      ],
+      "declared_hosts": [
+        "scripts/opera_career_world_2d.gd",
+        "scripts/opera_gesture_surface.gd",
+        "scripts/opera_house.gd",
+        "scripts/opera_act.gd",
+        "scripts/castle_career_routes.gd",
+        "scripts/main.gd"
+      ],
+      "limits": "Reference catalogue label, not a promise Main.game equals its suffix. Historical route/state/scores remain assertions at their recorded scope."
+    },
+    {
+      "id": "game.chef",
+      "origin_kind": "REFERENCE_GAME_CATALOGUE_LABEL",
+      "origin_path": "design/reference/games.json",
+      "catalogue_index": 15,
+      "catalogue_id": "chef",
+      "declared_name": "Pastry Chef",
+      "declared_family": "opera_career",
+      "declared_sources": [
+        "scripts/opera_career_world_2d.gd"
+      ],
+      "declared_hosts": [
+        "scripts/opera_career_world_2d.gd",
+        "scripts/opera_gesture_surface.gd",
+        "scripts/opera_house.gd",
+        "scripts/opera_act.gd",
+        "scripts/castle_career_routes.gd",
+        "scripts/main.gd"
+      ],
+      "limits": "Reference catalogue label, not a promise Main.game equals its suffix. Historical route/state/scores remain assertions at their recorded scope."
+    },
+    {
+      "id": "game.detective",
+      "origin_kind": "REFERENCE_GAME_CATALOGUE_LABEL",
+      "origin_path": "design/reference/games.json",
+      "catalogue_index": 16,
+      "catalogue_id": "detective",
+      "declared_name": "Detective",
+      "declared_family": "opera_career",
+      "declared_sources": [
+        "scripts/opera_career_world_2d.gd"
+      ],
+      "declared_hosts": [
+        "scripts/opera_career_world_2d.gd",
+        "scripts/opera_gesture_surface.gd",
+        "scripts/opera_house.gd",
+        "scripts/opera_act.gd",
+        "scripts/castle_career_routes.gd",
+        "scripts/main.gd"
+      ],
+      "limits": "Reference catalogue label, not a promise Main.game equals its suffix. Historical route/state/scores remain assertions at their recorded scope."
+    },
+    {
+      "id": "game.farmer",
+      "origin_kind": "REFERENCE_GAME_CATALOGUE_LABEL",
+      "origin_path": "design/reference/games.json",
+      "catalogue_index": 17,
+      "catalogue_id": "farmer",
+      "declared_name": "Farmer",
+      "declared_family": "opera_career",
+      "declared_sources": [
+        "scripts/opera_career_world_2d.gd"
+      ],
+      "declared_hosts": [
+        "scripts/opera_career_world_2d.gd",
+        "scripts/opera_gesture_surface.gd",
+        "scripts/opera_house.gd",
+        "scripts/opera_act.gd",
+        "scripts/castle_career_routes.gd",
+        "scripts/main.gd"
+      ],
+      "limits": "Reference catalogue label, not a promise Main.game equals its suffix. Historical route/state/scores remain assertions at their recorded scope."
+    },
+    {
+      "id": "game.doctor",
+      "origin_kind": "REFERENCE_GAME_CATALOGUE_LABEL",
+      "origin_path": "design/reference/games.json",
+      "catalogue_index": 18,
+      "catalogue_id": "doctor",
+      "declared_name": "Stuffie Doctor",
+      "declared_family": "opera_career",
+      "declared_sources": [
+        "scripts/opera_career_world_2d.gd"
+      ],
+      "declared_hosts": [
+        "scripts/opera_career_world_2d.gd",
+        "scripts/opera_gesture_surface.gd",
+        "scripts/opera_house.gd",
+        "scripts/opera_act.gd",
+        "scripts/castle_career_routes.gd",
+        "scripts/main.gd"
+      ],
+      "limits": "Reference catalogue label, not a promise Main.game equals its suffix. Historical route/state/scores remain assertions at their recorded scope."
+    },
+    {
+      "id": "game.painter",
+      "origin_kind": "REFERENCE_GAME_CATALOGUE_LABEL",
+      "origin_path": "design/reference/games.json",
+      "catalogue_index": 19,
+      "catalogue_id": "painter",
+      "declared_name": "Painter",
+      "declared_family": "opera_career",
+      "declared_sources": [
+        "scripts/opera_career_world_2d.gd"
+      ],
+      "declared_hosts": [
+        "scripts/opera_career_world_2d.gd",
+        "scripts/opera_gesture_surface.gd",
+        "scripts/opera_house.gd",
+        "scripts/opera_act.gd",
+        "scripts/castle_career_routes.gd",
+        "scripts/main.gd"
+      ],
+      "limits": "Reference catalogue label, not a promise Main.game equals its suffix. Historical route/state/scores remain assertions at their recorded scope."
+    },
+    {
+      "id": "game.astronaut",
+      "origin_kind": "REFERENCE_GAME_CATALOGUE_LABEL",
+      "origin_path": "design/reference/games.json",
+      "catalogue_index": 20,
+      "catalogue_id": "astronaut",
+      "declared_name": "Astronaut Engineer",
+      "declared_family": "opera_career",
+      "declared_sources": [
+        "scripts/opera_career_world_2d.gd"
+      ],
+      "declared_hosts": [
+        "scripts/opera_career_world_2d.gd",
+        "scripts/opera_gesture_surface.gd",
+        "scripts/opera_house.gd",
+        "scripts/opera_act.gd",
+        "scripts/castle_career_routes.gd",
+        "scripts/main.gd"
+      ],
+      "limits": "Reference catalogue label, not a promise Main.game equals its suffix. Historical route/state/scores remain assertions at their recorded scope."
+    },
+    {
+      "id": "game.geologist",
+      "origin_kind": "REFERENCE_GAME_CATALOGUE_LABEL",
+      "origin_path": "design/reference/games.json",
+      "catalogue_index": 21,
+      "catalogue_id": "geologist",
+      "declared_name": "Geologist",
+      "declared_family": "opera_career",
+      "declared_sources": [
+        "scripts/opera_geology_surface.gd"
+      ],
+      "declared_hosts": [
+        "scripts/opera_career_world_2d.gd",
+        "scripts/opera_gesture_surface.gd",
+        "scripts/opera_house.gd",
+        "scripts/opera_act.gd",
+        "scripts/castle_career_routes.gd",
+        "scripts/main.gd"
+      ],
+      "limits": "Reference catalogue label, not a promise Main.game equals its suffix. Historical route/state/scores remain assertions at their recorded scope."
+    },
+    {
+      "id": "game.pic_snowman",
+      "origin_kind": "REFERENCE_GAME_CATALOGUE_LABEL",
+      "origin_path": "design/reference/games.json",
+      "catalogue_index": 22,
+      "catalogue_id": "pic_snowman",
+      "declared_name": "Snow Roller (picture game)",
+      "declared_family": "picture_game",
+      "declared_sources": [
+        "scripts/games/picture_games.gd"
+      ],
+      "declared_hosts": [
+        "scripts/main.gd"
+      ],
+      "limits": "Reference catalogue label, not a promise Main.game equals its suffix. Historical route/state/scores remain assertions at their recorded scope."
+    },
+    {
+      "id": "game.pic_garden",
+      "origin_kind": "REFERENCE_GAME_CATALOGUE_LABEL",
+      "origin_path": "design/reference/games.json",
+      "catalogue_index": 23,
+      "catalogue_id": "pic_garden",
+      "declared_name": "Flower Garden (picture game)",
+      "declared_family": "picture_game",
+      "declared_sources": [
+        "scripts/games/picture_games.gd"
+      ],
+      "declared_hosts": [
+        "scripts/main.gd"
+      ],
+      "limits": "Reference catalogue label, not a promise Main.game equals its suffix. Historical route/state/scores remain assertions at their recorded scope."
+    },
+    {
+      "id": "game.pic_trampoline",
+      "origin_kind": "REFERENCE_GAME_CATALOGUE_LABEL",
+      "origin_path": "design/reference/games.json",
+      "catalogue_index": 24,
+      "catalogue_id": "pic_trampoline",
+      "declared_name": "Trampoline (picture game)",
+      "declared_family": "picture_game",
+      "declared_sources": [
+        "scripts/games/picture_games.gd"
+      ],
+      "declared_hosts": [
+        "scripts/main.gd"
+      ],
+      "limits": "Reference catalogue label, not a promise Main.game equals its suffix. Historical route/state/scores remain assertions at their recorded scope."
+    },
+    {
+      "id": "game.pic_xmas",
+      "origin_kind": "REFERENCE_GAME_CATALOGUE_LABEL",
+      "origin_path": "design/reference/games.json",
+      "catalogue_index": 25,
+      "catalogue_id": "pic_xmas",
+      "declared_name": "Christmas Tree (picture game)",
+      "declared_family": "picture_game",
+      "declared_sources": [
+        "scripts/games/picture_games.gd"
+      ],
+      "declared_hosts": [
+        "scripts/main.gd"
+      ],
+      "limits": "Reference catalogue label, not a promise Main.game equals its suffix. Historical route/state/scores remain assertions at their recorded scope."
+    },
+    {
+      "id": "game.pic_slide",
+      "origin_kind": "REFERENCE_GAME_CATALOGUE_LABEL",
+      "origin_path": "design/reference/games.json",
+      "catalogue_index": 26,
+      "catalogue_id": "pic_slide",
+      "declared_name": "Slide launcher (picture game)",
+      "declared_family": "picture_game",
+      "declared_sources": [
+        "scripts/games/picture_games.gd"
+      ],
+      "declared_hosts": [
+        "scripts/main.gd"
+      ],
+      "limits": "Reference catalogue label, not a promise Main.game equals its suffix. Historical route/state/scores remain assertions at their recorded scope."
+    },
+    {
+      "id": "game.dolls",
+      "origin_kind": "REFERENCE_GAME_CATALOGUE_LABEL",
+      "origin_path": "design/reference/games.json",
+      "catalogue_index": 27,
+      "catalogue_id": "dolls",
+      "declared_name": "Faron's Sleepy Dolls",
+      "declared_family": "minigame",
+      "declared_sources": [
+        "scripts/games/dolls.gd"
+      ],
+      "declared_hosts": [
+        "scripts/opera_nursery_catch.gd",
+        "scripts/main.gd"
+      ],
+      "limits": "Reference catalogue label, not a promise Main.game equals its suffix. Historical route/state/scores remain assertions at their recorded scope."
+    },
+    {
+      "id": "game.seek",
+      "origin_kind": "REFERENCE_GAME_CATALOGUE_LABEL",
+      "origin_path": "design/reference/games.json",
+      "catalogue_index": 28,
+      "catalogue_id": "seek",
+      "declared_name": "Hide and Seek with Evie and Lamb-a'",
+      "declared_family": "minigame",
+      "declared_sources": [
+        "scripts/games/seek.gd"
+      ],
+      "declared_hosts": [
+        "scripts/main.gd"
+      ],
+      "limits": "Reference catalogue label, not a promise Main.game equals its suffix. Historical route/state/scores remain assertions at their recorded scope."
+    },
+    {
+      "id": "game.melody",
+      "origin_kind": "REFERENCE_GAME_CATALOGUE_LABEL",
+      "origin_path": "design/reference/games.json",
+      "catalogue_index": 29,
+      "catalogue_id": "melody",
+      "declared_name": "Daddy's Rainbow Theater (melody)",
+      "declared_family": "minigame",
+      "declared_sources": [
+        "scripts/games/melody.gd"
+      ],
+      "declared_hosts": [
+        "scripts/main.gd"
+      ],
+      "limits": "Reference catalogue label, not a promise Main.game equals its suffix. Historical route/state/scores remain assertions at their recorded scope."
+    },
+    {
+      "id": "game.slide_fish",
+      "origin_kind": "REFERENCE_GAME_CATALOGUE_LABEL",
+      "origin_path": "design/reference/games.json",
+      "catalogue_index": 30,
+      "catalogue_id": "slide_fish",
+      "declared_name": "Harper and Fiona fish slide",
+      "declared_family": "minigame",
+      "declared_sources": [
+        "scripts/games/slide_race.gd"
+      ],
+      "declared_hosts": [
+        "scripts/main.gd"
+      ],
+      "limits": "Reference catalogue label, not a promise Main.game equals its suffix. Historical route/state/scores remain assertions at their recorded scope."
+    },
+    {
+      "id": "game.fetch",
+      "origin_kind": "REFERENCE_GAME_CATALOGUE_LABEL",
+      "origin_path": "design/reference/games.json",
+      "catalogue_index": 31,
+      "catalogue_id": "fetch",
+      "declared_name": "Fetch with Chuck",
+      "declared_family": "minigame",
+      "declared_sources": [
+        "scripts/games/fetch.gd"
+      ],
+      "declared_hosts": [
+        "scripts/main.gd"
+      ],
+      "limits": "Reference catalogue label, not a promise Main.game equals its suffix. Historical route/state/scores remain assertions at their recorded scope."
+    },
+    {
+      "id": "game.shop",
+      "origin_kind": "REFERENCE_GAME_CATALOGUE_LABEL",
+      "origin_path": "design/reference/games.json",
+      "catalogue_index": 32,
+      "catalogue_id": "shop",
+      "declared_name": "Pearl Shop",
+      "declared_family": "minigame",
+      "declared_sources": [
+        "scripts/games/shop.gd"
+      ],
+      "declared_hosts": [
+        "scripts/main.gd"
+      ],
+      "limits": "Reference catalogue label, not a promise Main.game equals its suffix. Historical route/state/scores remain assertions at their recorded scope."
+    },
+    {
+      "id": "game.treasure",
+      "origin_kind": "REFERENCE_GAME_CATALOGUE_LABEL",
+      "origin_path": "design/reference/games.json",
+      "catalogue_index": 33,
+      "catalogue_id": "treasure",
+      "declared_name": "Secret Treasure cave",
+      "declared_family": "minigame",
+      "declared_sources": [
+        "scripts/games/treasure.gd"
+      ],
+      "declared_hosts": [
+        "scripts/games/slide_race.gd",
+        "scripts/main.gd"
+      ],
+      "limits": "Reference catalogue label, not a promise Main.game equals its suffix. Historical route/state/scores remain assertions at their recorded scope."
+    },
+    {
+      "id": "game.slide_penguin",
+      "origin_kind": "REFERENCE_GAME_CATALOGUE_LABEL",
+      "origin_path": "design/reference/games.json",
+      "catalogue_index": 34,
+      "catalogue_id": "slide_penguin",
+      "declared_name": "Penguin chase",
+      "declared_family": "minigame",
+      "declared_sources": [
+        "scripts/games/slide_race.gd"
+      ],
+      "declared_hosts": [
+        "scripts/main.gd"
+      ],
+      "limits": "Reference catalogue label, not a promise Main.game equals its suffix. Historical route/state/scores remain assertions at their recorded scope."
+    },
+    {
+      "id": "game.playplace",
+      "origin_kind": "REFERENCE_GAME_CATALOGUE_LABEL",
+      "origin_path": "design/reference/games.json",
+      "catalogue_index": 35,
+      "catalogue_id": "playplace",
+      "declared_name": "Rainbow Slide play-place course",
+      "declared_family": "minigame",
+      "declared_sources": [
+        "scripts/games/slide_race.gd"
+      ],
+      "declared_hosts": [
+        "scripts/main.gd"
+      ],
+      "limits": "Reference catalogue label, not a promise Main.game equals its suffix. Historical route/state/scores remain assertions at their recorded scope."
+    },
+    {
+      "id": "game.dance",
+      "origin_kind": "REFERENCE_GAME_CATALOGUE_LABEL",
+      "origin_path": "design/reference/games.json",
+      "catalogue_index": 36,
+      "catalogue_id": "dance",
+      "declared_name": "Dance with Daddy (rhythm)",
+      "declared_family": "minigame",
+      "declared_sources": [
+        "scripts/games/dance_engine.gd"
+      ],
+      "declared_hosts": [
+        "scripts/galaxy.gd",
+        "scripts/main.gd"
+      ],
+      "limits": "Reference catalogue label, not a promise Main.game equals its suffix. Historical route/state/scores remain assertions at their recorded scope."
+    },
+    {
+      "id": "game.fairy_pond",
+      "origin_kind": "REFERENCE_GAME_CATALOGUE_LABEL",
+      "origin_path": "design/reference/games.json",
+      "catalogue_index": 37,
+      "catalogue_id": "fairy_pond",
+      "declared_name": "Fairy Pond flight",
+      "declared_family": "minigame",
+      "declared_sources": [
+        "scripts/games/fairy.gd"
+      ],
+      "declared_hosts": [
+        "scripts/galaxy.gd",
+        "scripts/main.gd"
+      ],
+      "limits": "Reference catalogue label, not a promise Main.game equals its suffix. Historical route/state/scores remain assertions at their recorded scope."
+    },
+    {
+      "id": "game.comfy_games",
+      "origin_kind": "REFERENCE_GAME_CATALOGUE_LABEL",
+      "origin_path": "design/reference/games.json",
+      "catalogue_index": 38,
+      "catalogue_id": "comfy_games",
+      "declared_name": "Comfy castle games (Day Two)",
+      "declared_family": "minigame",
+      "declared_sources": [
+        "scripts/comfy_games.gd"
+      ],
+      "declared_hosts": [
+        "scripts/main.gd"
+      ],
+      "limits": "Reference catalogue label, not a promise Main.game equals its suffix. Historical route/state/scores remain assertions at their recorded scope."
+    },
+    {
+      "id": "game.brawl",
+      "origin_kind": "REFERENCE_GAME_CATALOGUE_LABEL",
+      "origin_path": "design/reference/games.json",
+      "catalogue_index": 39,
+      "catalogue_id": "brawl",
+      "declared_name": "Toy Castle brawler",
+      "declared_family": "minigame",
+      "declared_sources": [
+        "scripts/games/brawl.gd",
+        "scripts/games/side_scroll.gd"
+      ],
+      "declared_hosts": [
+        "scripts/main.gd"
+      ],
+      "limits": "Reference catalogue label, not a promise Main.game equals its suffix. Historical route/state/scores remain assertions at their recorded scope."
+    },
+    {
+      "id": "game.painter_studio",
+      "origin_kind": "REFERENCE_GAME_CATALOGUE_LABEL",
+      "origin_path": "design/reference/games.json",
+      "catalogue_index": 40,
+      "catalogue_id": "painter_studio",
+      "declared_name": "Painter studio prototype",
+      "declared_family": "minigame",
+      "declared_sources": [
+        "scripts/painter/painter_studio.gd",
+        "scripts/painter/painter_document.gd",
+        "scripts/painter/painter_template.gd",
+        "scripts/painter/vendor/painter_flood_fill.gd"
+      ],
+      "declared_hosts": [],
+      "limits": "Reference catalogue label, not a promise Main.game equals its suffix. Historical route/state/scores remain assertions at their recorded scope."
+    },
+    {
+      "id": "game.fairy_restoration",
+      "origin_kind": "REFERENCE_GAME_CATALOGUE_LABEL",
+      "origin_path": "design/reference/games.json",
+      "catalogue_index": 41,
+      "catalogue_id": "fairy_restoration",
+      "declared_name": "Faerie Garden restoration prototype",
+      "declared_family": "minigame",
+      "declared_sources": [
+        "scripts/fairy_restoration_prototype.gd"
+      ],
+      "declared_hosts": [],
+      "limits": "Reference catalogue label, not a promise Main.game equals its suffix. Historical route/state/scores remain assertions at their recorded scope."
+    },
+    {
+      "id": "game.pearl_castle",
+      "origin_kind": "REFERENCE_GAME_CATALOGUE_LABEL",
+      "origin_path": "design/reference/games.json",
+      "catalogue_index": 42,
+      "catalogue_id": "pearl_castle",
+      "declared_name": "Pearl Castle rooms",
+      "declared_family": "world",
+      "declared_sources": [
+        "scripts/arena/castle_rooms_25d.gd",
+        "scripts/arena/castle_fixture_rigs.gd",
+        "scripts/castle_door_language.gd",
+        "scripts/castle_door_cue.gd",
+        "scripts/stage_navigation_2d.gd"
+      ],
+      "declared_hosts": [
+        "scripts/main.gd",
+        "scripts/navigation_controller.gd",
+        "scripts/arena/sky_lagoon.gd",
+        "scripts/arena/day_one_castle_dressing.gd",
+        "scripts/arena/day_one_castle_grime.gd"
+      ],
+      "limits": "Reference catalogue label, not a promise Main.game equals its suffix. Historical route/state/scores remain assertions at their recorded scope."
+    },
+    {
+      "id": "game.sky_lagoon",
+      "origin_kind": "REFERENCE_GAME_CATALOGUE_LABEL",
+      "origin_path": "design/reference/games.json",
+      "catalogue_index": 43,
+      "catalogue_id": "sky_lagoon",
+      "declared_name": "Sky Lagoon promenade",
+      "declared_family": "world",
+      "declared_sources": [
+        "scripts/arena/sky_lagoon_promenade.gd",
+        "scripts/arena/sky_lagoon_layout.json"
+      ],
+      "declared_hosts": [
+        "scripts/main.gd",
+        "scripts/arena/sky_lagoon.gd"
+      ],
+      "limits": "Reference catalogue label, not a promise Main.game equals its suffix. Historical route/state/scores remain assertions at their recorded scope."
+    },
+    {
+      "id": "game.galaxy",
+      "origin_kind": "REFERENCE_GAME_CATALOGUE_LABEL",
+      "origin_path": "design/reference/games.json",
+      "catalogue_index": 44,
+      "catalogue_id": "galaxy",
+      "declared_name": "Butterfly World (Galaxy)",
+      "declared_family": "world",
+      "declared_sources": [
+        "scripts/galaxy.gd"
+      ],
+      "declared_hosts": [
+        "scripts/main.gd"
+      ],
+      "limits": "Reference catalogue label, not a promise Main.game equals its suffix. Historical route/state/scores remain assertions at their recorded scope."
+    },
+    {
+      "id": "game.fairy_conservatory",
+      "origin_kind": "REFERENCE_GAME_CATALOGUE_LABEL",
+      "origin_path": "design/reference/games.json",
+      "catalogue_index": 45,
+      "catalogue_id": "fairy_conservatory",
+      "declared_name": "Moonflower door and Butterfly House",
+      "declared_family": "world",
+      "declared_sources": [
+        "scripts/arena/fairy_conservatory_door_2d.gd",
+        "scripts/arena/fairy_conservatory_handoff_2d.gd"
+      ],
+      "declared_hosts": [
+        "scripts/main.gd"
+      ],
+      "limits": "Reference catalogue label, not a promise Main.game equals its suffix. Historical route/state/scores remain assertions at their recorded scope."
+    },
+    {
+      "id": "game.northern",
+      "origin_kind": "REFERENCE_GAME_CATALOGUE_LABEL",
+      "origin_path": "design/reference/games.json",
+      "catalogue_index": 46,
+      "catalogue_id": "northern",
+      "declared_name": "Northern kingdom",
+      "declared_family": "world",
+      "declared_sources": [
+        "scripts/arena/northern_kingdom.gd"
+      ],
+      "declared_hosts": [
+        "scripts/main.gd"
+      ],
+      "limits": "Reference catalogue label, not a promise Main.game equals its suffix. Historical route/state/scores remain assertions at their recorded scope."
+    },
+    {
+      "id": "game.ember",
+      "origin_kind": "REFERENCE_GAME_CATALOGUE_LABEL",
+      "origin_path": "design/reference/games.json",
+      "catalogue_index": 47,
+      "catalogue_id": "ember",
+      "declared_name": "Ember Fortress",
+      "declared_family": "world",
+      "declared_sources": [
+        "scripts/ember_fortress.gd"
+      ],
+      "declared_hosts": [
+        "scripts/main.gd"
+      ],
+      "limits": "Reference catalogue label, not a promise Main.game equals its suffix. Historical route/state/scores remain assertions at their recorded scope."
+    },
+    {
+      "id": "game.courtyard_train",
+      "origin_kind": "REFERENCE_GAME_CATALOGUE_LABEL",
+      "origin_path": "design/reference/games.json",
+      "catalogue_index": 48,
+      "catalogue_id": "courtyard_train",
+      "declared_name": "Courtyard and train",
+      "declared_family": "world",
+      "declared_sources": [
+        "scripts/arena/courtyard_train.gd"
+      ],
+      "declared_hosts": [
+        "scripts/arena/sky_lagoon.gd"
+      ],
+      "limits": "Reference catalogue label, not a promise Main.game equals its suffix. Historical route/state/scores remain assertions at their recorded scope."
+    },
+    {
+      "id": "game.reef",
+      "origin_kind": "REFERENCE_GAME_CATALOGUE_LABEL",
+      "origin_path": "design/reference/games.json",
+      "catalogue_index": 49,
+      "catalogue_id": "reef",
+      "declared_name": "Reef and home ocean",
+      "declared_family": "world",
+      "declared_sources": [
+        "scripts/reef_districts.gd"
+      ],
+      "declared_hosts": [
+        "scripts/main.gd"
+      ],
+      "limits": "Reference catalogue label, not a promise Main.game equals its suffix. Historical route/state/scores remain assertions at their recorded scope."
+    },
+    {
+      "id": "game.combat_tutorial",
+      "origin_kind": "REFERENCE_GAME_CATALOGUE_LABEL",
+      "origin_path": "design/reference/games.json",
+      "catalogue_index": 50,
+      "catalogue_id": "combat_tutorial",
+      "declared_name": "Royal Hall sparring class",
+      "declared_family": "action",
+      "declared_sources": [
+        "scripts/combat_tutorial.gd",
+        "scripts/hit_engine.gd",
+        "scripts/imp_ai.gd"
+      ],
+      "declared_hosts": [
+        "scripts/arena/castle_rooms_25d.gd",
+        "scripts/attack_customizer.gd",
+        "scripts/partner_assist.gd",
+        "scripts/main.gd"
+      ],
+      "limits": "Reference catalogue label, not a promise Main.game equals its suffix. Historical route/state/scores remain assertions at their recorded scope."
+    },
+    {
+      "id": "game.combat_arena",
+      "origin_kind": "REFERENCE_GAME_CATALOGUE_LABEL",
+      "origin_path": "design/reference/games.json",
+      "catalogue_index": 51,
+      "catalogue_id": "combat_arena",
+      "declared_name": "Galaxy ice battle",
+      "declared_family": "action",
+      "declared_sources": [
+        "scripts/combat_arena.gd"
+      ],
+      "declared_hosts": [
+        "scripts/dungeon_art.gd",
+        "scripts/main.gd"
+      ],
+      "limits": "Reference catalogue label, not a promise Main.game equals its suffix. Historical route/state/scores remain assertions at their recorded scope."
+    },
+    {
+      "id": "game.dungeon",
+      "origin_kind": "REFERENCE_GAME_CATALOGUE_LABEL",
+      "origin_path": "design/reference/games.json",
+      "catalogue_index": 52,
+      "catalogue_id": "dungeon",
+      "declared_name": "Castle and Ember dungeons",
+      "declared_family": "action",
+      "declared_sources": [
+        "scripts/dungeon_level.gd",
+        "scripts/dungeon_puzzle_room.gd",
+        "scripts/dungeon_art.gd"
+      ],
+      "declared_hosts": [
+        "scripts/main.gd"
+      ],
+      "limits": "Reference catalogue label, not a promise Main.game equals its suffix. Historical route/state/scores remain assertions at their recorded scope."
+    },
+    {
+      "id": "game.kart",
+      "origin_kind": "REFERENCE_GAME_CATALOGUE_LABEL",
+      "origin_path": "design/reference/games.json",
+      "catalogue_index": 53,
+      "catalogue_id": "kart",
+      "declared_name": "Rainbow and Ocean kart race",
+      "declared_family": "action",
+      "declared_sources": [
+        "scripts/kart.gd"
+      ],
+      "declared_hosts": [
+        "scripts/kart_driving.gd",
+        "scripts/main.gd"
+      ],
+      "limits": "Reference catalogue label, not a promise Main.game equals its suffix. Historical route/state/scores remain assertions at their recorded scope."
+    },
+    {
+      "id": "game.stuffie_battle",
+      "origin_kind": "REFERENCE_GAME_CATALOGUE_LABEL",
+      "origin_path": "design/reference/games.json",
+      "catalogue_index": 54,
+      "catalogue_id": "stuffie_battle",
+      "declared_name": "Stuffie sparring ladder",
+      "declared_family": "action",
+      "declared_sources": [
+        "scripts/stuffie_battle.gd"
+      ],
+      "declared_hosts": [
+        "scripts/main.gd"
+      ],
+      "limits": "Reference catalogue label, not a promise Main.game equals its suffix. Historical route/state/scores remain assertions at their recorded scope."
+    },
+    {
+      "id": "game.companion_care",
+      "origin_kind": "REFERENCE_GAME_CATALOGUE_LABEL",
+      "origin_path": "design/reference/games.json",
+      "catalogue_index": 55,
+      "catalogue_id": "companion_care",
+      "declared_name": "Stuffie adoption and care",
+      "declared_family": "system",
+      "declared_sources": [
+        "scripts/companion.gd"
+      ],
+      "declared_hosts": [
+        "scripts/main.gd",
+        "scripts/pause_menu.gd"
+      ],
+      "limits": "Reference catalogue label, not a promise Main.game equals its suffix. Historical route/state/scores remain assertions at their recorded scope."
+    },
+    {
+      "id": "game.critters",
+      "origin_kind": "REFERENCE_GAME_CATALOGUE_LABEL",
+      "origin_path": "design/reference/games.json",
+      "catalogue_index": 56,
+      "catalogue_id": "critters",
+      "declared_name": "Critter Book collection",
+      "declared_family": "system",
+      "declared_sources": [
+        "scripts/collection_system.gd"
+      ],
+      "declared_hosts": [
+        "scripts/main.gd"
+      ],
+      "limits": "Reference catalogue label, not a promise Main.game equals its suffix. Historical route/state/scores remain assertions at their recorded scope."
+    },
+    {
+      "id": "game.craft_studio",
+      "origin_kind": "REFERENCE_GAME_CATALOGUE_LABEL",
+      "origin_path": "design/reference/games.json",
+      "catalogue_index": 57,
+      "catalogue_id": "craft_studio",
+      "declared_name": "Color-a-Friend craft studio",
+      "declared_family": "system",
+      "declared_sources": [
+        "scripts/craft_studio.gd"
+      ],
+      "declared_hosts": [
+        "scripts/main.gd"
+      ],
+      "limits": "Reference catalogue label, not a promise Main.game equals its suffix. Historical route/state/scores remain assertions at their recorded scope."
+    },
+    {
+      "id": "game.logo_studio",
+      "origin_kind": "REFERENCE_GAME_CATALOGUE_LABEL",
+      "origin_path": "design/reference/games.json",
+      "catalogue_index": 58,
+      "catalogue_id": "logo_studio",
+      "declared_name": "Castle banner maker",
+      "declared_family": "system",
+      "declared_sources": [
+        "scripts/castle_logo_studio.gd"
+      ],
+      "declared_hosts": [
+        "scripts/arena/castle_rooms_25d.gd",
+        "scripts/main.gd"
+      ],
+      "limits": "Reference catalogue label, not a promise Main.game equals its suffix. Historical route/state/scores remain assertions at their recorded scope."
+    },
+    {
+      "id": "game.wardrobe",
+      "origin_kind": "REFERENCE_GAME_CATALOGUE_LABEL",
+      "origin_path": "design/reference/games.json",
+      "catalogue_index": 59,
+      "catalogue_id": "wardrobe",
+      "declared_name": "Royal Bedroom wardrobe",
+      "declared_family": "system",
+      "declared_sources": [
+        "scripts/wardrobe_ui.gd"
+      ],
+      "declared_hosts": [
+        "scripts/arena/castle_rooms_25d.gd",
+        "scripts/main.gd"
+      ],
+      "limits": "Reference catalogue label, not a promise Main.game equals its suffix. Historical route/state/scores remain assertions at their recorded scope."
+    },
+    {
+      "id": "standalone.arborist_tree_book_test",
+      "origin_kind": "GIT_SCENE_PATH",
+      "origin_path": "scenes/arborist_tree_book_test.tscn",
+      "limits": "Tracked scene existence; production entry/reachability not established."
+    },
+    {
+      "id": "standalone.fairy_restoration_prototype",
+      "origin_kind": "GIT_SCENE_PATH",
+      "origin_path": "scenes/fairy_restoration_prototype.tscn",
+      "limits": "Tracked scene existence; production entry/reachability not established."
+    },
+    {
+      "id": "standalone.main",
+      "origin_kind": "GIT_SCENE_PATH",
+      "origin_path": "scenes/main.tscn",
+      "limits": "Tracked scene existence; production entry/reachability not established."
+    },
+    {
+      "id": "standalone.painter_prototype",
+      "origin_kind": "GIT_SCENE_PATH",
+      "origin_path": "scenes/painter_prototype.tscn",
+      "limits": "Tracked scene existence; production entry/reachability not established."
+    }
+  ],
+  "scope": "Reconstructed original ID construction at its declared baseline, matched exactly to frozen176IDs. Does not assert historical working-tree execution bytes beyond the verified published files, runtime reachability, rendering or accepted screen/art totals."
+}

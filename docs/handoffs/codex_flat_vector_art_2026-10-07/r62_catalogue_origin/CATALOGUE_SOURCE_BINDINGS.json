@@ -1,0 +1,2454 @@
+{
+  "catalogue_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+  "catalogue_header": {
+    "schema": "game_catalogue/1",
+    "status": "SUPPORTING_CURRENT",
+    "author": "Claude",
+    "assessed": "2026-10-03",
+    "assessed_head": "87f992680c0b6a690bf45b1950275579c45e15ab",
+    "note": "Game-wide gold-star audit at dev 87f99268 (game code identical to e9915f44, whose CI run 37170079511 ran 81 trusted probes clean). Six read-only audit agents read each family's code; Claude verified the decisive claims in code and, for MA-PLAY-005, at runtime, then assigned C1-C10. C11 and C12 are computed. Notes cite functions; exact lines are in docs/handoffs/codex_gold_star_2026-10-03/AUDIT.md at the audited commit."
+  },
+  "family_counts": {
+    "day_one": 5,
+    "chapter_two": 2,
+    "opera_career": 15,
+    "picture_game": 5,
+    "minigame": 15,
+    "world": 8,
+    "action": 5,
+    "system": 5
+  },
+  "catalogue_rows": 60,
+  "declared_source_host_paths": 105,
+  "declared_source_host_evidence_paths": 108,
+  "current_paths": [
+    {
+      "path": "scripts/arena/castle_fixture_rigs.gd",
+      "bytes": 48767,
+      "sha256": "118af0b72b82d0bde5ab6ea701303fd8469a40b24f4fc2db607a109a5cddd6af"
+    },
+    {
+      "path": "scripts/arena/castle_rooms_25d.gd",
+      "bytes": 242528,
+      "sha256": "50c723043680c987cc959d9bfbbcad94cfb62162f24d305d3f058c0d2de05176"
+    },
+    {
+      "path": "scripts/arena/courtyard_train.gd",
+      "bytes": 29438,
+      "sha256": "329efa196bb5eb3c74cb4b44d0e4dfac6069071e6066daab206bca35a9abe364"
+    },
+    {
+      "path": "scripts/arena/day_one_castle_dressing.gd",
+      "bytes": 10369,
+      "sha256": "b2898e247748381c86c022c158da6220fb300a45545a1e47de59f9d432c8a8a5"
+    },
+    {
+      "path": "scripts/arena/day_one_castle_grime.gd",
+      "bytes": 2548,
+      "sha256": "b354780fb5e3648eba9962b2996a49bbcb563314874d840b3e8603a39c2ee6f8"
+    },
+    {
+      "path": "scripts/arena/fairy_conservatory_door_2d.gd",
+      "bytes": 10043,
+      "sha256": "ae6e1ad07979c97bd7c474c546a64a12ccd4c944719ec886fdd76f7fae165089"
+    },
+    {
+      "path": "scripts/arena/fairy_conservatory_handoff_2d.gd",
+      "bytes": 14672,
+      "sha256": "5bf165f546860121beb6c19369dce9833d8b665274e0edff75bc2d00b7ccbd34"
+    },
+    {
+      "path": "scripts/arena/northern_kingdom.gd",
+      "bytes": 75975,
+      "sha256": "513f2f4d726f3b7b05187d1ee78f12cbb745849f09da212f2ec0f10c0dfad97a"
+    },
+    {
+      "path": "scripts/arena/sky_lagoon.gd",
+      "bytes": 135470,
+      "sha256": "c3b81b4d6b2cb500c8d4e1f6ff2e4064a8b9c7ca4c8b0010c20236ccbb2e0395"
+    },
+    {
+      "path": "scripts/arena/sky_lagoon_layout.json",
+      "bytes": 6453,
+      "sha256": "680173a909a4fddfadbc89f45d891159067bf5e776936f56f47e2295a2c338fe"
+    },
+    {
+      "path": "scripts/arena/sky_lagoon_promenade.gd",
+      "bytes": 73828,
+      "sha256": "a6c72599809ddace2e94e02ba10db518483008ace62655e9059a76d3eacd2dfa"
+    },
+    {
+      "path": "scripts/attack_customizer.gd",
+      "bytes": 11752,
+      "sha256": "b47bbfc164cc8508354bece86096245a2152fe627f5dbfed8440ec54db5198e0"
+    },
+    {
+      "path": "scripts/boss_encounter_2d.gd",
+      "bytes": 4152,
+      "sha256": "371f260c9547f0665a41f290b2b1502c5ab22172b3d448f108d1b4e427bf9d55"
+    },
+    {
+      "path": "scripts/boss_splash_2d.gd",
+      "bytes": 9032,
+      "sha256": "5ce5cf49ae82c414bbd1f3123ec770b91622b46a71d8f9ee67a41546c166fab2"
+    },
+    {
+      "path": "scripts/castle_career_routes.gd",
+      "bytes": 15000,
+      "sha256": "d2e9f24b10bf6b25bc7fd71c76630a6e88b8d8f3134db9b01139203fba925bb5"
+    },
+    {
+      "path": "scripts/castle_door_cue.gd",
+      "bytes": 5639,
+      "sha256": "0932feb34209b3dbd3e2738b32a7dddf0ee99ab607251356bb4fbac9cc7f895d"
+    },
+    {
+      "path": "scripts/castle_door_language.gd",
+      "bytes": 2664,
+      "sha256": "54d6cb97a34ffd0cd8ca8b916312d39c157856860db2fa2d1592f9b042ea3b5f"
+    },
+    {
+      "path": "scripts/castle_logo_studio.gd",
+      "bytes": 19430,
+      "sha256": "5afe612eb11261818b760b0f04b6b6a995000a23b27e31aa228c0a04e63dc52a"
+    },
+    {
+      "path": "scripts/chapter_two_career_scene_adapter.gd",
+      "bytes": 22903,
+      "sha256": "58c148acc4307315ee96e909aaf876b5095ab220875566707456a993cbc32ec8"
+    },
+    {
+      "path": "scripts/chapter_two_director.gd",
+      "bytes": 38925,
+      "sha256": "b87490ac66083cee44ba3f469c9c8cbfa158930167614169e0f63759f8b3f70b"
+    },
+    {
+      "path": "scripts/chapter_two_ember_encounter.gd",
+      "bytes": 3611,
+      "sha256": "964356fb569fc6fe8b8de90b4003284bc99cc58a4074b4cc2245a8be168b7a42"
+    },
+    {
+      "path": "scripts/chapter_two_giant_cake_2d.gd",
+      "bytes": 35950,
+      "sha256": "85dd504a6a2e76d17b398b9a3d0e65ba15a5a1d1e1cd73ebf6ee9da93cda2813"
+    },
+    {
+      "path": "scripts/chapter_two_lawn_finale_2d.gd",
+      "bytes": 25519,
+      "sha256": "e4c07fb5e9404dd247d3aa10186b69f3df9f8f0fc5cd5679b8bf2f625f400797"
+    },
+    {
+      "path": "scripts/chapter_two_party_plan.gd",
+      "bytes": 2887,
+      "sha256": "50ffb004ac24a4827caed4e4899e999f7d37c7713c88eb3d1c778a766c54ec61"
+    },
+    {
+      "path": "scripts/chapter_two_party_table_2d.gd",
+      "bytes": 23340,
+      "sha256": "761014dc77166dea11e4fa0e963cdb72c5aa2dea3e53b05f3540306950e89f87"
+    },
+    {
+      "path": "scripts/chapter_two_rainbow_candle_2d.gd",
+      "bytes": 6208,
+      "sha256": "12e1a75500e2cb4a535c075e3a32c54987a570f7d4bb5ffbdb64c3e35da3e62f"
+    },
+    {
+      "path": "scripts/chapter_two_room_plot.gd",
+      "bytes": 4138,
+      "sha256": "9eef1ece57be88ac9d01d85a5181ad1c258e6ff00f6b9a6cb3d7a86393d6e10d"
+    },
+    {
+      "path": "scripts/chapter_two_voice_catalog.gd",
+      "bytes": 2729,
+      "sha256": "878cdebb43c777741d0462369f11da32369bb2efa08b5fae2adbfa64fbacfe96"
+    },
+    {
+      "path": "scripts/collection_system.gd",
+      "bytes": 16314,
+      "sha256": "876bb4901406034dfa6a3bf4d319383261e04a45fbedfe120d97c8eb2d24eb3a"
+    },
+    {
+      "path": "scripts/combat_arena.gd",
+      "bytes": 44298,
+      "sha256": "fa2b2f537ee83689b414b64d95ba19e18663f7dbfa10a88301932013c20f5de8"
+    },
+    {
+      "path": "scripts/combat_tutorial.gd",
+      "bytes": 11873,
+      "sha256": "2f1dc422c6bd9ee9e4d4cfc08d9863146d8a04afb60a943f8116cf6dc9861327"
+    },
+    {
+      "path": "scripts/comfy_games.gd",
+      "bytes": 25280,
+      "sha256": "bcd36dcb3f25c0bbb3586c8d20fc7a5524792b56d7b0577644a0d2645931a0be"
+    },
+    {
+      "path": "scripts/companion.gd",
+      "bytes": 65658,
+      "sha256": "0baeb7256a209b5266ebdf48cdccb7af6497b30fd0666021c597eced6e04d269"
+    },
+    {
+      "path": "scripts/craft_studio.gd",
+      "bytes": 13414,
+      "sha256": "fd97af6efaeaf4b3949b94f921a71064b753c383d5adcf6e49395a487018de57"
+    },
+    {
+      "path": "scripts/day_one_art_studio.gd",
+      "bytes": 21869,
+      "sha256": "8ebdbccbae4e1a4994a891ac9706bc5fb22dce4ac8e9a9c75dd02123fc9f621a"
+    },
+    {
+      "path": "scripts/day_one_bathroom_movie_handoff.gd",
+      "bytes": 7540,
+      "sha256": "975f3ee0800bcd6e7d6df2f485cd3dd4861fbee060eec9e85b911c9f2d30b3a9"
+    },
+    {
+      "path": "scripts/day_one_contact_action_2d.gd",
+      "bytes": 4954,
+      "sha256": "f85672d9a57a95689ddb302a3ca1da7f9b8de09027997e527790e230fb299dac"
+    },
+    {
+      "path": "scripts/day_one_director.gd",
+      "bytes": 29053,
+      "sha256": "33235c3ff99454fd9b6b8ec3724cc246457abdef5dcb1cdd9d0401b438c35cbf"
+    },
+    {
+      "path": "scripts/day_one_flow.gd",
+      "bytes": 17269,
+      "sha256": "913cfc362e1a2a9cc3a73ed0e1d3e491b73731d335c51af3f2f3753bb98a10e1"
+    },
+    {
+      "path": "scripts/day_two_transition_2d.gd",
+      "bytes": 17434,
+      "sha256": "671548eb20ea115e9e21b0b019122c55cf39ab39760feec517a8504d9670026d"
+    },
+    {
+      "path": "scripts/dungeon_art.gd",
+      "bytes": 7418,
+      "sha256": "14d4d835962ebf2a389383376fbc42a55704a58642624bbb22b56afe1cd13941"
+    },
+    {
+      "path": "scripts/dungeon_level.gd",
+      "bytes": 9176,
+      "sha256": "2c5e69c04cab123a42810ecb99e943a4e3f5d362f754236177db3569d222f8ab"
+    },
+    {
+      "path": "scripts/dungeon_puzzle_room.gd",
+      "bytes": 22095,
+      "sha256": "d29527c4a8e23f4aaab430fe67d2b3cf6e54d7a99126f3fc23606cf7e77e3e33"
+    },
+    {
+      "path": "scripts/dust_boss_lesson_2d.gd",
+      "bytes": 4759,
+      "sha256": "7a445184e36eaaed6d29886ae2197c0f0deef10362706c233c889af8df42fbd4"
+    },
+    {
+      "path": "scripts/dust_boss_telegraph_2d.gd",
+      "bytes": 10814,
+      "sha256": "ce1713cadd0eae48ae42c86ee5367193fdf5cb490097dbf54a10ad94f72b2982"
+    },
+    {
+      "path": "scripts/dust_bunny_boss_sprite.gd",
+      "bytes": 12899,
+      "sha256": "106bedcba3881d2b9c6d105947aa14e89a06b21caf8b59e078290cacaac93739"
+    },
+    {
+      "path": "scripts/ember_fortress.gd",
+      "bytes": 51545,
+      "sha256": "dbaec3f196f1b2bd3bab68db44555ea75c35cd756b21fd26e0897fb92f41a2a9"
+    },
+    {
+      "path": "scripts/encounter_profile_2d.gd",
+      "bytes": 2079,
+      "sha256": "80ced9bb58afde098f12c8e017f86f953b64c0ca764759abf32144e82a50c971"
+    },
+    {
+      "path": "scripts/fairy_restoration_prototype.gd",
+      "bytes": 21759,
+      "sha256": "75a80350f45bb59b822d1084a05b8b0e7899d59df32a00c1e07d4ea8a9ec09fe"
+    },
+    {
+      "path": "scripts/galaxy.gd",
+      "bytes": 73159,
+      "sha256": "54278a504f031e001e1e2eb2f13082040da6b6967f02522f5f73cc46ed664f59"
+    },
+    {
+      "path": "scripts/games/brawl.gd",
+      "bytes": 22123,
+      "sha256": "0780ad5b708cde10bbf3a1a37a1c06f7210e8d04a44172633605760c22dac8d7"
+    },
+    {
+      "path": "scripts/games/dance_engine.gd",
+      "bytes": 17044,
+      "sha256": "d8af408dbc2b8fe54a0b88b16e978b2bf9e6aab36e3a2eed3a15a1bdfe52511e"
+    },
+    {
+      "path": "scripts/games/day_one_bathroom_cleaning.gd",
+      "bytes": 36313,
+      "sha256": "b6422a46d529b033dac36a14bba9b9695d2351f15ea6f850348380dc7be200b0"
+    },
+    {
+      "path": "scripts/games/day_one_bathroom_cleanup.gd",
+      "bytes": 36097,
+      "sha256": "c13d7ecf1536dc682eaa29312c1aa8d45210985196608dfb830e26fa4b543a5e"
+    },
+    {
+      "path": "scripts/games/day_one_bathroom_toilet.gd",
+      "bytes": 8553,
+      "sha256": "28413b931406d85afaaa45ab5e50133aa1df042d2aa29edb932096a0a752ed36"
+    },
+    {
+      "path": "scripts/games/day_one_dust_bunny_swimmer.gd",
+      "bytes": 9785,
+      "sha256": "2ff24ebee6b078f7d31fa53648e5c1b443f954760b3042d61ea0eb69f10e84c3"
+    },
+    {
+      "path": "scripts/games/day_one_fixture_scrub.gd",
+      "bytes": 3856,
+      "sha256": "b5aba569698ba641809a5bf216f4236443edca206f97a7e4d6010bd775389980"
+    },
+    {
+      "path": "scripts/games/day_one_pool_cleanup.gd",
+      "bytes": 28592,
+      "sha256": "b476ba553994c093cf32a6390f067e84c00b3fa26d2afca47d8a00df5fe91f44"
+    },
+    {
+      "path": "scripts/games/dolls.gd",
+      "bytes": 13306,
+      "sha256": "42fe387b2d80eec41bd421301ca49cc01e9f60a33d5d8eaa6de6a1a8bc9caf50"
+    },
+    {
+      "path": "scripts/games/dust_boss.gd",
+      "bytes": 42786,
+      "sha256": "05f9174e05c0c00ee09cf21c8e70e251c3afbed8e35b9f9526e200de65869a0d"
+    },
+    {
+      "path": "scripts/games/dust_boss_patterns.gd",
+      "bytes": 243,
+      "sha256": "530c25b906a3c88a336f1492517dc94b67fd7835b93aaac4afbcd437a727360c"
+    },
+    {
+      "path": "scripts/games/fairy.gd",
+      "bytes": 30308,
+      "sha256": "8bf4e48249c63441b4e3c89de0930ae14668b2cd8c1577189ff7b41f1b77d679"
+    },
+    {
+      "path": "scripts/games/fetch.gd",
+      "bytes": 14405,
+      "sha256": "d1cd79931637e376cbdcff3fa88871f63d673c82987ec20fa2dffb150fb1b805"
+    },
+    {
+      "path": "scripts/games/melody.gd",
+      "bytes": 42980,
+      "sha256": "a2477bc6fd21454c69480b290ccc13892e6938e4d1abf534051380dd84e5712e"
+    },
+    {
+      "path": "scripts/games/octagon_stage.gd",
+      "bytes": 15858,
+      "sha256": "828efb4077edc8a0e770ac74735298447d7d7cc4ac49ed5774276ce9811d3513"
+    },
+    {
+      "path": "scripts/games/picture_games.gd",
+      "bytes": 32556,
+      "sha256": "5d7202ac46b0ca26752b74b959eb052f2889369932d697b8b8727ad368abc8f0"
+    },
+    {
+      "path": "scripts/games/pool_seahorse_rescue_activity.gd",
+      "bytes": 22256,
+      "sha256": "60a5540c943dc760f4b83cca68b4a649074ceaa91bd23de3d4ef4a42302476b0"
+    },
+    {
+      "path": "scripts/games/pool_skimmer_activity.gd",
+      "bytes": 22079,
+      "sha256": "41894d67693bb6d8e7d2a544f677083dea12b43a7f8d4e2ac0e6511d79461bce"
+    },
+    {
+      "path": "scripts/games/pool_waterfall_activity.gd",
+      "bytes": 20079,
+      "sha256": "036e5cb7f64f9231e0f9781680cf005df4170f9e3055c5d353df7e6ddd4bf3da"
+    },
+    {
+      "path": "scripts/games/seek.gd",
+      "bytes": 23600,
+      "sha256": "9aec0b1fe979315ffd46b94b52b53a27c418809cd3a7cc3af1284294cd092d4c"
+    },
+    {
+      "path": "scripts/games/shop.gd",
+      "bytes": 17821,
+      "sha256": "62ce2b2bf2a8319b7f0e86a7856436b5072f662be1c0477d6d7a79b0e45f7585"
+    },
+    {
+      "path": "scripts/games/side_scroll.gd",
+      "bytes": 42173,
+      "sha256": "e094f4efef2ee295ebad159e82e49ccd2bb8db26c38049c5f7135bd86114b0a7"
+    },
+    {
+      "path": "scripts/games/slide_race.gd",
+      "bytes": 68216,
+      "sha256": "2293c08bd2a056b2e5819f2406fc9ca42f5cc734e700552eab29642555f44b8f"
+    },
+    {
+      "path": "scripts/games/treasure.gd",
+      "bytes": 4905,
+      "sha256": "f228a13ad65977517f3486e42be6e79fb20546d633d747e6353d859a6ec7540c"
+    },
+    {
+      "path": "scripts/hit_engine.gd",
+      "bytes": 36221,
+      "sha256": "9a9fc4df1598737937b7c37d2f68675ca4e257f8260cf72a0396a8dfea9a789c"
+    },
+    {
+      "path": "scripts/imp_ai.gd",
+      "bytes": 20764,
+      "sha256": "b07ba584b88dbaa9ed5712d28784dfa9192d1b03016589237c84a3ad5cda148e"
+    },
+    {
+      "path": "scripts/kart.gd",
+      "bytes": 128753,
+      "sha256": "0c5ce86e7361ea04287ba322709461a4a9feb84603307cefa20f7d55b4ea5caa"
+    },
+    {
+      "path": "scripts/kart_driving.gd",
+      "bytes": 5116,
+      "sha256": "a87c53f06301f79d45ef3b73877686103af70196a41e7df059399f39014cf5e8"
+    },
+    {
+      "path": "scripts/living_world.gd",
+      "bytes": 14317,
+      "sha256": "97c0e9dd7d6d660ec5b6386179233714c6772b06fe7b3b6dcd26262852c071fe"
+    },
+    {
+      "path": "scripts/main.gd",
+      "bytes": 370863,
+      "sha256": "77bddeb59b215fd2d993f6c124ef67e49314d992d00cbc7c1b9231e9c157c417"
+    },
+    {
+      "path": "scripts/navigation_controller.gd",
+      "bytes": 3749,
+      "sha256": "8a7c805f6b0d73840d62316dc349390d8125299fd8bdf0c146c6699ca725a873"
+    },
+    {
+      "path": "scripts/opera_act.gd",
+      "bytes": 7685,
+      "sha256": "9e2fa238b904db3b0548f3b76ddd647f6e27934f4a3148da3c893b04ccf135a3"
+    },
+    {
+      "path": "scripts/opera_ballet_surface.gd",
+      "bytes": 25366,
+      "sha256": "76a648de7fd0d52eadf1974257bfaaf3f17bb6b73a0bd96029b35133c33cb70b"
+    },
+    {
+      "path": "scripts/opera_boxing_surface.gd",
+      "bytes": 27480,
+      "sha256": "321da2219887b07f3efcd142c3015bfcf027ef21a5eb1755e877dc2ff5a71170"
+    },
+    {
+      "path": "scripts/opera_career_world_2d.gd",
+      "bytes": 241013,
+      "sha256": "db2759e66e025c566d20a30021548199e00758c525cd88dfc1ab5c01fad65a30"
+    },
+    {
+      "path": "scripts/opera_chef_surface.gd",
+      "bytes": 11406,
+      "sha256": "fe6cc1756d66df11a8c27906610d415b9739f21f8bae982e22611baf7e0a4dbb"
+    },
+    {
+      "path": "scripts/opera_competition.gd",
+      "bytes": 8801,
+      "sha256": "2449c21807e83f9c5d0f5994b37663b9e5ae4f56aa418690151eac081d03ec57"
+    },
+    {
+      "path": "scripts/opera_geology_surface.gd",
+      "bytes": 33298,
+      "sha256": "da96f3b7c07b2ecac796cbe21410499c4439937a21d4096fd918a611e02ba8be"
+    },
+    {
+      "path": "scripts/opera_gesture_surface.gd",
+      "bytes": 242776,
+      "sha256": "82fc3444887a8547719f263fe2368f162f1c0e935b1877d4dc37afb74faf6459"
+    },
+    {
+      "path": "scripts/opera_house.gd",
+      "bytes": 17056,
+      "sha256": "5b13d622520753a2682aba0a834cd397475e1695d3f6d235a7700e2e2a3e088c"
+    },
+    {
+      "path": "scripts/opera_mastery.gd",
+      "bytes": 7933,
+      "sha256": "1a5c6f89f2cd0effea2b22e85a29c3dcfcebb0298fb6d582b81a9bb427518bf3"
+    },
+    {
+      "path": "scripts/opera_nursery_catch.gd",
+      "bytes": 9606,
+      "sha256": "b997e83c4032be14f187260a6fda1a99bcb5f3b61a7e07adebf5a99479dda431"
+    },
+    {
+      "path": "scripts/opera_performance_overlay.gd",
+      "bytes": 7696,
+      "sha256": "16c7a17ed901750764481e7077ac2e60d4cf5bfc1a3b41970066e4a633545ddb"
+    },
+    {
+      "path": "scripts/opera_performance_plan.gd",
+      "bytes": 1533,
+      "sha256": "6b5ff197b0d88663af260217dc673a39d2d681e081b313c1c4b49c0a359d8366"
+    },
+    {
+      "path": "scripts/opera_racer_surface.gd",
+      "bytes": 18753,
+      "sha256": "09b292073f3d4fcfc2605a22bf79b039f00047787edf2d25dde37798b3db4cba"
+    },
+    {
+      "path": "scripts/opera_teacher_surface.gd",
+      "bytes": 15132,
+      "sha256": "cab2eee9f0bf1297296fef0a8650df7794214cfcb58fc379e44954f6153ec2ed"
+    },
+    {
+      "path": "scripts/opera_world_backdrop_2d.gd",
+      "bytes": 26218,
+      "sha256": "37a9bf06e2c2b777086543ca48fb54b3634ccc8d5a1620a6f03668e6dff0e740"
+    },
+    {
+      "path": "scripts/painter/painter_document.gd",
+      "bytes": 6373,
+      "sha256": "a08227e81e5100d1743d5707708eea6e2ff9f366129982280ec579b6490af4ff"
+    },
+    {
+      "path": "scripts/painter/painter_studio.gd",
+      "bytes": 17837,
+      "sha256": "19e5f6e21d116f17926b5ab666836db382dea8d0060b43e957460af7b637314a"
+    },
+    {
+      "path": "scripts/painter/painter_template.gd",
+      "bytes": 3614,
+      "sha256": "0f48f9885a2b1e1cb3ab3a0b828df8cf06bdcb8162f37e80e1b8fa258be2a746"
+    },
+    {
+      "path": "scripts/painter/vendor/painter_flood_fill.gd",
+      "bytes": 5888,
+      "sha256": "60a50de9b675751431ddd51e4cbea47b691d8c9f17b7ca0f69a9305740e5ae0c"
+    },
+    {
+      "path": "scripts/partner_assist.gd",
+      "bytes": 3506,
+      "sha256": "b2450228b9f22d2c6d652b43c6dc577dad8863293a9b2270a4a8d9da76a9dbad"
+    },
+    {
+      "path": "scripts/pause_menu.gd",
+      "bytes": 13628,
+      "sha256": "2afc6103f8a750c437c1aa23c94419191a0b303cdec54aabd9345b560a5646b0"
+    },
+    {
+      "path": "scripts/reef_districts.gd",
+      "bytes": 16731,
+      "sha256": "79371c2799a0430107c91a43d4705f8a5bb7939d3d2b33c2df1e3cb608058d3b"
+    },
+    {
+      "path": "scripts/stage_navigation_2d.gd",
+      "bytes": 3261,
+      "sha256": "36fb7f194b8ad710284b7c5f5e9ef797a0d3c3c56bdc040f8b98d25bc455d79b"
+    },
+    {
+      "path": "scripts/stuffie_battle.gd",
+      "bytes": 24254,
+      "sha256": "9fa3246eb07d249ac223a82df8cd6b68ca572e0b28e918f594c420a49f9384a4"
+    },
+    {
+      "path": "scripts/teacher_lesson_plan.gd",
+      "bytes": 6662,
+      "sha256": "d82e5b7a817335b4da2d0d7b55706a5cde1ff1954c2b33d8ba34d891dac5778e"
+    },
+    {
+      "path": "scripts/wardrobe_ui.gd",
+      "bytes": 14633,
+      "sha256": "0d7f4c5241f141ca4bbb9464f21aa5bd46545e1817b8b2638fea1caadf9f6573"
+    }
+  ],
+  "historical_evidence_references": 209,
+  "unique_historical_path_hash_pairs": 170,
+  "current_exact_raw_matches": 67,
+  "current_exact_lf_matches": 67,
+  "historical_evidence": [
+    {
+      "catalogue_id": "game.day_one_pool",
+      "path": "scripts/games/day_one_pool_cleanup.gd",
+      "declared_historical_sha256": "b476ba553994c093cf32a6390f067e84c00b3fa26d2afca47d8a00df5fe91f44",
+      "current_sha256_git_bytes": "b476ba553994c093cf32a6390f067e84c00b3fa26d2afca47d8a00df5fe91f44",
+      "current_sha256_lf": "b476ba553994c093cf32a6390f067e84c00b3fa26d2afca47d8a00df5fe91f44",
+      "raw_match": true,
+      "lf_match": true
+    },
+    {
+      "catalogue_id": "game.day_one_pool",
+      "path": "scripts/games/pool_skimmer_activity.gd",
+      "declared_historical_sha256": "41894d67693bb6d8e7d2a544f677083dea12b43a7f8d4e2ac0e6511d79461bce",
+      "current_sha256_git_bytes": "41894d67693bb6d8e7d2a544f677083dea12b43a7f8d4e2ac0e6511d79461bce",
+      "current_sha256_lf": "41894d67693bb6d8e7d2a544f677083dea12b43a7f8d4e2ac0e6511d79461bce",
+      "raw_match": true,
+      "lf_match": true
+    },
+    {
+      "catalogue_id": "game.day_one_pool",
+      "path": "scripts/games/pool_waterfall_activity.gd",
+      "declared_historical_sha256": "036e5cb7f64f9231e0f9781680cf005df4170f9e3055c5d353df7e6ddd4bf3da",
+      "current_sha256_git_bytes": "036e5cb7f64f9231e0f9781680cf005df4170f9e3055c5d353df7e6ddd4bf3da",
+      "current_sha256_lf": "036e5cb7f64f9231e0f9781680cf005df4170f9e3055c5d353df7e6ddd4bf3da",
+      "raw_match": true,
+      "lf_match": true
+    },
+    {
+      "catalogue_id": "game.day_one_pool",
+      "path": "scripts/games/pool_seahorse_rescue_activity.gd",
+      "declared_historical_sha256": "60a5540c943dc760f4b83cca68b4a649074ceaa91bd23de3d4ef4a42302476b0",
+      "current_sha256_git_bytes": "60a5540c943dc760f4b83cca68b4a649074ceaa91bd23de3d4ef4a42302476b0",
+      "current_sha256_lf": "60a5540c943dc760f4b83cca68b4a649074ceaa91bd23de3d4ef4a42302476b0",
+      "raw_match": true,
+      "lf_match": true
+    },
+    {
+      "catalogue_id": "game.day_one_pool",
+      "path": "scripts/day_one_contact_action_2d.gd",
+      "declared_historical_sha256": "f85672d9a57a95689ddb302a3ca1da7f9b8de09027997e527790e230fb299dac",
+      "current_sha256_git_bytes": "f85672d9a57a95689ddb302a3ca1da7f9b8de09027997e527790e230fb299dac",
+      "current_sha256_lf": "f85672d9a57a95689ddb302a3ca1da7f9b8de09027997e527790e230fb299dac",
+      "raw_match": true,
+      "lf_match": true
+    },
+    {
+      "catalogue_id": "game.day_one_pool",
+      "path": "scripts/living_world.gd",
+      "declared_historical_sha256": "9b960c1fd7aa049fb07d880c616efecef4cc7565b810041783f1ce3545a0cbc9",
+      "current_sha256_git_bytes": "97c0e9dd7d6d660ec5b6386179233714c6772b06fe7b3b6dcd26262852c071fe",
+      "current_sha256_lf": "97c0e9dd7d6d660ec5b6386179233714c6772b06fe7b3b6dcd26262852c071fe",
+      "raw_match": false,
+      "lf_match": false
+    },
+    {
+      "catalogue_id": "game.day_one_pool",
+      "path": "scripts/arena/day_one_castle_dressing.gd",
+      "declared_historical_sha256": "6cf79f29b6137b98786a11b605440fcea4215ca79ed1b0234faa043f2d1b9ed2",
+      "current_sha256_git_bytes": "b2898e247748381c86c022c158da6220fb300a45545a1e47de59f9d432c8a8a5",
+      "current_sha256_lf": "b2898e247748381c86c022c158da6220fb300a45545a1e47de59f9d432c8a8a5",
+      "raw_match": false,
+      "lf_match": false
+    },
+    {
+      "catalogue_id": "game.day_one_pool",
+      "path": "scripts/arena/day_one_castle_dressing.gd",
+      "declared_historical_sha256": "d42776e9f4291deff57992f3b015adf653e64f600817945a10e032de92244c9b",
+      "current_sha256_git_bytes": "b2898e247748381c86c022c158da6220fb300a45545a1e47de59f9d432c8a8a5",
+      "current_sha256_lf": "b2898e247748381c86c022c158da6220fb300a45545a1e47de59f9d432c8a8a5",
+      "raw_match": false,
+      "lf_match": false
+    },
+    {
+      "catalogue_id": "game.day_one_pool",
+      "path": "scripts/games/day_one_dust_bunny_swimmer.gd",
+      "declared_historical_sha256": "6cc510df2a526119347fed2ba743fc3f92ffe90b12448cb7a9358aee84c6662a",
+      "current_sha256_git_bytes": "2ff24ebee6b078f7d31fa53648e5c1b443f954760b3042d61ea0eb69f10e84c3",
+      "current_sha256_lf": "2ff24ebee6b078f7d31fa53648e5c1b443f954760b3042d61ea0eb69f10e84c3",
+      "raw_match": false,
+      "lf_match": false
+    },
+    {
+      "catalogue_id": "game.day_one_bathroom",
+      "path": "scripts/games/day_one_bathroom_cleanup.gd",
+      "declared_historical_sha256": "c13d7ecf1536dc682eaa29312c1aa8d45210985196608dfb830e26fa4b543a5e",
+      "current_sha256_git_bytes": "c13d7ecf1536dc682eaa29312c1aa8d45210985196608dfb830e26fa4b543a5e",
+      "current_sha256_lf": "c13d7ecf1536dc682eaa29312c1aa8d45210985196608dfb830e26fa4b543a5e",
+      "raw_match": true,
+      "lf_match": true
+    },
+    {
+      "catalogue_id": "game.day_one_bathroom",
+      "path": "scripts/games/day_one_bathroom_cleaning.gd",
+      "declared_historical_sha256": "b6422a46d529b033dac36a14bba9b9695d2351f15ea6f850348380dc7be200b0",
+      "current_sha256_git_bytes": "b6422a46d529b033dac36a14bba9b9695d2351f15ea6f850348380dc7be200b0",
+      "current_sha256_lf": "b6422a46d529b033dac36a14bba9b9695d2351f15ea6f850348380dc7be200b0",
+      "raw_match": true,
+      "lf_match": true
+    },
+    {
+      "catalogue_id": "game.day_one_bathroom",
+      "path": "scripts/games/day_one_fixture_scrub.gd",
+      "declared_historical_sha256": "b5aba569698ba641809a5bf216f4236443edca206f97a7e4d6010bd775389980",
+      "current_sha256_git_bytes": "b5aba569698ba641809a5bf216f4236443edca206f97a7e4d6010bd775389980",
+      "current_sha256_lf": "b5aba569698ba641809a5bf216f4236443edca206f97a7e4d6010bd775389980",
+      "raw_match": true,
+      "lf_match": true
+    },
+    {
+      "catalogue_id": "game.day_one_bathroom",
+      "path": "scripts/games/day_one_bathroom_toilet.gd",
+      "declared_historical_sha256": "28413b931406d85afaaa45ab5e50133aa1df042d2aa29edb932096a0a752ed36",
+      "current_sha256_git_bytes": "28413b931406d85afaaa45ab5e50133aa1df042d2aa29edb932096a0a752ed36",
+      "current_sha256_lf": "28413b931406d85afaaa45ab5e50133aa1df042d2aa29edb932096a0a752ed36",
+      "raw_match": true,
+      "lf_match": true
+    },
+    {
+      "catalogue_id": "game.day_one_bathroom",
+      "path": "scripts/games/day_one_dust_bunny_swimmer.gd",
+      "declared_historical_sha256": "2ff24ebee6b078f7d31fa53648e5c1b443f954760b3042d61ea0eb69f10e84c3",
+      "current_sha256_git_bytes": "2ff24ebee6b078f7d31fa53648e5c1b443f954760b3042d61ea0eb69f10e84c3",
+      "current_sha256_lf": "2ff24ebee6b078f7d31fa53648e5c1b443f954760b3042d61ea0eb69f10e84c3",
+      "raw_match": true,
+      "lf_match": true
+    },
+    {
+      "catalogue_id": "game.day_one_bathroom",
+      "path": "scripts/day_one_bathroom_movie_handoff.gd",
+      "declared_historical_sha256": "975f3ee0800bcd6e7d6df2f485cd3dd4861fbee060eec9e85b911c9f2d30b3a9",
+      "current_sha256_git_bytes": "975f3ee0800bcd6e7d6df2f485cd3dd4861fbee060eec9e85b911c9f2d30b3a9",
+      "current_sha256_lf": "975f3ee0800bcd6e7d6df2f485cd3dd4861fbee060eec9e85b911c9f2d30b3a9",
+      "raw_match": true,
+      "lf_match": true
+    },
+    {
+      "catalogue_id": "game.day_one_playroom",
+      "path": "scripts/arena/castle_rooms_25d.gd",
+      "declared_historical_sha256": "627a9a579fb6ad6097e9cc0825697856c2a5e55e2a9880e058064c2a9e6b138f",
+      "current_sha256_git_bytes": "50c723043680c987cc959d9bfbbcad94cfb62162f24d305d3f058c0d2de05176",
+      "current_sha256_lf": "50c723043680c987cc959d9bfbbcad94cfb62162f24d305d3f058c0d2de05176",
+      "raw_match": false,
+      "lf_match": false
+    },
+    {
+      "catalogue_id": "game.day_one_playroom",
+      "path": "scripts/arena/castle_rooms_25d.gd",
+      "declared_historical_sha256": "1dc4312d454b0d4f1e22428b35ea538ae81e3275ace7f0af3ce46f79647bc798",
+      "current_sha256_git_bytes": "50c723043680c987cc959d9bfbbcad94cfb62162f24d305d3f058c0d2de05176",
+      "current_sha256_lf": "50c723043680c987cc959d9bfbbcad94cfb62162f24d305d3f058c0d2de05176",
+      "raw_match": false,
+      "lf_match": false
+    },
+    {
+      "catalogue_id": "game.day_one_playroom",
+      "path": "scripts/arena/castle_rooms_25d.gd",
+      "declared_historical_sha256": "58df378e2d39591eeece4f9320e42f9b4ea0c6497f5c37dc201084d71b2fc348",
+      "current_sha256_git_bytes": "50c723043680c987cc959d9bfbbcad94cfb62162f24d305d3f058c0d2de05176",
+      "current_sha256_lf": "50c723043680c987cc959d9bfbbcad94cfb62162f24d305d3f058c0d2de05176",
+      "raw_match": false,
+      "lf_match": false
+    },
+    {
+      "catalogue_id": "game.day_one_playroom",
+      "path": "scripts/arena/castle_rooms_25d.gd",
+      "declared_historical_sha256": "73fcd0a9e78e373fc62c4da8e33d901cfad63f09f512a73e362c0ba76a7a80d6",
+      "current_sha256_git_bytes": "50c723043680c987cc959d9bfbbcad94cfb62162f24d305d3f058c0d2de05176",
+      "current_sha256_lf": "50c723043680c987cc959d9bfbbcad94cfb62162f24d305d3f058c0d2de05176",
+      "raw_match": false,
+      "lf_match": false
+    },
+    {
+      "catalogue_id": "game.day_one_playroom",
+      "path": "scripts/arena/castle_rooms_25d.gd",
+      "declared_historical_sha256": "937889f37ed1007bc81fe2bd58a9a09c702466f10cdf67c9c42e8e568a7a4082",
+      "current_sha256_git_bytes": "50c723043680c987cc959d9bfbbcad94cfb62162f24d305d3f058c0d2de05176",
+      "current_sha256_lf": "50c723043680c987cc959d9bfbbcad94cfb62162f24d305d3f058c0d2de05176",
+      "raw_match": false,
+      "lf_match": false
+    },
+    {
+      "catalogue_id": "game.day_one_craft_room",
+      "path": "scripts/day_one_art_studio.gd",
+      "declared_historical_sha256": "8ebdbccbae4e1a4994a891ac9706bc5fb22dce4ac8e9a9c75dd02123fc9f621a",
+      "current_sha256_git_bytes": "8ebdbccbae4e1a4994a891ac9706bc5fb22dce4ac8e9a9c75dd02123fc9f621a",
+      "current_sha256_lf": "8ebdbccbae4e1a4994a891ac9706bc5fb22dce4ac8e9a9c75dd02123fc9f621a",
+      "raw_match": true,
+      "lf_match": true
+    },
+    {
+      "catalogue_id": "game.grand_puff",
+      "path": "scripts/games/dust_boss.gd",
+      "declared_historical_sha256": "05f9174e05c0c00ee09cf21c8e70e251c3afbed8e35b9f9526e200de65869a0d",
+      "current_sha256_git_bytes": "05f9174e05c0c00ee09cf21c8e70e251c3afbed8e35b9f9526e200de65869a0d",
+      "current_sha256_lf": "05f9174e05c0c00ee09cf21c8e70e251c3afbed8e35b9f9526e200de65869a0d",
+      "raw_match": true,
+      "lf_match": true
+    },
+    {
+      "catalogue_id": "game.grand_puff",
+      "path": "scripts/games/dust_boss_patterns.gd",
+      "declared_historical_sha256": "530c25b906a3c88a336f1492517dc94b67fd7835b93aaac4afbcd437a727360c",
+      "current_sha256_git_bytes": "530c25b906a3c88a336f1492517dc94b67fd7835b93aaac4afbcd437a727360c",
+      "current_sha256_lf": "530c25b906a3c88a336f1492517dc94b67fd7835b93aaac4afbcd437a727360c",
+      "raw_match": true,
+      "lf_match": true
+    },
+    {
+      "catalogue_id": "game.grand_puff",
+      "path": "scripts/dust_bunny_boss_sprite.gd",
+      "declared_historical_sha256": "106bedcba3881d2b9c6d105947aa14e89a06b21caf8b59e078290cacaac93739",
+      "current_sha256_git_bytes": "106bedcba3881d2b9c6d105947aa14e89a06b21caf8b59e078290cacaac93739",
+      "current_sha256_lf": "106bedcba3881d2b9c6d105947aa14e89a06b21caf8b59e078290cacaac93739",
+      "raw_match": true,
+      "lf_match": true
+    },
+    {
+      "catalogue_id": "game.grand_puff",
+      "path": "scripts/boss_encounter_2d.gd",
+      "declared_historical_sha256": "371f260c9547f0665a41f290b2b1502c5ab22172b3d448f108d1b4e427bf9d55",
+      "current_sha256_git_bytes": "371f260c9547f0665a41f290b2b1502c5ab22172b3d448f108d1b4e427bf9d55",
+      "current_sha256_lf": "371f260c9547f0665a41f290b2b1502c5ab22172b3d448f108d1b4e427bf9d55",
+      "raw_match": true,
+      "lf_match": true
+    },
+    {
+      "catalogue_id": "game.grand_puff",
+      "path": "scripts/dust_boss_lesson_2d.gd",
+      "declared_historical_sha256": "7a445184e36eaaed6d29886ae2197c0f0deef10362706c233c889af8df42fbd4",
+      "current_sha256_git_bytes": "7a445184e36eaaed6d29886ae2197c0f0deef10362706c233c889af8df42fbd4",
+      "current_sha256_lf": "7a445184e36eaaed6d29886ae2197c0f0deef10362706c233c889af8df42fbd4",
+      "raw_match": true,
+      "lf_match": true
+    },
+    {
+      "catalogue_id": "game.grand_puff",
+      "path": "scripts/dust_boss_telegraph_2d.gd",
+      "declared_historical_sha256": "ce1713cadd0eae48ae42c86ee5367193fdf5cb490097dbf54a10ad94f72b2982",
+      "current_sha256_git_bytes": "ce1713cadd0eae48ae42c86ee5367193fdf5cb490097dbf54a10ad94f72b2982",
+      "current_sha256_lf": "ce1713cadd0eae48ae42c86ee5367193fdf5cb490097dbf54a10ad94f72b2982",
+      "raw_match": true,
+      "lf_match": true
+    },
+    {
+      "catalogue_id": "game.grand_puff",
+      "path": "scripts/boss_splash_2d.gd",
+      "declared_historical_sha256": "5ce5cf49ae82c414bbd1f3123ec770b91622b46a71d8f9ee67a41546c166fab2",
+      "current_sha256_git_bytes": "5ce5cf49ae82c414bbd1f3123ec770b91622b46a71d8f9ee67a41546c166fab2",
+      "current_sha256_lf": "5ce5cf49ae82c414bbd1f3123ec770b91622b46a71d8f9ee67a41546c166fab2",
+      "raw_match": true,
+      "lf_match": true
+    },
+    {
+      "catalogue_id": "game.grand_puff",
+      "path": "scripts/games/octagon_stage.gd",
+      "declared_historical_sha256": "828efb4077edc8a0e770ac74735298447d7d7cc4ac49ed5774276ce9811d3513",
+      "current_sha256_git_bytes": "828efb4077edc8a0e770ac74735298447d7d7cc4ac49ed5774276ce9811d3513",
+      "current_sha256_lf": "828efb4077edc8a0e770ac74735298447d7d7cc4ac49ed5774276ce9811d3513",
+      "raw_match": true,
+      "lf_match": true
+    },
+    {
+      "catalogue_id": "game.chapter2_party",
+      "path": "scripts/chapter_two_director.gd",
+      "declared_historical_sha256": "eb3e820217b08b87cab8a8ea8758a8da16736fdbd57db896ab016af2173c69b5",
+      "current_sha256_git_bytes": "b87490ac66083cee44ba3f469c9c8cbfa158930167614169e0f63759f8b3f70b",
+      "current_sha256_lf": "b87490ac66083cee44ba3f469c9c8cbfa158930167614169e0f63759f8b3f70b",
+      "raw_match": false,
+      "lf_match": false
+    },
+    {
+      "catalogue_id": "game.chapter2_party",
+      "path": "scripts/chapter_two_party_plan.gd",
+      "declared_historical_sha256": "50ffb004ac24a4827caed4e4899e999f7d37c7713c88eb3d1c778a766c54ec61",
+      "current_sha256_git_bytes": "50ffb004ac24a4827caed4e4899e999f7d37c7713c88eb3d1c778a766c54ec61",
+      "current_sha256_lf": "50ffb004ac24a4827caed4e4899e999f7d37c7713c88eb3d1c778a766c54ec61",
+      "raw_match": true,
+      "lf_match": true
+    },
+    {
+      "catalogue_id": "game.chapter2_party",
+      "path": "scripts/chapter_two_room_plot.gd",
+      "declared_historical_sha256": "9eef1ece57be88ac9d01d85a5181ad1c258e6ff00f6b9a6cb3d7a86393d6e10d",
+      "current_sha256_git_bytes": "9eef1ece57be88ac9d01d85a5181ad1c258e6ff00f6b9a6cb3d7a86393d6e10d",
+      "current_sha256_lf": "9eef1ece57be88ac9d01d85a5181ad1c258e6ff00f6b9a6cb3d7a86393d6e10d",
+      "raw_match": true,
+      "lf_match": true
+    },
+    {
+      "catalogue_id": "game.chapter2_party",
+      "path": "scripts/chapter_two_party_table_2d.gd",
+      "declared_historical_sha256": "761014dc77166dea11e4fa0e963cdb72c5aa2dea3e53b05f3540306950e89f87",
+      "current_sha256_git_bytes": "761014dc77166dea11e4fa0e963cdb72c5aa2dea3e53b05f3540306950e89f87",
+      "current_sha256_lf": "761014dc77166dea11e4fa0e963cdb72c5aa2dea3e53b05f3540306950e89f87",
+      "raw_match": true,
+      "lf_match": true
+    },
+    {
+      "catalogue_id": "game.chapter2_party",
+      "path": "scripts/chapter_two_giant_cake_2d.gd",
+      "declared_historical_sha256": "85dd504a6a2e76d17b398b9a3d0e65ba15a5a1d1e1cd73ebf6ee9da93cda2813",
+      "current_sha256_git_bytes": "85dd504a6a2e76d17b398b9a3d0e65ba15a5a1d1e1cd73ebf6ee9da93cda2813",
+      "current_sha256_lf": "85dd504a6a2e76d17b398b9a3d0e65ba15a5a1d1e1cd73ebf6ee9da93cda2813",
+      "raw_match": true,
+      "lf_match": true
+    },
+    {
+      "catalogue_id": "game.chapter2_party",
+      "path": "scripts/chapter_two_rainbow_candle_2d.gd",
+      "declared_historical_sha256": "12e1a75500e2cb4a535c075e3a32c54987a570f7d4bb5ffbdb64c3e35da3e62f",
+      "current_sha256_git_bytes": "12e1a75500e2cb4a535c075e3a32c54987a570f7d4bb5ffbdb64c3e35da3e62f",
+      "current_sha256_lf": "12e1a75500e2cb4a535c075e3a32c54987a570f7d4bb5ffbdb64c3e35da3e62f",
+      "raw_match": true,
+      "lf_match": true
+    },
+    {
+      "catalogue_id": "game.chapter2_party",
+      "path": "scripts/chapter_two_career_scene_adapter.gd",
+      "declared_historical_sha256": "7397beeabc10e20ea3cdf38f2918d672711ac06dedb539d536a4eb1c1c656e2f",
+      "current_sha256_git_bytes": "58c148acc4307315ee96e909aaf876b5095ab220875566707456a993cbc32ec8",
+      "current_sha256_lf": "58c148acc4307315ee96e909aaf876b5095ab220875566707456a993cbc32ec8",
+      "raw_match": false,
+      "lf_match": false
+    },
+    {
+      "catalogue_id": "game.chapter2_party",
+      "path": "scripts/chapter_two_voice_catalog.gd",
+      "declared_historical_sha256": "878cdebb43c777741d0462369f11da32369bb2efa08b5fae2adbfa64fbacfe96",
+      "current_sha256_git_bytes": "878cdebb43c777741d0462369f11da32369bb2efa08b5fae2adbfa64fbacfe96",
+      "current_sha256_lf": "878cdebb43c777741d0462369f11da32369bb2efa08b5fae2adbfa64fbacfe96",
+      "raw_match": true,
+      "lf_match": true
+    },
+    {
+      "catalogue_id": "game.chapter2_party",
+      "path": "scripts/day_two_transition_2d.gd",
+      "declared_historical_sha256": "671548eb20ea115e9e21b0b019122c55cf39ab39760feec517a8504d9670026d",
+      "current_sha256_git_bytes": "671548eb20ea115e9e21b0b019122c55cf39ab39760feec517a8504d9670026d",
+      "current_sha256_lf": "671548eb20ea115e9e21b0b019122c55cf39ab39760feec517a8504d9670026d",
+      "raw_match": true,
+      "lf_match": true
+    },
+    {
+      "catalogue_id": "game.chapter2_lawn",
+      "path": "scripts/chapter_two_lawn_finale_2d.gd",
+      "declared_historical_sha256": "8fd77250e26add871b56b3e9e3c0234ba9aee257ea857455c9c33ed062e9c812",
+      "current_sha256_git_bytes": "e4c07fb5e9404dd247d3aa10186b69f3df9f8f0fc5cd5679b8bf2f625f400797",
+      "current_sha256_lf": "e4c07fb5e9404dd247d3aa10186b69f3df9f8f0fc5cd5679b8bf2f625f400797",
+      "raw_match": false,
+      "lf_match": false
+    },
+    {
+      "catalogue_id": "game.chapter2_lawn",
+      "path": "scripts/chapter_two_ember_encounter.gd",
+      "declared_historical_sha256": "964356fb569fc6fe8b8de90b4003284bc99cc58a4074b4cc2245a8be168b7a42",
+      "current_sha256_git_bytes": "964356fb569fc6fe8b8de90b4003284bc99cc58a4074b4cc2245a8be168b7a42",
+      "current_sha256_lf": "964356fb569fc6fe8b8de90b4003284bc99cc58a4074b4cc2245a8be168b7a42",
+      "raw_match": true,
+      "lf_match": true
+    },
+    {
+      "catalogue_id": "game.boxer",
+      "path": "scripts/opera_career_world_2d.gd",
+      "declared_historical_sha256": "68d50472c799cf16979121fe60aaf7f3f8a4bc2b7825c3b6f721411dbe917af6",
+      "current_sha256_git_bytes": "db2759e66e025c566d20a30021548199e00758c525cd88dfc1ab5c01fad65a30",
+      "current_sha256_lf": "db2759e66e025c566d20a30021548199e00758c525cd88dfc1ab5c01fad65a30",
+      "raw_match": false,
+      "lf_match": false
+    },
+    {
+      "catalogue_id": "game.boxer",
+      "path": "scripts/opera_career_world_2d.gd",
+      "declared_historical_sha256": "6815457f9b551ce8c98c0889316b4d407236f162709e5e48ecb2e4298dfd4f8c",
+      "current_sha256_git_bytes": "db2759e66e025c566d20a30021548199e00758c525cd88dfc1ab5c01fad65a30",
+      "current_sha256_lf": "db2759e66e025c566d20a30021548199e00758c525cd88dfc1ab5c01fad65a30",
+      "raw_match": false,
+      "lf_match": false
+    },
+    {
+      "catalogue_id": "game.boxer",
+      "path": "scripts/opera_career_world_2d.gd",
+      "declared_historical_sha256": "c9786df21c11e54f46aa84a6d7a7b377a018c3528d80eb35bce5e90f7930d7cf",
+      "current_sha256_git_bytes": "db2759e66e025c566d20a30021548199e00758c525cd88dfc1ab5c01fad65a30",
+      "current_sha256_lf": "db2759e66e025c566d20a30021548199e00758c525cd88dfc1ab5c01fad65a30",
+      "raw_match": false,
+      "lf_match": false
+    },
+    {
+      "catalogue_id": "game.boxer",
+      "path": "scripts/opera_career_world_2d.gd",
+      "declared_historical_sha256": "93ee120b1a9e2f2c76126464a85cd0a6decfe131c3627b1401c781ae70eafbd7",
+      "current_sha256_git_bytes": "db2759e66e025c566d20a30021548199e00758c525cd88dfc1ab5c01fad65a30",
+      "current_sha256_lf": "db2759e66e025c566d20a30021548199e00758c525cd88dfc1ab5c01fad65a30",
+      "raw_match": false,
+      "lf_match": false
+    },
+    {
+      "catalogue_id": "game.boxer",
+      "path": "scripts/opera_career_world_2d.gd",
+      "declared_historical_sha256": "72f4149c7e6ee1e3ccd65989a6deab6a140c75ca6aa901d4041e33d67ec7a1c0",
+      "current_sha256_git_bytes": "db2759e66e025c566d20a30021548199e00758c525cd88dfc1ab5c01fad65a30",
+      "current_sha256_lf": "db2759e66e025c566d20a30021548199e00758c525cd88dfc1ab5c01fad65a30",
+      "raw_match": false,
+      "lf_match": false
+    },
+    {
+      "catalogue_id": "game.boxer",
+      "path": "scripts/opera_boxing_surface.gd",
+      "declared_historical_sha256": "321da2219887b07f3efcd142c3015bfcf027ef21a5eb1755e877dc2ff5a71170",
+      "current_sha256_git_bytes": "321da2219887b07f3efcd142c3015bfcf027ef21a5eb1755e877dc2ff5a71170",
+      "current_sha256_lf": "321da2219887b07f3efcd142c3015bfcf027ef21a5eb1755e877dc2ff5a71170",
+      "raw_match": true,
+      "lf_match": true
+    },
+    {
+      "catalogue_id": "game.teacher",
+      "path": "scripts/opera_career_world_2d.gd",
+      "declared_historical_sha256": "ff1b267c42408b09cb7ae6ca074add84c61065b1483bd7e197eb20fae29f9ab4",
+      "current_sha256_git_bytes": "db2759e66e025c566d20a30021548199e00758c525cd88dfc1ab5c01fad65a30",
+      "current_sha256_lf": "db2759e66e025c566d20a30021548199e00758c525cd88dfc1ab5c01fad65a30",
+      "raw_match": false,
+      "lf_match": false
+    },
+    {
+      "catalogue_id": "game.teacher",
+      "path": "scripts/opera_career_world_2d.gd",
+      "declared_historical_sha256": "efee92a68827da1672664e2c0653c3bf2bbb6761067848b8fffa870a00f9b56e",
+      "current_sha256_git_bytes": "db2759e66e025c566d20a30021548199e00758c525cd88dfc1ab5c01fad65a30",
+      "current_sha256_lf": "db2759e66e025c566d20a30021548199e00758c525cd88dfc1ab5c01fad65a30",
+      "raw_match": false,
+      "lf_match": false
+    },
+    {
+      "catalogue_id": "game.teacher",
+      "path": "scripts/opera_career_world_2d.gd",
+      "declared_historical_sha256": "c9786df21c11e54f46aa84a6d7a7b377a018c3528d80eb35bce5e90f7930d7cf",
+      "current_sha256_git_bytes": "db2759e66e025c566d20a30021548199e00758c525cd88dfc1ab5c01fad65a30",
+      "current_sha256_lf": "db2759e66e025c566d20a30021548199e00758c525cd88dfc1ab5c01fad65a30",
+      "raw_match": false,
+      "lf_match": false
+    },
+    {
+      "catalogue_id": "game.teacher",
+      "path": "scripts/opera_career_world_2d.gd",
+      "declared_historical_sha256": "93ee120b1a9e2f2c76126464a85cd0a6decfe131c3627b1401c781ae70eafbd7",
+      "current_sha256_git_bytes": "db2759e66e025c566d20a30021548199e00758c525cd88dfc1ab5c01fad65a30",
+      "current_sha256_lf": "db2759e66e025c566d20a30021548199e00758c525cd88dfc1ab5c01fad65a30",
+      "raw_match": false,
+      "lf_match": false
+    },
+    {
+      "catalogue_id": "game.teacher",
+      "path": "scripts/opera_teacher_surface.gd",
+      "declared_historical_sha256": "cab2eee9f0bf1297296fef0a8650df7794214cfcb58fc379e44954f6153ec2ed",
+      "current_sha256_git_bytes": "cab2eee9f0bf1297296fef0a8650df7794214cfcb58fc379e44954f6153ec2ed",
+      "current_sha256_lf": "cab2eee9f0bf1297296fef0a8650df7794214cfcb58fc379e44954f6153ec2ed",
+      "raw_match": true,
+      "lf_match": true
+    },
+    {
+      "catalogue_id": "game.teacher",
+      "path": "scripts/teacher_lesson_plan.gd",
+      "declared_historical_sha256": "d82e5b7a817335b4da2d0d7b55706a5cde1ff1954c2b33d8ba34d891dac5778e",
+      "current_sha256_git_bytes": "d82e5b7a817335b4da2d0d7b55706a5cde1ff1954c2b33d8ba34d891dac5778e",
+      "current_sha256_lf": "d82e5b7a817335b4da2d0d7b55706a5cde1ff1954c2b33d8ba34d891dac5778e",
+      "raw_match": true,
+      "lf_match": true
+    },
+    {
+      "catalogue_id": "game.teacher",
+      "path": "scripts/opera_career_world_2d.gd",
+      "declared_historical_sha256": "e47043031c9093ce0a9e903ef8317dc81e9cd2557fc00547328d765bae1f23ae",
+      "current_sha256_git_bytes": "db2759e66e025c566d20a30021548199e00758c525cd88dfc1ab5c01fad65a30",
+      "current_sha256_lf": "db2759e66e025c566d20a30021548199e00758c525cd88dfc1ab5c01fad65a30",
+      "raw_match": false,
+      "lf_match": false
+    },
+    {
+      "catalogue_id": "game.teacher",
+      "path": "scripts/opera_career_world_2d.gd",
+      "declared_historical_sha256": "e5c512ab657000f0c835764cdbf308f7632533d007336ce4a98098adb042b23e",
+      "current_sha256_git_bytes": "db2759e66e025c566d20a30021548199e00758c525cd88dfc1ab5c01fad65a30",
+      "current_sha256_lf": "db2759e66e025c566d20a30021548199e00758c525cd88dfc1ab5c01fad65a30",
+      "raw_match": false,
+      "lf_match": false
+    },
+    {
+      "catalogue_id": "game.racer",
+      "path": "scripts/opera_career_world_2d.gd",
+      "declared_historical_sha256": "d085b0fa9cb92512d607474b875ff51c3cd64bf842799857efabbda218e957a0",
+      "current_sha256_git_bytes": "db2759e66e025c566d20a30021548199e00758c525cd88dfc1ab5c01fad65a30",
+      "current_sha256_lf": "db2759e66e025c566d20a30021548199e00758c525cd88dfc1ab5c01fad65a30",
+      "raw_match": false,
+      "lf_match": false
+    },
+    {
+      "catalogue_id": "game.racer",
+      "path": "scripts/opera_career_world_2d.gd",
+      "declared_historical_sha256": "db8c475d301bdab389a44fd8d49fd8bce4a00ef7ab2f7432fdabb298ca43affd",
+      "current_sha256_git_bytes": "db2759e66e025c566d20a30021548199e00758c525cd88dfc1ab5c01fad65a30",
+      "current_sha256_lf": "db2759e66e025c566d20a30021548199e00758c525cd88dfc1ab5c01fad65a30",
+      "raw_match": false,
+      "lf_match": false
+    },
+    {
+      "catalogue_id": "game.racer",
+      "path": "scripts/opera_career_world_2d.gd",
+      "declared_historical_sha256": "c9786df21c11e54f46aa84a6d7a7b377a018c3528d80eb35bce5e90f7930d7cf",
+      "current_sha256_git_bytes": "db2759e66e025c566d20a30021548199e00758c525cd88dfc1ab5c01fad65a30",
+      "current_sha256_lf": "db2759e66e025c566d20a30021548199e00758c525cd88dfc1ab5c01fad65a30",
+      "raw_match": false,
+      "lf_match": false
+    },
+    {
+      "catalogue_id": "game.racer",
+      "path": "scripts/opera_career_world_2d.gd",
+      "declared_historical_sha256": "93ee120b1a9e2f2c76126464a85cd0a6decfe131c3627b1401c781ae70eafbd7",
+      "current_sha256_git_bytes": "db2759e66e025c566d20a30021548199e00758c525cd88dfc1ab5c01fad65a30",
+      "current_sha256_lf": "db2759e66e025c566d20a30021548199e00758c525cd88dfc1ab5c01fad65a30",
+      "raw_match": false,
+      "lf_match": false
+    },
+    {
+      "catalogue_id": "game.racer",
+      "path": "scripts/opera_career_world_2d.gd",
+      "declared_historical_sha256": "72f4149c7e6ee1e3ccd65989a6deab6a140c75ca6aa901d4041e33d67ec7a1c0",
+      "current_sha256_git_bytes": "db2759e66e025c566d20a30021548199e00758c525cd88dfc1ab5c01fad65a30",
+      "current_sha256_lf": "db2759e66e025c566d20a30021548199e00758c525cd88dfc1ab5c01fad65a30",
+      "raw_match": false,
+      "lf_match": false
+    },
+    {
+      "catalogue_id": "game.racer",
+      "path": "scripts/opera_racer_surface.gd",
+      "declared_historical_sha256": "09b292073f3d4fcfc2605a22bf79b039f00047787edf2d25dde37798b3db4cba",
+      "current_sha256_git_bytes": "09b292073f3d4fcfc2605a22bf79b039f00047787edf2d25dde37798b3db4cba",
+      "current_sha256_lf": "09b292073f3d4fcfc2605a22bf79b039f00047787edf2d25dde37798b3db4cba",
+      "raw_match": true,
+      "lf_match": true
+    },
+    {
+      "catalogue_id": "game.magician",
+      "path": "scripts/opera_career_world_2d.gd",
+      "declared_historical_sha256": "6f37dcf13c7fd6071e815469ae9776e66c31005a1286094d1c08b20f73b470cb",
+      "current_sha256_git_bytes": "db2759e66e025c566d20a30021548199e00758c525cd88dfc1ab5c01fad65a30",
+      "current_sha256_lf": "db2759e66e025c566d20a30021548199e00758c525cd88dfc1ab5c01fad65a30",
+      "raw_match": false,
+      "lf_match": false
+    },
+    {
+      "catalogue_id": "game.magician",
+      "path": "scripts/opera_career_world_2d.gd",
+      "declared_historical_sha256": "209093c0b453c4c610b78414906fedd14e21c60030b48cda6b78c4cf087c8cc7",
+      "current_sha256_git_bytes": "db2759e66e025c566d20a30021548199e00758c525cd88dfc1ab5c01fad65a30",
+      "current_sha256_lf": "db2759e66e025c566d20a30021548199e00758c525cd88dfc1ab5c01fad65a30",
+      "raw_match": false,
+      "lf_match": false
+    },
+    {
+      "catalogue_id": "game.magician",
+      "path": "scripts/opera_career_world_2d.gd",
+      "declared_historical_sha256": "c9786df21c11e54f46aa84a6d7a7b377a018c3528d80eb35bce5e90f7930d7cf",
+      "current_sha256_git_bytes": "db2759e66e025c566d20a30021548199e00758c525cd88dfc1ab5c01fad65a30",
+      "current_sha256_lf": "db2759e66e025c566d20a30021548199e00758c525cd88dfc1ab5c01fad65a30",
+      "raw_match": false,
+      "lf_match": false
+    },
+    {
+      "catalogue_id": "game.magician",
+      "path": "scripts/opera_career_world_2d.gd",
+      "declared_historical_sha256": "93ee120b1a9e2f2c76126464a85cd0a6decfe131c3627b1401c781ae70eafbd7",
+      "current_sha256_git_bytes": "db2759e66e025c566d20a30021548199e00758c525cd88dfc1ab5c01fad65a30",
+      "current_sha256_lf": "db2759e66e025c566d20a30021548199e00758c525cd88dfc1ab5c01fad65a30",
+      "raw_match": false,
+      "lf_match": false
+    },
+    {
+      "catalogue_id": "game.magician",
+      "path": "scripts/opera_gesture_surface.gd",
+      "declared_historical_sha256": "33669f53f4c498a81e6fe27709f690f2539bf2f1ea33d88b776ed864f1260f3a",
+      "current_sha256_git_bytes": "82fc3444887a8547719f263fe2368f162f1c0e935b1877d4dc37afb74faf6459",
+      "current_sha256_lf": "82fc3444887a8547719f263fe2368f162f1c0e935b1877d4dc37afb74faf6459",
+      "raw_match": false,
+      "lf_match": false
+    },
+    {
+      "catalogue_id": "game.magician",
+      "path": "scripts/opera_gesture_surface.gd",
+      "declared_historical_sha256": "62acfefb67ad3f7f3b64753a7f5f2cfd5aff9530839ea73a3b049a6a0a5b75da",
+      "current_sha256_git_bytes": "82fc3444887a8547719f263fe2368f162f1c0e935b1877d4dc37afb74faf6459",
+      "current_sha256_lf": "82fc3444887a8547719f263fe2368f162f1c0e935b1877d4dc37afb74faf6459",
+      "raw_match": false,
+      "lf_match": false
+    },
+    {
+      "catalogue_id": "game.nursery",
+      "path": "scripts/opera_career_world_2d.gd",
+      "declared_historical_sha256": "ffb29e7f78961102e534b63e439aacd1c15a302605b7c6fdf08f95a089ec347e",
+      "current_sha256_git_bytes": "db2759e66e025c566d20a30021548199e00758c525cd88dfc1ab5c01fad65a30",
+      "current_sha256_lf": "db2759e66e025c566d20a30021548199e00758c525cd88dfc1ab5c01fad65a30",
+      "raw_match": false,
+      "lf_match": false
+    },
+    {
+      "catalogue_id": "game.nursery",
+      "path": "scripts/opera_career_world_2d.gd",
+      "declared_historical_sha256": "d814f8f053c813f82cc49ac7afa63bab0ea4db74dd7903b4aa620cdbff2d97ef",
+      "current_sha256_git_bytes": "db2759e66e025c566d20a30021548199e00758c525cd88dfc1ab5c01fad65a30",
+      "current_sha256_lf": "db2759e66e025c566d20a30021548199e00758c525cd88dfc1ab5c01fad65a30",
+      "raw_match": false,
+      "lf_match": false
+    },
+    {
+      "catalogue_id": "game.nursery",
+      "path": "scripts/opera_career_world_2d.gd",
+      "declared_historical_sha256": "c9786df21c11e54f46aa84a6d7a7b377a018c3528d80eb35bce5e90f7930d7cf",
+      "current_sha256_git_bytes": "db2759e66e025c566d20a30021548199e00758c525cd88dfc1ab5c01fad65a30",
+      "current_sha256_lf": "db2759e66e025c566d20a30021548199e00758c525cd88dfc1ab5c01fad65a30",
+      "raw_match": false,
+      "lf_match": false
+    },
+    {
+      "catalogue_id": "game.nursery",
+      "path": "scripts/opera_career_world_2d.gd",
+      "declared_historical_sha256": "93ee120b1a9e2f2c76126464a85cd0a6decfe131c3627b1401c781ae70eafbd7",
+      "current_sha256_git_bytes": "db2759e66e025c566d20a30021548199e00758c525cd88dfc1ab5c01fad65a30",
+      "current_sha256_lf": "db2759e66e025c566d20a30021548199e00758c525cd88dfc1ab5c01fad65a30",
+      "raw_match": false,
+      "lf_match": false
+    },
+    {
+      "catalogue_id": "game.nursery",
+      "path": "scripts/opera_career_world_2d.gd",
+      "declared_historical_sha256": "72f4149c7e6ee1e3ccd65989a6deab6a140c75ca6aa901d4041e33d67ec7a1c0",
+      "current_sha256_git_bytes": "db2759e66e025c566d20a30021548199e00758c525cd88dfc1ab5c01fad65a30",
+      "current_sha256_lf": "db2759e66e025c566d20a30021548199e00758c525cd88dfc1ab5c01fad65a30",
+      "raw_match": false,
+      "lf_match": false
+    },
+    {
+      "catalogue_id": "game.nursery",
+      "path": "scripts/opera_nursery_catch.gd",
+      "declared_historical_sha256": "b997e83c4032be14f187260a6fda1a99bcb5f3b61a7e07adebf5a99479dda431",
+      "current_sha256_git_bytes": "b997e83c4032be14f187260a6fda1a99bcb5f3b61a7e07adebf5a99479dda431",
+      "current_sha256_lf": "b997e83c4032be14f187260a6fda1a99bcb5f3b61a7e07adebf5a99479dda431",
+      "raw_match": true,
+      "lf_match": true
+    },
+    {
+      "catalogue_id": "game.nursery",
+      "path": "scripts/opera_gesture_surface.gd",
+      "declared_historical_sha256": "e9537ddb9dfc7cad614d88d4897040b6b5c87bb1d024b16a2bddb84ea6320ee0",
+      "current_sha256_git_bytes": "82fc3444887a8547719f263fe2368f162f1c0e935b1877d4dc37afb74faf6459",
+      "current_sha256_lf": "82fc3444887a8547719f263fe2368f162f1c0e935b1877d4dc37afb74faf6459",
+      "raw_match": false,
+      "lf_match": false
+    },
+    {
+      "catalogue_id": "game.popstar",
+      "path": "scripts/opera_career_world_2d.gd",
+      "declared_historical_sha256": "dd9c01a466cf3db0ddc87eb5b3a8c5a47deb89f98e0e1b0657d0cba6abcbedb0",
+      "current_sha256_git_bytes": "db2759e66e025c566d20a30021548199e00758c525cd88dfc1ab5c01fad65a30",
+      "current_sha256_lf": "db2759e66e025c566d20a30021548199e00758c525cd88dfc1ab5c01fad65a30",
+      "raw_match": false,
+      "lf_match": false
+    },
+    {
+      "catalogue_id": "game.popstar",
+      "path": "scripts/opera_career_world_2d.gd",
+      "declared_historical_sha256": "f871360a4a8893c473e759f72b06fc2121030f19fbf9ec889477f9e28244bc86",
+      "current_sha256_git_bytes": "db2759e66e025c566d20a30021548199e00758c525cd88dfc1ab5c01fad65a30",
+      "current_sha256_lf": "db2759e66e025c566d20a30021548199e00758c525cd88dfc1ab5c01fad65a30",
+      "raw_match": false,
+      "lf_match": false
+    },
+    {
+      "catalogue_id": "game.popstar",
+      "path": "scripts/chapter_two_career_scene_adapter.gd",
+      "declared_historical_sha256": "66911a3c82636706faeed40534e9388fd0a3397ee3daa11c694ea9968def8c3b",
+      "current_sha256_git_bytes": "58c148acc4307315ee96e909aaf876b5095ab220875566707456a993cbc32ec8",
+      "current_sha256_lf": "58c148acc4307315ee96e909aaf876b5095ab220875566707456a993cbc32ec8",
+      "raw_match": false,
+      "lf_match": false
+    },
+    {
+      "catalogue_id": "game.popstar",
+      "path": "scripts/opera_career_world_2d.gd",
+      "declared_historical_sha256": "c9786df21c11e54f46aa84a6d7a7b377a018c3528d80eb35bce5e90f7930d7cf",
+      "current_sha256_git_bytes": "db2759e66e025c566d20a30021548199e00758c525cd88dfc1ab5c01fad65a30",
+      "current_sha256_lf": "db2759e66e025c566d20a30021548199e00758c525cd88dfc1ab5c01fad65a30",
+      "raw_match": false,
+      "lf_match": false
+    },
+    {
+      "catalogue_id": "game.popstar",
+      "path": "scripts/opera_career_world_2d.gd",
+      "declared_historical_sha256": "93ee120b1a9e2f2c76126464a85cd0a6decfe131c3627b1401c781ae70eafbd7",
+      "current_sha256_git_bytes": "db2759e66e025c566d20a30021548199e00758c525cd88dfc1ab5c01fad65a30",
+      "current_sha256_lf": "db2759e66e025c566d20a30021548199e00758c525cd88dfc1ab5c01fad65a30",
+      "raw_match": false,
+      "lf_match": false
+    },
+    {
+      "catalogue_id": "game.popstar",
+      "path": "scripts/opera_performance_plan.gd",
+      "declared_historical_sha256": "6b5ff197b0d88663af260217dc673a39d2d681e081b313c1c4b49c0a359d8366",
+      "current_sha256_git_bytes": "6b5ff197b0d88663af260217dc673a39d2d681e081b313c1c4b49c0a359d8366",
+      "current_sha256_lf": "6b5ff197b0d88663af260217dc673a39d2d681e081b313c1c4b49c0a359d8366",
+      "raw_match": true,
+      "lf_match": true
+    },
+    {
+      "catalogue_id": "game.popstar",
+      "path": "scripts/opera_mastery.gd",
+      "declared_historical_sha256": "8e80436797efd6ab3c50a0b84f693b8f874951a425987e5f04005ac0af123843",
+      "current_sha256_git_bytes": "1a5c6f89f2cd0effea2b22e85a29c3dcfcebb0298fb6d582b81a9bb427518bf3",
+      "current_sha256_lf": "1a5c6f89f2cd0effea2b22e85a29c3dcfcebb0298fb6d582b81a9bb427518bf3",
+      "raw_match": false,
+      "lf_match": false
+    },
+    {
+      "catalogue_id": "game.popstar",
+      "path": "scripts/opera_gesture_surface.gd",
+      "declared_historical_sha256": "8749a8d423d0a1dc61ceb2ddb7f5ac02443ed1230706eda5b9a1bfe85f45f153",
+      "current_sha256_git_bytes": "82fc3444887a8547719f263fe2368f162f1c0e935b1877d4dc37afb74faf6459",
+      "current_sha256_lf": "82fc3444887a8547719f263fe2368f162f1c0e935b1877d4dc37afb74faf6459",
+      "raw_match": false,
+      "lf_match": false
+    },
+    {
+      "catalogue_id": "game.ballerina",
+      "path": "scripts/opera_career_world_2d.gd",
+      "declared_historical_sha256": "f2d15de64ee2e4466ea42e6c0ba08ae781e5e90f2e74946b4e15178623fcbdbd",
+      "current_sha256_git_bytes": "db2759e66e025c566d20a30021548199e00758c525cd88dfc1ab5c01fad65a30",
+      "current_sha256_lf": "db2759e66e025c566d20a30021548199e00758c525cd88dfc1ab5c01fad65a30",
+      "raw_match": false,
+      "lf_match": false
+    },
+    {
+      "catalogue_id": "game.ballerina",
+      "path": "scripts/opera_career_world_2d.gd",
+      "declared_historical_sha256": "0b4369ab9cd7ae798c38fe173a466a6e0d2d460703dbc377b1a9aff73293fdea",
+      "current_sha256_git_bytes": "db2759e66e025c566d20a30021548199e00758c525cd88dfc1ab5c01fad65a30",
+      "current_sha256_lf": "db2759e66e025c566d20a30021548199e00758c525cd88dfc1ab5c01fad65a30",
+      "raw_match": false,
+      "lf_match": false
+    },
+    {
+      "catalogue_id": "game.ballerina",
+      "path": "scripts/chapter_two_career_scene_adapter.gd",
+      "declared_historical_sha256": "46914d35fb07741a26fa41ea840733deca214044002fa1b0114f7027b6a64a4e",
+      "current_sha256_git_bytes": "58c148acc4307315ee96e909aaf876b5095ab220875566707456a993cbc32ec8",
+      "current_sha256_lf": "58c148acc4307315ee96e909aaf876b5095ab220875566707456a993cbc32ec8",
+      "raw_match": false,
+      "lf_match": false
+    },
+    {
+      "catalogue_id": "game.ballerina",
+      "path": "scripts/opera_career_world_2d.gd",
+      "declared_historical_sha256": "c9786df21c11e54f46aa84a6d7a7b377a018c3528d80eb35bce5e90f7930d7cf",
+      "current_sha256_git_bytes": "db2759e66e025c566d20a30021548199e00758c525cd88dfc1ab5c01fad65a30",
+      "current_sha256_lf": "db2759e66e025c566d20a30021548199e00758c525cd88dfc1ab5c01fad65a30",
+      "raw_match": false,
+      "lf_match": false
+    },
+    {
+      "catalogue_id": "game.ballerina",
+      "path": "scripts/opera_career_world_2d.gd",
+      "declared_historical_sha256": "93ee120b1a9e2f2c76126464a85cd0a6decfe131c3627b1401c781ae70eafbd7",
+      "current_sha256_git_bytes": "db2759e66e025c566d20a30021548199e00758c525cd88dfc1ab5c01fad65a30",
+      "current_sha256_lf": "db2759e66e025c566d20a30021548199e00758c525cd88dfc1ab5c01fad65a30",
+      "raw_match": false,
+      "lf_match": false
+    },
+    {
+      "catalogue_id": "game.ballerina",
+      "path": "scripts/opera_ballet_surface.gd",
+      "declared_historical_sha256": "76a648de7fd0d52eadf1974257bfaaf3f17bb6b73a0bd96029b35133c33cb70b",
+      "current_sha256_git_bytes": "76a648de7fd0d52eadf1974257bfaaf3f17bb6b73a0bd96029b35133c33cb70b",
+      "current_sha256_lf": "76a648de7fd0d52eadf1974257bfaaf3f17bb6b73a0bd96029b35133c33cb70b",
+      "raw_match": true,
+      "lf_match": true
+    },
+    {
+      "catalogue_id": "game.candymaker",
+      "path": "scripts/opera_career_world_2d.gd",
+      "declared_historical_sha256": "73df0cfcb56c2add3fd42972ede8d8a5a1e7d3594c13e80b72df39aaa62b08d4",
+      "current_sha256_git_bytes": "db2759e66e025c566d20a30021548199e00758c525cd88dfc1ab5c01fad65a30",
+      "current_sha256_lf": "db2759e66e025c566d20a30021548199e00758c525cd88dfc1ab5c01fad65a30",
+      "raw_match": false,
+      "lf_match": false
+    },
+    {
+      "catalogue_id": "game.candymaker",
+      "path": "scripts/opera_career_world_2d.gd",
+      "declared_historical_sha256": "bf635786d3f633b814d1ca7a1a19062376f37ed5a1be6844f3c09c9e8bb3b088",
+      "current_sha256_git_bytes": "db2759e66e025c566d20a30021548199e00758c525cd88dfc1ab5c01fad65a30",
+      "current_sha256_lf": "db2759e66e025c566d20a30021548199e00758c525cd88dfc1ab5c01fad65a30",
+      "raw_match": false,
+      "lf_match": false
+    },
+    {
+      "catalogue_id": "game.candymaker",
+      "path": "scripts/chapter_two_career_scene_adapter.gd",
+      "declared_historical_sha256": "aa57714d5adcfb821efe375beeaaf1aa79cd59a2f2f6254aa221c19ddc3716a3",
+      "current_sha256_git_bytes": "58c148acc4307315ee96e909aaf876b5095ab220875566707456a993cbc32ec8",
+      "current_sha256_lf": "58c148acc4307315ee96e909aaf876b5095ab220875566707456a993cbc32ec8",
+      "raw_match": false,
+      "lf_match": false
+    },
+    {
+      "catalogue_id": "game.candymaker",
+      "path": "scripts/opera_career_world_2d.gd",
+      "declared_historical_sha256": "c9786df21c11e54f46aa84a6d7a7b377a018c3528d80eb35bce5e90f7930d7cf",
+      "current_sha256_git_bytes": "db2759e66e025c566d20a30021548199e00758c525cd88dfc1ab5c01fad65a30",
+      "current_sha256_lf": "db2759e66e025c566d20a30021548199e00758c525cd88dfc1ab5c01fad65a30",
+      "raw_match": false,
+      "lf_match": false
+    },
+    {
+      "catalogue_id": "game.candymaker",
+      "path": "scripts/opera_career_world_2d.gd",
+      "declared_historical_sha256": "93ee120b1a9e2f2c76126464a85cd0a6decfe131c3627b1401c781ae70eafbd7",
+      "current_sha256_git_bytes": "db2759e66e025c566d20a30021548199e00758c525cd88dfc1ab5c01fad65a30",
+      "current_sha256_lf": "db2759e66e025c566d20a30021548199e00758c525cd88dfc1ab5c01fad65a30",
+      "raw_match": false,
+      "lf_match": false
+    },
+    {
+      "catalogue_id": "game.candymaker",
+      "path": "scripts/opera_career_world_2d.gd",
+      "declared_historical_sha256": "72f4149c7e6ee1e3ccd65989a6deab6a140c75ca6aa901d4041e33d67ec7a1c0",
+      "current_sha256_git_bytes": "db2759e66e025c566d20a30021548199e00758c525cd88dfc1ab5c01fad65a30",
+      "current_sha256_lf": "db2759e66e025c566d20a30021548199e00758c525cd88dfc1ab5c01fad65a30",
+      "raw_match": false,
+      "lf_match": false
+    },
+    {
+      "catalogue_id": "game.candymaker",
+      "path": "scripts/opera_gesture_surface.gd",
+      "declared_historical_sha256": "b5ed449439434df38d490e92626870a21c26ddcf78141e11366d293dccff7cc1",
+      "current_sha256_git_bytes": "82fc3444887a8547719f263fe2368f162f1c0e935b1877d4dc37afb74faf6459",
+      "current_sha256_lf": "82fc3444887a8547719f263fe2368f162f1c0e935b1877d4dc37afb74faf6459",
+      "raw_match": false,
+      "lf_match": false
+    },
+    {
+      "catalogue_id": "game.candymaker",
+      "path": "scripts/opera_gesture_surface.gd",
+      "declared_historical_sha256": "14dc700264a58505ff7125d9fab9f9f5f3445860a6d6c3dddffd434c04a0e48e",
+      "current_sha256_git_bytes": "82fc3444887a8547719f263fe2368f162f1c0e935b1877d4dc37afb74faf6459",
+      "current_sha256_lf": "82fc3444887a8547719f263fe2368f162f1c0e935b1877d4dc37afb74faf6459",
+      "raw_match": false,
+      "lf_match": false
+    },
+    {
+      "catalogue_id": "game.candymaker",
+      "path": "scripts/opera_gesture_surface.gd",
+      "declared_historical_sha256": "500346253debfec4375524e5a49082581a0ee91473925e5d051021e4b0798d33",
+      "current_sha256_git_bytes": "82fc3444887a8547719f263fe2368f162f1c0e935b1877d4dc37afb74faf6459",
+      "current_sha256_lf": "82fc3444887a8547719f263fe2368f162f1c0e935b1877d4dc37afb74faf6459",
+      "raw_match": false,
+      "lf_match": false
+    },
+    {
+      "catalogue_id": "game.candymaker",
+      "path": "scripts/opera_gesture_surface.gd",
+      "declared_historical_sha256": "d583881a2aa2416012e9300199c0318a66504c1ab74bcc174a4b0ab4f1792ed6",
+      "current_sha256_git_bytes": "82fc3444887a8547719f263fe2368f162f1c0e935b1877d4dc37afb74faf6459",
+      "current_sha256_lf": "82fc3444887a8547719f263fe2368f162f1c0e935b1877d4dc37afb74faf6459",
+      "raw_match": false,
+      "lf_match": false
+    },
+    {
+      "catalogue_id": "game.chef",
+      "path": "scripts/opera_career_world_2d.gd",
+      "declared_historical_sha256": "86ed431b81b369f254f6efdfbb6aed9774de4ad1df8cfceccc12616dfac5b5ef",
+      "current_sha256_git_bytes": "db2759e66e025c566d20a30021548199e00758c525cd88dfc1ab5c01fad65a30",
+      "current_sha256_lf": "db2759e66e025c566d20a30021548199e00758c525cd88dfc1ab5c01fad65a30",
+      "raw_match": false,
+      "lf_match": false
+    },
+    {
+      "catalogue_id": "game.chef",
+      "path": "scripts/opera_career_world_2d.gd",
+      "declared_historical_sha256": "d000f5acb3eab50e28b9b60b9a3709677a29eb17b6b87d01aada9055af754769",
+      "current_sha256_git_bytes": "db2759e66e025c566d20a30021548199e00758c525cd88dfc1ab5c01fad65a30",
+      "current_sha256_lf": "db2759e66e025c566d20a30021548199e00758c525cd88dfc1ab5c01fad65a30",
+      "raw_match": false,
+      "lf_match": false
+    },
+    {
+      "catalogue_id": "game.chef",
+      "path": "scripts/chapter_two_career_scene_adapter.gd",
+      "declared_historical_sha256": "9889fef3fa2d65fda315b8bb28804788a82ca70fd10412a6a2187be5d016b87b",
+      "current_sha256_git_bytes": "58c148acc4307315ee96e909aaf876b5095ab220875566707456a993cbc32ec8",
+      "current_sha256_lf": "58c148acc4307315ee96e909aaf876b5095ab220875566707456a993cbc32ec8",
+      "raw_match": false,
+      "lf_match": false
+    },
+    {
+      "catalogue_id": "game.chef",
+      "path": "scripts/opera_career_world_2d.gd",
+      "declared_historical_sha256": "c9786df21c11e54f46aa84a6d7a7b377a018c3528d80eb35bce5e90f7930d7cf",
+      "current_sha256_git_bytes": "db2759e66e025c566d20a30021548199e00758c525cd88dfc1ab5c01fad65a30",
+      "current_sha256_lf": "db2759e66e025c566d20a30021548199e00758c525cd88dfc1ab5c01fad65a30",
+      "raw_match": false,
+      "lf_match": false
+    },
+    {
+      "catalogue_id": "game.chef",
+      "path": "scripts/opera_career_world_2d.gd",
+      "declared_historical_sha256": "93ee120b1a9e2f2c76126464a85cd0a6decfe131c3627b1401c781ae70eafbd7",
+      "current_sha256_git_bytes": "db2759e66e025c566d20a30021548199e00758c525cd88dfc1ab5c01fad65a30",
+      "current_sha256_lf": "db2759e66e025c566d20a30021548199e00758c525cd88dfc1ab5c01fad65a30",
+      "raw_match": false,
+      "lf_match": false
+    },
+    {
+      "catalogue_id": "game.chef",
+      "path": "scripts/opera_career_world_2d.gd",
+      "declared_historical_sha256": "72f4149c7e6ee1e3ccd65989a6deab6a140c75ca6aa901d4041e33d67ec7a1c0",
+      "current_sha256_git_bytes": "db2759e66e025c566d20a30021548199e00758c525cd88dfc1ab5c01fad65a30",
+      "current_sha256_lf": "db2759e66e025c566d20a30021548199e00758c525cd88dfc1ab5c01fad65a30",
+      "raw_match": false,
+      "lf_match": false
+    },
+    {
+      "catalogue_id": "game.chef",
+      "path": "scripts/opera_gesture_surface.gd",
+      "declared_historical_sha256": "138a8845f642ecf01f5f4013c3959f6e8baef42174d37bf3a3d08511df038ea6",
+      "current_sha256_git_bytes": "82fc3444887a8547719f263fe2368f162f1c0e935b1877d4dc37afb74faf6459",
+      "current_sha256_lf": "82fc3444887a8547719f263fe2368f162f1c0e935b1877d4dc37afb74faf6459",
+      "raw_match": false,
+      "lf_match": false
+    },
+    {
+      "catalogue_id": "game.chef",
+      "path": "scripts/opera_gesture_surface.gd",
+      "declared_historical_sha256": "e1cf7b0f5f814f86c94e09607c8ffb71ccf1ce7ffa765e0c112aa898ceba9ba1",
+      "current_sha256_git_bytes": "82fc3444887a8547719f263fe2368f162f1c0e935b1877d4dc37afb74faf6459",
+      "current_sha256_lf": "82fc3444887a8547719f263fe2368f162f1c0e935b1877d4dc37afb74faf6459",
+      "raw_match": false,
+      "lf_match": false
+    },
+    {
+      "catalogue_id": "game.chef",
+      "path": "scripts/opera_gesture_surface.gd",
+      "declared_historical_sha256": "193d36430ccb4261d48f7afcadde0db2d253176afd1222a7e9ff365b877f9e21",
+      "current_sha256_git_bytes": "82fc3444887a8547719f263fe2368f162f1c0e935b1877d4dc37afb74faf6459",
+      "current_sha256_lf": "82fc3444887a8547719f263fe2368f162f1c0e935b1877d4dc37afb74faf6459",
+      "raw_match": false,
+      "lf_match": false
+    },
+    {
+      "catalogue_id": "game.chef",
+      "path": "scripts/opera_gesture_surface.gd",
+      "declared_historical_sha256": "a03e64b51c55e46adb1ac119477fa42d20912d3e91c6850f257555762aa20777",
+      "current_sha256_git_bytes": "82fc3444887a8547719f263fe2368f162f1c0e935b1877d4dc37afb74faf6459",
+      "current_sha256_lf": "82fc3444887a8547719f263fe2368f162f1c0e935b1877d4dc37afb74faf6459",
+      "raw_match": false,
+      "lf_match": false
+    },
+    {
+      "catalogue_id": "game.chef",
+      "path": "scripts/opera_gesture_surface.gd",
+      "declared_historical_sha256": "755b642c6817e1043f8c304e2b7c11f11430bebbbb762fad42cb1ee4de89da4d",
+      "current_sha256_git_bytes": "82fc3444887a8547719f263fe2368f162f1c0e935b1877d4dc37afb74faf6459",
+      "current_sha256_lf": "82fc3444887a8547719f263fe2368f162f1c0e935b1877d4dc37afb74faf6459",
+      "raw_match": false,
+      "lf_match": false
+    },
+    {
+      "catalogue_id": "game.detective",
+      "path": "scripts/opera_career_world_2d.gd",
+      "declared_historical_sha256": "39979a127b0cceb9c77c025e5d1097f4eb9d7a24835f458b66bc276e3534be4b",
+      "current_sha256_git_bytes": "db2759e66e025c566d20a30021548199e00758c525cd88dfc1ab5c01fad65a30",
+      "current_sha256_lf": "db2759e66e025c566d20a30021548199e00758c525cd88dfc1ab5c01fad65a30",
+      "raw_match": false,
+      "lf_match": false
+    },
+    {
+      "catalogue_id": "game.detective",
+      "path": "scripts/opera_career_world_2d.gd",
+      "declared_historical_sha256": "765e5db672dd5eefeb2f60232c01a46ed9146fd8979919869f3322f1aa4b35a4",
+      "current_sha256_git_bytes": "db2759e66e025c566d20a30021548199e00758c525cd88dfc1ab5c01fad65a30",
+      "current_sha256_lf": "db2759e66e025c566d20a30021548199e00758c525cd88dfc1ab5c01fad65a30",
+      "raw_match": false,
+      "lf_match": false
+    },
+    {
+      "catalogue_id": "game.detective",
+      "path": "scripts/chapter_two_career_scene_adapter.gd",
+      "declared_historical_sha256": "30e33afe717f8fb7ec9be7064d7841bc9960ae1c4355b0fca4b134fc21d0d4ca",
+      "current_sha256_git_bytes": "58c148acc4307315ee96e909aaf876b5095ab220875566707456a993cbc32ec8",
+      "current_sha256_lf": "58c148acc4307315ee96e909aaf876b5095ab220875566707456a993cbc32ec8",
+      "raw_match": false,
+      "lf_match": false
+    },
+    {
+      "catalogue_id": "game.detective",
+      "path": "scripts/opera_career_world_2d.gd",
+      "declared_historical_sha256": "c9786df21c11e54f46aa84a6d7a7b377a018c3528d80eb35bce5e90f7930d7cf",
+      "current_sha256_git_bytes": "db2759e66e025c566d20a30021548199e00758c525cd88dfc1ab5c01fad65a30",
+      "current_sha256_lf": "db2759e66e025c566d20a30021548199e00758c525cd88dfc1ab5c01fad65a30",
+      "raw_match": false,
+      "lf_match": false
+    },
+    {
+      "catalogue_id": "game.detective",
+      "path": "scripts/opera_career_world_2d.gd",
+      "declared_historical_sha256": "93ee120b1a9e2f2c76126464a85cd0a6decfe131c3627b1401c781ae70eafbd7",
+      "current_sha256_git_bytes": "db2759e66e025c566d20a30021548199e00758c525cd88dfc1ab5c01fad65a30",
+      "current_sha256_lf": "db2759e66e025c566d20a30021548199e00758c525cd88dfc1ab5c01fad65a30",
+      "raw_match": false,
+      "lf_match": false
+    },
+    {
+      "catalogue_id": "game.detective",
+      "path": "scripts/opera_career_world_2d.gd",
+      "declared_historical_sha256": "72f4149c7e6ee1e3ccd65989a6deab6a140c75ca6aa901d4041e33d67ec7a1c0",
+      "current_sha256_git_bytes": "db2759e66e025c566d20a30021548199e00758c525cd88dfc1ab5c01fad65a30",
+      "current_sha256_lf": "db2759e66e025c566d20a30021548199e00758c525cd88dfc1ab5c01fad65a30",
+      "raw_match": false,
+      "lf_match": false
+    },
+    {
+      "catalogue_id": "game.detective",
+      "path": "scripts/opera_competition.gd",
+      "declared_historical_sha256": "2449c21807e83f9c5d0f5994b37663b9e5ae4f56aa418690151eac081d03ec57",
+      "current_sha256_git_bytes": "2449c21807e83f9c5d0f5994b37663b9e5ae4f56aa418690151eac081d03ec57",
+      "current_sha256_lf": "2449c21807e83f9c5d0f5994b37663b9e5ae4f56aa418690151eac081d03ec57",
+      "raw_match": true,
+      "lf_match": true
+    },
+    {
+      "catalogue_id": "game.farmer",
+      "path": "scripts/opera_career_world_2d.gd",
+      "declared_historical_sha256": "f1c8fa506e5fb5d858256428d27f739a5e2d89ab82fe38db70c06e5c46034396",
+      "current_sha256_git_bytes": "db2759e66e025c566d20a30021548199e00758c525cd88dfc1ab5c01fad65a30",
+      "current_sha256_lf": "db2759e66e025c566d20a30021548199e00758c525cd88dfc1ab5c01fad65a30",
+      "raw_match": false,
+      "lf_match": false
+    },
+    {
+      "catalogue_id": "game.farmer",
+      "path": "scripts/opera_career_world_2d.gd",
+      "declared_historical_sha256": "772aa57309dc4bb5da1bc158cb375fc20959d0aec05a7bc2ad9093e5b69b7973",
+      "current_sha256_git_bytes": "db2759e66e025c566d20a30021548199e00758c525cd88dfc1ab5c01fad65a30",
+      "current_sha256_lf": "db2759e66e025c566d20a30021548199e00758c525cd88dfc1ab5c01fad65a30",
+      "raw_match": false,
+      "lf_match": false
+    },
+    {
+      "catalogue_id": "game.farmer",
+      "path": "scripts/chapter_two_career_scene_adapter.gd",
+      "declared_historical_sha256": "0adb19918ada258cbe72dd72cb5b62772e4b84d3bcff41f050f2c3f2fd7f8311",
+      "current_sha256_git_bytes": "58c148acc4307315ee96e909aaf876b5095ab220875566707456a993cbc32ec8",
+      "current_sha256_lf": "58c148acc4307315ee96e909aaf876b5095ab220875566707456a993cbc32ec8",
+      "raw_match": false,
+      "lf_match": false
+    },
+    {
+      "catalogue_id": "game.farmer",
+      "path": "scripts/opera_career_world_2d.gd",
+      "declared_historical_sha256": "c9786df21c11e54f46aa84a6d7a7b377a018c3528d80eb35bce5e90f7930d7cf",
+      "current_sha256_git_bytes": "db2759e66e025c566d20a30021548199e00758c525cd88dfc1ab5c01fad65a30",
+      "current_sha256_lf": "db2759e66e025c566d20a30021548199e00758c525cd88dfc1ab5c01fad65a30",
+      "raw_match": false,
+      "lf_match": false
+    },
+    {
+      "catalogue_id": "game.farmer",
+      "path": "scripts/opera_career_world_2d.gd",
+      "declared_historical_sha256": "93ee120b1a9e2f2c76126464a85cd0a6decfe131c3627b1401c781ae70eafbd7",
+      "current_sha256_git_bytes": "db2759e66e025c566d20a30021548199e00758c525cd88dfc1ab5c01fad65a30",
+      "current_sha256_lf": "db2759e66e025c566d20a30021548199e00758c525cd88dfc1ab5c01fad65a30",
+      "raw_match": false,
+      "lf_match": false
+    },
+    {
+      "catalogue_id": "game.farmer",
+      "path": "scripts/opera_career_world_2d.gd",
+      "declared_historical_sha256": "72f4149c7e6ee1e3ccd65989a6deab6a140c75ca6aa901d4041e33d67ec7a1c0",
+      "current_sha256_git_bytes": "db2759e66e025c566d20a30021548199e00758c525cd88dfc1ab5c01fad65a30",
+      "current_sha256_lf": "db2759e66e025c566d20a30021548199e00758c525cd88dfc1ab5c01fad65a30",
+      "raw_match": false,
+      "lf_match": false
+    },
+    {
+      "catalogue_id": "game.farmer",
+      "path": "scripts/opera_gesture_surface.gd",
+      "declared_historical_sha256": "6bc39fd887eb70c267ace91707ca9b30cdded8835c3f4c2ec7ee400911fb66d9",
+      "current_sha256_git_bytes": "82fc3444887a8547719f263fe2368f162f1c0e935b1877d4dc37afb74faf6459",
+      "current_sha256_lf": "82fc3444887a8547719f263fe2368f162f1c0e935b1877d4dc37afb74faf6459",
+      "raw_match": false,
+      "lf_match": false
+    },
+    {
+      "catalogue_id": "game.farmer",
+      "path": "scripts/opera_gesture_surface.gd",
+      "declared_historical_sha256": "9533c69ee9085da10ea13da6d3983bee163caf4d8f1f669e0197641e6bdc8973",
+      "current_sha256_git_bytes": "82fc3444887a8547719f263fe2368f162f1c0e935b1877d4dc37afb74faf6459",
+      "current_sha256_lf": "82fc3444887a8547719f263fe2368f162f1c0e935b1877d4dc37afb74faf6459",
+      "raw_match": false,
+      "lf_match": false
+    },
+    {
+      "catalogue_id": "game.doctor",
+      "path": "scripts/opera_career_world_2d.gd",
+      "declared_historical_sha256": "19b081d7621a00e25174f1194244bf03fe7728e1be2410be9c0506ea285b3f23",
+      "current_sha256_git_bytes": "db2759e66e025c566d20a30021548199e00758c525cd88dfc1ab5c01fad65a30",
+      "current_sha256_lf": "db2759e66e025c566d20a30021548199e00758c525cd88dfc1ab5c01fad65a30",
+      "raw_match": false,
+      "lf_match": false
+    },
+    {
+      "catalogue_id": "game.doctor",
+      "path": "scripts/opera_career_world_2d.gd",
+      "declared_historical_sha256": "36cea308c0ad554cc2bcd3ef9889750da7704f710259db4d57093b9105094cd0",
+      "current_sha256_git_bytes": "db2759e66e025c566d20a30021548199e00758c525cd88dfc1ab5c01fad65a30",
+      "current_sha256_lf": "db2759e66e025c566d20a30021548199e00758c525cd88dfc1ab5c01fad65a30",
+      "raw_match": false,
+      "lf_match": false
+    },
+    {
+      "catalogue_id": "game.doctor",
+      "path": "scripts/chapter_two_career_scene_adapter.gd",
+      "declared_historical_sha256": "ebfde4f121d09dbee847a29fdd77857348ffa48b9ccf35770380d8aa5841bb6d",
+      "current_sha256_git_bytes": "58c148acc4307315ee96e909aaf876b5095ab220875566707456a993cbc32ec8",
+      "current_sha256_lf": "58c148acc4307315ee96e909aaf876b5095ab220875566707456a993cbc32ec8",
+      "raw_match": false,
+      "lf_match": false
+    },
+    {
+      "catalogue_id": "game.doctor",
+      "path": "scripts/opera_career_world_2d.gd",
+      "declared_historical_sha256": "c9786df21c11e54f46aa84a6d7a7b377a018c3528d80eb35bce5e90f7930d7cf",
+      "current_sha256_git_bytes": "db2759e66e025c566d20a30021548199e00758c525cd88dfc1ab5c01fad65a30",
+      "current_sha256_lf": "db2759e66e025c566d20a30021548199e00758c525cd88dfc1ab5c01fad65a30",
+      "raw_match": false,
+      "lf_match": false
+    },
+    {
+      "catalogue_id": "game.doctor",
+      "path": "scripts/opera_career_world_2d.gd",
+      "declared_historical_sha256": "93ee120b1a9e2f2c76126464a85cd0a6decfe131c3627b1401c781ae70eafbd7",
+      "current_sha256_git_bytes": "db2759e66e025c566d20a30021548199e00758c525cd88dfc1ab5c01fad65a30",
+      "current_sha256_lf": "db2759e66e025c566d20a30021548199e00758c525cd88dfc1ab5c01fad65a30",
+      "raw_match": false,
+      "lf_match": false
+    },
+    {
+      "catalogue_id": "game.doctor",
+      "path": "scripts/opera_career_world_2d.gd",
+      "declared_historical_sha256": "72f4149c7e6ee1e3ccd65989a6deab6a140c75ca6aa901d4041e33d67ec7a1c0",
+      "current_sha256_git_bytes": "db2759e66e025c566d20a30021548199e00758c525cd88dfc1ab5c01fad65a30",
+      "current_sha256_lf": "db2759e66e025c566d20a30021548199e00758c525cd88dfc1ab5c01fad65a30",
+      "raw_match": false,
+      "lf_match": false
+    },
+    {
+      "catalogue_id": "game.doctor",
+      "path": "scripts/opera_gesture_surface.gd",
+      "declared_historical_sha256": "ad49b06ea5319dc48232917aecf18540b7a55c5337aaf8486ef0a2974f4e94ae",
+      "current_sha256_git_bytes": "82fc3444887a8547719f263fe2368f162f1c0e935b1877d4dc37afb74faf6459",
+      "current_sha256_lf": "82fc3444887a8547719f263fe2368f162f1c0e935b1877d4dc37afb74faf6459",
+      "raw_match": false,
+      "lf_match": false
+    },
+    {
+      "catalogue_id": "game.doctor",
+      "path": "scripts/opera_gesture_surface.gd",
+      "declared_historical_sha256": "87534d882e34836b527acdfe95f2c3a5f4942c727c9ee1901037328128fae94c",
+      "current_sha256_git_bytes": "82fc3444887a8547719f263fe2368f162f1c0e935b1877d4dc37afb74faf6459",
+      "current_sha256_lf": "82fc3444887a8547719f263fe2368f162f1c0e935b1877d4dc37afb74faf6459",
+      "raw_match": false,
+      "lf_match": false
+    },
+    {
+      "catalogue_id": "game.painter",
+      "path": "scripts/opera_career_world_2d.gd",
+      "declared_historical_sha256": "72b72855778b1152c362f33bbd849d58ef2da16573afc7a59ceeeacf3b098bc3",
+      "current_sha256_git_bytes": "db2759e66e025c566d20a30021548199e00758c525cd88dfc1ab5c01fad65a30",
+      "current_sha256_lf": "db2759e66e025c566d20a30021548199e00758c525cd88dfc1ab5c01fad65a30",
+      "raw_match": false,
+      "lf_match": false
+    },
+    {
+      "catalogue_id": "game.painter",
+      "path": "scripts/opera_career_world_2d.gd",
+      "declared_historical_sha256": "a32bd77738043ddf194487b36829ddf7b6a444a8ae926ea8ca2396f0b7d798ac",
+      "current_sha256_git_bytes": "db2759e66e025c566d20a30021548199e00758c525cd88dfc1ab5c01fad65a30",
+      "current_sha256_lf": "db2759e66e025c566d20a30021548199e00758c525cd88dfc1ab5c01fad65a30",
+      "raw_match": false,
+      "lf_match": false
+    },
+    {
+      "catalogue_id": "game.painter",
+      "path": "scripts/chapter_two_career_scene_adapter.gd",
+      "declared_historical_sha256": "7bff5992b00542f479966b8eeb1402fba0e775809e41b8537b5de11ff6b254f6",
+      "current_sha256_git_bytes": "58c148acc4307315ee96e909aaf876b5095ab220875566707456a993cbc32ec8",
+      "current_sha256_lf": "58c148acc4307315ee96e909aaf876b5095ab220875566707456a993cbc32ec8",
+      "raw_match": false,
+      "lf_match": false
+    },
+    {
+      "catalogue_id": "game.painter",
+      "path": "scripts/opera_career_world_2d.gd",
+      "declared_historical_sha256": "c9786df21c11e54f46aa84a6d7a7b377a018c3528d80eb35bce5e90f7930d7cf",
+      "current_sha256_git_bytes": "db2759e66e025c566d20a30021548199e00758c525cd88dfc1ab5c01fad65a30",
+      "current_sha256_lf": "db2759e66e025c566d20a30021548199e00758c525cd88dfc1ab5c01fad65a30",
+      "raw_match": false,
+      "lf_match": false
+    },
+    {
+      "catalogue_id": "game.painter",
+      "path": "scripts/opera_career_world_2d.gd",
+      "declared_historical_sha256": "93ee120b1a9e2f2c76126464a85cd0a6decfe131c3627b1401c781ae70eafbd7",
+      "current_sha256_git_bytes": "db2759e66e025c566d20a30021548199e00758c525cd88dfc1ab5c01fad65a30",
+      "current_sha256_lf": "db2759e66e025c566d20a30021548199e00758c525cd88dfc1ab5c01fad65a30",
+      "raw_match": false,
+      "lf_match": false
+    },
+    {
+      "catalogue_id": "game.painter",
+      "path": "scripts/opera_career_world_2d.gd",
+      "declared_historical_sha256": "72f4149c7e6ee1e3ccd65989a6deab6a140c75ca6aa901d4041e33d67ec7a1c0",
+      "current_sha256_git_bytes": "db2759e66e025c566d20a30021548199e00758c525cd88dfc1ab5c01fad65a30",
+      "current_sha256_lf": "db2759e66e025c566d20a30021548199e00758c525cd88dfc1ab5c01fad65a30",
+      "raw_match": false,
+      "lf_match": false
+    },
+    {
+      "catalogue_id": "game.painter",
+      "path": "scripts/opera_gesture_surface.gd",
+      "declared_historical_sha256": "c364edd506a8cd44ff343c80fde573da2162ab07ff1949a660086daf2bdb6b18",
+      "current_sha256_git_bytes": "82fc3444887a8547719f263fe2368f162f1c0e935b1877d4dc37afb74faf6459",
+      "current_sha256_lf": "82fc3444887a8547719f263fe2368f162f1c0e935b1877d4dc37afb74faf6459",
+      "raw_match": false,
+      "lf_match": false
+    },
+    {
+      "catalogue_id": "game.painter",
+      "path": "scripts/opera_gesture_surface.gd",
+      "declared_historical_sha256": "04d58423ea10c8baeb66a879346298f0044d0bfaf2d84a3d87c82ee42a3025be",
+      "current_sha256_git_bytes": "82fc3444887a8547719f263fe2368f162f1c0e935b1877d4dc37afb74faf6459",
+      "current_sha256_lf": "82fc3444887a8547719f263fe2368f162f1c0e935b1877d4dc37afb74faf6459",
+      "raw_match": false,
+      "lf_match": false
+    },
+    {
+      "catalogue_id": "game.astronaut",
+      "path": "scripts/opera_career_world_2d.gd",
+      "declared_historical_sha256": "36f48019d38f7206bee32e7e57538a8453664676b4564016a95dd7ee9755ef1b",
+      "current_sha256_git_bytes": "db2759e66e025c566d20a30021548199e00758c525cd88dfc1ab5c01fad65a30",
+      "current_sha256_lf": "db2759e66e025c566d20a30021548199e00758c525cd88dfc1ab5c01fad65a30",
+      "raw_match": false,
+      "lf_match": false
+    },
+    {
+      "catalogue_id": "game.astronaut",
+      "path": "scripts/opera_career_world_2d.gd",
+      "declared_historical_sha256": "b8f7226fece506ec6c210ad266420b3fbbca91941df524b7e4a23733a33f3da6",
+      "current_sha256_git_bytes": "db2759e66e025c566d20a30021548199e00758c525cd88dfc1ab5c01fad65a30",
+      "current_sha256_lf": "db2759e66e025c566d20a30021548199e00758c525cd88dfc1ab5c01fad65a30",
+      "raw_match": false,
+      "lf_match": false
+    },
+    {
+      "catalogue_id": "game.astronaut",
+      "path": "scripts/chapter_two_career_scene_adapter.gd",
+      "declared_historical_sha256": "b00b515cf97500a32b193f7a9df4b7223ffb85b10510bf049ec06f4e9e99a6a1",
+      "current_sha256_git_bytes": "58c148acc4307315ee96e909aaf876b5095ab220875566707456a993cbc32ec8",
+      "current_sha256_lf": "58c148acc4307315ee96e909aaf876b5095ab220875566707456a993cbc32ec8",
+      "raw_match": false,
+      "lf_match": false
+    },
+    {
+      "catalogue_id": "game.astronaut",
+      "path": "scripts/opera_career_world_2d.gd",
+      "declared_historical_sha256": "c9786df21c11e54f46aa84a6d7a7b377a018c3528d80eb35bce5e90f7930d7cf",
+      "current_sha256_git_bytes": "db2759e66e025c566d20a30021548199e00758c525cd88dfc1ab5c01fad65a30",
+      "current_sha256_lf": "db2759e66e025c566d20a30021548199e00758c525cd88dfc1ab5c01fad65a30",
+      "raw_match": false,
+      "lf_match": false
+    },
+    {
+      "catalogue_id": "game.astronaut",
+      "path": "scripts/opera_career_world_2d.gd",
+      "declared_historical_sha256": "93ee120b1a9e2f2c76126464a85cd0a6decfe131c3627b1401c781ae70eafbd7",
+      "current_sha256_git_bytes": "db2759e66e025c566d20a30021548199e00758c525cd88dfc1ab5c01fad65a30",
+      "current_sha256_lf": "db2759e66e025c566d20a30021548199e00758c525cd88dfc1ab5c01fad65a30",
+      "raw_match": false,
+      "lf_match": false
+    },
+    {
+      "catalogue_id": "game.astronaut",
+      "path": "scripts/opera_career_world_2d.gd",
+      "declared_historical_sha256": "72f4149c7e6ee1e3ccd65989a6deab6a140c75ca6aa901d4041e33d67ec7a1c0",
+      "current_sha256_git_bytes": "db2759e66e025c566d20a30021548199e00758c525cd88dfc1ab5c01fad65a30",
+      "current_sha256_lf": "db2759e66e025c566d20a30021548199e00758c525cd88dfc1ab5c01fad65a30",
+      "raw_match": false,
+      "lf_match": false
+    },
+    {
+      "catalogue_id": "game.astronaut",
+      "path": "scripts/opera_gesture_surface.gd",
+      "declared_historical_sha256": "58229fd59ba51702f0e4392ec3fcccda4eee7dd9d21101eec28826a49d8879f2",
+      "current_sha256_git_bytes": "82fc3444887a8547719f263fe2368f162f1c0e935b1877d4dc37afb74faf6459",
+      "current_sha256_lf": "82fc3444887a8547719f263fe2368f162f1c0e935b1877d4dc37afb74faf6459",
+      "raw_match": false,
+      "lf_match": false
+    },
+    {
+      "catalogue_id": "game.astronaut",
+      "path": "scripts/opera_gesture_surface.gd",
+      "declared_historical_sha256": "a11182472deed4b78d24331a2faf0fde4cd327035519173789d0502c8cdd847e",
+      "current_sha256_git_bytes": "82fc3444887a8547719f263fe2368f162f1c0e935b1877d4dc37afb74faf6459",
+      "current_sha256_lf": "82fc3444887a8547719f263fe2368f162f1c0e935b1877d4dc37afb74faf6459",
+      "raw_match": false,
+      "lf_match": false
+    },
+    {
+      "catalogue_id": "game.astronaut",
+      "path": "scripts/opera_gesture_surface.gd",
+      "declared_historical_sha256": "0f5e64f19404fdb6341997d8af85b2ba2415b9ffe677ef20c780e01bb2ae32e8",
+      "current_sha256_git_bytes": "82fc3444887a8547719f263fe2368f162f1c0e935b1877d4dc37afb74faf6459",
+      "current_sha256_lf": "82fc3444887a8547719f263fe2368f162f1c0e935b1877d4dc37afb74faf6459",
+      "raw_match": false,
+      "lf_match": false
+    },
+    {
+      "catalogue_id": "game.geologist",
+      "path": "scripts/opera_career_world_2d.gd",
+      "declared_historical_sha256": "d15cbe278d47a452b7d8a139b050013df95db27b6dece00430dd84eea3c3372a",
+      "current_sha256_git_bytes": "db2759e66e025c566d20a30021548199e00758c525cd88dfc1ab5c01fad65a30",
+      "current_sha256_lf": "db2759e66e025c566d20a30021548199e00758c525cd88dfc1ab5c01fad65a30",
+      "raw_match": false,
+      "lf_match": false
+    },
+    {
+      "catalogue_id": "game.geologist",
+      "path": "scripts/opera_career_world_2d.gd",
+      "declared_historical_sha256": "0f6155ffc76c881e502bc36aa99da07c5635b3791dc5157a2b391c4018e6abab",
+      "current_sha256_git_bytes": "db2759e66e025c566d20a30021548199e00758c525cd88dfc1ab5c01fad65a30",
+      "current_sha256_lf": "db2759e66e025c566d20a30021548199e00758c525cd88dfc1ab5c01fad65a30",
+      "raw_match": false,
+      "lf_match": false
+    },
+    {
+      "catalogue_id": "game.geologist",
+      "path": "scripts/opera_career_world_2d.gd",
+      "declared_historical_sha256": "c9786df21c11e54f46aa84a6d7a7b377a018c3528d80eb35bce5e90f7930d7cf",
+      "current_sha256_git_bytes": "db2759e66e025c566d20a30021548199e00758c525cd88dfc1ab5c01fad65a30",
+      "current_sha256_lf": "db2759e66e025c566d20a30021548199e00758c525cd88dfc1ab5c01fad65a30",
+      "raw_match": false,
+      "lf_match": false
+    },
+    {
+      "catalogue_id": "game.geologist",
+      "path": "scripts/opera_career_world_2d.gd",
+      "declared_historical_sha256": "93ee120b1a9e2f2c76126464a85cd0a6decfe131c3627b1401c781ae70eafbd7",
+      "current_sha256_git_bytes": "db2759e66e025c566d20a30021548199e00758c525cd88dfc1ab5c01fad65a30",
+      "current_sha256_lf": "db2759e66e025c566d20a30021548199e00758c525cd88dfc1ab5c01fad65a30",
+      "raw_match": false,
+      "lf_match": false
+    },
+    {
+      "catalogue_id": "game.geologist",
+      "path": "scripts/opera_geology_surface.gd",
+      "declared_historical_sha256": "da96f3b7c07b2ecac796cbe21410499c4439937a21d4096fd918a611e02ba8be",
+      "current_sha256_git_bytes": "da96f3b7c07b2ecac796cbe21410499c4439937a21d4096fd918a611e02ba8be",
+      "current_sha256_lf": "da96f3b7c07b2ecac796cbe21410499c4439937a21d4096fd918a611e02ba8be",
+      "raw_match": true,
+      "lf_match": true
+    },
+    {
+      "catalogue_id": "game.geologist",
+      "path": "scripts/opera_world_backdrop_2d.gd",
+      "declared_historical_sha256": "54d6bc11386f7b9ea1c8a88b277edfd75553f20ed48d8792ac38e26b20a0fce3",
+      "current_sha256_git_bytes": "37a9bf06e2c2b777086543ca48fb54b3634ccc8d5a1620a6f03668e6dff0e740",
+      "current_sha256_lf": "37a9bf06e2c2b777086543ca48fb54b3634ccc8d5a1620a6f03668e6dff0e740",
+      "raw_match": false,
+      "lf_match": false
+    },
+    {
+      "catalogue_id": "game.pic_snowman",
+      "path": "scripts/games/picture_games.gd",
+      "declared_historical_sha256": "8261949e10f418ae200c25865e02142337f5fff24fce33d3132331bfd395c51d",
+      "current_sha256_git_bytes": "5d7202ac46b0ca26752b74b959eb052f2889369932d697b8b8727ad368abc8f0",
+      "current_sha256_lf": "5d7202ac46b0ca26752b74b959eb052f2889369932d697b8b8727ad368abc8f0",
+      "raw_match": false,
+      "lf_match": false
+    },
+    {
+      "catalogue_id": "game.pic_snowman",
+      "path": "scripts/games/picture_games.gd",
+      "declared_historical_sha256": "8d170ebadd1144601e1217c30548e5a055cbf5602f01a154791cc6de309c238d",
+      "current_sha256_git_bytes": "5d7202ac46b0ca26752b74b959eb052f2889369932d697b8b8727ad368abc8f0",
+      "current_sha256_lf": "5d7202ac46b0ca26752b74b959eb052f2889369932d697b8b8727ad368abc8f0",
+      "raw_match": false,
+      "lf_match": false
+    },
+    {
+      "catalogue_id": "game.pic_garden",
+      "path": "scripts/games/picture_games.gd",
+      "declared_historical_sha256": "90f08d0712b316708f26389e396e14d7278469c6efcbc60e88d5fc0801e3972e",
+      "current_sha256_git_bytes": "5d7202ac46b0ca26752b74b959eb052f2889369932d697b8b8727ad368abc8f0",
+      "current_sha256_lf": "5d7202ac46b0ca26752b74b959eb052f2889369932d697b8b8727ad368abc8f0",
+      "raw_match": false,
+      "lf_match": false
+    },
+    {
+      "catalogue_id": "game.pic_garden",
+      "path": "scripts/games/picture_games.gd",
+      "declared_historical_sha256": "da8d1582580328f32baf53094571a72151906b46b7d354330294e2d5b3b0de20",
+      "current_sha256_git_bytes": "5d7202ac46b0ca26752b74b959eb052f2889369932d697b8b8727ad368abc8f0",
+      "current_sha256_lf": "5d7202ac46b0ca26752b74b959eb052f2889369932d697b8b8727ad368abc8f0",
+      "raw_match": false,
+      "lf_match": false
+    },
+    {
+      "catalogue_id": "game.pic_trampoline",
+      "path": "scripts/games/picture_games.gd",
+      "declared_historical_sha256": "0a68fa27f7aacd0ed2f56f2e4ffc9b3298465f6dc73d9dce0301b426d43b5964",
+      "current_sha256_git_bytes": "5d7202ac46b0ca26752b74b959eb052f2889369932d697b8b8727ad368abc8f0",
+      "current_sha256_lf": "5d7202ac46b0ca26752b74b959eb052f2889369932d697b8b8727ad368abc8f0",
+      "raw_match": false,
+      "lf_match": false
+    },
+    {
+      "catalogue_id": "game.pic_trampoline",
+      "path": "scripts/games/picture_games.gd",
+      "declared_historical_sha256": "dfebe53badad7fc3f9881b09eb2a59c23c5f63cfd5251c14fc106e699bdad110",
+      "current_sha256_git_bytes": "5d7202ac46b0ca26752b74b959eb052f2889369932d697b8b8727ad368abc8f0",
+      "current_sha256_lf": "5d7202ac46b0ca26752b74b959eb052f2889369932d697b8b8727ad368abc8f0",
+      "raw_match": false,
+      "lf_match": false
+    },
+    {
+      "catalogue_id": "game.pic_xmas",
+      "path": "scripts/games/picture_games.gd",
+      "declared_historical_sha256": "4877a8a5327936db78a8608113c943bbee6e21c2058665a23acb6a6a30775cdf",
+      "current_sha256_git_bytes": "5d7202ac46b0ca26752b74b959eb052f2889369932d697b8b8727ad368abc8f0",
+      "current_sha256_lf": "5d7202ac46b0ca26752b74b959eb052f2889369932d697b8b8727ad368abc8f0",
+      "raw_match": false,
+      "lf_match": false
+    },
+    {
+      "catalogue_id": "game.pic_xmas",
+      "path": "scripts/games/picture_games.gd",
+      "declared_historical_sha256": "fe49da4b5f93b77f26f349da22ad815ded6408a9bf3d36c6abd181d3b57359a0",
+      "current_sha256_git_bytes": "5d7202ac46b0ca26752b74b959eb052f2889369932d697b8b8727ad368abc8f0",
+      "current_sha256_lf": "5d7202ac46b0ca26752b74b959eb052f2889369932d697b8b8727ad368abc8f0",
+      "raw_match": false,
+      "lf_match": false
+    },
+    {
+      "catalogue_id": "game.pic_slide",
+      "path": "scripts/games/picture_games.gd",
+      "declared_historical_sha256": "5ca60ae76acca306c5d75b301c9d1ace5e4268b6f0f2421344deb4425fbc7652",
+      "current_sha256_git_bytes": "5d7202ac46b0ca26752b74b959eb052f2889369932d697b8b8727ad368abc8f0",
+      "current_sha256_lf": "5d7202ac46b0ca26752b74b959eb052f2889369932d697b8b8727ad368abc8f0",
+      "raw_match": false,
+      "lf_match": false
+    },
+    {
+      "catalogue_id": "game.dolls",
+      "path": "scripts/games/dolls.gd",
+      "declared_historical_sha256": "a3cf7ffd6f6a7bcf1072fa1a753e465f742190f46d9809830589a2242c77c7e0",
+      "current_sha256_git_bytes": "42fe387b2d80eec41bd421301ca49cc01e9f60a33d5d8eaa6de6a1a8bc9caf50",
+      "current_sha256_lf": "42fe387b2d80eec41bd421301ca49cc01e9f60a33d5d8eaa6de6a1a8bc9caf50",
+      "raw_match": false,
+      "lf_match": false
+    },
+    {
+      "catalogue_id": "game.seek",
+      "path": "scripts/games/seek.gd",
+      "declared_historical_sha256": "d559447c82c29a33ddb319ef191cf9542d55304f62cae649e39cb2f9d9079741",
+      "current_sha256_git_bytes": "9aec0b1fe979315ffd46b94b52b53a27c418809cd3a7cc3af1284294cd092d4c",
+      "current_sha256_lf": "9aec0b1fe979315ffd46b94b52b53a27c418809cd3a7cc3af1284294cd092d4c",
+      "raw_match": false,
+      "lf_match": false
+    },
+    {
+      "catalogue_id": "game.melody",
+      "path": "scripts/games/melody.gd",
+      "declared_historical_sha256": "a2477bc6fd21454c69480b290ccc13892e6938e4d1abf534051380dd84e5712e",
+      "current_sha256_git_bytes": "a2477bc6fd21454c69480b290ccc13892e6938e4d1abf534051380dd84e5712e",
+      "current_sha256_lf": "a2477bc6fd21454c69480b290ccc13892e6938e4d1abf534051380dd84e5712e",
+      "raw_match": true,
+      "lf_match": true
+    },
+    {
+      "catalogue_id": "game.slide_fish",
+      "path": "scripts/games/slide_race.gd",
+      "declared_historical_sha256": "2293c08bd2a056b2e5819f2406fc9ca42f5cc734e700552eab29642555f44b8f",
+      "current_sha256_git_bytes": "2293c08bd2a056b2e5819f2406fc9ca42f5cc734e700552eab29642555f44b8f",
+      "current_sha256_lf": "2293c08bd2a056b2e5819f2406fc9ca42f5cc734e700552eab29642555f44b8f",
+      "raw_match": true,
+      "lf_match": true
+    },
+    {
+      "catalogue_id": "game.fetch",
+      "path": "scripts/games/fetch.gd",
+      "declared_historical_sha256": "d1cd79931637e376cbdcff3fa88871f63d673c82987ec20fa2dffb150fb1b805",
+      "current_sha256_git_bytes": "d1cd79931637e376cbdcff3fa88871f63d673c82987ec20fa2dffb150fb1b805",
+      "current_sha256_lf": "d1cd79931637e376cbdcff3fa88871f63d673c82987ec20fa2dffb150fb1b805",
+      "raw_match": true,
+      "lf_match": true
+    },
+    {
+      "catalogue_id": "game.shop",
+      "path": "scripts/games/shop.gd",
+      "declared_historical_sha256": "62ce2b2bf2a8319b7f0e86a7856436b5072f662be1c0477d6d7a79b0e45f7585",
+      "current_sha256_git_bytes": "62ce2b2bf2a8319b7f0e86a7856436b5072f662be1c0477d6d7a79b0e45f7585",
+      "current_sha256_lf": "62ce2b2bf2a8319b7f0e86a7856436b5072f662be1c0477d6d7a79b0e45f7585",
+      "raw_match": true,
+      "lf_match": true
+    },
+    {
+      "catalogue_id": "game.treasure",
+      "path": "scripts/games/treasure.gd",
+      "declared_historical_sha256": "f228a13ad65977517f3486e42be6e79fb20546d633d747e6353d859a6ec7540c",
+      "current_sha256_git_bytes": "f228a13ad65977517f3486e42be6e79fb20546d633d747e6353d859a6ec7540c",
+      "current_sha256_lf": "f228a13ad65977517f3486e42be6e79fb20546d633d747e6353d859a6ec7540c",
+      "raw_match": true,
+      "lf_match": true
+    },
+    {
+      "catalogue_id": "game.slide_penguin",
+      "path": "scripts/games/slide_race.gd",
+      "declared_historical_sha256": "2293c08bd2a056b2e5819f2406fc9ca42f5cc734e700552eab29642555f44b8f",
+      "current_sha256_git_bytes": "2293c08bd2a056b2e5819f2406fc9ca42f5cc734e700552eab29642555f44b8f",
+      "current_sha256_lf": "2293c08bd2a056b2e5819f2406fc9ca42f5cc734e700552eab29642555f44b8f",
+      "raw_match": true,
+      "lf_match": true
+    },
+    {
+      "catalogue_id": "game.playplace",
+      "path": "scripts/games/slide_race.gd",
+      "declared_historical_sha256": "2293c08bd2a056b2e5819f2406fc9ca42f5cc734e700552eab29642555f44b8f",
+      "current_sha256_git_bytes": "2293c08bd2a056b2e5819f2406fc9ca42f5cc734e700552eab29642555f44b8f",
+      "current_sha256_lf": "2293c08bd2a056b2e5819f2406fc9ca42f5cc734e700552eab29642555f44b8f",
+      "raw_match": true,
+      "lf_match": true
+    },
+    {
+      "catalogue_id": "game.playplace",
+      "path": "scripts/main.gd",
+      "declared_historical_sha256": "0f5e3ba3986d2d765d41414214ce9cc238cc4a608969bbd114068db2a9e8ad90",
+      "current_sha256_git_bytes": "77bddeb59b215fd2d993f6c124ef67e49314d992d00cbc7c1b9231e9c157c417",
+      "current_sha256_lf": "77bddeb59b215fd2d993f6c124ef67e49314d992d00cbc7c1b9231e9c157c417",
+      "raw_match": false,
+      "lf_match": false
+    },
+    {
+      "catalogue_id": "game.dance",
+      "path": "scripts/games/dance_engine.gd",
+      "declared_historical_sha256": "d8af408dbc2b8fe54a0b88b16e978b2bf9e6aab36e3a2eed3a15a1bdfe52511e",
+      "current_sha256_git_bytes": "d8af408dbc2b8fe54a0b88b16e978b2bf9e6aab36e3a2eed3a15a1bdfe52511e",
+      "current_sha256_lf": "d8af408dbc2b8fe54a0b88b16e978b2bf9e6aab36e3a2eed3a15a1bdfe52511e",
+      "raw_match": true,
+      "lf_match": true
+    },
+    {
+      "catalogue_id": "game.fairy_pond",
+      "path": "scripts/games/fairy.gd",
+      "declared_historical_sha256": "8bf4e48249c63441b4e3c89de0930ae14668b2cd8c1577189ff7b41f1b77d679",
+      "current_sha256_git_bytes": "8bf4e48249c63441b4e3c89de0930ae14668b2cd8c1577189ff7b41f1b77d679",
+      "current_sha256_lf": "8bf4e48249c63441b4e3c89de0930ae14668b2cd8c1577189ff7b41f1b77d679",
+      "raw_match": true,
+      "lf_match": true
+    },
+    {
+      "catalogue_id": "game.comfy_games",
+      "path": "scripts/comfy_games.gd",
+      "declared_historical_sha256": "86fcfaa206b2e09323c1e0102747be080b9aa86cc42caa59f9dd66d9778f506c",
+      "current_sha256_git_bytes": "bcd36dcb3f25c0bbb3586c8d20fc7a5524792b56d7b0577644a0d2645931a0be",
+      "current_sha256_lf": "bcd36dcb3f25c0bbb3586c8d20fc7a5524792b56d7b0577644a0d2645931a0be",
+      "raw_match": false,
+      "lf_match": false
+    },
+    {
+      "catalogue_id": "game.brawl",
+      "path": "scripts/games/brawl.gd",
+      "declared_historical_sha256": "0780ad5b708cde10bbf3a1a37a1c06f7210e8d04a44172633605760c22dac8d7",
+      "current_sha256_git_bytes": "0780ad5b708cde10bbf3a1a37a1c06f7210e8d04a44172633605760c22dac8d7",
+      "current_sha256_lf": "0780ad5b708cde10bbf3a1a37a1c06f7210e8d04a44172633605760c22dac8d7",
+      "raw_match": true,
+      "lf_match": true
+    },
+    {
+      "catalogue_id": "game.brawl",
+      "path": "scripts/games/side_scroll.gd",
+      "declared_historical_sha256": "e094f4efef2ee295ebad159e82e49ccd2bb8db26c38049c5f7135bd86114b0a7",
+      "current_sha256_git_bytes": "e094f4efef2ee295ebad159e82e49ccd2bb8db26c38049c5f7135bd86114b0a7",
+      "current_sha256_lf": "e094f4efef2ee295ebad159e82e49ccd2bb8db26c38049c5f7135bd86114b0a7",
+      "raw_match": true,
+      "lf_match": true
+    },
+    {
+      "catalogue_id": "game.painter_studio",
+      "path": "scripts/painter/painter_studio.gd",
+      "declared_historical_sha256": "19e5f6e21d116f17926b5ab666836db382dea8d0060b43e957460af7b637314a",
+      "current_sha256_git_bytes": "19e5f6e21d116f17926b5ab666836db382dea8d0060b43e957460af7b637314a",
+      "current_sha256_lf": "19e5f6e21d116f17926b5ab666836db382dea8d0060b43e957460af7b637314a",
+      "raw_match": true,
+      "lf_match": true
+    },
+    {
+      "catalogue_id": "game.painter_studio",
+      "path": "scripts/painter/painter_document.gd",
+      "declared_historical_sha256": "a08227e81e5100d1743d5707708eea6e2ff9f366129982280ec579b6490af4ff",
+      "current_sha256_git_bytes": "a08227e81e5100d1743d5707708eea6e2ff9f366129982280ec579b6490af4ff",
+      "current_sha256_lf": "a08227e81e5100d1743d5707708eea6e2ff9f366129982280ec579b6490af4ff",
+      "raw_match": true,
+      "lf_match": true
+    },
+    {
+      "catalogue_id": "game.painter_studio",
+      "path": "scripts/painter/painter_template.gd",
+      "declared_historical_sha256": "0f48f9885a2b1e1cb3ab3a0b828df8cf06bdcb8162f37e80e1b8fa258be2a746",
+      "current_sha256_git_bytes": "0f48f9885a2b1e1cb3ab3a0b828df8cf06bdcb8162f37e80e1b8fa258be2a746",
+      "current_sha256_lf": "0f48f9885a2b1e1cb3ab3a0b828df8cf06bdcb8162f37e80e1b8fa258be2a746",
+      "raw_match": true,
+      "lf_match": true
+    },
+    {
+      "catalogue_id": "game.painter_studio",
+      "path": "scripts/painter/vendor/painter_flood_fill.gd",
+      "declared_historical_sha256": "60a50de9b675751431ddd51e4cbea47b691d8c9f17b7ca0f69a9305740e5ae0c",
+      "current_sha256_git_bytes": "60a50de9b675751431ddd51e4cbea47b691d8c9f17b7ca0f69a9305740e5ae0c",
+      "current_sha256_lf": "60a50de9b675751431ddd51e4cbea47b691d8c9f17b7ca0f69a9305740e5ae0c",
+      "raw_match": true,
+      "lf_match": true
+    },
+    {
+      "catalogue_id": "game.fairy_restoration",
+      "path": "scripts/fairy_restoration_prototype.gd",
+      "declared_historical_sha256": "75a80350f45bb59b822d1084a05b8b0e7899d59df32a00c1e07d4ea8a9ec09fe",
+      "current_sha256_git_bytes": "75a80350f45bb59b822d1084a05b8b0e7899d59df32a00c1e07d4ea8a9ec09fe",
+      "current_sha256_lf": "75a80350f45bb59b822d1084a05b8b0e7899d59df32a00c1e07d4ea8a9ec09fe",
+      "raw_match": true,
+      "lf_match": true
+    },
+    {
+      "catalogue_id": "game.pearl_castle",
+      "path": "scripts/arena/castle_rooms_25d.gd",
+      "declared_historical_sha256": "c0df908d401ff8a3e000135b83c20780e104d284b11c795945710a349b96fa9f",
+      "current_sha256_git_bytes": "50c723043680c987cc959d9bfbbcad94cfb62162f24d305d3f058c0d2de05176",
+      "current_sha256_lf": "50c723043680c987cc959d9bfbbcad94cfb62162f24d305d3f058c0d2de05176",
+      "raw_match": false,
+      "lf_match": false
+    },
+    {
+      "catalogue_id": "game.pearl_castle",
+      "path": "scripts/castle_door_language.gd",
+      "declared_historical_sha256": "54d6cb97a34ffd0cd8ca8b916312d39c157856860db2fa2d1592f9b042ea3b5f",
+      "current_sha256_git_bytes": "54d6cb97a34ffd0cd8ca8b916312d39c157856860db2fa2d1592f9b042ea3b5f",
+      "current_sha256_lf": "54d6cb97a34ffd0cd8ca8b916312d39c157856860db2fa2d1592f9b042ea3b5f",
+      "raw_match": true,
+      "lf_match": true
+    },
+    {
+      "catalogue_id": "game.pearl_castle",
+      "path": "scripts/stage_navigation_2d.gd",
+      "declared_historical_sha256": "36fb7f194b8ad710284b7c5f5e9ef797a0d3c3c56bdc040f8b98d25bc455d79b",
+      "current_sha256_git_bytes": "36fb7f194b8ad710284b7c5f5e9ef797a0d3c3c56bdc040f8b98d25bc455d79b",
+      "current_sha256_lf": "36fb7f194b8ad710284b7c5f5e9ef797a0d3c3c56bdc040f8b98d25bc455d79b",
+      "raw_match": true,
+      "lf_match": true
+    },
+    {
+      "catalogue_id": "game.sky_lagoon",
+      "path": "scripts/arena/sky_lagoon_promenade.gd",
+      "declared_historical_sha256": "3f7ec92af1472d65bf6aa15e4844b42a11a4a17660fe7073304f8005b0edc93a",
+      "current_sha256_git_bytes": "a6c72599809ddace2e94e02ba10db518483008ace62655e9059a76d3eacd2dfa",
+      "current_sha256_lf": "a6c72599809ddace2e94e02ba10db518483008ace62655e9059a76d3eacd2dfa",
+      "raw_match": false,
+      "lf_match": false
+    },
+    {
+      "catalogue_id": "game.sky_lagoon",
+      "path": "scripts/arena/sky_lagoon_layout.json",
+      "declared_historical_sha256": "446a5b98c267da8e9d9a8ab1cb06ae820e2334934e8e62bd805c4c1ff6b87fd5",
+      "current_sha256_git_bytes": "680173a909a4fddfadbc89f45d891159067bf5e776936f56f47e2295a2c338fe",
+      "current_sha256_lf": "680173a909a4fddfadbc89f45d891159067bf5e776936f56f47e2295a2c338fe",
+      "raw_match": false,
+      "lf_match": false
+    },
+    {
+      "catalogue_id": "game.galaxy",
+      "path": "scripts/galaxy.gd",
+      "declared_historical_sha256": "f35783f1c1cdbb1057b0232e94691819d61dbd2024f939e23d173af292785f65",
+      "current_sha256_git_bytes": "54278a504f031e001e1e2eb2f13082040da6b6967f02522f5f73cc46ed664f59",
+      "current_sha256_lf": "54278a504f031e001e1e2eb2f13082040da6b6967f02522f5f73cc46ed664f59",
+      "raw_match": false,
+      "lf_match": false
+    },
+    {
+      "catalogue_id": "game.fairy_conservatory",
+      "path": "scripts/arena/fairy_conservatory_door_2d.gd",
+      "declared_historical_sha256": "ae6e1ad07979c97bd7c474c546a64a12ccd4c944719ec886fdd76f7fae165089",
+      "current_sha256_git_bytes": "ae6e1ad07979c97bd7c474c546a64a12ccd4c944719ec886fdd76f7fae165089",
+      "current_sha256_lf": "ae6e1ad07979c97bd7c474c546a64a12ccd4c944719ec886fdd76f7fae165089",
+      "raw_match": true,
+      "lf_match": true
+    },
+    {
+      "catalogue_id": "game.fairy_conservatory",
+      "path": "scripts/arena/fairy_conservatory_handoff_2d.gd",
+      "declared_historical_sha256": "e0d08f6ef776016f26a7fe5d2f8e8656e2405f4d0a77674133d3b879fb6ac4f7",
+      "current_sha256_git_bytes": "5bf165f546860121beb6c19369dce9833d8b665274e0edff75bc2d00b7ccbd34",
+      "current_sha256_lf": "5bf165f546860121beb6c19369dce9833d8b665274e0edff75bc2d00b7ccbd34",
+      "raw_match": false,
+      "lf_match": false
+    },
+    {
+      "catalogue_id": "game.northern",
+      "path": "scripts/arena/northern_kingdom.gd",
+      "declared_historical_sha256": "513f2f4d726f3b7b05187d1ee78f12cbb745849f09da212f2ec0f10c0dfad97a",
+      "current_sha256_git_bytes": "513f2f4d726f3b7b05187d1ee78f12cbb745849f09da212f2ec0f10c0dfad97a",
+      "current_sha256_lf": "513f2f4d726f3b7b05187d1ee78f12cbb745849f09da212f2ec0f10c0dfad97a",
+      "raw_match": true,
+      "lf_match": true
+    },
+    {
+      "catalogue_id": "game.ember",
+      "path": "scripts/ember_fortress.gd",
+      "declared_historical_sha256": "86b2f5e3100e904d5d0b29d88addf424660d10c8f35e3114bb4f5e455f67c3b2",
+      "current_sha256_git_bytes": "dbaec3f196f1b2bd3bab68db44555ea75c35cd756b21fd26e0897fb92f41a2a9",
+      "current_sha256_lf": "dbaec3f196f1b2bd3bab68db44555ea75c35cd756b21fd26e0897fb92f41a2a9",
+      "raw_match": false,
+      "lf_match": false
+    },
+    {
+      "catalogue_id": "game.courtyard_train",
+      "path": "scripts/arena/courtyard_train.gd",
+      "declared_historical_sha256": "329efa196bb5eb3c74cb4b44d0e4dfac6069071e6066daab206bca35a9abe364",
+      "current_sha256_git_bytes": "329efa196bb5eb3c74cb4b44d0e4dfac6069071e6066daab206bca35a9abe364",
+      "current_sha256_lf": "329efa196bb5eb3c74cb4b44d0e4dfac6069071e6066daab206bca35a9abe364",
+      "raw_match": true,
+      "lf_match": true
+    },
+    {
+      "catalogue_id": "game.reef",
+      "path": "scripts/reef_districts.gd",
+      "declared_historical_sha256": "79371c2799a0430107c91a43d4705f8a5bb7939d3d2b33c2df1e3cb608058d3b",
+      "current_sha256_git_bytes": "79371c2799a0430107c91a43d4705f8a5bb7939d3d2b33c2df1e3cb608058d3b",
+      "current_sha256_lf": "79371c2799a0430107c91a43d4705f8a5bb7939d3d2b33c2df1e3cb608058d3b",
+      "raw_match": true,
+      "lf_match": true
+    },
+    {
+      "catalogue_id": "game.combat_tutorial",
+      "path": "scripts/combat_tutorial.gd",
+      "declared_historical_sha256": "b0a77f8d93a369112acf032c9863a95dd822b8e0954382d2b8f9cbd880522e2b",
+      "current_sha256_git_bytes": "2f1dc422c6bd9ee9e4d4cfc08d9863146d8a04afb60a943f8116cf6dc9861327",
+      "current_sha256_lf": "2f1dc422c6bd9ee9e4d4cfc08d9863146d8a04afb60a943f8116cf6dc9861327",
+      "raw_match": false,
+      "lf_match": false
+    },
+    {
+      "catalogue_id": "game.combat_tutorial",
+      "path": "scripts/hit_engine.gd",
+      "declared_historical_sha256": "9a9fc4df1598737937b7c37d2f68675ca4e257f8260cf72a0396a8dfea9a789c",
+      "current_sha256_git_bytes": "9a9fc4df1598737937b7c37d2f68675ca4e257f8260cf72a0396a8dfea9a789c",
+      "current_sha256_lf": "9a9fc4df1598737937b7c37d2f68675ca4e257f8260cf72a0396a8dfea9a789c",
+      "raw_match": true,
+      "lf_match": true
+    },
+    {
+      "catalogue_id": "game.combat_tutorial",
+      "path": "scripts/imp_ai.gd",
+      "declared_historical_sha256": "b07ba584b88dbaa9ed5712d28784dfa9192d1b03016589237c84a3ad5cda148e",
+      "current_sha256_git_bytes": "b07ba584b88dbaa9ed5712d28784dfa9192d1b03016589237c84a3ad5cda148e",
+      "current_sha256_lf": "b07ba584b88dbaa9ed5712d28784dfa9192d1b03016589237c84a3ad5cda148e",
+      "raw_match": true,
+      "lf_match": true
+    },
+    {
+      "catalogue_id": "game.combat_arena",
+      "path": "scripts/combat_arena.gd",
+      "declared_historical_sha256": "f34cf66ef211c73628bbe21d767beff7f0b404107b7c57011b857df8a605880e",
+      "current_sha256_git_bytes": "fa2b2f537ee83689b414b64d95ba19e18663f7dbfa10a88301932013c20f5de8",
+      "current_sha256_lf": "fa2b2f537ee83689b414b64d95ba19e18663f7dbfa10a88301932013c20f5de8",
+      "raw_match": false,
+      "lf_match": false
+    },
+    {
+      "catalogue_id": "game.dungeon",
+      "path": "scripts/dungeon_level.gd",
+      "declared_historical_sha256": "2c5e69c04cab123a42810ecb99e943a4e3f5d362f754236177db3569d222f8ab",
+      "current_sha256_git_bytes": "2c5e69c04cab123a42810ecb99e943a4e3f5d362f754236177db3569d222f8ab",
+      "current_sha256_lf": "2c5e69c04cab123a42810ecb99e943a4e3f5d362f754236177db3569d222f8ab",
+      "raw_match": true,
+      "lf_match": true
+    },
+    {
+      "catalogue_id": "game.dungeon",
+      "path": "scripts/dungeon_puzzle_room.gd",
+      "declared_historical_sha256": "e84bb155523b6b5146c22474244bcdfb813ab0d541fee616244a5476a807b1db",
+      "current_sha256_git_bytes": "d29527c4a8e23f4aaab430fe67d2b3cf6e54d7a99126f3fc23606cf7e77e3e33",
+      "current_sha256_lf": "d29527c4a8e23f4aaab430fe67d2b3cf6e54d7a99126f3fc23606cf7e77e3e33",
+      "raw_match": false,
+      "lf_match": false
+    },
+    {
+      "catalogue_id": "game.dungeon",
+      "path": "scripts/dungeon_art.gd",
+      "declared_historical_sha256": "14d4d835962ebf2a389383376fbc42a55704a58642624bbb22b56afe1cd13941",
+      "current_sha256_git_bytes": "14d4d835962ebf2a389383376fbc42a55704a58642624bbb22b56afe1cd13941",
+      "current_sha256_lf": "14d4d835962ebf2a389383376fbc42a55704a58642624bbb22b56afe1cd13941",
+      "raw_match": true,
+      "lf_match": true
+    },
+    {
+      "catalogue_id": "game.kart",
+      "path": "scripts/kart.gd",
+      "declared_historical_sha256": "69ca21f872c3d9e6e3af8eec5b19bebc4b4dfe1ef4e303298167efaf2af13275",
+      "current_sha256_git_bytes": "0c5ce86e7361ea04287ba322709461a4a9feb84603307cefa20f7d55b4ea5caa",
+      "current_sha256_lf": "0c5ce86e7361ea04287ba322709461a4a9feb84603307cefa20f7d55b4ea5caa",
+      "raw_match": false,
+      "lf_match": false
+    },
+    {
+      "catalogue_id": "game.stuffie_battle",
+      "path": "scripts/stuffie_battle.gd",
+      "declared_historical_sha256": "9fa3246eb07d249ac223a82df8cd6b68ca572e0b28e918f594c420a49f9384a4",
+      "current_sha256_git_bytes": "9fa3246eb07d249ac223a82df8cd6b68ca572e0b28e918f594c420a49f9384a4",
+      "current_sha256_lf": "9fa3246eb07d249ac223a82df8cd6b68ca572e0b28e918f594c420a49f9384a4",
+      "raw_match": true,
+      "lf_match": true
+    },
+    {
+      "catalogue_id": "game.companion_care",
+      "path": "scripts/companion.gd",
+      "declared_historical_sha256": "0f0104b9b20011a83fff9edd6e13e8794a6746003b619346bbeb12ccc0615860",
+      "current_sha256_git_bytes": "0baeb7256a209b5266ebdf48cdccb7af6497b30fd0666021c597eced6e04d269",
+      "current_sha256_lf": "0baeb7256a209b5266ebdf48cdccb7af6497b30fd0666021c597eced6e04d269",
+      "raw_match": false,
+      "lf_match": false
+    },
+    {
+      "catalogue_id": "game.critters",
+      "path": "scripts/collection_system.gd",
+      "declared_historical_sha256": "876bb4901406034dfa6a3bf4d319383261e04a45fbedfe120d97c8eb2d24eb3a",
+      "current_sha256_git_bytes": "876bb4901406034dfa6a3bf4d319383261e04a45fbedfe120d97c8eb2d24eb3a",
+      "current_sha256_lf": "876bb4901406034dfa6a3bf4d319383261e04a45fbedfe120d97c8eb2d24eb3a",
+      "raw_match": true,
+      "lf_match": true
+    },
+    {
+      "catalogue_id": "game.craft_studio",
+      "path": "scripts/craft_studio.gd",
+      "declared_historical_sha256": "fd97af6efaeaf4b3949b94f921a71064b753c383d5adcf6e49395a487018de57",
+      "current_sha256_git_bytes": "fd97af6efaeaf4b3949b94f921a71064b753c383d5adcf6e49395a487018de57",
+      "current_sha256_lf": "fd97af6efaeaf4b3949b94f921a71064b753c383d5adcf6e49395a487018de57",
+      "raw_match": true,
+      "lf_match": true
+    },
+    {
+      "catalogue_id": "game.logo_studio",
+      "path": "scripts/castle_logo_studio.gd",
+      "declared_historical_sha256": "5afe612eb11261818b760b0f04b6b6a995000a23b27e31aa228c0a04e63dc52a",
+      "current_sha256_git_bytes": "5afe612eb11261818b760b0f04b6b6a995000a23b27e31aa228c0a04e63dc52a",
+      "current_sha256_lf": "5afe612eb11261818b760b0f04b6b6a995000a23b27e31aa228c0a04e63dc52a",
+      "raw_match": true,
+      "lf_match": true
+    },
+    {
+      "catalogue_id": "game.wardrobe",
+      "path": "scripts/wardrobe_ui.gd",
+      "declared_historical_sha256": "eab02b46ac3d322f295c09c68847ccbecc776378ac4cc15835f4df4f16b215a6",
+      "current_sha256_git_bytes": "0d7f4c5241f141ca4bbb9464f21aa5bd46545e1817b8b2638fea1caadf9f6573",
+      "current_sha256_lf": "0d7f4c5241f141ca4bbb9464f21aa5bd46545e1817b8b2638fea1caadf9f6573",
+      "raw_match": false,
+      "lf_match": false
+    }
+  ],
+  "limits": "209reference occurrences include repeated files and differing historical hashes; not209artworks/defects. Matching source bytes do not refresh historical scores/routes or establish current reachability. Differing hashes are stale binding facts, not automatic runtime regressions. All60labels are reference IDs, irrespective of family or suffix resemblance."
+}

@@ -1,0 +1,64 @@
+{
+  "revision": "FV-AUDIT-20261015-R62",
+  "source_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+  "inspection_type": "SOURCE_PROVENANCE_REVIEW_PLUS_REINSPECTION_OF4EXISTING_NATIVE_FRAMES_NOT_HUMAN_ACCEPTANCE",
+  "original_native_direct_reinspections": [
+    {
+      "revision": "d0f2e17433557d5775463f44576fe7ebf03cf3df",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r60_critter_saved_context/native/attempt1_critter_saved_partial_1280/insect_settled.png",
+      "sha256": "88716aceee74c8665de9c727ce18ebc29edb63cde2dfd296e10149ab029f2188",
+      "scope": "Existing R60 original saved-book frame reinspected; not newly captured/art accepted."
+    },
+    {
+      "revision": "d0f2e17433557d5775463f44576fe7ebf03cf3df",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r60_critter_saved_context/native/attempt1_critter_saved_full_1280/insect_settled.png",
+      "sha256": "fefaee2890dc76eea01248bae3de67cb385c850bd1396ce85f7999d4f9b70a5a",
+      "scope": "Existing R60 original saved-book frame reinspected; not newly captured/art accepted."
+    },
+    {
+      "revision": "d0f2e17433557d5775463f44576fe7ebf03cf3df",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r60_critter_saved_context/native/attempt1_critter_saved_partial_1600/fish_ready.png",
+      "sha256": "2d6041f162a4201d5d92d0ed4b9983fdf1eda96725f5b7a07f43261c930682f4",
+      "scope": "Existing R60 original saved-book frame reinspected; not newly captured/art accepted."
+    },
+    {
+      "revision": "d0f2e17433557d5775463f44576fe7ebf03cf3df",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r60_critter_saved_context/native/attempt1_critter_saved_full_1600/fish_ready.png",
+      "sha256": "bbbdd0cccd1cf37161dfcde7dd21de439eca0291912c3fc8259ab254a8313e18",
+      "scope": "Existing R60 original saved-book frame reinspected; not newly captured/art accepted."
+    }
+  ],
+  "new_native_captures": 0,
+  "new_context_visual_review_claim": false,
+  "observations": [
+    {
+      "id": "FVOBS-CATALOGUE-ALIAS-ORIGIN",
+      "status": "SOURCE_ORIGIN_RECONSTRUCTED_ALL176",
+      "facts": "Original published build_review_packet.py prefixes60 reference catalogue IDs with game.; it also copies100stage regex rows, adds12explicit UI aliases and4Git standalone scenes. These overlapping labels are not necessarily Main.game values or distinct screens. All176IDs reproduced at declared92c9baseline and matched exactly to frozen IDs; source catalogue and stage table bytes unchanged at currentD.",
+      "evidence": [
+        "CATALOGUE_ORIGINS.json",
+        "CATALOGUE_SOURCE_BINDINGS.json"
+      ]
+    },
+    {
+      "id": "FVOBS-CATALOGUE-CRITTERS-BINDING",
+      "status": "EXPLICIT_SAVED_BOOK_PARTIAL_BINDING_ONLY",
+      "facts": "games.json critters explicitlynames Critter Book collection/family system/modulecollection_system. Current Main preload/_collection_ref, original Pause MenuCritterBookButton→open_book and navigationcritter_book/_draw_book bind4original R60saved cases140checks/80bookstates to that consumer. game remainslevel2/phasehall; no synthetic game=critters establishes mapping. Retain ui.collection as separate overlapping ID. Acquisition/spawn/catch/caller/native/resource/fullQA11/device/child/owner still open. One partial catalogue-ID credit, no new native/screen/art/removal credit.",
+      "evidence": "CRITTER_ALIAS_BINDING.json"
+    },
+    {
+      "id": "FVOBS-CATALOGUE-SOURCE-BINDINGS",
+      "status": "HISTORICAL_ASSESSMENT_LIMITS_RETAINED",
+      "facts": "Current catalogue declares105source/host paths; with additional historical-evidence paths108exist.209evidence occurrences/170unique path-hash pairs:67match currentGit bytes and142differ; LF normalization does not change matches. Matching files do not refresh scores/routes, differing hashes are not automatically regressions. Headerassessment remains2026-10-03/head87f99268.",
+      "evidence": "CATALOGUE_SOURCE_BINDINGS.json"
+    }
+  ],
+  "no_creative_style_review_added": "No new art/candidate/material/layout or in-context style acceptance in this source-only revision. R60source weaknesses/R61candidate comparisons and all their limits remain exact inherited evidence.",
+  "human_reviews": [],
+  "QA11": null,
+  "device": null,
+  "child": null,
+  "owner": null,
+  "accepted_removed": 0,
+  "mission_complete": false
+}
