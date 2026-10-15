@@ -1,0 +1,84 @@
+{
+  "status": "PASS_BEFORE_NATIVE",
+  "checked_at_utc": "2026-10-15T23:26:30.428852+00:00",
+  "checks": [
+    {
+      "command": [
+        "python",
+        "-B",
+        "-m",
+        "gdtoolkit.parser",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r68_gate_missing_art\\base_capture.gd",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r68_gate_missing_art\\capture_entry.gd",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r68_gate_missing_art\\painted_gate.gd",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r68_gate_missing_art\\baseline_gate.gd",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r68_gate_missing_art\\missing_gate.gd",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r68_gate_missing_art\\capture_gate.gd"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "",
+      "script_errors": false
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/lint_inference.py",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r68_gate_missing_art\\base_capture.gd",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r68_gate_missing_art\\capture_entry.gd",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r68_gate_missing_art\\painted_gate.gd",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r68_gate_missing_art\\baseline_gate.gd",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r68_gate_missing_art\\missing_gate.gd",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r68_gate_missing_art\\capture_gate.gd"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "",
+      "script_errors": false
+    },
+    {
+      "command": [
+        "C:/Users/Peter/AppData/Local/Programs/MermaidReefTools/Godot/4.7.2/godot_console.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-dev-context-20261015\\mermaid-roshan-reef",
+        "--rendering-method",
+        "mobile",
+        "--check-only",
+        "--script",
+        "res://export/flat_vector_r68/capture_gate.gd"
+      ],
+      "exit_code": 0,
+      "stdout": "Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org\r\n\r\n",
+      "stderr": "",
+      "script_errors": false
+    }
+  ],
+  "fixture_files": [
+    {
+      "path": "base_capture.gd",
+      "sha256": "fec75c7bddae58d9ad0bbae6fad09d53c87f6f0f437d5edac03d23835b048c83"
+    },
+    {
+      "path": "capture_entry.gd",
+      "sha256": "c2ef17685fed953fc31df40325cbabf5696ebe374448048a4565758684f08967"
+    },
+    {
+      "path": "painted_gate.gd",
+      "sha256": "527cc9669556ee0d39e3940e1440ff479992edde1d05958d224d4902da2034cc"
+    },
+    {
+      "path": "baseline_gate.gd",
+      "sha256": "b5208fe8af3a5a197b16e763b2ae5d2fd843694906c7cca6663d96fa22da76ec"
+    },
+    {
+      "path": "missing_gate.gd",
+      "sha256": "23b84541a39ccac442a5fd711d247f7063b7f1dc204ae8fff944d61b9bb86db9"
+    },
+    {
+      "path": "capture_gate.gd",
+      "sha256": "9776de289af3bffe5b13c2935f4cff4f681829b933051690ce0c22cc471d511a"
+    }
+  ]
+}

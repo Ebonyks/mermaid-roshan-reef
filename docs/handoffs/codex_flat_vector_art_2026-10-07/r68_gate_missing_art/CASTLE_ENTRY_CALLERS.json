@@ -1,0 +1,154 @@
+{
+  "source_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+  "raw_sha256": "484885e60bb6a8512541659a626ca057b72201e1bbf60c86222f0856ce3096f9",
+  "rows": [
+    {
+      "source_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "path": "scripts/arena/sky_lagoon.gd",
+      "line": 2565,
+      "text": "\t\t\tm._enter_castle_interior(true)   # secret hatch -> Daddy's treasure room",
+      "probe": false,
+      "definition": false
+    },
+    {
+      "source_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "path": "scripts/arena/sky_lagoon.gd",
+      "line": 2579,
+      "text": "\t\t\tm._enter_castle_interior()",
+      "probe": false,
+      "definition": false
+    },
+    {
+      "source_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "path": "scripts/arena/sky_lagoon_promenade.gd",
+      "line": 866,
+      "text": "\t\t\tm._enter_castle_interior()",
+      "probe": false,
+      "definition": false
+    },
+    {
+      "source_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "path": "scripts/arena/sky_lagoon_promenade.gd",
+      "line": 1119,
+      "text": "\t\tm._enter_castle_interior()",
+      "probe": false,
+      "definition": false
+    },
+    {
+      "source_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "path": "scripts/day_one_flow.gd",
+      "line": 459,
+      "text": "\tm._enter_castle_interior(true)",
+      "probe": false,
+      "definition": false
+    },
+    {
+      "source_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "path": "scripts/main.gd",
+      "line": 4827,
+      "text": "\t\t\t_enter_castle_interior(true)",
+      "probe": false,
+      "definition": false
+    },
+    {
+      "source_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "path": "scripts/main.gd",
+      "line": 4829,
+      "text": "\t\t\t_enter_castle_interior()",
+      "probe": false,
+      "definition": false
+    },
+    {
+      "source_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "path": "scripts/main.gd",
+      "line": 5765,
+      "text": "func _enter_castle_interior(from_back: bool = false) -> void:",
+      "probe": false,
+      "definition": true
+    },
+    {
+      "source_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "path": "scripts/probe_art_audit_35.gd",
+      "line": 153,
+      "text": "\tmain._enter_castle_interior()",
+      "probe": true,
+      "definition": false
+    },
+    {
+      "source_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "path": "scripts/probe_basement.gd",
+      "line": 63,
+      "text": "\tmain._enter_castle_interior()",
+      "probe": true,
+      "definition": false
+    },
+    {
+      "source_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "path": "scripts/probe_castle_cam.gd",
+      "line": 89,
+      "text": "\tmain._enter_castle_interior()",
+      "probe": true,
+      "definition": false
+    },
+    {
+      "source_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "path": "scripts/probe_castle_shots.gd",
+      "line": 68,
+      "text": "\tmain._enter_castle_interior()",
+      "probe": true,
+      "definition": false
+    },
+    {
+      "source_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "path": "scripts/probe_crown.gd",
+      "line": 238,
+      "text": "\tmain._enter_castle_interior()",
+      "probe": true,
+      "definition": false
+    },
+    {
+      "source_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "path": "scripts/probe_human_art_audit.gd",
+      "line": 62,
+      "text": "\tmain._enter_castle_interior()",
+      "probe": true,
+      "definition": false
+    },
+    {
+      "source_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "path": "scripts/probe_texture_seams.gd",
+      "line": 52,
+      "text": "\tmain._enter_castle_interior()",
+      "probe": true,
+      "definition": false
+    },
+    {
+      "source_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "path": "scripts/probe_throne_shots.gd",
+      "line": 49,
+      "text": "\tmain._enter_castle_interior()",
+      "probe": true,
+      "definition": false
+    },
+    {
+      "source_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "path": "scripts/probe_train.gd",
+      "line": 64,
+      "text": "\tmain._enter_castle_interior()",
+      "probe": true,
+      "definition": false
+    },
+    {
+      "source_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "path": "scripts/probe_upstairs.gd",
+      "line": 64,
+      "text": "\tmain._enter_castle_interior()",
+      "probe": true,
+      "definition": false
+    }
+  ],
+  "production_calls": 7,
+  "definitions": 1,
+  "probe_calls": 10,
+  "scope": "Complete lexical census of the exact castle-entry callback over tracked scripts; supplements the narrower helper-identifier census. Independent _tick_doorstep source path invalidates total-access-loss inference; remaining legacy/secret-hatch/flow callers are not newly runtime-reviewed."
+}

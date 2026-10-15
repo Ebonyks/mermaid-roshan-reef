@@ -1,3 +1,7 @@
+# Current R68 gate direct-interaction repair and scope correction
+
+[Open R68](r68_gate_missing_art/README.md). Four repaired cases pass88 checks. Missing art previously removed direct target/focus, while source walking entry already survived. Production and accepted removals are unchanged; new-use and whole-game acceptance gaps remain open.
+
 # Current R67 gate cue reuse trial
 
 [Open the R67 review](r67_painted_gate_cue/README.md). Four source/candidate trials passed54 checks; production and accepted removals are unchanged. New-use style and entrance semantics, missing-art/caller closure and device/child/owner acceptance remain open.

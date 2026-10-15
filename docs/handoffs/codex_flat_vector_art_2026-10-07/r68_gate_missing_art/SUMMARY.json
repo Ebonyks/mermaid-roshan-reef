@@ -1,0 +1,255 @@
+{
+  "source_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+  "stable_id": "FVR-42846B2A5A82",
+  "native_cases": 8,
+  "passing_functional_cases": 4,
+  "passing_functional_checks": 88,
+  "normal_cue_cases": 2,
+  "repaired_missing_cue_cases": 2,
+  "raw_failed_baseline_cases": 4,
+  "corrected_baseline_cases": 2,
+  "baseline_raw_failed_assertions": 10,
+  "premature_entry_assertions_retracted": 2,
+  "source_walking_entry_survives": true,
+  "direct_target_focus_repair": "BOUNDED_NATIVE_VERIFIED_PROTOTYPE_ONLY",
+  "art_missing_cases_still_fail_acceptance": 2,
+  "new_native_frames": 52,
+  "new_bounded_contexts": 32,
+  "new_excluded_diagnostics": 20,
+  "black_excluded_frames": 2,
+  "new_roles": 0,
+  "new_families": 0,
+  "new_alias_credits": 0,
+  "known_roles": 241,
+  "families": 33,
+  "catalogue_partial": 89,
+  "catalogue_without_current_slice": 87,
+  "catalogue_complete": 0,
+  "retained_bounded": 5920,
+  "retained_excluded": 2969,
+  "retained_native_events": 8889,
+  "generation_calls": 0,
+  "new_drawing_samples": 0,
+  "new_runtime_assets": 0,
+  "approved": 0,
+  "integrated": 0,
+  "runtime_verified_replacements": 0,
+  "accepted_removed": 0,
+  "all_game_artwork_total": null,
+  "distinct_screen_total": null,
+  "regression_total": null,
+  "mission_complete": false,
+  "source_identifier_census": {
+    "scripts": 312,
+    "references": 103,
+    "production_references": 33,
+    "probe_references": 70,
+    "registered_targets": 4
+  },
+  "castle_entry_census": {
+    "production_calls": 7,
+    "definition": 1,
+    "probe_calls": 10
+  },
+  "known_legacy_policy_status": "FAIL_LEGACY_SOURCE_CONTRACT_UNFIXED",
+  "gaps": [
+    "New-use gold star style and collectible-versus-entrance readability/owner review",
+    "Missing artwork remains a failed art lane even though the target stays functional",
+    "All keyboard/gamepad/drag/focus-loss/sibling/alternate profile and route callers not runtime-closed",
+    "Full QA11/freshOS/actual device performance/audio/child/owner and global inventory/strict2D remain open"
+  ],
+  "cases": [
+    {
+      "case": "attempt1_baseline_missing_1280",
+      "fixture_version": "v1",
+      "mode": "baseline_missing",
+      "aspect": [
+        1280,
+        720
+      ],
+      "classification": "EXCLUDED_BASELINE_OBSERVER_WINDOW_TOO_SHORT",
+      "raw_exit_code": 1,
+      "checks": 13,
+      "failed_checks": [
+        "functional castle target registered independently of artwork",
+        "original first target touch focuses gate",
+        "original second target touch enters main hall"
+      ],
+      "functional_status": "FAIL",
+      "artwork_status": "FAIL_MISSING_CUE_ARTWORK",
+      "native_frames": 5,
+      "final_phase": "hall",
+      "final_movie": {
+        "active": true,
+        "finished": false,
+        "id": "d1_castle",
+        "playing": true,
+        "stream": "res://assets/cinematics/day_one_story/d1_castle.ogv",
+        "stream_position": 7.89746799999998
+      },
+      "manifest_sha256": "05c61c55a242195181ed03eec491b78cc9e1225310e03e7a2c4bbd3fa91c61ec"
+    },
+    {
+      "case": "attempt1_baseline_missing_1600",
+      "fixture_version": "v1",
+      "mode": "baseline_missing",
+      "aspect": [
+        1600,
+        720
+      ],
+      "classification": "EXCLUDED_BASELINE_OBSERVER_WINDOW_TOO_SHORT",
+      "raw_exit_code": 1,
+      "checks": 13,
+      "failed_checks": [
+        "functional castle target registered independently of artwork",
+        "original first target touch focuses gate",
+        "original second target touch enters main hall"
+      ],
+      "functional_status": "FAIL",
+      "artwork_status": "FAIL_MISSING_CUE_ARTWORK",
+      "native_frames": 5,
+      "final_phase": "hall",
+      "final_movie": {
+        "active": true,
+        "finished": false,
+        "id": "d1_castle",
+        "playing": true,
+        "stream": "res://assets/cinematics/day_one_story/d1_castle.ogv",
+        "stream_position": 7.85871733333332
+      },
+      "manifest_sha256": "ff67f0e3ef0f67e7db73c2787b1125bf68dbead8c33378a015ca58522de1be58"
+    },
+    {
+      "case": "attempt1_normal_1280",
+      "fixture_version": "v1",
+      "mode": "normal",
+      "aspect": [
+        1280,
+        720
+      ],
+      "classification": "BOUNDED_REPAIRED_FUNCTIONAL_TRIAL",
+      "raw_exit_code": 0,
+      "checks": 22,
+      "failed_checks": [],
+      "functional_status": "PASS",
+      "artwork_status": "CANDIDATE_UNREVIEWED",
+      "native_frames": 8,
+      "final_phase": "hall",
+      "final_movie": {
+        "active": false
+      },
+      "manifest_sha256": "4e4bcf9a6f27a5d0ecdf75edb96bda3ee252b4c688e4e1411d266431b9959523"
+    },
+    {
+      "case": "attempt1_normal_1600",
+      "fixture_version": "v1",
+      "mode": "normal",
+      "aspect": [
+        1600,
+        720
+      ],
+      "classification": "BOUNDED_REPAIRED_FUNCTIONAL_TRIAL",
+      "raw_exit_code": 0,
+      "checks": 22,
+      "failed_checks": [],
+      "functional_status": "PASS",
+      "artwork_status": "CANDIDATE_UNREVIEWED",
+      "native_frames": 8,
+      "final_phase": "hall",
+      "final_movie": {
+        "active": false
+      },
+      "manifest_sha256": "c8f4ee3215def4fdf927ae5a3250458425ad95aca30ea6372c8d5bc998652b5f"
+    },
+    {
+      "case": "attempt1_missing_1280",
+      "fixture_version": "v1",
+      "mode": "missing",
+      "aspect": [
+        1280,
+        720
+      ],
+      "classification": "BOUNDED_REPAIRED_FUNCTIONAL_TRIAL",
+      "raw_exit_code": 0,
+      "checks": 22,
+      "failed_checks": [],
+      "functional_status": "PASS",
+      "artwork_status": "FAIL_MISSING_CUE_ARTWORK",
+      "native_frames": 8,
+      "final_phase": "hall",
+      "final_movie": {
+        "active": false
+      },
+      "manifest_sha256": "0359228c29626a441722d9e52f3d77713604869786f1e1818a0a799965234a75"
+    },
+    {
+      "case": "attempt1_missing_1600",
+      "fixture_version": "v1",
+      "mode": "missing",
+      "aspect": [
+        1600,
+        720
+      ],
+      "classification": "BOUNDED_REPAIRED_FUNCTIONAL_TRIAL",
+      "raw_exit_code": 0,
+      "checks": 22,
+      "failed_checks": [],
+      "functional_status": "PASS",
+      "artwork_status": "FAIL_MISSING_CUE_ARTWORK",
+      "native_frames": 8,
+      "final_phase": "hall",
+      "final_movie": {
+        "active": false
+      },
+      "manifest_sha256": "6a03de4b2ba150cbdf7dd16f6f7d21518b7009c2da37b800744f180e640b8d05"
+    },
+    {
+      "case": "attempt2_baseline_missing_1280",
+      "fixture_version": "v2",
+      "mode": "baseline_missing",
+      "aspect": [
+        1280,
+        720
+      ],
+      "classification": "EXCLUDED_CORRECTED_BASELINE_DIRECT_CONTRACT_FAIL",
+      "raw_exit_code": 1,
+      "checks": 14,
+      "failed_checks": [
+        "functional castle target registered independently of artwork",
+        "original first target touch focuses gate"
+      ],
+      "functional_status": "FAIL",
+      "artwork_status": "FAIL_MISSING_CUE_ARTWORK",
+      "native_frames": 5,
+      "final_phase": "hall",
+      "final_movie": {
+        "active": false
+      },
+      "manifest_sha256": "2bf342db3becf923dfa398324d6e181c1397b012e6b79797d902c2fe55e7b924"
+    },
+    {
+      "case": "attempt2_baseline_missing_1600",
+      "fixture_version": "v2",
+      "mode": "baseline_missing",
+      "aspect": [
+        1600,
+        720
+      ],
+      "classification": "EXCLUDED_CORRECTED_BASELINE_DIRECT_CONTRACT_FAIL",
+      "raw_exit_code": 1,
+      "checks": 14,
+      "failed_checks": [
+        "functional castle target registered independently of artwork",
+        "original first target touch focuses gate"
+      ],
+      "functional_status": "FAIL",
+      "artwork_status": "FAIL_MISSING_CUE_ARTWORK",
+      "native_frames": 5,
+      "final_phase": "hall",
+      "final_movie": {
+        "active": false
+      },
+      "manifest_sha256": "da027a2fd886472ce15f9b3195c574b48e24a7597c2d42245d9cd18fdd6d8874"
+    }
+  ]
+}

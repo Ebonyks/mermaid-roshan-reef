@@ -1,0 +1,7 @@
+*.gd -text
+*.log -text
+# Preserve exact executed source-derived fixture EOF bytes.
+*.gd whitespace=-blank-at-eof
+native/*/*.gd whitespace=-blank-at-eof
+DIRECT_REFERENCE_CENSUS.txt -text
+CASTLE_ENTRY_CALLERS.txt -text

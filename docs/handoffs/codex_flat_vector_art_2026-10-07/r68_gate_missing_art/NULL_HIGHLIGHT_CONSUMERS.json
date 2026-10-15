@@ -1,0 +1,92 @@
+{
+  "source_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+  "stable_id": "FVR-42846B2A5A82",
+  "direct_consumer_disposition": [
+    {
+      "method": "action_label",
+      "source_body_sha256": "ca5340a6e527de2d7aebe336ebf86a6e301b4395bbe62b8595d799ba75eab80b",
+      "target_fields_read": [
+        "id",
+        "kind"
+      ],
+      "requires_visible_highlight": false,
+      "null_highlight_guard": "No highlight access in this exact source span"
+    },
+    {
+      "method": "_target_at",
+      "source_body_sha256": "f6126deaa26a268f869397be62d01520a53e29b391f8d25e8f0877179d2a09ff",
+      "target_fields_read": [
+        "node",
+        "radius_px"
+      ],
+      "requires_visible_highlight": false,
+      "null_highlight_guard": "No highlight access in this exact source span"
+    },
+    {
+      "method": "_tick_target_affordances",
+      "source_body_sha256": "4ec7c0f7c1680c92899fbd686ae6df84899385ec781a05ddfc4904836f164848",
+      "target_fields_read": [
+        "affordance_kind",
+        "highlight",
+        "highlight_scale",
+        "id",
+        "node"
+      ],
+      "requires_visible_highlight": true,
+      "null_highlight_guard": true
+    },
+    {
+      "method": "_handle_action",
+      "source_body_sha256": "2e2cb3df34f0b54c0b66f73e1847c604815cfe26a11520f4cc08af6831f0f1de",
+      "target_fields_read": [
+        "id"
+      ],
+      "requires_visible_highlight": false,
+      "null_highlight_guard": "No highlight access in this exact source span"
+    },
+    {
+      "method": "_target_index",
+      "source_body_sha256": "8961b1c5d3a1eb33660bf3d11e461bedf3f5a9bfe3a82374a0561008e3b955f6",
+      "target_fields_read": [],
+      "requires_visible_highlight": false,
+      "null_highlight_guard": "No highlight access in this exact source span"
+    },
+    {
+      "method": "_target_by_id",
+      "source_body_sha256": "0e3dee50dbf0d933c7d0a662c4f884207adcaebac20a71b06537e8584335fd44",
+      "target_fields_read": [
+        "id"
+      ],
+      "requires_visible_highlight": false,
+      "null_highlight_guard": "No highlight access in this exact source span"
+    }
+  ],
+  "only_production_highlight_read_in_helper": 1,
+  "highlight_null_skipped": true,
+  "functional_target_fields_retained": [
+    "id",
+    "node",
+    "kind",
+    "payload",
+    "radius_px",
+    "affordance_kind",
+    "highlight_scale"
+  ],
+  "source_gate_registration": {
+    "id": "castle_gate",
+    "node_local": "door_anchor",
+    "kind": "castle",
+    "payload": "",
+    "radius_px": 128.0,
+    "highlight_scale": 1.0
+  },
+  "registered_target_total": 4,
+  "remaining_runtime_gaps": [
+    "Drag/navigation limits and sibling playground interactions",
+    "Keyboard/gamepad primary action and cancel/focus-loss variants",
+    "Inactive DayOne, saved-route and other-profile returns",
+    "Northern/ocean/galaxy route contexts",
+    "Full QA11, all resources/fallbacks, real-device and child/owner acceptance"
+  ],
+  "scope": "Static immediate helper-consumer nullability disposition at exact D; full dynamic/caller/resource/input/profile closure not claimed."
+}

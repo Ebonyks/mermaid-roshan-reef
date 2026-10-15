@@ -1,0 +1,5465 @@
+{
+	"actual_child_data": false,
+	"art_failures": [
+		"castle_gate expected painted cue unavailable; artwork acceptance blocked"
+	],
+	"artwork_status": "FAIL_MISSING_CUE_ARTWORK",
+	"aspect": [
+		1600,
+		720
+	],
+	"bindings": [
+		{
+			"before_ready": true,
+			"main_id": 128278595091,
+			"private_path": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef-flat-vector-gate-missing-art-20261015\\attempt1_baseline_missing_1600\\output/private_profile/reef_save.json",
+			"scene_file_path": "res://scenes/main.tscn",
+			"ticks_msec": 6940
+		}
+	],
+	"checks": [
+		{
+			"label": "original configured Main loaded with preReady private dependency",
+			"pass": true,
+			"ticks_msec": 7747
+		},
+		{
+			"label": "original Continue available for private active profile",
+			"pass": true,
+			"ticks_msec": 7747
+		},
+		{
+			"label": "functional castle target registered independently of artwork",
+			"pass": false,
+			"ticks_msec": 40774
+		},
+		{
+			"label": "source invisible anchor retained",
+			"pass": true,
+			"ticks_msec": 40774
+		},
+		{
+			"label": "missing cue creates no substitute artwork",
+			"pass": true,
+			"ticks_msec": 40774
+		},
+		{
+			"label": "one-second passive observation does not enter castle",
+			"pass": true,
+			"ticks_msec": 41708
+		},
+		{
+			"label": "original pause clears focus",
+			"pass": true,
+			"ticks_msec": 42090
+		},
+		{
+			"label": "resume retains cleared focus",
+			"pass": true,
+			"ticks_msec": 42477
+		},
+		{
+			"label": "original target point lies inside native viewport",
+			"pass": true,
+			"ticks_msec": 44144
+		},
+		{
+			"label": "original first target touch focuses gate",
+			"pass": false,
+			"ticks_msec": 44702
+		},
+		{
+			"label": "original target point lies inside native viewport",
+			"pass": true,
+			"ticks_msec": 44702
+		},
+		{
+			"label": "original second target touch enters main hall",
+			"pass": false,
+			"ticks_msec": 53884
+		},
+		{
+			"label": "retirement removes owned Main",
+			"pass": true,
+			"ticks_msec": 54233
+		}
+	],
+	"display": "Windows",
+	"engine": {
+		"build": "official",
+		"hash": "ed1daf0bf001b61586d9930840f2f1394092c079",
+		"hex": 263938,
+		"major": 4,
+		"minor": 7,
+		"patch": 2,
+		"status": "stable",
+		"string": "4.7.2-stable (official)",
+		"timestamp": 0
+	},
+	"errors": [
+		"functional castle target registered independently of artwork",
+		"original first target touch focuses gate",
+		"original second target touch enters main hall"
+	],
+	"events": [
+		{
+			"local": "(170.0, 59.0)",
+			"point": "(620.0, 607.0)",
+			"pressed": true,
+			"target": "/root/Main/StartMenu/StartMenuRoot/StorybookStage/StartMenuContinueButton",
+			"ticks_msec": 7747,
+			"type": "touch"
+		},
+		{
+			"local": "(170.0, 59.0)",
+			"point": "(620.0, 607.0)",
+			"pressed": false,
+			"target": "/root/Main/StartMenu/StartMenuRoot/StorybookStage/StartMenuContinueButton",
+			"ticks_msec": 7780,
+			"type": "touch"
+		},
+		{
+			"local": "(56.0, 56.0)",
+			"point": "(74.0, 74.0)",
+			"pressed": true,
+			"target": "/root/Main/GlobalNavigationLayer/GlobalNavigationButton",
+			"ticks_msec": 41708,
+			"type": "touch"
+		},
+		{
+			"local": "(56.0, 56.0)",
+			"point": "(74.0, 74.0)",
+			"pressed": false,
+			"target": "/root/Main/GlobalNavigationLayer/GlobalNavigationButton",
+			"ticks_msec": 41741,
+			"type": "touch"
+		},
+		{
+			"local": "(290.0, 70.0)",
+			"point": "(640.0, 175.0)",
+			"pressed": true,
+			"target": "/root/Main/@CanvasLayer@311/PauseOverlay/PauseResumeButton",
+			"ticks_msec": 42090,
+			"type": "touch"
+		},
+		{
+			"local": "(290.0, 70.0)",
+			"point": "(640.0, 175.0)",
+			"pressed": false,
+			"target": "/root/Main/@CanvasLayer@311/PauseOverlay/PauseResumeButton",
+			"ticks_msec": 42091,
+			"type": "touch"
+		},
+		{
+			"point": "(1292.968, 403.3834)",
+			"pressed": true,
+			"ticks_msec": 44144,
+			"type": "floor_touch"
+		},
+		{
+			"point": "(1292.968, 403.3834)",
+			"pressed": false,
+			"ticks_msec": 44177,
+			"type": "floor_touch"
+		},
+		{
+			"point": "(1292.968, 403.3834)",
+			"pressed": true,
+			"ticks_msec": 44703,
+			"type": "floor_touch"
+		},
+		{
+			"point": "(1292.968, 403.3834)",
+			"pressed": false,
+			"ticks_msec": 44703,
+			"type": "floor_touch"
+		}
+	],
+	"final_snapshot": {
+		"archive": {
+			"exists": false
+		},
+		"bindings": [
+			{
+				"before_ready": true,
+				"main_id": 128278595091,
+				"private_path": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef-flat-vector-gate-missing-art-20261015\\attempt1_baseline_missing_1600\\output/private_profile/reef_save.json",
+				"scene_file_path": "res://scenes/main.tscn",
+				"ticks_msec": 6940
+			}
+		],
+		"candidate_mode": "baseline_missing",
+		"caption_timer": 5.0,
+		"castle_room": "main_hall",
+		"controls": [],
+		"current_scene_id": 128278595091,
+		"day_one": {
+			"day_one_active": true,
+			"day_one_arrival_plane_media_seen": true,
+			"day_one_art_cleaned_grime": {},
+			"day_one_art_collected_materials": {},
+			"day_one_art_customization_completed": false,
+			"day_one_art_desk_unlocked": false,
+			"day_one_bathroom_cleanup_step": 0,
+			"day_one_bathroom_supply_hunt_step": 0,
+			"day_one_bathroom_toilet_cleaned": false,
+			"day_one_bathroom_tools_authorized": false,
+			"day_one_bathroom_tub_drained": false,
+			"day_one_boss_door_glow": false,
+			"day_one_cleaned_rooms": [],
+			"day_one_completed_rooms": [],
+			"day_one_current_room": "bathroom",
+			"day_one_dirty_castle_discovered": true,
+			"day_one_giant_dust_bunny_boss_defeated": false,
+			"day_one_giant_dust_bunny_boss_triggered": false,
+			"day_one_grok_video_2_seen": true,
+			"day_one_jobs_locked": true,
+			"day_one_opera_enabled": false,
+			"day_one_pool_cleanup_step": 0,
+			"day_one_pool_rumi_met": false,
+			"day_one_pool_seahorse_tugs": 0,
+			"day_one_pool_skimmer_mask": 0,
+			"day_one_pool_waterfall_mask": 0
+		},
+		"disk": {
+			"day_one_active": true,
+			"exists": true,
+			"keys": [
+				"animals",
+				"attack_color",
+				"attack_effect",
+				"bwdone",
+				"care_points",
+				"castle_logo_color",
+				"castle_logo_symbol",
+				"chapter2_active",
+				"chapter2_active_objective",
+				"chapter2_cake_piece_mask",
+				"chapter2_candle_lit",
+				"chapter2_candle_taken",
+				"chapter2_candy_cake_finished",
+				"chapter2_chef_cake_baked",
+				"chapter2_ember_king_crashed",
+				"chapter2_ember_scout_seen",
+				"chapter2_ember_son_seen",
+				"chapter2_farmer_strawberries_ready",
+				"chapter2_job_phase_masks",
+				"chapter2_lawn_beat",
+				"chapter2_lawn_started",
+				"chapter2_party_dress_done",
+				"chapter2_party_event_phase",
+				"chapter2_party_piece_mask",
+				"chapter2_party_started",
+				"chapter2_protection_bumps",
+				"chapter2_protection_misses",
+				"chapter2_protection_rounds",
+				"chapter2_rainbow_candle_found",
+				"chapter2_skill_mask",
+				"chapter2_story_complete",
+				"chapter2_strawberry_mask",
+				"chapter2_stuffie_ballet_done",
+				"chapter2_unlocked_opera_mask",
+				"chapter3_fairy_door_opened",
+				"chapter3_fairy_door_revealed",
+				"chapter3_fairy_mission_started",
+				"character_clothing_parts",
+				"character_outfits",
+				"combat_fire",
+				"combat_ice",
+				"combat_tutorial",
+				"comfy_games",
+				"companion",
+				"companion_bruises",
+				"companion_colors",
+				"companion_resting",
+				"crafts",
+				"critters",
+				"custom_fish",
+				"custom_friends",
+				"day_one_active",
+				"day_one_arrival_plane_media_seen",
+				"day_one_art_cleaned_grime",
+				"day_one_art_collected_materials",
+				"day_one_art_customization_completed",
+				"day_one_art_desk_unlocked",
+				"day_one_bathroom_cleanup_step",
+				"day_one_bathroom_supply_hunt_step",
+				"day_one_bathroom_toilet_cleaned",
+				"day_one_bathroom_tools_authorized",
+				"day_one_bathroom_tub_drained",
+				"day_one_boss_door_glow",
+				"day_one_cleaned_rooms",
+				"day_one_completed_rooms",
+				"day_one_current_room",
+				"day_one_dirty_castle_discovered",
+				"day_one_giant_dust_bunny_boss_defeated",
+				"day_one_giant_dust_bunny_boss_triggered",
+				"day_one_grok_video_2_seen",
+				"day_one_jobs_locked",
+				"day_one_opera_enabled",
+				"day_one_pool_cleanup_step",
+				"day_one_pool_rumi_met",
+				"day_one_pool_seahorse_tugs",
+				"day_one_pool_skimmer_mask",
+				"day_one_pool_waterfall_mask",
+				"day_one_story_clips_seen",
+				"dungeon_done",
+				"dungeon_progress",
+				"ember_done",
+				"ember_found",
+				"ember_progress",
+				"fairyskin",
+				"fashion_disguise_progress",
+				"fashion_dressing_progress",
+				"fashion_rewards_claimed",
+				"finale",
+				"fish_tokens",
+				"flat_vector_private_unknown",
+				"found",
+				"galaxy",
+				"haptics",
+				"lagoon_plane_departed",
+				"level2",
+				"medals",
+				"mic",
+				"music",
+				"opera_done",
+				"opera_geology_checkpoint",
+				"opera_mastery",
+				"opera_pantry",
+				"opera_performance_checkpoints",
+				"opera_progress",
+				"opera_stars",
+				"outfits_unlocked",
+				"owned",
+				"pearls",
+				"pearls_ever",
+				"plays",
+				"portal_unlocked",
+				"quality",
+				"save_generation",
+				"schema_version",
+				"skin",
+				"stickers",
+				"stuffie_wins",
+				"teacher_learning_progress",
+				"teacher_lesson_checkpoint",
+				"touch_mode",
+				"won"
+			],
+			"pearls": 23.0,
+			"plays": 4.0,
+			"quality": "speedy",
+			"save_generation": 8.0,
+			"sha256": "26b094977a3a9c278cfefc24c9ee0102438dab4fbe2d4e30ad20176856bed837",
+			"skin": "classic",
+			"unknown": {
+				"keep": [
+					3.0,
+					7.0
+				],
+				"token": "R68_PRIVATE_ONLY"
+			}
+		},
+		"first_session": false,
+		"game": "level2",
+		"gate": {},
+		"has_saved_game": true,
+		"intro_active": false,
+		"main_id": 128278595091,
+		"main_valid": true,
+		"movie": {
+			"active": true,
+			"finished": false,
+			"id": "d1_castle",
+			"playing": true,
+			"stream": "res://assets/cinematics/day_one_story/d1_castle.ogv",
+			"stream_position": 7.85871733333332
+		},
+		"phase": "hall",
+		"private_path": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef-flat-vector-gate-missing-art-20261015\\attempt1_baseline_missing_1600\\output/private_profile/reef_save.json",
+		"quality": "speedy",
+		"reset_marker": false,
+		"route": {
+			"day_one_last_event": "grok_video_2",
+			"day_one_media_request": "grok_dirty_castle_video_2",
+			"phase": "hall"
+		},
+		"save_generation": 8,
+		"scene_file_path": "res://scenes/main.tscn",
+		"skin": "classic",
+		"start_menu_active": false,
+		"time_scale": 1.0,
+		"tree_paused": true
+	},
+	"functional_status": "FAIL",
+	"mode": "baseline_missing",
+	"normal_after": {
+		"": "47c287147713fac860e25dade59da95961204f9b3170f5e00b5843e11590ad1e",
+		".bak": "de9d0441ed4d74f01cc8778c1c21600351b1426017d33a5ce99e69b03e893c3a",
+		".bak.old": "absent",
+		".bak.tmp": "absent",
+		".before_new_game": "4d07f08b6f378d3f6c31f2b52c726ecec4c719682693a9d5e823aaa91ec64158",
+		".before_new_game.old": "absent",
+		".before_new_game.tmp": "absent",
+		".old": "absent",
+		".tmp": "absent",
+		".tmp0": "absent",
+		".tmp1": "absent"
+	},
+	"normal_before": {
+		"": "47c287147713fac860e25dade59da95961204f9b3170f5e00b5843e11590ad1e",
+		".bak": "de9d0441ed4d74f01cc8778c1c21600351b1426017d33a5ce99e69b03e893c3a",
+		".bak.old": "absent",
+		".bak.tmp": "absent",
+		".before_new_game": "4d07f08b6f378d3f6c31f2b52c726ecec4c719682693a9d5e823aaa91ec64158",
+		".before_new_game.old": "absent",
+		".before_new_game.tmp": "absent",
+		".old": "absent",
+		".tmp": "absent",
+		".tmp0": "absent",
+		".tmp1": "absent"
+	},
+	"production_changes": [],
+	"renderer": "mobile",
+	"schema": "reef.gate_missing_art/1",
+	"scope": "Bounded candidate repair and declared null-texture provider, not asset removal. Original source route/input/pause/activation/neutral exit/rebuild/re-entry/teardown owners. Private synthetic data. Baseline raw failures retained/excluded. Functional PASS with missing artwork never accepts art, QA11, freshOS, device, child, owner or whole-game completion.",
+	"seed": {
+		"day_one_active": true,
+		"day_one_arrival_plane_media_seen": false,
+		"day_one_dirty_castle_discovered": false,
+		"flat_vector_private_unknown": {
+			"keep": [
+				3,
+				7
+			],
+			"token": "R68_PRIVATE_ONLY"
+		},
+		"found": {},
+		"mic": false,
+		"music": false,
+		"pearls": 23,
+		"plays": 3,
+		"quality": "speedy",
+		"save_generation": 7,
+		"schema_version": 1,
+		"skin": "classic",
+		"won": {}
+	},
+	"source_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+	"states": [
+		{
+			"id": "01_focused",
+			"node_inventory_scope": "Visible Canvas hierarchy traversed from original Main; not full native/compositor/resource/projection/QA11 closure",
+			"path": "01_focused.png",
+			"role": "R68_GATE_FUNCTIONAL_TRIAL_NOT_QA11",
+			"selected_canvas_nodes": [
+				{
+					"class": "Label",
+					"font_size": 24,
+					"global_rect": "[P: (230.0, 590.0), S: (820.0, 112.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"mouse_filter": 2,
+					"path": "/root/Main/@CanvasLayer@16/HudVoiceCaption",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"text": "Let's go to the castle!",
+					"z_index": 0
+				},
+				{
+					"class": "ColorRect",
+					"color": "(0.0, 0.0, 0.0, 1.0)",
+					"global_rect": "[P: (0.0, 0.0), S: (1600.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 0.0)",
+					"mouse_filter": 2,
+					"path": "/root/Main/@CanvasLayer@25/@ColorRect@26",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (0.0, 0.0), S: (1600.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"mouse_filter": 2,
+					"path": "/root/Main/LivingWorldLayer/LivingWorldCanvas",
+					"script": "res://scripts/living_world_canvas.gd",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (0.0, 0.0), S: (1600.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"mouse_filter": 2,
+					"path": "/root/Main/@CanvasLayer@37/@Control@38",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"z_index": 0
+				},
+				{
+					"class": "Button",
+					"disabled": false,
+					"global_rect": "[P: (18.0, 18.0), S: (112.0, 112.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"mouse_filter": 0,
+					"normal_color": "(0.91, 0.93, 1.0, 0.98)",
+					"normal_style_class": "StyleBoxFlat",
+					"path": "/root/Main/GlobalNavigationLayer/GlobalNavigationButton",
+					"script": "",
+					"selected": false,
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"text": "☰",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (0.0, 0.0), S: (1600.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"mouse_filter": 2,
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"z_index": 0
+				},
+				{
+					"class": "Node2D",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"z_index": 0
+				},
+				{
+					"class": "Node2D",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonBase",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"z_index": -500
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(0.48, 0.56, 0.82, 1.0)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonBase/SkyLagoonBackdrop_r0_c0",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"texture": {
+						"class": "CompressedTexture2D",
+						"path": "res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r0_c0.png",
+						"size": "(1024.0, 1024.0)"
+					},
+					"z_index": 0
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(0.48, 0.56, 0.82, 1.0)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonBase/SkyLagoonBackdrop_r0_c1",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"texture": {
+						"class": "CompressedTexture2D",
+						"path": "res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r0_c1.png",
+						"size": "(1024.0, 1024.0)"
+					},
+					"z_index": 0
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(0.48, 0.56, 0.82, 1.0)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonBase/SkyLagoonBackdrop_r0_c2",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"texture": {
+						"class": "CompressedTexture2D",
+						"path": "res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r0_c2.png",
+						"size": "(1024.0, 1024.0)"
+					},
+					"z_index": 0
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(0.48, 0.56, 0.82, 1.0)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonBase/SkyLagoonBackdrop_r0_c3",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"texture": {
+						"class": "CompressedTexture2D",
+						"path": "res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r0_c3.png",
+						"size": "(1024.0, 1024.0)"
+					},
+					"z_index": 0
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(0.48, 0.56, 0.82, 1.0)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonBase/SkyLagoonBackdrop_r0_c4",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"texture": {
+						"class": "CompressedTexture2D",
+						"path": "res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r0_c4.png",
+						"size": "(1024.0, 1024.0)"
+					},
+					"z_index": 0
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(0.48, 0.56, 0.82, 1.0)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonBase/SkyLagoonBackdrop_r0_c5",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"texture": {
+						"class": "CompressedTexture2D",
+						"path": "res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r0_c5.png",
+						"size": "(1024.0, 1024.0)"
+					},
+					"z_index": 0
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(0.48, 0.56, 0.82, 1.0)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonBase/SkyLagoonBackdrop_r1_c0",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"texture": {
+						"class": "CompressedTexture2D",
+						"path": "res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r1_c0.png",
+						"size": "(1024.0, 1024.0)"
+					},
+					"z_index": 0
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(0.48, 0.56, 0.82, 1.0)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonBase/SkyLagoonBackdrop_r1_c1",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"texture": {
+						"class": "CompressedTexture2D",
+						"path": "res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r1_c1.png",
+						"size": "(1024.0, 1024.0)"
+					},
+					"z_index": 0
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(0.48, 0.56, 0.82, 1.0)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonBase/SkyLagoonBackdrop_r1_c2",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"texture": {
+						"class": "CompressedTexture2D",
+						"path": "res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r1_c2.png",
+						"size": "(1024.0, 1024.0)"
+					},
+					"z_index": 0
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(0.48, 0.56, 0.82, 1.0)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonBase/SkyLagoonBackdrop_r1_c3",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"texture": {
+						"class": "CompressedTexture2D",
+						"path": "res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r1_c3.png",
+						"size": "(1024.0, 1024.0)"
+					},
+					"z_index": 0
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(0.48, 0.56, 0.82, 1.0)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonBase/SkyLagoonBackdrop_r1_c4",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"texture": {
+						"class": "CompressedTexture2D",
+						"path": "res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r1_c4.png",
+						"size": "(1024.0, 1024.0)"
+					},
+					"z_index": 0
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(0.48, 0.56, 0.82, 1.0)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonBase/SkyLagoonBackdrop_r1_c5",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"texture": {
+						"class": "CompressedTexture2D",
+						"path": "res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r1_c5.png",
+						"size": "(1024.0, 1024.0)"
+					},
+					"z_index": 0
+				},
+				{
+					"class": "Node2D",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonRearMural",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"z_index": -400
+				},
+				{
+					"class": "Node2D",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonRear",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"z_index": -400
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(0.72, 0.78, 0.96, 1.0)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonRear/SkyLagoonRearCloud",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"texture": {
+						"class": "CompressedTexture2D",
+						"path": "res://assets/sprites/sky_lagoon/sky_lagoon_cloud_single_v1.png",
+						"size": "(221.0, 94.0)"
+					},
+					"z_index": 0
+				},
+				{
+					"class": "Node2D",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonLandmarks",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"z_index": -300
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(0.72, 0.78, 0.96, 0.5423)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonLandmarks/SkyLagoonSmoke_0",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"texture": {
+						"class": "CompressedTexture2D",
+						"path": "res://assets/sprites/sky_lagoon/sky_lagoon_smoke_wisp_v2.png",
+						"size": "(46.0, 256.0)"
+					},
+					"z_index": 0
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(0.72, 0.78, 0.96, 0.5314)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonLandmarks/SkyLagoonSmoke_1",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"texture": {
+						"class": "CompressedTexture2D",
+						"path": "res://assets/sprites/sky_lagoon/sky_lagoon_smoke_wisp_v2.png",
+						"size": "(46.0, 256.0)"
+					},
+					"z_index": 0
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(0.72, 0.78, 0.96, 0.0108)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonLandmarks/SkyLagoonSmoke_2",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"texture": {
+						"class": "CompressedTexture2D",
+						"path": "res://assets/sprites/sky_lagoon/sky_lagoon_smoke_wisp_v2.png",
+						"size": "(46.0, 256.0)"
+					},
+					"z_index": 0
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonLandmarks/SkyLagoonArrivalPlane",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"texture": {
+						"class": "CompressedTexture2D",
+						"path": "res://assets/sprites/sky_lagoon/sky_lagoon_plane_v5_hd_grade.png",
+						"size": "(775.0, 360.0)"
+					},
+					"z_index": 0
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonLandmarks/SkyLagoonCastleFourTower",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"texture": {
+						"class": "CompressedTexture2D",
+						"path": "res://assets/sprites/sky_lagoon/sky_lagoon_castle_four_tower_v4.png",
+						"size": "(1022.0, 1024.0)"
+					},
+					"z_index": 0
+				},
+				{
+					"class": "Node2D",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonInteractive",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"z_index": 0
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonInteractive/SkyLagoonSlide",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"texture": {
+						"class": "CompressedTexture2D",
+						"path": "res://assets/sprites/sky_lagoon/sky_lagoon_slide_v3_compact.png",
+						"size": "(425.0, 412.0)"
+					},
+					"z_index": 0
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonInteractive/SkyLagoonPromenadeSwingFrame",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"texture": {
+						"class": "CompressedTexture2D",
+						"path": "res://assets/props/story/play_swing_frame.png",
+						"size": "(1024.0, 719.0)"
+					},
+					"z_index": 0
+				},
+				{
+					"class": "Node2D",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonInteractive/SkyLagoonPromenadeSwingFrame/SwingSeatPivot",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"z_index": 0
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonInteractive/SkyLagoonPromenadeSwingFrame/SwingSeatPivot/SwingSeatAndRopes",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"texture": {
+						"class": "CompressedTexture2D",
+						"path": "res://assets/props/story/play_swing_seat.png",
+						"size": "(554.0, 1024.0)"
+					},
+					"z_index": 0
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonInteractive/SkyLagoonSeesaw",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"texture": {
+						"class": "CompressedTexture2D",
+						"path": "res://assets/sprites/sky_lagoon/sky_lagoon_seesaw_v5_fitted.png",
+						"size": "(377.0, 168.0)"
+					},
+					"z_index": 0
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(0.2, 0.28, 0.42, 0.3)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonInteractive/SkyLagoonSlideContactShadow",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"texture": {
+						"class": "CompressedTexture2D",
+						"path": "res://assets/sprites/sky_lagoon/sky_lagoon_contact_shadow.png",
+						"size": "(256.0, 128.0)"
+					},
+					"z_index": -1
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(0.2, 0.28, 0.42, 0.3)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonInteractive/SkyLagoonPromenadeSwingFrameContactShadow",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"texture": {
+						"class": "CompressedTexture2D",
+						"path": "res://assets/sprites/sky_lagoon/sky_lagoon_contact_shadow.png",
+						"size": "(256.0, 128.0)"
+					},
+					"z_index": -1
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(0.2, 0.28, 0.42, 0.3)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonInteractive/SkyLagoonSeesawContactShadow",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"texture": {
+						"class": "CompressedTexture2D",
+						"path": "res://assets/sprites/sky_lagoon/sky_lagoon_contact_shadow.png",
+						"size": "(256.0, 128.0)"
+					},
+					"z_index": -1
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(1.0, 0.72, 0.2, 0.055)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonInteractive/SkyLagoonFocus_slide",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"texture": {
+						"class": "GradientTexture2D",
+						"path": "",
+						"size": "(192.0, 192.0)"
+					},
+					"z_index": 4
+				},
+				{
+					"class": "Polygon2D",
+					"color": "(0.1, 0.16, 0.34, 0.96)",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonInteractive/SkyLagoonFocus_slide/PointerOutline",
+					"polygon": "[(-32.0, 70.0), (32.0, 70.0), (18.0, 101.0), (0.0, 128.0), (-18.0, 101.0)]",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"z_index": 0
+				},
+				{
+					"class": "Polygon2D",
+					"color": "(1.0, 1.0, 1.0, 1.0)",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonInteractive/SkyLagoonFocus_slide/PointerFill",
+					"polygon": "[(-22.0, 75.0), (22.0, 75.0), (11.0, 99.0), (0.0, 119.0), (-11.0, 99.0)]",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"z_index": 0
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(1.0, 0.72, 0.2, 0.055)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonInteractive/SkyLagoonFocus_swing",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"texture": {
+						"class": "GradientTexture2D",
+						"path": "",
+						"size": "(192.0, 192.0)"
+					},
+					"z_index": 4
+				},
+				{
+					"class": "Polygon2D",
+					"color": "(0.1, 0.16, 0.34, 0.96)",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonInteractive/SkyLagoonFocus_swing/PointerOutline",
+					"polygon": "[(-32.0, 70.0), (32.0, 70.0), (18.0, 101.0), (0.0, 128.0), (-18.0, 101.0)]",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"z_index": 0
+				},
+				{
+					"class": "Polygon2D",
+					"color": "(1.0, 1.0, 1.0, 1.0)",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonInteractive/SkyLagoonFocus_swing/PointerFill",
+					"polygon": "[(-22.0, 75.0), (22.0, 75.0), (11.0, 99.0), (0.0, 119.0), (-11.0, 99.0)]",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"z_index": 0
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(1.0, 0.72, 0.2, 0.055)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonInteractive/SkyLagoonFocus_seesaw",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"texture": {
+						"class": "GradientTexture2D",
+						"path": "",
+						"size": "(192.0, 192.0)"
+					},
+					"z_index": 4
+				},
+				{
+					"class": "Polygon2D",
+					"color": "(0.1, 0.16, 0.34, 0.96)",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonInteractive/SkyLagoonFocus_seesaw/PointerOutline",
+					"polygon": "[(-32.0, 70.0), (32.0, 70.0), (18.0, 101.0), (0.0, 128.0), (-18.0, 101.0)]",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"z_index": 0
+				},
+				{
+					"class": "Polygon2D",
+					"color": "(1.0, 1.0, 1.0, 1.0)",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonInteractive/SkyLagoonFocus_seesaw/PointerFill",
+					"polygon": "[(-22.0, 75.0), (22.0, 75.0), (11.0, 99.0), (0.0, 119.0), (-11.0, 99.0)]",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"z_index": 0
+				},
+				{
+					"class": "Node2D",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonInteractive/SkyLagoonCastleDoorFocus",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"z_index": 0
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(0.68, 0.77, 0.99, 1.0)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonInteractive/SkyLagoonAnimalPool",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"texture": {
+						"class": "CompressedTexture2D",
+						"path": "res://assets/sprites/sky_lagoon/animals/hare_idle_atlas.png",
+						"size": "(512.0, 512.0)"
+					},
+					"z_index": 0
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(0.2, 0.28, 0.42, 0.3)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonInteractive/SkyLagoonAnimalPoolContactShadow",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"texture": {
+						"class": "CompressedTexture2D",
+						"path": "res://assets/sprites/sky_lagoon/sky_lagoon_contact_shadow.png",
+						"size": "(256.0, 128.0)"
+					},
+					"z_index": -1
+				},
+				{
+					"class": "Node2D",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonActors",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"z_index": 100
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonActors/SkyLagoonRoshan",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"texture": {
+						"class": "CompressedTexture2D",
+						"path": "res://assets/characters/roshan_25d/roshan_directional.png",
+						"size": "(1024.0, 512.0)"
+					},
+					"z_index": 0
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(0.2, 0.28, 0.42, 0.3)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonActors/SkyLagoonRoshanContactShadow",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"texture": {
+						"class": "CompressedTexture2D",
+						"path": "res://assets/sprites/sky_lagoon/sky_lagoon_contact_shadow.png",
+						"size": "(256.0, 128.0)"
+					},
+					"z_index": -1
+				},
+				{
+					"class": "Node2D",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonForegroundMural",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"z_index": 300
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(0.72, 0.78, 0.96, 1.0)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonForegroundMural/SkyLagoonForegroundTree",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"texture": {
+						"class": "CompressedTexture2D",
+						"path": "res://assets/sprites/sky_lagoon/sky_lagoon_tree_sticker_slender_v1.png",
+						"size": "(253.0, 380.0)"
+					},
+					"z_index": 0
+				},
+				{
+					"class": "Node2D",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonForeground",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"z_index": 300
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(1.0, 0.88, 0.35, 0.4985)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonForeground/SkyLagoonFirefly_00",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"texture": {
+						"class": "CompressedTexture2D",
+						"path": "res://assets/fairy/sprites/bug_firefly.png",
+						"size": "(1024.0, 1024.0)"
+					},
+					"z_index": 0
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(1.0, 0.88, 0.35, 0.2821)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonForeground/SkyLagoonFirefly_01",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"texture": {
+						"class": "CompressedTexture2D",
+						"path": "res://assets/fairy/sprites/bug_firefly.png",
+						"size": "(1024.0, 1024.0)"
+					},
+					"z_index": 0
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(1.0, 0.88, 0.35, 0.279)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonForeground/SkyLagoonFirefly_02",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"texture": {
+						"class": "CompressedTexture2D",
+						"path": "res://assets/fairy/sprites/bug_firefly.png",
+						"size": "(1024.0, 1024.0)"
+					},
+					"z_index": 0
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(1.0, 0.88, 0.35, 0.4911)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonForeground/SkyLagoonFirefly_03",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"texture": {
+						"class": "CompressedTexture2D",
+						"path": "res://assets/fairy/sprites/bug_firefly.png",
+						"size": "(1024.0, 1024.0)"
+					},
+					"z_index": 0
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(1.0, 0.88, 0.35, 0.7805)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonForeground/SkyLagoonFirefly_04",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"texture": {
+						"class": "CompressedTexture2D",
+						"path": "res://assets/fairy/sprites/bug_firefly.png",
+						"size": "(1024.0, 1024.0)"
+					},
+					"z_index": 0
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(1.0, 0.88, 0.35, 0.959)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonForeground/SkyLagoonFirefly_05",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"texture": {
+						"class": "CompressedTexture2D",
+						"path": "res://assets/fairy/sprites/bug_firefly.png",
+						"size": "(1024.0, 1024.0)"
+					},
+					"z_index": 0
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(1.0, 0.88, 0.35, 0.9106)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonForeground/SkyLagoonFirefly_06",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"texture": {
+						"class": "CompressedTexture2D",
+						"path": "res://assets/fairy/sprites/bug_firefly.png",
+						"size": "(1024.0, 1024.0)"
+					},
+					"z_index": 0
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(1.0, 0.88, 0.35, 0.6667)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonForeground/SkyLagoonFirefly_07",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"texture": {
+						"class": "CompressedTexture2D",
+						"path": "res://assets/fairy/sprites/bug_firefly.png",
+						"size": "(1024.0, 1024.0)"
+					},
+					"z_index": 0
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(1.0, 0.88, 0.35, 0.3859)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonForeground/SkyLagoonFirefly_08",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"texture": {
+						"class": "CompressedTexture2D",
+						"path": "res://assets/fairy/sprites/bug_firefly.png",
+						"size": "(1024.0, 1024.0)"
+					},
+					"z_index": 0
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(1.0, 0.88, 0.35, 0.2509)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonForeground/SkyLagoonFirefly_09",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"texture": {
+						"class": "CompressedTexture2D",
+						"path": "res://assets/fairy/sprites/bug_firefly.png",
+						"size": "(1024.0, 1024.0)"
+					},
+					"z_index": 0
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(1.0, 0.88, 0.35, 0.3493)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonForeground/SkyLagoonFirefly_10",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"texture": {
+						"class": "CompressedTexture2D",
+						"path": "res://assets/fairy/sprites/bug_firefly.png",
+						"size": "(1024.0, 1024.0)"
+					},
+					"z_index": 0
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(1.0, 0.88, 0.35, 0.6173)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonForeground/SkyLagoonFirefly_11",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"texture": {
+						"class": "CompressedTexture2D",
+						"path": "res://assets/fairy/sprites/bug_firefly.png",
+						"size": "(1024.0, 1024.0)"
+					},
+					"z_index": 0
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(1.0, 0.88, 0.35, 0.8805)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonForeground/SkyLagoonFirefly_12",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"texture": {
+						"class": "CompressedTexture2D",
+						"path": "res://assets/fairy/sprites/bug_firefly.png",
+						"size": "(1024.0, 1024.0)"
+					},
+					"z_index": 0
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(1.0, 0.88, 0.35, 0.9678)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonForeground/SkyLagoonFirefly_13",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"texture": {
+						"class": "CompressedTexture2D",
+						"path": "res://assets/fairy/sprites/bug_firefly.png",
+						"size": "(1024.0, 1024.0)"
+					},
+					"z_index": 0
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(1.0, 0.88, 0.35, 0.8225)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonForeground/SkyLagoonFirefly_14",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"texture": {
+						"class": "CompressedTexture2D",
+						"path": "res://assets/fairy/sprites/bug_firefly.png",
+						"size": "(1024.0, 1024.0)"
+					},
+					"z_index": 0
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(1.0, 0.88, 0.35, 0.5389)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonForeground/SkyLagoonFirefly_15",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"texture": {
+						"class": "CompressedTexture2D",
+						"path": "res://assets/fairy/sprites/bug_firefly.png",
+						"size": "(1024.0, 1024.0)"
+					},
+					"z_index": 0
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(1.0, 0.88, 0.35, 0.3016)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonForeground/SkyLagoonFirefly_16",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"texture": {
+						"class": "CompressedTexture2D",
+						"path": "res://assets/fairy/sprites/bug_firefly.png",
+						"size": "(1024.0, 1024.0)"
+					},
+					"z_index": 0
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(1.0, 0.88, 0.35, 0.2648)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonForeground/SkyLagoonFirefly_17",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"texture": {
+						"class": "CompressedTexture2D",
+						"path": "res://assets/fairy/sprites/bug_firefly.png",
+						"size": "(1024.0, 1024.0)"
+					},
+					"z_index": 0
+				},
+				{
+					"class": "Camera2D",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonCamera2D",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"z_index": 0
+				}
+			],
+			"sha256": "e8fbaf4a83809e4646a512ed0788d10f41c0017f81b4b97d3b315b03d0cf3638",
+			"size": [
+				1600,
+				720
+			],
+			"snapshot": {
+				"archive": {
+					"exists": false
+				},
+				"bindings": [
+					{
+						"before_ready": true,
+						"main_id": 128278595091,
+						"private_path": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef-flat-vector-gate-missing-art-20261015\\attempt1_baseline_missing_1600\\output/private_profile/reef_save.json",
+						"scene_file_path": "res://scenes/main.tscn",
+						"ticks_msec": 6940
+					}
+				],
+				"candidate_mode": "baseline_missing",
+				"caption_timer": 2.96668600000001,
+				"castle_room": "main_hall",
+				"controls": [],
+				"current_scene_id": 128278595091,
+				"day_one": {
+					"day_one_active": true,
+					"day_one_arrival_plane_media_seen": true,
+					"day_one_art_cleaned_grime": {},
+					"day_one_art_collected_materials": {},
+					"day_one_art_customization_completed": false,
+					"day_one_art_desk_unlocked": false,
+					"day_one_bathroom_cleanup_step": 0,
+					"day_one_bathroom_supply_hunt_step": 0,
+					"day_one_bathroom_toilet_cleaned": false,
+					"day_one_bathroom_tools_authorized": false,
+					"day_one_bathroom_tub_drained": false,
+					"day_one_boss_door_glow": false,
+					"day_one_cleaned_rooms": [],
+					"day_one_completed_rooms": [],
+					"day_one_current_room": "bathroom",
+					"day_one_dirty_castle_discovered": false,
+					"day_one_giant_dust_bunny_boss_defeated": false,
+					"day_one_giant_dust_bunny_boss_triggered": false,
+					"day_one_grok_video_2_seen": false,
+					"day_one_jobs_locked": true,
+					"day_one_opera_enabled": false,
+					"day_one_pool_cleanup_step": 0,
+					"day_one_pool_rumi_met": false,
+					"day_one_pool_seahorse_tugs": 0,
+					"day_one_pool_skimmer_mask": 0,
+					"day_one_pool_waterfall_mask": 0
+				},
+				"disk": {
+					"day_one_active": true,
+					"exists": true,
+					"keys": [
+						"animals",
+						"attack_color",
+						"attack_effect",
+						"bwdone",
+						"care_points",
+						"castle_logo_color",
+						"castle_logo_symbol",
+						"chapter2_active",
+						"chapter2_active_objective",
+						"chapter2_cake_piece_mask",
+						"chapter2_candle_lit",
+						"chapter2_candle_taken",
+						"chapter2_candy_cake_finished",
+						"chapter2_chef_cake_baked",
+						"chapter2_ember_king_crashed",
+						"chapter2_ember_scout_seen",
+						"chapter2_ember_son_seen",
+						"chapter2_farmer_strawberries_ready",
+						"chapter2_job_phase_masks",
+						"chapter2_lawn_beat",
+						"chapter2_lawn_started",
+						"chapter2_party_dress_done",
+						"chapter2_party_event_phase",
+						"chapter2_party_piece_mask",
+						"chapter2_party_started",
+						"chapter2_protection_bumps",
+						"chapter2_protection_misses",
+						"chapter2_protection_rounds",
+						"chapter2_rainbow_candle_found",
+						"chapter2_skill_mask",
+						"chapter2_story_complete",
+						"chapter2_strawberry_mask",
+						"chapter2_stuffie_ballet_done",
+						"chapter2_unlocked_opera_mask",
+						"chapter3_fairy_door_opened",
+						"chapter3_fairy_door_revealed",
+						"chapter3_fairy_mission_started",
+						"character_clothing_parts",
+						"character_outfits",
+						"combat_fire",
+						"combat_ice",
+						"combat_tutorial",
+						"comfy_games",
+						"companion",
+						"companion_bruises",
+						"companion_colors",
+						"companion_resting",
+						"crafts",
+						"critters",
+						"custom_fish",
+						"custom_friends",
+						"day_one_active",
+						"day_one_arrival_plane_media_seen",
+						"day_one_art_cleaned_grime",
+						"day_one_art_collected_materials",
+						"day_one_art_customization_completed",
+						"day_one_art_desk_unlocked",
+						"day_one_bathroom_cleanup_step",
+						"day_one_bathroom_supply_hunt_step",
+						"day_one_bathroom_toilet_cleaned",
+						"day_one_bathroom_tools_authorized",
+						"day_one_bathroom_tub_drained",
+						"day_one_boss_door_glow",
+						"day_one_cleaned_rooms",
+						"day_one_completed_rooms",
+						"day_one_current_room",
+						"day_one_dirty_castle_discovered",
+						"day_one_giant_dust_bunny_boss_defeated",
+						"day_one_giant_dust_bunny_boss_triggered",
+						"day_one_grok_video_2_seen",
+						"day_one_jobs_locked",
+						"day_one_opera_enabled",
+						"day_one_pool_cleanup_step",
+						"day_one_pool_rumi_met",
+						"day_one_pool_seahorse_tugs",
+						"day_one_pool_skimmer_mask",
+						"day_one_pool_waterfall_mask",
+						"day_one_story_clips_seen",
+						"dungeon_done",
+						"dungeon_progress",
+						"ember_done",
+						"ember_found",
+						"ember_progress",
+						"fairyskin",
+						"fashion_disguise_progress",
+						"fashion_dressing_progress",
+						"fashion_rewards_claimed",
+						"finale",
+						"fish_tokens",
+						"flat_vector_private_unknown",
+						"found",
+						"galaxy",
+						"haptics",
+						"lagoon_plane_departed",
+						"level2",
+						"medals",
+						"mic",
+						"music",
+						"opera_done",
+						"opera_geology_checkpoint",
+						"opera_mastery",
+						"opera_pantry",
+						"opera_performance_checkpoints",
+						"opera_progress",
+						"opera_stars",
+						"outfits_unlocked",
+						"owned",
+						"pearls",
+						"pearls_ever",
+						"plays",
+						"portal_unlocked",
+						"quality",
+						"save_generation",
+						"schema_version",
+						"skin",
+						"stickers",
+						"stuffie_wins",
+						"teacher_learning_progress",
+						"teacher_lesson_checkpoint",
+						"touch_mode",
+						"won"
+					],
+					"pearls": 23.0,
+					"plays": 4.0,
+					"quality": "speedy",
+					"save_generation": 8.0,
+					"sha256": "26b094977a3a9c278cfefc24c9ee0102438dab4fbe2d4e30ad20176856bed837",
+					"skin": "classic",
+					"unknown": {
+						"keep": [
+							3.0,
+							7.0
+						],
+						"token": "R68_PRIVATE_ONLY"
+					}
+				},
+				"first_session": false,
+				"game": "level2",
+				"gate": {
+					"alpha": 0,
+					"anchor_class": "Node2D",
+					"anchor_id": 168023821742,
+					"anchor_position": "(5270.665, 1147.402)",
+					"anchor_source_owned": true,
+					"art_status": "UNSET_REGISTRATION_MISSING",
+					"expected_texture": "",
+					"glow_id": 0,
+					"glow_path": "",
+					"glow_present": false,
+					"id": "",
+					"kind": "",
+					"payload": "",
+					"point": "(1292.968, 403.3834)",
+					"radius_px": 0,
+					"rgb": [],
+					"scale": "",
+					"source_helper_script": "res://export/flat_vector_r68/baseline_gate.gd",
+					"target_count": 3,
+					"target_registered": false,
+					"texture": ""
+				},
+				"has_saved_game": true,
+				"intro_active": false,
+				"main_id": 128278595091,
+				"main_valid": true,
+				"movie": {
+					"active": false
+				},
+				"phase": "promenade",
+				"private_path": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef-flat-vector-gate-missing-art-20261015\\attempt1_baseline_missing_1600\\output/private_profile/reef_save.json",
+				"quality": "speedy",
+				"reset_marker": false,
+				"route": {
+					"day_one_last_event": "arrival_plane_media",
+					"day_one_media_request": "d1_opening",
+					"lagoon_promenade_focus": "",
+					"phase": "promenade"
+				},
+				"save_generation": 8,
+				"scene_file_path": "res://scenes/main.tscn",
+				"skin": "classic",
+				"start_menu_active": false,
+				"time_scale": 1.0,
+				"tree_paused": false
+			},
+			"ticks_msec": 40757
+		},
+		{
+			"id": "02_original_pause",
+			"node_inventory_scope": "Visible Canvas hierarchy traversed from original Main; not full native/compositor/resource/projection/QA11 closure",
+			"path": "02_original_pause.png",
+			"role": "R68_GATE_FUNCTIONAL_TRIAL_NOT_QA11",
+			"selected_canvas_nodes": [
+				{
+					"class": "Label",
+					"font_size": 24,
+					"global_rect": "[P: (230.0, 590.0), S: (820.0, 112.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"mouse_filter": 2,
+					"path": "/root/Main/@CanvasLayer@16/HudVoiceCaption",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"text": "Let's go to the castle!",
+					"z_index": 0
+				},
+				{
+					"class": "ColorRect",
+					"color": "(0.0, 0.0, 0.0, 1.0)",
+					"global_rect": "[P: (0.0, 0.0), S: (1600.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 0.0)",
+					"mouse_filter": 2,
+					"path": "/root/Main/@CanvasLayer@25/@ColorRect@26",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (0.0, 0.0), S: (1600.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"mouse_filter": 2,
+					"path": "/root/Main/LivingWorldLayer/LivingWorldCanvas",
+					"script": "res://scripts/living_world_canvas.gd",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (0.0, 0.0), S: (1600.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"mouse_filter": 2,
+					"path": "/root/Main/@CanvasLayer@37/@Control@38",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"z_index": 0
+				},
+				{
+					"class": "Button",
+					"disabled": false,
+					"global_rect": "[P: (18.0, 18.0), S: (112.0, 112.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"mouse_filter": 0,
+					"normal_color": "(0.91, 0.93, 1.0, 0.98)",
+					"normal_style_class": "StyleBoxFlat",
+					"path": "/root/Main/GlobalNavigationLayer/GlobalNavigationButton",
+					"script": "",
+					"selected": false,
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"text": "↩",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (0.0, 0.0), S: (1600.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"mouse_filter": 0,
+					"path": "/root/Main/@CanvasLayer@311/PauseOverlay",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"z_index": 0
+				},
+				{
+					"class": "ColorRect",
+					"color": "(0.025, 0.06, 0.16, 0.76)",
+					"global_rect": "[P: (0.0, 0.0), S: (1600.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"mouse_filter": 0,
+					"path": "/root/Main/@CanvasLayer@311/PauseOverlay/@ColorRect@313",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"z_index": 0
+				},
+				{
+					"class": "Panel",
+					"global_rect": "[P: (290.0, 25.0), S: (700.0, 670.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"mouse_filter": 0,
+					"path": "/root/Main/@CanvasLayer@311/PauseOverlay/MenuShell",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (582.0, 3.0), S: (116.0, 82.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"mouse_filter": 2,
+					"path": "/root/Main/@CanvasLayer@311/PauseOverlay/MenuShellCrest",
+					"script": "res://scripts/shell_ornament.gd",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"z_index": 0
+				},
+				{
+					"class": "Panel",
+					"global_rect": "[P: (309.0, 47.0), S: (18.0, 18.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"mouse_filter": 2,
+					"path": "/root/Main/@CanvasLayer@311/PauseOverlay/MenuPearlTL",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"z_index": 0
+				},
+				{
+					"class": "Panel",
+					"global_rect": "[P: (953.0, 47.0), S: (18.0, 18.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"mouse_filter": 2,
+					"path": "/root/Main/@CanvasLayer@311/PauseOverlay/MenuPearlTR",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"z_index": 0
+				},
+				{
+					"class": "Panel",
+					"global_rect": "[P: (315.0, 658.0), S: (14.0, 14.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"mouse_filter": 2,
+					"path": "/root/Main/@CanvasLayer@311/PauseOverlay/MenuPearlBL",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"z_index": 0
+				},
+				{
+					"class": "Panel",
+					"global_rect": "[P: (951.0, 658.0), S: (14.0, 14.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"mouse_filter": 2,
+					"path": "/root/Main/@CanvasLayer@311/PauseOverlay/MenuPearlBR",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"z_index": 0
+				},
+				{
+					"class": "Label",
+					"font_size": 18,
+					"global_rect": "[P: (1030.0, 686.0), S: (1.0, 26.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"mouse_filter": 2,
+					"path": "/root/Main/@CanvasLayer@311/PauseOverlay/@Label@315",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"text": "",
+					"z_index": 0
+				},
+				{
+					"class": "Button",
+					"disabled": false,
+					"global_rect": "[P: (350.0, 105.0), S: (580.0, 140.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"mouse_filter": 0,
+					"normal_color": "(0.52, 0.94, 0.78, 0.98)",
+					"normal_style_class": "StyleBoxFlat",
+					"path": "/root/Main/@CanvasLayer@311/PauseOverlay/PauseResumeButton",
+					"script": "",
+					"selected": false,
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"text": "▶   BACK TO PLAY",
+					"z_index": 0
+				},
+				{
+					"class": "Button",
+					"disabled": false,
+					"global_rect": "[P: (350.0, 265.0), S: (280.0, 132.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"mouse_filter": 0,
+					"normal_color": "(0.91, 0.93, 1.0, 0.98)",
+					"normal_style_class": "StyleBoxFlat",
+					"path": "/root/Main/@CanvasLayer@311/PauseOverlay/PauseStickerButton",
+					"script": "",
+					"selected": false,
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"text": "★   STICKERS",
+					"z_index": 0
+				},
+				{
+					"class": "Button",
+					"disabled": false,
+					"global_rect": "[P: (650.0, 265.0), S: (280.0, 132.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"mouse_filter": 0,
+					"normal_color": "(0.91, 0.93, 1.0, 0.98)",
+					"normal_style_class": "StyleBoxFlat",
+					"path": "/root/Main/@CanvasLayer@311/PauseOverlay/MenuCritterBookButton",
+					"script": "",
+					"selected": false,
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"text": "🐟   CRITTERS",
+					"z_index": 0
+				},
+				{
+					"class": "Button",
+					"disabled": false,
+					"global_rect": "[P: (350.0, 420.0), S: (280.0, 132.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"mouse_filter": 0,
+					"normal_color": "(0.91, 0.93, 1.0, 0.98)",
+					"normal_style_class": "StyleBoxFlat",
+					"path": "/root/Main/@CanvasLayer@311/PauseOverlay/MenuStuffieButton",
+					"script": "",
+					"selected": false,
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"text": "♥   STUFFIE",
+					"z_index": 0
+				},
+				{
+					"class": "Button",
+					"disabled": false,
+					"global_rect": "[P: (650.0, 420.0), S: (280.0, 132.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"mouse_filter": 0,
+					"normal_color": "(0.91, 0.93, 1.0, 0.98)",
+					"normal_style_class": "StyleBoxFlat",
+					"path": "/root/Main/@CanvasLayer@311/PauseOverlay/PauseLeaveButton",
+					"script": "",
+					"selected": false,
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"text": "↩   BACK",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (0.0, 0.0), S: (1600.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"mouse_filter": 2,
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"z_index": 0
+				},
+				{
+					"class": "Node2D",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"z_index": 0
+				},
+				{
+					"class": "Node2D",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonBase",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"z_index": -500
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(0.48, 0.56, 0.82, 1.0)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonBase/SkyLagoonBackdrop_r0_c0",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"texture": {
+						"class": "CompressedTexture2D",
+						"path": "res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r0_c0.png",
+						"size": "(1024.0, 1024.0)"
+					},
+					"z_index": 0
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(0.48, 0.56, 0.82, 1.0)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonBase/SkyLagoonBackdrop_r0_c1",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"texture": {
+						"class": "CompressedTexture2D",
+						"path": "res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r0_c1.png",
+						"size": "(1024.0, 1024.0)"
+					},
+					"z_index": 0
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(0.48, 0.56, 0.82, 1.0)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonBase/SkyLagoonBackdrop_r0_c2",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"texture": {
+						"class": "CompressedTexture2D",
+						"path": "res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r0_c2.png",
+						"size": "(1024.0, 1024.0)"
+					},
+					"z_index": 0
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(0.48, 0.56, 0.82, 1.0)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonBase/SkyLagoonBackdrop_r0_c3",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"texture": {
+						"class": "CompressedTexture2D",
+						"path": "res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r0_c3.png",
+						"size": "(1024.0, 1024.0)"
+					},
+					"z_index": 0
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(0.48, 0.56, 0.82, 1.0)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonBase/SkyLagoonBackdrop_r0_c4",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"texture": {
+						"class": "CompressedTexture2D",
+						"path": "res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r0_c4.png",
+						"size": "(1024.0, 1024.0)"
+					},
+					"z_index": 0
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(0.48, 0.56, 0.82, 1.0)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonBase/SkyLagoonBackdrop_r0_c5",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"texture": {
+						"class": "CompressedTexture2D",
+						"path": "res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r0_c5.png",
+						"size": "(1024.0, 1024.0)"
+					},
+					"z_index": 0
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(0.48, 0.56, 0.82, 1.0)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonBase/SkyLagoonBackdrop_r1_c0",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"texture": {
+						"class": "CompressedTexture2D",
+						"path": "res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r1_c0.png",
+						"size": "(1024.0, 1024.0)"
+					},
+					"z_index": 0
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(0.48, 0.56, 0.82, 1.0)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonBase/SkyLagoonBackdrop_r1_c1",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"texture": {
+						"class": "CompressedTexture2D",
+						"path": "res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r1_c1.png",
+						"size": "(1024.0, 1024.0)"
+					},
+					"z_index": 0
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(0.48, 0.56, 0.82, 1.0)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonBase/SkyLagoonBackdrop_r1_c2",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"texture": {
+						"class": "CompressedTexture2D",
+						"path": "res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r1_c2.png",
+						"size": "(1024.0, 1024.0)"
+					},
+					"z_index": 0
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(0.48, 0.56, 0.82, 1.0)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonBase/SkyLagoonBackdrop_r1_c3",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"texture": {
+						"class": "CompressedTexture2D",
+						"path": "res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r1_c3.png",
+						"size": "(1024.0, 1024.0)"
+					},
+					"z_index": 0
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(0.48, 0.56, 0.82, 1.0)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonBase/SkyLagoonBackdrop_r1_c4",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"texture": {
+						"class": "CompressedTexture2D",
+						"path": "res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r1_c4.png",
+						"size": "(1024.0, 1024.0)"
+					},
+					"z_index": 0
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(0.48, 0.56, 0.82, 1.0)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonBase/SkyLagoonBackdrop_r1_c5",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"texture": {
+						"class": "CompressedTexture2D",
+						"path": "res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r1_c5.png",
+						"size": "(1024.0, 1024.0)"
+					},
+					"z_index": 0
+				},
+				{
+					"class": "Node2D",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonRearMural",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"z_index": -400
+				},
+				{
+					"class": "Node2D",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonRear",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"z_index": -400
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(0.72, 0.78, 0.96, 1.0)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonRear/SkyLagoonRearCloud",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"texture": {
+						"class": "CompressedTexture2D",
+						"path": "res://assets/sprites/sky_lagoon/sky_lagoon_cloud_single_v1.png",
+						"size": "(221.0, 94.0)"
+					},
+					"z_index": 0
+				},
+				{
+					"class": "Node2D",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonLandmarks",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"z_index": -300
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(0.72, 0.78, 0.96, 0.6196)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonLandmarks/SkyLagoonSmoke_0",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"texture": {
+						"class": "CompressedTexture2D",
+						"path": "res://assets/sprites/sky_lagoon/sky_lagoon_smoke_wisp_v2.png",
+						"size": "(46.0, 256.0)"
+					},
+					"z_index": 0
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(0.72, 0.78, 0.96, 0.2895)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonLandmarks/SkyLagoonSmoke_1",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"texture": {
+						"class": "CompressedTexture2D",
+						"path": "res://assets/sprites/sky_lagoon/sky_lagoon_smoke_wisp_v2.png",
+						"size": "(46.0, 256.0)"
+					},
+					"z_index": 0
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(0.72, 0.78, 0.96, 0.3301)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonLandmarks/SkyLagoonSmoke_2",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"texture": {
+						"class": "CompressedTexture2D",
+						"path": "res://assets/sprites/sky_lagoon/sky_lagoon_smoke_wisp_v2.png",
+						"size": "(46.0, 256.0)"
+					},
+					"z_index": 0
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonLandmarks/SkyLagoonArrivalPlane",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"texture": {
+						"class": "CompressedTexture2D",
+						"path": "res://assets/sprites/sky_lagoon/sky_lagoon_plane_v5_hd_grade.png",
+						"size": "(775.0, 360.0)"
+					},
+					"z_index": 0
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonLandmarks/SkyLagoonCastleFourTower",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"texture": {
+						"class": "CompressedTexture2D",
+						"path": "res://assets/sprites/sky_lagoon/sky_lagoon_castle_four_tower_v4.png",
+						"size": "(1022.0, 1024.0)"
+					},
+					"z_index": 0
+				},
+				{
+					"class": "Node2D",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonInteractive",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"z_index": 0
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonInteractive/SkyLagoonSlide",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"texture": {
+						"class": "CompressedTexture2D",
+						"path": "res://assets/sprites/sky_lagoon/sky_lagoon_slide_v3_compact.png",
+						"size": "(425.0, 412.0)"
+					},
+					"z_index": 0
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonInteractive/SkyLagoonPromenadeSwingFrame",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"texture": {
+						"class": "CompressedTexture2D",
+						"path": "res://assets/props/story/play_swing_frame.png",
+						"size": "(1024.0, 719.0)"
+					},
+					"z_index": 0
+				},
+				{
+					"class": "Node2D",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonInteractive/SkyLagoonPromenadeSwingFrame/SwingSeatPivot",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"z_index": 0
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonInteractive/SkyLagoonPromenadeSwingFrame/SwingSeatPivot/SwingSeatAndRopes",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"texture": {
+						"class": "CompressedTexture2D",
+						"path": "res://assets/props/story/play_swing_seat.png",
+						"size": "(554.0, 1024.0)"
+					},
+					"z_index": 0
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonInteractive/SkyLagoonSeesaw",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"texture": {
+						"class": "CompressedTexture2D",
+						"path": "res://assets/sprites/sky_lagoon/sky_lagoon_seesaw_v5_fitted.png",
+						"size": "(377.0, 168.0)"
+					},
+					"z_index": 0
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(0.2, 0.28, 0.42, 0.3)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonInteractive/SkyLagoonSlideContactShadow",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"texture": {
+						"class": "CompressedTexture2D",
+						"path": "res://assets/sprites/sky_lagoon/sky_lagoon_contact_shadow.png",
+						"size": "(256.0, 128.0)"
+					},
+					"z_index": -1
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(0.2, 0.28, 0.42, 0.3)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonInteractive/SkyLagoonPromenadeSwingFrameContactShadow",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"texture": {
+						"class": "CompressedTexture2D",
+						"path": "res://assets/sprites/sky_lagoon/sky_lagoon_contact_shadow.png",
+						"size": "(256.0, 128.0)"
+					},
+					"z_index": -1
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(0.2, 0.28, 0.42, 0.3)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonInteractive/SkyLagoonSeesawContactShadow",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"texture": {
+						"class": "CompressedTexture2D",
+						"path": "res://assets/sprites/sky_lagoon/sky_lagoon_contact_shadow.png",
+						"size": "(256.0, 128.0)"
+					},
+					"z_index": -1
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(1.0, 0.72, 0.2, 0.055)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonInteractive/SkyLagoonFocus_slide",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"texture": {
+						"class": "GradientTexture2D",
+						"path": "",
+						"size": "(192.0, 192.0)"
+					},
+					"z_index": 4
+				},
+				{
+					"class": "Polygon2D",
+					"color": "(0.1, 0.16, 0.34, 0.96)",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonInteractive/SkyLagoonFocus_slide/PointerOutline",
+					"polygon": "[(-32.0, 70.0), (32.0, 70.0), (18.0, 101.0), (0.0, 128.0), (-18.0, 101.0)]",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"z_index": 0
+				},
+				{
+					"class": "Polygon2D",
+					"color": "(1.0, 1.0, 1.0, 1.0)",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonInteractive/SkyLagoonFocus_slide/PointerFill",
+					"polygon": "[(-22.0, 75.0), (22.0, 75.0), (11.0, 99.0), (0.0, 119.0), (-11.0, 99.0)]",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"z_index": 0
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(1.0, 0.72, 0.2, 0.055)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonInteractive/SkyLagoonFocus_swing",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"texture": {
+						"class": "GradientTexture2D",
+						"path": "",
+						"size": "(192.0, 192.0)"
+					},
+					"z_index": 4
+				},
+				{
+					"class": "Polygon2D",
+					"color": "(0.1, 0.16, 0.34, 0.96)",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonInteractive/SkyLagoonFocus_swing/PointerOutline",
+					"polygon": "[(-32.0, 70.0), (32.0, 70.0), (18.0, 101.0), (0.0, 128.0), (-18.0, 101.0)]",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"z_index": 0
+				},
+				{
+					"class": "Polygon2D",
+					"color": "(1.0, 1.0, 1.0, 1.0)",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonInteractive/SkyLagoonFocus_swing/PointerFill",
+					"polygon": "[(-22.0, 75.0), (22.0, 75.0), (11.0, 99.0), (0.0, 119.0), (-11.0, 99.0)]",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"z_index": 0
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(1.0, 0.72, 0.2, 0.055)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonInteractive/SkyLagoonFocus_seesaw",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"texture": {
+						"class": "GradientTexture2D",
+						"path": "",
+						"size": "(192.0, 192.0)"
+					},
+					"z_index": 4
+				},
+				{
+					"class": "Polygon2D",
+					"color": "(0.1, 0.16, 0.34, 0.96)",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonInteractive/SkyLagoonFocus_seesaw/PointerOutline",
+					"polygon": "[(-32.0, 70.0), (32.0, 70.0), (18.0, 101.0), (0.0, 128.0), (-18.0, 101.0)]",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"z_index": 0
+				},
+				{
+					"class": "Polygon2D",
+					"color": "(1.0, 1.0, 1.0, 1.0)",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonInteractive/SkyLagoonFocus_seesaw/PointerFill",
+					"polygon": "[(-22.0, 75.0), (22.0, 75.0), (11.0, 99.0), (0.0, 119.0), (-11.0, 99.0)]",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"z_index": 0
+				},
+				{
+					"class": "Node2D",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonInteractive/SkyLagoonCastleDoorFocus",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"z_index": 0
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(0.68, 0.77, 0.99, 1.0)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonInteractive/SkyLagoonAnimalPool",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"texture": {
+						"class": "CompressedTexture2D",
+						"path": "res://assets/sprites/sky_lagoon/animals/hare_idle_atlas.png",
+						"size": "(512.0, 512.0)"
+					},
+					"z_index": 0
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(0.2, 0.28, 0.42, 0.3)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonInteractive/SkyLagoonAnimalPoolContactShadow",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"texture": {
+						"class": "CompressedTexture2D",
+						"path": "res://assets/sprites/sky_lagoon/sky_lagoon_contact_shadow.png",
+						"size": "(256.0, 128.0)"
+					},
+					"z_index": -1
+				},
+				{
+					"class": "Node2D",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonActors",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"z_index": 100
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonActors/SkyLagoonRoshan",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"texture": {
+						"class": "CompressedTexture2D",
+						"path": "res://assets/characters/roshan_25d/roshan_directional.png",
+						"size": "(1024.0, 512.0)"
+					},
+					"z_index": 0
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(0.2, 0.28, 0.42, 0.3)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonActors/SkyLagoonRoshanContactShadow",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"texture": {
+						"class": "CompressedTexture2D",
+						"path": "res://assets/sprites/sky_lagoon/sky_lagoon_contact_shadow.png",
+						"size": "(256.0, 128.0)"
+					},
+					"z_index": -1
+				},
+				{
+					"class": "Node2D",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonForegroundMural",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"z_index": 300
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(0.72, 0.78, 0.96, 1.0)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonForegroundMural/SkyLagoonForegroundTree",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"texture": {
+						"class": "CompressedTexture2D",
+						"path": "res://assets/sprites/sky_lagoon/sky_lagoon_tree_sticker_slender_v1.png",
+						"size": "(253.0, 380.0)"
+					},
+					"z_index": 0
+				},
+				{
+					"class": "Node2D",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonForeground",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"z_index": 300
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(1.0, 0.88, 0.35, 0.2959)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonForeground/SkyLagoonFirefly_00",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"texture": {
+						"class": "CompressedTexture2D",
+						"path": "res://assets/fairy/sprites/bug_firefly.png",
+						"size": "(1024.0, 1024.0)"
+					},
+					"z_index": 0
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(1.0, 0.88, 0.35, 0.5278)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonForeground/SkyLagoonFirefly_01",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"texture": {
+						"class": "CompressedTexture2D",
+						"path": "res://assets/fairy/sprites/bug_firefly.png",
+						"size": "(1024.0, 1024.0)"
+					},
+					"z_index": 0
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(1.0, 0.88, 0.35, 0.8131)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonForeground/SkyLagoonFirefly_02",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"texture": {
+						"class": "CompressedTexture2D",
+						"path": "res://assets/fairy/sprites/bug_firefly.png",
+						"size": "(1024.0, 1024.0)"
+					},
+					"z_index": 0
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(1.0, 0.88, 0.35, 0.9664)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonForeground/SkyLagoonFirefly_03",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"texture": {
+						"class": "CompressedTexture2D",
+						"path": "res://assets/fairy/sprites/bug_firefly.png",
+						"size": "(1024.0, 1024.0)"
+					},
+					"z_index": 0
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(1.0, 0.88, 0.35, 0.8879)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonForeground/SkyLagoonFirefly_04",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"texture": {
+						"class": "CompressedTexture2D",
+						"path": "res://assets/fairy/sprites/bug_firefly.png",
+						"size": "(1024.0, 1024.0)"
+					},
+					"z_index": 0
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(1.0, 0.88, 0.35, 0.6287)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonForeground/SkyLagoonFirefly_05",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"texture": {
+						"class": "CompressedTexture2D",
+						"path": "res://assets/fairy/sprites/bug_firefly.png",
+						"size": "(1024.0, 1024.0)"
+					},
+					"z_index": 0
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(1.0, 0.88, 0.35, 0.3573)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonForeground/SkyLagoonFirefly_06",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"texture": {
+						"class": "CompressedTexture2D",
+						"path": "res://assets/fairy/sprites/bug_firefly.png",
+						"size": "(1024.0, 1024.0)"
+					},
+					"z_index": 0
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(1.0, 0.88, 0.35, 0.2502)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonForeground/SkyLagoonFirefly_07",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"texture": {
+						"class": "CompressedTexture2D",
+						"path": "res://assets/fairy/sprites/bug_firefly.png",
+						"size": "(1024.0, 1024.0)"
+					},
+					"z_index": 0
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(1.0, 0.88, 0.35, 0.3771)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonForeground/SkyLagoonFirefly_08",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"texture": {
+						"class": "CompressedTexture2D",
+						"path": "res://assets/fairy/sprites/bug_firefly.png",
+						"size": "(1024.0, 1024.0)"
+					},
+					"z_index": 0
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(1.0, 0.88, 0.35, 0.6554)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonForeground/SkyLagoonFirefly_09",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"texture": {
+						"class": "CompressedTexture2D",
+						"path": "res://assets/fairy/sprites/bug_firefly.png",
+						"size": "(1024.0, 1024.0)"
+					},
+					"z_index": 0
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(1.0, 0.88, 0.35, 0.9042)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonForeground/SkyLagoonFirefly_10",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"texture": {
+						"class": "CompressedTexture2D",
+						"path": "res://assets/fairy/sprites/bug_firefly.png",
+						"size": "(1024.0, 1024.0)"
+					},
+					"z_index": 0
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(1.0, 0.88, 0.35, 0.9617)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonForeground/SkyLagoonFirefly_11",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"texture": {
+						"class": "CompressedTexture2D",
+						"path": "res://assets/fairy/sprites/bug_firefly.png",
+						"size": "(1024.0, 1024.0)"
+					},
+					"z_index": 0
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(1.0, 0.88, 0.35, 0.7905)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonForeground/SkyLagoonFirefly_12",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"texture": {
+						"class": "CompressedTexture2D",
+						"path": "res://assets/fairy/sprites/bug_firefly.png",
+						"size": "(1024.0, 1024.0)"
+					},
+					"z_index": 0
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(1.0, 0.88, 0.35, 0.502)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonForeground/SkyLagoonFirefly_13",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"texture": {
+						"class": "CompressedTexture2D",
+						"path": "res://assets/fairy/sprites/bug_firefly.png",
+						"size": "(1024.0, 1024.0)"
+					},
+					"z_index": 0
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(1.0, 0.88, 0.35, 0.2837)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonForeground/SkyLagoonFirefly_14",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"texture": {
+						"class": "CompressedTexture2D",
+						"path": "res://assets/fairy/sprites/bug_firefly.png",
+						"size": "(1024.0, 1024.0)"
+					},
+					"z_index": 0
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(1.0, 0.88, 0.35, 0.2776)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonForeground/SkyLagoonFirefly_15",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"texture": {
+						"class": "CompressedTexture2D",
+						"path": "res://assets/fairy/sprites/bug_firefly.png",
+						"size": "(1024.0, 1024.0)"
+					},
+					"z_index": 0
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(1.0, 0.88, 0.35, 0.4876)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonForeground/SkyLagoonFirefly_16",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"texture": {
+						"class": "CompressedTexture2D",
+						"path": "res://assets/fairy/sprites/bug_firefly.png",
+						"size": "(1024.0, 1024.0)"
+					},
+					"z_index": 0
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(1.0, 0.88, 0.35, 0.7773)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonForeground/SkyLagoonFirefly_17",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"texture": {
+						"class": "CompressedTexture2D",
+						"path": "res://assets/fairy/sprites/bug_firefly.png",
+						"size": "(1024.0, 1024.0)"
+					},
+					"z_index": 0
+				},
+				{
+					"class": "Camera2D",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonCamera2D",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"z_index": 0
+				}
+			],
+			"sha256": "26e1ce8ddba40e02a8f83a3101ad821267c8e8255c71cce3b4664627396c1fd1",
+			"size": [
+				1600,
+				720
+			],
+			"snapshot": {
+				"archive": {
+					"exists": false
+				},
+				"bindings": [
+					{
+						"before_ready": true,
+						"main_id": 128278595091,
+						"private_path": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef-flat-vector-gate-missing-art-20261015\\attempt1_baseline_missing_1600\\output/private_profile/reef_save.json",
+						"scene_file_path": "res://scenes/main.tscn",
+						"ticks_msec": 6940
+					}
+				],
+				"candidate_mode": "baseline_missing",
+				"caption_timer": 1.92780266666668,
+				"castle_room": "main_hall",
+				"controls": [],
+				"current_scene_id": 128278595091,
+				"day_one": {
+					"day_one_active": true,
+					"day_one_arrival_plane_media_seen": true,
+					"day_one_art_cleaned_grime": {},
+					"day_one_art_collected_materials": {},
+					"day_one_art_customization_completed": false,
+					"day_one_art_desk_unlocked": false,
+					"day_one_bathroom_cleanup_step": 0,
+					"day_one_bathroom_supply_hunt_step": 0,
+					"day_one_bathroom_toilet_cleaned": false,
+					"day_one_bathroom_tools_authorized": false,
+					"day_one_bathroom_tub_drained": false,
+					"day_one_boss_door_glow": false,
+					"day_one_cleaned_rooms": [],
+					"day_one_completed_rooms": [],
+					"day_one_current_room": "bathroom",
+					"day_one_dirty_castle_discovered": false,
+					"day_one_giant_dust_bunny_boss_defeated": false,
+					"day_one_giant_dust_bunny_boss_triggered": false,
+					"day_one_grok_video_2_seen": false,
+					"day_one_jobs_locked": true,
+					"day_one_opera_enabled": false,
+					"day_one_pool_cleanup_step": 0,
+					"day_one_pool_rumi_met": false,
+					"day_one_pool_seahorse_tugs": 0,
+					"day_one_pool_skimmer_mask": 0,
+					"day_one_pool_waterfall_mask": 0
+				},
+				"disk": {
+					"day_one_active": true,
+					"exists": true,
+					"keys": [
+						"animals",
+						"attack_color",
+						"attack_effect",
+						"bwdone",
+						"care_points",
+						"castle_logo_color",
+						"castle_logo_symbol",
+						"chapter2_active",
+						"chapter2_active_objective",
+						"chapter2_cake_piece_mask",
+						"chapter2_candle_lit",
+						"chapter2_candle_taken",
+						"chapter2_candy_cake_finished",
+						"chapter2_chef_cake_baked",
+						"chapter2_ember_king_crashed",
+						"chapter2_ember_scout_seen",
+						"chapter2_ember_son_seen",
+						"chapter2_farmer_strawberries_ready",
+						"chapter2_job_phase_masks",
+						"chapter2_lawn_beat",
+						"chapter2_lawn_started",
+						"chapter2_party_dress_done",
+						"chapter2_party_event_phase",
+						"chapter2_party_piece_mask",
+						"chapter2_party_started",
+						"chapter2_protection_bumps",
+						"chapter2_protection_misses",
+						"chapter2_protection_rounds",
+						"chapter2_rainbow_candle_found",
+						"chapter2_skill_mask",
+						"chapter2_story_complete",
+						"chapter2_strawberry_mask",
+						"chapter2_stuffie_ballet_done",
+						"chapter2_unlocked_opera_mask",
+						"chapter3_fairy_door_opened",
+						"chapter3_fairy_door_revealed",
+						"chapter3_fairy_mission_started",
+						"character_clothing_parts",
+						"character_outfits",
+						"combat_fire",
+						"combat_ice",
+						"combat_tutorial",
+						"comfy_games",
+						"companion",
+						"companion_bruises",
+						"companion_colors",
+						"companion_resting",
+						"crafts",
+						"critters",
+						"custom_fish",
+						"custom_friends",
+						"day_one_active",
+						"day_one_arrival_plane_media_seen",
+						"day_one_art_cleaned_grime",
+						"day_one_art_collected_materials",
+						"day_one_art_customization_completed",
+						"day_one_art_desk_unlocked",
+						"day_one_bathroom_cleanup_step",
+						"day_one_bathroom_supply_hunt_step",
+						"day_one_bathroom_toilet_cleaned",
+						"day_one_bathroom_tools_authorized",
+						"day_one_bathroom_tub_drained",
+						"day_one_boss_door_glow",
+						"day_one_cleaned_rooms",
+						"day_one_completed_rooms",
+						"day_one_current_room",
+						"day_one_dirty_castle_discovered",
+						"day_one_giant_dust_bunny_boss_defeated",
+						"day_one_giant_dust_bunny_boss_triggered",
+						"day_one_grok_video_2_seen",
+						"day_one_jobs_locked",
+						"day_one_opera_enabled",
+						"day_one_pool_cleanup_step",
+						"day_one_pool_rumi_met",
+						"day_one_pool_seahorse_tugs",
+						"day_one_pool_skimmer_mask",
+						"day_one_pool_waterfall_mask",
+						"day_one_story_clips_seen",
+						"dungeon_done",
+						"dungeon_progress",
+						"ember_done",
+						"ember_found",
+						"ember_progress",
+						"fairyskin",
+						"fashion_disguise_progress",
+						"fashion_dressing_progress",
+						"fashion_rewards_claimed",
+						"finale",
+						"fish_tokens",
+						"flat_vector_private_unknown",
+						"found",
+						"galaxy",
+						"haptics",
+						"lagoon_plane_departed",
+						"level2",
+						"medals",
+						"mic",
+						"music",
+						"opera_done",
+						"opera_geology_checkpoint",
+						"opera_mastery",
+						"opera_pantry",
+						"opera_performance_checkpoints",
+						"opera_progress",
+						"opera_stars",
+						"outfits_unlocked",
+						"owned",
+						"pearls",
+						"pearls_ever",
+						"plays",
+						"portal_unlocked",
+						"quality",
+						"save_generation",
+						"schema_version",
+						"skin",
+						"stickers",
+						"stuffie_wins",
+						"teacher_learning_progress",
+						"teacher_lesson_checkpoint",
+						"touch_mode",
+						"won"
+					],
+					"pearls": 23.0,
+					"plays": 4.0,
+					"quality": "speedy",
+					"save_generation": 8.0,
+					"sha256": "26b094977a3a9c278cfefc24c9ee0102438dab4fbe2d4e30ad20176856bed837",
+					"skin": "classic",
+					"unknown": {
+						"keep": [
+							3.0,
+							7.0
+						],
+						"token": "R68_PRIVATE_ONLY"
+					}
+				},
+				"first_session": false,
+				"game": "level2",
+				"gate": {
+					"alpha": 0,
+					"anchor_class": "Node2D",
+					"anchor_id": 168023821742,
+					"anchor_position": "(5270.665, 1147.402)",
+					"anchor_source_owned": true,
+					"art_status": "UNSET_REGISTRATION_MISSING",
+					"expected_texture": "",
+					"glow_id": 0,
+					"glow_path": "",
+					"glow_present": false,
+					"id": "",
+					"kind": "",
+					"payload": "",
+					"point": "(1292.968, 403.3834)",
+					"radius_px": 0,
+					"rgb": [],
+					"scale": "",
+					"source_helper_script": "res://export/flat_vector_r68/baseline_gate.gd",
+					"target_count": 3,
+					"target_registered": false,
+					"texture": ""
+				},
+				"has_saved_game": true,
+				"intro_active": false,
+				"main_id": 128278595091,
+				"main_valid": true,
+				"movie": {
+					"active": false
+				},
+				"phase": "promenade",
+				"private_path": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef-flat-vector-gate-missing-art-20261015\\attempt1_baseline_missing_1600\\output/private_profile/reef_save.json",
+				"quality": "speedy",
+				"reset_marker": false,
+				"route": {
+					"day_one_last_event": "arrival_plane_media",
+					"day_one_media_request": "d1_opening",
+					"lagoon_promenade_focus": "",
+					"phase": "promenade"
+				},
+				"save_generation": 8,
+				"scene_file_path": "res://scenes/main.tscn",
+				"skin": "classic",
+				"start_menu_active": false,
+				"time_scale": 1.0,
+				"tree_paused": true
+			},
+			"ticks_msec": 42073
+		},
+		{
+			"id": "03_idle_after_resume",
+			"node_inventory_scope": "Visible Canvas hierarchy traversed from original Main; not full native/compositor/resource/projection/QA11 closure",
+			"path": "03_idle_after_resume.png",
+			"role": "R68_GATE_FUNCTIONAL_TRIAL_NOT_QA11",
+			"selected_canvas_nodes": [
+				{
+					"class": "Label",
+					"font_size": 24,
+					"global_rect": "[P: (230.0, 590.0), S: (820.0, 112.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"mouse_filter": 2,
+					"path": "/root/Main/@CanvasLayer@16/HudVoiceCaption",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"text": "Let's go to the castle!",
+					"z_index": 0
+				},
+				{
+					"class": "ColorRect",
+					"color": "(0.0, 0.0, 0.0, 1.0)",
+					"global_rect": "[P: (0.0, 0.0), S: (1600.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 0.0)",
+					"mouse_filter": 2,
+					"path": "/root/Main/@CanvasLayer@25/@ColorRect@26",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (0.0, 0.0), S: (1600.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"mouse_filter": 2,
+					"path": "/root/Main/LivingWorldLayer/LivingWorldCanvas",
+					"script": "res://scripts/living_world_canvas.gd",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (0.0, 0.0), S: (1600.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"mouse_filter": 2,
+					"path": "/root/Main/@CanvasLayer@37/@Control@38",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"z_index": 0
+				},
+				{
+					"class": "Button",
+					"disabled": false,
+					"global_rect": "[P: (18.0, 18.0), S: (112.0, 112.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"mouse_filter": 0,
+					"normal_color": "(0.91, 0.93, 1.0, 0.98)",
+					"normal_style_class": "StyleBoxFlat",
+					"path": "/root/Main/GlobalNavigationLayer/GlobalNavigationButton",
+					"script": "",
+					"selected": false,
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"text": "☰",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (0.0, 0.0), S: (1600.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"mouse_filter": 2,
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"z_index": 0
+				},
+				{
+					"class": "Node2D",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"z_index": 0
+				},
+				{
+					"class": "Node2D",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonBase",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"z_index": -500
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(0.48, 0.56, 0.82, 1.0)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonBase/SkyLagoonBackdrop_r0_c0",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"texture": {
+						"class": "CompressedTexture2D",
+						"path": "res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r0_c0.png",
+						"size": "(1024.0, 1024.0)"
+					},
+					"z_index": 0
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(0.48, 0.56, 0.82, 1.0)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonBase/SkyLagoonBackdrop_r0_c1",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"texture": {
+						"class": "CompressedTexture2D",
+						"path": "res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r0_c1.png",
+						"size": "(1024.0, 1024.0)"
+					},
+					"z_index": 0
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(0.48, 0.56, 0.82, 1.0)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonBase/SkyLagoonBackdrop_r0_c2",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"texture": {
+						"class": "CompressedTexture2D",
+						"path": "res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r0_c2.png",
+						"size": "(1024.0, 1024.0)"
+					},
+					"z_index": 0
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(0.48, 0.56, 0.82, 1.0)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonBase/SkyLagoonBackdrop_r0_c3",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"texture": {
+						"class": "CompressedTexture2D",
+						"path": "res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r0_c3.png",
+						"size": "(1024.0, 1024.0)"
+					},
+					"z_index": 0
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(0.48, 0.56, 0.82, 1.0)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonBase/SkyLagoonBackdrop_r0_c4",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"texture": {
+						"class": "CompressedTexture2D",
+						"path": "res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r0_c4.png",
+						"size": "(1024.0, 1024.0)"
+					},
+					"z_index": 0
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(0.48, 0.56, 0.82, 1.0)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonBase/SkyLagoonBackdrop_r0_c5",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"texture": {
+						"class": "CompressedTexture2D",
+						"path": "res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r0_c5.png",
+						"size": "(1024.0, 1024.0)"
+					},
+					"z_index": 0
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(0.48, 0.56, 0.82, 1.0)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonBase/SkyLagoonBackdrop_r1_c0",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"texture": {
+						"class": "CompressedTexture2D",
+						"path": "res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r1_c0.png",
+						"size": "(1024.0, 1024.0)"
+					},
+					"z_index": 0
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(0.48, 0.56, 0.82, 1.0)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonBase/SkyLagoonBackdrop_r1_c1",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"texture": {
+						"class": "CompressedTexture2D",
+						"path": "res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r1_c1.png",
+						"size": "(1024.0, 1024.0)"
+					},
+					"z_index": 0
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(0.48, 0.56, 0.82, 1.0)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonBase/SkyLagoonBackdrop_r1_c2",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"texture": {
+						"class": "CompressedTexture2D",
+						"path": "res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r1_c2.png",
+						"size": "(1024.0, 1024.0)"
+					},
+					"z_index": 0
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(0.48, 0.56, 0.82, 1.0)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonBase/SkyLagoonBackdrop_r1_c3",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"texture": {
+						"class": "CompressedTexture2D",
+						"path": "res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r1_c3.png",
+						"size": "(1024.0, 1024.0)"
+					},
+					"z_index": 0
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(0.48, 0.56, 0.82, 1.0)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonBase/SkyLagoonBackdrop_r1_c4",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"texture": {
+						"class": "CompressedTexture2D",
+						"path": "res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r1_c4.png",
+						"size": "(1024.0, 1024.0)"
+					},
+					"z_index": 0
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(0.48, 0.56, 0.82, 1.0)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonBase/SkyLagoonBackdrop_r1_c5",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"texture": {
+						"class": "CompressedTexture2D",
+						"path": "res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r1_c5.png",
+						"size": "(1024.0, 1024.0)"
+					},
+					"z_index": 0
+				},
+				{
+					"class": "Node2D",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonRearMural",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"z_index": -400
+				},
+				{
+					"class": "Node2D",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonRear",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"z_index": -400
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(0.72, 0.78, 0.96, 1.0)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonRear/SkyLagoonRearCloud",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"texture": {
+						"class": "CompressedTexture2D",
+						"path": "res://assets/sprites/sky_lagoon/sky_lagoon_cloud_single_v1.png",
+						"size": "(221.0, 94.0)"
+					},
+					"z_index": 0
+				},
+				{
+					"class": "Node2D",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonLandmarks",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"z_index": -300
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(0.72, 0.78, 0.96, 0.6148)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonLandmarks/SkyLagoonSmoke_0",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"texture": {
+						"class": "CompressedTexture2D",
+						"path": "res://assets/sprites/sky_lagoon/sky_lagoon_smoke_wisp_v2.png",
+						"size": "(46.0, 256.0)"
+					},
+					"z_index": 0
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(0.72, 0.78, 0.96, 0.2383)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonLandmarks/SkyLagoonSmoke_1",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"texture": {
+						"class": "CompressedTexture2D",
+						"path": "res://assets/sprites/sky_lagoon/sky_lagoon_smoke_wisp_v2.png",
+						"size": "(46.0, 256.0)"
+					},
+					"z_index": 0
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(0.72, 0.78, 0.96, 0.3765)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonLandmarks/SkyLagoonSmoke_2",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"texture": {
+						"class": "CompressedTexture2D",
+						"path": "res://assets/sprites/sky_lagoon/sky_lagoon_smoke_wisp_v2.png",
+						"size": "(46.0, 256.0)"
+					},
+					"z_index": 0
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonLandmarks/SkyLagoonArrivalPlane",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"texture": {
+						"class": "CompressedTexture2D",
+						"path": "res://assets/sprites/sky_lagoon/sky_lagoon_plane_v5_hd_grade.png",
+						"size": "(775.0, 360.0)"
+					},
+					"z_index": 0
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonLandmarks/SkyLagoonCastleFourTower",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"texture": {
+						"class": "CompressedTexture2D",
+						"path": "res://assets/sprites/sky_lagoon/sky_lagoon_castle_four_tower_v4.png",
+						"size": "(1022.0, 1024.0)"
+					},
+					"z_index": 0
+				},
+				{
+					"class": "Node2D",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonInteractive",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"z_index": 0
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonInteractive/SkyLagoonSlide",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"texture": {
+						"class": "CompressedTexture2D",
+						"path": "res://assets/sprites/sky_lagoon/sky_lagoon_slide_v3_compact.png",
+						"size": "(425.0, 412.0)"
+					},
+					"z_index": 0
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonInteractive/SkyLagoonPromenadeSwingFrame",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"texture": {
+						"class": "CompressedTexture2D",
+						"path": "res://assets/props/story/play_swing_frame.png",
+						"size": "(1024.0, 719.0)"
+					},
+					"z_index": 0
+				},
+				{
+					"class": "Node2D",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonInteractive/SkyLagoonPromenadeSwingFrame/SwingSeatPivot",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"z_index": 0
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonInteractive/SkyLagoonPromenadeSwingFrame/SwingSeatPivot/SwingSeatAndRopes",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"texture": {
+						"class": "CompressedTexture2D",
+						"path": "res://assets/props/story/play_swing_seat.png",
+						"size": "(554.0, 1024.0)"
+					},
+					"z_index": 0
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonInteractive/SkyLagoonSeesaw",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"texture": {
+						"class": "CompressedTexture2D",
+						"path": "res://assets/sprites/sky_lagoon/sky_lagoon_seesaw_v5_fitted.png",
+						"size": "(377.0, 168.0)"
+					},
+					"z_index": 0
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(0.2, 0.28, 0.42, 0.3)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonInteractive/SkyLagoonSlideContactShadow",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"texture": {
+						"class": "CompressedTexture2D",
+						"path": "res://assets/sprites/sky_lagoon/sky_lagoon_contact_shadow.png",
+						"size": "(256.0, 128.0)"
+					},
+					"z_index": -1
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(0.2, 0.28, 0.42, 0.3)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonInteractive/SkyLagoonPromenadeSwingFrameContactShadow",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"texture": {
+						"class": "CompressedTexture2D",
+						"path": "res://assets/sprites/sky_lagoon/sky_lagoon_contact_shadow.png",
+						"size": "(256.0, 128.0)"
+					},
+					"z_index": -1
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(0.2, 0.28, 0.42, 0.3)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonInteractive/SkyLagoonSeesawContactShadow",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"texture": {
+						"class": "CompressedTexture2D",
+						"path": "res://assets/sprites/sky_lagoon/sky_lagoon_contact_shadow.png",
+						"size": "(256.0, 128.0)"
+					},
+					"z_index": -1
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(1.0, 0.72, 0.2, 0.055)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonInteractive/SkyLagoonFocus_slide",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"texture": {
+						"class": "GradientTexture2D",
+						"path": "",
+						"size": "(192.0, 192.0)"
+					},
+					"z_index": 4
+				},
+				{
+					"class": "Polygon2D",
+					"color": "(0.1, 0.16, 0.34, 0.96)",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonInteractive/SkyLagoonFocus_slide/PointerOutline",
+					"polygon": "[(-32.0, 70.0), (32.0, 70.0), (18.0, 101.0), (0.0, 128.0), (-18.0, 101.0)]",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"z_index": 0
+				},
+				{
+					"class": "Polygon2D",
+					"color": "(1.0, 1.0, 1.0, 1.0)",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonInteractive/SkyLagoonFocus_slide/PointerFill",
+					"polygon": "[(-22.0, 75.0), (22.0, 75.0), (11.0, 99.0), (0.0, 119.0), (-11.0, 99.0)]",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"z_index": 0
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(1.0, 0.72, 0.2, 0.055)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonInteractive/SkyLagoonFocus_swing",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"texture": {
+						"class": "GradientTexture2D",
+						"path": "",
+						"size": "(192.0, 192.0)"
+					},
+					"z_index": 4
+				},
+				{
+					"class": "Polygon2D",
+					"color": "(0.1, 0.16, 0.34, 0.96)",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonInteractive/SkyLagoonFocus_swing/PointerOutline",
+					"polygon": "[(-32.0, 70.0), (32.0, 70.0), (18.0, 101.0), (0.0, 128.0), (-18.0, 101.0)]",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"z_index": 0
+				},
+				{
+					"class": "Polygon2D",
+					"color": "(1.0, 1.0, 1.0, 1.0)",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonInteractive/SkyLagoonFocus_swing/PointerFill",
+					"polygon": "[(-22.0, 75.0), (22.0, 75.0), (11.0, 99.0), (0.0, 119.0), (-11.0, 99.0)]",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"z_index": 0
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(1.0, 0.72, 0.2, 0.055)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonInteractive/SkyLagoonFocus_seesaw",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"texture": {
+						"class": "GradientTexture2D",
+						"path": "",
+						"size": "(192.0, 192.0)"
+					},
+					"z_index": 4
+				},
+				{
+					"class": "Polygon2D",
+					"color": "(0.1, 0.16, 0.34, 0.96)",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonInteractive/SkyLagoonFocus_seesaw/PointerOutline",
+					"polygon": "[(-32.0, 70.0), (32.0, 70.0), (18.0, 101.0), (0.0, 128.0), (-18.0, 101.0)]",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"z_index": 0
+				},
+				{
+					"class": "Polygon2D",
+					"color": "(1.0, 1.0, 1.0, 1.0)",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonInteractive/SkyLagoonFocus_seesaw/PointerFill",
+					"polygon": "[(-22.0, 75.0), (22.0, 75.0), (11.0, 99.0), (0.0, 119.0), (-11.0, 99.0)]",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"z_index": 0
+				},
+				{
+					"class": "Node2D",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonInteractive/SkyLagoonCastleDoorFocus",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"z_index": 0
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(0.68, 0.77, 0.99, 1.0)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonInteractive/SkyLagoonAnimalPool",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"texture": {
+						"class": "CompressedTexture2D",
+						"path": "res://assets/sprites/sky_lagoon/animals/hare_idle_atlas.png",
+						"size": "(512.0, 512.0)"
+					},
+					"z_index": 0
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(0.2, 0.28, 0.42, 0.3)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonInteractive/SkyLagoonAnimalPoolContactShadow",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"texture": {
+						"class": "CompressedTexture2D",
+						"path": "res://assets/sprites/sky_lagoon/sky_lagoon_contact_shadow.png",
+						"size": "(256.0, 128.0)"
+					},
+					"z_index": -1
+				},
+				{
+					"class": "Node2D",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonActors",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"z_index": 100
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonActors/SkyLagoonRoshan",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"texture": {
+						"class": "CompressedTexture2D",
+						"path": "res://assets/characters/roshan_25d/roshan_directional.png",
+						"size": "(1024.0, 512.0)"
+					},
+					"z_index": 0
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(0.2, 0.28, 0.42, 0.3)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonActors/SkyLagoonRoshanContactShadow",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"texture": {
+						"class": "CompressedTexture2D",
+						"path": "res://assets/sprites/sky_lagoon/sky_lagoon_contact_shadow.png",
+						"size": "(256.0, 128.0)"
+					},
+					"z_index": -1
+				},
+				{
+					"class": "Node2D",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonForegroundMural",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"z_index": 300
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(0.72, 0.78, 0.96, 1.0)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonForegroundMural/SkyLagoonForegroundTree",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"texture": {
+						"class": "CompressedTexture2D",
+						"path": "res://assets/sprites/sky_lagoon/sky_lagoon_tree_sticker_slender_v1.png",
+						"size": "(253.0, 380.0)"
+					},
+					"z_index": 0
+				},
+				{
+					"class": "Node2D",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonForeground",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"z_index": 300
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(1.0, 0.88, 0.35, 0.3609)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonForeground/SkyLagoonFirefly_00",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"texture": {
+						"class": "CompressedTexture2D",
+						"path": "res://assets/fairy/sprites/bug_firefly.png",
+						"size": "(1024.0, 1024.0)"
+					},
+					"z_index": 0
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(1.0, 0.88, 0.35, 0.6337)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonForeground/SkyLagoonFirefly_01",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"texture": {
+						"class": "CompressedTexture2D",
+						"path": "res://assets/fairy/sprites/bug_firefly.png",
+						"size": "(1024.0, 1024.0)"
+					},
+					"z_index": 0
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(1.0, 0.88, 0.35, 0.8911)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonForeground/SkyLagoonFirefly_02",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"texture": {
+						"class": "CompressedTexture2D",
+						"path": "res://assets/fairy/sprites/bug_firefly.png",
+						"size": "(1024.0, 1024.0)"
+					},
+					"z_index": 0
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(1.0, 0.88, 0.35, 0.9657)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonForeground/SkyLagoonFirefly_03",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"texture": {
+						"class": "CompressedTexture2D",
+						"path": "res://assets/fairy/sprites/bug_firefly.png",
+						"size": "(1024.0, 1024.0)"
+					},
+					"z_index": 0
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(1.0, 0.88, 0.35, 0.809)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonForeground/SkyLagoonFirefly_04",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"texture": {
+						"class": "CompressedTexture2D",
+						"path": "res://assets/fairy/sprites/bug_firefly.png",
+						"size": "(1024.0, 1024.0)"
+					},
+					"z_index": 0
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(1.0, 0.88, 0.35, 0.5229)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonForeground/SkyLagoonFirefly_05",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"texture": {
+						"class": "CompressedTexture2D",
+						"path": "res://assets/fairy/sprites/bug_firefly.png",
+						"size": "(1024.0, 1024.0)"
+					},
+					"z_index": 0
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(1.0, 0.88, 0.35, 0.2935)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonForeground/SkyLagoonFirefly_06",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"texture": {
+						"class": "CompressedTexture2D",
+						"path": "res://assets/fairy/sprites/bug_firefly.png",
+						"size": "(1024.0, 1024.0)"
+					},
+					"z_index": 0
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(1.0, 0.88, 0.35, 0.2698)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonForeground/SkyLagoonFirefly_07",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"texture": {
+						"class": "CompressedTexture2D",
+						"path": "res://assets/fairy/sprites/bug_firefly.png",
+						"size": "(1024.0, 1024.0)"
+					},
+					"z_index": 0
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(1.0, 0.88, 0.35, 0.4674)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonForeground/SkyLagoonFirefly_08",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"texture": {
+						"class": "CompressedTexture2D",
+						"path": "res://assets/fairy/sprites/bug_firefly.png",
+						"size": "(1024.0, 1024.0)"
+					},
+					"z_index": 0
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(1.0, 0.88, 0.35, 0.7577)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonForeground/SkyLagoonFirefly_09",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"texture": {
+						"class": "CompressedTexture2D",
+						"path": "res://assets/fairy/sprites/bug_firefly.png",
+						"size": "(1024.0, 1024.0)"
+					},
+					"z_index": 0
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(1.0, 0.88, 0.35, 0.9519)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonForeground/SkyLagoonFirefly_10",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"texture": {
+						"class": "CompressedTexture2D",
+						"path": "res://assets/fairy/sprites/bug_firefly.png",
+						"size": "(1024.0, 1024.0)"
+					},
+					"z_index": 0
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(1.0, 0.88, 0.35, 0.9239)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonForeground/SkyLagoonFirefly_11",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"texture": {
+						"class": "CompressedTexture2D",
+						"path": "res://assets/fairy/sprites/bug_firefly.png",
+						"size": "(1024.0, 1024.0)"
+					},
+					"z_index": 0
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(1.0, 0.88, 0.35, 0.6917)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonForeground/SkyLagoonFirefly_12",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"texture": {
+						"class": "CompressedTexture2D",
+						"path": "res://assets/fairy/sprites/bug_firefly.png",
+						"size": "(1024.0, 1024.0)"
+					},
+					"z_index": 0
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(1.0, 0.88, 0.35, 0.4064)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonForeground/SkyLagoonFirefly_13",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"texture": {
+						"class": "CompressedTexture2D",
+						"path": "res://assets/fairy/sprites/bug_firefly.png",
+						"size": "(1024.0, 1024.0)"
+					},
+					"z_index": 0
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(1.0, 0.88, 0.35, 0.2535)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonForeground/SkyLagoonFirefly_14",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"texture": {
+						"class": "CompressedTexture2D",
+						"path": "res://assets/fairy/sprites/bug_firefly.png",
+						"size": "(1024.0, 1024.0)"
+					},
+					"z_index": 0
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(1.0, 0.88, 0.35, 0.3324)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonForeground/SkyLagoonFirefly_15",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"texture": {
+						"class": "CompressedTexture2D",
+						"path": "res://assets/fairy/sprites/bug_firefly.png",
+						"size": "(1024.0, 1024.0)"
+					},
+					"z_index": 0
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(1.0, 0.88, 0.35, 0.5918)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonForeground/SkyLagoonFirefly_16",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"texture": {
+						"class": "CompressedTexture2D",
+						"path": "res://assets/fairy/sprites/bug_firefly.png",
+						"size": "(1024.0, 1024.0)"
+					},
+					"z_index": 0
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(1.0, 0.88, 0.35, 0.863)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonForeground/SkyLagoonFirefly_17",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"texture": {
+						"class": "CompressedTexture2D",
+						"path": "res://assets/fairy/sprites/bug_firefly.png",
+						"size": "(1024.0, 1024.0)"
+					},
+					"z_index": 0
+				},
+				{
+					"class": "Camera2D",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonCamera2D",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"z_index": 0
+				}
+			],
+			"sha256": "59241fd315564ee700d525e567a5d4729ec54e286f23f8aecc316e4844b0c2cb",
+			"size": [
+				1600,
+				720
+			],
+			"snapshot": {
+				"archive": {
+					"exists": false
+				},
+				"bindings": [
+					{
+						"before_ready": true,
+						"main_id": 128278595091,
+						"private_path": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef-flat-vector-gate-missing-art-20261015\\attempt1_baseline_missing_1600\\output/private_profile/reef_save.json",
+						"scene_file_path": "res://scenes/main.tscn",
+						"ticks_msec": 6940
+					}
+				],
+				"candidate_mode": "baseline_missing",
+				"caption_timer": 1.75352000000001,
+				"castle_room": "main_hall",
+				"controls": [],
+				"current_scene_id": 128278595091,
+				"day_one": {
+					"day_one_active": true,
+					"day_one_arrival_plane_media_seen": true,
+					"day_one_art_cleaned_grime": {},
+					"day_one_art_collected_materials": {},
+					"day_one_art_customization_completed": false,
+					"day_one_art_desk_unlocked": false,
+					"day_one_bathroom_cleanup_step": 0,
+					"day_one_bathroom_supply_hunt_step": 0,
+					"day_one_bathroom_toilet_cleaned": false,
+					"day_one_bathroom_tools_authorized": false,
+					"day_one_bathroom_tub_drained": false,
+					"day_one_boss_door_glow": false,
+					"day_one_cleaned_rooms": [],
+					"day_one_completed_rooms": [],
+					"day_one_current_room": "bathroom",
+					"day_one_dirty_castle_discovered": false,
+					"day_one_giant_dust_bunny_boss_defeated": false,
+					"day_one_giant_dust_bunny_boss_triggered": false,
+					"day_one_grok_video_2_seen": false,
+					"day_one_jobs_locked": true,
+					"day_one_opera_enabled": false,
+					"day_one_pool_cleanup_step": 0,
+					"day_one_pool_rumi_met": false,
+					"day_one_pool_seahorse_tugs": 0,
+					"day_one_pool_skimmer_mask": 0,
+					"day_one_pool_waterfall_mask": 0
+				},
+				"disk": {
+					"day_one_active": true,
+					"exists": true,
+					"keys": [
+						"animals",
+						"attack_color",
+						"attack_effect",
+						"bwdone",
+						"care_points",
+						"castle_logo_color",
+						"castle_logo_symbol",
+						"chapter2_active",
+						"chapter2_active_objective",
+						"chapter2_cake_piece_mask",
+						"chapter2_candle_lit",
+						"chapter2_candle_taken",
+						"chapter2_candy_cake_finished",
+						"chapter2_chef_cake_baked",
+						"chapter2_ember_king_crashed",
+						"chapter2_ember_scout_seen",
+						"chapter2_ember_son_seen",
+						"chapter2_farmer_strawberries_ready",
+						"chapter2_job_phase_masks",
+						"chapter2_lawn_beat",
+						"chapter2_lawn_started",
+						"chapter2_party_dress_done",
+						"chapter2_party_event_phase",
+						"chapter2_party_piece_mask",
+						"chapter2_party_started",
+						"chapter2_protection_bumps",
+						"chapter2_protection_misses",
+						"chapter2_protection_rounds",
+						"chapter2_rainbow_candle_found",
+						"chapter2_skill_mask",
+						"chapter2_story_complete",
+						"chapter2_strawberry_mask",
+						"chapter2_stuffie_ballet_done",
+						"chapter2_unlocked_opera_mask",
+						"chapter3_fairy_door_opened",
+						"chapter3_fairy_door_revealed",
+						"chapter3_fairy_mission_started",
+						"character_clothing_parts",
+						"character_outfits",
+						"combat_fire",
+						"combat_ice",
+						"combat_tutorial",
+						"comfy_games",
+						"companion",
+						"companion_bruises",
+						"companion_colors",
+						"companion_resting",
+						"crafts",
+						"critters",
+						"custom_fish",
+						"custom_friends",
+						"day_one_active",
+						"day_one_arrival_plane_media_seen",
+						"day_one_art_cleaned_grime",
+						"day_one_art_collected_materials",
+						"day_one_art_customization_completed",
+						"day_one_art_desk_unlocked",
+						"day_one_bathroom_cleanup_step",
+						"day_one_bathroom_supply_hunt_step",
+						"day_one_bathroom_toilet_cleaned",
+						"day_one_bathroom_tools_authorized",
+						"day_one_bathroom_tub_drained",
+						"day_one_boss_door_glow",
+						"day_one_cleaned_rooms",
+						"day_one_completed_rooms",
+						"day_one_current_room",
+						"day_one_dirty_castle_discovered",
+						"day_one_giant_dust_bunny_boss_defeated",
+						"day_one_giant_dust_bunny_boss_triggered",
+						"day_one_grok_video_2_seen",
+						"day_one_jobs_locked",
+						"day_one_opera_enabled",
+						"day_one_pool_cleanup_step",
+						"day_one_pool_rumi_met",
+						"day_one_pool_seahorse_tugs",
+						"day_one_pool_skimmer_mask",
+						"day_one_pool_waterfall_mask",
+						"day_one_story_clips_seen",
+						"dungeon_done",
+						"dungeon_progress",
+						"ember_done",
+						"ember_found",
+						"ember_progress",
+						"fairyskin",
+						"fashion_disguise_progress",
+						"fashion_dressing_progress",
+						"fashion_rewards_claimed",
+						"finale",
+						"fish_tokens",
+						"flat_vector_private_unknown",
+						"found",
+						"galaxy",
+						"haptics",
+						"lagoon_plane_departed",
+						"level2",
+						"medals",
+						"mic",
+						"music",
+						"opera_done",
+						"opera_geology_checkpoint",
+						"opera_mastery",
+						"opera_pantry",
+						"opera_performance_checkpoints",
+						"opera_progress",
+						"opera_stars",
+						"outfits_unlocked",
+						"owned",
+						"pearls",
+						"pearls_ever",
+						"plays",
+						"portal_unlocked",
+						"quality",
+						"save_generation",
+						"schema_version",
+						"skin",
+						"stickers",
+						"stuffie_wins",
+						"teacher_learning_progress",
+						"teacher_lesson_checkpoint",
+						"touch_mode",
+						"won"
+					],
+					"pearls": 23.0,
+					"plays": 4.0,
+					"quality": "speedy",
+					"save_generation": 8.0,
+					"sha256": "26b094977a3a9c278cfefc24c9ee0102438dab4fbe2d4e30ad20176856bed837",
+					"skin": "classic",
+					"unknown": {
+						"keep": [
+							3.0,
+							7.0
+						],
+						"token": "R68_PRIVATE_ONLY"
+					}
+				},
+				"first_session": false,
+				"game": "level2",
+				"gate": {
+					"alpha": 0,
+					"anchor_class": "Node2D",
+					"anchor_id": 168023821742,
+					"anchor_position": "(5270.665, 1147.402)",
+					"anchor_source_owned": true,
+					"art_status": "UNSET_REGISTRATION_MISSING",
+					"expected_texture": "",
+					"glow_id": 0,
+					"glow_path": "",
+					"glow_present": false,
+					"id": "",
+					"kind": "",
+					"payload": "",
+					"point": "(1292.968, 403.3834)",
+					"radius_px": 0,
+					"rgb": [],
+					"scale": "",
+					"source_helper_script": "res://export/flat_vector_r68/baseline_gate.gd",
+					"target_count": 3,
+					"target_registered": false,
+					"texture": ""
+				},
+				"has_saved_game": true,
+				"intro_active": false,
+				"main_id": 128278595091,
+				"main_valid": true,
+				"movie": {
+					"active": false
+				},
+				"phase": "promenade",
+				"private_path": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef-flat-vector-gate-missing-art-20261015\\attempt1_baseline_missing_1600\\output/private_profile/reef_save.json",
+				"quality": "speedy",
+				"reset_marker": false,
+				"route": {
+					"day_one_last_event": "arrival_plane_media",
+					"day_one_media_request": "d1_opening",
+					"lagoon_promenade_focus": "",
+					"phase": "promenade"
+				},
+				"save_generation": 8,
+				"scene_file_path": "res://scenes/main.tscn",
+				"skin": "classic",
+				"start_menu_active": false,
+				"time_scale": 1.0,
+				"tree_paused": false
+			},
+			"ticks_msec": 42472
+		},
+		{
+			"id": "04_reselected",
+			"node_inventory_scope": "Visible Canvas hierarchy traversed from original Main; not full native/compositor/resource/projection/QA11 closure",
+			"path": "04_reselected.png",
+			"role": "R68_GATE_FUNCTIONAL_TRIAL_NOT_QA11",
+			"selected_canvas_nodes": [
+				{
+					"class": "ColorRect",
+					"color": "(0.0, 0.0, 0.0, 1.0)",
+					"global_rect": "[P: (0.0, 0.0), S: (1600.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 0.0)",
+					"mouse_filter": 2,
+					"path": "/root/Main/@CanvasLayer@25/@ColorRect@26",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (0.0, 0.0), S: (1600.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"mouse_filter": 2,
+					"path": "/root/Main/LivingWorldLayer/LivingWorldCanvas",
+					"script": "res://scripts/living_world_canvas.gd",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (0.0, 0.0), S: (1600.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"mouse_filter": 2,
+					"path": "/root/Main/@CanvasLayer@37/@Control@38",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"z_index": 0
+				},
+				{
+					"class": "Panel",
+					"global_rect": "[P: (1237.968, 348.3834), S: (110.0, 110.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 0.5238)",
+					"mouse_filter": 2,
+					"path": "/root/Main/@CanvasLayer@37/@Control@38/@Panel@373",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"z_index": 0
+				},
+				{
+					"class": "Button",
+					"disabled": false,
+					"global_rect": "[P: (18.0, 18.0), S: (112.0, 112.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"mouse_filter": 0,
+					"normal_color": "(0.91, 0.93, 1.0, 0.98)",
+					"normal_style_class": "StyleBoxFlat",
+					"path": "/root/Main/GlobalNavigationLayer/GlobalNavigationButton",
+					"script": "",
+					"selected": false,
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"text": "☰",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (0.0, 0.0), S: (1600.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"mouse_filter": 2,
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"z_index": 0
+				},
+				{
+					"class": "Node2D",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"z_index": 0
+				},
+				{
+					"class": "Node2D",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonBase",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"z_index": -500
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(0.48, 0.56, 0.82, 1.0)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonBase/SkyLagoonBackdrop_r0_c0",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"texture": {
+						"class": "CompressedTexture2D",
+						"path": "res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r0_c0.png",
+						"size": "(1024.0, 1024.0)"
+					},
+					"z_index": 0
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(0.48, 0.56, 0.82, 1.0)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonBase/SkyLagoonBackdrop_r0_c1",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"texture": {
+						"class": "CompressedTexture2D",
+						"path": "res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r0_c1.png",
+						"size": "(1024.0, 1024.0)"
+					},
+					"z_index": 0
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(0.48, 0.56, 0.82, 1.0)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonBase/SkyLagoonBackdrop_r0_c2",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"texture": {
+						"class": "CompressedTexture2D",
+						"path": "res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r0_c2.png",
+						"size": "(1024.0, 1024.0)"
+					},
+					"z_index": 0
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(0.48, 0.56, 0.82, 1.0)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonBase/SkyLagoonBackdrop_r0_c3",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"texture": {
+						"class": "CompressedTexture2D",
+						"path": "res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r0_c3.png",
+						"size": "(1024.0, 1024.0)"
+					},
+					"z_index": 0
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(0.48, 0.56, 0.82, 1.0)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonBase/SkyLagoonBackdrop_r0_c4",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"texture": {
+						"class": "CompressedTexture2D",
+						"path": "res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r0_c4.png",
+						"size": "(1024.0, 1024.0)"
+					},
+					"z_index": 0
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(0.48, 0.56, 0.82, 1.0)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonBase/SkyLagoonBackdrop_r0_c5",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"texture": {
+						"class": "CompressedTexture2D",
+						"path": "res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r0_c5.png",
+						"size": "(1024.0, 1024.0)"
+					},
+					"z_index": 0
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(0.48, 0.56, 0.82, 1.0)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonBase/SkyLagoonBackdrop_r1_c0",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"texture": {
+						"class": "CompressedTexture2D",
+						"path": "res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r1_c0.png",
+						"size": "(1024.0, 1024.0)"
+					},
+					"z_index": 0
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(0.48, 0.56, 0.82, 1.0)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonBase/SkyLagoonBackdrop_r1_c1",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"texture": {
+						"class": "CompressedTexture2D",
+						"path": "res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r1_c1.png",
+						"size": "(1024.0, 1024.0)"
+					},
+					"z_index": 0
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(0.48, 0.56, 0.82, 1.0)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonBase/SkyLagoonBackdrop_r1_c2",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"texture": {
+						"class": "CompressedTexture2D",
+						"path": "res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r1_c2.png",
+						"size": "(1024.0, 1024.0)"
+					},
+					"z_index": 0
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(0.48, 0.56, 0.82, 1.0)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonBase/SkyLagoonBackdrop_r1_c3",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"texture": {
+						"class": "CompressedTexture2D",
+						"path": "res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r1_c3.png",
+						"size": "(1024.0, 1024.0)"
+					},
+					"z_index": 0
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(0.48, 0.56, 0.82, 1.0)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonBase/SkyLagoonBackdrop_r1_c4",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"texture": {
+						"class": "CompressedTexture2D",
+						"path": "res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r1_c4.png",
+						"size": "(1024.0, 1024.0)"
+					},
+					"z_index": 0
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(0.48, 0.56, 0.82, 1.0)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonBase/SkyLagoonBackdrop_r1_c5",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"texture": {
+						"class": "CompressedTexture2D",
+						"path": "res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r1_c5.png",
+						"size": "(1024.0, 1024.0)"
+					},
+					"z_index": 0
+				},
+				{
+					"class": "Node2D",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonRearMural",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"z_index": -400
+				},
+				{
+					"class": "Node2D",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonRear",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"z_index": -400
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(0.72, 0.78, 0.96, 1.0)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonRear/SkyLagoonRearCloud",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"texture": {
+						"class": "CompressedTexture2D",
+						"path": "res://assets/sprites/sky_lagoon/sky_lagoon_cloud_single_v1.png",
+						"size": "(221.0, 94.0)"
+					},
+					"z_index": 0
+				},
+				{
+					"class": "Node2D",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonLandmarks",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"z_index": -300
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(0.72, 0.78, 0.96, 0.2473)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonLandmarks/SkyLagoonSmoke_0",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"texture": {
+						"class": "CompressedTexture2D",
+						"path": "res://assets/sprites/sky_lagoon/sky_lagoon_smoke_wisp_v2.png",
+						"size": "(46.0, 256.0)"
+					},
+					"z_index": 0
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(0.72, 0.78, 0.96, 0.3688)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonLandmarks/SkyLagoonSmoke_1",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"texture": {
+						"class": "CompressedTexture2D",
+						"path": "res://assets/sprites/sky_lagoon/sky_lagoon_smoke_wisp_v2.png",
+						"size": "(46.0, 256.0)"
+					},
+					"z_index": 0
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(0.72, 0.78, 0.96, 0.616)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonLandmarks/SkyLagoonSmoke_2",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"texture": {
+						"class": "CompressedTexture2D",
+						"path": "res://assets/sprites/sky_lagoon/sky_lagoon_smoke_wisp_v2.png",
+						"size": "(46.0, 256.0)"
+					},
+					"z_index": 0
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonLandmarks/SkyLagoonArrivalPlane",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"texture": {
+						"class": "CompressedTexture2D",
+						"path": "res://assets/sprites/sky_lagoon/sky_lagoon_plane_v5_hd_grade.png",
+						"size": "(775.0, 360.0)"
+					},
+					"z_index": 0
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonLandmarks/SkyLagoonCastleFourTower",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"texture": {
+						"class": "CompressedTexture2D",
+						"path": "res://assets/sprites/sky_lagoon/sky_lagoon_castle_four_tower_v4.png",
+						"size": "(1022.0, 1024.0)"
+					},
+					"z_index": 0
+				},
+				{
+					"class": "Node2D",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonInteractive",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"z_index": 0
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonInteractive/SkyLagoonSlide",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"texture": {
+						"class": "CompressedTexture2D",
+						"path": "res://assets/sprites/sky_lagoon/sky_lagoon_slide_v3_compact.png",
+						"size": "(425.0, 412.0)"
+					},
+					"z_index": 0
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonInteractive/SkyLagoonPromenadeSwingFrame",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"texture": {
+						"class": "CompressedTexture2D",
+						"path": "res://assets/props/story/play_swing_frame.png",
+						"size": "(1024.0, 719.0)"
+					},
+					"z_index": 0
+				},
+				{
+					"class": "Node2D",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonInteractive/SkyLagoonPromenadeSwingFrame/SwingSeatPivot",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"z_index": 0
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonInteractive/SkyLagoonPromenadeSwingFrame/SwingSeatPivot/SwingSeatAndRopes",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"texture": {
+						"class": "CompressedTexture2D",
+						"path": "res://assets/props/story/play_swing_seat.png",
+						"size": "(554.0, 1024.0)"
+					},
+					"z_index": 0
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonInteractive/SkyLagoonSeesaw",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"texture": {
+						"class": "CompressedTexture2D",
+						"path": "res://assets/sprites/sky_lagoon/sky_lagoon_seesaw_v5_fitted.png",
+						"size": "(377.0, 168.0)"
+					},
+					"z_index": 0
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(0.2, 0.28, 0.42, 0.3)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonInteractive/SkyLagoonSlideContactShadow",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"texture": {
+						"class": "CompressedTexture2D",
+						"path": "res://assets/sprites/sky_lagoon/sky_lagoon_contact_shadow.png",
+						"size": "(256.0, 128.0)"
+					},
+					"z_index": -1
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(0.2, 0.28, 0.42, 0.3)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonInteractive/SkyLagoonPromenadeSwingFrameContactShadow",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"texture": {
+						"class": "CompressedTexture2D",
+						"path": "res://assets/sprites/sky_lagoon/sky_lagoon_contact_shadow.png",
+						"size": "(256.0, 128.0)"
+					},
+					"z_index": -1
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(0.2, 0.28, 0.42, 0.3)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonInteractive/SkyLagoonSeesawContactShadow",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"texture": {
+						"class": "CompressedTexture2D",
+						"path": "res://assets/sprites/sky_lagoon/sky_lagoon_contact_shadow.png",
+						"size": "(256.0, 128.0)"
+					},
+					"z_index": -1
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(1.0, 0.72, 0.2, 0.055)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonInteractive/SkyLagoonFocus_slide",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"texture": {
+						"class": "GradientTexture2D",
+						"path": "",
+						"size": "(192.0, 192.0)"
+					},
+					"z_index": 4
+				},
+				{
+					"class": "Polygon2D",
+					"color": "(0.1, 0.16, 0.34, 0.96)",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonInteractive/SkyLagoonFocus_slide/PointerOutline",
+					"polygon": "[(-32.0, 70.0), (32.0, 70.0), (18.0, 101.0), (0.0, 128.0), (-18.0, 101.0)]",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"z_index": 0
+				},
+				{
+					"class": "Polygon2D",
+					"color": "(1.0, 1.0, 1.0, 1.0)",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonInteractive/SkyLagoonFocus_slide/PointerFill",
+					"polygon": "[(-22.0, 75.0), (22.0, 75.0), (11.0, 99.0), (0.0, 119.0), (-11.0, 99.0)]",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"z_index": 0
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(1.0, 0.72, 0.2, 0.055)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonInteractive/SkyLagoonFocus_swing",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"texture": {
+						"class": "GradientTexture2D",
+						"path": "",
+						"size": "(192.0, 192.0)"
+					},
+					"z_index": 4
+				},
+				{
+					"class": "Polygon2D",
+					"color": "(0.1, 0.16, 0.34, 0.96)",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonInteractive/SkyLagoonFocus_swing/PointerOutline",
+					"polygon": "[(-32.0, 70.0), (32.0, 70.0), (18.0, 101.0), (0.0, 128.0), (-18.0, 101.0)]",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"z_index": 0
+				},
+				{
+					"class": "Polygon2D",
+					"color": "(1.0, 1.0, 1.0, 1.0)",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonInteractive/SkyLagoonFocus_swing/PointerFill",
+					"polygon": "[(-22.0, 75.0), (22.0, 75.0), (11.0, 99.0), (0.0, 119.0), (-11.0, 99.0)]",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"z_index": 0
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(1.0, 0.72, 0.2, 0.055)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonInteractive/SkyLagoonFocus_seesaw",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"texture": {
+						"class": "GradientTexture2D",
+						"path": "",
+						"size": "(192.0, 192.0)"
+					},
+					"z_index": 4
+				},
+				{
+					"class": "Polygon2D",
+					"color": "(0.1, 0.16, 0.34, 0.96)",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonInteractive/SkyLagoonFocus_seesaw/PointerOutline",
+					"polygon": "[(-32.0, 70.0), (32.0, 70.0), (18.0, 101.0), (0.0, 128.0), (-18.0, 101.0)]",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"z_index": 0
+				},
+				{
+					"class": "Polygon2D",
+					"color": "(1.0, 1.0, 1.0, 1.0)",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonInteractive/SkyLagoonFocus_seesaw/PointerFill",
+					"polygon": "[(-22.0, 75.0), (22.0, 75.0), (11.0, 99.0), (0.0, 119.0), (-11.0, 99.0)]",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"z_index": 0
+				},
+				{
+					"class": "Node2D",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonInteractive/SkyLagoonCastleDoorFocus",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"z_index": 0
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(0.68, 0.77, 0.99, 1.0)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonInteractive/SkyLagoonAnimalPool",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"texture": {
+						"class": "CompressedTexture2D",
+						"path": "res://assets/sprites/sky_lagoon/animals/hare_idle_atlas.png",
+						"size": "(512.0, 512.0)"
+					},
+					"z_index": 0
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(0.2, 0.28, 0.42, 0.3)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonInteractive/SkyLagoonAnimalPoolContactShadow",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"texture": {
+						"class": "CompressedTexture2D",
+						"path": "res://assets/sprites/sky_lagoon/sky_lagoon_contact_shadow.png",
+						"size": "(256.0, 128.0)"
+					},
+					"z_index": -1
+				},
+				{
+					"class": "Node2D",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonActors",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"z_index": 100
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonActors/SkyLagoonRoshan",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"texture": {
+						"class": "CompressedTexture2D",
+						"path": "res://assets/characters/roshan_25d/roshan_directional.png",
+						"size": "(1024.0, 512.0)"
+					},
+					"z_index": 0
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(0.2, 0.28, 0.42, 0.3)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonActors/SkyLagoonRoshanContactShadow",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"texture": {
+						"class": "CompressedTexture2D",
+						"path": "res://assets/sprites/sky_lagoon/sky_lagoon_contact_shadow.png",
+						"size": "(256.0, 128.0)"
+					},
+					"z_index": -1
+				},
+				{
+					"class": "Node2D",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonForegroundMural",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"z_index": 300
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(0.72, 0.78, 0.96, 1.0)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonForegroundMural/SkyLagoonForegroundTree",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"texture": {
+						"class": "CompressedTexture2D",
+						"path": "res://assets/sprites/sky_lagoon/sky_lagoon_tree_sticker_slender_v1.png",
+						"size": "(253.0, 380.0)"
+					},
+					"z_index": 0
+				},
+				{
+					"class": "Node2D",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonForeground",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"z_index": 300
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(1.0, 0.88, 0.35, 0.8002)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonForeground/SkyLagoonFirefly_00",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"texture": {
+						"class": "CompressedTexture2D",
+						"path": "res://assets/fairy/sprites/bug_firefly.png",
+						"size": "(1024.0, 1024.0)"
+					},
+					"z_index": 0
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(1.0, 0.88, 0.35, 0.5128)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonForeground/SkyLagoonFirefly_01",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"texture": {
+						"class": "CompressedTexture2D",
+						"path": "res://assets/fairy/sprites/bug_firefly.png",
+						"size": "(1024.0, 1024.0)"
+					},
+					"z_index": 0
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(1.0, 0.88, 0.35, 0.2886)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonForeground/SkyLagoonFirefly_02",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"texture": {
+						"class": "CompressedTexture2D",
+						"path": "res://assets/fairy/sprites/bug_firefly.png",
+						"size": "(1024.0, 1024.0)"
+					},
+					"z_index": 0
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(1.0, 0.88, 0.35, 0.2734)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonForeground/SkyLagoonFirefly_03",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"texture": {
+						"class": "CompressedTexture2D",
+						"path": "res://assets/fairy/sprites/bug_firefly.png",
+						"size": "(1024.0, 1024.0)"
+					},
+					"z_index": 0
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(1.0, 0.88, 0.35, 0.477)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonForeground/SkyLagoonFirefly_04",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"texture": {
+						"class": "CompressedTexture2D",
+						"path": "res://assets/fairy/sprites/bug_firefly.png",
+						"size": "(1024.0, 1024.0)"
+					},
+					"z_index": 0
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(1.0, 0.88, 0.35, 0.7671)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonForeground/SkyLagoonFirefly_05",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"texture": {
+						"class": "CompressedTexture2D",
+						"path": "res://assets/fairy/sprites/bug_firefly.png",
+						"size": "(1024.0, 1024.0)"
+					},
+					"z_index": 0
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(1.0, 0.88, 0.35, 0.9551)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonForeground/SkyLagoonFirefly_06",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"texture": {
+						"class": "CompressedTexture2D",
+						"path": "res://assets/fairy/sprites/bug_firefly.png",
+						"size": "(1024.0, 1024.0)"
+					},
+					"z_index": 0
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(1.0, 0.88, 0.35, 0.9186)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonForeground/SkyLagoonFirefly_07",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"texture": {
+						"class": "CompressedTexture2D",
+						"path": "res://assets/fairy/sprites/bug_firefly.png",
+						"size": "(1024.0, 1024.0)"
+					},
+					"z_index": 0
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(1.0, 0.88, 0.35, 0.6815)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonForeground/SkyLagoonFirefly_08",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"texture": {
+						"class": "CompressedTexture2D",
+						"path": "res://assets/fairy/sprites/bug_firefly.png",
+						"size": "(1024.0, 1024.0)"
+					},
+					"z_index": 0
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(1.0, 0.88, 0.35, 0.3979)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonForeground/SkyLagoonFirefly_09",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"texture": {
+						"class": "CompressedTexture2D",
+						"path": "res://assets/fairy/sprites/bug_firefly.png",
+						"size": "(1024.0, 1024.0)"
+					},
+					"z_index": 0
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(1.0, 0.88, 0.35, 0.2522)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonForeground/SkyLagoonFirefly_10",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"texture": {
+						"class": "CompressedTexture2D",
+						"path": "res://assets/fairy/sprites/bug_firefly.png",
+						"size": "(1024.0, 1024.0)"
+					},
+					"z_index": 0
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(1.0, 0.88, 0.35, 0.3392)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonForeground/SkyLagoonFirefly_11",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"texture": {
+						"class": "CompressedTexture2D",
+						"path": "res://assets/fairy/sprites/bug_firefly.png",
+						"size": "(1024.0, 1024.0)"
+					},
+					"z_index": 0
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(1.0, 0.88, 0.35, 0.6023)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonForeground/SkyLagoonFirefly_12",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"texture": {
+						"class": "CompressedTexture2D",
+						"path": "res://assets/fairy/sprites/bug_firefly.png",
+						"size": "(1024.0, 1024.0)"
+					},
+					"z_index": 0
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(1.0, 0.88, 0.35, 0.8704)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonForeground/SkyLagoonFirefly_13",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"texture": {
+						"class": "CompressedTexture2D",
+						"path": "res://assets/fairy/sprites/bug_firefly.png",
+						"size": "(1024.0, 1024.0)"
+					},
+					"z_index": 0
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(1.0, 0.88, 0.35, 0.9692)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonForeground/SkyLagoonFirefly_14",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"texture": {
+						"class": "CompressedTexture2D",
+						"path": "res://assets/fairy/sprites/bug_firefly.png",
+						"size": "(1024.0, 1024.0)"
+					},
+					"z_index": 0
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(1.0, 0.88, 0.35, 0.8344)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonForeground/SkyLagoonFirefly_15",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"texture": {
+						"class": "CompressedTexture2D",
+						"path": "res://assets/fairy/sprites/bug_firefly.png",
+						"size": "(1024.0, 1024.0)"
+					},
+					"z_index": 0
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(1.0, 0.88, 0.35, 0.5537)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonForeground/SkyLagoonFirefly_16",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"texture": {
+						"class": "CompressedTexture2D",
+						"path": "res://assets/fairy/sprites/bug_firefly.png",
+						"size": "(1024.0, 1024.0)"
+					},
+					"z_index": 0
+				},
+				{
+					"class": "Sprite2D",
+					"modulate": "(1.0, 0.88, 0.35, 0.3096)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonForeground/SkyLagoonFirefly_17",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"texture": {
+						"class": "CompressedTexture2D",
+						"path": "res://assets/fairy/sprites/bug_firefly.png",
+						"size": "(1024.0, 1024.0)"
+					},
+					"z_index": 0
+				},
+				{
+					"class": "Camera2D",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"path": "/root/Main/SkyLagoonCanvasLayer/SkyLagoonViewport/SkyLagoonMasterSpace/SkyLagoonCamera2D",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"z_index": 0
+				}
+			],
+			"sha256": "6c7d04a8b9d9dd3090f324832e5b11590006c0262671215210ede3e665e8d4fd",
+			"size": [
+				1600,
+				720
+			],
+			"snapshot": {
+				"archive": {
+					"exists": false
+				},
+				"bindings": [
+					{
+						"before_ready": true,
+						"main_id": 128278595091,
+						"private_path": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef-flat-vector-gate-missing-art-20261015\\attempt1_baseline_missing_1600\\output/private_profile/reef_save.json",
+						"scene_file_path": "res://scenes/main.tscn",
+						"ticks_msec": 6940
+					}
+				],
+				"candidate_mode": "baseline_missing",
+				"caption_timer": -0.0165253333333248,
+				"castle_room": "main_hall",
+				"controls": [],
+				"current_scene_id": 128278595091,
+				"day_one": {
+					"day_one_active": true,
+					"day_one_arrival_plane_media_seen": true,
+					"day_one_art_cleaned_grime": {},
+					"day_one_art_collected_materials": {},
+					"day_one_art_customization_completed": false,
+					"day_one_art_desk_unlocked": false,
+					"day_one_bathroom_cleanup_step": 0,
+					"day_one_bathroom_supply_hunt_step": 0,
+					"day_one_bathroom_toilet_cleaned": false,
+					"day_one_bathroom_tools_authorized": false,
+					"day_one_bathroom_tub_drained": false,
+					"day_one_boss_door_glow": false,
+					"day_one_cleaned_rooms": [],
+					"day_one_completed_rooms": [],
+					"day_one_current_room": "bathroom",
+					"day_one_dirty_castle_discovered": false,
+					"day_one_giant_dust_bunny_boss_defeated": false,
+					"day_one_giant_dust_bunny_boss_triggered": false,
+					"day_one_grok_video_2_seen": false,
+					"day_one_jobs_locked": true,
+					"day_one_opera_enabled": false,
+					"day_one_pool_cleanup_step": 0,
+					"day_one_pool_rumi_met": false,
+					"day_one_pool_seahorse_tugs": 0,
+					"day_one_pool_skimmer_mask": 0,
+					"day_one_pool_waterfall_mask": 0
+				},
+				"disk": {
+					"day_one_active": true,
+					"exists": true,
+					"keys": [
+						"animals",
+						"attack_color",
+						"attack_effect",
+						"bwdone",
+						"care_points",
+						"castle_logo_color",
+						"castle_logo_symbol",
+						"chapter2_active",
+						"chapter2_active_objective",
+						"chapter2_cake_piece_mask",
+						"chapter2_candle_lit",
+						"chapter2_candle_taken",
+						"chapter2_candy_cake_finished",
+						"chapter2_chef_cake_baked",
+						"chapter2_ember_king_crashed",
+						"chapter2_ember_scout_seen",
+						"chapter2_ember_son_seen",
+						"chapter2_farmer_strawberries_ready",
+						"chapter2_job_phase_masks",
+						"chapter2_lawn_beat",
+						"chapter2_lawn_started",
+						"chapter2_party_dress_done",
+						"chapter2_party_event_phase",
+						"chapter2_party_piece_mask",
+						"chapter2_party_started",
+						"chapter2_protection_bumps",
+						"chapter2_protection_misses",
+						"chapter2_protection_rounds",
+						"chapter2_rainbow_candle_found",
+						"chapter2_skill_mask",
+						"chapter2_story_complete",
+						"chapter2_strawberry_mask",
+						"chapter2_stuffie_ballet_done",
+						"chapter2_unlocked_opera_mask",
+						"chapter3_fairy_door_opened",
+						"chapter3_fairy_door_revealed",
+						"chapter3_fairy_mission_started",
+						"character_clothing_parts",
+						"character_outfits",
+						"combat_fire",
+						"combat_ice",
+						"combat_tutorial",
+						"comfy_games",
+						"companion",
+						"companion_bruises",
+						"companion_colors",
+						"companion_resting",
+						"crafts",
+						"critters",
+						"custom_fish",
+						"custom_friends",
+						"day_one_active",
+						"day_one_arrival_plane_media_seen",
+						"day_one_art_cleaned_grime",
+						"day_one_art_collected_materials",
+						"day_one_art_customization_completed",
+						"day_one_art_desk_unlocked",
+						"day_one_bathroom_cleanup_step",
+						"day_one_bathroom_supply_hunt_step",
+						"day_one_bathroom_toilet_cleaned",
+						"day_one_bathroom_tools_authorized",
+						"day_one_bathroom_tub_drained",
+						"day_one_boss_door_glow",
+						"day_one_cleaned_rooms",
+						"day_one_completed_rooms",
+						"day_one_current_room",
+						"day_one_dirty_castle_discovered",
+						"day_one_giant_dust_bunny_boss_defeated",
+						"day_one_giant_dust_bunny_boss_triggered",
+						"day_one_grok_video_2_seen",
+						"day_one_jobs_locked",
+						"day_one_opera_enabled",
+						"day_one_pool_cleanup_step",
+						"day_one_pool_rumi_met",
+						"day_one_pool_seahorse_tugs",
+						"day_one_pool_skimmer_mask",
+						"day_one_pool_waterfall_mask",
+						"day_one_story_clips_seen",
+						"dungeon_done",
+						"dungeon_progress",
+						"ember_done",
+						"ember_found",
+						"ember_progress",
+						"fairyskin",
+						"fashion_disguise_progress",
+						"fashion_dressing_progress",
+						"fashion_rewards_claimed",
+						"finale",
+						"fish_tokens",
+						"flat_vector_private_unknown",
+						"found",
+						"galaxy",
+						"haptics",
+						"lagoon_plane_departed",
+						"level2",
+						"medals",
+						"mic",
+						"music",
+						"opera_done",
+						"opera_geology_checkpoint",
+						"opera_mastery",
+						"opera_pantry",
+						"opera_performance_checkpoints",
+						"opera_progress",
+						"opera_stars",
+						"outfits_unlocked",
+						"owned",
+						"pearls",
+						"pearls_ever",
+						"plays",
+						"portal_unlocked",
+						"quality",
+						"save_generation",
+						"schema_version",
+						"skin",
+						"stickers",
+						"stuffie_wins",
+						"teacher_learning_progress",
+						"teacher_lesson_checkpoint",
+						"touch_mode",
+						"won"
+					],
+					"pearls": 23.0,
+					"plays": 4.0,
+					"quality": "speedy",
+					"save_generation": 8.0,
+					"sha256": "26b094977a3a9c278cfefc24c9ee0102438dab4fbe2d4e30ad20176856bed837",
+					"skin": "classic",
+					"unknown": {
+						"keep": [
+							3.0,
+							7.0
+						],
+						"token": "R68_PRIVATE_ONLY"
+					}
+				},
+				"first_session": false,
+				"game": "level2",
+				"gate": {
+					"alpha": 0,
+					"anchor_class": "Node2D",
+					"anchor_id": 168023821742,
+					"anchor_position": "(5270.665, 1147.402)",
+					"anchor_source_owned": true,
+					"art_status": "UNSET_REGISTRATION_MISSING",
+					"expected_texture": "",
+					"glow_id": 0,
+					"glow_path": "",
+					"glow_present": false,
+					"id": "",
+					"kind": "",
+					"payload": "",
+					"point": "(1292.968, 403.3834)",
+					"radius_px": 0,
+					"rgb": [],
+					"scale": "",
+					"source_helper_script": "res://export/flat_vector_r68/baseline_gate.gd",
+					"target_count": 3,
+					"target_registered": false,
+					"texture": ""
+				},
+				"has_saved_game": true,
+				"intro_active": false,
+				"main_id": 128278595091,
+				"main_valid": true,
+				"movie": {
+					"active": false
+				},
+				"phase": "promenade",
+				"private_path": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef-flat-vector-gate-missing-art-20261015\\attempt1_baseline_missing_1600\\output/private_profile/reef_save.json",
+				"quality": "speedy",
+				"reset_marker": false,
+				"route": {
+					"day_one_last_event": "arrival_plane_media",
+					"day_one_media_request": "d1_opening",
+					"lagoon_promenade_focus": "",
+					"phase": "promenade"
+				},
+				"save_generation": 8,
+				"scene_file_path": "res://scenes/main.tscn",
+				"skin": "classic",
+				"start_menu_active": false,
+				"time_scale": 1.0,
+				"tree_paused": false
+			},
+			"ticks_msec": 44685
+		},
+		{
+			"id": "05_failed_activation",
+			"node_inventory_scope": "Visible Canvas hierarchy traversed from original Main; not full native/compositor/resource/projection/QA11 closure",
+			"path": "05_failed_activation.png",
+			"role": "R68_GATE_FUNCTIONAL_TRIAL_NOT_QA11",
+			"selected_canvas_nodes": [
+				{
+					"class": "ColorRect",
+					"color": "(0.0, 0.0, 0.0, 1.0)",
+					"global_rect": "[P: (0.0, 0.0), S: (1600.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"mouse_filter": 0,
+					"path": "/root/Main/@CanvasLayer@25/@ColorRect@26",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (0.0, 0.0), S: (1600.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"mouse_filter": 2,
+					"path": "/root/Main/LivingWorldLayer/LivingWorldCanvas",
+					"script": "res://scripts/living_world_canvas.gd",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (0.0, 0.0), S: (1600.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"mouse_filter": 2,
+					"path": "/root/Main/@CanvasLayer@37/@Control@38",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (0.0, 0.0), S: (1600.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"mouse_filter": 0,
+					"path": "/root/Main/@CanvasLayer@367/@Control@378",
+					"script": "res://scripts/day_one_story_clips.gd",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"z_index": 70
+				},
+				{
+					"class": "ColorRect",
+					"color": "(0.0, 0.0, 0.0, 1.0)",
+					"global_rect": "[P: (0.0, 0.0), S: (1600.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"mouse_filter": 2,
+					"path": "/root/Main/@CanvasLayer@367/@Control@378/@ColorRect@379",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"z_index": 0
+				},
+				{
+					"class": "AspectRatioContainer",
+					"global_rect": "[P: (0.0, 0.0), S: (1600.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"mouse_filter": 2,
+					"path": "/root/Main/@CanvasLayer@367/@Control@378/@AspectRatioContainer@380",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"z_index": 0
+				},
+				{
+					"class": "VideoStreamPlayer",
+					"global_rect": "[P: (160.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"mouse_filter": 2,
+					"path": "/root/Main/@CanvasLayer@367/@Control@378/@AspectRatioContainer@380/@VideoStreamPlayer@381",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"z_index": 0
+				}
+			],
+			"sha256": "18968bfb241c1ea8f7e0c29839bb6fc321d126e4ebd6b2e75402ff7104213d67",
+			"size": [
+				1600,
+				720
+			],
+			"snapshot": {
+				"archive": {
+					"exists": false
+				},
+				"bindings": [
+					{
+						"before_ready": true,
+						"main_id": 128278595091,
+						"private_path": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef-flat-vector-gate-missing-art-20261015\\attempt1_baseline_missing_1600\\output/private_profile/reef_save.json",
+						"scene_file_path": "res://scenes/main.tscn",
+						"ticks_msec": 6940
+					}
+				],
+				"candidate_mode": "baseline_missing",
+				"caption_timer": 5.0,
+				"castle_room": "main_hall",
+				"controls": [],
+				"current_scene_id": 128278595091,
+				"day_one": {
+					"day_one_active": true,
+					"day_one_arrival_plane_media_seen": true,
+					"day_one_art_cleaned_grime": {},
+					"day_one_art_collected_materials": {},
+					"day_one_art_customization_completed": false,
+					"day_one_art_desk_unlocked": false,
+					"day_one_bathroom_cleanup_step": 0,
+					"day_one_bathroom_supply_hunt_step": 0,
+					"day_one_bathroom_toilet_cleaned": false,
+					"day_one_bathroom_tools_authorized": false,
+					"day_one_bathroom_tub_drained": false,
+					"day_one_boss_door_glow": false,
+					"day_one_cleaned_rooms": [],
+					"day_one_completed_rooms": [],
+					"day_one_current_room": "bathroom",
+					"day_one_dirty_castle_discovered": true,
+					"day_one_giant_dust_bunny_boss_defeated": false,
+					"day_one_giant_dust_bunny_boss_triggered": false,
+					"day_one_grok_video_2_seen": true,
+					"day_one_jobs_locked": true,
+					"day_one_opera_enabled": false,
+					"day_one_pool_cleanup_step": 0,
+					"day_one_pool_rumi_met": false,
+					"day_one_pool_seahorse_tugs": 0,
+					"day_one_pool_skimmer_mask": 0,
+					"day_one_pool_waterfall_mask": 0
+				},
+				"disk": {
+					"day_one_active": true,
+					"exists": true,
+					"keys": [
+						"animals",
+						"attack_color",
+						"attack_effect",
+						"bwdone",
+						"care_points",
+						"castle_logo_color",
+						"castle_logo_symbol",
+						"chapter2_active",
+						"chapter2_active_objective",
+						"chapter2_cake_piece_mask",
+						"chapter2_candle_lit",
+						"chapter2_candle_taken",
+						"chapter2_candy_cake_finished",
+						"chapter2_chef_cake_baked",
+						"chapter2_ember_king_crashed",
+						"chapter2_ember_scout_seen",
+						"chapter2_ember_son_seen",
+						"chapter2_farmer_strawberries_ready",
+						"chapter2_job_phase_masks",
+						"chapter2_lawn_beat",
+						"chapter2_lawn_started",
+						"chapter2_party_dress_done",
+						"chapter2_party_event_phase",
+						"chapter2_party_piece_mask",
+						"chapter2_party_started",
+						"chapter2_protection_bumps",
+						"chapter2_protection_misses",
+						"chapter2_protection_rounds",
+						"chapter2_rainbow_candle_found",
+						"chapter2_skill_mask",
+						"chapter2_story_complete",
+						"chapter2_strawberry_mask",
+						"chapter2_stuffie_ballet_done",
+						"chapter2_unlocked_opera_mask",
+						"chapter3_fairy_door_opened",
+						"chapter3_fairy_door_revealed",
+						"chapter3_fairy_mission_started",
+						"character_clothing_parts",
+						"character_outfits",
+						"combat_fire",
+						"combat_ice",
+						"combat_tutorial",
+						"comfy_games",
+						"companion",
+						"companion_bruises",
+						"companion_colors",
+						"companion_resting",
+						"crafts",
+						"critters",
+						"custom_fish",
+						"custom_friends",
+						"day_one_active",
+						"day_one_arrival_plane_media_seen",
+						"day_one_art_cleaned_grime",
+						"day_one_art_collected_materials",
+						"day_one_art_customization_completed",
+						"day_one_art_desk_unlocked",
+						"day_one_bathroom_cleanup_step",
+						"day_one_bathroom_supply_hunt_step",
+						"day_one_bathroom_toilet_cleaned",
+						"day_one_bathroom_tools_authorized",
+						"day_one_bathroom_tub_drained",
+						"day_one_boss_door_glow",
+						"day_one_cleaned_rooms",
+						"day_one_completed_rooms",
+						"day_one_current_room",
+						"day_one_dirty_castle_discovered",
+						"day_one_giant_dust_bunny_boss_defeated",
+						"day_one_giant_dust_bunny_boss_triggered",
+						"day_one_grok_video_2_seen",
+						"day_one_jobs_locked",
+						"day_one_opera_enabled",
+						"day_one_pool_cleanup_step",
+						"day_one_pool_rumi_met",
+						"day_one_pool_seahorse_tugs",
+						"day_one_pool_skimmer_mask",
+						"day_one_pool_waterfall_mask",
+						"day_one_story_clips_seen",
+						"dungeon_done",
+						"dungeon_progress",
+						"ember_done",
+						"ember_found",
+						"ember_progress",
+						"fairyskin",
+						"fashion_disguise_progress",
+						"fashion_dressing_progress",
+						"fashion_rewards_claimed",
+						"finale",
+						"fish_tokens",
+						"flat_vector_private_unknown",
+						"found",
+						"galaxy",
+						"haptics",
+						"lagoon_plane_departed",
+						"level2",
+						"medals",
+						"mic",
+						"music",
+						"opera_done",
+						"opera_geology_checkpoint",
+						"opera_mastery",
+						"opera_pantry",
+						"opera_performance_checkpoints",
+						"opera_progress",
+						"opera_stars",
+						"outfits_unlocked",
+						"owned",
+						"pearls",
+						"pearls_ever",
+						"plays",
+						"portal_unlocked",
+						"quality",
+						"save_generation",
+						"schema_version",
+						"skin",
+						"stickers",
+						"stuffie_wins",
+						"teacher_learning_progress",
+						"teacher_lesson_checkpoint",
+						"touch_mode",
+						"won"
+					],
+					"pearls": 23.0,
+					"plays": 4.0,
+					"quality": "speedy",
+					"save_generation": 8.0,
+					"sha256": "26b094977a3a9c278cfefc24c9ee0102438dab4fbe2d4e30ad20176856bed837",
+					"skin": "classic",
+					"unknown": {
+						"keep": [
+							3.0,
+							7.0
+						],
+						"token": "R68_PRIVATE_ONLY"
+					}
+				},
+				"first_session": false,
+				"game": "level2",
+				"gate": {},
+				"has_saved_game": true,
+				"intro_active": false,
+				"main_id": 128278595091,
+				"main_valid": true,
+				"movie": {
+					"active": true,
+					"finished": false,
+					"id": "d1_castle",
+					"playing": true,
+					"stream": "res://assets/cinematics/day_one_story/d1_castle.ogv",
+					"stream_position": 7.85871733333332
+				},
+				"phase": "hall",
+				"private_path": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef-flat-vector-gate-missing-art-20261015\\attempt1_baseline_missing_1600\\output/private_profile/reef_save.json",
+				"quality": "speedy",
+				"reset_marker": false,
+				"route": {
+					"day_one_last_event": "grok_video_2",
+					"day_one_media_request": "grok_dirty_castle_video_2",
+					"phase": "hall"
+				},
+				"save_generation": 8,
+				"scene_file_path": "res://scenes/main.tscn",
+				"skin": "classic",
+				"start_menu_active": false,
+				"time_scale": 1.0,
+				"tree_paused": true
+			},
+			"ticks_msec": 53879
+		}
+	]
+}

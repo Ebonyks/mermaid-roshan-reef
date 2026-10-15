@@ -1,0 +1,90 @@
+{
+  "stable_id": "FVR-42846B2A5A82",
+  "source_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+  "status": "BOUNDED_DIRECT_INTERACTION_REPAIR_STYLE_ACCEPTANCE_OPEN",
+  "reviewer": "Codex current-scene observation; no human/device/owner review invented",
+  "view_count": 11,
+  "viewed_native_frames": [
+    {
+      "path": "native/attempt1_missing_1280/01_focused.png",
+      "sha256": "2081c5dbf40f61cc92157159e8b00ea7b98dce391e8eb98761ac06bfe77f627e",
+      "scope": "Current repaired candidate"
+    },
+    {
+      "path": "native/attempt1_missing_1280/06_returned_courtyard.png",
+      "sha256": "b5a84c2b5e615eb6d7a80cfa5558fbe1ed48c79521f2719d938dd7f7e7996e50",
+      "scope": "Current repaired candidate"
+    },
+    {
+      "path": "native/attempt1_missing_1280/08_reentered_castle.png",
+      "sha256": "20b29cde0fb20b4679cb91d88788b10a6cb85980eb9b00bd495ce4f3c161ed1b",
+      "scope": "Current repaired candidate"
+    },
+    {
+      "path": "native/attempt1_baseline_missing_1280/05_failed_activation.png",
+      "sha256": "0b37fe2b760522c6101c70c0322547ae6c9dcca72424fd596870988e00b13196",
+      "scope": "Excluded baseline diagnostic only"
+    },
+    {
+      "path": "native/attempt1_normal_1280/01_focused.png",
+      "sha256": "b12548e623ebb323f9eaa5bf7a79bd75eebc3fef0b8eb8eed869a51427fb815b",
+      "scope": "Current repaired candidate"
+    },
+    {
+      "path": "native/attempt1_normal_1600/06_returned_courtyard.png",
+      "sha256": "58e3d72d8245199e1a3dcf6db4aee3ac895984ceb343555fb1dbf1aecbec7f41",
+      "scope": "Current repaired candidate"
+    },
+    {
+      "path": "native/attempt1_missing_1600/01_focused.png",
+      "sha256": "6c670abef116f7ec8a622a2800a78e2360881405fad3c77d2c72f7560b82dd8f",
+      "scope": "Current repaired candidate"
+    },
+    {
+      "path": "native/attempt1_missing_1600/06_returned_courtyard.png",
+      "sha256": "2b508f3f3dc7f12c5abc24eb0ba1f89f48ecf9366c2b269ac4de985fb1b68b17",
+      "scope": "Current repaired candidate"
+    },
+    {
+      "path": "native/attempt2_baseline_missing_1280/04_reselected.png",
+      "sha256": "924b637cf3e951350e48c5299bb719881c37c03ac949c5bee9cca80571f05113",
+      "scope": "Excluded baseline diagnostic only"
+    },
+    {
+      "path": "native/attempt2_baseline_missing_1280/05_castle_after_activation.png",
+      "sha256": "7f29636d32743c2a7233d89336fe1fba2a2bb1fdc57570a67809d0108832a718",
+      "scope": "Excluded baseline diagnostic only"
+    },
+    {
+      "path": "native/attempt2_baseline_missing_1600/05_castle_after_activation.png",
+      "sha256": "22ed3bfc9b53adb8fbdaa7a7efcee9768f319929af4892b4687d5cb40c0c68d1",
+      "scope": "Excluded baseline diagnostic only"
+    }
+  ],
+  "axes": {
+    "contour": "Normal cue retains the exact whole-star contour and uniform scale fromR67. Missing-cue trials draw no replacement shape; original door edge/wood remain visible.",
+    "material": "Normal source gold shading and violet edge are unchanged. Smooth star material remains a new-use comparison against the carved shell fixtures; acceptance remains open.",
+    "palette": "Normal source gold/violet RGB is preserved. Missing-cue code supplies no colour-only placeholder. Existing castle/source UI and travel feedback retain their own unresolved artwork scopes.",
+    "light": "No lighting or shader is added; current bright-daylight scene and original authored star light remain unchanged. No device or human light-fit acceptance is inferred.",
+    "perspective": "Normal cue stays a front-facing interaction symbol at the original source door anchor. Missing art does not invent a physical fixture or flatten the stage.",
+    "scale": "Same196 master-unit cue canvas and128-screen-pixel touch radius. Both widths use the original source camera and rebuilt anchors. Missing visual cue does not shrink the target.",
+    "contact": "Source bridge/door and actor contacts stay visible. No new shadow/attachment is invented. Geometry belongs to the original Node2D anchor independently of whether a Sprite2D exists.",
+    "occlusion": "Normal cue remains smaller than the old full red mask. Missing-cue branch creates no Sprite2D and leaves the painted door unobscured. No independent compositor/projection/alpha proof is claimed.",
+    "readability": "The star can still imply a collectible instead of ENTER. When absent there is no dedicated focus artwork, so child-readable focus evidence remains missing even though direct input works. Neither missing art nor an existing walking route grants visual acceptance.",
+    "action_state": "Four repaired trials pass88 checks through source pause clear/resume/reselect/entry/neutral exit/rebuild/re-entry/teardown. Corrected baseline shows missing direct target/focus but successful source walking entry after its clip finishes. Initial8s access failure inference is retracted; two black clip frames are excluded from artwork review."
+  },
+  "same_scene_reference_hashes": "DELIVERY_SOURCE_REFERENCES.json",
+  "immutable_source_reuse_review": {
+    "revision": "348116d6dc82c5a4f9e0a6a0b856de0ff6416349",
+    "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r67_painted_gate_cue/REVIEW.json",
+    "scope": "Reuse inventory and source role approval retain scope; R68 corrects the total-access-loss inference."
+  },
+  "scope_correction": "SCOPE_CORRECTION.json",
+  "functional_lane": "PASS_4_CASES_88_CHECKS",
+  "normal_art_lane": "CANDIDATE_UNREVIEWED",
+  "missing_art_lane": "FAIL_MISSING_CUE_ARTWORK",
+  "integration": "NOT_DONE",
+  "runtime_QA11": "NOT_DONE",
+  "device_child_owner": "PENDING",
+  "accepted_removed": 0
+}

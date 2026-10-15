@@ -1,0 +1,840 @@
+{
+  "native_frames": 52,
+  "bounded_frames": 32,
+  "excluded_frames": 20,
+  "frames": [
+    {
+      "case": "attempt1_baseline_missing_1280",
+      "fixture_version": "v1",
+      "state": "01_focused",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r68_gate_missing_art/native/attempt1_baseline_missing_1280/01_focused.png",
+      "sha256": "2081c5dbf40f61cc92157159e8b00ea7b98dce391e8eb98761ac06bfe77f627e",
+      "bytes": 1530804,
+      "size": [
+        1280,
+        720
+      ],
+      "decoded_rgba_sha256": "478e3ed5ba6c78298daff7181e7189ce3d1473a9c0afa3a372ca9fb52aa8db81",
+      "classification": "EXCLUDED_BASELINE_OBSERVER_WINDOW_TOO_SHORT",
+      "black_pixels": false,
+      "pixel_evidence_limit": "Bounded native pixels; no independent compositor/QA11 closure"
+    },
+    {
+      "case": "attempt1_baseline_missing_1280",
+      "fixture_version": "v1",
+      "state": "02_original_pause",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r68_gate_missing_art/native/attempt1_baseline_missing_1280/02_original_pause.png",
+      "sha256": "6d73a7ccb7c4f59ccc582832c04c1468da4fa1771a0475532e1b08ed645cdd61",
+      "bytes": 552222,
+      "size": [
+        1280,
+        720
+      ],
+      "decoded_rgba_sha256": "3119a831f46e8be086cb94b6f9687b918dbfcdfb69e13dbca452535fa6543562",
+      "classification": "EXCLUDED_BASELINE_OBSERVER_WINDOW_TOO_SHORT",
+      "black_pixels": false,
+      "pixel_evidence_limit": "Bounded native pixels; no independent compositor/QA11 closure"
+    },
+    {
+      "case": "attempt1_baseline_missing_1280",
+      "fixture_version": "v1",
+      "state": "03_idle_after_resume",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r68_gate_missing_art/native/attempt1_baseline_missing_1280/03_idle_after_resume.png",
+      "sha256": "22a537566a21d4d60dbcd6bb8853d8237100466206b5dcae7aab55800ac51c95",
+      "bytes": 1530817,
+      "size": [
+        1280,
+        720
+      ],
+      "decoded_rgba_sha256": "65764197b24d036eb8886d9e5883d4136ce0028640441daaf57de9e1768570b9",
+      "classification": "EXCLUDED_BASELINE_OBSERVER_WINDOW_TOO_SHORT",
+      "black_pixels": false,
+      "pixel_evidence_limit": "Bounded native pixels; no independent compositor/QA11 closure"
+    },
+    {
+      "case": "attempt1_baseline_missing_1280",
+      "fixture_version": "v1",
+      "state": "04_reselected",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r68_gate_missing_art/native/attempt1_baseline_missing_1280/04_reselected.png",
+      "sha256": "1c5e0a8ba886c9977cdb5bd60658888ec32d6e80461bb9272d2e1f7736e4e5b4",
+      "bytes": 1638793,
+      "size": [
+        1280,
+        720
+      ],
+      "decoded_rgba_sha256": "da23f59557ddf40cb963bd612b93a7f83bd051a78f9364cee8447768fbbd7f7e",
+      "classification": "EXCLUDED_BASELINE_OBSERVER_WINDOW_TOO_SHORT",
+      "black_pixels": false,
+      "pixel_evidence_limit": "Bounded native pixels; no independent compositor/QA11 closure"
+    },
+    {
+      "case": "attempt1_baseline_missing_1280",
+      "fixture_version": "v1",
+      "state": "05_failed_activation",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r68_gate_missing_art/native/attempt1_baseline_missing_1280/05_failed_activation.png",
+      "sha256": "0b37fe2b760522c6101c70c0322547ae6c9dcca72424fd596870988e00b13196",
+      "bytes": 2772,
+      "size": [
+        1280,
+        720
+      ],
+      "decoded_rgba_sha256": "771fa16b358e3195e00973cb8baa582a84f3c38d9ab2218742169515211b9889",
+      "classification": "EXCLUDED_BASELINE_OBSERVER_WINDOW_TOO_SHORT",
+      "black_pixels": true,
+      "pixel_evidence_limit": "Excluded black frame during active source castle clip; cannot establish visible artwork or failed access"
+    },
+    {
+      "case": "attempt1_baseline_missing_1600",
+      "fixture_version": "v1",
+      "state": "01_focused",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r68_gate_missing_art/native/attempt1_baseline_missing_1600/01_focused.png",
+      "sha256": "e8fbaf4a83809e4646a512ed0788d10f41c0017f81b4b97d3b315b03d0cf3638",
+      "bytes": 1915507,
+      "size": [
+        1600,
+        720
+      ],
+      "decoded_rgba_sha256": "a246e3f9c3546f8b6edfc904e0cc93a468f393a4217d7fceb60c04bc2191ce24",
+      "classification": "EXCLUDED_BASELINE_OBSERVER_WINDOW_TOO_SHORT",
+      "black_pixels": false,
+      "pixel_evidence_limit": "Bounded native pixels; no independent compositor/QA11 closure"
+    },
+    {
+      "case": "attempt1_baseline_missing_1600",
+      "fixture_version": "v1",
+      "state": "02_original_pause",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r68_gate_missing_art/native/attempt1_baseline_missing_1600/02_original_pause.png",
+      "sha256": "26e1ce8ddba40e02a8f83a3101ad821267c8e8255c71cce3b4664627396c1fd1",
+      "bytes": 839810,
+      "size": [
+        1600,
+        720
+      ],
+      "decoded_rgba_sha256": "c7ce68f5ff53ad37d84eb0764cbf0656460123ed887e0ae769ee3b11861b20d4",
+      "classification": "EXCLUDED_BASELINE_OBSERVER_WINDOW_TOO_SHORT",
+      "black_pixels": false,
+      "pixel_evidence_limit": "Bounded native pixels; no independent compositor/QA11 closure"
+    },
+    {
+      "case": "attempt1_baseline_missing_1600",
+      "fixture_version": "v1",
+      "state": "03_idle_after_resume",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r68_gate_missing_art/native/attempt1_baseline_missing_1600/03_idle_after_resume.png",
+      "sha256": "59241fd315564ee700d525e567a5d4729ec54e286f23f8aecc316e4844b0c2cb",
+      "bytes": 1915484,
+      "size": [
+        1600,
+        720
+      ],
+      "decoded_rgba_sha256": "83002f65da5dd6e2120d2c0c2aef6654fc9fe147ea81d8d8a93383d4b4e2ece8",
+      "classification": "EXCLUDED_BASELINE_OBSERVER_WINDOW_TOO_SHORT",
+      "black_pixels": false,
+      "pixel_evidence_limit": "Bounded native pixels; no independent compositor/QA11 closure"
+    },
+    {
+      "case": "attempt1_baseline_missing_1600",
+      "fixture_version": "v1",
+      "state": "04_reselected",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r68_gate_missing_art/native/attempt1_baseline_missing_1600/04_reselected.png",
+      "sha256": "6c7d04a8b9d9dd3090f324832e5b11590006c0262671215210ede3e665e8d4fd",
+      "bytes": 2021598,
+      "size": [
+        1600,
+        720
+      ],
+      "decoded_rgba_sha256": "50f7d46b5c75bd3175b7dfc677cfc6096355ed9187c1afcfd5bf359d4cd683e8",
+      "classification": "EXCLUDED_BASELINE_OBSERVER_WINDOW_TOO_SHORT",
+      "black_pixels": false,
+      "pixel_evidence_limit": "Bounded native pixels; no independent compositor/QA11 closure"
+    },
+    {
+      "case": "attempt1_baseline_missing_1600",
+      "fixture_version": "v1",
+      "state": "05_failed_activation",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r68_gate_missing_art/native/attempt1_baseline_missing_1600/05_failed_activation.png",
+      "sha256": "18968bfb241c1ea8f7e0c29839bb6fc321d126e4ebd6b2e75402ff7104213d67",
+      "bytes": 3442,
+      "size": [
+        1600,
+        720
+      ],
+      "decoded_rgba_sha256": "992292fc729d6206bc6fd321e991838682838a38c3d5354ba898451b29fa72f2",
+      "classification": "EXCLUDED_BASELINE_OBSERVER_WINDOW_TOO_SHORT",
+      "black_pixels": true,
+      "pixel_evidence_limit": "Excluded black frame during active source castle clip; cannot establish visible artwork or failed access"
+    },
+    {
+      "case": "attempt1_normal_1280",
+      "fixture_version": "v1",
+      "state": "01_focused",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r68_gate_missing_art/native/attempt1_normal_1280/01_focused.png",
+      "sha256": "b12548e623ebb323f9eaa5bf7a79bd75eebc3fef0b8eb8eed869a51427fb815b",
+      "bytes": 1531124,
+      "size": [
+        1280,
+        720
+      ],
+      "decoded_rgba_sha256": "e399c572186894bfc1111b0e6ddebb3facea1d2cba5fb24cdb4e1eba7153b26b",
+      "classification": "BOUNDED_REPAIRED_FUNCTIONAL_TRIAL",
+      "black_pixels": false,
+      "pixel_evidence_limit": "Bounded native pixels; no independent compositor/QA11 closure"
+    },
+    {
+      "case": "attempt1_normal_1280",
+      "fixture_version": "v1",
+      "state": "02_original_pause",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r68_gate_missing_art/native/attempt1_normal_1280/02_original_pause.png",
+      "sha256": "f0a2cc19977a821435d862b5837008f7d163529d624ad3fde8d1e5a72dfdfa70",
+      "bytes": 552173,
+      "size": [
+        1280,
+        720
+      ],
+      "decoded_rgba_sha256": "f4788e1cff9c1575518acae2a2b1d03b8012823aa7d80a3d4ed134fa0ba7aeec",
+      "classification": "BOUNDED_REPAIRED_FUNCTIONAL_TRIAL",
+      "black_pixels": false,
+      "pixel_evidence_limit": "Bounded native pixels; no independent compositor/QA11 closure"
+    },
+    {
+      "case": "attempt1_normal_1280",
+      "fixture_version": "v1",
+      "state": "03_idle_after_resume",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r68_gate_missing_art/native/attempt1_normal_1280/03_idle_after_resume.png",
+      "sha256": "e9608c41d7d49bdc42132e91f71e5d33a963e0bdce4ab0b051914d79d8bad8e5",
+      "bytes": 1530896,
+      "size": [
+        1280,
+        720
+      ],
+      "decoded_rgba_sha256": "1f30a8851e578bc9831c7544e8bba83fed844aa1ac3e1b9709257e33734605ab",
+      "classification": "BOUNDED_REPAIRED_FUNCTIONAL_TRIAL",
+      "black_pixels": false,
+      "pixel_evidence_limit": "Bounded native pixels; no independent compositor/QA11 closure"
+    },
+    {
+      "case": "attempt1_normal_1280",
+      "fixture_version": "v1",
+      "state": "04_reselected",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r68_gate_missing_art/native/attempt1_normal_1280/04_reselected.png",
+      "sha256": "c51cc53685ba694bcb72adbb43b53202912251032fa26e3e685e36fd56e055f6",
+      "bytes": 1639455,
+      "size": [
+        1280,
+        720
+      ],
+      "decoded_rgba_sha256": "99ea55eb0d6db726aad1125fec71d68b4a57944ba0dcba4165a75d5bf5b6389f",
+      "classification": "BOUNDED_REPAIRED_FUNCTIONAL_TRIAL",
+      "black_pixels": false,
+      "pixel_evidence_limit": "Bounded native pixels; no independent compositor/QA11 closure"
+    },
+    {
+      "case": "attempt1_normal_1280",
+      "fixture_version": "v1",
+      "state": "05_castle_after_activation",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r68_gate_missing_art/native/attempt1_normal_1280/05_castle_after_activation.png",
+      "sha256": "97bb94620c006526e88e32877292d0d120155db0d75ad9aaccf2418c43de78c9",
+      "bytes": 1483812,
+      "size": [
+        1280,
+        720
+      ],
+      "decoded_rgba_sha256": "90914199ec3d6086755ed86e8796a707531bbd342fc3f0e53ade841a28c6a505",
+      "classification": "BOUNDED_REPAIRED_FUNCTIONAL_TRIAL",
+      "black_pixels": false,
+      "pixel_evidence_limit": "Bounded native pixels; no independent compositor/QA11 closure"
+    },
+    {
+      "case": "attempt1_normal_1280",
+      "fixture_version": "v1",
+      "state": "06_returned_courtyard",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r68_gate_missing_art/native/attempt1_normal_1280/06_returned_courtyard.png",
+      "sha256": "8448d39ad1773299686bf743ae69130ed46141ceffba6ac779211e45feb0b271",
+      "bytes": 1531059,
+      "size": [
+        1280,
+        720
+      ],
+      "decoded_rgba_sha256": "723e0a7c32b2d68de02a70a018d2e9149de53f7f4a6b6500c0c0a1c9c70d994b",
+      "classification": "BOUNDED_REPAIRED_FUNCTIONAL_TRIAL",
+      "black_pixels": false,
+      "pixel_evidence_limit": "Bounded native pixels; no independent compositor/QA11 closure"
+    },
+    {
+      "case": "attempt1_normal_1280",
+      "fixture_version": "v1",
+      "state": "07_return_gate_focused",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r68_gate_missing_art/native/attempt1_normal_1280/07_return_gate_focused.png",
+      "sha256": "a1e2020df6fe30f1a16b4d3e7c0fe85e7fd2c663f308e18cb74237397066c833",
+      "bytes": 1641267,
+      "size": [
+        1280,
+        720
+      ],
+      "decoded_rgba_sha256": "4c470ec6fe8bc3c337b184433940fa00e8202c55851fd93cdb73bcaafb3355f3",
+      "classification": "BOUNDED_REPAIRED_FUNCTIONAL_TRIAL",
+      "black_pixels": false,
+      "pixel_evidence_limit": "Bounded native pixels; no independent compositor/QA11 closure"
+    },
+    {
+      "case": "attempt1_normal_1280",
+      "fixture_version": "v1",
+      "state": "08_reentered_castle",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r68_gate_missing_art/native/attempt1_normal_1280/08_reentered_castle.png",
+      "sha256": "79a8b47398530e904d1d23b4c4e6b5cde1448952ebe90eda1bfac3d38fecd260",
+      "bytes": 1477426,
+      "size": [
+        1280,
+        720
+      ],
+      "decoded_rgba_sha256": "69c91d5753a78fbe8360fc07f43f05eb9a42951f897044241d1f0659a5e504ce",
+      "classification": "BOUNDED_REPAIRED_FUNCTIONAL_TRIAL",
+      "black_pixels": false,
+      "pixel_evidence_limit": "Bounded native pixels; no independent compositor/QA11 closure"
+    },
+    {
+      "case": "attempt1_normal_1600",
+      "fixture_version": "v1",
+      "state": "01_focused",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r68_gate_missing_art/native/attempt1_normal_1600/01_focused.png",
+      "sha256": "d1613ab2a09a860b095ec5f5448061657e3186beca4d676060d48b44ff0b9224",
+      "bytes": 1915842,
+      "size": [
+        1600,
+        720
+      ],
+      "decoded_rgba_sha256": "7b66035d5139dc319194c28d12fd2f9c8f0ea1b4a786d016d08313321b71a07b",
+      "classification": "BOUNDED_REPAIRED_FUNCTIONAL_TRIAL",
+      "black_pixels": false,
+      "pixel_evidence_limit": "Bounded native pixels; no independent compositor/QA11 closure"
+    },
+    {
+      "case": "attempt1_normal_1600",
+      "fixture_version": "v1",
+      "state": "02_original_pause",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r68_gate_missing_art/native/attempt1_normal_1600/02_original_pause.png",
+      "sha256": "825bcdfc32b83a548cd8e012952433fa7077c20a8949fad707b2e09b2e03d124",
+      "bytes": 839973,
+      "size": [
+        1600,
+        720
+      ],
+      "decoded_rgba_sha256": "6daf0d7031cbde7373c9e06f82c544bc11f39f815a28fa0f6c47f40f28017b20",
+      "classification": "BOUNDED_REPAIRED_FUNCTIONAL_TRIAL",
+      "black_pixels": false,
+      "pixel_evidence_limit": "Bounded native pixels; no independent compositor/QA11 closure"
+    },
+    {
+      "case": "attempt1_normal_1600",
+      "fixture_version": "v1",
+      "state": "03_idle_after_resume",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r68_gate_missing_art/native/attempt1_normal_1600/03_idle_after_resume.png",
+      "sha256": "c7f1b1a0878464adab353ce2fe3790c6ae9d0575499f0458c4d3075cde9ddb7d",
+      "bytes": 1915463,
+      "size": [
+        1600,
+        720
+      ],
+      "decoded_rgba_sha256": "0c2942866c126ae4876a9917ddbee9dee250b9b28caae3a8fe0365d85c71e2a4",
+      "classification": "BOUNDED_REPAIRED_FUNCTIONAL_TRIAL",
+      "black_pixels": false,
+      "pixel_evidence_limit": "Bounded native pixels; no independent compositor/QA11 closure"
+    },
+    {
+      "case": "attempt1_normal_1600",
+      "fixture_version": "v1",
+      "state": "04_reselected",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r68_gate_missing_art/native/attempt1_normal_1600/04_reselected.png",
+      "sha256": "377768957c2395fad7f0d8a924b489aa893e568a7566a2c47b37fd946cfd93ba",
+      "bytes": 2022268,
+      "size": [
+        1600,
+        720
+      ],
+      "decoded_rgba_sha256": "80bcff371de4190b7a6debc38108f28f805866589004ee5c3d2404d027f69db5",
+      "classification": "BOUNDED_REPAIRED_FUNCTIONAL_TRIAL",
+      "black_pixels": false,
+      "pixel_evidence_limit": "Bounded native pixels; no independent compositor/QA11 closure"
+    },
+    {
+      "case": "attempt1_normal_1600",
+      "fixture_version": "v1",
+      "state": "05_castle_after_activation",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r68_gate_missing_art/native/attempt1_normal_1600/05_castle_after_activation.png",
+      "sha256": "01c06d7ac8e4aa1fe8e1a339ac942a6a618cfef32f445365d1505b811952d8db",
+      "bytes": 1897596,
+      "size": [
+        1600,
+        720
+      ],
+      "decoded_rgba_sha256": "53172fd4df0ce8b382a4d9dd4ec8105c6a2862df03475246ce0c3e28af1c3fff",
+      "classification": "BOUNDED_REPAIRED_FUNCTIONAL_TRIAL",
+      "black_pixels": false,
+      "pixel_evidence_limit": "Bounded native pixels; no independent compositor/QA11 closure"
+    },
+    {
+      "case": "attempt1_normal_1600",
+      "fixture_version": "v1",
+      "state": "06_returned_courtyard",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r68_gate_missing_art/native/attempt1_normal_1600/06_returned_courtyard.png",
+      "sha256": "58e3d72d8245199e1a3dcf6db4aee3ac895984ceb343555fb1dbf1aecbec7f41",
+      "bytes": 1915757,
+      "size": [
+        1600,
+        720
+      ],
+      "decoded_rgba_sha256": "c20ec8530a82fa86aa5f44293bb9329935d9b9b16be6c996ce80a57a05edb19e",
+      "classification": "BOUNDED_REPAIRED_FUNCTIONAL_TRIAL",
+      "black_pixels": false,
+      "pixel_evidence_limit": "Bounded native pixels; no independent compositor/QA11 closure"
+    },
+    {
+      "case": "attempt1_normal_1600",
+      "fixture_version": "v1",
+      "state": "07_return_gate_focused",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r68_gate_missing_art/native/attempt1_normal_1600/07_return_gate_focused.png",
+      "sha256": "d8808f78561281ec47d6d6b5061062cf3c6d36d43e15a2c772d160bd711d56b6",
+      "bytes": 2023673,
+      "size": [
+        1600,
+        720
+      ],
+      "decoded_rgba_sha256": "f586f57d6e3be5e1ef9b4e1c3e440c54a1d045d875c6e25aed28591b619d9633",
+      "classification": "BOUNDED_REPAIRED_FUNCTIONAL_TRIAL",
+      "black_pixels": false,
+      "pixel_evidence_limit": "Bounded native pixels; no independent compositor/QA11 closure"
+    },
+    {
+      "case": "attempt1_normal_1600",
+      "fixture_version": "v1",
+      "state": "08_reentered_castle",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r68_gate_missing_art/native/attempt1_normal_1600/08_reentered_castle.png",
+      "sha256": "461ccd79b7dbbd08aee35d118eeac78971acac3aa342c4a25967d49abaa9639b",
+      "bytes": 1890957,
+      "size": [
+        1600,
+        720
+      ],
+      "decoded_rgba_sha256": "31a97ea8af5e4618563f95915bf7eab280e95ffe1b97d658d495b67d05aff786",
+      "classification": "BOUNDED_REPAIRED_FUNCTIONAL_TRIAL",
+      "black_pixels": false,
+      "pixel_evidence_limit": "Bounded native pixels; no independent compositor/QA11 closure"
+    },
+    {
+      "case": "attempt1_missing_1280",
+      "fixture_version": "v1",
+      "state": "01_focused",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r68_gate_missing_art/native/attempt1_missing_1280/01_focused.png",
+      "sha256": "2081c5dbf40f61cc92157159e8b00ea7b98dce391e8eb98761ac06bfe77f627e",
+      "bytes": 1530804,
+      "size": [
+        1280,
+        720
+      ],
+      "decoded_rgba_sha256": "478e3ed5ba6c78298daff7181e7189ce3d1473a9c0afa3a372ca9fb52aa8db81",
+      "classification": "BOUNDED_REPAIRED_FUNCTIONAL_TRIAL",
+      "black_pixels": false,
+      "pixel_evidence_limit": "Bounded native pixels; no independent compositor/QA11 closure"
+    },
+    {
+      "case": "attempt1_missing_1280",
+      "fixture_version": "v1",
+      "state": "02_original_pause",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r68_gate_missing_art/native/attempt1_missing_1280/02_original_pause.png",
+      "sha256": "50ad2b86fc26e62fa8a17abc874b6473f71653215b5b57972bd58f97be1cf5d8",
+      "bytes": 552223,
+      "size": [
+        1280,
+        720
+      ],
+      "decoded_rgba_sha256": "c655c052f8022c4619bccbc9d8096d871712ed246d4cf3b88cb4b0743e2e1658",
+      "classification": "BOUNDED_REPAIRED_FUNCTIONAL_TRIAL",
+      "black_pixels": false,
+      "pixel_evidence_limit": "Bounded native pixels; no independent compositor/QA11 closure"
+    },
+    {
+      "case": "attempt1_missing_1280",
+      "fixture_version": "v1",
+      "state": "03_idle_after_resume",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r68_gate_missing_art/native/attempt1_missing_1280/03_idle_after_resume.png",
+      "sha256": "67a96388413d7df5168301cf52d2e4e459b04560d3335acec26a6b74e2cc77e6",
+      "bytes": 1530815,
+      "size": [
+        1280,
+        720
+      ],
+      "decoded_rgba_sha256": "d6fe25b5d9e8f9761c9588522443fb0dbb32b03f5495cda2d4310e450d124974",
+      "classification": "BOUNDED_REPAIRED_FUNCTIONAL_TRIAL",
+      "black_pixels": false,
+      "pixel_evidence_limit": "Bounded native pixels; no independent compositor/QA11 closure"
+    },
+    {
+      "case": "attempt1_missing_1280",
+      "fixture_version": "v1",
+      "state": "04_reselected",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r68_gate_missing_art/native/attempt1_missing_1280/04_reselected.png",
+      "sha256": "03edf8a57816836dc1e3e68e5b5a9afb6328e5b965075739aff959b7bfd7cec1",
+      "bytes": 1639060,
+      "size": [
+        1280,
+        720
+      ],
+      "decoded_rgba_sha256": "a77d40be9845369e0dc7ed003373b9de8d6b3f54e412eb19469ae1dc74b57c38",
+      "classification": "BOUNDED_REPAIRED_FUNCTIONAL_TRIAL",
+      "black_pixels": false,
+      "pixel_evidence_limit": "Bounded native pixels; no independent compositor/QA11 closure"
+    },
+    {
+      "case": "attempt1_missing_1280",
+      "fixture_version": "v1",
+      "state": "05_castle_after_activation",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r68_gate_missing_art/native/attempt1_missing_1280/05_castle_after_activation.png",
+      "sha256": "4f23891e02976c8f50a3c35f7b35a4d8bf73b9012a7d3a21e0e82e48cd142c7f",
+      "bytes": 1483809,
+      "size": [
+        1280,
+        720
+      ],
+      "decoded_rgba_sha256": "0a08618e28745f32e91919a5a6a795f7630abd6f230d47a6fed5f46252af05a1",
+      "classification": "BOUNDED_REPAIRED_FUNCTIONAL_TRIAL",
+      "black_pixels": false,
+      "pixel_evidence_limit": "Bounded native pixels; no independent compositor/QA11 closure"
+    },
+    {
+      "case": "attempt1_missing_1280",
+      "fixture_version": "v1",
+      "state": "06_returned_courtyard",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r68_gate_missing_art/native/attempt1_missing_1280/06_returned_courtyard.png",
+      "sha256": "b5a84c2b5e615eb6d7a80cfa5558fbe1ed48c79521f2719d938dd7f7e7996e50",
+      "bytes": 1530752,
+      "size": [
+        1280,
+        720
+      ],
+      "decoded_rgba_sha256": "04a3a74837a2d2bd3a6b13dc3ccd4b99fd595dcead6db8ba6af7a4b2666253c7",
+      "classification": "BOUNDED_REPAIRED_FUNCTIONAL_TRIAL",
+      "black_pixels": false,
+      "pixel_evidence_limit": "Bounded native pixels; no independent compositor/QA11 closure"
+    },
+    {
+      "case": "attempt1_missing_1280",
+      "fixture_version": "v1",
+      "state": "07_return_gate_focused",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r68_gate_missing_art/native/attempt1_missing_1280/07_return_gate_focused.png",
+      "sha256": "20e47685b51b0a4a004be02f9f6abb767dc0d8740205ab1a8f1a9c67bd03b6e6",
+      "bytes": 1640958,
+      "size": [
+        1280,
+        720
+      ],
+      "decoded_rgba_sha256": "4305289bf8560ba58dab2f445f88ea613994336fbe3fe6e4b03b58afd77e198a",
+      "classification": "BOUNDED_REPAIRED_FUNCTIONAL_TRIAL",
+      "black_pixels": false,
+      "pixel_evidence_limit": "Bounded native pixels; no independent compositor/QA11 closure"
+    },
+    {
+      "case": "attempt1_missing_1280",
+      "fixture_version": "v1",
+      "state": "08_reentered_castle",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r68_gate_missing_art/native/attempt1_missing_1280/08_reentered_castle.png",
+      "sha256": "20b29cde0fb20b4679cb91d88788b10a6cb85980eb9b00bd495ce4f3c161ed1b",
+      "bytes": 1477261,
+      "size": [
+        1280,
+        720
+      ],
+      "decoded_rgba_sha256": "9e59e6e9a68c227eafb6f87b8be2cac6e39ebc3db339eac18d80edc150527801",
+      "classification": "BOUNDED_REPAIRED_FUNCTIONAL_TRIAL",
+      "black_pixels": false,
+      "pixel_evidence_limit": "Bounded native pixels; no independent compositor/QA11 closure"
+    },
+    {
+      "case": "attempt1_missing_1600",
+      "fixture_version": "v1",
+      "state": "01_focused",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r68_gate_missing_art/native/attempt1_missing_1600/01_focused.png",
+      "sha256": "6c670abef116f7ec8a622a2800a78e2360881405fad3c77d2c72f7560b82dd8f",
+      "bytes": 1915507,
+      "size": [
+        1600,
+        720
+      ],
+      "decoded_rgba_sha256": "4beb1023ac813218e0a2508322ce1a69b45dd3ed66d59c339d9bd8f40340daf8",
+      "classification": "BOUNDED_REPAIRED_FUNCTIONAL_TRIAL",
+      "black_pixels": false,
+      "pixel_evidence_limit": "Bounded native pixels; no independent compositor/QA11 closure"
+    },
+    {
+      "case": "attempt1_missing_1600",
+      "fixture_version": "v1",
+      "state": "02_original_pause",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r68_gate_missing_art/native/attempt1_missing_1600/02_original_pause.png",
+      "sha256": "133d2f193ad6ecfdc8e65c84addd561a4fc05feca46690283abc3fe73863ab9e",
+      "bytes": 839816,
+      "size": [
+        1600,
+        720
+      ],
+      "decoded_rgba_sha256": "12043110ef9a0f9f6bd802b56dbe9e30c224d3c93cf785566a09d33a2f188849",
+      "classification": "BOUNDED_REPAIRED_FUNCTIONAL_TRIAL",
+      "black_pixels": false,
+      "pixel_evidence_limit": "Bounded native pixels; no independent compositor/QA11 closure"
+    },
+    {
+      "case": "attempt1_missing_1600",
+      "fixture_version": "v1",
+      "state": "03_idle_after_resume",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r68_gate_missing_art/native/attempt1_missing_1600/03_idle_after_resume.png",
+      "sha256": "6106526eb28d79f9ac4138bd019fe9448f4969c6261aa24e808b59d8822279e1",
+      "bytes": 1915493,
+      "size": [
+        1600,
+        720
+      ],
+      "decoded_rgba_sha256": "8b6a8907894985f5fc1e8dc78798ad8e7fedfdaed272a7b90662c41d851b6f7d",
+      "classification": "BOUNDED_REPAIRED_FUNCTIONAL_TRIAL",
+      "black_pixels": false,
+      "pixel_evidence_limit": "Bounded native pixels; no independent compositor/QA11 closure"
+    },
+    {
+      "case": "attempt1_missing_1600",
+      "fixture_version": "v1",
+      "state": "04_reselected",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r68_gate_missing_art/native/attempt1_missing_1600/04_reselected.png",
+      "sha256": "6955fdbd84eb1c3aaa5f7cb3a4ca1c40cb5f9b588902b7d13122346a28a95364",
+      "bytes": 2022004,
+      "size": [
+        1600,
+        720
+      ],
+      "decoded_rgba_sha256": "4bcea195f7edaf609c1f4a9417f335238ba20c47cd5f332048e95d97c83cb762",
+      "classification": "BOUNDED_REPAIRED_FUNCTIONAL_TRIAL",
+      "black_pixels": false,
+      "pixel_evidence_limit": "Bounded native pixels; no independent compositor/QA11 closure"
+    },
+    {
+      "case": "attempt1_missing_1600",
+      "fixture_version": "v1",
+      "state": "05_castle_after_activation",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r68_gate_missing_art/native/attempt1_missing_1600/05_castle_after_activation.png",
+      "sha256": "3d2655b52a8b7566b6d75e185ec2e898667b31427197bee83d1bd3732a223583",
+      "bytes": 1897545,
+      "size": [
+        1600,
+        720
+      ],
+      "decoded_rgba_sha256": "b7af035d00dd71f9f6bfc74c82bdc45a01a9ff769cc31a26a10fed4ae33cdb31",
+      "classification": "BOUNDED_REPAIRED_FUNCTIONAL_TRIAL",
+      "black_pixels": false,
+      "pixel_evidence_limit": "Bounded native pixels; no independent compositor/QA11 closure"
+    },
+    {
+      "case": "attempt1_missing_1600",
+      "fixture_version": "v1",
+      "state": "06_returned_courtyard",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r68_gate_missing_art/native/attempt1_missing_1600/06_returned_courtyard.png",
+      "sha256": "2b508f3f3dc7f12c5abc24eb0ba1f89f48ecf9366c2b269ac4de985fb1b68b17",
+      "bytes": 1915395,
+      "size": [
+        1600,
+        720
+      ],
+      "decoded_rgba_sha256": "823594505cc5421574e488df82127ca8ecc49c440e361ea7ab7356f73d4d327e",
+      "classification": "BOUNDED_REPAIRED_FUNCTIONAL_TRIAL",
+      "black_pixels": false,
+      "pixel_evidence_limit": "Bounded native pixels; no independent compositor/QA11 closure"
+    },
+    {
+      "case": "attempt1_missing_1600",
+      "fixture_version": "v1",
+      "state": "07_return_gate_focused",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r68_gate_missing_art/native/attempt1_missing_1600/07_return_gate_focused.png",
+      "sha256": "7722c7751206adb4e55ff5ab6bbfd9217fce7804bbc1a5b165427c354229fa66",
+      "bytes": 2023315,
+      "size": [
+        1600,
+        720
+      ],
+      "decoded_rgba_sha256": "651129f7ebaadfe7ce853f7d06ab98cd3399552489657fd3bfcccd69c72d2b5f",
+      "classification": "BOUNDED_REPAIRED_FUNCTIONAL_TRIAL",
+      "black_pixels": false,
+      "pixel_evidence_limit": "Bounded native pixels; no independent compositor/QA11 closure"
+    },
+    {
+      "case": "attempt1_missing_1600",
+      "fixture_version": "v1",
+      "state": "08_reentered_castle",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r68_gate_missing_art/native/attempt1_missing_1600/08_reentered_castle.png",
+      "sha256": "144ec21043b33774458e83247fb2215db9160abbd5b2ccfdd3f625f8f9fa5f12",
+      "bytes": 1890950,
+      "size": [
+        1600,
+        720
+      ],
+      "decoded_rgba_sha256": "b043738b7273fc43490d7efe98b170412082de4609490b8267968db37f5ee1b7",
+      "classification": "BOUNDED_REPAIRED_FUNCTIONAL_TRIAL",
+      "black_pixels": false,
+      "pixel_evidence_limit": "Bounded native pixels; no independent compositor/QA11 closure"
+    },
+    {
+      "case": "attempt2_baseline_missing_1280",
+      "fixture_version": "v2",
+      "state": "01_focused",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r68_gate_missing_art/native/attempt2_baseline_missing_1280/01_focused.png",
+      "sha256": "6562c9a0235549407af086f860e88968da84cbfa035094df0601ea8f044d9338",
+      "bytes": 1530804,
+      "size": [
+        1280,
+        720
+      ],
+      "decoded_rgba_sha256": "bfd5b0d8842b5290b2f5eb6dba47aef381880a3c8de601625806ccbdd9e4e50a",
+      "classification": "EXCLUDED_CORRECTED_BASELINE_DIRECT_CONTRACT_FAIL",
+      "black_pixels": false,
+      "pixel_evidence_limit": "Bounded native pixels; no independent compositor/QA11 closure"
+    },
+    {
+      "case": "attempt2_baseline_missing_1280",
+      "fixture_version": "v2",
+      "state": "02_original_pause",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r68_gate_missing_art/native/attempt2_baseline_missing_1280/02_original_pause.png",
+      "sha256": "fb1743dcb24d0254b23a8fc54e6e06ac4611a2e6bbb7535018211cf185dd8c75",
+      "bytes": 552224,
+      "size": [
+        1280,
+        720
+      ],
+      "decoded_rgba_sha256": "b9ee16a12796a32c8fbc2b4364a9e1a6981df0b5d7f90f3b89ff3ca5fc45f606",
+      "classification": "EXCLUDED_CORRECTED_BASELINE_DIRECT_CONTRACT_FAIL",
+      "black_pixels": false,
+      "pixel_evidence_limit": "Bounded native pixels; no independent compositor/QA11 closure"
+    },
+    {
+      "case": "attempt2_baseline_missing_1280",
+      "fixture_version": "v2",
+      "state": "03_idle_after_resume",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r68_gate_missing_art/native/attempt2_baseline_missing_1280/03_idle_after_resume.png",
+      "sha256": "b49bc7fce28eb0e01e95667927537bf183a079606314ac713aad7229f75e371a",
+      "bytes": 1530745,
+      "size": [
+        1280,
+        720
+      ],
+      "decoded_rgba_sha256": "a674e5fd348e867ed331aee7801c9dc80525628f9f239f921df26bbfe3343094",
+      "classification": "EXCLUDED_CORRECTED_BASELINE_DIRECT_CONTRACT_FAIL",
+      "black_pixels": false,
+      "pixel_evidence_limit": "Bounded native pixels; no independent compositor/QA11 closure"
+    },
+    {
+      "case": "attempt2_baseline_missing_1280",
+      "fixture_version": "v2",
+      "state": "04_reselected",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r68_gate_missing_art/native/attempt2_baseline_missing_1280/04_reselected.png",
+      "sha256": "924b637cf3e951350e48c5299bb719881c37c03ac949c5bee9cca80571f05113",
+      "bytes": 1638795,
+      "size": [
+        1280,
+        720
+      ],
+      "decoded_rgba_sha256": "d3f5ed0204352dc6bdae44689a6b1b2a453ad13c7dc3e8b15c98981e2c4400b0",
+      "classification": "EXCLUDED_CORRECTED_BASELINE_DIRECT_CONTRACT_FAIL",
+      "black_pixels": false,
+      "pixel_evidence_limit": "Bounded native pixels; no independent compositor/QA11 closure"
+    },
+    {
+      "case": "attempt2_baseline_missing_1280",
+      "fixture_version": "v2",
+      "state": "05_castle_after_activation",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r68_gate_missing_art/native/attempt2_baseline_missing_1280/05_castle_after_activation.png",
+      "sha256": "7f29636d32743c2a7233d89336fe1fba2a2bb1fdc57570a67809d0108832a718",
+      "bytes": 1483789,
+      "size": [
+        1280,
+        720
+      ],
+      "decoded_rgba_sha256": "e84664287fc1a75d5a619efadc781e29175779b642f3b468388e07e89217d64a",
+      "classification": "EXCLUDED_CORRECTED_BASELINE_DIRECT_CONTRACT_FAIL",
+      "black_pixels": false,
+      "pixel_evidence_limit": "Bounded native pixels; no independent compositor/QA11 closure"
+    },
+    {
+      "case": "attempt2_baseline_missing_1600",
+      "fixture_version": "v2",
+      "state": "01_focused",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r68_gate_missing_art/native/attempt2_baseline_missing_1600/01_focused.png",
+      "sha256": "6c670abef116f7ec8a622a2800a78e2360881405fad3c77d2c72f7560b82dd8f",
+      "bytes": 1915507,
+      "size": [
+        1600,
+        720
+      ],
+      "decoded_rgba_sha256": "4beb1023ac813218e0a2508322ce1a69b45dd3ed66d59c339d9bd8f40340daf8",
+      "classification": "EXCLUDED_CORRECTED_BASELINE_DIRECT_CONTRACT_FAIL",
+      "black_pixels": false,
+      "pixel_evidence_limit": "Bounded native pixels; no independent compositor/QA11 closure"
+    },
+    {
+      "case": "attempt2_baseline_missing_1600",
+      "fixture_version": "v2",
+      "state": "02_original_pause",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r68_gate_missing_art/native/attempt2_baseline_missing_1600/02_original_pause.png",
+      "sha256": "0896f408f794f995bcb4db1e404967a05e718d346d57c8a0c392e27a92d39017",
+      "bytes": 839817,
+      "size": [
+        1600,
+        720
+      ],
+      "decoded_rgba_sha256": "6d7e1b6f2efa94e601801c79e2a0eb1d2c87864cbe1c7f69581d089ecc2893b9",
+      "classification": "EXCLUDED_CORRECTED_BASELINE_DIRECT_CONTRACT_FAIL",
+      "black_pixels": false,
+      "pixel_evidence_limit": "Bounded native pixels; no independent compositor/QA11 closure"
+    },
+    {
+      "case": "attempt2_baseline_missing_1600",
+      "fixture_version": "v2",
+      "state": "03_idle_after_resume",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r68_gate_missing_art/native/attempt2_baseline_missing_1600/03_idle_after_resume.png",
+      "sha256": "c967b75d9a27658ab2fad5c56eac21c9d148e1e07e045ef7dfbbbb8cab54d64b",
+      "bytes": 1915299,
+      "size": [
+        1600,
+        720
+      ],
+      "decoded_rgba_sha256": "ac2b924c043f325899920c327d9cb6e63b0e7addee8ed3cd567adbe1a0e111a5",
+      "classification": "EXCLUDED_CORRECTED_BASELINE_DIRECT_CONTRACT_FAIL",
+      "black_pixels": false,
+      "pixel_evidence_limit": "Bounded native pixels; no independent compositor/QA11 closure"
+    },
+    {
+      "case": "attempt2_baseline_missing_1600",
+      "fixture_version": "v2",
+      "state": "04_reselected",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r68_gate_missing_art/native/attempt2_baseline_missing_1600/04_reselected.png",
+      "sha256": "af6a8c2242d4bd160d5141d8b724b9cca29b0fb9d31f8821ffbed2e8803535d6",
+      "bytes": 2021572,
+      "size": [
+        1600,
+        720
+      ],
+      "decoded_rgba_sha256": "630976a27110b50e39f27496d4cad87f78b76b0857447285ed31ec297bb9ab6e",
+      "classification": "EXCLUDED_CORRECTED_BASELINE_DIRECT_CONTRACT_FAIL",
+      "black_pixels": false,
+      "pixel_evidence_limit": "Bounded native pixels; no independent compositor/QA11 closure"
+    },
+    {
+      "case": "attempt2_baseline_missing_1600",
+      "fixture_version": "v2",
+      "state": "05_castle_after_activation",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r68_gate_missing_art/native/attempt2_baseline_missing_1600/05_castle_after_activation.png",
+      "sha256": "22ed3bfc9b53adb8fbdaa7a7efcee9768f319929af4892b4687d5cb40c0c68d1",
+      "bytes": 1897606,
+      "size": [
+        1600,
+        720
+      ],
+      "decoded_rgba_sha256": "2a66a590a422997e50095f1042ccdc42dbff313157e43a2df5f64c70746a8e50",
+      "classification": "EXCLUDED_CORRECTED_BASELINE_DIRECT_CONTRACT_FAIL",
+      "black_pixels": false,
+      "pixel_evidence_limit": "Bounded native pixels; no independent compositor/QA11 closure"
+    }
+  ],
+  "scope": "All raw native PNG/decoded identity; four baseline runs excluded. Two initial black clip frames and premature entry assertions are explicit diagnostics, not art/access evidence."
+}

@@ -1,0 +1,103 @@
+5120b6d59885dd057937aaf284e73681d8eac9f5:scripts/arena/sky_lagoon_promenade.gd:1:class_name SkyLagoonPromenade
+5120b6d59885dd057937aaf284e73681d8eac9f5:scripts/arena/sky_lagoon_promenade.gd:200:	m.g["lagoon_promenade_targets"] = []
+5120b6d59885dd057937aaf284e73681d8eac9f5:scripts/arena/sky_lagoon_promenade.gd:312:		"lagoon_promenade_targets", "lagoon_promenade_focus",
+5120b6d59885dd057937aaf284e73681d8eac9f5:scripts/arena/sky_lagoon_promenade.gd:383:	for value: Variant in m.g.get("lagoon_promenade_targets", []) as Array:
+5120b6d59885dd057937aaf284e73681d8eac9f5:scripts/arena/sky_lagoon_promenade.gd:556:	frame.name = "SkyLagoonPromenadeSwingFrame"
+5120b6d59885dd057937aaf284e73681d8eac9f5:scripts/arena/sky_lagoon_promenade.gd:761:	var targets: Array = m.g.get("lagoon_promenade_targets", []) as Array
+5120b6d59885dd057937aaf284e73681d8eac9f5:scripts/arena/sky_lagoon_promenade.gd:767:	m.g["lagoon_promenade_targets"] = targets
+5120b6d59885dd057937aaf284e73681d8eac9f5:scripts/arena/sky_lagoon_promenade.gd:809:	for value: Variant in m.g.get("lagoon_promenade_targets", []) as Array:
+5120b6d59885dd057937aaf284e73681d8eac9f5:scripts/arena/sky_lagoon_promenade.gd:830:	for value: Variant in m.g.get("lagoon_promenade_targets", []) as Array:
+5120b6d59885dd057937aaf284e73681d8eac9f5:scripts/arena/sky_lagoon_promenade.gd:872:	for value: Variant in m.g.get("lagoon_promenade_targets", []) as Array:
+5120b6d59885dd057937aaf284e73681d8eac9f5:scripts/arena/sky_lagoon_promenade.gd:1144:	var targets: Array = m.g.get("lagoon_promenade_targets", []) as Array
+5120b6d59885dd057937aaf284e73681d8eac9f5:scripts/arena/sky_lagoon_promenade.gd:1158:	for value: Variant in m.g.get("lagoon_promenade_targets", []) as Array:
+5120b6d59885dd057937aaf284e73681d8eac9f5:scripts/main.gd:2030:	var promenade: SkyLagoonPromenade = _lagoon_promenade_ref()
+5120b6d59885dd057937aaf284e73681d8eac9f5:scripts/main.gd:2411:		_lagoon_promenade_ref().set_master_route_x(saved_master_x)
+5120b6d59885dd057937aaf284e73681d8eac9f5:scripts/main.gd:4579:		_lagoon_promenade_ref().handle_drag(from, to)
+5120b6d59885dd057937aaf284e73681d8eac9f5:scripts/main.gd:4612:		_lagoon_promenade_ref().handle_touch(screen_pos)
+5120b6d59885dd057937aaf284e73681d8eac9f5:scripts/main.gd:4669:		_lagoon_promenade_ref().cancel_navigation()
+5120b6d59885dd057937aaf284e73681d8eac9f5:scripts/main.gd:4946:	if String(g.get("phase", "")) == "promenade" and _sky_lagoon_promenade != null:
+5120b6d59885dd057937aaf284e73681d8eac9f5:scripts/main.gd:4947:		_sky_lagoon_promenade.teardown()
+5120b6d59885dd057937aaf284e73681d8eac9f5:scripts/main.gd:4979:		_lagoon_promenade_ref().build(from_castle, from_north, at_ocean_gate_hub)
+5120b6d59885dd057937aaf284e73681d8eac9f5:scripts/main.gd:4998:			and _sky_lagoon_promenade != null:
+5120b6d59885dd057937aaf284e73681d8eac9f5:scripts/main.gd:4999:		_sky_lagoon_promenade.teardown()
+5120b6d59885dd057937aaf284e73681d8eac9f5:scripts/main.gd:5141:var _sky_lagoon_promenade: SkyLagoonPromenade = null
+5120b6d59885dd057937aaf284e73681d8eac9f5:scripts/main.gd:5148:func _lagoon_promenade_ref() -> SkyLagoonPromenade:
+5120b6d59885dd057937aaf284e73681d8eac9f5:scripts/main.gd:5149:	if _sky_lagoon_promenade == null:
+5120b6d59885dd057937aaf284e73681d8eac9f5:scripts/main.gd:5150:		_sky_lagoon_promenade = SkyLagoonPromenade.new(self)
+5120b6d59885dd057937aaf284e73681d8eac9f5:scripts/main.gd:5151:	return _sky_lagoon_promenade
+5120b6d59885dd057937aaf284e73681d8eac9f5:scripts/main.gd:5193:		_lagoon_promenade_ref().tick(delta)
+5120b6d59885dd057937aaf284e73681d8eac9f5:scripts/main.gd:5771:	if String(g.get("phase", "")) == "promenade" and _sky_lagoon_promenade != null:
+5120b6d59885dd057937aaf284e73681d8eac9f5:scripts/main.gd:5772:		_sky_lagoon_promenade.teardown()
+5120b6d59885dd057937aaf284e73681d8eac9f5:scripts/main.gd:8301:		_lagoon_promenade_ref().tick(delta)
+5120b6d59885dd057937aaf284e73681d8eac9f5:scripts/main.gd:8303:			touch_ui.set_action_label(_lagoon_promenade_ref().action_label())
+5120b6d59885dd057937aaf284e73681d8eac9f5:scripts/main.gd:8367:			act_lbl = _lagoon_promenade_ref().action_label()
+5120b6d59885dd057937aaf284e73681d8eac9f5:scripts/probe_audit.gd:289:		var targets: Array = main.g.get("lagoon_promenade_targets", [])
+5120b6d59885dd057937aaf284e73681d8eac9f5:scripts/probe_audit.gd:301:			and main._lagoon_promenade_ref().root() is CanvasLayer
+5120b6d59885dd057937aaf284e73681d8eac9f5:scripts/probe_audit.gd:302:			and main._lagoon_promenade_ref().camera_2d() is Camera2D
+5120b6d59885dd057937aaf284e73681d8eac9f5:scripts/probe_audit.gd:317:			main._lagoon_promenade_ref()._focus(castle_target)
+5120b6d59885dd057937aaf284e73681d8eac9f5:scripts/probe_audit.gd:318:			main._lagoon_promenade_ref()._activate(castle_target)
+5120b6d59885dd057937aaf284e73681d8eac9f5:scripts/probe_boot_display.gd:105:	var promenade: SkyLagoonPromenade = main._lagoon_promenade_ref()
+5120b6d59885dd057937aaf284e73681d8eac9f5:scripts/probe_boot_display.gd:144:	for value: Variant in main.g.get("lagoon_promenade_targets", []) as Array:
+5120b6d59885dd057937aaf284e73681d8eac9f5:scripts/probe_galaxy_state.gd:131:	var departing_promenade: SkyLagoonPromenade = main._lagoon_promenade_ref()
+5120b6d59885dd057937aaf284e73681d8eac9f5:scripts/probe_galaxy_state.gd:159:	var closed_promenade: SkyLagoonPromenade = main._lagoon_promenade_ref()
+5120b6d59885dd057937aaf284e73681d8eac9f5:scripts/probe_galaxy_state.gd:195:	var open_promenade: SkyLagoonPromenade = main._lagoon_promenade_ref()
+5120b6d59885dd057937aaf284e73681d8eac9f5:scripts/probe_interaction.gd:71:	var promenade: SkyLagoonPromenade = main._lagoon_promenade_ref()
+5120b6d59885dd057937aaf284e73681d8eac9f5:scripts/probe_interaction.gd:77:	var promenade_targets: Array = main.g.get("lagoon_promenade_targets", [])
+5120b6d59885dd057937aaf284e73681d8eac9f5:scripts/probe_l2.gd:63:var promenade: SkyLagoonPromenade
+5120b6d59885dd057937aaf284e73681d8eac9f5:scripts/probe_l2.gd:147:	for value: Variant in main.g.get("lagoon_promenade_targets", []) as Array:
+5120b6d59885dd057937aaf284e73681d8eac9f5:scripts/probe_l2.gd:156:	for value: Variant in main.g.get("lagoon_promenade_targets", []) as Array:
+5120b6d59885dd057937aaf284e73681d8eac9f5:scripts/probe_l2.gd:1149:	promenade = main._lagoon_promenade_ref()
+5120b6d59885dd057937aaf284e73681d8eac9f5:scripts/probe_l2.gd:1169:		and not main.g.has("lagoon_promenade_targets") \
+5120b6d59885dd057937aaf284e73681d8eac9f5:scripts/probe_l2.gd:1174:	promenade = main._lagoon_promenade_ref()
+5120b6d59885dd057937aaf284e73681d8eac9f5:scripts/probe_l2.gd:1198:	promenade = main._lagoon_promenade_ref()
+5120b6d59885dd057937aaf284e73681d8eac9f5:scripts/probe_l2.gd:1203:		and main._lagoon_promenade_ref().root() != null)
+5120b6d59885dd057937aaf284e73681d8eac9f5:scripts/probe_l2.gd:1233:	promenade = main._lagoon_promenade_ref()
+5120b6d59885dd057937aaf284e73681d8eac9f5:scripts/probe_l2_living_cards.gd:7:var promenade: SkyLagoonPromenade
+5120b6d59885dd057937aaf284e73681d8eac9f5:scripts/probe_l2_living_cards.gd:249:	promenade = main._lagoon_promenade_ref()
+5120b6d59885dd057937aaf284e73681d8eac9f5:scripts/probe_l2_living_cards.gd:277:	promenade = main._lagoon_promenade_ref()
+5120b6d59885dd057937aaf284e73681d8eac9f5:scripts/probe_l2_reenter.gd:34:	for value: Variant in main.g.get("lagoon_promenade_targets", []) as Array:
+5120b6d59885dd057937aaf284e73681d8eac9f5:scripts/probe_l2_reenter.gd:65:	var first: SkyLagoonPromenade = main._lagoon_promenade_ref()
+5120b6d59885dd057937aaf284e73681d8eac9f5:scripts/probe_l2_reenter.gd:78:	var second: SkyLagoonPromenade = main._lagoon_promenade_ref()
+5120b6d59885dd057937aaf284e73681d8eac9f5:scripts/probe_northern.gd:168:	var master_x: float = main._lagoon_promenade_ref().master_route_x()
+5120b6d59885dd057937aaf284e73681d8eac9f5:scripts/probe_ocean_kingdoms.gd:53:	var promenade: SkyLagoonPromenade = main._lagoon_promenade_ref()
+5120b6d59885dd057937aaf284e73681d8eac9f5:scripts/probe_ocean_kingdoms.gd:66:	var promenade_targets: Array = state.get("lagoon_promenade_targets", [])
+5120b6d59885dd057937aaf284e73681d8eac9f5:scripts/probe_sky_lagoon_animals.gd:19:var promenade: SkyLagoonPromenade
+5120b6d59885dd057937aaf284e73681d8eac9f5:scripts/probe_sky_lagoon_animals.gd:48:	return row * SkyLagoonPromenade.ANIMAL_ATLAS_COLUMNS + column
+5120b6d59885dd057937aaf284e73681d8eac9f5:scripts/probe_sky_lagoon_animals.gd:120:	for value: Variant in main.g.get("lagoon_promenade_targets", []) as Array:
+5120b6d59885dd057937aaf284e73681d8eac9f5:scripts/probe_sky_lagoon_animals.gd:218:			"layout_sha256": FileAccess.get_sha256(SkyLagoonPromenade.LAYOUT_PATH),
+5120b6d59885dd057937aaf284e73681d8eac9f5:scripts/probe_sky_lagoon_animals.gd:272:	for definition: Dictionary in SkyLagoonPromenade.ANIMAL_DEFS:
+5120b6d59885dd057937aaf284e73681d8eac9f5:scripts/probe_sky_lagoon_animals.gd:306:			and SkyLagoonPromenade.ANIMAL_TOUCH_RADIUS_PX >= 110.0)
+5120b6d59885dd057937aaf284e73681d8eac9f5:scripts/probe_sky_lagoon_animals.gd:345:	var bad: Dictionary = SkyLagoonPromenade.ANIMAL_DEFS[0].duplicate(true)
+5120b6d59885dd057937aaf284e73681d8eac9f5:scripts/probe_sky_lagoon_animals.gd:348:	bad = SkyLagoonPromenade.ANIMAL_DEFS[2].duplicate(true)
+5120b6d59885dd057937aaf284e73681d8eac9f5:scripts/probe_sky_lagoon_animals.gd:351:	bad = SkyLagoonPromenade.ANIMAL_DEFS[0].duplicate(true)
+5120b6d59885dd057937aaf284e73681d8eac9f5:scripts/probe_sky_lagoon_animals.gd:360:	_check("reject_obstacle_between_safe_waypoints", not promenade._animal_path_is_safe(SkyLagoonPromenade.ANIMAL_DEFS[0]))
+5120b6d59885dd057937aaf284e73681d8eac9f5:scripts/probe_sky_lagoon_animals.gd:363:	for definition: Dictionary in SkyLagoonPromenade.ANIMAL_DEFS:
+5120b6d59885dd057937aaf284e73681d8eac9f5:scripts/probe_sky_lagoon_animals.gd:447:	for definition: Dictionary in SkyLagoonPromenade.ANIMAL_DEFS:
+5120b6d59885dd057937aaf284e73681d8eac9f5:scripts/probe_sky_lagoon_animals.gd:467:	for definition: Dictionary in SkyLagoonPromenade.ANIMAL_DEFS:
+5120b6d59885dd057937aaf284e73681d8eac9f5:scripts/probe_sky_lagoon_animals.gd:518:	promenade = main._lagoon_promenade_ref()
+5120b6d59885dd057937aaf284e73681d8eac9f5:scripts/probe_sky_lagoon_animals.gd:530:	promenade = main._lagoon_promenade_ref()
+5120b6d59885dd057937aaf284e73681d8eac9f5:scripts/probe_sky_lagoon_art.gd:55:var promenade: SkyLagoonPromenade
+5120b6d59885dd057937aaf284e73681d8eac9f5:scripts/probe_sky_lagoon_art.gd:186:	for value: Variant in main.g.get("lagoon_promenade_targets", []) as Array:
+5120b6d59885dd057937aaf284e73681d8eac9f5:scripts/probe_sky_lagoon_art.gd:195:	for value: Variant in main.g.get("lagoon_promenade_targets", []) as Array:
+5120b6d59885dd057937aaf284e73681d8eac9f5:scripts/probe_sky_lagoon_art.gd:217:	return row * SkyLagoonPromenade.ANIMAL_ATLAS_COLUMNS + column
+5120b6d59885dd057937aaf284e73681d8eac9f5:scripts/probe_sky_lagoon_art.gd:514:	for value: Variant in main.g.get("lagoon_promenade_targets", []) as Array:
+5120b6d59885dd057937aaf284e73681d8eac9f5:scripts/probe_sky_lagoon_art.gd:949:	for definition: Dictionary in SkyLagoonPromenade.ANIMAL_DEFS:
+5120b6d59885dd057937aaf284e73681d8eac9f5:scripts/probe_sky_lagoon_art.gd:1003:	promenade = main._lagoon_promenade_ref()
+5120b6d59885dd057937aaf284e73681d8eac9f5:scripts/probe_touch_adversary.gd:115:			var promenade_targets: Array = main.g.get("lagoon_promenade_targets", [])
+5120b6d59885dd057937aaf284e73681d8eac9f5:scripts/probe_touch_adversary.gd:134:				main._lagoon_promenade_ref()._focus(focus_target)
+5120b6d59885dd057937aaf284e73681d8eac9f5:scripts/probe_touch_adversary.gd:137:				main._lagoon_promenade_ref()._activate(focus_target)
+5120b6d59885dd057937aaf284e73681d8eac9f5:scripts/probe_touch_stress.gd:173:	prom = main._lagoon_promenade_ref()
+5120b6d59885dd057937aaf284e73681d8eac9f5:scripts/probe_touch_stress.gd:277:	for value: Variant in main.g.get("lagoon_promenade_targets", []) as Array:
+5120b6d59885dd057937aaf284e73681d8eac9f5:scripts/probe_train.gd:17:	for value: Variant in main.g.get("lagoon_promenade_targets", []) as Array:
+5120b6d59885dd057937aaf284e73681d8eac9f5:scripts/probe_train.gd:40:	var promenade: SkyLagoonPromenade = main._lagoon_promenade_ref()
+5120b6d59885dd057937aaf284e73681d8eac9f5:scripts/probe_train.gd:57:			<= SkyLagoonPromenade.ARRIVE_RADIUS_MASTER \
+5120b6d59885dd057937aaf284e73681d8eac9f5:scripts/probe_train.gd:74:	promenade = main._lagoon_promenade_ref()
+5120b6d59885dd057937aaf284e73681d8eac9f5:scripts/probe_visual_audit.gd:125:	var promenade: SkyLagoonPromenade = main.call(
+5120b6d59885dd057937aaf284e73681d8eac9f5:scripts/probe_visual_audit.gd:126:		"_lagoon_promenade_ref") as SkyLagoonPromenade
+5120b6d59885dd057937aaf284e73681d8eac9f5:scripts/probe_visual_audit.gd:238:	var registered: Array = main.g.get("lagoon_promenade_targets", []) as Array
+5120b6d59885dd057937aaf284e73681d8eac9f5:scripts/probe_visual_audit.gd:239:	var resolver: Object = main.call("_lagoon_promenade_ref") as Object
+5120b6d59885dd057937aaf284e73681d8eac9f5:scripts/probe_visual_audit.gd:306:			"interaction_registry": "lagoon_promenade_targets_v1",
+5120b6d59885dd057937aaf284e73681d8eac9f5:scripts/probe_visual_audit.gd:463:	var zone_promenade: SkyLagoonPromenade = main.call(
+5120b6d59885dd057937aaf284e73681d8eac9f5:scripts/probe_visual_audit.gd:464:		"_lagoon_promenade_ref") as SkyLagoonPromenade \
+5120b6d59885dd057937aaf284e73681d8eac9f5:scripts/probe_visual_audit.gd:486:		var promenade: SkyLagoonPromenade = zone_promenade
+5120b6d59885dd057937aaf284e73681d8eac9f5:scripts/probe_visual_audit.gd:545:			"_lagoon_promenade_ref") as SkyLagoonPromenade

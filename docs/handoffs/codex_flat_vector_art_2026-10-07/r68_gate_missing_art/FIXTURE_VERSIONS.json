@@ -1,0 +1,37 @@
+{
+  "schema": "reef.gate_fixture_versions/1",
+  "v1": {
+    "capture": "capture_gate_v1.gd",
+    "capture_sha256": "9776de289af3bffe5b13c2935f4cff4f681829b933051690ce0c22cc471d511a",
+    "syntax": "FIXTURE_SYNTAX_V1.json",
+    "runner": "run_native_v1.py",
+    "cases": [
+      "attempt1_baseline_missing_1280",
+      "attempt1_baseline_missing_1600",
+      "attempt1_normal_1280",
+      "attempt1_normal_1600",
+      "attempt1_missing_1280",
+      "attempt1_missing_1600"
+    ],
+    "scope": "Healthy cases have70s source clip wait and remain valid. Baseline8s wait falsely conflated an active source clip with failed access; those raw trials remain failed/excluded observer diagnostics."
+  },
+  "v2": {
+    "capture": "capture_gate.gd",
+    "capture_sha256": "54c9686d5b358b85752fec3f790201dd26e01d67699fc7d11795183b1968cead",
+    "syntax": "FIXTURE_SYNTAX_GATES.json",
+    "runner": "run_native.py",
+    "scope": "Baseline waits70s through source clip, records source-motion fields and returns after confirming source walking entry. Direct target-registration and first-touch focus assertions remain unchanged.",
+    "cases": [
+      "attempt2_baseline_missing_1280",
+      "attempt2_baseline_missing_1600"
+    ]
+  },
+  "unchanged_functional_fixture_helpers": [
+    "base_capture.gd",
+    "capture_entry.gd",
+    "painted_gate.gd",
+    "baseline_gate.gd",
+    "missing_gate.gd"
+  ],
+  "production_changes": []
+}

@@ -1348,3 +1348,6 @@ release/device/child/owner authority retain precedence.
 
 | `docs/handoffs/codex_flat_vector_art_2026-10-07/r67_painted_gate_cue/README.md` | 🔵 | `SUPPORTING_CURRENT`; source-reuse gate candidate,4 trials/54 checks/20 raw frames; production unchanged,0 accepted removals. Ten-axis review keeps new-use material/entrance semantics and device/child/owner acceptance open. |
 | `docs/handoffs/codex_flat_vector_art_2026-10-07/r67_painted_gate_cue/REPRODUCTION.md` | 🔵 | `SUPPORTING_CURRENT`; exact4.7.2 Mobile/Speedy private native control/candidate,4420 runtime/4041 sidecar/11 normal save hash guards. Missing-art/return/caller and QA11/device/child/owner remain open. |
+
+| `docs/handoffs/codex_flat_vector_art_2026-10-07/r68_gate_missing_art/README.md` | 🔵 | `SUPPORTING_CURRENT`; direct target/focus repair candidate,4 cases88 checks; source walking entry already survived.52 raw32 bounded20 excluded; initial8s inference corrected. No production/adoption/accepted-removal credit. |
+| `docs/handoffs/codex_flat_vector_art_2026-10-07/r68_gate_missing_art/REPRODUCTION.md` | 🔵 | `SUPPORTING_CURRENT`; exact fixture versions, null-provider baseline, original clip/entry/return/re-entry, private data and byte guards. Expected baseline failures retain raw exits; no QA11/device/child/owner/global closure. |
