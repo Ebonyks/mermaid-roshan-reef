@@ -1,5 +1,158 @@
 {
-  "status": "PENDING_PUBLICATION_GATES",
-  "revision": "FV-AUDIT-20261015-R62",
-  "mission_complete": false
+  "status": "EXACT_ANONYMOUS_REMOTE_BYTES_VERIFIED",
+  "revision": "a22e192117c4db090fd06222b36c14571dc37352",
+  "checked_at_utc": "2026-10-15T18:22:10.845033+00:00",
+  "access_mode": "Anonymous public immutable HTTPS GET;exact committed bytes/SHA256",
+  "checks": [
+    {
+      "path": "design/audit_impacts/flat-vector-catalogue-origin-20261015.json",
+      "revision": "a22e192117c4db090fd06222b36c14571dc37352",
+      "bytes": 8144,
+      "sha256": "44963a2be2040309f366cf93b67b7b560fd8140f9a5711cf756e87cf507e4808",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/a22e192117c4db090fd06222b36c14571dc37352/design/audit_impacts/flat-vector-catalogue-origin-20261015.json"
+    },
+    {
+      "path": "audit/MASTER_AUDIT_CHANGELOG_ROLLBACK_2026-08-10.md",
+      "revision": "a22e192117c4db090fd06222b36c14571dc37352",
+      "bytes": 222400,
+      "sha256": "7856a6b4c942d53fe6f60e16f048d115353cd0d447db806c8022790a42ea5359",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/a22e192117c4db090fd06222b36c14571dc37352/audit/MASTER_AUDIT_CHANGELOG_ROLLBACK_2026-08-10.md"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r62_catalogue_origin/DELIVERY_TRANSPORT.json",
+      "revision": "a22e192117c4db090fd06222b36c14571dc37352",
+      "bytes": 802,
+      "sha256": "0b3f272606372fe06ce4a85d74cf88738edd93bc68429ec4e34e4da927b0dace",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/a22e192117c4db090fd06222b36c14571dc37352/docs/handoffs/codex_flat_vector_art_2026-10-07/r62_catalogue_origin/DELIVERY_TRANSPORT.json"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r62_catalogue_origin/tally.json",
+      "revision": "a22e192117c4db090fd06222b36c14571dc37352",
+      "bytes": 184664,
+      "sha256": "1635c0b6f1c4eaa1f2a5bf052d6445f0edd4bfc20544b8ae8a9515118b2824ce",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/a22e192117c4db090fd06222b36c14571dc37352/docs/handoffs/codex_flat_vector_art_2026-10-07/r62_catalogue_origin/tally.json"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r62_catalogue_origin/WORK_IN_PROGRESS.json",
+      "revision": "a22e192117c4db090fd06222b36c14571dc37352",
+      "bytes": 953,
+      "sha256": "8ab863682a932eaaaf30446ab13595153627f3b661e3fe25dbc7176091b153b1",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/a22e192117c4db090fd06222b36c14571dc37352/docs/handoffs/codex_flat_vector_art_2026-10-07/r62_catalogue_origin/WORK_IN_PROGRESS.json"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r62_catalogue_origin/REMOTE_VERIFICATION.json",
+      "revision": "a22e192117c4db090fd06222b36c14571dc37352",
+      "bytes": 126760,
+      "sha256": "6d792304257e45b47e2fff1552c9cadaaa79b6c91a59e362b88ae4a3a8136016",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/a22e192117c4db090fd06222b36c14571dc37352/docs/handoffs/codex_flat_vector_art_2026-10-07/r62_catalogue_origin/REMOTE_VERIFICATION.json"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r62_catalogue_origin/RECEIPT_GATES.json",
+      "revision": "a22e192117c4db090fd06222b36c14571dc37352",
+      "bytes": 1601,
+      "sha256": "10c601792a05a256586ecf191c1552faac0098602975613ceb0d594a1c9a02b7",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/a22e192117c4db090fd06222b36c14571dc37352/docs/handoffs/codex_flat_vector_art_2026-10-07/r62_catalogue_origin/RECEIPT_GATES.json"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r62_catalogue_origin/receipt_gates.log",
+      "revision": "a22e192117c4db090fd06222b36c14571dc37352",
+      "bytes": 754,
+      "sha256": "ad322f0532776ad17c59436fc371e2bfe7daff961b9582a2f32650a382b1eea6",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/a22e192117c4db090fd06222b36c14571dc37352/docs/handoffs/codex_flat_vector_art_2026-10-07/r62_catalogue_origin/receipt_gates.log"
+    }
+  ],
+  "payload_revision": "a3ddc9e595abe553f8401b63cf83ecd773509b45",
+  "audited_source_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+  "reconciled_origin_dev": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+  "current_upstream_changed_paths_after_capture": [],
+  "current_capture_scope": "Source-only original catalogue construction:176IDs=100stage+12UI+60reference-label+4standalone. Explicit source/current callback and existing originalR60saved-book4cases140checks80states bind game.critters as one overlapping partial catalogue ID, not a Main.game-value contract or acquisition/route completion.86partial90without0complete;0newnative/art/accepted removals. Dynamic/native/resource/QA11/device/child/owner/whole denominator remain open.",
+  "manifest_sha256": "dc2ba6393e02b970928a09e54469442564927068dde5c7f5b98b64c2de131db5",
+  "manifest_logical_sha256": "dc2ba6393e02b970928a09e54469442564927068dde5c7f5b98b64c2de131db5",
+  "manifest_files_verified": [
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r62_catalogue_origin/MANIFEST.json",
+      "revision": "a3ddc9e595abe553f8401b63cf83ecd773509b45",
+      "bytes": 70202,
+      "sha256": "dc2ba6393e02b970928a09e54469442564927068dde5c7f5b98b64c2de131db5",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/a3ddc9e595abe553f8401b63cf83ecd773509b45/docs/handoffs/codex_flat_vector_art_2026-10-07/r62_catalogue_origin/MANIFEST.json"
+    }
+  ],
+  "payload_sha256": "6b6f462949b9e1ffba163b2e26352af1ed5a4813b339606f4965189d8886645c",
+  "required_file_count": 205,
+  "required_bytes": 21508991,
+  "historical_dependency_scope": {
+    "payload": "27071494a36b401e304cf5d15d3f29282639bc6e",
+    "receipt": "a54294083c417573946e58d53df23499666730c8",
+    "final_proof": "d0f2e17433557d5775463f44576fe7ebf03cf3df",
+    "historical_direct_required_file_count": 809,
+    "historical_direct_required_bytes": 308992779,
+    "freshly_reverified_transitive_payload": false
+  },
+  "clean_worktree": true,
+  "current_ci_snapshot": {
+    "checked_at_utc": "2026-10-15T18:22:13.553418+00:00",
+    "runs": [
+      {
+        "conclusion": "",
+        "databaseId": 38785042191,
+        "headSha": "a22e192117c4db090fd06222b36c14571dc37352",
+        "status": "queued",
+        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/38785042191"
+      },
+      {
+        "conclusion": "",
+        "databaseId": 38784587636,
+        "headSha": "a3ddc9e595abe553f8401b63cf83ecd773509b45",
+        "status": "in_progress",
+        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/38784587636"
+      },
+      {
+        "conclusion": "cancelled",
+        "databaseId": 38780226739,
+        "headSha": "d0f2e17433557d5775463f44576fe7ebf03cf3df",
+        "status": "completed",
+        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/38780226739"
+      },
+      {
+        "conclusion": "cancelled",
+        "databaseId": 38779848245,
+        "headSha": "a54294083c417573946e58d53df23499666730c8",
+        "status": "completed",
+        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/38779848245"
+      }
+    ],
+    "scope": "Exact observed heads only;pending/cancelled is not green. No new full82,release,device/child/owner orcreative acceptance."
+  },
+  "receipt_index_sha256": "6d792304257e45b47e2fff1552c9cadaaa79b6c91a59e362b88ae4a3a8136016",
+  "receipt_logical_sha256": "6d792304257e45b47e2fff1552c9cadaaa79b6c91a59e362b88ae4a3a8136016",
+  "audit_status": "CATALOGUE_ORIGIN_PUBLISHED_ACCEPTANCE_OPEN",
+  "new_native_captures": 0,
+  "new_bounded_contexts": 0,
+  "new_excluded_diagnostics": 0,
+  "passing_native_cases": 0,
+  "passing_checks": 0,
+  "targeted_source_tests": 12,
+  "catalogue_origin_rows": 176,
+  "catalogue_partial": 86,
+  "catalogue_without_current_slice": 90,
+  "catalogue_complete": 0,
+  "new_partial_alias_credits": 1,
+  "reused_original_native_cases": 4,
+  "reused_original_native_checks": 140,
+  "accepted_removed": 0,
+  "QA11": null,
+  "device": null,
+  "child": null,
+  "owner": null,
+  "mission_complete": false,
+  "scope": "Exact new payload/direct sources/parent canonical and final metadata verified. Own later proof/impact bytes verified separately; publication/machine gates are not creative, replacement or mission acceptance."
 }
