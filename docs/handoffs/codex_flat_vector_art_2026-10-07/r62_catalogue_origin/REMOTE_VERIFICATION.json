@@ -1,5 +1,2084 @@
 {
-  "status": "PENDING_PUBLICATION_GATES",
-  "revision": "FV-AUDIT-20261015-R62",
+  "schema": "reef.flat_vector_delta_receipt/1",
+  "status": "ALL_DECLARED_DEPENDENCIES_VERIFIED",
+  "revision": "a3ddc9e595abe553f8401b63cf83ecd773509b45",
+  "manifest_path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r62_catalogue_origin/MANIFEST.json",
+  "manifest_sha256": "dc2ba6393e02b970928a09e54469442564927068dde5c7f5b98b64c2de131db5",
+  "manifest_logical_sha256": "dc2ba6393e02b970928a09e54469442564927068dde5c7f5b98b64c2de131db5",
+  "manifest_files_verified": [
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r62_catalogue_origin/MANIFEST.json",
+      "revision": "a3ddc9e595abe553f8401b63cf83ecd773509b45",
+      "bytes": 70202,
+      "sha256": "dc2ba6393e02b970928a09e54469442564927068dde5c7f5b98b64c2de131db5",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/a3ddc9e595abe553f8401b63cf83ecd773509b45/docs/handoffs/codex_flat_vector_art_2026-10-07/r62_catalogue_origin/MANIFEST.json"
+    }
+  ],
+  "payload_sha256": "6b6f462949b9e1ffba163b2e26352af1ed5a4813b339606f4965189d8886645c",
+  "required_file_count": 205,
+  "required_bytes": 21508991,
+  "checks": [
+    {
+      "path": "design/reference/games.json",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 150678,
+      "sha256": "dfdab83a5590d791f6409b9502b2516649c02ecb75cc8b1b7da440eacae358df",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence",
+      "verified_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/design/reference/games.json"
+    },
+    {
+      "path": "scripts/arena/castle_fixture_rigs.gd",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 48767,
+      "sha256": "118af0b72b82d0bde5ab6ea701303fd8469a40b24f4fc2db607a109a5cddd6af",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence",
+      "verified_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/scripts/arena/castle_fixture_rigs.gd"
+    },
+    {
+      "path": "scripts/arena/castle_rooms_25d.gd",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 242528,
+      "sha256": "50c723043680c987cc959d9bfbbcad94cfb62162f24d305d3f058c0d2de05176",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence",
+      "verified_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/scripts/arena/castle_rooms_25d.gd"
+    },
+    {
+      "path": "scripts/arena/courtyard_train.gd",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 29438,
+      "sha256": "329efa196bb5eb3c74cb4b44d0e4dfac6069071e6066daab206bca35a9abe364",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence",
+      "verified_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/scripts/arena/courtyard_train.gd"
+    },
+    {
+      "path": "scripts/arena/day_one_castle_dressing.gd",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 10369,
+      "sha256": "b2898e247748381c86c022c158da6220fb300a45545a1e47de59f9d432c8a8a5",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence",
+      "verified_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/scripts/arena/day_one_castle_dressing.gd"
+    },
+    {
+      "path": "scripts/arena/day_one_castle_grime.gd",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 2548,
+      "sha256": "b354780fb5e3648eba9962b2996a49bbcb563314874d840b3e8603a39c2ee6f8",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence",
+      "verified_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/scripts/arena/day_one_castle_grime.gd"
+    },
+    {
+      "path": "scripts/arena/fairy_conservatory_door_2d.gd",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 10043,
+      "sha256": "ae6e1ad07979c97bd7c474c546a64a12ccd4c944719ec886fdd76f7fae165089",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence",
+      "verified_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/scripts/arena/fairy_conservatory_door_2d.gd"
+    },
+    {
+      "path": "scripts/arena/fairy_conservatory_handoff_2d.gd",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 14672,
+      "sha256": "5bf165f546860121beb6c19369dce9833d8b665274e0edff75bc2d00b7ccbd34",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence",
+      "verified_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/scripts/arena/fairy_conservatory_handoff_2d.gd"
+    },
+    {
+      "path": "scripts/arena/northern_kingdom.gd",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 75975,
+      "sha256": "513f2f4d726f3b7b05187d1ee78f12cbb745849f09da212f2ec0f10c0dfad97a",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence",
+      "verified_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/scripts/arena/northern_kingdom.gd"
+    },
+    {
+      "path": "scripts/arena/sky_lagoon.gd",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 135470,
+      "sha256": "c3b81b4d6b2cb500c8d4e1f6ff2e4064a8b9c7ca4c8b0010c20236ccbb2e0395",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence",
+      "verified_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/scripts/arena/sky_lagoon.gd"
+    },
+    {
+      "path": "scripts/arena/sky_lagoon_layout.json",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 6453,
+      "sha256": "680173a909a4fddfadbc89f45d891159067bf5e776936f56f47e2295a2c338fe",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence",
+      "verified_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/scripts/arena/sky_lagoon_layout.json"
+    },
+    {
+      "path": "scripts/arena/sky_lagoon_promenade.gd",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 73828,
+      "sha256": "a6c72599809ddace2e94e02ba10db518483008ace62655e9059a76d3eacd2dfa",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence",
+      "verified_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/scripts/arena/sky_lagoon_promenade.gd"
+    },
+    {
+      "path": "scripts/attack_customizer.gd",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 11752,
+      "sha256": "b47bbfc164cc8508354bece86096245a2152fe627f5dbfed8440ec54db5198e0",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence",
+      "verified_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/scripts/attack_customizer.gd"
+    },
+    {
+      "path": "scripts/boss_encounter_2d.gd",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 4152,
+      "sha256": "371f260c9547f0665a41f290b2b1502c5ab22172b3d448f108d1b4e427bf9d55",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence",
+      "verified_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/scripts/boss_encounter_2d.gd"
+    },
+    {
+      "path": "scripts/boss_splash_2d.gd",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 9032,
+      "sha256": "5ce5cf49ae82c414bbd1f3123ec770b91622b46a71d8f9ee67a41546c166fab2",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence",
+      "verified_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/scripts/boss_splash_2d.gd"
+    },
+    {
+      "path": "scripts/castle_career_routes.gd",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 15000,
+      "sha256": "d2e9f24b10bf6b25bc7fd71c76630a6e88b8d8f3134db9b01139203fba925bb5",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence",
+      "verified_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/scripts/castle_career_routes.gd"
+    },
+    {
+      "path": "scripts/castle_door_cue.gd",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 5639,
+      "sha256": "0932feb34209b3dbd3e2738b32a7dddf0ee99ab607251356bb4fbac9cc7f895d",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence",
+      "verified_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/scripts/castle_door_cue.gd"
+    },
+    {
+      "path": "scripts/castle_door_language.gd",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 2664,
+      "sha256": "54d6cb97a34ffd0cd8ca8b916312d39c157856860db2fa2d1592f9b042ea3b5f",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence",
+      "verified_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/scripts/castle_door_language.gd"
+    },
+    {
+      "path": "scripts/castle_logo_studio.gd",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 19430,
+      "sha256": "5afe612eb11261818b760b0f04b6b6a995000a23b27e31aa228c0a04e63dc52a",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence",
+      "verified_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/scripts/castle_logo_studio.gd"
+    },
+    {
+      "path": "scripts/chapter_two_career_scene_adapter.gd",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 22903,
+      "sha256": "58c148acc4307315ee96e909aaf876b5095ab220875566707456a993cbc32ec8",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence",
+      "verified_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/scripts/chapter_two_career_scene_adapter.gd"
+    },
+    {
+      "path": "scripts/chapter_two_director.gd",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 38925,
+      "sha256": "b87490ac66083cee44ba3f469c9c8cbfa158930167614169e0f63759f8b3f70b",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence",
+      "verified_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/scripts/chapter_two_director.gd"
+    },
+    {
+      "path": "scripts/chapter_two_ember_encounter.gd",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 3611,
+      "sha256": "964356fb569fc6fe8b8de90b4003284bc99cc58a4074b4cc2245a8be168b7a42",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence",
+      "verified_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/scripts/chapter_two_ember_encounter.gd"
+    },
+    {
+      "path": "scripts/chapter_two_giant_cake_2d.gd",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 35950,
+      "sha256": "85dd504a6a2e76d17b398b9a3d0e65ba15a5a1d1e1cd73ebf6ee9da93cda2813",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence",
+      "verified_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/scripts/chapter_two_giant_cake_2d.gd"
+    },
+    {
+      "path": "scripts/chapter_two_lawn_finale_2d.gd",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 25519,
+      "sha256": "e4c07fb5e9404dd247d3aa10186b69f3df9f8f0fc5cd5679b8bf2f625f400797",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence",
+      "verified_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/scripts/chapter_two_lawn_finale_2d.gd"
+    },
+    {
+      "path": "scripts/chapter_two_party_plan.gd",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 2887,
+      "sha256": "50ffb004ac24a4827caed4e4899e999f7d37c7713c88eb3d1c778a766c54ec61",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence",
+      "verified_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/scripts/chapter_two_party_plan.gd"
+    },
+    {
+      "path": "scripts/chapter_two_party_table_2d.gd",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 23340,
+      "sha256": "761014dc77166dea11e4fa0e963cdb72c5aa2dea3e53b05f3540306950e89f87",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence",
+      "verified_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/scripts/chapter_two_party_table_2d.gd"
+    },
+    {
+      "path": "scripts/chapter_two_rainbow_candle_2d.gd",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 6208,
+      "sha256": "12e1a75500e2cb4a535c075e3a32c54987a570f7d4bb5ffbdb64c3e35da3e62f",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence",
+      "verified_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/scripts/chapter_two_rainbow_candle_2d.gd"
+    },
+    {
+      "path": "scripts/chapter_two_room_plot.gd",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 4138,
+      "sha256": "9eef1ece57be88ac9d01d85a5181ad1c258e6ff00f6b9a6cb3d7a86393d6e10d",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence",
+      "verified_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/scripts/chapter_two_room_plot.gd"
+    },
+    {
+      "path": "scripts/chapter_two_voice_catalog.gd",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 2729,
+      "sha256": "878cdebb43c777741d0462369f11da32369bb2efa08b5fae2adbfa64fbacfe96",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence",
+      "verified_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/scripts/chapter_two_voice_catalog.gd"
+    },
+    {
+      "path": "scripts/collection_system.gd",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 16314,
+      "sha256": "876bb4901406034dfa6a3bf4d319383261e04a45fbedfe120d97c8eb2d24eb3a",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence",
+      "verified_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/scripts/collection_system.gd"
+    },
+    {
+      "path": "scripts/combat_arena.gd",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 44298,
+      "sha256": "fa2b2f537ee83689b414b64d95ba19e18663f7dbfa10a88301932013c20f5de8",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence",
+      "verified_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/scripts/combat_arena.gd"
+    },
+    {
+      "path": "scripts/combat_tutorial.gd",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 11873,
+      "sha256": "2f1dc422c6bd9ee9e4d4cfc08d9863146d8a04afb60a943f8116cf6dc9861327",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence",
+      "verified_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/scripts/combat_tutorial.gd"
+    },
+    {
+      "path": "scripts/comfy_games.gd",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 25280,
+      "sha256": "bcd36dcb3f25c0bbb3586c8d20fc7a5524792b56d7b0577644a0d2645931a0be",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence",
+      "verified_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/scripts/comfy_games.gd"
+    },
+    {
+      "path": "scripts/companion.gd",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 65658,
+      "sha256": "0baeb7256a209b5266ebdf48cdccb7af6497b30fd0666021c597eced6e04d269",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence",
+      "verified_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/scripts/companion.gd"
+    },
+    {
+      "path": "scripts/craft_studio.gd",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 13414,
+      "sha256": "fd97af6efaeaf4b3949b94f921a71064b753c383d5adcf6e49395a487018de57",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence",
+      "verified_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/scripts/craft_studio.gd"
+    },
+    {
+      "path": "scripts/day_one_art_studio.gd",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 21869,
+      "sha256": "8ebdbccbae4e1a4994a891ac9706bc5fb22dce4ac8e9a9c75dd02123fc9f621a",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence",
+      "verified_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/scripts/day_one_art_studio.gd"
+    },
+    {
+      "path": "scripts/day_one_bathroom_movie_handoff.gd",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 7540,
+      "sha256": "975f3ee0800bcd6e7d6df2f485cd3dd4861fbee060eec9e85b911c9f2d30b3a9",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence",
+      "verified_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/scripts/day_one_bathroom_movie_handoff.gd"
+    },
+    {
+      "path": "scripts/day_one_contact_action_2d.gd",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 4954,
+      "sha256": "f85672d9a57a95689ddb302a3ca1da7f9b8de09027997e527790e230fb299dac",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence",
+      "verified_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/scripts/day_one_contact_action_2d.gd"
+    },
+    {
+      "path": "scripts/day_one_director.gd",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 29053,
+      "sha256": "33235c3ff99454fd9b6b8ec3724cc246457abdef5dcb1cdd9d0401b438c35cbf",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence",
+      "verified_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/scripts/day_one_director.gd"
+    },
+    {
+      "path": "scripts/day_one_flow.gd",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 17269,
+      "sha256": "913cfc362e1a2a9cc3a73ed0e1d3e491b73731d335c51af3f2f3753bb98a10e1",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence",
+      "verified_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/scripts/day_one_flow.gd"
+    },
+    {
+      "path": "scripts/day_two_transition_2d.gd",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 17434,
+      "sha256": "671548eb20ea115e9e21b0b019122c55cf39ab39760feec517a8504d9670026d",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence",
+      "verified_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/scripts/day_two_transition_2d.gd"
+    },
+    {
+      "path": "scripts/dungeon_art.gd",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 7418,
+      "sha256": "14d4d835962ebf2a389383376fbc42a55704a58642624bbb22b56afe1cd13941",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence",
+      "verified_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/scripts/dungeon_art.gd"
+    },
+    {
+      "path": "scripts/dungeon_level.gd",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 9176,
+      "sha256": "2c5e69c04cab123a42810ecb99e943a4e3f5d362f754236177db3569d222f8ab",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence",
+      "verified_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/scripts/dungeon_level.gd"
+    },
+    {
+      "path": "scripts/dungeon_puzzle_room.gd",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 22095,
+      "sha256": "d29527c4a8e23f4aaab430fe67d2b3cf6e54d7a99126f3fc23606cf7e77e3e33",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence",
+      "verified_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/scripts/dungeon_puzzle_room.gd"
+    },
+    {
+      "path": "scripts/dust_boss_lesson_2d.gd",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 4759,
+      "sha256": "7a445184e36eaaed6d29886ae2197c0f0deef10362706c233c889af8df42fbd4",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence",
+      "verified_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/scripts/dust_boss_lesson_2d.gd"
+    },
+    {
+      "path": "scripts/dust_boss_telegraph_2d.gd",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 10814,
+      "sha256": "ce1713cadd0eae48ae42c86ee5367193fdf5cb490097dbf54a10ad94f72b2982",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence",
+      "verified_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/scripts/dust_boss_telegraph_2d.gd"
+    },
+    {
+      "path": "scripts/dust_bunny_boss_sprite.gd",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 12899,
+      "sha256": "106bedcba3881d2b9c6d105947aa14e89a06b21caf8b59e078290cacaac93739",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence",
+      "verified_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/scripts/dust_bunny_boss_sprite.gd"
+    },
+    {
+      "path": "scripts/ember_fortress.gd",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 51545,
+      "sha256": "dbaec3f196f1b2bd3bab68db44555ea75c35cd756b21fd26e0897fb92f41a2a9",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence",
+      "verified_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/scripts/ember_fortress.gd"
+    },
+    {
+      "path": "scripts/encounter_profile_2d.gd",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 2079,
+      "sha256": "80ced9bb58afde098f12c8e017f86f953b64c0ca764759abf32144e82a50c971",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence",
+      "verified_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/scripts/encounter_profile_2d.gd"
+    },
+    {
+      "path": "scripts/fairy_restoration_prototype.gd",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 21759,
+      "sha256": "75a80350f45bb59b822d1084a05b8b0e7899d59df32a00c1e07d4ea8a9ec09fe",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence",
+      "verified_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/scripts/fairy_restoration_prototype.gd"
+    },
+    {
+      "path": "scripts/galaxy.gd",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 73159,
+      "sha256": "54278a504f031e001e1e2eb2f13082040da6b6967f02522f5f73cc46ed664f59",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence",
+      "verified_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/scripts/galaxy.gd"
+    },
+    {
+      "path": "scripts/games/brawl.gd",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 22123,
+      "sha256": "0780ad5b708cde10bbf3a1a37a1c06f7210e8d04a44172633605760c22dac8d7",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence",
+      "verified_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/scripts/games/brawl.gd"
+    },
+    {
+      "path": "scripts/games/dance_engine.gd",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 17044,
+      "sha256": "d8af408dbc2b8fe54a0b88b16e978b2bf9e6aab36e3a2eed3a15a1bdfe52511e",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence",
+      "verified_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/scripts/games/dance_engine.gd"
+    },
+    {
+      "path": "scripts/games/day_one_bathroom_cleaning.gd",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 36313,
+      "sha256": "b6422a46d529b033dac36a14bba9b9695d2351f15ea6f850348380dc7be200b0",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence",
+      "verified_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/scripts/games/day_one_bathroom_cleaning.gd"
+    },
+    {
+      "path": "scripts/games/day_one_bathroom_cleanup.gd",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 36097,
+      "sha256": "c13d7ecf1536dc682eaa29312c1aa8d45210985196608dfb830e26fa4b543a5e",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence",
+      "verified_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/scripts/games/day_one_bathroom_cleanup.gd"
+    },
+    {
+      "path": "scripts/games/day_one_bathroom_toilet.gd",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 8553,
+      "sha256": "28413b931406d85afaaa45ab5e50133aa1df042d2aa29edb932096a0a752ed36",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence",
+      "verified_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/scripts/games/day_one_bathroom_toilet.gd"
+    },
+    {
+      "path": "scripts/games/day_one_dust_bunny_swimmer.gd",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 9785,
+      "sha256": "2ff24ebee6b078f7d31fa53648e5c1b443f954760b3042d61ea0eb69f10e84c3",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence",
+      "verified_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/scripts/games/day_one_dust_bunny_swimmer.gd"
+    },
+    {
+      "path": "scripts/games/day_one_fixture_scrub.gd",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 3856,
+      "sha256": "b5aba569698ba641809a5bf216f4236443edca206f97a7e4d6010bd775389980",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence",
+      "verified_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/scripts/games/day_one_fixture_scrub.gd"
+    },
+    {
+      "path": "scripts/games/day_one_pool_cleanup.gd",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 28592,
+      "sha256": "b476ba553994c093cf32a6390f067e84c00b3fa26d2afca47d8a00df5fe91f44",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence",
+      "verified_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/scripts/games/day_one_pool_cleanup.gd"
+    },
+    {
+      "path": "scripts/games/dolls.gd",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 13306,
+      "sha256": "42fe387b2d80eec41bd421301ca49cc01e9f60a33d5d8eaa6de6a1a8bc9caf50",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence",
+      "verified_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/scripts/games/dolls.gd"
+    },
+    {
+      "path": "scripts/games/dust_boss.gd",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 42786,
+      "sha256": "05f9174e05c0c00ee09cf21c8e70e251c3afbed8e35b9f9526e200de65869a0d",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence",
+      "verified_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/scripts/games/dust_boss.gd"
+    },
+    {
+      "path": "scripts/games/dust_boss_patterns.gd",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 243,
+      "sha256": "530c25b906a3c88a336f1492517dc94b67fd7835b93aaac4afbcd437a727360c",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence",
+      "verified_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/scripts/games/dust_boss_patterns.gd"
+    },
+    {
+      "path": "scripts/games/fairy.gd",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 30308,
+      "sha256": "8bf4e48249c63441b4e3c89de0930ae14668b2cd8c1577189ff7b41f1b77d679",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence",
+      "verified_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/scripts/games/fairy.gd"
+    },
+    {
+      "path": "scripts/games/fetch.gd",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 14405,
+      "sha256": "d1cd79931637e376cbdcff3fa88871f63d673c82987ec20fa2dffb150fb1b805",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence",
+      "verified_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/scripts/games/fetch.gd"
+    },
+    {
+      "path": "scripts/games/melody.gd",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 42980,
+      "sha256": "a2477bc6fd21454c69480b290ccc13892e6938e4d1abf534051380dd84e5712e",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence",
+      "verified_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/scripts/games/melody.gd"
+    },
+    {
+      "path": "scripts/games/octagon_stage.gd",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 15858,
+      "sha256": "828efb4077edc8a0e770ac74735298447d7d7cc4ac49ed5774276ce9811d3513",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence",
+      "verified_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/scripts/games/octagon_stage.gd"
+    },
+    {
+      "path": "scripts/games/picture_games.gd",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 32556,
+      "sha256": "5d7202ac46b0ca26752b74b959eb052f2889369932d697b8b8727ad368abc8f0",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence",
+      "verified_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/scripts/games/picture_games.gd"
+    },
+    {
+      "path": "scripts/games/pool_seahorse_rescue_activity.gd",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 22256,
+      "sha256": "60a5540c943dc760f4b83cca68b4a649074ceaa91bd23de3d4ef4a42302476b0",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence",
+      "verified_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/scripts/games/pool_seahorse_rescue_activity.gd"
+    },
+    {
+      "path": "scripts/games/pool_skimmer_activity.gd",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 22079,
+      "sha256": "41894d67693bb6d8e7d2a544f677083dea12b43a7f8d4e2ac0e6511d79461bce",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence",
+      "verified_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/scripts/games/pool_skimmer_activity.gd"
+    },
+    {
+      "path": "scripts/games/pool_waterfall_activity.gd",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 20079,
+      "sha256": "036e5cb7f64f9231e0f9781680cf005df4170f9e3055c5d353df7e6ddd4bf3da",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence",
+      "verified_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/scripts/games/pool_waterfall_activity.gd"
+    },
+    {
+      "path": "scripts/games/seek.gd",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 23600,
+      "sha256": "9aec0b1fe979315ffd46b94b52b53a27c418809cd3a7cc3af1284294cd092d4c",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence",
+      "verified_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/scripts/games/seek.gd"
+    },
+    {
+      "path": "scripts/games/shop.gd",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 17821,
+      "sha256": "62ce2b2bf2a8319b7f0e86a7856436b5072f662be1c0477d6d7a79b0e45f7585",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence",
+      "verified_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/scripts/games/shop.gd"
+    },
+    {
+      "path": "scripts/games/side_scroll.gd",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 42173,
+      "sha256": "e094f4efef2ee295ebad159e82e49ccd2bb8db26c38049c5f7135bd86114b0a7",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence",
+      "verified_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/scripts/games/side_scroll.gd"
+    },
+    {
+      "path": "scripts/games/slide_race.gd",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 68216,
+      "sha256": "2293c08bd2a056b2e5819f2406fc9ca42f5cc734e700552eab29642555f44b8f",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence",
+      "verified_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/scripts/games/slide_race.gd"
+    },
+    {
+      "path": "scripts/games/treasure.gd",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 4905,
+      "sha256": "f228a13ad65977517f3486e42be6e79fb20546d633d747e6353d859a6ec7540c",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence",
+      "verified_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/scripts/games/treasure.gd"
+    },
+    {
+      "path": "scripts/hit_engine.gd",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 36221,
+      "sha256": "9a9fc4df1598737937b7c37d2f68675ca4e257f8260cf72a0396a8dfea9a789c",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence",
+      "verified_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/scripts/hit_engine.gd"
+    },
+    {
+      "path": "scripts/imp_ai.gd",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 20764,
+      "sha256": "b07ba584b88dbaa9ed5712d28784dfa9192d1b03016589237c84a3ad5cda148e",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence",
+      "verified_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/scripts/imp_ai.gd"
+    },
+    {
+      "path": "scripts/kart.gd",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 128753,
+      "sha256": "0c5ce86e7361ea04287ba322709461a4a9feb84603307cefa20f7d55b4ea5caa",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence",
+      "verified_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/scripts/kart.gd"
+    },
+    {
+      "path": "scripts/kart_driving.gd",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 5116,
+      "sha256": "a87c53f06301f79d45ef3b73877686103af70196a41e7df059399f39014cf5e8",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence",
+      "verified_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/scripts/kart_driving.gd"
+    },
+    {
+      "path": "scripts/living_world.gd",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 14317,
+      "sha256": "97c0e9dd7d6d660ec5b6386179233714c6772b06fe7b3b6dcd26262852c071fe",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence",
+      "verified_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/scripts/living_world.gd"
+    },
+    {
+      "path": "scripts/living_world_catalog.gd",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 33453,
+      "sha256": "2db85ea403333cd6b71fca87195b927a44b282d0233d79051b8bf0314f53ae2e",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence",
+      "verified_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/scripts/living_world_catalog.gd"
+    },
+    {
+      "path": "scripts/main.gd",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 370863,
+      "sha256": "77bddeb59b215fd2d993f6c124ef67e49314d992d00cbc7c1b9231e9c157c417",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence",
+      "verified_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/scripts/main.gd"
+    },
+    {
+      "path": "scripts/navigation_controller.gd",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 3749,
+      "sha256": "8a7c805f6b0d73840d62316dc349390d8125299fd8bdf0c146c6699ca725a873",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence",
+      "verified_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/scripts/navigation_controller.gd"
+    },
+    {
+      "path": "scripts/opera_act.gd",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 7685,
+      "sha256": "9e2fa238b904db3b0548f3b76ddd647f6e27934f4a3148da3c893b04ccf135a3",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence",
+      "verified_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/scripts/opera_act.gd"
+    },
+    {
+      "path": "scripts/opera_ballet_surface.gd",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 25366,
+      "sha256": "76a648de7fd0d52eadf1974257bfaaf3f17bb6b73a0bd96029b35133c33cb70b",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence",
+      "verified_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/scripts/opera_ballet_surface.gd"
+    },
+    {
+      "path": "scripts/opera_boxing_surface.gd",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 27480,
+      "sha256": "321da2219887b07f3efcd142c3015bfcf027ef21a5eb1755e877dc2ff5a71170",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence",
+      "verified_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/scripts/opera_boxing_surface.gd"
+    },
+    {
+      "path": "scripts/opera_career_world_2d.gd",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 241013,
+      "sha256": "db2759e66e025c566d20a30021548199e00758c525cd88dfc1ab5c01fad65a30",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence",
+      "verified_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/scripts/opera_career_world_2d.gd"
+    },
+    {
+      "path": "scripts/opera_chef_surface.gd",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 11406,
+      "sha256": "fe6cc1756d66df11a8c27906610d415b9739f21f8bae982e22611baf7e0a4dbb",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence",
+      "verified_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/scripts/opera_chef_surface.gd"
+    },
+    {
+      "path": "scripts/opera_competition.gd",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 8801,
+      "sha256": "2449c21807e83f9c5d0f5994b37663b9e5ae4f56aa418690151eac081d03ec57",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence",
+      "verified_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/scripts/opera_competition.gd"
+    },
+    {
+      "path": "scripts/opera_geology_surface.gd",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 33298,
+      "sha256": "da96f3b7c07b2ecac796cbe21410499c4439937a21d4096fd918a611e02ba8be",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence",
+      "verified_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/scripts/opera_geology_surface.gd"
+    },
+    {
+      "path": "scripts/opera_gesture_surface.gd",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 242776,
+      "sha256": "82fc3444887a8547719f263fe2368f162f1c0e935b1877d4dc37afb74faf6459",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence",
+      "verified_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/scripts/opera_gesture_surface.gd"
+    },
+    {
+      "path": "scripts/opera_house.gd",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 17056,
+      "sha256": "5b13d622520753a2682aba0a834cd397475e1695d3f6d235a7700e2e2a3e088c",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence",
+      "verified_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/scripts/opera_house.gd"
+    },
+    {
+      "path": "scripts/opera_mastery.gd",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 7933,
+      "sha256": "1a5c6f89f2cd0effea2b22e85a29c3dcfcebb0298fb6d582b81a9bb427518bf3",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence",
+      "verified_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/scripts/opera_mastery.gd"
+    },
+    {
+      "path": "scripts/opera_nursery_catch.gd",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 9606,
+      "sha256": "b997e83c4032be14f187260a6fda1a99bcb5f3b61a7e07adebf5a99479dda431",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence",
+      "verified_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/scripts/opera_nursery_catch.gd"
+    },
+    {
+      "path": "scripts/opera_performance_overlay.gd",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 7696,
+      "sha256": "16c7a17ed901750764481e7077ac2e60d4cf5bfc1a3b41970066e4a633545ddb",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence",
+      "verified_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/scripts/opera_performance_overlay.gd"
+    },
+    {
+      "path": "scripts/opera_performance_plan.gd",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 1533,
+      "sha256": "6b5ff197b0d88663af260217dc673a39d2d681e081b313c1c4b49c0a359d8366",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence",
+      "verified_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/scripts/opera_performance_plan.gd"
+    },
+    {
+      "path": "scripts/opera_racer_surface.gd",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 18753,
+      "sha256": "09b292073f3d4fcfc2605a22bf79b039f00047787edf2d25dde37798b3db4cba",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence",
+      "verified_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/scripts/opera_racer_surface.gd"
+    },
+    {
+      "path": "scripts/opera_teacher_surface.gd",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 15132,
+      "sha256": "cab2eee9f0bf1297296fef0a8650df7794214cfcb58fc379e44954f6153ec2ed",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence",
+      "verified_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/scripts/opera_teacher_surface.gd"
+    },
+    {
+      "path": "scripts/opera_world_backdrop_2d.gd",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 26218,
+      "sha256": "37a9bf06e2c2b777086543ca48fb54b3634ccc8d5a1620a6f03668e6dff0e740",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence",
+      "verified_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/scripts/opera_world_backdrop_2d.gd"
+    },
+    {
+      "path": "scripts/painter/painter_document.gd",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 6373,
+      "sha256": "a08227e81e5100d1743d5707708eea6e2ff9f366129982280ec579b6490af4ff",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence",
+      "verified_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/scripts/painter/painter_document.gd"
+    },
+    {
+      "path": "scripts/painter/painter_studio.gd",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 17837,
+      "sha256": "19e5f6e21d116f17926b5ab666836db382dea8d0060b43e957460af7b637314a",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence",
+      "verified_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/scripts/painter/painter_studio.gd"
+    },
+    {
+      "path": "scripts/painter/painter_template.gd",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 3614,
+      "sha256": "0f48f9885a2b1e1cb3ab3a0b828df8cf06bdcb8162f37e80e1b8fa258be2a746",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence",
+      "verified_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/scripts/painter/painter_template.gd"
+    },
+    {
+      "path": "scripts/painter/vendor/painter_flood_fill.gd",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 5888,
+      "sha256": "60a50de9b675751431ddd51e4cbea47b691d8c9f17b7ca0f69a9305740e5ae0c",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence",
+      "verified_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/scripts/painter/vendor/painter_flood_fill.gd"
+    },
+    {
+      "path": "scripts/partner_assist.gd",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 3506,
+      "sha256": "b2450228b9f22d2c6d652b43c6dc577dad8863293a9b2270a4a8d9da76a9dbad",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence",
+      "verified_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/scripts/partner_assist.gd"
+    },
+    {
+      "path": "scripts/pause_menu.gd",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 13628,
+      "sha256": "2afc6103f8a750c437c1aa23c94419191a0b303cdec54aabd9345b560a5646b0",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence",
+      "verified_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/scripts/pause_menu.gd"
+    },
+    {
+      "path": "scripts/probe_ui_system.gd",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 39336,
+      "sha256": "871337431bb6f9518cd5e40e4b8bd41688303d013872841e2f24ab9faa2a1e2f",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence",
+      "verified_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/scripts/probe_ui_system.gd"
+    },
+    {
+      "path": "scripts/reef_districts.gd",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 16731,
+      "sha256": "79371c2799a0430107c91a43d4705f8a5bb7939d3d2b33c2df1e3cb608058d3b",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence",
+      "verified_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/scripts/reef_districts.gd"
+    },
+    {
+      "path": "scripts/stage_navigation_2d.gd",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 3261,
+      "sha256": "36fb7f194b8ad710284b7c5f5e9ef797a0d3c3c56bdc040f8b98d25bc455d79b",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence",
+      "verified_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/scripts/stage_navigation_2d.gd"
+    },
+    {
+      "path": "scripts/storybook_ui.gd",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 16107,
+      "sha256": "839e53d6893347808341523d4e4b58e3727cc4fd4cd698726c92d494edce0fa7",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence",
+      "verified_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/scripts/storybook_ui.gd"
+    },
+    {
+      "path": "scripts/stuffie_battle.gd",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 24254,
+      "sha256": "9fa3246eb07d249ac223a82df8cd6b68ca572e0b28e918f594c420a49f9384a4",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence",
+      "verified_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/scripts/stuffie_battle.gd"
+    },
+    {
+      "path": "scripts/teacher_lesson_plan.gd",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 6662,
+      "sha256": "d82e5b7a817335b4da2d0d7b55706a5cde1ff1954c2b33d8ba34d891dac5778e",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence",
+      "verified_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/scripts/teacher_lesson_plan.gd"
+    },
+    {
+      "path": "scripts/wardrobe_ui.gd",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "bytes": 14633,
+      "sha256": "0d7f4c5241f141ca4bbb9464f21aa5bd46545e1817b8b2638fea1caadf9f6573",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence",
+      "verified_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/scripts/wardrobe_ui.gd"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/audit_register.py",
+      "revision": "5e5140fb0f0b636825354b6db8d28da0e9c07446",
+      "bytes": 20299,
+      "sha256": "bcf0ab9971e3a1e229b639a8b3357e415c5323c9001b010d175fc86d847b8711",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence",
+      "verified_revision": "5e5140fb0f0b636825354b6db8d28da0e9c07446",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5e5140fb0f0b636825354b6db8d28da0e9c07446/docs/handoffs/codex_flat_vector_art_2026-10-07/audit_register.py"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/build_index.py",
+      "revision": "5e5140fb0f0b636825354b6db8d28da0e9c07446",
+      "bytes": 8153,
+      "sha256": "d119422146a9934c0f2cf18c45bef1ac5c4c2b1d3abaed02b22f80bc56f0e51d",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence",
+      "verified_revision": "5e5140fb0f0b636825354b6db8d28da0e9c07446",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5e5140fb0f0b636825354b6db8d28da0e9c07446/docs/handoffs/codex_flat_vector_art_2026-10-07/build_index.py"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/build_review_packet.py",
+      "revision": "5e5140fb0f0b636825354b6db8d28da0e9c07446",
+      "bytes": 17434,
+      "sha256": "70aecf93acc182e66de7ffd6f0c97e89600d44f3cf3d2d9ce11a8f04f0ca37a0",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence",
+      "verified_revision": "5e5140fb0f0b636825354b6db8d28da0e9c07446",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5e5140fb0f0b636825354b6db8d28da0e9c07446/docs/handoffs/codex_flat_vector_art_2026-10-07/build_review_packet.py"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/scene_coverage.json",
+      "revision": "5e5140fb0f0b636825354b6db8d28da0e9c07446",
+      "bytes": 152865,
+      "sha256": "07a60638d9107eea771a3d9456c58a5ec4857c977575ce1d83ee18f765268bda",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence",
+      "verified_revision": "5e5140fb0f0b636825354b6db8d28da0e9c07446",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5e5140fb0f0b636825354b6db8d28da0e9c07446/docs/handoffs/codex_flat_vector_art_2026-10-07/scene_coverage.json"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/source_inventory.json",
+      "revision": "5e5140fb0f0b636825354b6db8d28da0e9c07446",
+      "bytes": 126544,
+      "sha256": "bec74fec39a6036e71498c2df2204b827fe82827baf7382bfaa515c7892ed2d6",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence",
+      "verified_revision": "5e5140fb0f0b636825354b6db8d28da0e9c07446",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5e5140fb0f0b636825354b6db8d28da0e9c07446/docs/handoffs/codex_flat_vector_art_2026-10-07/source_inventory.json"
+    },
+    {
+      "path": "design/reference/games.json",
+      "revision": "92c9fe70319ef46bfaa8f61348a6f51512141ec3",
+      "bytes": 150678,
+      "sha256": "dfdab83a5590d791f6409b9502b2516649c02ecb75cc8b1b7da440eacae358df",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence",
+      "verified_revision": "92c9fe70319ef46bfaa8f61348a6f51512141ec3",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/92c9fe70319ef46bfaa8f61348a6f51512141ec3/design/reference/games.json"
+    },
+    {
+      "path": "scripts/living_world_catalog.gd",
+      "revision": "92c9fe70319ef46bfaa8f61348a6f51512141ec3",
+      "bytes": 33453,
+      "sha256": "2db85ea403333cd6b71fca87195b927a44b282d0233d79051b8bf0314f53ae2e",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence",
+      "verified_revision": "92c9fe70319ef46bfaa8f61348a6f51512141ec3",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/92c9fe70319ef46bfaa8f61348a6f51512141ec3/scripts/living_world_catalog.gd"
+    },
+    {
+      "path": "audit/MASTER_AUDIT_2026-08-09.md",
+      "revision": null,
+      "bytes": 297816,
+      "sha256": "fbf4ed6b3a54c02a24f9843b6cd28daa9e745cc7b5b86b55c03a3e6e980e9f38",
+      "role": "Current R62 audit evidence; acceptance open",
+      "verified_revision": "a3ddc9e595abe553f8401b63cf83ecd773509b45",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/a3ddc9e595abe553f8401b63cf83ecd773509b45/audit/MASTER_AUDIT_2026-08-09.md"
+    },
+    {
+      "path": "audit/MASTER_AUDIT_CHANGELOG_ROLLBACK_2026-08-10.md",
+      "revision": null,
+      "bytes": 221747,
+      "sha256": "002700af5161decee3349ededc4c245dfc3789b84f1c657c6eb960dc3f125d47",
+      "role": "Current R62 audit evidence; acceptance open",
+      "verified_revision": "a3ddc9e595abe553f8401b63cf83ecd773509b45",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/a3ddc9e595abe553f8401b63cf83ecd773509b45/audit/MASTER_AUDIT_CHANGELOG_ROLLBACK_2026-08-10.md"
+    },
+    {
+      "path": "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
+      "revision": null,
+      "bytes": 297966,
+      "sha256": "07b1e38c5afe6631512d9fe2794b0510aa4896a107181eee1be4964acd0ff2b7",
+      "role": "Current R62 audit evidence; acceptance open",
+      "verified_revision": "a3ddc9e595abe553f8401b63cf83ecd773509b45",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/a3ddc9e595abe553f8401b63cf83ecd773509b45/audit/findings/ACTIVE_FINDINGS_2026-08-13.md"
+    },
+    {
+      "path": "design/05_DOC_LEDGER.md",
+      "revision": null,
+      "bytes": 249035,
+      "sha256": "5e2e0e736b027eeb61dc056801090bbca6377164e7da09d783b26101bcfbc45e",
+      "role": "Current R62 audit evidence; acceptance open",
+      "verified_revision": "a3ddc9e595abe553f8401b63cf83ecd773509b45",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/a3ddc9e595abe553f8401b63cf83ecd773509b45/design/05_DOC_LEDGER.md"
+    },
+    {
+      "path": "design/audit_impacts/flat-vector-catalogue-origin-20261015.json",
+      "revision": null,
+      "bytes": 7486,
+      "sha256": "0e686a48e0572c5c2f6c1da8da5b8fe8144da4cba6a8c5f9127fa321bb2ddd8a",
+      "role": "Current R62 audit evidence; acceptance open",
+      "verified_revision": "a3ddc9e595abe553f8401b63cf83ecd773509b45",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/a3ddc9e595abe553f8401b63cf83ecd773509b45/design/audit_impacts/flat-vector-catalogue-origin-20261015.json"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/CURRENT.json",
+      "revision": null,
+      "bytes": 11620,
+      "sha256": "1193672a5516ca983ce7caecc61dc7891beba9518bd009cabc9bf3a6f34f8c5a",
+      "role": "Current R62 audit evidence; acceptance open",
+      "verified_revision": "a3ddc9e595abe553f8401b63cf83ecd773509b45",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/a3ddc9e595abe553f8401b63cf83ecd773509b45/docs/handoffs/codex_flat_vector_art_2026-10-07/CURRENT.json"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/README.md",
+      "revision": null,
+      "bytes": 32088,
+      "sha256": "65b3034253f88be1595b44417da6e6f0e4b178bb2c9fe8d0610585ba77d7d823",
+      "role": "Current R62 audit evidence; acceptance open",
+      "verified_revision": "a3ddc9e595abe553f8401b63cf83ecd773509b45",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/a3ddc9e595abe553f8401b63cf83ecd773509b45/docs/handoffs/codex_flat_vector_art_2026-10-07/README.md"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r62_catalogue_origin/.gdignore",
+      "revision": null,
+      "bytes": 41,
+      "sha256": "857ec5fdbbccb611a123eaec9bdcb359861f0ab4bab3a1dfe856ceba04bf9aec",
+      "role": "Current R62 audit evidence; acceptance open",
+      "verified_revision": "a3ddc9e595abe553f8401b63cf83ecd773509b45",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/a3ddc9e595abe553f8401b63cf83ecd773509b45/docs/handoffs/codex_flat_vector_art_2026-10-07/r62_catalogue_origin/.gdignore"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r62_catalogue_origin/.gitattributes",
+      "revision": null,
+      "bytes": 25,
+      "sha256": "ce1cac926c35d2da1af7b0f5f29439990c016d941dd4c3a1b9957a380d54ab29",
+      "role": "Current R62 audit evidence; acceptance open",
+      "verified_revision": "a3ddc9e595abe553f8401b63cf83ecd773509b45",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/a3ddc9e595abe553f8401b63cf83ecd773509b45/docs/handoffs/codex_flat_vector_art_2026-10-07/r62_catalogue_origin/.gitattributes"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r62_catalogue_origin/ADDITIONAL_REFERENCES.json",
+      "revision": null,
+      "bytes": 15489,
+      "sha256": "5e112b20e983d6baa06de34df8f9d99b093cd1223c0734108cd56dcf97c0b848",
+      "role": "Current R62 audit evidence; acceptance open",
+      "verified_revision": "a3ddc9e595abe553f8401b63cf83ecd773509b45",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/a3ddc9e595abe553f8401b63cf83ecd773509b45/docs/handoffs/codex_flat_vector_art_2026-10-07/r62_catalogue_origin/ADDITIONAL_REFERENCES.json"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r62_catalogue_origin/ANALYSIS_SUMMARY.json",
+      "revision": null,
+      "bytes": 669,
+      "sha256": "0cd306db268d9924542d35047047fa4c68ac69f39bd0227fccca804b22d11f45",
+      "role": "Current R62 audit evidence; acceptance open",
+      "verified_revision": "a3ddc9e595abe553f8401b63cf83ecd773509b45",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/a3ddc9e595abe553f8401b63cf83ecd773509b45/docs/handoffs/codex_flat_vector_art_2026-10-07/r62_catalogue_origin/ANALYSIS_SUMMARY.json"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r62_catalogue_origin/CANONICAL_POINTER_UPDATE.json",
+      "revision": null,
+      "bytes": 278,
+      "sha256": "b7a98c6990a5fb6c8a52c24fc43600a6ee5139dfbcc1ba9e81f97886f64b2393",
+      "role": "Current R62 audit evidence; acceptance open",
+      "verified_revision": "a3ddc9e595abe553f8401b63cf83ecd773509b45",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/a3ddc9e595abe553f8401b63cf83ecd773509b45/docs/handoffs/codex_flat_vector_art_2026-10-07/r62_catalogue_origin/CANONICAL_POINTER_UPDATE.json"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r62_catalogue_origin/CATALOGUE_ORIGINS.json",
+      "revision": null,
+      "bytes": 91341,
+      "sha256": "c7d95f0a65c681f383a7867ae2a91db5cd0657e6c8f3385114dcf038a0a415b0",
+      "role": "Current R62 audit evidence; acceptance open",
+      "verified_revision": "a3ddc9e595abe553f8401b63cf83ecd773509b45",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/a3ddc9e595abe553f8401b63cf83ecd773509b45/docs/handoffs/codex_flat_vector_art_2026-10-07/r62_catalogue_origin/CATALOGUE_ORIGINS.json"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r62_catalogue_origin/CATALOGUE_SOURCE_BINDINGS.json",
+      "revision": null,
+      "bytes": 114280,
+      "sha256": "ea44b491d7f499cd984be9e1a6a29c843a9ccd4525bd9ed71c1d88bcae0a953f",
+      "role": "Current R62 audit evidence; acceptance open",
+      "verified_revision": "a3ddc9e595abe553f8401b63cf83ecd773509b45",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/a3ddc9e595abe553f8401b63cf83ecd773509b45/docs/handoffs/codex_flat_vector_art_2026-10-07/r62_catalogue_origin/CATALOGUE_SOURCE_BINDINGS.json"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r62_catalogue_origin/CATALOGUE_SOURCE_REFERENCES.json",
+      "revision": null,
+      "bytes": 63138,
+      "sha256": "8b4cf9015a31863290b824fdd78f2f12c799be428938ae90d26ece42b53f0ecf",
+      "role": "Current R62 audit evidence; acceptance open",
+      "verified_revision": "a3ddc9e595abe553f8401b63cf83ecd773509b45",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/a3ddc9e595abe553f8401b63cf83ecd773509b45/docs/handoffs/codex_flat_vector_art_2026-10-07/r62_catalogue_origin/CATALOGUE_SOURCE_REFERENCES.json"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r62_catalogue_origin/CONGRUENCY_BACKLOG.json",
+      "revision": null,
+      "bytes": 199565,
+      "sha256": "aa705c0b7db592aa407f682de64f36696f61c04551c04986ab230ac6c79a7a71",
+      "role": "Current R62 audit evidence; acceptance open",
+      "verified_revision": "a3ddc9e595abe553f8401b63cf83ecd773509b45",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/a3ddc9e595abe553f8401b63cf83ecd773509b45/docs/handoffs/codex_flat_vector_art_2026-10-07/r62_catalogue_origin/CONGRUENCY_BACKLOG.json"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r62_catalogue_origin/CONTEXT_PREREQUISITE.json",
+      "revision": null,
+      "bytes": 383,
+      "sha256": "bf02764b3c7a504c0025bd02e3d042b2dbd3ed76e97fd028d11655ff9d6475c0",
+      "role": "Current R62 audit evidence; acceptance open",
+      "verified_revision": "a3ddc9e595abe553f8401b63cf83ecd773509b45",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/a3ddc9e595abe553f8401b63cf83ecd773509b45/docs/handoffs/codex_flat_vector_art_2026-10-07/r62_catalogue_origin/CONTEXT_PREREQUISITE.json"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r62_catalogue_origin/CRITTER_ALIAS_BINDING.json",
+      "revision": null,
+      "bytes": 29415,
+      "sha256": "8c85a580fdee664003b5d9623b69afb21578e37b5e754ea17d77891bf6368c02",
+      "role": "Current R62 audit evidence; acceptance open",
+      "verified_revision": "a3ddc9e595abe553f8401b63cf83ecd773509b45",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/a3ddc9e595abe553f8401b63cf83ecd773509b45/docs/handoffs/codex_flat_vector_art_2026-10-07/r62_catalogue_origin/CRITTER_ALIAS_BINDING.json"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r62_catalogue_origin/CURRENT_CATALOGUE_CONTEXT_UNION.json",
+      "revision": null,
+      "bytes": 4774,
+      "sha256": "cfed779c49e7bed8fb7596ffd910c56a19d4e033a8183ce1273cc4829c8d2436",
+      "role": "Current R62 audit evidence; acceptance open",
+      "verified_revision": "a3ddc9e595abe553f8401b63cf83ecd773509b45",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/a3ddc9e595abe553f8401b63cf83ecd773509b45/docs/handoffs/codex_flat_vector_art_2026-10-07/r62_catalogue_origin/CURRENT_CATALOGUE_CONTEXT_UNION.json"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r62_catalogue_origin/CURRENT_PARTIAL_CONTEXT_UNION.json",
+      "revision": null,
+      "bytes": 15865,
+      "sha256": "eab2cc3555a93929205817505c4546f2601403a882ea930f7278d89398183b15",
+      "role": "Current R62 audit evidence; acceptance open",
+      "verified_revision": "a3ddc9e595abe553f8401b63cf83ecd773509b45",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/a3ddc9e595abe553f8401b63cf83ecd773509b45/docs/handoffs/codex_flat_vector_art_2026-10-07/r62_catalogue_origin/CURRENT_PARTIAL_CONTEXT_UNION.json"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r62_catalogue_origin/DELIVERY_SOURCE_REFERENCES.json",
+      "revision": null,
+      "bytes": 95302,
+      "sha256": "4fda5706018fee9913285739607b0a64a185afaa42f530ee59e6b105a44d59c7",
+      "role": "Current R62 audit evidence; acceptance open",
+      "verified_revision": "a3ddc9e595abe553f8401b63cf83ecd773509b45",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/a3ddc9e595abe553f8401b63cf83ecd773509b45/docs/handoffs/codex_flat_vector_art_2026-10-07/r62_catalogue_origin/DELIVERY_SOURCE_REFERENCES.json"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r62_catalogue_origin/GATES.json",
+      "revision": null,
+      "bytes": 4241,
+      "sha256": "6d82db7d9d83e03681da6f503180b231983e8849bad8fc3db0adf825c5aad71e",
+      "role": "Current R62 audit evidence; acceptance open",
+      "verified_revision": "a3ddc9e595abe553f8401b63cf83ecd773509b45",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/a3ddc9e595abe553f8401b63cf83ecd773509b45/docs/handoffs/codex_flat_vector_art_2026-10-07/r62_catalogue_origin/GATES.json"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r62_catalogue_origin/PLAN.json",
+      "revision": null,
+      "bytes": 4206,
+      "sha256": "f7994f21cb944e346d65efa8a53c9daa0ec73f5e351a6d939191432a52a7e3ce",
+      "role": "Current R62 audit evidence; acceptance open",
+      "verified_revision": "a3ddc9e595abe553f8401b63cf83ecd773509b45",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/a3ddc9e595abe553f8401b63cf83ecd773509b45/docs/handoffs/codex_flat_vector_art_2026-10-07/r62_catalogue_origin/PLAN.json"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r62_catalogue_origin/README.md",
+      "revision": null,
+      "bytes": 3195,
+      "sha256": "56e902fa820b04ef2ed115022d833a3f7056878cd64bafe440f6005214dd4c6e",
+      "role": "Current R62 audit evidence; acceptance open",
+      "verified_revision": "a3ddc9e595abe553f8401b63cf83ecd773509b45",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/a3ddc9e595abe553f8401b63cf83ecd773509b45/docs/handoffs/codex_flat_vector_art_2026-10-07/r62_catalogue_origin/README.md"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r62_catalogue_origin/REPRODUCTION_INPUTS.json",
+      "revision": null,
+      "bytes": 1291,
+      "sha256": "14e6ac4db35ffbebdc5ae10087597dfcfe2e3246d2a4f12aa84e04ec52b78ffb",
+      "role": "Current R62 audit evidence; acceptance open",
+      "verified_revision": "a3ddc9e595abe553f8401b63cf83ecd773509b45",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/a3ddc9e595abe553f8401b63cf83ecd773509b45/docs/handoffs/codex_flat_vector_art_2026-10-07/r62_catalogue_origin/REPRODUCTION_INPUTS.json"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r62_catalogue_origin/REVIEW.json",
+      "revision": null,
+      "bytes": 4347,
+      "sha256": "b2f7d4a28c872d579d425fafa6daf6d81107b1b80965da82bd822e22fb54690c",
+      "role": "Current R62 audit evidence; acceptance open",
+      "verified_revision": "a3ddc9e595abe553f8401b63cf83ecd773509b45",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/a3ddc9e595abe553f8401b63cf83ecd773509b45/docs/handoffs/codex_flat_vector_art_2026-10-07/r62_catalogue_origin/REVIEW.json"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r62_catalogue_origin/SOURCE_PARITY.json",
+      "revision": null,
+      "bytes": 469,
+      "sha256": "e48b215ccae7c06436a7dad73e1300149c90a83ab7504e3ffeeb935d73a3955b",
+      "role": "Current R62 audit evidence; acceptance open",
+      "verified_revision": "a3ddc9e595abe553f8401b63cf83ecd773509b45",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/a3ddc9e595abe553f8401b63cf83ecd773509b45/docs/handoffs/codex_flat_vector_art_2026-10-07/r62_catalogue_origin/SOURCE_PARITY.json"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r62_catalogue_origin/SOURCE_REFERENCES.json",
+      "revision": null,
+      "bytes": 16909,
+      "sha256": "cc45a04b7cf0d8ed267d753f42081cb060a0de56ef563406206f2aff4c16e0c7",
+      "role": "Current R62 audit evidence; acceptance open",
+      "verified_revision": "a3ddc9e595abe553f8401b63cf83ecd773509b45",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/a3ddc9e595abe553f8401b63cf83ecd773509b45/docs/handoffs/codex_flat_vector_art_2026-10-07/r62_catalogue_origin/SOURCE_REFERENCES.json"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r62_catalogue_origin/SUMMARY.json",
+      "revision": null,
+      "bytes": 1964,
+      "sha256": "5c85be39d811fc00452701621a1a2ad4be77b3dd71ae027c34b8adfce293f2b4",
+      "role": "Current R62 audit evidence; acceptance open",
+      "verified_revision": "a3ddc9e595abe553f8401b63cf83ecd773509b45",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/a3ddc9e595abe553f8401b63cf83ecd773509b45/docs/handoffs/codex_flat_vector_art_2026-10-07/r62_catalogue_origin/SUMMARY.json"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r62_catalogue_origin/WORK_IN_PROGRESS.json",
+      "revision": null,
+      "bytes": 795,
+      "sha256": "9ce896292915957ad8272530041e21f243c9abd27ca3e499334bf97c9b1d43a3",
+      "role": "Current R62 audit evidence; acceptance open",
+      "verified_revision": "a3ddc9e595abe553f8401b63cf83ecd773509b45",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/a3ddc9e595abe553f8401b63cf83ecd773509b45/docs/handoffs/codex_flat_vector_art_2026-10-07/r62_catalogue_origin/WORK_IN_PROGRESS.json"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r62_catalogue_origin/audit_catalogue_origin.py",
+      "revision": null,
+      "bytes": 15116,
+      "sha256": "61943a1a6d44fd9ab94f6521e9c89dd2582877b34f9532549e954d9ee4219199",
+      "role": "Current R62 audit evidence; acceptance open",
+      "verified_revision": "a3ddc9e595abe553f8401b63cf83ecd773509b45",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/a3ddc9e595abe553f8401b63cf83ecd773509b45/docs/handoffs/codex_flat_vector_art_2026-10-07/r62_catalogue_origin/audit_catalogue_origin.py"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r62_catalogue_origin/bounded_json.py",
+      "revision": null,
+      "bytes": 4089,
+      "sha256": "42d8c411b7cd752dc3abc2e09089a1d97a4302bcae15d145b6a515c57bbc83cd",
+      "role": "Current R62 audit evidence; acceptance open",
+      "verified_revision": "a3ddc9e595abe553f8401b63cf83ecd773509b45",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/a3ddc9e595abe553f8401b63cf83ecd773509b45/docs/handoffs/codex_flat_vector_art_2026-10-07/r62_catalogue_origin/bounded_json.py"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r62_catalogue_origin/build_manifest.py",
+      "revision": null,
+      "bytes": 4036,
+      "sha256": "e71c7461826c6756ad793b3952f3432cab7ef1c2ce8059ea834e9fc9e8dd7361",
+      "role": "Current R62 audit evidence; acceptance open",
+      "verified_revision": "a3ddc9e595abe553f8401b63cf83ecd773509b45",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/a3ddc9e595abe553f8401b63cf83ecd773509b45/docs/handoffs/codex_flat_vector_art_2026-10-07/r62_catalogue_origin/build_manifest.py"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r62_catalogue_origin/gates.log",
+      "revision": null,
+      "bytes": 654,
+      "sha256": "0b39c9a50dbb8b427726cbb4c4c8239613757b9b4f0f2205fb16325ed9d95d81",
+      "role": "Current R62 audit evidence; acceptance open",
+      "verified_revision": "a3ddc9e595abe553f8401b63cf83ecd773509b45",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/a3ddc9e595abe553f8401b63cf83ecd773509b45/docs/handoffs/codex_flat_vector_art_2026-10-07/r62_catalogue_origin/gates.log"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r62_catalogue_origin/historical_source/audit_register.py.txt",
+      "revision": null,
+      "bytes": 20299,
+      "sha256": "bcf0ab9971e3a1e229b639a8b3357e415c5323c9001b010d175fc86d847b8711",
+      "role": "Current R62 audit evidence; acceptance open",
+      "verified_revision": "a3ddc9e595abe553f8401b63cf83ecd773509b45",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/a3ddc9e595abe553f8401b63cf83ecd773509b45/docs/handoffs/codex_flat_vector_art_2026-10-07/r62_catalogue_origin/historical_source/audit_register.py.txt"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r62_catalogue_origin/historical_source/build_index.py.txt",
+      "revision": null,
+      "bytes": 8153,
+      "sha256": "d119422146a9934c0f2cf18c45bef1ac5c4c2b1d3abaed02b22f80bc56f0e51d",
+      "role": "Current R62 audit evidence; acceptance open",
+      "verified_revision": "a3ddc9e595abe553f8401b63cf83ecd773509b45",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/a3ddc9e595abe553f8401b63cf83ecd773509b45/docs/handoffs/codex_flat_vector_art_2026-10-07/r62_catalogue_origin/historical_source/build_index.py.txt"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r62_catalogue_origin/historical_source/build_review_packet.py.txt",
+      "revision": null,
+      "bytes": 17434,
+      "sha256": "70aecf93acc182e66de7ffd6f0c97e89600d44f3cf3d2d9ce11a8f04f0ca37a0",
+      "role": "Current R62 audit evidence; acceptance open",
+      "verified_revision": "a3ddc9e595abe553f8401b63cf83ecd773509b45",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/a3ddc9e595abe553f8401b63cf83ecd773509b45/docs/handoffs/codex_flat_vector_art_2026-10-07/r62_catalogue_origin/historical_source/build_review_packet.py.txt"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r62_catalogue_origin/per_piece.json",
+      "revision": null,
+      "bytes": 1237184,
+      "sha256": "b199e5995afe3939dd3a3ba121dda4a73dbacae431574820652b767e6e8ff012",
+      "role": "Current R62 audit evidence; acceptance open",
+      "verified_revision": "a3ddc9e595abe553f8401b63cf83ecd773509b45",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/a3ddc9e595abe553f8401b63cf83ecd773509b45/docs/handoffs/codex_flat_vector_art_2026-10-07/r62_catalogue_origin/per_piece.json"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r62_catalogue_origin/scene_coverage.json",
+      "revision": null,
+      "bytes": 736973,
+      "sha256": "f09734122ae554c381dd8d767505b49564d2ba68e770049d9dd77549c3d0deed",
+      "role": "Current R62 audit evidence; acceptance open",
+      "verified_revision": "a3ddc9e595abe553f8401b63cf83ecd773509b45",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/a3ddc9e595abe553f8401b63cf83ecd773509b45/docs/handoffs/codex_flat_vector_art_2026-10-07/r62_catalogue_origin/scene_coverage.json"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r62_catalogue_origin/tally.json",
+      "revision": null,
+      "bytes": 183215,
+      "sha256": "7f792fd171f79d1b3cc75b4adc6ce504a8cc06888414b6b9597edfb460e20638",
+      "role": "Current R62 audit evidence; acceptance open",
+      "verified_revision": "a3ddc9e595abe553f8401b63cf83ecd773509b45",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/a3ddc9e595abe553f8401b63cf83ecd773509b45/docs/handoffs/codex_flat_vector_art_2026-10-07/r62_catalogue_origin/tally.json"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r62_catalogue_origin/test_catalogue_origin.py",
+      "revision": null,
+      "bytes": 3774,
+      "sha256": "32af9765e81836d0b489c1a2b5bcf83b74970104424596e698b0397b471a9ee6",
+      "role": "Current R62 audit evidence; acceptance open",
+      "verified_revision": "a3ddc9e595abe553f8401b63cf83ecd773509b45",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/a3ddc9e595abe553f8401b63cf83ecd773509b45/docs/handoffs/codex_flat_vector_art_2026-10-07/r62_catalogue_origin/test_catalogue_origin.py"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r62_catalogue_origin/validate.py",
+      "revision": null,
+      "bytes": 6087,
+      "sha256": "58ff3e0f54d7f74ff830a91b484e4646539bbd68a6623a173ca16a87cefb0df3",
+      "role": "Current R62 audit evidence; acceptance open",
+      "verified_revision": "a3ddc9e595abe553f8401b63cf83ecd773509b45",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/a3ddc9e595abe553f8401b63cf83ecd773509b45/docs/handoffs/codex_flat_vector_art_2026-10-07/r62_catalogue_origin/validate.py"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r62_catalogue_origin/verify_remote.py",
+      "revision": null,
+      "bytes": 3368,
+      "sha256": "fa7c9e9df1013dbd3d56fe6a165eee24241168252191551aa13f8b2517861d64",
+      "role": "Current R62 audit evidence; acceptance open",
+      "verified_revision": "a3ddc9e595abe553f8401b63cf83ecd773509b45",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/a3ddc9e595abe553f8401b63cf83ecd773509b45/docs/handoffs/codex_flat_vector_art_2026-10-07/r62_catalogue_origin/verify_remote.py"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/ARCHIVE_REFERENCES.json",
+      "revision": "d0f2e17433557d5775463f44576fe7ebf03cf3df",
+      "bytes": 844,
+      "sha256": "dbd6d318e8e686eb5e98e9132f311f772c267cad5f681e6d5d4561c9cb1a6168",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence",
+      "verified_revision": "d0f2e17433557d5775463f44576fe7ebf03cf3df",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/d0f2e17433557d5775463f44576fe7ebf03cf3df/docs/handoffs/codex_flat_vector_art_2026-10-07/ARCHIVE_REFERENCES.json"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/CURRENT.json",
+      "revision": "d0f2e17433557d5775463f44576fe7ebf03cf3df",
+      "bytes": 11397,
+      "sha256": "488fbc9b6a69ae968324134cf6d9a198c63423672ad0be95a43ae99bdd00f421",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence",
+      "verified_revision": "d0f2e17433557d5775463f44576fe7ebf03cf3df",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/d0f2e17433557d5775463f44576fe7ebf03cf3df/docs/handoffs/codex_flat_vector_art_2026-10-07/CURRENT.json"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/HISTORICAL_R5_MANIFEST.json",
+      "revision": "d0f2e17433557d5775463f44576fe7ebf03cf3df",
+      "bytes": 343096,
+      "sha256": "93e98cde4d55c8140619275fdfe4b8d69ec08042537c9e877635b67c78da2dcf",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence",
+      "verified_revision": "d0f2e17433557d5775463f44576fe7ebf03cf3df",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/d0f2e17433557d5775463f44576fe7ebf03cf3df/docs/handoffs/codex_flat_vector_art_2026-10-07/HISTORICAL_R5_MANIFEST.json"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/glyph_inventory.json",
+      "revision": "d0f2e17433557d5775463f44576fe7ebf03cf3df",
+      "bytes": 136505,
+      "sha256": "19f3e0335f9b3af55b8c83f541eed52336107807c9b073057f412897ca2fcaa9",
+      "role": "Preserved frozen original registry",
+      "verified_revision": "d0f2e17433557d5775463f44576fe7ebf03cf3df",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/d0f2e17433557d5775463f44576fe7ebf03cf3df/docs/handoffs/codex_flat_vector_art_2026-10-07/glyph_inventory.json"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/per_piece.json",
+      "revision": "d0f2e17433557d5775463f44576fe7ebf03cf3df",
+      "bytes": 1103788,
+      "sha256": "5b10e09df85b6d21027435bc64709a6032f5ac6f81bd8f406560221b936996e9",
+      "role": "Preserved frozen original registry",
+      "verified_revision": "d0f2e17433557d5775463f44576fe7ebf03cf3df",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/d0f2e17433557d5775463f44576fe7ebf03cf3df/docs/handoffs/codex_flat_vector_art_2026-10-07/per_piece.json"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r51_farmer_context/RUNTIME_BYTE_BASELINE.json",
+      "revision": "d0f2e17433557d5775463f44576fe7ebf03cf3df",
+      "bytes": 1106570,
+      "sha256": "60e556d68dcd3e826407e7a4f15341a52e2b7fa5216c67907ca68d521de335e7",
+      "role": "Immutable initialized runtime/save/sidecar baseline",
+      "verified_revision": "d0f2e17433557d5775463f44576fe7ebf03cf3df",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/d0f2e17433557d5775463f44576fe7ebf03cf3df/docs/handoffs/codex_flat_vector_art_2026-10-07/r51_farmer_context/RUNTIME_BYTE_BASELINE.json"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r57_catalogue_selector_crosswalk/CATALOGUE_CROSSWALK.json",
+      "revision": "d0f2e17433557d5775463f44576fe7ebf03cf3df",
+      "bytes": 290898,
+      "sha256": "d009e4eff5f653181b35091197277284902209428a81741b413b570195d1f300",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence",
+      "verified_revision": "d0f2e17433557d5775463f44576fe7ebf03cf3df",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/d0f2e17433557d5775463f44576fe7ebf03cf3df/docs/handoffs/codex_flat_vector_art_2026-10-07/r57_catalogue_selector_crosswalk/CATALOGUE_CROSSWALK.json"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r57_catalogue_selector_crosswalk/SOURCE_GAME_CENSUS.json",
+      "revision": "d0f2e17433557d5775463f44576fe7ebf03cf3df",
+      "bytes": 140688,
+      "sha256": "ff2b3bc99da4cd6f209af734560fd2ad96c5293e410e6901c695d556e0d0ae02",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence",
+      "verified_revision": "d0f2e17433557d5775463f44576fe7ebf03cf3df",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/d0f2e17433557d5775463f44576fe7ebf03cf3df/docs/handoffs/codex_flat_vector_art_2026-10-07/r57_catalogue_selector_crosswalk/SOURCE_GAME_CENSUS.json"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r57_catalogue_selector_crosswalk/audit_game_values.py",
+      "revision": "d0f2e17433557d5775463f44576fe7ebf03cf3df",
+      "bytes": 6904,
+      "sha256": "f67aa8721ace5834d84d6ba1b5042f20ab203eccc9ffdcca4b53ec288e063dec",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence",
+      "verified_revision": "d0f2e17433557d5775463f44576fe7ebf03cf3df",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/d0f2e17433557d5775463f44576fe7ebf03cf3df/docs/handoffs/codex_flat_vector_art_2026-10-07/r57_catalogue_selector_crosswalk/audit_game_values.py"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r60_critter_saved_context/CAPTURE_INDEX.json",
+      "revision": "d0f2e17433557d5775463f44576fe7ebf03cf3df",
+      "bytes": 117955,
+      "sha256": "70f7c6f9553f8af5d70c3dd8796e477df7d1a9ec21dca49d4881f3ffffcb191d",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence",
+      "verified_revision": "d0f2e17433557d5775463f44576fe7ebf03cf3df",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/d0f2e17433557d5775463f44576fe7ebf03cf3df/docs/handoffs/codex_flat_vector_art_2026-10-07/r60_critter_saved_context/CAPTURE_INDEX.json"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r60_critter_saved_context/REVIEW.json",
+      "revision": "d0f2e17433557d5775463f44576fe7ebf03cf3df",
+      "bytes": 30823,
+      "sha256": "fc99da9977f316e37f8220135520d6258e8a2b14d86a40ee0d1422ad999c90b2",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence",
+      "verified_revision": "d0f2e17433557d5775463f44576fe7ebf03cf3df",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/d0f2e17433557d5775463f44576fe7ebf03cf3df/docs/handoffs/codex_flat_vector_art_2026-10-07/r60_critter_saved_context/REVIEW.json"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r60_critter_saved_context/SOURCE_PARITY.json",
+      "revision": "d0f2e17433557d5775463f44576fe7ebf03cf3df",
+      "bytes": 6576,
+      "sha256": "0934a6651954ca93e3404e78ca848515848fffe4b955c6413c44e89b66978743",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence",
+      "verified_revision": "d0f2e17433557d5775463f44576fe7ebf03cf3df",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/d0f2e17433557d5775463f44576fe7ebf03cf3df/docs/handoffs/codex_flat_vector_art_2026-10-07/r60_critter_saved_context/SOURCE_PARITY.json"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r60_critter_saved_context/SUMMARY.json",
+      "revision": "d0f2e17433557d5775463f44576fe7ebf03cf3df",
+      "bytes": 1229,
+      "sha256": "5c6a5bd721bc468ac2a68b8ec077f946e6ef8fd316be2b055c12ae8cd2a4179f",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence",
+      "verified_revision": "d0f2e17433557d5775463f44576fe7ebf03cf3df",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/d0f2e17433557d5775463f44576fe7ebf03cf3df/docs/handoffs/codex_flat_vector_art_2026-10-07/r60_critter_saved_context/SUMMARY.json"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r60_critter_saved_context/capture_critter_saved.gd",
+      "revision": "d0f2e17433557d5775463f44576fe7ebf03cf3df",
+      "bytes": 21920,
+      "sha256": "b535f8347498b2f53c2858ced77902196fa7dd5f3c0e8add930e5834f12407c8",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence",
+      "verified_revision": "d0f2e17433557d5775463f44576fe7ebf03cf3df",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/d0f2e17433557d5775463f44576fe7ebf03cf3df/docs/handoffs/codex_flat_vector_art_2026-10-07/r60_critter_saved_context/capture_critter_saved.gd"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r60_critter_saved_context/native/attempt1_critter_saved_full_1280/capture_manifest.json",
+      "revision": "d0f2e17433557d5775463f44576fe7ebf03cf3df",
+      "bytes": 748458,
+      "sha256": "2981c8636eb7fb1e424c32dc209a6f3dc604d4dccf8036e1feb9c3f7f5a64778",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence",
+      "verified_revision": "d0f2e17433557d5775463f44576fe7ebf03cf3df",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/d0f2e17433557d5775463f44576fe7ebf03cf3df/docs/handoffs/codex_flat_vector_art_2026-10-07/r60_critter_saved_context/native/attempt1_critter_saved_full_1280/capture_manifest.json"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r60_critter_saved_context/native/attempt1_critter_saved_full_1280/fish_ready.png",
+      "revision": "d0f2e17433557d5775463f44576fe7ebf03cf3df",
+      "bytes": 291961,
+      "sha256": "e86117b601c95c9406084a645933b2111457a853d771f1099939a0c48aa83ebe",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence",
+      "verified_revision": "d0f2e17433557d5775463f44576fe7ebf03cf3df",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/d0f2e17433557d5775463f44576fe7ebf03cf3df/docs/handoffs/codex_flat_vector_art_2026-10-07/r60_critter_saved_context/native/attempt1_critter_saved_full_1280/fish_ready.png"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r60_critter_saved_context/native/attempt1_critter_saved_full_1280/insect_settled.png",
+      "revision": "d0f2e17433557d5775463f44576fe7ebf03cf3df",
+      "bytes": 298659,
+      "sha256": "fefaee2890dc76eea01248bae3de67cb385c850bd1396ce85f7999d4f9b70a5a",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence",
+      "verified_revision": "d0f2e17433557d5775463f44576fe7ebf03cf3df",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/d0f2e17433557d5775463f44576fe7ebf03cf3df/docs/handoffs/codex_flat_vector_art_2026-10-07/r60_critter_saved_context/native/attempt1_critter_saved_full_1280/insect_settled.png"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r60_critter_saved_context/native/attempt1_critter_saved_full_1600/capture_manifest.json",
+      "revision": "d0f2e17433557d5775463f44576fe7ebf03cf3df",
+      "bytes": 748998,
+      "sha256": "5d3482bd273fefbcc8e2340aea55624cd37177690a589a79c06b748a6ee38a9d",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence",
+      "verified_revision": "d0f2e17433557d5775463f44576fe7ebf03cf3df",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/d0f2e17433557d5775463f44576fe7ebf03cf3df/docs/handoffs/codex_flat_vector_art_2026-10-07/r60_critter_saved_context/native/attempt1_critter_saved_full_1600/capture_manifest.json"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r60_critter_saved_context/native/attempt1_critter_saved_full_1600/fish_ready.png",
+      "revision": "d0f2e17433557d5775463f44576fe7ebf03cf3df",
+      "bytes": 433470,
+      "sha256": "bbbdd0cccd1cf37161dfcde7dd21de439eca0291912c3fc8259ab254a8313e18",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence",
+      "verified_revision": "d0f2e17433557d5775463f44576fe7ebf03cf3df",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/d0f2e17433557d5775463f44576fe7ebf03cf3df/docs/handoffs/codex_flat_vector_art_2026-10-07/r60_critter_saved_context/native/attempt1_critter_saved_full_1600/fish_ready.png"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r60_critter_saved_context/native/attempt1_critter_saved_full_1600/insect_settled.png",
+      "revision": "d0f2e17433557d5775463f44576fe7ebf03cf3df",
+      "bytes": 439965,
+      "sha256": "5d4cab0aa45dd414161167dfc841eaa217ed1bae88bdc2336795ef20f5558d0e",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence",
+      "verified_revision": "d0f2e17433557d5775463f44576fe7ebf03cf3df",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/d0f2e17433557d5775463f44576fe7ebf03cf3df/docs/handoffs/codex_flat_vector_art_2026-10-07/r60_critter_saved_context/native/attempt1_critter_saved_full_1600/insect_settled.png"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r60_critter_saved_context/native/attempt1_critter_saved_partial_1280/capture_manifest.json",
+      "revision": "d0f2e17433557d5775463f44576fe7ebf03cf3df",
+      "bytes": 724596,
+      "sha256": "f5ceac1ec34a46dbcd1f36570f0081b29a5e9b9b19962d59e910c3e770522904",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence",
+      "verified_revision": "d0f2e17433557d5775463f44576fe7ebf03cf3df",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/d0f2e17433557d5775463f44576fe7ebf03cf3df/docs/handoffs/codex_flat_vector_art_2026-10-07/r60_critter_saved_context/native/attempt1_critter_saved_partial_1280/capture_manifest.json"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r60_critter_saved_context/native/attempt1_critter_saved_partial_1280/fish_ready.png",
+      "revision": "d0f2e17433557d5775463f44576fe7ebf03cf3df",
+      "bytes": 264492,
+      "sha256": "ab5f8f93c9ebd42608acda1f74d6be0ee2d8a47ad38759aac0b88baa80d1d6fd",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence",
+      "verified_revision": "d0f2e17433557d5775463f44576fe7ebf03cf3df",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/d0f2e17433557d5775463f44576fe7ebf03cf3df/docs/handoffs/codex_flat_vector_art_2026-10-07/r60_critter_saved_context/native/attempt1_critter_saved_partial_1280/fish_ready.png"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r60_critter_saved_context/native/attempt1_critter_saved_partial_1280/insect_settled.png",
+      "revision": "d0f2e17433557d5775463f44576fe7ebf03cf3df",
+      "bytes": 278421,
+      "sha256": "88716aceee74c8665de9c727ce18ebc29edb63cde2dfd296e10149ab029f2188",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence",
+      "verified_revision": "d0f2e17433557d5775463f44576fe7ebf03cf3df",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/d0f2e17433557d5775463f44576fe7ebf03cf3df/docs/handoffs/codex_flat_vector_art_2026-10-07/r60_critter_saved_context/native/attempt1_critter_saved_partial_1280/insect_settled.png"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r60_critter_saved_context/native/attempt1_critter_saved_partial_1600/capture_manifest.json",
+      "revision": "d0f2e17433557d5775463f44576fe7ebf03cf3df",
+      "bytes": 725136,
+      "sha256": "182fbd8ec942c1193dfc64c6544ca212b4ecc84b5677142428fe06874bf539f9",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence",
+      "verified_revision": "d0f2e17433557d5775463f44576fe7ebf03cf3df",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/d0f2e17433557d5775463f44576fe7ebf03cf3df/docs/handoffs/codex_flat_vector_art_2026-10-07/r60_critter_saved_context/native/attempt1_critter_saved_partial_1600/capture_manifest.json"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r60_critter_saved_context/native/attempt1_critter_saved_partial_1600/fish_ready.png",
+      "revision": "d0f2e17433557d5775463f44576fe7ebf03cf3df",
+      "bytes": 404347,
+      "sha256": "2d6041f162a4201d5d92d0ed4b9983fdf1eda96725f5b7a07f43261c930682f4",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence",
+      "verified_revision": "d0f2e17433557d5775463f44576fe7ebf03cf3df",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/d0f2e17433557d5775463f44576fe7ebf03cf3df/docs/handoffs/codex_flat_vector_art_2026-10-07/r60_critter_saved_context/native/attempt1_critter_saved_partial_1600/fish_ready.png"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r60_critter_saved_context/native/attempt1_critter_saved_partial_1600/insect_settled.png",
+      "revision": "d0f2e17433557d5775463f44576fe7ebf03cf3df",
+      "bytes": 419008,
+      "sha256": "c2b3e28c69a6d9fdd1f5417b138c09eceb921f4c7d5defc9d87b102363a09fb7",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence",
+      "verified_revision": "d0f2e17433557d5775463f44576fe7ebf03cf3df",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/d0f2e17433557d5775463f44576fe7ebf03cf3df/docs/handoffs/codex_flat_vector_art_2026-10-07/r60_critter_saved_context/native/attempt1_critter_saved_partial_1600/insect_settled.png"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r61_critter_saved_reuse/CAPTURE_INDEX.json",
+      "revision": "d0f2e17433557d5775463f44576fe7ebf03cf3df",
+      "bytes": 130636,
+      "sha256": "9ea904edf5561222e3a19940d90687db99ec0622e0a5b48b37f95eaf6577c4b2",
+      "role": "Immutable R61 parent canonical/complete manifest/receipt; historical transitive pixels retain prior verification time",
+      "verified_revision": "d0f2e17433557d5775463f44576fe7ebf03cf3df",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/d0f2e17433557d5775463f44576fe7ebf03cf3df/docs/handoffs/codex_flat_vector_art_2026-10-07/r61_critter_saved_reuse/CAPTURE_INDEX.json"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r61_critter_saved_reuse/CONGRUENCY_BACKLOG.json",
+      "revision": "d0f2e17433557d5775463f44576fe7ebf03cf3df",
+      "bytes": 194126,
+      "sha256": "069c6eb034ab35f08a3310a044cc1877036ac0752d67492ab71e6d93c07dfac0",
+      "role": "Immutable R61 parent canonical/complete manifest/receipt; historical transitive pixels retain prior verification time",
+      "verified_revision": "d0f2e17433557d5775463f44576fe7ebf03cf3df",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/d0f2e17433557d5775463f44576fe7ebf03cf3df/docs/handoffs/codex_flat_vector_art_2026-10-07/r61_critter_saved_reuse/CONGRUENCY_BACKLOG.json"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r61_critter_saved_reuse/FINAL_BYTE_RECEIPT.json",
+      "revision": "d0f2e17433557d5775463f44576fe7ebf03cf3df",
+      "bytes": 8550,
+      "sha256": "7623cbf048f4da13f6ad107a90ab1a5c14de79fc18db5be3c21cb02c754085c7",
+      "role": "Immutable R61 parent canonical/complete manifest/receipt; historical transitive pixels retain prior verification time",
+      "verified_revision": "d0f2e17433557d5775463f44576fe7ebf03cf3df",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/d0f2e17433557d5775463f44576fe7ebf03cf3df/docs/handoffs/codex_flat_vector_art_2026-10-07/r61_critter_saved_reuse/FINAL_BYTE_RECEIPT.json"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r61_critter_saved_reuse/MANIFEST.json",
+      "revision": "d0f2e17433557d5775463f44576fe7ebf03cf3df",
+      "bytes": 283033,
+      "sha256": "b8216db81d6df8a9ae0425b22816c7640097dd0ce5c9f5c5cdddf0ba4b119f84",
+      "role": "Immutable R61 parent canonical/complete manifest/receipt; historical transitive pixels retain prior verification time",
+      "verified_revision": "d0f2e17433557d5775463f44576fe7ebf03cf3df",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/d0f2e17433557d5775463f44576fe7ebf03cf3df/docs/handoffs/codex_flat_vector_art_2026-10-07/r61_critter_saved_reuse/MANIFEST.json"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r61_critter_saved_reuse/README.md",
+      "revision": "d0f2e17433557d5775463f44576fe7ebf03cf3df",
+      "bytes": 3127,
+      "sha256": "82d9646bc30b4dea029ae66616472e4d9fcd13dd6d42c36df7d8f45912ce3cd7",
+      "role": "Immutable R61 parent canonical/complete manifest/receipt; historical transitive pixels retain prior verification time",
+      "verified_revision": "d0f2e17433557d5775463f44576fe7ebf03cf3df",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/d0f2e17433557d5775463f44576fe7ebf03cf3df/docs/handoffs/codex_flat_vector_art_2026-10-07/r61_critter_saved_reuse/README.md"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r61_critter_saved_reuse/REMOTE_VERIFICATION.json",
+      "revision": "d0f2e17433557d5775463f44576fe7ebf03cf3df",
+      "bytes": 525833,
+      "sha256": "4707a15493cc693253e93c14ff8586fcc1e6b53f412c367832236c69180580d9",
+      "role": "Immutable R61 parent canonical/complete manifest/receipt; historical transitive pixels retain prior verification time",
+      "verified_revision": "d0f2e17433557d5775463f44576fe7ebf03cf3df",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/d0f2e17433557d5775463f44576fe7ebf03cf3df/docs/handoffs/codex_flat_vector_art_2026-10-07/r61_critter_saved_reuse/REMOTE_VERIFICATION.json"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r61_critter_saved_reuse/REVIEW.json",
+      "revision": "d0f2e17433557d5775463f44576fe7ebf03cf3df",
+      "bytes": 16157,
+      "sha256": "341380684c1eb15f00a4674b3c22f07ba15a19e7278818308ab3585bb237bd7d",
+      "role": "Immutable R61 parent canonical/complete manifest/receipt; historical transitive pixels retain prior verification time",
+      "verified_revision": "d0f2e17433557d5775463f44576fe7ebf03cf3df",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/d0f2e17433557d5775463f44576fe7ebf03cf3df/docs/handoffs/codex_flat_vector_art_2026-10-07/r61_critter_saved_reuse/REVIEW.json"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r61_critter_saved_reuse/SOURCE_REFERENCES.json",
+      "revision": "d0f2e17433557d5775463f44576fe7ebf03cf3df",
+      "bytes": 219552,
+      "sha256": "49dd0f114abcd02952c47c9462aa48d5b0b2e2bc34b3f9a0a5a7615f0c3063e5",
+      "role": "Immutable R61 parent canonical/complete manifest/receipt; historical transitive pixels retain prior verification time",
+      "verified_revision": "d0f2e17433557d5775463f44576fe7ebf03cf3df",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/d0f2e17433557d5775463f44576fe7ebf03cf3df/docs/handoffs/codex_flat_vector_art_2026-10-07/r61_critter_saved_reuse/SOURCE_REFERENCES.json"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r61_critter_saved_reuse/SUMMARY.json",
+      "revision": "d0f2e17433557d5775463f44576fe7ebf03cf3df",
+      "bytes": 1385,
+      "sha256": "d4edf54f5e09d51222af242539a3a508c3990336c38f3b5c40b37cf134183bc0",
+      "role": "Exact current source/domain/same-scene reference or prior canonical evidence",
+      "verified_revision": "d0f2e17433557d5775463f44576fe7ebf03cf3df",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/d0f2e17433557d5775463f44576fe7ebf03cf3df/docs/handoffs/codex_flat_vector_art_2026-10-07/r61_critter_saved_reuse/SUMMARY.json"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r61_critter_saved_reuse/WORK_IN_PROGRESS.json",
+      "revision": "d0f2e17433557d5775463f44576fe7ebf03cf3df",
+      "bytes": 855,
+      "sha256": "d59187cd6ecdf41a19b3376bcfbc5ddc86005a87581d47d6930a32800d6dba55",
+      "role": "Immutable R61 parent canonical/complete manifest/receipt; historical transitive pixels retain prior verification time",
+      "verified_revision": "d0f2e17433557d5775463f44576fe7ebf03cf3df",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/d0f2e17433557d5775463f44576fe7ebf03cf3df/docs/handoffs/codex_flat_vector_art_2026-10-07/r61_critter_saved_reuse/WORK_IN_PROGRESS.json"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r61_critter_saved_reuse/bounded_json.py",
+      "revision": "d0f2e17433557d5775463f44576fe7ebf03cf3df",
+      "bytes": 4089,
+      "sha256": "42d8c411b7cd752dc3abc2e09089a1d97a4302bcae15d145b6a515c57bbc83cd",
+      "role": "Immutable R61 parent canonical/complete manifest/receipt; historical transitive pixels retain prior verification time",
+      "verified_revision": "d0f2e17433557d5775463f44576fe7ebf03cf3df",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/d0f2e17433557d5775463f44576fe7ebf03cf3df/docs/handoffs/codex_flat_vector_art_2026-10-07/r61_critter_saved_reuse/bounded_json.py"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r61_critter_saved_reuse/per_piece.json",
+      "revision": "d0f2e17433557d5775463f44576fe7ebf03cf3df",
+      "bytes": 1233748,
+      "sha256": "e3a406ad51886133d2b8f37b299d548cfb8ca5d80e28941848072c8c5c1ce8e3",
+      "role": "Immutable R61 parent canonical/complete manifest/receipt; historical transitive pixels retain prior verification time",
+      "verified_revision": "d0f2e17433557d5775463f44576fe7ebf03cf3df",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/d0f2e17433557d5775463f44576fe7ebf03cf3df/docs/handoffs/codex_flat_vector_art_2026-10-07/r61_critter_saved_reuse/per_piece.json"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r61_critter_saved_reuse/scene_coverage.json",
+      "revision": "d0f2e17433557d5775463f44576fe7ebf03cf3df",
+      "bytes": 733537,
+      "sha256": "b7c789a7dd2542be3fc1df9a359b8701645ab684192132a45ebee25772603c5e",
+      "role": "Immutable R61 parent canonical/complete manifest/receipt; historical transitive pixels retain prior verification time",
+      "verified_revision": "d0f2e17433557d5775463f44576fe7ebf03cf3df",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/d0f2e17433557d5775463f44576fe7ebf03cf3df/docs/handoffs/codex_flat_vector_art_2026-10-07/r61_critter_saved_reuse/scene_coverage.json"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r61_critter_saved_reuse/tally.json",
+      "revision": "d0f2e17433557d5775463f44576fe7ebf03cf3df",
+      "bytes": 181225,
+      "sha256": "3915deb56e12eff4d7cad45902f87f4c6d13107f733083868dff25dcaff1d196",
+      "role": "Immutable R61 parent canonical/complete manifest/receipt; historical transitive pixels retain prior verification time",
+      "verified_revision": "d0f2e17433557d5775463f44576fe7ebf03cf3df",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/d0f2e17433557d5775463f44576fe7ebf03cf3df/docs/handoffs/codex_flat_vector_art_2026-10-07/r61_critter_saved_reuse/tally.json"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/scene_coverage.json",
+      "revision": "d0f2e17433557d5775463f44576fe7ebf03cf3df",
+      "bytes": 438160,
+      "sha256": "5a2b60e16204949a807a9ea5d0fd5755522c49481a119f637512602245c3fd6f",
+      "role": "Preserved frozen original registry",
+      "verified_revision": "d0f2e17433557d5775463f44576fe7ebf03cf3df",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/d0f2e17433557d5775463f44576fe7ebf03cf3df/docs/handoffs/codex_flat_vector_art_2026-10-07/scene_coverage.json"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/source_scopes.json",
+      "revision": "d0f2e17433557d5775463f44576fe7ebf03cf3df",
+      "bytes": 306677,
+      "sha256": "a1aca7b3bacc6124a1d0938f126803b6ea022b8f8de1ee224ef78ab5a8ef6951",
+      "role": "Preserved frozen original registry",
+      "verified_revision": "d0f2e17433557d5775463f44576fe7ebf03cf3df",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/d0f2e17433557d5775463f44576fe7ebf03cf3df/docs/handoffs/codex_flat_vector_art_2026-10-07/source_scopes.json"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/tally.json",
+      "revision": "d0f2e17433557d5775463f44576fe7ebf03cf3df",
+      "bytes": 7990,
+      "sha256": "fc7c26096d5ccd1e63df0fb89862e91481551a077aa82a1bf1e37aa169b1d66a",
+      "role": "Preserved frozen original registry",
+      "verified_revision": "d0f2e17433557d5775463f44576fe7ebf03cf3df",
+      "http_status": 200,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/d0f2e17433557d5775463f44576fe7ebf03cf3df/docs/handoffs/codex_flat_vector_art_2026-10-07/tally.json"
+    }
+  ],
+  "started_at_utc": "2026-10-15T18:18:55.490351+00:00",
+  "checked_at_utc": "2026-10-15T18:19:01.301728+00:00",
+  "access_mode": "Anonymous public immutable HTTPS GET for every required file plus manifest index/allparts; exact byte/length/SHA256. Public repo API independently checked.",
+  "repo_private": false,
+  "entry_url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/a3ddc9e595abe553f8401b63cf83ecd773509b45/docs/handoffs/codex_flat_vector_art_2026-10-07/r62_catalogue_origin/README.md",
+  "immutable_tree_url": "https://github.com/Ebonyks/mermaid-roshan-reef/tree/a3ddc9e595abe553f8401b63cf83ecd773509b45/docs/handoffs/codex_flat_vector_art_2026-10-07/r62_catalogue_origin",
+  "direct_manifest_url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/a3ddc9e595abe553f8401b63cf83ecd773509b45/docs/handoffs/codex_flat_vector_art_2026-10-07/r62_catalogue_origin/MANIFEST.json",
+  "audited_source_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+  "creative_acceptance": false,
+  "accepted_removed": 0,
   "mission_complete": false
 }

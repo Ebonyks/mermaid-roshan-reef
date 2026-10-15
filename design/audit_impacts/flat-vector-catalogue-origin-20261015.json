@@ -47,11 +47,13 @@
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r62_catalogue_origin/CURRENT_CATALOGUE_CONTEXT_UNION.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r62_catalogue_origin/CURRENT_PARTIAL_CONTEXT_UNION.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r62_catalogue_origin/DELIVERY_SOURCE_REFERENCES.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r62_catalogue_origin/DELIVERY_TRANSPORT.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r62_catalogue_origin/FINAL_BYTE_RECEIPT.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r62_catalogue_origin/GATES.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r62_catalogue_origin/MANIFEST.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r62_catalogue_origin/PLAN.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r62_catalogue_origin/README.md",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r62_catalogue_origin/RECEIPT_GATES.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r62_catalogue_origin/REMOTE_VERIFICATION.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r62_catalogue_origin/REPRODUCTION_INPUTS.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r62_catalogue_origin/REVIEW.json",
@@ -67,6 +69,7 @@
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r62_catalogue_origin/historical_source/build_index.py.txt",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r62_catalogue_origin/historical_source/build_review_packet.py.txt",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r62_catalogue_origin/per_piece.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r62_catalogue_origin/receipt_gates.log",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r62_catalogue_origin/scene_coverage.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r62_catalogue_origin/tally.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r62_catalogue_origin/test_catalogue_origin.py",
@@ -86,8 +89,8 @@
     },
     {
       "command": "Payload/dependencies/receipt/final exact anonymous bytes",
-      "result": "PENDING",
-      "evidence": "Established durable public topic."
+      "result": "PASS",
+      "evidence": "Exact payload a3ddc9e595abe553f8401b63cf83ecd773509b45: all 205 direct R62/source/canonical dependencies / 21508991 bytes anonymously verified at 2026-10-15T18:19:01.301728+00:00; manifestSHA dc2ba6393e02b970928a09e54469442564927068dde5c7f5b98b64c2de131db5. Historical parent transitive verification retains its exact prior receipt/time. Final metadata verified separately; no creative or mission acceptance."
     }
   ],
   "acceptance_gaps": "Entire whole-game denominator, unresolved source/caller/native/resource/route/state coverage, exact QA11/device/child/owner/creative acceptance and strict2D remain open. Source-only origin audit does not replace rendered proof."
