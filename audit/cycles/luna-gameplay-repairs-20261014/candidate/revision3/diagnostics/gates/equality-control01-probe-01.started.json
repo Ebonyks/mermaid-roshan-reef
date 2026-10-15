@@ -1,0 +1,32 @@
+{
+  "schema": "luna_candidate_gate/2",
+  "kind": "probe",
+  "label": "equality-control01-probe-01",
+  "command": [
+    "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64_console.exe",
+    "--headless",
+    "--path",
+    "C:\\Users\\Peter\\.codex\\worktrees\\luna-gameplay-repairs-20261014\\mermaid-roshan-reef",
+    "-s",
+    "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\chapter2\\diagnostics\\equality_control01.gd",
+    "--",
+    "--touch",
+    "--classic-touch-test"
+  ],
+  "cwd": "C:\\Users\\Peter\\.codex\\worktrees\\luna-gameplay-repairs-20261014\\mermaid-roshan-reef",
+  "branch": "codex/luna-gameplay-repairs-20261014",
+  "head": "831d0bbb155b99d75ef0289cc5cc694e0ef00c1e",
+  "started_utc": "2026-10-15T03:02:34.703613+00:00",
+  "runner_pid": 45224,
+  "engine_sha256": "c8f0a6bc45a19b33541501e57f6f7cd972ab18453743266339d495cbbe846643",
+  "profile": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef_candidate_gate_5npudvru",
+  "source_manifest": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\candidate_diagnostics\\equality-control01-probe-01.sources.json",
+  "source_manifest_sha256": "2a38cc7ba68ec3badee8723d9941f1797351bafba09f89fdca78c70186a3e4a5",
+  "source_pin": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\candidate-runtime-sources.json",
+  "source_pin_sha256": "ca8a5145fb6505bca6ee7a853ebee84085f0886c9af9d1c99bf019bd76bb684d",
+  "source_lock_scope": "Exact root-frozen source inventory checked before and after; root coordinates no mutation during parallel read-only gates. Not an exclusive lock and cannot detect arbitrary A-to-B-to-A mutations.",
+  "script": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\chapter2\\diagnostics\\equality_control01.gd",
+  "script_sha256": "9652891bf4e1f6ee6db525aea9a2b55fffc21370cb8a64c371b1da4622522e8d",
+  "scope": "Bounded scratch observation diagnostic; no physical-device/child/owner acceptance",
+  "child_pid": 33700
+}

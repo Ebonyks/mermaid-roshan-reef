@@ -1,0 +1,133 @@
+{
+  "schema": "luna.chapter2-completed-run-evidence/1",
+  "label": "chapter2-route-05",
+  "revision": 6,
+  "result": "FAIL",
+  "machine_gate_passed": false,
+  "exit_code": 1,
+  "duration_seconds": 171.906,
+  "failure_lines": [
+    "CHAPTER2|config: non-story Detective lens compatibility fixture starts: FAIL",
+    "CHAPTER2|config: non-story lens retains its original once-only crown introduction and pointer: FAIL",
+    "CHAPTER2|RESULT: FAIL checks_failed=2"
+  ],
+  "source_pin_sha256": "aa9241bd18f8f5599033fe451a42cad4040742106df1f7b8650c61ac2280694f",
+  "source_unchanged_under_measured_inventory": true,
+  "observed_machine_scope": {
+    "authored_phases": 29,
+    "career_order": "Farmer/Chef/Candy Maker/Painter/Ballet Dancer/Pop Star/Astronaut/Detective",
+    "fresh_child_checkpoints": 6,
+    "all_observed_child_guards_pass": true,
+    "viewport": "1280x720 canvas_items/expand; headless backend mode exception logged; no Mobile pixel evidence"
+  },
+  "run_specific_limit": "Two failing non-story Detective compatibility assertions use an invalid CROWN-as-lens override. These assertions are invalid compatibility evidence; the run remains FAIL. The separate actual story route and child observations remain measured diagnostics.",
+  "input_availability": [
+    {
+      "checkpoint": "career_06",
+      "role": "primary",
+      "expected_sha256": "91d3afadbfe0b30f45bea92a81cbb2be579672a942ec88a805897e91862b1704",
+      "status": "AVAILABLE_EXACT_FROZEN_COPY",
+      "archive_path": "children/career_06/primary.input.json",
+      "source_path": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef_candidate_gate_4lido09l\\roaming\\Godot\\app_userdata\\Mermaid Roshan Reef of Light\\probe_chapter2_isolated_44956_14616741.json.milestone_career_06.primary.input.json"
+    },
+    {
+      "checkpoint": "career_06",
+      "role": "backup",
+      "expected_sha256": "8e50f2ad03c6be6e0b037b3710bf2f609043b9b5800cb4ae05a81d0779be3de1",
+      "status": "AVAILABLE_EXACT_FROZEN_COPY",
+      "archive_path": "children/career_06/backup.input.json",
+      "source_path": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef_candidate_gate_4lido09l\\roaming\\Godot\\app_userdata\\Mermaid Roshan Reef of Light\\probe_chapter2_isolated_44956_14616741.json.milestone_career_06.backup.input.json"
+    },
+    {
+      "checkpoint": "career_00",
+      "role": "primary",
+      "expected_sha256": "c06cc95ea677ac56adb911e7d8e820f821cc7551f55baa92b2f583b10597af48",
+      "status": "AVAILABLE_EXACT_FROZEN_COPY",
+      "archive_path": "children/career_00/primary.input.json",
+      "source_path": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef_candidate_gate_4lido09l\\roaming\\Godot\\app_userdata\\Mermaid Roshan Reef of Light\\probe_chapter2_isolated_44956_14616741.json.milestone_career_00.primary.input.json"
+    },
+    {
+      "checkpoint": "career_00",
+      "role": "backup",
+      "expected_sha256": "b808175cd327e4e2d492c07000fe155de3842dccab60b6e44c7a276b7c160f02",
+      "status": "AVAILABLE_EXACT_FROZEN_COPY",
+      "archive_path": "children/career_00/backup.input.json",
+      "source_path": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef_candidate_gate_4lido09l\\roaming\\Godot\\app_userdata\\Mermaid Roshan Reef of Light\\probe_chapter2_isolated_44956_14616741.json.milestone_career_00.backup.input.json"
+    },
+    {
+      "checkpoint": "career_02",
+      "role": "primary",
+      "expected_sha256": "025e6035840eb516a366cf47fd57d512bf779fa038de2924d2ec8a512f9269ed",
+      "status": "AVAILABLE_EXACT_FROZEN_COPY",
+      "archive_path": "children/career_02/primary.input.json",
+      "source_path": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef_candidate_gate_4lido09l\\roaming\\Godot\\app_userdata\\Mermaid Roshan Reef of Light\\probe_chapter2_isolated_44956_14616741.json.milestone_career_02.primary.input.json"
+    },
+    {
+      "checkpoint": "career_02",
+      "role": "backup",
+      "expected_sha256": "8821d1274214e83be180904413e5accd6b6b686390843244b0937755543f4e92",
+      "status": "AVAILABLE_EXACT_FROZEN_COPY",
+      "archive_path": "children/career_02/backup.input.json",
+      "source_path": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef_candidate_gate_4lido09l\\roaming\\Godot\\app_userdata\\Mermaid Roshan Reef of Light\\probe_chapter2_isolated_44956_14616741.json.milestone_career_02.backup.input.json"
+    },
+    {
+      "checkpoint": "career_11",
+      "role": "primary",
+      "expected_sha256": "89142d28199fce0cdb0a50d6e2e3c2a3ee20431b3975c6f698e48b5e6276f693",
+      "status": "AVAILABLE_EXACT_FROZEN_COPY",
+      "archive_path": "children/career_11/primary.input.json",
+      "source_path": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef_candidate_gate_4lido09l\\roaming\\Godot\\app_userdata\\Mermaid Roshan Reef of Light\\probe_chapter2_isolated_44956_14616741.json.milestone_career_11.primary.input.json"
+    },
+    {
+      "checkpoint": "career_11",
+      "role": "backup",
+      "expected_sha256": "6a299d724f88346082481e64b7716ac4f5e818ae2f244c8d0e219df8cd0ef6e4",
+      "status": "AVAILABLE_EXACT_FROZEN_COPY",
+      "archive_path": "children/career_11/backup.input.json",
+      "source_path": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef_candidate_gate_4lido09l\\roaming\\Godot\\app_userdata\\Mermaid Roshan Reef of Light\\probe_chapter2_isolated_44956_14616741.json.milestone_career_11.backup.input.json"
+    },
+    {
+      "checkpoint": "career_01",
+      "role": "primary",
+      "expected_sha256": "01008b3a18ea75d11352a70a3d177bd198096bda78f917b32a3cc520f5f6bdef",
+      "status": "AVAILABLE_EXACT_FROZEN_COPY",
+      "archive_path": "children/career_01/primary.input.json",
+      "source_path": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef_candidate_gate_4lido09l\\roaming\\Godot\\app_userdata\\Mermaid Roshan Reef of Light\\probe_chapter2_isolated_44956_14616741.json.milestone_career_01.primary.input.json"
+    },
+    {
+      "checkpoint": "career_01",
+      "role": "backup",
+      "expected_sha256": "a023fdf93cd32420a47396040d9c39d2c7b23c78cef128caa71238889180044c",
+      "status": "AVAILABLE_EXACT_FROZEN_COPY",
+      "archive_path": "children/career_01/backup.input.json",
+      "source_path": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef_candidate_gate_4lido09l\\roaming\\Godot\\app_userdata\\Mermaid Roshan Reef of Light\\probe_chapter2_isolated_44956_14616741.json.milestone_career_01.backup.input.json"
+    },
+    {
+      "checkpoint": "story_complete",
+      "role": "primary",
+      "expected_sha256": "20481b847ff95ba9c28b108870046410d2ca55c7d246c0ebb224372eabd2649c",
+      "status": "AVAILABLE_EXACT_FROZEN_COPY",
+      "archive_path": "children/story_complete/primary.input.json",
+      "source_path": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef_candidate_gate_4lido09l\\roaming\\Godot\\app_userdata\\Mermaid Roshan Reef of Light\\probe_chapter2_isolated_44956_14616741.json.milestone_story_complete.primary.input.json"
+    },
+    {
+      "checkpoint": "story_complete",
+      "role": "backup",
+      "expected_sha256": "93e2bcbc3fefb32bd0460a33b1941fc845546f92f6bd529c0ed4cd0d953d0fbb",
+      "status": "AVAILABLE_EXACT_FROZEN_COPY",
+      "archive_path": "children/story_complete/backup.input.json",
+      "source_path": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef_candidate_gate_4lido09l\\roaming\\Godot\\app_userdata\\Mermaid Roshan Reef of Light\\probe_chapter2_isolated_44956_14616741.json.milestone_story_complete.backup.input.json"
+    }
+  ],
+  "available_exact_input_count": 12,
+  "required_input_count": 12,
+  "source_snapshot_scope": "Full exact raw applied revision6 world/probe bytes copied from the parent-frozen sourcefiles packet; no reconstruction.",
+  "acceptance_limits": [
+    "post-boss prerequisite/room-mount setup seam remains",
+    "no fresh-save DayOne-to-ChapterTwo/door-travel closure",
+    "no exact camera/Mobile-rendered visual or action/contact acceptance",
+    "no physical device, child or owner acceptance",
+    "MA-PLAY-005 remains IN_PROGRESS"
+  ],
+  "archive_policy": "All native gate/child/analysis files copied byte-for-byte. Missing inputs are declared; no historical bytes reconstructed. Existing packets and parent manifests are not modified."
+}

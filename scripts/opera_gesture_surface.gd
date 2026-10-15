@@ -285,6 +285,8 @@ var magic_cabinet_reveal_texture: Texture2D = null
 ## Placement targets are authored anchors, not arbitrary screen stamps, for
 ## the five phases whose spoken fiction names distinct recipients/locations.
 const TARGET_ANCHORS := {
+	"chapter2_basket_fill": [Vector2(0.30, 0.42), Vector2(0.50, 0.38), Vector2(0.70, 0.42),
+		Vector2(0.40, 0.62), Vector2(0.60, 0.62)],
 	"target_chef": [Vector2(0.31, 0.40), Vector2(0.50, 0.34), Vector2(0.69, 0.40),
 		Vector2(0.36, 0.58), Vector2(0.50, 0.54), Vector2(0.64, 0.58), Vector2(0.50, 0.70)],
 	"target_candymaker": [Vector2(0.22, 0.34), Vector2(0.50, 0.31), Vector2(0.78, 0.34),
@@ -746,6 +748,10 @@ func _load_widget_texture(path: String) -> Texture2D:
 
 func _load_widget_set() -> void:
 	widget_template = visual_context.get_slice("_", 0) if not visual_context.is_empty() else ""
+	if visual_context == "chapter2_basket_fill":
+		widget_template = "target"
+	elif visual_context in ["chapter2_basket_delivery", "chapter2_rocket_park"]:
+		widget_template = "push"
 	widget_backdrop = null
 	retired_widget_backdrop_path = ""
 	widget_mover = null
@@ -1521,14 +1527,15 @@ func _draw_widget_sprite(texture: Texture2D, center: Vector2, side: float, modul
 
 
 func _uses_long_push_context() -> bool:
-	return mode == "swipe" and visual_context in ["push_farmer", "push_racer"]
+	return mode == "swipe" and visual_context in ["push_farmer", "push_racer",
+		"chapter2_basket_delivery", "chapter2_rocket_park"]
 
 
 func _long_push_goal_units() -> float:
 	# Current shipping contracts are HERD 6 and TO THE LINE 5. Mapping the
 	# complete pictured lane to that contract lets one continuous sweep move the
 	# object all the way to its visible destination instead of requiring repeats.
-	return 6.0 if visual_context == "push_farmer" else 5.0
+	return 6.0 if visual_context in ["push_farmer", "chapter2_basket_delivery"] else 5.0
 
 
 func _long_push_actor_count() -> int:
@@ -1600,6 +1607,9 @@ func _draw_farmer_pig_group(progress: float) -> void:
 
 
 func _draw_long_push() -> void:
+	if visual_context == "chapter2_basket_delivery":
+		_draw_chapter2_basket_delivery()
+		return
 	last_contextual_draw_route = "push:%s" % visual_context
 	var farmer := visual_context == "push_farmer"
 	var start := _long_push_start()
@@ -1658,7 +1668,10 @@ func _draw_long_push() -> void:
 	if farmer:
 		_draw_farmer_pig_group(widget_fill)
 	elif widget_mover != null:
-		draw_texture_rect(widget_mover, _long_push_mover_rect(widget_fill), false)
+		var mover_rect := _long_push_mover_rect(widget_fill)
+		if visual_context == "chapter2_rocket_park":
+			mover_rect = _contain_rect(widget_mover, mover_rect)
+		draw_texture_rect(widget_mover, mover_rect, false)
 	else:
 		var fallback_rect := _long_push_mover_rect(widget_fill)
 		draw_circle(fallback_rect.get_center(), fallback_rect.size.x * 0.34,
@@ -1671,6 +1684,27 @@ func _draw_long_push() -> void:
 			draw_circle(finish + Vector2.from_angle(sparkle_angle) * 48.0,
 				4.0 + float(sparkle_index % 2) * 2.0,
 				Color(1.0, 0.92, 0.55, 0.84))
+
+
+func _draw_chapter2_basket_delivery() -> void:
+	last_contextual_draw_route = "push:chapter2_basket_delivery"
+	var start := _long_push_start()
+	var finish := _long_push_end()
+	var basket_bounds := _long_push_mover_rect(widget_fill)
+	var basket := _contain_rect(widget_mover, basket_bounds) if widget_mover != null else basket_bounds
+	draw_line(start, finish, Color(accent, 0.35), 6.0, true)
+	if widget_overlay != null:
+		draw_texture_rect(widget_overlay, _contain_rect(widget_overlay,
+			Rect2(finish - Vector2(38, 82), Vector2(76, 92))), false)
+	if widget_mover != null:
+		draw_texture_rect(widget_mover, basket, false)
+	for index in range(5):
+		if widget_stamp != null:
+			var at := basket.position + basket.size * Vector2(0.24 + 0.13 * float(index), 0.34)
+			draw_texture_rect(widget_stamp, _contain_rect(widget_stamp,
+				Rect2(at - Vector2(8, 12), Vector2(16, 24))), false)
+	if completion_accepted:
+		draw_arc(finish, 42, 0, TAU, 32, Color("#ffe9a5"), 5, true)
 
 
 func _uses_authored_trace_context() -> bool:
@@ -3012,7 +3046,11 @@ func _draw_target_subject() -> void:
 	var pose := _target_subject_pose()
 	var centre: Vector2 = pose.get("centre", size * 0.5)
 	var extent := float(pose.get("extent", minf(size.x, size.y) * 0.88))
-	_draw_widget_sprite(widget_mover, centre, extent)
+	if visual_context == "chapter2_basket_fill":
+		var bounds := Rect2(centre - Vector2.ONE * extent * 0.5, Vector2.ONE * extent)
+		draw_texture_rect(widget_mover, _contain_rect(widget_mover, bounds), false)
+	else:
+		_draw_widget_sprite(widget_mover, centre, extent)
 	last_target_subject_route = visual_context
 
 

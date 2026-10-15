@@ -75,7 +75,15 @@ func start(main: ReefMain, act_config: Dictionary, done_cb: Callable) -> bool:
 		m.player.visible = false
 	career_world_2d = CareerWorld2D.new() as OperaCareerWorld2D
 	add_child(career_world_2d)
-	career_world_2d.setup(m, config, competition, Callable(self, "_win"))
+	if not career_world_2d.setup(m, config, competition, Callable(self, "_win")):
+		state = "invalid"
+		failure_reason = "career world rejected its configuration"
+		finish_cb = Callable()
+		set_process(false)
+		_cleanup_world()
+		_restore_act_music()
+		push_error("OperaAct: %s" % failure_reason)
+		return false
 	use_career_world_2d = true
 	return true
 

@@ -1,0 +1,1416 @@
+{
+  "schema": "luna_playtest_coordination/2",
+  "global_coverage_limits": [
+    "The manifest repeats prescribed existing probes and alternates lens labels; repetition does not create new gameplay trajectories or support persona-variation claims.",
+    "No worker result is autonomous full-game play, physical Android-device validation, child observation, visual acceptance, or owner acceptance.",
+    "Many probes are static/runtime diagnostics, direct-state fixtures, or scripted input; normal story route/exploration must be assessed from each review and is often outside coverage.",
+    "Episode025 headless visual capture did not execute."
+  ],
+  "distinct_primary_worker_identities": 200,
+  "active_or_unfinished_primary_workers": [],
+  "receipt_stats": {
+    "completed_primary_episodes": 200,
+    "reviewed_primary_episodes": 200,
+    "raw_runner_verdicts": {
+      "PASS": 197,
+      "NOT_MEASURED": 1,
+      "FAIL": 2,
+      "TIMEOUT": 0,
+      "source_changed": 0,
+      "unknown_attempts": 1
+    },
+    "review_interpreted_verdicts": {
+      "PASS": 196,
+      "FAIL": 2,
+      "NOT_MEASURED": 2
+    },
+    "interpretation_notes": [
+      "Episode025 retained a raw runner PASS receipt but emitted HEADLESS SKIP; its interpreted result is NOT_MEASURED.",
+      "Episode107 receipt itself records NOT_MEASURED after the runner was patched to recognize HEADLESS SKIP; it is not a raw PASS.",
+      "Episode109 retry receipt is PASS, but its first-launch log was overwritten; first-launch verdict remains unknown and is not counted as a separate completed verdict."
+    ]
+  },
+  "supplemental_workers": [
+    {
+      "id": "201",
+      "agent_name": "/root/luna_wave_coordinator/episode_201",
+      "model": "gpt-6-luna",
+      "probe": "chapter2_entry_diagnostic_v2",
+      "status": "completed_independent_reproduction",
+      "receipt": "tmp/luna_playtest_20261013/root_reproductions/chapter2-entry-luna201.json",
+      "review": "tmp/luna_playtest_20261013/reviews/201.json"
+    },
+    {
+      "id": "202",
+      "agent_name": "/root/luna_reproduction_202",
+      "model": "gpt-6-luna",
+      "probe": "probe_dust_boss",
+      "status": "completed_unchanged_repeat",
+      "receipt": "tmp/luna_playtest_20261013/root_reproductions/episodes/125.json",
+      "review": "tmp/luna_playtest_20261013/reviews/202.json"
+    }
+  ],
+  "updated_utc": "2026-10-14T05:55:58Z",
+  "dispatch_path": "tmp/luna_playtest_20261013/dispatch.json",
+  "unique_source_bound_measured_findings": [
+    {
+      "signature": "chapter2_story_entry_empty_phase_override",
+      "classification": "PRODUCTION_ENTRY_WITH_DIAGNOSTIC_STORY_FIXTURE",
+      "severity": "P0 existing MA-PLAY-005; lifecycle unchanged",
+      "observed": "Production OperaHouse.start returned true for all eight story careers without explicit phase overrides, while phase_count remained zero and the wander layer was not built after invalid-override diagnostics. Root reproduction and independent Luna201 run used matching source/engine/script and identical log bytes.",
+      "evidence_refs": [
+        "tmp/luna_playtest_20261013/root_reproductions/chapter2-entry-v2.log sha256=28655d2db587eb50d86b5f77d81d607f1a9f4b9839a1fe0f389ce24ea08823d9",
+        "tmp/luna_playtest_20261013/root_reproductions/chapter2-entry-luna201.log sha256=28655d2db587eb50d86b5f77d81d607f1a9f4b9839a1fe0f389ce24ea08823d9",
+        "tmp/luna_playtest_20261013/reviews/201.json"
+      ],
+      "reproducing_agents": [
+        "/root",
+        "/root/luna_wave_coordinator/episode_201"
+      ],
+      "limits": "Guarded direct-state story fixture; normal fresh-save Castle discovery/travel and user-controlled route were not exercised."
+    },
+    {
+      "signature": "chapter2_story_phases_missing_station_mapping",
+      "classification": "EXPLICIT_PHASE_WORKAROUND_DIAGNOSTIC",
+      "severity": "P0 existing MA-PLAY-005; lifecycle unchanged",
+      "observed": "With explicit adapter phases, 18 of 29 phase bindings were unmapped (Farmer 3/3, Candy Maker 4/4, Ballerina 3/3, Detective 3/3; Painter 2/3, Pop Star 1/4, Astronaut 2/4; Chef 0/5). Root and Luna201 agree.",
+      "evidence_refs": [
+        "tmp/luna_playtest_20261013/root_reproductions/chapter2-entry-v2.log sha256=28655d2db587eb50d86b5f77d81d607f1a9f4b9839a1fe0f389ce24ea08823d9",
+        "tmp/luna_playtest_20261013/root_reproductions/chapter2-entry-luna201.log sha256=28655d2db587eb50d86b5f77d81d607f1a9f4b9839a1fe0f389ce24ea08823d9",
+        "tmp/luna_playtest_20261013/reviews/201.json"
+      ],
+      "reproducing_agents": [
+        "/root",
+        "/root/luna_wave_coordinator/episode_201"
+      ],
+      "limits": "Explicit-phase workaround fixture only; station reachability through ordinary story play is untested."
+    },
+    {
+      "signature": "seek_exact_tap_cue_recording_gap",
+      "classification": "SOURCE_CONTRACT_METADATA_GAP",
+      "severity": "LOW; acceptance impact unmeasured",
+      "related_MA": [
+        "MA-CHILD-001"
+      ],
+      "observed": "Seek source/probe continues to assert objective_recording_gap=evie_tap_wiggly_bush. Episodes 015 and 097 independently describe the same gap; this is one deduplicated metadata gap, not two defects.",
+      "evidence_refs": [
+        "tmp/luna_playtest_20261013/reviews/015.json",
+        "tmp/luna_playtest_20261013/reviews/097.json",
+        "scripts/probe_seek.gd:421-426",
+        "tmp/luna_playtest_20261013/episodes/015.log",
+        "tmp/luna_playtest_20261013/episodes/097.log"
+      ],
+      "reproducing_agents": [
+        "/root/luna_wave_coordinator/episode_015",
+        "/root/luna_episode_097"
+      ],
+      "limits": "Headless scripted activity setup; audible fallback and child comprehension are unmeasured."
+    },
+    {
+      "signature": "dolls_exact_goal_cue_recording_gap",
+      "classification": "SOURCE_CONTRACT_METADATA_GAP",
+      "severity": "LOW; acceptance impact unmeasured",
+      "related_MA": [
+        "MA-CHILD-001 acceptance context; no new canonical finding"
+      ],
+      "observed": "Dolls retains objective_recording_gap=faron_catch_three; episode096 passes the assertion that explicitly records this exact-goal voice gap. Episode014 coverage notes independently confirm it, without a second defect claim.",
+      "evidence_refs": [
+        "tmp/luna_playtest_20261013/reviews/014.json",
+        "tmp/luna_playtest_20261013/reviews/096.json",
+        "tmp/luna_playtest_20261013/episodes/096.log",
+        "scripts/games/dolls.gd:251",
+        "scripts/probe_dolls.gd:351"
+      ],
+      "reproducing_agents": [
+        "/root/luna_wave_coordinator/episode_014",
+        "/root/luna_episode_096"
+      ],
+      "limits": "Direct activity setup and synthetic touch; audible fallback adequacy and child comprehension are unmeasured."
+    },
+    {
+      "signature": "grand_puff_damage_recovery_floor_press_assertion_failure",
+      "classification": "REPRODUCIBLE_UNLOCALIZED_SCRIPTED_ASSERTION_FAILURE",
+      "severity": "UNTRIAGED; ordinary-play impact not established",
+      "related_MA": [
+        "MA-CI-005",
+        "MA-CI-008"
+      ],
+      "observed": "Primary125 and independent Luna202 unchanged repeats fail only the same two-frame damage_recovery floor-press movement assertion with byte-identical logs. Earlier primary043 passed. The instrumented derivative passed but may alter scheduling, so cause remains unresolved and this is not established as a production defect.",
+      "evidence_refs": [
+        "tmp/luna_playtest_20261013/episodes/125.log sha256=1a758f04cfafa6f7d7c87de68d08c09a59d5fd8dfabbffef17a9e91849a9feb9",
+        "tmp/luna_playtest_20261013/root_reproductions/episodes/125.log sha256=1a758f04cfafa6f7d7c87de68d08c09a59d5fd8dfabbffef17a9e91849a9feb9",
+        "tmp/luna_playtest_20261013/root_reproductions/125_damage_recovery_diag.log sha256=ea0d53690e694c35c61c256f2f6922054df28c463db3457e0325f5dacd1f1f4c",
+        "tmp/luna_playtest_20261013/reviews/125.json",
+        "tmp/luna_playtest_20261013/reviews/202.json"
+      ],
+      "reproducing_agents": [
+        "/root/luna_episode_125",
+        "/root/luna_reproduction_202"
+      ],
+      "limits": "Injected encounter eligibility and scripted input; no ordinary encounter entry, device, child, visual or owner acceptance."
+    },
+    {
+      "signature": "combat_tutorial_charge_graduation_intermittent_assertion_failure",
+      "classification": "UNLOCALIZED_SCRIPTED_ASSERTION_FAILURE_NOT_REPRODUCED_IN_UNCHANGED_REPEAT",
+      "severity": "UNTRIAGED; ordinary-play impact not established",
+      "related_MA": [
+        "MA-CI-005",
+        "MA-CI-008"
+      ],
+      "observed": "Episode189 fails two dependent charge/graduation-wave assertions, while later completion/persistence checks pass. Earlier episodes046 and128 and root unchanged reproduction pass. Retain the intermittent red result; do not infer a production defect or clear it based on passing repeats.",
+      "evidence_refs": [
+        "tmp/luna_playtest_20261013/episodes/189.log sha256=c42830e621f7137cece41c43e781b70cd5836ab2a71df1943cb8dce3423ebca1",
+        "tmp/luna_playtest_20261013/root_reproductions/episodes/189.log sha256=232bcbca4e2dc5bfb4788737d4cbcb6f2b50315ca8f5320c68cf1542ac94207f",
+        "tmp/luna_playtest_20261013/reviews/046.json",
+        "tmp/luna_playtest_20261013/reviews/128.json",
+        "tmp/luna_playtest_20261013/reviews/189.json"
+      ],
+      "reproducing_agents": [
+        "/root/luna_episode_189",
+        "/root"
+      ],
+      "limits": "Mixed viewport mouse navigation and direct combat calls; fixed frame-count wait under accelerated time; ordinary-play/device/child/owner impact unmeasured."
+    }
+  ],
+  "completed_primary_episodes": 200,
+  "source_commit": "056d890ef38f2496ab52669c955ada654f902511",
+  "engine": "4.7.2.stable.official.ed1daf0bf",
+  "handoff": "Campaign episodes and reviews are complete. This artifact records evidence and coverage only; it does not repair code, close canonical findings, or establish visual/device/child/owner acceptance.",
+  "campaign_status": "COMPLETE_CAMPAIGN_ONLY",
+  "manifest_path": "tmp/luna_playtest_20261013/manifest.json",
+  "requested_primary_workers": 200,
+  "independently_reviewed_primary_episodes": 200,
+  "separate_diagnostics": [
+    {
+      "signature": "godot_objectdb_instances_leaked_at_probe_shutdown",
+      "classification": "ENGINE_SHUTDOWN_DIAGNOSTIC",
+      "severity": "LOW; not a probe FAIL or attributed production defect",
+      "observed": "Nine ObjectDB instances leaked at shutdown after KARTFEEL|ALL OK on both runs.",
+      "evidence_refs": [
+        "tmp/luna_playtest_20261013/episodes/039.log:22-24",
+        "tmp/luna_playtest_20261013/episodes/121.log:20-22",
+        "tmp/luna_playtest_20261013/episodes/039.json",
+        "tmp/luna_playtest_20261013/episodes/121.json"
+      ]
+    },
+    {
+      "signature": "new_game_probe_null_current_scene_reload",
+      "classification": "ENGINE_DIAGNOSTIC_AND_UNMEASURED_PRODUCTION_LIFECYCLE",
+      "severity": "Informational diagnostic; no production defect established",
+      "observed": "The Start New probes log ERROR: Parameter current_scene is null at reload_current_scene because their headless fixture has no SceneTree.current_scene; they skip actual deferred reload and manually reconstruct ReefMain. PASS covers marker/state behavior in that fixture, not production scene reload.",
+      "evidence_refs": [
+        "tmp/luna_playtest_20261013/reviews/078.json",
+        "tmp/luna_playtest_20261013/reviews/160.json",
+        "tmp/luna_playtest_20261013/reviews/196.json",
+        "tmp/luna_playtest_20261013/episodes/078.log",
+        "tmp/luna_playtest_20261013/episodes/160.log",
+        "tmp/luna_playtest_20261013/episodes/196.log"
+      ]
+    }
+  ],
+  "report_builder": "tmp/luna_playtest_20261013/build_report.py",
+  "known_authority_gap": {
+    "status": "VERIFIED_PRESENT: root confirmed Test-Path=True, git ls-files names the exact path, and read the complete protocol on 2026-10-14. No missing-authority claim remains.",
+    "path": "audit/stage_pathfinding/STAGE_PATHFINDING_PROTOCOL.md",
+    "correction_history": "The coordinator checkpoint incorrectly reported this path missing. A default rg --files listing omitted it; direct exact-path checks establish that it is tracked and present. The original missing claim is withdrawn."
+  },
+  "dispatched_primary_workers": 200,
+  "next_undispatched_primary_id": null,
+  "normalized_record_issues": [
+    {
+      "episode": "025",
+      "change": "Review reclassified PASS to NOT_MEASURED and STATIC_RUNTIME_DIAGNOSTIC to SKIPPED_HEADLESS_GUARD because log says HEADLESS SKIP; original label/verdict retained in review_history; runner result/log preserved."
+    },
+    {
+      "episodes": [
+        "060",
+        "062",
+        "063"
+      ],
+      "change": "Successful-check strings moved to measured_observations, measured_findings emptied; original strings retained in review_history."
+    },
+    {
+      "episode": "062",
+      "change": "agent_name bound to dispatched canonical identity; original label retained in review_history."
+    },
+    {
+      "episode": "057",
+      "change": "Interaction class corrected to SCRIPTED_DIRECT_COMPONENT_INPUT because no Viewport InputEventScreenTouch was dispatched; prior label retained in review_history."
+    },
+    {
+      "episode": "058",
+      "change": "Classified as SCRIPTED_DIRECT_COMPONENT_INPUT based on configured component events, not production route or real player input."
+    },
+    {
+      "episodes": [
+        "198",
+        "199",
+        "200"
+      ],
+      "change": "Latest dispatch.json confirms episodes 198–200 are completed_reviewed; no stale in-progress dispatch status remains."
+    },
+    {
+      "episode": "109",
+      "change": "Retained retry receipt PASS but explicitly records first-launch log overwrite and unknown first-launch verdict; no inferred value."
+    }
+  ],
+  "interaction_classes": {
+    "STATIC_RUNTIME_DIAGNOSTIC": 16,
+    "DIRECT_STATE_DIAGNOSTIC": 78,
+    "MIXED_SCRIPTED_DIAGNOSTIC": 67,
+    "SCRIPTED_INPUT_WITH_SETUP": 14,
+    "SCRIPTED_DIRECT_COMPONENT_INPUT": 23,
+    "SKIPPED_HEADLESS_GUARD": 2
+  },
+  "distinct_scheduled_probes": 82,
+  "integrity_issues": [],
+  "registered_and_complete_confirmation": "Latest dispatch.json contains all 200 primary records with status completed_reviewed; root reconciliation independently confirmed 200 registered and 200 complete primary episodes.",
+  "primary_dispatch_identities": [
+    {
+      "episode": "001",
+      "agent_name": "/root/luna_wave_coordinator/episode_001",
+      "model": "gpt-6-luna"
+    },
+    {
+      "episode": "002",
+      "agent_name": "/root/luna_wave_coordinator/episode_002",
+      "model": "gpt-6-luna"
+    },
+    {
+      "episode": "003",
+      "agent_name": "/root/luna_wave_coordinator/episode_003",
+      "model": "gpt-6-luna"
+    },
+    {
+      "episode": "004",
+      "agent_name": "/root/luna_wave_coordinator/episode_004",
+      "model": "gpt-6-luna"
+    },
+    {
+      "episode": "005",
+      "agent_name": "/root/luna_wave_coordinator/episode_005",
+      "model": "gpt-6-luna"
+    },
+    {
+      "episode": "006",
+      "agent_name": "/root/luna_wave_coordinator/episode_006",
+      "model": "gpt-6-luna"
+    },
+    {
+      "episode": "007",
+      "agent_name": "/root/luna_wave_coordinator/episode_007",
+      "model": "gpt-6-luna"
+    },
+    {
+      "episode": "008",
+      "agent_name": "/root/luna_wave_coordinator/episode_008",
+      "model": "gpt-6-luna"
+    },
+    {
+      "episode": "009",
+      "agent_name": "/root/luna_wave_coordinator/episode_009",
+      "model": "gpt-6-luna"
+    },
+    {
+      "episode": "010",
+      "agent_name": "/root/luna_wave_coordinator/episode_010",
+      "model": "gpt-6-luna"
+    },
+    {
+      "episode": "011",
+      "agent_name": "/root/luna_wave_coordinator/episode_011",
+      "model": "gpt-6-luna"
+    },
+    {
+      "episode": "012",
+      "agent_name": "/root/luna_wave_coordinator/episode_012",
+      "model": "gpt-6-luna"
+    },
+    {
+      "episode": "013",
+      "agent_name": "/root/luna_wave_coordinator/episode_013",
+      "model": "gpt-6-luna"
+    },
+    {
+      "episode": "014",
+      "agent_name": "/root/luna_wave_coordinator/episode_014",
+      "model": "gpt-6-luna"
+    },
+    {
+      "episode": "015",
+      "agent_name": "/root/luna_wave_coordinator/episode_015",
+      "model": "gpt-6-luna"
+    },
+    {
+      "episode": "016",
+      "agent_name": "/root/luna_wave_coordinator/episode_016",
+      "model": "gpt-6-luna"
+    },
+    {
+      "episode": "017",
+      "agent_name": "/root/luna_wave_coordinator/episode_017",
+      "model": "gpt-6-luna"
+    },
+    {
+      "episode": "018",
+      "agent_name": "/root/luna_wave_coordinator/episode_018",
+      "model": "gpt-6-luna"
+    },
+    {
+      "episode": "019",
+      "agent_name": "/root/luna_wave_coordinator/episode_019",
+      "model": "gpt-6-luna"
+    },
+    {
+      "episode": "020",
+      "agent_name": "/root/luna_wave_coordinator/episode_020",
+      "model": "gpt-6-luna"
+    },
+    {
+      "episode": "021",
+      "agent_name": "/root/luna_wave_coordinator/episode_021",
+      "model": "gpt-6-luna"
+    },
+    {
+      "episode": "022",
+      "agent_name": "/root/luna_wave_coordinator/episode_022",
+      "model": "gpt-6-luna"
+    },
+    {
+      "episode": "023",
+      "agent_name": "/root/luna_wave_coordinator/episode_023",
+      "model": "gpt-6-luna"
+    },
+    {
+      "episode": "024",
+      "agent_name": "/root/luna_wave_coordinator/episode_024",
+      "model": "gpt-6-luna"
+    },
+    {
+      "episode": "025",
+      "agent_name": "/root/luna_wave_coordinator/episode_025",
+      "model": "gpt-6-luna"
+    },
+    {
+      "episode": "026",
+      "agent_name": "/root/luna_wave_coordinator/episode_026",
+      "model": "gpt-6-luna"
+    },
+    {
+      "episode": "027",
+      "agent_name": "/root/luna_wave_coordinator/episode_027",
+      "model": "gpt-6-luna"
+    },
+    {
+      "episode": "028",
+      "agent_name": "/root/luna_wave_coordinator/episode_028",
+      "model": "gpt-6-luna"
+    },
+    {
+      "episode": "029",
+      "agent_name": "/root/luna_wave_coordinator/episode_029",
+      "model": "gpt-6-luna"
+    },
+    {
+      "episode": "030",
+      "agent_name": "/root/luna_wave_coordinator/episode_030",
+      "model": "gpt-6-luna"
+    },
+    {
+      "episode": "031",
+      "agent_name": "/root/luna_wave_coordinator/episode_031",
+      "model": "gpt-6-luna"
+    },
+    {
+      "episode": "032",
+      "agent_name": "/root/luna_wave_coordinator/episode_032",
+      "model": "gpt-6-luna"
+    },
+    {
+      "episode": "033",
+      "agent_name": "/root/luna_wave_coordinator/episode_033",
+      "model": "gpt-6-luna"
+    },
+    {
+      "episode": "034",
+      "agent_name": "/root/luna_wave_coordinator/episode_034",
+      "model": "gpt-6-luna"
+    },
+    {
+      "episode": "035",
+      "agent_name": "/root/luna_wave_coordinator/episode_035",
+      "model": "gpt-6-luna"
+    },
+    {
+      "episode": "036",
+      "agent_name": "/root/luna_wave_coordinator/episode_036",
+      "model": "gpt-6-luna"
+    },
+    {
+      "episode": "037",
+      "agent_name": "/root/luna_wave_coordinator/episode_037",
+      "model": "gpt-6-luna"
+    },
+    {
+      "episode": "038",
+      "agent_name": "/root/luna_wave_coordinator/episode_038",
+      "model": "gpt-6-luna"
+    },
+    {
+      "episode": "039",
+      "agent_name": "/root/luna_wave_coordinator/episode_039",
+      "model": "gpt-6-luna"
+    },
+    {
+      "episode": "040",
+      "agent_name": "/root/luna_wave_coordinator/episode_040",
+      "model": "gpt-6-luna"
+    },
+    {
+      "episode": "041",
+      "agent_name": "/root/luna_wave_coordinator/episode_041",
+      "model": "gpt-6-luna"
+    },
+    {
+      "episode": "042",
+      "agent_name": "/root/luna_wave_coordinator/episode_042",
+      "model": "gpt-6-luna"
+    },
+    {
+      "episode": "043",
+      "agent_name": "/root/luna_wave_coordinator/episode_043",
+      "model": "gpt-6-luna"
+    },
+    {
+      "episode": "044",
+      "agent_name": "/root/luna_wave_coordinator/episode_044",
+      "model": "gpt-6-luna"
+    },
+    {
+      "episode": "045",
+      "agent_name": "/root/luna_wave_coordinator/episode_045",
+      "model": "gpt-6-luna"
+    },
+    {
+      "episode": "046",
+      "agent_name": "/root/luna_wave_coordinator/episode_046",
+      "model": "gpt-6-luna"
+    },
+    {
+      "episode": "047",
+      "agent_name": "/root/luna_wave_coordinator/episode_047",
+      "model": "gpt-6-luna"
+    },
+    {
+      "episode": "048",
+      "agent_name": "/root/luna_wave_coordinator/episode_048",
+      "model": "gpt-6-luna"
+    },
+    {
+      "episode": "049",
+      "agent_name": "/root/luna_wave_coordinator/episode_049",
+      "model": "gpt-6-luna"
+    },
+    {
+      "episode": "050",
+      "agent_name": "/root/luna_wave_coordinator/episode_050",
+      "model": "gpt-6-luna"
+    },
+    {
+      "episode": "051",
+      "agent_name": "/root/luna_wave_coordinator/episode_051",
+      "model": "gpt-6-luna"
+    },
+    {
+      "episode": "052",
+      "agent_name": "/root/luna_wave_coordinator/episode_052",
+      "model": "gpt-6-luna"
+    },
+    {
+      "episode": "053",
+      "agent_name": "/root/luna_wave_coordinator/episode_053",
+      "model": "gpt-6-luna"
+    },
+    {
+      "episode": "054",
+      "agent_name": "/root/luna_wave_coordinator/episode_054",
+      "model": "gpt-6-luna"
+    },
+    {
+      "episode": "055",
+      "agent_name": "/root/luna_wave_coordinator/episode_055",
+      "model": "gpt-6-luna"
+    },
+    {
+      "episode": "056",
+      "agent_name": "/root/luna_wave_coordinator/episode_056",
+      "model": "gpt-6-luna"
+    },
+    {
+      "episode": "057",
+      "agent_name": "/root/luna_wave_coordinator/episode_057",
+      "model": "gpt-6-luna"
+    },
+    {
+      "episode": "058",
+      "agent_name": "/root/luna_wave_coordinator/episode_058",
+      "model": "gpt-6-luna"
+    },
+    {
+      "episode": "059",
+      "agent_name": "/root/luna_wave_coordinator/episode_059",
+      "model": "gpt-6-luna"
+    },
+    {
+      "episode": "060",
+      "agent_name": "/root/luna_wave_coordinator/episode_060",
+      "model": "gpt-6-luna"
+    },
+    {
+      "episode": "061",
+      "agent_name": "/root/luna_wave_coordinator/episode_061",
+      "model": "gpt-6-luna"
+    },
+    {
+      "episode": "062",
+      "agent_name": "/root/luna_wave_coordinator/episode_062",
+      "model": "gpt-6-luna"
+    },
+    {
+      "episode": "063",
+      "agent_name": "/root/luna_wave_coordinator/episode_063",
+      "model": "gpt-6-luna"
+    },
+    {
+      "episode": "064",
+      "agent_name": "/root/luna_wave_coordinator/episode_064",
+      "model": "gpt-6-luna"
+    },
+    {
+      "episode": "065",
+      "agent_name": "/root/luna_wave_coordinator/episode_065",
+      "model": "gpt-6-luna"
+    },
+    {
+      "episode": "066",
+      "agent_name": "/root/luna_wave_coordinator/episode_066",
+      "model": "gpt-6-luna"
+    },
+    {
+      "episode": "067",
+      "agent_name": "/root/luna_episode_067",
+      "model": "gpt-6-luna"
+    },
+    {
+      "episode": "068",
+      "agent_name": "/root/luna_episode_068",
+      "model": "gpt-6-luna"
+    },
+    {
+      "episode": "069",
+      "agent_name": "/root/luna_episode_069",
+      "model": "gpt-6-luna"
+    },
+    {
+      "episode": "070",
+      "agent_name": "/root/luna_episode_070",
+      "model": "gpt-6-luna"
+    },
+    {
+      "episode": "071",
+      "agent_name": "/root/luna_episode_071",
+      "model": "gpt-6-luna"
+    },
+    {
+      "episode": "072",
+      "agent_name": "/root/luna_episode_072",
+      "model": "gpt-6-luna"
+    },
+    {
+      "episode": "073",
+      "agent_name": "/root/luna_episode_073",
+      "model": "gpt-6-luna"
+    },
+    {
+      "episode": "074",
+      "agent_name": "/root/luna_episode_074",
+      "model": "gpt-6-luna"
+    },
+    {
+      "episode": "075",
+      "agent_name": "/root/luna_episode_075",
+      "model": "gpt-6-luna"
+    },
+    {
+      "episode": "076",
+      "agent_name": "/root/luna_episode_076",
+      "model": "gpt-6-luna"
+    },
+    {
+      "episode": "077",
+      "agent_name": "/root/luna_episode_077",
+      "model": "gpt-6-luna"
+    },
+    {
+      "episode": "078",
+      "agent_name": "/root/luna_episode_078",
+      "model": "gpt-6-luna"
+    },
+    {
+      "episode": "079",
+      "agent_name": "/root/luna_episode_079",
+      "model": "gpt-6-luna"
+    },
+    {
+      "episode": "080",
+      "agent_name": "/root/luna_episode_080",
+      "model": "gpt-6-luna"
+    },
+    {
+      "episode": "081",
+      "agent_name": "/root/luna_episode_081",
+      "model": "gpt-6-luna"
+    },
+    {
+      "episode": "082",
+      "agent_name": "/root/luna_episode_082",
+      "model": "gpt-6-luna"
+    },
+    {
+      "episode": "083",
+      "agent_name": "/root/luna_episode_083",
+      "model": "gpt-6-luna"
+    },
+    {
+      "episode": "084",
+      "agent_name": "/root/luna_episode_084",
+      "model": "gpt-6-luna"
+    },
+    {
+      "episode": "085",
+      "agent_name": "/root/luna_episode_085",
+      "model": "gpt-6-luna"
+    },
+    {
+      "episode": "086",
+      "agent_name": "/root/luna_episode_086",
+      "model": "gpt-6-luna"
+    },
+    {
+      "episode": "087",
+      "agent_name": "/root/luna_episode_087",
+      "model": "gpt-6-luna"
+    },
+    {
+      "episode": "088",
+      "agent_name": "/root/luna_episode_088",
+      "model": "gpt-6-luna"
+    },
+    {
+      "episode": "089",
+      "agent_name": "/root/luna_episode_089",
+      "model": "gpt-6-luna"
+    },
+    {
+      "episode": "090",
+      "agent_name": "/root/luna_episode_090",
+      "model": "gpt-6-luna"
+    },
+    {
+      "episode": "091",
+      "agent_name": "/root/luna_episode_091",
+      "model": "gpt-6-luna"
+    },
+    {
+      "episode": "092",
+      "agent_name": "/root/luna_episode_092",
+      "model": "gpt-6-luna"
+    },
+    {
+      "episode": "093",
+      "agent_name": "/root/luna_episode_093",
+      "model": "gpt-6-luna"
+    },
+    {
+      "episode": "094",
+      "agent_name": "/root/luna_episode_094",
+      "model": "gpt-6-luna"
+    },
+    {
+      "episode": "095",
+      "agent_name": "/root/luna_episode_095",
+      "model": "gpt-6-luna"
+    },
+    {
+      "episode": "096",
+      "agent_name": "/root/luna_episode_096",
+      "model": "gpt-6-luna"
+    },
+    {
+      "episode": "097",
+      "agent_name": "/root/luna_episode_097",
+      "model": "gpt-6-luna"
+    },
+    {
+      "episode": "098",
+      "agent_name": "/root/luna_episode_098",
+      "model": "gpt-6-luna"
+    },
+    {
+      "episode": "099",
+      "agent_name": "/root/luna_episode_099",
+      "model": "gpt-6-luna"
+    },
+    {
+      "episode": "100",
+      "agent_name": "/root/luna_episode_100",
+      "model": "gpt-6-luna"
+    },
+    {
+      "episode": "101",
+      "agent_name": "/root/luna_episode_101",
+      "model": "gpt-6-luna"
+    },
+    {
+      "episode": "102",
+      "agent_name": "/root/luna_episode_102",
+      "model": "gpt-6-luna"
+    },
+    {
+      "episode": "103",
+      "agent_name": "/root/luna_episode_103",
+      "model": "gpt-6-luna"
+    },
+    {
+      "episode": "104",
+      "agent_name": "/root/luna_episode_104",
+      "model": "gpt-6-luna"
+    },
+    {
+      "episode": "105",
+      "agent_name": "/root/luna_episode_105",
+      "model": "gpt-6-luna"
+    },
+    {
+      "episode": "106",
+      "agent_name": "/root/luna_episode_106",
+      "model": "gpt-6-luna"
+    },
+    {
+      "episode": "107",
+      "agent_name": "/root/luna_episode_107",
+      "model": "gpt-6-luna"
+    },
+    {
+      "episode": "108",
+      "agent_name": "/root/luna_episode_108",
+      "model": "gpt-6-luna"
+    },
+    {
+      "episode": "109",
+      "agent_name": "/root/luna_episode_109",
+      "model": "gpt-6-luna"
+    },
+    {
+      "episode": "110",
+      "agent_name": "/root/luna_episode_110",
+      "model": "gpt-6-luna"
+    },
+    {
+      "episode": "111",
+      "agent_name": "/root/luna_episode_111",
+      "model": "gpt-6-luna"
+    },
+    {
+      "episode": "112",
+      "agent_name": "/root/luna_episode_112",
+      "model": "gpt-6-luna"
+    },
+    {
+      "episode": "113",
+      "agent_name": "/root/luna_episode_113",
+      "model": "gpt-6-luna"
+    },
+    {
+      "episode": "114",
+      "agent_name": "/root/luna_episode_114",
+      "model": "gpt-6-luna"
+    },
+    {
+      "episode": "115",
+      "agent_name": "/root/luna_episode_115",
+      "model": "gpt-6-luna"
+    },
+    {
+      "episode": "116",
+      "agent_name": "/root/luna_episode_116",
+      "model": "gpt-6-luna"
+    },
+    {
+      "episode": "117",
+      "agent_name": "/root/luna_episode_117",
+      "model": "gpt-6-luna"
+    },
+    {
+      "episode": "118",
+      "agent_name": "/root/luna_episode_118",
+      "model": "gpt-6-luna"
+    },
+    {
+      "episode": "119",
+      "agent_name": "/root/luna_episode_119",
+      "model": "gpt-6-luna"
+    },
+    {
+      "episode": "120",
+      "agent_name": "/root/luna_episode_120",
+      "model": "gpt-6-luna"
+    },
+    {
+      "episode": "121",
+      "agent_name": "/root/luna_episode_121",
+      "model": "gpt-6-luna"
+    },
+    {
+      "episode": "122",
+      "agent_name": "/root/luna_episode_122",
+      "model": "gpt-6-luna"
+    },
+    {
+      "episode": "123",
+      "agent_name": "/root/luna_episode_123",
+      "model": "gpt-6-luna"
+    },
+    {
+      "episode": "124",
+      "agent_name": "/root/luna_episode_124",
+      "model": "gpt-6-luna"
+    },
+    {
+      "episode": "125",
+      "agent_name": "/root/luna_episode_125",
+      "model": "gpt-6-luna"
+    },
+    {
+      "episode": "126",
+      "agent_name": "/root/luna_episode_126",
+      "model": "gpt-6-luna"
+    },
+    {
+      "episode": "127",
+      "agent_name": "/root/luna_episode_127",
+      "model": "gpt-6-luna"
+    },
+    {
+      "episode": "128",
+      "agent_name": "/root/luna_episode_128",
+      "model": "gpt-6-luna"
+    },
+    {
+      "episode": "129",
+      "agent_name": "/root/luna_episode_129",
+      "model": "gpt-6-luna"
+    },
+    {
+      "episode": "130",
+      "agent_name": "/root/luna_episode_130",
+      "model": "gpt-6-luna"
+    },
+    {
+      "episode": "131",
+      "agent_name": "/root/luna_episode_131",
+      "model": "gpt-6-luna"
+    },
+    {
+      "episode": "132",
+      "agent_name": "/root/luna_episode_132",
+      "model": "gpt-6-luna"
+    },
+    {
+      "episode": "133",
+      "agent_name": "/root/luna_episode_133",
+      "model": "gpt-6-luna"
+    },
+    {
+      "episode": "134",
+      "agent_name": "/root/luna_episode_134",
+      "model": "gpt-6-luna"
+    },
+    {
+      "episode": "135",
+      "agent_name": "/root/luna_episode_135",
+      "model": "gpt-6-luna"
+    },
+    {
+      "episode": "136",
+      "agent_name": "/root/luna_episode_136",
+      "model": "gpt-6-luna"
+    },
+    {
+      "episode": "137",
+      "agent_name": "/root/luna_episode_137",
+      "model": "gpt-6-luna"
+    },
+    {
+      "episode": "138",
+      "agent_name": "/root/luna_episode_138",
+      "model": "gpt-6-luna"
+    },
+    {
+      "episode": "139",
+      "agent_name": "/root/luna_episode_139",
+      "model": "gpt-6-luna"
+    },
+    {
+      "episode": "140",
+      "agent_name": "/root/luna_episode_140",
+      "model": "gpt-6-luna"
+    },
+    {
+      "episode": "141",
+      "agent_name": "/root/luna_episode_141",
+      "model": "gpt-6-luna"
+    },
+    {
+      "episode": "142",
+      "agent_name": "/root/luna_episode_142",
+      "model": "gpt-6-luna"
+    },
+    {
+      "episode": "143",
+      "agent_name": "/root/luna_episode_143",
+      "model": "gpt-6-luna"
+    },
+    {
+      "episode": "144",
+      "agent_name": "/root/luna_episode_144",
+      "model": "gpt-6-luna"
+    },
+    {
+      "episode": "145",
+      "agent_name": "/root/luna_episode_145",
+      "model": "gpt-6-luna"
+    },
+    {
+      "episode": "146",
+      "agent_name": "/root/luna_episode_146",
+      "model": "gpt-6-luna"
+    },
+    {
+      "episode": "147",
+      "agent_name": "/root/luna_episode_147",
+      "model": "gpt-6-luna"
+    },
+    {
+      "episode": "148",
+      "agent_name": "/root/luna_episode_148",
+      "model": "gpt-6-luna"
+    },
+    {
+      "episode": "149",
+      "agent_name": "/root/luna_episode_149",
+      "model": "gpt-6-luna"
+    },
+    {
+      "episode": "150",
+      "agent_name": "/root/luna_episode_150",
+      "model": "gpt-6-luna"
+    },
+    {
+      "episode": "151",
+      "agent_name": "/root/luna_episode_151",
+      "model": "gpt-6-luna"
+    },
+    {
+      "episode": "152",
+      "agent_name": "/root/luna_episode_152",
+      "model": "gpt-6-luna"
+    },
+    {
+      "episode": "153",
+      "agent_name": "/root/luna_episode_153",
+      "model": "gpt-6-luna"
+    },
+    {
+      "episode": "154",
+      "agent_name": "/root/luna_episode_154",
+      "model": "gpt-6-luna"
+    },
+    {
+      "episode": "155",
+      "agent_name": "/root/luna_episode_155",
+      "model": "gpt-6-luna"
+    },
+    {
+      "episode": "156",
+      "agent_name": "/root/luna_episode_156",
+      "model": "gpt-6-luna"
+    },
+    {
+      "episode": "157",
+      "agent_name": "/root/luna_episode_157",
+      "model": "gpt-6-luna"
+    },
+    {
+      "episode": "158",
+      "agent_name": "/root/luna_episode_158",
+      "model": "gpt-6-luna"
+    },
+    {
+      "episode": "159",
+      "agent_name": "/root/luna_episode_159",
+      "model": "gpt-6-luna"
+    },
+    {
+      "episode": "160",
+      "agent_name": "/root/luna_episode_160",
+      "model": "gpt-6-luna"
+    },
+    {
+      "episode": "161",
+      "agent_name": "/root/luna_episode_161",
+      "model": "gpt-6-luna"
+    },
+    {
+      "episode": "162",
+      "agent_name": "/root/luna_episode_162",
+      "model": "gpt-6-luna"
+    },
+    {
+      "episode": "163",
+      "agent_name": "/root/luna_episode_163",
+      "model": "gpt-6-luna"
+    },
+    {
+      "episode": "164",
+      "agent_name": "/root/luna_episode_164",
+      "model": "gpt-6-luna"
+    },
+    {
+      "episode": "165",
+      "agent_name": "/root/luna_episode_165",
+      "model": "gpt-6-luna"
+    },
+    {
+      "episode": "166",
+      "agent_name": "/root/luna_episode_166",
+      "model": "gpt-6-luna"
+    },
+    {
+      "episode": "167",
+      "agent_name": "/root/luna_episode_167",
+      "model": "gpt-6-luna"
+    },
+    {
+      "episode": "168",
+      "agent_name": "/root/luna_episode_168",
+      "model": "gpt-6-luna"
+    },
+    {
+      "episode": "169",
+      "agent_name": "/root/luna_episode_169",
+      "model": "gpt-6-luna"
+    },
+    {
+      "episode": "170",
+      "agent_name": "/root/luna_episode_170",
+      "model": "gpt-6-luna"
+    },
+    {
+      "episode": "171",
+      "agent_name": "/root/luna_episode_171",
+      "model": "gpt-6-luna"
+    },
+    {
+      "episode": "172",
+      "agent_name": "/root/luna_episode_172",
+      "model": "gpt-6-luna"
+    },
+    {
+      "episode": "173",
+      "agent_name": "/root/luna_episode_173",
+      "model": "gpt-6-luna"
+    },
+    {
+      "episode": "174",
+      "agent_name": "/root/luna_episode_174",
+      "model": "gpt-6-luna"
+    },
+    {
+      "episode": "175",
+      "agent_name": "/root/luna_episode_175",
+      "model": "gpt-6-luna"
+    },
+    {
+      "episode": "176",
+      "agent_name": "/root/luna_episode_176",
+      "model": "gpt-6-luna"
+    },
+    {
+      "episode": "177",
+      "agent_name": "/root/luna_episode_177",
+      "model": "gpt-6-luna"
+    },
+    {
+      "episode": "178",
+      "agent_name": "/root/luna_episode_178",
+      "model": "gpt-6-luna"
+    },
+    {
+      "episode": "179",
+      "agent_name": "/root/luna_episode_179",
+      "model": "gpt-6-luna"
+    },
+    {
+      "episode": "180",
+      "agent_name": "/root/luna_episode_180",
+      "model": "gpt-6-luna"
+    },
+    {
+      "episode": "181",
+      "agent_name": "/root/luna_episode_181",
+      "model": "gpt-6-luna"
+    },
+    {
+      "episode": "182",
+      "agent_name": "/root/luna_episode_182",
+      "model": "gpt-6-luna"
+    },
+    {
+      "episode": "183",
+      "agent_name": "/root/luna_episode_183",
+      "model": "gpt-6-luna"
+    },
+    {
+      "episode": "184",
+      "agent_name": "/root/luna_episode_184",
+      "model": "gpt-6-luna"
+    },
+    {
+      "episode": "185",
+      "agent_name": "/root/luna_episode_185",
+      "model": "gpt-6-luna"
+    },
+    {
+      "episode": "186",
+      "agent_name": "/root/luna_episode_186",
+      "model": "gpt-6-luna"
+    },
+    {
+      "episode": "187",
+      "agent_name": "/root/luna_episode_187",
+      "model": "gpt-6-luna"
+    },
+    {
+      "episode": "188",
+      "agent_name": "/root/luna_episode_188",
+      "model": "gpt-6-luna"
+    },
+    {
+      "episode": "189",
+      "agent_name": "/root/luna_episode_189",
+      "model": "gpt-6-luna"
+    },
+    {
+      "episode": "190",
+      "agent_name": "/root/luna_episode_190",
+      "model": "gpt-6-luna"
+    },
+    {
+      "episode": "191",
+      "agent_name": "/root/luna_episode_191",
+      "model": "gpt-6-luna"
+    },
+    {
+      "episode": "192",
+      "agent_name": "/root/luna_episode_192",
+      "model": "gpt-6-luna"
+    },
+    {
+      "episode": "193",
+      "agent_name": "/root/luna_episode_193",
+      "model": "gpt-6-luna"
+    },
+    {
+      "episode": "194",
+      "agent_name": "/root/luna_episode_194",
+      "model": "gpt-6-luna"
+    },
+    {
+      "episode": "195",
+      "agent_name": "/root/luna_episode_195",
+      "model": "gpt-6-luna"
+    },
+    {
+      "episode": "196",
+      "agent_name": "/root/luna_episode_196",
+      "model": "gpt-6-luna"
+    },
+    {
+      "episode": "197",
+      "agent_name": "/root/luna_episode_197",
+      "model": "gpt-6-luna"
+    },
+    {
+      "episode": "198",
+      "agent_name": "/root/luna_episode_198",
+      "model": "gpt-6-luna"
+    },
+    {
+      "episode": "199",
+      "agent_name": "/root/luna_episode_199",
+      "model": "gpt-6-luna"
+    },
+    {
+      "episode": "200",
+      "agent_name": "/root/luna_episode_200",
+      "model": "gpt-6-luna"
+    }
+  ],
+  "harness_failures": [
+    {
+      "signature": "initial_custom_chapter2_station_harness_nil_access",
+      "classification": "HARNESS_FAILURE_SECONDARY_TO_REJECTED_SETUP",
+      "observed": "The initial temporary station harness reproduced the invalid setup, then accessed a missing wander layer and produced a nil-access/error flood. Root terminated only that harness; guarded v2 replaced it. Do not count secondary nil access as an independent gameplay defect.",
+      "evidence_refs": [
+        "tmp/luna_playtest_20261013/root_reproductions/chapter2-stations.log sha256=7abfaa739f8fabdb43ca4080cb09ffc6e6ecae47279c406ba7f8049ab23bc148",
+        "tmp/luna_playtest_20261013/root_reproductions/chapter2-entry-v2.log"
+      ]
+    }
+  ],
+  "coverage_gaps": [
+    "The 200 distinct Luna workers executed 200 scheduled existing-probe episodes, but the manifest has 82 distinct probe sources; repeats/lens labels do not create 200 autonomous playthroughs or new trajectories.",
+    "Probe classes: static diagnostics, direct-state fixtures, mixed scripted diagnostics, scripted viewport input with setup, and direct component input. InputEventScreenTouch or configured component callbacks are not automatically ordinary player play.",
+    "Ordinary fresh-save story discovery/travel/exploration and complete normal-route Chapter Two play are not established; supplemental201 is an injected-state direct production-start diagnostic.",
+    "No physical Android/Lenovo Tab M11 device validation, observed child session, rendered visual acceptance, audible voice acceptance, or owner acceptance was performed. Episode025 and107 explicitly skipped headless visual capture.",
+    "Episode109 has a PASS retry receipt, but its first-launch log was overwritten; first-launch outcome is unknown and preserved as such.",
+    "Persistent fresh-process resume, actual production scene reload, and voice audibility are absent from multiple probe fixtures as each review specifies."
+  ],
+  "canonical_finding_lifecycle": "UNCHANGED; no canonical finding opened, closed, or reclassified by this coordination artifact.",
+  "code_changes": "NONE; campaign coordination only.",
+  "checkpoint_history": [
+    {
+      "schema": "luna_playtest_coordination/1",
+      "global_coverage_limits": [
+        "The manifest repeats prescribed existing probes and alternates lens labels; repetition does not create new gameplay trajectories or support persona-variation claims.",
+        "No worker result is autonomous full-game play, physical Android-device validation, child observation, visual acceptance, or owner acceptance.",
+        "Many probes are static/runtime diagnostics, direct-state fixtures, or scripted input; normal story route/exploration must be assessed from each review and is often outside coverage.",
+        "Episode025 headless visual capture did not execute."
+      ],
+      "distinct_primary_worker_identities": 66,
+      "active_or_unfinished_primary_workers": [],
+      "receipt_stats": {
+        "completed_primary_episodes": 66,
+        "reviewed_primary_episodes": 66,
+        "raw_runner_verdicts": {
+          "FAIL": 0,
+          "source_changed": 0,
+          "TIMEOUT": 0,
+          "PASS": 66
+        },
+        "review_interpreted_verdicts": {
+          "FAIL": 0,
+          "NOT_MEASURED": 1,
+          "PASS": 65
+        }
+      },
+      "supplemental_workers": [
+        {
+          "review": "tmp/luna_playtest_20261013/reviews/201.json",
+          "model": "gpt-6-luna",
+          "receipt": "tmp/luna_playtest_20261013/root_reproductions/chapter2-entry-luna201.json",
+          "agent_name": "/root/luna_wave_coordinator/episode_201",
+          "label": "chapter2-entry-luna201",
+          "id": "201",
+          "status": "completed_independent_reproduction"
+        }
+      ],
+      "updated_utc": "2026-10-14T04:29:57Z",
+      "dispatch_path": "tmp/luna_playtest_20261013/dispatch.json",
+      "unique_source_bound_measured_findings": [
+        {
+          "signature": "chapter2_story_entry_rejects_implicit_phase_configuration",
+          "severity": "HIGH",
+          "evidence": "Distinct worker201 run exactly matched root source, engine, script SHA, exit code, and log SHA; production starts for eight Chapter Two story careers returned true with empty phases/wander unbuilt under implicit-phase setup.",
+          "related_MA": [],
+          "reproducing_agents": [
+            "/root/luna_wave_coordinator/episode_201",
+            "/root"
+          ]
+        },
+        {
+          "signature": "chapter2_story_phases_are_unmapped_to_authored_room_stations",
+          "severity": "HIGH",
+          "evidence": "Worker201 recorded unmapped phase stations with explicit adapter overrides; compare only within guarded diagnostic fixture.",
+          "related_MA": [],
+          "reproducing_agents": [
+            "/root/luna_wave_coordinator/episode_201",
+            "/root"
+          ]
+        },
+        {
+          "signature": "seek_exact_tap_cue_recording_gap",
+          "severity": "LOW",
+          "evidence": "Probe source and assertion explicitly retain objective_recording_gap=evie_tap_wiggly_bush.",
+          "related_MA": [
+            "MA-CHILD-001"
+          ],
+          "reproducing_agents": [
+            "/root/luna_wave_coordinator/episode_015"
+          ]
+        }
+      ],
+      "completed_primary_episodes": 66,
+      "source_commit": "056d890ef38f2496ab52669c955ada654f902511",
+      "engine": "Godot 4.7.2-stable",
+      "handoff": "Root is taking over remaining distinct worker dispatch; resume with primary episode 067, preserve <=3 concurrent worker cap under root control, and complete through 200 plus close out the report.",
+      "campaign_status": "IN_PROGRESS",
+      "manifest_path": "tmp/luna_playtest_20261013/manifest.json",
+      "requested_primary_workers": 200,
+      "independently_reviewed_primary_episodes": 66,
+      "separate_diagnostics": [
+        {
+          "signature": "objectdb_instances_leaked_at_exit",
+          "detail": "Nine ObjectDB instances were reported after probe ALL OK; kept separate from machine verdict, no production defect attributed.",
+          "severity": "LOW_UNCONFIRMED_SHUTDOWN_WARNING",
+          "episode": "039"
+        }
+      ],
+      "report_builder": "tmp/luna_playtest_20261013/build_report.py",
+      "known_authority_gap": {
+        "status": "VERIFIED_PRESENT: root confirmed Test-Path=True, git ls-files names the exact path, and read the complete protocol on 2026-10-14. No missing-authority claim remains.",
+        "path": "audit/stage_pathfinding/STAGE_PATHFINDING_PROTOCOL.md",
+        "correction_history": "The coordinator checkpoint incorrectly reported this path missing. A default rg --files listing omitted it; direct exact-path checks establish that it is tracked and present. The original missing claim is withdrawn."
+      },
+      "dispatched_primary_workers": 66,
+      "next_undispatched_primary_id": "067",
+      "normalized_record_issues": [
+        {
+          "episode": "025",
+          "change": "Review reclassified PASS to NOT_MEASURED and STATIC_RUNTIME_DIAGNOSTIC to SKIPPED_HEADLESS_GUARD because log says HEADLESS SKIP; original label/verdict retained in review_history; runner result/log preserved."
+        },
+        {
+          "episodes": [
+            "060",
+            "062",
+            "063"
+          ],
+          "change": "Successful-check strings moved to measured_observations, measured_findings emptied; original strings retained in review_history."
+        },
+        {
+          "episode": "062",
+          "change": "agent_name bound to dispatched canonical identity; original label retained in review_history."
+        },
+        {
+          "episode": "057",
+          "change": "Interaction class corrected to SCRIPTED_DIRECT_COMPONENT_INPUT because no Viewport InputEventScreenTouch was dispatched; prior label retained in review_history."
+        },
+        {
+          "episode": "058",
+          "change": "Classified as SCRIPTED_DIRECT_COMPONENT_INPUT based on configured component events, not production route or real player input."
+        }
+      ]
+    }
+  ],
+  "durable_summary_reference": "C:\\Users\\Peter\\.codex\\visualizations\\2026\\10\\14\\01a13860-5096-76d3-8130-30e48e47bc62\\luna-findings.json"
+}

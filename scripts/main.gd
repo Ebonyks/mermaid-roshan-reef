@@ -786,6 +786,7 @@ var beans_sfx: AudioStreamPlayer   # banjo toot-loop: a SOUND EFFECT, not music 
 var hop_sfx: AudioStreamPlayer     # soft cartoon boing per on-land hop touchdown
 var voice_pool: Array = []
 var voice_i := 0
+var audio_active_guide_mode: String = ""
 var said_cool := {}
 var intro_active := false
 var intro_layer: CanvasLayer

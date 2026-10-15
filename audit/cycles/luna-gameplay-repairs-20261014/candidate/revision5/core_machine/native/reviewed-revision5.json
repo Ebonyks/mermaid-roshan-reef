@@ -1,0 +1,32 @@
+{
+  "schema": "luna.reviewed-revision/1",
+  "revision": 5,
+  "patches": [
+    {
+      "path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\voice_lifecycle\\audio_state_ownership_01\\main_owned_guide_mode.patch",
+      "sha256": "8ae049616b896640056985d700cd3e0cbdd129bc166bd0d1f38cee709b69a2f9"
+    },
+    {
+      "path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\chapter2\\diagnostics\\mode_verifier_repair_02.patch",
+      "sha256": "1a3120d70d7cd82eaca627caf811bd0773ac90b23e9a4b87826a4ca1ee889c49"
+    }
+  ],
+  "files": [
+    {
+      "path": "scripts/main.gd",
+      "before_sha256": "841efbfa74a61ed14775fa7c2b19e6ff7f54b0a2c4af04d1b08c345440d6f880",
+      "draft_lf_sha256": "77bddeb59b215fd2d993f6c124ef67e49314d992d00cbc7c1b9231e9c157c417"
+    },
+    {
+      "path": "scripts/audio_director.gd",
+      "before_sha256": "000f6f196978192c377af45c2418202890b18327ae9bf0877003055007d0b75e",
+      "draft_lf_sha256": "35ccacfec6860ceb984a5f91c6f8532f643d75c5739efa1f8f825164b175b76e"
+    },
+    {
+      "path": "scripts/probe_chapter2.gd",
+      "before_sha256": "551f489b11ee85f292f2242b3cf877abaaaaaf44f5d04c1671f63d23648e3bd3",
+      "draft_lf_sha256": "5310a456220ff00110b94b623f36a882bd2bff58e6d74e4c8671681cda43b28f"
+    }
+  ],
+  "reason": "Measured headless parent/child viewport initialization: size after first initialization tick, assert actual1280x720 and exact backend mode contract without relaxing geometry. Relocate only new Guide mode state to typed Main owner under scoped recorded DL-CODE-01 waiver; five audio accesses mechanically preserved. No production save/input/goal/art/protected-voice changes."
+}

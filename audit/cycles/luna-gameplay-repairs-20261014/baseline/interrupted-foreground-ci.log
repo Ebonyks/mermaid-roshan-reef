@@ -1,0 +1,36 @@
+....
+----------------------------------------------------------------------
+Ran 4 tests in 0.330s
+
+OK
+GODOTBASELINE|ALL OK|4.7.2-stable|official.ed1daf0bf
+........s...............................
+----------------------------------------------------------------------
+Ran 40 tests in 40.581s
+
+OK (skipped=1)
+TYPOGRAPHY_AUDIT status=OPEN
+FONT assets=0 bindings=0 coverage=UNRESOLVED device=MISSING
+GLYPHS observed=133 unclassified=0 critical=124 critical_unresolved=124
+LABEL3D current=36 baseline=45 files=11 delta=-9
+LABEL3D_FILE  7 scripts/arena/sky_lagoon.gd
+LABEL3D_FILE  2 scripts/collection_system.gd
+LABEL3D_FILE  1 scripts/combat_arena.gd
+LABEL3D_FILE 11 scripts/companion.gd
+LABEL3D_FILE  1 scripts/dungeon_puzzle_room.gd
+LABEL3D_FILE  2 scripts/galaxy.gd
+LABEL3D_FILE  4 scripts/games/shop.gd
+LABEL3D_FILE  4 scripts/kart.gd
+LABEL3D_FILE  2 scripts/main.gd
+LABEL3D_FILE  1 scripts/reef_districts.gd
+LABEL3D_FILE  1 scripts/stuffie_battle.gd
+OPEN font authority, coverage, and/or device evidence remains unresolved
+...
+----------------------------------------------------------------------
+Ran 3 tests in 0.414s
+
+OK
+ROSHAN2D| stress: 8 falsification cases ALL OK
+ROSHAN2D| RESULT: ALL OK - active project is 2D Roshan only
+GAME-WIDE 2D AUDIT CONTRACT TEST FAIL
+..............

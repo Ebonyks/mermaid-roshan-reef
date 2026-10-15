@@ -1,0 +1,54 @@
+{
+  "schema": "reef.audio-shutdown-followup.v1",
+  "full_suite_observations": [
+    {
+      "probe": "probe_ocean_kingdoms",
+      "objectdb_counts": [
+        "12"
+      ],
+      "resource_cache_counts": [
+        "6"
+      ]
+    },
+    {
+      "probe": "probe_dolls",
+      "objectdb_counts": [
+        "12"
+      ],
+      "resource_cache_counts": [
+        "6"
+      ]
+    },
+    {
+      "probe": "probe_audio",
+      "objectdb_counts": [
+        "12"
+      ],
+      "resource_cache_counts": [
+        "6"
+      ]
+    },
+    {
+      "probe": "probe_skins",
+      "objectdb_counts": [
+        "8"
+      ],
+      "resource_cache_counts": [
+        "4"
+      ]
+    }
+  ],
+  "full_suite_result": "PASS82/82; non-gating shutdown warnings preserved, not clean-shutdown acceptance",
+  "unchanged_verbose_followup": {
+    "assertions_ok": 24,
+    "exit_code": 0,
+    "duration_seconds": 12.024,
+    "log_sha256": "7ab85e072890f487e8e8a0bb314ec92dcb89334dc01785de4f338329c7494bed",
+    "shutdown_warning_reproduced": false,
+    "new_guide_resource_load_lines": [],
+    "source_pin_sha256": "786bc13b36002f919b689a13870e475bd86a8fa32cc1f39eacd661fea03a2388"
+  },
+  "attribution": "UNKNOWN / NOT_REPRODUCED in one unchanged verbose followup. Neither a production defect nor accumulating device memory is established; no fix claimed. All24 unchanged assertions pass. Traced audio probe does not enter Seek/Dolls/Guide objectives; no Guide resource load occurs in its verbose log.",
+  "source_limits": "Relevant production files identical across first and second CI; existing probe immediately quits after final audio switches. Timing is a hypothesis only. No source edit or timing-padding test was made.",
+  "acceptance": "Target-device audio/resource lifecycle remains unmeasured. Original fullCI02 warnings remain native evidence."
+}

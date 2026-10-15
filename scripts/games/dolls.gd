@@ -247,15 +247,19 @@ func build(fr: Dictionary) -> void:
 	_layout_catcher_card()
 	# Accessibility debt is explicit: the available Faron nursery catch clip
 	# says five, while this legacy activity's fixed goal is three. Keep the live
-	# pointer and generic spoken greeting; do not play a semantically false clip.
+	# pointer and historical family-source gap. The neutral Guide supplies the
+	# exact instruction before the retained family greeting.
 	surface.set_meta("objective_recording_gap", "faron_catch_three")
+	surface.set_meta("objective_guide_key", "guide_dolls_catch_three")
+	surface.set_meta("objective_guide_path", "res://assets/audio/objective_guides/guide_dolls_catch_three.ogg")
 	surface.set_meta("visual_pointer", true)
 	m.g["dolls_layer"] = layer
 	m.g["dolls_backdrop"] = world_backdrop
 	m.g["dolls_surface"] = surface
 	m.g["dolls_catcher"] = catcher_card
 	_sync_state()
-	m.show_msg(fr["fname"], "Catch 3 sleepy dolls in your arms!")
+	m.show_msg("", "Catch 3 sleepy dolls in your arms!")
+	m._audio_ref().objective_guide("dolls_catch_three", m._speaker_key(String(fr["fname"])))
 
 
 func _layout_surface() -> void:
@@ -312,6 +316,8 @@ func _on_baby_missed() -> void:
 	# The exact recorded Faron miss stays rate-limited so close landings never
 	# talk over one another.
 	m._say("faron", "miss", 3.0)
+	if surface != null and surface.elapsed >= 8.0:
+		m._audio_ref().objective_guide("dolls_catch_three", "", 8.0)
 
 
 func _tick_dolls(_delta: float, fr: Dictionary) -> void:
@@ -327,6 +333,8 @@ func _tick_dolls(_delta: float, fr: Dictionary) -> void:
 
 
 func stage_close() -> void:
+	if m != null and controls_owned:
+		m._audio_ref().clear_objective_guide("dolls")
 	if surface != null and is_instance_valid(surface):
 		surface.stop()
 	var old_layer: CanvasLayer = layer

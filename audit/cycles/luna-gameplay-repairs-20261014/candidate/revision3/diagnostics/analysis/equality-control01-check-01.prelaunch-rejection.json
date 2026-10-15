@@ -1,0 +1,8 @@
+{
+  "scope": "CLI rejection before Godot launch; preserved caller path-resolution mistake",
+  "command": "python -B tmp/luna_repair_20261014/run_candidate_scratch_diagnostic.py check equality-control01-check-01 tmp/luna_repair_20261014/chapter2/diagnostics/equality_control01.gd --timeout 30",
+  "exit_code": 2,
+  "godot_launched": false,
+  "error": "Script must exist in the worktree or bounded chapter2 diagnostic scratch",
+  "correction": "Use absolute original-checkout scratch path; new label check-02"
+}

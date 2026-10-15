@@ -1,0 +1,52 @@
+"""Apply only the reviewed final touch-lifetime, story intro and checkpoint input-retention deltas."""
+import ast
+from datetime import datetime, timezone
+import hashlib,json,os,subprocess
+from pathlib import Path
+scratch=Path(__file__).resolve().parent
+root=Path(r"C:/Users/Peter/.codex/worktrees/luna-gameplay-repairs-20261014/mermaid-roshan-reef")
+active=scratch/"candidate-runtime-sources.json"
+version=scratch/"candidate-runtime-sources.v6.json"
+receipt=scratch/"candidate-revision6-application.json"
+config_path=scratch/"reviewed-revision6.json"
+sha=lambda x:hashlib.sha256(x).hexdigest()
+expected_pin="98a00104fad42997e135a681fd2fae2ed8ff9db8dee3f43fcbcd09f79f227c30"
+if receipt.exists() or version.exists(): raise SystemExit("Revision6 already exists")
+pin_bytes=active.read_bytes()
+if sha(pin_bytes)!=expected_pin or (scratch/"candidate-runtime-sources.v5.json").read_bytes()!=pin_bytes: raise SystemExit("Expected exact revision5")
+for folder in ["candidate_gates","candidate_diagnostics"]:
+ for started in (scratch/folder).glob("*.started.json"):
+  if not started.with_name(started.name.replace(".started.json",".json")).is_file(): raise SystemExit("Gate active or interrupted: "+str(started))
+config=json.loads(config_path.read_text())
+allowed={"scripts/probe_chapter2.gd","scripts/opera_career_world_2d.gd"}
+if {x["path"] for x in config["files"]}!=allowed: raise SystemExit("Unexpected repair scope")
+tree=ast.parse((scratch/"run_candidate_gate.py").read_bytes())
+definition=next(n for n in tree.body if isinstance(n,ast.FunctionDef) and n.name=="sources")
+helpers={"root":root,"hashlib":hashlib,"subprocess":subprocess}
+exec(compile(ast.Module(body=[definition],type_ignores=[]),"<reviewed inventory>","exec"),helpers)
+pin=json.loads(pin_bytes); before=helpers["sources"]()
+if before!=pin["sources"]: raise SystemExit("Sources differ from revision5")
+for row in config["files"]:
+ if before[row["path"]]!=row["before_sha256"]: raise SystemExit("Repair before hash mismatch")
+patches=[]
+for row in config["patches"]:
+ patch=Path(row["path"])
+ if not patch.is_relative_to(scratch) or sha(patch.read_bytes())!=row["sha256"]: raise SystemExit("Reviewed patch mismatch")
+ patches.append(str(patch))
+subprocess.run(["git","apply","--check","--whitespace=error-all",*patches],cwd=root,check=True)
+subprocess.run(["git","apply","--whitespace=error-all",*patches],cwd=root,check=True)
+after=helpers["sources"](); changed={n for n in before.keys()|after.keys() if before.get(n)!=after.get(n)}
+if changed!=allowed: raise SystemExit("Unexpected source changes after patch; preserve and inspect")
+for row in config["files"]:
+ if sha((root/row["path"]).read_bytes().replace(b"\r\n",b"\n"))!=row["draft_lf_sha256"]: raise SystemExit("Applied reviewed draft mismatch")
+record={"schema":"luna_candidate_revision_application/1","revision":6,"applied_utc":datetime.now(timezone.utc).isoformat(),"root":str(root),"previous_pin_sha256":expected_pin,"review_config_path":str(config_path),"review_config_sha256":sha(config_path.read_bytes()),"patches":config["patches"],"files":[{"path":n,"before_sha256":before[n],"after_sha256":after[n]} for n in sorted(allowed)],"reason":config["reason"],"verification":"Applied/source-verified only; runtime and full CI pending."}
+with receipt.open("x",encoding="utf-8") as f: f.write(json.dumps(record,indent=2)+"\n")
+new=dict(pin); new.update(pin_revision=6,frozen_utc=datetime.now(timezone.utc).isoformat(),sources=after,previous_pin={"path":str(scratch/"candidate-runtime-sources.v5.json"),"sha256":expected_pin},derivation_receipt=str(receipt),derivation_receipt_sha256=sha(receipt.read_bytes()),revision_scope=config["reason"])
+data=(json.dumps(new,indent=2)+"\n").encode()
+with version.open("xb") as f: f.write(data)
+temp=scratch/".candidate-runtime-sources.v6.activation.tmp"
+with temp.open("xb") as f: f.write(data)
+if active.read_bytes()!=pin_bytes: raise SystemExit("Pin changed before activation")
+os.replace(temp,active)
+if active.read_bytes()!=data: raise SystemExit("Pin readback failure")
+print(json.dumps({"state":"REVISION6_APPLIED_AND_PINNED","changed":sorted(changed),"pin_sha256":sha(data)}))

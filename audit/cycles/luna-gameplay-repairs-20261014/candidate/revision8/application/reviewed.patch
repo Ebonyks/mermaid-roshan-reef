@@ -1,0 +1,109 @@
+--- a/scripts/probe_chapter2_farmer_resume.gd
++++ b/scripts/probe_chapter2_farmer_resume.gd
+@@ -83,6 +83,15 @@
+ 		and table.get_meta("chapter2_single_cake_authority", "") == "giant_cake"
+ 		and int(table.get_meta("chapter2_single_strawberry_token_count", 0)) == 5
+ 		and bool(table.get_meta("chapter2_summary_icons_avoid_cake", false)))
++	var party_cake: ChapterTwoGiantCake2D = table.giant_cake
++	_check("Main Hall keeps the default party layout and the same completed cake asset",
++		party_cake != null and not party_cake.kitchen_display_layout
++		and party_cake.kitchen_tray_sprites.is_empty()
++		and party_cake.final_cake_sprite.visible and party_cake.final_cake_sprite.texture != null
++		and party_cake.final_cake_sprite.texture.resource_path
++			== "res://assets/chapter2/birthday/chapter2_grand_five_strawberry_cake.png"
++		and party_cake.final_cake_sprite.position == Vector2(180, 84)
++		and party_cake.final_cake_sprite.scale.is_equal_approx(Vector2.ONE * 0.30))
+ 	table.free()
+ 	main.free()
+ 	print("CHAPTER2_FARMER_RESUME|RESULT: ",
+@@ -211,6 +220,79 @@
+ 		await process_frame
+ 
+ 
++## Display/configuration assay only: the same saved cake assets use the reused
++## clean kitchen supports here. Main Hall keeps its separate default layout.
++func _check_candy_kitchen_display(initial_mask: int) -> void:
++	var cake: ChapterTwoGiantCake2D = world.chapter2_cake_scene
++	_check("Candy Maker owns its persistent cake display", cake != null)
++	if cake == null:
++		return
++	var cake_owners := 0
++	for child: Node in world.root.get_children():
++		if child is ChapterTwoGiantCake2D:
++			cake_owners += 1
++	_check("Candy Maker has one cake owner behind the foreground actor",
++		cake_owners == 1 and cake.get_parent() == world.root
++		and cake.kitchen_display_layout
++		and cake.get_index() < world.player_actor.get_index())
++	var clean_tiles := world.backdrop_node.scene_variant == "strawberry_cake_workshop" \
++		and not world.backdrop_node.stage_mode \
++		and world.backdrop_node.world_tiles.size() == 4 \
++		and bool(world.backdrop_node.get_meta("chapter2_cake_pixels_owned_by_prop", false))
++	if clean_tiles:
++		for row in range(2):
++			for column in range(2):
++				var tile: Texture2D = world.backdrop_node.world_tiles[row * 2 + column]
++				clean_tiles = clean_tiles and tile != null \
++					and tile.resource_path == ("res://assets/opera/worlds/backdrops/" \
++						+ "chef_story_clean_v1/world_chef_c%dr%d.png" % [column, row]) \
++					and tile.get_size() == Vector2(1024, 1024)
++	_check("Candy Maker uses all four exact cleared kitchen tiles", clean_tiles)
++	for saved_mask: int in [0x1F, 0x3F, 0x7F]:
++		cake.apply_milestone_masks(0x1F, saved_mask)
++		var final_state := saved_mask == 0x7F
++		var tray_state := saved_mask == 0x3F
++		var sprite: Sprite2D = cake.final_cake_sprite if final_state else cake.stage_art_sprite
++		var expected_path := "res://assets/chapter2/birthday/" \
++			+ ("chapter2_grand_five_strawberry_cake.png" if final_state \
++				else "chapter2_chef_frosted_rainbow_cake.png")
++		var source_matches := sprite.visible and sprite.texture != null \
++			and sprite.texture.resource_path == expected_path \
++			and cake.stage_art_sprite.visible == (not final_state) \
++			and cake.final_cake_sprite.visible == final_state \
++			and cake.candied_tray_sprite.visible == tray_state
++		if tray_state:
++			source_matches = source_matches and cake.candied_tray_sprite.texture != null \
++				and cake.candied_tray_sprite.texture.resource_path \
++					== "res://assets/chapter2/birthday/chapter2_candied_strawberries_tray.png"
++		else:
++			source_matches = source_matches and cake.candied_tray_sprite.texture == null
++		if final_state:
++			source_matches = source_matches and cake.stage_art_sprite.texture == null
++		else:
++			source_matches = source_matches and cake.final_cake_sprite.texture == null
++		_check("Candy display mask %02x preserves the earned cake and separate berry tray" % saved_mask,
++			source_matches)
++		var platform_contact := false
++		if sprite.visible and sprite.texture != null:
++			var used: Rect2i = sprite.texture.get_image().get_used_rect()
++			var bottom: Vector2 = cake.position + sprite.position + Vector2(0.0,
++				(float(used.end.y) - sprite.texture.get_height() * 0.5) * sprite.scale.y)
++			platform_contact = bottom.distance_to(Vector2(1068, 337)) < 1.0 \
++				and is_equal_approx(sprite.scale.x, sprite.scale.y) \
++				and sprite.z_index + cake.z_index <= world.player_actor.z_index
++		_check("Candy display mask %02x keeps its cake on the cleared room support" % saved_mask,
++			platform_contact)
++		_check("Candy display mask %02x keeps unused rack rows dormant and texture-free" % saved_mask,
++			cake.kitchen_tray_sprites.size() == 3 and cake.kitchen_tray_sprites.all(
++				func(tray: Sprite2D) -> bool:
++					return not tray.visible and tray.texture == null))
++	cake.apply_milestone_masks(0x1F, initial_mask)
++	_check("Candy display fixture restores its initial mask without awarding work",
++		cake.cake_piece_mask == initial_mask
++		and main.chapter2_cake_piece_mask == initial_mask and cake_result_win_count == 0)
++
++
+ func _run_final_cake_hold_case(career: String, initial_mask: int,
+ 		expected_mask: int, expected_stage: String) -> void:
+ 	var act_index := ChapterTwoDirector.ACT_CHEF \
+@@ -247,9 +329,7 @@
+ 	_check("%s owns a valid production-shaped phase callback" % career,
+ 		phase_callback is Callable and (phase_callback as Callable).is_valid())
+ 	if career == "candymaker":
+-		_check("Candy Maker preserves the party cake layout",
+-			not world.chapter2_cake_scene.kitchen_display_layout
+-			and world.chapter2_cake_scene.kitchen_tray_sprites.is_empty())
++		_check_candy_kitchen_display(initial_mask)
+ 		var candy_berry_texture := \
+ 			world.chapter2_single_strawberry_texture as Texture2D
+ 		_check("Candy Maker binds the approved single-strawberry art",

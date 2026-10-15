@@ -1,0 +1,155 @@
+{
+  "chef": {
+    "fix_status": "NOT_APPLIED in this diagnostic evidence; revision4 preparation and later results excluded.",
+    "observed_phase_index_after_passive": 4,
+    "owner_is_current_host": true,
+    "passive_full_exposure_seconds_exact": "21.051175999999799",
+    "single_current_owner": true,
+    "source_attribution": "Chef creates a short work-pose reveal timer. The shared positive-to-expired reveal handler unconditionally applies Detective guided-retry phase selection, so its expiry mutates Chef to finale phase4 without input.",
+    "source_evidence": "../sources/opera_career_world_2d.gd.txt",
+    "source_lines": [
+      2773,
+      2781,
+      4771,
+      4777,
+      4779
+    ],
+    "source_sha256": "c9c1bd25bea79260a3950e7431fe9b75b2b313f50b6c5bde8872ef367c710b45",
+    "time_scale": 8.0,
+    "tree_paused": false,
+    "world_active": true,
+    "world_can_process": true,
+    "world_processing": true
+  },
+  "chronology": "Preparation receipt retains not_run=true and prior read-only route02 analysis retains its then-unmeasured causes; later native observation/control gates establish the scoped facts above. Original artifacts are not rewritten.",
+  "disposable_child_input_preservation": [
+    {
+      "archive_path": "child06/primary.json",
+      "expected_sha256": "91d3afadbfe0b30f45bea92a81cbb2be579672a942ec88a805897e91862b1704",
+      "matches_expected_and_native_preboot": true,
+      "native_child_preboot_sha256": "91d3afadbfe0b30f45bea92a81cbb2be579672a942ec88a805897e91862b1704",
+      "observed_current_sha256": "91d3afadbfe0b30f45bea92a81cbb2be579672a942ec88a805897e91862b1704",
+      "present_at_archive": true,
+      "role": "FROZEN_CHILD_INPUT_EXACT_EXPECTED_AND_NATIVE_PREBOOT_HASH",
+      "source": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef_candidate_gate__1uh6kge\\roaming\\Godot\\app_userdata\\Mermaid Roshan Reef of Light\\probe_chapter2_isolated_31612_11444061.json"
+    },
+    {
+      "archive_path": "child06/backup.json",
+      "expected_sha256": "8e50f2ad03c6be6e0b037b3710bf2f609043b9b5800cb4ae05a81d0779be3de1",
+      "matches_expected_and_native_preboot": true,
+      "native_child_preboot_sha256": "8e50f2ad03c6be6e0b037b3710bf2f609043b9b5800cb4ae05a81d0779be3de1",
+      "observed_current_sha256": "8e50f2ad03c6be6e0b037b3710bf2f609043b9b5800cb4ae05a81d0779be3de1",
+      "present_at_archive": true,
+      "role": "FROZEN_CHILD_INPUT_EXACT_EXPECTED_AND_NATIVE_PREBOOT_HASH",
+      "source": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef_candidate_gate__1uh6kge\\roaming\\Godot\\app_userdata\\Mermaid Roshan Reef of Light\\probe_chapter2_isolated_31612_11444061.json.bak"
+    }
+  ],
+  "equality_control": {
+    "data_only_control": "PASS; exact approved engine analyzer and probe",
+    "limits": [
+      "JSON normalization intentionally removes int/float storage-type identity.",
+      "Distinct int64 values9007199254740992 and9007199254740993 collapse through JSON roundtrip/canonicalization; enforce a suitable exact-numeric domain before using this comparator for snapshot acceptance.",
+      "This isolated data control establishes comparison semantics; actual child save/hash/load/Continue correctness stays in its own route evidence.",
+      "Runner source inventory and script hashes unchanged; script contains no project/cache writes."
+    ],
+    "ok_assertions": 24,
+    "prelaunch_rejection_preserved": true,
+    "semantic_comparison": "Same bounded JSON values compare equal across numeric storage types; changed values/key/type/order negative controls remain rejected."
+  },
+  "excluded": "Unready revision4 patches/drafts and any source mutation; owner saves; protected originals; audio/model payloads; mutable active pin.",
+  "external_acceptance": {
+    "audible_listening": "NOT_MEASURED",
+    "child": "NOT_MEASURED",
+    "mobile_pixels": "NOT_MEASURED",
+    "owner_creative_acceptance": "NOT_MEASURED",
+    "physical_device": "NOT_MEASURED"
+  },
+  "geometry": {
+    "actual_headless_root_viewport": "1280x1280",
+    "every_observed_farmer_card_corner_inside_visible_rect": true,
+    "farmer_sample_count": 4,
+    "scope": "Headless geometry telemetry only. No rendered Mobile pixels, phone geometry, physical contact, visual acceptance or device acceptance established."
+  },
+  "missing_input_policy": "No absent bytes reconstructed; files count as frozen inputs only when expectation and native preboot hashes both match.",
+  "native_outcomes": {
+    "chapter2-resume-observe-01": {
+      "exit_code": 1,
+      "machine_gate_passed": false,
+      "receipt": "gates/chapter2-resume-observe-01.json"
+    },
+    "equality-control01-check-02": {
+      "exit_code": 0,
+      "machine_gate_passed": true,
+      "receipt": "gates/equality-control01-check-02.json"
+    },
+    "equality-control01-probe-01": {
+      "exit_code": 0,
+      "machine_gate_passed": true,
+      "receipt": "gates/equality-control01-probe-01.json"
+    }
+  },
+  "parent_revision3_manifest": "../MANIFEST.json remains unchanged; this diagnostics subtree has its own independent immutable inventory.",
+  "schema": "reef.revision3-resume-type-diagnostics-interpretation.v1",
+  "scope": "Completed observation/type controls only; original failed receipts unchanged, no replay or behavior fix applied by this archival task.",
+  "snapshot": {
+    "all_serialized_values_match": true,
+    "diagnosis": "The native comparison rejects a typed integer array versus the JSON-parsed untyped floating-number array even when the JSON values match. This is an observed harness comparison defect; it does not relabel the original failed child assertion.",
+    "expected_generation": 19,
+    "json_domain_equal": true,
+    "json_value_key_count": 36,
+    "loaded_generation": 19,
+    "native_dictionary_equal": false,
+    "native_mismatched_field": {
+      "actual": [
+        7,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "actual_array_builtin": 2,
+      "actual_array_typed": true,
+      "actual_element_types": [
+        "int",
+        "int",
+        "int",
+        "int",
+        "int",
+        "int",
+        "int",
+        "int"
+      ],
+      "actual_has": true,
+      "actual_type": "Array",
+      "expected": [
+        7.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "expected_array_builtin": 0,
+      "expected_array_typed": false,
+      "expected_element_types": [
+        "float",
+        "float",
+        "float",
+        "float",
+        "float",
+        "float",
+        "float",
+        "float"
+      ],
+      "expected_has": true,
+      "expected_type": "Array",
+      "key": "chapter2_job_phase_masks",
+      "native_equal": false
+    }
+  }
+}

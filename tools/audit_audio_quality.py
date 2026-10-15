@@ -22,6 +22,12 @@ from pathlib import Path
 AUDIO_SUFFIXES = {".ogg", ".wav", ".mp3"}
 VOICE_ROOT_REL = "assets/audio/voices/"
 FILLER_ROOT_REL = "assets/audio/voices/filler_v1/"
+OBJECTIVE_GUIDE_ROOT_REL = "assets/audio/objective_guides/"
+OBJECTIVE_GUIDE_MANIFEST_REL = OBJECTIVE_GUIDE_ROOT_REL + "OBJECTIVE_GUIDE_MANIFEST.json"
+OBJECTIVE_GUIDE_TEXT = {
+    "guide_seek_tap_wiggly_tree": "Tap the wiggly tree!",
+    "guide_dolls_catch_three": "Move left and right. Catch three sleepy dolls!",
+}
 FILLER_MANIFEST_NAME = "FILLER_MANIFEST.json"
 TEACHER_ROOT_REL = "assets/audio/teacher/"
 TEACHER_MANIFEST_REL = "assets_src/teacher_learning_2026-09-05/audio_manifest.json"
@@ -1110,8 +1116,69 @@ def validate_fashion_manifest(root: Path) -> list[str]:
     return issues
 
 
+def validate_objective_guides(root: Path) -> dict[str, object]:
+    directory = root / OBJECTIVE_GUIDE_ROOT_REL
+    path = root / OBJECTIVE_GUIDE_MANIFEST_REL
+    actual = {p.name for p in directory.glob("*.ogg")} if directory.is_dir() else set()
+    if not path.is_file():
+        issues = ["Objective Guide manifest missing"] if actual else []
+        return {"present": False, "issues": issues, "blocking": bool(issues)}
+    issues: list[str] = []
+    try:
+        manifest = json.loads(path.read_text(encoding="utf-8"))
+    except (OSError, ValueError) as error:
+        return {"present": True, "blocking": True, "issues": [f"Objective Guide manifest invalid: {error}"]}
+    if manifest.get("schema") != "reef.objective-guide-runtime.v1" or manifest.get("speaker") != "guide":
+        issues.append("Objective Guide schema/speaker mismatch")
+    if manifest.get("synthesis_calls") != 2 or manifest.get("protected_original_changes") != 0:
+        issues.append("Objective Guide synthesis/protected-source accounting mismatch")
+    entries = manifest.get("entries", [])
+    if not isinstance(entries, list):
+        entries = []
+    seen: set[str] = set()
+    for entry in entries:
+        if not isinstance(entry, dict):
+            issues.append("Objective Guide entry must be an object")
+            continue
+        key = str(entry.get("key", ""))
+        if key not in OBJECTIVE_GUIDE_TEXT or key in seen:
+            issues.append(f"Objective Guide unknown/duplicate key: {key}")
+            continue
+        seen.add(key)
+        if entry.get("text") != OBJECTIVE_GUIDE_TEXT[key] or entry.get("speaker") != "guide":
+            issues.append(f"Objective Guide {key} semantic identity mismatch")
+        expected = OBJECTIVE_GUIDE_ROOT_REL + key + ".ogg"
+        if entry.get("output_path") != expected:
+            issues.append(f"Objective Guide {key} output path mismatch")
+        output = root / expected
+        if not output.is_file() or sha256(output) != entry.get("output_sha256"):
+            issues.append(f"Objective Guide {key} output missing/hash mismatch")
+            continue
+        source = _safe_relative(root, entry.get("native_source_path"))
+        if source is None or not source.is_relative_to(root / "assets_src/audio/objective_guides_20261014")                 or not source.is_file() or sha256(source) != entry.get("native_source_sha256"):
+            issues.append(f"Objective Guide {key} native source missing/hash mismatch")
+        if not entry.get("trigger") or not entry.get("visual_pointer") or not entry.get("historical_family_recording_gap"):
+            issues.append(f"Objective Guide {key} trigger/pointer/historical gap missing")
+        meta = probe(output)
+        signal = decoded_signal(output)
+        integrated, _lra, peak = loudness(output)
+        if not meta.get("decode_ok") or not signal.get("decode_ok"):
+            issues.append(f"Objective Guide {key} decode failed")
+        if meta.get("codec") != "vorbis" or meta.get("sample_rate_hz") != 48000 or meta.get("channels") != 1                 or float(meta.get("bitrate_kbps", 0)) < 64:
+            issues.append(f"Objective Guide {key} codec/rate/channels/bitrate mismatch")
+        if integrated is None or not math.isfinite(integrated) or abs(integrated + 16) > 1                 or peak is None or not math.isfinite(peak) or peak > -1.5:
+            issues.append(f"Objective Guide {key} loudness/true-peak limit failed")
+        if signal.get("decoded_clipped_samples") != 0 or abs(float(signal.get("dc_offset", 1))) >= 0.001:
+            issues.append(f"Objective Guide {key} clipping/DC fault")
+    if seen != set(OBJECTIVE_GUIDE_TEXT) or actual != {key + ".ogg" for key in seen}:
+        issues.append("Objective Guide manifest/runtime key coverage mismatch")
+    return {"present": True, "blocking": bool(issues), "issues": issues,
+            "count": len(seen), "human_review_state": "OPEN_DEVICE_LISTENING"}
+
+
 def category(rel: str) -> str:
-    if rel.startswith("assets/audio/voices/") \
+    if rel.startswith(OBJECTIVE_GUIDE_ROOT_REL) \
+            or rel.startswith("assets/audio/voices/") \
             or rel.startswith("assets/audio/teacher/") \
             or rel.startswith("assets/audio/fashion/") \
             or rel.startswith("assets/audio/chapter2_lawn/") \
@@ -1148,6 +1215,8 @@ def grade(rel: str, meta: dict[str, object], peak: float | None) -> tuple[str, i
         return "B", 4, "P2", "KEEP_PROTECTED"
     if rel.startswith(FILLER_ROOT_REL):
         return "A", "", "P1", "REVIEW_PROVISIONAL_FILLER"
+    if rel.startswith(OBJECTIVE_GUIDE_ROOT_REL):
+        return "A", "", "P1", "REVIEW_NEUTRAL_OBJECTIVE_GUIDE"
     if category(rel) == "voice" and peak is not None and peak > -1.5:
         return "B", 3, "P2", "RENDER_TRUE_PEAK_SAFE"
     if rel in NEW_EXACT_VOICES:
@@ -1193,7 +1262,7 @@ def build_rows(root: Path, filler_validation: dict[str, object] | None = None) -
         basename = path.name
         filler = rel.startswith(FILLER_ROOT_REL)
         kind = protected_kind(rel)
-        cohort = ("filler_v1" if filler else kind or
+        cohort = ("objective_guides" if rel.startswith(OBJECTIVE_GUIDE_ROOT_REL) else "filler_v1" if filler else kind or
                   ("legacy_voice" if category(rel) == "voice" else category(rel)))
         legacy_path = f"{VOICE_ROOT_REL}{basename}"
         shadowed_by = f"{FILLER_ROOT_REL}{basename}" if basename in filler_names and not filler else ""
@@ -1222,8 +1291,8 @@ def build_rows(root: Path, filler_validation: dict[str, object] | None = None) -
             "severity": severity,
             "decision": decision,
             "runtime_reference_count": text.count(basename),
-            "routing": "dynamic_voice" if category(rel) == "voice" else "asset_or_dynamic",
-            "provenance": "protected_original" if kind else (
+            "routing": "exact_neutral_objective" if rel.startswith(OBJECTIVE_GUIDE_ROOT_REL) else "dynamic_voice" if category(rel) == "voice" else "asset_or_dynamic",
+            "provenance": "objective_guide_manifest" if rel.startswith(OBJECTIVE_GUIDE_ROOT_REL) else "protected_original" if kind else (
                 "provisional_filler_manifest" if filler else "see_ASSET_LICENSES"),
         })
     return rows
@@ -1280,6 +1349,7 @@ def main() -> int:
     out_dir = args.out_dir if args.out_dir.is_absolute() else root / args.out_dir
     csv_path = out_dir / "audio_quality_ledger_2026-08-24.csv"
     json_path = out_dir / "audio_quality_summary_2026-08-24.json"
+    guide_validation = validate_objective_guides(root)
     teacher_validation = validate_teacher_manifest(root)
     teacher_keys = set(teacher_validation.get("declared_keys", set()))
     filler_validation = validate_filler_manifest(
@@ -1291,7 +1361,8 @@ def main() -> int:
         summary(rows, filler_validation, protected_validation, teacher_validation),
         indent=2, sort_keys=True,
     ) + "\n"
-    blocking = (validate_fashion_manifest(root)
+    blocking = (list(guide_validation.get("issues", []))
+                + validate_fashion_manifest(root)
                 + list(filler_validation.get("issues", []))
                 + list(teacher_validation.get("issues", []))
                 + list(protected_validation.get("issues", [])))

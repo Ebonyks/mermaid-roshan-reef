@@ -7,6 +7,10 @@ extends SceneTree
 const FLOOR_TAP := Vector2(1050.0, 560.0)
 const WALK_SETTLE := 90
 const MAX_WALK_TAPS := 8
+const TIMED_WAIT_FRAME_CAP := 6000
+const TIMED_WAIT_WALL_MSEC := 10000
+# Only absorbs subtraction rounding; this never changes the live charge threshold.
+const TIMED_WAIT_EPSILON_SEC := 0.000001
 
 var main: ReefMain
 var bad := 0
@@ -35,7 +39,7 @@ func _init() -> void:
 	get_root().remove_child(main)
 	main.free()
 	await process_frame
-	quit()
+	quit(1 if bad > 0 else 0)
 
 func _ck(label: String, ok: bool) -> void:
 	print("TUTORIAL|", label, ": ", "OK" if ok else "FAIL")
@@ -45,6 +49,32 @@ func _ck(label: String, ok: bool) -> void:
 func _frames(count: int) -> void:
 	for _i in range(count):
 		await process_frame
+
+# Observe completed tutorial delta, with frame/wall watchdogs only as failure caps.
+# A monitored hold never receives another input and must stay live until full power.
+func _wait_tutorial_time(tut: CombatTutorial, duration: float,
+		held_target: Dictionary = {}) -> Dictionary:
+	var started: float = tut.elapsed
+	var elapsed: float = 0.0
+	var early_target_exit: bool = false
+	var lost_charge: bool = false
+	var wall_deadline: int = Time.get_ticks_msec() + TIMED_WAIT_WALL_MSEC
+	for _frame in range(TIMED_WAIT_FRAME_CAP):
+		if not is_instance_valid(tut) or main.combat_tutorial_game != tut:
+			break
+		elapsed = tut.elapsed - started
+		if elapsed + TIMED_WAIT_EPSILON_SEC >= duration:
+			return {"complete": true, "elapsed": elapsed,
+				"early_target_exit": early_target_exit, "lost_charge": lost_charge}
+		if not held_target.is_empty():
+			early_target_exit = early_target_exit \
+				or String(held_target.get("state", "")) != "active"
+			lost_charge = lost_charge or tut.he.charge_enemy != held_target
+		if Time.get_ticks_msec() >= wall_deadline:
+			break
+		await process_frame
+	return {"complete": false, "elapsed": elapsed,
+		"early_target_exit": early_target_exit, "lost_charge": lost_charge}
 
 func _touch(at: Vector2) -> void:
 	var down := InputEventMouseButton.new()
@@ -166,16 +196,36 @@ func _class_case() -> void:
 	await _frames(2)
 	_ck("the 1-2-3 combo pops the imp into the CHARGE lesson",
 		tut.lesson == "charge")
-	await _frames(25)   # let the combo window lapse so the hold is a clean read
+	# Frame count does not prove expiry under scaled, uncapped headless time.
+	# Let the ordinary shared-engine combo expire without resetting its state.
+	var combo_wait: Dictionary = await _wait_tutorial_time(tut, HitEngine.CHAIN_T)
+	_ck("the prior combo expires through passive game time",
+		bool(combo_wait["complete"]) and tut.he.chain == 0
+		and tut.he.chain_t == 0.0 and not tut.he.super_armed)
 	var second: Dictionary = tut._lesson_target()
 	_ck("a fresh sparring imp waits", not second.is_empty() and int(second["hp"]) == 3)
+	_ck("passive combo expiry preserves the charge lesson and untouched imp",
+		tut.lesson == "charge" and not second.is_empty()
+		and String(second.get("state", "")) == "active"
+		and int(second.get("hp", 0)) == 3 and tut.he.charge_enemy.is_empty())
 	_ck("the prior combo does not hide the new hold demonstration", tut.demo.visible)
 	await _capture("03_hold")
 	var pos: Vector2 = tut.cam.unproject_position(tut.he.aim_point(second))
 	main._on_world_press(pos)   # press-fire tap, then HOLD — no release
-	await _frames(20)           # past the engine's live 1.75 s full-charge time
+	_ck("one ordinary press starts a live charge on the surviving imp",
+		int(second.get("hp", 0)) == 2 and String(second.get("state", "")) == "active"
+		and tut.he.charge_enemy == second and tut.he.charge_t == 0.0
+		and not tut.he.super_armed)
+	var charge_wait: Dictionary = await _wait_tutorial_time(
+		tut, float(HitEngine.CHARGE_STAGE_T[2]), second)
+	_ck("held input reaches the unchanged full-charge duration",
+		bool(charge_wait["complete"])
+		and float(charge_wait["elapsed"]) + TIMED_WAIT_EPSILON_SEC >= float(HitEngine.CHARGE_STAGE_T[2]))
+	_ck("the held imp cannot pop before full power", not bool(charge_wait["early_target_exit"]))
+	_ck("held input cannot lose its charge before full power", not bool(charge_wait["lost_charge"]))
 	_ck("a full charge fells the imp and opens the graduation wave",
-		tut.lesson == "wave" and String(second["state"]) != "active")
+		tut.lesson == "wave" and String(second["state"]) != "active"
+		and tut.he.charge_enemy.is_empty())
 	await _frames(2)
 	_ck("the class has no partner-bubble overlay lesson",
 		not CombatTutorial.LESSONS.has("partner") and tut.enemies.size() >= 4)

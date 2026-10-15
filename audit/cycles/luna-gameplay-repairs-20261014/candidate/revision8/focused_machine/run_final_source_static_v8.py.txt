@@ -1,0 +1,18 @@
+from pathlib import Path
+import subprocess,json,hashlib,sys
+s=Path(__file__).resolve().parent
+r=Path(r"C:/Users/Peter/.codex/worktrees/luna-gameplay-repairs-20261014/mermaid-roshan-reef")
+label="static-parser-inference-revision8-01"
+out=s/(label+".json");log=s/(label+".log")
+if out.exists() or log.exists():raise SystemExit("Refusing overwrite")
+pin=(s/"candidate-runtime-sources.json").read_bytes();sha=lambda b:hashlib.sha256(b).hexdigest()
+if sha(pin)!="786bc13b36002f919b689a13870e475bd86a8fa32cc1f39eacd661fea03a2388":raise SystemExit("Expected revision8")
+files=[n for n in subprocess.run(["git","diff","--name-only","-z","HEAD","--","scripts"],cwd=r,capture_output=True,check=True).stdout.decode().split("\0") if n.endswith(".gd")]
+hashes={n:sha((r/n).read_bytes()) for n in files};checks=[]
+with log.open("xb") as f:
+ for cmd in [[sys.executable,"-B","-m","gdtoolkit.parser",*files],[sys.executable,"-B","tools/lint_inference.py",*files]]:
+  a=subprocess.run(cmd,cwd=r,stdout=f,stderr=subprocess.STDOUT);checks.append({"command":cmd,"exit_code":a.returncode})
+mismatches=[n for n,h in hashes.items() if sha((r/n).read_bytes())!=h];samepin=pin==(s/"candidate-runtime-sources.json").read_bytes()
+d={"schema":"luna.static-check/1","source_pin_sha256":sha(pin),"source_pin_unchanged":samepin,"files":hashes,"checks":checks,"mismatches":mismatches,"log_sha256":sha(log.read_bytes()),"passed":bool(files) and all(x["exit_code"]==0 for x in checks) and not mismatches and samepin}
+with out.open("x") as f:json.dump(d,f,indent=2);f.write("\n")
+print(json.dumps({"files":len(files),"passed":d["passed"]}));raise SystemExit(0 if d["passed"] else 1)

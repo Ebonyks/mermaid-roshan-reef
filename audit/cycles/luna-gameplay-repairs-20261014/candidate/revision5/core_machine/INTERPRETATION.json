@@ -1,0 +1,74 @@
+{
+  "excluded": "route04 and child checkpoint artifacts, mutable active pin, newer revisions, executable source writes, asset/model payloads.",
+  "external_acceptance": {
+    "audible_listening": "NOT_MEASURED",
+    "child": "NOT_MEASURED",
+    "mobile_pixels": "NOT_MEASURED",
+    "owner_creative_acceptance": "NOT_MEASURED",
+    "physical_device": "NOT_MEASURED"
+  },
+  "focused_gates": {
+    "dolls-objective-02": {
+      "exit_code": 0,
+      "receipt": "focused_gates/dolls-objective-02.json",
+      "scope": "Machine validation; no physical-device/child/owner acceptance",
+      "status": "PASS"
+    },
+    "main-analyzer-01": {
+      "exit_code": 0,
+      "receipt": "focused_gates/main-analyzer-01.json",
+      "scope": "Machine validation; no physical-device/child/owner acceptance",
+      "status": "PASS"
+    },
+    "seek-objective-02": {
+      "exit_code": 0,
+      "receipt": "focused_gates/seek-objective-02.json",
+      "scope": "Machine validation; no physical-device/child/owner acceptance",
+      "status": "PASS"
+    },
+    "voice-routing-02": {
+      "exit_code": 0,
+      "receipt": "focused_gates/voice-routing-02.json",
+      "scope": "Machine validation; no physical-device/child/owner acceptance",
+      "status": "PASS"
+    }
+  },
+  "growth_waiver": "Parent records the bounded one-line ownership waiver and audio-service migration follow-up in impact; no waiver/impact edit by this archive task.",
+  "historical_evidence_manifest": "Unchanged; this core_machine manifest is independent.",
+  "ownership_review_chronology": "The immutable candidate/audio_ownership review archive truthfully records implementation pending at its earlier preparation time. This separate native revision5 application receipt records subsequent application; the old review receipt/manifest is not rewritten.",
+  "remaining_route_and_full_suite": "Not established by this core archive. Root owns future fullCI records; route04 is excluded to avoid overlapping the Chapter archive.",
+  "required_objective_and_protected_policy": "Existing focused voice/Seek/Dolls assertions pass with main-owned Guide state. No audio generation, protected-original byte change or global family-speaker policy widening is claimed or performed.",
+  "revision": 5,
+  "schema": "reef.revision5-core-machine-evidence-interpretation.v1",
+  "scope": "Completed applied ownership/config/static/focused machine evidence only; Chapter route04 and all milestone child archives remain separate Chapter-agent ownership.",
+  "source_application": {
+    "application": "native/candidate-revision5-application.json",
+    "config": "native/reviewed-revision5.json",
+    "files": [
+      {
+        "after_sha256": "c2010e40d3e3e0ebb6928d1fab1efe9b997416c8a72a9ab8c547df5589552886",
+        "before_sha256": "000f6f196978192c377af45c2418202890b18327ae9bf0877003055007d0b75e",
+        "path": "scripts/audio_director.gd"
+      },
+      {
+        "after_sha256": "b7141748c9664fa4023d254495fd61ae4e80d6e536c3ada3972c2ea0104696c7",
+        "before_sha256": "841efbfa74a61ed14775fa7c2b19e6ff7f54b0a2c4af04d1b08c345440d6f880",
+        "path": "scripts/main.gd"
+      },
+      {
+        "after_sha256": "f47ba18ee569381fae3b79bae09b337eedfb3cd5db500eefc91b25325f433380",
+        "before_sha256": "551f489b11ee85f292f2242b3cf877abaaaaaf44f5d04c1671f63d23648e3bd3",
+        "path": "scripts/probe_chapter2.gd"
+      }
+    ],
+    "pin": "native/candidate-runtime-sources.v5.json",
+    "scope": "Only packet-new active Guide mode is main-owned; historical helper required-key/queue state remains. The accompanying reviewed probe-only viewport backend/init correction is part of the native revision5 application.",
+    "status": "APPLIED_AND_HASH_BOUND_BY_NATIVE_RECEIPT"
+  },
+  "static": {
+    "gdscript_file_count": 19,
+    "inference": "PASS",
+    "parser": "PASS",
+    "source_pin_unchanged": true
+  }
+}

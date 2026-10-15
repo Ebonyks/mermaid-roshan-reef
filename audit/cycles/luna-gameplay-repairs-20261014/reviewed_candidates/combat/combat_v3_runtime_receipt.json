@@ -1,0 +1,33 @@
+{
+  "schema": "combat_probe_v3_bounded_runtime/1",
+  "scope": "Scratch probe corrections against unchanged original runtime; sequential, disposable profiles; no historical production-defect closure.",
+  "source_commit": "056d890ef38f2496ab52669c955ada654f902511",
+  "attempts": [
+    {
+      "label": "tutorial-fidelity-v3-baseline-01",
+      "receipt": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\diagnostics\\tutorial-fidelity-v3-baseline-01.json",
+      "log_sha256": "744b4d5752836b437e1eccd3dc9fa32b0328a8c7383acbaa1f367fb27cba925f",
+      "exit_code": 0,
+      "source_mismatches": [],
+      "failure_lines": [],
+      "terminal_all_ok": true,
+      "verdict": "PASS"
+    },
+    {
+      "label": "dust-fidelity-v3-baseline-01",
+      "receipt": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\diagnostics\\dust-fidelity-v3-baseline-01.json",
+      "log_sha256": "710c18de6282a2a565fc8db001aed4d1b6ad96cd2347e27134743f840e6d1d4b",
+      "exit_code": 0,
+      "source_mismatches": [],
+      "failure_lines": [],
+      "terminal_all_ok": true,
+      "verdict": "PASS"
+    }
+  ],
+  "acceptance_gaps": [
+    "Physical Android input and rendering not measured.",
+    "Prerequisites are injected; no ordinary fresh-save game-wide traversal established.",
+    "Original125/202 and189 causes retain their recorded uncertainties; no failure erased.",
+    "Scratch candidate source is not applied to the integration checkout; full exact-candidate regression remains separate."
+  ]
+}

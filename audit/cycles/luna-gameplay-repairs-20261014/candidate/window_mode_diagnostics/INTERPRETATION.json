@@ -1,0 +1,22 @@
+{
+  "schema": "reef.window-mode-diagnostics-interpretation.v1",
+  "scope": "Frozen failed route03 evidence, standalone no-Main/no-save control, and reviewed mode/timing02 candidate source; no later route result accepted here",
+  "control_result": "PASS; postinitialization geometry1280x720/reportmode1 observed;1024x720\u2192visible1280x900 negative rejects; restored landscape accepted",
+  "control_log_sha256": "cb13e22cdad1c994026e914799f4ccda877df68afe75673d8362a896b0da17c7",
+  "source_pin_sha256": "65e7968c2c3016d4ca214d9bdf65d43203e9a1763eb089e73ce0ff0337ed9061",
+  "source_pin_unchanged": true,
+  "old_geometry": "Preinitialization sizing was reset to64x64/window and1280x1280 visible rect in the actual control",
+  "patch_scope": "Await initial frame before sizing, retain all origin/window/content/visible geometry assertions, headless-only reported MINIMIZED mode; native backends require requested WINDOWED",
+  "receipt_chronology": "Preparation receipt NOT_RUN status retained. Standalone control PASS does not convert route03 into PASS or establish a later full route.",
+  "failed_route03_native_availability": {
+    ".json": true,
+    ".log": true,
+    ".sources.json": true,
+    ".started.json": true
+  },
+  "limits": [
+    "No device/rendered-pixel/child/owner acceptance.",
+    "No later route04 inputs reconstructed or copied by this packet.",
+    "No project/production/pin/runtime mutation by archive."
+  ]
+}

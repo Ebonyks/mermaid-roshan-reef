@@ -1,0 +1,108 @@
+{
+  "schema": "combat_probe_reliability_audit_notes/1",
+  "status": "CANDIDATE_ONLY_STATIC_VERIFIED_RUNTIME_PENDING",
+  "baseline": "056d890ef38f2496ab52669c955ada654f902511",
+  "engine": "4.7.2.stable.official.ed1daf0bf",
+  "scope": "Only probe_dust_boss.gd and probe_combat_tutorial.gd observations. No production behavior, art, voice, save, difficulty, story route, engine or acceptance-floor edits.",
+  "rules": [
+    "DL-AUTH-02",
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-QA-01",
+    "DL-QA-02",
+    "DL-QA-07",
+    "DL-AGE-04",
+    "DL-AGE-07",
+    "DL-UI-01",
+    "DL-CODE-05"
+  ],
+  "related_finding": "MA-CI-007",
+  "context_findings_unchanged": [
+    "MA-COMBAT-001",
+    "MA-TOUCH-001",
+    "MA-PLAY-001"
+  ],
+  "exact_contracts": {
+    "dust": {
+      "requested_destination_error_lt": 0.05,
+      "response_wait_process_frames": 2,
+      "movement_distance_gt": 0.05,
+      "production_arrival_distance_lte": 0.12,
+      "rendered_30fps_response_acceptance": "Not established by headless process frames."
+    },
+    "tutorial": {
+      "ordinary_combo_seconds": 2,
+      "full_charge_seconds": 1.75,
+      "elapsed_subtraction_epsilon_seconds": 0.000001,
+      "frame_failure_cap": 6000,
+      "wall_failure_cap_ms": 10000,
+      "threshold_authority": "HitEngine.CHAIN_T and CHARGE_STAGE_T[2] are unchanged; epsilon affects only observation rounding."
+    }
+  },
+  "non_vacuity_review": {
+    "combo": "The helper can complete only after tutorial elapsed delta reaches the requested duration within1e-6s. It never writes chain/SUPER/HP/lesson state. A separate assertion requires complete=true, chain0, chain_t0 and no SUPER; another requires active HP3 and the charge lesson.",
+    "press": "A separate immediate assertion requires HP2, active target, matching live charge, charge_t0 and no SUPER. A SUPER kill, Big Tap or missing/misdirected charge makes the gate red.",
+    "hold": "The helper receives no additional input. It records target exit and lost charge at every sampled boundary earlier than the same threshold-minus1e-6s observation boundary. Completion, observed duration, early death, lost charge, and wave/death/empty-charge are separately required. Wall/frame timeout returns complete=false. A disappearance or cancelled charge cannot silently count as completed hold.",
+    "dust": "Arm and destination are captured synchronously after the valid press. Position is frozen immediately after the unchanged two-frame wait, before stdout. Actual movement remains strictly>0.05. A completed arrival may be idle. Independent component assertions reject cancelled movement, zero movement even with armed=true, and displacement with armed=false.",
+    "numerical_edge": "A named1e-6s epsilon absorbs charge-sum versus elapsed-subtraction rounding only. It is used consistently for helper completion and final elapsed assertion, and early checks occur only outside that same boundary. Gameplay constants and action meaning are unchanged.",
+    "coverage_limit": "Frame-step observers cannot prove subframe behavior, rendered latency, physical held-touch ownership or child comprehension. Existing directly configured setup remains diagnostic under DL-QA-02."
+  },
+  "evidence": [
+    {
+      "path": "diagnostics/arrival-conjunction-baseline.log",
+      "sha256": "ab4096503d491f3f1bd69ea4a8acee53471f766c049d7b77189a3991e66a7e2d",
+      "result": "PASS",
+      "claim": "Exact-engine component proof: correct arrival clears travelling and falsifies the original conjunction; cancellation does not move. Does not reproduce episode125 encounter failure."
+    },
+    {
+      "path": "diagnostics/dust-buffered-baseline-01.log",
+      "sha256": "10f91a169373ad9d1751cd0ef5b2ef32b48825b3ce9a1ceedf32f1ac183d4942",
+      "result": "PASS",
+      "claim": "One unchanged-source buffered encounter run moved8.259647 during recovery, remained travelling, and passed. Historical failing conjunction still lacks state decomposition."
+    },
+    {
+      "path": "diagnostics/tutorial-buffered-v2-baseline-01.log",
+      "sha256": "a9707920298cb8119968207e99305a5b6cb6c9b68672b9481bef1f917544211c",
+      "result": "PASS_WITH_FALSE_POSITIVE_CHARGE_COVERAGE",
+      "claim": "The original25-frame reset wait left chain3/SUPERtrue/chain_t0.63256. Next press consumed SUPER, changed HP3 to0, and never charged. Subsequent20frames accrued0.83193 game seconds. This confirms the shortcut for this run, not the exact original189 cause."
+    },
+    {
+      "path": "durable luna-evidence/episodes/125.log and root_reproductions/episodes/125.log",
+      "sha256": "1a758f04cfafa6f7d7c87de68d08c09a59d5fd8dfabbffef17a9e91849a9feb9",
+      "result": "PRESERVED_FAIL",
+      "claim": "Byte-identical original failure retained."
+    },
+    {
+      "path": "durable luna-evidence/episodes/189.log",
+      "sha256": "c42830e621f7137cece41c43e781b70cd5836ab2a71df1943cb8dce3423ebca1",
+      "result": "PRESERVED_FAIL",
+      "claim": "Original two dependent assertion failures retained despite passing repeats."
+    }
+  ],
+  "suggested_finding_history_text": "2026-10-14: bounded probe-fidelity candidate at baseline056d890ef38f2496ab52669c955ada654f902511 preserves primary125/independent202 and primary189 red results. Exact Godot4.7.2 component evidence shows a correct arrival can clear travelling and reject the old movement conjunction; the historical encounter failure lacks buffered state and its exact cause remains unresolved. Buffered tutorial evidence confirms one apparent charge PASS was an inherited SUPER tap with no held charge. The candidate changes only these two probes to separate destination arming from two-frame movement and to prove ordinary combo expiry plus a real unchanged1.75s hold. Static checks pass; exact-candidate runtime/regression evidence is pending. MA-CI-007 remains CONFIRMED_OPEN: this scoped repair does not supply its broader shared-harness acceptance or close production/device/child/owner findings.",
+  "suggested_result_wording": "Implemented probe observation fixes only; named machine checks report their exact candidate and preserved failures. Historical intermittent encounter causes remain scoped uncertainties. Physical device, rendered two-frame response, voice, ordinary route, child and owner evidence remain outstanding.",
+  "static_checks": [
+    {
+      "command": "python -m gdtoolkit.parser tmp/luna_repair_20261014/combat/patches/probe_dust_boss_v2.gd tmp/luna_repair_20261014/combat/patches/probe_combat_tutorial_v2.gd",
+      "result": "PASS",
+      "exit_code": 0,
+      "output": ""
+    },
+    {
+      "command": "python -B tools/lint_inference.py tmp/luna_repair_20261014/combat/patches/probe_dust_boss_v2.gd tmp/luna_repair_20261014/combat/patches/probe_combat_tutorial_v2.gd",
+      "result": "PASS",
+      "exit_code": 0,
+      "output": ""
+    },
+    {
+      "command": "git apply --check --whitespace=error-all tmp/luna_repair_20261014/combat/patches/combat_probe_fidelity_v2.patch",
+      "result": "PASS",
+      "exit_code": 0,
+      "output": ""
+    }
+  ],
+  "post_fix_runtime": "NOT_RUN",
+  "preserved_prior_patch_sha256": "12bdf7505553f3d9f021d63de0c167f7969da4237eb7a7ac14a6d371f1629ebb",
+  "candidate_v2_patch_sha256": "62e01a3468f0464f408520ce3a86239e5a8093d51f842f36e03ad5bc009c92c9"
+}

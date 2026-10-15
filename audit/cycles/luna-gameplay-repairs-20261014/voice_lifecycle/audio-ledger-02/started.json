@@ -1,0 +1,29 @@
+{
+  "schema": "reef.audio-ledger-refresh.v1",
+  "started_utc": "2026-10-15T02:43:34.911695+00:00",
+  "root": "C:\\Users\\Peter\\.codex\\worktrees\\luna-gameplay-repairs-20261014\\mermaid-roshan-reef",
+  "runner_sha256": "47b3b55bc5ba61908bafeee856bb0113c367bfda6ee4819c5b31fdff2bfdc81b",
+  "pin_sha256": "41ddb5cd9550c06345325a8a99eb115ceb5f2ffe385c64163f72118385205e3b",
+  "pinned_file_count": 5682,
+  "authorized_project_outputs": [
+    "audit/audio_quality_ledger_2026-08-24.csv",
+    "audit/audio_quality_summary_2026-08-24.json"
+  ],
+  "output_before_sha256": {
+    "audit/audio_quality_ledger_2026-08-24.csv": "12ced827825b9398aab7731562f75e5655c9671d79c3da77e22d6ce94116c6ad",
+    "audit/audio_quality_summary_2026-08-24.json": "b258c8c4210308976a9bd9200b9b42e408ee68b0347cf3ca73cb432cc5fcf685"
+  },
+  "stages": [],
+  "acceptance": "Machine only; human/device/child/owner acceptance OPEN",
+  "ffmpeg": {
+    "path": "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\FFmpeg\\8.1.2\\bin\\ffmpeg.EXE",
+    "sha256": "1326dde4c84ff1f96fe6b8916c5bed29e163e9b5dccf995f6f3db069d143ec5e",
+    "version": "ffmpeg version 8.1.2-essentials_build-www.gyan.dev Copyright (c) 2000-2026 the FFmpeg developers"
+  },
+  "ffprobe": {
+    "path": "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\FFmpeg\\8.1.2\\bin\\ffprobe.EXE",
+    "sha256": "b49ccc7c6547b141ad5a2f6ec69cc04323d7133d7704d70b331b904c63eecb07",
+    "version": "ffprobe version 8.1.2-essentials_build-www.gyan.dev Copyright (c) 2007-2026 the FFmpeg developers"
+  },
+  "pin_mismatches_before": []
+}

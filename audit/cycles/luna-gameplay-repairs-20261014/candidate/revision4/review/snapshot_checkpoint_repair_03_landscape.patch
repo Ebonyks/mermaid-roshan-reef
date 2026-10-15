@@ -1,0 +1,207 @@
+--- a/scripts/probe_chapter2.gd
++++ b/scripts/probe_chapter2.gd
+@@ -64,6 +64,7 @@
+ 	_audit_eight_career_sequence()
+ 	_audit_save_healing()
+ 	_audit_ember_protection_contract()
++	_audit_fixture_snapshot_comparison()
+ 	# The pure director fixture never enters the tree, and is released before
+ 	# any production main/audio/input/save owner is constructed.
+ 	main.free()
+@@ -1234,7 +1235,27 @@
+ 	fixture_loaded_snapshot = _fixture_snapshot(candidate)
+ 
+ 
++func _fixture_landscape_viewport() -> void:
++	# A headless --script root can retain a square backend window. Exercise
++	# the game's canonical landscape canvas in both parent and resume child.
++	# The project's canvas_items and expand settings remain unchanged.
++	root.mode = Window.MODE_WINDOWED
++	root.size = Vector2i(1280, 720)
++	root.content_scale_size = Vector2i(1280, 720)
++	await process_frame
++	var visible := root.get_visible_rect()
++	_check("fixture: canonical landscape viewport is 1280x720 before production boot",
++		root.mode == Window.MODE_WINDOWED and root.size == Vector2i(1280, 720)
++		and root.content_scale_size == Vector2i(1280, 720)
++		and visible.position == Vector2.ZERO and visible.size == Vector2(1280, 720))
++	print("CHAPTER2|viewport fixture: ", JSON.stringify({"window_size": str(root.size),
++		"content_scale_size": str(root.content_scale_size), "visible_origin": str(visible.position),
++		"visible_size": str(visible.size), "content_scale_mode": root.content_scale_mode,
++		"content_scale_aspect": root.content_scale_aspect, "process_id": OS.get_process_id()}))
++
++
+ func _fixture_boot_scene() -> ReefMain:
++	await _fixture_landscape_viewport()
+ 	_check("there is no prior production scene owner", current_scene == null
+ 		and _fixture_owner_count() == 0)
+ 	var packed := load(MAIN_SCENE_PATH) as PackedScene
+@@ -1304,6 +1325,79 @@
+ 	return snapshot
+ 
+ 
++func _fixture_snapshots_equal(actual: Dictionary, expected: Dictionary) -> bool:
++	# The receipt is JSON: its arrays are untyped and its numbers are floats.
++	# Compare both snapshots in that same domain, preserving keys, order,
++	# booleans, strings and full-precision numeric values. These earned probe
++	# counters/masks stay below JSON's exact-integer limit.
++	if not _fixture_json_safe(actual) or not _fixture_json_safe(expected):
++		return false
++	var actual_json: Variant = JSON.parse_string(JSON.stringify(actual, "", true, true))
++	var expected_json: Variant = JSON.parse_string(JSON.stringify(expected, "", true, true))
++	return actual_json is Dictionary and expected_json is Dictionary and actual_json == expected_json
++
++
++func _fixture_json_safe(value: Variant, depth: int = 0) -> bool:
++	if depth > 32:
++		return false
++	match typeof(value):
++		TYPE_NIL, TYPE_BOOL, TYPE_STRING:
++			return true
++		TYPE_INT:
++			return value >= -9007199254740991 and value <= 9007199254740991
++		TYPE_FLOAT:
++			var number := float(value)
++			return is_finite(number) and number >= -9007199254740991.0 and number <= 9007199254740991.0
++		TYPE_ARRAY:
++			for item: Variant in value as Array:
++				if not _fixture_json_safe(item, depth + 1):
++					return false
++			return true
++		TYPE_DICTIONARY:
++			var dictionary := value as Dictionary
++			for key: Variant in dictionary:
++				if not key is String or not _fixture_json_safe(dictionary[key], depth + 1):
++					return false
++			return true
++	return false
++
++
++func _audit_fixture_snapshot_comparison() -> void:
++	var masks: Array[int] = [7, 0, 0, 0, 0, 0, 0, 0]
++	var native := {"masks": masks, "done": false, "objective": "party_prep", "count": 19}
++	var from_json: Dictionary = JSON.parse_string(JSON.stringify(native)) as Dictionary
++	_check("fixture snapshot comparison accepts the exact JSON serialization boundary",
++		_fixture_snapshots_equal(native, from_json))
++	var changed := from_json.duplicate(true)
++	var changed_masks := changed["masks"] as Array
++	changed_masks[0] = 3
++	var reordered := from_json.duplicate(true)
++	var reordered_masks := reordered["masks"] as Array
++	reordered_masks.reverse()
++	var missing := from_json.duplicate(true)
++	missing.erase("done")
++	var extra := from_json.duplicate(true)
++	extra["unexpected"] = false
++	var wrong_bool := from_json.duplicate(true)
++	wrong_bool["done"] = 0
++	var wrong_text := from_json.duplicate(true)
++	wrong_text["objective"] = "story_complete"
++	var fraction := from_json.duplicate(true)
++	fraction["count"] = 19.5
++	_check("fixture snapshot comparison rejects changed masks, order, keys, booleans, strings and numbers",
++		not _fixture_snapshots_equal(native, changed) and not _fixture_snapshots_equal(native, reordered)
++		and not _fixture_snapshots_equal(native, missing) and not _fixture_snapshots_equal(native, extra)
++		and not _fixture_snapshots_equal(native, wrong_bool) and not _fixture_snapshots_equal(native, wrong_text)
++		and not _fixture_snapshots_equal(native, fraction))
++	var unsafe := {"count": 9007199254740992}
++	var nonfinite := {"count": INF}
++	var unsupported := {"value": Vector2.ZERO}
++	_check("fixture snapshot comparison rejects unsafe integers, nonfinite values and unsupported types",
++		not _fixture_snapshots_equal(unsafe, unsafe)
++		and not _fixture_snapshots_equal(nonfinite, nonfinite)
++		and not _fixture_snapshots_equal(unsupported, unsupported))
++
++
+ func _fixture_release_scene(host: ReefMain) -> bool:
+ 	if host != null and is_instance_valid(host):
+ 		host.notification(MainLoop.NOTIFICATION_APPLICATION_PAUSED)
+@@ -1319,13 +1413,14 @@
+ 
+ 
+ func _fixture_checkpoint_restart(host: ReefMain, label: String) -> ReefMain:
++	var checkpoint_failures := checks_failed
+ 	var earned := _fixture_snapshot(host)
+ 	if not await _fixture_release_scene(host):
+-		return host
++		return null
+ 	var committed: Variant = JSON.parse_string(FileAccess.get_file_as_string(fixture_save_path))
+ 	_check("milestone %s has a committed primary" % label, committed is Dictionary)
+ 	if not committed is Dictionary:
+-		return await _fixture_boot_scene()
++		return null
+ 	var stem := fixture_save_path + ".milestone_" + label
+ 	var expected_path := stem + ".expected.json"
+ 	var receipt_path := expected_path + ".receipt.json"
+@@ -1340,14 +1435,14 @@
+ 		and not FileAccess.file_exists(started_path))
+ 	if FileAccess.file_exists(expected_path) or FileAccess.file_exists(receipt_path) \
+ 			or FileAccess.file_exists(log_path) or FileAccess.file_exists(started_path):
+-		return await _fixture_boot_scene()
++		return null
+ 	var expected := {"snapshot": earned, "generation": generation,
+ 		"primary_sha256": primary_hash, "backup_sha256": backup_hash,
+ 		"parent_process_id": OS.get_process_id(), "label": label, "script_sha256": script_hash}
+ 	var file := FileAccess.open(expected_path, FileAccess.WRITE)
+ 	_check("milestone expectation receipt opens", file != null)
+ 	if file == null:
+-		return await _fixture_boot_scene()
++		return null
+ 	file.store_string(JSON.stringify(expected))
+ 	file.close()
+ 	var args := PackedStringArray(["--headless", "--path", ProjectSettings.globalize_path("res://"),
+@@ -1392,20 +1487,34 @@
+ 					and String(receipt.get("preboot_primary_sha256", "")) == primary_hash \
+ 					and String(receipt.get("preboot_backup_sha256", "")) == backup_hash \
+ 					and String(receipt.get("script_sha256", "")) == script_hash \
+-					and (receipt.get("loaded_snapshot", {}) as Dictionary) == earned
++					and _fixture_snapshots_equal(receipt.get("loaded_snapshot", {}) as Dictionary, earned)
+ 			var child_log := FileAccess.get_file_as_string(log_path) if FileAccess.file_exists(log_path) else ""
+-			_check("milestone %s fresh process proves exact bytes, loaded state and Continue" % label,
+-				child_exit == 0 and valid and not child_log.is_empty()
++			var verified := child_exit == 0 and valid and not child_log.is_empty() \
+ 				and not child_log.contains("FAIL") and not child_log.contains("SCRIPT ERROR:") \
+-				and not child_log.contains("ERROR:"))
++				and not child_log.contains("ERROR:")
++			_check("milestone %s fresh process proves exact bytes, loaded state and Continue" % label, verified)
+ 			print("CHAPTER2|milestone=", label, " child_pid=", child_pid, " exit=", child_exit,
+ 				" receipt=", receipt_path, " log=", log_path, " primary_sha256=", primary_hash)
++	# Never exercise dependent careers after an invalid child checkpoint. The
++	# failed receipt remains intact and no replacement save writer is started.
++	if child_pid <= 0 or checks_failed != checkpoint_failures:
++		return null
+ 	var resumed := await _fixture_boot_scene()
+-	_check("parent resumes the same earned milestone after child exit", fixture_loaded_snapshot == earned)
++	_check("parent resumes the same earned milestone after child exit",
++		_fixture_snapshots_equal(fixture_loaded_snapshot, earned))
++	if checks_failed != checkpoint_failures:
++		await _fixture_release_scene(resumed)
++		return null
+ 	await _fixture_consume_menu(resumed)
++	if checks_failed != checkpoint_failures:
++		await _fixture_release_scene(resumed)
++		return null
+ 	if label == "story_complete":
+ 		_check("parent Continue restores the earned party dress and completed story",
+ 			FashionDesigner.party_dressed(resumed) and resumed.chapter2_story_complete)
++	if checks_failed != checkpoint_failures:
++		await _fixture_release_scene(resumed)
++		return null
+ 	resumed._enter_castle_interior_now(false)
+ 	await process_frame
+ 	return resumed
+@@ -1436,11 +1545,12 @@
+ 	var loaded := fixture_loaded_snapshot.duplicate(true)
+ 	var generation := fixture_loaded_generation
+ 	_check("child ready callback captures the exact saved milestone and generation",
+-		loaded == (record.get("snapshot", {}) as Dictionary)
++		_fixture_snapshots_equal(loaded, record.get("snapshot", {}) as Dictionary)
+ 		and generation == int(record.get("generation", -1)))
+ 	await _fixture_consume_menu(host)
+ 	_check("real Continue preserves earned chapter and freeplay state",
+-		_fixture_snapshot(host) == loaded and not host.start_menu_active and fixture_boot_count == 1)
++		_fixture_snapshots_equal(_fixture_snapshot(host), loaded)
++		and not host.start_menu_active and fixture_boot_count == 1)
+ 	if String(record.get("label", "")) == "story_complete":
+ 		_check("child Continue restores the earned party dress and completed story",
+ 			FashionDesigner.party_dressed(host) and host.chapter2_story_complete)

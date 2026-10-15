@@ -1,0 +1,87 @@
+extends SceneTree
+
+## Standalone production-surface diagnostic only. No room route, director,
+## reward, physical-device touch or visual/child/owner acceptance is claimed.
+const BALLET := preload("res://scripts/opera_ballet_surface.gd")
+const ADAPTER := preload("res://scripts/chapter_two_career_scene_adapter.gd")
+var emitted := 0.0
+var observed_mode := ""
+var failures := 0
+
+func _init() -> void:
+	call_deferred("_run")
+
+func _run() -> void:
+	Engine.time_scale = 8.0
+	for mode: String in ["ballet_ribbon", "ballet_twirl"]:
+		observed_mode = mode
+		emitted = 0.0
+		var surface := BALLET.new() as OperaBalletSurface
+		surface.position = Vector2(382, 20)
+		surface.size = Vector2(854, 660)
+		root.add_child(surface)
+		surface.gesture.connect(_observe)
+		surface.configure(mode, Color.WHITE, 0, "")
+		await process_frame
+		var first := surface.ribbon_point(0.0) if mode == "ballet_ribbon" \
+			else surface.twirl_handle_position()
+		_touch(surface, first, true)
+		await process_frame
+		if mode == "ballet_ribbon":
+			for step in range(1, 101):
+				_drag(surface, surface.ribbon_point(float(step) / 100.0))
+				await process_frame
+		else:
+			var origin := (first - surface.twirl_center()).angle()
+			for step in range(1, 81):
+				_drag(surface, surface.twirl_center() + Vector2.from_angle(
+					origin + float(step) * TAU / 40.0) * surface.twirl_radius())
+				await process_frame
+		_touch(surface, first, false)
+		var completed := surface._mode_complete()
+		var after_action := emitted
+		# Additional real touch cannot generate the absent remaining units after
+		# the authored path/orbit has visibly completed and blocks input.
+		_touch(surface, first, true)
+		_drag(surface, first + Vector2(4, 0))
+		_touch(surface, first, false)
+		var goal := 0.0
+		for phase: Dictionary in (ADAPTER.phase_set("ballerina").get("phases", []) as Array):
+			if String(phase.get("mode", "")) == mode:
+				goal = float(phase.get("goal", 0.0))
+		print("BALLET_STORY_GOALS|mode=%s authored_complete=%s emitted=%.12f story_goal=%.6f extra_touch_delta=%.12f" % [
+			mode, completed, emitted, goal, emitted - after_action])
+		_check("%s completes its actual authored surface through viewport touches" % mode,
+			completed and emitted >= 0.999 and emitted <= 1.000001)
+		_check("%s full authored action can satisfy the unchanged story goal" % mode,
+			completed and emitted + 0.000001 >= goal)
+		surface.queue_free()
+		await process_frame
+	print("BALLET_STORY_GOALS|RESULT: %s failures=%d scope=STANDALONE_SURFACE_DIAGNOSTIC" % [
+		"PASS" if failures == 0 else "FAIL", failures])
+	quit(1 if failures > 0 else 0)
+
+func _point(surface: Control, at: Vector2) -> Vector2:
+	return surface.get_viewport().get_screen_transform() * (surface.get_screen_transform() * at)
+
+func _touch(surface: Control, at: Vector2, pressed: bool) -> void:
+	var event := InputEventScreenTouch.new()
+	event.index = 7
+	event.position = _point(surface, at)
+	event.pressed = pressed
+	surface.get_viewport().push_input(event, false)
+
+func _drag(surface: Control, at: Vector2) -> void:
+	var event := InputEventScreenDrag.new()
+	event.index = 7
+	event.position = _point(surface, at)
+	surface.get_viewport().push_input(event, false)
+
+func _observe(kind: String, amount: float, _quality: float) -> void:
+	if kind == observed_mode:
+		emitted += amount
+
+func _check(label: String, passed: bool) -> void:
+	print("BALLET_STORY_GOALS|%s: %s" % [label, "OK" if passed else "FAIL"])
+	if not passed:
+		failures += 1

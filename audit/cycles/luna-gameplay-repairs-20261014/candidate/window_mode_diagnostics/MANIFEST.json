@@ -1,0 +1,101 @@
+{
+  "schema": "reef.window-mode-diagnostic-archive.v1",
+  "created_utc": "2026-10-15T03:22:31.755151+00:00",
+  "archive_root": "audit/cycles/luna-gameplay-repairs-20261014/candidate/window_mode_diagnostics",
+  "file_count": 13,
+  "files": [
+    {
+      "path": "mode_verifier_repair_02.patch",
+      "bytes": 2008,
+      "sha256": "1a3120d70d7cd82eaca627caf811bd0773ac90b23e9a4b87826a4ca1ee889c49",
+      "source": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\chapter2\\diagnostics\\mode_verifier_repair_02.patch",
+      "role": "EXACT_NATIVE_BYTES"
+    },
+    {
+      "path": "mode_verifier_repair_02.receipt.json",
+      "bytes": 2612,
+      "sha256": "a192942c7f95f6140caa8733a44ba73d47b028ff72a2d256c17047294d6da97a",
+      "source": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\chapter2\\diagnostics\\mode_verifier_repair_02.receipt.json",
+      "role": "EXACT_NATIVE_BYTES"
+    },
+    {
+      "path": "probe_chapter2.mode_verifier_repair_02.gd.txt",
+      "bytes": 83405,
+      "sha256": "5310a456220ff00110b94b623f36a882bd2bff58e6d74e4c8671681cda43b28f",
+      "source": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\chapter2\\diagnostics\\probe_chapter2.gd.mode_verifier_repair_02.txt",
+      "role": "EXACT_NATIVE_BYTES"
+    },
+    {
+      "path": "window_mode_geometry_control_01.gd.txt",
+      "bytes": 2184,
+      "sha256": "180c95d669c7285cd6f94148b30cbdd9806f1923416c33f3a14907677522c749",
+      "source": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\chapter2\\diagnostics\\window_mode_geometry_control_01.gd",
+      "role": "EXACT_NATIVE_BYTES"
+    },
+    {
+      "path": "control/chapter2-window-control-01.json",
+      "bytes": 2675,
+      "sha256": "ebdcc92bfc0bb55a181d1e5b802c312b0a0dcdd99c7704553b62eee88188c353",
+      "source": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\candidate_diagnostics\\chapter2-window-control-01.json",
+      "role": "EXACT_NATIVE_BYTES"
+    },
+    {
+      "path": "control/chapter2-window-control-01.log",
+      "bytes": 1555,
+      "sha256": "cb13e22cdad1c994026e914799f4ccda877df68afe75673d8362a896b0da17c7",
+      "source": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\candidate_diagnostics\\chapter2-window-control-01.log",
+      "role": "EXACT_NATIVE_BYTES"
+    },
+    {
+      "path": "control/chapter2-window-control-01.sources.json",
+      "bytes": 712709,
+      "sha256": "6f9294c1cde81d7c2b15baca141e30d83bb0907c1e3d657c688f23a498c9b68e",
+      "source": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\candidate_diagnostics\\chapter2-window-control-01.sources.json",
+      "role": "EXACT_NATIVE_BYTES"
+    },
+    {
+      "path": "control/chapter2-window-control-01.started.json",
+      "bytes": 2115,
+      "sha256": "c8ef43bdabd82a0ded4b393c0105349e3c0b392924699e2647467e0a888898ae",
+      "source": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\candidate_diagnostics\\chapter2-window-control-01.started.json",
+      "role": "EXACT_NATIVE_BYTES"
+    },
+    {
+      "path": "failed_route03/chapter2-route-03.json",
+      "bytes": 2676,
+      "sha256": "d86d4779e9b5a961f8a7b4ebd4caa669f49b041c187059619082477c67147506",
+      "source": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\candidate_gates\\chapter2-route-03.json",
+      "role": "EXACT_NATIVE_BYTES"
+    },
+    {
+      "path": "failed_route03/chapter2-route-03.log",
+      "bytes": 20617,
+      "sha256": "5170c8fa2f3ccacc07965757853bb225ca6b74b8cfc47293a92fc9e986fb337d",
+      "source": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\candidate_gates\\chapter2-route-03.log",
+      "role": "EXACT_NATIVE_BYTES"
+    },
+    {
+      "path": "failed_route03/chapter2-route-03.sources.json",
+      "bytes": 712709,
+      "sha256": "6f9294c1cde81d7c2b15baca141e30d83bb0907c1e3d657c688f23a498c9b68e",
+      "source": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\candidate_gates\\chapter2-route-03.sources.json",
+      "role": "EXACT_NATIVE_BYTES"
+    },
+    {
+      "path": "failed_route03/chapter2-route-03.started.json",
+      "bytes": 1814,
+      "sha256": "7560769bd19f71546d32dbaf303a953f00d6653489c92077e330dbea11e747c3",
+      "source": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\candidate_gates\\chapter2-route-03.started.json",
+      "role": "EXACT_NATIVE_BYTES"
+    },
+    {
+      "path": "INTERPRETATION.json",
+      "bytes": 1431,
+      "sha256": "c23d682cd7e954d36d8255cb91a75c9509412536ff264f0eed3fff21a80dde94",
+      "source": "DERIVED_FROM_NATIVE_FAILED_ROUTE_AND_CONTROL",
+      "role": "DERIVED_INTERPRETATION"
+    }
+  ],
+  "status": "FAILED_ROUTE_PRESERVED; STANDALONE_CONTROL_PASS; FULL_ROUTE_ACCEPTANCE_SEPARATE",
+  "project_source_pin_runtime_changes": 0
+}

@@ -1,0 +1,22 @@
+--- a/scripts/opera_career_world_2d.gd
++++ b/scripts/opera_career_world_2d.gd
+@@ -2574,8 +2574,8 @@
+ 		# A separate unlit goal overlay competes with the one active blue object
+ 		# and looked like a floating sticker. It returns only for celebration.
+ 		prop_rect.visible = false
+-	var defer_detective_intro := career_id == "detective" and phase_index == 0 \
+-		and mode_name == "lens" and not detective_intro_played
++	var defer_detective_intro := career_id == "detective" and not _is_chapter2_detective_scene() \
++		and phase_index == 0 and mode_name == "lens" and not detective_intro_played
+ 	if m != null and not defer_detective_intro:
+ 		_show_phase_prompt(phase)
+ 	# Bind static game art while clocks are held. The activity itself stays
+@@ -4418,7 +4418,7 @@
+ 		lens_trail_to = lens_clues[0] if not lens_clues.is_empty() \
+ 			else Vector2(0.20, 0.56) * StagePaths.SCREEN
+ 		lens_trail_t = LENS_TRAIL_DURATION
+-		if m != null:
++		if m != null and not _is_chapter2_detective_scene():
+ 			m.say_sequence(DETECTIVE_INTRO_LINES)
+ 
+ 

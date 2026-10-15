@@ -43,17 +43,21 @@ var world_tiles: Array[Texture2D] = []
 var stage_tiles: Array[Texture2D] = []
 var room_variant_tiles: Array[Texture2D] = []
 var sky_lagoon_tiles: Array[Texture2D] = []
+var farmer_basket_texture: Texture2D = null
 
 
 func setup(id: String, variant: String = "") -> void:
 	career_id = id
 	scene_variant = variant
+	farmer_basket_texture = null
+	if scene_variant == "sky_lagoon_farmer":
+		farmer_basket_texture = load("res://assets/castle/day_one_pool/activities/cleanup_basket.png") as Texture2D
 	mouse_filter = Control.MOUSE_FILTER_IGNORE
 	set_meta("chapter2_scene_variant", scene_variant)
 	set_meta("chapter2_scene_specific_2d", not scene_variant.is_empty())
 	set_meta("chapter2_cake_pixels_owned_by_prop",
-		career_id == "chef" and scene_variant == "chapter2_chef_cake")
-	if career_id == "teacher":
+		_is_chapter2_clean_kitchen())
+	if career_id == "teacher" or scene_variant == "magic_storybook":
 		painting = null
 		world_tiles.clear()
 		stage_tiles.clear()
@@ -148,10 +152,17 @@ func _draw_sky_lagoon_farmer() -> void:
 				Vector2(float(column) * half.x, float(row) * half.y), half)
 			draw_texture_rect_region(sky_lagoon_tiles[row * 2 + column],
 				destination, source)
-	# A soft harvest basket makes the task's destination legible without
-	# replacing the approved world art or turning the scene into a card.
-	draw_circle(Vector2(1040.0, 620.0), 48.0, Color("#b87855"))
-	draw_arc(Vector2(1040.0, 618.0), 48.0, PI, TAU, 24, Color("#f0c274"), 8.0)
+	# Reuse the approved empty shell basket; preserve its source pixels and
+	# avoid introducing a pig/corn/barn destination into the strawberry job.
+	if farmer_basket_texture != null:
+		var bounds := Rect2(983, 560, 114, 120)
+		var source_size := farmer_basket_texture.get_size()
+		var factor := minf(bounds.size.x / source_size.x, bounds.size.y / source_size.y)
+		var drawn := source_size * factor
+		# Preserve the existing ground support at bottom-center (1040, 680).
+		var destination := Rect2(Vector2(bounds.get_center().x - drawn.x * 0.5,
+			bounds.end.y - drawn.y), drawn)
+		draw_texture_rect(farmer_basket_texture, destination, false)
 
 
 func _load_tile_set(kind: String) -> Array[Texture2D]:
@@ -159,7 +170,7 @@ func _load_tile_set(kind: String) -> Array[Texture2D]:
 	for row in range(2):
 		for column in range(2):
 			var path: String
-			if career_id == "chef" and scene_variant == "chapter2_chef_cake" and kind == "world":
+			if kind == "world" and scene_variant in ["chapter2_chef_cake", "strawberry_cake_workshop"]:
 				path = "res://assets/opera/worlds/backdrops/chef_story_clean_v1/world_chef_c%dr%d.png" % [column, row]
 			elif career_id == "ballerina" and kind == "stage":
 				path = "res://assets/opera/worlds/stage/finale_stage_c%dr%d.png" % [column, row]
@@ -209,8 +220,13 @@ func set_stage(on_stage: bool) -> void:
 	queue_redraw()
 
 
+func _is_chapter2_clean_kitchen() -> bool:
+	return (career_id == "chef" and scene_variant == "chapter2_chef_cake") \
+		or (career_id == "candymaker" and scene_variant == "strawberry_cake_workshop")
+
+
 func _process(delta: float) -> void:
-	if career_id == "chef" and scene_variant == "chapter2_chef_cake" and not stage_mode:
+	if _is_chapter2_clean_kitchen() and not stage_mode:
 		return
 	elapsed += delta
 	redraw_t += delta
@@ -220,7 +236,7 @@ func _process(delta: float) -> void:
 
 
 func _draw() -> void:
-	if career_id == "teacher" and room_variant_tiles.size() == 8:
+	if (career_id == "teacher" or scene_variant == "magic_storybook") and room_variant_tiles.size() == 8:
 		_draw_stuffie_room_tiles()
 		return
 	if racer_driving and career_id == "racer" and world_tiles.size() == 4:
@@ -241,9 +257,9 @@ func _draw() -> void:
 	var active_tiles: Array[Texture2D] = stage_tiles if stage_mode and stage_tiles.size() == 4 else world_tiles
 	if active_tiles.size() == 4:
 		_draw_tile_set(active_tiles)
-		# The saved Chef room owns its painted light. Stage beams would add
+		# The saved clean kitchen owns its painted light. Stage beams would add
 		# two broad alpha passes over the room and the persistent cake.
-		if stage_mode or not (career_id == "chef" and scene_variant == "chapter2_chef_cake"):
+		if stage_mode or not _is_chapter2_clean_kitchen():
 			_draw_spotlights(accent)
 		return
 	if painting != null:

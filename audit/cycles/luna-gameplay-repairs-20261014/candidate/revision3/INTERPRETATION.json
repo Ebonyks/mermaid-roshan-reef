@@ -1,0 +1,99 @@
+{
+  "canonical_impact": "Parent-owned; only this audit evidence archive written.",
+  "chef_and_downstream": "UNRESOLVED: career0 passive/approach/return and full29-phase/next-party assertions failed after the Farmer checkpoint. No full journey, Chef repair or later milestone acceptance is claimed.",
+  "child06": {
+    "actual_continue_and_earned_state_assertion": "PASS in native child log",
+    "child_process_id": 38424,
+    "exit_code": 1,
+    "expectation": "child06/expected.json",
+    "expected_generation": 19,
+    "loaded_generation": 19,
+    "log": "child06/child.log",
+    "native_assertion_failures": 1,
+    "preboot_primary_and_backup_hash_checks": "PASS in native child log",
+    "ready_snapshot_and_generation_combined_assertion": "FAIL in native child log; retain expected and loaded snapshot data without relabeling the engine assertion",
+    "receipt": "child06/receipt.json",
+    "started": "child06/started.json",
+    "test_parent_process_id": 44392
+  },
+  "disposable_fixture_preservation": [
+    {
+      "archive_path": "child06/primary.json",
+      "expected_sha256": "91d3afadbfe0b30f45bea92a81cbb2be579672a942ec88a805897e91862b1704",
+      "matches_expected_and_native_preboot": true,
+      "native_child_preboot_sha256": "91d3afadbfe0b30f45bea92a81cbb2be579672a942ec88a805897e91862b1704",
+      "observed_current_sha256": "91d3afadbfe0b30f45bea92a81cbb2be579672a942ec88a805897e91862b1704",
+      "present_at_archive": true,
+      "role": "FROZEN_CHILD_INPUT_EXACT_EXPECTED_AND_NATIVE_PREBOOT_HASH",
+      "source": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef_candidate_gate_r1ss9yb1\\roaming\\Godot\\app_userdata\\Mermaid Roshan Reef of Light\\probe_chapter2_isolated_44392_10573299.json"
+    },
+    {
+      "archive_path": "child06/backup.json",
+      "expected_sha256": "8e50f2ad03c6be6e0b037b3710bf2f609043b9b5800cb4ae05a81d0779be3de1",
+      "matches_expected_and_native_preboot": true,
+      "native_child_preboot_sha256": "8e50f2ad03c6be6e0b037b3710bf2f609043b9b5800cb4ae05a81d0779be3de1",
+      "observed_current_sha256": "8e50f2ad03c6be6e0b037b3710bf2f609043b9b5800cb4ae05a81d0779be3de1",
+      "present_at_archive": true,
+      "role": "FROZEN_CHILD_INPUT_EXACT_EXPECTED_AND_NATIVE_PREBOOT_HASH",
+      "source": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef_candidate_gate_r1ss9yb1\\roaming\\Godot\\app_userdata\\Mermaid Roshan Reef of Light\\probe_chapter2_isolated_44392_10573299.json.bak"
+    }
+  ],
+  "excluded": "Upcoming revision4 and unready probe-only repair; mutable active pin; protected originals; audio/model assets.",
+  "external_acceptance": {
+    "audible_listening": "NOT_MEASURED",
+    "child": "NOT_MEASURED",
+    "owner_creative_acceptance": "NOT_MEASURED",
+    "physical_device": "NOT_MEASURED"
+  },
+  "farmer": {
+    "actual_full_delivery_endpoint": "PASS",
+    "actual_gather_fill_delivery": "PASS",
+    "fresh_process_milestone_acceptance": "FAIL; child06 snapshot assertion",
+    "result_returns_to_launching_room": "PASS"
+  },
+  "fixture_scope": "Only child06 expectation-target primary and backup in the exact route02 disposable profile were read/copied. Other profile saves excluded. Missing inputs are not reconstructed. Current bytes count as frozen child input only when both expectation and native preboot hashes match.",
+  "partial_push_and_idle_negatives": {
+    "count_including_career6_passive_negative": 4,
+    "interpretation": "No-input, wrong-direction, partial-release and passive/auto-approach protections retain their passing observed scope.",
+    "observed_checks": [
+      "CHAPTER2|viewport: career 6 passive hints/auto-approach cannot advance or reward: OK",
+      "CHAPTER2|viewport: open story push cannot bank an endpoint without input: OK",
+      "CHAPTER2|viewport: wrong-direction push and release cannot bank or advance: OK",
+      "CHAPTER2|viewport: pre-endpoint push release preserves partial work without completion: OK"
+    ],
+    "push_specific_new_checks": 3,
+    "status": "PASS"
+  },
+  "review_receipt_limit": "The native review receipt retains its original NOT_APPLIED/NOT_RUN preparation wording; separate native revision3 application and route02 receipts record later application/execution.",
+  "revision": 3,
+  "route02": {
+    "after_pin_mismatches": [],
+    "exit_code": 1,
+    "failed_assertions": [
+      "CHAPTER2|milestone career_06 fresh process proves exact bytes, loaded state and Continue: FAIL",
+      "CHAPTER2|viewport: career 0 passive hints/auto-approach cannot advance or reward: FAIL",
+      "CHAPTER2|viewport: physical approach opens phase once at its declared floor contact: FAIL",
+      "CHAPTER2|viewport: career 0 result returns exactly to its launching room: FAIL",
+      "CHAPTER2|viewport: all 29 authored story phases complete in the eight-career order: FAIL",
+      "CHAPTER2|viewport: completed jobs expose the canonical next party/dress gate: FAIL",
+      "CHAPTER2|RESULT: FAIL checks_failed=6"
+    ],
+    "machine_gate_passed": false,
+    "source_mismatches": [],
+    "source_pin_unchanged": true
+  },
+  "schema": "reef.revision3-machine-evidence-interpretation.v1",
+  "scope": "Failed revision3 Chapter Two route and exact native child06 evidence; this archive preserves original results and does not establish final route or external acceptance.",
+  "source_bindings": [
+    {
+      "archive_path": "sources/opera_career_world_2d.gd.txt",
+      "bound_application_after_sha256": "c9c1bd25bea79260a3950e7431fe9b75b2b313f50b6c5bde8872ef367c710b45",
+      "project_path": "scripts/opera_career_world_2d.gd"
+    },
+    {
+      "archive_path": "sources/probe_chapter2.gd.txt",
+      "bound_application_after_sha256": "badd6f6ac2fe50edd6aef741f984215f5c59999b9033049572e69b67dd861669",
+      "project_path": "scripts/probe_chapter2.gd"
+    }
+  ]
+}

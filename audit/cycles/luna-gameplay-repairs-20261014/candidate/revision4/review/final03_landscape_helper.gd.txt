@@ -1,0 +1,19 @@
+func _fixture_landscape_viewport() -> void:
+	# A headless --script root can retain a square backend window. Exercise
+	# the game's canonical landscape canvas in both parent and resume child.
+	# The project's canvas_items and expand settings remain unchanged.
+	root.mode = Window.MODE_WINDOWED
+	root.size = Vector2i(1280, 720)
+	root.content_scale_size = Vector2i(1280, 720)
+	await process_frame
+	var visible := root.get_visible_rect()
+	_check("fixture: canonical landscape viewport is 1280x720 before production boot",
+		root.mode == Window.MODE_WINDOWED and root.size == Vector2i(1280, 720)
+		and root.content_scale_size == Vector2i(1280, 720)
+		and visible.position == Vector2.ZERO and visible.size == Vector2(1280, 720))
+	print("CHAPTER2|viewport fixture: ", JSON.stringify({"window_size": str(root.size),
+		"content_scale_size": str(root.content_scale_size), "visible_origin": str(visible.position),
+		"visible_size": str(visible.size), "content_scale_mode": root.content_scale_mode,
+		"content_scale_aspect": root.content_scale_aspect, "process_id": OS.get_process_id()}))
+
+

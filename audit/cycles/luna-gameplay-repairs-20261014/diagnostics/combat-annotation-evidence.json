@@ -1,0 +1,220 @@
+{
+  "schema": "ma_ci_007_scoped_annotation_draft/1",
+  "state": "SCRATCH_DRAFT_NOT_CANONICAL_NOT_APPLIED",
+  "canonical_finding": "MA-CI-007",
+  "lifecycle": "CONFIRMED_OPEN",
+  "aggregate_verification": "V1 remains; no suite-wide migration or flake-rate claim",
+  "date_local": "2026-10-14",
+  "rules": [
+    "DL-AUTH-02",
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-QA-01",
+    "DL-QA-02",
+    "DL-QA-07",
+    "DL-CODE-05"
+  ],
+  "scope": [
+    "scripts/probe_dust_boss.gd candidate observation/visible-entry coverage",
+    "scripts/probe_combat_tutorial.gd candidate elapsed-time/charge/exit fidelity"
+  ],
+  "implementation_candidate_patch": {
+    "path": "tmp/luna_repair_20261014/combat/patches/combat_probe_fidelity_v4_entry.patch",
+    "sha256": "74d2aaf17e2445d90dbe9905abfb11226852cd3986ef6c42fbe25c680e81b451"
+  },
+  "contracts": {
+    "dust_destination_error_lt": 0.05,
+    "dust_response_wait_frames": 2,
+    "dust_movement_distance_gt": 0.05,
+    "production_arrival_threshold_lte": 0.12,
+    "ordinary_combo_seconds": 2.0,
+    "full_charge_seconds": 1.75,
+    "observation_epsilon_seconds": 1e-06,
+    "timed_wait_frame_failure_cap": 6000,
+    "timed_wait_wall_failure_cap_ms": 10000
+  },
+  "attempts": [
+    {
+      "label": "tutorial-fidelity-v3-baseline-01",
+      "receipt": "tmp\\luna_repair_20261014\\diagnostics\\tutorial-fidelity-v3-baseline-01.json",
+      "receipt_sha256": "9f6f6b6146e901c364724ca7ff877b7a64aa3aeb9f6612b85073d7e942e3c5ce",
+      "script": "tmp\\luna_repair_20261014\\combat\\patches\\probe_combat_tutorial_v3.gd",
+      "script_sha256": "011fd3503929e53059c4abf93cbbc41eaeacd813415ce3db44f77f2770410630",
+      "log": "tmp\\luna_repair_20261014\\diagnostics\\tutorial-fidelity-v3-baseline-01.log",
+      "log_sha256": "744b4d5752836b437e1eccd3dc9fa32b0328a8c7383acbaa1f367fb27cba925f",
+      "exit_code": 0,
+      "timeout": false,
+      "source_mismatches": [],
+      "failure_lines": [],
+      "terminal_all_ok": true,
+      "ok_assertions": 28,
+      "source_commit": "056d890ef38f2496ab52669c955ada654f902511",
+      "engine_version": "4.7.2.stable.official.ed1daf0bf",
+      "engine_sha256": "c8f0a6bc45a19b33541501e57f6f7cd972ab18453743266339d495cbbe846643",
+      "command": [
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64_console.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef",
+        "-s",
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\combat\\patches\\probe_combat_tutorial_v3.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ]
+    },
+    {
+      "label": "dust-fidelity-v3-baseline-01",
+      "receipt": "tmp\\luna_repair_20261014\\diagnostics\\dust-fidelity-v3-baseline-01.json",
+      "receipt_sha256": "c8d4e3e91e35853b00820920a0254040d8df80cb997c58270d6a8311d931b665",
+      "script": "tmp\\luna_repair_20261014\\combat\\patches\\probe_dust_boss_v3.gd",
+      "script_sha256": "44788870e11ef81dfc5ef087ff3deffb8538e37805ddeb3bf2d720028fce0a5b",
+      "log": "tmp\\luna_repair_20261014\\diagnostics\\dust-fidelity-v3-baseline-01.log",
+      "log_sha256": "710c18de6282a2a565fc8db001aed4d1b6ad96cd2347e27134743f840e6d1d4b",
+      "exit_code": 0,
+      "timeout": false,
+      "source_mismatches": [],
+      "failure_lines": [],
+      "terminal_all_ok": true,
+      "ok_assertions": 124,
+      "source_commit": "056d890ef38f2496ab52669c955ada654f902511",
+      "engine_version": "4.7.2.stable.official.ed1daf0bf",
+      "engine_sha256": "c8f0a6bc45a19b33541501e57f6f7cd972ab18453743266339d495cbbe846643",
+      "command": [
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64_console.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef",
+        "-s",
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\combat\\patches\\probe_dust_boss_v3.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ]
+    },
+    {
+      "label": "dust-entry-v4-baseline-01",
+      "receipt": "tmp\\luna_repair_20261014\\diagnostics\\dust-entry-v4-baseline-01.json",
+      "receipt_sha256": "9f81399ef3cfcf0e2f7012e4849a82d20dd704828266eb15849f90e41fcf85f2",
+      "script": "tmp\\luna_repair_20261014\\combat\\patches\\probe_dust_boss_v4.gd",
+      "script_sha256": "0ab73140c9d202c1c80533fb7304d61f44fe3b1ba4b3a37b257d3e13be7a1263",
+      "log": "tmp\\luna_repair_20261014\\diagnostics\\dust-entry-v4-baseline-01.log",
+      "log_sha256": "fd07043d399d7e0b22a7aee1965e63d69b9ded85b9cf05b162ed514fad7080bb",
+      "exit_code": 0,
+      "timeout": false,
+      "source_mismatches": [],
+      "failure_lines": [],
+      "terminal_all_ok": true,
+      "ok_assertions": 127,
+      "source_commit": "056d890ef38f2496ab52669c955ada654f902511",
+      "engine_version": "4.7.2.stable.official.ed1daf0bf",
+      "engine_sha256": "c8f0a6bc45a19b33541501e57f6f7cd972ab18453743266339d495cbbe846643",
+      "command": [
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64_console.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef",
+        "-s",
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\combat\\patches\\probe_dust_boss_v4.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ]
+    }
+  ],
+  "static_receipts": [
+    {
+      "path": "tmp\\luna_repair_20261014\\combat\\patches\\static_verification_receipt_v3.json",
+      "sha256": "8d3c9c4386e1cd7a33a49ef0fec60b5d20a17e34da7fe07698b1549f21921fa3",
+      "checks": [
+        {
+          "command": "python -m gdtoolkit.parser tmp/luna_repair_20261014/combat/patches/probe_dust_boss_v3.gd tmp/luna_repair_20261014/combat/patches/probe_combat_tutorial_v3.gd",
+          "result": "PASS",
+          "exit_code": 0,
+          "output": ""
+        },
+        {
+          "command": "python -B tools/lint_inference.py tmp/luna_repair_20261014/combat/patches/probe_dust_boss_v3.gd tmp/luna_repair_20261014/combat/patches/probe_combat_tutorial_v3.gd",
+          "result": "PASS",
+          "exit_code": 0,
+          "output": ""
+        },
+        {
+          "command": "git apply --check --whitespace=error-all tmp/luna_repair_20261014/combat/patches/combat_probe_fidelity_v3.patch",
+          "result": "PASS",
+          "exit_code": 0,
+          "output": ""
+        }
+      ]
+    },
+    {
+      "path": "tmp\\luna_repair_20261014\\combat\\patches\\static_verification_receipt_v4_entry.json",
+      "sha256": "0c9ad577f6729c404c8b7d9e2a6feabadbca622d4bc617f411eeae99fb0b1eb0",
+      "checks": [
+        {
+          "command": "python -m gdtoolkit.parser tmp/luna_repair_20261014/combat/patches/probe_dust_boss_v4.gd tmp/luna_repair_20261014/combat/patches/probe_combat_tutorial_v4.gd",
+          "result": "PASS",
+          "exit_code": 0,
+          "output": ""
+        },
+        {
+          "command": "python -B tools/lint_inference.py tmp/luna_repair_20261014/combat/patches/probe_dust_boss_v4.gd tmp/luna_repair_20261014/combat/patches/probe_combat_tutorial_v4.gd",
+          "result": "PASS",
+          "exit_code": 0,
+          "output": ""
+        },
+        {
+          "command": "git apply --check --whitespace=error-all tmp/luna_repair_20261014/combat/patches/combat_probe_fidelity_v4_entry.patch",
+          "result": "PASS",
+          "exit_code": 0,
+          "output": ""
+        }
+      ]
+    }
+  ],
+  "historical_and_causal_limits": [
+    {
+      "path": "tmp/luna_playtest_20261013/episodes/125.log",
+      "sha256": "1a758f04cfafa6f7d7c87de68d08c09a59d5fd8dfabbffef17a9e91849a9feb9",
+      "classification": "PRESERVED_FAIL_PRIMARY125"
+    },
+    {
+      "path": "tmp/luna_playtest_20261013/root_reproductions/episodes/125.log",
+      "sha256": "1a758f04cfafa6f7d7c87de68d08c09a59d5fd8dfabbffef17a9e91849a9feb9",
+      "classification": "PRESERVED_FAIL_INDEPENDENT202"
+    },
+    {
+      "path": "tmp/luna_playtest_20261013/episodes/189.log",
+      "sha256": "c42830e621f7137cece41c43e781b70cd5836ab2a71df1943cb8dce3423ebca1",
+      "classification": "PRESERVED_FAIL_PRIMARY189"
+    },
+    {
+      "path": "tmp/luna_playtest_20261013/root_reproductions/episodes/189.log",
+      "sha256": "232bcbca4e2dc5bfb4788737d4cbcb6f2b50315ca8f5320c68cf1542ac94207f",
+      "classification": "PRESERVED_PASS_UNCHANGED_REPEAT_NOT_CAUSE_PROOF"
+    },
+    {
+      "path": "tmp/luna_repair_20261014/diagnostics/arrival-conjunction-baseline.log",
+      "sha256": "ab4096503d491f3f1bd69ea4a8acee53471f766c049d7b77189a3991e66a7e2d",
+      "classification": "COMPONENT_PROOF_NOT_ORIGINAL_ENCOUNTER_REPRODUCTION"
+    },
+    {
+      "path": "tmp/luna_repair_20261014/diagnostics/tutorial-buffered-v2-baseline-01.log",
+      "sha256": "a9707920298cb8119968207e99305a5b6cb6c9b68672b9481bef1f917544211c",
+      "classification": "SUPER_FALSE_POSITIVE_CONFIRMED_FOR_THIS_DIAGNOSTIC_ONLY"
+    }
+  ],
+  "causal_limits": [
+    "Historical125/independent202 failed conjunction was not buffered; component proof establishes a harness counterexample, not that historical encounter cause.",
+    "Historical189 failed state was not buffered. The later inherited-SUPER/no-charge false-positive is confirmed for that diagnostic, not established as the cause of189.",
+    "Single passing corrected-probe attempts do not quantify or establish elimination of intermittent failures."
+  ],
+  "acceptance_gaps": [
+    "Candidate probe changes not yet applied in implementation worktree at draft time.",
+    "Exact applied-candidate analyzer/import/full trusted regression and document gates remain separate.",
+    "No shared harness or top-twenty migration and no suite-wide fixed-frame elimination.",
+    "Prerequisites/direct combat press fixtures remain diagnostic; no full fresh-save ordinary route, physical touch, voice audibility, render latency, device, child or owner acceptance."
+  ],
+  "publication_requirement": "Root must preserve required evidence in a durable committed evidence/impact location and resolve canonical links before committing. Scratch paths alone are not committed evidence. Keep old logs and all attempts; never promote earlier candidate NOT_RUN receipts into applied-candidate evidence."
+}

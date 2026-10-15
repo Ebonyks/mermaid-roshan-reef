@@ -1,0 +1,822 @@
+{
+  "schema": "chapter2_route_run_read_only_analysis/1",
+  "gate": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\candidate_gates\\chapter2-route-06.json",
+  "label": "chapter2-route-06",
+  "exit_code": 0,
+  "duration_seconds": 165.312,
+  "log_sha256": "d13c71acd3508dbb8f98e2d66717cfea0183e06797c7b6527e4b2912dda9fda1",
+  "log_hash_matches": true,
+  "source_pin_sha256": "20e942ec488d618a94af58663b00463987409c9640df53ec918f12a9632cfd9e",
+  "source_pin_unchanged": true,
+  "source_mismatches": [],
+  "after_pin_mismatches": [],
+  "failure_lines": [],
+  "actual_phases": [
+    [
+      6,
+      "GATHER STRAWBERRIES"
+    ],
+    [
+      6,
+      "FILL BASKET"
+    ],
+    [
+      6,
+      "DELIVER TO KITCHEN"
+    ],
+    [
+      0,
+      "MIX"
+    ],
+    [
+      0,
+      "STIR"
+    ],
+    [
+      0,
+      "BAKE"
+    ],
+    [
+      0,
+      "STACK"
+    ],
+    [
+      0,
+      "FROST"
+    ],
+    [
+      3,
+      "COAT STRAWBERRIES"
+    ],
+    [
+      3,
+      "SORT STRAWBERRIES"
+    ],
+    [
+      3,
+      "GLAZE STRAWBERRIES"
+    ],
+    [
+      3,
+      "PLACE ON CAKE"
+    ],
+    [
+      10,
+      "PAINT"
+    ],
+    [
+      10,
+      "STAMP"
+    ],
+    [
+      10,
+      "HANG"
+    ],
+    [
+      2,
+      "STUFFIES MIRROR"
+    ],
+    [
+      2,
+      "STUFFIES TWIRL"
+    ],
+    [
+      2,
+      "STUFFIES BOW"
+    ],
+    [
+      13,
+      "SOUND CHECK"
+    ],
+    [
+      13,
+      "STAGE RUMI"
+    ],
+    [
+      13,
+      "RHYTHM"
+    ],
+    [
+      13,
+      "ENCORE"
+    ],
+    [
+      11,
+      "BUILD ROCKET"
+    ],
+    [
+      11,
+      "PATCH"
+    ],
+    [
+      11,
+      "VALVE"
+    ],
+    [
+      11,
+      "READY PARK"
+    ],
+    [
+      1,
+      "LENS"
+    ],
+    [
+      1,
+      "STORYBOOK BOARD"
+    ],
+    [
+      1,
+      "UNLIT RAINBOW CANDLE"
+    ]
+  ],
+  "completed_phase_count": 29,
+  "exact29_phase_and8career_order": true,
+  "children": [
+    {
+      "label": "career_06",
+      "process_id": 35704,
+      "parent_process_id": 37280,
+      "exit_code": 0,
+      "loaded_generation": 19,
+      "piece_mask": 64,
+      "job_phase_masks": [
+        7,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "checks": {
+        "finished_no_failures": true,
+        "exit_zero": true,
+        "actual_child_pid": true,
+        "distinct_parent_pid": true,
+        "exact_probe_hash": true,
+        "primary_bytes": true,
+        "backup_bytes": true,
+        "ready_generation": true,
+        "loaded_snapshot": true,
+        "earned_piece_mask": true,
+        "native_ready_state_assertion": true,
+        "actual_continue_assertion": true,
+        "child_result_pass": true,
+        "no_errors_or_failures": true,
+        "frozen_metadata_matches_receipt": true,
+        "child_retained_input_assertion": true,
+        "retained_primary_exact_bytes": true,
+        "retained_backup_exact_bytes": true
+      },
+      "all_checks_pass": true,
+      "frozen_input_copies": [
+        {
+          "role": "primary",
+          "path": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef_candidate_gate_uln22d34\\roaming\\Godot\\app_userdata\\Mermaid Roshan Reef of Light\\probe_chapter2_isolated_37280_14594951.json.milestone_career_06.primary.input.json",
+          "available": true,
+          "actual_sha256": "91d3afadbfe0b30f45bea92a81cbb2be579672a942ec88a805897e91862b1704",
+          "expected_sha256": "91d3afadbfe0b30f45bea92a81cbb2be579672a942ec88a805897e91862b1704",
+          "exact_match": true,
+          "size_bytes": 4732
+        },
+        {
+          "role": "backup",
+          "path": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef_candidate_gate_uln22d34\\roaming\\Godot\\app_userdata\\Mermaid Roshan Reef of Light\\probe_chapter2_isolated_37280_14594951.json.milestone_career_06.backup.input.json",
+          "available": true,
+          "actual_sha256": "8e50f2ad03c6be6e0b037b3710bf2f609043b9b5800cb4ae05a81d0779be3de1",
+          "expected_sha256": "8e50f2ad03c6be6e0b037b3710bf2f609043b9b5800cb4ae05a81d0779be3de1",
+          "exact_match": true,
+          "size_bytes": 4732
+        }
+      ],
+      "input_retention_scope": "EXACT_COPIES_DECLARED",
+      "viewport_logs": [
+        {
+          "content_scale_aspect": 4,
+          "content_scale_mode": 1,
+          "content_scale_size": "(1280, 720)",
+          "display_backend": "headless",
+          "expected_reported_mode": 1,
+          "process_id": 35704,
+          "reported_mode": 1,
+          "requested_mode": 0,
+          "visible_origin": "(0.0, 0.0)",
+          "visible_size": "(1280.0, 720.0)",
+          "window_size": "(1280, 720)",
+          "strict_geometry_valid": true,
+          "backend_mode_valid": true
+        }
+      ],
+      "expected": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef_candidate_gate_uln22d34\\roaming\\Godot\\app_userdata\\Mermaid Roshan Reef of Light\\probe_chapter2_isolated_37280_14594951.json.milestone_career_06.expected.json",
+      "receipt": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef_candidate_gate_uln22d34\\roaming\\Godot\\app_userdata\\Mermaid Roshan Reef of Light\\probe_chapter2_isolated_37280_14594951.json.milestone_career_06.expected.json.receipt.json",
+      "log": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef_candidate_gate_uln22d34\\roaming\\Godot\\app_userdata\\Mermaid Roshan Reef of Light\\probe_chapter2_isolated_37280_14594951.json.milestone_career_06.expected.json.log",
+      "expected_sha256": "6de8d5b0f28054e9a1b2c7886fa7cc0bc1f8695c181e1a90c2fa9c064e8ecbdb",
+      "receipt_sha256": "4bba44fb69e90ade421cd0a669192cb7d0eb2ac3912b6938c5fe419c5d0b7472",
+      "log_sha256": "b92deda98feda356196546eab87c210a1787b885da306d300d7be964c822291e",
+      "failure_lines": []
+    },
+    {
+      "label": "career_00",
+      "process_id": 36368,
+      "parent_process_id": 37280,
+      "exit_code": 0,
+      "loaded_generation": 28,
+      "piece_mask": 65,
+      "job_phase_masks": [
+        7,
+        31,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "checks": {
+        "finished_no_failures": true,
+        "exit_zero": true,
+        "actual_child_pid": true,
+        "distinct_parent_pid": true,
+        "exact_probe_hash": true,
+        "primary_bytes": true,
+        "backup_bytes": true,
+        "ready_generation": true,
+        "loaded_snapshot": true,
+        "earned_piece_mask": true,
+        "native_ready_state_assertion": true,
+        "actual_continue_assertion": true,
+        "child_result_pass": true,
+        "no_errors_or_failures": true,
+        "frozen_metadata_matches_receipt": true,
+        "child_retained_input_assertion": true,
+        "retained_primary_exact_bytes": true,
+        "retained_backup_exact_bytes": true
+      },
+      "all_checks_pass": true,
+      "frozen_input_copies": [
+        {
+          "role": "primary",
+          "path": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef_candidate_gate_uln22d34\\roaming\\Godot\\app_userdata\\Mermaid Roshan Reef of Light\\probe_chapter2_isolated_37280_14594951.json.milestone_career_00.primary.input.json",
+          "available": true,
+          "actual_sha256": "c06cc95ea677ac56adb911e7d8e820f821cc7551f55baa92b2f583b10597af48",
+          "expected_sha256": "c06cc95ea677ac56adb911e7d8e820f821cc7551f55baa92b2f583b10597af48",
+          "exact_match": true,
+          "size_bytes": 4793
+        },
+        {
+          "role": "backup",
+          "path": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef_candidate_gate_uln22d34\\roaming\\Godot\\app_userdata\\Mermaid Roshan Reef of Light\\probe_chapter2_isolated_37280_14594951.json.milestone_career_00.backup.input.json",
+          "available": true,
+          "actual_sha256": "b808175cd327e4e2d492c07000fe155de3842dccab60b6e44c7a276b7c160f02",
+          "expected_sha256": "b808175cd327e4e2d492c07000fe155de3842dccab60b6e44c7a276b7c160f02",
+          "exact_match": true,
+          "size_bytes": 4793
+        }
+      ],
+      "input_retention_scope": "EXACT_COPIES_DECLARED",
+      "viewport_logs": [
+        {
+          "content_scale_aspect": 4,
+          "content_scale_mode": 1,
+          "content_scale_size": "(1280, 720)",
+          "display_backend": "headless",
+          "expected_reported_mode": 1,
+          "process_id": 36368,
+          "reported_mode": 1,
+          "requested_mode": 0,
+          "visible_origin": "(0.0, 0.0)",
+          "visible_size": "(1280.0, 720.0)",
+          "window_size": "(1280, 720)",
+          "strict_geometry_valid": true,
+          "backend_mode_valid": true
+        }
+      ],
+      "expected": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef_candidate_gate_uln22d34\\roaming\\Godot\\app_userdata\\Mermaid Roshan Reef of Light\\probe_chapter2_isolated_37280_14594951.json.milestone_career_00.expected.json",
+      "receipt": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef_candidate_gate_uln22d34\\roaming\\Godot\\app_userdata\\Mermaid Roshan Reef of Light\\probe_chapter2_isolated_37280_14594951.json.milestone_career_00.expected.json.receipt.json",
+      "log": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef_candidate_gate_uln22d34\\roaming\\Godot\\app_userdata\\Mermaid Roshan Reef of Light\\probe_chapter2_isolated_37280_14594951.json.milestone_career_00.expected.json.log",
+      "expected_sha256": "63a2390cd9d43fcaf9c7bcd643f0479d0c5c9956868c5b113314dbb693326ed7",
+      "receipt_sha256": "d6c4575bad4c0e59463e0a47cc9ca04b21774930e0ede3a68390ef5c3f92b321",
+      "log_sha256": "2d25701822f65c079b657385b52a9e7d20f38ee2bad99784aec73e71b6de5914",
+      "failure_lines": []
+    },
+    {
+      "label": "career_02",
+      "process_id": 45672,
+      "parent_process_id": 37280,
+      "exit_code": 0,
+      "loaded_generation": 54,
+      "piece_mask": 1101,
+      "job_phase_masks": [
+        7,
+        31,
+        15,
+        7,
+        7,
+        0,
+        0,
+        0
+      ],
+      "checks": {
+        "finished_no_failures": true,
+        "exit_zero": true,
+        "actual_child_pid": true,
+        "distinct_parent_pid": true,
+        "exact_probe_hash": true,
+        "primary_bytes": true,
+        "backup_bytes": true,
+        "ready_generation": true,
+        "loaded_snapshot": true,
+        "earned_piece_mask": true,
+        "native_ready_state_assertion": true,
+        "actual_continue_assertion": true,
+        "child_result_pass": true,
+        "no_errors_or_failures": true,
+        "frozen_metadata_matches_receipt": true,
+        "child_retained_input_assertion": true,
+        "retained_primary_exact_bytes": true,
+        "retained_backup_exact_bytes": true
+      },
+      "all_checks_pass": true,
+      "frozen_input_copies": [
+        {
+          "role": "primary",
+          "path": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef_candidate_gate_uln22d34\\roaming\\Godot\\app_userdata\\Mermaid Roshan Reef of Light\\probe_chapter2_isolated_37280_14594951.json.milestone_career_02.primary.input.json",
+          "available": true,
+          "actual_sha256": "025e6035840eb516a366cf47fd57d512bf779fa038de2924d2ec8a512f9269ed",
+          "expected_sha256": "025e6035840eb516a366cf47fd57d512bf779fa038de2924d2ec8a512f9269ed",
+          "exact_match": true,
+          "size_bytes": 4879
+        },
+        {
+          "role": "backup",
+          "path": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef_candidate_gate_uln22d34\\roaming\\Godot\\app_userdata\\Mermaid Roshan Reef of Light\\probe_chapter2_isolated_37280_14594951.json.milestone_career_02.backup.input.json",
+          "available": true,
+          "actual_sha256": "8821d1274214e83be180904413e5accd6b6b686390843244b0937755543f4e92",
+          "expected_sha256": "8821d1274214e83be180904413e5accd6b6b686390843244b0937755543f4e92",
+          "exact_match": true,
+          "size_bytes": 4879
+        }
+      ],
+      "input_retention_scope": "EXACT_COPIES_DECLARED",
+      "viewport_logs": [
+        {
+          "content_scale_aspect": 4,
+          "content_scale_mode": 1,
+          "content_scale_size": "(1280, 720)",
+          "display_backend": "headless",
+          "expected_reported_mode": 1,
+          "process_id": 45672,
+          "reported_mode": 1,
+          "requested_mode": 0,
+          "visible_origin": "(0.0, 0.0)",
+          "visible_size": "(1280.0, 720.0)",
+          "window_size": "(1280, 720)",
+          "strict_geometry_valid": true,
+          "backend_mode_valid": true
+        }
+      ],
+      "expected": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef_candidate_gate_uln22d34\\roaming\\Godot\\app_userdata\\Mermaid Roshan Reef of Light\\probe_chapter2_isolated_37280_14594951.json.milestone_career_02.expected.json",
+      "receipt": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef_candidate_gate_uln22d34\\roaming\\Godot\\app_userdata\\Mermaid Roshan Reef of Light\\probe_chapter2_isolated_37280_14594951.json.milestone_career_02.expected.json.receipt.json",
+      "log": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef_candidate_gate_uln22d34\\roaming\\Godot\\app_userdata\\Mermaid Roshan Reef of Light\\probe_chapter2_isolated_37280_14594951.json.milestone_career_02.expected.json.log",
+      "expected_sha256": "843041354cc449e3cc0f6509f42b7ddf79b0e76e8519beed441d96fccd74a34d",
+      "receipt_sha256": "bbc6f44fc0169439317896044e200045c901514c4a29784162e6e24dd8aae526",
+      "log_sha256": "84a5103c35205f6d691aa9622f0f3bb7c3cd6e9ad26d9cc0240a2ee39407e4c0",
+      "failure_lines": []
+    },
+    {
+      "label": "career_11",
+      "process_id": 5600,
+      "parent_process_id": 37280,
+      "exit_code": 0,
+      "loaded_generation": 71,
+      "piece_mask": 11341,
+      "job_phase_masks": [
+        7,
+        31,
+        15,
+        7,
+        7,
+        15,
+        15,
+        0
+      ],
+      "checks": {
+        "finished_no_failures": true,
+        "exit_zero": true,
+        "actual_child_pid": true,
+        "distinct_parent_pid": true,
+        "exact_probe_hash": true,
+        "primary_bytes": true,
+        "backup_bytes": true,
+        "ready_generation": true,
+        "loaded_snapshot": true,
+        "earned_piece_mask": true,
+        "native_ready_state_assertion": true,
+        "actual_continue_assertion": true,
+        "child_result_pass": true,
+        "no_errors_or_failures": true,
+        "frozen_metadata_matches_receipt": true,
+        "child_retained_input_assertion": true,
+        "retained_primary_exact_bytes": true,
+        "retained_backup_exact_bytes": true
+      },
+      "all_checks_pass": true,
+      "frozen_input_copies": [
+        {
+          "role": "primary",
+          "path": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef_candidate_gate_uln22d34\\roaming\\Godot\\app_userdata\\Mermaid Roshan Reef of Light\\probe_chapter2_isolated_37280_14594951.json.milestone_career_11.primary.input.json",
+          "available": true,
+          "actual_sha256": "89142d28199fce0cdb0a50d6e2e3c2a3ee20431b3975c6f698e48b5e6276f693",
+          "expected_sha256": "89142d28199fce0cdb0a50d6e2e3c2a3ee20431b3975c6f698e48b5e6276f693",
+          "exact_match": true,
+          "size_bytes": 4892
+        },
+        {
+          "role": "backup",
+          "path": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef_candidate_gate_uln22d34\\roaming\\Godot\\app_userdata\\Mermaid Roshan Reef of Light\\probe_chapter2_isolated_37280_14594951.json.milestone_career_11.backup.input.json",
+          "available": true,
+          "actual_sha256": "6a299d724f88346082481e64b7716ac4f5e818ae2f244c8d0e219df8cd0ef6e4",
+          "expected_sha256": "6a299d724f88346082481e64b7716ac4f5e818ae2f244c8d0e219df8cd0ef6e4",
+          "exact_match": true,
+          "size_bytes": 4892
+        }
+      ],
+      "input_retention_scope": "EXACT_COPIES_DECLARED",
+      "viewport_logs": [
+        {
+          "content_scale_aspect": 4,
+          "content_scale_mode": 1,
+          "content_scale_size": "(1280, 720)",
+          "display_backend": "headless",
+          "expected_reported_mode": 1,
+          "process_id": 5600,
+          "reported_mode": 1,
+          "requested_mode": 0,
+          "visible_origin": "(0.0, 0.0)",
+          "visible_size": "(1280.0, 720.0)",
+          "window_size": "(1280, 720)",
+          "strict_geometry_valid": true,
+          "backend_mode_valid": true
+        }
+      ],
+      "expected": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef_candidate_gate_uln22d34\\roaming\\Godot\\app_userdata\\Mermaid Roshan Reef of Light\\probe_chapter2_isolated_37280_14594951.json.milestone_career_11.expected.json",
+      "receipt": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef_candidate_gate_uln22d34\\roaming\\Godot\\app_userdata\\Mermaid Roshan Reef of Light\\probe_chapter2_isolated_37280_14594951.json.milestone_career_11.expected.json.receipt.json",
+      "log": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef_candidate_gate_uln22d34\\roaming\\Godot\\app_userdata\\Mermaid Roshan Reef of Light\\probe_chapter2_isolated_37280_14594951.json.milestone_career_11.expected.json.log",
+      "expected_sha256": "79b97c620e31ba2fb34e1cf428f802ff3afe9a8e662bb01c8891f6944def476c",
+      "receipt_sha256": "eb626d8f9e30d0a1819a627fc2019633a9570ba97c9bd77df4ac0a57fdc69754",
+      "log_sha256": "e1d5cf71575157d1294af91332bacb6bfc7807e927c8edb208e22dc4c11ac5c5",
+      "failure_lines": []
+    },
+    {
+      "label": "career_01",
+      "process_id": 42088,
+      "parent_process_id": 37280,
+      "exit_code": 0,
+      "loaded_generation": 78,
+      "piece_mask": 11343,
+      "job_phase_masks": [
+        7,
+        31,
+        15,
+        7,
+        7,
+        15,
+        15,
+        3
+      ],
+      "checks": {
+        "finished_no_failures": true,
+        "exit_zero": true,
+        "actual_child_pid": true,
+        "distinct_parent_pid": true,
+        "exact_probe_hash": true,
+        "primary_bytes": true,
+        "backup_bytes": true,
+        "ready_generation": true,
+        "loaded_snapshot": true,
+        "earned_piece_mask": true,
+        "native_ready_state_assertion": true,
+        "actual_continue_assertion": true,
+        "child_result_pass": true,
+        "no_errors_or_failures": true,
+        "frozen_metadata_matches_receipt": true,
+        "child_retained_input_assertion": true,
+        "retained_primary_exact_bytes": true,
+        "retained_backup_exact_bytes": true
+      },
+      "all_checks_pass": true,
+      "frozen_input_copies": [
+        {
+          "role": "primary",
+          "path": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef_candidate_gate_uln22d34\\roaming\\Godot\\app_userdata\\Mermaid Roshan Reef of Light\\probe_chapter2_isolated_37280_14594951.json.milestone_career_01.primary.input.json",
+          "available": true,
+          "actual_sha256": "01008b3a18ea75d11352a70a3d177bd198096bda78f917b32a3cc520f5f6bdef",
+          "expected_sha256": "01008b3a18ea75d11352a70a3d177bd198096bda78f917b32a3cc520f5f6bdef",
+          "exact_match": true,
+          "size_bytes": 5029
+        },
+        {
+          "role": "backup",
+          "path": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef_candidate_gate_uln22d34\\roaming\\Godot\\app_userdata\\Mermaid Roshan Reef of Light\\probe_chapter2_isolated_37280_14594951.json.milestone_career_01.backup.input.json",
+          "available": true,
+          "actual_sha256": "a023fdf93cd32420a47396040d9c39d2c7b23c78cef128caa71238889180044c",
+          "expected_sha256": "a023fdf93cd32420a47396040d9c39d2c7b23c78cef128caa71238889180044c",
+          "exact_match": true,
+          "size_bytes": 5029
+        }
+      ],
+      "input_retention_scope": "EXACT_COPIES_DECLARED",
+      "viewport_logs": [
+        {
+          "content_scale_aspect": 4,
+          "content_scale_mode": 1,
+          "content_scale_size": "(1280, 720)",
+          "display_backend": "headless",
+          "expected_reported_mode": 1,
+          "process_id": 42088,
+          "reported_mode": 1,
+          "requested_mode": 0,
+          "visible_origin": "(0.0, 0.0)",
+          "visible_size": "(1280.0, 720.0)",
+          "window_size": "(1280, 720)",
+          "strict_geometry_valid": true,
+          "backend_mode_valid": true
+        }
+      ],
+      "expected": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef_candidate_gate_uln22d34\\roaming\\Godot\\app_userdata\\Mermaid Roshan Reef of Light\\probe_chapter2_isolated_37280_14594951.json.milestone_career_01.expected.json",
+      "receipt": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef_candidate_gate_uln22d34\\roaming\\Godot\\app_userdata\\Mermaid Roshan Reef of Light\\probe_chapter2_isolated_37280_14594951.json.milestone_career_01.expected.json.receipt.json",
+      "log": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef_candidate_gate_uln22d34\\roaming\\Godot\\app_userdata\\Mermaid Roshan Reef of Light\\probe_chapter2_isolated_37280_14594951.json.milestone_career_01.expected.json.log",
+      "expected_sha256": "2a16b728a9a32832b757e081967fee4d0b7535327e7a022d950e619416236f4e",
+      "receipt_sha256": "16402ce14abd8b4d9fd14e8377ebafdce6bcb2f9161c1073f222eb6185e6d54d",
+      "log_sha256": "c6251b3ded02504692b86a4395dc7e750ad75e25166e17945e5d16e5936966c3",
+      "failure_lines": []
+    },
+    {
+      "label": "story_complete",
+      "process_id": 20716,
+      "parent_process_id": 37280,
+      "exit_code": 0,
+      "loaded_generation": 103,
+      "piece_mask": 11343,
+      "job_phase_masks": [
+        7,
+        31,
+        15,
+        7,
+        7,
+        15,
+        15,
+        3
+      ],
+      "checks": {
+        "finished_no_failures": true,
+        "exit_zero": true,
+        "actual_child_pid": true,
+        "distinct_parent_pid": true,
+        "exact_probe_hash": true,
+        "primary_bytes": true,
+        "backup_bytes": true,
+        "ready_generation": true,
+        "loaded_snapshot": true,
+        "earned_piece_mask": true,
+        "native_ready_state_assertion": true,
+        "actual_continue_assertion": true,
+        "child_result_pass": true,
+        "no_errors_or_failures": true,
+        "earned_dress_and_story": true,
+        "dress_continue_assertion": true,
+        "frozen_metadata_matches_receipt": true,
+        "child_retained_input_assertion": true,
+        "retained_primary_exact_bytes": true,
+        "retained_backup_exact_bytes": true
+      },
+      "all_checks_pass": true,
+      "frozen_input_copies": [
+        {
+          "role": "primary",
+          "path": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef_candidate_gate_uln22d34\\roaming\\Godot\\app_userdata\\Mermaid Roshan Reef of Light\\probe_chapter2_isolated_37280_14594951.json.milestone_story_complete.primary.input.json",
+          "available": true,
+          "actual_sha256": "20481b847ff95ba9c28b108870046410d2ca55c7d246c0ebb224372eabd2649c",
+          "expected_sha256": "20481b847ff95ba9c28b108870046410d2ca55c7d246c0ebb224372eabd2649c",
+          "exact_match": true,
+          "size_bytes": 5228
+        },
+        {
+          "role": "backup",
+          "path": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef_candidate_gate_uln22d34\\roaming\\Godot\\app_userdata\\Mermaid Roshan Reef of Light\\probe_chapter2_isolated_37280_14594951.json.milestone_story_complete.backup.input.json",
+          "available": true,
+          "actual_sha256": "93e2bcbc3fefb32bd0460a33b1941fc845546f92f6bd529c0ed4cd0d953d0fbb",
+          "expected_sha256": "93e2bcbc3fefb32bd0460a33b1941fc845546f92f6bd529c0ed4cd0d953d0fbb",
+          "exact_match": true,
+          "size_bytes": 5228
+        }
+      ],
+      "input_retention_scope": "EXACT_COPIES_DECLARED",
+      "viewport_logs": [
+        {
+          "content_scale_aspect": 4,
+          "content_scale_mode": 1,
+          "content_scale_size": "(1280, 720)",
+          "display_backend": "headless",
+          "expected_reported_mode": 1,
+          "process_id": 20716,
+          "reported_mode": 1,
+          "requested_mode": 0,
+          "visible_origin": "(0.0, 0.0)",
+          "visible_size": "(1280.0, 720.0)",
+          "window_size": "(1280, 720)",
+          "strict_geometry_valid": true,
+          "backend_mode_valid": true
+        }
+      ],
+      "expected": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef_candidate_gate_uln22d34\\roaming\\Godot\\app_userdata\\Mermaid Roshan Reef of Light\\probe_chapter2_isolated_37280_14594951.json.milestone_story_complete.expected.json",
+      "receipt": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef_candidate_gate_uln22d34\\roaming\\Godot\\app_userdata\\Mermaid Roshan Reef of Light\\probe_chapter2_isolated_37280_14594951.json.milestone_story_complete.expected.json.receipt.json",
+      "log": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef_candidate_gate_uln22d34\\roaming\\Godot\\app_userdata\\Mermaid Roshan Reef of Light\\probe_chapter2_isolated_37280_14594951.json.milestone_story_complete.expected.json.log",
+      "expected_sha256": "c07213bc8b537367ba7aa5cea765c3f1b71b0901ccd57ec107f187b2f5112025",
+      "receipt_sha256": "24bbaa1d68d624728dc72ca8bb5288ee9b7c5b6a75bf815b25928791d928fcd8",
+      "log_sha256": "fffc9a81cd6c886f0164414a5bf2287ec704fad1911bae27475559972c670591",
+      "failure_lines": []
+    }
+  ],
+  "exact6checkpoint_order": true,
+  "not_run_checkpoints": [],
+  "all_observed_children_checks_pass": true,
+  "exact_frozen_input_copy_count": 12,
+  "parent_viewport_logs": [
+    {
+      "content_scale_aspect": 4,
+      "content_scale_mode": 1,
+      "content_scale_size": "(1280, 720)",
+      "display_backend": "headless",
+      "expected_reported_mode": 1,
+      "process_id": 37280,
+      "reported_mode": 1,
+      "requested_mode": 0,
+      "visible_origin": "(0.0, 0.0)",
+      "visible_size": "(1280.0, 720.0)",
+      "window_size": "(1280, 720)",
+      "strict_geometry_valid": true,
+      "backend_mode_valid": true
+    },
+    {
+      "content_scale_aspect": 4,
+      "content_scale_mode": 1,
+      "content_scale_size": "(1280, 720)",
+      "display_backend": "headless",
+      "expected_reported_mode": 1,
+      "process_id": 37280,
+      "reported_mode": 1,
+      "requested_mode": 0,
+      "visible_origin": "(0.0, 0.0)",
+      "visible_size": "(1280.0, 720.0)",
+      "window_size": "(1280, 720)",
+      "strict_geometry_valid": true,
+      "backend_mode_valid": true
+    },
+    {
+      "content_scale_aspect": 4,
+      "content_scale_mode": 1,
+      "content_scale_size": "(1280, 720)",
+      "display_backend": "headless",
+      "expected_reported_mode": 1,
+      "process_id": 37280,
+      "reported_mode": 1,
+      "requested_mode": 0,
+      "visible_origin": "(0.0, 0.0)",
+      "visible_size": "(1280.0, 720.0)",
+      "window_size": "(1280, 720)",
+      "strict_geometry_valid": true,
+      "backend_mode_valid": true
+    },
+    {
+      "content_scale_aspect": 4,
+      "content_scale_mode": 1,
+      "content_scale_size": "(1280, 720)",
+      "display_backend": "headless",
+      "expected_reported_mode": 1,
+      "process_id": 37280,
+      "reported_mode": 1,
+      "requested_mode": 0,
+      "visible_origin": "(0.0, 0.0)",
+      "visible_size": "(1280.0, 720.0)",
+      "window_size": "(1280, 720)",
+      "strict_geometry_valid": true,
+      "backend_mode_valid": true
+    },
+    {
+      "content_scale_aspect": 4,
+      "content_scale_mode": 1,
+      "content_scale_size": "(1280, 720)",
+      "display_backend": "headless",
+      "expected_reported_mode": 1,
+      "process_id": 37280,
+      "reported_mode": 1,
+      "requested_mode": 0,
+      "visible_origin": "(0.0, 0.0)",
+      "visible_size": "(1280.0, 720.0)",
+      "window_size": "(1280, 720)",
+      "strict_geometry_valid": true,
+      "backend_mode_valid": true
+    },
+    {
+      "content_scale_aspect": 4,
+      "content_scale_mode": 1,
+      "content_scale_size": "(1280, 720)",
+      "display_backend": "headless",
+      "expected_reported_mode": 1,
+      "process_id": 37280,
+      "reported_mode": 1,
+      "requested_mode": 0,
+      "visible_origin": "(0.0, 0.0)",
+      "visible_size": "(1280.0, 720.0)",
+      "window_size": "(1280, 720)",
+      "strict_geometry_valid": true,
+      "backend_mode_valid": true
+    },
+    {
+      "content_scale_aspect": 4,
+      "content_scale_mode": 1,
+      "content_scale_size": "(1280, 720)",
+      "display_backend": "headless",
+      "expected_reported_mode": 1,
+      "process_id": 37280,
+      "reported_mode": 1,
+      "requested_mode": 0,
+      "visible_origin": "(0.0, 0.0)",
+      "visible_size": "(1280.0, 720.0)",
+      "window_size": "(1280, 720)",
+      "strict_geometry_valid": true,
+      "backend_mode_valid": true
+    },
+    {
+      "content_scale_aspect": 4,
+      "content_scale_mode": 1,
+      "content_scale_size": "(1280, 720)",
+      "display_backend": "headless",
+      "expected_reported_mode": 1,
+      "process_id": 37280,
+      "reported_mode": 1,
+      "requested_mode": 0,
+      "visible_origin": "(0.0, 0.0)",
+      "visible_size": "(1280.0, 720.0)",
+      "window_size": "(1280, 720)",
+      "strict_geometry_valid": true,
+      "backend_mode_valid": true
+    }
+  ],
+  "all_logged_geometry_and_modes_valid": true,
+  "expected_configuration_errors": {
+    "ERROR: OperaCareerWorld2D: rejected invalid Chapter 2 phase override": 8,
+    "ERROR: OperaAct: career world rejected its configuration": 3,
+    "ERROR: OperaHouse: slot 6 failed to start its Canvas career": 1
+  },
+  "unclassified_errors": [],
+  "key_route_assertions": [
+    "CHAPTER2|Detective telemetry names the accepted unlit candle asset: OK",
+    "CHAPTER2|Candy placement reveals the selected runtime cake without a candle: OK",
+    "CHAPTER2|Astronaut parks the rocket before the final candle search: OK",
+    "CHAPTER2|export-safe caption matches generated speech chapter2_detective_unlit_rainbow_candle_reveal: OK",
+    "CHAPTER2|Detective finds the last missing candle unlit: OK",
+    "CHAPTER2|party event phase stays at candle-found until ignition: OK",
+    "CHAPTER2|party waits for an intentional special dress: OK",
+    "CHAPTER2|wearing the special dress records the pre-party milestone: OK",
+    "CHAPTER2|Main Hall offers the lawn route without advancing the story on a timer: OK",
+    "CHAPTER2|Ember King takes the lit candle for his birthday: OK",
+    "CHAPTER2|Ember take removes only the candle and leaves the cake: OK",
+    "CHAPTER2|Ember protection uses valid shared boss rules: OK",
+    "CHAPTER2|Ember round 0 offers a counter after safe dodges: OK",
+    "CHAPTER2|Ember re-entry preserves completed rounds: OK",
+    "CHAPTER2|Ember round 1 offers a counter after safe dodges: OK",
+    "CHAPTER2|Ember re-entry preserves completed rounds: OK",
+    "CHAPTER2|Ember round 2 offers a counter after safe dodges: OK",
+    "CHAPTER2|Ember re-entry preserves completed rounds: OK",
+    "CHAPTER2|protecting friends does not itself steal the candle or finish the story: OK",
+    "CHAPTER2|Ember checkpoint rejects malformed types: OK",
+    "CHAPTER2|Ember cannot pre-win before party preparation: OK",
+    "CHAPTER2|config: ordinary Farmer freeplay retains its authored phase set: OK",
+    "CHAPTER2|config: ordinary Detective freeplay starts with its mapped SEARCH lens: OK",
+    "CHAPTER2|viewport: storybook lens keeps its authored prompt without freeplay crown dialogue: OK",
+    "CHAPTER2|viewport: all 29 authored story phases complete in the eight-career order: OK",
+    "CHAPTER2|viewport: completed jobs expose the canonical next party/dress gate: OK",
+    "CHAPTER2|completed story exposes the actual Main Hall party table: OK",
+    "CHAPTER2|party table first opens its authored dress prerequisite: OK",
+    "CHAPTER2|party dress has an actual visible source card: OK",
+    "CHAPTER2|intentional dress-card touch records the dress milestone: OK",
+    "CHAPTER2|party dress selection closes its wardrobe from the source Main Hall: OK",
+    "CHAPTER2|actual party dress selection continues into the production lawn: OK",
+    "CHAPTER2|full passive lawn exposure cannot ignite or award protection: OK",
+    "CHAPTER2|actual complete rocket approach lights the candle once: OK",
+    "CHAPTER2|visible Continue reaches lawn beat 2: OK",
+    "CHAPTER2|visible Continue reaches lawn beat 3: OK",
+    "CHAPTER2|visible Continue reaches lawn beat 4: OK",
+    "CHAPTER2|full passive encounter cannot protect or steal the candle: OK",
+    "CHAPTER2|three protection rounds keep the candle until authored theft: OK",
+    "CHAPTER2|story completion exposes an enabled visible freeplay career card: OK",
+    "CHAPTER2|freeplay card launches its ordinary sibling configuration: OK",
+    "CHAPTER2|freeplay cancellation preserves story and reward state: OK",
+    "CHAPTER2|parent Continue restores the earned party dress and completed story: OK"
+  ],
+  "known_fixture_limit": null,
+  "scope": "Post-boss prerequisite and room-mount fixture plus actual viewport inputs; no fresh-save DayOne/door-travel/exactcamera/Mobile pixel/contact/device/child/owner acceptance."
+}

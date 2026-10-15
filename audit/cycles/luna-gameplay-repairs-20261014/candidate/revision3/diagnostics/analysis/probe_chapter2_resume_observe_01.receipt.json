@@ -1,0 +1,35 @@
+{
+  "schema": "chapter2_resume_observation/1",
+  "scope": "OBSERVATION_ONLY; original input sequence, waits and assertions unchanged",
+  "failed_run": "chapter2-route-02",
+  "source": "C:\\Users\\Peter\\.codex\\worktrees\\luna-gameplay-repairs-20261014\\mermaid-roshan-reef\\scripts\\probe_chapter2.gd",
+  "source_raw_sha256": "badd6f6ac2fe50edd6aef741f984215f5c59999b9033049572e69b67dd861669",
+  "source_normalized_lf_sha256": "80bf96a44e57ad790724201824fc6edcd0b085af782f1ae6ba722837c24f3460",
+  "source_manifest": "tmp\\luna_repair_20261014\\candidate_gates\\chapter2-route-02.sources.json",
+  "script": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\chapter2\\diagnostics\\probe_chapter2_resume_observe_01.gd",
+  "script_sha256": "5417b4d4cfbcac24c6761d175115b0258052ce7acf2574c84ac6a0e53f1d33bd",
+  "instrumentation_patch": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\chapter2\\diagnostics\\probe_chapter2_resume_observe_01.instrumentation.patch",
+  "instrumentation_patch_sha256": "12445a7ea28cc64ffe1adc1431310b3d338fba48d15dfd713c7a48ee204658b6",
+  "not_run": true,
+  "launch_args": [
+    "--headless",
+    "--path",
+    "C:\\Users\\Peter\\.codex\\worktrees\\luna-gameplay-repairs-20261014\\mermaid-roshan-reef",
+    "-s",
+    "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\chapter2\\diagnostics\\probe_chapter2_resume_observe_01.gd",
+    "--",
+    "--touch",
+    "--classic-touch-test"
+  ],
+  "expected_diagnostics": [
+    "native versus JSON-domain snapshot equality and exact Variant/Array element types",
+    "parent pause/time-scale/process/current owner before and after release/reboot/Continue",
+    "passive wait result and exact elapsed exposure, actual reward counters",
+    "arrival state plus world callback owner identities",
+    "actual root visible rectangle and transformed surface corners/Control clipping ancestors"
+  ],
+  "limits": [
+    "telemetry cannot grant visual/contact/device/child/owner acceptance",
+    "no probe behavior repair and no production source change"
+  ]
+}

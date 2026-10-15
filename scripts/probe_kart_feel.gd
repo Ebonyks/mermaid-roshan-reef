@@ -36,6 +36,7 @@ func _init() -> void:
 		main._skip_intro()
 	await process_frame
 
+	var pickup_lifecycle_ok: bool = await _pickup_orphan_lifecycle_check()
 	var none: Dictionary = await _solo_run("none")
 	var outside: Dictionary = await _solo_run("outside")
 	var inside: Dictionary = await _solo_run("inside")
@@ -48,7 +49,7 @@ func _init() -> void:
 	print("FEEL|line_advantage=%.2f (outside-inside, target >= 0.8)" % line_adv)
 	print("FEEL|drift_gain=%.2f (none-drift, target >= 0.8) tier_max=%d uptime=%.1f" % [drift_gain, int(drift["tier_max"]), float(drift["drift_up"])])
 	print("FEEL|fov_range=%.1f (target >= 8)" % float(drift["fov_range"]))
-	var ok := true
+	var ok := pickup_lifecycle_ok
 	if not bool(none["done"]):
 		print("FAIL|assist floor broken: zero-input run did not finish"); ok = false
 	if line_adv < 0.3:
@@ -418,3 +419,54 @@ func _solo_run(policy: String) -> Dictionary:
 
 func _on_race_done(place: int) -> void:
 	_race_place = place
+
+
+func _pickup_orphan_lifecycle_check() -> bool:
+	# Hold the live main baseline constant while exercising the real optional
+	# pickup builder repeatedly. No fabricated child nodes or fake renderer.
+	# The official editor/debug engine exposes this monitor; release exports
+	# return zero and cannot provide acceptance for this check.
+	if not OS.is_debug_build():
+		print("FAIL|pickup orphan evidence requires the approved debug editor")
+		return false
+	var previous_mode: int = main.process_mode
+	main.process_mode = Node.PROCESS_MODE_DISABLED
+	await _settle_orphan_monitor()
+	var baseline := int(Performance.get_monitor(Performance.OBJECT_ORPHAN_NODE_COUNT))
+	var shell_missing := not ResourceLoader.exists(
+		"res://assets/props/gen2/spiralshell.png")
+	var deltas: Array[int] = []
+	var released := true
+	for _cycle in range(3):
+		var kg: Node = load("res://scripts/kart.gd").new()
+		main.add_child(kg)
+		kg.configure({"theme": "ocean", "ground": "float"})
+		kg._main = main
+		kg._build_lut()
+		kg._build_pickups()
+		var game_ref: WeakRef = weakref(kg)
+		kg.queue_free()
+		kg = null
+		await process_frame
+		await process_frame
+		await _settle_orphan_monitor()
+		released = released and game_ref.get_ref() == null
+		deltas.append(int(Performance.get_monitor(
+			Performance.OBJECT_ORPHAN_NODE_COUNT)) - baseline)
+	main.process_mode = previous_mode
+	var stable := released
+	for delta: int in deltas:
+		stable = stable and delta == 0
+	print("FEEL|pickup_orphan_cycles=", deltas, " shell_art_missing=", shell_missing,
+		" games_released=", released)
+	if not stable:
+		print("FAIL|optional pickup construction/teardown retains orphan nodes")
+	return stable
+
+
+func _settle_orphan_monitor() -> void:
+	# Monitor documentation allows a one-second update delay. Use wall time,
+	# since this telemetry probe deliberately accelerates Engine.time_scale.
+	var deadline := Time.get_ticks_msec() + 1100
+	while Time.get_ticks_msec() < deadline:
+		await process_frame

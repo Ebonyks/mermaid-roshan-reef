@@ -1,0 +1,835 @@
+{
+  "schema": "luna_repair_evidence/1",
+  "updated_utc": "2026-10-15T02:33:53.659443+00:00",
+  "runtime_test_baseline": "056d890ef38f2496ab52669c955ada654f902511",
+  "implementation_baseline": "831d0bbb155b99d75ef0289cc5cc694e0ef00c1e",
+  "runtime_baseline_equivalence": "git diff between these commits for scripts scenes shaders project.godot assets default_bus_layout.tres is empty",
+  "rescue_commit": "0120da93dc7c281b6f71852858e3b902a483ad95",
+  "rescue_branch": "rescue/peter-windows-20261014",
+  "files": [
+    {
+      "path": "audit/cycles/luna-gameplay-repairs-20261014/campaign/luna-findings.json",
+      "original_path": "C:\\Users\\Peter\\.codex\\visualizations\\2026\\10\\14\\01a13860-5096-76d3-8130-30e48e47bc62\\luna-findings.json",
+      "sha256": "9440e8685aa61c199f0377491207d5e55eb67823e8f296e68d772a92bdb1d6c4",
+      "bytes": 504747
+    },
+    {
+      "path": "audit/cycles/luna-gameplay-repairs-20261014/campaign/luna-manifest.json",
+      "original_path": "C:\\Users\\Peter\\.codex\\visualizations\\2026\\10\\14\\01a13860-5096-76d3-8130-30e48e47bc62\\luna-manifest.json",
+      "sha256": "a58b72ea8e20375ebb07b6fb83a122ecdef3046dc824c9dde3dc2278a07a2c3d",
+      "bytes": 71226
+    },
+    {
+      "path": "audit/cycles/luna-gameplay-repairs-20261014/campaign/luna-evidence-receipt.json",
+      "original_path": "C:\\Users\\Peter\\.codex\\visualizations\\2026\\10\\14\\01a13860-5096-76d3-8130-30e48e47bc62\\luna-evidence-receipt.json",
+      "sha256": "68aa8fc7934dae282a3f3f46ca576834d9a61c090edcf92963e119f7478b7075",
+      "bytes": 116438
+    },
+    {
+      "path": "audit/cycles/luna-gameplay-repairs-20261014/campaign/episodes/125.log",
+      "original_path": "C:\\Users\\Peter\\.codex\\visualizations\\2026\\10\\14\\01a13860-5096-76d3-8130-30e48e47bc62\\luna-evidence\\episodes\\125.log",
+      "sha256": "1a758f04cfafa6f7d7c87de68d08c09a59d5fd8dfabbffef17a9e91849a9feb9",
+      "bytes": 7430
+    },
+    {
+      "path": "audit/cycles/luna-gameplay-repairs-20261014/campaign/episodes/189.log",
+      "original_path": "C:\\Users\\Peter\\.codex\\visualizations\\2026\\10\\14\\01a13860-5096-76d3-8130-30e48e47bc62\\luna-evidence\\episodes\\189.log",
+      "sha256": "c42830e621f7137cece41c43e781b70cd5836ab2a71df1943cb8dce3423ebca1",
+      "bytes": 1441
+    },
+    {
+      "path": "audit/cycles/luna-gameplay-repairs-20261014/campaign/root_reproductions/episodes/125.log",
+      "original_path": "C:\\Users\\Peter\\.codex\\visualizations\\2026\\10\\14\\01a13860-5096-76d3-8130-30e48e47bc62\\luna-evidence\\root_reproductions\\episodes\\125.log",
+      "sha256": "1a758f04cfafa6f7d7c87de68d08c09a59d5fd8dfabbffef17a9e91849a9feb9",
+      "bytes": 7430
+    },
+    {
+      "path": "audit/cycles/luna-gameplay-repairs-20261014/campaign/root_reproductions/episodes/189.log",
+      "original_path": "C:\\Users\\Peter\\.codex\\visualizations\\2026\\10\\14\\01a13860-5096-76d3-8130-30e48e47bc62\\luna-evidence\\root_reproductions\\episodes\\189.log",
+      "sha256": "232bcbca4e2dc5bfb4788737d4cbcb6f2b50315ca8f5320c68cf1542ac94207f",
+      "bytes": 1426
+    },
+    {
+      "path": "audit/cycles/luna-gameplay-repairs-20261014/campaign/root_reproductions/chapter2-entry-v2.log",
+      "original_path": "C:\\Users\\Peter\\.codex\\visualizations\\2026\\10\\14\\01a13860-5096-76d3-8130-30e48e47bc62\\luna-evidence\\root_reproductions\\chapter2-entry-v2.log",
+      "sha256": "28655d2db587eb50d86b5f77d81d607f1a9f4b9839a1fe0f389ce24ea08823d9",
+      "bytes": 26108
+    },
+    {
+      "path": "audit/cycles/luna-gameplay-repairs-20261014/campaign/reviews/201.json",
+      "original_path": "C:\\Users\\Peter\\.codex\\visualizations\\2026\\10\\14\\01a13860-5096-76d3-8130-30e48e47bc62\\luna-evidence\\reviews\\201.json",
+      "sha256": "f2f415f31935bf355e9d0bb05a62370136bd5962153c3aad8395378b3e2079aa",
+      "bytes": 4747
+    },
+    {
+      "path": "audit/cycles/luna-gameplay-repairs-20261014/campaign/reviews/202.json",
+      "original_path": "C:\\Users\\Peter\\.codex\\visualizations\\2026\\10\\14\\01a13860-5096-76d3-8130-30e48e47bc62\\luna-evidence\\reviews\\202.json",
+      "sha256": "63de5f5119148bb1c3556e330570af1056f17499fc69c3169de2dfbd7082bc47",
+      "bytes": 3041
+    },
+    {
+      "path": "audit/cycles/luna-gameplay-repairs-20261014/campaign/coordination.json",
+      "original_path": "C:\\Users\\Peter\\.codex\\visualizations\\2026\\10\\14\\01a13860-5096-76d3-8130-30e48e47bc62\\luna-evidence\\coordination.json",
+      "sha256": "ba978304b8080209ab111f14ae6a7d004d4f21c2b797f338738be9ed41a06a80",
+      "bytes": 47483
+    },
+    {
+      "path": "audit/cycles/luna-gameplay-repairs-20261014/baseline/full-ci.log",
+      "original_path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\baseline-ci-durable.log",
+      "sha256": "187a4a669afe6b67bfe19fb7ebdd3ca6538ac65cdcd4521c75be4d1bf2e00c77",
+      "bytes": 466264
+    },
+    {
+      "path": "audit/cycles/luna-gameplay-repairs-20261014/baseline/full-ci.json",
+      "original_path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\baseline-ci-durable.json",
+      "sha256": "5309e1ee282f0e679e68467b2ed9a134cadb91271593cf237cf28da978988c4d",
+      "bytes": 741
+    },
+    {
+      "path": "audit/cycles/luna-gameplay-repairs-20261014/baseline/full-ci.started.json",
+      "original_path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\baseline-ci-durable.started.json",
+      "sha256": "fe2e96e5e7c226b0aae9f8a317cbf8432a4ad7d1f1eed44920dd76a36db92ece",
+      "bytes": 434
+    },
+    {
+      "path": "audit/cycles/luna-gameplay-repairs-20261014/baseline/interrupted-foreground-ci.log",
+      "original_path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\baseline-ci.log",
+      "sha256": "fbb62d5ad8fdf0763036a912ea43ea672298bb399a9f9937a5e2ecb36279772d",
+      "bytes": 1320
+    },
+    {
+      "path": "audit/cycles/luna-gameplay-repairs-20261014/baseline/standalone-2d-contract.log",
+      "original_path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\baseline-2d-contract.log",
+      "sha256": "8b947783b266b4a6d0e63efd8760a0f9f8daac1cf00d1f063c54cff235c6d903",
+      "bytes": 13032
+    },
+    {
+      "path": "audit/cycles/luna-gameplay-repairs-20261014/baseline/standalone-2d-contract.exit",
+      "original_path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\baseline-2d-contract.exit",
+      "sha256": "5feceb66ffc86f38d952786c6d696c79c2dbc239dd4e91b46729d73a27fb57e9",
+      "bytes": 1
+    },
+    {
+      "path": "audit/cycles/luna-gameplay-repairs-20261014/baseline/upstream-dev-ci.json",
+      "original_path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\upstream-dev-baseline-ci.json",
+      "sha256": "682240e7e36ed0cb3fa328f0ff211deb7cb36e9e9d90af4894d5c5997dc5189a",
+      "bytes": 275
+    },
+    {
+      "path": "audit/cycles/luna-gameplay-repairs-20261014/diagnostics/child_evidence/start_new_baseline02_child.json",
+      "original_path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\voice_lifecycle\\start_new_baseline02_child.json",
+      "sha256": "204b31798910c58f1d85c9ca3e32d6083b3f53fbf884c728bbc9f2c7c0a4749c",
+      "bytes": 323
+    },
+    {
+      "path": "audit/cycles/luna-gameplay-repairs-20261014/diagnostics/child_evidence/start_new_baseline02_child.log",
+      "original_path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\voice_lifecycle\\start_new_baseline02_child.log",
+      "sha256": "1077d640f99d77d2ca8f8d6ef3fa9bbbdb1df849a7830149fbc1138caf434d9c",
+      "bytes": 808
+    },
+    {
+      "path": "audit/cycles/luna-gameplay-repairs-20261014/diagnostics/child_evidence/start_new_baseline03_child.json",
+      "original_path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\voice_lifecycle\\start_new_baseline03_child.json",
+      "sha256": "e14f437b1330a59ca02a27065e399e13c9867e2625589fde2c20032fee7112f0",
+      "bytes": 520
+    },
+    {
+      "path": "audit/cycles/luna-gameplay-repairs-20261014/diagnostics/child_evidence/start_new_baseline03_child.log",
+      "original_path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\voice_lifecycle\\start_new_baseline03_child.log",
+      "sha256": "c21d29646ddf5ab43bca63164eb77948127e72dd8a86a3daf321e6fee2f91317",
+      "bytes": 965
+    },
+    {
+      "path": "audit/cycles/luna-gameplay-repairs-20261014/diagnostics/child_evidence/start_new_baseline04_child.json",
+      "original_path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\voice_lifecycle\\start_new_baseline04_child.json",
+      "sha256": "3175644aed6e2708160137723a475fbbab09d99b2b7b9b983c2eadf380b5b4ed",
+      "bytes": 550
+    },
+    {
+      "path": "audit/cycles/luna-gameplay-repairs-20261014/diagnostics/child_evidence/start_new_baseline04_child.log",
+      "original_path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\voice_lifecycle\\start_new_baseline04_child.log",
+      "sha256": "1ce8ee957dc659fde4bdfe721fa3911e611180097e56b1d6a7b02eb94dddb35e",
+      "bytes": 1048
+    },
+    {
+      "path": "audit/cycles/luna-gameplay-repairs-20261014/diagnostics/child_evidence/start_new_baseline02_child.json",
+      "original_path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\voice_lifecycle\\start_new_baseline02_child.json",
+      "sha256": "204b31798910c58f1d85c9ca3e32d6083b3f53fbf884c728bbc9f2c7c0a4749c",
+      "bytes": 323
+    },
+    {
+      "path": "audit/cycles/luna-gameplay-repairs-20261014/diagnostics/child_evidence/START_NEW_BASELINE02_CHILD_ARCHIVE.json",
+      "original_path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\voice_lifecycle\\START_NEW_BASELINE02_CHILD_ARCHIVE.json",
+      "sha256": "4b4e237a31498e386849273bfd6b6f50dab06705b9ad8c07eb0dc7a67ac0295a",
+      "bytes": 976
+    },
+    {
+      "path": "audit/cycles/luna-gameplay-repairs-20261014/diagnostics/child_evidence/start_new_baseline03_child.json",
+      "original_path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\voice_lifecycle\\start_new_baseline03_child.json",
+      "sha256": "e14f437b1330a59ca02a27065e399e13c9867e2625589fde2c20032fee7112f0",
+      "bytes": 520
+    },
+    {
+      "path": "audit/cycles/luna-gameplay-repairs-20261014/diagnostics/child_evidence/start_new_baseline04_child.json",
+      "original_path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\voice_lifecycle\\start_new_baseline04_child.json",
+      "sha256": "3175644aed6e2708160137723a475fbbab09d99b2b7b9b983c2eadf380b5b4ed",
+      "bytes": 550
+    },
+    {
+      "path": "audit/cycles/luna-gameplay-repairs-20261014/diagnostics/child_evidence/START_NEW_BASELINE04_SUMMARY.json",
+      "original_path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\voice_lifecycle\\START_NEW_BASELINE04_SUMMARY.json",
+      "sha256": "a897a7e37dfe341831094cdcb92e9bedd80f465f7c383e9afe84fd0b2575fcad",
+      "bytes": 1326
+    },
+    {
+      "path": "audit/cycles/luna-gameplay-repairs-20261014/reviewed_candidates/chapter2/chapter2_complete_draft.patch",
+      "original_path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\chapter2\\chapter2_complete_draft.patch",
+      "sha256": "81562b47284fb26a5a43d72972210fd6ee56a87e71608bfb918ca2a81654bc56",
+      "bytes": 91582
+    },
+    {
+      "path": "audit/cycles/luna-gameplay-repairs-20261014/reviewed_candidates/chapter2/chapter2_complete_draft_receipt.json",
+      "original_path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\chapter2\\chapter2_complete_draft_receipt.json",
+      "sha256": "258e858a3cc356f633100c83d79efa316854f01059027dff9bbca8d4d809aa2f",
+      "bytes": 3089
+    },
+    {
+      "path": "audit/cycles/luna-gameplay-repairs-20261014/reviewed_candidates/chapter2/chapter2_complete_draft_v2_clean_kitchen.patch",
+      "original_path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\chapter2\\chapter2_complete_draft_v2_clean_kitchen.patch",
+      "sha256": "b8462495060f8384bef08b76221cc36585cfcfa96c67dbd2006401a85d2dec6e",
+      "bytes": 89924
+    },
+    {
+      "path": "audit/cycles/luna-gameplay-repairs-20261014/reviewed_candidates/chapter2/chapter2_complete_draft_v3_story_prop_aspect.patch",
+      "original_path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\chapter2\\chapter2_complete_draft_v3_story_prop_aspect.patch",
+      "sha256": "81562b47284fb26a5a43d72972210fd6ee56a87e71608bfb918ca2a81654bc56",
+      "bytes": 91582
+    },
+    {
+      "path": "audit/cycles/luna-gameplay-repairs-20261014/reviewed_candidates/chapter2/chapter2_complete_draft_v3_story_prop_aspect_receipt.json",
+      "original_path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\chapter2\\chapter2_complete_draft_v3_story_prop_aspect_receipt.json",
+      "sha256": "258e858a3cc356f633100c83d79efa316854f01059027dff9bbca8d4d809aa2f",
+      "bytes": 3089
+    },
+    {
+      "path": "audit/cycles/luna-gameplay-repairs-20261014/reviewed_candidates/combat/chapter2_candy_clean_kitchen_review.json",
+      "original_path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\combat\\chapter2_candy_clean_kitchen_review.json",
+      "sha256": "89b865ccd324097bf51aac6936830fe28f724d7b94f6f4a2f1981502ec3a5127",
+      "bytes": 1866
+    },
+    {
+      "path": "audit/cycles/luna-gameplay-repairs-20261014/reviewed_candidates/combat/chapter2_story_prop_aspect_v3_review.json",
+      "original_path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\combat\\chapter2_story_prop_aspect_v3_review.json",
+      "sha256": "05adb322057658091180f57265be08dc45d613823d4385b408b204cca8aefa2e",
+      "bytes": 1956
+    },
+    {
+      "path": "audit/cycles/luna-gameplay-repairs-20261014/reviewed_candidates/candidate-source-selection.json",
+      "original_path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\candidate-source-selection.json",
+      "sha256": "b24e1d81ff5a59cd7a6441c255a79c931d9ad80f60a6d8b2662ee76a495d3cff",
+      "bytes": 663
+    },
+    {
+      "path": "audit/cycles/luna-gameplay-repairs-20261014/reviewed_candidates/combat/patches/combat_probe_fidelity_v4_entry.patch",
+      "original_path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\combat\\patches\\combat_probe_fidelity_v4_entry.patch",
+      "sha256": "74d2aaf17e2445d90dbe9905abfb11226852cd3986ef6c42fbe25c680e81b451",
+      "bytes": 10795
+    },
+    {
+      "path": "audit/cycles/luna-gameplay-repairs-20261014/reviewed_candidates/combat/combat_v3_runtime_receipt.json",
+      "original_path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\combat\\combat_v3_runtime_receipt.json",
+      "sha256": "ae9152939fc7625bae1190b592689b38e79639dcbcaceac71ad8df651642633f",
+      "bytes": 1542
+    },
+    {
+      "path": "audit/cycles/luna-gameplay-repairs-20261014/reviewed_candidates/combat/combat_v4_entry_runtime_receipt.json",
+      "original_path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\combat\\combat_v4_entry_runtime_receipt.json",
+      "sha256": "dc96cdf2060475eebd3a9dc4cfd5e358270eb50b0986b8cc1cc44f20e3bd9884",
+      "bytes": 1407
+    },
+    {
+      "path": "audit/cycles/luna-gameplay-repairs-20261014/reviewed_candidates/combat/chapter2_final_probe_review.json",
+      "original_path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\combat\\chapter2_final_probe_review.json",
+      "sha256": "3c8222ce44d4bfda7c2e8c2ac93d7c9010d0a59adbee232ba9fa4af7b1e4fb25",
+      "bytes": 4356
+    },
+    {
+      "path": "audit/cycles/luna-gameplay-repairs-20261014/reviewed_candidates/combat/candidate_audit_notes.json",
+      "original_path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\combat\\candidate_audit_notes.json",
+      "sha256": "c57c086342c58b2815cc8bbd6bfbe28d611b6015691e80c7131a63c9f98b8f42",
+      "bytes": 7284
+    },
+    {
+      "path": "audit/cycles/luna-gameplay-repairs-20261014/reviewed_candidates/voice_lifecycle/final_patch_packet_v1/ALL_SOURCE.patch",
+      "original_path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\voice_lifecycle\\final_patch_packet_v1\\ALL_SOURCE.patch",
+      "sha256": "8f1e46cc75e929c786f1c151bc4e04d66fdab11582d0a850cdbbe03cf580e601",
+      "bytes": 56831
+    },
+    {
+      "path": "audit/cycles/luna-gameplay-repairs-20261014/reviewed_candidates/voice_lifecycle/final_patch_packet_v1/FINAL_PATCH_MANIFEST.json",
+      "original_path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\voice_lifecycle\\final_patch_packet_v1\\FINAL_PATCH_MANIFEST.json",
+      "sha256": "8c3a64847844509e9e416a8f955507c8be93e409726ae75c9ab9e5ffad3cd7b5",
+      "bytes": 10409
+    },
+    {
+      "path": "audit/cycles/luna-gameplay-repairs-20261014/reviewed_candidates/voice_lifecycle/final_patch_packet_v1/FINAL_CHECK_RECEIPT.json",
+      "original_path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\voice_lifecycle\\final_patch_packet_v1\\FINAL_CHECK_RECEIPT.json",
+      "sha256": "45391a0f63b424c9ecbb5e9d0878a88c8011e966f5be08431d1f3ff7bc42897e",
+      "bytes": 699
+    },
+    {
+      "path": "audit/cycles/luna-gameplay-repairs-20261014/reviewed_candidates/application.json",
+      "original_path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\candidate-application.json",
+      "sha256": "368e7071f6fde7527f63cae712b3ecec1963851fc76075cd131512a91d1fc3e5",
+      "bytes": 5489
+    },
+    {
+      "path": "audit/cycles/luna-gameplay-repairs-20261014/diagnostics/arrival-conjunction-baseline.json",
+      "original_path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\diagnostics\\arrival-conjunction-baseline.json",
+      "sha256": "b30eb522c224336e9f418612692b6f511b1d57828447d65c03bea0b66b0ff517",
+      "bytes": 1620
+    },
+    {
+      "path": "audit/cycles/luna-gameplay-repairs-20261014/diagnostics/arrival-conjunction-baseline.started.json",
+      "original_path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\diagnostics\\arrival-conjunction-baseline.started.json",
+      "sha256": "eda9ed570508dfa00f1208a1a56630b0017d6d820057485237ab2a95046a48e8",
+      "bytes": 1245
+    },
+    {
+      "path": "audit/cycles/luna-gameplay-repairs-20261014/diagnostics/arrival-conjunction-baseline.log",
+      "original_path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\diagnostics\\arrival-conjunction-baseline.log",
+      "sha256": "ab4096503d491f3f1bd69ea4a8acee53471f766c049d7b77189a3991e66a7e2d",
+      "bytes": 445
+    },
+    {
+      "path": "audit/cycles/luna-gameplay-repairs-20261014/diagnostics/arrival-conjunction-baseline.gd.txt",
+      "original_path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\combat\\probe_arrival_conjunction.gd",
+      "sha256": "e2a6c0c24555c685534f4c73784ec43cca1200440f4e91aa0fbf3bcb45298850",
+      "bytes": 1503
+    },
+    {
+      "path": "audit/cycles/luna-gameplay-repairs-20261014/diagnostics/ballet-story-goals-baseline-01.json",
+      "original_path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\diagnostics\\ballet-story-goals-baseline-01.json",
+      "sha256": "4e249f03e5a96f7f5547bd26a237bb5b2aaca1913190393fac64d217fd9234ab",
+      "bytes": 1658
+    },
+    {
+      "path": "audit/cycles/luna-gameplay-repairs-20261014/diagnostics/ballet-story-goals-baseline-01.started.json",
+      "original_path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\diagnostics\\ballet-story-goals-baseline-01.started.json",
+      "sha256": "0c550c62a207678fab95780a745ce13ea4dd2b537009610fc8860b3a4d2baf6c",
+      "bytes": 1281
+    },
+    {
+      "path": "audit/cycles/luna-gameplay-repairs-20261014/diagnostics/ballet-story-goals-baseline-01.log",
+      "original_path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\diagnostics\\ballet-story-goals-baseline-01.log",
+      "sha256": "d1a98abb86273effc71ef9c599bc8553d942e58519e3220773ba7503ff0ed472",
+      "bytes": 826
+    },
+    {
+      "path": "audit/cycles/luna-gameplay-repairs-20261014/diagnostics/ballet-story-goals-baseline-01.gd.txt",
+      "original_path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\chapter2\\stations\\ballet_story_goals_baseline_01.gd",
+      "sha256": "29e9484fa0985eb390a957783e276c68334790136c4f7b040166d7c0976dd03b",
+      "bytes": 3445
+    },
+    {
+      "path": "audit/cycles/luna-gameplay-repairs-20261014/diagnostics/chapter2-config-baseline-01.json",
+      "original_path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\diagnostics\\chapter2-config-baseline-01.json",
+      "sha256": "615b6d84ed5a2c734b432bc06da415b93637cfe17d06fe950a2ddd8ea5e7db34",
+      "bytes": 1619
+    },
+    {
+      "path": "audit/cycles/luna-gameplay-repairs-20261014/diagnostics/chapter2-config-baseline-01.started.json",
+      "original_path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\diagnostics\\chapter2-config-baseline-01.started.json",
+      "sha256": "c56142b6cf1bbc6f34f013c3ca7bad4256131dc593049152f2d2d15c810d5421",
+      "bytes": 1244
+    },
+    {
+      "path": "audit/cycles/luna-gameplay-repairs-20261014/diagnostics/chapter2-config-baseline-01.log",
+      "original_path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\diagnostics\\chapter2-config-baseline-01.log",
+      "sha256": "400adc18ba0c4024e68571821d4500eed026789566d07046d141aaea2a8d7c0d",
+      "bytes": 18947
+    },
+    {
+      "path": "audit/cycles/luna-gameplay-repairs-20261014/diagnostics/chapter2-config-baseline-01.gd.txt",
+      "original_path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\chapter2\\baseline_01\\probe_chapter2.gd.txt",
+      "sha256": "aaccf8fcc3c5fcbe490e8e2b5288cd8c0f9a3a338100f48710e2e96967f5f1be",
+      "bytes": 32542
+    },
+    {
+      "path": "audit/cycles/luna-gameplay-repairs-20261014/diagnostics/chapter2-viewport-transform-01.json",
+      "original_path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\diagnostics\\chapter2-viewport-transform-01.json",
+      "sha256": "608d47eb40a772714d453078c1afc80499aa445abca621eb7c3e843c6e850cd5",
+      "bytes": 1640
+    },
+    {
+      "path": "audit/cycles/luna-gameplay-repairs-20261014/diagnostics/chapter2-viewport-transform-01.started.json",
+      "original_path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\diagnostics\\chapter2-viewport-transform-01.started.json",
+      "sha256": "c3bc87dee8ac1e878697f347d60be352a62bcdf6171494e9d4986d254d62373e",
+      "bytes": 1263
+    },
+    {
+      "path": "audit/cycles/luna-gameplay-repairs-20261014/diagnostics/chapter2-viewport-transform-01.log",
+      "original_path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\diagnostics\\chapter2-viewport-transform-01.log",
+      "sha256": "a68ab3b1381b2ae38bbf82b1887f05c929d973789d6a4837d0790b7ef8bb556d",
+      "bytes": 749
+    },
+    {
+      "path": "audit/cycles/luna-gameplay-repairs-20261014/diagnostics/chapter2-viewport-transform-01.gd.txt",
+      "original_path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\chapter2\\stations\\viewport_transform_01.gd",
+      "sha256": "4fa53af08d2f734365c2f74f663466763c336c12198f30bf17cd2e4643aa0fe9",
+      "bytes": 2172
+    },
+    {
+      "path": "audit/cycles/luna-gameplay-repairs-20261014/diagnostics/chapter2-viewport-transform-02.json",
+      "original_path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\diagnostics\\chapter2-viewport-transform-02.json",
+      "sha256": "767208d8560ca577b754ccf10480970c0d8263a3f768b188727c7de699767bf7",
+      "bytes": 1639
+    },
+    {
+      "path": "audit/cycles/luna-gameplay-repairs-20261014/diagnostics/chapter2-viewport-transform-02.started.json",
+      "original_path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\diagnostics\\chapter2-viewport-transform-02.started.json",
+      "sha256": "105659be5905d6ef2eff971d6552aea7208a8f8e19fba758ce6efa0d7430324e",
+      "bytes": 1262
+    },
+    {
+      "path": "audit/cycles/luna-gameplay-repairs-20261014/diagnostics/chapter2-viewport-transform-02.log",
+      "original_path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\diagnostics\\chapter2-viewport-transform-02.log",
+      "sha256": "05d8a17cf64135ddf0bdfff529f9de42d8d9bd61ff210e5d7e802edcec93f547",
+      "bytes": 447
+    },
+    {
+      "path": "audit/cycles/luna-gameplay-repairs-20261014/diagnostics/chapter2-viewport-transform-02.gd.txt",
+      "original_path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\chapter2\\stations\\viewport_transform_02.gd",
+      "sha256": "3e07680692f6efd8791799678ee030bba47ef62d35e17fa18fff912f0926db52",
+      "bytes": 2286
+    },
+    {
+      "path": "audit/cycles/luna-gameplay-repairs-20261014/diagnostics/chapter2-viewport-transform-03.json",
+      "original_path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\diagnostics\\chapter2-viewport-transform-03.json",
+      "sha256": "31ef940f6c75518a979365d02b89a87435c39680546c8d1579f2e0f828685bc7",
+      "bytes": 1638
+    },
+    {
+      "path": "audit/cycles/luna-gameplay-repairs-20261014/diagnostics/chapter2-viewport-transform-03.started.json",
+      "original_path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\diagnostics\\chapter2-viewport-transform-03.started.json",
+      "sha256": "ccd6e4d190eea9d95e278def040e4f0d882943fe11466ae62d5b14651f163dd3",
+      "bytes": 1262
+    },
+    {
+      "path": "audit/cycles/luna-gameplay-repairs-20261014/diagnostics/chapter2-viewport-transform-03.log",
+      "original_path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\diagnostics\\chapter2-viewport-transform-03.log",
+      "sha256": "97de68f02f44d167022c6a90408e58f01cba4401895221e4bacd93fec5b28a17",
+      "bytes": 755
+    },
+    {
+      "path": "audit/cycles/luna-gameplay-repairs-20261014/diagnostics/chapter2-viewport-transform-03.gd.txt",
+      "original_path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\chapter2\\stations\\viewport_transform_03.gd",
+      "sha256": "5c7553d7308985fa0fb052161af5ab3f789db5296935757a4dfcf6fe3ccaf515",
+      "bytes": 2284
+    },
+    {
+      "path": "audit/cycles/luna-gameplay-repairs-20261014/diagnostics/dust-buffered-baseline-01.json",
+      "original_path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\diagnostics\\dust-buffered-baseline-01.json",
+      "sha256": "ca5a830b910304a43d7dcac97b44c733913490679d07f428a943200178fa1f6a",
+      "bytes": 1613
+    },
+    {
+      "path": "audit/cycles/luna-gameplay-repairs-20261014/diagnostics/dust-buffered-baseline-01.started.json",
+      "original_path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\diagnostics\\dust-buffered-baseline-01.started.json",
+      "sha256": "1d5be3dba666ea41890314459ff2db194ae6364d0030fa58d32ca286a46e8bd5",
+      "bytes": 1240
+    },
+    {
+      "path": "audit/cycles/luna-gameplay-repairs-20261014/diagnostics/dust-buffered-baseline-01.log",
+      "original_path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\diagnostics\\dust-buffered-baseline-01.log",
+      "sha256": "10f91a169373ad9d1751cd0ef5b2ef32b48825b3ce9a1ceedf32f1ac183d4942",
+      "bytes": 12551
+    },
+    {
+      "path": "audit/cycles/luna-gameplay-repairs-20261014/diagnostics/dust-buffered-baseline-01.gd.txt",
+      "original_path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\combat\\probe_dust_boss_buffered.gd",
+      "sha256": "849e47ca6e24308e109f3134cb394440b88089f81baca364e31472b18ab68456",
+      "bytes": 34884
+    },
+    {
+      "path": "audit/cycles/luna-gameplay-repairs-20261014/diagnostics/dust-entry-v4-baseline-01.json",
+      "original_path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\diagnostics\\dust-entry-v4-baseline-01.json",
+      "sha256": "9f81399ef3cfcf0e2f7012e4849a82d20dd704828266eb15849f90e41fcf85f2",
+      "bytes": 1619
+    },
+    {
+      "path": "audit/cycles/luna-gameplay-repairs-20261014/diagnostics/dust-entry-v4-baseline-01.started.json",
+      "original_path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\diagnostics\\dust-entry-v4-baseline-01.started.json",
+      "sha256": "cd6c78e11414117cf2920fd1ada20b91cac99561fc1e4a8123ffc3170640bbce",
+      "bytes": 1246
+    },
+    {
+      "path": "audit/cycles/luna-gameplay-repairs-20261014/diagnostics/dust-entry-v4-baseline-01.log",
+      "original_path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\diagnostics\\dust-entry-v4-baseline-01.log",
+      "sha256": "fd07043d399d7e0b22a7aee1965e63d69b9ded85b9cf05b162ed514fad7080bb",
+      "bytes": 8151
+    },
+    {
+      "path": "audit/cycles/luna-gameplay-repairs-20261014/diagnostics/dust-entry-v4-baseline-01.gd.txt",
+      "original_path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\combat\\patches\\probe_dust_boss_v4.gd",
+      "sha256": "0ab73140c9d202c1c80533fb7304d61f44fe3b1ba4b3a37b257d3e13be7a1263",
+      "bytes": 36448
+    },
+    {
+      "path": "audit/cycles/luna-gameplay-repairs-20261014/diagnostics/dust-fidelity-v3-baseline-01.json",
+      "original_path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\diagnostics\\dust-fidelity-v3-baseline-01.json",
+      "sha256": "c8d4e3e91e35853b00820920a0254040d8df80cb997c58270d6a8311d931b665",
+      "bytes": 1625
+    },
+    {
+      "path": "audit/cycles/luna-gameplay-repairs-20261014/diagnostics/dust-fidelity-v3-baseline-01.started.json",
+      "original_path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\diagnostics\\dust-fidelity-v3-baseline-01.started.json",
+      "sha256": "95bf719d7f62c68f80d7ac7abaaac2569e1e804504ac31e58f4942127e3d6d4d",
+      "bytes": 1249
+    },
+    {
+      "path": "audit/cycles/luna-gameplay-repairs-20261014/diagnostics/dust-fidelity-v3-baseline-01.log",
+      "original_path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\diagnostics\\dust-fidelity-v3-baseline-01.log",
+      "sha256": "710c18de6282a2a565fc8db001aed4d1b6ad96cd2347e27134743f840e6d1d4b",
+      "bytes": 7918
+    },
+    {
+      "path": "audit/cycles/luna-gameplay-repairs-20261014/diagnostics/dust-fidelity-v3-baseline-01.gd.txt",
+      "original_path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\combat\\patches\\probe_dust_boss_v3.gd",
+      "sha256": "44788870e11ef81dfc5ef087ff3deffb8538e37805ddeb3bf2d720028fce0a5b",
+      "bytes": 34383
+    },
+    {
+      "path": "audit/cycles/luna-gameplay-repairs-20261014/diagnostics/kart-verbose-baseline-01.json",
+      "original_path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\diagnostics\\kart-verbose-baseline-01.json",
+      "sha256": "9790529e5e81b90c6cc12d6ca6f399095229832ba88e569352248ed09144ccf2",
+      "bytes": 1645
+    },
+    {
+      "path": "audit/cycles/luna-gameplay-repairs-20261014/diagnostics/kart-verbose-baseline-01.started.json",
+      "original_path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\diagnostics\\kart-verbose-baseline-01.started.json",
+      "sha256": "094a2402329827f334bc26a7c5e385ec6717901b2dd98f21a496055994193684",
+      "bytes": 1273
+    },
+    {
+      "path": "audit/cycles/luna-gameplay-repairs-20261014/diagnostics/kart-verbose-baseline-01.log",
+      "original_path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\diagnostics\\kart-verbose-baseline-01.log",
+      "sha256": "863640fc081a0c63310e7be25cb8947878467b4855b5ad1ea1f80a3ecd94a5cf",
+      "bytes": 77441
+    },
+    {
+      "path": "audit/cycles/luna-gameplay-repairs-20261014/diagnostics/kart-verbose-baseline-01.gd.txt",
+      "original_path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\voice_lifecycle\\probe_kart_feel_verbose.gd",
+      "sha256": "4b784becd5542d7e74e7932803c01c0dbddc3f8ab8a7af4ada821350d3cbbb98",
+      "bytes": 19576
+    },
+    {
+      "path": "audit/cycles/luna-gameplay-repairs-20261014/diagnostics/start-new-real-reload-baseline-01.json",
+      "original_path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\diagnostics\\start-new-real-reload-baseline-01.json",
+      "sha256": "5e681388f59d68b04465d273cd10643d155cb81fba1ebf22766f3b73386de1ec",
+      "bytes": 1654
+    },
+    {
+      "path": "audit/cycles/luna-gameplay-repairs-20261014/diagnostics/start-new-real-reload-baseline-01.started.json",
+      "original_path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\diagnostics\\start-new-real-reload-baseline-01.started.json",
+      "sha256": "f14a3267d0b5795df00e8463dcb96776b857d94f69229312e95bf0b6a41a94ec",
+      "bytes": 1274
+    },
+    {
+      "path": "audit/cycles/luna-gameplay-repairs-20261014/diagnostics/start-new-real-reload-baseline-01.log",
+      "original_path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\diagnostics\\start-new-real-reload-baseline-01.log",
+      "sha256": "735700b7ecd87716cd02ac36a9b0d334b4eaeb6394a96b1b19bbffbc6afdcfab",
+      "bytes": 532
+    },
+    {
+      "path": "audit/cycles/luna-gameplay-repairs-20261014/diagnostics/start-new-real-reload-baseline-01.gd.txt",
+      "original_path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\voice_lifecycle\\probe_start_menu_real_reload.gd",
+      "sha256": "193fc4b4a7a3cfe20df39956278dd97abfac6f616748f1cc156f86a1576161e4",
+      "bytes": 16557
+    },
+    {
+      "path": "audit/cycles/luna-gameplay-repairs-20261014/diagnostics/start-new-real-reload-baseline-02.json",
+      "original_path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\diagnostics\\start-new-real-reload-baseline-02.json",
+      "sha256": "00bc3e70922c2901fa69cdf87a7f43f1b5b01ebd04ffe8da1a4b3accab98f906",
+      "bytes": 1660
+    },
+    {
+      "path": "audit/cycles/luna-gameplay-repairs-20261014/diagnostics/start-new-real-reload-baseline-02.started.json",
+      "original_path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\diagnostics\\start-new-real-reload-baseline-02.started.json",
+      "sha256": "3076f0ba98f84ea61a80f5cca3edc400f0dd64d84a816ee1f2a1edcc003f75cb",
+      "bytes": 1280
+    },
+    {
+      "path": "audit/cycles/luna-gameplay-repairs-20261014/diagnostics/start-new-real-reload-baseline-02.log",
+      "original_path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\diagnostics\\start-new-real-reload-baseline-02.log",
+      "sha256": "e860ad5c6cbb50ed5f6f90493d105ef51343387e07308e5976688fa895505a0b",
+      "bytes": 3323
+    },
+    {
+      "path": "audit/cycles/luna-gameplay-repairs-20261014/diagnostics/start-new-real-reload-baseline-02.gd.txt",
+      "original_path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\voice_lifecycle\\probe_start_menu_real_reload_v2.gd",
+      "sha256": "70405036c949bfd71c47967ff1bf661474e5d3b95229ba309e1e4e84dd342853",
+      "bytes": 16947
+    },
+    {
+      "path": "audit/cycles/luna-gameplay-repairs-20261014/diagnostics/start-new-real-reload-baseline-03.json",
+      "original_path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\diagnostics\\start-new-real-reload-baseline-03.json",
+      "sha256": "0979af9ff60f368b56f5349ef325f4fdd95cdeca6cdefcded2c97148c1a606fc",
+      "bytes": 1661
+    },
+    {
+      "path": "audit/cycles/luna-gameplay-repairs-20261014/diagnostics/start-new-real-reload-baseline-03.started.json",
+      "original_path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\diagnostics\\start-new-real-reload-baseline-03.started.json",
+      "sha256": "9f29afef03b8a9063847fe47516433082ebef5b9c4e2141bd99b011bc2dd95b5",
+      "bytes": 1280
+    },
+    {
+      "path": "audit/cycles/luna-gameplay-repairs-20261014/diagnostics/start-new-real-reload-baseline-03.log",
+      "original_path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\diagnostics\\start-new-real-reload-baseline-03.log",
+      "sha256": "48f25065691d286182820a87112ab66a2211902b75fcef6d2a3a59b4d2ede50a",
+      "bytes": 3676
+    },
+    {
+      "path": "audit/cycles/luna-gameplay-repairs-20261014/diagnostics/start-new-real-reload-baseline-03.gd.txt",
+      "original_path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\voice_lifecycle\\probe_start_menu_real_reload_v3.gd",
+      "sha256": "482c36b8ef211501a7700e40d54eb53048072eb5d5c314f2abbf12e2963bf700",
+      "bytes": 19385
+    },
+    {
+      "path": "audit/cycles/luna-gameplay-repairs-20261014/diagnostics/start-new-real-reload-baseline-04.json",
+      "original_path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\diagnostics\\start-new-real-reload-baseline-04.json",
+      "sha256": "8767996e2a43465e73dba82241ac1b0d1fd678edf5c4e9336898f806293cdae4",
+      "bytes": 1661
+    },
+    {
+      "path": "audit/cycles/luna-gameplay-repairs-20261014/diagnostics/start-new-real-reload-baseline-04.started.json",
+      "original_path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\diagnostics\\start-new-real-reload-baseline-04.started.json",
+      "sha256": "b5badd844aa316a440df7b6f2813af06a10f9c555d71a79756823572dfbfe877",
+      "bytes": 1280
+    },
+    {
+      "path": "audit/cycles/luna-gameplay-repairs-20261014/diagnostics/start-new-real-reload-baseline-04.log",
+      "original_path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\diagnostics\\start-new-real-reload-baseline-04.log",
+      "sha256": "059cb39e88d7ddfc56d16a83870507ffe9ec28f927119a63913f95cd19ee8472",
+      "bytes": 3788
+    },
+    {
+      "path": "audit/cycles/luna-gameplay-repairs-20261014/diagnostics/start-new-real-reload-baseline-04.gd.txt",
+      "original_path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\voice_lifecycle\\probe_start_menu_real_reload_v4.gd",
+      "sha256": "92a271fde35876d4595a33ceca3471eb728bed799cb85b51d01c7bf31c65fef3",
+      "bytes": 19757
+    },
+    {
+      "path": "audit/cycles/luna-gameplay-repairs-20261014/diagnostics/tutorial-buffered-baseline-01.json",
+      "original_path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\diagnostics\\tutorial-buffered-baseline-01.json",
+      "sha256": "b91f593800f9349e4b8c69272a8ae0bce71725df606c0e47f8d1c01745f1aff7",
+      "bytes": 1633
+    },
+    {
+      "path": "audit/cycles/luna-gameplay-repairs-20261014/diagnostics/tutorial-buffered-baseline-01.started.json",
+      "original_path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\diagnostics\\tutorial-buffered-baseline-01.started.json",
+      "sha256": "b6195dfbab601e636c661f464bee97e545b5458adbfe07cd8658ea9fe301be1b",
+      "bytes": 1256
+    },
+    {
+      "path": "audit/cycles/luna-gameplay-repairs-20261014/diagnostics/tutorial-buffered-baseline-01.log",
+      "original_path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\diagnostics\\tutorial-buffered-baseline-01.log",
+      "sha256": "825e4a5a0cff6f19213bd1f216acc168861045ee32403aa91e8b2be021ef3739",
+      "bytes": 3086
+    },
+    {
+      "path": "audit/cycles/luna-gameplay-repairs-20261014/diagnostics/tutorial-buffered-baseline-01.gd.txt",
+      "original_path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\combat\\probe_combat_tutorial_buffered.gd",
+      "sha256": "0f257881e9771484ebf364fe07fe0d6f25d01fe155606801daa9b5e38a352790",
+      "bytes": 9606
+    },
+    {
+      "path": "audit/cycles/luna-gameplay-repairs-20261014/diagnostics/tutorial-buffered-v2-baseline-01.json",
+      "original_path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\diagnostics\\tutorial-buffered-v2-baseline-01.json",
+      "sha256": "21246d0f22259ab4843312ea65dbcf9ce74cd2b1417a2dd49013150863a4b006",
+      "bytes": 1643
+    },
+    {
+      "path": "audit/cycles/luna-gameplay-repairs-20261014/diagnostics/tutorial-buffered-v2-baseline-01.started.json",
+      "original_path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\diagnostics\\tutorial-buffered-v2-baseline-01.started.json",
+      "sha256": "b1edce0160895b5d8134fbd66ff472641d2b4518314677c954cfdba01fc2916c",
+      "bytes": 1263
+    },
+    {
+      "path": "audit/cycles/luna-gameplay-repairs-20261014/diagnostics/tutorial-buffered-v2-baseline-01.log",
+      "original_path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\diagnostics\\tutorial-buffered-v2-baseline-01.log",
+      "sha256": "a9707920298cb8119968207e99305a5b6cb6c9b68672b9481bef1f917544211c",
+      "bytes": 4795
+    },
+    {
+      "path": "audit/cycles/luna-gameplay-repairs-20261014/diagnostics/tutorial-buffered-v2-baseline-01.gd.txt",
+      "original_path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\combat\\probe_combat_tutorial_buffered_v2.gd",
+      "sha256": "7c04ae02174b641388a417671bbc80a0d8e4afcd94694d7bc01f974fad7a2b13",
+      "bytes": 10063
+    },
+    {
+      "path": "audit/cycles/luna-gameplay-repairs-20261014/diagnostics/tutorial-fidelity-v3-baseline-01.json",
+      "original_path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\diagnostics\\tutorial-fidelity-v3-baseline-01.json",
+      "sha256": "9f6f6b6146e901c364724ca7ff877b7a64aa3aeb9f6612b85073d7e942e3c5ce",
+      "bytes": 1644
+    },
+    {
+      "path": "audit/cycles/luna-gameplay-repairs-20261014/diagnostics/tutorial-fidelity-v3-baseline-01.started.json",
+      "original_path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\diagnostics\\tutorial-fidelity-v3-baseline-01.started.json",
+      "sha256": "05ab6b0fbe38e923409e7753ba84f7ffbe003fbe83f57fed55433352eda0f57e",
+      "bytes": 1264
+    },
+    {
+      "path": "audit/cycles/luna-gameplay-repairs-20261014/diagnostics/tutorial-fidelity-v3-baseline-01.log",
+      "original_path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\diagnostics\\tutorial-fidelity-v3-baseline-01.log",
+      "sha256": "744b4d5752836b437e1eccd3dc9fa32b0328a8c7383acbaa1f367fb27cba925f",
+      "bytes": 1836
+    },
+    {
+      "path": "audit/cycles/luna-gameplay-repairs-20261014/diagnostics/tutorial-fidelity-v3-baseline-01.gd.txt",
+      "original_path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\combat\\patches\\probe_combat_tutorial_v3.gd",
+      "sha256": "011fd3503929e53059c4abf93cbbc41eaeacd813415ce3db44f77f2770410630",
+      "bytes": 10876
+    }
+  ],
+  "attempts": [
+    {
+      "label": "arrival-conjunction-baseline",
+      "receipt": "diagnostics/arrival-conjunction-baseline.json",
+      "exit_code": 0,
+      "timeout": false,
+      "source_mismatches": [],
+      "interpretation": "Raw diagnostic status; read failed assertion lines and acceptance limits. Exit0 alone does not establish PASS."
+    },
+    {
+      "label": "ballet-story-goals-baseline-01",
+      "receipt": "diagnostics/ballet-story-goals-baseline-01.json",
+      "exit_code": 1,
+      "timeout": false,
+      "source_mismatches": [],
+      "interpretation": "Raw diagnostic status; read failed assertion lines and acceptance limits. Exit0 alone does not establish PASS."
+    },
+    {
+      "label": "chapter2-config-baseline-01",
+      "receipt": "diagnostics/chapter2-config-baseline-01.json",
+      "exit_code": 1,
+      "timeout": false,
+      "source_mismatches": [],
+      "interpretation": "Raw diagnostic status; read failed assertion lines and acceptance limits. Exit0 alone does not establish PASS."
+    },
+    {
+      "label": "chapter2-viewport-transform-01",
+      "receipt": "diagnostics/chapter2-viewport-transform-01.json",
+      "exit_code": 0,
+      "timeout": false,
+      "source_mismatches": [],
+      "interpretation": "Raw diagnostic status; read failed assertion lines and acceptance limits. Exit0 alone does not establish PASS."
+    },
+    {
+      "label": "chapter2-viewport-transform-02",
+      "receipt": "diagnostics/chapter2-viewport-transform-02.json",
+      "exit_code": 1,
+      "timeout": false,
+      "source_mismatches": [],
+      "interpretation": "Raw diagnostic status; read failed assertion lines and acceptance limits. Exit0 alone does not establish PASS."
+    },
+    {
+      "label": "chapter2-viewport-transform-03",
+      "receipt": "diagnostics/chapter2-viewport-transform-03.json",
+      "exit_code": 0,
+      "timeout": false,
+      "source_mismatches": [],
+      "interpretation": "Raw diagnostic status; read failed assertion lines and acceptance limits. Exit0 alone does not establish PASS."
+    },
+    {
+      "label": "dust-buffered-baseline-01",
+      "receipt": "diagnostics/dust-buffered-baseline-01.json",
+      "exit_code": 0,
+      "timeout": false,
+      "source_mismatches": [],
+      "interpretation": "Raw diagnostic status; read failed assertion lines and acceptance limits. Exit0 alone does not establish PASS."
+    },
+    {
+      "label": "dust-entry-v4-baseline-01",
+      "receipt": "diagnostics/dust-entry-v4-baseline-01.json",
+      "exit_code": 0,
+      "timeout": false,
+      "source_mismatches": [],
+      "interpretation": "Raw diagnostic status; read failed assertion lines and acceptance limits. Exit0 alone does not establish PASS."
+    },
+    {
+      "label": "dust-fidelity-v3-baseline-01",
+      "receipt": "diagnostics/dust-fidelity-v3-baseline-01.json",
+      "exit_code": 0,
+      "timeout": false,
+      "source_mismatches": [],
+      "interpretation": "Raw diagnostic status; read failed assertion lines and acceptance limits. Exit0 alone does not establish PASS."
+    },
+    {
+      "label": "kart-verbose-baseline-01",
+      "receipt": "diagnostics/kart-verbose-baseline-01.json",
+      "exit_code": 0,
+      "timeout": false,
+      "source_mismatches": [],
+      "interpretation": "Raw diagnostic status; read failed assertion lines and acceptance limits. Exit0 alone does not establish PASS."
+    },
+    {
+      "label": "start-new-real-reload-baseline-01",
+      "receipt": "diagnostics/start-new-real-reload-baseline-01.json",
+      "exit_code": 1,
+      "timeout": false,
+      "source_mismatches": [],
+      "interpretation": "Raw diagnostic status; read failed assertion lines and acceptance limits. Exit0 alone does not establish PASS."
+    },
+    {
+      "label": "start-new-real-reload-baseline-02",
+      "receipt": "diagnostics/start-new-real-reload-baseline-02.json",
+      "exit_code": 1,
+      "timeout": false,
+      "source_mismatches": [],
+      "interpretation": "Raw diagnostic status; read failed assertion lines and acceptance limits. Exit0 alone does not establish PASS."
+    },
+    {
+      "label": "start-new-real-reload-baseline-03",
+      "receipt": "diagnostics/start-new-real-reload-baseline-03.json",
+      "exit_code": 1,
+      "timeout": false,
+      "source_mismatches": [],
+      "interpretation": "Raw diagnostic status; read failed assertion lines and acceptance limits. Exit0 alone does not establish PASS."
+    },
+    {
+      "label": "start-new-real-reload-baseline-04",
+      "receipt": "diagnostics/start-new-real-reload-baseline-04.json",
+      "exit_code": 0,
+      "timeout": false,
+      "source_mismatches": [],
+      "interpretation": "Raw diagnostic status; read failed assertion lines and acceptance limits. Exit0 alone does not establish PASS."
+    },
+    {
+      "label": "tutorial-buffered-baseline-01",
+      "receipt": "diagnostics/tutorial-buffered-baseline-01.json",
+      "exit_code": 0,
+      "timeout": false,
+      "source_mismatches": [],
+      "interpretation": "Raw diagnostic status; read failed assertion lines and acceptance limits. Exit0 alone does not establish PASS."
+    },
+    {
+      "label": "tutorial-buffered-v2-baseline-01",
+      "receipt": "diagnostics/tutorial-buffered-v2-baseline-01.json",
+      "exit_code": 0,
+      "timeout": false,
+      "source_mismatches": [],
+      "interpretation": "Raw diagnostic status; read failed assertion lines and acceptance limits. Exit0 alone does not establish PASS."
+    },
+    {
+      "label": "tutorial-fidelity-v3-baseline-01",
+      "receipt": "diagnostics/tutorial-fidelity-v3-baseline-01.json",
+      "exit_code": 0,
+      "timeout": false,
+      "source_mismatches": [],
+      "interpretation": "Raw diagnostic status; read failed assertion lines and acceptance limits. Exit0 alone does not establish PASS."
+    }
+  ],
+  "missing_exact_attempt_scripts": [],
+  "limits": "Selected immutable campaign/baseline evidence only; preserves failed and incomplete attempts. No new runtime, phone, visual, child or owner acceptance. Campaign episode109 first-attempt log was overwritten before this repair; its unknown verdict stays unknown. Canonical historical19/29 unmapped phases and newer18/29 measurement retain their dates."
+}

@@ -1,0 +1,341 @@
+"""Prepared only. Apply the reviewed terminal CI02 documentation update after all guards."""
+from __future__ import annotations
+import argparse
+import copy
+from datetime import datetime, timezone
+import hashlib
+import json
+import math
+import os
+from pathlib import Path
+import re
+import subprocess
+import sys
+
+ORIGINAL = Path(r"C:\Users\Peter\Documents\mermaid-roshan-reef")
+WORKTREE = Path(r"C:\Users\Peter\.codex\worktrees\luna-gameplay-repairs-20261014\mermaid-roshan-reef")
+SCRATCH = ORIGINAL / "tmp/luna_repair_20261014"
+CYCLE = "audit/cycles/luna-gameplay-repairs-20261014"
+PIN_SHA = "786bc13b36002f919b689a13870e475bd86a8fa32cc1f39eacd661fea03a2388"
+ENGINE_SHA = "c8f0a6bc45a19b33541501e57f6f7cd972ab18453743266339d495cbbe846643"
+CI_SHA = "769ed4c4259ebe740f1e247c129bfc34914fa70fe72e28f65e5b5d5c9a577279"
+RUNNER_SHA = "5db4c749192286a433382617a71a3eb257c8464871c144dc5a774c71e9cd8d50"
+FIRST_MANIFEST_SHA = "5d19d8ee2b57c08cea9cc3da4b98d22a1cc01fe9362d7d7ae1b78dd69a961eb9"
+ROUTE06_MANIFEST_SHA = "f1c48cb3ac0fc4c764666e2dc59a1d19182d1af2a3fe8d7639eef7fa4944d933"
+MASTER = "audit/MASTER_AUDIT_2026-08-09.md"
+LEDGER = "design/05_DOC_LEDGER.md"
+CHANGELOG = "audit/MASTER_AUDIT_CHANGELOG_ROLLBACK_2026-08-10.md"
+FINDINGS = "audit/findings/ACTIVE_FINDINGS_2026-08-13.md"
+IMPACT = "design/audit_impacts/luna-gameplay-repairs-20261014.json"
+TARGETS = [MASTER, LEDGER, CHANGELOG, FINDINGS, IMPACT]
+HEX = re.compile(r"[0-9a-f]{64}\Z")
+
+
+def require(condition: bool, message: str) -> None:
+    if not condition:
+        raise RuntimeError(message)
+
+
+def digest(data: bytes) -> str:
+    return hashlib.sha256(data).hexdigest()
+
+
+def read_json(path: Path):
+    return json.loads(path.read_text(encoding="utf-8-sig"))
+
+
+def confined(path: Path, base: Path) -> Path:
+    path = path.resolve()
+    require(path.is_relative_to(base.resolve()), "Path outside authorized base: " + str(path))
+    return path
+
+
+def git(*args: str) -> bytes:
+    result = subprocess.run(["git", *args], cwd=WORKTREE, capture_output=True, check=False)
+    require(result.returncode == 0, "Read-only git command failed: " + repr(args))
+    return result.stdout
+
+
+def changed_paths() -> set[str]:
+    changed = git("diff", "--name-only", "-z", "HEAD", "--")
+    untracked = git("ls-files", "--others", "--exclude-standard", "-z")
+    names = {s.decode("utf-8").replace("\\", "/") for s in (changed + untracked).split(b"\0") if s}
+    require(all(not Path(s).is_absolute() and ".." not in Path(s).parts for s in names),
+            "Unexpected Git path")
+    return names - {IMPACT}
+
+
+def verify_archive(folder: Path, expected_sha: str) -> dict:
+    manifest_path = folder / "MANIFEST.json"
+    require(HEX.fullmatch(expected_sha) is not None, "Expected manifest SHA must be explicit")
+    require(digest(manifest_path.read_bytes()) == expected_sha, "Archive manifest hash differs from reviewed hash")
+    manifest = read_json(manifest_path)
+    rows = manifest.get("files")
+    require(isinstance(rows, list) and rows, "Archive payload list absent")
+    names = set()
+    for row in rows:
+        name = row.get("path")
+        require(isinstance(name, str) and name not in names, "Duplicate/invalid archive path")
+        names.add(name)
+        path = confined(folder / name, folder)
+        require(path.is_file() and HEX.fullmatch(row.get("sha256", "")) is not None, "Invalid archive payload")
+        data = path.read_bytes()
+        require(digest(data) == row["sha256"] and len(data) == row["bytes"], "Archive payload bytes differ: " + name)
+    actual = {p.relative_to(folder).as_posix() for p in folder.rglob("*") if p.is_file()}
+    require(actual == names | {"MANIFEST.json"}, "Archive has missing or unlisted payloads")
+    require(manifest.get("payload_count", manifest.get("file_count")) == len(rows), "Archive count differs")
+    return manifest
+
+
+def normalized(raw: bytes) -> tuple[str, str]:
+    text = raw.decode("utf-8")
+    if "\r\n" in text:
+        require(text.count("\r\n") == text.count("\n"), "Mixed newline conventions in target")
+        return text.replace("\r\n", "\n"), "\r\n"
+    return text, "\n"
+
+
+def once(text: str, old: str, new: str) -> str:
+    require(text.count(old) == 1, "Expected exactly one scoped replacement: " + old)
+    return text.replace(old, new, 1)
+
+
+def paragraph(text: str, starts: str, old: str, new: str) -> str:
+    require(text.count(starts) == 1, "Paragraph anchor is not unique")
+    begin = text.index(starts)
+    end = text.find("\n\n", begin)
+    if end < 0:
+        end = len(text)
+    return text[:begin] + once(text[begin:end], old, new) + text[end:]
+
+
+def link_for(document: str, target: Path) -> str:
+    return os.path.relpath(target, (WORKTREE / document).parent).replace("\\", "/")
+
+
+def main() -> int:
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--archive-manifest-sha256", required=True,
+                        help="Root-reviewed exact terminal CI02 archive manifest SHA-256")
+    parser.add_argument("--apply", action="store_true", help="Write only the five reviewed canonical/impact targets")
+    args = parser.parse_args()
+    archive = confined(WORKTREE / CYCLE / "candidate/full_local_ci_02", WORKTREE / CYCLE / "candidate")
+    manifest = verify_archive(archive, args.archive_manifest_sha256)
+    require(manifest.get("native_machine_gate_passed") is True and manifest.get("source_pin_sha256") == PIN_SHA,
+            "Archive does not bind terminal revision8 PASS")
+    receipt_path = archive / "gate/candidate-full-ci-02.json"
+    gate = read_json(receipt_path)
+    require(gate.get("schema") == "luna_candidate_gate/2" and gate.get("kind") == "ci"
+            and gate.get("label") == "candidate-full-ci-02", "Wrong native terminal receipt")
+    require(gate.get("machine_gate_passed") is True and gate.get("exit_code") == 0 and gate.get("timeout") is False,
+            "CI02 has not terminally passed")
+    require(gate.get("source_pin_sha256") == PIN_SHA and gate.get("source_pin_unchanged") is True
+            and gate.get("source_mismatches") == [] and gate.get("after_pin_mismatches") == [],
+            "CI02 source inventory/pin changed")
+    require(gate.get("engine_sha256") == ENGINE_SHA and Path(gate["cwd"]).resolve() == WORKTREE.resolve(),
+            "Wrong engine or worktree")
+    require(gate.get("command") == [r"C:\Program Files\Git\bin\bash.exe", "scripts/ci.sh"], "Unexpected full-CI command")
+    require(gate.get("blocking_failure_lines") == [], "CI02 retains a blocking failure")
+    require(gate.get("failure_lines") == gate.get("ignored_failure_lines")
+            and gate.get("ignored_failure_lines") == ["GOLDSTAR|RESULT|FAIL|2 games, 0 errors, 0 stale"]
+            and gate.get("known_selftest_count") == 1 and gate.get("selftest_allowance_applied") is True
+            and gate.get("selftest_source_attribution", {}).get("matched") is True,
+            "Known negative selftest classification does not match the reviewed runner contract")
+    duration = gate.get("duration_seconds")
+    require(isinstance(duration, (int, float)) and not isinstance(duration, bool)
+            and math.isfinite(duration) and duration > 0, "Invalid terminal duration")
+    finished = datetime.fromisoformat(gate["completed_utc"])
+    started = datetime.fromisoformat(gate["started_utc"])
+    require(finished.tzinfo is not None and started.tzinfo is not None and finished > started, "Invalid terminal dates")
+    log_sha = gate.get("log_sha256", "")
+    require(HEX.fullmatch(log_sha) is not None, "Invalid native log SHA")
+    log_bytes = (archive / "gate/candidate-full-ci-02.log").read_bytes()
+    require(digest(log_bytes) == log_sha, "Native log hash mismatch")
+    inventory_bytes = (archive / "gate/candidate-full-ci-02.sources.json").read_bytes()
+    require(digest(inventory_bytes) == gate.get("source_manifest_sha256"), "Native source inventory hash mismatch")
+    for suffix in ["json", "log", "sources.json", "started.json"]:
+        archived = archive / ("gate/candidate-full-ci-02." + suffix)
+        native = SCRATCH / ("candidate_gates/candidate-full-ci-02." + suffix)
+        require(archived.read_bytes() == native.read_bytes(), "Native/archive bytes differ: " + suffix)
+    start_record = read_json(archive / "gate/candidate-full-ci-02.started.json")
+    require(all(start_record.get(key) == gate.get(key) for key in
+                ["label", "source_pin_sha256", "engine_sha256", "runner_pid", "child_pid", "started_utc"]),
+            "Native started/terminal ownership differs")
+    ci_bytes = (archive / "tools/ci.sh.txt").read_bytes()
+    require(digest(ci_bytes) == CI_SHA and digest((WORKTREE / "scripts/ci.sh").read_bytes()) == CI_SHA,
+            "Trusted roster source differs")
+    require(digest((archive / "tools/run_candidate_full_ci_gate.py.txt").read_bytes()) == RUNNER_SHA,
+            "Reviewed CI runner bytes differ")
+    ci_text = ci_bytes.decode("utf-8").replace("\r\n", "\n")
+    match = re.findall(r"^for p in (probe_[^\n]+); do$", ci_text, re.MULTILINE)
+    require(len(match) == 1, "Trusted roster declaration is ambiguous")
+    expected = match[0].split()
+    require(len(expected) == len(set(expected)) == 82 and all(re.fullmatch(r"probe_[a-z0-9_]+", p) for p in expected),
+            "Trusted roster is not the reviewed unique82")
+    log = log_bytes.decode("utf-8", errors="strict").replace("\r\n", "\n")
+    headings = re.findall(r"^=== (probe_[a-z0-9_]+) ===$", log, re.MULTILINE)
+    exits = re.findall(r"^PROBE (probe_[a-z0-9_]+) process exit: (-?\d+)$", log, re.MULTILINE)
+    require(headings == expected and [p for p, _ in exits] == expected
+            and all(code == "0" for _, code in exits), "CI02 does not prove82 ordered zero probe exits")
+    current_pin = SCRATCH / "candidate-runtime-sources.json"
+    frozen_pin = SCRATCH / "candidate-runtime-sources.v8.json"
+    require(digest(current_pin.read_bytes()) == digest(frozen_pin.read_bytes()) == PIN_SHA,
+            "Current/frozen revision8 pin changed")
+    pin = read_json(frozen_pin)
+    sources = pin.get("sources")
+    require(pin.get("schema") == "luna_candidate_runtime_sources/1" and isinstance(sources, dict)
+            and json.loads(inventory_bytes) == sources, "Native inventory does not equal frozen pin")
+    require(not (set(TARGETS) & set(sources)), "A canonical target unexpectedly belongs to runtime pin")
+    for name, expected_sha in sources.items():
+        source = confined(WORKTREE / name, WORKTREE)
+        require(source.is_file() and digest(source.read_bytes()) == expected_sha, "Current frozen source differs: " + name)
+    first_dir = WORKTREE / CYCLE / "candidate/full_local_ci"
+    verify_archive(first_dir, FIRST_MANIFEST_SHA)
+    first = read_json(first_dir / "gate/candidate-full-ci-01.json")
+    require(first.get("machine_gate_passed") is False and first.get("exit_code") == 1,
+            "First full-CI failure is not retained")
+    route06_manifest = WORKTREE / CYCLE / "candidate/revision7/chapter2_route06/MANIFEST.json"
+    require(digest(route06_manifest.read_bytes()) == ROUTE06_MANIFEST_SHA, "Recorded route06 archive changed")
+    require(git("branch", "--show-current").decode().strip() == "codex/luna-gameplay-repairs-20261014",
+            "Wrong topic branch")
+
+    # Build every proposed target before creating backups or changing any worktree file.
+    before = {name: (WORKTREE / name).read_bytes() for name in TARGETS}
+    texts = {}; newlines = {}
+    for name in TARGETS[:-1]:
+        texts[name], newlines[name] = normalized(before[name])
+    require(all("candidate-full-ci-02" not in texts[name] for name in TARGETS[:-1]), "Terminal02 update already present")
+    stamp = finished.astimezone(timezone.utc).strftime("%Y-%m-%d UTC")
+    duration_text = str(duration)
+    def terminal_sentence(document: str) -> str:
+        return ("Full local CI02 [passes](" + link_for(document, receipt_path) + ") at frozen revision8 pin `" + PIN_SHA
+                + "`: exit 0, all 82 ordered trusted probes exit 0 in " + duration_text + " seconds, log SHA-256 `" + log_sha
+                + "`, with no source mismatches. The [first full local CI](" + link_for(document, first_dir / "gate/candidate-full-ci-01.json")
+                + ") remains FAIL (81/82 zero probe exits). Exact implementation-source commit, published-head CI and integration remain pending.")
+    texts[MASTER] = paragraph(texts[MASTER], "Owner-requested Luna gameplay repairs are applied", 
+        "Full local CI remains `PENDING`; no exact published-head result is claimed.", terminal_sentence(MASTER))
+    history_header = "| Date | State | Change |\n|---|---|---|\n"
+    master_row = ("| " + stamp + " | Luna CHG-035 local machine PASS; external verification open | "
+                  + terminal_sentence(MASTER) + " The v7 route06 fixture scope remains unchanged; MA-PLAY-005 stays IN_PROGRESS/V3 partial and MA-CI-007 stays CONFIRMED_OPEN. Fresh-save/normal-door/exact-camera, displayed Mobile/contact/device/child/owner acceptance remain open; no release claim. |\n")
+    texts[MASTER] = once(texts[MASTER], history_header, history_header + master_row)
+    texts[LEDGER] = paragraph(texts[LEDGER], "Scoped Luna repair implementation from integration", 
+                             "Full local CI remains `PENDING`.", terminal_sentence(LEDGER))
+    chg_start = texts[CHANGELOG].index("### Luna gameplay repairs CHG-035")
+    chg_end = texts[CHANGELOG].find("\n### ", chg_start + 4)
+    if chg_end < 0: chg_end = len(texts[CHANGELOG])
+    chg = texts[CHANGELOG][chg_start:chg_end]
+    chg = once(chg, "Full local CI remains `PENDING`.", terminal_sentence(CHANGELOG))
+    chg = once(chg, "full local CI is `PENDING`; exact published-head CI/integration and external acceptance remain separate.",
+               "full local CI02 passes at the exact receipt above; source-commit binding, exact published-head CI/integration and external acceptance remain pending.")
+    remaining = "- Remaining verification:"
+    require(chg.count(remaining) == 1, "CHG035 insertion point changed")
+    chg = chg.replace(remaining, "- Terminal " + stamp + " machine evidence: " + terminal_sentence(CHANGELOG)
+                      + " Earlier PENDING checkpoints and first-run FAIL remain historical; this adds no visual/contact/device/child/owner acceptance.\n" + remaining, 1)
+    texts[CHANGELOG] = texts[CHANGELOG][:chg_start] + chg + texts[CHANGELOG][chg_end:]
+    find_start = texts[FINDINGS].index("## MA-PLAY-005\n")
+    find_end = texts[FINDINGS].find("\n## ", find_start + 4)
+    require(find_end > find_start, "MA005 section boundary absent")
+    section = texts[FINDINGS][find_start:find_end]
+    old_section = section
+    require("| lifecycle | `IN_PROGRESS` |" in section and "| verification | V3 partial:" in section,
+            "MA005 lifecycle/scope changed")
+    rows = section.splitlines(keepends=True)
+    for field in ["verification", "evidence", "closure"]:
+        indices = [i for i, line in enumerate(rows) if line.startswith("| " + field + " |")]
+        require(len(indices) == 1, "MA005 current row ambiguous: " + field)
+        index = indices[0]; line = rows[index]
+        old = ("Full local CI remains `PENDING`." if field == "evidence" else
+               "Full local CI remains `PENDING`; no terminal full-suite result is claimed.")
+        rows[index] = once(line, old, terminal_sentence(FINDINGS))
+    indices = [i for i, line in enumerate(rows) if line.startswith("| history |")]
+    require(len(indices) == 1, "MA005 history row ambiguous")
+    index = indices[0]; old_history = rows[index]
+    require(old_history.endswith(" |\n"), "MA005 history row ending changed")
+    rows[index] = old_history[:-3] + " " + stamp + ": " + terminal_sentence(FINDINGS) \
+        + " This later machine result preserves every earlier PENDING/FAIL checkpoint and the v7 route06 setup seam; lifecycle stays IN_PROGRESS/V3 partial, with fresh-save/door/Mobile/contact/device/child/owner acceptance open. |\n"
+    section = "".join(rows)
+    # Current rows and appended history only; all other MA005 rows are exact.
+    for field in ["title", "source", "reproduction", "acceptance", "lifecycle", "relationships"]:
+        old_row = next(line for line in old_section.splitlines() if line.startswith("| " + field + " |"))
+        new_row = next(line for line in section.splitlines() if line.startswith("| " + field + " |"))
+        require(old_row == new_row, "Unrequested MA005 row changed: " + field)
+    texts[FINDINGS] = texts[FINDINGS][:find_start] + section + texts[FINDINGS][find_end:]
+
+    impact = json.loads(before[IMPACT].decode("utf-8-sig")); old_impact = copy.deepcopy(impact)
+    require(any(v.get("result") == "FAIL" and "candidate-full-ci-01" in v.get("command", "")
+                for v in impact["validation"]), "Impact no longer retains first terminal CI01 FAIL")
+    require(not any("candidate-full-ci-02" in v.get("command", "") for v in impact["validation"]), "Terminal02 validation already present")
+    evidence = ("Exact terminal native receipt " + receipt_path.relative_to(WORKTREE).as_posix()
+                + "; archive MANIFEST SHA-256 " + args.archive_manifest_sha256 + "; revision8 pin " + PIN_SHA
+                + " unchanged, no before/after mismatches; exit0, all82 ordered probe exits0; duration " + duration_text
+                + "s; logSHA256 " + log_sha + ". Known GoldStar negative fixture is classified by the unchanged reviewed runner; no blocking failure. First fullCI01 FAIL81/82 and all older PENDING/FAIL entries remain unchanged. Local machine evidence only; final document checks, source commit, exact published-head CI/integration and external acceptance remain separate.")
+    impact["validation"].append({"command": "Terminal exact official Godot4.7.2 full local scripts/ci.sh candidate-full-ci-02 at revision8",
+                                  "result": "PASS", "evidence": evidence})
+    impact["implementation_state"] = ("APPLIED; recorded v7 route06 production/input and six-resume scope unchanged. Revision8 corrected sibling/analyzer and20-script parser/inference PASS. Terminal full localCI02 PASS:82 ordered zero exits at pin" + PIN_SHA
+                                       + ". First fullCI01 FAIL81/82 retained. Final canonical-document/coverage checks, implementation source commit, exact-head GitHubCI and integration remain pending until their own receipts. No external acceptance.")
+    scope = impact["architecture_scope_review"]["scope_status"]
+    impact["architecture_scope_review"]["scope_status"] = once(scope, "final combined full-suite status pending.",
+        "final combined revision8 full localCI02 PASS (82 ordered zero exits; logSHA256 " + log_sha
+        + "). Exact source-commit/published-head/integration binding and broader architecture acceptance remain pending.")
+    impact["review_notes"].append({"scope": "Terminal revision8 localCI02 chronology after preserved v7 fullCI01 failure",
+        "rules": ["DL-AUTH-05", "DL-AUTH-06", "DL-QA-02", "DL-QA-07"], "related_finding": "MA-PLAY-005",
+        "state": stamp + ": " + evidence + " Earlier review chronology is preserved verbatim; this does not turn the configuration/display assay into visual/contact acceptance."})
+    coverage = sorted(changed_paths() | set(TARGETS[:-1]))
+    impact["files"] = coverage
+    require(impact["validation"][:-1] == old_impact["validation"] and impact["review_notes"][:-1] == old_impact["review_notes"],
+            "Historical impact records changed")
+    for key in ["acceptance_gaps", "findings", "scoped_waivers", "baseline"]:
+        require(impact[key] == old_impact[key], "Unrequested impact scope changed: " + key)
+    after = {name: texts[name].replace("\n", newlines[name]).encode("utf-8") for name in TARGETS[:-1]}
+    after[IMPACT] = (json.dumps(impact, indent=2, ensure_ascii=False) + "\n").encode("utf-8")
+    require(all(before[name] != after[name] for name in TARGETS), "A requested update is empty")
+    summary = {"state": "PREPARED_NOT_APPLIED", "gate_label": gate["label"], "source_pin_sha256": PIN_SHA,
+               "duration_seconds": duration, "log_sha256": log_sha, "archive_manifest_sha256": args.archive_manifest_sha256,
+               "targets": [{"path": name, "before_sha256": digest(before[name]), "after_sha256": digest(after[name])} for name in TARGETS],
+               "coverage_count": len(coverage), "historical_records_preserved": True,
+               "acceptance_limits": "MA005 IN_PROGRESS/V3 partial; CI007 CONFIRMED_OPEN; fresh-save/doors/visual/contact/device/child/owner/sourcecommit/published-head/integration still open"}
+    if not args.apply:
+        print(json.dumps(summary, indent=2)); return 0
+    # Only now are unique scratch backups/staging and the five canonical writes permitted.
+    require(all((WORKTREE / name).read_bytes() == before[name] for name in TARGETS), "Canonical files changed during preparation")
+    require(digest(current_pin.read_bytes()) == PIN_SHA, "Source pin changed before application")
+    application = SCRATCH / "chapter2" / ("terminal_full_ci_02_application_" + datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%S%fZ"))
+    require(not application.exists(), "Application evidence path already exists")
+    application.mkdir(parents=True)
+    for name in TARGETS:
+        backup = application / "raw_backups" / (name + ".raw")
+        backup.parent.mkdir(parents=True, exist_ok=True)
+        with backup.open("xb") as stream: stream.write(before[name])
+        staged = application / "staged" / (name + ".new")
+        staged.parent.mkdir(parents=True, exist_ok=True)
+        with staged.open("xb") as stream: stream.write(after[name])
+    receipt_out = application / "APPLICATION_RECEIPT.json"
+    applied = []
+    try:
+        for name in TARGETS:
+            require((WORKTREE / name).read_bytes() == before[name], "Concurrent canonical edit before replacement: " + name)
+            os.replace(application / "staged" / (name + ".new"), WORKTREE / name)
+            applied.append(name)
+        require(changed_paths() == set(coverage), "Git changed-file inventory changed during application")
+        require(all((WORKTREE / name).read_bytes() == after[name] for name in TARGETS), "Applied bytes differ")
+        require(digest(current_pin.read_bytes()) == PIN_SHA, "Source pin changed during application")
+        summary["state"] = "APPLIED_FIVE_CANONICAL_TARGETS_ONLY"
+    except BaseException as error:
+        rollback = []
+        for name in reversed(applied):
+            if (WORKTREE / name).read_bytes() != after[name]:
+                rollback.append({"path": name, "state": "NOT_OVERWRITTEN_CONCURRENT_BYTES"}); continue
+            restore = application / "restore.raw"
+            restore.write_bytes(before[name]); os.replace(restore, WORKTREE / name)
+            rollback.append({"path": name, "state": "RESTORED_EXACT_RAW_BACKUP"})
+        summary.update(state="APPLICATION_FAILED", error=repr(error), rollback=rollback)
+        with receipt_out.open("x", encoding="utf-8") as stream: json.dump(summary, stream, indent=2); stream.write("\n")
+        raise
+    summary["next_required_checks"] = ["python -B tools/audit_document_authority.py", "python -B tools/audit_development.py --base auto", "Exact sourcecommit/published-head/integration binding remains pending"]
+    with receipt_out.open("x", encoding="utf-8") as stream: json.dump(summary, stream, indent=2); stream.write("\n")
+    print(json.dumps({"receipt": str(receipt_out), **summary}, indent=2))
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

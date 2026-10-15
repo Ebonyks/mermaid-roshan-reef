@@ -98,8 +98,16 @@ func _init() -> void:
 	if passive_layer == null or passive_surface == null:
 		_finish()
 		return
-	_check("available Evie start clip is selected",
-		_voice_pool_has("res://assets/audio/voices/filler_v1/evie.ogg"))
+	_check("exact neutral action cue is selected with its matching visual pointer",
+		_voice_pool_has("res://assets/audio/objective_guides/guide_seek_tap_wiggly_tree.ogg")
+		and String(passive_surface.get_meta("objective_guide_key", "")) == "guide_seek_tap_wiggly_tree"
+		and bool(passive_surface.get_meta("visual_pointer", false)))
+	var audio: AudioDirector = main._audio_ref()
+	var evie_pending := false
+	for pending: Dictionary in audio._required_voice_queue:
+		evie_pending = evie_pending or String(pending.get("speaker", "")) == "evie"
+	_check("available Evie start clip is preserved after the required instruction",
+		_voice_pool_has("res://assets/audio/voices/filler_v1/evie.ogg") or evie_pending)
 	var speech_card := main.speech_layer.get_node_or_null(
 		"HudSpeakerPortraitCard") as Control
 	var speech_bounds := main.speech_portrait.get_global_rect() \

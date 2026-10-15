@@ -25,15 +25,15 @@ const PHASE_SETS := {
 		{"name": "STACK", "milestone": "stack", "mode": "tap", "cake_stage_asset": "res://assets/chapter2/birthday/chapter2_chef_stacked_unfrosted_cake.png", "goal": 3.0, "vo": "chapter2_chef_stack", "voice": "Tap each cake tier to stack the rainbow cake!"},
 		{"name": "FROST", "milestone": "frost", "mode": "swipe", "cake_stage_asset": "res://assets/chapter2/birthday/chapter2_chef_frosted_rainbow_cake.png", "goal": 6.0, "vo": "op_chef_pipe_stage", "voice": "Trace the frosting ribbon across the cake!"},
 	]},
-	"detective": {"finale_start": 2, "scene_id": "magic_storybook", "story_object": "magic_storybook", "backdrop": "magic_storybook", "prop": "res://assets/opera/worlds/props/goal_detective.png", "mechanic": "unlit_rainbow_candle", "legacy_mechanic": "crown_chest", "phases": [
+	"detective": {"finale_start": 2, "scene_id": "magic_storybook", "story_object": "magic_storybook", "backdrop": "magic_storybook", "prop": "res://assets/flats/castle/rooms/room_library_item_magic_book.png", "mechanic": "unlit_rainbow_candle", "legacy_mechanic": "crown_chest", "phases": [
 		{"name": "LENS", "milestone": "storybook_lens", "mode": "lens", "goal": 3.0, "vo": "op_detective_lens_stage", "voice": "Sweep the lens across the magic storybook clues!"},
 		{"name": "STORYBOOK BOARD", "milestone": "storybook_board", "mode": "tap", "widget_context": "storybook_board", "goal": 3.0, "vo": "op_detective_match", "voice": "Tap each glowing storybook clue on the board!"},
 		{"name": "UNLIT RAINBOW CANDLE", "milestone": "unlit_rainbow_candle_reveal", "reveal": "unlit_rainbow_candle", "mode": "tap", "widget_context": "unlit_rainbow_candle", "mechanic": "unlit_rainbow_candle", "goal": 1.0, "vo": "chapter2_detective_unlit_rainbow_candle_reveal", "voice": "Tap the unlit rainbow candle to reveal the final clue!"},
 	]},
 	"ballerina": {"finale_start": 2, "scene_id": "stuffie_room", "backdrop": "stuffie_room", "prop": "res://assets/flats/castle/rooms/room_playroom_item_stuffie_nook.png", "phases": [
 		{"name": "STUFFIES MIRROR", "milestone": "stuffies_mirror", "mode": "ballet_pose", "subject": "stuffies", "vo": "chapter2_ballerina_stuffies_mirror", "goal": 3.0, "voice": "Tap the matching pose as the stuffies mirror Roshan!"},
-		{"name": "STUFFIES TWIRL", "milestone": "stuffies_twirling", "mode": "ballet_ribbon", "subject": "stuffies", "vo": "op_ballerina_ribbon", "goal": 6.0, "voice": "Guide the ribbon while the stuffies twirl along!"},
-		{"name": "STUFFIES BOW", "milestone": "stuffies_bow", "mode": "ballet_twirl", "subject": "stuffies", "vo": "op_ballerina_twirl", "goal": 2.0, "voice": "Take one grand twirl, then bow with the stuffies!"},
+		{"name": "STUFFIES TWIRL", "milestone": "stuffies_twirling", "mode": "ballet_ribbon", "subject": "stuffies", "vo": "op_ballerina_ribbon", "goal": 1.0, "voice": "Guide the ribbon while the stuffies twirl along!"},
+		{"name": "STUFFIES BOW", "milestone": "stuffies_bow", "mode": "ballet_twirl", "subject": "stuffies", "vo": "op_ballerina_twirl", "goal": 1.0, "voice": "Take one grand twirl, then bow with the stuffies!"},
 	]},
 	"candymaker": {"finale_start": 3, "scene_id": "strawberry_cake_workshop", "backdrop": "strawberry_cake_workshop", "strawberry_asset": "res://assets/chapter2/birthday/sky_lagoon_strawberry_single.png", "cake_asset": "res://assets/chapter2/birthday/chapter2_grand_five_strawberry_cake.png", "phases": [
 		{"name": "COAT STRAWBERRIES", "milestone": "coat_strawberries", "mode": "pourt", "widget_context": "pour_candymaker", "cake_stage_asset": "res://assets/chapter2/birthday/chapter2_chef_frosted_rainbow_cake.png", "ingredient_path": "res://assets/chapter2/birthday/sky_lagoon_strawberry_single.png", "goal": 5.0, "vo": "chapter2_candymaker_coat_strawberries", "voice": "Tip the shiny coat over the strawberries!"},
@@ -49,8 +49,8 @@ const PHASE_SETS := {
 	]},
 	"farmer": {"finale_start": 2, "scene_id": "chapter2_farmer_strawberries", "backdrop": "sky_lagoon_farmer", "strawberry_asset": "res://assets/chapter2/birthday/sky_lagoon_strawberry_cluster.png", "delivery": "kitchen", "prop": "res://assets/chapter2/birthday/sky_lagoon_strawberry_cluster.png", "phases": [
 		{"name": "GATHER STRAWBERRIES", "milestone": "gather_strawberries", "mode": "tap", "widget": "", "widget_context": "", "piece_path": "res://assets/chapter2/birthday/sky_lagoon_strawberry_cluster.png", "goal": 5.0, "vo": "chapter2_farmer_gather_strawberries", "voice": "Gather exactly five ripe Sky Lagoon strawberries!"},
-		{"name": "FILL BASKET", "milestone": "fill_basket", "mode": "tap", "widget": "", "widget_context": "", "piece_path": "res://assets/chapter2/birthday/sky_lagoon_strawberry_cluster.png", "goal": 5.0, "vo": "chapter2_farmer_fill_basket", "voice": "Load all five strawberries into the basket!"},
-		{"name": "DELIVER TO KITCHEN", "milestone": "deliver_to_kitchen", "mode": "swipe", "widget_context": "push_farmer", "goal": 6.0, "vo": "chapter2_farmer_deliver_to_kitchen", "voice": "Swipe the full basket all the way to the kitchen!"},
+		{"name": "FILL BASKET", "milestone": "fill_basket", "mode": "tap", "widget": "", "widget_context": "chapter2_basket_fill", "piece_path": "res://assets/chapter2/birthday/sky_lagoon_strawberry_single.png", "goal": 5.0, "vo": "chapter2_farmer_fill_basket", "voice": "Load all five strawberries into the basket!"},
+		{"name": "DELIVER TO KITCHEN", "milestone": "deliver_to_kitchen", "mode": "swipe", "widget_context": "chapter2_basket_delivery", "goal": 6.0, "vo": "chapter2_farmer_deliver_to_kitchen", "voice": "Swipe the full basket all the way to the kitchen!"},
 	]},
 	"boxer": {"finale_start": 3, "scene_id": "chapter2_friendly_bout", "phases": []},
 	"magician": {"finale_start": 3, "scene_id": "chapter2_illusion_duel", "phases": []},
@@ -63,7 +63,7 @@ const PHASE_SETS := {
 		{"name": "BUILD ROCKET", "milestone": "build_rocket", "mode": "pipe", "goal": 3.0, "vo": "op_astronaut_pipes_stage", "voice": "Connect the rocket parts from the tank to the nose!"},
 		{"name": "PATCH", "milestone": "patch", "mode": "tap", "goal": 5.0, "vo": "op_astronaut_patch_stage", "voice": "Tap every sparkling leak to patch the rocket!"},
 		{"name": "VALVE", "milestone": "valve", "mode": "circle", "goal": 1.8, "vo": "op_astronaut_valve", "voice": "Turn the launch valve, but keep the rocket parked!"},
-		{"name": "READY PARK", "milestone": "ready_park", "mode": "swipe", "widget_context": "push_racer", "rocket_state": "parked_ready_unlaunched", "goal": 5.0, "vo": "chapter2_astronaut_ready_park", "voice": "Park the repaired rocket and leave it ready for later!"},
+		{"name": "READY PARK", "milestone": "ready_park", "mode": "swipe", "widget_context": "chapter2_rocket_park", "rocket_state": "parked_ready_unlaunched", "goal": 5.0, "vo": "chapter2_astronaut_ready_park", "voice": "Park the repaired rocket and leave it ready for later!"},
 	]},
 	"racer": {"finale_start": 2, "scene_id": "chapter2_grand_prix", "phases": []},
 	"popstar": {"finale_start": 2, "scene_id": "chapter2_popstar_rumi", "backdrop": "chapter2_popstar_rumi", "phases": [
@@ -75,9 +75,152 @@ const PHASE_SETS := {
 	"nursery": {"finale_start": 4, "scene_id": "chapter2_moonbeam_nursery", "phases": []},
 }
 
+## Story phases name their own physical source object and invitation. The
+## freeplay catalog remains independent; missing bindings never choose a spare
+## station or a crown/candy-bag/Farmer barn replacement.
+const PHASE_BINDINGS := {
+	"chef": {
+		"MIX": {"station_id": "mixing_bowl", "invitation": {
+			"path": "res://assets/chapter2/birthday/chef_empty_shell_bowl_v1.png",
+			"motion": "breathe", "size": Vector2(144, 144), "presentation": "painted",
+		}},
+		"STIR": {"station_id": "mixing_bowl", "invitation": {
+			"path": "res://assets/chapter2/birthday/chef_empty_shell_bowl_v1.png",
+			"motion": "breathe", "size": Vector2(144, 144), "presentation": "painted",
+		}},
+		"BAKE": {"station_id": "hearth_oven", "invitation": {
+			"path": "res://assets/flats/castle/rooms/room_kitchen_item_oven.png",
+			"motion": "breathe", "size": Vector2(144, 144), "presentation": "painted",
+		}},
+		"STACK": {"station_id": "cake_tower", "invitation": {
+			"path": "res://assets/chapter2/birthday/chapter2_chef_baked_tiers_unstacked.png",
+			"motion": "breathe", "size": Vector2(144, 144), "presentation": "painted",
+		}},
+		"FROST": {"station_id": "grand_cake_stage", "invitation": {
+			"path": "res://assets/chapter2/birthday/chapter2_chef_stacked_unfrosted_cake.png",
+			"motion": "breathe", "size": Vector2(144, 144), "presentation": "painted",
+		}},
+	},
+	"detective": {
+		"LENS": {"station_id": "magic_storybook", "invitation": {
+			"path": "res://assets/flats/castle/rooms/room_library_item_magic_book.png",
+			"motion": "breathe", "size": Vector2(144, 144), "presentation": "overlay",
+		}},
+		"STORYBOOK BOARD": {"station_id": "magic_storybook", "invitation": {
+			"path": "res://assets/flats/castle/rooms/room_library_item_magic_book.png",
+			"motion": "breathe", "size": Vector2(144, 144), "presentation": "overlay",
+		}},
+		"UNLIT RAINBOW CANDLE": {"station_id": "unlit_rainbow_candle", "invitation": {
+			"path": "res://assets/chapter2/birthday/rainbow_candle_unlit.png",
+			"motion": "breathe", "size": Vector2(144, 144), "presentation": "painted",
+		}},
+	},
+	"ballerina": {
+		"STUFFIES MIRROR": {"station_id": "trifold_mirror", "invitation": {
+			"path": "res://assets/flats/castle/rooms/room_playroom_item_stuffie_nook.png",
+			"motion": "breathe", "size": Vector2(144, 144), "presentation": "painted",
+		}},
+		"STUFFIES TWIRL": {"station_id": "wave_tuffets", "invitation": {
+			"path": "res://assets/opera/worlds/widgets/widget_crank_ballerina_mover.png",
+			"motion": "breathe", "size": Vector2(144, 144), "presentation": "painted",
+		}},
+		"STUFFIES BOW": {"station_id": "rose_finale_stage", "invitation": {
+			"path": "res://assets/opera/worlds/props/goal_ballerina.png",
+			"motion": "breathe", "size": Vector2(144, 144), "presentation": "painted",
+		}},
+	},
+	"candymaker": {
+		"COAT STRAWBERRIES": {"station_id": "mixing_bowl", "invitation": {
+			"path": "res://assets/chapter2/birthday/sky_lagoon_strawberry_single.png",
+			"motion": "breathe", "size": Vector2(144, 144), "presentation": "overlay",
+		}},
+		"SORT STRAWBERRIES": {"station_id": "cake_tower", "invitation": {
+			"path": "res://assets/chapter2/birthday/chapter2_candied_strawberries_tray.png",
+			"motion": "breathe", "size": Vector2(144, 144), "presentation": "overlay",
+		}},
+		"GLAZE STRAWBERRIES": {"station_id": "mixing_bowl", "invitation": {
+			"path": "res://assets/chapter2/birthday/chapter2_candied_strawberries_tray.png",
+			"motion": "breathe", "size": Vector2(144, 144), "presentation": "overlay",
+		}},
+		"PLACE ON CAKE": {"station_id": "grand_cake_stage", "invitation": {
+			"path": "res://assets/chapter2/birthday/chapter2_chef_frosted_rainbow_cake.png",
+			"motion": "breathe", "size": Vector2(144, 144), "presentation": "painted",
+		}},
+	},
+	"farmer": {
+		"GATHER STRAWBERRIES": {"station_id": "strawberry_grove", "invitation": {
+			"path": "res://assets/chapter2/birthday/sky_lagoon_strawberry_single.png",
+			"motion": "breathe", "size": Vector2(144, 144), "presentation": "overlay",
+		}},
+		"FILL BASKET": {"station_id": "strawberry_basket", "invitation": {
+			"path": "res://assets/castle/day_one_pool/activities/cleanup_basket.png",
+			"motion": "breathe", "size": Vector2(144, 144), "presentation": "painted",
+		}},
+		"DELIVER TO KITCHEN": {"station_id": "kitchen_delivery", "invitation": {
+			"path": "res://assets/castle/day_one_pool/activities/cleanup_basket.png",
+			"motion": "breathe", "size": Vector2(144, 144), "presentation": "painted",
+		}},
+	},
+	"painter": {
+		"PAINT": {"station_id": "gazebo_easel", "invitation": {
+			"path": "res://assets/flats/castle/logo_studio_v2/castle_banner_rainbow.png",
+			"motion": "breathe", "size": Vector2(144, 144), "presentation": "overlay",
+		}},
+		"STAMP": {"station_id": "rainbow_brush", "invitation": {
+			"path": "res://assets/opera/worlds/widgets/widget_target_painter_mark.png",
+			"motion": "breathe", "size": Vector2(144, 144), "presentation": "effect",
+		}},
+		"HANG": {"station_id": "arch_easel", "invitation": {
+			"path": "res://assets/flats/castle/logo_studio_v2/castle_banner_rainbow.png",
+			"motion": "breathe", "size": Vector2(144, 144), "presentation": "overlay",
+		}},
+	},
+	"astronaut": {
+		"BUILD ROCKET": {"station_id": "coolant_tank_pad", "invitation": {
+			"path": "res://assets/opera/worlds/widgets/widget_crank_astronaut_mover.png",
+			"motion": "breathe", "size": Vector2(144, 144), "presentation": "painted",
+		}},
+		"PATCH": {"station_id": "pipe_arch_planter", "invitation": {
+			"path": "res://assets/opera/worlds/widgets/widget_target_astronaut_piece_1.png",
+			"motion": "breathe", "size": Vector2(144, 144), "presentation": "overlay",
+		}},
+		"VALVE": {"station_id": "periscope_elbow", "invitation": {
+			"path": "res://assets/opera/worlds/widgets/widget_crank_astronaut_mover.png",
+			"motion": "breathe", "size": Vector2(144, 144), "presentation": "overlay",
+		}},
+		"READY PARK": {"station_id": "rocket_launch_dais", "invitation": {
+			"path": "res://assets/opera/worlds/props/goal_astronaut.png",
+			"motion": "breathe", "size": Vector2(144, 144), "presentation": "painted",
+		}},
+	},
+	"popstar": {
+		"SOUND CHECK": {"station_id": "mic_gazebo", "invitation": {
+			"path": "res://assets/opera/worlds/props/goal_popstar.png",
+			"motion": "breathe", "size": Vector2(144, 144), "presentation": "painted",
+		}},
+		"STAGE RUMI": {"station_id": "rumi_stage", "invitation": {
+			"path": "res://assets/opera/worlds/widgets/widget_track_popstar_mover.png",
+			"motion": "breathe", "size": Vector2(144, 144), "presentation": "painted",
+		}},
+		"RHYTHM": {"station_id": "shell_stage", "invitation": {
+			"path": "res://assets/opera/worlds/widgets/widget_crank_popstar_mover.png",
+			"motion": "breathe", "size": Vector2(144, 144), "presentation": "painted",
+		}},
+		"ENCORE": {"station_id": "shell_stage", "invitation": {
+			"path": "res://assets/opera/worlds/props/goal_popstar.png",
+			"motion": "breathe", "size": Vector2(144, 144), "presentation": "painted",
+		}},
+	},
+}
+
 static func phase_set(career: String) -> Dictionary:
 	var fallback := {"finale_start": 0, "scene_id": "chapter2_%s" % career, "phases": []}
-	return (PHASE_SETS.get(career, fallback) as Dictionary).duplicate(true)
+	var result := (PHASE_SETS.get(career, fallback) as Dictionary).duplicate(true)
+	var bindings: Dictionary = PHASE_BINDINGS.get(career, {}) as Dictionary
+	for phase: Dictionary in result.get("phases", []) as Array:
+		var binding: Dictionary = bindings.get(String(phase.get("name", "")), {}) as Dictionary
+		phase.merge(binding.duplicate(true), true)
+	return result
 
 static func phase_set_for(career: String) -> Dictionary:
 	return phase_set(career)
@@ -153,4 +296,5 @@ static func adapter_config(career: String, overrides: Dictionary = {}) -> Dictio
 		"persistent_prop": bool(resolved.get("persistent_prop", false)),
 		"rocket_state": String(resolved.get("rocket_state", "")),
 		"finale_start": int(resolved.get("finale_start", 0)),
-		"phase_count": (resolved.get("phases", []) as Array).size()}
+		"phase_count": (resolved.get("phases", []) as Array).size(),
+		"phases": (resolved.get("phases", []) as Array).duplicate(true)}

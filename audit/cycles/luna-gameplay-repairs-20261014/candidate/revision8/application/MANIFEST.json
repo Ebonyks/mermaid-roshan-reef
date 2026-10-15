@@ -1,0 +1,49 @@
+{
+  "schema": "reef.immutable-evidence-archive-manifest.v1",
+  "files": [
+    {
+      "path": "APPLICATION_RECEIPT.json",
+      "sha256": "083334051bee4d17f47288398f1e59c1e24cfce9f7940988b14d117b0a690477",
+      "bytes": 1165
+    },
+    {
+      "path": "draft_receipt.json",
+      "sha256": "bfcb56fb327a64372511e2bb39ad028aeb9132178c7f8d6b2e0094a1d44ad455",
+      "bytes": 4660
+    },
+    {
+      "path": "draft_static.json",
+      "sha256": "7756a79984055149fe2fd869a6722ac253ba2a1fb8c4352d5e1613464c0f8285",
+      "bytes": 797
+    },
+    {
+      "path": "guard_delta_check.json",
+      "sha256": "de17a0d59354ce356656f7b0d6ffbcacd9da17ed5ad8d646560e0baba0bbf601",
+      "bytes": 818
+    },
+    {
+      "path": "reviewed.patch",
+      "sha256": "00320d2ccba1f2fb788a7435e3728e86b2b226916c235890311c4a179e46df2b",
+      "bytes": 5831
+    },
+    {
+      "path": "runtime_sources.v8.json",
+      "sha256": "786bc13b36002f919b689a13870e475bd86a8fa32cc1f39eacd661fea03a2388",
+      "bytes": 719530
+    },
+    {
+      "path": "source_after.gd.txt",
+      "sha256": "391476ed0a7603a2c972ebe4c9e6e5d4c3ffa5732ad411249bae0a00b361df2a",
+      "bytes": 21779
+    },
+    {
+      "path": "source_before.gd.txt",
+      "sha256": "cd52d65a4ddaf96be8d245a689321736f392308492eab5733d7951a87fa94821",
+      "bytes": 17758
+    }
+  ],
+  "scope": "Probe-only corrected configuration display contract and literal-byte delivery attributes; no production logic/assets/protected originals change",
+  "source_pin_sha256": "786bc13b36002f919b689a13870e475bd86a8fa32cc1f39eacd661fea03a2388",
+  "native_fullCI_red_archive": "candidate/full_local_ci/MANIFEST.json",
+  "acceptance": "Focused/full gates pending; configuration arithmetic is not visual/contact/device acceptance"
+}

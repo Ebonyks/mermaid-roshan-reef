@@ -470,7 +470,8 @@ var career_id := ""
 var phases: Array = []
 var phase_index := 0
 var phase_progress := 0.0
-var active := true
+var active := false
+var setup_complete := false
 var guided := false
 var reveal_t := 0.0
 var elapsed := 0.0
@@ -649,10 +650,18 @@ var chapter2_detective_candle_button: Button = null
 
 func setup(main: ReefMain, act_config: Dictionary, director: OperaCompetition,
 		on_win: Callable, phase_overrides: Array = [],
-		scene_adapter_config: Dictionary = {}, context: Dictionary = {}) -> void:
+		scene_adapter_config: Dictionary = {}, context: Dictionary = {}) -> bool:
+	# A rejected configuration never becomes a processing activity or owns
+	# lifecycle callbacks. The caller restores any acquired route state.
+	active = false
+	setup_complete = false
+	set_process(false)
 	m = main
 	config = act_config
 	competition = director
+	if competition == null:
+		push_error("OperaCareerWorld2D: missing career competition")
+		return false
 	competition.pause()
 	win_callback = on_win
 	career_id = String(config.get("costume", "chef"))
@@ -663,18 +672,22 @@ func setup(main: ReefMain, act_config: Dictionary, director: OperaCompetition,
 	if run_context.is_empty() and config.get("run_context", {}) is Dictionary:
 		run_context = (config.get("run_context", {}) as Dictionary).duplicate(false)
 	var override_config: Dictionary = {}
-	if config.get("phase_overrides", []) is Array:
-		override_config["phase_overrides"] = config.get("phase_overrides", [])
+	if config.has("phase_overrides"):
+		# Absence selects the authored catalog; an explicit empty or malformed
+		# override stays present so validation can reject it.
+		override_config["phase_overrides"] = config.get("phase_overrides")
 	if config.get("finale_start", null) != null:
 		override_config["finale_start"] = int(config.get("finale_start", 0))
 	var requested_adapter: Dictionary = scene_adapter_config.duplicate(true)
-	if requested_adapter.is_empty() and config.get("scene_adapter", {}) is Dictionary:
-		requested_adapter = (config.get("scene_adapter", {}) as Dictionary).duplicate(true)
+	if requested_adapter.is_empty() and config.has("scene_adapter"):
+		var configured_adapter: Variant = config.get("scene_adapter")
+		if configured_adapter is Dictionary:
+			requested_adapter = (configured_adapter as Dictionary).duplicate(true)
+		else:
+			override_config["scene_adapter"] = configured_adapter
 	scene_adapter = requested_adapter
-	var adapter_phases: Variant = scene_adapter.get(
-		"phase_overrides", scene_adapter.get("phases", null))
-	if phase_overrides.is_empty() and adapter_phases is Array:
-		phase_overrides = (adapter_phases as Array).duplicate(true)
+	if not scene_adapter.is_empty():
+		override_config["scene_adapter"] = scene_adapter
 	if config.get("finale_start", null) == null and scene_adapter.has("finale_start"):
 		override_config["finale_start"] = int(scene_adapter.get("finale_start", 0))
 	var callbacks: Variant = run_context.get("callbacks", {})
@@ -689,20 +702,20 @@ func setup(main: ReefMain, act_config: Dictionary, director: OperaCompetition,
 		if direct_callback is Callable \
 				and (direct_callback as Callable).is_valid():
 			adapter_callbacks[event] = direct_callback
-	var supplied_phases := phase_overrides
-	if supplied_phases.is_empty() and config.get("phase_overrides", []) is Array:
-		supplied_phases = config.get("phase_overrides", []) as Array
-	if not supplied_phases.is_empty():
-		override_config["phase_overrides"] = supplied_phases
+	# The existing empty positional argument remains an optional placeholder
+	# for callers that supply a scene adapter. Explicit config keys are never
+	# manufactured from that default.
+	if not phase_overrides.is_empty():
+		override_config["phase_overrides"] = phase_overrides.duplicate(true)
 	var chapter_marker := String(run_context.get("chapter", "")).to_lower()
 	var chapter_requested := chapter_marker in ["2", "chapter2", "chapter_2"]
-	using_chapter_two_phases = not supplied_phases.is_empty() \
-			or not scene_adapter.is_empty() \
+	using_chapter_two_phases = override_config.has("phase_overrides") \
+			or override_config.has("scene_adapter") \
 			or chapter_requested
 	if using_chapter_two_phases:
 		if not ChapterTwoAdapter.validate_config_overrides(career_id, override_config):
 			push_error("OperaCareerWorld2D: rejected invalid Chapter 2 phase override")
-			return
+			return false
 		var chapter_set := ChapterTwoAdapter.resolve(career_id, override_config)
 		var chapter_phases: Array = chapter_set.get("phases", []) as Array
 		phases = chapter_phases.duplicate(true) if not chapter_phases.is_empty() \
@@ -718,6 +731,9 @@ func setup(main: ReefMain, act_config: Dictionary, director: OperaCompetition,
 			config["chapter2_scene"] = backdrop_variant
 	else:
 		phases = (PHASES.get(career_id, []) as Array).duplicate(true)
+	if phases.is_empty():
+		push_error("OperaCareerWorld2D: career has no playable phases")
+		return false
 	if bool(config.get("chapter2_tutorial", false)) and not phases.is_empty():
 		# The opening Opera lessons teach one physical verb and grant a skill.
 		# The complete Ballerina number therefore first occurs later with the
@@ -779,8 +795,12 @@ func setup(main: ReefMain, act_config: Dictionary, director: OperaCompetition,
 			performance_rival_surface.visible = false
 	# The room is part of every activity. Setup arms the first physical object;
 	# it never bypasses discovery by opening a minigame synchronously.
+	setup_complete = true
+	active = true
+	set_process(true)
 	_adapter_hook("scene_ready", scene_snapshot())
 	_arm_phase()
+	return true
 
 
 func _adapter_hook(event: String, payload: Dictionary = {}) -> void:
@@ -888,7 +908,7 @@ func _build_chapter2_story_props() -> void:
 		chapter2_cake_scene.setup()
 		chapter2_cake_scene.position = Vector2(790.0, 200.0)
 		chapter2_cake_scene.z_index = 4
-		if career_id == "chef":
+		if career_id in ["chef", "candymaker"]:
 			chapter2_cake_scene.z_index = 0
 			chapter2_cake_scene.set_kitchen_display_layout(true)
 		chapter2_cake_scene.set_meta("scene_specific_art", true)
@@ -1560,9 +1580,52 @@ func _configure_stage_paths() -> void:
 			var connection := StagePaths.point_along(stage_points,
 				StagePaths.nearest_t(stage_points, approach))
 			station["spur"] = PackedVector2Array([connection, approach])
+	elif _is_chapter2_story_scene() and career_id == "farmer":
+		# The approved Sky Lagoon meadow and its existing basket are a different
+		# place from the freeplay barn. These are explicit story floor contacts.
+		stage_points = PackedVector2Array([Vector2(86, 590), Vector2(300, 590),
+			Vector2(520, 605), Vector2(760, 610), Vector2(1040, 620)])
+		station_list = [
+			_story_station("strawberry_grove", Vector2(610, 270), Vector2(610, 607)),
+			_story_station("strawberry_basket", Vector2(1040, 620), Vector2(940, 616)),
+			_story_station("kitchen_delivery", Vector2(1040, 620), Vector2(940, 616)),
+		]
+	elif _is_chapter2_story_scene() and career_id == "detective":
+		# Reuse the existing Library/Teacher floor lane with the story-owned book
+		# and separately revealed candle; no treasure chest or crown destination.
+		stage_points = StagePaths.path_points("teacher")
+		station_list = [
+			_story_station("magic_storybook", Vector2(620, 300), Vector2(620, 518.4)),
+			_story_station("unlit_rainbow_candle", Vector2(838, 238), Vector2(838, 518.4)),
+		]
+	elif _is_chapter2_story_scene() and career_id == "candymaker":
+		# The same carried cake stays on the clean kitchen supports.
+		stage_points = StagePaths.path_points("chef")
+		station_list = StagePaths.stations("chef")
 	else:
 		stage_points = StagePaths.path_points(career_id)
 		station_list = StagePaths.stations(career_id)
+		if _is_chapter2_story_scene() and career_id == "popstar":
+			var stage_socket := _station_index_for_id("record_dais")
+			if stage_socket >= 0:
+				var rumi_socket: Dictionary = station_list[stage_socket].duplicate(true)
+				rumi_socket["id"] = "rumi_stage"
+				rumi_socket["object_pos"] = Vector2(1040, 390)
+				station_list.append(rumi_socket)
+
+
+func _story_station(id: String, object: Vector2, approach: Vector2) -> Dictionary:
+	var connection := StagePaths.point_along(stage_points, StagePaths.nearest_t(stage_points, approach))
+	return {"id": id, "object_pos": object, "pos": approach,
+		"approach_pos": approach, "arrival_radius": 4.0,
+		"visual_size": Vector2(144, 144), "hotspot_size": Vector2(172, 172),
+		"spur": PackedVector2Array([connection, approach]),
+		"landmark": id, "authored_object": true, "authored_spur": true}
+
+
+func _uses_story_stage_paths() -> bool:
+	return _is_chapter2_stuffie_scene() or (_is_chapter2_story_scene()
+		and career_id in ["farmer", "candymaker", "detective", "popstar"])
 
 
 func navigation_snapshot() -> Dictionary:
@@ -1901,7 +1964,8 @@ func _assign_stations() -> void:
 		preferred["STACK"] = "cake_tower"
 	for index in range(phases.size()):
 		var phase := phases[index] as Dictionary
-		var station_id := String(preferred.get(String(phase.get("name", "")), ""))
+		var station_id := String(phase.get("station_id",
+			preferred.get(String(phase.get("name", "")), "")))
 		if not station_id.is_empty():
 			var resolved := _station_index_for_id(station_id)
 			if resolved >= 0:
@@ -1952,6 +2016,10 @@ func _refresh_hotspots() -> void:
 	if aliases.has(phase_name):
 		invitation_name = String(aliases[phase_name])
 	var spec: Dictionary = HotspotCatalog.spec(career_id, invitation_name)
+	if using_chapter_two_phases and phase_index >= 0 and phase_index < phases.size():
+		var invitation: Variant = (phases[phase_index] as Dictionary).get("invitation", null)
+		if invitation is Dictionary:
+			spec = (invitation as Dictionary).duplicate(true)
 	for index in range(station_nodes.size()):
 		var hotspot := station_nodes[index] as OperaWorldHotspot2D
 		var is_current := index == armed_station and not task_open \
@@ -2004,7 +2072,7 @@ func _on_hotspot_pressed(station_index: int) -> void:
 		hotspot.set_focused(index == station_index)
 	var station_id := String(station_list[station_index].get("id", ""))
 	var route: PackedVector2Array
-	if _is_chapter2_stuffie_scene():
+	if _uses_story_stage_paths():
 		var approach: Vector2 = station_list[station_index].get(
 			"approach_pos", station_list[station_index].get(
 				"pos", wander_feet)) as Vector2
@@ -2506,8 +2574,8 @@ func _arm_phase() -> void:
 		# A separate unlit goal overlay competes with the one active blue object
 		# and looked like a floating sticker. It returns only for celebration.
 		prop_rect.visible = false
-	var defer_detective_intro := career_id == "detective" and phase_index == 0 \
-		and mode_name == "lens" and not detective_intro_played
+	var defer_detective_intro := career_id == "detective" and not _is_chapter2_detective_scene() \
+		and phase_index == 0 and mode_name == "lens" and not detective_intro_played
 	if m != null and not defer_detective_intro:
 		_show_phase_prompt(phase)
 	# Bind static game art while clocks are held. The activity itself stays
@@ -2576,6 +2644,22 @@ func _bind_widget(phase: Dictionary, mode_name: String, accent: Color, armed := 
 	teacher_restoring = career_id == "teacher"
 	geology_restoring = career_id == "geologist"
 	surface.configure(mode_name, accent, choice_target, context)
+	if _is_chapter2_story_scene():
+		# Metadata alone does not replace the shared surface's loaded art. Bind
+		# existing story identities explicitly, preserving all freeplay branches.
+		if career_id == "farmer" and context in ["chapter2_basket_fill", "chapter2_basket_delivery"]:
+			surface.widget_mover = load("res://assets/castle/day_one_pool/activities/cleanup_basket.png") as Texture2D
+			surface.widget_stamp = chapter2_single_strawberry_texture
+			surface.widget_overlay = load("res://assets/flats/castle/rooms/room_kitchen_item_oven.png") as Texture2D
+			if context == "chapter2_basket_fill":
+				surface.target_piece_textures = [chapter2_single_strawberry_texture]
+		elif career_id == "painter":
+			var banner := load("res://assets/flats/castle/logo_studio_v2/castle_banner_rainbow.png") as Texture2D
+			surface.paint_reveal_texture = banner
+			surface.widget_mover = banner
+			surface.widget_overlay = null
+		elif career_id == "astronaut" and context == "chapter2_rocket_park":
+			surface.widget_mover = load("res://assets/opera/worlds/props/goal_astronaut.png") as Texture2D
 	if surface is TeacherSurface:
 		var kind := mode_name.trim_prefix("teacher_")
 		(surface as TeacherSurface).set_lesson(TeacherLessons.make_lesson(kind, _teacher_learning_progress()))
@@ -3372,6 +3456,12 @@ func _on_ballet_gesture(kind: String, amount: float, quality: float) -> void:
 	var phase := phases[phase_index] as Dictionary
 	var goal := maxf(0.1, float(phase.get("goal", 1.0)))
 	phase_progress = minf(goal, phase_progress + amount)
+	if using_chapter_two_phases and kind in ["ballet_ribbon", "ballet_twirl"] \
+			and is_equal_approx(goal, 1.0) and String(phase.get("mode", "")) == kind and surface is OperaBalletSurface \
+			and (surface as OperaBalletSurface)._mode_complete():
+		# The authored specialist endpoint is authoritative. Its normalized
+		# ribbon sum can be 0.99999994 and input is already correctly blocked.
+		phase_progress = goal
 	var progress := clampf(phase_progress / goal, 0.0, 1.0)
 	_performance_record_progress(progress, kind, quality)
 	phase_fill.value = progress * 100.0
@@ -3517,6 +3607,15 @@ func _on_gesture(_kind: String, amount: float, quality: float) -> void:
 		phase_progress = goal
 	elif mode == "swipe" and _kind == "swipe" and surface._uses_authored_trace_context() \
 			and surface.trace_journey >= 1.0:
+		phase_progress = goal
+	elif mode == "swipe" and _kind == "swipe" and using_chapter_two_phases \
+			and amount > 0.0 and quality >= 0.9 and surface.held and surface.long_push_engaged \
+			and surface.visual_context in ["chapter2_basket_delivery", "chapter2_rocket_park"] \
+			and String(phase.get("widget_context", "")) == surface.visual_context \
+			and surface._uses_long_push_context() and surface.long_push_journey >= 1.0 \
+			and is_equal_approx(goal, surface._long_push_goal_units()):
+		# Read the owning surface's completed endpoint before set_fill feeds the
+		# accumulated world fraction back. Six real units can sum to5.999999999999998.
 		phase_progress = goal
 	var progress := clampf(phase_progress / goal, 0.0, 1.0)
 	_performance_record_progress(progress, _kind, quality)
@@ -4319,7 +4418,7 @@ func _start_lens_phase(phase: Dictionary) -> void:
 		lens_trail_to = lens_clues[0] if not lens_clues.is_empty() \
 			else Vector2(0.20, 0.56) * StagePaths.SCREEN
 		lens_trail_t = LENS_TRAIL_DURATION
-		if m != null:
+		if m != null and not _is_chapter2_detective_scene():
 			m.say_sequence(DETECTIVE_INTRO_LINES)
 
 
@@ -4671,28 +4770,40 @@ func _process(delta: float) -> void:
 			_tick_lens(delta)
 	if reveal_t > 0.0:
 		reveal_t -= delta
-		# the reveal shows the ACTUAL answer, steady — recognition, not a light show
-		surface.target_choice = choice_target
-		surface.choice_flash = 0.6
-		surface.queue_redraw()
-		if reveal_t <= 0.0:
-			guided = true
-			phase_index = _finale_start()
-			phase_progress = 0.0
-			active = true
-			competition.guided_retry()
-			# A guided retry keeps the no-fail clue memory, but still returns to
-			# the room's glowing object. It must not resurrect the old auto-open
-			# card flow after the reveal.
-			_arm_phase()
-			if String((phases[phase_index] as Dictionary).get("mode", "")) == "choice":
-				# remembered clues earn a head start on a MEMORY rematch;
-				# a bop finale credits no hits she never landed
-				phase_progress = 2.0
-				phase_fill.value = clampf(2.0 / maxf(0.1, float((phases[phase_index] as Dictionary).get("goal", 1.0))), 0.0, 1.0) * 100.0
+		# Chef also uses this timer for the short walk to a work pose. Only
+		# Detective's answer reveal owns a retry or a change of phase.
+		if career_id == "detective":
+			# the reveal shows the ACTUAL answer, steady — recognition, not a light show
+			surface.target_choice = choice_target
+			surface.choice_flash = 0.6
+			surface.queue_redraw()
+			if reveal_t <= 0.0:
+				guided = true
+				phase_index = _finale_start()
+				phase_progress = 0.0
+				active = true
+				competition.guided_retry()
+				# A guided retry keeps the no-fail clue memory, but still returns to
+				# the room's glowing object. It must not resurrect the old auto-open
+				# card flow after the reveal.
+				_arm_phase()
+				if String((phases[phase_index] as Dictionary).get("mode", "")) == "choice":
+					# remembered clues earn a head start on a MEMORY rematch;
+					# a bop finale credits no hits she never landed
+					phase_progress = 2.0
+					phase_fill.value = clampf(2.0 / maxf(0.1, float((phases[phase_index] as Dictionary).get("goal", 1.0))), 0.0, 1.0) * 100.0
 
 
 func close() -> void:
+	if not setup_complete:
+		# Startup failed before this activity existed. Do not save checkpoints,
+		# clear the caller's dialogue, or announce a scene_closed event.
+		active = false
+		set_process(false)
+		win_callback = Callable()
+		adapter_callbacks.clear()
+		queue_free()
+		return
 	_performance_checkpoint(true)
 	teacher_voice_queue.clear()
 	if career_id == "teacher":
@@ -4798,7 +4909,7 @@ func _wander_input(event: InputEvent) -> void:
 	# Empty-room input only changes travel. Hotspot buttons sit above this
 	# layer and are the sole source of activity intent.
 	var route: PackedVector2Array = _chapter2_stuffie_route_to(point, false) \
-		if _is_chapter2_stuffie_scene() \
+		if _uses_story_stage_paths() \
 		else StagePaths.player_route_to_point(career_id, wander_feet, point)
 	_begin_wander_route(route)
 

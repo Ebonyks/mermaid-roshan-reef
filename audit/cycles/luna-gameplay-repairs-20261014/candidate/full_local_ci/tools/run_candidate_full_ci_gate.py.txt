@@ -1,0 +1,271 @@
+"""CI-only derivative: one exact, source-attributed self-test diagnostic is retained but nonblocking."""
+import argparse
+from datetime import datetime, timezone
+import hashlib
+import json
+import os
+from pathlib import Path
+import re
+import subprocess
+import tempfile
+import time
+
+parser = argparse.ArgumentParser()
+parser.add_argument('kind', choices=['ci'])
+parser.add_argument('label')
+parser.add_argument('script', nargs='?')
+parser.add_argument('--verbose', action='store_true')
+parser.add_argument('--timeout', type=int, default=600)
+args = parser.parse_args()
+if not re.fullmatch(r'[a-z0-9][a-z0-9-]{0,90}', args.label):
+    parser.error('Use a simple unique attempt label')
+
+root = Path(r'C:\Users\Peter\.codex\worktrees\luna-gameplay-repairs-20261014\mermaid-roshan-reef')
+scratch = Path(__file__).resolve().parent
+out = scratch / 'candidate_gates'
+out.mkdir(exist_ok=True)
+engine = Path(r'C:\Users\Peter\Documents\mermaid-roshan-reef\tmp\godot-4.7.2\editor\Godot_v4.7.2-stable_win64_console.exe')
+engine_sha = hashlib.sha256(engine.read_bytes()).hexdigest()
+if engine_sha != 'c8f0a6bc45a19b33541501e57f6f7cd972ab18453743266339d495cbbe846643':
+    raise SystemExit('Approved engine hash mismatch')
+rescue = json.loads((scratch / 'rescue-receipt.json').read_text(encoding='utf-8'))
+if not rescue.get('remote_verified') or not rescue.get('original_status_unchanged'):
+    raise SystemExit('Original dirty work is not preserved')
+branch = subprocess.check_output(['git', 'branch', '--show-current'], cwd=root, text=True).strip()
+if branch != 'codex/luna-gameplay-repairs-20261014':
+    raise SystemExit('Wrong implementation branch: ' + branch)
+if args.kind in ['probe', 'check']:
+    if not args.script:
+        parser.error('A repository script is required')
+    script = (root / args.script).resolve()
+    if not script.is_relative_to(root) or script.suffix != '.gd' or not script.is_file():
+        parser.error('Script must exist within the implementation worktree')
+elif args.script:
+    parser.error('This gate does not accept a script')
+
+log = out / (args.label + '.log')
+receipt = out / (args.label + '.json')
+journal = out / (args.label + '.started.json')
+manifest_path = out / (args.label + '.sources.json')
+if any(p.exists() for p in [log, receipt, journal, manifest_path]):
+    raise SystemExit('Refusing to overwrite a prior attempt')
+
+def sources():
+    # Include committed, modified and unignored new files in all runtime areas.
+    names = subprocess.check_output(['git', 'ls-files', '-z', '--cached', '--others',
+        '--exclude-standard', '--', 'scripts', 'scenes', 'shaders', 'resources',
+        'tools', 'project.godot', 'default_bus_layout.tres', 'assets',
+        'assets_src/audio/objective_guides_20261014'], cwd=root).decode('utf-8').split('\0')
+    return {name: hashlib.sha256((root / name).read_bytes()).hexdigest()
+        for name in sorted(set(names)) if name and (root / name).is_file()}
+
+
+def process_snapshot():
+    # Process IDs, parent IDs and creation times only; never command lines.
+    command = [
+        'powershell.exe', '-NoProfile', '-NonInteractive', '-Command',
+        "$ErrorActionPreference = 'Stop'; "
+        "@(Get-CimInstance Win32_Process | Where-Object { $null -ne $_.CreationDate } | ForEach-Object { "
+        "[pscustomobject]@{pid=[int]$_.ProcessId; parent_pid=[int]$_.ParentProcessId; "
+        "created_utc=$_.CreationDate.ToUniversalTime().ToString('o')} "
+        "}) | ConvertTo-Json -Compress",
+    ]
+    result = subprocess.run(command, capture_output=True, text=True,
+        encoding='utf-8', errors='replace', timeout=15,
+        creationflags=subprocess.CREATE_NO_WINDOW, check=True)
+    values = json.loads(result.stdout)
+    if isinstance(values, dict):
+        values = [values]
+    return {value['pid']: value for value in values}
+
+
+def owned_tree(snapshot, child_pid):
+    owned = {child_pid}
+    while True:
+        descendants = {pid for pid, value in snapshot.items()
+            if value['parent_pid'] in owned}
+        expanded = owned | descendants
+        if expanded == owned:
+            return {pid: snapshot[pid] for pid in sorted(owned) if pid in snapshot}
+        owned = expanded
+
+
+def stop_owned_tree(process):
+    result = {'method': 'taskkill /PID <owned-child> /T /F',
+        'owned_child_pid': process.pid, 'stopped_verified': False, 'errors': []}
+    tree = {}
+    try:
+        tree = owned_tree(process_snapshot(), process.pid)
+        result['observed_owned_processes'] = list(tree.values())
+        if process.pid not in tree:
+            result['errors'].append('Owned child absent from pre-kill process snapshot')
+    except Exception as error:
+        result['errors'].append('Pre-kill process snapshot: ' + str(error))
+    try:
+        if process.poll() is not None:
+            # Do not target a recycled PID after the owned Popen has exited.
+            result['errors'].append('Owned child exited before taskkill; tree cleanup unconfirmed')
+        else:
+            killed = subprocess.run(['taskkill.exe', '/PID', str(process.pid), '/T', '/F'],
+                capture_output=True, text=True, encoding='utf-8', errors='replace',
+                timeout=30, creationflags=subprocess.CREATE_NO_WINDOW)
+            result.update(taskkill_exit_code=killed.returncode,
+                taskkill_stdout=killed.stdout, taskkill_stderr=killed.stderr)
+            if killed.returncode != 0:
+                result['errors'].append('taskkill did not report success')
+    except Exception as error:
+        result['errors'].append('taskkill: ' + str(error))
+    try:
+        result['owned_child_exit_code'] = process.wait(timeout=15)
+    except subprocess.TimeoutExpired:
+        result['errors'].append('Owned child still running after tree kill deadline')
+    except Exception as error:
+        result['errors'].append('Owned child stopped verification: ' + str(error))
+    try:
+        remaining = process_snapshot()
+        survivors = [pid for pid, value in tree.items()
+            if remaining.get(pid, {}).get('created_utc') == value['created_utc']]
+        result['surviving_owned_pids'] = survivors
+        if survivors:
+            result['errors'].append('Observed owned processes survived tree kill')
+    except Exception as error:
+        result['errors'].append('Post-kill process snapshot: ' + str(error))
+    result['stopped_verified'] = bool(tree) and not result['errors']
+    return result
+
+
+KNOWN_SELFTEST_FAILURE = 'GOLDSTAR|RESULT|FAIL|2 games, 0 errors, 0 stale'
+SELFTEST_SOURCE_PINS = {
+    'tools/tests/test_gold_star.py': '41eb2a2aa54ba10d4e46a55372a1eaae9ed70c54e1a4a57f202ea4bb98e828ca',
+    'tools/gold_star.py': 'a90c187903bec5038487209a2c7ee01ce44b9ac8512ab3629e6ee0a2c0fcb0d1',
+    'scripts/ci.sh': '769ed4c4259ebe740f1e247c129bfc34914fa70fe72e28f65e5b5d5c9a577279',
+}
+
+
+def selftest_source_attribution():
+    records = []
+    for name, reviewed_sha in SELFTEST_SOURCE_PINS.items():
+        path = root / name
+        actual_sha = hashlib.sha256(path.read_bytes()).hexdigest() if path.is_file() else None
+        records.append({'path': name, 'reviewed_sha256': reviewed_sha,
+            'source_pin_sha256': expected.get(name), 'actual_sha256': actual_sha,
+            'matched': actual_sha == reviewed_sha and expected.get(name) == reviewed_sha})
+    return {'matched': all(record['matched'] for record in records), 'sources': records,
+        'test': 'FixtureTests.test_page_is_deterministic_and_check_reports_staleness',
+        'assertion': 'tools/tests/test_gold_star.py:294 expects gold_star.main --check --strict to return1',
+        'emitter': 'tools/gold_star.py:978 emits the two-game fixture FAIL summary',
+        'caller': 'scripts/ci.sh:81 invokes tools.tests.test_gold_star; nonzero unittest exits CI',
+        'baseline_log_sha256': '187a4a669afe6b67bfe19fb7ebdd3ca6538ac65cdcd4521c75be4d1bf2e00c77'}
+
+
+def classify_failure_lines(output, kind, exit_code, attributed):
+    raw = [line for line in output.splitlines() if re.search(
+        r'(^|[| :])FAIL([| :]|$)|SCRIPT ERROR|Parse Error|Compile Error', line)]
+    known_count = raw.count(KNOWN_SELFTEST_FAILURE)
+    allow = kind == 'ci' and exit_code == 0 and attributed and known_count == 1
+    ignored = [KNOWN_SELFTEST_FAILURE] if allow else []
+    blocking = [line for line in raw if not (allow and line == KNOWN_SELFTEST_FAILURE)]
+    return {'raw': raw, 'ignored': ignored, 'blocking': blocking,
+        'known_selftest_count': known_count, 'allowance_applied': allow}
+
+
+pin_path = scratch / 'candidate-runtime-sources.json'
+if not pin_path.is_file():
+    raise SystemExit('Root-frozen candidate-runtime-sources.json is required before any gate')
+pin_bytes = pin_path.read_bytes()
+pin = json.loads(pin_bytes)
+expected = pin.get('sources')
+if pin.get('schema') != 'luna_candidate_runtime_sources/1' or not isinstance(expected, dict) \
+        or not expected or any(not isinstance(name, str) or not isinstance(digest, str)
+        or not re.fullmatch(r'[0-9a-f]{64}', digest) for name, digest in expected.items()):
+    raise SystemExit('Invalid root-frozen candidate source pin')
+before = sources()
+with manifest_path.open('x', encoding='utf-8') as stream:
+    stream.write(json.dumps(before, indent=2) + '\n')
+pin_mismatches = sorted(name for name in expected.keys() | before.keys()
+    if expected.get(name) != before.get(name))
+source_pin_sha = hashlib.sha256(pin_bytes).hexdigest()
+if pin_mismatches:
+    failure = {'schema': 'luna_candidate_gate/2', 'kind': args.kind, 'label': args.label,
+        'state': 'REJECTED_BEFORE_LAUNCH', 'child_launched': False,
+        'completed_utc': datetime.now(timezone.utc).isoformat(),
+        'source_pin': str(pin_path), 'source_pin_sha256': source_pin_sha,
+        'source_manifest': str(manifest_path), 'pin_mismatches': pin_mismatches,
+        'machine_gate_passed': False}
+    with receipt.open('x', encoding='utf-8') as stream:
+        stream.write(json.dumps(failure, indent=2) + '\n')
+    print(json.dumps(failure, indent=2))
+    raise SystemExit(1)
+profile = Path(tempfile.mkdtemp(prefix='reef_candidate_gate_'))
+env = os.environ.copy()
+env.update(GODOT=str(engine), PYTHONUTF8='1', PYTHONIOENCODING='utf-8',
+    APPDATA=str(profile / 'roaming'), LOCALAPPDATA=str(profile / 'local'),
+    XDG_DATA_HOME=str(profile / 'data'), XDG_CONFIG_HOME=str(profile / 'config'))
+env.pop('TUTORIAL_CAPTURE_DIR', None)
+if args.kind == 'ci':
+    command = [r'C:\Program Files\Git\bin\bash.exe', 'scripts/ci.sh']
+else:
+    command = [str(engine), '--headless', '--path', str(root)]
+    if args.verbose:
+        command.append('--verbose')
+    if args.kind == 'import':
+        command.extend(['--editor', '--import'])
+    else:
+        if args.kind == 'check':
+            command.append('--check-only')
+        command.extend(['-s', str(script), '--', '--touch', '--classic-touch-test'])
+
+started = time.time()
+info = {'schema': 'luna_candidate_gate/2', 'kind': args.kind, 'label': args.label,
+    'command': command, 'cwd': str(root), 'branch': branch,
+    'head': subprocess.check_output(['git', 'rev-parse', 'HEAD'], cwd=root, text=True).strip(),
+    'started_utc': datetime.now(timezone.utc).isoformat(), 'runner_pid': os.getpid(),
+    'engine_sha256': engine_sha, 'profile': str(profile),
+    'source_manifest': str(manifest_path),
+    'source_manifest_sha256': hashlib.sha256(manifest_path.read_bytes()).hexdigest(),
+    'source_pin': str(pin_path), 'source_pin_sha256': source_pin_sha,
+    'source_lock_scope': 'Exact root-frozen source inventory checked before and after; '
+        'root coordinates no mutation during parallel read-only gates. '
+        'Not an exclusive lock and cannot detect arbitrary A-to-B-to-A mutations.',
+    'scope': 'Machine validation; no physical-device/child/owner acceptance'}
+timed_out = False
+timeout_cleanup = None
+with log.open('xb') as stream:
+    process = subprocess.Popen(command, cwd=root, env=env, stdout=stream, stderr=subprocess.STDOUT)
+    info['child_pid'] = process.pid
+    with journal.open('x', encoding='utf-8') as journal_stream:
+        journal_stream.write(json.dumps(info, indent=2) + '\n')
+    try:
+        code = process.wait(timeout=None if args.kind == 'ci' else args.timeout)
+    except subprocess.TimeoutExpired:
+        timed_out = True
+        timeout_cleanup = stop_owned_tree(process)
+        code = process.poll()
+after = sources()
+changed = sorted(name for name in before.keys() | after.keys() if before.get(name) != after.get(name))
+after_pin_mismatches = sorted(name for name in expected.keys() | after.keys()
+    if expected.get(name) != after.get(name))
+pin_unchanged = pin_path.is_file() and pin_path.read_bytes() == pin_bytes
+content = log.read_bytes()
+text = content.decode('utf-8', errors='replace')
+attribution = selftest_source_attribution()
+classification = classify_failure_lines(text, args.kind, code, attribution['matched'])
+fail_lines = classification['raw']
+blocking_fail_lines = classification['blocking']
+info.update(exit_code=code, timeout=timed_out,
+    duration_seconds=round(time.time() - started, 3),
+    completed_utc=datetime.now(timezone.utc).isoformat(),
+    log=str(log), log_sha256=hashlib.sha256(content).hexdigest(),
+    source_mismatches=changed, after_pin_mismatches=after_pin_mismatches,
+    source_pin_unchanged=pin_unchanged, failure_lines=fail_lines,
+    ignored_failure_lines=classification['ignored'], blocking_failure_lines=blocking_fail_lines,
+    known_selftest_count=classification['known_selftest_count'],
+    selftest_allowance_applied=classification['allowance_applied'],
+    selftest_source_attribution=attribution,
+    timeout_cleanup=timeout_cleanup,
+    machine_gate_passed=(code == 0 and not timed_out and not changed
+        and not after_pin_mismatches and pin_unchanged and not blocking_fail_lines))
+with receipt.open('x', encoding='utf-8') as stream:
+    stream.write(json.dumps(info, indent=2) + '\n')
+print(json.dumps(info, indent=2))
+raise SystemExit(0 if info['machine_gate_passed'] else 1)

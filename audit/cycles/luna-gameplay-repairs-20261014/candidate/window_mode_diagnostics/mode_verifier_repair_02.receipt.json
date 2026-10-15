@@ -1,0 +1,32 @@
+{
+  "schema": "chapter2_mode_verifier_repair/2",
+  "source": "C:\\Users\\Peter\\.codex\\worktrees\\luna-gameplay-repairs-20261014\\mermaid-roshan-reef\\scripts\\probe_chapter2.gd",
+  "source_raw_sha256": "551f489b11ee85f292f2242b3cf877abaaaaaf44f5d04c1671f63d23648e3bd3",
+  "supersedes": "mode_verifier_repair_01.patch; preserved unchanged and insufficient alone for child startup",
+  "draft": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\chapter2\\diagnostics\\probe_chapter2.gd.mode_verifier_repair_02.txt",
+  "draft_sha256": "5310a456220ff00110b94b623f36a882bd2bff58e6d74e4c8671681cda43b28f",
+  "patch": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\chapter2\\diagnostics\\mode_verifier_repair_02.patch",
+  "patch_sha256": "1a3120d70d7cd82eaca627caf811bd0773ac90b23e9a4b87826a4ca1ee889c49",
+  "mode_contract_primary_sources": [
+    {
+      "url": "https://raw.githubusercontent.com/godotengine/godot/ed1daf0bf/servers/display/display_server_headless.h",
+      "lines": "105-106",
+      "fact": "window_set_mode is a no-op and window_get_mode always reports WINDOW_MODE_MINIMIZED"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/godotengine/godot/ed1daf0bf/scene/main/window.cpp",
+      "lines": "501-517",
+      "fact": "Window setter requests backend mode; getter replaces stored mode with backend report when a native window_id exists"
+    }
+  ],
+  "repository_startup_precedent": "scripts/probe_touch_router.gd:12-20 defers _run because headless root preinitialization resets size to64x64",
+  "exact_runtime_control": "tmp\\luna_repair_20261014\\candidate_diagnostics\\chapter2-window-control-01.json",
+  "control_script_sha256": "180c95d669c7285cd6f94148b30cbdd9806f1923416c33f3a14907677522c749",
+  "control_log_sha256": "cb13e22cdad1c994026e914799f4ccda877df68afe75673d8362a896b0da17c7",
+  "control_duration_seconds": 7.603,
+  "control_result": "PASS: old preinit size64x64/visible1280square; postinit size1280x720/visible1280x720, reported_mode1 vs request0; changed1024x720/visible1280x900 rejected; restored landscape accepted",
+  "control_source_pin_sha256": "65e7968c2c3016d4ca214d9bdf65d43203e9a1763eb089e73ce0ff0337ed9061",
+  "control_source_pin_unchanged": true,
+  "scope": "Probe-only mode-aware verifier plus shared preboot postinitialization sizing. All origin/actualvisible/Window/content_scale geometry assertions unchanged; projectcanvas_items/expand unchanged; no driver/input/action/goal/threshold edits.",
+  "runtime": "Draft itself NOT_RUN; exact shared control PASS. Root reviews/applies/fullroute next."
+}

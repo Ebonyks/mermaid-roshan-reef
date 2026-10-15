@@ -1,0 +1,737 @@
+extends SceneTree
+
+const FRAME_CAP := 9000
+const CONTRACT_CHECKS = preload("res://scripts/encounter_contract_checks.gd")
+var main: ReefMain
+var bad := 0
+var combat_diagnostic_samples: Array[Dictionary] = []
+
+func _init() -> void:
+	_warning_choreography_case()
+	seed(20260905)
+	Engine.time_scale = 3.0
+	# Frame-count watchdogs must leave real timers time to advance on fast CI.
+	Engine.max_fps = 120
+	main = load("res://scenes/main.tscn").instantiate() as ReefMain
+	get_root().add_child(main)
+	await process_frame
+	await process_frame
+	if main.start_menu_active:
+		main._start_menu_ref()._dismiss_menu()
+		await process_frame
+	main._skip_intro()
+	await process_frame
+	main._set_touch_mode(main.TOUCH_MODE_HYBRID, false)
+	# This headless fixture bypasses the normal menu/intro completion callbacks;
+	# establish their same neutral no-overlay input boundary explicitly.
+	main.touch_control_blocks.clear()
+	main._set_world_controls_enabled(true, "dustboss_probe")
+	_prepare_terminal_boundary()
+	await _open_boss()
+	if main.game == "dustboss":
+		await _splash_and_geometry_case()
+		await _negative_input_case()
+		await _adaptive_completion_case()
+	_emit_combat_diagnostics()
+	print("DUSTBOSS|result: ", "ALL OK" if bad == 0 else "%d check(s) FAILED" % bad)
+	quit(1 if bad > 0 else 0)
+
+func _ck(label: String, ok: bool) -> void:
+	print("DUSTBOSS|", label, ": ", "OK" if ok else "FAIL")
+	if not ok:
+		bad += 1
+
+func _frames(count: int) -> void:
+	for _i in range(count):
+		await process_frame
+
+func _state() -> String:
+	return String(main.g.get("db_state", ""))
+
+func _hits() -> int:
+	return int(main.g.get("db_hits", 0))
+
+func _damage() -> int:
+	return int(main.g.get("db_damage_taken", 0))
+
+func _boss() -> DustBossGame:
+	return main._game_obj("dustboss", DustBossGame) as DustBossGame
+
+func _wait_state(wanted: Array[String], cap: int) -> bool:
+	for _i in range(cap):
+		if wanted.has(_state()):
+			return true
+		await process_frame
+	return false
+
+func _tap_edge() -> void:
+	main.touch_ui.action_down = false
+	await process_frame
+	main.touch_ui.action_down = true
+	await process_frame
+	main.touch_ui.action_down = false
+
+func _tap_boss_world() -> void:
+	var boss_node: Node3D = main.g.get("db_boss") as Node3D
+	var screen_point: Vector2 = main.player.cam.unproject_position(
+		boss_node.global_position + Vector3(0.0, DustBossGame.BOSS_H * 0.5, 0.0))
+	_ck("flashing boss head remains inside the touch viewport",
+		main.get_viewport().get_visible_rect().has_point(screen_point))
+	var hits_before: int = _hits()
+	var move_press := InputEventScreenTouch.new()
+	move_press.index = 73
+	move_press.position = main.get_viewport().get_visible_rect().end - Vector2(24.0, 24.0)
+	move_press.pressed = true
+	main.get_viewport().push_input(move_press, true)
+	await process_frame
+	var move_drag := InputEventScreenDrag.new()
+	move_drag.index = 73
+	move_drag.position = screen_point
+	main.get_viewport().push_input(move_drag, true)
+	await process_frame
+	_ck("dragging across an open boss never becomes a counter", _hits() == hits_before)
+	move_press.pressed = false
+	main.get_viewport().push_input(move_press, true)
+	await process_frame
+	main.get_tree().paused = true
+	await _push_screen_tap(screen_point, 71)
+	main.get_tree().paused = false
+	_ck("paused screen touch cannot counter", _hits() == hits_before)
+	await _push_screen_tap(screen_point, 72)
+	_ck("gold boss tap counters without a dash", _boss().navigation.dash_remaining == 0.0)
+
+func _push_screen_tap(screen_point: Vector2, touch_index: int) -> void:
+	var press := InputEventScreenTouch.new()
+	press.index = touch_index
+	press.position = screen_point
+	press.pressed = true
+	main.get_viewport().push_input(press, true)
+	await process_frame
+	var release := InputEventScreenTouch.new()
+	release.index = touch_index
+	release.position = screen_point
+	release.pressed = false
+	main.get_viewport().push_input(release, true)
+	await process_frame
+
+func _move_one_frame_toward(point: Vector2) -> void:
+	var offset: Vector2 = point - _boss().stage.player_local()
+	main.touch_ui.stick_vec = offset.limit_length(1.0) if offset.length() > 0.08 else Vector2.ZERO
+	await process_frame
+
+func _prepare_terminal_boundary() -> void:
+	var director: DayOneDirector = main._day_one_ref()
+	director.restore_state({})
+	main._chapter_two_ref().restore_state({})
+	director.bathroom_tools_authorized = true
+	director.bathroom_supply_hunt_step = 2
+	director.bathroom_cleanup_step = 2
+	director.bathroom_toilet_cleaned = true
+	director.complete_tutorial("bathroom")
+	director.complete_placeholder("pool", "pool_activity")
+	director.complete_activity("stuffie", "stuffie_activity")
+	director.complete_activity("art", "art_activity")
+	director.giant_dust_bunny_boss_triggered = true
+	director.boss_door_glow = true
+	director.giant_dust_bunny_boss_defeated = false
+	main.save_data["dustboss_pending_rounds"] = 0
+	main.save_data["dustboss_pending_attacks"] = 0
+
+func _open_boss() -> void:
+	if main.game != "":
+		main._clear_game()
+		await _frames(2)
+	main.game = ""
+	main.g = {}
+	main.player.visible = true
+	main.we_node.environment = main.world_env
+	main.dust_boss_cool = 0.0
+	# The reef attic door retired with the 3D reef on 2026-09-23; the live
+	# route is the castle Royal Hall. Open the fight through production.
+	main._start_game(main.dust_boss_fr)
+	for _i in range(900):
+		await process_frame
+		if main.game == "dustboss":
+			break
+	_ck("direct launch opens the live boss fight", main.game == "dustboss")
+
+func _splash_and_geometry_case() -> void:
+	for malformed: Variant in [null, false, "wrong", {}, [], INF, NAN]:
+		main.save_data["dustboss_pending_attacks"] = malformed
+		_boss()._restore_round_checkpoint()
+		_ck("malformed additive dodge checkpoint defaults safely %s" % str(malformed),
+			_boss().encounter.completed_attacks == 0 and _hits() == 0)
+	main.save_data["dustboss_pending_attacks"] = 1.0
+	_boss()._restore_round_checkpoint()
+	_ck("JSON numeric dodge checkpoint restores earned progress", _boss().encounter.completed_attacks == 1)
+	main.save_data["dustboss_pending_attacks"] = 0
+	_boss()._restore_round_checkpoint()
+	_ck("fight opens on an input-blocking 2D splash", _state() == "splash" and main.g.get("db_splash") is BossSplash2D)
+	var splash: BossSplash2D = main.g.get("db_splash") as BossSplash2D
+	_ck("Grand Puff splash reserves the gold lesson for real play", splash != null and not splash.teach_counter)
+	var splash_elapsed: float = float(splash.get("_elapsed")) if splash != null else -1.0
+	main.get_tree().paused = true
+	await _frames(8)
+	var paused_elapsed: float = float(splash.get("_elapsed")) if splash != null else -2.0
+	_ck("pause freezes splash progression", splash_elapsed == paused_elapsed and _state() == "splash")
+	main.get_tree().paused = false
+	var attic: CanvasLayer = main.g.get("db_attic_layer") as CanvasLayer
+	var floor_warning: DustBossTelegraph2D = main.g.get("db_floor_telegraph") as DustBossTelegraph2D
+	var overlay: DustBossTelegraph2D = main.g.get("db_telegraph") as DustBossTelegraph2D
+	_ck("floor warnings sit behind actors while gesture cues stay above",
+		floor_warning != null and floor_warning.get_parent() == attic
+		and floor_warning.draw_floor and not floor_warning.draw_overlay
+		and overlay != null and not overlay.draw_floor and overlay.draw_overlay)
+	var background: TextureRect = attic.get_node_or_null("DustBossAtticBackdrop") as TextureRect \
+		if attic != null else null
+	_ck("the August 30 dusty room is the input-transparent Canvas background",
+		background != null and background.texture != null
+		and background.texture.resource_path == "res://assets/flats/castle/boss/dusty_attic_arena_2048.png"
+		and background.mouse_filter == Control.MOUSE_FILTER_IGNORE
+		and attic.layer == -20 and main.arena_env.background_canvas_max_layer == -20)
+	var contract_failures: Array[String] = CONTRACT_CHECKS.run()
+	_ck("shared encounter contract checks pass", contract_failures.is_empty())
+	if not contract_failures.is_empty():
+		print("DUSTBOSS|contract_failures|", contract_failures)
+	await _wait_state(["showing"], 1600)
+	_ck("showing follows splash", _state() == "showing")
+	await _frames(340)
+	_ck("unlearned movement waits without a fake gold opening",
+		_state() == "showing" and _hits() == 0 and float(main.g.get("db_flash", 0.0)) == 0.0)
+	_ck("encounter uses direct hybrid world touch without an action medallion",
+		main.touch_ui.encounter_press.is_valid()
+		and main.find_child("JumpButton", true, false) == null)
+	main.touch_ui.set_mode("classic")
+	_ck("encounter keeps direct classic world touch without an action medallion",
+		main.touch_ui.encounter_press.is_valid()
+		and main.find_child("JumpButton", true, false) == null)
+	main.touch_ui.set_mode("hybrid")
+	_navigation_roundtrip_case()
+	_pattern_geometry_case()
+	await _free_steering_case("showing")
+	await _dash_case()
+
+func _negative_input_case() -> void:
+	main.touch_ui.cancel_all_touches()
+	main.save_data["dustboss_lesson_dodge"] = false
+	_boss()._begin_attack_tell()
+	await _frames(120)
+	_ck("first warning holds safely for a stationary new player",
+		_state() == "tell" and _hits() == 0 and not _boss().patterns.tell_finished())
+	await _safe_navigation_case()
+	for _i in range(900):
+		if _state() == "vuln":
+			break
+		if _state() in ["tell", "strike"]:
+			await _move_one_frame_toward(_boss().danger_geometry().get("safe_point", Vector2.ZERO) as Vector2)
+		else:
+			await process_frame
+	main.touch_ui.stick_vec = Vector2.ZERO
+	_ck("real first dodge earns a real opening and saves the lesson",
+		_state() == "vuln" and bool(main.save_data.get("dustboss_lesson_dodge", false)))
+	var checkpoint: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("user://reef_save.json")) as Dictionary
+	_ck("earned dodge is on disk before any save debounce", int(checkpoint.get("dustboss_pending_attacks", 0)) == 1 and not main.save_pending)
+	# Start an unearned attack fixture: the previous dodge is now preserved.
+	_boss().encounter.completed_attacks = 0
+	main.save_data["dustboss_pending_attacks"] = 0
+	_boss()._begin_attack_tell()
+	var hits_before: int = _hits()
+	var damage_before: int = _damage()
+	var no_input_recovery := await _wait_state(["damage_recovery"], 900)
+	_ck("zero input takes a harmless bump but cannot damage the boss",
+		no_input_recovery and _damage() > damage_before and _hits() == hits_before)
+	await _free_steering_case("damage_recovery")
+	await _wait_state(["tell"], 900)
+	_ck("a harmless bump restores the movement demonstration",
+		bool(main.g.get("db_dodge_help", false)) and (main.g.get("db_lesson") as DustBossLesson2D).mode == "move")
+	damage_before = _damage()
+	var saw_tell := false
+	var saw_strike := false
+	var saw_recovery := false
+	for i in range(1300):
+		var state: String = _state()
+		saw_tell = saw_tell or state == "tell"
+		saw_strike = saw_strike or state == "strike"
+		saw_recovery = saw_recovery or state == "damage_recovery"
+		main.touch_ui.action_down = i % 8 < 2
+		await process_frame
+		if saw_recovery and _damage() > damage_before and state == "tell":
+			break
+	main.touch_ui.action_down = false
+	_ck("stationary tap spam traverses real tell, strike, and recovery", saw_tell and saw_strike and saw_recovery and _damage() > damage_before)
+	_ck("stationary tap spam cannot damage the boss", main.game == "dustboss" and _hits() == hits_before)
+	await _wait_state(["tell"], 900)
+	main.touch_ui.action_down = true
+	var held_saw_vuln := false
+	for _i in range(1500):
+		held_saw_vuln = held_saw_vuln or _state() == "vuln"
+		if _state() == "tell":
+			await _move_one_frame_toward(_boss().danger_geometry().get(
+				"safe_point", Vector2.ZERO) as Vector2)
+		else:
+			main.touch_ui.stick_vec = Vector2.ZERO
+			await process_frame
+		if held_saw_vuln and _state() == "tell":
+			break
+	main.touch_ui.action_down = false
+	main.touch_ui.stick_vec = Vector2.ZERO
+	_ck("held action reaches an opening without auto-countering", held_saw_vuln and _hits() == hits_before)
+	_ck("no-input and held input cannot finish", main.game == "dustboss")
+
+func _safe_navigation_case() -> void:
+	var boss: DustBossGame = _boss()
+	var danger: Dictionary = boss.danger_geometry()
+	var safe: Vector2 = danger.get("safe_point", Vector2.ZERO) as Vector2
+	var screen_point: Vector2 = boss.stage.project_floor_point(safe)
+	var nearby: Vector2 = boss.stage.clamp_point(safe + Vector2(1.0, 0.5), 2.6)
+	boss.on_world_tap(boss.stage.project_floor_point(nearby))
+	_ck("floor taps near the old hint do not snap to a prescribed point",
+		boss.navigation.destination.distance_to(nearby) < 0.05)
+	var locked: Vector2 = danger.get("center", Vector2.ZERO) as Vector2
+	var before: Vector2 = boss.stage.player_local()
+	boss.on_world_tap(screen_point)
+	var destination: Vector2 = boss.navigation.destination
+	_ck("safe ground tap arms real encounter navigation", boss.navigation.travelling
+		and destination.distance_to(safe) < 0.2)
+	await _frames(12)
+	var after: Vector2 = boss.stage.player_local()
+	var overlay: DustBossTelegraph2D = main.g.get("db_telegraph") as DustBossTelegraph2D
+	var floor_warning: DustBossTelegraph2D = main.g.get("db_floor_telegraph") as DustBossTelegraph2D
+	_ck("landing outline stays locked and has no prescribed safe marker",
+		(boss.patterns.geometry.get("center", Vector2.ZERO) as Vector2).distance_to(locked) < 0.05
+		and floor_warning._visible and floor_warning._points.size() >= 3
+		and not overlay._safe_visible)
+	_ck("storybook dust samples stay on the locked danger boundary", _dust_edge_matches(floor_warning))
+	_ck("storybook cues leave no finger overlay or spatial badge", floor_warning.get_child_count() == 0
+		and not main.g.has("db_star") and not main.g.has("db_hand") and not main.g.has("db_glow"))
+	_ck("encounter captions have no tutorial panel", main.hud_msg.get_theme_stylebox("normal") is StyleBoxEmpty)
+	var lesson: DustBossLesson2D = main.g.get("db_lesson") as DustBossLesson2D
+	var effect_clock: float = lesson._time
+	main.get_tree().paused = true
+	await _frames(3)
+	_ck("pause freezes the storybook guidance", lesson._time == effect_clock)
+	main.get_tree().paused = false
+	var frozen_state: String = _state()
+	var rounds_before: int = _hits()
+	main.notification(Node.NOTIFICATION_APPLICATION_FOCUS_OUT)
+	await _frames(6)
+	_ck("focus loss suspends the live fight without leaving or advancing",
+		main.game == "dustboss" and main.get_tree().paused and _state() == frozen_state and _hits() == rounds_before)
+	main.touch_ui.notification(Node.NOTIFICATION_WM_GO_BACK_REQUEST)
+	await process_frame
+	_ck("Android Back resumes the same paused fight and never quits", main.game == "dustboss" and not main.get_tree().paused)
+	main.touch_ui.notification(Node.NOTIFICATION_WM_GO_BACK_REQUEST)
+	await _frames(3)
+	_ck("Android Back pauses the live fight without tearing it down", main.game == "dustboss" and main.get_tree().paused)
+	main.touch_ui.notification(Node.NOTIFICATION_WM_GO_BACK_REQUEST)
+	await process_frame
+	_ck("safe ground navigation moves the player", after.distance_to(before) > 0.05)
+	boss.navigation.move_to(safe)
+	main.touch_ui.cancel_all_touches()
+	_ck("focus or touch cancellation drops encounter destination", not boss.navigation.travelling)
+	main.get_tree().paused = true
+	main.touch_ui.cancel_all_touches()
+	main.get_tree().paused = false
+	_ck("pause cancellation leaves no stale encounter destination", not boss.navigation.travelling)
+
+func _free_steering_case(expected_state: String) -> void:
+	var boss: DustBossGame = _boss()
+	_ck("free steering enters live " + expected_state, _state() == expected_state)
+	var before: Vector2 = boss.stage.player_local()
+	var target := Vector2(-12.0, 8.0)
+	_buffer_dust_sample(expected_state, "before_press", boss, before, target)
+	var press := InputEventScreenTouch.new()
+	press.index = 81
+	press.position = boss.stage.project_floor_point(target)
+	press.pressed = true
+	main.get_viewport().push_input(press, true)
+	_buffer_dust_sample(expected_state, "after_press", boss, before, target)
+	await _frames(2)
+	_buffer_dust_sample(expected_state, "after_two_frames", boss, before, target)
+	_ck(expected_state + " floor press immediately moves Roshan",
+		boss.navigation.travelling and boss.stage.player_local().distance_to(before) > 0.05)
+	var drag := InputEventScreenDrag.new()
+	drag.index = 81
+	drag.position = boss.stage.project_floor_point(Vector2(12.0, 8.0))
+	main.get_viewport().push_input(drag, true)
+	await process_frame
+	_ck(expected_state + " held finger can freely change direction",
+		boss.navigation.destination.distance_to(Vector2(12.0, 8.0)) < 0.05)
+	var destination: Vector2 = boss.navigation.destination
+	drag.index = 82
+	drag.position = press.position
+	main.get_viewport().push_input(drag, true)
+	await process_frame
+	_ck(expected_state + " second finger cannot steal steering",
+		boss.navigation.destination == destination)
+	press.pressed = false
+	main.get_viewport().push_input(press, true)
+	await process_frame
+	drag.index = 81
+	main.get_viewport().push_input(drag, true)
+	await process_frame
+	_ck(expected_state + " released finger cannot retarget travel",
+		boss.navigation.destination == destination)
+	main.touch_ui.cancel_all_touches()
+	main.get_viewport().push_input(drag, true)
+	await process_frame
+	_ck(expected_state + " cancelled gesture cannot restart movement",
+		not boss.navigation.travelling)
+
+func _floor_touch(point: Vector2, pressed: bool) -> void:
+	var event := InputEventScreenTouch.new()
+	event.index = 84
+	event.position = point
+	event.pressed = pressed
+	main.get_viewport().push_input(event, true)
+
+func _dash_case() -> void:
+	var boss: DustBossGame = _boss()
+	var point: Vector2 = boss.stage.project_floor_point(Vector2(-18.0, 10.0))
+	_floor_touch(point, true)
+	_floor_touch(point, false)
+	_ck("single floor tap swims without dash", boss.navigation.dash_remaining == 0.0)
+	_floor_touch(point + Vector2(8.0, 0.0), true)
+	_floor_touch(point, false)
+	_ck("nearby second tap starts dash", boss.navigation.dash_remaining > 0.0)
+	var before: Vector2 = boss.stage.player_local()
+	await _frames(2)
+	_ck("dash advances Roshan immediately", boss.stage.player_local().distance_to(before) > 0.05)
+	_ck("dash remains inside arena", boss.stage.player_local().distance_to(
+		boss.stage.clamp_point(boss.stage.player_local(), 2.6)) < 0.01)
+	main.touch_ui.cancel_all_touches()
+	_ck("touch cancellation stops dash and travel",
+		boss.navigation.dash_remaining == 0.0 and not boss.navigation.travelling)
+	_floor_touch(point, true)
+	_floor_touch(point, false)
+	_floor_touch(point, true)
+	_floor_touch(point, false)
+	_ck("rapid repeated pairs cannot bypass dash cooldown", boss.navigation.dash_remaining == 0.0)
+	main.touch_ui.cancel_all_touches()
+	await _frames(50)
+	_floor_touch(point, true)
+	var drag := InputEventScreenDrag.new()
+	drag.index = 84
+	drag.position = point + Vector2(90.0, 0.0)
+	main.get_viewport().push_input(drag, true)
+	_floor_touch(drag.position, false)
+	_floor_touch(point, true)
+	_floor_touch(point, false)
+	_ck("drag followed by tap is not double tap", boss.navigation.dash_remaining == 0.0)
+	main.touch_ui.cancel_all_touches()
+	_floor_touch(point, true)
+	_floor_touch(point, false)
+	await _frames(30)
+	_floor_touch(point, true)
+	_floor_touch(point, false)
+	_ck("expired first tap cannot dash", boss.navigation.dash_remaining == 0.0)
+	main.touch_ui.cancel_all_touches()
+	var nav := EncounterNavigation2D.new()
+	nav.move_to(Vector2(100.0, 0.0))
+	_ck("dash starts only when ready", nav.try_dash() and not nav.try_dash())
+	var speed: float = nav.step_speed(24.0, 0.1)
+	_ck("dash is faster than normal swim", is_equal_approx(speed, 67.2))
+	var near := Vector2(99.5, 0.0)
+	var step: Vector2 = nav.direction_for_step(near, speed, 0.1) * speed * 0.1
+	_ck("dash lands at destination without overshoot", (near + step).distance_to(Vector2(100.0, 0.0)) < 0.001)
+	nav.step_speed(24.0, 0.6)
+	_ck("burst expires and cooldown recovers", nav.dash_remaining == 0.0
+		and is_equal_approx(nav.step_speed(24.0, 0.1), 24.0))
+	nav.move_to(Vector2(10.0, 0.0))
+	_ck("dash becomes available again", nav.try_dash())
+	nav.cancel()
+	_ck("cancelled navigation has no residual dash", nav.dash_remaining == 0.0
+		and nav.direction_for_step(Vector2.ZERO, 24.0, 0.1) == Vector2.ZERO)
+
+func _navigation_roundtrip_case() -> void:
+	var boss: DustBossGame = _boss()
+	var all_ok := true
+	for index: int in range(16):
+		var angle: float = TAU * float(index) / 16.0
+		var floor_point: Vector2 = boss.stage.clamp_point(
+			Vector2(cos(angle), sin(angle)) * 22.0, 2.6)
+		var screen_point: Vector2 = boss.stage.project_floor_point(floor_point)
+		var roundtrip: Vector2 = boss.navigation.screen_to_floor(screen_point)
+		all_ok = all_ok and roundtrip.distance_to(floor_point) < 0.05
+	_ck("2D floor and screen navigation round-trips 16 arena points", all_ok)
+
+func _adaptive_completion_case() -> void:
+	# The held-input negative case earned a dodge, but no counter. Use a fresh
+	# attack fixture here so the choreography test still observes every step.
+	_boss().encounter.completed_attacks = 0
+	main.save_data["dustboss_pending_attacks"] = 0
+	_boss()._begin_attack_tell()
+	var saw_phase := [false, false, false]
+	var saw_phase_one_combo := false
+	var saw_final_lane := false
+	var saw_telegraph := false
+	var snapshot_checked := false
+	var last_tell_key := ""
+	var locked_target := Vector2.ZERO
+	var tapped_opening := false
+	var checkpoint_done := false
+	var final_checkpoint_done := false
+	var checked_breather := false
+	var used_world_touch := false
+	var checkpoint_pearls := main.pearl_count
+	for _i in range(FRAME_CAP):
+		if main.game != "dustboss":
+			break
+		var state: String = _state()
+		if state == "struck" and not checked_breather:
+			checked_breather = true
+			await _free_steering_case("struck")
+		if state != "vuln":
+			tapped_opening = false
+		if state == "tell":
+			var danger: Dictionary = _boss().danger_geometry()
+			var phase: int = int(danger.get("phase", -1))
+			var step: int = int(danger.get("step", -1))
+			if phase >= 0 and phase < saw_phase.size():
+				saw_phase[phase] = true
+			saw_phase_one_combo = saw_phase_one_combo or (phase == 1 and int(danger.get("step_count", 0)) == 2 and step == 1)
+			saw_final_lane = saw_final_lane or (phase == 2 and step == 1 and String(danger.get("shape", "")) == "lane")
+			var telegraph: DustBossTelegraph2D = main.g.get("db_telegraph") as DustBossTelegraph2D
+			var mastery_layer: CanvasLayer = main.g.get("db_mastery_layer") as CanvasLayer
+			saw_telegraph = saw_telegraph or (telegraph != null and is_instance_valid(telegraph)
+				and telegraph.visible and bool(telegraph._visible)
+				and mastery_layer != null and mastery_layer.visible)
+			var tell_key := "%d:%d:%d" % [phase, step, _hits()]
+			var target: Vector2 = danger.get("locked_center", danger.get("center", Vector2.ZERO)) as Vector2
+			if tell_key != last_tell_key:
+				last_tell_key = tell_key
+				locked_target = target
+				_ck("live tell %s lasts at least 1.4 seconds" % tell_key, float(danger.get("tell_duration", 0.0)) >= 1.4)
+			elif target.distance_to(locked_target) < 0.05:
+				snapshot_checked = true
+			await _move_one_frame_toward(danger.get("safe_point", Vector2.ZERO) as Vector2)
+			continue
+		main.touch_ui.stick_vec = Vector2.ZERO
+		var kit: DustBunnyBossSprite = _boss().kit()
+		if state == "vuln" and kit != null and kit.vulnerable and not tapped_opening:
+			tapped_opening = true
+			if _hits() == 2:
+				used_world_touch = true
+				await _tap_corner_rejected()
+				await _tap_boss_world()
+			else:
+				await _tap_edge()
+			if _hits() == 1 and not checkpoint_done:
+				checkpoint_done = true
+				checkpoint_pearls = main.pearl_count
+				await _checkpoint_restart_case(checkpoint_pearls)
+				last_tell_key = ""
+				continue
+			if _hits() == DustBossGame.HP and not final_checkpoint_done:
+				final_checkpoint_done = true
+				await _final_checkpoint_restart_case(main.pearl_count)
+				continue
+		await process_frame
+	var completion_pearls: int = main.pearl_count
+	_ck("free steering was exercised between earned rounds", checked_breather)
+	_ck("adaptive movement observes all three phases", bool(saw_phase[0]) and bool(saw_phase[1]) and bool(saw_phase[2]))
+	_ck("phase one executes both warned circles", saw_phase_one_combo)
+	_ck("phase two executes its warned lane", saw_final_lane)
+	_ck("live tells keep their captured target while the player moves", snapshot_checked)
+	_ck("a visible 2D telegraph accompanies live danger", saw_telegraph)
+	_ck("hybrid head touch can land a real counter", used_world_touch)
+	_ck("one fresh counter edge per opening returns Day Two to Canvas",
+		main.game == "level2" and String(main.g.get("phase", "")) == "promenade"
+		and not main.player.visible and not main.player.cam.current)
+	_ck("Day Two route does not depend on menu launch", not main._authored_world_session)
+	_ck("the earned final round survives interruption", final_checkpoint_done)
+	_ck("completion grants the base reward exactly once", completion_pearls == checkpoint_pearls + DustBossGame.BASE_WIN_PEARLS)
+	var director: DayOneDirector = main._day_one_ref()
+	_ck("completion saves defeat and begins Day Two", director.giant_dust_bunny_boss_defeated and not main.day_one_is_active() and main.chapter2_active and int(main.save_data.get("dustboss_pending_rounds", -1)) == 0)
+	var event_count: int = _event_count(DayOneDirector.EVENT_DAY_TWO_BEGINS)
+	var pearls_before_repeat: int = main.pearl_count
+	var repeated: bool = main.day_one_complete_boss_and_begin_day_two()
+	await process_frame
+	_ck("Day Two and reward cannot duplicate", not repeated and _event_count(DayOneDirector.EVENT_DAY_TWO_BEGINS) == event_count and main.pearl_count == pearls_before_repeat)
+
+func _checkpoint_restart_case(pearls_before: int) -> void:
+	var old_attic: CanvasLayer = main.g.get("db_attic_layer") as CanvasLayer
+	var damage_before: int = _damage()
+	var misses_before: int = int(main.g.get("db_opening_misses", 0))
+	_ck("landed round writes its checkpoint", int(main.save_data.get("dustboss_pending_rounds", 0)) == 1)
+	var lesson: DustBossLesson2D = main.g.get("db_lesson") as DustBossLesson2D
+	_ck("first counter connects Roshan to Puff and remembers learning",
+		lesson != null and lesson._beam_time > 0.0 and bool(main.save_data.get("dustboss_lesson_counter", false)))
+	_ck("first counter offers one optional dust tuft", bool(main.g.get("db_tuft_visible", false)))
+	# Contact can scatter the toy, but cannot manufacture another counter.
+	main.g["db_tuft_point"] = _boss().stage.player_local()
+	_boss()._update_lesson()
+	_ck("walking contact scatters tuft without progress or reward",
+		not bool(main.g.get("db_tuft_visible", true)) and _hits() == 1 and main.pearl_count == pearls_before)
+	main._clear_game()
+	await _frames(3)
+	_ck("interrupt clears the lesson and counter effect", not is_instance_valid(lesson))
+	_ck("interrupt removes the dusty room Canvas", not is_instance_valid(old_attic))
+	_ck("interrupt preserves progress without reward", int(main.save_data.get("dustboss_pending_rounds", 0)) == 1 and main.pearl_count == pearls_before)
+	if main._castle_rooms_ref().is_open():
+		main._castle_rooms_ref().close()
+	main.touch_control_blocks.clear()
+	main._set_world_controls_enabled(true, "checkpoint_probe")
+	main._day_one_ref().giant_dust_bunny_boss_triggered = true
+	main._start_game_now(main.dust_boss_fr)
+	await process_frame
+	_ck("re-entry restores the exact completed round", main.game == "dustboss" and _hits() == 1)
+	_ck("checkpoint preserves damage mastery and opening assistance",
+		_damage() == damage_before and int(main.g.get("db_bumps", 0)) == damage_before
+		and int(main.g.get("db_opening_misses", 0)) == misses_before)
+	await _wait_state(["showing"], 1600)
+	await _frames(340)
+	await _tap_edge()
+
+func _tap_corner_rejected() -> void:
+	var hits_before: int = _hits()
+	var viewport: Rect2 = main.get_viewport().get_visible_rect()
+	var corner := viewport.position + Vector2(viewport.size.x - 24.0, viewport.size.y - 24.0)
+	await _push_screen_tap(corner, 70)
+	_ck("old screen corner tap cannot counter", _hits() == hits_before)
+
+func _final_checkpoint_restart_case(pearls_before: int) -> void:
+	_ck("final counter writes all three earned rounds before celebration",
+		int(main.save_data.get("dustboss_pending_rounds", 0)) == DustBossGame.HP
+		and _hits() == DustBossGame.HP)
+	main._clear_game()
+	await _frames(3)
+	_ck("final-round interruption grants no early or duplicate reward",
+		int(main.save_data.get("dustboss_pending_rounds", 0)) == DustBossGame.HP
+		and main.pearl_count == pearls_before)
+	if main._castle_rooms_ref().is_open():
+		main._castle_rooms_ref().close()
+	main.touch_control_blocks.clear()
+	main._set_world_controls_enabled(true, "final_checkpoint_probe")
+	main._day_one_ref().giant_dust_bunny_boss_triggered = true
+	main._start_game_now(main.dust_boss_fr)
+	await process_frame
+	_ck("final checkpoint restores three rounds exactly", main.game == "dustboss"
+		and _hits() == DustBossGame.HP)
+	var repeated_combat := false
+	var resumed_friends := false
+	for _i in range(1800):
+		var state: String = _state()
+		repeated_combat = repeated_combat or state == "tell" or state == "strike" \
+			or state == "damage_recovery" or state == "vuln"
+		if state == "friends":
+			resumed_friends = true
+			break
+		await process_frame
+	_ck("final checkpoint resumes friendship without repeated combat",
+		resumed_friends and not repeated_combat and _hits() == DustBossGame.HP)
+
+func _event_count(event_name: String) -> int:
+	var count := 0
+	for event: Dictionary in main._day_one_ref().event_history():
+		if String(event.get("event", event.get("name", ""))) == event_name:
+			count += 1
+	return count
+
+func _pattern_geometry_case() -> void:
+	var stage: OctagonStage = _boss().stage
+	var points: Array[Vector2] = []
+	for i in range(16):
+		var angle: float = TAU * float(i) / 16.0
+		points.append(stage.clamp_point(Vector2(cos(angle), sin(angle)) * 80.0, 2.6))
+	var all_ok := true
+	for phase in range(3):
+		for point_index in range(points.size()):
+			var sequencer := DustBossPatterns.new()
+			var expected: Vector2 = points[point_index]
+			sequencer.begin_phase(phase, expected, Vector2.ZERO, DustBossGame.RADIUS)
+			for step in range(sequencer.step_count()):
+				var readout: Dictionary = sequencer.readout()
+				var expected_shape := "lane" if phase == 2 and step == 1 else "circle"
+				var captured: Vector2 = readout.get("locked_center", readout.get("center", Vector2.ZERO)) as Vector2
+				var safe: Vector2 = readout.get("safe_point", Vector2.ZERO) as Vector2
+				var step_ok: bool = String(readout.get("shape", "")) == expected_shape
+				step_ok = step_ok and captured.distance_to(expected) < 0.05
+				step_ok = step_ok and sequencer.contains(expected)
+				step_ok = step_ok and not sequencer.contains(safe)
+				step_ok = step_ok and safe.distance_to(stage.clamp_point(safe, 2.6)) < 0.05
+				if not step_ok and all_ok:
+					print("DUSTBOSS|geometry_failure|phase=", phase, "|step=", step,
+						"|point=", expected, "|captured=", captured, "|safe=", safe,
+						"|safe_inside=", sequencer.contains(safe), "|readout=", readout)
+				all_ok = all_ok and step_ok
+				if step + 1 < sequencer.step_count():
+					expected = points[(point_index + step + 5) % points.size()]
+					sequencer.advance_combo(expected, Vector2.ZERO, DustBossGame.RADIUS)
+	_ck("all 16 edge targets are captured, covered, escapable, and stage-valid in every phase step", all_ok)
+
+func _dust_edge_matches(warning: DustBossTelegraph2D) -> bool:
+	if warning.edge_points.size() < 16 or warning.edge_points.size() > 48:
+		return false
+	for point: Vector2 in warning.edge_points:
+		var distance: float = INF
+		for i: int in warning._points.size():
+			var nearest: Vector2 = Geometry2D.get_closest_point_to_segment(point,
+				warning._points[i], warning._points[(i + 1) % warning._points.size()])
+			distance = minf(distance, point.distance_to(nearest))
+		if distance > 0.1:
+			return false
+	return true
+
+func _warning_choreography_case() -> void:
+	var warning := DustBossTelegraph2D.new()
+	var points := PackedVector2Array([Vector2(160, 80), Vector2(200, 80), Vector2(200, 120), Vector2(160, 120)])
+	var data: Dictionary = {"visible": true, "active": false, "points": points,
+		"boss_point": Vector2(30, 100), "progress": 0.0, "encounter_visible": true}
+	warning.set_telegraph(data)
+	_ck("jump warning starts underneath Grand Puff", warning.warning_center().distance_to(Vector2(30, 100)) < 0.01)
+	data["progress"] = EncounterWarningCue2D.AIM_FRACTION
+	warning.set_telegraph(data)
+	_ck("jump warning arrives before lock flashes", warning.warning_center().distance_to(Vector2(180, 100)) < 0.01)
+	data["boss_point"] = Vector2(900, 400)
+	data["progress"] = 0.8
+	warning.set_telegraph(data)
+	_ck("locked marker never chases later actor positions", warning.warning_center().distance_to(Vector2(180, 100)) < 0.01)
+	var flashes: int = 0
+	var bright: bool = false
+	for i: int in range(1001):
+		var value: float = EncounterWarningCue2D.lock_brightness(float(i) / 1000.0)
+		var now_bright: bool = value > 0.85
+		if now_bright and not bright:
+			flashes += 1
+		bright = now_bright
+	_ck("three distinct lock flashes precede a steady launched warning", flashes == 3
+		and EncounterWarningCue2D.lock_brightness(1.0, true) == 1.0)
+	_ck("only the third flash changes to the launch colour",
+		EncounterWarningCue2D.imminence(0.67) == 0.0
+		and EncounterWarningCue2D.imminence(0.89) > 0.99
+		and EncounterWarningCue2D.imminence(1.0, true) == 1.0)
+	var enough_time: bool = true
+	for phase: EncounterPhase2D in EncounterProfile2D.grand_puff().phases:
+		for attack: EncounterAttack2D in phase.attacks:
+			enough_time = enough_time and attack.warning_seconds >= EncounterWarningCue2D.MIN_WARNING_SECONDS
+	_ck("every Grand Puff attack leaves time for travel and three lock flashes", enough_time)
+	warning.free()
+
+# Scratch-only timing evidence: no stdout or added waits in the critical window.
+func _buffer_dust_sample(expected_state: String, boundary: String,
+		boss: DustBossGame, initial: Vector2, requested: Vector2) -> void:
+	var point: Vector2 = boss.stage.player_local()
+	combat_diagnostic_samples.append({
+		"case": expected_state, "boundary": boundary,
+		"process_frame": Engine.get_process_frames(),
+		"elapsed_usec": Time.get_ticks_usec(),
+		"game_time": float(main.g.get("t", 0.0)),
+		"last_main_delta": main.get_process_delta_time(),
+		"state": _state(), "state_time": float(main.g.get("db_st", 0.0)),
+		"position": point, "initial": initial, "requested": requested,
+		"moved": point.distance_to(initial),
+		"distance_to_requested": point.distance_to(requested),
+		"destination": boss.navigation.destination,
+		"distance_to_destination": point.distance_to(boss.navigation.destination),
+		"travelling": boss.navigation.travelling,
+		"dash_remaining": boss.navigation.dash_remaining,
+		"dash_cooldown": boss.navigation.dash_cooldown,
+		"world_move_active": boss._world_move_active,
+		"encounter_finger": main.touch_ui._encounter_finger,
+		"stick": main.touch_ui.stick_vec, "paused": main.get_tree().paused,
+	})
+
+func _emit_combat_diagnostics() -> void:
+	for sample: Dictionary in combat_diagnostic_samples:
+		print("COMBAT_BUFFER|", JSON.stringify(sample))

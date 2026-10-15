@@ -1,0 +1,50 @@
+{
+  "schema": "reef.objective-guide-machine-receipt.v1",
+  "status": "CANDIDATE_MACHINE_PASS",
+  "manifest_sha256": "a04c91d6c3e04673d88e0601fb5afe77dd7a3a620f8bdb24f711462eff3b591f",
+  "checked_utc": "2026-10-15T01:42:09.123874+00:00",
+  "synthesis_calls": 2,
+  "cues": [
+    {
+      "key": "guide_seek_tap_wiggly_tree",
+      "native_sha256": "9a467d8c9b461e20b8d788176e50d2136d5aa79a50265da45d35eae49bd64b53",
+      "review_sha256": "897f6b3ed74298bad03088284aa4780a6cb7cdfc64ddedf56e2505158cb321ac",
+      "verification": {
+        "codec": "vorbis",
+        "sample_rate_hz": 48000,
+        "channels": 1,
+        "bitrate_kbps": 96.0,
+        "duration_seconds": 1.244292,
+        "integrated_lufs": -16.75,
+        "true_peak_dbtp": -1.83,
+        "decoded_finite": true,
+        "decoded_sample_peak": 0.8074135184288025,
+        "decoded_dc_mean": -0.0008027252042666078
+      }
+    },
+    {
+      "key": "guide_dolls_catch_three",
+      "native_sha256": "03a2148f77d2d5b0b1f2299d739f9c4a360ec966bd74819249a4ad2a662e7c89",
+      "review_sha256": "4a37bcb6189a5df94fc31d2e659af4b50c7391aeb6d73ed8cd90a7aa36832a02",
+      "verification": {
+        "codec": "vorbis",
+        "sample_rate_hz": 48000,
+        "channels": 1,
+        "bitrate_kbps": 96.0,
+        "duration_seconds": 2.85575,
+        "integrated_lufs": -16.08,
+        "true_peak_dbtp": -3.85,
+        "decoded_finite": true,
+        "decoded_sample_peak": 0.626728892326355,
+        "decoded_dc_mean": 7.3248602348030545e-06
+      }
+    }
+  ],
+  "acceptance": {
+    "machine": "PASS",
+    "human_listening": "NOT_MEASURED",
+    "device": "NOT_MEASURED",
+    "child": "NOT_MEASURED",
+    "owner": "NOT_MEASURED"
+  }
+}

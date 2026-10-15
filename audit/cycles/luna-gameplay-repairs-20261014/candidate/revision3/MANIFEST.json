@@ -1,0 +1,161 @@
+{
+  "archive_root": "audit/cycles/luna-gameplay-repairs-20261014/candidate/revision3",
+  "created_utc": "2026-10-15T02:59:35.214237+00:00",
+  "file_count": 17,
+  "files": [
+    {
+      "bytes": 5781,
+      "path": "INTERPRETATION.json",
+      "role": "scoped_failure_preserving_machine_interpretation",
+      "sha256": "ddef5d8355a4f7fd3ac444f3a15f85ce37645ec039f671dd8334078c3cc9c952",
+      "source": "DERIVED_FROM_ARCHIVED_NATIVE_EVIDENCE"
+    },
+    {
+      "bytes": 1524,
+      "path": "candidate-revision3-application.json",
+      "role": "native_revision3_source_application_receipt",
+      "sha256": "1a3fad84602bff9f812c11ebe41240c56e6e0dca906ec7a1045409b44bdc4071",
+      "source": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\candidate-revision3-application.json"
+    },
+    {
+      "bytes": 4732,
+      "expected_receipt": "child06/expected.json",
+      "expected_sha256": "8e50f2ad03c6be6e0b037b3710bf2f609043b9b5800cb4ae05a81d0779be3de1",
+      "native_child_receipt": "child06/receipt.json",
+      "native_preboot_sha256": "8e50f2ad03c6be6e0b037b3710bf2f609043b9b5800cb4ae05a81d0779be3de1",
+      "path": "child06/backup.json",
+      "role": "FROZEN_CHILD_INPUT_EXACT_EXPECTED_AND_NATIVE_PREBOOT_HASH",
+      "sha256": "8e50f2ad03c6be6e0b037b3710bf2f609043b9b5800cb4ae05a81d0779be3de1",
+      "source": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef_candidate_gate_r1ss9yb1\\roaming\\Godot\\app_userdata\\Mermaid Roshan Reef of Light\\probe_chapter2_isolated_44392_10573299.json.bak"
+    },
+    {
+      "bytes": 970,
+      "path": "child06/child.log",
+      "role": "native_disposable_child06_artifact",
+      "sha256": "d0682cce9ae94dbd877b9c1396745241579267e01b1d599ff14a995aa89040b5",
+      "source": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef_candidate_gate_r1ss9yb1\\roaming\\Godot\\app_userdata\\Mermaid Roshan Reef of Light\\probe_chapter2_isolated_44392_10573299.json.milestone_career_06.expected.json.log"
+    },
+    {
+      "bytes": 1425,
+      "path": "child06/expected.json",
+      "role": "native_disposable_child06_artifact",
+      "sha256": "76ee05d14a8fb9ce2d4c9dc4ea6e9123cdff100e03b32662c375c14dd2c4b69a",
+      "source": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef_candidate_gate_r1ss9yb1\\roaming\\Godot\\app_userdata\\Mermaid Roshan Reef of Light\\probe_chapter2_isolated_44392_10573299.json.milestone_career_06.expected.json"
+    },
+    {
+      "bytes": 4732,
+      "expected_receipt": "child06/expected.json",
+      "expected_sha256": "91d3afadbfe0b30f45bea92a81cbb2be579672a942ec88a805897e91862b1704",
+      "native_child_receipt": "child06/receipt.json",
+      "native_preboot_sha256": "91d3afadbfe0b30f45bea92a81cbb2be579672a942ec88a805897e91862b1704",
+      "path": "child06/primary.json",
+      "role": "FROZEN_CHILD_INPUT_EXACT_EXPECTED_AND_NATIVE_PREBOOT_HASH",
+      "sha256": "91d3afadbfe0b30f45bea92a81cbb2be579672a942ec88a805897e91862b1704",
+      "source": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef_candidate_gate_r1ss9yb1\\roaming\\Godot\\app_userdata\\Mermaid Roshan Reef of Light\\probe_chapter2_isolated_44392_10573299.json"
+    },
+    {
+      "bytes": 1483,
+      "path": "child06/receipt.json",
+      "role": "native_disposable_child06_artifact",
+      "sha256": "3ddd4ede6f4c12c864908d75af70578fdbca5890af0c876f19f38df2cdb8d823",
+      "source": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef_candidate_gate_r1ss9yb1\\roaming\\Godot\\app_userdata\\Mermaid Roshan Reef of Light\\probe_chapter2_isolated_44392_10573299.json.milestone_career_06.expected.json.receipt.json"
+    },
+    {
+      "bytes": 370,
+      "path": "child06/started.json",
+      "role": "native_disposable_child06_artifact",
+      "sha256": "eb6f5af8fde8b6a58608ed873c901f33674b150f9a831a545e635d3449d15610",
+      "source": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef_candidate_gate_r1ss9yb1\\roaming\\Godot\\app_userdata\\Mermaid Roshan Reef of Light\\probe_chapter2_isolated_44392_10573299.json.milestone_career_06.expected.json.started.json"
+    },
+    {
+      "bytes": 2951,
+      "path": "gate/chapter2-route-02.json",
+      "role": "native_failed_revision3_gate_artifact",
+      "sha256": "7a371cf8004a5042167522e28f9d2248cce0122bbe39bfaa626cc3cfd4e712bb",
+      "source": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\candidate_gates\\chapter2-route-02.json"
+    },
+    {
+      "bytes": 21268,
+      "path": "gate/chapter2-route-02.log",
+      "role": "native_failed_revision3_gate_artifact",
+      "sha256": "6ab0446a1483e56bf9f4aa1a7f16c8f03ce0d9051b7c19279902ffc56a7cc1f5",
+      "source": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\candidate_gates\\chapter2-route-02.log"
+    },
+    {
+      "bytes": 712709,
+      "path": "gate/chapter2-route-02.sources.json",
+      "role": "native_failed_revision3_gate_artifact",
+      "sha256": "2a38cc7ba68ec3badee8723d9941f1797351bafba09f89fdca78c70186a3e4a5",
+      "source": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\candidate_gates\\chapter2-route-02.sources.json"
+    },
+    {
+      "bytes": 1813,
+      "path": "gate/chapter2-route-02.started.json",
+      "role": "native_failed_revision3_gate_artifact",
+      "sha256": "fdf6488109e81f73beae7869358033f7f3d89b95d6fc3ce732288f6d320881a1",
+      "source": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\candidate_gates\\chapter2-route-02.started.json"
+    },
+    {
+      "bytes": 719449,
+      "path": "pins/candidate-runtime-sources.v3.json",
+      "role": "immutable_revision3_pin_bytes",
+      "sha256": "ca8a5145fb6505bca6ee7a853ebee84085f0886c9af9d1c99bf019bd76bb684d",
+      "source": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\candidate-runtime-sources.v3.json"
+    },
+    {
+      "bytes": 3486,
+      "path": "review/endpoint_fixture_repair_01.patch",
+      "role": "native_reviewed_revision3_patch",
+      "sha256": "c5c914f8325a8a3572b4b2b14063ffbd91489244d38d8be31c665946e8eb4ad3",
+      "source": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\chapter2\\diagnostics\\endpoint_fixture_repair_01.patch"
+    },
+    {
+      "bytes": 1860,
+      "path": "review/endpoint_fixture_repair_01.receipt.json",
+      "role": "native_review_preparation_receipt_original_labels_preserved",
+      "sha256": "bba9a38ea5b70f2eb1f1448846287c640a921e3b872e920006dce50731431cc2",
+      "source": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\chapter2\\diagnostics\\endpoint_fixture_repair_01.receipt.json"
+    },
+    {
+      "application_path": "scripts/opera_career_world_2d.gd",
+      "application_receipt": "candidate-revision3-application.json",
+      "bound_after_sha256": "c9c1bd25bea79260a3950e7431fe9b75b2b313f50b6c5bde8872ef367c710b45",
+      "bytes": 246147,
+      "path": "sources/opera_career_world_2d.gd.txt",
+      "role": "exact_revision3_source_nonruntime_text",
+      "sha256": "c9c1bd25bea79260a3950e7431fe9b75b2b313f50b6c5bde8872ef367c710b45",
+      "source": "C:\\Users\\Peter\\.codex\\worktrees\\luna-gameplay-repairs-20261014\\mermaid-roshan-reef\\scripts\\opera_career_world_2d.gd"
+    },
+    {
+      "application_path": "scripts/probe_chapter2.gd",
+      "application_receipt": "candidate-revision3-application.json",
+      "bound_after_sha256": "badd6f6ac2fe50edd6aef741f984215f5c59999b9033049572e69b67dd861669",
+      "bytes": 79235,
+      "path": "sources/probe_chapter2.gd.txt",
+      "role": "exact_revision3_source_nonruntime_text",
+      "sha256": "badd6f6ac2fe50edd6aef741f984215f5c59999b9033049572e69b67dd861669",
+      "source": "C:\\Users\\Peter\\.codex\\worktrees\\luna-gameplay-repairs-20261014\\mermaid-roshan-reef\\scripts\\probe_chapter2.gd"
+    }
+  ],
+  "frozen_child_input_files": 2,
+  "manifest_self_hash": "Reported externally after write.",
+  "native_file_count": 16,
+  "project_source_asset_license_or_markdown_writes": 0,
+  "revision": 3,
+  "schema": "reef.revision3-machine-evidence-archive.v1",
+  "source_bindings": [
+    {
+      "archive_path": "sources/opera_career_world_2d.gd.txt",
+      "bound_application_after_sha256": "c9c1bd25bea79260a3950e7431fe9b75b2b313f50b6c5bde8872ef367c710b45",
+      "project_path": "scripts/opera_career_world_2d.gd"
+    },
+    {
+      "archive_path": "sources/probe_chapter2.gd.txt",
+      "bound_application_after_sha256": "badd6f6ac2fe50edd6aef741f984215f5c59999b9033049572e69b67dd861669",
+      "project_path": "scripts/probe_chapter2.gd"
+    }
+  ],
+  "source_pin_sha256": "ca8a5145fb6505bca6ee7a853ebee84085f0886c9af9d1c99bf019bd76bb684d",
+  "status": "EXACT_BYTE_ARCHIVE_FAILED_GATE_PRESERVED",
+  "upcoming_revision4_included": false
+}

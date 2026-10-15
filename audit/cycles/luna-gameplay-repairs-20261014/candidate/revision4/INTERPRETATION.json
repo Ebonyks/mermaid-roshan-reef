@@ -1,0 +1,95 @@
+{
+  "child06": {
+    "actual_Continue_and_earned_state": "PASS",
+    "exit_code": 1,
+    "generation_and_saved_snapshot": "PASS",
+    "landscape_bootstrap": "FAIL",
+    "native_failures": 1,
+    "preboot_primary_and_backup": "PASS"
+  },
+  "child06_viewport_records": [
+    {
+      "content_scale_aspect": 4,
+      "content_scale_mode": 1,
+      "content_scale_size": "(1280, 720)",
+      "process_id": 35748,
+      "visible_origin": "(0.0, 0.0)",
+      "visible_size": "(1280.0, 1280.0)",
+      "window_size": "(64, 64)"
+    }
+  ],
+  "excluded": "Newer mode-verifier/revision5 changes, active mutable pin, protected/audio/model payloads.",
+  "external_acceptance": {
+    "child": "NOT_MEASURED",
+    "mobile_pixels": "NOT_MEASURED",
+    "owner_creative_acceptance": "NOT_MEASURED",
+    "physical_device": "NOT_MEASURED"
+  },
+  "farmer": "Actual Farmer completion/source-room return pass within this failed run.",
+  "final03_helper": "Exact contiguous source bytes extracted from the frozen full probe draft; source byte range/hash recorded. No helper authored or executed by archive task.",
+  "fixture_preservation": [
+    {
+      "archive_path": "child06/primary.json",
+      "current_sha256": "91d3afadbfe0b30f45bea92a81cbb2be579672a942ec88a805897e91862b1704",
+      "expected_sha256": "91d3afadbfe0b30f45bea92a81cbb2be579672a942ec88a805897e91862b1704",
+      "matches_expected_and_native_preboot": true,
+      "native_preboot_sha256": "91d3afadbfe0b30f45bea92a81cbb2be579672a942ec88a805897e91862b1704",
+      "present": true,
+      "role": "FROZEN_CHILD_INPUT_EXACT_EXPECTED_AND_NATIVE_PREBOOT_HASH",
+      "source": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef_candidate_gate_27_iwrsr\\roaming\\Godot\\app_userdata\\Mermaid Roshan Reef of Light\\probe_chapter2_isolated_32584_11909950.json"
+    },
+    {
+      "archive_path": "child06/backup.json",
+      "current_sha256": "8e50f2ad03c6be6e0b037b3710bf2f609043b9b5800cb4ae05a81d0779be3de1",
+      "expected_sha256": "8e50f2ad03c6be6e0b037b3710bf2f609043b9b5800cb4ae05a81d0779be3de1",
+      "matches_expected_and_native_preboot": true,
+      "native_preboot_sha256": "8e50f2ad03c6be6e0b037b3710bf2f609043b9b5800cb4ae05a81d0779be3de1",
+      "present": true,
+      "role": "FROZEN_CHILD_INPUT_EXACT_EXPECTED_AND_NATIVE_PREBOOT_HASH",
+      "source": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef_candidate_gate_27_iwrsr\\roaming\\Godot\\app_userdata\\Mermaid Roshan Reef of Light\\probe_chapter2_isolated_32584_11909950.json.bak"
+    }
+  ],
+  "headless_failure": "Initial parent/child pre-initialization setup reports window64x64 and visible1280x1280. Later parent reports visible/window1280x720, but combined assertion still fails because it additionally requires a windowed mode unsupported by this headless backend. Native failures remain unchanged.",
+  "historical_manifest": "Existing EVIDENCE_MANIFEST.json untouched; this revision4 manifest is independent.",
+  "later_careers_and_milestones": "NOT_RUN after child06 dependency failure; no later-career/full29-phase journey acceptance claimed.",
+  "missing_input_policy": "No missing bytes reconstructed. Current bytes count as frozen inputs only if expectation and native preboot hashes both match.",
+  "mode_attribution_limit": "Later parent logged size/content/visible/origin predicates match; the final03 helper also requires root.mode==WINDOWED. That remaining mode predicate is inferred to fail; no numeric mode value was logged or invented.",
+  "parent_viewport_records": [
+    {
+      "content_scale_aspect": 4,
+      "content_scale_mode": 1,
+      "content_scale_size": "(1280, 720)",
+      "process_id": 32584,
+      "visible_origin": "(0.0, 0.0)",
+      "visible_size": "(1280.0, 1280.0)",
+      "window_size": "(64, 64)"
+    },
+    {
+      "content_scale_aspect": 4,
+      "content_scale_mode": 1,
+      "content_scale_size": "(1280, 720)",
+      "process_id": 32584,
+      "visible_origin": "(0.0, 0.0)",
+      "visible_size": "(1280.0, 720.0)",
+      "window_size": "(1280, 720)"
+    }
+  ],
+  "preparation_chronology": "Native final03 and inherited preparation receipts keep original NOT_RUN wording. Native application and route03 receipts separately record later application/execution.",
+  "revision": 4,
+  "route03": {
+    "after_pin_mismatches": [],
+    "assertion_failures": 3,
+    "exit_code": 1,
+    "failure_lines": [
+      "CHAPTER2|fixture: canonical landscape viewport is 1280x720 before production boot: FAIL",
+      "CHAPTER2|fixture: canonical landscape viewport is 1280x720 before production boot: FAIL",
+      "CHAPTER2|milestone career_06 fresh process proves exact bytes, loaded state and Continue: FAIL",
+      "CHAPTER2|RESULT: FAIL checks_failed=3"
+    ],
+    "machine_gate_passed": false,
+    "source_mismatches": []
+  },
+  "schema": "reef.revision4-machine-evidence-interpretation.v1",
+  "scope": "Failed local route03; exact immutable final03 review/application/pin and owned disposable child06 evidence. No source/pin change or replay by archive task.",
+  "source_snapshot_limit": "Current probe had already advanced beyond revision4 during archive preparation. Its newer bytes were excluded. Exact frozen reviewed drafts and native revision4 application after-hashes are preserved; old applied raw source bytes are not reconstructed or claimed copied."
+}

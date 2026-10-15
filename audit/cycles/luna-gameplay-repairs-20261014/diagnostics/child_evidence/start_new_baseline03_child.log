@@ -1,0 +1,15 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+START_MENU_NEW_GAME|parent's disposable save exists: OK
+START_MENU_NEW_GAME|fresh process opens the exact committed primary bytes: OK
+START_MENU_NEW_GAME|fresh process opens the exact old-adventure archive: OK
+START_MENU_NEW_GAME|isolated save is injected before production _ready: OK
+START_MENU_NEW_GAME|real production main is registered as current_scene: OK
+START_MENU_NEW_GAME|production main uses only the disposable save: OK
+START_MENU_NEW_GAME|fresh process loads the exact fresh generation: FAIL
+START_MENU_NEW_GAME|fresh process preserves the prior archive: OK
+START_MENU_NEW_GAME|fresh process has no finished Day One rooms: OK
+START_MENU_NEW_GAME|fresh process exposes the real Continue button: OK
+START_MENU_NEW_GAME|fresh-process Continue resumes Day One: OK
+START_MENU_NEW_GAME|Continue preserves fresh adventure and exact old archive: OK
+START_MENU_NEW_GAME_CHILD|RESULT: FAIL

@@ -129,29 +129,66 @@ func _prepare_terminal_boundary() -> void:
 	director.complete_placeholder("pool", "pool_activity")
 	director.complete_activity("stuffie", "stuffie_activity")
 	director.complete_activity("art", "art_activity")
-	director.giant_dust_bunny_boss_triggered = true
+	# The fixture supplies prior room work; only the visible doorway may trigger the boss.
+	director.giant_dust_bunny_boss_triggered = false
 	director.boss_door_glow = true
 	director.giant_dust_bunny_boss_defeated = false
 	main.save_data["dustboss_pending_rounds"] = 0
 	main.save_data["dustboss_pending_attacks"] = 0
 
 func _open_boss() -> void:
-	if main.game != "":
-		main._clear_game()
-		await _frames(2)
-	main.game = ""
-	main.g = {}
-	main.player.visible = true
-	main.we_node.environment = main.world_env
-	main.dust_boss_cool = 0.0
-	# The reef attic door retired with the 3D reef on 2026-09-23; the live
-	# route is the castle Royal Hall. Open the fight through production.
-	main._start_game(main.dust_boss_fr)
-	for _i in range(900):
-		await process_frame
+	# Room completion remains injected by _prepare_terminal_boundary(). This leg
+	# measures the real Day One Royal Hall control, approach and event dispatch.
+	# It does not claim a fresh-save route or physical-device/story-clip evidence.
+	main._enter_level2_now(true, false, false)
+	await _frames(12)
+	main._enter_castle_interior_now(false)
+	await _frames(24)
+	var rooms: CastleRooms25D = main._castle_rooms_ref()
+	var director: DayOneDirector = main._day_one_ref()
+	_ck("injected prior jobs arm the production Grand Puff doorway",
+		main.day_one_boss_door_ready()
+		and rooms._royal_hall_event_id() == "day_one_giant_dust_bunny")
+	var boss_events_before: int = _event_count(DayOneDirector.EVENT_GIANT_DUST_BUNNY_BOSS)
+	await _frames(12)
+	_ck("waiting in the hall cannot trigger Grand Puff",
+		main.game == "level2" and not director.giant_dust_bunny_boss_triggered
+		and _event_count(DayOneDirector.EVENT_GIANT_DUST_BUNNY_BOSS) == boss_events_before)
+	var door: Button = _royal_hall_target()
+	var walk_taps: int = 0
+	while walk_taps < 8 and (door == null or not door.is_visible_in_tree()
+			or not main.get_viewport().get_visible_rect().has_point(
+				door.get_global_transform_with_canvas() * (door.size * 0.5))):
+		var stage_point: Vector2 = main.castle_room_stage.get_global_transform_with_canvas() \
+			* Vector2(1050.0, 560.0)
+		await _push_screen_tap(stage_point, 83)
+		await _frames(90)
+		walk_taps += 1
+		door = _royal_hall_target()
+	var door_visible: bool = door != null and door.is_visible_in_tree() and not door.disabled
+	var door_point := Vector2.INF
+	if door_visible:
+		door_point = door.get_global_transform_with_canvas() * (door.size * 0.5)
+		door_visible = main.get_viewport().get_visible_rect().has_point(door_point)
+	_ck("Grand Puff has a visible reachable Royal Hall touch control", door_visible)
+	if not door_visible:
+		return
+	await _push_screen_tap(door_point, 84)
+	for _frame in range(9000):
 		if main.game == "dustboss":
 			break
-	_ck("direct launch opens the live boss fight", main.game == "dustboss")
+		await process_frame
+	_ck("viewport Royal Hall touch dispatches the live Grand Puff encounter",
+		main.game == "dustboss" and director.giant_dust_bunny_boss_triggered
+		and _event_count(DayOneDirector.EVENT_GIANT_DUST_BUNNY_BOSS) == boss_events_before + 1
+		and not rooms.is_open())
+
+func _royal_hall_target() -> Button:
+	for record: Dictionary in main.castle_room_door_hotspots:
+		var data: Dictionary = record.get("data", {}) as Dictionary
+		if String(data.get("id", "")) == "__royal_hall":
+			return record.get("button") as Button
+	return null
 
 func _splash_and_geometry_case() -> void:
 	for malformed: Variant in [null, false, "wrong", {}, [], INF, NAN]:
@@ -332,6 +369,9 @@ func _safe_navigation_case() -> void:
 	main.get_tree().paused = false
 	_ck("pause cancellation leaves no stale encounter destination", not boss.navigation.travelling)
 
+func _floor_press_responded(armed: bool, before: Vector2, after: Vector2) -> bool:
+	return armed and after.distance_to(before) > 0.05
+
 func _free_steering_case(expected_state: String) -> void:
 	var boss: DustBossGame = _boss()
 	_ck("free steering enters live " + expected_state, _state() == expected_state)
@@ -342,9 +382,13 @@ func _free_steering_case(expected_state: String) -> void:
 	press.position = boss.stage.project_floor_point(target)
 	press.pressed = true
 	main.get_viewport().push_input(press, true)
+	var press_armed: bool = boss.navigation.travelling \
+		and boss.navigation.destination.distance_to(target) < 0.05
 	await _frames(2)
+	var after: Vector2 = boss.stage.player_local()
+	_ck(expected_state + " floor press immediately arms its requested destination", press_armed)
 	_ck(expected_state + " floor press immediately moves Roshan",
-		boss.navigation.travelling and boss.stage.player_local().distance_to(before) > 0.05)
+		_floor_press_responded(press_armed, before, after))
 	var drag := InputEventScreenDrag.new()
 	drag.index = 81
 	drag.position = boss.stage.project_floor_point(Vector2(12.0, 8.0))
@@ -429,6 +473,20 @@ func _dash_case() -> void:
 	var near := Vector2(99.5, 0.0)
 	var step: Vector2 = nav.direction_for_step(near, speed, 0.1) * speed * 0.1
 	_ck("dash lands at destination without overshoot", (near + step).distance_to(Vector2(100.0, 0.0)) < 0.001)
+	var arrived: Vector2 = near + step
+	var armed_before_arrival: bool = nav.travelling
+	arrived += nav.direction_for_step(arrived, speed, 0.1) * speed * 0.1
+	_ck("completed travel preserves a valid immediate movement response",
+		not nav.travelling and _floor_press_responded(armed_before_arrival, near, arrived))
+	nav.cancel()
+	var cancelled_start: Vector2 = arrived
+	var cancelled_end: Vector2 = cancelled_start \
+		+ nav.direction_for_step(cancelled_start, speed, 0.1) * speed * 0.1
+	_ck("cancelled navigation cannot manufacture movement", cancelled_end == cancelled_start)
+	_ck("no movement cannot pass the response check",
+		not _floor_press_responded(true, cancelled_start, cancelled_end))
+	_ck("unarmed displacement cannot pass the response check",
+		not _floor_press_responded(false, near, arrived))
 	nav.step_speed(24.0, 0.6)
 	_ck("burst expires and cooldown recovers", nav.dash_remaining == 0.0
 		and is_equal_approx(nav.step_speed(24.0, 0.1), 24.0))

@@ -1,0 +1,247 @@
+{
+  "created_utc": "2026-10-15T03:46:55.774830+00:00",
+  "files": [
+    {
+      "base_bytes": 253841,
+      "base_sha256": "ade74629a2ffda320e1080d2c5f84d4f8ca14f85bf15da335a6cac9ed9d24692",
+      "base_snapshot": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\voice_lifecycle\\canonical_focused_docs_02\\base\\audit\\findings\\ACTIVE_FINDINGS_2026-08-13.md.txt",
+      "draft_bytes": 257652,
+      "draft_sha256": "c39e24271d5a719fefae1a811d08c6e7387574cb1f75fdbbac714b3175bfb08c",
+      "draft_snapshot": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\voice_lifecycle\\canonical_focused_docs_02\\drafts\\audit\\findings\\ACTIVE_FINDINGS_2026-08-13.md.txt",
+      "normalized_draft_sha256": "67e5d427d0a2c51a99607a3735f5dd3e6ee59a4acd6ee5420a67716f9e2e7cc9",
+      "path": "audit/findings/ACTIVE_FINDINGS_2026-08-13.md"
+    },
+    {
+      "base_bytes": 299583,
+      "base_sha256": "3d1f79c69fb7f66a77881eb2f5bcf4bef07185b4beed6746c028de679da1e86e",
+      "base_snapshot": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\voice_lifecycle\\canonical_focused_docs_02\\base\\audit\\MASTER_AUDIT_2026-08-09.md.txt",
+      "draft_bytes": 300382,
+      "draft_sha256": "e95d222af6c934c695c3894c69420bf73a4764c0e75ab1a383ab486a63829503",
+      "draft_snapshot": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\voice_lifecycle\\canonical_focused_docs_02\\drafts\\audit\\MASTER_AUDIT_2026-08-09.md.txt",
+      "normalized_draft_sha256": "0db619717a331fdabb4715c60490c4fa54926e6a2ad0887433d89158a9429f30",
+      "path": "audit/MASTER_AUDIT_2026-08-09.md"
+    },
+    {
+      "base_bytes": 216303,
+      "base_sha256": "3e75f5dca089c8f7b510ae7d5f1e741fc137f886284912119105f98b1c7cba7d",
+      "base_snapshot": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\voice_lifecycle\\canonical_focused_docs_02\\base\\design\\05_DOC_LEDGER.md.txt",
+      "draft_bytes": 217150,
+      "draft_sha256": "6e9f1e5f2e6b6ba7b7400c2629b5a8c2353884875959a1505f5a85b0b3ec39b6",
+      "draft_snapshot": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\voice_lifecycle\\canonical_focused_docs_02\\drafts\\design\\05_DOC_LEDGER.md.txt",
+      "normalized_draft_sha256": "aa3b65ca7c9b34d14ee28d92715b58108d78112c1e9c818371aa9f4000efa77b",
+      "path": "design/05_DOC_LEDGER.md"
+    },
+    {
+      "base_bytes": 143794,
+      "base_sha256": "9e1d6205a4c3f48c5707545cf48cfd3bf24636a79a00d18cca1e977ed99527e7",
+      "base_snapshot": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\voice_lifecycle\\canonical_focused_docs_02\\base\\audit\\MASTER_AUDIT_CHANGELOG_ROLLBACK_2026-08-10.md.txt",
+      "draft_bytes": 145940,
+      "draft_sha256": "aa024d8cba95eca86ad6f1e82fd2abbd6576aac22e6bbfd2d1e7ee5a572f37cb",
+      "draft_snapshot": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\voice_lifecycle\\canonical_focused_docs_02\\drafts\\audit\\MASTER_AUDIT_CHANGELOG_ROLLBACK_2026-08-10.md.txt",
+      "normalized_draft_sha256": "5e91253aeeb7aa66ce18d36b151d415a54aa72f93874dfca28014127c81b0de7",
+      "path": "audit/MASTER_AUDIT_CHANGELOG_ROLLBACK_2026-08-10.md"
+    }
+  ],
+  "findings": [
+    "MA-PLAY-005",
+    "MA-CI-007"
+  ],
+  "inputs": [
+    {
+      "path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\chapter2\\ma_play_005_route06_machine_wording_v2_20261014.txt",
+      "sha256": "dbdf837160a77358fd8de1e00cecc83e20afd3b5e5183a06fb831684a46fbeb3"
+    },
+    {
+      "path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\chapter2\\diagnostics\\chapter2-route-06.read_only_analysis.json",
+      "sha256": "d96afad366dfdd2eefb7643a5f569833a2fede64339a3c2853367ea51d7af17c"
+    },
+    {
+      "path": "C:\\Users\\Peter\\.codex\\worktrees\\luna-gameplay-repairs-20261014\\mermaid-roshan-reef\\audit\\cycles\\luna-gameplay-repairs-20261014\\candidate\\revision7\\chapter2_route06\\MANIFEST.json",
+      "sha256": "f1c48cb3ac0fc4c764666e2dc59a1d19182d1af2a3fe8d7639eef7fa4944d933"
+    }
+  ],
+  "new_link_checks": [
+    {
+      "exists": true,
+      "from": "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
+      "target": "../cycles/luna-gameplay-repairs-20261014/candidate/revision7/chapter2_route06/gate/chapter2-route-06.json"
+    },
+    {
+      "exists": true,
+      "from": "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
+      "target": "../cycles/luna-gameplay-repairs-20261014/candidate/revision7/chapter2_route06/analysis/read_only_analysis.json"
+    },
+    {
+      "exists": true,
+      "from": "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
+      "target": "../cycles/luna-gameplay-repairs-20261014/candidate/revision7/chapter2_route06/MANIFEST.json"
+    },
+    {
+      "exists": true,
+      "from": "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
+      "target": "../cycles/luna-playtest-20261012/verification/farmer_production_config/receipt.json"
+    },
+    {
+      "exists": true,
+      "from": "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
+      "target": "../cycles/luna-playtest-20261012/verification/farmer_supplied_phases/receipt.json"
+    },
+    {
+      "exists": true,
+      "from": "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
+      "target": "../MASTER_AUDIT_CHANGELOG_ROLLBACK_2026-08-10.md#luna-gameplay-repairs-chg-035"
+    },
+    {
+      "exists": true,
+      "from": "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
+      "target": "../../design/audit_impacts/luna-gameplay-repairs-20261014.json"
+    },
+    {
+      "exists": true,
+      "from": "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
+      "target": "../cycles/luna-gameplay-repairs-20261014/EVIDENCE_MANIFEST.json"
+    },
+    {
+      "exists": true,
+      "from": "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
+      "target": "../../design/audit_impacts/luna-gameplay-repairs-20261014.json"
+    },
+    {
+      "exists": true,
+      "from": "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
+      "target": "../cycles/luna-gameplay-repairs-20261014/candidate/initial_machine/candidate_gates/dust-visible-entry-01.json"
+    },
+    {
+      "exists": true,
+      "from": "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
+      "target": "../cycles/luna-gameplay-repairs-20261014/candidate/initial_machine/candidate_gates/tutorial-real-charge-01.json"
+    },
+    {
+      "exists": true,
+      "from": "audit/MASTER_AUDIT_2026-08-09.md",
+      "target": "../design/audit_impacts/luna-gameplay-repairs-20261014.json"
+    },
+    {
+      "exists": true,
+      "from": "audit/MASTER_AUDIT_2026-08-09.md",
+      "target": "MASTER_AUDIT_CHANGELOG_ROLLBACK_2026-08-10.md#luna-gameplay-repairs-chg-035"
+    },
+    {
+      "exists": true,
+      "from": "audit/MASTER_AUDIT_2026-08-09.md",
+      "target": "cycles/luna-gameplay-repairs-20261014/EVIDENCE_MANIFEST.json"
+    },
+    {
+      "exists": true,
+      "from": "audit/MASTER_AUDIT_2026-08-09.md",
+      "target": "cycles/luna-gameplay-repairs-20261014/candidate/revision7/chapter2_route06/MANIFEST.json"
+    },
+    {
+      "exists": true,
+      "from": "audit/MASTER_AUDIT_2026-08-09.md",
+      "target": "cycles/luna-gameplay-repairs-20261014/candidate/revision5/core_machine/MANIFEST.json"
+    },
+    {
+      "exists": true,
+      "from": "audit/MASTER_AUDIT_2026-08-09.md",
+      "target": "cycles/luna-gameplay-repairs-20261014/voice_lifecycle/MANIFEST.json"
+    },
+    {
+      "exists": true,
+      "from": "audit/MASTER_AUDIT_2026-08-09.md",
+      "target": "findings/ACTIVE_FINDINGS_2026-08-13.md#ma-play-005"
+    },
+    {
+      "exists": true,
+      "from": "design/05_DOC_LEDGER.md",
+      "target": "../audit/MASTER_AUDIT_CHANGELOG_ROLLBACK_2026-08-10.md#luna-gameplay-repairs-chg-035"
+    },
+    {
+      "exists": true,
+      "from": "design/05_DOC_LEDGER.md",
+      "target": "audit_impacts/luna-gameplay-repairs-20261014.json"
+    },
+    {
+      "exists": true,
+      "from": "design/05_DOC_LEDGER.md",
+      "target": "../audit/cycles/luna-gameplay-repairs-20261014/candidate/revision7/chapter2_route06/MANIFEST.json"
+    },
+    {
+      "exists": true,
+      "from": "design/05_DOC_LEDGER.md",
+      "target": "../audit/cycles/luna-gameplay-repairs-20261014/candidate/revision5/core_machine/MANIFEST.json"
+    },
+    {
+      "exists": true,
+      "from": "design/05_DOC_LEDGER.md",
+      "target": "../audit/cycles/luna-gameplay-repairs-20261014/voice_lifecycle/MANIFEST.json"
+    },
+    {
+      "exists": true,
+      "from": "design/05_DOC_LEDGER.md",
+      "target": "../audit/cycles/luna-gameplay-repairs-20261014/candidate/initial_machine/MANIFEST.json"
+    },
+    {
+      "exists": true,
+      "from": "audit/MASTER_AUDIT_CHANGELOG_ROLLBACK_2026-08-10.md",
+      "target": "../design/audit_impacts/luna-gameplay-repairs-20261014.json"
+    },
+    {
+      "exists": true,
+      "from": "audit/MASTER_AUDIT_CHANGELOG_ROLLBACK_2026-08-10.md",
+      "target": "cycles/luna-gameplay-repairs-20261014/candidate/revision7/chapter2_route06/gate/chapter2-route-06.json"
+    },
+    {
+      "exists": true,
+      "from": "audit/MASTER_AUDIT_CHANGELOG_ROLLBACK_2026-08-10.md",
+      "target": "cycles/luna-gameplay-repairs-20261014/candidate/revision7/chapter2_route06/MANIFEST.json"
+    },
+    {
+      "exists": true,
+      "from": "audit/MASTER_AUDIT_CHANGELOG_ROLLBACK_2026-08-10.md",
+      "target": "cycles/luna-gameplay-repairs-20261014/candidate/revision5/core_machine/MANIFEST.json"
+    },
+    {
+      "exists": true,
+      "from": "audit/MASTER_AUDIT_CHANGELOG_ROLLBACK_2026-08-10.md",
+      "target": "cycles/luna-gameplay-repairs-20261014/voice_lifecycle/MANIFEST.json"
+    },
+    {
+      "exists": true,
+      "from": "audit/MASTER_AUDIT_CHANGELOG_ROLLBACK_2026-08-10.md",
+      "target": "cycles/luna-gameplay-repairs-20261014/candidate/initial_machine/MANIFEST.json"
+    }
+  ],
+  "patch": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\voice_lifecycle\\canonical_focused_docs_02\\focused_canonical_docs.patch",
+  "patch_sha256": "0c1fc3dbd67f0b8fbea4031091ae83919859b58cc8ad57edd8ae885f12af4f27",
+  "preservation_checks": {
+    "MA_CI_007_aggregate_verification": "V1 unchanged",
+    "MA_CI_007_lifecycle": "CONFIRMED_OPEN",
+    "MA_PLAY_005_lifecycle": "IN_PROGRESS",
+    "MA_PLAY_005_verification": "V3 partial",
+    "fullCI": "PENDING as requested; parent must reconcile later terminal result before final application/completion",
+    "historical_19_of29_reproduction_unchanged": true,
+    "historical_evidence_and_history_preserved": true,
+    "impact_patch": "OMITTED: current impact already records focused final facts/pendingfullCI; parent owns later coverage/terminal update",
+    "original_combat_red_causes": "UNPROVEN retained"
+  },
+  "preserved_preparation_failure": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\voice_lifecycle\\canonical_focused_docs_01\\PREPARATION_FAILURE.json",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-QA-01",
+    "DL-QA-02",
+    "DL-QA-07",
+    "DL-SND-03",
+    "DL-SND-05",
+    "DL-CODE-01",
+    "DL-CODE-03",
+    "DL-CODE-04"
+  ],
+  "schema": "reef.focused-canonical-documentation-draft.v1",
+  "scope": "Four existing canonical files only; no new authority/Markdown file. Scratch base/draft snapshots use .md.txt.",
+  "status": "SCRATCH_ONLY_NOT_APPLIED",
+  "validation": "Draft preservation invariants and new link targets PASS; read-only apply-check pending; authority/development gates after parent application required.",
+  "worktree_docs_runtime_or_pin_mutation": false
+}

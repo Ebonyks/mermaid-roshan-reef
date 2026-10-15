@@ -92,6 +92,10 @@ func _init() -> void:
 			or backing == null or catcher == null:
 		_finish()
 		return
+	_check("exact neutral three-doll cue is selected with its live pointer",
+		_voice_pool_has("res://assets/audio/objective_guides/guide_dolls_catch_three.ogg")
+		and String(surface.get_meta("objective_guide_key", "")) == "guide_dolls_catch_three"
+		and bool(surface.get_meta("visual_pointer", false)))
 	var center_fixture_guard := 0
 	while surface.fallers.is_empty() and center_fixture_guard < 30:
 		center_fixture_guard += 1
@@ -139,9 +143,11 @@ func _init() -> void:
 		and passive_max_fallers <= 1
 		and passive_max_landings <= 2
 		and surface.settled.size() <= 3)
-	_check("a safe miss invokes the exact rate-limited Faron cue",
+	_check("a safe miss requests the exact Faron cue without masking the Guide",
 		main.said_cool.has("faron_miss")
-		and _voice_pool_has("res://assets/audio/voices/faron_miss.ogg"))
+		and (_voice_pool_has("res://assets/audio/voices/faron_miss.ogg")
+			or (main._audio_ref()._active_required_key == "guide_dolls_catch_three"
+				and _voice_pool_has("res://assets/audio/objective_guides/guide_dolls_catch_three.ogg"))))
 
 	var mercy_guard := 0
 	while surface.fallers.is_empty() and mercy_guard < 80:

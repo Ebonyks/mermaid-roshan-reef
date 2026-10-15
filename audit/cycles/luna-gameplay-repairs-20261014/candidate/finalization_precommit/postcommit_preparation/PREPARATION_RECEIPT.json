@@ -1,0 +1,45 @@
+{
+  "acceptance_limits": "Byte verification only; fullCI result and existing visual/2D/stale/freshsave/door/Mobile/contact/device/listening/child/owner/remote/release gaps remain separately recorded",
+  "created_utc": "2026-10-15T04:46:27.184220+00:00",
+  "execution_after_root_approval_only": [
+    "python",
+    "-B",
+    "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\voice_lifecycle\\post_commit_verifier_preparation_01\\verify_committed_v8.py",
+    "--commit",
+    "<exact-source-commit-SHA>",
+    "--output",
+    "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\post_commit_v8_01.json"
+  ],
+  "immutable_v8_pin": {
+    "bytes": 719530,
+    "path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\candidate-runtime-sources.v8.json",
+    "sha256": "786bc13b36002f919b689a13870e475bd86a8fa32cc1f39eacd661fea03a2388"
+  },
+  "preserved_freeze_helper_failure": {
+    "bytes": 466,
+    "path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\voice_lifecycle\\post_commit_verifier_preparation_01\\FREEZE_FAILURE01.json",
+    "sha256": "0dc235708e5b6070865b13e27fb8ba1a80ef1113caeb46e9ae07c89f577c5281"
+  },
+  "reviewed_scope": {
+    "arguments": "Exact40hex --commit and unique absent absolute --output JSON under ignored original tmp/luna_repair_20261014; no output/index/source writes now",
+    "attributes": "Actual working, cached and committed attributes must match; literal text unset; unexpected content filter/encoding/ident rejected before hash-object",
+    "git_batches": "One hash-object --stdin-paths process for union, one ls-tree and stage0 inventory, one streaming cat-file --batch process for all unique blobs; no Git object -w",
+    "guards": "Before/after active+immutable v8 pins, raw5682, all literals, HEAD/branch/status, actual working and common index byte hashes, and root attrs/core EOL config; GIT_OPTIONAL_LOCKS=0; no exclusive lock/ABA claim",
+    "isolated_checkout": "Private GIT_INDEX_FILE + read-tree; --work-tree=owned partialdir; committed .gitattributes first then ONLY literal files; core.autocrlf=true, no -u or full checkout",
+    "literals": "Every existing cycle file, exactly29 Guide source files and exact OBJECTIVE_GUIDE_MANIFEST; raw bytes equal stage0/commit/blob/isolated-checkout SHA256; future receipt and owned exports outside project excluded",
+    "metadata": "Requested source commit and observed HEAD distinct; runs before receipt/metadata files added; source commit must be ancestor of observed HEAD and all current literals already committed",
+    "mutations": "Only owned ignored-original scratch private index/partial exports/mapping exports/final receipt; no staging, shared-index/source/canonical/impact edits or deletion",
+    "protected_content": "Runtime Git blobs streamed into hashes only; no original voice/model payload exports; partial checkout only literal scopes including new neutral Guide sources",
+    "runtime": "All5682 raw tested SHA values preserved; working raw before/after, actual-attribute hash-object OID, stage0 OID, exact requested source-commit OID/blobSHA and proven CRLF-to-LF mapping are separate columns"
+  },
+  "schema": "reef.post-commit-verifier-preparation.v1",
+  "script": {
+    "bytes": 20404,
+    "path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\voice_lifecycle\\post_commit_verifier_preparation_01\\verify_committed_v8.py",
+    "sha256": "8e49f4eba96cb4c7aafe31553d4ec9dfd5d5ce45aee42925ba13775c425af1a1"
+  },
+  "static_validation": "AST parse and in-memory compile PASS; exact5682 pin/count and29 expected Guide source count; required batch/checkout guards present; no shell=True or filesystem deletion/move calls; no verifier execution/import/cache",
+  "status": "PREPARED_STATIC_ONLY_NOT_EXECUTED",
+  "verifier_executed": false,
+  "worktree_or_index_edits": false
+}

@@ -237,7 +237,6 @@ func start(main: ReefMain, index: int, done_cb: Callable,
 		push_error("OperaHouse: invalid Canvas career mapping at slot %d" % index)
 		return false
 	m = main
-	m._navigation_push("opera_act", self, Callable(self, "_leave_early"))
 	finish_cb = done_cb
 	act_index = index
 	plot_context = String(next_config.get("chapter2_context", ""))
@@ -261,6 +260,7 @@ func start(main: ReefMain, index: int, done_cb: Callable,
 		finish_cb = Callable()
 		push_error("OperaHouse: slot %d failed to start its Canvas career" % index)
 		return false
+	m._navigation_push("opera_act", self, Callable(self, "_leave_early"))
 	return true
 
 

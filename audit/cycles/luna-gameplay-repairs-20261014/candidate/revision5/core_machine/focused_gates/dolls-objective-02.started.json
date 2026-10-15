@@ -1,0 +1,30 @@
+{
+  "schema": "luna_candidate_gate/2",
+  "kind": "probe",
+  "label": "dolls-objective-02",
+  "command": [
+    "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64_console.exe",
+    "--headless",
+    "--path",
+    "C:\\Users\\Peter\\.codex\\worktrees\\luna-gameplay-repairs-20261014\\mermaid-roshan-reef",
+    "-s",
+    "C:\\Users\\Peter\\.codex\\worktrees\\luna-gameplay-repairs-20261014\\mermaid-roshan-reef\\scripts\\probe_dolls.gd",
+    "--",
+    "--touch",
+    "--classic-touch-test"
+  ],
+  "cwd": "C:\\Users\\Peter\\.codex\\worktrees\\luna-gameplay-repairs-20261014\\mermaid-roshan-reef",
+  "branch": "codex/luna-gameplay-repairs-20261014",
+  "head": "831d0bbb155b99d75ef0289cc5cc694e0ef00c1e",
+  "started_utc": "2026-10-15T03:16:18.737683+00:00",
+  "runner_pid": 17936,
+  "engine_sha256": "c8f0a6bc45a19b33541501e57f6f7cd972ab18453743266339d495cbbe846643",
+  "profile": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef_candidate_gate_4dfnq22z",
+  "source_manifest": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\candidate_gates\\dolls-objective-02.sources.json",
+  "source_manifest_sha256": "bdd01125c8daee6470492f6467a3f4367a612ada9560fc44e7d50a057b67aec3",
+  "source_pin": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\candidate-runtime-sources.json",
+  "source_pin_sha256": "98a00104fad42997e135a681fd2fae2ed8ff9db8dee3f43fcbcd09f79f227c30",
+  "source_lock_scope": "Exact root-frozen source inventory checked before and after; root coordinates no mutation during parallel read-only gates. Not an exclusive lock and cannot detect arbitrary A-to-B-to-A mutations.",
+  "scope": "Machine validation; no physical-device/child/owner acceptance",
+  "child_pid": 45756
+}

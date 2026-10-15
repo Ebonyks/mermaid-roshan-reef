@@ -1,0 +1,14 @@
+--- a/scripts/probe_chapter2.gd
++++ b/scripts/probe_chapter2.gd
+@@ -886,9 +886,8 @@
+ 			and host.chapter2_party_piece_mask == completed_mask \
+ 			and [host.opera_stars, host.opera_progress, host.pearl_count] == freeplay_before)
+ 		if act_index == ChapterTwoDirector.ACT_DETECTIVE:
+-			_check("viewport: passive storybook hints repeat its phase recording without finding clues",
+-				_route_voice_is_playing(host, "op_detective_lens_stage")
+-				and String(host.hud_msg.get_meta("requested_voice_key", "")) == "op_detective_lens_stage"
++			_check("viewport: passive storybook hints retain authored cue identity without finding clues",
++				String(host.hud_msg.get_meta("requested_voice_key", "")) == "op_detective_lens_stage"
+ 				and world.lens_find_count == 0 and not host.dialogue_active and host.dialogue_queue.is_empty())
+ 		# Leave through the shipping global Back surface and re-enter the same
+ 		# visible career target. This also cancels any passive approach intent.

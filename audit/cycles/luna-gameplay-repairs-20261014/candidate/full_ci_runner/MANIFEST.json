@@ -1,0 +1,67 @@
+{
+  "schema": "reef.full-ci-runner-review-archive.v1",
+  "created_utc": "2026-10-15T03:22:31.710095+00:00",
+  "archive_root": "audit/cycles/luna-gameplay-repairs-20261014/candidate/full_ci_runner",
+  "file_count": 8,
+  "files": [
+    {
+      "path": "run_candidate_full_ci_gate.py.txt",
+      "bytes": 13972,
+      "sha256": "5db4c749192286a433382617a71a3eb257c8464871c144dc5a774c71e9cd8d50",
+      "source": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\run_candidate_full_ci_gate.py",
+      "role": "EXACT_NATIVE_BYTES"
+    },
+    {
+      "path": "run_candidate_gate.original.py.txt",
+      "bytes": 11557,
+      "sha256": "b6bf16236ff03a5b6fccd83be276bd238c3c5e842072faad1f80dcebd78ce0a4",
+      "source": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\run_candidate_gate.py",
+      "role": "EXACT_NATIVE_BYTES"
+    },
+    {
+      "path": "run_candidate_full_ci_gate.diff",
+      "bytes": 4694,
+      "sha256": "1cc6d759db8c09f0b10c2784d1adb33c7c555990fe27e35ab6f5b9ba8b357fee",
+      "source": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\combat\\run_candidate_full_ci_gate.diff",
+      "role": "EXACT_NATIVE_BYTES"
+    },
+    {
+      "path": "REVIEW.json",
+      "bytes": 3567,
+      "sha256": "ebaef565b6469a67ce7e5bf04b1199c30539aadcc9533b08e16826192ba5aaea",
+      "source": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\combat\\run_candidate_full_ci_gate_review.json",
+      "role": "EXACT_NATIVE_BYTES"
+    },
+    {
+      "path": "SOURCE_ATTRIBUTION.json",
+      "bytes": 1107,
+      "sha256": "b0c10325c7dff2a30b77c91da2fc0b637d7610e315dd0e31b2dec96bf975c0a8",
+      "source": "READ_ONLY_HASH_VERIFIED_CURRENT_SOURCES_AND_REVIEWED_METHOD",
+      "role": "DERIVED_ATTRIBUTION"
+    },
+    {
+      "path": "PURE_TEXT_CONTROLS.json",
+      "bytes": 2052,
+      "sha256": "2c956bf42df36676a0d2a4d142eb8dc97739d8d0218a1cd2435da0eeb2463c8d",
+      "source": "EXACT_CONTROL_RESULTS_FROM_REVIEW",
+      "role": "DERIVED_PURE_TEXT_CONTROL_RESULTS"
+    },
+    {
+      "path": "pure_text_controls.py.txt",
+      "bytes": 2031,
+      "sha256": "41cb0fe652dc62f684d783bd5b256bbefbea9e73fdf4ecdf80ace94484d7d9fb",
+      "source": "REPRODUCIBLE_EQUIVALENT_OF_NINE_ALREADY_EXECUTED_PURE_TEXT_CONTROLS",
+      "role": "DERIVED_REPRODUCTION_SOURCE"
+    },
+    {
+      "path": "INTERPRETATION.json",
+      "bytes": 2206,
+      "sha256": "85d307495ab6be489b732eb1681291c531ecd28c86a259ce37e0b9be4e50801a",
+      "source": "DERIVED_FROM_ARCHIVED_REVIEW_AND_SOURCE_ATTRIBUTION",
+      "role": "DERIVED_INTERPRETATION"
+    }
+  ],
+  "status": "EXACT_RUNNER_BYTES_AND_PURE_TEXT_CONTROL_RESULTS; NO_CANDIDATE_CI_RUN",
+  "original_runner_preserved": true,
+  "project_source_pin_runtime_changes": 0
+}

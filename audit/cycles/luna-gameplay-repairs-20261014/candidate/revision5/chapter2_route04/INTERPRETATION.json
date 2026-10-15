@@ -1,0 +1,121 @@
+{
+  "schema": "luna.chapter2-completed-run-evidence/1",
+  "label": "chapter2-route-04",
+  "revision": 5,
+  "result": "FAIL",
+  "machine_gate_passed": false,
+  "exit_code": 0,
+  "duration_seconds": 174.491,
+  "failure_lines": [
+    "SCRIPT ERROR: Invalid type in function '_route_touch' in base 'SceneTree (probe_chapter2.gd)'. The Object-derived class of argument 1 (previously freed) is not a subclass of the expected argument class."
+  ],
+  "source_pin_sha256": "98a00104fad42997e135a681fd2fae2ed8ff9db8dee3f43fcbcd09f79f227c30",
+  "source_unchanged_under_measured_inventory": true,
+  "observed_machine_scope": {
+    "authored_phases": 29,
+    "career_order": "Farmer/Chef/Candy Maker/Painter/Ballet Dancer/Pop Star/Astronaut/Detective",
+    "fresh_child_checkpoints": 6,
+    "all_observed_child_guards_pass": true,
+    "viewport": "1280x720 canvas_items/expand; headless backend mode exception logged; no Mobile pixel evidence"
+  },
+  "run_specific_limit": "Final lawn Continue freed its Control before the tap helper release. Engine exit0/native RESULT OK did not override the runner SCRIPT ERROR failure.",
+  "input_availability": [
+    {
+      "checkpoint": "career_06",
+      "role": "primary",
+      "expected_sha256": "91d3afadbfe0b30f45bea92a81cbb2be579672a942ec88a805897e91862b1704",
+      "status": "UNAVAILABLE",
+      "note": "This probe revision retained hashes/child handshake records but no milestone byte copy. Earlier rolling inputs were overwritten; no bytes reconstructed."
+    },
+    {
+      "checkpoint": "career_06",
+      "role": "backup",
+      "expected_sha256": "8e50f2ad03c6be6e0b037b3710bf2f609043b9b5800cb4ae05a81d0779be3de1",
+      "status": "UNAVAILABLE",
+      "note": "This probe revision retained hashes/child handshake records but no milestone byte copy. Earlier rolling inputs were overwritten; no bytes reconstructed."
+    },
+    {
+      "checkpoint": "career_00",
+      "role": "primary",
+      "expected_sha256": "c06cc95ea677ac56adb911e7d8e820f821cc7551f55baa92b2f583b10597af48",
+      "status": "UNAVAILABLE",
+      "note": "This probe revision retained hashes/child handshake records but no milestone byte copy. Earlier rolling inputs were overwritten; no bytes reconstructed."
+    },
+    {
+      "checkpoint": "career_00",
+      "role": "backup",
+      "expected_sha256": "b808175cd327e4e2d492c07000fe155de3842dccab60b6e44c7a276b7c160f02",
+      "status": "UNAVAILABLE",
+      "note": "This probe revision retained hashes/child handshake records but no milestone byte copy. Earlier rolling inputs were overwritten; no bytes reconstructed."
+    },
+    {
+      "checkpoint": "career_02",
+      "role": "primary",
+      "expected_sha256": "025e6035840eb516a366cf47fd57d512bf779fa038de2924d2ec8a512f9269ed",
+      "status": "UNAVAILABLE",
+      "note": "This probe revision retained hashes/child handshake records but no milestone byte copy. Earlier rolling inputs were overwritten; no bytes reconstructed."
+    },
+    {
+      "checkpoint": "career_02",
+      "role": "backup",
+      "expected_sha256": "8821d1274214e83be180904413e5accd6b6b686390843244b0937755543f4e92",
+      "status": "UNAVAILABLE",
+      "note": "This probe revision retained hashes/child handshake records but no milestone byte copy. Earlier rolling inputs were overwritten; no bytes reconstructed."
+    },
+    {
+      "checkpoint": "career_11",
+      "role": "primary",
+      "expected_sha256": "89142d28199fce0cdb0a50d6e2e3c2a3ee20431b3975c6f698e48b5e6276f693",
+      "status": "UNAVAILABLE",
+      "note": "This probe revision retained hashes/child handshake records but no milestone byte copy. Earlier rolling inputs were overwritten; no bytes reconstructed."
+    },
+    {
+      "checkpoint": "career_11",
+      "role": "backup",
+      "expected_sha256": "6a299d724f88346082481e64b7716ac4f5e818ae2f244c8d0e219df8cd0ef6e4",
+      "status": "UNAVAILABLE",
+      "note": "This probe revision retained hashes/child handshake records but no milestone byte copy. Earlier rolling inputs were overwritten; no bytes reconstructed."
+    },
+    {
+      "checkpoint": "career_01",
+      "role": "primary",
+      "expected_sha256": "01008b3a18ea75d11352a70a3d177bd198096bda78f917b32a3cc520f5f6bdef",
+      "status": "UNAVAILABLE",
+      "note": "This probe revision retained hashes/child handshake records but no milestone byte copy. Earlier rolling inputs were overwritten; no bytes reconstructed."
+    },
+    {
+      "checkpoint": "career_01",
+      "role": "backup",
+      "expected_sha256": "a023fdf93cd32420a47396040d9c39d2c7b23c78cef128caa71238889180044c",
+      "status": "UNAVAILABLE",
+      "note": "This probe revision retained hashes/child handshake records but no milestone byte copy. Earlier rolling inputs were overwritten; no bytes reconstructed."
+    },
+    {
+      "checkpoint": "story_complete",
+      "role": "primary",
+      "expected_sha256": "20481b847ff95ba9c28b108870046410d2ca55c7d246c0ebb224372eabd2649c",
+      "status": "AVAILABLE_EXACT_BYTES_FROM_POSTRUN_BACKUP",
+      "archive_path": "children/story_complete/primary.input.json",
+      "source_path": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef_candidate_gate_w2o8id0l\\roaming\\Godot\\app_userdata\\Mermaid Roshan Reef of Light\\probe_chapter2_isolated_23236_13036793.json.bak",
+      "note": "Post-run rolling backup bytes match this preboot primary exactly; this is not the original primary pathname."
+    },
+    {
+      "checkpoint": "story_complete",
+      "role": "backup",
+      "expected_sha256": "93e2bcbc3fefb32bd0460a33b1941fc845546f92f6bd529c0ed4cd0d953d0fbb",
+      "status": "UNAVAILABLE",
+      "note": "This probe revision retained hashes/child handshake records but no milestone byte copy. Earlier rolling inputs were overwritten; no bytes reconstructed."
+    }
+  ],
+  "available_exact_input_count": 1,
+  "required_input_count": 12,
+  "source_snapshot_scope": "No full applied source snapshot is asserted in this subpacket; exact runtime pin/inventory and native child script hashes are retained.",
+  "acceptance_limits": [
+    "post-boss prerequisite/room-mount setup seam remains",
+    "no fresh-save DayOne-to-ChapterTwo/door-travel closure",
+    "no exact camera/Mobile-rendered visual or action/contact acceptance",
+    "no physical device, child or owner acceptance",
+    "MA-PLAY-005 remains IN_PROGRESS"
+  ],
+  "archive_policy": "All native gate/child/analysis files copied byte-for-byte. Missing inputs are declared; no historical bytes reconstructed. Existing packets and parent manifests are not modified."
+}

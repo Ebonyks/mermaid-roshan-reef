@@ -52,3 +52,11 @@ assets_src/animation/roshan_wave_repair_20261010/** -text whitespace=-blank-at-e
 
 # Preserve literal Luna report, native log, capture and verifier receipt hashes.
 audit/cycles/luna-playtest-20261012/** -text whitespace=-blank-at-eol,-blank-at-eof,cr-at-eol
+
+# Luna repair and neutral Guide provenance bind literal native bytes.
+audit/cycles/luna-gameplay-repairs-20261014/** -text whitespace=-blank-at-eol,-blank-at-eof,cr-at-eol
+assets_src/audio/objective_guides_20261014/** -text whitespace=-blank-at-eol,-blank-at-eof,cr-at-eol
+assets/audio/objective_guides/OBJECTIVE_GUIDE_MANIFEST.json -text whitespace=cr-at-eol
+
+# Literal unified-diff context prefixes precede authored GDScript tabs.
+audit/cycles/luna-gameplay-repairs-20261014/**/*.patch whitespace=-blank-at-eol,-blank-at-eof,-space-before-tab,cr-at-eol

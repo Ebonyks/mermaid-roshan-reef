@@ -1,0 +1,58 @@
+{
+  "schema": "luna_applied_records/1",
+  "recorded_utc": "2026-10-15T02:35:13.180994+00:00",
+  "files": [
+    {
+      "path": "audit/cycles/luna-gameplay-repairs-20261014/intake.json",
+      "sha256": "9d16e55235807b435faf60aa3c197b16c7f8ed39ebb2b4b7c5a1b6e9208f6eab",
+      "bytes": 2465
+    },
+    {
+      "path": "audit/cycles/luna-gameplay-repairs-20261014/rescue-receipt.json",
+      "sha256": "d0567461c1d67be15ca8988c29f5afcee74b7d73959809f6ab13f82f230f8622",
+      "bytes": 73289
+    },
+    {
+      "path": "audit/cycles/luna-gameplay-repairs-20261014/candidate/initial-runtime-sources.json",
+      "sha256": "f4f6e1d8d553ff5f64cfbe694df8b573935d0271fbcb7ef521993b3abcbcb7f0",
+      "bytes": 724562
+    },
+    {
+      "path": "audit/cycles/luna-gameplay-repairs-20261014/candidate/guide-install-01.json",
+      "sha256": "1b95b7b49e45c9382ababd6812ff8021137c2f552dad2328eec7dc1bd436126c",
+      "bytes": 15716
+    },
+    {
+      "path": "audit/cycles/luna-gameplay-repairs-20261014/candidate/guide-installer-freeze.json",
+      "sha256": "3ad57157cc1ad1a297ddee07bfb478776973e983af5a64a2dfe7c53f3521a56e",
+      "bytes": 12192
+    },
+    {
+      "path": "audit/cycles/luna-gameplay-repairs-20261014/candidate/gate-review.json",
+      "sha256": "4209b71bafca5f6585b3ca203c3491c12355d76223195a7f019714bec920467d",
+      "bytes": 1507
+    },
+    {
+      "path": "audit/cycles/luna-gameplay-repairs-20261014/candidate/gate-review.diff",
+      "sha256": "d9b6d4edef137207acd711a9581748704f223c91ab0a0a8e3c3b64eb51d0dc4a",
+      "bytes": 9737
+    },
+    {
+      "path": "audit/cycles/luna-gameplay-repairs-20261014/candidate/gate-runner.py.txt",
+      "sha256": "b6bf16236ff03a5b6fccd83be276bd238c3c5e842072faad1f80dcebd78ce0a4",
+      "bytes": 11557
+    },
+    {
+      "path": "audit/cycles/luna-gameplay-repairs-20261014/diagnostics/combat-annotation-evidence.json",
+      "sha256": "9b0cb8b182a1b4d470759e9b9c1afe2711a1f6946bc8215eeb53c85fb830dcf4",
+      "bytes": 10642
+    },
+    {
+      "path": "audit/cycles/luna-gameplay-repairs-20261014/diagnostics/kart-attribution.json",
+      "sha256": "d089895137bc10e2c2adcead43bce59206506caf2f180a27fd20cf1175528c9b",
+      "bytes": 1882
+    }
+  ],
+  "status": "IMPLEMENTED_PENDING_CANDIDATE_VERIFICATION",
+  "acceptance": "Source application and provenance only; runtime, physical-device, visual, child and owner acceptance remain separate."
+}

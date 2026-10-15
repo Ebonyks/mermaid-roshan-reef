@@ -1,0 +1,24 @@
+{
+  "schema": "combat_visible_entry_runtime/1",
+  "label": "dust-entry-v4-baseline-01",
+  "exit_code": 0,
+  "source_mismatches": [],
+  "failure_lines": [],
+  "terminal_all_ok": true,
+  "log_sha256": "fd07043d399d7e0b22a7aee1965e63d69b9ded85b9cf05b162ed514fad7080bb",
+  "source_commit": "056d890ef38f2496ab52669c955ada654f902511",
+  "candidate_script_sha256": "0ab73140c9d202c1c80533fb7304d61f44fe3b1ba4b3a37b257d3e13be7a1263",
+  "verified_assertions": [
+    "DUSTBOSS|injected prior jobs arm the production Grand Puff doorway: OK",
+    "DUSTBOSS|waiting in the hall cannot trigger Grand Puff: OK",
+    "DUSTBOSS|Grand Puff has a visible reachable Royal Hall touch control: OK",
+    "DUSTBOSS|viewport Royal Hall touch dispatches the live Grand Puff encounter: OK",
+    "DUSTBOSS|showing floor press immediately arms its requested destination: OK",
+    "DUSTBOSS|no movement cannot pass the response check: OK",
+    "DUSTBOSS|unarmed displacement cannot pass the response check: OK",
+    "DUSTBOSS|damage_recovery floor press immediately arms its requested destination: OK",
+    "DUSTBOSS|struck floor press immediately arms its requested destination: OK"
+  ],
+  "scope": "Viewport Royal Hall entry after injected prior jobs, then existing Grand Puff input/recovery/progress cases. No fresh-save route, clip/device/rendered/child/owner acceptance or historical failure-cause closure.",
+  "verdict": "PASS"
+}

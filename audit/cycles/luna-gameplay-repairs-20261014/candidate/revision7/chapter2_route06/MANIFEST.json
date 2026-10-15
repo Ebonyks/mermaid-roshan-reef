@@ -1,0 +1,333 @@
+{
+  "schema": "luna.evidence-packet-manifest/1",
+  "label": "chapter2-route-06",
+  "revision": 7,
+  "created_utc": "2026-10-15T03:42:44.283754+00:00",
+  "result": "PASS_FOCUSED_MACHINE_FIXTURE",
+  "file_count": 46,
+  "payload_hash_method": "SHA256 of sorted UTF-8 lines SHA256 + two spaces + relative POSIX path + newline",
+  "payload_sha256": "b465e32e9dca86c2a56b05b2525bbb4d0d6b15e89332c9ee464cb6de74add9bf",
+  "files": [
+    {
+      "path": "INTERPRETATION.json",
+      "sha256": "2be6d9655fda403b6517021a6caa5467197ebe6e2ffb06bd5589f72ed5e4aec0",
+      "bytes": 6732,
+      "role": "archive_interpretation"
+    },
+    {
+      "path": "analysis/read_only_analysis.json",
+      "sha256": "d96afad366dfdd2eefb7643a5f569833a2fede64339a3c2853367ea51d7af17c",
+      "bytes": 32629,
+      "role": "native_read_only_analysis",
+      "source_path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\chapter2\\diagnostics\\chapter2-route-06.read_only_analysis.json"
+    },
+    {
+      "path": "children/career_00/backup.input.json",
+      "sha256": "b808175cd327e4e2d492c07000fe155de3842dccab60b6e44c7a276b7c160f02",
+      "bytes": 4793,
+      "role": "exact_checkpoint_input_backup",
+      "source_path": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef_candidate_gate_uln22d34\\roaming\\Godot\\app_userdata\\Mermaid Roshan Reef of Light\\probe_chapter2_isolated_37280_14594951.json.milestone_career_00.backup.input.json"
+    },
+    {
+      "path": "children/career_00/child.log",
+      "sha256": "2d25701822f65c079b657385b52a9e7d20f38ee2bad99784aec73e71b6de5914",
+      "bytes": 1465,
+      "role": "native_child_log",
+      "source_path": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef_candidate_gate_uln22d34\\roaming\\Godot\\app_userdata\\Mermaid Roshan Reef of Light\\probe_chapter2_isolated_37280_14594951.json.milestone_career_00.expected.json.log"
+    },
+    {
+      "path": "children/career_00/expected.json",
+      "sha256": "63a2390cd9d43fcaf9c7bcd643f0479d0c5c9956868c5b113314dbb693326ed7",
+      "bytes": 2040,
+      "role": "native_child_expected",
+      "source_path": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef_candidate_gate_uln22d34\\roaming\\Godot\\app_userdata\\Mermaid Roshan Reef of Light\\probe_chapter2_isolated_37280_14594951.json.milestone_career_00.expected.json"
+    },
+    {
+      "path": "children/career_00/primary.input.json",
+      "sha256": "c06cc95ea677ac56adb911e7d8e820f821cc7551f55baa92b2f583b10597af48",
+      "bytes": 4793,
+      "role": "exact_checkpoint_input_primary",
+      "source_path": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef_candidate_gate_uln22d34\\roaming\\Godot\\app_userdata\\Mermaid Roshan Reef of Light\\probe_chapter2_isolated_37280_14594951.json.milestone_career_00.primary.input.json"
+    },
+    {
+      "path": "children/career_00/receipt.json",
+      "sha256": "d6c4575bad4c0e59463e0a47cc9ca04b21774930e0ede3a68390ef5c3f92b321",
+      "bytes": 2098,
+      "role": "native_child_receipt",
+      "source_path": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef_candidate_gate_uln22d34\\roaming\\Godot\\app_userdata\\Mermaid Roshan Reef of Light\\probe_chapter2_isolated_37280_14594951.json.milestone_career_00.expected.json.receipt.json"
+    },
+    {
+      "path": "children/career_00/started.json",
+      "sha256": "f647db903577de1049bd77d40802f84ded3575709ec7c095c5867b411d227d34",
+      "bytes": 370,
+      "role": "native_child_pid_journal",
+      "source_path": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef_candidate_gate_uln22d34\\roaming\\Godot\\app_userdata\\Mermaid Roshan Reef of Light\\probe_chapter2_isolated_37280_14594951.json.milestone_career_00.expected.json.started.json"
+    },
+    {
+      "path": "children/career_01/backup.input.json",
+      "sha256": "a023fdf93cd32420a47396040d9c39d2c7b23c78cef128caa71238889180044c",
+      "bytes": 5029,
+      "role": "exact_checkpoint_input_backup",
+      "source_path": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef_candidate_gate_uln22d34\\roaming\\Godot\\app_userdata\\Mermaid Roshan Reef of Light\\probe_chapter2_isolated_37280_14594951.json.milestone_career_01.backup.input.json"
+    },
+    {
+      "path": "children/career_01/child.log",
+      "sha256": "c6251b3ded02504692b86a4395dc7e750ad75e25166e17945e5d16e5936966c3",
+      "bytes": 1465,
+      "role": "native_child_log",
+      "source_path": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef_candidate_gate_uln22d34\\roaming\\Godot\\app_userdata\\Mermaid Roshan Reef of Light\\probe_chapter2_isolated_37280_14594951.json.milestone_career_01.expected.json.log"
+    },
+    {
+      "path": "children/career_01/expected.json",
+      "sha256": "2a16b728a9a32832b757e081967fee4d0b7535327e7a022d950e619416236f4e",
+      "bytes": 2053,
+      "role": "native_child_expected",
+      "source_path": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef_candidate_gate_uln22d34\\roaming\\Godot\\app_userdata\\Mermaid Roshan Reef of Light\\probe_chapter2_isolated_37280_14594951.json.milestone_career_01.expected.json"
+    },
+    {
+      "path": "children/career_01/primary.input.json",
+      "sha256": "01008b3a18ea75d11352a70a3d177bd198096bda78f917b32a3cc520f5f6bdef",
+      "bytes": 5029,
+      "role": "exact_checkpoint_input_primary",
+      "source_path": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef_candidate_gate_uln22d34\\roaming\\Godot\\app_userdata\\Mermaid Roshan Reef of Light\\probe_chapter2_isolated_37280_14594951.json.milestone_career_01.primary.input.json"
+    },
+    {
+      "path": "children/career_01/receipt.json",
+      "sha256": "16402ce14abd8b4d9fd14e8377ebafdce6bcb2f9161c1073f222eb6185e6d54d",
+      "bytes": 2111,
+      "role": "native_child_receipt",
+      "source_path": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef_candidate_gate_uln22d34\\roaming\\Godot\\app_userdata\\Mermaid Roshan Reef of Light\\probe_chapter2_isolated_37280_14594951.json.milestone_career_01.expected.json.receipt.json"
+    },
+    {
+      "path": "children/career_01/started.json",
+      "sha256": "68b74520b1dc4a4baf0705f33db0d6f46816645f65810fa9d1a7185221a0af97",
+      "bytes": 370,
+      "role": "native_child_pid_journal",
+      "source_path": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef_candidate_gate_uln22d34\\roaming\\Godot\\app_userdata\\Mermaid Roshan Reef of Light\\probe_chapter2_isolated_37280_14594951.json.milestone_career_01.expected.json.started.json"
+    },
+    {
+      "path": "children/career_02/backup.input.json",
+      "sha256": "8821d1274214e83be180904413e5accd6b6b686390843244b0937755543f4e92",
+      "bytes": 4879,
+      "role": "exact_checkpoint_input_backup",
+      "source_path": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef_candidate_gate_uln22d34\\roaming\\Godot\\app_userdata\\Mermaid Roshan Reef of Light\\probe_chapter2_isolated_37280_14594951.json.milestone_career_02.backup.input.json"
+    },
+    {
+      "path": "children/career_02/child.log",
+      "sha256": "84a5103c35205f6d691aa9622f0f3bb7c3cd6e9ad26d9cc0240a2ee39407e4c0",
+      "bytes": 1465,
+      "role": "native_child_log",
+      "source_path": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef_candidate_gate_uln22d34\\roaming\\Godot\\app_userdata\\Mermaid Roshan Reef of Light\\probe_chapter2_isolated_37280_14594951.json.milestone_career_02.expected.json.log"
+    },
+    {
+      "path": "children/career_02/expected.json",
+      "sha256": "843041354cc449e3cc0f6509f42b7ddf79b0e76e8519beed441d96fccd74a34d",
+      "bytes": 2045,
+      "role": "native_child_expected",
+      "source_path": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef_candidate_gate_uln22d34\\roaming\\Godot\\app_userdata\\Mermaid Roshan Reef of Light\\probe_chapter2_isolated_37280_14594951.json.milestone_career_02.expected.json"
+    },
+    {
+      "path": "children/career_02/primary.input.json",
+      "sha256": "025e6035840eb516a366cf47fd57d512bf779fa038de2924d2ec8a512f9269ed",
+      "bytes": 4879,
+      "role": "exact_checkpoint_input_primary",
+      "source_path": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef_candidate_gate_uln22d34\\roaming\\Godot\\app_userdata\\Mermaid Roshan Reef of Light\\probe_chapter2_isolated_37280_14594951.json.milestone_career_02.primary.input.json"
+    },
+    {
+      "path": "children/career_02/receipt.json",
+      "sha256": "bbc6f44fc0169439317896044e200045c901514c4a29784162e6e24dd8aae526",
+      "bytes": 2103,
+      "role": "native_child_receipt",
+      "source_path": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef_candidate_gate_uln22d34\\roaming\\Godot\\app_userdata\\Mermaid Roshan Reef of Light\\probe_chapter2_isolated_37280_14594951.json.milestone_career_02.expected.json.receipt.json"
+    },
+    {
+      "path": "children/career_02/started.json",
+      "sha256": "428c891e6de5dea15a3c1d1d51169a0f7a05fd11ae04f0b4d401dfe7b01a113e",
+      "bytes": 370,
+      "role": "native_child_pid_journal",
+      "source_path": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef_candidate_gate_uln22d34\\roaming\\Godot\\app_userdata\\Mermaid Roshan Reef of Light\\probe_chapter2_isolated_37280_14594951.json.milestone_career_02.expected.json.started.json"
+    },
+    {
+      "path": "children/career_06/backup.input.json",
+      "sha256": "8e50f2ad03c6be6e0b037b3710bf2f609043b9b5800cb4ae05a81d0779be3de1",
+      "bytes": 4732,
+      "role": "exact_checkpoint_input_backup",
+      "source_path": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef_candidate_gate_uln22d34\\roaming\\Godot\\app_userdata\\Mermaid Roshan Reef of Light\\probe_chapter2_isolated_37280_14594951.json.milestone_career_06.backup.input.json"
+    },
+    {
+      "path": "children/career_06/child.log",
+      "sha256": "b92deda98feda356196546eab87c210a1787b885da306d300d7be964c822291e",
+      "bytes": 1465,
+      "role": "native_child_log",
+      "source_path": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef_candidate_gate_uln22d34\\roaming\\Godot\\app_userdata\\Mermaid Roshan Reef of Light\\probe_chapter2_isolated_37280_14594951.json.milestone_career_06.expected.json.log"
+    },
+    {
+      "path": "children/career_06/expected.json",
+      "sha256": "6de8d5b0f28054e9a1b2c7886fa7cc0bc1f8695c181e1a90c2fa9c064e8ecbdb",
+      "bytes": 2039,
+      "role": "native_child_expected",
+      "source_path": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef_candidate_gate_uln22d34\\roaming\\Godot\\app_userdata\\Mermaid Roshan Reef of Light\\probe_chapter2_isolated_37280_14594951.json.milestone_career_06.expected.json"
+    },
+    {
+      "path": "children/career_06/primary.input.json",
+      "sha256": "91d3afadbfe0b30f45bea92a81cbb2be579672a942ec88a805897e91862b1704",
+      "bytes": 4732,
+      "role": "exact_checkpoint_input_primary",
+      "source_path": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef_candidate_gate_uln22d34\\roaming\\Godot\\app_userdata\\Mermaid Roshan Reef of Light\\probe_chapter2_isolated_37280_14594951.json.milestone_career_06.primary.input.json"
+    },
+    {
+      "path": "children/career_06/receipt.json",
+      "sha256": "4bba44fb69e90ade421cd0a669192cb7d0eb2ac3912b6938c5fe419c5d0b7472",
+      "bytes": 2097,
+      "role": "native_child_receipt",
+      "source_path": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef_candidate_gate_uln22d34\\roaming\\Godot\\app_userdata\\Mermaid Roshan Reef of Light\\probe_chapter2_isolated_37280_14594951.json.milestone_career_06.expected.json.receipt.json"
+    },
+    {
+      "path": "children/career_06/started.json",
+      "sha256": "dad87a6e342c7a5d73d917457af9f6024c56d68645ccaf90a793529cecd14cf7",
+      "bytes": 370,
+      "role": "native_child_pid_journal",
+      "source_path": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef_candidate_gate_uln22d34\\roaming\\Godot\\app_userdata\\Mermaid Roshan Reef of Light\\probe_chapter2_isolated_37280_14594951.json.milestone_career_06.expected.json.started.json"
+    },
+    {
+      "path": "children/career_11/backup.input.json",
+      "sha256": "6a299d724f88346082481e64b7716ac4f5e818ae2f244c8d0e219df8cd0ef6e4",
+      "bytes": 4892,
+      "role": "exact_checkpoint_input_backup",
+      "source_path": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef_candidate_gate_uln22d34\\roaming\\Godot\\app_userdata\\Mermaid Roshan Reef of Light\\probe_chapter2_isolated_37280_14594951.json.milestone_career_11.backup.input.json"
+    },
+    {
+      "path": "children/career_11/child.log",
+      "sha256": "e1d5cf71575157d1294af91332bacb6bfc7807e927c8edb208e22dc4c11ac5c5",
+      "bytes": 1464,
+      "role": "native_child_log",
+      "source_path": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef_candidate_gate_uln22d34\\roaming\\Godot\\app_userdata\\Mermaid Roshan Reef of Light\\probe_chapter2_isolated_37280_14594951.json.milestone_career_11.expected.json.log"
+    },
+    {
+      "path": "children/career_11/expected.json",
+      "sha256": "79b97c620e31ba2fb34e1cf428f802ff3afe9a8e662bb01c8891f6944def476c",
+      "bytes": 2058,
+      "role": "native_child_expected",
+      "source_path": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef_candidate_gate_uln22d34\\roaming\\Godot\\app_userdata\\Mermaid Roshan Reef of Light\\probe_chapter2_isolated_37280_14594951.json.milestone_career_11.expected.json"
+    },
+    {
+      "path": "children/career_11/primary.input.json",
+      "sha256": "89142d28199fce0cdb0a50d6e2e3c2a3ee20431b3975c6f698e48b5e6276f693",
+      "bytes": 4892,
+      "role": "exact_checkpoint_input_primary",
+      "source_path": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef_candidate_gate_uln22d34\\roaming\\Godot\\app_userdata\\Mermaid Roshan Reef of Light\\probe_chapter2_isolated_37280_14594951.json.milestone_career_11.primary.input.json"
+    },
+    {
+      "path": "children/career_11/receipt.json",
+      "sha256": "eb626d8f9e30d0a1819a627fc2019633a9570ba97c9bd77df4ac0a57fdc69754",
+      "bytes": 2115,
+      "role": "native_child_receipt",
+      "source_path": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef_candidate_gate_uln22d34\\roaming\\Godot\\app_userdata\\Mermaid Roshan Reef of Light\\probe_chapter2_isolated_37280_14594951.json.milestone_career_11.expected.json.receipt.json"
+    },
+    {
+      "path": "children/career_11/started.json",
+      "sha256": "8b5cbf506b7f4ef0421e908a6b71d61856ac69546f150c441e9317742320f49c",
+      "bytes": 369,
+      "role": "native_child_pid_journal",
+      "source_path": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef_candidate_gate_uln22d34\\roaming\\Godot\\app_userdata\\Mermaid Roshan Reef of Light\\probe_chapter2_isolated_37280_14594951.json.milestone_career_11.expected.json.started.json"
+    },
+    {
+      "path": "children/story_complete/backup.input.json",
+      "sha256": "93e2bcbc3fefb32bd0460a33b1941fc845546f92f6bd529c0ed4cd0d953d0fbb",
+      "bytes": 5228,
+      "role": "exact_checkpoint_input_backup",
+      "source_path": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef_candidate_gate_uln22d34\\roaming\\Godot\\app_userdata\\Mermaid Roshan Reef of Light\\probe_chapter2_isolated_37280_14594951.json.milestone_story_complete.backup.input.json"
+    },
+    {
+      "path": "children/story_complete/child.log",
+      "sha256": "fffc9a81cd6c886f0164414a5bf2287ec704fad1911bae27475559972c670591",
+      "bytes": 1545,
+      "role": "native_child_log",
+      "source_path": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef_candidate_gate_uln22d34\\roaming\\Godot\\app_userdata\\Mermaid Roshan Reef of Light\\probe_chapter2_isolated_37280_14594951.json.milestone_story_complete.expected.json.log"
+    },
+    {
+      "path": "children/story_complete/expected.json",
+      "sha256": "c07213bc8b537367ba7aa5cea765c3f1b71b0901ccd57ec107f187b2f5112025",
+      "bytes": 2124,
+      "role": "native_child_expected",
+      "source_path": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef_candidate_gate_uln22d34\\roaming\\Godot\\app_userdata\\Mermaid Roshan Reef of Light\\probe_chapter2_isolated_37280_14594951.json.milestone_story_complete.expected.json"
+    },
+    {
+      "path": "children/story_complete/primary.input.json",
+      "sha256": "20481b847ff95ba9c28b108870046410d2ca55c7d246c0ebb224372eabd2649c",
+      "bytes": 5228,
+      "role": "exact_checkpoint_input_primary",
+      "source_path": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef_candidate_gate_uln22d34\\roaming\\Godot\\app_userdata\\Mermaid Roshan Reef of Light\\probe_chapter2_isolated_37280_14594951.json.milestone_story_complete.primary.input.json"
+    },
+    {
+      "path": "children/story_complete/receipt.json",
+      "sha256": "24bbaa1d68d624728dc72ca8bb5288ee9b7c5b6a75bf815b25928791d928fcd8",
+      "bytes": 2177,
+      "role": "native_child_receipt",
+      "source_path": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef_candidate_gate_uln22d34\\roaming\\Godot\\app_userdata\\Mermaid Roshan Reef of Light\\probe_chapter2_isolated_37280_14594951.json.milestone_story_complete.expected.json.receipt.json"
+    },
+    {
+      "path": "children/story_complete/started.json",
+      "sha256": "2b0ba01408e874312f797a34a98cd9c8feb8f32951fe47ef3b4356685755850b",
+      "bytes": 375,
+      "role": "native_child_pid_journal",
+      "source_path": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef_candidate_gate_uln22d34\\roaming\\Godot\\app_userdata\\Mermaid Roshan Reef of Light\\probe_chapter2_isolated_37280_14594951.json.milestone_story_complete.expected.json.started.json"
+    },
+    {
+      "path": "gate/chapter2-route-06.json",
+      "sha256": "ccb48e42b66d0b9f5ce2bc7cd2cba1053a9e5840ad8cad84dfca211793c7e265",
+      "bytes": 2331,
+      "role": "native_gate",
+      "source_path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\candidate_gates\\chapter2-route-06.json"
+    },
+    {
+      "path": "gate/chapter2-route-06.log",
+      "sha256": "d13c71acd3508dbb8f98e2d66717cfea0183e06797c7b6527e4b2912dda9fda1",
+      "bytes": 48595,
+      "role": "native_gate",
+      "source_path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\candidate_gates\\chapter2-route-06.log"
+    },
+    {
+      "path": "gate/chapter2-route-06.sources.json",
+      "sha256": "c56089a323cfc38de1596dac575b42f2fdb059f7d9fa1a749bb9b36188b4028c",
+      "bytes": 712709,
+      "role": "native_gate",
+      "source_path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\candidate_gates\\chapter2-route-06.sources.json"
+    },
+    {
+      "path": "gate/chapter2-route-06.started.json",
+      "sha256": "8e24b036b5632fd050deb9bc4a379fbba8ec748f83f4b15a98226374728c2e56",
+      "bytes": 1813,
+      "role": "native_gate",
+      "source_path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\candidate_gates\\chapter2-route-06.started.json"
+    },
+    {
+      "path": "pins/candidate-runtime-sources.v7.json",
+      "sha256": "20e942ec488d618a94af58663b00463987409c9640df53ec918f12a9632cfd9e",
+      "bytes": 719751,
+      "role": "exact_frozen_runtime_pin",
+      "source_path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\candidate-runtime-sources.v7.json"
+    },
+    {
+      "path": "sourcefiles/MANIFEST.json",
+      "sha256": "2436c8a9926621dc4656025be7e6e259b3128b199d675d16dbb0c671e1f09719",
+      "bytes": 1164,
+      "role": "authentic_applied_source_freeze_manifest",
+      "source_path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\chapter2\\diagnostics\\route06_authentic_sourcefiles\\MANIFEST.json"
+    },
+    {
+      "path": "sourcefiles/opera_career_world_2d.gd.txt",
+      "sha256": "472bbfcab649a17d6ce62cc56c2f0aa415079f083e49bfc870ea165f950ddf75",
+      "bytes": 246413,
+      "role": "authentic_raw_applied_revision7_source",
+      "source_path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\chapter2\\diagnostics\\route06_authentic_sourcefiles\\opera_career_world_2d.gd.txt"
+    },
+    {
+      "path": "sourcefiles/probe_chapter2.gd.txt",
+      "sha256": "0276b386e1a8f4432fc88a533dec6723d77791fa518f15f37960112c5155d6ff",
+      "bytes": 94005,
+      "role": "authentic_raw_applied_revision7_source",
+      "source_path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\chapter2\\diagnostics\\route06_authentic_sourcefiles\\probe_chapter2.gd.txt"
+    }
+  ]
+}

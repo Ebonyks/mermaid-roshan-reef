@@ -1,0 +1,31 @@
+--- a/scripts/probe_chapter2.gd
++++ b/scripts/probe_chapter2.gd
+@@ -754,19 +754,21 @@
+ 
+ 
+ func _audit_detective_intro_compatibility(host: ReefMain) -> void:
+-	# Configuration-only compatibility seam: put the existing freeplay CLOCK
+-	# lens at index0 so the legacy once-only branch has an actual caller.
+-	# This is not measured progress through the shipping freeplay sequence.
++	# Configuration-only compatibility seam using ordinary freeplay's real
++	# first SEARCH lens. Intro setup is inspected without awarding any work;
++	# this is separate from the actual-input story route below.
+ 	var config: Dictionary = (OperaHouse.ACTS[1] as Dictionary).duplicate(true)
+-	config["phase_overrides"] = [(OPERA_WORLD_SCRIPT.PHASES["detective"] as Array)[2].duplicate(true)]
+-	config["finale_start"] = 0
+ 	var competition := OperaCompetition.new()
+ 	competition.configure("detective")
+ 	var world := OperaCareerWorld2D.new()
+ 	host.add_child(world)
+ 	var started := world.setup(host, config, competition, Callable())
+-	_check("config: non-story Detective lens compatibility fixture starts", started
+-		and not world._is_chapter2_detective_scene() and not world.detective_intro_played)
++	_check("config: ordinary Detective freeplay starts with its mapped SEARCH lens", started
++		and not world.using_chapter_two_phases and not world._is_chapter2_detective_scene()
++		and not world.detective_intro_played and world.phase_index == 0
++		and String((world.phases[0] as Dictionary).get("name", "")) == "SEARCH"
++		and String((world.phases[0] as Dictionary).get("mode", "")) == "lens"
++		and int(world.station_for_phase.get(0, -1)) >= 0)
+ 	if started:
+ 		world._start_lens_phase(world.phases[0] as Dictionary)
+ 		var pending := host.dialogue_queue.duplicate(true)

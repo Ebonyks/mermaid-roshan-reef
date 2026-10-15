@@ -1,0 +1,31 @@
+{
+  "scope": "Scratch runner only; AST and stubbed cleanup checks; no Godot run or live process termination",
+  "before_sha256": "c73c42ee5412ccd6055566fab5a5692b698d64159fae35c0c21f18393e8ff35d",
+  "after_sha256": "b6bf16236ff03a5b6fccd83be276bd238c3c5e842072faad1f80dcebd78ce0a4",
+  "diff_sha256": "d9b6d4edef137207acd711a9581748704f223c91ab0a0a8e3c3b64eb51d0dc4a",
+  "checks": [
+    "owned process tree success verified",
+    "surviving owned child rejects stopped claim",
+    "creation time distinguishes recycled PIDs",
+    "exited parent never targeted by PID",
+    "taskkill failure retained as cleanup error",
+    "AST parse and compile PASS",
+    "CI unlimited timeout retained",
+    "prelaunch frozen inventory check precedes Popen",
+    "after inventory and unchanged pin remain pass requirements",
+    "full runtime assets and default bus included",
+    "exclusive output creation preserves attempt files",
+    "Read-only Windows process snapshot function PASS on host; current helper PID identity found"
+  ],
+  "pin_schema": {
+    "schema": "luna_candidate_runtime_sources/1",
+    "sources": {
+      "repository-relative-path": "lowercase 64-character SHA-256"
+    }
+  },
+  "limitations": [
+    "Root coordinates no source mutation during parallel read-only gates; no arbitrary A-to-B-to-A detection.",
+    "Generated .godot cache is excluded from source pin.",
+    "No live taskkill/process termination test performed; snapshot enumeration was read-only."
+  ]
+}

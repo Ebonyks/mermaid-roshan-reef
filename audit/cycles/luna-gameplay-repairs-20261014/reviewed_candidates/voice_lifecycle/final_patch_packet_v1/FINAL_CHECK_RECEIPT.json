@@ -1,0 +1,18 @@
+{
+  "schema": "reef.reviewed-patch-packet-check.v1",
+  "status": "PASS",
+  "checked_utc": "2026-10-15T02:06:33.938490+00:00",
+  "manifest_sha256": "8c3a64847844509e9e416a8f955507c8be93e409726ae75c9ab9e5ffad3cd7b5",
+  "combined_patch_sha256": "8f1e46cc75e929c786f1c151bc4e04d66fdab11582d0a850cdbbe03cf580e601",
+  "file_count": 11,
+  "all_clean_base_hashes_unchanged": true,
+  "all_frozen_draft_and_patch_hashes_verified": true,
+  "static_checks": {
+    "gdtoolkit_parser": "PASS",
+    "lint_inference": "PASS",
+    "python_ast": "PASS",
+    "candidate_runtime": "NOT_RUN; apply and exact-head gates remain required"
+  },
+  "git_apply_check_exit": 0,
+  "no_production_edits": true
+}

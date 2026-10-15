@@ -231,6 +231,8 @@ class SeekMeadowSurface extends Control:
 		set_meta("no_fail", true)
 		set_meta("visual_pointer", true)
 		set_meta("objective_recording_gap", "evie_tap_wiggly_bush")
+		set_meta("objective_guide_key", "guide_seek_tap_wiggly_tree")
+		set_meta("objective_guide_path", "res://assets/audio/objective_guides/guide_seek_tap_wiggly_tree.ogg")
 		set_meta("approved_backdrop_art", SeekGame.BACKDROP_ART)
 		set_meta("approved_cover_art", SeekGame.COVER_ART)
 		set_meta("approved_actor_art", [
@@ -595,11 +597,10 @@ func build(fr: Dictionary) -> void:
 	m.g["seek_surface"] = surface
 	m.g["bushes"] = surface.bushes
 	m.g["lamb"] = surface.lamma_actor
-	_seek_hide()
-	# The available Evie start recording announces hide-and-seek, but does not
-	# say the exact tap verb. The persistent wiggle, U-cue, peek and giggle carry
-	# that missing semantic without modifying protected family recordings.
-	m.show_msg(fr["fname"],
+	_seek_hide(m._speaker_key(String(fr["fname"])))
+	# The neutral Guide supplies the exact action; Evie's protected source gap
+	# stays explicit and her existing greeting follows through the voice FIFO.
+	m.show_msg("",
 		"Lamb-a' is hiding! Tap the wiggly tree to find her!")
 
 
@@ -614,6 +615,8 @@ func tick(delta: float, fr: Dictionary) -> void:
 		m.g["gig_t"] = float(m.g.get("gig_t", 2.2)) - delta
 		if float(m.g["gig_t"]) <= 0.0:
 			m.g["gig_t"] = 2.8
+			if float(m.g["help_t"]) >= 8.0:
+				m._audio_ref().objective_guide("seek_tap_wiggly_tree", "", 8.0)
 			if m.voice != null:
 				m.voice.pitch_scale = 1.45 + randf() * 0.15
 				m._play_success_yay(m.voice.pitch_scale)
@@ -636,6 +639,7 @@ func _on_bush_pressed(index: int) -> void:
 	if index != int(m.g.get("which", -1)):
 		m.g["wrong_taps"] = int(m.g.get("wrong_taps", 0)) + 1
 		surface.play_wrong(index)
+		m._audio_ref().objective_guide("seek_tap_wiggly_tree", "", 4.0)
 		if m.chime != null:
 			m.chime.pitch_scale = 0.92
 			m.chime.play()
@@ -645,12 +649,13 @@ func _on_bush_pressed(index: int) -> void:
 	m.g["found"] = int(m.g.get("found", 0)) + 1
 	m.g["help_t"] = 0.0
 	surface.begin_reveal(int(m.g["found"]))
+	m._audio_ref().clear_objective_guide("seek")
 	if m.voice != null:
 		m.voice.pitch_scale = 1.0 + randf() * 0.3
 		m._play_success_yay(m.voice.pitch_scale)
 
 
-func _seek_hide() -> void:
+func _seek_hide(greeting_speaker: String = "") -> void:
 	if surface == null or not is_instance_valid(surface):
 		return
 	var previous := int(m.g.get("which", -1))
@@ -672,6 +677,7 @@ func _seek_hide() -> void:
 	m.g["help_t"] = 0.0
 	m.g["gig_t"] = 2.2
 	surface.begin_hide(next_index, int(m.g.get("found", 0)))
+	m._audio_ref().objective_guide("seek_tap_wiggly_tree", greeting_speaker)
 
 
 func _layout_surface() -> void:
@@ -681,6 +687,8 @@ func _layout_surface() -> void:
 
 
 func stage_close() -> void:
+	if m != null and controls_owned:
+		m._audio_ref().clear_objective_guide("seek")
 	var old_layer: CanvasLayer = layer
 	if old_layer != null and is_instance_valid(old_layer):
 		if old_layer.get_parent() != null:

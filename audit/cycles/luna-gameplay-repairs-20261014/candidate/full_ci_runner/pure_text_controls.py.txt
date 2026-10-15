@@ -1,0 +1,32 @@
+"""Reproduce only pure text controls; never import/execute the runner top level."""
+from pathlib import Path
+import ast, hashlib, re
+packet = Path(__file__).resolve().parent
+cycle = packet.parents[1]
+runner = packet / 'run_candidate_full_ci_gate.py.txt'
+baseline = cycle / 'baseline/full-ci.log'
+assert hashlib.sha256(baseline.read_bytes()).hexdigest() == '187a4a669afe6b67bfe19fb7ebdd3ca6538ac65cdcd4521c75be4d1bf2e00c77'
+assert hashlib.sha256(runner.read_bytes()).hexdigest() == '5db4c749192286a433382617a71a3eb257c8464871c144dc5a774c71e9cd8d50'
+tree = ast.parse(runner.read_bytes())
+parts = [n for n in tree.body if (isinstance(n, ast.Assign) and any(isinstance(t, ast.Name) and t.id == 'KNOWN_SELFTEST_FAILURE' for t in n.targets)) or (isinstance(n, ast.FunctionDef) and n.name == 'classify_failure_lines')]
+space = {'re': re}
+exec(compile(ast.Module(body=parts, type_ignores=[]), str(runner), 'exec'), space)
+classify = space['classify_failure_lines']
+text = baseline.read_text(encoding='utf-8', errors='replace')
+known = space['KNOWN_SELFTEST_FAILURE']
+cases = [
+ ('known-green exact baseline', text, 'ci', 0, True, True),
+ ('additional ordinary FAIL', text + '\nPROBE|actual case: FAIL\n', 'ci', 0, True, False),
+ ('modified selftest FAIL', text.replace(known, known.replace('0 errors', '1 errors')), 'ci', 0, True, False),
+ ('duplicate exact selftest FAIL', text + '\n' + known + '\n', 'ci', 0, True, False),
+ ('exit1 cannot ignore', text, 'ci', 1, True, False),
+ ('non-CI cannot ignore', text, 'probe', 0, True, False),
+ ('missing source attribution cannot ignore', text, 'ci', 0, False, False),
+ ('additional script error', text + '\nSCRIPT ERROR: actual runtime error\n', 'ci', 0, True, False),
+ ('padding is not exact selftest', text.replace(known, ' ' + known), 'ci', 0, True, False),
+]
+for label, output, kind, code, attributed, expected in cases:
+ result = classify(output, kind, code, attributed)
+ accepted = code == 0 and not result['blocking']
+ assert accepted == expected, (label, result)
+ print(label + ': OK')

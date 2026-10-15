@@ -1,0 +1,18 @@
+{
+  "schema": "luna.reviewed-revision/1",
+  "revision": 7,
+  "patches": [
+    {
+      "path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\chapter2\\diagnostics\\freeplay_fixture_repair_01.patch",
+      "sha256": "da0dc794d3c9ba97838d0b8f35e10c933d08f8b22ec98ea2b0b13a0d681c6d2f"
+    }
+  ],
+  "files": [
+    {
+      "path": "scripts/probe_chapter2.gd",
+      "before_sha256": "8da969c10bc40a0274d9aa06deb57cb42ac72033d69a711d2954c64b124656d2",
+      "draft_lf_sha256": "4bbc259a688fc00b35cb14e1caf977d94689c46e8863176bde6576e68a7bbd2e"
+    }
+  ],
+  "reason": "Correct only the configuration-level freeplay Detective intro compatibility fixture: use actual default SEARCH/lens phase0 instead of erroneous CROWN/index2 override, and assert catalog/mode/phase/binding prerequisites. Production source, real story route, voice/touch/copy controls unchanged. Prior route05 retains invalid-fixture limitation; finalrerun required."
+}

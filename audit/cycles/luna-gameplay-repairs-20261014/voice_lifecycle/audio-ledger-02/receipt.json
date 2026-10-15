@@ -1,0 +1,249 @@
+{
+  "acceptance": "Machine only; human/device/child/owner acceptance OPEN",
+  "authorized_project_outputs": [
+    "audit/audio_quality_ledger_2026-08-24.csv",
+    "audit/audio_quality_summary_2026-08-24.json"
+  ],
+  "cohorts": {
+    "ambience": 3,
+    "castle_sfx": 15,
+    "combat_sfx": 6,
+    "filler_v1": 500,
+    "legacy_voice": 250,
+    "music": 60,
+    "objective_guides": 2,
+    "protected_family": 6,
+    "protected_faron": 7,
+    "sfx": 7,
+    "ui": 1
+  },
+  "ffmpeg": {
+    "path": "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\FFmpeg\\8.1.2\\bin\\ffmpeg.EXE",
+    "sha256": "1326dde4c84ff1f96fe6b8916c5bed29e163e9b5dccf995f6f3db069d143ec5e",
+    "version": "ffmpeg version 8.1.2-essentials_build-www.gyan.dev Copyright (c) 2000-2026 the FFmpeg developers"
+  },
+  "ffprobe": {
+    "path": "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\FFmpeg\\8.1.2\\bin\\ffprobe.EXE",
+    "sha256": "b49ccc7c6547b141ad5a2f6ec69cc04323d7133d7704d70b331b904c63eecb07",
+    "version": "ffprobe version 8.1.2-essentials_build-www.gyan.dev Copyright (c) 2007-2026 the FFmpeg developers"
+  },
+  "finished_utc": "2026-10-15T02:51:36.537055+00:00",
+  "new_guide_rows": [
+    {
+      "bitrate_kbps": "83.97",
+      "bytes": "29975",
+      "category": "voice",
+      "channels": "1",
+      "codec": "vorbis",
+      "cohort": "objective_guides",
+      "decision": "REVIEW_NEUTRAL_OBJECTIVE_GUIDE",
+      "duration_seconds": "2.85575",
+      "filler_manifest_blocking": "False",
+      "filler_manifest_present": "True",
+      "human_grade_1_to_5": "",
+      "human_review_state": "OPEN_DEVICE_LISTENING",
+      "integrated_lufs": "-16.1",
+      "loudness_range_lu": "0.0",
+      "path": "assets/audio/objective_guides/guide_dolls_catch_three.ogg",
+      "protected": "False",
+      "provenance": "objective_guide_manifest",
+      "routing": "exact_neutral_objective",
+      "runtime_reference_count": "4",
+      "sample_rate_hz": "48000",
+      "severity": "P1",
+      "sha256": "4a37bcb6189a5df94fc31d2e659af4b50c7391aeb6d73ed8cd90a7aa36832a02",
+      "shadowed_by_filler_path": "",
+      "shadowed_legacy_path": "",
+      "technical_grade": "A",
+      "true_peak_dbtp": "-3.9"
+    },
+    {
+      "bitrate_kbps": "103.6",
+      "bytes": "16114",
+      "category": "voice",
+      "channels": "1",
+      "codec": "vorbis",
+      "cohort": "objective_guides",
+      "decision": "REVIEW_NEUTRAL_OBJECTIVE_GUIDE",
+      "duration_seconds": "1.244292",
+      "filler_manifest_blocking": "False",
+      "filler_manifest_present": "True",
+      "human_grade_1_to_5": "",
+      "human_review_state": "OPEN_DEVICE_LISTENING",
+      "integrated_lufs": "-16.7",
+      "loudness_range_lu": "0.0",
+      "path": "assets/audio/objective_guides/guide_seek_tap_wiggly_tree.ogg",
+      "protected": "False",
+      "provenance": "objective_guide_manifest",
+      "routing": "exact_neutral_objective",
+      "runtime_reference_count": "3",
+      "sample_rate_hz": "48000",
+      "severity": "P1",
+      "sha256": "897f6b3ed74298bad03088284aa4780a6cb7cdfc64ddedf56e2505158cb321ac",
+      "shadowed_by_filler_path": "",
+      "shadowed_legacy_path": "",
+      "technical_grade": "A",
+      "true_peak_dbtp": "-1.8"
+    }
+  ],
+  "output_after_sha256": {
+    "audit/audio_quality_ledger_2026-08-24.csv": "ee407f5579140859f54e844f10327005e6945f245feded2422696d4ca1db5996",
+    "audit/audio_quality_summary_2026-08-24.json": "b1719e96fc3d646030c1a2d8ee631e45fb03e492bbabc529cf46a3a06b86bc22"
+  },
+  "output_before_sha256": {
+    "audit/audio_quality_ledger_2026-08-24.csv": "12ced827825b9398aab7731562f75e5655c9671d79c3da77e22d6ce94116c6ad",
+    "audit/audio_quality_summary_2026-08-24.json": "b258c8c4210308976a9bd9200b9b42e408ee68b0347cf3ca73cb432cc5fcf685"
+  },
+  "pin_mismatches_after": [],
+  "pin_mismatches_before": [],
+  "pin_sha256": "41ddb5cd9550c06345325a8a99eb115ceb5f2ffe385c64163f72118385205e3b",
+  "pinned_file_count": 5682,
+  "protected_count": 13,
+  "protected_recordings": {
+    "blocking": false,
+    "count": 13,
+    "entries": [
+      {
+        "head_sha256": "ed8f40176d63f18591d8f7fd0c56a8ba672202bdb3b2f939cc8d417934123e4d",
+        "kind": "protected_family",
+        "path": "assets/audio/voices/chuck.ogg",
+        "sha256": "ed8f40176d63f18591d8f7fd0c56a8ba672202bdb3b2f939cc8d417934123e4d",
+        "state": "UNCHANGED"
+      },
+      {
+        "head_sha256": "674d10df170e13ec23d84c462ab18ee52f13a66d811db96e808f32f25fb8ceb3",
+        "kind": "protected_family",
+        "path": "assets/audio/voices/chuck_bark.ogg",
+        "sha256": "674d10df170e13ec23d84c462ab18ee52f13a66d811db96e808f32f25fb8ceb3",
+        "state": "UNCHANGED"
+      },
+      {
+        "head_sha256": "9623ce6bc79eb1dbaea3a94276b0d90703f55c1594c3ac0fe52f3b33dda422fa",
+        "kind": "protected_family",
+        "path": "assets/audio/voices/chuck_whimper.ogg",
+        "sha256": "9623ce6bc79eb1dbaea3a94276b0d90703f55c1594c3ac0fe52f3b33dda422fa",
+        "state": "UNCHANGED"
+      },
+      {
+        "head_sha256": "50224b61893a01a20e553e074602c39332b870973761c9fda85b90cac08170a0",
+        "kind": "protected_family",
+        "path": "assets/audio/voices/daddy1.ogg",
+        "sha256": "50224b61893a01a20e553e074602c39332b870973761c9fda85b90cac08170a0",
+        "state": "UNCHANGED"
+      },
+      {
+        "head_sha256": "39fbcdc22e7e06176a36dd74f0ed01770af91f3e93eabd088bb4499268a47a83",
+        "kind": "protected_family",
+        "path": "assets/audio/voices/daddy2.ogg",
+        "sha256": "39fbcdc22e7e06176a36dd74f0ed01770af91f3e93eabd088bb4499268a47a83",
+        "state": "UNCHANGED"
+      },
+      {
+        "head_sha256": "d302b69f80f3856c8156f05e697129987f34bb69d254861b1f5264a222ee7ac3",
+        "kind": "protected_family",
+        "path": "assets/audio/voices/daddy3.ogg",
+        "sha256": "d302b69f80f3856c8156f05e697129987f34bb69d254861b1f5264a222ee7ac3",
+        "state": "UNCHANGED"
+      },
+      {
+        "head_sha256": "ebb6466fd55f03e26647ea8ac90d23b8f7d4b4afb387ab205b265b400be47240",
+        "kind": "protected_faron",
+        "path": "assets/audio/voices/faron.ogg",
+        "sha256": "ebb6466fd55f03e26647ea8ac90d23b8f7d4b4afb387ab205b265b400be47240",
+        "state": "UNCHANGED"
+      },
+      {
+        "head_sha256": "5e945ff5cda16b46fa6d5da3abad3ffdc4935ae68af37d90016418ee2d99fb07",
+        "kind": "protected_faron",
+        "path": "assets/audio/voices/faron_fail.ogg",
+        "sha256": "5e945ff5cda16b46fa6d5da3abad3ffdc4935ae68af37d90016418ee2d99fb07",
+        "state": "UNCHANGED"
+      },
+      {
+        "head_sha256": "04f7e8a6dad06c963f70fb744938622e2cfc78aa3e0e553cdaad4381aa6b7dea",
+        "kind": "protected_faron",
+        "path": "assets/audio/voices/faron_miss.ogg",
+        "sha256": "04f7e8a6dad06c963f70fb744938622e2cfc78aa3e0e553cdaad4381aa6b7dea",
+        "state": "UNCHANGED"
+      },
+      {
+        "head_sha256": "9179816430775231074954f779bad8b60e9ff46ae0014998b214d7cfb2463ec3",
+        "kind": "protected_faron",
+        "path": "assets/audio/voices/faron_op_nursery_bedtime.ogg",
+        "sha256": "9179816430775231074954f779bad8b60e9ff46ae0014998b214d7cfb2463ec3",
+        "state": "UNCHANGED"
+      },
+      {
+        "head_sha256": "c45820ad4107135fa636e3bfc5c456452ab772226072945c47242ad6d2f6c190",
+        "kind": "protected_faron",
+        "path": "assets/audio/voices/faron_op_nursery_catch.ogg",
+        "sha256": "c45820ad4107135fa636e3bfc5c456452ab772226072945c47242ad6d2f6c190",
+        "state": "UNCHANGED"
+      },
+      {
+        "head_sha256": "017dfba309bc60aa909a6cb63d92462363acd4164b71b3ed2062a87428990207",
+        "kind": "protected_faron",
+        "path": "assets/audio/voices/faron_op_nursery_feed.ogg",
+        "sha256": "017dfba309bc60aa909a6cb63d92462363acd4164b71b3ed2062a87428990207",
+        "state": "UNCHANGED"
+      },
+      {
+        "head_sha256": "3818a20db7898aa8465be767fa2250c78b01ff48c9608cb354a74ca3511aee3f",
+        "kind": "protected_faron",
+        "path": "assets/audio/voices/faron_win.ogg",
+        "sha256": "3818a20db7898aa8465be767fa2250c78b01ff48c9608cb354a74ca3511aee3f",
+        "state": "UNCHANGED"
+      }
+    ],
+    "family_count": 6,
+    "faron_count": 7,
+    "issues": []
+  },
+  "root": "C:\\Users\\Peter\\.codex\\worktrees\\luna-gameplay-repairs-20261014\\mermaid-roshan-reef",
+  "row_count": 857,
+  "runner_sha256": "47b3b55bc5ba61908bafeee856bb0113c367bfda6ee4819c5b31fdff2bfdc81b",
+  "schema": "reef.audio-ledger-refresh.v1",
+  "stages": [
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-B",
+        "tools/audit_audio_quality.py"
+      ],
+      "exit_code": 0,
+      "label": "generate",
+      "log": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\voice_lifecycle\\audio-ledger-02\\generate.log",
+      "log_sha256": "c7fbb38aaa0cfd54d49d2d1768df17acc2504fcee67e9e5a80a4232cb50be8d2",
+      "seconds": 261.015
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-B",
+        "-m",
+        "unittest",
+        "tools.tests.test_audit_audio_quality"
+      ],
+      "exit_code": 0,
+      "label": "unit",
+      "log": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\voice_lifecycle\\audio-ledger-02\\unit.log",
+      "log_sha256": "5b5af12419763b49cfd2e76bbaa819349bbd10dd07b5c1242aa9ede1e4b99830",
+      "seconds": 1.081
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-B",
+        "tools/audit_audio_quality.py",
+        "--check"
+      ],
+      "exit_code": 0,
+      "label": "check",
+      "log": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\voice_lifecycle\\audio-ledger-02\\check.log",
+      "log_sha256": "b5e96a7cedb6b26f750153d1df0dcc2b00073e213279ff720da4da43b83ec4fb",
+      "seconds": 212.551
+    }
+  ],
+  "started_utc": "2026-10-15T02:43:34.911695+00:00",
+  "status": "PASS"
+}

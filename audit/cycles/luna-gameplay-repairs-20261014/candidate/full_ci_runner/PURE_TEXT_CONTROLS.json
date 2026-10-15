@@ -1,0 +1,80 @@
+{
+  "schema": "reef.ci-classifier-pure-text-controls.v1",
+  "baseline_log": "audit\\cycles\\luna-gameplay-repairs-20261014\\baseline\\full-ci.log",
+  "baseline_log_sha256": "187a4a669afe6b67bfe19fb7ebdd3ca6538ac65cdcd4521c75be4d1bf2e00c77",
+  "controls": [
+    {
+      "label": "known-green exact baseline",
+      "expected_accept": true,
+      "observed_accept": true,
+      "raw_count": 1,
+      "ignored_count": 1,
+      "blocking_count": 0
+    },
+    {
+      "label": "additional ordinary FAIL",
+      "expected_accept": false,
+      "observed_accept": false,
+      "raw_count": 2,
+      "ignored_count": 1,
+      "blocking_count": 1
+    },
+    {
+      "label": "modified selftest FAIL",
+      "expected_accept": false,
+      "observed_accept": false,
+      "raw_count": 1,
+      "ignored_count": 0,
+      "blocking_count": 1
+    },
+    {
+      "label": "duplicate exact selftest FAIL",
+      "expected_accept": false,
+      "observed_accept": false,
+      "raw_count": 2,
+      "ignored_count": 0,
+      "blocking_count": 2
+    },
+    {
+      "label": "exit1 cannot ignore",
+      "expected_accept": false,
+      "observed_accept": false,
+      "raw_count": 1,
+      "ignored_count": 0,
+      "blocking_count": 1
+    },
+    {
+      "label": "non-CI cannot ignore",
+      "expected_accept": false,
+      "observed_accept": false,
+      "raw_count": 1,
+      "ignored_count": 0,
+      "blocking_count": 1
+    },
+    {
+      "label": "missing source attribution cannot ignore",
+      "expected_accept": false,
+      "observed_accept": false,
+      "raw_count": 1,
+      "ignored_count": 0,
+      "blocking_count": 1
+    },
+    {
+      "label": "additional script error",
+      "expected_accept": false,
+      "observed_accept": false,
+      "raw_count": 2,
+      "ignored_count": 1,
+      "blocking_count": 1
+    },
+    {
+      "label": "padding is not exact selftest",
+      "expected_accept": false,
+      "observed_accept": false,
+      "raw_count": 1,
+      "ignored_count": 0,
+      "blocking_count": 1
+    }
+  ],
+  "runtime_jobs_executed": 0
+}

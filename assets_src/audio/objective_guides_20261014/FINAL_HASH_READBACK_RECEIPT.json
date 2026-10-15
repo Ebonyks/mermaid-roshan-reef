@@ -1,0 +1,28 @@
+{
+  "status": "PASS",
+  "checks": "Readback verifies unchanged native float32 WAVs and exact measured review hashes",
+  "synthesis_calls": 2,
+  "total_inference_seconds": 4.55883,
+  "rejected_encode_count": 5,
+  "cues": [
+    {
+      "key": "guide_seek_tap_wiggly_tree",
+      "native_samples": 42600,
+      "native_hash_verified": true,
+      "review_hash_verified": true,
+      "inference_seconds": 1.906755,
+      "rejected_encode_count": 1
+    },
+    {
+      "key": "guide_dolls_catch_three",
+      "native_samples": 82200,
+      "native_hash_verified": true,
+      "review_hash_verified": true,
+      "inference_seconds": 2.652075,
+      "rejected_encode_count": 4
+    }
+  ],
+  "manifest_sha256": "a04c91d6c3e04673d88e0601fb5afe77dd7a3a620f8bdb24f711462eff3b591f",
+  "machine_receipt_sha256": "176faca3a30db856e005b12b573be111a2cea4c9182026ae76bd25286791098e",
+  "no_human_listening_or_device_acceptance_claim": true
+}

@@ -1,0 +1,87 @@
+{
+  "archive_root": "audit/cycles/luna-gameplay-repairs-20261014/candidate/revision7/application",
+  "created_utc": "2026-10-15T03:36:17.276335+00:00",
+  "existing_revision6_sourcefiles_unchanged": [],
+  "file_count": 10,
+  "files": [
+    {
+      "bytes": 1684,
+      "path": "INTERPRETATION.json",
+      "role": "scoped_application_review_chronology_and_limits",
+      "sha256": "c798d148d936d77c04d6678cfcd0da2aaa8e54ea7e8eb14934f3e40a637e60ee",
+      "source": "DERIVED_FROM_ARCHIVED_NATIVE_FOUNDATION_EVIDENCE"
+    },
+    {
+      "bytes": 1545,
+      "path": "native/candidate-revision7-application.json",
+      "role": "native_application_config_or_immutable_pin",
+      "sha256": "a4a9d7f048ee910734a33ec662798415715d2c06d7d772acf4141daa12544d43",
+      "source": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\candidate-revision7-application.json"
+    },
+    {
+      "bytes": 719751,
+      "path": "native/candidate-runtime-sources.v7.json",
+      "role": "native_application_config_or_immutable_pin",
+      "sha256": "20e942ec488d618a94af58663b00463987409c9640df53ec918f12a9632cfd9e",
+      "source": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\candidate-runtime-sources.v7.json"
+    },
+    {
+      "bytes": 979,
+      "path": "native/reviewed-revision7.json",
+      "role": "native_application_config_or_immutable_pin",
+      "sha256": "c19fe8ab26383d61d5249fb665f23865637e2202d1ecbda215c2fc5de346f8d8",
+      "source": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\reviewed-revision7.json"
+    },
+    {
+      "bytes": 1750,
+      "path": "review/freeplay_fixture_repair_01.patch",
+      "role": "native_reviewed_probe_only_patch",
+      "sha256": "da0dc794d3c9ba97838d0b8f35e10c933d08f8b22ec98ea2b0b13a0d681c6d2f",
+      "source": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\chapter2\\diagnostics\\freeplay_fixture_repair_01.patch"
+    },
+    {
+      "bytes": 1743,
+      "path": "review/freeplay_fixture_repair_01.receipt.json",
+      "role": "native_probe_only_preparation_receipt_unchanged",
+      "sha256": "d8aac3c4f45dd18f40b90b5f8728a02463b55621d1cede21c2cd903a021aaf57",
+      "source": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\chapter2\\diagnostics\\freeplay_fixture_repair_01.receipt.json"
+    },
+    {
+      "bytes": 92096,
+      "path": "review/probe_chapter2.gd.txt",
+      "role": "exact_reviewed_revision7_probe_only_draft_nonruntime_text",
+      "sha256": "4bbc259a688fc00b35cb14e1caf977d94689c46e8863176bde6576e68a7bbd2e",
+      "source": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\chapter2\\diagnostics\\probe_chapter2.gd.freeplay_fixture_repair_01.txt"
+    },
+    {
+      "bytes": 4172,
+      "path": "static/static-parser-inference-revision7-01.json",
+      "role": "native_completed_revision7_static_evidence_if_present",
+      "sha256": "99bd4ffd4d0c52339b5a020643baa6e761aa5cd648bb8a3cadf8dddd12638f01",
+      "source": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\static-parser-inference-revision7-01.json"
+    },
+    {
+      "bytes": 0,
+      "path": "static/static-parser-inference-revision7-01.log",
+      "role": "native_completed_revision7_static_evidence_if_present",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\static-parser-inference-revision7-01.log"
+    },
+    {
+      "bytes": 4159,
+      "path": "utility/apply_reviewed_revision7.py.txt",
+      "role": "exact_guarded_application_utility_snapshot_as_text",
+      "sha256": "ddaaeae9c27c436b27332d674a92456b2ccfb2660bf79502a604ff09dcba01ae",
+      "source": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\apply_reviewed_revision7.py"
+    }
+  ],
+  "historical_evidence_manifest_sha256_unchanged": "e6d71fc09f328b81c53846fe30d34416e302423e779ba5b663ea53ccd8e0e64b",
+  "manifest_self_hash": "Reported externally.",
+  "native_file_count": 9,
+  "production_source_pin_or_runtime_actions": 0,
+  "revision": 7,
+  "route04_route05_route06_artifacts_included": false,
+  "schema": "reef.revision-foundation-archive.v1",
+  "source_pin_sha256": "20e942ec488d618a94af58663b00463987409c9640df53ec918f12a9632cfd9e",
+  "status": "EXACT_BYTE_FOUNDATION_ARCHIVE_RUNTIME_ACCEPTANCE_SEPARATE"
+}

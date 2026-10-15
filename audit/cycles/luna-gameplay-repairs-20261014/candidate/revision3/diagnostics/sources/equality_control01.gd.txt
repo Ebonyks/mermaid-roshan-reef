@@ -1,0 +1,102 @@
+extends SceneTree
+## Disposable data-only control: no Main scene, save access, or progress writes.
+
+var bad := 0
+
+
+func _initialize() -> void:
+	_run.call_deferred()
+
+
+func _check(label: String, ok: bool) -> void:
+	print("EQUALITY|", label, ": ", "OK" if ok else "FAIL")
+	if not ok:
+		bad += 1
+
+
+func _json_roundtrip(value: Variant) -> Variant:
+	return JSON.parse_string(JSON.stringify(value, "", true, true))
+
+
+func _canonical(value: Variant) -> String:
+	return JSON.stringify(_json_roundtrip(value), "", true, true)
+
+
+func _case(label: String, expected: Dictionary, actual: Dictionary, equal: bool) -> void:
+	var roundtrip_equal: bool = _json_roundtrip(expected) == _json_roundtrip(actual)
+	var canonical_equal: bool = _canonical(expected) == _canonical(actual)
+	print("EQUALITY|CASE|", label, "|roundtrip=", roundtrip_equal, "|canonical=", canonical_equal)
+	_check(label + " JSON roundtrip comparison", roundtrip_equal == equal)
+	_check(label + " sorted full-precision canonical comparison", canonical_equal == equal)
+
+
+func _run() -> void:
+	var typed_masks: Array[int] = [1, 3, 7]
+	var expected: Dictionary = {"generation": 19, "masks": typed_masks,
+		"active": true, "nested": {"color": "blue"}}
+	var actual: Dictionary = _json_roundtrip(expected) as Dictionary
+	var actual_masks: Array = actual["masks"] as Array
+	var plain_int_masks: Array = [1, 3, 7]
+	var plain_float_masks: Array = [1.0, 3.0, 7.0]
+	print("EQUALITY|OBSERVATION|native_dictionary=", expected == actual,
+		"|typed_vs_plain_int_array=", typed_masks == plain_int_masks,
+		"|typed_vs_plain_float_array=", typed_masks == plain_float_masks,
+		"|int_vs_float_scalar=", 19 == 19.0)
+	print("EQUALITY|TYPES|typed_builtin=", typed_masks.get_typed_builtin(),
+		"|parsed_builtin=", actual_masks.get_typed_builtin(),
+		"|typed_element=", typeof(typed_masks[0]), "|parsed_element=", typeof(actual_masks[0]),
+		"|expected_generation=", typeof(expected["generation"]),
+		"|parsed_generation=", typeof(actual["generation"]))
+	print("EQUALITY|SERIALIZED|expected=", JSON.stringify(expected),
+		"|actual=", JSON.stringify(actual))
+	_check("source uses typed integer array", typed_masks.get_typed_builtin() == TYPE_INT
+		and typeof(typed_masks[0]) == TYPE_INT)
+	_check("JSON parser uses untyped array and floating numbers", not actual_masks.is_typed()
+		and typeof(actual_masks[0]) == TYPE_FLOAT and typeof(actual["generation"]) == TYPE_FLOAT)
+	_case("equal small numeric values across storage types", expected, actual, true)
+	var key_order: Dictionary = {"nested": {"color": "blue"}, "active": true,
+		"masks": [1.0, 3.0, 7.0], "generation": 19.0}
+	_case("dictionary insertion order is semantically irrelevant", expected, key_order, true)
+	var changed_value: Dictionary = actual.duplicate(true)
+	changed_value["generation"] = 20.0
+	_case("changed integer value is rejected", expected, changed_value, false)
+	var changed_fraction: Dictionary = actual.duplicate(true)
+	changed_fraction["generation"] = 19.25
+	_case("changed fractional numeric value is rejected", expected, changed_fraction, false)
+	var changed_numeric_type: Dictionary = actual.duplicate(true)
+	changed_numeric_type["generation"] = "19"
+	_case("numeric string is not a number", expected, changed_numeric_type, false)
+	var changed_key: Dictionary = actual.duplicate(true)
+	changed_key.erase("active")
+	changed_key["awake"] = true
+	_case("renamed key is rejected", expected, changed_key, false)
+	var missing_key: Dictionary = actual.duplicate(true)
+	missing_key.erase("nested")
+	_case("missing key is rejected", expected, missing_key, false)
+	var added_key: Dictionary = actual.duplicate(true)
+	added_key["unexpected"] = false
+	_case("added key is rejected", expected, added_key, false)
+	var changed_bool: Dictionary = actual.duplicate(true)
+	changed_bool["active"] = false
+	_case("changed boolean value is rejected", expected, changed_bool, false)
+	var changed_order: Dictionary = actual.duplicate(true)
+	var reversed_masks: Array = changed_order["masks"] as Array
+	reversed_masks.reverse()
+	_case("changed array order is rejected", expected, changed_order, false)
+	var changed_array_value: Dictionary = actual.duplicate(true)
+	var different_masks: Array = changed_array_value["masks"] as Array
+	different_masks[1] = 4.0
+	_case("changed array number is rejected", expected, changed_array_value, false)
+	var precise_a: Dictionary = {"number": 1.0}
+	var precise_b: Dictionary = {"number": 1.0000000000000002}
+	print("EQUALITY|PRECISION|full_precision_distinguishes_adjacent_float=",
+		_canonical(precise_a) != _canonical(precise_b), "|a=", _canonical(precise_a),
+		"|b=", _canonical(precise_b))
+	var large_a: Dictionary = {"number": 9007199254740992}
+	var large_b: Dictionary = {"number": 9007199254740993}
+	print("EQUALITY|LIMIT|distinct_int64_native=", large_a != large_b,
+		"|roundtrip_equal=", _json_roundtrip(large_a) == _json_roundtrip(large_b),
+		"|canonical_equal=", _canonical(large_a) == _canonical(large_b),
+		"|scope=JSON number normalization intentionally removes storage type; large integers require a bound")
+	print("EQUALITY|RESULT: ", "ALL OK" if bad == 0 else "%d checks FAILED" % bad)
+	quit(1 if bad > 0 else 0)

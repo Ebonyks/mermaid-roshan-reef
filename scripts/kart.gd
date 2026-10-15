@@ -1325,6 +1325,7 @@ func _build_pickups() -> void:
 		if kind == "shell":
 			var sm: Node3D = _gen2_card(SHELL_GEN2, 2.4)
 			if sm == null:
+				holder.free()
 				continue
 			sm.scale = Vector3.ONE * 2.4
 			holder.add_child(sm)

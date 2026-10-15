@@ -1,0 +1,24 @@
+{
+  "schema": "luna_candidate_revision_application/1",
+  "revision": 4,
+  "applied_utc": "2026-10-15T03:11:05.733886+00:00",
+  "root": "C:\\Users\\Peter\\.codex\\worktrees\\luna-gameplay-repairs-20261014\\mermaid-roshan-reef",
+  "previous_pin_sha256": "ca8a5145fb6505bca6ee7a853ebee84085f0886c9af9d1c99bf019bd76bb684d",
+  "patch": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\chapter2\\diagnostics\\resume_chef_repair_03_landscape.patch",
+  "patch_sha256": "13b73e0a7c8539ff3bd1525ed0c2709b1140eef25e6ab4aaf7dee5730dc3e67a",
+  "review_receipt_sha256": "d970979be3cccc6dfdbc230a7e80f5c29e5403b06882a7e9cf268e2424f7d00d",
+  "files": [
+    {
+      "path": "scripts/opera_career_world_2d.gd",
+      "before_sha256": "c9c1bd25bea79260a3950e7431fe9b75b2b313f50b6c5bde8872ef367c710b45",
+      "after_sha256": "3982cd0391024ff5f65416f99513217f1c7fe92d96beacbce35e6a79a0261dc1"
+    },
+    {
+      "path": "scripts/probe_chapter2.gd",
+      "before_sha256": "badd6f6ac2fe50edd6aef741f984215f5c59999b9033049572e69b67dd861669",
+      "after_sha256": "551f489b11ee85f292f2242b3cf877abaaaaaf44f5d04c1671f63d23648e3bd3"
+    }
+  ],
+  "reason": "Measured Chef pose timer jumped to phase4 during full passive exposure; scope Detective retry rewrite to Detective. Compare checkpoint snapshots at the strict bounded JSON domain instead of typed-array representation; abort invalid dependencies, and assert canonical landscape before every production boot. Production save logic unchanged.",
+  "verification": "Applied and source-verified only; analyzer, partial-input negatives, route/checkpoint/full gates pending."
+}

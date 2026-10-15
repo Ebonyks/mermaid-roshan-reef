@@ -1,0 +1,20 @@
+{
+  "schema": "luna-candidate-revision8-application/1",
+  "applied_utc": "2026-10-15T04:30:39.400941+00:00",
+  "source_before_sha256": "cd52d65a4ddaf96be8d245a689321736f392308492eab5733d7951a87fa94821",
+  "source_after_sha256": "391476ed0a7603a2c972ebe4c9e6e5d4c3ffa5732ad411249bae0a00b361df2a",
+  "runtime_files_changed": [
+    "scripts/probe_chapter2_farmer_resume.gd"
+  ],
+  "production_runtime_changes": 0,
+  "patch_sha256": "00320d2ccba1f2fb788a7435e3728e86b2b226916c235890311c4a179e46df2b",
+  "attributes_before_sha256": "aa61250740ccd179c5f3d54b48838e9a0dba5f7a5814b2241702f0905d1e7328",
+  "attributes_after_sha256": "602c054419483987976278bbe5d43498e3cedc668c49ebda68e9a820be36c9f2",
+  "attributes_scope": [
+    "audit/cycles/luna-gameplay-repairs-20261014/**",
+    "assets_src/audio/objective_guides_20261014/**",
+    "assets/audio/objective_guides/OBJECTIVE_GUIDE_MANIFEST.json"
+  ],
+  "prior_terminal_result": "candidate-full-ci-01 FAIL81/82 zeroexit; no source mismatches",
+  "scope": "Probe-only corrected configuration display contract and literal-byte delivery attributes; no production logic/assets/protected originals change"
+}

@@ -14,6 +14,11 @@ var _active_required_key := ""
 var _required_voice_queue: Array[Dictionary] = []
 const FILLER_VOICE_DIR := "res://assets/audio/voices/filler_v1/"
 const LEGACY_VOICE_DIR := "res://assets/audio/voices/"
+const OBJECTIVE_GUIDE_DIR := "res://assets/audio/objective_guides/"
+const OBJECTIVE_GUIDES := {
+	"seek_tap_wiggly_tree": {"mode": "seek", "file": "guide_seek_tap_wiggly_tree.ogg"},
+	"dolls_catch_three": {"mode": "dolls", "file": "guide_dolls_catch_three.ogg"},
+}
 const DAY_ONE_CONTEXT_CATALOG_SCRIPT: GDScript = preload(
 	"res://scripts/day_one_contextual_voice_catalog.gd")
 const RETIRED_OVERLAY_CONTEXT_CUES: Dictionary = {
@@ -24,6 +29,8 @@ const RETIRED_OVERLAY_CONTEXT_CUES: Dictionary = {
 # One route.  Keep this list explicit: a required objective may never silently
 # fall through to roshan_talk, roshan_win, or the retired yay fallback.
 const DAY_ONE_REQUIRED_EVENTS: Dictionary = {
+	"seek_tap_wiggly_tree": true,
+	"dolls_catch_three": true,
 	"castle_home_day_one": true,
 	"castle_door_resting": true,
 	"day_one_jobs_resting": true,
@@ -199,6 +206,12 @@ func _voice_path(speaker: String, event: String = "", allow_generic: bool = true
 	if event_suffix.begins_with(speaker_prefix):
 		event_suffix = event_suffix.trim_prefix(speaker_prefix)
 	var key := speaker + ("_" + event_suffix if event_suffix != "" else "")
+	if speaker == "guide":
+		# Neutral Guide has two exact owner-authorized cues, never a generic or
+		# character-identity fallback. Protected family policies below stay intact.
+		var guide: Dictionary = OBJECTIVE_GUIDES.get(event_suffix, {})
+		var guide_path := OBJECTIVE_GUIDE_DIR + String(guide.get("file", ""))
+		return guide_path if not guide.is_empty() and ResourceLoader.exists(guide_path) else ""
 	if speaker == "roshan" and event_suffix.begins_with("fashion_"):
 		var fashion_path := "res://assets/audio/fashion/" + key + ".ogg"
 		return fashion_path if ResourceLoader.exists(fashion_path) else ""
@@ -241,6 +254,32 @@ func _voice_path(speaker: String, event: String = "", allow_generic: bool = true
 func _is_required_day_one_event(event: String) -> bool:
 	return bool(DAY_ONE_REQUIRED_EVENTS.get(event, false)) or event.begins_with("chapter2_")
 
+func objective_guide(event: String, greeting_speaker: String = "", min_gap: float = 0.0) -> void:
+	var guide: Dictionary = OBJECTIVE_GUIDES.get(event, {})
+	var mode := String(guide.get("mode", ""))
+	if guide.is_empty() or m.game != mode or _voice_path("guide", event, false).is_empty():
+		return
+	var key := "guide_" + event
+	if _active_required_key == key and _has_active_speech():
+		return
+	if min_gap > 0.0 and Time.get_ticks_msec() / 1000.0 			- float(m.said_cool.get(key, -99.0)) < min_gap:
+		return
+	# An entered activity/current target supersedes old route instructions.
+	# Start its exact cue promptly, then preserve the existing family greeting
+	# in the same bounded FIFO rather than speaking over the instruction.
+	_stop_active_speech()
+	_say("guide", event, min_gap)
+	m.audio_active_guide_mode = mode
+	if greeting_speaker != "" and _active_required_key == key:
+		_required_voice_queue.append({"speaker": greeting_speaker, "event": "",
+			"min_gap": 0.0, "guide_mode": mode})
+
+
+func clear_objective_guide(mode: String) -> void:
+	if m.audio_active_guide_mode == mode:
+		_stop_active_speech()
+
+
 func chapter_two_prompt(event: String) -> void:
 	# A completed phase/changed route supersedes its previous instruction. Keep
 	# exact semantic audio on one channel, without queuing obsolete objectives.
@@ -251,11 +290,16 @@ func chapter_two_prompt(event: String) -> void:
 func _say(speaker: String, event: String = "", min_gap: float = 0.0) -> void:
 	var event_suffix := event.trim_prefix(speaker + "_")
 	var key := speaker + "_" + event_suffix
+	if speaker == "guide":
+		var guide: Dictionary = OBJECTIVE_GUIDES.get(event_suffix, {})
+		if guide.is_empty() or m.game != String(guide.get("mode", "")):
+			return
 	if min_gap > 0.0:
 		var now := Time.get_ticks_msec() / 1000.0
 		if now - float(m.said_cool.get(key, -99.0)) < min_gap:
 			return
-		m.said_cool[key] = now
+		if speaker != "guide":
+			m.said_cool[key] = now
 	if event_suffix.begins_with("chapter2_lawn_"):
 		if m.game != "chapter2_lawn":
 			return
@@ -269,7 +313,7 @@ func _say(speaker: String, event: String = "", min_gap: float = 0.0) -> void:
 	if _flush_required_queue():
 		return
 	var exact_path := _voice_path(speaker, event_suffix, false)
-	if (event_suffix.begins_with("fashion_") or event_suffix.begins_with("teacher_") or event_suffix.begins_with("chapter2_lawn_") or event_suffix.begins_with("arborist_tree_book_")) and exact_path.is_empty():
+	if (speaker == "guide" or event_suffix.begins_with("fashion_") or event_suffix.begins_with("teacher_") or event_suffix.begins_with("chapter2_lawn_") or event_suffix.begins_with("arborist_tree_book_")) and exact_path.is_empty():
 		return
 	if required and exact_path == "":
 		# Missing exact audio is an explicit pending gap, never a generic fallback.
@@ -324,6 +368,11 @@ func _say(speaker: String, event: String = "", min_gap: float = 0.0) -> void:
 		ap.play()
 		_active_speaker = speaker
 		_active_required_key = key if required else ""
+		if speaker == "guide":
+			# Timestamp only an actual successful Guide start, including min_gap 0.
+			m.said_cool[key] = Time.get_ticks_msec() / 1000.0
+			var active_guide: Dictionary = OBJECTIVE_GUIDES.get(event_suffix, {})
+			m.audio_active_guide_mode = String(active_guide.get("mode", ""))
 	elif m.voice != null:
 		# graceful fallback until real clips are dropped in: the recorded "yay",
 		# pitched to give each character a recognisably different timbre
@@ -354,13 +403,26 @@ func _flush_required_queue() -> bool:
 	if _active_required_key == "" or _has_active_speech():
 		return false
 	_active_required_key = ""
-	if _required_voice_queue.is_empty():
-		return false
-	var pending: Dictionary = _required_voice_queue.pop_front()
-	_say(String(pending.get("speaker", "roshan")),
-		String(pending.get("event", "")),
-		float(pending.get("min_gap", 0.0)))
-	return true
+	# Discard stale Guide-owned entries in this same flush. Returning after
+	# clearing the active key would strand the remaining bounded FIFO entries.
+	while not _required_voice_queue.is_empty():
+		var pending: Dictionary = _required_voice_queue.pop_front()
+		var pending_speaker := String(pending.get("speaker", "roshan"))
+		var pending_event := String(pending.get("event", ""))
+		var pending_mode := String(pending.get("guide_mode", ""))
+		if pending_speaker == "guide":
+			var guide: Dictionary = OBJECTIVE_GUIDES.get(
+				pending_event.trim_prefix("guide_"), {})
+			if guide.is_empty():
+				continue
+			pending_mode = String(guide.get("mode", ""))
+		if pending_mode != "" and m.game != pending_mode:
+			continue
+		_say(pending_speaker, pending_event, float(pending.get("min_gap", 0.0)))
+		if pending_mode != "" and m.game == pending_mode:
+			m.audio_active_guide_mode = pending_mode
+		return true
+	return false
 
 
 func tick_voice() -> void:
@@ -414,6 +476,7 @@ func _stop_active_speech() -> void:
 	_active_speaker = ""
 	_day_one_context_active_key = ""
 	_active_required_key = ""
+	m.audio_active_guide_mode = ""
 	_required_voice_queue.clear()
 
 

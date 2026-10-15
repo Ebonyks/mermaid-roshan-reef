@@ -1,0 +1,52 @@
+extends SceneTree
+
+var failures := 0
+
+
+func _init() -> void:
+	# Reproduce the former child startup ordering in a fresh process.
+	root.mode = Window.MODE_WINDOWED
+	root.size = Vector2i(1280, 720)
+	root.content_scale_size = Vector2i(1280, 720)
+	await process_frame
+	_record("former_preinit_sizing_after_first_frame")
+	# Apply the proposed shared fixture only after initialization has ticked.
+	root.mode = Window.MODE_WINDOWED
+	root.size = Vector2i(1280, 720)
+	root.content_scale_size = Vector2i(1280, 720)
+	await process_frame
+	_record("postinit_sizing_after_frame")
+	_check("post-init actual landscape and backend mode match", _accepted_geometry())
+	root.size = Vector2i(1024, 720)
+	await process_frame
+	_record("wrong_geometry_negative")
+	_check("wrong actual geometry is rejected", not _accepted_geometry())
+	root.size = Vector2i(1280, 720)
+	await process_frame
+	_check("restored actual landscape is accepted", _accepted_geometry())
+	print("CHAPTER2_WINDOW_CONTROL|RESULT: ", "PASS" if failures == 0 else "FAIL")
+	quit(1 if failures > 0 else 0)
+
+
+func _accepted_geometry() -> bool:
+	var expected_mode := Window.MODE_MINIMIZED if DisplayServer.get_name() == "headless" else Window.MODE_WINDOWED
+	var visible := root.get_visible_rect()
+	return root.mode == expected_mode and root.size == Vector2i(1280, 720) \
+		and root.content_scale_size == Vector2i(1280, 720) \
+		and visible.position == Vector2.ZERO and visible.size == Vector2(1280, 720)
+
+
+func _record(stage: String) -> void:
+	print("CHAPTER2_WINDOW_CONTROL|", JSON.stringify({"stage": stage,
+		"backend": DisplayServer.get_name(), "requested_mode": Window.MODE_WINDOWED,
+		"reported_mode": root.mode, "window_size": str(root.size),
+		"content_scale_size": str(root.content_scale_size), "visible_rect": str(root.get_visible_rect()),
+		"content_scale_mode": root.content_scale_mode, "content_scale_aspect": root.content_scale_aspect,
+		"root_in_tree": root.is_inside_tree(), "process_id": OS.get_process_id(),
+		"script_sha256": FileAccess.get_sha256(get_script().resource_path)}))
+
+
+func _check(label: String, ok: bool) -> void:
+	print("CHAPTER2_WINDOW_CONTROL|", label, ": ", "OK" if ok else "FAIL")
+	if not ok:
+		failures += 1
