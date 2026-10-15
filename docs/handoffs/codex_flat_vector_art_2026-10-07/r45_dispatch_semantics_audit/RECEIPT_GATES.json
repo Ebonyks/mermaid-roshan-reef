@@ -1,8 +1,58 @@
 {
-  "schema": "reef.flat_vector_pending_record/1",
-  "status": "PENDING_ACTUAL_EXECUTION_OR_PUBLICATION_VERIFICATION",
-  "revision": "FV-AUDIT-20261015-R45",
-  "record": "RECEIPT_GATES.json",
-  "accepted_removed": 0,
-  "mission_complete": false
+  "status": "PASS_SOURCE_ONLY_ACCEPTANCE_OPEN",
+  "commands": [
+    {
+      "command": [
+        "python",
+        "-B",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r45_dispatch_semantics_audit\\validate.py"
+      ],
+      "started_at_utc": "2026-10-15T03:28:17.633817+00:00",
+      "checked_at_utc": "2026-10-15T03:29:51.919270+00:00",
+      "exit_code": 0,
+      "execution": "FRESH",
+      "evidence": "receipt_gates.log"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_document_authority.py"
+      ],
+      "started_at_utc": "2026-10-15T03:29:51.919360+00:00",
+      "checked_at_utc": "2026-10-15T03:30:05.181951+00:00",
+      "exit_code": 0,
+      "execution": "FRESH",
+      "evidence": "receipt_gates.log"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_development.py",
+        "--base",
+        "auto"
+      ],
+      "started_at_utc": "2026-10-15T03:30:05.182026+00:00",
+      "checked_at_utc": "2026-10-15T03:30:12.602748+00:00",
+      "exit_code": 0,
+      "execution": "FRESH",
+      "evidence": "receipt_gates.log"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_game_2d.py",
+        "--regression-gate"
+      ],
+      "started_at_utc": "2026-10-15T03:30:15.853017+00:00",
+      "checked_at_utc": "2026-10-15T03:31:45.115047+00:00",
+      "exit_code": 0,
+      "execution": "FRESH_ALL_RECEIPT_PARTS_STAGED",
+      "evidence": "receipt_gates.log"
+    }
+  ],
+  "raw_log_sha256": "7c2a1133982a0e4bbba229040bf60e5e6679aa2f09b3ee575f3e5338f397e2da",
+  "scope": "Three fresh source/document/impact checks and actual fresh 2D scan of all staged receipt parts. Writer closed before exact raw-log staging. No new engine execution or creative acceptance."
 }
