@@ -1,0 +1,24 @@
+{
+  "status": "EXACT_GIT_OBJECTS_AND_ORIGINAL_COMMIT_PUBLISHED_NON_FORCE",
+  "baseline": "801b36a56923567dee37cf744e0fc80b605dd775",
+  "revision": "8cdf8df7373615d827357e9cfa8ecce4aa373e05",
+  "tree": "70cdbb33103f89a41e2d574cdd8729540439b9b6",
+  "new_blob_count": 181,
+  "changed_file_count": 189,
+  "checked_at_utc": "2026-10-15T09:22:40.579038+00:00",
+  "existing_gh_authorization_only": true,
+  "credential_value_extracted_or_printed": false,
+  "transport_reason": "Prior R39 ordinary114MiB Git pack reset; direct exact-object safe path used forR51, no failedR51 pack claimed.",
+  "access_mode": "Authenticated Git object write to same owner-authorized public repository/durable branch; anonymous required-file verification follows",
+  "no_runtime_or_source_tree_change_from_verified_commit": true,
+  "first_tree_attempt": {
+    "status": "FIRST_FULL_HANDOFF_PARENT_TREE_HTTP422_TIMEOUT_NO_REF_MOVED",
+    "baseline": "801b36a56923567dee37cf744e0fc80b605dd775",
+    "original_head": "8cdf8df7373615d827357e9cfa8ecce4aa373e05",
+    "http_status": 422,
+    "message": "GitHub tree creation request timed out;incremental base-tree update advised.189 exactfiles/181blobs and10trees retained;branch remainedbaseline.",
+    "retry": "Same original immutablecommit/tree/blobs. Reuse each prior directory base_tree plus onlychanged immediatechildren;assert everyreturnedobjectSHA;nonforce expectedbaseref guard unchanged.",
+    "checked_at_utc": "2026-10-15T09:22:26.866887+00:00"
+  },
+  "successful_retry": "Exact original commit/tree returned with incremental base_tree/changed-child requests;nonforce branch advancement verified."
+}

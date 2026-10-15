@@ -81,6 +81,7 @@
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r51_farmer_context/CAPTURE_INDEX.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r51_farmer_context/CONGRUENCY_BACKLOG.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r51_farmer_context/CONTEXT_PREREQUISITE.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r51_farmer_context/DELIVERY_TRANSPORT.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r51_farmer_context/FINAL_BYTE_RECEIPT.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r51_farmer_context/FIXTURE_CONTINUOUS_PRECHECK.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r51_farmer_context/FIXTURE_PRECHECK.json",
@@ -271,8 +272,8 @@
     },
     {
       "command": "Exact public payload/all required files/metadata/final proof verification",
-      "result": "PENDING",
-      "evidence": "Same durable topic; no local-only exchange"
+      "result": "PASS",
+      "evidence": "Exact payload8cdf8df7373615d827357e9cfa8ecce4aa373e05:all257 direct R51/source/canonical dependencies/218477317 bytes anonymously verified at2026-10-15T09:22:52.966440+00:00. ManifestSHAeddfd9ce98718d4e543892aa4632ac0e456c03141d5fbc6a64ff56544fae7d97;historicalR50 full closure keeps its original immutable receipt/time. Current final metadata verified separately;no art acceptance."
     },
     {
       "command": "Original intermediate Farmer private save/reload",
