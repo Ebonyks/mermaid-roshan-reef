@@ -1,6 +1,12 @@
-Current canonical evidence: [R45 dispatch semantics audit](r45_dispatch_semantics_audit/README.md), [registry](r45_dispatch_semantics_audit/per_piece.json), [coverage](r45_dispatch_semantics_audit/scene_coverage.json), [tally](r45_dispatch_semantics_audit/tally.json).
+Current canonical evidence: [R46 Melody context](r46_melody_context/README.md), [registry](r46_melody_context/per_piece.json), [coverage](r46_melody_context/scene_coverage.json), [tally](r46_melody_context/tally.json).
 
-# Current R45 dispatch semantics audit
+# Current R46 Melody source/API context
+
+58 native captures/48 bounded contexts;ten existing visible Melody roles reviewed against painted neighbors. Natural entry remains unverified.230 known roles/31 families,0 accepted removals/global unknown.
+
+Historical R45 evidence: [R45 dispatch semantics audit](r45_dispatch_semantics_audit/README.md), [registry](r45_dispatch_semantics_audit/per_piece.json), [coverage](r45_dispatch_semantics_audit/scene_coverage.json), [tally](r45_dispatch_semantics_audit/tally.json).
+
+# Historical R45 dispatch semantics audit
 
 493 preserved expression records separate bindings from invocations.157 non-test source-candidate invocations contain57 callback target gaps in39 scoped declaration groups. No new rendered game captures, art/route credit or production changes.230 roles/31 families,0 accepted removals/global total unknown.
 

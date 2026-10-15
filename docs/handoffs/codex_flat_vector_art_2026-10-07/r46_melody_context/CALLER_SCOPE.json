@@ -1,0 +1,40 @@
+{
+  "baseline": "7cdb9bf63bd8f3846b34b17cce74b065747aae92",
+  "normal_entry_proved": false,
+  "entry_used": "Canonical m.friends Daddy dictionary -> Main._start_game -> fade -> _start_game_now -> MelodyGame.build -> real ScreenTouch continuation -> production _end_game on seventh release",
+  "source_bindings": [
+    {
+      "path": "scripts/main.gd",
+      "function": "_build_friends"
+    },
+    {
+      "path": "scripts/main.gd",
+      "function": "_start_game"
+    },
+    {
+      "path": "scripts/main.gd",
+      "function": "_start_game_now"
+    },
+    {
+      "path": "scripts/main.gd",
+      "function": "_enter_arena"
+    },
+    {
+      "path": "scripts/main.gd",
+      "function": "_tick_game"
+    },
+    {
+      "path": "scripts/main.gd",
+      "function": "_end_game"
+    }
+  ],
+  "retained_roster_is_not_route": "Main._build_friends explicitly builds data only,retired reef pillars. probe_melody._launch_daddy reproduces retired activation through API. Current UI entry not claimed and global unreachability not inferred.",
+  "source_api_executions": 2,
+  "seven_real_touch_successes_per_case": 7,
+  "not_valid_for": [
+    "Natural reachability",
+    "All saved/default/fallback states",
+    "Continuous motion/contact review",
+    "Device/child/owner/QA11/replacement acceptance"
+  ]
+}

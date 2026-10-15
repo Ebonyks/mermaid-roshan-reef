@@ -1,0 +1,20 @@
+{
+  "actual_wrapper": "run_capture.py",
+  "actual_wrapper_sha256_measured_after_terminal": "eb7281716a5b898e7cdd73596728b7afad2373f7e1d464d1484e6743a681e948",
+  "actual_fixture": "capture_melody_context.gd",
+  "actual_fixture_sha256": "605f1bf764cb9d39265390e76c2739841bda5cfb106528be0ed6ffe03de03e00",
+  "launches": [
+    "captures/1280/LAUNCH.json",
+    "captures/1600/LAUNCH.json"
+  ],
+  "guard_results": [
+    "captures/1280/RESULT.json",
+    "captures/1600/RESULT.json"
+  ],
+  "scope": "Exact wrapper source copied from staging after both executions; measurement time is post-terminal, not a fabricated prelaunch signature. Per-launch fixture hash and commands were recorded before process launch. Fresh output dirs mandatory; requires exact engine/current cached imports and private profile.",
+  "actual_child_data": false,
+  "mission_complete": false,
+  "execution_source_record": "EXECUTED_FIXTURE.json",
+  "publishable_fixture_sha256": "33cbfa01fbd613d947fdbe48ac2c42c0beefc49255ccefb4c9e2b68da2e8e898",
+  "post_execution_change": "Exactly one redundant trailing LF removed; executed bytes/hash preserved in EXECUTED_FIXTURE.json."
+}
