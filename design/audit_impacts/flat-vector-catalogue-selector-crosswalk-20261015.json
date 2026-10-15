@@ -49,12 +49,14 @@
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r57_catalogue_selector_crosswalk/CONGRUENCY_BACKLOG.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r57_catalogue_selector_crosswalk/CONTEXT_PREREQUISITE.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r57_catalogue_selector_crosswalk/CURRENT_PARTIAL_CONTEXT_UNION.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r57_catalogue_selector_crosswalk/DELIVERY_TRANSPORT.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r57_catalogue_selector_crosswalk/DYNAMIC_START_GAME_SOURCE.txt",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r57_catalogue_selector_crosswalk/FINAL_BYTE_RECEIPT.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r57_catalogue_selector_crosswalk/GATES.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r57_catalogue_selector_crosswalk/MANIFEST.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r57_catalogue_selector_crosswalk/PLAN.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r57_catalogue_selector_crosswalk/README.md",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r57_catalogue_selector_crosswalk/RECEIPT_GATES.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r57_catalogue_selector_crosswalk/REMOTE_VERIFICATION.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r57_catalogue_selector_crosswalk/SOURCE_AND_COMPONENT_SUMMARY.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r57_catalogue_selector_crosswalk/SOURCE_GAME_CENSUS.json",
@@ -72,6 +74,7 @@
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r57_catalogue_selector_crosswalk/history/INITIAL_DOCUMENT_GATE.log",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r57_catalogue_selector_crosswalk/history/INITIAL_OWNERSHIP_FAILURE.txt",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r57_catalogue_selector_crosswalk/per_piece.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r57_catalogue_selector_crosswalk/receipt_gates.log",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r57_catalogue_selector_crosswalk/run_component.py",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r57_catalogue_selector_crosswalk/scene_coverage.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r57_catalogue_selector_crosswalk/selector_component.gd",
@@ -93,8 +96,8 @@
     },
     {
       "command": "Public payload/direct refs/receipt/final metadata exact byte proof",
-      "result": "PENDING",
-      "evidence": "Same established public topic."
+      "result": "PASS",
+      "evidence": "Exact payload 7707a032e7e0ea6c2a656f87ccfbaed88bc4977c: all 396 direct R57/source/canonical dependencies / 17683454 bytes anonymously verified at 2026-10-15T14:04:13.938628+00:00; manifestSHA 25504cfa1b54fa29ecdf847cd879f7b8fe6016f46703e61fda89d4c747626e57. Historical parent transitive verification retains its exact prior receipt/time. Final metadata verified separately; no creative or mission acceptance."
     }
   ],
   "acceptance_gaps": "No rendered gameplay/artwork or normal-route credit. Full callback/native/alias/resource closure,1194 candidate source scopes,visible state inventory,all required natural/runtime/QA11/device/child/owner and strict2D remain open. Unknown totals stay unknown."
