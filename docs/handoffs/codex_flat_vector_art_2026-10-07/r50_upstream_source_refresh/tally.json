@@ -20,7 +20,7 @@
     "INACTIVE_ARCHIVE"
   ],
   "mission_status": "ACTIVE; zero-vector removal NOT achieved",
-  "phase": "R50 source inventory refreshed at origin/dev5120b6d5; current scene/state/runtime/acceptance review remains open; publication pending",
+  "phase": "R50 exact upstream declared source inventory published and anonymously verified; current scene/state/native/dynamic and all replacement/acceptance lanes remain open",
   "named_piece_records": 224,
   "named_family_count": 29,
   "named_status_counts": {
@@ -1333,8 +1333,21 @@
   ],
   "role_and_family_counts_are_separate": true,
   "publication": {
-    "status": "PENDING_THIS_REVISION",
-    "previous_final_proof_revision": "4c5c026fd4a3c1ffaded5f13a123a28a2e13f677"
+    "status": "PAYLOAD_AND_ALL_DECLARED_DEPENDENCIES_ANONYMOUSLY_VERIFIED",
+    "payload_revision": "f83bd2028f343e4bb6ddf30e0008c40429aca059",
+    "required_file_count": 15282,
+    "required_bytes": 5432876919,
+    "manifest_sha256": "57afb6cb42ab3362add0bf28bc1d0fb92ad075a9c649d8b3c2643f39d4c1f489",
+    "manifest_logical_sha256": "10209222b0522905c2005d48de1cf8a1541b671e59afdfb32a604fe8633f623a",
+    "manifest_physical_file_count": 7,
+    "payload_sha256": "ce37f4716fa88fc979759bb9363fbe9f7a56ad1ace669682c0beea69623e87ed",
+    "checked_at_utc": "2026-10-15T08:13:58.603532+00:00",
+    "access_mode": "Anonymous public immutable HTTPS GET for every required file plus manifest index/allparts; exact byte/length/SHA256. Public repo API independently checked.",
+    "manifest": "MANIFEST.json",
+    "receipt": "REMOTE_VERIFICATION.json",
+    "receipt_fragment_count": 10,
+    "receipt_logical_sha256": "10fbd12ce75b7d311e20cd7fb0dc68338cef082393a2e8e23ddd5b239e2a59d3",
+    "final_metadata_status": "FINAL_BYTE_RECEIPT separately binds exact receipt index/allparts and final canonical metadata"
   },
   "independent_style_review": {
     "file": "ROOT_CONTEXT_REVIEW_20261012.json",
@@ -2177,7 +2190,8 @@
   "change_record": {
     "id": "CHG-057",
     "impact": "design/audit_impacts/flat-vector-upstream-source-refresh-20261015.json",
-    "source_payload_pending": true
+    "source_payload_pending": false,
+    "payload_revision": "f83bd2028f343e4bb6ddf30e0008c40429aca059"
   },
   "teacher_pointer_reuse": {
     "revision": "FV-AUDIT-20261014-R28",
@@ -2309,35 +2323,35 @@
     "scope": "Actualprior exacthead CI state; pending/cancellednotgreen. NewR29exacthead pending;unchangedproduction/R16native evidence separate."
   },
   "current_ci_snapshot": {
-    "checked_at_utc": "2026-10-15T07:13:46.912367+00:00",
+    "checked_at_utc": "2026-10-15T08:14:17.809416+00:00",
     "runs": [
       {
         "conclusion": "",
-        "databaseId": 38696709531,
-        "headSha": "3f191462fddfa7052587eb1e2a16fba8e0722708",
+        "databaseId": 38703435830,
+        "headSha": "f83bd2028f343e4bb6ddf30e0008c40429aca059",
         "status": "in_progress",
-        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/38696709531"
-      },
-      {
-        "conclusion": "success",
-        "databaseId": 38691146885,
-        "headSha": "61d12c5b7d29cd106a817d8d0064aa60f48f3ed2",
-        "status": "completed",
-        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/38691146885"
+        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/38703435830"
       },
       {
         "conclusion": "cancelled",
-        "databaseId": 38690268887,
-        "headSha": "09ad19be8c2663e1592d3c30cef4f47357ebf1aa",
+        "databaseId": 38699230775,
+        "headSha": "4c5c026fd4a3c1ffaded5f13a123a28a2e13f677",
         "status": "completed",
-        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/38690268887"
+        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/38699230775"
       },
       {
         "conclusion": "cancelled",
-        "databaseId": 38688942655,
-        "headSha": "769b777a802a7c38500d0b7a9a2e2dd40673ac5b",
+        "databaseId": 38698846017,
+        "headSha": "2be771150729043791dc194149ea456c5192a495",
         "status": "completed",
-        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/38688942655"
+        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/38698846017"
+      },
+      {
+        "conclusion": "cancelled",
+        "databaseId": 38697668950,
+        "headSha": "b9e61c8c886e0e2683d8be9a68ec9545c6041ffa",
+        "status": "completed",
+        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/38697668950"
       }
     ],
     "scope": "Observed exact heads only;pending/cancelled are not green. No new local full82 or human/visual/device/child/owner acceptance from workflow results."

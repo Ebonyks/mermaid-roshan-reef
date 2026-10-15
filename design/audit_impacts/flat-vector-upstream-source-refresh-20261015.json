@@ -109,6 +109,16 @@
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r50_upstream_source_refresh/R49_SELECTED_CALLBACK_TRANSFER.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r50_upstream_source_refresh/README.md",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r50_upstream_source_refresh/RECEIPT_GATES.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r50_upstream_source_refresh/REMOTE_VERIFICATION.fragment0001.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r50_upstream_source_refresh/REMOTE_VERIFICATION.fragment0002.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r50_upstream_source_refresh/REMOTE_VERIFICATION.fragment0003.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r50_upstream_source_refresh/REMOTE_VERIFICATION.fragment0004.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r50_upstream_source_refresh/REMOTE_VERIFICATION.fragment0005.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r50_upstream_source_refresh/REMOTE_VERIFICATION.fragment0006.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r50_upstream_source_refresh/REMOTE_VERIFICATION.fragment0007.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r50_upstream_source_refresh/REMOTE_VERIFICATION.fragment0008.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r50_upstream_source_refresh/REMOTE_VERIFICATION.fragment0009.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r50_upstream_source_refresh/REMOTE_VERIFICATION.fragment0010.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r50_upstream_source_refresh/REMOTE_VERIFICATION.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r50_upstream_source_refresh/RESOURCE_CALLER_GRAPH.fragment0001.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r50_upstream_source_refresh/RESOURCE_CALLER_GRAPH.fragment0002.json",
@@ -199,8 +209,8 @@
     },
     {
       "command": "Exact public payload,all required dependencies/manifest parts/metadata and own final receipt verification",
-      "result": "PENDING",
-      "evidence": "Same durable topic; no local-only handoff"
+      "result": "PASS",
+      "evidence": "Exact payload f83bd2028f343e4bb6ddf30e0008c40429aca059:all15282 required files/5432876919 bytes anonymous GET/SHA256 at2026-10-15T08:13:58.603532+00:00. Manifest57afb6cb42ab3362add0bf28bc1d0fb92ad075a9c649d8b3c2643f39d4c1f489,payloadce37f4716fa88fc979759bb9363fbe9f7a56ad1ace669682c0beea69623e87ed. Final metadata/allreceiptparts/ownproof separately verified;publication not creative acceptance."
     }
   ],
   "acceptance_gaps": "Unknown artwork/screens/regressions,351 frozen primitive scopes,5 compositor runtime closures,all callback native/alias/resource domains,all current-upstream scene/action/state/reload/QA11/device/child/owner acceptance remain open. Source candidate counts never artremoved."
