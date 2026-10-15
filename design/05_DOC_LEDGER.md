@@ -1341,3 +1341,7 @@ release/device/child/owner authority retain precedence.
 | `docs/handoffs/codex_flat_vector_art_2026-10-07/r65_wardrobe_cached_fit/README.md` | 🔵 | `SUPPORTING_CURRENT`; ignored cached Wardrobe frame/fit225candidate50R64control checks;304native239bounded65excluded. Original targets/portraits preserved; thin contour/focus/source-use/phone/QA11/child/owner open. No production/newart/removal. |
 
 | `docs/handoffs/codex_flat_vector_art_2026-10-07/r65_wardrobe_cached_fit/REPRODUCTION.md` | 🔵 | `SUPPORTING_CURRENT`; final5fixtures/privateprofiles/nativeguards; initialbuilders scaffolding. NoQA11/freshOS/device/creative/child/owner acceptance. |
+
+| `docs/handoffs/codex_flat_vector_art_2026-10-07/r66_display_entry_context/README.md` | 🔵 | `SUPPORTING_CURRENT`; originaldisplayentry6cases60checks/private-reload3pass;2legacycases retainsourcepolicyFAIL.126native70bounded56excluded; newnamedvisiblegatemask/241roles33families/89partial87without0complete. No production/newart/acceptance/removal. |
+
+| `docs/handoffs/codex_flat_vector_art_2026-10-07/r66_display_entry_context/REPRODUCTION.md` | 🔵 | `SUPPORTING_CURRENT`; exact2fixture/privatepreReadydependency/actualNewGame reload and normal11guards; legacyFAIL andSparklydiagnostics preserved. No QA11/freshOS/device/creative/child/owner acceptance. |

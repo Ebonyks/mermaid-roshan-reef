@@ -1,0 +1,12 @@
+{
+  "status": "PASS_ACTUAL_RELOAD_PRIVATE_BEFORE_READY",
+  "case": "attempt1_dependency_1280",
+  "manifest_sha256": "8ab963b8fa187307c28fbf34553d370198d42ef75ba0703ffac3f0623997c5c1",
+  "fixture_dependencies": {
+    "base_capture.gd": "fec75c7bddae58d9ad0bbae6fad09d53c87f6f0f437d5edac03d23835b048c83",
+    "capture_entry.gd": "733f79292787a75efa7ee9e741b2c9854098b0643ba2e861f6b4556bd7d4521c"
+  },
+  "normal11unchanged": true,
+  "checked_at_utc": "2026-10-15T21:55:03.799737+00:00",
+  "scope": "Actual engine reload of unchanged original Main with dependency path injected beforeReady. Excluded from UI/route/art completion evidence; allows original private NewGame reload trial."
+}

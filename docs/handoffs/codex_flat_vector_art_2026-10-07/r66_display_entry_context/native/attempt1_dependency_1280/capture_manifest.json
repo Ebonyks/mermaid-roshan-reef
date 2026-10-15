@@ -1,0 +1,2607 @@
+{
+	"actual_child_data": false,
+	"aspect": [
+		1280,
+		720
+	],
+	"authored_world_bootstrap": false,
+	"bindings": [
+		{
+			"before_ready": true,
+			"main_id": 126768645642,
+			"private_path": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef-flat-vector-display-entry-20261015\\attempt1_dependency_1280\\output/private_profile/reef_save.json",
+			"scene_file_path": "res://scenes/main.tscn",
+			"ticks_msec": 7747
+		},
+		{
+			"before_ready": true,
+			"main_id": 160373411111,
+			"private_path": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef-flat-vector-display-entry-20261015\\attempt1_dependency_1280\\output/private_profile/reef_save.json",
+			"scene_file_path": "res://scenes/main.tscn",
+			"ticks_msec": 9058
+		}
+	],
+	"boot_count": 2,
+	"checks": [
+		{
+			"label": "original configured Main loaded with preReady private dependency",
+			"pass": true,
+			"ticks_msec": 8767
+		},
+		{
+			"label": "owned engine reload request accepted",
+			"pass": true,
+			"ticks_msec": 9049
+		},
+		{
+			"label": "actual engine reload injects private dependency before Main ready",
+			"pass": true,
+			"ticks_msec": 10079
+		}
+	],
+	"display": "Windows",
+	"engine": {
+		"build": "official",
+		"hash": "ed1daf0bf001b61586d9930840f2f1394092c079",
+		"hex": 263938,
+		"major": 4,
+		"minor": 7,
+		"patch": 2,
+		"status": "stable",
+		"string": "4.7.2-stable (official)",
+		"timestamp": 0
+	},
+	"errors": [],
+	"events": [],
+	"final_snapshot_before_retire": {
+		"archive": {
+			"exists": false
+		},
+		"bindings": [
+			{
+				"before_ready": true,
+				"main_id": 126768645642,
+				"private_path": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef-flat-vector-display-entry-20261015\\attempt1_dependency_1280\\output/private_profile/reef_save.json",
+				"scene_file_path": "res://scenes/main.tscn",
+				"ticks_msec": 7747
+			},
+			{
+				"before_ready": true,
+				"main_id": 160373411111,
+				"private_path": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef-flat-vector-display-entry-20261015\\attempt1_dependency_1280\\output/private_profile/reef_save.json",
+				"scene_file_path": "res://scenes/main.tscn",
+				"ticks_msec": 9058
+			}
+		],
+		"caption_timer": 0.0,
+		"castle_room": "main_hall",
+		"controls": [
+			{
+				"button_down_connections": 0,
+				"disabled": false,
+				"focus": true,
+				"focus_mode": 2,
+				"font_size": 34,
+				"global_rect": "[P: (290.0, 548.0), S: (340.0, 118.0)]",
+				"id": 184431938564,
+				"name": "StartMenuContinueButton",
+				"position": "(290.0, 548.0)",
+				"pressed": false,
+				"pressed_connections": 2,
+				"size": "(340.0, 118.0)",
+				"styles": {
+					"disabled": {
+						"class": "StyleBoxFlat",
+						"resource_id": -9223371852288619509
+					},
+					"focus": {
+						"class": "StyleBoxFlat",
+						"resource_id": -9223371852305396724
+					},
+					"hover": {
+						"class": "StyleBoxFlat",
+						"resource_id": -9223371852355728375
+					},
+					"hover_pressed": {
+						"class": "StyleBoxFlat",
+						"resource_id": -9223371852322173942
+					},
+					"normal": {
+						"class": "StyleBoxFlat",
+						"resource_id": -9223371852372505593
+					},
+					"pressed": {
+						"class": "StyleBoxFlat",
+						"resource_id": -9223371852338951160
+					}
+				},
+				"text": "▶  CONTINUE",
+				"visible": true
+			},
+			{
+				"button_down_connections": 0,
+				"disabled": false,
+				"focus": false,
+				"focus_mode": 2,
+				"font_size": 34,
+				"global_rect": "[P: (650.0, 548.0), S: (340.0, 118.0)]",
+				"id": 184868146210,
+				"name": "StartMenuNewGameButton",
+				"position": "(650.0, 548.0)",
+				"pressed": false,
+				"pressed_connections": 2,
+				"size": "(340.0, 118.0)",
+				"styles": {
+					"disabled": {
+						"class": "StyleBoxFlat",
+						"resource_id": -9223371851852411859
+					},
+					"focus": {
+						"class": "StyleBoxFlat",
+						"resource_id": -9223371851869189079
+					},
+					"hover": {
+						"class": "StyleBoxFlat",
+						"resource_id": -9223371851919520729
+					},
+					"hover_pressed": {
+						"class": "StyleBoxFlat",
+						"resource_id": -9223371851885966296
+					},
+					"normal": {
+						"class": "StyleBoxFlat",
+						"resource_id": -9223371851936297947
+					},
+					"pressed": {
+						"class": "StyleBoxFlat",
+						"resource_id": -9223371851902743514
+					}
+				},
+				"text": "★  NEW GAME",
+				"visible": true
+			},
+			{
+				"button_down_connections": 0,
+				"disabled": false,
+				"focus": false,
+				"focus_mode": 2,
+				"font_size": 25,
+				"global_rect": "[P: (1044.0, 594.0), S: (210.0, 104.0)]",
+				"id": 185304353857,
+				"name": "StartMenuOptionsTab",
+				"position": "(1044.0, 594.0)",
+				"pressed": false,
+				"pressed_connections": 2,
+				"size": "(210.0, 104.0)",
+				"styles": {
+					"disabled": {
+						"class": "StyleBoxFlat",
+						"resource_id": -9223371851416204212
+					},
+					"focus": {
+						"class": "StyleBoxFlat",
+						"resource_id": -9223371851432981429
+					},
+					"hover": {
+						"class": "StyleBoxFlat",
+						"resource_id": -9223371851483313083
+					},
+					"hover_pressed": {
+						"class": "StyleBoxFlat",
+						"resource_id": -9223371851449758646
+					},
+					"normal": {
+						"class": "StyleBoxFlat",
+						"resource_id": -9223371851500090300
+					},
+					"pressed": {
+						"class": "StyleBoxFlat",
+						"resource_id": -9223371851466535863
+					}
+				},
+				"text": "⚙  OPTIONS",
+				"visible": true
+			},
+			{
+				"button_down_connections": 0,
+				"disabled": false,
+				"focus": false,
+				"focus_mode": 2,
+				"font_size": 30,
+				"global_rect": "[P: (715.0, 325.0), S: (430.0, 100.0)]",
+				"id": 186562645145,
+				"name": "StartMenuQualityButton",
+				"position": "(715.0, 325.0)",
+				"pressed": false,
+				"pressed_connections": 2,
+				"size": "(430.0, 100.0)",
+				"styles": {
+					"disabled": {
+						"class": "StyleBoxFlat",
+						"resource_id": -9223371850157912929
+					},
+					"focus": {
+						"class": "StyleBoxFlat",
+						"resource_id": -9223371850174690152
+					},
+					"hover": {
+						"class": "StyleBoxFlat",
+						"resource_id": -9223371850225021795
+					},
+					"hover_pressed": {
+						"class": "StyleBoxFlat",
+						"resource_id": -9223371850191467369
+					},
+					"normal": {
+						"class": "StyleBoxFlat",
+						"resource_id": -9223371850241799012
+					},
+					"pressed": {
+						"class": "StyleBoxFlat",
+						"resource_id": -9223371850208244578
+					}
+				},
+				"text": "≋  SPEEDY",
+				"visible": false
+			},
+			{
+				"button_down_connections": 0,
+				"disabled": false,
+				"focus": false,
+				"focus_mode": 2,
+				"font_size": 30,
+				"global_rect": "[P: (715.0, 205.0), S: (430.0, 100.0)]",
+				"id": 186126437495,
+				"name": "StartMenuMusicButton",
+				"position": "(715.0, 205.0)",
+				"pressed": false,
+				"pressed_connections": 2,
+				"size": "(430.0, 100.0)",
+				"styles": {
+					"disabled": {
+						"class": "StyleBoxFlat",
+						"resource_id": -9223371850594120572
+					},
+					"focus": {
+						"class": "StyleBoxFlat",
+						"resource_id": -9223371850610897789
+					},
+					"hover": {
+						"class": "StyleBoxFlat",
+						"resource_id": -9223371850661229440
+					},
+					"hover_pressed": {
+						"class": "StyleBoxFlat",
+						"resource_id": -9223371850627675006
+					},
+					"normal": {
+						"class": "StyleBoxFlat",
+						"resource_id": -9223371850678006657
+					},
+					"pressed": {
+						"class": "StyleBoxFlat",
+						"resource_id": -9223371850644452223
+					}
+				},
+				"text": "♫̸  MUSIC OFF",
+				"visible": false
+			},
+			{
+				"button_down_connections": 0,
+				"disabled": false,
+				"focus": false,
+				"focus_mode": 2,
+				"font_size": 30,
+				"global_rect": "[P: (715.0, 445.0), S: (430.0, 100.0)]",
+				"id": 186998852790,
+				"name": "StartMenuMicButton",
+				"position": "(715.0, 445.0)",
+				"pressed": false,
+				"pressed_connections": 2,
+				"size": "(430.0, 100.0)",
+				"styles": {
+					"disabled": {
+						"class": "StyleBoxFlat",
+						"resource_id": -9223371849721705284
+					},
+					"focus": {
+						"class": "StyleBoxFlat",
+						"resource_id": -9223371849738482501
+					},
+					"hover": {
+						"class": "StyleBoxFlat",
+						"resource_id": -9223371849788814158
+					},
+					"hover_pressed": {
+						"class": "StyleBoxFlat",
+						"resource_id": -9223371849755259718
+					},
+					"normal": {
+						"class": "StyleBoxFlat",
+						"resource_id": -9223371849805591375
+					},
+					"pressed": {
+						"class": "StyleBoxFlat",
+						"resource_id": -9223371849772036935
+					}
+				},
+				"text": "🎤̸  SPELLS OFF",
+				"visible": false
+			},
+			{
+				"button_down_connections": 0,
+				"disabled": false,
+				"focus": false,
+				"focus_mode": 2,
+				"font_size": 38,
+				"global_rect": "[P: (1074.0, 90.0), S: (112.0, 112.0)]",
+				"id": 187435060430,
+				"name": "StartMenuOptionsCloseButton",
+				"position": "(1074.0, 90.0)",
+				"pressed": false,
+				"pressed_connections": 2,
+				"size": "(112.0, 112.0)",
+				"styles": {
+					"disabled": {
+						"class": "StyleBoxFlat",
+						"resource_id": -9223371849285497638
+					},
+					"focus": {
+						"class": "StyleBoxFlat",
+						"resource_id": -9223371849302274855
+					},
+					"hover": {
+						"class": "StyleBoxFlat",
+						"resource_id": -9223371849352606508
+					},
+					"hover_pressed": {
+						"class": "StyleBoxFlat",
+						"resource_id": -9223371849319052072
+					},
+					"normal": {
+						"class": "StyleBoxFlat",
+						"resource_id": -9223371849369383726
+					},
+					"pressed": {
+						"class": "StyleBoxFlat",
+						"resource_id": -9223371849335829289
+					}
+				},
+				"text": "↩",
+				"visible": false
+			},
+			{
+				"button_down_connections": 0,
+				"disabled": false,
+				"focus": false,
+				"focus_mode": 2,
+				"font_size": 30,
+				"global_rect": "[P: (320.0, 420.0), S: (300.0, 118.0)]",
+				"id": 188005485807,
+				"name": "StartMenuKeepGameButton",
+				"position": "(320.0, 420.0)",
+				"pressed": false,
+				"pressed_connections": 2,
+				"size": "(300.0, 118.0)",
+				"styles": {
+					"disabled": {
+						"class": "StyleBoxFlat",
+						"resource_id": -9223371848715072259
+					},
+					"focus": {
+						"class": "StyleBoxFlat",
+						"resource_id": -9223371848731849477
+					},
+					"hover": {
+						"class": "StyleBoxFlat",
+						"resource_id": -9223371848782181128
+					},
+					"hover_pressed": {
+						"class": "StyleBoxFlat",
+						"resource_id": -9223371848748626692
+					},
+					"normal": {
+						"class": "StyleBoxFlat",
+						"resource_id": -9223371848798958343
+					},
+					"pressed": {
+						"class": "StyleBoxFlat",
+						"resource_id": -9223371848765403910
+					}
+				},
+				"text": "↩  KEEP GAME",
+				"visible": false
+			},
+			{
+				"button_down_connections": 1,
+				"disabled": false,
+				"focus": false,
+				"focus_mode": 2,
+				"font_size": 30,
+				"global_rect": "[P: (660.0, 420.0), S: (300.0, 118.0)]",
+				"id": 188441693469,
+				"name": "StartMenuConfirmNewGameButton",
+				"position": "(660.0, 420.0)",
+				"pressed": false,
+				"pressed_connections": 1,
+				"size": "(300.0, 118.0)",
+				"styles": {
+					"disabled": {
+						"class": "StyleBoxFlat",
+						"resource_id": -9223371848278864607
+					},
+					"focus": {
+						"class": "StyleBoxFlat",
+						"resource_id": -9223371848295641824
+					},
+					"hover": {
+						"class": "StyleBoxFlat",
+						"resource_id": -9223371848345973473
+					},
+					"hover_pressed": {
+						"class": "StyleBoxFlat",
+						"resource_id": -9223371848312419045
+					},
+					"normal": {
+						"class": "StyleBoxFlat",
+						"resource_id": -9223371848362750690
+					},
+					"pressed": {
+						"class": "StyleBoxFlat",
+						"resource_id": -9223371848329196264
+					}
+				},
+				"text": "★  START NEW",
+				"visible": false
+			}
+		],
+		"current_scene_id": 160373411111,
+		"day_one": {
+			"day_one_active": true,
+			"day_one_arrival_plane_media_seen": false,
+			"day_one_art_cleaned_grime": {},
+			"day_one_art_collected_materials": {},
+			"day_one_art_customization_completed": false,
+			"day_one_art_desk_unlocked": false,
+			"day_one_bathroom_cleanup_step": 0,
+			"day_one_bathroom_supply_hunt_step": 0,
+			"day_one_bathroom_toilet_cleaned": false,
+			"day_one_bathroom_tools_authorized": false,
+			"day_one_bathroom_tub_drained": false,
+			"day_one_boss_door_glow": false,
+			"day_one_cleaned_rooms": [],
+			"day_one_completed_rooms": [],
+			"day_one_current_room": "bathroom",
+			"day_one_dirty_castle_discovered": false,
+			"day_one_giant_dust_bunny_boss_defeated": false,
+			"day_one_giant_dust_bunny_boss_triggered": false,
+			"day_one_grok_video_2_seen": false,
+			"day_one_jobs_locked": true,
+			"day_one_opera_enabled": false,
+			"day_one_pool_cleanup_step": 0,
+			"day_one_pool_rumi_met": false,
+			"day_one_pool_seahorse_tugs": 0,
+			"day_one_pool_skimmer_mask": 0,
+			"day_one_pool_waterfall_mask": 0
+		},
+		"disk": {
+			"day_one_active": true,
+			"exists": true,
+			"keys": [
+				"animals",
+				"attack_color",
+				"attack_effect",
+				"bwdone",
+				"care_points",
+				"castle_logo_color",
+				"castle_logo_symbol",
+				"chapter2_active",
+				"chapter2_active_objective",
+				"chapter2_cake_piece_mask",
+				"chapter2_candle_lit",
+				"chapter2_candle_taken",
+				"chapter2_candy_cake_finished",
+				"chapter2_chef_cake_baked",
+				"chapter2_ember_king_crashed",
+				"chapter2_ember_scout_seen",
+				"chapter2_ember_son_seen",
+				"chapter2_farmer_strawberries_ready",
+				"chapter2_job_phase_masks",
+				"chapter2_lawn_beat",
+				"chapter2_lawn_started",
+				"chapter2_party_dress_done",
+				"chapter2_party_event_phase",
+				"chapter2_party_piece_mask",
+				"chapter2_party_started",
+				"chapter2_protection_bumps",
+				"chapter2_protection_misses",
+				"chapter2_protection_rounds",
+				"chapter2_rainbow_candle_found",
+				"chapter2_skill_mask",
+				"chapter2_story_complete",
+				"chapter2_strawberry_mask",
+				"chapter2_stuffie_ballet_done",
+				"chapter2_unlocked_opera_mask",
+				"chapter3_fairy_door_opened",
+				"chapter3_fairy_door_revealed",
+				"chapter3_fairy_mission_started",
+				"character_clothing_parts",
+				"character_outfits",
+				"combat_fire",
+				"combat_ice",
+				"combat_tutorial",
+				"comfy_games",
+				"companion",
+				"companion_bruises",
+				"companion_colors",
+				"companion_resting",
+				"crafts",
+				"critters",
+				"custom_fish",
+				"custom_friends",
+				"day_one_active",
+				"day_one_arrival_plane_media_seen",
+				"day_one_art_cleaned_grime",
+				"day_one_art_collected_materials",
+				"day_one_art_customization_completed",
+				"day_one_art_desk_unlocked",
+				"day_one_bathroom_cleanup_step",
+				"day_one_bathroom_supply_hunt_step",
+				"day_one_bathroom_toilet_cleaned",
+				"day_one_bathroom_tools_authorized",
+				"day_one_bathroom_tub_drained",
+				"day_one_boss_door_glow",
+				"day_one_cleaned_rooms",
+				"day_one_completed_rooms",
+				"day_one_current_room",
+				"day_one_dirty_castle_discovered",
+				"day_one_giant_dust_bunny_boss_defeated",
+				"day_one_giant_dust_bunny_boss_triggered",
+				"day_one_grok_video_2_seen",
+				"day_one_jobs_locked",
+				"day_one_opera_enabled",
+				"day_one_pool_cleanup_step",
+				"day_one_pool_rumi_met",
+				"day_one_pool_seahorse_tugs",
+				"day_one_pool_skimmer_mask",
+				"day_one_pool_waterfall_mask",
+				"day_one_story_clips_seen",
+				"dungeon_done",
+				"dungeon_progress",
+				"ember_done",
+				"ember_found",
+				"ember_progress",
+				"fairyskin",
+				"fashion_disguise_progress",
+				"fashion_dressing_progress",
+				"fashion_rewards_claimed",
+				"finale",
+				"fish_tokens",
+				"flat_vector_private_unknown",
+				"found",
+				"galaxy",
+				"haptics",
+				"lagoon_plane_departed",
+				"level2",
+				"medals",
+				"mic",
+				"music",
+				"opera_done",
+				"opera_geology_checkpoint",
+				"opera_mastery",
+				"opera_pantry",
+				"opera_performance_checkpoints",
+				"opera_progress",
+				"opera_stars",
+				"outfits_unlocked",
+				"owned",
+				"pearls",
+				"pearls_ever",
+				"plays",
+				"portal_unlocked",
+				"quality",
+				"save_generation",
+				"schema_version",
+				"skin",
+				"stickers",
+				"stuffie_wins",
+				"teacher_learning_progress",
+				"teacher_lesson_checkpoint",
+				"touch_mode",
+				"won"
+			],
+			"pearls": 23.0,
+			"plays": 3.0,
+			"quality": "speedy",
+			"save_generation": 7.0,
+			"sha256": "08b469f26b3451aede6abadf5bd8776d5522d0f56251ce0b3c6f783106f83d83",
+			"skin": "classic",
+			"unknown": {
+				"keep": [
+					3.0,
+					7.0
+				],
+				"token": "R66_PRIVATE_ONLY"
+			}
+		},
+		"first_session": true,
+		"game": "",
+		"has_saved_game": true,
+		"intro_active": true,
+		"main_id": 160373411111,
+		"main_valid": true,
+		"movie": {
+			"active": false
+		},
+		"phase": "",
+		"private_path": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef-flat-vector-display-entry-20261015\\attempt1_dependency_1280\\output/private_profile/reef_save.json",
+		"quality": "speedy",
+		"reset_marker": false,
+		"route": {},
+		"save_generation": 7,
+		"scene_file_path": "res://scenes/main.tscn",
+		"skin": "classic",
+		"start_menu_active": true,
+		"time_scale": 1.0,
+		"tree_paused": false
+	},
+	"mode": "dependency",
+	"normal_after": {
+		"": "47c287147713fac860e25dade59da95961204f9b3170f5e00b5843e11590ad1e",
+		".bak": "de9d0441ed4d74f01cc8778c1c21600351b1426017d33a5ce99e69b03e893c3a",
+		".bak.old": "absent",
+		".bak.tmp": "absent",
+		".before_new_game": "4d07f08b6f378d3f6c31f2b52c726ecec4c719682693a9d5e823aaa91ec64158",
+		".before_new_game.old": "absent",
+		".before_new_game.tmp": "absent",
+		".old": "absent",
+		".tmp": "absent",
+		".tmp0": "absent",
+		".tmp1": "absent"
+	},
+	"normal_before": {
+		"": "47c287147713fac860e25dade59da95961204f9b3170f5e00b5843e11590ad1e",
+		".bak": "de9d0441ed4d74f01cc8778c1c21600351b1426017d33a5ce99e69b03e893c3a",
+		".bak.old": "absent",
+		".bak.tmp": "absent",
+		".before_new_game": "4d07f08b6f378d3f6c31f2b52c726ecec4c719682693a9d5e823aaa91ec64158",
+		".before_new_game.old": "absent",
+		".before_new_game.tmp": "absent",
+		".old": "absent",
+		".tmp": "absent",
+		".tmp0": "absent",
+		".tmp1": "absent"
+	},
+	"private_profile": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef-flat-vector-display-entry-20261015\\attempt1_dependency_1280\\output/private_profile/reef_save.json",
+	"production_changes": [],
+	"renderer": "mobile",
+	"schema": "reef.original_display_entry/1",
+	"scope": "Original configured Main/native StartMenu inputs and natural route. PreReady SaveState path substitution isolates every Main including actual reload; no gameplay/visual/quality/route/clock/camera writes. Missing-save desktopSparkly states explicitly diagnostic/excluded until actual Options selectsSpeedy. Original source movie is unskipped, Dummy audio. Same-process desktop evidence is notfreshOS/QA11/device/performance/child/owner/art or full route/fallback closure.",
+	"seed": {
+		"flat_vector_private_unknown": {
+			"keep": [
+				3,
+				7
+			],
+			"token": "R66_PRIVATE_ONLY"
+		},
+		"found": {},
+		"mic": false,
+		"music": false,
+		"pearls": 23,
+		"plays": 3,
+		"quality": "speedy",
+		"save_generation": 7,
+		"schema_version": 1,
+		"skin": "classic",
+		"won": {}
+	},
+	"source_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+	"source_route_forced": false,
+	"states": [
+		{
+			"id": "original_menu_settled",
+			"node_inventory_scope": "Visible Canvas hierarchy traversed from original Main; not full native/compositor/resource/projection/QA11 closure",
+			"path": "original_menu_settled.png",
+			"role": "ORIGINAL_DISPLAY_ENTRY_DIAGNOSTIC_NOT_QA11",
+			"selected_canvas_nodes": [
+				{
+					"class": "ColorRect",
+					"color": "(0.0, 0.0, 0.0, 1.0)",
+					"global_rect": "[P: (0.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 0.0)",
+					"mouse_filter": 2,
+					"path": "/root/Main/@CanvasLayer@25/@ColorRect@26",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (0.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"mouse_filter": 2,
+					"path": "/root/Main/LivingWorldLayer/LivingWorldCanvas",
+					"script": "res://scripts/living_world_canvas.gd",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (0.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"mouse_filter": 2,
+					"path": "/root/Main/@CanvasLayer@37/@Control@38",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (0.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"mouse_filter": 0,
+					"path": "/root/Main/StartMenu/StartMenuRoot",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"z_index": 0
+				},
+				{
+					"class": "ColorRect",
+					"color": "(0.0941, 0.5569, 0.8392, 1.0)",
+					"global_rect": "[P: (0.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"mouse_filter": 2,
+					"path": "/root/Main/StartMenu/StartMenuRoot/@ColorRect@326",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"z_index": 0
+				},
+				{
+					"class": "TextureRect",
+					"global_rect": "[P: (0.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"mouse_filter": 2,
+					"path": "/root/Main/StartMenu/StartMenuRoot/StartMenuBackground",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"texture": {
+						"class": "CompressedTexture2D",
+						"path": "res://assets/ui/boot_splash_mermaid_roshan.png",
+						"size": "(1024.0, 576.0)"
+					},
+					"z_index": 0
+				},
+				{
+					"class": "ColorRect",
+					"color": "(0.04, 0.05, 0.22, 0.1)",
+					"global_rect": "[P: (0.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"mouse_filter": 2,
+					"path": "/root/Main/StartMenu/StartMenuRoot/@ColorRect@327",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (0.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"mouse_filter": 0,
+					"path": "/root/Main/StartMenu/StartMenuRoot/StorybookStage",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"z_index": 0
+				},
+				{
+					"class": "Panel",
+					"global_rect": "[P: (252.0, 514.0), S: (776.0, 178.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"mouse_filter": 2,
+					"path": "/root/Main/StartMenu/StartMenuRoot/StorybookStage/StartMenuLaunchPanel",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (582.0, 492.0), S: (116.0, 82.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"mouse_filter": 2,
+					"path": "/root/Main/StartMenu/StartMenuRoot/StorybookStage/StartMenuShellCrest",
+					"script": "res://scripts/shell_ornament.gd",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"z_index": 0
+				},
+				{
+					"class": "Panel",
+					"global_rect": "[P: (271.0, 536.0), S: (18.0, 18.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"mouse_filter": 2,
+					"path": "/root/Main/StartMenu/StartMenuRoot/StorybookStage/StartMenuPearlTL",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"z_index": 0
+				},
+				{
+					"class": "Panel",
+					"global_rect": "[P: (991.0, 536.0), S: (18.0, 18.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"mouse_filter": 2,
+					"path": "/root/Main/StartMenu/StartMenuRoot/StorybookStage/StartMenuPearlTR",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"z_index": 0
+				},
+				{
+					"class": "Panel",
+					"global_rect": "[P: (277.0, 655.0), S: (14.0, 14.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"mouse_filter": 2,
+					"path": "/root/Main/StartMenu/StartMenuRoot/StorybookStage/StartMenuPearlBL",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"z_index": 0
+				},
+				{
+					"class": "Panel",
+					"global_rect": "[P: (989.0, 655.0), S: (14.0, 14.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"mouse_filter": 2,
+					"path": "/root/Main/StartMenu/StartMenuRoot/StorybookStage/StartMenuPearlBR",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"z_index": 0
+				},
+				{
+					"class": "Button",
+					"disabled": false,
+					"global_rect": "[P: (290.0, 548.0), S: (340.0, 118.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"mouse_filter": 0,
+					"normal_color": "(1.0, 0.78, 0.3, 0.98)",
+					"normal_style_class": "StyleBoxFlat",
+					"path": "/root/Main/StartMenu/StartMenuRoot/StorybookStage/StartMenuContinueButton",
+					"script": "",
+					"selected": false,
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"text": "▶  CONTINUE",
+					"z_index": 0
+				},
+				{
+					"class": "Panel",
+					"global_rect": "[P: (298.0, 556.0), S: (324.0, 102.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"mouse_filter": 2,
+					"path": "/root/Main/StartMenu/StartMenuRoot/StorybookStage/StartMenuContinueButton/StartMenuContinueButtonInsetHighlight",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"z_index": 0
+				},
+				{
+					"class": "Panel",
+					"global_rect": "[P: (332.0, 560.0), S: (256.0, 10.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"mouse_filter": 2,
+					"path": "/root/Main/StartMenu/StartMenuRoot/StorybookStage/StartMenuContinueButton/StartMenuContinueButtonPearlSheen",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"z_index": 0
+				},
+				{
+					"class": "Panel",
+					"global_rect": "[P: (304.0, 601.0), S: (12.0, 12.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"mouse_filter": 2,
+					"path": "/root/Main/StartMenu/StartMenuRoot/StorybookStage/StartMenuContinueButton/StartMenuContinueButtonPearlLeft",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"z_index": 0
+				},
+				{
+					"class": "Panel",
+					"global_rect": "[P: (604.0, 601.0), S: (12.0, 12.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"mouse_filter": 2,
+					"path": "/root/Main/StartMenu/StartMenuRoot/StorybookStage/StartMenuContinueButton/StartMenuContinueButtonPearlRight",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"z_index": 0
+				},
+				{
+					"class": "Label",
+					"font_size": 20,
+					"global_rect": "[P: (582.0, 556.0), S: (30.0, 30.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 0.785)",
+					"mouse_filter": 2,
+					"path": "/root/Main/StartMenu/StartMenuRoot/StorybookStage/StartMenuContinueButton/StartMenuContinueButtonSparkle",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"text": "✦",
+					"z_index": 0
+				},
+				{
+					"class": "Button",
+					"disabled": false,
+					"global_rect": "[P: (650.0, 548.0), S: (340.0, 118.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"mouse_filter": 0,
+					"normal_color": "(0.91, 0.93, 1.0, 0.98)",
+					"normal_style_class": "StyleBoxFlat",
+					"path": "/root/Main/StartMenu/StartMenuRoot/StorybookStage/StartMenuNewGameButton",
+					"script": "",
+					"selected": false,
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"text": "★  NEW GAME",
+					"z_index": 0
+				},
+				{
+					"class": "Panel",
+					"global_rect": "[P: (658.0, 556.0), S: (324.0, 102.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"mouse_filter": 2,
+					"path": "/root/Main/StartMenu/StartMenuRoot/StorybookStage/StartMenuNewGameButton/StartMenuNewGameButtonInsetHighlight",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"z_index": 0
+				},
+				{
+					"class": "Panel",
+					"global_rect": "[P: (692.0, 560.0), S: (256.0, 10.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"mouse_filter": 2,
+					"path": "/root/Main/StartMenu/StartMenuRoot/StorybookStage/StartMenuNewGameButton/StartMenuNewGameButtonPearlSheen",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"z_index": 0
+				},
+				{
+					"class": "Panel",
+					"global_rect": "[P: (664.0, 601.0), S: (12.0, 12.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"mouse_filter": 2,
+					"path": "/root/Main/StartMenu/StartMenuRoot/StorybookStage/StartMenuNewGameButton/StartMenuNewGameButtonPearlLeft",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"z_index": 0
+				},
+				{
+					"class": "Panel",
+					"global_rect": "[P: (964.0, 601.0), S: (12.0, 12.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"mouse_filter": 2,
+					"path": "/root/Main/StartMenu/StartMenuRoot/StorybookStage/StartMenuNewGameButton/StartMenuNewGameButtonPearlRight",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"z_index": 0
+				},
+				{
+					"class": "Label",
+					"font_size": 20,
+					"global_rect": "[P: (942.0, 556.0), S: (30.0, 30.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 0.785)",
+					"mouse_filter": 2,
+					"path": "/root/Main/StartMenu/StartMenuRoot/StorybookStage/StartMenuNewGameButton/StartMenuNewGameButtonSparkle",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"text": "✦",
+					"z_index": 0
+				},
+				{
+					"class": "Button",
+					"disabled": false,
+					"global_rect": "[P: (1044.0, 594.0), S: (210.0, 104.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"mouse_filter": 0,
+					"normal_color": "(0.91, 0.93, 1.0, 0.98)",
+					"normal_style_class": "StyleBoxFlat",
+					"path": "/root/Main/StartMenu/StartMenuRoot/StorybookStage/StartMenuOptionsTab",
+					"script": "",
+					"selected": false,
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"text": "⚙  OPTIONS",
+					"z_index": 0
+				},
+				{
+					"class": "Panel",
+					"global_rect": "[P: (1052.0, 602.0), S: (194.0, 88.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"mouse_filter": 2,
+					"path": "/root/Main/StartMenu/StartMenuRoot/StorybookStage/StartMenuOptionsTab/StartMenuOptionsTabInsetHighlight",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"z_index": 0
+				},
+				{
+					"class": "Panel",
+					"global_rect": "[P: (1086.0, 606.0), S: (126.0, 10.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"mouse_filter": 2,
+					"path": "/root/Main/StartMenu/StartMenuRoot/StorybookStage/StartMenuOptionsTab/StartMenuOptionsTabPearlSheen",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"z_index": 0
+				},
+				{
+					"class": "Panel",
+					"global_rect": "[P: (1058.0, 640.0), S: (12.0, 12.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"mouse_filter": 2,
+					"path": "/root/Main/StartMenu/StartMenuRoot/StorybookStage/StartMenuOptionsTab/StartMenuOptionsTabPearlLeft",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"z_index": 0
+				},
+				{
+					"class": "Panel",
+					"global_rect": "[P: (1228.0, 640.0), S: (12.0, 12.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"mouse_filter": 2,
+					"path": "/root/Main/StartMenu/StartMenuRoot/StorybookStage/StartMenuOptionsTab/StartMenuOptionsTabPearlRight",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"z_index": 0
+				},
+				{
+					"class": "Label",
+					"font_size": 20,
+					"global_rect": "[P: (1206.0, 602.0), S: (30.0, 30.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 0.785)",
+					"mouse_filter": 2,
+					"path": "/root/Main/StartMenu/StartMenuRoot/StorybookStage/StartMenuOptionsTab/StartMenuOptionsTabSparkle",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"text": "✦",
+					"z_index": 0
+				}
+			],
+			"sha256": "ac1925567d8d3f9ab142f45bbf93db2c2c5a5e8358bba05c5d2c13787009ae74",
+			"size": [
+				1280,
+				720
+			],
+			"snapshot": {
+				"archive": {
+					"exists": false
+				},
+				"bindings": [
+					{
+						"before_ready": true,
+						"main_id": 126768645642,
+						"private_path": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef-flat-vector-display-entry-20261015\\attempt1_dependency_1280\\output/private_profile/reef_save.json",
+						"scene_file_path": "res://scenes/main.tscn",
+						"ticks_msec": 7747
+					}
+				],
+				"caption_timer": 0.0,
+				"castle_room": "main_hall",
+				"controls": [
+					{
+						"button_down_connections": 0,
+						"disabled": false,
+						"focus": true,
+						"focus_mode": 2,
+						"font_size": 34,
+						"global_rect": "[P: (290.0, 548.0), S: (340.0, 118.0)]",
+						"id": 151850585078,
+						"name": "StartMenuContinueButton",
+						"position": "(290.0, 548.0)",
+						"pressed": false,
+						"pressed_connections": 2,
+						"size": "(340.0, 118.0)",
+						"styles": {
+							"disabled": {
+								"class": "StyleBoxFlat",
+								"resource_id": -9223371884869972994
+							},
+							"focus": {
+								"class": "StyleBoxFlat",
+								"resource_id": -9223371884886750211
+							},
+							"hover": {
+								"class": "StyleBoxFlat",
+								"resource_id": -9223371884937081862
+							},
+							"hover_pressed": {
+								"class": "StyleBoxFlat",
+								"resource_id": -9223371884903527428
+							},
+							"normal": {
+								"class": "StyleBoxFlat",
+								"resource_id": -9223371884953859079
+							},
+							"pressed": {
+								"class": "StyleBoxFlat",
+								"resource_id": -9223371884920304645
+							}
+						},
+						"text": "▶  CONTINUE",
+						"visible": true
+					},
+					{
+						"button_down_connections": 0,
+						"disabled": false,
+						"focus": false,
+						"focus_mode": 2,
+						"font_size": 34,
+						"global_rect": "[P: (650.0, 548.0), S: (340.0, 118.0)]",
+						"id": 152337124371,
+						"name": "StartMenuNewGameButton",
+						"position": "(650.0, 548.0)",
+						"pressed": false,
+						"pressed_connections": 2,
+						"size": "(340.0, 118.0)",
+						"styles": {
+							"disabled": {
+								"class": "StyleBoxFlat",
+								"resource_id": -9223371884383433701
+							},
+							"focus": {
+								"class": "StyleBoxFlat",
+								"resource_id": -9223371884400210918
+							},
+							"hover": {
+								"class": "StyleBoxFlat",
+								"resource_id": -9223371884450542569
+							},
+							"hover_pressed": {
+								"class": "StyleBoxFlat",
+								"resource_id": -9223371884416988135
+							},
+							"normal": {
+								"class": "StyleBoxFlat",
+								"resource_id": -9223371884467319786
+							},
+							"pressed": {
+								"class": "StyleBoxFlat",
+								"resource_id": -9223371884433765352
+							}
+						},
+						"text": "★  NEW GAME",
+						"visible": true
+					},
+					{
+						"button_down_connections": 0,
+						"disabled": false,
+						"focus": false,
+						"focus_mode": 2,
+						"font_size": 25,
+						"global_rect": "[P: (1044.0, 594.0), S: (210.0, 104.0)]",
+						"id": 152773332013,
+						"name": "StartMenuOptionsTab",
+						"position": "(1044.0, 594.0)",
+						"pressed": false,
+						"pressed_connections": 2,
+						"size": "(210.0, 104.0)",
+						"styles": {
+							"disabled": {
+								"class": "StyleBoxFlat",
+								"resource_id": -9223371883947226059
+							},
+							"focus": {
+								"class": "StyleBoxFlat",
+								"resource_id": -9223371883964003276
+							},
+							"hover": {
+								"class": "StyleBoxFlat",
+								"resource_id": -9223371884014334927
+							},
+							"hover_pressed": {
+								"class": "StyleBoxFlat",
+								"resource_id": -9223371883980780493
+							},
+							"normal": {
+								"class": "StyleBoxFlat",
+								"resource_id": -9223371884031112144
+							},
+							"pressed": {
+								"class": "StyleBoxFlat",
+								"resource_id": -9223371883997557710
+							}
+						},
+						"text": "⚙  OPTIONS",
+						"visible": true
+					},
+					{
+						"button_down_connections": 0,
+						"disabled": false,
+						"focus": false,
+						"focus_mode": 2,
+						"font_size": 30,
+						"global_rect": "[P: (715.0, 325.0), S: (430.0, 100.0)]",
+						"id": 154098732156,
+						"name": "StartMenuQualityButton",
+						"position": "(715.0, 325.0)",
+						"pressed": false,
+						"pressed_connections": 2,
+						"size": "(430.0, 100.0)",
+						"styles": {
+							"disabled": {
+								"class": "StyleBoxFlat",
+								"resource_id": -9223371882621825916
+							},
+							"focus": {
+								"class": "StyleBoxFlat",
+								"resource_id": -9223371882638603133
+							},
+							"hover": {
+								"class": "StyleBoxFlat",
+								"resource_id": -9223371882688934784
+							},
+							"hover_pressed": {
+								"class": "StyleBoxFlat",
+								"resource_id": -9223371882655380350
+							},
+							"normal": {
+								"class": "StyleBoxFlat",
+								"resource_id": -9223371882705712001
+							},
+							"pressed": {
+								"class": "StyleBoxFlat",
+								"resource_id": -9223371882672157567
+							}
+						},
+						"text": "≋  SPEEDY",
+						"visible": false
+					},
+					{
+						"button_down_connections": 0,
+						"disabled": false,
+						"focus": false,
+						"focus_mode": 2,
+						"font_size": 30,
+						"global_rect": "[P: (715.0, 205.0), S: (430.0, 100.0)]",
+						"id": 153662524514,
+						"name": "StartMenuMusicButton",
+						"position": "(715.0, 205.0)",
+						"pressed": false,
+						"pressed_connections": 2,
+						"size": "(430.0, 100.0)",
+						"styles": {
+							"disabled": {
+								"class": "StyleBoxFlat",
+								"resource_id": -9223371883058033558
+							},
+							"focus": {
+								"class": "StyleBoxFlat",
+								"resource_id": -9223371883074810775
+							},
+							"hover": {
+								"class": "StyleBoxFlat",
+								"resource_id": -9223371883125142426
+							},
+							"hover_pressed": {
+								"class": "StyleBoxFlat",
+								"resource_id": -9223371883091587992
+							},
+							"normal": {
+								"class": "StyleBoxFlat",
+								"resource_id": -9223371883141919643
+							},
+							"pressed": {
+								"class": "StyleBoxFlat",
+								"resource_id": -9223371883108365209
+							}
+						},
+						"text": "♫̸  MUSIC OFF",
+						"visible": false
+					},
+					{
+						"button_down_connections": 0,
+						"disabled": false,
+						"focus": false,
+						"focus_mode": 2,
+						"font_size": 30,
+						"global_rect": "[P: (715.0, 445.0), S: (430.0, 100.0)]",
+						"id": 154534939798,
+						"name": "StartMenuMicButton",
+						"position": "(715.0, 445.0)",
+						"pressed": false,
+						"pressed_connections": 2,
+						"size": "(430.0, 100.0)",
+						"styles": {
+							"disabled": {
+								"class": "StyleBoxFlat",
+								"resource_id": -9223371882185618274
+							},
+							"focus": {
+								"class": "StyleBoxFlat",
+								"resource_id": -9223371882202395491
+							},
+							"hover": {
+								"class": "StyleBoxFlat",
+								"resource_id": -9223371882252727142
+							},
+							"hover_pressed": {
+								"class": "StyleBoxFlat",
+								"resource_id": -9223371882219172708
+							},
+							"normal": {
+								"class": "StyleBoxFlat",
+								"resource_id": -9223371882269504359
+							},
+							"pressed": {
+								"class": "StyleBoxFlat",
+								"resource_id": -9223371882235949925
+							}
+						},
+						"text": "🎤̸  SPELLS OFF",
+						"visible": false
+					},
+					{
+						"button_down_connections": 0,
+						"disabled": false,
+						"focus": false,
+						"focus_mode": 2,
+						"font_size": 38,
+						"global_rect": "[P: (1074.0, 90.0), S: (112.0, 112.0)]",
+						"id": 154971147440,
+						"name": "StartMenuOptionsCloseButton",
+						"position": "(1074.0, 90.0)",
+						"pressed": false,
+						"pressed_connections": 2,
+						"size": "(112.0, 112.0)",
+						"styles": {
+							"disabled": {
+								"class": "StyleBoxFlat",
+								"resource_id": -9223371881749410632
+							},
+							"focus": {
+								"class": "StyleBoxFlat",
+								"resource_id": -9223371881766187849
+							},
+							"hover": {
+								"class": "StyleBoxFlat",
+								"resource_id": -9223371881816519500
+							},
+							"hover_pressed": {
+								"class": "StyleBoxFlat",
+								"resource_id": -9223371881782965066
+							},
+							"normal": {
+								"class": "StyleBoxFlat",
+								"resource_id": -9223371881833296717
+							},
+							"pressed": {
+								"class": "StyleBoxFlat",
+								"resource_id": -9223371881799742283
+							}
+						},
+						"text": "↩",
+						"visible": false
+					},
+					{
+						"button_down_connections": 0,
+						"disabled": false,
+						"focus": false,
+						"focus_mode": 2,
+						"font_size": 30,
+						"global_rect": "[P: (320.0, 420.0), S: (300.0, 118.0)]",
+						"id": 155575127252,
+						"name": "StartMenuKeepGameButton",
+						"position": "(320.0, 420.0)",
+						"pressed": false,
+						"pressed_connections": 2,
+						"size": "(300.0, 118.0)",
+						"styles": {
+							"disabled": {
+								"class": "StyleBoxFlat",
+								"resource_id": -9223371881145430820
+							},
+							"focus": {
+								"class": "StyleBoxFlat",
+								"resource_id": -9223371881162208037
+							},
+							"hover": {
+								"class": "StyleBoxFlat",
+								"resource_id": -9223371881212539688
+							},
+							"hover_pressed": {
+								"class": "StyleBoxFlat",
+								"resource_id": -9223371881178985254
+							},
+							"normal": {
+								"class": "StyleBoxFlat",
+								"resource_id": -9223371881229316905
+							},
+							"pressed": {
+								"class": "StyleBoxFlat",
+								"resource_id": -9223371881195762471
+							}
+						},
+						"text": "↩  KEEP GAME",
+						"visible": false
+					},
+					{
+						"button_down_connections": 1,
+						"disabled": false,
+						"focus": false,
+						"focus_mode": 2,
+						"font_size": 30,
+						"global_rect": "[P: (660.0, 420.0), S: (300.0, 118.0)]",
+						"id": 156011334894,
+						"name": "StartMenuConfirmNewGameButton",
+						"position": "(660.0, 420.0)",
+						"pressed": false,
+						"pressed_connections": 1,
+						"size": "(300.0, 118.0)",
+						"styles": {
+							"disabled": {
+								"class": "StyleBoxFlat",
+								"resource_id": -9223371880709223178
+							},
+							"focus": {
+								"class": "StyleBoxFlat",
+								"resource_id": -9223371880726000395
+							},
+							"hover": {
+								"class": "StyleBoxFlat",
+								"resource_id": -9223371880776332046
+							},
+							"hover_pressed": {
+								"class": "StyleBoxFlat",
+								"resource_id": -9223371880742777612
+							},
+							"normal": {
+								"class": "StyleBoxFlat",
+								"resource_id": -9223371880793109263
+							},
+							"pressed": {
+								"class": "StyleBoxFlat",
+								"resource_id": -9223371880759554829
+							}
+						},
+						"text": "★  START NEW",
+						"visible": false
+					}
+				],
+				"current_scene_id": 126768645642,
+				"day_one": {
+					"day_one_active": true,
+					"day_one_arrival_plane_media_seen": false,
+					"day_one_art_cleaned_grime": {},
+					"day_one_art_collected_materials": {},
+					"day_one_art_customization_completed": false,
+					"day_one_art_desk_unlocked": false,
+					"day_one_bathroom_cleanup_step": 0,
+					"day_one_bathroom_supply_hunt_step": 0,
+					"day_one_bathroom_toilet_cleaned": false,
+					"day_one_bathroom_tools_authorized": false,
+					"day_one_bathroom_tub_drained": false,
+					"day_one_boss_door_glow": false,
+					"day_one_cleaned_rooms": [],
+					"day_one_completed_rooms": [],
+					"day_one_current_room": "bathroom",
+					"day_one_dirty_castle_discovered": false,
+					"day_one_giant_dust_bunny_boss_defeated": false,
+					"day_one_giant_dust_bunny_boss_triggered": false,
+					"day_one_grok_video_2_seen": false,
+					"day_one_jobs_locked": true,
+					"day_one_opera_enabled": false,
+					"day_one_pool_cleanup_step": 0,
+					"day_one_pool_rumi_met": false,
+					"day_one_pool_seahorse_tugs": 0,
+					"day_one_pool_skimmer_mask": 0,
+					"day_one_pool_waterfall_mask": 0
+				},
+				"disk": {
+					"day_one_active": true,
+					"exists": true,
+					"keys": [
+						"animals",
+						"attack_color",
+						"attack_effect",
+						"bwdone",
+						"care_points",
+						"castle_logo_color",
+						"castle_logo_symbol",
+						"chapter2_active",
+						"chapter2_active_objective",
+						"chapter2_cake_piece_mask",
+						"chapter2_candle_lit",
+						"chapter2_candle_taken",
+						"chapter2_candy_cake_finished",
+						"chapter2_chef_cake_baked",
+						"chapter2_ember_king_crashed",
+						"chapter2_ember_scout_seen",
+						"chapter2_ember_son_seen",
+						"chapter2_farmer_strawberries_ready",
+						"chapter2_job_phase_masks",
+						"chapter2_lawn_beat",
+						"chapter2_lawn_started",
+						"chapter2_party_dress_done",
+						"chapter2_party_event_phase",
+						"chapter2_party_piece_mask",
+						"chapter2_party_started",
+						"chapter2_protection_bumps",
+						"chapter2_protection_misses",
+						"chapter2_protection_rounds",
+						"chapter2_rainbow_candle_found",
+						"chapter2_skill_mask",
+						"chapter2_story_complete",
+						"chapter2_strawberry_mask",
+						"chapter2_stuffie_ballet_done",
+						"chapter2_unlocked_opera_mask",
+						"chapter3_fairy_door_opened",
+						"chapter3_fairy_door_revealed",
+						"chapter3_fairy_mission_started",
+						"character_clothing_parts",
+						"character_outfits",
+						"combat_fire",
+						"combat_ice",
+						"combat_tutorial",
+						"comfy_games",
+						"companion",
+						"companion_bruises",
+						"companion_colors",
+						"companion_resting",
+						"crafts",
+						"critters",
+						"custom_fish",
+						"custom_friends",
+						"day_one_active",
+						"day_one_arrival_plane_media_seen",
+						"day_one_art_cleaned_grime",
+						"day_one_art_collected_materials",
+						"day_one_art_customization_completed",
+						"day_one_art_desk_unlocked",
+						"day_one_bathroom_cleanup_step",
+						"day_one_bathroom_supply_hunt_step",
+						"day_one_bathroom_toilet_cleaned",
+						"day_one_bathroom_tools_authorized",
+						"day_one_bathroom_tub_drained",
+						"day_one_boss_door_glow",
+						"day_one_cleaned_rooms",
+						"day_one_completed_rooms",
+						"day_one_current_room",
+						"day_one_dirty_castle_discovered",
+						"day_one_giant_dust_bunny_boss_defeated",
+						"day_one_giant_dust_bunny_boss_triggered",
+						"day_one_grok_video_2_seen",
+						"day_one_jobs_locked",
+						"day_one_opera_enabled",
+						"day_one_pool_cleanup_step",
+						"day_one_pool_rumi_met",
+						"day_one_pool_seahorse_tugs",
+						"day_one_pool_skimmer_mask",
+						"day_one_pool_waterfall_mask",
+						"day_one_story_clips_seen",
+						"dungeon_done",
+						"dungeon_progress",
+						"ember_done",
+						"ember_found",
+						"ember_progress",
+						"fairyskin",
+						"fashion_disguise_progress",
+						"fashion_dressing_progress",
+						"fashion_rewards_claimed",
+						"finale",
+						"fish_tokens",
+						"flat_vector_private_unknown",
+						"found",
+						"galaxy",
+						"haptics",
+						"lagoon_plane_departed",
+						"level2",
+						"medals",
+						"mic",
+						"music",
+						"opera_done",
+						"opera_geology_checkpoint",
+						"opera_mastery",
+						"opera_pantry",
+						"opera_performance_checkpoints",
+						"opera_progress",
+						"opera_stars",
+						"outfits_unlocked",
+						"owned",
+						"pearls",
+						"pearls_ever",
+						"plays",
+						"portal_unlocked",
+						"quality",
+						"save_generation",
+						"schema_version",
+						"skin",
+						"stickers",
+						"stuffie_wins",
+						"teacher_learning_progress",
+						"teacher_lesson_checkpoint",
+						"touch_mode",
+						"won"
+					],
+					"pearls": 23.0,
+					"plays": 3.0,
+					"quality": "speedy",
+					"save_generation": 7.0,
+					"sha256": "08b469f26b3451aede6abadf5bd8776d5522d0f56251ce0b3c6f783106f83d83",
+					"skin": "classic",
+					"unknown": {
+						"keep": [
+							3.0,
+							7.0
+						],
+						"token": "R66_PRIVATE_ONLY"
+					}
+				},
+				"first_session": true,
+				"game": "",
+				"has_saved_game": true,
+				"intro_active": true,
+				"main_id": 126768645642,
+				"main_valid": true,
+				"movie": {
+					"active": false
+				},
+				"phase": "",
+				"private_path": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef-flat-vector-display-entry-20261015\\attempt1_dependency_1280\\output/private_profile/reef_save.json",
+				"quality": "speedy",
+				"reset_marker": false,
+				"route": {},
+				"save_generation": 7,
+				"scene_file_path": "res://scenes/main.tscn",
+				"skin": "classic",
+				"start_menu_active": true,
+				"time_scale": 1.0,
+				"tree_paused": false
+			},
+			"ticks_msec": 9036
+		},
+		{
+			"id": "dependency_reload_private_menu",
+			"node_inventory_scope": "Visible Canvas hierarchy traversed from original Main; not full native/compositor/resource/projection/QA11 closure",
+			"path": "dependency_reload_private_menu.png",
+			"role": "ORIGINAL_DISPLAY_ENTRY_DIAGNOSTIC_NOT_QA11",
+			"selected_canvas_nodes": [
+				{
+					"class": "ColorRect",
+					"color": "(0.0, 0.0, 0.0, 1.0)",
+					"global_rect": "[P: (0.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 0.0)",
+					"mouse_filter": 2,
+					"path": "/root/Main/@CanvasLayer@366/@ColorRect@367",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (0.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"mouse_filter": 2,
+					"path": "/root/Main/LivingWorldLayer/LivingWorldCanvas",
+					"script": "res://scripts/living_world_canvas.gd",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (0.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"mouse_filter": 2,
+					"path": "/root/Main/@CanvasLayer@378/@Control@379",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (0.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"mouse_filter": 0,
+					"path": "/root/Main/StartMenu/StartMenuRoot",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"z_index": 0
+				},
+				{
+					"class": "ColorRect",
+					"color": "(0.0941, 0.5569, 0.8392, 1.0)",
+					"global_rect": "[P: (0.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"mouse_filter": 2,
+					"path": "/root/Main/StartMenu/StartMenuRoot/@ColorRect@667",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"z_index": 0
+				},
+				{
+					"class": "TextureRect",
+					"global_rect": "[P: (0.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"mouse_filter": 2,
+					"path": "/root/Main/StartMenu/StartMenuRoot/StartMenuBackground",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"texture": {
+						"class": "CompressedTexture2D",
+						"path": "res://assets/ui/boot_splash_mermaid_roshan.png",
+						"size": "(1024.0, 576.0)"
+					},
+					"z_index": 0
+				},
+				{
+					"class": "ColorRect",
+					"color": "(0.04, 0.05, 0.22, 0.1)",
+					"global_rect": "[P: (0.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"mouse_filter": 2,
+					"path": "/root/Main/StartMenu/StartMenuRoot/@ColorRect@668",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (0.0, 0.0), S: (1280.0, 720.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"mouse_filter": 0,
+					"path": "/root/Main/StartMenu/StartMenuRoot/StorybookStage",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"z_index": 0
+				},
+				{
+					"class": "Panel",
+					"global_rect": "[P: (252.0, 514.0), S: (776.0, 178.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"mouse_filter": 2,
+					"path": "/root/Main/StartMenu/StartMenuRoot/StorybookStage/StartMenuLaunchPanel",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"z_index": 0
+				},
+				{
+					"class": "Control",
+					"global_rect": "[P: (582.0, 492.0), S: (116.0, 82.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"mouse_filter": 2,
+					"path": "/root/Main/StartMenu/StartMenuRoot/StorybookStage/StartMenuShellCrest",
+					"script": "res://scripts/shell_ornament.gd",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"z_index": 0
+				},
+				{
+					"class": "Panel",
+					"global_rect": "[P: (271.0, 536.0), S: (18.0, 18.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"mouse_filter": 2,
+					"path": "/root/Main/StartMenu/StartMenuRoot/StorybookStage/StartMenuPearlTL",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"z_index": 0
+				},
+				{
+					"class": "Panel",
+					"global_rect": "[P: (991.0, 536.0), S: (18.0, 18.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"mouse_filter": 2,
+					"path": "/root/Main/StartMenu/StartMenuRoot/StorybookStage/StartMenuPearlTR",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"z_index": 0
+				},
+				{
+					"class": "Panel",
+					"global_rect": "[P: (277.0, 655.0), S: (14.0, 14.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"mouse_filter": 2,
+					"path": "/root/Main/StartMenu/StartMenuRoot/StorybookStage/StartMenuPearlBL",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"z_index": 0
+				},
+				{
+					"class": "Panel",
+					"global_rect": "[P: (989.0, 655.0), S: (14.0, 14.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"mouse_filter": 2,
+					"path": "/root/Main/StartMenu/StartMenuRoot/StorybookStage/StartMenuPearlBR",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"z_index": 0
+				},
+				{
+					"class": "Button",
+					"disabled": false,
+					"global_rect": "[P: (290.0, 548.0), S: (340.0, 118.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"mouse_filter": 0,
+					"normal_color": "(1.0, 0.78, 0.3, 0.98)",
+					"normal_style_class": "StyleBoxFlat",
+					"path": "/root/Main/StartMenu/StartMenuRoot/StorybookStage/StartMenuContinueButton",
+					"script": "",
+					"selected": false,
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"text": "▶  CONTINUE",
+					"z_index": 0
+				},
+				{
+					"class": "Panel",
+					"global_rect": "[P: (298.0, 556.0), S: (324.0, 102.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"mouse_filter": 2,
+					"path": "/root/Main/StartMenu/StartMenuRoot/StorybookStage/StartMenuContinueButton/StartMenuContinueButtonInsetHighlight",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"z_index": 0
+				},
+				{
+					"class": "Panel",
+					"global_rect": "[P: (332.0, 560.0), S: (256.0, 10.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"mouse_filter": 2,
+					"path": "/root/Main/StartMenu/StartMenuRoot/StorybookStage/StartMenuContinueButton/StartMenuContinueButtonPearlSheen",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"z_index": 0
+				},
+				{
+					"class": "Panel",
+					"global_rect": "[P: (304.0, 601.0), S: (12.0, 12.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"mouse_filter": 2,
+					"path": "/root/Main/StartMenu/StartMenuRoot/StorybookStage/StartMenuContinueButton/StartMenuContinueButtonPearlLeft",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"z_index": 0
+				},
+				{
+					"class": "Panel",
+					"global_rect": "[P: (604.0, 601.0), S: (12.0, 12.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"mouse_filter": 2,
+					"path": "/root/Main/StartMenu/StartMenuRoot/StorybookStage/StartMenuContinueButton/StartMenuContinueButtonPearlRight",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"z_index": 0
+				},
+				{
+					"class": "Label",
+					"font_size": 20,
+					"global_rect": "[P: (582.0, 556.0), S: (30.0, 30.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 0.4647)",
+					"mouse_filter": 2,
+					"path": "/root/Main/StartMenu/StartMenuRoot/StorybookStage/StartMenuContinueButton/StartMenuContinueButtonSparkle",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"text": "✦",
+					"z_index": 0
+				},
+				{
+					"class": "Button",
+					"disabled": false,
+					"global_rect": "[P: (650.0, 548.0), S: (340.0, 118.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"mouse_filter": 0,
+					"normal_color": "(0.91, 0.93, 1.0, 0.98)",
+					"normal_style_class": "StyleBoxFlat",
+					"path": "/root/Main/StartMenu/StartMenuRoot/StorybookStage/StartMenuNewGameButton",
+					"script": "",
+					"selected": false,
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"text": "★  NEW GAME",
+					"z_index": 0
+				},
+				{
+					"class": "Panel",
+					"global_rect": "[P: (658.0, 556.0), S: (324.0, 102.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"mouse_filter": 2,
+					"path": "/root/Main/StartMenu/StartMenuRoot/StorybookStage/StartMenuNewGameButton/StartMenuNewGameButtonInsetHighlight",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"z_index": 0
+				},
+				{
+					"class": "Panel",
+					"global_rect": "[P: (692.0, 560.0), S: (256.0, 10.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"mouse_filter": 2,
+					"path": "/root/Main/StartMenu/StartMenuRoot/StorybookStage/StartMenuNewGameButton/StartMenuNewGameButtonPearlSheen",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"z_index": 0
+				},
+				{
+					"class": "Panel",
+					"global_rect": "[P: (664.0, 601.0), S: (12.0, 12.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"mouse_filter": 2,
+					"path": "/root/Main/StartMenu/StartMenuRoot/StorybookStage/StartMenuNewGameButton/StartMenuNewGameButtonPearlLeft",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"z_index": 0
+				},
+				{
+					"class": "Panel",
+					"global_rect": "[P: (964.0, 601.0), S: (12.0, 12.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"mouse_filter": 2,
+					"path": "/root/Main/StartMenu/StartMenuRoot/StorybookStage/StartMenuNewGameButton/StartMenuNewGameButtonPearlRight",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"z_index": 0
+				},
+				{
+					"class": "Label",
+					"font_size": 20,
+					"global_rect": "[P: (942.0, 556.0), S: (30.0, 30.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 0.4647)",
+					"mouse_filter": 2,
+					"path": "/root/Main/StartMenu/StartMenuRoot/StorybookStage/StartMenuNewGameButton/StartMenuNewGameButtonSparkle",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"text": "✦",
+					"z_index": 0
+				},
+				{
+					"class": "Button",
+					"disabled": false,
+					"global_rect": "[P: (1044.0, 594.0), S: (210.0, 104.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"mouse_filter": 0,
+					"normal_color": "(0.91, 0.93, 1.0, 0.98)",
+					"normal_style_class": "StyleBoxFlat",
+					"path": "/root/Main/StartMenu/StartMenuRoot/StorybookStage/StartMenuOptionsTab",
+					"script": "",
+					"selected": false,
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"text": "⚙  OPTIONS",
+					"z_index": 0
+				},
+				{
+					"class": "Panel",
+					"global_rect": "[P: (1052.0, 602.0), S: (194.0, 88.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"mouse_filter": 2,
+					"path": "/root/Main/StartMenu/StartMenuRoot/StorybookStage/StartMenuOptionsTab/StartMenuOptionsTabInsetHighlight",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"z_index": 0
+				},
+				{
+					"class": "Panel",
+					"global_rect": "[P: (1086.0, 606.0), S: (126.0, 10.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"mouse_filter": 2,
+					"path": "/root/Main/StartMenu/StartMenuRoot/StorybookStage/StartMenuOptionsTab/StartMenuOptionsTabPearlSheen",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"z_index": 0
+				},
+				{
+					"class": "Panel",
+					"global_rect": "[P: (1058.0, 640.0), S: (12.0, 12.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"mouse_filter": 2,
+					"path": "/root/Main/StartMenu/StartMenuRoot/StorybookStage/StartMenuOptionsTab/StartMenuOptionsTabPearlLeft",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"z_index": 0
+				},
+				{
+					"class": "Panel",
+					"global_rect": "[P: (1228.0, 640.0), S: (12.0, 12.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"mouse_filter": 2,
+					"path": "/root/Main/StartMenu/StartMenuRoot/StorybookStage/StartMenuOptionsTab/StartMenuOptionsTabPearlRight",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"z_index": 0
+				},
+				{
+					"class": "Label",
+					"font_size": 20,
+					"global_rect": "[P: (1206.0, 602.0), S: (30.0, 30.0)]",
+					"modulate": "(1.0, 1.0, 1.0, 0.4647)",
+					"mouse_filter": 2,
+					"path": "/root/Main/StartMenu/StartMenuRoot/StorybookStage/StartMenuOptionsTab/StartMenuOptionsTabSparkle",
+					"script": "",
+					"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+					"text": "✦",
+					"z_index": 0
+				}
+			],
+			"sha256": "f3386f878bff6a0501fcb2f149570044432fb22ee150a58245803a9344f861fe",
+			"size": [
+				1280,
+				720
+			],
+			"snapshot": {
+				"archive": {
+					"exists": false
+				},
+				"bindings": [
+					{
+						"before_ready": true,
+						"main_id": 126768645642,
+						"private_path": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef-flat-vector-display-entry-20261015\\attempt1_dependency_1280\\output/private_profile/reef_save.json",
+						"scene_file_path": "res://scenes/main.tscn",
+						"ticks_msec": 7747
+					},
+					{
+						"before_ready": true,
+						"main_id": 160373411111,
+						"private_path": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef-flat-vector-display-entry-20261015\\attempt1_dependency_1280\\output/private_profile/reef_save.json",
+						"scene_file_path": "res://scenes/main.tscn",
+						"ticks_msec": 9058
+					}
+				],
+				"caption_timer": 0.0,
+				"castle_room": "main_hall",
+				"controls": [
+					{
+						"button_down_connections": 0,
+						"disabled": false,
+						"focus": true,
+						"focus_mode": 2,
+						"font_size": 34,
+						"global_rect": "[P: (290.0, 548.0), S: (340.0, 118.0)]",
+						"id": 184431938564,
+						"name": "StartMenuContinueButton",
+						"position": "(290.0, 548.0)",
+						"pressed": false,
+						"pressed_connections": 2,
+						"size": "(340.0, 118.0)",
+						"styles": {
+							"disabled": {
+								"class": "StyleBoxFlat",
+								"resource_id": -9223371852288619509
+							},
+							"focus": {
+								"class": "StyleBoxFlat",
+								"resource_id": -9223371852305396724
+							},
+							"hover": {
+								"class": "StyleBoxFlat",
+								"resource_id": -9223371852355728375
+							},
+							"hover_pressed": {
+								"class": "StyleBoxFlat",
+								"resource_id": -9223371852322173942
+							},
+							"normal": {
+								"class": "StyleBoxFlat",
+								"resource_id": -9223371852372505593
+							},
+							"pressed": {
+								"class": "StyleBoxFlat",
+								"resource_id": -9223371852338951160
+							}
+						},
+						"text": "▶  CONTINUE",
+						"visible": true
+					},
+					{
+						"button_down_connections": 0,
+						"disabled": false,
+						"focus": false,
+						"focus_mode": 2,
+						"font_size": 34,
+						"global_rect": "[P: (650.0, 548.0), S: (340.0, 118.0)]",
+						"id": 184868146210,
+						"name": "StartMenuNewGameButton",
+						"position": "(650.0, 548.0)",
+						"pressed": false,
+						"pressed_connections": 2,
+						"size": "(340.0, 118.0)",
+						"styles": {
+							"disabled": {
+								"class": "StyleBoxFlat",
+								"resource_id": -9223371851852411859
+							},
+							"focus": {
+								"class": "StyleBoxFlat",
+								"resource_id": -9223371851869189079
+							},
+							"hover": {
+								"class": "StyleBoxFlat",
+								"resource_id": -9223371851919520729
+							},
+							"hover_pressed": {
+								"class": "StyleBoxFlat",
+								"resource_id": -9223371851885966296
+							},
+							"normal": {
+								"class": "StyleBoxFlat",
+								"resource_id": -9223371851936297947
+							},
+							"pressed": {
+								"class": "StyleBoxFlat",
+								"resource_id": -9223371851902743514
+							}
+						},
+						"text": "★  NEW GAME",
+						"visible": true
+					},
+					{
+						"button_down_connections": 0,
+						"disabled": false,
+						"focus": false,
+						"focus_mode": 2,
+						"font_size": 25,
+						"global_rect": "[P: (1044.0, 594.0), S: (210.0, 104.0)]",
+						"id": 185304353857,
+						"name": "StartMenuOptionsTab",
+						"position": "(1044.0, 594.0)",
+						"pressed": false,
+						"pressed_connections": 2,
+						"size": "(210.0, 104.0)",
+						"styles": {
+							"disabled": {
+								"class": "StyleBoxFlat",
+								"resource_id": -9223371851416204212
+							},
+							"focus": {
+								"class": "StyleBoxFlat",
+								"resource_id": -9223371851432981429
+							},
+							"hover": {
+								"class": "StyleBoxFlat",
+								"resource_id": -9223371851483313083
+							},
+							"hover_pressed": {
+								"class": "StyleBoxFlat",
+								"resource_id": -9223371851449758646
+							},
+							"normal": {
+								"class": "StyleBoxFlat",
+								"resource_id": -9223371851500090300
+							},
+							"pressed": {
+								"class": "StyleBoxFlat",
+								"resource_id": -9223371851466535863
+							}
+						},
+						"text": "⚙  OPTIONS",
+						"visible": true
+					},
+					{
+						"button_down_connections": 0,
+						"disabled": false,
+						"focus": false,
+						"focus_mode": 2,
+						"font_size": 30,
+						"global_rect": "[P: (715.0, 325.0), S: (430.0, 100.0)]",
+						"id": 186562645145,
+						"name": "StartMenuQualityButton",
+						"position": "(715.0, 325.0)",
+						"pressed": false,
+						"pressed_connections": 2,
+						"size": "(430.0, 100.0)",
+						"styles": {
+							"disabled": {
+								"class": "StyleBoxFlat",
+								"resource_id": -9223371850157912929
+							},
+							"focus": {
+								"class": "StyleBoxFlat",
+								"resource_id": -9223371850174690152
+							},
+							"hover": {
+								"class": "StyleBoxFlat",
+								"resource_id": -9223371850225021795
+							},
+							"hover_pressed": {
+								"class": "StyleBoxFlat",
+								"resource_id": -9223371850191467369
+							},
+							"normal": {
+								"class": "StyleBoxFlat",
+								"resource_id": -9223371850241799012
+							},
+							"pressed": {
+								"class": "StyleBoxFlat",
+								"resource_id": -9223371850208244578
+							}
+						},
+						"text": "≋  SPEEDY",
+						"visible": false
+					},
+					{
+						"button_down_connections": 0,
+						"disabled": false,
+						"focus": false,
+						"focus_mode": 2,
+						"font_size": 30,
+						"global_rect": "[P: (715.0, 205.0), S: (430.0, 100.0)]",
+						"id": 186126437495,
+						"name": "StartMenuMusicButton",
+						"position": "(715.0, 205.0)",
+						"pressed": false,
+						"pressed_connections": 2,
+						"size": "(430.0, 100.0)",
+						"styles": {
+							"disabled": {
+								"class": "StyleBoxFlat",
+								"resource_id": -9223371850594120572
+							},
+							"focus": {
+								"class": "StyleBoxFlat",
+								"resource_id": -9223371850610897789
+							},
+							"hover": {
+								"class": "StyleBoxFlat",
+								"resource_id": -9223371850661229440
+							},
+							"hover_pressed": {
+								"class": "StyleBoxFlat",
+								"resource_id": -9223371850627675006
+							},
+							"normal": {
+								"class": "StyleBoxFlat",
+								"resource_id": -9223371850678006657
+							},
+							"pressed": {
+								"class": "StyleBoxFlat",
+								"resource_id": -9223371850644452223
+							}
+						},
+						"text": "♫̸  MUSIC OFF",
+						"visible": false
+					},
+					{
+						"button_down_connections": 0,
+						"disabled": false,
+						"focus": false,
+						"focus_mode": 2,
+						"font_size": 30,
+						"global_rect": "[P: (715.0, 445.0), S: (430.0, 100.0)]",
+						"id": 186998852790,
+						"name": "StartMenuMicButton",
+						"position": "(715.0, 445.0)",
+						"pressed": false,
+						"pressed_connections": 2,
+						"size": "(430.0, 100.0)",
+						"styles": {
+							"disabled": {
+								"class": "StyleBoxFlat",
+								"resource_id": -9223371849721705284
+							},
+							"focus": {
+								"class": "StyleBoxFlat",
+								"resource_id": -9223371849738482501
+							},
+							"hover": {
+								"class": "StyleBoxFlat",
+								"resource_id": -9223371849788814158
+							},
+							"hover_pressed": {
+								"class": "StyleBoxFlat",
+								"resource_id": -9223371849755259718
+							},
+							"normal": {
+								"class": "StyleBoxFlat",
+								"resource_id": -9223371849805591375
+							},
+							"pressed": {
+								"class": "StyleBoxFlat",
+								"resource_id": -9223371849772036935
+							}
+						},
+						"text": "🎤̸  SPELLS OFF",
+						"visible": false
+					},
+					{
+						"button_down_connections": 0,
+						"disabled": false,
+						"focus": false,
+						"focus_mode": 2,
+						"font_size": 38,
+						"global_rect": "[P: (1074.0, 90.0), S: (112.0, 112.0)]",
+						"id": 187435060430,
+						"name": "StartMenuOptionsCloseButton",
+						"position": "(1074.0, 90.0)",
+						"pressed": false,
+						"pressed_connections": 2,
+						"size": "(112.0, 112.0)",
+						"styles": {
+							"disabled": {
+								"class": "StyleBoxFlat",
+								"resource_id": -9223371849285497638
+							},
+							"focus": {
+								"class": "StyleBoxFlat",
+								"resource_id": -9223371849302274855
+							},
+							"hover": {
+								"class": "StyleBoxFlat",
+								"resource_id": -9223371849352606508
+							},
+							"hover_pressed": {
+								"class": "StyleBoxFlat",
+								"resource_id": -9223371849319052072
+							},
+							"normal": {
+								"class": "StyleBoxFlat",
+								"resource_id": -9223371849369383726
+							},
+							"pressed": {
+								"class": "StyleBoxFlat",
+								"resource_id": -9223371849335829289
+							}
+						},
+						"text": "↩",
+						"visible": false
+					},
+					{
+						"button_down_connections": 0,
+						"disabled": false,
+						"focus": false,
+						"focus_mode": 2,
+						"font_size": 30,
+						"global_rect": "[P: (320.0, 420.0), S: (300.0, 118.0)]",
+						"id": 188005485807,
+						"name": "StartMenuKeepGameButton",
+						"position": "(320.0, 420.0)",
+						"pressed": false,
+						"pressed_connections": 2,
+						"size": "(300.0, 118.0)",
+						"styles": {
+							"disabled": {
+								"class": "StyleBoxFlat",
+								"resource_id": -9223371848715072259
+							},
+							"focus": {
+								"class": "StyleBoxFlat",
+								"resource_id": -9223371848731849477
+							},
+							"hover": {
+								"class": "StyleBoxFlat",
+								"resource_id": -9223371848782181128
+							},
+							"hover_pressed": {
+								"class": "StyleBoxFlat",
+								"resource_id": -9223371848748626692
+							},
+							"normal": {
+								"class": "StyleBoxFlat",
+								"resource_id": -9223371848798958343
+							},
+							"pressed": {
+								"class": "StyleBoxFlat",
+								"resource_id": -9223371848765403910
+							}
+						},
+						"text": "↩  KEEP GAME",
+						"visible": false
+					},
+					{
+						"button_down_connections": 1,
+						"disabled": false,
+						"focus": false,
+						"focus_mode": 2,
+						"font_size": 30,
+						"global_rect": "[P: (660.0, 420.0), S: (300.0, 118.0)]",
+						"id": 188441693469,
+						"name": "StartMenuConfirmNewGameButton",
+						"position": "(660.0, 420.0)",
+						"pressed": false,
+						"pressed_connections": 1,
+						"size": "(300.0, 118.0)",
+						"styles": {
+							"disabled": {
+								"class": "StyleBoxFlat",
+								"resource_id": -9223371848278864607
+							},
+							"focus": {
+								"class": "StyleBoxFlat",
+								"resource_id": -9223371848295641824
+							},
+							"hover": {
+								"class": "StyleBoxFlat",
+								"resource_id": -9223371848345973473
+							},
+							"hover_pressed": {
+								"class": "StyleBoxFlat",
+								"resource_id": -9223371848312419045
+							},
+							"normal": {
+								"class": "StyleBoxFlat",
+								"resource_id": -9223371848362750690
+							},
+							"pressed": {
+								"class": "StyleBoxFlat",
+								"resource_id": -9223371848329196264
+							}
+						},
+						"text": "★  START NEW",
+						"visible": false
+					}
+				],
+				"current_scene_id": 160373411111,
+				"day_one": {
+					"day_one_active": true,
+					"day_one_arrival_plane_media_seen": false,
+					"day_one_art_cleaned_grime": {},
+					"day_one_art_collected_materials": {},
+					"day_one_art_customization_completed": false,
+					"day_one_art_desk_unlocked": false,
+					"day_one_bathroom_cleanup_step": 0,
+					"day_one_bathroom_supply_hunt_step": 0,
+					"day_one_bathroom_toilet_cleaned": false,
+					"day_one_bathroom_tools_authorized": false,
+					"day_one_bathroom_tub_drained": false,
+					"day_one_boss_door_glow": false,
+					"day_one_cleaned_rooms": [],
+					"day_one_completed_rooms": [],
+					"day_one_current_room": "bathroom",
+					"day_one_dirty_castle_discovered": false,
+					"day_one_giant_dust_bunny_boss_defeated": false,
+					"day_one_giant_dust_bunny_boss_triggered": false,
+					"day_one_grok_video_2_seen": false,
+					"day_one_jobs_locked": true,
+					"day_one_opera_enabled": false,
+					"day_one_pool_cleanup_step": 0,
+					"day_one_pool_rumi_met": false,
+					"day_one_pool_seahorse_tugs": 0,
+					"day_one_pool_skimmer_mask": 0,
+					"day_one_pool_waterfall_mask": 0
+				},
+				"disk": {
+					"day_one_active": true,
+					"exists": true,
+					"keys": [
+						"animals",
+						"attack_color",
+						"attack_effect",
+						"bwdone",
+						"care_points",
+						"castle_logo_color",
+						"castle_logo_symbol",
+						"chapter2_active",
+						"chapter2_active_objective",
+						"chapter2_cake_piece_mask",
+						"chapter2_candle_lit",
+						"chapter2_candle_taken",
+						"chapter2_candy_cake_finished",
+						"chapter2_chef_cake_baked",
+						"chapter2_ember_king_crashed",
+						"chapter2_ember_scout_seen",
+						"chapter2_ember_son_seen",
+						"chapter2_farmer_strawberries_ready",
+						"chapter2_job_phase_masks",
+						"chapter2_lawn_beat",
+						"chapter2_lawn_started",
+						"chapter2_party_dress_done",
+						"chapter2_party_event_phase",
+						"chapter2_party_piece_mask",
+						"chapter2_party_started",
+						"chapter2_protection_bumps",
+						"chapter2_protection_misses",
+						"chapter2_protection_rounds",
+						"chapter2_rainbow_candle_found",
+						"chapter2_skill_mask",
+						"chapter2_story_complete",
+						"chapter2_strawberry_mask",
+						"chapter2_stuffie_ballet_done",
+						"chapter2_unlocked_opera_mask",
+						"chapter3_fairy_door_opened",
+						"chapter3_fairy_door_revealed",
+						"chapter3_fairy_mission_started",
+						"character_clothing_parts",
+						"character_outfits",
+						"combat_fire",
+						"combat_ice",
+						"combat_tutorial",
+						"comfy_games",
+						"companion",
+						"companion_bruises",
+						"companion_colors",
+						"companion_resting",
+						"crafts",
+						"critters",
+						"custom_fish",
+						"custom_friends",
+						"day_one_active",
+						"day_one_arrival_plane_media_seen",
+						"day_one_art_cleaned_grime",
+						"day_one_art_collected_materials",
+						"day_one_art_customization_completed",
+						"day_one_art_desk_unlocked",
+						"day_one_bathroom_cleanup_step",
+						"day_one_bathroom_supply_hunt_step",
+						"day_one_bathroom_toilet_cleaned",
+						"day_one_bathroom_tools_authorized",
+						"day_one_bathroom_tub_drained",
+						"day_one_boss_door_glow",
+						"day_one_cleaned_rooms",
+						"day_one_completed_rooms",
+						"day_one_current_room",
+						"day_one_dirty_castle_discovered",
+						"day_one_giant_dust_bunny_boss_defeated",
+						"day_one_giant_dust_bunny_boss_triggered",
+						"day_one_grok_video_2_seen",
+						"day_one_jobs_locked",
+						"day_one_opera_enabled",
+						"day_one_pool_cleanup_step",
+						"day_one_pool_rumi_met",
+						"day_one_pool_seahorse_tugs",
+						"day_one_pool_skimmer_mask",
+						"day_one_pool_waterfall_mask",
+						"day_one_story_clips_seen",
+						"dungeon_done",
+						"dungeon_progress",
+						"ember_done",
+						"ember_found",
+						"ember_progress",
+						"fairyskin",
+						"fashion_disguise_progress",
+						"fashion_dressing_progress",
+						"fashion_rewards_claimed",
+						"finale",
+						"fish_tokens",
+						"flat_vector_private_unknown",
+						"found",
+						"galaxy",
+						"haptics",
+						"lagoon_plane_departed",
+						"level2",
+						"medals",
+						"mic",
+						"music",
+						"opera_done",
+						"opera_geology_checkpoint",
+						"opera_mastery",
+						"opera_pantry",
+						"opera_performance_checkpoints",
+						"opera_progress",
+						"opera_stars",
+						"outfits_unlocked",
+						"owned",
+						"pearls",
+						"pearls_ever",
+						"plays",
+						"portal_unlocked",
+						"quality",
+						"save_generation",
+						"schema_version",
+						"skin",
+						"stickers",
+						"stuffie_wins",
+						"teacher_learning_progress",
+						"teacher_lesson_checkpoint",
+						"touch_mode",
+						"won"
+					],
+					"pearls": 23.0,
+					"plays": 3.0,
+					"quality": "speedy",
+					"save_generation": 7.0,
+					"sha256": "08b469f26b3451aede6abadf5bd8776d5522d0f56251ce0b3c6f783106f83d83",
+					"skin": "classic",
+					"unknown": {
+						"keep": [
+							3.0,
+							7.0
+						],
+						"token": "R66_PRIVATE_ONLY"
+					}
+				},
+				"first_session": true,
+				"game": "",
+				"has_saved_game": true,
+				"intro_active": true,
+				"main_id": 160373411111,
+				"main_valid": true,
+				"movie": {
+					"active": false
+				},
+				"phase": "",
+				"private_path": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef-flat-vector-display-entry-20261015\\attempt1_dependency_1280\\output/private_profile/reef_save.json",
+				"quality": "speedy",
+				"reset_marker": false,
+				"route": {},
+				"save_generation": 7,
+				"scene_file_path": "res://scenes/main.tscn",
+				"skin": "classic",
+				"start_menu_active": true,
+				"time_scale": 1.0,
+				"tree_paused": false
+			},
+			"ticks_msec": 10324
+		}
+	],
+	"time_scale": 1.0
+}

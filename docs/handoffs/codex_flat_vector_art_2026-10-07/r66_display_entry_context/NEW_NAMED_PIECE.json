@@ -1,0 +1,62 @@
+{
+  "id": "FVR-42846B2A5A82",
+  "stable_id_input": "scripts/arena/sky_lagoon_promenade.gd::_register_target::Castle gate flat focus mask",
+  "name": "Castle gate flat focus mask",
+  "family": "sky_lagoon_affordances",
+  "status": "PARTIAL_CONTEXT_VISIBLE_FLAT_MASK_REPLACEMENT_OPEN",
+  "evidence_level": "CURRENT_ORIGINAL_NATIVE_SOURCE_BOUND_PARTIAL",
+  "source_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+  "source": {
+    "path": "scripts/arena/sky_lagoon_promenade.gd",
+    "function": "_register_target",
+    "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+    "file_sha256": "a6c72599809ddace2e94e02ba10db518483008ace62655e9059a76d3eacd2dfa",
+    "start_line": 714,
+    "end_line": 768,
+    "body_sha256": "f509b40fd831b08716108414595907968eae277855594b44913dddd1819be9fd",
+    "hash_mode": "Exact Git LF completefile/body bytes",
+    "body": "func _register_target(id: String, node: Node2D, kind: String, payload: String,\n\t\tradius_px: float, highlight_scale: float, highlight_path: String = \"\",\n\t\thighlight_height: float = 0.0) -> void:\n\tvar affordance_kind: String = Affordance.PLOT if kind == \"castle\" \\\n\t\telse Affordance.ANIMATION\n\tvar glow := Sprite2D.new()\n\tglow.name = \"SkyLagoonFocus_%s\" % id\n\tif kind == \"playground\":\n\t\t# A neutral procedural ring plus arrow names the object without cloning\n\t\t# any of its pixels. At the full-height phone scale the selected composite\n\t\t# remains over 64 px and its tip lands on the source card's top edge.\n\t\tglow.texture = _affordance_diamond_texture()\n\t\tglow.scale = Vector2.ONE * highlight_scale\n\t\tvar pointer_tip := Vector2(0.0, 128.0)\n\t\t_add_affordance_pointer(glow, pointer_tip)\n\t\tvar visible_top_y: float = _sprite_alpha_top_master(node as Sprite2D) \\\n\t\t\tif node is Sprite2D else node.position.y\n\t\tglow.position = Vector2(node.position.x,\n\t\t\tvisible_top_y - pointer_tip.y * highlight_scale)\n\t\tglow.set_meta(\"focus_cue_role\", \"procedural_ring_pointer\")\n\t\tglow.set_meta(\"pointer_tip_local\", pointer_tip)\n\t\tglow.set_meta(\"focus_cue_nominal_master_size\", Vector2(192.0, 256.0))\n\telif not highlight_path.is_empty():\n\t\tglow.texture = load(highlight_path) as Texture2D\n\t\tif glow.texture != null and highlight_height > 0.0:\n\t\t\tglow.scale = Vector2.ONE * (highlight_height / glow.texture.get_height())\n\telif node is Sprite2D:\n\t\tvar source := node as Sprite2D\n\t\tglow.texture = source.texture\n\t\tglow.scale = source.scale\n\tif kind != \"playground\":\n\t\tglow.position = node.position\n\tvar idle_tint: Color = Affordance.color(affordance_kind, false)\n\t# A complete duplicate object is never the affordance. Idle animation targets\n\t# use a nearly invisible shimmer; selection raises the same pixels briefly.\n\tidle_tint.a = minf(idle_tint.a,\n\t\t0.055 if kind == \"playground\" else 0.10)\n\tglow.modulate = idle_tint\n\tglow.visible = true\n\tglow.z_index = node.z_index + 4\n\tglow.set_meta(\"canvas_layer_role\", \"interaction_affordance\")\n\tglow.set_meta(\"interaction_id\", id)\n\tglow.set_meta(\"affordance_base_scale\", glow.scale)\n\t(m.g.get(\"lagoon_interactive_layer\") as Node2D).add_child(glow)\n\tnode.set_meta(\"interaction_id\", id)\n\tnode.set_meta(\"touch_footprint_px\", radius_px * 2.0)\n\tnode.set_meta(\"canvas_layer_role\", \"interactive\")\n\tvar targets: Array = m.g.get(\"lagoon_promenade_targets\", []) as Array\n\ttargets.append({\n\t\t\"id\": id, \"node\": node, \"kind\": kind, \"payload\": payload,\n\t\t\"radius_px\": radius_px, \"affordance_kind\": affordance_kind,\n\t\t\"highlight\": glow, \"highlight_scale\": highlight_scale,\n\t})\n\tm.g[\"lagoon_promenade_targets\"] = targets\n\n"
+  },
+  "source_asset": {
+    "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+    "path": "assets/sprites/sky_lagoon/sky_lagoon_castle_door_focus_v1.png",
+    "bytes": 1355,
+    "sha256": "fddab0ef204be19a8fce65221f3801ba69497d289b0f012f029076a099feb25c",
+    "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/assets/sprites/sky_lagoon/sky_lagoon_castle_door_focus_v1.png",
+    "http_status": 200,
+    "checked_at_utc": "2026-10-15T22:10:01.801404+00:00",
+    "role": "Exact source/context dependency; no approval from inclusion",
+    "dimensions": [
+      199,
+      228
+    ]
+  },
+  "consumer": "SkyLagoonFocus_castle_gate Sprite2D original naturalDayOnefocus",
+  "observed_instances_per_entry": 1,
+  "count_unit": "One currently named design-role, not PNGextension count or whole-game artwork total",
+  "target_specific_observation": "Allalpha-positiveRGBwhite mask is visibly tintednearlyopaqueRED_FOCUS overpaintedgate; not exempt as geometry. Nativepath/texture/modulate bound in ENTRY_STATE_IDENTITY, sourcePLOTpalette/_register_target/_tick_target_affordances exactD.",
+  "review_log": [
+    {
+      "review": "REVIEW.json",
+      "scope": "Agentpartialsame-scene10axisreview; no human/device/owner acceptance"
+    }
+  ],
+  "reuse_ready": false,
+  "drawing_required": null,
+  "samples_awaiting_review": 0,
+  "integration_sha": null,
+  "acceptance_evidence": {
+    "candidate": null,
+    "runtime": null,
+    "QA11": null,
+    "device": null,
+    "child": null,
+    "owner": null
+  },
+  "blocked_dependencies": [
+    "Originalfocus/idle/cleared/tap/arrivalstate coverage",
+    "Paintedsource-first reuse and same-scene review before repair",
+    "Fullcaller/resource/QA11/device/child/owner acceptance"
+  ],
+  "visible_artwork_not_functional_geometry": true
+}

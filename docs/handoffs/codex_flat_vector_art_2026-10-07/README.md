@@ -1,3 +1,9 @@
+Current canonical evidence: [R66 original display entry and gate-mask inventory](r66_display_entry_context/README.md), [registry](r66_display_entry_context/per_piece.json), [coverage](r66_display_entry_context/scene_coverage.json), [tally](r66_display_entry_context/tally.json).
+
+Sixoriginalcases60checks/preflight3pass; bothlegacycases retainsourcepolicyFAIL.126native70bounded56excluded; newvisiblemaskrole,241roles33families/89partial87without0complete.0production/newart/removal/globalunknown.
+
+## Historical entry text retained below
+
 Current canonical evidence: [R65 Wardrobe cached frame/fit refinement](r65_wardrobe_cached_fit/README.md), [registry](r65_wardrobe_cached_fit/per_piece.json), [coverage](r65_wardrobe_cached_fit/scene_coverage.json), [tally](r65_wardrobe_cached_fit/tally.json).
 
 Ignored candidate225checks/R64control50;304events239bounded65excluded. Thin contour/focus/source-use/phone/QA11/child/owner remain open.0production/newart/removal/globalunknown.

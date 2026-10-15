@@ -1,0 +1,165 @@
+{
+  "status": "PASS_DISPLAY_ENTRY_EVIDENCE_NATIVE_POLICY_FAIL",
+  "native_policy_status": "FAIL_LEGACY_SOURCE_CONTRACT_UNFIXED",
+  "commands": [
+    {
+      "command": [
+        "python",
+        "-B",
+        "-m",
+        "gdtoolkit.parser",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r66_display_entry_context\\base_capture.gd",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r66_display_entry_context\\capture_entry.gd",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r66_display_entry_context\\native\\attempt1_dayone_1280\\base_capture.gd",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r66_display_entry_context\\native\\attempt1_dayone_1280\\capture_entry.gd",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r66_display_entry_context\\native\\attempt1_dayone_1600\\base_capture.gd",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r66_display_entry_context\\native\\attempt1_dayone_1600\\capture_entry.gd",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r66_display_entry_context\\native\\attempt1_dependency_1280\\base_capture.gd",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r66_display_entry_context\\native\\attempt1_dependency_1280\\capture_entry.gd",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r66_display_entry_context\\native\\attempt1_legacy_1280\\base_capture.gd",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r66_display_entry_context\\native\\attempt1_legacy_1280\\capture_entry.gd",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r66_display_entry_context\\native\\attempt1_legacy_1600\\base_capture.gd",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r66_display_entry_context\\native\\attempt1_legacy_1600\\capture_entry.gd",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r66_display_entry_context\\native\\attempt1_missing_1280\\base_capture.gd",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r66_display_entry_context\\native\\attempt1_missing_1280\\capture_entry.gd",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r66_display_entry_context\\native\\attempt1_missing_1600\\base_capture.gd",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r66_display_entry_context\\native\\attempt1_missing_1600\\capture_entry.gd",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r66_display_entry_context\\native\\attempt1_newgame_1280\\base_capture.gd",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r66_display_entry_context\\native\\attempt1_newgame_1280\\capture_entry.gd",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r66_display_entry_context\\native\\attempt1_newgame_1600\\base_capture.gd",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r66_display_entry_context\\native\\attempt1_newgame_1600\\capture_entry.gd"
+      ],
+      "exit_code": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "checked_at_utc": "2026-10-15T22:21:48.922537+00:00"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/lint_inference.py",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r66_display_entry_context\\base_capture.gd",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r66_display_entry_context\\capture_entry.gd",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r66_display_entry_context\\native\\attempt1_dayone_1280\\base_capture.gd",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r66_display_entry_context\\native\\attempt1_dayone_1280\\capture_entry.gd",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r66_display_entry_context\\native\\attempt1_dayone_1600\\base_capture.gd",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r66_display_entry_context\\native\\attempt1_dayone_1600\\capture_entry.gd",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r66_display_entry_context\\native\\attempt1_dependency_1280\\base_capture.gd",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r66_display_entry_context\\native\\attempt1_dependency_1280\\capture_entry.gd",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r66_display_entry_context\\native\\attempt1_legacy_1280\\base_capture.gd",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r66_display_entry_context\\native\\attempt1_legacy_1280\\capture_entry.gd",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r66_display_entry_context\\native\\attempt1_legacy_1600\\base_capture.gd",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r66_display_entry_context\\native\\attempt1_legacy_1600\\capture_entry.gd",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r66_display_entry_context\\native\\attempt1_missing_1280\\base_capture.gd",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r66_display_entry_context\\native\\attempt1_missing_1280\\capture_entry.gd",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r66_display_entry_context\\native\\attempt1_missing_1600\\base_capture.gd",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r66_display_entry_context\\native\\attempt1_missing_1600\\capture_entry.gd",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r66_display_entry_context\\native\\attempt1_newgame_1280\\base_capture.gd",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r66_display_entry_context\\native\\attempt1_newgame_1280\\capture_entry.gd",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r66_display_entry_context\\native\\attempt1_newgame_1600\\base_capture.gd",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r66_display_entry_context\\native\\attempt1_newgame_1600\\capture_entry.gd"
+      ],
+      "exit_code": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "checked_at_utc": "2026-10-15T22:21:49.894471+00:00"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r66_display_entry_context\\validate.py"
+      ],
+      "exit_code": 0,
+      "sha256": "0a725ebb9d5510f4efb9517acfe574f2925712b5e8423500f5a296ef045f7502",
+      "checked_at_utc": "2026-10-15T22:22:00.549166+00:00"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_document_authority.py"
+      ],
+      "exit_code": 0,
+      "sha256": "77bf0183b5d305bf8e056cacc833716ca02fdcd40bccc8bb3f8f4f32e7fe4aaa",
+      "checked_at_utc": "2026-10-15T22:22:17.416465+00:00"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_development.py",
+        "--base",
+        "auto"
+      ],
+      "exit_code": 0,
+      "sha256": "fe1136f6488648e75036829fb4dde2405eb9ed57eec05f046fe441463c20d023",
+      "checked_at_utc": "2026-10-15T22:22:26.855521+00:00"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "-m",
+        "unittest",
+        "tools.tests.test_audit_document_authority",
+        "tools.tests.test_audit_development"
+      ],
+      "exit_code": 0,
+      "sha256": "5f0c91e93d48be60ad135b78371c7acba40350e0e8e03cf67d0449798bafd4a0",
+      "checked_at_utc": "2026-10-15T22:22:39.219946+00:00"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_document_authority.py",
+        "--stress"
+      ],
+      "exit_code": 0,
+      "sha256": "f6dae08cdab672a16e9630b84cfc9cfbb91c9ce905958c736a197b38d21dcf29",
+      "checked_at_utc": "2026-10-15T22:22:40.775394+00:00"
+    }
+  ],
+  "raw_log_sha256": "3cf12051a3fd233d83b9b13a175b493a2b8c7dacfd929c1df0295ac0fdb8120f",
+  "exact_engine_preflight": [
+    "FIXTURE_SYNTAX_GATES.json"
+  ],
+  "scope": "Evidenceidentity and documentstructural gates only:126rawPNG/pixelhashes/68directrefs/known241/33/canonicalunions/frozen5/history. Sixordinarycases60checks/preflight3pass, legacy24checksretain2FAILs; not productPASS. CopiedGDparser/inference/exact4.7.2precheck,54doctests6stress. No full82/QA11/freshOS/device/audio/performance/child/owner/creative or strict2D satisfaction. Actual staged+committed2D perpush.",
+  "review_reconciliation_checks": [
+    {
+      "command": [
+        "python",
+        "-B",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r66_display_entry_context\\validate.py"
+      ],
+      "exit_code": 0,
+      "sha256": "0a725ebb9d5510f4efb9517acfe574f2925712b5e8423500f5a296ef045f7502",
+      "output": "R66_EVIDENCE_IDENTITY_PASS:126rawPNGs;70bounded56excluded;6cases60checks/preflight3pass;legacy24checks2FAIL preserved;68refs/241roles33families/89partial87without0complete/frozen5/history;NO_PRODUCT_OR_ART_ACCEPTANCE\r\n",
+      "checked_at_utc": "2026-10-15T22:24:19.520573+00:00"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_document_authority.py"
+      ],
+      "exit_code": 0,
+      "sha256": "77bf0183b5d305bf8e056cacc833716ca02fdcd40bccc8bb3f8f4f32e7fe4aaa",
+      "output": "DOCAUTH|INVENTORY=773|LEDGER=773|ACTIVE=69|RECORDS=72\r\nDOCAUTH|RESULT|ALL OK\r\n",
+      "checked_at_utc": "2026-10-15T22:24:29.438488+00:00"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_development.py",
+        "--base",
+        "auto"
+      ],
+      "exit_code": 0,
+      "sha256": "fe1136f6488648e75036829fb4dde2405eb9ed57eec05f046fe441463c20d023",
+      "output": "AUDITDEV|BASE|e2b3c73789707aa49a91b4f42e2a9dd4b68225df\r\nAUDITDEV|RESULT|ALL OK\r\n",
+      "checked_at_utc": "2026-10-15T22:24:35.824054+00:00"
+    }
+  ]
+}

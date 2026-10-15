@@ -1,0 +1,1490 @@
+{
+  "revision": "FV-AUDIT-20261015-R66",
+  "source_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+  "type": "AGENT_DIRECT_NATIVE_COMPARISON_NOT_HUMAN_ACCEPTANCE",
+  "direct_native_views": [
+    {
+      "case": "attempt1_dayone_1280",
+      "id": "continue_world_settled",
+      "path": "native/attempt1_dayone_1280/continue_world_settled.png",
+      "sha256": "3641b962a02ce94c0a56dfe89cfbb25f3ecb7b4af082767cb482194c7b837bb8",
+      "bytes": 1523547,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "pixel_mode": "RGB",
+      "pixel_sha256": "1ff5d8223aa196629eddbed92b2bcf2409b4f96c69fea5c3d6d79bef376330ed",
+      "classification": "BOUNDED_ORIGINAL_DISPLAY_ENTRY_CONTEXT",
+      "quality": "speedy",
+      "movie_active": false
+    },
+    {
+      "case": "attempt1_dayone_1600",
+      "id": "continue_world_settled",
+      "path": "native/attempt1_dayone_1600/continue_world_settled.png",
+      "sha256": "3251c48fee895b2ebc7778f31648dbb9aa2e486828344067b8d269014180c2dc",
+      "bytes": 1907202,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "pixel_mode": "RGB",
+      "pixel_sha256": "85e0b1e7a2f9afaaab451a52143d3a3ced77e3cd0e5ae5410b4d79113df187c9",
+      "classification": "BOUNDED_ORIGINAL_DISPLAY_ENTRY_CONTEXT",
+      "quality": "speedy",
+      "movie_active": false
+    },
+    {
+      "case": "attempt1_dependency_1280",
+      "id": "original_menu_settled",
+      "path": "native/attempt1_dependency_1280/original_menu_settled.png",
+      "sha256": "ac1925567d8d3f9ab142f45bbf93db2c2c5a5e8358bba05c5d2c13787009ae74",
+      "bytes": 1387690,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "pixel_mode": "RGB",
+      "pixel_sha256": "11f325cfa127c536af8e9d8e790cd86ba5232cd0dbf3c6156d2854ab7467d6e6",
+      "classification": "EXCLUDED_PRIVATE_RELOAD_DEPENDENCY_PREFLIGHT",
+      "quality": "speedy",
+      "movie_active": false
+    },
+    {
+      "case": "attempt1_legacy_1280",
+      "id": "continue_world_settled",
+      "path": "native/attempt1_legacy_1280/continue_world_settled.png",
+      "sha256": "9014d080fdbe250b18e80b28cb5722a1d9bc6fc3691b8c28ba0fa5c561de60b2",
+      "bytes": 1522581,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "pixel_mode": "RGB",
+      "pixel_sha256": "6c5269d94129dc9090954ae4ec367fbe2a47cdca77a42fd8580bf6762810deba",
+      "classification": "EXCLUDED_LEGACY_SOURCE_POLICY_FAILURE",
+      "quality": "speedy",
+      "movie_active": false
+    },
+    {
+      "case": "attempt1_legacy_1600",
+      "id": "continue_world_settled",
+      "path": "native/attempt1_legacy_1600/continue_world_settled.png",
+      "sha256": "2323348458228d4e497c2043c19645049b29d6f3cd01e480c04a9782cfccb728",
+      "bytes": 1907209,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "pixel_mode": "RGB",
+      "pixel_sha256": "3fe135f8876fc8fa3a6614313d1d3b0aa8258b5e16a5e388e2bf890187e50231",
+      "classification": "EXCLUDED_LEGACY_SOURCE_POLICY_FAILURE",
+      "quality": "speedy",
+      "movie_active": false
+    },
+    {
+      "case": "attempt1_missing_1280",
+      "id": "original_menu_settled",
+      "path": "native/attempt1_missing_1280/original_menu_settled.png",
+      "sha256": "792e4a6f86c79aa4f52239d02cd02c6d11baf4176fb4ea00fb26f6ccca57c615",
+      "bytes": 1385304,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "pixel_mode": "RGB",
+      "pixel_sha256": "71f795722a4cb9c3e5b1732b389daadda49ad416790767d59aeb61d2ce305d4e",
+      "classification": "EXCLUDED_SOURCE_DESKTOP_SPARKLY_DEFAULT",
+      "quality": "sparkly",
+      "movie_active": false
+    },
+    {
+      "case": "attempt1_missing_1280",
+      "id": "quality_to_speedy_released",
+      "path": "native/attempt1_missing_1280/quality_to_speedy_released.png",
+      "sha256": "c9e6a6fd41a9ad2b3c9a34ca4152f204d01e1eebd16b3c8b82fb2b1d65fd9951",
+      "bytes": 739096,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "pixel_mode": "RGB",
+      "pixel_sha256": "8f5fcd1dca5b0f717f672ed097971646cae7af4283e921e760b0092d0ac252d0",
+      "classification": "BOUNDED_ORIGINAL_DISPLAY_ENTRY_CONTEXT",
+      "quality": "speedy",
+      "movie_active": false
+    },
+    {
+      "case": "attempt1_missing_1600",
+      "id": "options_visible",
+      "path": "native/attempt1_missing_1600/options_visible.png",
+      "sha256": "6f588e75f0fe18eea35f6dae5285ae14c5d6028bac2d5822e4c880e0af9bf5e6",
+      "bytes": 749892,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "pixel_mode": "RGB",
+      "pixel_sha256": "455244d895d49456d9ab168c6d2a6ec8dddc72baef80be36a2cbe415d4739749",
+      "classification": "EXCLUDED_SOURCE_DESKTOP_SPARKLY_DEFAULT",
+      "quality": "sparkly",
+      "movie_active": false
+    },
+    {
+      "case": "attempt1_newgame_1280",
+      "id": "confirmation_armed",
+      "path": "native/attempt1_newgame_1280/confirmation_armed.png",
+      "sha256": "a908650dbc41647f6d60bb5d7a74da1aecd9c446b502bc9b4972cf6ac1c6a7bc",
+      "bytes": 677183,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "pixel_mode": "RGB",
+      "pixel_sha256": "443e27ab045b3e3b3b1dbf9d5344465ff6addc19ad221b732079f480d286ee3f",
+      "classification": "BOUNDED_ORIGINAL_DISPLAY_ENTRY_CONTEXT",
+      "quality": "speedy",
+      "movie_active": false
+    },
+    {
+      "case": "attempt1_newgame_1280",
+      "id": "full_hold_live_fill",
+      "path": "native/attempt1_newgame_1280/full_hold_live_fill.png",
+      "sha256": "5ba27a68024b6db1aacf59d49d04dfa0f1ec2a021db1aef3bb8ca798a2ad5e81",
+      "bytes": 677017,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "pixel_mode": "RGB",
+      "pixel_sha256": "a25ceaa823249ea5f3894d8d866b55cea468b0a1df5d5034bf0fc390aa3f7fc7",
+      "classification": "BOUNDED_ORIGINAL_DISPLAY_ENTRY_CONTEXT",
+      "quality": "speedy",
+      "movie_active": false
+    },
+    {
+      "case": "attempt1_newgame_1280",
+      "id": "newgame_route_onset",
+      "path": "native/attempt1_newgame_1280/newgame_route_onset.png",
+      "sha256": "a7b625b46a39dd2115e7e69f22666e9d782e50b932a60df7d650391054e2b8dd",
+      "bytes": 1006058,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "pixel_mode": "RGB",
+      "pixel_sha256": "1a041e8b9cdfcd3f053f94653f6f98479027256316e618f500efe1d0b6a7e2cb",
+      "classification": "BOUNDED_ORIGINAL_DISPLAY_ENTRY_CONTEXT",
+      "quality": "speedy",
+      "movie_active": true
+    },
+    {
+      "case": "attempt1_newgame_1280",
+      "id": "newgame_world_settled",
+      "path": "native/attempt1_newgame_1280/newgame_world_settled.png",
+      "sha256": "534eda13b88f10173aef16ebb3b05ce161138599820b3b90037b07ecc15917b5",
+      "bytes": 1707706,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "pixel_mode": "RGB",
+      "pixel_sha256": "fbd8c95db116ec51976818ad7cbe560fc7f74dddd52649d7184f58d90d8588b9",
+      "classification": "BOUNDED_ORIGINAL_DISPLAY_ENTRY_CONTEXT",
+      "quality": "speedy",
+      "movie_active": false
+    },
+    {
+      "case": "attempt1_newgame_1600",
+      "id": "full_hold_live_fill",
+      "path": "native/attempt1_newgame_1600/full_hold_live_fill.png",
+      "sha256": "f89587bd61b3f522617b461f3a9e758aed8ddaf98e746866dceccd4a9296e486",
+      "bytes": 689434,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "pixel_mode": "RGB",
+      "pixel_sha256": "e5d23320ce321ffb297fe38857318ab3c49c6d48887c53199ebf2a8063769cb6",
+      "classification": "BOUNDED_ORIGINAL_DISPLAY_ENTRY_CONTEXT",
+      "quality": "speedy",
+      "movie_active": false
+    },
+    {
+      "case": "attempt1_newgame_1600",
+      "id": "newgame_world_settled",
+      "path": "native/attempt1_newgame_1600/newgame_world_settled.png",
+      "sha256": "1eea79404bf7abb0890d46a40452a1094cdb507d600db82ab5eb74aebb7e9e62",
+      "bytes": 2150170,
+      "dimensions": [
+        1600,
+        720
+      ],
+      "pixel_mode": "RGB",
+      "pixel_sha256": "f816cd4bf255ab59dede9ed8539a558bb7e13e60a33a6df2301e2c9ef888531f",
+      "classification": "BOUNDED_ORIGINAL_DISPLAY_ENTRY_CONTEXT",
+      "quality": "speedy",
+      "movie_active": false
+    }
+  ],
+  "direct_source_png_views": [
+    {
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "path": "assets/sprites/sky_lagoon/sky_lagoon_castle_door_focus_v1.png",
+      "bytes": 1355,
+      "sha256": "fddab0ef204be19a8fce65221f3801ba69497d289b0f012f029076a099feb25c",
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/assets/sprites/sky_lagoon/sky_lagoon_castle_door_focus_v1.png",
+      "http_status": 200,
+      "checked_at_utc": "2026-10-15T22:10:01.801404+00:00",
+      "role": "Exact source/context dependency; no approval from inclusion",
+      "dimensions": [
+        199,
+        228
+      ]
+    }
+  ],
+  "all126manually_viewed": false,
+  "observations": [
+    {
+      "id": "FVOBS-ENTRY-R66-FLAT-UI",
+      "status": "PARTIAL_CURRENT_CONTEXT_REPLACEMENT_OPEN",
+      "facts": "OriginalUIpanels/button6styles/inset/sheen/sparkles/holdfill remainvisible flat materials againstpaintedtitle; sourceDmethods and nativecontrols bound. No candidate/artreplacement.",
+      "evidence": [
+        "CURRENT_SOURCE_METHODS.json",
+        "ENTRY_STATE_IDENTITY.json",
+        "LIFECYCLE.json"
+      ]
+    },
+    {
+      "id": "FVOBS-ENTRY-R66-LEGACY-NORMALIZATION",
+      "status": "REPRODUCED_SOURCE_POLICY_MISMATCH_NOT_FIXED",
+      "facts": "Both missing-DayOne-namespace legacyprofiles normalizeactive=true beforefirstmenu thenContinue playsopening. Currentcomments promiselegacydirectentry. Preservebothnativeexit1/failingassertions; no newlyintroducedregression/historicalownerpolicy inferred.",
+      "evidence": [
+        "LEGACY_POLICY_MISMATCH.json",
+        "CURRENT_SOURCE_METHODS.json"
+      ]
+    },
+    {
+      "id": "FVOBS-ENTRY-R66-DESKTOP-DEFAULT",
+      "status": "SOURCE_DESKTOP_SPARKLY_DEFAULT_RETAINED_EXCLUDED",
+      "facts": "No-save desktopsource defaultsSparkly. Twelveframes remainexcluded before realOptions selectsSpeedy/writesprivateprofile. No forcesettings or mislabeledSpeedy evidence.",
+      "evidence": [
+        "CAPTURE_INDEX.json"
+      ]
+    },
+    {
+      "id": "FVOBS-ENTRY-R66-BOOT-MOVIE-ONSET",
+      "status": "OBSERVED_ORIGINAL_TRANSITION_ACCEPTANCE_OPEN",
+      "facts": "InspectedactualNewGame onset includes originalbootSplashfade overtheopeningclip. This is sourcepresentation, not editedclipdata; fullframe/layer/transition/audio/owner acceptance remainsopen.",
+      "evidence": [
+        "native/attempt1_newgame_1280/newgame_route_onset.png"
+      ]
+    },
+    {
+      "id": "FVOBS-ENTRY-R66-CASTLE-GATE-MASK",
+      "status": "NEW_NAMED_VISIBLE_FLAT_ART_ROLE_REPLACEMENT_OPEN",
+      "stable_piece_id": "FVR-42846B2A5A82",
+      "facts": "WhitealphaPNG onactualSkyLagoonFocus_castle_gate Sprite2D ismodulatednearlyopaqueRED_FOCUS, obscuringpaintedgate. Countone newlynamedrole/family, not an acceptedremoval or totalartwork count. Invisibleanchor/touchfootprint separate.",
+      "evidence": [
+        "NEW_NAMED_PIECE.json",
+        "MASK_SOURCE_IDENTITY.json",
+        "ENTRY_STATE_IDENTITY.json"
+      ]
+    }
+  ],
+  "per_piece_comparisons": [
+    {
+      "stable_piece_id": "FV-E9E82E0C6703",
+      "role": "Shared menu/options/resetpanel material",
+      "current_capture_hashes": [
+        {
+          "path": "native/attempt1_dayone_1280/continue_world_settled.png",
+          "sha256": "3641b962a02ce94c0a56dfe89cfbb25f3ecb7b4af082767cb482194c7b837bb8",
+          "pixel_sha256": "1ff5d8223aa196629eddbed92b2bcf2409b4f96c69fea5c3d6d79bef376330ed",
+          "classification": "BOUNDED_ORIGINAL_DISPLAY_ENTRY_CONTEXT"
+        },
+        {
+          "path": "native/attempt1_dayone_1600/continue_world_settled.png",
+          "sha256": "3251c48fee895b2ebc7778f31648dbb9aa2e486828344067b8d269014180c2dc",
+          "pixel_sha256": "85e0b1e7a2f9afaaab451a52143d3a3ced77e3cd0e5ae5410b4d79113df187c9",
+          "classification": "BOUNDED_ORIGINAL_DISPLAY_ENTRY_CONTEXT"
+        },
+        {
+          "path": "native/attempt1_dependency_1280/original_menu_settled.png",
+          "sha256": "ac1925567d8d3f9ab142f45bbf93db2c2c5a5e8358bba05c5d2c13787009ae74",
+          "pixel_sha256": "11f325cfa127c536af8e9d8e790cd86ba5232cd0dbf3c6156d2854ab7467d6e6",
+          "classification": "EXCLUDED_PRIVATE_RELOAD_DEPENDENCY_PREFLIGHT"
+        },
+        {
+          "path": "native/attempt1_legacy_1280/continue_world_settled.png",
+          "sha256": "9014d080fdbe250b18e80b28cb5722a1d9bc6fc3691b8c28ba0fa5c561de60b2",
+          "pixel_sha256": "6c5269d94129dc9090954ae4ec367fbe2a47cdca77a42fd8580bf6762810deba",
+          "classification": "EXCLUDED_LEGACY_SOURCE_POLICY_FAILURE"
+        },
+        {
+          "path": "native/attempt1_legacy_1600/continue_world_settled.png",
+          "sha256": "2323348458228d4e497c2043c19645049b29d6f3cd01e480c04a9782cfccb728",
+          "pixel_sha256": "3fe135f8876fc8fa3a6614313d1d3b0aa8258b5e16a5e388e2bf890187e50231",
+          "classification": "EXCLUDED_LEGACY_SOURCE_POLICY_FAILURE"
+        },
+        {
+          "path": "native/attempt1_missing_1280/original_menu_settled.png",
+          "sha256": "792e4a6f86c79aa4f52239d02cd02c6d11baf4176fb4ea00fb26f6ccca57c615",
+          "pixel_sha256": "71f795722a4cb9c3e5b1732b389daadda49ad416790767d59aeb61d2ce305d4e",
+          "classification": "EXCLUDED_SOURCE_DESKTOP_SPARKLY_DEFAULT"
+        },
+        {
+          "path": "native/attempt1_missing_1280/quality_to_speedy_released.png",
+          "sha256": "c9e6a6fd41a9ad2b3c9a34ca4152f204d01e1eebd16b3c8b82fb2b1d65fd9951",
+          "pixel_sha256": "8f5fcd1dca5b0f717f672ed097971646cae7af4283e921e760b0092d0ac252d0",
+          "classification": "BOUNDED_ORIGINAL_DISPLAY_ENTRY_CONTEXT"
+        },
+        {
+          "path": "native/attempt1_missing_1600/options_visible.png",
+          "sha256": "6f588e75f0fe18eea35f6dae5285ae14c5d6028bac2d5822e4c880e0af9bf5e6",
+          "pixel_sha256": "455244d895d49456d9ab168c6d2a6ec8dddc72baef80be36a2cbe415d4739749",
+          "classification": "EXCLUDED_SOURCE_DESKTOP_SPARKLY_DEFAULT"
+        },
+        {
+          "path": "native/attempt1_newgame_1280/confirmation_armed.png",
+          "sha256": "a908650dbc41647f6d60bb5d7a74da1aecd9c446b502bc9b4972cf6ac1c6a7bc",
+          "pixel_sha256": "443e27ab045b3e3b3b1dbf9d5344465ff6addc19ad221b732079f480d286ee3f",
+          "classification": "BOUNDED_ORIGINAL_DISPLAY_ENTRY_CONTEXT"
+        },
+        {
+          "path": "native/attempt1_newgame_1280/full_hold_live_fill.png",
+          "sha256": "5ba27a68024b6db1aacf59d49d04dfa0f1ec2a021db1aef3bb8ca798a2ad5e81",
+          "pixel_sha256": "a25ceaa823249ea5f3894d8d866b55cea468b0a1df5d5034bf0fc390aa3f7fc7",
+          "classification": "BOUNDED_ORIGINAL_DISPLAY_ENTRY_CONTEXT"
+        },
+        {
+          "path": "native/attempt1_newgame_1280/newgame_route_onset.png",
+          "sha256": "a7b625b46a39dd2115e7e69f22666e9d782e50b932a60df7d650391054e2b8dd",
+          "pixel_sha256": "1a041e8b9cdfcd3f053f94653f6f98479027256316e618f500efe1d0b6a7e2cb",
+          "classification": "BOUNDED_ORIGINAL_DISPLAY_ENTRY_CONTEXT"
+        },
+        {
+          "path": "native/attempt1_newgame_1280/newgame_world_settled.png",
+          "sha256": "534eda13b88f10173aef16ebb3b05ce161138599820b3b90037b07ecc15917b5",
+          "pixel_sha256": "fbd8c95db116ec51976818ad7cbe560fc7f74dddd52649d7184f58d90d8588b9",
+          "classification": "BOUNDED_ORIGINAL_DISPLAY_ENTRY_CONTEXT"
+        },
+        {
+          "path": "native/attempt1_newgame_1600/full_hold_live_fill.png",
+          "sha256": "f89587bd61b3f522617b461f3a9e758aed8ddaf98e746866dceccd4a9296e486",
+          "pixel_sha256": "e5d23320ce321ffb297fe38857318ab3c49c6d48887c53199ebf2a8063769cb6",
+          "classification": "BOUNDED_ORIGINAL_DISPLAY_ENTRY_CONTEXT"
+        },
+        {
+          "path": "native/attempt1_newgame_1600/newgame_world_settled.png",
+          "sha256": "1eea79404bf7abb0890d46a40452a1094cdb507d600db82ab5eb74aebb7e9e62",
+          "pixel_sha256": "f816cd4bf255ab59dede9ed8539a558bb7e13e60a33a6df2301e2c9ef888531f",
+          "classification": "BOUNDED_ORIGINAL_DISPLAY_ENTRY_CONTEXT"
+        }
+      ],
+      "same_scene_reference_hashes": [
+        {
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "path": "assets/characters/roshan_25d/roshan_directional.png",
+          "bytes": 396741,
+          "sha256": "2bcc6212dddaddedb5823ba095caff1cbecdb762d5bbdc76726d3d5b0e3ee85a",
+          "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/assets/characters/roshan_25d/roshan_directional.png",
+          "http_status": 200,
+          "checked_at_utc": "2026-10-15T22:10:00.158883+00:00",
+          "role": "Exact source/context dependency; no approval from inclusion",
+          "dimensions": [
+            1024,
+            512
+          ]
+        },
+        {
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "path": "assets/sprites/sky_lagoon/sky_lagoon_castle_door_focus_v1.png",
+          "bytes": 1355,
+          "sha256": "fddab0ef204be19a8fce65221f3801ba69497d289b0f012f029076a099feb25c",
+          "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/assets/sprites/sky_lagoon/sky_lagoon_castle_door_focus_v1.png",
+          "http_status": 200,
+          "checked_at_utc": "2026-10-15T22:10:01.801404+00:00",
+          "role": "Exact source/context dependency; no approval from inclusion",
+          "dimensions": [
+            199,
+            228
+          ]
+        },
+        {
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "path": "assets/sprites/sky_lagoon/sky_lagoon_castle_four_tower_v4.png",
+          "bytes": 1412255,
+          "sha256": "08e3b8503520f3657e7f788bc74c967b76692f5dd292e0971495677f0e695a42",
+          "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/assets/sprites/sky_lagoon/sky_lagoon_castle_four_tower_v4.png",
+          "http_status": 200,
+          "checked_at_utc": "2026-10-15T22:10:01.999011+00:00",
+          "role": "Exact source/context dependency; no approval from inclusion",
+          "dimensions": [
+            1022,
+            1024
+          ]
+        },
+        {
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "path": "assets/ui/boot_splash_mermaid_roshan.png",
+          "bytes": 1848681,
+          "sha256": "d5127c4a6227baab05343dc10692e2f76f1dd59f22ca24a22329de402dbb8044",
+          "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/assets/ui/boot_splash_mermaid_roshan.png",
+          "http_status": 200,
+          "checked_at_utc": "2026-10-15T22:10:02.413710+00:00",
+          "role": "Exact source/context dependency; no approval from inclusion",
+          "dimensions": [
+            1024,
+            576
+          ]
+        }
+      ],
+      "comparison": {
+        "contour": "Flat rounded button/panel borders, thin inset/sheens, procedural shell/pearls and sparkles remain against polished painted splash artwork. The hard smooth geometry differs from textured source contours. Originalholdfill is visible flat material despite functional progress semantics.",
+        "material": "Uniform flat paper/gold/green fills and gloss strips contrast with painted fabric, stone, water and pearl texture in the title illustration. Existing reusable painted UI sources need in-context eligibility/fit review; no newart commissioned.",
+        "palette": "Violet/gold/aqua roles echo source hues but unchanged solid surfaces and some pastel glow differ from painted shading. Source locked/disabled/pressed/focus cues remain meaningful, not accepted art.",
+        "light": "Constant flat StyleBox shading and procedural sheens do not inherit the illustration light. No source relight/identity change occurred.",
+        "perspective": "Screen-facingUI overlays the painted scenic perspective; retain clean interface orientation while replacing visible material. Sourcehitgeometry is separate.",
+        "scale": "Original UI targets and sixstylekeys captured at1280/1600; current livebar is8pxhigh with widthprogress between0and240. Holdcaption remains adult-scoped; actualphone readability/touch reach and QA11projection unproven.",
+        "contact": "UI background/input overlap gives no character support/contact acceptance. Source characters remain untouched; no product geometry or art changed.",
+        "occlusion": "Menu lowerpanel overlays painted figures; Options/confirmation dim underlying art. ActualNewGame reset shows originalbootSplash fading over movieonset; no clip pixels edited and no flattened/identity/transition acceptance inferred.",
+        "readability": "Largeflat button shapes, labels/glyphs and safeKeepGame cue are readable in inspected desktop frames but retain reading/glyph dependence. DisabledContinue/source settings and arm/shortlift/cancel/fullhold were observed; childcomprehension/font/device evidence remainsopen.",
+        "action_state": "Six source cases60checks pass, excluded actualprivate-reloadpreflight3passes. Two legacycases retain1failed assertioneach/24checks: normalizedmissingDayOneflag entersDayOneopening contrarycurrentcomments. Failed42frames and initialSparkly12/preflight2 excluded. Nativefocus/press/disabled/style samples are notfullQA11/freshOS/device/child/owner or allrouting closure."
+      },
+      "source_acceptance": "Current source only; no newuse/creative/identity acceptance from inclusion",
+      "candidate": null,
+      "integration": null,
+      "runtime_verified_replacement": null,
+      "QA11": null,
+      "device": null,
+      "child": null,
+      "owner": null,
+      "accepted_removed": false
+    },
+    {
+      "stable_piece_id": "FV-2ABD73BAFFE0",
+      "role": "Originalbutton sixstate materials",
+      "current_capture_hashes": [
+        {
+          "path": "native/attempt1_dayone_1280/continue_world_settled.png",
+          "sha256": "3641b962a02ce94c0a56dfe89cfbb25f3ecb7b4af082767cb482194c7b837bb8",
+          "pixel_sha256": "1ff5d8223aa196629eddbed92b2bcf2409b4f96c69fea5c3d6d79bef376330ed",
+          "classification": "BOUNDED_ORIGINAL_DISPLAY_ENTRY_CONTEXT"
+        },
+        {
+          "path": "native/attempt1_dayone_1600/continue_world_settled.png",
+          "sha256": "3251c48fee895b2ebc7778f31648dbb9aa2e486828344067b8d269014180c2dc",
+          "pixel_sha256": "85e0b1e7a2f9afaaab451a52143d3a3ced77e3cd0e5ae5410b4d79113df187c9",
+          "classification": "BOUNDED_ORIGINAL_DISPLAY_ENTRY_CONTEXT"
+        },
+        {
+          "path": "native/attempt1_dependency_1280/original_menu_settled.png",
+          "sha256": "ac1925567d8d3f9ab142f45bbf93db2c2c5a5e8358bba05c5d2c13787009ae74",
+          "pixel_sha256": "11f325cfa127c536af8e9d8e790cd86ba5232cd0dbf3c6156d2854ab7467d6e6",
+          "classification": "EXCLUDED_PRIVATE_RELOAD_DEPENDENCY_PREFLIGHT"
+        },
+        {
+          "path": "native/attempt1_legacy_1280/continue_world_settled.png",
+          "sha256": "9014d080fdbe250b18e80b28cb5722a1d9bc6fc3691b8c28ba0fa5c561de60b2",
+          "pixel_sha256": "6c5269d94129dc9090954ae4ec367fbe2a47cdca77a42fd8580bf6762810deba",
+          "classification": "EXCLUDED_LEGACY_SOURCE_POLICY_FAILURE"
+        },
+        {
+          "path": "native/attempt1_legacy_1600/continue_world_settled.png",
+          "sha256": "2323348458228d4e497c2043c19645049b29d6f3cd01e480c04a9782cfccb728",
+          "pixel_sha256": "3fe135f8876fc8fa3a6614313d1d3b0aa8258b5e16a5e388e2bf890187e50231",
+          "classification": "EXCLUDED_LEGACY_SOURCE_POLICY_FAILURE"
+        },
+        {
+          "path": "native/attempt1_missing_1280/original_menu_settled.png",
+          "sha256": "792e4a6f86c79aa4f52239d02cd02c6d11baf4176fb4ea00fb26f6ccca57c615",
+          "pixel_sha256": "71f795722a4cb9c3e5b1732b389daadda49ad416790767d59aeb61d2ce305d4e",
+          "classification": "EXCLUDED_SOURCE_DESKTOP_SPARKLY_DEFAULT"
+        },
+        {
+          "path": "native/attempt1_missing_1280/quality_to_speedy_released.png",
+          "sha256": "c9e6a6fd41a9ad2b3c9a34ca4152f204d01e1eebd16b3c8b82fb2b1d65fd9951",
+          "pixel_sha256": "8f5fcd1dca5b0f717f672ed097971646cae7af4283e921e760b0092d0ac252d0",
+          "classification": "BOUNDED_ORIGINAL_DISPLAY_ENTRY_CONTEXT"
+        },
+        {
+          "path": "native/attempt1_missing_1600/options_visible.png",
+          "sha256": "6f588e75f0fe18eea35f6dae5285ae14c5d6028bac2d5822e4c880e0af9bf5e6",
+          "pixel_sha256": "455244d895d49456d9ab168c6d2a6ec8dddc72baef80be36a2cbe415d4739749",
+          "classification": "EXCLUDED_SOURCE_DESKTOP_SPARKLY_DEFAULT"
+        },
+        {
+          "path": "native/attempt1_newgame_1280/confirmation_armed.png",
+          "sha256": "a908650dbc41647f6d60bb5d7a74da1aecd9c446b502bc9b4972cf6ac1c6a7bc",
+          "pixel_sha256": "443e27ab045b3e3b3b1dbf9d5344465ff6addc19ad221b732079f480d286ee3f",
+          "classification": "BOUNDED_ORIGINAL_DISPLAY_ENTRY_CONTEXT"
+        },
+        {
+          "path": "native/attempt1_newgame_1280/full_hold_live_fill.png",
+          "sha256": "5ba27a68024b6db1aacf59d49d04dfa0f1ec2a021db1aef3bb8ca798a2ad5e81",
+          "pixel_sha256": "a25ceaa823249ea5f3894d8d866b55cea468b0a1df5d5034bf0fc390aa3f7fc7",
+          "classification": "BOUNDED_ORIGINAL_DISPLAY_ENTRY_CONTEXT"
+        },
+        {
+          "path": "native/attempt1_newgame_1280/newgame_route_onset.png",
+          "sha256": "a7b625b46a39dd2115e7e69f22666e9d782e50b932a60df7d650391054e2b8dd",
+          "pixel_sha256": "1a041e8b9cdfcd3f053f94653f6f98479027256316e618f500efe1d0b6a7e2cb",
+          "classification": "BOUNDED_ORIGINAL_DISPLAY_ENTRY_CONTEXT"
+        },
+        {
+          "path": "native/attempt1_newgame_1280/newgame_world_settled.png",
+          "sha256": "534eda13b88f10173aef16ebb3b05ce161138599820b3b90037b07ecc15917b5",
+          "pixel_sha256": "fbd8c95db116ec51976818ad7cbe560fc7f74dddd52649d7184f58d90d8588b9",
+          "classification": "BOUNDED_ORIGINAL_DISPLAY_ENTRY_CONTEXT"
+        },
+        {
+          "path": "native/attempt1_newgame_1600/full_hold_live_fill.png",
+          "sha256": "f89587bd61b3f522617b461f3a9e758aed8ddaf98e746866dceccd4a9296e486",
+          "pixel_sha256": "e5d23320ce321ffb297fe38857318ab3c49c6d48887c53199ebf2a8063769cb6",
+          "classification": "BOUNDED_ORIGINAL_DISPLAY_ENTRY_CONTEXT"
+        },
+        {
+          "path": "native/attempt1_newgame_1600/newgame_world_settled.png",
+          "sha256": "1eea79404bf7abb0890d46a40452a1094cdb507d600db82ab5eb74aebb7e9e62",
+          "pixel_sha256": "f816cd4bf255ab59dede9ed8539a558bb7e13e60a33a6df2301e2c9ef888531f",
+          "classification": "BOUNDED_ORIGINAL_DISPLAY_ENTRY_CONTEXT"
+        }
+      ],
+      "same_scene_reference_hashes": [
+        {
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "path": "assets/characters/roshan_25d/roshan_directional.png",
+          "bytes": 396741,
+          "sha256": "2bcc6212dddaddedb5823ba095caff1cbecdb762d5bbdc76726d3d5b0e3ee85a",
+          "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/assets/characters/roshan_25d/roshan_directional.png",
+          "http_status": 200,
+          "checked_at_utc": "2026-10-15T22:10:00.158883+00:00",
+          "role": "Exact source/context dependency; no approval from inclusion",
+          "dimensions": [
+            1024,
+            512
+          ]
+        },
+        {
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "path": "assets/sprites/sky_lagoon/sky_lagoon_castle_door_focus_v1.png",
+          "bytes": 1355,
+          "sha256": "fddab0ef204be19a8fce65221f3801ba69497d289b0f012f029076a099feb25c",
+          "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/assets/sprites/sky_lagoon/sky_lagoon_castle_door_focus_v1.png",
+          "http_status": 200,
+          "checked_at_utc": "2026-10-15T22:10:01.801404+00:00",
+          "role": "Exact source/context dependency; no approval from inclusion",
+          "dimensions": [
+            199,
+            228
+          ]
+        },
+        {
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "path": "assets/sprites/sky_lagoon/sky_lagoon_castle_four_tower_v4.png",
+          "bytes": 1412255,
+          "sha256": "08e3b8503520f3657e7f788bc74c967b76692f5dd292e0971495677f0e695a42",
+          "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/assets/sprites/sky_lagoon/sky_lagoon_castle_four_tower_v4.png",
+          "http_status": 200,
+          "checked_at_utc": "2026-10-15T22:10:01.999011+00:00",
+          "role": "Exact source/context dependency; no approval from inclusion",
+          "dimensions": [
+            1022,
+            1024
+          ]
+        },
+        {
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "path": "assets/ui/boot_splash_mermaid_roshan.png",
+          "bytes": 1848681,
+          "sha256": "d5127c4a6227baab05343dc10692e2f76f1dd59f22ca24a22329de402dbb8044",
+          "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/assets/ui/boot_splash_mermaid_roshan.png",
+          "http_status": 200,
+          "checked_at_utc": "2026-10-15T22:10:02.413710+00:00",
+          "role": "Exact source/context dependency; no approval from inclusion",
+          "dimensions": [
+            1024,
+            576
+          ]
+        }
+      ],
+      "comparison": {
+        "contour": "Flat rounded button/panel borders, thin inset/sheens, procedural shell/pearls and sparkles remain against polished painted splash artwork. The hard smooth geometry differs from textured source contours. Originalholdfill is visible flat material despite functional progress semantics.",
+        "material": "Uniform flat paper/gold/green fills and gloss strips contrast with painted fabric, stone, water and pearl texture in the title illustration. Existing reusable painted UI sources need in-context eligibility/fit review; no newart commissioned.",
+        "palette": "Violet/gold/aqua roles echo source hues but unchanged solid surfaces and some pastel glow differ from painted shading. Source locked/disabled/pressed/focus cues remain meaningful, not accepted art.",
+        "light": "Constant flat StyleBox shading and procedural sheens do not inherit the illustration light. No source relight/identity change occurred.",
+        "perspective": "Screen-facingUI overlays the painted scenic perspective; retain clean interface orientation while replacing visible material. Sourcehitgeometry is separate.",
+        "scale": "Original UI targets and sixstylekeys captured at1280/1600; current livebar is8pxhigh with widthprogress between0and240. Holdcaption remains adult-scoped; actualphone readability/touch reach and QA11projection unproven.",
+        "contact": "UI background/input overlap gives no character support/contact acceptance. Source characters remain untouched; no product geometry or art changed.",
+        "occlusion": "Menu lowerpanel overlays painted figures; Options/confirmation dim underlying art. ActualNewGame reset shows originalbootSplash fading over movieonset; no clip pixels edited and no flattened/identity/transition acceptance inferred.",
+        "readability": "Largeflat button shapes, labels/glyphs and safeKeepGame cue are readable in inspected desktop frames but retain reading/glyph dependence. DisabledContinue/source settings and arm/shortlift/cancel/fullhold were observed; childcomprehension/font/device evidence remainsopen.",
+        "action_state": "Six source cases60checks pass, excluded actualprivate-reloadpreflight3passes. Two legacycases retain1failed assertioneach/24checks: normalizedmissingDayOneflag entersDayOneopening contrarycurrentcomments. Failed42frames and initialSparkly12/preflight2 excluded. Nativefocus/press/disabled/style samples are notfullQA11/freshOS/device/child/owner or allrouting closure."
+      },
+      "source_acceptance": "Current source only; no newuse/creative/identity acceptance from inclusion",
+      "candidate": null,
+      "integration": null,
+      "runtime_verified_replacement": null,
+      "QA11": null,
+      "device": null,
+      "child": null,
+      "owner": null,
+      "accepted_removed": false
+    },
+    {
+      "stable_piece_id": "FV-AB474EF3699E",
+      "role": "Originalshell/pearl ornaments",
+      "current_capture_hashes": [
+        {
+          "path": "native/attempt1_dayone_1280/continue_world_settled.png",
+          "sha256": "3641b962a02ce94c0a56dfe89cfbb25f3ecb7b4af082767cb482194c7b837bb8",
+          "pixel_sha256": "1ff5d8223aa196629eddbed92b2bcf2409b4f96c69fea5c3d6d79bef376330ed",
+          "classification": "BOUNDED_ORIGINAL_DISPLAY_ENTRY_CONTEXT"
+        },
+        {
+          "path": "native/attempt1_dayone_1600/continue_world_settled.png",
+          "sha256": "3251c48fee895b2ebc7778f31648dbb9aa2e486828344067b8d269014180c2dc",
+          "pixel_sha256": "85e0b1e7a2f9afaaab451a52143d3a3ced77e3cd0e5ae5410b4d79113df187c9",
+          "classification": "BOUNDED_ORIGINAL_DISPLAY_ENTRY_CONTEXT"
+        },
+        {
+          "path": "native/attempt1_dependency_1280/original_menu_settled.png",
+          "sha256": "ac1925567d8d3f9ab142f45bbf93db2c2c5a5e8358bba05c5d2c13787009ae74",
+          "pixel_sha256": "11f325cfa127c536af8e9d8e790cd86ba5232cd0dbf3c6156d2854ab7467d6e6",
+          "classification": "EXCLUDED_PRIVATE_RELOAD_DEPENDENCY_PREFLIGHT"
+        },
+        {
+          "path": "native/attempt1_legacy_1280/continue_world_settled.png",
+          "sha256": "9014d080fdbe250b18e80b28cb5722a1d9bc6fc3691b8c28ba0fa5c561de60b2",
+          "pixel_sha256": "6c5269d94129dc9090954ae4ec367fbe2a47cdca77a42fd8580bf6762810deba",
+          "classification": "EXCLUDED_LEGACY_SOURCE_POLICY_FAILURE"
+        },
+        {
+          "path": "native/attempt1_legacy_1600/continue_world_settled.png",
+          "sha256": "2323348458228d4e497c2043c19645049b29d6f3cd01e480c04a9782cfccb728",
+          "pixel_sha256": "3fe135f8876fc8fa3a6614313d1d3b0aa8258b5e16a5e388e2bf890187e50231",
+          "classification": "EXCLUDED_LEGACY_SOURCE_POLICY_FAILURE"
+        },
+        {
+          "path": "native/attempt1_missing_1280/original_menu_settled.png",
+          "sha256": "792e4a6f86c79aa4f52239d02cd02c6d11baf4176fb4ea00fb26f6ccca57c615",
+          "pixel_sha256": "71f795722a4cb9c3e5b1732b389daadda49ad416790767d59aeb61d2ce305d4e",
+          "classification": "EXCLUDED_SOURCE_DESKTOP_SPARKLY_DEFAULT"
+        },
+        {
+          "path": "native/attempt1_missing_1280/quality_to_speedy_released.png",
+          "sha256": "c9e6a6fd41a9ad2b3c9a34ca4152f204d01e1eebd16b3c8b82fb2b1d65fd9951",
+          "pixel_sha256": "8f5fcd1dca5b0f717f672ed097971646cae7af4283e921e760b0092d0ac252d0",
+          "classification": "BOUNDED_ORIGINAL_DISPLAY_ENTRY_CONTEXT"
+        },
+        {
+          "path": "native/attempt1_missing_1600/options_visible.png",
+          "sha256": "6f588e75f0fe18eea35f6dae5285ae14c5d6028bac2d5822e4c880e0af9bf5e6",
+          "pixel_sha256": "455244d895d49456d9ab168c6d2a6ec8dddc72baef80be36a2cbe415d4739749",
+          "classification": "EXCLUDED_SOURCE_DESKTOP_SPARKLY_DEFAULT"
+        },
+        {
+          "path": "native/attempt1_newgame_1280/confirmation_armed.png",
+          "sha256": "a908650dbc41647f6d60bb5d7a74da1aecd9c446b502bc9b4972cf6ac1c6a7bc",
+          "pixel_sha256": "443e27ab045b3e3b3b1dbf9d5344465ff6addc19ad221b732079f480d286ee3f",
+          "classification": "BOUNDED_ORIGINAL_DISPLAY_ENTRY_CONTEXT"
+        },
+        {
+          "path": "native/attempt1_newgame_1280/full_hold_live_fill.png",
+          "sha256": "5ba27a68024b6db1aacf59d49d04dfa0f1ec2a021db1aef3bb8ca798a2ad5e81",
+          "pixel_sha256": "a25ceaa823249ea5f3894d8d866b55cea468b0a1df5d5034bf0fc390aa3f7fc7",
+          "classification": "BOUNDED_ORIGINAL_DISPLAY_ENTRY_CONTEXT"
+        },
+        {
+          "path": "native/attempt1_newgame_1280/newgame_route_onset.png",
+          "sha256": "a7b625b46a39dd2115e7e69f22666e9d782e50b932a60df7d650391054e2b8dd",
+          "pixel_sha256": "1a041e8b9cdfcd3f053f94653f6f98479027256316e618f500efe1d0b6a7e2cb",
+          "classification": "BOUNDED_ORIGINAL_DISPLAY_ENTRY_CONTEXT"
+        },
+        {
+          "path": "native/attempt1_newgame_1280/newgame_world_settled.png",
+          "sha256": "534eda13b88f10173aef16ebb3b05ce161138599820b3b90037b07ecc15917b5",
+          "pixel_sha256": "fbd8c95db116ec51976818ad7cbe560fc7f74dddd52649d7184f58d90d8588b9",
+          "classification": "BOUNDED_ORIGINAL_DISPLAY_ENTRY_CONTEXT"
+        },
+        {
+          "path": "native/attempt1_newgame_1600/full_hold_live_fill.png",
+          "sha256": "f89587bd61b3f522617b461f3a9e758aed8ddaf98e746866dceccd4a9296e486",
+          "pixel_sha256": "e5d23320ce321ffb297fe38857318ab3c49c6d48887c53199ebf2a8063769cb6",
+          "classification": "BOUNDED_ORIGINAL_DISPLAY_ENTRY_CONTEXT"
+        },
+        {
+          "path": "native/attempt1_newgame_1600/newgame_world_settled.png",
+          "sha256": "1eea79404bf7abb0890d46a40452a1094cdb507d600db82ab5eb74aebb7e9e62",
+          "pixel_sha256": "f816cd4bf255ab59dede9ed8539a558bb7e13e60a33a6df2301e2c9ef888531f",
+          "classification": "BOUNDED_ORIGINAL_DISPLAY_ENTRY_CONTEXT"
+        }
+      ],
+      "same_scene_reference_hashes": [
+        {
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "path": "assets/characters/roshan_25d/roshan_directional.png",
+          "bytes": 396741,
+          "sha256": "2bcc6212dddaddedb5823ba095caff1cbecdb762d5bbdc76726d3d5b0e3ee85a",
+          "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/assets/characters/roshan_25d/roshan_directional.png",
+          "http_status": 200,
+          "checked_at_utc": "2026-10-15T22:10:00.158883+00:00",
+          "role": "Exact source/context dependency; no approval from inclusion",
+          "dimensions": [
+            1024,
+            512
+          ]
+        },
+        {
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "path": "assets/sprites/sky_lagoon/sky_lagoon_castle_door_focus_v1.png",
+          "bytes": 1355,
+          "sha256": "fddab0ef204be19a8fce65221f3801ba69497d289b0f012f029076a099feb25c",
+          "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/assets/sprites/sky_lagoon/sky_lagoon_castle_door_focus_v1.png",
+          "http_status": 200,
+          "checked_at_utc": "2026-10-15T22:10:01.801404+00:00",
+          "role": "Exact source/context dependency; no approval from inclusion",
+          "dimensions": [
+            199,
+            228
+          ]
+        },
+        {
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "path": "assets/sprites/sky_lagoon/sky_lagoon_castle_four_tower_v4.png",
+          "bytes": 1412255,
+          "sha256": "08e3b8503520f3657e7f788bc74c967b76692f5dd292e0971495677f0e695a42",
+          "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/assets/sprites/sky_lagoon/sky_lagoon_castle_four_tower_v4.png",
+          "http_status": 200,
+          "checked_at_utc": "2026-10-15T22:10:01.999011+00:00",
+          "role": "Exact source/context dependency; no approval from inclusion",
+          "dimensions": [
+            1022,
+            1024
+          ]
+        },
+        {
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "path": "assets/ui/boot_splash_mermaid_roshan.png",
+          "bytes": 1848681,
+          "sha256": "d5127c4a6227baab05343dc10692e2f76f1dd59f22ca24a22329de402dbb8044",
+          "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/assets/ui/boot_splash_mermaid_roshan.png",
+          "http_status": 200,
+          "checked_at_utc": "2026-10-15T22:10:02.413710+00:00",
+          "role": "Exact source/context dependency; no approval from inclusion",
+          "dimensions": [
+            1024,
+            576
+          ]
+        }
+      ],
+      "comparison": {
+        "contour": "Flat rounded button/panel borders, thin inset/sheens, procedural shell/pearls and sparkles remain against polished painted splash artwork. The hard smooth geometry differs from textured source contours. Originalholdfill is visible flat material despite functional progress semantics.",
+        "material": "Uniform flat paper/gold/green fills and gloss strips contrast with painted fabric, stone, water and pearl texture in the title illustration. Existing reusable painted UI sources need in-context eligibility/fit review; no newart commissioned.",
+        "palette": "Violet/gold/aqua roles echo source hues but unchanged solid surfaces and some pastel glow differ from painted shading. Source locked/disabled/pressed/focus cues remain meaningful, not accepted art.",
+        "light": "Constant flat StyleBox shading and procedural sheens do not inherit the illustration light. No source relight/identity change occurred.",
+        "perspective": "Screen-facingUI overlays the painted scenic perspective; retain clean interface orientation while replacing visible material. Sourcehitgeometry is separate.",
+        "scale": "Original UI targets and sixstylekeys captured at1280/1600; current livebar is8pxhigh with widthprogress between0and240. Holdcaption remains adult-scoped; actualphone readability/touch reach and QA11projection unproven.",
+        "contact": "UI background/input overlap gives no character support/contact acceptance. Source characters remain untouched; no product geometry or art changed.",
+        "occlusion": "Menu lowerpanel overlays painted figures; Options/confirmation dim underlying art. ActualNewGame reset shows originalbootSplash fading over movieonset; no clip pixels edited and no flattened/identity/transition acceptance inferred.",
+        "readability": "Largeflat button shapes, labels/glyphs and safeKeepGame cue are readable in inspected desktop frames but retain reading/glyph dependence. DisabledContinue/source settings and arm/shortlift/cancel/fullhold were observed; childcomprehension/font/device evidence remainsopen.",
+        "action_state": "Six source cases60checks pass, excluded actualprivate-reloadpreflight3passes. Two legacycases retain1failed assertioneach/24checks: normalizedmissingDayOneflag entersDayOneopening contrarycurrentcomments. Failed42frames and initialSparkly12/preflight2 excluded. Nativefocus/press/disabled/style samples are notfullQA11/freshOS/device/child/owner or allrouting closure."
+      },
+      "source_acceptance": "Current source only; no newuse/creative/identity acceptance from inclusion",
+      "candidate": null,
+      "integration": null,
+      "runtime_verified_replacement": null,
+      "QA11": null,
+      "device": null,
+      "child": null,
+      "owner": null,
+      "accepted_removed": false
+    },
+    {
+      "stable_piece_id": "FV-276E68E0A9DA",
+      "role": "Startmenu inset/sheen",
+      "current_capture_hashes": [
+        {
+          "path": "native/attempt1_dayone_1280/continue_world_settled.png",
+          "sha256": "3641b962a02ce94c0a56dfe89cfbb25f3ecb7b4af082767cb482194c7b837bb8",
+          "pixel_sha256": "1ff5d8223aa196629eddbed92b2bcf2409b4f96c69fea5c3d6d79bef376330ed",
+          "classification": "BOUNDED_ORIGINAL_DISPLAY_ENTRY_CONTEXT"
+        },
+        {
+          "path": "native/attempt1_dayone_1600/continue_world_settled.png",
+          "sha256": "3251c48fee895b2ebc7778f31648dbb9aa2e486828344067b8d269014180c2dc",
+          "pixel_sha256": "85e0b1e7a2f9afaaab451a52143d3a3ced77e3cd0e5ae5410b4d79113df187c9",
+          "classification": "BOUNDED_ORIGINAL_DISPLAY_ENTRY_CONTEXT"
+        },
+        {
+          "path": "native/attempt1_dependency_1280/original_menu_settled.png",
+          "sha256": "ac1925567d8d3f9ab142f45bbf93db2c2c5a5e8358bba05c5d2c13787009ae74",
+          "pixel_sha256": "11f325cfa127c536af8e9d8e790cd86ba5232cd0dbf3c6156d2854ab7467d6e6",
+          "classification": "EXCLUDED_PRIVATE_RELOAD_DEPENDENCY_PREFLIGHT"
+        },
+        {
+          "path": "native/attempt1_legacy_1280/continue_world_settled.png",
+          "sha256": "9014d080fdbe250b18e80b28cb5722a1d9bc6fc3691b8c28ba0fa5c561de60b2",
+          "pixel_sha256": "6c5269d94129dc9090954ae4ec367fbe2a47cdca77a42fd8580bf6762810deba",
+          "classification": "EXCLUDED_LEGACY_SOURCE_POLICY_FAILURE"
+        },
+        {
+          "path": "native/attempt1_legacy_1600/continue_world_settled.png",
+          "sha256": "2323348458228d4e497c2043c19645049b29d6f3cd01e480c04a9782cfccb728",
+          "pixel_sha256": "3fe135f8876fc8fa3a6614313d1d3b0aa8258b5e16a5e388e2bf890187e50231",
+          "classification": "EXCLUDED_LEGACY_SOURCE_POLICY_FAILURE"
+        },
+        {
+          "path": "native/attempt1_missing_1280/original_menu_settled.png",
+          "sha256": "792e4a6f86c79aa4f52239d02cd02c6d11baf4176fb4ea00fb26f6ccca57c615",
+          "pixel_sha256": "71f795722a4cb9c3e5b1732b389daadda49ad416790767d59aeb61d2ce305d4e",
+          "classification": "EXCLUDED_SOURCE_DESKTOP_SPARKLY_DEFAULT"
+        },
+        {
+          "path": "native/attempt1_missing_1280/quality_to_speedy_released.png",
+          "sha256": "c9e6a6fd41a9ad2b3c9a34ca4152f204d01e1eebd16b3c8b82fb2b1d65fd9951",
+          "pixel_sha256": "8f5fcd1dca5b0f717f672ed097971646cae7af4283e921e760b0092d0ac252d0",
+          "classification": "BOUNDED_ORIGINAL_DISPLAY_ENTRY_CONTEXT"
+        },
+        {
+          "path": "native/attempt1_missing_1600/options_visible.png",
+          "sha256": "6f588e75f0fe18eea35f6dae5285ae14c5d6028bac2d5822e4c880e0af9bf5e6",
+          "pixel_sha256": "455244d895d49456d9ab168c6d2a6ec8dddc72baef80be36a2cbe415d4739749",
+          "classification": "EXCLUDED_SOURCE_DESKTOP_SPARKLY_DEFAULT"
+        },
+        {
+          "path": "native/attempt1_newgame_1280/confirmation_armed.png",
+          "sha256": "a908650dbc41647f6d60bb5d7a74da1aecd9c446b502bc9b4972cf6ac1c6a7bc",
+          "pixel_sha256": "443e27ab045b3e3b3b1dbf9d5344465ff6addc19ad221b732079f480d286ee3f",
+          "classification": "BOUNDED_ORIGINAL_DISPLAY_ENTRY_CONTEXT"
+        },
+        {
+          "path": "native/attempt1_newgame_1280/full_hold_live_fill.png",
+          "sha256": "5ba27a68024b6db1aacf59d49d04dfa0f1ec2a021db1aef3bb8ca798a2ad5e81",
+          "pixel_sha256": "a25ceaa823249ea5f3894d8d866b55cea468b0a1df5d5034bf0fc390aa3f7fc7",
+          "classification": "BOUNDED_ORIGINAL_DISPLAY_ENTRY_CONTEXT"
+        },
+        {
+          "path": "native/attempt1_newgame_1280/newgame_route_onset.png",
+          "sha256": "a7b625b46a39dd2115e7e69f22666e9d782e50b932a60df7d650391054e2b8dd",
+          "pixel_sha256": "1a041e8b9cdfcd3f053f94653f6f98479027256316e618f500efe1d0b6a7e2cb",
+          "classification": "BOUNDED_ORIGINAL_DISPLAY_ENTRY_CONTEXT"
+        },
+        {
+          "path": "native/attempt1_newgame_1280/newgame_world_settled.png",
+          "sha256": "534eda13b88f10173aef16ebb3b05ce161138599820b3b90037b07ecc15917b5",
+          "pixel_sha256": "fbd8c95db116ec51976818ad7cbe560fc7f74dddd52649d7184f58d90d8588b9",
+          "classification": "BOUNDED_ORIGINAL_DISPLAY_ENTRY_CONTEXT"
+        },
+        {
+          "path": "native/attempt1_newgame_1600/full_hold_live_fill.png",
+          "sha256": "f89587bd61b3f522617b461f3a9e758aed8ddaf98e746866dceccd4a9296e486",
+          "pixel_sha256": "e5d23320ce321ffb297fe38857318ab3c49c6d48887c53199ebf2a8063769cb6",
+          "classification": "BOUNDED_ORIGINAL_DISPLAY_ENTRY_CONTEXT"
+        },
+        {
+          "path": "native/attempt1_newgame_1600/newgame_world_settled.png",
+          "sha256": "1eea79404bf7abb0890d46a40452a1094cdb507d600db82ab5eb74aebb7e9e62",
+          "pixel_sha256": "f816cd4bf255ab59dede9ed8539a558bb7e13e60a33a6df2301e2c9ef888531f",
+          "classification": "BOUNDED_ORIGINAL_DISPLAY_ENTRY_CONTEXT"
+        }
+      ],
+      "same_scene_reference_hashes": [
+        {
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "path": "assets/characters/roshan_25d/roshan_directional.png",
+          "bytes": 396741,
+          "sha256": "2bcc6212dddaddedb5823ba095caff1cbecdb762d5bbdc76726d3d5b0e3ee85a",
+          "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/assets/characters/roshan_25d/roshan_directional.png",
+          "http_status": 200,
+          "checked_at_utc": "2026-10-15T22:10:00.158883+00:00",
+          "role": "Exact source/context dependency; no approval from inclusion",
+          "dimensions": [
+            1024,
+            512
+          ]
+        },
+        {
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "path": "assets/sprites/sky_lagoon/sky_lagoon_castle_door_focus_v1.png",
+          "bytes": 1355,
+          "sha256": "fddab0ef204be19a8fce65221f3801ba69497d289b0f012f029076a099feb25c",
+          "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/assets/sprites/sky_lagoon/sky_lagoon_castle_door_focus_v1.png",
+          "http_status": 200,
+          "checked_at_utc": "2026-10-15T22:10:01.801404+00:00",
+          "role": "Exact source/context dependency; no approval from inclusion",
+          "dimensions": [
+            199,
+            228
+          ]
+        },
+        {
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "path": "assets/sprites/sky_lagoon/sky_lagoon_castle_four_tower_v4.png",
+          "bytes": 1412255,
+          "sha256": "08e3b8503520f3657e7f788bc74c967b76692f5dd292e0971495677f0e695a42",
+          "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/assets/sprites/sky_lagoon/sky_lagoon_castle_four_tower_v4.png",
+          "http_status": 200,
+          "checked_at_utc": "2026-10-15T22:10:01.999011+00:00",
+          "role": "Exact source/context dependency; no approval from inclusion",
+          "dimensions": [
+            1022,
+            1024
+          ]
+        },
+        {
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "path": "assets/ui/boot_splash_mermaid_roshan.png",
+          "bytes": 1848681,
+          "sha256": "d5127c4a6227baab05343dc10692e2f76f1dd59f22ca24a22329de402dbb8044",
+          "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/assets/ui/boot_splash_mermaid_roshan.png",
+          "http_status": 200,
+          "checked_at_utc": "2026-10-15T22:10:02.413710+00:00",
+          "role": "Exact source/context dependency; no approval from inclusion",
+          "dimensions": [
+            1024,
+            576
+          ]
+        }
+      ],
+      "comparison": {
+        "contour": "Flat rounded button/panel borders, thin inset/sheens, procedural shell/pearls and sparkles remain against polished painted splash artwork. The hard smooth geometry differs from textured source contours. Originalholdfill is visible flat material despite functional progress semantics.",
+        "material": "Uniform flat paper/gold/green fills and gloss strips contrast with painted fabric, stone, water and pearl texture in the title illustration. Existing reusable painted UI sources need in-context eligibility/fit review; no newart commissioned.",
+        "palette": "Violet/gold/aqua roles echo source hues but unchanged solid surfaces and some pastel glow differ from painted shading. Source locked/disabled/pressed/focus cues remain meaningful, not accepted art.",
+        "light": "Constant flat StyleBox shading and procedural sheens do not inherit the illustration light. No source relight/identity change occurred.",
+        "perspective": "Screen-facingUI overlays the painted scenic perspective; retain clean interface orientation while replacing visible material. Sourcehitgeometry is separate.",
+        "scale": "Original UI targets and sixstylekeys captured at1280/1600; current livebar is8pxhigh with widthprogress between0and240. Holdcaption remains adult-scoped; actualphone readability/touch reach and QA11projection unproven.",
+        "contact": "UI background/input overlap gives no character support/contact acceptance. Source characters remain untouched; no product geometry or art changed.",
+        "occlusion": "Menu lowerpanel overlays painted figures; Options/confirmation dim underlying art. ActualNewGame reset shows originalbootSplash fading over movieonset; no clip pixels edited and no flattened/identity/transition acceptance inferred.",
+        "readability": "Largeflat button shapes, labels/glyphs and safeKeepGame cue are readable in inspected desktop frames but retain reading/glyph dependence. DisabledContinue/source settings and arm/shortlift/cancel/fullhold were observed; childcomprehension/font/device evidence remainsopen.",
+        "action_state": "Six source cases60checks pass, excluded actualprivate-reloadpreflight3passes. Two legacycases retain1failed assertioneach/24checks: normalizedmissingDayOneflag entersDayOneopening contrarycurrentcomments. Failed42frames and initialSparkly12/preflight2 excluded. Nativefocus/press/disabled/style samples are notfullQA11/freshOS/device/child/owner or allrouting closure."
+      },
+      "source_acceptance": "Current source only; no newuse/creative/identity acceptance from inclusion",
+      "candidate": null,
+      "integration": null,
+      "runtime_verified_replacement": null,
+      "QA11": null,
+      "device": null,
+      "child": null,
+      "owner": null,
+      "accepted_removed": false
+    },
+    {
+      "stable_piece_id": "FV-619466CA433F",
+      "role": "Startmenu decorative sparkle",
+      "current_capture_hashes": [
+        {
+          "path": "native/attempt1_dayone_1280/continue_world_settled.png",
+          "sha256": "3641b962a02ce94c0a56dfe89cfbb25f3ecb7b4af082767cb482194c7b837bb8",
+          "pixel_sha256": "1ff5d8223aa196629eddbed92b2bcf2409b4f96c69fea5c3d6d79bef376330ed",
+          "classification": "BOUNDED_ORIGINAL_DISPLAY_ENTRY_CONTEXT"
+        },
+        {
+          "path": "native/attempt1_dayone_1600/continue_world_settled.png",
+          "sha256": "3251c48fee895b2ebc7778f31648dbb9aa2e486828344067b8d269014180c2dc",
+          "pixel_sha256": "85e0b1e7a2f9afaaab451a52143d3a3ced77e3cd0e5ae5410b4d79113df187c9",
+          "classification": "BOUNDED_ORIGINAL_DISPLAY_ENTRY_CONTEXT"
+        },
+        {
+          "path": "native/attempt1_dependency_1280/original_menu_settled.png",
+          "sha256": "ac1925567d8d3f9ab142f45bbf93db2c2c5a5e8358bba05c5d2c13787009ae74",
+          "pixel_sha256": "11f325cfa127c536af8e9d8e790cd86ba5232cd0dbf3c6156d2854ab7467d6e6",
+          "classification": "EXCLUDED_PRIVATE_RELOAD_DEPENDENCY_PREFLIGHT"
+        },
+        {
+          "path": "native/attempt1_legacy_1280/continue_world_settled.png",
+          "sha256": "9014d080fdbe250b18e80b28cb5722a1d9bc6fc3691b8c28ba0fa5c561de60b2",
+          "pixel_sha256": "6c5269d94129dc9090954ae4ec367fbe2a47cdca77a42fd8580bf6762810deba",
+          "classification": "EXCLUDED_LEGACY_SOURCE_POLICY_FAILURE"
+        },
+        {
+          "path": "native/attempt1_legacy_1600/continue_world_settled.png",
+          "sha256": "2323348458228d4e497c2043c19645049b29d6f3cd01e480c04a9782cfccb728",
+          "pixel_sha256": "3fe135f8876fc8fa3a6614313d1d3b0aa8258b5e16a5e388e2bf890187e50231",
+          "classification": "EXCLUDED_LEGACY_SOURCE_POLICY_FAILURE"
+        },
+        {
+          "path": "native/attempt1_missing_1280/original_menu_settled.png",
+          "sha256": "792e4a6f86c79aa4f52239d02cd02c6d11baf4176fb4ea00fb26f6ccca57c615",
+          "pixel_sha256": "71f795722a4cb9c3e5b1732b389daadda49ad416790767d59aeb61d2ce305d4e",
+          "classification": "EXCLUDED_SOURCE_DESKTOP_SPARKLY_DEFAULT"
+        },
+        {
+          "path": "native/attempt1_missing_1280/quality_to_speedy_released.png",
+          "sha256": "c9e6a6fd41a9ad2b3c9a34ca4152f204d01e1eebd16b3c8b82fb2b1d65fd9951",
+          "pixel_sha256": "8f5fcd1dca5b0f717f672ed097971646cae7af4283e921e760b0092d0ac252d0",
+          "classification": "BOUNDED_ORIGINAL_DISPLAY_ENTRY_CONTEXT"
+        },
+        {
+          "path": "native/attempt1_missing_1600/options_visible.png",
+          "sha256": "6f588e75f0fe18eea35f6dae5285ae14c5d6028bac2d5822e4c880e0af9bf5e6",
+          "pixel_sha256": "455244d895d49456d9ab168c6d2a6ec8dddc72baef80be36a2cbe415d4739749",
+          "classification": "EXCLUDED_SOURCE_DESKTOP_SPARKLY_DEFAULT"
+        },
+        {
+          "path": "native/attempt1_newgame_1280/confirmation_armed.png",
+          "sha256": "a908650dbc41647f6d60bb5d7a74da1aecd9c446b502bc9b4972cf6ac1c6a7bc",
+          "pixel_sha256": "443e27ab045b3e3b3b1dbf9d5344465ff6addc19ad221b732079f480d286ee3f",
+          "classification": "BOUNDED_ORIGINAL_DISPLAY_ENTRY_CONTEXT"
+        },
+        {
+          "path": "native/attempt1_newgame_1280/full_hold_live_fill.png",
+          "sha256": "5ba27a68024b6db1aacf59d49d04dfa0f1ec2a021db1aef3bb8ca798a2ad5e81",
+          "pixel_sha256": "a25ceaa823249ea5f3894d8d866b55cea468b0a1df5d5034bf0fc390aa3f7fc7",
+          "classification": "BOUNDED_ORIGINAL_DISPLAY_ENTRY_CONTEXT"
+        },
+        {
+          "path": "native/attempt1_newgame_1280/newgame_route_onset.png",
+          "sha256": "a7b625b46a39dd2115e7e69f22666e9d782e50b932a60df7d650391054e2b8dd",
+          "pixel_sha256": "1a041e8b9cdfcd3f053f94653f6f98479027256316e618f500efe1d0b6a7e2cb",
+          "classification": "BOUNDED_ORIGINAL_DISPLAY_ENTRY_CONTEXT"
+        },
+        {
+          "path": "native/attempt1_newgame_1280/newgame_world_settled.png",
+          "sha256": "534eda13b88f10173aef16ebb3b05ce161138599820b3b90037b07ecc15917b5",
+          "pixel_sha256": "fbd8c95db116ec51976818ad7cbe560fc7f74dddd52649d7184f58d90d8588b9",
+          "classification": "BOUNDED_ORIGINAL_DISPLAY_ENTRY_CONTEXT"
+        },
+        {
+          "path": "native/attempt1_newgame_1600/full_hold_live_fill.png",
+          "sha256": "f89587bd61b3f522617b461f3a9e758aed8ddaf98e746866dceccd4a9296e486",
+          "pixel_sha256": "e5d23320ce321ffb297fe38857318ab3c49c6d48887c53199ebf2a8063769cb6",
+          "classification": "BOUNDED_ORIGINAL_DISPLAY_ENTRY_CONTEXT"
+        },
+        {
+          "path": "native/attempt1_newgame_1600/newgame_world_settled.png",
+          "sha256": "1eea79404bf7abb0890d46a40452a1094cdb507d600db82ab5eb74aebb7e9e62",
+          "pixel_sha256": "f816cd4bf255ab59dede9ed8539a558bb7e13e60a33a6df2301e2c9ef888531f",
+          "classification": "BOUNDED_ORIGINAL_DISPLAY_ENTRY_CONTEXT"
+        }
+      ],
+      "same_scene_reference_hashes": [
+        {
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "path": "assets/characters/roshan_25d/roshan_directional.png",
+          "bytes": 396741,
+          "sha256": "2bcc6212dddaddedb5823ba095caff1cbecdb762d5bbdc76726d3d5b0e3ee85a",
+          "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/assets/characters/roshan_25d/roshan_directional.png",
+          "http_status": 200,
+          "checked_at_utc": "2026-10-15T22:10:00.158883+00:00",
+          "role": "Exact source/context dependency; no approval from inclusion",
+          "dimensions": [
+            1024,
+            512
+          ]
+        },
+        {
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "path": "assets/sprites/sky_lagoon/sky_lagoon_castle_door_focus_v1.png",
+          "bytes": 1355,
+          "sha256": "fddab0ef204be19a8fce65221f3801ba69497d289b0f012f029076a099feb25c",
+          "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/assets/sprites/sky_lagoon/sky_lagoon_castle_door_focus_v1.png",
+          "http_status": 200,
+          "checked_at_utc": "2026-10-15T22:10:01.801404+00:00",
+          "role": "Exact source/context dependency; no approval from inclusion",
+          "dimensions": [
+            199,
+            228
+          ]
+        },
+        {
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "path": "assets/sprites/sky_lagoon/sky_lagoon_castle_four_tower_v4.png",
+          "bytes": 1412255,
+          "sha256": "08e3b8503520f3657e7f788bc74c967b76692f5dd292e0971495677f0e695a42",
+          "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/assets/sprites/sky_lagoon/sky_lagoon_castle_four_tower_v4.png",
+          "http_status": 200,
+          "checked_at_utc": "2026-10-15T22:10:01.999011+00:00",
+          "role": "Exact source/context dependency; no approval from inclusion",
+          "dimensions": [
+            1022,
+            1024
+          ]
+        },
+        {
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "path": "assets/ui/boot_splash_mermaid_roshan.png",
+          "bytes": 1848681,
+          "sha256": "d5127c4a6227baab05343dc10692e2f76f1dd59f22ca24a22329de402dbb8044",
+          "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/assets/ui/boot_splash_mermaid_roshan.png",
+          "http_status": 200,
+          "checked_at_utc": "2026-10-15T22:10:02.413710+00:00",
+          "role": "Exact source/context dependency; no approval from inclusion",
+          "dimensions": [
+            1024,
+            576
+          ]
+        }
+      ],
+      "comparison": {
+        "contour": "Flat rounded button/panel borders, thin inset/sheens, procedural shell/pearls and sparkles remain against polished painted splash artwork. The hard smooth geometry differs from textured source contours. Originalholdfill is visible flat material despite functional progress semantics.",
+        "material": "Uniform flat paper/gold/green fills and gloss strips contrast with painted fabric, stone, water and pearl texture in the title illustration. Existing reusable painted UI sources need in-context eligibility/fit review; no newart commissioned.",
+        "palette": "Violet/gold/aqua roles echo source hues but unchanged solid surfaces and some pastel glow differ from painted shading. Source locked/disabled/pressed/focus cues remain meaningful, not accepted art.",
+        "light": "Constant flat StyleBox shading and procedural sheens do not inherit the illustration light. No source relight/identity change occurred.",
+        "perspective": "Screen-facingUI overlays the painted scenic perspective; retain clean interface orientation while replacing visible material. Sourcehitgeometry is separate.",
+        "scale": "Original UI targets and sixstylekeys captured at1280/1600; current livebar is8pxhigh with widthprogress between0and240. Holdcaption remains adult-scoped; actualphone readability/touch reach and QA11projection unproven.",
+        "contact": "UI background/input overlap gives no character support/contact acceptance. Source characters remain untouched; no product geometry or art changed.",
+        "occlusion": "Menu lowerpanel overlays painted figures; Options/confirmation dim underlying art. ActualNewGame reset shows originalbootSplash fading over movieonset; no clip pixels edited and no flattened/identity/transition acceptance inferred.",
+        "readability": "Largeflat button shapes, labels/glyphs and safeKeepGame cue are readable in inspected desktop frames but retain reading/glyph dependence. DisabledContinue/source settings and arm/shortlift/cancel/fullhold were observed; childcomprehension/font/device evidence remainsopen.",
+        "action_state": "Six source cases60checks pass, excluded actualprivate-reloadpreflight3passes. Two legacycases retain1failed assertioneach/24checks: normalizedmissingDayOneflag entersDayOneopening contrarycurrentcomments. Failed42frames and initialSparkly12/preflight2 excluded. Nativefocus/press/disabled/style samples are notfullQA11/freshOS/device/child/owner or allrouting closure."
+      },
+      "source_acceptance": "Current source only; no newuse/creative/identity acceptance from inclusion",
+      "candidate": null,
+      "integration": null,
+      "runtime_verified_replacement": null,
+      "QA11": null,
+      "device": null,
+      "child": null,
+      "owner": null,
+      "accepted_removed": false
+    },
+    {
+      "stable_piece_id": "FV-50B38661B1E4",
+      "role": "Startmenu visibleholdprogressfill",
+      "current_capture_hashes": [
+        {
+          "path": "native/attempt1_dayone_1280/continue_world_settled.png",
+          "sha256": "3641b962a02ce94c0a56dfe89cfbb25f3ecb7b4af082767cb482194c7b837bb8",
+          "pixel_sha256": "1ff5d8223aa196629eddbed92b2bcf2409b4f96c69fea5c3d6d79bef376330ed",
+          "classification": "BOUNDED_ORIGINAL_DISPLAY_ENTRY_CONTEXT"
+        },
+        {
+          "path": "native/attempt1_dayone_1600/continue_world_settled.png",
+          "sha256": "3251c48fee895b2ebc7778f31648dbb9aa2e486828344067b8d269014180c2dc",
+          "pixel_sha256": "85e0b1e7a2f9afaaab451a52143d3a3ced77e3cd0e5ae5410b4d79113df187c9",
+          "classification": "BOUNDED_ORIGINAL_DISPLAY_ENTRY_CONTEXT"
+        },
+        {
+          "path": "native/attempt1_dependency_1280/original_menu_settled.png",
+          "sha256": "ac1925567d8d3f9ab142f45bbf93db2c2c5a5e8358bba05c5d2c13787009ae74",
+          "pixel_sha256": "11f325cfa127c536af8e9d8e790cd86ba5232cd0dbf3c6156d2854ab7467d6e6",
+          "classification": "EXCLUDED_PRIVATE_RELOAD_DEPENDENCY_PREFLIGHT"
+        },
+        {
+          "path": "native/attempt1_legacy_1280/continue_world_settled.png",
+          "sha256": "9014d080fdbe250b18e80b28cb5722a1d9bc6fc3691b8c28ba0fa5c561de60b2",
+          "pixel_sha256": "6c5269d94129dc9090954ae4ec367fbe2a47cdca77a42fd8580bf6762810deba",
+          "classification": "EXCLUDED_LEGACY_SOURCE_POLICY_FAILURE"
+        },
+        {
+          "path": "native/attempt1_legacy_1600/continue_world_settled.png",
+          "sha256": "2323348458228d4e497c2043c19645049b29d6f3cd01e480c04a9782cfccb728",
+          "pixel_sha256": "3fe135f8876fc8fa3a6614313d1d3b0aa8258b5e16a5e388e2bf890187e50231",
+          "classification": "EXCLUDED_LEGACY_SOURCE_POLICY_FAILURE"
+        },
+        {
+          "path": "native/attempt1_missing_1280/original_menu_settled.png",
+          "sha256": "792e4a6f86c79aa4f52239d02cd02c6d11baf4176fb4ea00fb26f6ccca57c615",
+          "pixel_sha256": "71f795722a4cb9c3e5b1732b389daadda49ad416790767d59aeb61d2ce305d4e",
+          "classification": "EXCLUDED_SOURCE_DESKTOP_SPARKLY_DEFAULT"
+        },
+        {
+          "path": "native/attempt1_missing_1280/quality_to_speedy_released.png",
+          "sha256": "c9e6a6fd41a9ad2b3c9a34ca4152f204d01e1eebd16b3c8b82fb2b1d65fd9951",
+          "pixel_sha256": "8f5fcd1dca5b0f717f672ed097971646cae7af4283e921e760b0092d0ac252d0",
+          "classification": "BOUNDED_ORIGINAL_DISPLAY_ENTRY_CONTEXT"
+        },
+        {
+          "path": "native/attempt1_missing_1600/options_visible.png",
+          "sha256": "6f588e75f0fe18eea35f6dae5285ae14c5d6028bac2d5822e4c880e0af9bf5e6",
+          "pixel_sha256": "455244d895d49456d9ab168c6d2a6ec8dddc72baef80be36a2cbe415d4739749",
+          "classification": "EXCLUDED_SOURCE_DESKTOP_SPARKLY_DEFAULT"
+        },
+        {
+          "path": "native/attempt1_newgame_1280/confirmation_armed.png",
+          "sha256": "a908650dbc41647f6d60bb5d7a74da1aecd9c446b502bc9b4972cf6ac1c6a7bc",
+          "pixel_sha256": "443e27ab045b3e3b3b1dbf9d5344465ff6addc19ad221b732079f480d286ee3f",
+          "classification": "BOUNDED_ORIGINAL_DISPLAY_ENTRY_CONTEXT"
+        },
+        {
+          "path": "native/attempt1_newgame_1280/full_hold_live_fill.png",
+          "sha256": "5ba27a68024b6db1aacf59d49d04dfa0f1ec2a021db1aef3bb8ca798a2ad5e81",
+          "pixel_sha256": "a25ceaa823249ea5f3894d8d866b55cea468b0a1df5d5034bf0fc390aa3f7fc7",
+          "classification": "BOUNDED_ORIGINAL_DISPLAY_ENTRY_CONTEXT"
+        },
+        {
+          "path": "native/attempt1_newgame_1280/newgame_route_onset.png",
+          "sha256": "a7b625b46a39dd2115e7e69f22666e9d782e50b932a60df7d650391054e2b8dd",
+          "pixel_sha256": "1a041e8b9cdfcd3f053f94653f6f98479027256316e618f500efe1d0b6a7e2cb",
+          "classification": "BOUNDED_ORIGINAL_DISPLAY_ENTRY_CONTEXT"
+        },
+        {
+          "path": "native/attempt1_newgame_1280/newgame_world_settled.png",
+          "sha256": "534eda13b88f10173aef16ebb3b05ce161138599820b3b90037b07ecc15917b5",
+          "pixel_sha256": "fbd8c95db116ec51976818ad7cbe560fc7f74dddd52649d7184f58d90d8588b9",
+          "classification": "BOUNDED_ORIGINAL_DISPLAY_ENTRY_CONTEXT"
+        },
+        {
+          "path": "native/attempt1_newgame_1600/full_hold_live_fill.png",
+          "sha256": "f89587bd61b3f522617b461f3a9e758aed8ddaf98e746866dceccd4a9296e486",
+          "pixel_sha256": "e5d23320ce321ffb297fe38857318ab3c49c6d48887c53199ebf2a8063769cb6",
+          "classification": "BOUNDED_ORIGINAL_DISPLAY_ENTRY_CONTEXT"
+        },
+        {
+          "path": "native/attempt1_newgame_1600/newgame_world_settled.png",
+          "sha256": "1eea79404bf7abb0890d46a40452a1094cdb507d600db82ab5eb74aebb7e9e62",
+          "pixel_sha256": "f816cd4bf255ab59dede9ed8539a558bb7e13e60a33a6df2301e2c9ef888531f",
+          "classification": "BOUNDED_ORIGINAL_DISPLAY_ENTRY_CONTEXT"
+        }
+      ],
+      "same_scene_reference_hashes": [
+        {
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "path": "assets/characters/roshan_25d/roshan_directional.png",
+          "bytes": 396741,
+          "sha256": "2bcc6212dddaddedb5823ba095caff1cbecdb762d5bbdc76726d3d5b0e3ee85a",
+          "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/assets/characters/roshan_25d/roshan_directional.png",
+          "http_status": 200,
+          "checked_at_utc": "2026-10-15T22:10:00.158883+00:00",
+          "role": "Exact source/context dependency; no approval from inclusion",
+          "dimensions": [
+            1024,
+            512
+          ]
+        },
+        {
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "path": "assets/sprites/sky_lagoon/sky_lagoon_castle_door_focus_v1.png",
+          "bytes": 1355,
+          "sha256": "fddab0ef204be19a8fce65221f3801ba69497d289b0f012f029076a099feb25c",
+          "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/assets/sprites/sky_lagoon/sky_lagoon_castle_door_focus_v1.png",
+          "http_status": 200,
+          "checked_at_utc": "2026-10-15T22:10:01.801404+00:00",
+          "role": "Exact source/context dependency; no approval from inclusion",
+          "dimensions": [
+            199,
+            228
+          ]
+        },
+        {
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "path": "assets/sprites/sky_lagoon/sky_lagoon_castle_four_tower_v4.png",
+          "bytes": 1412255,
+          "sha256": "08e3b8503520f3657e7f788bc74c967b76692f5dd292e0971495677f0e695a42",
+          "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/assets/sprites/sky_lagoon/sky_lagoon_castle_four_tower_v4.png",
+          "http_status": 200,
+          "checked_at_utc": "2026-10-15T22:10:01.999011+00:00",
+          "role": "Exact source/context dependency; no approval from inclusion",
+          "dimensions": [
+            1022,
+            1024
+          ]
+        },
+        {
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "path": "assets/ui/boot_splash_mermaid_roshan.png",
+          "bytes": 1848681,
+          "sha256": "d5127c4a6227baab05343dc10692e2f76f1dd59f22ca24a22329de402dbb8044",
+          "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/assets/ui/boot_splash_mermaid_roshan.png",
+          "http_status": 200,
+          "checked_at_utc": "2026-10-15T22:10:02.413710+00:00",
+          "role": "Exact source/context dependency; no approval from inclusion",
+          "dimensions": [
+            1024,
+            576
+          ]
+        }
+      ],
+      "comparison": {
+        "contour": "Flat rounded button/panel borders, thin inset/sheens, procedural shell/pearls and sparkles remain against polished painted splash artwork. The hard smooth geometry differs from textured source contours. Originalholdfill is visible flat material despite functional progress semantics.",
+        "material": "Uniform flat paper/gold/green fills and gloss strips contrast with painted fabric, stone, water and pearl texture in the title illustration. Existing reusable painted UI sources need in-context eligibility/fit review; no newart commissioned.",
+        "palette": "Violet/gold/aqua roles echo source hues but unchanged solid surfaces and some pastel glow differ from painted shading. Source locked/disabled/pressed/focus cues remain meaningful, not accepted art.",
+        "light": "Constant flat StyleBox shading and procedural sheens do not inherit the illustration light. No source relight/identity change occurred.",
+        "perspective": "Screen-facingUI overlays the painted scenic perspective; retain clean interface orientation while replacing visible material. Sourcehitgeometry is separate.",
+        "scale": "Original UI targets and sixstylekeys captured at1280/1600; current livebar is8pxhigh with widthprogress between0and240. Holdcaption remains adult-scoped; actualphone readability/touch reach and QA11projection unproven.",
+        "contact": "UI background/input overlap gives no character support/contact acceptance. Source characters remain untouched; no product geometry or art changed.",
+        "occlusion": "Menu lowerpanel overlays painted figures; Options/confirmation dim underlying art. ActualNewGame reset shows originalbootSplash fading over movieonset; no clip pixels edited and no flattened/identity/transition acceptance inferred.",
+        "readability": "Largeflat button shapes, labels/glyphs and safeKeepGame cue are readable in inspected desktop frames but retain reading/glyph dependence. DisabledContinue/source settings and arm/shortlift/cancel/fullhold were observed; childcomprehension/font/device evidence remainsopen.",
+        "action_state": "Six source cases60checks pass, excluded actualprivate-reloadpreflight3passes. Two legacycases retain1failed assertioneach/24checks: normalizedmissingDayOneflag entersDayOneopening contrarycurrentcomments. Failed42frames and initialSparkly12/preflight2 excluded. Nativefocus/press/disabled/style samples are notfullQA11/freshOS/device/child/owner or allrouting closure."
+      },
+      "source_acceptance": "Current source only; no newuse/creative/identity acceptance from inclusion",
+      "candidate": null,
+      "integration": null,
+      "runtime_verified_replacement": null,
+      "QA11": null,
+      "device": null,
+      "child": null,
+      "owner": null,
+      "accepted_removed": false
+    },
+    {
+      "stable_piece_id": "FVR-42846B2A5A82",
+      "role": "Castle gate flat focus mask",
+      "current_capture_hashes": [
+        {
+          "path": "native/attempt1_dayone_1280/continue_world_settled.png",
+          "sha256": "3641b962a02ce94c0a56dfe89cfbb25f3ecb7b4af082767cb482194c7b837bb8",
+          "pixel_sha256": "1ff5d8223aa196629eddbed92b2bcf2409b4f96c69fea5c3d6d79bef376330ed",
+          "classification": "BOUNDED_ORIGINAL_DISPLAY_ENTRY_CONTEXT"
+        },
+        {
+          "path": "native/attempt1_dayone_1600/continue_world_settled.png",
+          "sha256": "3251c48fee895b2ebc7778f31648dbb9aa2e486828344067b8d269014180c2dc",
+          "pixel_sha256": "85e0b1e7a2f9afaaab451a52143d3a3ced77e3cd0e5ae5410b4d79113df187c9",
+          "classification": "BOUNDED_ORIGINAL_DISPLAY_ENTRY_CONTEXT"
+        },
+        {
+          "path": "native/attempt1_dependency_1280/original_menu_settled.png",
+          "sha256": "ac1925567d8d3f9ab142f45bbf93db2c2c5a5e8358bba05c5d2c13787009ae74",
+          "pixel_sha256": "11f325cfa127c536af8e9d8e790cd86ba5232cd0dbf3c6156d2854ab7467d6e6",
+          "classification": "EXCLUDED_PRIVATE_RELOAD_DEPENDENCY_PREFLIGHT"
+        },
+        {
+          "path": "native/attempt1_legacy_1280/continue_world_settled.png",
+          "sha256": "9014d080fdbe250b18e80b28cb5722a1d9bc6fc3691b8c28ba0fa5c561de60b2",
+          "pixel_sha256": "6c5269d94129dc9090954ae4ec367fbe2a47cdca77a42fd8580bf6762810deba",
+          "classification": "EXCLUDED_LEGACY_SOURCE_POLICY_FAILURE"
+        },
+        {
+          "path": "native/attempt1_legacy_1600/continue_world_settled.png",
+          "sha256": "2323348458228d4e497c2043c19645049b29d6f3cd01e480c04a9782cfccb728",
+          "pixel_sha256": "3fe135f8876fc8fa3a6614313d1d3b0aa8258b5e16a5e388e2bf890187e50231",
+          "classification": "EXCLUDED_LEGACY_SOURCE_POLICY_FAILURE"
+        },
+        {
+          "path": "native/attempt1_missing_1280/original_menu_settled.png",
+          "sha256": "792e4a6f86c79aa4f52239d02cd02c6d11baf4176fb4ea00fb26f6ccca57c615",
+          "pixel_sha256": "71f795722a4cb9c3e5b1732b389daadda49ad416790767d59aeb61d2ce305d4e",
+          "classification": "EXCLUDED_SOURCE_DESKTOP_SPARKLY_DEFAULT"
+        },
+        {
+          "path": "native/attempt1_missing_1280/quality_to_speedy_released.png",
+          "sha256": "c9e6a6fd41a9ad2b3c9a34ca4152f204d01e1eebd16b3c8b82fb2b1d65fd9951",
+          "pixel_sha256": "8f5fcd1dca5b0f717f672ed097971646cae7af4283e921e760b0092d0ac252d0",
+          "classification": "BOUNDED_ORIGINAL_DISPLAY_ENTRY_CONTEXT"
+        },
+        {
+          "path": "native/attempt1_missing_1600/options_visible.png",
+          "sha256": "6f588e75f0fe18eea35f6dae5285ae14c5d6028bac2d5822e4c880e0af9bf5e6",
+          "pixel_sha256": "455244d895d49456d9ab168c6d2a6ec8dddc72baef80be36a2cbe415d4739749",
+          "classification": "EXCLUDED_SOURCE_DESKTOP_SPARKLY_DEFAULT"
+        },
+        {
+          "path": "native/attempt1_newgame_1280/confirmation_armed.png",
+          "sha256": "a908650dbc41647f6d60bb5d7a74da1aecd9c446b502bc9b4972cf6ac1c6a7bc",
+          "pixel_sha256": "443e27ab045b3e3b3b1dbf9d5344465ff6addc19ad221b732079f480d286ee3f",
+          "classification": "BOUNDED_ORIGINAL_DISPLAY_ENTRY_CONTEXT"
+        },
+        {
+          "path": "native/attempt1_newgame_1280/full_hold_live_fill.png",
+          "sha256": "5ba27a68024b6db1aacf59d49d04dfa0f1ec2a021db1aef3bb8ca798a2ad5e81",
+          "pixel_sha256": "a25ceaa823249ea5f3894d8d866b55cea468b0a1df5d5034bf0fc390aa3f7fc7",
+          "classification": "BOUNDED_ORIGINAL_DISPLAY_ENTRY_CONTEXT"
+        },
+        {
+          "path": "native/attempt1_newgame_1280/newgame_route_onset.png",
+          "sha256": "a7b625b46a39dd2115e7e69f22666e9d782e50b932a60df7d650391054e2b8dd",
+          "pixel_sha256": "1a041e8b9cdfcd3f053f94653f6f98479027256316e618f500efe1d0b6a7e2cb",
+          "classification": "BOUNDED_ORIGINAL_DISPLAY_ENTRY_CONTEXT"
+        },
+        {
+          "path": "native/attempt1_newgame_1280/newgame_world_settled.png",
+          "sha256": "534eda13b88f10173aef16ebb3b05ce161138599820b3b90037b07ecc15917b5",
+          "pixel_sha256": "fbd8c95db116ec51976818ad7cbe560fc7f74dddd52649d7184f58d90d8588b9",
+          "classification": "BOUNDED_ORIGINAL_DISPLAY_ENTRY_CONTEXT"
+        },
+        {
+          "path": "native/attempt1_newgame_1600/full_hold_live_fill.png",
+          "sha256": "f89587bd61b3f522617b461f3a9e758aed8ddaf98e746866dceccd4a9296e486",
+          "pixel_sha256": "e5d23320ce321ffb297fe38857318ab3c49c6d48887c53199ebf2a8063769cb6",
+          "classification": "BOUNDED_ORIGINAL_DISPLAY_ENTRY_CONTEXT"
+        },
+        {
+          "path": "native/attempt1_newgame_1600/newgame_world_settled.png",
+          "sha256": "1eea79404bf7abb0890d46a40452a1094cdb507d600db82ab5eb74aebb7e9e62",
+          "pixel_sha256": "f816cd4bf255ab59dede9ed8539a558bb7e13e60a33a6df2301e2c9ef888531f",
+          "classification": "BOUNDED_ORIGINAL_DISPLAY_ENTRY_CONTEXT"
+        }
+      ],
+      "same_scene_reference_hashes": [
+        {
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "path": "assets/characters/roshan_25d/roshan_directional.png",
+          "bytes": 396741,
+          "sha256": "2bcc6212dddaddedb5823ba095caff1cbecdb762d5bbdc76726d3d5b0e3ee85a",
+          "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/assets/characters/roshan_25d/roshan_directional.png",
+          "http_status": 200,
+          "checked_at_utc": "2026-10-15T22:10:00.158883+00:00",
+          "role": "Exact source/context dependency; no approval from inclusion",
+          "dimensions": [
+            1024,
+            512
+          ]
+        },
+        {
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "path": "assets/sprites/sky_lagoon/sky_lagoon_castle_door_focus_v1.png",
+          "bytes": 1355,
+          "sha256": "fddab0ef204be19a8fce65221f3801ba69497d289b0f012f029076a099feb25c",
+          "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/assets/sprites/sky_lagoon/sky_lagoon_castle_door_focus_v1.png",
+          "http_status": 200,
+          "checked_at_utc": "2026-10-15T22:10:01.801404+00:00",
+          "role": "Exact source/context dependency; no approval from inclusion",
+          "dimensions": [
+            199,
+            228
+          ]
+        },
+        {
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "path": "assets/sprites/sky_lagoon/sky_lagoon_castle_four_tower_v4.png",
+          "bytes": 1412255,
+          "sha256": "08e3b8503520f3657e7f788bc74c967b76692f5dd292e0971495677f0e695a42",
+          "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/assets/sprites/sky_lagoon/sky_lagoon_castle_four_tower_v4.png",
+          "http_status": 200,
+          "checked_at_utc": "2026-10-15T22:10:01.999011+00:00",
+          "role": "Exact source/context dependency; no approval from inclusion",
+          "dimensions": [
+            1022,
+            1024
+          ]
+        },
+        {
+          "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+          "path": "assets/ui/boot_splash_mermaid_roshan.png",
+          "bytes": 1848681,
+          "sha256": "d5127c4a6227baab05343dc10692e2f76f1dd59f22ca24a22329de402dbb8044",
+          "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/assets/ui/boot_splash_mermaid_roshan.png",
+          "http_status": 200,
+          "checked_at_utc": "2026-10-15T22:10:02.413710+00:00",
+          "role": "Exact source/context dependency; no approval from inclusion",
+          "dimensions": [
+            1024,
+            576
+          ]
+        }
+      ],
+      "comparison": {
+        "contour": "One white-alpha door silhouette tinted red covers the arched painted gate; screenshot/source/liveSprite bindings agree. It is visible rasterized flat artwork, not exempt invisible geometry.",
+        "material": "The nearly opaque, uniform red fill has no painted stone/door grain and hides the authored painted door surface. No PNGedits/re-encoding; alpha source preserved.",
+        "palette": "SourcePLOT RED_FOCUS(1,.18,.22,.98) and actualnativealpha around.985 are strongly red beside violet/goldcastle and bluewater. Contrast supportsrouteattention but does not satisfy storybookstyle.",
+        "light": "Uniform mask tint lacks localmaterial lighting; originalpainting light is untouched.",
+        "perspective": "Sourcefocus socket is derived from castletexture doorbounds, mappingfrontdoor silhouette over facade. Independent live alpha-projection/shape/QA11 proof remainsopen.",
+        "scale": "Masksource199x228 is scaled viahighlightheight266masterunits; nativecard/camera/aspect owners are original. 1280/1600views retain registration context but no device squint/tap reach acceptance.",
+        "contact": "The Sprite is an affordanceoverlay, not physicalcharacter support. OriginalNode2Danchor/touchradius128px remainfunctional geometry; do not remove routeinput with a futureartrepair.",
+        "occlusion": "Focusedmask is nearopaque and visibly obscurespainteddoor. Focus/idle/cleared/tap/arrival/missingart variants remainopen; visiblefallbackretirement is unproved.",
+        "readability": "Redroutecue dominates firstscreen but resembles an unfinishedflat placeholder beside paintedcastle. Preserve nonreader destination cue and actualfocus target through future source-firstrepair.",
+        "action_state": "OriginalDayOneContinue and actualNewGame naturallyfocuscastle_gate afterunskippedopening. No observerworldbootstrap/route/color writes. Pendingcleared/idle/interaction/fullcaller/device/child/owner evidence preventsreplacement/acceptance credit."
+      },
+      "source_acceptance": "Current source only; no newuse/creative/identity acceptance from inclusion",
+      "candidate": null,
+      "integration": null,
+      "runtime_verified_replacement": null,
+      "QA11": null,
+      "device": null,
+      "child": null,
+      "owner": null,
+      "accepted_removed": false
+    }
+  ],
+  "native_policy_status": "FAIL_LEGACY_SOURCE_CONTRACT_UNFIXED",
+  "human_review": null,
+  "creative_acceptance": false,
+  "QA11": null,
+  "device": null,
+  "child": null,
+  "owner": null,
+  "accepted_removed": 0,
+  "mission_complete": false
+}

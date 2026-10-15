@@ -1,0 +1,19 @@
+# Reproduction and limits
+
+Use the exact `base_capture.gd` and `capture_entry.gd` bytes recorded by FIXTURE_SYNTAX_GATES and each LAUNCH. Copy them to an ignored `export/flat_vector_r66` directory in a clean, dedicated worktree of source `5120b6d59885dd057937aaf284e73681d8eac9f5`. The runner records the complete native commands and fixture hashes.
+
+1. Configure the runner's local R/W/S/G paths and select official Godot 4.7.2-stable, hash `ed1daf0bf001b61586d9930840f2f1394092c079`.
+2. Copy the immutable `r51_farmer_context/RUNTIME_BYTE_BASELINE.json`, bound by the manifest, to `S/POST_IMPORT_BASELINE.json`. It holds the 4,420 runtime-file and 4,041 initialized-sidecar baseline. Historical import writes retain their original documentation.
+3. Use fresh output paths. Run `R66_TEST_MODE=dependency`, width 1280, first. It performs an actual engine reload and proves that both original Main instances receive the private save path before `_ready()`.
+4. Run the missing, legacy, dayone and newgame modes at widths 1280 and 1600. `R66_TEST_ATTEMPT` distinguishes attempts; never overwrite an occupied path. Newgame refuses to run without the private-reload preflight bound to the exact current fixture hashes.
+5. Keep both legacy failures intact. The remaining-matrix driver permits only that exact known failure with clean native/source/save/sidecar guards, then continues unaffected cases. Any other failure stops it. Resume the same process handle after an observation timeout; do not restart it solely because observation expired.
+
+Missing mode leaves its private profile absent until the original Options quality action selects Speedy. The first six captures per case are actual desktop Sparkly output and remain excluded. Other modes seed a complete frozen save core, Speedy and a synthetic unknown marker before boot. Legacy deliberately omits the Day One namespace. Dayone sets its initial active/unseen-arrival profile before boot, rather than changing progress during a measured action.
+
+SceneTree's `node_added` signal supplies `SaveState.new(main, private_path)` before every original Main's `_ready()`, including the actual New Game reload. No source method is overridden. There is no `_launch`, `_enter` or movie-skip shortcut, and no direct game-phase, progress, skin, clock, camera or quality write around an interaction. Original touch events drive Options, the confirmation, cancellation and the full hold. The terminal release follows disposal of the old input owner. The private archive and reload are produced by the source New Game code, not by a manually substituted Main.
+
+The normal eleven-file guard covers the eight recovery names plus `.before_new_game`, `.before_new_game.tmp` and `.before_new_game.old`. Only their hashes are read. Actual child save documents are never parsed, copied or used as seeds. All parsed/reset data is synthetic and lives under a fresh private path. Do not interrupt another editor.
+
+Legacy exits remain 1, with exactly the missing-namespace policy assertion. They are source failures, not passing negative tests. Evidence identity and document checks may pass while those source failures remain open. Current code facts come from exact Git source D, not the topic worktree's older runtime snapshot. The unchanged base helper supplies input, capture, frame-wait and retirement primitives; its old bootstrap is overridden and not executed.
+
+Native PNGs and decoded pixels are unedited. Hierarchy, style, focus, callback and movie data are bounded observations, not independent compositor, resource, alpha-projection or QA11 closure. Source clip captures retain their manifest/OGV provenance without granting new movie, voice or identity acceptance. Missing art, idle/cleared/target-touch variants, full save routes, fresh OS, phone performance/audio, child and owner evidence, strict 2D and the global inventory remain open. No production adoption or art removal is claimed.
