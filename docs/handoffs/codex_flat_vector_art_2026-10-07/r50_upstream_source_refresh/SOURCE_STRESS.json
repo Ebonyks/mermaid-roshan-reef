@@ -1,0 +1,81 @@
+{
+  "status": "PASS_SOURCE_ONLY_NO_ART_OR_RUNTIME_ACCEPTANCE",
+  "cases": [
+    {
+      "case": "comment draw/load excluded from AST",
+      "result": "PASS"
+    },
+    {
+      "case": "glyph-only function independently retained",
+      "result": "PASS"
+    },
+    {
+      "case": "function bounds do not absorb next header",
+      "result": "PASS"
+    },
+    {
+      "case": "raster API remains candidate not artwork",
+      "result": "PASS"
+    },
+    {
+      "case": "literal load first argument recognized",
+      "result": "PASS"
+    },
+    {
+      "case": "formatted load not treated as exact literal",
+      "result": "PASS"
+    },
+    {
+      "case": "unknown UID remains explicit source reference",
+      "result": "PASS"
+    },
+    {
+      "case": "dynamic dispatch retained without callee proof",
+      "result": "PASS"
+    },
+    {
+      "case": "ordinary ASCII operators not pictogram candidates",
+      "result": "PASS"
+    },
+    {
+      "case": "all 369 frozen scope IDs preserved in order",
+      "result": "PASS"
+    },
+    {
+      "case": "all 348 frozen glyph IDs preserved in order",
+      "result": "PASS"
+    },
+    {
+      "case": "source-only denominator remains unknown",
+      "result": "PASS"
+    },
+    {
+      "case": "probe and nonprobe additional scope counts separate",
+      "result": "PASS"
+    },
+    {
+      "case": "glyph-only StartMenu synchronization gap recorded",
+      "result": "PASS"
+    },
+    {
+      "case": "current input parse failures explicit and zero",
+      "result": "PASS"
+    },
+    {
+      "case": "shader comments excluded while quoted source retained",
+      "result": "PASS"
+    },
+    {
+      "case": "serialized full-line and inline comments excluded",
+      "result": "PASS"
+    },
+    {
+      "case": "nested class methods retain distinct qualified scopes",
+      "result": "PASS"
+    }
+  ],
+  "case_count": 18,
+  "scanner_sha256": "240e9203ebac6165c168d2498d610f39161c380619d4afbaf2774eb27f79577e",
+  "source_summary_sha256": "3a86b1ce526be30096b0c06613cd3f37e64e40dbe7a40f3963a47fb4c5ab3793",
+  "coverage_scope": "Adversarial syntax/source boundaries only;not visual/receiver/native/dynamic/device/child/owner acceptance."
+}

@@ -1,0 +1,351 @@
+{
+  "baseline": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+  "topic_baseline": "4c5c026fd4a3c1ffaded5f13a123a28a2e13f677",
+  "files": [
+    {
+      "path": "scripts/audio_director.gd",
+      "topic_revision": "4c5c026fd4a3c1ffaded5f13a123a28a2e13f677",
+      "upstream_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "prior_nodes_not_exactly_rebound": [
+        {
+          "AST_kind": "const_stmt",
+          "source": "const DAY_ONE_REQUIRED_EVENTS: Dictionary = {\n\t\"castle_home_day_one\": true,\n\t\"castle_door_resting\": true,\n\t\"day_one_jobs_resting\": true,\n\t\"day_one_rescue_bunnies\": true,\n\t\"day_one_finish_current\": true,\n\t\"day_one_room_clean\": true,\n\t\"day_one_new_door\": true,\n\t\"day_one_all_rooms_clean\": true,\n\t\"day_one_pool_ready\": true,\n\t\"bathroom_supplies_found\": true,\n\t\"bathroom_cleanup_start\": true,\n\t\"bathroom_basket_hint\": true,\n\t\"bathroom_sink_scrub\": true,\n\t\"bathroom_tub_drain\": true,\n\t\"bathroom_tub_brush\": true,\n\t\"bathroom_cleanup_done\": true,\n\t\"pool_surface_clean\": true,\n\t\"pool_waterfall_clean\": true,\n\t\"pool_seahorse_clean\": true,\n\t\"castle_playroom_rescue_start\": true,\n\t\"art_studio_hint\": true,\n\t\"art_studio_material_hint\": true,\n\t\"art_studio_scrub_hint\": true,\n\t\"dustboss_show\": true,\n\t\"dustboss_tell_opening\": true,\n\t\"dustboss_tell_shielded\": true,\n\t\"dustboss_again_miss\": true,\n\t\"dustboss_again_closer\": true,\n\t\"dustboss_again_mercy\": true,\n\t\"dustboss_dizzy_first\": true,\n\t\"dustboss_dizzy_round\": true,\n\t\"dustboss_angry\": true,\n\t\"dustboss_win\": true,\n\t\"day_two_begins\": true,\n}",
+          "sha256": "2838b914c24eeb8f5df4ebb1d8747f845d22b16826bd6184e4ce5c247e2f3d1d"
+        }
+      ],
+      "new_or_changed_current_nodes": [
+        {
+          "AST_kind": "const_stmt",
+          "source": "const OBJECTIVE_GUIDE_DIR := \"res://assets/audio/objective_guides/\"",
+          "sha256": "f23450f3423d6465474d850719da3c5de2771abf6fd1a3cae86e10f195d8fe51"
+        },
+        {
+          "AST_kind": "const_stmt",
+          "source": "const OBJECTIVE_GUIDES := {\n\t\"seek_tap_wiggly_tree\": {\"mode\": \"seek\", \"file\": \"guide_seek_tap_wiggly_tree.ogg\"},\n\t\"dolls_catch_three\": {\"mode\": \"dolls\", \"file\": \"guide_dolls_catch_three.ogg\"},\n}",
+          "sha256": "84d96fcb8ef719526834ce10002c11245799da82db402ef247fb8e30e099ffef"
+        },
+        {
+          "AST_kind": "const_stmt",
+          "source": "const DAY_ONE_REQUIRED_EVENTS: Dictionary = {\n\t\"seek_tap_wiggly_tree\": true,\n\t\"dolls_catch_three\": true,\n\t\"castle_home_day_one\": true,\n\t\"castle_door_resting\": true,\n\t\"day_one_jobs_resting\": true,\n\t\"day_one_rescue_bunnies\": true,\n\t\"day_one_finish_current\": true,\n\t\"day_one_room_clean\": true,\n\t\"day_one_new_door\": true,\n\t\"day_one_all_rooms_clean\": true,\n\t\"day_one_pool_ready\": true,\n\t\"bathroom_supplies_found\": true,\n\t\"bathroom_cleanup_start\": true,\n\t\"bathroom_basket_hint\": true,\n\t\"bathroom_sink_scrub\": true,\n\t\"bathroom_tub_drain\": true,\n\t\"bathroom_tub_brush\": true,\n\t\"bathroom_cleanup_done\": true,\n\t\"pool_surface_clean\": true,\n\t\"pool_waterfall_clean\": true,\n\t\"pool_seahorse_clean\": true,\n\t\"castle_playroom_rescue_start\": true,\n\t\"art_studio_hint\": true,\n\t\"art_studio_material_hint\": true,\n\t\"art_studio_scrub_hint\": true,\n\t\"dustboss_show\": true,\n\t\"dustboss_tell_opening\": true,\n\t\"dustboss_tell_shielded\": true,\n\t\"dustboss_again_miss\": true,\n\t\"dustboss_again_closer\": true,\n\t\"dustboss_again_mercy\": true,\n\t\"dustboss_dizzy_first\": true,\n\t\"dustboss_dizzy_round\": true,\n\t\"dustboss_angry\": true,\n\t\"dustboss_win\": true,\n\t\"day_two_begins\": true,\n}",
+          "sha256": "c8a5123ed3af3966b247099f75b574292285d406baf8a6d9d2c68bad57f72f63"
+        }
+      ],
+      "scope": "Qualified top-level nonfunction AST declarations/expressions only; comments/line shifts do not become functional changes. No callback/native/art/route acceptance inferred."
+    },
+    {
+      "path": "scripts/chapter_two_career_scene_adapter.gd",
+      "topic_revision": "4c5c026fd4a3c1ffaded5f13a123a28a2e13f677",
+      "upstream_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "prior_nodes_not_exactly_rebound": [
+        {
+          "AST_kind": "const_stmt",
+          "source": "const PHASE_SETS := {\n\t\"chef\": {\"finale_start\": 5, \"scene_id\": \"chapter2_chef_cake\", \"backdrop\": \"chapter2_chef_cake\", \"cake_asset\": \"res://assets/chapter2/birthday/chapter2_grand_five_strawberry_cake.png\", \"strawberry_asset\": \"res://assets/chapter2/birthday/sky_lagoon_strawberry_single.png\", \"phases\": [\n\t\t{\"name\": \"MIX\", \"milestone\": \"mix\", \"mode\": \"pourt\", \"cake_stage_asset\": \"res://assets/chapter2/birthday/chapter2_chef_batter_unstirred.png\", \"goal\": 5.0, \"vo\": \"op_chef_pour_stage\", \"voice\": \"Tip the sparkling batter into the bowl!\"},\n\t\t{\"name\": \"STIR\", \"milestone\": \"stir\", \"mode\": \"circle\", \"cake_stage_asset\": \"res://assets/chapter2/birthday/chapter2_chef_batter_stirred.png\", \"goal\": 2.0, \"vo\": \"op_chef_stir_stage\", \"voice\": \"Draw big circles to stir the batter!\"},\n\t\t{\"name\": \"BAKE\", \"milestone\": \"bake\", \"mode\": \"oven\", \"cake_stage_asset\": \"res://assets/chapter2/birthday/chapter2_chef_baked_tiers_unstacked.png\", \"goal\": 6.0, \"vo\": \"op_chef_bake_stage\", \"voice\": \"Watch for golden, then take the cake out with the mitt!\"},\n\t\t{\"name\": \"STACK\", \"milestone\": \"stack\", \"mode\": \"tap\", \"cake_stage_asset\": \"res://assets/chapter2/birthday/chapter2_chef_stacked_unfrosted_cake.png\", \"goal\": 3.0, \"vo\": \"chapter2_chef_stack\", \"voice\": \"Tap each cake tier to stack the rainbow cake!\"},\n\t\t{\"name\": \"FROST\", \"milestone\": \"frost\", \"mode\": \"swipe\", \"cake_stage_asset\": \"res://assets/chapter2/birthday/chapter2_chef_frosted_rainbow_cake.png\", \"goal\": 6.0, \"vo\": \"op_chef_pipe_stage\", \"voice\": \"Trace the frosting ribbon across the cake!\"},\n\t]},\n\t\"detective\": {\"finale_start\": 2, \"scene_id\": \"magic_storybook\", \"story_object\": \"magic_storybook\", \"backdrop\": \"magic_storybook\", \"prop\": \"res://assets/opera/worlds/props/goal_detective.png\", \"mechanic\": \"unlit_rainbow_candle\", \"legacy_mechanic\": \"crown_chest\", \"phases\": [\n\t\t{\"name\": \"LENS\", \"milestone\": \"storybook_lens\", \"mode\": \"lens\", \"goal\": 3.0, \"vo\": \"op_detective_lens_stage\", \"voice\": \"Sweep the lens across the magic storybook clues!\"},\n\t\t{\"name\": \"STORYBOOK BOARD\", \"milestone\": \"storybook_board\", \"mode\": \"tap\", \"widget_context\": \"storybook_board\", \"goal\": 3.0, \"vo\": \"op_detective_match\", \"voice\": \"Tap each glowing storybook clue on the board!\"},\n\t\t{\"name\": \"UNLIT RAINBOW CANDLE\", \"milestone\": \"unlit_rainbow_candle_reveal\", \"reveal\": \"unlit_rainbow_candle\", \"mode\": \"tap\", \"widget_context\": \"unlit_rainbow_candle\", \"mechanic\": \"unlit_rainbow_candle\", \"goal\": 1.0, \"vo\": \"chapter2_detective_unlit_rainbow_candle_reveal\", \"voice\": \"Tap the unlit rainbow candle to reveal the final clue!\"},\n\t]},\n\t\"ballerina\": {\"finale_start\": 2, \"scene_id\": \"stuffie_room\", \"backdrop\": \"stuffie_room\", \"prop\": \"res://assets/flats/castle/rooms/room_playroom_item_stuffie_nook.png\", \"phases\": [\n\t\t{\"name\": \"STUFFIES MIRROR\", \"milestone\": \"stuffies_mirror\", \"mode\": \"ballet_pose\", \"subject\": \"stuffies\", \"vo\": \"chapter2_ballerina_stuffies_mirror\", \"goal\": 3.0, \"voice\": \"Tap the matching pose as the stuffies mirror Roshan!\"},\n\t\t{\"name\": \"STUFFIES TWIRL\", \"milestone\": \"stuffies_twirling\", \"mode\": \"ballet_ribbon\", \"subject\": \"stuffies\", \"vo\": \"op_ballerina_ribbon\", \"goal\": 6.0, \"voice\": \"Guide the ribbon while the stuffies twirl along!\"},\n\t\t{\"name\": \"STUFFIES BOW\", \"milestone\": \"stuffies_bow\", \"mode\": \"ballet_twirl\", \"subject\": \"stuffies\", \"vo\": \"op_ballerina_twirl\", \"goal\": 2.0, \"voice\": \"Take one grand twirl, then bow with the stuffies!\"},\n\t]},\n\t\"candymaker\": {\"finale_start\": 3, \"scene_id\": \"strawberry_cake_workshop\", \"backdrop\": \"strawberry_cake_workshop\", \"strawberry_asset\": \"res://assets/chapter2/birthday/sky_lagoon_strawberry_single.png\", \"cake_asset\": \"res://assets/chapter2/birthday/chapter2_grand_five_strawberry_cake.png\", \"phases\": [\n\t\t{\"name\": \"COAT STRAWBERRIES\", \"milestone\": \"coat_strawberries\", \"mode\": \"pourt\", \"widget_context\": \"pour_candymaker\", \"cake_stage_asset\": \"res://assets/chapter2/birthday/chapter2_chef_frosted_rainbow_cake.png\", \"ingredient_path\": \"res://assets/chapter2/birthday/sky_lagoon_strawberry_single.png\", \"goal\": 5.0, \"vo\": \"chapter2_candymaker_coat_strawberries\", \"voice\": \"Tip the shiny coat over the strawberries!\"},\n\t\t{\"name\": \"SORT STRAWBERRIES\", \"milestone\": \"sort_strawberries\", \"mode\": \"candy_sort\", \"widget_context\": \"lanes_candymaker\", \"cake_stage_asset\": \"res://assets/chapter2/birthday/chapter2_chef_frosted_rainbow_cake.png\", \"ingredient_path\": \"res://assets/chapter2/birthday/sky_lagoon_strawberry_single.png\", \"goal\": 6.0, \"vo\": \"chapter2_candymaker_sort_strawberries\", \"voice\": \"Sort the same strawberries by their matching color!\"},\n\t\t{\"name\": \"GLAZE STRAWBERRIES\", \"milestone\": \"glaze_strawberries\", \"mode\": \"circle\", \"widget_context\": \"crank_candymaker\", \"cake_stage_asset\": \"res://assets/chapter2/birthday/chapter2_chef_frosted_rainbow_cake.png\", \"cake_accessory_asset\": \"res://assets/chapter2/birthday/chapter2_candied_strawberries_tray.png\", \"ingredient_path\": \"res://assets/chapter2/birthday/sky_lagoon_strawberry_single.png\", \"goal\": 2.0, \"vo\": \"chapter2_candymaker_glaze_strawberries\", \"voice\": \"Twist the glaze around each strawberry!\"},\n\t\t{\"name\": \"PLACE ON CAKE\", \"milestone\": \"place_candied_strawberries\", \"mode\": \"tap\", \"widget_context\": \"target_candymaker\", \"cake_stage_asset\": \"res://assets/chapter2/birthday/chapter2_grand_five_strawberry_cake.png\", \"ingredient_path\": \"res://assets/chapter2/birthday/sky_lagoon_strawberry_single.png\", \"prop\": \"res://assets/chapter2/birthday/chapter2_grand_five_strawberry_cake.png\", \"goal\": 5.0, \"vo\": \"chapter2_candymaker_place_candied_strawberries\", \"voice\": \"Place the five candied strawberries on the actual cake!\"},\n\t]},\n\t\"doctor\": {\"finale_start\": 3, \"scene_id\": \"chapter2_stuffie_surgeon\", \"phases\": [\n\t\t{\"name\": \"WASH\", \"milestone\": \"wash\", \"mode\": \"hold\", \"goal\": 3.6, \"vo\": \"op_doctor_wash\", \"voice\": \"Hold the bubbly basin to wash your hands!\"},\n\t\t{\"name\": \"FIND\", \"milestone\": \"find\", \"mode\": \"choice\", \"goal\": 4.0, \"vo\": \"op_doctor_find\", \"voice\": \"Choose the plushy with the glowing ouch!\"},\n\t\t{\"name\": \"X-RAY\", \"milestone\": \"xray\", \"mode\": \"xray_scan\", \"goal\": 2.0, \"vo\": \"op_doctor_x_ray\", \"voice\": \"Slide the scanner over the plushy!\"},\n\t\t{\"name\": \"CAST\", \"milestone\": \"cast\", \"mode\": \"circle\", \"goal\": 2.0, \"vo\": \"op_doctor_cast\", \"voice\": \"Draw gentle circles to wrap the soft cast!\"},\n\t]},\n\t\"farmer\": {\"finale_start\": 2, \"scene_id\": \"chapter2_farmer_strawberries\", \"backdrop\": \"sky_lagoon_farmer\", \"strawberry_asset\": \"res://assets/chapter2/birthday/sky_lagoon_strawberry_cluster.png\", \"delivery\": \"kitchen\", \"prop\": \"res://assets/chapter2/birthday/sky_lagoon_strawberry_cluster.png\", \"phases\": [\n\t\t{\"name\": \"GATHER STRAWBERRIES\", \"milestone\": \"gather_strawberries\", \"mode\": \"tap\", \"widget\": \"\", \"widget_context\": \"\", \"piece_path\": \"res://assets/chapter2/birthday/sky_lagoon_strawberry_cluster.png\", \"goal\": 5.0, \"vo\": \"chapter2_farmer_gather_strawberries\", \"voice\": \"Gather exactly five ripe Sky Lagoon strawberries!\"},\n\t\t{\"name\": \"FILL BASKET\", \"milestone\": \"fill_basket\", \"mode\": \"tap\", \"widget\": \"\", \"widget_context\": \"\", \"piece_path\": \"res://assets/chapter2/birthday/sky_lagoon_strawberry_cluster.png\", \"goal\": 5.0, \"vo\": \"chapter2_farmer_fill_basket\", \"voice\": \"Load all five strawberries into the basket!\"},\n\t\t{\"name\": \"DELIVER TO KITCHEN\", \"milestone\": \"deliver_to_kitchen\", \"mode\": \"swipe\", \"widget_context\": \"push_farmer\", \"goal\": 6.0, \"vo\": \"chapter2_farmer_deliver_to_kitchen\", \"voice\": \"Swipe the full basket all the way to the kitchen!\"},\n\t]},\n\t\"boxer\": {\"finale_start\": 3, \"scene_id\": \"chapter2_friendly_bout\", \"phases\": []},\n\t\"magician\": {\"finale_start\": 3, \"scene_id\": \"chapter2_illusion_duel\", \"phases\": []},\n\t\"painter\": {\"finale_start\": 3, \"scene_id\": \"main_hall_birthday_banner\", \"backdrop\": \"main_hall_birthday_banner\", \"destination\": \"main_hall\", \"persistent_prop\": true, \"prop\": \"res://assets/flats/castle/logo_studio_v2/castle_banner_rainbow.png\", \"phases\": [\n\t\t{\"name\": \"PAINT\", \"milestone\": \"paint_banner\", \"subject\": \"birthday_banner\", \"mode\": \"paint_reveal\", \"widget_context\": \"trace_painter\", \"prop\": \"res://assets/flats/castle/logo_studio_v2/castle_banner_rainbow.png\", \"goal\": 1.0, \"vo\": \"chapter2_painter_paint_banner\", \"voice\": \"Paint the birthday banner for Main Hall!\"},\n\t\t{\"name\": \"STAMP\", \"milestone\": \"stamp_banner\", \"subject\": \"birthday_banner\", \"mode\": \"tap\", \"widget_context\": \"target_painter\", \"prop\": \"res://assets/flats/castle/logo_studio_v2/castle_banner_rainbow.png\", \"goal\": 5.0, \"vo\": \"op_painter_splat_stage\", \"voice\": \"Stamp bright birthday stars on the banner!\"},\n\t\t{\"name\": \"HANG\", \"milestone\": \"hang_banner\", \"subject\": \"birthday_banner\", \"mode\": \"choice\", \"widget_context\": \"lanes_painter\", \"prop\": \"res://assets/flats/castle/logo_studio_v2/castle_banner_rainbow.png\", \"goal\": 1.0, \"vo\": \"chapter2_painter_hang_banner\", \"voice\": \"Choose the Main Hall spot and hang the birthday banner!\"},\n\t]},\n\t\"astronaut\": {\"finale_start\": 4, \"scene_id\": \"chapter2_astronaut_rocket\", \"backdrop\": \"chapter2_astronaut_rocket\", \"rocket_state\": \"parked_ready_unlaunched\", \"prop\": \"res://assets/opera/worlds/props/goal_astronaut.png\", \"phases\": [\n\t\t{\"name\": \"BUILD ROCKET\", \"milestone\": \"build_rocket\", \"mode\": \"pipe\", \"goal\": 3.0, \"vo\": \"op_astronaut_pipes_stage\", \"voice\": \"Connect the rocket parts from the tank to the nose!\"},\n\t\t{\"name\": \"PATCH\", \"milestone\": \"patch\", \"mode\": \"tap\", \"goal\": 5.0, \"vo\": \"op_astronaut_patch_stage\", \"voice\": \"Tap every sparkling leak to patch the rocket!\"},\n\t\t{\"name\": \"VALVE\", \"milestone\": \"valve\", \"mode\": \"circle\", \"goal\": 1.8, \"vo\": \"op_astronaut_valve\", \"voice\": \"Turn the launch valve, but keep the rocket parked!\"},\n\t\t{\"name\": \"READY PARK\", \"milestone\": \"ready_park\", \"mode\": \"swipe\", \"widget_context\": \"push_racer\", \"rocket_state\": \"parked_ready_unlaunched\", \"goal\": 5.0, \"vo\": \"chapter2_astronaut_ready_park\", \"voice\": \"Park the repaired rocket and leave it ready for later!\"},\n\t]},\n\t\"racer\": {\"finale_start\": 2, \"scene_id\": \"chapter2_grand_prix\", \"phases\": []},\n\t\"popstar\": {\"finale_start\": 2, \"scene_id\": \"chapter2_popstar_rumi\", \"backdrop\": \"chapter2_popstar_rumi\", \"phases\": [\n\t\t{\"name\": \"SOUND CHECK\", \"milestone\": \"sound_check\", \"mode\": \"hold\", \"goal\": 3.8, \"visual_context\": \"charge_popstar\", \"subject\": \"rumi\", \"vo\": \"op_popstar_sound_check_stage\", \"voice\": \"Hold the microphone while Rumi checks the rainbow note!\"},\n\t\t{\"name\": \"STAGE RUMI\", \"milestone\": \"stage_rumi\", \"mode\": \"choice\", \"subject\": \"rumi\", \"vo\": \"op_popstar_dance\", \"goal\": 3.0, \"voice\": \"Tap the glowing arrow to stage Rumi with the band!\"},\n\t\t{\"name\": \"RHYTHM\", \"milestone\": \"rhythm\", \"mode\": \"echo\", \"goal\": 3.0, \"vo\": \"op_popstar_rhythm_stage\", \"voice\": \"Listen to the three stars, then sing their song back!\"},\n\t\t{\"name\": \"ENCORE\", \"milestone\": \"encore\", \"mode\": \"circle\", \"goal\": 2.0, \"vo\": \"op_popstar_encore_stage\", \"voice\": \"Draw one big encore spin for the crowd!\"},\n\t]},\n\t\"nursery\": {\"finale_start\": 4, \"scene_id\": \"chapter2_moonbeam_nursery\", \"phases\": []},\n}",
+          "sha256": "cdf6e97aa2e90942a7a5db1e890ac5a996e33f0ed9b8303a53fc0e7e48a324dd"
+        },
+        {
+          "AST_kind": "static_func_def",
+          "source": "static func phase_set(career: String) -> Dictionary:\n\tvar fallback := {\"finale_start\": 0, \"scene_id\": \"chapter2_%s\" % career, \"phases\": []}\n\treturn (PHASE_SETS.get(career, fallback) as Dictionary).duplicate(true)\n\n",
+          "sha256": "f7bf2866bb27dc5116e9495ff66a0a6774b26c7a35f31f88bf5b611df9dee74d"
+        },
+        {
+          "AST_kind": "static_func_def",
+          "source": "static func adapter_config(career: String, overrides: Dictionary = {}) -> Dictionary:\n\tvar resolved := resolve(career, overrides)\n\treturn {\"id\": String(resolved.get(\"scene_id\", \"chapter2_%s\" % career)),\n\t\t\"career\": career, \"backdrop\": String(resolved.get(\"backdrop\", career)),\n\t\t\"prop\": String(resolved.get(\"prop\", \"\")),\n\t\t\"widget\": String(resolved.get(\"widget\", \"\")),\n\t\t\"story_object\": String(resolved.get(\"story_object\", \"\")),\n\t\t\"mechanic\": String(resolved.get(\"mechanic\", \"\")),\n\t\t\"strawberry_asset\": String(resolved.get(\"strawberry_asset\", \"\")),\n\t\t\"cake_asset\": String(resolved.get(\"cake_asset\", \"\")),\n\t\t\"delivery\": String(resolved.get(\"delivery\", \"\")),\n\t\t\"destination\": String(resolved.get(\"destination\", \"\")),\n\t\t\"persistent_prop\": bool(resolved.get(\"persistent_prop\", false)),\n\t\t\"rocket_state\": String(resolved.get(\"rocket_state\", \"\")),\n\t\t\"finale_start\": int(resolved.get(\"finale_start\", 0)),\n\t\t\"phase_count\": (resolved.get(\"phases\", []) as Array).size()}\n",
+          "sha256": "4c8653152bba92cfbda2f7f20e010ed6d1b8131797c6645d9e4cc66fc0c48fb6"
+        }
+      ],
+      "new_or_changed_current_nodes": [
+        {
+          "AST_kind": "const_stmt",
+          "source": "const PHASE_SETS := {\n\t\"chef\": {\"finale_start\": 5, \"scene_id\": \"chapter2_chef_cake\", \"backdrop\": \"chapter2_chef_cake\", \"cake_asset\": \"res://assets/chapter2/birthday/chapter2_grand_five_strawberry_cake.png\", \"strawberry_asset\": \"res://assets/chapter2/birthday/sky_lagoon_strawberry_single.png\", \"phases\": [\n\t\t{\"name\": \"MIX\", \"milestone\": \"mix\", \"mode\": \"pourt\", \"cake_stage_asset\": \"res://assets/chapter2/birthday/chapter2_chef_batter_unstirred.png\", \"goal\": 5.0, \"vo\": \"op_chef_pour_stage\", \"voice\": \"Tip the sparkling batter into the bowl!\"},\n\t\t{\"name\": \"STIR\", \"milestone\": \"stir\", \"mode\": \"circle\", \"cake_stage_asset\": \"res://assets/chapter2/birthday/chapter2_chef_batter_stirred.png\", \"goal\": 2.0, \"vo\": \"op_chef_stir_stage\", \"voice\": \"Draw big circles to stir the batter!\"},\n\t\t{\"name\": \"BAKE\", \"milestone\": \"bake\", \"mode\": \"oven\", \"cake_stage_asset\": \"res://assets/chapter2/birthday/chapter2_chef_baked_tiers_unstacked.png\", \"goal\": 6.0, \"vo\": \"op_chef_bake_stage\", \"voice\": \"Watch for golden, then take the cake out with the mitt!\"},\n\t\t{\"name\": \"STACK\", \"milestone\": \"stack\", \"mode\": \"tap\", \"cake_stage_asset\": \"res://assets/chapter2/birthday/chapter2_chef_stacked_unfrosted_cake.png\", \"goal\": 3.0, \"vo\": \"chapter2_chef_stack\", \"voice\": \"Tap each cake tier to stack the rainbow cake!\"},\n\t\t{\"name\": \"FROST\", \"milestone\": \"frost\", \"mode\": \"swipe\", \"cake_stage_asset\": \"res://assets/chapter2/birthday/chapter2_chef_frosted_rainbow_cake.png\", \"goal\": 6.0, \"vo\": \"op_chef_pipe_stage\", \"voice\": \"Trace the frosting ribbon across the cake!\"},\n\t]},\n\t\"detective\": {\"finale_start\": 2, \"scene_id\": \"magic_storybook\", \"story_object\": \"magic_storybook\", \"backdrop\": \"magic_storybook\", \"prop\": \"res://assets/flats/castle/rooms/room_library_item_magic_book.png\", \"mechanic\": \"unlit_rainbow_candle\", \"legacy_mechanic\": \"crown_chest\", \"phases\": [\n\t\t{\"name\": \"LENS\", \"milestone\": \"storybook_lens\", \"mode\": \"lens\", \"goal\": 3.0, \"vo\": \"op_detective_lens_stage\", \"voice\": \"Sweep the lens across the magic storybook clues!\"},\n\t\t{\"name\": \"STORYBOOK BOARD\", \"milestone\": \"storybook_board\", \"mode\": \"tap\", \"widget_context\": \"storybook_board\", \"goal\": 3.0, \"vo\": \"op_detective_match\", \"voice\": \"Tap each glowing storybook clue on the board!\"},\n\t\t{\"name\": \"UNLIT RAINBOW CANDLE\", \"milestone\": \"unlit_rainbow_candle_reveal\", \"reveal\": \"unlit_rainbow_candle\", \"mode\": \"tap\", \"widget_context\": \"unlit_rainbow_candle\", \"mechanic\": \"unlit_rainbow_candle\", \"goal\": 1.0, \"vo\": \"chapter2_detective_unlit_rainbow_candle_reveal\", \"voice\": \"Tap the unlit rainbow candle to reveal the final clue!\"},\n\t]},\n\t\"ballerina\": {\"finale_start\": 2, \"scene_id\": \"stuffie_room\", \"backdrop\": \"stuffie_room\", \"prop\": \"res://assets/flats/castle/rooms/room_playroom_item_stuffie_nook.png\", \"phases\": [\n\t\t{\"name\": \"STUFFIES MIRROR\", \"milestone\": \"stuffies_mirror\", \"mode\": \"ballet_pose\", \"subject\": \"stuffies\", \"vo\": \"chapter2_ballerina_stuffies_mirror\", \"goal\": 3.0, \"voice\": \"Tap the matching pose as the stuffies mirror Roshan!\"},\n\t\t{\"name\": \"STUFFIES TWIRL\", \"milestone\": \"stuffies_twirling\", \"mode\": \"ballet_ribbon\", \"subject\": \"stuffies\", \"vo\": \"op_ballerina_ribbon\", \"goal\": 1.0, \"voice\": \"Guide the ribbon while the stuffies twirl along!\"},\n\t\t{\"name\": \"STUFFIES BOW\", \"milestone\": \"stuffies_bow\", \"mode\": \"ballet_twirl\", \"subject\": \"stuffies\", \"vo\": \"op_ballerina_twirl\", \"goal\": 1.0, \"voice\": \"Take one grand twirl, then bow with the stuffies!\"},\n\t]},\n\t\"candymaker\": {\"finale_start\": 3, \"scene_id\": \"strawberry_cake_workshop\", \"backdrop\": \"strawberry_cake_workshop\", \"strawberry_asset\": \"res://assets/chapter2/birthday/sky_lagoon_strawberry_single.png\", \"cake_asset\": \"res://assets/chapter2/birthday/chapter2_grand_five_strawberry_cake.png\", \"phases\": [\n\t\t{\"name\": \"COAT STRAWBERRIES\", \"milestone\": \"coat_strawberries\", \"mode\": \"pourt\", \"widget_context\": \"pour_candymaker\", \"cake_stage_asset\": \"res://assets/chapter2/birthday/chapter2_chef_frosted_rainbow_cake.png\", \"ingredient_path\": \"res://assets/chapter2/birthday/sky_lagoon_strawberry_single.png\", \"goal\": 5.0, \"vo\": \"chapter2_candymaker_coat_strawberries\", \"voice\": \"Tip the shiny coat over the strawberries!\"},\n\t\t{\"name\": \"SORT STRAWBERRIES\", \"milestone\": \"sort_strawberries\", \"mode\": \"candy_sort\", \"widget_context\": \"lanes_candymaker\", \"cake_stage_asset\": \"res://assets/chapter2/birthday/chapter2_chef_frosted_rainbow_cake.png\", \"ingredient_path\": \"res://assets/chapter2/birthday/sky_lagoon_strawberry_single.png\", \"goal\": 6.0, \"vo\": \"chapter2_candymaker_sort_strawberries\", \"voice\": \"Sort the same strawberries by their matching color!\"},\n\t\t{\"name\": \"GLAZE STRAWBERRIES\", \"milestone\": \"glaze_strawberries\", \"mode\": \"circle\", \"widget_context\": \"crank_candymaker\", \"cake_stage_asset\": \"res://assets/chapter2/birthday/chapter2_chef_frosted_rainbow_cake.png\", \"cake_accessory_asset\": \"res://assets/chapter2/birthday/chapter2_candied_strawberries_tray.png\", \"ingredient_path\": \"res://assets/chapter2/birthday/sky_lagoon_strawberry_single.png\", \"goal\": 2.0, \"vo\": \"chapter2_candymaker_glaze_strawberries\", \"voice\": \"Twist the glaze around each strawberry!\"},\n\t\t{\"name\": \"PLACE ON CAKE\", \"milestone\": \"place_candied_strawberries\", \"mode\": \"tap\", \"widget_context\": \"target_candymaker\", \"cake_stage_asset\": \"res://assets/chapter2/birthday/chapter2_grand_five_strawberry_cake.png\", \"ingredient_path\": \"res://assets/chapter2/birthday/sky_lagoon_strawberry_single.png\", \"prop\": \"res://assets/chapter2/birthday/chapter2_grand_five_strawberry_cake.png\", \"goal\": 5.0, \"vo\": \"chapter2_candymaker_place_candied_strawberries\", \"voice\": \"Place the five candied strawberries on the actual cake!\"},\n\t]},\n\t\"doctor\": {\"finale_start\": 3, \"scene_id\": \"chapter2_stuffie_surgeon\", \"phases\": [\n\t\t{\"name\": \"WASH\", \"milestone\": \"wash\", \"mode\": \"hold\", \"goal\": 3.6, \"vo\": \"op_doctor_wash\", \"voice\": \"Hold the bubbly basin to wash your hands!\"},\n\t\t{\"name\": \"FIND\", \"milestone\": \"find\", \"mode\": \"choice\", \"goal\": 4.0, \"vo\": \"op_doctor_find\", \"voice\": \"Choose the plushy with the glowing ouch!\"},\n\t\t{\"name\": \"X-RAY\", \"milestone\": \"xray\", \"mode\": \"xray_scan\", \"goal\": 2.0, \"vo\": \"op_doctor_x_ray\", \"voice\": \"Slide the scanner over the plushy!\"},\n\t\t{\"name\": \"CAST\", \"milestone\": \"cast\", \"mode\": \"circle\", \"goal\": 2.0, \"vo\": \"op_doctor_cast\", \"voice\": \"Draw gentle circles to wrap the soft cast!\"},\n\t]},\n\t\"farmer\": {\"finale_start\": 2, \"scene_id\": \"chapter2_farmer_strawberries\", \"backdrop\": \"sky_lagoon_farmer\", \"strawberry_asset\": \"res://assets/chapter2/birthday/sky_lagoon_strawberry_cluster.png\", \"delivery\": \"kitchen\", \"prop\": \"res://assets/chapter2/birthday/sky_lagoon_strawberry_cluster.png\", \"phases\": [\n\t\t{\"name\": \"GATHER STRAWBERRIES\", \"milestone\": \"gather_strawberries\", \"mode\": \"tap\", \"widget\": \"\", \"widget_context\": \"\", \"piece_path\": \"res://assets/chapter2/birthday/sky_lagoon_strawberry_cluster.png\", \"goal\": 5.0, \"vo\": \"chapter2_farmer_gather_strawberries\", \"voice\": \"Gather exactly five ripe Sky Lagoon strawberries!\"},\n\t\t{\"name\": \"FILL BASKET\", \"milestone\": \"fill_basket\", \"mode\": \"tap\", \"widget\": \"\", \"widget_context\": \"chapter2_basket_fill\", \"piece_path\": \"res://assets/chapter2/birthday/sky_lagoon_strawberry_single.png\", \"goal\": 5.0, \"vo\": \"chapter2_farmer_fill_basket\", \"voice\": \"Load all five strawberries into the basket!\"},\n\t\t{\"name\": \"DELIVER TO KITCHEN\", \"milestone\": \"deliver_to_kitchen\", \"mode\": \"swipe\", \"widget_context\": \"chapter2_basket_delivery\", \"goal\": 6.0, \"vo\": \"chapter2_farmer_deliver_to_kitchen\", \"voice\": \"Swipe the full basket all the way to the kitchen!\"},\n\t]},\n\t\"boxer\": {\"finale_start\": 3, \"scene_id\": \"chapter2_friendly_bout\", \"phases\": []},\n\t\"magician\": {\"finale_start\": 3, \"scene_id\": \"chapter2_illusion_duel\", \"phases\": []},\n\t\"painter\": {\"finale_start\": 3, \"scene_id\": \"main_hall_birthday_banner\", \"backdrop\": \"main_hall_birthday_banner\", \"destination\": \"main_hall\", \"persistent_prop\": true, \"prop\": \"res://assets/flats/castle/logo_studio_v2/castle_banner_rainbow.png\", \"phases\": [\n\t\t{\"name\": \"PAINT\", \"milestone\": \"paint_banner\", \"subject\": \"birthday_banner\", \"mode\": \"paint_reveal\", \"widget_context\": \"trace_painter\", \"prop\": \"res://assets/flats/castle/logo_studio_v2/castle_banner_rainbow.png\", \"goal\": 1.0, \"vo\": \"chapter2_painter_paint_banner\", \"voice\": \"Paint the birthday banner for Main Hall!\"},\n\t\t{\"name\": \"STAMP\", \"milestone\": \"stamp_banner\", \"subject\": \"birthday_banner\", \"mode\": \"tap\", \"widget_context\": \"target_painter\", \"prop\": \"res://assets/flats/castle/logo_studio_v2/castle_banner_rainbow.png\", \"goal\": 5.0, \"vo\": \"op_painter_splat_stage\", \"voice\": \"Stamp bright birthday stars on the banner!\"},\n\t\t{\"name\": \"HANG\", \"milestone\": \"hang_banner\", \"subject\": \"birthday_banner\", \"mode\": \"choice\", \"widget_context\": \"lanes_painter\", \"prop\": \"res://assets/flats/castle/logo_studio_v2/castle_banner_rainbow.png\", \"goal\": 1.0, \"vo\": \"chapter2_painter_hang_banner\", \"voice\": \"Choose the Main Hall spot and hang the birthday banner!\"},\n\t]},\n\t\"astronaut\": {\"finale_start\": 4, \"scene_id\": \"chapter2_astronaut_rocket\", \"backdrop\": \"chapter2_astronaut_rocket\", \"rocket_state\": \"parked_ready_unlaunched\", \"prop\": \"res://assets/opera/worlds/props/goal_astronaut.png\", \"phases\": [\n\t\t{\"name\": \"BUILD ROCKET\", \"milestone\": \"build_rocket\", \"mode\": \"pipe\", \"goal\": 3.0, \"vo\": \"op_astronaut_pipes_stage\", \"voice\": \"Connect the rocket parts from the tank to the nose!\"},\n\t\t{\"name\": \"PATCH\", \"milestone\": \"patch\", \"mode\": \"tap\", \"goal\": 5.0, \"vo\": \"op_astronaut_patch_stage\", \"voice\": \"Tap every sparkling leak to patch the rocket!\"},\n\t\t{\"name\": \"VALVE\", \"milestone\": \"valve\", \"mode\": \"circle\", \"goal\": 1.8, \"vo\": \"op_astronaut_valve\", \"voice\": \"Turn the launch valve, but keep the rocket parked!\"},\n\t\t{\"name\": \"READY PARK\", \"milestone\": \"ready_park\", \"mode\": \"swipe\", \"widget_context\": \"chapter2_rocket_park\", \"rocket_state\": \"parked_ready_unlaunched\", \"goal\": 5.0, \"vo\": \"chapter2_astronaut_ready_park\", \"voice\": \"Park the repaired rocket and leave it ready for later!\"},\n\t]},\n\t\"racer\": {\"finale_start\": 2, \"scene_id\": \"chapter2_grand_prix\", \"phases\": []},\n\t\"popstar\": {\"finale_start\": 2, \"scene_id\": \"chapter2_popstar_rumi\", \"backdrop\": \"chapter2_popstar_rumi\", \"phases\": [\n\t\t{\"name\": \"SOUND CHECK\", \"milestone\": \"sound_check\", \"mode\": \"hold\", \"goal\": 3.8, \"visual_context\": \"charge_popstar\", \"subject\": \"rumi\", \"vo\": \"op_popstar_sound_check_stage\", \"voice\": \"Hold the microphone while Rumi checks the rainbow note!\"},\n\t\t{\"name\": \"STAGE RUMI\", \"milestone\": \"stage_rumi\", \"mode\": \"choice\", \"subject\": \"rumi\", \"vo\": \"op_popstar_dance\", \"goal\": 3.0, \"voice\": \"Tap the glowing arrow to stage Rumi with the band!\"},\n\t\t{\"name\": \"RHYTHM\", \"milestone\": \"rhythm\", \"mode\": \"echo\", \"goal\": 3.0, \"vo\": \"op_popstar_rhythm_stage\", \"voice\": \"Listen to the three stars, then sing their song back!\"},\n\t\t{\"name\": \"ENCORE\", \"milestone\": \"encore\", \"mode\": \"circle\", \"goal\": 2.0, \"vo\": \"op_popstar_encore_stage\", \"voice\": \"Draw one big encore spin for the crowd!\"},\n\t]},\n\t\"nursery\": {\"finale_start\": 4, \"scene_id\": \"chapter2_moonbeam_nursery\", \"phases\": []},\n}",
+          "sha256": "6b49bee52e234b1179f9b63efe6c21aa737fb1e44a098b3e93c301072d5ed476"
+        },
+        {
+          "AST_kind": "const_stmt",
+          "source": "const PHASE_BINDINGS := {\n\t\"chef\": {\n\t\t\"MIX\": {\"station_id\": \"mixing_bowl\", \"invitation\": {\n\t\t\t\"path\": \"res://assets/chapter2/birthday/chef_empty_shell_bowl_v1.png\",\n\t\t\t\"motion\": \"breathe\", \"size\": Vector2(144, 144), \"presentation\": \"painted\",\n\t\t}},\n\t\t\"STIR\": {\"station_id\": \"mixing_bowl\", \"invitation\": {\n\t\t\t\"path\": \"res://assets/chapter2/birthday/chef_empty_shell_bowl_v1.png\",\n\t\t\t\"motion\": \"breathe\", \"size\": Vector2(144, 144), \"presentation\": \"painted\",\n\t\t}},\n\t\t\"BAKE\": {\"station_id\": \"hearth_oven\", \"invitation\": {\n\t\t\t\"path\": \"res://assets/flats/castle/rooms/room_kitchen_item_oven.png\",\n\t\t\t\"motion\": \"breathe\", \"size\": Vector2(144, 144), \"presentation\": \"painted\",\n\t\t}},\n\t\t\"STACK\": {\"station_id\": \"cake_tower\", \"invitation\": {\n\t\t\t\"path\": \"res://assets/chapter2/birthday/chapter2_chef_baked_tiers_unstacked.png\",\n\t\t\t\"motion\": \"breathe\", \"size\": Vector2(144, 144), \"presentation\": \"painted\",\n\t\t}},\n\t\t\"FROST\": {\"station_id\": \"grand_cake_stage\", \"invitation\": {\n\t\t\t\"path\": \"res://assets/chapter2/birthday/chapter2_chef_stacked_unfrosted_cake.png\",\n\t\t\t\"motion\": \"breathe\", \"size\": Vector2(144, 144), \"presentation\": \"painted\",\n\t\t}},\n\t},\n\t\"detective\": {\n\t\t\"LENS\": {\"station_id\": \"magic_storybook\", \"invitation\": {\n\t\t\t\"path\": \"res://assets/flats/castle/rooms/room_library_item_magic_book.png\",\n\t\t\t\"motion\": \"breathe\", \"size\": Vector2(144, 144), \"presentation\": \"overlay\",\n\t\t}},\n\t\t\"STORYBOOK BOARD\": {\"station_id\": \"magic_storybook\", \"invitation\": {\n\t\t\t\"path\": \"res://assets/flats/castle/rooms/room_library_item_magic_book.png\",\n\t\t\t\"motion\": \"breathe\", \"size\": Vector2(144, 144), \"presentation\": \"overlay\",\n\t\t}},\n\t\t\"UNLIT RAINBOW CANDLE\": {\"station_id\": \"unlit_rainbow_candle\", \"invitation\": {\n\t\t\t\"path\": \"res://assets/chapter2/birthday/rainbow_candle_unlit.png\",\n\t\t\t\"motion\": \"breathe\", \"size\": Vector2(144, 144), \"presentation\": \"painted\",\n\t\t}},\n\t},\n\t\"ballerina\": {\n\t\t\"STUFFIES MIRROR\": {\"station_id\": \"trifold_mirror\", \"invitation\": {\n\t\t\t\"path\": \"res://assets/flats/castle/rooms/room_playroom_item_stuffie_nook.png\",\n\t\t\t\"motion\": \"breathe\", \"size\": Vector2(144, 144), \"presentation\": \"painted\",\n\t\t}},\n\t\t\"STUFFIES TWIRL\": {\"station_id\": \"wave_tuffets\", \"invitation\": {\n\t\t\t\"path\": \"res://assets/opera/worlds/widgets/widget_crank_ballerina_mover.png\",\n\t\t\t\"motion\": \"breathe\", \"size\": Vector2(144, 144), \"presentation\": \"painted\",\n\t\t}},\n\t\t\"STUFFIES BOW\": {\"station_id\": \"rose_finale_stage\", \"invitation\": {\n\t\t\t\"path\": \"res://assets/opera/worlds/props/goal_ballerina.png\",\n\t\t\t\"motion\": \"breathe\", \"size\": Vector2(144, 144), \"presentation\": \"painted\",\n\t\t}},\n\t},\n\t\"candymaker\": {\n\t\t\"COAT STRAWBERRIES\": {\"station_id\": \"mixing_bowl\", \"invitation\": {\n\t\t\t\"path\": \"res://assets/chapter2/birthday/sky_lagoon_strawberry_single.png\",\n\t\t\t\"motion\": \"breathe\", \"size\": Vector2(144, 144), \"presentation\": \"overlay\",\n\t\t}},\n\t\t\"SORT STRAWBERRIES\": {\"station_id\": \"cake_tower\", \"invitation\": {\n\t\t\t\"path\": \"res://assets/chapter2/birthday/chapter2_candied_strawberries_tray.png\",\n\t\t\t\"motion\": \"breathe\", \"size\": Vector2(144, 144), \"presentation\": \"overlay\",\n\t\t}},\n\t\t\"GLAZE STRAWBERRIES\": {\"station_id\": \"mixing_bowl\", \"invitation\": {\n\t\t\t\"path\": \"res://assets/chapter2/birthday/chapter2_candied_strawberries_tray.png\",\n\t\t\t\"motion\": \"breathe\", \"size\": Vector2(144, 144), \"presentation\": \"overlay\",\n\t\t}},\n\t\t\"PLACE ON CAKE\": {\"station_id\": \"grand_cake_stage\", \"invitation\": {\n\t\t\t\"path\": \"res://assets/chapter2/birthday/chapter2_chef_frosted_rainbow_cake.png\",\n\t\t\t\"motion\": \"breathe\", \"size\": Vector2(144, 144), \"presentation\": \"painted\",\n\t\t}},\n\t},\n\t\"farmer\": {\n\t\t\"GATHER STRAWBERRIES\": {\"station_id\": \"strawberry_grove\", \"invitation\": {\n\t\t\t\"path\": \"res://assets/chapter2/birthday/sky_lagoon_strawberry_single.png\",\n\t\t\t\"motion\": \"breathe\", \"size\": Vector2(144, 144), \"presentation\": \"overlay\",\n\t\t}},\n\t\t\"FILL BASKET\": {\"station_id\": \"strawberry_basket\", \"invitation\": {\n\t\t\t\"path\": \"res://assets/castle/day_one_pool/activities/cleanup_basket.png\",\n\t\t\t\"motion\": \"breathe\", \"size\": Vector2(144, 144), \"presentation\": \"painted\",\n\t\t}},\n\t\t\"DELIVER TO KITCHEN\": {\"station_id\": \"kitchen_delivery\", \"invitation\": {\n\t\t\t\"path\": \"res://assets/castle/day_one_pool/activities/cleanup_basket.png\",\n\t\t\t\"motion\": \"breathe\", \"size\": Vector2(144, 144), \"presentation\": \"painted\",\n\t\t}},\n\t},\n\t\"painter\": {\n\t\t\"PAINT\": {\"station_id\": \"gazebo_easel\", \"invitation\": {\n\t\t\t\"path\": \"res://assets/flats/castle/logo_studio_v2/castle_banner_rainbow.png\",\n\t\t\t\"motion\": \"breathe\", \"size\": Vector2(144, 144), \"presentation\": \"overlay\",\n\t\t}},\n\t\t\"STAMP\": {\"station_id\": \"rainbow_brush\", \"invitation\": {\n\t\t\t\"path\": \"res://assets/opera/worlds/widgets/widget_target_painter_mark.png\",\n\t\t\t\"motion\": \"breathe\", \"size\": Vector2(144, 144), \"presentation\": \"effect\",\n\t\t}},\n\t\t\"HANG\": {\"station_id\": \"arch_easel\", \"invitation\": {\n\t\t\t\"path\": \"res://assets/flats/castle/logo_studio_v2/castle_banner_rainbow.png\",\n\t\t\t\"motion\": \"breathe\", \"size\": Vector2(144, 144), \"presentation\": \"overlay\",\n\t\t}},\n\t},\n\t\"astronaut\": {\n\t\t\"BUILD ROCKET\": {\"station_id\": \"coolant_tank_pad\", \"invitation\": {\n\t\t\t\"path\": \"res://assets/opera/worlds/widgets/widget_crank_astronaut_mover.png\",\n\t\t\t\"motion\": \"breathe\", \"size\": Vector2(144, 144), \"presentation\": \"painted\",\n\t\t}},\n\t\t\"PATCH\": {\"station_id\": \"pipe_arch_planter\", \"invitation\": {\n\t\t\t\"path\": \"res://assets/opera/worlds/widgets/widget_target_astronaut_piece_1.png\",\n\t\t\t\"motion\": \"breathe\", \"size\": Vector2(144, 144), \"presentation\": \"overlay\",\n\t\t}},\n\t\t\"VALVE\": {\"station_id\": \"periscope_elbow\", \"invitation\": {\n\t\t\t\"path\": \"res://assets/opera/worlds/widgets/widget_crank_astronaut_mover.png\",\n\t\t\t\"motion\": \"breathe\", \"size\": Vector2(144, 144), \"presentation\": \"overlay\",\n\t\t}},\n\t\t\"READY PARK\": {\"station_id\": \"rocket_launch_dais\", \"invitation\": {\n\t\t\t\"path\": \"res://assets/opera/worlds/props/goal_astronaut.png\",\n\t\t\t\"motion\": \"breathe\", \"size\": Vector2(144, 144), \"presentation\": \"painted\",\n\t\t}},\n\t},\n\t\"popstar\": {\n\t\t\"SOUND CHECK\": {\"station_id\": \"mic_gazebo\", \"invitation\": {\n\t\t\t\"path\": \"res://assets/opera/worlds/props/goal_popstar.png\",\n\t\t\t\"motion\": \"breathe\", \"size\": Vector2(144, 144), \"presentation\": \"painted\",\n\t\t}},\n\t\t\"STAGE RUMI\": {\"station_id\": \"rumi_stage\", \"invitation\": {\n\t\t\t\"path\": \"res://assets/opera/worlds/widgets/widget_track_popstar_mover.png\",\n\t\t\t\"motion\": \"breathe\", \"size\": Vector2(144, 144), \"presentation\": \"painted\",\n\t\t}},\n\t\t\"RHYTHM\": {\"station_id\": \"shell_stage\", \"invitation\": {\n\t\t\t\"path\": \"res://assets/opera/worlds/widgets/widget_crank_popstar_mover.png\",\n\t\t\t\"motion\": \"breathe\", \"size\": Vector2(144, 144), \"presentation\": \"painted\",\n\t\t}},\n\t\t\"ENCORE\": {\"station_id\": \"shell_stage\", \"invitation\": {\n\t\t\t\"path\": \"res://assets/opera/worlds/props/goal_popstar.png\",\n\t\t\t\"motion\": \"breathe\", \"size\": Vector2(144, 144), \"presentation\": \"painted\",\n\t\t}},\n\t},\n}",
+          "sha256": "72be88022823e9bbc806750bb64772461ed10805c13b67886cc7db9a22c57556"
+        },
+        {
+          "AST_kind": "static_func_def",
+          "source": "static func phase_set(career: String) -> Dictionary:\n\tvar fallback := {\"finale_start\": 0, \"scene_id\": \"chapter2_%s\" % career, \"phases\": []}\n\tvar result := (PHASE_SETS.get(career, fallback) as Dictionary).duplicate(true)\n\tvar bindings: Dictionary = PHASE_BINDINGS.get(career, {}) as Dictionary\n\tfor phase: Dictionary in result.get(\"phases\", []) as Array:\n\t\tvar binding: Dictionary = bindings.get(String(phase.get(\"name\", \"\")), {}) as Dictionary\n\t\tphase.merge(binding.duplicate(true), true)\n\treturn result\n\n",
+          "sha256": "b1aa361a919f4a661a5613413beba78e3b581b8a617ee130e699c737a2e2bb7c"
+        },
+        {
+          "AST_kind": "static_func_def",
+          "source": "static func adapter_config(career: String, overrides: Dictionary = {}) -> Dictionary:\n\tvar resolved := resolve(career, overrides)\n\treturn {\"id\": String(resolved.get(\"scene_id\", \"chapter2_%s\" % career)),\n\t\t\"career\": career, \"backdrop\": String(resolved.get(\"backdrop\", career)),\n\t\t\"prop\": String(resolved.get(\"prop\", \"\")),\n\t\t\"widget\": String(resolved.get(\"widget\", \"\")),\n\t\t\"story_object\": String(resolved.get(\"story_object\", \"\")),\n\t\t\"mechanic\": String(resolved.get(\"mechanic\", \"\")),\n\t\t\"strawberry_asset\": String(resolved.get(\"strawberry_asset\", \"\")),\n\t\t\"cake_asset\": String(resolved.get(\"cake_asset\", \"\")),\n\t\t\"delivery\": String(resolved.get(\"delivery\", \"\")),\n\t\t\"destination\": String(resolved.get(\"destination\", \"\")),\n\t\t\"persistent_prop\": bool(resolved.get(\"persistent_prop\", false)),\n\t\t\"rocket_state\": String(resolved.get(\"rocket_state\", \"\")),\n\t\t\"finale_start\": int(resolved.get(\"finale_start\", 0)),\n\t\t\"phase_count\": (resolved.get(\"phases\", []) as Array).size(),\n\t\t\"phases\": (resolved.get(\"phases\", []) as Array).duplicate(true)}\n",
+          "sha256": "85f19e1e14ef99b8ad8933501d8890808864b9dbd0609871bb147e22725cfd4a"
+        }
+      ],
+      "scope": "Qualified top-level nonfunction AST declarations/expressions only; comments/line shifts do not become functional changes. No callback/native/art/route acceptance inferred."
+    },
+    {
+      "path": "scripts/main.gd",
+      "topic_revision": "4c5c026fd4a3c1ffaded5f13a123a28a2e13f677",
+      "upstream_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "prior_nodes_not_exactly_rebound": [],
+      "new_or_changed_current_nodes": [
+        {
+          "AST_kind": "class_var_stmt",
+          "source": "var audio_active_guide_mode: String = \"\"",
+          "sha256": "dda8a15df53abbb412ef14602f8ee7a73029272ac5ad363f58be34bedecac2e4"
+        }
+      ],
+      "scope": "Qualified top-level nonfunction AST declarations/expressions only; comments/line shifts do not become functional changes. No callback/native/art/route acceptance inferred."
+    },
+    {
+      "path": "scripts/opera_career_world_2d.gd",
+      "topic_revision": "4c5c026fd4a3c1ffaded5f13a123a28a2e13f677",
+      "upstream_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "prior_nodes_not_exactly_rebound": [
+        {
+          "AST_kind": "class_var_stmt",
+          "source": "var active := true",
+          "sha256": "f5995bf8ff950d0f4c486f0f73dd6890d471ac1c1d27b3257f142063d6724850"
+        }
+      ],
+      "new_or_changed_current_nodes": [
+        {
+          "AST_kind": "class_var_stmt",
+          "source": "var active := false",
+          "sha256": "c682ae93371ce9c7361c1ad7b995773f738284b2789cabae4376b9fa8a988848"
+        },
+        {
+          "AST_kind": "class_var_stmt",
+          "source": "var setup_complete := false",
+          "sha256": "b023ad5677cc63e621deac25b9b1fcbc055e10e3ed712503d55c0664584bc745"
+        }
+      ],
+      "scope": "Qualified top-level nonfunction AST declarations/expressions only; comments/line shifts do not become functional changes. No callback/native/art/route acceptance inferred."
+    },
+    {
+      "path": "scripts/opera_gesture_surface.gd",
+      "topic_revision": "4c5c026fd4a3c1ffaded5f13a123a28a2e13f677",
+      "upstream_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "prior_nodes_not_exactly_rebound": [
+        {
+          "AST_kind": "const_stmt",
+          "source": "const TARGET_ANCHORS := {\n\t\"target_chef\": [Vector2(0.31, 0.40), Vector2(0.50, 0.34), Vector2(0.69, 0.40),\n\t\tVector2(0.36, 0.58), Vector2(0.50, 0.54), Vector2(0.64, 0.58), Vector2(0.50, 0.70)],\n\t\"target_candymaker\": [Vector2(0.22, 0.34), Vector2(0.50, 0.31), Vector2(0.78, 0.34),\n\t\tVector2(0.27, 0.66), Vector2(0.50, 0.70), Vector2(0.73, 0.66)],\n\t\"target_farmer\": [\n\t\tVector2(0.37, 0.58), Vector2(0.50, 0.54), Vector2(0.63, 0.58),\n\t],\n\t\"target_astronaut\": [Vector2(0.31, 0.38), Vector2(0.52, 0.29), Vector2(0.70, 0.43),\n\t\tVector2(0.43, 0.61), Vector2(0.65, 0.68)],\n\t\"target_boxer\": [Vector2(0.50, 0.52)],\n}",
+          "sha256": "14be788223e3e43b762c87ed682bbf95768dac8abe49dccdd00a86aacd11f244"
+        }
+      ],
+      "new_or_changed_current_nodes": [
+        {
+          "AST_kind": "const_stmt",
+          "source": "const TARGET_ANCHORS := {\n\t\"chapter2_basket_fill\": [Vector2(0.30, 0.42), Vector2(0.50, 0.38), Vector2(0.70, 0.42),\n\t\tVector2(0.40, 0.62), Vector2(0.60, 0.62)],\n\t\"target_chef\": [Vector2(0.31, 0.40), Vector2(0.50, 0.34), Vector2(0.69, 0.40),\n\t\tVector2(0.36, 0.58), Vector2(0.50, 0.54), Vector2(0.64, 0.58), Vector2(0.50, 0.70)],\n\t\"target_candymaker\": [Vector2(0.22, 0.34), Vector2(0.50, 0.31), Vector2(0.78, 0.34),\n\t\tVector2(0.27, 0.66), Vector2(0.50, 0.70), Vector2(0.73, 0.66)],\n\t\"target_farmer\": [\n\t\tVector2(0.37, 0.58), Vector2(0.50, 0.54), Vector2(0.63, 0.58),\n\t],\n\t\"target_astronaut\": [Vector2(0.31, 0.38), Vector2(0.52, 0.29), Vector2(0.70, 0.43),\n\t\tVector2(0.43, 0.61), Vector2(0.65, 0.68)],\n\t\"target_boxer\": [Vector2(0.50, 0.52)],\n}",
+          "sha256": "2c6632cb077e5d7acc87ff06441f0281d1ee48d94b8eded5838f02537f2da4d3"
+        }
+      ],
+      "scope": "Qualified top-level nonfunction AST declarations/expressions only; comments/line shifts do not become functional changes. No callback/native/art/route acceptance inferred."
+    },
+    {
+      "path": "scripts/opera_world_backdrop_2d.gd",
+      "topic_revision": "4c5c026fd4a3c1ffaded5f13a123a28a2e13f677",
+      "upstream_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "prior_nodes_not_exactly_rebound": [],
+      "new_or_changed_current_nodes": [
+        {
+          "AST_kind": "class_var_stmt",
+          "source": "var farmer_basket_texture: Texture2D = null",
+          "sha256": "f6d8b388a77e11c7838aecf454ca238061cce806722109cb2296f406f7081dd9"
+        }
+      ],
+      "scope": "Qualified top-level nonfunction AST declarations/expressions only; comments/line shifts do not become functional changes. No callback/native/art/route acceptance inferred."
+    },
+    {
+      "path": "scripts/probe_chapter2.gd",
+      "topic_revision": "4c5c026fd4a3c1ffaded5f13a123a28a2e13f677",
+      "upstream_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "prior_nodes_not_exactly_rebound": [],
+      "new_or_changed_current_nodes": [
+        {
+          "AST_kind": "class_var_stmt",
+          "source": "var startup_scene_ready_count := 0",
+          "sha256": "3da75937ef26a726cc45abbdc0ac03c7b6f4c43d1254d240d7ac2248af88fe1c"
+        },
+        {
+          "AST_kind": "class_var_stmt",
+          "source": "var startup_scene_closed_count := 0",
+          "sha256": "542fe8911ef8a1e936ba571c0647b4d84f750a8d7ba154387500c70d6927f9b5"
+        },
+        {
+          "AST_kind": "class_var_stmt",
+          "source": "var startup_completion_count := 0",
+          "sha256": "68ba9e8ffff5425d0d301d88ada683404e34fdaad512e2be7333e40cdcde9b95"
+        },
+        {
+          "AST_kind": "const_stmt",
+          "source": "const FIXTURE_SAVE_PREFIX := \"probe_chapter2_isolated_\"",
+          "sha256": "a04f5db77e418513d6316247683f66e98faa1834868e6e5cc0a6d1988a7ee285"
+        },
+        {
+          "AST_kind": "const_stmt",
+          "source": "const MAIN_SCENE_PATH := \"res://scenes/main.tscn\"",
+          "sha256": "b08c723970dbd23d62ec1c2dfd1f6b86f98273ff220027c93c6191115084f050"
+        },
+        {
+          "AST_kind": "class_var_stmt",
+          "source": "var fixture_save_path := \"\"",
+          "sha256": "beaa320f71a702d16983c39cda34dbec13a0bba563e995481f29232de77931d3"
+        },
+        {
+          "AST_kind": "class_var_stmt",
+          "source": "var fixture_loaded_snapshot: Dictionary = {}",
+          "sha256": "45bf7540e113ca78706386359ad0c1476173e20a85f467ccc0ea8cc5ed054387"
+        },
+        {
+          "AST_kind": "class_var_stmt",
+          "source": "var fixture_loaded_generation := -1",
+          "sha256": "fdc0bfe113db1ae8b4d0411053ea0b12d5ae78b2178aa93e966a7f2773b75e41"
+        },
+        {
+          "AST_kind": "class_var_stmt",
+          "source": "var fixture_loaded_id := 0",
+          "sha256": "b6f1be9010bca4374c7cd2d5ab665cebc12c13a30039e6d745657d70a68f391b"
+        },
+        {
+          "AST_kind": "class_var_stmt",
+          "source": "var fixture_expected_path := \"\"",
+          "sha256": "4490a79d66008199958fd079d861aea15f83038f47e7eb6a8823787858d9ebee"
+        },
+        {
+          "AST_kind": "class_var_stmt",
+          "source": "var fixture_boot_count := 0",
+          "sha256": "973f72e1d7633bf9314ff3db1f51c9da79739518f33db50188ca2c232753efe9"
+        }
+      ],
+      "scope": "Qualified top-level nonfunction AST declarations/expressions only; comments/line shifts do not become functional changes. No callback/native/art/route acceptance inferred."
+    },
+    {
+      "path": "scripts/probe_combat_tutorial.gd",
+      "topic_revision": "4c5c026fd4a3c1ffaded5f13a123a28a2e13f677",
+      "upstream_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "prior_nodes_not_exactly_rebound": [],
+      "new_or_changed_current_nodes": [
+        {
+          "AST_kind": "const_stmt",
+          "source": "const TIMED_WAIT_FRAME_CAP := 6000",
+          "sha256": "9276178a60975dd018df183f676b6f4776277010092c8eafb3e3079e5a5f1ab8"
+        },
+        {
+          "AST_kind": "const_stmt",
+          "source": "const TIMED_WAIT_WALL_MSEC := 10000",
+          "sha256": "150418a40d56c0b60a748c60e7a04587f0d1b720440ac1d697ad4054731db945"
+        },
+        {
+          "AST_kind": "const_stmt",
+          "source": "const TIMED_WAIT_EPSILON_SEC := 0.000001",
+          "sha256": "23d3b5da7c85b4b91e6969cc4be7b0a9c5c59a2c4fddabdea913a6cc8e92e296"
+        }
+      ],
+      "scope": "Qualified top-level nonfunction AST declarations/expressions only; comments/line shifts do not become functional changes. No callback/native/art/route acceptance inferred."
+    },
+    {
+      "path": "scripts/probe_start_menu_new_game.gd",
+      "topic_revision": "4c5c026fd4a3c1ffaded5f13a123a28a2e13f677",
+      "upstream_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "prior_nodes_not_exactly_rebound": [
+        {
+          "AST_kind": "const_stmt",
+          "source": "const PROBE_SAVE_URI := \"user://probe_start_menu_new_game_save.json\"",
+          "sha256": "a89ed976c371cfc829808ef799c430d40a7045e1bbb1304a8ffa9b7cd5856401"
+        },
+        {
+          "AST_kind": "class_var_stmt",
+          "source": "var packed: PackedScene",
+          "sha256": "cfdc80d940630647301372fb527874a8016146a03b5ac7628f6865a1d268b980"
+        },
+        {
+          "AST_kind": "class_var_stmt",
+          "source": "var failures: int = 0",
+          "sha256": "ca9803c940727def54ce3ec0a59dcc9fa59eefdcd315bf64adad776c2cc221ae"
+        },
+        {
+          "AST_kind": "class_var_stmt",
+          "source": "var start_presses: int = 0",
+          "sha256": "8bb37f21f2d698f6b97928f01549eb7cd2278c6ae2d5ddf275f3ad8916836c6e"
+        }
+      ],
+      "new_or_changed_current_nodes": [
+        {
+          "AST_kind": "const_stmt",
+          "source": "const MAIN_SCENE_PATH := \"res://scenes/main.tscn\"",
+          "sha256": "b08c723970dbd23d62ec1c2dfd1f6b86f98273ff220027c93c6191115084f050"
+        },
+        {
+          "AST_kind": "const_stmt",
+          "source": "const PROBE_SAVE_PREFIX := \"probe_start_menu_new_game_save_\"",
+          "sha256": "ef040f3182f98531ed4ac06a56620c8e8ab488b3f64b3c02674fc24b15bf9a17"
+        },
+        {
+          "AST_kind": "const_stmt",
+          "source": "const RELOAD_DEADLINE_MSEC := 12000",
+          "sha256": "9646703b00bc6ecde0116c2aa21c70fc111aa93e4563111afc56aebb71b890a3"
+        },
+        {
+          "AST_kind": "const_stmt",
+          "source": "const CHILD_DEADLINE_MSEC := 30000",
+          "sha256": "1f4bfa0c5f250079188b74dcffa4221f98230241378a02e6ea5d3742ee0c461b"
+        },
+        {
+          "AST_kind": "class_var_stmt",
+          "source": "var failures := 0",
+          "sha256": "ac60182233d3b1a93affa491197214936b65885540c409717c4e0ed0c9823c5c"
+        },
+        {
+          "AST_kind": "class_var_stmt",
+          "source": "var start_presses := 0",
+          "sha256": "1eb27e0c99f893308d03cad4ad4427470a64dcc47e6fb256f8d1549abd9a9705"
+        },
+        {
+          "AST_kind": "class_var_stmt",
+          "source": "var scene_boots := 0",
+          "sha256": "95f622bcd124687e784d462b4c1cfcaf204048e4c39d25b96aab26e2483294cd"
+        },
+        {
+          "AST_kind": "class_var_stmt",
+          "source": "var child_mode := false",
+          "sha256": "56b3731d65d0910b03ad90aa2d972c915e40a3d79d823245cc347438078bf519"
+        },
+        {
+          "AST_kind": "class_var_stmt",
+          "source": "var child_receipt_path := \"\"",
+          "sha256": "eb210cd37fc52275370caac380b260b4b6e802e754ca0e8e52760d2247430b0d"
+        },
+        {
+          "AST_kind": "class_var_stmt",
+          "source": "var expected_child_generation := -1",
+          "sha256": "c16140a37e04b27207744ceb150be166a45aef9a0f7b6788ebc91fac0df6034e"
+        },
+        {
+          "AST_kind": "class_var_stmt",
+          "source": "var expected_parent_pid := -1",
+          "sha256": "239b62223a332ad8fdab96932af7138b23addddaefe9869646f54222251dde8a"
+        },
+        {
+          "AST_kind": "class_var_stmt",
+          "source": "var expected_primary_hash := \"\"",
+          "sha256": "22330e3f1d62a155030234119bc769c8cea9d13765faf4d6753bb94d6729dc38"
+        },
+        {
+          "AST_kind": "class_var_stmt",
+          "source": "var expected_archive_hash := \"\"",
+          "sha256": "915ff87de7314c9858074d024842cc46ed42c3fe587fdd04415e0ce9297f355b"
+        },
+        {
+          "AST_kind": "class_var_stmt",
+          "source": "var last_boot_loaded_generation := -1",
+          "sha256": "d5c2045d577ed58f1332c2e058ce26edda5982bd57c66c966826e0b164ca1a26"
+        },
+        {
+          "AST_kind": "class_var_stmt",
+          "source": "var loaded_main_id := 0",
+          "sha256": "e399025db9c02ed057b9ae7d62ae7b1c95bf26c30fc9af4c526c73b40338adc8"
+        }
+      ],
+      "scope": "Qualified top-level nonfunction AST declarations/expressions only; comments/line shifts do not become functional changes. No callback/native/art/route acceptance inferred."
+    }
+  ],
+  "file_count": 9,
+  "main_audio_guide_field_added": true,
+  "scope": "Complements137 function-body/name changes. Main has zero changed function bodies but a new audio guide mode field; it must not be called an identical file.",
+  "accepted_removed": 0
+}

@@ -1,0 +1,22 @@
+{
+  "historical_reader_changed": false,
+  "historical_arrays_or_representations_changed": false,
+  "base_reader_path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r38_glyph_reconciliation/bounded_json.py",
+  "base_reader_sha256": "1ac1f7675089bb9ca6cbc66d99087fb6c1f8e15926f84ca8101ea993d503be86",
+  "new_R50_reader_sha256": "42d8c411b7cd752dc3abc2e09089a1d97a4302bcae15d145b6a515c57bbc83cd",
+  "allowed_schema_addition": "reef.runtime_path_json_inventory/1",
+  "scan_caps_unchanged": true,
+  "logical_size_cap": 128000000,
+  "physical_scan_cap": 4194304,
+  "runtime_json_document_logical_sha256": "762523a2c7aad9b1b0b471e6a04dff51590e35a0d9f36e591d36b87cf0af99fd",
+  "runtime_json_document_physical_files": [
+    "RUNTIME_PATHS_AND_JSON.json",
+    "RUNTIME_PATHS_AND_JSON.fragment0001.json",
+    "RUNTIME_PATHS_AND_JSON.fragment0002.json",
+    "RUNTIME_PATHS_AND_JSON.fragment0003.json",
+    "RUNTIME_PATHS_AND_JSON.fragment0004.json",
+    "RUNTIME_PATHS_AND_JSON.fragment0005.json",
+    "RUNTIME_PATHS_AND_JSON.fragment0006.json"
+  ],
+  "scope": "New R50-only nonruntime audit reader adds one declared schema; every physical part remains fully scanned and hashed. OriginalR38 and every frozen root reader/data representation unchanged."
+}

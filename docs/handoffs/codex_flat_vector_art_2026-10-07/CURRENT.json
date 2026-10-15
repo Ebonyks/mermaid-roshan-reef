@@ -1,17 +1,17 @@
 {
   "schema": "reef.flat_vector_current/1",
-  "revision": "FV-AUDIT-20261015-R49",
-  "current_entry": "r49_callback_value_domains/README.md",
-  "current_per_piece": "r49_callback_value_domains/per_piece.json",
-  "current_scene_coverage": "r49_callback_value_domains/scene_coverage.json",
-  "current_tally": "r49_callback_value_domains/tally.json",
-  "current_backlog": "r49_callback_value_domains/CONGRUENCY_BACKLOG.json",
-  "current_manifest": "r49_callback_value_domains/MANIFEST.json",
+  "revision": "FV-AUDIT-20261015-R50",
+  "current_entry": "r50_upstream_source_refresh/README.md",
+  "current_per_piece": "r50_upstream_source_refresh/per_piece.json",
+  "current_scene_coverage": "r50_upstream_source_refresh/scene_coverage.json",
+  "current_tally": "r50_upstream_source_refresh/tally.json",
+  "current_backlog": "r50_upstream_source_refresh/CONGRUENCY_BACKLOG.json",
+  "current_manifest": "r50_upstream_source_refresh/MANIFEST.json",
   "immutable_r6_payload_revision": "4aceae967de9da7c8f479e358a008188ba1f6304",
   "immutable_r6_receipt_revision": "70879a91ddcbba51ba09c7d0be81cc65f340e3b5",
   "old_root_json_scope": "Frozen R6 snapshot; use current canonical paths above; original representation and readers unchanged.",
   "mission_complete": false,
-  "current_ci_evidence": "r49_callback_value_domains/tally.json",
+  "current_ci_evidence": "r50_upstream_source_refresh/tally.json",
   "immutable_r7_receipt_revision": "c1e466a8a9e605f43b4c7a181b3d7b702d7677aa",
   "immutable_r8_receipt_revision": "f4de7b921298b0dac052df408af03bbb2b62132b",
   "immutable_r9_receipt_revision": "0c2732204bec7f882db26d835e2ce32ee12c7471",
@@ -101,8 +101,12 @@
   "immutable_r48_final_proof_revision": "61d12c5b7d29cd106a817d8d0064aa60f48f3ed2",
   "upstream_freshness": {
     "latest_origin_dev_observed": "5120b6d59885dd057937aaf284e73681d8eac9f5",
-    "evidence": "r49_callback_value_domains/UPSTREAM_RECONCILIATION.json",
-    "current_upstream_inventory_context_refresh_pending": true
+    "evidence": "r50_upstream_source_refresh/SOURCE_SUMMARY.json",
+    "declared_source_inventory_refresh_pending": false,
+    "full_native_dynamic_and_context_refresh_pending": true
   },
-  "current_amendment_manifest": "r49_callback_value_domains/AMENDMENT_MANIFEST.json"
+  "immutable_r49_payload_revision": "3f191462fddfa7052587eb1e2a16fba8e0722708",
+  "immutable_r49_receipt_revision": "b9e61c8c886e0e2683d8be9a68ec9545c6041ffa",
+  "immutable_r49_amendment_revision": "2be771150729043791dc194149ea456c5192a495",
+  "immutable_r49_final_proof_revision": "4c5c026fd4a3c1ffaded5f13a123a28a2e13f677"
 }

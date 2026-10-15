@@ -1,0 +1,48 @@
+R37_SOURCE_STRESS 18 PASS
+test_Object_StringName_selector (__main__.DispatchSemanticBoundaries.test_Object_StringName_selector) ... ok
+test_Object_literal_selector (__main__.DispatchSemanticBoundaries.test_Object_literal_selector) ... ok
+test_branch_shadow_does_not_leak (__main__.DispatchSemanticBoundaries.test_branch_shadow_does_not_leak) ... ok
+test_callable_literal_argument_is_data (__main__.DispatchSemanticBoundaries.test_callable_literal_argument_is_data) ... ok
+test_constant_is_closed_selector (__main__.DispatchSemanticBoundaries.test_constant_is_closed_selector) ... ok
+test_empty_constructor_is_not_invocation (__main__.DispatchSemanticBoundaries.test_empty_constructor_is_not_invocation) ... ok
+test_implicit_self_Object_dispatch (__main__.DispatchSemanticBoundaries.test_implicit_self_Object_dispatch) ... ok
+test_inner_class_fields_do_not_leak (__main__.DispatchSemanticBoundaries.test_inner_class_fields_do_not_leak) ... ok
+test_lambda_parameter_scope (__main__.DispatchSemanticBoundaries.test_lambda_parameter_scope) ... ok
+test_loop_iterable_uses_outer_binding (__main__.DispatchSemanticBoundaries.test_loop_iterable_uses_outer_binding) ... ok
+test_method_reference_deferred (__main__.DispatchSemanticBoundaries.test_method_reference_deferred) ... ok
+test_mutable_selector_stays_unknown (__main__.DispatchSemanticBoundaries.test_mutable_selector_stays_unknown) ... ok
+test_named_constructor_is_binding_not_invocation (__main__.DispatchSemanticBoundaries.test_named_constructor_is_binding_not_invocation) ... ok
+test_native_getter_and_bound_member (__main__.DispatchSemanticBoundaries.test_native_getter_and_bound_member) ... ok
+test_overridden_dispatcher_not_assumed_native (__main__.DispatchSemanticBoundaries.test_overridden_dispatcher_not_assumed_native) ... ok
+test_shadowed_standalone_dispatcher_is_not_assumed_native (__main__.DispatchSemanticBoundaries.test_shadowed_standalone_dispatcher_is_not_assumed_native) ... ok
+test_typed_loop_receiver (__main__.DispatchSemanticBoundaries.test_typed_loop_receiver) ... ok
+test_untyped_loop_variable_shadows_method_reference (__main__.DispatchSemanticBoundaries.test_untyped_loop_variable_shadows_method_reference) ... ok
+test_untyped_parameter_shadows_field (__main__.DispatchSemanticBoundaries.test_untyped_parameter_shadows_field) ... ok
+test_untyped_receiver_literal_is_not_certified (__main__.DispatchSemanticBoundaries.test_untyped_receiver_literal_is_not_certified) ... ok
+
+----------------------------------------------------------------------
+Ran 20 tests in 0.208s
+
+OK
+..................
+----------------------------------------------------------------------
+Ran 18 tests in 0.170s
+
+OK
+........
+----------------------------------------------------------------------
+Ran 8 tests in 1.058s
+
+OK
+R50_INTEGRITY_PASS exactD312scripts/1510inputs/369frozen/348glyphs/506dispatch/927mutation/25files137functions9declarations/4420paths18JSON;240roles32families/0accepted/globalunknown;runtimeunchanged
+DOCAUTH|INVENTORY=753|LEDGER=753|ACTIVE=69|RECORDS=72
+DOCAUTH|RESULT|ALL OK
+AUDITDEV|BASE|e2b3c73789707aa49a91b4f42e2a9dd4b68225df
+AUDITDEV|RESULT|ALL OK
+......................................................
+----------------------------------------------------------------------
+Ran 54 tests in 8.449s
+
+OK
+DOCAUTH|STRESS|6/6
+DOCAUTH|STRESS|6/6

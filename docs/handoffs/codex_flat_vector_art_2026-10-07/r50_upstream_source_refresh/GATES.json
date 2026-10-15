@@ -1,0 +1,149 @@
+{
+  "status": "PASS_CURRENT_UPSTREAM_SOURCE_REFRESH_ACCEPTANCE_OPEN",
+  "commands": [
+    {
+      "command": [
+        "python",
+        "-B",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r50_upstream_source_refresh\\verify_source_inventory.py"
+      ],
+      "exit_code": 0,
+      "stdout_sha256": "6c7a49436913dea7f9949f80631f3aa8c26602984a5a50ee85f57f3da4cbc03a",
+      "checked_at_utc": "2026-10-15T07:53:10.769760+00:00",
+      "evidence": "gates.log"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r45_dispatch_semantics_audit\\test_dispatch_semantics.py"
+      ],
+      "exit_code": 0,
+      "stdout_sha256": "b4e059f8ea24e4b0128730ac626c7efcea9a4884420eb6ab8ab4fab990b1d525",
+      "checked_at_utc": "2026-10-15T07:53:12.335061+00:00",
+      "evidence": "gates.log"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r49_callback_value_domains\\test_callback_domains.py"
+      ],
+      "exit_code": 0,
+      "stdout_sha256": "86d85a9ad8d77dcc2c18a22206bbd494c49de2088c6b2bfef85357dbd9be433c",
+      "checked_at_utc": "2026-10-15T07:53:13.791868+00:00",
+      "evidence": "gates.log"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r50_upstream_source_refresh\\test_bounded_format.py"
+      ],
+      "exit_code": 0,
+      "stdout_sha256": "3a4a2cdf6518d308641e44f259fa14f106706a9333fa9ee79d0ffa4a926d37a7",
+      "checked_at_utc": "2026-10-15T07:53:15.890411+00:00",
+      "evidence": "gates.log"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r50_upstream_source_refresh\\validate.py"
+      ],
+      "exit_code": 0,
+      "stdout_sha256": "ea32ff00d17128304c1b185245dd556ce5c71084786d929d615839ca7da27ed3",
+      "checked_at_utc": "2026-10-15T07:53:20.079397+00:00",
+      "evidence": "gates.log"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_document_authority.py"
+      ],
+      "exit_code": 0,
+      "stdout_sha256": "47e93af457f9471d77701ccd1ebe56d3f95d4da0fdb815b9e5abae2d78b70581",
+      "checked_at_utc": "2026-10-15T07:53:35.571922+00:00",
+      "evidence": "gates.log"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_development.py",
+        "--base",
+        "auto"
+      ],
+      "exit_code": 0,
+      "stdout_sha256": "fe1136f6488648e75036829fb4dde2405eb9ed57eec05f046fe441463c20d023",
+      "checked_at_utc": "2026-10-15T07:53:41.142925+00:00",
+      "evidence": "gates.log"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "-m",
+        "unittest",
+        "tools.tests.test_audit_document_authority",
+        "tools.tests.test_audit_development"
+      ],
+      "exit_code": 0,
+      "stdout_sha256": "53cafe30ad7ea9a6fa4ecfe4d4d24406c8192ab63b2cb3b85348b4bfc96da45d",
+      "checked_at_utc": "2026-10-15T07:53:50.748412+00:00",
+      "evidence": "gates.log"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_document_authority.py",
+        "--stress"
+      ],
+      "exit_code": 0,
+      "stdout_sha256": "f6dae08cdab672a16e9630b84cfc9cfbb91c9ce905958c736a197b38d21dcf29",
+      "checked_at_utc": "2026-10-15T07:53:51.861657+00:00",
+      "evidence": "gates.log"
+    }
+  ],
+  "raw_log_sha256": "f77a41ca7126b1b2ca24a1a15222b7c704950fc613e268d972ddc8cf1d699d86",
+  "scope": "Fresh18 inventory/20dispatch/18mutation/8format tests; source integrity,documentauthority/development/54audit tests/6stress. No engine/game/scene run or current visual/runtime acceptance. Actual all-new-files-staged and committed2D before every push follow.",
+  "review_reconciliation_checks": [
+    {
+      "command": [
+        "python",
+        "-B",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r50_upstream_source_refresh\\validate.py"
+      ],
+      "exit_code": 0,
+      "sha256": "ea32ff00d17128304c1b185245dd556ce5c71084786d929d615839ca7da27ed3",
+      "output": "R50_INTEGRITY_PASS exactD312scripts/1510inputs/369frozen/348glyphs/506dispatch/927mutation/25files137functions9declarations/4420paths18JSON;240roles32families/0accepted/globalunknown;runtimeunchanged\r\n",
+      "checked_at_utc": "2026-10-15T07:55:16.102134+00:00"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_document_authority.py"
+      ],
+      "exit_code": 0,
+      "sha256": "47e93af457f9471d77701ccd1ebe56d3f95d4da0fdb815b9e5abae2d78b70581",
+      "output": "DOCAUTH|INVENTORY=753|LEDGER=753|ACTIVE=69|RECORDS=72\r\nDOCAUTH|RESULT|ALL OK\r\n",
+      "checked_at_utc": "2026-10-15T07:55:26.114913+00:00"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_development.py",
+        "--base",
+        "auto"
+      ],
+      "exit_code": 0,
+      "sha256": "fe1136f6488648e75036829fb4dde2405eb9ed57eec05f046fe441463c20d023",
+      "output": "AUDITDEV|BASE|e2b3c73789707aa49a91b4f42e2a9dd4b68225df\r\nAUDITDEV|RESULT|ALL OK\r\n",
+      "checked_at_utc": "2026-10-15T07:55:32.078137+00:00"
+    }
+  ]
+}

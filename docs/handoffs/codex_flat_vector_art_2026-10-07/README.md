@@ -1,4 +1,8 @@
-Current canonical evidence: [R49 callback source-path domains](r49_callback_value_domains/README.md), [registry](r49_callback_value_domains/per_piece.json), [coverage](r49_callback_value_domains/scene_coverage.json), [tally](r49_callback_value_domains/tally.json).
+Current canonical evidence: [R50 upstream source inventory](r50_upstream_source_refresh/README.md), [registry](r50_upstream_source_refresh/per_piece.json), [coverage](r50_upstream_source_refresh/scene_coverage.json), [tally](r50_upstream_source_refresh/tally.json).
+
+All312 current-upstream scripts parsed;369 frozen functions rebound,825 additional candidate scopes. Current scene/state/native/dynamic review remains pending;240 known roles/32 families,0 accepted/global unknown.
+
+Historical R49 evidence: [R49 callback source-path domains](r49_callback_value_domains/README.md), [registry](r49_callback_value_domains/per_piece.json), [coverage](r49_callback_value_domains/scene_coverage.json), [tally](r49_callback_value_domains/tally.json).
 
 Nine named source paths /14 invocation sites traced; all57 full runtime callback domains remain open. No new art/capture/route credit.240 known roles/32 families,0 accepted/global unknown.
 

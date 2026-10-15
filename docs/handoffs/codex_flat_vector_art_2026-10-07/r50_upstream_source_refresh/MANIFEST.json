@@ -1,0 +1,52 @@
+{
+  "schema": "reef.bounded_audit_json_index/1",
+  "logical_schema": "reef.flat_vector_delta_manifest/1",
+  "logical_bytes": 5158911,
+  "logical_sha256": "10209222b0522905c2005d48de1cf8a1541b671e59afdfb32a604fe8633f623a",
+  "fragment_count": 6,
+  "fragments": [
+    {
+      "path": "MANIFEST.fragment0001.json",
+      "bytes": 1073599,
+      "sha256": "76d5e1fe20b575d624f28f3d230a57a0d0f550eb16ce167638a1fa2bf346f43a",
+      "text_bytes": 1000000,
+      "text_sha256": "48910cf1d5a7533158b3fe16439521e659c51dd8e7cf3024e943993051bde32d"
+    },
+    {
+      "path": "MANIFEST.fragment0002.json",
+      "bytes": 1075106,
+      "sha256": "90e5b587cb554c939ec3cf4ed4f0e47861ca9620ef4f8c1c5336163a5546ea88",
+      "text_bytes": 1000000,
+      "text_sha256": "6ae65d7c41ae946942d87ae9ef308a11e34049e457e395c9a1a8c9606ce85dac"
+    },
+    {
+      "path": "MANIFEST.fragment0003.json",
+      "bytes": 1075433,
+      "sha256": "463b4308330afc05c16ddbe194920c835bb688c0be584ce65b6bdf94fa836d48",
+      "text_bytes": 1000000,
+      "text_sha256": "9a9b0236aa6b9f01266f92e0a9fc1f88f82e47a885affe53b4ccac1cb0f29c21"
+    },
+    {
+      "path": "MANIFEST.fragment0004.json",
+      "bytes": 1075628,
+      "sha256": "4b1c8ceca837ddd9488198d49d8fc3393c1910ea4a696d185bb533e876c84262",
+      "text_bytes": 1000000,
+      "text_sha256": "045a2cdb5052b7e96f614c82e6a1a1fcbc991308d4e0f8a8d7ed5264c049c7e0"
+    },
+    {
+      "path": "MANIFEST.fragment0005.json",
+      "bytes": 1071517,
+      "sha256": "e76b49272e54fd4ea2bf3014f82fe412415c09339c8b2fda342328a9abf53bce",
+      "text_bytes": 1000000,
+      "text_sha256": "770af5e4a5c245effa14abfc200ca30bb1006558de718664280f4c3a5c3ba489"
+    },
+    {
+      "path": "MANIFEST.fragment0006.json",
+      "bytes": 170903,
+      "sha256": "434956209df1a67775bbce012dff1bd8cfb32c427c9f7f8ba5cf81c61c19891e",
+      "text_bytes": 158911,
+      "text_sha256": "e59c28ec60f037ac456d8134b9e5b31e3bdafac64fc72bd3174b9be563639f6a"
+    }
+  ],
+  "scope": "Nonruntime source-audit text evidence;everypart scanned/hashed. LogicalJSON bytes preserved;no runtime/model/creative acceptance orauditor waiver."
+}
