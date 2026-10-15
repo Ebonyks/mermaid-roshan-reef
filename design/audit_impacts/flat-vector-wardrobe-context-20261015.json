@@ -62,6 +62,7 @@
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r63_wardrobe_context/CURRENT_CATALOGUE_CONTEXT_UNION.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r63_wardrobe_context/CURRENT_PARTIAL_CONTEXT_UNION.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r63_wardrobe_context/DELIVERY_SOURCE_REFERENCES.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r63_wardrobe_context/DELIVERY_TRANSPORT.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r63_wardrobe_context/EARLY_CLOSE_FIXTURE_SYNTAX_GATES.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r63_wardrobe_context/FINAL_BYTE_RECEIPT.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r63_wardrobe_context/FIXTURE_PRECHECK_ATTEMPT1.json",
@@ -77,6 +78,7 @@
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r63_wardrobe_context/PLAN.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r63_wardrobe_context/PUBLICATION_PRECHECK_HISTORY.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r63_wardrobe_context/README.md",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r63_wardrobe_context/RECEIPT_GATES.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r63_wardrobe_context/REMOTE_VERIFICATION.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r63_wardrobe_context/REPRODUCTION.md",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r63_wardrobe_context/REUSE_INVENTORY.json",
@@ -422,6 +424,7 @@
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r63_wardrobe_context/native/attempt2_wardrobe_locked_1280/wardrobe_application_pause_notification.png",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r63_wardrobe_context/native/attempt2_wardrobe_locked_1280/wardrobe_application_resume_notification.png",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r63_wardrobe_context/per_piece.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r63_wardrobe_context/receipt_gates.log",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r63_wardrobe_context/run_native.py",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r63_wardrobe_context/run_teardown.py",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r63_wardrobe_context/scene_coverage.json",
@@ -442,8 +445,8 @@
     },
     {
       "command": "Payload/dependencies/receipt/final exact anonymous bytes",
-      "result": "PENDING",
-      "evidence": "Established durable public topic."
+      "result": "PASS",
+      "evidence": "Exact payload 0e44a79149362f342e27bc956c33d238c2452ce1: all 459 direct R63/source/canonical dependencies / 191031710 bytes anonymously verified at 2026-10-15T19:28:57.523095+00:00; manifestSHA ca839327b79e5c90cfad3799c5b057827df61de9396ef2b8ae3532d55644bc4b. Historical parent transitive verification retains its exact prior receipt/time. Final metadata verified separately; no creative or mission acceptance."
     }
   ],
   "acceptance_gaps": "Whole-game inventory/caller/native/resource/route/state denominators, source/current identity/new-use/phone/style/overdraw/focus/disabled and QA11/device/child/owner/strict2D remain open. Original Wardrobe/Dummy native captures grant no creative or runtime replacement acceptance."

@@ -20,7 +20,7 @@
     "INACTIVE_ARCHIVE"
   ],
   "mission_status": "ACTIVE; zero-vector removal NOT achieved",
-  "phase": "R63 original Wardrobe context recorded; pending publication/remote verification; all acceptance open",
+  "phase": "R63 original Wardrobe context published and anonymously verified;5cases147checks,294native231bounded63excluded;88partial88without0complete;0art/adoption/removal/global unknown",
   "named_piece_records": 224,
   "named_family_count": 29,
   "named_status_counts": {
@@ -1593,9 +1593,28 @@
   ],
   "role_and_family_counts_are_separate": true,
   "publication": {
-    "status": "PENDING_PAYLOAD_REMOTE_VERIFICATION",
+    "status": "PAYLOAD_AND_ALL_DIRECT_DEPENDENCIES_ANONYMOUSLY_VERIFIED",
+    "payload_revision": "0e44a79149362f342e27bc956c33d238c2452ce1",
+    "required_file_count": 459,
+    "required_bytes": 191031710,
+    "manifest_sha256": "ca839327b79e5c90cfad3799c5b057827df61de9396ef2b8ae3532d55644bc4b",
+    "manifest_logical_sha256": "ca839327b79e5c90cfad3799c5b057827df61de9396ef2b8ae3532d55644bc4b",
+    "manifest_physical_file_count": 1,
+    "payload_sha256": "33b5c44049c4fb6d649970ea95b6b94787780d84658231e55f740b50d8abb980",
+    "checked_at_utc": "2026-10-15T19:28:57.523095+00:00",
+    "access_mode": "Anonymous public immutable HTTPS GET for every required file plus manifest index/allparts; exact byte/length/SHA256. Public repo API independently checked.",
     "manifest": "MANIFEST.json",
-    "receipt": "REMOTE_VERIFICATION.json"
+    "receipt": "REMOTE_VERIFICATION.json",
+    "receipt_logical_sha256": "8004f9a25b0da568ac004ce38295b2df56d3353642bca68c549eee420b3700a3",
+    "historical_dependency_scope": {
+      "payload": "a3ddc9e595abe553f8401b63cf83ecd773509b45",
+      "receipt": "a22e192117c4db090fd06222b36c14571dc37352",
+      "final_proof": "db43af9e46f0b7f718225ffc03dd40206b8cc2de",
+      "historical_direct_required_file_count": 205,
+      "historical_direct_required_bytes": 21508991,
+      "freshly_reverified_transitive_payload": false
+    },
+    "final_metadata_status": "Final proof separately binds receipt/gates/current metadata and later own proof/impact bytes"
   },
   "independent_style_review": {
     "file": "ROOT_CONTEXT_REVIEW_20261012.json",
@@ -2444,7 +2463,8 @@
   "change_record": {
     "id": "CHG-070",
     "impact": "design/audit_impacts/flat-vector-wardrobe-context-20261015.json",
-    "source_payload_pending": true
+    "source_payload_pending": false,
+    "payload_revision": "0e44a79149362f342e27bc956c33d238c2452ce1"
   },
   "teacher_pointer_reuse": {
     "revision": "FV-AUDIT-20261014-R28",
@@ -2576,35 +2596,35 @@
     "scope": "Actualprior exacthead CI state; pending/cancellednotgreen. NewR29exacthead pending;unchangedproduction/R16native evidence separate."
   },
   "current_ci_snapshot": {
-    "checked_at_utc": "2026-10-15T18:19:24.383713+00:00",
+    "checked_at_utc": "2026-10-15T19:29:19.394345+00:00",
     "runs": [
       {
         "conclusion": "",
+        "databaseId": 38794215034,
+        "headSha": "0e44a79149362f342e27bc956c33d238c2452ce1",
+        "status": "in_progress",
+        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/38794215034"
+      },
+      {
+        "conclusion": "cancelled",
+        "databaseId": 38785421132,
+        "headSha": "db43af9e46f0b7f718225ffc03dd40206b8cc2de",
+        "status": "completed",
+        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/38785421132"
+      },
+      {
+        "conclusion": "cancelled",
+        "databaseId": 38785042191,
+        "headSha": "a22e192117c4db090fd06222b36c14571dc37352",
+        "status": "completed",
+        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/38785042191"
+      },
+      {
+        "conclusion": "cancelled",
         "databaseId": 38784587636,
         "headSha": "a3ddc9e595abe553f8401b63cf83ecd773509b45",
-        "status": "pending",
+        "status": "completed",
         "url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/38784587636"
-      },
-      {
-        "conclusion": "",
-        "databaseId": 38780226739,
-        "headSha": "d0f2e17433557d5775463f44576fe7ebf03cf3df",
-        "status": "in_progress",
-        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/38780226739"
-      },
-      {
-        "conclusion": "cancelled",
-        "databaseId": 38779848245,
-        "headSha": "a54294083c417573946e58d53df23499666730c8",
-        "status": "completed",
-        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/38779848245"
-      },
-      {
-        "conclusion": "cancelled",
-        "databaseId": 38779342560,
-        "headSha": "27071494a36b401e304cf5d15d3f29282639bc6e",
-        "status": "completed",
-        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/38779342560"
       }
     ],
     "scope": "Exact observed heads only;pending/cancelled is not green. No new full82,release,device/child/owner orcreative acceptance."
@@ -4410,7 +4430,7 @@
       {
         "id": "FVOBS-CATALOGUE-CRITTERS-BINDING",
         "status": "EXPLICIT_SAVED_BOOK_PARTIAL_BINDING_ONLY",
-        "facts": "games.json critters explicitlynames Critter Book collection/family system/modulecollection_system. Current Main preload/_collection_ref, original Pause MenuCritterBookButton→open_book and navigationcritter_book/_draw_book bind4original R60saved cases140checks/80bookstates to that consumer. game remainslevel2/phasehall; no synthetic game=critters establishes mapping. Retain ui.collection as separate overlapping ID. Acquisition/spawn/catch/caller/native/resource/fullQA11/device/child/owner still open. One partial catalogue-ID credit, no new native/screen/art/removal credit.",
+        "facts": "games.json critters explicitlynames Critter Book collection/family system/modulecollection_system. Current Main preload/_collection_ref, original Pause MenuCritterBookButton\u2192open_book and navigationcritter_book/_draw_book bind4original R60saved cases140checks/80bookstates to that consumer. game remainslevel2/phasehall; no synthetic game=critters establishes mapping. Retain ui.collection as separate overlapping ID. Acquisition/spawn/catch/caller/native/resource/fullQA11/device/child/owner still open. One partial catalogue-ID credit, no new native/screen/art/removal credit.",
         "evidence": "CRITTER_ALIAS_BINDING.json"
       },
       {
