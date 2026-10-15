@@ -1,0 +1,33 @@
+{
+  "page": 16,
+  "take": 3,
+  "method": "built-in image_gen.imagegen",
+  "provider_path": "C:\\Users\\Peter\\.codex\\generated_images\\01a1283e-4d68-75b1-af94-bbc3edfd1dc6\\exec-74417b81-38ba-461d-8ef9-683609825e2b.png",
+  "path": "assets_src/books/rumi_voice_book_20261011/native/page_16_take3.png",
+  "sha256": "a55ecc6bb0d221f146ec2141810251010d733a472990cdaeaa1616e3b38a21ee",
+  "provider_sha256": "a55ecc6bb0d221f146ec2141810251010d733a472990cdaeaa1616e3b38a21ee",
+  "rgb_pixel_sha256": "87e73e8d718bfe4c6ae335df0fde6bdbc969e8f7f8ea5252d15732371a7a6a1b",
+  "dimensions": [
+    1024,
+    1536
+  ],
+  "native_mode": "RGB",
+  "prompt": "Use case: illustration-story. Final bounded LOCAL speech-tail repair to the supplied 1024x1536 native manga page. Preserve every drawing, face, hair, hand, tail, prop, panel frame, colour and word. No crop, resize, full-scene redraw or new scene. Change ONLY the two bottom-panel speech balloon tails.\nBOTTOM PANEL SPEAKER TARGETS in native coordinates: ROSHAN is the SMALL BROWN-haired child with rainbow forelock, face centre about (748,1230), head top (730,1150), immediately LEFT of the lavender-haired rightmost Rumi. NARI is the navy-haired girl in the WHITE RABBIT TOWEL near (586,1260); she says NOTHING in this bottom panel. HANA is copper/red-haired at left and says NOTHING in this bottom panel. RUMI is purple/lavender-braided at far right, face centre about (916,1235), head top near (881,1150).\nQuestion balloon \"Can we try it again at supper?\" must have exactly ONE tail clearly aimed at ROSHAN. Its current tail ends over Nari's towel near (607,1144). Erase that incorrect tail. Keep the question in its current upper-left/centre reading position, and draw its replacement tail angled RIGHT toward Roshan's BROWN hair at about (710,1164), not the white towel and not Hana. Tail may be slightly longer to reach the correct head; keep eyes and towel clear.\nReply balloon \"As many times as you like. We'll each have a turn.\" must have exactly ONE tail toward RUMI. It currently has TWO tails: remove the erroneous LEFT tail near (680,1140) which points at Roshan. RETAIN or clarify only the RIGHT tail so it points to Rumi's lavender hair/face near (870,1164).\nAll five page lines remain letter-for-letter unchanged. Natural reading order remains question then reply. Do not print speaker labels. Do not add any other tail. All upper and middle panel balloons remain unchanged.\n",
+  "prompt_sha256": "f60f7cded086fd70d5868c7e0a813bf3bb92a10afb4dd1a718c934012a1e13b9",
+  "script_sha256": "febb9d5c7f6d82c29dcf8fa3556715577842b2284749fd2f1fea055a046d5967",
+  "references": [
+    {
+      "role": "local_edit_target",
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_16_take2.png",
+      "sha256": "340f49256b2a1cb4af8ac90bd0e4d27be8eb78e2f6478171dd40b8e4a8b9d18e"
+    }
+  ],
+  "modifications": "Final bounded local ImageGen tail repair; removed extra reply tail and extended question tail; independent attribution decision remains pending",
+  "provider_revision": "not exposed",
+  "request_id": "not exposed",
+  "seed": "not exposed",
+  "reported_cost": "not exposed",
+  "call_count": 1,
+  "selection": "REVIEW_PENDING",
+  "license_provenance": "Owner-commissioned original project source candidate generated with built-in ImageGen; original project sources used as identity/setting guidance. No copied third-party scene pixels."
+}

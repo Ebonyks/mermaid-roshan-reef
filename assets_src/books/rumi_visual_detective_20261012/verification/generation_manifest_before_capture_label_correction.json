@@ -1,0 +1,587 @@
+{
+  "schema": "rumi_detective_actual_generation_manifest_v1",
+  "status": "32_PAGE_AGENT_REVIEW_CANDIDATE",
+  "recorded_at_utc": "2026-10-12T09:34:11.375277+00:00",
+  "source_script": {
+    "path": "assets_src/books/rumi_visual_detective_20261012/story_script.json",
+    "sha256": "ab77f7740592a82b9185c10eb22a7b85ff785726b2f9eb8f01158861d54db6cd"
+  },
+  "selection": {
+    "path": "assets_src/books/rumi_visual_detective_20261012/selected_art.json",
+    "sha256": "f3492f5eebeca5c29306e7e99ed7bec29c98d599f7177f3a3a43af64670d570f"
+  },
+  "quality_review": {
+    "path": "assets_src/books/rumi_visual_detective_20261012/verification/QUALITY_REVIEW.json",
+    "sha256": "f3f4fa74ab9b59766436b2aa05182173e99356bd1c6f10134d35551b573d7a60"
+  },
+  "previous_edition": {
+    "path": "assets_src/books/rumi_voice_book_20261011",
+    "script_sha256": "febb9d5c7f6d82c29dcf8fa3556715577842b2284749fd2f1fea055a046d5967",
+    "selection_sha256": "0e875f78ffe6299c7c8a1ebd41f95b90ca04fe237a3105d06114c4f301329dee",
+    "pdf_sha256": "1f7a5c6b1627b0aa0e05ba28eae648f75998eefcef71b79b4dd94912e51c3ffd",
+    "actual_calls": 54,
+    "unchanged_this_cycle": true
+  },
+  "accounting": {
+    "new_cycle_actual_calls": 24,
+    "new_cycle_selected_native_takes": 16,
+    "new_cycle_rejected_native_takes": 8,
+    "whole_prior_pages_reused_without_changes": 16,
+    "cumulative_actual_calls_two_native_editions": 78,
+    "counts_include_rejects": true,
+    "provider_cost_usage_not_exposed": true,
+    "initial_named_page_cap": 2,
+    "explicit_method_change_pages": [
+      8,
+      10
+    ],
+    "method_change": "After two failed local repairs, one fresh complete-layout call each; total3 per page, no reset or automatic retake. Bound diagnosis and exact per-page method records retained."
+  },
+  "art_policy": {
+    "actual_pdf_pages": 32,
+    "unique_native_pages": 32,
+    "native_dimensions": [
+      1024,
+      1536
+    ],
+    "source_authored_panels": 102,
+    "narrative_authored_panels": 101,
+    "pictured_panels": 104,
+    "pictured_panel_exceptions": "Sourcep08.2 split into Duri then Rumi separate instants; sourcep22.3 has distinct catch and duck drawings. No new dialogue/story words in either split.",
+    "read_aloud_story_words": 1050,
+    "no_delivered_crop_raster_resize_sharpen_or_text_overlay": true,
+    "each_panel_distinct_moment": "Human agent review; hash uniqueness alone cannot prove semantic uniqueness",
+    "pdf_original_idat_and_embedded_rgb_preserved": true,
+    "pdf_sampling_diagnostic": {
+      "status": "NON_EXACT",
+      "exact_page_count": 0,
+      "non_exact_page_count": 32,
+      "limit": "Actual renderer snapshots may sample differently. Measured differences are not repaired or described as exact. Original compressed IDAT bytes, decoded embedded RGB and whole-image placement are strict delivery integrity gates; renderer equality is a separate diagnostic."
+    },
+    "target_metric": "4.735 unrounded, page minimum4.6; conservative fixed five-category AGENT review, not owner/child/print/runtime acceptance."
+  },
+  "new_takes": [
+    {
+      "page": 2,
+      "take": 1,
+      "path": "assets_src/books/rumi_visual_detective_20261012/native/page_02_take1.png",
+      "sha256": "3edc3778d3a6a43719c7ae1a9dea0ca20bf0137667d0a536a4d75e67fa42b1eb",
+      "rgb_pixel_sha256": "9b9ca595c2e01311e932d0c4215cedf25b4db5bc29cb6c950aa2005c6a44bca3",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "call_count": 1,
+      "capture_receipt": {
+        "path": "assets_src/books/rumi_visual_detective_20261012/generation/page_02_take1.json",
+        "sha256": "eb9c80f8f813825d56ef09c717ac19de42b5e8498899ae69a602ad9239bb18f5"
+      },
+      "selection": "SELECTED_AGENT_REVIEW_CANDIDATE",
+      "rejection_reason": null,
+      "reported_cost": "not exposed",
+      "prompt_sha256": "f4ea5a9215999a375d3e5ae2a5f61db555d8c35805504032ef16129e2f1e8e6a",
+      "script_sha256_at_call": "ab77f7740592a82b9185c10eb22a7b85ff785726b2f9eb8f01158861d54db6cd"
+    },
+    {
+      "page": 3,
+      "take": 1,
+      "path": "assets_src/books/rumi_visual_detective_20261012/native/page_03_take1.png",
+      "sha256": "26a2e1243b66b5d2826185a309d3c2f246a9ea1ac4a6c420f0adbfbeb2961e9a",
+      "rgb_pixel_sha256": "e2fd270fcfda78147512f7ebdd926dc7d5d7006160e32df7a51406a16ac75e30",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "call_count": 1,
+      "capture_receipt": {
+        "path": "assets_src/books/rumi_visual_detective_20261012/generation/page_03_take1.json",
+        "sha256": "edd0d681161be40bd205c9bc7a9481a3f1c73127b70468e1a94ed023048bf51e"
+      },
+      "selection": "REJECTED_PRESERVED_NOT_IN_PDF",
+      "rejection_reason": "Light test failed: patch remained bright while palm supposedly interrupted it; shade/unshade lacked required visible cause. Rumi Yes remained tailless.",
+      "reported_cost": "not exposed",
+      "prompt_sha256": "30c0a1b27e71d796149aa4b472b7d9996c98a242fc0ca8c844a257c02e7a3f1f",
+      "script_sha256_at_call": "ab77f7740592a82b9185c10eb22a7b85ff785726b2f9eb8f01158861d54db6cd"
+    },
+    {
+      "page": 3,
+      "take": 2,
+      "path": "assets_src/books/rumi_visual_detective_20261012/native/page_03_take2.png",
+      "sha256": "cab40daad54fa84fcd5016f0a39a0a0a62fd7b0b0af2b6daf5e36ab425b35467",
+      "rgb_pixel_sha256": "cc2524ed5bb360b8b9574453e33a659fac0c23e88b49d00805f77a119d962171",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "call_count": 1,
+      "capture_receipt": {
+        "path": "assets_src/books/rumi_visual_detective_20261012/generation/page_03_take2.json",
+        "sha256": "d3bcf0b39200779e5d26d6193730dbe6f4bebf8218d8fc884d1693ec1fe574bf"
+      },
+      "selection": "SELECTED_AGENT_REVIEW_CANDIDATE",
+      "rejection_reason": null,
+      "reported_cost": "not exposed",
+      "prompt_sha256": "900aef856929f18f7db6157af1a16c26f004b491ce3be161b66bba99cf18f00c",
+      "script_sha256_at_call": "ab77f7740592a82b9185c10eb22a7b85ff785726b2f9eb8f01158861d54db6cd"
+    },
+    {
+      "page": 4,
+      "take": 1,
+      "path": "assets_src/books/rumi_visual_detective_20261012/native/page_04_take1.png",
+      "sha256": "a505530802287026de42862dd3d52258e45711e7f04c5883ac25f759920be2b2",
+      "rgb_pixel_sha256": "0c09aff81c6cfe23b38321a161d2448034697de2ffb18666bffb50cbbb376685",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "call_count": 1,
+      "capture_receipt": {
+        "path": "assets_src/books/rumi_visual_detective_20261012/generation/page_04_take1.json",
+        "sha256": "70d75d427800eefa24a1610e6192cbb35f9c704aca9ee4693a943dc56d5d688f"
+      },
+      "selection": "REJECTED_PRESERVED_NOT_IN_PDF",
+      "rejection_reason": "Main Nari duplicated in top panel; running performer incorrectly wore baker chef hat. BOTH narrator captions were source-required and correct, not additional text.",
+      "reported_cost": "not exposed",
+      "prompt_sha256": "4e99d6d3900dee4077dbb9f9ca8f1bf09f3c6f3dcc021a374258feb19475fed0",
+      "script_sha256_at_call": "ab77f7740592a82b9185c10eb22a7b85ff785726b2f9eb8f01158861d54db6cd"
+    },
+    {
+      "page": 4,
+      "take": 2,
+      "path": "assets_src/books/rumi_visual_detective_20261012/native/page_04_take2.png",
+      "sha256": "af4f6ff85a8d085885151809223adbc73af68f65f2b1ac13962b3a74a83735ac",
+      "rgb_pixel_sha256": "64ff6e302654f687ce678241e28422185ecf12faeebe0e8acf4dd073036a6205",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "call_count": 1,
+      "capture_receipt": {
+        "path": "assets_src/books/rumi_visual_detective_20261012/generation/page_04_take2.json",
+        "sha256": "b7b515cae5340c80f838748d69c0e0e654bd1306e646ce657c43801d31260f62"
+      },
+      "selection": "SELECTED_AGENT_REVIEW_CANDIDATE",
+      "rejection_reason": null,
+      "reported_cost": "not exposed",
+      "prompt_sha256": "93e2190ebbf6204210c410b3e02a1f7b5640289e22d821b4496670f714972e1e",
+      "script_sha256_at_call": "ab77f7740592a82b9185c10eb22a7b85ff785726b2f9eb8f01158861d54db6cd"
+    },
+    {
+      "page": 7,
+      "take": 1,
+      "path": "assets_src/books/rumi_visual_detective_20261012/native/page_07_take1.png",
+      "sha256": "1f0b86e90de045692df1efc2b45deaa8d8ee5788a365d6ce6fd213800fde3a0a",
+      "rgb_pixel_sha256": "cc6a7222987cc3410f7b3a107385d93fed5d9a64823693034c259fe5026fb595",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "call_count": 1,
+      "capture_receipt": {
+        "path": "assets_src/books/rumi_visual_detective_20261012/generation/page_07_take1.json",
+        "sha256": "05ba79bf1f43103c1ea3e4d0e4d5c136df9dd027af6bf8b2dc24cf5a89d39821"
+      },
+      "selection": "SELECTED_AGENT_REVIEW_CANDIDATE",
+      "rejection_reason": null,
+      "reported_cost": "not exposed",
+      "prompt_sha256": "fe0db58c848008ecf1624838322ae0b4a5f57f6e8ddf9aac36ee320be49e6648",
+      "script_sha256_at_call": "b3623441d31710e1afeda9298c0c74e7c3cc3b6b4c8627b7bf9b1b8bafcbf876"
+    },
+    {
+      "page": 8,
+      "take": 1,
+      "path": "assets_src/books/rumi_visual_detective_20261012/native/page_08_take1.png",
+      "sha256": "81224867ab017307b62ff6e29aea6c9547b579b735776118fa08f08ed5370fe1",
+      "rgb_pixel_sha256": "ac523ffc3bfc27bb33845fd669f239736636a39f9f97d244779701c67bc4d40b",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "call_count": 1,
+      "capture_receipt": {
+        "path": "assets_src/books/rumi_visual_detective_20261012/generation/page_08_take1.json",
+        "sha256": "4cde0f748ad553a118b3423e0bc773b20207874d3da02595030240648340fc25"
+      },
+      "selection": "REJECTED_PRESERVED_NOT_IN_PDF",
+      "rejection_reason": "Rumi reassurance tail ended near Nari after speaker-order repair.",
+      "reported_cost": "not exposed",
+      "prompt_sha256": "907677445c53a8822f70ed91b4d09c0d71a1b590fdd5908bb27f41f83db48688",
+      "script_sha256_at_call": "ab77f7740592a82b9185c10eb22a7b85ff785726b2f9eb8f01158861d54db6cd"
+    },
+    {
+      "page": 8,
+      "take": 2,
+      "path": "assets_src/books/rumi_visual_detective_20261012/native/page_08_take2.png",
+      "sha256": "137fb8df3fa16300536d11f0af50731d72d07d0c0fb310939ab6aed7325dbac8",
+      "rgb_pixel_sha256": "eea831f9b7c005dd133ead098bfb1329639732a4e9af763d2af437b4185185aa",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "call_count": 1,
+      "capture_receipt": {
+        "path": "assets_src/books/rumi_visual_detective_20261012/generation/page_08_take2.json",
+        "sha256": "6becbb8f0425c5465073d502addecc7f5d6b08c96158401cf15e70b04fd49278"
+      },
+      "selection": "REJECTED_PRESERVED_NOT_IN_PDF",
+      "rejection_reason": "Speaker tail improved but Rumi reassurance again preceded Duri explanation.",
+      "reported_cost": "not exposed",
+      "prompt_sha256": "4f7245e7df4b474143ef9844770322e6ecebb656b56a128cc58b6a5bdfc13c34",
+      "script_sha256_at_call": "ab77f7740592a82b9185c10eb22a7b85ff785726b2f9eb8f01158861d54db6cd"
+    },
+    {
+      "page": 8,
+      "take": 3,
+      "path": "assets_src/books/rumi_visual_detective_20261012/native/page_08_take3.png",
+      "sha256": "3675b4311b9224f12c83fd3c4d91dfaaea3a4f94253a37998009a58c56fdc9ed",
+      "rgb_pixel_sha256": "9de77c327c9a0b42043d9b3abb7fe4901fa71a1cd9b66a67b8854f914c253464",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "call_count": 1,
+      "capture_receipt": {
+        "path": "assets_src/books/rumi_visual_detective_20261012/generation/page_08_take3.json",
+        "sha256": "b287005faabe25307d605be2e04f34a4fd046a65e81dabe64e7b5cd39da413d3"
+      },
+      "selection": "SELECTED_AGENT_REVIEW_CANDIDATE",
+      "rejection_reason": null,
+      "reported_cost": "not exposed",
+      "prompt_sha256": "9d0b106164431dbb9a62d0c79d572ff48aa3cdefcf4bdd056ea35bbeac8363e7",
+      "script_sha256_at_call": "ab77f7740592a82b9185c10eb22a7b85ff785726b2f9eb8f01158861d54db6cd"
+    },
+    {
+      "page": 10,
+      "take": 1,
+      "path": "assets_src/books/rumi_visual_detective_20261012/native/page_10_take1.png",
+      "sha256": "63c75fad8c54c61c261cbb71dca8189636f1bbb2a6fcaae4c424073f4a368946",
+      "rgb_pixel_sha256": "21191cb5ec9dca9387ac70711dacbc49fc020540374bcec5bcc7969caf15f7d2",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "call_count": 1,
+      "capture_receipt": {
+        "path": "assets_src/books/rumi_visual_detective_20261012/generation/page_10_take1.json",
+        "sha256": "33ab739f42e28d606e6135de1cef4c8b5a22c4882bf896e7810c5a7e54abd0d9"
+      },
+      "selection": "REJECTED_PRESERVED_NOT_IN_PDF",
+      "rejection_reason": "Local grip edit introduced a third Hana hand.",
+      "reported_cost": "not exposed",
+      "prompt_sha256": "d640b80c9e1b97e10e8349ef84bcb662f864adc79c958f8697261ecb5c75d7a0",
+      "script_sha256_at_call": "ab77f7740592a82b9185c10eb22a7b85ff785726b2f9eb8f01158861d54db6cd"
+    },
+    {
+      "page": 10,
+      "take": 2,
+      "path": "assets_src/books/rumi_visual_detective_20261012/native/page_10_take2.png",
+      "sha256": "7f957f06972e712bc08e43ab93a2e5927d2810cd143229aa74c18c5a2cd1f518",
+      "rgb_pixel_sha256": "bb9a2aa12b810474b30d83a8f86c1e7e43bb166de7345cee44370345b1d6b510",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "call_count": 1,
+      "capture_receipt": {
+        "path": "assets_src/books/rumi_visual_detective_20261012/generation/page_10_take2.json",
+        "sha256": "21986ff73115034727b6be3d0a82ad8759d3b85a97bdb417b073a915e3013b7e"
+      },
+      "selection": "REJECTED_PRESERVED_NOT_IN_PDF",
+      "rejection_reason": "Disconnected blue sleeve/remaining support created ambiguous additional Rumi arm and lost Hana grip.",
+      "reported_cost": "not exposed",
+      "prompt_sha256": "f6ba54077c269185ec16bacb0258a868564215cc62f491a1722b503a428f14ca",
+      "script_sha256_at_call": "ab77f7740592a82b9185c10eb22a7b85ff785726b2f9eb8f01158861d54db6cd"
+    },
+    {
+      "page": 10,
+      "take": 3,
+      "path": "assets_src/books/rumi_visual_detective_20261012/native/page_10_take3.png",
+      "sha256": "2ec630084b473e64b70fc030995dbde0bcefbe46d2358aa2b968215f326bfa74",
+      "rgb_pixel_sha256": "6fcc963217f02e9863bb5cb45c11d9e0a5620750a32664e86bf267e2f0e4e529",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "call_count": 1,
+      "capture_receipt": {
+        "path": "assets_src/books/rumi_visual_detective_20261012/generation/page_10_take3.json",
+        "sha256": "b54dc740124f4b5a5f3dffb72201793b186976a443bb3d8b7c99781663d0f37b"
+      },
+      "selection": "SELECTED_AGENT_REVIEW_CANDIDATE",
+      "rejection_reason": null,
+      "reported_cost": "not exposed",
+      "prompt_sha256": "6350b949c546a664850034ec531da55b87f9ded23e9a3da9dd772520193121a0",
+      "script_sha256_at_call": "ab77f7740592a82b9185c10eb22a7b85ff785726b2f9eb8f01158861d54db6cd"
+    },
+    {
+      "page": 11,
+      "take": 1,
+      "path": "assets_src/books/rumi_visual_detective_20261012/native/page_11_take1.png",
+      "sha256": "9e461f9b46671cdcf01d72c4345319d11449528934321b900d07d188f9da9d9b",
+      "rgb_pixel_sha256": "2b98ee08ab79edac44755346dc9beb2dcefca3267594ab031d8b355e35ab2405",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "call_count": 1,
+      "capture_receipt": {
+        "path": "assets_src/books/rumi_visual_detective_20261012/generation/page_11_take1.json",
+        "sha256": "fe3fe2d9d1fd5993db0f8956377b7be1ed393c2a8656f2eddba9b9a2ec70d159"
+      },
+      "selection": "SELECTED_AGENT_REVIEW_CANDIDATE",
+      "rejection_reason": null,
+      "reported_cost": "not exposed",
+      "prompt_sha256": "e638916177d21bfa0e65dc5db968cc710d9bcb5d83a454bde195cd7bc3fd8c7a",
+      "script_sha256_at_call": "ab77f7740592a82b9185c10eb22a7b85ff785726b2f9eb8f01158861d54db6cd"
+    },
+    {
+      "page": 16,
+      "take": 1,
+      "path": "assets_src/books/rumi_visual_detective_20261012/native/page_16_take1.png",
+      "sha256": "77646df74a846b9bad3db3c38145e5929f909514922812d2f3a1403d1e6ec6d7",
+      "rgb_pixel_sha256": "e46e2e2f46cae3a60120ade06d1944212405cb1788faa88b8f41063a827bbe65",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "call_count": 1,
+      "capture_receipt": {
+        "path": "assets_src/books/rumi_visual_detective_20261012/generation/page_16_take1.json",
+        "sha256": "04f98928960337783b6c49509ad0a7f2148854193f78617270a1572a1bbc7d16"
+      },
+      "selection": "SELECTED_AGENT_REVIEW_CANDIDATE",
+      "rejection_reason": null,
+      "reported_cost": "not exposed",
+      "prompt_sha256": "32d45699b3e2be075a81b86536cee54f588a301b496561cf836193de3842b851",
+      "script_sha256_at_call": "ab77f7740592a82b9185c10eb22a7b85ff785726b2f9eb8f01158861d54db6cd"
+    },
+    {
+      "page": 17,
+      "take": 1,
+      "path": "assets_src/books/rumi_visual_detective_20261012/native/page_17_take1.png",
+      "sha256": "f62c7a42ba602937df6c0fac292966d4b4121e996b505e215ceeaf5aab9ec360",
+      "rgb_pixel_sha256": "ad4180fd4e8a64c02b0cd33c29c325e9abadf8713c8193448b2a14da9e893b05",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "call_count": 1,
+      "capture_receipt": {
+        "path": "assets_src/books/rumi_visual_detective_20261012/generation/page_17_take1.json",
+        "sha256": "3f1393ebd937f5e3ece1de69450ce3957b38a50912ecd57e22b03a7185f5febf"
+      },
+      "selection": "SELECTED_AGENT_REVIEW_CANDIDATE",
+      "rejection_reason": null,
+      "reported_cost": "not exposed",
+      "prompt_sha256": "541164078b9ec324225097f2f2c6bff63765f5d01e3383184989503e880dbfd5",
+      "script_sha256_at_call": "ab77f7740592a82b9185c10eb22a7b85ff785726b2f9eb8f01158861d54db6cd"
+    },
+    {
+      "page": 20,
+      "take": 1,
+      "path": "assets_src/books/rumi_visual_detective_20261012/native/page_20_take1.png",
+      "sha256": "bd9f36bb937a6da1ceb106e0f3a77e0917e172b0fb25b0d90e277f7e02aec9e2",
+      "rgb_pixel_sha256": "0323cd9a424725d7ebbf985b6cf34812fa160a728e7d8c490f058fa0fbadf270",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "call_count": 1,
+      "capture_receipt": {
+        "path": "assets_src/books/rumi_visual_detective_20261012/generation/page_20_take1.json",
+        "sha256": "cc3496a88d128a9579fc0db32cd5f68ba51ebb797a1af69984bbd6c83235b426"
+      },
+      "selection": "SELECTED_AGENT_REVIEW_CANDIDATE",
+      "rejection_reason": null,
+      "reported_cost": "not exposed",
+      "prompt_sha256": "dd46958c7a73ce1944716dcd406a2d105c01833e360d500323827fc233e69614",
+      "script_sha256_at_call": "ab77f7740592a82b9185c10eb22a7b85ff785726b2f9eb8f01158861d54db6cd"
+    },
+    {
+      "page": 21,
+      "take": 1,
+      "path": "assets_src/books/rumi_visual_detective_20261012/native/page_21_take1.png",
+      "sha256": "eb2d25c7b07f2ec7ef11198cec666c21eb09308d0608a314518335a496466cef",
+      "rgb_pixel_sha256": "3abe835ef4a59412dad8024856c9b3a124baf7ae18ae320bc44ea4cd606ad89a",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "call_count": 1,
+      "capture_receipt": {
+        "path": "assets_src/books/rumi_visual_detective_20261012/generation/page_21_take1.json",
+        "sha256": "e5fffcbfc256184c2d4bda1cf90f6f4e006fd5111b93c54c2a67865eda5d2b5a"
+      },
+      "selection": "SELECTED_AGENT_REVIEW_CANDIDATE",
+      "rejection_reason": null,
+      "reported_cost": "not exposed",
+      "prompt_sha256": "241d0141f7c06a9b4cb57e48d8b6288e7fcc42c64f1f5f707737782371c9647f",
+      "script_sha256_at_call": "ab77f7740592a82b9185c10eb22a7b85ff785726b2f9eb8f01158861d54db6cd"
+    },
+    {
+      "page": 22,
+      "take": 1,
+      "path": "assets_src/books/rumi_visual_detective_20261012/native/page_22_take1.png",
+      "sha256": "1a5f905d63cefc8e4a55134eb04cc4c1bb2376a59c47f82448dee329ebd42314",
+      "rgb_pixel_sha256": "f1c28c08dc543e5dfcf414bafd835227537ae99300dcb15c4ace624e7b76ec95",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "call_count": 1,
+      "capture_receipt": {
+        "path": "assets_src/books/rumi_visual_detective_20261012/generation/page_22_take1.json",
+        "sha256": "1ac5ded03ca99d362e0e05d1466edee8926509486317e6577aedab6e37563712"
+      },
+      "selection": "SELECTED_AGENT_REVIEW_CANDIDATE",
+      "rejection_reason": null,
+      "reported_cost": "not exposed",
+      "prompt_sha256": "92dd734817cb597592419770e88b384adfdaf914d374467c32c4da198769e4fc",
+      "script_sha256_at_call": "ab77f7740592a82b9185c10eb22a7b85ff785726b2f9eb8f01158861d54db6cd"
+    },
+    {
+      "page": 23,
+      "take": 1,
+      "path": "assets_src/books/rumi_visual_detective_20261012/native/page_23_take1.png",
+      "sha256": "e8b64308bba24d180ceeb3aff3d490e4e2388f45cc950ea7aead70ba9b7ff446",
+      "rgb_pixel_sha256": "13bf84745e8b7b2e6314a1b7fc238509c3245c1d39138d9cd13c4d269b459d5e",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "call_count": 1,
+      "capture_receipt": {
+        "path": "assets_src/books/rumi_visual_detective_20261012/generation/page_23_take1.json",
+        "sha256": "9b91a597e9fc1af2020ea1440adf987b8935c6d467991fb27ad70318b6083671"
+      },
+      "selection": "SELECTED_AGENT_REVIEW_CANDIDATE",
+      "rejection_reason": null,
+      "reported_cost": "not exposed",
+      "prompt_sha256": "246eeb4130bb08680b102453e594553e0b91086d6abb4ee0addee19861137933",
+      "script_sha256_at_call": "ab77f7740592a82b9185c10eb22a7b85ff785726b2f9eb8f01158861d54db6cd"
+    },
+    {
+      "page": 25,
+      "take": 1,
+      "path": "assets_src/books/rumi_visual_detective_20261012/native/page_25_take1.png",
+      "sha256": "37059ffd8654cc99ad5635f1ee87ae5c89a104dd991bca997c3d881d0ba2597a",
+      "rgb_pixel_sha256": "2a9d59b9ac37bc8e5714292ab9100f45fcd83623d69dd66cc96c011b2cce1fa2",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "call_count": 1,
+      "capture_receipt": {
+        "path": "assets_src/books/rumi_visual_detective_20261012/generation/page_25_take1.json",
+        "sha256": "ca4f32dce3408a9c0897a40bb77c835505bf2bb51b98100a019f224378da7d7d"
+      },
+      "selection": "REJECTED_PRESERVED_NOT_IN_PDF",
+      "rejection_reason": "Gold knot at wand did not continuously connect to curtain: asserted snag lacked visible cause.",
+      "reported_cost": "not exposed",
+      "prompt_sha256": "2d2b9d5d3caeda4ef4721d95574839d828089954d1c04c5a0fdac3445eecd3e5",
+      "script_sha256_at_call": "ab77f7740592a82b9185c10eb22a7b85ff785726b2f9eb8f01158861d54db6cd"
+    },
+    {
+      "page": 25,
+      "take": 2,
+      "path": "assets_src/books/rumi_visual_detective_20261012/native/page_25_take2.png",
+      "sha256": "c4d8ec66b8077fc406c7f79943df3f9a3d4905e4a6e0b703f0ba55c3dba61cd8",
+      "rgb_pixel_sha256": "f0a984394ca74b95ec2ebb37717bfc142952813daa2336e6c8597099af493156",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "call_count": 1,
+      "capture_receipt": {
+        "path": "assets_src/books/rumi_visual_detective_20261012/generation/page_25_take2.json",
+        "sha256": "7f4ddcdc5171891c1ac5eab4421ec25d0fb0cb5af721c22217e4f4de4393f8c9"
+      },
+      "selection": "SELECTED_AGENT_REVIEW_CANDIDATE",
+      "rejection_reason": null,
+      "reported_cost": "not exposed",
+      "prompt_sha256": "0350e7a9109bc88a62dacefd3d8de9cffd7005e18d7309a50f1399f48032da0b",
+      "script_sha256_at_call": "ab77f7740592a82b9185c10eb22a7b85ff785726b2f9eb8f01158861d54db6cd"
+    },
+    {
+      "page": 27,
+      "take": 1,
+      "path": "assets_src/books/rumi_visual_detective_20261012/native/page_27_take1.png",
+      "sha256": "919003c9365ed37790372be54942ccbcce9160d866deb4196f8b044842d0d716",
+      "rgb_pixel_sha256": "cd75b9d5ae1ff974f7e39f6b2dafead135eb609598ce3fb937046a594a220ba0",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "call_count": 1,
+      "capture_receipt": {
+        "path": "assets_src/books/rumi_visual_detective_20261012/generation/page_27_take1.json",
+        "sha256": "1ed0e8ac930ccf9ea482755f59983f216ce1ba9880cb088457037dd934ed4ef7"
+      },
+      "selection": "REJECTED_PRESERVED_NOT_IN_PDF",
+      "rejection_reason": "Tie back the curtain! required Roshan line omitted.",
+      "reported_cost": "not exposed",
+      "prompt_sha256": "a02ff211fbbf9b77d01e0dbd58a988ef34d46955a9f47c11e7bd6a43d132527b",
+      "script_sha256_at_call": "ab77f7740592a82b9185c10eb22a7b85ff785726b2f9eb8f01158861d54db6cd"
+    },
+    {
+      "page": 27,
+      "take": 2,
+      "path": "assets_src/books/rumi_visual_detective_20261012/native/page_27_take2.png",
+      "sha256": "cc4aa251d48ddf4d9a4b1e7e342928e03d581e6def43e391446b1eebf2c696f8",
+      "rgb_pixel_sha256": "d072ab1980ae389297e16593ac6c5d0c7447a461913b9c90271e67f729f857fd",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "call_count": 1,
+      "capture_receipt": {
+        "path": "assets_src/books/rumi_visual_detective_20261012/generation/page_27_take2.json",
+        "sha256": "9cc67239f9640ed9e3c3188af4a0168ac22e35779e3310db06bd0e51aefe3fef"
+      },
+      "selection": "SELECTED_AGENT_REVIEW_CANDIDATE",
+      "rejection_reason": null,
+      "reported_cost": "not exposed",
+      "prompt_sha256": "b1312bbf04ea91d601f29ee4718afb92c437e269330953cfc4e97155d2b290d7",
+      "script_sha256_at_call": "ab77f7740592a82b9185c10eb22a7b85ff785726b2f9eb8f01158861d54db6cd"
+    },
+    {
+      "page": 32,
+      "take": 1,
+      "path": "assets_src/books/rumi_visual_detective_20261012/native/page_32_take1.png",
+      "sha256": "31536a3118ae596d45299498eb657de556f694e8e072b115fa4dbede374780ae",
+      "rgb_pixel_sha256": "93053de0a60308a534433f9aebb7f5181518dfcf2bac748e43800a12763b3e76",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "call_count": 1,
+      "capture_receipt": {
+        "path": "assets_src/books/rumi_visual_detective_20261012/generation/page_32_take1.json",
+        "sha256": "c9361a637f67f76ce90c2a176898c651a0801368ee1523c53ff06c4f28c556e0"
+      },
+      "selection": "SELECTED_AGENT_REVIEW_CANDIDATE",
+      "rejection_reason": null,
+      "reported_cost": "not exposed",
+      "prompt_sha256": "bc902829be2117dd5cb3fb533bac3e4e597099c87a9b6aa176a1a5bd904964bc",
+      "script_sha256_at_call": "ab77f7740592a82b9185c10eb22a7b85ff785726b2f9eb8f01158861d54db6cd"
+    }
+  ],
+  "pdf": {
+    "path": "assets_src/books/rumi_visual_detective_20261012/output/pdf/Mermaid_Roshan_Here_I_Am_Detective_32_Pages.pdf",
+    "sha256": "f19669f0bd75517c9c6222d9da00a87d26d8cf84e7edc4e5ba2968d5fc2f8064",
+    "bytes": 101178692,
+    "actual_page_count": 32,
+    "page_dimensions_points": [
+      512.0,
+      768.0
+    ],
+    "physical_size_inches": [
+      7.111111111111111,
+      10.666666666666666
+    ],
+    "one_complete_native_image_per_page": true,
+    "selectable_story_text": false,
+    "lettering_source": "generated within native page art"
+  },
+  "acceptance": "Owner/child/read-aloud/physical print acceptance pending. Existing minor staging/continuity/balloon limits retained in raw reviews. No game/runtime/cinematic integration, external handoff or release."
+}

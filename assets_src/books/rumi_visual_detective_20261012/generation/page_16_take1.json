@@ -1,0 +1,38 @@
+{
+  "page": 16,
+  "take": 1,
+  "created_at_utc": "2026-10-12T08:25:08.028183+00:00",
+  "method": "built-in image_gen.imagegen",
+  "provider_path": "C:\\Users\\Peter\\.codex\\generated_images\\01a1283f-6f19-7422-8dfe-1625809a3d63\\exec-382cce84-8504-4617-a2ff-5d86a8b7e573.png",
+  "path": "assets_src/books/rumi_visual_detective_20261012/native/page_16_take1.png",
+  "sha256": "77646df74a846b9bad3db3c38145e5929f909514922812d2f3a1403d1e6ec6d7",
+  "provider_sha256": "77646df74a846b9bad3db3c38145e5929f909514922812d2f3a1403d1e6ec6d7",
+  "rgb_pixel_sha256": "e46e2e2f46cae3a60120ade06d1944212405cb1788faa88b8f41063a827bbe65",
+  "dimensions": [
+    1024,
+    1536
+  ],
+  "native_mode": "RGB",
+  "script_sha256": "ab77f7740592a82b9185c10eb22a7b85ff785726b2f9eb8f01158861d54db6cd",
+  "source_page_sha256": "e674e9e21d4d8f8010b9e52d30b0cef60ba30435b46bed9fbf3dca1a6f12cff6",
+  "prompt": "Use case: precise-object-edit.\nAsset type: one complete native portrait manga picture-book page, 1024 x 1536 pixels, RGB opaque output.\nInput image 1 is the OWN-PAGE EDIT TARGET, not a layout guide or a source for collage. Make a bounded local correction to this existing commissioned page. Keep the complete original page framing, three panels, thin black panel lines, polished 2D manga/storybook painting, colors, character identities, room/city, and all existing scene facts.\nNamed repair for page 16: Change ONLY the two balloon positions/tails in panel 3 as necessary to fix attribution. Roshan is the small brown-haired rainbow-forelock girl seated between bunny-towel Nari and purple-braided Rumi. Her question is FIRST in English reading order and must sit beside/just above Roshan, with a SHORT unmistakable tail ending near Roshan face, never at Nari towel or Hana. Rumi response is SECOND and must have a short clear tail toward Rumi. Preserve exact words and all faces, towel ears, body poses, attached fins, Duri, feast, food, bench and room. Do not place lettering across eyes, mouths, food, or hands. Preserve panel 1 and panel 2 completely.\nVerbatim lettering, with speaker mapping and reading order (do not add speaker names into the art):\nPanel 1: Hana: \"What would you like your first line to be?\"\nPanel 2: Roshan: \"Here I am!\"\nPanel 2: Nari: \"Here you are!\"\nPanel 3: Roshan: \"Can we try it again at supper?\"\nPanel 3: Rumi: \"As many times as you like. We'll each have a turn.\"\nConstraints: output the WHOLE 1024x1536 portrait page at unchanged aspect with all panels, not a crop/detail. No software enlargement, no new scene, no pasted panel, no unrelated prop, no redesigned character, no missing words, no extra words or watermark. Keep clear readable black English lettering. Preserve original gestures, anatomy, attached tails, complete hands, support/contact and props except the named correction. Do not conceal missing contact with glow or clothing. Retain deliberate distant background softness; do not blur focal contours. The rainbow candle stays hidden and is not introduced on this page.\n",
+  "prompt_sha256": "32d45699b3e2be075a81b86536cee54f588a301b496561cf836193de3842b851",
+  "prompt_file": "assets_src/books/rumi_visual_detective_20261012/prompts/page_16_take1.txt",
+  "references": [
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_16_take3.png",
+      "role": "own_page_edit_target",
+      "purpose": "Change ONLY the two balloon positions/tails in panel 3 as necessary to fix attribution. Roshan is the small brown-haired rainbow-forelock girl seated between bunny-towel Nari and purple-braided Rumi. Her question is FIRST in English reading order and must sit beside/just above Roshan, with a SHORT unmistakable tail ending near Roshan face, never at Nari towel or Hana. Rumi response is SECOND and must have a short clear tail toward Rumi. Preserve exact words and all faces, towel ears, body poses, attached fins, Duri, feast, food, bench and room. Do not place lettering across eyes, mouths, food, or hands. Preserve panel 1 and panel 2 completely.",
+      "sha256": "a55ecc6bb0d221f146ec2141810251010d733a472990cdaeaa1616e3b38a21ee"
+    }
+  ],
+  "references_file": "assets_src/books/rumi_visual_detective_20261012/references/page_16_take1.json",
+  "modifications": "Native provider PNG copied byte-identically; own-page generated corrections declared by exact prompt; no software crop/resize/sharpening/lettering overlay. Adjacent generated pixels may change.",
+  "provider_revision": "not exposed",
+  "request_id": "not exposed",
+  "seed": "not exposed",
+  "reported_cost": "not exposed",
+  "call_count": 1,
+  "selection": "REVIEW_PENDING",
+  "license_provenance": "Owner-commissioned original static-book candidate; existing project identity/setting/prop references retain terms; no film pixels/scene copy."
+}

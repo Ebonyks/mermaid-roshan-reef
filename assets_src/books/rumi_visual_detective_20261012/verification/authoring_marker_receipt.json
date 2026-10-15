@@ -1,0 +1,24 @@
+{
+  "schema": "artifact_operation_marker_receipt_v1",
+  "scope": "First and only create-PDF marker for new detective edition whole-native assembly",
+  "command": "C:/Users/Peter/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/bin/node.exe",
+  "script": "C:/Users/Peter/.codex/plugins/cache/openai-primary-runtime/pdf/26.905.11957/skills/pdf/container_tools/mark_artifact_operation_started.mjs",
+  "arguments": [
+    "--operation-kind",
+    "create",
+    "--expected-output-count",
+    "1",
+    "--output-format",
+    "pdf"
+  ],
+  "result": {
+    "chunk_id": "0614c7",
+    "wall_time_seconds": 1.5720166,
+    "exit_code": 0,
+    "original_token_count": 0,
+    "output": ""
+  },
+  "placement": "Immediately before first new-edition Python PDF-authoring invocation",
+  "marker_call_count": 1,
+  "time_before_marker": "2026-10-12 09:18:02 UTC"
+}

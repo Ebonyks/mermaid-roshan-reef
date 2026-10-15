@@ -1,0 +1,33 @@
+{
+  "page": 7,
+  "take": 2,
+  "method": "built-in image_gen.imagegen",
+  "provider_path": "C:\\Users\\Peter\\.codex\\generated_images\\01a0f35d-f268-7751-aa9b-79fa94ceeacc\\exec-112ec8bb-afa8-4a63-b064-5bd42a0f90de.png",
+  "path": "assets_src/books/rumi_voice_book_20261011/native/page_07_take2.png",
+  "sha256": "3a544e0b74b30fe85676f7f0528ddc658495a54f77ab404d4a622be82a098e01",
+  "provider_sha256": "3a544e0b74b30fe85676f7f0528ddc658495a54f77ab404d4a622be82a098e01",
+  "rgb_pixel_sha256": "b8175aeb863fc64635295db026d48a59202cbafb55e7e814c2b90fb9ee6659e9",
+  "dimensions": [
+    1024,
+    1536
+  ],
+  "native_mode": "RGB",
+  "prompt": "Use case: edit this ONE original new manga book page. Make one local narrative-continuity correction ONLY in the bottom/third panel: remove the freely swimming lavender turtle Duri with floral shell and courier bag who is incorrectly beside the group. Duri is still TRAPPED unseen under the bridge and cannot be swimming here. Heal only the small vacated turtle area with the same underwater background. Keep the separate drifting shell bell at lower right and the four mermaids swimming toward it. Preserve all three panels' identities, poses, camera compositions, words, punctuation, balloon tails and gutters. Exact third panel lettering is Rumi 'We're coming.' and narrator 'This time, Roshan finished her sentence.' Do not introduce any new person or prop. Retain the complete native portrait page, no cropping, resizing, collage or scene replacement. Return the whole corrected page.\n",
+  "prompt_sha256": "59dc8a33a9e357b869722def9d9ba5f98384cbccb7f846ebdd1b3b9e59c3e31e",
+  "script_sha256": "febb9d5c7f6d82c29dcf8fa3556715577842b2284749fd2f1fea055a046d5967",
+  "references": [
+    {
+      "role": "own new page local edit target",
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_07_take1.png",
+      "sha256": "9c6d0fb88a07ac543baffcf258c6cd99b3ac08cf5e486d210fb083a9774951ff"
+    }
+  ],
+  "modifications": "ImageGen local own-page turtle removal and background healing; no cross-page frame reuse. Native provider output copied byte-identically without cropping or raster resizing.",
+  "provider_revision": "not exposed",
+  "request_id": "not exposed",
+  "seed": "not exposed",
+  "reported_cost": "not exposed",
+  "call_count": 1,
+  "selection": "REVIEW_PENDING",
+  "license_provenance": "Owner-commissioned original project source candidate generated with built-in ImageGen; original project sources used as identity/setting guidance. No copied third-party scene pixels."
+}

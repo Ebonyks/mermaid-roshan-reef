@@ -1,0 +1,112 @@
+{
+  "schema": "rumi_voice_root_art_review_v1",
+  "status": "AGENT_VISUAL_REVIEW_COMPLETE_WITH_DOCUMENTED_LIMITS",
+  "script_sha256": "febb9d5c7f6d82c29dcf8fa3556715577842b2284749fd2f1fea055a046d5967",
+  "scope": "Root viewed exact complete selected native pages1–32 across this continuous task; delegated range reviews independently proofread their source lettering and acting. No source image crop/resize performed.",
+  "opening_pages": [
+    {
+      "number": 1,
+      "take": 1,
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_01_take1.png",
+      "observation": "New cover drawing introduces all five friends/world beneath circular pool roof; one Roshan tail. Title linebreak replaces source colon."
+    },
+    {
+      "number": 2,
+      "take": 2,
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_02_take2.png",
+      "observation": "Corrected local be→you typo; exact body wording now right; ordinary wish and Rumi permission precede descent."
+    },
+    {
+      "number": 3,
+      "take": 1,
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_03_take1.png",
+      "observation": "Distinct discovery/current/shop compositions; Hana/Nari visible as bystanders before names on5. No new major plot role."
+    },
+    {
+      "number": 4,
+      "take": 1,
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_04_take1.png",
+      "observation": "Fan warning is dismissed by existing costumed imps before later snag; large purple/gold folded prop stowed precariously on rail."
+    },
+    {
+      "number": 5,
+      "take": 1,
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_05_take1.png",
+      "observation": "Trio enthusiastically overwrites Roshan's request. Silent Duri bystander leaves off-panel before Help; no voice assigned to him here."
+    },
+    {
+      "number": 6,
+      "take": 2,
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_06_take2.png",
+      "observation": "Fresh take2 fixes sentence/call order, Nari handheld drum and original imp costumes. Off-panel Help points to dark bridge, bell is separate."
+    },
+    {
+      "number": 7,
+      "take": 2,
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_07_take2.png",
+      "observation": "Local take2 removes mistakenly free Duri from approach; changed swimming direction preserves rescue-before-freedom causality."
+    },
+    {
+      "number": 8,
+      "take": 2,
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_08_take2.png",
+      "observation": "Fresh take2 fixes large tilted fan continuity and Rumi attribution. Middle panel reassures before Duri explains; both words/speakers right. Take3 rejected for swapped speaker tails."
+    }
+  ],
+  "independent_decisions": [
+    {
+      "page": 16,
+      "take": 3,
+      "decision": "Select candidate with limitation",
+      "observation": "Question tail angles southeast toward Roshan beyond Nari towel; near-towel/long-tail ambiguity remains. Rumi single reply tail correct. No unambiguous-attribution or owner acceptance claim."
+    },
+    {
+      "page": 21,
+      "take": 3,
+      "decision": "Select candidate with readability limit",
+      "observation": "Duri→Roshan words correct and chronological; long tails cross only empty background and reach correct speakers. Owner read-aloud readability pending."
+    },
+    {
+      "page": 27,
+      "take": 3,
+      "decision": "Select contact-correct candidate",
+      "observation": "Bubble bottoms now visibly meet raised cloth before Rumi pops it; low landing preserved. Provider also raised forearms and added small stage surface; no input pixel-lock claim."
+    }
+  ],
+  "cross_page_review": "Fan remains tilted/supported through bag release and current surge, then stows flat after Duri exits. Nari towel joke carries through supper/entrance and is removed before action. Purple fabric curtain/bubble layer are distinct by20 and support snag/tie-back. Rumi retrieves wand on25 and uses it on27; cloth holds bubble before pop. First-line solo on30 fulfils page2 wish; narrative ending32 transfers voice agency home. Each panel has distinct new acting/staging rather than a zoom crop.",
+  "root_rejected_takes": [
+    {
+      "page": 2,
+      "take": 1,
+      "reason": "Wrong word be for you."
+    },
+    {
+      "page": 6,
+      "take": 1,
+      "reason": "Narration before first request; reaction before Help; off-panel Help wrongly aims at bell; unsourced imp costume/drum kit."
+    },
+    {
+      "page": 7,
+      "take": 1,
+      "reason": "Duri swims freely before rescue."
+    },
+    {
+      "page": 8,
+      "take": 1,
+      "reason": "Wrong Rumi→Hana attribution; fan size/state differs next rescue pages."
+    },
+    {
+      "page": 8,
+      "take": 3,
+      "reason": "Order corrected by swapping words while leaving wrong speaker tails. Excluded."
+    }
+  ],
+  "acceptance": {
+    "owner_story_art": "PENDING",
+    "child_read_aloud": "PENDING",
+    "print": "PENDING",
+    "game_runtime": "NOT_IN_SCOPE",
+    "master_audit": "UNSATISFIED_UNCHANGED"
+  },
+  "review_method": "Agent visual inspection via tools.view_image and generated native image output; not a human owner acceptance record."
+}

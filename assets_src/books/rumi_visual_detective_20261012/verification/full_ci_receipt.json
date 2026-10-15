@@ -1,0 +1,2127 @@
+{
+  "status": "FAIL_FULL_LOCAL_REGRESSION_PRESERVED",
+  "prepared_utc": "2026-10-12T08:53:44.127424+00:00",
+  "started_utc": "2026-10-12T09:01:57.468809+00:00",
+  "finished_utc": "2026-10-12T09:04:59.593885+00:00",
+  "overall_process_exit": 1,
+  "edition": "rumi_visual_detective_20261012",
+  "script_sha256": "ab77f7740592a82b9185c10eb22a7b85ff785726b2f9eb8f01158861d54db6cd",
+  "edition_inputs_at_preparation": [
+    {
+      "path": "assets_src/books/rumi_visual_detective_20261012/story_script.json",
+      "sha256": "ab77f7740592a82b9185c10eb22a7b85ff785726b2f9eb8f01158861d54db6cd"
+    },
+    {
+      "path": "assets_src/books/rumi_visual_detective_20261012/MANUSCRIPT.txt",
+      "sha256": "38acb28035596b04f3f479f401cff7d407aaff90233ee6ade833bca186b12221"
+    },
+    {
+      "path": "assets_src/books/rumi_visual_detective_20261012/build_book.py",
+      "sha256": "a486e2c9464467e6355b997aa2c889cee326ea82f325b8ce59b885ebb9455e3a"
+    },
+    {
+      "path": "assets_src/books/rumi_visual_detective_20261012/validate_selection.py",
+      "sha256": "d8807d094115cc18bfe164b8b6efe4b936a025fedc4fc14fd25ae029a0c19de3"
+    },
+    {
+      "path": "assets_src/books/rumi_visual_detective_20261012/verification/source_revision.json",
+      "sha256": "e168c6cfd4b4992c375ff66b0efaab5749cd4d234301fab4ad71b75f06249042"
+    },
+    {
+      "path": "assets_src/books/rumi_visual_detective_20261012/verification/story_snapshot_before_hair_word_fix.json",
+      "sha256": "b3623441d31710e1afeda9298c0c74e7c3cc3b6b4c8627b7bf9b1b8bafcbf876"
+    },
+    {
+      "path": "assets_src/books/rumi_visual_detective_20261012/capture_native.py",
+      "sha256": "60c95cc59ee0a6fbf0d14b7ee6f3d3bd62c427cc42b880bb3f35fabdec90a78f"
+    },
+    {
+      "path": "assets_src/books/rumi_visual_detective_20261012/verification/local_repair_diagnosis_pages_08_10.json",
+      "sha256": "391e74c4b79e9866a46059679521f8e45b04e424a0931d8d269a49e0a5001703"
+    },
+    {
+      "path": "assets_src/books/rumi_visual_detective_20261012/verification/page_08_take3_method_change.json",
+      "sha256": "c7ab8127c3f3e56f64767d8d5363e2e2fe3af0fa0c470103719648e3b834d02a"
+    },
+    {
+      "path": "assets_src/books/rumi_visual_detective_20261012/verification/page_10_take3_method_change.json",
+      "sha256": "1fd95d87917e49481f4a482625c67f9b5d08dc3534f17529fef36c39b3862bf1"
+    },
+    {
+      "path": "assets_src/books/rumi_visual_detective_20261012/prompts/page_08_take3.txt",
+      "sha256": "9d0b106164431dbb9a62d0c79d572ff48aa3cdefcf4bdd056ea35bbeac8363e7"
+    },
+    {
+      "path": "assets_src/books/rumi_visual_detective_20261012/prompts/page_10_take3.txt",
+      "sha256": "6350b949c546a664850034ec531da55b87f9ded23e9a3da9dd772520193121a0"
+    },
+    {
+      "path": "assets_src/books/rumi_visual_detective_20261012/references/page_08_take3.json",
+      "sha256": "913b222247ca2cdeb7fd3ca030d049934d248163c6ab91822e1837e97cc4bfd2"
+    },
+    {
+      "path": "assets_src/books/rumi_visual_detective_20261012/references/page_10_take3.json",
+      "sha256": "818dac4d7cf8b027fb797cc50e0efbef4abb4df9048f9f09f9f6df273799dcf0"
+    }
+  ],
+  "preceding_book_bytes_at_preparation": [
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/assemble_sources.py",
+      "sha256": "86e3ab1cdc1a22626c6596878a0adcc29169c7444afca8553a7dead55022b547",
+      "bytes": 6658
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/build_book.py",
+      "sha256": "e3932e2012a702f76f4fbd61c3a07fd73fb26dd3e82043d7b76668f5d2bfb857",
+      "bytes": 25055
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/capture_native.py",
+      "sha256": "61174dfb5bfdeecbea117ebeb770af9c4c947f56b6435f2e931d570f5db49d88",
+      "bytes": 3795
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/EDITORIAL_ANALYSIS.txt",
+      "sha256": "63a25354d974dcb4db9f6d883ae8c4f99fa6a97057ecc14b7191bdac4752a9fc",
+      "bytes": 6008
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/generation/page_01_take1.json",
+      "sha256": "8cf4291cad2997124eb3a4b4f7ef055762a90c9b9238329a613527bbadcc345e",
+      "bytes": 5909
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/generation/page_02_take1.json",
+      "sha256": "723b215a61e5e0f20daf2f8eae4446cfa4465c7496054961c2ac2371c0594a4c",
+      "bytes": 6243
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/generation/page_02_take2.json",
+      "sha256": "d9ed81fdbe2cab09db27b96711623d180ca73e9ee5f93777df9f3224fad8d031",
+      "bytes": 2567
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/generation/page_02_take2_prompt.txt",
+      "sha256": "629f47adf174014a7dce48cabaf7dcb8ac1854617d31aef79fca73cc3a5f81f6",
+      "bytes": 898
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/generation/page_02_take2_references.json",
+      "sha256": "0e2ac2f0481e9d24773f1e886e34139d6c721b437d87f45757062cbcf3876937",
+      "bytes": 168
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/generation/page_03_take1.json",
+      "sha256": "a13166f48bd6bd733b402afbe9c7c98bde1be8d200af4b7230637170bb949655",
+      "bytes": 6329
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/generation/page_04_take1.json",
+      "sha256": "acb19ad3d83cda92adddede9374c0f01e6a04c2abb44247d2217dd6f842699d7",
+      "bytes": 6742
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/generation/page_05_take1.json",
+      "sha256": "17860e22e5194f4487ea58c8342327e5ddac71e36c2558c4e934d787001d56dc",
+      "bytes": 6182
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/generation/page_06_take1.json",
+      "sha256": "1a13941e799727fc93431dbb134868ff25c165c3a369e5d59cac4f48d10be8b8",
+      "bytes": 6220
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/generation/page_06_take2.json",
+      "sha256": "f8fadae588ccad83fcf9b3cef47e5d8900518a0c59f01d8aa6dbaa8c81c29634",
+      "bytes": 7766
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/generation/page_06_take2_prompt.txt",
+      "sha256": "694c5d5c4348396f672ad935bc5edf9d9bd2dd1071c9ed3afa6d7e5d22ff17c1",
+      "bytes": 5426
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/generation/page_06_take2_references.json",
+      "sha256": "e0fcf60e06177dda3fd99d3be59fa1e430d549a75d80e84b1de60c31a80688b8",
+      "bytes": 441
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/generation/page_07_take1.json",
+      "sha256": "a66c551f0b77d0d5bcd89d5e4c7d3dda2f452fb720df44f1ba7f02e136deee1e",
+      "bytes": 6079
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/generation/page_07_take2.json",
+      "sha256": "3b3e31ba9c2049d8a4453ef769f3038ee082946cc860b22578f670fa886c9d86",
+      "bytes": 2544
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/generation/page_07_take2_prompt.txt",
+      "sha256": "59dc8a33a9e357b869722def9d9ba5f98384cbccb7f846ebdd1b3b9e59c3e31e",
+      "bytes": 890
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/generation/page_07_take2_references.json",
+      "sha256": "fa4aece4970ee15687caf06adb6c4527c4b2808fabe9c13cd117caa24b9eca63",
+      "bytes": 139
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/generation/page_08_take1.json",
+      "sha256": "3bcd8d6258130d275df25a07138fa388af7e16d878d3070d783f9336d39b0329",
+      "bytes": 6542
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/generation/page_08_take2.json",
+      "sha256": "6dba6d9ad12cef0ce7bf50d6857e0f06b7586fef14860d66b96a10a2c3cb4d31",
+      "bytes": 8159
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/generation/page_08_take2_prompt.txt",
+      "sha256": "df479744e161e63dc6351ae47856e598119ed10619b770aba94096481281a62f",
+      "bytes": 5949
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/generation/page_08_take2_references.json",
+      "sha256": "79b5f2d4757f9f55d397913a919aa1ddccc4b9b373f29b4e2ac452890f4dc1f6",
+      "bytes": 404
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/generation/page_08_take3.json",
+      "sha256": "5c56f3158b6bab9c5faaed79e19e15db54975edde76b017727d2284caeb3ab32",
+      "bytes": 2804
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/generation/page_08_take3_prompt.txt",
+      "sha256": "ba12635b7beca7fcff1b4aad0a761f4a3672df7342fe7762b0361a7d3fa09c7d",
+      "bytes": 1119
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/generation/page_08_take3_references.json",
+      "sha256": "69cdb99de899f39c6a5482a6825a565698039c601087da6ab41fce02d8e6e97f",
+      "bytes": 156
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/generation/page_09_take1.json",
+      "sha256": "bc6dfa15eb293a613c0770b21bf750a1651243961eda078c1294cdd407daf838",
+      "bytes": 6403
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/generation/page_09_take2.json",
+      "sha256": "395dba8929b9ecf66a1ffd808c66963acb46c0aaa3b7ce879c782b0ced0e981e",
+      "bytes": 7172
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/generation/page_09_take2_prompt.txt",
+      "sha256": "01de3d16646364a9606e7928580ef3e785638ee23b52f9190ddf962738f8fb49",
+      "bytes": 5409
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/generation/page_09_take3.json",
+      "sha256": "f9c8d16898aab7cbb84b6c662efbb5004cb829538d58683f748d93a7897b7302",
+      "bytes": 2553
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/generation/page_09_take3_prompt.txt",
+      "sha256": "837024414022c33ad86640affdd94b63145c7ab666d03070d7f445e107d9b6c4",
+      "bytes": 940
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/generation/page_09_take3_references.json",
+      "sha256": "3e53bf652805a36463e2c65957810f4f34ec826d0f2a78d26acb744ba1227fef",
+      "bytes": 126
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/generation/page_10_take1.json",
+      "sha256": "4de44a436e52bae5b5a3494785274fba8af8d0b843ee657668831b794f80c095",
+      "bytes": 6773
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/generation/page_10_take1_prompt.txt",
+      "sha256": "bce2806d18e754d47de383afedf4f68b1568422c0039f8c05745b9c5b2e82373",
+      "bytes": 5012
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/generation/page_10_take2.json",
+      "sha256": "32ea9a56ab4eb78df094bfcfe57bc02ac4c462071c0775ce3a177ad52223df5b",
+      "bytes": 7772
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/generation/page_10_take2_prompt.txt",
+      "sha256": "529aa736b50ca3b248a3ef08e0572a19a0b11ab9928b38ca7b75f8fe43e74b2e",
+      "bytes": 6010
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/generation/page_11_take1.json",
+      "sha256": "8e0d8eae5fec7c8f5d06a03ff92538d3ac2318389f8af1732dea8fdc84ba6580",
+      "bytes": 6780
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/generation/page_11_take1_prompt.txt",
+      "sha256": "dc2a86c9067cc491f744659aeb3c5a0742a6c6e8a5da53c03bea5959ef4a561b",
+      "bytes": 5016
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/generation/page_12_take1.json",
+      "sha256": "b623168dccc2474bc6ce20cd2264fc1b0a9f17a8ba7b8f944db01e8e7f9b27de",
+      "bytes": 6635
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/generation/page_12_take1_prompt.txt",
+      "sha256": "82ff6bc18a6efd944d1f997707648ff68b6ae629a782325a1cc61329049e9cce",
+      "bytes": 4874
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/generation/page_12_take2.json",
+      "sha256": "9a84e0b423efade81d04c225ffe6fb55d30744abd3026b0163fcb4bed4702bfb",
+      "bytes": 7590
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/generation/page_12_take2_prompt.txt",
+      "sha256": "d33826efa71cfe90e8b99957cc375be6eb6e08dbcd7adafc7ffb177f29ae6f6f",
+      "bytes": 5828
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/generation/page_13_take1.json",
+      "sha256": "e635a953d1e6a9aca9a79d0a1a16f136c1b31ffa0fc4cd5e7204a1fefedd1099",
+      "bytes": 6222
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/generation/page_14_take1.json",
+      "sha256": "a98f23a305182205162ecf9b6e3582b3c2126ed5232ed5db33d3a5c7185f5e39",
+      "bytes": 6513
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/generation/page_15_take1.json",
+      "sha256": "2e76376699903d74110e28cf7947148ec60fb990c62388ea18a4001be1875eaf",
+      "bytes": 6484
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/generation/page_16_take1.json",
+      "sha256": "e749b552982f67d72bd0a3b861d5b17a9d03f8966936d9f44fc248b54f528c6b",
+      "bytes": 6385
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/generation/page_16_take2.json",
+      "sha256": "e7b925e7c97e5c306d2fb3685f9c47de77dab02ad1fb56de351e99b09f4e0503",
+      "bytes": 2841
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/generation/page_16_take2_prompt.txt",
+      "sha256": "e20186411c2b60c5219fae4ff04173d4eb36cd35efb3807c596452e06124ac06",
+      "bytes": 1238
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/generation/page_16_take2_references.json",
+      "sha256": "e8c6477e2324b11a78407f17f8777168c8024bdf91551f66fa611032a6ad3f31",
+      "bytes": 126
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/generation/page_16_take3.json",
+      "sha256": "5d99465f93629927034d689ef400c2d0018b2694a787e5dd4249208ae9b2428a",
+      "bytes": 3411
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/generation/page_16_take3_prompt.txt",
+      "sha256": "f60f7cded086fd70d5868c7e0a813bf3bb92a10afb4dd1a718c934012a1e13b9",
+      "bytes": 1791
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/generation/page_16_take3_references.json",
+      "sha256": "ac6fadf0f49b10daf427037bcfd28ddc33dffb10103299a7bff8a9793970aed6",
+      "bytes": 126
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/generation/page_17_take1.json",
+      "sha256": "fb7321350bf8a51cad5a4417190f9430dd591f66557413a7054d592131a33036",
+      "bytes": 6632
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/generation/page_18_take1.json",
+      "sha256": "e71b51c4cabfe5b4214e03fec471c43bdc4acf022b3f8b8ef463c86879cc2170",
+      "bytes": 6619
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/generation/page_18_take2.json",
+      "sha256": "7ad59820974a9201e57874569cdf1efd9a226bc9ba1dd3b636c5a5efdb8118ce",
+      "bytes": 7474
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/generation/page_18_take2_prompt.txt",
+      "sha256": "6edcf3cf88c1dd9108f35d2d63d05db2ecff16cb067b524d2e015d1e61421e0f",
+      "bytes": 5215
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/generation/page_19_take1.json",
+      "sha256": "a718546a3fb79d5cdab04e427eee5506afdc568cc42392ea5a6e148b8d5ad926",
+      "bytes": 6545
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/generation/page_20_take1.json",
+      "sha256": "dabe978ee42e98a1da6822280f0add34a3fa73e6106d26986967031f0b18e7e4",
+      "bytes": 6721
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/generation/page_20_take2.json",
+      "sha256": "49cdbc1cef64e1853b396af0ab70a91548f5988ab0d438976d2481ddeb1e06da",
+      "bytes": 2831
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/generation/page_20_take2_prompt.txt",
+      "sha256": "cdc7d8912afcc418a05a9857e6b3cf3844281b7c1ea81140b6a1f5e9414c66ab",
+      "bytes": 1259
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/generation/page_20_take2_references.json",
+      "sha256": "e078a1ad7691f3ef308e6faadf7a2d6bc5d87313fe24373767e97a452250d46d",
+      "bytes": 120
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/generation/page_21_take1.json",
+      "sha256": "a30add7e04dbc202c24e278d7d6624637609b9a977718d8d964d886c56d21e1d",
+      "bytes": 6637
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/generation/page_21_take2.json",
+      "sha256": "73e0fd62a402bb4372b22aa01b3476bb37635090aefe6cc230c2e22fd16865aa",
+      "bytes": 3146
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/generation/page_21_take2_prompt.txt",
+      "sha256": "24f9c11115bd487763c882e937383238903afc22b864653482c0457b6600d146",
+      "bytes": 1527
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/generation/page_21_take2_references.json",
+      "sha256": "99f0404facaf6f52ddca8c63b44804ff63081e0b6bd2859c6054f779e8904c97",
+      "bytes": 105
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/generation/page_21_take3.json",
+      "sha256": "56f0f7523b34aec7866535f3940612f9217616b5d2cf2e1d093970c62202e5df",
+      "bytes": 3226
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/generation/page_21_take3_prompt.txt",
+      "sha256": "2b0c26b314f9cc1d40636f6c37f4972e751bcdf4294dc4aad771fd643f4e46a3",
+      "bytes": 1636
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/generation/page_21_take3_references.json",
+      "sha256": "cb6cf1e3b168d55d24ee191d311e67ef3d8639ee3f8e7416dc9c072b5c9eb2d8",
+      "bytes": 120
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/generation/page_22_take1.json",
+      "sha256": "c89cc930f9a6d627d34f0c9dafb1361d8fa1f191640b685107789da6467477bb",
+      "bytes": 6476
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/generation/page_23_take1.json",
+      "sha256": "63f13c2343b1070dd321020976ab959173a717c8925e7e966fbf8a49fa967625",
+      "bytes": 6558
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/generation/page_23_take2.json",
+      "sha256": "9a084eda7261baacb16100cae170021d2981d16c72e659cdf46dde1eba1f1748",
+      "bytes": 2685
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/generation/page_23_take2_prompt.txt",
+      "sha256": "6ed4dc8df27cdc1dcea71e38f6467c8e72b81966c40bb7830feec921e3bd824f",
+      "bytes": 1119
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/generation/page_23_take2_references.json",
+      "sha256": "50eba5710b50d7d13f7addcf179f410742c4fe705df7a27d90e732550695abc0",
+      "bytes": 120
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/generation/page_24_take1.json",
+      "sha256": "2c9dd9e20f06bedbcecc32118ca2ad4162827360e23cc615d0308cdaa8a9fa66",
+      "bytes": 6551
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/generation/page_24_take2.json",
+      "sha256": "fbb3ee508a7771d3a79f823afb24e109baad672e1103b559f4980f6709348c38",
+      "bytes": 3077
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/generation/page_24_take2_prompt.txt",
+      "sha256": "25571b1abdb6dc2c4dec769776b1d3ba3b176741432a128281065a5779869e00",
+      "bytes": 1294
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/generation/page_24_take2_references.json",
+      "sha256": "09c27fc6f216bf95e72f3e07762616b5777b862f2adc2a12a1788acce2698423",
+      "bytes": 245
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/generation/page_24_take3.json",
+      "sha256": "95d832b5b92feb5025021ef65c90f6a701c340f94eea5de83f13d726bc9c3d71",
+      "bytes": 3363
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/generation/page_24_take3_prompt.txt",
+      "sha256": "16f59f02e4d596db3108e033c495b5ad3335c249a7c6665762149b5a2d8553c2",
+      "bytes": 1558
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/generation/page_24_take3_references.json",
+      "sha256": "d5b2d595d2c8d7d39b7e44da828b308791dba4732593e44cafc9336d6acd8b3d",
+      "bytes": 258
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/generation/page_25_take1.json",
+      "sha256": "4212d0698e1ab2ba9f923a9a5308fd37f11cbc9e9c6cb5c05bff5724eedcb5db",
+      "bytes": 7221
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/generation/page_25_take2.json",
+      "sha256": "ecee45cc557f21ec23a85795c5cc5207c527caf525437c35efd88d4c060b7a1a",
+      "bytes": 7662
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/generation/page_26_take1.json",
+      "sha256": "3d2559d016f35059b896fd2f2ca2c6fbf024e731e7cb5540d0c55b6d4566733f",
+      "bytes": 6872
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/generation/page_27_take1.json",
+      "sha256": "c1ac469ccbe855325e0bead6567a8d9722ac785c3dbd215775177f1bddde6645",
+      "bytes": 7053
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/generation/page_27_take2.json",
+      "sha256": "1c49e912afc81883f336f31ce772df831cee5442299c024188fe6aacd2eac449",
+      "bytes": 8022
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/generation/page_27_take3.json",
+      "sha256": "cc3e7fbe1f549dd90970295032b481f308c35f563b18738b4e2970e218f17107",
+      "bytes": 3070
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/generation/page_28_take1.json",
+      "sha256": "4f94cb897d66c44b28fb1a6638ac27396cc05428edda7ccdfd28ebc728866aa9",
+      "bytes": 6585
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/generation/page_29_take1.json",
+      "sha256": "fea3a3a8aea8ccd176f7b2db791b19395466be9d24fcbd72782c354d526a3ef8",
+      "bytes": 6638
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/generation/page_29_take2.json",
+      "sha256": "c7ed37174b4b862738b40019e27542e05b5372b0f5150e3bae457f27964c4ffb",
+      "bytes": 2620
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/generation/page_30_take1.json",
+      "sha256": "149d04c993fd101c7933d76ef2848ae91fd48e4401e99ca8eec110ef403e689c",
+      "bytes": 6597
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/generation/page_31_take1.json",
+      "sha256": "87a0dafd65fb917c052075cf00b79a9af2446e15ba02515da09798bab1b52bbc",
+      "bytes": 6600
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/generation/page_32_take1.json",
+      "sha256": "1085e5f8cbe1cd2f9bb3743d48aea6046852f533bebeba6c8687c88471a7da6e",
+      "bytes": 6302
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/generation_manifest.json",
+      "sha256": "ca2eb5d03251b942ebf114fc7096919cfd53448869fd3eac2177d14f51240a10",
+      "bytes": 339678
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/generation_part_09_16.json",
+      "sha256": "11fb0c049b97c3e7bb1d98ee4adfb79dbae9d5d04265ea2cb7908c259bdc72a4",
+      "bytes": 130445
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/generation_part_17_24.json",
+      "sha256": "a217765451bd525933426df56fc68c4c558fd5787f866cd388ceaf03806641e0",
+      "bytes": 116003
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/generation_part_25_32.json",
+      "sha256": "139eec7b6d1146368655fe023eb659e48ee5097dfd5ef9b82c149f065d8d9916",
+      "bytes": 89915
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/illustration_jobs.json",
+      "sha256": "ba168326ca9afe435de9ee130e9d1437370bbc7c869081b3e4527da26c50a258",
+      "bytes": 169051
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/MANUSCRIPT.txt",
+      "sha256": "b6fab772c8bff085d39b80ea9f679c53b2081e701c92f039c4462b56e8471e98",
+      "bytes": 8421
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_01_take1.png",
+      "sha256": "da123e2196a887725b7e82abac7c2beaa1cd861a9c48b6abe0a300d99bf41bb9",
+      "bytes": 3410474
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_02_take1.png",
+      "sha256": "da79f9fb108a411bc3aa4bd3181d3a34858d7af309c4ad62e171b63d6dd9d051",
+      "bytes": 3062765
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_02_take2.png",
+      "sha256": "a751e8a1634888b16a6856e989dde9f12d167d1def4ff1a2bc1645af0a4759d6",
+      "bytes": 2977225
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_03_take1.png",
+      "sha256": "521c4628894d258637581bd1554e086d595d125741a0c95699db0e54f2568049",
+      "bytes": 3538183
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_04_take1.png",
+      "sha256": "f737afc432874affb05220356da67cee6d8e1c027e9b5dc35ed7d9454d871de0",
+      "bytes": 2994693
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_05_take1.png",
+      "sha256": "76ac7535dacaec9d1ab66d2eb6586987412e787420318ece80cf984e4fa79fed",
+      "bytes": 3315160
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_06_take1.png",
+      "sha256": "4297fc54ec7b364d7112119e886d5ce53e29ec38ffddcc617e35c73bcd546c59",
+      "bytes": 3370498
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_06_take2.png",
+      "sha256": "b2c5938b1a3bd1f1f705e5095d0ca07c7044faefdc154e56fcee8a750f522ac1",
+      "bytes": 3306600
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_07_take1.png",
+      "sha256": "9c6d0fb88a07ac543baffcf258c6cd99b3ac08cf5e486d210fb083a9774951ff",
+      "bytes": 3394594
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_07_take2.png",
+      "sha256": "3a544e0b74b30fe85676f7f0528ddc658495a54f77ab404d4a622be82a098e01",
+      "bytes": 3221525
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_08_take1.png",
+      "sha256": "72fd813c0f0805c2ec55529cda80ef3f2c4666d978bf637bf8ff1b4f7e9c6790",
+      "bytes": 3252575
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_08_take2.png",
+      "sha256": "05cbf1f7bfac9160de6567a793149ca048a4fab0bcd07686c3058c0810708dce",
+      "bytes": 3387684
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_08_take3.png",
+      "sha256": "23986483aa0bcd8624a08f44a5de6f778cee990a4bf92d3f1fac00f72b67ca4f",
+      "bytes": 3227978
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_09_take1.png",
+      "sha256": "5fc376656d073de71a128f79ea8693bcb5499d88bb529976600d3a16cff6fb3b",
+      "bytes": 3379637
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_09_take2.png",
+      "sha256": "6fcf8f3879d587fb4378c6f56d3bc15be5de1355b7300d5687509bacd1a7ecd5",
+      "bytes": 3470789
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_09_take3.png",
+      "sha256": "013c7ee2e14e2527243bc97cce8df6f8aaacaf0b227e1bb7c3e772f5ad9d46ee",
+      "bytes": 3198779
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_10_take1.png",
+      "sha256": "18300feedc6d4f83a52b5ca23809398b60e8bb124e7f2a1cf47b356fb0388111",
+      "bytes": 3226276
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_10_take2.png",
+      "sha256": "85e0941653b29aedaccb733a1d4e2f245def9e264caacfce95b90ba1d044ef3d",
+      "bytes": 3277397
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_11_take1.png",
+      "sha256": "6040390fdfe8cecc92cca794e61524a205537cc6929b05cdacc5f49c104cce7e",
+      "bytes": 3458678
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_12_take1.png",
+      "sha256": "577fe27fb115745b5c1df937d3104e1b5d7271cb98ab28d25b97e96835cf976b",
+      "bytes": 3369455
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_12_take2.png",
+      "sha256": "6d7f6e8f0c4d1a6f6f66ab50c6f3fc0f6a149a84f566ab71deb94e595f75f3b8",
+      "bytes": 3299140
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_13_take1.png",
+      "sha256": "a2b7f62f3e8e0a2dfe9211302b69cf32d502f6143a5f1e0cdcd5286b3d5caa7e",
+      "bytes": 3241674
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_14_take1.png",
+      "sha256": "5b4e8f69b291f597dd686514ee4fd780c9f2fd5a59cd499be9e8230f104fa5c4",
+      "bytes": 3253379
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_15_take1.png",
+      "sha256": "252085dcdbac0c309d1995166231216b001a596c3da40bfafc02f631388a72b6",
+      "bytes": 3414597
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_16_take1.png",
+      "sha256": "30305f06d611fec00b5516820040a6d2b074f571ec10527c9ba6733f5e7d866d",
+      "bytes": 3319320
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_16_take2.png",
+      "sha256": "340f49256b2a1cb4af8ac90bd0e4d27be8eb78e2f6478171dd40b8e4a8b9d18e",
+      "bytes": 3172836
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_16_take3.png",
+      "sha256": "a55ecc6bb0d221f146ec2141810251010d733a472990cdaeaa1616e3b38a21ee",
+      "bytes": 2998932
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_17_take1.png",
+      "sha256": "781bc3d248d3c90d741de3bf5145f12ecd28dcc134fe0989a83551d40fbab087",
+      "bytes": 3477498
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_18_take1.png",
+      "sha256": "db40d1b1891ae31f38fc2303ffd2590a5938c0dff6287b6a49fac1c59d77b36d",
+      "bytes": 3212744
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_18_take2.png",
+      "sha256": "078b22b5d88f152a07bc51988f66971b50726d078672c3278f458c43a0e5152b",
+      "bytes": 3261040
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_19_take1.png",
+      "sha256": "a728542d5bc194ff84a0d5adaccd3efe9fc2d1bb417f14352cc66567cfc05fb5",
+      "bytes": 3259164
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_20_take1.png",
+      "sha256": "418fed1f6ba355dc8fd3fc842eed92ac9a27ac5450a054e22d4c3b7a8e12ed0e",
+      "bytes": 3245678
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_20_take2.png",
+      "sha256": "8b0b0e5da21a6fe4f302f2b38e25a85be6c79da0ce075452b9ab4b7203b25d69",
+      "bytes": 3159601
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_21_take1.png",
+      "sha256": "f5746245159baca3b0bd5b8a91da335f2cfc839d6b892d4c16e0d77c3742e49d",
+      "bytes": 3237744
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_21_take2.png",
+      "sha256": "48c27a89821ec6506fbdcfcc50b079cc5aaaf2b17dd6b46124d504a3908cc81a",
+      "bytes": 3043125
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_21_take3.png",
+      "sha256": "40459dadaa2eef6cacc15121cfbb20206adcea9f467c34ff0c3485b69c3678db",
+      "bytes": 3007040
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_22_take1.png",
+      "sha256": "bd5c8593c0e2f4b55dd7816dd84f2f41dce318880c676cf6f2d45047dfcb132e",
+      "bytes": 3372727
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_23_take1.png",
+      "sha256": "b5042cb19fd741373267c471e269c903842c46a5253eb89e579fd860fbdadf45",
+      "bytes": 3487989
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_23_take2.png",
+      "sha256": "305a985d9d19707135936117e1dfdde4ed7c53348c735e4a18a51e5a7591cd24",
+      "bytes": 3273296
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_24_take1.png",
+      "sha256": "0384f2747e003c25f8d4dbcc5f86f5516456bfc91be6f85319f817fb0ae14af1",
+      "bytes": 3212761
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_24_take2.png",
+      "sha256": "623d71b2a3cbe144094b7eb4e3671306ebf06143d1abbd1af4faef25b40d93e2",
+      "bytes": 2955766
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_24_take3.png",
+      "sha256": "1821fe130cc0e916d5c8822d4ebd6023121ce0faceeec9e4fcc9adda915c958c",
+      "bytes": 2985209
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_25_take1.png",
+      "sha256": "e79ba3921c7d062edbf11cb56cf9dafb6148fe468c886c707d29d6b10f900582",
+      "bytes": 3255005
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_25_take2.png",
+      "sha256": "a9c328c1bd1ad45a5378de3fcc1ddd86376fcbe4fb22b32d76322c1d8009a69e",
+      "bytes": 3269604
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_26_take1.png",
+      "sha256": "df82ab99dc1a54c0b158801dfa7ca5df45648bc5c34c5f8d8e19f95cb07b1990",
+      "bytes": 3137740
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_27_take1.png",
+      "sha256": "f3f75c6973c8ab6be653c05617464d0410bcf20149f911e8f7ceb0c87c77cb95",
+      "bytes": 3268635
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_27_take2.png",
+      "sha256": "8b743223fb2244e6261dab1fd6b500aae10df4493d1843934ce4e8bc31a30356",
+      "bytes": 3260889
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_27_take3.png",
+      "sha256": "ea02564120295261c078938b30dcb52bd3615723892f59e944ee54a2d926cf88",
+      "bytes": 3060982
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_28_take1.png",
+      "sha256": "3fca50bd33978d2507cbc1722da0da6ee1d1df242b658ada1f9b5e6590a54cea",
+      "bytes": 3120001
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_29_take1.png",
+      "sha256": "ededaa45d57b92a8b7080a693308995c86c0deee168d1d38fe21140771b25478",
+      "bytes": 3153493
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_29_take2.png",
+      "sha256": "3f1fc8182a7adf5c49ee53f4f3728e8f7dc52962c62cae1ce80b9d508911a695",
+      "bytes": 3037763
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_30_take1.png",
+      "sha256": "5e2145a038f24cbf08ffb4f044a4b6f1d861f7c728ea9e2a28cb1ee2328196ca",
+      "bytes": 3399379
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_31_take1.png",
+      "sha256": "d26cd93f6296ac66a093d32ef001b43d3ec40bd261a59d576aa8c676fe354172",
+      "bytes": 3146733
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_32_take1.png",
+      "sha256": "6a6944574a2e20af92a4d7d1f164b4d09562c80cb14485d486b00a2451499dc8",
+      "bytes": 3072138
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/output/pdf/Mermaid_Roshan_Here_I_Am_32_Pages.pdf",
+      "sha256": "1f7a5c6b1627b0aa0e05ba28eae648f75998eefcef71b79b4dd94912e51c3ffd",
+      "bytes": 102625643
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/prompts/page_25_take2.txt",
+      "sha256": "21e7b68b66b5bac73b4eee9a464b61056add60466b0c4748069791e791e86117",
+      "bytes": 5526
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/prompts/page_27_take2.txt",
+      "sha256": "e4320c0fb92b5cc9e678155864908d7252c7966d08145d611464bbd805d74e44",
+      "bytes": 5880
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/prompts/page_27_take3.txt",
+      "sha256": "33e2db9ab23e646ed2412e8f471cd8910d1f9c52952943207c30c062d0e52ebe",
+      "bytes": 1317
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/prompts/page_27_take3_references.json",
+      "sha256": "06bc903e2cc897d4c05e4e2678480f76732775fa6ed48a60bac074b27ac0f62b",
+      "bytes": 120
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/prompts/page_29_take2.txt",
+      "sha256": "99f3a83e1126f4497b6b2fd7126625a970e922088a800cb517d80e6c919328e1",
+      "bytes": 874
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/prompts/page_29_take2_references.json",
+      "sha256": "0099ba26528f07564fefdee628a279f90a4036715fa3f143dcc967a69e31f82f",
+      "bytes": 120
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/README.txt",
+      "sha256": "97b9fc15621df1dd5d64c124b53ac3e0e0f4420d2be13a9ac436eb18d02883a3",
+      "bytes": 3359
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/selected_art.json",
+      "sha256": "0e875f78ffe6299c7c8a1ebd41f95b90ca04fe237a3105d06114c4f301329dee",
+      "bytes": 14293
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/story_script.json",
+      "sha256": "febb9d5c7f6d82c29dcf8fa3556715577842b2284749fd2f1fea055a046d5967",
+      "bytes": 48602
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/verification/authoring_attempt_01.json",
+      "sha256": "063b6f734da6a06c7a1846265aead02553069cf12b2c14b1dd6df7e95fda530b",
+      "bytes": 1123
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/verification/authoring_marker_receipt.json",
+      "sha256": "dcb32dd3a642e6ff944afdd59713a4c6f090b0b4bcc3bfcd76473f956432307a",
+      "bytes": 770
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/verification/book_check.json",
+      "sha256": "4cb44cd4dbabdf93295d63c0d70b61772c29d82cbc6f6f0c8a6cec475dda5ce8",
+      "bytes": 91929
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/verification/document_tests.log",
+      "sha256": "0933a366c0290cbc1bd1d8356f0c6ff2f9f1af7a4ba3496fc8d22f928732350c",
+      "bytes": 178
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/verification/editorial_review.json",
+      "sha256": "eaca8ed05b7b7d122f9766a410eb652de9c85be7f0b6e7af180cf5e24d023a2a",
+      "bytes": 10145
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/verification/encoding_optimization.json",
+      "sha256": "a5e7dc1cbb462801a68bf686abbe9a53e8a2a21eb8481baab344528216185f13",
+      "bytes": 49921
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/verification/encoding_optimization.log",
+      "sha256": "cc19c474d00b46095fa2ca383368a72cac84f57167ec32c1f0b05c2e87cbd497",
+      "bytes": 925
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/verification/full_ci.log",
+      "sha256": "01d074465d1f3a7261ffe378a8dcf46e19143859d21c5719ebd5aa30072d2f14",
+      "bytes": 128
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/verification/full_ci_receipt.json",
+      "sha256": "75f891c8b708d78c9babb44932e8d4de4f2788913168da383ff5ee29059ff90d",
+      "bytes": 5704
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/verification/independent_opening_review.json",
+      "sha256": "f9cd98c4216b88b1ea9a895b224be6ed15ceea827a8cf9e973a03d8e32ccefc7",
+      "bytes": 24201
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/verification/pdf_verification.log",
+      "sha256": "68ed6c4c25df8a350b667a95c296f5e4ea8c5e7c9184547965a99668be41dbe8",
+      "bytes": 862
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/verification/provenance_check.json",
+      "sha256": "3bb7190dc0e0e023970cbe5234b3917747e2686dc6f8549acb5fb8112b3335be",
+      "bytes": 1914
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/verification/renderer_sampling_diagnostic.json",
+      "sha256": "9ff946f6e06a281302f68e7c9afef9c05536e001a7bed0f94345ae79b90762c2",
+      "bytes": 2093
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/verification/root_art_review.json",
+      "sha256": "6c9051c07cd85d5e299b7f45824ee0d4e7eec3c69d70fa8a7dd6a64a8fd35899",
+      "bytes": 5248
+    }
+  ],
+  "coverage": "This new edition including its tooling/document impact; no prior pending CI is represented as executed.",
+  "baseline": "056d890ef38f2496ab52669c955ada654f902511",
+  "git_head_at_preparation": "056d890ef38f2496ab52669c955ada654f902511",
+  "command": [
+    "C:\\Program Files\\Git\\bin\\bash.exe",
+    "--noprofile",
+    "--norc",
+    "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\rumi_visual_detective_full_ci_20261012.sh"
+  ],
+  "ci_script_path": "scripts/ci.sh",
+  "ci_script_sha256": "769ed4c4259ebe740f1e247c129bfc34914fa70fe72e28f65e5b5d5c9a577279",
+  "runner_path": "tmp/run_rumi_visual_detective_full_ci_20261012.py",
+  "runner_sha256": "211b2848fbafaf5f935cfd5cdb7ad6f579c8f7c59d86c8e92920af90a3f0bc91",
+  "wrapper_path": "tmp/rumi_visual_detective_full_ci_20261012.sh",
+  "wrapper_sha256": "0141df8ac0bfadbc05af751fca76ffd960cc89e785b0c00f91676a8d21c57fff",
+  "runner_python": "C:\\Users\\Peter\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+  "ci_python": "C:\\Users\\Peter\\AppData\\Local\\Python\\bin\\python.exe",
+  "ci_python_preflight_stdout": "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe\n3.13.14 (tags/v3.13.14:fd17997, Jun 10 2026, 13:03:48) [MSC v.1944 64 bit (AMD64)]\nC:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\Lib\\site-packages\\gdtoolkit\\__init__.py\nC:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\Lib\\site-packages\\PIL\\__init__.py\nC:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\Lib\\site-packages\\numpy\\__init__.py\n",
+  "environment_note": "Bundled Python 3.12 runs the supervisor and exact engine resolver. Existing local Python 3.13, as used by prior CI wrappers, runs unchanged CI because bundled Python lacks gdtoolkit. No dependency installation or tool/probe changes.",
+  "engine": {
+    "path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64_console.exe",
+    "sha256": "c8f0a6bc45a19b33541501e57f6f7cd972ab18453743266339d495cbbe846643",
+    "version": "4.7.2.stable.official.ed1daf0bf",
+    "resolver_command": [
+      "C:\\Users\\Peter\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+      "-X",
+      "utf8",
+      "-B",
+      "tools/resolve_godot.py"
+    ],
+    "resolver_sha256": "28db30d2e6ce5dfe0f62284ea4f2c86da76318d08890018124c17954d7b41f8d",
+    "baseline_file_sha256": "9616e50b3ed535e038dc04c6e389140066b3354f79b4b437b60c0e2571e4676b"
+  },
+  "expected_trusted_probe_count": 82,
+  "expected_trusted_probes": [
+    "probe_reef_districts",
+    "probe_ocean_kingdoms",
+    "probe_audit",
+    "probe_passive",
+    "probe_living_world",
+    "probe_load",
+    "probe_rank",
+    "probe_save_recovery",
+    "probe_galaxy_state",
+    "probe_collection",
+    "probe_mg2d",
+    "probe_fetch",
+    "probe_melody",
+    "probe_dolls",
+    "probe_seek",
+    "probe_audio",
+    "probe_dance",
+    "probe_l2",
+    "probe_l2_living_cards",
+    "probe_sky_lagoon_animals",
+    "probe_l2_reenter",
+    "probe_crown",
+    "probe_throne",
+    "probe_northern",
+    "probe_human_art_audit",
+    "probe_train",
+    "probe_verbs",
+    "probe_skins",
+    "probe_touch_router",
+    "probe_touch_stress",
+    "probe_interaction",
+    "probe_touch_adversary",
+    "probe_touch_look",
+    "probe_ui_system",
+    "probe_voice",
+    "probe_day_one_voice",
+    "probe_day_one_d8_revisits",
+    "probe_day_one_handoffs",
+    "probe_kart_feel",
+    "probe_combat",
+    "probe_dust_bunny",
+    "probe_dust_bunny_boss",
+    "probe_dust_boss",
+    "probe_hit",
+    "probe_partner",
+    "probe_combat_tutorial",
+    "probe_imp_ai",
+    "probe_mic",
+    "probe_stuffie",
+    "probe_dungeon",
+    "probe_ember",
+    "probe_opera",
+    "probe_opera_2d",
+    "probe_opera_diegetic_paths",
+    "probe_opera_detective",
+    "probe_opera_pipe",
+    "probe_opera_nursery",
+    "probe_opera_gesture_quality",
+    "probe_kitchen_props",
+    "probe_bathroom_props",
+    "probe_castle_door_language",
+    "probe_bathroom_integration",
+    "probe_day_one_bathroom_bunny",
+    "probe_day_one_bathroom_cleanup",
+    "probe_day_one_bathroom_movie_handoff",
+    "probe_day_one_director",
+    "probe_day_one_integration",
+    "probe_day_one_pool_cleanup",
+    "probe_day_one_art_attack_state",
+    "probe_day_one_castle_dressing",
+    "probe_day_one_story_clips",
+    "probe_chapter2",
+    "probe_chapter2_farmer_resume",
+    "probe_chapter2_lawn",
+    "probe_alpha_milestone_save",
+    "probe_dust_boss_balance",
+    "probe_start_menu_routing",
+    "probe_start_menu_new_game",
+    "probe_castle_pool_life_2d",
+    "probe_castle_pearl_art",
+    "probe_fairy_art",
+    "probe_props"
+  ],
+  "observed_trusted_probe_count": 0,
+  "probe_results": [],
+  "preservation_before": {
+    "baseline": "056d890ef38f2496ab52669c955ada654f902511",
+    "paths": [
+      "assets",
+      "scripts",
+      "scenes",
+      "tools",
+      "tests",
+      "project.godot",
+      "assets_src/books/rumi_underpool_20261009",
+      "assets_src/books/rumi_underpool_20261010",
+      "assets_src/books/rumi_underpool_iteration_20261010",
+      "assets_src/books/rumi_manga_feast_20261011",
+      "assets_src/books/rumi_action_story_20261011",
+      "assets_src/books/rumi_voice_book_20261011"
+    ],
+    "exit_code": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  "log_path": "assets_src/books/rumi_visual_detective_20261012/verification/full_ci.log",
+  "log_sha256": "7a4b9b9c35d08fb3ee31a62a38c882470982546f3042a7a647b471bcf9680db1",
+  "qualification": "Unmodified full local machine gate only. Raw output is preserved; unit-test fixtures and the existing advisory visual audit may contain failure words. Regression success does not establish strict zero-debt 2D state, artwork, device, child, owner, global master-audit satisfaction, integration, promotion or release acceptance.",
+  "superseded_pending_preparation": {
+    "status": "SUPERSEDED_PENDING_NEVER_STARTED",
+    "receipt_path": "assets_src/books/rumi_visual_detective_20261012/verification/full_ci_pre_method_change_receipt.json",
+    "receipt_sha256": "d0cc35052ade6aa3a142c820c9ab5dc0f6e4ee0d9b6e3b1eabf764fe131c19a6",
+    "log_path": "assets_src/books/rumi_visual_detective_20261012/verification/full_ci_pre_method_change.log",
+    "log_sha256": "01d074465d1f3a7261ffe378a8dcf46e19143859d21c5719ebd5aa30072d2f14",
+    "runner_path": "tmp/run_rumi_visual_detective_full_ci_pre_method_change_20261012.py",
+    "runner_sha256": "4ed4b6622b675b059177fb22cba6309fb72240dc326069eee80b158b1dc5f66c",
+    "reason": "Root authorized named page8/10 method change; source stays final ab77 while capture/checker tooling and exact method briefs are now bound."
+  },
+  "git_head_at_run": "056d890ef38f2496ab52669c955ada654f902511",
+  "preceding_book_bytes_before_run": [
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/assemble_sources.py",
+      "sha256": "86e3ab1cdc1a22626c6596878a0adcc29169c7444afca8553a7dead55022b547",
+      "bytes": 6658
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/build_book.py",
+      "sha256": "e3932e2012a702f76f4fbd61c3a07fd73fb26dd3e82043d7b76668f5d2bfb857",
+      "bytes": 25055
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/capture_native.py",
+      "sha256": "61174dfb5bfdeecbea117ebeb770af9c4c947f56b6435f2e931d570f5db49d88",
+      "bytes": 3795
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/EDITORIAL_ANALYSIS.txt",
+      "sha256": "63a25354d974dcb4db9f6d883ae8c4f99fa6a97057ecc14b7191bdac4752a9fc",
+      "bytes": 6008
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/generation/page_01_take1.json",
+      "sha256": "8cf4291cad2997124eb3a4b4f7ef055762a90c9b9238329a613527bbadcc345e",
+      "bytes": 5909
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/generation/page_02_take1.json",
+      "sha256": "723b215a61e5e0f20daf2f8eae4446cfa4465c7496054961c2ac2371c0594a4c",
+      "bytes": 6243
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/generation/page_02_take2.json",
+      "sha256": "d9ed81fdbe2cab09db27b96711623d180ca73e9ee5f93777df9f3224fad8d031",
+      "bytes": 2567
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/generation/page_02_take2_prompt.txt",
+      "sha256": "629f47adf174014a7dce48cabaf7dcb8ac1854617d31aef79fca73cc3a5f81f6",
+      "bytes": 898
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/generation/page_02_take2_references.json",
+      "sha256": "0e2ac2f0481e9d24773f1e886e34139d6c721b437d87f45757062cbcf3876937",
+      "bytes": 168
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/generation/page_03_take1.json",
+      "sha256": "a13166f48bd6bd733b402afbe9c7c98bde1be8d200af4b7230637170bb949655",
+      "bytes": 6329
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/generation/page_04_take1.json",
+      "sha256": "acb19ad3d83cda92adddede9374c0f01e6a04c2abb44247d2217dd6f842699d7",
+      "bytes": 6742
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/generation/page_05_take1.json",
+      "sha256": "17860e22e5194f4487ea58c8342327e5ddac71e36c2558c4e934d787001d56dc",
+      "bytes": 6182
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/generation/page_06_take1.json",
+      "sha256": "1a13941e799727fc93431dbb134868ff25c165c3a369e5d59cac4f48d10be8b8",
+      "bytes": 6220
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/generation/page_06_take2.json",
+      "sha256": "f8fadae588ccad83fcf9b3cef47e5d8900518a0c59f01d8aa6dbaa8c81c29634",
+      "bytes": 7766
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/generation/page_06_take2_prompt.txt",
+      "sha256": "694c5d5c4348396f672ad935bc5edf9d9bd2dd1071c9ed3afa6d7e5d22ff17c1",
+      "bytes": 5426
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/generation/page_06_take2_references.json",
+      "sha256": "e0fcf60e06177dda3fd99d3be59fa1e430d549a75d80e84b1de60c31a80688b8",
+      "bytes": 441
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/generation/page_07_take1.json",
+      "sha256": "a66c551f0b77d0d5bcd89d5e4c7d3dda2f452fb720df44f1ba7f02e136deee1e",
+      "bytes": 6079
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/generation/page_07_take2.json",
+      "sha256": "3b3e31ba9c2049d8a4453ef769f3038ee082946cc860b22578f670fa886c9d86",
+      "bytes": 2544
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/generation/page_07_take2_prompt.txt",
+      "sha256": "59dc8a33a9e357b869722def9d9ba5f98384cbccb7f846ebdd1b3b9e59c3e31e",
+      "bytes": 890
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/generation/page_07_take2_references.json",
+      "sha256": "fa4aece4970ee15687caf06adb6c4527c4b2808fabe9c13cd117caa24b9eca63",
+      "bytes": 139
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/generation/page_08_take1.json",
+      "sha256": "3bcd8d6258130d275df25a07138fa388af7e16d878d3070d783f9336d39b0329",
+      "bytes": 6542
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/generation/page_08_take2.json",
+      "sha256": "6dba6d9ad12cef0ce7bf50d6857e0f06b7586fef14860d66b96a10a2c3cb4d31",
+      "bytes": 8159
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/generation/page_08_take2_prompt.txt",
+      "sha256": "df479744e161e63dc6351ae47856e598119ed10619b770aba94096481281a62f",
+      "bytes": 5949
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/generation/page_08_take2_references.json",
+      "sha256": "79b5f2d4757f9f55d397913a919aa1ddccc4b9b373f29b4e2ac452890f4dc1f6",
+      "bytes": 404
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/generation/page_08_take3.json",
+      "sha256": "5c56f3158b6bab9c5faaed79e19e15db54975edde76b017727d2284caeb3ab32",
+      "bytes": 2804
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/generation/page_08_take3_prompt.txt",
+      "sha256": "ba12635b7beca7fcff1b4aad0a761f4a3672df7342fe7762b0361a7d3fa09c7d",
+      "bytes": 1119
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/generation/page_08_take3_references.json",
+      "sha256": "69cdb99de899f39c6a5482a6825a565698039c601087da6ab41fce02d8e6e97f",
+      "bytes": 156
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/generation/page_09_take1.json",
+      "sha256": "bc6dfa15eb293a613c0770b21bf750a1651243961eda078c1294cdd407daf838",
+      "bytes": 6403
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/generation/page_09_take2.json",
+      "sha256": "395dba8929b9ecf66a1ffd808c66963acb46c0aaa3b7ce879c782b0ced0e981e",
+      "bytes": 7172
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/generation/page_09_take2_prompt.txt",
+      "sha256": "01de3d16646364a9606e7928580ef3e785638ee23b52f9190ddf962738f8fb49",
+      "bytes": 5409
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/generation/page_09_take3.json",
+      "sha256": "f9c8d16898aab7cbb84b6c662efbb5004cb829538d58683f748d93a7897b7302",
+      "bytes": 2553
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/generation/page_09_take3_prompt.txt",
+      "sha256": "837024414022c33ad86640affdd94b63145c7ab666d03070d7f445e107d9b6c4",
+      "bytes": 940
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/generation/page_09_take3_references.json",
+      "sha256": "3e53bf652805a36463e2c65957810f4f34ec826d0f2a78d26acb744ba1227fef",
+      "bytes": 126
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/generation/page_10_take1.json",
+      "sha256": "4de44a436e52bae5b5a3494785274fba8af8d0b843ee657668831b794f80c095",
+      "bytes": 6773
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/generation/page_10_take1_prompt.txt",
+      "sha256": "bce2806d18e754d47de383afedf4f68b1568422c0039f8c05745b9c5b2e82373",
+      "bytes": 5012
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/generation/page_10_take2.json",
+      "sha256": "32ea9a56ab4eb78df094bfcfe57bc02ac4c462071c0775ce3a177ad52223df5b",
+      "bytes": 7772
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/generation/page_10_take2_prompt.txt",
+      "sha256": "529aa736b50ca3b248a3ef08e0572a19a0b11ab9928b38ca7b75f8fe43e74b2e",
+      "bytes": 6010
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/generation/page_11_take1.json",
+      "sha256": "8e0d8eae5fec7c8f5d06a03ff92538d3ac2318389f8af1732dea8fdc84ba6580",
+      "bytes": 6780
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/generation/page_11_take1_prompt.txt",
+      "sha256": "dc2a86c9067cc491f744659aeb3c5a0742a6c6e8a5da53c03bea5959ef4a561b",
+      "bytes": 5016
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/generation/page_12_take1.json",
+      "sha256": "b623168dccc2474bc6ce20cd2264fc1b0a9f17a8ba7b8f944db01e8e7f9b27de",
+      "bytes": 6635
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/generation/page_12_take1_prompt.txt",
+      "sha256": "82ff6bc18a6efd944d1f997707648ff68b6ae629a782325a1cc61329049e9cce",
+      "bytes": 4874
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/generation/page_12_take2.json",
+      "sha256": "9a84e0b423efade81d04c225ffe6fb55d30744abd3026b0163fcb4bed4702bfb",
+      "bytes": 7590
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/generation/page_12_take2_prompt.txt",
+      "sha256": "d33826efa71cfe90e8b99957cc375be6eb6e08dbcd7adafc7ffb177f29ae6f6f",
+      "bytes": 5828
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/generation/page_13_take1.json",
+      "sha256": "e635a953d1e6a9aca9a79d0a1a16f136c1b31ffa0fc4cd5e7204a1fefedd1099",
+      "bytes": 6222
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/generation/page_14_take1.json",
+      "sha256": "a98f23a305182205162ecf9b6e3582b3c2126ed5232ed5db33d3a5c7185f5e39",
+      "bytes": 6513
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/generation/page_15_take1.json",
+      "sha256": "2e76376699903d74110e28cf7947148ec60fb990c62388ea18a4001be1875eaf",
+      "bytes": 6484
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/generation/page_16_take1.json",
+      "sha256": "e749b552982f67d72bd0a3b861d5b17a9d03f8966936d9f44fc248b54f528c6b",
+      "bytes": 6385
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/generation/page_16_take2.json",
+      "sha256": "e7b925e7c97e5c306d2fb3685f9c47de77dab02ad1fb56de351e99b09f4e0503",
+      "bytes": 2841
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/generation/page_16_take2_prompt.txt",
+      "sha256": "e20186411c2b60c5219fae4ff04173d4eb36cd35efb3807c596452e06124ac06",
+      "bytes": 1238
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/generation/page_16_take2_references.json",
+      "sha256": "e8c6477e2324b11a78407f17f8777168c8024bdf91551f66fa611032a6ad3f31",
+      "bytes": 126
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/generation/page_16_take3.json",
+      "sha256": "5d99465f93629927034d689ef400c2d0018b2694a787e5dd4249208ae9b2428a",
+      "bytes": 3411
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/generation/page_16_take3_prompt.txt",
+      "sha256": "f60f7cded086fd70d5868c7e0a813bf3bb92a10afb4dd1a718c934012a1e13b9",
+      "bytes": 1791
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/generation/page_16_take3_references.json",
+      "sha256": "ac6fadf0f49b10daf427037bcfd28ddc33dffb10103299a7bff8a9793970aed6",
+      "bytes": 126
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/generation/page_17_take1.json",
+      "sha256": "fb7321350bf8a51cad5a4417190f9430dd591f66557413a7054d592131a33036",
+      "bytes": 6632
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/generation/page_18_take1.json",
+      "sha256": "e71b51c4cabfe5b4214e03fec471c43bdc4acf022b3f8b8ef463c86879cc2170",
+      "bytes": 6619
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/generation/page_18_take2.json",
+      "sha256": "7ad59820974a9201e57874569cdf1efd9a226bc9ba1dd3b636c5a5efdb8118ce",
+      "bytes": 7474
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/generation/page_18_take2_prompt.txt",
+      "sha256": "6edcf3cf88c1dd9108f35d2d63d05db2ecff16cb067b524d2e015d1e61421e0f",
+      "bytes": 5215
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/generation/page_19_take1.json",
+      "sha256": "a718546a3fb79d5cdab04e427eee5506afdc568cc42392ea5a6e148b8d5ad926",
+      "bytes": 6545
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/generation/page_20_take1.json",
+      "sha256": "dabe978ee42e98a1da6822280f0add34a3fa73e6106d26986967031f0b18e7e4",
+      "bytes": 6721
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/generation/page_20_take2.json",
+      "sha256": "49cdbc1cef64e1853b396af0ab70a91548f5988ab0d438976d2481ddeb1e06da",
+      "bytes": 2831
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/generation/page_20_take2_prompt.txt",
+      "sha256": "cdc7d8912afcc418a05a9857e6b3cf3844281b7c1ea81140b6a1f5e9414c66ab",
+      "bytes": 1259
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/generation/page_20_take2_references.json",
+      "sha256": "e078a1ad7691f3ef308e6faadf7a2d6bc5d87313fe24373767e97a452250d46d",
+      "bytes": 120
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/generation/page_21_take1.json",
+      "sha256": "a30add7e04dbc202c24e278d7d6624637609b9a977718d8d964d886c56d21e1d",
+      "bytes": 6637
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/generation/page_21_take2.json",
+      "sha256": "73e0fd62a402bb4372b22aa01b3476bb37635090aefe6cc230c2e22fd16865aa",
+      "bytes": 3146
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/generation/page_21_take2_prompt.txt",
+      "sha256": "24f9c11115bd487763c882e937383238903afc22b864653482c0457b6600d146",
+      "bytes": 1527
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/generation/page_21_take2_references.json",
+      "sha256": "99f0404facaf6f52ddca8c63b44804ff63081e0b6bd2859c6054f779e8904c97",
+      "bytes": 105
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/generation/page_21_take3.json",
+      "sha256": "56f0f7523b34aec7866535f3940612f9217616b5d2cf2e1d093970c62202e5df",
+      "bytes": 3226
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/generation/page_21_take3_prompt.txt",
+      "sha256": "2b0c26b314f9cc1d40636f6c37f4972e751bcdf4294dc4aad771fd643f4e46a3",
+      "bytes": 1636
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/generation/page_21_take3_references.json",
+      "sha256": "cb6cf1e3b168d55d24ee191d311e67ef3d8639ee3f8e7416dc9c072b5c9eb2d8",
+      "bytes": 120
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/generation/page_22_take1.json",
+      "sha256": "c89cc930f9a6d627d34f0c9dafb1361d8fa1f191640b685107789da6467477bb",
+      "bytes": 6476
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/generation/page_23_take1.json",
+      "sha256": "63f13c2343b1070dd321020976ab959173a717c8925e7e966fbf8a49fa967625",
+      "bytes": 6558
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/generation/page_23_take2.json",
+      "sha256": "9a084eda7261baacb16100cae170021d2981d16c72e659cdf46dde1eba1f1748",
+      "bytes": 2685
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/generation/page_23_take2_prompt.txt",
+      "sha256": "6ed4dc8df27cdc1dcea71e38f6467c8e72b81966c40bb7830feec921e3bd824f",
+      "bytes": 1119
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/generation/page_23_take2_references.json",
+      "sha256": "50eba5710b50d7d13f7addcf179f410742c4fe705df7a27d90e732550695abc0",
+      "bytes": 120
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/generation/page_24_take1.json",
+      "sha256": "2c9dd9e20f06bedbcecc32118ca2ad4162827360e23cc615d0308cdaa8a9fa66",
+      "bytes": 6551
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/generation/page_24_take2.json",
+      "sha256": "fbb3ee508a7771d3a79f823afb24e109baad672e1103b559f4980f6709348c38",
+      "bytes": 3077
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/generation/page_24_take2_prompt.txt",
+      "sha256": "25571b1abdb6dc2c4dec769776b1d3ba3b176741432a128281065a5779869e00",
+      "bytes": 1294
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/generation/page_24_take2_references.json",
+      "sha256": "09c27fc6f216bf95e72f3e07762616b5777b862f2adc2a12a1788acce2698423",
+      "bytes": 245
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/generation/page_24_take3.json",
+      "sha256": "95d832b5b92feb5025021ef65c90f6a701c340f94eea5de83f13d726bc9c3d71",
+      "bytes": 3363
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/generation/page_24_take3_prompt.txt",
+      "sha256": "16f59f02e4d596db3108e033c495b5ad3335c249a7c6665762149b5a2d8553c2",
+      "bytes": 1558
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/generation/page_24_take3_references.json",
+      "sha256": "d5b2d595d2c8d7d39b7e44da828b308791dba4732593e44cafc9336d6acd8b3d",
+      "bytes": 258
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/generation/page_25_take1.json",
+      "sha256": "4212d0698e1ab2ba9f923a9a5308fd37f11cbc9e9c6cb5c05bff5724eedcb5db",
+      "bytes": 7221
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/generation/page_25_take2.json",
+      "sha256": "ecee45cc557f21ec23a85795c5cc5207c527caf525437c35efd88d4c060b7a1a",
+      "bytes": 7662
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/generation/page_26_take1.json",
+      "sha256": "3d2559d016f35059b896fd2f2ca2c6fbf024e731e7cb5540d0c55b6d4566733f",
+      "bytes": 6872
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/generation/page_27_take1.json",
+      "sha256": "c1ac469ccbe855325e0bead6567a8d9722ac785c3dbd215775177f1bddde6645",
+      "bytes": 7053
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/generation/page_27_take2.json",
+      "sha256": "1c49e912afc81883f336f31ce772df831cee5442299c024188fe6aacd2eac449",
+      "bytes": 8022
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/generation/page_27_take3.json",
+      "sha256": "cc3e7fbe1f549dd90970295032b481f308c35f563b18738b4e2970e218f17107",
+      "bytes": 3070
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/generation/page_28_take1.json",
+      "sha256": "4f94cb897d66c44b28fb1a6638ac27396cc05428edda7ccdfd28ebc728866aa9",
+      "bytes": 6585
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/generation/page_29_take1.json",
+      "sha256": "fea3a3a8aea8ccd176f7b2db791b19395466be9d24fcbd72782c354d526a3ef8",
+      "bytes": 6638
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/generation/page_29_take2.json",
+      "sha256": "c7ed37174b4b862738b40019e27542e05b5372b0f5150e3bae457f27964c4ffb",
+      "bytes": 2620
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/generation/page_30_take1.json",
+      "sha256": "149d04c993fd101c7933d76ef2848ae91fd48e4401e99ca8eec110ef403e689c",
+      "bytes": 6597
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/generation/page_31_take1.json",
+      "sha256": "87a0dafd65fb917c052075cf00b79a9af2446e15ba02515da09798bab1b52bbc",
+      "bytes": 6600
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/generation/page_32_take1.json",
+      "sha256": "1085e5f8cbe1cd2f9bb3743d48aea6046852f533bebeba6c8687c88471a7da6e",
+      "bytes": 6302
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/generation_manifest.json",
+      "sha256": "ca2eb5d03251b942ebf114fc7096919cfd53448869fd3eac2177d14f51240a10",
+      "bytes": 339678
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/generation_part_09_16.json",
+      "sha256": "11fb0c049b97c3e7bb1d98ee4adfb79dbae9d5d04265ea2cb7908c259bdc72a4",
+      "bytes": 130445
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/generation_part_17_24.json",
+      "sha256": "a217765451bd525933426df56fc68c4c558fd5787f866cd388ceaf03806641e0",
+      "bytes": 116003
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/generation_part_25_32.json",
+      "sha256": "139eec7b6d1146368655fe023eb659e48ee5097dfd5ef9b82c149f065d8d9916",
+      "bytes": 89915
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/illustration_jobs.json",
+      "sha256": "ba168326ca9afe435de9ee130e9d1437370bbc7c869081b3e4527da26c50a258",
+      "bytes": 169051
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/MANUSCRIPT.txt",
+      "sha256": "b6fab772c8bff085d39b80ea9f679c53b2081e701c92f039c4462b56e8471e98",
+      "bytes": 8421
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_01_take1.png",
+      "sha256": "da123e2196a887725b7e82abac7c2beaa1cd861a9c48b6abe0a300d99bf41bb9",
+      "bytes": 3410474
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_02_take1.png",
+      "sha256": "da79f9fb108a411bc3aa4bd3181d3a34858d7af309c4ad62e171b63d6dd9d051",
+      "bytes": 3062765
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_02_take2.png",
+      "sha256": "a751e8a1634888b16a6856e989dde9f12d167d1def4ff1a2bc1645af0a4759d6",
+      "bytes": 2977225
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_03_take1.png",
+      "sha256": "521c4628894d258637581bd1554e086d595d125741a0c95699db0e54f2568049",
+      "bytes": 3538183
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_04_take1.png",
+      "sha256": "f737afc432874affb05220356da67cee6d8e1c027e9b5dc35ed7d9454d871de0",
+      "bytes": 2994693
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_05_take1.png",
+      "sha256": "76ac7535dacaec9d1ab66d2eb6586987412e787420318ece80cf984e4fa79fed",
+      "bytes": 3315160
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_06_take1.png",
+      "sha256": "4297fc54ec7b364d7112119e886d5ce53e29ec38ffddcc617e35c73bcd546c59",
+      "bytes": 3370498
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_06_take2.png",
+      "sha256": "b2c5938b1a3bd1f1f705e5095d0ca07c7044faefdc154e56fcee8a750f522ac1",
+      "bytes": 3306600
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_07_take1.png",
+      "sha256": "9c6d0fb88a07ac543baffcf258c6cd99b3ac08cf5e486d210fb083a9774951ff",
+      "bytes": 3394594
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_07_take2.png",
+      "sha256": "3a544e0b74b30fe85676f7f0528ddc658495a54f77ab404d4a622be82a098e01",
+      "bytes": 3221525
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_08_take1.png",
+      "sha256": "72fd813c0f0805c2ec55529cda80ef3f2c4666d978bf637bf8ff1b4f7e9c6790",
+      "bytes": 3252575
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_08_take2.png",
+      "sha256": "05cbf1f7bfac9160de6567a793149ca048a4fab0bcd07686c3058c0810708dce",
+      "bytes": 3387684
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_08_take3.png",
+      "sha256": "23986483aa0bcd8624a08f44a5de6f778cee990a4bf92d3f1fac00f72b67ca4f",
+      "bytes": 3227978
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_09_take1.png",
+      "sha256": "5fc376656d073de71a128f79ea8693bcb5499d88bb529976600d3a16cff6fb3b",
+      "bytes": 3379637
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_09_take2.png",
+      "sha256": "6fcf8f3879d587fb4378c6f56d3bc15be5de1355b7300d5687509bacd1a7ecd5",
+      "bytes": 3470789
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_09_take3.png",
+      "sha256": "013c7ee2e14e2527243bc97cce8df6f8aaacaf0b227e1bb7c3e772f5ad9d46ee",
+      "bytes": 3198779
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_10_take1.png",
+      "sha256": "18300feedc6d4f83a52b5ca23809398b60e8bb124e7f2a1cf47b356fb0388111",
+      "bytes": 3226276
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_10_take2.png",
+      "sha256": "85e0941653b29aedaccb733a1d4e2f245def9e264caacfce95b90ba1d044ef3d",
+      "bytes": 3277397
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_11_take1.png",
+      "sha256": "6040390fdfe8cecc92cca794e61524a205537cc6929b05cdacc5f49c104cce7e",
+      "bytes": 3458678
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_12_take1.png",
+      "sha256": "577fe27fb115745b5c1df937d3104e1b5d7271cb98ab28d25b97e96835cf976b",
+      "bytes": 3369455
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_12_take2.png",
+      "sha256": "6d7f6e8f0c4d1a6f6f66ab50c6f3fc0f6a149a84f566ab71deb94e595f75f3b8",
+      "bytes": 3299140
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_13_take1.png",
+      "sha256": "a2b7f62f3e8e0a2dfe9211302b69cf32d502f6143a5f1e0cdcd5286b3d5caa7e",
+      "bytes": 3241674
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_14_take1.png",
+      "sha256": "5b4e8f69b291f597dd686514ee4fd780c9f2fd5a59cd499be9e8230f104fa5c4",
+      "bytes": 3253379
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_15_take1.png",
+      "sha256": "252085dcdbac0c309d1995166231216b001a596c3da40bfafc02f631388a72b6",
+      "bytes": 3414597
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_16_take1.png",
+      "sha256": "30305f06d611fec00b5516820040a6d2b074f571ec10527c9ba6733f5e7d866d",
+      "bytes": 3319320
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_16_take2.png",
+      "sha256": "340f49256b2a1cb4af8ac90bd0e4d27be8eb78e2f6478171dd40b8e4a8b9d18e",
+      "bytes": 3172836
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_16_take3.png",
+      "sha256": "a55ecc6bb0d221f146ec2141810251010d733a472990cdaeaa1616e3b38a21ee",
+      "bytes": 2998932
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_17_take1.png",
+      "sha256": "781bc3d248d3c90d741de3bf5145f12ecd28dcc134fe0989a83551d40fbab087",
+      "bytes": 3477498
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_18_take1.png",
+      "sha256": "db40d1b1891ae31f38fc2303ffd2590a5938c0dff6287b6a49fac1c59d77b36d",
+      "bytes": 3212744
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_18_take2.png",
+      "sha256": "078b22b5d88f152a07bc51988f66971b50726d078672c3278f458c43a0e5152b",
+      "bytes": 3261040
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_19_take1.png",
+      "sha256": "a728542d5bc194ff84a0d5adaccd3efe9fc2d1bb417f14352cc66567cfc05fb5",
+      "bytes": 3259164
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_20_take1.png",
+      "sha256": "418fed1f6ba355dc8fd3fc842eed92ac9a27ac5450a054e22d4c3b7a8e12ed0e",
+      "bytes": 3245678
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_20_take2.png",
+      "sha256": "8b0b0e5da21a6fe4f302f2b38e25a85be6c79da0ce075452b9ab4b7203b25d69",
+      "bytes": 3159601
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_21_take1.png",
+      "sha256": "f5746245159baca3b0bd5b8a91da335f2cfc839d6b892d4c16e0d77c3742e49d",
+      "bytes": 3237744
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_21_take2.png",
+      "sha256": "48c27a89821ec6506fbdcfcc50b079cc5aaaf2b17dd6b46124d504a3908cc81a",
+      "bytes": 3043125
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_21_take3.png",
+      "sha256": "40459dadaa2eef6cacc15121cfbb20206adcea9f467c34ff0c3485b69c3678db",
+      "bytes": 3007040
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_22_take1.png",
+      "sha256": "bd5c8593c0e2f4b55dd7816dd84f2f41dce318880c676cf6f2d45047dfcb132e",
+      "bytes": 3372727
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_23_take1.png",
+      "sha256": "b5042cb19fd741373267c471e269c903842c46a5253eb89e579fd860fbdadf45",
+      "bytes": 3487989
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_23_take2.png",
+      "sha256": "305a985d9d19707135936117e1dfdde4ed7c53348c735e4a18a51e5a7591cd24",
+      "bytes": 3273296
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_24_take1.png",
+      "sha256": "0384f2747e003c25f8d4dbcc5f86f5516456bfc91be6f85319f817fb0ae14af1",
+      "bytes": 3212761
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_24_take2.png",
+      "sha256": "623d71b2a3cbe144094b7eb4e3671306ebf06143d1abbd1af4faef25b40d93e2",
+      "bytes": 2955766
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_24_take3.png",
+      "sha256": "1821fe130cc0e916d5c8822d4ebd6023121ce0faceeec9e4fcc9adda915c958c",
+      "bytes": 2985209
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_25_take1.png",
+      "sha256": "e79ba3921c7d062edbf11cb56cf9dafb6148fe468c886c707d29d6b10f900582",
+      "bytes": 3255005
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_25_take2.png",
+      "sha256": "a9c328c1bd1ad45a5378de3fcc1ddd86376fcbe4fb22b32d76322c1d8009a69e",
+      "bytes": 3269604
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_26_take1.png",
+      "sha256": "df82ab99dc1a54c0b158801dfa7ca5df45648bc5c34c5f8d8e19f95cb07b1990",
+      "bytes": 3137740
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_27_take1.png",
+      "sha256": "f3f75c6973c8ab6be653c05617464d0410bcf20149f911e8f7ceb0c87c77cb95",
+      "bytes": 3268635
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_27_take2.png",
+      "sha256": "8b743223fb2244e6261dab1fd6b500aae10df4493d1843934ce4e8bc31a30356",
+      "bytes": 3260889
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_27_take3.png",
+      "sha256": "ea02564120295261c078938b30dcb52bd3615723892f59e944ee54a2d926cf88",
+      "bytes": 3060982
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_28_take1.png",
+      "sha256": "3fca50bd33978d2507cbc1722da0da6ee1d1df242b658ada1f9b5e6590a54cea",
+      "bytes": 3120001
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_29_take1.png",
+      "sha256": "ededaa45d57b92a8b7080a693308995c86c0deee168d1d38fe21140771b25478",
+      "bytes": 3153493
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_29_take2.png",
+      "sha256": "3f1fc8182a7adf5c49ee53f4f3728e8f7dc52962c62cae1ce80b9d508911a695",
+      "bytes": 3037763
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_30_take1.png",
+      "sha256": "5e2145a038f24cbf08ffb4f044a4b6f1d861f7c728ea9e2a28cb1ee2328196ca",
+      "bytes": 3399379
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_31_take1.png",
+      "sha256": "d26cd93f6296ac66a093d32ef001b43d3ec40bd261a59d576aa8c676fe354172",
+      "bytes": 3146733
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_32_take1.png",
+      "sha256": "6a6944574a2e20af92a4d7d1f164b4d09562c80cb14485d486b00a2451499dc8",
+      "bytes": 3072138
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/output/pdf/Mermaid_Roshan_Here_I_Am_32_Pages.pdf",
+      "sha256": "1f7a5c6b1627b0aa0e05ba28eae648f75998eefcef71b79b4dd94912e51c3ffd",
+      "bytes": 102625643
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/prompts/page_25_take2.txt",
+      "sha256": "21e7b68b66b5bac73b4eee9a464b61056add60466b0c4748069791e791e86117",
+      "bytes": 5526
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/prompts/page_27_take2.txt",
+      "sha256": "e4320c0fb92b5cc9e678155864908d7252c7966d08145d611464bbd805d74e44",
+      "bytes": 5880
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/prompts/page_27_take3.txt",
+      "sha256": "33e2db9ab23e646ed2412e8f471cd8910d1f9c52952943207c30c062d0e52ebe",
+      "bytes": 1317
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/prompts/page_27_take3_references.json",
+      "sha256": "06bc903e2cc897d4c05e4e2678480f76732775fa6ed48a60bac074b27ac0f62b",
+      "bytes": 120
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/prompts/page_29_take2.txt",
+      "sha256": "99f3a83e1126f4497b6b2fd7126625a970e922088a800cb517d80e6c919328e1",
+      "bytes": 874
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/prompts/page_29_take2_references.json",
+      "sha256": "0099ba26528f07564fefdee628a279f90a4036715fa3f143dcc967a69e31f82f",
+      "bytes": 120
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/README.txt",
+      "sha256": "97b9fc15621df1dd5d64c124b53ac3e0e0f4420d2be13a9ac436eb18d02883a3",
+      "bytes": 3359
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/selected_art.json",
+      "sha256": "0e875f78ffe6299c7c8a1ebd41f95b90ca04fe237a3105d06114c4f301329dee",
+      "bytes": 14293
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/story_script.json",
+      "sha256": "febb9d5c7f6d82c29dcf8fa3556715577842b2284749fd2f1fea055a046d5967",
+      "bytes": 48602
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/verification/authoring_attempt_01.json",
+      "sha256": "063b6f734da6a06c7a1846265aead02553069cf12b2c14b1dd6df7e95fda530b",
+      "bytes": 1123
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/verification/authoring_marker_receipt.json",
+      "sha256": "dcb32dd3a642e6ff944afdd59713a4c6f090b0b4bcc3bfcd76473f956432307a",
+      "bytes": 770
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/verification/book_check.json",
+      "sha256": "4cb44cd4dbabdf93295d63c0d70b61772c29d82cbc6f6f0c8a6cec475dda5ce8",
+      "bytes": 91929
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/verification/document_tests.log",
+      "sha256": "0933a366c0290cbc1bd1d8356f0c6ff2f9f1af7a4ba3496fc8d22f928732350c",
+      "bytes": 178
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/verification/editorial_review.json",
+      "sha256": "eaca8ed05b7b7d122f9766a410eb652de9c85be7f0b6e7af180cf5e24d023a2a",
+      "bytes": 10145
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/verification/encoding_optimization.json",
+      "sha256": "a5e7dc1cbb462801a68bf686abbe9a53e8a2a21eb8481baab344528216185f13",
+      "bytes": 49921
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/verification/encoding_optimization.log",
+      "sha256": "cc19c474d00b46095fa2ca383368a72cac84f57167ec32c1f0b05c2e87cbd497",
+      "bytes": 925
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/verification/full_ci.log",
+      "sha256": "01d074465d1f3a7261ffe378a8dcf46e19143859d21c5719ebd5aa30072d2f14",
+      "bytes": 128
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/verification/full_ci_receipt.json",
+      "sha256": "75f891c8b708d78c9babb44932e8d4de4f2788913168da383ff5ee29059ff90d",
+      "bytes": 5704
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/verification/independent_opening_review.json",
+      "sha256": "f9cd98c4216b88b1ea9a895b224be6ed15ceea827a8cf9e973a03d8e32ccefc7",
+      "bytes": 24201
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/verification/pdf_verification.log",
+      "sha256": "68ed6c4c25df8a350b667a95c296f5e4ea8c5e7c9184547965a99668be41dbe8",
+      "bytes": 862
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/verification/provenance_check.json",
+      "sha256": "3bb7190dc0e0e023970cbe5234b3917747e2686dc6f8549acb5fb8112b3335be",
+      "bytes": 1914
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/verification/renderer_sampling_diagnostic.json",
+      "sha256": "9ff946f6e06a281302f68e7c9afef9c05536e001a7bed0f94345ae79b90762c2",
+      "bytes": 2093
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/verification/root_art_review.json",
+      "sha256": "6c9051c07cd85d5e299b7f45824ee0d4e7eec3c69d70fa8a7dd6a64a8fd35899",
+      "bytes": 5248
+    }
+  ],
+  "edition_inputs_before_run": [
+    {
+      "path": "assets_src/books/rumi_visual_detective_20261012/story_script.json",
+      "sha256": "ab77f7740592a82b9185c10eb22a7b85ff785726b2f9eb8f01158861d54db6cd"
+    },
+    {
+      "path": "assets_src/books/rumi_visual_detective_20261012/MANUSCRIPT.txt",
+      "sha256": "38acb28035596b04f3f479f401cff7d407aaff90233ee6ade833bca186b12221"
+    },
+    {
+      "path": "assets_src/books/rumi_visual_detective_20261012/build_book.py",
+      "sha256": "a486e2c9464467e6355b997aa2c889cee326ea82f325b8ce59b885ebb9455e3a"
+    },
+    {
+      "path": "assets_src/books/rumi_visual_detective_20261012/validate_selection.py",
+      "sha256": "d8807d094115cc18bfe164b8b6efe4b936a025fedc4fc14fd25ae029a0c19de3"
+    },
+    {
+      "path": "assets_src/books/rumi_visual_detective_20261012/verification/source_revision.json",
+      "sha256": "e168c6cfd4b4992c375ff66b0efaab5749cd4d234301fab4ad71b75f06249042"
+    },
+    {
+      "path": "assets_src/books/rumi_visual_detective_20261012/verification/story_snapshot_before_hair_word_fix.json",
+      "sha256": "b3623441d31710e1afeda9298c0c74e7c3cc3b6b4c8627b7bf9b1b8bafcbf876"
+    },
+    {
+      "path": "assets_src/books/rumi_visual_detective_20261012/capture_native.py",
+      "sha256": "60c95cc59ee0a6fbf0d14b7ee6f3d3bd62c427cc42b880bb3f35fabdec90a78f"
+    },
+    {
+      "path": "assets_src/books/rumi_visual_detective_20261012/verification/local_repair_diagnosis_pages_08_10.json",
+      "sha256": "391e74c4b79e9866a46059679521f8e45b04e424a0931d8d269a49e0a5001703"
+    },
+    {
+      "path": "assets_src/books/rumi_visual_detective_20261012/verification/page_08_take3_method_change.json",
+      "sha256": "c7ab8127c3f3e56f64767d8d5363e2e2fe3af0fa0c470103719648e3b834d02a"
+    },
+    {
+      "path": "assets_src/books/rumi_visual_detective_20261012/verification/page_10_take3_method_change.json",
+      "sha256": "1fd95d87917e49481f4a482625c67f9b5d08dc3534f17529fef36c39b3862bf1"
+    },
+    {
+      "path": "assets_src/books/rumi_visual_detective_20261012/prompts/page_08_take3.txt",
+      "sha256": "9d0b106164431dbb9a62d0c79d572ff48aa3cdefcf4bdd056ea35bbeac8363e7"
+    },
+    {
+      "path": "assets_src/books/rumi_visual_detective_20261012/prompts/page_10_take3.txt",
+      "sha256": "6350b949c546a664850034ec531da55b87f9ded23e9a3da9dd772520193121a0"
+    },
+    {
+      "path": "assets_src/books/rumi_visual_detective_20261012/references/page_08_take3.json",
+      "sha256": "913b222247ca2cdeb7fd3ca030d049934d248163c6ab91822e1837e97cc4bfd2"
+    },
+    {
+      "path": "assets_src/books/rumi_visual_detective_20261012/references/page_10_take3.json",
+      "sha256": "818dac4d7cf8b027fb797cc50e0efbef4abb4df9048f9f09f9f6df273799dcf0"
+    }
+  ],
+  "process_id": 181740,
+  "elapsed_seconds": 182.125,
+  "gates": {
+    "engine_baseline": true,
+    "document_authority": false,
+    "audit_development": false,
+    "expected_probe_order": false,
+    "all_probe_process_exits_zero": false,
+    "unchanged_ci_script": true,
+    "all82_distinct_probe_exits": false,
+    "final_props_all_ok": false,
+    "preceding_untracked_book_bytes_unchanged": true,
+    "edition_source_tools_unchanged": true,
+    "runtime_protected_and_previous_books_unchanged": true,
+    "no_probe_failure_diagnostics": true
+  },
+  "preservation_after": {
+    "baseline": "056d890ef38f2496ab52669c955ada654f902511",
+    "paths": [
+      "assets",
+      "scripts",
+      "scenes",
+      "tools",
+      "tests",
+      "project.godot",
+      "assets_src/books/rumi_underpool_20261009",
+      "assets_src/books/rumi_underpool_20261010",
+      "assets_src/books/rumi_underpool_iteration_20261010",
+      "assets_src/books/rumi_manga_feast_20261011",
+      "assets_src/books/rumi_action_story_20261011",
+      "assets_src/books/rumi_voice_book_20261011"
+    ],
+    "exit_code": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  "log_bytes": 3993,
+  "unittest_runs": [
+    {
+      "count": 4,
+      "seconds": 0.277
+    },
+    {
+      "count": 40,
+      "seconds": 26.26
+    },
+    {
+      "count": 3,
+      "seconds": 0.164
+    },
+    {
+      "count": 75,
+      "seconds": 42.629
+    },
+    {
+      "count": 5,
+      "seconds": 0.111
+    },
+    {
+      "count": 41,
+      "seconds": 0.275
+    },
+    {
+      "count": 13,
+      "seconds": 6.572
+    },
+    {
+      "count": 131,
+      "seconds": 30.57
+    }
+  ],
+  "raw_probe_failure_diagnostics": [],
+  "raw_warning_error_lines": [],
+  "advisory_debt_lines": []
+}

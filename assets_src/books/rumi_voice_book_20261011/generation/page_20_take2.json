@@ -1,0 +1,33 @@
+{
+  "page": 20,
+  "take": 2,
+  "method": "built-in image_gen.imagegen",
+  "provider_path": "C:\\Users\\Peter\\.codex\\generated_images\\01a12885-9926-7f51-bf3c-f9504cb34d52\\exec-6c25eec6-0e85-4ab8-b3fc-c944760ff9c1.png",
+  "path": "assets_src/books/rumi_voice_book_20261011/native/page_20_take2.png",
+  "sha256": "8b0b0e5da21a6fe4f302f2b38e25a85be6c79da0ce075452b9ab4b7203b25d69",
+  "provider_sha256": "8b0b0e5da21a6fe4f302f2b38e25a85be6c79da0ce075452b9ab4b7203b25d69",
+  "rgb_pixel_sha256": "1140c52b1a4d39dd5b25544e28951565ccc4b5cb9937850775bcb9aa1bbe2246",
+  "dimensions": [
+    1024,
+    1536
+  ],
+  "native_mode": "RGB",
+  "prompt": "Use case: precise-object-edit. Input is ONE existing original complete 1024x1536 manga page, page20take1, used as EDIT TARGET. Make ONLY a bounded prop-continuity repair in its first two panels: restore a clearly visible OPAQUE PURPLE FABRIC stage curtain with gold glitter stars/shells, pearl trim and gold tassels, folded at the side edge of the shell-stage microphone approach. The physical purple fabric must be visibly distinct from the existing transparent bubbles/beaded light curtain in front; both layers coexist. Add the same folded fabric side edge and tassels in BOTH panel1 and panel2 so the performer can later swing it across the approach. The curtain belongs to the existing stage, not a new background or magical barrier. Keep every character, pose, face, hand, costume, bubble, foam star, wand, microphone, audience, speaker, caption/balloon WORD and tail unchanged. Do not move figures or lettering. Keep the entire third/bottom panel unchanged. Do not cover anybody's eyes/hands or the small wand/bubble contact. Preserve all three panel boundaries, original native dimensions and complete portrait page; no crop, resizing, photographic collage, extra words or new scene. Only locally restore purple cloth/tassels in the first two panels.\n",
+  "prompt_sha256": "cdc7d8912afcc418a05a9857e6b3cf3844281b7c1ea81140b6a1f5e9414c66ab",
+  "script_sha256": "febb9d5c7f6d82c29dcf8fa3556715577842b2284749fd2f1fea055a046d5967",
+  "references": [
+    {
+      "role": "edit_target",
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_20_take1.png",
+      "sha256": "418fed1f6ba355dc8fd3fc842eed92ac9a27ac5450a054e22d4c3b7a8e12ed0e"
+    }
+  ],
+  "modifications": "Local prop continuity edit: restore purple fabric and tassels in first two panels; preserve words and figures",
+  "provider_revision": "not exposed",
+  "request_id": "not exposed",
+  "seed": "not exposed",
+  "reported_cost": "not exposed",
+  "call_count": 1,
+  "selection": "REVIEW_PENDING",
+  "license_provenance": "Owner-commissioned original project source candidate generated with built-in ImageGen; original project sources used as identity/setting guidance. No copied third-party scene pixels."
+}

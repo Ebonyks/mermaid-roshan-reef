@@ -1,0 +1,22 @@
+{
+  "schema": "pdf_authoring_attempt_v1",
+  "attempt": 1,
+  "command": "C:/Users/Peter/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/python.exe -B assets_src/books/rumi_voice_book_20261011/build_book.py",
+  "initial_tool_result": {
+    "chunk_id": "877d2b",
+    "wall_time_seconds": 10.0012569,
+    "session_id": 39100,
+    "original_token_count": 0,
+    "output": ""
+  },
+  "process_final_exit_code": 1,
+  "native_source_changes": false,
+  "pdf_created": true,
+  "embedded_rgb_pages_passed": 32,
+  "page_count": 32,
+  "render_method": "pypdfium2 fallback: bundled Poppler was not on PATH",
+  "recorded_error": "ValueError: Actual rendered page 1 differs from native RGB pixels: d6652a6b78b96f7855540eef2f26e08a51eccb83ab7fded831690380baf6d057 != c0c81a579891d2a013c49eb6bda5f8829aa1a4415990a061e5239fe9bbe386ea",
+  "terminal_tool_result_not_persisted": true,
+  "subsequent_resolution": "Exact embedded RGB remains a strict delivery gate. Parent clarified actual renderer RGB equality is a separately reported sampling diagnostic; no exact-render claim or source pixel repair.",
+  "marker_rerun": false
+}

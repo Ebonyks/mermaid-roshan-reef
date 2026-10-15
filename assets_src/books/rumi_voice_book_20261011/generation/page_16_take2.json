@@ -1,0 +1,33 @@
+{
+  "page": 16,
+  "take": 2,
+  "method": "built-in image_gen.imagegen",
+  "provider_path": "C:\\Users\\Peter\\.codex\\generated_images\\01a1283e-4d68-75b1-af94-bbc3edfd1dc6\\exec-b43c53a4-a216-458e-810a-2ab3bb45f5bf.png",
+  "path": "assets_src/books/rumi_voice_book_20261011/native/page_16_take2.png",
+  "sha256": "340f49256b2a1cb4af8ac90bd0e4d27be8eb78e2f6478171dd40b8e4a8b9d18e",
+  "provider_sha256": "340f49256b2a1cb4af8ac90bd0e4d27be8eb78e2f6478171dd40b8e4a8b9d18e",
+  "rgb_pixel_sha256": "efbedd0a024cede43206187aae939649e2a1d2b899f2de5d35f04bcbdbe891f2",
+  "dimensions": [
+    1024,
+    1536
+  ],
+  "native_mode": "RGB",
+  "prompt": "Use case: illustration-story. Make a targeted LOCAL lettering correction to the supplied complete 1024x1536 native portrait manga page. Preserve all three unique panel drawings, all people, their facial acting/anatomy/tails, bathhouse, props, colours and exact scripted words. Correct ONLY the bottom panel balloon \"Can we try it again at supper?\": its current tail points to HANA, the copper-haired mermaid at left. This line belongs to ROSHAN, the small brown-haired rainbow-forelock child seated second from RIGHT, immediately beside Rumi. Remove the wrong Hana-directed tail; reposition this balloon within the upper clear background of that same bottom panel as necessary and give it a short clear tail toward ROSHAN's face/hair. Keep natural reading order: Roshan asks first, then the rightmost lavender-braided RUMI answers \"As many times as you like. We'll each have a turn.\" Keep Rumi's answer correct; that balloon may shift slightly to accommodate the corrected question, without covering faces, eyes, hands or towel ears. Do not swap characters, do not add printed speaker names, do not change/add/omit text. All top and middle panel balloons remain unchanged. No crop, resize, layout change, full-scene redraw or new action.\n",
+  "prompt_sha256": "e20186411c2b60c5219fae4ff04173d4eb36cd35efb3807c596452e06124ac06",
+  "script_sha256": "febb9d5c7f6d82c29dcf8fa3556715577842b2284749fd2f1fea055a046d5967",
+  "references": [
+    {
+      "role": "local_edit_target",
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_16_take1.png",
+      "sha256": "30305f06d611fec00b5516820040a6d2b074f571ec10527c9ba6733f5e7d866d"
+    }
+  ],
+  "modifications": "Targeted local ImageGen balloon correction; rejected because shifted question tail toward Nari and added a second wrong reply tail",
+  "provider_revision": "not exposed",
+  "request_id": "not exposed",
+  "seed": "not exposed",
+  "reported_cost": "not exposed",
+  "call_count": 1,
+  "selection": "REVIEW_PENDING",
+  "license_provenance": "Owner-commissioned original project source candidate generated with built-in ImageGen; original project sources used as identity/setting guidance. No copied third-party scene pixels."
+}

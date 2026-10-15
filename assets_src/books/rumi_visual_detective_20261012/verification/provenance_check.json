@@ -1,0 +1,2169 @@
+{
+  "schema": "rumi_detective_selection_provenance_check_v1",
+  "status": "MACHINE_PROVENANCE_PASS_VISUAL_OWNER_CHILD_ACCEPTANCE_SEPARATE",
+  "script_sha256": "ab77f7740592a82b9185c10eb22a7b85ff785726b2f9eb8f01158861d54db6cd",
+  "selection_sha256": "f3492f5eebeca5c29306e7e99ed7bec29c98d599f7177f3a3a43af64670d570f",
+  "source_revision": {
+    "earlier_script_sha256": "b3623441d31710e1afeda9298c0c74e7c3cc3b6b4c8627b7bf9b1b8bafcbf876",
+    "receipt_sha256": "e168c6cfd4b4992c375ff66b0efaab5749cd4d234301fab4ad71b75f06249042",
+    "scope": "One staging hair word corrected; earlier calls accepted only for structurally unchanged source pages"
+  },
+  "checker": {
+    "path": "assets_src/books/rumi_visual_detective_20261012/validate_selection.py",
+    "sha256": "d8807d094115cc18bfe164b8b6efe4b936a025fedc4fc14fd25ae029a0c19de3"
+  },
+  "preceding_script_sha256": "febb9d5c7f6d82c29dcf8fa3556715577842b2284749fd2f1fea055a046d5967",
+  "preceding_selection_sha256": "0e875f78ffe6299c7c8a1ebd41f95b90ca04fe237a3105d06114c4f301329dee",
+  "preceding_manifest_sha256": "ca2eb5d03251b942ebf114fc7096919cfd53448869fd3eac2177d14f51240a10",
+  "pages": 32,
+  "total_panels": 102,
+  "story_words": 1050,
+  "word_count_method": "Whitespace-separated nonempty entry tokens; cover, labels and staging excluded",
+  "manuscript_entry_order_exact": true,
+  "unchanged_source_pages": [
+    1,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29,
+    30,
+    31
+  ],
+  "new_cycle_calls": 24,
+  "new_records": [
+    {
+      "page": 2,
+      "take": 1,
+      "receipt_path": "assets_src/books/rumi_visual_detective_20261012/generation/page_02_take1.json",
+      "receipt_sha256": "eb9c80f8f813825d56ef09c717ac19de42b5e8498899ae69a602ad9239bb18f5",
+      "native_sha256": "3edc3778d3a6a43719c7ae1a9dea0ca20bf0137667d0a536a4d75e67fa42b1eb",
+      "provider_native_byte_match": true,
+      "prompt_hash_match": true,
+      "reference_hashes_match": true,
+      "rgb_pixel_match": true
+    },
+    {
+      "page": 3,
+      "take": 1,
+      "receipt_path": "assets_src/books/rumi_visual_detective_20261012/generation/page_03_take1.json",
+      "receipt_sha256": "edd0d681161be40bd205c9bc7a9481a3f1c73127b70468e1a94ed023048bf51e",
+      "native_sha256": "26a2e1243b66b5d2826185a309d3c2f246a9ea1ac4a6c420f0adbfbeb2961e9a",
+      "provider_native_byte_match": true,
+      "prompt_hash_match": true,
+      "reference_hashes_match": true,
+      "rgb_pixel_match": true
+    },
+    {
+      "page": 3,
+      "take": 2,
+      "receipt_path": "assets_src/books/rumi_visual_detective_20261012/generation/page_03_take2.json",
+      "receipt_sha256": "d3bcf0b39200779e5d26d6193730dbe6f4bebf8218d8fc884d1693ec1fe574bf",
+      "native_sha256": "cab40daad54fa84fcd5016f0a39a0a0a62fd7b0b0af2b6daf5e36ab425b35467",
+      "provider_native_byte_match": true,
+      "prompt_hash_match": true,
+      "reference_hashes_match": true,
+      "rgb_pixel_match": true
+    },
+    {
+      "page": 4,
+      "take": 1,
+      "receipt_path": "assets_src/books/rumi_visual_detective_20261012/generation/page_04_take1.json",
+      "receipt_sha256": "70d75d427800eefa24a1610e6192cbb35f9c704aca9ee4693a943dc56d5d688f",
+      "native_sha256": "a505530802287026de42862dd3d52258e45711e7f04c5883ac25f759920be2b2",
+      "provider_native_byte_match": true,
+      "prompt_hash_match": true,
+      "reference_hashes_match": true,
+      "rgb_pixel_match": true
+    },
+    {
+      "page": 4,
+      "take": 2,
+      "receipt_path": "assets_src/books/rumi_visual_detective_20261012/generation/page_04_take2.json",
+      "receipt_sha256": "b7b515cae5340c80f838748d69c0e0e654bd1306e646ce657c43801d31260f62",
+      "native_sha256": "af4f6ff85a8d085885151809223adbc73af68f65f2b1ac13962b3a74a83735ac",
+      "provider_native_byte_match": true,
+      "prompt_hash_match": true,
+      "reference_hashes_match": true,
+      "rgb_pixel_match": true
+    },
+    {
+      "page": 7,
+      "take": 1,
+      "receipt_path": "assets_src/books/rumi_visual_detective_20261012/generation/page_07_take1.json",
+      "receipt_sha256": "05ba79bf1f43103c1ea3e4d0e4d5c136df9dd027af6bf8b2dc24cf5a89d39821",
+      "native_sha256": "1f0b86e90de045692df1efc2b45deaa8d8ee5788a365d6ce6fd213800fde3a0a",
+      "provider_native_byte_match": true,
+      "prompt_hash_match": true,
+      "reference_hashes_match": true,
+      "rgb_pixel_match": true
+    },
+    {
+      "page": 8,
+      "take": 1,
+      "receipt_path": "assets_src/books/rumi_visual_detective_20261012/generation/page_08_take1.json",
+      "receipt_sha256": "4cde0f748ad553a118b3423e0bc773b20207874d3da02595030240648340fc25",
+      "native_sha256": "81224867ab017307b62ff6e29aea6c9547b579b735776118fa08f08ed5370fe1",
+      "provider_native_byte_match": true,
+      "prompt_hash_match": true,
+      "reference_hashes_match": true,
+      "rgb_pixel_match": true
+    },
+    {
+      "page": 8,
+      "take": 2,
+      "receipt_path": "assets_src/books/rumi_visual_detective_20261012/generation/page_08_take2.json",
+      "receipt_sha256": "6becbb8f0425c5465073d502addecc7f5d6b08c96158401cf15e70b04fd49278",
+      "native_sha256": "137fb8df3fa16300536d11f0af50731d72d07d0c0fb310939ab6aed7325dbac8",
+      "provider_native_byte_match": true,
+      "prompt_hash_match": true,
+      "reference_hashes_match": true,
+      "rgb_pixel_match": true
+    },
+    {
+      "page": 8,
+      "take": 3,
+      "receipt_path": "assets_src/books/rumi_visual_detective_20261012/generation/page_08_take3.json",
+      "receipt_sha256": "b287005faabe25307d605be2e04f34a4fd046a65e81dabe64e7b5cd39da413d3",
+      "native_sha256": "3675b4311b9224f12c83fd3c4d91dfaaea3a4f94253a37998009a58c56fdc9ed",
+      "provider_native_byte_match": true,
+      "prompt_hash_match": true,
+      "reference_hashes_match": true,
+      "rgb_pixel_match": true
+    },
+    {
+      "page": 10,
+      "take": 1,
+      "receipt_path": "assets_src/books/rumi_visual_detective_20261012/generation/page_10_take1.json",
+      "receipt_sha256": "33ab739f42e28d606e6135de1cef4c8b5a22c4882bf896e7810c5a7e54abd0d9",
+      "native_sha256": "63c75fad8c54c61c261cbb71dca8189636f1bbb2a6fcaae4c424073f4a368946",
+      "provider_native_byte_match": true,
+      "prompt_hash_match": true,
+      "reference_hashes_match": true,
+      "rgb_pixel_match": true
+    },
+    {
+      "page": 10,
+      "take": 2,
+      "receipt_path": "assets_src/books/rumi_visual_detective_20261012/generation/page_10_take2.json",
+      "receipt_sha256": "21986ff73115034727b6be3d0a82ad8759d3b85a97bdb417b073a915e3013b7e",
+      "native_sha256": "7f957f06972e712bc08e43ab93a2e5927d2810cd143229aa74c18c5a2cd1f518",
+      "provider_native_byte_match": true,
+      "prompt_hash_match": true,
+      "reference_hashes_match": true,
+      "rgb_pixel_match": true
+    },
+    {
+      "page": 10,
+      "take": 3,
+      "receipt_path": "assets_src/books/rumi_visual_detective_20261012/generation/page_10_take3.json",
+      "receipt_sha256": "b54dc740124f4b5a5f3dffb72201793b186976a443bb3d8b7c99781663d0f37b",
+      "native_sha256": "2ec630084b473e64b70fc030995dbde0bcefbe46d2358aa2b968215f326bfa74",
+      "provider_native_byte_match": true,
+      "prompt_hash_match": true,
+      "reference_hashes_match": true,
+      "rgb_pixel_match": true
+    },
+    {
+      "page": 11,
+      "take": 1,
+      "receipt_path": "assets_src/books/rumi_visual_detective_20261012/generation/page_11_take1.json",
+      "receipt_sha256": "fe3fe2d9d1fd5993db0f8956377b7be1ed393c2a8656f2eddba9b9a2ec70d159",
+      "native_sha256": "9e461f9b46671cdcf01d72c4345319d11449528934321b900d07d188f9da9d9b",
+      "provider_native_byte_match": true,
+      "prompt_hash_match": true,
+      "reference_hashes_match": true,
+      "rgb_pixel_match": true
+    },
+    {
+      "page": 16,
+      "take": 1,
+      "receipt_path": "assets_src/books/rumi_visual_detective_20261012/generation/page_16_take1.json",
+      "receipt_sha256": "04f98928960337783b6c49509ad0a7f2148854193f78617270a1572a1bbc7d16",
+      "native_sha256": "77646df74a846b9bad3db3c38145e5929f909514922812d2f3a1403d1e6ec6d7",
+      "provider_native_byte_match": true,
+      "prompt_hash_match": true,
+      "reference_hashes_match": true,
+      "rgb_pixel_match": true
+    },
+    {
+      "page": 17,
+      "take": 1,
+      "receipt_path": "assets_src/books/rumi_visual_detective_20261012/generation/page_17_take1.json",
+      "receipt_sha256": "3f1393ebd937f5e3ece1de69450ce3957b38a50912ecd57e22b03a7185f5febf",
+      "native_sha256": "f62c7a42ba602937df6c0fac292966d4b4121e996b505e215ceeaf5aab9ec360",
+      "provider_native_byte_match": true,
+      "prompt_hash_match": true,
+      "reference_hashes_match": true,
+      "rgb_pixel_match": true
+    },
+    {
+      "page": 20,
+      "take": 1,
+      "receipt_path": "assets_src/books/rumi_visual_detective_20261012/generation/page_20_take1.json",
+      "receipt_sha256": "cc3496a88d128a9579fc0db32cd5f68ba51ebb797a1af69984bbd6c83235b426",
+      "native_sha256": "bd9f36bb937a6da1ceb106e0f3a77e0917e172b0fb25b0d90e277f7e02aec9e2",
+      "provider_native_byte_match": true,
+      "prompt_hash_match": true,
+      "reference_hashes_match": true,
+      "rgb_pixel_match": true
+    },
+    {
+      "page": 21,
+      "take": 1,
+      "receipt_path": "assets_src/books/rumi_visual_detective_20261012/generation/page_21_take1.json",
+      "receipt_sha256": "e5fffcbfc256184c2d4bda1cf90f6f4e006fd5111b93c54c2a67865eda5d2b5a",
+      "native_sha256": "eb2d25c7b07f2ec7ef11198cec666c21eb09308d0608a314518335a496466cef",
+      "provider_native_byte_match": true,
+      "prompt_hash_match": true,
+      "reference_hashes_match": true,
+      "rgb_pixel_match": true
+    },
+    {
+      "page": 22,
+      "take": 1,
+      "receipt_path": "assets_src/books/rumi_visual_detective_20261012/generation/page_22_take1.json",
+      "receipt_sha256": "1ac5ded03ca99d362e0e05d1466edee8926509486317e6577aedab6e37563712",
+      "native_sha256": "1a5f905d63cefc8e4a55134eb04cc4c1bb2376a59c47f82448dee329ebd42314",
+      "provider_native_byte_match": true,
+      "prompt_hash_match": true,
+      "reference_hashes_match": true,
+      "rgb_pixel_match": true
+    },
+    {
+      "page": 23,
+      "take": 1,
+      "receipt_path": "assets_src/books/rumi_visual_detective_20261012/generation/page_23_take1.json",
+      "receipt_sha256": "9b91a597e9fc1af2020ea1440adf987b8935c6d467991fb27ad70318b6083671",
+      "native_sha256": "e8b64308bba24d180ceeb3aff3d490e4e2388f45cc950ea7aead70ba9b7ff446",
+      "provider_native_byte_match": true,
+      "prompt_hash_match": true,
+      "reference_hashes_match": true,
+      "rgb_pixel_match": true
+    },
+    {
+      "page": 25,
+      "take": 1,
+      "receipt_path": "assets_src/books/rumi_visual_detective_20261012/generation/page_25_take1.json",
+      "receipt_sha256": "ca4f32dce3408a9c0897a40bb77c835505bf2bb51b98100a019f224378da7d7d",
+      "native_sha256": "37059ffd8654cc99ad5635f1ee87ae5c89a104dd991bca997c3d881d0ba2597a",
+      "provider_native_byte_match": true,
+      "prompt_hash_match": true,
+      "reference_hashes_match": true,
+      "rgb_pixel_match": true
+    },
+    {
+      "page": 25,
+      "take": 2,
+      "receipt_path": "assets_src/books/rumi_visual_detective_20261012/generation/page_25_take2.json",
+      "receipt_sha256": "7f4ddcdc5171891c1ac5eab4421ec25d0fb0cb5af721c22217e4f4de4393f8c9",
+      "native_sha256": "c4d8ec66b8077fc406c7f79943df3f9a3d4905e4a6e0b703f0ba55c3dba61cd8",
+      "provider_native_byte_match": true,
+      "prompt_hash_match": true,
+      "reference_hashes_match": true,
+      "rgb_pixel_match": true
+    },
+    {
+      "page": 27,
+      "take": 1,
+      "receipt_path": "assets_src/books/rumi_visual_detective_20261012/generation/page_27_take1.json",
+      "receipt_sha256": "1ed0e8ac930ccf9ea482755f59983f216ce1ba9880cb088457037dd934ed4ef7",
+      "native_sha256": "919003c9365ed37790372be54942ccbcce9160d866deb4196f8b044842d0d716",
+      "provider_native_byte_match": true,
+      "prompt_hash_match": true,
+      "reference_hashes_match": true,
+      "rgb_pixel_match": true
+    },
+    {
+      "page": 27,
+      "take": 2,
+      "receipt_path": "assets_src/books/rumi_visual_detective_20261012/generation/page_27_take2.json",
+      "receipt_sha256": "9cc67239f9640ed9e3c3188af4a0168ac22e35779e3310db06bd0e51aefe3fef",
+      "native_sha256": "cc4aa251d48ddf4d9a4b1e7e342928e03d581e6def43e391446b1eebf2c696f8",
+      "provider_native_byte_match": true,
+      "prompt_hash_match": true,
+      "reference_hashes_match": true,
+      "rgb_pixel_match": true
+    },
+    {
+      "page": 32,
+      "take": 1,
+      "receipt_path": "assets_src/books/rumi_visual_detective_20261012/generation/page_32_take1.json",
+      "receipt_sha256": "c9361a637f67f76ce90c2a176898c651a0801368ee1523c53ff06c4f28c556e0",
+      "native_sha256": "31536a3118ae596d45299498eb657de556f694e8e072b115fa4dbede374780ae",
+      "provider_native_byte_match": true,
+      "prompt_hash_match": true,
+      "reference_hashes_match": true,
+      "rgb_pixel_match": true
+    }
+  ],
+  "reused_selected_records": [
+    {
+      "page": 1,
+      "take": 1,
+      "receipt_path": "assets_src/books/rumi_voice_book_20261011/generation/page_01_take1.json",
+      "receipt_sha256": "8cf4291cad2997124eb3a4b4f7ef055762a90c9b9238329a613527bbadcc345e",
+      "native_sha256": "da123e2196a887725b7e82abac7c2beaa1cd861a9c48b6abe0a300d99bf41bb9",
+      "provider_native_byte_match": true,
+      "prompt_hash_match": true,
+      "reference_hashes_match": true,
+      "rgb_pixel_match": true
+    },
+    {
+      "page": 5,
+      "take": 1,
+      "receipt_path": "assets_src/books/rumi_voice_book_20261011/generation/page_05_take1.json",
+      "receipt_sha256": "17860e22e5194f4487ea58c8342327e5ddac71e36c2558c4e934d787001d56dc",
+      "native_sha256": "76ac7535dacaec9d1ab66d2eb6586987412e787420318ece80cf984e4fa79fed",
+      "provider_native_byte_match": true,
+      "prompt_hash_match": true,
+      "reference_hashes_match": true,
+      "rgb_pixel_match": true
+    },
+    {
+      "page": 6,
+      "take": 2,
+      "receipt_path": "assets_src/books/rumi_voice_book_20261011/generation/page_06_take2.json",
+      "receipt_sha256": "f8fadae588ccad83fcf9b3cef47e5d8900518a0c59f01d8aa6dbaa8c81c29634",
+      "native_sha256": "b2c5938b1a3bd1f1f705e5095d0ca07c7044faefdc154e56fcee8a750f522ac1",
+      "provider_native_byte_match": true,
+      "prompt_hash_match": true,
+      "reference_hashes_match": true,
+      "rgb_pixel_match": true
+    },
+    {
+      "page": 9,
+      "take": 3,
+      "receipt_path": "assets_src/books/rumi_voice_book_20261011/generation/page_09_take3.json",
+      "receipt_sha256": "f9c8d16898aab7cbb84b6c662efbb5004cb829538d58683f748d93a7897b7302",
+      "native_sha256": "013c7ee2e14e2527243bc97cce8df6f8aaacaf0b227e1bb7c3e772f5ad9d46ee",
+      "provider_native_byte_match": true,
+      "prompt_hash_match": true,
+      "reference_hashes_match": true,
+      "rgb_pixel_match": true
+    },
+    {
+      "page": 12,
+      "take": 2,
+      "receipt_path": "assets_src/books/rumi_voice_book_20261011/generation/page_12_take2.json",
+      "receipt_sha256": "9a84e0b423efade81d04c225ffe6fb55d30744abd3026b0163fcb4bed4702bfb",
+      "native_sha256": "6d7f6e8f0c4d1a6f6f66ab50c6f3fc0f6a149a84f566ab71deb94e595f75f3b8",
+      "provider_native_byte_match": true,
+      "prompt_hash_match": true,
+      "reference_hashes_match": true,
+      "rgb_pixel_match": true
+    },
+    {
+      "page": 13,
+      "take": 1,
+      "receipt_path": "assets_src/books/rumi_voice_book_20261011/generation/page_13_take1.json",
+      "receipt_sha256": "e635a953d1e6a9aca9a79d0a1a16f136c1b31ffa0fc4cd5e7204a1fefedd1099",
+      "native_sha256": "a2b7f62f3e8e0a2dfe9211302b69cf32d502f6143a5f1e0cdcd5286b3d5caa7e",
+      "provider_native_byte_match": true,
+      "prompt_hash_match": true,
+      "reference_hashes_match": true,
+      "rgb_pixel_match": true
+    },
+    {
+      "page": 14,
+      "take": 1,
+      "receipt_path": "assets_src/books/rumi_voice_book_20261011/generation/page_14_take1.json",
+      "receipt_sha256": "a98f23a305182205162ecf9b6e3582b3c2126ed5232ed5db33d3a5c7185f5e39",
+      "native_sha256": "5b4e8f69b291f597dd686514ee4fd780c9f2fd5a59cd499be9e8230f104fa5c4",
+      "provider_native_byte_match": true,
+      "prompt_hash_match": true,
+      "reference_hashes_match": true,
+      "rgb_pixel_match": true
+    },
+    {
+      "page": 15,
+      "take": 1,
+      "receipt_path": "assets_src/books/rumi_voice_book_20261011/generation/page_15_take1.json",
+      "receipt_sha256": "2e76376699903d74110e28cf7947148ec60fb990c62388ea18a4001be1875eaf",
+      "native_sha256": "252085dcdbac0c309d1995166231216b001a596c3da40bfafc02f631388a72b6",
+      "provider_native_byte_match": true,
+      "prompt_hash_match": true,
+      "reference_hashes_match": true,
+      "rgb_pixel_match": true
+    },
+    {
+      "page": 18,
+      "take": 2,
+      "receipt_path": "assets_src/books/rumi_voice_book_20261011/generation/page_18_take2.json",
+      "receipt_sha256": "7ad59820974a9201e57874569cdf1efd9a226bc9ba1dd3b636c5a5efdb8118ce",
+      "native_sha256": "078b22b5d88f152a07bc51988f66971b50726d078672c3278f458c43a0e5152b",
+      "provider_native_byte_match": true,
+      "prompt_hash_match": true,
+      "reference_hashes_match": true,
+      "rgb_pixel_match": true
+    },
+    {
+      "page": 19,
+      "take": 1,
+      "receipt_path": "assets_src/books/rumi_voice_book_20261011/generation/page_19_take1.json",
+      "receipt_sha256": "a718546a3fb79d5cdab04e427eee5506afdc568cc42392ea5a6e148b8d5ad926",
+      "native_sha256": "a728542d5bc194ff84a0d5adaccd3efe9fc2d1bb417f14352cc66567cfc05fb5",
+      "provider_native_byte_match": true,
+      "prompt_hash_match": true,
+      "reference_hashes_match": true,
+      "rgb_pixel_match": true
+    },
+    {
+      "page": 24,
+      "take": 3,
+      "receipt_path": "assets_src/books/rumi_voice_book_20261011/generation/page_24_take3.json",
+      "receipt_sha256": "95d832b5b92feb5025021ef65c90f6a701c340f94eea5de83f13d726bc9c3d71",
+      "native_sha256": "1821fe130cc0e916d5c8822d4ebd6023121ce0faceeec9e4fcc9adda915c958c",
+      "provider_native_byte_match": true,
+      "prompt_hash_match": true,
+      "reference_hashes_match": true,
+      "rgb_pixel_match": true
+    },
+    {
+      "page": 26,
+      "take": 1,
+      "receipt_path": "assets_src/books/rumi_voice_book_20261011/generation/page_26_take1.json",
+      "receipt_sha256": "3d2559d016f35059b896fd2f2ca2c6fbf024e731e7cb5540d0c55b6d4566733f",
+      "native_sha256": "df82ab99dc1a54c0b158801dfa7ca5df45648bc5c34c5f8d8e19f95cb07b1990",
+      "provider_native_byte_match": true,
+      "prompt_hash_match": true,
+      "reference_hashes_match": true,
+      "rgb_pixel_match": true
+    },
+    {
+      "page": 28,
+      "take": 1,
+      "receipt_path": "assets_src/books/rumi_voice_book_20261011/generation/page_28_take1.json",
+      "receipt_sha256": "4f94cb897d66c44b28fb1a6638ac27396cc05428edda7ccdfd28ebc728866aa9",
+      "native_sha256": "3fca50bd33978d2507cbc1722da0da6ee1d1df242b658ada1f9b5e6590a54cea",
+      "provider_native_byte_match": true,
+      "prompt_hash_match": true,
+      "reference_hashes_match": true,
+      "rgb_pixel_match": true
+    },
+    {
+      "page": 29,
+      "take": 2,
+      "receipt_path": "assets_src/books/rumi_voice_book_20261011/generation/page_29_take2.json",
+      "receipt_sha256": "c7ed37174b4b862738b40019e27542e05b5372b0f5150e3bae457f27964c4ffb",
+      "native_sha256": "3f1fc8182a7adf5c49ee53f4f3728e8f7dc52962c62cae1ce80b9d508911a695",
+      "provider_native_byte_match": true,
+      "prompt_hash_match": true,
+      "reference_hashes_match": true,
+      "rgb_pixel_match": true
+    },
+    {
+      "page": 30,
+      "take": 1,
+      "receipt_path": "assets_src/books/rumi_voice_book_20261011/generation/page_30_take1.json",
+      "receipt_sha256": "149d04c993fd101c7933d76ef2848ae91fd48e4401e99ca8eec110ef403e689c",
+      "native_sha256": "5e2145a038f24cbf08ffb4f044a4b6f1d861f7c728ea9e2a28cb1ee2328196ca",
+      "provider_native_byte_match": true,
+      "prompt_hash_match": true,
+      "reference_hashes_match": true,
+      "rgb_pixel_match": true
+    },
+    {
+      "page": 31,
+      "take": 1,
+      "receipt_path": "assets_src/books/rumi_voice_book_20261011/generation/page_31_take1.json",
+      "receipt_sha256": "87a0dafd65fb917c052075cf00b79a9af2446e15ba02515da09798bab1b52bbc",
+      "native_sha256": "d26cd93f6296ac66a093d32ef001b43d3ec40bd261a59d576aa8c676fe354172",
+      "provider_native_byte_match": true,
+      "prompt_hash_match": true,
+      "reference_hashes_match": true,
+      "rgb_pixel_match": true
+    }
+  ],
+  "selected_pages": [
+    {
+      "number": 1,
+      "kind": "cover",
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_01_take1.png",
+      "take": 1,
+      "sha256": "da123e2196a887725b7e82abac7c2beaa1cd861a9c48b6abe0a300d99bf41bb9",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "mode": "RGB",
+      "rgb_pixel_sha256": "c0c81a579891d2a013c49eb6bda5f8829aa1a4415990a061e5239fe9bbe386ea",
+      "origin": "PREVIOUS_COMPLETE_NATIVE_PAGE_UNCHANGED_STORY",
+      "source_page_sha256": "87d877c2b7ff7ddcc2e664ef304731a89c97500fc1d9576b91d4bf224f9ef389",
+      "pdf_placement_points": [
+        0,
+        0,
+        512.0,
+        768.0
+      ],
+      "raster_resize": false,
+      "crop": false,
+      "visible_text_overlays": false,
+      "distortion": false
+    },
+    {
+      "number": 2,
+      "kind": "story",
+      "path": "assets_src/books/rumi_visual_detective_20261012/native/page_02_take1.png",
+      "take": 1,
+      "sha256": "3edc3778d3a6a43719c7ae1a9dea0ca20bf0137667d0a536a4d75e67fa42b1eb",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "mode": "RGB",
+      "rgb_pixel_sha256": "9b9ca595c2e01311e932d0c4215cedf25b4db5bc29cb6c950aa2005c6a44bca3",
+      "origin": "NEW_COMPLETE_NATIVE_PAGE_CURRENT_SCRIPT",
+      "source_page_sha256": "4ae1a9f13e485240536bdea11233857c109cc751cf595d1093753b7233581e9c",
+      "pdf_placement_points": [
+        0,
+        0,
+        512.0,
+        768.0
+      ],
+      "raster_resize": false,
+      "crop": false,
+      "visible_text_overlays": false,
+      "distortion": false
+    },
+    {
+      "number": 3,
+      "kind": "story",
+      "path": "assets_src/books/rumi_visual_detective_20261012/native/page_03_take2.png",
+      "take": 2,
+      "sha256": "cab40daad54fa84fcd5016f0a39a0a0a62fd7b0b0af2b6daf5e36ab425b35467",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "mode": "RGB",
+      "rgb_pixel_sha256": "cc2524ed5bb360b8b9574453e33a659fac0c23e88b49d00805f77a119d962171",
+      "origin": "NEW_COMPLETE_NATIVE_PAGE_CURRENT_SCRIPT",
+      "source_page_sha256": "b0fe06e36ae4938b4cc22cba645dda0c2be4b1f7d5e4e5923fe84dec813e7481",
+      "pdf_placement_points": [
+        0,
+        0,
+        512.0,
+        768.0
+      ],
+      "raster_resize": false,
+      "crop": false,
+      "visible_text_overlays": false,
+      "distortion": false
+    },
+    {
+      "number": 4,
+      "kind": "story",
+      "path": "assets_src/books/rumi_visual_detective_20261012/native/page_04_take2.png",
+      "take": 2,
+      "sha256": "af4f6ff85a8d085885151809223adbc73af68f65f2b1ac13962b3a74a83735ac",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "mode": "RGB",
+      "rgb_pixel_sha256": "64ff6e302654f687ce678241e28422185ecf12faeebe0e8acf4dd073036a6205",
+      "origin": "NEW_COMPLETE_NATIVE_PAGE_CURRENT_SCRIPT",
+      "source_page_sha256": "3572dee7ecd20c0335e2d11d9b1f2af5edc267a9982ea438763c0b5b07a947f0",
+      "pdf_placement_points": [
+        0,
+        0,
+        512.0,
+        768.0
+      ],
+      "raster_resize": false,
+      "crop": false,
+      "visible_text_overlays": false,
+      "distortion": false
+    },
+    {
+      "number": 5,
+      "kind": "story",
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_05_take1.png",
+      "take": 1,
+      "sha256": "76ac7535dacaec9d1ab66d2eb6586987412e787420318ece80cf984e4fa79fed",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "mode": "RGB",
+      "rgb_pixel_sha256": "a8cdffd696ecd11b19bcb388d4afcc017c779916a29e7cc381e56f5de04ea9de",
+      "origin": "PREVIOUS_COMPLETE_NATIVE_PAGE_UNCHANGED_STORY",
+      "source_page_sha256": "f512dd7cdad29edbed8c001c770ffbd231fa2f740b49eaacefd997972bba19df",
+      "pdf_placement_points": [
+        0,
+        0,
+        512.0,
+        768.0
+      ],
+      "raster_resize": false,
+      "crop": false,
+      "visible_text_overlays": false,
+      "distortion": false
+    },
+    {
+      "number": 6,
+      "kind": "story",
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_06_take2.png",
+      "take": 2,
+      "sha256": "b2c5938b1a3bd1f1f705e5095d0ca07c7044faefdc154e56fcee8a750f522ac1",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "mode": "RGB",
+      "rgb_pixel_sha256": "40810339f5d98bf6816b2eb4a3c3093f0d774658684fd2a5f99a96fce0697419",
+      "origin": "PREVIOUS_COMPLETE_NATIVE_PAGE_UNCHANGED_STORY",
+      "source_page_sha256": "d14f72c0d2cff4bf7be6c07c08a989115d0d71bc1d338de5393ebe200d93e67d",
+      "pdf_placement_points": [
+        0,
+        0,
+        512.0,
+        768.0
+      ],
+      "raster_resize": false,
+      "crop": false,
+      "visible_text_overlays": false,
+      "distortion": false
+    },
+    {
+      "number": 7,
+      "kind": "story",
+      "path": "assets_src/books/rumi_visual_detective_20261012/native/page_07_take1.png",
+      "take": 1,
+      "sha256": "1f0b86e90de045692df1efc2b45deaa8d8ee5788a365d6ce6fd213800fde3a0a",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "mode": "RGB",
+      "rgb_pixel_sha256": "cc6a7222987cc3410f7b3a107385d93fed5d9a64823693034c259fe5026fb595",
+      "origin": "NEW_COMPLETE_NATIVE_PAGE_CURRENT_SCRIPT",
+      "source_page_sha256": "76f9d5d364665fa326140e899ec1e32d10d54e7ef3ef12085529fb044a819554",
+      "pdf_placement_points": [
+        0,
+        0,
+        512.0,
+        768.0
+      ],
+      "raster_resize": false,
+      "crop": false,
+      "visible_text_overlays": false,
+      "distortion": false
+    },
+    {
+      "number": 8,
+      "kind": "story",
+      "path": "assets_src/books/rumi_visual_detective_20261012/native/page_08_take3.png",
+      "take": 3,
+      "sha256": "3675b4311b9224f12c83fd3c4d91dfaaea3a4f94253a37998009a58c56fdc9ed",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "mode": "RGB",
+      "rgb_pixel_sha256": "9de77c327c9a0b42043d9b3abb7fe4901fa71a1cd9b66a67b8854f914c253464",
+      "origin": "NEW_COMPLETE_NATIVE_PAGE_CURRENT_SCRIPT",
+      "source_page_sha256": "9607e522e9aa18eadf279d7c4fd1994174072027acbd050ebe5e9bfcf5c0dd0d",
+      "pdf_placement_points": [
+        0,
+        0,
+        512.0,
+        768.0
+      ],
+      "raster_resize": false,
+      "crop": false,
+      "visible_text_overlays": false,
+      "distortion": false
+    },
+    {
+      "number": 9,
+      "kind": "story",
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_09_take3.png",
+      "take": 3,
+      "sha256": "013c7ee2e14e2527243bc97cce8df6f8aaacaf0b227e1bb7c3e772f5ad9d46ee",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "mode": "RGB",
+      "rgb_pixel_sha256": "0e4f0b2488f8fcd1113aeb86c57ac1ef1fce700c531f6980cb5e8c04e6a80c1f",
+      "origin": "PREVIOUS_COMPLETE_NATIVE_PAGE_UNCHANGED_STORY",
+      "source_page_sha256": "dce4d01269412049a8b0a147e502453c95c4e8d622e1395ed2e1048912024510",
+      "pdf_placement_points": [
+        0,
+        0,
+        512.0,
+        768.0
+      ],
+      "raster_resize": false,
+      "crop": false,
+      "visible_text_overlays": false,
+      "distortion": false
+    },
+    {
+      "number": 10,
+      "kind": "story",
+      "path": "assets_src/books/rumi_visual_detective_20261012/native/page_10_take3.png",
+      "take": 3,
+      "sha256": "2ec630084b473e64b70fc030995dbde0bcefbe46d2358aa2b968215f326bfa74",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "mode": "RGB",
+      "rgb_pixel_sha256": "6fcc963217f02e9863bb5cb45c11d9e0a5620750a32664e86bf267e2f0e4e529",
+      "origin": "NEW_COMPLETE_NATIVE_PAGE_CURRENT_SCRIPT",
+      "source_page_sha256": "2a9d1757ad307465bdd644dd3498b3b1561ccf7a1ccf23097395e1f0f505a29f",
+      "pdf_placement_points": [
+        0,
+        0,
+        512.0,
+        768.0
+      ],
+      "raster_resize": false,
+      "crop": false,
+      "visible_text_overlays": false,
+      "distortion": false
+    },
+    {
+      "number": 11,
+      "kind": "story",
+      "path": "assets_src/books/rumi_visual_detective_20261012/native/page_11_take1.png",
+      "take": 1,
+      "sha256": "9e461f9b46671cdcf01d72c4345319d11449528934321b900d07d188f9da9d9b",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "mode": "RGB",
+      "rgb_pixel_sha256": "2b98ee08ab79edac44755346dc9beb2dcefca3267594ab031d8b355e35ab2405",
+      "origin": "NEW_COMPLETE_NATIVE_PAGE_CURRENT_SCRIPT",
+      "source_page_sha256": "e5a20c5a911a3f8c205d605a7593a2693967ecf2f8ad1e603493a37d82a5a8da",
+      "pdf_placement_points": [
+        0,
+        0,
+        512.0,
+        768.0
+      ],
+      "raster_resize": false,
+      "crop": false,
+      "visible_text_overlays": false,
+      "distortion": false
+    },
+    {
+      "number": 12,
+      "kind": "story",
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_12_take2.png",
+      "take": 2,
+      "sha256": "6d7f6e8f0c4d1a6f6f66ab50c6f3fc0f6a149a84f566ab71deb94e595f75f3b8",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "mode": "RGB",
+      "rgb_pixel_sha256": "c95835ff25db66262f2b79c6af613b2af09be0735ba9a69d5c4991b101c9b5b5",
+      "origin": "PREVIOUS_COMPLETE_NATIVE_PAGE_UNCHANGED_STORY",
+      "source_page_sha256": "468ae895594ea945bb2b8c010e80d9a539619392373b3ddbd71a787925b5f6f4",
+      "pdf_placement_points": [
+        0,
+        0,
+        512.0,
+        768.0
+      ],
+      "raster_resize": false,
+      "crop": false,
+      "visible_text_overlays": false,
+      "distortion": false
+    },
+    {
+      "number": 13,
+      "kind": "story",
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_13_take1.png",
+      "take": 1,
+      "sha256": "a2b7f62f3e8e0a2dfe9211302b69cf32d502f6143a5f1e0cdcd5286b3d5caa7e",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "mode": "RGB",
+      "rgb_pixel_sha256": "92399bd7231909d1f794cb5d12bd5833b2805aba4cad424bf050fafa536f9b1a",
+      "origin": "PREVIOUS_COMPLETE_NATIVE_PAGE_UNCHANGED_STORY",
+      "source_page_sha256": "10c9eb60fdaa0ce16d7dfd2317bba2ab6e39f54b66d523dca1dcb6a91fdb1912",
+      "pdf_placement_points": [
+        0,
+        0,
+        512.0,
+        768.0
+      ],
+      "raster_resize": false,
+      "crop": false,
+      "visible_text_overlays": false,
+      "distortion": false
+    },
+    {
+      "number": 14,
+      "kind": "story",
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_14_take1.png",
+      "take": 1,
+      "sha256": "5b4e8f69b291f597dd686514ee4fd780c9f2fd5a59cd499be9e8230f104fa5c4",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "mode": "RGB",
+      "rgb_pixel_sha256": "d8e5d347e834ba01ad46994b92e53cdea37ef7a2c2d7579b04fcda905e81bb15",
+      "origin": "PREVIOUS_COMPLETE_NATIVE_PAGE_UNCHANGED_STORY",
+      "source_page_sha256": "20e6ed409f3e556051167729a417037fdc34511937b397b7c931dc46de039428",
+      "pdf_placement_points": [
+        0,
+        0,
+        512.0,
+        768.0
+      ],
+      "raster_resize": false,
+      "crop": false,
+      "visible_text_overlays": false,
+      "distortion": false
+    },
+    {
+      "number": 15,
+      "kind": "story",
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_15_take1.png",
+      "take": 1,
+      "sha256": "252085dcdbac0c309d1995166231216b001a596c3da40bfafc02f631388a72b6",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "mode": "RGB",
+      "rgb_pixel_sha256": "9b07f37aaee62084bbcacac53022cdb9b4c3cb5a1d631d8c1602a8fdf8015ed8",
+      "origin": "PREVIOUS_COMPLETE_NATIVE_PAGE_UNCHANGED_STORY",
+      "source_page_sha256": "a1e309076c5352e5b1da6b59df382e8d1d33331b22808e2f6005cd5f96034a4e",
+      "pdf_placement_points": [
+        0,
+        0,
+        512.0,
+        768.0
+      ],
+      "raster_resize": false,
+      "crop": false,
+      "visible_text_overlays": false,
+      "distortion": false
+    },
+    {
+      "number": 16,
+      "kind": "story",
+      "path": "assets_src/books/rumi_visual_detective_20261012/native/page_16_take1.png",
+      "take": 1,
+      "sha256": "77646df74a846b9bad3db3c38145e5929f909514922812d2f3a1403d1e6ec6d7",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "mode": "RGB",
+      "rgb_pixel_sha256": "e46e2e2f46cae3a60120ade06d1944212405cb1788faa88b8f41063a827bbe65",
+      "origin": "NEW_COMPLETE_NATIVE_PAGE_CURRENT_SCRIPT",
+      "source_page_sha256": "e674e9e21d4d8f8010b9e52d30b0cef60ba30435b46bed9fbf3dca1a6f12cff6",
+      "pdf_placement_points": [
+        0,
+        0,
+        512.0,
+        768.0
+      ],
+      "raster_resize": false,
+      "crop": false,
+      "visible_text_overlays": false,
+      "distortion": false
+    },
+    {
+      "number": 17,
+      "kind": "story",
+      "path": "assets_src/books/rumi_visual_detective_20261012/native/page_17_take1.png",
+      "take": 1,
+      "sha256": "f62c7a42ba602937df6c0fac292966d4b4121e996b505e215ceeaf5aab9ec360",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "mode": "RGB",
+      "rgb_pixel_sha256": "ad4180fd4e8a64c02b0cd33c29c325e9abadf8713c8193448b2a14da9e893b05",
+      "origin": "NEW_COMPLETE_NATIVE_PAGE_CURRENT_SCRIPT",
+      "source_page_sha256": "b67b0a1eeae2543c5707ae7f452baf65ddf1a6f59a945981904c2a1dc8635624",
+      "pdf_placement_points": [
+        0,
+        0,
+        512.0,
+        768.0
+      ],
+      "raster_resize": false,
+      "crop": false,
+      "visible_text_overlays": false,
+      "distortion": false
+    },
+    {
+      "number": 18,
+      "kind": "story",
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_18_take2.png",
+      "take": 2,
+      "sha256": "078b22b5d88f152a07bc51988f66971b50726d078672c3278f458c43a0e5152b",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "mode": "RGB",
+      "rgb_pixel_sha256": "c6a7ee788aa6e510069629ac8e25ef06eca9e0c9ab0edf8a0117182b51b22657",
+      "origin": "PREVIOUS_COMPLETE_NATIVE_PAGE_UNCHANGED_STORY",
+      "source_page_sha256": "0af6b4df44e4b47d7c902caa29260e8ed40f9d4fb3de47fb03d60cd93483970e",
+      "pdf_placement_points": [
+        0,
+        0,
+        512.0,
+        768.0
+      ],
+      "raster_resize": false,
+      "crop": false,
+      "visible_text_overlays": false,
+      "distortion": false
+    },
+    {
+      "number": 19,
+      "kind": "story",
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_19_take1.png",
+      "take": 1,
+      "sha256": "a728542d5bc194ff84a0d5adaccd3efe9fc2d1bb417f14352cc66567cfc05fb5",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "mode": "RGB",
+      "rgb_pixel_sha256": "ba17d316b75b66e56b0bcc394fafab0008c21ce62c944a80494c7a6b4f0a2b83",
+      "origin": "PREVIOUS_COMPLETE_NATIVE_PAGE_UNCHANGED_STORY",
+      "source_page_sha256": "a43f293a4e4bda7fce07489be9557f3d3c1384c56f4ae01c6ded9c6ac7df1906",
+      "pdf_placement_points": [
+        0,
+        0,
+        512.0,
+        768.0
+      ],
+      "raster_resize": false,
+      "crop": false,
+      "visible_text_overlays": false,
+      "distortion": false
+    },
+    {
+      "number": 20,
+      "kind": "story",
+      "path": "assets_src/books/rumi_visual_detective_20261012/native/page_20_take1.png",
+      "take": 1,
+      "sha256": "bd9f36bb937a6da1ceb106e0f3a77e0917e172b0fb25b0d90e277f7e02aec9e2",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "mode": "RGB",
+      "rgb_pixel_sha256": "0323cd9a424725d7ebbf985b6cf34812fa160a728e7d8c490f058fa0fbadf270",
+      "origin": "NEW_COMPLETE_NATIVE_PAGE_CURRENT_SCRIPT",
+      "source_page_sha256": "f8724db2138b4dbfa8f3160e3bf9e193fd756569d6677d5b3084f5599addbde5",
+      "pdf_placement_points": [
+        0,
+        0,
+        512.0,
+        768.0
+      ],
+      "raster_resize": false,
+      "crop": false,
+      "visible_text_overlays": false,
+      "distortion": false
+    },
+    {
+      "number": 21,
+      "kind": "story",
+      "path": "assets_src/books/rumi_visual_detective_20261012/native/page_21_take1.png",
+      "take": 1,
+      "sha256": "eb2d25c7b07f2ec7ef11198cec666c21eb09308d0608a314518335a496466cef",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "mode": "RGB",
+      "rgb_pixel_sha256": "3abe835ef4a59412dad8024856c9b3a124baf7ae18ae320bc44ea4cd606ad89a",
+      "origin": "NEW_COMPLETE_NATIVE_PAGE_CURRENT_SCRIPT",
+      "source_page_sha256": "ac69420904807acda98d33053f9ddbd9b7f583831a242d982f6f2650d9cca5a2",
+      "pdf_placement_points": [
+        0,
+        0,
+        512.0,
+        768.0
+      ],
+      "raster_resize": false,
+      "crop": false,
+      "visible_text_overlays": false,
+      "distortion": false
+    },
+    {
+      "number": 22,
+      "kind": "story",
+      "path": "assets_src/books/rumi_visual_detective_20261012/native/page_22_take1.png",
+      "take": 1,
+      "sha256": "1a5f905d63cefc8e4a55134eb04cc4c1bb2376a59c47f82448dee329ebd42314",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "mode": "RGB",
+      "rgb_pixel_sha256": "f1c28c08dc543e5dfcf414bafd835227537ae99300dcb15c4ace624e7b76ec95",
+      "origin": "NEW_COMPLETE_NATIVE_PAGE_CURRENT_SCRIPT",
+      "source_page_sha256": "3f38a126fcf79bf3e37c6068e08e94863d55b61d1f3b6d2faa664c6d6effc9cc",
+      "pdf_placement_points": [
+        0,
+        0,
+        512.0,
+        768.0
+      ],
+      "raster_resize": false,
+      "crop": false,
+      "visible_text_overlays": false,
+      "distortion": false
+    },
+    {
+      "number": 23,
+      "kind": "story",
+      "path": "assets_src/books/rumi_visual_detective_20261012/native/page_23_take1.png",
+      "take": 1,
+      "sha256": "e8b64308bba24d180ceeb3aff3d490e4e2388f45cc950ea7aead70ba9b7ff446",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "mode": "RGB",
+      "rgb_pixel_sha256": "13bf84745e8b7b2e6314a1b7fc238509c3245c1d39138d9cd13c4d269b459d5e",
+      "origin": "NEW_COMPLETE_NATIVE_PAGE_CURRENT_SCRIPT",
+      "source_page_sha256": "fa3f00abf699e0c175038945115552ddc59388c4608b44a3e8eeedd763cc5e13",
+      "pdf_placement_points": [
+        0,
+        0,
+        512.0,
+        768.0
+      ],
+      "raster_resize": false,
+      "crop": false,
+      "visible_text_overlays": false,
+      "distortion": false
+    },
+    {
+      "number": 24,
+      "kind": "story",
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_24_take3.png",
+      "take": 3,
+      "sha256": "1821fe130cc0e916d5c8822d4ebd6023121ce0faceeec9e4fcc9adda915c958c",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "mode": "RGB",
+      "rgb_pixel_sha256": "0c9b981a94ed215cb73a8068c3b6dde1fe414afa749423060ba052083d2cb7d0",
+      "origin": "PREVIOUS_COMPLETE_NATIVE_PAGE_UNCHANGED_STORY",
+      "source_page_sha256": "bb9209d208f94d9a72db5f5603be3b1a3ff014db75dc4de132973ad4c91db91a",
+      "pdf_placement_points": [
+        0,
+        0,
+        512.0,
+        768.0
+      ],
+      "raster_resize": false,
+      "crop": false,
+      "visible_text_overlays": false,
+      "distortion": false
+    },
+    {
+      "number": 25,
+      "kind": "story",
+      "path": "assets_src/books/rumi_visual_detective_20261012/native/page_25_take2.png",
+      "take": 2,
+      "sha256": "c4d8ec66b8077fc406c7f79943df3f9a3d4905e4a6e0b703f0ba55c3dba61cd8",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "mode": "RGB",
+      "rgb_pixel_sha256": "f0a984394ca74b95ec2ebb37717bfc142952813daa2336e6c8597099af493156",
+      "origin": "NEW_COMPLETE_NATIVE_PAGE_CURRENT_SCRIPT",
+      "source_page_sha256": "757d90a6f490e987183ea25e20cbdd703dad83a3c2a9942c47358d6da768258f",
+      "pdf_placement_points": [
+        0,
+        0,
+        512.0,
+        768.0
+      ],
+      "raster_resize": false,
+      "crop": false,
+      "visible_text_overlays": false,
+      "distortion": false
+    },
+    {
+      "number": 26,
+      "kind": "story",
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_26_take1.png",
+      "take": 1,
+      "sha256": "df82ab99dc1a54c0b158801dfa7ca5df45648bc5c34c5f8d8e19f95cb07b1990",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "mode": "RGB",
+      "rgb_pixel_sha256": "5579dc777ba83803a6d038263ecde39183152b2eb47e6b9678a66cd107001850",
+      "origin": "PREVIOUS_COMPLETE_NATIVE_PAGE_UNCHANGED_STORY",
+      "source_page_sha256": "a52532fc9f15022a7f9f982be9771baebff206cd1e01f489352eabc604dfdb5d",
+      "pdf_placement_points": [
+        0,
+        0,
+        512.0,
+        768.0
+      ],
+      "raster_resize": false,
+      "crop": false,
+      "visible_text_overlays": false,
+      "distortion": false
+    },
+    {
+      "number": 27,
+      "kind": "story",
+      "path": "assets_src/books/rumi_visual_detective_20261012/native/page_27_take2.png",
+      "take": 2,
+      "sha256": "cc4aa251d48ddf4d9a4b1e7e342928e03d581e6def43e391446b1eebf2c696f8",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "mode": "RGB",
+      "rgb_pixel_sha256": "d072ab1980ae389297e16593ac6c5d0c7447a461913b9c90271e67f729f857fd",
+      "origin": "NEW_COMPLETE_NATIVE_PAGE_CURRENT_SCRIPT",
+      "source_page_sha256": "2de183b9743b89db9df01b1964b0507ea1d3532e16ccebd07a37e8f940baa029",
+      "pdf_placement_points": [
+        0,
+        0,
+        512.0,
+        768.0
+      ],
+      "raster_resize": false,
+      "crop": false,
+      "visible_text_overlays": false,
+      "distortion": false
+    },
+    {
+      "number": 28,
+      "kind": "story",
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_28_take1.png",
+      "take": 1,
+      "sha256": "3fca50bd33978d2507cbc1722da0da6ee1d1df242b658ada1f9b5e6590a54cea",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "mode": "RGB",
+      "rgb_pixel_sha256": "09598016190b559bd091a675120257925d6aa22259a61f4a08f65852c9fbe575",
+      "origin": "PREVIOUS_COMPLETE_NATIVE_PAGE_UNCHANGED_STORY",
+      "source_page_sha256": "d1cfdaf1e3a366f9b86ddf951c36a1702b182f09e229fcc6b5c2a45e663b7be0",
+      "pdf_placement_points": [
+        0,
+        0,
+        512.0,
+        768.0
+      ],
+      "raster_resize": false,
+      "crop": false,
+      "visible_text_overlays": false,
+      "distortion": false
+    },
+    {
+      "number": 29,
+      "kind": "story",
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_29_take2.png",
+      "take": 2,
+      "sha256": "3f1fc8182a7adf5c49ee53f4f3728e8f7dc52962c62cae1ce80b9d508911a695",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "mode": "RGB",
+      "rgb_pixel_sha256": "5eda9ec40f885843800f14afb0d94bf1c2f18d50d474a440c36a193049bd4f79",
+      "origin": "PREVIOUS_COMPLETE_NATIVE_PAGE_UNCHANGED_STORY",
+      "source_page_sha256": "a9583fb1c051e89c2fbf2b32ccd223a479c9e1bee616694e3fbf4cf9694411ce",
+      "pdf_placement_points": [
+        0,
+        0,
+        512.0,
+        768.0
+      ],
+      "raster_resize": false,
+      "crop": false,
+      "visible_text_overlays": false,
+      "distortion": false
+    },
+    {
+      "number": 30,
+      "kind": "story",
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_30_take1.png",
+      "take": 1,
+      "sha256": "5e2145a038f24cbf08ffb4f044a4b6f1d861f7c728ea9e2a28cb1ee2328196ca",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "mode": "RGB",
+      "rgb_pixel_sha256": "3250c0a2e1d41b42ebe0e8506f64afc521aaedbbaccefd849172e19bb3cf9d43",
+      "origin": "PREVIOUS_COMPLETE_NATIVE_PAGE_UNCHANGED_STORY",
+      "source_page_sha256": "7146dba3002dd041a31e2d8e09addf64322c4a485679605de87b514610d1df20",
+      "pdf_placement_points": [
+        0,
+        0,
+        512.0,
+        768.0
+      ],
+      "raster_resize": false,
+      "crop": false,
+      "visible_text_overlays": false,
+      "distortion": false
+    },
+    {
+      "number": 31,
+      "kind": "story",
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_31_take1.png",
+      "take": 1,
+      "sha256": "d26cd93f6296ac66a093d32ef001b43d3ec40bd261a59d576aa8c676fe354172",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "mode": "RGB",
+      "rgb_pixel_sha256": "a2fd4817ce7d954c5b0b9d0ccc466626daa2aa9fa662c6c2e6c8614c735cee67",
+      "origin": "PREVIOUS_COMPLETE_NATIVE_PAGE_UNCHANGED_STORY",
+      "source_page_sha256": "54f2746558094e906a9f0725a050896dc6dc59d7b0f0138534e342a1ef297f7a",
+      "pdf_placement_points": [
+        0,
+        0,
+        512.0,
+        768.0
+      ],
+      "raster_resize": false,
+      "crop": false,
+      "visible_text_overlays": false,
+      "distortion": false
+    },
+    {
+      "number": 32,
+      "kind": "story",
+      "path": "assets_src/books/rumi_visual_detective_20261012/native/page_32_take1.png",
+      "take": 1,
+      "sha256": "31536a3118ae596d45299498eb657de556f694e8e072b115fa4dbede374780ae",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "mode": "RGB",
+      "rgb_pixel_sha256": "93053de0a60308a534433f9aebb7f5181518dfcf2bac748e43800a12763b3e76",
+      "origin": "NEW_COMPLETE_NATIVE_PAGE_CURRENT_SCRIPT",
+      "source_page_sha256": "e2ef019812f3daa80c30fe90c0db889c8cf90f669654e5f0aabf4a232e9b4c5b",
+      "pdf_placement_points": [
+        0,
+        0,
+        512.0,
+        768.0
+      ],
+      "raster_resize": false,
+      "crop": false,
+      "visible_text_overlays": false,
+      "distortion": false
+    }
+  ],
+  "unique_native_sha256_count": 32,
+  "unique_rgb_pixel_sha256_count": 32,
+  "source_input_snapshots": [
+    {
+      "path": "C:\\Users\\Peter\\.codex\\generated_images\\01a0f35d-f268-7751-aa9b-79fa94ceeacc\\exec-07e7fe66-0631-42cc-a22f-9d4690b165de.png",
+      "sha256": "a505530802287026de42862dd3d52258e45711e7f04c5883ac25f759920be2b2"
+    },
+    {
+      "path": "C:\\Users\\Peter\\.codex\\generated_images\\01a0f35d-f268-7751-aa9b-79fa94ceeacc\\exec-0ef82396-6b8e-427c-8750-1da6018f3b82.png",
+      "sha256": "da123e2196a887725b7e82abac7c2beaa1cd861a9c48b6abe0a300d99bf41bb9"
+    },
+    {
+      "path": "C:\\Users\\Peter\\.codex\\generated_images\\01a0f35d-f268-7751-aa9b-79fa94ceeacc\\exec-100766d4-afe7-4540-a8c9-37c167d1a4ea.png",
+      "sha256": "31536a3118ae596d45299498eb657de556f694e8e072b115fa4dbede374780ae"
+    },
+    {
+      "path": "C:\\Users\\Peter\\.codex\\generated_images\\01a0f35d-f268-7751-aa9b-79fa94ceeacc\\exec-308c42e2-c288-4a61-af5f-3166ae7b7cf8.png",
+      "sha256": "cab40daad54fa84fcd5016f0a39a0a0a62fd7b0b0af2b6daf5e36ab425b35467"
+    },
+    {
+      "path": "C:\\Users\\Peter\\.codex\\generated_images\\01a0f35d-f268-7751-aa9b-79fa94ceeacc\\exec-5f7571a0-043e-48fb-9f60-0bf58dd9d619.png",
+      "sha256": "26a2e1243b66b5d2826185a309d3c2f246a9ea1ac4a6c420f0adbfbeb2961e9a"
+    },
+    {
+      "path": "C:\\Users\\Peter\\.codex\\generated_images\\01a0f35d-f268-7751-aa9b-79fa94ceeacc\\exec-66691f90-43b5-4ee5-9511-a11b08919ba8.png",
+      "sha256": "b2c5938b1a3bd1f1f705e5095d0ca07c7044faefdc154e56fcee8a750f522ac1"
+    },
+    {
+      "path": "C:\\Users\\Peter\\.codex\\generated_images\\01a0f35d-f268-7751-aa9b-79fa94ceeacc\\exec-89b426a7-e1fd-41b8-b0d7-8307d5f6bab9.png",
+      "sha256": "76ac7535dacaec9d1ab66d2eb6586987412e787420318ece80cf984e4fa79fed"
+    },
+    {
+      "path": "C:\\Users\\Peter\\.codex\\generated_images\\01a0f35d-f268-7751-aa9b-79fa94ceeacc\\exec-dcdd8389-a9a9-4f6f-8c3d-0c01c4198996.png",
+      "sha256": "af4f6ff85a8d085885151809223adbc73af68f65f2b1ac13962b3a74a83735ac"
+    },
+    {
+      "path": "C:\\Users\\Peter\\.codex\\generated_images\\01a0f35d-f268-7751-aa9b-79fa94ceeacc\\exec-e513e769-aab3-461a-a2c1-4379fc614d07.png",
+      "sha256": "3edc3778d3a6a43719c7ae1a9dea0ca20bf0137667d0a536a4d75e67fa42b1eb"
+    },
+    {
+      "path": "C:\\Users\\Peter\\.codex\\generated_images\\01a1283e-4d68-75b1-af94-bbc3edfd1dc6\\exec-3533eb26-d61f-4d16-b03e-f4faffc4fba0.png",
+      "sha256": "6d7f6e8f0c4d1a6f6f66ab50c6f3fc0f6a149a84f566ab71deb94e595f75f3b8"
+    },
+    {
+      "path": "C:\\Users\\Peter\\.codex\\generated_images\\01a1283e-4d68-75b1-af94-bbc3edfd1dc6\\exec-53980e5e-915d-4a7a-8062-54bbeb289ad6.png",
+      "sha256": "a2b7f62f3e8e0a2dfe9211302b69cf32d502f6143a5f1e0cdcd5286b3d5caa7e"
+    },
+    {
+      "path": "C:\\Users\\Peter\\.codex\\generated_images\\01a1283e-4d68-75b1-af94-bbc3edfd1dc6\\exec-6b50a003-77c7-4628-abb2-0ebc18466e7e.png",
+      "sha256": "252085dcdbac0c309d1995166231216b001a596c3da40bfafc02f631388a72b6"
+    },
+    {
+      "path": "C:\\Users\\Peter\\.codex\\generated_images\\01a1283e-4d68-75b1-af94-bbc3edfd1dc6\\exec-a47772e4-c1c3-404a-aae3-6238015c1b2a.png",
+      "sha256": "013c7ee2e14e2527243bc97cce8df6f8aaacaf0b227e1bb7c3e772f5ad9d46ee"
+    },
+    {
+      "path": "C:\\Users\\Peter\\.codex\\generated_images\\01a1283e-4d68-75b1-af94-bbc3edfd1dc6\\exec-b257e573-969d-40c2-a5c4-5446c52a1608.png",
+      "sha256": "5b4e8f69b291f597dd686514ee4fd780c9f2fd5a59cd499be9e8230f104fa5c4"
+    },
+    {
+      "path": "C:\\Users\\Peter\\.codex\\generated_images\\01a1283f-6f19-7422-8dfe-1625809a3d63\\exec-0491487f-6dd2-4adc-8cba-b6ac3c7a4b91.png",
+      "sha256": "3675b4311b9224f12c83fd3c4d91dfaaea3a4f94253a37998009a58c56fdc9ed"
+    },
+    {
+      "path": "C:\\Users\\Peter\\.codex\\generated_images\\01a1283f-6f19-7422-8dfe-1625809a3d63\\exec-0fff1e4b-5bd0-4fbe-9fb9-2f647cd5ce95.png",
+      "sha256": "3f1fc8182a7adf5c49ee53f4f3728e8f7dc52962c62cae1ce80b9d508911a695"
+    },
+    {
+      "path": "C:\\Users\\Peter\\.codex\\generated_images\\01a1283f-6f19-7422-8dfe-1625809a3d63\\exec-2f836577-d903-44c5-9bba-edf7ba469c62.png",
+      "sha256": "81224867ab017307b62ff6e29aea6c9547b579b735776118fa08f08ed5370fe1"
+    },
+    {
+      "path": "C:\\Users\\Peter\\.codex\\generated_images\\01a1283f-6f19-7422-8dfe-1625809a3d63\\exec-382cce84-8504-4617-a2ff-5d86a8b7e573.png",
+      "sha256": "77646df74a846b9bad3db3c38145e5929f909514922812d2f3a1403d1e6ec6d7"
+    },
+    {
+      "path": "C:\\Users\\Peter\\.codex\\generated_images\\01a1283f-6f19-7422-8dfe-1625809a3d63\\exec-3d965c49-6584-4116-8b2a-291bb067c180.png",
+      "sha256": "d26cd93f6296ac66a093d32ef001b43d3ec40bd261a59d576aa8c676fe354172"
+    },
+    {
+      "path": "C:\\Users\\Peter\\.codex\\generated_images\\01a1283f-6f19-7422-8dfe-1625809a3d63\\exec-645ce07a-3b8f-4db7-9dc5-41b73a2b8732.png",
+      "sha256": "1f0b86e90de045692df1efc2b45deaa8d8ee5788a365d6ce6fd213800fde3a0a"
+    },
+    {
+      "path": "C:\\Users\\Peter\\.codex\\generated_images\\01a1283f-6f19-7422-8dfe-1625809a3d63\\exec-6cbf935b-e5db-4fe9-9462-9c5d909fa2a2.png",
+      "sha256": "df82ab99dc1a54c0b158801dfa7ca5df45648bc5c34c5f8d8e19f95cb07b1990"
+    },
+    {
+      "path": "C:\\Users\\Peter\\.codex\\generated_images\\01a1283f-6f19-7422-8dfe-1625809a3d63\\exec-9acc81e3-aca1-4cef-a52e-688e86782385.png",
+      "sha256": "9e461f9b46671cdcf01d72c4345319d11449528934321b900d07d188f9da9d9b"
+    },
+    {
+      "path": "C:\\Users\\Peter\\.codex\\generated_images\\01a1283f-6f19-7422-8dfe-1625809a3d63\\exec-a889869a-dd33-48ae-ac06-7e8158bea9c1.png",
+      "sha256": "5e2145a038f24cbf08ffb4f044a4b6f1d861f7c728ea9e2a28cb1ee2328196ca"
+    },
+    {
+      "path": "C:\\Users\\Peter\\.codex\\generated_images\\01a1283f-6f19-7422-8dfe-1625809a3d63\\exec-c01e6cc3-06b7-47a3-9ca2-7242747c8493.png",
+      "sha256": "7f957f06972e712bc08e43ab93a2e5927d2810cd143229aa74c18c5a2cd1f518"
+    },
+    {
+      "path": "C:\\Users\\Peter\\.codex\\generated_images\\01a1283f-6f19-7422-8dfe-1625809a3d63\\exec-c37f7659-5f1f-4741-b412-8a3ccc6a3096.png",
+      "sha256": "2ec630084b473e64b70fc030995dbde0bcefbe46d2358aa2b968215f326bfa74"
+    },
+    {
+      "path": "C:\\Users\\Peter\\.codex\\generated_images\\01a1283f-6f19-7422-8dfe-1625809a3d63\\exec-dfc88567-f0be-405c-8cd7-159bd680617b.png",
+      "sha256": "63c75fad8c54c61c261cbb71dca8189636f1bbb2a6fcaae4c424073f4a368946"
+    },
+    {
+      "path": "C:\\Users\\Peter\\.codex\\generated_images\\01a1283f-6f19-7422-8dfe-1625809a3d63\\exec-f75df69b-dff8-4abe-a561-2cc7e4d2deea.png",
+      "sha256": "3fca50bd33978d2507cbc1722da0da6ee1d1df242b658ada1f9b5e6590a54cea"
+    },
+    {
+      "path": "C:\\Users\\Peter\\.codex\\generated_images\\01a1283f-6f19-7422-8dfe-1625809a3d63\\exec-fc186a84-dabf-45e0-942d-101a99711f95.png",
+      "sha256": "137fb8df3fa16300536d11f0af50731d72d07d0c0fb310939ab6aed7325dbac8"
+    },
+    {
+      "path": "C:\\Users\\Peter\\.codex\\generated_images\\01a12885-9926-7f51-bf3c-f9504cb34d52\\exec-0572f2de-fd94-4e20-8224-ae7cd3f46e2a.png",
+      "sha256": "cc4aa251d48ddf4d9a4b1e7e342928e03d581e6def43e391446b1eebf2c696f8"
+    },
+    {
+      "path": "C:\\Users\\Peter\\.codex\\generated_images\\01a12885-9926-7f51-bf3c-f9504cb34d52\\exec-10dfa7b5-7df2-4fe0-a859-0bc7e8089812.png",
+      "sha256": "e8b64308bba24d180ceeb3aff3d490e4e2388f45cc950ea7aead70ba9b7ff446"
+    },
+    {
+      "path": "C:\\Users\\Peter\\.codex\\generated_images\\01a12885-9926-7f51-bf3c-f9504cb34d52\\exec-3d5e87c6-0fd4-412d-874d-51cd9e89e1e5.png",
+      "sha256": "1821fe130cc0e916d5c8822d4ebd6023121ce0faceeec9e4fcc9adda915c958c"
+    },
+    {
+      "path": "C:\\Users\\Peter\\.codex\\generated_images\\01a12885-9926-7f51-bf3c-f9504cb34d52\\exec-40198b48-498e-437e-b89f-b96e4f035c91.png",
+      "sha256": "a728542d5bc194ff84a0d5adaccd3efe9fc2d1bb417f14352cc66567cfc05fb5"
+    },
+    {
+      "path": "C:\\Users\\Peter\\.codex\\generated_images\\01a12885-9926-7f51-bf3c-f9504cb34d52\\exec-8edb77a6-b463-48ac-a278-aa916a55550a.png",
+      "sha256": "f62c7a42ba602937df6c0fac292966d4b4121e996b505e215ceeaf5aab9ec360"
+    },
+    {
+      "path": "C:\\Users\\Peter\\.codex\\generated_images\\01a12885-9926-7f51-bf3c-f9504cb34d52\\exec-9ee90c8c-2869-4120-afdd-ee50d05ecdcf.png",
+      "sha256": "37059ffd8654cc99ad5635f1ee87ae5c89a104dd991bca997c3d881d0ba2597a"
+    },
+    {
+      "path": "C:\\Users\\Peter\\.codex\\generated_images\\01a12885-9926-7f51-bf3c-f9504cb34d52\\exec-c0336a25-a3c6-4cc2-b0e7-b73625cd5651.png",
+      "sha256": "919003c9365ed37790372be54942ccbcce9160d866deb4196f8b044842d0d716"
+    },
+    {
+      "path": "C:\\Users\\Peter\\.codex\\generated_images\\01a12885-9926-7f51-bf3c-f9504cb34d52\\exec-c6547eb1-566b-4d1e-93fc-ee3fcf6fdace.png",
+      "sha256": "bd9f36bb937a6da1ceb106e0f3a77e0917e172b0fb25b0d90e277f7e02aec9e2"
+    },
+    {
+      "path": "C:\\Users\\Peter\\.codex\\generated_images\\01a12885-9926-7f51-bf3c-f9504cb34d52\\exec-e7246e3f-fad9-4a1c-982f-e5a0ffd9985e.png",
+      "sha256": "c4d8ec66b8077fc406c7f79943df3f9a3d4905e4a6e0b703f0ba55c3dba61cd8"
+    },
+    {
+      "path": "C:\\Users\\Peter\\.codex\\generated_images\\01a12885-9926-7f51-bf3c-f9504cb34d52\\exec-ea4e941e-de2a-472f-af4f-14656e98812c.png",
+      "sha256": "078b22b5d88f152a07bc51988f66971b50726d078672c3278f458c43a0e5152b"
+    },
+    {
+      "path": "C:\\Users\\Peter\\.codex\\generated_images\\01a12885-9926-7f51-bf3c-f9504cb34d52\\exec-f4f170c1-78e1-48c3-be65-bb0092525d9d.png",
+      "sha256": "eb2d25c7b07f2ec7ef11198cec666c21eb09308d0608a314518335a496466cef"
+    },
+    {
+      "path": "C:\\Users\\Peter\\.codex\\generated_images\\01a12885-9926-7f51-bf3c-f9504cb34d52\\exec-fa05a2e2-4b6f-48d4-99b3-4cb07daff329.png",
+      "sha256": "1a5f905d63cefc8e4a55134eb04cc4c1bb2376a59c47f82448dee329ebd42314"
+    },
+    {
+      "path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\assets\\opera\\worlds\\actors\\rival_magician.png",
+      "sha256": "516b8cf100df6502f3be269d302464ad6081e971ed50742f827527ee73f8965e"
+    },
+    {
+      "path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\assets\\opera\\worlds\\actors\\rival_popstar.png",
+      "sha256": "d8c59bcd6b59dd27090b1caede54315f26e1fbda7f7efc3220aaeccfc31ad97f"
+    },
+    {
+      "path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\assets\\opera\\worlds\\actors\\roshan_detective.png",
+      "sha256": "c0cbbc93f7a5fc99b6183c8007e9101f802107a077761e974f69492a5f2f4023"
+    },
+    {
+      "path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\assets\\opera\\worlds\\actors\\roshan_popstar.png",
+      "sha256": "2d7d45ee94bab0adbacb4331461942dd5ba14d20327ed7985945575adbf6d523"
+    },
+    {
+      "path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\assets_src\\books\\rumi_underpool_20261009\\native\\cast_identity.png",
+      "sha256": "eba965d569e145bf0440674f18af76e3f1aed3c0359e396c67c62a4182751946"
+    },
+    {
+      "path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\assets_src\\books\\rumi_underpool_20261009\\native\\city_concept_source.png",
+      "sha256": "6cf86f799132ede85df803e29abc69fd52ca81076caca8288e41ead72c11f54d"
+    },
+    {
+      "path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\assets_src\\books\\rumi_visual_detective_20261012\\MANUSCRIPT.txt",
+      "sha256": "38acb28035596b04f3f479f401cff7d407aaff90233ee6ade833bca186b12221"
+    },
+    {
+      "path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\assets_src\\books\\rumi_visual_detective_20261012\\generation\\page_02_take1.json",
+      "sha256": "eb9c80f8f813825d56ef09c717ac19de42b5e8498899ae69a602ad9239bb18f5"
+    },
+    {
+      "path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\assets_src\\books\\rumi_visual_detective_20261012\\generation\\page_03_take1.json",
+      "sha256": "edd0d681161be40bd205c9bc7a9481a3f1c73127b70468e1a94ed023048bf51e"
+    },
+    {
+      "path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\assets_src\\books\\rumi_visual_detective_20261012\\generation\\page_03_take2.json",
+      "sha256": "d3bcf0b39200779e5d26d6193730dbe6f4bebf8218d8fc884d1693ec1fe574bf"
+    },
+    {
+      "path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\assets_src\\books\\rumi_visual_detective_20261012\\generation\\page_04_take1.json",
+      "sha256": "70d75d427800eefa24a1610e6192cbb35f9c704aca9ee4693a943dc56d5d688f"
+    },
+    {
+      "path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\assets_src\\books\\rumi_visual_detective_20261012\\generation\\page_04_take2.json",
+      "sha256": "b7b515cae5340c80f838748d69c0e0e654bd1306e646ce657c43801d31260f62"
+    },
+    {
+      "path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\assets_src\\books\\rumi_visual_detective_20261012\\generation\\page_07_take1.json",
+      "sha256": "05ba79bf1f43103c1ea3e4d0e4d5c136df9dd027af6bf8b2dc24cf5a89d39821"
+    },
+    {
+      "path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\assets_src\\books\\rumi_visual_detective_20261012\\generation\\page_08_take1.json",
+      "sha256": "4cde0f748ad553a118b3423e0bc773b20207874d3da02595030240648340fc25"
+    },
+    {
+      "path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\assets_src\\books\\rumi_visual_detective_20261012\\generation\\page_08_take2.json",
+      "sha256": "6becbb8f0425c5465073d502addecc7f5d6b08c96158401cf15e70b04fd49278"
+    },
+    {
+      "path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\assets_src\\books\\rumi_visual_detective_20261012\\generation\\page_08_take3.json",
+      "sha256": "b287005faabe25307d605be2e04f34a4fd046a65e81dabe64e7b5cd39da413d3"
+    },
+    {
+      "path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\assets_src\\books\\rumi_visual_detective_20261012\\generation\\page_10_take1.json",
+      "sha256": "33ab739f42e28d606e6135de1cef4c8b5a22c4882bf896e7810c5a7e54abd0d9"
+    },
+    {
+      "path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\assets_src\\books\\rumi_visual_detective_20261012\\generation\\page_10_take2.json",
+      "sha256": "21986ff73115034727b6be3d0a82ad8759d3b85a97bdb417b073a915e3013b7e"
+    },
+    {
+      "path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\assets_src\\books\\rumi_visual_detective_20261012\\generation\\page_10_take3.json",
+      "sha256": "b54dc740124f4b5a5f3dffb72201793b186976a443bb3d8b7c99781663d0f37b"
+    },
+    {
+      "path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\assets_src\\books\\rumi_visual_detective_20261012\\generation\\page_11_take1.json",
+      "sha256": "fe3fe2d9d1fd5993db0f8956377b7be1ed393c2a8656f2eddba9b9a2ec70d159"
+    },
+    {
+      "path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\assets_src\\books\\rumi_visual_detective_20261012\\generation\\page_16_take1.json",
+      "sha256": "04f98928960337783b6c49509ad0a7f2148854193f78617270a1572a1bbc7d16"
+    },
+    {
+      "path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\assets_src\\books\\rumi_visual_detective_20261012\\generation\\page_17_take1.json",
+      "sha256": "3f1393ebd937f5e3ece1de69450ce3957b38a50912ecd57e22b03a7185f5febf"
+    },
+    {
+      "path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\assets_src\\books\\rumi_visual_detective_20261012\\generation\\page_17_take1_prompt.txt",
+      "sha256": "541164078b9ec324225097f2f2c6bff63765f5d01e3383184989503e880dbfd5"
+    },
+    {
+      "path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\assets_src\\books\\rumi_visual_detective_20261012\\generation\\page_17_take1_references.json",
+      "sha256": "629339ae267ce58252ad76d59944e240bf626a8de02eaf80dd8844f4a960cc97"
+    },
+    {
+      "path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\assets_src\\books\\rumi_visual_detective_20261012\\generation\\page_20_take1.json",
+      "sha256": "cc3496a88d128a9579fc0db32cd5f68ba51ebb797a1af69984bbd6c83235b426"
+    },
+    {
+      "path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\assets_src\\books\\rumi_visual_detective_20261012\\generation\\page_20_take1_prompt.txt",
+      "sha256": "dd46958c7a73ce1944716dcd406a2d105c01833e360d500323827fc233e69614"
+    },
+    {
+      "path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\assets_src\\books\\rumi_visual_detective_20261012\\generation\\page_20_take1_references.json",
+      "sha256": "f1a5f8f72cb94921517a4a2205646e0c2d4f3232ada3bf9e5ea8b449bac7f967"
+    },
+    {
+      "path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\assets_src\\books\\rumi_visual_detective_20261012\\generation\\page_21_take1.json",
+      "sha256": "e5fffcbfc256184c2d4bda1cf90f6f4e006fd5111b93c54c2a67865eda5d2b5a"
+    },
+    {
+      "path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\assets_src\\books\\rumi_visual_detective_20261012\\generation\\page_21_take1_prompt.txt",
+      "sha256": "241d0141f7c06a9b4cb57e48d8b6288e7fcc42c64f1f5f707737782371c9647f"
+    },
+    {
+      "path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\assets_src\\books\\rumi_visual_detective_20261012\\generation\\page_21_take1_references.json",
+      "sha256": "efa09bb5fdc8dc9ee261991df5db3d905ea1c577aee13212a75dee2878140c0d"
+    },
+    {
+      "path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\assets_src\\books\\rumi_visual_detective_20261012\\generation\\page_22_take1.json",
+      "sha256": "1ac5ded03ca99d362e0e05d1466edee8926509486317e6577aedab6e37563712"
+    },
+    {
+      "path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\assets_src\\books\\rumi_visual_detective_20261012\\generation\\page_22_take1_prompt.txt",
+      "sha256": "92dd734817cb597592419770e88b384adfdaf914d374467c32c4da198769e4fc"
+    },
+    {
+      "path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\assets_src\\books\\rumi_visual_detective_20261012\\generation\\page_22_take1_references.json",
+      "sha256": "9aca85d6ff7776f863059b356dc0d74b85095fa3bb32d5cfd4cf04a3bdaa4751"
+    },
+    {
+      "path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\assets_src\\books\\rumi_visual_detective_20261012\\generation\\page_23_take1.json",
+      "sha256": "9b91a597e9fc1af2020ea1440adf987b8935c6d467991fb27ad70318b6083671"
+    },
+    {
+      "path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\assets_src\\books\\rumi_visual_detective_20261012\\generation\\page_23_take1_prompt.txt",
+      "sha256": "246eeb4130bb08680b102453e594553e0b91086d6abb4ee0addee19861137933"
+    },
+    {
+      "path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\assets_src\\books\\rumi_visual_detective_20261012\\generation\\page_23_take1_references.json",
+      "sha256": "bac038ab83d083ca3080d308a7ce0046937958692306c1e52b39217ae2236c52"
+    },
+    {
+      "path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\assets_src\\books\\rumi_visual_detective_20261012\\generation\\page_25_take1.json",
+      "sha256": "ca4f32dce3408a9c0897a40bb77c835505bf2bb51b98100a019f224378da7d7d"
+    },
+    {
+      "path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\assets_src\\books\\rumi_visual_detective_20261012\\generation\\page_25_take1_prompt.txt",
+      "sha256": "2d2b9d5d3caeda4ef4721d95574839d828089954d1c04c5a0fdac3445eecd3e5"
+    },
+    {
+      "path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\assets_src\\books\\rumi_visual_detective_20261012\\generation\\page_25_take1_references.json",
+      "sha256": "0798076efeae843813ce238685fafeb4e339bdd9ba49ea253192c53267253944"
+    },
+    {
+      "path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\assets_src\\books\\rumi_visual_detective_20261012\\generation\\page_25_take2.json",
+      "sha256": "7f4ddcdc5171891c1ac5eab4421ec25d0fb0cb5af721c22217e4f4de4393f8c9"
+    },
+    {
+      "path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\assets_src\\books\\rumi_visual_detective_20261012\\generation\\page_25_take2_prompt.txt",
+      "sha256": "0350e7a9109bc88a62dacefd3d8de9cffd7005e18d7309a50f1399f48032da0b"
+    },
+    {
+      "path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\assets_src\\books\\rumi_visual_detective_20261012\\generation\\page_25_take2_references.json",
+      "sha256": "9cabf5765453bd974e7a370e137c27d7ac9949ba3b57b78ca5e8ad024569ab62"
+    },
+    {
+      "path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\assets_src\\books\\rumi_visual_detective_20261012\\generation\\page_27_take1.json",
+      "sha256": "1ed0e8ac930ccf9ea482755f59983f216ce1ba9880cb088457037dd934ed4ef7"
+    },
+    {
+      "path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\assets_src\\books\\rumi_visual_detective_20261012\\generation\\page_27_take1_prompt.txt",
+      "sha256": "a02ff211fbbf9b77d01e0dbd58a988ef34d46955a9f47c11e7bd6a43d132527b"
+    },
+    {
+      "path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\assets_src\\books\\rumi_visual_detective_20261012\\generation\\page_27_take1_references.json",
+      "sha256": "83e31d6bc0d25833a2900385bee431a1cdc6ec23e05660d7bf93e8d126b1c50c"
+    },
+    {
+      "path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\assets_src\\books\\rumi_visual_detective_20261012\\generation\\page_27_take2.json",
+      "sha256": "9cc67239f9640ed9e3c3188af4a0168ac22e35779e3310db06bd0e51aefe3fef"
+    },
+    {
+      "path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\assets_src\\books\\rumi_visual_detective_20261012\\generation\\page_27_take2_prompt.txt",
+      "sha256": "b1312bbf04ea91d601f29ee4718afb92c437e269330953cfc4e97155d2b290d7"
+    },
+    {
+      "path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\assets_src\\books\\rumi_visual_detective_20261012\\generation\\page_27_take2_references.json",
+      "sha256": "6c663f221b628a4a78225886ec5686eedb17bc42cac70880b21e2ca3ec9e0f12"
+    },
+    {
+      "path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\assets_src\\books\\rumi_visual_detective_20261012\\generation\\page_32_take1.json",
+      "sha256": "c9361a637f67f76ce90c2a176898c651a0801368ee1523c53ff06c4f28c556e0"
+    },
+    {
+      "path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\assets_src\\books\\rumi_visual_detective_20261012\\native\\page_02_take1.png",
+      "sha256": "3edc3778d3a6a43719c7ae1a9dea0ca20bf0137667d0a536a4d75e67fa42b1eb"
+    },
+    {
+      "path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\assets_src\\books\\rumi_visual_detective_20261012\\native\\page_03_take1.png",
+      "sha256": "26a2e1243b66b5d2826185a309d3c2f246a9ea1ac4a6c420f0adbfbeb2961e9a"
+    },
+    {
+      "path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\assets_src\\books\\rumi_visual_detective_20261012\\native\\page_03_take2.png",
+      "sha256": "cab40daad54fa84fcd5016f0a39a0a0a62fd7b0b0af2b6daf5e36ab425b35467"
+    },
+    {
+      "path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\assets_src\\books\\rumi_visual_detective_20261012\\native\\page_04_take1.png",
+      "sha256": "a505530802287026de42862dd3d52258e45711e7f04c5883ac25f759920be2b2"
+    },
+    {
+      "path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\assets_src\\books\\rumi_visual_detective_20261012\\native\\page_04_take2.png",
+      "sha256": "af4f6ff85a8d085885151809223adbc73af68f65f2b1ac13962b3a74a83735ac"
+    },
+    {
+      "path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\assets_src\\books\\rumi_visual_detective_20261012\\native\\page_07_take1.png",
+      "sha256": "1f0b86e90de045692df1efc2b45deaa8d8ee5788a365d6ce6fd213800fde3a0a"
+    },
+    {
+      "path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\assets_src\\books\\rumi_visual_detective_20261012\\native\\page_08_take1.png",
+      "sha256": "81224867ab017307b62ff6e29aea6c9547b579b735776118fa08f08ed5370fe1"
+    },
+    {
+      "path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\assets_src\\books\\rumi_visual_detective_20261012\\native\\page_08_take2.png",
+      "sha256": "137fb8df3fa16300536d11f0af50731d72d07d0c0fb310939ab6aed7325dbac8"
+    },
+    {
+      "path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\assets_src\\books\\rumi_visual_detective_20261012\\native\\page_08_take3.png",
+      "sha256": "3675b4311b9224f12c83fd3c4d91dfaaea3a4f94253a37998009a58c56fdc9ed"
+    },
+    {
+      "path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\assets_src\\books\\rumi_visual_detective_20261012\\native\\page_10_take1.png",
+      "sha256": "63c75fad8c54c61c261cbb71dca8189636f1bbb2a6fcaae4c424073f4a368946"
+    },
+    {
+      "path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\assets_src\\books\\rumi_visual_detective_20261012\\native\\page_10_take2.png",
+      "sha256": "7f957f06972e712bc08e43ab93a2e5927d2810cd143229aa74c18c5a2cd1f518"
+    },
+    {
+      "path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\assets_src\\books\\rumi_visual_detective_20261012\\native\\page_10_take3.png",
+      "sha256": "2ec630084b473e64b70fc030995dbde0bcefbe46d2358aa2b968215f326bfa74"
+    },
+    {
+      "path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\assets_src\\books\\rumi_visual_detective_20261012\\native\\page_11_take1.png",
+      "sha256": "9e461f9b46671cdcf01d72c4345319d11449528934321b900d07d188f9da9d9b"
+    },
+    {
+      "path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\assets_src\\books\\rumi_visual_detective_20261012\\native\\page_16_take1.png",
+      "sha256": "77646df74a846b9bad3db3c38145e5929f909514922812d2f3a1403d1e6ec6d7"
+    },
+    {
+      "path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\assets_src\\books\\rumi_visual_detective_20261012\\native\\page_17_take1.png",
+      "sha256": "f62c7a42ba602937df6c0fac292966d4b4121e996b505e215ceeaf5aab9ec360"
+    },
+    {
+      "path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\assets_src\\books\\rumi_visual_detective_20261012\\native\\page_20_take1.png",
+      "sha256": "bd9f36bb937a6da1ceb106e0f3a77e0917e172b0fb25b0d90e277f7e02aec9e2"
+    },
+    {
+      "path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\assets_src\\books\\rumi_visual_detective_20261012\\native\\page_21_take1.png",
+      "sha256": "eb2d25c7b07f2ec7ef11198cec666c21eb09308d0608a314518335a496466cef"
+    },
+    {
+      "path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\assets_src\\books\\rumi_visual_detective_20261012\\native\\page_22_take1.png",
+      "sha256": "1a5f905d63cefc8e4a55134eb04cc4c1bb2376a59c47f82448dee329ebd42314"
+    },
+    {
+      "path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\assets_src\\books\\rumi_visual_detective_20261012\\native\\page_23_take1.png",
+      "sha256": "e8b64308bba24d180ceeb3aff3d490e4e2388f45cc950ea7aead70ba9b7ff446"
+    },
+    {
+      "path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\assets_src\\books\\rumi_visual_detective_20261012\\native\\page_25_take1.png",
+      "sha256": "37059ffd8654cc99ad5635f1ee87ae5c89a104dd991bca997c3d881d0ba2597a"
+    },
+    {
+      "path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\assets_src\\books\\rumi_visual_detective_20261012\\native\\page_25_take2.png",
+      "sha256": "c4d8ec66b8077fc406c7f79943df3f9a3d4905e4a6e0b703f0ba55c3dba61cd8"
+    },
+    {
+      "path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\assets_src\\books\\rumi_visual_detective_20261012\\native\\page_27_take1.png",
+      "sha256": "919003c9365ed37790372be54942ccbcce9160d866deb4196f8b044842d0d716"
+    },
+    {
+      "path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\assets_src\\books\\rumi_visual_detective_20261012\\native\\page_27_take2.png",
+      "sha256": "cc4aa251d48ddf4d9a4b1e7e342928e03d581e6def43e391446b1eebf2c696f8"
+    },
+    {
+      "path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\assets_src\\books\\rumi_visual_detective_20261012\\native\\page_32_take1.png",
+      "sha256": "31536a3118ae596d45299498eb657de556f694e8e072b115fa4dbede374780ae"
+    },
+    {
+      "path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\assets_src\\books\\rumi_visual_detective_20261012\\prompts\\page_02_take1.txt",
+      "sha256": "f4ea5a9215999a375d3e5ae2a5f61db555d8c35805504032ef16129e2f1e8e6a"
+    },
+    {
+      "path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\assets_src\\books\\rumi_visual_detective_20261012\\prompts\\page_02_take1_references.json",
+      "sha256": "36d1e7c5dc46f63308335b2659406cb5ea39cbb15ed1ffa130e284d9befd7854"
+    },
+    {
+      "path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\assets_src\\books\\rumi_visual_detective_20261012\\prompts\\page_03_take1.txt",
+      "sha256": "30c0a1b27e71d796149aa4b472b7d9996c98a242fc0ca8c844a257c02e7a3f1f"
+    },
+    {
+      "path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\assets_src\\books\\rumi_visual_detective_20261012\\prompts\\page_03_take1_references.json",
+      "sha256": "7485e2f1f43216f786eba7f09b4c0c18c0a96f36a755cf2173361c358c8a862a"
+    },
+    {
+      "path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\assets_src\\books\\rumi_visual_detective_20261012\\prompts\\page_03_take2.txt",
+      "sha256": "900aef856929f18f7db6157af1a16c26f004b491ce3be161b66bba99cf18f00c"
+    },
+    {
+      "path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\assets_src\\books\\rumi_visual_detective_20261012\\prompts\\page_03_take2_references.json",
+      "sha256": "746716a373085baf28a9870951eadd2af199d73993482dfa10dc0e600181d05c"
+    },
+    {
+      "path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\assets_src\\books\\rumi_visual_detective_20261012\\prompts\\page_04_take1.txt",
+      "sha256": "4e99d6d3900dee4077dbb9f9ca8f1bf09f3c6f3dcc021a374258feb19475fed0"
+    },
+    {
+      "path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\assets_src\\books\\rumi_visual_detective_20261012\\prompts\\page_04_take1_references.json",
+      "sha256": "d4fb7e38502f072e67b50493b195ee0a812d521752d7690bc9aab3cefcc37bf7"
+    },
+    {
+      "path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\assets_src\\books\\rumi_visual_detective_20261012\\prompts\\page_04_take2.txt",
+      "sha256": "93e2190ebbf6204210c410b3e02a1f7b5640289e22d821b4496670f714972e1e"
+    },
+    {
+      "path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\assets_src\\books\\rumi_visual_detective_20261012\\prompts\\page_04_take2_references.json",
+      "sha256": "85e23f228fefc54a2fd53bccb8704efcf76eb35d13df964d72e3f0d287c97246"
+    },
+    {
+      "path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\assets_src\\books\\rumi_visual_detective_20261012\\prompts\\page_07_take1.txt",
+      "sha256": "fe0db58c848008ecf1624838322ae0b4a5f57f6e8ddf9aac36ee320be49e6648"
+    },
+    {
+      "path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\assets_src\\books\\rumi_visual_detective_20261012\\prompts\\page_08_take1.txt",
+      "sha256": "907677445c53a8822f70ed91b4d09c0d71a1b590fdd5908bb27f41f83db48688"
+    },
+    {
+      "path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\assets_src\\books\\rumi_visual_detective_20261012\\prompts\\page_08_take2.txt",
+      "sha256": "4f7245e7df4b474143ef9844770322e6ecebb656b56a128cc58b6a5bdfc13c34"
+    },
+    {
+      "path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\assets_src\\books\\rumi_visual_detective_20261012\\prompts\\page_08_take3.txt",
+      "sha256": "9d0b106164431dbb9a62d0c79d572ff48aa3cdefcf4bdd056ea35bbeac8363e7"
+    },
+    {
+      "path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\assets_src\\books\\rumi_visual_detective_20261012\\prompts\\page_10_take1.txt",
+      "sha256": "d640b80c9e1b97e10e8349ef84bcb662f864adc79c958f8697261ecb5c75d7a0"
+    },
+    {
+      "path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\assets_src\\books\\rumi_visual_detective_20261012\\prompts\\page_10_take2.txt",
+      "sha256": "f6ba54077c269185ec16bacb0258a868564215cc62f491a1722b503a428f14ca"
+    },
+    {
+      "path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\assets_src\\books\\rumi_visual_detective_20261012\\prompts\\page_10_take3.txt",
+      "sha256": "6350b949c546a664850034ec531da55b87f9ded23e9a3da9dd772520193121a0"
+    },
+    {
+      "path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\assets_src\\books\\rumi_visual_detective_20261012\\prompts\\page_11_take1.txt",
+      "sha256": "e638916177d21bfa0e65dc5db968cc710d9bcb5d83a454bde195cd7bc3fd8c7a"
+    },
+    {
+      "path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\assets_src\\books\\rumi_visual_detective_20261012\\prompts\\page_16_take1.txt",
+      "sha256": "32d45699b3e2be075a81b86536cee54f588a301b496561cf836193de3842b851"
+    },
+    {
+      "path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\assets_src\\books\\rumi_visual_detective_20261012\\prompts\\page_32_take1.txt",
+      "sha256": "bc902829be2117dd5cb3fb533bac3e4e597099c87a9b6aa176a1a5bd904964bc"
+    },
+    {
+      "path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\assets_src\\books\\rumi_visual_detective_20261012\\prompts\\page_32_take1_references.json",
+      "sha256": "11b3ffbfdd8fd45fea3149d51481d664dfdc139324045b78adc5c4ec47644f86"
+    },
+    {
+      "path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\assets_src\\books\\rumi_visual_detective_20261012\\references\\page_07_take1.json",
+      "sha256": "012629ad786c70e3de0546e7f3f8f99e528604ee046f131b204214d9c144468c"
+    },
+    {
+      "path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\assets_src\\books\\rumi_visual_detective_20261012\\references\\page_08_take1.json",
+      "sha256": "3d54b6df03333afd47d981509aeb86924ed87382843e3afef6e74b28ce315e4b"
+    },
+    {
+      "path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\assets_src\\books\\rumi_visual_detective_20261012\\references\\page_08_take2.json",
+      "sha256": "b36283461c052355100deb9a99b090208750bdee3d01f3cff9330b441ec36d94"
+    },
+    {
+      "path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\assets_src\\books\\rumi_visual_detective_20261012\\references\\page_08_take3.json",
+      "sha256": "913b222247ca2cdeb7fd3ca030d049934d248163c6ab91822e1837e97cc4bfd2"
+    },
+    {
+      "path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\assets_src\\books\\rumi_visual_detective_20261012\\references\\page_10_take1.json",
+      "sha256": "b140a58267cff014166974e164e90465879e8b31ca53613719af3f58091e3a65"
+    },
+    {
+      "path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\assets_src\\books\\rumi_visual_detective_20261012\\references\\page_10_take2.json",
+      "sha256": "229cc87980c81f7f9000a2130e31194a5cb36f6620c6583cfebd3c2f90db1b3c"
+    },
+    {
+      "path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\assets_src\\books\\rumi_visual_detective_20261012\\references\\page_10_take3.json",
+      "sha256": "818dac4d7cf8b027fb797cc50e0efbef4abb4df9048f9f09f9f6df273799dcf0"
+    },
+    {
+      "path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\assets_src\\books\\rumi_visual_detective_20261012\\references\\page_11_take1.json",
+      "sha256": "608e4ad935348fff9fe21b096adfb00c97c0869195da0f9f54ae8fc6e05452f0"
+    },
+    {
+      "path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\assets_src\\books\\rumi_visual_detective_20261012\\references\\page_16_take1.json",
+      "sha256": "b405ca6158c9f03cf21d89f4fae02c4dafd2ae7bb54336febbccc857168af51a"
+    },
+    {
+      "path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\assets_src\\books\\rumi_visual_detective_20261012\\selected_art.json",
+      "sha256": "f3492f5eebeca5c29306e7e99ed7bec29c98d599f7177f3a3a43af64670d570f"
+    },
+    {
+      "path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\assets_src\\books\\rumi_visual_detective_20261012\\story_script.json",
+      "sha256": "ab77f7740592a82b9185c10eb22a7b85ff785726b2f9eb8f01158861d54db6cd"
+    },
+    {
+      "path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\assets_src\\books\\rumi_visual_detective_20261012\\validate_selection.py",
+      "sha256": "d8807d094115cc18bfe164b8b6efe4b936a025fedc4fc14fd25ae029a0c19de3"
+    },
+    {
+      "path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\assets_src\\books\\rumi_visual_detective_20261012\\verification\\local_repair_diagnosis_pages_08_10.json",
+      "sha256": "391e74c4b79e9866a46059679521f8e45b04e424a0931d8d269a49e0a5001703"
+    },
+    {
+      "path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\assets_src\\books\\rumi_visual_detective_20261012\\verification\\page_08_take3_method_change.json",
+      "sha256": "c7ab8127c3f3e56f64767d8d5363e2e2fe3af0fa0c470103719648e3b834d02a"
+    },
+    {
+      "path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\assets_src\\books\\rumi_visual_detective_20261012\\verification\\page_10_take3_method_change.json",
+      "sha256": "1fd95d87917e49481f4a482625c67f9b5d08dc3534f17529fef36c39b3862bf1"
+    },
+    {
+      "path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\assets_src\\books\\rumi_visual_detective_20261012\\verification\\source_revision.json",
+      "sha256": "e168c6cfd4b4992c375ff66b0efaab5749cd4d234301fab4ad71b75f06249042"
+    },
+    {
+      "path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\assets_src\\books\\rumi_visual_detective_20261012\\verification\\story_snapshot_before_hair_word_fix.json",
+      "sha256": "b3623441d31710e1afeda9298c0c74e7c3cc3b6b4c8627b7bf9b1b8bafcbf876"
+    },
+    {
+      "path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\assets_src\\books\\rumi_voice_book_20261011\\generation\\page_01_take1.json",
+      "sha256": "8cf4291cad2997124eb3a4b4f7ef055762a90c9b9238329a613527bbadcc345e"
+    },
+    {
+      "path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\assets_src\\books\\rumi_voice_book_20261011\\generation\\page_05_take1.json",
+      "sha256": "17860e22e5194f4487ea58c8342327e5ddac71e36c2558c4e934d787001d56dc"
+    },
+    {
+      "path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\assets_src\\books\\rumi_voice_book_20261011\\generation\\page_06_take2.json",
+      "sha256": "f8fadae588ccad83fcf9b3cef47e5d8900518a0c59f01d8aa6dbaa8c81c29634"
+    },
+    {
+      "path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\assets_src\\books\\rumi_voice_book_20261011\\generation\\page_09_take3.json",
+      "sha256": "f9c8d16898aab7cbb84b6c662efbb5004cb829538d58683f748d93a7897b7302"
+    },
+    {
+      "path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\assets_src\\books\\rumi_voice_book_20261011\\generation\\page_12_take2.json",
+      "sha256": "9a84e0b423efade81d04c225ffe6fb55d30744abd3026b0163fcb4bed4702bfb"
+    },
+    {
+      "path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\assets_src\\books\\rumi_voice_book_20261011\\generation\\page_13_take1.json",
+      "sha256": "e635a953d1e6a9aca9a79d0a1a16f136c1b31ffa0fc4cd5e7204a1fefedd1099"
+    },
+    {
+      "path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\assets_src\\books\\rumi_voice_book_20261011\\generation\\page_14_take1.json",
+      "sha256": "a98f23a305182205162ecf9b6e3582b3c2126ed5232ed5db33d3a5c7185f5e39"
+    },
+    {
+      "path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\assets_src\\books\\rumi_voice_book_20261011\\generation\\page_15_take1.json",
+      "sha256": "2e76376699903d74110e28cf7947148ec60fb990c62388ea18a4001be1875eaf"
+    },
+    {
+      "path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\assets_src\\books\\rumi_voice_book_20261011\\generation\\page_18_take2.json",
+      "sha256": "7ad59820974a9201e57874569cdf1efd9a226bc9ba1dd3b636c5a5efdb8118ce"
+    },
+    {
+      "path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\assets_src\\books\\rumi_voice_book_20261011\\generation\\page_19_take1.json",
+      "sha256": "a718546a3fb79d5cdab04e427eee5506afdc568cc42392ea5a6e148b8d5ad926"
+    },
+    {
+      "path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\assets_src\\books\\rumi_voice_book_20261011\\generation\\page_24_take3.json",
+      "sha256": "95d832b5b92feb5025021ef65c90f6a701c340f94eea5de83f13d726bc9c3d71"
+    },
+    {
+      "path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\assets_src\\books\\rumi_voice_book_20261011\\generation\\page_26_take1.json",
+      "sha256": "3d2559d016f35059b896fd2f2ca2c6fbf024e731e7cb5540d0c55b6d4566733f"
+    },
+    {
+      "path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\assets_src\\books\\rumi_voice_book_20261011\\generation\\page_28_take1.json",
+      "sha256": "4f94cb897d66c44b28fb1a6638ac27396cc05428edda7ccdfd28ebc728866aa9"
+    },
+    {
+      "path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\assets_src\\books\\rumi_voice_book_20261011\\generation\\page_29_take2.json",
+      "sha256": "c7ed37174b4b862738b40019e27542e05b5372b0f5150e3bae457f27964c4ffb"
+    },
+    {
+      "path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\assets_src\\books\\rumi_voice_book_20261011\\generation\\page_30_take1.json",
+      "sha256": "149d04c993fd101c7933d76ef2848ae91fd48e4401e99ca8eec110ef403e689c"
+    },
+    {
+      "path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\assets_src\\books\\rumi_voice_book_20261011\\generation\\page_31_take1.json",
+      "sha256": "87a0dafd65fb917c052075cf00b79a9af2446e15ba02515da09798bab1b52bbc"
+    },
+    {
+      "path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\assets_src\\books\\rumi_voice_book_20261011\\generation_manifest.json",
+      "sha256": "ca2eb5d03251b942ebf114fc7096919cfd53448869fd3eac2177d14f51240a10"
+    },
+    {
+      "path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\assets_src\\books\\rumi_voice_book_20261011\\generation_part_09_16.json",
+      "sha256": "11fb0c049b97c3e7bb1d98ee4adfb79dbae9d5d04265ea2cb7908c259bdc72a4"
+    },
+    {
+      "path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\assets_src\\books\\rumi_voice_book_20261011\\generation_part_17_24.json",
+      "sha256": "a217765451bd525933426df56fc68c4c558fd5787f866cd388ceaf03806641e0"
+    },
+    {
+      "path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\assets_src\\books\\rumi_voice_book_20261011\\generation_part_25_32.json",
+      "sha256": "139eec7b6d1146368655fe023eb659e48ee5097dfd5ef9b82c149f065d8d9916"
+    },
+    {
+      "path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\assets_src\\books\\rumi_voice_book_20261011\\native\\page_01_take1.png",
+      "sha256": "da123e2196a887725b7e82abac7c2beaa1cd861a9c48b6abe0a300d99bf41bb9"
+    },
+    {
+      "path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\assets_src\\books\\rumi_voice_book_20261011\\native\\page_02_take2.png",
+      "sha256": "a751e8a1634888b16a6856e989dde9f12d167d1def4ff1a2bc1645af0a4759d6"
+    },
+    {
+      "path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\assets_src\\books\\rumi_voice_book_20261011\\native\\page_03_take1.png",
+      "sha256": "521c4628894d258637581bd1554e086d595d125741a0c95699db0e54f2568049"
+    },
+    {
+      "path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\assets_src\\books\\rumi_voice_book_20261011\\native\\page_04_take1.png",
+      "sha256": "f737afc432874affb05220356da67cee6d8e1c027e9b5dc35ed7d9454d871de0"
+    },
+    {
+      "path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\assets_src\\books\\rumi_voice_book_20261011\\native\\page_05_take1.png",
+      "sha256": "76ac7535dacaec9d1ab66d2eb6586987412e787420318ece80cf984e4fa79fed"
+    },
+    {
+      "path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\assets_src\\books\\rumi_voice_book_20261011\\native\\page_06_take2.png",
+      "sha256": "b2c5938b1a3bd1f1f705e5095d0ca07c7044faefdc154e56fcee8a750f522ac1"
+    },
+    {
+      "path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\assets_src\\books\\rumi_voice_book_20261011\\native\\page_07_take2.png",
+      "sha256": "3a544e0b74b30fe85676f7f0528ddc658495a54f77ab404d4a622be82a098e01"
+    },
+    {
+      "path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\assets_src\\books\\rumi_voice_book_20261011\\native\\page_08_take2.png",
+      "sha256": "05cbf1f7bfac9160de6567a793149ca048a4fab0bcd07686c3058c0810708dce"
+    },
+    {
+      "path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\assets_src\\books\\rumi_voice_book_20261011\\native\\page_09_take2.png",
+      "sha256": "6fcf8f3879d587fb4378c6f56d3bc15be5de1355b7300d5687509bacd1a7ecd5"
+    },
+    {
+      "path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\assets_src\\books\\rumi_voice_book_20261011\\native\\page_09_take3.png",
+      "sha256": "013c7ee2e14e2527243bc97cce8df6f8aaacaf0b227e1bb7c3e772f5ad9d46ee"
+    },
+    {
+      "path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\assets_src\\books\\rumi_voice_book_20261011\\native\\page_10_take2.png",
+      "sha256": "85e0941653b29aedaccb733a1d4e2f245def9e264caacfce95b90ba1d044ef3d"
+    },
+    {
+      "path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\assets_src\\books\\rumi_voice_book_20261011\\native\\page_11_take1.png",
+      "sha256": "6040390fdfe8cecc92cca794e61524a205537cc6929b05cdacc5f49c104cce7e"
+    },
+    {
+      "path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\assets_src\\books\\rumi_voice_book_20261011\\native\\page_12_take2.png",
+      "sha256": "6d7f6e8f0c4d1a6f6f66ab50c6f3fc0f6a149a84f566ab71deb94e595f75f3b8"
+    },
+    {
+      "path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\assets_src\\books\\rumi_voice_book_20261011\\native\\page_13_take1.png",
+      "sha256": "a2b7f62f3e8e0a2dfe9211302b69cf32d502f6143a5f1e0cdcd5286b3d5caa7e"
+    },
+    {
+      "path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\assets_src\\books\\rumi_voice_book_20261011\\native\\page_14_take1.png",
+      "sha256": "5b4e8f69b291f597dd686514ee4fd780c9f2fd5a59cd499be9e8230f104fa5c4"
+    },
+    {
+      "path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\assets_src\\books\\rumi_voice_book_20261011\\native\\page_15_take1.png",
+      "sha256": "252085dcdbac0c309d1995166231216b001a596c3da40bfafc02f631388a72b6"
+    },
+    {
+      "path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\assets_src\\books\\rumi_voice_book_20261011\\native\\page_16_take3.png",
+      "sha256": "a55ecc6bb0d221f146ec2141810251010d733a472990cdaeaa1616e3b38a21ee"
+    },
+    {
+      "path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\assets_src\\books\\rumi_voice_book_20261011\\native\\page_17_take1.png",
+      "sha256": "781bc3d248d3c90d741de3bf5145f12ecd28dcc134fe0989a83551d40fbab087"
+    },
+    {
+      "path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\assets_src\\books\\rumi_voice_book_20261011\\native\\page_18_take2.png",
+      "sha256": "078b22b5d88f152a07bc51988f66971b50726d078672c3278f458c43a0e5152b"
+    },
+    {
+      "path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\assets_src\\books\\rumi_voice_book_20261011\\native\\page_19_take1.png",
+      "sha256": "a728542d5bc194ff84a0d5adaccd3efe9fc2d1bb417f14352cc66567cfc05fb5"
+    },
+    {
+      "path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\assets_src\\books\\rumi_voice_book_20261011\\native\\page_20_take2.png",
+      "sha256": "8b0b0e5da21a6fe4f302f2b38e25a85be6c79da0ce075452b9ab4b7203b25d69"
+    },
+    {
+      "path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\assets_src\\books\\rumi_voice_book_20261011\\native\\page_21_take3.png",
+      "sha256": "40459dadaa2eef6cacc15121cfbb20206adcea9f467c34ff0c3485b69c3678db"
+    },
+    {
+      "path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\assets_src\\books\\rumi_voice_book_20261011\\native\\page_22_take1.png",
+      "sha256": "bd5c8593c0e2f4b55dd7816dd84f2f41dce318880c676cf6f2d45047dfcb132e"
+    },
+    {
+      "path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\assets_src\\books\\rumi_voice_book_20261011\\native\\page_23_take2.png",
+      "sha256": "305a985d9d19707135936117e1dfdde4ed7c53348c735e4a18a51e5a7591cd24"
+    },
+    {
+      "path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\assets_src\\books\\rumi_voice_book_20261011\\native\\page_24_take1.png",
+      "sha256": "0384f2747e003c25f8d4dbcc5f86f5516456bfc91be6f85319f817fb0ae14af1"
+    },
+    {
+      "path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\assets_src\\books\\rumi_voice_book_20261011\\native\\page_24_take2.png",
+      "sha256": "623d71b2a3cbe144094b7eb4e3671306ebf06143d1abbd1af4faef25b40d93e2"
+    },
+    {
+      "path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\assets_src\\books\\rumi_voice_book_20261011\\native\\page_24_take3.png",
+      "sha256": "1821fe130cc0e916d5c8822d4ebd6023121ce0faceeec9e4fcc9adda915c958c"
+    },
+    {
+      "path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\assets_src\\books\\rumi_voice_book_20261011\\native\\page_25_take2.png",
+      "sha256": "a9c328c1bd1ad45a5378de3fcc1ddd86376fcbe4fb22b32d76322c1d8009a69e"
+    },
+    {
+      "path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\assets_src\\books\\rumi_voice_book_20261011\\native\\page_26_take1.png",
+      "sha256": "df82ab99dc1a54c0b158801dfa7ca5df45648bc5c34c5f8d8e19f95cb07b1990"
+    },
+    {
+      "path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\assets_src\\books\\rumi_voice_book_20261011\\native\\page_27_take3.png",
+      "sha256": "ea02564120295261c078938b30dcb52bd3615723892f59e944ee54a2d926cf88"
+    },
+    {
+      "path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\assets_src\\books\\rumi_voice_book_20261011\\native\\page_28_take1.png",
+      "sha256": "3fca50bd33978d2507cbc1722da0da6ee1d1df242b658ada1f9b5e6590a54cea"
+    },
+    {
+      "path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\assets_src\\books\\rumi_voice_book_20261011\\native\\page_29_take1.png",
+      "sha256": "ededaa45d57b92a8b7080a693308995c86c0deee168d1d38fe21140771b25478"
+    },
+    {
+      "path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\assets_src\\books\\rumi_voice_book_20261011\\native\\page_29_take2.png",
+      "sha256": "3f1fc8182a7adf5c49ee53f4f3728e8f7dc52962c62cae1ce80b9d508911a695"
+    },
+    {
+      "path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\assets_src\\books\\rumi_voice_book_20261011\\native\\page_30_take1.png",
+      "sha256": "5e2145a038f24cbf08ffb4f044a4b6f1d861f7c728ea9e2a28cb1ee2328196ca"
+    },
+    {
+      "path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\assets_src\\books\\rumi_voice_book_20261011\\native\\page_31_take1.png",
+      "sha256": "d26cd93f6296ac66a093d32ef001b43d3ec40bd261a59d576aa8c676fe354172"
+    },
+    {
+      "path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\assets_src\\books\\rumi_voice_book_20261011\\native\\page_32_take1.png",
+      "sha256": "6a6944574a2e20af92a4d7d1f164b4d09562c80cb14485d486b00a2451499dc8"
+    },
+    {
+      "path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\assets_src\\books\\rumi_voice_book_20261011\\selected_art.json",
+      "sha256": "0e875f78ffe6299c7c8a1ebd41f95b90ca04fe237a3105d06114c4f301329dee"
+    },
+    {
+      "path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\assets_src\\books\\rumi_voice_book_20261011\\story_script.json",
+      "sha256": "febb9d5c7f6d82c29dcf8fa3556715577842b2284749fd2f1fea055a046d5967"
+    },
+    {
+      "path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\assets_src\\books\\rumi_voice_book_20261011\\verification\\editorial_review.json",
+      "sha256": "eaca8ed05b7b7d122f9766a410eb652de9c85be7f0b6e7af180cf5e24d023a2a"
+    },
+    {
+      "path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\assets_src\\books\\rumi_voice_book_20261011\\verification\\independent_opening_review.json",
+      "sha256": "f9cd98c4216b88b1ea9a895b224be6ed15ceea827a8cf9e973a03d8e32ccefc7"
+    },
+    {
+      "path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\assets_src\\books\\rumi_voice_book_20261011\\verification\\root_art_review.json",
+      "sha256": "6c9051c07cd85d5e299b7f45824ee0d4e7eec3c69d70fa8a7dd6a64a8fd35899"
+    },
+    {
+      "path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\assets_src\\characters\\rumi_2026-08-22\\rumi_full_body_identity.png",
+      "sha256": "636ec38fd0e01d472163da8a83e7c818a488823545565f17136ca6eb7b5bb31f"
+    },
+    {
+      "path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\assets_src\\imagegen\\mermaid_pool_room_2026-08-02\\room_mermaid_pool_fullframe_v3_native.png",
+      "sha256": "2a4bd923c26d5f7980fc8a723576ecb573097e30bc94090f75437833fc3d55a5"
+    },
+    {
+      "path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\gen2\\generated\\aquatic_turtle\\v3.webp",
+      "sha256": "c05e9872b43a382bd4429363678b92952af4ad15e7db8a66414dc5cf48f1a7bb"
+    }
+  ],
+  "limits": [
+    "Hashes do not establish exact generated lettering, speaker attribution or semantic/action uniqueness.",
+    "Every exact selected page needs human native and final-PDF visual review.",
+    "Owner, child, print, runtime and global master-audit acceptance are not claimed."
+  ]
+}

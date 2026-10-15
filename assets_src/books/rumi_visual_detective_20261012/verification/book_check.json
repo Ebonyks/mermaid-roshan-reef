@@ -1,0 +1,3347 @@
+{
+  "schema": "rumi_detective_book_check_v1",
+  "status": "NATIVE_IDAT_RGB_GEOMETRY_PASS_RENDER_SAMPLING_NON_EXACT_VISUAL_ACCEPTANCE_PENDING",
+  "title": "Mermaid Roshan: Here I Am!",
+  "script_sha256": "ab77f7740592a82b9185c10eb22a7b85ff785726b2f9eb8f01158861d54db6cd",
+  "selection": {
+    "path": "assets_src/books/rumi_visual_detective_20261012/selected_art.json",
+    "sha256": "f3492f5eebeca5c29306e7e99ed7bec29c98d599f7177f3a3a43af64670d570f"
+  },
+  "builder": {
+    "path": "assets_src/books/rumi_visual_detective_20261012/build_book.py",
+    "sha256": "a486e2c9464467e6355b997aa2c889cee326ea82f325b8ce59b885ebb9455e3a"
+  },
+  "checker": {
+    "path": "assets_src/books/rumi_visual_detective_20261012/validate_selection.py",
+    "sha256": "d8807d094115cc18bfe164b8b6efe4b936a025fedc4fc14fd25ae029a0c19de3"
+  },
+  "provenance_check": {
+    "path": "assets_src/books/rumi_visual_detective_20261012/verification/provenance_check.json",
+    "sha256": "f2bf6e47d118ba850fce78949902e23a32443d4cdd386d187f645daeb40b6fdc"
+  },
+  "transcript": {
+    "path": "assets_src/books/rumi_visual_detective_20261012/MANUSCRIPT.txt",
+    "sha256": "38acb28035596b04f3f479f401cff7d407aaff90233ee6ade833bca186b12221",
+    "entry_order_exact": true
+  },
+  "pdf": {
+    "path": "assets_src/books/rumi_visual_detective_20261012/output/pdf/Mermaid_Roshan_Here_I_Am_Detective_32_Pages.pdf",
+    "sha256": "f19669f0bd75517c9c6222d9da00a87d26d8cf84e7edc4e5ba2968d5fc2f8064",
+    "bytes": 101178692,
+    "actual_page_count": 32,
+    "page_dimensions_points": [
+      512.0,
+      768.0
+    ],
+    "physical_size_inches": [
+      7.111111111111111,
+      10.666666666666666
+    ],
+    "one_complete_native_image_per_page": true,
+    "selectable_story_text": false,
+    "lettering_source": "generated within native page art"
+  },
+  "story_words": 1050,
+  "total_source_panels": 102,
+  "story_source_panels": 101,
+  "native_sources": [
+    {
+      "number": 1,
+      "kind": "cover",
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_01_take1.png",
+      "take": 1,
+      "sha256": "da123e2196a887725b7e82abac7c2beaa1cd861a9c48b6abe0a300d99bf41bb9",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "mode": "RGB",
+      "rgb_pixel_sha256": "c0c81a579891d2a013c49eb6bda5f8829aa1a4415990a061e5239fe9bbe386ea",
+      "origin": "PREVIOUS_COMPLETE_NATIVE_PAGE_UNCHANGED_STORY",
+      "source_page_sha256": "87d877c2b7ff7ddcc2e664ef304731a89c97500fc1d9576b91d4bf224f9ef389",
+      "pdf_placement_points": [
+        0,
+        0,
+        512.0,
+        768.0
+      ],
+      "raster_resize": false,
+      "crop": false,
+      "visible_text_overlays": false,
+      "distortion": false
+    },
+    {
+      "number": 2,
+      "kind": "story",
+      "path": "assets_src/books/rumi_visual_detective_20261012/native/page_02_take1.png",
+      "take": 1,
+      "sha256": "3edc3778d3a6a43719c7ae1a9dea0ca20bf0137667d0a536a4d75e67fa42b1eb",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "mode": "RGB",
+      "rgb_pixel_sha256": "9b9ca595c2e01311e932d0c4215cedf25b4db5bc29cb6c950aa2005c6a44bca3",
+      "origin": "NEW_COMPLETE_NATIVE_PAGE_CURRENT_SCRIPT",
+      "source_page_sha256": "4ae1a9f13e485240536bdea11233857c109cc751cf595d1093753b7233581e9c",
+      "pdf_placement_points": [
+        0,
+        0,
+        512.0,
+        768.0
+      ],
+      "raster_resize": false,
+      "crop": false,
+      "visible_text_overlays": false,
+      "distortion": false
+    },
+    {
+      "number": 3,
+      "kind": "story",
+      "path": "assets_src/books/rumi_visual_detective_20261012/native/page_03_take2.png",
+      "take": 2,
+      "sha256": "cab40daad54fa84fcd5016f0a39a0a0a62fd7b0b0af2b6daf5e36ab425b35467",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "mode": "RGB",
+      "rgb_pixel_sha256": "cc2524ed5bb360b8b9574453e33a659fac0c23e88b49d00805f77a119d962171",
+      "origin": "NEW_COMPLETE_NATIVE_PAGE_CURRENT_SCRIPT",
+      "source_page_sha256": "b0fe06e36ae4938b4cc22cba645dda0c2be4b1f7d5e4e5923fe84dec813e7481",
+      "pdf_placement_points": [
+        0,
+        0,
+        512.0,
+        768.0
+      ],
+      "raster_resize": false,
+      "crop": false,
+      "visible_text_overlays": false,
+      "distortion": false
+    },
+    {
+      "number": 4,
+      "kind": "story",
+      "path": "assets_src/books/rumi_visual_detective_20261012/native/page_04_take2.png",
+      "take": 2,
+      "sha256": "af4f6ff85a8d085885151809223adbc73af68f65f2b1ac13962b3a74a83735ac",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "mode": "RGB",
+      "rgb_pixel_sha256": "64ff6e302654f687ce678241e28422185ecf12faeebe0e8acf4dd073036a6205",
+      "origin": "NEW_COMPLETE_NATIVE_PAGE_CURRENT_SCRIPT",
+      "source_page_sha256": "3572dee7ecd20c0335e2d11d9b1f2af5edc267a9982ea438763c0b5b07a947f0",
+      "pdf_placement_points": [
+        0,
+        0,
+        512.0,
+        768.0
+      ],
+      "raster_resize": false,
+      "crop": false,
+      "visible_text_overlays": false,
+      "distortion": false
+    },
+    {
+      "number": 5,
+      "kind": "story",
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_05_take1.png",
+      "take": 1,
+      "sha256": "76ac7535dacaec9d1ab66d2eb6586987412e787420318ece80cf984e4fa79fed",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "mode": "RGB",
+      "rgb_pixel_sha256": "a8cdffd696ecd11b19bcb388d4afcc017c779916a29e7cc381e56f5de04ea9de",
+      "origin": "PREVIOUS_COMPLETE_NATIVE_PAGE_UNCHANGED_STORY",
+      "source_page_sha256": "f512dd7cdad29edbed8c001c770ffbd231fa2f740b49eaacefd997972bba19df",
+      "pdf_placement_points": [
+        0,
+        0,
+        512.0,
+        768.0
+      ],
+      "raster_resize": false,
+      "crop": false,
+      "visible_text_overlays": false,
+      "distortion": false
+    },
+    {
+      "number": 6,
+      "kind": "story",
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_06_take2.png",
+      "take": 2,
+      "sha256": "b2c5938b1a3bd1f1f705e5095d0ca07c7044faefdc154e56fcee8a750f522ac1",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "mode": "RGB",
+      "rgb_pixel_sha256": "40810339f5d98bf6816b2eb4a3c3093f0d774658684fd2a5f99a96fce0697419",
+      "origin": "PREVIOUS_COMPLETE_NATIVE_PAGE_UNCHANGED_STORY",
+      "source_page_sha256": "d14f72c0d2cff4bf7be6c07c08a989115d0d71bc1d338de5393ebe200d93e67d",
+      "pdf_placement_points": [
+        0,
+        0,
+        512.0,
+        768.0
+      ],
+      "raster_resize": false,
+      "crop": false,
+      "visible_text_overlays": false,
+      "distortion": false
+    },
+    {
+      "number": 7,
+      "kind": "story",
+      "path": "assets_src/books/rumi_visual_detective_20261012/native/page_07_take1.png",
+      "take": 1,
+      "sha256": "1f0b86e90de045692df1efc2b45deaa8d8ee5788a365d6ce6fd213800fde3a0a",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "mode": "RGB",
+      "rgb_pixel_sha256": "cc6a7222987cc3410f7b3a107385d93fed5d9a64823693034c259fe5026fb595",
+      "origin": "NEW_COMPLETE_NATIVE_PAGE_CURRENT_SCRIPT",
+      "source_page_sha256": "76f9d5d364665fa326140e899ec1e32d10d54e7ef3ef12085529fb044a819554",
+      "pdf_placement_points": [
+        0,
+        0,
+        512.0,
+        768.0
+      ],
+      "raster_resize": false,
+      "crop": false,
+      "visible_text_overlays": false,
+      "distortion": false
+    },
+    {
+      "number": 8,
+      "kind": "story",
+      "path": "assets_src/books/rumi_visual_detective_20261012/native/page_08_take3.png",
+      "take": 3,
+      "sha256": "3675b4311b9224f12c83fd3c4d91dfaaea3a4f94253a37998009a58c56fdc9ed",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "mode": "RGB",
+      "rgb_pixel_sha256": "9de77c327c9a0b42043d9b3abb7fe4901fa71a1cd9b66a67b8854f914c253464",
+      "origin": "NEW_COMPLETE_NATIVE_PAGE_CURRENT_SCRIPT",
+      "source_page_sha256": "9607e522e9aa18eadf279d7c4fd1994174072027acbd050ebe5e9bfcf5c0dd0d",
+      "pdf_placement_points": [
+        0,
+        0,
+        512.0,
+        768.0
+      ],
+      "raster_resize": false,
+      "crop": false,
+      "visible_text_overlays": false,
+      "distortion": false
+    },
+    {
+      "number": 9,
+      "kind": "story",
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_09_take3.png",
+      "take": 3,
+      "sha256": "013c7ee2e14e2527243bc97cce8df6f8aaacaf0b227e1bb7c3e772f5ad9d46ee",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "mode": "RGB",
+      "rgb_pixel_sha256": "0e4f0b2488f8fcd1113aeb86c57ac1ef1fce700c531f6980cb5e8c04e6a80c1f",
+      "origin": "PREVIOUS_COMPLETE_NATIVE_PAGE_UNCHANGED_STORY",
+      "source_page_sha256": "dce4d01269412049a8b0a147e502453c95c4e8d622e1395ed2e1048912024510",
+      "pdf_placement_points": [
+        0,
+        0,
+        512.0,
+        768.0
+      ],
+      "raster_resize": false,
+      "crop": false,
+      "visible_text_overlays": false,
+      "distortion": false
+    },
+    {
+      "number": 10,
+      "kind": "story",
+      "path": "assets_src/books/rumi_visual_detective_20261012/native/page_10_take3.png",
+      "take": 3,
+      "sha256": "2ec630084b473e64b70fc030995dbde0bcefbe46d2358aa2b968215f326bfa74",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "mode": "RGB",
+      "rgb_pixel_sha256": "6fcc963217f02e9863bb5cb45c11d9e0a5620750a32664e86bf267e2f0e4e529",
+      "origin": "NEW_COMPLETE_NATIVE_PAGE_CURRENT_SCRIPT",
+      "source_page_sha256": "2a9d1757ad307465bdd644dd3498b3b1561ccf7a1ccf23097395e1f0f505a29f",
+      "pdf_placement_points": [
+        0,
+        0,
+        512.0,
+        768.0
+      ],
+      "raster_resize": false,
+      "crop": false,
+      "visible_text_overlays": false,
+      "distortion": false
+    },
+    {
+      "number": 11,
+      "kind": "story",
+      "path": "assets_src/books/rumi_visual_detective_20261012/native/page_11_take1.png",
+      "take": 1,
+      "sha256": "9e461f9b46671cdcf01d72c4345319d11449528934321b900d07d188f9da9d9b",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "mode": "RGB",
+      "rgb_pixel_sha256": "2b98ee08ab79edac44755346dc9beb2dcefca3267594ab031d8b355e35ab2405",
+      "origin": "NEW_COMPLETE_NATIVE_PAGE_CURRENT_SCRIPT",
+      "source_page_sha256": "e5a20c5a911a3f8c205d605a7593a2693967ecf2f8ad1e603493a37d82a5a8da",
+      "pdf_placement_points": [
+        0,
+        0,
+        512.0,
+        768.0
+      ],
+      "raster_resize": false,
+      "crop": false,
+      "visible_text_overlays": false,
+      "distortion": false
+    },
+    {
+      "number": 12,
+      "kind": "story",
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_12_take2.png",
+      "take": 2,
+      "sha256": "6d7f6e8f0c4d1a6f6f66ab50c6f3fc0f6a149a84f566ab71deb94e595f75f3b8",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "mode": "RGB",
+      "rgb_pixel_sha256": "c95835ff25db66262f2b79c6af613b2af09be0735ba9a69d5c4991b101c9b5b5",
+      "origin": "PREVIOUS_COMPLETE_NATIVE_PAGE_UNCHANGED_STORY",
+      "source_page_sha256": "468ae895594ea945bb2b8c010e80d9a539619392373b3ddbd71a787925b5f6f4",
+      "pdf_placement_points": [
+        0,
+        0,
+        512.0,
+        768.0
+      ],
+      "raster_resize": false,
+      "crop": false,
+      "visible_text_overlays": false,
+      "distortion": false
+    },
+    {
+      "number": 13,
+      "kind": "story",
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_13_take1.png",
+      "take": 1,
+      "sha256": "a2b7f62f3e8e0a2dfe9211302b69cf32d502f6143a5f1e0cdcd5286b3d5caa7e",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "mode": "RGB",
+      "rgb_pixel_sha256": "92399bd7231909d1f794cb5d12bd5833b2805aba4cad424bf050fafa536f9b1a",
+      "origin": "PREVIOUS_COMPLETE_NATIVE_PAGE_UNCHANGED_STORY",
+      "source_page_sha256": "10c9eb60fdaa0ce16d7dfd2317bba2ab6e39f54b66d523dca1dcb6a91fdb1912",
+      "pdf_placement_points": [
+        0,
+        0,
+        512.0,
+        768.0
+      ],
+      "raster_resize": false,
+      "crop": false,
+      "visible_text_overlays": false,
+      "distortion": false
+    },
+    {
+      "number": 14,
+      "kind": "story",
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_14_take1.png",
+      "take": 1,
+      "sha256": "5b4e8f69b291f597dd686514ee4fd780c9f2fd5a59cd499be9e8230f104fa5c4",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "mode": "RGB",
+      "rgb_pixel_sha256": "d8e5d347e834ba01ad46994b92e53cdea37ef7a2c2d7579b04fcda905e81bb15",
+      "origin": "PREVIOUS_COMPLETE_NATIVE_PAGE_UNCHANGED_STORY",
+      "source_page_sha256": "20e6ed409f3e556051167729a417037fdc34511937b397b7c931dc46de039428",
+      "pdf_placement_points": [
+        0,
+        0,
+        512.0,
+        768.0
+      ],
+      "raster_resize": false,
+      "crop": false,
+      "visible_text_overlays": false,
+      "distortion": false
+    },
+    {
+      "number": 15,
+      "kind": "story",
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_15_take1.png",
+      "take": 1,
+      "sha256": "252085dcdbac0c309d1995166231216b001a596c3da40bfafc02f631388a72b6",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "mode": "RGB",
+      "rgb_pixel_sha256": "9b07f37aaee62084bbcacac53022cdb9b4c3cb5a1d631d8c1602a8fdf8015ed8",
+      "origin": "PREVIOUS_COMPLETE_NATIVE_PAGE_UNCHANGED_STORY",
+      "source_page_sha256": "a1e309076c5352e5b1da6b59df382e8d1d33331b22808e2f6005cd5f96034a4e",
+      "pdf_placement_points": [
+        0,
+        0,
+        512.0,
+        768.0
+      ],
+      "raster_resize": false,
+      "crop": false,
+      "visible_text_overlays": false,
+      "distortion": false
+    },
+    {
+      "number": 16,
+      "kind": "story",
+      "path": "assets_src/books/rumi_visual_detective_20261012/native/page_16_take1.png",
+      "take": 1,
+      "sha256": "77646df74a846b9bad3db3c38145e5929f909514922812d2f3a1403d1e6ec6d7",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "mode": "RGB",
+      "rgb_pixel_sha256": "e46e2e2f46cae3a60120ade06d1944212405cb1788faa88b8f41063a827bbe65",
+      "origin": "NEW_COMPLETE_NATIVE_PAGE_CURRENT_SCRIPT",
+      "source_page_sha256": "e674e9e21d4d8f8010b9e52d30b0cef60ba30435b46bed9fbf3dca1a6f12cff6",
+      "pdf_placement_points": [
+        0,
+        0,
+        512.0,
+        768.0
+      ],
+      "raster_resize": false,
+      "crop": false,
+      "visible_text_overlays": false,
+      "distortion": false
+    },
+    {
+      "number": 17,
+      "kind": "story",
+      "path": "assets_src/books/rumi_visual_detective_20261012/native/page_17_take1.png",
+      "take": 1,
+      "sha256": "f62c7a42ba602937df6c0fac292966d4b4121e996b505e215ceeaf5aab9ec360",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "mode": "RGB",
+      "rgb_pixel_sha256": "ad4180fd4e8a64c02b0cd33c29c325e9abadf8713c8193448b2a14da9e893b05",
+      "origin": "NEW_COMPLETE_NATIVE_PAGE_CURRENT_SCRIPT",
+      "source_page_sha256": "b67b0a1eeae2543c5707ae7f452baf65ddf1a6f59a945981904c2a1dc8635624",
+      "pdf_placement_points": [
+        0,
+        0,
+        512.0,
+        768.0
+      ],
+      "raster_resize": false,
+      "crop": false,
+      "visible_text_overlays": false,
+      "distortion": false
+    },
+    {
+      "number": 18,
+      "kind": "story",
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_18_take2.png",
+      "take": 2,
+      "sha256": "078b22b5d88f152a07bc51988f66971b50726d078672c3278f458c43a0e5152b",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "mode": "RGB",
+      "rgb_pixel_sha256": "c6a7ee788aa6e510069629ac8e25ef06eca9e0c9ab0edf8a0117182b51b22657",
+      "origin": "PREVIOUS_COMPLETE_NATIVE_PAGE_UNCHANGED_STORY",
+      "source_page_sha256": "0af6b4df44e4b47d7c902caa29260e8ed40f9d4fb3de47fb03d60cd93483970e",
+      "pdf_placement_points": [
+        0,
+        0,
+        512.0,
+        768.0
+      ],
+      "raster_resize": false,
+      "crop": false,
+      "visible_text_overlays": false,
+      "distortion": false
+    },
+    {
+      "number": 19,
+      "kind": "story",
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_19_take1.png",
+      "take": 1,
+      "sha256": "a728542d5bc194ff84a0d5adaccd3efe9fc2d1bb417f14352cc66567cfc05fb5",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "mode": "RGB",
+      "rgb_pixel_sha256": "ba17d316b75b66e56b0bcc394fafab0008c21ce62c944a80494c7a6b4f0a2b83",
+      "origin": "PREVIOUS_COMPLETE_NATIVE_PAGE_UNCHANGED_STORY",
+      "source_page_sha256": "a43f293a4e4bda7fce07489be9557f3d3c1384c56f4ae01c6ded9c6ac7df1906",
+      "pdf_placement_points": [
+        0,
+        0,
+        512.0,
+        768.0
+      ],
+      "raster_resize": false,
+      "crop": false,
+      "visible_text_overlays": false,
+      "distortion": false
+    },
+    {
+      "number": 20,
+      "kind": "story",
+      "path": "assets_src/books/rumi_visual_detective_20261012/native/page_20_take1.png",
+      "take": 1,
+      "sha256": "bd9f36bb937a6da1ceb106e0f3a77e0917e172b0fb25b0d90e277f7e02aec9e2",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "mode": "RGB",
+      "rgb_pixel_sha256": "0323cd9a424725d7ebbf985b6cf34812fa160a728e7d8c490f058fa0fbadf270",
+      "origin": "NEW_COMPLETE_NATIVE_PAGE_CURRENT_SCRIPT",
+      "source_page_sha256": "f8724db2138b4dbfa8f3160e3bf9e193fd756569d6677d5b3084f5599addbde5",
+      "pdf_placement_points": [
+        0,
+        0,
+        512.0,
+        768.0
+      ],
+      "raster_resize": false,
+      "crop": false,
+      "visible_text_overlays": false,
+      "distortion": false
+    },
+    {
+      "number": 21,
+      "kind": "story",
+      "path": "assets_src/books/rumi_visual_detective_20261012/native/page_21_take1.png",
+      "take": 1,
+      "sha256": "eb2d25c7b07f2ec7ef11198cec666c21eb09308d0608a314518335a496466cef",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "mode": "RGB",
+      "rgb_pixel_sha256": "3abe835ef4a59412dad8024856c9b3a124baf7ae18ae320bc44ea4cd606ad89a",
+      "origin": "NEW_COMPLETE_NATIVE_PAGE_CURRENT_SCRIPT",
+      "source_page_sha256": "ac69420904807acda98d33053f9ddbd9b7f583831a242d982f6f2650d9cca5a2",
+      "pdf_placement_points": [
+        0,
+        0,
+        512.0,
+        768.0
+      ],
+      "raster_resize": false,
+      "crop": false,
+      "visible_text_overlays": false,
+      "distortion": false
+    },
+    {
+      "number": 22,
+      "kind": "story",
+      "path": "assets_src/books/rumi_visual_detective_20261012/native/page_22_take1.png",
+      "take": 1,
+      "sha256": "1a5f905d63cefc8e4a55134eb04cc4c1bb2376a59c47f82448dee329ebd42314",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "mode": "RGB",
+      "rgb_pixel_sha256": "f1c28c08dc543e5dfcf414bafd835227537ae99300dcb15c4ace624e7b76ec95",
+      "origin": "NEW_COMPLETE_NATIVE_PAGE_CURRENT_SCRIPT",
+      "source_page_sha256": "3f38a126fcf79bf3e37c6068e08e94863d55b61d1f3b6d2faa664c6d6effc9cc",
+      "pdf_placement_points": [
+        0,
+        0,
+        512.0,
+        768.0
+      ],
+      "raster_resize": false,
+      "crop": false,
+      "visible_text_overlays": false,
+      "distortion": false
+    },
+    {
+      "number": 23,
+      "kind": "story",
+      "path": "assets_src/books/rumi_visual_detective_20261012/native/page_23_take1.png",
+      "take": 1,
+      "sha256": "e8b64308bba24d180ceeb3aff3d490e4e2388f45cc950ea7aead70ba9b7ff446",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "mode": "RGB",
+      "rgb_pixel_sha256": "13bf84745e8b7b2e6314a1b7fc238509c3245c1d39138d9cd13c4d269b459d5e",
+      "origin": "NEW_COMPLETE_NATIVE_PAGE_CURRENT_SCRIPT",
+      "source_page_sha256": "fa3f00abf699e0c175038945115552ddc59388c4608b44a3e8eeedd763cc5e13",
+      "pdf_placement_points": [
+        0,
+        0,
+        512.0,
+        768.0
+      ],
+      "raster_resize": false,
+      "crop": false,
+      "visible_text_overlays": false,
+      "distortion": false
+    },
+    {
+      "number": 24,
+      "kind": "story",
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_24_take3.png",
+      "take": 3,
+      "sha256": "1821fe130cc0e916d5c8822d4ebd6023121ce0faceeec9e4fcc9adda915c958c",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "mode": "RGB",
+      "rgb_pixel_sha256": "0c9b981a94ed215cb73a8068c3b6dde1fe414afa749423060ba052083d2cb7d0",
+      "origin": "PREVIOUS_COMPLETE_NATIVE_PAGE_UNCHANGED_STORY",
+      "source_page_sha256": "bb9209d208f94d9a72db5f5603be3b1a3ff014db75dc4de132973ad4c91db91a",
+      "pdf_placement_points": [
+        0,
+        0,
+        512.0,
+        768.0
+      ],
+      "raster_resize": false,
+      "crop": false,
+      "visible_text_overlays": false,
+      "distortion": false
+    },
+    {
+      "number": 25,
+      "kind": "story",
+      "path": "assets_src/books/rumi_visual_detective_20261012/native/page_25_take2.png",
+      "take": 2,
+      "sha256": "c4d8ec66b8077fc406c7f79943df3f9a3d4905e4a6e0b703f0ba55c3dba61cd8",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "mode": "RGB",
+      "rgb_pixel_sha256": "f0a984394ca74b95ec2ebb37717bfc142952813daa2336e6c8597099af493156",
+      "origin": "NEW_COMPLETE_NATIVE_PAGE_CURRENT_SCRIPT",
+      "source_page_sha256": "757d90a6f490e987183ea25e20cbdd703dad83a3c2a9942c47358d6da768258f",
+      "pdf_placement_points": [
+        0,
+        0,
+        512.0,
+        768.0
+      ],
+      "raster_resize": false,
+      "crop": false,
+      "visible_text_overlays": false,
+      "distortion": false
+    },
+    {
+      "number": 26,
+      "kind": "story",
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_26_take1.png",
+      "take": 1,
+      "sha256": "df82ab99dc1a54c0b158801dfa7ca5df45648bc5c34c5f8d8e19f95cb07b1990",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "mode": "RGB",
+      "rgb_pixel_sha256": "5579dc777ba83803a6d038263ecde39183152b2eb47e6b9678a66cd107001850",
+      "origin": "PREVIOUS_COMPLETE_NATIVE_PAGE_UNCHANGED_STORY",
+      "source_page_sha256": "a52532fc9f15022a7f9f982be9771baebff206cd1e01f489352eabc604dfdb5d",
+      "pdf_placement_points": [
+        0,
+        0,
+        512.0,
+        768.0
+      ],
+      "raster_resize": false,
+      "crop": false,
+      "visible_text_overlays": false,
+      "distortion": false
+    },
+    {
+      "number": 27,
+      "kind": "story",
+      "path": "assets_src/books/rumi_visual_detective_20261012/native/page_27_take2.png",
+      "take": 2,
+      "sha256": "cc4aa251d48ddf4d9a4b1e7e342928e03d581e6def43e391446b1eebf2c696f8",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "mode": "RGB",
+      "rgb_pixel_sha256": "d072ab1980ae389297e16593ac6c5d0c7447a461913b9c90271e67f729f857fd",
+      "origin": "NEW_COMPLETE_NATIVE_PAGE_CURRENT_SCRIPT",
+      "source_page_sha256": "2de183b9743b89db9df01b1964b0507ea1d3532e16ccebd07a37e8f940baa029",
+      "pdf_placement_points": [
+        0,
+        0,
+        512.0,
+        768.0
+      ],
+      "raster_resize": false,
+      "crop": false,
+      "visible_text_overlays": false,
+      "distortion": false
+    },
+    {
+      "number": 28,
+      "kind": "story",
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_28_take1.png",
+      "take": 1,
+      "sha256": "3fca50bd33978d2507cbc1722da0da6ee1d1df242b658ada1f9b5e6590a54cea",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "mode": "RGB",
+      "rgb_pixel_sha256": "09598016190b559bd091a675120257925d6aa22259a61f4a08f65852c9fbe575",
+      "origin": "PREVIOUS_COMPLETE_NATIVE_PAGE_UNCHANGED_STORY",
+      "source_page_sha256": "d1cfdaf1e3a366f9b86ddf951c36a1702b182f09e229fcc6b5c2a45e663b7be0",
+      "pdf_placement_points": [
+        0,
+        0,
+        512.0,
+        768.0
+      ],
+      "raster_resize": false,
+      "crop": false,
+      "visible_text_overlays": false,
+      "distortion": false
+    },
+    {
+      "number": 29,
+      "kind": "story",
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_29_take2.png",
+      "take": 2,
+      "sha256": "3f1fc8182a7adf5c49ee53f4f3728e8f7dc52962c62cae1ce80b9d508911a695",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "mode": "RGB",
+      "rgb_pixel_sha256": "5eda9ec40f885843800f14afb0d94bf1c2f18d50d474a440c36a193049bd4f79",
+      "origin": "PREVIOUS_COMPLETE_NATIVE_PAGE_UNCHANGED_STORY",
+      "source_page_sha256": "a9583fb1c051e89c2fbf2b32ccd223a479c9e1bee616694e3fbf4cf9694411ce",
+      "pdf_placement_points": [
+        0,
+        0,
+        512.0,
+        768.0
+      ],
+      "raster_resize": false,
+      "crop": false,
+      "visible_text_overlays": false,
+      "distortion": false
+    },
+    {
+      "number": 30,
+      "kind": "story",
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_30_take1.png",
+      "take": 1,
+      "sha256": "5e2145a038f24cbf08ffb4f044a4b6f1d861f7c728ea9e2a28cb1ee2328196ca",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "mode": "RGB",
+      "rgb_pixel_sha256": "3250c0a2e1d41b42ebe0e8506f64afc521aaedbbaccefd849172e19bb3cf9d43",
+      "origin": "PREVIOUS_COMPLETE_NATIVE_PAGE_UNCHANGED_STORY",
+      "source_page_sha256": "7146dba3002dd041a31e2d8e09addf64322c4a485679605de87b514610d1df20",
+      "pdf_placement_points": [
+        0,
+        0,
+        512.0,
+        768.0
+      ],
+      "raster_resize": false,
+      "crop": false,
+      "visible_text_overlays": false,
+      "distortion": false
+    },
+    {
+      "number": 31,
+      "kind": "story",
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_31_take1.png",
+      "take": 1,
+      "sha256": "d26cd93f6296ac66a093d32ef001b43d3ec40bd261a59d576aa8c676fe354172",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "mode": "RGB",
+      "rgb_pixel_sha256": "a2fd4817ce7d954c5b0b9d0ccc466626daa2aa9fa662c6c2e6c8614c735cee67",
+      "origin": "PREVIOUS_COMPLETE_NATIVE_PAGE_UNCHANGED_STORY",
+      "source_page_sha256": "54f2746558094e906a9f0725a050896dc6dc59d7b0f0138534e342a1ef297f7a",
+      "pdf_placement_points": [
+        0,
+        0,
+        512.0,
+        768.0
+      ],
+      "raster_resize": false,
+      "crop": false,
+      "visible_text_overlays": false,
+      "distortion": false
+    },
+    {
+      "number": 32,
+      "kind": "story",
+      "path": "assets_src/books/rumi_visual_detective_20261012/native/page_32_take1.png",
+      "take": 1,
+      "sha256": "31536a3118ae596d45299498eb657de556f694e8e072b115fa4dbede374780ae",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "mode": "RGB",
+      "rgb_pixel_sha256": "93053de0a60308a534433f9aebb7f5181518dfcf2bac748e43800a12763b3e76",
+      "origin": "NEW_COMPLETE_NATIVE_PAGE_CURRENT_SCRIPT",
+      "source_page_sha256": "e2ef019812f3daa80c30fe90c0db889c8cf90f669654e5f0aabf4a232e9b4c5b",
+      "pdf_placement_points": [
+        0,
+        0,
+        512.0,
+        768.0
+      ],
+      "raster_resize": false,
+      "crop": false,
+      "visible_text_overlays": false,
+      "distortion": false
+    }
+  ],
+  "unique_native_sha256_count": 32,
+  "unique_rgb_pixel_sha256_count": 32,
+  "embedded_images": [
+    {
+      "number": 1,
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "color_space": "/DeviceRGB",
+      "bits_per_component": 8,
+      "filters": [
+        "/FlateDecode"
+      ],
+      "decode_parameters": {
+        "/Predictor": 15,
+        "/Colors": 3,
+        "/BitsPerComponent": 8,
+        "/Columns": 1024
+      },
+      "decoded_rgb_sha256": "c0c81a579891d2a013c49eb6bda5f8829aa1a4415990a061e5239fe9bbe386ea",
+      "native_pixel_match": true,
+      "original_idat_sha256": "8b2a4a249419c51748a5d03d680e03c223fae9011dcbca536f8d998d33a0c834",
+      "original_idat_bytes_preserved": true,
+      "actual_image_transform": [
+        512.0,
+        0.0,
+        0.0,
+        768.0,
+        0.0,
+        0.0
+      ],
+      "complete_frame_geometry": true
+    },
+    {
+      "number": 2,
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "color_space": "/DeviceRGB",
+      "bits_per_component": 8,
+      "filters": [
+        "/FlateDecode"
+      ],
+      "decode_parameters": {
+        "/Predictor": 15,
+        "/Colors": 3,
+        "/BitsPerComponent": 8,
+        "/Columns": 1024
+      },
+      "decoded_rgb_sha256": "9b9ca595c2e01311e932d0c4215cedf25b4db5bc29cb6c950aa2005c6a44bca3",
+      "native_pixel_match": true,
+      "original_idat_sha256": "d7ed4f045fe5d2614ab3d9ae07fa60ccdf0688750a779f8d6ec60455040fe7e2",
+      "original_idat_bytes_preserved": true,
+      "actual_image_transform": [
+        512.0,
+        0.0,
+        0.0,
+        768.0,
+        0.0,
+        0.0
+      ],
+      "complete_frame_geometry": true
+    },
+    {
+      "number": 3,
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "color_space": "/DeviceRGB",
+      "bits_per_component": 8,
+      "filters": [
+        "/FlateDecode"
+      ],
+      "decode_parameters": {
+        "/Predictor": 15,
+        "/Colors": 3,
+        "/BitsPerComponent": 8,
+        "/Columns": 1024
+      },
+      "decoded_rgb_sha256": "cc2524ed5bb360b8b9574453e33a659fac0c23e88b49d00805f77a119d962171",
+      "native_pixel_match": true,
+      "original_idat_sha256": "964fd36e19af83aef24d082ba79dfa46c99830d8f749ab6e071cafecc19821c7",
+      "original_idat_bytes_preserved": true,
+      "actual_image_transform": [
+        512.0,
+        0.0,
+        0.0,
+        768.0,
+        0.0,
+        0.0
+      ],
+      "complete_frame_geometry": true
+    },
+    {
+      "number": 4,
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "color_space": "/DeviceRGB",
+      "bits_per_component": 8,
+      "filters": [
+        "/FlateDecode"
+      ],
+      "decode_parameters": {
+        "/Predictor": 15,
+        "/Colors": 3,
+        "/BitsPerComponent": 8,
+        "/Columns": 1024
+      },
+      "decoded_rgb_sha256": "64ff6e302654f687ce678241e28422185ecf12faeebe0e8acf4dd073036a6205",
+      "native_pixel_match": true,
+      "original_idat_sha256": "beabfaef56267e1b00549690236d31c1c68232e387653dc005193a895cff67c3",
+      "original_idat_bytes_preserved": true,
+      "actual_image_transform": [
+        512.0,
+        0.0,
+        0.0,
+        768.0,
+        0.0,
+        0.0
+      ],
+      "complete_frame_geometry": true
+    },
+    {
+      "number": 5,
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "color_space": "/DeviceRGB",
+      "bits_per_component": 8,
+      "filters": [
+        "/FlateDecode"
+      ],
+      "decode_parameters": {
+        "/Predictor": 15,
+        "/Colors": 3,
+        "/BitsPerComponent": 8,
+        "/Columns": 1024
+      },
+      "decoded_rgb_sha256": "a8cdffd696ecd11b19bcb388d4afcc017c779916a29e7cc381e56f5de04ea9de",
+      "native_pixel_match": true,
+      "original_idat_sha256": "041c693d0d4e3abd5dc8523c11be96cef99d68308076245c6a22316314e7bb78",
+      "original_idat_bytes_preserved": true,
+      "actual_image_transform": [
+        512.0,
+        0.0,
+        0.0,
+        768.0,
+        0.0,
+        0.0
+      ],
+      "complete_frame_geometry": true
+    },
+    {
+      "number": 6,
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "color_space": "/DeviceRGB",
+      "bits_per_component": 8,
+      "filters": [
+        "/FlateDecode"
+      ],
+      "decode_parameters": {
+        "/Predictor": 15,
+        "/Colors": 3,
+        "/BitsPerComponent": 8,
+        "/Columns": 1024
+      },
+      "decoded_rgb_sha256": "40810339f5d98bf6816b2eb4a3c3093f0d774658684fd2a5f99a96fce0697419",
+      "native_pixel_match": true,
+      "original_idat_sha256": "3240a1dca932402c22cdbe38273e5c3d99f5b9576cad8efffa15635dcc5bdba6",
+      "original_idat_bytes_preserved": true,
+      "actual_image_transform": [
+        512.0,
+        0.0,
+        0.0,
+        768.0,
+        0.0,
+        0.0
+      ],
+      "complete_frame_geometry": true
+    },
+    {
+      "number": 7,
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "color_space": "/DeviceRGB",
+      "bits_per_component": 8,
+      "filters": [
+        "/FlateDecode"
+      ],
+      "decode_parameters": {
+        "/Predictor": 15,
+        "/Colors": 3,
+        "/BitsPerComponent": 8,
+        "/Columns": 1024
+      },
+      "decoded_rgb_sha256": "cc6a7222987cc3410f7b3a107385d93fed5d9a64823693034c259fe5026fb595",
+      "native_pixel_match": true,
+      "original_idat_sha256": "2ed4681b11b671436bcf85f94fa3ddaf23b77591e8533c948ed7775fb989ebf6",
+      "original_idat_bytes_preserved": true,
+      "actual_image_transform": [
+        512.0,
+        0.0,
+        0.0,
+        768.0,
+        0.0,
+        0.0
+      ],
+      "complete_frame_geometry": true
+    },
+    {
+      "number": 8,
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "color_space": "/DeviceRGB",
+      "bits_per_component": 8,
+      "filters": [
+        "/FlateDecode"
+      ],
+      "decode_parameters": {
+        "/Predictor": 15,
+        "/Colors": 3,
+        "/BitsPerComponent": 8,
+        "/Columns": 1024
+      },
+      "decoded_rgb_sha256": "9de77c327c9a0b42043d9b3abb7fe4901fa71a1cd9b66a67b8854f914c253464",
+      "native_pixel_match": true,
+      "original_idat_sha256": "9fc756397a5f69791f7ee43c293f00dca4cdf3e7fddaec9e57412a843f9e1fb2",
+      "original_idat_bytes_preserved": true,
+      "actual_image_transform": [
+        512.0,
+        0.0,
+        0.0,
+        768.0,
+        0.0,
+        0.0
+      ],
+      "complete_frame_geometry": true
+    },
+    {
+      "number": 9,
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "color_space": "/DeviceRGB",
+      "bits_per_component": 8,
+      "filters": [
+        "/FlateDecode"
+      ],
+      "decode_parameters": {
+        "/Predictor": 15,
+        "/Colors": 3,
+        "/BitsPerComponent": 8,
+        "/Columns": 1024
+      },
+      "decoded_rgb_sha256": "0e4f0b2488f8fcd1113aeb86c57ac1ef1fce700c531f6980cb5e8c04e6a80c1f",
+      "native_pixel_match": true,
+      "original_idat_sha256": "7759435603d28b8080a5e5426b2dffc8c62751afa4310072f3460c4742c44aaf",
+      "original_idat_bytes_preserved": true,
+      "actual_image_transform": [
+        512.0,
+        0.0,
+        0.0,
+        768.0,
+        0.0,
+        0.0
+      ],
+      "complete_frame_geometry": true
+    },
+    {
+      "number": 10,
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "color_space": "/DeviceRGB",
+      "bits_per_component": 8,
+      "filters": [
+        "/FlateDecode"
+      ],
+      "decode_parameters": {
+        "/Predictor": 15,
+        "/Colors": 3,
+        "/BitsPerComponent": 8,
+        "/Columns": 1024
+      },
+      "decoded_rgb_sha256": "6fcc963217f02e9863bb5cb45c11d9e0a5620750a32664e86bf267e2f0e4e529",
+      "native_pixel_match": true,
+      "original_idat_sha256": "2fa1a185fb2ed77bbc9d256a7c869c25ea55d624284c6f31ada085863178e3c7",
+      "original_idat_bytes_preserved": true,
+      "actual_image_transform": [
+        512.0,
+        0.0,
+        0.0,
+        768.0,
+        0.0,
+        0.0
+      ],
+      "complete_frame_geometry": true
+    },
+    {
+      "number": 11,
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "color_space": "/DeviceRGB",
+      "bits_per_component": 8,
+      "filters": [
+        "/FlateDecode"
+      ],
+      "decode_parameters": {
+        "/Predictor": 15,
+        "/Colors": 3,
+        "/BitsPerComponent": 8,
+        "/Columns": 1024
+      },
+      "decoded_rgb_sha256": "2b98ee08ab79edac44755346dc9beb2dcefca3267594ab031d8b355e35ab2405",
+      "native_pixel_match": true,
+      "original_idat_sha256": "20fdacd615508c50dd9a10c9aa14ced7231996a6e11253d521a5afac2159f976",
+      "original_idat_bytes_preserved": true,
+      "actual_image_transform": [
+        512.0,
+        0.0,
+        0.0,
+        768.0,
+        0.0,
+        0.0
+      ],
+      "complete_frame_geometry": true
+    },
+    {
+      "number": 12,
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "color_space": "/DeviceRGB",
+      "bits_per_component": 8,
+      "filters": [
+        "/FlateDecode"
+      ],
+      "decode_parameters": {
+        "/Predictor": 15,
+        "/Colors": 3,
+        "/BitsPerComponent": 8,
+        "/Columns": 1024
+      },
+      "decoded_rgb_sha256": "c95835ff25db66262f2b79c6af613b2af09be0735ba9a69d5c4991b101c9b5b5",
+      "native_pixel_match": true,
+      "original_idat_sha256": "9cf9d4ee56957fdef35cd25a596b18067591e19bf8383770fe445295d4eaa4a3",
+      "original_idat_bytes_preserved": true,
+      "actual_image_transform": [
+        512.0,
+        0.0,
+        0.0,
+        768.0,
+        0.0,
+        0.0
+      ],
+      "complete_frame_geometry": true
+    },
+    {
+      "number": 13,
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "color_space": "/DeviceRGB",
+      "bits_per_component": 8,
+      "filters": [
+        "/FlateDecode"
+      ],
+      "decode_parameters": {
+        "/Predictor": 15,
+        "/Colors": 3,
+        "/BitsPerComponent": 8,
+        "/Columns": 1024
+      },
+      "decoded_rgb_sha256": "92399bd7231909d1f794cb5d12bd5833b2805aba4cad424bf050fafa536f9b1a",
+      "native_pixel_match": true,
+      "original_idat_sha256": "c870b6d52dda92ac73d6d6327bf751dda096fd51ed133144117ff44dc9d36286",
+      "original_idat_bytes_preserved": true,
+      "actual_image_transform": [
+        512.0,
+        0.0,
+        0.0,
+        768.0,
+        0.0,
+        0.0
+      ],
+      "complete_frame_geometry": true
+    },
+    {
+      "number": 14,
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "color_space": "/DeviceRGB",
+      "bits_per_component": 8,
+      "filters": [
+        "/FlateDecode"
+      ],
+      "decode_parameters": {
+        "/Predictor": 15,
+        "/Colors": 3,
+        "/BitsPerComponent": 8,
+        "/Columns": 1024
+      },
+      "decoded_rgb_sha256": "d8e5d347e834ba01ad46994b92e53cdea37ef7a2c2d7579b04fcda905e81bb15",
+      "native_pixel_match": true,
+      "original_idat_sha256": "7d63a1da066ddfbb4850339a41528f593ae85067cbec5478cb57674ee638b3c0",
+      "original_idat_bytes_preserved": true,
+      "actual_image_transform": [
+        512.0,
+        0.0,
+        0.0,
+        768.0,
+        0.0,
+        0.0
+      ],
+      "complete_frame_geometry": true
+    },
+    {
+      "number": 15,
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "color_space": "/DeviceRGB",
+      "bits_per_component": 8,
+      "filters": [
+        "/FlateDecode"
+      ],
+      "decode_parameters": {
+        "/Predictor": 15,
+        "/Colors": 3,
+        "/BitsPerComponent": 8,
+        "/Columns": 1024
+      },
+      "decoded_rgb_sha256": "9b07f37aaee62084bbcacac53022cdb9b4c3cb5a1d631d8c1602a8fdf8015ed8",
+      "native_pixel_match": true,
+      "original_idat_sha256": "34b193c1858cc9a65be9120f2c2cdbac2cb934204712f1efbf5cfd20e36b307b",
+      "original_idat_bytes_preserved": true,
+      "actual_image_transform": [
+        512.0,
+        0.0,
+        0.0,
+        768.0,
+        0.0,
+        0.0
+      ],
+      "complete_frame_geometry": true
+    },
+    {
+      "number": 16,
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "color_space": "/DeviceRGB",
+      "bits_per_component": 8,
+      "filters": [
+        "/FlateDecode"
+      ],
+      "decode_parameters": {
+        "/Predictor": 15,
+        "/Colors": 3,
+        "/BitsPerComponent": 8,
+        "/Columns": 1024
+      },
+      "decoded_rgb_sha256": "e46e2e2f46cae3a60120ade06d1944212405cb1788faa88b8f41063a827bbe65",
+      "native_pixel_match": true,
+      "original_idat_sha256": "0122f42433d47efad03c81434aee06a7ba825d19bb81b3ac93fdc1273e602380",
+      "original_idat_bytes_preserved": true,
+      "actual_image_transform": [
+        512.0,
+        0.0,
+        0.0,
+        768.0,
+        0.0,
+        0.0
+      ],
+      "complete_frame_geometry": true
+    },
+    {
+      "number": 17,
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "color_space": "/DeviceRGB",
+      "bits_per_component": 8,
+      "filters": [
+        "/FlateDecode"
+      ],
+      "decode_parameters": {
+        "/Predictor": 15,
+        "/Colors": 3,
+        "/BitsPerComponent": 8,
+        "/Columns": 1024
+      },
+      "decoded_rgb_sha256": "ad4180fd4e8a64c02b0cd33c29c325e9abadf8713c8193448b2a14da9e893b05",
+      "native_pixel_match": true,
+      "original_idat_sha256": "34c8c7a02609d4c3e9866acb69f33f4e85c93f89933fdb645af396e059df6238",
+      "original_idat_bytes_preserved": true,
+      "actual_image_transform": [
+        512.0,
+        0.0,
+        0.0,
+        768.0,
+        0.0,
+        0.0
+      ],
+      "complete_frame_geometry": true
+    },
+    {
+      "number": 18,
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "color_space": "/DeviceRGB",
+      "bits_per_component": 8,
+      "filters": [
+        "/FlateDecode"
+      ],
+      "decode_parameters": {
+        "/Predictor": 15,
+        "/Colors": 3,
+        "/BitsPerComponent": 8,
+        "/Columns": 1024
+      },
+      "decoded_rgb_sha256": "c6a7ee788aa6e510069629ac8e25ef06eca9e0c9ab0edf8a0117182b51b22657",
+      "native_pixel_match": true,
+      "original_idat_sha256": "3b55420729772b7d185c93b2adc50bc6a51da03ad95805b204167bd2182a9e27",
+      "original_idat_bytes_preserved": true,
+      "actual_image_transform": [
+        512.0,
+        0.0,
+        0.0,
+        768.0,
+        0.0,
+        0.0
+      ],
+      "complete_frame_geometry": true
+    },
+    {
+      "number": 19,
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "color_space": "/DeviceRGB",
+      "bits_per_component": 8,
+      "filters": [
+        "/FlateDecode"
+      ],
+      "decode_parameters": {
+        "/Predictor": 15,
+        "/Colors": 3,
+        "/BitsPerComponent": 8,
+        "/Columns": 1024
+      },
+      "decoded_rgb_sha256": "ba17d316b75b66e56b0bcc394fafab0008c21ce62c944a80494c7a6b4f0a2b83",
+      "native_pixel_match": true,
+      "original_idat_sha256": "f697e3c68f4c289193b48bb5e0aafa3232b02e69bed8ab6fb5a4562bf7e68a05",
+      "original_idat_bytes_preserved": true,
+      "actual_image_transform": [
+        512.0,
+        0.0,
+        0.0,
+        768.0,
+        0.0,
+        0.0
+      ],
+      "complete_frame_geometry": true
+    },
+    {
+      "number": 20,
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "color_space": "/DeviceRGB",
+      "bits_per_component": 8,
+      "filters": [
+        "/FlateDecode"
+      ],
+      "decode_parameters": {
+        "/Predictor": 15,
+        "/Colors": 3,
+        "/BitsPerComponent": 8,
+        "/Columns": 1024
+      },
+      "decoded_rgb_sha256": "0323cd9a424725d7ebbf985b6cf34812fa160a728e7d8c490f058fa0fbadf270",
+      "native_pixel_match": true,
+      "original_idat_sha256": "c77064b6c881d990ef12f8968873f0d33141773f0ce72e6c1700841ea3684040",
+      "original_idat_bytes_preserved": true,
+      "actual_image_transform": [
+        512.0,
+        0.0,
+        0.0,
+        768.0,
+        0.0,
+        0.0
+      ],
+      "complete_frame_geometry": true
+    },
+    {
+      "number": 21,
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "color_space": "/DeviceRGB",
+      "bits_per_component": 8,
+      "filters": [
+        "/FlateDecode"
+      ],
+      "decode_parameters": {
+        "/Predictor": 15,
+        "/Colors": 3,
+        "/BitsPerComponent": 8,
+        "/Columns": 1024
+      },
+      "decoded_rgb_sha256": "3abe835ef4a59412dad8024856c9b3a124baf7ae18ae320bc44ea4cd606ad89a",
+      "native_pixel_match": true,
+      "original_idat_sha256": "9c502f0110dbf94548d9020b122db283dfc519d18e5f1f70f4145119c81fef73",
+      "original_idat_bytes_preserved": true,
+      "actual_image_transform": [
+        512.0,
+        0.0,
+        0.0,
+        768.0,
+        0.0,
+        0.0
+      ],
+      "complete_frame_geometry": true
+    },
+    {
+      "number": 22,
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "color_space": "/DeviceRGB",
+      "bits_per_component": 8,
+      "filters": [
+        "/FlateDecode"
+      ],
+      "decode_parameters": {
+        "/Predictor": 15,
+        "/Colors": 3,
+        "/BitsPerComponent": 8,
+        "/Columns": 1024
+      },
+      "decoded_rgb_sha256": "f1c28c08dc543e5dfcf414bafd835227537ae99300dcb15c4ace624e7b76ec95",
+      "native_pixel_match": true,
+      "original_idat_sha256": "8ab61cf1444c2b51c49ae6316bc2cd8d6d6d8a50815410eef1b66df0051cab73",
+      "original_idat_bytes_preserved": true,
+      "actual_image_transform": [
+        512.0,
+        0.0,
+        0.0,
+        768.0,
+        0.0,
+        0.0
+      ],
+      "complete_frame_geometry": true
+    },
+    {
+      "number": 23,
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "color_space": "/DeviceRGB",
+      "bits_per_component": 8,
+      "filters": [
+        "/FlateDecode"
+      ],
+      "decode_parameters": {
+        "/Predictor": 15,
+        "/Colors": 3,
+        "/BitsPerComponent": 8,
+        "/Columns": 1024
+      },
+      "decoded_rgb_sha256": "13bf84745e8b7b2e6314a1b7fc238509c3245c1d39138d9cd13c4d269b459d5e",
+      "native_pixel_match": true,
+      "original_idat_sha256": "94d942d5dabc286ce0883ad07746fad18d6c30088dc530023d54cdfddaae4232",
+      "original_idat_bytes_preserved": true,
+      "actual_image_transform": [
+        512.0,
+        0.0,
+        0.0,
+        768.0,
+        0.0,
+        0.0
+      ],
+      "complete_frame_geometry": true
+    },
+    {
+      "number": 24,
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "color_space": "/DeviceRGB",
+      "bits_per_component": 8,
+      "filters": [
+        "/FlateDecode"
+      ],
+      "decode_parameters": {
+        "/Predictor": 15,
+        "/Colors": 3,
+        "/BitsPerComponent": 8,
+        "/Columns": 1024
+      },
+      "decoded_rgb_sha256": "0c9b981a94ed215cb73a8068c3b6dde1fe414afa749423060ba052083d2cb7d0",
+      "native_pixel_match": true,
+      "original_idat_sha256": "e9009d71a9d8b2d7ff3f51be0f59be9142567e280e0851e31c919776d7c573f5",
+      "original_idat_bytes_preserved": true,
+      "actual_image_transform": [
+        512.0,
+        0.0,
+        0.0,
+        768.0,
+        0.0,
+        0.0
+      ],
+      "complete_frame_geometry": true
+    },
+    {
+      "number": 25,
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "color_space": "/DeviceRGB",
+      "bits_per_component": 8,
+      "filters": [
+        "/FlateDecode"
+      ],
+      "decode_parameters": {
+        "/Predictor": 15,
+        "/Colors": 3,
+        "/BitsPerComponent": 8,
+        "/Columns": 1024
+      },
+      "decoded_rgb_sha256": "f0a984394ca74b95ec2ebb37717bfc142952813daa2336e6c8597099af493156",
+      "native_pixel_match": true,
+      "original_idat_sha256": "49b6cc30bdfe46a99ce3baecf6e0781b7bcb7f1f176d28894a0fa99d5b044bf4",
+      "original_idat_bytes_preserved": true,
+      "actual_image_transform": [
+        512.0,
+        0.0,
+        0.0,
+        768.0,
+        0.0,
+        0.0
+      ],
+      "complete_frame_geometry": true
+    },
+    {
+      "number": 26,
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "color_space": "/DeviceRGB",
+      "bits_per_component": 8,
+      "filters": [
+        "/FlateDecode"
+      ],
+      "decode_parameters": {
+        "/Predictor": 15,
+        "/Colors": 3,
+        "/BitsPerComponent": 8,
+        "/Columns": 1024
+      },
+      "decoded_rgb_sha256": "5579dc777ba83803a6d038263ecde39183152b2eb47e6b9678a66cd107001850",
+      "native_pixel_match": true,
+      "original_idat_sha256": "833b8464047335d461d15dceccdafd68df65f2b4c3785027ffd61bdb9c218d97",
+      "original_idat_bytes_preserved": true,
+      "actual_image_transform": [
+        512.0,
+        0.0,
+        0.0,
+        768.0,
+        0.0,
+        0.0
+      ],
+      "complete_frame_geometry": true
+    },
+    {
+      "number": 27,
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "color_space": "/DeviceRGB",
+      "bits_per_component": 8,
+      "filters": [
+        "/FlateDecode"
+      ],
+      "decode_parameters": {
+        "/Predictor": 15,
+        "/Colors": 3,
+        "/BitsPerComponent": 8,
+        "/Columns": 1024
+      },
+      "decoded_rgb_sha256": "d072ab1980ae389297e16593ac6c5d0c7447a461913b9c90271e67f729f857fd",
+      "native_pixel_match": true,
+      "original_idat_sha256": "83e1c54f34950798bb576ae3b38dc9f44f580a0fa2c5aee6c9ad7d060cd22df7",
+      "original_idat_bytes_preserved": true,
+      "actual_image_transform": [
+        512.0,
+        0.0,
+        0.0,
+        768.0,
+        0.0,
+        0.0
+      ],
+      "complete_frame_geometry": true
+    },
+    {
+      "number": 28,
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "color_space": "/DeviceRGB",
+      "bits_per_component": 8,
+      "filters": [
+        "/FlateDecode"
+      ],
+      "decode_parameters": {
+        "/Predictor": 15,
+        "/Colors": 3,
+        "/BitsPerComponent": 8,
+        "/Columns": 1024
+      },
+      "decoded_rgb_sha256": "09598016190b559bd091a675120257925d6aa22259a61f4a08f65852c9fbe575",
+      "native_pixel_match": true,
+      "original_idat_sha256": "e52b2beaef979635acec2b84db499f23228c1dcd70c1ee9038f9f5d443153533",
+      "original_idat_bytes_preserved": true,
+      "actual_image_transform": [
+        512.0,
+        0.0,
+        0.0,
+        768.0,
+        0.0,
+        0.0
+      ],
+      "complete_frame_geometry": true
+    },
+    {
+      "number": 29,
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "color_space": "/DeviceRGB",
+      "bits_per_component": 8,
+      "filters": [
+        "/FlateDecode"
+      ],
+      "decode_parameters": {
+        "/Predictor": 15,
+        "/Colors": 3,
+        "/BitsPerComponent": 8,
+        "/Columns": 1024
+      },
+      "decoded_rgb_sha256": "5eda9ec40f885843800f14afb0d94bf1c2f18d50d474a440c36a193049bd4f79",
+      "native_pixel_match": true,
+      "original_idat_sha256": "d8405530c8154ccceb5d735178d6eb64fb848afb898602ce61b2e27634e62126",
+      "original_idat_bytes_preserved": true,
+      "actual_image_transform": [
+        512.0,
+        0.0,
+        0.0,
+        768.0,
+        0.0,
+        0.0
+      ],
+      "complete_frame_geometry": true
+    },
+    {
+      "number": 30,
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "color_space": "/DeviceRGB",
+      "bits_per_component": 8,
+      "filters": [
+        "/FlateDecode"
+      ],
+      "decode_parameters": {
+        "/Predictor": 15,
+        "/Colors": 3,
+        "/BitsPerComponent": 8,
+        "/Columns": 1024
+      },
+      "decoded_rgb_sha256": "3250c0a2e1d41b42ebe0e8506f64afc521aaedbbaccefd849172e19bb3cf9d43",
+      "native_pixel_match": true,
+      "original_idat_sha256": "b2547ae73bff0b6b26c1e94db4c85ee3f308ca8de4958289b15267ebae0af19e",
+      "original_idat_bytes_preserved": true,
+      "actual_image_transform": [
+        512.0,
+        0.0,
+        0.0,
+        768.0,
+        0.0,
+        0.0
+      ],
+      "complete_frame_geometry": true
+    },
+    {
+      "number": 31,
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "color_space": "/DeviceRGB",
+      "bits_per_component": 8,
+      "filters": [
+        "/FlateDecode"
+      ],
+      "decode_parameters": {
+        "/Predictor": 15,
+        "/Colors": 3,
+        "/BitsPerComponent": 8,
+        "/Columns": 1024
+      },
+      "decoded_rgb_sha256": "a2fd4817ce7d954c5b0b9d0ccc466626daa2aa9fa662c6c2e6c8614c735cee67",
+      "native_pixel_match": true,
+      "original_idat_sha256": "e900cd57f11c77c3d3b7f7f07bb031d06346b5bad30fa6013aa2fe866e703277",
+      "original_idat_bytes_preserved": true,
+      "actual_image_transform": [
+        512.0,
+        0.0,
+        0.0,
+        768.0,
+        0.0,
+        0.0
+      ],
+      "complete_frame_geometry": true
+    },
+    {
+      "number": 32,
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "color_space": "/DeviceRGB",
+      "bits_per_component": 8,
+      "filters": [
+        "/FlateDecode"
+      ],
+      "decode_parameters": {
+        "/Predictor": 15,
+        "/Colors": 3,
+        "/BitsPerComponent": 8,
+        "/Columns": 1024
+      },
+      "decoded_rgb_sha256": "93053de0a60308a534433f9aebb7f5181518dfcf2bac748e43800a12763b3e76",
+      "native_pixel_match": true,
+      "original_idat_sha256": "2068042bc4940bf3854d94c7ff153fe4be29667e713f74730e5fde306680dcab",
+      "original_idat_bytes_preserved": true,
+      "actual_image_transform": [
+        512.0,
+        0.0,
+        0.0,
+        768.0,
+        0.0,
+        0.0
+      ],
+      "complete_frame_geometry": true
+    }
+  ],
+  "all_embedded_rgb_pixels_match_native": true,
+  "all_original_idat_streams_preserved": true,
+  "render_method": "Poppler pdftoppm (C:\\Users\\Peter\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\poppler\\Library\\bin\\pdftoppm.exe), 144 dpi; font/vector anti-aliasing disabled; no render crop",
+  "render_dpi": 144,
+  "renders": [
+    {
+      "number": 1,
+      "path": "tmp/pdfs/rumi_visual_detective_20261012/page_01.png",
+      "sha256": "4db4765d8faae5765205f4fd3a87949bf6eb943481f03fa1152a81d4baa81b13",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "rgb_pixel_sha256": "d6652a6b78b96f7855540eef2f26e08a51eccb83ab7fded831690380baf6d057",
+      "native_pixel_match": false,
+      "sampling_diagnostic": {
+        "status": "NON_EXACT",
+        "changed_rgb_pixels": 1532113,
+        "total_rgb_pixels": 1572864,
+        "changed_channel_values": 4051359,
+        "max_channel_difference": 218,
+        "mean_absolute_channel_difference": 10.439737319946289,
+        "mean_absolute_difference_by_rgb_channel": [
+          10.85655657450358,
+          11.461732228597006,
+          9.000923156738281
+        ]
+      }
+    },
+    {
+      "number": 2,
+      "path": "tmp/pdfs/rumi_visual_detective_20261012/page_02.png",
+      "sha256": "7111d4ab72bcd5f5cdec116ec224dcc546da4291056ebd59c26cfa76c0df53fa",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "rgb_pixel_sha256": "23efe94d00621a9d4d215aa75743278a394660fe2788795a35f447370ddca77f",
+      "native_pixel_match": false,
+      "sampling_diagnostic": {
+        "status": "NON_EXACT",
+        "changed_rgb_pixels": 1485019,
+        "total_rgb_pixels": 1572864,
+        "changed_channel_values": 3978526,
+        "max_channel_difference": 238,
+        "mean_absolute_channel_difference": 13.561093012491861,
+        "mean_absolute_difference_by_rgb_channel": [
+          14.31139882405599,
+          14.210166295369467,
+          12.16171391805013
+        ]
+      }
+    },
+    {
+      "number": 3,
+      "path": "tmp/pdfs/rumi_visual_detective_20261012/page_03.png",
+      "sha256": "257eaf7095adf1fe6d7db680f562929e532b5d9b80929918b5acdfd3970ef925",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "rgb_pixel_sha256": "12f12ec4f0303e586a685a1d59def65e0f354cb03e52dbc7f2a4a5763264b694",
+      "native_pixel_match": false,
+      "sampling_diagnostic": {
+        "status": "NON_EXACT",
+        "changed_rgb_pixels": 1492458,
+        "total_rgb_pixels": 1572864,
+        "changed_channel_values": 3990531,
+        "max_channel_difference": 238,
+        "mean_absolute_channel_difference": 12.451045354207357,
+        "mean_absolute_difference_by_rgb_channel": [
+          13.398651758829752,
+          13.005060195922852,
+          10.949424107869467
+        ]
+      }
+    },
+    {
+      "number": 4,
+      "path": "tmp/pdfs/rumi_visual_detective_20261012/page_04.png",
+      "sha256": "b314831895e2975aea14417c55d9d991b3041364326d2a806f79c545d9519c7f",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "rgb_pixel_sha256": "7733fb3fe04ae60737758d58e6fa061824f287a543aeb31df211881603138e3a",
+      "native_pixel_match": false,
+      "sampling_diagnostic": {
+        "status": "NON_EXACT",
+        "changed_rgb_pixels": 1505182,
+        "total_rgb_pixels": 1572864,
+        "changed_channel_values": 4061087,
+        "max_channel_difference": 231,
+        "mean_absolute_channel_difference": 14.196334838867188,
+        "mean_absolute_difference_by_rgb_channel": [
+          14.863457997639975,
+          14.733271280924479,
+          12.99227523803711
+        ]
+      }
+    },
+    {
+      "number": 5,
+      "path": "tmp/pdfs/rumi_visual_detective_20261012/page_05.png",
+      "sha256": "cd7649793eb3c0d95cc3dde2f83775a2f12089befa83a021c6a8c803ef724edb",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "rgb_pixel_sha256": "08e94b61da988a886cd34d973dfa03c632963294dc66e81b7fbf8b7b762499c6",
+      "native_pixel_match": false,
+      "sampling_diagnostic": {
+        "status": "NON_EXACT",
+        "changed_rgb_pixels": 1503388,
+        "total_rgb_pixels": 1572864,
+        "changed_channel_values": 4007041,
+        "max_channel_difference": 229,
+        "mean_absolute_channel_difference": 11.253635618421766,
+        "mean_absolute_difference_by_rgb_channel": [
+          11.623969395955404,
+          11.906517028808594,
+          10.230420430501303
+        ]
+      }
+    },
+    {
+      "number": 6,
+      "path": "tmp/pdfs/rumi_visual_detective_20261012/page_06.png",
+      "sha256": "2247785e80fdc6ed724f3387ae715e0b98a441eafe9ed4437faab12601157d45",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "rgb_pixel_sha256": "a78527fc1e7c1fe2b4021a6d1d43cd7641c82838cd40c25178cd4d3043447efb",
+      "native_pixel_match": false,
+      "sampling_diagnostic": {
+        "status": "NON_EXACT",
+        "changed_rgb_pixels": 1504939,
+        "total_rgb_pixels": 1572864,
+        "changed_channel_values": 3990247,
+        "max_channel_difference": 240,
+        "mean_absolute_channel_difference": 11.309748543633354,
+        "mean_absolute_difference_by_rgb_channel": [
+          11.596810658772787,
+          12.096787134806315,
+          10.235647837320963
+        ]
+      }
+    },
+    {
+      "number": 7,
+      "path": "tmp/pdfs/rumi_visual_detective_20261012/page_07.png",
+      "sha256": "c425eae4d00bb31abdf28c486931233397db9d74b7f42e724fba9008d344d555",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "rgb_pixel_sha256": "104598d579bc03133e192fd9f1ee728e4dd076b0850c63d4c4bfb06483b7052d",
+      "native_pixel_match": false,
+      "sampling_diagnostic": {
+        "status": "NON_EXACT",
+        "changed_rgb_pixels": 1514524,
+        "total_rgb_pixels": 1572864,
+        "changed_channel_values": 3994911,
+        "max_channel_difference": 217,
+        "mean_absolute_channel_difference": 9.230155520968967,
+        "mean_absolute_difference_by_rgb_channel": [
+          9.746573130289713,
+          9.56003189086914,
+          8.383861541748047
+        ]
+      }
+    },
+    {
+      "number": 8,
+      "path": "tmp/pdfs/rumi_visual_detective_20261012/page_08.png",
+      "sha256": "50dad221b03ec2c82e8398a4eb05e29c8f1d0dcb2cc38e447e38145ea003b4ef",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "rgb_pixel_sha256": "1d13d40b5c7c31c5afae8b626becd9fedcb0523198a382b1fe1049ba32b7436a",
+      "native_pixel_match": false,
+      "sampling_diagnostic": {
+        "status": "NON_EXACT",
+        "changed_rgb_pixels": 1504579,
+        "total_rgb_pixels": 1572864,
+        "changed_channel_values": 3988385,
+        "max_channel_difference": 247,
+        "mean_absolute_channel_difference": 11.16494623819987,
+        "mean_absolute_difference_by_rgb_channel": [
+          11.519444147745768,
+          11.674654006958008,
+          10.300740559895834
+        ]
+      }
+    },
+    {
+      "number": 9,
+      "path": "tmp/pdfs/rumi_visual_detective_20261012/page_09.png",
+      "sha256": "7f6309e792eff76656ac0877c371270f56f357ce2a2a3e99b4132998c13648cc",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "rgb_pixel_sha256": "23148ab4f1202391e2161a0f882ce1a52ba5da821b4622aa74e21e52d0727f52",
+      "native_pixel_match": false,
+      "sampling_diagnostic": {
+        "status": "NON_EXACT",
+        "changed_rgb_pixels": 1511166,
+        "total_rgb_pixels": 1572864,
+        "changed_channel_values": 3998797,
+        "max_channel_difference": 235,
+        "mean_absolute_channel_difference": 10.099699020385742,
+        "mean_absolute_difference_by_rgb_channel": [
+          10.315313339233398,
+          10.62435531616211,
+          9.359428405761719
+        ]
+      }
+    },
+    {
+      "number": 10,
+      "path": "tmp/pdfs/rumi_visual_detective_20261012/page_10.png",
+      "sha256": "0f848123f63aaa05ecdff201dd37fde2d62b20ab5cf38712bac7894837901a56",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "rgb_pixel_sha256": "2470990e2195ce32bc92cae3f0e707d1119d2442cebd9aa59b3cdea5a11ab79d",
+      "native_pixel_match": false,
+      "sampling_diagnostic": {
+        "status": "NON_EXACT",
+        "changed_rgb_pixels": 1514586,
+        "total_rgb_pixels": 1572864,
+        "changed_channel_values": 4071847,
+        "max_channel_difference": 236,
+        "mean_absolute_channel_difference": 11.541003968980577,
+        "mean_absolute_difference_by_rgb_channel": [
+          12.016056696573893,
+          12.27923838297526,
+          10.327716827392578
+        ]
+      }
+    },
+    {
+      "number": 11,
+      "path": "tmp/pdfs/rumi_visual_detective_20261012/page_11.png",
+      "sha256": "b58180e00f086c041bb1b51c5b5fb2dd1bbf40a4c1590f4dc5a4fa3bb4a8868c",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "rgb_pixel_sha256": "4cda25ae5c5ba1fe01025fcb02ef6df2b04e6913c95e8551ed7715404837ae0b",
+      "native_pixel_match": false,
+      "sampling_diagnostic": {
+        "status": "NON_EXACT",
+        "changed_rgb_pixels": 1495260,
+        "total_rgb_pixels": 1572864,
+        "changed_channel_values": 3937303,
+        "max_channel_difference": 220,
+        "mean_absolute_channel_difference": 11.068059921264648,
+        "mean_absolute_difference_by_rgb_channel": [
+          11.882881164550781,
+          11.424783070882162,
+          9.896515528361002
+        ]
+      }
+    },
+    {
+      "number": 12,
+      "path": "tmp/pdfs/rumi_visual_detective_20261012/page_12.png",
+      "sha256": "8844b7ce46931c3c28f94ee70ba03ae90065950f353b3c7ec8650cae0a2bde54",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "rgb_pixel_sha256": "dcc79391c2a942c06112e93f97fd65d2a6209f4d1f1474c0f3d88160a81c1c34",
+      "native_pixel_match": false,
+      "sampling_diagnostic": {
+        "status": "NON_EXACT",
+        "changed_rgb_pixels": 1507510,
+        "total_rgb_pixels": 1572864,
+        "changed_channel_values": 4036208,
+        "max_channel_difference": 216,
+        "mean_absolute_channel_difference": 11.616001341078016,
+        "mean_absolute_difference_by_rgb_channel": [
+          12.170614242553711,
+          12.391377131144205,
+          10.286012649536133
+        ]
+      }
+    },
+    {
+      "number": 13,
+      "path": "tmp/pdfs/rumi_visual_detective_20261012/page_13.png",
+      "sha256": "39835c2812c778e799f20cec02c3d202cd9bf8ac54baacf5b96962764cf2cfda",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "rgb_pixel_sha256": "dce228c0ad1b46606523cf72eeeced4ce4af77e9eda31981a4706e041db2faa5",
+      "native_pixel_match": false,
+      "sampling_diagnostic": {
+        "status": "NON_EXACT",
+        "changed_rgb_pixels": 1467872,
+        "total_rgb_pixels": 1572864,
+        "changed_channel_values": 3923230,
+        "max_channel_difference": 230,
+        "mean_absolute_channel_difference": 11.74946763780382,
+        "mean_absolute_difference_by_rgb_channel": [
+          12.211511611938477,
+          12.335909525553385,
+          10.700981775919596
+        ]
+      }
+    },
+    {
+      "number": 14,
+      "path": "tmp/pdfs/rumi_visual_detective_20261012/page_14.png",
+      "sha256": "dccc7b01dc0a5405beaa22700c3749c1211894837072832b6042ae18cbf1368b",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "rgb_pixel_sha256": "e0705d168e1e765f14690bae4b6af5e9b438df7be7e16248ba1de64fc196966a",
+      "native_pixel_match": false,
+      "sampling_diagnostic": {
+        "status": "NON_EXACT",
+        "changed_rgb_pixels": 1490332,
+        "total_rgb_pixels": 1572864,
+        "changed_channel_values": 4009980,
+        "max_channel_difference": 231,
+        "mean_absolute_channel_difference": 11.900502098931206,
+        "mean_absolute_difference_by_rgb_channel": [
+          12.445907592773438,
+          12.527552286783854,
+          10.728046417236328
+        ]
+      }
+    },
+    {
+      "number": 15,
+      "path": "tmp/pdfs/rumi_visual_detective_20261012/page_15.png",
+      "sha256": "0b2eddba2fb2b4973df93bf6b93f2640e3d0e801305c5df0ab6bd83cd2030b7c",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "rgb_pixel_sha256": "74cd3b0e0c90be348a05c3a252672baad2c0fca9a18c9e84dffee15c75072a62",
+      "native_pixel_match": false,
+      "sampling_diagnostic": {
+        "status": "NON_EXACT",
+        "changed_rgb_pixels": 1508850,
+        "total_rgb_pixels": 1572864,
+        "changed_channel_values": 4120061,
+        "max_channel_difference": 234,
+        "mean_absolute_channel_difference": 12.762542088826498,
+        "mean_absolute_difference_by_rgb_channel": [
+          13.096253077189127,
+          13.563018798828125,
+          11.62835439046224
+        ]
+      }
+    },
+    {
+      "number": 16,
+      "path": "tmp/pdfs/rumi_visual_detective_20261012/page_16.png",
+      "sha256": "5a4f0ce1ff29742e502584a05a3e6446b6e475da4512b24cecdd620d4ff026d9",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "rgb_pixel_sha256": "288c47c88ecee4a7709fa17f66ee8a68040f952c2f372c2770b43e1e3a334e75",
+      "native_pixel_match": false,
+      "sampling_diagnostic": {
+        "status": "NON_EXACT",
+        "changed_rgb_pixels": 1493891,
+        "total_rgb_pixels": 1572864,
+        "changed_channel_values": 3930972,
+        "max_channel_difference": 246,
+        "mean_absolute_channel_difference": 9.867884953816732,
+        "mean_absolute_difference_by_rgb_channel": [
+          10.083843231201172,
+          10.232483545939127,
+          9.287328084309896
+        ]
+      }
+    },
+    {
+      "number": 17,
+      "path": "tmp/pdfs/rumi_visual_detective_20261012/page_17.png",
+      "sha256": "da374e046710c4e71d7cc9962686cc497a02f4b9fc518fa1aa03d1c8ce8ec972",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "rgb_pixel_sha256": "eb2945c6e4c0e6a43c0214ea1152628629aaa8e37c7d41e33b2580cf9b0fdad3",
+      "native_pixel_match": false,
+      "sampling_diagnostic": {
+        "status": "NON_EXACT",
+        "changed_rgb_pixels": 1498141,
+        "total_rgb_pixels": 1572864,
+        "changed_channel_values": 3983372,
+        "max_channel_difference": 232,
+        "mean_absolute_channel_difference": 10.928733613755968,
+        "mean_absolute_difference_by_rgb_channel": [
+          10.736529668172201,
+          11.545405705769857,
+          10.504265467325846
+        ]
+      }
+    },
+    {
+      "number": 18,
+      "path": "tmp/pdfs/rumi_visual_detective_20261012/page_18.png",
+      "sha256": "839d79ca0b11fe5f4478e66783e6752d770bb5a1029082b4727dd883d4ecbfe3",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "rgb_pixel_sha256": "8dc9d23c19e4feec7c4ea31c86a311dfc8182ff50fd276012ff25bcf9ee3bd2f",
+      "native_pixel_match": false,
+      "sampling_diagnostic": {
+        "status": "NON_EXACT",
+        "changed_rgb_pixels": 1491917,
+        "total_rgb_pixels": 1572864,
+        "changed_channel_values": 3994973,
+        "max_channel_difference": 229,
+        "mean_absolute_channel_difference": 11.107916726006401,
+        "mean_absolute_difference_by_rgb_channel": [
+          11.178300221761068,
+          11.60192616780599,
+          10.543523788452148
+        ]
+      }
+    },
+    {
+      "number": 19,
+      "path": "tmp/pdfs/rumi_visual_detective_20261012/page_19.png",
+      "sha256": "c2d4580f7764576d8d0b05af9f1b746a2ebb924bef2d4c580b6186787036b215",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "rgb_pixel_sha256": "11d414c9ef600f3c717ad4feb1a374a487904829a0e7ca62bd812e35de39713a",
+      "native_pixel_match": false,
+      "sampling_diagnostic": {
+        "status": "NON_EXACT",
+        "changed_rgb_pixels": 1480215,
+        "total_rgb_pixels": 1572864,
+        "changed_channel_values": 3935511,
+        "max_channel_difference": 237,
+        "mean_absolute_channel_difference": 12.020282745361328,
+        "mean_absolute_difference_by_rgb_channel": [
+          12.3033447265625,
+          12.544393539428711,
+          11.213109970092773
+        ]
+      }
+    },
+    {
+      "number": 20,
+      "path": "tmp/pdfs/rumi_visual_detective_20261012/page_20.png",
+      "sha256": "186660d3bab9f1b47e5ccb377b63f7ea21a8c73beebc7405fafbef6822652a45",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "rgb_pixel_sha256": "7e24c7f8e05dbce4e0e56e1418f9a0522513b7ff0533590b3c78a9186ceb72d6",
+      "native_pixel_match": false,
+      "sampling_diagnostic": {
+        "status": "NON_EXACT",
+        "changed_rgb_pixels": 1513645,
+        "total_rgb_pixels": 1572864,
+        "changed_channel_values": 4005841,
+        "max_channel_difference": 221,
+        "mean_absolute_channel_difference": 9.787011888292101,
+        "mean_absolute_difference_by_rgb_channel": [
+          10.430089314778646,
+          10.234776814778646,
+          8.69616953531901
+        ]
+      }
+    },
+    {
+      "number": 21,
+      "path": "tmp/pdfs/rumi_visual_detective_20261012/page_21.png",
+      "sha256": "cafacbe80063bbfba78d54a06f53379f662440928fac15f78015294cfa0e7cbd",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "rgb_pixel_sha256": "d4d656666ba85be91bb51675ef82c84fd99d9d4212ffff83dd422cdb8aa6c226",
+      "native_pixel_match": false,
+      "sampling_diagnostic": {
+        "status": "NON_EXACT",
+        "changed_rgb_pixels": 1492278,
+        "total_rgb_pixels": 1572864,
+        "changed_channel_values": 3906411,
+        "max_channel_difference": 221,
+        "mean_absolute_channel_difference": 9.783118353949654,
+        "mean_absolute_difference_by_rgb_channel": [
+          9.914008458455404,
+          10.280150095621744,
+          9.15519650777181
+        ]
+      }
+    },
+    {
+      "number": 22,
+      "path": "tmp/pdfs/rumi_visual_detective_20261012/page_22.png",
+      "sha256": "b4dee931496eee91226fcf4987beacd1dedb4b0969074d40a436db5f9464f641",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "rgb_pixel_sha256": "34345b20998632a4df84d010595c3e19e6c069069981c881ddc23151f111be27",
+      "native_pixel_match": false,
+      "sampling_diagnostic": {
+        "status": "NON_EXACT",
+        "changed_rgb_pixels": 1515348,
+        "total_rgb_pixels": 1572864,
+        "changed_channel_values": 3926080,
+        "max_channel_difference": 229,
+        "mean_absolute_channel_difference": 11.13113890753852,
+        "mean_absolute_difference_by_rgb_channel": [
+          11.526851654052734,
+          11.661843617757162,
+          10.204721450805664
+        ]
+      }
+    },
+    {
+      "number": 23,
+      "path": "tmp/pdfs/rumi_visual_detective_20261012/page_23.png",
+      "sha256": "848ae23c52104fcbe60b8679d8aa5715ec5c892fc675d136ebc693493399244c",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "rgb_pixel_sha256": "a06714e028d5afad917b9775ff3214c3b46a2352ab43c842cb927e06f72b1107",
+      "native_pixel_match": false,
+      "sampling_diagnostic": {
+        "status": "NON_EXACT",
+        "changed_rgb_pixels": 1511404,
+        "total_rgb_pixels": 1572864,
+        "changed_channel_values": 4012262,
+        "max_channel_difference": 224,
+        "mean_absolute_channel_difference": 10.604160520765516,
+        "mean_absolute_difference_by_rgb_channel": [
+          11.023251215616861,
+          11.237204233805338,
+          9.55202611287435
+        ]
+      }
+    },
+    {
+      "number": 24,
+      "path": "tmp/pdfs/rumi_visual_detective_20261012/page_24.png",
+      "sha256": "6a613fba6b5144abed7426db10ea56c0f372cef29a8df86eabb774f009fc8a03",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "rgb_pixel_sha256": "14f969fa6cf0aa48bd10e1ca9e968759e162532f8d831ce458d8a6887acebabe",
+      "native_pixel_match": false,
+      "sampling_diagnostic": {
+        "status": "NON_EXACT",
+        "changed_rgb_pixels": 1511722,
+        "total_rgb_pixels": 1572864,
+        "changed_channel_values": 3946616,
+        "max_channel_difference": 219,
+        "mean_absolute_channel_difference": 8.380775875515408,
+        "mean_absolute_difference_by_rgb_channel": [
+          9.217559178670248,
+          8.604710896809896,
+          7.320057551066081
+        ]
+      }
+    },
+    {
+      "number": 25,
+      "path": "tmp/pdfs/rumi_visual_detective_20261012/page_25.png",
+      "sha256": "96d767e4992502afc6b3af6a29ea6d4c49d0ed55b23324da873f404f7d86ab73",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "rgb_pixel_sha256": "0ae55ecc163f85892fc32a43e3a38bf8581792a5e4be6e5209a3c0d6a22652c2",
+      "native_pixel_match": false,
+      "sampling_diagnostic": {
+        "status": "NON_EXACT",
+        "changed_rgb_pixels": 1502491,
+        "total_rgb_pixels": 1572864,
+        "changed_channel_values": 3895344,
+        "max_channel_difference": 228,
+        "mean_absolute_channel_difference": 9.095639970567492,
+        "mean_absolute_difference_by_rgb_channel": [
+          9.608406066894531,
+          9.430775960286459,
+          8.247737884521484
+        ]
+      }
+    },
+    {
+      "number": 26,
+      "path": "tmp/pdfs/rumi_visual_detective_20261012/page_26.png",
+      "sha256": "381d74307eff725b79dcc268eae34de9e01c1694277218bda47e001dd9b16add",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "rgb_pixel_sha256": "5c91b4a09879f4bf0704eea7223f2caa1e90752d420d655fbdb9b49355fc8934",
+      "native_pixel_match": false,
+      "sampling_diagnostic": {
+        "status": "NON_EXACT",
+        "changed_rgb_pixels": 1486240,
+        "total_rgb_pixels": 1572864,
+        "changed_channel_values": 3934211,
+        "max_channel_difference": 242,
+        "mean_absolute_channel_difference": 10.389862484402126,
+        "mean_absolute_difference_by_rgb_channel": [
+          10.730587005615234,
+          10.965374628702799,
+          9.473625818888346
+        ]
+      }
+    },
+    {
+      "number": 27,
+      "path": "tmp/pdfs/rumi_visual_detective_20261012/page_27.png",
+      "sha256": "ebb924a41206d5fea6de5c4fb7c76e08e2056033dd45d526badb69da3caa020a",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "rgb_pixel_sha256": "c20ad704f9dbcde7807282b7783fc463ecef8ef275a78e87001ea7d22a7420ba",
+      "native_pixel_match": false,
+      "sampling_diagnostic": {
+        "status": "NON_EXACT",
+        "changed_rgb_pixels": 1514115,
+        "total_rgb_pixels": 1572864,
+        "changed_channel_values": 3940930,
+        "max_channel_difference": 227,
+        "mean_absolute_channel_difference": 9.160735660129124,
+        "mean_absolute_difference_by_rgb_channel": [
+          9.35114860534668,
+          9.473738352457682,
+          8.657320022583008
+        ]
+      }
+    },
+    {
+      "number": 28,
+      "path": "tmp/pdfs/rumi_visual_detective_20261012/page_28.png",
+      "sha256": "d67e26766320d55c41e17d640e4c873cc50ff97a9d2ebf530fc613e6995449fe",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "rgb_pixel_sha256": "62cc7a1cacd111bc4a097f6f2901cc450fb2917055224db21779450ab1ffb6ee",
+      "native_pixel_match": false,
+      "sampling_diagnostic": {
+        "status": "NON_EXACT",
+        "changed_rgb_pixels": 1475903,
+        "total_rgb_pixels": 1572864,
+        "changed_channel_values": 3933074,
+        "max_channel_difference": 227,
+        "mean_absolute_channel_difference": 11.420636918809679,
+        "mean_absolute_difference_by_rgb_channel": [
+          11.734325408935547,
+          11.70442008972168,
+          10.82316525777181
+        ]
+      }
+    },
+    {
+      "number": 29,
+      "path": "tmp/pdfs/rumi_visual_detective_20261012/page_29.png",
+      "sha256": "d4d3400b69900752237d308aa7723e5f823918c1cfbb641fda787d8ae9da2b9c",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "rgb_pixel_sha256": "9f9c4b6ebb4f75bfca0295389482a6546323d5a8f5b2a99e6adbf0d1b62afbbd",
+      "native_pixel_match": false,
+      "sampling_diagnostic": {
+        "status": "NON_EXACT",
+        "changed_rgb_pixels": 1497072,
+        "total_rgb_pixels": 1572864,
+        "changed_channel_values": 3972032,
+        "max_channel_difference": 223,
+        "mean_absolute_channel_difference": 9.911997477213541,
+        "mean_absolute_difference_by_rgb_channel": [
+          10.368808110555014,
+          10.19327163696289,
+          9.17391268412272
+        ]
+      }
+    },
+    {
+      "number": 30,
+      "path": "tmp/pdfs/rumi_visual_detective_20261012/page_30.png",
+      "sha256": "b348eafa63026f7ec80a65be12ab1098ad4d7986c147dc854eb3186ef4a9fa4f",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "rgb_pixel_sha256": "fe7abeab40c12ae6a0afe0cef0fa625da13a2443bd5ce836b641c5be59f7d74f",
+      "native_pixel_match": false,
+      "sampling_diagnostic": {
+        "status": "NON_EXACT",
+        "changed_rgb_pixels": 1514696,
+        "total_rgb_pixels": 1572864,
+        "changed_channel_values": 4039682,
+        "max_channel_difference": 230,
+        "mean_absolute_channel_difference": 11.98978000217014,
+        "mean_absolute_difference_by_rgb_channel": [
+          12.426612854003906,
+          12.764045079549154,
+          10.778682072957357
+        ]
+      }
+    },
+    {
+      "number": 31,
+      "path": "tmp/pdfs/rumi_visual_detective_20261012/page_31.png",
+      "sha256": "c767446ae91cd584295fd22f33da3f6f797b8ca5b596badec67c9ae80a837ad5",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "rgb_pixel_sha256": "76b52af0970f23d22cc58884a213a8fb335133b1085ec2b9b045064cfb0ca875",
+      "native_pixel_match": false,
+      "sampling_diagnostic": {
+        "status": "NON_EXACT",
+        "changed_rgb_pixels": 1488788,
+        "total_rgb_pixels": 1572864,
+        "changed_channel_values": 3921842,
+        "max_channel_difference": 231,
+        "mean_absolute_channel_difference": 11.550640741984049,
+        "mean_absolute_difference_by_rgb_channel": [
+          11.530909220377604,
+          12.28341547648112,
+          10.837597529093424
+        ]
+      }
+    },
+    {
+      "number": 32,
+      "path": "tmp/pdfs/rumi_visual_detective_20261012/page_32.png",
+      "sha256": "e9174ab0285805de17276632d9ed588b9700612389d98c8e0d49c0bd1c5e230c",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "rgb_pixel_sha256": "76e61874156fa936b8efa1901b2275e105ef0976f31c23ef5877aa9cff1ad52b",
+      "native_pixel_match": false,
+      "sampling_diagnostic": {
+        "status": "NON_EXACT",
+        "changed_rgb_pixels": 1489688,
+        "total_rgb_pixels": 1572864,
+        "changed_channel_values": 3836617,
+        "max_channel_difference": 237,
+        "mean_absolute_channel_difference": 9.974885516696506,
+        "mean_absolute_difference_by_rgb_channel": [
+          10.660701115926107,
+          10.443072636922201,
+          8.820882797241211
+        ]
+      }
+    }
+  ],
+  "all_actual_render_rgb_pixels_match_native": false,
+  "render_sampling_diagnostic": {
+    "status": "NON_EXACT",
+    "exact_page_count": 0,
+    "non_exact_page_count": 32,
+    "limit": "Actual renderer snapshots may sample differently. Measured differences are not repaired or described as exact. Original compressed IDAT bytes, decoded embedded RGB and whole-image placement are strict delivery integrity gates; renderer equality is a separate diagnostic."
+  },
+  "contacts": [
+    {
+      "path": "tmp/pdfs/rumi_visual_detective_20261012/book_contact_01.png",
+      "sha256": "4c9e6a7ac48ba067d06c3940c8fb84301f8dffa535813af222aa44c710aa5197",
+      "review_only_thumbnail": true
+    },
+    {
+      "path": "tmp/pdfs/rumi_visual_detective_20261012/book_contact_02.png",
+      "sha256": "cbea0b4c3820b11129cb199e80344f3fa6bc78beea893d96553bfaa2afce6935",
+      "review_only_thumbnail": true
+    },
+    {
+      "path": "tmp/pdfs/rumi_visual_detective_20261012/book_contact_03.png",
+      "sha256": "2115a210d744c5077a7f2c0d987d22df14f6b31fd1e2b864bc63f5b92a603121",
+      "review_only_thumbnail": true
+    },
+    {
+      "path": "tmp/pdfs/rumi_visual_detective_20261012/book_contact_04.png",
+      "sha256": "221c180c2185a9e351b0af7de6e5d6704712a1e1a9b8a9cc7dca1e956503ba3d",
+      "review_only_thumbnail": true
+    }
+  ],
+  "qa_label_font": {
+    "path": "C:/Windows/Fonts/calibrib.ttf",
+    "sha256": "5e8b2eb430f543eb304f08f44f5eb02ccbc39ffdc95400aae96f5dcd2aea73d8",
+    "role": "contact labels only; no font or text overlay in delivery PDF"
+  },
+  "delivery_fonts": [],
+  "image_encoding": {
+    "method": "original native PNG IDAT, PDF FlateDecode Predictor15",
+    "native_png_recompressed": false,
+    "native_pixels_changed": false,
+    "pages": [
+      {
+        "number": 1,
+        "ihdr": {
+          "width": 1024,
+          "height": 1536,
+          "bits": 8,
+          "colour_type": 2,
+          "interlaced": false
+        },
+        "idat_chunk_count": 1,
+        "idat_bytes": 3388524,
+        "idat_sha256": "8b2a4a249419c51748a5d03d680e03c223fae9011dcbca536f8d998d33a0c834",
+        "chunk_types": [
+          "IHDR",
+          "caBX",
+          "IDAT",
+          "IEND"
+        ],
+        "crc_verified": true,
+        "idat_recompressed": false
+      },
+      {
+        "number": 2,
+        "ihdr": {
+          "width": 1024,
+          "height": 1536,
+          "bits": 8,
+          "colour_type": 2,
+          "interlaced": false
+        },
+        "idat_chunk_count": 1,
+        "idat_bytes": 3161782,
+        "idat_sha256": "d7ed4f045fe5d2614ab3d9ae07fa60ccdf0688750a779f8d6ec60455040fe7e2",
+        "chunk_types": [
+          "IHDR",
+          "caBX",
+          "IDAT",
+          "IEND"
+        ],
+        "crc_verified": true,
+        "idat_recompressed": false
+      },
+      {
+        "number": 3,
+        "ihdr": {
+          "width": 1024,
+          "height": 1536,
+          "bits": 8,
+          "colour_type": 2,
+          "interlaced": false
+        },
+        "idat_chunk_count": 1,
+        "idat_bytes": 3126573,
+        "idat_sha256": "964fd36e19af83aef24d082ba79dfa46c99830d8f749ab6e071cafecc19821c7",
+        "chunk_types": [
+          "IHDR",
+          "caBX",
+          "IDAT",
+          "IEND"
+        ],
+        "crc_verified": true,
+        "idat_recompressed": false
+      },
+      {
+        "number": 4,
+        "ihdr": {
+          "width": 1024,
+          "height": 1536,
+          "bits": 8,
+          "colour_type": 2,
+          "interlaced": false
+        },
+        "idat_chunk_count": 1,
+        "idat_bytes": 3308019,
+        "idat_sha256": "beabfaef56267e1b00549690236d31c1c68232e387653dc005193a895cff67c3",
+        "chunk_types": [
+          "IHDR",
+          "caBX",
+          "IDAT",
+          "IEND"
+        ],
+        "crc_verified": true,
+        "idat_recompressed": false
+      },
+      {
+        "number": 5,
+        "ihdr": {
+          "width": 1024,
+          "height": 1536,
+          "bits": 8,
+          "colour_type": 2,
+          "interlaced": false
+        },
+        "idat_chunk_count": 1,
+        "idat_bytes": 3291437,
+        "idat_sha256": "041c693d0d4e3abd5dc8523c11be96cef99d68308076245c6a22316314e7bb78",
+        "chunk_types": [
+          "IHDR",
+          "caBX",
+          "IDAT",
+          "IEND"
+        ],
+        "crc_verified": true,
+        "idat_recompressed": false
+      },
+      {
+        "number": 6,
+        "ihdr": {
+          "width": 1024,
+          "height": 1536,
+          "bits": 8,
+          "colour_type": 2,
+          "interlaced": false
+        },
+        "idat_chunk_count": 1,
+        "idat_bytes": 3282877,
+        "idat_sha256": "3240a1dca932402c22cdbe38273e5c3d99f5b9576cad8efffa15635dcc5bdba6",
+        "chunk_types": [
+          "IHDR",
+          "caBX",
+          "IDAT",
+          "IEND"
+        ],
+        "crc_verified": true,
+        "idat_recompressed": false
+      },
+      {
+        "number": 7,
+        "ihdr": {
+          "width": 1024,
+          "height": 1536,
+          "bits": 8,
+          "colour_type": 2,
+          "interlaced": false
+        },
+        "idat_chunk_count": 1,
+        "idat_bytes": 2994360,
+        "idat_sha256": "2ed4681b11b671436bcf85f94fa3ddaf23b77591e8533c948ed7775fb989ebf6",
+        "chunk_types": [
+          "IHDR",
+          "caBX",
+          "IDAT",
+          "IEND"
+        ],
+        "crc_verified": true,
+        "idat_recompressed": false
+      },
+      {
+        "number": 8,
+        "ihdr": {
+          "width": 1024,
+          "height": 1536,
+          "bits": 8,
+          "colour_type": 2,
+          "interlaced": false
+        },
+        "idat_chunk_count": 1,
+        "idat_bytes": 3257747,
+        "idat_sha256": "9fc756397a5f69791f7ee43c293f00dca4cdf3e7fddaec9e57412a843f9e1fb2",
+        "chunk_types": [
+          "IHDR",
+          "caBX",
+          "IDAT",
+          "IEND"
+        ],
+        "crc_verified": true,
+        "idat_recompressed": false
+      },
+      {
+        "number": 9,
+        "ihdr": {
+          "width": 1024,
+          "height": 1536,
+          "bits": 8,
+          "colour_type": 2,
+          "interlaced": false
+        },
+        "idat_chunk_count": 1,
+        "idat_bytes": 3176829,
+        "idat_sha256": "7759435603d28b8080a5e5426b2dffc8c62751afa4310072f3460c4742c44aaf",
+        "chunk_types": [
+          "IHDR",
+          "caBX",
+          "IDAT",
+          "IEND"
+        ],
+        "crc_verified": true,
+        "idat_recompressed": false
+      },
+      {
+        "number": 10,
+        "ihdr": {
+          "width": 1024,
+          "height": 1536,
+          "bits": 8,
+          "colour_type": 2,
+          "interlaced": false
+        },
+        "idat_chunk_count": 1,
+        "idat_bytes": 3342164,
+        "idat_sha256": "2fa1a185fb2ed77bbc9d256a7c869c25ea55d624284c6f31ada085863178e3c7",
+        "chunk_types": [
+          "IHDR",
+          "caBX",
+          "IDAT",
+          "IEND"
+        ],
+        "crc_verified": true,
+        "idat_recompressed": false
+      },
+      {
+        "number": 11,
+        "ihdr": {
+          "width": 1024,
+          "height": 1536,
+          "bits": 8,
+          "colour_type": 2,
+          "interlaced": false
+        },
+        "idat_chunk_count": 1,
+        "idat_bytes": 3167626,
+        "idat_sha256": "20fdacd615508c50dd9a10c9aa14ced7231996a6e11253d521a5afac2159f976",
+        "chunk_types": [
+          "IHDR",
+          "caBX",
+          "IDAT",
+          "IEND"
+        ],
+        "crc_verified": true,
+        "idat_recompressed": false
+      },
+      {
+        "number": 12,
+        "ihdr": {
+          "width": 1024,
+          "height": 1536,
+          "bits": 8,
+          "colour_type": 2,
+          "interlaced": false
+        },
+        "idat_chunk_count": 1,
+        "idat_bytes": 3277190,
+        "idat_sha256": "9cf9d4ee56957fdef35cd25a596b18067591e19bf8383770fe445295d4eaa4a3",
+        "chunk_types": [
+          "IHDR",
+          "caBX",
+          "IDAT",
+          "IEND"
+        ],
+        "crc_verified": true,
+        "idat_recompressed": false
+      },
+      {
+        "number": 13,
+        "ihdr": {
+          "width": 1024,
+          "height": 1536,
+          "bits": 8,
+          "colour_type": 2,
+          "interlaced": false
+        },
+        "idat_chunk_count": 1,
+        "idat_bytes": 3219724,
+        "idat_sha256": "c870b6d52dda92ac73d6d6327bf751dda096fd51ed133144117ff44dc9d36286",
+        "chunk_types": [
+          "IHDR",
+          "caBX",
+          "IDAT",
+          "IEND"
+        ],
+        "crc_verified": true,
+        "idat_recompressed": false
+      },
+      {
+        "number": 14,
+        "ihdr": {
+          "width": 1024,
+          "height": 1536,
+          "bits": 8,
+          "colour_type": 2,
+          "interlaced": false
+        },
+        "idat_chunk_count": 1,
+        "idat_bytes": 3231429,
+        "idat_sha256": "7d63a1da066ddfbb4850339a41528f593ae85067cbec5478cb57674ee638b3c0",
+        "chunk_types": [
+          "IHDR",
+          "caBX",
+          "IDAT",
+          "IEND"
+        ],
+        "crc_verified": true,
+        "idat_recompressed": false
+      },
+      {
+        "number": 15,
+        "ihdr": {
+          "width": 1024,
+          "height": 1536,
+          "bits": 8,
+          "colour_type": 2,
+          "interlaced": false
+        },
+        "idat_chunk_count": 1,
+        "idat_bytes": 3392647,
+        "idat_sha256": "34b193c1858cc9a65be9120f2c2cdbac2cb934204712f1efbf5cfd20e36b307b",
+        "chunk_types": [
+          "IHDR",
+          "caBX",
+          "IDAT",
+          "IEND"
+        ],
+        "crc_verified": true,
+        "idat_recompressed": false
+      },
+      {
+        "number": 16,
+        "ihdr": {
+          "width": 1024,
+          "height": 1536,
+          "bits": 8,
+          "colour_type": 2,
+          "interlaced": false
+        },
+        "idat_chunk_count": 1,
+        "idat_bytes": 2903503,
+        "idat_sha256": "0122f42433d47efad03c81434aee06a7ba825d19bb81b3ac93fdc1273e602380",
+        "chunk_types": [
+          "IHDR",
+          "caBX",
+          "IDAT",
+          "IEND"
+        ],
+        "crc_verified": true,
+        "idat_recompressed": false
+      },
+      {
+        "number": 17,
+        "ihdr": {
+          "width": 1024,
+          "height": 1536,
+          "bits": 8,
+          "colour_type": 2,
+          "interlaced": false
+        },
+        "idat_chunk_count": 1,
+        "idat_bytes": 3220924,
+        "idat_sha256": "34c8c7a02609d4c3e9866acb69f33f4e85c93f89933fdb645af396e059df6238",
+        "chunk_types": [
+          "IHDR",
+          "caBX",
+          "IDAT",
+          "IEND"
+        ],
+        "crc_verified": true,
+        "idat_recompressed": false
+      },
+      {
+        "number": 18,
+        "ihdr": {
+          "width": 1024,
+          "height": 1536,
+          "bits": 8,
+          "colour_type": 2,
+          "interlaced": false
+        },
+        "idat_chunk_count": 1,
+        "idat_bytes": 3237317,
+        "idat_sha256": "3b55420729772b7d185c93b2adc50bc6a51da03ad95805b204167bd2182a9e27",
+        "chunk_types": [
+          "IHDR",
+          "caBX",
+          "IDAT",
+          "IEND"
+        ],
+        "crc_verified": true,
+        "idat_recompressed": false
+      },
+      {
+        "number": 19,
+        "ihdr": {
+          "width": 1024,
+          "height": 1536,
+          "bits": 8,
+          "colour_type": 2,
+          "interlaced": false
+        },
+        "idat_chunk_count": 1,
+        "idat_bytes": 3235441,
+        "idat_sha256": "f697e3c68f4c289193b48bb5e0aafa3232b02e69bed8ab6fb5a4562bf7e68a05",
+        "chunk_types": [
+          "IHDR",
+          "caBX",
+          "IDAT",
+          "IEND"
+        ],
+        "crc_verified": true,
+        "idat_recompressed": false
+      },
+      {
+        "number": 20,
+        "ihdr": {
+          "width": 1024,
+          "height": 1536,
+          "bits": 8,
+          "colour_type": 2,
+          "interlaced": false
+        },
+        "idat_chunk_count": 1,
+        "idat_bytes": 3045853,
+        "idat_sha256": "c77064b6c881d990ef12f8968873f0d33141773f0ce72e6c1700841ea3684040",
+        "chunk_types": [
+          "IHDR",
+          "caBX",
+          "IDAT",
+          "IEND"
+        ],
+        "crc_verified": true,
+        "idat_recompressed": false
+      },
+      {
+        "number": 21,
+        "ihdr": {
+          "width": 1024,
+          "height": 1536,
+          "bits": 8,
+          "colour_type": 2,
+          "interlaced": false
+        },
+        "idat_chunk_count": 1,
+        "idat_bytes": 2990600,
+        "idat_sha256": "9c502f0110dbf94548d9020b122db283dfc519d18e5f1f70f4145119c81fef73",
+        "chunk_types": [
+          "IHDR",
+          "caBX",
+          "IDAT",
+          "IEND"
+        ],
+        "crc_verified": true,
+        "idat_recompressed": false
+      },
+      {
+        "number": 22,
+        "ihdr": {
+          "width": 1024,
+          "height": 1536,
+          "bits": 8,
+          "colour_type": 2,
+          "interlaced": false
+        },
+        "idat_chunk_count": 1,
+        "idat_bytes": 3151050,
+        "idat_sha256": "8ab61cf1444c2b51c49ae6316bc2cd8d6d6d8a50815410eef1b66df0051cab73",
+        "chunk_types": [
+          "IHDR",
+          "caBX",
+          "IDAT",
+          "IEND"
+        ],
+        "crc_verified": true,
+        "idat_recompressed": false
+      },
+      {
+        "number": 23,
+        "ihdr": {
+          "width": 1024,
+          "height": 1536,
+          "bits": 8,
+          "colour_type": 2,
+          "interlaced": false
+        },
+        "idat_chunk_count": 1,
+        "idat_bytes": 3212798,
+        "idat_sha256": "94d942d5dabc286ce0883ad07746fad18d6c30088dc530023d54cdfddaae4232",
+        "chunk_types": [
+          "IHDR",
+          "caBX",
+          "IDAT",
+          "IEND"
+        ],
+        "crc_verified": true,
+        "idat_recompressed": false
+      },
+      {
+        "number": 24,
+        "ihdr": {
+          "width": 1024,
+          "height": 1536,
+          "bits": 8,
+          "colour_type": 2,
+          "interlaced": false
+        },
+        "idat_chunk_count": 1,
+        "idat_bytes": 2961486,
+        "idat_sha256": "e9009d71a9d8b2d7ff3f51be0f59be9142567e280e0851e31c919776d7c573f5",
+        "chunk_types": [
+          "IHDR",
+          "caBX",
+          "IDAT",
+          "IEND"
+        ],
+        "crc_verified": true,
+        "idat_recompressed": false
+      },
+      {
+        "number": 25,
+        "ihdr": {
+          "width": 1024,
+          "height": 1536,
+          "bits": 8,
+          "colour_type": 2,
+          "interlaced": false
+        },
+        "idat_chunk_count": 1,
+        "idat_bytes": 2957734,
+        "idat_sha256": "49b6cc30bdfe46a99ce3baecf6e0781b7bcb7f1f176d28894a0fa99d5b044bf4",
+        "chunk_types": [
+          "IHDR",
+          "caBX",
+          "IDAT",
+          "IEND"
+        ],
+        "crc_verified": true,
+        "idat_recompressed": false
+      },
+      {
+        "number": 26,
+        "ihdr": {
+          "width": 1024,
+          "height": 1536,
+          "bits": 8,
+          "colour_type": 2,
+          "interlaced": false
+        },
+        "idat_chunk_count": 1,
+        "idat_bytes": 3115790,
+        "idat_sha256": "833b8464047335d461d15dceccdafd68df65f2b4c3785027ffd61bdb9c218d97",
+        "chunk_types": [
+          "IHDR",
+          "caBX",
+          "IDAT",
+          "IEND"
+        ],
+        "crc_verified": true,
+        "idat_recompressed": false
+      },
+      {
+        "number": 27,
+        "ihdr": {
+          "width": 1024,
+          "height": 1536,
+          "bits": 8,
+          "colour_type": 2,
+          "interlaced": false
+        },
+        "idat_chunk_count": 1,
+        "idat_bytes": 2984796,
+        "idat_sha256": "83e1c54f34950798bb576ae3b38dc9f44f580a0fa2c5aee6c9ad7d060cd22df7",
+        "chunk_types": [
+          "IHDR",
+          "caBX",
+          "IDAT",
+          "IEND"
+        ],
+        "crc_verified": true,
+        "idat_recompressed": false
+      },
+      {
+        "number": 28,
+        "ihdr": {
+          "width": 1024,
+          "height": 1536,
+          "bits": 8,
+          "colour_type": 2,
+          "interlaced": false
+        },
+        "idat_chunk_count": 1,
+        "idat_bytes": 3098051,
+        "idat_sha256": "e52b2beaef979635acec2b84db499f23228c1dcd70c1ee9038f9f5d443153533",
+        "chunk_types": [
+          "IHDR",
+          "caBX",
+          "IDAT",
+          "IEND"
+        ],
+        "crc_verified": true,
+        "idat_recompressed": false
+      },
+      {
+        "number": 29,
+        "ihdr": {
+          "width": 1024,
+          "height": 1536,
+          "bits": 8,
+          "colour_type": 2,
+          "interlaced": false
+        },
+        "idat_chunk_count": 1,
+        "idat_bytes": 3014040,
+        "idat_sha256": "d8405530c8154ccceb5d735178d6eb64fb848afb898602ce61b2e27634e62126",
+        "chunk_types": [
+          "IHDR",
+          "caBX",
+          "IDAT",
+          "IEND"
+        ],
+        "crc_verified": true,
+        "idat_recompressed": false
+      },
+      {
+        "number": 30,
+        "ihdr": {
+          "width": 1024,
+          "height": 1536,
+          "bits": 8,
+          "colour_type": 2,
+          "interlaced": false
+        },
+        "idat_chunk_count": 1,
+        "idat_bytes": 3377429,
+        "idat_sha256": "b2547ae73bff0b6b26c1e94db4c85ee3f308ca8de4958289b15267ebae0af19e",
+        "chunk_types": [
+          "IHDR",
+          "caBX",
+          "IDAT",
+          "IEND"
+        ],
+        "crc_verified": true,
+        "idat_recompressed": false
+      },
+      {
+        "number": 31,
+        "ihdr": {
+          "width": 1024,
+          "height": 1536,
+          "bits": 8,
+          "colour_type": 2,
+          "interlaced": false
+        },
+        "idat_chunk_count": 1,
+        "idat_bytes": 3124783,
+        "idat_sha256": "e900cd57f11c77c3d3b7f7f07bb031d06346b5bad30fa6013aa2fe866e703277",
+        "chunk_types": [
+          "IHDR",
+          "caBX",
+          "IDAT",
+          "IEND"
+        ],
+        "crc_verified": true,
+        "idat_recompressed": false
+      },
+      {
+        "number": 32,
+        "ihdr": {
+          "width": 1024,
+          "height": 1536,
+          "bits": 8,
+          "colour_type": 2,
+          "interlaced": false
+        },
+        "idat_chunk_count": 1,
+        "idat_bytes": 2909339,
+        "idat_sha256": "2068042bc4940bf3854d94c7ff153fe4be29667e713f74730e5fde306680dcab",
+        "chunk_types": [
+          "IHDR",
+          "caBX",
+          "IDAT",
+          "IEND"
+        ],
+        "crc_verified": true,
+        "idat_recompressed": false
+      }
+    ]
+  },
+  "verification_mode": "new edition original PNG IDAT author and verify",
+  "visual_review_requirement": "Human inspection of all exact selected native pages and final PDF renders: lettering, tails/order, single-tail identity, prop/contact geometry, distinct actions and print size.",
+  "not_claimed": [
+    "OCR or extracted-story-text verification of bitmap lettering",
+    "semantic uniqueness from hashes alone",
+    "owner/child/print acceptance",
+    "runtime/cinematic/global master-audit acceptance"
+  ],
+  "authoring_marker": {
+    "path": "assets_src/books/rumi_visual_detective_20261012/verification/authoring_marker_receipt.json",
+    "sha256": "f9f15c79a82974e0ce8739f66fcd6ef9f710fba3333d4e606005337da3954214",
+    "call_count": 1,
+    "operation_kind": "create"
+  }
+}

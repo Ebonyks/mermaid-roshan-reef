@@ -1,0 +1,33 @@
+{
+  "page": 21,
+  "take": 2,
+  "method": "built-in image_gen.imagegen",
+  "provider_path": "C:\\Users\\Peter\\.codex\\generated_images\\01a12885-9926-7f51-bf3c-f9504cb34d52\\exec-a766e78b-e454-4b93-9dd9-78d7c2e54f81.png",
+  "path": "assets_src/books/rumi_voice_book_20261011/native/page_21_take2.png",
+  "sha256": "48c27a89821ec6506fbdcfcc50b079cc5aaaf2b17dd6b46124d504a3908cc81a",
+  "provider_sha256": "48c27a89821ec6506fbdcfcc50b079cc5aaaf2b17dd6b46124d504a3908cc81a",
+  "rgb_pixel_sha256": "e84239388442fbab1f225323a7d6e64d39b3e07f567fbc53ea4c159aabfd2faf",
+  "dimensions": [
+    1024,
+    1536
+  ],
+  "native_mode": "RGB",
+  "prompt": "Use case: text-localization. Make a bounded lettering-order repair to this ONE existing original 1024x1536 manga page. Input image is the edit target page21take1, not an appearance guide. Preserve the entire native page aspect/dimensions, all three panel borders, all character/body/face/hair/costume/tail/prop/environment art and panel1/panel2 lettering exactly. No crop, resize, scene redraw, pose change or new image panels.\nONLY change PANEL3 (the bottom panel) speech balloon placement and their tails to fix English left-to-right, top-to-bottom reading order. Duri MUST speak first: \"Last delivery! Now I can help.\" Roshan MUST speak second: \"I'll go through the gaps. Duri, ring if the path closes.\" Those exact words and punctuation stay unchanged. Put Duri's balloon clearly first in the top-left reading position and Roshan's balloon clearly second, to the right or lower than Duri's. Retarget their short clear tails correctly: Duri is the lavender mint-floral-shell turtle at RIGHT beside neighbour receiving invitation; Roshan is the rainbow-haired young mermaid at LEFT beside bubbles. Do not put a wrong tail on either balloon. Lettering must stay large/readable and clear of every face, hand, invitation/bell and tail. Fill only locally vacated balloon areas with matching surrounding background as necessary. No additional printed words, character names, panel labels or SFX. Keep the existing panel1 Rumi quote and panel2 Hana/Nari quotes untouched. Final output is the complete full native page, not a crop.\n",
+  "prompt_sha256": "24f9c11115bd487763c882e937383238903afc22b864653482c0457b6600d146",
+  "script_sha256": "febb9d5c7f6d82c29dcf8fa3556715577842b2284749fd2f1fea055a046d5967",
+  "references": [
+    {
+      "role": "edit_target",
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_21_take1.png",
+      "sha256": "f5746245159baca3b0bd5b8a91da335f2cfc839d6b892d4c16e0d77c3742e49d"
+    }
+  ],
+  "modifications": "Local lettering order and tails requested; exact words reordered correctly but both tails remain wrong; rejected candidate, body art visually preserved",
+  "provider_revision": "not exposed",
+  "request_id": "not exposed",
+  "seed": "not exposed",
+  "reported_cost": "not exposed",
+  "call_count": 1,
+  "selection": "REVIEW_PENDING",
+  "license_provenance": "Owner-commissioned original project source candidate generated with built-in ImageGen; original project sources used as identity/setting guidance. No copied third-party scene pixels."
+}

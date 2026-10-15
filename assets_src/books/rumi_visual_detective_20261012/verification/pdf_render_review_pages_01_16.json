@@ -1,0 +1,937 @@
+{
+  "schema": "pdf_render_review_range_v1",
+  "reviewer": "book_builder independent full actual PDF render review",
+  "reviewed_at_utc": "2026-10-12T09:34:37.071194+00:00",
+  "status": "PAGES_01_16_RENDER_VISUAL_CANDIDATE_PASS_SAMPLING_NON_EXACT",
+  "scope": "Read-only actual Poppler render inspection1-16; no authoring, rerender, native image changes or score changes.",
+  "source_pdf": {
+    "path": "assets_src/books/rumi_visual_detective_20261012/output/pdf/Mermaid_Roshan_Here_I_Am_Detective_32_Pages.pdf",
+    "sha256": "f19669f0bd75517c9c6222d9da00a87d26d8cf84e7edc4e5ba2968d5fc2f8064",
+    "bytes": 101178692,
+    "actual_page_count": 32,
+    "page_dimensions_points": [
+      512.0,
+      768.0
+    ],
+    "physical_size_inches": [
+      7.111111111111111,
+      10.666666666666666
+    ],
+    "one_complete_native_image_per_page": true,
+    "selectable_story_text": false,
+    "lettering_source": "generated within native page art",
+    "actual_page_count_independently_checked": 32
+  },
+  "book_check": {
+    "path": "assets_src/books/rumi_visual_detective_20261012/verification/book_check.json",
+    "sha256": "cf0d2631a9cbfc7f58d851e7bf6b9f0f9687dbd574bb77380386087996cf1eff",
+    "bound_status": "NATIVE_IDAT_RGB_GEOMETRY_PASS_RENDER_SAMPLING_NON_EXACT_VISUAL_ACCEPTANCE_PENDING"
+  },
+  "native_visual_review": {
+    "path": "assets_src/books/rumi_visual_detective_20261012/verification/final_pages_01_16.json",
+    "sha256": "7262e3d59287b6d043d085c67715fdb000ddfcda40dd449853d9cfd3b7382f73",
+    "raw_scores_unchanged": true
+  },
+  "script_sha256": "ab77f7740592a82b9185c10eb22a7b85ff785726b2f9eb8f01158861d54db6cd",
+  "selected_art_sha256": "f3492f5eebeca5c29306e7e99ed7bec29c98d599f7177f3a3a43af64670d570f",
+  "render_method": "Poppler pdftoppm (C:\\Users\\Peter\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\poppler\\Library\\bin\\pdftoppm.exe), 144 dpi; font/vector anti-aliasing disabled; no render crop",
+  "render_dpi": 144,
+  "inspection": "All16 actual PNG renders individually viewed at original1024x1536detail, lettering/balloon targets/action contact/page bounds checked against reviewed native layout.",
+  "pages": [
+    {
+      "number": 1,
+      "render_path": "tmp/pdfs/rumi_visual_detective_20261012/page_01.png",
+      "render_sha256": "4db4765d8faae5765205f4fd3a87949bf6eb943481f03fa1152a81d4baa81b13",
+      "render_rgb_pixel_sha256": "d6652a6b78b96f7855540eef2f26e08a51eccb83ab7fded831690380baf6d057",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "native_path": "assets_src/books/rumi_voice_book_20261011/native/page_01_take1.png",
+      "native_sha256": "da123e2196a887725b7e82abac7c2beaa1cd861a9c48b6abe0a300d99bf41bb9",
+      "native_rgb_pixel_sha256": "c0c81a579891d2a013c49eb6bda5f8829aa1a4415990a061e5239fe9bbe386ea",
+      "viewed_with": "view_image detail=original",
+      "actual_pdf_page_render_inspected": true,
+      "lettering_readability_pass": true,
+      "source_words_and_speaker_order_visible": true,
+      "speaker_tail_and_adjacency_pass": true,
+      "complete_native_framing_preserved_visually": true,
+      "introduced_clipping_or_obstruction": false,
+      "introduced_material_render_defects": [],
+      "native_review_limits_carried_unchanged": [],
+      "observations": "Title, subtitle and five-character cover are readable and framed as native; no page-edge text clipping.",
+      "machine_evidence_from_bound_build_check": {
+        "embedded_rgb_equals_native": true,
+        "original_idat_bytes_preserved": true,
+        "whole_image_transform": [
+          512.0,
+          0.0,
+          0.0,
+          768.0,
+          0.0,
+          0.0
+        ],
+        "complete_frame_geometry": true
+      },
+      "actual_renderer_rgb_equals_native": false,
+      "sampling_diagnostic": {
+        "status": "NON_EXACT",
+        "changed_rgb_pixels": 1532113,
+        "total_rgb_pixels": 1572864,
+        "changed_channel_values": 4051359,
+        "max_channel_difference": 218,
+        "mean_absolute_channel_difference": 10.439737319946289,
+        "mean_absolute_difference_by_rgb_channel": [
+          10.85655657450358,
+          11.461732228597006,
+          9.000923156738281
+        ]
+      },
+      "visual_verdict": "NO_INTRODUCED_RENDER_DEFECT"
+    },
+    {
+      "number": 2,
+      "render_path": "tmp/pdfs/rumi_visual_detective_20261012/page_02.png",
+      "render_sha256": "7111d4ab72bcd5f5cdec116ec224dcc546da4291056ebd59c26cfa76c0df53fa",
+      "render_rgb_pixel_sha256": "23efe94d00621a9d4d215aa75743278a394660fe2788795a35f447370ddca77f",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "native_path": "assets_src/books/rumi_visual_detective_20261012/native/page_02_take1.png",
+      "native_sha256": "3edc3778d3a6a43719c7ae1a9dea0ca20bf0137667d0a536a4d75e67fa42b1eb",
+      "native_rgb_pixel_sha256": "9b9ca595c2e01311e932d0c4215cedf25b4db5bc29cb6c950aa2005c6a44bca3",
+      "viewed_with": "view_image detail=original",
+      "actual_pdf_page_render_inspected": true,
+      "lettering_readability_pass": true,
+      "source_words_and_speaker_order_visible": true,
+      "speaker_tail_and_adjacency_pass": true,
+      "complete_native_framing_preserved_visually": true,
+      "introduced_clipping_or_obstruction": false,
+      "introduced_material_render_defects": [],
+      "native_review_limits_carried_unchanged": [
+        {
+          "id": "F02-TEXT-LIMIT-01",
+          "panel": "p02.2",
+          "severity": "MINOR",
+          "description": "Rumi last reassurance balloon relies on adjacent face/right placement instead of an outward tail. Attribution remains clear, but the three-entry strip requires following dialogue positions."
+        }
+      ],
+      "observations": "Six opening/detective-preparation drawings retained. All lines/read order remain visible; deliberate low hat then above-eye adjustment intact. Adjacent Rumi reassurance limitation unchanged.",
+      "machine_evidence_from_bound_build_check": {
+        "embedded_rgb_equals_native": true,
+        "original_idat_bytes_preserved": true,
+        "whole_image_transform": [
+          512.0,
+          0.0,
+          0.0,
+          768.0,
+          0.0,
+          0.0
+        ],
+        "complete_frame_geometry": true
+      },
+      "actual_renderer_rgb_equals_native": false,
+      "sampling_diagnostic": {
+        "status": "NON_EXACT",
+        "changed_rgb_pixels": 1485019,
+        "total_rgb_pixels": 1572864,
+        "changed_channel_values": 3978526,
+        "max_channel_difference": 238,
+        "mean_absolute_channel_difference": 13.561093012491861,
+        "mean_absolute_difference_by_rgb_channel": [
+          14.31139882405599,
+          14.210166295369467,
+          12.16171391805013
+        ]
+      },
+      "visual_verdict": "NO_INTRODUCED_RENDER_DEFECT"
+    },
+    {
+      "number": 3,
+      "render_path": "tmp/pdfs/rumi_visual_detective_20261012/page_03.png",
+      "render_sha256": "257eaf7095adf1fe6d7db680f562929e532b5d9b80929918b5acdfd3970ef925",
+      "render_rgb_pixel_sha256": "12f12ec4f0303e586a685a1d59def65e0f354cb03e52dbc7f2a4a5763264b694",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "native_path": "assets_src/books/rumi_visual_detective_20261012/native/page_03_take2.png",
+      "native_sha256": "cab40daad54fa84fcd5016f0a39a0a0a62fd7b0b0af2b6daf5e36ab425b35467",
+      "native_rgb_pixel_sha256": "cc2524ed5bb360b8b9574453e33a659fac0c23e88b49d00805f77a119d962171",
+      "viewed_with": "view_image detail=original",
+      "actual_pdf_page_render_inspected": true,
+      "lettering_readability_pass": true,
+      "source_words_and_speaker_order_visible": true,
+      "speaker_tail_and_adjacency_pass": true,
+      "complete_native_framing_preserved_visually": true,
+      "introduced_clipping_or_obstruction": false,
+      "introduced_material_render_defects": [],
+      "native_review_limits_carried_unchanged": [
+        {
+          "id": "F03-ACTION-LIMIT-01",
+          "panel": "p03.4-p03.5",
+          "severity": "MINOR",
+          "description": "Shade/unshade is legible through reduced versus vivid rainbow colour and palm placement; interruption shadow is soft rather than graphically outlined, so the modest visual difference benefits from the adjacent observation dialogue."
+        }
+      ],
+      "observations": "Observation, shade/unshade and tool-stow drawings retained. Exact dialogue/speaker targets readable; previously recorded soft shade contrast unchanged.",
+      "machine_evidence_from_bound_build_check": {
+        "embedded_rgb_equals_native": true,
+        "original_idat_bytes_preserved": true,
+        "whole_image_transform": [
+          512.0,
+          0.0,
+          0.0,
+          768.0,
+          0.0,
+          0.0
+        ],
+        "complete_frame_geometry": true
+      },
+      "actual_renderer_rgb_equals_native": false,
+      "sampling_diagnostic": {
+        "status": "NON_EXACT",
+        "changed_rgb_pixels": 1492458,
+        "total_rgb_pixels": 1572864,
+        "changed_channel_values": 3990531,
+        "max_channel_difference": 238,
+        "mean_absolute_channel_difference": 12.451045354207357,
+        "mean_absolute_difference_by_rgb_channel": [
+          13.398651758829752,
+          13.005060195922852,
+          10.949424107869467
+        ]
+      },
+      "visual_verdict": "NO_INTRODUCED_RENDER_DEFECT"
+    },
+    {
+      "number": 4,
+      "render_path": "tmp/pdfs/rumi_visual_detective_20261012/page_04.png",
+      "render_sha256": "b314831895e2975aea14417c55d9d991b3041364326d2a806f79c545d9519c7f",
+      "render_rgb_pixel_sha256": "7733fb3fe04ae60737758d58e6fa061824f287a543aeb31df211881603138e3a",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "native_path": "assets_src/books/rumi_visual_detective_20261012/native/page_04_take2.png",
+      "native_sha256": "af4f6ff85a8d085885151809223adbc73af68f65f2b1ac13962b3a74a83735ac",
+      "native_rgb_pixel_sha256": "64ff6e302654f687ce678241e28422185ecf12faeebe0e8acf4dd073036a6205",
+      "viewed_with": "view_image detail=original",
+      "actual_pdf_page_render_inspected": true,
+      "lettering_readability_pass": true,
+      "source_words_and_speaker_order_visible": true,
+      "speaker_tail_and_adjacency_pass": true,
+      "complete_native_framing_preserved_visually": true,
+      "introduced_clipping_or_obstruction": false,
+      "introduced_material_render_defects": [],
+      "native_review_limits_carried_unchanged": [
+        {
+          "id": "F04-GEOGRAPHY-LIMIT-01",
+          "panel": "p04.1-p04.3",
+          "severity": "MINOR",
+          "description": "Busy city panorama/thin current strip compress arrival-to-bathhouse route; bridge/current and delivery shelf are clear while a particular bathhouse facade is not singled out."
+        },
+        {
+          "id": "F04-COMPOSITION-LIMIT-02",
+          "panel": "page",
+          "severity": "MINOR",
+          "description": "Five mostly wide tiers provide less scale variation than adjacent detective pages; gutters and story functions remain clear without empty filler."
+        }
+      ],
+      "observations": "Five city/warning tiers retain dense captions, invitation, tram-current strip, properly costumed imps and fan warning. No new clipping of letters, hands or base.",
+      "machine_evidence_from_bound_build_check": {
+        "embedded_rgb_equals_native": true,
+        "original_idat_bytes_preserved": true,
+        "whole_image_transform": [
+          512.0,
+          0.0,
+          0.0,
+          768.0,
+          0.0,
+          0.0
+        ],
+        "complete_frame_geometry": true
+      },
+      "actual_renderer_rgb_equals_native": false,
+      "sampling_diagnostic": {
+        "status": "NON_EXACT",
+        "changed_rgb_pixels": 1505182,
+        "total_rgb_pixels": 1572864,
+        "changed_channel_values": 4061087,
+        "max_channel_difference": 231,
+        "mean_absolute_channel_difference": 14.196334838867188,
+        "mean_absolute_difference_by_rgb_channel": [
+          14.863457997639975,
+          14.733271280924479,
+          12.99227523803711
+        ]
+      },
+      "visual_verdict": "NO_INTRODUCED_RENDER_DEFECT"
+    },
+    {
+      "number": 5,
+      "render_path": "tmp/pdfs/rumi_visual_detective_20261012/page_05.png",
+      "render_sha256": "cd7649793eb3c0d95cc3dde2f83775a2f12089befa83a021c6a8c803ef724edb",
+      "render_rgb_pixel_sha256": "08e94b61da988a886cd34d973dfa03c632963294dc66e81b7fbf8b7b762499c6",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "native_path": "assets_src/books/rumi_voice_book_20261011/native/page_05_take1.png",
+      "native_sha256": "76ac7535dacaec9d1ab66d2eb6586987412e787420318ece80cf984e4fa79fed",
+      "native_rgb_pixel_sha256": "a8cdffd696ecd11b19bcb388d4afcc017c779916a29e7cc381e56f5de04ea9de",
+      "viewed_with": "view_image detail=original",
+      "actual_pdf_page_render_inspected": true,
+      "lettering_readability_pass": true,
+      "source_words_and_speaker_order_visible": true,
+      "speaker_tail_and_adjacency_pass": true,
+      "complete_native_framing_preserved_visually": true,
+      "introduced_clipping_or_obstruction": false,
+      "introduced_material_render_defects": [],
+      "native_review_limits_carried_unchanged": [],
+      "observations": "Performance gestures, interruption and Roshan incomplete request retain readable balloons and the native close framing; no added PDF crop.",
+      "machine_evidence_from_bound_build_check": {
+        "embedded_rgb_equals_native": true,
+        "original_idat_bytes_preserved": true,
+        "whole_image_transform": [
+          512.0,
+          0.0,
+          0.0,
+          768.0,
+          0.0,
+          0.0
+        ],
+        "complete_frame_geometry": true
+      },
+      "actual_renderer_rgb_equals_native": false,
+      "sampling_diagnostic": {
+        "status": "NON_EXACT",
+        "changed_rgb_pixels": 1503388,
+        "total_rgb_pixels": 1572864,
+        "changed_channel_values": 4007041,
+        "max_channel_difference": 229,
+        "mean_absolute_channel_difference": 11.253635618421766,
+        "mean_absolute_difference_by_rgb_channel": [
+          11.623969395955404,
+          11.906517028808594,
+          10.230420430501303
+        ]
+      },
+      "visual_verdict": "NO_INTRODUCED_RENDER_DEFECT"
+    },
+    {
+      "number": 6,
+      "render_path": "tmp/pdfs/rumi_visual_detective_20261012/page_06.png",
+      "render_sha256": "2247785e80fdc6ed724f3387ae715e0b98a441eafe9ed4437faab12601157d45",
+      "render_rgb_pixel_sha256": "a78527fc1e7c1fe2b4021a6d1d43cd7641c82838cd40c25178cd4d3043447efb",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "native_path": "assets_src/books/rumi_voice_book_20261011/native/page_06_take2.png",
+      "native_sha256": "b2c5938b1a3bd1f1f705e5095d0ca07c7044faefdc154e56fcee8a750f522ac1",
+      "native_rgb_pixel_sha256": "40810339f5d98bf6816b2eb4a3c3093f0d774658684fd2a5f99a96fce0697419",
+      "viewed_with": "view_image detail=original",
+      "actual_pdf_page_render_inspected": true,
+      "lettering_readability_pass": true,
+      "source_words_and_speaker_order_visible": true,
+      "speaker_tail_and_adjacency_pass": true,
+      "complete_native_framing_preserved_visually": true,
+      "introduced_clipping_or_obstruction": false,
+      "introduced_material_render_defects": [],
+      "native_review_limits_carried_unchanged": [],
+      "observations": "Could-I request, BOOM, narrator captions, off-panel Help and Roshan reaction retain complete words and the original speaker/sound staging.",
+      "machine_evidence_from_bound_build_check": {
+        "embedded_rgb_equals_native": true,
+        "original_idat_bytes_preserved": true,
+        "whole_image_transform": [
+          512.0,
+          0.0,
+          0.0,
+          768.0,
+          0.0,
+          0.0
+        ],
+        "complete_frame_geometry": true
+      },
+      "actual_renderer_rgb_equals_native": false,
+      "sampling_diagnostic": {
+        "status": "NON_EXACT",
+        "changed_rgb_pixels": 1504939,
+        "total_rgb_pixels": 1572864,
+        "changed_channel_values": 3990247,
+        "max_channel_difference": 240,
+        "mean_absolute_channel_difference": 11.309748543633354,
+        "mean_absolute_difference_by_rgb_channel": [
+          11.596810658772787,
+          12.096787134806315,
+          10.235647837320963
+        ]
+      },
+      "visual_verdict": "NO_INTRODUCED_RENDER_DEFECT"
+    },
+    {
+      "number": 7,
+      "render_path": "tmp/pdfs/rumi_visual_detective_20261012/page_07.png",
+      "render_sha256": "c425eae4d00bb31abdf28c486931233397db9d74b7f42e724fba9008d344d555",
+      "render_rgb_pixel_sha256": "104598d579bc03133e192fd9f1ee728e4dd076b0850c63d4c4bfb06483b7052d",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "native_path": "assets_src/books/rumi_visual_detective_20261012/native/page_07_take1.png",
+      "native_sha256": "1f0b86e90de045692df1efc2b45deaa8d8ee5788a365d6ce6fd213800fde3a0a",
+      "native_rgb_pixel_sha256": "cc6a7222987cc3410f7b3a107385d93fed5d9a64823693034c259fe5026fb595",
+      "viewed_with": "view_image detail=original",
+      "actual_pdf_page_render_inspected": true,
+      "lettering_readability_pass": true,
+      "source_words_and_speaker_order_visible": true,
+      "speaker_tail_and_adjacency_pass": true,
+      "complete_native_framing_preserved_visually": true,
+      "introduced_clipping_or_obstruction": false,
+      "introduced_material_render_defects": [],
+      "native_review_limits_carried_unchanged": [],
+      "observations": "Wait/help request and group response readable; removed detached rainbow fragment stays absent and drifting bell remains complete.",
+      "machine_evidence_from_bound_build_check": {
+        "embedded_rgb_equals_native": true,
+        "original_idat_bytes_preserved": true,
+        "whole_image_transform": [
+          512.0,
+          0.0,
+          0.0,
+          768.0,
+          0.0,
+          0.0
+        ],
+        "complete_frame_geometry": true
+      },
+      "actual_renderer_rgb_equals_native": false,
+      "sampling_diagnostic": {
+        "status": "NON_EXACT",
+        "changed_rgb_pixels": 1514524,
+        "total_rgb_pixels": 1572864,
+        "changed_channel_values": 3994911,
+        "max_channel_difference": 217,
+        "mean_absolute_channel_difference": 9.230155520968967,
+        "mean_absolute_difference_by_rgb_channel": [
+          9.746573130289713,
+          9.56003189086914,
+          8.383861541748047
+        ]
+      },
+      "visual_verdict": "NO_INTRODUCED_RENDER_DEFECT"
+    },
+    {
+      "number": 8,
+      "render_path": "tmp/pdfs/rumi_visual_detective_20261012/page_08.png",
+      "render_sha256": "50dad221b03ec2c82e8398a4eb05e29c8f1d0dcb2cc38e447e38145ea003b4ef",
+      "render_rgb_pixel_sha256": "1d13d40b5c7c31c5afae8b626becd9fedcb0523198a382b1fe1049ba32b7436a",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "native_path": "assets_src/books/rumi_visual_detective_20261012/native/page_08_take3.png",
+      "native_sha256": "3675b4311b9224f12c83fd3c4d91dfaaea3a4f94253a37998009a58c56fdc9ed",
+      "native_rgb_pixel_sha256": "9de77c327c9a0b42043d9b3abb7fe4901fa71a1cd9b66a67b8854f914c253464",
+      "viewed_with": "view_image detail=original",
+      "actual_pdf_page_render_inspected": true,
+      "lettering_readability_pass": true,
+      "source_words_and_speaker_order_visible": true,
+      "speaker_tail_and_adjacency_pass": true,
+      "complete_native_framing_preserved_visually": true,
+      "introduced_clipping_or_obstruction": false,
+      "introduced_material_render_defects": [],
+      "native_review_limits_carried_unchanged": [],
+      "observations": "Four distinct drawings retain Duri explanation before Rumi reassurance; both short speaker tails and final pull/stop contact remain clear.",
+      "machine_evidence_from_bound_build_check": {
+        "embedded_rgb_equals_native": true,
+        "original_idat_bytes_preserved": true,
+        "whole_image_transform": [
+          512.0,
+          0.0,
+          0.0,
+          768.0,
+          0.0,
+          0.0
+        ],
+        "complete_frame_geometry": true
+      },
+      "actual_renderer_rgb_equals_native": false,
+      "sampling_diagnostic": {
+        "status": "NON_EXACT",
+        "changed_rgb_pixels": 1504579,
+        "total_rgb_pixels": 1572864,
+        "changed_channel_values": 3988385,
+        "max_channel_difference": 247,
+        "mean_absolute_channel_difference": 11.16494623819987,
+        "mean_absolute_difference_by_rgb_channel": [
+          11.519444147745768,
+          11.674654006958008,
+          10.300740559895834
+        ]
+      },
+      "visual_verdict": "NO_INTRODUCED_RENDER_DEFECT"
+    },
+    {
+      "number": 9,
+      "render_path": "tmp/pdfs/rumi_visual_detective_20261012/page_09.png",
+      "render_sha256": "7f6309e792eff76656ac0877c371270f56f357ce2a2a3e99b4132998c13648cc",
+      "render_rgb_pixel_sha256": "23148ab4f1202391e2161a0f882ce1a52ba5da821b4622aa74e21e52d0727f52",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "native_path": "assets_src/books/rumi_voice_book_20261011/native/page_09_take3.png",
+      "native_sha256": "013c7ee2e14e2527243bc97cce8df6f8aaacaf0b227e1bb7c3e772f5ad9d46ee",
+      "native_rgb_pixel_sha256": "0e4f0b2488f8fcd1113aeb86c57ac1ef1fce700c531f6980cb5e8c04e6a80c1f",
+      "viewed_with": "view_image detail=original",
+      "actual_pdf_page_render_inspected": true,
+      "lettering_readability_pass": true,
+      "source_words_and_speaker_order_visible": true,
+      "speaker_tail_and_adjacency_pass": true,
+      "complete_native_framing_preserved_visually": true,
+      "introduced_clipping_or_obstruction": false,
+      "introduced_material_render_defects": [],
+      "native_review_limits_carried_unchanged": [],
+      "observations": "Stop, request to Hana, Hana response and Duri request readable. Actual hands/upper fan hold and tightening strap unaffected by render.",
+      "machine_evidence_from_bound_build_check": {
+        "embedded_rgb_equals_native": true,
+        "original_idat_bytes_preserved": true,
+        "whole_image_transform": [
+          512.0,
+          0.0,
+          0.0,
+          768.0,
+          0.0,
+          0.0
+        ],
+        "complete_frame_geometry": true
+      },
+      "actual_renderer_rgb_equals_native": false,
+      "sampling_diagnostic": {
+        "status": "NON_EXACT",
+        "changed_rgb_pixels": 1511166,
+        "total_rgb_pixels": 1572864,
+        "changed_channel_values": 3998797,
+        "max_channel_difference": 235,
+        "mean_absolute_channel_difference": 10.099699020385742,
+        "mean_absolute_difference_by_rgb_channel": [
+          10.315313339233398,
+          10.62435531616211,
+          9.359428405761719
+        ]
+      },
+      "visual_verdict": "NO_INTRODUCED_RENDER_DEFECT"
+    },
+    {
+      "number": 10,
+      "render_path": "tmp/pdfs/rumi_visual_detective_20261012/page_10.png",
+      "render_sha256": "0f848123f63aaa05ecdff201dd37fde2d62b20ab5cf38712bac7894837901a56",
+      "render_rgb_pixel_sha256": "2470990e2195ce32bc92cae3f0e707d1119d2442cebd9aa59b3cdea5a11ab79d",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "native_path": "assets_src/books/rumi_visual_detective_20261012/native/page_10_take3.png",
+      "native_sha256": "2ec630084b473e64b70fc030995dbde0bcefbe46d2358aa2b968215f326bfa74",
+      "native_rgb_pixel_sha256": "6fcc963217f02e9863bb5cb45c11d9e0a5620750a32664e86bf267e2f0e4e529",
+      "viewed_with": "view_image detail=original",
+      "actual_pdf_page_render_inspected": true,
+      "lettering_readability_pass": true,
+      "source_words_and_speaker_order_visible": true,
+      "speaker_tail_and_adjacency_pass": true,
+      "complete_native_framing_preserved_visually": true,
+      "introduced_clipping_or_obstruction": false,
+      "introduced_material_render_defects": [],
+      "native_review_limits_carried_unchanged": [],
+      "observations": "Separated blue Rumi lower grips/coral Hana upper grips and Roshan independent base action remain readable; final strap-off-peg close view intact.",
+      "machine_evidence_from_bound_build_check": {
+        "embedded_rgb_equals_native": true,
+        "original_idat_bytes_preserved": true,
+        "whole_image_transform": [
+          512.0,
+          0.0,
+          0.0,
+          768.0,
+          0.0,
+          0.0
+        ],
+        "complete_frame_geometry": true
+      },
+      "actual_renderer_rgb_equals_native": false,
+      "sampling_diagnostic": {
+        "status": "NON_EXACT",
+        "changed_rgb_pixels": 1514586,
+        "total_rgb_pixels": 1572864,
+        "changed_channel_values": 4071847,
+        "max_channel_difference": 236,
+        "mean_absolute_channel_difference": 11.541003968980577,
+        "mean_absolute_difference_by_rgb_channel": [
+          12.016056696573893,
+          12.27923838297526,
+          10.327716827392578
+        ]
+      },
+      "visual_verdict": "NO_INTRODUCED_RENDER_DEFECT"
+    },
+    {
+      "number": 11,
+      "render_path": "tmp/pdfs/rumi_visual_detective_20261012/page_11.png",
+      "render_sha256": "b58180e00f086c041bb1b51c5b5fb2dd1bbf40a4c1590f4dc5a4fa3bb4a8868c",
+      "render_rgb_pixel_sha256": "4cda25ae5c5ba1fe01025fcb02ef6df2b04e6913c95e8551ed7715404837ae0b",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "native_path": "assets_src/books/rumi_visual_detective_20261012/native/page_11_take1.png",
+      "native_sha256": "9e461f9b46671cdcf01d72c4345319d11449528934321b900d07d188f9da9d9b",
+      "native_rgb_pixel_sha256": "2b98ee08ab79edac44755346dc9beb2dcefca3267594ab031d8b355e35ab2405",
+      "viewed_with": "view_image detail=original",
+      "actual_pdf_page_render_inspected": true,
+      "lettering_readability_pass": true,
+      "source_words_and_speaker_order_visible": true,
+      "speaker_tail_and_adjacency_pass": true,
+      "complete_native_framing_preserved_visually": true,
+      "introduced_clipping_or_obstruction": false,
+      "introduced_material_render_defects": [],
+      "native_review_limits_carried_unchanged": [
+        {
+          "id": "N11T1-LIMIT-01",
+          "panel": "p11.2",
+          "bounds_px": [
+            512,
+            645,
+            698,
+            890
+          ],
+          "severity": "REVIEW_LIMIT",
+          "description": "Rumi head/shoulder is outside this intentionally close action panel; two added blue cuffs/forearms identify her support. Root must independently confirm ownership is sufficiently readable."
+        }
+      ],
+      "observations": "Current warning/WHOOSH/request readable. Four owned grips remain visible: Roshan coral arms and off-panel Rumi blue cuffs, preserving documented compressed-acting limitation.",
+      "machine_evidence_from_bound_build_check": {
+        "embedded_rgb_equals_native": true,
+        "original_idat_bytes_preserved": true,
+        "whole_image_transform": [
+          512.0,
+          0.0,
+          0.0,
+          768.0,
+          0.0,
+          0.0
+        ],
+        "complete_frame_geometry": true
+      },
+      "actual_renderer_rgb_equals_native": false,
+      "sampling_diagnostic": {
+        "status": "NON_EXACT",
+        "changed_rgb_pixels": 1495260,
+        "total_rgb_pixels": 1572864,
+        "changed_channel_values": 3937303,
+        "max_channel_difference": 220,
+        "mean_absolute_channel_difference": 11.068059921264648,
+        "mean_absolute_difference_by_rgb_channel": [
+          11.882881164550781,
+          11.424783070882162,
+          9.896515528361002
+        ]
+      },
+      "visual_verdict": "NO_INTRODUCED_RENDER_DEFECT"
+    },
+    {
+      "number": 12,
+      "render_path": "tmp/pdfs/rumi_visual_detective_20261012/page_12.png",
+      "render_sha256": "8844b7ce46931c3c28f94ee70ba03ae90065950f353b3c7ec8650cae0a2bde54",
+      "render_rgb_pixel_sha256": "dcc79391c2a942c06112e93f97fd65d2a6209f4d1f1474c0f3d88160a81c1c34",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "native_path": "assets_src/books/rumi_voice_book_20261011/native/page_12_take2.png",
+      "native_sha256": "6d7f6e8f0c4d1a6f6f66ab50c6f3fc0f6a149a84f566ab71deb94e595f75f3b8",
+      "native_rgb_pixel_sha256": "c95835ff25db66262f2b79c6af613b2af09be0735ba9a69d5c4991b101c9b5b5",
+      "viewed_with": "view_image detail=original",
+      "actual_pdf_page_render_inspected": true,
+      "lettering_readability_pass": true,
+      "source_words_and_speaker_order_visible": true,
+      "speaker_tail_and_adjacency_pass": true,
+      "complete_native_framing_preserved_visually": true,
+      "introduced_clipping_or_obstruction": false,
+      "introduced_material_render_defects": [],
+      "native_review_limits_carried_unchanged": [],
+      "observations": "Release count, back-this-way request and four-flipper/free caption readable. Supported fan exit, turtle clearance, safe flat stow and recovered bell retain native framing.",
+      "machine_evidence_from_bound_build_check": {
+        "embedded_rgb_equals_native": true,
+        "original_idat_bytes_preserved": true,
+        "whole_image_transform": [
+          512.0,
+          0.0,
+          0.0,
+          768.0,
+          0.0,
+          0.0
+        ],
+        "complete_frame_geometry": true
+      },
+      "actual_renderer_rgb_equals_native": false,
+      "sampling_diagnostic": {
+        "status": "NON_EXACT",
+        "changed_rgb_pixels": 1507510,
+        "total_rgb_pixels": 1572864,
+        "changed_channel_values": 4036208,
+        "max_channel_difference": 216,
+        "mean_absolute_channel_difference": 11.616001341078016,
+        "mean_absolute_difference_by_rgb_channel": [
+          12.170614242553711,
+          12.391377131144205,
+          10.286012649536133
+        ]
+      },
+      "visual_verdict": "NO_INTRODUCED_RENDER_DEFECT"
+    },
+    {
+      "number": 13,
+      "render_path": "tmp/pdfs/rumi_visual_detective_20261012/page_13.png",
+      "render_sha256": "39835c2812c778e799f20cec02c3d202cd9bf8ac54baacf5b96962764cf2cfda",
+      "render_rgb_pixel_sha256": "dce228c0ad1b46606523cf72eeeced4ce4af77e9eda31981a4706e041db2faa5",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "native_path": "assets_src/books/rumi_voice_book_20261011/native/page_13_take1.png",
+      "native_sha256": "a2b7f62f3e8e0a2dfe9211302b69cf32d502f6143a5f1e0cdcd5286b3d5caa7e",
+      "native_rgb_pixel_sha256": "92399bd7231909d1f794cb5d12bd5833b2805aba4cad424bf050fafa536f9b1a",
+      "viewed_with": "view_image detail=original",
+      "actual_pdf_page_render_inspected": true,
+      "lettering_readability_pass": true,
+      "source_words_and_speaker_order_visible": true,
+      "speaker_tail_and_adjacency_pass": true,
+      "complete_native_framing_preserved_visually": true,
+      "introduced_clipping_or_obstruction": false,
+      "introduced_material_render_defects": [],
+      "native_review_limits_carried_unchanged": [
+        {
+          "id": "B13-PROP-01",
+          "panel": 1,
+          "region_native_px": [
+            31,
+            395,
+            217,
+            513
+          ],
+          "severity": "small_nonessential",
+          "category": "character_identity_anatomy",
+          "observation": "Duri's mailbag front is depicted with a small star/clasp motif instead of the earlier large shell relief. The brown courier bag and shell charm remain recognizable, but the bound prop details drift.",
+          "recommendation": "Keep the bag's established shell-front motif consistent in any new-version correction, preserving its position, strap and Duri's pose.",
+          "hard_fail": false
+        }
+      ],
+      "observations": "Duri ignored-warning account, Roshan shaky voice, Hana apology and bathhouse-rest request remain readable; existing bag-clasp variation unchanged.",
+      "machine_evidence_from_bound_build_check": {
+        "embedded_rgb_equals_native": true,
+        "original_idat_bytes_preserved": true,
+        "whole_image_transform": [
+          512.0,
+          0.0,
+          0.0,
+          768.0,
+          0.0,
+          0.0
+        ],
+        "complete_frame_geometry": true
+      },
+      "actual_renderer_rgb_equals_native": false,
+      "sampling_diagnostic": {
+        "status": "NON_EXACT",
+        "changed_rgb_pixels": 1467872,
+        "total_rgb_pixels": 1572864,
+        "changed_channel_values": 3923230,
+        "max_channel_difference": 230,
+        "mean_absolute_channel_difference": 11.74946763780382,
+        "mean_absolute_difference_by_rgb_channel": [
+          12.211511611938477,
+          12.335909525553385,
+          10.700981775919596
+        ]
+      },
+      "visual_verdict": "NO_INTRODUCED_RENDER_DEFECT"
+    },
+    {
+      "number": 14,
+      "render_path": "tmp/pdfs/rumi_visual_detective_20261012/page_14.png",
+      "render_sha256": "dccc7b01dc0a5405beaa22700c3749c1211894837072832b6042ae18cbf1368b",
+      "render_rgb_pixel_sha256": "e0705d168e1e765f14690bae4b6af5e9b438df7be7e16248ba1de64fc196966a",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "native_path": "assets_src/books/rumi_voice_book_20261011/native/page_14_take1.png",
+      "native_sha256": "5b4e8f69b291f597dd686514ee4fd780c9f2fd5a59cd499be9e8230f104fa5c4",
+      "native_rgb_pixel_sha256": "d8e5d347e834ba01ad46994b92e53cdea37ef7a2c2d7579b04fcda905e81bb15",
+      "viewed_with": "view_image detail=original",
+      "actual_pdf_page_render_inspected": true,
+      "lettering_readability_pass": true,
+      "source_words_and_speaker_order_visible": true,
+      "speaker_tail_and_adjacency_pass": true,
+      "complete_native_framing_preserved_visually": true,
+      "introduced_clipping_or_obstruction": false,
+      "introduced_material_render_defects": [],
+      "native_review_limits_carried_unchanged": [],
+      "observations": "Bathhouse narration, Roshan naming need and three apologies remain readable and correctly adjacent/tailed. Food, hands and faces unobscured.",
+      "machine_evidence_from_bound_build_check": {
+        "embedded_rgb_equals_native": true,
+        "original_idat_bytes_preserved": true,
+        "whole_image_transform": [
+          512.0,
+          0.0,
+          0.0,
+          768.0,
+          0.0,
+          0.0
+        ],
+        "complete_frame_geometry": true
+      },
+      "actual_renderer_rgb_equals_native": false,
+      "sampling_diagnostic": {
+        "status": "NON_EXACT",
+        "changed_rgb_pixels": 1490332,
+        "total_rgb_pixels": 1572864,
+        "changed_channel_values": 4009980,
+        "max_channel_difference": 231,
+        "mean_absolute_channel_difference": 11.900502098931206,
+        "mean_absolute_difference_by_rgb_channel": [
+          12.445907592773438,
+          12.527552286783854,
+          10.728046417236328
+        ]
+      },
+      "visual_verdict": "NO_INTRODUCED_RENDER_DEFECT"
+    },
+    {
+      "number": 15,
+      "render_path": "tmp/pdfs/rumi_visual_detective_20261012/page_15.png",
+      "render_sha256": "0b2eddba2fb2b4973df93bf6b93f2640e3d0e801305c5df0ab6bd83cd2030b7c",
+      "render_rgb_pixel_sha256": "74cd3b0e0c90be348a05c3a252672baad2c0fca9a18c9e84dffee15c75072a62",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "native_path": "assets_src/books/rumi_voice_book_20261011/native/page_15_take1.png",
+      "native_sha256": "252085dcdbac0c309d1995166231216b001a596c3da40bfafc02f631388a72b6",
+      "native_rgb_pixel_sha256": "9b07f37aaee62084bbcacac53022cdb9b4c3cb5a1d631d8c1602a8fdf8015ed8",
+      "viewed_with": "view_image detail=original",
+      "actual_pdf_page_render_inspected": true,
+      "lettering_readability_pass": true,
+      "source_words_and_speaker_order_visible": true,
+      "speaker_tail_and_adjacency_pass": true,
+      "complete_native_framing_preserved_visually": true,
+      "introduced_clipping_or_obstruction": false,
+      "introduced_material_render_defects": [],
+      "native_review_limits_carried_unchanged": [],
+      "observations": "Cooler-pool request, offered towel, boundary and bunny-towel joke retain native read order and speaker targets; no PDF-added obstruction.",
+      "machine_evidence_from_bound_build_check": {
+        "embedded_rgb_equals_native": true,
+        "original_idat_bytes_preserved": true,
+        "whole_image_transform": [
+          512.0,
+          0.0,
+          0.0,
+          768.0,
+          0.0,
+          0.0
+        ],
+        "complete_frame_geometry": true
+      },
+      "actual_renderer_rgb_equals_native": false,
+      "sampling_diagnostic": {
+        "status": "NON_EXACT",
+        "changed_rgb_pixels": 1508850,
+        "total_rgb_pixels": 1572864,
+        "changed_channel_values": 4120061,
+        "max_channel_difference": 234,
+        "mean_absolute_channel_difference": 12.762542088826498,
+        "mean_absolute_difference_by_rgb_channel": [
+          13.096253077189127,
+          13.563018798828125,
+          11.62835439046224
+        ]
+      },
+      "visual_verdict": "NO_INTRODUCED_RENDER_DEFECT"
+    },
+    {
+      "number": 16,
+      "render_path": "tmp/pdfs/rumi_visual_detective_20261012/page_16.png",
+      "render_sha256": "5a4f0ce1ff29742e502584a05a3e6446b6e475da4512b24cecdd620d4ff026d9",
+      "render_rgb_pixel_sha256": "288c47c88ecee4a7709fa17f66ee8a68040f952c2f372c2770b43e1e3a334e75",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "native_path": "assets_src/books/rumi_visual_detective_20261012/native/page_16_take1.png",
+      "native_sha256": "77646df74a846b9bad3db3c38145e5929f909514922812d2f3a1403d1e6ec6d7",
+      "native_rgb_pixel_sha256": "e46e2e2f46cae3a60120ade06d1944212405cb1788faa88b8f41063a827bbe65",
+      "viewed_with": "view_image detail=original",
+      "actual_pdf_page_render_inspected": true,
+      "lettering_readability_pass": true,
+      "source_words_and_speaker_order_visible": true,
+      "speaker_tail_and_adjacency_pass": true,
+      "complete_native_framing_preserved_visually": true,
+      "introduced_clipping_or_obstruction": false,
+      "introduced_material_render_defects": [],
+      "native_review_limits_carried_unchanged": [],
+      "observations": "Chosen-line question/refrain and supper request retain complete words. Roshan question tail remains near her forelock, away from Nari towel; feast, faces and fins unobscured.",
+      "machine_evidence_from_bound_build_check": {
+        "embedded_rgb_equals_native": true,
+        "original_idat_bytes_preserved": true,
+        "whole_image_transform": [
+          512.0,
+          0.0,
+          0.0,
+          768.0,
+          0.0,
+          0.0
+        ],
+        "complete_frame_geometry": true
+      },
+      "actual_renderer_rgb_equals_native": false,
+      "sampling_diagnostic": {
+        "status": "NON_EXACT",
+        "changed_rgb_pixels": 1493891,
+        "total_rgb_pixels": 1572864,
+        "changed_channel_values": 3930972,
+        "max_channel_difference": 246,
+        "mean_absolute_channel_difference": 9.867884953816732,
+        "mean_absolute_difference_by_rgb_channel": [
+          10.083843231201172,
+          10.232483545939127,
+          9.287328084309896
+        ]
+      },
+      "visual_verdict": "NO_INTRODUCED_RENDER_DEFECT"
+    }
+  ],
+  "summary": {
+    "reviewed_page_count": 16,
+    "all_render_file_and_rgb_hashes_match_build_check": true,
+    "all_source_hashes_match_native_review": true,
+    "all_words_speaker_order_and_native_layout_visually_readable": true,
+    "introduced_material_clipping_or_layout_defects": 0,
+    "preexisting_minor_native_limits_not_removed_or_rescored": true,
+    "actual_renderer_rgb_exact_match_claimed": false,
+    "all_embedded_rgb_and_idat_integrity_pass_from_bound_machine_check": true,
+    "whole_image_ctm_integrity_pass_from_bound_machine_check": true
+  },
+  "render_sampling_diagnostic": {
+    "status": "NON_EXACT",
+    "exact_page_count": 0,
+    "non_exact_page_count": 32,
+    "limit": "Actual renderer snapshots may sample differently. Measured differences are not repaired or described as exact. Original compressed IDAT bytes, decoded embedded RGB and whole-image placement are strict delivery integrity gates; renderer equality is a separate diagnostic."
+  },
+  "acceptance_limits": [
+    "NON_EXACT renderer sampling remains measured and unchanged; visual pass does not imply exact snapshot RGB equality.",
+    "Embedded original-IDAT bytes, decoded RGB and whole-page transform PASS are distinct machine evidence from the bound book check.",
+    "Only pages1-16 actual renders reviewed here. Agent review candidate, not owner/child/print/device acceptance.",
+    "Native lettering is raster image text; no selectable-text/OCR completeness claim."
+  ]
+}

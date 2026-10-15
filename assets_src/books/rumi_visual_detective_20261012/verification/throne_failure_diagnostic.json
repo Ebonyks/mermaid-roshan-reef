@@ -1,0 +1,825 @@
+{
+  "schema": "rumi_throne_read_only_diagnosis/1",
+  "status": "FOCUSED_CURRENT_PROBE_CONTENT_FAILURE_REPRODUCED",
+  "started_utc": "2026-10-12T10:12:17.714219+00:00",
+  "finished_utc": "2026-10-12T10:12:47.571772+00:00",
+  "baseline": "056d890ef38f2496ab52669c955ada654f902511",
+  "baseline_execution_performed": false,
+  "baseline_proof_limit": "No isolated detached baseline checkout was executed. The root-authorized alternative was exact relevant source/asset byte comparison plus one reproduction of the unchanged original probe on the current checkout. Byte equality alone is not an independent baseline execution or proof of baseline machine behavior.",
+  "choice_reason": "Preserve the shared dirty workspace and protected artwork; avoid building/importing another complete large game checkout. Git reports no tracked runtime/test/probe change or unignored additions. All ten relevant compared files match either the literal baseline Git blob or its existing checkout-filtered bytes, with LF/CRLF differences explicitly recorded.",
+  "tracked_runtime_diff_before": {
+    "argv": [
+      "git",
+      "diff",
+      "--exit-code",
+      "056d890ef38f2496ab52669c955ada654f902511",
+      "--",
+      "assets",
+      "scripts",
+      "scenes",
+      "tools",
+      "tests",
+      "project.godot"
+    ],
+    "exit_code": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  "tracked_runtime_diff_after": {
+    "argv": [
+      "git",
+      "diff",
+      "--exit-code",
+      "056d890ef38f2496ab52669c955ada654f902511",
+      "--",
+      "assets",
+      "scripts",
+      "scenes",
+      "tools",
+      "tests",
+      "project.godot"
+    ],
+    "exit_code": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  "untracked_runtime_before": {
+    "argv": [
+      "git",
+      "ls-files",
+      "--others",
+      "--exclude-standard",
+      "--",
+      "assets",
+      "scripts",
+      "scenes",
+      "tools",
+      "tests",
+      "project.godot"
+    ],
+    "exit_code": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  "untracked_runtime_after": {
+    "argv": [
+      "git",
+      "ls-files",
+      "--others",
+      "--exclude-standard",
+      "--",
+      "assets",
+      "scripts",
+      "scenes",
+      "tools",
+      "tests",
+      "project.godot"
+    ],
+    "exit_code": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  "exact_relevant_baseline_byte_comparisons": [
+    {
+      "path": "scripts/probe_throne.gd",
+      "current_sha256": "b144585734a0983eab157bf03f265b76d4cd33c90e414cd9309e8e89a263af49",
+      "baseline_blob_sha256": "e1f37bcc4c328caa013d6d24ded2154ce47a5a5f884e5926a2508a1dc0c64a15",
+      "baseline_checkout_filtered_sha256": "b144585734a0983eab157bf03f265b76d4cd33c90e414cd9309e8e89a263af49",
+      "raw_blob_bytes_equal": false,
+      "exact_baseline_checkout_filtered_bytes_equal": true,
+      "exact_bytes_equal_to_baseline_blob_or_current_checkout_filters": true,
+      "line_endings_only_if_raw_differs": true,
+      "baseline_blob_command": [
+        "git",
+        "show",
+        "056d890ef38f2496ab52669c955ada654f902511:scripts/probe_throne.gd"
+      ],
+      "baseline_checkout_filtered_command": [
+        "git",
+        "cat-file",
+        "--filters",
+        "056d890ef38f2496ab52669c955ada654f902511:scripts/probe_throne.gd"
+      ]
+    },
+    {
+      "path": "scripts/arena/castle_rooms_25d.gd",
+      "current_sha256": "7eabec5e061e767ef0c42dce173d9d812bd5fb155de4222987595951a7fc8f5a",
+      "baseline_blob_sha256": "50c723043680c987cc959d9bfbbcad94cfb62162f24d305d3f058c0d2de05176",
+      "baseline_checkout_filtered_sha256": "7eabec5e061e767ef0c42dce173d9d812bd5fb155de4222987595951a7fc8f5a",
+      "raw_blob_bytes_equal": false,
+      "exact_baseline_checkout_filtered_bytes_equal": true,
+      "exact_bytes_equal_to_baseline_blob_or_current_checkout_filters": true,
+      "line_endings_only_if_raw_differs": true,
+      "baseline_blob_command": [
+        "git",
+        "show",
+        "056d890ef38f2496ab52669c955ada654f902511:scripts/arena/castle_rooms_25d.gd"
+      ],
+      "baseline_checkout_filtered_command": [
+        "git",
+        "cat-file",
+        "--filters",
+        "056d890ef38f2496ab52669c955ada654f902511:scripts/arena/castle_rooms_25d.gd"
+      ]
+    },
+    {
+      "path": "scripts/main.gd",
+      "current_sha256": "841efbfa74a61ed14775fa7c2b19e6ff7f54b0a2c4af04d1b08c345440d6f880",
+      "baseline_blob_sha256": "b6e905824a4b60461181deda525c816fc790613479e9321d12ae7f71df666a33",
+      "baseline_checkout_filtered_sha256": "841efbfa74a61ed14775fa7c2b19e6ff7f54b0a2c4af04d1b08c345440d6f880",
+      "raw_blob_bytes_equal": false,
+      "exact_baseline_checkout_filtered_bytes_equal": true,
+      "exact_bytes_equal_to_baseline_blob_or_current_checkout_filters": true,
+      "line_endings_only_if_raw_differs": true,
+      "baseline_blob_command": [
+        "git",
+        "show",
+        "056d890ef38f2496ab52669c955ada654f902511:scripts/main.gd"
+      ],
+      "baseline_checkout_filtered_command": [
+        "git",
+        "cat-file",
+        "--filters",
+        "056d890ef38f2496ab52669c955ada654f902511:scripts/main.gd"
+      ]
+    },
+    {
+      "path": "scripts/ci.sh",
+      "current_sha256": "769ed4c4259ebe740f1e247c129bfc34914fa70fe72e28f65e5b5d5c9a577279",
+      "baseline_blob_sha256": "f6c0b7cf8e4e549c8c3cb34ec0cf69e115be92df2c34b39e5678ca15411e2859",
+      "baseline_checkout_filtered_sha256": "769ed4c4259ebe740f1e247c129bfc34914fa70fe72e28f65e5b5d5c9a577279",
+      "raw_blob_bytes_equal": false,
+      "exact_baseline_checkout_filtered_bytes_equal": true,
+      "exact_bytes_equal_to_baseline_blob_or_current_checkout_filters": true,
+      "line_endings_only_if_raw_differs": true,
+      "baseline_blob_command": [
+        "git",
+        "show",
+        "056d890ef38f2496ab52669c955ada654f902511:scripts/ci.sh"
+      ],
+      "baseline_checkout_filtered_command": [
+        "git",
+        "cat-file",
+        "--filters",
+        "056d890ef38f2496ab52669c955ada654f902511:scripts/ci.sh"
+      ]
+    },
+    {
+      "path": "scenes/main.tscn",
+      "current_sha256": "064ca94c2eca6638eafe169c5fedeb6310a9ef31e5941351e7c41b2934263db7",
+      "baseline_blob_sha256": "1de477913ac3db6efe5d66d04967279dc9b66217bea01afeeddb4d98ef692f21",
+      "baseline_checkout_filtered_sha256": "064ca94c2eca6638eafe169c5fedeb6310a9ef31e5941351e7c41b2934263db7",
+      "raw_blob_bytes_equal": false,
+      "exact_baseline_checkout_filtered_bytes_equal": true,
+      "exact_bytes_equal_to_baseline_blob_or_current_checkout_filters": true,
+      "line_endings_only_if_raw_differs": true,
+      "baseline_blob_command": [
+        "git",
+        "show",
+        "056d890ef38f2496ab52669c955ada654f902511:scenes/main.tscn"
+      ],
+      "baseline_checkout_filtered_command": [
+        "git",
+        "cat-file",
+        "--filters",
+        "056d890ef38f2496ab52669c955ada654f902511:scenes/main.tscn"
+      ]
+    },
+    {
+      "path": "project.godot",
+      "current_sha256": "8d942b12dfa87ed9fb39cf7f6cfbb1d3f64cc4461097c527f266a28e9428697f",
+      "baseline_blob_sha256": "ef6e56681ebd8b9c9abfc7654be1a2bcf90d55e1d697522eb3871b0e6750d207",
+      "baseline_checkout_filtered_sha256": "8d942b12dfa87ed9fb39cf7f6cfbb1d3f64cc4461097c527f266a28e9428697f",
+      "raw_blob_bytes_equal": false,
+      "exact_baseline_checkout_filtered_bytes_equal": true,
+      "exact_bytes_equal_to_baseline_blob_or_current_checkout_filters": true,
+      "line_endings_only_if_raw_differs": true,
+      "baseline_blob_command": [
+        "git",
+        "show",
+        "056d890ef38f2496ab52669c955ada654f902511:project.godot"
+      ],
+      "baseline_checkout_filtered_command": [
+        "git",
+        "cat-file",
+        "--filters",
+        "056d890ef38f2496ab52669c955ada654f902511:project.godot"
+      ]
+    },
+    {
+      "path": "tools/resolve_godot.py",
+      "current_sha256": "28db30d2e6ce5dfe0f62284ea4f2c86da76318d08890018124c17954d7b41f8d",
+      "baseline_blob_sha256": "feacf82f033b45b1e259103cb6a30bcd803bd56231b2673026bb38ce734b2d8f",
+      "baseline_checkout_filtered_sha256": "28db30d2e6ce5dfe0f62284ea4f2c86da76318d08890018124c17954d7b41f8d",
+      "raw_blob_bytes_equal": false,
+      "exact_baseline_checkout_filtered_bytes_equal": true,
+      "exact_bytes_equal_to_baseline_blob_or_current_checkout_filters": true,
+      "line_endings_only_if_raw_differs": true,
+      "baseline_blob_command": [
+        "git",
+        "show",
+        "056d890ef38f2496ab52669c955ada654f902511:tools/resolve_godot.py"
+      ],
+      "baseline_checkout_filtered_command": [
+        "git",
+        "cat-file",
+        "--filters",
+        "056d890ef38f2496ab52669c955ada654f902511:tools/resolve_godot.py"
+      ]
+    },
+    {
+      "path": "tools/godot_baseline.json",
+      "current_sha256": "9616e50b3ed535e038dc04c6e389140066b3354f79b4b437b60c0e2571e4676b",
+      "baseline_blob_sha256": "7fe925d2d12927d152a27f3a614ff62c9b0e6fe02991396a6837e8f5c06d0f5b",
+      "baseline_checkout_filtered_sha256": "9616e50b3ed535e038dc04c6e389140066b3354f79b4b437b60c0e2571e4676b",
+      "raw_blob_bytes_equal": false,
+      "exact_baseline_checkout_filtered_bytes_equal": true,
+      "exact_bytes_equal_to_baseline_blob_or_current_checkout_filters": true,
+      "line_endings_only_if_raw_differs": true,
+      "baseline_blob_command": [
+        "git",
+        "show",
+        "056d890ef38f2496ab52669c955ada654f902511:tools/godot_baseline.json"
+      ],
+      "baseline_checkout_filtered_command": [
+        "git",
+        "cat-file",
+        "--filters",
+        "056d890ef38f2496ab52669c955ada654f902511:tools/godot_baseline.json"
+      ]
+    },
+    {
+      "path": "assets/sprites/sky_lagoon/sky_lagoon_smoke_wisp_v2.png",
+      "current_sha256": "ff0c49869ff0152323282b0228c2f76494ad2381ba64c0e535a68c8bc229e007",
+      "baseline_blob_sha256": "ff0c49869ff0152323282b0228c2f76494ad2381ba64c0e535a68c8bc229e007",
+      "baseline_checkout_filtered_sha256": "ff0c49869ff0152323282b0228c2f76494ad2381ba64c0e535a68c8bc229e007",
+      "raw_blob_bytes_equal": true,
+      "exact_baseline_checkout_filtered_bytes_equal": true,
+      "exact_bytes_equal_to_baseline_blob_or_current_checkout_filters": true,
+      "line_endings_only_if_raw_differs": true,
+      "baseline_blob_command": [
+        "git",
+        "show",
+        "056d890ef38f2496ab52669c955ada654f902511:assets/sprites/sky_lagoon/sky_lagoon_smoke_wisp_v2.png"
+      ],
+      "baseline_checkout_filtered_command": [
+        "git",
+        "cat-file",
+        "--filters",
+        "056d890ef38f2496ab52669c955ada654f902511:assets/sprites/sky_lagoon/sky_lagoon_smoke_wisp_v2.png"
+      ]
+    },
+    {
+      "path": "assets/sprites/sky_lagoon/sky_lagoon_smoke_wisp_v2.png.import",
+      "current_sha256": "277bd000fdf53c185ca982fb4afed074425ae552b4fc60864124f19deaaa5d35",
+      "baseline_blob_sha256": "277bd000fdf53c185ca982fb4afed074425ae552b4fc60864124f19deaaa5d35",
+      "baseline_checkout_filtered_sha256": "9870bcb82ca852c291456107c668e7d8475e04c210cd5932239a9e6751077fa4",
+      "raw_blob_bytes_equal": true,
+      "exact_baseline_checkout_filtered_bytes_equal": false,
+      "exact_bytes_equal_to_baseline_blob_or_current_checkout_filters": true,
+      "line_endings_only_if_raw_differs": true,
+      "baseline_blob_command": [
+        "git",
+        "show",
+        "056d890ef38f2496ab52669c955ada654f902511:assets/sprites/sky_lagoon/sky_lagoon_smoke_wisp_v2.png.import"
+      ],
+      "baseline_checkout_filtered_command": [
+        "git",
+        "cat-file",
+        "--filters",
+        "056d890ef38f2496ab52669c955ada654f902511:assets/sprites/sky_lagoon/sky_lagoon_smoke_wisp_v2.png.import"
+      ]
+    }
+  ],
+  "engine": {
+    "path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64_console.exe",
+    "sha256": "c8f0a6bc45a19b33541501e57f6f7cd972ab18453743266339d495cbbe846643",
+    "version": "4.7.2.stable.official.ed1daf0bf",
+    "resolver_command": [
+      "C:\\Users\\Peter\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+      "-X",
+      "utf8",
+      "-B",
+      "tools/resolve_godot.py"
+    ],
+    "resolver_sha256": "28db30d2e6ce5dfe0f62284ea4f2c86da76318d08890018124c17954d7b41f8d",
+    "baseline_file_sha256": "9616e50b3ed535e038dc04c6e389140066b3354f79b4b437b60c0e2571e4676b"
+  },
+  "engine_version_reverified": "4.7.2.stable.official.ed1daf0bf",
+  "focused_command": [
+    "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64_console.exe",
+    "--headless",
+    "-s",
+    "scripts/probe_throne.gd",
+    "--",
+    "--touch",
+    "--classic-touch-test"
+  ],
+  "cwd": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef",
+  "isolated_save_environment": {
+    "root": "C:\\Users\\Peter\\AppData\\Local\\Temp\\rumi-throne-diagnostic-a__qt8ou",
+    "resolved_outside_project": true,
+    "APPDATA": "C:\\Users\\Peter\\AppData\\Local\\Temp\\rumi-throne-diagnostic-a__qt8ou\\appdata",
+    "LOCALAPPDATA": "C:\\Users\\Peter\\AppData\\Local\\Temp\\rumi-throne-diagnostic-a__qt8ou\\localappdata",
+    "XDG_DATA_HOME": "C:\\Users\\Peter\\AppData\\Local\\Temp\\rumi-throne-diagnostic-a__qt8ou\\data",
+    "XDG_CONFIG_HOME": "C:\\Users\\Peter\\AppData\\Local\\Temp\\rumi-throne-diagnostic-a__qt8ou\\config",
+    "TMPDIR": "C:\\Users\\Peter\\AppData\\Local\\Temp",
+    "automatic_cleanup_verified_target_inside_system_temp": true
+  },
+  "same_ci_probe_arguments": true,
+  "timeout_seconds": 480,
+  "actual_process_exit": 0,
+  "timed_out": false,
+  "actual_failed_assertion_lines": [
+    "THRONE|locked_royal_hall_has_five_mist_cards|FAIL|",
+    "THRONE|locked_mist_visibly_flutters|FAIL|feedback=true flutter=0.64 moved=true mist=3",
+    "THRONE|locked_gate_does_not_award_or_open_picker|FAIL|crown=false picker=false mist=3 sfx=res://assets/audio/castle/curtain_swish.ogg",
+    "THRONE|done: FAILED (3)"
+  ],
+  "runtime_load_property_or_script_error_lines": [],
+  "ci_failure_regex_matches": true,
+  "failure_handling": {
+    "probe_ck": "scripts/probe_throne.gd _ck increments checks_failed and prints FAIL; _finish prints FAILED(n) but calls quit() without a failure code, so this content-failing probe exits0.",
+    "ci_wrapper": "Unchanged scripts/ci.sh independently scans FAILURE_RE and sets aggregate rc=1 even after a probe process exit0. Corrected full CI exit1 is genuine; no failure was suppressed."
+  },
+  "source_analysis": {
+    "five_authored_cards": "ROYAL_HALL_MIST_CARDS contains5 entries; _build_royal_hall_mist_cards creates one per entry.",
+    "camera_visibility": "_tick_royal_hall_mist and _sync_hall_horizontal_culling set visible from camera-band overlap; _visible_royal_hall_mist counts only visible cards with alpha>0.012.",
+    "shared_failed_predicate": "All3 failed early assertions require _visible_royal_hall_mist()==5. The full CI reported2 visible cards; the focused reproduction reported3. The recorded feedback/flutter/motion, no-crown/no-picker, and curtain sound predicates passed in both runs.",
+    "causal_interpretation": "Camera-band culling is the source-level explanation consistent with five authored cards but only two or three visible at the early walking/locked-gate location. The varying counts also leave camera/timing state relevant. No instrumentation or changed threshold was used, so exact card bounds/camera span at each failing instant were not independently logged; this cause is an inference, not measured geometry.",
+    "later_state": "The unchanged later mist_returns_after_first_combat_class assertion passed after subsequent royal-hall approach/event steps, so all-five visibility is reachable in a different view/state."
+  },
+  "full_ci_terminal": {
+    "receipt_path": "assets_src/books/rumi_visual_detective_20261012/verification/full_ci_system_temp_receipt.json",
+    "receipt_sha256": "e3597cc3b288dfd67925d0197144501ea42a67c7661bf89401e59c40d8754e05",
+    "status": "FAIL_FULL_LOCAL_REGRESSION_PRESERVED",
+    "actual_overall_exit": 1,
+    "82_distinct_probe_exits": true,
+    "all_probe_process_exits_zero": true,
+    "sole_detected_content_failure": [
+      "PROBE probe_throne reported a failure or runtime script error"
+    ],
+    "log_path": "assets_src/books/rumi_visual_detective_20261012/verification/full_ci_system_temp.log",
+    "log_sha256": "a262858ea9af10df63e96244d7398e504566fb5e27691797efbca1a3cd53460d"
+  },
+  "focused_log_path": "assets_src/books/rumi_visual_detective_20261012/verification/throne_focused_repro.log",
+  "focused_log_sha256": "d98ab259a420263257d9fa39ad0db63b779b45c759c30b927a37bb7696eb59f3",
+  "preserved_before": [
+    {
+      "path": "assets_src/books/rumi_visual_detective_20261012/verification/full_ci.log",
+      "sha256": "7a4b9b9c35d08fb3ee31a62a38c882470982546f3042a7a647b471bcf9680db1",
+      "bytes": 3993
+    },
+    {
+      "path": "assets_src/books/rumi_visual_detective_20261012/verification/full_ci_receipt.json",
+      "sha256": "649c630cb283023ce08c82ef79e30836e8cc7fd28990e2d5448fccd16dc90e5d",
+      "bytes": 87655
+    },
+    {
+      "path": "assets_src/books/rumi_visual_detective_20261012/verification/gold_star_failure_diagnostic.log",
+      "sha256": "c93a98a56bb99cbbce3ffe7bb34b65e0edb1d2b7607a1f51ff88a1c18eff8c4c",
+      "bytes": 3823
+    },
+    {
+      "path": "assets_src/books/rumi_visual_detective_20261012/verification/gold_star_failure_diagnostic.json",
+      "sha256": "0eec1c4c634bff56c9175f9356ea12d856690268718db3b0f52f87bdc302dc16",
+      "bytes": 12457
+    },
+    {
+      "path": "assets_src/books/rumi_visual_detective_20261012/verification/full_ci_system_temp.log",
+      "sha256": "a262858ea9af10df63e96244d7398e504566fb5e27691797efbca1a3cd53460d",
+      "bytes": 468350
+    },
+    {
+      "path": "assets_src/books/rumi_visual_detective_20261012/verification/full_ci_system_temp_receipt.json",
+      "sha256": "e3597cc3b288dfd67925d0197144501ea42a67c7661bf89401e59c40d8754e05",
+      "bytes": 124777
+    },
+    {
+      "path": "assets_src/books/rumi_visual_detective_20261012/story_script.json",
+      "sha256": "ab77f7740592a82b9185c10eb22a7b85ff785726b2f9eb8f01158861d54db6cd",
+      "bytes": 60203
+    },
+    {
+      "path": "assets_src/books/rumi_visual_detective_20261012/MANUSCRIPT.txt",
+      "sha256": "38acb28035596b04f3f479f401cff7d407aaff90233ee6ade833bca186b12221",
+      "bytes": 9027
+    },
+    {
+      "path": "assets_src/books/rumi_visual_detective_20261012/build_book.py",
+      "sha256": "a486e2c9464467e6355b997aa2c889cee326ea82f325b8ce59b885ebb9455e3a",
+      "bytes": 22234
+    },
+    {
+      "path": "assets_src/books/rumi_visual_detective_20261012/validate_selection.py",
+      "sha256": "d8807d094115cc18bfe164b8b6efe4b936a025fedc4fc14fd25ae029a0c19de3",
+      "bytes": 23640
+    },
+    {
+      "path": "assets_src/books/rumi_visual_detective_20261012/capture_native.py",
+      "sha256": "60c95cc59ee0a6fbf0d14b7ee6f3d3bd62c427cc42b880bb3f35fabdec90a78f",
+      "bytes": 5084
+    },
+    {
+      "path": "assets_src/books/rumi_visual_detective_20261012/selected_art.json",
+      "sha256": "f3492f5eebeca5c29306e7e99ed7bec29c98d599f7177f3a3a43af64670d570f",
+      "bytes": 12347
+    },
+    {
+      "path": "assets_src/books/rumi_visual_detective_20261012/output/pdf/Mermaid_Roshan_Here_I_Am_Detective_32_Pages.pdf",
+      "sha256": "f19669f0bd75517c9c6222d9da00a87d26d8cf84e7edc4e5ba2968d5fc2f8064",
+      "bytes": 101178692
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_01_take1.png",
+      "sha256": "da123e2196a887725b7e82abac7c2beaa1cd861a9c48b6abe0a300d99bf41bb9",
+      "bytes": 3410474
+    },
+    {
+      "path": "assets_src/books/rumi_visual_detective_20261012/native/page_02_take1.png",
+      "sha256": "3edc3778d3a6a43719c7ae1a9dea0ca20bf0137667d0a536a4d75e67fa42b1eb",
+      "bytes": 3183732
+    },
+    {
+      "path": "assets_src/books/rumi_visual_detective_20261012/native/page_03_take2.png",
+      "sha256": "cab40daad54fa84fcd5016f0a39a0a0a62fd7b0b0af2b6daf5e36ab425b35467",
+      "bytes": 3148523
+    },
+    {
+      "path": "assets_src/books/rumi_visual_detective_20261012/native/page_04_take2.png",
+      "sha256": "af4f6ff85a8d085885151809223adbc73af68f65f2b1ac13962b3a74a83735ac",
+      "bytes": 3329969
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_05_take1.png",
+      "sha256": "76ac7535dacaec9d1ab66d2eb6586987412e787420318ece80cf984e4fa79fed",
+      "bytes": 3315160
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_06_take2.png",
+      "sha256": "b2c5938b1a3bd1f1f705e5095d0ca07c7044faefdc154e56fcee8a750f522ac1",
+      "bytes": 3306600
+    },
+    {
+      "path": "assets_src/books/rumi_visual_detective_20261012/native/page_07_take1.png",
+      "sha256": "1f0b86e90de045692df1efc2b45deaa8d8ee5788a365d6ce6fd213800fde3a0a",
+      "bytes": 3018083
+    },
+    {
+      "path": "assets_src/books/rumi_visual_detective_20261012/native/page_08_take3.png",
+      "sha256": "3675b4311b9224f12c83fd3c4d91dfaaea3a4f94253a37998009a58c56fdc9ed",
+      "bytes": 3281470
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_09_take3.png",
+      "sha256": "013c7ee2e14e2527243bc97cce8df6f8aaacaf0b227e1bb7c3e772f5ad9d46ee",
+      "bytes": 3198779
+    },
+    {
+      "path": "assets_src/books/rumi_visual_detective_20261012/native/page_10_take3.png",
+      "sha256": "2ec630084b473e64b70fc030995dbde0bcefbe46d2358aa2b968215f326bfa74",
+      "bytes": 3364114
+    },
+    {
+      "path": "assets_src/books/rumi_visual_detective_20261012/native/page_11_take1.png",
+      "sha256": "9e461f9b46671cdcf01d72c4345319d11449528934321b900d07d188f9da9d9b",
+      "bytes": 3189576
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_12_take2.png",
+      "sha256": "6d7f6e8f0c4d1a6f6f66ab50c6f3fc0f6a149a84f566ab71deb94e595f75f3b8",
+      "bytes": 3299140
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_13_take1.png",
+      "sha256": "a2b7f62f3e8e0a2dfe9211302b69cf32d502f6143a5f1e0cdcd5286b3d5caa7e",
+      "bytes": 3241674
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_14_take1.png",
+      "sha256": "5b4e8f69b291f597dd686514ee4fd780c9f2fd5a59cd499be9e8230f104fa5c4",
+      "bytes": 3253379
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_15_take1.png",
+      "sha256": "252085dcdbac0c309d1995166231216b001a596c3da40bfafc02f631388a72b6",
+      "bytes": 3414597
+    },
+    {
+      "path": "assets_src/books/rumi_visual_detective_20261012/native/page_16_take1.png",
+      "sha256": "77646df74a846b9bad3db3c38145e5929f909514922812d2f3a1403d1e6ec6d7",
+      "bytes": 2927226
+    },
+    {
+      "path": "assets_src/books/rumi_visual_detective_20261012/native/page_17_take1.png",
+      "sha256": "f62c7a42ba602937df6c0fac292966d4b4121e996b505e215ceeaf5aab9ec360",
+      "bytes": 3242874
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_18_take2.png",
+      "sha256": "078b22b5d88f152a07bc51988f66971b50726d078672c3278f458c43a0e5152b",
+      "bytes": 3261040
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_19_take1.png",
+      "sha256": "a728542d5bc194ff84a0d5adaccd3efe9fc2d1bb417f14352cc66567cfc05fb5",
+      "bytes": 3259164
+    },
+    {
+      "path": "assets_src/books/rumi_visual_detective_20261012/native/page_20_take1.png",
+      "sha256": "bd9f36bb937a6da1ceb106e0f3a77e0917e172b0fb25b0d90e277f7e02aec9e2",
+      "bytes": 3069576
+    },
+    {
+      "path": "assets_src/books/rumi_visual_detective_20261012/native/page_21_take1.png",
+      "sha256": "eb2d25c7b07f2ec7ef11198cec666c21eb09308d0608a314518335a496466cef",
+      "bytes": 3012550
+    },
+    {
+      "path": "assets_src/books/rumi_visual_detective_20261012/native/page_22_take1.png",
+      "sha256": "1a5f905d63cefc8e4a55134eb04cc4c1bb2376a59c47f82448dee329ebd42314",
+      "bytes": 3173000
+    },
+    {
+      "path": "assets_src/books/rumi_visual_detective_20261012/native/page_23_take1.png",
+      "sha256": "e8b64308bba24d180ceeb3aff3d490e4e2388f45cc950ea7aead70ba9b7ff446",
+      "bytes": 3236521
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_24_take3.png",
+      "sha256": "1821fe130cc0e916d5c8822d4ebd6023121ce0faceeec9e4fcc9adda915c958c",
+      "bytes": 2985209
+    },
+    {
+      "path": "assets_src/books/rumi_visual_detective_20261012/native/page_25_take2.png",
+      "sha256": "c4d8ec66b8077fc406c7f79943df3f9a3d4905e4a6e0b703f0ba55c3dba61cd8",
+      "bytes": 2979684
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_26_take1.png",
+      "sha256": "df82ab99dc1a54c0b158801dfa7ca5df45648bc5c34c5f8d8e19f95cb07b1990",
+      "bytes": 3137740
+    },
+    {
+      "path": "assets_src/books/rumi_visual_detective_20261012/native/page_27_take2.png",
+      "sha256": "cc4aa251d48ddf4d9a4b1e7e342928e03d581e6def43e391446b1eebf2c696f8",
+      "bytes": 3006746
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_28_take1.png",
+      "sha256": "3fca50bd33978d2507cbc1722da0da6ee1d1df242b658ada1f9b5e6590a54cea",
+      "bytes": 3120001
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_29_take2.png",
+      "sha256": "3f1fc8182a7adf5c49ee53f4f3728e8f7dc52962c62cae1ce80b9d508911a695",
+      "bytes": 3037763
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_30_take1.png",
+      "sha256": "5e2145a038f24cbf08ffb4f044a4b6f1d861f7c728ea9e2a28cb1ee2328196ca",
+      "bytes": 3399379
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_31_take1.png",
+      "sha256": "d26cd93f6296ac66a093d32ef001b43d3ec40bd261a59d576aa8c676fe354172",
+      "bytes": 3146733
+    },
+    {
+      "path": "assets_src/books/rumi_visual_detective_20261012/native/page_32_take1.png",
+      "sha256": "31536a3118ae596d45299498eb657de556f694e8e072b115fa4dbede374780ae",
+      "bytes": 2931289
+    }
+  ],
+  "preserved_after": [
+    {
+      "path": "assets_src/books/rumi_visual_detective_20261012/verification/full_ci.log",
+      "sha256": "7a4b9b9c35d08fb3ee31a62a38c882470982546f3042a7a647b471bcf9680db1",
+      "bytes": 3993
+    },
+    {
+      "path": "assets_src/books/rumi_visual_detective_20261012/verification/full_ci_receipt.json",
+      "sha256": "649c630cb283023ce08c82ef79e30836e8cc7fd28990e2d5448fccd16dc90e5d",
+      "bytes": 87655
+    },
+    {
+      "path": "assets_src/books/rumi_visual_detective_20261012/verification/gold_star_failure_diagnostic.log",
+      "sha256": "c93a98a56bb99cbbce3ffe7bb34b65e0edb1d2b7607a1f51ff88a1c18eff8c4c",
+      "bytes": 3823
+    },
+    {
+      "path": "assets_src/books/rumi_visual_detective_20261012/verification/gold_star_failure_diagnostic.json",
+      "sha256": "0eec1c4c634bff56c9175f9356ea12d856690268718db3b0f52f87bdc302dc16",
+      "bytes": 12457
+    },
+    {
+      "path": "assets_src/books/rumi_visual_detective_20261012/verification/full_ci_system_temp.log",
+      "sha256": "a262858ea9af10df63e96244d7398e504566fb5e27691797efbca1a3cd53460d",
+      "bytes": 468350
+    },
+    {
+      "path": "assets_src/books/rumi_visual_detective_20261012/verification/full_ci_system_temp_receipt.json",
+      "sha256": "e3597cc3b288dfd67925d0197144501ea42a67c7661bf89401e59c40d8754e05",
+      "bytes": 124777
+    },
+    {
+      "path": "assets_src/books/rumi_visual_detective_20261012/story_script.json",
+      "sha256": "ab77f7740592a82b9185c10eb22a7b85ff785726b2f9eb8f01158861d54db6cd",
+      "bytes": 60203
+    },
+    {
+      "path": "assets_src/books/rumi_visual_detective_20261012/MANUSCRIPT.txt",
+      "sha256": "38acb28035596b04f3f479f401cff7d407aaff90233ee6ade833bca186b12221",
+      "bytes": 9027
+    },
+    {
+      "path": "assets_src/books/rumi_visual_detective_20261012/build_book.py",
+      "sha256": "a486e2c9464467e6355b997aa2c889cee326ea82f325b8ce59b885ebb9455e3a",
+      "bytes": 22234
+    },
+    {
+      "path": "assets_src/books/rumi_visual_detective_20261012/validate_selection.py",
+      "sha256": "d8807d094115cc18bfe164b8b6efe4b936a025fedc4fc14fd25ae029a0c19de3",
+      "bytes": 23640
+    },
+    {
+      "path": "assets_src/books/rumi_visual_detective_20261012/capture_native.py",
+      "sha256": "60c95cc59ee0a6fbf0d14b7ee6f3d3bd62c427cc42b880bb3f35fabdec90a78f",
+      "bytes": 5084
+    },
+    {
+      "path": "assets_src/books/rumi_visual_detective_20261012/selected_art.json",
+      "sha256": "f3492f5eebeca5c29306e7e99ed7bec29c98d599f7177f3a3a43af64670d570f",
+      "bytes": 12347
+    },
+    {
+      "path": "assets_src/books/rumi_visual_detective_20261012/output/pdf/Mermaid_Roshan_Here_I_Am_Detective_32_Pages.pdf",
+      "sha256": "f19669f0bd75517c9c6222d9da00a87d26d8cf84e7edc4e5ba2968d5fc2f8064",
+      "bytes": 101178692
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_01_take1.png",
+      "sha256": "da123e2196a887725b7e82abac7c2beaa1cd861a9c48b6abe0a300d99bf41bb9",
+      "bytes": 3410474
+    },
+    {
+      "path": "assets_src/books/rumi_visual_detective_20261012/native/page_02_take1.png",
+      "sha256": "3edc3778d3a6a43719c7ae1a9dea0ca20bf0137667d0a536a4d75e67fa42b1eb",
+      "bytes": 3183732
+    },
+    {
+      "path": "assets_src/books/rumi_visual_detective_20261012/native/page_03_take2.png",
+      "sha256": "cab40daad54fa84fcd5016f0a39a0a0a62fd7b0b0af2b6daf5e36ab425b35467",
+      "bytes": 3148523
+    },
+    {
+      "path": "assets_src/books/rumi_visual_detective_20261012/native/page_04_take2.png",
+      "sha256": "af4f6ff85a8d085885151809223adbc73af68f65f2b1ac13962b3a74a83735ac",
+      "bytes": 3329969
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_05_take1.png",
+      "sha256": "76ac7535dacaec9d1ab66d2eb6586987412e787420318ece80cf984e4fa79fed",
+      "bytes": 3315160
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_06_take2.png",
+      "sha256": "b2c5938b1a3bd1f1f705e5095d0ca07c7044faefdc154e56fcee8a750f522ac1",
+      "bytes": 3306600
+    },
+    {
+      "path": "assets_src/books/rumi_visual_detective_20261012/native/page_07_take1.png",
+      "sha256": "1f0b86e90de045692df1efc2b45deaa8d8ee5788a365d6ce6fd213800fde3a0a",
+      "bytes": 3018083
+    },
+    {
+      "path": "assets_src/books/rumi_visual_detective_20261012/native/page_08_take3.png",
+      "sha256": "3675b4311b9224f12c83fd3c4d91dfaaea3a4f94253a37998009a58c56fdc9ed",
+      "bytes": 3281470
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_09_take3.png",
+      "sha256": "013c7ee2e14e2527243bc97cce8df6f8aaacaf0b227e1bb7c3e772f5ad9d46ee",
+      "bytes": 3198779
+    },
+    {
+      "path": "assets_src/books/rumi_visual_detective_20261012/native/page_10_take3.png",
+      "sha256": "2ec630084b473e64b70fc030995dbde0bcefbe46d2358aa2b968215f326bfa74",
+      "bytes": 3364114
+    },
+    {
+      "path": "assets_src/books/rumi_visual_detective_20261012/native/page_11_take1.png",
+      "sha256": "9e461f9b46671cdcf01d72c4345319d11449528934321b900d07d188f9da9d9b",
+      "bytes": 3189576
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_12_take2.png",
+      "sha256": "6d7f6e8f0c4d1a6f6f66ab50c6f3fc0f6a149a84f566ab71deb94e595f75f3b8",
+      "bytes": 3299140
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_13_take1.png",
+      "sha256": "a2b7f62f3e8e0a2dfe9211302b69cf32d502f6143a5f1e0cdcd5286b3d5caa7e",
+      "bytes": 3241674
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_14_take1.png",
+      "sha256": "5b4e8f69b291f597dd686514ee4fd780c9f2fd5a59cd499be9e8230f104fa5c4",
+      "bytes": 3253379
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_15_take1.png",
+      "sha256": "252085dcdbac0c309d1995166231216b001a596c3da40bfafc02f631388a72b6",
+      "bytes": 3414597
+    },
+    {
+      "path": "assets_src/books/rumi_visual_detective_20261012/native/page_16_take1.png",
+      "sha256": "77646df74a846b9bad3db3c38145e5929f909514922812d2f3a1403d1e6ec6d7",
+      "bytes": 2927226
+    },
+    {
+      "path": "assets_src/books/rumi_visual_detective_20261012/native/page_17_take1.png",
+      "sha256": "f62c7a42ba602937df6c0fac292966d4b4121e996b505e215ceeaf5aab9ec360",
+      "bytes": 3242874
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_18_take2.png",
+      "sha256": "078b22b5d88f152a07bc51988f66971b50726d078672c3278f458c43a0e5152b",
+      "bytes": 3261040
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_19_take1.png",
+      "sha256": "a728542d5bc194ff84a0d5adaccd3efe9fc2d1bb417f14352cc66567cfc05fb5",
+      "bytes": 3259164
+    },
+    {
+      "path": "assets_src/books/rumi_visual_detective_20261012/native/page_20_take1.png",
+      "sha256": "bd9f36bb937a6da1ceb106e0f3a77e0917e172b0fb25b0d90e277f7e02aec9e2",
+      "bytes": 3069576
+    },
+    {
+      "path": "assets_src/books/rumi_visual_detective_20261012/native/page_21_take1.png",
+      "sha256": "eb2d25c7b07f2ec7ef11198cec666c21eb09308d0608a314518335a496466cef",
+      "bytes": 3012550
+    },
+    {
+      "path": "assets_src/books/rumi_visual_detective_20261012/native/page_22_take1.png",
+      "sha256": "1a5f905d63cefc8e4a55134eb04cc4c1bb2376a59c47f82448dee329ebd42314",
+      "bytes": 3173000
+    },
+    {
+      "path": "assets_src/books/rumi_visual_detective_20261012/native/page_23_take1.png",
+      "sha256": "e8b64308bba24d180ceeb3aff3d490e4e2388f45cc950ea7aead70ba9b7ff446",
+      "bytes": 3236521
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_24_take3.png",
+      "sha256": "1821fe130cc0e916d5c8822d4ebd6023121ce0faceeec9e4fcc9adda915c958c",
+      "bytes": 2985209
+    },
+    {
+      "path": "assets_src/books/rumi_visual_detective_20261012/native/page_25_take2.png",
+      "sha256": "c4d8ec66b8077fc406c7f79943df3f9a3d4905e4a6e0b703f0ba55c3dba61cd8",
+      "bytes": 2979684
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_26_take1.png",
+      "sha256": "df82ab99dc1a54c0b158801dfa7ca5df45648bc5c34c5f8d8e19f95cb07b1990",
+      "bytes": 3137740
+    },
+    {
+      "path": "assets_src/books/rumi_visual_detective_20261012/native/page_27_take2.png",
+      "sha256": "cc4aa251d48ddf4d9a4b1e7e342928e03d581e6def43e391446b1eebf2c696f8",
+      "bytes": 3006746
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_28_take1.png",
+      "sha256": "3fca50bd33978d2507cbc1722da0da6ee1d1df242b658ada1f9b5e6590a54cea",
+      "bytes": 3120001
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_29_take2.png",
+      "sha256": "3f1fc8182a7adf5c49ee53f4f3728e8f7dc52962c62cae1ce80b9d508911a695",
+      "bytes": 3037763
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_30_take1.png",
+      "sha256": "5e2145a038f24cbf08ffb4f044a4b6f1d861f7c728ea9e2a28cb1ee2328196ca",
+      "bytes": 3399379
+    },
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_31_take1.png",
+      "sha256": "d26cd93f6296ac66a093d32ef001b43d3ec40bd261a59d576aa8c676fe354172",
+      "bytes": 3146733
+    },
+    {
+      "path": "assets_src/books/rumi_visual_detective_20261012/native/page_32_take1.png",
+      "sha256": "31536a3118ae596d45299498eb657de556f694e8e072b115fa4dbede374780ae",
+      "bytes": 2931289
+    }
+  ],
+  "all_book_and_failed_evidence_bytes_unchanged": true,
+  "no_runtime_probe_test_threshold_changes": true,
+  "no_full_suite_rerun": true,
+  "book_final_limitation": "Book/native/PDF verification remains separate. Full project regression is FAIL and no commit/integration/release-green claim is established by this diagnostic."
+}

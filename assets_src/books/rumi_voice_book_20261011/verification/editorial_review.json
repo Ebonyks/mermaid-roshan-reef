@@ -1,0 +1,266 @@
+{
+  "schema_version": 1,
+  "record_type": "independent_editorial_proofreading_review",
+  "reviewer": "/root/story_editor",
+  "recorded_at_utc": "2026-10-12T05:34:28.223106+00:00",
+  "status": "FROZEN_SOURCE_EDITORIAL_REVIEW_PASS; UNIQUE_ARTWORK_PRODUCTION_AND_REVIEW_PENDING; OWNER_CHILD_ACCEPTANCE_PENDING",
+  "source": {
+    "path": "assets_src/books/rumi_voice_book_20261011/story_script.json",
+    "sha256": "febb9d5c7f6d82c29dcf8fa3556715577842b2284749fd2f1fea055a046d5967",
+    "title": "Mermaid Roshan: Here I Am!",
+    "source_status": "OWNER_REVIEW_CANDIDATE",
+    "baseline": "056d890ef38f2496ab52669c955ada654f902511"
+  },
+  "scope": "Critical review and proofreading of all 32 source pages, all dialogue/narration and staging; no source-story edits or art generation by this review task. Source editorial pass does not accept future artwork, generated lettering, PDF/print, owner, child, runtime or cinematic delivery.",
+  "counts": {
+    "intended_book_pages": 32,
+    "page_architecture": "Page 1 cover; pages 2-32 story, including home ending on page 32",
+    "total_panels": 94,
+    "story_panels": 93,
+    "read_aloud_story_words": 991,
+    "word_count_method": "Whitespace-separated nonempty tokens, re.findall(r\"\\S+\", entry text), story pages only; source stage directions, speaker labels, song metadata and cover excluded",
+    "distinct_original_songs": 2
+  },
+  "reviewed_pages": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29,
+    30,
+    31,
+    32
+  ],
+  "editorial_findings": [
+    {
+      "subject": "Concrete want and earned narrative payoff",
+      "pages": [
+        2,
+        5,
+        6,
+        14,
+        16,
+        17,
+        19,
+        29,
+        30,
+        31,
+        32
+      ],
+      "observation": "Roshan explicitly wants the opening line by herself. Friendly bustle swallows her first request; she later names that experience, chooses her three words, asks for the first line and finally sings it alone before friends and neighbourhood answer. The home ending extends speaking up beyond performance."
+    },
+    {
+      "subject": "Voice matters in ordinary needs",
+      "pages": [
+        2,
+        13,
+        14,
+        15,
+        16,
+        17
+      ],
+      "observation": "Her initial wish is welcomed before rescue. Bathhouse cooler-water and towel choices are respected; apologies acknowledge the forgotten promise. Her turn is an existing right to participation rather than a prize for saving a character."
+    },
+    {
+      "subject": "Listening supports speaking up",
+      "pages": [
+        7,
+        9,
+        11,
+        19,
+        23,
+        26,
+        29
+      ],
+      "observation": "Roshan finishes a help request, directly repeats Stop, asks Rumi for a specific grip, asks imps to listen, calls for a different swimming route, stops the noisy show and states her singing turn. These utterances change the action; the story does not reduce her arc to being a quiet observer."
+    },
+    {
+      "subject": "First setpiece: bridge rescue",
+      "pages": [
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "observation": "A known courier is trapped by the imps' neglected fan and bag strap. First tug worsens the strap; Roshan stops it and Duri supplies what he needs. Supported base/panel, slack loop removal, timed tram rush, explicit help at strained end and coordinated backward exit form a physical support sequence. Fan is secured after release."
+    },
+    {
+      "subject": "Second setpiece: contested stage and bubble rescue",
+      "pages": [
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27
+      ],
+      "observation": "Bubble/foam/curtain choreography first denies access to the shared microphone. A curtain response forces a new swimming route. A snag then drops the established wand outside the imp's oversized bubble. Roshan stops the spectacle so his small help call can be heard; cloth directly catches sphere, curtain is tied to a fixed hook, retrieved wand gently pops bubble and supported landing follows."
+    },
+    {
+      "subject": "Distinctness of action setpieces",
+      "observation": "Bridge sequence is low, deliberate support/unhooking against periodic current. Stage sequence is moving comic performance, dodging/catching/rerouting and an oversized magical trick reversing on its maker. Repeated Help/Stop intentionally links the voice lesson; the physical objectives and solutions differ."
+    },
+    {
+      "subject": "Imp motive and credible repair",
+      "pages": [
+        4,
+        18,
+        19,
+        25,
+        26,
+        27,
+        28,
+        29,
+        31
+      ],
+      "observation": "Performers want attention and fear being forgotten. Bowing performer does not notice his friend, rather than knowingly refusing a trapped friend. The magician experiences being unheard; both apologise specifically, help clear the route, put props aside, promise to retrieve the neglected fan and wait for their own turn."
+    },
+    {
+      "subject": "Duri agency and delivery timing",
+      "pages": [
+        4,
+        8,
+        9,
+        10,
+        12,
+        13,
+        21,
+        31
+      ],
+      "observation": "Duri states a wish for a turn, warns about the fan, identifies the bag problem and asks for the correct help. He actively backs out, requests rest, finishes his last invitation in the safe aisle before concert and takes a singing turn afterward."
+    },
+    {
+      "subject": "World/canon/cast",
+      "observation": "Adventure remains beneath Rumi's pool inside Pearl Castle. Existing rainbow and missing candle remain unresolved. Rumi/Hana/Nari have distinct roles and Roshan remains protagonist. No Kareem, new boss, candle recovery or film character/lore resolution appears. Korean-inspired neighbourhood and lavish feast support the established setting."
+    },
+    {
+      "subject": "Read-aloud and grammar",
+      "observation": "Language is concrete, short and repeatable, with comic towel/fruit/foam moments relieving tension. Wobbling voice remains acceptable at the payoff. Corrected backward motion, floating mermaid poses, folded cloth and back-up-to-pool ending remove ambiguous mechanics/wording. Final 991-word length is close to the proposed approximately 1000-word lower target."
+    }
+  ],
+  "blocking_corrections_checked": [
+    {
+      "panels": [
+        "p09.2"
+      ],
+      "result": "PASS",
+      "correction": "Roshan cites Duri's actual request to wait; no unsupported claim he said it hurt."
+    },
+    {
+      "panels": [
+        "p10.1",
+        "p10.3",
+        "p11.3"
+      ],
+      "result": "PASS",
+      "correction": "Only weighted fan base rests on shelf; tilted panel still blocks exit under support. Roshan joins low-edge grip after strap release; Rumi shifts existing hands to strained end."
+    },
+    {
+      "panels": [
+        "p20.1",
+        "p25.1",
+        "p25.3",
+        "p27.3"
+      ],
+      "result": "PASS",
+      "correction": "Gentle wand-touch popping is demonstrated before danger; wand falls outside bubble and Rumi retrieves it before rescue."
+    },
+    {
+      "panels": [
+        "p25.3",
+        "p28.3"
+      ],
+      "result": "PASS",
+      "correction": "Performer facing audience does not hear/see friend; later owns talking over others and apologises."
+    },
+    {
+      "panels": [
+        "p27.1",
+        "p27.2",
+        "p29.1"
+      ],
+      "result": "PASS",
+      "correction": "Cloth catches bubble directly; performer ties curtain to fixed hook and later folds catch-cloth/puts props away. No unsupported curtain-to-bubble handle or duplicated tie action."
+    },
+    {
+      "panels": [
+        "p21.3",
+        "p31.2"
+      ],
+      "result": "PASS",
+      "correction": "Last invitation delivered before concert; Duri sings after deliveries are finished."
+    },
+    {
+      "panels": [
+        "p12.2",
+        "p19.1",
+        "p27.2",
+        "p29.1",
+        "p32.1"
+      ],
+      "result": "PASS",
+      "correction": "Backward exit, floating mermaids, folded cloth and explicit return back up retain physical/cast/setting continuity."
+    },
+    {
+      "panels": [
+        "p14.3",
+        "p17.2",
+        "p28.3"
+      ],
+      "result": "PASS",
+      "correction": "Specific friend mistakes, food comedy and reciprocal fear/apology add meaningful exchanges."
+    }
+  ],
+  "remaining_blocking_source_revisions": [],
+  "illustration_requirements": {
+    "unique_native_full_pages": 32,
+    "each_panel_is_distinct_authored_moment": true,
+    "existing_sources_identity_and_setting_reference_only": true,
+    "no_delivery_crops_resamples_or_recycled_scene_pixels": true,
+    "native_lettering_must_match_script": true,
+    "manual_review_required": [
+      "Every page's exact words, speaker allocation, tails and left-to-right/top-to-bottom reading order",
+      "Fan base/panel support, bag strap tension/slack and safe exit geometry across pages 8-12",
+      "Single-tail mermaids, Duri one head/four flippers and original costume identities",
+      "Wand always outside imp bubble until retrieved; direct cloth-sphere contact, fixed curtain hook and padded low landing across pages 25-27",
+      "Nari's drum and cloth handling must use plausible hands and prop placement",
+      "New complete page action/composition rather than inferred action from a resized/cropped old frame"
+    ]
+  },
+  "acceptance_limits": [
+    "No artwork has been generated or accepted by this editorial task.",
+    "Source page count is an intended architecture; actual final PDF page count is separately verified after assembly.",
+    "Unique native artwork, exact generated lettering, speaker tails, contact/geometry and illustrated layout review remain pending.",
+    "Owner story/art acceptance and child read-aloud/comprehension acceptance remain pending.",
+    "No runtime/device, cinematic or print acceptance is established."
+  ]
+}

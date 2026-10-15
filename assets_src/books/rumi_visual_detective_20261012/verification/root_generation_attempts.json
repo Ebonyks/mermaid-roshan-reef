@@ -1,0 +1,107 @@
+{
+  "status": "ACTUAL_ROOT_SIX_CALL_REVIEW",
+  "method": "Complete native original-detail inspection before selection; failed takes preserved",
+  "actual_calls": 6,
+  "pages": [
+    {
+      "page": 2,
+      "take": 1,
+      "path": "assets_src/books/rumi_visual_detective_20261012/native/page_02_take1.png",
+      "sha256": "3edc3778d3a6a43719c7ae1a9dea0ca20bf0137667d0a536a4d75e67fa42b1eb",
+      "scores": {
+        "character_identity_anatomy": 4.8,
+        "line_detail_completeness": 4.8,
+        "action_contact_staging": 4.8,
+        "balloon_text_clarity": 4.8,
+        "manga_composition": 4.7
+      },
+      "selected": true,
+      "hard_failures": [],
+      "observations": "Six distinct hat-preparation moments; low brim purposefully covers eyes more than source staging, then two-hand adjustment restores full eyes/forelock. Complete readable words; candle remains absent."
+    },
+    {
+      "page": 3,
+      "take": 1,
+      "path": "assets_src/books/rumi_visual_detective_20261012/native/page_03_take1.png",
+      "sha256": "26a2e1243b66b5d2826185a309d3c2f246a9ea1ac4a6c420f0adbfbeb2961e9a",
+      "scores": {
+        "character_identity_anatomy": 4.8,
+        "line_detail_completeness": 4.8,
+        "action_contact_staging": 3.7,
+        "balloon_text_clarity": 4.5,
+        "manga_composition": 4.7
+      },
+      "selected": false,
+      "hard_failures": [
+        "Light test failed: patch remained bright while palm supposedly interrupted it; shade/unshade lacked required visible cause. Rumi Yes remained tailless."
+      ],
+      "observations": "Light test failed: patch remained bright while palm supposedly interrupted it; shade/unshade lacked required visible cause. Rumi Yes remained tailless."
+    },
+    {
+      "page": 3,
+      "take": 2,
+      "path": "assets_src/books/rumi_visual_detective_20261012/native/page_03_take2.png",
+      "sha256": "cab40daad54fa84fcd5016f0a39a0a0a62fd7b0b0af2b6daf5e36ab425b35467",
+      "scores": {
+        "character_identity_anatomy": 4.8,
+        "line_detail_completeness": 4.8,
+        "action_contact_staging": 4.7,
+        "balloon_text_clarity": 4.5,
+        "manga_composition": 4.7
+      },
+      "selected": true,
+      "hard_failures": [],
+      "observations": "Shadowed neutral bare stone in test4 contrasts with returned rainbow patch in5. Both tools stowed6. Rumi Yes remains tailless but unambiguous by adjacent open-mouth Rumi; small balloon limitation. Fountain-to-patch reflected path is implied rather than diagrammed."
+    },
+    {
+      "page": 4,
+      "take": 1,
+      "path": "assets_src/books/rumi_visual_detective_20261012/native/page_04_take1.png",
+      "sha256": "a505530802287026de42862dd3d52258e45711e7f04c5883ac25f759920be2b2",
+      "scores": {
+        "character_identity_anatomy": 3.3,
+        "line_detail_completeness": 4.8,
+        "action_contact_staging": 4.6,
+        "balloon_text_clarity": 4.7,
+        "manga_composition": 4.7
+      },
+      "selected": false,
+      "hard_failures": [
+        "Main Nari duplicated in top panel; running performer incorrectly wore baker chef hat. BOTH narrator captions were source-required and correct, not additional text."
+      ],
+      "observations": "Main Nari duplicated in top panel; running performer incorrectly wore baker chef hat. BOTH narrator captions were source-required and correct, not additional text."
+    },
+    {
+      "page": 4,
+      "take": 2,
+      "path": "assets_src/books/rumi_visual_detective_20261012/native/page_04_take2.png",
+      "sha256": "af4f6ff85a8d085885151809223adbc73af68f65f2b1ac13962b3a74a83735ac",
+      "scores": {
+        "character_identity_anatomy": 4.8,
+        "line_detail_completeness": 4.8,
+        "action_contact_staging": 4.6,
+        "balloon_text_clarity": 4.7,
+        "manga_composition": 4.7
+      },
+      "selected": true,
+      "hard_failures": [],
+      "observations": "Exactly four unique leads; performer chef hat corrected. Five linked panels retain every exact caption/line; tram current and tipped fan readable. City geography compressed; actual bag bell small. Both narrator captions are in frozen source, not extra text."
+    },
+    {
+      "page": 32,
+      "take": 1,
+      "path": "assets_src/books/rumi_visual_detective_20261012/native/page_32_take1.png",
+      "sha256": "31536a3118ae596d45299498eb657de556f694e8e072b115fa4dbede374780ae",
+      "scores": {
+        "character_identity_anatomy": 4.8,
+        "line_detail_completeness": 4.8,
+        "action_contact_staging": 4.8,
+        "balloon_text_clarity": 4.8,
+        "manga_composition": 4.7
+      },
+      "selected": true,
+      "hard_failures": [],
+      "observations": "Exact new ordinary candle-idea request and listening payoff, no candle shown. Upward pool return clear; trio/turtle follow as harmless additional escort. Turning fountain implied by visible rainbow water at right rather than full fixture."
+    }
+  ]
+}

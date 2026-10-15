@@ -1,0 +1,33 @@
+{
+  "page": 21,
+  "take": 3,
+  "method": "built-in image_gen.imagegen",
+  "provider_path": "C:\\Users\\Peter\\.codex\\generated_images\\01a12885-9926-7f51-bf3c-f9504cb34d52\\exec-05c017f7-738a-4375-8766-1d876d4bbebd.png",
+  "path": "assets_src/books/rumi_voice_book_20261011/native/page_21_take3.png",
+  "sha256": "40459dadaa2eef6cacc15121cfbb20206adcea9f467c34ff0c3485b69c3678db",
+  "provider_sha256": "40459dadaa2eef6cacc15121cfbb20206adcea9f467c34ff0c3485b69c3678db",
+  "rgb_pixel_sha256": "4b7fe875c80418d4c78e1676cccdcc8f0e068c1c528c82c7b1974b1c03333770",
+  "dimensions": [
+    1024,
+    1536
+  ],
+  "native_mode": "RGB",
+  "prompt": "Use case: text-localization. This ONE complete original 1024x1536 manga page21take2 is the EDIT TARGET. Make ONLY a tail-direction correction to the TWO speech balloons in PANEL3, the bottom panel. Do not change any letters, balloon positions or body/background artwork. Preserve panel1 and panel2 completely.\nCRITICAL: The LEFT bottom-panel balloon 'Last delivery! Now I can help.' belongs to DURI, the lavender turtle with mint floral shell at the RIGHT of the bottom panel. Its current tail points at the wrong mermaid. ERASE that wrong downward tail and draw a new unmistakable narrow tail routed through empty sky toward the lavender turtle Duri's face/mouth at right. The RIGHT bottom-panel balloon 'I'll go through the gaps. Duri, ring if the path closes.' belongs to ROSHAN, the brown-haired/rainbow-forelock young mermaid at the LEFT of the bottom panel. Its current tail points at the wrong turtle. ERASE that wrong downward tail and draw a new unmistakable narrow tail toward Roshan's face/mouth at left. Do NOT leave each balloon pointing to the figure immediately beneath it: that is the exact error being repaired. Both attribution targets are on OPPOSITE sides from their balloons. Route the tails through background so their tips identify the correct speaker without crossing faces, hands, invitation, bell or other tail. All quoted words, their spelling, positions and reading order stay exactly as they are. No new printed names, labels, icons or text. Entire figure art, color, costumes, fins, flippers, props and panel composition stay unchanged. Final output is the whole native page, no crop/resize or new scenes.\n",
+  "prompt_sha256": "2b0c26b314f9cc1d40636f6c37f4972e751bcdf4294dc4aad771fd643f4e46a3",
+  "script_sha256": "febb9d5c7f6d82c29dcf8fa3556715577842b2284749fd2f1fea055a046d5967",
+  "references": [
+    {
+      "role": "edit_target",
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_21_take2.png",
+      "sha256": "48c27a89821ec6506fbdcfcc50b079cc5aaaf2b17dd6b46124d504a3908cc81a"
+    }
+  ],
+  "modifications": "Final local tail-only repair: correct Duri and Roshan attribution; long tails cross in empty space, independent review pending",
+  "provider_revision": "not exposed",
+  "request_id": "not exposed",
+  "seed": "not exposed",
+  "reported_cost": "not exposed",
+  "call_count": 1,
+  "selection": "REVIEW_PENDING",
+  "license_provenance": "Owner-commissioned original project source candidate generated with built-in ImageGen; original project sources used as identity/setting guidance. No copied third-party scene pixels."
+}

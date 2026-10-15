@@ -1,0 +1,116 @@
+{
+  "scope": "Five bounded own-page repairs only, new edition; no old native or PDF changes",
+  "script_sha256": "b3623441d31710e1afeda9298c0c74e7c3cc3b6b4c8627b7bf9b1b8bafcbf876",
+  "rubric_path": "assets_src/books/rumi_visual_detective_20261012/QUALITY_RUBRIC.txt",
+  "rubric_sha256": "3f83261db2c6ecca74e1f54020a61795d86ba8262463cbfecfe04a8cf0ffde2a",
+  "baseline_receipt": "assets_src/books/rumi_visual_detective_20261012/verification/baseline_pages_01_16.json",
+  "baseline_receipt_sha256": "af4dea192728e19f661aa8241da00a233fda039419346601b60e1fcd477aa7e8",
+  "previous_edition_actual_calls": 54,
+  "max_new_calls_for_this_assignment": 10,
+  "method": "Built-in image_gen.imagegen only; no fallback API",
+  "jobs": [
+    {
+      "page": 7,
+      "gap_id": "B07-OBJECT-01",
+      "named_gap": "In panel 3 ONLY, remove the long disconnected rainbow taper at the extreme lower-right, hanging above the small drifting gold bell. It is an accidental detached rainbow ribbon/tail fragment, NOT a mermaid body part. Paint the small gap as the surrounding underwater stone/coral/water. Keep the drifting gold bell complete and in the same place. Keep Roshan and each friend with their original attached tails/fins. Do not add a candle or clue.",
+      "prior_source": "assets_src/books/rumi_voice_book_20261011/native/page_07_take2.png",
+      "prior_source_sha256": "3a544e0b74b30fe85676f7f0528ddc658495a54f77ab404d4a622be82a098e01",
+      "prompt": "assets_src/books/rumi_visual_detective_20261012/prompts/page_07_take1.txt",
+      "prompt_sha256": "fe0db58c848008ecf1624838322ae0b4a5f57f6e8ddf9aac36ee320be49e6648",
+      "references": "assets_src/books/rumi_visual_detective_20261012/references/page_07_take1.json",
+      "references_sha256": "012629ad786c70e3de0546e7f3f8f99e528604ee046f131b204214d9c144468c",
+      "maximum_new_calls": 2,
+      "new_calls_so_far": 1,
+      "status": "CANDIDATE_ROOT_REVIEW_PENDING",
+      "native_requirement": "Whole 1024x1536 RGB PNG copied byte-identically; no software crop/resize/image edit",
+      "review_requirement": "Exact text/order/speaker, named action contact, anatomy, collateral disclosed; fixed five equal categories at native size",
+      "attempt_receipts": [
+        "assets_src/books/rumi_visual_detective_20261012/generation/page_07_take1.json"
+      ]
+    },
+    {
+      "page": 8,
+      "gap_id": "B08-ORDER-01",
+      "named_gap": "Change ONLY the two speech balloons in panel 2. The FIRST balloon must be Duri saying his long explanation, read at upper left first; give it an unambiguous tail toward the lavender turtle at the ledge. The SECOND balloon is Rumi reassurance, read after it at upper right; give it a short clear tail toward the purple-braided adult mermaid. Keep all exact words. Reflow lettering/balloon placement locally as necessary, without covering faces, hands, the brown mailbag, caught strap, or fan base. Preserve all panel 1 and panel 3 artwork and balloons.",
+      "prior_source": "assets_src/books/rumi_voice_book_20261011/native/page_08_take2.png",
+      "prior_source_sha256": "05cbf1f7bfac9160de6567a793149ca048a4fab0bcd07686c3058c0810708dce",
+      "prompt": "assets_src/books/rumi_visual_detective_20261012/prompts/page_08_take1.txt",
+      "prompt_sha256": "907677445c53a8822f70ed91b4d09c0d71a1b590fdd5908bb27f41f83db48688",
+      "references": "assets_src/books/rumi_visual_detective_20261012/references/page_08_take1.json",
+      "references_sha256": "3d54b6df03333afd47d981509aeb86924ed87382843e3afef6e74b28ce315e4b",
+      "maximum_new_calls": 2,
+      "new_calls_so_far": 2,
+      "status": "UNRESOLVED_TWO_TAKE_CAP",
+      "native_requirement": "Whole 1024x1536 RGB PNG copied byte-identically; no software crop/resize/image edit",
+      "review_requirement": "Exact text/order/speaker, named action contact, anatomy, collateral disclosed; fixed five equal categories at native size",
+      "attempt_receipts": [
+        "assets_src/books/rumi_visual_detective_20261012/generation/page_08_take1.json",
+        "assets_src/books/rumi_visual_detective_20261012/generation/page_08_take2.json"
+      ]
+    },
+    {
+      "page": 10,
+      "gap_id": "B10-CONTACT-01",
+      "named_gap": "Change ONLY Rumi forearms/hands and their immediate fan contact in panel 2. Rumi is the purple-braided adult wearing a royal blue jacket with gold trim. She must visibly support the LOW slatted fan edge with BOTH her own hands: two continuous blue-sleeved arms ending in anatomically complete hands that wrap around the actual rigid fan edge. Her nearer hand must leave Roshan waist/back and make a real visible fan-edge grip instead. Clearly connect both hands through the blue cuffs to Rumi shoulders; no floating/unowned hand, no additional arm. Keep Roshan pushing the base, Hana bracing the upper edge, Duri safe at left, Nari observing at right, tilted fan geometry and shelf/weighted base. Preserve all other panels and lettering exactly.",
+      "prior_source": "assets_src/books/rumi_voice_book_20261011/native/page_10_take2.png",
+      "prior_source_sha256": "85e0941653b29aedaccb733a1d4e2f245def9e264caacfce95b90ba1d044ef3d",
+      "prompt": "assets_src/books/rumi_visual_detective_20261012/prompts/page_10_take1.txt",
+      "prompt_sha256": "d640b80c9e1b97e10e8349ef84bcb662f864adc79c958f8697261ecb5c75d7a0",
+      "references": "assets_src/books/rumi_visual_detective_20261012/references/page_10_take1.json",
+      "references_sha256": "b140a58267cff014166974e164e90465879e8b31ca53613719af3f58091e3a65",
+      "maximum_new_calls": 2,
+      "new_calls_so_far": 2,
+      "status": "UNRESOLVED_TWO_TAKE_CAP",
+      "native_requirement": "Whole 1024x1536 RGB PNG copied byte-identically; no software crop/resize/image edit",
+      "review_requirement": "Exact text/order/speaker, named action contact, anatomy, collateral disclosed; fixed five equal categories at native size",
+      "attempt_receipts": [
+        "assets_src/books/rumi_visual_detective_20261012/generation/page_10_take1.json",
+        "assets_src/books/rumi_visual_detective_20261012/generation/page_10_take2.json"
+      ]
+    },
+    {
+      "page": 11,
+      "gap_id": "B11-GRIP-01",
+      "named_gap": "Change ONLY the ambiguous rightmost grip in panel 2 and the adjacent small area required to show ownership. The two nearer grips belong to Roshan and remain attached to her two coral-jacket arms. The THIRD/rightmost grip belongs to Rumi: visibly connect it to a blue-and-gold cuff and one continuous forearm belonging to the purple-braided adult mermaid who supports the low edge from beside/behind Roshan. Include enough of Rumi connected sleeve/arm and nearby shoulder/figure if needed for unmistakable ownership, consistent with her existing support position; she does not acquire another arm. This is her existing low-edge support BEFORE she shifts beside Roshan in panel 3. Do not delete the useful third grip or turn it into an extra Roshan arm. Preserve the fan, safe Duri opening, current, Roshan expression, and all original panels/words outside that local contact repair.",
+      "prior_source": "assets_src/books/rumi_voice_book_20261011/native/page_11_take1.png",
+      "prior_source_sha256": "6040390fdfe8cecc92cca794e61524a205537cc6929b05cdacc5f49c104cce7e",
+      "prompt": "assets_src/books/rumi_visual_detective_20261012/prompts/page_11_take1.txt",
+      "prompt_sha256": "e638916177d21bfa0e65dc5db968cc710d9bcb5d83a454bde195cd7bc3fd8c7a",
+      "references": "assets_src/books/rumi_visual_detective_20261012/references/page_11_take1.json",
+      "references_sha256": "608e4ad935348fff9fe21b096adfb00c97c0869195da0f9f54ae8fc6e05452f0",
+      "maximum_new_calls": 2,
+      "new_calls_so_far": 1,
+      "status": "CANDIDATE_ROOT_REVIEW_PENDING",
+      "native_requirement": "Whole 1024x1536 RGB PNG copied byte-identically; no software crop/resize/image edit",
+      "review_requirement": "Exact text/order/speaker, named action contact, anatomy, collateral disclosed; fixed five equal categories at native size",
+      "attempt_receipts": [
+        "assets_src/books/rumi_visual_detective_20261012/generation/page_11_take1.json"
+      ]
+    },
+    {
+      "page": 16,
+      "gap_id": "B16-TAIL-01",
+      "named_gap": "Change ONLY the two balloon positions/tails in panel 3 as necessary to fix attribution. Roshan is the small brown-haired rainbow-forelock girl seated between bunny-towel Nari and purple-braided Rumi. Her question is FIRST in English reading order and must sit beside/just above Roshan, with a SHORT unmistakable tail ending near Roshan face, never at Nari towel or Hana. Rumi response is SECOND and must have a short clear tail toward Rumi. Preserve exact words and all faces, towel ears, body poses, attached fins, Duri, feast, food, bench and room. Do not place lettering across eyes, mouths, food, or hands. Preserve panel 1 and panel 2 completely.",
+      "prior_source": "assets_src/books/rumi_voice_book_20261011/native/page_16_take3.png",
+      "prior_source_sha256": "a55ecc6bb0d221f146ec2141810251010d733a472990cdaeaa1616e3b38a21ee",
+      "prompt": "assets_src/books/rumi_visual_detective_20261012/prompts/page_16_take1.txt",
+      "prompt_sha256": "32d45699b3e2be075a81b86536cee54f588a301b496561cf836193de3842b851",
+      "references": "assets_src/books/rumi_visual_detective_20261012/references/page_16_take1.json",
+      "references_sha256": "b405ca6158c9f03cf21d89f4fae02c4dafd2ae7bb54336febbccc857168af51a",
+      "maximum_new_calls": 2,
+      "new_calls_so_far": 1,
+      "status": "CANDIDATE_ROOT_REVIEW_PENDING",
+      "native_requirement": "Whole 1024x1536 RGB PNG copied byte-identically; no software crop/resize/image edit",
+      "review_requirement": "Exact text/order/speaker, named action contact, anatomy, collateral disclosed; fixed five equal categories at native size",
+      "attempt_receipts": [
+        "assets_src/books/rumi_visual_detective_20261012/generation/page_16_take1.json"
+      ]
+    }
+  ],
+  "acceptance_scope": "Agent review candidates; root and independent lower-category review required; owner/child/print/runtime acceptance not claimed",
+  "final_script_sha256": "ab77f7740592a82b9185c10eb22a7b85ff785726b2f9eb8f01158861d54db6cd",
+  "source_revision_note": "Only production staging p02.4 long hair correction changed full hash; all five assigned page objects are exact unchanged. Page7 capture receipt remains immutable b362-bound; later capture receipts ab77-bound.",
+  "actual_calls": 7,
+  "review_receipt": "assets_src/books/rumi_visual_detective_20261012/verification/repair_review_pages_07_08_10_11_16.json",
+  "review_receipt_sha256": "41f27c539a4d60d1aafeef929b1ce5e8f65c94385d398ea4da971610592e2e82"
+}

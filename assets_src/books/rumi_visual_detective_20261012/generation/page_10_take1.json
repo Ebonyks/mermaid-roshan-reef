@@ -1,0 +1,38 @@
+{
+  "page": 10,
+  "take": 1,
+  "created_at_utc": "2026-10-12T08:16:54.062971+00:00",
+  "method": "built-in image_gen.imagegen",
+  "provider_path": "C:\\Users\\Peter\\.codex\\generated_images\\01a1283f-6f19-7422-8dfe-1625809a3d63\\exec-dfc88567-f0be-405c-8cd7-159bd680617b.png",
+  "path": "assets_src/books/rumi_visual_detective_20261012/native/page_10_take1.png",
+  "sha256": "63c75fad8c54c61c261cbb71dca8189636f1bbb2a6fcaae4c424073f4a368946",
+  "provider_sha256": "63c75fad8c54c61c261cbb71dca8189636f1bbb2a6fcaae4c424073f4a368946",
+  "rgb_pixel_sha256": "21191cb5ec9dca9387ac70711dacbc49fc020540374bcec5bcc7969caf15f7d2",
+  "dimensions": [
+    1024,
+    1536
+  ],
+  "native_mode": "RGB",
+  "script_sha256": "ab77f7740592a82b9185c10eb22a7b85ff785726b2f9eb8f01158861d54db6cd",
+  "source_page_sha256": "2a9d1757ad307465bdd644dd3498b3b1561ccf7a1ccf23097395e1f0f505a29f",
+  "prompt": "Use case: precise-object-edit.\nAsset type: one complete native portrait manga picture-book page, 1024 x 1536 pixels, RGB opaque output.\nInput image 1 is the OWN-PAGE EDIT TARGET, not a layout guide or a source for collage. Make a bounded local correction to this existing commissioned page. Keep the complete original page framing, three panels, thin black panel lines, polished 2D manga/storybook painting, colors, character identities, room/city, and all existing scene facts.\nNamed repair for page 10: Change ONLY Rumi forearms/hands and their immediate fan contact in panel 2. Rumi is the purple-braided adult wearing a royal blue jacket with gold trim. She must visibly support the LOW slatted fan edge with BOTH her own hands: two continuous blue-sleeved arms ending in anatomically complete hands that wrap around the actual rigid fan edge. Her nearer hand must leave Roshan waist/back and make a real visible fan-edge grip instead. Clearly connect both hands through the blue cuffs to Rumi shoulders; no floating/unowned hand, no additional arm. Keep Roshan pushing the base, Hana bracing the upper edge, Duri safe at left, Nari observing at right, tilted fan geometry and shelf/weighted base. Preserve all other panels and lettering exactly.\nVerbatim lettering, with speaker mapping and reading order (do not add speaker names into the art):\nPanel 1: Duri: \"Push the fan back a little. That will loosen the loop.\"\nPanel 2: Rumi: \"I'll hold this edge. Hana, keep it steady.\"\nPanel 3: Roshan: \"Loose... and off!\"\nConstraints: output the WHOLE 1024x1536 portrait page at unchanged aspect with all panels, not a crop/detail. No software enlargement, no new scene, no pasted panel, no unrelated prop, no redesigned character, no missing words, no extra words or watermark. Keep clear readable black English lettering. Preserve original gestures, anatomy, attached tails, complete hands, support/contact and props except the named correction. Do not conceal missing contact with glow or clothing. Retain deliberate distant background softness; do not blur focal contours. The rainbow candle stays hidden and is not introduced on this page.\n",
+  "prompt_sha256": "d640b80c9e1b97e10e8349ef84bcb662f864adc79c958f8697261ecb5c75d7a0",
+  "prompt_file": "assets_src/books/rumi_visual_detective_20261012/prompts/page_10_take1.txt",
+  "references": [
+    {
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_10_take2.png",
+      "role": "own_page_edit_target",
+      "purpose": "Change ONLY Rumi forearms/hands and their immediate fan contact in panel 2. Rumi is the purple-braided adult wearing a royal blue jacket with gold trim. She must visibly support the LOW slatted fan edge with BOTH her own hands: two continuous blue-sleeved arms ending in anatomically complete hands that wrap around the actual rigid fan edge. Her nearer hand must leave Roshan waist/back and make a real visible fan-edge grip instead. Clearly connect both hands through the blue cuffs to Rumi shoulders; no floating/unowned hand, no additional arm. Keep Roshan pushing the base, Hana bracing the upper edge, Duri safe at left, Nari observing at right, tilted fan geometry and shelf/weighted base. Preserve all other panels and lettering exactly.",
+      "sha256": "85e0941653b29aedaccb733a1d4e2f245def9e264caacfce95b90ba1d044ef3d"
+    }
+  ],
+  "references_file": "assets_src/books/rumi_visual_detective_20261012/references/page_10_take1.json",
+  "modifications": "Native provider PNG copied byte-identically; own-page generated corrections declared by exact prompt; no software crop/resize/sharpening/lettering overlay. Adjacent generated pixels may change.",
+  "provider_revision": "not exposed",
+  "request_id": "not exposed",
+  "seed": "not exposed",
+  "reported_cost": "not exposed",
+  "call_count": 1,
+  "selection": "REVIEW_PENDING",
+  "license_provenance": "Owner-commissioned original static-book candidate; existing project identity/setting/prop references retain terms; no film pixels/scene copy."
+}

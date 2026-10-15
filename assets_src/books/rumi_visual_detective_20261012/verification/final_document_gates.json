@@ -1,0 +1,83 @@
+{
+  "schema": "rumi_static_book_final_document_gates_v1",
+  "recorded_at_utc": "2026-10-12T10:10:59.209925+00:00",
+  "task_baseline": "056d890ef38f2496ab52669c955ada654f902511",
+  "branch": "codex/rumi-voice-rewrite-20261011",
+  "source_head": "056d890ef38f2496ab52669c955ada654f902511",
+  "commands": [
+    {
+      "argv": [
+        "C:\\Users\\Peter\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+        "-B",
+        "tools/audit_document_authority.py"
+      ],
+      "process_exit": 0,
+      "stdout": "DOCAUTH|INVENTORY=686|LEDGER=686|ACTIVE=68|RECORDS=71\r\nDOCAUTH|RESULT|ALL OK\r\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "C:\\Users\\Peter\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+        "-B",
+        "tools/audit_development.py",
+        "--base",
+        "auto"
+      ],
+      "process_exit": 0,
+      "stdout": "AUDITDEV|BASE|245e9c543be771d297b60dafb91b8a3baf73e211\r\nAUDITDEV|RESULT|ALL OK\r\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "C:\\Users\\Peter\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+        "-B",
+        "tools/record_owner_decision.py",
+        "--check",
+        "--base",
+        "056d890ef38f2496ab52669c955ada654f902511"
+      ],
+      "process_exit": 0,
+      "stdout": "DECISIONS|COUNT|47\r\nDECISIONS|RESULT|ALL OK\r\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "git",
+        "diff",
+        "--check"
+      ],
+      "process_exit": 0,
+      "stdout": "",
+      "stderr": "warning: in the working copy of 'ASSET_LICENSES.md', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'audit/MASTER_AUDIT_2026-08-09.md', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'design/05_DOC_LEDGER.md', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'design/chapters/RUMI_UNDERPOOL_BOOK_20261009.md', LF will be replaced by CRLF the next time Git touches it\n"
+    },
+    {
+      "argv": [
+        "git",
+        "diff",
+        "--name-only",
+        "056d890ef38f2496ab52669c955ada654f902511",
+        "--",
+        "scripts",
+        "scenes",
+        "assets",
+        "project.godot",
+        "tools",
+        ".github",
+        ".codex",
+        ".claude",
+        "AGENTS.md",
+        "SECURITY.md"
+      ],
+      "process_exit": 0,
+      "stdout": "",
+      "stderr": "",
+      "unchanged_paths_pass": true
+    }
+  ],
+  "acceptance_scope": "Document traceability, authority navigation, append-only owner record, whitespace and unchanged tracked runtime/protected/policy sources. These checks do not waive the separately red full game regression or establish owner/child/print/runtime/cinematic/global audit acceptance.",
+  "status": "PASS_DOCUMENT_LANE_FULL_GAME_REGRESSION_SEPARATELY_RED",
+  "log": {
+    "path": "assets_src/books/rumi_visual_detective_20261012/verification/final_document_gates.log",
+    "sha256": "2ef6af79f7d9505f4598523122e632fb6932e50d9eccb3680237baf36570a485"
+  }
+}

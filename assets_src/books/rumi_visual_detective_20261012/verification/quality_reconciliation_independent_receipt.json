@@ -1,0 +1,1508 @@
+{
+  "schema": "rumi_independent_quality_reconciliation_validation_v1",
+  "status": "PASS_READ_ONLY_RECALCULATION",
+  "recorded_at_utc": "2026-10-12T09:16:28.186369+00:00",
+  "validator": "Codex independent page_review",
+  "source_script": {
+    "path": "assets_src/books/rumi_visual_detective_20261012/story_script.json",
+    "sha256": "ab77f7740592a82b9185c10eb22a7b85ff785726b2f9eb8f01158861d54db6cd"
+  },
+  "selection": {
+    "path": "assets_src/books/rumi_visual_detective_20261012/selected_art.json",
+    "sha256": "f3492f5eebeca5c29306e7e99ed7bec29c98d599f7177f3a3a43af64670d570f"
+  },
+  "quality_reconciliation": {
+    "path": "assets_src/books/rumi_visual_detective_20261012/verification/QUALITY_REVIEW.json",
+    "sha256": "f3f4fa74ab9b59766436b2aa05182173e99356bd1c6f10134d35551b573d7a60"
+  },
+  "rubric": {
+    "path": "assets_src/books/rumi_visual_detective_20261012/QUALITY_RUBRIC.txt",
+    "sha256": "3f83261db2c6ecca74e1f54020a61795d86ba8262463cbfecfe04a8cf0ffde2a",
+    "unchanged": true
+  },
+  "input_review_bindings": [
+    {
+      "path": "assets_src/books/rumi_visual_detective_20261012/QUALITY_RUBRIC.txt",
+      "sha256": "3f83261db2c6ecca74e1f54020a61795d86ba8262463cbfecfe04a8cf0ffde2a"
+    },
+    {
+      "path": "assets_src/books/rumi_visual_detective_20261012/verification/root_baseline_review.json",
+      "sha256": "e6833a0c300c8e96ec86f90fea0505e0c798fd698a8eedf379908cedbda86a3c"
+    },
+    {
+      "path": "assets_src/books/rumi_visual_detective_20261012/verification/baseline_pages_01_16.json",
+      "sha256": "af4dea192728e19f661aa8241da00a233fda039419346601b60e1fcd477aa7e8"
+    },
+    {
+      "path": "assets_src/books/rumi_visual_detective_20261012/verification/baseline_pages_17_32.json",
+      "sha256": "ecda8794ad6684524ef2954ff4bc53cb08f89cf103d44fabbe15787e8d4b0e9a"
+    },
+    {
+      "path": "assets_src/books/rumi_visual_detective_20261012/verification/final_root_review.json",
+      "sha256": "c7fb49303018b388d78daee399d2e57d3ea733226b63d0988cf6cd9bce37552c"
+    },
+    {
+      "path": "assets_src/books/rumi_visual_detective_20261012/verification/final_pages_01_16.json",
+      "sha256": "7262e3d59287b6d043d085c67715fdb000ddfcda40dd449853d9cfd3b7382f73"
+    },
+    {
+      "path": "assets_src/books/rumi_visual_detective_20261012/verification/final_independent_pages_17_32.json",
+      "sha256": "d8f5cad81cd2933179bd173f942bbadde903dd00c1a8f63aa14dacf91b54c879"
+    },
+    {
+      "path": "assets_src/books/rumi_visual_detective_20261012/verification/independent_revised_pages_02_03_04_32.json",
+      "sha256": "82a301124fc81b8d4aab8787c9ad448606b7f8614c3e7356ba6335916cb28335"
+    }
+  ],
+  "checks": {
+    "all_32_native_and_rgb_hashes_match_selection": true,
+    "all_32_native_rgb_1024x1536": true,
+    "all_32_exact_raw_review_image_bindings_match_selection": true,
+    "all_raw_scores_within_fixed_range_and_0_1_increment": true,
+    "all_160_categories_equal_lower_of_bound_root_independent_and_applicable_additional_scores": true,
+    "all_32_page_means_recomputed_exactly": true,
+    "all_baseline_lower_scores_and_means_recomputed_exactly": true,
+    "all_input_binding_sha256s_match": true,
+    "selected_native_and_rgb_hashes_distinct": true,
+    "all_selected_hard_failure_flags_agree_with_bound_raw_reviews": true,
+    "no_raw_score_rubric_selection_art_pdf_or_script_mutation": true
+  },
+  "recomputed": {
+    "overall_unrounded": "4.735",
+    "display_2_decimals": "4.74",
+    "minimum_page_unrounded": "4.6",
+    "baseline_conservative_unrounded": "4.655",
+    "exact_improvement_over_baseline": "0.080",
+    "selected_hard_failure_pages": [],
+    "agent_static_book_numeric_target_and_floor_met": true
+  },
+  "pages": [
+    {
+      "number": 1,
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_01_take1.png",
+      "sha256": "da123e2196a887725b7e82abac7c2beaa1cd861a9c48b6abe0a300d99bf41bb9",
+      "rgb_pixel_sha256": "c0c81a579891d2a013c49eb6bda5f8829aa1a4415990a061e5239fe9bbe386ea",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "mode": "RGB",
+      "raw_review_bindings": [
+        {
+          "path": "assets_src/books/rumi_visual_detective_20261012/verification/final_root_review.json",
+          "sha256": "c7fb49303018b388d78daee399d2e57d3ea733226b63d0988cf6cd9bce37552c"
+        },
+        {
+          "path": "assets_src/books/rumi_visual_detective_20261012/verification/final_pages_01_16.json",
+          "sha256": "7262e3d59287b6d043d085c67715fdb000ddfcda40dd449853d9cfd3b7382f73"
+        }
+      ],
+      "independently_recomputed_lower_scores": {
+        "character_identity_anatomy": "4.8",
+        "line_detail_completeness": "4.9",
+        "action_contact_staging": "4.9",
+        "balloon_text_clarity": "4.9",
+        "manga_composition": "4.8"
+      },
+      "page_mean_unrounded": "4.86",
+      "hard_failure_observed_from_bound_raw_reviews": false
+    },
+    {
+      "number": 2,
+      "path": "assets_src/books/rumi_visual_detective_20261012/native/page_02_take1.png",
+      "sha256": "3edc3778d3a6a43719c7ae1a9dea0ca20bf0137667d0a536a4d75e67fa42b1eb",
+      "rgb_pixel_sha256": "9b9ca595c2e01311e932d0c4215cedf25b4db5bc29cb6c950aa2005c6a44bca3",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "mode": "RGB",
+      "raw_review_bindings": [
+        {
+          "path": "assets_src/books/rumi_visual_detective_20261012/verification/final_root_review.json",
+          "sha256": "c7fb49303018b388d78daee399d2e57d3ea733226b63d0988cf6cd9bce37552c"
+        },
+        {
+          "path": "assets_src/books/rumi_visual_detective_20261012/verification/final_pages_01_16.json",
+          "sha256": "7262e3d59287b6d043d085c67715fdb000ddfcda40dd449853d9cfd3b7382f73"
+        },
+        {
+          "path": "assets_src/books/rumi_visual_detective_20261012/verification/independent_revised_pages_02_03_04_32.json",
+          "sha256": "82a301124fc81b8d4aab8787c9ad448606b7f8614c3e7356ba6335916cb28335"
+        }
+      ],
+      "independently_recomputed_lower_scores": {
+        "character_identity_anatomy": "4.8",
+        "line_detail_completeness": "4.8",
+        "action_contact_staging": "4.7",
+        "balloon_text_clarity": "4.8",
+        "manga_composition": "4.7"
+      },
+      "page_mean_unrounded": "4.76",
+      "hard_failure_observed_from_bound_raw_reviews": false
+    },
+    {
+      "number": 3,
+      "path": "assets_src/books/rumi_visual_detective_20261012/native/page_03_take2.png",
+      "sha256": "cab40daad54fa84fcd5016f0a39a0a0a62fd7b0b0af2b6daf5e36ab425b35467",
+      "rgb_pixel_sha256": "cc2524ed5bb360b8b9574453e33a659fac0c23e88b49d00805f77a119d962171",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "mode": "RGB",
+      "raw_review_bindings": [
+        {
+          "path": "assets_src/books/rumi_visual_detective_20261012/verification/final_root_review.json",
+          "sha256": "c7fb49303018b388d78daee399d2e57d3ea733226b63d0988cf6cd9bce37552c"
+        },
+        {
+          "path": "assets_src/books/rumi_visual_detective_20261012/verification/final_pages_01_16.json",
+          "sha256": "7262e3d59287b6d043d085c67715fdb000ddfcda40dd449853d9cfd3b7382f73"
+        },
+        {
+          "path": "assets_src/books/rumi_visual_detective_20261012/verification/independent_revised_pages_02_03_04_32.json",
+          "sha256": "82a301124fc81b8d4aab8787c9ad448606b7f8614c3e7356ba6335916cb28335"
+        }
+      ],
+      "independently_recomputed_lower_scores": {
+        "character_identity_anatomy": "4.8",
+        "line_detail_completeness": "4.8",
+        "action_contact_staging": "4.7",
+        "balloon_text_clarity": "4.5",
+        "manga_composition": "4.7"
+      },
+      "page_mean_unrounded": "4.7",
+      "hard_failure_observed_from_bound_raw_reviews": false
+    },
+    {
+      "number": 4,
+      "path": "assets_src/books/rumi_visual_detective_20261012/native/page_04_take2.png",
+      "sha256": "af4f6ff85a8d085885151809223adbc73af68f65f2b1ac13962b3a74a83735ac",
+      "rgb_pixel_sha256": "64ff6e302654f687ce678241e28422185ecf12faeebe0e8acf4dd073036a6205",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "mode": "RGB",
+      "raw_review_bindings": [
+        {
+          "path": "assets_src/books/rumi_visual_detective_20261012/verification/final_root_review.json",
+          "sha256": "c7fb49303018b388d78daee399d2e57d3ea733226b63d0988cf6cd9bce37552c"
+        },
+        {
+          "path": "assets_src/books/rumi_visual_detective_20261012/verification/final_pages_01_16.json",
+          "sha256": "7262e3d59287b6d043d085c67715fdb000ddfcda40dd449853d9cfd3b7382f73"
+        },
+        {
+          "path": "assets_src/books/rumi_visual_detective_20261012/verification/independent_revised_pages_02_03_04_32.json",
+          "sha256": "82a301124fc81b8d4aab8787c9ad448606b7f8614c3e7356ba6335916cb28335"
+        }
+      ],
+      "independently_recomputed_lower_scores": {
+        "character_identity_anatomy": "4.8",
+        "line_detail_completeness": "4.8",
+        "action_contact_staging": "4.6",
+        "balloon_text_clarity": "4.7",
+        "manga_composition": "4.5"
+      },
+      "page_mean_unrounded": "4.68",
+      "hard_failure_observed_from_bound_raw_reviews": false
+    },
+    {
+      "number": 5,
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_05_take1.png",
+      "sha256": "76ac7535dacaec9d1ab66d2eb6586987412e787420318ece80cf984e4fa79fed",
+      "rgb_pixel_sha256": "a8cdffd696ecd11b19bcb388d4afcc017c779916a29e7cc381e56f5de04ea9de",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "mode": "RGB",
+      "raw_review_bindings": [
+        {
+          "path": "assets_src/books/rumi_visual_detective_20261012/verification/final_root_review.json",
+          "sha256": "c7fb49303018b388d78daee399d2e57d3ea733226b63d0988cf6cd9bce37552c"
+        },
+        {
+          "path": "assets_src/books/rumi_visual_detective_20261012/verification/final_pages_01_16.json",
+          "sha256": "7262e3d59287b6d043d085c67715fdb000ddfcda40dd449853d9cfd3b7382f73"
+        }
+      ],
+      "independently_recomputed_lower_scores": {
+        "character_identity_anatomy": "4.8",
+        "line_detail_completeness": "4.8",
+        "action_contact_staging": "4.8",
+        "balloon_text_clarity": "4.8",
+        "manga_composition": "4.8"
+      },
+      "page_mean_unrounded": "4.8",
+      "hard_failure_observed_from_bound_raw_reviews": false
+    },
+    {
+      "number": 6,
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_06_take2.png",
+      "sha256": "b2c5938b1a3bd1f1f705e5095d0ca07c7044faefdc154e56fcee8a750f522ac1",
+      "rgb_pixel_sha256": "40810339f5d98bf6816b2eb4a3c3093f0d774658684fd2a5f99a96fce0697419",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "mode": "RGB",
+      "raw_review_bindings": [
+        {
+          "path": "assets_src/books/rumi_visual_detective_20261012/verification/final_root_review.json",
+          "sha256": "c7fb49303018b388d78daee399d2e57d3ea733226b63d0988cf6cd9bce37552c"
+        },
+        {
+          "path": "assets_src/books/rumi_visual_detective_20261012/verification/final_pages_01_16.json",
+          "sha256": "7262e3d59287b6d043d085c67715fdb000ddfcda40dd449853d9cfd3b7382f73"
+        }
+      ],
+      "independently_recomputed_lower_scores": {
+        "character_identity_anatomy": "4.8",
+        "line_detail_completeness": "4.8",
+        "action_contact_staging": "4.8",
+        "balloon_text_clarity": "4.8",
+        "manga_composition": "4.8"
+      },
+      "page_mean_unrounded": "4.8",
+      "hard_failure_observed_from_bound_raw_reviews": false
+    },
+    {
+      "number": 7,
+      "path": "assets_src/books/rumi_visual_detective_20261012/native/page_07_take1.png",
+      "sha256": "1f0b86e90de045692df1efc2b45deaa8d8ee5788a365d6ce6fd213800fde3a0a",
+      "rgb_pixel_sha256": "cc6a7222987cc3410f7b3a107385d93fed5d9a64823693034c259fe5026fb595",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "mode": "RGB",
+      "raw_review_bindings": [
+        {
+          "path": "assets_src/books/rumi_visual_detective_20261012/verification/final_root_review.json",
+          "sha256": "c7fb49303018b388d78daee399d2e57d3ea733226b63d0988cf6cd9bce37552c"
+        },
+        {
+          "path": "assets_src/books/rumi_visual_detective_20261012/verification/final_pages_01_16.json",
+          "sha256": "7262e3d59287b6d043d085c67715fdb000ddfcda40dd449853d9cfd3b7382f73"
+        }
+      ],
+      "independently_recomputed_lower_scores": {
+        "character_identity_anatomy": "4.8",
+        "line_detail_completeness": "4.8",
+        "action_contact_staging": "4.8",
+        "balloon_text_clarity": "4.8",
+        "manga_composition": "4.7"
+      },
+      "page_mean_unrounded": "4.78",
+      "hard_failure_observed_from_bound_raw_reviews": false
+    },
+    {
+      "number": 8,
+      "path": "assets_src/books/rumi_visual_detective_20261012/native/page_08_take3.png",
+      "sha256": "3675b4311b9224f12c83fd3c4d91dfaaea3a4f94253a37998009a58c56fdc9ed",
+      "rgb_pixel_sha256": "9de77c327c9a0b42043d9b3abb7fe4901fa71a1cd9b66a67b8854f914c253464",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "mode": "RGB",
+      "raw_review_bindings": [
+        {
+          "path": "assets_src/books/rumi_visual_detective_20261012/verification/final_root_review.json",
+          "sha256": "c7fb49303018b388d78daee399d2e57d3ea733226b63d0988cf6cd9bce37552c"
+        },
+        {
+          "path": "assets_src/books/rumi_visual_detective_20261012/verification/final_pages_01_16.json",
+          "sha256": "7262e3d59287b6d043d085c67715fdb000ddfcda40dd449853d9cfd3b7382f73"
+        }
+      ],
+      "independently_recomputed_lower_scores": {
+        "character_identity_anatomy": "4.8",
+        "line_detail_completeness": "4.8",
+        "action_contact_staging": "4.7",
+        "balloon_text_clarity": "4.9",
+        "manga_composition": "4.8"
+      },
+      "page_mean_unrounded": "4.8",
+      "hard_failure_observed_from_bound_raw_reviews": false
+    },
+    {
+      "number": 9,
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_09_take3.png",
+      "sha256": "013c7ee2e14e2527243bc97cce8df6f8aaacaf0b227e1bb7c3e772f5ad9d46ee",
+      "rgb_pixel_sha256": "0e4f0b2488f8fcd1113aeb86c57ac1ef1fce700c531f6980cb5e8c04e6a80c1f",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "mode": "RGB",
+      "raw_review_bindings": [
+        {
+          "path": "assets_src/books/rumi_visual_detective_20261012/verification/final_root_review.json",
+          "sha256": "c7fb49303018b388d78daee399d2e57d3ea733226b63d0988cf6cd9bce37552c"
+        },
+        {
+          "path": "assets_src/books/rumi_visual_detective_20261012/verification/final_pages_01_16.json",
+          "sha256": "7262e3d59287b6d043d085c67715fdb000ddfcda40dd449853d9cfd3b7382f73"
+        }
+      ],
+      "independently_recomputed_lower_scores": {
+        "character_identity_anatomy": "4.8",
+        "line_detail_completeness": "4.8",
+        "action_contact_staging": "4.8",
+        "balloon_text_clarity": "4.8",
+        "manga_composition": "4.7"
+      },
+      "page_mean_unrounded": "4.78",
+      "hard_failure_observed_from_bound_raw_reviews": false
+    },
+    {
+      "number": 10,
+      "path": "assets_src/books/rumi_visual_detective_20261012/native/page_10_take3.png",
+      "sha256": "2ec630084b473e64b70fc030995dbde0bcefbe46d2358aa2b968215f326bfa74",
+      "rgb_pixel_sha256": "6fcc963217f02e9863bb5cb45c11d9e0a5620750a32664e86bf267e2f0e4e529",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "mode": "RGB",
+      "raw_review_bindings": [
+        {
+          "path": "assets_src/books/rumi_visual_detective_20261012/verification/final_root_review.json",
+          "sha256": "c7fb49303018b388d78daee399d2e57d3ea733226b63d0988cf6cd9bce37552c"
+        },
+        {
+          "path": "assets_src/books/rumi_visual_detective_20261012/verification/final_pages_01_16.json",
+          "sha256": "7262e3d59287b6d043d085c67715fdb000ddfcda40dd449853d9cfd3b7382f73"
+        }
+      ],
+      "independently_recomputed_lower_scores": {
+        "character_identity_anatomy": "4.8",
+        "line_detail_completeness": "4.8",
+        "action_contact_staging": "4.8",
+        "balloon_text_clarity": "4.9",
+        "manga_composition": "4.8"
+      },
+      "page_mean_unrounded": "4.82",
+      "hard_failure_observed_from_bound_raw_reviews": false
+    },
+    {
+      "number": 11,
+      "path": "assets_src/books/rumi_visual_detective_20261012/native/page_11_take1.png",
+      "sha256": "9e461f9b46671cdcf01d72c4345319d11449528934321b900d07d188f9da9d9b",
+      "rgb_pixel_sha256": "2b98ee08ab79edac44755346dc9beb2dcefca3267594ab031d8b355e35ab2405",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "mode": "RGB",
+      "raw_review_bindings": [
+        {
+          "path": "assets_src/books/rumi_visual_detective_20261012/verification/final_root_review.json",
+          "sha256": "c7fb49303018b388d78daee399d2e57d3ea733226b63d0988cf6cd9bce37552c"
+        },
+        {
+          "path": "assets_src/books/rumi_visual_detective_20261012/verification/final_pages_01_16.json",
+          "sha256": "7262e3d59287b6d043d085c67715fdb000ddfcda40dd449853d9cfd3b7382f73"
+        }
+      ],
+      "independently_recomputed_lower_scores": {
+        "character_identity_anatomy": "4.7",
+        "line_detail_completeness": "4.8",
+        "action_contact_staging": "4.6",
+        "balloon_text_clarity": "4.8",
+        "manga_composition": "4.8"
+      },
+      "page_mean_unrounded": "4.74",
+      "hard_failure_observed_from_bound_raw_reviews": false
+    },
+    {
+      "number": 12,
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_12_take2.png",
+      "sha256": "6d7f6e8f0c4d1a6f6f66ab50c6f3fc0f6a149a84f566ab71deb94e595f75f3b8",
+      "rgb_pixel_sha256": "c95835ff25db66262f2b79c6af613b2af09be0735ba9a69d5c4991b101c9b5b5",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "mode": "RGB",
+      "raw_review_bindings": [
+        {
+          "path": "assets_src/books/rumi_visual_detective_20261012/verification/final_root_review.json",
+          "sha256": "c7fb49303018b388d78daee399d2e57d3ea733226b63d0988cf6cd9bce37552c"
+        },
+        {
+          "path": "assets_src/books/rumi_visual_detective_20261012/verification/final_pages_01_16.json",
+          "sha256": "7262e3d59287b6d043d085c67715fdb000ddfcda40dd449853d9cfd3b7382f73"
+        }
+      ],
+      "independently_recomputed_lower_scores": {
+        "character_identity_anatomy": "4.8",
+        "line_detail_completeness": "4.8",
+        "action_contact_staging": "4.8",
+        "balloon_text_clarity": "4.8",
+        "manga_composition": "4.8"
+      },
+      "page_mean_unrounded": "4.8",
+      "hard_failure_observed_from_bound_raw_reviews": false
+    },
+    {
+      "number": 13,
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_13_take1.png",
+      "sha256": "a2b7f62f3e8e0a2dfe9211302b69cf32d502f6143a5f1e0cdcd5286b3d5caa7e",
+      "rgb_pixel_sha256": "92399bd7231909d1f794cb5d12bd5833b2805aba4cad424bf050fafa536f9b1a",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "mode": "RGB",
+      "raw_review_bindings": [
+        {
+          "path": "assets_src/books/rumi_visual_detective_20261012/verification/final_root_review.json",
+          "sha256": "c7fb49303018b388d78daee399d2e57d3ea733226b63d0988cf6cd9bce37552c"
+        },
+        {
+          "path": "assets_src/books/rumi_visual_detective_20261012/verification/final_pages_01_16.json",
+          "sha256": "7262e3d59287b6d043d085c67715fdb000ddfcda40dd449853d9cfd3b7382f73"
+        }
+      ],
+      "independently_recomputed_lower_scores": {
+        "character_identity_anatomy": "4.5",
+        "line_detail_completeness": "4.8",
+        "action_contact_staging": "4.8",
+        "balloon_text_clarity": "4.8",
+        "manga_composition": "4.8"
+      },
+      "page_mean_unrounded": "4.74",
+      "hard_failure_observed_from_bound_raw_reviews": false
+    },
+    {
+      "number": 14,
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_14_take1.png",
+      "sha256": "5b4e8f69b291f597dd686514ee4fd780c9f2fd5a59cd499be9e8230f104fa5c4",
+      "rgb_pixel_sha256": "d8e5d347e834ba01ad46994b92e53cdea37ef7a2c2d7579b04fcda905e81bb15",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "mode": "RGB",
+      "raw_review_bindings": [
+        {
+          "path": "assets_src/books/rumi_visual_detective_20261012/verification/final_root_review.json",
+          "sha256": "c7fb49303018b388d78daee399d2e57d3ea733226b63d0988cf6cd9bce37552c"
+        },
+        {
+          "path": "assets_src/books/rumi_visual_detective_20261012/verification/final_pages_01_16.json",
+          "sha256": "7262e3d59287b6d043d085c67715fdb000ddfcda40dd449853d9cfd3b7382f73"
+        }
+      ],
+      "independently_recomputed_lower_scores": {
+        "character_identity_anatomy": "4.8",
+        "line_detail_completeness": "4.8",
+        "action_contact_staging": "4.8",
+        "balloon_text_clarity": "4.8",
+        "manga_composition": "4.7"
+      },
+      "page_mean_unrounded": "4.78",
+      "hard_failure_observed_from_bound_raw_reviews": false
+    },
+    {
+      "number": 15,
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_15_take1.png",
+      "sha256": "252085dcdbac0c309d1995166231216b001a596c3da40bfafc02f631388a72b6",
+      "rgb_pixel_sha256": "9b07f37aaee62084bbcacac53022cdb9b4c3cb5a1d631d8c1602a8fdf8015ed8",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "mode": "RGB",
+      "raw_review_bindings": [
+        {
+          "path": "assets_src/books/rumi_visual_detective_20261012/verification/final_root_review.json",
+          "sha256": "c7fb49303018b388d78daee399d2e57d3ea733226b63d0988cf6cd9bce37552c"
+        },
+        {
+          "path": "assets_src/books/rumi_visual_detective_20261012/verification/final_pages_01_16.json",
+          "sha256": "7262e3d59287b6d043d085c67715fdb000ddfcda40dd449853d9cfd3b7382f73"
+        }
+      ],
+      "independently_recomputed_lower_scores": {
+        "character_identity_anatomy": "4.8",
+        "line_detail_completeness": "4.8",
+        "action_contact_staging": "4.8",
+        "balloon_text_clarity": "4.8",
+        "manga_composition": "4.8"
+      },
+      "page_mean_unrounded": "4.8",
+      "hard_failure_observed_from_bound_raw_reviews": false
+    },
+    {
+      "number": 16,
+      "path": "assets_src/books/rumi_visual_detective_20261012/native/page_16_take1.png",
+      "sha256": "77646df74a846b9bad3db3c38145e5929f909514922812d2f3a1403d1e6ec6d7",
+      "rgb_pixel_sha256": "e46e2e2f46cae3a60120ade06d1944212405cb1788faa88b8f41063a827bbe65",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "mode": "RGB",
+      "raw_review_bindings": [
+        {
+          "path": "assets_src/books/rumi_visual_detective_20261012/verification/final_root_review.json",
+          "sha256": "c7fb49303018b388d78daee399d2e57d3ea733226b63d0988cf6cd9bce37552c"
+        },
+        {
+          "path": "assets_src/books/rumi_visual_detective_20261012/verification/final_pages_01_16.json",
+          "sha256": "7262e3d59287b6d043d085c67715fdb000ddfcda40dd449853d9cfd3b7382f73"
+        }
+      ],
+      "independently_recomputed_lower_scores": {
+        "character_identity_anatomy": "4.8",
+        "line_detail_completeness": "4.8",
+        "action_contact_staging": "4.7",
+        "balloon_text_clarity": "4.7",
+        "manga_composition": "4.8"
+      },
+      "page_mean_unrounded": "4.76",
+      "hard_failure_observed_from_bound_raw_reviews": false
+    },
+    {
+      "number": 17,
+      "path": "assets_src/books/rumi_visual_detective_20261012/native/page_17_take1.png",
+      "sha256": "f62c7a42ba602937df6c0fac292966d4b4121e996b505e215ceeaf5aab9ec360",
+      "rgb_pixel_sha256": "ad4180fd4e8a64c02b0cd33c29c325e9abadf8713c8193448b2a14da9e893b05",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "mode": "RGB",
+      "raw_review_bindings": [
+        {
+          "path": "assets_src/books/rumi_visual_detective_20261012/verification/final_root_review.json",
+          "sha256": "c7fb49303018b388d78daee399d2e57d3ea733226b63d0988cf6cd9bce37552c"
+        },
+        {
+          "path": "assets_src/books/rumi_visual_detective_20261012/verification/final_independent_pages_17_32.json",
+          "sha256": "d8f5cad81cd2933179bd173f942bbadde903dd00c1a8f63aa14dacf91b54c879"
+        }
+      ],
+      "independently_recomputed_lower_scores": {
+        "character_identity_anatomy": "4.8",
+        "line_detail_completeness": "4.8",
+        "action_contact_staging": "4.6",
+        "balloon_text_clarity": "4.9",
+        "manga_composition": "4.5"
+      },
+      "page_mean_unrounded": "4.72",
+      "hard_failure_observed_from_bound_raw_reviews": false
+    },
+    {
+      "number": 18,
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_18_take2.png",
+      "sha256": "078b22b5d88f152a07bc51988f66971b50726d078672c3278f458c43a0e5152b",
+      "rgb_pixel_sha256": "c6a7ee788aa6e510069629ac8e25ef06eca9e0c9ab0edf8a0117182b51b22657",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "mode": "RGB",
+      "raw_review_bindings": [
+        {
+          "path": "assets_src/books/rumi_visual_detective_20261012/verification/final_root_review.json",
+          "sha256": "c7fb49303018b388d78daee399d2e57d3ea733226b63d0988cf6cd9bce37552c"
+        },
+        {
+          "path": "assets_src/books/rumi_visual_detective_20261012/verification/final_independent_pages_17_32.json",
+          "sha256": "d8f5cad81cd2933179bd173f942bbadde903dd00c1a8f63aa14dacf91b54c879"
+        }
+      ],
+      "independently_recomputed_lower_scores": {
+        "character_identity_anatomy": "4.5",
+        "line_detail_completeness": "4.8",
+        "action_contact_staging": "4.5",
+        "balloon_text_clarity": "4.8",
+        "manga_composition": "4.6"
+      },
+      "page_mean_unrounded": "4.64",
+      "hard_failure_observed_from_bound_raw_reviews": false
+    },
+    {
+      "number": 19,
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_19_take1.png",
+      "sha256": "a728542d5bc194ff84a0d5adaccd3efe9fc2d1bb417f14352cc66567cfc05fb5",
+      "rgb_pixel_sha256": "ba17d316b75b66e56b0bcc394fafab0008c21ce62c944a80494c7a6b4f0a2b83",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "mode": "RGB",
+      "raw_review_bindings": [
+        {
+          "path": "assets_src/books/rumi_visual_detective_20261012/verification/final_root_review.json",
+          "sha256": "c7fb49303018b388d78daee399d2e57d3ea733226b63d0988cf6cd9bce37552c"
+        },
+        {
+          "path": "assets_src/books/rumi_visual_detective_20261012/verification/final_independent_pages_17_32.json",
+          "sha256": "d8f5cad81cd2933179bd173f942bbadde903dd00c1a8f63aa14dacf91b54c879"
+        }
+      ],
+      "independently_recomputed_lower_scores": {
+        "character_identity_anatomy": "4.6",
+        "line_detail_completeness": "4.8",
+        "action_contact_staging": "4.7",
+        "balloon_text_clarity": "4.8",
+        "manga_composition": "4.7"
+      },
+      "page_mean_unrounded": "4.72",
+      "hard_failure_observed_from_bound_raw_reviews": false
+    },
+    {
+      "number": 20,
+      "path": "assets_src/books/rumi_visual_detective_20261012/native/page_20_take1.png",
+      "sha256": "bd9f36bb937a6da1ceb106e0f3a77e0917e172b0fb25b0d90e277f7e02aec9e2",
+      "rgb_pixel_sha256": "0323cd9a424725d7ebbf985b6cf34812fa160a728e7d8c490f058fa0fbadf270",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "mode": "RGB",
+      "raw_review_bindings": [
+        {
+          "path": "assets_src/books/rumi_visual_detective_20261012/verification/final_root_review.json",
+          "sha256": "c7fb49303018b388d78daee399d2e57d3ea733226b63d0988cf6cd9bce37552c"
+        },
+        {
+          "path": "assets_src/books/rumi_visual_detective_20261012/verification/final_independent_pages_17_32.json",
+          "sha256": "d8f5cad81cd2933179bd173f942bbadde903dd00c1a8f63aa14dacf91b54c879"
+        }
+      ],
+      "independently_recomputed_lower_scores": {
+        "character_identity_anatomy": "4.7",
+        "line_detail_completeness": "4.7",
+        "action_contact_staging": "4.5",
+        "balloon_text_clarity": "4.8",
+        "manga_composition": "4.5"
+      },
+      "page_mean_unrounded": "4.64",
+      "hard_failure_observed_from_bound_raw_reviews": false
+    },
+    {
+      "number": 21,
+      "path": "assets_src/books/rumi_visual_detective_20261012/native/page_21_take1.png",
+      "sha256": "eb2d25c7b07f2ec7ef11198cec666c21eb09308d0608a314518335a496466cef",
+      "rgb_pixel_sha256": "3abe835ef4a59412dad8024856c9b3a124baf7ae18ae320bc44ea4cd606ad89a",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "mode": "RGB",
+      "raw_review_bindings": [
+        {
+          "path": "assets_src/books/rumi_visual_detective_20261012/verification/final_root_review.json",
+          "sha256": "c7fb49303018b388d78daee399d2e57d3ea733226b63d0988cf6cd9bce37552c"
+        },
+        {
+          "path": "assets_src/books/rumi_visual_detective_20261012/verification/final_independent_pages_17_32.json",
+          "sha256": "d8f5cad81cd2933179bd173f942bbadde903dd00c1a8f63aa14dacf91b54c879"
+        }
+      ],
+      "independently_recomputed_lower_scores": {
+        "character_identity_anatomy": "4.7",
+        "line_detail_completeness": "4.8",
+        "action_contact_staging": "4.7",
+        "balloon_text_clarity": "4.8",
+        "manga_composition": "4.7"
+      },
+      "page_mean_unrounded": "4.74",
+      "hard_failure_observed_from_bound_raw_reviews": false
+    },
+    {
+      "number": 22,
+      "path": "assets_src/books/rumi_visual_detective_20261012/native/page_22_take1.png",
+      "sha256": "1a5f905d63cefc8e4a55134eb04cc4c1bb2376a59c47f82448dee329ebd42314",
+      "rgb_pixel_sha256": "f1c28c08dc543e5dfcf414bafd835227537ae99300dcb15c4ace624e7b76ec95",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "mode": "RGB",
+      "raw_review_bindings": [
+        {
+          "path": "assets_src/books/rumi_visual_detective_20261012/verification/final_root_review.json",
+          "sha256": "c7fb49303018b388d78daee399d2e57d3ea733226b63d0988cf6cd9bce37552c"
+        },
+        {
+          "path": "assets_src/books/rumi_visual_detective_20261012/verification/final_independent_pages_17_32.json",
+          "sha256": "d8f5cad81cd2933179bd173f942bbadde903dd00c1a8f63aa14dacf91b54c879"
+        }
+      ],
+      "independently_recomputed_lower_scores": {
+        "character_identity_anatomy": "4.8",
+        "line_detail_completeness": "4.7",
+        "action_contact_staging": "4.6",
+        "balloon_text_clarity": "4.7",
+        "manga_composition": "4.7"
+      },
+      "page_mean_unrounded": "4.7",
+      "hard_failure_observed_from_bound_raw_reviews": false
+    },
+    {
+      "number": 23,
+      "path": "assets_src/books/rumi_visual_detective_20261012/native/page_23_take1.png",
+      "sha256": "e8b64308bba24d180ceeb3aff3d490e4e2388f45cc950ea7aead70ba9b7ff446",
+      "rgb_pixel_sha256": "13bf84745e8b7b2e6314a1b7fc238509c3245c1d39138d9cd13c4d269b459d5e",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "mode": "RGB",
+      "raw_review_bindings": [
+        {
+          "path": "assets_src/books/rumi_visual_detective_20261012/verification/final_root_review.json",
+          "sha256": "c7fb49303018b388d78daee399d2e57d3ea733226b63d0988cf6cd9bce37552c"
+        },
+        {
+          "path": "assets_src/books/rumi_visual_detective_20261012/verification/final_independent_pages_17_32.json",
+          "sha256": "d8f5cad81cd2933179bd173f942bbadde903dd00c1a8f63aa14dacf91b54c879"
+        }
+      ],
+      "independently_recomputed_lower_scores": {
+        "character_identity_anatomy": "4.8",
+        "line_detail_completeness": "4.8",
+        "action_contact_staging": "4.5",
+        "balloon_text_clarity": "4.8",
+        "manga_composition": "4.7"
+      },
+      "page_mean_unrounded": "4.72",
+      "hard_failure_observed_from_bound_raw_reviews": false
+    },
+    {
+      "number": 24,
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_24_take3.png",
+      "sha256": "1821fe130cc0e916d5c8822d4ebd6023121ce0faceeec9e4fcc9adda915c958c",
+      "rgb_pixel_sha256": "0c9b981a94ed215cb73a8068c3b6dde1fe414afa749423060ba052083d2cb7d0",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "mode": "RGB",
+      "raw_review_bindings": [
+        {
+          "path": "assets_src/books/rumi_visual_detective_20261012/verification/final_root_review.json",
+          "sha256": "c7fb49303018b388d78daee399d2e57d3ea733226b63d0988cf6cd9bce37552c"
+        },
+        {
+          "path": "assets_src/books/rumi_visual_detective_20261012/verification/final_independent_pages_17_32.json",
+          "sha256": "d8f5cad81cd2933179bd173f942bbadde903dd00c1a8f63aa14dacf91b54c879"
+        }
+      ],
+      "independently_recomputed_lower_scores": {
+        "character_identity_anatomy": "4.5",
+        "line_detail_completeness": "4.8",
+        "action_contact_staging": "4.3",
+        "balloon_text_clarity": "4.8",
+        "manga_composition": "4.7"
+      },
+      "page_mean_unrounded": "4.62",
+      "hard_failure_observed_from_bound_raw_reviews": false
+    },
+    {
+      "number": 25,
+      "path": "assets_src/books/rumi_visual_detective_20261012/native/page_25_take2.png",
+      "sha256": "c4d8ec66b8077fc406c7f79943df3f9a3d4905e4a6e0b703f0ba55c3dba61cd8",
+      "rgb_pixel_sha256": "f0a984394ca74b95ec2ebb37717bfc142952813daa2336e6c8597099af493156",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "mode": "RGB",
+      "raw_review_bindings": [
+        {
+          "path": "assets_src/books/rumi_visual_detective_20261012/verification/final_root_review.json",
+          "sha256": "c7fb49303018b388d78daee399d2e57d3ea733226b63d0988cf6cd9bce37552c"
+        },
+        {
+          "path": "assets_src/books/rumi_visual_detective_20261012/verification/final_independent_pages_17_32.json",
+          "sha256": "d8f5cad81cd2933179bd173f942bbadde903dd00c1a8f63aa14dacf91b54c879"
+        }
+      ],
+      "independently_recomputed_lower_scores": {
+        "character_identity_anatomy": "4.7",
+        "line_detail_completeness": "4.8",
+        "action_contact_staging": "4.6",
+        "balloon_text_clarity": "4.8",
+        "manga_composition": "4.5"
+      },
+      "page_mean_unrounded": "4.68",
+      "hard_failure_observed_from_bound_raw_reviews": false
+    },
+    {
+      "number": 26,
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_26_take1.png",
+      "sha256": "df82ab99dc1a54c0b158801dfa7ca5df45648bc5c34c5f8d8e19f95cb07b1990",
+      "rgb_pixel_sha256": "5579dc777ba83803a6d038263ecde39183152b2eb47e6b9678a66cd107001850",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "mode": "RGB",
+      "raw_review_bindings": [
+        {
+          "path": "assets_src/books/rumi_visual_detective_20261012/verification/final_root_review.json",
+          "sha256": "c7fb49303018b388d78daee399d2e57d3ea733226b63d0988cf6cd9bce37552c"
+        },
+        {
+          "path": "assets_src/books/rumi_visual_detective_20261012/verification/final_independent_pages_17_32.json",
+          "sha256": "d8f5cad81cd2933179bd173f942bbadde903dd00c1a8f63aa14dacf91b54c879"
+        }
+      ],
+      "independently_recomputed_lower_scores": {
+        "character_identity_anatomy": "4.8",
+        "line_detail_completeness": "4.8",
+        "action_contact_staging": "4.8",
+        "balloon_text_clarity": "4.8",
+        "manga_composition": "4.7"
+      },
+      "page_mean_unrounded": "4.78",
+      "hard_failure_observed_from_bound_raw_reviews": false
+    },
+    {
+      "number": 27,
+      "path": "assets_src/books/rumi_visual_detective_20261012/native/page_27_take2.png",
+      "sha256": "cc4aa251d48ddf4d9a4b1e7e342928e03d581e6def43e391446b1eebf2c696f8",
+      "rgb_pixel_sha256": "d072ab1980ae389297e16593ac6c5d0c7447a461913b9c90271e67f729f857fd",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "mode": "RGB",
+      "raw_review_bindings": [
+        {
+          "path": "assets_src/books/rumi_visual_detective_20261012/verification/final_root_review.json",
+          "sha256": "c7fb49303018b388d78daee399d2e57d3ea733226b63d0988cf6cd9bce37552c"
+        },
+        {
+          "path": "assets_src/books/rumi_visual_detective_20261012/verification/final_independent_pages_17_32.json",
+          "sha256": "d8f5cad81cd2933179bd173f942bbadde903dd00c1a8f63aa14dacf91b54c879"
+        }
+      ],
+      "independently_recomputed_lower_scores": {
+        "character_identity_anatomy": "4.7",
+        "line_detail_completeness": "4.8",
+        "action_contact_staging": "4.5",
+        "balloon_text_clarity": "4.4",
+        "manga_composition": "4.6"
+      },
+      "page_mean_unrounded": "4.6",
+      "hard_failure_observed_from_bound_raw_reviews": false
+    },
+    {
+      "number": 28,
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_28_take1.png",
+      "sha256": "3fca50bd33978d2507cbc1722da0da6ee1d1df242b658ada1f9b5e6590a54cea",
+      "rgb_pixel_sha256": "09598016190b559bd091a675120257925d6aa22259a61f4a08f65852c9fbe575",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "mode": "RGB",
+      "raw_review_bindings": [
+        {
+          "path": "assets_src/books/rumi_visual_detective_20261012/verification/final_root_review.json",
+          "sha256": "c7fb49303018b388d78daee399d2e57d3ea733226b63d0988cf6cd9bce37552c"
+        },
+        {
+          "path": "assets_src/books/rumi_visual_detective_20261012/verification/final_independent_pages_17_32.json",
+          "sha256": "d8f5cad81cd2933179bd173f942bbadde903dd00c1a8f63aa14dacf91b54c879"
+        }
+      ],
+      "independently_recomputed_lower_scores": {
+        "character_identity_anatomy": "4.7",
+        "line_detail_completeness": "4.8",
+        "action_contact_staging": "4.8",
+        "balloon_text_clarity": "4.8",
+        "manga_composition": "4.8"
+      },
+      "page_mean_unrounded": "4.78",
+      "hard_failure_observed_from_bound_raw_reviews": false
+    },
+    {
+      "number": 29,
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_29_take2.png",
+      "sha256": "3f1fc8182a7adf5c49ee53f4f3728e8f7dc52962c62cae1ce80b9d508911a695",
+      "rgb_pixel_sha256": "5eda9ec40f885843800f14afb0d94bf1c2f18d50d474a440c36a193049bd4f79",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "mode": "RGB",
+      "raw_review_bindings": [
+        {
+          "path": "assets_src/books/rumi_visual_detective_20261012/verification/final_root_review.json",
+          "sha256": "c7fb49303018b388d78daee399d2e57d3ea733226b63d0988cf6cd9bce37552c"
+        },
+        {
+          "path": "assets_src/books/rumi_visual_detective_20261012/verification/final_independent_pages_17_32.json",
+          "sha256": "d8f5cad81cd2933179bd173f942bbadde903dd00c1a8f63aa14dacf91b54c879"
+        }
+      ],
+      "independently_recomputed_lower_scores": {
+        "character_identity_anatomy": "4.3",
+        "line_detail_completeness": "4.8",
+        "action_contact_staging": "4.5",
+        "balloon_text_clarity": "4.8",
+        "manga_composition": "4.7"
+      },
+      "page_mean_unrounded": "4.62",
+      "hard_failure_observed_from_bound_raw_reviews": false
+    },
+    {
+      "number": 30,
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_30_take1.png",
+      "sha256": "5e2145a038f24cbf08ffb4f044a4b6f1d861f7c728ea9e2a28cb1ee2328196ca",
+      "rgb_pixel_sha256": "3250c0a2e1d41b42ebe0e8506f64afc521aaedbbaccefd849172e19bb3cf9d43",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "mode": "RGB",
+      "raw_review_bindings": [
+        {
+          "path": "assets_src/books/rumi_visual_detective_20261012/verification/final_root_review.json",
+          "sha256": "c7fb49303018b388d78daee399d2e57d3ea733226b63d0988cf6cd9bce37552c"
+        },
+        {
+          "path": "assets_src/books/rumi_visual_detective_20261012/verification/final_independent_pages_17_32.json",
+          "sha256": "d8f5cad81cd2933179bd173f942bbadde903dd00c1a8f63aa14dacf91b54c879"
+        }
+      ],
+      "independently_recomputed_lower_scores": {
+        "character_identity_anatomy": "4.6",
+        "line_detail_completeness": "4.8",
+        "action_contact_staging": "4.8",
+        "balloon_text_clarity": "4.8",
+        "manga_composition": "4.7"
+      },
+      "page_mean_unrounded": "4.74",
+      "hard_failure_observed_from_bound_raw_reviews": false
+    },
+    {
+      "number": 31,
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_31_take1.png",
+      "sha256": "d26cd93f6296ac66a093d32ef001b43d3ec40bd261a59d576aa8c676fe354172",
+      "rgb_pixel_sha256": "a2fd4817ce7d954c5b0b9d0ccc466626daa2aa9fa662c6c2e6c8614c735cee67",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "mode": "RGB",
+      "raw_review_bindings": [
+        {
+          "path": "assets_src/books/rumi_visual_detective_20261012/verification/final_root_review.json",
+          "sha256": "c7fb49303018b388d78daee399d2e57d3ea733226b63d0988cf6cd9bce37552c"
+        },
+        {
+          "path": "assets_src/books/rumi_visual_detective_20261012/verification/final_independent_pages_17_32.json",
+          "sha256": "d8f5cad81cd2933179bd173f942bbadde903dd00c1a8f63aa14dacf91b54c879"
+        }
+      ],
+      "independently_recomputed_lower_scores": {
+        "character_identity_anatomy": "4.4",
+        "line_detail_completeness": "4.8",
+        "action_contact_staging": "4.7",
+        "balloon_text_clarity": "4.8",
+        "manga_composition": "4.7"
+      },
+      "page_mean_unrounded": "4.68",
+      "hard_failure_observed_from_bound_raw_reviews": false
+    },
+    {
+      "number": 32,
+      "path": "assets_src/books/rumi_visual_detective_20261012/native/page_32_take1.png",
+      "sha256": "31536a3118ae596d45299498eb657de556f694e8e072b115fa4dbede374780ae",
+      "rgb_pixel_sha256": "93053de0a60308a534433f9aebb7f5181518dfcf2bac748e43800a12763b3e76",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "mode": "RGB",
+      "raw_review_bindings": [
+        {
+          "path": "assets_src/books/rumi_visual_detective_20261012/verification/final_root_review.json",
+          "sha256": "c7fb49303018b388d78daee399d2e57d3ea733226b63d0988cf6cd9bce37552c"
+        },
+        {
+          "path": "assets_src/books/rumi_visual_detective_20261012/verification/final_independent_pages_17_32.json",
+          "sha256": "d8f5cad81cd2933179bd173f942bbadde903dd00c1a8f63aa14dacf91b54c879"
+        },
+        {
+          "path": "assets_src/books/rumi_visual_detective_20261012/verification/independent_revised_pages_02_03_04_32.json",
+          "sha256": "82a301124fc81b8d4aab8787c9ad448606b7f8614c3e7356ba6335916cb28335"
+        }
+      ],
+      "independently_recomputed_lower_scores": {
+        "character_identity_anatomy": "4.8",
+        "line_detail_completeness": "4.8",
+        "action_contact_staging": "4.6",
+        "balloon_text_clarity": "4.8",
+        "manga_composition": "4.7"
+      },
+      "page_mean_unrounded": "4.74",
+      "hard_failure_observed_from_bound_raw_reviews": false
+    }
+  ],
+  "baseline_pages": [
+    {
+      "number": 1,
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_01_take1.png",
+      "sha256": "da123e2196a887725b7e82abac7c2beaa1cd861a9c48b6abe0a300d99bf41bb9",
+      "rgb_pixel_sha256": "c0c81a579891d2a013c49eb6bda5f8829aa1a4415990a061e5239fe9bbe386ea",
+      "recomputed_lower_scores": {
+        "character_identity_anatomy": "4.8",
+        "line_detail_completeness": "4.9",
+        "action_contact_staging": "4.9",
+        "balloon_text_clarity": "4.9",
+        "manga_composition": "4.8"
+      },
+      "page_mean_unrounded": "4.86"
+    },
+    {
+      "number": 2,
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_02_take2.png",
+      "sha256": "a751e8a1634888b16a6856e989dde9f12d167d1def4ff1a2bc1645af0a4759d6",
+      "rgb_pixel_sha256": "b59ba4931370e6f1d466edfc9377a954449d4ef5100a6f10dabdcd94eb7aba4c",
+      "recomputed_lower_scores": {
+        "character_identity_anatomy": "4.8",
+        "line_detail_completeness": "4.8",
+        "action_contact_staging": "4.8",
+        "balloon_text_clarity": "4.8",
+        "manga_composition": "4.8"
+      },
+      "page_mean_unrounded": "4.8"
+    },
+    {
+      "number": 3,
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_03_take1.png",
+      "sha256": "521c4628894d258637581bd1554e086d595d125741a0c95699db0e54f2568049",
+      "rgb_pixel_sha256": "8641e558fca7090c543d057c5ced20bb626203ccc965e5f197292c548096157c",
+      "recomputed_lower_scores": {
+        "character_identity_anatomy": "4.8",
+        "line_detail_completeness": "4.7",
+        "action_contact_staging": "4.8",
+        "balloon_text_clarity": "4.8",
+        "manga_composition": "4.7"
+      },
+      "page_mean_unrounded": "4.76"
+    },
+    {
+      "number": 4,
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_04_take1.png",
+      "sha256": "f737afc432874affb05220356da67cee6d8e1c027e9b5dc35ed7d9454d871de0",
+      "rgb_pixel_sha256": "8ecab340ea3b64ce0ffcee7f1722275db2474d11ed5c24872746ebe18f9a33c5",
+      "recomputed_lower_scores": {
+        "character_identity_anatomy": "4.8",
+        "line_detail_completeness": "4.8",
+        "action_contact_staging": "4.7",
+        "balloon_text_clarity": "4.8",
+        "manga_composition": "4.7"
+      },
+      "page_mean_unrounded": "4.76"
+    },
+    {
+      "number": 5,
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_05_take1.png",
+      "sha256": "76ac7535dacaec9d1ab66d2eb6586987412e787420318ece80cf984e4fa79fed",
+      "rgb_pixel_sha256": "a8cdffd696ecd11b19bcb388d4afcc017c779916a29e7cc381e56f5de04ea9de",
+      "recomputed_lower_scores": {
+        "character_identity_anatomy": "4.8",
+        "line_detail_completeness": "4.8",
+        "action_contact_staging": "4.8",
+        "balloon_text_clarity": "4.8",
+        "manga_composition": "4.8"
+      },
+      "page_mean_unrounded": "4.8"
+    },
+    {
+      "number": 6,
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_06_take2.png",
+      "sha256": "b2c5938b1a3bd1f1f705e5095d0ca07c7044faefdc154e56fcee8a750f522ac1",
+      "rgb_pixel_sha256": "40810339f5d98bf6816b2eb4a3c3093f0d774658684fd2a5f99a96fce0697419",
+      "recomputed_lower_scores": {
+        "character_identity_anatomy": "4.8",
+        "line_detail_completeness": "4.8",
+        "action_contact_staging": "4.8",
+        "balloon_text_clarity": "4.8",
+        "manga_composition": "4.8"
+      },
+      "page_mean_unrounded": "4.8"
+    },
+    {
+      "number": 7,
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_07_take2.png",
+      "sha256": "3a544e0b74b30fe85676f7f0528ddc658495a54f77ab404d4a622be82a098e01",
+      "rgb_pixel_sha256": "b8175aeb863fc64635295db026d48a59202cbafb55e7e814c2b90fb9ee6659e9",
+      "recomputed_lower_scores": {
+        "character_identity_anatomy": "4.5",
+        "line_detail_completeness": "4.5",
+        "action_contact_staging": "4.5",
+        "balloon_text_clarity": "4.7",
+        "manga_composition": "4.7"
+      },
+      "page_mean_unrounded": "4.58"
+    },
+    {
+      "number": 8,
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_08_take2.png",
+      "sha256": "05cbf1f7bfac9160de6567a793149ca048a4fab0bcd07686c3058c0810708dce",
+      "rgb_pixel_sha256": "e83364f51468480aa67757789b79395d4e39bbb3afe60c3012d603d2a5f5c07c",
+      "recomputed_lower_scores": {
+        "character_identity_anatomy": "4.8",
+        "line_detail_completeness": "4.8",
+        "action_contact_staging": "4.6",
+        "balloon_text_clarity": "4.3",
+        "manga_composition": "4.7"
+      },
+      "page_mean_unrounded": "4.64"
+    },
+    {
+      "number": 9,
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_09_take3.png",
+      "sha256": "013c7ee2e14e2527243bc97cce8df6f8aaacaf0b227e1bb7c3e772f5ad9d46ee",
+      "rgb_pixel_sha256": "0e4f0b2488f8fcd1113aeb86c57ac1ef1fce700c531f6980cb5e8c04e6a80c1f",
+      "recomputed_lower_scores": {
+        "character_identity_anatomy": "4.8",
+        "line_detail_completeness": "4.8",
+        "action_contact_staging": "4.8",
+        "balloon_text_clarity": "4.8",
+        "manga_composition": "4.7"
+      },
+      "page_mean_unrounded": "4.78"
+    },
+    {
+      "number": 10,
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_10_take2.png",
+      "sha256": "85e0941653b29aedaccb733a1d4e2f245def9e264caacfce95b90ba1d044ef3d",
+      "rgb_pixel_sha256": "3358d756866f43cef9d54ec7a6088eb80282a26bec8e357155cdf3a33f1ec122",
+      "recomputed_lower_scores": {
+        "character_identity_anatomy": "4.6",
+        "line_detail_completeness": "4.8",
+        "action_contact_staging": "3.9",
+        "balloon_text_clarity": "4.8",
+        "manga_composition": "4.6"
+      },
+      "page_mean_unrounded": "4.54"
+    },
+    {
+      "number": 11,
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_11_take1.png",
+      "sha256": "6040390fdfe8cecc92cca794e61524a205537cc6929b05cdacc5f49c104cce7e",
+      "rgb_pixel_sha256": "d74e072fe563df6084c44e35aa81ff47de2784cce2b8f0664053b5612015e827",
+      "recomputed_lower_scores": {
+        "character_identity_anatomy": "3.5",
+        "line_detail_completeness": "4.5",
+        "action_contact_staging": "3.8",
+        "balloon_text_clarity": "4.8",
+        "manga_composition": "4.6"
+      },
+      "page_mean_unrounded": "4.24"
+    },
+    {
+      "number": 12,
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_12_take2.png",
+      "sha256": "6d7f6e8f0c4d1a6f6f66ab50c6f3fc0f6a149a84f566ab71deb94e595f75f3b8",
+      "rgb_pixel_sha256": "c95835ff25db66262f2b79c6af613b2af09be0735ba9a69d5c4991b101c9b5b5",
+      "recomputed_lower_scores": {
+        "character_identity_anatomy": "4.8",
+        "line_detail_completeness": "4.8",
+        "action_contact_staging": "4.8",
+        "balloon_text_clarity": "4.8",
+        "manga_composition": "4.8"
+      },
+      "page_mean_unrounded": "4.8"
+    },
+    {
+      "number": 13,
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_13_take1.png",
+      "sha256": "a2b7f62f3e8e0a2dfe9211302b69cf32d502f6143a5f1e0cdcd5286b3d5caa7e",
+      "rgb_pixel_sha256": "92399bd7231909d1f794cb5d12bd5833b2805aba4cad424bf050fafa536f9b1a",
+      "recomputed_lower_scores": {
+        "character_identity_anatomy": "4.5",
+        "line_detail_completeness": "4.8",
+        "action_contact_staging": "4.8",
+        "balloon_text_clarity": "4.8",
+        "manga_composition": "4.8"
+      },
+      "page_mean_unrounded": "4.74"
+    },
+    {
+      "number": 14,
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_14_take1.png",
+      "sha256": "5b4e8f69b291f597dd686514ee4fd780c9f2fd5a59cd499be9e8230f104fa5c4",
+      "rgb_pixel_sha256": "d8e5d347e834ba01ad46994b92e53cdea37ef7a2c2d7579b04fcda905e81bb15",
+      "recomputed_lower_scores": {
+        "character_identity_anatomy": "4.8",
+        "line_detail_completeness": "4.8",
+        "action_contact_staging": "4.8",
+        "balloon_text_clarity": "4.8",
+        "manga_composition": "4.7"
+      },
+      "page_mean_unrounded": "4.78"
+    },
+    {
+      "number": 15,
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_15_take1.png",
+      "sha256": "252085dcdbac0c309d1995166231216b001a596c3da40bfafc02f631388a72b6",
+      "rgb_pixel_sha256": "9b07f37aaee62084bbcacac53022cdb9b4c3cb5a1d631d8c1602a8fdf8015ed8",
+      "recomputed_lower_scores": {
+        "character_identity_anatomy": "4.8",
+        "line_detail_completeness": "4.8",
+        "action_contact_staging": "4.8",
+        "balloon_text_clarity": "4.8",
+        "manga_composition": "4.8"
+      },
+      "page_mean_unrounded": "4.8"
+    },
+    {
+      "number": 16,
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_16_take3.png",
+      "sha256": "a55ecc6bb0d221f146ec2141810251010d733a472990cdaeaa1616e3b38a21ee",
+      "rgb_pixel_sha256": "87e73e8d718bfe4c6ae335df0fde6bdbc969e8f7f8ea5252d15732371a7a6a1b",
+      "recomputed_lower_scores": {
+        "character_identity_anatomy": "4.8",
+        "line_detail_completeness": "4.8",
+        "action_contact_staging": "4.7",
+        "balloon_text_clarity": "3.8",
+        "manga_composition": "4.6"
+      },
+      "page_mean_unrounded": "4.54"
+    },
+    {
+      "number": 17,
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_17_take1.png",
+      "sha256": "781bc3d248d3c90d741de3bf5145f12ecd28dcc134fe0989a83551d40fbab087",
+      "rgb_pixel_sha256": "86d265b01f09120cfa6a5e7d444110d84871e315c13670b4383c8e566f9b0ee7",
+      "recomputed_lower_scores": {
+        "character_identity_anatomy": "4.1",
+        "line_detail_completeness": "4.8",
+        "action_contact_staging": "4.6",
+        "balloon_text_clarity": "4.9",
+        "manga_composition": "4.5"
+      },
+      "page_mean_unrounded": "4.58"
+    },
+    {
+      "number": 18,
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_18_take2.png",
+      "sha256": "078b22b5d88f152a07bc51988f66971b50726d078672c3278f458c43a0e5152b",
+      "rgb_pixel_sha256": "c6a7ee788aa6e510069629ac8e25ef06eca9e0c9ab0edf8a0117182b51b22657",
+      "recomputed_lower_scores": {
+        "character_identity_anatomy": "4.5",
+        "line_detail_completeness": "4.8",
+        "action_contact_staging": "4.5",
+        "balloon_text_clarity": "4.8",
+        "manga_composition": "4.6"
+      },
+      "page_mean_unrounded": "4.64"
+    },
+    {
+      "number": 19,
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_19_take1.png",
+      "sha256": "a728542d5bc194ff84a0d5adaccd3efe9fc2d1bb417f14352cc66567cfc05fb5",
+      "rgb_pixel_sha256": "ba17d316b75b66e56b0bcc394fafab0008c21ce62c944a80494c7a6b4f0a2b83",
+      "recomputed_lower_scores": {
+        "character_identity_anatomy": "4.6",
+        "line_detail_completeness": "4.8",
+        "action_contact_staging": "4.7",
+        "balloon_text_clarity": "4.8",
+        "manga_composition": "4.7"
+      },
+      "page_mean_unrounded": "4.72"
+    },
+    {
+      "number": 20,
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_20_take2.png",
+      "sha256": "8b0b0e5da21a6fe4f302f2b38e25a85be6c79da0ce075452b9ab4b7203b25d69",
+      "rgb_pixel_sha256": "1140c52b1a4d39dd5b25544e28951565ccc4b5cb9937850775bcb9aa1bbe2246",
+      "recomputed_lower_scores": {
+        "character_identity_anatomy": "4.7",
+        "line_detail_completeness": "4.7",
+        "action_contact_staging": "4.0",
+        "balloon_text_clarity": "4.8",
+        "manga_composition": "4.5"
+      },
+      "page_mean_unrounded": "4.54"
+    },
+    {
+      "number": 21,
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_21_take3.png",
+      "sha256": "40459dadaa2eef6cacc15121cfbb20206adcea9f467c34ff0c3485b69c3678db",
+      "rgb_pixel_sha256": "4b7fe875c80418d4c78e1676cccdcc8f0e068c1c528c82c7b1974b1c03333770",
+      "recomputed_lower_scores": {
+        "character_identity_anatomy": "4.5",
+        "line_detail_completeness": "4.6",
+        "action_contact_staging": "4.5",
+        "balloon_text_clarity": "3.5",
+        "manga_composition": "4.3"
+      },
+      "page_mean_unrounded": "4.28"
+    },
+    {
+      "number": 22,
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_22_take1.png",
+      "sha256": "bd5c8593c0e2f4b55dd7816dd84f2f41dce318880c676cf6f2d45047dfcb132e",
+      "rgb_pixel_sha256": "42319323214a9caa681257944dbe891d2b7fea7c1d4dd9a25adcc996875bc297",
+      "recomputed_lower_scores": {
+        "character_identity_anatomy": "4.4",
+        "line_detail_completeness": "4.7",
+        "action_contact_staging": "3.5",
+        "balloon_text_clarity": "4.8",
+        "manga_composition": "4.6"
+      },
+      "page_mean_unrounded": "4.4"
+    },
+    {
+      "number": 23,
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_23_take2.png",
+      "sha256": "305a985d9d19707135936117e1dfdde4ed7c53348c735e4a18a51e5a7591cd24",
+      "rgb_pixel_sha256": "bf0f320c17543a1f1176e6c301566e176c6e98067050de6578bb5eda7b6b80f7",
+      "recomputed_lower_scores": {
+        "character_identity_anatomy": "4.5",
+        "line_detail_completeness": "4.8",
+        "action_contact_staging": "4.5",
+        "balloon_text_clarity": "4.8",
+        "manga_composition": "4.7"
+      },
+      "page_mean_unrounded": "4.66"
+    },
+    {
+      "number": 24,
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_24_take3.png",
+      "sha256": "1821fe130cc0e916d5c8822d4ebd6023121ce0faceeec9e4fcc9adda915c958c",
+      "rgb_pixel_sha256": "0c9b981a94ed215cb73a8068c3b6dde1fe414afa749423060ba052083d2cb7d0",
+      "recomputed_lower_scores": {
+        "character_identity_anatomy": "4.5",
+        "line_detail_completeness": "4.8",
+        "action_contact_staging": "4.3",
+        "balloon_text_clarity": "4.8",
+        "manga_composition": "4.7"
+      },
+      "page_mean_unrounded": "4.62"
+    },
+    {
+      "number": 25,
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_25_take2.png",
+      "sha256": "a9c328c1bd1ad45a5378de3fcc1ddd86376fcbe4fb22b32d76322c1d8009a69e",
+      "rgb_pixel_sha256": "985f98cdc8ec86bcadc3def7beef495803074e2ef0ef67825caf6736880f8d5d",
+      "recomputed_lower_scores": {
+        "character_identity_anatomy": "4.7",
+        "line_detail_completeness": "4.8",
+        "action_contact_staging": "3.6",
+        "balloon_text_clarity": "4.8",
+        "manga_composition": "4.5"
+      },
+      "page_mean_unrounded": "4.48"
+    },
+    {
+      "number": 26,
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_26_take1.png",
+      "sha256": "df82ab99dc1a54c0b158801dfa7ca5df45648bc5c34c5f8d8e19f95cb07b1990",
+      "rgb_pixel_sha256": "5579dc777ba83803a6d038263ecde39183152b2eb47e6b9678a66cd107001850",
+      "recomputed_lower_scores": {
+        "character_identity_anatomy": "4.8",
+        "line_detail_completeness": "4.8",
+        "action_contact_staging": "4.8",
+        "balloon_text_clarity": "4.8",
+        "manga_composition": "4.7"
+      },
+      "page_mean_unrounded": "4.78"
+    },
+    {
+      "number": 27,
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_27_take3.png",
+      "sha256": "ea02564120295261c078938b30dcb52bd3615723892f59e944ee54a2d926cf88",
+      "rgb_pixel_sha256": "5544138b631d10fe3c49d4594356f7eb30bb698503a69434690e1be26c04c455",
+      "recomputed_lower_scores": {
+        "character_identity_anatomy": "4.6",
+        "line_detail_completeness": "4.8",
+        "action_contact_staging": "4.2",
+        "balloon_text_clarity": "4.5",
+        "manga_composition": "4.3"
+      },
+      "page_mean_unrounded": "4.48"
+    },
+    {
+      "number": 28,
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_28_take1.png",
+      "sha256": "3fca50bd33978d2507cbc1722da0da6ee1d1df242b658ada1f9b5e6590a54cea",
+      "rgb_pixel_sha256": "09598016190b559bd091a675120257925d6aa22259a61f4a08f65852c9fbe575",
+      "recomputed_lower_scores": {
+        "character_identity_anatomy": "4.7",
+        "line_detail_completeness": "4.8",
+        "action_contact_staging": "4.8",
+        "balloon_text_clarity": "4.8",
+        "manga_composition": "4.8"
+      },
+      "page_mean_unrounded": "4.78"
+    },
+    {
+      "number": 29,
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_29_take2.png",
+      "sha256": "3f1fc8182a7adf5c49ee53f4f3728e8f7dc52962c62cae1ce80b9d508911a695",
+      "rgb_pixel_sha256": "5eda9ec40f885843800f14afb0d94bf1c2f18d50d474a440c36a193049bd4f79",
+      "recomputed_lower_scores": {
+        "character_identity_anatomy": "4.3",
+        "line_detail_completeness": "4.8",
+        "action_contact_staging": "4.5",
+        "balloon_text_clarity": "4.8",
+        "manga_composition": "4.7"
+      },
+      "page_mean_unrounded": "4.62"
+    },
+    {
+      "number": 30,
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_30_take1.png",
+      "sha256": "5e2145a038f24cbf08ffb4f044a4b6f1d861f7c728ea9e2a28cb1ee2328196ca",
+      "rgb_pixel_sha256": "3250c0a2e1d41b42ebe0e8506f64afc521aaedbbaccefd849172e19bb3cf9d43",
+      "recomputed_lower_scores": {
+        "character_identity_anatomy": "4.6",
+        "line_detail_completeness": "4.8",
+        "action_contact_staging": "4.8",
+        "balloon_text_clarity": "4.8",
+        "manga_composition": "4.7"
+      },
+      "page_mean_unrounded": "4.74"
+    },
+    {
+      "number": 31,
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_31_take1.png",
+      "sha256": "d26cd93f6296ac66a093d32ef001b43d3ec40bd261a59d576aa8c676fe354172",
+      "rgb_pixel_sha256": "a2fd4817ce7d954c5b0b9d0ccc466626daa2aa9fa662c6c2e6c8614c735cee67",
+      "recomputed_lower_scores": {
+        "character_identity_anatomy": "4.4",
+        "line_detail_completeness": "4.8",
+        "action_contact_staging": "4.7",
+        "balloon_text_clarity": "4.8",
+        "manga_composition": "4.7"
+      },
+      "page_mean_unrounded": "4.68"
+    },
+    {
+      "number": 32,
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_32_take1.png",
+      "sha256": "6a6944574a2e20af92a4d7d1f164b4d09562c80cb14485d486b00a2451499dc8",
+      "rgb_pixel_sha256": "000c6074b2b63c6885a78ddb2dd04f5a2b52312a6b75797565d3fb89fba8b5b7",
+      "recomputed_lower_scores": {
+        "character_identity_anatomy": "4.8",
+        "line_detail_completeness": "4.8",
+        "action_contact_staging": "4.6",
+        "balloon_text_clarity": "4.8",
+        "manga_composition": "4.7"
+      },
+      "page_mean_unrounded": "4.74"
+    }
+  ],
+  "limits": "This receipt validates arithmetic and exact file/review bindings, not a fresh visual review of all32 source images. It does not mutate or override any raw observation. It establishes no owner, child, print, device, runtime, cinematic or global master-audit acceptance. PDF embedding/render review remains a separate pending lane."
+}

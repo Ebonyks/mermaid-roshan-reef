@@ -1,0 +1,27 @@
+{
+  "schema": "rumi_detective_source_revision_v1",
+  "recorded_at_utc": "2026-10-12T08:13:04.680660+00:00",
+  "reason": "Root production-staging correction: current frozen book identity has long brown waves; hat prop reference does not replace identity.",
+  "previous_script_sha256": "b3623441d31710e1afeda9298c0c74e7c3cc3b6b4c8627b7bf9b1b8bafcbf876",
+  "current_script_sha256": "ab77f7740592a82b9185c10eb22a7b85ff785726b2f9eb8f01158861d54db6cd",
+  "preserved_previous_script": {
+    "path": "assets_src/books/rumi_visual_detective_20261012/verification/story_snapshot_before_hair_word_fix.json",
+    "sha256": "b3623441d31710e1afeda9298c0c74e7c3cc3b6b4c8627b7bf9b1b8bafcbf876"
+  },
+  "changed_panel": "p02.4",
+  "change": {
+    "field": "stage",
+    "old_literal": "short wavy brown hair",
+    "new_literal": "long wavy brown hair"
+  },
+  "all_readable_entries_unchanged": true,
+  "all_other_panels_and_source_metadata_unchanged": true,
+  "all_other_pages_unchanged": true,
+  "manuscript": {
+    "path": "assets_src/books/rumi_visual_detective_20261012/MANUSCRIPT.txt",
+    "sha256": "38acb28035596b04f3f479f401cff7d407aaff90233ee6ade833bca186b12221",
+    "bytes_unchanged": true
+  },
+  "production_note": "Earlier referenced art calls may have begun with the previous complete-script hash while their source page JSON remained unchanged. Preserve that exact generation history; this receipt does not replace or fabricate prior hashes.",
+  "acceptance": "Production-stage wording correction only; artwork, owner, child and print acceptance remain separate."
+}

@@ -1,0 +1,830 @@
+{
+  "schema": "rumi_static_book_baseline_range_review_v1",
+  "edition": "rumi_visual_detective_20261012",
+  "reviewer": "/root/book_builder",
+  "review_date": "2026-10-12",
+  "status": "INDEPENDENT_BASELINE_REVIEW_COMPLETE_FINAL_TARGET_NOT_CLAIMED",
+  "scope": "Selected previous-edition native pages 1-16, inspected at full 1024x1536 RGB dimensions. This is an immutable before-improvement baseline, not final-edition selection or acceptance.",
+  "rubric": {
+    "path": "assets_src/books/rumi_visual_detective_20261012/QUALITY_RUBRIC.txt",
+    "sha256": "3f83261db2c6ecca74e1f54020a61795d86ba8262463cbfecfe04a8cf0ffde2a",
+    "increments": 0.1,
+    "category_weight": 0.2,
+    "category_names": [
+      "character_identity_anatomy",
+      "line_detail_completeness",
+      "action_contact_staging",
+      "balloon_text_clarity",
+      "manga_composition"
+    ],
+    "anchors": {
+      "5.0": "No visible defect in that category at native size.",
+      "4.5": "Polished with a small nonessential visible limitation.",
+      "4.0": "Clear and complete but noticeable repairable defects.",
+      "3.0": "Usable draft with substantial distracting defects.",
+      "2.0": "Significant story/readability failure.",
+      "1.0": "Unusable or missing content."
+    },
+    "five_point_category_scope": "A 5.0 is this reviewer’s no-observed-defect category grade under the commissioned static-book rubric. It does not grant owner/runtime visual 5/5 under DL-VIS-07.",
+    "final_aggregation_not_performed": "Final selection requires root and independent reviews; use the lower score in every category and then the unrounded 32-page mean. This baseline range is not that final calculation."
+  },
+  "source": {
+    "selection_path": "assets_src/books/rumi_voice_book_20261011/selected_art.json",
+    "selection_sha256": "0e875f78ffe6299c7c8a1ebd41f95b90ca04fe237a3105d06114c4f301329dee",
+    "script_path": "assets_src/books/rumi_voice_book_20261011/story_script.json",
+    "script_sha256": "febb9d5c7f6d82c29dcf8fa3556715577842b2284749fd2f1fea055a046d5967",
+    "previous_compact_pdf_sha256": "1f7a5c6b1627b0aa0e05ba28eae648f75998eefcef71b79b4dd94912e51c3ffd",
+    "all_16_native_byte_and_decoded_rgb_hashes_rechecked": true,
+    "all_native_dimensions": [
+      1024,
+      1536
+    ]
+  },
+  "inspection": {
+    "method": "tools.view_image with detail=original on every exact selected native page; read the frozen panel staging/entries for contact and speaker ownership.",
+    "full_size_pages_inspected": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16
+    ],
+    "defect_region_units": "Approximate descriptive pixel bounds in the full native page, not crop instructions or derived images.",
+    "distinguish_depth_softness": "Deliberate softness in small nonessential distant people is allowed; it is not scored as a blur defect merely for lacking foreground-level detail.",
+    "limitations": [
+      "Human-like qualitative agent assessment; no optical sharpness or child-reading test is claimed.",
+      "A partly hidden hand may belong to an off-panel supporter; unclear ownership is recorded instead of asserting an extra limb.",
+      "The page-16 tail has an ambiguous immediate landing despite a projected direction toward Roshan; wrong-speaker hard failure is not conclusively asserted."
+    ]
+  },
+  "authority": {
+    "rules_consulted": [
+      "DL-AUTH-05",
+      "DL-AUTH-06",
+      "DL-AUTH-07",
+      "DL-VIS-01",
+      "DL-VIS-02",
+      "DL-VIS-03",
+      "DL-VIS-04",
+      "DL-VIS-05",
+      "DL-VIS-06",
+      "DL-VIS-07",
+      "DL-ASSET-01",
+      "DL-ASSET-02",
+      "DL-ASSET-03",
+      "DL-ASSET-05",
+      "DL-ASSET-06",
+      "DL-ASSET-08"
+    ],
+    "sources": [
+      "audit/MASTER_AUDIT_2026-08-09.md#0-planning-entry",
+      "audit/MASTER_AUDIT_2026-08-09.md#development-task-index",
+      "design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md",
+      "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
+      "design/05_DOC_LEDGER.md",
+      "design/AUDIT_DEVELOPMENT_CONTRACT.md"
+    ],
+    "findings_repaired": [],
+    "no_findings_reason": "Independent static-book source review does not implement a game repair or close a canonical finding. MA-DOC-008 identity precedence and game-wide visual acceptance boundaries remain applicable context, not closure claims.",
+    "impact_owner": "/root covers this exact new JSON path in the task’s audit-impact record."
+  },
+  "pages": [
+    {
+      "number": 1,
+      "source": {
+        "number": 1,
+        "take": 1,
+        "path": "assets_src/books/rumi_voice_book_20261011/native/page_01_take1.png",
+        "sha256": "da123e2196a887725b7e82abac7c2beaa1cd861a9c48b6abe0a300d99bf41bb9",
+        "rgb_pixel_sha256": "c0c81a579891d2a013c49eb6bda5f8829aa1a4415990a061e5239fe9bbe386ea",
+        "dimensions": [
+          1024,
+          1536
+        ]
+      },
+      "scores": {
+        "character_identity_anatomy": 5,
+        "line_detail_completeness": 5,
+        "action_contact_staging": 5,
+        "balloon_text_clarity": 5,
+        "manga_composition": 5
+      },
+      "page_mean": 5,
+      "observations": [
+        "Cover: all five lead identities read clearly; Roshan's rainbow forelock and attached forked tail, Rumi's braid, Hana's red hair, Nari's bob/crescent and Duri's floral shell are distinct.",
+        "Foreground faces, open hands, outfit motifs and title/subtitle lettering have clean finished contours. Tiny city passengers remain background depth.",
+        "The ensemble, large title and curved bridge/stage establish a clear cover hierarchy; no material focal defect observed."
+      ],
+      "defects": []
+    },
+    {
+      "number": 2,
+      "source": {
+        "number": 2,
+        "take": 2,
+        "path": "assets_src/books/rumi_voice_book_20261011/native/page_02_take2.png",
+        "sha256": "a751e8a1634888b16a6856e989dde9f12d167d1def4ff1a2bc1645af0a4759d6",
+        "rgb_pixel_sha256": "b59ba4931370e6f1d466edfc9377a954449d4ef5100a6f10dabdcd94eb7aba4c",
+        "dimensions": [
+          1024,
+          1536
+        ]
+      },
+      "scores": {
+        "character_identity_anatomy": 5,
+        "line_detail_completeness": 5,
+        "action_contact_staging": 5,
+        "balloon_text_clarity": 4.8,
+        "manga_composition": 5
+      },
+      "page_mean": 4.96,
+      "observations": [
+        "P1 pool-edge hands, rainbow-tail surfaces and fountain fixture are sharply resolved.",
+        "P2 Roshan's request and P3 Rumi's listening/reassurance are expressive and unobscured.",
+        "All source words are visible; P3 has a small attribution limitation on the final Rumi balloon."
+      ],
+      "defects": [
+        {
+          "id": "B02-TEXT-01",
+          "panel": 3,
+          "region_native_px": [
+            697,
+            1165,
+            977,
+            1385
+          ],
+          "severity": "small_nonessential",
+          "category": "balloon_text_clarity",
+          "observation": "The final Rumi balloon has no clearly visible outward tail. Its placement beside Rumi makes the speaker inferable, but the attribution is less immediate than the two preceding balloons.",
+          "recommendation": "If revisiting this page for another named gap, give this balloon a short clear tail toward Rumi without crossing her face or hand.",
+          "hard_fail": false
+        }
+      ]
+    },
+    {
+      "number": 3,
+      "source": {
+        "number": 3,
+        "take": 1,
+        "path": "assets_src/books/rumi_voice_book_20261011/native/page_03_take1.png",
+        "sha256": "521c4628894d258637581bd1554e086d595d125741a0c95699db0e54f2568049",
+        "rgb_pixel_sha256": "8641e558fca7090c543d057c5ced20bb626203ccc965e5f197292c548096157c",
+        "dimensions": [
+          1024,
+          1536
+        ]
+      },
+      "scores": {
+        "character_identity_anatomy": 4.8,
+        "line_detail_completeness": 5,
+        "action_contact_staging": 5,
+        "balloon_text_clarity": 5,
+        "manga_composition": 4.8
+      },
+      "page_mean": 4.92,
+      "observations": [
+        "P1 finished bridge, tram, shops, fountains and stage establish the same under-pool neighbourhood; depth-softened small inhabitants are permitted background detail.",
+        "P2 baker tray, tailor ribbons and Duri's flippers are legible, purposeful details.",
+        "P3 the moving water/leaf, Roshan's reaction and Rumi's reaching hand make the current warning readable."
+      ],
+      "defects": [
+        {
+          "id": "B03-SILHOUETTE-01",
+          "panel": 1,
+          "region_native_px": [
+            0,
+            350,
+            464,
+            609
+          ],
+          "severity": "small_nonessential",
+          "category": "character_identity_anatomy",
+          "observation": "The four travelling mermaids' overlapping lower tails make the individual tail-to-body routes less immediate than their clearly separated faces/outfits.",
+          "recommendation": "Preserve the cast and wide city view; only if a future page repair is otherwise needed, separate the tail silhouettes through pose/occlusion clarity rather than added decoration.",
+          "hard_fail": false
+        }
+      ]
+    },
+    {
+      "number": 4,
+      "source": {
+        "number": 4,
+        "take": 1,
+        "path": "assets_src/books/rumi_voice_book_20261011/native/page_04_take1.png",
+        "sha256": "f737afc432874affb05220356da67cee6d8e1c027e9b5dc35ed7d9454d871de0",
+        "rgb_pixel_sha256": "8ecab340ea3b64ce0ffcee7f1722275db2474d11ed5c24872746ebe18f9a33c5",
+        "dimensions": [
+          1024,
+          1536
+        ]
+      },
+      "scores": {
+        "character_identity_anatomy": 5,
+        "line_detail_completeness": 5,
+        "action_contact_staging": 4.8,
+        "balloon_text_clarity": 5,
+        "manga_composition": 4.9
+      },
+      "page_mean": 4.94,
+      "observations": [
+        "P1 Duri's invitation, shell and bag read clearly; foreground mermaid faces/hands are complete.",
+        "P2 imp costumes, shoes, fan ribs and hands are finished; dialogue attribution is clear.",
+        "P3 the imps leaving while Duri still requests passage is a distinct consequence beat."
+      ],
+      "defects": [
+        {
+          "id": "B04-GEOGRAPHY-01",
+          "panel": 3,
+          "region_native_px": [
+            286,
+            1130,
+            723,
+            1478
+          ],
+          "severity": "small_nonessential",
+          "category": "action_contact_staging",
+          "observation": "The fan's lower pivot/support and its relationship to Duri's route are less immediately readable in the wide departure view than in the later rescue close-ups. The oblique fan/rail surfaces overlap.",
+          "recommendation": "If this setup is redrawn for a named gap, retain one plainly visible mounted pivot and an unmistakable delivery opening below it.",
+          "hard_fail": false
+        }
+      ]
+    },
+    {
+      "number": 5,
+      "source": {
+        "number": 5,
+        "take": 1,
+        "path": "assets_src/books/rumi_voice_book_20261011/native/page_05_take1.png",
+        "sha256": "76ac7535dacaec9d1ab66d2eb6586987412e787420318ece80cf984e4fa79fed",
+        "rgb_pixel_sha256": "a8cdffd696ecd11b19bcb388d4afcc017c779916a29e7cc381e56f5de04ea9de",
+        "dimensions": [
+          1024,
+          1536
+        ]
+      },
+      "scores": {
+        "character_identity_anatomy": 5,
+        "line_detail_completeness": 5,
+        "action_contact_staging": 5,
+        "balloon_text_clarity": 5,
+        "manga_composition": 5
+      },
+      "page_mean": 5,
+      "observations": [
+        "P1 Hana's dancing silhouette, Rumi's gesturing hands and Nari's drum are clean and distinct.",
+        "P2 the enlarged dance/drum interruption and P3 Roshan's interrupted attempt use meaningful changes in scale and expression.",
+        "All required dialogue is legible with understandable speaker tails; no material focal blur, unfinished hand or missing contact observed."
+      ],
+      "defects": []
+    },
+    {
+      "number": 6,
+      "source": {
+        "number": 6,
+        "take": 2,
+        "path": "assets_src/books/rumi_voice_book_20261011/native/page_06_take2.png",
+        "sha256": "b2c5938b1a3bd1f1f705e5095d0ca07c7044faefdc154e56fcee8a750f522ac1",
+        "rgb_pixel_sha256": "40810339f5d98bf6816b2eb4a3c3093f0d774658684fd2a5f99a96fce0697419",
+        "dimensions": [
+          1024,
+          1536
+        ]
+      },
+      "scores": {
+        "character_identity_anatomy": 5,
+        "line_detail_completeness": 5,
+        "action_contact_staging": 5,
+        "balloon_text_clarity": 5,
+        "manga_composition": 5
+      },
+      "page_mean": 5,
+      "observations": [
+        "P1 Roshan's raised hand/request contrasts with her friends' applause; all main faces and hand contours are crisp.",
+        "P2 BOOM and the drum dominate the interruption; the narration remains readable without covering the main acting.",
+        "P3 the dark bridge opening, off-panel Help burst, drifting bell and Roshan's listening close-up direct the eye to a new problem. No material focal defect observed."
+      ],
+      "defects": []
+    },
+    {
+      "number": 7,
+      "source": {
+        "number": 7,
+        "take": 2,
+        "path": "assets_src/books/rumi_voice_book_20261011/native/page_07_take2.png",
+        "sha256": "3a544e0b74b30fe85676f7f0528ddc658495a54f77ab404d4a622be82a098e01",
+        "rgb_pixel_sha256": "b8175aeb863fc64635295db026d48a59202cbafb55e7e814c2b90fb9ee6659e9",
+        "dimensions": [
+          1024,
+          1536
+        ]
+      },
+      "scores": {
+        "character_identity_anatomy": 5,
+        "line_detail_completeness": 4.5,
+        "action_contact_staging": 4.7,
+        "balloon_text_clarity": 5,
+        "manga_composition": 4.7
+      },
+      "page_mean": 4.779999999999999,
+      "observations": [
+        "P1 raised stop hand and the trio turning away are clear; P2 the listening exchange has visible faces and correct text.",
+        "P3 all three friends follow Roshan down; their main swimming poses remain readable.",
+        "The far-right taper above the drifting bell has unclear attachment/identity. It is not a recognizable rainbow candle."
+      ],
+      "defects": [
+        {
+          "id": "B07-OBJECT-01",
+          "panel": 3,
+          "region_native_px": [
+            889,
+            1065,
+            1019,
+            1460
+          ],
+          "severity": "noticeable_nonessential",
+          "category": "line_detail_completeness",
+          "observation": "A long rainbow-coloured tapered fin/ribbon-like element descends at the far right above the gold bell, with its upper attachment obscured. It can read as an unexplained detached tail or streamer.",
+          "recommendation": "Clarify what this existing element is and show its legitimate attachment, or locally remove the unrelated taper while retaining the drifting bell and the same swimming action. Do not reinterpret it as a discovered candle.",
+          "hard_fail": false
+        }
+      ]
+    },
+    {
+      "number": 8,
+      "source": {
+        "number": 8,
+        "take": 2,
+        "path": "assets_src/books/rumi_voice_book_20261011/native/page_08_take2.png",
+        "sha256": "05cbf1f7bfac9160de6567a793149ca048a4fab0bcd07686c3058c0810708dce",
+        "rgb_pixel_sha256": "e83364f51468480aa67757789b79395d4e39bbb3afe60c3012d603d2a5f5c07c",
+        "dimensions": [
+          1024,
+          1536
+        ]
+      },
+      "scores": {
+        "character_identity_anatomy": 5,
+        "line_detail_completeness": 5,
+        "action_contact_staging": 4.9,
+        "balloon_text_clarity": 4.5,
+        "manga_composition": 5
+      },
+      "page_mean": 4.88,
+      "observations": [
+        "P1 Duri beneath the fan and the caught bag/peg relationship are visible; no missing focal anatomy observed.",
+        "P2 the friends approach at ledge level and Duri explains the problem; P3 Hana's lift changes the strap tension and Duri reacts.",
+        "All words are present; the source-order variation in P2 is visible."
+      ],
+      "defects": [
+        {
+          "id": "B08-ORDER-01",
+          "panel": 2,
+          "region_native_px": [
+            374,
+            562,
+            843,
+            780
+          ],
+          "severity": "noticeable_nonessential",
+          "category": "balloon_text_clarity",
+          "observation": "The upper-left Rumi bubble reads before the upper-right Duri explanation, whereas the frozen manuscript lists Duri's explanation then Rumi's response. This matches the prior edition's documented order variation; no words are missing.",
+          "recommendation": "For the revised edition, place Duri's explanation first in the reading path, then Rumi's response, keeping faces and the caught strap visible.",
+          "hard_fail": false
+        }
+      ]
+    },
+    {
+      "number": 9,
+      "source": {
+        "number": 9,
+        "take": 3,
+        "path": "assets_src/books/rumi_voice_book_20261011/native/page_09_take3.png",
+        "sha256": "013c7ee2e14e2527243bc97cce8df6f8aaacaf0b227e1bb7c3e772f5ad9d46ee",
+        "rgb_pixel_sha256": "0e4f0b2488f8fcd1113aeb86c57ac1ef1fce700c531f6980cb5e8c04e6a80c1f",
+        "dimensions": [
+          1024,
+          1536
+        ]
+      },
+      "scores": {
+        "character_identity_anatomy": 5,
+        "line_detail_completeness": 5,
+        "action_contact_staging": 5,
+        "balloon_text_clarity": 5,
+        "manga_composition": 5
+      },
+      "page_mean": 5,
+      "observations": [
+        "P1 Roshan's stop hand, Hana's fan grip and Duri's tense expression are crisp.",
+        "P2 Hana pauses/turns toward Roshan; P3 she visibly listens to Duri while the fan remains supported.",
+        "The two requests and Hana's stopping response read in the correct sequence. No material focal detail/contact defect observed."
+      ],
+      "defects": []
+    },
+    {
+      "number": 10,
+      "source": {
+        "number": 10,
+        "take": 2,
+        "path": "assets_src/books/rumi_voice_book_20261011/native/page_10_take2.png",
+        "sha256": "85e0941653b29aedaccb733a1d4e2f245def9e264caacfce95b90ba1d044ef3d",
+        "rgb_pixel_sha256": "3358d756866f43cef9d54ec7a6088eb80282a26bec8e357155cdf3a33f1ec122",
+        "dimensions": [
+          1024,
+          1536
+        ]
+      },
+      "scores": {
+        "character_identity_anatomy": 5,
+        "line_detail_completeness": 5,
+        "action_contact_staging": 4,
+        "balloon_text_clarity": 5,
+        "manga_composition": 4.6
+      },
+      "page_mean": 4.720000000000001,
+      "observations": [
+        "P1 Duri's indicated loop/peg and Roshan's push are legible; Hana's higher bracing hands have clear contact.",
+        "P3 the slack strap is held off the peg, with Roshan's other hand supporting the low edge; both identities and dialogue are clear.",
+        "P2 Rumi's support role is obscured by Roshan and her visible nearer hand appears at Roshan's waist rather than the fan edge."
+      ],
+      "defects": [
+        {
+          "id": "B10-CONTACT-01",
+          "panel": 2,
+          "region_native_px": [
+            496,
+            752,
+            648,
+            974
+          ],
+          "severity": "material_role_visibility",
+          "category": "action_contact_staging",
+          "observation": "The frozen staging requires Rumi supporting the low fan edge with both hands. In P2 her visible nearer hand is at Roshan's hip/back, while a second fan-edge grip is not clearly shown. The fan is still supported overall, but Rumi's named physical contribution is not evident.",
+          "recommendation": "Make Rumi's two fan-edge grips and their attached forearms/cuffs clearly visible without deleting Roshan's base push or Hana's upper support.",
+          "hard_fail": "REVIEW_REQUIRED_NOT_PROVEN_BROKEN_CONTACT"
+        }
+      ]
+    },
+    {
+      "number": 11,
+      "source": {
+        "number": 11,
+        "take": 1,
+        "path": "assets_src/books/rumi_voice_book_20261011/native/page_11_take1.png",
+        "sha256": "6040390fdfe8cecc92cca794e61524a205537cc6929b05cdacc5f49c104cce7e",
+        "rgb_pixel_sha256": "d74e072fe563df6084c44e35aa81ff47de2784cce2b8f0664053b5612015e827",
+        "dimensions": [
+          1024,
+          1536
+        ]
+      },
+      "scores": {
+        "character_identity_anatomy": 4.4,
+        "line_detail_completeness": 4.5,
+        "action_contact_staging": 4.3,
+        "balloon_text_clarity": 5,
+        "manga_composition": 4.6
+      },
+      "page_mean": 4.56,
+      "observations": [
+        "P1 Nari's tram warning, Roshan's two low-edge grips and the moving water establish the current pressure clearly.",
+        "P2 the fan swings and Roshan strains; three separate hand-like grips appear along the bar.",
+        "P3 Rumi joins visibly beside Roshan, Hana braces the upright edge and Duri remains beneath the supported opening."
+      ],
+      "defects": [
+        {
+          "id": "B11-GRIP-01",
+          "panel": 2,
+          "region_native_px": [
+            446,
+            773,
+            681,
+            940
+          ],
+          "severity": "material_anatomy_contact_ambiguity",
+          "category": "character_identity_anatomy",
+          "observation": "Three separate hand-like grips are visible, but only Roshan's figure/arms are clearly depicted in this strip. The rightmost grip has no clear visible owner/cuff connection. Rumi already supports the low edge in the source staging, so this could be her off-panel hand; it is not conclusively an extra Roshan limb.",
+          "recommendation": "Show the rightmost grip's correct owner with a clear Rumi cuff/forearm connection or a meaningful framing adjustment in a newly drawn page. Preserve the required support and do not delete a legitimate Rumi grip merely to reduce hand count.",
+          "hard_fail": "REVIEW_REQUIRED_FOCAL_OWNERSHIP_AMBIGUITY"
+        }
+      ]
+    },
+    {
+      "number": 12,
+      "source": {
+        "number": 12,
+        "take": 2,
+        "path": "assets_src/books/rumi_voice_book_20261011/native/page_12_take2.png",
+        "sha256": "6d7f6e8f0c4d1a6f6f66ab50c6f3fc0f6a149a84f566ab71deb94e595f75f3b8",
+        "rgb_pixel_sha256": "c95835ff25db66262f2b79c6af613b2af09be0735ba9a69d5c4991b101c9b5b5",
+        "dimensions": [
+          1024,
+          1536
+        ]
+      },
+      "scores": {
+        "character_identity_anatomy": 5,
+        "line_detail_completeness": 5,
+        "action_contact_staging": 5,
+        "balloon_text_clarity": 5,
+        "manga_composition": 5
+      },
+      "page_mean": 5,
+      "observations": [
+        "P1 Roshan/Rumi grip the low edge, Hana grips the raised side and Nari signals; the opening is clearly supported.",
+        "P2 Duri swims out with four attached flippers and bag; P3 the fan rests down and the friends visibly relax.",
+        "Faces, hands, fan surfaces, flippers, bell and lettering are clean and complete. No material focal defect observed."
+      ],
+      "defects": []
+    },
+    {
+      "number": 13,
+      "source": {
+        "number": 13,
+        "take": 1,
+        "path": "assets_src/books/rumi_voice_book_20261011/native/page_13_take1.png",
+        "sha256": "a2b7f62f3e8e0a2dfe9211302b69cf32d502f6143a5f1e0cdcd5286b3d5caa7e",
+        "rgb_pixel_sha256": "92399bd7231909d1f794cb5d12bd5833b2805aba4cad424bf050fafa536f9b1a",
+        "dimensions": [
+          1024,
+          1536
+        ]
+      },
+      "scores": {
+        "character_identity_anatomy": 4.5,
+        "line_detail_completeness": 5,
+        "action_contact_staging": 5,
+        "balloon_text_clarity": 5,
+        "manga_composition": 5
+      },
+      "page_mean": 4.9,
+      "observations": [
+        "P1 Duri's recounting has clear speaker ownership; P2 Roshan's shaken expression and Hana's acknowledgement are sharply drawn.",
+        "P3 bathhouse arrival and the rest request establish a meaningful recovery location.",
+        "The only named visible limitation is continuity of the bag-front motif."
+      ],
+      "defects": [
+        {
+          "id": "B13-PROP-01",
+          "panel": 1,
+          "region_native_px": [
+            31,
+            395,
+            217,
+            513
+          ],
+          "severity": "small_nonessential",
+          "category": "character_identity_anatomy",
+          "observation": "Duri's mailbag front is depicted with a small star/clasp motif instead of the earlier large shell relief. The brown courier bag and shell charm remain recognizable, but the bound prop details drift.",
+          "recommendation": "Keep the bag's established shell-front motif consistent in any new-version correction, preserving its position, strap and Duri's pose.",
+          "hard_fail": false
+        }
+      ]
+    },
+    {
+      "number": 14,
+      "source": {
+        "number": 14,
+        "take": 1,
+        "path": "assets_src/books/rumi_voice_book_20261011/native/page_14_take1.png",
+        "sha256": "5b4e8f69b291f597dd686514ee4fd780c9f2fd5a59cd499be9e8230f104fa5c4",
+        "rgb_pixel_sha256": "d8e5d347e834ba01ad46994b92e53cdea37ef7a2c2d7579b04fcda905e81bb15",
+        "dimensions": [
+          1024,
+          1536
+        ]
+      },
+      "scores": {
+        "character_identity_anatomy": 5,
+        "line_detail_completeness": 5,
+        "action_contact_staging": 5,
+        "balloon_text_clarity": 5,
+        "manga_composition": 5
+      },
+      "page_mean": 5,
+      "observations": [
+        "P1 cups, hands, food and towel handling have finished linework; deliberate distant-bather softness does not obscure the lead group.",
+        "P2 Roshan speaks while Rumi listens, with both complete faces and clear hand gestures.",
+        "P3 each friend owns her apology with readable tails; the composition centers Roshan listening. No material focal defect observed."
+      ],
+      "defects": []
+    },
+    {
+      "number": 15,
+      "source": {
+        "number": 15,
+        "take": 1,
+        "path": "assets_src/books/rumi_voice_book_20261011/native/page_15_take1.png",
+        "sha256": "252085dcdbac0c309d1995166231216b001a596c3da40bfafc02f631388a72b6",
+        "rgb_pixel_sha256": "9b07f37aaee62084bbcacac53022cdb9b4c3cb5a1d631d8c1602a8fdf8015ed8",
+        "dimensions": [
+          1024,
+          1536
+        ]
+      },
+      "scores": {
+        "character_identity_anatomy": 5,
+        "line_detail_completeness": 5,
+        "action_contact_staging": 5,
+        "balloon_text_clarity": 5,
+        "manga_composition": 5
+      },
+      "page_mean": 5,
+      "observations": [
+        "P1 warm/cool fountain distinction and Roshan's pointing request are clear.",
+        "P2 offered folded towel and Roshan's open refusal hands are visible; the question precedes the reply by vertical placement.",
+        "P3 Hana places the towel beside Roshan and Nari makes a deliberate bunny-ear joke. Food, towel folds, faces, fingers and required lettering are crisp; no material focal defect observed."
+      ],
+      "defects": []
+    },
+    {
+      "number": 16,
+      "source": {
+        "number": 16,
+        "take": 3,
+        "path": "assets_src/books/rumi_voice_book_20261011/native/page_16_take3.png",
+        "sha256": "a55ecc6bb0d221f146ec2141810251010d733a472990cdaeaa1616e3b38a21ee",
+        "rgb_pixel_sha256": "87e73e8d718bfe4c6ae335df0fde6bdbc969e8f7f8ea5252d15732371a7a6a1b",
+        "dimensions": [
+          1024,
+          1536
+        ]
+      },
+      "scores": {
+        "character_identity_anatomy": 5,
+        "line_detail_completeness": 5,
+        "action_contact_staging": 5,
+        "balloon_text_clarity": 4.3,
+        "manga_composition": 4.6
+      },
+      "page_mean": 4.779999999999999,
+      "observations": [
+        "P1 Hana's attached folded fin, all four seated silhouettes and face gestures are clear; P2 Roshan's solo/answer exchange reads correctly.",
+        "P3 foreground food and the group's listening faces are finished, but the request-bubble tail has ambiguous attribution.",
+        "The new detective montage is not present in this earlier edition; its addition is a new story/art gap, not a retroactive baseline visual defect."
+      ],
+      "defects": [
+        {
+          "id": "B16-TAIL-01",
+          "panel": 3,
+          "region_native_px": [
+            551,
+            1052,
+            681,
+            1188
+          ],
+          "severity": "material_attribution_ambiguity",
+          "category": "balloon_text_clarity",
+          "observation": "Roshan's 'Can we try it again at supper?' balloon is centered above Hana/Nari and its pointed tail tip overlaps Nari's towel near x630,y1150. The down-right projected direction could reach Roshan, but the immediate tip/placement can assign the request to the wrong nearby friend.",
+          "recommendation": "Give the request a short unambiguous tail/placement at Roshan's face without crossing Nari's towel or another actor. Preserve Roshan's required ownership of this chosen turn.",
+          "hard_fail": "REVIEW_REQUIRED_POTENTIAL_WRONG_SPEAKER"
+        }
+      ]
+    }
+  ],
+  "range_summary": {
+    "page_count": 16,
+    "category_means": {
+      "character_identity_anatomy": 4.918749999999999,
+      "line_detail_completeness": 4.9375,
+      "action_contact_staging": 4.856249999999999,
+      "balloon_text_clarity": 4.9125,
+      "manga_composition": 4.8875
+    },
+    "unrounded_range_mean": 4.9025,
+    "min_page_mean": 4.56,
+    "named_defect_count": 9,
+    "unresolved_material_review_pages": [
+      10,
+      11,
+      16
+    ],
+    "whole_book_target_pass_claimed": false,
+    "reason": "Only baseline pages 1-16 are scored here. New hidden-candle/detective-montage gaps and final paired category reviews remain outside this receipt."
+  },
+  "highest_leverage_corrections": [
+    {
+      "priority": 1,
+      "pages": [
+        10
+      ],
+      "defect_ids": [
+        "B10-CONTACT-01"
+      ],
+      "purpose": "Make Rumi’s required two-handed low-edge support explicit; retain Roshan’s push and Hana’s high support."
+    },
+    {
+      "priority": 2,
+      "pages": [
+        11
+      ],
+      "defect_ids": [
+        "B11-GRIP-01"
+      ],
+      "purpose": "Resolve ownership of the third bar grip through an attached arm/cuff, preserving legitimate Rumi support rather than blindly deleting a hand."
+    },
+    {
+      "priority": 3,
+      "pages": [
+        16
+      ],
+      "defect_ids": [
+        "B16-TAIL-01"
+      ],
+      "purpose": "Make Roshan unmistakably own the supper rehearsal request; avoid a tail landing on Nari’s towel."
+    },
+    {
+      "priority": 4,
+      "pages": [
+        8
+      ],
+      "defect_ids": [
+        "B08-ORDER-01"
+      ],
+      "purpose": "Restore Duri explanation then Rumi response in the balloon reading path."
+    },
+    {
+      "priority": 5,
+      "pages": [
+        13
+      ],
+      "defect_ids": [
+        "B13-PROP-01"
+      ],
+      "purpose": "Restore Duri’s shell-front courier bag motif when that page otherwise needs a new-edition correction."
+    },
+    {
+      "priority": 6,
+      "pages": [
+        7
+      ],
+      "defect_ids": [
+        "B07-OBJECT-01"
+      ],
+      "purpose": "Clarify the far-right rainbow taper’s identity/attachment so it does not look like an accidental detached tail or mystery object."
+    }
+  ],
+  "candle_and_montage_sweep": {
+    "pages_reviewed": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16
+    ],
+    "recognizable_rainbow_candle_found": false,
+    "accidental_candle_discovery_claimed": false,
+    "ordinary_warm_gold_lighting": "Page 2 and bathhouse pages have ordinary gold lamps/candle-like lights; no rainbow wax cylinder with wick/flame was identified.",
+    "ambiguous_object_like_glow": [
+      {
+        "page": 7,
+        "panel": 3,
+        "defect_id": "B07-OBJECT-01",
+        "description": "Rainbow taper above a gold bell; fin/streamer-like, not a recognizable candle."
+      }
+    ],
+    "detective_hat_montage_present_in_prior_pages": false,
+    "new_scope_gap": "Hidden rainbow candle and detective-hat montage require separately authored new-edition staging/art. Their absence is not used to lower an unchanged earlier edition’s baseline scores.",
+    "canon_boundary": "The prior book’s castle candle remains missing. This receipt does not discover it, recover it, or change the Ember King’s motive."
+  },
+  "preservation": {
+    "original_artwork_changed": false,
+    "old_manuscript_changed": false,
+    "old_pdf_changed": false,
+    "source_images_cropped_resized_or_sharpened": false,
+    "generation_calls": 0,
+    "ci_run": false,
+    "baseline_scores_must_not_be_revised_to_claim_improvement": true
+  },
+  "not_claimed": [
+    "Owner acceptance",
+    "Child acceptance",
+    "Print acceptance",
+    "Runtime/game visual acceptance",
+    "A final 32-page 4.7 score",
+    "Machine-measured blur or anatomy",
+    "Finding closure"
+  ]
+}

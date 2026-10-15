@@ -1,0 +1,33 @@
+{
+  "page": 29,
+  "take": 2,
+  "method": "built-in image_gen.imagegen",
+  "provider_path": "C:\\Users\\Peter\\.codex\\generated_images\\01a1283f-6f19-7422-8dfe-1625809a3d63\\exec-0fff1e4b-5bd0-4fbe-9fb9-2f647cd5ce95.png",
+  "path": "assets_src/books/rumi_voice_book_20261011/native/page_29_take2.png",
+  "sha256": "3f1fc8182a7adf5c49ee53f4f3728e8f7dc52962c62cae1ce80b9d508911a695",
+  "provider_sha256": "3f1fc8182a7adf5c49ee53f4f3728e8f7dc52962c62cae1ce80b9d508911a695",
+  "rgb_pixel_sha256": "5eda9ec40f885843800f14afb0d94bf1c2f18d50d474a440c36a193049bd4f79",
+  "dimensions": [
+    1024,
+    1536
+  ],
+  "native_mode": "RGB",
+  "prompt": "Use case: precise-object-edit. Apply ONLY one small speech-balloon tail correction to the supplied complete native portrait manga page29. In the FINAL BOTTOM PANEL the balloon with exact existing text 'All right. We're listening.' belongs to the PERFORMER, the purple imp in a PURPLE GLITTER jacket at the far RIGHT, not the Magician in NAVY top hat to his left. Move only that balloon's small tail so its tip points unmistakably to the purple glitter Performer's mouth/face on the right. Remove the old tail aimed at Magician. Retain the same exact words, typography, balloon body, its clear space above heads, all characters/poses/hands/fins/microphone, every other balloon and caption, and all of the first two panels. Keep the complete original 1024x1536 page frame, with no crop, resize, added labels or unrelated edits. Only the final balloon tail attribution changes.",
+  "prompt_sha256": "99f3a83e1126f4497b6b2fd7126625a970e922088a800cb517d80e6c919328e1",
+  "script_sha256": "febb9d5c7f6d82c29dcf8fa3556715577842b2284749fd2f1fea055a046d5967",
+  "references": [
+    {
+      "role": "edit_target",
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_29_take1.png",
+      "sha256": "ededaa45d57b92a8b7080a693308995c86c0deee168d1d38fe21140771b25478"
+    }
+  ],
+  "modifications": "Bounded local ImageGen repair of same newly authored page: final All right speech tail now points only to Performer; preserve source words/full frame, no crop/resize/overlays or other-page pixel reuse. Provider edits may change colour samples outside target; no unchanged-pixel claim.",
+  "provider_revision": "not exposed",
+  "request_id": "not exposed",
+  "seed": "not exposed",
+  "reported_cost": "not exposed",
+  "call_count": 1,
+  "selection": "REVIEW_PENDING",
+  "license_provenance": "Owner-commissioned original project source candidate generated with built-in ImageGen; original project sources used as identity/setting guidance. No copied third-party scene pixels."
+}

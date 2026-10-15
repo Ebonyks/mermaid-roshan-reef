@@ -1,0 +1,90 @@
+{
+  "script_sha256": "ab77f7740592a82b9185c10eb22a7b85ff785726b2f9eb8f01158861d54db6cd",
+  "jobs": [
+    {
+      "page": 2,
+      "gap": "New frozen story moments, unique hat/light-test preparation and linked city arrival",
+      "prompt_file": "assets_src/books/rumi_visual_detective_20261012/prompts/page_02_take1.txt",
+      "prompt_sha256": "f4ea5a9215999a375d3e5ae2a5f61db555d8c35805504032ef16129e2f1e8e6a",
+      "references_file": "assets_src/books/rumi_visual_detective_20261012/prompts/page_02_take1_references.json",
+      "max_takes": 2,
+      "status": "GENERATED_REVIEWED",
+      "actual_calls": 1,
+      "selected_take": 1,
+      "native_takes": [
+        {
+          "take": 1,
+          "sha256": "3edc3778d3a6a43719c7ae1a9dea0ca20bf0137667d0a536a4d75e67fa42b1eb",
+          "selection": "SELECTED_AGENT_REVIEW_CANDIDATE"
+        }
+      ]
+    },
+    {
+      "page": 3,
+      "gap": "New frozen story moments, unique hat/light-test preparation and linked city arrival",
+      "prompt_file": "assets_src/books/rumi_visual_detective_20261012/prompts/page_03_take1.txt",
+      "prompt_sha256": "30c0a1b27e71d796149aa4b472b7d9996c98a242fc0ca8c844a257c02e7a3f1f",
+      "references_file": "assets_src/books/rumi_visual_detective_20261012/prompts/page_03_take1_references.json",
+      "max_takes": 2,
+      "status": "GENERATED_REVIEWED",
+      "actual_calls": 2,
+      "selected_take": 2,
+      "native_takes": [
+        {
+          "take": 1,
+          "sha256": "26a2e1243b66b5d2826185a309d3c2f246a9ea1ac4a6c420f0adbfbeb2961e9a",
+          "selection": "REJECTED_PRESERVED_NOT_IN_PDF"
+        },
+        {
+          "take": 2,
+          "sha256": "cab40daad54fa84fcd5016f0a39a0a0a62fd7b0b0af2b6daf5e36ab425b35467",
+          "selection": "SELECTED_AGENT_REVIEW_CANDIDATE"
+        }
+      ]
+    },
+    {
+      "page": 4,
+      "gap": "New frozen story moments, unique hat/light-test preparation and linked city arrival",
+      "prompt_file": "assets_src/books/rumi_visual_detective_20261012/prompts/page_04_take1.txt",
+      "prompt_sha256": "4e99d6d3900dee4077dbb9f9ca8f1bf09f3c6f3dcc021a374258feb19475fed0",
+      "references_file": "assets_src/books/rumi_visual_detective_20261012/prompts/page_04_take1_references.json",
+      "max_takes": 2,
+      "status": "GENERATED_REVIEWED",
+      "actual_calls": 2,
+      "selected_take": 2,
+      "native_takes": [
+        {
+          "take": 1,
+          "sha256": "a505530802287026de42862dd3d52258e45711e7f04c5883ac25f759920be2b2",
+          "selection": "REJECTED_PRESERVED_NOT_IN_PDF"
+        },
+        {
+          "take": 2,
+          "sha256": "af4f6ff85a8d085885151809223adbc73af68f65f2b1ac13962b3a74a83735ac",
+          "selection": "SELECTED_AGENT_REVIEW_CANDIDATE"
+        }
+      ]
+    },
+    {
+      "page": 32,
+      "gap": "Changed exact story line about the still-hidden candle",
+      "prompt_file": "assets_src/books/rumi_visual_detective_20261012/prompts/page_32_take1.txt",
+      "prompt_sha256": "bc902829be2117dd5cb3fb533bac3e4e597099c87a9b6aa176a1a5bd904964bc",
+      "references_file": "assets_src/books/rumi_visual_detective_20261012/prompts/page_32_take1_references.json",
+      "max_takes": 2,
+      "status": "GENERATED_REVIEWED",
+      "actual_calls": 1,
+      "selected_take": 1,
+      "native_takes": [
+        {
+          "take": 1,
+          "sha256": "31536a3118ae596d45299498eb657de556f694e8e072b115fa4dbede374780ae",
+          "selection": "SELECTED_AGENT_REVIEW_CANDIDATE"
+        }
+      ]
+    }
+  ],
+  "previous_cycle_calls": 54,
+  "new_cycle_cap": "Initial two takes per named brief; explicit bound changed-method single additional call on8/10 only, total3 each. Counts do not reset.",
+  "current_cycle_actual_calls": 24
+}

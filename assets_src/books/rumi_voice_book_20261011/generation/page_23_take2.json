@@ -1,0 +1,33 @@
+{
+  "page": 23,
+  "take": 2,
+  "method": "built-in image_gen.imagegen",
+  "provider_path": "C:\\Users\\Peter\\.codex\\generated_images\\01a12885-9926-7f51-bf3c-f9504cb34d52\\exec-76f33f1a-fee6-4f67-9ba6-8c13f2720dae.png",
+  "path": "assets_src/books/rumi_voice_book_20261011/native/page_23_take2.png",
+  "sha256": "305a985d9d19707135936117e1dfdde4ed7c53348c735e4a18a51e5a7591cd24",
+  "provider_sha256": "305a985d9d19707135936117e1dfdde4ed7c53348c735e4a18a51e5a7591cd24",
+  "rgb_pixel_sha256": "bf0f320c17543a1f1176e6c301566e176c6e98067050de6578bb5eda7b6b80f7",
+  "dimensions": [
+    1024,
+    1536
+  ],
+  "native_mode": "RGB",
+  "prompt": "Use case: text-localization. Input is ONE original complete1024x1536 manga page23take1, used as EDIT TARGET. Make ONLY a bounded SFX reading-order repair in PANEL2, the middle panel. Move the existing exact sound-effect lettering 'DING!' from its current lower-left position beside Duri to the TOP-LEFT reading position of PANEL2, aligned with or above the two dialogue balloons. The English reading order must unambiguously be FIRST DING!, THEN Roshan 'Pause! I need a different way.', THEN Hana 'Give us a turn. We'll watch yours too.' The two dialogue balloons keep their current words, positions and correct speaker tails. DING! is the turtle's invitation-bell sound, not Rumi dialogue: use a compact spiky sound-effect shape with no speech-speaker tail. Clear every face, hand, bell, drum and mermaid fin; fill only the old vacated sound-effect area with matching local background as needed. Preserve all character/pose/costume/face/tail/prop/artwork, existing panel boundaries and all text throughout panels1/3. No new or changed words, no body/art scene redraw, no crop or resizing. Complete native page output.\n",
+  "prompt_sha256": "6ed4dc8df27cdc1dcea71e38f6467c8e72b81966c40bb7830feec921e3bd824f",
+  "script_sha256": "febb9d5c7f6d82c29dcf8fa3556715577842b2284749fd2f1fea055a046d5967",
+  "references": [
+    {
+      "role": "edit_target",
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_23_take1.png",
+      "sha256": "b5042cb19fd741373267c471e269c903842c46a5253eb89e579fd860fbdadf45"
+    }
+  ],
+  "modifications": "Local sound-effect position repair: DING moved to first reading position; dialogue and action preserved",
+  "provider_revision": "not exposed",
+  "request_id": "not exposed",
+  "seed": "not exposed",
+  "reported_cost": "not exposed",
+  "call_count": 1,
+  "selection": "REVIEW_PENDING",
+  "license_provenance": "Owner-commissioned original project source candidate generated with built-in ImageGen; original project sources used as identity/setting guidance. No copied third-party scene pixels."
+}

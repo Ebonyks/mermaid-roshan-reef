@@ -1,0 +1,38 @@
+{
+  "page": 24,
+  "take": 3,
+  "method": "built-in image_gen.imagegen",
+  "provider_path": "C:\\Users\\Peter\\.codex\\generated_images\\01a12885-9926-7f51-bf3c-f9504cb34d52\\exec-3d5e87c6-0fd4-412d-874d-51cd9e89e1e5.png",
+  "path": "assets_src/books/rumi_voice_book_20261011/native/page_24_take3.png",
+  "sha256": "1821fe130cc0e916d5c8822d4ebd6023121ce0faceeec9e4fcc9adda915c958c",
+  "provider_sha256": "1821fe130cc0e916d5c8822d4ebd6023121ce0faceeec9e4fcc9adda915c958c",
+  "rgb_pixel_sha256": "0c9b981a94ed215cb73a8068c3b6dde1fe414afa749423060ba052083d2cb7d0",
+  "dimensions": [
+    1024,
+    1536
+  ],
+  "native_mode": "RGB",
+  "prompt": "Use case: identity-preserve. Image1 is the EDIT TARGET: the complete original1024x1536 page24take2. Image2 is the ORIGINAL same-page24take1, used ONLY to restore the appearance of HANA in its SECOND/MIDDLE panel. Make ONLY a bounded local restoration of HANA in the SECOND/MIDDLE PANEL at LEFT, the copper-haired mermaid holding the catch-cloth beside navy-bob Nari and the wicker star basket. Hana has CELADON/TEAL scaled tail. Restore Hana EXACTLY as she was in Image2 MIDDLE panel: copper-red loose waves with NO rainbow forelock, ONE celadon shell clip, LONG CORAL sleeves with CREAM RUFFLED cuffs, no purple wrist bracelets, coral jacket over cream high-neck blouse. Keep her current face/expression, hands gripping cloth, teal tail, position and all surrounding art unchanged. This fixes an accidental overbroad previous edit.\nABSOLUTELY DO NOT EDIT THE TOP/FIRST PANEL: the rainbow-haired/rainbow-tailed Roshan there is now CORRECT with no shell clip, SHORT PUFF coral sleeves and PURPLE wrist ruffles; keep her and Rumi completely unchanged. Hana in the middle panel is a DIFFERENT PERSON from the top Roshan. Do not give Hana any rainbow hair, Roshan puff sleeves or purple wrist ruffles. Preserve middle-panel Nari, cloth/stars/basket, every text word/balloon/tail, all lower-panel imp/bubble/tassel art, all panel boundaries and native dimensions unchanged. No scene redraw, new character, crop or resize. Output the whole native portrait page. Edit only middle-panel Hana's mistaken hair/clip/sleeves/wristwear to restore original Hana identity.\n",
+  "prompt_sha256": "16f59f02e4d596db3108e033c495b5ad3335c249a7c6665762149b5a2d8553c2",
+  "script_sha256": "febb9d5c7f6d82c29dcf8fa3556715577842b2284749fd2f1fea055a046d5967",
+  "references": [
+    {
+      "role": "edit_target",
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_24_take2.png",
+      "sha256": "623d71b2a3cbe144094b7eb4e3671306ebf06143d1abbd1af4faef25b40d93e2"
+    },
+    {
+      "role": "same_page_Hana_restore_reference",
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_24_take1.png",
+      "sha256": "0384f2747e003c25f8d4dbcc5f86f5516456bfc91be6f85319f817fb0ae14af1"
+    }
+  ],
+  "modifications": "Final local restoration of middle-panel Hana only after accidental hybrid drift; corrected top Roshan preserved",
+  "provider_revision": "not exposed",
+  "request_id": "not exposed",
+  "seed": "not exposed",
+  "reported_cost": "not exposed",
+  "call_count": 1,
+  "selection": "REVIEW_PENDING",
+  "license_provenance": "Owner-commissioned original project source candidate generated with built-in ImageGen; original project sources used as identity/setting guidance. No copied third-party scene pixels."
+}

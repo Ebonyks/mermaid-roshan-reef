@@ -1,0 +1,37 @@
+{
+  "page": 4,
+  "take": 2,
+  "created_at_utc": "2026-10-12T08:53:02.599851+00:00",
+  "method": "built-in image_gen.imagegen",
+  "provider_path": "C:\\Users\\Peter\\.codex\\generated_images\\01a0f35d-f268-7751-aa9b-79fa94ceeacc\\exec-dcdd8389-a9a9-4f6f-8c3d-0c01c4198996.png",
+  "path": "assets_src/books/rumi_visual_detective_20261012/native/page_04_take2.png",
+  "sha256": "af4f6ff85a8d085885151809223adbc73af68f65f2b1ac13962b3a74a83735ac",
+  "provider_sha256": "af4f6ff85a8d085885151809223adbc73af68f65f2b1ac13962b3a74a83735ac",
+  "rgb_pixel_sha256": "64ff6e302654f687ce678241e28422185ecf12faeebe0e8acf4dd073036a6205",
+  "dimensions": [
+    1024,
+    1536
+  ],
+  "native_mode": "RGB",
+  "script_sha256": "ab77f7740592a82b9185c10eb22a7b85ff785726b2f9eb8f01158861d54db6cd",
+  "source_page_sha256": "3572dee7ecd20c0335e2d11d9b1f2af5edc267a9982ea438763c0b5b07a947f0",
+  "prompt": "Use case: illustration-story. Edit this entire native portrait manga page as one complete native 1024x1536 RGB page. The supplied page is the edit target. Preserve the five-panel composition, every exact existing English word, the underwater Korean-inspired neighbourhood inside Pearl Castle under Rumi's pool, invitation handoff, bridge/tram current, and single precarious purple/gold show fan. Maintain clean detailed manga ink, rich cyan/lavender/coral/gold colors, narrow black gutters, complete distinct new pictures per panel. No crop, resize, software sharpen, pasted cutout, or duplicate panels.\n\nRepair two duplicated/off-model character details only:\n1. Top wide city panel contains TWO identical navy-bob girls. It must show exactly FOUR main mermaids ONCE each: smallest Roshan brown waves/rainbow forelock/coral jacket/rainbow tail; Rumi lavender braid/navy-purple-gold jacket/cyan-lavender tail; tall Hana copper waves/coral jacket/teal tail; ONE younger Nari navy bob/crescent clip/mint hooded jacket/peach collar/lavender tail. Remove the second lower-right foreground Nari, reconstruct the city lane/current naturally in the space, and give the remaining Nari a single readable tail. Do not add another replacement main character. Quiet unrelated background neighbours remain separate original designs, not clones of these four.\n2. Last bottom panel: purple-skinned performer in glitter-purple jacket and mint shirt must have his ordinary bare head with his same small horn and ears. REMOVE the incorrect white chef hat from this running performer. The baker's white chef hat in the first panel remains the baker's. Magician keeps his navy top hat, red bow/cape/coat, small horns and purple bare hands. No character costume swapping.\n\nPreserve ALL EXACT text in this reading order, using correct short speaker tails and legible print:\nPanel1 Narrator: \"Under the pool lay a whole neighbourhood. Tonight, everyone would sing together.\"\nPanel1 Narrator: \"The baker packed warm snacks. The tailor hung bright ribbons. Everyone had a song to bring.\"\nPanel2 Duri: \"Song Night! Bring your own voice! One last invitation for the bathhouse. Then I get a turn too!\"\nPanel2 Rumi: \"The lanterns go up. The singing begins.\"\nPanel3 Rumi: \"Stay beside me under the bridge. The tram stirs a strong current.\"\nPanel4 Performer: \"Our entrance will be HUGE!\"\nPanel4 Duri: \"That fan is hanging over my delivery path.\"\nPanel5 Magician: \"We'll move it later. Come and clap!\"\nPanel5 Duri: \"But I need to get through now.\"\n\nDuri remains free with his rigid mint floral turtle shell, four lavender flippers, small courier shoulder bag; no strap trapped yet. Fan integral gold base rests on shallow shelf, tall slats tipped over delivery opening, loose fan tie separate from Duri strap. No hat or lens on Roshan, no missing rainbow candle/wax/wick/flame, no surface journey. Keep complete contact edges and crisp foreground faces/hands/props. Output one full finished portrait page, never a detail crop.\n",
+  "prompt_sha256": "93e2190ebbf6204210c410b3e02a1f7b5640289e22d821b4496670f714972e1e",
+  "prompt_file": "assets_src/books/rumi_visual_detective_20261012/prompts/page_04_take2.txt",
+  "references": [
+    {
+      "path": "assets_src/books/rumi_visual_detective_20261012/native/page_04_take1.png",
+      "role": "edit_target_complete_page_remove_duplicate_Nari_and_wrong_performer_hat",
+      "sha256": "a505530802287026de42862dd3d52258e45711e7f04c5883ac25f759920be2b2"
+    }
+  ],
+  "references_file": "assets_src/books/rumi_visual_detective_20261012/prompts/page_04_take2_references.json",
+  "modifications": "Native provider PNG copied byte-identically; own-page generated corrections declared by exact prompt; no software crop/resize/sharpening/lettering overlay. Adjacent generated pixels may change.",
+  "provider_revision": "not exposed",
+  "request_id": "not exposed",
+  "seed": "not exposed",
+  "reported_cost": "not exposed",
+  "call_count": 1,
+  "selection": "REVIEW_PENDING",
+  "license_provenance": "Owner-commissioned original static-book candidate; existing project identity/setting/prop references retain terms; no film pixels/scene copy."
+}

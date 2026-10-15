@@ -1,0 +1,33 @@
+{
+  "page": 9,
+  "take": 3,
+  "method": "built-in image_gen.imagegen",
+  "provider_path": "C:\\Users\\Peter\\.codex\\generated_images\\01a1283e-4d68-75b1-af94-bbc3edfd1dc6\\exec-a47772e4-c1c3-404a-aae3-6238015c1b2a.png",
+  "path": "assets_src/books/rumi_voice_book_20261011/native/page_09_take3.png",
+  "sha256": "013c7ee2e14e2527243bc97cce8df6f8aaacaf0b227e1bb7c3e772f5ad9d46ee",
+  "provider_sha256": "013c7ee2e14e2527243bc97cce8df6f8aaacaf0b227e1bb7c3e772f5ad9d46ee",
+  "rgb_pixel_sha256": "0e4f0b2488f8fcd1113aeb86c57ac1ef1fce700c531f6980cb5e8c04e6a80c1f",
+  "dimensions": [
+    1024,
+    1536
+  ],
+  "native_mode": "RGB",
+  "prompt": "Use case: illustration-story. Targeted local correction of the supplied complete native manga page. Preserve this exact full-page artwork, all three panel frames, every character, all colours, every exact word, the tilted fan and strap staging. Preserve native 1024x1536 portrait dimensions. Correct ONLY the speaker tail of the bottom panel balloon containing \"I'm stopping. Tell us what you need.\" Its current tail incorrectly aims at the lavender-haired friend. Remove that small incorrect tail and redraw a short clear tail pointing right toward HANA, the copper/red-haired mermaid in the coral jacket holding the fan. The balloon may move slightly right within the same clear sky area if needed, but must not cover faces or hands. Do not add a printed speaker name. All other balloons and text stay unchanged, especially \"Loosen my bag first. Please.\" pointing to Duri. No crop, resize, layout change, full-scene redraw or new action.\n",
+  "prompt_sha256": "837024414022c33ad86640affdd94b63145c7ab666d03070d7f445e107d9b6c4",
+  "script_sha256": "febb9d5c7f6d82c29dcf8fa3556715577842b2284749fd2f1fea055a046d5967",
+  "references": [
+    {
+      "role": "local_edit_target",
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_09_take2.png",
+      "sha256": "6fcf8f3879d587fb4378c6f56d3bc15be5de1355b7300d5687509bacd1a7ecd5"
+    }
+  ],
+  "modifications": "Targeted local ImageGen correction of Hana balloon tail only; full unique native page preserved; no crop, resize, overlay or cross-page reuse",
+  "provider_revision": "not exposed",
+  "request_id": "not exposed",
+  "seed": "not exposed",
+  "reported_cost": "not exposed",
+  "call_count": 1,
+  "selection": "REVIEW_PENDING",
+  "license_provenance": "Owner-commissioned original project source candidate generated with built-in ImageGen; original project sources used as identity/setting guidance. No copied third-party scene pixels."
+}

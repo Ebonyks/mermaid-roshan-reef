@@ -1,0 +1,33 @@
+{
+  "page": 8,
+  "take": 3,
+  "method": "built-in image_gen.imagegen",
+  "provider_path": "C:\\Users\\Peter\\.codex\\generated_images\\01a0f35d-f268-7751-aa9b-79fa94ceeacc\\exec-2e749695-f84d-4225-8f66-66790148b219.png",
+  "path": "assets_src/books/rumi_voice_book_20261011/native/page_08_take3.png",
+  "sha256": "23986483aa0bcd8624a08f44a5de6f778cee990a4bf92d3f1fac00f72b67ca4f",
+  "provider_sha256": "23986483aa0bcd8624a08f44a5de6f778cee990a4bf92d3f1fac00f72b67ca4f",
+  "rgb_pixel_sha256": "0a2521ce97e6b746bafc74df30577735027b9c1f4cd9042994a74e59e91e3c10",
+  "dimensions": [
+    1024,
+    1536
+  ],
+  "native_mode": "RGB",
+  "prompt": "Use case: local lettering-layout repair of this ONE original new manga page, without changing scenes. In the MIDDLE panel ONLY, Duri must speak before Rumi. Move Duri's whole balloon 'The fan slipped. My bag is caught, and I can't back out.' into the earliest upper-left reading position, with its tail clearly aimed at lavender turtle Duri. Move Rumi's 'We'll go one step at a time.' balloon into a subsequent lower/right reading position with exactly ONE clear tail aimed at lavender-braided Rumi. English left-to-right top-to-bottom: Duri explains FIRST, Rumi reassures SECOND. Reflow these two balloons as needed inside the middle panel's empty background so all letters remain large and readable; do not cover eyes, mouths, hands or strap contact. Do not merely swap their words while leaving tails wrong. Preserve those exact words/punctuation. Preserve every person, one-tail anatomy, tilted purple/gold fan, trapped bag loop, all other text and panel compositions including the entire first and last panels. No cropping, raster resizing, collage, new object or camera. Return the complete native portrait page.\n",
+  "prompt_sha256": "ba12635b7beca7fcff1b4aad0a761f4a3672df7342fe7762b0361a7d3fa09c7d",
+  "script_sha256": "febb9d5c7f6d82c29dcf8fa3556715577842b2284749fd2f1fea055a046d5967",
+  "references": [
+    {
+      "role": "own new page local lettering-layout edit target",
+      "path": "assets_src/books/rumi_voice_book_20261011/native/page_08_take2.png",
+      "sha256": "05cbf1f7bfac9160de6567a793149ca048a4fab0bcd07686c3058c0810708dce"
+    }
+  ],
+  "modifications": "ImageGen local middle-panel balloon-layout attempt; provider swapped wording but failed correct attribution; rejected. Native output preserved byte-identically, no crops or raster resize.",
+  "provider_revision": "not exposed",
+  "request_id": "not exposed",
+  "seed": "not exposed",
+  "reported_cost": "not exposed",
+  "call_count": 1,
+  "selection": "REVIEW_PENDING",
+  "license_provenance": "Owner-commissioned original project source candidate generated with built-in ImageGen; original project sources used as identity/setting guidance. No copied third-party scene pixels."
+}

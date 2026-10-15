@@ -1,0 +1,29 @@
+{
+  "status": "PASS",
+  "script_sha256": "febb9d5c7f6d82c29dcf8fa3556715577842b2284749fd2f1fea055a046d5967",
+  "actual_calls": 54,
+  "initial_calls": 32,
+  "corrective_calls": 22,
+  "maximum_calls_per_page": 3,
+  "provider_native_byte_match_all": true,
+  "all_prompt_hashes_match": true,
+  "all_bound_reference_hashes_match": true,
+  "all_native_rgb_hashes_match": true,
+  "all_dimensions": [
+    1024,
+    1536
+  ],
+  "unique_selected_file_hashes": 32,
+  "unique_selected_rgb_hashes": 32,
+  "no_cross_page_frame_reuse_review": "Agent visual review of distinct staged instants; different hashes alone do not establish semantic uniqueness; human owner review remains pending",
+  "review_limits": [
+    "Page8 middle panel: selected take2 correctly attributes both speakers but Rumi reassures before Duri explains; exact source panel order varies. Rejected take3 fixes order by misassigning speakers and is excluded.",
+    "Page16 question tail angles toward Roshan beyond Nari towel; long-tail near-towel ambiguity remains for owner read-aloud review.",
+    "Page21 long tails cross in empty space; endpoints target Duri and Roshan correctly; readability requires owner review.",
+    "Minor drum/bell ornaments, catch-cloth colour, towel folds/cup counts and bathhouse snack set dressing vary; no changed rescue/voice plot fact.",
+    "Page27 local contact repair also raises forearms and adds a small stage support surface. Complete provider output is retained; unchanged-input pixel lock is not claimed.",
+    "Page22 expands one authored catch/duck panel into two distinct drawings:94 authored script panels,95 visual panels across32 native page boards.",
+    "Cover uses a title linebreak in place of the source colon; generated curly apostrophes are typographic variants of source straight apostrophes."
+  ],
+  "generation_manifest_sha256": "ca2eb5d03251b942ebf114fc7096919cfd53448869fd3eac2177d14f51240a10"
+}

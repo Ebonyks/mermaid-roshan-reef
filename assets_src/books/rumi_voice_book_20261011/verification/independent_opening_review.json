@@ -1,0 +1,458 @@
+{
+  "schema": "independent_native_opening_review/1",
+  "reviewer": "story_editor independent of root's page1–8 generation",
+  "scope": "Selected native full pages1–8; visual source-lettering/attribution/causality/identity review, no image or source edits.",
+  "source_script": "assets_src/books/rumi_voice_book_20261011/story_script.json",
+  "source_sha256": "febb9d5c7f6d82c29dcf8fa3556715577842b2284749fd2f1fea055a046d5967",
+  "selected_takes": {
+    "1": 1,
+    "2": 2,
+    "3": 1,
+    "4": 1,
+    "5": 1,
+    "6": 2,
+    "7": 2,
+    "8": 2
+  },
+  "status": "NO_MATERIAL_NEW_BLOCKER; PAGE8_BOUNDED_READ_ORDER_VARIATION_RECORDED",
+  "review_method": "Every selected complete PNG viewed at native1024×1536 resolution, every full sentence transcribed, all speaker tails checked, page-to-page causal and one-tail anatomy continuity inspected. Native/provenance hashes independently checked below. No invented score.",
+  "text_transcription_note": "Typographic apostrophes are transcribed as ASCII apostrophes. Exact words/punctuation verified manually; page8 actual order differs in panel2 and is preserved in actual_text rather than silently normalized to source.",
+  "causal_assessment": "Roshan states a concrete ordinary wish; the shared neighbourhood event and tram current are established. The imp fan is stored unsafely after Duri's warning; friends' enthusiastic rehearsal talks over Roshan; she hears help, finishes her request and changes the group's direction. Page8 shows snag/attempt/warning leading to p9's firm Stop. Page8 reassurance-first variation does not prevent Duri finishing his sentence or the subsequent physical solution.",
+  "material_new_issues": [],
+  "bounded_limits": [
+    "Page8 panel2 reads Rumi reassurance before Duri explanation, whereas source orders Duri first. Reassurance to a newly found distressed friend is plausible; no exact-order PASS.",
+    "Page8 fan-to-shell contact is less explicit than staging text, while visible bag/base snag and barrier establish why Duri cannot back out.",
+    "Opening p5 includes Duri as an extra silent bystander before he is trapped off-panel later; consistent but not scripted.",
+    "Bell ornament and Nari drum shape vary between drawings; action/function and character identity remain stable.",
+    "Some narrative balloons overlap lower torso/fin areas without obscuring faces, hands or the tail's continuous body connection."
+  ],
+  "acceptance": {
+    "independent_machine_provenance": "PASS: exact provider/native/RGB/script/prompt/reference hashes and1024×1536 dimensions verified for all8 selected pages.",
+    "independent_visual": "Seven pages pass; page8 candidate with recorded bounded read-order variation. No material new blocker.",
+    "owner": "PENDING",
+    "child_read_aloud": "PENDING",
+    "game_runtime": "UNCHANGED / not evaluated",
+    "global_master_audit": "No satisfaction claim."
+  },
+  "pages": [
+    {
+      "page": 1,
+      "take": 1,
+      "status": "PASS_WITH_RECORDED_VISUAL_LIMITS",
+      "actual_text": [
+        "Mermaid Roshan: Here I Am!",
+        "An adventure beneath Rumi's pool"
+      ],
+      "lettering": "Title and subtitle exact; subtitle uses typographic apostrophe. Title colon is retained between Mermaid Roshan and Here I Am.",
+      "tails": "Cover typography; no speech attribution needed.",
+      "continuity": "Original ensemble cover inside underwater castle city; Roshan foreground, trio and Duri behind, visible enclosing pool-roof light.",
+      "anatomy": "Roshan rainbow tail and Hana teal tail overlap near lower right but each traces to its own body; single continuous tail per mermaid, normal turtle form.",
+      "composition": "One unique newly drawn cover with original group pose and rich city.",
+      "native_path": "assets_src/books/rumi_voice_book_20261011/native/page_01_take1.png",
+      "native_sha256": "da123e2196a887725b7e82abac7c2beaa1cd861a9c48b6abe0a300d99bf41bb9",
+      "native_dimensions": [
+        1024,
+        1536
+      ],
+      "receipt_path": "assets_src/books/rumi_voice_book_20261011/generation/page_01_take1.json",
+      "receipt_sha256": "8cf4291cad2997124eb3a4b4f7ef055762a90c9b9238329a613527bbadcc345e",
+      "actual_prompt_sha256": "2316dd4de15a268ac37fcab42e64200d63663f3c9c11427d9bf94c0a65796223",
+      "actual_reference_hashes": [
+        {
+          "role": "cast",
+          "path": "assets_src/books/rumi_underpool_20261009/native/cast_identity.png",
+          "sha256": "eba965d569e145bf0440674f18af76e3f1aed3c0359e396c67c62a4182751946"
+        },
+        {
+          "role": "city",
+          "path": "assets_src/books/rumi_underpool_20261009/native/city_concept_source.png",
+          "sha256": "6cf86f799132ede85df803e29abc69fd52ca81076caca8288e41ead72c11f54d"
+        }
+      ],
+      "source_entry_text": [
+        "Mermaid Roshan: Here I Am!",
+        "An adventure beneath Rumi's pool"
+      ],
+      "exact_word_and_punctuation_transcription_match": true,
+      "source_entry_order_match": true
+    },
+    {
+      "page": 2,
+      "take": 2,
+      "status": "PASS_WITH_RECORDED_VISUAL_LIMITS",
+      "actual_text": [
+        "The castle candle was still missing. But tonight, a song was waiting beneath Rumi's pool.",
+        "I want to sing the first line. All by myself.",
+        "Then let's make that your turn.",
+        "What if my voice wobbles?",
+        "It can wobble. It's still yours. I'll be beside you, if you want."
+      ],
+      "lettering": "All five entries exact and legible. Rumi promise higher than Roshan question; reassurance last at lower right.",
+      "tails": "Roshan wish/question, Rumi promise/reassurance correct.",
+      "continuity": "Pool-room fountain/rainbow and ordinary voice wish clear; Rumi offers help with choice. Candle remains missing.",
+      "anatomy": "Single continuous tails; reassurance balloon overlays Rumi torso/tail area without hiding body silhouette or contact hand.",
+      "composition": "Three distinct moments: waiting at pool, specific wish, offered support.",
+      "native_path": "assets_src/books/rumi_voice_book_20261011/native/page_02_take2.png",
+      "native_sha256": "a751e8a1634888b16a6856e989dde9f12d167d1def4ff1a2bc1645af0a4759d6",
+      "native_dimensions": [
+        1024,
+        1536
+      ],
+      "receipt_path": "assets_src/books/rumi_voice_book_20261011/generation/page_02_take2.json",
+      "receipt_sha256": "d9ed81fdbe2cab09db27b96711623d180ca73e9ee5f93777df9f3224fad8d031",
+      "actual_prompt_sha256": "629f47adf174014a7dce48cabaf7dcb8ac1854617d31aef79fca73cc3a5f81f6",
+      "actual_reference_hashes": [
+        {
+          "role": "local lettering edit target; this page's own original native illustration",
+          "path": "assets_src/books/rumi_voice_book_20261011/native/page_02_take1.png",
+          "sha256": "da79f9fb108a411bc3aa4bd3181d3a34858d7af309c4ad62e171b63d6dd9d051"
+        }
+      ],
+      "source_entry_text": [
+        "The castle candle was still missing. But tonight, a song was waiting beneath Rumi's pool.",
+        "I want to sing the first line. All by myself.",
+        "Then let's make that your turn.",
+        "What if my voice wobbles?",
+        "It can wobble. It's still yours. I'll be beside you, if you want."
+      ],
+      "exact_word_and_punctuation_transcription_match": true,
+      "source_entry_order_match": true
+    },
+    {
+      "page": 3,
+      "take": 1,
+      "status": "PASS_WITH_RECORDED_VISUAL_LIMITS",
+      "actual_text": [
+        "Under the pool lay a whole neighbourhood. Tonight, everyone would sing together.",
+        "The baker packed warm snacks. The tailor hung bright ribbons. Everyone had a song to bring.",
+        "The lanterns go up. The singing begins.",
+        "Stay beside me under the bridge. The tram stirs a strong current."
+      ],
+      "lettering": "All four entries exact. City caption, jobs caption, Rumi event line and current warning readable.",
+      "tails": "Rumi event/warning correct; cream narrator captions.",
+      "continuity": "Neighbourhood inside pool established; baker/tailor and courier functioning; strong tram current introduced before rescue.",
+      "anatomy": "Four mermaid identities clear in wide panel, single tails. Duri normal four-flipper turtle form.",
+      "composition": "Distinct city overview, living street/jobs, under-bridge current. Hana/Nari appear in wide view before their roles are introduced p5, no first-meeting contradiction.",
+      "native_path": "assets_src/books/rumi_voice_book_20261011/native/page_03_take1.png",
+      "native_sha256": "521c4628894d258637581bd1554e086d595d125741a0c95699db0e54f2568049",
+      "native_dimensions": [
+        1024,
+        1536
+      ],
+      "receipt_path": "assets_src/books/rumi_voice_book_20261011/generation/page_03_take1.json",
+      "receipt_sha256": "a13166f48bd6bd733b402afbe9c7c98bde1be8d200af4b7230637170bb949655",
+      "actual_prompt_sha256": "de53557ef5c4ef266a77e6a1d766216b642cc9c7a2e52968152c8e4047b15b7a",
+      "actual_reference_hashes": [
+        {
+          "role": "cast",
+          "path": "assets_src/books/rumi_underpool_20261009/native/cast_identity.png",
+          "sha256": "eba965d569e145bf0440674f18af76e3f1aed3c0359e396c67c62a4182751946"
+        },
+        {
+          "role": "city",
+          "path": "assets_src/books/rumi_underpool_20261009/native/city_concept_source.png",
+          "sha256": "6cf86f799132ede85df803e29abc69fd52ca81076caca8288e41ead72c11f54d"
+        }
+      ],
+      "source_entry_text": [
+        "Under the pool lay a whole neighbourhood. Tonight, everyone would sing together.",
+        "The baker packed warm snacks. The tailor hung bright ribbons. Everyone had a song to bring.",
+        "The lanterns go up. The singing begins.",
+        "Stay beside me under the bridge. The tram stirs a strong current."
+      ],
+      "exact_word_and_punctuation_transcription_match": true,
+      "source_entry_order_match": true
+    },
+    {
+      "page": 4,
+      "take": 1,
+      "status": "PASS_WITH_RECORDED_VISUAL_LIMITS",
+      "actual_text": [
+        "Song Night! Bring your own voice! One last invitation for the bathhouse. Then I get a turn too!",
+        "Our entrance will be HUGE!",
+        "That fan is hanging over my delivery path.",
+        "We'll move it later. Come and clap!",
+        "But I need to get through now."
+      ],
+      "lettering": "All five exact entries present, readable left-to-right/top-to-bottom.",
+      "tails": "Duri invitation, performer boast, Duri warning, magician dismissal and Duri boundary correct.",
+      "continuity": "Duri wants his own turn and final delivery; oversized fan stored unsafely over his route, imps neglect warning and leave. Establishes p8 snag.",
+      "anatomy": "Purple imp hands bare, trousers/shoes; no weapons. Mermaid single tails; Duri normal.",
+      "composition": "Distinct invitation handoff, imp prop move, ignored warning and departure.",
+      "native_path": "assets_src/books/rumi_voice_book_20261011/native/page_04_take1.png",
+      "native_sha256": "f737afc432874affb05220356da67cee6d8e1c027e9b5dc35ed7d9454d871de0",
+      "native_dimensions": [
+        1024,
+        1536
+      ],
+      "receipt_path": "assets_src/books/rumi_voice_book_20261011/generation/page_04_take1.json",
+      "receipt_sha256": "acb19ad3d83cda92adddede9374c0f01e6a04c2abb44247d2217dd6f842699d7",
+      "actual_prompt_sha256": "10be7e2fb9622ca700a5f7018ac8fd99797ce7904f1b69474db76d02fbf9ccad",
+      "actual_reference_hashes": [
+        {
+          "role": "cast",
+          "path": "assets_src/books/rumi_underpool_20261009/native/cast_identity.png",
+          "sha256": "eba965d569e145bf0440674f18af76e3f1aed3c0359e396c67c62a4182751946"
+        },
+        {
+          "role": "city",
+          "path": "assets_src/books/rumi_underpool_20261009/native/city_concept_source.png",
+          "sha256": "6cf86f799132ede85df803e29abc69fd52ca81076caca8288e41ead72c11f54d"
+        },
+        {
+          "role": "performer",
+          "path": "assets/opera/worlds/actors/rival_popstar.png",
+          "sha256": "d8c59bcd6b59dd27090b1caede54315f26e1fbda7f7efc3220aaeccfc31ad97f"
+        },
+        {
+          "role": "magician",
+          "path": "assets/opera/worlds/actors/rival_magician.png",
+          "sha256": "516b8cf100df6502f3be269d302464ad6081e971ed50742f827527ee73f8965e"
+        }
+      ],
+      "source_entry_text": [
+        "Song Night! Bring your own voice! One last invitation for the bathhouse. Then I get a turn too!",
+        "Our entrance will be HUGE!",
+        "That fan is hanging over my delivery path.",
+        "We'll move it later. Come and clap!",
+        "But I need to get through now."
+      ],
+      "exact_word_and_punctuation_transcription_match": true,
+      "source_entry_order_match": true
+    },
+    {
+      "page": 5,
+      "take": 1,
+      "status": "PASS_WITH_RECORDED_VISUAL_LIMITS",
+      "actual_text": [
+        "Hana dances. Nari keeps the beat. Tonight, Roshan wants...",
+        "A giant finish!",
+        "And a booming beginning!",
+        "I wanted...",
+        "Rumi first, then all of us!"
+      ],
+      "lettering": "All five entries exact; unfinished Roshan lines retained with ellipses.",
+      "tails": "Rumi introduction, Hana plan, Nari plan, Roshan unfinished wish, Hana overriding answer all correct.",
+      "continuity": "Friends' enthusiasm overwrites promised turn. Duri is additionally shown silently in first panel before off-panel trapping, compatible with trap occurring later.",
+      "anatomy": "One tail per visible mermaid; Nari shell drum; Duri shell/head/flippers consistent.",
+      "composition": "Three separately drawn changing gestures; Roshan puzzled and hand up, not disappearing or being shamed.",
+      "native_path": "assets_src/books/rumi_voice_book_20261011/native/page_05_take1.png",
+      "native_sha256": "76ac7535dacaec9d1ab66d2eb6586987412e787420318ece80cf984e4fa79fed",
+      "native_dimensions": [
+        1024,
+        1536
+      ],
+      "receipt_path": "assets_src/books/rumi_voice_book_20261011/generation/page_05_take1.json",
+      "receipt_sha256": "17860e22e5194f4487ea58c8342327e5ddac71e36c2558c4e934d787001d56dc",
+      "actual_prompt_sha256": "eab623f137b14200165eddc4811aec45006656a0c290c9c0435a734cde5c28ac",
+      "actual_reference_hashes": [
+        {
+          "role": "cast",
+          "path": "assets_src/books/rumi_underpool_20261009/native/cast_identity.png",
+          "sha256": "eba965d569e145bf0440674f18af76e3f1aed3c0359e396c67c62a4182751946"
+        },
+        {
+          "role": "city",
+          "path": "assets_src/books/rumi_underpool_20261009/native/city_concept_source.png",
+          "sha256": "6cf86f799132ede85df803e29abc69fd52ca81076caca8288e41ead72c11f54d"
+        }
+      ],
+      "source_entry_text": [
+        "Hana dances. Nari keeps the beat. Tonight, Roshan wants...",
+        "A giant finish!",
+        "And a booming beginning!",
+        "I wanted...",
+        "Rumi first, then all of us!"
+      ],
+      "exact_word_and_punctuation_transcription_match": true,
+      "source_entry_order_match": true
+    },
+    {
+      "page": 6,
+      "take": 2,
+      "status": "PASS_WITH_RECORDED_VISUAL_LIMITS",
+      "actual_text": [
+        "Could I sing the...",
+        "She had practised her three words all morning. She wanted them to be heard.",
+        "BOOM!",
+        "The end of her sentence disappeared.",
+        "Help!",
+        "That wasn't part of the song."
+      ],
+      "lettering": "All six entries exact, including practised and BOOM. Corrected morning caption preserved.",
+      "tails": "Roshan first attempt and observation correct. Off-panel Help zigzag points into dark under-bridge route. Narrator/sound distinct.",
+      "continuity": "Music masks Roshan's ordinary request and nearby help; she turns to a separate call and drifting invitation bell. Distant imp show supports impending trouble; explicit bubble-testing motion not clear.",
+      "anatomy": "Mermaid one-tail identities remain clear with natural partial frame occlusion.",
+      "composition": "Three distinct moments: try speaking, beat masks voice, notice call. Narrator box partially overlays fins but faces/contact remain clear.",
+      "native_path": "assets_src/books/rumi_voice_book_20261011/native/page_06_take2.png",
+      "native_sha256": "b2c5938b1a3bd1f1f705e5095d0ca07c7044faefdc154e56fcee8a750f522ac1",
+      "native_dimensions": [
+        1024,
+        1536
+      ],
+      "receipt_path": "assets_src/books/rumi_voice_book_20261011/generation/page_06_take2.json",
+      "receipt_sha256": "f8fadae588ccad83fcf9b3cef47e5d8900518a0c59f01d8aa6dbaa8c81c29634",
+      "actual_prompt_sha256": "694c5d5c4348396f672ad935bc5edf9d9bd2dd1071c9ed3afa6d7e5d22ff17c1",
+      "actual_reference_hashes": [
+        {
+          "role": "cast",
+          "path": "assets_src/books/rumi_underpool_20261009/native/cast_identity.png",
+          "sha256": "eba965d569e145bf0440674f18af76e3f1aed3c0359e396c67c62a4182751946"
+        },
+        {
+          "role": "city",
+          "path": "assets_src/books/rumi_underpool_20261009/native/city_concept_source.png",
+          "sha256": "6cf86f799132ede85df803e29abc69fd52ca81076caca8288e41ead72c11f54d"
+        },
+        {
+          "role": "performer identity only",
+          "path": "assets/opera/worlds/actors/rival_popstar.png",
+          "sha256": "d8c59bcd6b59dd27090b1caede54315f26e1fbda7f7efc3220aaeccfc31ad97f"
+        },
+        {
+          "role": "magician identity only",
+          "path": "assets/opera/worlds/actors/rival_magician.png",
+          "sha256": "516b8cf100df6502f3be269d302464ad6081e971ed50742f827527ee73f8965e"
+        }
+      ],
+      "source_entry_text": [
+        "Could I sing the...",
+        "She had practised her three words all morning. She wanted them to be heard.",
+        "BOOM!",
+        "The end of her sentence disappeared.",
+        "Help!",
+        "That wasn't part of the song."
+      ],
+      "exact_word_and_punctuation_transcription_match": true,
+      "source_entry_order_match": true
+    },
+    {
+      "page": 7,
+      "take": 2,
+      "status": "PASS_WITH_RECORDED_VISUAL_LIMITS",
+      "actual_text": [
+        "Wait! Someone needs help!",
+        "I thought that was an echo.",
+        "I heard it twice. Please come and look.",
+        "We're coming.",
+        "This time, Roshan finished her sentence."
+      ],
+      "lettering": "All five entries exact. Hana explanation higher/right, Roshan reply lower/left; top-to-bottom order preserved.",
+      "tails": "Roshan stop/request, Hana explanation and Rumi commitment correct; narrator caption.",
+      "continuity": "Team visibly heads stageward, responds to Roshan, turns down under bridge. Bell remains clue. Her sentence is completed, then acted on.",
+      "anatomy": "Four distinct mermaids with single tails; no duplicate limbs or legs.",
+      "composition": "Three new action states: stop departing group, insist, lead return. Ornament of bell and shape of Nari drum vary from p6, function stable.",
+      "native_path": "assets_src/books/rumi_voice_book_20261011/native/page_07_take2.png",
+      "native_sha256": "3a544e0b74b30fe85676f7f0528ddc658495a54f77ab404d4a622be82a098e01",
+      "native_dimensions": [
+        1024,
+        1536
+      ],
+      "receipt_path": "assets_src/books/rumi_voice_book_20261011/generation/page_07_take2.json",
+      "receipt_sha256": "3b3e31ba9c2049d8a4453ef769f3038ee082946cc860b22578f670fa886c9d86",
+      "actual_prompt_sha256": "59dc8a33a9e357b869722def9d9ba5f98384cbccb7f846ebdd1b3b9e59c3e31e",
+      "actual_reference_hashes": [
+        {
+          "role": "own new page local edit target",
+          "path": "assets_src/books/rumi_voice_book_20261011/native/page_07_take1.png",
+          "sha256": "9c6d0fb88a07ac543baffcf258c6cd99b3ac08cf5e486d210fb083a9774951ff"
+        }
+      ],
+      "source_entry_text": [
+        "Wait! Someone needs help!",
+        "I thought that was an echo.",
+        "I heard it twice. Please come and look.",
+        "We're coming.",
+        "This time, Roshan finished her sentence."
+      ],
+      "exact_word_and_punctuation_transcription_match": true,
+      "source_entry_order_match": true
+    },
+    {
+      "page": 8,
+      "take": 2,
+      "status": "CANDIDATE_WITH_BOUNDED_READ_ORDER_VARIATION",
+      "actual_text": [
+        "Down here!",
+        "We'll go one step at a time.",
+        "The fan slipped. My bag is caught, and I can't back out.",
+        "I can pull it up!",
+        "Wait. That tugs my bag!"
+      ],
+      "lettering": "Every exact word present, legible and assigned to the correct speaker. Middle-panel read order is Rumi reassurance before Duri explanation, inverted from source. This is not exact-order PASS.",
+      "tails": "Duri call, Rumi reassurance, Duri explanation, Hana attempt and Duri warning all correctly aimed.",
+      "continuity": "Reassuring a newly found distressed turtle before his full explanation remains causally plausible; he completes that explanation without interruption. Bag-to-base snag visible; attempted lift tightens strap and leads to p9 Stop. No voice magic or invented resolution.",
+      "anatomy": "Mermaids retain distinct one-tail identities; Duri intact shell/head/flippers with natural occlusion. Bag strap snags bag/base, not a loop around neck.",
+      "composition": "Three fresh moments: found, problem explained, attempt/warning. Supported angled fan and weighted base clear. Exact lower-edge-on-shell contact less explicit than source, but caught bag/barrier supports trap.",
+      "source_read_order": [
+        "Down here!",
+        "The fan slipped. My bag is caught, and I can't back out.",
+        "We'll go one step at a time.",
+        "I can pull it up!",
+        "Wait. That tugs my bag!"
+      ],
+      "deviation": "Panel2 rendered Rumi then Duri instead of Duri then Rumi; root selected take2 after rejected take3 and no fourth call.",
+      "native_path": "assets_src/books/rumi_voice_book_20261011/native/page_08_take2.png",
+      "native_sha256": "05cbf1f7bfac9160de6567a793149ca048a4fab0bcd07686c3058c0810708dce",
+      "native_dimensions": [
+        1024,
+        1536
+      ],
+      "receipt_path": "assets_src/books/rumi_voice_book_20261011/generation/page_08_take2.json",
+      "receipt_sha256": "6dba6d9ad12cef0ce7bf50d6857e0f06b7586fef14860d66b96a10a2c3cb4d31",
+      "actual_prompt_sha256": "df479744e161e63dc6351ae47856e598119ed10619b770aba94096481281a62f",
+      "actual_reference_hashes": [
+        {
+          "role": "cast",
+          "path": "assets_src/books/rumi_underpool_20261009/native/cast_identity.png",
+          "sha256": "eba965d569e145bf0440674f18af76e3f1aed3c0359e396c67c62a4182751946"
+        },
+        {
+          "role": "city",
+          "path": "assets_src/books/rumi_underpool_20261009/native/city_concept_source.png",
+          "sha256": "6cf86f799132ede85df803e29abc69fd52ca81076caca8288e41ead72c11f54d"
+        },
+        {
+          "role": "own new edition fan prop size and state reference only; no copied panel",
+          "path": "assets_src/books/rumi_voice_book_20261011/native/page_09_take3.png",
+          "sha256": "013c7ee2e14e2527243bc97cce8df6f8aaacaf0b227e1bb7c3e772f5ad9d46ee"
+        }
+      ],
+      "source_entry_text": [
+        "Down here!",
+        "The fan slipped. My bag is caught, and I can't back out.",
+        "We'll go one step at a time.",
+        "I can pull it up!",
+        "Wait. That tugs my bag!"
+      ],
+      "exact_word_and_punctuation_transcription_match": true,
+      "source_entry_order_match": false
+    }
+  ],
+  "machine_verification": {
+    "status": "PASS",
+    "eight_distinct_selected_native_hashes": true,
+    "all_native_dimensions": [
+      1024,
+      1536
+    ],
+    "provider_byte_identity": true,
+    "all_native_rgb_hashes_verified": true,
+    "all_prompt_and_reference_hashes_verified": true,
+    "frozen_source_hash_verified": true,
+    "all_script_lines_present_without_word_changes": true,
+    "source_entry_order_match_pages": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+    ],
+    "source_entry_order_deviation_pages": [
+      8
+    ],
+    "exact_order_claim_for_page8": false
+  }
+}

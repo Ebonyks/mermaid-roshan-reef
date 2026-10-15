@@ -1,0 +1,845 @@
+{
+  "schema": "rumi_detective_generation_range_part_v1",
+  "reviewer": "Codex independent page_review",
+  "recorded_at_utc": "2026-10-12T08:43:52.357312+00:00",
+  "status": "SEVEN_NATIVE_CANDIDATES_REVIEWED_PARENT_RECONCILIATION_PENDING",
+  "edition": "assets_src/books/rumi_visual_detective_20261012",
+  "assigned_pages": [
+    17,
+    20,
+    21,
+    22,
+    23,
+    25,
+    27
+  ],
+  "script_binding": {
+    "planned_script_sha256": "b3623441d31710e1afeda9298c0c74e7c3cc3b6b4c8627b7bf9b1b8bafcbf876",
+    "captured_final_script_sha256": "ab77f7740592a82b9185c10eb22a7b85ff785726b2f9eb8f01158861d54db6cd",
+    "source_revision_receipt": "assets_src/books/rumi_visual_detective_20261012/verification/source_revision.json",
+    "source_revision_receipt_sha256": "e168c6cfd4b4992c375ff66b0efaab5749cd4d234301fab4ad71b75f06249042",
+    "assigned_page_jsons_equal_preserved_planning_snapshot": true,
+    "note": "Root changed production staging only on p02.4 after prompt preparation; all assigned page JSONs are unchanged and all captures bind the actual final complete script."
+  },
+  "rubric": {
+    "path": "assets_src/books/rumi_visual_detective_20261012/QUALITY_RUBRIC.txt",
+    "sha256": "3f83261db2c6ecca74e1f54020a61795d86ba8262463cbfecfe04a8cf0ffde2a",
+    "categories": [
+      "character_identity_anatomy",
+      "line_detail_completeness",
+      "action_contact_staging",
+      "balloon_text_clarity",
+      "manga_composition"
+    ],
+    "equal_weights": [
+      0.2,
+      0.2,
+      0.2,
+      0.2,
+      0.2
+    ],
+    "increment": 0.1,
+    "method": "Fixed anchored rubric read before scores. Parent retains both raw reviews and takes lower per category. Unaffected limitations are carried forward; scores are not raised to force the target."
+  },
+  "calls": {
+    "built_in_imagegen_actual_calls_this_part": 9,
+    "native_takes_preserved": 9,
+    "selected_recommendations": 7,
+    "rejected_takes_preserved": 2,
+    "maximum_new_takes_per_named_page": 2,
+    "calls_by_page": {
+      "17": 1,
+      "20": 1,
+      "21": 1,
+      "22": 1,
+      "23": 1,
+      "25": 2,
+      "27": 2
+    },
+    "provider_revision": "not exposed",
+    "model_id": "not exposed",
+    "request_ids": "not exposed",
+    "seeds": "not exposed",
+    "reported_cost": "not exposed",
+    "previous_book_call_count_reported_by_root": 54,
+    "accounting_scope": "This part contributes nine actual calls to the new-cycle global register. It does not claim the other agents call counts or final cumulative total."
+  },
+  "method": {
+    "native_provider_pngs_copied_byte_identically": true,
+    "software_image_manipulation": false,
+    "whole_pages_unique_selected_native_and_rgb_hashes": true,
+    "description": "Built-in local own-page illustration edits; complete 1024x1536 RGB native outputs. No software cropping/resizing/sharpening/compositing/lettering overlay. Prior targets and support prop references preserve their original scope; generated collateral is recorded."
+  },
+  "machine_verification": {
+    "all_nine_provider_native_byte_hashes_equal": true,
+    "all_nine_rgb_dimensions_mode_checked": true,
+    "all_nine_actual_prompt_literals_and_hashes_match_saved_files": true,
+    "all_nine_role_reference_hashes_match_sources": true,
+    "all_nine_source_page_and_final_script_bindings_match": true,
+    "selected_native_and_rgb_hashes_unique": true,
+    "prior_voice_script_selection_and_16_baseline_native_hashes_unchanged": true
+  },
+  "independent_selected_range_summary": {
+    "pages": 7,
+    "unrounded_mean_decimal": "4.705714285714285714285714286",
+    "minimum_page_score": 4.64,
+    "selected_hard_fail_observed": false,
+    "scope": "Seven repaired pages only. This is not the lower-of-root-and-independent 32-page book result, owner acceptance, runtime acceptance, print approval or child response."
+  },
+  "baseline_preserved": {
+    "path": "assets_src/books/rumi_visual_detective_20261012/verification/baseline_pages_17_32.json",
+    "sha256": "ecda8794ad6684524ef2954ff4bc53cb08f89cf103d44fabbe15787e8d4b0e9a",
+    "unchanged": true
+  },
+  "takes": [
+    {
+      "page": 17,
+      "take": 1,
+      "status": "CANDIDATE_SELECTED_RANGE_REVIEW",
+      "recommended_for_parent_selection": true,
+      "native_path": "assets_src/books/rumi_visual_detective_20261012/native/page_17_take1.png",
+      "native_sha256": "f62c7a42ba602937df6c0fac292966d4b4121e996b505e215ceeaf5aab9ec360",
+      "rgb_pixel_sha256": "ad4180fd4e8a64c02b0cd33c29c325e9abadf8713c8193448b2a14da9e893b05",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "mode": "RGB",
+      "generation_receipt": "assets_src/books/rumi_visual_detective_20261012/generation/page_17_take1.json",
+      "generation_receipt_sha256": "3f1393ebd937f5e3ece1de69450ce3957b38a50912ecd57e22b03a7185f5febf",
+      "provider_path": "C:\\Users\\Peter\\.codex\\generated_images\\01a12885-9926-7f51-bf3c-f9504cb34d52\\exec-8edb77a6-b463-48ac-a278-aa916a55550a.png",
+      "provider_sha256": "f62c7a42ba602937df6c0fac292966d4b4121e996b505e215ceeaf5aab9ec360",
+      "prompt_file": "assets_src/books/rumi_visual_detective_20261012/generation/page_17_take1_prompt.txt",
+      "prompt_sha256": "541164078b9ec324225097f2f2c6bff63765f5d01e3383184989503e880dbfd5",
+      "references_file": "assets_src/books/rumi_visual_detective_20261012/generation/page_17_take1_references.json",
+      "references_file_sha256": "629339ae267ce58252ad76d59944e240bf626a8de02eaf80dd8844f4a960cc97",
+      "references": [
+        {
+          "role": "edit_target_complete_native_page",
+          "path": "assets_src/books/rumi_voice_book_20261011/native/page_17_take1.png",
+          "sha256": "781bc3d248d3c90d741de3bf5145f12ecd28dcc134fe0989a83551d40fbab087"
+        }
+      ],
+      "source_page_sha256": "b67b0a1eeae2543c5707ae7f452baf65ddf1a6f59a945981904c2a1dc8635624",
+      "actual_call_count": 1,
+      "view_method": "view_image(detail=original), entire native page; take also displayed by generatedImage after tool completion",
+      "categories": {
+        "character_identity_anatomy": {
+          "score": 4.8,
+          "weight": 0.2,
+          "comment": "Roshan has one continuous scaled rainbow tail and one fan fin; the left waist streamer now has narrow flat blue-gold cloth ends. Cast identity remains stable."
+        },
+        "line_detail_completeness": {
+          "score": 4.8,
+          "weight": 0.2,
+          "comment": "Finished focal food, faces, hands and costume contours; distant city depth remains intentionally softer."
+        },
+        "action_contact_staging": {
+          "score": 4.6,
+          "weight": 0.2,
+          "comment": "Invitation, attentive listening and solo remain distinct; more than four cups is an unchanged small set-dressing variation."
+        },
+        "balloon_text_clarity": {
+          "score": 4.9,
+          "weight": 0.2,
+          "comment": "Every required word is visible with nearby correct speaker tails and no covered focal face."
+        },
+        "manga_composition": {
+          "score": 4.5,
+          "weight": 0.2,
+          "comment": "Dense feast/background saturation still slightly competes with the solo hierarchy; this unrelated limitation is not scored away."
+        }
+      },
+      "page_score_unrounded": "4.72",
+      "page_score": 4.72,
+      "page_floor_4_5_met": true,
+      "exact_manuscript_words_visually_present": true,
+      "wrong_speaker_required_dialogue_observed": false,
+      "missing_required_dialogue_observed": false,
+      "focal_anatomy_failure_observed": false,
+      "broken_essential_rescue_contact_observed": false,
+      "hard_fail_observed": false,
+      "hard_fail_reason": null,
+      "residual_limits_and_model_collateral": [
+        "The streamer changed to blue-gold fabric, rather than retaining the previous broad pink fin-like loop.",
+        "Extravagant feast density and minor cup-count variance remain."
+      ],
+      "candle_review": {
+        "rainbow_candle_depicted": false,
+        "visible_flame_or_wick": false,
+        "comment": "Shell/pearl luminaires and enclosed lanterns are not candle discoveries."
+      }
+    },
+    {
+      "page": 20,
+      "take": 1,
+      "status": "CANDIDATE_SELECTED_RANGE_REVIEW",
+      "recommended_for_parent_selection": true,
+      "native_path": "assets_src/books/rumi_visual_detective_20261012/native/page_20_take1.png",
+      "native_sha256": "bd9f36bb937a6da1ceb106e0f3a77e0917e172b0fb25b0d90e277f7e02aec9e2",
+      "rgb_pixel_sha256": "0323cd9a424725d7ebbf985b6cf34812fa160a728e7d8c490f058fa0fbadf270",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "mode": "RGB",
+      "generation_receipt": "assets_src/books/rumi_visual_detective_20261012/generation/page_20_take1.json",
+      "generation_receipt_sha256": "cc3496a88d128a9579fc0db32cd5f68ba51ebb797a1af69984bbd6c83235b426",
+      "provider_path": "C:\\Users\\Peter\\.codex\\generated_images\\01a12885-9926-7f51-bf3c-f9504cb34d52\\exec-c6547eb1-566b-4d1e-93fc-ee3fcf6fdace.png",
+      "provider_sha256": "bd9f36bb937a6da1ceb106e0f3a77e0917e172b0fb25b0d90e277f7e02aec9e2",
+      "prompt_file": "assets_src/books/rumi_visual_detective_20261012/generation/page_20_take1_prompt.txt",
+      "prompt_sha256": "dd46958c7a73ce1944716dcd406a2d105c01833e360d500323827fc233e69614",
+      "references_file": "assets_src/books/rumi_visual_detective_20261012/generation/page_20_take1_references.json",
+      "references_file_sha256": "f1a5f8f72cb94921517a4a2205646e0c2d4f3232ada3bf9e5ea8b449bac7f967",
+      "references": [
+        {
+          "role": "edit_target_complete_native_page",
+          "path": "assets_src/books/rumi_voice_book_20261011/native/page_20_take2.png",
+          "sha256": "8b0b0e5da21a6fe4f302f2b38e25a85be6c79da0ce075452b9ab4b7203b25d69"
+        }
+      ],
+      "source_page_sha256": "f8724db2138b4dbfa8f3160e3bf9e193fd756569d6677d5b3084f5599addbde5",
+      "actual_call_count": 1,
+      "view_method": "view_image(detail=original), entire native page; take also displayed by generatedImage after tool completion",
+      "categories": {
+        "character_identity_anatomy": {
+          "score": 4.7,
+          "weight": 0.2,
+          "comment": "Stable principal cast, complete magician arms and one held wand; small distant figures remain simplified."
+        },
+        "line_detail_completeness": {
+          "score": 4.7,
+          "weight": 0.2,
+          "comment": "Focal wand-tip contact and broken bubble rim are finished; dense tiny bubbles still reduce shape separation."
+        },
+        "action_contact_staging": {
+          "score": 4.5,
+          "weight": 0.2,
+          "comment": "The held gold star touches the breaking stray bubble rim, with visible fragments. Fabric and transparent bubble barrier are distinct. Central barrier versus side-aisle geography remains compressed."
+        },
+        "balloon_text_clarity": {
+          "score": 4.9,
+          "weight": 0.2,
+          "comment": "Every required word and speaker is clear; no additional sound word was inserted."
+        },
+        "manga_composition": {
+          "score": 4.5,
+          "weight": 0.2,
+          "comment": "Lively spectacle remains bright throughout the stage; the route problem is less dominant than the faces."
+        }
+      },
+      "page_score_unrounded": "4.66",
+      "page_score": 4.66,
+      "page_floor_4_5_met": true,
+      "exact_manuscript_words_visually_present": true,
+      "wrong_speaker_required_dialogue_observed": false,
+      "missing_required_dialogue_observed": false,
+      "focal_anatomy_failure_observed": false,
+      "broken_essential_rescue_contact_observed": false,
+      "hard_fail_observed": false,
+      "hard_fail_reason": null,
+      "residual_limits_and_model_collateral": [
+        "The small bubble retains part of its semicircular rim during the pictured burst; it is a breaking instant, not a completely absent sphere.",
+        "Microphone/side-aisle geography remains a minor limitation across the wide views."
+      ],
+      "candle_review": {
+        "rainbow_candle_depicted": false,
+        "visible_flame_or_wick": false,
+        "comment": "Shell/pearl luminaires and enclosed lanterns are not candle discoveries."
+      }
+    },
+    {
+      "page": 21,
+      "take": 1,
+      "status": "CANDIDATE_SELECTED_RANGE_REVIEW",
+      "recommended_for_parent_selection": true,
+      "native_path": "assets_src/books/rumi_visual_detective_20261012/native/page_21_take1.png",
+      "native_sha256": "eb2d25c7b07f2ec7ef11198cec666c21eb09308d0608a314518335a496466cef",
+      "rgb_pixel_sha256": "3abe835ef4a59412dad8024856c9b3a124baf7ae18ae320bc44ea4cd606ad89a",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "mode": "RGB",
+      "generation_receipt": "assets_src/books/rumi_visual_detective_20261012/generation/page_21_take1.json",
+      "generation_receipt_sha256": "e5fffcbfc256184c2d4bda1cf90f6f4e006fd5111b93c54c2a67865eda5d2b5a",
+      "provider_path": "C:\\Users\\Peter\\.codex\\generated_images\\01a12885-9926-7f51-bf3c-f9504cb34d52\\exec-f4f170c1-78e1-48c3-be65-bb0092525d9d.png",
+      "provider_sha256": "eb2d25c7b07f2ec7ef11198cec666c21eb09308d0608a314518335a496466cef",
+      "prompt_file": "assets_src/books/rumi_visual_detective_20261012/generation/page_21_take1_prompt.txt",
+      "prompt_sha256": "241d0141f7c06a9b4cb57e48d8b6288e7fcc42c64f1f5f707737782371c9647f",
+      "references_file": "assets_src/books/rumi_visual_detective_20261012/generation/page_21_take1_references.json",
+      "references_file_sha256": "efa09bb5fdc8dc9ee261991df5db3d905ea1c577aee13212a75dee2878140c0d",
+      "references": [
+        {
+          "role": "edit_target_complete_native_page",
+          "path": "assets_src/books/rumi_voice_book_20261011/native/page_21_take3.png",
+          "sha256": "40459dadaa2eef6cacc15121cfbb20206adcea9f467c34ff0c3485b69c3678db"
+        },
+        {
+          "role": "prop_only_Nari_same_frame_drum_no_scene_pixels",
+          "path": "assets_src/books/rumi_voice_book_20261011/native/page_06_take2.png",
+          "sha256": "b2c5938b1a3bd1f1f705e5095d0ca07c7044faefdc154e56fcee8a750f522ac1"
+        },
+        {
+          "role": "prop_only_same_cream_orange_shell_catchcloth_no_scene_pixels",
+          "path": "assets_src/books/rumi_voice_book_20261011/native/page_26_take1.png",
+          "sha256": "df82ab99dc1a54c0b158801dfa7ca5df45648bc5c34c5f8d8e19f95cb07b1990"
+        }
+      ],
+      "source_page_sha256": "ac69420904807acda98d33053f9ddbd9b7f583831a242d982f6f2650d9cca5a2",
+      "actual_call_count": 1,
+      "view_method": "view_image(detail=original), entire native page; take also displayed by generatedImage after tool completion",
+      "categories": {
+        "character_identity_anatomy": {
+          "score": 4.7,
+          "weight": 0.2,
+          "comment": "Stable cast and one tail each. Nari has a shallow gold-rim cream frame drum; its shell emblem is peach/orange rather than the pink support reference."
+        },
+        "line_detail_completeness": {
+          "score": 4.8,
+          "weight": 0.2,
+          "comment": "Hana grips the prepared cream/orange-shell cloth with separate visible hands; focal drum and invitation contours are crisp."
+        },
+        "action_contact_staging": {
+          "score": 4.7,
+          "weight": 0.2,
+          "comment": "Safe-route direction, prepared jobs and final invitation delivery are concrete state changes. Duri-left/Roshan-right restaging supports the dialogue order."
+        },
+        "balloon_text_clarity": {
+          "score": 4.9,
+          "weight": 0.2,
+          "comment": "Duri-first and Roshan-second balloons now have short separate correctly attributed tails, without crossing."
+        },
+        "manga_composition": {
+          "score": 4.7,
+          "weight": 0.2,
+          "comment": "Three varied job/delivery panels have a clear eye path; the lower panel no longer contains page-wide crossed tails."
+        }
+      },
+      "page_score_unrounded": "4.76",
+      "page_score": 4.76,
+      "page_floor_4_5_met": true,
+      "exact_manuscript_words_visually_present": true,
+      "wrong_speaker_required_dialogue_observed": false,
+      "missing_required_dialogue_observed": false,
+      "focal_anatomy_failure_observed": false,
+      "broken_essential_rescue_contact_observed": false,
+      "hard_fail_observed": false,
+      "hard_fail_reason": null,
+      "residual_limits_and_model_collateral": [
+        "The frame drum shell emblem has a small peach/orange hue variation relative to the pink source emblem.",
+        "The lower panel was generated with a minimally changed cast arrangement to support Duri-first reading order; body art is not claimed pixel-identical."
+      ],
+      "candle_review": {
+        "rainbow_candle_depicted": false,
+        "visible_flame_or_wick": false,
+        "comment": "Shell/pearl luminaires and enclosed lanterns are not candle discoveries."
+      }
+    },
+    {
+      "page": 22,
+      "take": 1,
+      "status": "CANDIDATE_SELECTED_RANGE_REVIEW",
+      "recommended_for_parent_selection": true,
+      "native_path": "assets_src/books/rumi_visual_detective_20261012/native/page_22_take1.png",
+      "native_sha256": "1a5f905d63cefc8e4a55134eb04cc4c1bb2376a59c47f82448dee329ebd42314",
+      "rgb_pixel_sha256": "f1c28c08dc543e5dfcf414bafd835227537ae99300dcb15c4ace624e7b76ec95",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "mode": "RGB",
+      "generation_receipt": "assets_src/books/rumi_visual_detective_20261012/generation/page_22_take1.json",
+      "generation_receipt_sha256": "1ac5ded03ca99d362e0e05d1466edee8926509486317e6577aedab6e37563712",
+      "provider_path": "C:\\Users\\Peter\\.codex\\generated_images\\01a12885-9926-7f51-bf3c-f9504cb34d52\\exec-fa05a2e2-4b6f-48d4-99b3-4cb07daff329.png",
+      "provider_sha256": "1a5f905d63cefc8e4a55134eb04cc4c1bb2376a59c47f82448dee329ebd42314",
+      "prompt_file": "assets_src/books/rumi_visual_detective_20261012/generation/page_22_take1_prompt.txt",
+      "prompt_sha256": "92dd734817cb597592419770e88b384adfdaf914d374467c32c4da198769e4fc",
+      "references_file": "assets_src/books/rumi_visual_detective_20261012/generation/page_22_take1_references.json",
+      "references_file_sha256": "9aca85d6ff7776f863059b356dc0d74b85095fa3bb32d5cfd4cf04a3bdaa4751",
+      "references": [
+        {
+          "role": "edit_target_complete_native_page",
+          "path": "assets_src/books/rumi_voice_book_20261011/native/page_22_take1.png",
+          "sha256": "bd5c8593c0e2f4b55dd7816dd84f2f41dce318880c676cf6f2d45047dfcb132e"
+        },
+        {
+          "role": "prop_only_Nari_same_frame_drum_no_scene_pixels",
+          "path": "assets_src/books/rumi_voice_book_20261011/native/page_06_take2.png",
+          "sha256": "b2c5938b1a3bd1f1f705e5095d0ca07c7044faefdc154e56fcee8a750f522ac1"
+        },
+        {
+          "role": "prop_only_same_cream_orange_shell_catchcloth_no_scene_pixels",
+          "path": "assets_src/books/rumi_voice_book_20261011/native/page_26_take1.png",
+          "sha256": "df82ab99dc1a54c0b158801dfa7ca5df45648bc5c34c5f8d8e19f95cb07b1990"
+        }
+      ],
+      "source_page_sha256": "3f38a126fcf79bf3e37c6068e08e94863d55b61d1f3b6d2faa664c6d6effc9cc",
+      "actual_call_count": 1,
+      "view_method": "view_image(detail=original), entire native page; take also displayed by generatedImage after tool completion",
+      "categories": {
+        "character_identity_anatomy": {
+          "score": 4.8,
+          "weight": 0.2,
+          "comment": "Stable cast and one tail each; Nari uses the shallow gold-rim cream/pink-shell frame drum, and Hana carries the same cream/orange-shell cloth through preparation and catch."
+        },
+        "line_detail_completeness": {
+          "score": 4.7,
+          "weight": 0.2,
+          "comment": "Crisp foreground grips, drum stroke and catch fabric; crowded bubble/star overlaps retain a small shape-separation limit."
+        },
+        "action_contact_staging": {
+          "score": 4.6,
+          "weight": 0.2,
+          "comment": "Nari visibly strikes the drum membrane; Hana already holds the cloth in both anticipation drawings before the star contacts its sag. The middle low-route bubble rim still overlaps part of Roshan tail space."
+        },
+        "balloon_text_clarity": {
+          "score": 4.8,
+          "weight": 0.2,
+          "comment": "Exact manuscript words and nearby dialogue/collective-song tails remain readable."
+        },
+        "manga_composition": {
+          "score": 4.7,
+          "weight": 0.2,
+          "comment": "Four pictured drawings provide useful preparation, advance, catch and duck rhythm within the three authored panels."
+        }
+      },
+      "page_score_unrounded": "4.72",
+      "page_score": 4.72,
+      "page_floor_4_5_met": true,
+      "exact_manuscript_words_visually_present": true,
+      "wrong_speaker_required_dialogue_observed": false,
+      "missing_required_dialogue_observed": false,
+      "focal_anatomy_failure_observed": false,
+      "broken_essential_rescue_contact_observed": false,
+      "hard_fail_observed": false,
+      "hard_fail_reason": null,
+      "residual_limits_and_model_collateral": [
+        "Authored panel count is three; visual drawing count is four, preserving the existing useful catch/duck split.",
+        "The low-route bubble rim near Roshan remains slightly ambiguous rather than a fully diagrammed underpass."
+      ],
+      "candle_review": {
+        "rainbow_candle_depicted": false,
+        "visible_flame_or_wick": false,
+        "comment": "Shell/pearl luminaires and enclosed lanterns are not candle discoveries."
+      }
+    },
+    {
+      "page": 23,
+      "take": 1,
+      "status": "CANDIDATE_SELECTED_RANGE_REVIEW",
+      "recommended_for_parent_selection": true,
+      "native_path": "assets_src/books/rumi_visual_detective_20261012/native/page_23_take1.png",
+      "native_sha256": "e8b64308bba24d180ceeb3aff3d490e4e2388f45cc950ea7aead70ba9b7ff446",
+      "rgb_pixel_sha256": "13bf84745e8b7b2e6314a1b7fc238509c3245c1d39138d9cd13c4d269b459d5e",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "mode": "RGB",
+      "generation_receipt": "assets_src/books/rumi_visual_detective_20261012/generation/page_23_take1.json",
+      "generation_receipt_sha256": "9b91a597e9fc1af2020ea1440adf987b8935c6d467991fb27ad70318b6083671",
+      "provider_path": "C:\\Users\\Peter\\.codex\\generated_images\\01a12885-9926-7f51-bf3c-f9504cb34d52\\exec-10dfa7b5-7df2-4fe0-a859-0bc7e8089812.png",
+      "provider_sha256": "e8b64308bba24d180ceeb3aff3d490e4e2388f45cc950ea7aead70ba9b7ff446",
+      "prompt_file": "assets_src/books/rumi_visual_detective_20261012/generation/page_23_take1_prompt.txt",
+      "prompt_sha256": "246eeb4130bb08680b102453e594553e0b91086d6abb4ee0addee19861137933",
+      "references_file": "assets_src/books/rumi_visual_detective_20261012/generation/page_23_take1_references.json",
+      "references_file_sha256": "bac038ab83d083ca3080d308a7ce0046937958692306c1e52b39217ae2236c52",
+      "references": [
+        {
+          "role": "edit_target_complete_native_page",
+          "path": "assets_src/books/rumi_voice_book_20261011/native/page_23_take2.png",
+          "sha256": "305a985d9d19707135936117e1dfdde4ed7c53348c735e4a18a51e5a7591cd24"
+        },
+        {
+          "role": "prop_only_Nari_same_frame_drum_no_scene_pixels",
+          "path": "assets_src/books/rumi_voice_book_20261011/native/page_06_take2.png",
+          "sha256": "b2c5938b1a3bd1f1f705e5095d0ca07c7044faefdc154e56fcee8a750f522ac1"
+        },
+        {
+          "role": "prop_only_same_cream_orange_shell_catchcloth_no_scene_pixels",
+          "path": "assets_src/books/rumi_voice_book_20261011/native/page_26_take1.png",
+          "sha256": "df82ab99dc1a54c0b158801dfa7ca5df45648bc5c34c5f8d8e19f95cb07b1990"
+        }
+      ],
+      "source_page_sha256": "fa3f00abf699e0c175038945115552ddc59388c4608b44a3e8eeedd763cc5e13",
+      "actual_call_count": 1,
+      "view_method": "view_image(detail=original), entire native page; take also displayed by generatedImage after tool completion",
+      "categories": {
+        "character_identity_anatomy": {
+          "score": 4.8,
+          "weight": 0.2,
+          "comment": "Stable cast, shallow gold-rim cream/pink-shell frame drum and folded cream/orange-shell cloth held visibly by Hana during Pause."
+        },
+        "line_detail_completeness": {
+          "score": 4.8,
+          "weight": 0.2,
+          "comment": "Finished focal gesture, cloth and drum contours; nonessential city depth is softer."
+        },
+        "action_contact_staging": {
+          "score": 4.5,
+          "weight": 0.2,
+          "comment": "Curtain sweep, bell/stop and changed low route are distinct. The lower route still depends on adjacent pages for its stage/curtain connection."
+        },
+        "balloon_text_clarity": {
+          "score": 4.9,
+          "weight": 0.2,
+          "comment": "Exact words, correct short tails and DING-before-Pause reading order remain visible."
+        },
+        "manga_composition": {
+          "score": 4.7,
+          "weight": 0.2,
+          "comment": "Purposeful diagonal sweep, grouped reaction and forward swimming create a clear action rhythm."
+        }
+      },
+      "page_score_unrounded": "4.74",
+      "page_score": 4.74,
+      "page_floor_4_5_met": true,
+      "exact_manuscript_words_visually_present": true,
+      "wrong_speaker_required_dialogue_observed": false,
+      "missing_required_dialogue_observed": false,
+      "focal_anatomy_failure_observed": false,
+      "broken_essential_rescue_contact_observed": false,
+      "hard_fail_observed": false,
+      "hard_fail_reason": null,
+      "residual_limits_and_model_collateral": [
+        "The lower stone-arch route lacks a visible stage curtain/bubble landmark; the route connection relies on the surrounding pages."
+      ],
+      "candle_review": {
+        "rainbow_candle_depicted": false,
+        "visible_flame_or_wick": false,
+        "comment": "Shell/pearl luminaires and enclosed lanterns are not candle discoveries."
+      }
+    },
+    {
+      "page": 25,
+      "take": 1,
+      "status": "REJECTED_NAMED_CONTACT_REPAIR_FAILED",
+      "recommended_for_parent_selection": false,
+      "native_path": "assets_src/books/rumi_visual_detective_20261012/native/page_25_take1.png",
+      "native_sha256": "37059ffd8654cc99ad5635f1ee87ae5c89a104dd991bca997c3d881d0ba2597a",
+      "rgb_pixel_sha256": "2a9d59b9ac37bc8e5714292ab9100f45fcd83623d69dd66cc96c011b2cce1fa2",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "mode": "RGB",
+      "generation_receipt": "assets_src/books/rumi_visual_detective_20261012/generation/page_25_take1.json",
+      "generation_receipt_sha256": "ca4f32dce3408a9c0897a40bb77c835505bf2bb51b98100a019f224378da7d7d",
+      "provider_path": "C:\\Users\\Peter\\.codex\\generated_images\\01a12885-9926-7f51-bf3c-f9504cb34d52\\exec-9ee90c8c-2869-4120-afdd-ee50d05ecdcf.png",
+      "provider_sha256": "37059ffd8654cc99ad5635f1ee87ae5c89a104dd991bca997c3d881d0ba2597a",
+      "prompt_file": "assets_src/books/rumi_visual_detective_20261012/generation/page_25_take1_prompt.txt",
+      "prompt_sha256": "2d2b9d5d3caeda4ef4721d95574839d828089954d1c04c5a0fdac3445eecd3e5",
+      "references_file": "assets_src/books/rumi_visual_detective_20261012/generation/page_25_take1_references.json",
+      "references_file_sha256": "0798076efeae843813ce238685fafeb4e339bdd9ba49ea253192c53267253944",
+      "references": [
+        {
+          "role": "edit_target_complete_native_page",
+          "path": "assets_src/books/rumi_voice_book_20261011/native/page_25_take2.png",
+          "sha256": "a9c328c1bd1ad45a5378de3fcc1ddd86376fcbe4fb22b32d76322c1d8009a69e"
+        }
+      ],
+      "source_page_sha256": "757d90a6f490e987183ea25e20cbdd703dad83a3c2a9942c47358d6da768258f",
+      "actual_call_count": 1,
+      "view_method": "view_image(detail=original), entire native page; take also displayed by generatedImage after tool completion",
+      "categories": {
+        "character_identity_anatomy": {
+          "score": 4.5,
+          "weight": 0.2,
+          "comment": "Principal cast remains recognizable; the new detached cord/knot is an incoherent prop relationship."
+        },
+        "line_detail_completeness": {
+          "score": 4.7,
+          "weight": 0.2,
+          "comment": "Faces, wand and bubble are drawn cleanly, but the focal snag attachment is unfinished as a physical relationship."
+        },
+        "action_contact_staging": {
+          "score": 3.5,
+          "weight": 0.2,
+          "comment": "Named correction failed: a detached knot around the wand shaft has no continuous attachment to the curtain and does not catch the star tip. Outside-bubble wand state is clearer."
+        },
+        "balloon_text_clarity": {
+          "score": 4.8,
+          "weight": 0.2,
+          "comment": "Every required word and speaker remains visible."
+        },
+        "manga_composition": {
+          "score": 4.5,
+          "weight": 0.2,
+          "comment": "Lively changes of scale remain, but applauding friends weaken the help-call contrast."
+        }
+      },
+      "page_score_unrounded": "4.4",
+      "page_score": 4.4,
+      "page_floor_4_5_met": false,
+      "exact_manuscript_words_visually_present": true,
+      "wrong_speaker_required_dialogue_observed": false,
+      "missing_required_dialogue_observed": false,
+      "focal_anatomy_failure_observed": false,
+      "broken_essential_rescue_contact_observed": false,
+      "hard_fail_observed": false,
+      "hard_fail_reason": null,
+      "residual_limits_and_model_collateral": [
+        "Rejected because the named inciting curtain-to-star snag was still not physically pictured.",
+        "Do not substitute this rejected first take for the selected second take."
+      ],
+      "candle_review": {
+        "rainbow_candle_depicted": false,
+        "visible_flame_or_wick": false,
+        "comment": "Shell/pearl luminaires and enclosed lanterns are not candle discoveries."
+      }
+    },
+    {
+      "page": 25,
+      "take": 2,
+      "status": "CANDIDATE_SELECTED_RANGE_REVIEW",
+      "recommended_for_parent_selection": true,
+      "native_path": "assets_src/books/rumi_visual_detective_20261012/native/page_25_take2.png",
+      "native_sha256": "c4d8ec66b8077fc406c7f79943df3f9a3d4905e4a6e0b703f0ba55c3dba61cd8",
+      "rgb_pixel_sha256": "f0a984394ca74b95ec2ebb37717bfc142952813daa2336e6c8597099af493156",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "mode": "RGB",
+      "generation_receipt": "assets_src/books/rumi_visual_detective_20261012/generation/page_25_take2.json",
+      "generation_receipt_sha256": "7f4ddcdc5171891c1ac5eab4421ec25d0fb0cb5af721c22217e4f4de4393f8c9",
+      "provider_path": "C:\\Users\\Peter\\.codex\\generated_images\\01a12885-9926-7f51-bf3c-f9504cb34d52\\exec-e7246e3f-fad9-4a1c-982f-e5a0ffd9985e.png",
+      "provider_sha256": "c4d8ec66b8077fc406c7f79943df3f9a3d4905e4a6e0b703f0ba55c3dba61cd8",
+      "prompt_file": "assets_src/books/rumi_visual_detective_20261012/generation/page_25_take2_prompt.txt",
+      "prompt_sha256": "0350e7a9109bc88a62dacefd3d8de9cffd7005e18d7309a50f1399f48032da0b",
+      "references_file": "assets_src/books/rumi_visual_detective_20261012/generation/page_25_take2_references.json",
+      "references_file_sha256": "9cabf5765453bd974e7a370e137c27d7ac9949ba3b57b78ca5e8ad024569ab62",
+      "references": [
+        {
+          "role": "edit_target_complete_native_previous_take",
+          "path": "assets_src/books/rumi_visual_detective_20261012/native/page_25_take1.png",
+          "sha256": "37059ffd8654cc99ad5635f1ee87ae5c89a104dd991bca997c3d881d0ba2597a"
+        }
+      ],
+      "source_page_sha256": "757d90a6f490e987183ea25e20cbdd703dad83a3c2a9942c47358d6da768258f",
+      "actual_call_count": 1,
+      "view_method": "view_image(detail=original), entire native page; take also displayed by generatedImage after tool completion",
+      "categories": {
+        "character_identity_anatomy": {
+          "score": 4.7,
+          "weight": 0.2,
+          "comment": "Stable costumed cast, complete magician silhouette and one consistent wand; the continuous attached cord is now a readable stage prop."
+        },
+        "line_detail_completeness": {
+          "score": 4.8,
+          "weight": 0.2,
+          "comment": "Crisp cord, star-tip loop, bare purple hands, fabric and bubble contours; no focal blur observed."
+        },
+        "action_contact_staging": {
+          "score": 4.7,
+          "weight": 0.2,
+          "comment": "A cord continuously attached to the left curtain tie visibly loops the gold star tip while the magician releases the wand. The wand is outside the bubble in the middle panel and held by Rumi below. Backstep-to-bubble entry remains compressed."
+        },
+        "balloon_text_clarity": {
+          "score": 4.8,
+          "weight": 0.2,
+          "comment": "All exact required words and correct speaker tails survive the local repair."
+        },
+        "manga_composition": {
+          "score": 4.5,
+          "weight": 0.2,
+          "comment": "Strong snag/bubble/oblivious bow sequence; foreground friends still smile/applaud during Help, limiting the intended listening contrast."
+        }
+      },
+      "page_score_unrounded": "4.7",
+      "page_score": 4.7,
+      "page_floor_4_5_met": true,
+      "exact_manuscript_words_visually_present": true,
+      "wrong_speaker_required_dialogue_observed": false,
+      "missing_required_dialogue_observed": false,
+      "focal_anatomy_failure_observed": false,
+      "broken_essential_rescue_contact_observed": false,
+      "hard_fail_observed": false,
+      "hard_fail_reason": null,
+      "residual_limits_and_model_collateral": [
+        "The top snag/release is one compact instant rather than a separate backstep drawing.",
+        "Roshan and friends still smile/applaud in the final panel; the requested noticing pose was not fully achieved.",
+        "The model altered cord geometry and magician pose/nearby generated details; body/background pixels are not claimed locked."
+      ],
+      "candle_review": {
+        "rainbow_candle_depicted": false,
+        "visible_flame_or_wick": false,
+        "comment": "Shell/pearl luminaires and enclosed lanterns are not candle discoveries."
+      }
+    },
+    {
+      "page": 27,
+      "take": 1,
+      "status": "REJECTED_MISSING_REQUIRED_DIALOGUE",
+      "recommended_for_parent_selection": false,
+      "native_path": "assets_src/books/rumi_visual_detective_20261012/native/page_27_take1.png",
+      "native_sha256": "919003c9365ed37790372be54942ccbcce9160d866deb4196f8b044842d0d716",
+      "rgb_pixel_sha256": "cd75b9d5ae1ff974f7e39f6b2dafead135eb609598ce3fb937046a594a220ba0",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "mode": "RGB",
+      "generation_receipt": "assets_src/books/rumi_visual_detective_20261012/generation/page_27_take1.json",
+      "generation_receipt_sha256": "1ed0e8ac930ccf9ea482755f59983f216ce1ba9880cb088457037dd934ed4ef7",
+      "provider_path": "C:\\Users\\Peter\\.codex\\generated_images\\01a12885-9926-7f51-bf3c-f9504cb34d52\\exec-c0336a25-a3c6-4cc2-b0e7-b73625cd5651.png",
+      "provider_sha256": "919003c9365ed37790372be54942ccbcce9160d866deb4196f8b044842d0d716",
+      "prompt_file": "assets_src/books/rumi_visual_detective_20261012/generation/page_27_take1_prompt.txt",
+      "prompt_sha256": "a02ff211fbbf9b77d01e0dbd58a988ef34d46955a9f47c11e7bd6a43d132527b",
+      "references_file": "assets_src/books/rumi_visual_detective_20261012/generation/page_27_take1_references.json",
+      "references_file_sha256": "83e31d6bc0d25833a2900385bee431a1cdc6ec23e05660d7bf93e8d126b1c50c",
+      "references": [
+        {
+          "role": "edit_target_complete_native_page",
+          "path": "assets_src/books/rumi_voice_book_20261011/native/page_27_take3.png",
+          "sha256": "ea02564120295261c078938b30dcb52bd3615723892f59e944ee54a2d926cf88"
+        },
+        {
+          "role": "prop_only_same_cream_orange_shell_catchcloth_no_scene_pixels",
+          "path": "assets_src/books/rumi_voice_book_20261011/native/page_26_take1.png",
+          "sha256": "df82ab99dc1a54c0b158801dfa7ca5df45648bc5c34c5f8d8e19f95cb07b1990"
+        }
+      ],
+      "source_page_sha256": "2de183b9743b89db9df01b1964b0507ea1d3532e16ccebd07a37e8f940baa029",
+      "actual_call_count": 1,
+      "view_method": "view_image(detail=original), entire native page; take also displayed by generatedImage after tool completion",
+      "categories": {
+        "character_identity_anatomy": {
+          "score": 4.5,
+          "weight": 0.2,
+          "comment": "Stable cast and complete padded magician landing; Roshan support-hand/coat contours remain crowded."
+        },
+        "line_detail_completeness": {
+          "score": 4.7,
+          "weight": 0.2,
+          "comment": "Focal cloth sag and sphere contact are finished; steadying hand could be more isolated."
+        },
+        "action_contact_staging": {
+          "score": 4.7,
+          "weight": 0.2,
+          "comment": "The bubble changes from above the open cloth to directly loaded support, then landing; visible separate corner grips."
+        },
+        "balloon_text_clarity": {
+          "score": 2.0,
+          "weight": 0.2,
+          "comment": "BLOCKING: the required Roshan line Tie back the curtain! is absent from panel one."
+        },
+        "manga_composition": {
+          "score": 4.6,
+          "weight": 0.2,
+          "comment": "Preparation, loaded support and landing are distinct rather than repeated unchanged catch layouts."
+        }
+      },
+      "page_score_unrounded": "4.1",
+      "page_score": 4.1,
+      "page_floor_4_5_met": false,
+      "exact_manuscript_words_visually_present": false,
+      "wrong_speaker_required_dialogue_observed": false,
+      "missing_required_dialogue_observed": true,
+      "focal_anatomy_failure_observed": false,
+      "broken_essential_rescue_contact_observed": false,
+      "hard_fail_observed": true,
+      "hard_fail_reason": "Required Roshan Tie back the curtain! absent",
+      "residual_limits_and_model_collateral": [
+        "Rejected hard fail: missing required Roshan dialogue Tie back the curtain!",
+        "No missing-dialogue failure may be hidden by the improved action score."
+      ],
+      "candle_review": {
+        "rainbow_candle_depicted": false,
+        "visible_flame_or_wick": false,
+        "comment": "Shell/pearl luminaires and enclosed lanterns are not candle discoveries."
+      }
+    },
+    {
+      "page": 27,
+      "take": 2,
+      "status": "CANDIDATE_SELECTED_WITH_RECORDED_LIMITS",
+      "recommended_for_parent_selection": true,
+      "native_path": "assets_src/books/rumi_visual_detective_20261012/native/page_27_take2.png",
+      "native_sha256": "cc4aa251d48ddf4d9a4b1e7e342928e03d581e6def43e391446b1eebf2c696f8",
+      "rgb_pixel_sha256": "d072ab1980ae389297e16593ac6c5d0c7447a461913b9c90271e67f729f857fd",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "mode": "RGB",
+      "generation_receipt": "assets_src/books/rumi_visual_detective_20261012/generation/page_27_take2.json",
+      "generation_receipt_sha256": "9cc67239f9640ed9e3c3188af4a0168ac22e35779e3310db06bd0e51aefe3fef",
+      "provider_path": "C:\\Users\\Peter\\.codex\\generated_images\\01a12885-9926-7f51-bf3c-f9504cb34d52\\exec-0572f2de-fd94-4e20-8224-ae7cd3f46e2a.png",
+      "provider_sha256": "cc4aa251d48ddf4d9a4b1e7e342928e03d581e6def43e391446b1eebf2c696f8",
+      "prompt_file": "assets_src/books/rumi_visual_detective_20261012/generation/page_27_take2_prompt.txt",
+      "prompt_sha256": "b1312bbf04ea91d601f29ee4718afb92c437e269330953cfc4e97155d2b290d7",
+      "references_file": "assets_src/books/rumi_visual_detective_20261012/generation/page_27_take2_references.json",
+      "references_file_sha256": "6c663f221b628a4a78225886ec5686eedb17bc42cac70880b21e2ca3ec9e0f12",
+      "references": [
+        {
+          "role": "edit_target_complete_native_previous_take",
+          "path": "assets_src/books/rumi_visual_detective_20261012/native/page_27_take1.png",
+          "sha256": "919003c9365ed37790372be54942ccbcce9160d866deb4196f8b044842d0d716"
+        }
+      ],
+      "source_page_sha256": "2de183b9743b89db9df01b1964b0507ea1d3532e16ccebd07a37e8f940baa029",
+      "actual_call_count": 1,
+      "view_method": "view_image(detail=original), entire native page; take also displayed by generatedImage after tool completion",
+      "categories": {
+        "character_identity_anatomy": {
+          "score": 4.7,
+          "weight": 0.2,
+          "comment": "Stable cast, one mermaid tail each and complete safe landing. Roshan has a separated steadying hand on the magician sleeved forearm near the cuff; no fused limb observed."
+        },
+        "line_detail_completeness": {
+          "score": 4.8,
+          "weight": 0.2,
+          "comment": "Clean focal bubble, sagging cloth, grips and landed magician contours; bright background depth is nonessential."
+        },
+        "action_contact_staging": {
+          "score": 4.7,
+          "weight": 0.2,
+          "comment": "Distinct approach above open cloth, direct loaded sphere/cloth contact on low stage, then short padded landing. Performer already touches the curtain tie while asking, compressing job assignment; Roshan grip is through the sleeve rather than exposed wrist."
+        },
+        "balloon_text_clarity": {
+          "score": 4.4,
+          "weight": 0.2,
+          "comment": "All exact required words, including restored Tie back the curtain!, are visible in Catch/What/Tie order. Catch retains two short tips toward Roshan/near her pointing arm, an unnecessary visible tail defect; no tip definitively attributes the line to another character."
+        },
+        "manga_composition": {
+          "score": 4.6,
+          "weight": 0.2,
+          "comment": "Three clear support states and expressive relief; question/answer pose timing and redundant first-balloon tip keep composition below the top anchor."
+        }
+      },
+      "page_score_unrounded": "4.64",
+      "page_score": 4.64,
+      "page_floor_4_5_met": true,
+      "exact_manuscript_words_visually_present": true,
+      "wrong_speaker_required_dialogue_observed": false,
+      "missing_required_dialogue_observed": false,
+      "focal_anatomy_failure_observed": false,
+      "broken_essential_rescue_contact_observed": false,
+      "hard_fail_observed": false,
+      "hard_fail_reason": null,
+      "residual_limits_and_model_collateral": [
+        "Catch the bubble in the cloth! retains two short balloon tips despite the requested single tail.",
+        "Performer already holds the tie while asking What can I do? instead of showing the requested open-palm anticipation.",
+        "Roshan steadies the magician sleeved forearm near the cuff rather than directly gripping bare purple wrist; contours are separated.",
+        "Both allowed new takes have been used; no third same-brief call is authorized."
+      ],
+      "candle_review": {
+        "rainbow_candle_depicted": false,
+        "visible_flame_or_wick": false,
+        "comment": "Shell/pearl luminaires and enclosed lanterns are not candle discoveries."
+      }
+    }
+  ],
+  "acceptance": {
+    "parent_raw_review_and_reconciliation": "PENDING",
+    "complete_32_page_agent_target": "NOT_ESTABLISHED_BY_THIS_RANGE_PART",
+    "owner": "PENDING",
+    "child": "PENDING",
+    "print": "PENDING",
+    "runtime": "NOT_INTEGRATED",
+    "audit_satisfaction": "NOT_CLAIMED"
+  },
+  "scope_exclusions": "No root selection/manifest/script/license/PDF/CI/runtime/probe/protected-original or prior-edition files were changed by this part writer."
+}

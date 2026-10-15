@@ -1,0 +1,37 @@
+{
+  "page": 27,
+  "take": 2,
+  "created_at_utc": "2026-10-12T08:34:25.336023+00:00",
+  "method": "built-in image_gen.imagegen",
+  "provider_path": "C:\\Users\\Peter\\.codex\\generated_images\\01a12885-9926-7f51-bf3c-f9504cb34d52\\exec-0572f2de-fd94-4e20-8224-ae7cd3f46e2a.png",
+  "path": "assets_src/books/rumi_visual_detective_20261012/native/page_27_take2.png",
+  "sha256": "cc4aa251d48ddf4d9a4b1e7e342928e03d581e6def43e391446b1eebf2c696f8",
+  "provider_sha256": "cc4aa251d48ddf4d9a4b1e7e342928e03d581e6def43e391446b1eebf2c696f8",
+  "rgb_pixel_sha256": "d072ab1980ae389297e16593ac6c5d0c7447a461913b9c90271e67f729f857fd",
+  "dimensions": [
+    1024,
+    1536
+  ],
+  "native_mode": "RGB",
+  "script_sha256": "ab77f7740592a82b9185c10eb22a7b85ff785726b2f9eb8f01158861d54db6cd",
+  "source_page_sha256": "2de183b9743b89db9df01b1964b0507ea1d3532e16ccebd07a37e8f940baa029",
+  "prompt": "Use case: precise-object-edit. Image1 is the EDIT TARGET: my complete new page27take1. Restore ONE missing required line and clarify ONE final contact. PANEL1 currently has 'Catch the bubble in the cloth!' and the performer's 'What can I do?' but LOST Roshan's response. ADD the EXACT THIRD balloon 'Tie back the curtain!' attributed to ROSHAN, brown hair/rainbow forelock at LEFT. Place it lower than the performer's question, in the clear left-middle water gap between Roshan and Hana, with ONE SHORT unmistakable tail toward Roshan's mouth. Reading order must be Catch → What → Tie. Keep Catch with only ONE short tail to Roshan; remove its accidental extra tail. Do not cover faces, grip hands, cloth or bubble. The performer in panel1 should be turning/asking with one open palm, not already completing the knot; his tying action remains in panel2. Preserve PANEL2 exactly as drawn: the sphere is loaded IN contact with the sagging cream/orange-shell cloth, supported by Hana/Nari and low stage; no gap, curtain tied, Rumi with wand, exact Ready below?/Ready! lines. PANEL3: clarify Roshan's one steadying hand around the magician's PURPLE FOREARM/WRIST; his forearm extends naturally toward her, skin/hand contours separated and sleeve connected, not a hand placed on a cape blob or fused arm. Keep the padded short landing, magician's other hand at his hat if consistent, safe smiling relief and every other body/prop. Preserve all exact other words, POP! and Oof. Thank you. One tail per mermaid; no extra hands, candle or new words. Return the WHOLE complete native1024x1536RGB page. Missing 'Tie back the curtain!' is a blocking failure.\nExact required lettering, preserve spelling and speakers:\nPanel 1:\nRoshan: \"Catch the bubble in the cloth!\"\nPerformer: \"What can I do?\"\nRoshan: \"Tie back the curtain!\"\nPanel 2:\nRumi: \"Ready below?\"\nHana: \"Ready!\"\nPanel 3:\nSound: \"POP!\"\nMagician: \"Oof. Thank you.\"\n\n",
+  "prompt_sha256": "b1312bbf04ea91d601f29ee4718afb92c437e269330953cfc4e97155d2b290d7",
+  "prompt_file": "assets_src/books/rumi_visual_detective_20261012/generation/page_27_take2_prompt.txt",
+  "references": [
+    {
+      "role": "edit_target_complete_native_previous_take",
+      "path": "assets_src/books/rumi_visual_detective_20261012/native/page_27_take1.png",
+      "sha256": "919003c9365ed37790372be54942ccbcce9160d866deb4196f8b044842d0d716"
+    }
+  ],
+  "references_file": "assets_src/books/rumi_visual_detective_20261012/generation/page_27_take2_references.json",
+  "modifications": "Native provider PNG copied byte-identically; own-page generated corrections declared by exact prompt; no software crop/resize/sharpening/lettering overlay. Adjacent generated pixels may change.",
+  "provider_revision": "not exposed",
+  "request_id": "not exposed",
+  "seed": "not exposed",
+  "reported_cost": "not exposed",
+  "call_count": 1,
+  "selection": "REVIEW_PENDING",
+  "license_provenance": "Owner-commissioned original static-book candidate; existing project identity/setting/prop references retain terms; no film pixels/scene copy."
+}

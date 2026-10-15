@@ -1,0 +1,498 @@
+{
+  "status": "PARTIAL_CANDIDATES_TWO_PAGES_UNRESOLVED",
+  "reviewer": "book_builder independent assigned-page native review",
+  "created_at_utc": "2026-10-12T08:34:36.039532+00:00",
+  "rubric_path": "assets_src/books/rumi_visual_detective_20261012/QUALITY_RUBRIC.txt",
+  "rubric_sha256": "3f83261db2c6ecca74e1f54020a61795d86ba8262463cbfecfe04a8cf0ffde2a",
+  "planning_script_sha256": "b3623441d31710e1afeda9298c0c74e7c3cc3b6b4c8627b7bf9b1b8bafcbf876",
+  "final_script_sha256": "ab77f7740592a82b9185c10eb22a7b85ff785726b2f9eb8f01158861d54db6cd",
+  "source_revision_note": "Only production staging p02.4 long hair correction changed full hash; all five assigned page objects are exact unchanged. Page7 capture receipt remains immutable b362-bound; later capture receipts ab77-bound.",
+  "baseline_receipt_sha256": "af4dea192728e19f661aa8241da00a233fda039419346601b60e1fcd477aa7e8",
+  "fixed_category_weights": {
+    "character_identity_anatomy": 0.2,
+    "line_detail_completeness": 0.2,
+    "action_contact_staging": 0.2,
+    "balloon_text_clarity": 0.2,
+    "manga_composition": 0.2
+  },
+  "current_assignment_actual_calls": 7,
+  "previous_edition_actual_calls": 54,
+  "previous_plus_this_assignment_calls": 61,
+  "other_new_edition_agent_calls": "not counted here; root aggregates separately",
+  "per_page_call_count": {
+    "7": 1,
+    "8": 2,
+    "10": 2,
+    "11": 1,
+    "16": 1
+  },
+  "take_cap_per_page": 2,
+  "all_attempts_preserved": true,
+  "rows": [
+    {
+      "page": 7,
+      "take": 1,
+      "status": "CANDIDATE_FOR_ROOT_REVIEW",
+      "native_path": "assets_src/books/rumi_visual_detective_20261012/native/page_07_take1.png",
+      "sha256": "1f0b86e90de045692df1efc2b45deaa8d8ee5788a365d6ce6fd213800fde3a0a",
+      "rgb_pixel_sha256": "cc6a7222987cc3410f7b3a107385d93fed5d9a64823693034c259fe5026fb595",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "mode": "RGB",
+      "capture_receipt": "assets_src/books/rumi_visual_detective_20261012/generation/page_07_take1.json",
+      "capture_receipt_sha256": "05ba79bf1f43103c1ea3e4d0e4d5c136df9dd027af6bf8b2dc24cf5a89d39821",
+      "capture_script_sha256": "b3623441d31710e1afeda9298c0c74e7c3cc3b6b4c8627b7bf9b1b8bafcbf876",
+      "final_script_sha256": "ab77f7740592a82b9185c10eb22a7b85ff785726b2f9eb8f01158861d54db6cd",
+      "source_page_sha256": "76f9d5d364665fa326140e899ec1e32d10d54e7ef3ef12085529fb044a819554",
+      "assigned_page_unchanged_in_final_revision": true,
+      "prompt_file": "assets_src/books/rumi_visual_detective_20261012/prompts/page_07_take1.txt",
+      "prompt_sha256": "fe0db58c848008ecf1624838322ae0b4a5f57f6e8ddf9aac36ee320be49e6648",
+      "references_file": "assets_src/books/rumi_visual_detective_20261012/references/page_07_take1.json",
+      "call_count": 1,
+      "provider_revision": "not exposed",
+      "request_id": "not exposed",
+      "seed": "not exposed",
+      "reported_cost": "not exposed",
+      "full_native_visual_review": true,
+      "scores": {
+        "character_identity_anatomy": 5.0,
+        "line_detail_completeness": 5.0,
+        "action_contact_staging": 5.0,
+        "balloon_text_clarity": 5.0,
+        "manga_composition": 5.0
+      },
+      "unrounded_page_score": 5.0,
+      "exact_words_visible": true,
+      "exact_order_and_unambiguous_speakers": true,
+      "focal_anatomy_and_essential_contact_pass": true,
+      "defects": [],
+      "observations": [
+        "p07.3: detached rainbow taper removed; small drifting gold bell retained. Group bodies and attached fins remain coherent.",
+        "All five entry lines are visible verbatim, with panel order retained."
+      ],
+      "model_collateral": [
+        "Local gap now painted as surrounding underwater scenery; minor regenerated shading/text edges elsewhere may differ. No source pixel lock claimed."
+      ],
+      "no_software_crop_resize_or_image_edit": true
+    },
+    {
+      "page": 8,
+      "take": 1,
+      "status": "REJECTED",
+      "native_path": "assets_src/books/rumi_visual_detective_20261012/native/page_08_take1.png",
+      "sha256": "81224867ab017307b62ff6e29aea6c9547b579b735776118fa08f08ed5370fe1",
+      "rgb_pixel_sha256": "ac523ffc3bfc27bb33845fd669f239736636a39f9f97d244779701c67bc4d40b",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "mode": "RGB",
+      "capture_receipt": "assets_src/books/rumi_visual_detective_20261012/generation/page_08_take1.json",
+      "capture_receipt_sha256": "4cde0f748ad553a118b3423e0bc773b20207874d3da02595030240648340fc25",
+      "capture_script_sha256": "ab77f7740592a82b9185c10eb22a7b85ff785726b2f9eb8f01158861d54db6cd",
+      "final_script_sha256": "ab77f7740592a82b9185c10eb22a7b85ff785726b2f9eb8f01158861d54db6cd",
+      "source_page_sha256": "9607e522e9aa18eadf279d7c4fd1994174072027acbd050ebe5e9bfcf5c0dd0d",
+      "assigned_page_unchanged_in_final_revision": true,
+      "prompt_file": "assets_src/books/rumi_visual_detective_20261012/prompts/page_08_take1.txt",
+      "prompt_sha256": "907677445c53a8822f70ed91b4d09c0d71a1b590fdd5908bb27f41f83db48688",
+      "references_file": "assets_src/books/rumi_visual_detective_20261012/references/page_08_take1.json",
+      "call_count": 1,
+      "provider_revision": "not exposed",
+      "request_id": "not exposed",
+      "seed": "not exposed",
+      "reported_cost": "not exposed",
+      "full_native_visual_review": true,
+      "scores": {
+        "character_identity_anatomy": 5.0,
+        "line_detail_completeness": 5.0,
+        "action_contact_staging": 4.9,
+        "balloon_text_clarity": 3.8,
+        "manga_composition": 4.6
+      },
+      "unrounded_page_score": 4.66,
+      "exact_words_visible": true,
+      "exact_order_and_unambiguous_speakers": false,
+      "focal_anatomy_and_essential_contact_pass": true,
+      "defects": [
+        {
+          "id": "N08T1-TAIL-01",
+          "panel": "p08.2",
+          "bounds_px": [
+            590,
+            692,
+            641,
+            727
+          ],
+          "severity": "BLOCKING",
+          "description": "Rumi reassurance tail ends near Nari/background rather than Rumi; direction is ambiguous and fails required speaker clarity."
+        }
+      ],
+      "observations": [
+        "Duri explanation precedes Rumi reassurance, all exact words retained.",
+        "Duri fan/bag/strap staging, Hana top contact and Roshan intervention remain legible."
+      ],
+      "model_collateral": [
+        "Balloon reflow moved Duri explanation to upper-left/center and reassurance right; model did not preserve correct Rumi target."
+      ],
+      "no_software_crop_resize_or_image_edit": true
+    },
+    {
+      "page": 8,
+      "take": 2,
+      "status": "REJECTED",
+      "native_path": "assets_src/books/rumi_visual_detective_20261012/native/page_08_take2.png",
+      "sha256": "137fb8df3fa16300536d11f0af50731d72d07d0c0fb310939ab6aed7325dbac8",
+      "rgb_pixel_sha256": "eea831f9b7c005dd133ead098bfb1329639732a4e9af763d2af437b4185185aa",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "mode": "RGB",
+      "capture_receipt": "assets_src/books/rumi_visual_detective_20261012/generation/page_08_take2.json",
+      "capture_receipt_sha256": "6becbb8f0425c5465073d502addecc7f5d6b08c96158401cf15e70b04fd49278",
+      "capture_script_sha256": "ab77f7740592a82b9185c10eb22a7b85ff785726b2f9eb8f01158861d54db6cd",
+      "final_script_sha256": "ab77f7740592a82b9185c10eb22a7b85ff785726b2f9eb8f01158861d54db6cd",
+      "source_page_sha256": "9607e522e9aa18eadf279d7c4fd1994174072027acbd050ebe5e9bfcf5c0dd0d",
+      "assigned_page_unchanged_in_final_revision": true,
+      "prompt_file": "assets_src/books/rumi_visual_detective_20261012/prompts/page_08_take2.txt",
+      "prompt_sha256": "4f7245e7df4b474143ef9844770322e6ecebb656b56a128cc58b6a5bdfc13c34",
+      "references_file": "assets_src/books/rumi_visual_detective_20261012/references/page_08_take2.json",
+      "call_count": 1,
+      "provider_revision": "not exposed",
+      "request_id": "not exposed",
+      "seed": "not exposed",
+      "reported_cost": "not exposed",
+      "full_native_visual_review": true,
+      "scores": {
+        "character_identity_anatomy": 5.0,
+        "line_detail_completeness": 5.0,
+        "action_contact_staging": 4.9,
+        "balloon_text_clarity": 4.0,
+        "manga_composition": 4.8
+      },
+      "unrounded_page_score": 4.74,
+      "exact_words_visible": true,
+      "exact_order_and_unambiguous_speakers": false,
+      "focal_anatomy_and_essential_contact_pass": true,
+      "defects": [
+        {
+          "id": "N08T2-ORDER-01",
+          "panel": "p08.2",
+          "bounds_px": [
+            356,
+            572,
+            825,
+            770
+          ],
+          "severity": "BLOCKING",
+          "description": "Curved tail now identifies Rumi, but model swapped the two balloon positions back. Rumi reassurance is upper-left and read before Duri explanation; frozen order remains unsatisfied."
+        }
+      ],
+      "observations": [
+        "All exact words preserved, reassurance curved tail reaches Rumi braid, explanation tail reaches Duri.",
+        "Faces, hands, trapped strap and fan base remain unobscured."
+      ],
+      "model_collateral": [
+        "Unrequested collateral: both balloon positions changed despite single-tail request, reversing required English reading order."
+      ],
+      "no_software_crop_resize_or_image_edit": true
+    },
+    {
+      "page": 10,
+      "take": 1,
+      "status": "REJECTED",
+      "native_path": "assets_src/books/rumi_visual_detective_20261012/native/page_10_take1.png",
+      "sha256": "63c75fad8c54c61c261cbb71dca8189636f1bbb2a6fcaae4c424073f4a368946",
+      "rgb_pixel_sha256": "21191cb5ec9dca9387ac70711dacbc49fc020540374bcec5bcc7969caf15f7d2",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "mode": "RGB",
+      "capture_receipt": "assets_src/books/rumi_visual_detective_20261012/generation/page_10_take1.json",
+      "capture_receipt_sha256": "33ab739f42e28d606e6135de1cef4c8b5a22c4882bf896e7810c5a7e54abd0d9",
+      "capture_script_sha256": "ab77f7740592a82b9185c10eb22a7b85ff785726b2f9eb8f01158861d54db6cd",
+      "final_script_sha256": "ab77f7740592a82b9185c10eb22a7b85ff785726b2f9eb8f01158861d54db6cd",
+      "source_page_sha256": "2a9d1757ad307465bdd644dd3498b3b1561ccf7a1ccf23097395e1f0f505a29f",
+      "assigned_page_unchanged_in_final_revision": true,
+      "prompt_file": "assets_src/books/rumi_visual_detective_20261012/prompts/page_10_take1.txt",
+      "prompt_sha256": "d640b80c9e1b97e10e8349ef84bcb662f864adc79c958f8697261ecb5c75d7a0",
+      "references_file": "assets_src/books/rumi_visual_detective_20261012/references/page_10_take1.json",
+      "call_count": 1,
+      "provider_revision": "not exposed",
+      "request_id": "not exposed",
+      "seed": "not exposed",
+      "reported_cost": "not exposed",
+      "full_native_visual_review": true,
+      "scores": {
+        "character_identity_anatomy": 3.5,
+        "line_detail_completeness": 4.0,
+        "action_contact_staging": 3.5,
+        "balloon_text_clarity": 5.0,
+        "manga_composition": 4.1
+      },
+      "unrounded_page_score": 4.0200000000000005,
+      "exact_words_visible": true,
+      "exact_order_and_unambiguous_speakers": true,
+      "focal_anatomy_and_essential_contact_pass": false,
+      "defects": [
+        {
+          "id": "N10T1-ANATOMY-01",
+          "panel": "p10.2",
+          "bounds_px": [
+            357,
+            537,
+            505,
+            774
+          ],
+          "severity": "BLOCKING",
+          "description": "Hana now reads with three coral-sleeved hands/arms on upper fan rather than two."
+        },
+        {
+          "id": "N10T1-GRIP-02",
+          "panel": "p10.2",
+          "bounds_px": [
+            510,
+            834,
+            629,
+            936
+          ],
+          "severity": "BLOCKING",
+          "description": "Only one Rumi blue-cuffed hand visibly holds fan. Her nearer waist/back support remains behind Roshan; requested two actual fan grips are absent."
+        }
+      ],
+      "observations": [
+        "Exact original words and other panels retained.",
+        "Duri remains clear of the raised fan; Roshan strap removal remains visible."
+      ],
+      "model_collateral": [
+        "Added focal extra Hana hand/forearm, unacceptable anatomy collateral."
+      ],
+      "no_software_crop_resize_or_image_edit": true
+    },
+    {
+      "page": 10,
+      "take": 2,
+      "status": "REJECTED",
+      "native_path": "assets_src/books/rumi_visual_detective_20261012/native/page_10_take2.png",
+      "sha256": "7f957f06972e712bc08e43ab93a2e5927d2810cd143229aa74c18c5a2cd1f518",
+      "rgb_pixel_sha256": "bb9a2aa12b810474b30d83a8f86c1e7e43bb166de7345cee44370345b1d6b510",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "mode": "RGB",
+      "capture_receipt": "assets_src/books/rumi_visual_detective_20261012/generation/page_10_take2.json",
+      "capture_receipt_sha256": "21986ff73115034727b6be3d0a82ad8759d3b85a97bdb417b073a915e3013b7e",
+      "capture_script_sha256": "ab77f7740592a82b9185c10eb22a7b85ff785726b2f9eb8f01158861d54db6cd",
+      "final_script_sha256": "ab77f7740592a82b9185c10eb22a7b85ff785726b2f9eb8f01158861d54db6cd",
+      "source_page_sha256": "2a9d1757ad307465bdd644dd3498b3b1561ccf7a1ccf23097395e1f0f505a29f",
+      "assigned_page_unchanged_in_final_revision": true,
+      "prompt_file": "assets_src/books/rumi_visual_detective_20261012/prompts/page_10_take2.txt",
+      "prompt_sha256": "f6ba54077c269185ec16bacb0258a868564215cc62f491a1722b503a428f14ca",
+      "references_file": "assets_src/books/rumi_visual_detective_20261012/references/page_10_take2.json",
+      "call_count": 1,
+      "provider_revision": "not exposed",
+      "request_id": "not exposed",
+      "seed": "not exposed",
+      "reported_cost": "not exposed",
+      "full_native_visual_review": true,
+      "scores": {
+        "character_identity_anatomy": 3.1,
+        "line_detail_completeness": 3.8,
+        "action_contact_staging": 3.2,
+        "balloon_text_clarity": 5.0,
+        "manga_composition": 3.8
+      },
+      "unrounded_page_score": 3.78,
+      "exact_words_visible": true,
+      "exact_order_and_unambiguous_speakers": true,
+      "focal_anatomy_and_essential_contact_pass": false,
+      "defects": [
+        {
+          "id": "N10T2-ANATOMY-01",
+          "panel": "p10.2",
+          "bounds_px": [
+            376,
+            621,
+            581,
+            804
+          ],
+          "severity": "BLOCKING",
+          "description": "Upper horizontal blue sleeve appears to emerge from Hana chest/upper-arm area instead of Rumi shoulder; focal limb ownership is broken."
+        },
+        {
+          "id": "N10T2-GRIP-02",
+          "panel": "p10.2",
+          "bounds_px": [
+            390,
+            630,
+            643,
+            947
+          ],
+          "severity": "BLOCKING",
+          "description": "Two added blue fan sleeves plus retained blue waist-support sleeve read as three Rumi arms; Hana original second grip was replaced. Required two-arm/two-grip ownership fails."
+        }
+      ],
+      "observations": [
+        "Exact lettering, safe Duri and Roshan strap-removal panel retained."
+      ],
+      "model_collateral": [
+        "Recolored/replaced Hana original contact sleeve, created disconnected upper blue arm, retained Rumi waist hand; unacceptable named contact repair."
+      ],
+      "no_software_crop_resize_or_image_edit": true
+    },
+    {
+      "page": 11,
+      "take": 1,
+      "status": "CANDIDATE_FOR_ROOT_REVIEW",
+      "native_path": "assets_src/books/rumi_visual_detective_20261012/native/page_11_take1.png",
+      "sha256": "9e461f9b46671cdcf01d72c4345319d11449528934321b900d07d188f9da9d9b",
+      "rgb_pixel_sha256": "2b98ee08ab79edac44755346dc9beb2dcefca3267594ab031d8b355e35ab2405",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "mode": "RGB",
+      "capture_receipt": "assets_src/books/rumi_visual_detective_20261012/generation/page_11_take1.json",
+      "capture_receipt_sha256": "fe3fe2d9d1fd5993db0f8956377b7be1ed393c2a8656f2eddba9b9a2ec70d159",
+      "capture_script_sha256": "ab77f7740592a82b9185c10eb22a7b85ff785726b2f9eb8f01158861d54db6cd",
+      "final_script_sha256": "ab77f7740592a82b9185c10eb22a7b85ff785726b2f9eb8f01158861d54db6cd",
+      "source_page_sha256": "e5a20c5a911a3f8c205d605a7593a2693967ecf2f8ad1e603493a37d82a5a8da",
+      "assigned_page_unchanged_in_final_revision": true,
+      "prompt_file": "assets_src/books/rumi_visual_detective_20261012/prompts/page_11_take1.txt",
+      "prompt_sha256": "e638916177d21bfa0e65dc5db968cc710d9bcb5d83a454bde195cd7bc3fd8c7a",
+      "references_file": "assets_src/books/rumi_visual_detective_20261012/references/page_11_take1.json",
+      "call_count": 1,
+      "provider_revision": "not exposed",
+      "request_id": "not exposed",
+      "seed": "not exposed",
+      "reported_cost": "not exposed",
+      "full_native_visual_review": true,
+      "scores": {
+        "character_identity_anatomy": 4.7,
+        "line_detail_completeness": 4.8,
+        "action_contact_staging": 4.8,
+        "balloon_text_clarity": 5.0,
+        "manga_composition": 4.8
+      },
+      "unrounded_page_score": 4.82,
+      "exact_words_visible": true,
+      "exact_order_and_unambiguous_speakers": true,
+      "focal_anatomy_and_essential_contact_pass": true,
+      "defects": [
+        {
+          "id": "N11T1-LIMIT-01",
+          "panel": "p11.2",
+          "bounds_px": [
+            512,
+            645,
+            698,
+            890
+          ],
+          "severity": "REVIEW_LIMIT",
+          "description": "Rumi head/shoulder is outside this intentionally close action panel; two added blue cuffs/forearms identify her support. Root must independently confirm ownership is sufficiently readable."
+        }
+      ],
+      "observations": [
+        "Roshan two coral arms remain continuous; Rumi blue-and-gold cuffs support right portion of edge.",
+        "All original narration/dialogue retained; safe Duri opening and p11.3 shift toward Roshan remain clear."
+      ],
+      "model_collateral": [
+        "Model added two Rumi gripping hands instead of replacing only the single bare ambiguous grip; four total grips now visible. Distinct blue forearms enter behind/from top of fan."
+      ],
+      "no_software_crop_resize_or_image_edit": true
+    },
+    {
+      "page": 16,
+      "take": 1,
+      "status": "CANDIDATE_FOR_ROOT_REVIEW",
+      "native_path": "assets_src/books/rumi_visual_detective_20261012/native/page_16_take1.png",
+      "sha256": "77646df74a846b9bad3db3c38145e5929f909514922812d2f3a1403d1e6ec6d7",
+      "rgb_pixel_sha256": "e46e2e2f46cae3a60120ade06d1944212405cb1788faa88b8f41063a827bbe65",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "mode": "RGB",
+      "capture_receipt": "assets_src/books/rumi_visual_detective_20261012/generation/page_16_take1.json",
+      "capture_receipt_sha256": "04f98928960337783b6c49509ad0a7f2148854193f78617270a1572a1bbc7d16",
+      "capture_script_sha256": "ab77f7740592a82b9185c10eb22a7b85ff785726b2f9eb8f01158861d54db6cd",
+      "final_script_sha256": "ab77f7740592a82b9185c10eb22a7b85ff785726b2f9eb8f01158861d54db6cd",
+      "source_page_sha256": "e674e9e21d4d8f8010b9e52d30b0cef60ba30435b46bed9fbf3dca1a6f12cff6",
+      "assigned_page_unchanged_in_final_revision": true,
+      "prompt_file": "assets_src/books/rumi_visual_detective_20261012/prompts/page_16_take1.txt",
+      "prompt_sha256": "32d45699b3e2be075a81b86536cee54f588a301b496561cf836193de3842b851",
+      "references_file": "assets_src/books/rumi_visual_detective_20261012/references/page_16_take1.json",
+      "call_count": 1,
+      "provider_revision": "not exposed",
+      "request_id": "not exposed",
+      "seed": "not exposed",
+      "reported_cost": "not exposed",
+      "full_native_visual_review": true,
+      "scores": {
+        "character_identity_anatomy": 5.0,
+        "line_detail_completeness": 5.0,
+        "action_contact_staging": 5.0,
+        "balloon_text_clarity": 4.9,
+        "manga_composition": 4.9
+      },
+      "unrounded_page_score": 4.96,
+      "exact_words_visible": true,
+      "exact_order_and_unambiguous_speakers": true,
+      "focal_anatomy_and_essential_contact_pass": true,
+      "defects": [],
+      "observations": [
+        "p16.3 Roshan question shifted right toward her; tip ends just above her brown hair/rainbow forelock, away from Nari towel. Rumi response second at right with clear short tail.",
+        "All exact wording retained. Feast, Duri, faces, bunny towel and complete attached fins remain clear."
+      ],
+      "model_collateral": [
+        "Both p16.3 balloon outlines/text positions regenerated locally; no source pixel-lock claim."
+      ],
+      "no_software_crop_resize_or_image_edit": true
+    }
+  ],
+  "selection_recommendations": [
+    {
+      "page": 7,
+      "take": 1,
+      "status": "ROOT_REVIEW_PENDING"
+    },
+    {
+      "page": 8,
+      "take": null,
+      "status": "UNRESOLVED_TWO_TAKE_CAP"
+    },
+    {
+      "page": 10,
+      "take": null,
+      "status": "UNRESOLVED_TWO_TAKE_CAP"
+    },
+    {
+      "page": 11,
+      "take": 1,
+      "status": "ROOT_REVIEW_PENDING_COLLATERAL_CHECK"
+    },
+    {
+      "page": 16,
+      "take": 1,
+      "status": "ROOT_REVIEW_PENDING"
+    }
+  ],
+  "diagnosis": [
+    {
+      "page": 8,
+      "description": "Constrained two-balloon edit exchanges order correctness for speaker-tail correctness. Further same-brief calls stopped. A materially different ordered-panel/balloon input or method would need separately declared authorization; no third call made."
+    },
+    {
+      "page": 10,
+      "description": "Overlap of Rumi blue and Hana coral arms defeats local generation identity/contact lock. Further same-brief calls stopped. A materially different action staging/input would need separately declared authorization; no third call made."
+    }
+  ],
+  "overall_4_7_target_achieved": false,
+  "whole_book_score": "not evaluated by this assigned-page receipt",
+  "owner_child_print_runtime_acceptance": "not claimed",
+  "old_edition_sources_manuscript_pdf_modified": false
+}
