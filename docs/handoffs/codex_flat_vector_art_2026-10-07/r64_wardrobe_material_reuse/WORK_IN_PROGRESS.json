@@ -1,6 +1,6 @@
 {
   "revision": "FV-AUDIT-20261015-R64",
-  "phase": "LOCAL_GATES_AND_PUBLICATION_PENDING_MISSION_OPEN",
+  "phase": "PUBLISHED_DIRECT_DEPENDENCIES_ANONYMOUSLY_VERIFIED_MISSION_OPEN",
   "summary": {
     "baseline": "d7703fef32f32c4e2727f43eaecef5ff73d8cdce",
     "source_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
@@ -38,7 +38,7 @@
     "regression_total": null,
     "mission_complete": false
   },
-  "next_work": "Publish and remotely verify R64. Refine current frame/card content and thumbnail padding against actual contour without shrinking readability/targets; then address caption/toast, preview/source-use/identity, procedural feedback/glyphs and remaining inventory/caller/native/route-state coverage. Do not adopt unaccepted source candidate or reset caps.",
+  "next_work": "Refine current frame/card content and thumbnail padding against actual contour without shrinking readability/targets; then address caption/toast, preview/source-use/identity, procedural feedback/glyphs and remaining inventory/caller/native/route-state coverage. Do not adopt unaccepted source candidate or reset caps.",
   "remaining_blockers": [
     "Whole-game art/screen/caller/native/resource/route-state denominator unknown;all176catalogue entries incomplete",
     "Candidate label/thumbnail/frame fit, phone readability/source new-use/owner acceptance pending; production still originalflatmaterials/title",
@@ -47,5 +47,7 @@
     "Candidate source30StyleBoxTexture-per-refresh plus repeated open paint/inherited styles requires cache/allocation/overdraw measurement before adoption; no lower-cost claim."
   ],
   "accepted_removed": 0,
-  "mission_complete": false
+  "mission_complete": false,
+  "payload_revision": "c8604d31e8d739c3b5d30559df9547fcbec73c27",
+  "publication_checked_at_utc": "2026-10-15T20:37:26.271909+00:00"
 }

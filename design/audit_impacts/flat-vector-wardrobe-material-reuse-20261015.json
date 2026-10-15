@@ -65,6 +65,7 @@
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r64_wardrobe_material_reuse/CURRENT_CATALOGUE_CONTEXT_UNION.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r64_wardrobe_material_reuse/CURRENT_PARTIAL_CONTEXT_UNION.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r64_wardrobe_material_reuse/DELIVERY_SOURCE_REFERENCES.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r64_wardrobe_material_reuse/DELIVERY_TRANSPORT.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r64_wardrobe_material_reuse/FINAL_BYTE_RECEIPT.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r64_wardrobe_material_reuse/FIXTURE_LINEAGE.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r64_wardrobe_material_reuse/FIXTURE_SCOPE_REPAIR_HISTORY.json",
@@ -78,6 +79,7 @@
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r64_wardrobe_material_reuse/MATERIAL_STATE_IDENTITY.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r64_wardrobe_material_reuse/PLAN.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r64_wardrobe_material_reuse/README.md",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r64_wardrobe_material_reuse/RECEIPT_GATES.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r64_wardrobe_material_reuse/REMOTE_VERIFICATION.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r64_wardrobe_material_reuse/REPRODUCTION.md",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r64_wardrobe_material_reuse/REUSE_PROVENANCE.json",
@@ -564,6 +566,7 @@
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r64_wardrobe_material_reuse/native/attempt2_source_control_locked_1280/wardrobe_material_candidate.gd",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r64_wardrobe_material_reuse/per_piece.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r64_wardrobe_material_reuse/prepare_prerequisite.py",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r64_wardrobe_material_reuse/receipt_gates.log",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r64_wardrobe_material_reuse/run_native.py",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r64_wardrobe_material_reuse/run_remaining_matrix.py",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r64_wardrobe_material_reuse/scene_coverage.json",
@@ -585,8 +588,8 @@
     },
     {
       "command": "Payload/receipt/final exact anonymous remote bytes and clean branch",
-      "result": "PENDING",
-      "evidence": "Established public durable branch."
+      "result": "PASS",
+      "evidence": "Exact payload c8604d31e8d739c3b5d30559df9547fcbec73c27: all 588 direct R64/source/canonical dependencies / 349738301 bytes anonymously verified at 2026-10-15T20:37:26.271909+00:00; manifestSHA f553fa789f466afe70412bb3d34f1fd1dce448b02cfdd17d2918fc8b61d77dbd. Historical parent transitive verification retains its exact prior receipt/time. Final metadata verified separately; no creative or mission acceptance."
     }
   ],
   "acceptance_gaps": "All whole-game/caller/native/resource/route-state totals, source/new-use/identity/phone/QA11/freshOS/device/audio/performance/child/owner acceptance and strict2D remain open. Candidate-only, no production adoption or removal credit."
