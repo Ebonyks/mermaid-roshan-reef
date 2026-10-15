@@ -1,0 +1,105 @@
+{
+  "source_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+  "source_art": [
+    {
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "path": "assets/fashion/skin_engine_v2/ui/wardrobe_card.png",
+      "bytes": 69345,
+      "sha256": "ab4926b5c99c3c6db0efcb4a20a75a9128276e085189bf51f947025659525893",
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/assets/fashion/skin_engine_v2/ui/wardrobe_card.png",
+      "http_status": 200,
+      "checked_at_utc": "2026-10-15T20:04:31.584344+00:00",
+      "role": "Exact source/context/canonical dependency; no approval from inclusion",
+      "dimensions": [
+        236,
+        256
+      ]
+    },
+    {
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "path": "assets/fashion/skin_engine_v2/ui/wardrobe_panel.png",
+      "bytes": 686645,
+      "sha256": "b533b95074f1466ee0519448c992de89d5683432f7a994c4de2628659da7f1ef",
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/assets/fashion/skin_engine_v2/ui/wardrobe_panel.png",
+      "http_status": 200,
+      "checked_at_utc": "2026-10-15T20:04:31.491934+00:00",
+      "role": "Exact source/context/canonical dependency; no approval from inclusion",
+      "dimensions": [
+        1024,
+        566
+      ]
+    },
+    {
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "path": "assets/flats/castle/dream_house/shell_wardrobe.png",
+      "bytes": 82384,
+      "sha256": "a6b3c4c13aa86f92300f7f732be18626a8ffbd3a88bce705d578d1249b03ecc1",
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/assets/flats/castle/dream_house/shell_wardrobe.png",
+      "http_status": 200,
+      "checked_at_utc": "2026-10-15T20:04:31.901066+00:00",
+      "role": "Exact source/context/canonical dependency; no approval from inclusion",
+      "dimensions": [
+        227,
+        273
+      ]
+    }
+  ],
+  "native_source_class": "scripts/fashion_wardrobe.gd original panel/card recipe, exact current source verified beforecandidate",
+  "candidate_script_sha256": "de95d4fa0e94c0a941e40410752404531d88e21e5c9434ee17a66708b2e0a4b9",
+  "source_png_edits": 0,
+  "source_sampling": {
+    "classification": "FAILED_V1_CANDIDATE_GEOMETRY_AND_VISUAL_FIT_NOT_PRODUCT_REGRESSION",
+    "case": "native/attempt1_material_candidate_locked_1280",
+    "native_frames": 54,
+    "all_checks": 49,
+    "failed_checks": [
+      "R64 declared heading disposition initial",
+      "R64 declared heading disposition reopen",
+      "R64 declared heading disposition reload",
+      "R64 declared heading disposition final_reopen"
+    ],
+    "observed_heading": {
+      "autowrap_mode": 0,
+      "font_size": 42,
+      "id": 204698815580,
+      "line_count": 1,
+      "position": "(165.0, 22.0)",
+      "size": "(430.0, 201.0)",
+      "text": "Pick your look!",
+      "visible_line_count": 1
+    },
+    "direct_viewed_failed_frame": {
+      "path": "native/attempt1_material_candidate_locked_1280/initial_caption_settled.png",
+      "sha256": "9fdaeaa4ee00283782f747ead17da464e804873d6622420840b316b214601b7b"
+    },
+    "visible_failure": "Material improved parent/frame style, but card alpha padding yields thin visible plaques with portraits hanging outside. Source label kept201px minimum despite one-line text.",
+    "v2_repair": "Unchanged source card complete nonzero-alpha region, same36pxnine-slice, recreate one source-text title Label before tree using existing Fashion style recipe. No checks lowered or source PNG modified.",
+    "card_source_sha256": "ab4926b5c99c3c6db0efcb4a20a75a9128276e085189bf51f947025659525893",
+    "card_alpha_bbox_ltrb": [
+      9,
+      8,
+      232,
+      232
+    ],
+    "sampled_region_xywh": [
+      9,
+      8,
+      223,
+      224
+    ],
+    "preserved_all_alpha_positive_source_pixels": true,
+    "before_candidate_sha256": "c93c387305b926d45ee13837a2a3ab3ca9a6644e69fcf091991dec4953cae09f",
+    "after_candidate_sha256": "de95d4fa0e94c0a941e40410752404531d88e21e5c9434ee17a66708b2e0a4b9",
+    "new_art_calls": 0,
+    "new_drawings": 0,
+    "accepted_removed": 0
+  },
+  "mapping": "Parent whole source1024x566->1224x684. Card236x256completealphaRegion(9,8,223,224), same36pxnine-slice atpreview470x560 andsourceButtontargetrects. Existing Fashion frame-only warm hover/pressed/focus/selected modulation; source locked whole-Button grey inherited. SourcePNG files/portrait images never edited or re-encoded.",
+  "failed_reuse_gap": null,
+  "new_generation_calls": 0,
+  "new_drawing_samples": 0,
+  "source_license_record": "ASSET_LICENSES.md at exactD in direct references; new use/creative/source approval remains pending. No new runtime asset, hence no new runtime license entry invented.",
+  "integration": null,
+  "owner": null,
+  "accepted_removed": 0
+}

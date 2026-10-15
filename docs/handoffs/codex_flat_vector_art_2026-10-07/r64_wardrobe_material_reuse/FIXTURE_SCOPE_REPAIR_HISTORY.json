@@ -1,0 +1,17 @@
+{
+  "excluded_case": "native/attempt1_source_control_locked_1280",
+  "classification": "EXCLUDED_OBSERVATION_ROLE_AGGREGATION_ERROR_NOT_PRODUCT_FAILURE",
+  "native_frames": 54,
+  "all_checks": 49,
+  "original_behavior_checks": 33,
+  "failed_checks": [
+    "R64 declared material states initial",
+    "R64 declared material states reopen",
+    "R64 declared material states reload",
+    "R64 declared material states final_reopen"
+  ],
+  "cause": "_materials included4named decorative pearlPanels alongside2materialPanels, despite separate ornament role list; expectedmaterial2 aggregation failed. All33originalbehavior checks/normal8/runtime4420/sidecars4041 guards passed.",
+  "repair": "Read-only _materials panel list now selects exact source parent/preview rects;4pearls remain independently reported in ornaments. No style/input/check-floor/rendering/candidate change. Retain entire54-frame source-control run excluded.",
+  "before_fixture_sha256": "dc0d3368ec9e2ac18aba136fa23c3f41f19c18519360c996c0995d1eb0a48768",
+  "after_fixture_sha256": "de1fdd83be0f570b29c4dae993997fd392b395078ae4c3a8d13ed82b5a7d50d1"
+}

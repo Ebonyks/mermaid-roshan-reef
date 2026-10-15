@@ -1,0 +1,47 @@
+{
+  "classification": "FAILED_V1_CANDIDATE_GEOMETRY_AND_VISUAL_FIT_NOT_PRODUCT_REGRESSION",
+  "case": "native/attempt1_material_candidate_locked_1280",
+  "native_frames": 54,
+  "all_checks": 49,
+  "failed_checks": [
+    "R64 declared heading disposition initial",
+    "R64 declared heading disposition reopen",
+    "R64 declared heading disposition reload",
+    "R64 declared heading disposition final_reopen"
+  ],
+  "observed_heading": {
+    "autowrap_mode": 0,
+    "font_size": 42,
+    "id": 204698815580,
+    "line_count": 1,
+    "position": "(165.0, 22.0)",
+    "size": "(430.0, 201.0)",
+    "text": "Pick your look!",
+    "visible_line_count": 1
+  },
+  "direct_viewed_failed_frame": {
+    "path": "native/attempt1_material_candidate_locked_1280/initial_caption_settled.png",
+    "sha256": "9fdaeaa4ee00283782f747ead17da464e804873d6622420840b316b214601b7b"
+  },
+  "visible_failure": "Material improved parent/frame style, but card alpha padding yields thin visible plaques with portraits hanging outside. Source label kept201px minimum despite one-line text.",
+  "v2_repair": "Unchanged source card complete nonzero-alpha region, same36pxnine-slice, recreate one source-text title Label before tree using existing Fashion style recipe. No checks lowered or source PNG modified.",
+  "card_source_sha256": "ab4926b5c99c3c6db0efcb4a20a75a9128276e085189bf51f947025659525893",
+  "card_alpha_bbox_ltrb": [
+    9,
+    8,
+    232,
+    232
+  ],
+  "sampled_region_xywh": [
+    9,
+    8,
+    223,
+    224
+  ],
+  "preserved_all_alpha_positive_source_pixels": true,
+  "before_candidate_sha256": "c93c387305b926d45ee13837a2a3ab3ca9a6644e69fcf091991dec4953cae09f",
+  "after_candidate_sha256": "de95d4fa0e94c0a941e40410752404531d88e21e5c9434ee17a66708b2e0a4b9",
+  "new_art_calls": 0,
+  "new_drawings": 0,
+  "accepted_removed": 0
+}

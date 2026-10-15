@@ -1,0 +1,50 @@
+{
+  "baseline": "d7703fef32f32c4e2727f43eaecef5ff73d8cdce",
+  "source_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+  "base_capture_sha256": "fec75c7bddae58d9ad0bbae6fad09d53c87f6f0f437d5edac03d23835b048c83",
+  "base_capture_identical_to_R63": true,
+  "candidate_methods": [
+    "_init",
+    "_card_style",
+    "_wardrobe_refresh",
+    "_paint_picker_buttons",
+    "_open_wardrobe"
+  ],
+  "inherited_behavior_methods_not_overridden": [
+    "_wardrobe_pick",
+    "_apply_skin",
+    "skin_sprite_path",
+    "_wardrobe_feedback_burst",
+    "_wardrobe_done",
+    "_close_wardrobe",
+    "_wardrobe_toast",
+    "_open_wardrobe_shell"
+  ],
+  "candidate_source_sha256": "de95d4fa0e94c0a941e40410752404531d88e21e5c9434ee17a66708b2e0a4b9",
+  "source_control_49checks": true,
+  "source_control_owner_scripts": [
+    "res://scripts/wardrobe_ui.gd"
+  ],
+  "control_dependency_limit": "Control loaded v1candidate Script but never instantiated it; original owner and executed capture/base code unchanged. Preserve exact original case dependencies instead of claiming matched v2unusedbytes.",
+  "source_files": [
+    {
+      "path": "scripts/wardrobe_ui.gd",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "sha256": "c347d851000a66a7069c262babf26658fe85b983d6179c6e1f33ac033acf1e29"
+    },
+    {
+      "path": "scripts/fashion_wardrobe.gd",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "sha256": "cc9c554b873300b4f4eea0708e2be7fafd7ebe757a0ce5b9eb24e4b59e580105"
+    },
+    {
+      "path": "scripts/storybook_ui.gd",
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "sha256": "137404cf953e2f40b0a21924c22e8f5a7bd63aee3e7f81ae71543cceefbdab31"
+    }
+  ],
+  "source_pixels_modified": false,
+  "generation_calls": 0,
+  "new_drawing_samples": 0,
+  "accepted_removed": 0
+}

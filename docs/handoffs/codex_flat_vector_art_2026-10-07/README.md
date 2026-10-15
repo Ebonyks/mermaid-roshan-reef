@@ -1,3 +1,9 @@
+Current canonical evidence: [R64 painted wardrobe material/heading reuse candidate](r64_wardrobe_material_reuse/README.md), [registry](r64_wardrobe_material_reuse/per_piece.json), [coverage](r64_wardrobe_material_reuse/scene_coverage.json), [tally](r64_wardrobe_material_reuse/tally.json).
+
+Ignored candidate219checks+sourcecontrol49;402events231bounded171excluded;88partial88without0complete unchanged. Padding/portrait/source-use/QA11/device/child/owner remain open;0production adoption/art/removal/global denominator unknown.
+
+## Historical entry text retained below
+
 Current canonical evidence: [R63 original Royal Bedroom wardrobe context](r63_wardrobe_context/README.md), [registry](r63_wardrobe_context/per_piece.json), [coverage](r63_wardrobe_context/scene_coverage.json), [tally](r63_wardrobe_context/tally.json).
 
 5native cases147checks;294native231bounded63excluded;88partial88without0complete, all176incomplete. Current layout/material/portrait-use/feedback weaknesses recorded;0newart/adoption/removal/global unknown.
