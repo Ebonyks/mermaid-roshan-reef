@@ -65,6 +65,7 @@
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r60_critter_saved_context/CONTEXT_PREREQUISITE.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r60_critter_saved_context/CURRENT_PARTIAL_CONTEXT_UNION.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r60_critter_saved_context/DELIVERY_SOURCE_REFERENCES.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r60_critter_saved_context/DELIVERY_TRANSPORT.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r60_critter_saved_context/FINAL_BYTE_RECEIPT.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r60_critter_saved_context/FIXTURE_SYNTAX_GATES.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r60_critter_saved_context/FRAME_PIXEL_IDENTITY.json",
@@ -73,6 +74,7 @@
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r60_critter_saved_context/MANIFEST.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r60_critter_saved_context/PLAN.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r60_critter_saved_context/README.md",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r60_critter_saved_context/RECEIPT_GATES.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r60_critter_saved_context/REMOTE_VERIFICATION.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r60_critter_saved_context/REPRODUCTION_INPUTS.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r60_critter_saved_context/REUSE_INVENTORY.json",
@@ -259,6 +261,7 @@
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r60_critter_saved_context/native/attempt1_critter_saved_partial_1600/same_category_repeat_settled.png",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r60_critter_saved_context/per_piece.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r60_critter_saved_context/query_collection.gd",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r60_critter_saved_context/receipt_gates.log",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r60_critter_saved_context/run_component.py",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r60_critter_saved_context/run_native.py",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r60_critter_saved_context/scene_coverage.json",
@@ -279,8 +282,8 @@
     },
     {
       "command": "Payload/dependencies/receipt/final exact remote bytes",
-      "result": "PENDING",
-      "evidence": "Owner-authorized same durable branch."
+      "result": "PASS",
+      "evidence": "Exact payload b378b6e06e256679cf19e11a7dc1abc0dd030e67: all 678 direct R60/source/canonical dependencies / 174207444 bytes anonymously verified at 2026-10-15T16:50:13.920002+00:00; manifestSHA 3aa7b75d71f9193d0ba30789b4176d49c30481267552cc1d4737385133c4e0f7. Historical parent transitive verification retains its exact prior receipt/time. Final metadata verified separately; no creative or mission acceptance."
     }
   ],
   "acceptance_gaps": "Whole-game inventory/native/caller/alias/source/resource/glyph closure; caught acquisition/full natural route/OS/device/child/owner/QA11; new-use source/candidate acceptance and strict2D/art. No production adoption."
