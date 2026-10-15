@@ -1,0 +1,43 @@
+{
+  "status": "PASS_BEFORE_CORRECTED_NATIVE_LAUNCH",
+  "commands": [
+    {
+      "command": [
+        "python",
+        "-m",
+        "gdtoolkit.parser",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r58_critter_book_context\\capture_critter_book.gd"
+      ],
+      "exit_code": 0,
+      "output": "",
+      "checked_at_utc": "2026-10-15T14:22:45.635162+00:00"
+    },
+    {
+      "command": [
+        "python",
+        "tools/lint_inference.py",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r58_critter_book_context\\capture_critter_book.gd"
+      ],
+      "exit_code": 0,
+      "output": "",
+      "checked_at_utc": "2026-10-15T14:22:45.716558+00:00"
+    },
+    {
+      "command": [
+        "C:/Users/Peter/AppData/Local/Programs/MermaidReefTools/Godot/4.7.2/godot_console.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-dev-context-20261015\\mermaid-roshan-reef",
+        "--rendering-method",
+        "mobile",
+        "--script",
+        "res://export/flat_vector_r58/capture_critter_book.gd",
+        "--check-only"
+      ],
+      "exit_code": 0,
+      "output": "Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org\r\n\r\n",
+      "checked_at_utc": "2026-10-15T14:22:51.874600+00:00"
+    }
+  ],
+  "fixture_sha256": "7145342ee2414186b3f757f8c3aa964543ea7e20d1f45f6ae1141dc3cb1d867f"
+}

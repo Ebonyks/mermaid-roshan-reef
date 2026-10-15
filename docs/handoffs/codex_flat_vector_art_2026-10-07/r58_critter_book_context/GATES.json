@@ -1,0 +1,131 @@
+{
+  "status": "PASS_CURRENT_CRITTER_BOOK_CONTEXT_ACCEPTANCE_OPEN",
+  "commands": [
+    {
+      "command": [
+        "python",
+        "-m",
+        "gdtoolkit.parser",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r58_critter_book_context\\capture_critter_book.gd",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r58_critter_book_context\\capture_critter_passive.gd",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r58_critter_book_context\\native\\attempt1_critter_book_1280\\fixture_source.gd",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r58_critter_book_context\\native\\attempt2_critter_book_1280\\fixture_source.gd",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r58_critter_book_context\\native\\attempt2_critter_book_1600\\fixture_source.gd",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r58_critter_book_context\\native\\attempt3_critter_passive_1280\\fixture_source.gd"
+      ],
+      "exit_code": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "checked_at_utc": "2026-10-15T14:37:03.287797+00:00"
+    },
+    {
+      "command": [
+        "python",
+        "tools/lint_inference.py",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r58_critter_book_context\\capture_critter_book.gd",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r58_critter_book_context\\capture_critter_passive.gd",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r58_critter_book_context\\native\\attempt1_critter_book_1280\\fixture_source.gd",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r58_critter_book_context\\native\\attempt2_critter_book_1280\\fixture_source.gd",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r58_critter_book_context\\native\\attempt2_critter_book_1600\\fixture_source.gd",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r58_critter_book_context\\native\\attempt3_critter_passive_1280\\fixture_source.gd"
+      ],
+      "exit_code": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "checked_at_utc": "2026-10-15T14:37:04.200186+00:00"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r58_critter_book_context\\validate.py"
+      ],
+      "exit_code": 0,
+      "sha256": "17da7b20f1f56a51de37ecc337389ae1f26a1e5d586439e1a1b9e7134f5f0c47",
+      "checked_at_utc": "2026-10-15T14:37:05.944965+00:00"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_document_authority.py"
+      ],
+      "exit_code": 0,
+      "sha256": "d0dfd362913076b62ee097040aaa3357818ed39e8e6234aebb542883c45a4501",
+      "checked_at_utc": "2026-10-15T14:37:16.839008+00:00"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_development.py",
+        "--base",
+        "auto"
+      ],
+      "exit_code": 0,
+      "sha256": "fe1136f6488648e75036829fb4dde2405eb9ed57eec05f046fe441463c20d023",
+      "checked_at_utc": "2026-10-15T14:37:23.498271+00:00"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "-m",
+        "unittest",
+        "tools.tests.test_audit_document_authority",
+        "tools.tests.test_audit_development"
+      ],
+      "exit_code": 0,
+      "sha256": "6a68509357d6fc2b998d9bcd017a90ba72f0475d952d063a03be2f122cb050fc",
+      "checked_at_utc": "2026-10-15T14:37:34.689952+00:00"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_document_authority.py",
+        "--stress"
+      ],
+      "exit_code": 0,
+      "sha256": "f6dae08cdab672a16e9630b84cfc9cfbb91c9ce905958c736a197b38d21dcf29",
+      "checked_at_utc": "2026-10-15T14:37:35.906814+00:00"
+    }
+  ],
+  "raw_log_sha256": "ac175f740a331520c1af801b44a48bd82dccae24189fc517127542ecc18793f4",
+  "scope": "Native59checks/110files71bounded39excluded;9native2source assistant views;54document tests/6stress. Original UI only; no caught-world/game.critters alias/QA11/device/child/owner/art acceptance.",
+  "review_reconciliation_checks": [
+    {
+      "command": [
+        "python",
+        "-B",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-r6-20261012\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r58_critter_book_context\\validate.py"
+      ],
+      "exit_code": 0,
+      "sha256": "17da7b20f1f56a51de37ecc337389ae1f26a1e5d586439e1a1b9e7134f5f0c47",
+      "output": "R58_VALIDATED 110native/71bounded/39excluded/59checks;9native2source views;85partial91without0complete/0art;unknown totals\r\n",
+      "checked_at_utc": "2026-10-15T14:42:18.487717+00:00"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_document_authority.py"
+      ],
+      "exit_code": 0,
+      "sha256": "d0dfd362913076b62ee097040aaa3357818ed39e8e6234aebb542883c45a4501",
+      "output": "DOCAUTH|INVENTORY=761|LEDGER=761|ACTIVE=69|RECORDS=72\r\nDOCAUTH|RESULT|ALL OK\r\n",
+      "checked_at_utc": "2026-10-15T14:42:27.907660+00:00"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_development.py",
+        "--base",
+        "auto"
+      ],
+      "exit_code": 0,
+      "sha256": "fe1136f6488648e75036829fb4dde2405eb9ed57eec05f046fe441463c20d023",
+      "output": "AUDITDEV|BASE|e2b3c73789707aa49a91b4f42e2a9dd4b68225df\r\nAUDITDEV|RESULT|ALL OK\r\n",
+      "checked_at_utc": "2026-10-15T14:42:33.985250+00:00"
+    }
+  ]
+}

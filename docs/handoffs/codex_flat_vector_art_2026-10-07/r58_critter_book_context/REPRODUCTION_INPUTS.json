@@ -1,0 +1,23 @@
+{
+  "baseline": {
+    "revision": "5459a484f9f1a5d11c9b4c8b2f9279af87905a0a",
+    "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r51_farmer_context/RUNTIME_BYTE_BASELINE.json",
+    "sha256": "60e556d68dcd3e826407e7a4f15341a52e2b7fa5216c67907ca68d521de335e7",
+    "staged_name": "POST_IMPORT_BASELINE.json",
+    "actual_staging_raw_exact": true
+  },
+  "current_fixtures": [
+    {
+      "path": "capture_critter_book.gd",
+      "sha256": "7145342ee2414186b3f757f8c3aa964543ea7e20d1f45f6ae1141dc3cb1d867f"
+    },
+    {
+      "path": "capture_critter_passive.gd",
+      "sha256": "81e75338d94925842f07d4e40ee42d7e0c3a0fef8826cf4317bd1aaad3cfd05b"
+    }
+  ],
+  "initial_fixture": "native/attempt1_critter_book_1280/fixture_source.gd",
+  "seed_inputs": "Each native capture_manifest.json records exact synthetic seed; current fixture creates matching new private profile. Actual child data was never an input.",
+  "setup": "Clean exact source worktree5120b6d5 with repository assets and approved4.7.2; initialized published4041sidecar/4420runtime baseline, no other editor. Copy public fixtures to ignored export/flat_vector_r58 and public baseline to runner staging name. Use fresh job/output directories; preserve recorded native files and do not overwrite historical captures. Precheck parser/inference/check-only before launch. Supplemental fixture extends exact current main fixture; both bytes must match public hashes.",
+  "acceptance": "Selected direct inputs/room/source refs and public source revision are bound. Full runtime dynamic/native/resource closure, fresh OS/device/child/owner/QA11 are not claimed. Desktop Mobile/Speedy with Dummy audio does not prove device performance/audio comprehension."
+}

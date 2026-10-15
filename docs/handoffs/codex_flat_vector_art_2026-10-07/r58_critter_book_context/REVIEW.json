@@ -1,0 +1,152 @@
+{
+  "revision": "FV-AUDIT-20261015-R58",
+  "source_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+  "inspection_type": "ASSISTANT_VISUAL_INSPECTION_ONLY_NOT_HUMAN_OR_OWNER_ACCEPTANCE",
+  "native_direct_views": [
+    {
+      "path": "native/attempt2_critter_book_1280/initial_menu_released.png",
+      "sha256": "b2e30128c1f347caf0980dd37f17f0f548ad6220a76e5e6e6a46a18974ed8a14"
+    },
+    {
+      "path": "native/attempt2_critter_book_1280/fish_ready.png",
+      "sha256": "0e9470a46628d85f6b8409e4d3520155351d4c3da51adb78634d0f64610832e4"
+    },
+    {
+      "path": "native/attempt2_critter_book_1280/bird_settled.png",
+      "sha256": "df89db0c2133ecd75e0061023bb658e434d1a007a0c89d0a3f2b6b8a9deca5aa"
+    },
+    {
+      "path": "native/attempt2_critter_book_1280/reopen_fish_ready.png",
+      "sha256": "b4ac419f747f5b0fdc834402bcb3447e226dc2c11f4767fa6a0a8cbde84f3d34"
+    },
+    {
+      "path": "native/attempt2_critter_book_1280/book_application_resume_notification.png",
+      "sha256": "e37629ec21fb65668438d7d9cd13f3c47946c8583d52fe98f33ff00189653edc"
+    },
+    {
+      "path": "native/attempt2_critter_book_1600/fish_ready.png",
+      "sha256": "659473a573eab0e545b09c9af3d407f0c7f1adfc38bea4c02767d84230e81c18"
+    },
+    {
+      "path": "native/attempt2_critter_book_1600/bird_settled.png",
+      "sha256": "e9551d6abf991a6684d7e1fb93b6fb6539274c4150e6977f36613c1b78dd9083"
+    },
+    {
+      "path": "native/attempt2_critter_book_1600/initial_back_released.png",
+      "sha256": "b31fd53d61ea21ee9b2235dbdae0740a15e044fd90eadf5149338395955733ef"
+    },
+    {
+      "path": "native/attempt3_critter_passive_1280/book_after_10_real_seconds.png",
+      "sha256": "ec9edb84626e5a52f61f15eb19bcde9edc8f0673bb3b9b4825154427b3639f46"
+    }
+  ],
+  "source_direct_views": [
+    {
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "path": "assets/fashion/skin_engine_v2/ui/wardrobe_panel.png",
+      "sha256": "b533b95074f1466ee0519448c992de89d5683432f7a994c4de2628659da7f1ef",
+      "bytes": 686645,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/assets/fashion/skin_engine_v2/ui/wardrobe_panel.png",
+      "http_status": 200
+    },
+    {
+      "revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+      "path": "assets/fashion/skin_engine_v2/ui/wardrobe_card.png",
+      "sha256": "ab4926b5c99c3c6db0efcb4a20a75a9128276e085189bf51f947025659525893",
+      "bytes": 69345,
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/5120b6d59885dd057937aaf284e73681d8eac9f5/assets/fashion/skin_engine_v2/ui/wardrobe_card.png",
+      "http_status": 200
+    }
+  ],
+  "stable_existing_piece_ids": [
+    "FV-E9E82E0C6703",
+    "FV-2ABD73BAFFE0",
+    "FV-AB474EF3699E"
+  ],
+  "stable_existing_glyph_sites_partially_bound": [
+    "FVG-19B880B613E4",
+    "FVG-ABB4CE6C85C9",
+    "FVG-3C4113536B0F",
+    "FVG-0FE159C1A4B4"
+  ],
+  "unreviewed_world_marker_glyph_sites": [
+    "FVG-BCB9EEB7A5EC",
+    "FVG-B98B5875A3C2"
+  ],
+  "same_scene_reference_views": [
+    {
+      "path": "native/attempt2_critter_book_1280/initial_menu_released.png",
+      "sha256": "b2e30128c1f347caf0980dd37f17f0f548ad6220a76e5e6e6a46a18974ed8a14"
+    },
+    {
+      "path": "native/attempt2_critter_book_1600/initial_back_released.png",
+      "sha256": "b31fd53d61ea21ee9b2235dbdae0740a15e044fd90eadf5149338395955733ef"
+    }
+  ],
+  "comparison": {
+    "contour": "Current flat UI uses uniform violet strokes/rounded rectangles and line-drawn fan-shell/pearls. MainHall doors/crowns use irregular painted contours and modeled highlights; candidate painted shell panel retains their gold/lilac contour family.",
+    "material": "Current fills and broad uniform shadows look like interface primitives against painted stone/gold. Existing wardrobe panel/card have paper/grain and painted rims; new book use remains unapproved/unfitted.",
+    "palette": "Cold blue/lavender/mint in current book relates loosely to the room but lacks warm gold lighting variation; existing paper/gold/lilac source offers closer local palette without redesign.",
+    "light": "Existing room/wardrobe source has authored fixed highlights. Current panel shadows are repeated flat styles. No relight/new light or3D effect proposed.",
+    "perspective": "Book is a front-facing functional UI plane; source frame likewise. Portrait card needs border-preserving9-slice/layout trial rather than anisotropic full-image stretch.",
+    "scale": "Main book panel1212x672 approximates wardrobe source1024x566 aspect. Live cards356x192 differ from source236x256; no direct-squash acceptance.",
+    "contact": "UI is an overlay; no physical ground/contact claim. Runtime Castle actor contact and all animal catches remain outside this bounded book review.",
+    "occlusion": "Current original Castle caption at(230,112)820x112 covers category area initially; passive10s confirms source timer expires and caption hides. It is transient, not persistent. Title/help remain collapsed afterward.",
+    "readability": "Measured title width1 height192 and help width1 height105 persist at native1280/1600. Help extends below720; text repeats Mystery Friend and offers swimming/CATCH route whose current access is unverified. Unknown ? marker is functional status, not18 authored animal pictures.",
+    "action_state": "All3original category tabs change six visible cards and highlight; Back/reopen/freshMain work in52main+7passive checks. No caught/partial/full collection, caught-card species identity, world acquisition or child comprehension demonstrated."
+  },
+  "observations": [
+    {
+      "id": "FVOBS-CRITTERBOOK-TEXT-BOUNDS",
+      "state": "CONFIRMED_CURRENT_CAPTURE_WEAKNESS",
+      "source": "CollectionSystem._draw_book/StorybookUI typography",
+      "facts": "Title and help measured width1; source positions only, no explicit positive label size. Visible vertical/cropped remnants after caption expiry; help y638+h105 exceeds720.",
+      "fix_scope": "Independent layout repair using current panel geometry; no artwork generation required to establish readable bounds.",
+      "evidence": [
+        {
+          "path": "native/attempt2_critter_book_1280/fish_ready.png",
+          "sha256": "0e9470a46628d85f6b8409e4d3520155351d4c3da51adb78634d0f64610832e4"
+        },
+        {
+          "path": "native/attempt3_critter_passive_1280/book_after_10_real_seconds.png",
+          "sha256": "ec9edb84626e5a52f61f15eb19bcde9edc8f0673bb3b9b4825154427b3639f46"
+        }
+      ]
+    },
+    {
+      "id": "FVOBS-CRITTERBOOK-FLAT-MATERIALS",
+      "state": "CURRENT_PARTIAL_CONTEXT_REUSE_REQUIRED",
+      "piece_ids": [
+        "FV-E9E82E0C6703",
+        "FV-2ABD73BAFFE0",
+        "FV-AB474EF3699E"
+      ],
+      "facts": "Visible panel/card/tab primitives and code-drawn shell/pearl ornament conflict with painted MainHall contours/material/light. No new source pixel edits or replacement accepted.",
+      "fix_scope": "Context-bound existing painted panel/card reuse trial; preserve controls, counts, tabs and source originals."
+    },
+    {
+      "id": "FVOBS-CRITTERBOOK-CAPTION-OVERLAP",
+      "state": "TRANSIENT_ORIGINAL_OVERLAY_COLLISION",
+      "facts": "Actual Castle caption covers book tabs initially; source timer3.444s at book release, expires below0 after natural10second hold. Do not misreport persistent blockage.",
+      "fix_scope": "Owner-scoped overlay/caption arbitration; no source caption suppressed by fixture."
+    },
+    {
+      "id": "FVOBS-CRITTERBOOK-SPECIES-AND-ENTRY",
+      "state": "UNREVIEWED_CATCHED_VARIANTS_AND_CALLERS",
+      "facts": "Empty-state category and habitat glyphs are present.18DEFS are species definitions, not measured artwork count. ? placeholders/function text are separated from animal-art candidates. Full catch-world/current routes, caught card identity and complete collection remain open."
+    }
+  ],
+  "new_roles": 0,
+  "new_families": 0,
+  "new_partial_existing_ids": 0,
+  "approved": 0,
+  "integrated": 0,
+  "runtime_verified_replacements": 0,
+  "accepted_removed": 0,
+  "human_reviews": [],
+  "QA11": null,
+  "device": null,
+  "child": null,
+  "owner": null,
+  "mission_complete": false
+}

@@ -1,0 +1,174 @@
+{
+  "source_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+  "jobs": [
+    {
+      "directory": "native/attempt1_critter_book_1280",
+      "failed_fixture": true,
+      "frames": 34,
+      "passing_checks": 25,
+      "failed_checks": [
+        "private unknown key retained"
+      ],
+      "manifest_sha256": "7a319a24dec1c4ac2b4b57513a051238bb84a048b4e58fa174085f2fb97ee538",
+      "guard": {
+        "exit_code": 1,
+        "timed_out": false,
+        "checked_at_utc": "2026-10-15T14:21:32.293806+00:00",
+        "normal_before": {
+          "": "47c287147713fac860e25dade59da95961204f9b3170f5e00b5843e11590ad1e",
+          ".bak": "de9d0441ed4d74f01cc8778c1c21600351b1426017d33a5ce99e69b03e893c3a",
+          ".tmp": "absent",
+          ".tmp0": "absent",
+          ".tmp1": "absent",
+          ".old": "absent",
+          ".bak.tmp": "absent",
+          ".bak.old": "absent"
+        },
+        "normal_after": {
+          "": "47c287147713fac860e25dade59da95961204f9b3170f5e00b5843e11590ad1e",
+          ".bak": "de9d0441ed4d74f01cc8778c1c21600351b1426017d33a5ce99e69b03e893c3a",
+          ".tmp": "absent",
+          ".tmp0": "absent",
+          ".tmp1": "absent",
+          ".old": "absent",
+          ".bak.tmp": "absent",
+          ".bak.old": "absent"
+        },
+        "sidecar_before_count": 4041,
+        "sidecar_after_count": 4041,
+        "sidecars_exact": true,
+        "source_byte_changes": [],
+        "fixture_unchanged": true,
+        "log_sha256": "618557f40e60636d51195387ee5a0c8b4e4efe71b9c4307b15f40018c5d94fba",
+        "script_or_shader_errors": false
+      }
+    },
+    {
+      "directory": "native/attempt2_critter_book_1280",
+      "failed_fixture": false,
+      "frames": 34,
+      "passing_checks": 26,
+      "failed_checks": [],
+      "manifest_sha256": "87699aee007dc3c625d5c23f5cf5f7a204c786f0a3019d97f32cfc10d3b25cde",
+      "guard": {
+        "exit_code": 0,
+        "timed_out": false,
+        "checked_at_utc": "2026-10-15T14:23:26.956757+00:00",
+        "normal_before": {
+          "": "47c287147713fac860e25dade59da95961204f9b3170f5e00b5843e11590ad1e",
+          ".bak": "de9d0441ed4d74f01cc8778c1c21600351b1426017d33a5ce99e69b03e893c3a",
+          ".tmp": "absent",
+          ".tmp0": "absent",
+          ".tmp1": "absent",
+          ".old": "absent",
+          ".bak.tmp": "absent",
+          ".bak.old": "absent"
+        },
+        "normal_after": {
+          "": "47c287147713fac860e25dade59da95961204f9b3170f5e00b5843e11590ad1e",
+          ".bak": "de9d0441ed4d74f01cc8778c1c21600351b1426017d33a5ce99e69b03e893c3a",
+          ".tmp": "absent",
+          ".tmp0": "absent",
+          ".tmp1": "absent",
+          ".old": "absent",
+          ".bak.tmp": "absent",
+          ".bak.old": "absent"
+        },
+        "sidecar_before_count": 4041,
+        "sidecar_after_count": 4041,
+        "sidecars_exact": true,
+        "source_byte_changes": [],
+        "fixture_unchanged": true,
+        "log_sha256": "6564901e364dcfbc543367d349e4b7e3620490b2e52a7d21e2ef66cfc3a2d7ce",
+        "script_or_shader_errors": false
+      }
+    },
+    {
+      "directory": "native/attempt2_critter_book_1600",
+      "failed_fixture": false,
+      "frames": 34,
+      "passing_checks": 26,
+      "failed_checks": [],
+      "manifest_sha256": "88932915e9d07345c09acb0fcb48762020a426d7e7f6fe78f3aee63b8bf3a49b",
+      "guard": {
+        "exit_code": 0,
+        "timed_out": false,
+        "checked_at_utc": "2026-10-15T14:24:16.112205+00:00",
+        "normal_before": {
+          "": "47c287147713fac860e25dade59da95961204f9b3170f5e00b5843e11590ad1e",
+          ".bak": "de9d0441ed4d74f01cc8778c1c21600351b1426017d33a5ce99e69b03e893c3a",
+          ".tmp": "absent",
+          ".tmp0": "absent",
+          ".tmp1": "absent",
+          ".old": "absent",
+          ".bak.tmp": "absent",
+          ".bak.old": "absent"
+        },
+        "normal_after": {
+          "": "47c287147713fac860e25dade59da95961204f9b3170f5e00b5843e11590ad1e",
+          ".bak": "de9d0441ed4d74f01cc8778c1c21600351b1426017d33a5ce99e69b03e893c3a",
+          ".tmp": "absent",
+          ".tmp0": "absent",
+          ".tmp1": "absent",
+          ".old": "absent",
+          ".bak.tmp": "absent",
+          ".bak.old": "absent"
+        },
+        "sidecar_before_count": 4041,
+        "sidecar_after_count": 4041,
+        "sidecars_exact": true,
+        "source_byte_changes": [],
+        "fixture_unchanged": true,
+        "log_sha256": "6564901e364dcfbc543367d349e4b7e3620490b2e52a7d21e2ef66cfc3a2d7ce",
+        "script_or_shader_errors": false
+      }
+    },
+    {
+      "directory": "native/attempt3_critter_passive_1280",
+      "failed_fixture": false,
+      "frames": 8,
+      "passing_checks": 7,
+      "failed_checks": [],
+      "manifest_sha256": "4111b34b51b9973d75adec500c45884e0db62e286a900a5f29e5d50e76338247",
+      "guard": {
+        "exit_code": 0,
+        "timed_out": false,
+        "checked_at_utc": "2026-10-15T14:27:51.597672+00:00",
+        "normal_before": {
+          "": "47c287147713fac860e25dade59da95961204f9b3170f5e00b5843e11590ad1e",
+          ".bak": "de9d0441ed4d74f01cc8778c1c21600351b1426017d33a5ce99e69b03e893c3a",
+          ".tmp": "absent",
+          ".tmp0": "absent",
+          ".tmp1": "absent",
+          ".old": "absent",
+          ".bak.tmp": "absent",
+          ".bak.old": "absent"
+        },
+        "normal_after": {
+          "": "47c287147713fac860e25dade59da95961204f9b3170f5e00b5843e11590ad1e",
+          ".bak": "de9d0441ed4d74f01cc8778c1c21600351b1426017d33a5ce99e69b03e893c3a",
+          ".tmp": "absent",
+          ".tmp0": "absent",
+          ".tmp1": "absent",
+          ".old": "absent",
+          ".bak.tmp": "absent",
+          ".bak.old": "absent"
+        },
+        "sidecar_before_count": 4041,
+        "sidecar_after_count": 4041,
+        "sidecars_exact": true,
+        "source_byte_changes": [],
+        "fixture_unchanged": true,
+        "log_sha256": "595de03c253ffd1239a5ff934542d1bbf617ae52d4bec67783a9063e71ed1667",
+        "script_or_shader_errors": false
+      }
+    }
+  ],
+  "runtime_files": 4420,
+  "initialized_sidecars": 4041,
+  "normal_suffixes": 8,
+  "all_runtime_files_unchanged": true,
+  "all_sidecars_exact": true,
+  "all_normal_hashes_exact": true,
+  "scope": "All4native jobs including failed fixture. No production/source/protected original/save-key changes; actual child data never read/copied/seeded."
+}

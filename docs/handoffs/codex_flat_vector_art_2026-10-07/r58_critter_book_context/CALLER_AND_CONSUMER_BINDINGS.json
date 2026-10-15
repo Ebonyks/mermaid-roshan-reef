@@ -1,0 +1,149 @@
+{
+  "source_revision": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+  "functions": [
+    {
+      "path": "scripts/pause_menu.gd",
+      "function": "_build_pause",
+      "line": 11,
+      "whole_file_sha256": "2afc6103f8a750c437c1aa23c94419191a0b303cdec54aabd9345b560a5646b0",
+      "excerpt_sha256": "6b7ea67fc747e815e0b3718bd2d0f136b8491bb76194ef8c993eeb2ee33c3174",
+      "excerpt": "func _build_pause() -> void:\n\t# Codex UI handoff 2026-07-19 pause contracts: full-screen cool dim, one\n\t# unmistakably dominant Resume, secondary actions as an icon-tile grid\n\t# (>=150x132, 24 px apart), toggles that change silhouette (never color\n\t# alone), a neutral doorway exit, and dev/FPS kept out of the child menu.\n\t# The only persistent gameplay control: one upper-left button. It is Back\n\t# whenever another activity/room is stacked over Sky Lagoon, and becomes\n\t# Menu only at the Lagoon promenade root. Layer 29 sits over ordinary game\n\t# surfaces but below the transition fade at 30.\n\tm.navigation_layer = CanvasLayer.new()\n\tm.navigation_layer.name = \"GlobalNavigationLayer\"\n\tm.navigation_layer.layer = 29\n\tm.navigation_layer.process_mode = Node.PROCESS_MODE_ALWAYS\n\tm.add_child(m.navigation_layer)\n\tvar navigation := Button.new()\n\tnavigation.name = \"GlobalNavigationButton\"\n\tStorybookUI.style_icon_button(\n\t\tnavigation, \"\u21a9\", \"secondary\", Vector2(112.0, 112.0), \"Back\")\n\tm._navigation_ref().position_button(navigation)\n\tnavigation.button_down.connect(global_navigation_pressed)\n\tnavigation.set_meta(\"global_navigation_owner\", true)\n\tm.navigation_layer.add_child(navigation)\n\tm.global_navigation_button = navigation\n\t# Compatibility for systems that only need to locate the shipped corner\n\t# control. It no longer means Pause and is never placed in the top-right.\n\tm.pause_gear_btn = navigation\n\n\tm.pause_layer = CanvasLayer.new()\n\tm.pause_layer.layer = 12\n\tm.pause_layer.process_mode = Node.PROCESS_MODE_ALWAYS\n\tm.add_child(m.pause_layer)\n\tm.pause_dim = ColorRect.new()\n\tm.pause_dim.color = Color(0.03, 0.06, 0.18, 0.55)\n\tm.pause_dim.set_anchors_preset(Control.PRESET_FULL_RECT)\n\tm.pause_dim.visible = false\n\tm.pause_layer.add_child(m.pause_dim)\n\tm.pause_layer.set_meta(\"corner_button\", navigation)\n\n\t# Full-screen root lets the dim and shell scale together while main keeps\n\t# its historical pause_panel reference and probe surface.\n\tm.pause_panel = Control.new()\n\tm.pause_panel.name = \"PauseOverlay\"\n\tm.pause_panel.set_anchors_preset(Control.PRESET_FULL_RECT)\n\tm.pause_panel.visible = false\n\tm.pause_layer.add_child(m.pause_panel)\n\tvar dim := StorybookUI.add_dim(m.pause_panel)\n\tdim.mouse_filter = Control.MOUSE_FILTER_STOP\n\tvar shell_rect := Rect2(290, 25, 700, 670)\n\tvar shell := StorybookUI.add_panel(m.pause_panel, shell_rect, StorybookUI.PURPLE, Color(0.90, 0.96, 1.0, 0.99), 62)\n\tshell.name = \"MenuShell\"\n\tStorybookUI.adorn_panel(m.pause_panel, shell_rect, \"Menu\")\n\n\tm.fps_lbl = Label.new()\n\tStorybookUI.style_label(m.fps_lbl, 18, Color(0.74, 0.82, 0.94), 2)\n\tm.fps_lbl.position = Vector2(1030, 686)\n\tm.pause_panel.add_child(m.fps_lbl)\n\tvar resume := _pause_btn(\"\u25b6   BACK TO PLAY\", Rect2(350, 105, 580, 140), \"primary\")\n\tresume.name = \"PauseResumeButton\"\n\tresume.pressed.connect(toggle_pause)\n\tm.pause_resume_btn = resume\n\n\tvar sticker_btn := _pause_btn(\"\u2605   STICKERS\", Rect2(350, 265, 280, 132), \"secondary\")\n\tsticker_btn.name = \"PauseStickerButton\"\n\tsticker_btn.pressed.connect(func():\n\t\ttoggle_pause()\n\t\tm._open_stickers())\n\tvar critter_btn := _pause_btn(\"\ud83d\udc1f   CRITTERS\",\n\t\tRect2(650, 265, 280, 132), \"secondary\")\n\tcritter_btn.name = \"MenuCritterBookButton\"\n\tcritter_btn.pressed.connect(func():\n\t\ttoggle_pause()\n\t\tm._collection_ref().open_book())\n\tvar stuffie_btn := _pause_btn(\"\u2665   STUFFIE\",\n\t\tRect2(350, 420, 280, 132), \"secondary\")\n\tstuffie_btn.name = \"MenuStuffieButton\"\n\tstuffie_btn.pressed.connect(func():\n\t\ttoggle_pause()\n\t\tif m.companion_id == \"\":\n\t\t\tm._companion_ref().open_picker()\n\t\telse:\n\t\t\tm._companion_ref().open_care_menu())\n\tm.pause_leave_btn = _pause_btn(leave_label(),\n\t\tRect2(650, 420, 280, 132), \"secondary\")\n\tm.pause_leave_btn.name = \"PauseLeaveButton\"\n\tm.pause_leave_btn.set_meta(\"neutral_exit\", true)\n\tm.pause_leave_btn.visible = false\n\tm.pause_leave_btn.pressed.connect(_leave_current_activity)\n\t# Point-to-interact is the one child-facing touch vocabulary. The former\n\t# mode choice advertised an obsolete on-screen movement stick.\n\tm.touch_mode_btn = null\n\tm.quality_btn = null\n\tm.music_btn = null\n\tm.mic_btn = null\n\t_sync_labels()\n\tsync_global_navigation()\n"
+    },
+    {
+      "path": "scripts/navigation_controller.gd",
+      "function": "press",
+      "line": 61,
+      "whole_file_sha256": "8a7c805f6b0d73840d62316dc349390d8125299fd8bdf0c146c6699ca725a873",
+      "excerpt_sha256": "ff801dc854a1014449cd6d235d30289dd3fe92a5f12c421e060dba3b66884a53",
+      "excerpt": "func press() -> void:\n\tif m._pause_ref()._navigation_locked():\n\t\treturn\n\tif m.pause_panel != null and m.pause_panel.visible:\n\t\tm._pause_ref().toggle_pause()\n\t\treturn\n\t_prune_invalid()\n\tif (m.game == \"dustboss\" and m.day_one_is_active()) \\\n\t\t\tor (top_id() == \"pearl_castle\" and (m.day_one_is_active() or m.chapter2_is_active())):\n\t\tm._pause_ref().toggle_pause()\n\t\treturn\n\tif not m.navigation_routes.is_empty():\n\t\tvar route: Dictionary = m.navigation_routes.pop_back() as Dictionary\n\t\tvar close_action: Callable = route.get(\"close\", Callable()) as Callable\n\t\tif close_action.is_valid():\n\t\t\tclose_action.call()\n\t\tsync_button()\n\t\treturn\n\tif at_sky_lagoon_root():\n\t\tm._pause_ref().toggle_pause()\n\telif m._pause_ref()._has_leave_context():\n\t\t# Older activities predate explicit route registration. Back must still be\n\t\t# functional game-wide while those controllers migrate onto the stack.\n\t\tm._pause_ref()._leave_current_activity()\n\tsync_button()\n"
+    },
+    {
+      "path": "scripts/navigation_controller.gd",
+      "function": "at_sky_lagoon_root",
+      "line": 53,
+      "whole_file_sha256": "8a7c805f6b0d73840d62316dc349390d8125299fd8bdf0c146c6699ca725a873",
+      "excerpt_sha256": "7670f07aab3c3549404357fc76003abcb8f7bccf9802ea31d7007b5cdceaea2f",
+      "excerpt": "func at_sky_lagoon_root() -> bool:\n\treturn m.navigation_root_id == \"sky_lagoon\" \\\n\t\tand m.game == \"level2\" \\\n\t\tand String(m.g.get(\"phase\", \"\")) == \"promenade\" \\\n\t\tand top_id() == \"\" \\\n\t\tand (m.pause_panel == null or not m.pause_panel.visible)\n"
+    },
+    {
+      "path": "scripts/collection_system.gd",
+      "function": "build",
+      "line": 66,
+      "whole_file_sha256": "876bb4901406034dfa6a3bf4d319383261e04a45fbedfe120d97c8eb2d24eb3a",
+      "excerpt_sha256": "315730b3791b49f239eabb88fae5a28d077bab8e0514107b37b98062529858c4",
+      "excerpt": "func build() -> void:\n\t# No persistent Critter launcher or empty compatibility CanvasLayer. The\n\t# collection itself remains intact for diegetic activity routes.\n\tm.collection_button_layer = null\n\tm.collection_button = null\n"
+    },
+    {
+      "path": "scripts/collection_system.gd",
+      "function": "open_book",
+      "line": 280,
+      "whole_file_sha256": "876bb4901406034dfa6a3bf4d319383261e04a45fbedfe120d97c8eb2d24eb3a",
+      "excerpt_sha256": "cc92331d16a14f8a568ce6ff7195b80def081086e9fccc94325802f6641cee1f",
+      "excerpt": "func open_book() -> void:\n\tif m.collection_layer != null:\n\t\treturn\n\tm._navigation_push(\"critter_book\", self,\n\t\tCallable(self, \"close_book\"))\n\tm._set_world_controls_enabled(false, \"collection\")\n\tm.collection_layer = CanvasLayer.new()\n\tm.collection_layer.layer = 25\n\tm.add_child(m.collection_layer)\n\tvar root_control := Control.new()\n\troot_control.set_anchors_preset(Control.PRESET_FULL_RECT)\n\tm.collection_layer.add_child(root_control)\n\tvar dim := ColorRect.new()\n\tdim.set_anchors_preset(Control.PRESET_FULL_RECT)\n\tdim.color = StorybookUI.DIM\n\troot_control.add_child(dim)\n\tvar viewport_size: Vector2 = m.get_viewport().get_visible_rect().size\n\tvar stage := StorybookUI.add_stage(root_control, viewport_size)\n\tm.collection_stage = stage\n\tif m.player != null:\n\t\tm.player.vel = Vector3.ZERO\n\tm.collection_category = \"fish\"\n\t_draw_book()\n\tm._say(\"roshan\", \"collection_book_open\")\n"
+    },
+    {
+      "path": "scripts/collection_system.gd",
+      "function": "close_book",
+      "line": 306,
+      "whole_file_sha256": "876bb4901406034dfa6a3bf4d319383261e04a45fbedfe120d97c8eb2d24eb3a",
+      "excerpt_sha256": "3d0b67dd2a9d661d6eccb3176263d2d11756382dc7e1a4d77b2d00a73ac90812",
+      "excerpt": "func close_book() -> void:\n\tm._navigation_remove(\"critter_book\")\n\tif m.collection_layer != null and is_instance_valid(m.collection_layer):\n\t\tm.collection_layer.queue_free()\n\tm.collection_layer = null\n\tm.collection_stage = null\n\tm._set_world_controls_enabled(true, \"collection\")\n"
+    },
+    {
+      "path": "scripts/collection_system.gd",
+      "function": "_switch_category",
+      "line": 315,
+      "whole_file_sha256": "876bb4901406034dfa6a3bf4d319383261e04a45fbedfe120d97c8eb2d24eb3a",
+      "excerpt_sha256": "8ae72879330e0158c6192aa6ed66e7ffbcbdab5a705bed4c5e4e7819e6d0d5e9",
+      "excerpt": "func _switch_category(category: String) -> void:\n\tm.collection_category = category\n\t_draw_book()\n"
+    },
+    {
+      "path": "scripts/collection_system.gd",
+      "function": "_draw_book",
+      "line": 320,
+      "whole_file_sha256": "876bb4901406034dfa6a3bf4d319383261e04a45fbedfe120d97c8eb2d24eb3a",
+      "excerpt_sha256": "ad5e1cb93257df71bbd449963f2f2f7bd3bb6a4baaf3620edfef923b09661fe0",
+      "excerpt": "func _draw_book() -> void:\n\tvar stage: Control = m.collection_stage\n\tif stage == null or not is_instance_valid(stage):\n\t\treturn\n\tfor child: Node in stage.get_children():\n\t\tchild.queue_free()\n\tvar panel := Panel.new()\n\tpanel.position = Vector2(34, 24)\n\tpanel.size = Vector2(1212, 672)\n\tvar panel_style := StorybookUI.panel_style(StorybookUI.MINT, Color(0.91, 0.97, 1.0, 0.99), 48, 5)\n\tpanel.add_theme_stylebox_override(\"panel\", panel_style)\n\tstage.add_child(panel)\n\tStorybookUI.adorn_panel(stage, Rect2(34, 24, 1212, 672), \"CritterBook\")\n\n\tvar title := Label.new()\n\ttitle.text = \"\ud83d\udc1a  My Critter Book   %d / %d\" % [caught_count(), TOTAL]\n\tStorybookUI.style_label(title, 46, StorybookUI.INK, 4)\n\ttitle.position = Vector2(70, 34)\n\tstage.add_child(title)\n\n\tfor i in range(CATEGORY_ORDER.size()):\n\t\tvar category: String = CATEGORY_ORDER[i]\n\t\tvar tab := Button.new()\n\t\ttab.text = \"%s  %d / 6\" % [String(CATEGORY_ICON[category]), caught_count(category)]\n\t\ttab.add_theme_font_size_override(\"font_size\", 30)\n\t\ttab.position = Vector2(88 + float(i) * 270.0, 92)\n\t\ttab.custom_minimum_size = Vector2(242, 110)\n\t\tStorybookUI.style_button(tab, \"selected\" if category == m.collection_category else \"secondary\", 30, 28)\n\t\ttab.pressed.connect(_switch_category.bind(category))\n\t\tstage.add_child(tab)\n\n\tvar visible_defs: Array[Dictionary] = []\n\tfor d: Dictionary in DEFS:\n\t\tif String(d[\"category\"]) == m.collection_category:\n\t\t\tvisible_defs.append(d)\n\tfor i in range(visible_defs.size()):\n\t\tvar d: Dictionary = visible_defs[i]\n\t\tvar caught: bool = bool(m.critter_collection.get(String(d[\"id\"]), false))\n\t\tvar card_color: Color = d[\"color\"]\n\t\tvar card_fill: Color = card_color.lightened(0.58) if caught else Color(0.88, 0.90, 0.98, 0.96)\n\t\tvar card := StorybookUI.add_panel(stage, Rect2(82 + float(i % 3) * 388.0, 212 + float(i / 3) * 208.0, 356, 192), card_color if caught else StorybookUI.LAVENDER, card_fill, 24)\n\t\tcard.name = \"CritterCard_%s\" % String(d[\"id\"])\n\t\tvar icon := Label.new()\n\t\ticon.text = String(CATEGORY_ICON[m.collection_category]) if caught else \"?\"\n\t\tStorybookUI.style_label(icon, 68, StorybookUI.INK, 3)\n\t\ticon.position = Vector2(22, 23)\n\t\ticon.size = Vector2(96, 96)\n\t\ticon.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER\n\t\tcard.add_child(icon)\n\t\tvar name_label := Label.new()\n\t\tname_label.text = String(d[\"name\"]) if caught else \"Mystery Friend\"\n\t\tStorybookUI.style_label(name_label, 29 if caught else 25, StorybookUI.INK if caught else StorybookUI.MUTED, 2)\n\t\tname_label.position = Vector2(122, 30)\n\t\tname_label.size = Vector2(220, 74)\n\t\tname_label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART\n\t\tcard.add_child(name_label)\n\t\tvar habitat := Label.new()\n\t\tvar habitat_id := String(d[\"habitat\"])\n\t\thabitat.text = \"%s  %s\" % [String(HABITAT_ICON[habitat_id]), String(HABITAT_LABEL[habitat_id])]\n\t\tStorybookUI.style_label(habitat, 28, StorybookUI.INK_SOFT, 2,\n\t\t\tStorybookUI.ROLE_STATUS)\n\t\thabitat.position = Vector2(28, 134)\n\t\thabitat.size = Vector2(300, 54)\n\t\thabitat.max_lines_visible = 2\n\t\tcard.add_child(habitat)\n\n\tvar help := Label.new()\n\thelp.text = \"\u2726  Swim close to a sparkling critter, then tap CATCH!  \u2726\"\n\tStorybookUI.style_label(help, 25, StorybookUI.INK_SOFT, 2)\n\thelp.position = Vector2(230, 638)\n\tstage.add_child(help)\n"
+    },
+    {
+      "path": "scripts/collection_system.gd",
+      "function": "_spawn_context",
+      "line": 150,
+      "whole_file_sha256": "876bb4901406034dfa6a3bf4d319383261e04a45fbedfe120d97c8eb2d24eb3a",
+      "excerpt_sha256": "ab28c4b85a83dbc5031cd87c3988b82433cf98d8b3de908de3a6ccad29944c76",
+      "excerpt": "func _spawn_context(context: String) -> void:\n\tif m.collection_root != null and is_instance_valid(m.collection_root):\n\t\tm.collection_root.queue_free()\n\tm.collection_nodes.clear()\n\tm.collection_nearby_id = \"\"\n\tm.collection_habitat = context\n\tif context == \"\":\n\t\tm.collection_root = null\n\t\treturn\n\tvar root_node := Node3D.new()\n\troot_node.name = \"CollectibleCritters\"\n\tm.add_child(root_node)\n\tm.collection_root = root_node\n\tvar index := 0\n\tfor d: Dictionary in DEFS:\n\t\tif String(d[\"context\"]) != context:\n\t\t\tcontinue\n\t\t# Collection critters are represented by the existing marker label while\n\t\t# retired 3D source resources are absent. The label remains a clear,\n\t\t# animated, touch-target-sized collectible in the world.\n\t\tvar node := Label3D.new()\n\t\tnode.name = String(d[\"id\"])\n\t\tvar scale_value: float = float(d[\"scale\"])\n\t\tnode.scale = Vector3.ONE * scale_value\n\t\tvar authored: Vector3 = d[\"pos\"]\n\t\tvar base: Vector3\n\t\tif context == \"ocean\":\n\t\t\tbase = Vector3(authored.x, m.seabed_y(authored.x, authored.z) + authored.y, authored.z)\n\t\telse:\n\t\t\tbase = Vector3(m.LEVEL2_POS.x + authored.x, m.lagoon_h(m.LEVEL2_POS.x + authored.x, m.LEVEL2_POS.z + authored.z) + authored.y, m.LEVEL2_POS.z + authored.z)\n\t\tnode.position = base\n\t\troot_node.add_child(node)\n\n\t\tvar marker = node\n\t\tmarker.text = CATEGORY_ICON.get(String(d[\"category\"]), \"\u2726\")\n\t\tmarker.font_size = 150\n\t\tmarker.outline_size = 22\n\t\tmarker.modulate = Color(1.0, 0.88, 0.35, 0.9)\n\t\tmarker.billboard = BaseMaterial3D.BILLBOARD_ENABLED\n\t\tmarker.no_depth_test = true\n\t\tmarker.position = Vector3(0, 3.4 / scale_value, 0)\n\t\tvar star := Label3D.new()\n\t\tstar.text = \"\u2605\"\n\t\tstar.font_size = 100\n\t\tstar.outline_size = 18\n\t\tstar.modulate = Color(0.55, 1.0, 0.72, 0.88)\n\t\tstar.billboard = BaseMaterial3D.BILLBOARD_ENABLED\n\t\tstar.no_depth_test = true\n\t\tstar.position = Vector3(0, 3.4 / scale_value, 0)\n\t\tnode.add_child(star)\n\t\tvar wings: Array[Node3D] = []\n\t\t_find_wings(node, wings)\n\t\tm.collection_nodes.append({\n\t\t\t\"def\": d,\n\t\t\t\"node\": node,\n\t\t\t\"base\": base,\n\t\t\t\"phase\": float(index) * 1.731,\n\t\t\t\"scale\": scale_value,\n\t\t\t\"marker\": marker,\n\t\t\t\"star\": star,\n\t\t\t\"wings\": wings,\n\t\t})\n\t\tindex += 1\n"
+    },
+    {
+      "path": "scripts/main.gd",
+      "function": "_build_friends",
+      "line": 1985,
+      "whole_file_sha256": "77bddeb59b215fd2d993f6c124ef67e49314d992d00cbc7c1b9231e9c157c417",
+      "excerpt_sha256": "6e78cc9d9a8627d34f6010c917242feffa1955f4a1afa22e95938a452f33df8d",
+      "excerpt": "func _build_friends() -> void:\n\t# Data-only friend roster. The 3D reef pillars, beacons and sparks retired\n\t# with the reef on 2026-09-23; each entry keeps the launch data and the\n\t# saved found/won flags so the friend games and save restore still work.\n\tfor i in range(FRIEND_DEFS.size()):\n\t\tvar fd: Dictionary = FRIEND_DEFS[i]\n\t\tfriends.append({\"fname\": fd[\"fname\"], \"tex\": String(fd[\"tex\"]), \"msg\": fd[\"msg\"],\n\t\t\t\"game\": fd[\"game\"], \"found\": false, \"won\": false,\n\t\t\t\"theme\": fd.get(\"theme\", \"ice\"), \"mode\": fd.get(\"mode\", \"fish\"),\n\t\t\t\"discover_radius\": fd.get(\"discover_radius\", 9.0),\n\t\t\t\"linger_radius\": fd.get(\"linger_radius\", 10.0),\n\t\t\t\"start_radius\": fd.get(\"start_radius\", 8.0), \"cool\": 0.0})\n"
+    },
+    {
+      "path": "scripts/main.gd",
+      "function": "_start_game_now",
+      "line": 7874,
+      "whole_file_sha256": "77bddeb59b215fd2d993f6c124ef67e49314d992d00cbc7c1b9231e9c157c417",
+      "excerpt_sha256": "0aa007efb91b9f09505d8cbecb962aa7cd23937d1cf0113bec8dc18de9fb7f47",
+      "excerpt": "func _start_game_now(fr: Dictionary) -> void:\n\tgame = String(fr[\"game\"])\n\tg = {\"fr\": fr, \"t\": 0.0, \"timer\": -1.0}\n\tif game == \"slide\":\n\t\t# _enter_arena must know the exact route before it decides whether to build\n\t\t# and teleport into a spatial arena. Penguin chase remains mode=\"chase\".\n\t\tg[\"mode\"] = String(fr.get(\"mode\", \"fish\"))\n\t_enter_arena(game)\n\tif game == \"melody\":\n\t\t# Its full-screen notes own the complete touch surface; hide the legacy\n\t\t# swim stick/action bay while retaining the separately-owned pause corner.\n\t\t_set_world_controls_enabled(false, \"melody\")\n\tvar origin: Vector3 = ARENA_POS\n\tif game == \"fetch\":\n\t\t_game_obj(\"fetch\", FetchGame).build(fr, origin)\n\telif game == \"dolls\":\n\t\t_game_obj(\"dolls\", DollsGame).build(fr)\n\telif game == \"brawl\":\n\t\t_game_obj(\"brawl\", BrawlGame).build(fr, origin)\n\telif game == \"dustboss\":\n\t\t_game_obj(\"dustboss\", DustBossGame).build(fr, origin)\n\telif game == \"seek\":\n\t\t_game_obj(\"seek\", SeekGame).build(fr)\n\telif game == \"race\":\n\t\t_game_obj(\"race\", SlideRaceGame).build(fr, origin)\n\telif game == \"shop\":\n\t\t_game_obj(\"shop\", ShopGame).build(fr, origin)\n\telif game == \"treasure\":\n\t\t_game_obj(\"treasure\", TreasureGame).build(fr, origin)\n\telif game == \"melody\":\n\t\tvar melody: MelodyGame = _game_obj(\"melody\", MelodyGame) as MelodyGame\n\t\tmelody.build(fr, origin)\n\t\tfor reason_value: Variant in _melody_input_context_losses.keys():\n\t\t\tmelody.on_input_context_lost(StringName(String(reason_value)))\n\t\tmelody.arm_entry_sources(_melody_held_sources.keys())\n\telif game == \"slide\":\n\t\tvar slide: SlideRaceGame = _game_obj(\"race\", SlideRaceGame) as SlideRaceGame\n\t\tvar slide_canvas_route: bool = _slide_canvas_fish_route_active()\n\t\tif slide_canvas_route:\n\t\t\t# Clear the legacy router before build. Its cancellation callback is safe\n\t\t\t# against the closed controller; build then establishes the authoritative\n\t\t\t# fresh startup latch which remains intact through the reveal fade.\n\t\t\tjoy_ev_axis.clear()\n\t\t\tjoy_ev_btn.clear()\n\t\t\t_slide_canvas_overlay_axis_wait_neutral = false\n\t\t\t_slide_canvas_overlay_poll_neutral_frames = 0\n\t\t\tvar slide_canvas_return_camera := active_viewport_camera()\n\t\t\tg[\"slide_canvas_return_camera\"] = slide_canvas_return_camera\n\t\t\tg[\"slide_canvas_camera_was_current\"] = \\\n\t\t\t\tslide_canvas_return_camera != null\n\t\t\tif player != null and player.cam != null:\n\t\t\t\tg[\"slide_canvas_player_cam_transform\"] = player.cam.transform\n\t\t\t\tg[\"slide_canvas_player_cam_fov\"] = player.cam.fov\n\t\t\t\tg[\"slide_canvas_player_cam_orbit\"] = player.cam_orbit\n\t\t\t\tg[\"slide_canvas_player_cam_pitch\"] = player.cam_pitch_off\n\t\t\tif slide_canvas_return_camera != null:\n\t\t\t\tslide_canvas_return_camera.clear_current(false)\n\t\t\tif collection_button_layer != null:\n\t\t\t\tg[\"slide_canvas_collection_was_visible\"] = \\\n\t\t\t\t\tcollection_button_layer.visible\n\t\t\t\tcollection_button_layer.visible = false\n\t\t\tif living_layer != null:\n\t\t\t\tg[\"slide_canvas_living_was_visible\"] = living_layer.visible\n\t\t\t\tliving_layer.visible = false\n\t\t\t_set_world_controls_enabled(false, \"slide_canvas\")\n\t\t\tif player != null:\n\t\t\t\tg[\"slide_canvas_player_was_visible\"] = player.visible\n\t\tslide.build_slide(fr, origin)\n\t\tif slide_canvas_route:\n\t\t\t# The fade still covers the fresh layer. Hide the spatial actor and seed\n\t\t\t# every concrete source which was physically down before entry.\n\t\t\tif player != null:\n\t\t\t\tplayer.visible = false\n\t\t\t\tplayer.vel *= 0.0\n\t\t\tfor reason_value: Variant in _slide_canvas_input_context_losses.keys():\n\t\t\t\tslide.on_input_context_lost(StringName(String(reason_value)))\n\t\t\tslide.arm_entry_sources(_slide_canvas_held_sources.keys())\n\telif game == \"fairyshoot\":\n\t\t_game_obj(\"fairyshoot\", FairyGame).build(fr, origin)\n"
+    },
+    {
+      "path": "scripts/main.gd",
+      "function": "_sync_castle_voice_caption",
+      "line": 3172,
+      "whole_file_sha256": "77bddeb59b215fd2d993f6c124ef67e49314d992d00cbc7c1b9231e9c157c417",
+      "excerpt_sha256": "2b07221a7f8540968c5e422cd6e07c57e440b6dcdc9bc389bfc6fd1c85facda9",
+      "excerpt": "func _sync_castle_voice_caption() -> void:\n\tif castle_voice_caption == null or not is_instance_valid(castle_voice_caption):\n\t\treturn\n\tvar castle_visible := castle_room_layer != null \\\n\t\tand is_instance_valid(castle_room_layer) and castle_room_layer.visible\n\tvar has_message := hud_msg != null and hud_msg.text != \"\" \\\n\t\tand msg_timer > 0.0\n\t# Raise only the captions whose original floor panel covered cleanup targets.\n\t# Free-play rooms retain their established caption band and upper picture cues.\n\tvar floor_objective_room: bool = castle_room_id == \"main_hall\" \\\n\t\tor (day_one_is_active() and (castle_room_id in [\"bubble_bath\", \"playroom\"] \\\n\t\t\tor (castle_room_id == \"mermaid_pool\" and day_one_pool_cleanup_step == 0)))\n\tcastle_voice_caption.position.y = 112.0 if floor_objective_room else 590.0\n\tcastle_voice_caption.text = hud_msg.text if hud_msg != null else \"\"\n\tcastle_voice_caption.visible = castle_visible and has_message\n\t# The Castle owns one caption; its lower duplicate covered cleanup\n\t# baskets and dust bunnies. Voice and the gameplay pointer stay active.\n\tif castle_visible and hud_msg != null:\n\t\thud_msg.visible = false\n"
+    },
+    {
+      "path": "scripts/storybook_ui.gd",
+      "function": "panel_style",
+      "line": 140,
+      "whole_file_sha256": "839e53d6893347808341523d4e4b58e3727cc4fd4cd698726c92d494edce0fa7",
+      "excerpt_sha256": "1fc3fca9ebe56491b592bc611d133ac290d323c64ba66cdeafed92a2e4905f13",
+      "excerpt": "static func panel_style(accent: Color = INK_SOFT, fill: Color = PAPER, radius: int = 34, border_width: int = 5) -> StyleBoxFlat:\n\tvar style := StyleBoxFlat.new()\n\tstyle.bg_color = fill\n\t# Every surface keeps the dark-violet contour from the approved shell\n\t# prototypes. The caller's accent still tints the contour, but can no\n\t# longer turn a menu into a generic pale rounded rectangle.\n\tstyle.border_color = accent.lerp(PURPLE_DEEP, 0.62)\n\tstyle.set_border_width_all(border_width)\n\tstyle.set_corner_radius_all(radius)\n\tstyle.shadow_color = Color(0.19, 0.10, 0.48, 0.34)\n\tstyle.shadow_size = 14\n\tstyle.shadow_offset = Vector2(0.0, 8.0)\n\tstyle.content_margin_left = 18.0\n\tstyle.content_margin_right = 18.0\n\tstyle.content_margin_top = 12.0\n\tstyle.content_margin_bottom = 12.0\n\treturn style\n"
+    },
+    {
+      "path": "scripts/storybook_ui.gd",
+      "function": "style_button",
+      "line": 231,
+      "whole_file_sha256": "839e53d6893347808341523d4e4b58e3727cc4fd4cd698726c92d494edce0fa7",
+      "excerpt_sha256": "6d89cdac18813c6722a2be99818de27cc0e6811a47ae7b90a4b327e854fb7f75",
+      "excerpt": "static func style_button(button: Button, kind: String = \"secondary\", font_size: int = -1,\n\t\tradius: int = 28, role: StringName = ROLE_CHILD_CONTROL) -> void:\n\tvar fill: Color = _button_fill(kind)\n\tvar normal := panel_style(PURPLE, fill, radius, 5)\n\tnormal.shadow_size = 7\n\tnormal.shadow_offset = Vector2(0.0, 4.0)\n\tvar hover: StyleBoxFlat = normal.duplicate()\n\thover.bg_color = fill.lightened(0.08)\n\thover.border_color = GOLD if kind != \"gold\" else INK\n\tvar pressed: StyleBoxFlat = normal.duplicate()\n\tpressed.bg_color = fill.darkened(0.10)\n\tpressed.shadow_size = 2\n\tpressed.shadow_offset = Vector2(0.0, 1.0)\n\tpressed.expand_margin_top = -2.0\n\tpressed.expand_margin_bottom = -2.0\n\tvar hover_pressed: StyleBoxFlat = pressed.duplicate()\n\thover_pressed.bg_color = fill.darkened(0.04)\n\thover_pressed.border_color = GOLD if kind != \"gold\" else INK\n\tvar focus: StyleBoxFlat = normal.duplicate()\n\tfocus.border_color = GOLD\n\tfocus.set_border_width_all(8)\n\tvar disabled: StyleBoxFlat = normal.duplicate()\n\tdisabled.bg_color = MUTED\n\tdisabled.border_color = Color(0.62, 0.64, 0.76, 0.9)\n\tbutton.add_theme_stylebox_override(\"normal\", normal)\n\tbutton.add_theme_stylebox_override(\"hover\", hover)\n\tbutton.add_theme_stylebox_override(\"pressed\", pressed)\n\tbutton.add_theme_stylebox_override(\"hover_pressed\", hover_pressed)\n\tbutton.add_theme_stylebox_override(\"focus\", focus)\n\tbutton.add_theme_stylebox_override(\"disabled\", disabled)\n\t_apply_button_typography(button, role, font_size)\n\tvar token: Dictionary = typography_role(role)\n\tbutton.add_theme_color_override(\"font_hover_pressed_color\", token[\"hover_pressed_color\"])\n\tbutton.set_meta(\"storybook_kind\", kind)\n\tbutton.set_meta(\"touch_target\", true)\n"
+    },
+    {
+      "path": "scripts/storybook_ui.gd",
+      "function": "adorn_panel",
+      "line": 203,
+      "whole_file_sha256": "839e53d6893347808341523d4e4b58e3727cc4fd4cd698726c92d494edce0fa7",
+      "excerpt_sha256": "48051ab3f4f46455c21b60bafd8e62514193e36eea0d2ae6240ac36b5b0194fa",
+      "excerpt": "static func adorn_panel(parent: Node, rect: Rect2, prefix: String = \"Storybook\") -> void:\n\t# A restrained crest and four pearls reproduce the shell/pearl hierarchy of\n\t# the prototype without obscuring content or creating expensive overdraw.\n\tadd_shell_crest(parent, Rect2(\n\t\tVector2(rect.get_center().x - 58.0, rect.position.y - 22.0),\n\t\tVector2(116.0, 82.0)), prefix + \"ShellCrest\")\n\tadd_pearl(parent, rect.position + Vector2(28.0, 31.0), 18.0, prefix + \"PearlTL\")\n\tadd_pearl(parent, Vector2(rect.end.x - 28.0, rect.position.y + 31.0), 18.0, prefix + \"PearlTR\")\n\tadd_pearl(parent, Vector2(rect.position.x + 32.0, rect.end.y - 30.0), 14.0, prefix + \"PearlBL\")\n\tadd_pearl(parent, rect.end - Vector2(32.0, 30.0), 14.0, prefix + \"PearlBR\")\n"
+    },
+    {
+      "path": "scripts/storybook_ui.gd",
+      "function": "add_stage",
+      "line": 129,
+      "whole_file_sha256": "839e53d6893347808341523d4e4b58e3727cc4fd4cd698726c92d494edce0fa7",
+      "excerpt_sha256": "ebf228730c5504fb661ecaf11f8881f8a5515cb52a72b336fb90de0495723948",
+      "excerpt": "static func add_stage(parent: Control, viewport_size: Vector2) -> Control:\n\tvar stage := Control.new()\n\tstage.name = \"StorybookStage\"\n\tstage.custom_minimum_size = CANVAS_SIZE\n\tstage.size = CANVAS_SIZE\n\tvar scale_value: float = minf(viewport_size.x / CANVAS_SIZE.x, viewport_size.y / CANVAS_SIZE.y)\n\tstage.scale = Vector2.ONE * scale_value\n\tstage.position = (viewport_size - CANVAS_SIZE * scale_value) * 0.5\n\tparent.add_child(stage)\n\treturn stage\n"
+    }
+  ],
+  "route_id": "FVROUTE-PAUSE-CRITTERBOOK",
+  "live_chain": [
+    "Declared private postboss Castle checkpoint from R55",
+    "Original GlobalNavigationButton input -> NavigationController.press -> PauseMenu.toggle_pause",
+    "Original MenuCritterBookButton.pressed -> toggle_pause -> CollectionSystem.open_book",
+    "Original tab.pressed bound category -> _switch_category -> _draw_book",
+    "Original GlobalNavigationButton Back -> critter_book close callable -> close_book",
+    "Fresh Main reload of same synthetic profile, original input repeated"
+  ],
+  "source_scope_limits": [
+    "Retired collection corner launcher is null, yet current Pause Critters callback is live.",
+    "Data-only friend roster and retained generic _start_game_now are not proof of normal Fetch/Dolls/Seek entry; full dynamic callers remain open.",
+    "No game=\"critters\" exists in captured route; game remains level2, independent collection layer/category owns UI.",
+    "game.critters historical alias may mean catch world/activity; no originating alias contract found. Do not transfer book capture to that alias.",
+    "QA11 full source/native/renderer/fresh challenge/shape/occlusion and all caught/world/lifecycle/device/child/owner evidence remain open."
+  ]
+}

@@ -1,3 +1,9 @@
+Current canonical evidence: [R58 current Critter Book context](r58_critter_book_context/README.md), [registry](r58_critter_book_context/per_piece.json), [coverage](r58_critter_book_context/scene_coverage.json), [tally](r58_critter_book_context/tally.json).
+
+Original Menu→Critters/tabs/Back and private reload at2Mobile widths plus passive10s:59checks/110native71bounded39excluded. Typography1px widths/material/overlay weaknesses open; no new alias/art credit.240roles32families/85partial91without0complete/accepted0/global unknown.
+
+## Historical entry text retained below
+
 Current canonical evidence: [R57 catalogue/selector crosswalk](r57_catalogue_selector_crosswalk/README.md), [registry](r57_catalogue_selector_crosswalk/per_piece.json), [coverage](r57_catalogue_selector_crosswalk/scene_coverage.json), [tally](r57_catalogue_selector_crosswalk/tally.json).
 
 Source5120b6d5;176retained labels100ambient60game12UI4standalone;312scripts/144pure component queries87assertions.85partial91without0complete;240roles32families/accepted0/global unknown. No new captured screen, natural-route or art credit.
